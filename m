@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D62C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AEEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XELhEOkm5vooBREmPpclMRxFV3AkBs4ju5W5TL0lEvk=; b=E6YxkkoGeYBC9A3Rz5omUV5oHq
-	F73sEXwftKD6p9KION8DZj0M6hAzVu0QrNo0jV1oJqoRdHKHCMuJRf/0zB1kypc3vxfLLwHwUbj6i
-	Ty2qDS7e9rCYMCgGfmCUCLoF7wkJOe7KeYlEqKp8RYkd+OcE0zrRwX15w0mYovtncxQWrm7J4g3JT
-	JBvBU/6YXjXjS93RttPYO+q3EoZCGd6H5QnlILutxabzO6SpH8XFIp7GtsABunbTIU4yJYZJDsiQb
-	kC+v2TfgwhK+zKtWQ9+0aYX5dPFRSX0r00cmnjU6zhK813LnHEXfhe2sB2E26G182bK2EUbnDtRZZ
-	TrsIA6kQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rw58FESB0zTLL3rOoRjWAP/vMtkBg8dNnr+WcNnHIeA=; b=WWKBGtTfWFKFR8FOPmGzw1LwEi
+	J83uyKffhhac5rkNBVL3dIXMTdaMgtzkQXqbc8VqJ+g7ICWpDUxLZHiJXChP1vInRZfdlNYfiEb4D
+	+GYC3r/9Jh2pnRqIIRK8qD5v5FNbNQtIpbx1XTkOpXaaSlcr4uRGQ0nEtTcgCJPREZQnXlsX8NwPN
+	mbnYDo3Iof6tOY08BEKL1v4J0+r+sIbDZEnqx9ZVwh2VikuZOZzvUIGSD/Rcg6eNfZFtv+DF6GsfW
+	4hhmmVySzOG1vxM8zOOYh8U6Uu16MlgINBahrHBzn/DMOCQPi/ZuHXhMZm2kyRrF+dBM4SVV/N9iM
+	UwHPkR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzex-0000000EFpw-1lOS;
-	Tue, 07 Jul 2026 06:51:59 +0000
+	id 1wgzf1-0000000EFrp-3GjO;
+	Tue, 07 Jul 2026 06:52:03 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzeu-0000000EFoP-1IXJ
+	id 1wgzev-0000000EFoY-1EHO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 06:51:57 +0000
+	Tue, 07 Jul 2026 06:51:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=XELhEOkm5vooBREmPpclMRxFV3AkBs4ju5W5TL0lEvk=; b=lyh/YVEB9iRtD2uzwUFFtXTCFC
-	/owA2bTUOU0E/fMPBEmM+yxo3b4vwCrLpw+r9piuhC4uhV1SqDRISiT+R6eV/j9JZ1PNglTQRow7H
-	yrS7TUq69khPWTzG41CQ2WPsZG3F2xVzB9XPC/VLp5N19rVNCX4jheVJSadqelfAwFFmHgrzn+Pbt
-	lJeSnIWqDeEmrtR1Bfgp8k29F6G18tuo3r7x+NzdoiA45HJZ2ry2dB7AiF1APy3P38ihHbRE8+N0Q
-	CocP7elPi95Fqwfoj4r/6rmiSSEo3FcniHviMguQG8B7A+B0vd5bvR65KRr5f/ai9VRsdaeKiHru4
-	XD9u/REQ==;
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Rw58FESB0zTLL3rOoRjWAP/vMtkBg8dNnr+WcNnHIeA=; b=YtsADyMCArFP0XM91epgdxd5ZD
+	vonS0+Y87m7lZIW8ofv72uoT9/yV2oYfVhj9IbeC+Sq5cGRFX6vSgLGkSD76DZSRpITHo8KhsLliG
+	ygXv/tkh294ulo9zzRylh3EoV5xNaR4psoWYy6Q/G5NCpP4ju4djJkeJfp6DJjdVEiBTL9TRoZL18
+	00f+eD6YGEr38DXkwjOeJ8jAX9XX0D2VGd+TukQqZ5zdyLbhsbvJHIoMdGxR76nM4XsoY2QEnz3hN
+	HE/BawFHK29VPOHvqI4OK3sjTcJS9rS+b5/9LQg31wCUQYB+gK/vf4bWV5RNkn+GUnuNUeV3wiHZQ
+	v02tgRyw==;
 Received: from sslproxy01.your-server.de ([78.46.139.224])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wgzes-000LgH-09;
-	Tue, 07 Jul 2026 08:51:54 +0200
+	id 1wgzet-000Lgl-0z;
+	Tue, 07 Jul 2026 08:51:55 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wgzer-0005WX-2l;
-	Tue, 07 Jul 2026 08:51:53 +0200
+	id 1wgzet-0005WX-0X;
+	Tue, 07 Jul 2026 08:51:55 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
@@ -58,23 +58,25 @@ To: Frank Li <Frank.Li@nxp.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH v4 0/3] TQMa93xx on MBa93xxLA/CA/LA-Mini LVDS support
-Date: Tue,  7 Jul 2026 08:51:46 +0200
-Message-ID: <20260707065151.1079667-1-alexander.stein@ew.tq-group.com>
+	linux@ew.tq-group.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v4 3/3] arm64: dts: imx93-tqma9352-mba93xxla-mini: Add LVDS overlay
+Date: Tue,  7 Jul 2026 08:51:49 +0200
+Message-ID: <20260707065151.1079667-4-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260707065151.1079667-1-alexander.stein@ew.tq-group.com>
+References: <20260707065151.1079667-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28052/Mon Jul  6 08:24:35 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_235156_465670_C4C17298 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_235157_351343_73900D6D 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,41 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
 
-this is an new version of the series for LVDS support on TQMa93xxLA/CA.
-Now that the LVDS bridge support has landed the final missing peace is in
-place.
+Add the overlay for the Tianma TM070JVHG33 LVDS display.
 
-Changes in v4
-* Dropped all patches upstreamed already
-* Adjusted for new imx93.dtsi node names
-* Fix clock settings
-* Add support for MBa93xxLA-Mini
-* Reuse DT overlay for all mainboards
-
-v3
-* https://lore.kernel.org/all/20250304154929.1785200-1-alexander.stein@ew.tq-group.com/
-v2:
-* https://lore.kernel.org/all/20250224142831.485159-1-alexander.stein@ew.tq-group.com/
-v1:
-* https://lore.kernel.org/all/20231020130019.665853-1-alexander.stein@ew.tq-group.com/
-
-Alexander Stein (2):
-  arm64: dts: imx93-tqma9352-mba93xxla: Add LVDS overlay
-  arm64: dts: imx93-tqma9352-mba93xxca: Add LVDS overlay
-
-Martin Schmiedel (1):
-  arm64: dts: imx93-tqma9352-mba93xxla-mini: Add LVDS overlay
-
- arch/arm64/boot/dts/freescale/Makefile        |  6 +++
- .../freescale/imx93-tqma9352-mba93xxca.dts    | 21 +++++++++
- ...3-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso | 38 ++++++++++++++++
+Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/Makefile        |  2 +
  .../imx93-tqma9352-mba93xxla-mini.dts         | 45 +++++++++++++++++++
- .../freescale/imx93-tqma9352-mba93xxla.dts    | 21 +++++++++
- 5 files changed, 131 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso
+ 2 files changed, 47 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index bd3d35ffde975..d387a4f5ed285 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -644,10 +644,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtb
+ imx93-tqma9352-mba93xxca-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxca.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
+ imx93-tqma9352-mba93xxla-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxla.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
+ imx93-tqma9352-mba93xxla-mini-ezurio-wlan-dtbs += imx93-tqma9352-mba93xxla-mini.dtb imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtbo
++imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxla-mini.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
+ 
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
+index 4afd6b650d9d8..0d553a8da7135 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
+@@ -58,6 +58,37 @@ aliases {
+ 		spi5 = &lpspi6;
+ 	};
+ 
++	backlight_lvds: backlight {
++		compatible = "pwm-backlight";
++		pwms = <&tpm5 0 5000000 0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_backlight>;
++		brightness-levels = <0 4 8 16 32 64 128 255>;
++		default-brightness-level = <7>;
++		power-supply = <&reg_12v0>;
++		enable-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
++		status = "disabled";
++	};
++
++	display: display {
++		/*
++		 * Display is not fixed, so compatible has to be added from
++		 * DT overlay
++		 */
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_display>;
++		power-supply = <&reg_3v3>;
++		enable-gpios = <&gpio2 7 GPIO_ACTIVE_HIGH>;
++		backlight = <&backlight_lvds>;
++		status = "disabled";
++
++		port {
++			panel_in_lvds0: endpoint {
++				remote-endpoint = <&ldb_lvds_ch0>;
++			};
++		};
++	};
++
+ 	iio-hwmon {
+ 		compatible = "iio-hwmon";
+ 		io-channels = <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>;
+@@ -311,6 +342,10 @@ &lpuart8 {
+ 	status = "okay";
+ };
+ 
++&ldb_lvds_ch0 {
++	remote-endpoint = <&panel_in_lvds0>;
++};
++
+ &pcf85063 {
+ 	/* RTC_EVENT# from SoM is connected on mainboard */
+ 	pinctrl-names = "default";
+@@ -375,6 +410,16 @@ &usdhc3 {
+ };
+ 
+ &iomuxc {
++	pinctrl_backlight: backlightgrp {
++		fsl,pins = /* HYS | PD | FSEL_2 | DSE X4 */
++			   <MX93_PAD_GPIO_IO05__GPIO2_IO05			0x011e>;
++	};
++
++	pinctrl_display: displaygrp {
++		fsl,pins = /* HYS | PD | FSEL_2 | DSE X4 */
++			   <MX93_PAD_GPIO_IO07__GPIO2_IO07			0x011e>;
++	};
++
+ 	pinctrl_eqos: eqosgrp {
+ 		fsl,pins = /* PD | FSEL_2 | DSE X4 */
+ 			   <MX93_PAD_ENET1_MDC__ENET_QOS_MDC				0x51e>,
 -- 
 2.54.0
 
