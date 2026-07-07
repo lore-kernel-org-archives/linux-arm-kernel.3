@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B279DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F327C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4aiFVPWk7NAYVKW9uB8OzYhAIo5EOwzD2w2pJLKQ5fQ=; b=MqI4UQ9klA+JemTQmjHj+DMo0t
-	PgVTgM9YTOTQarJ9gOuxWfcli1UWwGwJQSeL+Cd505C2vUpr2olIGNle3UQwJWh242OWF6zZMh/W0
-	HqMlxuXdiB+fHq1/mvDMdUZILkeaC0NT91i7ugTSDqvmKdgCFSImuytO6ke1Z+kL9eI4FD8BaLGfc
-	gvMkuKbiZhzRjgo4c3qzP3s2pzzqth4Tf7mZcSALRyXf5peFchxykGtBABi/SlC+J4aPaeD26Ojm5
-	HGImIK7k67gLvnEIGn2K8wa6uAm2hyGauK0TiVLU8mhw2EqRDs3DUSGrd53K6Hf+OiTrBdMXtv/eD
-	TA2eVSSw==;
+	Content-Type:In-Reply-To:References:Subject:To:MIME-Version:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvRq5CdKRK+cXuPIl01vwgEHpAzifmdPRhufpqKIi68=; b=gybZAvot1j+ah38iPnqY600JcH
+	od6AShdE2MIkcrRKXuNGV4/nFYY+rDSVxDpROBwAxDA7v5I1v/hh6XG+V95CIz6ULwxMmcoWnPEzl
+	Z1czuJW72abCj8PWfvs5jXApBPYYi8ZuyKjAooYuIgC3SQ/MP+fQ/71jQXSEHbB+N5dWjyrbgzYwt
+	re3VCx8Wc0L6fDY3hwKA2p0cSZbHG2Qr5cReZEfmm4kOUOaEuHyyWsvKjt1zr5ZWfCLFozf/kR+c5
+	B6qGlskWRcYIz0ndJywOPnZSl77SWFWGqpS1dxdvOKywtCvTcelqJES73uDbIRINnF9mBXA/DLDou
+	DLcMAlRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1qK-0000000EapT-2vPa;
-	Tue, 07 Jul 2026 09:11:52 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wh1rY-0000000Eayv-4A5m;
+	Tue, 07 Jul 2026 09:13:08 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1qH-0000000Eaof-3AGH
+	id 1wh1rT-0000000Eay2-2QWK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:11:51 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 05C2B1A0EB6;
-	Tue,  7 Jul 2026 09:11:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CC71C601A3;
-	Tue,  7 Jul 2026 09:11:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D6EE511BC1165;
-	Tue,  7 Jul 2026 11:11:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783415506; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=4aiFVPWk7NAYVKW9uB8OzYhAIo5EOwzD2w2pJLKQ5fQ=;
-	b=gzY7nslondsKNUqkWe+5CudiAGehplbtGDU7t1nUKgS4SwOgk1WCNvrrKIg1Iec1drudT5
-	6itqVQiujEd+9aD+6JbqeILOWmYIXK4o49E8D4+ZrCU1cus1GhCSWFBOWnqbc6j0Q/XEMN
-	OvKNAPxNmFDOxkNhyFvvkO7kuhuRrahqmS5phjEl5iZU3KlWmDQm3sHovgRkBwCLEoluce
-	5NpRtB0Rz0EUGkDMDBmbfa9SJP5Lgrv6pB7r8udDvEpjyKoLcW38wABzCVRRQtzGpnzIwW
-	ePpOSMpVM+rhze0G3AvSCz1de3DqOc4zmSp3173TTCLro0iB6kqnS9zgTJW3mg==
-Message-ID: <2a421449-01eb-4066-8c19-d554ff8e4f6e@bootlin.com>
-Date: Tue, 7 Jul 2026 11:11:39 +0200
+	Tue, 07 Jul 2026 09:13:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=SvRq5CdKRK+cXuPIl01vwgEHpAzifmdPRhufpqKIi68=;
+	b=dCEr1IrECrVxXkkww71i9eXle7zGxMWVmIeugpng72TeD4oJpSaX53iRVOsawEEzVpdRNkpiB
+	EEjQkTHpJnuV3+PTt2SjX0qAcoYnZGLK6mZmpWcFVIdeP/EJBv+N6rm9S9zWHuIpsv4CZYQZM8c
+	rpLLp3fo/zqlgxG2d2uoQDo=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gvZyg4qhZzcb3P;
+	Tue,  7 Jul 2026 17:03:39 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 082D240538;
+	Tue,  7 Jul 2026 17:12:41 +0800 (CST)
+Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 7 Jul 2026 17:12:40 +0800
+Received: from [10.67.113.213] (10.67.113.213) by
+ kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 7 Jul 2026 17:12:40 +0800
+Message-ID: <6A4CC307.5000606@hisilicon.com>
+Date: Tue, 7 Jul 2026 17:12:39 +0800
+From: Wei Xu <xuwei5@hisilicon.com>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 5/6] net: stmmac: mediatek: add support for TX
- deallocation adjustment feature
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: rmk+kernel@armlinux.org.uk, kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
- <20260707-dwmac-mediatek-mt8189-v1-5-17f345eaaca3@collabora.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-5-17f345eaaca3@collabora.com>
-Content-Type: text/plain; charset=UTF-8
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<xuwei5@hisilicon.com>
+Subject: Re: [PATCH] arm64: dts: hisilicon: hi3798cv200: Drop unused clock-names
+ and reset-names
+References: <20260625091335.106951-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260625091335.106951-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="ISO-8859-1"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Originating-IP: [10.67.113.213]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq100003.china.huawei.com (7.202.195.72)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_021149_947249_55347A59 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20260707_021304_281504_2173E8E5 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof, 
 
-On 7/7/26 10:21, Louis-Alexis Eyraud wrote:
-> The MT8189 SoC has in the Ethernet control 0 register from the
-> peripheral configuration (pericfg) additional bits to adjust the TX
-> deallocation.
+On 2026/6/25 17:13, Krzysztof Kozlowski wrote:
+> Neither Linux drivers nor DT bindings ever described or used clock-names
+> and reset-names for this SoC.  The binding allows clock-names only for
+> atmel,at91sam9g45-ehci and atmel,at91rm9200-ohci, but not for HiSilicon.
+> reset-names were never allowed.
 > 
-> In preparation of MT8189 SoC support, add its definition, use in the
-> set_delay_v2 callback, and a support flag in the platform data.
-
-Can you elaborate a bit on this ? I don't quite get what you mean by
-"tx deallocation", this seems to have to do with RGMII timings from
-the register access pattern, but the local boolean flag for the feature
-is named "use_stage_fine", I'm failing to connect all the dots here
-with the different terminology in use :(
-
+> Drop them from DTS to fix dtbs_check warnings:
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+>   hi3798cv200-poplar.dtb: usb@9880000 (generic-ohci): False schema does not allow ['bus', 'clk12', 'clk48']
+>   hi3798cv200-poplar.dtb: usb@9880000 (generic-ohci): Unevaluated properties are not allowed ('reset-names' was unexpected)
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > ---
->  .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 25 ++++++++++++++++------
->  1 file changed, 19 insertions(+), 6 deletions(-)
+>  arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi | 4 ----
+>  1 file changed, 4 deletions(-)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index bcc0baef3f71..6b0a42b5839f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -37,7 +37,8 @@
->  #define ETH_FINE_DLY_RXC	BIT(0)
->  
->  /* Peri Configuration register for mt8189 */
-> -#define MT8189_CTRL0_TXC_OUT_OP		BIT(20)
-> +#define MT8189_CTRL0_TXC_OUT_OP			BIT(20)
+> diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
+> index 2f4ad5da5e33..e5010c9d4c39 100644
+> --- a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
+> +++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
+> @@ -633,9 +633,7 @@ ohci: usb@9880000 {
+>  			clocks = <&crg HISTB_USB2_BUS_CLK>,
+>  				 <&crg HISTB_USB2_12M_CLK>,
+>  				 <&crg HISTB_USB2_48M_CLK>;
+> -			clock-names = "bus", "clk12", "clk48";
+>  			resets = <&crg 0xb8 12>;
+> -			reset-names = "bus";
+>  			phys = <&usb2_phy1_port0>;
+>  			phy-names = "usb";
+>  			status = "disabled";
+> @@ -648,11 +646,9 @@ ehci: usb@9890000 {
+>  			clocks = <&crg HISTB_USB2_BUS_CLK>,
+>  				 <&crg HISTB_USB2_PHY_CLK>,
+>  				 <&crg HISTB_USB2_UTMI_CLK>;
+> -			clock-names = "bus", "phy", "utmi";
+>  			resets = <&crg 0xb8 12>,
+>  				 <&crg 0xb8 16>,
+>  				 <&crg 0xb8 13>;
+> -			reset-names = "bus", "phy", "utmi";
+>  			phys = <&usb2_phy1_port0>;
+>  			phy-names = "usb";
+>  			status = "disabled";
+> 
 
-Extra whitespace inserted here :)
 
-Thanks,
+Applied to the HiSilicon arm64 dt tree.
+Thanks!
 
-Maxime
+Best Regards,
+Wei
 
