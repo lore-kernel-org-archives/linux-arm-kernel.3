@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3F8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8CAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VA6hRI3hbiq0ArbSD1G7iFQw3+knszMjw4fdTdB16GY=; b=VaVdg2DG+gt9nh/4dkQA85+mOh
-	PX0QLSOiKkpyzn7Yc6fCWfdRUi22TUAUZ19oU64CbhInCXRNi8qW75vk7SNuT44CNQc8sDkevySec
-	/GBeq44pQ32EwHUI+ptzlXrz098Y7+33AZqfkKg2/0EAFMY19P/4V0UUuX9WdHIAfX6Q3ESlNanJs
-	gNUgrcyrWtojIH7YLto7wapRR9hNrNJmf92NU7tvq6zISIM7c76pCzeGzAAaurGjmj/ArkZfL9NP9
-	6MmaFINhrtHSulzT+hdXzXWzeIg2msmyZ45gsu1ZwGQEcCTb5V8p7SMlYZinNIWk1KZrbmX2Id5tL
-	4goxkjUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OdZR4Qt4CyP/uGOZOZDaV4BqyuuB6GlnGpHeXWSP/S8=; b=V7Sn9MTBfkTUkrJWRWAm+AF5lX
+	yf8txlfrajCzYD8mBqNTfjFQWZbSAPOF3Y3IAGh90uiUWBEmQE0PWVXZv7sSk39XEw0X4yt63ovXu
+	lWJerFTUunU/WgHTmei7UuAWZJrarv4NJ0z/6VMK1iUMHdGJViy17KHzPZzMpmOlNjDvlWEonKvLt
+	Z002JGZwICnKYa/PRRkBxJSSlg1A/vUQXvrCmLFFUDbkId0JfyWzA+H4IqXhYoruWw4TETF8h432D
+	acD9DNHSGe+1+zePYjKV80jBSH5iIYahrKSFgtkMSgzvACcPQqMDg76Y58qM+YOvy/nyj+HonnNDB
+	z0ORgw6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzPf-0000000EE0n-21CC;
-	Tue, 07 Jul 2026 06:36:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzPe-0000000EE0f-2t35
+	id 1wgzUW-0000000EEbw-0soY;
+	Tue, 07 Jul 2026 06:41:12 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgzUR-0000000EEaZ-2Qq6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 06:36:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22F2143BD9;
-	Tue,  7 Jul 2026 06:36:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74181F000E9;
-	Tue,  7 Jul 2026 06:36:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783406170;
-	bh=VA6hRI3hbiq0ArbSD1G7iFQw3+knszMjw4fdTdB16GY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GBMMQ+hfSSFbdU3T0z9wE/HVRIq7VvYl/FgG0nW2om20zFQ0ctNNZYTL5j+27HVas
-	 F5GdlMJv8AS0sAUCcK9epMGD40oNeghDnf2stZteCOJpQKSAf/ZMJTNPrw6H6KIY6/
-	 sM1wJr2VzFLWjWMdMYMYFt6Ov+CVRZ5LKHZ3RV6eNdaVRR8vv4fRXZ/17e3AoiZezN
-	 ZFFhg0qoyUHT5OFkfosUcON3pXWMm4HmEF4hhcBnhbzRIkkWcYq92u3hvsLP5/bU68
-	 qzHZ5ePPZwZT/fMgQ476BsGX0SwF3vg9+A2G2FJNjpUj4XcDYs1Z5fSGHaFQCLfZdI
-	 e26Q2TII9nV0Q==
-Date: Mon, 6 Jul 2026 23:36:08 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Tangnianyao <tangnianyao@huawei.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, "guoyang (C)" <guoyang2@huawei.com>,
-	"huanglingyan (A)" <huanglingyan2@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>
-Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
- guarantee with VTTBR_EL2.CnP
-Message-ID: <akyeWPzrMDuAGRXP@kernel.org>
-References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
- <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
- <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
- <86o6gkpokm.wl-maz@kernel.org>
- <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
- <86jyr8pkw8.wl-maz@kernel.org>
- <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
- <akvKvePWiu4pB47Q@J2N7QTR9R3.cambridge.arm.com>
- <7d97b19a-ef56-dea1-cd99-056e0e34a7fa@huawei.com>
+	Tue, 07 Jul 2026 06:41:11 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgB3DHFln0xqXQ0yAA--.28072S2;
+	Tue, 07 Jul 2026 14:40:40 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	horms@kernel.org,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v10 0/4] net: stmmac: eic7700: add eth1 variant support and update delay bindings
+Date: Tue,  7 Jul 2026 14:40:33 +0800
+Message-ID: <20260707064033.1265-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7d97b19a-ef56-dea1-cd99-056e0e34a7fa@huawei.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TAJkCgB3DHFln0xqXQ0yAA--.28072S2
+X-Coremail-Antispam: 1UD129KBjvAXoW3uF4fJr1DKw13Xr47CFW3ZFb_yoW8Gr43Go
+	WSqrWrXr40vr13CFn2krnrGa9xW3s29r13JayUWr1qyryvqa17t34ruayxXFy3tFWFkFW5
+	Xa4xXw1ftanxJayfn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUYK7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20EY4v20xva
+	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2
+	x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8
+	Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7M4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42
+	xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWU
+	GwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI4
+	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRK1vVDUUUU
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_234108_178646_536A40CA 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +96,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 10:41:35AM +0800, Tangnianyao wrote:
-> On 7/6/2026 23:33, Mark Rutland wrote:
-> > If *both* of the vCPUs set TTBRn_EL1.CnP, then surely that is
-> > indistinguishable from physical CPUs:
-> >
-> >     PE0(core0,smt0)         PE1(core0,smt1)
-> >     cpu0 va->pa0        
-> >                             cpu1 flush local tlb
-> >                             cpu1 modify desc to va->pa1
-> >     cpu0 hit *va->pa1*
-> >
-> > Mark. 
-> >
-> > .
-> >
-> Thanks for the clarification.
-> Stage-1 CnP determines whether Stage-1 translation entries may be shared
-> across vCPUs, and the hardware is responsible for enforcing the
-> architectural semantics.
-> 
-> Given that, why does KVM still need to guarantee that TLBs are private to
-> each vCPU?
-> 
-> Assuming VTTBR_EL2.CnP == 1:
-> If TTBRx_EL1.CnP == 1, the guest is responsible for ensuring that the
-> translations referenced by TTBRx_EL1 are shareable, as required by the
-> architecture.
-> If TTBRx_EL1.CnP == 0, the hardware must ensure that Stage-1 translations
-> are not shared, again according to the architectural definition.
-> 
-> The reason I'm asking is the potential performance impact. In a scenario
-> where multiple vCPUs of the same VM are scheduled onto a single PE, this
-> TLB flush may prevent a vCPU from reusing its previously populated
-> translation entries, potentially increasing TLB misses.
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-The problem is you can't infer the state of the TLB based on the current
-value of CnP at stage-1. CnP only applies to the current TTBR;
-nothing stops the guest from using a mix of CnP=0/1 for different TTBRs.
+This series updates Ethernet support for the ESWIN EIC7700 SoC,
+including support for the eth1 MAC variant.
 
-KVM still needs to invalidate in the case that the PE retained a CnP=0
-TLB entry for a different stage-1 context than the one configured at
-the time of vcpu_load().
+The series includes DT binding updates and stmmac glue driver updates
+for the EIC7700 Ethernet controller.
 
-Thanks,
-Oliver
+The changes include:
+  - Update the tx-internal-delay-ps binding property from a fixed enum
+    list to a range-based definition, and make it optional with the
+    corresponding driver update.
+
+  - Add support for the EIC7700 eth1 MAC variant, which has
+    silicon-specific RX sampling behavior and TX timing characteristics.
+    A dedicated compatible string is introduced for this hardware variant,
+    and the driver applies the required RX clock inversion handling and
+    timing adjustments.
+
+Due to silicon characteristics, the eth1 interface has a fixed TX
+internal delay of approximately 2 ns and an RX sampling skew of 4-5 ns
+that cannot be compensated solely by standard RGMII delay settings.
+The binding models the effective TX delay range of this variant, while
+the driver handles the required hardware-specific timing configuration.
+
+Only the DT bindings and driver patches are included in this series. The
+DTS changes are intentionally omitted for the following reasons:
+  - The HSP bus infrastructure is being introduced by Pinkesh Vaghela's
+    DT series [0], currently under review.
+  - The HSPCRG clock/reset series [1] provides additional infrastructure
+    for the HSP subsystem.
+
+Once these dependencies are merged, a follow-up DT series will enable
+Ethernet, USB, eMMC, and SD across the HSP bus.
+
+Reference:
+  [0] https://lore.kernel.org/lkml/20260706081055.1126275-1-pinkesh.vaghela@einfochips.com/
+  [1] https://lore.kernel.org/all/20260605060730.1605-1-dongxuyang@eswincomputing.com/
+
+v9 -> v10:
+  - Drop the DTS patches (patches 5 and 6 in v9) from this series.
+  - Update the cover letter to include a description of the series.
+  - Add Conor Dooley's Acked-by tag.
+
+  - Link to v9:
+    https://lore.kernel.org/lkml/20260630063123.1118-1-lizhi2@eswincomputing.com/
+
+v8 -> v9:
+  - patch2:
+      - Update DT binding schema for tx-internal-delay-ps:
+        - Replace the previous oneOf schema with a base range plus
+          allOf/if-then conditional constraints.
+        - Define a common range of 0-4540 ps and apply compatible-specific
+          constraints using conditional schema rules:
+            - eswin,eic7700-qos-eth:
+              maximum 2540 ps
+            - eswin,eic7700-qos-eth-clk-inversion:
+              minimum 2000 ps
+  - patch6:
+      - Refine DTS implementation to address Sashiko review comments:
+        - Address DTC and dtbs_check warnings.
+        - Improve node naming and HSP bus organization.
+  - patch5 and patch6:
+      - Update commit messages for the DTS patches:
+        - Clarify that the DTS patches are included only to provide an
+          overview of the complete Ethernet integration for review.
+        - The upstream DTS enablement will be submitted as a separate series
+          after the DT bindings and driver changes have been applied.
+
+  - Link to v8:
+    https://lore.kernel.org/lkml/20260610012727.848-1-lizhi2@eswincomputing.com/
+
+v7 -> v8:
+  - eth0-related fixes were moved into separate series [1], [2]:
+    - All eth0-related fixes have been removed from this series to avoid mixing
+      MAC variants and RX timing logic in a single review context.
+    - Reference:
+      [1]https://lore.kernel.org/lkml/20260602014528.2076-1-lizhi2@eswincomputing.com/
+      [2]https://lore.kernel.org/lkml/20260518021919.404-1-lizhi2@eswincomputing.com/
+
+  - Update cover letter and overall series scope description:
+    - Replace previous wording "EIC7700 eth1 RX sampling timing fix"
+      with a more accurate description:
+        - Add eth1 MAC variant support.
+        - Update RGMII delay binding model.
+    - This reflects the structural nature of the series rather than a pure
+      bug fix.
+
+  -  Split DT bindings changes into two patches:
+    - patch1:
+        - Relax RGMII internal delay constraints.
+        - Change rx/tx internal delay from enum-based model to range-based
+          model.
+        - Mark delay properties as optional.
+    - patch2:
+        - Introduce EIC7700 eth1 MAC variant compatible string
+          "eswin,eic7700-qos-eth-clk-inversion".
+        - Model silicon-specific RX clock inversion requirement via SoC
+          variant instead of board-level properties.
+
+    - Due to this restructuring:
+        - Patch structure and commit messages have changed significantly
+          compared to v7.
+        - The previously received Acked-by from Conor Dooley is not
+          carried forward because the binding patches were substantially
+          reworked and split.
+
+  - Split driver changes into two patches. No functional changes to eth1
+    compared to v7:
+    - patch 3:
+        - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+        - Remove mandatory DT property requirement in probe path.
+        - Allow zero-delay default when properties are absent.
+    - patch 4:
+        - Add support for eth1 MAC variant using compatible-specific
+          match data.
+        - Introduce RX clock inversion handling for eth1 at runtime.
+        - Apply speed-dependent configuration via fix_mac_speed()
+          callback.
+
+  - Note:
+    - These patches (5/6 and 6/6) are included only to facilitate review
+      of the overall Ethernet integration across bindings, driver, and
+      device tree.
+      A cleaned-up, upstream-ready DTS series will be submitted separately
+      once all dependencies and final hardware integration are completed.
+
+  - Link to v7:
+    https://lore.kernel.org/lkml/20260427072353.1114-1-lizhi2@eswincomputing.com/
+
+v6 -> v7:
+  - Address checkpatch.pl --strict warnings for DTS changes:
+    - Split DT binding documentation and DTS board description into separate patches
+    - Fix DTS style issues reported by checkpatch:
+      - Reduce line length where applicable
+      - Add required description for rgmii-rxid
+
+  - DTS changes in this series are split into:
+    - Patch 3/4: syscon binding update (documentation / reference only)
+    - Patch 4/4: board DTS changes (architecture overview only)
+
+    These patches (3/4 and 4/4) are provided to facilitate review of the overall
+    Ethernet integration across binding, driver, and device tree, and are not
+    intended as final upstream submission in their current form.
+
+    A cleaned-up, upstream-ready DTS series will be submitted separately once
+    all dependencies and final hardware integration are completed.
+
+  - Note:
+    - Clock-related bindings referenced in earlier revisions are now already merged
+      into net-next, so dtbs_check warnings related to clock are no longer present
+      and are not relevant to this revision.
+
+  - No functional changes in the stmmac driver or binding semantics in this revision.
+
+  - Link to v6:
+    https://lore.kernel.org/lkml/20260423085501.760-1-lizhi2@eswincomputing.com/
+
+v5 -> v6:
+  - Update DTS/DTSI descriptions to fix invalid phandle references reported by DTC:
+    - Add missing GMAC provider nodes required for proper hardware description:
+      - HSP power domain: GMAC nodes moved under this domain to reflect
+        hardware power hierarchy.
+      - Clock nodes: added to provide clk phandles referenced by GMAC.
+      - Reset nodes: added to provide reset phandles referenced by GMAC.
+      - Pinctrl nodes: defines pinctrl settings for GMAC signals
+        (pinctrl_gpio106, pinctrl_gpio111).
+    - Move GMAC nodes under the correct HSP power domain.
+    - Ensure DTS builds without dtc errors and all phandle references
+      (clk/reset/pinctrl/power-domain) are valid.
+    - This update does not change runtime behavior; it only improves DTS
+      consistency and resolves issues reported by dtc.
+
+  - Note:
+    - The patch 3/3 for DTS changes in this series provide an overview of the GMAC
+      integration and its dependencies, as discussed previously:
+      https://lore.kernel.org/lkml/64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch/
+
+    - It is **not intended for upstream inclusion** in its current form,
+      and is provided solely for architecture overview and integration
+      context.
+
+    - A fully cleaned and upstream-ready DTS series will be submitted
+      separately once all related components (pinctrl, clock, power-domain,
+      etc.) are finalized.
+
+  - dtbs_check has been run on top of net-next for reference purposes.
+    Remaining warnings are expected due to missing EIC7700 clock bindings[1]
+    in net-next and do not reflect issues in the DTS design itself.
+
+  - One remaining warning:
+    - eswin,eic7700-clock
+
+  - The clock binding has already been applied to upstream and is present
+    in mainline, but not yet available in net-next.
+
+  - The syscon binding is extended in this series to include the
+    eswin,eic7700-syscfg compatible.
+
+  - Any further refinement of the syscfg binding will be handled in
+    separate patches if needed.
+
+  - Dependencies:
+    - [1]EIC7700 clock binding:
+      https://lore.kernel.org/lkml/20260303080637.2100-1-dongxuyang@eswincomputing.com/
+      (already applied to upstream)
+
+  - Link to v5:
+    https://lore.kernel.org/lkml/20260324073017.376-1-lizhi2@eswincomputing.com/
+
+v4 -> v5:
+  - eswin,eic7700-eth.yaml:
+    - Add Acked-by from Conor Dooley
+    - No functional changes
+
+  - Update dwmac-eic7700.c:
+    - Disable clocks on the error path to fix a clock leak in
+      eic7700_dwmac_init() when regmap_set_bits() fails
+      (reported by Simon Horman <horms@kernel.org>)
+
+  - Link to v4:
+    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
+
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (4):
+  dt-bindings: ethernet: eswin: relax internal delay model to
+    range-based constraints
+  dt-bindings: ethernet: eswin: add EIC7700 eth1 RX clock inversion
+    variant
+  net: stmmac: eic7700: make RGMII delay properties optional
+  net: stmmac: eic7700: add support for eth1 clock inversion variant
+
+ .../bindings/net/eswin,eic7700-eth.yaml       |  74 +++++++++--
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 117 +++++++++++++++---
+ 2 files changed, 164 insertions(+), 27 deletions(-)
+
+-- 
+2.25.1
+
 
