@@ -4,150 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE382C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AB4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jsF8+lnCV59+0yqeWXdSHV6D3xLFbynXeMN7huNriQ0=; b=s1RE5NtomFrQYfEkopVp5X58kz
-	+u1oDEWDSVmiE1/JSZSyDg6xh7vO8mm5Y4lTysc2NbSlwqGrBHcQ6yx6qFr7mHDkJ6o8czZs8Sqi3
-	I0aUccAZltYUALGpkMEGjgKY/SqFbB4izVKg5lHZFELtshz43XJMrFhijb+ewNuFPhGPHT5sqtUvf
-	dZdS/vsIUT0SuEv6twuJUUC3FS7bJ2G82kGorvtA6AX83k0ZqvtVV/ZFX72tyNx5uSg8yzt7+qJbg
-	xzukd319F+3cxsaNeWuqJUmvMBjhVfF/HFHejah/YZhph+p0aw+MeRpV3av3Q0NCnB2XU7nKnhkUY
-	BQvmzI4A==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vVwOc/plNKfiMmUT69quLhKzOtBT2oBK3V8CnUtJXVU=; b=EBzE15ar/zmO/jqnEsXBcJAhri
+	CVQE7fhObBiY738kyy4WWl/eLuRF/8eGtLaFDPJH0Buyy2dUkpgYe449r8j4XhBiJhrN6a+T/Lg+A
+	GgRcBO367Frb9vP8c3wIf6V28Rk1PXPp+KGhbr1/e1rvpu23BJME6dXOtmi1yjTgZR2B4VlmRMtfk
+	GqOCnKRtv3ig4YOAuFAV6SzUxCo7/MiRkrT24/nh/+8zA7RvkvOehOJvhwtJpUO9mgg8Q0tdjmZjZ
+	/7Dsz/MJ/rogphNC/o7IvZjlAl61PvBfJyVMJ/QPFYgNcpoF9lppTPYLmaLNtuE/89W6nKUjP6MSz
+	I1JwwwOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh59d-0000000Eyux-2mCM;
-	Tue, 07 Jul 2026 12:44:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wh59i-0000000Eyye-1Rvs;
+	Tue, 07 Jul 2026 12:44:06 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh59b-0000000Eyt1-0byu
+	id 1wh59f-0000000EyvR-2RPC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 12:44:00 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 667C8kSY3606205
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Jul 2026 12:43:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jsF8+lnCV59+0yqeWXdSHV6D3xLFbynXeMN7huNriQ0=; b=XD7NvtCvt+ciicLc
-	SFxlsBX3lxxlCeJzhe7+FCQ7sllI9nmp83Wp7Q5Sdw/jmrb5rQBlLklY94ke8uxl
-	K6pKpodACkGCwZANRoY/ahbVze0XEd0WNFcHhLwgU45NyWXU71Lmy0HjRcqBT1/2
-	3Us/ZWIr7YBgPOnRx+bZ6X4v/YQLBykVEJDkInXoliJRFKkAS5aeKDAGa9+eRVFX
-	Pmfneoxro2uCyK3yJpFMhoyo8ImDUV4ajCP+8UxV1LpodyHlMaOY+ojAQ8Y6Gkz+
-	jxvu/VCOpPonyiTABDAOLAeapPcB7X82j1ji7/KjywSz0hc9DpPkkJ65jwHRwfOp
-	nEXIpg==
-Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8sm8j0nt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 12:43:58 +0000 (GMT)
-Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-7e9e0e71e05so6358082a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 05:43:58 -0700 (PDT)
+	Tue, 07 Jul 2026 12:44:04 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-699fbcd23ccso5428191a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 05:44:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783428238; x=1784033038; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jsF8+lnCV59+0yqeWXdSHV6D3xLFbynXeMN7huNriQ0=;
-        b=Exy5MzfWtIAa8mj6epOosokNxIoTdtD2RbRCS/DLVyQXTo50w0PlpM/MnLEkkUd/sZ
-         bb2W0kztO5EsRksqTR2z6Jxm0Rj8uYU6gnpknIcQVyvKkh2tHr9bgu7/FY/Kcse7hoyy
-         4aN+hgymocL9uVkPgPfRJkQyN6xwPmM0sGjTiIM5SsXrSgiiWL9rSGoHQ2gT3DfK3tnh
-         +JSWaDBY855ItbDZ5QYYNgrdMVfa5RpNVHi+fQh0HWWkBDh+bX0I8LZHkl215FyWVBni
-         tMvw33rFMPa3gzmrsM3ElyXuRTjX8/REvuPduExwI2iJ/p3tO1PquiGZFpu7n3AmXh19
-         EpnQ==
+        d=suse.com; s=google; t=1783428241; x=1784033041; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=vVwOc/plNKfiMmUT69quLhKzOtBT2oBK3V8CnUtJXVU=;
+        b=WDg+EvAu1E/lnXUZOxO5T3urdgLGuo8IVtfvN7vUs0Fhw8zsjTCcWs6ndN3Eavx1F/
+         WnktzOLRMZwJy/kBkmFwwLaj9+xbfMoQ6DGKAFDcc0buuQic7S9ItYENhhAC8Pd+cu1I
+         PX4iSH4kIr7kCZFl/A8F+ADvzJMvCN+R2osFyCSiSBF1UcWpXNGPphpM61wk0gtiCNo5
+         2042Jpg1I/X/yp0JRWaH1eur+fWRabDWQl087kjG2f3aqQiZ7ompsCCkSJiOVY9H+FGN
+         LAa1vvDi6N5m2QayAaFqtRIczdYXZwuZcDN/sHTqLMUhk3OfpMn7jheCT5KNanuHlNZc
+         aMNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783428238; x=1784033038;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jsF8+lnCV59+0yqeWXdSHV6D3xLFbynXeMN7huNriQ0=;
-        b=bUf9eGRntOZQZbYlLBiUCSMc7ixcXyT0coakDx4DM2PNJIO6tKsUGUV0y7Z1Jl87eI
-         nw3Xf1JzrijV2sWpLBmBH9L4LlCIpvfdM7wXSxB9xCASD9lUJsBl7cc5JCTJrWlrIgq5
-         Ic9cWtRHKE1x7RCEVt5P3G5SLQleZ6lwoSkS1/IUuBQKVjJM2fzp318EpflRMQS8cE7T
-         NcFqMdyRgQUQxPS5eX02awtQL6Q5F2CjryPGTBrQjUrfSlf3JWLCmkb1o1ZrT30n4Kb0
-         JMEhck3ZSwzeQPQVCsw7b0flDuX4GBLE0lI4RXGXZM8MXQtwBtGV1Gr4l8/rA47Uun4B
-         Kzrw==
-X-Forwarded-Encrypted: i=1; AFNElJ9ROYK1EzHCbtWFqClLAyHPM7AG4MsV0+a5tLWE4vyCjEuAn3QPF9CjUnFXcOA2OgDgB0gNwFYitTnUJB0iIOBV@lists.infradead.org
-X-Gm-Message-State: AOJu0YykRRAWQQYxCP+A6KpVxLz5FRfkzSkYXOG6pTQWKNgCJUAM+W7c
-	Y70DrutzbbjWDdrubyjpCqG/ZBLK1sqt/+lXC5sQWoCZLzrOW5NEvFauMkJWsXRBmzF6y1/EuOM
-	3rp5TjLExH0ncJb0bc+jfzWwTz7pZcEiWqtIXykMl4Sl05LOUTLkQrYRqcmUblPOb3Rf40eJAsP
-	o83Q==
-X-Gm-Gg: AfdE7ckWLKhMN/7nJPNoiyh8NVAm2i7O6Bvcrs+SlKHFE6TSJQlHVywJM4CcVasONzC
-	oWL85PbLBo9jFZICNQ7lV25kaPlgIOOxP4ysxA+LbmJ3ff8uzkPzWvHF3PQXBgIrUSzpZBvEqTs
-	iTl3PrWkA4yCT+J7mzqtPSKQr5eOpmKhyiAP3cBp97yx+X0hBRvvs2x5fNs2tPwPUOuG7RfRcyx
-	IDJ+HjE+0yYFrx3bsd4Wo7OCJIqIkuWLEktxiS7GGUZsRMz71LFgFoWLkNSjA1VIA2Usmf7ln5G
-	fRKEu5Qmihei7q3PHSCMexieMiViDqIkf3myqQI+h3E0QKzLsz+RZu1E82k1qbULZRRUPRk/xDI
-	Ix4JkerHwGL/u+hI9luedSgkNrMtmIMCuN6WwYeg=
-X-Received: by 2002:a05:6820:f004:b0:6a0:f3b5:12a2 with SMTP id 006d021491bc7-6a3553978e6mr3648874eaf.20.1783428237544;
-        Tue, 07 Jul 2026 05:43:57 -0700 (PDT)
-X-Received: by 2002:a05:6820:f004:b0:6a0:f3b5:12a2 with SMTP id 006d021491bc7-6a3553978e6mr3648859eaf.20.1783428237043;
-        Tue, 07 Jul 2026 05:43:57 -0700 (PDT)
-Received: from [10.219.56.198] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6a31fd2cf7asm8442320eaf.4.2026.07.07.05.43.51
+        d=1e100.net; s=20251104; t=1783428242; x=1784033042;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vVwOc/plNKfiMmUT69quLhKzOtBT2oBK3V8CnUtJXVU=;
+        b=JVSS0uhIFl98FszOwhn8FimmZg7HC+tgJ8648nHqcSvp0eeAU5kY8l85/uQVnZrS/d
+         ilZ5L2ampgRInnsYkADVSO/3xNlcKlt+I3ZPGMAKv/hr62hqQXGfZz3S/thMyr0Ex4v5
+         yyMjOSRdj92HKw6xQ4G1BYBeqx6SIKC9uZJ/7KhKQ5PJtzDNm9JdvHuoBDloNIMTf4+x
+         MZG4XwhbonS1Hx9ie8ApQkP8BpaFCjsCEkRO88U4RBmTSWGK/CDyVuh4UjKLwE8CQGdP
+         nfv++a0RFSrCsD31W2PRotR/EfWzTrl8HRqVnT8le/V63fmt/u9N5s/IGkZGxO2g+zVR
+         KU9A==
+X-Forwarded-Encrypted: i=1; AHgh+RrX+a99/6v4gXSSc87B/kCZEZYD3m8Miu95OrgH6cqzjNak8/tqLPMyEW/JiQyuNeY/aiP8gJOxn51G7KvUvXwh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuUeEew18gHoCJaOzr6QajisLPs6BN3WaaMmj3w58PSOMej1Bf
+	6KszSXP2J2BjXmQ3Hei/cEJgcQNp1DVA53dhVMqUknNdSb2vGlGmLOKmnpGSCHaOT2g=
+X-Gm-Gg: AfdE7cnHvmna492+2LSuljyGtHPJ467CXBhTR0RrgWihFExxD2TRbfsWzm11jXN+EPg
+	QUxhO/jrkPH80SMZ2nCGoq/lDLzPMM1LESWrHijujUkCKrhc3TtzSqyRfhs1ynQXqSJBr+rPZj8
+	Ju3F+6+Nw2qSzSM+rEsFrfVBFAGxkoFESKmmvjA/ItU4BB/IyMqVWWqPrkymyJRIRqX4zapWGIG
+	iBKbWwh+KLvsbDr1pCylogcKHf5Hc1Y4AN+pYTtnA9qsvoOInrH9LhdA9oTXzmNd5JfW0EIMdNP
+	UYGkJlBNV+5mhlUb40DWksnrh7axPEp7x3tF0CLHn6YKYgL+XSnX8h9kYOn9xtgz2Z3Br57IXDY
+	zxPwegNEPC9M+3ga/+rU4WtSANGwyx+JWPzYoGDddptV+pGAUrpNDdnoLFkYaBzkCA3y1L+3RPs
+	iqV1bZnFgIPxKi1+9wFAwmtvVX7Ki6NY5lnJJuJ7mkI1VEbuuA8NfwqeXdy3Kx
+X-Received: by 2002:a05:6402:40cf:b0:69a:a4bb:bfc0 with SMTP id 4fb4d7f45d1cf-69aa4bbc2e2mr209995a12.11.1783428241439;
+        Tue, 07 Jul 2026 05:44:01 -0700 (PDT)
+Received: from [192.168.2.177] (48.85-85-171.dynamic.clientes.euskaltel.es. [85.85.171.48])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19ce4ad4sm5751522a12.12.2026.07.07.05.43.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Jul 2026 05:43:56 -0700 (PDT)
-Message-ID: <8fcdb7be-0bb4-4cf5-b969-6e5b0b516f87@oss.qualcomm.com>
-Date: Tue, 7 Jul 2026 18:13:50 +0530
+        Tue, 07 Jul 2026 05:44:01 -0700 (PDT)
+Message-ID: <53f3621f-3888-45f3-b319-95efa36fb0f2@suse.com>
+Date: Tue, 7 Jul 2026 14:43:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] iommu/arm-smmu: Add interconnect bandwidth voting
- support
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
- <20260706-smmu_interconnect_addition-v3-2-afdca0125a65@oss.qualcomm.com>
- <lltyynsswbeqdgpl4bqbil5ohgs6v25pvd5cqfuh36nrzgwv7o@u54exappwjes>
-Content-Language: en-US
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-In-Reply-To: <lltyynsswbeqdgpl4bqbil5ohgs6v25pvd5cqfuh36nrzgwv7o@u54exappwjes>
+Subject: Re: [PATCH v6 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+To: Andrea della Porta <andrea.porta@suse.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>,
+ Stanimir Varbanov <svarbanov@suse.de>, Sean Young <sean@mess.org>,
+ Julian Braha <julianbraha@gmail.com>
+References: <cover.1783097764.git.andrea.porta@suse.com>
+ <300b6fb4ba2c9399297b4bd85cbb3bc14f08f6b7.1783097764.git.andrea.porta@suse.com>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <mbrugger@suse.com>
+Autocrypt: addr=mbrugger@suse.com; keydata=
+ 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
+ PVrr2NoUqi/bxI8fFQJD1jVj8K0=
+In-Reply-To: <300b6fb4ba2c9399297b4bd85cbb3bc14f08f6b7.1783097764.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA3MDEyMyBTYWx0ZWRfXwAj56RSyUDRO
- YbLJnw1zKc5C8hq8kLUSsHLsnfWlKtGIne3LbOyrUkog7VjQhKnkUN9tilbH9kPL9qi69Q71Czw
- tmX1e8KXRaOx+IiIWkrcolDpymJKXvBfCCtH0Df5GZF9hQzlom0z5Eq5XFvkCG8lyxpKI1lZVrx
- Y4aVCK9P4X9+yrb4TUOYGESrEGBPoqvkdGLa7srC2mNQGLGyYoYSt4sIO+J+xf4HMDLV8n3Mqlb
- yMcqa6xVtQi7+q5R4aM2Pd5AhyGSM+t77woCrq22u75qCdhApuJJNCaP6kGzdZLV/6KNEdyODnr
- eDKiZKg9vBtm/bKS1usyrKyE/jlBIGcvBDk1nGr42hl9MbeLM3FYZ1LCiE6sYCJQPbujsyauIoj
- m/Cn6mdSBCmxmOY2dbxi6jkKNcDNIOAyPGDS6by0htTSs6FL+uY8DvKL0urggh3eXbtA5w8J8Te
- IYcKbbS2v/w14J29cMw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA3MDEyMyBTYWx0ZWRfX8yw9VDF1Cud9
- B7gUiRFyPWntrsUGA54xfAwPLhXvkDghxpBM0ibCC9ir6El1wyMCrJ4bYDxQaeF0ISrhXamrjTn
- dH95LBj5pBty9b4XlEiYK6qLh+/4qVg=
-X-Proofpoint-GUID: xPosJTxBuZ0oL-H27HJGfeQdi0jvaO2M
-X-Authority-Analysis: v=2.4 cv=UvdT8ewB c=1 sm=1 tr=0 ts=6a4cf48e cx=c_pps
- a=+3WqYijBVYhDct2f5Fivkw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=RRvI01qy6g1rNRViaBEA:9 a=QEXdDO2ut3YA:10
- a=eYe2g0i6gJ5uXG_o6N4q:22
-X-Proofpoint-ORIG-GUID: xPosJTxBuZ0oL-H27HJGfeQdi0jvaO2M
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-07_03,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 lowpriorityscore=0 impostorscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607070123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_054359_412338_E79A7C99 
-X-CRM114-Status: GOOD (  32.38  )
+X-CRM114-CacheID: sfid-20260707_054403_659695_EA6A756D 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,265 +155,75 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 7/6/2026 11:10 PM, Dmitry Baryshkov wrote:
-> On Mon, Jul 06, 2026 at 10:26:35PM +0530, Bibek Kumar Patro wrote:
->> On some SoCs the SMMU registers require an active interconnect
->> bandwidth vote to be accessible. While other clients typically
->> satisfy this requirement implicitly, certain corner cases (e.g.
->> during sleep/wakeup transitions) can leave the SMMU without a
->> vote, causing intermittent register access failures.
->>
->> Add support for an optional interconnect path to the arm-smmu
->> driver and vote for bandwidth while the SMMU is active. The path
->> is acquired from DT if present and ignored otherwise.
->>
->> The bandwidth vote is enabled before accessing SMMU registers
->> during probe and runtime resume, and released during runtime
->> suspend and on error paths.
->>
->> Generally, from an architectural perspective, GEM_NOC and DDR are
->> expected to have an active vote whenever the adreno_smmu block is
->> powered on. In most common use cases, this requirement is implicitly
->> satisfied because other GPU-related clients (for example, the GMU
->> device) already hold a GEM_NOC vote when adreno_smmu is enabled.
->>
->> However, there are certain corner cases, such as during sleep/wakeup
->> transitions, where the GEM_NOC vote can be removed before adreno_smmu
->> is powered down. If adreno_smmu is then accessed while the interconnect
->> vote is missing, it can lead to the observed failures. Because of the
->> precise ordering involved, this scenario is difficult to reproduce
->> consistently.
->> (also GDSC is involved in adreno usecases can have an independent vote)
->>
->> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
->> ---
->>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 55 +++++++++++++++++++++++++++++-
->>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h |  3 ++
->>   drivers/iommu/arm/arm-smmu/arm-smmu.c      | 27 +++++++++++++--
->>   drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
->>   4 files changed, 84 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> index e2c914fccd6f..5133d3ab023a 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> @@ -6,6 +6,7 @@
->>   #include <linux/acpi.h>
->>   #include <linux/adreno-smmu-priv.h>
->>   #include <linux/delay.h>
->> +#include <linux/interconnect.h>
->>   #include <linux/of_device.h>
->>   #include <linux/firmware/qcom/qcom_scm.h>
->>   #include <linux/platform_device.h>
->> @@ -607,6 +608,45 @@ static int qcom_sdm845_smmu500_reset(struct arm_smmu_device *smmu)
->>   	return ret;
->>   }
->>   
->> +static int qcom_adreno_smmu_icc_init(struct arm_smmu_device *smmu)
->> +{
->> +	struct qcom_smmu *qsmmu = container_of(smmu, struct qcom_smmu, smmu);
->> +	int err;
->> +
->> +	qsmmu->icc_path = devm_of_icc_get(smmu->dev, NULL);
->> +	if (!IS_ERR(qsmmu->icc_path))
->> +		return 0;
->> +
->> +	err = PTR_ERR(qsmmu->icc_path);
->> +
->> +	if (err == -ENODEV) {
->> +		qsmmu->icc_path = NULL;
->> +		return 0;
->> +	}
->> +	return dev_err_probe(smmu->dev, err,
->> +			     "failed to get interconnect path\n");
->> +}
->> +
->> +static int qcom_adreno_smmu_runtime_resume(struct arm_smmu_device *smmu)
->> +{
->> +	struct qcom_smmu *qsmmu = container_of(smmu, struct qcom_smmu, smmu);
->> +	int ret;
->> +
->> +	ret = icc_set_bw(qsmmu->icc_path, 0, 1);
->> +	WARN_ON_ONCE(ret);
->> +	return ret;
->> +}
->> +
->> +static int qcom_adreno_smmu_runtime_suspend(struct arm_smmu_device *smmu)
->> +{
->> +	struct qcom_smmu *qsmmu = container_of(smmu, struct qcom_smmu, smmu);
->> +	int ret;
->> +
->> +	ret = icc_set_bw(qsmmu->icc_path, 0, 0);
->> +	WARN_ON_ONCE(ret);
->> +	return ret;
->> +}
->> +
->>   static const struct arm_smmu_impl qcom_smmu_v2_impl = {
->>   	.init_context = qcom_smmu_init_context,
->>   	.cfg_probe = qcom_smmu_cfg_probe,
->> @@ -648,6 +688,8 @@ static const struct arm_smmu_impl qcom_adreno_smmu_v2_impl = {
->>   	.alloc_context_bank = qcom_adreno_smmu_alloc_context_bank,
->>   	.write_sctlr = qcom_adreno_smmu_write_sctlr,
->>   	.tlb_sync = qcom_smmu_tlb_sync,
->> +	.runtime_resume = qcom_adreno_smmu_runtime_resume,
->> +	.runtime_suspend = qcom_adreno_smmu_runtime_suspend,
->>   	.context_fault_needs_threaded_irq = true,
->>   };
->>   
->> @@ -658,6 +700,8 @@ static const struct arm_smmu_impl qcom_adreno_smmu_500_impl = {
->>   	.alloc_context_bank = qcom_adreno_smmu_alloc_context_bank,
->>   	.write_sctlr = qcom_adreno_smmu_write_sctlr,
->>   	.tlb_sync = qcom_smmu_tlb_sync,
->> +	.runtime_resume = qcom_adreno_smmu_runtime_resume,
->> +	.runtime_suspend = qcom_adreno_smmu_runtime_suspend,
->>   	.context_fault_needs_threaded_irq = true,
->>   };
->>   
->> @@ -667,11 +711,14 @@ static struct arm_smmu_device *qcom_smmu_create(struct arm_smmu_device *smmu,
->>   	const struct device_node *np = smmu->dev->of_node;
->>   	const struct arm_smmu_impl *impl;
->>   	struct qcom_smmu *qsmmu;
->> +	bool is_adreno_smmu;
->> +	int ret;
->>   
->>   	if (!data)
->>   		return ERR_PTR(-EINVAL);
->>   
->> -	if (np && of_device_is_compatible(np, "qcom,adreno-smmu"))
->> +	is_adreno_smmu = np && of_device_is_compatible(np, "qcom,adreno-smmu");
->> +	if (is_adreno_smmu)
->>   		impl = data->adreno_impl;
->>   	else
->>   		impl = data->impl;
->> @@ -691,6 +738,12 @@ static struct arm_smmu_device *qcom_smmu_create(struct arm_smmu_device *smmu,
->>   	qsmmu->smmu.impl = impl;
->>   	qsmmu->data = data;
->>   
->> +	if (is_adreno_smmu) {
->> +		ret = qcom_adreno_smmu_icc_init(&qsmmu->smmu);
->> +		if (ret)
->> +			return ERR_PTR(ret);
->> +	}
+On 03/07/2026 19:05, Andrea della Porta wrote:
+> From: Stanimir Varbanov <svarbanov@suse.de>
 > 
-> Move this to a runtime hook to be declared in *data.
+> The RP1 chipset used on the Raspberry Pi 5 features an integrated
+> PWM controller to drive the cooling fan.
 > 
-
-Ack, will implement this in next revision.
-<Missed to make this a runtime hook as it was not being used
-anywhere else outside the current scope of this file.>
-
->> +
->>   	return &qsmmu->smmu;
->>   }
->>   
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
->> index 8addd453f5f1..6835b40339ce 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
->> @@ -6,12 +6,15 @@
->>   #ifndef _ARM_SMMU_QCOM_H
->>   #define _ARM_SMMU_QCOM_H
->>   
->> +#include <linux/interconnect.h>
+> Add the corresponding DT node for this PWM controller.
 > 
-> Not necessary here. Just forward-declare the struct.
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+
+Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+
+> ---
+>   arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
+>   arch/arm64/boot/dts/broadcom/rp1-common.dtsi     |  9 +++++++++
+>   2 files changed, 21 insertions(+)
 > 
-
-Ack, will take care of this in next revision.
-
-Thanks & regards,
-Bibek
-
->> +
->>   struct qcom_smmu {
->>   	struct arm_smmu_device smmu;
->>   	const struct qcom_smmu_match_data *data;
->>   	bool bypass_quirk;
->>   	u8 bypass_cbndx;
->>   	u32 stall_enabled;
->> +	struct icc_path *icc_path;
->>   };
->>   
->>   enum qcom_smmu_impl_reg_offset {
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> index 0bd21d206eb3..a27804e15738 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> @@ -2189,6 +2189,14 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
->>   	if (err)
->>   		return err;
->>   
->> +	if (smmu->impl && smmu->impl->runtime_resume) {
->> +		err = smmu->impl->runtime_resume(smmu);
->> +		if (err) {
->> +			clk_bulk_disable_unprepare(smmu->num_clks, smmu->clks);
->> +			return err;
->> +		}
->> +	}
->> +
->>   	err = arm_smmu_device_cfg_probe(smmu);
->>   	if (err)
->>   		return err;
->> @@ -2273,8 +2281,11 @@ static void arm_smmu_device_shutdown(struct platform_device *pdev)
->>   
->>   	if (pm_runtime_enabled(smmu->dev))
->>   		pm_runtime_force_suspend(smmu->dev);
->> -	else
->> +	else {
->>   		clk_bulk_disable(smmu->num_clks, smmu->clks);
->> +		if (smmu->impl && smmu->impl->runtime_suspend)
->> +			smmu->impl->runtime_suspend(smmu);
->> +	}
->>   
->>   	clk_bulk_unprepare(smmu->num_clks, smmu->clks);
->>   }
->> @@ -2294,9 +2305,18 @@ static int __maybe_unused arm_smmu_runtime_resume(struct device *dev)
->>   	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
->>   	int ret;
->>   
->> +	if (smmu->impl && smmu->impl->runtime_resume) {
->> +		ret = smmu->impl->runtime_resume(smmu);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +
->>   	ret = clk_bulk_enable(smmu->num_clks, smmu->clks);
->> -	if (ret)
->> +	if (ret) {
->> +		if (smmu->impl && smmu->impl->runtime_suspend)
->> +			smmu->impl->runtime_suspend(smmu);
->>   		return ret;
->> +	}
->>   
->>   	arm_smmu_device_reset(smmu);
->>   
->> @@ -2309,6 +2329,9 @@ static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
->>   
->>   	clk_bulk_disable(smmu->num_clks, smmu->clks);
->>   
->> +	if (smmu->impl && smmu->impl->runtime_suspend)
->> +		return smmu->impl->runtime_suspend(smmu);
->> +
->>   	return 0;
->>   }
->>   
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
->> index 26d2e33cd328..ed08f86cf99d 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
->> @@ -455,6 +455,8 @@ struct arm_smmu_impl {
->>   	void (*write_s2cr)(struct arm_smmu_device *smmu, int idx);
->>   	void (*write_sctlr)(struct arm_smmu_device *smmu, int idx, u32 reg);
->>   	void (*probe_finalize)(struct arm_smmu_device *smmu, struct device *dev);
->> +	int (*runtime_resume)(struct arm_smmu_device *smmu);
->> +	int (*runtime_suspend)(struct arm_smmu_device *smmu);
->>   };
->>   
->>   #define INVALID_SMENDX			-1
->>
->> -- 
->> 2.34.1
->>
-> 
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> index 0fc57e72632ed..748be8f1ee9e2 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> @@ -64,6 +64,12 @@ phy1: ethernet-phy@1 {
+>   };
+>   
+>   &rp1_gpio {
+> +	fan_pwm_default_state: fan-pwm-default-state {
+> +		function = "pwm1";
+> +		pins = "gpio45";
+> +		bias-pull-down;
+> +	};
+> +
+>   	usb_vbus_default_state: usb-vbus-default-state {
+>   		function = "vbus1";
+>   		groups = "vbus1";
+> @@ -94,6 +100,12 @@ &rp1_i2c6 {
+>   	pinctrl-names = "default";
+>   };
+>   
+> +&rp1_pwm1 {
+> +	pinctrl-0 = <&fan_pwm_default_state>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+>   &rp1_usb0 {
+>   	pinctrl-0 = <&usb_vbus_default_state>;
+>   	pinctrl-names = "default";
+> diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> index 16f5359395835..df4c2d09c8d34 100644
+> --- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> +++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> @@ -99,7 +99,16 @@ rp1_i2c6: i2c@40088000 {
+>   		clocks = <&rp1_clocks RP1_CLK_SYS>;
+>   		i2c-scl-rising-time-ns = <65>;
+>   		i2c-scl-falling-time-ns = <100>;
+> +		status = "disabled";
+> +	};
+>   
+> +	rp1_pwm1: pwm@4009c000 {
+> +		compatible = "raspberrypi,rp1-pwm";
+> +		reg = <0x00 0x4009c000  0x0 0x100>;
+> +		clocks = <&rp1_clocks RP1_CLK_PWM1>;
+> +		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
+> +		assigned-clock-rates = <50000000>;
+> +		#pwm-cells = <3>;
+>   		status = "disabled";
+>   	};
+>   
 
 
