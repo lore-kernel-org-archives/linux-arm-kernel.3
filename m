@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92A8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1746C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WZPy/c3sDMh6FvNOubKwY8eXgDSBJISVtNHbO2gM08=; b=JRIJlXsbzn/IFrCY3sqEdlfLXl
-	mkKCBTfJOmpcBPjeLIsZf7TnQWhRuBtv781GeSV/PmnN9G4QFq9wkUJ81RzFMexw3VtSnvZpDK0Bo
-	FwBeuA4ypZOlwsYlW4rsEAEFhkUq5bHkaAFa5rsqdAzg0E/In2FjaUgGq+sVsXVs9Wz7aYGyqCVxH
-	7GOA8G/sht1JmFt6IR3nwLltqgCbZ8agXU+DWPIu5nOkAv1SBR1JMRfrGV8bDiX0AKmK7cJRhpx71
-	XfoHAPrvOUHzsjWHoGQ1gELFMweKkj43WlBHprWBB7D8hx/7sum4Po5skcVutV2MmHf9Glp5wp7ql
-	3sf2grsQ==;
+	bh=ZlSADl29CmHDkOq9VyOqS+dZQ9n9eCe+aPQc5gMZi0s=; b=dl5n61bCbTQF6R/qRowgMJGJGC
+	MX8VoLn1d3KY6TnQ3tH7jYtLHz9tDKOtQhh0cqOx+Z9VarIs9yLKMXQgVK6dkTiWR/zley4CAEEa7
+	frcJLOTSwUBTXxm7XutJb9SBz4THynw52GKKQ1j8Gi3U4N52iH2H0KQ9f1EPmzLqW47+pGEpYlkNZ
+	YWeGLf5Zc7gbsoYwUjeYpV02QGz1TMK8tylm+7EXsl1D6sV9qUGhr8ovwqXY4ExAoRBfaQL0Fv0lw
+	4mfvBswu91E+EmCMiaoViQrhu06pAf8n0sU0n7WElfaV2f0ptxclzjsSJzaAmIikfA9s2ob4qtuY8
+	V1IrYl9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6ea-0000000F8zD-0RHt;
-	Tue, 07 Jul 2026 14:20:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wh6fb-0000000FA8g-14dB;
+	Tue, 07 Jul 2026 14:21:07 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6eR-0000000F8id-3Di5;
-	Tue, 07 Jul 2026 14:19:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=4WZPy/c3sDMh6FvNOubKwY8eXgDSBJISVtNHbO2gM08=; b=DFPf9TYM1HRIdE37v0k7ANnIRB
-	/VE+Em9qs5TIsXE83GrVKCJ2BaLIHznL+EHbB+/b7jrv/Em6AvokkHIVvuAFahI73QITCOXa/7fBQ
-	YqnzKhtkouqRo8lSdqeqlQU6FlsZt2hYCGHtiNWELp71arDSdibicO4mCDxNn11a8YLH0LHc2CEoZ
-	MxiIcid/fKnnDG++lq3CJVf7+NH6iAA+Ksu+5Mz5h6erU0wCUWJIQqP6SClDgCi5IQOTTKnqmK6Kx
-	xbcpJ9mIcImqH24JsJ33xJK3Hs5hT/fRkhzOq3XXhV0LMUqnSGJSu3qCybnoU/Rt3xiU/pyYb4N7U
-	J4m6DhSg==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wh6eO-00000007XVc-2HRR;
-	Tue, 07 Jul 2026 14:19:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783433990;
-	bh=1mFwOiUnJoBtpdzPigcW8ucCsQx6xBaelg4YAbDZAJw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gAYBUVS5YAHxL44NpBbw6lJESG2MwC+fA1bhwtE4X8RoSiQzZ1kNWUAOXATS7sp9z
-	 ME4SsMDnDv9QWmWnDIw0z9qWhmAGEbHhygDwoMW+5rcInMHS9sOM1cRV5rF2NLS39K
-	 YwAsqMOaLWllP8B8JW60RadNMXDfuDDRpYGBfro4i5rUN3wWJoSEwm+8VIlR9nZfid
-	 XX8hbHDZaWOWfPBduDpCXQWPPZAZA0+0ScrvS/bsnmeUc9tDuSuaUV5sf8Eufwc3yD
-	 b6G3W88qtXEurUpzvGTds6vRttS1mQOLi0VrvBzXJBHX5hBk2pdtCZ54jB6sp0sX3b
-	 tn1pMR2uwkDOA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B3BB17E0076;
-	Tue, 07 Jul 2026 16:19:49 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunfeng.yun@mediatek.com
-Cc: vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH v2 10/12] phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
-Date: Tue,  7 Jul 2026 16:19:29 +0200
-Message-ID: <20260707141931.191172-11-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260707141931.191172-1-angelogioacchino.delregno@collabora.com>
-References: <20260707141931.191172-1-angelogioacchino.delregno@collabora.com>
+	id 1wh6fX-0000000FA21-3pog;
+	Tue, 07 Jul 2026 14:21:05 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1783434059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZlSADl29CmHDkOq9VyOqS+dZQ9n9eCe+aPQc5gMZi0s=;
+	b=vZQi0lCNNZlnGZKclY0uClC5Z6tz5QQa2btJIQBTkh4yOl0ubRnRAaKsyNBac8qG/R807/
+	mA1xXgOlpJHVUJZnsrgtslV4B0TVmpD9r9YEAs2Qqq/AJVux4UUlQ3tGHMT02jnhWzymO6
+	c+J/2knIqiyq/Bz2HcGigas8QoepNl63Yr+t1aedWjExH0uQLcohnfC91DhTIky+jElhmA
+	mws8MSiBs/QWb6AvELNQiWgkfFaWfB+SlIX5Q87xbnbr4aXqoRKBc1KLD02jNAKR4LxtIq
+	wMDj518uimtt1XaXCFaGngCPJG6bjkO7SxmyGGSKxOgTbeOuCsIGmIEtaleDiQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1783434059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZlSADl29CmHDkOq9VyOqS+dZQ9n9eCe+aPQc5gMZi0s=;
+	b=t/CsJ+mElG8oHHjFixitAArwfv1SbKPncHCv9wsvLAynKeuCTMjqVnG77E+yCwsQHmNq1a
+	d/w0atRrpj8xYwDA==
+Date: Tue, 07 Jul 2026 16:20:55 +0200
+Subject: [PATCH v3 2/4] dt-bindings: raspberrypi,bcm2835-firmware: Include
+ 'reboot-mode.yaml'
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260707-rpi-tryboot-v3-2-fda82fe7ed76@linutronix.de>
+References: <20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de>
+In-Reply-To: <20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de>
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>, 
+ Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783434058; l=1239;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=JTGSzF3cwcMgL2GV7Aem6Nhh3tKER7RTd2LK3CeGm58=;
+ b=/C0ZSnDvp8ZjcCZXH2gNPQz3Db4Xhxb9QA193RtWIPcP25P+oQm4V1pFT9JWX1hxKTZwePIyD
+ cpqn0qh5f5yC0FAZNqoyUhgnDbTZZg5zSI4MSzC0VFTXe4kojfUswjX
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_151952_700350_245662C9 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260707_072104_113764_2E295E3A 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,120 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for the eDP PHY found in newer
-SoCs, transfer the bitrate register value definitions to SoC
-specific data.
+The Raspberry Pi firmware allows to set a reboot mode called tryboot
+that allows to try booting from a different partition to allow updating
+of the boot partition. Allow reboot mode properties by referencing the
+reboot-mode schema. The firmware allows a 32bit value to be sent as
+reboot flag so restrict the maxItems to 1.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 ---
- drivers/phy/mediatek/phy-mtk-dp.c | 36 +++++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 9 deletions(-)
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml           | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index 9a800d6b91c3..8ac086360138 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -42,10 +42,6 @@
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec97..28c5713860468 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -133,6 +133,15 @@ properties:
+     required:
+       - compatible
  
- /* DP_PHYD_BIT_RATE */
- #define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
--#  define BIT_RATE_RBR			0
--#  define BIT_RATE_HBR			1
--#  define BIT_RATE_HBR2			2
--#  define BIT_RATE_HBR3			3
- 
- /* DP_PHYD_SW_RST */
- #define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
-@@ -157,6 +153,14 @@ enum mtk_dp_phyd_dig_glb_regidx {
- 	DP_PHYD_GLOBAL_MAX
- };
- 
-+enum mtk_dp_phyd_bit_rate_regval {
-+	DP_PHYD_BIT_RATE_RBR,
-+	DP_PHYD_BIT_RATE_HBR,
-+	DP_PHYD_BIT_RATE_HBR2,
-+	DP_PHYD_BIT_RATE_HBR3,
-+	DP_PHYD_BIT_RATE_MAX,
-+};
++  mode-normal:
++    maxItems: 1
 +
- static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
- 	[DP_PHYA_GLB_BIAS_GEN_0] = 0x0,
- 	[DP_PHYA_GLB_BIAS_GEN_1] = 0x4,
-@@ -183,6 +187,13 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
- 	[DP_PHYD_TX_CTL_0] = 0x44,
- };
- 
-+static const u8 mt8195_phy_dig_bitrate_val[DP_PHYD_BIT_RATE_MAX] = {
-+	[DP_PHYD_BIT_RATE_RBR] = 0,
-+	[DP_PHYD_BIT_RATE_HBR] = 1,
-+	[DP_PHYD_BIT_RATE_HBR2] = 2,
-+	[DP_PHYD_BIT_RATE_HBR3] = 3
-+};
++  mode-tryboot:
++    maxItems: 1
 +
- /**
-  * struct mtk_dp_phya_imp_sel - Per-Lane Impedance Selection
-  * @pmos: Impedance selection for P-Channel MOSFET
-@@ -203,6 +214,7 @@ struct mtk_dp_phya_imp_sel {
-  * @regs_ana_lane:  Register (layout) offsets for ana_lan
-  * @regs_dig_glb:   Register (layout) offsets for dig_glb
-  * @regs_dig_lane:  Register (layout) offsets for dig_lan
-+ * @val_dig_bitrate:IP Version specific register values for Bit Rate setting
-  * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
-  * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
-  * @ana_lanes_imp:  TX Impedance Selection Settings (for all lanes)
-@@ -221,6 +233,9 @@ struct mtk_dp_phy_pdata {
- 	const u8 *regs_dig_glb;
- 	const u8 *regs_dig_lane;
- 
-+	/* IP-Version specific register value arrays */
-+	const u8 *val_dig_bitrate;
++allOf:
++  - $ref: /schemas/power/reset/reboot-mode.yaml#
 +
- 	/* Calibration defaults */
- 	u8 ana_bias_r;
- 	u8 ana_cktx_imp;
-@@ -326,6 +341,7 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 
- 	if (opts->dp.set_rate) {
- 		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
-+		enum mtk_dp_phyd_bit_rate_regval regval_idx;
- 
- 		switch (opts->dp.link_rate) {
- 		default:
-@@ -334,19 +350,20 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 				opts->dp.link_rate);
- 			return -EINVAL;
- 		case 1620:
--			val = BIT_RATE_RBR;
-+			regval_idx = DP_PHYD_BIT_RATE_RBR;
- 			break;
- 		case 2700:
--			val = BIT_RATE_HBR;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR;
- 			break;
- 		case 5400:
--			val = BIT_RATE_HBR2;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR2;
- 			break;
- 		case 8100:
--			val = BIT_RATE_HBR3;
-+			regval_idx = DP_PHYD_BIT_RATE_HBR3;
- 			break;
- 		}
--		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
-+		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate,
-+			     pdata->val_dig_bitrate[regval_idx]);
- 	}
- 
- 	if (opts->dp.set_lanes) {
-@@ -744,6 +761,7 @@ static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
- 	.regs_ana_lane = mt8195_phy_ana_lane_regs,
- 	.regs_dig_glb = mt8195_phy_dig_glb_regs,
- 	.regs_dig_lane = mt8195_phy_dig_lane_regs,
-+	.val_dig_bitrate = mt8195_phy_dig_bitrate_val,
- 	.ana_bias_r = 15,
- 	.ana_cktx_imp = 8,
- 	.ana_lanes_imp = {
+ required:
+   - compatible
+   - mboxes
+
 -- 
-2.54.0
+2.47.3
 
 
