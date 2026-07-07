@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A9CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C21C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XpJw9io3fjRgOtK6zLaiSswWKuLmK0PDRcOfWIbbXcQ=; b=4IoSog5xKkh03IRmUT+jTjx4Oz
-	UMvVK05Z9G+sgWfQOBK+YVIaaqTMD1T9w8PJ+f2/TVwnqGgYU9MT+nIqEaD81TAbL3h3a9ayMPj1g
-	tjt0BytGd8RZgUcxRj2w0Z2upTvL7astYndZznDyjmIQn/tWk31MiqxT8dkpFqOYHjCJSJ5w0eGMU
-	8rmBKj+fLu/8B+eZ6aZId8Vbec+vf5qc5LkJS/F/ht5qbkIu9lVBJrBz8Lp+wTxl1KS8gE+PVU6EJ
-	zp6dJ4fvuA2xx+96svsx51Ok1Q2PJ04zxFeFTHjntD/SiXkiqF3WBWfWNk5bPAoz5h4zMqXyXkO7U
-	C6kC0zaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qS/G2jnbuz6aDr3pHhkWT5dB/EtkmjXHCvwPoXLiFZA=; b=DfFJzWEnb107+OLpdgsvZqint5
+	FGw1sBq0Sw4v+eqgOu45vtmXjrGE2zUZHvJo1MlmxM2AwXNSYF1AOpdX6zrcd1PEFnZiEa/xzzsYs
+	lApH+eBlhnwAww/8dYxvXyrZ4lqTm6j2Rj2nFlJyBpqWSRN7SNS7s71jTHHXpivqMp6jNH8zr5W8W
+	AODv8xKYYCX8u0+WL5PVtz1dcGUFWleC4DXDMmUSA3GW28ZPkDl+O8XN4Tmd3uP0B3/l6cqHm6ZoC
+	GKm5P5cptBren0+yADbVAfpEqyh+c7QpnNq1+ZFXwGAxMLtApwniy9LDLggH7jb6Ay8WlI6mxdgst
+	961igeMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh89a-0000000FPGG-21iJ;
-	Tue, 07 Jul 2026 15:56:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh8Fs-0000000FPrQ-1ncG;
+	Tue, 07 Jul 2026 16:02:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh89U-0000000FPCy-45mZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:56:07 +0000
+	id 1wh8Fr-0000000FPrC-49yo;
+	Tue, 07 Jul 2026 16:02:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D7A5601EB
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 15:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D33561F00ADF
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 15:56:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 672B143215;
+	Tue,  7 Jul 2026 16:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803721F000E9;
+	Tue,  7 Jul 2026 16:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783439763;
-	bh=XpJw9io3fjRgOtK6zLaiSswWKuLmK0PDRcOfWIbbXcQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=oo/rJf0uf6OMgy41BoztRw2fjxk2SuE82lnxffdIEestTRKZDqKTqwPvvxqDcu6nn
-	 BNWNwcUK0TJGGMPej+yLme/eKMYAhFJbH293jMupnNdwJhQ65PKQLLiebaRQcozJ/D
-	 wwWH+FZzSf4VUBxeIhXEfPPQskDp3NmgkcXAGfFxzeHWBbZ+x4JzUCyR2L9HyjI3HT
-	 zyidrUTrKjwXGVRGt+VOtC2XE8XPsKDAS/OA/B5yqrVwYK/peikLEMRtNwfn0chAoa
-	 aNYdljRvMJM5RFYO3cj+b19Rk7YVMOpWd8Qg3TYGDmMI3SlVmkGGTvLT0Zjlrg/A1g
-	 eNFGZ09T8am8A==
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c12758e75afso548374966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 08:56:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rqziq9/O63ccfrtijXJBIjqhhWwLTUFyDGeX+dHyQ5Barqwr9uz+zrVQ2VevWZYU4fuwoc/gX3SRmevCVPRZXhb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJkAm6fpYAozyZKKzd0IkYLyyWLnLEYsj0uNNIkMvdw3QXJ35k
-	qo85liJwhfGo6Sz2dq49vSL0PuFnIBfzU/72VAhlC5YIFzH5iykJBDrX0+gI9QieeAtnw3mgh/Q
-	pxJfCPv9CvQ7YCNVeAYH9RhvxJctvoQ==
-X-Received: by 2002:a17:907:3e28:b0:c12:e178:9e96 with SMTP id
- a640c23a62f3a-c15a6797765mr356272766b.14.1783439762253; Tue, 07 Jul 2026
- 08:56:02 -0700 (PDT)
+	s=k20260515; t=1783440159;
+	bh=qS/G2jnbuz6aDr3pHhkWT5dB/EtkmjXHCvwPoXLiFZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eG3WVHPPhvwUbO4WsW0YMnKc/lqQF/VHbOm5mgnU3GfuIPW6CppfW7CsmpuXWDbie
+	 jmdC1TC0XkIDGAQNgV13b1DxYmtvOoBUY412GbEJ/W34Na1mii5JMHXzF91tRtcIc2
+	 zoChLBqsCtsAlCLB0YwdBgvKpCjPtsLog/NOP/7E0BuSuUdTC7DLOgDh6v+g04pcif
+	 mO0AwmcEC27eypILST4D5b5guaqkwUdb2vzujbrN28Xc352VjDZu4I8zrQfRJQ5+pa
+	 4DIsXalQHHPXk/q3TcpoLZBObOB9HNQGTKoPwHk/xmkYw2BDvZiBhHV16j6XhmDuUj
+	 IsljfQRFRYnBw==
+Date: Tue, 7 Jul 2026 17:02:35 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Pufan Jin <2254650260@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4
+ board
+Message-ID: <20260707-extinct-hedging-ed99e6ad296d@spud>
+References: <20260705135014.1004166-1-2254650260@qq.com>
+ <tencent_B1442A024A02EFD704ECC0F098F663588209@qq.com>
+ <20260705-palatable-hardening-48f73a84244c@spud>
+ <20260705-matriarch-epic-37add5cb97b8@spud>
+ <tencent_3C137FCC795067C558C9C8BD86C03C180006@qq.com>
 MIME-Version: 1.0
-References: <cover.1780499520.git.michal.simek@amd.com> <23d848e29176706548612c4a0751481d46176f11.1780499520.git.michal.simek@amd.com>
-In-Reply-To: <23d848e29176706548612c4a0751481d46176f11.1780499520.git.michal.simek@amd.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 7 Jul 2026 10:55:50 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLWwcRjzQs4DHV265w-ROzeW_OPVS0uP0Ew8p+-dYu+EA@mail.gmail.com>
-X-Gm-Features: AVVi8CeWMVmr9b-fYHQTlYbUaXSASdllAjeebeVjmBQkRgnkHGGocV2Uv5Xxhd0
-Message-ID: <CAL_JsqLWwcRjzQs4DHV265w-ROzeW_OPVS0uP0Ew8p+-dYu+EA@mail.gmail.com>
-Subject: Re: [PATCH v3 3/5] dt-bindings: clock: Move xlnx,zynqmp-clk to its
- own schema
-To: Michal Simek <michal.simek@amd.com>
-Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, kishore Manne <nava.kishore.manne@amd.com>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lk3aXiOGRUZx46ct"
+Content-Disposition: inline
+In-Reply-To: <tencent_3C137FCC795067C558C9C8BD86C03C180006@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +77,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 3, 2026 at 10:12=E2=80=AFAM Michal Simek <michal.simek@amd.com>=
- wrote:
->
-> The ZynqMP clock controller binding shares only #clock-cells with the
-> Versal bindings. Move it to a dedicated xlnx,zynqmp-clk.yaml schema.
-> Also remove "(Optional clock)" from clock description because it is visib=
-le
-> from schema itself.
->
-> Suggested-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Michal Simek <michal.simek@amd.com>
-> ---
->
-> Changes in v3:
-> - Cover change in zynqmp-firmware.yaml
-> - Move clock-cells to be the last in the example
-> - Remove comment around (Optional clock) which is obvious from schema
->   itself
->
-> Changes in v2:
-> - New patch in series
-> - Split zynqmp-clk from versal-clk
->
->  .../bindings/clock/xlnx,versal-clk.yaml       | 50 +-------------
->  .../bindings/clock/xlnx,zynqmp-clk.yaml       | 68 +++++++++++++++++++
->  .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  7 +-
->  3 files changed, 76 insertions(+), 49 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-c=
-lk.yaml
+--lk3aXiOGRUZx46ct
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is now causing warnings in linux-next:
+On Tue, Jul 07, 2026 at 05:24:28AM +0800, Pufan Jin wrote:
+> On Sun, Jul 05, 2026 at 03:38:00PM +0100, Conor Dooley wrote:
+> > On Sun, Jul 05, 2026 at 03:37:00PM +0100, Conor Dooley wrote:
+> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > > pw-bot: not-applicable
+> >
+> > Actually no, I just noticed you're not using your real name/a known
+> > identity. un-acked until you sort that out.
+>=20
+> Apologies for the confusion. My real name is Jin Pufan.
+> In v2 I will change the author identity to:
+>=20
+>     From: Pufan Jin <2254650260@qq.com>
+>     Signed-off-by: Pufan Jin <2254650260@qq.com>
+>=20
+> (family name Jin, given name Pufan; using given-name-first Latin
+> order as is customary on the list.) The Copyright line in the
 
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,ve=
-rsal-clk.example.dtb:
-zynqmp-firmware (xlnx,zynqmp-firmware):
-clock-controller:clock-names:0: 'pss_ref_clk' was expected
-        from schema $id:
-http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,ve=
-rsal-clk.example.dtb:
-zynqmp-firmware (xlnx,zynqmp-firmware):
-clock-controller:clock-names:1: 'video_clk' was expected
-        from schema $id:
-http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,ve=
-rsal-clk.example.dtb:
-zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:clock-names:
-['ref', 'pl_alt_ref'] is too short
-        from schema $id:
-http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,ve=
-rsal-clk.example.dtb:
-zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:clocks:
-[[4294967295], [4294967295]] is too short
-        from schema $id:
-http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,ve=
-rsal-clk.example.dtb:
-zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:compatible:0:
-'xlnx,zynqmp-clk' was expected
-        from schema $id:
-http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> DTS will be updated to match.
+>=20
+> Thanks for the review, and sorry for the noise.
+
+No worries, you can retain my ack with these changes.
+
+Thanks,
+Conor.
+
+--lk3aXiOGRUZx46ct
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCak0jGwAKCRB4tDGHoIJi
+0g/LAP4kuu9HfHTz4b2qBWOQcAxJHN0H8xq6/CHpk20mHbQfSAD+Kz5WgR2WyhuA
+Gx1j08VZtnRmq5XiFsTHznuzkRH4ewo=
+=ZnFp
+-----END PGP SIGNATURE-----
+
+--lk3aXiOGRUZx46ct--
 
