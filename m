@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83501C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3060C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARJtStOd24SeMWn03WDpYKksjNNKhxE1nVOumgSWP60=; b=p/N8z+LbIAE7XL4iRI5CUFvPA8
-	FWqiaxhabsANL3nilocKgBCABwzRT1JZ+7BD05y9GOPAJV57pysOfO8NebAEQeiZww3NAGe8r6RLZ
-	lPGGqzu/cYFpDwH8l3gT4LTeL/gJ0gMaHXJyqPNHOxdXxsyATIJ1ZvBt1KureZ59yGzuA5LJHKn39
-	2MLP4h23RWeumcxWpBRPHSupvONOLwa9bVUmhpoJ16OZR0K7/VFGTTz2GPmUJFawo/vcPtGcjAJyL
-	Lmgu+w5WskZ2cY+qztvl9NK7+kCuC03kqZTGp5D/C8ibHGKkdMNBRMepfkb1v/DHdROIm3g8lvRjO
-	wYz+0avg==;
+	bh=HxqEWZp1qs8ndMuXkIPLb77vUFNki4MesCWvabNqrRw=; b=te0u1Hl7y0GmVKZlSRPq+VS05t
+	SjXFXxM53OIkmI8taABSBFBolL8n5viHyyzWuHht2PauHqQF15F0aTXipv5y+w3i2hILlEVxl2YVG
+	FplbQtXp0svGOS63ccnjY6W+b7pkmezA+wIZMHK2P6WTXbIjO/zjwAKzai0aqu4hDfuT4I+l7EdNd
+	DIyYkjsRt6Wv5GsWv9Kn/4x8OwGkkm37KXCjj5VVo3ygjQHaW0baVXRYpNOCIp2FRtRuUKtVj8wx0
+	nFx8NHag20Zef/Mre/aBrX6Vh4K3eXJbzcwPD5cw1QLgPs+vlE2IhDtyZzC4Hzyb92I8ptHHwRhqD
+	Q+Fpu+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1aa-0000000EY15-1L4A;
-	Tue, 07 Jul 2026 08:55:36 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wh1ax-0000000EY7c-1QOp;
+	Tue, 07 Jul 2026 08:55:59 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1aW-0000000EY05-3o2w
+	id 1wh1av-0000000EY6Q-0iuc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:55:34 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 70BDFC8F1E8;
-	Tue,  7 Jul 2026 08:55:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 01A19601A3;
-	Tue,  7 Jul 2026 08:55:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0C9BA11BC10CC;
-	Tue,  7 Jul 2026 10:55:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783414526; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ARJtStOd24SeMWn03WDpYKksjNNKhxE1nVOumgSWP60=;
-	b=b/VO1cmq/Czd+9zsONRk1F/8fNp1QhwKz8ivy0AO00vPAXxiD76Bc/4MxdJT/ex0s+1aLF
-	cVUHDrc08l23sld4CMhIhm2y4E4gkkFKPoTKJbDbt3Z8m/K3iw6DJSg7GkqvQT2Htq4gz6
-	xPgBrCDeDlCJX/Ym+qSs315h42bTU2V03cK3G6fljAuBJeEaHm9NRll9Dkov2z4l9wO6Bw
-	TSSGBtocNor6F1+COt/mMABpv3e4ku3NJWSOeMoSoDvwM4FazT/fxWTA/txj6Q4tX9cGMl
-	ZPQGtcNr3alezZ+mPXtZaorON0rtaB3igCSBjXLGiAj9K+FZ3At2aAMNEhf4Rw==
-Message-ID: <f416b487-5bac-4391-aead-61fd4d2f16ae@bootlin.com>
-Date: Tue, 7 Jul 2026 10:55:17 +0200
+	Tue, 07 Jul 2026 08:55:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=HxqEWZp1qs8ndMuXkIPLb77vUFNki4MesCWvabNqrRw=; b=KTHutmk6OI9gPbLyrJ+/KgMksH
+	ZjC7y5H/kUrSdpuRTUrSL2fgQ5Bm+4BoH7VB6HbsKDNI7gQBHPItXcn+QtQV4tXi3GbJtb8AgT6Hm
+	I4dgVQYqPWZ7EuYz4M+C5GVX2iszeZU90zPERRRoOvDY3E5SV0cBLoBhwwBB1i9zgh5RZ7EC8dnWW
+	GwuPorcjm+yi09qAhoCJ44wFDf3u4W+6949BhQSJ6OQx1WRy7sRgIjreCHISY/3YX3Vp3ycdLYnRq
+	uLJ2qjs9+p0woj93L7cVoHPsWGdyly1c6KVi1CpE0f7deUsTW5lK2LiEw5T93PYxp/b/IDoiwpU0a
+	ef8JufbQ==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1as-000Gjs-2w;
+	Tue, 07 Jul 2026 10:55:55 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1as-0007hK-0C;
+	Tue, 07 Jul 2026 10:55:54 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/2] arm64: dts: imx91-tqma9131-mba91xxca: USB phy adjustments
+Date: Tue,  7 Jul 2026 10:55:42 +0200
+Message-ID: <20260707085551.1683462-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
+References: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/6] net: stmmac: mediatek: add PERI_ETH_CTRLx
- register offset in platform data
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: rmk+kernel@armlinux.org.uk, kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
- <20260707-dwmac-mediatek-mt8189-v1-2-17f345eaaca3@collabora.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-2-17f345eaaca3@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_015533_105850_5E070B49 
-X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-CacheID: sfid-20260707_015557_322909_41DCB79B 
+X-CRM114-Status: UNSURE (   8.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,18 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
-On 7/7/26 10:21, Louis-Alexis Eyraud wrote:
-> In preparation of newer SoC support, that use like MT8195 the Ethernet
-> control registers from the peripheral configuration syscon but at a
-> different base offset, add a new base offset in the variant platform
-> data to access the PERI_ETH_CTRLx registers and use it in implemented
-> methods.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Add samsung,picophy-pre-emp-curr-control and
+samsung,picophy-dc-vol-level-adjust using the same values as other
+TQ-Systems GmbH mainboards.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Maxime
+diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts b/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
+index 5c430e6fca651..60d11a4573e3f 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
+@@ -518,6 +518,8 @@ &usbotg1 {
+ 	adp-disable;
+ 	usb-role-switch;
+ 	disable-over-current;
++	samsung,picophy-pre-emp-curr-control = <3>;
++	samsung,picophy-dc-vol-level-adjust = <7>;
+ 	status = "okay";
+ 
+ 	port {
+@@ -532,6 +534,8 @@ &usbotg2 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 	disable-over-current;
++	samsung,picophy-pre-emp-curr-control = <3>;
++	samsung,picophy-dc-vol-level-adjust = <7>;
+ 	status = "okay";
+ 
+ 	hub_2_0: hub@1 {
+-- 
+2.54.0
+
 
