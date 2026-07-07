@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A119FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C66C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SI4VI2nFCydVadLvdcGF/Adx5vSP/Wj8ppvly4Q/Dkc=; b=rFHvuluQ94bKA/jtNKhaihO+i8
-	VSNzFF4PmYD64xN3FcVSX3EJyVgUM6nq+8f2fuPn8rqTKptHTNs5LIDl5B+mYDthxA0NfrrMix6yU
-	iRLxzwbWWGXnr9bm3VYEpZtGSmPmnMJ/cU2ZrHnATOJknuRajdMHpw46d4xAcF6LMNCUNyjY2sDot
-	sqNz0oXmX8Xu5EIJdzH/87H/x2LQ/SDNtZAVfoaxSElSh28VEjYy6Czp83GVQaXCbd5Rz76h8K3cA
-	GTTxcXWSCJ3qbLijAGlD3tzE9X0xyAJMmb5R1w7flqELPM3ArD60WhS34VoI5WvyqmuALoTidqdPa
-	umg1TKew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9XS4mAa/niw4o7KN4TnJnnoOPlMOHQQ8KOFpEX1oM8=; b=zMKWZLXe8h7o6OXEz4iW3g10aA
+	4H/zGYdfgRwi9BdaHst6UILvrLXfgJ3s0YxM24DKLUphcE3vT2SDXAgc2RlhhLUqyY6/9dg/HR3LT
+	wZb0gmEETvUdwGEg3alMwi5FAUKM2qqnMLdUY7OwoZ7VZj2E9NYSd0gbODD2pWgq7i8tZ0IOin86l
+	hbKVMcfJAMY6YtE+k9IsvIeq4sJ/xIald5lvAmyHwJODsAJ1RGI728WkN3M2HwNkVwcPIIgYi2iLh
+	jJIhJguBtpAnyoOZZr7l7wDPBpicpBt1yk5RlH6vx+DIGbFO1HJ0s3knqYSldPqROC0oM04rUhQMY
+	3OcTCbFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3yp-0000000EqrK-49Rp;
-	Tue, 07 Jul 2026 11:28:47 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wh41v-0000000ErCx-0zmh;
+	Tue, 07 Jul 2026 11:31:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3yl-0000000EqqP-031H
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 11:28:46 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260707112836euoutp020248fdcca3b5ee59780df6c3b944c589~--mvniiJD3186231862euoutp02k
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 11:28:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260707112836euoutp020248fdcca3b5ee59780df6c3b944c589~--mvniiJD3186231862euoutp02k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783423716;
-	bh=SI4VI2nFCydVadLvdcGF/Adx5vSP/Wj8ppvly4Q/Dkc=;
-	h=Date:Subject:To:From:In-Reply-To:References:From;
-	b=FYg9tdXDCiYsUYTcfdO64yjzMun/T5O+Gc2slzu1eaZKMDXBS5txKjlTyi8ge5Y1O
-	 2snm0m6gvIzfaWsDgB3dIYIjuhZSRAQfKynqKPQREydTXgEa0cYTmAx3Y+am1ICJaY
-	 cXzKa9H0uWOQTOeiErlaaY8AKDDk50oEkc+TxkSU=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260707112836eucas1p10e18d4e73e9e5889a73201689a3d52f9~--mvdo1s72362623626eucas1p1q;
-	Tue,  7 Jul 2026 11:28:36 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260707112836eusmtip13d37f5d6a81cd18a61826e901afffc46~--mu4JGGg2687226872eusmtip1K;
-	Tue,  7 Jul 2026 11:28:35 +0000 (GMT)
-Message-ID: <202b7298-c912-4315-847a-d3380659a438@samsung.com>
-Date: Tue, 7 Jul 2026 13:28:35 +0200
+	id 1wh41u-0000000ErCo-1Ocz;
+	Tue, 07 Jul 2026 11:31:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AEC466001D;
+	Tue,  7 Jul 2026 11:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62E081F000E9;
+	Tue,  7 Jul 2026 11:31:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783423917;
+	bh=o9XS4mAa/niw4o7KN4TnJnnoOPlMOHQQ8KOFpEX1oM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K9KmMl0+fowRhICuH9f1klH3DRqo2WG1LCQm2wDFDclswIvrGqYtrfJHDBFS9dFX/
+	 eZ+6mnlhIlro86j4VSf70oBCTcAkKfUuuZR6ptmxtWKHHuloAwtbHX0BtSlWoYrBNb
+	 MbmPUTpPefM9q/bXeGgFF2Lx0rHftbythW58UqjVmQ0g5QZRT6+yzYW0/3JCHKZcxa
+	 RCh2qlHaXt1FNyQelGzAtt+jSMYKYaqfSgzI75lV23R7vHHOPKUZB85ivamk3+A6gN
+	 86TQdJY7taIPDmzwj8QIsBHBesJ684crGpyh6KbioevtN5WSRJJi/87oCHnZvBpkoL
+	 Hekh74+MT4lDQ==
+Date: Tue, 7 Jul 2026 13:31:53 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 10/39] drm/display: hdmi-state-helper: Sync SCDC state
+ on hotplug
+Message-ID: <20260707-unique-carmine-cheetah-af2cb8@penduick>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-10-d79890d00b6a@collabora.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] ARM: dma-mapping: Fix wrong free function in
- __iommu_alloc_simple() error path
-To: lirongqing <lirongqing@baidu.com>, Russell King <linux@armlinux.org.uk>,
-	Leon Romanovsky <leon@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>, Jason Gunthorpe <jgg@ziepe.ca>, Kees
-	Cook <kees@kernel.org>, Douglas Anderson <dianders@chromium.org>, Gregory
-	CLEMENT <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260626101151.2185-1-lirongqing@baidu.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260707112836eucas1p10e18d4e73e9e5889a73201689a3d52f9
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260626101218eucas1p1d36ebd988fbfe3812f588bbd753f4caf
-X-EPHeader: CA
-X-CMS-RootMailID: 20260626101218eucas1p1d36ebd988fbfe3812f588bbd753f4caf
-References: <CGME20260626101218eucas1p1d36ebd988fbfe3812f588bbd753f4caf@eucas1p1.samsung.com>
-	<20260626101151.2185-1-lirongqing@baidu.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_042844_458113_7CEA3907 
-X-CRM114-Status: GOOD (  20.97  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ckuhjwyyqe3iie6h"
+Content-Disposition: inline
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-10-d79890d00b6a@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +80,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.06.2026 12:11, lirongqing wrote:
-> From: Li RongQing <lirongqing@baidu.com>
->
-> In __iommu_alloc_simple(), when IOMMU mapping creation fails, the error
-> path unconditionally called __free_from_pool() regardless of the
-> allocation path taken.
->
-> For the COHERENT case, memory is allocated via __alloc_simple_buffer(),
-> which does not use the atomic pool. Calling __free_from_pool() on such
-> memory silently returns without freeing, causing a page memory leak.
->
-> Fix this by matching the free function to the allocation path:
-> - COHERENT: use __dma_free_buffer(virt_to_page(addr), size)
-> - non-COHERENT: use __free_from_pool(addr, size)
->
-> Fixes: 565068221b905 ("ARM: 8561/4: dma-mapping: Fix the coherent case when iommu is used")
-> Signed-off-by: Li RongQing <lirongqing@baidu.com>
 
-Reviewed-by: Marek Szyprowski <m.szyprowski@samsung.com>
+--ckuhjwyyqe3iie6h
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 10/39] drm/display: hdmi-state-helper: Sync SCDC state
+ on hotplug
+MIME-Version: 1.0
 
-Please upload Your patch to https://www.arm.linux.org.uk/developer/patches/
+Hi,
+
+On Thu, Jul 02, 2026 at 05:46:23PM +0300, Cristian Ciocaltea wrote:
+> drm_atomic_helper_connector_hdmi_hotplug() does not currently
+> synchronize SCDC status on hotplug events, leaving the scrambler state
+> potentially inconsistent after (re)connect.
+>=20
+> Hook drm_connector_hdmi_sync_scdc() into both the connect and disconnect
+> paths, replacing the existing TODOs around missing scrambler handling.
+>=20
+> SCDC synchronization may require a CRTC reset, which in turn needs a
+> modeset acquire context for correct locking.  Therefore, extend
+> drm_atomic_helper_connector_hdmi_hotplug() and
+> drm_atomic_helper_connector_hdmi_update() to take a
+> drm_modeset_acquire_ctx argument.  Additionally, change their return
+> type from void to int, allowing propagation of errors, such as -EDEADLK
+> from lock contention.
+>=20
+> Update existing callers to pass NULL for the acquire context, preserving
+> current behavior.
+
+You should have two patches here: one to change the prototype of the
+helpers, and one to add the call to drm_connector_hdmi_sync_scdc
 
 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  arch/arm/mm/dma-mapping.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-> index f9bc53b..55d3d3b 100644
-> --- a/arch/arm/mm/dma-mapping.c
-> +++ b/arch/arm/mm/dma-mapping.c
-> @@ -1056,7 +1056,10 @@ static void *__iommu_alloc_simple(struct device *dev, size_t size, gfp_t gfp,
->  	return addr;
->  
->  err_mapping:
-> -	__free_from_pool(addr, size);
-> +	if (coherent_flag == COHERENT)
-> +		__dma_free_buffer(virt_to_page(addr), size);
-> +	else
-> +		__free_from_pool(addr, size);
->  	return NULL;
+>  drivers/gpu/drm/display/drm_bridge_connector.c  |  3 ++-
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++++--=
+------
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                  |  2 +-
+>  include/drm/display/drm_hdmi_state_helper.h     |  6 ++++--
+>  4 files changed, 26 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu=
+/drm/display/drm_bridge_connector.c
+> index 796069dbf1a1..46104506fe32 100644
+> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> @@ -221,7 +221,8 @@ drm_bridge_connector_detect(struct drm_connector *con=
+nector, bool force)
+>  		status =3D detect->funcs->detect(detect, connector);
+> =20
+>  		if (hdmi)
+> -			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
+> +			drm_atomic_helper_connector_hdmi_hotplug(connector, status,
+> +								 NULL);
+> =20
+>  		drm_bridge_connector_hpd_notify(connector, status);
+>  	} else {
+
+We should move this one to detect_ctx to get the ctx passed and avoid
+passing NULL here.
+
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index db76699093e8..69ccfbf123fe 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -1198,18 +1198,20 @@ drm_atomic_helper_connector_hdmi_clear_audio_info=
+frame(struct drm_connector *con
 >  }
->  
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
+> =20
+> -static void
+> +static int
+>  drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
+> -					enum drm_connector_status status)
+> +					enum drm_connector_status status,
+> +					struct drm_modeset_acquire_ctx *ctx)
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+detect_ctx has the context first, I think we should use that convention
+here too.
 
+>  {
+>  	const struct drm_edid *drm_edid;
+> +	int ret =3D 0;
+> =20
+>  	if (status =3D=3D connector_status_disconnected) {
+> -		// TODO: also handle scramber, HDMI sink disconnected.
+> +		ret =3D drm_connector_hdmi_sync_scdc(connector, false, ctx);
+>  		drm_connector_hdmi_audio_plugged_notify(connector, false);
+>  		drm_edid_connector_update(connector, NULL);
+>  		drm_connector_cec_phys_addr_invalidate(connector);
+> -		return;
+> +		return ret;
+>  	}
+> =20
+>  	if (connector->hdmi.funcs->read_edid)
+> @@ -1222,24 +1224,32 @@ drm_atomic_helper_connector_hdmi_update(struct dr=
+m_connector *connector,
+>  	drm_edid_free(drm_edid);
+> =20
+>  	if (status =3D=3D connector_status_connected) {
+> -		// TODO: also handle scramber, HDMI sink is now connected.
+> +		ret =3D drm_connector_hdmi_sync_scdc(connector, true, ctx);
+>  		drm_connector_hdmi_audio_plugged_notify(connector, true);
+>  		drm_connector_cec_phys_addr_set(connector);
+>  	}
+> +
+> +	return ret;
+>  }
+> =20
+>  /**
+>   * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event f=
+or the HDMI connector
+>   * @connector: A pointer to the HDMI connector
+>   * @status: Connection status
+> + * @ctx: Lock acquisition context to be used for resetting CRTC
+>   *
+>   * This function should be called as a part of the .detect() / .detect_c=
+tx()
+>   * callbacks for all status changes.
+> + *
+> + * Returns:
+> + * Zero on success, error code on failure.
+> + * If @ctx is set, it might also return -EDEADLK.
+>   */
+> -void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *conn=
+ector,
+> -					      enum drm_connector_status status)
+> +int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *conne=
+ctor,
+> +					     enum drm_connector_status status,
+> +					     struct drm_modeset_acquire_ctx *ctx)
+>  {
+> -	drm_atomic_helper_connector_hdmi_update(connector, status);
+> +	return drm_atomic_helper_connector_hdmi_update(connector, status, ctx);
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
+> =20
+> @@ -1254,6 +1264,6 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotp=
+lug);
+>   */
+>  void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connec=
+tor)
+>  {
+> -	drm_atomic_helper_connector_hdmi_update(connector, connector->status);
+> +	drm_atomic_helper_connector_hdmi_update(connector, connector->status, N=
+ULL);
+>  }
+
+We should create a new context here.
+
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
+> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
+i.c
+> index 74dce4be0c00..e165f604939b 100644
+> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> @@ -375,7 +375,7 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *=
+vc4_hdmi,
+>  	 * the lock for now.
+>  	 */
+> =20
+> -	drm_atomic_helper_connector_hdmi_hotplug(connector, status);
+> +	drm_atomic_helper_connector_hdmi_hotplug(connector, status, NULL);
+
+vc4_hdmi_handle_hotplug has the context passed as an argument, we should re=
+use it.
+
+Maxime
+
+--ckuhjwyyqe3iie6h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCakzjqAAKCRAnX84Zoj2+
+dt55AX9pNPl78Oml4GB8/KEiBCBKf+dju6sv4h4a8ejL8Fa9TaHpVvQr63GeUCxd
+ovHkevUBgKCOZN2jEIYht0Z9sQMQ+tsG0ssT7n8+RS3LnMYbgxSw/m3XoQSMxRMW
+ZGrm8k9+zA==
+=cdCW
+-----END PGP SIGNATURE-----
+
+--ckuhjwyyqe3iie6h--
 
