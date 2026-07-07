@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9251FC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BD5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBeM8FpMwD3pKufhetzZqJBiCZzgpSkF0FmvSwNMHYc=; b=uw+qCB3FqoAodm7K56cgkBETBs
-	B4eC5jnb0VOVr3piyJbZiLhjgBfcvnjpSaQHbKn+Zynv8zSIn4ywjI0b4ZhbLEgGhoagh5z0+heqk
-	eHvNivjNjsQVAKgFsR/ooLBNq4gExvoJDTxuOSR8kngQoSDOwO9F5K1t1cwgPu3C86jd1ymxZN/3l
-	BEffoyZtvWF/ZUnSFLsUPGZhWVAWCmW1Icw157PQGXk1mHZr1AaK3/O0dXUqdCyh0AQ4gz0XcWTaq
-	HAHYqnA65OJHKX3IAUsXPRQfCPN980sXcGB1fmobYJgFFW46IGqXjSGi9nwh3zehcpj6WRqZjMJC8
-	8M7+ZuiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CgP6QzojXuhorGTTVI3oGYKXbGMz65IyNf+nLyAv+Xk=; b=jVR5va344AyimzeoXThK+GNVPJ
+	LCiIfaAs98x3ZmHbAf57PgYO/d/Tx/GN5nOE+yV5AmvzmQZs39aYc0RcD2XKaV7olzLaEuV0PYHQs
+	Y59u+VdsIKW580fdCiPUkidXtW24EQryNDvlLfPGwruJ91MCTdJPMmUtGfD9kmLYxO40lystYBZt3
+	1798o1qRsRmgwBW6PuTXi6m9MhMjutZHAQW4887YlB3/WGownF+Ds6TrCQHTZqKqX5v8q9Kf2Uo0J
+	fkeO7folFOLCvILrPvR4gmvJLQW1YGpVX3Vzydv4Jx+BM8gBJMPlhsiJ52Hq1ub7Z0qeIkdokaWYi
+	dU+oPdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1k1-0000000EZKg-3riA;
-	Tue, 07 Jul 2026 09:05:21 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wh1kB-0000000EZNr-20Ib;
+	Tue, 07 Jul 2026 09:05:31 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1jz-0000000EZJl-2Myl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:05:21 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 85BBE1A0EB6;
-	Tue,  7 Jul 2026 09:05:16 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5580B601A3;
-	Tue,  7 Jul 2026 09:05:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 097F311BC1136;
-	Tue,  7 Jul 2026 11:05:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783415115; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=XBeM8FpMwD3pKufhetzZqJBiCZzgpSkF0FmvSwNMHYc=;
-	b=tfJBErtWIOOK6XwhgohMEmN6kP0kMYICUQVd/LcoQiS2XsF6PT9MIlZe+fH08AFMP3i5Hb
-	HkSRb9JyRhXNE3zc4IlsOwTTjOBEOn6bo8r8kegmQFvdCLmJfZ+pJG0XYnvEb4DXbnlhri
-	v9dBaC7ZkZ6unqYXJyzg3YJChvJOncjmIL6W4ZH0QbyP0DKP2FsUCJZNTvhICHUVBERXzO
-	ovYKlGAffZyHWCoesT6uDt2C3+aMAJ88JKnaJ07HBoOfT/V9FSpuoAt5zq9x6Qrx9BKfOW
-	00ivLLF45LxeApvxGmxgmes9ymYMN6XiCqyOZ7TvOG3+Mazs69pHFSJKeIt49Q==
-Message-ID: <5dbd217b-8df5-42cd-9197-36e0fb91ffe7@bootlin.com>
-Date: Tue, 7 Jul 2026 11:05:07 +0200
+	id 1wh1k6-0000000EZLq-12Qn;
+	Tue, 07 Jul 2026 09:05:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783415127; x=1814951127;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=gKXaUE1a/lj7ODJJG8Iu0vM/NcsyBp3SmPPenh/MKEY=;
+  b=ag5tTmzlVUNjQoBbX/5rmyhyvQUx0hO3eYu6czOtIHt/he9OUpegrTxq
+   nK39gE24rG3fr5CMfZD4pb1pFRKVTUtiY4+WIMz5Xa9UQ10psSuNLuSp2
+   zazyl/UXioo0Jkeno6psEfHWSjcVSzKhe1nYrzqEOSGl9j72WpYqMvX7Y
+   9ZUvppCcIc6i9LDuLT+6ZIWja98RjwysEj8dZUa3AgkN6iKWXRrFAhlsw
+   2juHliqMaZ/aYJUP3JNJjup7IFiM7dW/guQZGIyLvqTfkt4PBYmqS501I
+   Hcxa2Yaa5hW9rnBLoKDgEtq0GHA55ElJs/MZnPthdqT2wveNr4SQoIR5a
+   Q==;
+X-CSE-ConnectionGUID: g+Cr16sYTly1faBmiQI0/A==
+X-CSE-MsgGUID: QCOsN1ATRA2JtwzfNLQ6nQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11839"; a="95211612"
+X-IronPort-AV: E=Sophos;i="6.25,153,1779174000"; 
+   d="scan'208";a="95211612"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jul 2026 02:05:26 -0700
+X-CSE-ConnectionGUID: IE34WxJFSwa0yBGRxtVjhw==
+X-CSE-MsgGUID: 5Hee06dDRh+ykBUiAm1gtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,153,1779174000"; 
+   d="scan'208";a="251274968"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.178])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jul 2026 02:05:20 -0700
+Date: Tue, 7 Jul 2026 12:05:18 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v3 06/13] usb: hub: Pass |struct usb_port*| to
+ usb_port_is_power_on()
+Message-ID: <akzBTumMCGFU-zAJ@ashevche-desk.local>
+References: <20260703110317.1283411-1-wenst@chromium.org>
+ <20260703110317.1283411-7-wenst@chromium.org>
+ <ake09vk4fEv1D9QC@ashevche-desk.local>
+ <CAGXv+5GNucSXrhL=YxarSJHD2ezzYDK3EovFu-zy012KgZ+ZBg@mail.gmail.com>
+ <ake6FNy83LLtCs3b@ashevche-desk.local>
+ <CAGXv+5EgpizA3Pc8ScNuChPhvFKWd5F6dxB-wT4-7EwabE-9dQ@mail.gmail.com>
+ <akvRMcGnUPxE3sxR@ashevche-desk.local>
+ <CAGXv+5EqsDbzTg9eDMGK3Ph6Pe3_uDoSrjVL4q23cy6jZCk2tw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/6] net: stmmac: mediatek: rename MT2712 and
- MT8195 variant methods
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: rmk+kernel@armlinux.org.uk, kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
- <20260707-dwmac-mediatek-mt8189-v1-3-17f345eaaca3@collabora.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-3-17f345eaaca3@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5EqsDbzTg9eDMGK3Ph6Pe3_uDoSrjVL4q23cy6jZCk2tw@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_020519_737951_ACAA0D9E 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260707_020527_008377_53A8371B 
+X-CRM114-Status: GOOD (  38.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +109,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 07, 2026 at 12:29:05PM +0800, Chen-Yu Tsai wrote:
+> On Tue, Jul 7, 2026 at 12:01 AM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Mon, Jul 06, 2026 at 07:08:07PM +0800, Chen-Yu Tsai wrote:
+> > > On Fri, Jul 3, 2026 at 9:33 PM Andy Shevchenko
+> > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > On Fri, Jul 03, 2026 at 09:17:16PM +0800, Chen-Yu Tsai wrote:
+> > > > > On Fri, Jul 3, 2026 at 9:11 PM Andy Shevchenko
+> > > > > <andriy.shevchenko@linux.intel.com> wrote:
+> > > > > > On Fri, Jul 03, 2026 at 07:03:07PM +0800, Chen-Yu Tsai wrote:
 
+...
 
-On 7/7/26 10:21, Louis-Alexis Eyraud wrote:
-> In preparation of newer SoC support, rename MT2712 and MT8195 variant
-> methods and sub functions to more generic names.
+> > > > > > At a brief look this will be the only function that takes usb_port
+> > > > > > instead of usb_hub in the entire hub.h (I don't count container_of()
+> > > > > > as a function). With that being said I would rather see it to be moved
+> > > > > > to port.c altogether (yes, it's more invasive change, but looks more
+> > > > > > consistent).  I would even dare to move struct usb_port (and container_of()
+> > > > > > accompanied with that) and this function to port.h. This might require
+> > > > > > a separate patch, though.
+> > > > >
+> > > > > I agree with the reasoning, especially given the function name. However
+> > > > > I wonder if it would cause problems given the linking order. I'll give
+> > > > > it a try nevertheless and report back.
+> > > >
+> > > > Thanks!
+> > > >
+> > > > In case it won't fly (but I still think it's better to split), can you at least
+> > > > group usb_port APIs and struct? Means moving the proto closer to that struct
+> > > > usb_port followed by container_of().
+> > >
+> > > Looks like it works out fine. port.o is linked in after hub.o, so moving
+> > > the function from the latter to the former doesn't cause issues. One might
+> > > even say that it is the correct thing to do.
+> >
+> > That's what I say! :-)
+> >
+> > > > > > Perhaps something like: 1) "move struct usb_port and associated APIs to port.h";
+> > > > > > 2) "...this patch...".
+> > >
+> > > There are still some left in hub.c:
+> > >
+> > > static void usb_lock_port(struct usb_port *port_dev)
+> > > static void usb_unlock_port(struct usb_port *port_dev)
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 32 +++++++++++-----------
->  1 file changed, 16 insertions(+), 16 deletions(-)
+> These are only used internally in hub.c as a wrapper for the port mutex.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 0cabab4fd89a..28e87990b0a1 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -110,7 +110,7 @@ static const char * const mt8195_dwmac_clk_l[] = {
->  	"axi", "apb", "mac_cg", "mac_main", "ptp_ref"
->  };
->  
-> -static int mt2712_set_interface(struct mediatek_dwmac_plat_data *plat,
-> +static int set_phy_interface_v1(struct mediatek_dwmac_plat_data *plat,
->  				u8 phy_intf_sel)
+> > > static void port_over_current_notify(struct usb_port *port_dev)
+> 
+> This is only used by the hub's overcurrent event handler.
+> 
+> > > static void hub_usb3_port_prepare_disable(struct usb_hub *hub,
+> > >                                           struct usb_port *port_dev)
+> >
+> > This one takes hub as well.
+> >
+> > > These are used only in hub.c and moving them probably makes things
+> > > messier?
+> >
+> > Perhaps better naming to each (kinda moving to usb hub namespace)?
+> >
+> > > OOTH, the following bits are in port.c but declared in hub.h:
+> > >
+> > > int usb_hub_create_port_device(struct usb_hub *hub,
+> > >          int port1);
+> > > void usb_hub_remove_port_device(struct usb_hub *hub,
+> > >          int port1);
+> > >
+> > > Any preferences for these while we're reorganizing the code?
+> >
+> > These ones would be good to be in hub.c if there is no circular dependencies or
+> > alike.
+> 
+> Those two, along with all the static functions they call, ends up being
+> half of port.c. That doesn't help the size of hub.c, which is already
+> over 6000 lines. I think I'll leave this one as is.
 
-What does this naming of "v1 / v2" refer to ?
+For now, perhaps at some point in the future we can reconsider and refactor
+it more.
 
-I personally don't find it much better than the current one prefixed by the SoC
-name. You still end-up using registers that have the "MT8195_" prefix in their
-names in the 'v2' variants of these functions, so it still sound SoC-family specific :)
+> Both this part and the remaining bits in hub.c I mentioned above are
+> outside the scope of this series. We can discuss whether they really
+> need to be moved or renamed.
 
-I'd say you can keep the original names as-is, or if you really want a rename,
-maybe use the mt81xx_ prefix for MT8195 and MT8189 ?
+Sure.
 
-Maxime
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
