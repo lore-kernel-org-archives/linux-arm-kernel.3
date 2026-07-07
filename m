@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F07C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B5DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnlzL0KpJ9QqM6hC9iBx7qV7lok+T8DRt7jvPTT0Rec=; b=w99ohw9+CjVWGM7r4WN9EpqyWl
-	rDYo+HtpoG0EATuhu7VF/gi6wmGV8HW1/hFVyvkl1SUlXroqv3GmUPUR+tRElqIvx2pouZu0c5Fgh
-	elkR7D9chyXO+vXFtL3v0JIxopJl0moZxVsG6KUw+CDbkMdxphMGNP20qEO+qTv4W1TBgNn8a9cjF
-	tvgpysYED1pWF9ia1LVUJ8plElU8TePIE/0J53/FZNA3zsYeszpZoeHoBinrOwittYfnqfd85Kylx
-	TO7ljoksvOlSxTLgOalUXfaHI/NXUDuriMXlE2u9AUDvkDmlOKyh2nZ/I7/ZUSpH5M5Atf8IAsIKX
-	C/Lkd6zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=utNzOCf8v5U9bivCeckdbTQJ7ylFFiFIFRUxbc4AozY=; b=nIeKDlkL23wH230SqsgqALi59S
+	ZGgpr44xINpWWQegfWhP5u/KUTMbb8/vgkeSkMjuHAbMuXvYnEWfzklD2Oo28KGc/3n7Q4Dng/1C8
+	UvMG65mChNlse+AT+Ymfuk43Sz1HQH+ntL3K0ZlWeV1c7xCiOlXc/e8B1cwCHRwra24vWy/Ti4d0D
+	9lE42lT1IFblCBq8XwvzFW2oRhM4Ag/PenV/FkYF6VAFqoxc/55BfbR1mVg2Q1Pdc8aABhCUqUvaA
+	wOkZhMDw4BMr9gyEA2sVQYFeB24Sv1CPbhggHYYhgu1V6jFqep4h0e1sFgaJzQeL9+dHxvU2NvyEI
+	rVmOTknw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0sn-0000000EQRE-0bWu;
-	Tue, 07 Jul 2026 08:10:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh0wO-0000000EQiL-0CXD;
+	Tue, 07 Jul 2026 08:14:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0sl-0000000EQR6-2y7I
+	id 1wh0wN-0000000EQiE-1u90
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:10:19 +0000
+	Tue, 07 Jul 2026 08:14:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29E45618A8;
-	Tue,  7 Jul 2026 08:10:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DE31F00A3A;
-	Tue,  7 Jul 2026 08:10:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 33A46415DA;
+	Tue,  7 Jul 2026 08:14:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E14F31F000E9;
+	Tue,  7 Jul 2026 08:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783411818;
-	bh=lnlzL0KpJ9QqM6hC9iBx7qV7lok+T8DRt7jvPTT0Rec=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iz6ynNHyejKVsbakGkrHkbKba2CbrnlOqJjuKQSYnFwqiYr/UzDW6vVpNFfQ3BuWU
-	 6pNNZ7rFUfkZUkffMXJWIc2S658G8QwKxCH4HoN8hsaMOJFYfZs54ArAfDieA0TvYU
-	 +qd/3m6a++PuRtOUrEELCHrY0RFP2cGf6hFxMVPGDaVlR6n8FMWJDTwdzsTq1SWPAh
-	 U2EOmsq2JENnhHbBgGJlZAojIoR6RPLnl+cAVCIVnLqzAFdMA9Vg0rAEOYfk4zDpjJ
-	 1AbKJGJ0FnNRDHVRW/GYsPhIW2ykD8JIGQE5/0aR1S9TeyFKRd8F+3lCxInOVa5Yi8
-	 31Z4DGG69kdwA==
-Date: Tue, 7 Jul 2026 01:10:17 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	s=k20260515; t=1783412041;
+	bh=utNzOCf8v5U9bivCeckdbTQJ7ylFFiFIFRUxbc4AozY=;
+	h=From:To:Cc:Subject:Date;
+	b=gxu31/NOdzc3V+NXijRXWcAEGkKCLjvPc/x8rGsk3Q3fV2BZvACAyFkxhsTnh8e9V
+	 pzbRt0pQTeFGWX6GeSmpaeMn0RQvKfJTx+Z6k+w/51B0M8F7xF/88ddIxcsNpGkz/0
+	 7j0dPfT4tOS8ov5jQci3pVGcINC48FVRiAEBmvKQJJvz1aAjWJvVchxgJZ3S29dxJT
+	 ONvFrV8ObIjYV/N+02mIbtVEGD2OPjrecdL8d8cvai4ffgEWhoQD0GoqhBiNzOg43+
+	 rAk/L31EojcpjGQ/L6SXheg5exC1inAtXpWRxNamrxletovGENKUsWpHLmJrZ6UHou
+	 w+fZwswHo3ecQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v8 0/7] KVM: arm64: PMU: Use multiple host PMUs
-Message-ID: <aky0abet4NfzK4z8@kernel.org>
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <akvzxDwZbj_sZ4pI@kernel.org>
- <86bjcjp6x1.wl-maz@kernel.org>
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v8 0/6] Switch Arm SMCCC firmware services to an SMCCC bus
+Date: Tue,  7 Jul 2026 13:43:44 +0530
+Message-ID: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bjcjp6x1.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +78,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 08:58:50AM +0100, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 19:28:20 +0100,
-> Oliver Upton <oupton@kernel.org> wrote:
-> > 
-> > On Mon, Jul 06, 2026 at 07:03:23PM +0900, Akihiko Odaki wrote:
-> > > Akihiko Odaki (7):
-> > >       KVM: arm64: Disallow vPMU when pPMUs do not cover all CPUs
-> > >       KVM: arm64: PMU: Protect the list of PMUs with RCU
-> > >       KVM: arm64: PMU: Pass the pPMU to kvm_map_pmu_event()
-> > >       KVM: arm64: PMU: Pass the target CPU to kvm_pmu_probe_armpmu()
-> > >       KVM: arm64: PMU: Implement fixed-counters-only emulation
-> > >       KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-> > >       KVM: arm64: selftests: Test PMU_V3_FIXED_COUNTERS_ONLY
-> > 
-> > Thanks for respinning the series, I left some comments. I'd really like
-> > to get this feature picked up, hope you have cycles to work on it soon.
-> > 
-> > FWIW, we're considering adding a new vCPU feature flag to deprecate all
-> > the ugliness of the old PMUv3 UAPI. I'm tempted to say that the
-> > FIXED_COUNTERS_ONLY feature is conditioned on the new feature flag...
-> 
-> It'd be good to have a strawman proposal on the list if we are going
-> to change add a new API, specially if this is likely to gate new code.
-> 
+As discussed here:
+https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 
-Patch 1 [*] of the series I linked does exactly this, no? Needs some
-attention like a KVM_CAP to make the bit discoverable by the VMM but
-gets the general idea across.
+The earlier CCA guest support used an arm-cca-dev platform device as a pure
+software anchor for the TSM class device. That platform device did not
+correspond to a DT/ACPI described device, MMIO range, interrupt, or other
+platform resource; it existed only to make the CCA guest driver bind and to
+place the resulting TSM device in the driver model. The same pattern also
+exists for smccc_trng. Creating separate platform devices for such
+SMCCC-discovered features is misleading, because those features are not
+independent platform devices.
 
-[*]: https://lore.kernel.org/kvmarm/20260702190421.420992-2-congkai@amazon.com/
+This series adds an Arm SMCCC bus for services discovered through the SMCCC
+firmware interface. The bus provides SMCCC device and driver registration
+helpers, name-based matching, uevent modalias generation, and a sysfs modalias
+attribute. SMCCC service drivers can use MODULE_DEVICE_TABLE(arm_smccc, ...)
+to emit arm_smccc:<name> aliases, allowing userspace to autoload service
+drivers when the SMCCC core registers matching firmware-service devices.
 
-Thanks,
-Oliver
+The series then moves SMCCC TRNG and the Arm CCA guest RSI service off the
+platform bus. When the SMCCC core discovers the corresponding firmware
+service, it registers an arm-smccc device for that service. The hwrng
+arm_smccc_trng driver and the Arm CCA guest TSM provider are converted to
+SMCCC drivers that bind to those discovered devices.
+
+The old arm-cca-dev platform device has also been used by userspace as a Realm
+guest indicator. Removing it without a replacement would leave userspace
+depending on an internal driver-binding device. This series therefore adds
+/sys/firmware/cca/realm_guest as a stable, architecture-provided ABI for
+detecting whether the kernel is running as an Arm CCA Realm guest, and then
+removes the dummy arm-cca-dev platform-device registration.
+
+Changes from v7:
+https://lore.kernel.org/all/20260611130429.295516-1-aneesh.kumar@kernel.org
+* Rebase to latest kernel
+* Add id_table check in arm_smccc_driver_register
+* Add smccc device name check in arm_smccc_device_register
+* Drop driver_data from struct arm_smccc_device_id  
+
+Changes from v6:
+https://lore.kernel.org/all/20260527100233.428018-1-aneesh.kumar@kernel.org
+* Move SMCCC bus-related code to bus.c.
+* Remove CONFIG_ARM64 #ifdefs and switch device creation to use the generic function-ID support framework.
+* Move version-specific checks and other conditionals to the device driver probe routines.
+* Move RSI definitions to include/linux/arm-smccc-rsi.h.
+* Split the file and variable renames into a separate patch.
+
+Changes from v5:
+https://lore.kernel.org/all/20260514094030.42495-1-aneesh.kumar@kernel.org
+* Replace the arm-smccc platform-device plus auxiliary-child model with a
+  dedicated Arm SMCCC bus.
+* Add SMCCC module alias support so SMCCC service drivers can use
+  MODULE_DEVICE_TABLE(arm_smccc, ...) and autoload through arm_smccc:<name>
+  aliases.
+* Convert smccc_trng from a platform driver to an SMCCC driver.
+* Convert the Arm CCA guest TSM provider from the arm-cca-dev platform device
+  to an SMCCC driver bound to the discovered RSI service.
+* Add /sys/firmware/cca/realm_guest before removing the old arm-cca-dev dummy
+  platform device.
+
+Changes from v4:
+https://lore.kernel.org/all/20260427061615.905018-1-aneesh.kumar@kernel.org
+* Add /sys/firmware/cca/realm_guest for detecting realm guest
+* Convert smccc_trng to auxiliary device from platform device
+
+Changes from v3:
+https://lore.kernel.org/all/20260309100507.2303361-1-aneesh.kumar@kernel.org
+* Rebased onto the latest kernel
+* Drop pr_fmt() from drivers/firmware/smccc/rmm.c
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Jonathan Cameron <jic23@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Cc: Andre Przywara <andre.przywara@arm.com>
+
+
+Aneesh Kumar K.V (Arm) (6):
+  firmware: smccc: Add an Arm SMCCC bus
+  firmware: hwrng: arm_smccc_trng: Register as an SMCCC device
+  firmware: smccc: Move RSI definitions to include/linux
+  virt: coco: arm-cca-guest: Rename TSM report source file
+  firmware: smccc: arm-cca-guest: Bind the TSM provider to an SMCCC
+    device
+  coco: guest: arm64: Replace dummy CCA device with sysfs ABI
+
+ Documentation/ABI/testing/sysfs-firmware-cca  |  10 ++
+ arch/arm/include/asm/archrandom.h             |   2 +-
+ arch/arm64/include/asm/archrandom.h           |   2 +-
+ arch/arm64/include/asm/rsi.h                  |   2 -
+ arch/arm64/include/asm/rsi_cmds.h             |  75 +-------
+ arch/arm64/kernel/rsi.c                       |  39 ++--
+ drivers/char/hw_random/arm_smccc_trng.c       |  32 ++--
+ drivers/firmware/smccc/Makefile               |   2 +-
+ drivers/firmware/smccc/bus.c                  | 167 ++++++++++++++++++
+ drivers/firmware/smccc/smccc.c                |  65 ++++++-
+ drivers/virt/coco/arm-cca-guest/Kconfig       |   1 +
+ drivers/virt/coco/arm-cca-guest/Makefile      |   2 +
+ .../{arm-cca-guest.c => arm-cca.c}            |  62 +++----
+ drivers/virt/coco/arm-cca-guest/rsi.h         |  84 +++++++++
+ include/linux/arm-smccc-bus.h                 |  49 +++++
+ .../linux/arm-smccc-rsi.h                     |   8 +-
+ include/linux/device-id/arm_smccc.h           |  16 ++
+ include/linux/mod_devicetable.h               |   1 +
+ scripts/mod/devicetable-offsets.c             |   3 +
+ scripts/mod/file2alias.c                      |   8 +
+ 20 files changed, 488 insertions(+), 142 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
+ create mode 100644 drivers/firmware/smccc/bus.c
+ rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
+ create mode 100644 drivers/virt/coco/arm-cca-guest/rsi.h
+ create mode 100644 include/linux/arm-smccc-bus.h
+ rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (97%)
+ create mode 100644 include/linux/device-id/arm_smccc.h
+
+
+base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
+-- 
+2.43.0
+
 
