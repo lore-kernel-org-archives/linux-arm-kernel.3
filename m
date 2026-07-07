@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF7DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0066C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJU2XGVhSEv1ni06jwC+Qhuuf8bPMa73T2Ir76oTEp8=; b=1ncME623mimByB+dqaPu6UOboG
-	PZ6UKltmnwbly7UMyjlgeeTKdpWE2pfbR4WI22uKI4mFcsPpLLLjNZTgXKjyQcuQNx8T77QMYLhaX
-	rFkEtJhZ8pL1U2uz6OLe1sx2Q4tFGi3yaN6Q8hfh7/otbbeZngdzi9nn4Bd3S5Ec4Jt5EWJOnHJ2h
-	A9NYWwHiKEwBfVooV8AliUyFY+ReQsxe0Tb1rlVCaKWP8LID2Mks9KPXBpeej0LMtvHSAw4PrHD6T
-	oO34eW8YVBZOE7EIJBNkxvl7dzVEFaSoEw7ZWCdIPCzXuJ3B5HCYLDpJNUccLfaqNl/1X1//dI2OQ
-	pi4ChHjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HAeB/Op8nmvOd27gL/buoe+pif44ZJYHQOLqJFWuvo4=; b=qpgrnykraAnKZ36QAfadwSBbHv
+	2yPy/98myMbQfRfN4+Rsd7vDxSoy90kcuapz0kI6nDUoujDoY4E2KJPZkcryfqEPIOB2QE+v29WDr
+	1jGK0JKn0I7BmaRpRTcBZTi6LXGRei3ftp9lKCfrR/Vw1Z8PWesYV28iZinlU/AwnqyCfFHwtzgaT
+	ei7Ujntna29hO/RFmq3SlxOB8NTqKEd4wNALlom9Bqh2WQlKLI5A3Im15cM67zi1mnpQPJCwsjfBw
+	RrFnfNaJ4sfcbbq8Q9d2Xby43yynytSOIkJcZDUsMajrkzN00M/JHTlprAlvqbod+iaAUPWPDmUzt
+	yPGNacmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6YQ-0000000F7i7-06wo;
-	Tue, 07 Jul 2026 14:13:42 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wh6eL-0000000F8eW-0IRb;
+	Tue, 07 Jul 2026 14:19:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6YM-0000000F7hX-37Up;
-	Tue, 07 Jul 2026 14:13:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=qJU2XGVhSEv1ni06jwC+Qhuuf8bPMa73T2Ir76oTEp8=; b=ejOqxuNTKTjLbZuwtqIPSsU3+7
-	eMbelaDQNg5wM4Z11J2mvOLa5s4Ehkv45pnuoVqtKJEX8kN+2BQ9Cn9Z7DQNxB+HrDS+j8JWooiZX
-	yukfQy/K+JYUeIIo5p+fg31buL+1pkkowHLQczas9gLPSe9bd81HZz+W1ap2qTxyMDFe8w5Jv1IR2
-	pmAPsIb7oDtrHYBJIc8XibSsgsWQtWPVYwVVXkhSSKb485djHRerHqvpxigdiiXGmTu55NuD9HQfv
-	Yh93JohoNOCZeopQYfGDlKU+tQduX64dMg7pIXlbecOtFec+LQMMTvFoGFrAIuUWhtDWrdGoAuuq3
-	DtO9C9NQ==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wh6Y8-002FAT-1W;
-	Tue, 07 Jul 2026 14:13:24 +0000
-Date: Tue, 7 Jul 2026 07:13:19 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Baoquan He <bhe@redhat.com>
-Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
-	dyoung@redhat.com, tony.luck@intel.com, xueshuai@linux.alibaba.com, 
-	vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com, kernel-team@meta.com
-Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
- statistics via sysfs
-Message-ID: <ak0JSScR3EYgLEf9@gmail.com>
-References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
- <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
- <aYvi4Y_HNqk_u1-v@fedora>
+	id 1wh6eH-0000000F8cU-0IV8;
+	Tue, 07 Jul 2026 14:19:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783433981;
+	bh=X99KKDPKDM77EUe/K6IwQ6N3jw1s5gDXs0w54CvjxZ4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IpN4sGTRbigL3LEZNRe+mqGHxT8wFbKvRLsqh0ZAz/EyFvhA1cCX/D8gB17qhdB0f
+	 l/Iht+L5Y7/EJ81L5B1FTSB6z2CKWtBEBPFa+bZrO9RArYmAmZej7ehEGnRa7dg8kQ
+	 ukBwj66jefpWIt30+R9pLxYPW97g1qPKXZqQiDjcS54II2ODPyywBH2fE09XN6oYYJ
+	 FejvJSgL5mtEDipmqlie7U3UvCm/t5PgNmGOTdW2HWw2/nuNyAyQueGhI4fYCN4qTd
+	 wvoK9IqJYlu4YAh1VSwFc4SFKBon/nWQW3Yd+ZtScB1HXp399HSYfYnpx2otIaTW/+
+	 IySYs4MvxWyEA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 270A417E003B;
+	Tue, 07 Jul 2026 16:19:41 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	justin.yeh@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: [PATCH v2 00/12] PHY: MediaTek DP PHY refactor and MT8196 eDP
+Date: Tue,  7 Jul 2026 16:19:19 +0200
+Message-ID: <20260707141931.191172-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYvi4Y_HNqk_u1-v@fedora>
-X-Debian-User: leitao
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_071338_790508_ABD5EF48 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260707_071945_264847_1CDBDF84 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Baoquan,
+Changes in v2:
+ - Fixed register offsets for ANA phy in MT8196
+ - Set/clear FORCE_VOLT_SWING_EN bit when configuring and resetting
+   the voltage swing registers
+ - Fixed endianness issue in call to nvmem_read_u16 (Sashiko)
+ - Added early exit during lanes disablement if none are enabled to
+   avoid out-of-bounds bitwise shift (Sashiko)
+ - Removed useless call to pm_runtime_get_sync() in probe(), which
+   also fixes issues pointed out by Sashiko
+ - Fixed wrong dig vs ana register array usage in power_on/off (Sashiko)
 
-On Wed, Feb 11, 2026 at 10:01:05AM +0800, Baoquan He wrote:
-> On 02/02/26 at 06:27am, Breno Leitao wrote:
-> > Add a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to expose
-> > hardware error recovery statistics that are already tracked by the
-> > kernel. This allows userspace monitoring tools to track recovered
-> > hardware errors without requiring kernel crashes.
-> > 
-> > This is useful to track recoverable hardware errors in a time series,
-> > even if the host doesn't crash.
-> > 
-> > The sysfs directory contains one file per error subsystem:
-> > 
-> >   /sys/kernel/hwerr_recovery_stats/cpu     - CPU-related errors (MCE, ARM errors)
-> >   /sys/kernel/hwerr_recovery_stats/memory  - Memory-related errors
-> >   /sys/kernel/hwerr_recovery_stats/pci     - PCI/PCIe AER non-fatal errors
-> >   /sys/kernel/hwerr_recovery_stats/cxl     - CXL errors
-> >   /sys/kernel/hwerr_recovery_stats/others  - Other hardware errors
-> > 
-> > Each file contains a single integer representing the count of recovered
-> > errors for that subsystem.
-> > 
-> > These statistics provide visibility into the health of the system's
-> > hardware and can be used by system administrators to proactively detect
-> > failing components before they cause system crashes.
-> > 
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> > ---
-> >  kernel/vmcore_info.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 55 insertions(+)
-> > 
-> > diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
-> > index e2784038bbed7..b7fcd21be7c59 100644
-> > --- a/kernel/vmcore_info.c
-> > +++ b/kernel/vmcore_info.c
-> 
-> Since we agreed hwerr_recovery_stats has nothing to do with vmcore, it
-> seems inappropriate to put its sysfs handling code in
-> kernel/vmcore_info.c. File kernel/vmcore_info.c is only used to build
-> vmcore info for later vmcore dumping. And hwerr_log_error_type() should
-> not be put in kernel/vmcore_info.c. either. I didn't check this
-> carefully before, sorry. Please reconsider if these can be handled better.
 
-I've sent an RFC to move it to RAS code, which I think it belongs
-better. Does it make more sense?
+This series performs major refactoring on the MediaTek DisplayPort PHY
+driver, makes it probe with devicetree instead of getting registered
+by the mtk_dp DRM driver, adds power_on/off() callbacks, and honors
+the phy configure opts' set_lanes and set_voltages for, respectively,
+varying the number of lanes and setting the voltage pre-emphasis and
+swing on the PHY, for each lane.
 
-https://lore.kernel.org/all/20260707-hwerr-ras-v1-1-4aea4a79d085@debian.org/
+This driver now also properly gets the PHY (EYE) Calibration Data from
+NVMEM (eFuse array) if provided, instead of getting it (improperly)
+injected by the mtk_dp driver.
 
-Thanks,
---breno
+Additionally, all of the driving parameters calculations and most of
+the other register definitions were refactored to greatly enhance the
+human readability of this code.
+
+As a last step, this also transfers the register offsets for both the
+digital and analog phy registers in arrays assigned to soc specific
+data, in an effort to both introduce support for new minor revisions
+of the MediaTek DisplayPort PHY and to have a clearer view of the
+register related differences between those (for example, it is easily
+understandable that the analog part remained exactly the same between
+MT8195 and MT8196, but the digital part gets a slight update).
+
+Speaking of which, as a last step, this also adds support for the
+MT8196 SoC (and its derivatives), which uses this PHY only for its
+Embedded DisplayPort (eDP) IP (spoiler: the DP one seems to be way
+too different and requiring an entirely new PHY driver).
+
+In this state, this driver can also easily support the MT8189 SoC
+with a few lines of code: even though I do have clean code to add
+support for this one, I was not (*yet*) able to test it on upstream
+based kernels, and for this reason I decided to leave that one out
+for now (but it's coming later for sure).
+
+NOTE!
+Despite all the apparently breaking changes in the refactoring, full
+compatibility with older MTK_DP driver and with old devicetrees was
+retained and carefully tested on multiple platforms!
+
+P.S.: I am aware of the BUILD_DRIVING_PARAM_0( 0, 2, 4, 7) checkpatch
+warning and I didn't fix it in bigger favor of human readability.
+
+AngeloGioacchino Del Regno (12):
+  dt-bindings: phy: Document MT8195 and MT8196 DisplayPort PHYs
+  phy: phy-mtk-dp: Rename regs to regmap in struct mtk_dp_phy
+  phy: phy-mtk-dp: Allow probing with devicetree match
+  phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
+  phy: phy-mtk-dp: Implement power_on and power_off PHY callbacks
+  phy: phy-mtk-dp: Support set_lanes in configure and properly cleanup
+  phy: phy-mtk-dp: Support setting volt swing and preemphasis values
+  phy: phy-mtk-dp: Add support for digital and analog calibration
+  phy: phy-mtk-dp: Rewrite and document default driving param macros
+  phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
+  phy: phy-mtk-dp: Add PHYD Lane EN register mask to SoC data
+  phy: phy-mtk-dp: Add support for MT8196 eDP PHY
+
+ .../bindings/phy/mediatek,mt8195-dp-phy.yaml  |  77 ++
+ drivers/phy/mediatek/phy-mtk-dp.c             | 863 ++++++++++++++++--
+ 2 files changed, 843 insertions(+), 97 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8195-dp-phy.yaml
+
+-- 
+2.54.0
+
 
