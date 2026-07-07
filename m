@@ -4,70 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C0BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5u+a7D+ayzU/IukGQqNNjlldkq3od3GzB6ae/tPk4w=; b=xU/gCnBwBZ3m6GMQvbv9tHX9O2
-	41nsrCkcg0XYFNiTbvzd04qNqQeQTc9qvqGw7CWunGGAp+FQ426Pyvy+lHL17XQkv+smYDbdb0x+2
-	osjL+Drcmsj7PG7/kK2oXZDcVq1bhYLSORjDoXQAIqntrwXW/Z3LOuluSonFLPHrx/P1+yLMPjGfS
-	vJE6Qk+C3yhzJxQyV5tWi5aGJ7hdkHVh6JOudGz4Xu9ohdMII1PHyEgzvnZY2YLIoF2Ll7/ZYYSLU
-	j3FYbdNifbvtEB0jY7sxhwYKvT2b6UV93D4Zj+Br8ZDBA4mFn/IAqKznyKaDhLHwIiXONjRI0FfDj
-	0f+AHV5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=twa3YwOPa09b1el7WgFxV6jG/I
+	Vx2nBwovFPH2boBXda5NMkVZoLk/OA2GsS+Q4zGrY2nejwO/HMNO2VmP970c9zeMyhGaRyBTC7E20
+	9bs1TWCXjZYE+3O4vZjRWXU11aZUJ/NfYtxRRER7BjRU6Js1F33wVRYMFr9DxpNZhvraz/mPKABRU
+	MgzaFMWr+WFVED6JlJ0+pxi6FfWfDEPKIYPH3lbXKMx/pEKSEsUEUilVpQzUSBq2BJ+RuP+T40FkK
+	gq5bL++yH+VcSoe6tve6TtcJQvlhSwhjPdCkpwci7tAIL2LfoclxQZsIJ9wwG28qyLtBiM7mhETXx
+	YNlnzYNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8N3-0000000FQid-3COY;
-	Tue, 07 Jul 2026 16:10:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh7Fd-0000000FDtz-0QUB;
+	Tue, 07 Jul 2026 14:58:21 +0000
+Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8N3-0000000FQiR-02wi;
-	Tue, 07 Jul 2026 16:10:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B06D60018;
-	Tue,  7 Jul 2026 16:10:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E151F000E9;
-	Tue,  7 Jul 2026 16:10:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783440603;
-	bh=Q5u+a7D+ayzU/IukGQqNNjlldkq3od3GzB6ae/tPk4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UN7Mi0Fq/Yi7DzfCneASL6PehRygMQxJ3xpk3Ek2gkQW0e+Z1yBT1Gd0PLT4uoIUs
-	 dZ0pfYm0iiVRh+ZMsUsPHC+Yly+6VD3oeAReiQLNagVGn9p5eQbfsrNGzuW4CnayhP
-	 PPK5XUQCsYswCOceRR6LMy/3w3ibTYYkbWeLx6wQ+4iJP8lWMMO+GwH16xsAeunDAR
-	 3R/R0w9yZ1M91gjfgTtzhHnAXsKLudJxGTi4zF8+4azFfqushczmDDWAqrgbLr/kVB
-	 RmlVkmJ8Gd8mXXDoCXyZRnULvOFNE4HtZMSWfvhd4vRpX4QBoWpkZby2LQHMFE9xfM
-	 9ixfGG4QmrG9Q==
-Date: Tue, 7 Jul 2026 18:10:02 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-Message-ID: <20260707-illegal-tuna-of-force-1c06e3@houat>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
- <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+	id 1wh7FZ-0000000FDsw-2hxa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 14:58:19 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 95D4BEC0224;
+	Tue,  7 Jul 2026 10:58:14 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Tue, 07 Jul 2026 10:58:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1783436294;
+	 x=1783522694; bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=
+	ldiMtVZjhL8WLStNNeyPSWYRvpWSvjnsF8T7WgujEZSLbj1egVpzRVUM56B1NgYB
+	l6n4daTp1AycMotVlVgVDtXq+nliGmlx799wQcOA3r5LyBS7frGaNs5JQCVy/Wqz
+	QxLqXGEGtt8qYLocVCkVnRZKPAr7EhrRYR/IRBoNsIlNOcvnKR86bESTYX33y15p
+	aEh2r00njGhONcNCUXqrE0BNKiJWRIUt18FWdOzltJTSM0s1c/IiB74mOfy9Ei56
+	ftQMMK7L1aR8JIOIGwJT7YT05YO2tA8jFX4SCC8csVJRvhy8SAqO9Y+pVzcvzHCP
+	2l2JGJCu6NTy1um0DX1WqA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783436294; x=
+	1783522694; bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=W
+	v65Z4d8RC7GiZw1zBLTM8Yqc7W2BNAegD8Qv3JA4wP7qLnOcCTQlre0z1jSthYWX
+	faOL1TvVaPVLCgEZxpMXBdUinOSLVGYeTO7ixG/iYBowUQz2Z/s0vvvCSrVOgEdy
+	oGE7zWS2Bpu05w0F/xGzdKGw49FYybLYUyL6RpwL3vGOsK6TBaj6kryKNuvvY2yh
+	52hBqbQmnnXbko8DPesO8K7cjuMR5gf0M67FeZTgNTh59FiffBKK/ZnKiub32zmW
+	T1PQL2LGpomteH//jIrOoCInz3DYc5UHgzLr5vHWS1GjtEVaaMbL41FWhYAd2Wjp
+	I42uhKsmjFzCLeibuYbRw==
+X-ME-Sender: <xms:BRRNavrNNdjnbiWCFen_ztj6E-NNJ1jZMC1uzxkFacXq0TfS9tKitA>
+    <xme:BRRNakcj_u-yN9gY-xhhadY7fLUXidZYoPlx5xQIDGOg8JKj4kTLfHvkThOBMHEC-
+    niPzFZy2WezNaGi4ZfAnrsZ8cTnzIGTvHFm2b2O7BgygGqRAZu-h-Q>
+X-ME-Proxy-Cause: dmFkZTFMvw6d1AO6NN17g3fEgXceIekx5pCKysbKgirsFeEFXPWfXcdYlXTfFL8kBN9Kmn
+    23Yp6qKDDvdGZGluptYZ2FQjUvUgrx1dFmrj+h7INIYNugxIUs2nJybWumJT71ZdJqr9Tn
+    u5sy/6gAsi8Etp4vAY1glcxVFA/NC6RPkTjeY3t1mfJ9kiUjihs6aKEYUTXmvIHR3a/G/s
+    /Z+IM9+CAuGmQyqGXh4d7yQVTWkD/DH6+FPWj96I8tor7h/QvaS8WUZ514KUeh2NgSwioA
+    WD68OUxeJ8QDo2lndqD6Hd2cuXkphZKsLqGHZajb8FBqchiwarAJZVPHa7MmThKos/sPlT
+    5W0tFgYaRU6MSWRb7FceeQK3jZcCCCdJxB2llVa1dI/Y5CvGiEESSdaMq/3rg3SAWlfmFq
+    xWgFOYS+xY8m4Um6mEq0GqCqkaXO2fqy+TYMqL6EOWoR26WV+yYlq5oOO8miOIwyouBufN
+    gn5LH9N+d3hgr7lT3TeIwjQyjNjcdx32w8KOVmS3HHiEg2GZcRvN+BQPDHMvGQC62k+Ekj
+    nXHLtgy4dezIk0eeqUKn0gaAfdbBy98L/6oNW/ouJ34M8Hd/fji0ZQyfHmYR2bmysZru8X
+    0Isp0BwAgaZjPtaInI99cJCDU2QVSInbKOJSGFwJzYkCLIzA4pfGPO0W1Q1Q
+X-ME-Proxy: <xmx:BRRNamaTruIusFkRPBSBosE7cRtjiWjqB5WXN0qprheLwOczM0ij0w>
+    <xmx:BRRNar9GfuUjRWuewcNsABjTSOrwPCHoGRAN_lQuOvacOz_W0XoTXg>
+    <xmx:BRRNakmOhYsDhuVHDQm2WAL9G8d9HLZMOru3WgWyCbjMqQuH3kzm3Q>
+    <xmx:BRRNaozgi-zAelHiYUVjEEAlAc2-YuBbj3s8AhI3tN4VluxinH4iSQ>
+    <xmx:BhRNatPrGaHfjXJpE_IMbh94bWKmjPuTpO-YCXjfHaoJH3_ckS8RB3CP>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 99D4F182007E; Tue,  7 Jul 2026 10:58:13 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="27ucv5zt2ny4lmlg"
-Content-Disposition: inline
-In-Reply-To: <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+X-ThreadId: A9WOz104Gfyk
+Date: Tue, 07 Jul 2026 16:57:52 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
+Cc: "Andrew Lunn" <andrew@lunn.ch>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <e0ff0694-0fd3-45c6-9092-d1c6c0339fb4@app.fastmail.com>
+In-Reply-To: <akwm0xsquU3tu_Rk@google.com>
+References: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
+ <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
+ <akwm0xsquU3tu_Rk@google.com>
+Subject: Re: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software nodes
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_075817_803789_9E413127 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +114,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 7, 2026, at 00:08, Dmitry Torokhov wrote:
+> On Mon, Jul 06, 2026 at 08:50:36AM +0200, Arnd Bergmann wrote:
+>> 
+>> These all look good to me. Unless there is an objection from the
+>> platform maintainers, I'd suggest you can send them directly to
+>> soc@lists.linux.dev for inclusion in 7.3, or alternatively
+>> keep them together with any other gpio-keys patches you have in
+>> the input tree if that lets you finish off the platform_data
+>> support in the driver more quickly.
+>
+> Maybe I should create an immutable branch(es) for both myself and soc
+> tree to pull from?
 
---27ucv5zt2ny4lmlg
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-MIME-Version: 1.0
+If you send a pull request for those to the soc tree,
+I'll merge it, but I think it's also sufficient to only
+have them in the gpiolib tree, as I don't expect any
+conflicts for 7.3.
 
-On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
-> Hi Dmitry,
->=20
-> Thanks for your quick review!
->=20
-> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
-> > On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
-> >> In preparation for adding HDMI 2.x source capabilities, introduce stru=
-ct
-> >> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
-> >> helper.
-> >>
-> >> The existing drmm_connector_hdmi_init() helper currently takes
-> >> individual capability arguments such as supported_formats and max_bpc.
-> >> Adding more HDMI-specific arguments to that function would not scale
-> >> well, so move those values into a dedicated capabilities structure and
-> >> implement the existing helper as a wrapper around the new caps-based
-> >> interface.
-> >=20
-> > I think, it was an intention of Maxime: make sure that every driver is
-> > forced to provide some values here. With the struct-based init it is
-> > easy to overlook or to ommit a value.
->=20
-> Agreed that the struct-based init loses the compile-time guarantee that e=
-very
-> argument is explicitly provided - that's a real downside. =20
->=20
-> I'd argue it's recoverable, though: the init helper validates the mandato=
-ry
-> fields, so a driver that omits a required value gets rejected at init time
-> rather than silently misconfigured.  The "you must provide sane values" p=
-roperty
-> is expected to be preserved, just enforced at runtime instead of by the
-> compiler.=20
+If the patches don't make 7.3, the files are likely all
+gone though.
 
-Yeah, I don't think we can win with C here. Rust might, but we're
-probably a long way from that.
-
-> The main motivation for the struct is scalability/maintainability as we a=
-dd HDMI
-> 2.x capabilities: new fields go into the struct rather than growing the h=
-elper's
-> argument list, so existing callers don't need churny signature updates on=
- every
-> extension.
->=20
-> FWIW, in the previous revision we discussed addressing the concern with a
-> callback instead.  Sadly, I had to discard that approach, as it proved not
-> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamical=
-ly, and
-> would have required either stateful callbacks, or storing redundant/tempo=
-rary
-> cap data in driver-private structures just to satisfy the callback.
-
-I just realized something reviewing your patch: we don't necessarily
-need an extra argument or a callback, we can just put these fields into
-drm_hdmi_connector_funcs directly, and then validate them in init.
-
-Maxime
-
---27ucv5zt2ny4lmlg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCak0k1gAKCRAnX84Zoj2+
-due8AX0XXDyb8dUS4C5ZJ9bIc3vTW8oheRYR3cfa67hC4Uk3O3eEE85WAlMdVZCI
-eLU/TTkBfjc45nJFNa7QA9rRNN4TXSGeA/gFgRjwuvyZ7kaa+wjdc0ucP72zaBpk
-vOwNPyr2SQ==
-=Qd48
------END PGP SIGNATURE-----
-
---27ucv5zt2ny4lmlg--
+      Arnd
 
