@@ -4,52 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CE8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3E7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0VgqZk2+M4O8X70VgHeDWO5bVKrL7Qb344B9KtlXxf0=; b=NaCJj3ls3sXo3G9euOnvTM6FIR
-	cLksLlNUQScRcvVPErI+9uFeWMW6j67pdA3Jh7Ur0fQ34HIx6FmKjYixk0bLzQM1YhEwK/8cSyVPH
-	Zlr3T8rJ+X08KoGMJWxsG8Ii1fqU6Le4SDH4VPoeKasAxyFFuSLuQo1fP4xMWDlvMoJiCOGAnknsg
-	UOKtbHqwJDPsLaza+gq2ebNgHDEA5O/LaAvC3/lXIE5P4prINFGZJnGLUEvK3a/U+98L9IQD+RNQ/
-	n2tCQtVuOUSXzhhC2zoOeRt3yOhnjGoIbAwGNzoUVsyUIItEBmPrt7qwz7FJadTlkd/A+5Pe/iyDN
-	TvtXUQfQ==;
+	bh=avVeJSV3sTgrfABYepnBzlTH2P7OWGaspJVsPup+ruw=; b=xgyq1qR5p4Yf7zxxV15QXPVPjT
+	DxsnMkzydqAAIgbPnQdDfChnsYIcYnpWRJGtuEmCo65drQJI2sjLAg/ZeB06mDHTKp9idDneF3/L4
+	L/6ftp0+rlZJeY69dnP+vt8gl4l8L/9FcANID+Q9e3O5cJBLCHvetR39RCEsAc+KN77UlQkVpW+lr
+	nHY35lJ2iWpsQt8HmPn6eXaIbUqKH2BYkAeQSZ1WQX8YsOyPzJHeco8xXQVO+TWPYMRWF7+jGzKZi
+	EGiN2ztUZGnNSnBhMlzYMNjIFBvBZn0MRgsXwdTX0eEAWDOZtfx8LDxcbV6SXeli8A8it3miO438e
+	LndAgqpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB43-0000000FgGp-1qj1;
-	Tue, 07 Jul 2026 19:02:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1whB5Y-0000000FgWR-3O9T;
+	Tue, 07 Jul 2026 19:04:12 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB40-0000000FgFN-0Mvi;
-	Tue, 07 Jul 2026 19:02:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=0VgqZk2+M4O8X70VgHeDWO5bVKrL7Qb344B9KtlXxf0=; b=IcdSnAl0GWmvivyH9PIGEfrrG/
-	m+vhRS1GrEpSZnu3BwWkB0bW+kHnF1uCU4b0j8snGm8yeWJwaeo0EXqHRVrD4/uIgY/kP4qrDHYJW
-	HWkGEbBSUPSeC+wC/4zOZBwpAgngtskkQx142Op/JWy93GHP3lNc7cP0NYr1gXG7IAn+qZGAOY/j1
-	T18dIjxuFJjTQZVAHJsccGj9xEZWnFUxizEVjfQEzdosal+0NkZaGJ1ofZNrZVZMU+fHObcoIgpDy
-	7GAorD5oPsPWJ8hdqKSvzTUEeqvi/65SFE+RxQQddNqr5h5pKFzbCC1XunfOZ+gExBV0Gt5sTpODv
-	XNwL81ZQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Brian Mayer <bleemayer@gmail.com>
-Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: dts: rockchip: add HYM8563 RTC to Radxa CM5 IO board
-Date: Tue, 07 Jul 2026 21:02:30 +0200
-Message-ID: <48203626.fMDQidcC6G@phil>
-In-Reply-To: <20260705181920.8633-1-bleemayer@gmail.com>
-References: <2960762.AiC22s8V5E@diego> <20260705181920.8633-1-bleemayer@gmail.com>
+	id 1whB5X-0000000FgVq-0Sur
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 19:04:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=avVeJSV3sTgrfABYepnBzlTH2P7OWGaspJVsPup+ruw=; b=VWrd41qRXyYyhzMWp+gqpuvhbS
+	6B85dG3uLp6arQ3/pkhJsCYGOR87TGtYdSF/I8ogvfumgVQ+vAm6bt5SSlqyIbW5lG6tfBBjIVX5y
+	UOGorZW+Dpd8xlk1kNS3h4bBcNBO9GNoOUkvUW+Rvcix7+8IviZrKFkh3/um8eIUf8sc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1whB5M-00BDMh-PC; Tue, 07 Jul 2026 21:04:00 +0200
+Date: Tue, 7 Jul 2026 21:04:00 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jakub Raczynski <j.raczynski@samsung.com>
+Cc: netdev@vger.kernel.org, k.tegowski@samsung.com,
+	k.domagalski@samsung.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net 2/2] net/stmmac: Verify provided DTS AXI setup
+Message-ID: <ee504cab-b1da-4584-8693-70ed5cd943c7@lunn.ch>
+References: <20260707174431.1264520-1-j.raczynski@samsung.com>
+ <CGME20260707174439eucas1p153ea592df5c1c7a50e947022a80a1056@eucas1p1.samsung.com>
+ <20260707174431.1264520-3-j.raczynski@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260707174431.1264520-3-j.raczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_120236_133415_6424EFDD 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20260707_120411_148586_BD4D83DB 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,120 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
+On Tue, Jul 07, 2026 at 07:44:31PM +0200, Jakub Raczynski wrote:
+> During parsing of AXI setup, there are few issues:
+> - 'axi_blen' array is uninitialized value on stack without zero-init stack
+>   configured. This can result in random AXI burst length config if
+>   DTS config provides shorter array than AXI_BLEN.
 
-I've applied the change with some changes.
-Please the comments below in mind for future patches, but there is no
-need to send another version:
+What does the DT blinding say about the length? Is it allowed to be
+short?
 
+Are we talking about:
 
-Am Sonntag, 5. Juli 2026, 20:19:19 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b Brian Mayer:
-> Hello again, to clarify: I tested the v1 patch in my radxa cm5, but since
-> this v2 only contains name changes I didn't test. I added the missing
-> agent tag and am sending the patch inline. Thanks.
->=20
-> The Radxa CM5 IO carrier has a Haoyu HYM8563 real-time clock on I2C6 at
-> address 0x51, with its interrupt line on GPIO0_B0 and a CR1220 backup
-> battery holder. Without a device tree node, no /dev/rtc* appears even
-> when CONFIG_RTC_DRV_HYM8563 is enabled.
->=20
-> Describe the RTC, wire the interrupt pin with a pull-up, mark it as a
-> wakeup source, and point the rtc0 alias at it so RTC_HCTOSYS/SYSTOHC use
-> the external clock. Wiring matches Radxa's downstream board support and
-> uses schematic names for the rtc_int_l pinctrl entry.
+      snps,blen:
+        $ref: /schemas/types.yaml#/definitions/uint32-array
+        description:
+          this is a vector of supported burst length.
+        minItems: 7
+        maxItems: 7
 
-Please way less AI fluff. The patch content show that you're wiring up the
-interrupt + pinctrl etc.
+So it should be 7. Are there any in kernel DT blobs which don't pass
+7? Can we just error out when it is not 7?
 
-Also, please no personal "Hello again ...." in the actual commit message.
-The text above is the text that ends up in the git log for your change,
-so should be short and to the point.
+> - In case of failed memory allocation for AXI and error, there is no handling
+>   of that. Fix it by checking if AXI config is error and return if so,
+>   as this can only lack of memory. No AXI config, although is probably
+>   wrong in most cases, is not treated as error, as generic config is mostly
+>   provided in drivers.
 
-I've shortened it to:
-=2D----
-Describe the Haoyu HYM8563 RTC connected to I2C6 on the Radxa CM5 IO
-carrier including its interrupt line.
-=2D----
+This seems like a different fix. Maybe put it into a patch of its own.
 
+> Fixes: afea03656add ("stmmac: rework DMA bus setting and introduce new platform AXI structure")
 
-> Assisted-by: Grok:grok-build
-> Signed-off-by: Brian Mayer <bleemayer@gmail.com>
-> ---
-
-Personal comments, remarks etc should be here, below the 3 dashes and
-above the diffstat. That way we can still read them, but they don't
-end up in the git history.
+Again, does this bother anybody? At least axi_blen issue seems to be
+that the DT blob is broken, so i doubt it actually does. Are there
+reports of memory allocation error and resulting Opps.
 
 
->  .../dts/rockchip/rk3588s-radxa-cm5-io.dts     | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->=20
-> Changes in v2:
-> - Rename pinctrl to rtc_int_l / rtc-int-l to match schematics
-> - Drop Tested-by (covered by Signed-off-by)
-> - Add Assisted-by: Grok:grok-build
-> - Send inline with git send-email (not as attachment)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts b/arch=
-/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-> index af4a9bc01..d22db4d18 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-> @@ -19,6 +19,7 @@ / {
->  	aliases {
->  		ethernet0 =3D &gmac1;
->  		mmc1 =3D &sdmmc;
-> +		rtc0 =3D &hym8563;
->  	};
-> =20
->  	chosen {
-> @@ -198,6 +199,18 @@ usbc0_dp_altmode_mux: endpoint {
->  			};
->  		};
->  	};
-> +
-> +	hym8563: rtc@51 {
-> +		compatible =3D "haoyu,hym8563";
-> +		reg =3D <0x51>;
-> +		#clock-cells =3D <0>;
-> +		clock-output-names =3D "hym8563";
-> +		interrupt-parent =3D <&gpio0>;
-> +		interrupts =3D <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&rtc_int_l>;
-> +		wakeup-source;
-> +	};
->  };
-> =20
->  &i2s5_8ch {
-> @@ -221,6 +234,12 @@ usbc0_int: usbc0-int {
->  		};
->  	};
-> =20
-> +	hym8563 {
-> +		rtc_int_l: rtc-int-l {
-> +			rockchip,pins =3D <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
-> +
+    Andrew
 
-please sort nodes alphabetically (hdmi -> hym8563)
-I did that when applying.
-
-
-Thanks
-Heiko
-
-
->  	hdmi {
->  		hdmi0_tx_on_h: hdmi0-tx-on-h {
->  			rockchip,pins =3D <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
->=20
-> base-commit: 87320be9f0d24fce67631b7eef919f0b79c3e45c
->=20
-
-
-
-
+---
+pw-bot: cr
 
