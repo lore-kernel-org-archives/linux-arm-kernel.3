@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61134C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5712C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PIqo57EQNiBHwnGjeGrKifTmx0XH4Xy/8evjz9ZSTM=; b=FaXczs4e78kBxnNlJYbK9BvhCX
-	4wyNCw0AohBt70UO28RtaSfcvFdpxY3pxh5cnQfuSVimlnkccOeJduM1R6Joiy1t+QI4sZTINukNS
-	Hee/Hj/0SHOQrmF6hL2DqxnTrxpkPvcJke0JqWUK6YScF8st5HBZsR86wPK8zbr9XsI0KheP7cp3k
-	dotWYQFtp424T7LaOoPPlq6L80lPZSxN8wb8TjEW+VLePZpJtbixaD0rRdDsj42GpDXGlAGACUUp0
-	wpuSsb1zq2KKne+8Fb6LCOGIDlSKg/SCkmxxCKLDe5cYoyRjXkrO2qR23c4wXhhGUNNb/U+UNbqBQ
-	BZWgEAYA==;
+	bh=c9PcwBQ0V+OLkyQdGlq/IIxAXya/nTndoqwncgH2IXA=; b=VrGcpEX84kXRQd4mzDqwUS48CO
+	Rv2uexUnq0GLconMQexPV/GeyK/BGRPgSOSBQbbE2+NWsiRO7gP4V2BhAfPQ8DUQ4+diQaTd2LjtE
+	di6lKZHLY8QP2ipK0kD+27P8I+ehGXbz8xhDIEXI/HtSN94Xn4uywhLWybo/0fKbwE7QVqTws3VtO
+	uEpIPB2WTBQcvBvyPSi03ZG1GEolzMZlHQDUq/x4VeJQvsQp/QifIQYA5I649zDRWjrn8P6GGxqQ0
+	ctvkfqE9erC4wGDDxJC/ktc8xsDdwUniybrcWBE2Ps8xHXsBfLYwnYfSCgfE9a3stDGoABZMVJSQj
+	26EgyFTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3b8-0000000Eomy-1EZU;
-	Tue, 07 Jul 2026 11:04:18 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1wh3cD-0000000EouM-1uAo;
+	Tue, 07 Jul 2026 11:05:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3b5-0000000Eomb-0ew8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 11:04:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1783422244; x=1784027044; i=smoch@web.de;
-	bh=3PIqo57EQNiBHwnGjeGrKifTmx0XH4Xy/8evjz9ZSTM=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
-	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Vte81NdDzj1CW0jkqIVtonTvzuzIB6LXVXvJiO8kkzz6emcLAl4Wrt95BopmW3rj
-	 u4D2sL7yMUBc+fUdHI0VXQ9R9dEu7pgur3UM/gyMR6rCsSSwBadVxGf56VwqVU37x
-	 /Wubxg9+y1pWvrspqMJVAFTjzmgM0UcZejVzxdjcfLN/orOt0v1F3+bL9fYRh2ZrQ
-	 UsWB54lwGjnmUnWoMO8MriINTvO5UbjrhEvZXFtddFnj+CDrBXC3EpGUavUpTYXnT
-	 7V15eDhI7NjNiiKQB8pjuwXhM34rkxlLYm9n6ynbgVSr5n3SdMBBpwDYVtNWTWaQq
-	 8SguBNXUy2boKfZOKA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MElZP-1wstIN1eVX-008Hba; Tue, 07
- Jul 2026 13:04:04 +0200
-Message-ID: <0c649fcb-f084-4cc2-bed4-cc335b40c599@web.de>
-Date: Tue, 7 Jul 2026 13:04:02 +0200
+	id 1wh3c9-0000000Eotb-3zsz;
+	Tue, 07 Jul 2026 11:05:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783422319;
+	bh=njHkNcN5SX0HyTYDrLXSfIT1vV2uFDAlzNPRrE3fPD4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TUmfrI4KTPebhI3uWHQT+y9PJB6/3mFzMOEnVLnvpOecglrmvoqHN1ds9IosC2qjA
+	 vBrfS5BL8ItVVExcZaazFsCGlc761mFAsF8HJ6YTp0m92fyZQ/2JWfSWL8YqqO+5tU
+	 ao5d3IWenN5M63NBKb38GbkBUnABMlSAXmqNlyRf1vspX9tMXSxjvUAuRGF1yRQTbm
+	 rQ5Er/1yHKKDQsx6/BShvN3+kq9rAeJHdEOApzFLbLVxOffh4jIsCRA/2gPYjsELnH
+	 L9CySK2ofz0ZYKtownKUQBwtDq8BrA+rkyqiqGGQ0gs8h5OuBT70S8YVeLAh7VID/l
+	 XzqH/dwxFF3WA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 238B417E0C88;
+	Tue, 07 Jul 2026 13:05:19 +0200 (CEST)
+Message-ID: <176dd24c-c3cf-4ab9-8497-594ed65d10ec@collabora.com>
+Date: Tue, 7 Jul 2026 13:05:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
- power and reference clock control
-From: Soeren Moch <smoch@web.de>
-To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>,
- Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
- <l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
- "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>
-Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Hongxing Zhu <hongxing.zhu@nxp.com>
-References: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
- <a42a7e16-1798-4db5-9f03-ba608a700645@web.de>
- <GV2PR04MB120197631BE612B526EAA33068CF02@GV2PR04MB12019.eurprd04.prod.outlook.com>
- <4836b6f1-d40d-479d-acf7-a67769e0c8ac@web.de>
-Content-Language: en-US, de-DE
-In-Reply-To: <4836b6f1-d40d-479d-acf7-a67769e0c8ac@web.de>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Add MT6319 PMIC
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260707104427.3409290-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260707104427.3409290-1-wenst@chromium.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+ZeevbU7RNz769WEsUtX7LWkv/sW7fY8LzIG01kDidKl+Vy6gg8
- EeGHTW5qPAzFL3gMolXHOdVVFGKeSBd0jEleWobELyntrl5y7gOkB6hdhswkVkng3EQLkew
- j1HkxjJV7LZ++9H/sT4d3SgDOsZj69r1oXcPCIWQURy1oKPjdnWSV2SmBAq7i7GjxFj0wrN
- D49z1pnAmM2VP9jXT8GEQ==
-UI-OutboundReport: notjunk:1;M01:P0:8e/KFUIJ6iw=;Mdr4bPjx1HjrHdCVjJaIEIs5bl7 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 GC0/hYBZEch+rpPotiFq2Q0QrzAW0k
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_040415_574475_B4AB7888 
-X-CRM114-Status: GOOD (  22.46  )
+X-CRM114-CacheID: sfid-20260707_040522_521224_55A7FAA8 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,155 +75,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07.07.26 10:55, Soeren Moch wrote:
-> On 07.07.26 05:03, Hongxing Zhu (OSS) wrote:
->>> -----Original Message-----
->>> From: Soeren Moch <smoch@web.de>
->>> Sent: Monday, July 6, 2026 10:09 PM
->>> To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>; Frank Li
->>> <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
->>> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
->>> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
->>> festevam@gmail.com
->>> Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->>> imx@lists.linux.dev; linux-kernel@vger.kernel.org; Hongxing Zhu
->>> <hongxing.zhu@nxp.com>
->>> Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by=20
->>> separating PHY
->>> power and reference clock control
->>>
->>>
->>>
->>> On 06.07.26 05:06, hongxing.zhu@oss.nxp.com wrote:
->>>> From: Richard Zhu <hongxing.zhu@nxp.com>
->>>>
->>>> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
->>>> regulators") introduced a boot hang on i.MX6Q/DL variants by changing
->>>> the initialization sequence.
->>>>
->>>> The issue stems from coupling PHY power (TEST_PD) and reference clock
->>>> (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
->>>> managed together, the timing between PHY power-up and reference clock
->>>> enablement cannot be properly controlled, leading to initialization
->>>> failures.
->>>>
->>>> Fix this by separating the two concerns:
->>>>
->>>> - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where i=
-t
->>>> =C2=A0=C2=A0=C2=A0 logically belongs with reset operations. This ensu=
-res PHY power=20
->>>> state
->>>> =C2=A0=C2=A0=C2=A0 is managed as part of the core reset sequence.
->>>>
->>>> - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
->>>> =C2=A0=C2=A0=C2=A0 shared PHY power management, avoiding code duplica=
-tion.
->>>>
->>>> - Make imx6q_pcie_enable_ref_clk() responsible only for reference=20
->>>> clock
->>>> =C2=A0=C2=A0=C2=A0 (REF_CLK_EN) control, simplifying its purpose.
->>>>
->>>> - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() a=
-s
->>>> =C2=A0=C2=A0=C2=A0 proper sequencing is now handled by the core_reset=
- functions.
->>>>
->>>> This refactoring ensures PHY power is controlled during reset
->>>> operations, fixing the boot hang while improving code maintainability=
-.
->>>>
->>>> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
->>>> regulators")
->>>> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
->>> With this patch on top of v7.2-rc2 I see everything booting, lspci=20
->>> shows the
->>> root complex, but no PCIe device behind it.
->>> Tested on a i.MX6Q based tbs2910 board.
->>>
->>> For me it is not clear whether this fail to detect PCIe devices is=20
->>> related to the
->>> patches in question, the reset timing, or something else. Needs furthe=
-r
->>> investigation.
->> Thanks for your kindly help to tests.
->> Did you ever encounter the boot failure without this patch based on=20
->> v7.2-rc1
->> or later?
-> Have not tested this. Unfortunately currently I have no access to my=20
-> tbs2910 test board.
-> I used a production system for this test here, but this is very=20
-> difficult to recover
-> from boot hangs.
->>
->> After applied this patch, my i.MX6Q Sabresd board can boot up=20
->> successfully.
->> And the endpoint device can be detected as well.
->>
->> My Local commits:
->> ad5939d49b268 (HEAD -> v7.2-rc2_pcie) PCI: imx6: Add runtime PM=20
->> support for i.MX95
->> db7b15f198125 PCI: imx6: Update MPLLB bandwidth for i.MX95 PCIe Gen3=20
->> stability
->> a26735515c076 PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY=20
->> power and reference clock control
->> d617eadf52a46 PCI: dwc: Add force_l2 flag for platforms requiring L2=20
->> entry without D3cold
->> 8cdeaa50eae8d (tag: v7.2-rc2) Linux 7.2-rc2
->
-> My commits (v7.2-rc2 plus my patch to enable MSIs for the endpoint=20
-> plus this patch discussed here):
-> 8cdeaa50eae8 Linux 7.2-rc2
-> b62414d07e24 PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
-> e8176c6a27ed PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY=20
-> power and reference clock control
->
-> I'm not sure what your other mentioned patches are.
->>
->> Kernel logs:
->> Starting kernel ...
->>
->> [=C2=A0=C2=A0=C2=A0 0.000000] Booting Linux on physical CPU 0x0
->> [=C2=A0=C2=A0=C2=A0 0.000000] Linux version 7.2.0-rc2-00004-gad5939d49b=
-26=20
->> (nxa08258@shlinux89) (arm-poky-linux-gnueabi-gcc (GCC) 15.2.0, GNU ld=
-=20
->> (GNU Binutils) 2.45.0.20250908) #38 SMP Tue Jul=C2=A0 7 02:36:46 UTC 20=
-26
->> ...
->> root@imx6qpdlsolox:~# lspci
->> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
->> 01:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network=
-=20
->> Connection
-> on linux-7.2-rc2 plus patches (see above):
-> root@matrix2:~# lspci
-> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
->
-> on linux-7.0 (not tested on 7.1):
-> root@matrix2:~# lspci
-> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
-> 01:00.0 Multimedia controller: Philips Semiconductors SAA7160 (rev 02)
->
-> I guess the new power-on/reset timing is not sufficient to init the=20
-> endpoint in time.
-> Did you reduce the time from powering up the PCIe slot to release of=20
-> PERST#?
-> There is a power switch on the tbs2910 board for the PCIe slot, not=20
-> sure if
-> this is available also on SabreSD.
-I found out that the endpoint device is (often?) detected after reboot,=20
-it is not
-(never) on cold boot. (linux-7.2-rc2 plus patches)
-Could also point to timing problems of the slot power supply (or reset=20
-duration).
-Unfortunately I have only very limited time for testing.
->
-> Best regards,
-> Soeren
->> Best Regards
->> Richard Zhu
->>> Regards,
->>> Soeren
+On 7/7/26 12:44, Chen-Yu Tsai wrote:
+> The Geralt design uses a MT6319 PMIC to power the big cores and LPDDR4X
+> DRAM.
+> 
+> Add a device node for it and hook up all the supplies.
+> 
+> This change requires a firmware fix for the SPMI bus to read back
+> correctly. The required firmware version is 15842.175.0. This is
+> included in ChromeOS releases R150-16700.22.0 (available in Beta
+> channel as of writing or stable channel in mid-July) or
+> R151-16721.0.0 and later.
+> 
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+
+This is a big problem then.
+
+I take it as if the firmware fix is not in place, probing the CPU power supplies
+will fail, with all the consequences.
+
+This means that with this, we're breaking all Geralt machines with older firmware,
+which is not acceptable...
+
+...so this needs a different solution, or strong reasons to make me understand that
+I'm wrong, if I'm wrong.
+
+Cheers,
+Angelo
+
+> ---
+>   .../boot/dts/mediatek/mt8188-geralt.dtsi      | 66 +++++++++++++++++++
+>   1 file changed, 66 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> index f382f90c48f5..fea52c377d88 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> @@ -4,6 +4,8 @@
+>    */
+>   /dts-v1/;
+>   #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/spmi/spmi.h>
+> +
+>   #include "mt8188.dtsi"
+>   #include "mt6359.dtsi"
+>   
+> @@ -241,6 +243,14 @@ &cpu5 {
+>   	cpu-supply = <&mt6359_vcore_buck_reg>;
+>   };
+>   
+> +&cpu6 {
+> +	cpu-supply = <&mt6319_buck1>;
+> +};
+> +
+> +&cpu7 {
+> +	cpu-supply = <&mt6319_buck1>;
+> +};
+> +
+>   /*
+>    * Geralt is the reference design and doesn't have target TDP.
+>    * Ciri is (currently) the only device following Geralt, and its
+> @@ -1156,6 +1166,14 @@ pins-bus {
+>   		};
+>   	};
+>   
+> +	spmi_pins: spmi-pins {
+> +		pins-bus {
+> +			pinmux = <PINMUX_GPIO175__FUNC_B0_SPMI_M_SCL>,
+> +				 <PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA>;
+> +			bias-disable;
+> +		};
+> +	};
+> +
+>   	uart0_pins: uart0-pins {
+>   		pins-bus {
+>   			pinmux = <PINMUX_GPIO31__FUNC_O_UTXD0>,
+> @@ -1267,6 +1285,54 @@ &spi2 {
+>   	status = "okay";
+>   };
+>   
+> +&spmi {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&spmi_pins>;
+> +	#address-cells = <2>;
+> +	#size-cells = <0>;
+> +	status = "okay";
+> +
+> +	pmic@6 {
+> +		compatible = "mediatek,mt6319-regulator", "mediatek,mt6315-regulator";
+> +		reg = <0x6 SPMI_USID>;
+> +		pvdd1-supply = <&pp4200_s5>;
+> +		pvdd2-supply = <&pp4200_s5>;
+> +		pvdd3-supply = <&pp4200_s5>;
+> +		pvdd4-supply = <&pp4200_s5>;
+> +
+> +		regulators {
+> +			mt6319_buck1: vbuck1 {
+> +					regulator-name = "ppvar_dvdd_proc_bc";
+> +					regulator-min-microvolt = <520000>;
+> +					regulator-max-microvolt = <1155000>;
+> +					regulator-enable-ramp-delay = <256>;
+> +					regulator-allowed-modes = <0 1 2>;
+> +					regulator-always-on;
+> +			};
+> +
+> +			/* vbuck2 is ganged with vbuck1 */
+> +
+> +			mt6319_buck3: vbuck3 {
+> +					regulator-name = "pp1125_emi_vdd2";
+> +					regulator-min-microvolt = <1060000>;
+> +					regulator-max-microvolt = <1170000>;
+> +					regulator-enable-ramp-delay = <256>;
+> +					regulator-allowed-modes = <0 1 2>;
+> +					regulator-always-on;
+> +			};
+> +
+> +			mt6319_buck4: vbuck4 {
+> +					regulator-name = "pp0600_emi_vddq";
+> +					regulator-min-microvolt = <570000>;
+> +					regulator-max-microvolt = <650000>;
+> +					regulator-enable-ramp-delay = <256>;
+> +					regulator-allowed-modes = <0 1 2>;
+> +					regulator-always-on;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>   &uart0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&uart0_pins>;
 
 
