@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2111AC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E211C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fABNw2w97X9GRxh8PzbMHvVe6Mugz+Bwu+oLmBySnb4=; b=DDnblnVP3vhzR0RVxClMaSCGMS
-	wBCuKYmoG78CUuq4jjokhKe5CcmsC3xPc2nX9cP/gKBuJAI+zy1r3IrSsg1qYD79HzNmFP4ALQ7ua
-	Q6vChZEoq6RxwfX+fDZJIopHgC2cwBXNOBK01byaJPI2fhf9pFQSNf7IKSkG7SEkjiJQQdMmyYgAS
-	73/fCFT4L4NDJaGofGgnrn+m4u/u6YIGiKzTBCdP1qjp43NDkQP+UPZIDm1yoOS+GqVuPzJzcL/9c
-	XKUuX2qaS9pKHMAE6k3vCYI1PPnwcI/BWHQzt9VqBDvJxqTH/sO65gMmAdTAcYL4HWHtwm/PsF8qz
-	oF/lSZHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cW1i2nsSqGec664NhqCRjOb/CVuLPA/uupdfC4+Q4iM=; b=R/ShwQQxO6OsXFMle8ncnvP3nc
+	/LqNo41g6J3ZMgxAOILyhToPhTTcNiuEKkmkSM4ZjAKj9pWUQrxHJVMIBtKt1lVBlU4U+YpNbmJBc
+	tZBCmqwYWJB2pQyUiXtoGKJWkLm2dV4lqAsGkWa/rkf8jzfKVnaz84cGrcgQUJpleOEqgwCehJeIl
+	iOGBmN6lkph0B2w0MtE/dBsGCqEVKLnoc33+0vOgLXtedEuOZrg8qoi/Zm0cXQo76ukgor3EnG95t
+	JYK/J1jmIOSr8X1db9rkLDg2WGW9f46IeV3ip4tG7hs/gC25b5ssMJnpGJc5NFMPS8nZ10UtlbyEE
+	aC02tCZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7nv-0000000FKG6-1upK;
-	Tue, 07 Jul 2026 15:33:49 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wh7ot-0000000FKYN-3rsc;
+	Tue, 07 Jul 2026 15:34:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7nr-0000000FKDy-3Dv3
+	id 1wh7ok-0000000FKWn-2ecF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:33:46 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493b61b52b6so31957605e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 08:33:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783438422; x=1784043222; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fABNw2w97X9GRxh8PzbMHvVe6Mugz+Bwu+oLmBySnb4=;
-        b=o6VmU3ySw90CewjA90XCN1qiE9jAIvbaGhaCIMLwKL7W8081uvvusr+PSt7bWTU14h
-         9HOcl2R4PUHxaDmoBevo+FFTwdsEc/md9kRQLN4tj/ZgaQShnCQY71oEZFPAZp8ZPVDX
-         BaMtT/WHz7Eukp/T//gNQzgF6Q8z5CTLDD4W8lcwmFi54svcu9vMtt376FBQUNOoyKAI
-         +ZzR64AMEfASFEYuAudzndOJzGma9hC7VQuR/lBE4z1LyFl6MPSeA0Nb/bvkpImHE3J1
-         92Q83JsSNo9SYrK+HjQAtpU6guOPxJ8H9Xnn/LKz88oSWxP+K5K06DNTA0+VN3T9nU8x
-         Lhjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783438422; x=1784043222;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fABNw2w97X9GRxh8PzbMHvVe6Mugz+Bwu+oLmBySnb4=;
-        b=drgkAvDksWqPeEbDbqyGNyUNaEPcjK300xgrS2QU3mXWaKydhioq1yVGhOvBnP3m1X
-         qdX8a4UhCd6Lox6ZRs/60VNFUkF0CCaXEbTmAknPkc/e0nWlrnQNyG4HVTqDGjkm6WwB
-         eSNBURGwQoYE62guf7HhOjwI7L4aE/+TO6lrN7sPw1cOlQewVZ53no1i/6SmrQiMoELL
-         lUcx2bepC3K7U73VccEVKcTUHXdSDSYuCJA+eiB+KARWC78HY7Hiri4SUonXsbwANcgh
-         0YnSmUqZW3hsPEoPykNTTycT2zrVGdme0Z/7ml/ocSMvExrlTLd3FzIeOgcz1K0RLUj+
-         Jdig==
-X-Forwarded-Encrypted: i=1; AHgh+RqZEqFEoX/SYXaoc9rTBLlWzyBvaWgn6pFBp2qQYoaAzmbesP1IB0fFlg6i2cmaUZVzByZEL5nBJ6B9N/Zx6+re@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL9TEfZOPH6ce6c1sAV49o2lDhlSZiP4PTpqzf7f06yHprN9MH
-	YXRq8rF7cqXpEQuczRGCosX1snV6GRPcM9/qEZBJUmR/i/TxHC6y+/S9
-X-Gm-Gg: AfdE7cmr6gEXv5lfMGPPXzpTRIij86apj+xhVvSKT1OoHFzVDalhwP6O0aOLq5pj2KZ
-	MHzIcc9hauWl1n7Ap2OpqR3pB9SxBoPnVdkROhrY7+am9ljKsmTs2KyuqG7Fbwg0zE1YpqP2SZB
-	UYqhrxMWSVB1g5K9JbYFO3qQtMZ5Gu5vmso5vgm2W8s4lLAnBmfLJAFkiRQmRxK+ymezuLyQLBs
-	f+Q3Kc6M2/poYap/Lv1x7CdnrCWReL9+ZOCOv3ReeJ352K/ckQZ43jXDhwcR5tAlFyHZ9UHE4dy
-	LGs+Z/5EaNlFbrA6jbif73LuT1hcyOTRNvKwZN+gq26DEg45z4NMTyOCIj53UchogTWdvOHxfIP
-	lmOEv5svvgxCifl16+GBXL7r3NkQPNXSXKYCZRfDB6NJyWEFhIeSGo1BZ9mpDvpXoiPb2X31Fyv
-	OK6U7QlPojGoU1nA+q6UMC2kKzLxUHI8w=
-X-Received: by 2002:a05:600c:154e:b0:493:d216:ed96 with SMTP id 5b1f17b1804b1-493df0b6a8emr63241635e9.9.1783438421411;
-        Tue, 07 Jul 2026 08:33:41 -0700 (PDT)
-Received: from [127.0.0.2] ([194.35.121.133])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f5b811sm100622385e9.13.2026.07.07.08.33.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 08:33:40 -0700 (PDT)
-From: Diogo Silva <diogompaissilva@gmail.com>
-Date: Tue, 07 Jul 2026 17:33:26 +0200
-Subject: [PATCH 1/2] drm/xlnx/zynqmp_dpsub: remove dependency on DRM simple
- helpers
+	Tue, 07 Jul 2026 15:34:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=cW1i2nsSqGec664NhqCRjOb/CVuLPA/uupdfC4+Q4iM=; b=cbP0GUWTecrX6+QzFTOuGrg/ML
+	sP1WAqoiMgHkO/UfOpf1RP6G7STdApB9Sqa5Q2j5+DumZDSKVgTAHcEvdVLNdQfUyfOPeikXydS4F
+	aIO83IvQVFHcJHa9wVDa8zDuDbfoAAVU4soZ9ZlICSDvwByhTuou2aMTR7N82NsFXrMHpV2RZ7UDQ
+	vPjfLEmWKL60siohRItl40x5InPPmgvilMzheygahePYah/p4EhCuuJm3OvSVckq8YtdzTbUCFB9c
+	QtrdnqQdkd91USgiGA6nbDOJkX932vct6mpiGJvuDrbZSOZOKlGUJwjR7rElglPKtTjxPr1qBu2fk
+	cGFXXK9w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47092)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wh7oW-0000000013B-3tY9;
+	Tue, 07 Jul 2026 16:34:25 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wh7oT-000000006oU-389I;
+	Tue, 07 Jul 2026 16:34:21 +0100
+Date: Tue, 7 Jul 2026 16:34:21 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, akpm@linux-foundation.org,
+	david@kernel.org, liam@infradead.org, liaohua4@huawei.com,
+	lilinjie8@huawei.com, linusw@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, mhocko@suse.com, rppt@kernel.org,
+	sunnanyong@huawei.com, surenb@google.com, vbabka@kernel.org,
+	xiqi2@huawei.com
+Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault()
+ under CONFIG_DEBUG_USER
+Message-ID: <ak0cfZPZIWz4v95K@shell.armlinux.org.uk>
+References: <akzpuerKqOY7qfFi@shell.armlinux.org.uk>
+ <20260707131409.79043-1-xieyuanbin1@huawei.com>
+ <akz8aZUW23rpyrLO@lucifer>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-xlnx-simple-v1-1-df50c6665b02@gmail.com>
-References: <20260707-xlnx-simple-v1-0-df50c6665b02@gmail.com>
-In-Reply-To: <20260707-xlnx-simple-v1-0-df50c6665b02@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Diogo Silva <diogompaissilva@gmail.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akz8aZUW23rpyrLO@lucifer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_083343_945353_9963490D 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20260707_083439_311181_6A399279 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,53 +86,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simple KMS helper are deprecated since they only add an intermediate
-layer between drivers and the atomic modesetting.
-This patch removes the drm_simple_encoder_init() helper usage in the
-xlnx zynqmp_dpsub driver by open coding it and using the encoder atomic
-helpers directly. This is a step to eventually get rid of this simple
-KMS helper, once all drivers that use it have been converted.
+On Tue, Jul 07, 2026 at 02:20:19PM +0100, Lorenzo Stoakes wrote:
+> On Tue, Jul 07, 2026 at 09:14:09PM +0800, Xie Yuanbin wrote:
+> > On Tue, 7 Jul 2026 12:57:45 +0100, Russell King wrote:
+> > > No. This information is useful debug for kernel oops.
+> >
+> > For kernel oops, I think it should be `!user_mode(regs)`, Qi Xi's reply:
+> >
+> > On Tue, 7 Jul 2026 19:48:12 +0800, Qi Xi wrote:
+> > > For do_DataAbort() fallback:
+> > >
+> > >	if (user_mode(regs)) {
+> > >		if (addr < TASK_SIZE) {
+> > >			mmap_read_lock(current->mm);
+> > >			show_pte(KERN_ALERT, current->mm, addr);
+> > >			mmap_read_unlock(current->mm);
+> > >		}
+> > >	} else {
+> > >		show_pte(KERN_ALERT, current->mm, addr);
+> > >	}
+> >
+> > changes nothing to kernel oops. It only skip show_pte() for user-mode
+> > faults, and the fault addr is a kernel address, which means a user
+> > program is trying to access a kernel address.
+> > I think it is reasonable to skip show_pte() in this case?
+> 
+> Well the whole reason you're faulting here might be because a userland process
+> did that right? The page tables should tell you (presumably on ARM32 :)
+> 
+> And I hate to repeat myself, maybe you didn't read the whole thread but... just
+> use mmap_write_lock(), this isn't necessary?
+> 
+> What is this trying to achieve?
+> 
+> You're not in a hotpath, why are you bothering to conditionally take/not take
+> the lock?
 
-Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
----
- drivers/gpu/drm/xlnx/zynqmp_kms.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+Unconditionally taking the lock could lead to a deadlock. Consider
+the case where the mmap lock is held, and we get an unrecognised
+abort from the kernel.
 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-index d5f9224505655..698ac692abce9 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-@@ -30,7 +30,6 @@
- #include <drm/drm_mode_config.h>
- #include <drm/drm_plane.h>
- #include <drm/drm_probe_helper.h>
--#include <drm/drm_simple_kms_helper.h>
- #include <drm/drm_vblank.h>
- 
- #include <linux/clk.h>
-@@ -417,6 +416,10 @@ static const struct drm_driver zynqmp_dpsub_drm_driver = {
- 	.minor				= 0,
- };
- 
-+static const struct drm_encoder_funcs zynqmp_dpsub_encoder_funcs = {
-+	.destroy = drm_encoder_cleanup,
-+};
-+
- static int zynqmp_dpsub_kms_init(struct zynqmp_dpsub *dpsub)
- {
- 	struct drm_encoder *encoder = &dpsub->drm->encoder;
-@@ -436,7 +439,8 @@ static int zynqmp_dpsub_kms_init(struct zynqmp_dpsub *dpsub)
- 
- 	/* Create the encoder and attach the bridge. */
- 	encoder->possible_crtcs |= drm_crtc_mask(&dpsub->drm->crtc);
--	drm_simple_encoder_init(&dpsub->drm->dev, encoder, DRM_MODE_ENCODER_NONE);
-+	drm_encoder_init(&dpsub->drm->dev, encoder, &zynqmp_dpsub_encoder_funcs,
-+			 DRM_MODE_ENCODER_NONE, NULL);
- 
- 	ret = drm_bridge_attach(encoder, dpsub->bridge, NULL,
- 				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+If we try to take the mmap lock again, we'll deadlock, which will
+result in very little debug information being output - and the
+system locks up. The only thing that would save such a case would
+be if the user had decided to use a hardware watchdog, or is
+physically present to press the reset button.
 
 -- 
-2.51.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
