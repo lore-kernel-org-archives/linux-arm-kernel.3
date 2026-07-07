@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81E9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B13C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWIzIpH8a00nMIO23YrefbZEhT8NbDGs3/Ve9oenG9g=; b=iU8lYZxZB6cF67TwK0oD5B+kMt
-	9ezfJv/7z0VULVOEWADGrLS2xevVrwzwZhXe2Zaz5qfvnXm/Kv+mjNtuoceU65xgTr7zk2PQEEwhY
-	ZjAG//bzy35RdmaIAEp1cA9F/OuxiQPmdgm5VZcEUDZv+ZjPjpZCYAKAaFslB2pmP361RKMDSJCVp
-	z/vHensGH4Yg6wRuXAs/TbKuc6uUR4clrw9sTwDdYdCrdFB+YLCgydZ2xKCFn/IYwj/KWX+vvlcgl
-	A3DH0FIngTnrvmJp8KtiuY5Y1aCz+TOWBFarAf4hsD02rbJtkK4dKysVde8kIcRLuXwp5PKd1jnwe
-	SF+vwPOA==;
+	bh=9JLJ0FpKM3qj52tf+7FbBXdfMaILfM/b7TzkNMXuLMs=; b=A6r7mo2tut71q+hohFk1MNej3V
+	aY/0E5Gtw6iSwoxZV242WgLlX2m2N7fv3a0qOJ1LaUB3YfixFq85jWFb0uCnUo+8l3GAzrjZCliT5
+	Onokbf6tn50yluZG6mV5aDnNquIlPKACcc1W8vjOlGEyyCqljl4Q9ldKy5Eh9E/tJvrlUgAwNM+db
+	FfI0QwpXzWCyILvarFBE4nNGmIwfSdH9ecTRbq36rs8DMROCKXmNIOqSnPtadz2rdOqJP/Iit+HAW
+	kLRP4E68zdrb6U5r9MmHeaH/2QGWpapMSQg03jMxETT52khWQpLl6PziLJO2NPGH2yxVgrp8drdNI
+	Y7FexWBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whAOv-0000000Fd9E-1slJ;
-	Tue, 07 Jul 2026 18:20:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whASa-0000000FdXa-3zWF;
+	Tue, 07 Jul 2026 18:23:56 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whAOu-0000000Fd93-1B57
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 18:20:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 47E1460018;
-	Tue,  7 Jul 2026 18:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF961F000E9;
-	Tue,  7 Jul 2026 18:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783448407;
-	bh=AWIzIpH8a00nMIO23YrefbZEhT8NbDGs3/Ve9oenG9g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ep0suLijWN3eWlVd2Fpqz+yCycdYo+MNXSN0RmNnb84pJ7Ym/zvlHhZ+yQCzN7Fln
-	 mBRJ2yMJDx9RWbXnfb1dBoY+nskN7XRxrU3hfUM99tCczOI2mCyvieaC61VDUbyyml
-	 1z2swx2WCvXQFjqpB3T2YArm4OfIGpw0hV9mr5reikdj4MpRhuK3BSQt/l3/RwWO9V
-	 PxLSCgIAFC2hf+yYA+dBuRxho7Qh57l7zrQNFjmhlgUP7aSj597ytZycegiTG+FMuq
-	 RS8diYtYN1HGOY9ZestohQsiYB9rBLFD+L8zfbiw6Zsf5p/TJoaARjDEFzGzGrAGL4
-	 UaN10YmI1I4mw==
-Date: Tue, 7 Jul 2026 11:20:05 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v8 1/7] KVM: arm64: Disallow vPMU when pPMUs do not cover
- all CPUs
-Message-ID: <ak1DVUs0bgkpZh0N@kernel.org>
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <20260706-hybrid-v8-1-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <akvgIWqBjAp_VA_A@kernel.org>
- <e03f17b2-a765-4912-adf6-3da26e7eeecd@rsg.ci.i.u-tokyo.ac.jp>
+	id 1whASV-0000000FdWk-1bvn;
+	Tue, 07 Jul 2026 18:23:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=9JLJ0FpKM3qj52tf+7FbBXdfMaILfM/b7TzkNMXuLMs=; b=CGltUv6A8vNWyR6tnpsfe2ZOCQ
+	JsAUW8Wrl8Jf6IDsfJvhIElhExWMpJ/Z/8WxZq5M/BwokI+6YCXoLZnwQzy0tJIEMX5AVoFVcAWml
+	suUNS8GcSbCu+pd/KrNtbYBThifK89bbiGtIoSiKifux/D54RU999mk60Dh9Ujgv+gH6ZJQ7+STlE
+	4jXjFZT3GSEnJwLEtDjDrNGMdZBBjJpb/4NI6T3V4nz9WK16fMb0Ys3Dm/LnwElUMW09UZWl+teC6
+	U8S7EjJOwr0pjZHRAxncYs6FBeirD8AV7F6ABn6pXAEP1XuvC8EQ0pkRnjqgHn42p8hOBxaWNcVxE
+	SCcwBPiw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Hrushiraj Gandhi <hrushirajg23@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Tue, 07 Jul 2026 20:23:47 +0200
+Message-ID: <14045151.uLZWGnKmhe@phil>
+In-Reply-To: <20260707160354.GB3176120-robh@kernel.org>
+References: <20260608060940.52549-1-hrushirajg23@gmail.com>
+ <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
+ <20260707160354.GB3176120-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e03f17b2-a765-4912-adf6-3da26e7eeecd@rsg.ci.i.u-tokyo.ac.jp>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_112352_026298_D848BD12 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +68,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 08:08:03PM +0900, Akihiko Odaki wrote:
-> On 2026/07/07 2:04, Oliver Upton wrote:
-> > Hi,
-> > 
-> > On Mon, Jul 06, 2026 at 07:03:24PM +0900, Akihiko Odaki wrote:
-> > > Commit ec3eb9ed6081 ("KVM: arm64: PMU: Disallow vPMU on non-uniform
-> > > PMUVer") made KVM reject vPMU unless the system-wide PMUVer is usable.
-> > > That covers systems where PMUv3 is absent or non-uniform, as well as
-> > > systems where IMPDEF PMUv3 sysreg traps are unavailable.
-> > > 
-> > > However, KVM can still accept vPMU when all CPUs uniformly trap PMUv3
-> > > sysregs, but the pPMUs registered with KVM only cover a subset of
-> > > possible CPUs.
-> > > 
-> > > Reject vPMU unless the registered pPMUs cover every possible CPU.
-> > > This avoids carrying support for partial pPMU coverage into the
-> > > fixed-counters-only UAPI introduced later in the series.
-> > 
-> > Doesn't CPU hotplug screw this up? I could online a CPU that doesn't
-> > have a PMU after creating the VM.>
-> > I'd rather just change ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to become a
-> > system feature. That way any CPU which breaks the system-wide assumption
-> > cannot be onlined.
-> 
-> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS only says that IMPDEF PMUv3 sysregs are
-> trapped. It does not say that KVM has a driver-backed PMU usable for PMUv3
-> emulation. This patch checks that extra requirement.
-> 
-> I re-checked CPU hotplug. Onlining a CPU without a PMU later does not make
-> an accepted VM unsafe, since the check is against cpu_possible_mask.
+Am Dienstag, 7. Juli 2026, 18:03:54 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Rob Herring:
+> On Thu, Jul 02, 2026 at 09:04:55PM +0200, Heiko Stuebner wrote:
+> >=20
+> > On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
+> > > This series adds initial device tree support for the Vicharak Axon
+> > > single-board computer, which is based on the Rockchip RK3588 SoC.
+> > >=20
+> > > The Vicharak Axon is a feature-rich SBC targeting developer and embed=
+ded
+> > > use cases. It ships with:
+> > >=20
+> > >   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+> > >   - RK806 PMIC providing all SoC power domains
+> > >   - eMMC 5.1 (on-board) and microSD slot
+> > >   - Gigabit Ethernet via RGMII (RTL8211F)
+> > >   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+> > >   - PCIe 3.0 x4 and two PCIe 2.0 slots
+> > >   - SATA 3.0
+> > >   - USB 2.0 host ports (EHCI/OHCI)
+> > >   - NXP PCA9554 I/O expander for status LEDs
+> > >   - Haoyu HYM8563 RTC
+> > >=20
+> > > [...]
+> >=20
+> > Applied, thanks!
+> >=20
+> > [1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
+> >       commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
+> > [2/2] arm64: dts: rockchip: add Vicharak Axon board
+> >       commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
+>=20
+> Both have issues and should be dropped.
 
-Sorry, I missed that this was against the possible mask.
+I've dropped both the Axon as well as the Vaaman2 board from the
+same vendor now.
 
-> The problem is the reverse case on ACPI: this check can disable vPMU when a
-> possible CPU is offline. DT populates supported_cpus at boot, while ACPI
-> initially populates it only from online CPUs and grows it as matching CPUs
-> come online.
-> 
-> That makes this patch too conservative. In practice, I do not expect systems
-> to mix CPUs with and without a usable PMU. A better approach is probably to
-> treat such a host as out of spec and add TAINT_CPU_OUT_OF_SPEC. We already
-> do that for architectural PMUv3 by detecting mismatches in
-> ID_AA64DFR0_EL1.PMUVer; we can do the same for
-> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS with non-standard PMUs.
+The whole thing is confusing.
 
-The presence of the workaround is, by definition, out of spec. I just
-never bothered tainting the kernel because these machines are already
-TAINT_CPU_OUT_OF_SPEC by way of the broken VGIC.
+I should've caught the pinctrl issue, and do remember running a dtbscheck
+on at least one Vcharak board - but that must have been the Vaaman2 board
+because there the pmic fullfills the binding (and general setup of other
+rk3588 boards).
 
-Ok, so how about you keep the check that you're doing here and promote
-IMPDEF_TRAPS to a system-wide feature? That would satisfy the two
-preconditions we have for PMU emulation, which is system register traps
-and a backing arm_pmu that understands PMUv3 events.
+The vendor-prefix is missing indeed. I found earlier versions of the
+version-avalanche had it, up until v6 [0] . Though I haven't figured out
+yet why it was lost.
 
-Thanks,
-Oliver
+Hence I dropped both boards.
+
+
+Hrushiraj: please start anew with both boards.
+
+But include all the tags you received in previous versions.
+
+
+Heiko
+
+
+[0] https://lore.kernel.org/linux-rockchip/20260601162143.170030-2-hrushira=
+jg23@gmail.com/
+
+
 
