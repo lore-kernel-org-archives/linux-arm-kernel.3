@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D407AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9CCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stkx+vjsKdhX968mmJiOePHn7dujN6VJDWqehc4K6N4=; b=h0Ms9190ppnYklN5d1I63CYJ9W
-	DbqCWiuDsgdYddFERBX5PSavsY0lHrBKqng1ygGL+RCLnlrp3hjz+xLB/0lps4l2hlsrtdds/s5IH
-	VBz4wAHTv414Ynqax2/07Cv9/A2xEeoSevPoyKIZVw2GfWOXW7lS/6mOEbOCKLM87GoO7B7JPPsWr
-	1Mu3g5QpxCGCvCIY09My0BmjQel+ELG9pMeRQYyGnurh/mcFZ29YYC5ZCmwI1youDlA7Y9pKtsGas
-	I623ayCNxmN0b1XI2o7A4rB0fPIYf9k7obOi6g84ccM40wiYAlLqXvP+4aT78jQpypmG8j1Ty7hQH
-	HsW1sAbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1wR4i3S+qlUwOJNrTeVvJuUHl23Tu3l5qGQqGSCCrM=; b=qOuYnHdBMjv7TWltCHRrLZkNVN
+	Ax3VMo1fAle+YPv7JH4z3+XLWcE/R6JRGsbfu3cAzFrtH+xuyITHWMn/g9SKuzncDI4VIM/r4M6pK
+	widYpYEu//+v2lGMdgDrL5tmxCJeIn/2v5yQ1h0JVU1uXoQpLKtnxkCJyWVJZkqpmgiXs1E7EbcHs
+	GZP+xSc+2ZMJcLZBnR2v7Fkbe2xBI75lE+QVcxcxXWhPYg1++EDZQOn9Obpc3EV7XhHQDWQlxo7uk
+	E1qf2gsA/6pxSTcOC3+MN5nZm9sf8XzF5iM0uF6e+r9UTHEFauMCupbMhfyY/jp6cbAy1Faev03vN
+	QwqFKvYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4RQ-0000000EuFw-1951;
-	Tue, 07 Jul 2026 11:58:20 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wh4XO-0000000Eucs-0CZr;
+	Tue, 07 Jul 2026 12:04:30 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4RN-0000000EuEv-3VeR
+	id 1wh4XK-0000000EucQ-3Y4M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 11:58:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=stkx+vjsKdhX968mmJiOePHn7dujN6VJDWqehc4K6N4=; b=CQap+tkaox9/fVICER9FoFNvDu
-	e//Xtvd6Qs1gsrYGHA+TRKpq5dBGjLojzL9FfGAqF+24spZ1aqVFVlU0uyeRXvH8QEY9XSUM1GI4+
-	sApiwFB89AG0Yy64xD4vHmmZimtSrgLMrpXzjSDE7Z4vyLLGQelEV1efYgpyRyGPfCGsaxfj08E9a
-	nmWAe1pnoyFsQHl+gzgze0DQfQSp7FyDtz4+SLME7De/bvDvuu8whgrA8YE0p26g/XsMbHfVT6ne0
-	6Qs2eCUnsoJBmNA8dmndgy5vIf4dszJr+Wfw15tEDQSWyGoFlB0pm44BxnHSIeF7tENXo66tVldoG
-	I323MjOQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45516)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wh4Qu-000000000mm-2UGt;
-	Tue, 07 Jul 2026 12:57:48 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wh4Qr-000000006gy-3vIs;
-	Tue, 07 Jul 2026 12:57:45 +0100
-Date: Tue, 7 Jul 2026 12:57:45 +0100
-From: Russell King <linux@armlinux.org.uk>
-To: Qi Xi <xiqi2@huawei.com>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, akpm@linux-foundation.org,
-	david@kernel.org, ljs@kernel.org, liam@infradead.org,
-	vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
-	mhocko@suse.com, linusw@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	sunnanyong@huawei.com, linux-mm@kvack.org, lilinjie8@huawei.com,
-	liaohua4@huawei.com
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault()
- under CONFIG_DEBUG_USER
-Message-ID: <akzpuerKqOY7qfFi@shell.armlinux.org.uk>
-References: <20260626073048.3595106-2-xiqi2@huawei.com>
- <20260706133247.145485-1-xieyuanbin1@huawei.com>
- <c11452a3-b918-4d4c-afd7-a835a1d0a3bc@huawei.com>
+	Tue, 07 Jul 2026 12:04:28 +0000
+Message-ID: <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1783425863;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V1wR4i3S+qlUwOJNrTeVvJuUHl23Tu3l5qGQqGSCCrM=;
+	b=CKowxmzEvsFi8bPEpRBxQBVEESRS+TLUCPFAFp2Q4CQOSUnmA2luvb+oOSG1ITQLz9Wn8C
+	7IIXPpr5ArZNaxWGpffrKpCC3+CbZqbKCk7zB4JsIpGPqulFijoHPaPnGHwcuHdY5RjVt1
+	YLmBUWejdchZmVwbrsNEyVaGPfcmAWA=
+Date: Tue, 7 Jul 2026 14:04:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c11452a3-b918-4d4c-afd7-a835a1d0a3bc@huawei.com>
+Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
+To: Marc Zyngier <maz@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
+ <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
+ <86a4s3p2vy.wl-maz@kernel.org>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <86a4s3p2vy.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_045817_876129_F8FE2B2C 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260707_050427_147858_34053EC2 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 07:48:12PM +0800, Qi Xi wrote:
-> 
-> 
-> On 06/07/2026 21:32, Xie Yuanbin wrote:
-> > On Fri, 26 Jun 2026 15:30:47 +0800, Qi Xi wrote:
-> > > @@ -181,7 +181,9 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
-> > >   		pr_err("8<--- cut here ---\n");
-> > >   		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
-> > >   		       tsk->comm, sig, addr, fsr);
-> > > +		mmap_read_lock(tsk->mm);
-> > >   		show_pte(KERN_ERR, tsk->mm, addr);
-> > > +		mmap_read_unlock(tsk->mm);
-> > >   		show_regs(regs);
-> > >   	}
-> > >   #endif
-> > I found that this fix does not completely solve the problem. For a user
-> > fault, the addr could also be a kernel address. For arm32/x86, the kernel
-> > address space and user address space share the same pgd page table,
-> > but the kernel address space's page table is not protected by
-> > current->mm->mmap_lock.
-> > 
-> > I have written a use case to construct and verify this point. When A user
-> > program accesses a kernel address and triggers __do_user_fault(),
-> > show_pte() will directly print the kernel page table.
-> > 
-> > So, I suggest that:
-> > ```c
-> > 	if (user_mode(regs)) {
-> > 		struct mm_struct *const pt_mm = addr >= TASK_SIZE ?
-> > 			&init_mm : current->mm;
-> > 
-> > 		mmap_read_lock(pt_mm);
-> > 		show_pte(KERN_ALERT, pt_mm, addr);
-> > 		mmap_read_unlock(pt_mm);
-> > 	} else {
-> > 		// .. keep nothing change
-> > 		show_pte(KERN_ALERT, current->mm, addr);
-> > 	}
-> > ```
-> > 
-> > I have read this article:
-> > Link: https://docs.kernel.org/mm/process_addrs.html
-> > `mmap_read_lock(&init_mm)` should be able to ensure that the kernel
-> > address's page tables can be traversed. But I'm not quite sure if
-> > `mmap_read_lock(&current->mm)` provides protection for user-space non-VMA
-> > addresses?
-> You're right. And I think the fix is to simply skip show_pte() for kernel
-> addresses.
+On 7/7/26 11:25, Marc Zyngier wrote:
+> On Mon, 06 Jul 2026 23:38:27 +0100,
+> Yureka Lilian <yureka@cyberchaos.dev> wrote:
+>> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
+>> provide standardized power management for PCI devices.
+>>
+>> Notably, this allows enabling powering on the WiFi, SD card reader on
+>> various Macs by means of the pwrctrl framework before probing the ports.
+>>
+>> Previously, a custom solution for powering on the WiFi and SD card
+>> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
+>> driver for this purpose.
+>>
+>> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
+>>
+> nit: this paragraph and the accompanying link don't belong in the
+> commit message and should be moved below the --- mark or even better,
+> to the cover letter.
+ack, will leave it out of the commit message of the individual commit in v2
+>> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+>> ---
+>>   drivers/pci/controller/Kconfig      |  1 +
+>>   drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
+>>   2 files changed, 17 insertions(+)
+>>
+>> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+>> index 2247709ef6d6..af64630d28fa 100644
+>> --- a/drivers/pci/controller/Kconfig
+>> +++ b/drivers/pci/controller/Kconfig
+>> @@ -46,6 +46,7 @@ config PCIE_APPLE
+>>   	depends on OF
+>>   	depends on PCI_MSI
+>>   	select PCI_HOST_COMMON
+>> +	select PCI_PWRCTRL_GENERIC
+>>   	select IRQ_MSI_LIB
+>>   	help
+>>   	  Say Y here if you want to enable PCIe controller support on Apple
+>> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+>> index c2cffc0659f4..db038a9d4831 100644
+>> --- a/drivers/pci/controller/pcie-apple.c
+>> +++ b/drivers/pci/controller/pcie-apple.c
+>> @@ -30,6 +30,7 @@
+>>   #include <linux/msi.h>
+>>   #include <linux/of_irq.h>
+>>   #include <linux/pci-ecam.h>
+>> +#include <linux/pci-pwrctrl.h>
+>>   
+>>   #include "pci-host-common.h"
+>>   
+>> @@ -825,6 +826,21 @@ static int apple_pcie_init(struct pci_config_window *cfg)
+>>   	if (WARN_ON(!pcie))
+>>   		return -ENOENT;
+>>   
+>> +	ret = pci_pwrctrl_create_devices(pcie->dev);
+>> +	if (ret) {
+>> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
+>> +	if (ret) {
+>> +		if (ret != -EPROBE_DEFER) {
+>> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
+>> +			pci_pwrctrl_destroy_devices(pcie->dev);
+>> +		}
+>> +		return ret;
+>> +	}
+>> +
+> Why is this done globally while the whole driver works on a per-port
+> basis, and that the proposed DT updates are also per port?
 
-No. This information is useful debug for kernel oops.
+pci_pwrctrl_power_on_devices takes a struct device as parameter, but
+pcie-apple does not allocate device structs for the individual ports.
+This could be changed of course. But since pci_pwrctrl_* operate on
+the subnodes recursively, it works just fine this way.
+Additionally, we would like to be sure all the endpoints can be powered
+before we start initializing the individual ports. Otherwise we could
+end up in a situation where some ports are initialized but others are
+not when we realize some driver needed to power on the endpoints for
+port n is not yet bound. There is no appropriate pci_pwrctrl API for
+checking for the availability without changing the state, so this is
+an additional reason to do it early.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
+> Thanks,
+>
+> 	M.
+>
 
