@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5812C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1lw1VBDE1/D2I6ja8qlx//S0jIyLgr96wpIl4MJHkxE=; b=GQMBJHaL47ahlQnkQ39IvVVWtX
-	4jIsq10ejdcd4JWAMMT2sUDb6x14kqi/G2poCQCsKw7DgShV0CguJyB4DkIYxTj94FYSBKjlINmFL
-	0c3vz0oEEyGkRiEzM17yyqEPvu1vhCwH5/XBk3P7s+huAHXvoFyOtZolT9krnNK8+cpI8ImPrwGJ/
-	UE9B8ZmWenxGrLK0kwvg12sUfskSXHYqUXzxvwjuv78XUqEcnM0UY7usG1I3dfG4SFbMuD5kKxSrU
-	NnQOoVycn+uySViLMzbYzQ9zpbfRVZB1Olv1XumbDjXgJdSccKW5hYDOVLPblGNXI8/66Vu0tkUFX
-	7TQDNXsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X1AHuJK0aKxFPrkwJVfsDxGZ4mWIxQp0rRz6IATnme0=; b=XiU1D+KH5LQkUp28s08MOpLP7A
+	hRUqDVOMhfF2FwRY0UEkwY3ao21HThIS4HN2ZyIsp1a+O/i5PWUCzcjZ/2C80pEGJsDHIryLinkJ1
+	jisF6wHoQ0GyJXKfJ8k9bRm9/UGkojr+RJeEiMU4w0f33kXurOVczLzFL8dWzNTp/ksVWzfAATtYH
+	4DCPtfzwMLi52TVioxIKZxjZjLzIl00vmXdjUB8BLoOla03iKJog7ywtGQskvzMSFZWA5MxgEW2g2
+	edQwYyA+pFcFg2J2IMz6rqO2pAlxizkPUqOrhNF0YGlRx6alfcPz9cPzigQ9drX0ArJzYEeD5SAI9
+	qQ9kM+7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8YY-0000000FRwE-2dpI;
-	Tue, 07 Jul 2026 16:21:58 +0000
-Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8YW-0000000FRvh-0LIh
+	id 1wh9LR-0000000FXJW-060U;
+	Tue, 07 Jul 2026 17:12:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh9LN-0000000FXIX-3mZN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 16:21:58 +0000
-Received: from allenwind.lan (unknown [IPv6:2a02:169:3c38:10::3a0])
-	by mail.kmu-office.ch (Postfix) with ESMTPSA id 5A49C5CA16B;
-	Tue,  7 Jul 2026 18:21:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
-	t=1783441310;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:
-	 content-transfer-encoding:content-transfer-encoding:in-reply-to:
-	 references; bh=1lw1VBDE1/D2I6ja8qlx//S0jIyLgr96wpIl4MJHkxE=;
-	b=OExklQX0Z1RbE+wjJPmTMPSVhBQoTHdvN82uETaE1DHuFypcgBk2aUoB16NyUEuQN0lUe4
-	0X/5M9sDKZj7IoVSnybczAGLz9yKrX1VHWAUjX1+XzzOmz6OPBeG2pUd6bb87VxYv6/OwM
-	AlvuAaXr2C2jIkXgK31f8EO6df7/474=
-From: Stefan Agner <stefan@agner.ch>
-To: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	regressions@lists.linux.dev,
-	Stefan Agner <stefan@agner.ch>
-Subject: [PATCH net] net: stmmac: resume PHY before reopening the interface on MTU change
-Date: Tue,  7 Jul 2026 18:21:46 +0200
-Message-ID: <20260707162146.73823-1-stefan@agner.ch>
-X-Mailer: git-send-email 2.55.0
+	Tue, 07 Jul 2026 17:12:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1BCA1596;
+	Tue,  7 Jul 2026 10:12:20 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9C803F905;
+	Tue,  7 Jul 2026 10:12:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783444345; bh=5Tc7ddqhp21st8vckXa70PpY0lqXJ5LBOVL6j9ItTHk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sREhjZyGPNE0daHy71aKOF2TodUWZY+FJS2qlACj8EciJwpdmYdz7uXDQpMnY806V
+	 deNStAnEgFYvHTt0x4HZiITDiZOvh4PodNHqbUj6WWlBxUax116QoFgUWqfPEe9YQw
+	 1iwMOHZwtIbR28RNv+yOGei2dwumMYf9sthzvMXA=
+Date: Tue, 7 Jul 2026 18:12:20 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: pbonzini@redhat.com, kvm@vger.kernel.org, david.hildenbrand@arm.com,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	fuad.tabba@linux.dev, mark.rutland@arm.com
+Subject: Re: [RFC PATCH 2/3] KVM: Implement dirty page logging for
+ guest_memfd-only memslots
+Message-ID: <ak0zdNr1LvuF7gvm@raptor>
+References: <20260702142912.6395-1-alexandru.elisei@arm.com>
+ <20260702142912.6395-3-alexandru.elisei@arm.com>
+ <akxWZ1NTX4DHnUzf@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akxWZ1NTX4DHnUzf@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_092156_565654_95FFEA2D 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260707_101226_045883_DAA2EAB8 
+X-CRM114-Status: GOOD (  70.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +74,373 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the referenced commit, changing the MTU on a running interface no
-longer disconnects and reconnects the PHY; __stmmac_release() merely
-stops phylink, which also suspends the PHY (BMCR power-down) when WoL
-is not enabled. __stmmac_open() then performs the DMA software reset in
-stmmac_hw_setup() before phylink_start() resumes the PHY again.
+Hi Sean,
 
-IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
-powered down, and stmmac requires a running receive clock for the DMA
-software reset to complete (the phylink config sets mac_requires_rxc).
-On such setups, e.g. the RK3566-based Home Assistant Green with an
-RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
-leaves the interface dead:
+On Mon, Jul 06, 2026 at 06:29:11PM -0700, Sean Christopherson wrote:
+> On Thu, Jul 02, 2026, Alexandru Elisei wrote:
+> > The entire memory represented by guest_memfd-only memslot is shared and
+> > accessible by userspace.
+> 
+> ...
+> 
+> > +8.48 KVM_CAP_GUEST_MEMFD_MMAP_LOG_DIRTY_PAGES
+> > +---------------------------------------------
+> > +
+> > +:Architectures: all
+> > +
+> > +The presence of this capability indicates that memslots backed by a guest_memfd
+> > +file descriptor created with the GUEST_MEMFD_FLAG_MMAP flag can have dirty
+> > +page logging enabled.
+> 
+> What does mmap() have to do with anything?  Supporting mmap() doesn't guarantee
+> the memory is shared, and I can't think of any dependency on memory actually
+> being mapped into userspace.
 
-  rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
-  rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
-  rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
-  rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+My bad, it should have been GUEST_MEMFD_FLAG_MMAP +
+GUEST_MEMFD_FLAG_INIT_SHARED. I'm not sure what you mean by "dependency on
+memory actually being mapped into userspace".
 
-In the field this is triggered by NetworkManager applying an MTU while
-activating the connection, breaking networking entirely.
+From my point of view, it only makes sense to enable dirty page logging if
+the contents of the memory is accessible to userspace, hence I made dirty
+page logging depend on userspace having the option to access the memory.
+This can only happen if the guest_memfd file is mmap'able and accessible by
+userspace. But it doesn't force userspace to actually have the memory
+mapped to allow the log dirty pages flag to be set for a guest_memfd backed
+memslot. Hm.. now that I think about it, maybe I should have made depend on
+guest_memfd also having been created as shared? Though I think that can be
+changed with KVM_SET_MEMORY_ATTRIBUTES on x86.
 
-Resume the PHY before reopening the interface, like stmmac_resume()
-does, to ensure the receive clock is running for the DMA software
-reset.
+Does that answer your question?
 
-Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
-Link: https://github.com/home-assistant/operating-system/issues/4858
-Assisted-by: Claude:claude-fable-5
-Tested-by: Stefan Agner <stefan@agner.ch>
-Signed-off-by: Stefan Agner <stefan@agner.ch>
----
-Note: phylink_prepare_resume()'s kernel-doc says it is to be called
-prior to phylink_resume(); here it is paired with phylink_start()
-(called from __stmmac_open()) instead, which phylink_resume() itself
-uses to restart the machinery. If preferred, I can extend the
-kernel-doc or introduce a more generically named helper.
+> 
+> > diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+> > index 43ef8e908aaf..210bdd76f0aa 100644
+> > --- a/virt/kvm/guest_memfd.c
+> > +++ b/virt/kvm/guest_memfd.c
+> > @@ -622,6 +622,11 @@ bool __weak kvm_arch_supports_gmem_init_shared(struct kvm *kvm)
+> >  	return true;
+> >  }
+> >  
+> > +bool __weak kvm_arch_supports_gmem_mmap_dirty_logging(struct kvm *kvm)
+> > +{
+> > +	return false;
+> > +}
+> > +
+> >  static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+> >  {
+> >  	static const char *name = "[kvm-gmem]";
+> > @@ -705,6 +710,66 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+> >  	return __kvm_gmem_create(kvm, size, flags);
+> >  }
+> >  
+> > +static int __kvm_gmem_check_no_change(struct kvm *kvm, struct kvm_memory_slot *old,
+> > +				      struct file *old_file, unsigned int fd,
+> > +				      loff_t offset)
+> > +{
+> > +	struct file *new_file;
+> > +
+> > +	new_file = fget(fd);
+> > +	if (!new_file)
+> > +		return -EBADF;
+> > +	if (new_file != old_file) {
+> 
+> There's a TOCTOU issue here, no?  Nothing prevents userspace from deleting and
+> replacing the old guest_memfd instance between now and when the re-binding
+> happens.
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+When userspace closes a guest_memfd file, for all memslots that use that
+file, slot->gmem.file is set to NULL in kvm_gmem_release().
+kvm_gmem_release() takes the kvm->slots_lock(), so I don't think changes to
+memslots can run concurrently with a guest_memfd instance being closed -
+i.e, if a guest_memfd file has been closed then the subsequent memslot
+update will see slot->gmem.file = NULL. Or if a memslot update is under
+way, slot->gmem.file won't be made NULL until the memslot update completes.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5884,6 +5884,15 @@
- 
- 		__stmmac_release(dev);
- 
-+		/* phylink_stop() in __stmmac_release() suspends the PHY.
-+		 * IEEE 802.3 allows PHYs to stop their receive clock while
-+		 * powered down, but the DMA software reset performed by
-+		 * stmmac_hw_setup() requires a running receive clock.
-+		 * Resume the PHY, as on system resume, to ensure its clocks
-+		 * are running before reopening the interface.
-+		 */
-+		phylink_prepare_resume(priv->phylink);
-+
- 		ret = __stmmac_open(dev, dma_conf);
- 		if (ret) {
- 			free_dma_desc_resources(priv, dma_conf);
--- 
-2.49.0
+Unless I misunderstood what you were saying.
+
+> Ah, no, because the check in kvm_set_memory_region() is only to check
+> for a "nop" update.  I think we should continue to disallow such "updates", I
+
+Sure, I added this here because calling the legacy
+KVM_SET_USER_MEMORY_REGION with the same values for the struct
+kvm_user_memory_region fields does not return an error.
+
+> can't think of any reasonable use case, and then we can fold this helper into
+> its sole remaining caller. 
+> 
+> > +		fput(new_file);
+> > +		return -EBADF;
+> > +	}
+> > +	fput(new_file);
+> > +
+> > +	if (old->gmem.pgoff != offset >> PAGE_SHIFT)
+> 
+> This can and should be handled in common KVM, not in guest_memfd.  It's a
+> property of the memslot, not of the gmem instance.
+
+Sure.
+
+> 
+> > +		return -EINVAL;
+> > +
+> > +	return 0;
+> > +}
+> > +int kvm_gmem_change_flags(struct kvm *kvm, struct kvm_memory_slot *old,
+> 
+> Hmm, if we use a separate helper, I think this should be phrased in terms of
+> commands to guest_memfd, not in terms of why common KVM is making changes.
+> guest_memfd shouldn't have to care *why* it's being asked to re-bind to a
+> different memslot.
+> 
+> Alternatively, provide kvm_gmem_commit_memory_region() and pass in a
+> kvm_mr_change param, but that gets weird since the unbind() case needs to be
+> handled even without an explicit DELETE.
+
+The way I see it, guest_memfd is not rebinding to a new memslot, since
+f->bindings are not changed at any point in the handling of the
+KVM_SET_USER_MEMORY_REGION2 call if only the flags are changed.
+
+The function was initially supposed to validate that this indeed is a flag
+only change, which means that the guest_memfd fd and file offset are
+unchanged.  But then I added the update to new->flags to set the
+KVM_MEMSLOT_GMEM_ONLY flag. I guess I could split it into
+kvm_gmem_check_flags_update() and kvm_gmem_copy_flags()?
+
+Also, I think the best place for both functions would be in
+kvm_set_memory_region():
+* That's where the validity of a change to a memslot is checked.
+* That's where new->flags is copied from kvm_userspace_memory_region2->flags.
+
+What do you think? Does that make sense?
+
+> 
+> > @@ -734,6 +799,11 @@ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+> >  	if (!PAGE_ALIGNED(offset) || offset + size > i_size_read(inode))
+> >  		goto err;
+> >  
+> > +	if (slot->flags & KVM_MEM_LOG_DIRTY_PAGES &&
+> > +	    (!kvm_gmem_supports_mmap(inode) ||
+> > +	     !kvm_arch_supports_gmem_mmap_dirty_logging(kvm)))
+> 
+> I think I would rather handle this in kvm_arch_prepare_memory_region().  AFAIK,
+> arm64 and x86 are the only architectures that support using gmem for private
+> memory, and so are the only architectures that would need to restrict dirty
+> logging (TDX needs additional plumbiong).  It'd mean updating x86 at the same
+> time, but that should be relatively straighforward.
+
+Sure, I'll give it a go.
+
+> 
+> That would mean we couldn't handle the check in check_memory_region_flags(), but
+> that should be a non-issue, e.g. arm64 and RISC-V already put additional
+> restrictions on what can regions be dirty-logged.
+> 
+> > @@ -1739,16 +1739,6 @@ static void kvm_commit_memory_region(struct kvm *kvm,
+> >  		 */
+> >  		if (old->dirty_bitmap && !new->dirty_bitmap)
+> >  			kvm_destroy_dirty_bitmap(old);
+> > -
+> > -		/*
+> > -		 * Unbind the guest_memfd instance as needed; the @new slot has
+> > -		 * already created its own binding.  TODO: Drop the WARN when
+> > -		 * dirty logging guest_memfd memslots is supported.  Until then,
+> > -		 * flags-only changes on guest_memfd slots should be impossible.
+> > -		 */
+> > -		if (WARN_ON_ONCE(old->flags & KVM_MEM_GUEST_MEMFD))
+> > -			kvm_gmem_unbind(old);
+> > -
+> >  		/*
+> >  		 * The final quirk.  Free the detached, old slot, but only its
+> >  		 * memory, not any metadata.  Metadata, including arch specific
+> > @@ -2073,22 +2063,27 @@ static int kvm_set_memory_region(struct kvm *kvm,
+> >  		if ((kvm->nr_memslot_pages + npages) < kvm->nr_memslot_pages)
+> >  			return -EINVAL;
+> >  	} else { /* Modify an existing slot. */
+> > -		/* Private memslots are immutable, they can only be deleted. */
+> > -		if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> > -			return -EINVAL;
+> >  		if ((mem->userspace_addr != old->userspace_addr) ||
+> >  		    (npages != old->npages) ||
+> >  		    ((mem->flags ^ old->flags) & (KVM_MEM_READONLY | KVM_MEM_GUEST_MEMFD)))
+> >  			return -EINVAL;
+> >  
+> > -		if (base_gfn != old->base_gfn)
+> > +		if (base_gfn != old->base_gfn) {
+> >  			change = KVM_MR_MOVE;
+> > -		else if (mem->flags != old->flags)
+> > +		} else if (mem->flags != (old->flags & MEMSLOT_USER_FLAGS_MASK)) {
+> >  			change = KVM_MR_FLAGS_ONLY;
+> > -		else /* Nothing to change. */
+> > +		} else if (mem->flags & KVM_MEM_GUEST_MEMFD) {
+> > +			return kvm_gmem_check_no_change(kvm, old, mem->guest_memfd,
+> > +							mem->guest_memfd_offset);
+> 
+> As above, just return -EINVAL.
+
+Sure.
+
+> 
+> > +		} else {
+> >  			return 0;
+> > +		}
+> >  	}
+> >  
+> > +	if (mem->flags & KVM_MEM_GUEST_MEMFD &&
+> > +	    change != KVM_MR_CREATE && change != KVM_MR_FLAGS_ONLY)
+> 
+> This is a *very* convoluted way of disallowing MOVE.  Handle this above.  E.g.o
+> 
+> 		if (base_gfn != old->base_gfn) {
+> 			/* KVM doesn't support moving guest_memfd bindings. */
+> 			if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> 				return -EINVAL;
+> 
+> 			change = KVM_MR_MOVE;
+> 		} else if (mem->flags != (old->flags & MEMSLOT_USER_FLAGS_MASK)) {
+> 			if (mem->flags & KVM_MEM_GUEST_MEMFD &&
+> 			    old->gmem.pgoff != mem->guest_memfd_offset)
+> 			change = KVM_MR_FLAGS_ONLY;
+> 		} else if (mem->flags & KVM_MEM_GUEST_MEMFD) {
+> 			return -EINVAL;
+> 		} else {
+> 			return 0;
+> 		}
+
+Sure, looks better.
+
+> 
+> > +		return -EINVAL;
+> > +
+> >  	if ((change == KVM_MR_CREATE || change == KVM_MR_MOVE) &&
+> >  	    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
+> >  		return -EEXIST;
+> > @@ -2105,7 +2100,12 @@ static int kvm_set_memory_region(struct kvm *kvm,
+> >  	new->flags = mem->flags;
+> >  	new->userspace_addr = mem->userspace_addr;
+> >  	if (mem->flags & KVM_MEM_GUEST_MEMFD) {
+> > -		r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
+> > +		if (change == KVM_MR_CREATE) {
+> 
+> Curly braces aren't needed.
+
+Sure, I'll remove them, I put them there because the block for
+KVM_MR_FLAGS_ONLY, which, even though has only an instruction, spans two
+lines.
+
+> 
+> > +			r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
+> > +		} else if (change == KVM_MR_FLAGS_ONLY) {
+> > +			r = kvm_gmem_change_flags(kvm, old, new, mem->guest_memfd,
+> > +						  mem->guest_memfd_offset);
+> > +		}
+> >  		if (r)
+> >  			goto out;
+> >  	}
+> > @@ -2117,7 +2117,7 @@ static int kvm_set_memory_region(struct kvm *kvm,
+> >  	return 0;
+> >  
+> >  out_unbind:
+> > -	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> > +	if ((mem->flags & KVM_MEM_GUEST_MEMFD) && change == KVM_MR_CREATE)
+> >  		kvm_gmem_unbind(new);
+> 
+> This is wrong.  If kvm_set_memslot() failed, the old memslot needs to be bound
+> back to the guest_memfd instance.  Hmm, but KVM can't guarantee success.  So
+
+The old memslot is still bound to guest_memfd in the sense that f->bindings
+still has the same memslot id+as_id assigned to the memslot's gpa range.
+There's no rebinding happening when flags are changed because the memslot's
+id + as_id are not changed.
+
+I think we might not be on the same page regarding what the previous patch
+does, that is where I've changed how guest_memfd keeps track of the
+memslots.  Instead of storing a pointer, it now stores the memslot id and
+as_id, and uses a search in the active memslots (kvm->memslots) to get the
+active memslot by using id and as_id:
+
+  slot = id_to_memslot(__kvm_memslots(kvm, as_id), id)
+
+If userspace punches a hole or kvm_gmem_error_folio() is called while a
+memslot flags update is in progress, __kvm_gmem_invalidate_{start,end}()
+might observe the old memslot (with the old flags), but I believe that's
+ok, because that's also what happens when the MMU notifiers trigger
+invalidation during a memslot update.
+
+> unless there's reason why the bind() can't happen under slots_arch_lock, I think
+> the way to handle this is to only bind once success is guaranteed.  It'll require
+> plumbing the fd+offset into kvm_set_memslot().
+> 
+> Or I guess add the "fd" to kvm_memory_slot.gmem?  I kinda like that, because then
+> we can require that userspace really is just updating flags, and not switching
+> the fd (to a the same file).
+> 
+> 
+> E.g. something like this?
+> 
+> diff --git include/linux/kvm_host.h include/linux/kvm_host.h
+> index ab8cfaec82d3..82385eb9a82e 100644
+> --- include/linux/kvm_host.h
+> +++ include/linux/kvm_host.h
+> @@ -610,6 +610,7 @@ struct kvm_memory_slot {
+>                  * reference via kvm_gmem_get_file() is protected by
+>                  * either kvm->slots_lock or kvm->srcu.
+>                  */
+> +               int fd;
+>                 struct file *file;
+>                 pgoff_t pgoff;
+>         } gmem;
+> diff --git virt/kvm/kvm_main.c virt/kvm/kvm_main.c
+> index e44c20c04961..0729e7c94816 100644
+> --- virt/kvm/kvm_main.c
+> +++ virt/kvm/kvm_main.c
+> @@ -1946,6 +1946,20 @@ static int kvm_set_memslot(struct kvm *kvm,
+>                 return r;
+>         }
+>  
+> +       if (new->flags & KVM_MEM_GUEST_MEMFD) {
+> +               if (change == KVM_MR_CREATE)
+> +                       r = kvm_gmem_bind(...);
+> +               else if (WARN_ON_ONCE(change == KVM_MR_MOVE))
+> +                       r = -EINVAL;
+> +               else if (change == KVM_MR_FLAGS_ONLY)
+> +                       r = kvm_gmem_rebind(...);
+> +
+> +               if (r) {
+> +                       mutex_unlock(&kvm->slots_arch_lock);
+> +                       return r;
+> +               }
+> +       }
+> +
+>         /*
+>          * For DELETE and MOVE, the working slot is now active as the INVALID
+>          * version of the old slot.  MOVE is particularly special as it reuses
+> @@ -2104,21 +2118,14 @@ static int kvm_set_memory_region(struct kvm *kvm,
+>         new->npages = npages;
+>         new->flags = mem->flags;
+>         new->userspace_addr = mem->userspace_addr;
+> -       if (mem->flags & KVM_MEM_GUEST_MEMFD) {
+> -               r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
+> -               if (r)
+> -                       goto out;
+> -       }
+> +       new->gmem.fd = mem->guest_memfd;
+> +       new->gmem.pgoff = mem->guest_memfd_offset >> PAGE_SHIFT;
+>  
+>         r = kvm_set_memslot(kvm, old, new, change);
+>         if (r)
+> -               goto out_unbind;
+> +               goto out;
+>  
+>         return 0;
+> -
+> -out_unbind:
+> -       if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> -               kvm_gmem_unbind(new);
+>  out:
+>         kfree(new);
+>         return r;
+
+I can explore that, for sure, thank you for the review!
+
+Alex
 
