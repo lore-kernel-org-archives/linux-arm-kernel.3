@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B8FC44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6182AC43458
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 03:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYtf60a9vKyBgN3UPVLnsPxCyGwr8zfAeFMSG9lOvrg=; b=tzTBoU5R/AKU97hzRs9N3x1ixe
-	m2Em4t1UYeGWR5rrwkT56jkW4DYybJz2/OadAfFUMCRlTy1fHzFDRacY3dOQIdp02SI0x4rAs9e85
-	lS22dmQ8ZwXYfJ1gcK1/aZdnTfUOIikYbwQzQGZ34DOMC2S3mvzhtNEusVuJjrg0TLX+mSAWcPcAx
-	n2Y6xkcqRnTEHVxgdMMphjV3tOR10Ih17f/6G0r7L8pb9ERU0rpo4EMzQKaFuBwo4nEacZjED09dB
-	2oiTcSho030bbFUuAADP5FVoXhtdt/U0oIuC2OErstRKtu45veJ4JOIoNlcYHVzZXwtkY8ARfQbbJ
-	dXSzGy4w==;
+	bh=dZWRhCcUrvPvTTZjoxUn5wLx5Cz3X6hhXARWRFQg4Ow=; b=bnySh9rtLFLJiLGeA2JIdsIuQj
+	mHmEOXKljPjVwHpxEzUkIvvE7efpNb+7cTcdDq0SY18fktV0Akb7M8pWEUxjXwzikUXr2PsNNVBVy
+	MXC2tMLoC0z7okVS3vZGukCKoL/OwbIjKuXNym0VH0Hgd+MKm1i6m7dM+GgQA88+6cnS1LxZb0B2q
+	9n6Uqe7WD3VvjtHZaesYdjvVMAE+HIWLiNeODzB2xq8ZpEyviaOMUciV9xoS1vSC19bZAqdT1eTrz
+	dFSfgljQlFSo0oO5p7AAS7AFvkB1aY3C6RNx9Uu91Wgb2klp/PKjCf9FGwRZI94tzUa/UiG8IeeGb
+	2iEJ1g1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwGB-0000000Dz9P-49Uz;
+	id 1wgwGB-0000000Dz93-3ILQ;
 	Tue, 07 Jul 2026 03:14:11 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwG9-0000000Dz7q-1dUg
+	id 1wgwG8-0000000Dz6x-0KnA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 03:14:10 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c999f162c9aso2401893a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 20:14:09 -0700 (PDT)
+	Tue, 07 Jul 2026 03:14:09 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c99eaa1f020so3792908a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 20:14:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783394048; x=1783998848; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783394047; x=1783998847; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oYtf60a9vKyBgN3UPVLnsPxCyGwr8zfAeFMSG9lOvrg=;
-        b=PZ0TCOAlgnAg23zMaG6XpkOosc8NcZkT1FIEBcnjXPg935zehp36V8AmYashhsyIqx
-         QrMfjEVZUicxu95D5cM1pPUjWhbyBt75ZLg/5sHNAFewK8lc1stbP8DkUbsvYvUiFStI
-         Xlb+uqyCpUSUMpHFH+5GuC0fAkxSWWiafFyMWqg3jTuIj0xDs1U1uoK5EfvcFD04ksID
-         P4J2mdazw+NRwEyJkzt/g/cVeXEBHEgudAocKg75TaqWgpg8QoUARBKY8mTb7OB0v7B4
-         vNGpdXa/e/Tttxip0dSM8yRUR6Ynup66uZMdbM10YSL4PfxWkhFeWOhS9yL2oZHnYkef
-         9QUg==
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dZWRhCcUrvPvTTZjoxUn5wLx5Cz3X6hhXARWRFQg4Ow=;
+        b=WL+XI020wgM7W7f8NbX/QWXuDuuliyLnHFnwbZY9XrltGiabEjmgixugYxKw0UHb9p
+         Puhi7sIfu0YsptUAaziII3EGGo83DgrkNBivggYa+VVLHcMkfFxgUK1ZUYUObCAi8XQ7
+         NpIkAFjMHaPE7syzCfswaw+SHEuevVjV1nj7zsoYPRvNtw3VVSM+N9wcapprysFcBwe6
+         4hRxO2Pt6f25YqQstFPhrOYM8nZZxE3i0xAi46qDuBJdGdBImv88ogxhZzMztjwSPHMM
+         8TVmrSgekwl6jTeUkmH0bRyd+P9VAgvhRFFsDrkfQdiZDZ1SNvW0brzR8YVW2QIEMf73
+         w09A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783394048; x=1783998848;
+        d=1e100.net; s=20251104; t=1783394047; x=1783998847;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oYtf60a9vKyBgN3UPVLnsPxCyGwr8zfAeFMSG9lOvrg=;
-        b=Ipoi35+FBvO+Tsxl6oIt0xbvBIMLk34Uyi3QSstRsK+gevUOHhngzxfR0/EcW31ehF
-         udTc9nwO/idplseyUIlsX1o/6b+W6x43Yd3xY6NwFQjqWpIaT/OICMNIyTlAsZmUGww3
-         Fmcnv0ftQ1Vrhz27J6+Zbys4Vvxau2TDdY0Sw29bb5vXKzjSdEu3LwZ6jVjyiMzEdJV0
-         /EOsAhHijt2wPwfVcz/OjX4pkk9HoNTPIENuYcZD2/PZnhdQEv4b0w4A2xlC3lFxuMVw
-         HjQxcIsfxO5626i/Ye9HtJB+q5Mpz/PrPrzQqncKaIk/SBCltUu/BMPMChD7sNW2uH1z
-         v7ZQ==
-X-Gm-Message-State: AOJu0YwR1/KUMfz3hevjBby9QMQypPK0ESHmotklsd7C+ffLemjKzeMu
-	g66rV2gIq+IeaD02yeMdQRI0zTjfu77R8ff6b2tOQrHZ52uUwqEb/YGJ
-X-Gm-Gg: AfdE7clkQt/b9tp6DoCgd0msqq7SxtXucexaioWFiuoPiKUwa9SbZYNS6Cu9wM2Oqjz
-	wQAhaBz/HwxZ2MUO70JZhPZtnkFq6cxxV4uL7BRDaBmzIaG6JXDxEQzj1dQiMJvmU/KbyAqBWJ1
-	B4GkJ0+OvIs3ubwS+Ikl9Qgu4r6+mlw7O41fawmfSz+SC2PU3H+hE70YBmkh7fzO4YCO9Tqbjbf
-	6WDt5XE1tLIjUOEjc98K3hPTUoRN+z61xwMh2M2yzspvtfFPYWRWiLUBaOv0CbipSHve8SC609y
-	d4NgGsrnSXOqjo3Gbrk8joafQ1wV4Kfq6MHVoA+RAZVWrxpmI6du9Laqf87Vm44jt7MliLO8iim
-	7yFnFylKruv6Syqs/lGG5ITHfNKvcOvrFt9+i2AHg6IsSV7A3FTleV7tF0fcuyjr2TR3jBbzdPw
-	TJlV+8Bn9XrY5vuMAjLMZTKLvsCNnbdpIjbucNYFT6HQHHjYn/SjGy7/WCsxsx1ATwG/QcG3BT4
-	ViU
-X-Received: by 2002:a05:6a20:1615:b0:3bf:6c05:ad with SMTP id adf61e73a8af0-3c08f020a10mr4089430637.60.1783394048343;
-        Mon, 06 Jul 2026 20:14:08 -0700 (PDT)
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dZWRhCcUrvPvTTZjoxUn5wLx5Cz3X6hhXARWRFQg4Ow=;
+        b=We0uYugVznNuzAQ+sSs9cnFe3aLueVt8LVlD8kkIhp7pXQtV+lCoLAoRoUiOGrDPua
+         iASrnxPPSvAzPGoP4JzcmTw/eCwlzhpATymUCrgK3Od026b5w34X376bh4+iENkyXerR
+         Rz2z116aumvyTZ3h7hN/QCCD1WtZz2iDFVh/j+U/RVXif4gtZ6vz/wCSY17RYGkSLHSc
+         CH7jFler184mdISp9BAb4FEQRbGvUPBrtQ7ph16bAQ0T51w4r9RKn3rlrbrDKO4SMGct
+         osy+Khg+vMqhfK/w9zwEN5Nx+6ipYkfj+SNxYB8+sOn1Wsm1H+c1y5fQ0Y17ichyDvWu
+         Z4Fg==
+X-Gm-Message-State: AOJu0YyreynzpwnazH9Y4a3dlEu4MK+YNLkKoND4uBfDB2Fa84ZxXkPd
+	EQPdbiRInY9V1R1ywZc4Maze5qDm9SUyQf+h279mYzQf/bVsMk/N3es3
+X-Gm-Gg: AfdE7cn/cbDFetiEBieHQvwlHTGZA10vteiagofCccHAEchVf6+GBL20KyDJaUcJ1iM
+	g1zZnZ/tl1qJiVP1mezs9BPeJ1BLyPqJfl6xd/F716LGox1gB34dlE6ExTqEP1OKtbenNBHXlU1
+	Dd+gLv6YVdTCuFgUr5TT6LjQiKlKMak7BRbdTUlj4X3qiJoXi9+DImgHfBI8CjLlqdPup6uEtFE
+	pmwz3tV+eWLQ3JH2OwriQnr+vwcEM0u74Ryuxphfw9yfe9ZHVVu1FSa2SorQToBtAPcsoWXMNfg
+	/lQ8MWodLEJiZNM2V3p06d35QSzc1YCYzDlQ9hMI31mmPKAakFqlshCsnntjJdxZWPRKmaBth4y
+	fQcxCOI7qehgd1rzPGruCzB/FuA7w9ZBPzTvlvPX4DL/WsPLneNJQlcYq2E8gUbAVwjgL0UtZV1
+	VEkVVnkW6Y02u3C1pAy2bwi+NBFvdx/dRVY4XBz6P19L86tvrKgekagzQjcvUq9e8rLSJLD2ZBv
+	/O8sz9/yB8pzkw=
+X-Received: by 2002:a05:6a20:c996:b0:3b4:93b9:2b91 with SMTP id adf61e73a8af0-3c08ec7451dmr4414105637.12.1783394046925;
+        Mon, 06 Jul 2026 20:14:06 -0700 (PDT)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:d89b:1fdd:a8f2:dbeb])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659666e7sm3339905c88.7.2026.07.06.20.14.07
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659666e7sm3339905c88.7.2026.07.06.20.14.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 20:14:07 -0700 (PDT)
+        Mon, 06 Jul 2026 20:14:06 -0700 (PDT)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Mon, 06 Jul 2026 20:14:01 -0700
-Subject: [PATCH 2/4] ARM: sa1100: assabet: convert gpio-keys to use
- software nodes
+Date: Mon, 06 Jul 2026 20:14:00 -0700
+Subject: [PATCH 1/4] gpio: sa1100: register software node for GPIO
+ controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-sa1100-swnode-v1-2-332759bbd930@gmail.com>
+Message-Id: <20260706-sa1100-swnode-v1-1-332759bbd930@gmail.com>
 References: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
 In-Reply-To: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
@@ -86,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16-dev-b242f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_201409_439409_9EE56DB3 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20260706_201408_125815_A0455147 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,126 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the legacy gpio-keys platform device on the StrongARM SA-1100
-Assabet evaluation board to use software nodes and device properties.
-This allows describing the buttons and their GPIO bindings via software
-nodes so that platform data support can eventually be removed from the
-gpio-keys driver.
+Define and register a static software node (sa1100_gpiochip_node) for the
+SA-1100 GPIO controller during sa1100_init_gpio(). Assign its firmware node
+directly to the GPIO chip prior to calling gpiochip_add_data().
 
-Define static software nodes for the gpio-keys device and the two button
-child nodes at file scope, referencing the SA-1100 GPIO controller node
-directly. In assabet_init(), register the software node group and use
-platform_device_register_full() to register the gpio-keys device.
+This allows StrongARM SA-1100 board setup files to reference the SoC GPIO
+controller in property entries when converting legacy platform data to
+software nodes, resolving pin bindings directly via the attached firmware
+node without relying on name matching.
 
 Assisted-by: Antigravity:gemini-3.5-flash
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- arch/arm/mach-sa1100/assabet.c | 75 ++++++++++++++++++++++++++++--------------
- 1 file changed, 50 insertions(+), 25 deletions(-)
+ arch/arm/mach-sa1100/generic.h |  3 +++
+ drivers/gpio/gpio-sa1100.c     | 10 +++++++++-
+ 2 files changed, 12 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-sa1100/assabet.c b/arch/arm/mach-sa1100/assabet.c
-index 2b833aa0212b..b001f0b6a3fa 100644
---- a/arch/arm/mach-sa1100/assabet.c
-+++ b/arch/arm/mach-sa1100/assabet.c
-@@ -13,8 +13,10 @@
- #include <linux/gpio/driver.h>
- #include <linux/gpio/gpio-reg.h>
- #include <linux/gpio/machine.h>
--#include <linux/gpio_keys.h>
-+#include <linux/gpio/property.h>
-+#include <linux/input.h>
- #include <linux/ioport.h>
+diff --git a/arch/arm/mach-sa1100/generic.h b/arch/arm/mach-sa1100/generic.h
+index 5fe0d4fc0f8c..3cfe3b647711 100644
+--- a/arch/arm/mach-sa1100/generic.h
++++ b/arch/arm/mach-sa1100/generic.h
+@@ -48,6 +48,9 @@ int sa11xx_clk_init(void);
+ struct gpiod_lookup_table;
+ void sa11x0_register_pcmcia(int socket, struct gpiod_lookup_table *);
+ 
++struct software_node;
++extern const struct software_node sa1100_gpiochip_node;
++
+ struct fixed_voltage_config;
+ struct regulator_consumer_supply;
+ int sa11x0_register_fixed_regulator(int n, struct fixed_voltage_config *cfg,
+diff --git a/drivers/gpio/gpio-sa1100.c b/drivers/gpio/gpio-sa1100.c
+index 1938ffa2f4f3..ffa73dd3b982 100644
+--- a/drivers/gpio/gpio-sa1100.c
++++ b/drivers/gpio/gpio-sa1100.c
+@@ -13,6 +13,11 @@
+ #include <mach/hardware.h>
+ #include <mach/irqs.h>
+ #include <mach/generic.h>
 +#include <linux/property.h>
- #include <linux/platform_data/sa11x0-serial.h>
- #include <linux/regulator/fixed.h>
- #include <linux/regulator/machine.h>
-@@ -467,28 +469,53 @@ static const struct gpio_led_platform_data assabet_leds_pdata __initconst = {
- 	.leds = assabet_leds,
- };
- 
--static struct gpio_keys_button assabet_keys_buttons[] = {
--	{
--		.gpio = 0,
--		.irq = IRQ_GPIO0,
--		.desc = "gpio0",
--		.wakeup = 1,
--		.can_disable = 1,
--		.debounce_interval = 5,
--	}, {
--		.gpio = 1,
--		.irq = IRQ_GPIO1,
--		.desc = "gpio1",
--		.wakeup = 1,
--		.can_disable = 1,
--		.debounce_interval = 5,
--	},
-+static const struct software_node assabet_gpio_keys_node = {
-+	.name = "assabet-gpio-keys",
-+};
 +
-+static const struct property_entry assabet_key0_props[] = {
-+	PROPERTY_ENTRY_U32("linux,code", KEY_RESERVED),
-+	PROPERTY_ENTRY_GPIO("gpios", &sa1100_gpiochip_node,
-+			    0, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_STRING("label", "gpio0"),
-+	PROPERTY_ENTRY_BOOL("wakeup-source"),
-+	PROPERTY_ENTRY_BOOL("linux,can-disable"),
-+	PROPERTY_ENTRY_U32("debounce-interval", 5),
-+	{ }
++const struct software_node sa1100_gpiochip_node = {
++	.name = "sa1100-gpio",
 +};
-+
-+static const struct software_node assabet_key0_node = {
-+	.parent = &assabet_gpio_keys_node,
-+	.properties = assabet_key0_props,
-+};
-+
-+static const struct property_entry assabet_key1_props[] = {
-+	PROPERTY_ENTRY_U32("linux,code", KEY_RESERVED),
-+	PROPERTY_ENTRY_GPIO("gpios", &sa1100_gpiochip_node,
-+			    1, GPIO_ACTIVE_HIGH),
-+	PROPERTY_ENTRY_STRING("label", "gpio1"),
-+	PROPERTY_ENTRY_BOOL("wakeup-source"),
-+	PROPERTY_ENTRY_BOOL("linux,can-disable"),
-+	PROPERTY_ENTRY_U32("debounce-interval", 5),
-+	{ }
-+};
-+
-+static const struct software_node assabet_key1_node = {
-+	.parent = &assabet_gpio_keys_node,
-+	.properties = assabet_key1_props,
-+};
-+
-+static const struct software_node * const assabet_gpio_keys_swnodes[] __initconst = {
-+	&assabet_gpio_keys_node,
-+	&assabet_key0_node,
-+	&assabet_key1_node,
-+	NULL
- };
  
--static const struct gpio_keys_platform_data assabet_keys_pdata = {
--	.buttons = assabet_keys_buttons,
--	.nbuttons = ARRAY_SIZE(assabet_keys_buttons),
--	.rep = 0,
-+static const struct platform_device_info assabet_gpio_keys_dev_info __initconst = {
-+	.name = "gpio-keys",
-+	.id = PLATFORM_DEVID_NONE,
-+	.swnode = &assabet_gpio_keys_node,
- };
+ struct sa1100_gpio_chip {
+ 	struct gpio_chip chip;
+@@ -317,6 +322,7 @@ static const int sa1100_gpio_irqs[] __initconst = {
+ void __init sa1100_init_gpio(void)
+ {
+ 	struct sa1100_gpio_chip *sgc = &sa1100_gpio_chip;
++	struct gpio_chip *gc = &sgc->chip;
+ 	int i;
  
- static struct gpiod_lookup_table assabet_uart1_gpio_table = {
-@@ -571,10 +598,8 @@ static void __init assabet_init(void)
+ 	/* clear all GPIO edge detects */
+@@ -324,7 +330,9 @@ void __init sa1100_init_gpio(void)
+ 	writel_relaxed(0, sgc->membase + R_GRER);
+ 	writel_relaxed(-1, sgc->membase + R_GEDR);
  
- 	}
+-	gpiochip_add_data(&sa1100_gpio_chip.chip, NULL);
++	software_node_register(&sa1100_gpiochip_node);
++	gc->fwnode = software_node_fwnode(&sa1100_gpiochip_node);
++	gpiochip_add_data(gc, NULL);
  
--	platform_device_register_resndata(NULL, "gpio-keys", 0,
--					  NULL, 0,
--					  &assabet_keys_pdata,
--					  sizeof(assabet_keys_pdata));
-+	software_node_register_node_group(assabet_gpio_keys_swnodes);
-+	platform_device_register_full(&assabet_gpio_keys_dev_info);
- 
- 	gpiod_add_lookup_table(&assabet_leds_gpio_table);
- 	gpio_led_register_device(-1, &assabet_leds_pdata);
+ 	sa1100_gpio_irqdomain = irq_domain_create_simple(NULL,
+ 			28, IRQ_GPIO0,
 
 -- 
 2.55.0.rc2.803.g1fd1e6609c-goog
