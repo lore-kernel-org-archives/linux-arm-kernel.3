@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF61C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51AFC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u2xB54k8wnP3j+i/BezsfM/iJmqJZPrpAP/RKUP1HHU=; b=w/DtklkmEQH3nd6DtGAsk4R9XQ
-	m+/kiVz+3L07P9XrlmeN4XbPQIAlOoctF8X6S6ev9/C7SaZwCGvo3+U7bSXkvfg958feult9da1mg
-	ETjSePHZYpOvd8R2ZTnzryQCx/UjfuHFBkHKrOPiEyaRYG7pjQU8DvnzGR3+VU5G04a87CPoVxZMp
-	WAQkYvmv43WwpsTLPRu4dBsT5aWhstf3aztCRnNiQRWAXG06u/kiFuxep3HSQpMVZx1fGs1srzucL
-	YkYMh8v+2AYYDKqlc3NtdTAjkBrFN2+Uciia+FET7sPS3tCs2OIMQft+yHg8gxZupMV9K1+RrGepQ
-	/BbCIQvA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v9NXiIWq97CSEahGJjuUvI29ZGrwLPU2keRY+33LcSI=; b=2P2qNuJI1iOXa1uwi/b49LLROp
+	a2l3dy+6TiwAx0psOl7oNyEG4lQiA80T2YizyhPVYf+AZQnQXBs8vBZpkJdUUhckrSbuzBBAAzjkR
+	OMYNAiKxXaC9T9bw/s2/mmHoOTY6qCQ+81qzf7ZzWD1Wz4NoVdspf/Plbz3DgBVoGy2jhWThuWkRc
+	4PGWzAnusyrJBP5KAAuBXo4LIWG6Naz9KlkkaM/c2v/Lumic2HesP/njyIzQsc+Erho156z/jL/jr
+	0SbIXAkj3xRsedoX7eNploBOKADJPczmR8fMd6kAKy09yTu10cWWGDgL8SZNn44wKCswTYjXmvnuA
+	i19TjNdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2Iv-0000000EeFE-3H2k;
-	Tue, 07 Jul 2026 09:41:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wh2J2-0000000EeGo-3hLE;
+	Tue, 07 Jul 2026 09:41:32 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2It-0000000EeEW-2VMc
+	id 1wh2J0-0000000EeGA-2BNI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:41:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=u2xB54k8wnP3j+i/BezsfM/iJmqJZPrpAP/RKUP1HHU=; b=D5jb2t6iILMTxhDn9DydV+DJS8
-	lvx3Kc8zQac0BqKhR7encW4rHqpeP2GYBZ4IsrICbfw5rO1HTI3HYm0LpXnsFNZcejbTHueJ+jk1K
-	g+EEwqNJ922YrexciPdtRsgj/ncWzAzJO3tEJFJ0Qr+99UyQdmZwnRVZq9zy8muujX1HABhpCbUXn
-	K0+tOP5IAWN21Cpxkn7HNhRdFbXlZTI8ccZk0o0oAhU1DlHCc91MaYV/oImKPYBCi2+HMRhdIrwDQ
-	FFvXckyt1qsOswrJrGEsLTRyjwXElvIZ0jh1QveLjwqkv0GMVR47Ex8t9kdr7F2edsUx2tn9IvVZ8
-	BbRc1GeQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	zhangqing@rock-chips.com,
-	sebastian.reichel@collabora.com,
-	linux-clk@vger.kernel.org,
+	Tue, 07 Jul 2026 09:41:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=v9NXiIWq97CSEahGJjuUvI29ZGrwLPU2keRY+33LcSI=; b=mPJhhhlI56T75SYEhfYWfwOqEq
+	kJoGB6le84rtACnnIWrrYt6AjvnoXy3upKM7sn3Qsf3UDVv/fNc1VS6GgTQ6aVR+Xfei3Ub7PW186
+	YrP9rEDl7Jw76r9ZP6k8rQl2gaR6dYSZkmRY/8ePA7zyfIoDvajISiadFJZQGT44rh3CIjKqYhSkJ
+	mC7t7+Vn/3KHJOPORzwlVcO59kjt7unu5a7AkfHC81Q0WoMSaLsX1QCtMxiVrAjrOxkcpRNXN1HzS
+	cxlvS8ho0dgWyyFlqYf4TN4ZjD9924uuWKgJEYI4cXC1qU5UTzMs6BB8Jtfr5Q2Slm/XQzOPOCIVe
+	MX5cXaGw==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh2Iy-000OVg-27;
+	Tue, 07 Jul 2026 11:41:28 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh2Iy-0007v7-21;
+	Tue, 07 Jul 2026 11:41:28 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de,
-	andyshrk@163.com,
-	macromorgan@hotmail.com
-Subject: Re: [PATCH v2 0/2] Bring dclk_vop2 in line with other VPs on RK3588
-Date: Tue,  7 Jul 2026 11:41:06 +0200
-Message-ID: <178341726130.481833.2104125095372172924.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260304121426.1184680-1-heiko@sntech.de>
-References: <20260304121426.1184680-1-heiko@sntech.de>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] arm64: dts: imx8mp: add missing #sound-dai-cells to xcvr
+Date: Tue,  7 Jul 2026 11:41:25 +0200
+Message-ID: <20260707094126.1738410-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_024123_695799_CED2FCD0 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20260707_024130_566552_856F534B 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,25 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This device is used for 'sound-dai' and needs #sound-dai-cells. dtbs_check
+raises a warning regarding sound_dai_property.
 
-On Wed, 04 Mar 2026 13:14:24 +0100, Heiko Stuebner wrote:
-> The dclk for VP2 behaves differently and its use can currently break
-> other peripherals, so fix that and additionally allow it to drive
-> the same outputs.
-> 
-> I've kept Quentin's Tested-by from v1, as the overall change is the same
-> but did not transfer his Reviewed-by, as the series-structure changed.
-> 
-> [...]
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-Applied, thanks!
-
-[1/2] clk: rockchip: rk3588: Don't change PLL rates when setting dclk_vop2_src
-      commit: 13b10571cc353448275365ede1a5396d20dfe839
-[2/2] clk: rockchip: rk3588: Allow VP2 the same sourcing options as other VPs
-      commit: 778dd30867ad783b6903b0aa24a0ab5e97c2dff6
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 5ce2825182fdb..9cf9f6f08654d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -1599,6 +1599,7 @@ xcvr: xcvr@30cc0000 {
+ 					      <0x30cc0e00 0x080>;
+ 					reg-names = "ram", "regs", "rxfifo",
+ 						    "txfifo";
++					#sound-dai-cells = <0>;
+ 					interrupts = /* XCVR IRQ 0 */
+ 						     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
+ 						     /* XCVR IRQ 1 */
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.54.0
+
 
