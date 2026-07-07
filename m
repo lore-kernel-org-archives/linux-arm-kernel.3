@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6937C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52439C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRTkqruCLAScE07/9k4zz2deFOS96oBFJY1YeCfrjOU=; b=X3S5JZiwkb4ax2Ni/o7R7zBfVR
-	/xTRfVBoAXAf/mwjeP5xYM+bK2/UiViDFMB2ZjyuCnJ/Ut7Nx9nmHHTitGb/mwTbs6zf30qmrA3Mu
-	gkC35PdgpjsY2S+n2az3GUfx2mvu6XhsSEiVcFZtpX2TibIBJaIfd/PKx8FUHn3gA9e/0QdFlZkZO
-	uWy0RKjBSxYYJj951B8DKUqGAlrfwSB/tolqHPI37nn3YxmF854q/cOku4Ic58e5jhrrarxFgo4bH
-	ThhXwR4TaYlcaUGAnFk2BWu4LXPJgw+23uK6B7+dy+4oXI211jxljvqtAEX1ovFpcmFuoibVxl8Z6
-	BU/nf6lw==;
+	bh=vc02G4NFUCcDMe9aNwHJS/6LAyJebjOJzZ0e4cPyztU=; b=X/2vsp0NDQepCO3q4cN+ApFe1l
+	HttRMGQN7VCbIS8Ig8LCxWxXCYGM26wcxXyRbN7xMESbXyojEtnBrhnz6WxHT5S5GMjwz1Zfxntm2
+	PbqOXcdCXOyMCVnILaVPipsosl9tV/qVBnqLX/BD+tPKCEBFIDd+7kJDyXwIHC2BlrgjRPaIEuQJb
+	BZx+vZmvlYA+avzEga+mlWgTExNnF2aI27P8us06EOdC9frWiGWcIKApPgBdXGbhjgvjvC6k0y41n
+	4mBsUQM3ogn3wH5nJWCeMSiag4szZpX7ujU7wbMrdEf4hb6fFUciUaGzhUe1g3Wxz9II5P0N4+rb3
+	bl2nPjVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7ww-0000000FMBh-0eUH;
-	Tue, 07 Jul 2026 15:43:06 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wh7wz-0000000FMF4-1yXy;
+	Tue, 07 Jul 2026 15:43:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7wk-0000000FLxE-2g8e;
+	id 1wh7wj-0000000FLwy-2hxf;
 	Tue, 07 Jul 2026 15:43:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783438972;
-	bh=KF5SK72H0ZU/rrxKwj7BzHIAGjF3urGytUDLPTCsauk=;
+	s=mail; t=1783438971;
+	bh=Fpr4J7bO1R1Pm+TZdFppZ1A0MM8X93iN5iTtvTrw/Ic=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RG1A66im0jxPSrD6waBYlv/ppswQxxKqml29OvJElSpGeL8GEJwWflZ0b+/vrkn2V
-	 OPU95Q6AsT+gOKA1W94bzrRk2TnF5dUSIgjQ+aBovHw5DtAzTSWW53/2efNv9BgjsL
-	 xioxRVlb/YMkV3PDbp9o0+6U3qo1QiJi2nk3FrEagEGCvyr1+1uv2b5741dVX9gLJZ
-	 edMc83+Q/zKdE6ROJ1T2nslKDINDB4FufjQyQ2pfzjNY4jmFg6tpvoCYyb2S83YcFs
-	 kMjeRr14r63f2W1khA6rJz5XXTsI/mV3Aq5Ce/YnrjkWA6oftqxO9tXZ+Mb5TKnJPC
-	 2c6McUpPkpUhw==
+	b=Jh8D3xgYIc+VGSEDYcKl3Lk3WAtanzraR8h0ySgEPIZpeebN6XEt/F6ZrgYQ2Y1R9
+	 hTB4xAEk2pXh+DO/knv55dj3ZShHE/1jxHTcdwX2XDszULci60HV2NNnqC/LIQGVxb
+	 LWIw7xNGIGCcpV00T/AKRb7wkX+ZwazeKQ+7xC1gPQGLFBh2Vjv8OAbnI5ZGAP1Y7w
+	 gkorTDHHL/xuJFVpEnf53Sjsi8+SRVrOlsrqUKyQdIfzlSytAJsb1sk4y9niMu+V5p
+	 2RtVJi3oZhbcYOE6rYtuDu5FceozG47wNIsAHYGl4NJC0svNfF+3rZbc8wd5YLJDwC
+	 Cbf0Gt0YUUJwA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C6F5E17E0EA6;
-	Tue, 07 Jul 2026 17:42:51 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F172017E0E95;
+	Tue, 07 Jul 2026 17:42:50 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunfeng.yun@mediatek.com
 Cc: vkoul@kernel.org,
@@ -62,17 +62,17 @@ Cc: vkoul@kernel.org,
 	linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	kernel@collabora.com
-Subject: [PATCH v3 04/12] phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
-Date: Tue,  7 Jul 2026 17:42:37 +0200
-Message-ID: <20260707154245.198361-5-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 03/12] phy: phy-mtk-dp: Allow probing with devicetree match
+Date: Tue,  7 Jul 2026 17:42:36 +0200
+Message-ID: <20260707154245.198361-4-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
 References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_084254_861957_74115794 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260707_084253_839596_E730A11B 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,268 +87,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for newer SoCs and for adding
-more capabilities to this driver in an efficient manner, migrate
-all of the hardcoded register offsets to SoC specific pdata and
-assign that for both DT and platform probing.
+Make it possible to decouple the registration of the DisplayPort
+PHY driver from the DisplayPort IP driver by adding a devicetree
+match to probe the PHY, registering an OF PHY provider and this
+device's own MMIO regmap - if, and only if, this PHY driver was
+registered with an OF match.
 
-While at it also cleanup writing the driving parameters to the PHY
-by iterating through all lanes with a loop instead: note that for
-that to happen the default 0/1/2 driving parameters were added,
-those are really just zero.
+In order to retain compatibility with older devicetrees that are
+not declaring the DisplayPort PHY as a separate node, the legacy
+code was moved in a `mtk_dp_phy_legacy_probe()` function, which
+gets called if the driver was registered by the DisplayPort one.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/phy/mediatek/phy-mtk-dp.c | 145 ++++++++++++++++++++++++------
- 1 file changed, 116 insertions(+), 29 deletions(-)
+ drivers/phy/mediatek/phy-mtk-dp.c | 88 +++++++++++++++++++++++++++----
+ 1 file changed, 78 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index d241004e2828..20974650d940 100644
+index bf7b3a95e72d..d241004e2828 100644
 --- a/drivers/phy/mediatek/phy-mtk-dp.c
 +++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -4,6 +4,10 @@
-  *
-  * Copyright (c) 2022, BayLibre Inc.
-  * Copyright (c) 2022, MediaTek Inc.
-+ *
-+ * Major refactoring
-+ * Copyright (c) 2026, Collabora Ltd.
-+ *                     AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-  */
- 
- #include <linux/delay.h>
-@@ -15,24 +19,29 @@
- #include <linux/pm_runtime.h>
+@@ -12,6 +12,7 @@
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
  #include <linux/regmap.h>
  
--#define PHY_OFFSET			0x1000
-+#define MTK_DP_PHY_MAX_LANES		4
- 
--#define MTK_DP_PHY_DIG_PLL_CTL_1	(PHY_OFFSET + 0x14)
-+/* DP_PHYD_PLL_CTL_1 */
- #define TPLL_SSC_EN			BIT(3)
- 
--#define MTK_DP_PHY_DIG_BIT_RATE		(PHY_OFFSET + 0x3C)
--#define BIT_RATE_RBR			0
--#define BIT_RATE_HBR			1
--#define BIT_RATE_HBR2			2
--#define BIT_RATE_HBR3			3
-+/* DP_PHYD_BIT_RATE */
-+#define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
-+#  define BIT_RATE_RBR			0
-+#  define BIT_RATE_HBR			1
-+#  define BIT_RATE_HBR2			2
-+#  define BIT_RATE_HBR3			3
-+
-+/* DP_PHYD_SW_RST */
-+#define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
-+#  define DP_GLB_SW_RST_PHYD		BIT(0)
-+#  define DP_GLB_SW_RST_TFIFO_ANA	BIT(1)
-+#  define DP_GLB_SW_RST_XTAL_CLK	BIT(2)
-+#  define DP_GLB_SW_RST_MAIN_LINK	BIT(3)
- 
--#define MTK_DP_PHY_DIG_SW_RST		(PHY_OFFSET + 0x38)
--#define DP_GLB_SW_RST_PHYD		BIT(0)
-+#define DRIVING_PARAM_0_DEFAULT	0x0
-+#define DRIVING_PARAM_1_DEFAULT	0x0
-+#define DRIVING_PARAM_2_DEFAULT	0x0
- 
--#define MTK_DP_LANE0_DRIVING_PARAM_3		(PHY_OFFSET + 0x138)
--#define MTK_DP_LANE1_DRIVING_PARAM_3		(PHY_OFFSET + 0x238)
--#define MTK_DP_LANE2_DRIVING_PARAM_3		(PHY_OFFSET + 0x338)
--#define MTK_DP_LANE3_DRIVING_PARAM_3		(PHY_OFFSET + 0x438)
- #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
- #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
- #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
-@@ -79,15 +88,62 @@
- #define DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
+ #define PHY_OFFSET			0x1000
+@@ -79,6 +80,7 @@
  				 XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT)
  
-+enum mtk_dp_phyd_dig_lane_regidx {
-+	DP_PHYD_LAN_DRIVING_PARAM_0,
-+	DP_PHYD_LAN_MAX
-+};
-+
-+enum mtk_dp_phyd_dig_glb_regidx {
-+	DP_PHYD_PLL_CTL_0,
-+	DP_PHYD_PLL_CTL_1,
-+	DP_PHYD_SW_RST,
-+	DP_PHYD_BIT_RATE,
-+	DP_PHYD_GLOBAL_MAX
-+};
-+
-+static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
-+	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
-+};
-+
-+static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
-+	[DP_PHYD_PLL_CTL_0] = 0x10,
-+	[DP_PHYD_PLL_CTL_1] = 0x14,
-+	[DP_PHYD_SW_RST] = 0x38,
-+	[DP_PHYD_BIT_RATE] = 0x3c,
-+};
-+
-+/**
-+ * struct mtk_dp_phy_pdata - Platform data and defaults for MediaTek DP/eDP PHY
-+ * @off_dig_glb:    Base offset for dptx_phyd_sifslv_dig_glb
-+ * @off_dig_lane:   Base offsets for dptx_phyd_sifslv_dig_lan (for each lane)
-+ * @regs_dig_glb:   Register (layout) offsets for dig_glb
-+ * @regs_dig_lane:  Register (layout) offsets for dig_lan
-+ */
-+struct mtk_dp_phy_pdata {
-+	/* Register offsets */
-+	u16 off_dig_glb;
-+	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
-+
-+	/* Register maps */
-+	const u8 *regs_dig_glb;
-+	const u8 *regs_dig_lane;
-+};
-+
  struct mtk_dp_phy {
- 	struct device *dev;
++	struct device *dev;
  	struct regmap *regmap;
-+	const struct mtk_dp_phy_pdata *pdata;
  };
  
- static int mtk_dp_phy_init(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_PARAM_0];
- 	static const u32 driving_params[] = {
-+		DRIVING_PARAM_0_DEFAULT,
-+		DRIVING_PARAM_1_DEFAULT,
-+		DRIVING_PARAM_2_DEFAULT,
- 		DRIVING_PARAM_3_DEFAULT,
- 		DRIVING_PARAM_4_DEFAULT,
- 		DRIVING_PARAM_5_DEFAULT,
-@@ -95,15 +151,21 @@ static int mtk_dp_phy_init(struct phy *phy)
- 		DRIVING_PARAM_7_DEFAULT,
- 		DRIVING_PARAM_8_DEFAULT
- 	};
--
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE0_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE1_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE2_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE3_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
-+	int i, ret;
+@@ -160,43 +162,109 @@ static const struct phy_ops mtk_dp_phy_dev_ops = {
+ 	.owner = THIS_MODULE,
+ };
+ 
++static void mtk_dp_phy_legacy_remove_lookup(void *data)
++{
++	struct phy *phy = data;
++	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
 +
-+	/*
-+	 * Assume that all lanes need the same driving parameters: this
-+	 * will bulk write from DRIVING_PARAM_0 to DRIVING_PARAM_8 on
-+	 * all lanes (a grand total of [9 * num_lanes] 32-bit writes)
-+	 */
-+	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
-+		ret = regmap_bulk_write(dp_phy->regmap,
-+					pdata->off_dig_lane[i] + reg,
-+					driving_params,
-+					ARRAY_SIZE(driving_params));
-+		if (ret)
-+			return ret;
-+	};
- 
- 	return 0;
- }
-@@ -111,9 +173,12 @@ static int mtk_dp_phy_init(struct phy *phy)
- static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	u32 val;
- 
- 	if (opts->dp.set_rate) {
-+		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
++	phy_remove_lookup(phy, "dp", dev_name(dp_phy->dev));
++}
 +
- 		switch (opts->dp.link_rate) {
- 		default:
- 			dev_err(&phy->dev,
-@@ -133,10 +198,11 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 			val = BIT_RATE_HBR3;
- 			break;
- 		}
--		regmap_write(dp_phy->regmap, MTK_DP_PHY_DIG_BIT_RATE, val);
-+		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
- 	}
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_PLL_CTL_1,
-+	regmap_update_bits(dp_phy->regmap,
-+			   pdata->off_dig_glb + pdata->regs_dig_glb[DP_PHYD_PLL_CTL_1],
- 			   TPLL_SSC_EN, opts->dp.ssc ? TPLL_SSC_EN : 0);
- 
- 	return 0;
-@@ -145,12 +211,17 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- static int mtk_dp_phy_reset(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg_rst = pdata->regs_dig_glb[DP_PHYD_SW_RST];
++static int mtk_dp_phy_legacy_probe(struct platform_device *pdev, struct mtk_dp_phy *dp_phy)
++{
++	struct device *dev = &pdev->dev;
++	struct phy *phy;
++	int ret;
 +
-+	/* Clearing bits sets reset state */
-+	regmap_clear_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 0);
-+	/* PHYD needs 50uS to guarantee reset done */
- 	usleep_range(50, 200);
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 1);
++	dp_phy->regmap = *(struct regmap **)dev->platform_data;
++	if (!dp_phy->regmap)
++		return dev_err_probe(dev, -EINVAL, "No platform data available\n");
 +
-+	/* Setting bits means go out of reset */
-+	regmap_set_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
- 	return 0;
- }
-@@ -170,12 +241,19 @@ static void mtk_dp_phy_legacy_remove_lookup(void *data)
- 	phy_remove_lookup(phy, "dp", dev_name(dp_phy->dev));
- }
- 
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data;
++	phy = devm_phy_create(dev, NULL, &mtk_dp_phy_dev_ops);
++	if (IS_ERR(phy))
++		return dev_err_probe(dev, PTR_ERR(phy),
++				     "Failed to create DP PHY\n");
 +
- static int mtk_dp_phy_legacy_probe(struct platform_device *pdev, struct mtk_dp_phy *dp_phy)
++	phy_set_drvdata(phy, dp_phy);
++	ret = phy_create_lookup(phy, "dp", dev_name(dev));
++	if (ret)
++		return ret;
++
++	ret = devm_add_action_or_reset(dev, mtk_dp_phy_legacy_remove_lookup, phy);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static const struct regmap_config mtk_dp_phy_regmap_cfg = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.disable_locking = true,
++};
++
+ static int mtk_dp_phy_probe(struct platform_device *pdev)
  {
  	struct device *dev = &pdev->dev;
++	struct phy_provider *provider;
+ 	struct mtk_dp_phy *dp_phy;
++	void __iomem *base;
  	struct phy *phy;
- 	int ret;
+-	struct regmap *regs;
+-
+-	regs = *(struct regmap **)dev->platform_data;
+-	if (!regs)
+-		return dev_err_probe(dev, -EINVAL,
+-				     "No data passed, requires struct regmap**\n");
++	int ret;
  
-+	/*
-+	 * If legacy platform driver probe, assume this is MT8195 or compatible
-+	 * with a devicetree that was not migrated to the new, proper bindings.
-+	 */
-+	dp_phy->pdata = &mt8195_dp_phy_data;
- 	dp_phy->regmap = *(struct regmap **)dev->platform_data;
- 	if (!dp_phy->regmap)
- 		return dev_err_probe(dev, -EINVAL, "No platform data available\n");
-@@ -235,6 +313,8 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
+ 	dp_phy = devm_kzalloc(dev, sizeof(*dp_phy), GFP_KERNEL);
+ 	if (!dp_phy)
+ 		return -ENOMEM;
  
-+	dp_phy->pdata = device_get_match_data(dev);
+-	dp_phy->regmap = regs;
++	dp_phy->dev = dev;
++
++	/* If there's no devicetree, go for legacy pdev probe */
++	if (!dev->of_node)
++		return mtk_dp_phy_legacy_probe(pdev, dp_phy);
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	dp_phy->regmap = devm_regmap_init_mmio(dev, base, &mtk_dp_phy_regmap_cfg);
++	if (IS_ERR(dp_phy->regmap))
++		return PTR_ERR(dp_phy->regmap);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
 +
  	phy = devm_phy_create(dev, NULL, &mtk_dp_phy_dev_ops);
  	if (IS_ERR(phy))
  		return dev_err_probe(dev, PTR_ERR(phy),
-@@ -249,8 +329,15 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
+ 				     "Failed to create DP PHY\n");
+ 
+ 	phy_set_drvdata(phy, dp_phy);
+-	if (!dev->of_node)
+-		phy_create_lookup(phy, "dp", dev_name(dev));
++
++	provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	if (IS_ERR(provider))
++		return PTR_ERR(provider);
+ 
  	return 0;
  }
  
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
-+	.off_dig_glb = 0x1000,
-+	.off_dig_lane = (const u16[]) { 0x1100, 0x1200, 0x1300, 0x1400 },
-+	.regs_dig_glb = mt8195_phy_dig_glb_regs,
-+	.regs_dig_lane = mt8195_phy_dig_lane_regs,
++static const struct of_device_id mtk_dp_phy_of_match[] = {
++	{ .compatible = "mediatek,mt8195-dp-phy" },
++	{ /* sentinel */ }
 +};
++MODULE_DEVICE_TABLE(of, mtk_dp_phy_of_match);
 +
- static const struct of_device_id mtk_dp_phy_of_match[] = {
--	{ .compatible = "mediatek,mt8195-dp-phy" },
-+	{ .compatible = "mediatek,mt8195-dp-phy", .data = &mt8195_dp_phy_data },
- 	{ /* sentinel */ }
+ static struct platform_driver mtk_dp_phy_driver = {
+ 	.probe = mtk_dp_phy_probe,
+ 	.driver = {
+ 		.name = "mediatek-dp-phy",
++		.of_match_table = mtk_dp_phy_of_match,
+ 	},
  };
- MODULE_DEVICE_TABLE(of, mtk_dp_phy_of_match);
+ module_platform_driver(mtk_dp_phy_driver);
+ 
++MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
+ MODULE_AUTHOR("Markus Schneider-Pargmann <msp@baylibre.com>");
+-MODULE_DESCRIPTION("MediaTek DP PHY Driver");
++MODULE_DESCRIPTION("MediaTek DisplayPort PHY Driver");
+ MODULE_LICENSE("GPL");
 -- 
 2.54.0
 
