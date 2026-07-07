@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCA7C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396B3C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjRJOOgfj4HWWKYEXcQ/AbYuFATzaVJOA8skt66XvW4=; b=Kz4r88zjJCMh/lZtvB5fSIlmT8
-	RNslLRPZAqx/rm2zKuHIQnHSLFOOfivawJ4KA1a01OVLTrZGL1Ysp23yjh6iu3skUGrE9UhrxTCTx
-	BA8tKRD0blp+yjMQy2FqY2OhDWHDe4lexEP7qT73W4f2JeVvvVeONnUi35EX7sEUyYmjvW0Xr1OBQ
-	WojCQDpuAVv+a0jzKdCOLuwjcsfd3+ahL3BLR0nJ5uhFCWXFlRTfOv+I9eBDtDS5fjYXkjzNvFicb
-	NOK8Effuq16se0CJx6xFY+LbiM7diig1BmBMN4NVb8N7L7u/o4I5cTaKeKXj43b9fXHFhtfoJtwHk
-	etIkEuzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4sRc6wcNBB4MLUuGQspnLkC0R+FL/I/qWmV9NNwvbTY=; b=SbTqBF9xtqbsGAw00ZwjHg4KBJ
+	OjpKAw79+ock49orrjrjMLQeFAXR0QiXjtRPkqFioHaUEdb65eCVFhVAV9QpPvpvBZ6m+ktG2CxQ+
+	cji/W44lLLEO0c+iwrXaQAoxgIP4cTpCXMgRHuqtGtEF87P88fOstuWk3YT2zyPtxKhrpyTwy6bL0
+	TJLZy59lMndwNyfUZlXASl+DsZcW0dLZ2qQ0YtCJfM8BW0k1FuK//F3B+KFqluhAarZlFLcvtZZkS
+	Wwq6rS3Gv3zhqViRrwyqawZhsfdtgBzeW2zfpVAZ7Rhkbg1Q6b7D9nUf8wRR4/zK89yGI7ayvikMK
+	o9vdCI5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7RL-0000000FFhg-2bBC;
-	Tue, 07 Jul 2026 15:10:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh7TO-0000000FFvu-31nU;
+	Tue, 07 Jul 2026 15:12:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7RH-0000000FFhO-0l1B
+	id 1wh7TM-0000000FFvj-3gY2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:10:26 +0000
+	Tue, 07 Jul 2026 15:12:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 69576601EB;
-	Tue,  7 Jul 2026 15:10:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 386F51F00A3E;
-	Tue,  7 Jul 2026 15:10:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 812464401F;
+	Tue,  7 Jul 2026 15:12:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA16F1F00A3A;
+	Tue,  7 Jul 2026 15:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783437022;
-	bh=NjRJOOgfj4HWWKYEXcQ/AbYuFATzaVJOA8skt66XvW4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GRoRwRfklUgC9ESBNWdgu/CRujDUfLkO0C2oxJG6sbpYcVgcthL0RnGtNQadUPwhM
-	 rzwRLn6AHj4WRRtiUsA+qSkbMqqSuQvvDBNxsogzdpdZntRV2bB5QBvBb57gy/hxXF
-	 mx7hkTtUhnoBCi5vex/zl4zelm5pL4IFSpB/rOByMSQJwI6kpmvAbSVEx7ZHgz1Os6
-	 KmO4CAO8xKgDaOaNK05ZIE4eSxhKFAqk62s5RsnsrFc0LehgB6BF1Wfzuyj68QQHaY
-	 BSamnfjeUAbueswISwAg4qL+8/v4bBrqXpbeo/GDwzIQXcdItm+rpZL8w0835ZgVTI
-	 YpRfxyEM9+Y/A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wh7RE-00000002SwD-12Vn;
-	Tue, 07 Jul 2026 15:10:20 +0000
-Date: Tue, 07 Jul 2026 16:10:19 +0100
-Message-ID: <8633xuq1ic.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 24/27] KVM: s390: arm64: Implement vm/vcpu create destroy.
-In-Reply-To: <20260706085229.979525-25-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-	<20260706085229.979525-25-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1783437152;
+	bh=4sRc6wcNBB4MLUuGQspnLkC0R+FL/I/qWmV9NNwvbTY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=FuPPEHjEGkcvr6P8vaV/5OhlSyoO8+Ep46N7f1HF5hlqygnmkZo5uFx+MyqLyzhZi
+	 6DM5vezYe2iXo0qSLXxUErQlgITPMX3sTA3jzRA4KTxj/tktzFHPxkWEwzYVnjlnVG
+	 NAekUXga8iJ+ly/3XWHWJENNfFJZHl6SEHljpvqUQgMcs14y9mIHR6VSBDA9R3hcg/
+	 zq+tdrq/p8VxY1w7d6xOvgtKkvaWHmVUNXnCI41IoK3EL1d4gpZSZVsp9R6GYPRysi
+	 rybrL/N4YhFXf0DMU6ONnfb/W0j3HH3xnWO4u/hG02vAUVLDynsAHwwHrmO/vvwV5A
+	 FNLBWgEKWzhQA==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 07 Jul 2026 17:11:33 +0200
+Subject: [PATCH v2 26/37] drm/exynos: mic: Switch to atomic bridge
+ callbacks
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260707-drm-all-atomic-bridges-v2-26-21d03cbca446@kernel.org>
+References: <20260707-drm-all-atomic-bridges-v2-0-21d03cbca446@kernel.org>
+In-Reply-To: <20260707-drm-all-atomic-bridges-v2-0-21d03cbca446@kernel.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, 
+ Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5338; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=j1tFob+8fC1FYhlul234L/DAWHXn94crSEpAWb++AiM=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFm+4tK+lp3nfPYLrPSd2rRNZoLJO2amWK5lX575iUx7P
+ N/p3++yjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRVRGM9blVZ169rjSccFyN
+ R3TvnQ8eM6X1DP843DO3/vt89Qn2OAfGdyvyZmme9jffk8Wza8blKsZ6P37BwAKRbja9R+rlny0
+ uXX65+aWh2u+9687V8f/csK0g6UCR3SnxO/2yE1+IPX0jwngHAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,55 +89,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 09:52:24 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Implement init and destroy IOCTLS for vcpu and vm.
-> Implement arch vm IOCTL. Use s390 gmap.
-> 
-> Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
-> Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
-> Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/s390/kvm/arm64/arm.c       | 190 ++++++++++++++++++++++++++++++++
->  arch/s390/kvm/arm64/arm.h       |  56 ++++++++++
->  arch/s390/kvm/gmap/faultin.c    |   5 +
->  arch/s390/kvm/gmap/gmap.c       |   4 +
->  arch/s390/kvm/gmap/trace-gmap.h |  13 +++
->  5 files changed, 268 insertions(+)
-> 
-> diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-> index 19249ec5c539..3a4092698fae 100644
-> --- a/arch/s390/kvm/arm64/arm.c
-> +++ b/arch/s390/kvm/arm64/arm.c
-> @@ -8,6 +8,10 @@
->  #include <linux/kvm_types.h>
->  #include <linux/kvm_host.h>
->  
-> +#include <arm64/kvm_mmu.h>
-> +
-> +#include <gmap.h>
-> +
->  #include "arm.h"
->  
->  static unsigned long system_supported_vcpu_features(void);
-> @@ -31,6 +35,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  		break;
->  	case KVM_CAP_IOEVENTFD:
->  	case KVM_CAP_ARM_USER_IRQ:
-> +	case KVM_CAP_PRE_FAULT_MEMORY:
+The mic bridge uses the legacy non-atomic pre_enable and post_disable
+bridge callbacks.
 
-arm64 *doesn't* support this yet. Please make sure you don't deviate
-from what arm64 currently supports.
+In order to remove the legacy bridge callback support from the DRM
+bridge core, switch to their atomic counterparts and add the bridge
+atomic state handlers.
 
-Thanks,
+Generated by the following Coccinelle script:
 
-	M.
+@ is_bridge @
+identifier funcs;
+@@
+
+ struct drm_bridge_funcs funcs = {
+	...,
+ };
+
+@ has_create_state depends on is_bridge @
+identifier funcs, f;
+@@
+
+struct drm_bridge_funcs funcs = {
+  ...,
+  .atomic_create_state = f,
+  ...,
+};
+
+@ update_struct depends on (is_bridge && !has_create_state) @
+identifier is_bridge.funcs;
+identifier f;
+@@
+
+ struct drm_bridge_funcs funcs = {
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	...,
+ };
+
+@ update_pre_enable_struct depends on (is_bridge && !has_create_state) @
+identifier is_bridge.funcs;
+identifier f;
+@@
+
+ struct drm_bridge_funcs funcs = {
+ 	...,
+-	.pre_enable = f,
++	.atomic_pre_enable = f,
+ 	...,
+ };
+
+@ update_pre_enable_impl depends on update_pre_enable_struct @
+identifier update_pre_enable_struct.f;
+identifier b;
+@@
+
+-void f(struct drm_bridge *b)
++void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
+ {
+	...
+ }
+
+@ update_enable_struct depends on (is_bridge && !has_create_state) @
+identifier is_bridge.funcs;
+identifier f;
+@@
+
+ struct drm_bridge_funcs funcs = {
+ 	...,
+-	.enable = f,
++	.atomic_enable = f,
+ 	...,
+ };
+
+@ update_enable_impl depends on update_enable_struct @
+identifier update_enable_struct.f;
+identifier b;
+@@
+
+-void f(struct drm_bridge *b)
++void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
+ {
+	...
+ }
+
+@ update_disable_struct depends on (is_bridge && !has_create_state) @
+identifier is_bridge.funcs;
+identifier f;
+@@
+
+ struct drm_bridge_funcs funcs = {
+ 	...,
+-	.disable = f,
++	.atomic_disable = f,
+ 	...,
+ };
+
+@ update_disable_impl depends on update_disable_struct @
+identifier update_disable_struct.f;
+identifier b;
+@@
+
+-void f(struct drm_bridge *b)
++void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
+ {
+	...
+ }
+
+@ update_post_disable_struct depends on (is_bridge && !has_create_state) @
+identifier is_bridge.funcs;
+identifier f;
+@@
+
+ struct drm_bridge_funcs funcs = {
+ 	...,
+-	.post_disable = f,
++	.atomic_post_disable = f,
+ 	...,
+ };
+
+@ update_post_disable_impl depends on update_post_disable_struct @
+identifier update_post_disable_struct.f;
+identifier b;
+@@
+
+-void f(struct drm_bridge *b)
++void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
+ {
+	...
+ }
+
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+
+---
+To: Inki Dae <inki.dae@samsung.com>
+To: Seung-Woo Kim <sw0312.kim@samsung.com>
+To: Kyungmin Park <kyungmin.park@samsung.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+---
+ drivers/gpu/drm/exynos/exynos_drm_mic.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_mic.c b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+index e68c954ec3e6..3069f958137f 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_mic.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_mic.c
+@@ -19,10 +19,11 @@
+ #include <linux/regmap.h>
+ 
+ #include <video/of_videomode.h>
+ #include <video/videomode.h>
+ 
++#include <drm/drm_atomic_state_helper.h>
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_encoder.h>
+ #include <drm/drm_print.h>
+ 
+ #include "exynos_drm_drv.h"
+@@ -226,11 +227,12 @@ static void mic_set_reg_on(struct exynos_mic *mic, bool enable)
+ 
+ 	reg |= MIC_UPD_REG;
+ 	writel(reg, mic->reg + MIC_OP);
+ }
+ 
+-static void mic_post_disable(struct drm_bridge *bridge)
++static void mic_post_disable(struct drm_bridge *bridge,
++			     struct drm_atomic_commit *commit)
+ {
+ 	struct exynos_mic *mic = bridge->driver_private;
+ 
+ 	mutex_lock(&mic_mutex);
+ 	if (!mic->enabled)
+@@ -255,11 +257,12 @@ static void mic_mode_set(struct drm_bridge *bridge,
+ 	drm_display_mode_to_videomode(mode, &mic->vm);
+ 	mic->i80_mode = to_exynos_crtc(bridge->encoder->crtc)->i80_mode;
+ 	mutex_unlock(&mic_mutex);
+ }
+ 
+-static void mic_pre_enable(struct drm_bridge *bridge)
++static void mic_pre_enable(struct drm_bridge *bridge,
++			   struct drm_atomic_commit *commit)
+ {
+ 	struct exynos_mic *mic = bridge->driver_private;
+ 	int ret;
+ 
+ 	mutex_lock(&mic_mutex);
+@@ -293,13 +296,16 @@ static void mic_pre_enable(struct drm_bridge *bridge)
+ unlock:
+ 	mutex_unlock(&mic_mutex);
+ }
+ 
+ static const struct drm_bridge_funcs mic_bridge_funcs = {
+-	.post_disable = mic_post_disable,
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_post_disable = mic_post_disable,
+ 	.mode_set = mic_mode_set,
+-	.pre_enable = mic_pre_enable,
++	.atomic_pre_enable = mic_pre_enable,
+ };
+ 
+ static int exynos_mic_bind(struct device *dev, struct device *master,
+ 			   void *data)
+ {
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.54.0
+
 
