@@ -4,104 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE15C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98463C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pOL2LivOziEKOydGhyELrv4YvjM0xwsEQoaCeoympc0=; b=YaikaYwo6mcJ6lFpJZto46n13u
-	EjFnbX7utXyo/OCuK8G4HWHZ6wPsto2/7w94eDGulq7GQ50k3+eRq9tvfrP6r01HZ8QPCTFyqvzOz
-	iqkfZCaT4WfWrYxiFmziQJbjS3R0jlP187v0ZMh9cjTqr6Kd7cD9kSiy04QhWFQJyvdqBHKygPlK3
-	dFiyzcvyAsELAcwpjj4526XMG7mAp4jOim5B4Dd9f5XphH39wAHJfaPrrS3EXX46qUOgr4rFF6O9b
-	txhglrIdOE2GOcmGUSM6wZSmY2WekTs14cFtd88b9FuXYaSPye7bT/yzF9/EEBpnq7krBVH+N6i5x
-	M5Sf4Iuw==;
+	bh=eH4zP0BWjNHOJWTZglVvPRAhL/cihhAtv+SNAE1TDmg=; b=A0JoMxnGFiAkzLshzd43PDsu2L
+	S8jI/P2eEKOLqozdgwFWvsnwu0jeFoA4zOd4t7lUUc18sul4vFSY5gzW/ZfAS4inFIaFTM3W9bAom
+	UUK7F0nZ8uvNqyY8pEXHbyrsdLWIVltnjbpZo2ezTTfhYZHVx/GHukHZTEWzwIVCoYfhbCk5DWz9Y
+	hyoyMGadks3QHtKwNB54jT9w76g1JZvKv8+QVLFe0O4yl+JhhSuSe66Q5gq8A5I79q72r3mdPbBDh
+	Whue/O9rkLlMWJ4xnP675fUXfEkx2WfO8VGnrsVRigX0SjoxwFiFvUijom+JnFRGnFf1pcNlvEJ5m
+	8euorNLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3BZ-0000000EljY-0H4r;
-	Tue, 07 Jul 2026 10:37:55 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1wh3C9-0000000Elti-2SvH;
+	Tue, 07 Jul 2026 10:38:29 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3BW-0000000Elb0-3rEn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 10:37:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=pOL2LivOziEKOydGhyELrv4YvjM0xwsEQoaCeoympc0=; b=ZURn/r+hEiMd3lVJPe/lPjjAVo
-	IdeS+ZWvzmh+2rYtf9zrbw/86Nt8ZO2bDKtQKVqjJhoWPervjLGwI+LJyisjySLsthlhu2qTdyMs9
-	sMPzgBm7xc48QzEIXWy6QV18Wk01rri39Xsb9vwVJ8FcVoV/aUakNKIEi1jzBRcMysBY9cG7415RQ
-	Aj81c6NXsjSQL9BiPfAWpmGAURaCqZI8Ojzz144z/JMtcYOFDd4RWve15J0JallqPRYhtoDrBF/X3
-	lIthMKaxbw9CKjUa4ZqIDlORJKRbtKEiHYQy5WIKhNOAlbmuCH7izWz89QxEX/Dhn/iWwI31PUKPs
-	/K9f7Dfg==;
-Received: from [115.246.246.98] (port=38479 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <parvathi@couthit.com>)
-	id 1wh3Am-0000000DcCE-2mia;
-	Tue, 07 Jul 2026 06:37:04 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 75E8C1B071DC;
-	Tue,  7 Jul 2026 16:06:56 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id IJLnN744ezV4; Tue,  7 Jul 2026 16:06:52 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id D46861B071D0;
-	Tue,  7 Jul 2026 16:06:52 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id Xgrw10G8zfdZ; Tue,  7 Jul 2026 16:06:52 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id B07661B071DC;
-	Tue,  7 Jul 2026 16:06:52 +0530 (IST)
-Date: Tue, 7 Jul 2026 16:06:52 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, danishanwar <danishanwar@ti.com>, 
-	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
-	afd <afd@ti.com>, basharath <basharath@couthit.com>, 
-	arnd <arnd@arndb.de>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	m-malladi <m-malladi@ti.com>, krishna <krishna@couthit.com>, 
-	mohan <mohan@couthit.com>
-Message-ID: <683548159.1585651.1783420612671.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20260706091338.134754-1-pabeni@redhat.com>
-References: <20260630124958.894360-4-parvathi@couthit.com> <20260706091338.134754-1-pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 3/3] net: ti: icssm-prueth: Support
- duplicate HW offload feature for HSR and PRP
+	id 1wh3C7-0000000ElsH-0Ahm;
+	Tue, 07 Jul 2026 10:38:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783420705;
+	bh=EysvwkzHmGNKxX+6cYNAW+x0Vszx1rvcj8dTl/KXMQc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ucqm1aiMyjsc3XqQFQ2I2SZcGeGNl8tDJGnSHdHpBwnupfIfLiBA3BR2j5VWRYGFA
+	 Q4AP8yUpmAb1PP1ndKUoQsduzbMFziYOIoYk+MND0PNBnkGQfUSomNE1EWZEdEDw6d
+	 rr4xDG2Brj8x8BrG6eg/P2w9vu5+7HUQow13H6gxJ+w7HolRZ4otuvv5QQXYBGbTMU
+	 /A4jthgx4aiXYDKNeUyQM6GiS6JXafclLsKnZTQOj/6U5xQ2InWxBrOxJzQ/tciXlu
+	 hSqDkhZpYOYSpTdvlAAFU5WJ4LKDKZPfbPTcsMTpd5E9alkHL9sxRi3AjWt42MNtjZ
+	 IMOMnFFk+MiUg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5611F17E0564;
+	Tue, 07 Jul 2026 12:38:24 +0200 (CEST)
+Message-ID: <6fed12a6-0c94-477f-8a2e-466c33ea2e29@collabora.com>
+Date: Tue, 7 Jul 2026 12:38:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.233]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
-Thread-Index: 1L122pWSAIHcS+z+0TJ+oGlKhvBb9Q==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Thorsten Leemhuis <regressions@leemhuis.info>,
+ =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "me@adamthiede.com" <me@adamthiede.com>,
+ "bisson.gary@gmail.com" <bisson.gary@gmail.com>
+Cc: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "regressions@lists.linux.dev" <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com> <ajka2220depklK1_@owl5>
+ <bac79214-050d-448b-be63-0586d45c807d@adamthiede.com>
+ <f0d99b1a-e383-4d14-adb1-4ccab46efddb@leemhuis.info>
+ <5baeb90d2c3736df67ad075ede4ac765bfeaed2d.camel@mediatek.com>
+ <84233951-ee22-4980-9f17-2af1df51fdbf@leemhuis.info>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <84233951-ee22-4980-9f17-2af1df51fdbf@leemhuis.info>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_033751_038504_E26F50A8 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260707_033827_257287_9E5B86CC 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,124 +91,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 7/7/26 10:51, Thorsten Leemhuis wrote:
+> On 7/7/26 04:20, CK Hu (胡俊光) wrote:
+>> On Mon, 2026-07-06 at 12:16 +0200, Thorsten Leemhuis wrote:
+>>> On 6/22/26 15:23, Adam Thiede wrote:
+>>>> On 6/22/26 06:22, Gary Bisson wrote:
+>>>>> On Thu, Jun 18, 2026 at 04:06:28PM -0500, Adam Thiede wrote:
+>>>>>> On 1/20/26 05:36, Gary Bisson wrote:
+>>>>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
+>>>>>>> running in order to lock its PLL during its own pre-enable function.
+>>>>>>>
+>>>>>>> Without this change, the bridge gives the following error:
+>>>>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
+>>>>>>> sn65dsi83 14-002c: Unexpected link status 0x01
+>>>>>>> sn65dsi83 14-002c: reset the pipe
+>>>>>>> [...]
+>>>>>>
+>>>>>> This commit was part of 7.1 and caused a problem for me.
+>>>>>> I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330
+>>>>>> chromebook with a Mediatek MT8173 processor.
+>>>>>> The problem: when the display on my laptop powers off (via suspend or
+>>>>>> idle,
+>>>>>> like xset dpms off) the picture does not come back when the display
+>>>>>> powers
+>>>>>> back on (from resume). The display backlight comes on and brightness is
+>>>>>> adjustable but there is no picture. The only fix is to reboot.
+>>>>>>
+>>>>>> Reverting this commit and applying it as a patch on top of 7.1
+>>>>>> addresses the
+>>>>>> issue for me.
+>>>>>>
+>>>>>> You can view the config I'm using here:
+>>>>>> https://urldefense.com/v3/__https://gitlab.postmarketos.org/postmarketOS/pmaports/-/__;!!CTRNKA9wMg0ARbw!jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAN9bmax5$
+>>>>>> merge_requests/8819
+>>>>>>
+>>>>>> Is there any sort of testing or other debugging info I can provide to
+>>>>>> help
+>>>>>> address this issue?
+>>>>>
+>>>>> Thanks for reporting the issue, could you share some logs? Is the driver
+>>>>> saying anything during resume? Also, what type of panel is used on that
+>>>>> chromebook?
+>>>>
+>>>> The curious thing is that there are no real logs in dmesg or /var/log/
+>>>> messages about this. This picture just fails to come back. If there are
+>>>> some kernel params I can set to get deeper logging, that would help, but
+>>>> I'm not aware of any.
+>>>>
+>>>> I think the panel is a "BOE NV116WHM-T00" - I used this command to get
+>>>> info: cat /sys/class/drm/card0-eDP-1/edid | edid-decode
+>>>>
+>>>> Output: https://urldefense.com/v3/__https://termbin.com/8nbd__;!!CTRNKA9wMg0ARbw!jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAJooSyqL$
+>>>
+>>> This looked stalled. If I'm mistaken here, please let me known; but if
+>>> no solution is in sight, should we maybe just revert the change until a
+>>> proper was found?
+>>
+>> It's welcome anyone to provide a revert patch,
+>> but I would still wait for the fixup patch until 7.2-rc4.
+>> If no fixup patch exist, then apply the revert patch.
+>  From my understanding of things the position in the devel cycle doesn't
+> matter much in a case like this. To quote Linus statements from
+> https://www.kernel.org/doc/html/latest/process/handling-regressions.html#on-how-quickly-regressions-should-be-fixed
+> 
+> """
+>  From 2026-01-22:
+> 
+>   But a user complaining should basically result in an immediate fix -
+>   possibly a "revert and rethink".
+> 
+> With a later clarification on 2026-01-28:
+> 
+>   It's also worth noting that "immediate" obviously doesn't mean "right
+>   this *second* when the problem has been reported".
+> 
+>   But if it's a regression with a known commit that caused it, I think
+>   the rule of thumb should generally be "within a week", preferably
+>   before the next rc.
+> """
+> 
+> Adam reported the problem about three weeks ago, so we are way past the
+> "rule of thumb" timeframe Linus set.
+> 
+> Ciao, Thorsten
 
-> From: AI Reviewer <ai@example.com>
-> 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> Full review at: https://sashiko.dev/
-> ---
-> net: ti: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
-> 
-> This commit introduces hardware duplicate offload for HSR and PRP modes. It
-> implements a common shared queue between the two ports, writing frames once
-> to OCMC RAM and relying on the firmware to replicate the transmission.
-> 
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> index 2ab78a98f8568..cbe666a212c3b 100644
->> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> @@ -97,6 +125,17 @@ static void icssm_prueth_write_reg(struct prueth *prueth,
->>  static enum pruss_mem pruss_mem_ids[] = { PRUSS_MEM_DRAM0, PRUSS_MEM_DRAM1,
->>  					  PRUSS_MEM_SHRD_RAM2 };
->>  
->> +struct prp_txopt_rct {
->> +	__be16 sequence_nr;
->> +	__be16 lan_id_and_lsdu_size;
->> +	__be16 prp_suffix;
->> +};
-> 
-> [Severity: High]
-> Does this structure definition need the __packed attribute?
-> 
-> This struct consists of three 16-bit fields but lacks the __packed attribute,
-> so it inherits a 2-byte alignment requirement.  Later in
-> icssm_prueth_tx_enqueue, a pointer to this structure is derived directly
-> from skb_tail_pointer.
-> 
-> If an ethernet frame payload has an odd byte length, wouldn't casting and
-> dereferencing this pointer cause an unaligned 16-bit memory access, resulting
-> in hardware traps or panics on architectures that do not support it?
-> 
-> [ ... ]
->> @@ -549,15 +588,24 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac
->> *emac,
-> [ ... ]
->> +	other_emac = emac->prueth->emac[(emac->port_id == PRUETH_PORT_MII0) ?
->> +				PRUETH_PORT_MII1 - 1 : PRUETH_PORT_MII0 - 1];
->> +
->> +	if (prueth_is_lre(prueth) && (emac->link || other_emac->link))
->> +		link_up = true;
-> 
-> [Severity: High]
-> Could this logical OR cause the shared transmission queue to stall completely
-> if only one of the slave links goes down?
-> 
-> If one port loses its link, its emac->link is 0, but the other active port
-> will still evaluate link_up as true. The active port would continue sending
-> duplicate frames to the shared queue.
-> 
-> [ ... ]
->> @@ -605,6 +659,29 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac
->> *emac,
-> [ ... ]
->> +		if (free_blocks_other_port < free_blocks)
->> +			free_blocks = free_blocks_other_port;
->> +	}
-> 
-> [Severity: High]
-> Following up on the link_up logic above, since the available queue space is
-> bounded by the slowest reader here, wouldn't the inactive port's read pointer
-> remain frozen?
-> 
-> This appears to exhaust the free_blocks pool, causing the active port to
-> eventually spin and return -ENOBUFS permanently, defeating the redundancy.
-> 
-> [ ... ]
->> +		} else {
->> +			/* Read PRP RCT to extract sequence number and LAN ID */
->> +			struct prp_txopt_rct *rct =
->> +				(struct prp_txopt_rct *)(skb_tail_pointer(skb) -
->> +							 ICSSM_LRE_TAG_SIZE);
->> +
->> +			if (rct->prp_suffix == htons(ETH_P_PRP)) {
-> 
-> [Severity: High]
-> Is it safe to directly dereference rct->prp_suffix here?
-> 
-> As mentioned above regarding the struct definition, this might lead to an
-> unaligned memory access on certain architectures. Perhaps using the
-> get_unaligned_be16 helper would be safer here, or adding the __packed
-> attribute to the structure definition.
-> 
-> [ ... ]
->> @@ -1341,18 +1516,30 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct
->> sk_buff *skb,
-> [ ... ]
->> +	raw_spin_lock(lock_queue);
->> +	ret = icssm_prueth_tx_enqueue(emac, skb, qid);
->> +	raw_spin_unlock(lock_queue);
-> 
-> [Severity: High]
-> Does this need to use the irqsave variant to protect against cross-device
-> deadlocks with netpoll?
-> 
-> The lre_host_queue_lock is shared between the two ports. If a hardirq
-> preempts a CPU while it holds this lock during a transmission, and the
-> interrupt handler invokes a printk that triggers netconsole over the second
-> interface, netpoll might bypass the netif_tx_lock.
-> 
-> When the second interface calls into ndo_start_xmit, it would attempt to
-> acquire the exact same lre_host_queue_lock, causing it to spin forever on
-> the same CPU.
-> --
-> This is an AI-generated review.
+This is a kind of odd situation here. The fix from Adam is actually correct, as in,
+the SN65DSI83 bridge gets broken without...
 
-We are in the process of reviewing the comments and will revert with additional
-details.
+....but then, there's some more oddness going on: I tried to reproduce this on my
+MT8173 Elm device, but there I can resume the system just fine, and the display is
+up and running like normal?
 
-Thanks and Regards,
-Parvathi.
+I'm not sure what to advice here at this point - just adding some info.
+
+Cheers,
+Angelo
 
