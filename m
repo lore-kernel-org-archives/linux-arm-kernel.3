@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3748C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 22:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A324C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 22:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=64yZTokUOKWEi1l5XEMnLoTKVKqtdorCaDPLUUg5R/0=; b=ikix69H6ENUVNVC1piYSLCWnNX
-	vavq6k+SVHaVcuZ4r8t3imvTry5z3zmBkKriR6Jw+05GCuyNGVdu2dADDcyED8B568P6SFAASJe+e
-	Vq7kprZMjLWgGI89btkvnG+9UGWTCub01XkKapRXc9V2IO+WPKm9XSK8rf4RIhs/rdwFcIDU7L2Q+
-	LEsb7VaD/FlFi9j3vMVH0nmdIbUO3yxsGLO35CIrVu0jrLORK9TR3WaEtgalODxS26lf98OS58n9v
-	DIaNMPxBuSu7VTm5mZ4uACkgqn3Iw7dv5jYHFV6p0m+kFqtNSxVshMxyIGXABv4mZRxoPLgxqeCuj
-	8cgQ2zuA==;
+	bh=gRwsNtR9CmtI1lg+FRZhNFP3aUE1T9mC+krBoHEi9x4=; b=1r++tTuFS83EsP6ozJvrLbiOKT
+	sYcJA6ErQI6XqyfetTKS8YWDmBX7zxQ2C+xP/bOhg+gurMrxAJilCMr9qs222VRtwEhTedsG9eSM8
+	5hPMIgM0Jt5wbuENFbsF8zItqLI1RFiuPiPSrDbEtUpKvoBcSiWDtiIZEIUya1OlqAuP+Cef3xwmn
+	78A4+FoihoT/3bbh1Lvc1I9YJJ0RbhLQp1EJYVWSGJTHKkLiU153cvDpJ2YUTVvMmioh5EoU/kZlp
+	OV8D1Smgo+wOesVOR0raqaugnYtpaiopR3s9BcK44xivJfUA9u18KR1f65YgU/4ZSAujm9VMsoTyR
+	crKMHKLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whDbx-0000000FwBE-0Dq9;
-	Tue, 07 Jul 2026 21:45:49 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1whEHV-0000000FyNf-1COj;
+	Tue, 07 Jul 2026 22:28:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whDbt-0000000FwAk-21Jj
+	id 1whEHS-0000000FyNU-4A0b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 21:45:47 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260707214540euoutp018cf7ea42ac22b890dbdba35a70cb024f~AIBgSP67m0751007510euoutp01B
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 21:45:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260707214540euoutp018cf7ea42ac22b890dbdba35a70cb024f~AIBgSP67m0751007510euoutp01B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783460740;
-	bh=64yZTokUOKWEi1l5XEMnLoTKVKqtdorCaDPLUUg5R/0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=J5Ql4lP1oiFXtQYiTzFXBmfxUjrzpzyZIpRJNeQHBONwrncCno0MOBr6cc0EmYxlu
-	 qF5E54SFmmGhCpalWIiWVKmoAGz/OtSGDc+SJJDY3j4GJwLNwxWljxwjafpp1QFsxE
-	 4Fs1fvxkC4wf13bezU9LBhFtgTzqgDUb5ayosdMk=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260707214538eucas1p2b46a6831dbed600dab30756a0078711f~AIBeoMkm10868008680eucas1p29;
-	Tue,  7 Jul 2026 21:45:38 +0000 (GMT)
-Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.34]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260707214537eusmtip272eee7641a70a5f1694e39ef6326faf4~AIBd7L2FY0322003220eusmtip2Y;
-	Tue,  7 Jul 2026 21:45:37 +0000 (GMT)
-Date: Tue, 7 Jul 2026 23:45:34 +0200
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: Stefan Agner <stefan@agner.ch>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "Russell King
- (Oracle)" <rmk+kernel@armlinux.org.uk>, Maxime Chevallier
-	<maxime.chevallier@bootlin.com>, Ovidiu Panait
-	<ovidiu.panait.rb@renesas.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
-Subject: Re: [PATCH net v2] net: stmmac: resume PHY before hardware setup
- when opening the interface
-Message-ID: <ak1zfkNN4akdKrRQ@AMDC4622.eu.corp.samsungelectronics.net>
+	Tue, 07 Jul 2026 22:28:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EECF42D77;
+	Tue,  7 Jul 2026 22:28:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC171F000E9;
+	Tue,  7 Jul 2026 22:28:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783463321;
+	bh=gRwsNtR9CmtI1lg+FRZhNFP3aUE1T9mC+krBoHEi9x4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FOBVJ4rD5rTTQo3ydEtA3gAO9+lIGI/CrNJ8ssAZ4DAYgwFZpMeoTFKCV+sJUEuae
+	 7VC5wJWuZ8EgPLQfZzDm3hsFwOzJ8GaZw2t+XEGov7LfPlSe+HL+8/iYeQtjJ3G5UF
+	 WDdG6dFwpxpBhr0i+IhPPtJRFSDOmz6C/LG+zOeA4im1A8BgNLOjeiYsK64Dv0QnHd
+	 cdeaWbicwd1r9Ua/g/c4bLWDvHNgWjKX2VB7e9xd4sM1fZBlXqUTlxLs67iJImtLZu
+	 zC/fXH/oT8idmoroS8l7xYg8cfuP+AtXx4KDFhWDOdm81Sg0CKjHW++PKrsa7xZhTp
+	 pjx7Fw2TwUmyQ==
+Date: Tue, 7 Jul 2026 15:28:40 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Congkai Tan <congkai@amazon.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Haris Okanovic <harisokn@amazon.com>,
+	Geoff Blake <blakgeof@amazon.com>,
+	Stanislav Spassov <stanspas@amazon.de>, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
+Message-ID: <ak19mPPWcupFwfuE@kernel.org>
+References: <20260702190421.420992-1-congkai@amazon.com>
 MIME-Version: 1.0
-In-Reply-To: <ak1rseUKTWFKzBib@AMDC4622.eu.corp.samsungelectronics.net>
-X-CMS-MailID: 20260707214538eucas1p2b46a6831dbed600dab30756a0078711f
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----086pkQbFtnoS7HLFmBecfPu9Cf9WQCmSNse4hrMKP7AYRkCa=_12ee25_"
-X-RootMTR: 20260707211350eucas1p2c7d585a2f5cdcfdc3f1d9f7bcb1759e1
-X-EPHeader: CA
-X-CMS-RootMailID: 20260707211350eucas1p2c7d585a2f5cdcfdc3f1d9f7bcb1759e1
-References: <message-id-of-your-v1-mail>
-	<20260707195425.405989-1-stefan@agner.ch>
-	<CGME20260707211350eucas1p2c7d585a2f5cdcfdc3f1d9f7bcb1759e1@eucas1p2.samsung.com>
-	<ak1rseUKTWFKzBib@AMDC4622.eu.corp.samsungelectronics.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_144545_977127_7B90E807 
-X-CRM114-Status: GOOD (  10.62  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702190421.420992-1-congkai@amazon.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------086pkQbFtnoS7HLFmBecfPu9Cf9WQCmSNse4hrMKP7AYRkCa=_12ee25_
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
+Hi Congkai,
 
-On Tue, Jul 07, 2026 at 11:13:46PM +0200, Jakub Raczynski wrote:
-> - This change is actually broken - in previous patch rtnl_lock() was asserted
->   by dev_ioctl(), but in this version it is not asserted anywhere and will
->   trigger WARN_ONCE().
+Thanks for respinning.
 
-Ok, as I looked again, I am wrong again, ndo_open() does hold rtnl_lock
-already. So from this point it is good. Relocking would create deadlock,
-so I take that part of comment back.
+On Thu, Jul 02, 2026 at 07:04:18PM +0000, Congkai Tan wrote:
+> Today when the perf tool runs in a guest on cores with PMUv3p4, it fails
+> to parse the default metrics with "Failure to read '#slots'", since perf
+> can only read 0 from sysfs caps/slots, which is backed by PMMIR_EL1.SLOTS
+> that KVM traps as RAZ/WI.
+> 
+> Taking into account backward compatibility and heterogeneous systems, the
+> exposure of PMMIR_EL1.SLOTS is gated behind a new vCPU feature flag:
+> 
+> - Patch 1 adds the new flag KVM_ARM_VCPU_PMU_V3_STRICT. When set, KVM does
+>   not create a default PMU during vCPU init, and the VMM must select one
+>   explicitly via KVM_ARM_VCPU_PMU_V3_SET_PMU before the first KVM_RUN.
+> - Patch 2 exposes PMMIR_EL1.SLOTS of the selected PMU under the flag, and
+>   adds userspace get/set for PMMIR_EL1 so that SLOTS can be reset to 0
+>   for backward compatibility.
+> - Patch 3 stops masking STALL_SLOT* in PMCEID1 under the flag.
 
-BR
-Jakub Raczynski
+I think the series is starting to shape up. Few more things to address:
 
-------086pkQbFtnoS7HLFmBecfPu9Cf9WQCmSNse4hrMKP7AYRkCa=_12ee25_
-Content-Type: text/plain; charset="utf-8"
+ - Didn't mention it in v1, but writes to PMCR_EL0.N should be ignored
+   when V3_STRICT is set. We now have a vCPU attribute for configuring
+   event counters and the register-based thing is just broken :)
 
+ - The vCPU feature flag needs a corresponding KVM_CAP so userspace can
+   detect it
 
-------086pkQbFtnoS7HLFmBecfPu9Cf9WQCmSNse4hrMKP7AYRkCa=_12ee25_--
+ - In terms of patch ordering, the vCPU flag / KVM_CAP exposure should
+   come last after all the behavior changes are implemented (and
+   flag-guarded)
+
+ - Move enforcement of a non-NULL arm_pmu to kvm_arm_pmu_v3_init() since
+   userspace must call KVM_ARM_VCPU_PMU_V3_INIT before KVM_RUN
+
+ - Prevent the PMU event filter from being configured until a hardware
+   PMU has been selected
+
+I've addressed all of this locally and pushed to my tree [*]. Untested,
+as always :) Would you be able to give it a spin?
+
+Also, do you have VMM patches for using the new feature flag?
+
+[*]: https://git.kernel.org/pub/scm/linux/kernel/git/oupton/linux.git/log/?h=kvm-arm64/pmu-7.3
+
+Thanks,
+Oliver
 
