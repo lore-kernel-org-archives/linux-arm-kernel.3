@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 07:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19FBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 07:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Date:To:
-	Content-Type:Mime-Version:Message-Id:Subject:References:Cc:
-	Content-Transfer-Encoding:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ULuVIoxEWXZu1rfH0FMv5nh5UQ+aWvunAFu7u1u17eE=; b=0HGik0e7wShuY9
-	3ER/DsoLX9+W3eQVBPzDDqqryUA6fdqSZ5uS87824zTfjjpmfRBKOyRrZnrEDHUQlitQANt70Kcff
-	xNX7+0xl2T/WG3PjcEAEEyIqcpuP/psNwwEY0W71lK5s1Nsl2YvE8KVE3bQVJqCjJlGNJ7P3PRIjI
-	xmDdajBq3/UCltsTUohyIpw10WtWuyPW0mSLNK3kVvJ7XYiK2MoLOFpCL+Oe59yA/UmRY9ikJkLQH
-	ZQXbjV5oaRbUa7hsFsFsrAMZAMHd6C2nFIszDhgQ9gexPCf+gmTLb4ZEYnwGLjd4X9k81sds+L+pm
-	vY3+yodA9cQq/7018Q4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=45TUjnFLPimeXg8OXKr+ik8F39XYQsq1QYkNFiI3doc=; b=h3ofUB6nF++iN2r0GNnDKsPG3E
+	JMOyEqnKDgf2ncoDbQk8yCe7xcpoLXaVBHKx0BhmZOe3vFAyGaB2WTkGhJJJUm/B/Vd5o65/wjbGO
+	hAWNK1G8nyRw0a8ettycWGALUk4+rcljfSjZjn+XeOUtiQfSk7neAq+NzpertGgmNhiyjtPhxldXa
+	o/40T6g2yM1/9qGiWjO3YlGRxC8OhH+Mqhz2EZgoPOQp9VePVY7w9WkJe+cQZ8J8djFDKLyqRQhBN
+	ck/ZPzWibtxPGBnz6lslFzgR97Xhy/um47dIU/SAflEzbbEZVLKzcJJ/a/jsoCe6Mq/Pb9Fxk4QJL
+	RrM1cz7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0aR-0000000ENAa-0XMC;
-	Tue, 07 Jul 2026 07:51:23 +0000
-Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	id 1wh0e7-0000000ENhj-0QTT;
+	Tue, 07 Jul 2026 07:55:11 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0aO-0000000EN9h-1abs
+	id 1wh0e4-0000000ENgW-21iT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 07:51:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1783410674; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=ULuVIoxEWXZu1rfH0FMv5nh5UQ+aWvunAFu7u1u17eE=;
- b=elfqFTmnN/A60URpSOqttk/CCxb1DCNwKvhvbKFyqz7TWTMZbCjsaOJqa52fpOKR+JJpUd
- SKYogMqeYFO9PlykXfVO/hMuA35RmzlCLIcubxvprDXNcOu/eJVPcd3dANe4jl0xjsTC0T
- wZrTVJ1VdOGf4tv99xK9v77MXZAiN3zYMCFS8ucoYfx1gwZwpL0l3/0PWQCmxMxKnDiBAK
- d8ss4Sq0Ucdim+08JGulZufS8UH2fuekhiwrkkKnJHLXOVaVfkxxWMLFYT+/uzaMOyT9PZ
- nD/JznZE+CwvO2L22Yt+kjNAOAB+AY6w60nvYUPgWsRdGrV2Sz08sZsPR4Vsfw==
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Content-Transfer-Encoding: 7bit
-Content-Language: en-US
-User-Agent: Mozilla Thunderbird
-Cc: "Jiri Olsa" <jolsa@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
-	"Mark Rutland" <mark.rutland@arm.com>, "Rob Herring" <robh@kernel.org>, 
-	"Anup Patel" <anup@brainfault.org>, "Namhyung Kim" <namhyung@kernel.org>, 
-	"Arnaldo Carvalho de Melo" <acme@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Ian Rogers" <irogers@google.com>, "Will Deacon" <will@kernel.org>, 
-	"James Clark" <james.clark@linaro.org>, <yang.yicong@picoheart.com>, 
-	<linux-arm-kernel@lists.infradead.org>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<devicetree@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, 
-	"Conor Dooley" <conor@kernel.org>
-X-Lms-Return-Path: <lba+26a4caff0+c9a7f9+lists.infradead.org+yang.yicong@picoheart.com>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-13-7909f863a645@meta.com>
-Subject: Re: [PATCH v8 13/22] RISC-V: perf: Add a mechanism to defined legacy event encoding
-Message-Id: <37db8fc7-4702-4af6-878a-b46572d6f2f4@picoheart.com>
-Mime-Version: 1.0
-Received: from [100.86.219.172] ([61.141.241.109]) by smtp.feishu.cn with ESMTPS; Tue, 07 Jul 2026 15:51:11 +0800
-Content-Type: text/plain; charset=UTF-8
-To: "Atish Patra" <atish.patra@linux.dev>
-Date: Tue, 7 Jul 2026 15:51:09 +0800
-In-Reply-To: <20260701-counter_delegation-v8-13-7909f863a645@meta.com>
+	Tue, 07 Jul 2026 07:55:09 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-51c2149571dso39956481cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 00:55:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783410907; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lx3qTkligoT7YRE+RezqdT0sJtiiYPe0yGwylfhFU8a0ifcOAVxx2QUG949s4TBQX8
+         CGWHRogm+Bqx+GJGEfUmIED+oHOBURtZsSnVwMwlJvkPjkSL9hKY0wyLKh77mVYGbtZk
+         Yr53im5PjowpBGXykHBhtUXmmX/OxtiWiIJDB8ZaJitbihQVm+IZLUkb17hTxizRX55t
+         GdyZuPxtu4LW+2Icgq8U3/o++I13ipfTyIuwOEUdZTlJuoy523S9+TOUCuPKlVrEAWAY
+         AswzHA/482a4uLkV4D71TL5upRqcYuVTMWmxHRKraMOGDr7Dj+Ln6SRRP1oRb2H+x0Ot
+         XJNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=45TUjnFLPimeXg8OXKr+ik8F39XYQsq1QYkNFiI3doc=;
+        fh=VELk2mLefKSLvB//PshM2xYsgYCUqXviTRaiU2o2QKM=;
+        b=qJIr/3GJwSSEUlCIqQC2OiktjX9LNYzMkPJMj+tvCfOIrjToLk36itEXZPwmqmGKOi
+         nNVRh6YPJ2GG05Zw+cBfyStX5XD9V0BhbKWZWDYI1O8LqzUfxfgGpr85cpurzYiFP/dE
+         24lD/wsgslwQkPvvHAmHxmyV+HQIaqO9Pa1A1l1wfZtUKFek7nqzuB0BM7zC815f6h6M
+         J2g2V07CMV7GC62RYOo0gTRiEvIc4GV4fr+5/oWDO+n7/U/SoVWLcAl4KoL3Yiinv3qB
+         t2p93s0evd/PBXoKUinRT2GkudZWRJwuvDaD4YYCM30Yh9abnd0psDIWgT0UUnnDJeS+
+         62og==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783410907; x=1784015707; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=45TUjnFLPimeXg8OXKr+ik8F39XYQsq1QYkNFiI3doc=;
+        b=i+803W2n2V2cxrhujNdttzihwdz9ibfsv89laWs/geDGg8nFrzcJr8yQyN1KE3kmn7
+         8ZFAW43L2v/4Dcq62kJ1lAgg0X4xSP6kw/1HfWeuFEt7V1y545Uj7dX2yy1fpqIoiJoh
+         Jqwk20pK1s8Rtdp406tE/t3jdnDQu5ItjmtPEIWhNdRPxys1SmZsZWF+pRxwJUGr+yTw
+         Tk3Go72W2AdMy2HXnYvBptk+ha1sOi76NsoqL0kAzYll3yGgcPDVpb6rGHPVBMziyFxn
+         UcltSm0k8SBMSjfO01xqb+5gBNx0iprplwvGcHwBHxr7XCZuXnrtLBP+SEbra0iwXkt6
+         VO8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783410907; x=1784015707;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=45TUjnFLPimeXg8OXKr+ik8F39XYQsq1QYkNFiI3doc=;
+        b=CXz1SZctzoimsRjf5FOIpw1oTlTcU0zeaXd1KK8ARdis/5bMseB03Aj5tCpzOEmYmA
+         Vw0y+BdkfZpB6Ak8xTDAzCyuM6TPN00DzN4vduLfDr8fSt4CA5ZFGC1RnfWNPwz/mN61
+         WjS1PK3fg5EZSqhg5uO+8l0lWqha75B1V8E3vooyl/wspLfjTnc7Tbp4PjnQaajtqHY9
+         4Lv3Ah6h8CdcQoP+hAo71oALS6ORDNxN1Tn7yfL5oFRdPKEpEP7B6Wrok2cD7tnWVUc6
+         nLyLVVHXAAfYJ8YoMxuiToEymc3gjxy1F6+bISbhNXVhF5EIob+u+9E2gYIZbpRCLaqc
+         tfsw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqn2rpx0QMibF490c554Lit1LWcmvW/N9HbWWJrSnuM13AEzdnB4zPi9meUT3RY4RRNLsgxEmWW6o8y/to4SRZW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmbMkGPyf1kEvLaLCP9etH4Mj7Uz2MHWd8O1H3LJI+FymF+qOn
+	WMkRG5WPFG4v/GlnYv5aL+T7V8S56eECODme5Tm22YFZ9yXxEDlcxT2qlHKX+MmjYgdMqHH7XyF
+	U8Iutd111e5zj9nvVUvaJH/B1S39NQWM=
+X-Gm-Gg: AfdE7ckebrEQDxRdoTnOUxPxVGevbN6GHn151LopsZ/YKobkJhO8OjlcKkqMS1U3K9Y
+	TB/7EgmzuuOzDjlX2npp9AACzjzXlLvuMBIKLdxp+QBQ5mgXTbcxbMT27+RaH35oMZiwJv9sC/I
+	Cm+kIzC5HeXQdwllRiiamEwA9eHikW7qfm7b9qdLzaSEqx8DDQIAuG4opEbZ5s6LdbmAFn58/4+
+	GLbjUpy15/8PHILX4nxXaSfv5jEAez2WI7p6ndEZfz/VR+6IyAOZGozfvFErgH1s25j0dIwglz+
+	D/t6ViiRHEz6ZQ4=
+X-Received: by 2002:ac8:5944:0:b0:51a:8c97:fb9a with SMTP id
+ d75a77b69052e-51c748e99d3mr43147321cf.67.1783410907124; Tue, 07 Jul 2026
+ 00:55:07 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260629142348.273766-1-akkun11.open@gmail.com> <akwJmKqZJS1sJzFk@redhat.com>
+In-Reply-To: <akwJmKqZJS1sJzFk@redhat.com>
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+Date: Tue, 7 Jul 2026 16:54:56 +0900
+X-Gm-Features: AVVi8CfBz91Cjj_2TyUNSllobZ66hJIFMho_I-2O9RLREdueZiXV-s936xkFDMc
+Message-ID: <CAKr_iV5zZ2TR0cE6E8=5JLYqFwYsvGEs8vqKL-rN3RtuSu0Unw@mail.gmail.com>
+Subject: Re: [PATCH] clk: mediatek: fix memory leak on module removal
+To: Brian Masney <bmasney@redhat.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Miles Chen <miles.chen@mediatek.com>, 
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_005120_477824_302AA849 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20260707_005508_533521_6E964A62 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,122 +123,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 4:47 PM, Atish Patra wrote:
-> From: Atish Patra <atishp@rivosinc.com>
-> 
-> RISC-V ISA doesn't define any standard event encodings or specify
-> any event to counter mapping. Thus, event encoding information
-> and corresponding counter mapping fot those events needs to be
-> provided in the driver for each vendor.
-> 
-> Add a framework to support that. The individual platform events
-> will be added later.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c | 70 +++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 69 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index c20f1e33c65d..2568c6808f5d 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -10,6 +10,7 @@
->  
->  #define pr_fmt(fmt) "riscv-pmu-sbi: " fmt
->  
-> +#include <linux/limits.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/perf/riscv_pmu.h>
->  #include <linux/platform_device.h>
-> @@ -379,6 +380,71 @@ static int pmu_sbi_check_event_info(void)
->  	return result;
->  }
->  
-> +/*
-> + * Vendor specific PMU events.
-> + */
-> +struct riscv_pmu_event {
-> +	u64 event_id;
-> +	u32 counter_mask;
+Hi Brian,
 
-could we name it as counterid_mask to match to the PMU format
-name (introduced in patch 16/22)?
+On Tue, Jul 7, 2026 at 5:01=E2=80=AFAM Brian Masney <bmasney@redhat.com> wr=
+ote:
+> On Mon, Jun 29, 2026 at 11:23:40PM +0900, Akari Tsuyukusa wrote:
+> > diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk=
+/mediatek/clk-mt2712-apmixedsys.c
+> > index 54b18e9f83f8..24522fc24019 100644
+> > --- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+> > +++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+> > @@ -129,6 +129,7 @@ static int clk_mt2712_apmixed_probe(struct platform=
+_device *pdev)
+> >               goto unregister_plls;
+> >       }
+> >
+> > +     platform_set_drvdata(pdev, clk_data);
+> >       return 0;
+>
+> Please add a newline before the return.
+>
+> Also, please split each fix out into their own patch to make backporting
+> to downstream kernels easier.
 
-thanks.
+Thank you for your review.
+I fixed them in v2.
+https://lore.kernel.org/linux-mediatek/20260707074839.240676-1-akkun11.open=
+@gmail.com/T/#t
 
-> +};
-> +
-> +#define HW_OP_UNSUPPORTED		U64_MAX
-> +#define CACHE_OP_UNSUPPORTED		U64_MAX
-> +
-> +#define PERF_MAP_ALL_UNSUPPORTED					\
-> +	[0 ... PERF_COUNT_HW_MAX - 1] = {HW_OP_UNSUPPORTED, 0x0}
-> +
-> +#define PERF_CACHE_MAP_ALL_UNSUPPORTED					\
-> +[0 ... PERF_COUNT_HW_CACHE_MAX - 1] = {					\
-> +	[0 ... PERF_COUNT_HW_CACHE_OP_MAX - 1] = {			\
-> +		[0 ... PERF_COUNT_HW_CACHE_RESULT_MAX - 1] = {		\
-> +			CACHE_OP_UNSUPPORTED, 0x0			\
-> +		},							\
-> +	},								\
-> +}
-> +
-> +struct riscv_vendor_pmu_events {
-> +	unsigned long vendorid;
-> +	unsigned long archid;
-> +	unsigned long implid;
-> +	const struct riscv_pmu_event *hw_event_map;
-> +	const struct riscv_pmu_event (*cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
-> +						       [PERF_COUNT_HW_CACHE_RESULT_MAX];
-> +};
-> +
-> +#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, _cache_event_map) \
-> +	{ .vendorid = _vendorid, .archid = _archid, .implid = _implid, \
-> +	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map },
-> +
-> +static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
-> +};
-> +
-> +static const struct riscv_pmu_event *current_pmu_hw_event_map;
-> +static const struct riscv_pmu_event (*current_pmu_cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
-> +							   [PERF_COUNT_HW_CACHE_RESULT_MAX];
-> +
-> +static void __init rvpmu_vendor_register_events(void)
-> +{
-> +	int cpu = raw_smp_processor_id();
-> +	unsigned long vendor_id = riscv_cached_mvendorid(cpu);
-> +	unsigned long impl_id = riscv_cached_mimpid(cpu);
-> +	unsigned long arch_id = riscv_cached_marchid(cpu);
-> +
-> +	for (int i = 0; i < ARRAY_SIZE(pmu_vendor_events_table); i++) {
-> +		if (pmu_vendor_events_table[i].vendorid == vendor_id &&
-> +		    pmu_vendor_events_table[i].implid == impl_id &&
-> +		    pmu_vendor_events_table[i].archid == arch_id) {
-> +			current_pmu_hw_event_map = pmu_vendor_events_table[i].hw_event_map;
-> +			current_pmu_cache_event_map = pmu_vendor_events_table[i].cache_event_map;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (!current_pmu_hw_event_map || !current_pmu_cache_event_map) {
-> +		pr_info("No default PMU events found\n");
-> +	}
-> +}
-> +
->  static void rvpmu_sbi_check_event(struct sbi_pmu_event_data *edata)
->  {
->  	struct sbiret ret;
-> @@ -1670,8 +1736,10 @@ static int __init rvpmu_devinit(void)
->  	 */
->  	if (riscv_isa_extension_available(NULL, SSCCFG) &&
->  	    riscv_isa_extension_available(NULL, SMCDELEG) &&
-> -	    riscv_isa_extension_available(NULL, SSCSRIND))
-> +	    riscv_isa_extension_available(NULL, SSCSRIND)) {
->  		static_branch_enable(&riscv_pmu_cdeleg_available);
-> +		rvpmu_vendor_register_events();
-> +	}
->  
->  	if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_available_boot()))
->  		return 0;
+Best regards,
+Akari
 
