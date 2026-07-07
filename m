@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EA0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97948C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uqhzatz7NlDzESa9PUCo71vFC+Z9fG5K7FS6DttHiE=; b=KHncW9cALn4KjCFV9Fgy0GZATQ
-	/hfpcwTwU0J//hsXX1pjNDjlTtk5s6mI2bDLIYq5Ka0HmmyXfadQBZgVXm9l3mKD2I2yRbHZgoTw4
-	ig/gJ3io9UGATNISOsWjyECNblByr12Qf153gJWxzOUnM1nNCBsCZDFiDS87Nq1F4H/22/l9RcNRC
-	YKgNX+flaS5yw17YXCdFiC330g0T6GyO6lpQAz/vLcPmw8a8jq0SqltQOGKXmUgNCFgIFjejsrQOX
-	ZoyXH706gkbQzO1pvlZaygqpHRbSv1uzrBiF1zg3HKf3dFnFHc3wKGTP/Iv34kRYKv2Ed0NZhHRbf
-	hChFzntw==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=/V3IDsSnQjAP3/DFshVE1YPFZDzJBaRoz5Q/CBJ2mdU=; b=JNEUWkwoGRWibD0hFUalJV3DbJ
+	Q9px/0IfTllF67iBimr3z67cd53n+Yd3daS0mzulAKCl4m3FqqrXHEehWPN3CuX83X2RZi5RK0mum
+	flWP1ghjt6pW8b9GydDt+kdrJIIyHfvNwFiGJ7y3coK84QId3Dq/oqk5uvUtvLml3X+P1RiLo2dZd
+	Zy7lNb86Hg2+z4alTyfCZRItrYVCBBXDRjoxNVnq+ONh5KFVvcPcvPXWaB2zuN6oSVh0Y2n1zQ7Zy
+	6G+9O0f6HvmTmt9aYMyQOiYBeseqeZCir+GnjS1xJaJDpJ4S8oFcqGesGOLNAptN8m5UUWDKcpVaK
+	3nUUYHcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9ni-0000000FZcc-3k40;
-	Tue, 07 Jul 2026 17:41:42 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wh9qd-0000000Fa7E-2grH;
+	Tue, 07 Jul 2026 17:44:43 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9nf-0000000FZb3-0O62
+	id 1wh9qa-0000000Fa5q-29Wb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 17:41:41 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260707174136euoutp01e489afc0a00d4c0761e7db2ae98329ae~AEsZ7Y4AB0074200742euoutp01p
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 17:41:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260707174136euoutp01e489afc0a00d4c0761e7db2ae98329ae~AEsZ7Y4AB0074200742euoutp01p
+	Tue, 07 Jul 2026 17:44:41 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260707174438euoutp02ddba3b3bef512f052d42e9767feffec0~AEvEH-3PP1975219752euoutp023
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 17:44:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260707174438euoutp02ddba3b3bef512f052d42e9767feffec0~AEvEH-3PP1975219752euoutp023
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783446096;
-	bh=2uqhzatz7NlDzESa9PUCo71vFC+Z9fG5K7FS6DttHiE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cFbFWmrZMKBqTlKeU7OTiwH7GnvgN+5xUCa3/BWttM+6oWP9X+WD0ZCCka4eDWnqL
-	 rEvD4xrGAcdPF/xByYBb3G6XFUqRxELaJEY9V2vJ1A3niLLvUB8rQoz6thM3iXRHlL
-	 zD3vwiKEND2gF03UmNxp14VHlWylEQcwQANpsgXg=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260707174135eucas1p1386ed6bc3c44c1a4e927a0a8bae8fd27~AEsZYmV6x1385013850eucas1p1Q;
-	Tue,  7 Jul 2026 17:41:35 +0000 (GMT)
+	s=mail20170921; t=1783446278;
+	bh=/V3IDsSnQjAP3/DFshVE1YPFZDzJBaRoz5Q/CBJ2mdU=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=KsmoXaciTtDB6sClKMx7k4Z4SHwRLTGPVL+/+u6L9lm0XADBbKPkwOn6BgeK9PMT1
+	 wdh7CHhaqNtdraJ11IukdHnqO27Sf3gh3hU03aSjDEPBqzdOAV6yrpWT3Aa7+5bGnL
+	 yhHUMC3VDjFNigem6uE4oD5r+QIK72cm9bcjzz4g=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260707174437eucas1p2cedaa017eea6cd5696535b17925a3b53~AEvDKjXIQ2942329423eucas1p2d;
+	Tue,  7 Jul 2026 17:44:37 +0000 (GMT)
 Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.61]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260707174134eusmtip1c78c3c4b343d56ce01467ae68af74883~AEsYqzfhO1143211432eusmtip1D;
-	Tue,  7 Jul 2026 17:41:34 +0000 (GMT)
+	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260707174436eusmtip2f88fbdd78f52216b16d2a8d14239ea38~AEvCEQoaf1514515145eusmtip2F;
+	Tue,  7 Jul 2026 17:44:36 +0000 (GMT)
 From: Jakub Raczynski <j.raczynski@samsung.com>
 To: netdev@vger.kernel.org
 Cc: k.tegowski@samsung.com, k.domagalski@samsung.com, andrew+netdev@lunn.ch,
@@ -53,27 +53,24 @@ Cc: k.tegowski@samsung.com, k.domagalski@samsung.com, andrew+netdev@lunn.ch,
 	pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jakub
-	Raczynski <j.raczynski@samsung.com>, Maxime Chevallier
-	<maxime.chevallier@bootlin.com>
-Subject: [PATCH net v2 1/2] net/stmmac: Set Rx queue page_pool to NULL when
- freeing DMA resources
-Date: Tue,  7 Jul 2026 19:41:14 +0200
-Message-Id: <20260707174115.1264466-2-j.raczynski@samsung.com>
+	Raczynski <j.raczynski@samsung.com>
+Subject: [PATCH net 0/2] net/stmmac: Verify more wrong DTS configuration
+Date: Tue,  7 Jul 2026 19:44:29 +0200
+Message-Id: <20260707174431.1264520-1-j.raczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260707174115.1264466-1-j.raczynski@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260707174135eucas1p1386ed6bc3c44c1a4e927a0a8bae8fd27
+X-CMS-MailID: 20260707174437eucas1p2cedaa017eea6cd5696535b17925a3b53
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260707174135eucas1p1386ed6bc3c44c1a4e927a0a8bae8fd27
+X-RootMTR: 20260707174437eucas1p2cedaa017eea6cd5696535b17925a3b53
 X-EPHeader: CA
-X-CMS-RootMailID: 20260707174135eucas1p1386ed6bc3c44c1a4e927a0a8bae8fd27
-References: <20260707174115.1264466-1-j.raczynski@samsung.com>
-	<CGME20260707174135eucas1p1386ed6bc3c44c1a4e927a0a8bae8fd27@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20260707174437eucas1p2cedaa017eea6cd5696535b17925a3b53
+References: <CGME20260707174437eucas1p2cedaa017eea6cd5696535b17925a3b53@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_104139_595799_381AC523 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20260707_104440_688374_802B3AAE 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When freeing RX descriptor resources, there is standard clearing of
-descriptor page_pool via page_pool_destroy() which does destroy
-page but does not set its pointer to NULL, which must be done by driver
-calling this function.
-It is not done in __free_dma_rx_desc_resources() when stopping interface,
-which is generally not an issue, because __alloc_dma_rx_desc_resources() does
-setup this regardless of previous state.
-But above is true assuming reinitialization is successful.
+Commit 8a7bca6de6de protected against possible wrong number of TX/RX queues,
+which could happen with new XGMAC hardware that has more supported queues than
+currently available in driver.
+Sashiko mentioned that there should also be protection against zero input
+and some AXI related config, as these are possible kernel panics too.
+While this series has lower value than original patch, since this
+misconfiguration should not happen by pure mistake, there is no reason not
+to fix it.
 
-In case of failure of page_pool_create() in __alloc_dma_rx_desc_resources(),
-all non-NULL pages will be freed, including those already cleared.
-So there is possible kernel panic due to wrong paging request at address.
+Jakub Raczynski (2):
+  net/stmmac: Protect against zero queue DTS config
+  net/stmmac: Verify provided DTS AXI setup
 
-Fix this by assigning NULL to page_pool pointer on free.
-Also remove NULL check as page_pool_destroy() does check for NULL param.
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-Fixes: da5ec7f22a0f1 ("net: stmmac: refactor stmmac_init_rx_buffers for stmmac_reinit_rx_buffers")
-Signed-off-by: Yashwant Varur <yashwant.v@samsung.com>
-Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2a0d7eff88d3..3098971e0b66 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2172,8 +2172,8 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
- 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
- 
- 	kfree(rx_q->buf_pool);
--	if (rx_q->page_pool)
--		page_pool_destroy(rx_q->page_pool);
-+	page_pool_destroy(rx_q->page_pool);
-+	rx_q->page_pool = NULL;
- }
- 
- static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
 -- 
 2.34.1
 
