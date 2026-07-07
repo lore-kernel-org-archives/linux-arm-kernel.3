@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D96C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DA7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CeqnHolqvupennIplS/D4Qb+nQEYOXtCZ3+bQBmewjM=; b=MHuqE7G9JBwV3SGrSCmR6S55te
-	amd1ZO9pSE44eR3mBrMgSvUZHa2iZNqeBZVWfKQdJSi2AJWwtg2Yt+QWvQI124NXw4Ax692j/+rUn
-	Bh3i1TuTS1nuyH2Kdlho5K7EisfqDbayTvzlyw1xFjHQvgMEHvIITJZCVLBRrE/rigAMr3QsWQlgG
-	TLmFiTkyzMiCBV0NPC5tBu4+Bj86ddVT/tb91+fRJfuXB/324nYeoTqxmIS/kfgWLkoXe9XQg9Tff
-	HLoogHJXKb79WOV65BKE64E84GP1h/FX2zQS41xbBHi6GL4vl/3qoosctR5rerWpfBWT5VB12kst9
-	ureGfFuw==;
+	bh=YxxW/DgyJ8n8X4s2Jk8Sgjq3BzhWt1t3dn+FQ+NVOBM=; b=s/hj4aIf2Mn6V46v3wbuNNqu56
+	CKPVQ44flwzj3aUv8sSGn8kU5oox16A6Go8XpvJkk5DhrKK5FdGVtP0LQNP191xpqO+DZP70xPMKk
+	+NhO9v+bArKNMpLNME0HdpR/qv8ccqgzYdup/xo6F4KsOGi0YthsLq3NNT419d4jg3NYIYa+Iy8cm
+	KGN9I75nTXMIZiSo5z3VM6BOCbMzETZyvV78g9ox1yLDS0OfGnGsk2yziiiquApMRw+EpuzTyEu/Y
+	mWc6xnaRn/I9Q+k/gnkoEDzR0HguxJNKpf4Z5MWsVc01d4ebjunHKMfYl9zzycyavrz/H6ptjaVxs
+	JrXuBtCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5yP-0000000F4Ck-4BO9;
-	Tue, 07 Jul 2026 13:36:30 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wh5zb-0000000F4UK-1kp4;
+	Tue, 07 Jul 2026 13:37:43 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5yM-0000000F4C1-2Zo0
+	id 1wh5zV-0000000F4T0-43EN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 13:36:28 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CeqnHolqvupennIplS/D4Qb+nQEYOXtCZ3+bQBmewjM=;
-	b=kzUQhfS+Yha6KTVB71IH4oQNliXnuHIxjb7QbikBcuJQ1e90X15E/8xiPk9OHFFsYPVpMTRh8
-	vwqru0MUTzMLyOyMlOfSid/mVaEO6idW5xcCgADL+S6r5bkZFGn58cmJejv9vvIXulBD/i0FSqL
-	/uagqyWiR+QnE6LFO11sPY4=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gvhpZ2DPDzLlTZ;
-	Tue,  7 Jul 2026 21:27:02 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id CE7D0402AB;
-	Tue,  7 Jul 2026 21:36:15 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 7 Jul 2026 21:36:15 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <ljs@kernel.org>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>, <liam@infradead.org>,
-	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux@armlinux.org.uk>, <mhocko@suse.com>,
-	<rppt@kernel.org>, <sunnanyong@huawei.com>, <surenb@google.com>,
-	<vbabka@kernel.org>, <xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault() under CONFIG_DEBUG_USER
-Date: Tue, 7 Jul 2026 21:35:27 +0800
-Message-ID: <20260707133527.81833-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <akzgsZi6aKCFWg_U@lucifer>
-References: <akzgsZi6aKCFWg_U@lucifer>
+	Tue, 07 Jul 2026 13:37:41 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-6675db463b9so1967021d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 06:37:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783431456; cv=none;
+        d=google.com; s=arc-20260327;
+        b=p5tMOZy7Nm2i5ImLvHSdhTDaXsdJalbtQtA1M/CGrXFq9LHeS7jF8opsN9T03jiq3s
+         9r3qfKNEAnQZ0tNJUIGH9U80UdepRAzPZhflZGvB4FUziuEa+dwK2QNYXLAt3sOGFzEB
+         fOBVvcminxVfWq7vGzRDR7sePpdiMylrK2kwWhDUXxtfRt5zedQ8Zas4vSGk2IS0Joth
+         3y+janjVSXGJm3BldBFnM8/QPJAqs8McCCJohQSpK47jn8wjKDfr25sEi4AQMYe7Hb9K
+         +8COQb0zBIUobwo8/m5OKj5TCvA6aTc50QWyrHciYlqlzWORfLWJ4bETPy6ezOELjavM
+         Wbgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YxxW/DgyJ8n8X4s2Jk8Sgjq3BzhWt1t3dn+FQ+NVOBM=;
+        fh=FtFrxHT+I5GdrRUF4Aw4RunTqoBYwhVxVUg5Z+hZbRc=;
+        b=rSxLI5M7sg7Cy4LHrwqz0Xz2NvwW0JMouCP/qThH0QhOSrnWw140WnBWDyPk/atbIG
+         20qeTem7DfYBeTqv9sSwZ9KbJw+OFhEiO3LG9gzinlVn4qLBffNx/V8GkLLskw0LppQi
+         x/Kde3zQlnIAOUlVcXgl0+DoYxYteakbpXA8fBQC5EAAUgWoYibAqeUP2V5+whyP/eVq
+         DIURFJA02JB7FuIk00WvT1cg4zV/Mukje3tQj8A9L43MRFdewv3GPWFsj8Hz20TPrvEe
+         IXsdDi7YbApEnSboour+2W6EdmXrmG0i+ApSKxF5YcOVXT2LC8uXRJln0690LMQ5HDy0
+         AFsg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783431456; x=1784036256; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YxxW/DgyJ8n8X4s2Jk8Sgjq3BzhWt1t3dn+FQ+NVOBM=;
+        b=jMrPNti/eETszT/o6I7WoRdr1pgPkck3jfbXF+3c0BX8//RrZ1ox61bpOqZ9ME95P/
+         zED9/sMKmpNJIAo3rcjWeWoh7ibaTN8t+HN36V9mQOGtHgFrnCeqs/epdutqV7HBLaDc
+         CU05JHCBPIXWjO5k7WL252MAP1oNAvi0cZmJz0LiH0hmioy9oLmGc910ztacI2ldaM1D
+         QF6dX/ujrzlByUtHA6F9FXSX/LToOquBrAF1tj8kBW0pMJ4l8X8yNaJARSpzKfyDE+Ft
+         bB0NJW7/p10wpuQoLcIW8dH2T7pJ3hmvYP8MF9CeZDkTnpu6ru0VK3LcM+ZoQqccgvdz
+         xA6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783431456; x=1784036256;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YxxW/DgyJ8n8X4s2Jk8Sgjq3BzhWt1t3dn+FQ+NVOBM=;
+        b=Egj2uJv2fQ7/GI/ZUiobISoCrl+lMCkZ48ACG5Wk3GgRyf23b0Cww3r8wkadP7693T
+         gW2GdGmVA2w9jbvPaD25sxku5uUGZt0AIUuuHYLWmVBy7kM2Vh3oYoiG/7BTD3kwwMfs
+         jyJXjrrhncWuRqaBzWcu5ffdlNkM1zYRMSUr/tO2pgXkzRDQvj/Xeg6by8NJYXPlrg/f
+         aaVZdlN49dcwGl0T2VD3Rx2F7quB/MNQCa2CwkVYTZWTr819W91qroJYlgt/pcZNrdQY
+         4m6Bt49Kq8/mzIlhPw7FFkZBd6F0JlEMzKBlYyKn1l4LEyXUg7I7/wqMeiZzjSF+iilR
+         uo+w==
+X-Forwarded-Encrypted: i=1; AHgh+Ro1U+Vbo0ynSgjrhoageR/R734xAHoLlJZtxZI2uy+B6MClbVAJS475ltY4ANH6ZuYTbi1vl1sGI3hlSu7bEXSf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxVMMA/9S74gdCC15tr11SV2dZL1ueA9szVXELOy/nr2wQ9dA6
+	LFEA19S0Zo3ioxZYdkWo+TZYxNoji4v44XnpjvSYT/SFKNIjzh7SauubBkMCFDDA1Yqb/Wa/+/o
+	DvwN1gFcDIbAxUr0N6EXtoUaB2Np1o1M=
+X-Gm-Gg: AfdE7cmjwjmsxjcwsIY23CI0jtXnk4GoNddqEMttOG1mE5lIRAAEMGhSVpCZPwrnMEd
+	bvEe5cEpqTqBKJCWqlO75idywN+dV6wFddkAkcZqVOwjdv074W8ZcsxVGPVSD25lhaPS/N53Eil
+	5hCP5YjZJLNiaR9yWnagUyBs2kIyuFHqDxsyzWb5WrB4Xb9Nmbc/v2lVgc2nTctBlgweSC0m/ta
+	yy01WvasRKwUSaM4hhrdFfHX98xi/sBiSKIYMvnkgU77k006jTHI9eOTnKKboLnAXLZnB3HRfGa
+	TJPJONKD8HXogP9arIQaClErhyveYUAUm7T/4S65OX2Hgl/Tqs5WQhJGg1f9lw==
+X-Received: by 2002:a05:690e:440f:b0:664:ae6a:ef6 with SMTP id
+ 956f58d0204a3-6677fe09239mr3207984d50.84.1783431455985; Tue, 07 Jul 2026
+ 06:37:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+ <20260630-apple-mtp-keyboard-final-v1-8-506d936a1707@gmail.com> <a0cee001-7bca-438a-943b-da28528e7df7@gmail.com>
+In-Reply-To: <a0cee001-7bca-438a-943b-da28528e7df7@gmail.com>
+From: Michael Reeves <michael.reeves077@gmail.com>
+Date: Tue, 7 Jul 2026 23:37:24 +1000
+X-Gm-Features: AVVi8Cc2ZFlYzV97xsPmmL_XYaVoOo2UdWECw6a41ntBKVYGFTDcsFEpeCIlldE
+Message-ID: <CANpmGNusmx8NQEu2x07rX-yd33XA9TJR_ZogFVXexAmw+7qq9A@mail.gmail.com>
+Subject: Re: [PATCH 08/10] HID: apple: Add DockChannel HID transport driver
+To: Julian Braha <julianbraha@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-input@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_063626_954680_C38D4E53 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20260707_063738_012075_738FA0F9 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +123,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jul 2026 13:46:19 +0100, Lorenzo Stoakes wrote:
-> On Mon, Jul 06, 2026 at 09:32:47PM +0800, Xie Yuanbin wrote:
->> I have read this article:
->> Link: https://docs.kernel.org/mm/process_addrs.html
->> `mmap_read_lock(&init_mm)` should be able to ensure that the kernel
->> address's page tables can be traversed. But I'm not quite sure if
->
-> I added a section specifically about this -
->
-> https://docs.kernel.org/mm/process_addrs.html#traversing-non-vma-page-tables
->
-> But note:
->
-> "Since, aside from vmalloc and memory hot plug, kernel page tables are not torn
-> down all that often - this usually suffices, however any caller of this
-> functionality must ensure that any additionally required locks are acquired in
-> advance."
->
-> With the latter part being particularly important - you really need to be sure
-> you aren't going to be raced on page table teardown by anything.
->
-> However:
->
-> 	* You're safe from vmalloc trying to install a huge page table (only way
->	  it removes intermediate page tables) since !HAVE_ARCH_HUGE_VMAP.
->
->	* And since arm32 !ARCH_ENABLE_MEMORY_HOTPLUG you're safe from that too
->          :)
->
-> (Really I think you should be using walk_page_range_debug() here ultimately but
-> that's a future refactor).
->
-> BUT see below:
->
->> `mmap_read_lock(&current->mm)` provides protection for user-space non-VMA
->> addresses?
->
-> OK so this _does_ need addressing, and I covered it in the document:
->
->	We also permit a truly unusual case is the traversal of non-VMA ranges
->	in userland ranges, as provided for by walk_page_range_debug().
->
->	We must take great care in this case, as the munmap() implementation
->	detaches VMAs under an mmap write lock before tearing down page tables
->	under a downgraded mmap read lock.
->
->	This means such an operation could race with this, and thus an mmap
->	write lock is required.
->
-> I.e. you need a write lock.
+Hi Julian,
 
-Thank you very much for your reply. Now I fully understand: to traverse
-the page tables of non-VMA addr in user address space, the mmap write
-lock is required.
-
-But I still want like to ask a question:
-> However:
+[...]
+> APPLE_DOCKCHANNEL_HID has a duplicate dependency on HID,
+> since you put the import for this file inside of 'if HID..endif',
+> and then also gave it a 'depends on HID'.
 >
-> 	* You're safe from vmalloc trying to install a huge page table (only way
-> 	  it removes intermediate page tables) since !HAVE_ARCH_HUGE_VMAP.
->
->	* And since arm32 !ARCH_ENABLE_MEMORY_HOTPLUG you're safe from that too
->          :)
 
-If (just hypothetically), the ARM32 architecture supports huge pages
-and memory hotplug, what kind of lock do I need to safely traverse the
-page tables of non-VMA addr in kernel space?
+Thank you for picking it up and letting me know!
 
-Thanks again.
+I will correct it in v2, which I am planning on sending later this week, or
+potentially on the weekend if I get busy.
+
+Thanks again,
+Michael
 
