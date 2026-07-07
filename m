@@ -4,103 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB629C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF5BC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMpJXM9fHbDA78kVCJHA7qkcWOkk5FJ4dRDV3gbDV4k=; b=HvXtm/zB/C5ixcNvAgxOmQhOWo
-	bZ+aWg8BtnjAoY47UwWpCSAt9k32eLz4LrQBeF8r3mnC59bLp5Z6jdGVtg2TIDAe5n1O+p1Yo81uU
-	JACXAE9K9nUPzpH/IgAL5cJxjsEz1DTp2NkeiN3UIB3fPpgkZqpCNn4sTNx9wsBGvmNttVgaxFxPb
-	zWCo4ZFEtJyYyA11kJs2t+2QqPk3cJEG1ob8dLnb8QixWzg5gYoBGKK9XPBHDCXkcrvnAKOH2namW
-	NL3Lbdf3pWqRyfHDAHWLLgJeKN+jgsQCFzyEmPasRfQMNEnuMqg36Sax2+HBNjfvJYZqQ8KRcoY3J
-	I7GvG/dw==;
+	bh=g0ZGQJGJ1qWqh1QXg5+nZXDEWKnJXbLoKauNjx/PAYs=; b=LbVlKXbxg5vgecfUtj1kWd3vV7
+	EdrPgFFGy9LR/ostGeM26uS8iTypPCBD3+t5+WKqUVfRdB8QRT9uhJOswOobPPW1iWte3uW3ddlMr
+	hK2VtoxrZYYM47LgrXrVun7VdxsrNdNV00DVxnOA1+w4+ltXykWblAunfYywmm/KaqYWSnhBZT1yS
+	FKT7BRshE6XwcP4HfKBSLb3OxzKPOjaQdg5Loc9ZMrX43cqdRK28mUPBBqo99caGDH9SOOgEqfPPw
+	0/y6Eh1aV0A+ra5wZhqvW0Cnsfmp9wQv1iiOY5nIHlxELF1i31y+x+2Zuv2aml7ZXcmYCxeaRI6sY
+	k8gmQqsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3fi-0000000EpGA-1RDj;
-	Tue, 07 Jul 2026 11:09:02 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1wh3ff-0000000EpEv-131C;
+	Tue, 07 Jul 2026 11:08:59 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3fc-0000000EpDo-3KAC
+	id 1wh3fb-0000000EpDd-4Ago
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Jul 2026 11:08:58 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-6611669cd16so5595175d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 04:08:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783422535; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PQkksyVq+oa5Edr0IqWR/VhmjmmcsLICDjV1MLhYLL/zplcjLSf0hjT+wUUKrPbCHZ
-         hOFjuHGL3xziLzKZYm4c+jnuhfbpzxBcoZu5Hk8pJkY9FODXLfGw0NIB2SkdbZFiRl2x
-         r9LpOCtCwC1jAm5WkYMxSLtIWmDGHDP0lAnwai03P5gq/WJdWVk1/C0phU7EjxM6Vvxy
-         YyOJQMtvxUYBBrit4uFwyfebBXjf/ZQufPDSwUNajf6ww6IHzAk2+8JdSfYo2pHFxGmQ
-         47Ba2565JW5jvWm/6O9wINkPzxsOPIjCziSCCAaOyr2Pzip9sDWA1UAkC8TMMXDEkWIo
-         BKww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tMpJXM9fHbDA78kVCJHA7qkcWOkk5FJ4dRDV3gbDV4k=;
-        fh=j4zH5aj53kfuPvHAmUihuWs6xoT0Yf79JDU9SleigFU=;
-        b=GftkMN4fbBfhpBo3v4i/D/fXuVs9nQnratMTlyRQSLrem868TFuuvpl3+YiMkoac7d
-         R1MqQF+IsV+36tzj47/mSXrROLLXFOgeChcGkQBn5dR2cJdW/Y03WZ37z2haUZkjJsJ7
-         Z0FxO9doykCZa0dGKgODJOiPTViJRNaNK3+x2EMY/e3Ztujq8E0Uw6DG+2Dk0yK/DlaU
-         F4HBMj/ymodXDUlhWJzc1tp7Mq8O9TKvDLLsODs0MG6WP+TI3uyRzFWjDxqZgaGCAewj
-         eK3vnabiP+7MLfff2txo4uqCVrERuzM9WesF9dJJgY6TIJoH0ph1qnsCD+thC4vBwbbg
-         lbWg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783422535; x=1784027335; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tMpJXM9fHbDA78kVCJHA7qkcWOkk5FJ4dRDV3gbDV4k=;
-        b=IxwqA9cdhTRSfnGd3o1Z8m84fqj9VI4mvoU2Omhn/PzpRIe8g/K8ehVrMIg3KB42kb
-         jYFBEx0lmUQodQ2DnwT+viSRRg7B5fH5q8UZP/dDe6lRK4o+1q955kFSOch4Jjil40ro
-         dPlWbuVjgM9aUw0pLMxBeZ/3Ys6Qbjuy718cw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783422535; x=1784027335;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tMpJXM9fHbDA78kVCJHA7qkcWOkk5FJ4dRDV3gbDV4k=;
-        b=T3aDRMm7yBLUT3Ns/iKfyIFe7H9VL9kGyOHQrYLfUbexlYj067yqJiuVDbnZ+VmQLs
-         6uWF8VAUPfRnD/IoDZUGAsxT5KpbzhOTc8DLS6AvYu0kJeWcJcLNlZh1OWASIqVUAp3O
-         i0SnUOIyM3L/wNfyQ4eF0CDnXnCLEfBNHEUA5v+TuLPzwano7h14z0GcE6vvUMsT7scY
-         2ygOtvMobE0lhSUOpUl2vBGRfUAQecRA8PhAOwJuqQMZPcPtkEKqTlnSa0Jce3Ltb3cQ
-         76iM1d3jTx2prez3uA+b/w3v0uK5SrfiPSvAJbCa2twrBsQJBFSIJrO2u7nZMYFPIBpe
-         TSKA==
-X-Forwarded-Encrypted: i=1; AHgh+RoDQBUfwke4Ny4ig92+bSRPOGd8Sgt7QukyAztFBwWBEaZIZWPeMM0HCWQclEDuTQBOFIV5rMAzhxlBqyw6OoLz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQKIhluoM6N41E+3xP98hMRsRv0GbDJ+9vMJN6hLRy4PRO3OXb
-	8M119TRDeaY8hZtrXYDlJCn1HEtsOFvBoMD9JL5usngiYQ6ns7p9SinBE3Vs3RRZDtWbpXWIk6J
-	G9UQE+VbyMC8jXC7lWEl1S+SV+NTcNdf4V/8OBSKu
-X-Gm-Gg: AfdE7cml5lRnQGMgVfgVWq9RHxtaSB6rv0A5DAC8bIONjPrnZBX1xJKsBPyeyVO54dL
-	Aqp3fQkx3cJQoFavHkCB9qO6Vh6LtPF38mAoq8IbQRlupK6JH3YSlgErWZQsgAYkfNEYP4s98Xt
-	IDtzsUpZIANx7u1asbpf5hY7DTpg1DuMC0PE9mkt6+rC6AEq7T/XVQIi3T70jtKtB8CvSu9zmTY
-	na2hcMXpjJYiRdNLSQQxORrOLj3FdJcpmcSO7gIFhgd4DJbYtmWGT0pObe5ByFbAIaScnwnPWTh
-	ll7E+19HydCy6WyIV1+AEbirC6g=
-X-Received: by 2002:a05:690e:c4d:b0:664:d7aa:3eb3 with SMTP id
- 956f58d0204a3-6677faec2c3mr3752539d50.12.1783422535581; Tue, 07 Jul 2026
- 04:08:55 -0700 (PDT)
+Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 667B84DM000649
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Tue, 7 Jul 2026 20:08:04 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=g0ZGQJGJ1qWqh1QXg5+nZXDEWKnJXbLoKauNjx/PAYs=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1783422484; v=1;
+        b=sT4HpAzGMYEhZYKHTkNka9jCpR9kdvZwWiGM6RHY8o5Jh50Xpv3CLKHIKN5BSGDP
+         UO9T1j6Mo6pDZFawvG0JpSHS1WRGQgTcL5yPRrmCURV1XzeKV/H3TMAPnxTU9p1V
+         BLHavpto5ibL75WXfBnQhvRrIXlF9L7zRvrsUE/sWBqGdW/n26udhLUkIK8iD6v2
+         yiKor0wuTpnWYPkRduMdyP3Y5HN5FEhy/fSIctEA6OldtFope5KzYn0rd7aaALgB
+         4kw5t2aTJC5oKb2k3QLKVcaLjYMySaA/rW8Xxp5xBwzj/GbXi2uJlJKHeUSBneYY
+         1WxHlDXk9luvKXTDy+VdmA==
+Message-ID: <e03f17b2-a765-4912-adf6-3da26e7eeecd@rsg.ci.i.u-tokyo.ac.jp>
+Date: Tue, 7 Jul 2026 20:08:03 +0900
 MIME-Version: 1.0
-References: <20260707104427.3409290-1-wenst@chromium.org> <176dd24c-c3cf-4ab9-8497-594ed65d10ec@collabora.com>
-In-Reply-To: <176dd24c-c3cf-4ab9-8497-594ed65d10ec@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 7 Jul 2026 19:08:44 +0800
-X-Gm-Features: AVVi8CfL_5JVdKBWQj1eUZZBa-EhN5C_J2kjO8U6LC_EYJUTpwV01pG1PV1A2Kg
-Message-ID: <CAGXv+5F86JU9+LPSy8PtuCPrdhBnvcA=PX1d++Yh3u7mK_Jxmw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Add MT6319 PMIC
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/7] KVM: arm64: Disallow vPMU when pPMUs do not cover
+ all CPUs
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <20260706-hybrid-v8-1-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <akvgIWqBjAp_VA_A@kernel.org>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <akvgIWqBjAp_VA_A@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_040856_873636_E34546CF 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20260707_040856_507647_60F7FC65 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,169 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026 at 7:05=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> On 7/7/26 12:44, Chen-Yu Tsai wrote:
-> > The Geralt design uses a MT6319 PMIC to power the big cores and LPDDR4X
-> > DRAM.
-> >
-> > Add a device node for it and hook up all the supplies.
-> >
-> > This change requires a firmware fix for the SPMI bus to read back
-> > correctly. The required firmware version is 15842.175.0. This is
-> > included in ChromeOS releases R150-16700.22.0 (available in Beta
-> > channel as of writing or stable channel in mid-July) or
-> > R151-16721.0.0 and later.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
->
-> This is a big problem then.
->
-> I take it as if the firmware fix is not in place, probing the CPU power s=
-upplies
-> will fail, with all the consequences.
+On 2026/07/07 2:04, Oliver Upton wrote:
+> Hi,
+> 
+> On Mon, Jul 06, 2026 at 07:03:24PM +0900, Akihiko Odaki wrote:
+>> Commit ec3eb9ed6081 ("KVM: arm64: PMU: Disallow vPMU on non-uniform
+>> PMUVer") made KVM reject vPMU unless the system-wide PMUVer is usable.
+>> That covers systems where PMUv3 is absent or non-uniform, as well as
+>> systems where IMPDEF PMUv3 sysreg traps are unavailable.
+>>
+>> However, KVM can still accept vPMU when all CPUs uniformly trap PMUv3
+>> sysregs, but the pPMUs registered with KVM only cover a subset of
+>> possible CPUs.
+>>
+>> Reject vPMU unless the registered pPMUs cover every possible CPU.
+>> This avoids carrying support for partial pPMU coverage into the
+>> fixed-counters-only UAPI introduced later in the series.
+> 
+> Doesn't CPU hotplug screw this up? I could online a CPU that doesn't
+> have a PMU after creating the VM.>
+> I'd rather just change ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to become a
+> system feature. That way any CPU which breaks the system-wide assumption
+> cannot be onlined.
 
-That's right.
+ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS only says that IMPDEF PMUv3 sysregs 
+are trapped. It does not say that KVM has a driver-backed PMU usable for 
+PMUv3 emulation. This patch checks that extra requirement.
 
-> This means that with this, we're breaking all Geralt machines with older =
-firmware,
-> which is not acceptable...
->
-> ...so this needs a different solution, or strong reasons to make me under=
-stand that
-> I'm wrong, if I'm wrong.
+I re-checked CPU hotplug. Onlining a CPU without a PMU later does not 
+make an accepted VM unsafe, since the check is against 
+cpu_possible_mask. The problem is the reverse case on ACPI: this check 
+can disable vPMU when a possible CPU is offline. DT populates 
+supported_cpus at boot, while ACPI initially populates it only from 
+online CPUs and grows it as matching CPUs come online.
 
-We can drop the CPU supplies (they don't matter since cpufreq is hardware
-driven) and just add the regulators. How does that sound? If the firmware
-isn't updated, the PMIC will fail to probe, but since nothing is using it,
-the system will continue to work (with some annoying error messages).
+That makes this patch too conservative. In practice, I do not expect 
+systems to mix CPUs with and without a usable PMU. A better approach is 
+probably to treat such a host as out of spec and add 
+TAINT_CPU_OUT_OF_SPEC. We already do that for architectural PMUv3 by 
+detecting mismatches in ID_AA64DFR0_EL1.PMUVer; we can do the same for 
+ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS with non-standard PMUs.
 
-
-ChenYu
-
-> Cheers,
-> Angelo
->
-> > ---
-> >   .../boot/dts/mediatek/mt8188-geralt.dtsi      | 66 ++++++++++++++++++=
-+
-> >   1 file changed, 66 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm=
-64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > index f382f90c48f5..fea52c377d88 100644
-> > --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > @@ -4,6 +4,8 @@
-> >    */
-> >   /dts-v1/;
-> >   #include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/spmi/spmi.h>
-> > +
-> >   #include "mt8188.dtsi"
-> >   #include "mt6359.dtsi"
-> >
-> > @@ -241,6 +243,14 @@ &cpu5 {
-> >       cpu-supply =3D <&mt6359_vcore_buck_reg>;
-> >   };
-> >
-> > +&cpu6 {
-> > +     cpu-supply =3D <&mt6319_buck1>;
-> > +};
-> > +
-> > +&cpu7 {
-> > +     cpu-supply =3D <&mt6319_buck1>;
-> > +};
-> > +
-> >   /*
-> >    * Geralt is the reference design and doesn't have target TDP.
-> >    * Ciri is (currently) the only device following Geralt, and its
-> > @@ -1156,6 +1166,14 @@ pins-bus {
-> >               };
-> >       };
-> >
-> > +     spmi_pins: spmi-pins {
-> > +             pins-bus {
-> > +                     pinmux =3D <PINMUX_GPIO175__FUNC_B0_SPMI_M_SCL>,
-> > +                              <PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA>;
-> > +                     bias-disable;
-> > +             };
-> > +     };
-> > +
-> >       uart0_pins: uart0-pins {
-> >               pins-bus {
-> >                       pinmux =3D <PINMUX_GPIO31__FUNC_O_UTXD0>,
-> > @@ -1267,6 +1285,54 @@ &spi2 {
-> >       status =3D "okay";
-> >   };
-> >
-> > +&spmi {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&spmi_pins>;
-> > +     #address-cells =3D <2>;
-> > +     #size-cells =3D <0>;
-> > +     status =3D "okay";
-> > +
-> > +     pmic@6 {
-> > +             compatible =3D "mediatek,mt6319-regulator", "mediatek,mt6=
-315-regulator";
-> > +             reg =3D <0x6 SPMI_USID>;
-> > +             pvdd1-supply =3D <&pp4200_s5>;
-> > +             pvdd2-supply =3D <&pp4200_s5>;
-> > +             pvdd3-supply =3D <&pp4200_s5>;
-> > +             pvdd4-supply =3D <&pp4200_s5>;
-> > +
-> > +             regulators {
-> > +                     mt6319_buck1: vbuck1 {
-> > +                                     regulator-name =3D "ppvar_dvdd_pr=
-oc_bc";
-> > +                                     regulator-min-microvolt =3D <5200=
-00>;
-> > +                                     regulator-max-microvolt =3D <1155=
-000>;
-> > +                                     regulator-enable-ramp-delay =3D <=
-256>;
-> > +                                     regulator-allowed-modes =3D <0 1 =
-2>;
-> > +                                     regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vbuck2 is ganged with vbuck1 */
-> > +
-> > +                     mt6319_buck3: vbuck3 {
-> > +                                     regulator-name =3D "pp1125_emi_vd=
-d2";
-> > +                                     regulator-min-microvolt =3D <1060=
-000>;
-> > +                                     regulator-max-microvolt =3D <1170=
-000>;
-> > +                                     regulator-enable-ramp-delay =3D <=
-256>;
-> > +                                     regulator-allowed-modes =3D <0 1 =
-2>;
-> > +                                     regulator-always-on;
-> > +                     };
-> > +
-> > +                     mt6319_buck4: vbuck4 {
-> > +                                     regulator-name =3D "pp0600_emi_vd=
-dq";
-> > +                                     regulator-min-microvolt =3D <5700=
-00>;
-> > +                                     regulator-max-microvolt =3D <6500=
-00>;
-> > +                                     regulator-enable-ramp-delay =3D <=
-256>;
-> > +                                     regulator-allowed-modes =3D <0 1 =
-2>;
-> > +                                     regulator-always-on;
-> > +                     };
-> > +             };
-> > +     };
-> > +};
-> > +
-> >   &uart0 {
-> >       pinctrl-names =3D "default";
-> >       pinctrl-0 =3D <&uart0_pins>;
->
+Regards,
+Akihiko Odaki
 
