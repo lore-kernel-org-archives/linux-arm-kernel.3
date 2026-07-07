@@ -4,102 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFAFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B49C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=twa3YwOPa09b1el7WgFxV6jG/I
-	Vx2nBwovFPH2boBXda5NMkVZoLk/OA2GsS+Q4zGrY2nejwO/HMNO2VmP970c9zeMyhGaRyBTC7E20
-	9bs1TWCXjZYE+3O4vZjRWXU11aZUJ/NfYtxRRER7BjRU6Js1F33wVRYMFr9DxpNZhvraz/mPKABRU
-	MgzaFMWr+WFVED6JlJ0+pxi6FfWfDEPKIYPH3lbXKMx/pEKSEsUEUilVpQzUSBq2BJ+RuP+T40FkK
-	gq5bL++yH+VcSoe6tve6TtcJQvlhSwhjPdCkpwci7tAIL2LfoclxQZsIJ9wwG28qyLtBiM7mhETXx
-	YNlnzYNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aejrk6GLwJd233ZVG2vUYpgbA5iUlMKLCMlwkoRLakY=; b=lVqNrtHsTwwjavdJZJaAB023fJ
+	2r5Uy0eZlqjuYOvir55ONy1WDaBy8l6RqaZOEve41rEnX4jC9OgcnMGbKtc/mmXjgjH3yNLG2shXN
+	un823WZsMEfbmpUKJflyh9fKmCkIyVcsCjfNjyUB5uHvoVxmXFD0mtY2Pu/0oNVvSjr+TA1dF2G1j
+	Tg4OdVwvyVmH2oDVGsYuqfen0rFLc/RZ0MyKqTL4r0kcay02nrZRAl9GMO+ycNPIMElycmrbrAiHa
+	68x8uFNCNQVpmAEU3hO70c3Z1QCns2dViVmsW6F40s/kXevcpW3srkn09sjaBZMVEd8Gx46vdYQhp
+	C2jR0MDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7Fd-0000000FDtz-0QUB;
-	Tue, 07 Jul 2026 14:58:21 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1wh8S6-0000000FRHB-20SP;
+	Tue, 07 Jul 2026 16:15:18 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7FZ-0000000FDsw-2hxa
+	id 1wh8S3-0000000FRGS-49K4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 14:58:19 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 95D4BEC0224;
-	Tue,  7 Jul 2026 10:58:14 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 07 Jul 2026 10:58:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1783436294;
-	 x=1783522694; bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=
-	ldiMtVZjhL8WLStNNeyPSWYRvpWSvjnsF8T7WgujEZSLbj1egVpzRVUM56B1NgYB
-	l6n4daTp1AycMotVlVgVDtXq+nliGmlx799wQcOA3r5LyBS7frGaNs5JQCVy/Wqz
-	QxLqXGEGtt8qYLocVCkVnRZKPAr7EhrRYR/IRBoNsIlNOcvnKR86bESTYX33y15p
-	aEh2r00njGhONcNCUXqrE0BNKiJWRIUt18FWdOzltJTSM0s1c/IiB74mOfy9Ei56
-	ftQMMK7L1aR8JIOIGwJT7YT05YO2tA8jFX4SCC8csVJRvhy8SAqO9Y+pVzcvzHCP
-	2l2JGJCu6NTy1um0DX1WqA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783436294; x=
-	1783522694; bh=4ZISPdfq/Ebr+c07sYJ54++ZX34Ve9JE67WSECkdKHE=; b=W
-	v65Z4d8RC7GiZw1zBLTM8Yqc7W2BNAegD8Qv3JA4wP7qLnOcCTQlre0z1jSthYWX
-	faOL1TvVaPVLCgEZxpMXBdUinOSLVGYeTO7ixG/iYBowUQz2Z/s0vvvCSrVOgEdy
-	oGE7zWS2Bpu05w0F/xGzdKGw49FYybLYUyL6RpwL3vGOsK6TBaj6kryKNuvvY2yh
-	52hBqbQmnnXbko8DPesO8K7cjuMR5gf0M67FeZTgNTh59FiffBKK/ZnKiub32zmW
-	T1PQL2LGpomteH//jIrOoCInz3DYc5UHgzLr5vHWS1GjtEVaaMbL41FWhYAd2Wjp
-	I42uhKsmjFzCLeibuYbRw==
-X-ME-Sender: <xms:BRRNavrNNdjnbiWCFen_ztj6E-NNJ1jZMC1uzxkFacXq0TfS9tKitA>
-    <xme:BRRNakcj_u-yN9gY-xhhadY7fLUXidZYoPlx5xQIDGOg8JKj4kTLfHvkThOBMHEC-
-    niPzFZy2WezNaGi4ZfAnrsZ8cTnzIGTvHFm2b2O7BgygGqRAZu-h-Q>
-X-ME-Proxy-Cause: dmFkZTFMvw6d1AO6NN17g3fEgXceIekx5pCKysbKgirsFeEFXPWfXcdYlXTfFL8kBN9Kmn
-    23Yp6qKDDvdGZGluptYZ2FQjUvUgrx1dFmrj+h7INIYNugxIUs2nJybWumJT71ZdJqr9Tn
-    u5sy/6gAsi8Etp4vAY1glcxVFA/NC6RPkTjeY3t1mfJ9kiUjihs6aKEYUTXmvIHR3a/G/s
-    /Z+IM9+CAuGmQyqGXh4d7yQVTWkD/DH6+FPWj96I8tor7h/QvaS8WUZ514KUeh2NgSwioA
-    WD68OUxeJ8QDo2lndqD6Hd2cuXkphZKsLqGHZajb8FBqchiwarAJZVPHa7MmThKos/sPlT
-    5W0tFgYaRU6MSWRb7FceeQK3jZcCCCdJxB2llVa1dI/Y5CvGiEESSdaMq/3rg3SAWlfmFq
-    xWgFOYS+xY8m4Um6mEq0GqCqkaXO2fqy+TYMqL6EOWoR26WV+yYlq5oOO8miOIwyouBufN
-    gn5LH9N+d3hgr7lT3TeIwjQyjNjcdx32w8KOVmS3HHiEg2GZcRvN+BQPDHMvGQC62k+Ekj
-    nXHLtgy4dezIk0eeqUKn0gaAfdbBy98L/6oNW/ouJ34M8Hd/fji0ZQyfHmYR2bmysZru8X
-    0Isp0BwAgaZjPtaInI99cJCDU2QVSInbKOJSGFwJzYkCLIzA4pfGPO0W1Q1Q
-X-ME-Proxy: <xmx:BRRNamaTruIusFkRPBSBosE7cRtjiWjqB5WXN0qprheLwOczM0ij0w>
-    <xmx:BRRNar9GfuUjRWuewcNsABjTSOrwPCHoGRAN_lQuOvacOz_W0XoTXg>
-    <xmx:BRRNakmOhYsDhuVHDQm2WAL9G8d9HLZMOru3WgWyCbjMqQuH3kzm3Q>
-    <xmx:BRRNaozgi-zAelHiYUVjEEAlAc2-YuBbj3s8AhI3tN4VluxinH4iSQ>
-    <xmx:BhRNatPrGaHfjXJpE_IMbh94bWKmjPuTpO-YCXjfHaoJH3_ckS8RB3CP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 99D4F182007E; Tue,  7 Jul 2026 10:58:13 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 07 Jul 2026 16:15:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rxW0eYxFbgB2y7I3vPbDXwgkSzGmGa49AdZCOdat8S9EavBC5dYrNxYsd5wEbVdCV8HhypAGhQIUmKzh7sx9p2POmWTxvvePvH9sU8Tr3SHMUoetrZqOZxx12f1/nPWL4Obw+0EBA+pw/8i4avGlzukD7OICEUD8A97sIS3EcegSx1Mp+PRhHhal92oJ4aC9Fm0y+ACDObH6knLuIN9qni4BG0+nBPxD1OQHa7M0aKL+2cqzpydgIQcfLDHCsGMzbLOpS+iRn+O9jvO+4QEMN44RGZmnLoKCgFbcEU7JbU8RLbX0jnHPqw9uubuhsZIwDkvK0BFa/0JvER80ANIqmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Aejrk6GLwJd233ZVG2vUYpgbA5iUlMKLCMlwkoRLakY=;
+ b=ZCcyHyOLvOSaV778F1sMqrzagADEsm8hPiRh/21ZmZQkA3RctON+KsnAR3rDLqz5PDtCIEDNR2RLbRimE1pDm7keP03Bmnel0hqIApGKwbNM9Dgk2kaqtAlLMmxEQAIIv0aHt4t+OxkCn5GzeuichZxNDs2U2FCds09Yh70yvV6JRgZUPZRNoTu0D/xYyjpFJgt/bpWEgKXwfIBraexRizNZk/hAO+Xj+NZqCDhRKtdw+AxqplAQJwR3ViJYokF9M2tzNpAJt1+tBmZMDwxSArca3IhmP+CHh6gSmtyw4CXg0EoBXkxIr+wSIUCw1aTJdeweFW98atFpa0h94YVKuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Aejrk6GLwJd233ZVG2vUYpgbA5iUlMKLCMlwkoRLakY=;
+ b=XJvinxnlwRHhkFts1sR3FeANKrX12O/TZ00+X1/rhZwOSoyKxadQnjCEud+XfSYE5f3LERYaogiUEU1eDTXOCh+zjLS79J9sZB7iyEvAh/bh9+TNHTgUl20PR+2bY+ZDXcZ1hNaXxxbcQqbieuvvEXnh8lKV/fLtCOdWD9/EItSQkdXolF/UeNfLYY6s7MQfAcShmrtlRFJZDg1u31ZrhifbYxDNQyBYb8hYc7K9QyFir6uIiAA3ZxF1B8FIEn9y8PxhC9BNtoM6BrTl5/O6lLkxIEURZopgfbQtIMMsyX/9kzrtcwoNczrQMdruf88Wn+3rmE/JeU4D3eVOhh+pkQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ2PR12MB9238.namprd12.prod.outlook.com (2603:10b6:a03:55d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Tue, 7 Jul 2026
+ 16:15:07 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.008; Tue, 7 Jul 2026
+ 16:15:07 +0000
+Date: Tue, 7 Jul 2026 13:15:06 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
+Message-ID: <20260707161506.GA226829@nvidia.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <akx5IvI6bi/OPuPe@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akx5IvI6bi/OPuPe@nvidia.com>
+X-ClientProxiedBy: MN0P223CA0019.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:208:52b::34) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-X-ThreadId: A9WOz104Gfyk
-Date: Tue, 07 Jul 2026 16:57:52 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
-Cc: "Andrew Lunn" <andrew@lunn.ch>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "Bartosz Golaszewski" <brgl@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <e0ff0694-0fd3-45c6-9092-d1c6c0339fb4@app.fastmail.com>
-In-Reply-To: <akwm0xsquU3tu_Rk@google.com>
-References: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
- <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
- <akwm0xsquU3tu_Rk@google.com>
-Subject: Re: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software nodes
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB9238:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28ba38c6-6021-43ef-6ecf-08dedc42e978
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|22082099003|18002099003|11063799006|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: NurfrhNuLotH5Eo3AnbZ7CRJD4l3Toh4WMKi1OL22aC+p6nqqX+TJFDZaTyDMPAiIHzZBke8oLWvIKeVG11YctnBaPSKjLeE/JLtghU2IJ+GQivN5QoDNiRYjJcsPTZBNkOSsUlnL7gjgCb5UBLWG9HPma0reJTlMAGUiV2s18CvUPWPQXMWnwG00Wwwg7av8ucRXSIa7ivf0OcyHmIxX+kBzoYFXn5UVRjOv5zhkUjH/UF8R8QmZJ6sVa1VscgGCJYGczNq77QIoZJqvH2IBcmuVQWyhC1Fke2/6qblktZPY9SwDceSc6oi8HrnM4sEdlesIZtZCoupl2O3j2XZRxDfNZktKxeY0q/DgxeMy4Di3QKWYv0J8eyat3SemVkI6hicvTrGNIKBXOE/g3plyxRhVCVwgpiGd8rDJDvuPdrYVcV5hG1+IwbvpiCrXE5YAOZNJ+lqsdrsf81GzUvZ5FUuAb1+PhUGS3cAiOtUP5MSYD7OyhuTRHpWvCenbCjase/FGwGrchEdMIUPKzaI7jXPYNn9Kn10P6tgAz3S33f+RVkxTj9oqFxAe7ndqZNSApH1NrCGdA9ASaGXpq3Gu6IaIxr2GS2451d+AdE0F8R8XYRiWTrA2O5eNj2Kzxwf2SNousTrp4+5QPfb+6PUcygpkISBHDWp51sfTSRmgVk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6qlaVhOArWvTE6C7djeuxfnkRFnTNax9ALRkoeE3cxBFdWxZCsT3LuAwgZHw?=
+ =?us-ascii?Q?vjd0dhZ+uDuXTPXMYxok5cKTjKzpmU53xyRk2PlvG63yQQL0v1qYJ0/hc6/V?=
+ =?us-ascii?Q?EIyvf3rksuD/rnHvcp+jYkPhna49Frp9ZZbqfz1SBLbyenIem8dVuJXee/nZ?=
+ =?us-ascii?Q?QG5fH8VLDcms+lIf4cEXpdpJDMrHKa8d/pw5HAkLLYw4bfB6DQhIYtQOHgjG?=
+ =?us-ascii?Q?z6xLa2sd1nCIsjGzrQxQY5ntvX+Zf6ZrgSzgMaOHrZ7XojwKBIAtyYI2HCKQ?=
+ =?us-ascii?Q?TP2uXeNUbXAzn8gZHPDuUwH3BQg8c9y+iApCWDewanMfggCahpjH6AMIxHpX?=
+ =?us-ascii?Q?/rR+ldsoS+1YOme6pjRa/Qz2WpLIlafNFB58rAfX0xWtHPJKEzHLn+WR8+5f?=
+ =?us-ascii?Q?0s3qHl2EJl+BjZNwJRyRZXkLY0yFvDqrj5eUfpi651Ps23Ym1Dcpj//j9WMC?=
+ =?us-ascii?Q?F7lyfD/AtsngRpdn25UkPV0fyO+whzTntTSChhsX/ajJyeaJxHNWgOivkaG4?=
+ =?us-ascii?Q?mw1/WHm4Of6nz/oIB6GbAQyFlAPlfQZxBM+TkFFSSRzYoTDSeJrJVsRSJAfY?=
+ =?us-ascii?Q?IYQjE0qtDhhk1vI4rBIVKuhmIkco/DLpVcV3bHw4mLuF1hMHVZa6b0DiXeBP?=
+ =?us-ascii?Q?xRQBp0J+u6Dbrl1EXDS0D6S9hbEgKwULaZQCd9x/QFI17x8cHgnDKpwYTSDQ?=
+ =?us-ascii?Q?1KYPqrngIfyxhV/8iYdbIJqAc71+1fa1sPqijGSbJtQxoWnELPSxmgivBjVq?=
+ =?us-ascii?Q?mL+sbZ6Ao0GG6iyFgwVHcqfe/sTcUWIPL4BEFtL7UR7S7rLjmrR7e/Lo/Ils?=
+ =?us-ascii?Q?3xeaoEv1PALFUYlCFvRG6gIEYJrusLliuYYdPneZ5uURjgMPE3utTrkJZJLi?=
+ =?us-ascii?Q?jLrnGa9wCpL2Ex8lvu9KIDNeXVF+clp2wva4FW3FgLuS6NerF2t56O++C/lY?=
+ =?us-ascii?Q?gURW0egL0FKBYv+bP+6atBcl2niY5BB+gf6VzMflxd0M8bUZnVkkPj9dsMyf?=
+ =?us-ascii?Q?RrQ+1naTQhLaQgs1VFA8P83VTOApd4hNPrkHWL1Jr+W6/xtgN2ETFHtuBBOj?=
+ =?us-ascii?Q?+DnxlfyPLhARsc1VsiBRgaoy+vRUJl1iKqskhvHupfS14QfsopyOKqPzsbzL?=
+ =?us-ascii?Q?Lk1lYaeA33zOHFlSxFO0QwsDaEua9PdUV0oEkPYcPDXkJAt7wDbfbCd3Rejh?=
+ =?us-ascii?Q?cwup2fBbczMpjROD0BmNi0HOUhQOGyJfkvO6KWIp29cigOev+OqXU4h5WUO6?=
+ =?us-ascii?Q?3rziTcyatz/MBHvQWABbhdQnLbG+IHSCm0z9AUYHWcQO0LwMh8PVdPoBLmNk?=
+ =?us-ascii?Q?4PzwJT1TvG0GTKva8EIi+xEKhl1vcZcN/SAd8m9FE5a5EUxwciIOWgIPNN0l?=
+ =?us-ascii?Q?i6NaDXjJu4ffQkU41/2IVTxX7xS8PwpC7p6mRDliAwnOobd9rRBndcw6nA2G?=
+ =?us-ascii?Q?rDxRgz5/68hEkSq3kXqjYCkp3NvNI9TSLHogv6p3zn5mMZJKKR8mpuifX7AO?=
+ =?us-ascii?Q?8mhD0jsDtL3dgnd1kE7uKRvG33xYMUDLAHlTjr8/SJTJ+brbrHbxCsrducEr?=
+ =?us-ascii?Q?A36CIjKqVUwuLDWoKUT++oGxUEdYE1wIx6qWrlBkfCf6iPkV/gz1we7KL+NF?=
+ =?us-ascii?Q?h5JYPgRi1eAuqTG0HhTnX+tBqyl6/txcSK5N6L50H43pI6MfNokYmKD8yGBV?=
+ =?us-ascii?Q?/le5re42ZRRvzbw2p+EEkxJEi6ySK8k5sh4cE2788FScCvpp?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28ba38c6-6021-43ef-6ecf-08dedc42e978
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 16:15:07.8324
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IlfLy8qlV9m7SvPdQE678oLJbKsJskiq1G/Q2m4jyr3WmxsLJ/rKv2YAaOVrkXFt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_075817_803789_9E413127 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260707_091516_218284_D50C72AB 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,26 +144,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026, at 00:08, Dmitry Torokhov wrote:
-> On Mon, Jul 06, 2026 at 08:50:36AM +0200, Arnd Bergmann wrote:
->> 
->> These all look good to me. Unless there is an objection from the
->> platform maintainers, I'd suggest you can send them directly to
->> soc@lists.linux.dev for inclusion in 7.3, or alternatively
->> keep them together with any other gpio-keys patches you have in
->> the input tree if that lets you finish off the platform_data
->> support in the driver more quickly.
->
-> Maybe I should create an immutable branch(es) for both myself and soc
-> tree to pull from?
+On Mon, Jul 06, 2026 at 08:57:22PM -0700, Nicolin Chen wrote:
+> > @@ -734,7 +734,6 @@ struct arm_smmu_inv {
+> >  	u8 nsize_opcode;
+> >  	u32 id; /* ASID or VMID or SID */
+> >  	union {
+> > -		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
+> >  		u32 ssid; /* INV_TYPE_ATS */
+> >  	};
+> 
+> So, union has only "ssid" now. Should we unwrap it?
 
-If you send a pull request for those to the soc tree,
-I'll merge it, but I think it's also sufficient to only
-have them in the gpiolib tree, as I don't expect any
-conflicts for 7.3.
+I thought we might need it with some of the other series?
 
-If the patches don't make 7.3, the files are likely all
-gone though.
-
-      Arnd
+Jason
 
