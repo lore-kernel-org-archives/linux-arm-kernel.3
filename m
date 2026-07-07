@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B1DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4vfx2SL3NwxVq1Rg75CKtaHkST87eRoJJKYPXdxq6w=; b=zbx5erPG2DAK90Q3DkrB/j2PjM
-	uqxzequ+Soo243mk9EJdEDJZ8nHVMKOl37I+0KAJSxFYDhtige30IX3kJxD2A/MMb0UNdHc1k5j8x
-	938ZMgB+sGbOP2x/iCl3eKzf3+5z/RcxaAc4L5vlfpYZYgmsOFym5+2kBz5+7PnnfHKGLy4N/2Hyo
-	0eIMYyrK155nBzeHZglLgWbErowOqml21BwUN6Wxx/7TIJ23jot7JU5HyUC6Kw1ILqUxcHeLUaATa
-	GzhNDIsM2xCaQtq1JAf440C9VSQ5dSL08dk/KdQwM5uhIxDtKvyNxvfnB4XNkZ6/6TPTn9ZQPmTYR
-	ophy24oQ==;
+	bh=MNiAUryehkfQt6EHtDjlZ3Arn5sC2Et5x7DQMPHkElY=; b=OJLBCtBHnD+vVKxXYt8KmAECzD
+	6c6Rg6Qrp3sb4rBcHotWgZEM1CZXtFnBn5zON01xHZkERfEbPS35VERcz5RcZDFwNhBLq13sqrHEv
+	Mw1xzXG73vqrVbCIkgnTxaoCZXQhvgTdt5O08XbF+0lgyjw+4ciXcn6RGo368ltm+nmDDIDM30KXJ
+	tkTZ9F2TpVDPO0+0w+ZFhpd1iwoPs1WBamNlTmcKmDSO5qyZXMx8vOIReYETyuVUUiR4PKQKurzE6
+	6ZB7X50CSpA+eyU+Tv7V9U1Fu4WXoNq77Zd4UNyAE8JFmaWbSsJvuWwgcW4F1XX7WJZBUNKlgMOuZ
+	MUUUAqKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0we-0000000EQpN-2mwK;
-	Tue, 07 Jul 2026 08:14:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wh0wi-0000000EQrg-3IqZ;
+	Tue, 07 Jul 2026 08:14:24 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0wd-0000000EQof-1oD2
+	id 1wh0wc-0000000EQmp-3dCr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:14:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26FD3429E5;
-	Tue,  7 Jul 2026 08:14:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB0B1F00A3A;
-	Tue,  7 Jul 2026 08:14:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783412059;
-	bh=h4vfx2SL3NwxVq1Rg75CKtaHkST87eRoJJKYPXdxq6w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XHs+rbS+DxZD6jVr3dVHRKXy95U6JoPbxKgUThWXdzpzKS2WMhVh7RceGfDj5F9TB
-	 vHF8NL5uL7ttPijOX7N1vNtyZQYRdf4HANKvpzykJauLXqYMQdJaS6V/itdG3AzFxz
-	 s5vkZBbuFbGtt8oK1eIJxCemiwkESOOFKlpEpwKoVU/qkmC+L8rmJMFW8tARISalrB
-	 XbJ+A2X4DxA9YAJ7wHP5K3tLiY+BqtdllE0ndDx6/e5H1XwLGDuKoji8/gF0N317G3
-	 UqrUAkYHqQ/u7BfwDLu9RUsTXxwZe2qmKa9E9h95jqGYdsNyLukiQvXTqONqp6QnVU
-	 FDGmz3kskj2Dw==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v8 3/6] firmware: smccc: Move RSI definitions to include/linux
-Date: Tue,  7 Jul 2026 13:43:47 +0530
-Message-ID: <20260707081351.1680209-4-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
-References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
+	Tue, 07 Jul 2026 08:14:23 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=MNiAUryehkfQt6EHtDjlZ3Arn5sC2Et5x7DQMPHkElY=;
+	b=IzNCTzrrKdBLrX7rMyWwqfn0aluESgDkkbgVAl9USu/Eiplc+ZDOa923SydtGIy8c6mVPkoRB
+	TR/KlQvD+ta7qIvWJL0ifOV7Ag45Tunv2OaksgUIkkxKUyFZ5b1PHSJUfpZcDX6V7qUNfD0duF5
+	AXERuZ3T8JbJ74BCXSuNbtU=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gvYfv453xz1prq7;
+	Tue,  7 Jul 2026 16:04:55 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id E57C040579;
+	Tue,  7 Jul 2026 16:14:10 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 7 Jul 2026 16:14:07 +0800
+Message-ID: <3bf910b8-c7e8-4a22-8e1d-fa701694369f@huawei.com>
+Date: Tue, 7 Jul 2026 16:14:06 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
+	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
+	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <ajvKkLw5bL-FT5JC@willie-the-truck>
+ <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+ <akvoN5vvQaW3MdmI@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <akvoN5vvQaW3MdmI@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_011419_583600_E64425CF 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,256 +97,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RSI SMCCC function IDs describe a firmware ABI and are not arm64
-architecture specific definitions. Follow-up changes need to use them from
-non-arch code, including drivers/firmware/smccc and the Arm CCA guest
-driver.
 
-Move the RSI SMCCC definitions from arch/arm64/include/asm/ to
-include/linux/ so they can be shared with the driver code. This also
-keeps the firmware interface outside architecture code, as requested [1].
 
-Not all helpers in rsi_cmds.h are used by architecture code. The
-attestation token helper wrappers are only used by the Arm CCA guest
-driver, so move them to a driver-private header under
-drivers/virt/coco/arm-cca-guest/. Keep the remaining RSI command helpers,
-which are shared by architecture code and drivers, in the arm64 header.
+On 7/7/2026 1:39 AM, Will Deacon wrote:
+> Hi Jinjie,
+> 
+> On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
+>> On 6/24/2026 8:16 PM, Will Deacon wrote:
+>>> Please just give me the time I asked for. If you want to help out in the
+>>> meantime, there are plenty of patches that need reviewing...
+>>
+>> It was a mistake on my part, and I sincerely apologize for wasting
+>> community review resources and disrupting your schedule.
+>>
+>> I will absolutely back off now and wait for your official series. Lesson
+>> learned. Thanks for your patience and for calling me out on this.
+> 
+> So I've mostly got the old series back on its feet:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
 
-[1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+Hi Will,
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/include/asm/rsi_cmds.h             | 75 +----------------
- .../virt/coco/arm-cca-guest/arm-cca-guest.c   |  2 +
- drivers/virt/coco/arm-cca-guest/rsi.h         | 84 +++++++++++++++++++
- .../linux/arm-smccc-rsi.h                     |  6 +-
- 4 files changed, 90 insertions(+), 77 deletions(-)
- create mode 100644 drivers/virt/coco/arm-cca-guest/rsi.h
- rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (98%)
+I tested the above-mentioned latest patch on v7.2-rc1 with error inject
+on QEMU, which constructed the following errors:
 
-diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
-index 2c8763876dfb..8537d0fd3da6 100644
---- a/arch/arm64/include/asm/rsi_cmds.h
-+++ b/arch/arm64/include/asm/rsi_cmds.h
-@@ -6,12 +6,10 @@
- #ifndef __ASM_RSI_CMDS_H
- #define __ASM_RSI_CMDS_H
- 
--#include <linux/arm-smccc.h>
-+#include <linux/arm-smccc-rsi.h>
- #include <linux/string.h>
- #include <asm/memory.h>
- 
--#include <asm/rsi_smc.h>
--
- #define RSI_GRANULE_SHIFT		12
- #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
- 
-@@ -88,75 +86,4 @@ static inline long rsi_set_addr_range_state(phys_addr_t start,
- 	return res.a0;
- }
- 
--/**
-- * rsi_attestation_token_init - Initialise the operation to retrieve an
-- * attestation token.
-- *
-- * @challenge:	The challenge data to be used in the attestation token
-- *		generation.
-- * @size:	Size of the challenge data in bytes.
-- *
-- * Initialises the attestation token generation and returns an upper bound
-- * on the attestation token size that can be used to allocate an adequate
-- * buffer. The caller is expected to subsequently call
-- * rsi_attestation_token_continue() to retrieve the attestation token data on
-- * the same CPU.
-- *
-- * Returns:
-- *  On success, returns the upper limit of the attestation report size.
-- *  Otherwise, -EINVAL
-- */
--static inline long
--rsi_attestation_token_init(const u8 *challenge, unsigned long size)
--{
--	struct arm_smccc_1_2_regs regs = { 0 };
--
--	/* The challenge must be at least 32bytes and at most 64bytes */
--	if (!challenge || size < 32 || size > 64)
--		return -EINVAL;
--
--	regs.a0 = SMC_RSI_ATTESTATION_TOKEN_INIT;
--	memcpy(&regs.a1, challenge, size);
--	arm_smccc_1_2_smc(&regs, &regs);
--
--	if (regs.a0 == RSI_SUCCESS)
--		return regs.a1;
--
--	return -EINVAL;
--}
--
--/**
-- * rsi_attestation_token_continue - Continue the operation to retrieve an
-- * attestation token.
-- *
-- * @granule: {I}PA of the Granule to which the token will be written.
-- * @offset:  Offset within Granule to start of buffer in bytes.
-- * @size:    The size of the buffer.
-- * @len:     The number of bytes written to the buffer.
-- *
-- * Retrieves up to a RSI_GRANULE_SIZE worth of token data per call. The caller
-- * is expected to call rsi_attestation_token_init() before calling this
-- * function to retrieve the attestation token.
-- *
-- * Return:
-- * * %RSI_SUCCESS     - Attestation token retrieved successfully.
-- * * %RSI_INCOMPLETE  - Token generation is not complete.
-- * * %RSI_ERROR_INPUT - A parameter was not valid.
-- * * %RSI_ERROR_STATE - Attestation not in progress.
-- */
--static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
--							   unsigned long offset,
--							   unsigned long size,
--							   unsigned long *len)
--{
--	struct arm_smccc_res res;
--
--	arm_smccc_1_1_invoke(SMC_RSI_ATTESTATION_TOKEN_CONTINUE,
--			     granule, offset, size, 0, &res);
--
--	if (len)
--		*len = res.a1;
--	return res.a0;
--}
--
- #endif /* __ASM_RSI_CMDS_H */
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-index 32cd038cb79b..d05acddf6c4e 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-@@ -14,6 +14,8 @@
- 
- #include <asm/rsi.h>
- 
-+#include "rsi.h"
-+
- /**
-  * struct arm_cca_token_info - a descriptor for the token buffer.
-  * @challenge:		Pointer to the challenge data
-diff --git a/drivers/virt/coco/arm-cca-guest/rsi.h b/drivers/virt/coco/arm-cca-guest/rsi.h
-new file mode 100644
-index 000000000000..f7303f4bce17
---- /dev/null
-+++ b/drivers/virt/coco/arm-cca-guest/rsi.h
-@@ -0,0 +1,84 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ */
-+
-+#ifndef _VIRT_COCO_RSI_H_
-+#define _VIRT_COCO_RSI_H_
-+
-+#include <linux/arm-smccc-rsi.h>
-+
-+/**
-+ * rsi_attestation_token_init - Initialise the operation to retrieve an
-+ * attestation token.
-+ *
-+ * @challenge:	The challenge data to be used in the attestation token
-+ *		generation.
-+ * @size:	Size of the challenge data in bytes.
-+ *
-+ * Initialises the attestation token generation and returns an upper bound
-+ * on the attestation token size that can be used to allocate an adequate
-+ * buffer. The caller is expected to subsequently call
-+ * rsi_attestation_token_continue() to retrieve the attestation token data on
-+ * the same CPU.
-+ *
-+ * Returns:
-+ *  On success, returns the upper limit of the attestation report size.
-+ *  Otherwise, -EINVAL
-+ */
-+static inline long
-+rsi_attestation_token_init(const u8 *challenge, unsigned long size)
-+{
-+	struct arm_smccc_1_2_regs regs = { 0 };
-+
-+	/* The challenge must be at least 32bytes and at most 64bytes */
-+	if (!challenge || size < 32 || size > 64)
-+		return -EINVAL;
-+
-+	regs.a0 = SMC_RSI_ATTESTATION_TOKEN_INIT;
-+	memcpy(&regs.a1, challenge, size);
-+	arm_smccc_1_2_smc(&regs, &regs);
-+
-+	if (regs.a0 == RSI_SUCCESS)
-+		return regs.a1;
-+
-+	return -EINVAL;
-+}
-+
-+/**
-+ * rsi_attestation_token_continue - Continue the operation to retrieve an
-+ * attestation token.
-+ *
-+ * @granule: {I}PA of the Granule to which the token will be written.
-+ * @offset:  Offset within Granule to start of buffer in bytes.
-+ * @size:    The size of the buffer.
-+ * @len:     The number of bytes written to the buffer.
-+ *
-+ * Retrieves up to a RSI_GRANULE_SIZE worth of token data per call. The caller
-+ * is expected to call rsi_attestation_token_init() before calling this
-+ * function to retrieve the attestation token.
-+ *
-+ * Return:
-+ * * %RSI_SUCCESS     - Attestation token retrieved successfully.
-+ * * %RSI_INCOMPLETE  - Token generation is not complete.
-+ * * %RSI_ERROR_INPUT - A parameter was not valid.
-+ * * %RSI_ERROR_STATE - Attestation not in progress.
-+ */
-+static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
-+							   unsigned long offset,
-+							   unsigned long size,
-+							   unsigned long *len)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RSI_ATTESTATION_TOKEN_CONTINUE,
-+			     granule, offset, size, 0, &res);
-+
-+	if (len)
-+		*len = res.a1;
-+	return res.a0;
-+}
-+
-+
-+
-+#endif
-diff --git a/arch/arm64/include/asm/rsi_smc.h b/include/linux/arm-smccc-rsi.h
-similarity index 98%
-rename from arch/arm64/include/asm/rsi_smc.h
-rename to include/linux/arm-smccc-rsi.h
-index e19253f96c94..fddb77986f70 100644
---- a/arch/arm64/include/asm/rsi_smc.h
-+++ b/include/linux/arm-smccc-rsi.h
-@@ -3,8 +3,8 @@
-  * Copyright (C) 2023 ARM Ltd.
-  */
- 
--#ifndef __ASM_RSI_SMC_H_
--#define __ASM_RSI_SMC_H_
-+#ifndef __LINUX_ARM_SMCCC_RSI_H_
-+#define __LINUX_ARM_SMCCC_RSI_H_
- 
- #include <linux/arm-smccc.h>
- 
-@@ -190,4 +190,4 @@ struct realm_config {
-  */
- #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
- 
--#endif /* __ASM_RSI_SMC_H_ */
-+#endif /* __LINUX_ARM_SMCCC_RSI_H_ */
--- 
-2.43.0
+1、CPU4 does not support 52-bit VA
+
+2、CPU6 does not support 4K granule
+
+3、CPU16 and CPU17 call cpu_die_early() early in check_early_cpu_features().
+
+4、CPU18 call cpu_panic_kernel() early in check_early_cpu_features().
+
+The error output is not correct especially for CPU4, CPU6, and CPU18 as
+below, it seems that some error messages are overlapping on the same
+CPU, and some errors are causing the CPU to be misidentified.:
+
+(This leaves another blind spot where the 'failed to report alive state'
+message is skipped for CPU16 and CPU17, as pointed out in
+https://lore.kernel.org/all/bddf7a68-7789-4ec2-819c-aaaee8173c70@huawei.com/):
+
+[    0.594323] CPU16: will not boot
+[    0.605818] CPU17: will not boot
+
+...
+
+[   11.052387] CPU4 failed to report alive state
+[   11.059799] Parallel CPU bringup failed; consider passing
+"cpuhp.parallel=off" for a more accurate diagnosis.
+[   11.060179] CPU4 detected lack of support for 52-bit VAs
+[   11.060426] CPU4 detected lack of support for 4K granules
+
+[   11.061103] Kernel panic - not syncing: CPU4 detected unsupported
+configuration
+[   11.061534] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+7.2.0-rc1-00019-g52296829d92b #305 PREEMPT
+[   11.062052] Hardware name: linux,dummy-virt (DT)
+[   11.062230] Call trace:
+[   11.062339]  show_stack+0x18/0x24 (C)
+[   11.062528]  dump_stack_lvl+0x11c/0x168
+[   11.062684]  dump_stack+0x18/0x24
+[   11.062818]  vpanic+0x568/0x574
+[   11.062947]  do_panic_on_target_cpu+0x0/0x1c
+[   11.063111]  secondary_start_kernel+0x0/0x188
+[   11.063276]  cpuhp_bringup_ap+0x244/0x254
+[   11.063430]  cpuhp_invoke_callback+0x168/0x2ac
+[   11.063594]  __cpuhp_invoke_callback_range+0x90/0x118
+[   11.063776]  _cpu_up+0xec/0x1b8
+[   11.063905]  cpu_up+0xcc/0x158
+[   11.064032]  cpuhp_bringup_mask+0x9c/0xe0
+[   11.064189]  bringup_nonboot_cpus+0x12c/0x14c
+[   11.064352]  smp_init+0x30/0x8c
+[   11.064481]  kernel_init_freeable+0x18c/0x40c
+[   11.064645]  kernel_init+0x24/0x1dc
+[   11.064785]  ret_from_fork+0x10/0x20
+[   11.066612] SMP: stopping secondary CPUs
+[   11.068198] ---[ end Kernel panic - not syncing: CPU4 detected
+unsupported configuration ]---
+
+The expected output is as below:
+
+        CPU4 failed to report alive state
+        CPU4: is stuck in kernel
+        CPU4: does not support 52-bit VAs
+
+        CPU6 failed to report alive state
+        CPU6: is stuck in kernel
+        CPU6: does not support 4K granule
+
+        GICv3: CPU8: found redistributor 8 region 0:0x00000000081a0000
+        GICv3: CPU8: using allocated LPI pending table @0x0000000100360000
+        CPU8: Booted secondary processor 0x0000000008 [0x410fd034]
+        ...
+        CPU16 failed to report alive state
+        psci: CPU16 killed (polled 0 ms)
+        CPU16: died during early boot
+
+        CPU17: will not boot
+        CPU17 failed to report alive state
+        psci: CPU17 killed (polled 0 ms)
+        CPU17: died during early boot
+
+        CPU18 failed to report alive state
+        Kernel panic - not syncing: CPU18 detected unsupported configuration
+
+Best regards,
+Jinjie
+
+> 
+> but there are still two issues left to resolve:
+> 
+>   1. The printing that can happen before RCU has started. Although I've
+>      reduced this somewhat, there are still error paths in e.g.
+>      verify_local_cpu_capabilities() that print a message before dying.
+> 
+>   2. check_local_cpu_capabilities() can mutate the system capability
+>      state via update_cpu_capabilities(), so it's really dodgy running
+>      that prior to synchronisation.
+> 
+> Since you've added patches in this series that try to tackle these
+> problems, I'll reply on those two so we can figure out how we would like
+> to proceed.
+> 
+> Cheers,
+> 
+> Will
 
 
