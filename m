@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396B3C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0DFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4sRc6wcNBB4MLUuGQspnLkC0R+FL/I/qWmV9NNwvbTY=; b=SbTqBF9xtqbsGAw00ZwjHg4KBJ
-	OjpKAw79+ock49orrjrjMLQeFAXR0QiXjtRPkqFioHaUEdb65eCVFhVAV9QpPvpvBZ6m+ktG2CxQ+
-	cji/W44lLLEO0c+iwrXaQAoxgIP4cTpCXMgRHuqtGtEF87P88fOstuWk3YT2zyPtxKhrpyTwy6bL0
-	TJLZy59lMndwNyfUZlXASl+DsZcW0dLZ2qQ0YtCJfM8BW0k1FuK//F3B+KFqluhAarZlFLcvtZZkS
-	Wwq6rS3Gv3zhqViRrwyqawZhsfdtgBzeW2zfpVAZ7Rhkbg1Q6b7D9nUf8wRR4/zK89yGI7ayvikMK
-	o9vdCI5w==;
+	bh=RjJo3Fj4Y3M7P7UUf2J8RDjcdklOkU4JBfrPJgHwwLc=; b=Fg8LKab+k9QXJllSjmTEc8T74V
+	83fuuUijzfuqHb8AQlvcGEbBkiWdg5tAmPu4vZnDG3ZNpqiv96VCPLy3lmzzM3ozqOtD8tDgh1yN3
+	sLJzo5gjkK7XmqAjMQLZaklF1lKmUg8xKPKSCc7wqwRKJhvNwDP4VTrSrKWimC4T1AFKGNLYRQT9G
+	oZpXuvd9PPAlE3MiA1+LtwviCs+03Cs9nG6TFoCbKlM78z+ss/jnXePucY6b8wOP5yyqIIK/gJ8pM
+	lJacgKvuot5HXjRYv+su+JadduK5Xm6RCawC755YlWNboSMrZPASuiuzYZsAZAK9gSx1MMzvuaFGk
+	+S1Dn5zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7TO-0000000FFvu-31nU;
-	Tue, 07 Jul 2026 15:12:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wh7TT-0000000FFxd-0e43;
+	Tue, 07 Jul 2026 15:12:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7TM-0000000FFvj-3gY2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:12:33 +0000
+	id 1wh7TS-0000000FFx8-0bRt;
+	Tue, 07 Jul 2026 15:12:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 812464401F;
-	Tue,  7 Jul 2026 15:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA16F1F00A3A;
-	Tue,  7 Jul 2026 15:12:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 68BFF6187C;
+	Tue,  7 Jul 2026 15:12:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FC1C1F00A3A;
+	Tue,  7 Jul 2026 15:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783437152;
-	bh=4sRc6wcNBB4MLUuGQspnLkC0R+FL/I/qWmV9NNwvbTY=;
+	s=k20260515; t=1783437157;
+	bh=RjJo3Fj4Y3M7P7UUf2J8RDjcdklOkU4JBfrPJgHwwLc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=FuPPEHjEGkcvr6P8vaV/5OhlSyoO8+Ep46N7f1HF5hlqygnmkZo5uFx+MyqLyzhZi
-	 6DM5vezYe2iXo0qSLXxUErQlgITPMX3sTA3jzRA4KTxj/tktzFHPxkWEwzYVnjlnVG
-	 NAekUXga8iJ+ly/3XWHWJENNfFJZHl6SEHljpvqUQgMcs14y9mIHR6VSBDA9R3hcg/
-	 zq+tdrq/p8VxY1w7d6xOvgtKkvaWHmVUNXnCI41IoK3EL1d4gpZSZVsp9R6GYPRysi
-	 rybrL/N4YhFXf0DMU6ONnfb/W0j3HH3xnWO4u/hG02vAUVLDynsAHwwHrmO/vvwV5A
-	 FNLBWgEKWzhQA==
+	b=oNrE6GLHfhtGtv/ZYgV4pjobiyQ6dd9YmJn6lQ3RbhmHw2lwFIsvE16xGK9fDQGgY
+	 Nm35ldQswJ6l6Ls6GYfEcBwE1NXRpev0XPn6sEWk325kD4HkUMBYC4gcPT+tHh4Ivf
+	 Hr/RF6/no7dtTJVfKVU9JTQxoegV/Larnrsi3hNaou6N/fVbI4Uu7OnXaLDUhpfDkL
+	 uzkc5UHPAomj7PWjiS+0kKMkftaSx0SIvasOJT3RF3sVoPYvrvYDIMmIAWu9hIhic8
+	 cL8b+69YHk2V2RLsrlyIVd3HCC1BioAVOuPkfmhGmZ1xp/BfoR2WceRlbmKaB8aPSg
+	 f3Oqy/dtFQ5IA==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 07 Jul 2026 17:11:33 +0200
-Subject: [PATCH v2 26/37] drm/exynos: mic: Switch to atomic bridge
+Date: Tue, 07 Jul 2026 17:11:35 +0200
+Subject: [PATCH v2 28/37] drm/mediatek: dpi: Switch to atomic bridge
  callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-drm-all-atomic-bridges-v2-26-21d03cbca446@kernel.org>
+Message-Id: <20260707-drm-all-atomic-bridges-v2-28-21d03cbca446@kernel.org>
 References: <20260707-drm-all-atomic-bridges-v2-0-21d03cbca446@kernel.org>
 In-Reply-To: <20260707-drm-all-atomic-bridges-v2-0-21d03cbca446@kernel.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -60,19 +59,18 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
  Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
- Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
+ Maxime Ripard <mripard@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5338; i=mripard@kernel.org;
- h=from:subject:message-id; bh=j1tFob+8fC1FYhlul234L/DAWHXn94crSEpAWb++AiM=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFm+4tK+lp3nfPYLrPSd2rRNZoLJO2amWK5lX575iUx7P
- N/p3++yjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRVRGM9blVZ169rjSccFyN
- R3TvnQ8eM6X1DP843DO3/vt89Qn2OAfGdyvyZmme9jffk8Wza8blKsZ6P37BwAKRbja9R+rlny0
- uXX65+aWh2u+9687V8f/csK0g6UCR3SnxO/2yE1+IPX0jwngHAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4993; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=nXbzB00QYc3JnjKw7I84CN7MUu3KVoNBVXjt0wzqJ64=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFm+4jJRgtkrGbrYgwXTZaZ/b7tkK/7F7wjT7mNXSz7n1
+ aTL/OHtmMrCIMzJICumyPJEJuz08vbFVQ72K3/AzGFlAhnCwMUpABNROMTY0HxUcuqNjlzX5ssf
+ rlakB5nJhpzZt3vyZImfUmbf9bUU7OX8c5ZZCnlZsolzqWrX6mgy1ml8nrnaq7Hovlxd9M9kqd/
+ fJ5rfjZPrP7/450EbqYZV/1X+W3O4eXeJ1wTFy9ibNcjpAwA=
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,8 +87,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mic bridge uses the legacy non-atomic pre_enable and post_disable
-bridge callbacks.
+The dpi bridge uses the legacy non-atomic enable and disable bridge
+callbacks.
 
 In order to remove the legacy bridge callback support from the DRM
 bridge core, switch to their atomic counterparts and add the bridge
@@ -128,7 +126,7 @@ identifier f;
  	...,
  };
 
-@ update_pre_enable_struct depends on (is_bridge && !has_create_state) @
+@ update_pre_enable_struct depends on is_bridge @
 identifier is_bridge.funcs;
 identifier f;
 @@
@@ -151,7 +149,7 @@ identifier b;
 	...
  }
 
-@ update_enable_struct depends on (is_bridge && !has_create_state) @
+@ update_enable_struct depends on is_bridge @
 identifier is_bridge.funcs;
 identifier f;
 @@
@@ -174,7 +172,7 @@ identifier b;
 	...
  }
 
-@ update_disable_struct depends on (is_bridge && !has_create_state) @
+@ update_disable_struct depends on is_bridge @
 identifier is_bridge.funcs;
 identifier f;
 @@
@@ -197,7 +195,7 @@ identifier b;
 	...
  }
 
-@ update_post_disable_struct depends on (is_bridge && !has_create_state) @
+@ update_post_disable_struct depends on is_bridge @
 identifier is_bridge.funcs;
 identifier f;
 @@
@@ -223,80 +221,61 @@ identifier b;
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
 ---
-To: Inki Dae <inki.dae@samsung.com>
-To: Seung-Woo Kim <sw0312.kim@samsung.com>
-To: Kyungmin Park <kyungmin.park@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
 ---
- drivers/gpu/drm/exynos/exynos_drm_mic.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_mic.c b/drivers/gpu/drm/exynos/exynos_drm_mic.c
-index e68c954ec3e6..3069f958137f 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_mic.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_mic.c
-@@ -19,10 +19,11 @@
- #include <linux/regmap.h>
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 959c994eef24..0e4f430de983 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -848,21 +848,23 @@ static void mtk_dpi_bridge_mode_set(struct drm_bridge *bridge,
+ 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
  
- #include <video/of_videomode.h>
- #include <video/videomode.h>
- 
-+#include <drm/drm_atomic_state_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_encoder.h>
- #include <drm/drm_print.h>
- 
- #include "exynos_drm_drv.h"
-@@ -226,11 +227,12 @@ static void mic_set_reg_on(struct exynos_mic *mic, bool enable)
- 
- 	reg |= MIC_UPD_REG;
- 	writel(reg, mic->reg + MIC_OP);
+ 	drm_mode_copy(&dpi->mode, adjusted_mode);
  }
  
--static void mic_post_disable(struct drm_bridge *bridge)
-+static void mic_post_disable(struct drm_bridge *bridge,
-+			     struct drm_atomic_commit *commit)
+-static void mtk_dpi_bridge_disable(struct drm_bridge *bridge)
++static void mtk_dpi_bridge_disable(struct drm_bridge *bridge,
++				   struct drm_atomic_commit *commit)
  {
- 	struct exynos_mic *mic = bridge->driver_private;
+ 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
  
- 	mutex_lock(&mic_mutex);
- 	if (!mic->enabled)
-@@ -255,11 +257,12 @@ static void mic_mode_set(struct drm_bridge *bridge,
- 	drm_display_mode_to_videomode(mode, &mic->vm);
- 	mic->i80_mode = to_exynos_crtc(bridge->encoder->crtc)->i80_mode;
- 	mutex_unlock(&mic_mutex);
+ 	mtk_dpi_power_off(dpi);
+ 
+ 	if (dpi->pinctrl && dpi->pins_gpio)
+ 		pinctrl_select_state(dpi->pinctrl, dpi->pins_gpio);
  }
  
--static void mic_pre_enable(struct drm_bridge *bridge)
-+static void mic_pre_enable(struct drm_bridge *bridge,
-+			   struct drm_atomic_commit *commit)
+-static void mtk_dpi_bridge_enable(struct drm_bridge *bridge)
++static void mtk_dpi_bridge_enable(struct drm_bridge *bridge,
++				  struct drm_atomic_commit *commit)
  {
- 	struct exynos_mic *mic = bridge->driver_private;
- 	int ret;
+ 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
  
- 	mutex_lock(&mic_mutex);
-@@ -293,13 +296,16 @@ static void mic_pre_enable(struct drm_bridge *bridge)
- unlock:
- 	mutex_unlock(&mic_mutex);
- }
+ 	if (dpi->pinctrl && dpi->pins_dpi)
+ 		pinctrl_select_state(dpi->pinctrl, dpi->pins_dpi);
+@@ -980,12 +982,12 @@ static void mtk_dpi_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
  
- static const struct drm_bridge_funcs mic_bridge_funcs = {
--	.post_disable = mic_post_disable,
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_post_disable = mic_post_disable,
- 	.mode_set = mic_mode_set,
--	.pre_enable = mic_pre_enable,
-+	.atomic_pre_enable = mic_pre_enable,
- };
- 
- static int exynos_mic_bind(struct device *dev, struct device *master,
- 			   void *data)
- {
+ static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
+ 	.attach = mtk_dpi_bridge_attach,
+ 	.mode_set = mtk_dpi_bridge_mode_set,
+ 	.mode_valid = mtk_dpi_bridge_mode_valid,
+-	.disable = mtk_dpi_bridge_disable,
+-	.enable = mtk_dpi_bridge_enable,
++	.atomic_disable = mtk_dpi_bridge_disable,
++	.atomic_enable = mtk_dpi_bridge_enable,
+ 	.atomic_check = mtk_dpi_bridge_atomic_check,
+ 	.atomic_get_output_bus_fmts = mtk_dpi_bridge_atomic_get_output_bus_fmts,
+ 	.atomic_get_input_bus_fmts = mtk_dpi_bridge_atomic_get_input_bus_fmts,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
 
 -- 
 2.54.0
