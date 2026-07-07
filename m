@@ -4,82 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A0A5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0489EC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NeOB5nhwLhqHRaxNOC2o9/A0SBN3tCFOir6l6+fb2GU=; b=LzkWn6vGn8MKS9szvRF0YXNDwO
-	O1fxaelYmMjMs/+jXSzB3czayHyoxqJmJ2XteypIOarIKq1PUiJDXZ85SD4zvEEYKoMquRonM0AS3
-	ihqXai3IdOA9+OkwZ892Jh45ys/uHj9dw9/fPTP5tteQixJBcfzbrmNhBZmB5xI3D/d/FVvgDWY0o
-	SvdJMCXJU8PJJ05lj9m1FFxoOU+evlbrsAsjZKRxYF4r/KQyAF/bk+2Iv2qG8foHHM9r7N+fasBpt
-	z0hbQEaW5BTXlMxsq8f9HZgXh9pxcUAH5jHDMdEdfkE74HRhPf6nhpoGobitL8o6CPQ7O7NnNwJaG
-	b3ufSLjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YnmIedkr7Tr8vwNi0AdmSRDuxImVFUdc0vBJaAbaSA0=; b=V6bLm7arVcuHfLeg+t7fczrsTr
+	M8edwgdP5qg9iOKO908GkfaUHeobHX67GiR0AXYtCXCeHcNOQw9zXz3UUD02/Oniu2KvQW0tWEeKu
+	/fVFhDfMEvpgAstpTRbyvMlA7iEapevYGyiInt/ylw72dVrTIdLHyAoqlJ3Nkb6LmGI/ryI+G/8cK
+	bCGfVa3AerlQC+MsfcN4S+paxYK2dT3TvKIrc3AfHr09xC4qUEh9EyxFOi44EPh/QdF2vkbvRZQgF
+	IO9BDZI2K6+5zYYzBT2rvY3Y2aWKyZAe6GekbwISDgiJ6TqC+0WxqHgyadsmwVvvDTs6jzHU+xpqc
+	ttEoL0XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4yF-0000000ExlT-0Z02;
-	Tue, 07 Jul 2026 12:32:15 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wh53T-0000000EyAk-3Nd7;
+	Tue, 07 Jul 2026 12:37:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4yC-0000000Exjt-0cLc
+	id 1wh53R-0000000EyAM-0Pvb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 12:32:13 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A5F94673;
-	Tue,  7 Jul 2026 14:31:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1783427477;
-	bh=TyXUT1CVHrh9NfKCozkyF7UIFR5J7DcjAjepCygl3N4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fPUvRkZe8Q9+w0AvVoy3k9LWysLj2LlkRAJvKKatK4Noi5ROhl7S3ZYi6MbqhNLEb
-	 NXc0P13yGD0NF07xabgL/YTnz5pHjq+/tG1KrQFE7BlpAr3o4Xk36zX2MjMvoCEaGN
-	 PEk49Jzks54cTx616wJwLm0bAsZ8HG3PVXVxXPBk=
-Date: Tue, 7 Jul 2026 15:32:05 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260707123205.GB211515@killaraus.ideasonboard.com>
-References: <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
- <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+	Tue, 07 Jul 2026 12:37:38 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 667C9LX73740882
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Jul 2026 12:37:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	YnmIedkr7Tr8vwNi0AdmSRDuxImVFUdc0vBJaAbaSA0=; b=hqMqG54h4QbHLTUR
+	JtWmWqM6Hv3A88fG31J0Y/jNV34Az/XYukWTcC13ffIGypAt7KNDBRSv1vOi1Eo6
+	vEbBerzrxKLD/h9Gxf35aPAAj4jvCv4luuQ9zyTSoiPlwbGol9xBUJS+vkJ7Yxst
+	wvQqSJxNMnvV2COl0PtRMXSZ0vsrKgp20H5Q01lF0dRWDcA7g0j2ZEII1sc06Czy
+	ZkPS4rbFVAZAlSMWg3ouagoAfa4//+6NUj27Yhv86gIjoOvTEWfsp18WwFo6VZLx
+	diV/l0zJY6rmlz9GuAiAibKg39nZ37lhBSbX4ujVZ4DNLf/qqoFTPGuUbXjWBE0S
+	Bli5FA==
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8v9a9eys-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 12:37:36 +0000 (GMT)
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-7e9ee20bde0so2658655a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 05:37:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783427855; x=1784032655; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YnmIedkr7Tr8vwNi0AdmSRDuxImVFUdc0vBJaAbaSA0=;
+        b=AP67xPJeBtasH4tZ3Yt1PPGuji4j/48pRMqANv63iQuxCjU87lOfM4cxSpdZg8Z6cm
+         w4VySoCCdBTHGyU7Or/25ri8nDuDoqsrC/yyasv6PVdhi1plE2ZsjPmT/vXrK9C32RE5
+         963qF1t5ZIp+fislDjKF6bPrSjAj8iTYqsNEqLd7H7JcoT+jjkcRyoMBtFySUJ6QB4Ig
+         FVr9Di4abFkt0vAPbgdop8Fqi4HWwBzJcUSj7FXDfT6zZ9zjAVlHuNoLXhsZdq6tKs6Y
+         F9iQd3nvEICQyJ60zguAvgk4qEzvwzewa6FDg35+Fvr7goBh1sLWUhr7F3lRmsJy/E2d
+         X8MQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783427855; x=1784032655;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YnmIedkr7Tr8vwNi0AdmSRDuxImVFUdc0vBJaAbaSA0=;
+        b=X34UxgV7NexnWgxvMObnTmdll2cVaA6kw8KhzfW9zq0tmAB8lP/i9wEzwTO0waPa4z
+         P1CXsx72WBUkM8gPkTbDqifsY1JAloWmedBfsvq2lTqh4LroED68qEodC8zVFdBBuVNn
+         Qk4lfNMKWb/BVefwtdY+tBGNCGYd+naLlzGd++rTdGi8YnXe8A3+XLJjydAB/UxHpleW
+         0NsLRO6YBNRxIiWHfuCWbT6wNFoCWao9Dl3mbVPfziDW3bzdiHPTuZLrE5pwYEv0ezWS
+         R6bKDEbpD+9BnmMdmE79idnxNy79CbJaeMTYA2UoDq5aIQ4dRDjvGruqiYx2u+B6Zk25
+         d+DQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+yvrIYlwsjAphY6Ax1XpSdQ8ogwHpywPABEaLL2Sgo69jdYwpx6c4M7a9LC0zfAZLoHhpN7LBqy4e3tELnDa4F@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRW1qLjJl2UD+ylLj3Tcd9BtocDTllJEK7e5mdf98MqoF/csdk
+	yKGQDwODgrJOQJnZftaGkdJj4WB5RGYF0EC++y2BqfzuKooU6WmGp1SHz2Q4R8cLaPS1Us6c6wt
+	pQXh7SrIoQcVCJ0MziLScCzS/DrOU+tMSz534vZpJie70NUiAh6X6+5M4VAYqI7fa3bJpEbbtbq
+	ThUw==
+X-Gm-Gg: AfdE7cnbPHXjpJ5cFKD1lR+2nfyXJWMU7NTIpWiC4auVQ1/DLO5Ww0LL1oCTBmdnLpz
+	+jasS806F+juKFM34zEwlfqOgvZvH+7DQMOPZ/yABoTjKcwfE22lgqvHo6vcNJI/Tax8RIPD+TO
+	0IRasW8UtSu0YyMj5ryPNi3bFq7LUykqgY/WYyScjiNEywhOuhb+si9Zk61S+nD8di58qRiGCNw
+	de79RuY8Jws2neyj3ST8ZGiYWb/RoQ9xGisWkyhDUbVsKd4NihOXFX1bLSHDVCrg+gnUimOThGr
+	09tHGKnOpUGa7rgYEsIQlSLZU8rSUEF8f1cT8buk65SDbyPg9YYuN7uQJP5xa9KOnzUbENnKG16
+	JLHNQqfSgOUeVDwiBDO0n+jr3GKeHH57197ScThQ=
+X-Received: by 2002:a05:6830:67da:b0:7e7:76f:3ec0 with SMTP id 46e09a7af769-7ebb233a1c7mr3266290a34.15.1783427855367;
+        Tue, 07 Jul 2026 05:37:35 -0700 (PDT)
+X-Received: by 2002:a05:6830:67da:b0:7e7:76f:3ec0 with SMTP id 46e09a7af769-7ebb233a1c7mr3266269a34.15.1783427854922;
+        Tue, 07 Jul 2026 05:37:34 -0700 (PDT)
+Received: from [10.219.56.198] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7eb542ebf72sm15010628a34.9.2026.07.07.05.37.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jul 2026 05:37:34 -0700 (PDT)
+Message-ID: <e8b247d9-d60d-497f-a831-a9772d27481a@oss.qualcomm.com>
+Date: Tue, 7 Jul 2026 18:06:59 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/6] dt-bindings: iommu: arm,smmu: Document
+ interconnects property
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
+ <20260706-smmu_interconnect_addition-v3-1-afdca0125a65@oss.qualcomm.com>
+ <nrht4irqtvt2vk3lrqvljonarc4kanht2nrwjt7pppsfhozffv@o4xei47l6gcj>
+Content-Language: en-US
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+In-Reply-To: <nrht4irqtvt2vk3lrqvljonarc4kanht2nrwjt7pppsfhozffv@o4xei47l6gcj>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: QJsJbTI7_WH0LzAg52IUjvtKHGxY0g3Y
+X-Proofpoint-ORIG-GUID: QJsJbTI7_WH0LzAg52IUjvtKHGxY0g3Y
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA3MDEyMiBTYWx0ZWRfX4pXPdGIMVonn
+ XaODMhYYEuBh502KczguQalDGcI4AoZJe7TZLa6Sz+Kk3cLX6nSwuWjhDkNXxZcYwbWubyVD2oN
+ Cj92B+3wVXBIttP7BFPCAgQ4xU9Rtgw=
+X-Authority-Analysis: v=2.4 cv=b9yCJNGx c=1 sm=1 tr=0 ts=6a4cf310 cx=c_pps
+ a=z9lCQkyTxNhZyzAvolXo/A==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=1xpCzd4iWPYukUP1q-QA:9 a=QEXdDO2ut3YA:10
+ a=EyFUmsFV_t8cxB2kMr4A:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA3MDEyMiBTYWx0ZWRfXx9gOyPZn4g6N
+ 6yDQDnrytE6dyTQu9fQMfUdA7SZoNMensntwH5Ml/R0poz0P1OZn7guWn3Tly6DywEAhmd0TJtA
+ rKzEb0SfGIUmoUEphSDrLXP4g2pGmnwOrihp4Se6lhJhhWPIcASqm77E4ImF9OR5ieMou872Nw4
+ ngjTMHK+e53YClOpDFUMkHK6dJvU1zy3YHI5ZumgJqXCRgVIm0xCRGJsUvb+rVCMAeIaiV2PS/k
+ kElW6QGPC1PcMrWyhtKbtuDay9daGPTrB9I1ZOnONlnDsZ19NwVjE4phqHxgC7kcY8sXBJg1W0v
+ FgiOKfcLtKhxJgDFMCWnDgoDUwh28CY5ciJz2ZI4Exy/TmEHXJOMuYIsG3F6R0My4aX5HJNsXGf
+ KRR4871bVuF6EO/zPhsDgbd9g7oU5030+zvHhaIho0fYjKDYFL3QJAU3AtFphk5xNwiDmPrO0vg
+ nJlNecIrlmMeklSoWjg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-07_03,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0 malwarescore=0
+ bulkscore=0 spamscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607070122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_053212_632538_5C3980FD 
-X-CRM114-Status: GOOD (  51.35  )
+X-CRM114-CacheID: sfid-20260707_053737_264599_52DF79B5 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,158 +161,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 11:55:54AM +0200, Maxime Ripard wrote:
-> On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
-> > On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
-> > > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
-> > >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
-> > >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
-> > >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
-> > >> >> > Hi,x
-> > >> >> >
-> > >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
-> > >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
-> > >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
-> > >> >> >> >> In preparation to introduce bridge hotplug, split out from
-> > >> >> >> >> drm_bridge_connector_init() the code adding the drm_connector into a
-> > >> >> >> >> dedicated function. This will be needed to be able to add (and re-add) the
-> > >> >> >> >> connector from different code paths.
-> > >> >> >> >
-> > >> >> >> > Same story here, explaining what you need later on that calls for that
-> > >> >> >> > change would be nice.
-> > >> >> >>
-> > >> >> >> Here's a more verbose version:
-> > >> >> >>
-> > >> >> >>     Currently drm_bridge_connector_init() does two things:
-> > >> >> >>
-> > >> >> >>      * allocate and initialize the drm_bridge_connector
-> > >> >> >>        (which embeds a drm_connector)
-> > >> >> >>      * initialize and register the embedded drm_connector
-> > >> >> >>
-> > >> >> >>     For bridge hotplug we need to separate these two actions:
-> > >> >> >>
-> > >> >> >>      * the drm_connector needs to be added and removed at any time based on
-> > >> >> >>        hotplug events
-> > >> >> >>      * the drm_bridge_connector is designated to create and remove the
-> > >> >> >>        drm_connector, so it must be persistent for the card lifetime
-> > >> >> >>
-> > >> >> >>     As the lifetimes of drm_bridge_connector and drm_connector become
-> > >> >> >>     different, we need to create them in different moments.
-> > >> >> >>
-> > >> >> >>     In preparation to support that, split out from
-> > >> >> >>     drm_bridge_connector_init() the code adding the drm_connector into a
-> > >> >> >>     dedicated function. No functional changes, just moving code around for
-> > >> >> >>     now. A future commit will make the drm_connector be created based on
-> > >> >> >>     hotplug events.
-> > >> >> >>
-> > >> >> >> Looks good?
-> > >> >> >
-> > >> >> > The message itself, yes, thanks.
-> > >> >> >
-> > >> >> > However, I have questions now :)
-> > >> >> >
-> > >> >> > Do we really expect drm_bridge_connector to stick around when a bridge
-> > >> >> > gets unplugged? If so, how does it cope with having, say, an HDMI
-> > >> >> > connector, and then swapping out the hotplugged part for an LVDS one?
-> > >> >> > Does the HDMI connector sticks around indefinitely?
-> > >> >>
-> > >> >> In your example, the HDMI drm_connector would be unregistered and put on
-> > >> >> hotunplug. Its allocation will stick around until the last put but that's
-> > >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
-> > >> >> drm_connector will be created and registered.
-> > >> >>
-> > >> >> > *Especially* if we're using overlays for this, I'd expect everything
-> > >> >> >  after the first hotplugged bridge to be destroyed, no?
-> > >> >>
-> > >> >> As said, it would be unregistered immediately but might be freed later on
-> > >> >> if still refcounted.
-> > >> >>
-> > >> >> This is visible in patches 36+15, the path to follow is:
-> > >> >>
-> > >> >>  drm_bridge_connector_handle_event(event = DRM_BRIDGE_DETACHED) [patch 36]
-> > >> >>  -> drm_bridge_connector_dynconn_release()                      [patch 15]
-> > >> >>
-> > >> >> Does this solve your concern?
-> > >> >
-> > >> > Not really, I'm talking about drm_bridge_connector. The fact that
-> > >> > bridges are destroyed make sense to me. The fact that
-> > >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
-> > >> > connector for bridges. If you don't have bridges because they got
-> > >> > destroyed, and connector, drm_bridge_connector doesn't have a reason to
-> > >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
-> > >>
-> > >> It is not a hotplug-bridge in a trench coat, no :) The code is clear about
-> > >> this.
-> > >>
-> > >> I'd say with this series a "drm_bridge_connector" is just becoming
-> > >> something more (perhaps something else too). Somewhat as "a drm_bridge is
-> > >> either a bridge or something else". :)
-> > >>
-> > >>
-> > >> But let's leave names aside for a moment. If just looking at the current
-> > >> code, the drm_bridge_connector is "a handler, owned by the card/encoder and
-> > >> having the same lifetime, which takes care of drm_connector
-> > >> creation/destruction at card probe/removal".
-> > >>
-> > >> What we need now is just the same plug " and on hotplug events" appended.
-> > >>
-> > >> So in both cases there needs to be "a handler persitent with the card".
-> > >>
-> > >> Do we agree so far?
-> > >
-> > > Ish. If we go for that, then we need to update the name.
-> > 
-> > drm_connector_manager?
-> > drm_bridge_connector_manager?
-> > 
-> > > drm_bridge_connector for something that is neither a bridge or a
-> > > connector is not great.
-> > >
-> > > But even then, I'm not even sure why we need to have that "manager" in
-> > > the first place. You want to make bridges be aware if they are the last
-> > > in the chain or not. Use that property in attach to either create a
-> > > drm_bridge_connector instance if you're last, or attach the next bridge
-> > > if you aren't.
-> > 
-> > What? o_O
-> > 
-> > Several encoder drivers have been painfully converted to create a
-> > drm_bridge_connector.
-> 
-> I mean, it was done at a time where bridge hotplug wasn't a thing and
-> the assumption was that the bridge chain is static. You're now breaking
-> that assumption, it shouldn't come as a surprise that it might break
-> other things.
-> 
-> And I know that you have experienced it already, which makes your
-> reaction even more surprising to me :)
-> 
-> > Now if the bridges start doing it themselves we should go back to
-> > those encoder drivers and ditch all the drm_bridge_connector from
-> > there?
-> > 
-> > I must be missing something. Can you elaborate on this?
-> 
-> drm_bridge_connectors bring together a (complete) bridge chain and a
-> connector. If you don't have either anymore, then we shouldn't keep it
-> around.
-> 
-> What I was suggesting before was only a suggestion. I guess we could
-> also make the encoder own the hotplug handling code and create the
-> drm_bridge_connector when the chain is complete, and remove it when it's
-> no longer the case.
 
-That's an interesting option. We don't have to keep drm_bridge_connector
-in its current form, but I don't think we should go back to individual
-bridge driver creating connectors, especially now that we have bridge
-chains where the connector ops are implemented collectively by multiple
-bridges.
 
-> We can discuss alternatives too. But either way, we shouldn't have it
-> stick around.
+On 7/6/2026 11:09 PM, Dmitry Baryshkov wrote:
+> On Mon, Jul 06, 2026 at 10:26:34PM +0530, Bibek Kumar Patro wrote:
+>> Some SoC implementations require a bandwidth vote on an interconnect
+>> path before the SMMU register space is accessible. Add the optional
+> 
+> Why is it limited only to those SoCs? Is it also applicable to other
+> Qualcomm SoCs?
+> 
 
--- 
-Regards,
+I was hoping to keep this series focused on the core infrastructure
+changes: the bindings, base ICC bandwidth-voting support, and DT
+interconnect properties for the platforms currently supported on
+Qualcomm Linux and have been validated so far.
 
-Laurent Pinchart
+The additional targets have not been tested yet, so I'd prefer
+to add their support in a separate follow-up series once validation
+is complete, rather than growing this series further. WDYT?
+
+>> 'interconnects' property to the binding to allow platform DT nodes
+>> to describe this path.
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+>> ---
+>>   .../devicetree/bindings/iommu/arm,smmu.yaml        | 27 ++++++++++++++++++++++
+>>   1 file changed, 27 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+>> index a701dec2fa0a..fab8944d7b63 100644
+>> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+>> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+>> @@ -246,6 +246,13 @@ properties:
+>>       minItems: 1
+>>       maxItems: 3
+>>   
+>> +  interconnects:
+>> +    maxItems: 1
+>> +    description:
+>> +      Interconnect path to the SMMU register space. Required on SoCs
+>> +      where the SMMU registers are only accessible after a bandwidth
+>> +      vote has been placed on the interconnect fabric.
+>> +
+>>     nvidia,memory-controller:
+>>       description: |
+>>         A phandle to the memory controller on NVIDIA Tegra186 and later SoCs.
+>> @@ -644,6 +651,26 @@ allOf:
+>>           clock-names: false
+>>           clocks: false
+>>   
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          items:
+>> +            - enum:
+>> +                - qcom,qcs615-smmu-500
+>> +                - qcom,qcs8300-smmu-500
+>> +                - qcom,sa8775p-smmu-500
+>> +                - qcom,sc7280-smmu-500
+>> +            - const: qcom,adreno-smmu
+>> +            - const: qcom,smmu-500
+>> +            - const: arm,mmu-500
+> 
+> Can we be more idiomatic here?
+> Something like:
+> 
+> if:
+>    allOf:
+>      - properties:
+>          compatible:
+>            contains:
+>              enum:
+>                - qcom,qcs615-smmu-500
+>                - qcom,qcs8300-smmu-500
+>                - qcom,sa8775p-smmu-500
+>                - qcom,sc7280-smmu-500
+>      - properties:
+>          compatible:
+>            contains:
+>              const: qcom,adreno-smmu
+> 
+> In the end, we don't need to list the full list of compats. We need to
+> specify that it's Adreno SMMU on one of the listed platforms.
+> 
+
+Agreed.
+We need the interconnect property for any of the listed platform using
+the adreno-smmu only.
+
+Additionally in following e.g.
+
+compatible = "qcom,adreno-smmu",
+              "qcom,sc7280-smmu-500",
+              "qcom,smmu-500",
+              "arm,mmu-500",
+              "qcom,new-string";
+
+The current schema could miss enforcing the interconnect property
+when new compatible strings are introduced, whereas the approach you
+suggested continues to handle such cases correctly.
+
+I'll update the binding accordingly in the next revision.
+
+Thanks & regards,
+Bibek
+
+
+> 
+
 
