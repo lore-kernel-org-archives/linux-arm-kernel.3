@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B618FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5D6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ0mvywMk1VYYOPBF5PvfJak/QAKIBpitC3KAeG7XY0=; b=4G9Rpj6mhmGZL2GOtSQUTACZqR
-	hPrjzdN9J+mxAWlVdQ+2+24Ogsdq6rT6Qd/IqtrPL0ePjQzZsswEFcSTBAeSgJ1FblY3XIZUFa0aX
-	aCfNZ4/WPv56HVU8d2cU/ImgpaWkAV9lOPej+17Zxpn4cQJF1irGki3ePTUUFLgGasGNrrfHWnONb
-	Ln1F1vJt3XEgNUIX8IX2Rucy0yDkJoaT967reNMkwQygZtnPyZqJ07TMrZyntX8TN/sbREeVOc53u
-	uJYAA9KaGj+0o96KBvSpwSlG83Bfu0QfdhTGhSPHReeB+iCc9MU+UwZy3bbfJtLi/XsVFRtiiT15P
-	ZGO8cGNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cH1o0f7+Xgp89WLi95K+Rx7Uq4DeC7XdXtfbyGqV9hg=; b=rg+dv/DHjlWaVOMRmGKB92Uy1+
+	LYrr7fDTryH9zs3NeBOtS3mEOGAwXXoaYjnRIMQbEB4jicDvvgYgDkBzy6bcWxUs+iTjEtkILstlw
+	odqeUcH5Tj2g5G9aPv67a8imRpvJp6XynSwHWVX+ddvvV5kQF5Fj6t8UYDiM/cH43uO6uU+X/cljF
+	vLjpRsEwCufGNqgXDA6HRW5MWCxtFx+C7imdpkC6dbaujCygbnF1tb5REoIQ3HEpB7BTnhcw8Exf9
+	Mcii5zqw/1HvuVS5iZw0fkE+NgqJOrTXvLz8eBWuB1a1RFxkGbeNotqtMCDDChcpG9JnxIzbRgyTV
+	GYFw+1Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4I4-0000000Et0n-1fj5;
-	Tue, 07 Jul 2026 11:48:40 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wh4Ls-0000000EtIQ-3biQ;
+	Tue, 07 Jul 2026 11:52:36 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4Hy-0000000EszJ-2yLb
+	id 1wh4Lp-0000000EtHs-36U5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 11:48:38 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=GQ0mvywMk1VYYOPBF5PvfJak/QAKIBpitC3KAeG7XY0=;
-	b=Lp9/IJDW0+fMhUe2D2c7Pxs+psR2xzhuJBRSozphimRGSOx/peqUwYuBnRGHBZfVoaMu6L4iC
-	UkKTve2BKsVhZCC8/8/OQMn1T4wsjMlaJjcR8BQtbUdmD72ShTagpcLqBR53ClUDZZDnYgZAG9k
-	6LYz4Th35zqYGoyXSpwTTqc=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gvfQb0MvzzpStg;
-	Tue,  7 Jul 2026 19:39:35 +0800 (CST)
-Received: from kwepemo200010.china.huawei.com (unknown [7.202.195.178])
-	by mail.maildlp.com (Postfix) with ESMTPS id A17B440575;
-	Tue,  7 Jul 2026 19:48:13 +0800 (CST)
-Received: from [10.174.178.56] (10.174.178.56) by
- kwepemo200010.china.huawei.com (7.202.195.178) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 7 Jul 2026 19:48:12 +0800
-Message-ID: <c11452a3-b918-4d4c-afd7-a835a1d0a3bc@huawei.com>
-Date: Tue, 7 Jul 2026 19:48:12 +0800
+	Tue, 07 Jul 2026 11:52:34 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493b8d99342so26065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 04:52:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783425152; x=1784029952; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cH1o0f7+Xgp89WLi95K+Rx7Uq4DeC7XdXtfbyGqV9hg=;
+        b=vDpazQ3l5aO27ntCwnWIgMqdVD9lwyuPkyGDvlq0V0EEjqzagiSOr8psfJeuNhol7U
+         Iwj7ZOoACy8gO3Pf745ahTGy02bQmrCkmz+LRURful3jiKtBy1mgF48hGqzeRMY370JA
+         0aSBZG/kYapnI8m4xTr14nRIKcZInyyWF+dML13qudf+bt+Zq0RIRMuSNmi5sdsWWFfC
+         ww1KZVhabxSiB4I5aDfvIWiDv+oisfh+Pz+PqN96q+x5dV7qeOFiC8odxq7B29PANxDQ
+         N6JD2INQEkOJi1XhaDxXB++GFdAxjKcgXL4afkXFY6rles5VZ5HvHVjUIiCE7Ji4OhbI
+         mHZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783425152; x=1784029952;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cH1o0f7+Xgp89WLi95K+Rx7Uq4DeC7XdXtfbyGqV9hg=;
+        b=WGDpIASqFehGpENFDAe0G2fOfFjcCJoun2TUA7hoFeJFHQlJ73ClQ+zHutvV3e72Gf
+         d35R2kYtLEYz0PiJjC8xmQnYRAvurtRF7V1e3X5suiPdWsYwliDmqdb4cNwxJIywWJge
+         Kccjb1wGBdBakFKc6Q1/KDwh7z8PMBq68435NOij2xjOZT069lqdxBuZ1JBZ0nXYwzKw
+         P0rga/qEstKI+cAz3H03ICde2N42/Viqvd62uiCwgSilVfa4jgeu8M7fhaC4LWk883vB
+         1YPZQFxmbFdgH1CPK3G+gfuwIlEdEkmCy1PvXmKYsyZYxolBDDGQA6X9HUNGzXFF5U8P
+         l+Rg==
+X-Forwarded-Encrypted: i=1; AHgh+RprO93kUUryhzooNHnpVf3bbn3yBg6/hVcayIlG5Stjga0f4fOYBY40Pln1XXKsqB3ft2gUl8eTZM95n3HW5OjL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZkk4h10cXqd7DP9A7RWkisM3IA/orPD/nBp6MTvHo7lyhZkoi
+	FBQC5oFvyF+AG3JyXbmw1/Ey2vAL+dXYjvYjUrhJaDuyrx3oYk03JOuoCQZ9Cv7OAQ==
+X-Gm-Gg: AfdE7cnjLHWWHszzcZt1SQUItz3eLrmJ44mBUZcIIHbFIi4Z8VsipGWt59cYPgRC9QY
+	YIlMH8+Nq8K5apuqu8xuS+nu4oGJNt8/Pa7lHmArEa/XoDjdxcZHeDe4P4GNe8eYve3eHSkhN4C
+	Mg/FAuBMq6urov6W6W9H6ahVLeivAgraBwSfhEJbS5gmu/mr25Ajlld7oBbq0jPzi1BeJPy3XUe
+	xShlsZlEE7XX7AQKHfqAx2SHnnRgs5OQtDpmfzXQqcnS4Z5FBZkZ/VW7cFMfReh9+RNz32GvsOe
+	B8xbhvlXrnLCz/XrvnuPQ/nJHg/fcTuvW+Q1EkfNzBFnx7ag6dG7aUmGw7zsU37XPcdk7WYKst2
+	xc0oX9KL9lTXj1XRrQ79Pm/eLoiY7ZDpfC2lt4bwISDMXzjfRnBtAQkCF9ErXCodOu1/+H8ezLt
+	1CrZke31872MzU1fthyFww762pgq0v0U09lU7ktJI/q598V9zO
+X-Received: by 2002:a05:600c:1c0d:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-493e121b8cdmr1175185e9.8.1783425151514;
+        Tue, 07 Jul 2026 04:52:31 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f40912sm47378305e9.4.2026.07.07.04.52.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jul 2026 04:52:30 -0700 (PDT)
+Date: Tue, 7 Jul 2026 11:52:25 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
+ commands
+Message-ID: <akzoeexW-4W70QdU@google.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault()
- under CONFIG_DEBUG_USER
-To: Xie Yuanbin <xieyuanbin1@huawei.com>, <akpm@linux-foundation.org>,
-	<linux@armlinux.org.uk>, <david@kernel.org>, <ljs@kernel.org>,
-	<liam@infradead.org>, <vbabka@kernel.org>, <rppt@kernel.org>,
-	<surenb@google.com>, <mhocko@suse.com>, <linusw@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<sunnanyong@huawei.com>, <linux-mm@kvack.org>, <lilinjie8@huawei.com>,
-	<liaohua4@huawei.com>
-References: <20260626073048.3595106-2-xiqi2@huawei.com>
- <20260706133247.145485-1-xieyuanbin1@huawei.com>
-Content-Language: en-GB
-From: Qi Xi <xiqi2@huawei.com>
-In-Reply-To: <20260706133247.145485-1-xieyuanbin1@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.56]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemo200010.china.huawei.com (7.202.195.178)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_044835_143667_C9724B85 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260707_045233_807511_1A4A424A 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 06, 2026 at 01:26:42PM -0300, Jason Gunthorpe wrote:
+> Store the required cmd data in the tlbi and just copy it out when
+> processing each item in the invs list. The cmd form only depends on
+> if the instance supports RIL or not, otherwise it is always the same.
+> 
+> This avoids redundant calculations for each invs entry.
 
+I do not understand how does this avoids redundant calculation?
+This would be the case if the domain shares multiple SMMUs,
+otherwise, a range TLB invalidation should be unique and can not be
+reused.
+And in that case I am not sure that would be noticeable with modern
+CPUs/compilers.
 
-On 06/07/2026 21:32, Xie Yuanbin wrote:
-> On Fri, 26 Jun 2026 15:30:47 +0800, Qi Xi wrote:
->> @@ -181,7 +181,9 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
->>   		pr_err("8<--- cut here ---\n");
->>   		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
->>   		       tsk->comm, sig, addr, fsr);
->> +		mmap_read_lock(tsk->mm);
->>   		show_pte(KERN_ERR, tsk->mm, addr);
->> +		mmap_read_unlock(tsk->mm);
->>   		show_regs(regs);
->>   	}
->>   #endif
-> I found that this fix does not completely solve the problem. For a user
-> fault, the addr could also be a kernel address. For arm32/x86, the kernel
-> address space and user address space share the same pgd page table,
-> but the kernel address space's page table is not protected by
-> current->mm->mmap_lock.
->
-> I have written a use case to construct and verify this point. When A user
-> program accesses a kernel address and triggers __do_user_fault(),
-> show_pte() will directly print the kernel page table.
->
-> So, I suggest that:
-> ```c
-> 	if (user_mode(regs)) {
-> 		struct mm_struct *const pt_mm = addr >= TASK_SIZE ?
-> 			&init_mm : current->mm;
->
-> 		mmap_read_lock(pt_mm);
-> 		show_pte(KERN_ALERT, pt_mm, addr);
-> 		mmap_read_unlock(pt_mm);
-> 	} else {
-> 		// .. keep nothing change
-> 		show_pte(KERN_ALERT, current->mm, addr);
-> 	}
-> ```
->
-> I have read this article:
-> Link: https://docs.kernel.org/mm/process_addrs.html
-> `mmap_read_lock(&init_mm)` should be able to ensure that the kernel
-> address's page tables can be traversed. But I'm not quite sure if
-> `mmap_read_lock(&current->mm)` provides protection for user-space non-VMA
-> addresses?
-You're right. And I think the fix is to simply skip show_pte() for 
-kernel addresses.
-For do_DataAbort() fallback:
+Thanks,
+Mostafa
 
-	if (user_mode(regs)) {
-		if (addr < TASK_SIZE) {
-			mmap_read_lock(current->mm);
-			show_pte(KERN_ALERT, current->mm, addr);
-			mmap_read_unlock(current->mm);
-		}
-	} else {
-		show_pte(KERN_ALERT, current->mm, addr);
-	}
-
-For a user-mode fault on a kernel address, printing kernel page tables via
-show_pte() does not help. And The fault address is already printed above.
-So it's safe and reasonable to skip it.
-
-Same pattern applies to __do_user_fault().
-
-> Also cc to mm maintainers:
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Lorenzo Stoakes <ljs@kernel.org>
-> Cc: Liam R. Howlett <liam@infradead.org>
-> Cc: Vlastimil Babka <vbabka@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Linus Walleij <linusw@kernel.org>
-
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 132 +++++++++++---------
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  11 ++
+>  2 files changed, 81 insertions(+), 62 deletions(-)
+> 
+> 2.43.0
+> 
 
