@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51AFC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63265C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v9NXiIWq97CSEahGJjuUvI29ZGrwLPU2keRY+33LcSI=; b=2P2qNuJI1iOXa1uwi/b49LLROp
-	a2l3dy+6TiwAx0psOl7oNyEG4lQiA80T2YizyhPVYf+AZQnQXBs8vBZpkJdUUhckrSbuzBBAAzjkR
-	OMYNAiKxXaC9T9bw/s2/mmHoOTY6qCQ+81qzf7ZzWD1Wz4NoVdspf/Plbz3DgBVoGy2jhWThuWkRc
-	4PGWzAnusyrJBP5KAAuBXo4LIWG6Naz9KlkkaM/c2v/Lumic2HesP/njyIzQsc+Erho156z/jL/jr
-	0SbIXAkj3xRsedoX7eNploBOKADJPczmR8fMd6kAKy09yTu10cWWGDgL8SZNn44wKCswTYjXmvnuA
-	i19TjNdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=edq9/jN03tElaw6k+IpT0Yftpb/niEsz9qEsQVfwHiM=; b=n/gqttPKRnvUetfhvtOJBZ1x5G
+	t3i5yWLyqCGxBb/jjvEku9s4dm12niv16slcHdX4WflwbDRJStteJCGYSi1602EO8xkPrgCvoHaSk
+	uH/LPcV680ZFdaIBCN4nA7yXFukOVlM/Qx7esf7BTHLkrlZc4RJdKco7SWmdHhSnR21ZlR7b1A41G
+	g8wp2alTtQ+6z/iuLbmaN34gyfuPkKlmMX7llRdtQ1ERwIPvVI+nKD2VOAf7CGVz/FrHJdHkqjFw8
+	mi6tRUc0b0dVa6I+Zk6ocVYFb0gwKSCzPSqJTCUTkAT3dL50o69wPNNlk/e08uCEWCCqnfYUUEZ92
+	wBFCCzuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2J2-0000000EeGo-3hLE;
-	Tue, 07 Jul 2026 09:41:32 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wh2J9-0000000EeJG-49At;
+	Tue, 07 Jul 2026 09:41:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2J0-0000000EeGA-2BNI
+	id 1wh2J8-0000000EeIm-0sr1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:41:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=v9NXiIWq97CSEahGJjuUvI29ZGrwLPU2keRY+33LcSI=; b=mPJhhhlI56T75SYEhfYWfwOqEq
-	kJoGB6le84rtACnnIWrrYt6AjvnoXy3upKM7sn3Qsf3UDVv/fNc1VS6GgTQ6aVR+Xfei3Ub7PW186
-	YrP9rEDl7Jw76r9ZP6k8rQl2gaR6dYSZkmRY/8ePA7zyfIoDvajISiadFJZQGT44rh3CIjKqYhSkJ
-	mC7t7+Vn/3KHJOPORzwlVcO59kjt7unu5a7AkfHC81Q0WoMSaLsX1QCtMxiVrAjrOxkcpRNXN1HzS
-	cxlvS8ho0dgWyyFlqYf4TN4ZjD9924uuWKgJEYI4cXC1qU5UTzMs6BB8Jtfr5Q2Slm/XQzOPOCIVe
-	MX5cXaGw==;
-Received: from sslproxy04.your-server.de ([78.46.152.42])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2Iy-000OVg-27;
-	Tue, 07 Jul 2026 11:41:28 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2Iy-0007v7-21;
-	Tue, 07 Jul 2026 11:41:28 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Tue, 07 Jul 2026 09:41:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DCCF618A6;
+	Tue,  7 Jul 2026 09:41:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0054E1F000E9;
+	Tue,  7 Jul 2026 09:41:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783417297;
+	bh=edq9/jN03tElaw6k+IpT0Yftpb/niEsz9qEsQVfwHiM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=QfUUXnPj15wViNjXPs9pgLJxKLcvzihhyeuHVy4vGQCrz2E0tXuQaFrhHxHojpPnY
+	 VochgGMZmL24b+nFmBaH7AlT+eqcZc67eWDCE/mWMI8b9o75cyUarVZeOGsGq9Wx32
+	 SA5MXJYpcaHdep/0UVXHAU/YkGhArhBHAuCLWGEMO82dfHUmOdTzfUIvsr+vlE/lKj
+	 bsBgRetjbjUFLoO9wW1SouScNkN4w53t+4BicQvI2GUe/YQfmmpXLOPjQEGRhVYZFf
+	 wSCeq0FZFUQiX32OXwx2OnBXymuO8MVhf0yM8is5OEnM6Gw5jwX4q0cA/82XZKZdfw
+	 eCC5ZlDxjZcEw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wh2J4-00000002KzE-30Of;
+	Tue, 07 Jul 2026 09:41:34 +0000
+Date: Tue, 07 Jul 2026 10:41:34 +0100
+Message-ID: <868q7np25t.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] arm64: dts: imx8mp: add missing #sound-dai-cells to xcvr
-Date: Tue,  7 Jul 2026 11:41:25 +0200
-Message-ID: <20260707094126.1738410-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_024130_566552_856F534B 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 0/7] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <aky0abet4NfzK4z8@kernel.org>
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+	<akvzxDwZbj_sZ4pI@kernel.org>
+	<86bjcjp6x1.wl-maz@kernel.org>
+	<aky0abet4NfzK4z8@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, odaki@rsg.ci.i.u-tokyo.ac.jp, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, skhan@linuxfoundation.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This device is used for 'sound-dai' and needs #sound-dai-cells. dtbs_check
-raises a warning regarding sound_dai_property.
+On Tue, 07 Jul 2026 09:10:17 +0100,
+Oliver Upton <oupton@kernel.org> wrote:
+> 
+> On Tue, Jul 07, 2026 at 08:58:50AM +0100, Marc Zyngier wrote:
+> > On Mon, 06 Jul 2026 19:28:20 +0100,
+> > Oliver Upton <oupton@kernel.org> wrote:
+> > > 
+> > > On Mon, Jul 06, 2026 at 07:03:23PM +0900, Akihiko Odaki wrote:
+> > > > Akihiko Odaki (7):
+> > > >       KVM: arm64: Disallow vPMU when pPMUs do not cover all CPUs
+> > > >       KVM: arm64: PMU: Protect the list of PMUs with RCU
+> > > >       KVM: arm64: PMU: Pass the pPMU to kvm_map_pmu_event()
+> > > >       KVM: arm64: PMU: Pass the target CPU to kvm_pmu_probe_armpmu()
+> > > >       KVM: arm64: PMU: Implement fixed-counters-only emulation
+> > > >       KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+> > > >       KVM: arm64: selftests: Test PMU_V3_FIXED_COUNTERS_ONLY
+> > > 
+> > > Thanks for respinning the series, I left some comments. I'd really like
+> > > to get this feature picked up, hope you have cycles to work on it soon.
+> > > 
+> > > FWIW, we're considering adding a new vCPU feature flag to deprecate all
+> > > the ugliness of the old PMUv3 UAPI. I'm tempted to say that the
+> > > FIXED_COUNTERS_ONLY feature is conditioned on the new feature flag...
+> > 
+> > It'd be good to have a strawman proposal on the list if we are going
+> > to change add a new API, specially if this is likely to gate new code.
+> > 
+> 
+> Patch 1 [*] of the series I linked does exactly this, no? Needs some
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Ah, I overlooked that, apologies.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 5ce2825182fdb..9cf9f6f08654d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -1599,6 +1599,7 @@ xcvr: xcvr@30cc0000 {
- 					      <0x30cc0e00 0x080>;
- 					reg-names = "ram", "regs", "rxfifo",
- 						    "txfifo";
-+					#sound-dai-cells = <0>;
- 					interrupts = /* XCVR IRQ 0 */
- 						     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
- 						     /* XCVR IRQ 1 */
+> attention like a KVM_CAP to make the bit discoverable by the VMM but
+> gets the general idea across.
+
+Not sure that's the ideal approach, specially in the light of this
+"multiple PMU" series. This "strict" API mandates the selection of a
+PMU (singular), while this stuff is the exact opposite (grab all the
+possible PMUs).
+
+	M.
+
 -- 
-2.54.0
-
+Without deviation from the norm, progress is not possible.
 
