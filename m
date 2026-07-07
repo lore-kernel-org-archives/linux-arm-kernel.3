@@ -4,122 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266B0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D8BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zaBOiybOd7/mfx0hVWEzmqw9A+nKrTg0fdvXWqkeSGw=; b=g+LJ7ZfpfKaCHSoGKVdBv2YpOj
-	f6iQTtbNYyEzFAJdaukE2olUZCu6XHFZkUpchh0pc2Gi6FDOs5/kCVIAeuF94LqXe8EdqhzW9t9uZ
-	SO1vNRXFmfd2FuWPCxqODNH0pB3SDbdSIudwF2+HSBkDRrwjJqMqZp6k4fuPU+nJmDd0nHGEqj3uz
-	Oa/9BzzjmBZIk3iRe1HhlfR18RrVq5uJpAAXrhYlppFZlbRzDHWb3Srrr3tgIAwlGEatPHtsPRBWf
-	64RjvYO54kTB7fEaAb65svLqRq5gVeFpUbhPjxhFQCtLYV3gFYSiiJ6YLbHllj7uRXZZeMhday4qQ
-	ujQmpkhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Q5JM7bNL+vvD39sKvHstP3GgCnVUZ9CKB+B+yeWlQEg=; b=OZazwz7VSwZzl1jTsTW8EWgJE/
+	NyU20smrOTtNEQt6veUeSzjAro2KcFmLHP12sZVbW6n9/Jn7G0DIE0tTcDNuJF7qYn3n0GZ27CmB3
+	IfqmIZS27/4HPaE/0A3SNEg92yojRDBv5dfHJDLR7NRdmIFXsqQEwxtEBRPmAStSSDC63WqiwRl1N
+	gRF63BpkfdVqq7NBwDZCxqtPgtkfgBYn1NgLM5KMrKu2hCRaiJmHnBZdxzjMC9e5AOWcjHj3V7yKu
+	HwHHPxKv5UzuNxxCkio2BarK/lFuLBa9rwowARN/k6/GEIN0m6A5zeYcjYkV/PR8UGFS3HHPiDYkv
+	jIJE8TpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9V1-0000000FYEv-1Wrx;
-	Tue, 07 Jul 2026 17:22:23 +0000
-Received: from mail-eastusazon11012005.outbound.protection.outlook.com ([52.101.53.5] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wh9no-0000000FZeX-0dEt;
+	Tue, 07 Jul 2026 17:41:48 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9Uz-0000000FYEU-0P7H
+	id 1wh9nf-0000000FZb2-0OAr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 17:22:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aJH+NE9KrneanJc3vsK5Rir0mAZLt2mG661q1Vqzk+e1hQ/h7H1oYh8IqIfPYJK/sQG5qZ9gwrIBirIc7UCAqbGpsUaF/yaoN2da9u9SIO4ZZP+i5YuISK9a7aYQdDMjt+b5DeqgFdSOdpLtd/l3r8sVLynwffXK08v978KVyZ+tGIaZ5cxtcCNMOONKwYv7gT0HOWEK5CcD5wAzu8K3Uz//GZn5edNt91EPv6hpxFOAnXCbTSIt6g/9ajOkO94rCNRU0b4rYNDYlMYshl0nXr7R161D/0gFLVnf4bkgUCBU5lv2T1+Aiwb8YOXXjQYz3VFNTxfFYOSrp0yDZJTz1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zaBOiybOd7/mfx0hVWEzmqw9A+nKrTg0fdvXWqkeSGw=;
- b=mvfV6CviUGKym6djQO8DSiTjLYTjsYdvYj08oehYLyYHVCOV1Vx5JU2lbPJQZJlhewt5LI2uIO4lcC0XNxxb2BV70Sft2XZRtIZhPGhdLqLqGW/43/HJHMZ8Sx2TYcfnu+CA2y5TT8IX0niIGCm+oHj67HOjn+2RJYkmChorTiKFX375ZOK4DCTgA8C8tFmFZC8ddWHT2UNvS6IirY9zH0gtRxOxhnB2gRJ/OOzi/77ABO/Kau1T6SgkO1s7JyUh0YOauixJk2zX4mVdG3E3hiWiw+Kb4kXEwP8NR13LEs+KdeZsnVmRUQmtYEJFPLv027Kz2Xh28/xm3lhL5VSxfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zaBOiybOd7/mfx0hVWEzmqw9A+nKrTg0fdvXWqkeSGw=;
- b=lb+Z81XZ8St+KsIgSr9ahclUbSMWmejqurqnBuxh8wHpDRK1vUMf0/t3DwtcDcQMrEqOZC4ynA2NNfbwbKxZzv2OQKQsU0YIKKq8oOn9fmrD9ufegkcXy59Z+oKnZkALycJfTdNy2VqbjXHt4zJtxsjURMLR6ys7mxJKtf4VP63eiA+PPjjS79WvLt6V8MTFAAR9JDxON5DHKhorElY6uvjjc8eLHWSRtEGvSJM9w8YOiNRkwoY3yMbB67iqst79ck6Uq3cTqw/X/2tHi0zHnH/lTW33S65LGHlDSvJqrBAByenMw+YvKqVj/bQLEm+tnMgLQJ4tcycrTcSj44/7xQ==
-Received: from SJ0PR03CA0065.namprd03.prod.outlook.com (2603:10b6:a03:331::10)
- by SA5PPF590085732.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8ca) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Tue, 7 Jul
- 2026 17:22:11 +0000
-Received: from MWH0EPF000C618F.namprd02.prod.outlook.com
- (2603:10b6:a03:331:cafe::3c) by SJ0PR03CA0065.outlook.office365.com
- (2603:10b6:a03:331::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Tue, 7
- Jul 2026 17:22:10 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- MWH0EPF000C618F.mail.protection.outlook.com (10.167.249.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 17:22:10 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 10:21:43 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 10:21:43 -0700
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 7 Jul 2026 10:21:42 -0700
-Date: Tue, 7 Jul 2026 10:21:40 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
- Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
-Message-ID: <ak01pH1Dkq7nzlIN@Asurada-Nvidia>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <akx5IvI6bi/OPuPe@nvidia.com>
- <20260707161506.GA226829@nvidia.com>
+	Tue, 07 Jul 2026 17:41:42 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260707174135euoutp0292703c41b5502e0880dd052a3100deca~AEsZXPdBS2060220602euoutp02Q
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 17:41:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260707174135euoutp0292703c41b5502e0880dd052a3100deca~AEsZXPdBS2060220602euoutp02Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1783446095;
+	bh=Q5JM7bNL+vvD39sKvHstP3GgCnVUZ9CKB+B+yeWlQEg=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=L/Y3F9RTlHLo98VkCsSuh+UtR71ATMVFANv9mPj2yDBHZrlpg6+aRld7uyr/joUN6
+	 v0g+wmPShDE3aSnGD9TvS7mUCx6NsMP/sPQ/Gmz9rN47FQvmvwmBu74VwRhRc8Wnt6
+	 ehtqLK3NID0EkXo+RsrvbYXXtq1HcjYzsVMDipk8=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260707174134eucas1p2d88b2b6007e833f02ef6497b388374ef~AEsYmDoRO2783027830eucas1p2n;
+	Tue,  7 Jul 2026 17:41:34 +0000 (GMT)
+Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
+	[106.120.77.61]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260707174133eusmtip1f584699ca9032f159ed4a173781ce399~AEsX6Tayo1541815418eusmtip1L;
+	Tue,  7 Jul 2026 17:41:33 +0000 (GMT)
+From: Jakub Raczynski <j.raczynski@samsung.com>
+To: netdev@vger.kernel.org
+Cc: k.tegowski@samsung.com, k.domagalski@samsung.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jakub
+	Raczynski <j.raczynski@samsung.com>
+Subject: [PATCH net 0/2] net/stmmac: Secure against failures of DMA memory
+ allocation
+Date: Tue,  7 Jul 2026 19:41:13 +0200
+Message-Id: <20260707174115.1264466-1-j.raczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260707161506.GA226829@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C618F:EE_|SA5PPF590085732:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4246ef4e-91b4-4d77-214a-08dedc4c4751
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|23010399003|82310400026|11063799006|4143699003|22082099003|18002099003|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: 8aaoJFLRZZ7zdyzejg3LcnMd28DcIJQ4rpH6TKg4loiRnZ7MPU7OAwhDiNL8jANB1B8mDEnkFwdySTUWjQuTENyEDlfvRNi/JDszOIEVJ9ZP/QLcxnwFfUAI227WjkfiWy5sX/SVsMKFS0OHKOi9QT1edfW/BGjtDm6FB/e8Y64xncNnfQ1WZaAzl5CFPgjVE9SuOkXTYcSEMQwoDUtFNl7yiFV4eangrqLopGRsN359ZqJNQ1Roayqs/aKWkes9ikiqUrILRS+Tt1QwOxu+jHXc1DZYO/UOInUw8fI5hE7UwM/42lz19YOUQkvUz2cVpzIRD4F6wF6q92Wp/AbWAxZOXbD95zVSySyAGDyDTj76nHmPsyf8yd6An+J19wPJaNQpZbSo8DmzDEV0omnFEk62KD95eOmjVkfL2mnplJkafgK/ECm0mKCixZye+hM6E09hM5B1Z0lUjyNzjbzikCRN/mREdQFCxx0TcKQRet5mm7A0HjYV7GDNWuo59i29L9FWG/nKRh5eE0S0V2VcYgti51To5XSucammGpnOBFXOURAwJmsxrRRRCtII27tsurBN5o7peA73Yy2ZGKZ+ZEj4bLPapsIDn0mMUh4Hx0xkhl9FMpPdH0HNGN/5TmhOhOoVLfaf3AK4k7zpE2lm/L07bwsYMBE1urjZHQQ1/csOQHtgTH2Oc/C6qedRlAMmLjh33aAuMwdf0sV/5S37BA==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(23010399003)(82310400026)(11063799006)(4143699003)(22082099003)(18002099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: cfORRe3SnuZUGGJZ2G/JesyzO5H34seO0M99aUwblu/ugTU8hjBpCSaCyu/u8IdP/Hb5edwIhTZp9LliUaYwdA2JeEfmgRO0rcLQkRRoqoExovseobFYGZkrEQaJpGZfn92PBzkgmjYfNhEGRONZcNoLwb0FQS5u2sZvlbOWx8ISkgAhE0Up/xKKn3lGX+28ELLy6uYKbzW0hJGRNWWZaznxCUsTyGjVnxBh/gqWSxNUiJBaeG/bVYxLi7MM3APyudkODvQ92QSwPvAaDdpi+ZiHTP79y9zej8JJFMFsHgUnqSXKtGvDDIqE6whCh8xyoLdrPmomWZzyzKcpblziYRqLggEZj2qVVsXCS4bWMCk5Vidwb0IyZKQ4bzrW0azTYpeCx9/Bq6r82rIrzbJ3+deYvoqlZaivbHTaT3ykqdhhE3M1xPUJvDi0rk9QJzh/
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 17:22:10.3819
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4246ef4e-91b4-4d77-214a-08dedc4c4751
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPF590085732
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260707174134eucas1p2d88b2b6007e833f02ef6497b388374ef
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260707174134eucas1p2d88b2b6007e833f02ef6497b388374ef
+X-EPHeader: CA
+X-CMS-RootMailID: 20260707174134eucas1p2d88b2b6007e833f02ef6497b388374ef
+References: <CGME20260707174134eucas1p2d88b2b6007e833f02ef6497b388374ef@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_102221_149024_91ED3FA6 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260707_104139_596394_0DE1E4F9 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,22 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 01:15:06PM -0300, Jason Gunthorpe wrote:
-> On Mon, Jul 06, 2026 at 08:57:22PM -0700, Nicolin Chen wrote:
-> > > @@ -734,7 +734,6 @@ struct arm_smmu_inv {
-> > >  	u8 nsize_opcode;
-> > >  	u32 id; /* ASID or VMID or SID */
-> > >  	union {
-> > > -		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
-> > >  		u32 ssid; /* INV_TYPE_ATS */
-> > >  	};
-> > 
-> > So, union has only "ssid" now. Should we unwrap it?
-> 
-> I thought we might need it with some of the other series?
+This series fixing two possible issues related to fails of
+__alloc_dma_rx_desc_resources(). Original issue from 1st patch is related to
+page_pool that has happened in testing env, while second was requested by
+Sashiko to have similar change for DMA allocation. 
+To have complete fix for all failures of __alloc_dma_rx_desc_resources(),
+merge two fixes into series.
 
-I was wondering about that too, but couldn't find in those series
-of mine (smmuv3_kdump, smmuv3_atc_timeout, smmuv3_share_domain).
+---
+Note:
+1st patch "Set Rx queue page_pool to NULL when freeing DMA resources" is
+set to v2 while this series is v1. I know this is inconsistent, but this
+series is not v2 and would be even more confusing.
+Hopefully that doesn't break some CI, as second patch is v1.
 
-Nicolin
+Link to original:
+https://lore.kernel.org/netdev/20260630100953.747868-1-j.raczynski@samsung.com/
+
+Changes in v2 (in first patch):
+- Added reviewed by Maxime
+- Dropped null check as page_pool_destroy() does provide that
+- Modified comment to reflect that
+
+Jakub Raczynski (2):
+  net/stmmac: Set Rx queue page_pool to NULL when freeing DMA resources
+  net/stmmac: Prevent dma queue NULL free on allocation failure
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 +++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
+
+-- 
+2.34.1
+
 
