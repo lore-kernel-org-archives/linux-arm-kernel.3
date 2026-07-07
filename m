@@ -4,121 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8556FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 20:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE53AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 20:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H35h3WmMjNx5Te0fV3LGaX0YlCHWBQl/br6tE0lP+k8=; b=FBHhDwgFRctWk7n5j8s0poz8qB
-	UO0Lo5xrD1RbsKAoLBu0F/sfA3t/++WC1q3SlagBkXS7nlb1yrSsf+dLYV8ggIwLzOYmrtq4HtBme
-	lD5N+ni0OGZiSnTdA3QP//ZkuWtcwTJSwg9yau0Y3CbDKCI5cLx/zGUQ4O+sCrjmh4DARN/bMv21q
-	RmMTRyLOuWddBMk1qwWDKgSplYO3H+WW1akFT9YeyB9J8WCqBP4sMpaV1gavJO40OiboLC147nBHz
-	gj03D7JcwJ0xQDxQijir5JwBFXuz0vPR9pQAMRfgJp0Z/T83DvaPxQa7UZcoHwkZRnyIR2V9fKtX4
-	a+JXUYIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O11o5MEN33Vh1fP73gT+0ZVa3EZdhEdLDt6jcZLOEk0=; b=nteGW6isJs6pSu78sFBtxmPKg2
+	DYv987qTB38B7LqqAh5llp15L8sAVrRGyvu4VvvwDslWNV3ZFddBJTxbYFs30mv0MBjuFamUkjChK
+	gWbn7xeEW7H2V6d7XWoSvZrP6HqcH7fsmThV4QJaJkioyK+A13BrEGD56yg7mBpbl8RJOCBRWmlbR
+	TTGKY8kZayAbFAf7dO7YIwEpub1kkm6+jPR0diQVMwWwBKmq1dwsOKDbauChgWNK8MjXcuQdK6d0W
+	qxphJHaVIjSK9n/nglft2w6pM99H78EGlKzqy/Cn0nTszydr4/RGvm5rZ0Hoy0WnP2mc3k/QFDht8
+	ClQnf2kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whCSz-0000000Frfl-0wDz;
-	Tue, 07 Jul 2026 20:32:29 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1whCUY-0000000Frw0-3tGb;
+	Tue, 07 Jul 2026 20:34:06 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whCSw-0000000FrfK-24Y0
+	id 1whCUV-0000000Fruv-0GYo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 20:32:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eQH8BUGrYmRCF+QcyZixvjhPGrVIKUDDmt81FZoIBwop6Z8oCEFIEFn/avWox13A+x4K4EyK+hEbf05zOutOh5PxrhQMP19XU5yAerLLsKPMXGXkJV9EWGisCGN2COOl3M8v/UbSbuPShy/3fiFnKztAspkKK3bDKid5Aj2vvZ5oKrCrhxfP43EuTgonvHw23Uw6SAZkFRfCRuYRhWzxao+JPICNnbcpt9d5mjh2yhnskcHR28mUdI9MssIGniIHblqfy4fLC6nfQLoz9sY0GCYQ919H5kBL4/sWbUYxxB/XTjht/bJ8vAcSw27WWC6HlIYqr6v/JpRao2Y3dAEucA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H35h3WmMjNx5Te0fV3LGaX0YlCHWBQl/br6tE0lP+k8=;
- b=fF9XVIbXtMIwViVFe94vqh+bJjwyhsTMeLraoi9arR0SipCG/xWkYqYwk0GTnl5VjkyTBgV7EYXKgjkHVhhFQiJ2FJPq0LafpOyrsn+hU52lr49GrRh96XHpCjo1wxDdmeWwFYmh7GitkvyDQJQOZCK/UrQFBUH8qP3+gkz9bRIQsBX2UG67K3cSaObDxciNCRHPo+A9vsRAKFF+nyiqFBPgT1bUalZQuwORiKHbFCDBO58mKHvahqo/G+oXGYbwKaKguXp+NfHHQBMNkRySxsHTrdaZIOjaQXHT1tcWkjcEh4J9RV7nqBeH7yCeS4UnlIBdY2QRmK4/brMYErjDfA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H35h3WmMjNx5Te0fV3LGaX0YlCHWBQl/br6tE0lP+k8=;
- b=fdDMsEalD6Tfvw7LPA8McSzW3JTKOte1oWbwswv31NJeiYKxJDHvH2Zy6+cBM+Dr0jO7JQ+Jes/cMucQ+9IKDrPZV/kEmsDQYC9nK599pOO3HFDeTuNoS3HIhNDeturOHIsApGEcLc6uZLKSdXJmMO3pt1F7/xFGS4N2Jg8yAhv8B2FR+3HjjQ64MoJDObnihTaa56/I9XqJFIHpUceUMeVQmh6vkus8lcMAOZ6PAOL96P6/98X/dswLiTfwsuJw3a/rW0nsNnPImVpPezZUAzY9dD9nCSXHUCJbC7fvqv1VODTD5PioXoF8eMvciUsI64v6c4+mJYlMN7mZcNR2+w==
-Received: from CH0PR03CA0202.namprd03.prod.outlook.com (2603:10b6:610:e4::27)
- by DS5PPFA33D606F8.namprd12.prod.outlook.com (2603:10b6:f:fc00::65b) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Tue, 7 Jul
- 2026 20:32:17 +0000
-Received: from CH1PEPF0000A347.namprd04.prod.outlook.com
- (2603:10b6:610:e4:cafe::79) by CH0PR03CA0202.outlook.office365.com
- (2603:10b6:610:e4::27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend
- Transport; Tue, 7 Jul 2026 20:32:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH1PEPF0000A347.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 20:32:16 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 7 Jul
- 2026 13:31:56 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 7 Jul 2026 13:31:55 -0700
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 7 Jul 2026 13:31:55 -0700
-Date: Tue, 7 Jul 2026 13:31:53 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
- Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
- commands
-Message-ID: <ak1iOWrvLv/6ACsP@Asurada-Nvidia>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+	Tue, 07 Jul 2026 20:34:04 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47de008b020so640383f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 13:34:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783456440; x=1784061240; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=O11o5MEN33Vh1fP73gT+0ZVa3EZdhEdLDt6jcZLOEk0=;
+        b=RRhkwUCEjFrRw58/vnWJV7zrYOsuSHj8QG/6hT8GAHFb83DVXkqugFukgryt0jDure
+         s7xdxpBnwDsGNUtDcYeCp/69ttkUBT/UNPhGqYSDAOZb+hfapYZdtZK1LbaOGDqy0SbU
+         7xTQ9eVFx7MsxW/yOwrNEWo/YnPEx/qUGmaVOVL7FzuCyLy/mHedOG9VM/7Xnnt+rRPq
+         /T2Zuw0qtBktsqHY7zg1rTFOIMqd6Ln4kmI4QnCYYHkJcZq3U8qyGk5r7WSpItMyNyJ3
+         DJnTpU7GFUvRIbKtVxSyJGtqLLlrmPmc9GnsA2cOoUaKe6qusTUHmpK4QF76h0pTRPMw
+         GGxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783456440; x=1784061240;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=O11o5MEN33Vh1fP73gT+0ZVa3EZdhEdLDt6jcZLOEk0=;
+        b=HsxFm7maO5vIlsmTJwekLxMyTMaQytINXlVsyMmLIPIzthYR7tJKuw/VRPDnNXwYTr
+         vuE1hDmCHBO2tww+DkmnO4Hihex3YOa/sVdDzMkf7ghcWPT34u5K8qhyqAcQa934Bj77
+         CyWqwv+FZKJ+dKDPABYYDY1GvnQUcO1zjqPYV3QPAzgoRgsavrtJoL6MRFnR61aM3MnM
+         c2yQOMqrTjng7aBO/Q3+loWob1aMLCwJowIolONrO3G3VJiqSJHqMQ1RUF6UFFOMszsx
+         nU+b4HwW1kuDk/zy9c5VuMTLfqr2OpPb9erHJhtx+Cxopq3XVK9ipZ/uv2IWVZKYnI7Y
+         yH4w==
+X-Forwarded-Encrypted: i=1; AHgh+RqwcxVMzBuqyxWqr2cFOL4MMXh3fyFfYxvis04097Oz5Qa/9IZozOz2vhtCNx8dBMKyIx6QlEFXYXGgb1XS9HD4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXd0XZIh3QEiNoq+THDONNSxiZ01cYaV682x8sUQD0dOP0O+4a
+	zLge5K+Vf/91zSMpIEzIcTJ88FVTKVAAZEoQ9HFPQTJVSEW9UU5TztaSgglB+pHpkcg=
+X-Gm-Gg: AfdE7cnaV0FlFSnEg+ioQt4h2GQqKgW8aJavCbr8XXcy1/bl2t+FnRIzmxsuuEQ+i4c
+	IqX04ybZDCM8agE+CjpqmayY83nG/G6YoDYepadBpaQXgV1+JsaKNrfmhMfDGOC6L2mLctGV6Mw
+	U+oA8NL4VPF/9LRG/5XUtskr1DHbI00weWT2szSWqJSwlj0pDnDP2DPbmxWkTenJqoVXPNVLpq1
+	8VNLQW5V3+SFVgyoN+rSo5Qw87DXemkH/jnvZ482DLDcaRigT9prImHu3r9nVSGZgUsepCElh/s
+	12kSfEMNeiHPcuWcThLaWeK6w5C//2qATpuP0GXc86yGGKK+fmYZwEuM2V2Rr9dx/rwi1A1du+9
+	7P1q6kn22rH9iwF6ZQqQfbSyyr56Ha6xbtQztFiIeQBLhjJQmr6hlNgJ51IuEeCjvSbBN4MYXd1
+	fznMk2Plrm2Uf+Vl4=
+X-Received: by 2002:a05:6000:2891:b0:475:f0c2:75b2 with SMTP id ffacd0b85a97d-47de9a41059mr5106546f8f.29.1783456439812;
+        Tue, 07 Jul 2026 13:33:59 -0700 (PDT)
+Received: from [192.168.3.100] ([151.41.178.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d8f1sm36801444f8f.3.2026.07.07.13.33.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jul 2026 13:33:59 -0700 (PDT)
+Message-ID: <b955120b-2c32-4b03-9e7f-f236692cfc7b@baylibre.com>
+Date: Tue, 7 Jul 2026 22:33:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A347:EE_|DS5PPFA33D606F8:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9578ac3-5f1a-46b6-a5c3-08dedc66d5e6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|23010399003|36860700016|4143699003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: e7pVy34+sQr35pqc3uyNaD8AaJzdJsHV6VGxpqJcG5F/FlOkoRtGXBvYyzs7XWBys+pM68WaUyas39rr9CJaPTLlWwPf4Zw9T3no+46b0d8eM26BLZwHEAYI6ppa7+DFrzisWfarXTxKwcUlFddUaAX4Dfn2sCCjIjhwDB6TxKe4ZL/1p3GjfEakgG9FQZnOlJEcWuxTteYDzFvN/XAz7iNB8g1m3zHjMiJGrhd1Fwr8BLKUdZDRZj8bp9Qny6BqhGgea7iGimvCLSKfYRgNjKg9nDc8wdU6Xzb89E6zBUWiBgN6tfPq9bWvmWdI6p6n5B4+w+RBlS0cDd6JB9kTYl/lfqJN9YQ/dtW9SYZnHV8b2LVfpjGDg/fJUQr9sCUKwylOliJlryHRdI+05IEy7KHWrQkDAVTb8zSDbLjIegSseNZ5kGj99Hebw/zoxKm4PNiFoSRod7A76MT+To8Lzgrisb3yiPZBfQGT2MfnEKih/6xpChVLNAhjHuK9Ql5qGl+PIa7CyAFgruS8oa9wvExqSiRQqDe/r60naksqlP0YaDNgMlW5hl1b9K3ldlqbz3ioVCL/8kKGtc8spi9BK0ZmI1gRK4v2tYDs00wHAfgimT+hKSsAsTJQp+QaPNTARZ6lQa/6ms54zyHEjqUYXcDmaZkwRADEs7PLMEhF2StWZkkIzPWE4sZ5pCrB3DssrFIkoAcs9elKxt+9XWPHQQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(23010399003)(36860700016)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: I7EG3n12OcR3txj+9h6jmPBSMtr2Pg0I77HlImvyNNy3hXPkmfB3d+h4NSjE1YHFrLV2ThIa8NzQYCQ1AVKvzNQmwLzx24VYJ3sVOe9IbBdjzpdCbk+LoItz7KFrJNKANmXndk0su36jH6ZzKie10JHHpv4LNOxd6/MBPsfmPAq4d4dy5zkDso8uEu6FnYRnWtx/5nQLdKwFt229ALYLCnJWMInHiFUEY7EH/UBIklOILUUSA2XAp9utm2yT5oSoqSenfpOWRqr/RTJ88g4LLauNgz/XdXqH78XoC7nc2J0I1/EzPXoavi+odEhtD7gNRzXCf+BJIyGlmDDjoFuOotpg8X5G2+n21CgiA1GBaESZkl86RfO3IPxmmPj3T5WwdfSSDd9kJQP9nG35EFjcrRK8a8QGrY2KhCB5rd4EaNRKNChV5KK/HtKGLsKJdbvD
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 20:32:16.5197
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9578ac3-5f1a-46b6-a5c3-08dedc66d5e6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A347.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFA33D606F8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: meson: aiu: Fix resource leak
+To: Ethan Tidmore <ethantidmore06@gmail.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260707012424.1661733-1-ethantidmore06@gmail.com>
+Content-Language: en-US
+From: Valerio Setti <vsetti@baylibre.com>
+In-Reply-To: <20260707012424.1661733-1-ethantidmore06@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_133226_567555_DF17A9D5 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260707_133403_166376_EBE3F84A 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,72 +107,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:26:42PM -0300, Jason Gunthorpe wrote:
-> @@ -2471,10 +2451,13 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
->  	if (num_tg == 1) {
->  		if (!ttl)
->  			ttl = 3;
-> -		arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
-> -					    cur_tg << tg_lg2, 0, 0, ttl,
-> -					    tg_enc);
-> -		return true;
-> +		tlbi->range.data0 = 0;
-> +		tlbi->range.data1 =
-> +			FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> +			FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-> +			FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-> +			(cur_tg << tg_lg2);
-> +		return;
->  	}
-[...]
-> +	tlbi->range.data0 =
-> +		FIELD_PREP(CMDQ_TLBI_0_NUM,
-> +			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
-> +		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-> +	tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> +			    FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-> +			    FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-> +			    (cur_tg << tg_lg2);
 
-Could this be slightly cleaner:
 
-	unsigned int num = 0, scale = 0;
-	...
-	if (num_tg == 1) {
-		if (!ttl)
-			ttl = 3;
-		goto build;
-	}
+On 7/7/26 3:24 AM, Ethan Tidmore wrote:
+> In snd_soc_register_component() error path, the aiu-formatter is not
+> being freed. Instead of returning now goto the err tag so the
+> aiu-formatter can properly be freed.
+> 
+> Fixes: 83b83024cdbfd ("ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data")
+> Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
+> ---
+>   sound/soc/meson/aiu.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/sound/soc/meson/aiu.c b/sound/soc/meson/aiu.c
+> index 64ace4d25d92..d6b644a53f7e 100644
+> --- a/sound/soc/meson/aiu.c
+> +++ b/sound/soc/meson/aiu.c
+> @@ -310,7 +310,7 @@ static int aiu_probe(struct platform_device *pdev)
+>   					 ARRAY_SIZE(aiu_cpu_dai_drv));
+>   	if (ret) {
+>   		dev_err(dev, "Failed to register cpu component\n");
+> -		return ret;
+> +		goto err;
+>   	}
+>   
+>   	/* Register the hdmi codec control component */
 
-	scale = fls64((num_tg - 1) / 32);
-	num = DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1;
-build:
-	tlbi->range.data0 = FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
-			    FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-	tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-			    FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-			    FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-			    (cur_tg << tg_lg2);
+Technically the fix is OK, but I don't think the commit title and 
+message are correct. aiu-formatter data is allocated in 
+'gx_formatter_create' using 'devm_kzalloc' so, unless I'm missing 
+something, the data should be automatically freed when the device is 
+removed in case of error.
+What 'gx_formatter_free' does is simply clearing widget's private 
+pointer (i.e. 'w->priv'). I think that not clearing it should not have 
+any bad consequence since the pointer would be overwritten on the next 
+probe. However I agree that for consistency reasons it's a good thing to 
+clear to do when 'aiu_probe' fails.
 
-?
+So perhaps the title should be rewritten to something like "ASoC: meson: 
+aiu: reset widget private data on probe error path"?
 
-> @@ -2711,6 +2711,14 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->  	rcu_read_lock();
->  	invs = rcu_dereference(smmu_domain->invs);
->  
-> +	/* Only precaculate RIL if it will be used. */
+-- 
+Valerio
 
-precalculate
-
-> +	if (invs->has_range_inv) {
-> +		if (!tlbi.range.use_full_inv)
-> +			arm_smmu_tlbi_calc_range(&tlbi);
-> +	} else {
-> +		tlbi.range.use_full_inv = true;
-
-I am a bit unsure about this line since invs has no RIL entry.
-
-Is it set for a defensive reason?
-
-Nicolin
 
