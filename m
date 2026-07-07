@@ -4,128 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EC6C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CE8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDpioy371w1ytskGmzuN3nPzBa9MJdh6mVlnaoVmISQ=; b=zsO1Q4bH9j31uVVg9TBBTP5FrJ
-	bgagW/Omup3y/DeR2NpnBRo9+t1DMJlwN6B407/bb8OrnB1BeDRAW5pwip227Th+4+OW09hFaJdGN
-	wlVzMnAANid0B2fNWo3zaQmgmEpRitiZivifPXnWqlrCa0IefcaRQc0s5QxJePOMbdTyjxXUcep6X
-	fyaDrxVi6ps21yojEIMfxBXA8ePPNQzc4LDj7Q6GMiF1AlG3x4Tyv3JpXTSIEhU799dG6XbHQ6n0e
-	phccQa5qYQmGQqirFWioYI/z28O+PoYXvAE8j484qAazq/gAz6IupnSGF5JG7Jyd+fZF0g54NRa6l
-	BDCNpgGQ==;
+	bh=0VgqZk2+M4O8X70VgHeDWO5bVKrL7Qb344B9KtlXxf0=; b=NaCJj3ls3sXo3G9euOnvTM6FIR
+	cLksLlNUQScRcvVPErI+9uFeWMW6j67pdA3Jh7Ur0fQ34HIx6FmKjYixk0bLzQM1YhEwK/8cSyVPH
+	Zlr3T8rJ+X08KoGMJWxsG8Ii1fqU6Le4SDH4VPoeKasAxyFFuSLuQo1fP4xMWDlvMoJiCOGAnknsg
+	UOKtbHqwJDPsLaza+gq2ebNgHDEA5O/LaAvC3/lXIE5P4prINFGZJnGLUEvK3a/U+98L9IQD+RNQ/
+	n2tCQtVuOUSXzhhC2zoOeRt3yOhnjGoIbAwGNzoUVsyUIItEBmPrt7qwz7FJadTlkd/A+5Pe/iyDN
+	TvtXUQfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB3t-0000000FgEO-0eAm;
-	Tue, 07 Jul 2026 19:02:29 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1whB43-0000000FgGp-1qj1;
+	Tue, 07 Jul 2026 19:02:39 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whB3q-0000000FgDT-1LA5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 19:02:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ei0LH+AYaSFExWqcygHSxTxXlTk4XqSLcbjH79slNaxShjduSWJGlQ5M9+g016e2PcUBEaJSNyVFefLalsidh4NH0soYRHFeZim8GMDF6siUCKW/dhPOssHRYhqywS2PT0d2/eHq0+O/QqIKD3Yx9So0K80VQLmtZROddf0ucNPzhJk/wVXSIBEf4DuDgweQLGUGu3+3O0rqlOPaXUmQ5cPAmpkNiTL2pNjspFdmMWsujWM6zMum33GUeriHPtOuvfrU/bZ+fCr3yylRctTEl71h+rnZNzu6j2GeRvr1m+kSraXfvvffbz7qAG8mbAdk28EEvjsHurl2nMwSWdY1cQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aDpioy371w1ytskGmzuN3nPzBa9MJdh6mVlnaoVmISQ=;
- b=JBVY4AZ0XPWB5hvYeRnugVaoH30LY5gcIF2fSQgOg31JgY173eChxmiRSGI8o+qGg5xGExPvoczpdeqaRY0eEB1lO/tJAUF4tYZGKVM3s0tDVTTRrQggDv+48qwaOH8HqkzwN0Xet/u87IeyJc5mckLz93Z7rbbZbPf9mhUG7KJoyjJCBhpDKYS1itWslNHnLNywsUP/pR9k2jwu8O+PG9RVB6BJlv84t25FScsMBVtvh1nPc2CQXPdvtwa7sfX1EVTQd03bYG6seNo0uJiPws8u76xvK/+3GjY+Wleq68l8AHq/+xqotqzk/KvJYWyZ+/zfTNq0jvVHwRjBw816Kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aDpioy371w1ytskGmzuN3nPzBa9MJdh6mVlnaoVmISQ=;
- b=K80a47apBHGYCpyIQ06w1h5pFGSHyXT+MZId1f9Dn76HE6TtLSHXYPe2dEM7SplJzQ0mEG+Qiw1K/NcTt5RPcONI2SU5qhZHTqJ6WIJi4aU60U36NU6OVgfXji6gomomQzhvqBNdof0BhxfEKg+t1mfK1tUbxCCuDQ4hncm9vNLNx6ngDwV9VA1tEQVKs+R6dFyO5OW7vIw0HsY/fhGVwR3Smm9uHd8vZN1POwGZHh4NzcTIvWfI3JJ11CsxY/eJ+N64qJ4QGfxjP24qn40sdHZAkHpGpDaThuj+FLpGixuwVNgX1Ug3IGsWo40bc6a4pWFgYvIEM1ZjpQuGdbli3w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB5PR04MB12177.eurprd04.prod.outlook.com (2603:10a6:10:648::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Tue, 7 Jul
- 2026 19:02:19 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 7 Jul 2026
- 19:02:19 +0000
-Date: Tue, 7 Jul 2026 14:02:09 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: ziniu.wang_1@oss.nxp.com
-Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
-	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/8] mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate()
- to allow default state restore
-Message-ID: <ak1NMS43Yrfsh7CS@SMW015318>
-References: <20260707110303.3779799-1-ziniu.wang_1@oss.nxp.com>
- <20260707110303.3779799-4-ziniu.wang_1@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260707110303.3779799-4-ziniu.wang_1@oss.nxp.com>
-X-ClientProxiedBy: PH7P220CA0054.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1whB40-0000000FgFN-0Mvi;
+	Tue, 07 Jul 2026 19:02:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=0VgqZk2+M4O8X70VgHeDWO5bVKrL7Qb344B9KtlXxf0=; b=IcdSnAl0GWmvivyH9PIGEfrrG/
+	m+vhRS1GrEpSZnu3BwWkB0bW+kHnF1uCU4b0j8snGm8yeWJwaeo0EXqHRVrD4/uIgY/kP4qrDHYJW
+	HWkGEbBSUPSeC+wC/4zOZBwpAgngtskkQx142Op/JWy93GHP3lNc7cP0NYr1gXG7IAn+qZGAOY/j1
+	T18dIjxuFJjTQZVAHJsccGj9xEZWnFUxizEVjfQEzdosal+0NkZaGJ1ofZNrZVZMU+fHObcoIgpDy
+	7GAorD5oPsPWJ8hdqKSvzTUEeqvi/65SFE+RxQQddNqr5h5pKFzbCC1XunfOZ+gExBV0Gt5sTpODv
+	XNwL81ZQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Brian Mayer <bleemayer@gmail.com>
+Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: add HYM8563 RTC to Radxa CM5 IO board
+Date: Tue, 07 Jul 2026 21:02:30 +0200
+Message-ID: <48203626.fMDQidcC6G@phil>
+In-Reply-To: <20260705181920.8633-1-bleemayer@gmail.com>
+References: <2960762.AiC22s8V5E@diego> <20260705181920.8633-1-bleemayer@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB5PR04MB12177:EE_
-X-MS-Office365-Filtering-Correlation-Id: 404ac154-58f0-4029-10da-08dedc5a445f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|11063799006|5023799004|56012099006|18002099003|22082099003|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info: We5AA6L9CSsft23i4si38fkwHmkyPq1fvn9j1tS3Adecz8aQnrf3nzIlnwDdh7HBUi+/dUI8xIHgbF5gxZhm2cJ6hcY2Tn9KbBTaUKd+TkEfgcBAUbfPDri6ru36SpMe5R0sDrTNTMW2bpQqAiOJP4dvS4W670S/7k2YKIhFAsM00MJuDwhFEpjZe8ClZKiFlmrqxjAiANewHpk9uuwrNxxXCw6M9YxmNqPMUFhSUrmdM5GPZmYr9lV8eJN9BZaE4YOnspqEGnawGixpJ9GNlJ4K9VPIYW2G0uQNsMFB6qSXroDbWqXUWhK8bxzg8RCXbDGGTRO0UwmOlHBvs11Zaelnc1qua2Aomqs5Pry00n49baB2vO0f1JCBf+/1g2wo2GiSm52QRzuX4gWoV36ILw2DRR44eLnmjecyGhMCmRc8uPfgx92GLNv8zsyodfE9NpFHJRkvGPBli/3J1fszEbetYRvBxORjK5Z5+hXMvsiDEWRBRm1BF7TmQatkDWruICEItACKFV4dCZNvVYzR50FtIW30i9LYMFLBwnz/ZeOfPzVKlYSQwiVmW3cjc8s9BDA3H3w1qF71zOuze68R0v+Pq7/h6H15ZgtuA05RrqBIiMVTiwuEZhcQJL/NP+kS6f2YqRLaB1jAteUMRXE2JWcxSixosazzdQVArWEjYFU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fr0XF4TyRHKC/KqCdOP9sA8zVTe2r50RZH8sU4LTQSaE1Z54W2tYA0MJLIYJ?=
- =?us-ascii?Q?wQ8YOkufaV3eOYZrtYlpvUtcBXNv0cdxriKzRe+tFmmpmjLsNcZPVtkmz124?=
- =?us-ascii?Q?aTSXzNIxIsXsUdGz3gwhsLeYVDmV87U/MsMym5xW0D/EUZCZXd1k2aZgd694?=
- =?us-ascii?Q?9xlTo+aivY1Qhq5TeDI1ruPAt+Ai94u86w0kfZXej2xIiCAfvJoRARaz85vi?=
- =?us-ascii?Q?ooHQgZvhZLiKtJYlvNVEP0G0F7ZYrNC8QYeinXUnPq+8/ZsqvZauXahBBw6z?=
- =?us-ascii?Q?cbpxPZtT2gpUKZd2v7sP69ELuwoqU5du04cj5n/gjbdbsKQw9yt1G6q9irHG?=
- =?us-ascii?Q?s/Xs2ZBC0zeYLNSaXp+IWpuR0JMS1otSE454M4yd5NGB0FAH6iWNzFxhHVUt?=
- =?us-ascii?Q?nLVUXyINaa4YPFi5OdYPCRD1MIDa1f5qJUGKWlpuxarwVZZDI94v3++OpR24?=
- =?us-ascii?Q?1ttmJdXjj0/fLTg2XjxiGurCd6DJgQj6UcFw1jx+qbar2xniQi+QlRos/+jz?=
- =?us-ascii?Q?zHS96Dc+2Ela1q76JQFmoHNc13tXHGrNHVJxJ2zeRB7JWZ9c5FjmLQfzb5HE?=
- =?us-ascii?Q?US5ggbDqhXMl6rlhJzhsXlVoBYw1H0Z92jpwiFdhPLC6MfaYnsPqoL3RWibV?=
- =?us-ascii?Q?a0yKqOjB7cfa0BEpWtTpBMRJzOojBJiRwc36EdRAJzbvJoedAFiVJXirbCiK?=
- =?us-ascii?Q?nmx2+rhK6uvuVtUdPLUOxzZ9N9rVSRG7bshBaTaSJF1i5s8ZYcO81SR1T6rM?=
- =?us-ascii?Q?MbekhhMpgioqTDn84NWGcOp7ggYcU2PfWMbFn8/4QxXSAVK1UtwZRn5SAvpQ?=
- =?us-ascii?Q?ONIVnu65IFKx4Te1juUKLxmvuLxVE7YSFkCQ4fXOz8wMzb6bgunDc0Llopy6?=
- =?us-ascii?Q?icQPUK+msfQWck0h3chNbCaF0GsyJTcbC2I/FPBMm3NtjBh/0m+NIj85R6L+?=
- =?us-ascii?Q?7jl7PWVMiOt05dUuzEliEWeRQTtcmry3+llOHAoOnMjvKFIB/BsCkifMKOkJ?=
- =?us-ascii?Q?hd1DSUQcFH3CWYaQ83OH3t6zQJYZr2DkP2RoSE6YRZjqk94ScXtl1KV5yi2l?=
- =?us-ascii?Q?3bUKg/cwsaDpgSCcUHMXr1dyFGVjmkFUSXc4GzCwdWGDvB0NdfeIpa/9hqHB?=
- =?us-ascii?Q?zLHZAhqjLR6BL9kfWVeV81i+Bilo13iUQ1sQvsiS4iaZleOTmjvkDHbDjVc1?=
- =?us-ascii?Q?XiQWW7ifyQmyieaaABC5lJ9MebeHQGlGyiK6wDrmig8QIWVMcuFvM+rFH22y?=
- =?us-ascii?Q?m+oB3F+Ioykwz6SMJKni+xA3bKDqAto2G6h7yTGzcmkD5nghfYAbnEn994SG?=
- =?us-ascii?Q?egTeeNSuKLFEY8pc8vf+Hn2Sm6swtF/S8hywcUI2gZ1arwQn/RVsdBeIR1hL?=
- =?us-ascii?Q?wxOIS5/hI+GxXjhBHufOBjUWaMJKTdYD/S3InyAcKCL6EWL3Pqsww+p291Bb?=
- =?us-ascii?Q?jqXOLwmJLCBf4IchrTC+Gfu1vlQDDcgtStzJsxQz6hgGTeSLmWORaSziIoXF?=
- =?us-ascii?Q?LeD5PUD6QkXyBn2faKbpybPC5PWlkBcqtnvPFzeLH46fUXRcNpmeHxp37JLA?=
- =?us-ascii?Q?p0TJ2GcdPWuWsTAJPEiz4G7T9PJXgjhAiK/WGaDLGVixAJUqAwRoZo29mgNO?=
- =?us-ascii?Q?ZzJ85qbjFQqCI7mx16O5vR0kjKuTFUZwO6DsUG1nAf/KdORcQfXmZrIOYHO/?=
- =?us-ascii?Q?gJd37BPK/1x5aDxRluuWUkJe7kX9TGViKGrVPAK8gHCzEhCpCmeeOyJIGKA7?=
- =?us-ascii?Q?Hz0bp8GKW/zJFxycCtgQ1S6P/8W1yTQlwEoJShZ3nTG/jTydRj/g?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 404ac154-58f0-4029-10da-08dedc5a445f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 19:02:19.0079
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RV3tLbQR5ipD7Wg4T+6Ha+FfUI8xw6QenLNMXNh7GANtjrox/PaklbHs9jfL9puosEkKv0W6G6OeWc0oMaoDf487KR/C15OU0R3kNknL7SJBnHw9B1uCZvTwrDIAUZ7c
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR04MB12177
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_120226_367495_C420D52C 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20260707_120236_133415_6424EFDD 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,71 +64,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 07:02:58PM +0800, ziniu.wang_1@oss.nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
->
-> esdhc_change_pinstate() checks for pins_100mhz and pins_200mhz at the
-> top of the function and returns -EINVAL if either is not defined. This
-> prevents the default case from ever being reached, which means devices
-> with a sleep pinctrl state but without high-speed pin states (100mhz/
-> 200mhz) can never restore their default pin configuration.
->
-> Move the IS_ERR checks for pins_100mhz and pins_200mhz into their
-> respective switch cases.
->
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+Hi Brian,
+
+I've applied the change with some changes.
+Please the comments below in mind for future patches, but there is no
+need to send another version:
+
+
+Am Sonntag, 5. Juli 2026, 20:19:19 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Brian Mayer:
+> Hello again, to clarify: I tested the v1 patch in my radxa cm5, but since
+> this v2 only contains name changes I didn't test. I added the missing
+> agent tag and am sending the patch inline. Thanks.
+>=20
+> The Radxa CM5 IO carrier has a Haoyu HYM8563 real-time clock on I2C6 at
+> address 0x51, with its interrupt line on GPIO0_B0 and a CR1220 backup
+> battery holder. Without a device tree node, no /dev/rtc* appears even
+> when CONFIG_RTC_DRV_HYM8563 is enabled.
+>=20
+> Describe the RTC, wire the interrupt pin with a pull-up, mark it as a
+> wakeup source, and point the rtc0 alias at it so RTC_HCTOSYS/SYSTOHC use
+> the external clock. Wiring matches Radxa's downstream board support and
+> uses schematic names for the rtc_int_l pinctrl entry.
+
+Please way less AI fluff. The patch content show that you're wiring up the
+interrupt + pinctrl etc.
+
+Also, please no personal "Hello again ...." in the actual commit message.
+The text above is the text that ends up in the git log for your change,
+so should be short and to the point.
+
+I've shortened it to:
+=2D----
+Describe the Haoyu HYM8563 RTC connected to I2C6 on the Radxa CM5 IO
+carrier including its interrupt line.
+=2D----
+
+
+> Assisted-by: Grok:grok-build
+> Signed-off-by: Brian Mayer <bleemayer@gmail.com>
 > ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 7230d70e02ae..ead4685d621a 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1326,19 +1326,21 @@ static int esdhc_change_pinstate(struct sdhci_host *host,
->
->  	dev_dbg(mmc_dev(host->mmc), "change pinctrl state for uhs %d\n", uhs);
->
-> -	if (IS_ERR(imx_data->pinctrl) ||
-> -		IS_ERR(imx_data->pins_100mhz) ||
-> -		IS_ERR(imx_data->pins_200mhz))
-> +	if (IS_ERR(imx_data->pinctrl))
->  		return -EINVAL;
 
-Maybe off topic,  I suggest set pins_100mhz and pins_200mhz to
-default pinctrl if not exist.
+Personal comments, remarks etc should be here, below the 3 dashes and
+above the diffstat. That way we can still read them, but they don't
+end up in the git history.
 
-Currently driver use pinctrl_200mhz/100mhz judge if support SDR50 and HS200.
-Actually it is hidden ABI.
 
-You can save max support speed to variable after check pinctrl_200mhz
-and pinctl_100mhz. then make these two variable to fallback to low frequency
-one.
+>  .../dts/rockchip/rk3588s-radxa-cm5-io.dts     | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
+>=20
+> Changes in v2:
+> - Rename pinctrl to rtc_int_l / rtc-int-l to match schematics
+> - Drop Tested-by (covered by Signed-off-by)
+> - Add Assisted-by: Grok:grok-build
+> - Send inline with git send-email (not as attachment)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts b/arch=
+/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
+> index af4a9bc01..d22db4d18 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
+> @@ -19,6 +19,7 @@ / {
+>  	aliases {
+>  		ethernet0 =3D &gmac1;
+>  		mmc1 =3D &sdmmc;
+> +		rtc0 =3D &hym8563;
+>  	};
+> =20
+>  	chosen {
+> @@ -198,6 +199,18 @@ usbc0_dp_altmode_mux: endpoint {
+>  			};
+>  		};
+>  	};
+> +
+> +	hym8563: rtc@51 {
+> +		compatible =3D "haoyu,hym8563";
+> +		reg =3D <0x51>;
+> +		#clock-cells =3D <0>;
+> +		clock-output-names =3D "hym8563";
+> +		interrupt-parent =3D <&gpio0>;
+> +		interrupts =3D <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&rtc_int_l>;
+> +		wakeup-source;
+> +	};
+>  };
+> =20
+>  &i2s5_8ch {
+> @@ -221,6 +234,12 @@ usbc0_int: usbc0-int {
+>  		};
+>  	};
+> =20
+> +	hym8563 {
+> +		rtc_int_l: rtc-int-l {
+> +			rockchip,pins =3D <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+> +
 
-So you can reduce these check in code.
+please sort nodes alphabetically (hdmi -> hym8563)
+I did that when applying.
 
-Is it simpler?
 
-Frank
+Thanks
+Heiko
 
->
->  	switch (uhs) {
->  	case MMC_TIMING_UHS_SDR50:
->  	case MMC_TIMING_UHS_DDR50:
-> +		if (IS_ERR(imx_data->pins_100mhz))
-> +			return -EINVAL;
->  		pinctrl = imx_data->pins_100mhz;
->  		break;
->  	case MMC_TIMING_UHS_SDR104:
->  	case MMC_TIMING_MMC_HS200:
->  	case MMC_TIMING_MMC_HS400:
-> +		if (IS_ERR(imx_data->pins_200mhz))
-> +			return -EINVAL;
->  		pinctrl = imx_data->pins_200mhz;
->  		break;
->  	default:
-> --
-> 2.34.1
->
->
+
+>  	hdmi {
+>  		hdmi0_tx_on_h: hdmi0-tx-on-h {
+>  			rockchip,pins =3D <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
+>=20
+> base-commit: 87320be9f0d24fce67631b7eef919f0b79c3e45c
+>=20
+
+
+
+
 
