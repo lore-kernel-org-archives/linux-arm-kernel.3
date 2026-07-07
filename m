@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA2DC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17138C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHdhmWw8bTLtB+4kBs5YmjWw0Q5vkcur8qe9Menb+4Y=; b=4HgJZsCZva4iaXdkYrcSAhzZjB
-	krilYNNJgoAZMVceBn32vQBL0xIwKf3PsgkaEp9+04NnjewxoX3d1UJCKUTEI4IFAj6SUVJtQYKfz
-	REJOsWqry0Po2ROk4PR7Xb+CSUE5kTifcT3/ekK7NSgC6FLPQJ8noeyZcnK137CAiBzLw+eh0vtZa
-	t+padADy4ui9k9XiDdGzgl+8b6G9rBnpyEGjBzXCGO7lPHlf+Fu7O9BOW+QdCZSw7RBHntE8BSSHW
-	H1IpxOpzHqX1nTrBzmxxsSi5WE/WvMe0Q4pVGhXQRz+PVaQtN43PEk/Wo8PCuvHPzNuvqcxIprvxa
-	yYbe5Dmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CzSD/WRXSlgKfw1SIJ9ztQiHBCfypInUCvizihETDao=; b=BNR/WPIdAxgifnqJWbUQdIfY5h
+	aiO54vciOiI72eB0WhCFuSreVnQ0IrIv9UyOOOASUIc/cNAjQA6iyyzaS079h9G6QHtFEYYic9aR8
+	aoBtqQbJ3GY5jWr0X9+4bTnZVyhQ4uVTbILKr0z7ecyvJjc2x5E7iwf1nZSr54BiNW01SoAWOGcAH
+	c4Gby84abPrs9G4FoCo7KMdZI8QIYWXsLqkzaDKr4KNFchfkb3Ru0a7grJz5D1Ox0vEhseSWCJSBq
+	t7JB3/gPiDTCAv/tfpzcb5377Pc6d2X/k0hgyfX/9aZMNU0MzLY6feDfMIQRtV4YGQZg4YwsdLbDS
+	LUZsXPqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBC0-0000000FjZ8-3Mxd;
-	Tue, 07 Jul 2026 19:10:52 +0000
-Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
+	id 1whBCR-0000000Fjf7-04Wc;
+	Tue, 07 Jul 2026 19:11:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBBw-0000000FjYJ-3nzn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 19:10:51 +0000
-Received: from webmail.kmu-office.ch (unknown [IPv6:2a02:418:6a02::a3])
-	by mail.kmu-office.ch (Postfix) with ESMTPSA id BD6405C53A1;
-	Tue,  7 Jul 2026 21:10:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
-	t=1783451446;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EHdhmWw8bTLtB+4kBs5YmjWw0Q5vkcur8qe9Menb+4Y=;
-	b=YImG43wpWUITLr/OqWZqVeD0BxZ2LBxvqtZmsG2DdkJaZjaMFYFxOahbnLGZK4vqI0OFpt
-	O1OW00LRxTMyo+WcuEIlcf+uteIvi6l2gnCqcdx3pUVrlS4MI5n1typ7DGgKYO0NLziA/V
-	eB/QJLcSHzScGvpvrvemDA6L7E1NIEc=
+	id 1whBCO-0000000Fjdd-0x0S;
+	Tue, 07 Jul 2026 19:11:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=CzSD/WRXSlgKfw1SIJ9ztQiHBCfypInUCvizihETDao=; b=0tNkP0sM9hr4FZjY++IN4eXAym
+	vUXoSgMGph9rYpY5YQiICFxdvkb4gWX5CkBKDtyzVM95S6pBYN3Tg6g4mEHcUCkogYvGpdWjP4bW9
+	D6xOzbUOg0NJZMg12EspXxOL9FEq0QPcmXEHq5mmSVwRlxEsyiGwE0t985yqwAbAXTlUUv56B1wxg
+	Wko+DbvaIYA0Q07bIRq8H1ArSEHrkXFHBHUm1gLrtWzk8xnSeRU8fE+RJXY5KiqzDyLdHoZJ15+6v
+	FS5nYLb1LZPj45gwqQa9ItRL6q5n1lTyXfUaAhjfu/Mz8dn13ZFXOsi4XTtX8pnUquUUPnHRef3GM
+	E0IQcJVw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Diederik de Haas <diederik@cknow-tech.com>,
+ Joachim Eastwood <joachim.eastwood@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 00/12] arm64: dts: rockchip: Add NanoPi M6 board
+Date: Tue, 07 Jul 2026 21:11:10 +0200
+Message-ID: <118899013.nniJfEyVGO@phil>
+In-Reply-To: <CAPSPb=tZ1FenNfEM5P+DWcksKvpQjyQQjAWTRdyxb7=YYxY_rw@mail.gmail.com>
+References: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
+ <DJOWHH5K7P76.3JPJVO47K1SZE@cknow-tech.com>
+ <CAPSPb=tZ1FenNfEM5P+DWcksKvpQjyQQjAWTRdyxb7=YYxY_rw@mail.gmail.com>
 MIME-Version: 1.0
-Date: Tue, 07 Jul 2026 21:10:46 +0200
-From: Stefan Agner <stefan@agner.ch>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "Russell King
- (Oracle)" <rmk+kernel@armlinux.org.uk>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Ovidiu Panait
- <ovidiu.panait.rb@renesas.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
-Subject: Re: [PATCH net] net: stmmac: resume PHY before reopening the
- interface on MTU change
-In-Reply-To: <a6515f8c-1358-4e2a-a485-2a25a7dc6313@lunn.ch>
-References: <20260707162146.73823-1-stefan@agner.ch>
- <a6515f8c-1358-4e2a-a485-2a25a7dc6313@lunn.ch>
-Message-ID: <9c8cdec3250eb3226d4f64ca8397cfa8@agner.ch>
-X-Sender: stefan@agner.ch
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_121050_689158_8063331B 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260707_121116_262869_DB6790D2 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,79 +68,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-07 20:50, Andrew Lunn wrote:
-> On Tue, Jul 07, 2026 at 06:21:46PM +0200, Stefan Agner wrote:
->> Since the referenced commit, changing the MTU on a running interface no
->> longer disconnects and reconnects the PHY; __stmmac_release() merely
->> stops phylink, which also suspends the PHY (BMCR power-down) when WoL
->> is not enabled. __stmmac_open() then performs the DMA software reset in
->> stmmac_hw_setup() before phylink_start() resumes the PHY again.
->> 
->> IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
->> powered down, and stmmac requires a running receive clock for the DMA
->> software reset to complete (the phylink config sets mac_requires_rxc).
->> On such setups, e.g. the RK3566-based Home Assistant Green with an
->> RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
->> leaves the interface dead:
->> 
->>   rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
->>   rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
->>   rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
->>   rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
->> 
->> In the field this is triggered by NetworkManager applying an MTU while
->> activating the connection, breaking networking entirely.
->> 
->> Resume the PHY before reopening the interface, like stmmac_resume()
->> does, to ensure the receive clock is running for the DMA software
->> reset.
->> 
->> Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
->> Link: https://github.com/home-assistant/operating-system/issues/4858
->> Assisted-by: Claude:claude-fable-5
->> Tested-by: Stefan Agner <stefan@agner.ch>
->> Signed-off-by: Stefan Agner <stefan@agner.ch>
->> ---
->> Note: phylink_prepare_resume()'s kernel-doc says it is to be called
->> prior to phylink_resume(); here it is paired with phylink_start()
->> (called from __stmmac_open()) instead, which phylink_resume() itself
->> uses to restart the machinery. If preferred, I can extend the
->> kernel-doc or introduce a more generically named helper.
->> 
->>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 +++++++++
->>  1 file changed, 9 insertions(+)
->> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> @@ -5884,6 +5884,15 @@
->>  
->>  		__stmmac_release(dev);
->>  
->> +		/* phylink_stop() in __stmmac_release() suspends the PHY.
->> +		 * IEEE 802.3 allows PHYs to stop their receive clock while
->> +		 * powered down, but the DMA software reset performed by
->> +		 * stmmac_hw_setup() requires a running receive clock.
->> +		 * Resume the PHY, as on system resume, to ensure its clocks
->> +		 * are running before reopening the interface.
->> +		 */
->> +		phylink_prepare_resume(priv->phylink);
->> +
->>  		ret = __stmmac_open(dev, dma_conf);
->>  		if (ret) {
->>  			free_dma_desc_resources(priv, dma_conf);
-> 
-> I'm not convinced.
-> 
-> __stmmac_open() and __stmmac_release() should be opposites of each
-> other. If __stmmac_release() stops the clock, __stmmac_open() should
-> start the clock.
+Am Freitag, 3. Juli 2026, 22:23:32 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Joachim Eastwood:
+> Hi Diederik,
+>=20
+> On Fri, 3 Jul 2026 at 13:30, Diederik de Haas <diederik@cknow-tech.com> w=
+rote:
+> >
+> > On Fri Jul 3, 2026 at 12:07 AM CEST, Joachim Eastwood via B4 Relay wrot=
+e:
+> > > This patch series add support for the NanoPi M6. This board is very
+> > > similar to the NanoPi R6C and R6S boards which are already supported.
+> > >
+> > > Main differences:
+> > > * M.2 M-key slot with PCIe (Also present on R6C)
+> > > * M.2 E-key slot with PCIe and USB (from hub)
+> > > * 1 additional USB 2.0 port from an on-board USB hub
+> > > * RT5616 audio CODEC
+> >
+> > This seems to be the M6 (2405 aka 'V1')?
+> Yes, correct. This patch set is for the original M6 board. V1 if you like.
+>=20
+> > Because there is now also a M6V2 (2603), which uses an ES8389 CODEC:
+> > https://www.friendlyelec.com/index.php?route=3Dproduct/product&path=3D6=
+9&product_id=3D319
+> I did notice there was a new version, but I hadn't given it much thought.
+>=20
+> > Is it useful to already take the 2 M6 variants into account with this p=
+atch set?
+> Yes, I think you are right.
+>=20
+> How about this setup:
+> rk3588s-nanopi-m6.dtsi
+> rk3588s-nanopi-m6v1.dts
+> rk3588s-nanopi-m6v2.dts
+> This mimics the setup for the R6 series boards with rk3588s-nanopi-r6.dtsi
+> and rk3588s-nanopi-r6[cs].dts.
 
-Hm, I see. __stmmac_release() calls phylink_stop(). But from what I can
-tell we can't simply move phylink_start() in __stmmac_open() since it
-does too much. So we need to use phylink_prepare_resume() in
-__stmmac_open(), so there is still some asymmetry. I'll send a v2.
+yes, that would be the nicest way I think.
 
---
-Stefan
+Thanks for taking this into account
+Heiko
+
+
 
