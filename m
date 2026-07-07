@@ -4,124 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E662C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 05:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9DDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjuixKwOSpFqVo0486RnOlsx+Vq/hlqOmQ+YBFIVlCY=; b=sC0jAOVA5x9W8xZb97yl1kshio
-	8rSfuPMrLNj6sR1udgOf7o6oHuCiLcjJv+WBGaZSgQZDGc8S5iOlJEGqFuXDhwUsvMuqZGrVnTYYJ
-	VUHxHXmJGCurt6Cu6pxDnOQI0Xry9m+voxH2Qw+9hnFSX4UphnGUjsSQq5XC002sUSpIz2Mxptqqd
-	C9Pjhbd0RRu8tJ/CcuwutHV5pZj7k+h2f9Yo6B9YtBjkdFxSu0F9EFx0KKFWYOOlgoMuxEshYpZcP
-	8jikiiA/9UsMFQ+HANnwJOROiV6X/9SZ9BGySmOBJ0YNCC/Mrh6ZLpSddqCaoqne2+6eecbbLlk53
-	NiQ9gI5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s+k4YLB2aPZHJzgI+LGSMyb/EUFeyoNW7T6bVJeLgOM=; b=z6xSz/UT2PqLOVYT9vvHoZ14H7
+	oWQi+vIy/JhUz938kpOCsuuiAx9h+4tOqE6AUw5l4Dwe+ToHrOy/S5x7xDSMFyHPtV4IYTvtm1IEn
+	JdlC3soR+tYr9qqWzb5MRMQQPMPDBUmiJA4d63zCnU6Y+WDQeSBX4oHOAuYFJ6Hb+KHiKopwDJ8VX
+	43TTL2eNtwKf7HYpSIsPsQ63bScnD5YrSdmHzTcTlNJkmAFiUZW7mnCWHiunrjzstJLaeVym98XXP
+	oQBrhJqDY94uDgXxZYQeOM+kyaSQKcmPOLGlnvyHQ99uVQFW8GjFumam49y9UFu3NP9C0T1XAPwLJ
+	5bqs55dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgyUx-0000000E8Nf-2lup;
-	Tue, 07 Jul 2026 05:37:35 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wgz1y-0000000EAx0-3fRS;
+	Tue, 07 Jul 2026 06:11:42 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgyUq-0000000E8My-2LkM
+	id 1wgz1v-0000000EAvf-169y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 05:37:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a16dw6sPC+StIAO9CkubSEwuHHlgQ4naCE/nQ+xDWlv4QSdJ4Uo3wVah/jhIb5KVpD+G3sE9E/uSUgoC9r4ZSjSPq5sI1vDN8Z5fe5OaZ16dH+sMmsWuT2SUPxyJAhj/B5Ied0J0UCga5FMlGknMkRNfrt4V2vtH+lFsMl6G0hXJaugW9PYcMFgH5uenMmmuM1WjD3WW1msb4pakTe68+FjEIxNLjVkt0PtDyWI4x2w1EiXytMkH9dqNMkWGLvptkhzcxBBdXRutegpzbGrCG8r5TmyDRfSl/3uayo+IsWEuMLCyB62yGXIkWpGV0R7fb77PZqK/WS4+idowWQ6piw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rjuixKwOSpFqVo0486RnOlsx+Vq/hlqOmQ+YBFIVlCY=;
- b=v3Pt6GjUeWFkz3Xi6nBb7FAJKLEkvxP5hT7Cs7hUouXqVYNv6Nqg8gobv55L2HyxkXdvMytpI75z5ImLw8680npwIGABnQ1yQm6uF+PfntWN0NTBndydQeR048CZbs5HUZp5dcumsHRAlxjSjV7nGGwLpM2oP9u/bc1nobSb3f+/uPYnGPLV9x960MXgm6URaEsZFTp3ZS9Kle7QOzqfeYURc4unjBbTCdOobOsiFPKs6b7hZc4P4lRo47hZ0tGpON6b/bGHsJ+4HZbV5yxYgpzAb41pMLvFcgbgTakEICoECIjJHOIGpCdNsLUmrgPgjJOojWcGn6MtREt8RRd1zQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rjuixKwOSpFqVo0486RnOlsx+Vq/hlqOmQ+YBFIVlCY=;
- b=iIu1Iz01ReMLmc1yX4W+W9pD+R9nvnGeTjUoumurVHWdXQQgUZv6jgAl+zbUY7eC5tjNjDiUfN16Q6RFx90xL6jhPn4A98g4vuT1dXTAyOtWGOgYQJ3nqaiIr4MLX8Jh40ueALHIShFxCVtVy4haI+2IrvBfWwMKnV8nH/Rga4Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
- MN0PR01MB7753.prod.exchangelabs.com (2603:10b6:208:37c::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.9; Tue, 7 Jul 2026 05:37:22 +0000
-Received: from MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.21.0181.012; Tue, 7 Jul 2026
- 05:37:19 +0000
-Date: Mon, 6 Jul 2026 22:37:16 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, 
-    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-    ilkka@os.amperecomputing.com
-Subject: Re: [PATCH 2/5] perf/arm-cmn: Refactor event filter programming
-In-Reply-To: <204a29eff358ffd2c6c248738c5e272dbc678990.1782830759.git.robin.murphy@arm.com>
-Message-ID: <e9cf7adb-0c52-3484-2e54-5ada14b1c773@os.amperecomputing.com>
-References: <cover.1782830759.git.robin.murphy@arm.com> <204a29eff358ffd2c6c248738c5e272dbc678990.1782830759.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR03CA0078.namprd03.prod.outlook.com
- (2603:10b6:303:b6::23) To MN2PR01MB5615.prod.exchangelabs.com
- (2603:10b6:208:11c::29)
+	Tue, 07 Jul 2026 06:11:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=s+k4YLB2aPZHJzgI+LGSMyb/EUFeyoNW7T6bVJeLgOM=;
+	b=FfcxKaHvWGpE+OeszGHja+ic7QDEU3LpDfI8ikmg81TzbLTp/Ge9Kto+SmX2wLWNOTVw5vhVk
+	xj0Gr7KTy1IWHVW8YTdBteMO/0D5pkTSi7AphDH7FeODvlY97lpG7evc2eD9LrUv3yrxhqCy50d
+	gpdkute1U/cEGKIYO34DQKY=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gvVxx0cTJzpT0K;
+	Tue,  7 Jul 2026 14:02:45 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4588F4056E;
+	Tue,  7 Jul 2026 14:11:23 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 7 Jul 2026 14:11:22 +0800
+Message-ID: <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
+Date: Tue, 7 Jul 2026 14:11:23 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|MN0PR01MB7753:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2dc08656-e43e-4ba3-f1ee-08dedbe9cffb
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|21046099003|4143699003|6133799003|11063799006|56012099006|18002099003|55112099003|22082099003;
-X-Microsoft-Antispam-Message-Info: +c6//E1SRora1/K46rzKO6cSNYISBM5mMr8kY1eMJnXPza7CqLFfwb/ofCQG5OEhpnHCguc/zuMJoJ9r1ELz0v75Wtrl0Uf001cid0vHXBlsawpVtq0jzYOFp5pOT5E9XFUWBj1Zd1Mk86In58CjpNppCBnFUfJtWywJEZSkdtpp9CY1GSi7/l+qyVCUIjpzVacPRL9NTQHeT6G8qXcmRiFwkb3T2950sZLhbACKI7sTi46Pe/yc4VKuzMXESlgbgY0xViJ6XAfvPkhFjCStJvwfvQqWSdKc1Xey1AEmMZNnyFLqKlP+yJ10JpQ4Fx9WgNJb92pGDy9rWlnCkNrfayFYQZT8zacCZ2KHbINrg0UJ1DwgjV4AUQwdD8yLCmCHsuzXywSk8/klKlNN5RXTmh4tQhOLNmyAXmRmKr86UCURE/Jx6WoDIODyjaA9pe82ejcE8ClJ8E70qBq952YntNXb1z+ZxvC3KqeLzGouYcdpViwl5bJ2PB9Idj8UTF/FaDn8EGPZr97AEQESXZCuBTDPVKhS0ef9ZmIn0WmdYhojoHtOCK/MoKAW7u/19ycNq8/pWtPN2GhapiU70gZ7VHTp2+RTBLRTJjm9zVD1ooXsbykzQRhTuBGpZdLeOCknyd/FFKcb3Gf458tihV+yAnzuHpdhCr5D+cRAO1sR+pI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(21046099003)(4143699003)(6133799003)(11063799006)(56012099006)(18002099003)(55112099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eFsMom4EQ9N5LGTYtWuhjBVlLObqLG5+TgDlWtuGidkjvQMiiXNDJ9qUiVPo?=
- =?us-ascii?Q?QU2Pk/66+RLvUsWC//CaFSvbul7K8DjQj+Pkf/bPQeZrYKDE+QAgPjrOIA53?=
- =?us-ascii?Q?HJHtVbbfmLDa9Xg6ekdDSMoxBle8+xwABxmQWv5SaTtw2xL56fP0iBIGXvlQ?=
- =?us-ascii?Q?PJIpXdqj7qBcOE+kTkCXjyAEL/97I+LMMJdqMaUShq5jZKPeIe3SgOFQAml3?=
- =?us-ascii?Q?Ih4OH4JKAoaScZXv1Z1byc9sJpAgxAAzvLtftdRE/W8hwEebF1g09fDe63cg?=
- =?us-ascii?Q?eMVxe/BLGK5/iUBhJG+SnwLI2hMVbhjrkFyLT4/C6aVojoYRuP2CSWVrkPUU?=
- =?us-ascii?Q?2i/Yn6ERXkZ8DASB7ns0XCsiN2RdzOoj8VR6t79LgmmGglQcQm2Dd8XixndR?=
- =?us-ascii?Q?uh0w00uoT3m8DeIsErSFWR8hSZjqPzKYsG8myyU0vdCoKyWLieXHWS/bqW+p?=
- =?us-ascii?Q?Xt9YA037GhfqHRxWC7ivssNO4P7dVQ7sQ81gUIZRjltcXwfmoOwbO9vmnelS?=
- =?us-ascii?Q?UPKjrh5iS1h4tyOq5Xd8rQx+ljqlkjq41zTVJEc39db4YW7mdITALRdaIbq4?=
- =?us-ascii?Q?j8wR7Myjica+Dpgi95gG5fi6AWUBFn5XYDb8OZBu6Ea1jriQwENwVSqoynEn?=
- =?us-ascii?Q?DnPxZU/X8r5g9FzRvHIgdkrz+JTsRJbGiFmseE/MW4O6E3jNUJs1cajcqPE1?=
- =?us-ascii?Q?4c67q3H/3+Oy5Ily9nbe2hmFVDuC5v/ySU+TomcI9xIVfzUJe6MTnD6VnK3m?=
- =?us-ascii?Q?08vDCtHrMovaSekNLSqcbkKhuAEt8uo5wjdW/LJtcJYJ7p8vaRpq7aquqv7K?=
- =?us-ascii?Q?/Lu4zEs7llKj9bi3dSptZwgTzTYojHe4LM+H2XZGDVogSwFcM10K1TH9xhHS?=
- =?us-ascii?Q?bPGLiNEaZlBUDJISjei2R3yA9699Dvz6Sri6++MR/ie9KZk+LBTlja8yUQzd?=
- =?us-ascii?Q?02RSt4WLwbRi32cThR2vaxnl7f0Om3+6kt8TCaUliQ+OXtp6yKjkU5f7042G?=
- =?us-ascii?Q?oknHO1up8ICj59MLTVtcsz8OGq/0g1r4E4HU5w8Sny9jzQj1Hez4utHmNBBV?=
- =?us-ascii?Q?l1PPOw/8LXqHVK+8RGXicucSXnI+bjNG25L7ruggkJlM7ckAOhuZMyx4jyCL?=
- =?us-ascii?Q?7Io611PMvDl6pmmod6O2jBOHsnItZcRSuXzKkcFXWCzTbtfq07aan7zLiNto?=
- =?us-ascii?Q?xw6go1HKZIeW0iHN+yVbBhUMCX+SdloBJ3F5zfCJuJI6pDDy9M5qlghRM164?=
- =?us-ascii?Q?hWSMdVl2mt96DQKfEEQYm0t1cT2cV00IL3uEZYgbE8kaO4Vx9fmxzaF9v11X?=
- =?us-ascii?Q?C4acdDjZNkpP1jVXGlSGPyQ9DTh8Wgsoo5Jpx0DlW8+6MTPWJO+3ldYzNULN?=
- =?us-ascii?Q?YDONmUWyVc5qwcnlznlnYogdHlFudcv1eAYKi4e4Qi+vQfY1GO2VeJMiCP0g?=
- =?us-ascii?Q?QvoqswQJTA1XQjokaIRKxWHlGdVZSV1xH+j3EQeDz8WAhFZ+H9U2kQimYpF9?=
- =?us-ascii?Q?83rapH/5FFLtDwpP3K4yi4mH0O+4GPHGDf9vOYlvWRBl01GS15ohWQ2W30eT?=
- =?us-ascii?Q?TwiW3WuvKwo7pWr+W46SJSEcG4wlPGvJYEB4YZ8NibK/bL7SiNGKR/oFihAo?=
- =?us-ascii?Q?YhxNSK1VxUQGGz3ubVk02ZXuWY9E9XOraTt0t1V0/8cviuaUS9F42LYzwkdD?=
- =?us-ascii?Q?d+BsoAj1VCray9LKeiwikLJZNXwnBMjuyE8WM0OTMvFj7o6OxkoDoWLljtsk?=
- =?us-ascii?Q?5Md86YbE1A+xx7pW/x4naFsjeLg7yZQ=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2dc08656-e43e-4ba3-f1ee-08dedbe9cffb
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 05:37:19.7537
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9dFn/LDHEWXJM/zraIqSl5cRnmfRo/uZ/A5sFiyyv1MTlw+B6n/Mf9s0SU8hSNZGQlTzx5bl15E09RXGWl8GeVyShRBFfHlQ/MoH4FNssCvxsE2KGW21GOKlqR77G4Wj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR01MB7753
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
+To: Leonardo Bras <leo.bras@arm.com>
+CC: Inochi Amaoto <inochiama@gmail.com>, Marc Zyngier <maz@kernel.org>,
+	<oupton@kernel.org>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
+	<pbonzini@redhat.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<suzuki.poulose@arm.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+ <20260225040421.2683931-4-zhengtian10@huawei.com>
+ <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org>
+ <ah1KLrpYBXSMM91H@inochi.infowork>
+ <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com>
+ <aku1N23Szkta9uA6@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <aku1N23Szkta9uA6@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_223728_629402_38296324 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20260706_231139_659747_B7883966 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,279 +90,189 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 7/6/2026 10:01 PM, Leonardo Bras wrote:
+> On Fri, Jun 05, 2026 at 04:29:49PM +0800, Tian Zheng wrote:
+>> On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
+>>> On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
+>>>> On Mon, 01 Jun 2026 01:50:22 +0100,
+>>>> Inochi Amaoto <inochiama@gmail.com> wrote:
+>>>>> On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
+>>>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>>>
+>>>>>> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+>>>>>> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
+>>>>>> to notify the user of the feature.
+>>>>>>
+>>>>>> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+>>>>>> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+>>>>>> cannot be determined at KVM initialization, an IOCTL interface is
+>>>>>> required.
+>>>>>>
+>>>>>> Actually exposing the new capability to user space happens in a later
+>>>>>> patch.
+>>>>>>
+>>>>>> Signed-off-by: eillon <yezhenyu2@huawei.com>
+>>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>>>> ---
+>>>>>>    arch/arm64/include/asm/cpufeature.h |  5 +++++
+>>>>>>    arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+>>>>>>    arch/arm64/tools/cpucaps            |  1 +
+>>>>>>    include/uapi/linux/kvm.h            |  1 +
+>>>>>>    tools/include/uapi/linux/kvm.h      |  1 +
+>>>>>>    5 files changed, 20 insertions(+)
+>>>>>>
+>>>>>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+>>>>>> index 4de51f8d92cb..dcc2e2cad5ad 100644
+>>>>>> --- a/arch/arm64/include/asm/cpufeature.h
+>>>>>> +++ b/arch/arm64/include/asm/cpufeature.h
+>>>>>> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+>>>>>>    	return cpus_have_final_cap(ARM64_HAFT);
+>>>>>>    }
+>>>>>>
+>>>>>> +static inline bool system_supports_hdbss(void)
+>>>>>> +{
+>>>>>> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+>>>>>> +}
+>>>>>> +
+>>>>>>    static __always_inline bool system_supports_mpam(void)
+>>>>>>    {
+>>>>>>    	return alternative_has_cap_unlikely(ARM64_MPAM);
+>>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>>>> index c31f8e17732a..348b0afffc3e 100644
+>>>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>>>> @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>>>>>    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+>>>>>>    }
+>>>>>>
+>>>>>> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+>>>>>> +{
+>>>>>> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+>>>>>> +}
+>>>>>> +
+>>>>>>    bool cpu_supports_bbml2_noabort(void)
+>>>>>>    {
+>>>>>>    	/*
+>>>>>> @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>>>>>>    		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+>>>>>>    	},
+>>>>>>    #endif
+>>>>>> +	{
+>>>>>> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+>>>>>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>>>>>> +		.capability = ARM64_HAS_HDBSS,
+>>>>>> +		.matches = has_vhe_hdbss,
+>>>>>> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+>>>>>> +	},
+>>>>>>    	{
+>>>>>>    		.desc = "CRC32 instructions",
+>>>>>>    		.capability = ARM64_HAS_CRC32,
+>>>>>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>>>>>> index 7261553b644b..f6ece5b85532 100644
+>>>>>> --- a/arch/arm64/tools/cpucaps
+>>>>>> +++ b/arch/arm64/tools/cpucaps
+>>>>>> @@ -68,6 +68,7 @@ HAS_VA52
+>>>>>>    HAS_VIRT_HOST_EXTN
+>>>>>>    HAS_WFXT
+>>>>>>    HAS_XNX
+>>>>>> +HAS_HDBSS
+>>>>>>    HAFT
+>>>>>>    HW_DBM
+>>>>>>    KVM_HVHE
+>>>>>> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+>>>>>> index 65500f5db379..15ee42cdbd51 100644
+>>>>>> --- a/include/uapi/linux/kvm.h
+>>>>>> +++ b/include/uapi/linux/kvm.h
+>>>>>> @@ -985,6 +985,7 @@ struct kvm_enable_cap {
+>>>>>>    #define KVM_CAP_ARM_SEA_TO_USER 245
+>>>>>>    #define KVM_CAP_S390_USER_OPEREXEC 246
+>>>>>>    #define KVM_CAP_S390_KEYOP 247
+>>>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+>>>>>>
+>>>>>>    struct kvm_irq_routing_irqchip {
+>>>>>>    	__u32 irqchip;
+>>>>>> diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
+>>>>>> index dddb781b0507..93e0a1e14dc7 100644
+>>>>>> --- a/tools/include/uapi/linux/kvm.h
+>>>>>> +++ b/tools/include/uapi/linux/kvm.h
+>>>>>> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+>>>>>>    #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+>>>>>>    #define KVM_CAP_ARM_SEA_TO_USER 245
+>>>>>>    #define KVM_CAP_S390_USER_OPEREXEC 246
+>>>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+>>>>>>
+>>>>>>    struct kvm_irq_routing_irqchip {
+>>>>>>    	__u32 irqchip;
+>>>>>> --
+>>>>>> 2.33.0
+>>>>>>
+>>>>> Instead of having these architecture specific capability, I wonder if
+>>>>> we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
+>>>>> other architecture supports similar things can reuse this capability,
+>>>> What of the existing stuff doing the same thing? x86's PML, to start
+>>>> with?
+>>>>
+>>> In fact I think the HDBSS is the first one with non-fixed size.
+>>> Although there is a in process RISC-V extension for it, there will
+>>> be a long story to make it ratified.
+>>>
+>>>>> For this generic thing I suggest, the getter returns the max support
+>>>>> entry count (or the buffer size) it supports like the dirty ring
+>>>>> capability. And the setter just let the architecture set the parameters
+>>>>> based on the user request.
+>>>> This looks wrong on a number of levels.
+>>>>
+>>>> - If you want something generic, there is the existing dirty
+>>>>     log/bitmap. How this stuff is populated is none of the user's
+>>>>     business (trapping write accesses, dirty bit collection from the
+>>>>     PTs, or HW-generated log), and we don't need an extra feature for
+>>>>     it. Performance will obviously suck, but that's what you pay for
+>>>>     something abstracted and cross-architecture.
+>>>>
+>>>> - If you want something architecture specific, then it can't be
+>>>>     generic, by definition. You get the raw speed and compatibility with
+>>>>     other arch-specific extensions.
+>>>>
+>>> OK, I agree, it is better to keep this thing arch-specific. Doing a
+>>> generic thing does not benefit too much, I have made a mistake on
+>>> it. Thanks for your kindly explanation.
+>>
+>> Awesome. Thanks for the review.
+>>
+>> I agree with Marc—keeping this ARM-specific is the right approach.
+>> Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
+>> auto-enabled during migration setup and auto-disabled when migration
+>> completes, so the capability naming issue becomes moot.
+>>
+>> I plan to post v4 with the updated approach soon.
+> Hi Tian,
+>
+> Any updates in the v4?
+> Please let me know if you want help in any kind, in regards to this
+> patchset.
+>
+> Thanks!
+> Leo
+Hi Leo,
 
-On Tue, 30 Jun 2026, Robin Murphy wrote:
+Thanks for the follow-up. I've finished polishing v4 and am doing one 
+last internal review.
 
-> We're soon going to need to cope with events having multiple filters,
-> plus the filter fields themselves moving around, wherein any more inline
-> if/else logic will struggle to scale. Add a more general abstraction for
-> the node-specific filter controls, and rejig the pmu_event_sel filter
-> programming around it in a more extensible manner.
->
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+In this version, I've also aligned with the latest HACDBS v2 
+implementation you shared—e.g.,
+auto-inserting KVM_PGTABLE_S2_DBM into pgt->flags during 
+kvm_init_stage2_mmu.
 
-Looks good to me
+One note: dirty ring mode is not yet supported in v4—the series 
+currently focuses on the
+dirty bitmap mode. I'll explicitly call this out in the commit messages 
+(including that
+KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE and related dirty ring components 
+are omitted) to avoid
+any confusion during review.
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+I plan to send v4 out later this week.
 
-Cheers, Ilkka
-
-> ---
-> drivers/perf/arm-cmn.c | 139 ++++++++++++++++++++++++++++++-----------
-> 1 file changed, 101 insertions(+), 38 deletions(-)
->
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 2a8a67da72c3..14c267d2e2f9 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -278,8 +278,8 @@ enum cmn_node_type {
-> };
->
-> enum cmn_filter_select {
-> -	SEL_NONE = -1,
-> -	SEL_OCCUP1ID,
-> +	SEL_NONE,
-> +	SEL_OCCUP1_ID,
-> 	SEL_CLASS_OCCUP_ID,
-> 	SEL_CBUSY_SNTHROTTLE_SEL,
-> 	SEL_HBT_LBT_SEL,
-> @@ -599,6 +599,57 @@ static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id)
-> static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id) {}
-> #endif
->
-> +enum cmn_filter_type {
-> +	FILT_NONE,
-> +	FILT_OCCUP1_ID,
-> +	FILT_HNF_700,
-> +	FILT_HNS,
-> +};
-> +#define CMN_FILTER(_sel)	[SEL_##_sel] = CMN__PMU_##_sel
-> +
-> +static const u64 arm_cmn_filters[][SEL_MAX] = {
-> +	[FILT_NONE] = {},
-> +	/* DVM etc. */
-> +	[FILT_OCCUP1_ID] = {
-> +		CMN_FILTER(OCCUP1_ID)
-> +	},
-> +	/* Newer HN-F */
-> +	[FILT_HNF_700] = {
-> +		CMN_FILTER(OCCUP1_ID),
-> +		CMN_FILTER(CLASS_OCCUP_ID),
-> +		CMN_FILTER(CBUSY_SNTHROTTLE_SEL)
-> +	},
-> +	/* HN-S */
-> +	[FILT_HNS] = {
-> +		CMN_FILTER(OCCUP1_ID),
-> +		CMN_FILTER(CLASS_OCCUP_ID),
-> +		CMN_FILTER(CBUSY_SNTHROTTLE_SEL),
-> +		CMN_FILTER(HBT_LBT_SEL),
-> +		CMN_FILTER(SN_HOME_SEL)
-> +	},
-> +};
-> +
-> +static enum cmn_filter_type arm_cmn_filter(enum cmn_node_type node,
-> +					   enum cmn_model model)
-> +{
-> +	switch (node) {
-> +	default:
-> +		return FILT_NONE;
-> +	case CMN_TYPE_DVM:
-> +	case CMN_TYPE_CXRA:
-> +	case CMN_TYPE_CXHA:
-> +	case CMN_TYPE_CCRA:
-> +	case CMN_TYPE_CCHA:
-> +		return FILT_OCCUP1_ID;
-> +	case CMN_TYPE_HNF:
-> +		if (model < CMN700)
-> +			return FILT_OCCUP1_ID;
-> +		return FILT_HNF_700;
-> +	case CMN_TYPE_HNS:
-> +		return FILT_HNS;
-> +	};
-> +}
-> +
-> struct arm_cmn_hw_event {
-> 	struct arm_cmn_node *dn;
-> 	union {
-> @@ -708,7 +759,7 @@ static ssize_t arm_cmn_event_show(struct device *dev,
-> 				  "type=0x%x,eventid=0x%x,wp_dev_sel=?,wp_chn_sel=?,wp_grp=?,wp_val=?,wp_mask=?\n",
-> 				  eattr->type, eattr->eventid);
->
-> -	if (eattr->fsel > SEL_NONE)
-> +	if (eattr->fsel)
-> 		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,filter=0x%x\n",
-> 				  eattr->type, eattr->eventid, eattr->filter);
->
-> @@ -832,16 +883,16 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
-> #define CMN_EVENT_DVM(_model, _name, _event)			\
-> 	_CMN_EVENT_DVM(_model, _name, _event, 0, SEL_NONE)
-> #define CMN_EVENT_DVM_OCC(_model, _name, _event)			\
-> -	_CMN_EVENT_DVM(_model, _name##_all, _event, 0, SEL_OCCUP1ID),	\
-> -	_CMN_EVENT_DVM(_model, _name##_dvmop, _event, 1, SEL_OCCUP1ID),	\
-> -	_CMN_EVENT_DVM(_model, _name##_dvmsync, _event, 2, SEL_OCCUP1ID)
-> +	_CMN_EVENT_DVM(_model, _name##_all, _event, 0, SEL_OCCUP1_ID),	\
-> +	_CMN_EVENT_DVM(_model, _name##_dvmop, _event, 1, SEL_OCCUP1_ID),	\
-> +	_CMN_EVENT_DVM(_model, _name##_dvmsync, _event, 2, SEL_OCCUP1_ID)
->
-> #define CMN_EVENT_HN_OCC(_model, _name, _type, _event)		\
-> -	_CMN_EVENT_ATTR(_model, _name##_all, _type, _event, 0, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(_model, _name##_read, _type, _event, 1, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(_model, _name##_write, _type, _event, 2, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(_model, _name##_atomic, _type, _event, 3, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(_model, _name##_stash, _type, _event, 4, SEL_OCCUP1ID)
-> +	_CMN_EVENT_ATTR(_model, _name##_all, _type, _event, 0, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(_model, _name##_read, _type, _event, 1, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(_model, _name##_write, _type, _event, 2, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(_model, _name##_atomic, _type, _event, 3, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(_model, _name##_stash, _type, _event, 4, SEL_OCCUP1_ID)
-> #define CMN_EVENT_HN_CLS(_model, _name, _type, _event)			\
-> 	_CMN_EVENT_ATTR(_model, _name##_class0, _type, _event, 0, SEL_CLASS_OCCUP_ID), \
-> 	_CMN_EVENT_ATTR(_model, _name##_class1, _type, _event, 1, SEL_CLASS_OCCUP_ID), \
-> @@ -865,9 +916,9 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
->
-> #define CMN_EVENT_HNS_OCC(_name, _event)				\
-> 	CMN_EVENT_HN_OCC(CMN_ANY, hns_##_name, CMN_TYPE_HNS, _event),	\
-> -	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_rxsnp, CMN_TYPE_HNS, _event, 5, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_lbt, CMN_TYPE_HNS, _event, 6, SEL_OCCUP1ID), \
-> -	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_hbt, CMN_TYPE_HNS, _event, 7, SEL_OCCUP1ID)
-> +	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_rxsnp, CMN_TYPE_HNS, _event, 5, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_lbt, CMN_TYPE_HNS, _event, 6, SEL_OCCUP1_ID), \
-> +	_CMN_EVENT_ATTR(CMN_ANY, hns_##_name##_hbt, CMN_TYPE_HNS, _event, 7, SEL_OCCUP1_ID)
-> #define CMN_EVENT_HNS_CLS( _name, _event)				\
-> 	CMN_EVENT_HN_CLS(CMN_ANY, hns_##_name, CMN_TYPE_HNS, _event)
-> #define CMN_EVENT_HNS_SNT(_name, _event)				\
-> @@ -1547,27 +1598,20 @@ static void arm_cmn_event_read(struct perf_event *event)
-> }
->
-> static int arm_cmn_set_event_sel_hi(struct arm_cmn_node *dn,
-> -				    enum cmn_filter_select fsel, u8 filter)
-> +				    enum cmn_filter_select fsel, u8 val)
-> {
-> -	u64 reg;
-> -
-> -	if (fsel == SEL_NONE)
-> -		return 0;
-> -
-> 	if (!dn->filter[fsel].count) {
-> -		dn->filter[fsel].val = filter;
-> -		reg = FIELD_PREP(CMN__PMU_CBUSY_SNTHROTTLE_SEL,
-> -				 dn->filter[SEL_CBUSY_SNTHROTTLE_SEL].val) |
-> -		      FIELD_PREP(CMN__PMU_SN_HOME_SEL,
-> -				 dn->filter[SEL_SN_HOME_SEL].val) |
-> -		      FIELD_PREP(CMN__PMU_HBT_LBT_SEL,
-> -				 dn->filter[SEL_HBT_LBT_SEL].val) |
-> -		      FIELD_PREP(CMN__PMU_CLASS_OCCUP_ID,
-> -				 dn->filter[SEL_CLASS_OCCUP_ID].val) |
-> -		      FIELD_PREP(CMN__PMU_OCCUP1_ID,
-> -				 dn->filter[SEL_OCCUP1ID].val);
-> +		const u64 *filter = arm_cmn_filters[dn->filter[SEL_NONE].val];
-> +		u64 reg = 0;
-> +
-> +		dn->filter[fsel].val = val;
-> +		for (int i = SEL_OCCUP1_ID; i < SEL_MAX; i++) {
-> +			if (filter[i])
-> +				reg |= field_prep(filter[i], dn->filter[i].val);
-> +		}
-> +
-> 		writel_relaxed(reg >> 32, dn->pmu_base + CMN_PMU_EVENT_SEL + 4);
-> -	} else if (dn->filter[fsel].val != filter) {
-> +	} else if (dn->filter[fsel].val != val) {
-> 		return -EBUSY;
-> 	}
-> 	dn->filter[fsel].count++;
-> @@ -1696,7 +1740,7 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
->
-> 		val->dtm_count[dtm]++;
->
-> -		if (sel > SEL_NONE)
-> +		if (sel)
-> 			val->filter[dtm][sel] = CMN_EVENT_FILTER(event) + 1;
->
-> 		if (type != CMN_TYPE_WP)
-> @@ -1748,7 +1792,7 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
-> 		if (val->dtm_count[dtm] == CMN_DTM_NUM_COUNTERS)
-> 			goto done;
->
-> -		if (sel > SEL_NONE && val->filter[dtm][sel] &&
-> +		if (sel && val->filter[dtm][sel] &&
-> 		    val->filter[dtm][sel] != CMN_EVENT_FILTER(event) + 1)
-> 			goto done;
->
-> @@ -1894,7 +1938,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
-> 			dtm->wp_event[wp_idx] = -1;
-> 		}
->
-> -		if (hw->filter_sel > SEL_NONE)
-> +		if (hw->filter_sel)
-> 			hw->dn[i].filter[hw->filter_sel].count--;
->
-> 		dtm->pmu_config_low &= ~CMN__PMEVCNT_PAIRED(dtm_idx);
-> @@ -1906,6 +1950,17 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
-> 		cmn->dtc[j].counters[idx] = NULL;
-> }
->
-> +static int arm_cmn_set_event_filter(struct arm_cmn_node *dn, struct perf_event *event)
-> +{
-> +	enum cmn_filter_select fsel = to_cmn_hw(event)->filter_sel;
-> +	int ret = 0;
-> +
-> +	if (fsel)
-> +		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER(event));
-> +
-> +	return ret;
-> +}
-> +
-> static int arm_cmn_event_add(struct perf_event *event, int flags)
-> {
-> 	struct arm_cmn *cmn = to_cmn(event->pmu);
-> @@ -1981,7 +2036,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
-> 			input_sel = CMN__PMEVCNT0_INPUT_SEL_DEV + dtm_idx +
-> 				    (nid.port << 4) + (nid.dev << 2);
->
-> -			if (arm_cmn_set_event_sel_hi(dn, hw->filter_sel, CMN_EVENT_FILTER(event)))
-> +			if (arm_cmn_set_event_filter(dn, event))
-> 				goto free_dtms;
-> 		}
->
-> @@ -2311,6 +2366,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 	void __iomem *cfg_region, __iomem *xp_region;
-> 	struct arm_cmn_node cfg, *dn;
-> 	struct arm_cmn_dtm *dtm;
-> +	enum cmn_model model;
-> 	enum cmn_part part;
-> 	u16 child_count, child_poff;
-> 	u64 reg;
-> @@ -2342,12 +2398,14 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 			 "Firmware binding mismatch: expected part number 0x%x, found 0x%x\n",
-> 			 cmn->part, part);
-> 	cmn->part = part;
-> -	if (!arm_cmn_model(cmn))
-> -		dev_warn(cmn->dev, "Unknown part number: 0x%x\n", part);
->
-> 	reg = readl_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_23);
-> 	cmn->rev = FIELD_GET(CMN_CFGM_PID2_REVISION, reg);
->
-> +	model = arm_cmn_model(cmn);
-> +	if (!model)
-> +		dev_warn(cmn->dev, "Unknown part number: 0x%x\n", part);
-> +
-> 	/*
-> 	 * With the device isolation feature, if firmware has neglected to enable
-> 	 * an XP port then we risk locking up if we try to access anything behind
-> @@ -2500,6 +2558,11 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
-> 				return -ENODEV;
-> 			}
-> +			/*
-> +			 * We can utilise the "wasted" filter array slot to store
-> +			 * the index for referencing the filter encodings later.
-> +			 */
-> +			dn->filter[SEL_NONE].val = arm_cmn_filter(dn->type, model);
->
-> 			switch (dn->type) {
-> 			case CMN_TYPE_DTC:
-> -- 
-> 2.54.0.dirty
->
->
+Thanks,
+Tian
 
