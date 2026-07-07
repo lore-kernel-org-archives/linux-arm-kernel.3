@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35333C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AEADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PED1sAAvc+eHIpy2VeGnVjN/Bq6VZc3mcXzSO1CICEs=; b=RXuEebQZSPNVi2dux1D87VuJ4X
-	Wc2dzxl1pirX9wa63lVs4FA4huvcfivvH2AMf/N0PDXbOiMrEOWKH4qsYc/AqcWpfsEBoHvg9NR91
-	+QjzI/INu4pwE4mufrFIJNiyXFVgFLbCryrkDt+yPiYYWLpOjp4IyKObKZyiyTVNP5mqgn184OOud
-	yJoa4JvVvjW31K24teQ9vfT3F/MPGozlblp5n30gAsGE05w260WT5vpiDXSL0uOR+8++QMouiT+gy
-	NHp6fofWxPkeTOvIcV8b/0SOmW/S50vPbWtSDT9ePJwsi2yt+VKMu4MAqY83iAZ64ekwdMlu2NUzw
-	mfQwl/Gg==;
+	bh=vd+nnRMHyGsU3KmgANxpwezMHUP8vXgFVUmNLtg6kDs=; b=00h6NYx4WVMwbTA9Sy1b2jx7Xd
+	AKJgczG3Ee2y7lfX8jrSkWPWcp8sRbaSg0gaajb9yVjt7dmQzsBzljWtfjMOsiodgjUNEM8ZJMI57
+	KvQE7Tjh90avwmiUSVq4RNi9IGFroNL0HfhfxI+UuTiX77oXqox1HBQDrufUCzp08wtheXmM/3trF
+	EWAKlRrNqS241kEA7UL8cee13h784loOLDaUJ7YByoIgQ3/TxoPIoBkyqbrSKXljHdMkyiR7GL2eg
+	IsGBwHQoLgj4Yj1+Wu5tmqcLZIFh1Edm7yiomjGN5iXj6m614n0/+VEyMQyvKU50yM2SGoYJgkS1Z
+	VkMxisLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1az-0000000EY8Y-2J2z;
-	Tue, 07 Jul 2026 08:56:01 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wh1bB-0000000EYG0-3bfm;
+	Tue, 07 Jul 2026 08:56:13 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1av-0000000EY6T-1vEv
+	id 1wh1b9-0000000EYDX-04Ai
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:55:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=PED1sAAvc+eHIpy2VeGnVjN/Bq6VZc3mcXzSO1CICEs=; b=WR34kl40cowjq6IiGcUD86tPPa
-	ZVOoisFC9e2IIL35Cv8ZzZW31b26uaFeVaeCXPzLcwxKByDkAUYnNkDUlwoCRcIEXPq4XKvviq6Aw
-	TNsDl+fA9Ln2lVIBUhpnwemGBbHS8sLuVEYfEnAh/ystnCF/gJ2VO1aCHV8LjP3E5nr8E7n95JtpU
-	SDiquimTne/M9Hp4C6oisB4TA2pZSGeLuoK84ZGdtCVU1UJBsnt7GYUSrRTahr/dCxlH0iGee3vWF
-	BPtvt0nVwEE40GXFecWMhBQ7hjPHGOZ/56IV3nRRM8046GcZGubhiU3Eo5nYTB8VnvCKkbh4QN31W
-	mB/BB6Yg==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh1at-000Gjv-15;
-	Tue, 07 Jul 2026 10:55:55 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh1as-0007hK-1e;
-	Tue, 07 Jul 2026 10:55:55 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH 2/2] arm64: dts: imx91-tqma9131: move ele-reserved memory into 512MB range
-Date: Tue,  7 Jul 2026 10:55:43 +0200
-Message-ID: <20260707085551.1683462-3-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
-References: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
+	Tue, 07 Jul 2026 08:56:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1783414541; x=1784019341; i=smoch@web.de;
+	bh=vd+nnRMHyGsU3KmgANxpwezMHUP8vXgFVUmNLtg6kDs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=waoyR/9BKgvyEUHWgVVd5AwiI58aR0OYANJ8kXyIMWe1H+iqg6kDMXjXcaWp5jZA
+	 1SuwIx6HUWC4kJ9/H0Cn+2bFb/FX45vEJY8vRyZTOiaszqlNgZRA5luDOrn3POWlz
+	 9gs19Q6y2Ra75B/HM6gEEU1/Q48bv9Fu4ps5A/j+DvPzizM9Noa7SRLHGFIK473nw
+	 2A71eenXa6NOY0HV45UP6larIDJk9KR8TtdODoSAWx2f2LudTFBP1e5xGLsHFhoyc
+	 yasL/IbCH93BiW8iK0nfJtl69feQ/JDH+EAJdpj7R06SHM1XD8ezpchHeQMJSXKAJ
+	 HN9aoo1ThjMqniCwlw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MKdLM-1wMBLk3Y3Y-00OBJU; Tue, 07
+ Jul 2026 10:55:40 +0200
+Message-ID: <4836b6f1-d40d-479d-acf7-a67769e0c8ac@web.de>
+Date: Tue, 7 Jul 2026 10:55:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>,
+ Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+ <l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>
+Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Hongxing Zhu <hongxing.zhu@nxp.com>
+References: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
+ <a42a7e16-1798-4db5-9f03-ba608a700645@web.de>
+ <GV2PR04MB120197631BE612B526EAA33068CF02@GV2PR04MB12019.eurprd04.prod.outlook.com>
+Content-Language: en-US, de-DE
+From: Soeren Moch <smoch@web.de>
+In-Reply-To: <GV2PR04MB120197631BE612B526EAA33068CF02@GV2PR04MB12019.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:nmcnLEXO7GY/phT0DGDwKsg0Ynvc1CL90x/cdqQM0zVS/Ajv2mK
+ XO6/YZYp/HPwYlQr+vLHoESgFn1faIlNLmADmBeLOYPSNUpfIdEme2IipbjbC79QKeqg+F/
+ kmiwkcihyWoWZdnjY/6436bClOvyQigduW93r5VSpRIuAi3Z4vG5GPDOfI4xtY2rtQSQQjC
+ tfHcymhkvISuo6tov/O2g==
+UI-OutboundReport: notjunk:1;M01:P0:TEuXNA2cO1g=;upVu3S0O19GWhkoG7RuzMoMuwKy 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 bx4btmaD0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_015557_495279_8FE687D1 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260707_015611_773692_5811451D 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +97,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+On 07.07.26 05:03, Hongxing Zhu (OSS) wrote:
+>> -----Original Message-----
+>> From: Soeren Moch <smoch@web.de>
+>> Sent: Monday, July 6, 2026 10:09 PM
+>> To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>; Frank Li
+>> <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
+>> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+>> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
+>> festevam@gmail.com
+>> Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>> imx@lists.linux.dev; linux-kernel@vger.kernel.org; Hongxing Zhu
+>> <hongxing.zhu@nxp.com>
+>> Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separatin=
+g PHY
+>> power and reference clock control
+>>
+>>
+>>
+>> On 06.07.26 05:06, hongxing.zhu@oss.nxp.com wrote:
+>>> From: Richard Zhu <hongxing.zhu@nxp.com>
+>>>
+>>> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+>>> regulators") introduced a boot hang on i.MX6Q/DL variants by changing
+>>> the initialization sequence.
+>>>
+>>> The issue stems from coupling PHY power (TEST_PD) and reference clock
+>>> (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+>>> managed together, the timing between PHY power-up and reference clock
+>>> enablement cannot be properly controlled, leading to initialization
+>>> failures.
+>>>
+>>> Fix this by separating the two concerns:
+>>>
+>>> - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
+>>>     logically belongs with reset operations. This ensures PHY power st=
+ate
+>>>     is managed as part of the core reset sequence.
+>>>
+>>> - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
+>>>     shared PHY power management, avoiding code duplication.
+>>>
+>>> - Make imx6q_pcie_enable_ref_clk() responsible only for reference cloc=
+k
+>>>     (REF_CLK_EN) control, simplifying its purpose.
+>>>
+>>> - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
+>>>     proper sequencing is now handled by the core_reset functions.
+>>>
+>>> This refactoring ensures PHY power is controlled during reset
+>>> operations, fixing the boot hang while improving code maintainability.
+>>>
+>>> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+>>> regulators")
+>>> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+>> With this patch on top of v7.2-rc2 I see everything booting, lspci show=
+s the
+>> root complex, but no PCIe device behind it.
+>> Tested on a i.MX6Q based tbs2910 board.
+>>
+>> For me it is not clear whether this fail to detect PCIe devices is rela=
+ted to the
+>> patches in question, the reset timing, or something else. Needs further
+>> investigation.
+> Thanks for your kindly help to tests.
+> Did you ever encounter the boot failure without this patch based on v7.2=
+-rc1
+> or later?
+Have not tested this. Unfortunately currently I have no access to my=20
+tbs2910 test board.
+I used a production system for this test here, but this is very=20
+difficult to recover
+from boot hangs.
+>
+> After applied this patch, my i.MX6Q Sabresd board can boot up successful=
+ly.
+> And the endpoint device can be detected as well.
+>
+> My Local commits:
+> ad5939d49b268 (HEAD -> v7.2-rc2_pcie) PCI: imx6: Add runtime PM support =
+for i.MX95
+> db7b15f198125 PCI: imx6: Update MPLLB bandwidth for i.MX95 PCIe Gen3 sta=
+bility
+> a26735515c076 PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY power=
+ and reference clock control
+> d617eadf52a46 PCI: dwc: Add force_l2 flag for platforms requiring L2 ent=
+ry without D3cold
+> 8cdeaa50eae8d (tag: v7.2-rc2) Linux 7.2-rc2
 
-TQMa91 has a 512MiB RAM variant for which the edgelock memory location
-exceeds the valid memory area.
+My commits (v7.2-rc2 plus my patch to enable MSIs for the endpoint plus=20
+this patch discussed here):
+8cdeaa50eae8 Linux 7.2-rc2
+b62414d07e24 PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
+e8176c6a27ed PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY power=20
+and reference clock control
 
-Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I'm not sure what your other mentioned patches are.
+>
+> Kernel logs:
+> Starting kernel ...
+>
+> [    0.000000] Booting Linux on physical CPU 0x0
+> [    0.000000] Linux version 7.2.0-rc2-00004-gad5939d49b26 (nxa08258@shl=
+inux89) (arm-poky-linux-gnueabi-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.=
+45.0.20250908) #38 SMP Tue Jul  7 02:36:46 UTC 2026
+> ...
+> root@imx6qpdlsolox:~# lspci
+> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+> 01:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Co=
+nnection
+on linux-7.2-rc2 plus patches (see above):
+root@matrix2:~# lspci
+00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-index c99d7bc168483..a8c79731eace5 100644
---- a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-@@ -33,9 +33,9 @@ linux,cma {
- 		};
- 
- 		/* EdgeLock secure enclave  */
--		ele_reserved: ele-reserved@a4120000 {
-+		ele_reserved: ele-reserved@94120000 {
- 			compatible = "shared-dma-pool";
--			reg = <0 0xa4120000 0 0x100000>;
-+			reg = <0 0x94120000 0 0x100000>;
- 			no-map;
- 		};
- 	};
--- 
-2.54.0
+on linux-7.0 (not tested on 7.1):
+root@matrix2:~# lspci
+00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+01:00.0 Multimedia controller: Philips Semiconductors SAA7160 (rev 02)
 
+I guess the new power-on/reset timing is not sufficient to init the=20
+endpoint in time.
+Did you reduce the time from powering up the PCIe slot to release of PERST=
+#?
+There is a power switch on the tbs2910 board for the PCIe slot, not sure i=
+f
+this is available also on SabreSD.
+
+Best regards,
+Soeren
+> Best Regards
+> Richard Zhu
+>> Regards,
+>> Soeren
 
