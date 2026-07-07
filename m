@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708E8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38861C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOBcKHJQyOMU4HZK6o3IdwDSoAOxpnL1hOf/TAAIhys=; b=yJQHuUF8EIk9z2MmiYymKFZKBo
-	vNekDbPVBX8vtCCDVxeBFI+S+IaacKc9qD2bczEbt+QvS5+mlS2JmokwVmU+dKmcI/GrfFUx+APoi
-	Xss2IuuBL5EzVVjrVaKzG92eUhUxQpVxE4vFg4/N50yeZ8pUlsfPLNAskrVaqRr5JX2N1EQvr9QTB
-	xdZSkuQvMQ2bXBB2dRVnhdb9Af6um0DQJ46Zg6fiRu8QSHSw/QmRWfwEnJIv59apRSiF2yUDP/9GQ
-	3b+VXEaMzsUfGrMg4d4gG6U9C8CutI+AIMcw/xyzLvJkLBn7uUip2pQGdUMVHZX06cdaXx+KzvTrh
-	V3yqaMmg==;
+	bh=d8YHwGJCeEFKefM96NEtoTmLf7gsLMxJ2f5daJOJFZk=; b=LOneU7cRSLrv5imroKJPeksY/Q
+	aJ/RiClCuyvjdldP3d3E/Fo2TTLMM4hKHt5rcpbhU31kvL1ilzdqMZqvSacPyrZUkenVUFVVW1yU9
+	IryIErVMVi5avJdrQcjpsK33mmSrlR3tHDnNfMCRZRwyzqqa6d80pjBC4GHOZHNzHKk9EeK+jqW8Y
+	K0GirFsm/5vvQZnDJBlW3IDoo/VQDlf64iElF9ga3VRvSXyim1WJf+Qz7jRamAsWTvOTCqKkCrCWq
+	ffqhzi2PhDkEN5mSz6yEjmUatgkCcpVDqeTM+4tYe+WWSTdh4ZGfyT1qxuIGBbMiY28BxgRD1dqRq
+	0LhAnATw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7I4-0000000FEY2-2bj9;
-	Tue, 07 Jul 2026 15:00:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wh7Jz-0000000FEnZ-3ePn;
+	Tue, 07 Jul 2026 15:02:51 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7I3-0000000FEXj-2yxo
+	id 1wh7Jw-0000000FEnB-1IBn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:00:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5B7060018;
-	Tue,  7 Jul 2026 15:00:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157531F000E9;
-	Tue,  7 Jul 2026 15:00:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783436450;
-	bh=wOBcKHJQyOMU4HZK6o3IdwDSoAOxpnL1hOf/TAAIhys=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Hgkafo9nh3j6b868H5hloDHa6TQeLPS8/oJuDEXLrC5YWas1t5XAJcfRDZ5wcOROR
-	 suoJ7weC+FDxNwwzuR4ODiintZN15O8UU7UC9B+tQK9jblz1Eq9yT8e8JYzmMflLBU
-	 6eFEGJrv6x1GP9Wwh2kbxqVJ97xlFJcmFBa0LN2dLOZIqTTb+Zb9kC1Xf0zRmKbbxQ
-	 ZqdXOLFh2N0dcVlJRbZR3fKIsbX8B35OtssIfEL2Bcbegt4Xwcd9DhIBecnPACiTjM
-	 WpVT8y4kyX6lVL91BH5YxfKYVjsS3AkDueAPa55oLvALNfsLWchBtIUYOseuevp1Z8
-	 W+bZ4tyhbPn0g==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Louvel <paul.louvel@bootlin.com>
-Subject: [PATCH 2/2] powerpc: Move CONFIG_QE_GPIO to SoC
-Date: Tue,  7 Jul 2026 17:00:45 +0200
-Message-ID: <cd46aec4b325745d38ac7992e4d3d5b4f4c4e95f.1783435914.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <b08f76c1d8ff864774246f1e2c2158c223c001be.1783435914.git.chleroy@kernel.org>
-References: <b08f76c1d8ff864774246f1e2c2158c223c001be.1783435914.git.chleroy@kernel.org>
+	Tue, 07 Jul 2026 15:02:49 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-46ed4f66256so3878330f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 08:02:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783436566; x=1784041366; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=d8YHwGJCeEFKefM96NEtoTmLf7gsLMxJ2f5daJOJFZk=;
+        b=lSNNhDS5bWJ3Fy6+5BDx6Ha4hIT/Dv80CSNa1kOZ6yBlaJROLyABB3n0iPEoXiC9kW
+         zXqaqV2FmC8oYm2mtemkvpt0X+VrYafHJc223Vb1cnJLa5FqcxDlN2yddYSoSVNtS3Y0
+         8r/wQistossBlq1JM4sQ5UVPsldZe59WLmw/RP9hfKU3/KSGnUossoKZ40K+aLEtEbWg
+         zXQBBm2BWczuUBbKZFEbR28oxeHCfy57H06EiCgMXbtWNAnxHBRr2TW/Azwb+zAtIacN
+         +IK13V5iV/i5UDPgYH3cxuoBcaHGKCog2SUhKS9qporilN1jeyTz44vJFqaCrMY3+Chq
+         9URA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783436566; x=1784041366;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=d8YHwGJCeEFKefM96NEtoTmLf7gsLMxJ2f5daJOJFZk=;
+        b=ekakVYLvx6xYuq1JDH5CcLSkP9/Jp2bSSMAvOGwSbUyKeHtNJbCd+Vo5Xzknu4PN5u
+         TDoYjgpRa1ZhNIMcw4DaNtItbzsO1xZFMqjAoRVfxjrqZVCLvf85/b2wDLtflRHJdH4P
+         LP5f8Sa1UROAMv2F/taGSeKpRa7sdYfrutzBRhA8qbKguDolXUqLo8eWGYm1URrVv9hj
+         XaWXysOx8f6Kdql129+0GKK/hRCKeMn5CxeDeSrUi69pKa+cWRkHQKqgJpUCX9qCsK5F
+         RSJCwefvaw/aYWs2BvjyP4Mzp5adFso86AyKeuIi3HHbJ5w7Mp2937xRuMlGyW1oJl5c
+         1guw==
+X-Forwarded-Encrypted: i=1; AHgh+RoFzWhKLp/TUs+7z4pn0znB112hP0BMwohmJ1Jhu+rTBkDMKNqrl/1+PcJ+M0HnwGDiz+Vli60sO/0+/7dTQqKO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVSQ44O+BTuux4hXpO/alt6M4apEJswY0/P+ifYtU+BGfEj7re
+	apzWZKlSpiRBItWLHTRMtVACIn7TVC1lS0kmnur+VoxVg6rmY0zNGwI=
+X-Gm-Gg: AfdE7ckBBjAF+BVMBcweDC44WpfMiqEvgDgQ0clP2gVcFS4lcH3kRKDxPaVvmbY1tD4
+	F3+qIfWcOO9jWfySivp+0ReB0/rfQE7LVxnJk+/Z6AmpKA1cQIgQY5CFZb2f9Axq52qGpSGGykb
+	14XxK2+c+StP7qU6usScz5JmCS1TdFSd3bt93Di5iCRL28UVbVMucB0bLJKK8tAE5/garq+PAUG
+	xTgQbwOcPn1XdgVbpiN8w4Gb4+QoYl2rdnQUxOOYXESJCNZvtrtD7cLdMtgT7/u5Ago6UreBi4v
+	N1RE1pYsP0oct155poDoAlzirYCG+XPvg+55phRJRfUwW2EIja0UFqU3XzxGAhyS+cNNgVkCWvD
+	dQHNAIQNIsY6VgSXqF23tQzgEHMZ6cFV613VTknqp7K/5Eswvzvy7zE+X9KoFM/DhyAATS3+P0o
+	Kt1xZM1e68EiBeCH7FyHNt4ad2tJn4DLS9vQitCFlvZB7CjbW9ewBr0Gixetv2kinOCk4Lrg==
+X-Received: by 2002:a05:600c:4747:b0:493:be3e:cc3 with SMTP id 5b1f17b1804b1-493df093146mr65333955e9.21.1783436566150;
+        Tue, 07 Jul 2026 08:02:46 -0700 (PDT)
+Received: from ?IPV6:2001:b07:2ec:601d:4b26:1672:75c7:805a? ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e10af392sm62069495e9.2.2026.07.07.08.02.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jul 2026 08:02:45 -0700 (PDT)
+Message-ID: <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
+Date: Tue, 7 Jul 2026 17:02:43 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1808; i=chleroy@kernel.org; h=from:subject:message-id; bh=+904wY+BTglsrOGG1A3VF0W9Aan7cNN/y9nA+a4QttE=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWT5isy7O3/+S8/3321eHGYuipoe9bsxT9jiycEnf2ffD 9rp6rN0d0cpC4MYF4OsmCLL8f/cu2Z0fUnNn7pLH2YOKxPIEAYuTgGYyOLbDP+9WO6suHhFt2BH m8+28OXP9Y4bdvIwyz2wFXIqXtrNEreHkWFSiOlye27DkwcXyoTpCTvuPOaU8JThnVZd/vf4f+q LDRkA
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+ Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar
+ <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, iommu@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
+ <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+Content-Language: en-US
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+In-Reply-To: <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_080248_367893_27F1A3B2 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +117,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 7aa1aa6ecec2 ("QE: Move QE from arch/powerpc to drivers/soc")
-moved QE into drivers/soc including gpio.c but left CONFIG_QE_GPIO
-in powerpc's Kconfig.
+On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
+> On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
+>> In order to associate the SID used by LPAC to it's own domain and
+>> context bank we need a separate node on the DTS.
+> Can we use iommu-map instead of adding a new device using the same
+> addresses? You provide zero explanations, but it seems like you are
+> trying to separate a part of the GPU into a separate device, but it's
+> unnecessary.
 
-Move it to SoC as well as it is the only place it is used:
+What I was trying to say is that we need to map sid0 and sid1 to 
+different context banks.
 
-  drivers/soc/fsl/qe/Makefile:obj-$(CONFIG_QE_GPIO)       += gpio.o qe_ports_ic.o
-  include/soc/fsl/qe/qe.h:#ifdef CONFIG_QE_GPIO
-  include/soc/fsl/qe/qe.h:#endif /* CONFIG_QE_GPIO */
+ From what I recall, so long as we use the same dt node, the iommu 
+drivert provides no way of doing this.
 
-Link: https://lore.kernel.org/r/16a187116511f5c844c43a12d09f263e77f4fd60.1780936729.git.chleroy@kernel.org
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
----
- arch/powerpc/platforms/Kconfig | 8 --------
- drivers/soc/fsl/qe/Kconfig     | 8 ++++++++
- 2 files changed, 8 insertions(+), 8 deletions(-)
+What kgsl does is having a node for the iommu and then subnodes for gfx 
+lpac and secure.
 
-diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
-index c4e61843d9d99..2f797ac6f1b3f 100644
---- a/arch/powerpc/platforms/Kconfig
-+++ b/arch/powerpc/platforms/Kconfig
-@@ -228,14 +228,6 @@ config TAU_AVERAGE
- 
- 	  If in doubt, say N here.
- 
--config QE_GPIO
--	bool "QE GPIO support"
--	depends on QUICC_ENGINE
--	select GPIOLIB
--	help
--	  Say Y here if you're going to use hardware that connects to the
--	  QE GPIOs.
--
- config CPM2
- 	bool "Enable support for the CPM2 (Communications Processor Module)"
- 	depends on (FSL_SOC_BOOKE && PPC32) || PPC_82xx
-diff --git a/drivers/soc/fsl/qe/Kconfig b/drivers/soc/fsl/qe/Kconfig
-index eb03f42ab9781..b35a8fd30ebfb 100644
---- a/drivers/soc/fsl/qe/Kconfig
-+++ b/drivers/soc/fsl/qe/Kconfig
-@@ -67,3 +67,11 @@ config QE_USB
- 	default y if USB_FSL_QE
- 	help
- 	  QE USB Controller support
-+
-+config QE_GPIO
-+	bool "QE GPIO support"
-+	depends on QUICC_ENGINE
-+	select GPIOLIB
-+	help
-+	  Say Y here if you're going to use hardware that connects to the
-+	  QE GPIOs.
+The address on the lpac device doesn't really matter. I have very limted 
+knowledge of DTSs but I think we could just leave it out altogether?
+
+>
+>> Add the code to look up that node on initialization.
+>>
+>> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>> ---
+>>   drivers/gpu/drm/msm/adreno/adreno_gpu.c | 21 ++++++++++++++++++++-
+>>   drivers/gpu/drm/msm/msm_gpu.h           |  1 +
+>>   2 files changed, 21 insertions(+), 1 deletion(-)
+>>
+
+Best regards,
 -- 
-2.54.0
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
 
 
