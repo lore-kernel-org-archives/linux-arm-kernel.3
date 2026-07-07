@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EDDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD5FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 11:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbPusrcXPnpYFyMiIMTwRTROLwgbaX8b1Agwe0KIe8E=; b=Zbtih7p7Fdhj3n2ItXC9wUT9vT
-	Nv7RtqpNgJz0xF5ycUu+jDAgDfhdMdsJY+gi+mL09gTF9B70LYNMJvuhOLGfbsJMQpj6OUYo7RRMa
-	iiq1pF3xNxlxEwUMMpwcuxI6YJ0DzRSRhvSJlhbPVPK4pA5Spw+pxYvhLVdmkv1YAkQO/OKHPAl1V
-	ddLBizHY71MYkAcr+vbrs/P1uQ6FWd8eoooaJa2FaWuF8bh5E5P/Zk2e8e15jTqS1X6eG22OOZoEB
-	RyWnCiSf30RQGKd1JD7cGdAsDpiZpz5FiXmRn0K+21G4oWylOzhlMLL5QUc1+ePLD7ZYpRrt4jA4f
-	bHKLPmHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eT2u2uECc/JyT//Y0MUNfLJ3f6c5Vk9vkYH8un7LuaA=; b=Ax3VlXt0H2NZ+TsrNclNSS57Kn
+	QvOsokGbvI3Rv02UsUzyD46iGPRLD0I34ew5RZtjp7kFtsxLmxPAQUMaunrmBOKjrZdZV2Ryb4ofx
+	nyn1tMgaDzKDCYtJ29lkU1eCQt6Vx79bvVPmNiTxS4GOl2UT+SApo9JrIyhLoRo4G2Cl8U4j6nsWA
+	nGTXfx7dhU7uRWfe00kxvj6jHpJMb39VUAkvwlFO0sZxiebBkEc/EDva/g4s6ule6G1q7zLFApZHS
+	DznDL0Jz0nlpAgT91UhyjlRjkI5owe2oDEGqEWwwO66qVIUVZZZ0/BPejbfSjPKEbl1xD2SQO7cEH
+	8bgGDKQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3zD-0000000Eqx2-11cA;
-	Tue, 07 Jul 2026 11:29:11 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wh4FN-0000000EsnM-3qKG;
+	Tue, 07 Jul 2026 11:45:53 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3zA-0000000Eqw2-2QM4
+	id 1wh4FL-0000000Esmw-24k6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 11:29:09 +0000
-Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 667BNfJs005495
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 7 Jul 2026 20:23:42 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=FbPusrcXPnpYFyMiIMTwRTROLwgbaX8b1Agwe0KIe8E=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1783423422; v=1;
-        b=pUJ/OyF7ICHeyUEuLdKMr4YCFsLqDapVuMRnLQ1VG7qoZLxt4aFcFeO4o7kJliWn
-         H3b7btpDubqYTMc9GZCHY5WXZStHC0PvxFiMDD07iruin19bvrgV4oOrmbqrFwGL
-         2e6SFbIbSZA2dMHu2Ue3tvi0icj3flekDGu400ANaIoILfDXU2YSG92LLbGEfKwY
-         qeakxzWWZshEsXfQfd+3pw9cJNbdEwZEsTMAMFX1PtjbqZUypMMGWCmgWfK2C6AI
-         gS95j9Ph4YatoHewtYhkaTotazxRpdOEUFGz1u8zd/R7Fg7xuNZKLxD6q/fhCtwI
-         dK+JUrYcPvBaufMKvSU3Lw==
-Message-ID: <cb5d5f13-a1a9-47dd-a717-5533a8b32b20@rsg.ci.i.u-tokyo.ac.jp>
-Date: Tue, 7 Jul 2026 20:23:41 +0900
+	Tue, 07 Jul 2026 11:45:52 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so34645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 04:45:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783424749; x=1784029549; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=eT2u2uECc/JyT//Y0MUNfLJ3f6c5Vk9vkYH8un7LuaA=;
+        b=uNUfIoypdtkEM3y3IUbXXSpHHuZJf4mqsT8Es7HXJMj/xFsLY3FS9n3MwwhLBA08aW
+         OMagK5X5tw9tLb/iy/KDDC+QI7m98II1df6sJUxYpe+HCQRdHgHKA7PYPyEpbOcEAW5b
+         nnX9BnRghU3YMlxSyCyRYz0eZjlsAmvA2D2aLDeXdWWHasCF+tUIKwLfDCdebFuToOeX
+         1bmJY43aY32DDdRqmQurKMq1sd8uqY1VRTjCp+xId0yYmzH2qGDSOr6iSi6Uha1rkvuQ
+         29AeUsEaxBvUJuogwYxqpIueJ06bEqiPwkTkSFnKw8U0M7M0uMoG5UnDZjCfvo+j8Kyl
+         Gufg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783424749; x=1784029549;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eT2u2uECc/JyT//Y0MUNfLJ3f6c5Vk9vkYH8un7LuaA=;
+        b=fB06AKFz8LPgmWDQwOG6DkTJ+eIFJKeukrqZ8BDi8rQZOqRaXUwW9lxIm1oHyRwAvs
+         JyNqra9131JxT/uTEF5mdxRjMi3wC3BB4GTy667RrAkjv5wkxQp120FYS9vnpQsUh/Dq
+         OmSkX3hrNiaERRn7pNdNe9LA30vVKdOMFFgkYUz181FIiDIyo6ZQ72YDNJuSl0vE9/2T
+         GkfW5wy0lWhWnsnwf9K/2LDHzn2EMhxT0lVFVBYrBgefjWuAzZBithjkuTGXFmpfcY/w
+         xG9ShfCfWo9O3ySfEp1vtsqV3luKBaAUsVPij6taEmfPvDzeoOTlkz/NZaEoGkSG6mDo
+         DylQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpUf4Pznt0aHeuGbfkkBqrX5rQbQ6Gpqq6PoBo/iWrfWDK1n0A+05s/Rgnywyb/KvAqhuX4DU9Tvh7KY1idpO4P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxpj3TAoRFZJCOM6A3pFb2Pi81oFw0fbywDtcpybMSVPuvkUk/C
+	P1MJiXFINyjJL0Q7wYKHECgrRNT5ASwz/YeDr2I0ULwW6GH/688r1lc0KJrQMD9I6A==
+X-Gm-Gg: AfdE7cn9lq1PdNXCqLe9gZmMAvt3KN4T/wAT25kuaNWvm03ctMPnumTR/tL/iHbKQf1
+	OLtuPW+b3WOBbAdFsFjFX+m9Q4oy/0swi2px0z8nrhVva/MlSsXyjonb+xxj6PY6oyIORw2VYHr
+	jv3TA3Hcxk6rg3w5xSgRJfvktkvaRB5G9laA0MXWDrlRY447DXaiOaVYoItqqq3mQ/UYaNr6vMQ
+	v0+5BPAA83z5+6R9Bj89hUaUX+j/OIOL6zWRp0GNYgtwEdF9zSXozd5+8UQ9FEka4WKDC1GyZJV
+	wHVLSJCyl75DVz6Tl4fw+z5NSXt+BQgsd/KZTbF+/YwxEWSlgSyYiFefbeIPaHwPTmu7OaIlLoG
+	5d508g5wma9pzzTrt0wAWw94kYtZUAdLLL0zkLMawHuBgbcMsoOSJPNkDqbKVJwKzD1ILwV5Jzd
+	sUh9MWR7qmThIltk4w+NPbN/qOpkrEqjaZFeKRtc6a8RkpAo9O
+X-Received: by 2002:a05:600d:8654:20b0:48a:623c:8859 with SMTP id 5b1f17b1804b1-493e15301b5mr647595e9.7.1783424749113;
+        Tue, 07 Jul 2026 04:45:49 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e01c9faesm37268395e9.1.2026.07.07.04.45.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jul 2026 04:45:47 -0700 (PDT)
+Date: Tue, 7 Jul 2026 11:45:40 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
+ for latency
+Message-ID: <akzm5BoV0rToJ7ij@google.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <3-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/7] KVM: arm64: PMU: Implement fixed-counters-only
- emulation
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <akvyvclUQ2b2YHiU@kernel.org>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <akvyvclUQ2b2YHiU@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_042908_852181_7F7FDA67 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20260707_044551_564693_B5296E55 
+X-CRM114-Status: GOOD (  43.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,168 +107,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/07/07 3:23, Oliver Upton wrote:
-> On Mon, Jul 06, 2026 at 07:03:28PM +0900, Akihiko Odaki wrote:
->> Add internal state for PMUv3 emulation without programmable event
->> counters. When fixed-counters-only mode is active, KVM reports no
->> programmable counters and hides PMCEID, avoiding event-counter state
->> whose behavior can depend on the selected hardware PMU.
->>
->> The cycle counter still uses a host perf event. Unlike the normal PMU
->> path, fixed-counters-only mode may create that event from the hardware
->> PMU attached to the VCPU's current pCPU. If the VCPU later loads on a
->> pCPU that is not covered by the existing event's PMU, request a PMU
->> reload so the cycle counter can be recreated against the new pCPU's PMU.
->> Keep this affinity check limited to fixed-counters-only VMs; the normal
->> programmable-counter mode continues to use the VM-wide PMU and does not
->> need per-load reload decisions.
->>
->> Add a separate internal flag for explicit userspace PMU selection. The
->> UAPI wiring added later will use it to keep explicit PMU selection and
->> fixed-counters-only mode mutually exclusive while still allowing
->> fixed-counters-only mode to replace the default PMU selected during
->> KVM_ARM_VCPU_INIT.
->>
->> The UAPI wiring that sets the fixed-counters-only flag and records
->> explicit PMU selection is added later in the series.
->>
->> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
->> ---
->>   arch/arm64/include/asm/kvm_host.h |  4 ++++
->>   arch/arm64/kvm/arm.c              |  1 +
->>   arch/arm64/kvm/pmu-emul.c         | 43 +++++++++++++++++++++++++++++++++++++--
->>   include/kvm/arm_pmu.h             |  2 ++
->>   4 files changed, 48 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index 0c39d9db7d57..aa07b05b8231 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -353,6 +353,10 @@ struct kvm_arch {
->>   #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
->>   	/* Unhandled SEAs are taken to userspace */
->>   #define KVM_ARCH_FLAG_EXIT_SEA				11
->> +	/* PMUv3 is emulated with an explicitly specified hardware PMU */
->> +#define KVM_ARCH_FLAG_PMU_V3_EXPLICIT			12
->> +	/* PMUv3 is emulated without progammable event counters */
->> +#define KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY	13
->>   	unsigned long flags;
->>   
->>   	/* VM-wide vCPU feature set */
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 68767bb08285..1cc7754d5ace 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -687,6 +687,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->>   	if (has_vhe())
->>   		kvm_vcpu_load_vhe(vcpu);
->>   	kvm_arch_vcpu_load_fp(vcpu);
->> +	kvm_vcpu_load_pmu(vcpu);
->>   	kvm_vcpu_pmu_restore_guest(vcpu);
->>   	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->>   		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
->> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
->> index e70628653e4b..40cad183376c 100644
->> --- a/arch/arm64/kvm/pmu-emul.c
->> +++ b/arch/arm64/kvm/pmu-emul.c
->> @@ -96,6 +96,11 @@ u64 kvm_pmu_evtyper_mask(struct kvm *kvm)
->>   	return mask;
->>   }
->>   
->> +static bool kvm_pmu_fixed_counters_only(struct kvm *kvm)
->> +{
->> +	return test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
->> +}
->> +
->>   /**
->>    * kvm_pmc_is_64bit - determine if counter is 64bit
->>    * @pmc: counter context
->> @@ -343,7 +348,11 @@ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
->>   
->>   static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
->>   {
->> -	if (!pmc->perf_event) {
->> +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
->> +
->> +	if (!pmc->perf_event ||
->> +	    (kvm_pmu_fixed_counters_only(vcpu->kvm) &&
->> +	     !cpumask_test_cpu(vcpu->cpu, &to_arm_pmu(pmc->perf_event->pmu)->supported_cpus))) {
->>   		kvm_pmu_create_perf_event(pmc);
->>   		return;
->>   	}
->> @@ -720,6 +729,12 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
->>   	int eventsel;
->>   	u64 evtreg;
->>   
->> +	if (kvm_pmu_fixed_counters_only(vcpu->kvm)) {
->> +		arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
->> +		if (WARN_ON_ONCE(!arm_pmu))
->> +			return;
->> +	}
->> +
->>   	evtreg = kvm_pmc_read_evtreg(pmc);
->>   
->>   	kvm_pmu_stop_counter(pmc);
->> @@ -748,7 +763,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
->>   	 * Don't create an event if we're running on hardware that requires
->>   	 * PMUv3 event translation and we couldn't find a valid mapping.
->>   	 */
->> -	eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
->> +	eventsel = kvm_map_pmu_event(arm_pmu, eventsel);
->>   	if (eventsel < 0)
->>   		return;
->>   
->> @@ -878,6 +893,9 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->>   	u64 val, mask = 0;
->>   	int base, i, nr_events;
->>   
->> +	if (kvm_pmu_fixed_counters_only(vcpu->kvm))
->> +		return 0;
->> +
+On Mon, Jul 06, 2026 at 01:26:40PM -0300, Jason Gunthorpe wrote:
+> The server IOMMU drivers focus on invalidation latency by default,
+> over-invalidating if necessary, to round the invalidation range up to a
+> single command. I think this represents a trade off for DMA non-FQ and SVA
+> where stalling the operation is overall worse than re-loading the IOTLB.
 > 
-> Even if we advertise bits in PMCEID, does it matter? There's no PMC that
-> the guest could use to count it.
+> For instance AMD and VT-d both round the range up to the largest aligned
+> power of two and invalidate that. This causes over-invalidation but that
+> is preferred on real HW over trying to issue a number of smaller
+> range invalidations.
 > 
-> I understand it isn't aesthetic but I really want to minimize the
-> special-casing that has to be done for this feature.
+> Only if a para-virtualizating hypervisor is detected do they switch to
+> using more accurate invalidation. This also triggers using
+> iommu_iotlb_gather_is_disjoint() (ie PT_FEAT_FLUSH_RANGE_NO_GAPS) to
+> remove over invalidation from the gather. A pvIOMMU has a hypervisor that
+> will walk the IOPTEs and resync them. Over invalidation, especially
+> significant over invalidation, can incur a big latency cost reloading alot
+> of page table. x86 IOMMUs have aligned range restrictions so there are
+> some pretty nasty corner cases that can trigger huge over invalidation.
+> 
+> Currently SMMUv3 doesn't support detecting a hypervisor, and it
+> unconditionally runs in a NO_GAPS mode. This makes some sense for the
+> single invalidation flow where there is little reason to push single
+> commands across a gap.
+> 
+> When we get to RIL hardware, this doesn't look so good. On real HW the
+> best option is the same as x86: issue a single RIL per gather and optimize
+> for latency. SMMUv3 has a significant advantage as its RIL does not have
+> alignment limitations so it's single-command over-invalidation is capped
+> at < 1/32 of the gather's size, making it much more suitable for a
+> pvIOMMU.
+> 
+> However even with RIL SMMUv3 still uses NO_GAPS and it breaks down the
+> gather into several exactly sized RILs to avoid any over-invalidation,
+> costing latency on real HW.
+> 
+> When the HW has RIL support follow the x86 approach in SMMUv3 and
+> calculate a single RIL per gather that will cover the required
+> invalidation.
+> 
+> Calculate the smallest SCALE such that NUM can cover the range to minimize
+> over-invalidation. Always use a RIL command if RIL is possible working
+> around the spec limitations to form a valid one. If RIL is not possible
+> then do full invalidation.
+> 
 
-This strictly ensures that sysregs are stable after migrating across 
-physical CPUs, which may have different PMCEID values.
+That may be beneficial for servers, but I am not sure about other use
+cases, we already know that the invalidated entries are unmapped
+and not used. However, over invalidating might impact live DMA which
+would be bad for workloads sensitive to translation latency (as
+embedded cameras, displays for example). Maybe this can be configured
+instead (via cmdline)
 
-> 
->> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu)
->> +{
->> +	/*
->> +	 * ARMV8_PMU_INSTR_IDX will need the same check once
->> +	 * FEAT_PMUv3_ICNTR is supported.
->> +	 */
->> +	struct kvm_pmc *pmc = kvm_vcpu_idx_to_pmc(vcpu, ARMV8_PMU_CYCLE_IDX);
->> +	struct arm_pmu *cpu_pmu;
->> +
->> +	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) ||
->> +	    !kvm_pmu_counter_is_enabled(pmc) || !pmc->perf_event)
->> +		return;
->> +
->> +	cpu_pmu = to_arm_pmu(pmc->perf_event->pmu);
->> +	if (!cpumask_test_cpu(vcpu->cpu, &cpu_pmu->supported_cpus))
->> +		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> 
-> Just detect the changing PMU implementation here, KVM_REQ_RELOAD_PMU
-> will need to detect the PMCs that require an update anyway. Stash the
-> last cpu in kvm_arch_vcpu_load() and pass it to this:
-> 
-> void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
-> {
-> 	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu)
-> 		return;
-> 
-> 	if (kvm_pmu_probe_armpmu(vcpu->cpu) != kvm_pmu_probe_armpmu(last_cpu))
-> 		kvm_make_request(KVM_REQ_RELOAD_PMU);
-> }
+> At least one invalidation errata is avoided by 'always use RIL'.
+>
 
-It is a nice way to simplify the code and to avoid hardcoding 
-ARMV8_PMU_INSTR_IDX. I'll use the code for the next version.
+Can you please clarify what that means?
 
-Regards,
-Akihiko Odaki
+> Since the normal path is now the only one with a loop, split them into two
+> functions and fold a simplified version of arm_smmu_inv_size_too_big()
+> directly into the normal flow in a way that directly limits the number of
+> single invalidation commands generated, again focusing on controlling
+> latency.
+> 
+> The end result is any gather is converted into either:
+>  - One invalidate all
+>  - One range invalidate op
+>  - At most 512 single invalidation ops
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 257 ++++++++++++--------
+>  1 file changed, 153 insertions(+), 104 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index d22012466e3965..1ad642e09eb92d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -2395,124 +2395,166 @@ static void arm_smmu_tlb_inv_context(void *cookie)
+>  	arm_smmu_domain_inv(smmu_domain);
+>  }
+>  
+[...]
+> +	scale = fls64((num_tg - 1) / 32);
+> +	if (scale > 31) {
+> +		/*
+> +		 * Range too large for a single command, use full invalidation.
+> +		 */
+> +		return false;
+> +	}
+> +
+> +	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
+> +	if (tg_lg2 == 14 && ttl == 1)
+> +		ttl = 0;
+> +
+> +	/* Verify address alignment for the TTL hint */
+> +	if (ttl && !arm_smmu_ttl_addr_aligned(cur_tg << tg_lg2, tg_lg2, ttl))
+> +		ttl = 0;
+> +
+> +	arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
+> +				    cur_tg << tg_lg2,
+> +				    DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1,
+> +				    scale, ttl, tg_enc);
+> +	return true;
+>  }
+>  
+> -/* Used by non INV_TYPE_ATS* invalidations */
+> -static void arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
+> +/*
+> + * One TLBI command per IOTLB entry, assuming the entries are all at least
+> + * iopte_granule sized. Returns false if too many commands would be needed which
+> + * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
+> + * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
+> + */
+> +static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
+> +					   struct arm_smmu_cmdq_batch *cmds,
+> +					   struct arm_smmu_cmd *cmd,
+> +					   struct arm_smmu_tlbi *tlbi)
+> +{
+> +	unsigned long num_ops = tlbi->size / tlbi->iopte_granule;
+> +	unsigned long iova = tlbi->iova;
+> +	unsigned long i;
+> +
+> +	if (!num_ops || num_ops > 512)
+
+Is there a reason that was added instead of keeping the old formula?
+
+Thanks,
+Mostafa
 
