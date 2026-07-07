@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F6BC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E251CC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lJSCDqh6GcEPhwDqb7R1EEMshPlCYDqWzEAoSCY3SE=; b=SV13fdaUzL25hFEXbuEXzO+1It
-	86zJ1Ka9ggpGjGHLjbkyafMsypyLWbBPrYHH7gCItUhi0mTIVP7pzN5Pzk0yDe4cCRmT5hOQlbw+e
-	fCVQkIt2385ZNhwMsiGjyEFU2589Y6Ll9UDx39tY/sbeYLA4jmliY2Vl3GtoFkNQ+zbCq1y8iE4je
-	jIclj1muZWTn/pWJQyeotDQObONUMkoy6V8ZGQ2+1oqd27X92yxUI6312N5mFduS1j4HyBpCzwWKM
-	wn6T86E06mOz4ZfFjwMn5KbH4BqDP9R1S5iWE2FNROh7/8aagceiCH5YXNsqZCs4ohwleYE9lyKZ8
-	JwockYRg==;
+	bh=QD+ujfezD4Dleh3rKBX84tKYNRj7YlzwVIdQMC0INHo=; b=eogF04rT6wi+vrbbIPtJVWvj6q
+	WwDxRFHZr1DLF7HKATO7PgFzxaKiJcSjUS/deg5JhOGdiJJMRtnDFi7DVksAR0HVMfh4ZVH8ksNse
+	rfkZ3qjwcHG2use5hvWdDsHT1pdr2eKof6UpH7XydBO3Y4sN+LYU10TCaBEA9DhUXg83sClWNXYdz
+	TcPRsxGy6xnEeDkhHW28EsZL5dLe4NN0ejbzp9CyDohmdnPYz22FwFapxtbriTI5umhl05/1q3wFi
+	KVgMLUJvEHUpyzo5dU/1V3Brf5PpWAcLz1FlvjNi8w9/xanEr/clay3V+4ExLJ6uYKKfU2A9BWOZo
+	mg6KZeiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh13w-0000000ES7Z-1Ak5;
-	Tue, 07 Jul 2026 08:21:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wh13v-0000000ES66-0yW4;
+	Tue, 07 Jul 2026 08:21:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh13m-0000000ERx6-38Dl;
+	id 1wh13n-0000000ERxf-1skR;
 	Tue, 07 Jul 2026 08:21:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783412500;
-	bh=1S2PC2ZLIuvA/r0um/lhvN+IUZnMiBgFQzkUSbVwxN0=;
+	s=mail; t=1783412501;
+	bh=KLoyhladejZwag7Oc8NASnTdTZWyep443gM8lpfjMck=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=agtY5X5xEQtF78WRfmp7bHe2o9awgJ25DwnYgD3FwnlYtdNdV4FD0pwmhF9NKSNZC
-	 2CQX6kEHh22UmpBDTEE3ImjcUgzAoCDadSsNrKM1YSZn2HlKby8HXG25Dv+x5zZMrb
-	 /Zq9HMe16h1Q0AGwC/3/UyhLQ9f6DDV+9WEU06f6aRPluTKgfw2MrRf7yv9mQMMYGH
-	 8R+eBhhSfoxdIyasDmRAKXAOQYKIk2mFqtFmx5MOis0UD2HGfTf3vIQjU2mE768aUT
-	 Ge36P4VI/Q7Mip2/vP4YYrYsIN/HzFfEW+NnxmLnYOkVvdfbgV4h4G8U2e4dtva8Y0
-	 A78h2nR06dkJg==
+	b=ZihbO5xuWnROe/iFMijiFg5AjBA6+EHIH98vWSA/uGkwwcBxz+ewy2BZDHac9uAMs
+	 9LT0BUKmMU+2554CstLQnCo9B7g9VPk/JN6YSwA5BVC8D9wLWEPvZruLGOmsRRorxH
+	 DlMunPqiuHl7OdWU9s/I9NiSV0CNRYTQRqRp4QQ+SHNY2VF9Y/cnTJRY3XfGTsa2FD
+	 8FhZNg0mjmQ0etpb9A8uAz/IsJV96Fu9kY+baUo2wT8GCO6isDOSOe9KT6Rpg8L7io
+	 x3ivOZ67/M2ErE0ot3s73aIX5Lc3rPdNJxmj4NgZqGWBR/Jjte7PRItjXpKgVEAhJz
+	 gBOMV97e0lafw==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0593A17E0EF3;
-	Tue, 07 Jul 2026 10:21:38 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A4B317E0FD0;
+	Tue, 07 Jul 2026 10:21:40 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 07 Jul 2026 10:21:22 +0200
-Subject: [PATCH net-next 4/6] net: stmmac: mediatek: add support for TX
- clock output enable feature
+Date: Tue, 07 Jul 2026 10:21:23 +0200
+Subject: [PATCH net-next 5/6] net: stmmac: mediatek: add support for TX
+ deallocation adjustment feature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-dwmac-mediatek-mt8189-v1-4-17f345eaaca3@collabora.com>
+Message-Id: <20260707-dwmac-mediatek-mt8189-v1-5-17f345eaaca3@collabora.com>
 References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
 In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -71,16 +71,16 @@ Cc: maxime.chevallier@bootlin.com, rmk+kernel@armlinux.org.uk,
  linux-stm32@st-md-mailman.stormreply.com, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783412493; l=1599;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783412493; l=3068;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=1S2PC2ZLIuvA/r0um/lhvN+IUZnMiBgFQzkUSbVwxN0=;
- b=i1maYnpQSwrf17oYxI252hcugYFWQR+uo8DbLe8uGn7ivo43UnoIg5RSf6Vo73m/8j/p8vFNw
- ZoI41pGL4K/BPeMB3PqozJ/2xnKNtTnCqc9oRsiYtURUQ+pioy3KkDa
+ bh=KLoyhladejZwag7Oc8NASnTdTZWyep443gM8lpfjMck=;
+ b=rYDH1k4qqZavWOEuPdvowUc/+WZvhIhsF7JkDbjG/He606di+QhEkFX8U4MRI7ZTScJ3JTE1m
+ TvJs9RvLmHUBfzahx6b4AyEUmD4/uTI3RRcUyL6RNmbW1pWOovvYZiq
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_012144_129596_E3EDAA14 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260707_012144_107553_02E413F3 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +96,85 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The MT8189 SoC has in the Ethernet control 0 register from the
-peripheral configuration (pericfg) an additional bit to enable the TX
-clock signal output.
+peripheral configuration (pericfg) additional bits to adjust the TX
+deallocation.
 
 In preparation of MT8189 SoC support, add its definition, use in the
-set_phy_interface_v2 callback, and a support flag in the platform
-data.
+set_delay_v2 callback, and a support flag in the platform data.
 
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 25 ++++++++++++++++------
+ 1 file changed, 19 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-index 28e87990b0a1..bcc0baef3f71 100644
+index bcc0baef3f71..6b0a42b5839f 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-@@ -36,6 +36,9 @@
- #define ETH_FINE_DLY_GTXC	BIT(1)
+@@ -37,7 +37,8 @@
  #define ETH_FINE_DLY_RXC	BIT(0)
  
-+/* Peri Configuration register for mt8189 */
-+#define MT8189_CTRL0_TXC_OUT_OP		BIT(20)
-+
+ /* Peri Configuration register for mt8189 */
+-#define MT8189_CTRL0_TXC_OUT_OP		BIT(20)
++#define MT8189_CTRL0_TXC_OUT_OP			BIT(20)
++#define MT8189_CTRL0_DLY_GTXC_STAGE_FINE	GENMASK(11, 6)
+ 
  /* Peri Configuration register for mt8195 */
  #define MT8195_PERI_ETH_CTRL_BASE	0xFD0
- 
-@@ -99,6 +102,7 @@ struct mediatek_dwmac_variant {
- 	u32 tx_delay_max;
+@@ -103,6 +104,7 @@ struct mediatek_dwmac_variant {
  	u32 peri_eth_ctrl_offset;
  	u8 dma_bit_mask;
-+	bool use_out_op;
+ 	bool use_out_op;
++	bool use_stage_fine;
  };
  
  /* list of clocks required for mac */
-@@ -292,6 +296,9 @@ static int set_phy_interface_v2(struct mediatek_dwmac_plat_data *plat,
- 	/* MT8195 only support external PHY */
- 	intf_val |= MT8195_EXT_PHY_MODE;
+@@ -326,9 +328,12 @@ static void delay_stage2ps_v2(struct mediatek_dwmac_plat_data *plat)
  
-+	if (plat->variant->use_out_op)
-+		intf_val |= MT8189_CTRL0_TXC_OUT_OP;
+ static int set_delay_v2(struct mediatek_dwmac_plat_data *plat)
+ {
+-	u32 gtxc_delay_val = 0, delay_val = 0, rmii_delay_val = 0;
+ 	struct mac_delay_struct *mac_delay = &plat->mac_delay;
+ 	u32 reg_offset = plat->variant->peri_eth_ctrl_offset;
++	u32 gtxc_delay_mask = 0;
++	u32 gtxc_delay_val = 0;
++	u32 rmii_delay_val = 0;
++	u32 delay_val = 0;
+ 
+ 	delay_ps2stage_v2(plat);
+ 
+@@ -402,6 +407,9 @@ static int set_delay_v2(struct mediatek_dwmac_plat_data *plat)
+ 		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES, mac_delay->tx_delay);
+ 		gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_INV, mac_delay->tx_inv);
+ 
++		if (plat->variant->use_stage_fine)
++			gtxc_delay_val |= MT8189_CTRL0_DLY_GTXC_STAGE_FINE;
 +
+ 		delay_val |= FIELD_PREP(MT8195_DLY_RXC_ENABLE, !!mac_delay->rx_delay);
+ 		delay_val |= FIELD_PREP(MT8195_DLY_RXC_STAGES, mac_delay->rx_delay);
+ 		delay_val |= FIELD_PREP(MT8195_DLY_RXC_INV, mac_delay->rx_inv);
+@@ -412,12 +420,17 @@ static int set_delay_v2(struct mediatek_dwmac_plat_data *plat)
+ 		return -EINVAL;
+ 	}
+ 
++	gtxc_delay_mask = MT8195_RGMII_TXC_PHASE_CTRL |
++			  MT8195_DLY_GTXC_INV |
++			  MT8195_DLY_GTXC_ENABLE |
++			  MT8195_DLY_GTXC_STAGES;
++
++	if (plat->variant->use_stage_fine)
++		gtxc_delay_mask |= MT8189_CTRL0_DLY_GTXC_STAGE_FINE;
++
+ 	regmap_update_bits(plat->peri_regmap,
+ 			   reg_offset + MT8195_PERI_ETH_CTRL0,
+-			   MT8195_RGMII_TXC_PHASE_CTRL |
+-			   MT8195_DLY_GTXC_INV |
+-			   MT8195_DLY_GTXC_ENABLE |
+-			   MT8195_DLY_GTXC_STAGES,
++			   gtxc_delay_mask,
+ 			   gtxc_delay_val);
  	regmap_write(plat->peri_regmap,
- 		     reg_offset + MT8195_PERI_ETH_CTRL0,
- 		     intf_val);
+ 		     reg_offset + MT8195_PERI_ETH_CTRL1,
 
 -- 
 2.55.0
