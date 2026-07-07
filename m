@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57164C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1C5C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X4tE949qRBkC4yYjzPjGurt/S8AoL1L3JbunAkJmp2w=; b=h9QVsmuvfm0bxvuYT6YRrh+ezW
-	lyRRU13x6zaFxsSXTWGahGHfEN83vXA+WRuZPTDmjph3BRIW/vonAEHcaxzt6/lnKDei/VF8TbmiQ
-	8QKpuuhPugwzmtlRwjKSEy5yR2VFo07hA+U8FEgH59kcHECCUA3JdK3x9rHVw5EO+OjbNXNfm+s/l
-	sapttL9Exfr+Hy0nfbAtRqzKw6XrxJ2Vn8Bb+3LO9yPp8HIaqiviW1uzvaSVqTvGyFnk7lm+wOZ5y
-	TD4cm6e98J3aLl6ZswGQTrMfxvZnarY10e1IIAnX9t1BJe9OBDPOiFUoodNVvY5EbMSTIT2Wg8jb7
-	4Qtu2W8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=; b=hOU4GescQfia1BwUjK0ReVveZV
+	v2FQk1uKFVH6rOrbwmB+waVmOUvzTNVwW5qM1VUlweevrtq/8iVMRads8NuRfjAou3Sr/yxAenDQg
+	xMDdubVyISa/vvPyxKIDk1cbt3PMfOxdvdrA8v4mjJmZDdrjm7fza2XLRbJHQO56GL6HwX8yEaV1b
+	fygdF2E2rpUN/7xKDV3RXAOfkj5unU8hMLL19Emqxz4g/+BpMphreg9hLgAJhvxzKUxkZ9ut0TBIJ
+	bDmE8yKmIeAmhp+rL5nP3Vb6hNg1W7jOvVZOnmiPtpHPhNJ/nUydfB25mmt3/iprmwYR6euA0Cc6L
+	mH3sgr3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh90R-0000000FUpX-1w2Q;
-	Tue, 07 Jul 2026 16:50:47 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1wh93F-0000000FV3S-0Aix;
+	Tue, 07 Jul 2026 16:53:42 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh90J-0000000FUp9-0XXw
+	id 1wh93C-0000000FV33-2SIY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 16:50:43 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-c1279120710so184676566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:50:37 -0700 (PDT)
+	Tue, 07 Jul 2026 16:53:40 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so41695195e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:53:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783443036; x=1784047836; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=X4tE949qRBkC4yYjzPjGurt/S8AoL1L3JbunAkJmp2w=;
-        b=i55vK/XbFkPj5UkaaQFLnW12KHyNwOWEn6O2tN5fk7UMmDBBfk3gT4lg1wukwvSlm/
-         pGKjYH9HUFPT921V157QzhCbbIwLqXQrYUXDAtw5QrATc4xsgc3jwl95Kjw1Uer9+xeV
-         mwyHdXj4d7CjgwJ0woigwfpHrDApmBwERSPfLUdNvr3oZcBjDTmYp62RX0cGCqLn7ZY6
-         aHMQJRoxw6dJ+MwMj2hcLUkO1HP+G1FuHCWLwCU1Y8HuWvYxCLuuy1HbTRjyJDL1XKGd
-         vovQ0LHLsAqM1ST5Q2ma/Y8sSuFZhFo2aNTfpHqfHuw24cXENnQYD0ybXMLfnWBCbMjQ
-         Tbqw==
+        d=google.com; s=20251104; t=1783443216; x=1784048016; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=;
+        b=m8lVdYD97iSLGYX3Xns5/TaxAzZYSlUrSZ9SEp55FcojRqZWw/hdnuCb8Hp2CPGhzA
+         ApVvVT7bbAIZx8Q8ukNEfgnqOaAtJWYU8Z+cFJBnMDvnCjYLdPvR+OLqIcAWLpMIMu/9
+         COEWAz56BalJHdQ7MlmK+ApmqqALqEdluQI0mEpSc8Q7pTy3LjTt5oWasPKHsaDPlTKk
+         tVK9eC8+9qVEyJddw67ETJsyK+Zdv90ZnnuDo1T0zMx4PZcK+icGeoroW42W04HMNTrZ
+         6FC9v8+e+z4Sxr0/olNomXEa4B3vVs1UMML+ks67tKtRctDVYLr3uRu/h/ezI0+6lLY1
+         0ZGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783443036; x=1784047836;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=X4tE949qRBkC4yYjzPjGurt/S8AoL1L3JbunAkJmp2w=;
-        b=gvQF3qLmuCt1Fekox+/WCzVcQ8zhQvpGanT7SChb9YExL45mosz1MLba3zrprCghHA
-         DBzhEDLVMLysB7ynD+/nbHYRhOBO8N6WnmfTJ6oAj6q4Qu0AdsJcmx69m6tq1lac75xp
-         X9LMc5j38unPxsfeD2kNtxNk+VBPYhCesRawgu4bk6buf7EvxFBQbqQQFu26vniyoz5Q
-         OoB1+5e8ly2CR83jvbAOZRjnw0b/QVgoaWxF63rvD+XWIH9qimjYhIQu5fszsXv0fRdW
-         ZIR9P89lbY6rIOeF4ga+0dOyadGwEwXp8RUihhHWQhDvfNLLGPI+MXzzUErUAysV6lPv
-         X4Xg==
-X-Gm-Message-State: AOJu0YyhDald/DYj/k4O44YRGRFPIHWcmLH8gah1d7ZIgGdf/AAB3Hor
-	RHqB9CncXQM7YJzFbZOeuX7xRuWo49E3II0UH855EYqj3QY4RNFD0a62I/2gQ3PRpUbymkQSKT/
-	JYTYHKzE70gRhCOOG75oUYA==
-X-Received: from ejed19.prod.google.com ([2002:a17:906:1753:b0:c12:7900:90b])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:3e8b:b0:c15:abe2:e1df with SMTP id a640c23a62f3a-c15abe2f250mr283675666b.43.1783443036203;
- Tue, 07 Jul 2026 09:50:36 -0700 (PDT)
-Date: Tue,  7 Jul 2026 17:50:29 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
-Message-ID: <20260707165029.3410701-1-vdonnefort@google.com>
-Subject: [PATCH] KVM: arm64: Fix potential leak in hyp_trace_buffer_alloc_bpages_backing
+        d=1e100.net; s=20251104; t=1783443216; x=1784048016;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=;
+        b=Ci37qefypCn6HmX27Rt0fZ/sP0Z3hiA3/PqQ6OOsYkpouksMSoyJU05vDEks49RHFK
+         8b3AIZX9rt5z/f6QsWiM/9K++XyaV1TJPz+GX4izaCyYLqov04JdzWM3Wj3Gp7uJ/jXK
+         1v4oly1f2//yxY6WKeKv6SIxj+DBW/whMHNdu0i+54csgUIfZQGQX5jNo/vU5i/NFlF/
+         QUo+afM4hGcyY41VxZtBBYErz0IBXMZrHU/4NJNrLC0+21daZtN3i0Q00Bye9ikfkzWW
+         z3HL4vGFJDvPZkZaJJdNRDUvQgj/5QVaI0VYx/3pTIOeQIDIjiLUbmvCcNZsdGhv+N+5
+         FyXw==
+X-Forwarded-Encrypted: i=1; AHgh+RpHLlixXuLJmtz9h8SDHowS62nEgWUjNHYZCN8vpVoEv3MN+fkrGH89PbzCc9iO2MJcVusUgBbkZs9OZRg80/pE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeJkfW3CUPGAK5wCha6G44GNHUOG01Rg/1u7v9ZIg7JkeDSMZS
+	IJ7GEfGfTHd7MYEG9uo0AcfCvV3xQZOaIPILHPJstkR8FQyyACJEDNREfeSdQ0kWjg==
+X-Gm-Gg: AfdE7ckTtRinKnJIFQD2E/pFnYFYEHRDenr4aA7DBhUEEdfiz9I3Aupw1+venBe8GWf
+	vFbM1YlobfclVYfLpyhFB1BK5nV7BeMH0r/DIKmDIk8VPnBI86aYtCAphwO1JgiPEiMTaeg8KTW
+	fx6LsfTc1H5hgTFqdJcCtu+FsogkHJme54retoHjAgntDE/g0aDHQO6TiP+lGAcmp0yTzZghuV7
+	LEeW1wePupUfsvrHaYXmTLAt4prYdocFd0DFOvd/aFQsZlMfx79YSb0J1xc7Tze4DnDh43dbW4s
+	QBDd6LoerqgYfqerNCQmnfrTd0YIZ50eMynmGbzP0uLSTC8jaxxvLA4KDUPvgzcOCEch4uqbYEl
+	YxtNSE2VYY6R/NDLInMG8aBYcm/vHRVxFUwD63yeYNeqs9kX/hQ7toa44spY5kFatjmkSz7W6i7
+	s6zsWoHvggIK+py+W22ocFlwj9fpXWjGj/yF0aAQ6gwvr2MsvWxnM=
+X-Received: by 2002:a05:600c:4e03:b0:493:cd3f:d097 with SMTP id 5b1f17b1804b1-493df06b123mr64535395e9.12.1783443215304;
+        Tue, 07 Jul 2026 09:53:35 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0ebf593sm72423765e9.0.2026.07.07.09.53.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jul 2026 09:53:34 -0700 (PDT)
+Date: Tue, 7 Jul 2026 17:53:30 +0100
 From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, tabba@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH v1 1/4] KVM: arm64: Allow early calls to pKVM
+ host_share/unshare_hyp
+Message-ID: <ak0vCmPyTlWIwFEI@google.com>
+References: <20260612142245.1015744-1-vdonnefort@google.com>
+ <20260612142245.1015744-2-vdonnefort@google.com>
+ <CA+EHjTwSU67aNdgWvgR3ZGSB07Hu7wt4rUBkVGhrhoHKa_S1vw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwSU67aNdgWvgR3ZGSB07Hu7wt4rUBkVGhrhoHKa_S1vw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_095039_205719_24B0A569 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_095338_640343_27907889 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +103,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the very unlikely event of a failure in __map_hyp, the allocated
-backing pages are leaked in hyp_trace_buffer_alloc_bpages_backing(). Fix
-this by freeing the pages on error.
+On Sun, Jun 14, 2026 at 02:39:30PM +0100, Fuad Tabba wrote:
+> On Fri, 12 Jun 2026 at 15:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > The hypervisor tracing for pKVM relies on the __pkvm_host_share_hyp and
+> > __pkvm_host_unshare_hyp HVCs. In order to start tracing as early as
+> > possible, allow those two HVCs before the host is deprivileged.
+> >
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> To my good friend Sashiko:
+> https://lore.kernel.org/all/20260529121755.2923500-1-tabba@google.com/
+> 
+> The hyp_trace_load() issue seems legit though.
 
-Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-
-diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 2411b4c32932..5fbbfd40376f 100644
---- a/arch/arm64/kvm/hyp_trace.c
-+++ b/arch/arm64/kvm/hyp_trace.c
-@@ -160,6 +160,7 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
- 	int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
- 	size_t backing_size;
- 	void *start;
-+	int ret;
- 
- 	backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
- 				  num_possible_cpus());
-@@ -171,7 +172,11 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
- 	trace_buffer->desc->bpages_backing_start = (unsigned long)start;
- 	trace_buffer->desc->bpages_backing_size = backing_size;
- 
--	return __map_hyp(start, backing_size);
-+	ret = __map_hyp(start, backing_size);
-+	if (ret)
-+		free_pages_exact(start, backing_size);
-+
-+	return ret;
- }
- 
- static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
-
-base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
--- 
-2.55.0.rc2.803.g1fd1e6609c-goog
-
+I've just posted lore.kernel.org/all/20260707165029.3410701-1-vdonnefort@google.com
+> 
+> As for this patch itself:
+> 
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Tested-by: Fuad Tabba <tabba@google.com>
+> 
+> Cheers,
+> /fuad
+> 
+> 
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > index 043495f7fc78..fb049c40d04f 100644
+> > --- a/arch/arm64/include/asm/kvm_asm.h
+> > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > @@ -89,12 +89,12 @@ enum __kvm_host_smccc_func {
+> >         __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+> >         __KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+> >         __KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+> > +       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+> > +       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+> >
+> >         MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+> >
+> >         /* Hypercalls that are available only when pKVM has finalised. */
+> > -       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+> > -       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
+> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index 06db299c37a8..f0c52667cf52 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -721,9 +721,9 @@ static const hcall_t host_hcall[] = {
+> >         HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+> >         HANDLE_FUNC(__vgic_v5_save_apr),
+> >         HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+> > -
+> >         HANDLE_FUNC(__pkvm_host_share_hyp),
+> >         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+> > +
+> >         HANDLE_FUNC(__pkvm_host_donate_guest),
+> >         HANDLE_FUNC(__pkvm_host_share_guest),
+> >         HANDLE_FUNC(__pkvm_host_unshare_guest),
+> > --
+> > 2.54.0.1136.gdb2ca164c4-goog
+> >
 
