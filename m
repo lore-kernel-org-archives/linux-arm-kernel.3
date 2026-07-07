@@ -4,120 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D69FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 03:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F72C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 04:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAVmvNaMaMOMFuPfky9DnUIS22PyUrMLlLy8qqlsuzs=; b=igZYCxTc0WsxQhjmTRI49UxF3G
-	5Fnk2eKkhRUTN/MLPx3UvKhWeJ57eQ9CSfCTk93YWh02qisj4TMGwpN95sqtOwTiwezNMSVrjj11x
-	jxnzs0jzhO5pkKYklOYvU7oVxlukNNf+wEif3R+J0lZfICgaX48Vgldkq01I16e/rGJfYdmLH+LX1
-	W3EIuK0XdknrVWJJW1CeC0NAtrAnWXwufF9ac74qABaIvfutJexaUe9dyKNTz13wV6+NHK1P3rt1g
-	Qj00KOx5ZyGcKiirnB412e+5ZShL2Cs2DxBt7VVFMIYf26bZU9TE0Y1Es4TYitFePJDQSnobCkExj
-	kQeARHIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=POAYFuatsjTYjBHcHVCN47CGnDhjmXEfOoH4Z/R9Y64=; b=Yli2rMw38lRddbFpHMSuCf9HWY
+	FCvGI1JuD98A2tFMqpPRJX3//uPjWmIs6R+UL6d9DEmu/5iO0AGD+5zW4QNcYb0pGy7WF3L/OXsU3
+	ZMjsRxNbWxPJ13Uq8JVzLVVXiVdOPekkkCTtQ9dkzxj36c7yuquA1UcyjzaS9Q6iY90diB5tI3FDl
+	ab64dwIvvNJc5XIYnCSG3lYsmd+4CxKhkPuA8Xl2dh6zJ64qmumhxKF1XT6h1E6rkfmIWGb8VFdWP
+	kX/yer5N2UHWlFhP8AxnYv7ZYHeohcijwGlm4v537lI/41oYIQx8cZDLyWuHS3XLqxBBZfTALfucG
+	tfUPLEnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwwd-0000000E2I5-0fx2;
-	Tue, 07 Jul 2026 03:58:03 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wgwyy-0000000E2Ss-1isH;
+	Tue, 07 Jul 2026 04:00:28 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwwa-0000000E2Hi-3uwL
+	id 1wgwyu-0000000E2SO-3JQp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 03:58:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oWv+JnehQMKvaOXUhmVQDFsg65zTBZZLhW0Us1t2zjWH2JKInyEete6v498im8X6XebtVZEsntJdbW+JoBK/gpFrex/SE/MLPkwLqKDTao0MX25ji6XQS4rg8KrECgxZkQQmKxec2dTA1eUVw1iamRV90amxAESwyyfjutZ0d3l/qxUPbQ2hDqo4VAyb7vft4n8thzP5u8+pEfGf+iTk1+4B8gbZZ0hiSVslw9BcYd/wBWNpVQcbL+k5OMio9POUR7lWxIsgcnwVArkqDlOrvS7A94td5Wo8RWElR3HoClnaPt0ZqMI6gAZCxPgltpNCObLxb9giCYeQllvefdcw4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WAVmvNaMaMOMFuPfky9DnUIS22PyUrMLlLy8qqlsuzs=;
- b=Mk0bboxVQ9tBWvzw6J0J7oNdmc47l9s+nWFqvLfII8UdD3EQsjQu9s4IgDJjEcFo2MKuCBA0D7tldO0PHaI0JFq+lME+49iTyAgFkkM3RL41Nz082bqkzpSlN0kChkgsqfbqm0KwDqOuvUoQz4wdPZ7/OAYyE/83i+xtUzr2bAQ423YhtVzeAKLCplkwch5Nq65krNm3mK53TnZQrIf54q/IGZiT0KGBhrHOQzRwpq7uF+2tD/qGTYog9cP/16GAjby65WJ3DS3mPs4a+pUNAcKb+QdI/KbR9bNg4nZDCAGQa8RUNOBG9wojlp7Nj6ULF9uiS3tGYuJGWeq7uwc/pQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WAVmvNaMaMOMFuPfky9DnUIS22PyUrMLlLy8qqlsuzs=;
- b=BMeLA5AoPs689FvHynxmkAif1227N3AtWZ7xAG46BJfRdQB4dScO8H3wfJW/MIpfS1VxgNsH9aeQwaktWE4Dn7F+OECsIS3Q13V3mMuxgPCfmJTfmzZBQ0yYP1QqVlsp759OyXtjDsQ4Hczz52ycIW2Ng3/wxFJA8VBbeb1Rw1ebQQTh9IDkDWllsBasovm33vfBNCNmg+710P2hs/pKl3cMS9NdDXBiFzOCxurxtDqAKfHuO7TMxzwVkMWvRlCneniGpCEUZVHAHkf1CcwMvVJKITEicJUF7nwhwmndChfyfYSsp09+28MhvE3vyznh6w+dMLQDXi9V8l49SBH7NQ==
-Received: from BN9PR03CA0893.namprd03.prod.outlook.com (2603:10b6:408:13c::28)
- by PH0PR12MB7789.namprd12.prod.outlook.com (2603:10b6:510:283::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 7 Jul 2026
- 03:57:52 +0000
-Received: from BN3PEPF0000B070.namprd21.prod.outlook.com
- (2603:10b6:408:13c:cafe::4) by BN9PR03CA0893.outlook.office365.com
- (2603:10b6:408:13c::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.12 via Frontend Transport; Tue, 7
- Jul 2026 03:57:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN3PEPF0000B070.mail.protection.outlook.com (10.167.243.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.0 via Frontend Transport; Tue, 7 Jul 2026 03:57:51 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 6 Jul
- 2026 20:57:24 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 6 Jul
- 2026 20:57:23 -0700
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 6 Jul 2026 20:57:22 -0700
-Date: Mon, 6 Jul 2026 20:57:22 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
- Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
-Message-ID: <akx5IvI6bi/OPuPe@nvidia.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+	Tue, 07 Jul 2026 04:00:27 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=POAYFuatsjTYjBHcHVCN47CGnDhjmXEfOoH4Z/R9Y64=;
+	b=Xref49WAmtlkgiqK4htjX4EDbnjld/iDK+oS7dMCDmlQiurhBTtLfVJXIuY1TF4Lt3OqOhDxg
+	DiiFwUu+IN7NbDQARi5QUOaDikDT4mqt5Qv8uLOFgcDZxp48DJmtrd8D0vWjR99oy2UoQE8zmBL
+	xRnDCQDHRXWAZIHwcyVI2CA=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gvS2F4nM7z1T4Fk;
+	Tue,  7 Jul 2026 11:51:17 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 99F9740579;
+	Tue,  7 Jul 2026 12:00:16 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 7 Jul 2026 12:00:13 +0800
+Message-ID: <bddf7a68-7789-4ec2-819c-aaaee8173c70@huawei.com>
+Date: Tue, 7 Jul 2026 12:00:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B070:EE_|PH0PR12MB7789:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18f9ecf9-da01-4495-55c1-08dedbdbea9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|1800799024|376014|36860700016|7416014|18002099003|4143699003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: Th0cuOKm44o4q317D7s4Y7dxL7Gptu4I9pMIqgOEc26ipI1xqAb+DOzwA159SStzEew9qV6/YzmN79Yuo0+AQaTz6Mdaz8+eHQVfjRUr3hrireO5myug65U9Vvj4HNS4cBd8JYZewOeqS+3QpBbveypEIOD13ROE/OPigUJ0pNfOGvUjCOiHyFBf7vNZ4K5+sI22x/wFk6CLyWUXP4aqMRuipMp1qJTfyIprgsKGUMshVi3+bjWdmevt3071XAuPW0/z/++TXE7YFO8hXoJwP6Pg+AIIZv7W1xUKMs/fyM73ZZ7obB4BPqL1BUt1V924Pw6qyRpwYt40YPq/PWcVOiwooG8CVyf2gyGixYel5uJXdONC1xEG99pFgvB2JGHcafEG152ov8b9NKBBN4UUmnVsYqv0utZvOu+kCPGhzdj4BHr3uKxsfJfKz6QOaAFV7iBJNfMn8XarTua1+7UzQkR7JDl+S/ExYz630eB8LP3C7O+uCaJ47CKtxtDgw8j/nkn0/o4SH4IhkqdyiTsXe93dIWSWjncaBckD0LEYgGb9ngMbjtdOFYfU3zaqVUpuz3JPdb+k9zyPSwyregUZYfKXhqhKbJ/smQ/8h84NUKPyWFOtJQy8TmIyK/8eFKTgJnIkWGk5DIlYuMsDhHX8ZkrlpmYR2m8l7zrFlgtjo9hZEdg7YN2VmmVYwkVD9fATP8hOUkdc08gpfz8UPZ8h7g==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(376014)(36860700016)(7416014)(18002099003)(4143699003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4rpXOpmN2axa4GQE1ePQaorhyVB9ANK9+tivBAJOmDlz4l+kO9ZVJvtD1iO4+fMBIc7V4HcIPvOiUqYpQTixFALKexAYQQ0swjFphQcEVImhjgUgETmyeRHIBRl6AU31ntLxPrvssTdGltA+7FEvSsP+y1mvhhtg/tMf13YckYwmmOYW92XRUX4xZSSnNJRZulmkINzmEsl9BHxDBeQh4ScCyDhGTIR2yxKttgf+54xY9jlv1s/ixCmbR9a9ekOzLPyw1Wi6hDK9uwWvtIHsymSEAVQAV9O75Me+utLtcXwfVGXXoo3PrTwM0J+gzuQj5z3EVHRa5o8gfoUtIf7ooJhCuvYgrlF8TBPqlRKi/ZNWtEPLsYS4BsNKIQJEieAe1YV/m6glVnnG6l1IAyoH6QZhVLTP3f10dtRolF2WxFGi3deq5MC0cz/PANa8vOBX
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 03:57:51.1739
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18f9ecf9-da01-4495-55c1-08dedbdbea9d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B070.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7789
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 12/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
+	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
+	<ojeda@kernel.org>, <david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>,
+	<ryan.roberts@arm.com>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <thuth@redhat.com>, <menglong8.dong@gmail.com>,
+	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
+	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <20260624092537.2916971-13-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260624092537.2916971-13-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_205801_005698_F66337A3 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260706_210025_468048_B4F82D89 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,33 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:26:39PM -0300, Jason Gunthorpe wrote:
-> pgsize is a constant property of the domain, it is the base translation
-> granule of the page table (4k, 16k, 64k) in log2.
+
+
+On 6/24/2026 5:25 PM, Jinjie Ruan wrote:
+> Support for parallel secondary CPU bringup is already utilized by x86,
+> MIPS and RISC-V. This patch brings this capability to the arm64
+> architecture.
 > 
-> Store it to the struct arm_smmu_domain based on how the page table was created.
+> To fully enable HOTPLUG_PARALLEL, this patch implements an arm64-specific
+> arch_cpuhp_init_parallel_bringup() handler.
+> 
+> In parallel bringup, early `set_cpu_present(cpu, 0)` inside
+> cpu_die_early() removes the secondary CPU prematurely, causing the primary
+> CPU's second-stage cpuhp_bringup_mask() sweep to skip it and drop
+> failure logs.
 
-Checkpatch warns this for "> 75 chars".
 
-> Add smmu_domain to the tlbi and just get tg from the domain.
->
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Hi, Will,
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+In parallel bringup, cpu_die_early() calls set_cpu_present(cpu, 0),
+which removes the failing secondary CPU from the mask. This causes the
+primary CPU's cpuhp_bringup_mask() sweep to skip it and drop any failure
+log.
 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index a364d847c22a92..2fc695817671fe 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -734,7 +734,6 @@ struct arm_smmu_inv {
->  	u8 nsize_opcode;
->  	u32 id; /* ASID or VMID or SID */
->  	union {
-> -		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
->  		u32 ssid; /* INV_TYPE_ATS */
->  	};
+Have you seen this before, and what do you think about the fix?
 
-So, union has only "ssid" now. Should we unwrap it?
 
-Nicolin
+1830  */
+1831 static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+1832 {
+1833 >-------const struct cpumask *mask = cpu_present_mask;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+
+1861 >-------/* Bring the not-yet started CPUs up */
+1862 >-------cpuhp_bringup_mask(mask, ncpus, CPUHP_BP_KICK_AP);
+                               ^^^^^
+1863 >-------cpuhp_bringup_mask(mask, ncpus, CPUHP_ONLINE);
+                                ^^^^^
+
+Best regards,
+Jinjie
+
+> 
+> Remove this early unregistration from the secondary CPU, deferring the
+> set_cpu_present(cpu, 0) call to the primary CPU's cleanup path to ensure
+> robust parallel boot timeout detection.
+> 
+> Tested natively with ATF on QEMU arm64 virt machine with 64 cores
+> and also tested with KVM arm64 guest with 128 vCPUs.
+> 
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/Kconfig      |  2 +-
+>  arch/arm64/kernel/smp.c | 12 ++++++++++--
+>  2 files changed, 11 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 24496e9967a8..a9d8030e7492 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -231,7 +231,7 @@ config ARM64
+>  	select HAVE_KPROBES
+>  	select HAVE_KRETPROBES
+>  	select HAVE_GENERIC_VDSO
+> -	select HOTPLUG_SPLIT_STARTUP if SMP
+> +	select HOTPLUG_PARALLEL if SMP
+>  	select HOTPLUG_SMT if HOTPLUG_CPU
+>  	select IRQ_DOMAIN
+>  	select IRQ_FORCED_THREADING
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 98ddbe50081d..a973b2d3bab1 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -93,6 +93,15 @@ static inline int op_cpu_kill(unsigned int cpu)
+>  }
+>  #endif
+>  
+> +extern const struct cpu_operations cpu_psci_ops;
+> +
+> +/* Establish whether parallel bringup can be supported. */
+> +bool __init arch_cpuhp_init_parallel_bringup(void)
+> +{
+> +	const struct cpu_operations *ops = get_secondary_cpu_ops();
+> +
+> +	return ops == &cpu_psci_ops;
+> +}
+>  
+>  /*
+>   * Boot a secondary CPU, and assign it the specified idle task.
+> @@ -137,6 +146,7 @@ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+>  	 * We failed to synchronise with the CPU, so check if it left us
+>  	 * any breadcrumbs.
+>  	 */
+> +	set_cpu_present(cpu, 0);
+>  	cpu_boot_data[cpu].task = NULL;
+>  	status = READ_ONCE(cpu_boot_data[cpu].status);
+>  	if (status == CPU_MMU_OFF)
+> @@ -416,8 +426,6 @@ void __noreturn cpu_die_early(void)
+>  
+>  	pr_crit("CPU%d: will not boot\n", cpu);
+>  
+> -	/* Mark this CPU absent */
+> -	set_cpu_present(cpu, 0);
+>  	rcutree_report_cpu_dead();
+>  
+>  	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
+
 
