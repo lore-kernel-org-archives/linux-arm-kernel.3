@@ -4,101 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CBCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE60C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=; b=mczflxRzIEM8qPkaJ4UosXJjsX
-	xrdCRojpXuwsR7xQoE5gYwobhUtpfQv0ND+ZCA7kM37QDpbxwiMEQXKdw3Iu8C0OVlQ7JQH/5yoBC
-	a+VDQkEZV+lxEiSJmT5Sml9XRHmHUVcj0v/GwXpizQvcgnrHbJ71IA7HZAZ3YoOSRQYeRWCHJD0fJ
-	LcgOfHaQEJ7qXtYFYg6GxLQo1RD6yyS76w0M98825Fqmv78qXB7m4w6+QGvKN4Efl9sv+EznEUc70
-	fkltI52+eYzCsjUxLbm1VZ8Bbio194JvMx5ORuc2eRnGnLL+6V1l0+dCbqu/+/wVImS4gyK5p20+a
-	LiuPqdIA==;
+	bh=ngMJFXW0MVpSyT9cIuB08wDDgujyroBQVzUzKlhc52Q=; b=v0INp4l2NTtUhWEomfd7s9oiIS
+	P5Vic4D3NkQ9j1GDuueUncJSav1nONjJhIyA64xCeJ5sndxcT4cYlwkUMLs3cbLCoKrUrVu5wQJ1h
+	3YwLpsxRGcW56YPzY2t0F7akBn268aoG0ei69mV4ApfAlHNkkNlpW+aMcXzI18B3TWVd347qvDQqD
+	5XaOB0dxUyO9N14IgEhp7AeU5H8aoAl9OdOrhJdxfWRNbVjLZI0LVmkI06X0LCvgH7DTX8k3eepen
+	bOsD15WZhjFCZiNujglkHi67lCEHM1h45bEfq7MK++4p6rDLLQsLzVna8z6L85KBOqxsN8qUql3Pi
+	URze2xRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8lw-0000000FTVT-2JHO;
-	Tue, 07 Jul 2026 16:35:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wh8q8-0000000FTsb-0Me7;
+	Tue, 07 Jul 2026 16:40:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8ls-0000000FTUr-1qDb
+	id 1wh8q5-0000000FTs3-3jFF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 16:35:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783442142;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=;
-	b=fImhzVtdPqhFP3nMAH4vDZMibOdL2KajLaWP639DtPDf6y7Gq1oRheG+g9RGyqvut+CsYq
-	5vITUtFWocoYOLm83B7htYjvBEWYHKffw6ftk3oDNx7NS3N7rusHbm3vDOIV3wTo34OVD2
-	hkib9NTMXxQQ4FxGZkwU8lywCHqSnn8=
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com
- [209.85.221.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-614-CNPxbjJ9NEqmGjgV2VJRUA-1; Tue, 07 Jul 2026 12:35:40 -0400
-X-MC-Unique: CNPxbjJ9NEqmGjgV2VJRUA-1
-X-Mimecast-MFC-AGG-ID: CNPxbjJ9NEqmGjgV2VJRUA_1783442140
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5bdf87be987so715732e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:35:40 -0700 (PDT)
+	Tue, 07 Jul 2026 16:40:07 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 667FT8OM017939
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Jul 2026 16:40:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ngMJFXW0MVpSyT9cIuB08wDD
+	gujyroBQVzUzKlhc52Q=; b=MiYr/TPIV1tgnI2ssrts3PiyItGY+zxGj8RBOb/N
+	1US8orSQS1Kqkf5lDLxiYel8uxWhE1agG5lZh4l9NrQ1+3s3uU1iu/VQEr93MVLy
+	hLqRCwJEW2fTBgHh+GNsCmTRW0NE+TllBeUgadAL6gokqzklRbdaJk/4GDfpKVaS
+	GHputQFD0WBQhDtgOgcQjtX3N97uCAAqy2nFq2EYtzlm1iqSm/Qqzu8Zs24Dk0Fx
+	qg0cPK8IkgftVeeByYZ39VmtZm+mreJ4g+8P+NdkDKHnkoDGrdFPyJKu3opDXq/4
+	EQnaEm8R8JojofSQZN+MI6uHIH2aGXhvJf9hoINEC8deWA==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8wep26v8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 16:40:04 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-73a5cef4811so1034395137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:40:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783442402; x=1784047202; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ngMJFXW0MVpSyT9cIuB08wDDgujyroBQVzUzKlhc52Q=;
+        b=cv/S0IUUh88RBYj+knm5h8CrwGhdf6QQvtqa9r7pj35xINJViY7dSSCUterHIZp99V
+         dv+8eH29VOAMzblpHQ1cAkcc7wlFEJTV4wPu5SASyF8dUgkTgWa7OSf/wyBirxiEQtiU
+         J0Twvs1TGgS7nv5PBPEh1C+7XekYjEgYZtm4fmYMUkomYD0tKRtBtV+EOn2S2ARYQXEV
+         13XIp/HrIR5G1Ga1yqtD2Qct/bQ0Ok0MbMt3KLW2km1U70LGOKbphWkl8ZHAYoiNM5VF
+         hfZRtm4I0GEKcBYEpUhxvHy54gFhOx5xuB3KoG+lzQUWLpu/V7jIEccMeRlK46ROphmS
+         m81A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783442140; x=1784046940;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1783442402; x=1784047202;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=;
-        b=ovfEfj1BA35xIoQ/B1doN9/Nwy0TkJ/HKIC9VCUiKLyjS5gDq1b1MNUfkO3qYb5XBH
-         vOQHnqtsHjLBqa3OA0ty0UrLwELAuQLcTqBkaWOSHytfIyVX6vJS9ih1NWeWZ7TJCwpY
-         8NnJtcjI9GmjBRGkuwCIS8n3n/QabeJRC4SKDSmq0jRvmmqdyElXkzKWxwXgCZxrVPPl
-         XKahWskbgR23sbOmtUBcNKyG7Q0t09Azc60p2LnLgzgjneKpR/t7HQ+ceVdNw3Fs1D12
-         u7cfuPyA3mUQN4Oa8DIZbAWOEG93e4ExOAYbf6E8HFNYbkFPI0FlQhRPMCJWfxEYCBpN
-         xCWg==
-X-Forwarded-Encrypted: i=1; AHgh+RpZPl0cZi88jVFh2Fi+EfqcliCi+ZZFVvBXM8dupxEqE0yx2c9CctrP16NVqdimHtmDJrSeWyVWVV1gkKjiGnM5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyn4p/qliYN7Jfa6ey35X86LC66p88PfYIFhW5eJKyn/jlMiEA7
-	ws0tCZ59wHATR0zj1HqxWssV4tzYYpXaMTmtShTmlwHv1+XVoLQ7x6J0VTFJ5tsIOte4Rd44V7q
-	w7S81Ofebqe/TcyM8UxOGHn1y8xlRX2fWVJo4zD++u+EbcRCswrHqbLyy49zpXhQlMkZSZ5qTY3
-	Pw
-X-Gm-Gg: AfdE7cnzI28iVwn9PpURUDMMLBatCBVl1oBbhm63DjDjwjdIyrz9+HwihfDw3CvWxub
-	lyPPLpcujj/2/pIVcQEbq+s8FcctFmhShJ7wb+M7E61sVojhAXHqts/qrmwIVs58ogCFtnCX5pe
-	fHlMVc3LbyJr4qnBK89kpca/9UPnqgBZX4J796qBfSyqaqinswUJfm6yV6tJsafYoGF/pffmRM1
-	xmcas7Pz3jbpm+99irvG2l1qwdzXmFa51cYLt6CQBulwYNlGJlwpyGXmrxhOmccmg4isKxwDk6O
-	MdInXGbPwNJdVZcpMmtCdExtEZ+EPlSQsID/XSg8KTufszl4dK5LqTKrzA062XfCqfs+6NmsKMR
-	7jqTMOs0F
-X-Received: by 2002:a05:6122:1c84:b0:5bd:b2d2:a1b9 with SMTP id 71dfb90a1353d-5be9076525emr3484141e0c.5.1783442139582;
-        Tue, 07 Jul 2026 09:35:39 -0700 (PDT)
-X-Received: by 2002:a05:6122:1c84:b0:5bd:b2d2:a1b9 with SMTP id 71dfb90a1353d-5be9076525emr3484104e0c.5.1783442138832;
-        Tue, 07 Jul 2026 09:35:38 -0700 (PDT)
-Received: from redhat.com ([2600:382:7726:2cb:ada8:1d9c:fd6a:977e])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96983899f28sm7201271241.3.2026.07.07.09.35.36
+        bh=ngMJFXW0MVpSyT9cIuB08wDDgujyroBQVzUzKlhc52Q=;
+        b=SbBIN3WkeajIxZ9YrTCE2P07VZm8dVIrlmGTAQcDN13Nt8wZ0kRol2HGF1vdI9+N12
+         BmuraBCVBpRQAMGxEj61ijyJgGbrHocl1XEWT1s8Da5DtN6pTdAKeiJy+WUmA65zX0Og
+         s1javqb/s080ijl4kclFJqXNztSkWuREybaIg0AIpqm45GwLhYtNeKnWJr2O8bGuE+g0
+         htvN9ORqE5XdJC4ueYHPVf1rrW4t7FX5PRP39TmHO4qt0TMLcB3x3yCCV81gc2N+AF6g
+         8gnTzclKvA2XSbfnQ48dmsvektwXrW3gTH/9fIOvKdeqHyjC8ovRqW0OFuL3TgGS0G+c
+         KLiA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro/rnPV31UJ929mCLu5NXP6MxDNg3iFO5RhqrIdYTnbPzPIoPm1W7/CKLgpRSMu9OiKBaUDOol65hQkkmlnWgts@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuJPhk5W6/rUQK0ZQ29KYXbLfdmyPJAQac7MGBaPcWVKIRlFtM
+	iyejH6WSodDntxgtVrym4yB/KgExI5Zg3qOkGH2m9v+H5KI6pAS8QdxWkX9qnPD10K0X43MKFfa
+	w2oajH4o0U4ee7sCySCXxwOeGrj1AAoymdqCWtGLgQP01trqfn5Im/r4898jJBEbeUOCRdVjRCX
+	BN/A==
+X-Gm-Gg: AfdE7ckoNclMcnr8GDlsg4nCGUOjf+IwOspj085iqL5hGuNfLSZt9PlZKBqr04+AUsY
+	oOqJwQpvyXytehYhn5PKG6RKfXe1V0okPMtqRENLAFd8XYOZHnakf6jeUmas6ZQtdG2m4iuQWjZ
+	Zp3Gc7A5ZXJeGuPxhD+h+fb4Xq8hIMRNDs+9y6xOYc2obcwT15LhzPTMPxRV66r1FOCRpXauWEo
+	b+89UxSNpGOMeXUToJd+BhCCAZGfMc9pJyLLW54vOaml7eSvVTQzOOtdAG/yUcShxkmZaGDilRh
+	BjERKNa0XVK7oPtmL5CtGPQyaLvlRMwZulvky2mqy1v3+UzHaT0Ec06XCkxflD/hBYLGt1s8Qwy
+	anPMp1gtHZdoz4O2nm8drEyxpJ15PqOTUdXATBmBiZZeYzPYbqTzOleSQIEd9ysqnnb4bH8SQNy
+	VEvR1hMzbcHXcDKSajSpS++ZEx
+X-Received: by 2002:a05:6102:5f05:b0:738:be7b:add3 with SMTP id ada2fe7eead31-744b7ade412mr3295757137.6.1783442401892;
+        Tue, 07 Jul 2026 09:40:01 -0700 (PDT)
+X-Received: by 2002:a05:6102:5f05:b0:738:be7b:add3 with SMTP id ada2fe7eead31-744b7ade412mr3295690137.6.1783442400917;
+        Tue, 07 Jul 2026 09:40:00 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13bb3aasm3792026e87.53.2026.07.07.09.39.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 09:35:38 -0700 (PDT)
-Date: Tue, 7 Jul 2026 12:35:34 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: joakim.zhang@cixtech.com
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 2/4] clk: cix: add sky1 audss clock controller
-Message-ID: <ak0q1pWZREYsvJ4f@redhat.com>
-References: <20260630124413.1814379-1-joakim.zhang@cixtech.com>
- <20260630124413.1814379-3-joakim.zhang@cixtech.com>
+        Tue, 07 Jul 2026 09:39:58 -0700 (PDT)
+Date: Tue, 7 Jul 2026 19:39:56 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
+Message-ID: <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
+ <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+ <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260630124413.1814379-3-joakim.zhang@cixtech.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xM9wJeNuruS7U-FN3sEZflr89Hb58Z9gDg5XUCoLtOw_1783442140
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
+X-Proofpoint-GUID: vc7oeE9MIaS9HfaQ2aYYJZQEE0OBCcYY
+X-Proofpoint-ORIG-GUID: vc7oeE9MIaS9HfaQ2aYYJZQEE0OBCcYY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA3MDE2MiBTYWx0ZWRfX6KkjDv/RcGm+
+ roh3L0UF5mrkAHJKU4nuQ6fo+drVB81iviLo1TeqVKweCUUrAl08m67mvssCnrNgofUrrGRUY5z
+ 1rsGl/8QWapypEB4zVM0a/8EDHZ2MyLcgdFib6w1h7hfjn3tmwzJjmZ4/v2pdZGy6sI2DkBbnLw
+ LKfR7tV98RGs9T6ANyHYm6xEZ4HABrXS8gAvSrHhkmqVBS+onjqWcn79anpBBrHlZ9+ygifXGz5
+ jotaTdJETTSnKgvFs0IxAg5S3kInepqP1X6BpiOjFUutAVasAbkj8CExv4XSBhSL1UoYmL8bYz1
+ VzlmaVK3ypq9XX5gGA+N9pa28nEFhi99ouLHrh+nzHtygFZUfoczC8fY6ITcAiNir1rLb2y6HLK
+ MpP7J0ZiVIJAIskndalek/Mvkn7KjyqnvunIEyERAPqsFnq3GHuL5a+yivI+tAdH5KUvhaqGM/J
+ WcmTeOd5qKeA/LP9kWw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA3MDE2MiBTYWx0ZWRfX7qtT8k3FVBZl
+ 6Zf/j0lt5vcK+cLbJsg56+QkOqOUcZG6eQDIw7gPVHaDfy3xfxVlApwR2pH24/vTbRZW+IPDYqA
+ GD4F6eRBIdKKEeEiicQl7fmzQWIKwfo=
+X-Authority-Analysis: v=2.4 cv=atSCzyZV c=1 sm=1 tr=0 ts=6a4d2be4 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=pGLkceISAAAA:8
+ a=1fOCVGvR8NE8L1w4xeIA:9 a=CjuIK1q_8ugA:10 a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-07_04,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 clxscore=1015 priorityscore=1501 spamscore=0
+ suspectscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607070162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_093544_573655_CCC02B11 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20260707_094005_943111_48AA6502 
+X-CRM114-Status: GOOD (  35.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,107 +164,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joakim,
-
-Thanks for the patch.
-
-On Tue, Jun 30, 2026 at 08:44:11PM +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
+On Tue, Jul 07, 2026 at 05:02:43PM +0200, Anna Maniscalco wrote:
+> On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
+> > On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
+> > > In order to associate the SID used by LPAC to it's own domain and
+> > > context bank we need a separate node on the DTS.
+> > Can we use iommu-map instead of adding a new device using the same
+> > addresses? You provide zero explanations, but it seems like you are
+> > trying to separate a part of the GPU into a separate device, but it's
+> > unnecessary.
 > 
-> Add a platform driver for the Cix Sky1 AUDSS CRU. The driver maps
-> the CRU registers and registers mux, divider and gate clocks for
-> DSP, SRAM, HDA, DMAC, I2S, mailbox, watchdog and timer blocks.
+> What I was trying to say is that we need to map sid0 and sid1 to different
+> context banks.
 > 
-> Four SoC-level audio reference clocks are enabled as inputs to the
-> internal clock tree. The driver releases the AUDSS NOC reset, enables
-> runtime PM and instantiates the auxiliary reset device.
+> From what I recall, so long as we use the same dt node, the iommu drivert
+> provides no way of doing this.
 > 
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+> What kgsl does is having a node for the iommu and then subnodes for gfx lpac
+> and secure.
+> 
+> The address on the lpac device doesn't really matter. I have very limted
+> knowledge of DTSs but I think we could just leave it out altogether?
 
-[snip]
+I think, you were poined to the Glymur Iris patches. Another option is
+the QDA driver being submitted too. Both ot them use iommu-map to
+describe the same usecase - a set of SIDs which are used by the device
+but which should not be a part of the defaut set. With it in place you
+don't need to have separate qcom,lpac devices, no additional properties,
+etc. 
 
-> +static struct clk_hw *sky1_audss_clk_register(struct device *dev,
-> +					      const char *name,
-> +					      const char * const *parent_names,
-> +					      int num_parents,
-> +					      struct regmap *regmap,
-> +					      const u32 *mux_table,
-> +					      struct muxdiv_cfg *mux_cfg,
-> +					      struct muxdiv_cfg *div_cfg,
-> +					      struct gate_cfg *gate_cfg,
-> +					      unsigned long flags,
-> +					      spinlock_t *lock)
-> +{
-> +	const struct clk_ops *sky1_mux_ops = NULL;
-> +	const struct clk_ops *sky1_div_ops = NULL;
-> +	const struct clk_ops *sky1_gate_ops = NULL;
-> +	struct clk_hw *hw = ERR_PTR(-ENOMEM);
-> +	struct sky1_clk_divider *sky1_div = NULL;
-> +	struct sky1_clk_gate *sky1_gate = NULL;
-> +	struct sky1_clk_mux *sky1_mux = NULL;
+I'd recommend following the same approach.
 
-Reverse Christmas tree order please.
+> 
+> > 
+> > > Add the code to look up that node on initialization.
+> > > 
+> > > Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+> > > ---
+> > >   drivers/gpu/drm/msm/adreno/adreno_gpu.c | 21 ++++++++++++++++++++-
+> > >   drivers/gpu/drm/msm/msm_gpu.h           |  1 +
+> > >   2 files changed, 21 insertions(+), 1 deletion(-)
+> > > 
+> 
+> Best regards,
+> -- 
+> Anna Maniscalco <anna.maniscalco2000@gmail.com>
+> 
 
-> +
-> +	if (mux_cfg->offset >= 0) {
-> +		sky1_mux = devm_kzalloc(dev, sizeof(*sky1_mux), GFP_KERNEL);
-> +		if (!sky1_mux)
-> +			return ERR_PTR(-ENOMEM);
-> +
-> +		sky1_mux->mux.reg = NULL;
-> +		sky1_mux->mux.shift = mux_cfg->shift;
-> +		sky1_mux->mux.mask = BIT(mux_cfg->width) - 1;
-> +		sky1_mux->mux.flags = mux_cfg->flags;
-> +		sky1_mux->mux.table = mux_table;
-> +		sky1_mux->mux.lock = lock;
-> +		sky1_mux_ops = &sky1_audss_clk_mux_ops;
-> +		sky1_mux->regmap = regmap;
-> +		sky1_mux->offset = mux_cfg->offset;
-> +	}
-> +
-> +	if (div_cfg->offset >= 0) {
-> +		sky1_div = devm_kzalloc(dev, sizeof(*sky1_div), GFP_KERNEL);
-> +		if (!sky1_div)
-> +			return ERR_PTR(-ENOMEM);
-> +
-> +		sky1_div->div.reg = NULL;
-> +		sky1_div->div.shift = div_cfg->shift;
-> +		sky1_div->div.width = div_cfg->width;
-> +		sky1_div->div.flags = div_cfg->flags | CLK_DIVIDER_POWER_OF_TWO;
-> +		sky1_div->div.lock = lock;
-> +		sky1_div_ops = &sky1_audss_clk_divider_ops;
-> +		sky1_div->regmap = regmap;
-> +		sky1_div->offset = div_cfg->offset;
-> +	}
-> +
-> +	if (gate_cfg->offset >= 0) {
-> +		sky1_gate = devm_kzalloc(dev, sizeof(*sky1_gate), GFP_KERNEL);
-> +		if (!sky1_gate)
-> +			return ERR_PTR(-ENOMEM);
-> +
-> +		sky1_gate->gate.reg = NULL;
-> +		sky1_gate->gate.bit_idx = gate_cfg->shift;
-> +		sky1_gate->gate.flags = gate_cfg->flags;
-> +		sky1_gate->gate.lock = lock;
-> +		sky1_gate_ops = &sky1_audss_clk_gate_ops;
-> +		sky1_gate->regmap = regmap;
-> +		sky1_gate->offset = gate_cfg->offset;
-> +	}
-> +
-> +	hw = clk_hw_register_composite(dev, name, parent_names, num_parents,
-> +				       sky1_mux ? &sky1_mux->mux.hw : NULL, sky1_mux_ops,
-> +				       sky1_div ? &sky1_div->div.hw : NULL, sky1_div_ops,
-> +				       sky1_gate ? &sky1_gate->gate.hw : NULL, sky1_gate_ops,
-> +				       flags);
-
-Please use devm_clk_hw_register_composite_pdata() to make sure that
-everything is cleaned up in the expected order relative to the other
-devm_*() calls.
-
-Please go through the Sashiko feedback at 
-https://sashiko.dev/#/message/20260630125936.E186A1F000E9%40smtp.kernel.org
-and I'll do do a thorough review on the next version.
-
-Brian
-
+-- 
+With best wishes
+Dmitry
 
