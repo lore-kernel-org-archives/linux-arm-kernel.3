@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E04FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A2C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMeVertaRhojFm8tWH8U10OU4gt3EsXqqnRd56A72k8=; b=GHDcZt+0rZJA/HD6jBln19pis9
-	gC90RjI384/cNbPs5hxn+SxwhJMzlYwgulDGQqViF49QIedxtOvWLBlhqtnxm2hO6YMwjzlpEHY+i
-	qvyQZKPX05DKE3YSg237cLbwR8X0ILzZQ36jAyaG+O37X+WTshbyYzUNyOmw4yKzxDbNdx60JL5zE
-	PK3ZHaxFTzIXJp7jvS7EG+AFQjmGweQyiw9dcKaGl7R/sNxVanFbe0PPsDZyQjJl5Wg3eeAtqS+8T
-	mCi55K1fvr/sErnP06esTB9XSUv1dgVloXwpYx6QVB4pvT5d8NZkt/PSEQ4GoBtywzSYwX2Hm2cF5
-	IiLj4lAQ==;
+	bh=EFHgnGvT3gLMltI8iaAd/TlWQ2AwzoDS3VAa6vztzqw=; b=MAamrY7wgAiqLv9PB6h2iKcNqP
+	3WLpz7QN2sf8+DrIJgkjrFUBsDlof/c0O8Imn4tdNRNCACqQ6rPhn8XYBOJBpXAP0ZlN7Z+WvjPF+
+	UxfmRLlpVvCz3lvtsdP0inyWwGlpyMIOdEtxzs8zdR6aO1acYu/celp6CKe8hRFD0QIBNp1k2jTE3
+	nfqIojdIioWVJMA66o21xdnrmxTB9qQsPxBrT95tkNmVRifj0r9YB8GF8jmOO5mSN2bG1NTZM3ABR
+	cfcJxFTLe/x6gKZgglvNtIn7MUcy2HUId8Jdxg8gDUI1g0e6DPqd1LBpRiOiI20DaulVghbQjmJVH
+	IdRmJYkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7xE-0000000FMe0-0jXV;
-	Tue, 07 Jul 2026 15:43:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wh7xO-0000000FMkg-3K0h;
+	Tue, 07 Jul 2026 15:43:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7wm-0000000FM0G-4C6n;
+	id 1wh7wt-0000000FM5j-1jq9;
+	Tue, 07 Jul 2026 15:43:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=EFHgnGvT3gLMltI8iaAd/TlWQ2AwzoDS3VAa6vztzqw=; b=XZVhCvnOtvuaLm1fUZmAjLo+bd
+	9dbUvISXd+YcMnf7MNlbPb8YA8OAkKgmO0bKOU3pYPSsUU1nnVzAvtRukFCjr8fyyYEUusrv5ks30
+	11htwS5UTv9ywGoHw4SQbGxBxFGHUzZnln4f5mUho6YyDmvPwTsYiWhDstGP1u/2ykISmiKJ194uR
+	O22ygsNL7wZuXV+OGUys/cO044N5IO854SXhRts7lfYfWMiykrGYVpZpMh8uc2hhD0qCJ2duCllw+
+	xOKENCrIEExAGV/ChOoxBjLkuVor/G6m/z7mOkeesXpuYIhAw8TS7DHCB/jdDjSFt16Zk6OjhWAvA
+	LqQCEPAw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wh7wp-00000007cjy-0oRR;
 	Tue, 07 Jul 2026 15:43:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783438974;
-	bh=c+SkD5zNo9ytRpYW/UIephuNwLTBwjCNOA2fMq0NvLk=;
+	s=mail; t=1783438977;
+	bh=mx3LMOVbDbs/8/fUApG38G5CHasVc8X/ocfolhryqeA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xv9p1OUCxJh37jnZ66mhi+UKP0fLbisGPjnBtd3D2GSbr26eFCrI04t5n8jIjKG6U
-	 gvDLPexB3wcE1qezkPGx5IxXSubd0Sp3HHcbIDAPLfLIB2apJvt4C6x7AYbg1fz4p+
-	 XDIwRgy7PSw4qiIU94QpknCxJ0UVoeUYfpD5Wkdpg4gV0dLeAcX0uTlKrAtfob6d8m
-	 gcVb7fPYHOdVBfsoXJWJSbbuP2KrBFDKERnXVYhj8y8LMz5Dq5Xt+KSLJy0GGzvrLw
-	 T1mtquM7VWmq1R7vcLtEUa1T0df2dMlQ8GXDuPM/sKSw2dzFiMJ/hR7vbh8hTGvZM1
-	 8wc2vu563PZWw==
+	b=eLVnPe5zoSuqA89je3cbdsGB6Yt+cJ9KU0XBySwgqiytgXLX1FnaLJUQjJRXSmBAz
+	 KfuLG7KRqFJ3D9g+ZxPtOwmpxgEraLlS0dr6ox1+ML/yE6/5kONo4lrW9wIj1nHzU2
+	 WGpaxbXtksIBdLcoQ+olrlkF3ILtmaHA3F5cD4fKJUj85xWNmlxB8R1PpwZs0nF4w1
+	 wT6Yr3Q/RKO6/5RqLftsFF/EaYz09723rEOdgPeHb/GzkVhfl6SCtkboJlzqz2l/Kh
+	 QmwzMN+EozwbY2Iz202kHDzTWFVTFUvT5IIRNGzEe5TqmZTThs3JvqHku7Kw+myuH/
+	 /EvgPdHHUt4UQ==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6AEAD17E0FAC;
-	Tue, 07 Jul 2026 17:42:53 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B23FE17E0FD0;
+	Tue, 07 Jul 2026 17:42:56 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunfeng.yun@mediatek.com
 Cc: vkoul@kernel.org,
@@ -62,17 +76,17 @@ Cc: vkoul@kernel.org,
 	linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	kernel@collabora.com
-Subject: [PATCH v3 06/12] phy: phy-mtk-dp: Support set_lanes in configure and properly cleanup
-Date: Tue,  7 Jul 2026 17:42:39 +0200
-Message-ID: <20260707154245.198361-7-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 10/12] phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
+Date: Tue,  7 Jul 2026 17:42:43 +0200
+Message-ID: <20260707154245.198361-11-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
 References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_084258_628662_0117851E 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20260707_164300_018892_FCF39130 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,175 +101,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for enabling a specifically requested number of lanes
-in the .configure() callback and disable all lanes in power off
-and reset callbacks for proper hardware cleanup.
+In preparation for adding support for the eDP PHY found in newer
+SoCs, transfer the bitrate register value definitions to SoC
+specific data.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/phy/mediatek/phy-mtk-dp.c | 75 ++++++++++++++++++++++++++++---
- 1 file changed, 68 insertions(+), 7 deletions(-)
+ drivers/phy/mediatek/phy-mtk-dp.c | 36 +++++++++++++++++++++++--------
+ 1 file changed, 27 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index f6b0e83d4833..2c8bc0b37486 100644
+index df193c712c77..4603f28d1466 100644
 --- a/drivers/phy/mediatek/phy-mtk-dp.c
 +++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -10,6 +10,7 @@
-  *                     AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-  */
+@@ -44,10 +44,6 @@
  
-+#include <linux/bitfield.h>
- #include <linux/delay.h>
- #include <linux/io.h>
- #include <linux/mfd/syscon.h>
-@@ -50,6 +51,9 @@
- #define DRIVING_PARAM_1_DEFAULT	0x0
- #define DRIVING_PARAM_2_DEFAULT	0x0
+ /* DP_PHYD_BIT_RATE */
+ #define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
+-#  define BIT_RATE_RBR			0
+-#  define BIT_RATE_HBR			1
+-#  define BIT_RATE_HBR2			2
+-#  define BIT_RATE_HBR3			3
  
-+/* DP_PHYD_TX_CTL_0 */
-+#define PHYD_TX_LN_EN			GENMASK(7, 4)
-+
- #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
- #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
- #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
-@@ -113,6 +117,7 @@ enum mtk_dp_phyd_dig_glb_regidx {
- 	DP_PHYD_SW_RST,
- 	DP_PHYD_BIT_RATE,
- 	DP_PHYD_AUX_RX_CTL,
-+	DP_PHYD_TX_CTL_0,
+ /* DP_PHYD_SW_RST */
+ #define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
+@@ -163,6 +159,14 @@ enum mtk_dp_phyd_dig_glb_regidx {
  	DP_PHYD_GLOBAL_MAX
  };
  
-@@ -131,6 +136,7 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
- 	[DP_PHYD_SW_RST] = 0x38,
- 	[DP_PHYD_BIT_RATE] = 0x3c,
- 	[DP_PHYD_AUX_RX_CTL] = 0x40,
-+	[DP_PHYD_TX_CTL_0] = 0x44,
++enum mtk_dp_phyd_bit_rate_regval {
++	DP_PHYD_BIT_RATE_RBR,
++	DP_PHYD_BIT_RATE_HBR,
++	DP_PHYD_BIT_RATE_HBR2,
++	DP_PHYD_BIT_RATE_HBR3,
++	DP_PHYD_BIT_RATE_MAX,
++};
++
+ static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
+ 	[DP_PHYA_GLB_BIAS_GEN_0] = 0x0,
+ 	[DP_PHYA_GLB_BIAS_GEN_1] = 0x4,
+@@ -189,6 +193,13 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
+ 	[DP_PHYD_TX_CTL_0] = 0x44,
  };
  
++static const u8 mt8195_phy_dig_bitrate_val[DP_PHYD_BIT_RATE_MAX] = {
++	[DP_PHYD_BIT_RATE_RBR] = 0,
++	[DP_PHYD_BIT_RATE_HBR] = 1,
++	[DP_PHYD_BIT_RATE_HBR2] = 2,
++	[DP_PHYD_BIT_RATE_HBR3] = 3
++};
++
  /**
-@@ -200,6 +206,7 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
- 	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	u32 val;
-+	int i;
+  * struct mtk_dp_phya_imp_sel - Per-Lane Impedance Selection
+  * @pmos: Impedance selection for P-Channel MOSFET
+@@ -209,6 +220,7 @@ struct mtk_dp_phya_imp_sel {
+  * @regs_ana_lane:  Register (layout) offsets for ana_lan
+  * @regs_dig_glb:   Register (layout) offsets for dig_glb
+  * @regs_dig_lane:  Register (layout) offsets for dig_lan
++ * @val_dig_bitrate:IP Version specific register values for Bit Rate setting
+  * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
+  * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
+  * @ana_lanes_imp:  TX Impedance Selection Settings (for all lanes)
+@@ -227,6 +239,9 @@ struct mtk_dp_phy_pdata {
+ 	const u8 *regs_dig_glb;
+ 	const u8 *regs_dig_lane;
+ 
++	/* IP-Version specific register value arrays */
++	const u8 *val_dig_bitrate;
++
+ 	/* Calibration defaults */
+ 	u8 ana_bias_r;
+ 	u8 ana_cktx_imp;
+@@ -332,6 +347,7 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
  
  	if (opts->dp.set_rate) {
  		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
-@@ -226,6 +233,17 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
++		enum mtk_dp_phyd_bit_rate_regval regval_idx;
+ 
+ 		switch (opts->dp.link_rate) {
+ 		default:
+@@ -340,19 +356,20 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
+ 				opts->dp.link_rate);
+ 			return -EINVAL;
+ 		case 1620:
+-			val = BIT_RATE_RBR;
++			regval_idx = DP_PHYD_BIT_RATE_RBR;
+ 			break;
+ 		case 2700:
+-			val = BIT_RATE_HBR;
++			regval_idx = DP_PHYD_BIT_RATE_HBR;
+ 			break;
+ 		case 5400:
+-			val = BIT_RATE_HBR2;
++			regval_idx = DP_PHYD_BIT_RATE_HBR2;
+ 			break;
+ 		case 8100:
+-			val = BIT_RATE_HBR3;
++			regval_idx = DP_PHYD_BIT_RATE_HBR3;
+ 			break;
+ 		}
+-		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
++		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate,
++			     pdata->val_dig_bitrate[regval_idx]);
  	}
  
-+	if (opts->dp.set_lanes) {
-+		const u32 reg_dig_tx_ctl = pdata->regs_dig_glb[DP_PHYD_TX_CTL_0];
-+
-+		val = 0;
-+		for (i = 0; i < opts->dp.lanes; i++)
-+			val |= FIELD_PREP(PHYD_TX_LN_EN, BIT(i));
-+
-+		regmap_update_bits(dp_phy->regmap, pdata->off_dig_glb + reg_dig_tx_ctl,
-+				   PHYD_TX_LN_EN, val);
-+	}
-+
- 	regmap_update_bits(dp_phy->regmap,
- 			   pdata->off_dig_glb + pdata->regs_dig_glb[DP_PHYD_PLL_CTL_1],
- 			   TPLL_SSC_EN, opts->dp.ssc ? TPLL_SSC_EN : 0);
-@@ -263,31 +281,68 @@ static int mtk_dp_phy_power_on(struct phy *phy)
- 	return 0;
- }
- 
-+static int mtk_dp_phy_disable_all_lanes(struct mtk_dp_phy *dp_phy)
-+{
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u8 *regs = pdata->regs_dig_glb;
-+	int ret;
-+	u32 val;
-+
-+	ret = regmap_read(dp_phy->regmap, pdata->off_dig_glb + regs[DP_PHYD_TX_CTL_0], &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Get mask of currently enabled lane */
-+	val = FIELD_GET(PHYD_TX_LN_EN, val);
-+	if (val == 0)
-+		return 0;
-+
-+	/* Disable all lanes (needs to be done one by one, from last to first) */
-+	do {
-+		u32 lane_num = fls(val) - 1;
-+		val &= ~BIT(lane_num);
-+
-+		ret = regmap_clear_bits(dp_phy->regmap,
-+					pdata->off_dig_glb + regs[DP_PHYD_TX_CTL_0],
-+					FIELD_PREP(PHYD_TX_LN_EN, BIT(lane_num)));
-+		if (ret)
-+			return ret;
-+	} while (val);
-+
-+	return 0;
-+}
-+
- static int mtk_dp_phy_power_off(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
- 	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	const u8 *regs_dig = pdata->regs_dig_glb;
- 	const u8 *regs_ana = pdata->regs_ana_glb;
--	int ret_cktx, ret_aux;
-+	int ret_cktx, ret_aux, ret;
- 
- 	ret_cktx = regmap_set_bits(dp_phy->regmap,
- 				   pdata->off_ana_glb + regs_ana[DP_PHYA_GLB_FORCE_CTRL_1],
- 				   CKM_CKTX0_EN_FORCE_MODE);
-+	if (ret_cktx)
-+		dev_err(&phy->dev, "Could not disable CKTX0: %d\n", ret_cktx);
- 
- 	/* Disable RX unconditionally */
- 	ret_aux = regmap_write(dp_phy->regmap,
- 			       pdata->off_dig_glb + regs_dig[DP_PHYD_AUX_RX_CTL], 0);
--	if (ret_aux) {
-+	if (ret_aux)
- 		dev_err(&phy->dev, "Could not disable AUX RX: %d\n", ret_aux);
--		return ret_aux;
-+
-+	ret = mtk_dp_phy_disable_all_lanes(dp_phy);
-+	if (ret) {
-+		dev_err(dp_phy->dev, "Could not disable lanes for poweroff!\n");
-+		return ret;
- 	}
- 
--	/* Still fail if CKTX0_EN was not disabled, but at least AUX is off */
--	if (ret_cktx) {
--		dev_err(&phy->dev, "Could not disable CKTX0: %d\n", ret_cktx);
-+	/* Still return a failure if any of CKTX or AUX could not disable */
-+	if (ret_cktx)
- 		return ret_cktx;
--	}
-+	if (ret_aux)
-+		return ret_aux;
- 
- 	return 0;
- }
-@@ -297,6 +352,7 @@ static int mtk_dp_phy_reset(struct phy *phy)
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
- 	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	const u32 reg_rst = pdata->regs_dig_glb[DP_PHYD_SW_RST];
-+	int ret;
- 
- 	/* Clearing bits sets reset state */
- 	regmap_clear_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
-@@ -307,6 +363,11 @@ static int mtk_dp_phy_reset(struct phy *phy)
- 	/* Setting bits means go out of reset */
- 	regmap_set_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
-+	/* Disable all lanes and continue reset even if this fails, but notify */
-+	ret = mtk_dp_phy_disable_all_lanes(dp_phy);
-+	if (ret)
-+		dev_err(dp_phy->dev, "Could not disable lanes during reset!\n");
-+
- 	return 0;
- }
- 
+ 	if (opts->dp.set_lanes) {
+@@ -763,6 +780,7 @@ static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
+ 	.regs_ana_lane = mt8195_phy_ana_lane_regs,
+ 	.regs_dig_glb = mt8195_phy_dig_glb_regs,
+ 	.regs_dig_lane = mt8195_phy_dig_lane_regs,
++	.val_dig_bitrate = mt8195_phy_dig_bitrate_val,
+ 	.ana_bias_r = 15,
+ 	.ana_cktx_imp = 8,
+ 	.ana_lanes_imp = {
 -- 
 2.54.0
 
