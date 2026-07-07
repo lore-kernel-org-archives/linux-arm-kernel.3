@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897E5C44502
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DB1C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lfXF65VdztcSJTC4kpz1f29TTD70Bhrei46yRBrAXw4=; b=DC81AApgQmNQ0vp0P/o7YOCXui
-	gQvyE2GLWwR/IQZAeNgK3ec0r0rCu/91u0tqk7MlS3HXjXXnSVjFdbif0gE3sBYY4ETLzkgCjYgJf
-	eMrw5ydWdiYPZbS73eT0KwzftyHbijdK1Qf+l3MD57sn8IjCNktY0aML5+/nm86F6yTBymUKR6IBw
-	nIn2loxPFp8w71Z2TcujHCn0YvRB6eUZUVeZuiRIc6A9OAmiu3cYpb2nMIt0AS5HPNvtO1qa3mGgm
-	zozRvb2avJkWHERueobuMg3qcDwj8W3jIaf47R5TJji7mzOuKlfcfusgTojeBQkPdxDidtBjIYXFo
-	uJAY5dog==;
+	bh=Am0NLocsWvONNqEB/DzW4Db9kldaVkSiNfu4dGHoSWg=; b=mBoOi7HKxRHJZgR9NKGLHhjMLg
+	QWcvqDs1o1rX3eJgBtErJy4DyQTPejcQzfhCf9yRkXnUcrq2J+zcM54+My5r56jwSlBsg3AF45304
+	mL53QZnfA3ipPr9183KPleYHwSnBOXl5LAgl3J0xXOHuLNc9t1YLF73Z3pKvc8ZJ+1/AXWNgdesmc
+	mPmxuJLRrYZeKgaqWoIDuUR7tsqNdIc3HMC/pzhl0g0jMwCXOcxBx5kgu2KpJsRxudHzWG8q8kkXi
+	BL0ZEQ2Rxp/q9oKbTZN/p3xq44fkn/R4p/7t+zyolLx86FufKPNHAN67WLTzxCQU85YEOJsXoAXnM
+	eHPh5jhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2SO-0000000EfQD-1AjT;
+	id 1wh2SO-0000000EfQm-1nrB;
 	Tue, 07 Jul 2026 09:51:12 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2SG-0000000EfKW-1GkJ
+	id 1wh2SG-0000000EfKk-2XqT
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Jul 2026 09:51:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -32,23 +32,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=lfXF65VdztcSJTC4kpz1f29TTD70Bhrei46yRBrAXw4=; b=leYrZ0XdDsd561wv1j4ui0tePF
-	6FmWBzsnnNNcGElAts5SpSNujWtKEFr3l9cEHFup243iHK+6i8Uz661sS7I1DdVekmv6EOdr7XB72
-	JYo1Vqw7GqEIDU4VeStELu6bmNV4bfx5op4mqWhpZMvmu2MjvwBXzggVY2vhd8FkxwQNbRQVmccjO
-	91th5xkPrDY0ojuBSr+/oVh41YV7DMzspBWtgbmXz50yRGCZCHPW79zTKz6yLpV9ms6mbEt48PEVg
-	2DG4aoyBgZRaklPWsvVH4YAFrHqZFLZCJ6gpUe7Nti4VK9SBdoV9PkSw9omT+uoAs+4GHDUj6tVKf
-	RNUuFOGQ==;
+	bh=Am0NLocsWvONNqEB/DzW4Db9kldaVkSiNfu4dGHoSWg=; b=He5dCxqhjlUXTlaQBa+4Pc+XvC
+	TOgp486rZa2jnRW/r0cB/iGt+pFsZUdxW2Mdzp9rjZPLAqe7Jgk+QQdyPs4Vk9pZOOIJ0xQZvwCTK
+	WQrCySH0bxJvvI+B5a32cNpE34HhSHDhSwb5NwT4HTcELzKyoliuqeQj5vJewsUU+5PSeEAKKH5eX
+	gJRYZLCKNbAHCkW/XE1BY7rDYH10YnBrlQKGupwDNDbpm8tNwRWGbQ+3yua1Cz0fTbMjUz8wNsETl
+	dzzQ0iofS20UCIv7wFyOBNaCNBE2hXSCW+QFarqUu9UT+TD4fxEQKlEh57nqU651QvfeLd9oaAOi9
+	fUSf8cYg==;
 Received: from sslproxy05.your-server.de ([78.46.172.2])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2SE-000PWc-29;
-	Tue, 07 Jul 2026 11:51:02 +0200
+	id 1wh2SE-000PWj-3B;
+	Tue, 07 Jul 2026 11:51:03 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2SE-000Ck1-01;
+	id 1wh2SE-000Ck1-1A;
 	Tue, 07 Jul 2026 11:51:02 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -61,9 +61,9 @@ Cc: Nora Schiffer <nora.schiffer@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 5/8] arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: enable pcs_mdio17 and pcs_mdio18 in appropriate overlays
-Date: Tue,  7 Jul 2026 11:50:52 +0200
-Message-ID: <20260707095057.1745867-6-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 6/8] arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: specify Ethernet PHY reset GPIOs
+Date: Tue,  7 Jul 2026 11:50:53 +0200
+Message-ID: <20260707095057.1745867-7-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260707095057.1745867-1-alexander.stein@ew.tq-group.com>
 References: <20260707095057.1745867-1-alexander.stein@ew.tq-group.com>
@@ -71,8 +71,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_025104_345804_A923C2E3 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260707_025104_645306_A79697C2 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +90,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 
-The pcs_mdio* instances are only needed with phy-connection-type =
-"sgmii" and managed = "in-band-status". Move setting status = "okay" for
-pcs_mdio17 and pcs_mdio18 to the appropriate overlays, for consistency
-with the other pcs_mdio* instances.
+Correctly describe the PHY resets.
+
+While the TI DP83867 requires only a 1us reset pulse in RGMII mode, 2.5ms
+are needed for SGMII, where series capacitors would result in incorrect
+sampling of strap pins if they don't have enough time to discharge.
 
 Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- .../dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts    | 8 --------
- .../fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso          | 8 ++++++++
- .../freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso | 8 ++++++++
- 3 files changed, 16 insertions(+), 8 deletions(-)
+ .../fsl-lx2160a-tqmlx2160a-mblx2160a.dts      | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
-index 431e4ed2a8b86..46a9fdc92bb56 100644
+index 46a9fdc92bb56..687fd0d62235d 100644
 --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
 +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
-@@ -545,14 +545,6 @@ i2c@3 {
+@@ -106,36 +106,59 @@ &dpmac18 {
+ 	phy-connection-type = "rgmii-id";
+ };
+ 
++/*
++ * Assert reset for 2.5ms on SGMII PHYs to let capacitors discharge before
++ * strap pin sampling
++ */
++
+ &emdio1 {
+ 	status = "okay";
+ 
+ 	dp83867_1_1: ethernet-phy@1 {
+ 		reg = <1>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 1 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_1_2: ethernet-phy@2 {
+ 		reg = <2>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 2 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_1_3: ethernet-phy@3 {
+ 		reg = <3>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 3 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_1_4: ethernet-phy@4 {
+ 		reg = <4>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 4 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_1_5: ethernet-phy@5 {
+ 		reg = <5>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 5 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_1_6: ethernet-phy@6 {
+ 		reg = <6>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 6 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
  	};
  };
+@@ -145,16 +168,25 @@ &emdio2 {
  
--&pcs_mdio17 {
--	status = "okay";
--};
--
--&pcs_mdio18 {
--	status = "okay";
--};
--
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-index 0847c786dc1ca..497ea4ddef3e6 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-@@ -59,3 +59,11 @@ &pcs_mdio14 {
- &pcs_mdio16 {
- 	status = "okay";
- };
-+
-+&pcs_mdio17 {
-+	status = "okay";
-+};
-+
-+&pcs_mdio18 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
-index 7520f105d5d8c..a51edef83317f 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
-@@ -58,6 +58,14 @@ &pcs_mdio16 {
- 	status = "okay";
- };
+ 	dp83867_2_1: ethernet-phy@1 {
+ 		reg = <1>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 7 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
  
-+&pcs_mdio17 {
-+	status = "okay";
-+};
-+
-+&pcs_mdio18 {
-+	status = "okay";
-+};
-+
- &sfp_xfi1 {
- 	status = "okay";
- };
+ 	dp83867_2_2: ethernet-phy@2 {
+ 		reg = <2>;
++		reset-assert-us = <2500>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 8 GPIO_ACTIVE_LOW>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 	};
+ 
+ 	dp83867_2_3: ethernet-phy@3 {
+ 		reg = <3>;
++		reset-assert-us = <1>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 9 GPIO_ACTIVE_LOW>;
+ 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+ 		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+@@ -162,6 +194,9 @@ dp83867_2_3: ethernet-phy@3 {
+ 
+ 	dp83867_2_4: ethernet-phy@4 {
+ 		reg = <4>;
++		reset-assert-us = <1>;
++		reset-deassert-us = <200>;
++		reset-gpios = <&gpioex1 10 GPIO_ACTIVE_LOW>;
+ 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+ 		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
+ 		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
 -- 
 2.54.0
 
