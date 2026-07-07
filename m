@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8CDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7ACC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MNiAUryehkfQt6EHtDjlZ3Arn5sC2Et5x7DQMPHkElY=; b=OJLBCtBHnD+vVKxXYt8KmAECzD
-	6c6Rg6Qrp3sb4rBcHotWgZEM1CZXtFnBn5zON01xHZkERfEbPS35VERcz5RcZDFwNhBLq13sqrHEv
-	Mw1xzXG73vqrVbCIkgnTxaoCZXQhvgTdt5O08XbF+0lgyjw+4ciXcn6RGo368ltm+nmDDIDM30KXJ
-	tkTZ9F2TpVDPO0+0w+ZFhpd1iwoPs1WBamNlTmcKmDSO5qyZXMx8vOIReYETyuVUUiR4PKQKurzE6
-	6ZB7X50CSpA+eyU+Tv7V9U1Fu4WXoNq77Zd4UNyAE8JFmaWbSsJvuWwgcW4F1XX7WJZBUNKlgMOuZ
-	MUUUAqKQ==;
+	bh=BBVv5tvYGFGGSH2Ztx76cotXpvBZtoh3e+XJwoD7bKA=; b=dmFl8eUwdy2Z83Ltxc8a3wlR92
+	CIgF0xiLC3VZXY2S0ySXwjmMq0brsOfg9sbHgWhEOhaSnGJ+J02S9qV73n8/JpSr+VG8uBAKD1yDs
+	WtEBo29Eixk3+B7nEWkvSn2prFDwBhP07BTCh7zDLhXNFUWfgUBeZEWsHYjEdcZ/xCaPFB8s1JN9D
+	5D4UmHSTK+9cGrW43cia4nh9Bw/4a0YRERgvoOIUFq6NqskCqarSXt84VsSiYyLHcl2aYOVWYgiwF
+	CT4SxtkVde3/rvbG06AFyizptYFOJOEZWwNiXXsRXfcHWpKbGreYEx/W8ZO7lpDiitEgWoTvpfvpu
+	YOLAvFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0wi-0000000EQrg-3IqZ;
-	Tue, 07 Jul 2026 08:14:24 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wh0wk-0000000EQtD-3tcz;
+	Tue, 07 Jul 2026 08:14:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0wc-0000000EQmp-3dCr
+	id 1wh0wj-0000000EQsA-2iBE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:14:23 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=MNiAUryehkfQt6EHtDjlZ3Arn5sC2Et5x7DQMPHkElY=;
-	b=IzNCTzrrKdBLrX7rMyWwqfn0aluESgDkkbgVAl9USu/Eiplc+ZDOa923SydtGIy8c6mVPkoRB
-	TR/KlQvD+ta7qIvWJL0ifOV7Ag45Tunv2OaksgUIkkxKUyFZ5b1PHSJUfpZcDX6V7qUNfD0duF5
-	AXERuZ3T8JbJ74BCXSuNbtU=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gvYfv453xz1prq7;
-	Tue,  7 Jul 2026 16:04:55 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id E57C040579;
-	Tue,  7 Jul 2026 16:14:10 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 16:14:07 +0800
-Message-ID: <3bf910b8-c7e8-4a22-8e1d-fa701694369f@huawei.com>
-Date: Tue, 7 Jul 2026 16:14:06 +0800
+	Tue, 07 Jul 2026 08:14:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C279618B0;
+	Tue,  7 Jul 2026 08:14:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA94C1F000E9;
+	Tue,  7 Jul 2026 08:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783412064;
+	bh=BBVv5tvYGFGGSH2Ztx76cotXpvBZtoh3e+XJwoD7bKA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XUfX+fE0lAi1cZkKZIg58/vw+Q2SvSwhaHtg5ST8F2Xzozl/16Y250uidw2zZyyQh
+	 KFsedT0JKMMW5XirMBblIOnndJHjb/lk6/tG45rMN+dhl8p0cQ01X63kb8aYLX6tEl
+	 GccEjr5P/uGrI3Yd0+dHfwfFKh++a2sjOTbgZAPFHl+bwrMHuAhyF4buLdLsB0d7Zg
+	 ctgy5QrV2phcDp2ROs3RX6R/KW7ppi2p2woPzANM2Jfgo+jTrV/vbc/v3ETwAdednw
+	 QeF54O5uTKz+nxyS+Sscc/wXBL/vu31CRudzPvH36g/UlyVpA7+nqSLc1NvXLn8y9E
+	 1UU8oKpk/d5OQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v8 4/6] virt: coco: arm-cca-guest: Rename TSM report source file
+Date: Tue,  7 Jul 2026 13:43:48 +0530
+Message-ID: <20260707081351.1680209-5-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
+References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
-	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
-	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
-	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
-	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
-	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
-	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
-	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
-	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
-	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
-	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
-	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
- <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
- <akvoN5vvQaW3MdmI@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <akvoN5vvQaW3MdmI@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_011419_583600_E64425CF 
-X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,131 +80,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Arm CCA guest driver currently only implements TSM report support, but
+follow-up changes will add more TSM-related functionality to the same
+module.
 
+Rename arm-cca-guest.c to arm-cca.c and build it as an object of the
+arm-cca-guest module. This leaves room for the module to grow additional
+source files.
 
-On 7/7/2026 1:39 AM, Will Deacon wrote:
-> Hi Jinjie,
-> 
-> On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
->> On 6/24/2026 8:16 PM, Will Deacon wrote:
->>> Please just give me the time I asked for. If you want to help out in the
->>> meantime, there are plenty of patches that need reviewing...
->>
->> It was a mistake on my part, and I sincerely apologize for wasting
->> community review resources and disrupting your schedule.
->>
->> I will absolutely back off now and wait for your official series. Lesson
->> learned. Thanks for your patience and for calling me out on this.
-> 
-> So I've mostly got the old series back on its feet:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ drivers/virt/coco/arm-cca-guest/Makefile                    | 2 ++
+ .../virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c}  | 6 +++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+ rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (97%)
 
-Hi Will,
-
-I tested the above-mentioned latest patch on v7.2-rc1 with error inject
-on QEMU, which constructed the following errors:
-
-1、CPU4 does not support 52-bit VA
-
-2、CPU6 does not support 4K granule
-
-3、CPU16 and CPU17 call cpu_die_early() early in check_early_cpu_features().
-
-4、CPU18 call cpu_panic_kernel() early in check_early_cpu_features().
-
-The error output is not correct especially for CPU4, CPU6, and CPU18 as
-below, it seems that some error messages are overlapping on the same
-CPU, and some errors are causing the CPU to be misidentified.:
-
-(This leaves another blind spot where the 'failed to report alive state'
-message is skipped for CPU16 and CPU17, as pointed out in
-https://lore.kernel.org/all/bddf7a68-7789-4ec2-819c-aaaee8173c70@huawei.com/):
-
-[    0.594323] CPU16: will not boot
-[    0.605818] CPU17: will not boot
-
-...
-
-[   11.052387] CPU4 failed to report alive state
-[   11.059799] Parallel CPU bringup failed; consider passing
-"cpuhp.parallel=off" for a more accurate diagnosis.
-[   11.060179] CPU4 detected lack of support for 52-bit VAs
-[   11.060426] CPU4 detected lack of support for 4K granules
-
-[   11.061103] Kernel panic - not syncing: CPU4 detected unsupported
-configuration
-[   11.061534] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-7.2.0-rc1-00019-g52296829d92b #305 PREEMPT
-[   11.062052] Hardware name: linux,dummy-virt (DT)
-[   11.062230] Call trace:
-[   11.062339]  show_stack+0x18/0x24 (C)
-[   11.062528]  dump_stack_lvl+0x11c/0x168
-[   11.062684]  dump_stack+0x18/0x24
-[   11.062818]  vpanic+0x568/0x574
-[   11.062947]  do_panic_on_target_cpu+0x0/0x1c
-[   11.063111]  secondary_start_kernel+0x0/0x188
-[   11.063276]  cpuhp_bringup_ap+0x244/0x254
-[   11.063430]  cpuhp_invoke_callback+0x168/0x2ac
-[   11.063594]  __cpuhp_invoke_callback_range+0x90/0x118
-[   11.063776]  _cpu_up+0xec/0x1b8
-[   11.063905]  cpu_up+0xcc/0x158
-[   11.064032]  cpuhp_bringup_mask+0x9c/0xe0
-[   11.064189]  bringup_nonboot_cpus+0x12c/0x14c
-[   11.064352]  smp_init+0x30/0x8c
-[   11.064481]  kernel_init_freeable+0x18c/0x40c
-[   11.064645]  kernel_init+0x24/0x1dc
-[   11.064785]  ret_from_fork+0x10/0x20
-[   11.066612] SMP: stopping secondary CPUs
-[   11.068198] ---[ end Kernel panic - not syncing: CPU4 detected
-unsupported configuration ]---
-
-The expected output is as below:
-
-        CPU4 failed to report alive state
-        CPU4: is stuck in kernel
-        CPU4: does not support 52-bit VAs
-
-        CPU6 failed to report alive state
-        CPU6: is stuck in kernel
-        CPU6: does not support 4K granule
-
-        GICv3: CPU8: found redistributor 8 region 0:0x00000000081a0000
-        GICv3: CPU8: using allocated LPI pending table @0x0000000100360000
-        CPU8: Booted secondary processor 0x0000000008 [0x410fd034]
-        ...
-        CPU16 failed to report alive state
-        psci: CPU16 killed (polled 0 ms)
-        CPU16: died during early boot
-
-        CPU17: will not boot
-        CPU17 failed to report alive state
-        psci: CPU17 killed (polled 0 ms)
-        CPU17: died during early boot
-
-        CPU18 failed to report alive state
-        Kernel panic - not syncing: CPU18 detected unsupported configuration
-
-Best regards,
-Jinjie
-
-> 
-> but there are still two issues left to resolve:
-> 
->   1. The printing that can happen before RCU has started. Although I've
->      reduced this somewhat, there are still error paths in e.g.
->      verify_local_cpu_capabilities() that print a message before dying.
-> 
->   2. check_local_cpu_capabilities() can mutate the system capability
->      state via update_cpu_capabilities(), so it's really dodgy running
->      that prior to synchronisation.
-> 
-> Since you've added patches in this series that try to tackle these
-> problems, I'll reply on those two so we can figure out how we would like
-> to proceed.
-> 
-> Cheers,
-> 
-> Will
+diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
+index 69eeba08e98a..778146148515 100644
+--- a/drivers/virt/coco/arm-cca-guest/Makefile
++++ b/drivers/virt/coco/arm-cca-guest/Makefile
+@@ -1,2 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
++
++arm-cca-guest-y += arm-cca.o
+diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+similarity index 97%
+rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+rename to drivers/virt/coco/arm-cca-guest/arm-cca.c
+index d05acddf6c4e..0c9fb61a28f1 100644
+--- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
++++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+@@ -184,7 +184,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ 	return ret;
+ }
+ 
+-static const struct tsm_report_ops arm_cca_tsm_ops = {
++static const struct tsm_report_ops arm_cca_tsm_report_ops = {
+ 	.name = KBUILD_MODNAME,
+ 	.report_new = arm_cca_report_new,
+ };
+@@ -205,7 +205,7 @@ static int __init arm_cca_guest_init(void)
+ 	if (!is_realm_world())
+ 		return -ENODEV;
+ 
+-	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
++	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+ 	if (ret < 0)
+ 		pr_err("Error %d registering with TSM\n", ret);
+ 
+@@ -219,7 +219,7 @@ module_init(arm_cca_guest_init);
+  */
+ static void __exit arm_cca_guest_exit(void)
+ {
+-	tsm_report_unregister(&arm_cca_tsm_ops);
++	tsm_report_unregister(&arm_cca_tsm_report_ops);
+ }
+ module_exit(arm_cca_guest_exit);
+ 
+-- 
+2.43.0
 
 
