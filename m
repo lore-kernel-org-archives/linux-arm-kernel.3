@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713C0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B515C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHjFAW0/kMYO7d81PjERqxMLKtKumm5xqXxdNB7Ix38=; b=YXEZ3UaJ0COrMcQ6hVILzkcnwG
-	7F3QFqRM1+p3jaSdkEcn0zyVShWnVtqH9JydCIEY7QBUgXdJUiGyUte12lx/8knAgiUx5X+WI6P3l
-	Aj4atrQ06yxfq/34FXP9bAgxw8q4tdvrbJnahDXgX9RxCaho9AiVoRLOTUvFq0EZ7Fo0mUV5su6jI
-	HspULP59CzZznH2fYA3iX42X3hX+Vc7TSGgFqlmYkWEtYBoViP784gjdA3Pziac0MV0BRyRQYyNQp
-	Ov/KogkiQlmylJlwzz9haLGLsM11X8faS4GW9Caq1EdUVCtLM//iUhr3To05RrAsLwcS6E0wQ9k7g
-	JTpcVHWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=; b=DK7lP/BWCt656CDchqE2+j1Ipn
+	Uux6fuCNlpvsdsUAEE1EvtLcvUXZSM37ceNiQJkp+9mBFaFiBExXPa8X7SVWXVkUzHSTVaYxDjv3E
+	yglgPFTHDBubDDgaLRDD5hx1IOjbX6fINfBktsm2jHYqs2+Xxo5QoeGlatssZ7bXXtuyfBwWj+yFx
+	tl7emRYPwYm60g/0Erh3H3Bl8Rrp54cl+NUa0292m/u0VzEXNpRUhVHwv+RJe5TBo0rtAbFCp8MxB
+	FkGhLNs7URHgYGst0GUFt7ybqg1ukhSx3IQYhsTJapVbZRujALMG9IXxuB/Seqzl/ChKVq5H+5zV8
+	n7gcibtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4Pe-0000000EtiS-2wHD;
-	Tue, 07 Jul 2026 11:56:30 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wh4rb-0000000Ex0Z-2qwY;
+	Tue, 07 Jul 2026 12:25:24 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4PZ-0000000EtfQ-2lWI;
-	Tue, 07 Jul 2026 11:56:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783425383;
-	bh=5La47mugR86zNwVAYVmIlynmty3b35suIyPgIrKNa6Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QkUazNn2ulg5g0wRD75nGqhs3FODngy61+asFxo9b5oAqQLyrCpdMUt5imj3yszwe
-	 U6G+nKWXawpzRFongj99CeFI1GHvp4VuoOhqpNAxgcp08p7RY69xOXCu4Qf3iiT369
-	 HLJOAuArQy/SdwO50/+G2tJo/j5eWXT2q+P0KZracXexDmCDX9RJ71wYJ90B+4qzlH
-	 6SBIzevm+25I9yup2XMoL0LIp6Dl33BXPTnDnM3hLC5TNA8RZphTGZBWvlF0GgMNlV
-	 3DjP7I1b2EG2NXRaRPqMppMAnHUceu9JjIzboa+chN2nigEM+OX9BzkYXWR/wKdWu2
-	 Z8Qsis+ohYePQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 101AA17E013E;
-	Tue, 07 Jul 2026 13:56:22 +0200 (CEST)
-Message-ID: <16980e9f-c183-41c4-8001-ac7807cc087b@collabora.com>
-Date: Tue, 7 Jul 2026 13:56:21 +0200
+	id 1wh4rW-0000000Ex0E-1hWT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 12:25:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so36795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 05:25:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783427116; x=1784031916; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=;
+        b=hWbyiNPqzUxXDD5GfqbnPvFFBtyFVAkpzPlVm+CCjF4CAKhT84MSMIkrhIYHM3A45l
+         fZYAdD5asr7VHGv0ueutE/tXTPWdUTyYFlnrV5HaTn39IF/jaoTDLyHyu+bMt7weQ98p
+         JMRIPou9Z7bqYYvsK9CEqTB6EBa3IZEq/Yv7aRmppjYMmhjQIVK5X9n6VczDw9Xvb89I
+         xl+0Y2a9Vh0mS3SQN32L5RBNvKFnrivuWWS2mVt+bqAP9rtLiqGOf7Z9WEo6nzQZMdjU
+         KiP15kr7izMcMeMZMw4XzHBSx5iv4XPr0uEpdv8+FmePAfb5PwqcEvItUZQmDxbWAvgf
+         q42A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783427116; x=1784031916;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=;
+        b=TMnvtnDqqNIEOUgQipen4rO9frGEZKV0R+ogzXCEtZTRkKfoeRUPQLIGpOY5Gd+3Jq
+         5xRp287xhG6/UU8ZXffHxC1exYNPBWq/xjz30EX+Q640yUEYlL85/+TyjSv/+5YM5hXq
+         RyYNwaPahs553FytGUpM70lCOnmgJSJWVC2W/Ht36rdGFvlKs70sH+BRhVW5y+59bIeF
+         moBG0A2S4wOQxmviNT5J9k3kOipEVXDtIoawvvLq2GZGuU4SAth65Ijqre//FS4UlCvQ
+         dJfb7rfffftkR94V5v1ddyveShdlUM/64QZIC12g0glGROOzBWrhMdmS8HVwVeRPkkeB
+         37nw==
+X-Forwarded-Encrypted: i=1; AHgh+RpbV+hZxNPMYfhxUu9OEQ3T7NAy+XABD5Hz4qQ8IZz712imt1Wxwz8AKduoWpNpJZiY2DTCV5TYSLBzvi7NrKdF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIvJ6Zszh0wVOOb1Rbzm1JLC1br+OavRrz3rW7QuP3w+Oru9P1
+	UqmynihsZpg6jFvPncy1g0fxIl6iH5W9l8gtHysp6AsDRwxON6/cqSbYd51yzq2RgQ==
+X-Gm-Gg: AfdE7cmBuQbhc1mwRDqhMAQrZUidDD1d36E+CzIvw3X+AgoObu5bj6v3vX7/2Y67Tpm
+	QFbJl0ueMfS0iUenqoSdAlGvEf3EO2slTKBj8k+iNswpE65bNB19Q2hIdOr14uMlBOvMAWatTlq
+	laIxMI11vXnGpibdYiGcxV5oajJYTGR4Rta0MRre7EXHZALlx5NVilX1qJJsQZsvZrcPG6Oj8Hi
+	K20WdicK0pC1xaxmIJWut9KxAUoKKp0l5Dgi2b2RQxF4wsgyXKkPwqkKoAYfExAK0enpCkrKhQB
+	jflXmPTZt3opKm7Dz7cY7Ake4Eqi60zzxFgIXHY6d58ZD6px2SY7r1c01h7v05wGhDda/SD56cS
+	kTFgAoajwjfKc+uBmhirHGdZk7gqMYF8XRCPZcG7lz1b5umHsAJyf1VXXne2ScE1sc9HLqvAaTw
+	aewnoksx3IBfSq7uPUiy3YO3ifNdoidN+LWNc2pICQxByznRCaH7ALTYhZpso=
+X-Received: by 2002:a05:600c:1c0d:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-493e121b8cdmr1231235e9.8.1783427116023;
+        Tue, 07 Jul 2026 05:25:16 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f3677asm48472185e9.4.2026.07.07.05.25.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jul 2026 05:25:14 -0700 (PDT)
+Date: Tue, 7 Jul 2026 12:25:08 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 0/8] Organize the SMMUv3 invalidation flow so iommupt
+ can use it
+Message-ID: <akzwJFpHTsgMrOYI@google.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/42] drm/mediatek: Use hashtable for components
- discovery and registration
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "airlied@gmail.com" <airlied@gmail.com>,
- =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
-References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
- <20260701122057.19648-7-angelogioacchino.delregno@collabora.com>
- <79f44c827c78fd823300509c22058f2b6f3600b6.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <79f44c827c78fd823300509c22058f2b6f3600b6.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_045625_869695_9DCA01F5 
-X-CRM114-Status: GOOD (  45.52  )
+X-CRM114-CacheID: sfid-20260707_052518_523045_BF9B0591 
+X-CRM114-Status: GOOD (  37.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,258 +106,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 09:02, CK Hu (胡俊光) wrote:
-> On Wed, 2026-07-01 at 14:20 +0200, AngeloGioacchino Del Regno wrote:
->> As a preparation for refactoring the concept of hardware component
->> identification, search, and final usage, remove the ddp_comp array
->> of components and replace it with a hashtable, indexed by ID.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_crtc.c     | 44 ++++++++++++++++-------
->>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 48 ++++++++++++++++++-------
->>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h | 23 +++++++++++-
->>   drivers/gpu/drm/mediatek/mtk_drm_drv.c  |  7 ++--
->>   drivers/gpu/drm/mediatek/mtk_drm_drv.h  |  2 +-
->>   5 files changed, 94 insertions(+), 30 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
->> index f39f197057a7..3f4d6ab1bfc2 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_crtc.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
->> @@ -725,8 +725,12 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
->>   		crtc_state->connectors_changed, encoder_mask, crtc_index);
->>   
->>   	for (i = 0; i < mtk_crtc->num_conn_routes; i++) {
->> -		unsigned int comp_id = mtk_crtc->conn_routes[i].route_ddp;
->> -		struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
->> +		const struct mtk_drm_route *conn_route = &mtk_crtc->conn_routes[i];
->> +		struct mtk_ddp_comp *comp;
->> +
->> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, conn_route->route_ddp);
+On Mon, Jul 06, 2026 at 01:26:37PM -0300, Jason Gunthorpe wrote:
+> [ This is part of the patch pile to move SMMUv3 over to the generic page
+> table, the precursor patches have been merged now:
+> 1) Organize the SMMUv3 invalidation flow so iommupt can use it
+> 2) Use the generic iommu page table for SMMUv3
 > 
-> I don't know why you invent conn_route? Keep comp_id use it here looks the same.
+> The whole branch is here:
+>    https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+> ]
 > 
-
-I'm not inventing conn_route, that's something that was already there as a dynamic
-replacement of the last component in a stack of possible outputs for a single
-full-fledged display pipeline.
-
-The change here is about changing the search/retrieval of a `route_ddp` from a
-number that comes from an enumeration, to a full component structure instead....
-
->> +		if (!comp)
->> +			continue;
+> iommupt has a design that focuses on building a single iommu_iotlb_gather
+> for arbitary batches of map/unmap operations. The gather uses the free
+> list and it captures invalidations of tables, leaves and supports mixed
+> levels.
 > 
-> In original code, it never check comp is null or not.
-> I think it base on an assumption that it would not be null.
-> If it's null here, print error message and it's not necessary to do the rest thing.
+> The introduction of PT_FEAT_DETAILED_GATHER provides some additional
+> information that is useful for ARM: the damage bitmaps for the table and
+> level changes.
 > 
-
-.... and the component structure, with the new code, has to be *initialized*: this
-is because we cannot assume that a component that was not registered will actually
-be registered later (which was a broken behavior of mediatek-drm!).
-
-
-
-----> IMPORTANT PART: <-----
-Note that, at this point, "comp" is *not* pointing to a *statically* initialized
-array of components, but to a *dynamically* initialized one: while before this the
-comp pointer was guaranteed to be *always* a valid pointer to a comp structure, now
-it is *not guaranteed anymore*, because again - it's *dynamically* allocated, so
-we NEED to check for comp != NULL, or we're exposing ourselves to a possible NULL
-pointer kernel panic (or worse)!
-
-
-
-If the component is not initialized at this point, it simply means that it cannot
-be - in any way - used by mediatek-drm, so.. if !comp -> continue means effectively
-"if the component is not registered, we cannot use it, hence don't try to evaluate
-the possibility of using it".
-
-Is it clear now?
-
->>   
->>   		if (comp->encoder_index >= 0 &&
->>   		    (encoder_mask & BIT(comp->encoder_index))) {
->> @@ -1028,10 +1032,11 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   {
->>   	struct mtk_drm_private *priv = drm_dev->dev_private;
->>   	struct device *dev = drm_dev->dev;
->> +	struct mtk_ddp_comp *dma_comp;
->>   	struct mtk_crtc *mtk_crtc;
->>   	unsigned int num_comp_planes = 0;
->>   	int ret;
->> -	int i;
->> +	int i, j;
->>   	bool has_ctm = false;
->>   	uint gamma_lut_size = 0;
->>   	struct drm_crtc *tmp;
->> @@ -1051,7 +1056,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   		struct mtk_ddp_comp *comp;
->>   
->>   		node = priv->comp_node[comp_id];
->> -		comp = &priv->ddp_comp[comp_id];
->> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
->>   
->>   		/* Not all drm components have a DTS device node, such as ovl_adaptor,
->>   		 * which is the drm bring up sub driver
->> @@ -1063,7 +1068,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   			return 0;
->>   		}
->>   
->> -		if (!comp->dev) {
->> +		if (!comp || !comp->dev) {
->>   			dev_err(dev, "Component %pOF not initialized\n", node);
+> Prior to switching SMMUv3 over to use iommupt prepare for this by
+> reworking the internal invalidation to work on the same data format that
+> iommupt will produce. Bridge the invalidations generated by io-pgtable
+> into the new format. The conversion is simple enough, io-pgtable generates
+> invalidation operations that have only a single set bit in
+> table_levels_bitmap/leaf_levels_bitmap, so we can convert the io-pgtable
+> provided size into the proper level leaf or table bit.
 > 
-> I think you should print other error message and return other value for !comp.
+> When iommupt uses this mechanism it will fill in full bitmaps reflecting
+> the union of all invalidations contained in the gather, and this series
+> provides an implementation that can work this way.
 > 
-
-In mtk_crtc_create, at this point, the component (which always has a node, pointed
-by node = priv->comp_node[comp_id]) has to be initialized by mtk_ddp_comp.
-
-Keeping in mind that the component is actually a device, if the component itself
-was not initialized at this point, this means that there is NO DEVice associated
-with it.
-
-This is why -ENODEV.
-
-Also, we're printing %pOF (like before) because this gives hints about precisely
-which one was not registered at this point.
-
->>   			return -ENODEV;
->>   		}
->> @@ -1089,12 +1094,17 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   		return ret;
->>   	}
->>   
->> -	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
->> +	for (i = 0, j = 0; i < mtk_crtc->ddp_comp_nr; i++, j++) {
->>   		unsigned int comp_id = path[i];
->>   		struct mtk_ddp_comp *comp;
->>   
->> -		comp = &priv->ddp_comp[comp_id];
->> -		mtk_crtc->ddp_comp[i] = comp;
->> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
->> +		if (!comp) {
+> Like the other drivers the general algorithm focuses on trying to issue a
+> single command per gather or at most 512 single invalidations. If that
+> isn't possible then it falls back to full invalidation. Since table and
+> leaf invalidation are combined together there is no waste of invaliding
+> tables prior to performing a full invalidation.
 > 
-> In original code, it never check comp is null or not.
-> I think it base on an assumption that it would not be null.
-> If it's null here, print error message and it's not necessary to do the rest thing.
+> On its own this provides value as the invalidation has a number of
+> rough spots:
 > 
-
-The iterator here tries to still setup a display pipeline in case a component is
-missing, and this actually works in a couple of corner cases, which were not
-possible before the restructuring of mediatek-drm.
-
-In later commits, this case will be handled differently: the problem here is rather
-that the code readability is not the best at this point in time (of the series),
-but this will make a lot more sense when going forward in this exact series.
-
-The main issue here is that mediatek-drm's complexity is very, very high, and the
-maintainability suffers a lot: doing each and every change as a perfectly clean
-(and perfectly readable) diff means adding another ~4k thousand lines of changes
-that are simply addition and removal of the same lines over and over again.
-
->> +			j--;
->> +			dev_dbg(dev, "Cannot find component %d.\n", comp_id);
->> +			continue;
->> +		}
->> +		mtk_crtc->ddp_comp[j] = comp;
->>   
->>   		if (comp->funcs) {
->>   			if (comp->funcs->gamma_set && comp->funcs->gamma_get_lut_size) {
->> @@ -1131,7 +1141,14 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   	 * In the case of ovl_adaptor sub driver, it needs to use the
->>   	 * dma_dev_get function to get representative dma dev.
->>   	 */
->> -	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(&priv->ddp_comp[path[0]]);
->> +	dma_comp = mtk_ddp_comp_find_by_id(&priv->hlist, path[0]);
->> +	if (dma_comp == NULL) {
+>  - Non-leaf invalidation actually expands into a TLBI for every
+>    translation granule because the inner logic doesn't special case the
+>    walk vs leaf condition. Now that a table_levels_bitmap is used to
+>    describe the walk invalidation it properly generates a RIL with optimal
+>    TTL or only one single invalidation.
 > 
-> if (!dma_comp) is more simple.
+>  - RIL doesn't calculate perfect hints for SVA because the SVA rules are
+>    different from the io-pgtable-arm rules that the RIL algorithm works
+>    with. SVA can now express the combined leaf and table invalidation that
+>    the MM callback represents and get the right TTL, with an optimization
+>    for the common 4k only scenario.
 > 
-
-Yeah, I agree. If you're really worried about seeing this instead of !dma_comp I
-can change it here... but if you can ignore that, in later commits this will be
-removed and completely changed so that it becomes
-
-	ret = mtk_crtc_find_suitable_dma_dev(mtk_crtc);
-	if (ret) {
-		dev_err(dev, "Could not find appropriate DMA device!\n");
-		return -EINVAL;
-	}
-	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
-
-Note that if I change this simple line here, I'll have to fix other patches as
-they won't apply anymore because of the changed line... so again, if we could
-ignore that it would be great...
-
->> +		dev_err(dev, "Could not find appropriate DMA device!\n");
->> +		return -EINVAL;
->> +	}
->> +
->> +	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
->> +	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
->>   
->>   	ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
->>   	if (ret < 0)
->> @@ -1188,17 +1205,18 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
->>   		for (i = 0; i < num_conn_routes; i++) {
->>   			unsigned int comp_id = conn_routes[i].route_ddp;
->>   			struct device_node *node = priv->comp_node[comp_id];
->> -			struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
->> +			struct mtk_ddp_comp *comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
->>   
->> -			if (!comp->dev) {
->> +			if (!comp || !comp->dev) {
+>  - RIL didn't generate a single invalidation like VT-d and AMD do,
+>    instead it tries to generate an exact coverage with many
+>    smaller invalidations. Switch it to match the other drivers single
+>    range approach for performance and consistency. Since ARM has a much
+>    more flexible range definition the over invalidation is far smaller
+>    than other systems.
 > 
-> In original code, it never check comp is null or not.
-> I think it base on an assumption that it would not be null.
-> If it's null here, print error message and it's not necessary to do the rest thing.
+> The approach is to introduce a new struct arm_smmu_tlbi which
+> describes the invalidation, pre-compute into the tlbi the single and
+> range commands from the start/last and bitmaps, and then apply the
+> correct pre-computed command to each of items in the invalidation
+> list.
 > 
-
-Already explained why we need comp to be checked for NULL.
-
->>   				dev_dbg(dev, "comp_id:%d, Component %pOF not initialized\n",
->>   					comp_id, node);
->>   				/* mark encoder_index to -1, if route comp device is not enabled */
->> -				comp->encoder_index = -1;
->> +				if (comp)
->> +					comp->encoder_index = -1;
->>   				continue;
->>   			}
->>   
->> -			mtk_ddp_comp_encoder_index_set(&priv->ddp_comp[comp_id]);
->> +			mtk_ddp_comp_encoder_index_set(comp);
->>   
->>
+> The RIL and single calculations are revised to use the new bitmaps
+> and accurately generate TTL/stride/etc.
 > 
-> [snip]
+> Some of this design is to support another series to remove the batch on
+> the stack. Now that we have the invalidation list and the tlbi it is
+> simple to just expand the invs list directly into commands instead of
+> using the temporary on-stack batch array. Eventually removing batch will
+> save ~1k of stack usage here.
 > 
->> 		}
->>   @@ -1116,8 +1118,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
->>   							    PLATFORM_DEVID_AUTO,
->>   							    (void *)private->mmsys_dev,
->>   							    sizeof(*private->mmsys_dev));
->> -		private->ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR].dev = &ovl_adaptor->dev;
->> -		mtk_ddp_comp_init(dev, NULL, &private->ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR],
->> +		mtk_ddp_comp_init(&ovl_adaptor->dev, NULL, &private->hlist,
+> v2:
+>  - Rebase to v7.2-rc1
+> v1: https://lore.kernel.org/all/0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com/
 > 
-> mtk_ddp_comp_init(dev, NULL, &private->hlist,
+> Jason Gunthorpe (8):
+>   iommu/arm-smmu-v3: Pass the parameters for the invalidation in a
+>     struct
+>   iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
+>   iommu/arm-smmu-v3: Optimize range invalidation for latency
+>   iommu/arm-smmu-v3: Keep track in the arm_smmu_invs if RIL is used
+>   iommu/arm-smmu-v3: Precompute the invalidation commands
+>   iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
+>   iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
+>   iommu/arm-smmu-v3: Support the DS expansion of RIL's SCALE
+
+I quickly went through the series, and left few comments.
+As discussed before regarding the TLB invalidation logic sharing
+with pKVM [1], I still think after these changes both drivers can
+share some logic on the level arm_smmu_tlbi_calc_range() (+ tweaks).
+I am planning to post my series by this week, I will keep it based
+on upstream and I can rework my series later if this one gets merged
+first.
+
+Thanks,
+Mostafa
+
+[1] https://lore.kernel.org/all/20260501111928.259252-5-smostafa@google.com/
+
 > 
-
-That was only done for readability purposes. This will be entirely moved out of
-here in a later commit.
-
-Same as before, if you really think that this needs to be (dev, NULL, ...) instead
-of (&ovl_adaptor->dev, NULL, ...) I can change that, but this means I'll have to
-fix 30 patches ahead (plus ones that I have in my tree that are not in this series)
-
-It's not a bug, nor anything critical, not breaking anything, and resolved with
-later commits changing everything so, for the sake of efficiency, if this could
-be ignored (as it's just a nit), I'd be happy.
-
-Cheers,
-Angelo
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  32 +-
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  30 +-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 439 ++++++++++++------
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  54 ++-
+>  4 files changed, 382 insertions(+), 173 deletions(-)
+> 
+> 
+> base-commit: 4c73a6222c248384513c4f465e547df80b280a06
+> -- 
+> 2.43.0
+> 
 
