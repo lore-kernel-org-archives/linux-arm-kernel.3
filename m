@@ -4,116 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E758C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 04:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBF3C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 05:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bHz8pIdj5qCHMVmE3ZgrvqBvuIVwQ8F/DhCqlx20Pk=; b=T25jHdY20qbSh6XjHCPXvLs6xL
-	wrdt672VI0S2OYVCd9mDzrUQVFLYLi9OwkievMdQlzAJyM1zvkeMB7/f2Z509Stz5xwZYY1V3Mrqh
-	bZFSl3Z73zx2n4qWgza+sNGSF8XswwN/VvQqeZa9Z+RjJKuWQz/cIWPurE0sIhQXEc8awoqYhxku+
-	zjgRRee1OmTyuOx/z2+r/wVBGfXZDSmGOJuUg7hadDm6B3LhL/h8NFKlChI8SP2fhiH//Es25t06G
-	4xy0kRoe5wMkC+YGEJqNE5PYUXtChVjd4aktxIVe766Kj/WJ8BoRAfun/p3CQ3fXCH4MdqXCC6k+0
-	yddYi4QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WkHq5c0WdPERIfAOsePlmqHmZKAi31vcpKwHmCmT2hk=; b=035WtwBCSQtJOOvtHF272KWYG5
+	3T+9wDYe/JmNQanoboXQogODQxUkGlc+yBq3PG9Gjflc6Cb7Hn30swMyAiE3xptz69XukLEcmXYcY
+	gtd5taUy3l8hP0aBpw5aOKNYjej24TCAp6fY0PjCMcvDwgnt6+mb5YJPTmJ565TIOeJVv5GdGGi07
+	bqiubAi3hURQTvFkMzAhJEoGVBhHQaKmLrDcGAIhCFDtTnsEnw0gOZg9gJhgYkZnDBeMfD0eX4iVL
+	wiKzdkBTOvICN8uPMnfHny/KBUZF7JqfqrPwHMw/QOv9G+qsLQO6vCdcKkvMNM3R5XFogpXsk8mA9
+	TzHyAAIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgxQt-0000000E4fy-3Rqm;
-	Tue, 07 Jul 2026 04:29:19 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1wgyOw-0000000E859-0ENW;
+	Tue, 07 Jul 2026 05:31:22 +0000
+Received: from mail-westus3azon11022081.outbound.protection.outlook.com ([40.107.209.81] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgxQr-0000000E4fC-2sdc
+	id 1wgyOt-0000000E84h-1J78
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 04:29:19 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-664d7863920so2963001d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 21:29:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783398556; cv=none;
-        d=google.com; s=arc-20260327;
-        b=i6LB3l4yEoqz271bV717dREkyFmldCFpikzJ176V6NnqaVgX+mCCrz6yFYxeQA7d6j
-         XqnbJhcd9sfwYNhzH/9h3dddPoli8bbtVBScVUXG0jo4FLsa0ZXkQEL62xpgsDRrZ4LS
-         lUbXuqZKT/s775RdcqXpxVsUQjxpdUnt3YMrOwzupBDHKOHbUWvfz+oN4U/9qRgLPDQN
-         /IH8pmH+f40uY00QS5qhAUEROS2SQsqD/YzBECw38VehiNn/7/pk1R3et2KaTWp3UFTh
-         egBz5MFGP+8vYbSAiI0pX5w5B6Lc+6hxgSB01QAzDciCQmHBZzDGvhXqvkwdPKvmw3dE
-         ZBSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1bHz8pIdj5qCHMVmE3ZgrvqBvuIVwQ8F/DhCqlx20Pk=;
-        fh=36axvBbrikZTt/7LhwJOSTadhDCSxRZjYHcTjDojYnU=;
-        b=VtlnqyxWl/9VwKUqbJ4rSNtEBbLKgMgJ6EwP08oFUCw2RHsG31lwh76S6CNTUfwjOo
-         ej55mErDYEdrpK6bThLigOQ1XLYQ0rGfWArDuHpQ9nIsUIhXdpZSWQa/P4ROAin+SHxp
-         /NNWBtTGt1mstIj3mzyLLtZQogVFDvEIaUmmeIdmlqD9xmkEzj5C7bGfEr6BAXzpFzRe
-         AjJKGRk++JE4KFqJQML8Bwu7iIayIdS2iX4vVjjt6L2wZaxXE9apE69DB0KQVw6davDB
-         LvrgqmQy3UKcVsor6LIrbxLtzOyKh7kszhlelLb2IS8WXBgImsOTwpJzbLl3ttuaAIW2
-         U1cA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 07 Jul 2026 05:31:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XRt3+1Eqq1g3hgAewIZVGIO/xn+4tlcxnlWRVFu9ha8ME7k5/o6vVWA6L8JqXv+D5n3z3AY6pq70FLeZtEah1S53AusNQngdILaP8x9I5QrHGReBS1r/8kWgUixbKlyle4xDflHKp1BZAI+rQXXSo72kwTh8q2+YZvl2W7xvJPgUYhw93itCsc/odqpqrCBB8JMkQXtDsUNehpLyr3H+69aBpecNny5ZNyuT2Zlid8f99iFHL5GRkI5WgiJzNkh9VUU+Rvy1bUeYRN5rcWfREluWlGs8zI07cAN3EJaTGH8s4D1PIvTqsn7fxFaXQ4LFW7cXsyUURP6vbGOiSC2Orw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WkHq5c0WdPERIfAOsePlmqHmZKAi31vcpKwHmCmT2hk=;
+ b=SYoPyHH0oFyfRDMVsdi+g4vO6+fDhhRucu540lI6wphT2BpPo4CbDzNnWznkJA4GGFc+DRZm+tJaTzJTuF9sm21Bq0vxx3mtmOjekBTFNM038d2O5a2jCCWU0ynpMbjNUI5ePzk+k0p1rjaJ+Gy7VCWHe55In1ugreMlFlIpq6kPEyItWc8SqPexdzHsJnIiDMfO/mK4YXG+IBRr6HEzStPlOa7nixtTtfmzCw6b1E5NUYoB+xDVnE4ItO7OPpsrhxxOJHaMVOrXeIYK2xYDXusgBul5WIMAKaUNFPKQ0SMgFcSKTZg3o66z0zwmHQrLBoySzOBvMMG0FDDiqIQZcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783398556; x=1784003356; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1bHz8pIdj5qCHMVmE3ZgrvqBvuIVwQ8F/DhCqlx20Pk=;
-        b=R3v8cxWHHKs/J+OG4UUgF1wEZVIf72lMoZSaxDZF7m8s8ZRnzJvj3V0wdp4v6G2lG1
-         e3OyFMCc6v+skW3gOkbuKy4w/W4qNjABdjoEXJmMNIPhlvgAOOm2UBudzk7USWL94ciX
-         TjjomfQL3ZWxyS+yhc1aF3txUClFEjRLZklzA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783398556; x=1784003356;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1bHz8pIdj5qCHMVmE3ZgrvqBvuIVwQ8F/DhCqlx20Pk=;
-        b=A9sfDMr4U+X5xe+JYe/yz/vqcKoZeN2MLW2FHFmLPbB4JcaOYIQSiIRVAJHF1aIO49
-         wd6Y2O8UW0f2XRBfSYYNVjUcuxJ+Cg9+hT9ElPs3qZHi7APH2slK4vCZUxbYQsdCcAl2
-         xdTf4py5FrmAEB10AljdyasgzWilqFVaR6c2O2On2WPyTRJj5+0Dce2LoLDoSfDjZ2SO
-         3M7qEeKpbhwiWGMERtcyAV/VZ87a4OqstWdK06TaxXGO4oDeF9PzucRKZ1UT+S82Wb5w
-         /D+FAMwV0X17dySimSEb806lkSrsRofGql58Yfm2qjcIBG+YBOrXBe0Q8P0/vJJaDbGs
-         SNfg==
-X-Forwarded-Encrypted: i=1; AHgh+RqhrFUGMHkAIyISxpKUOlZUdY4tRR2VTfuojdzNmapOK5jCfn64pdsAGfrBkmPQyeQoKw0yK9DVScRJhJQBPZM2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkF4uYasrZGWDUAVQSHGvLiu9pas82NIyFcQUzeOPeM1mxPw+x
-	J5kqeorD1hz8czw6pFJtv59tuAvDHQBMaxL+A5/O2QVoyQtcBQM0EX15CJXYgc9FBlI25U+HSZW
-	k5OXhDaXI1dsLq7t7MvdQM8W1U5EB6QmMv7qD14zT
-X-Gm-Gg: AfdE7clpqNfGj3aZ4rbAh6ju7AJyuQxv8AIMvTxqghLjKCzLuB9vm4/XRWocgtFWuQk
-	shdlKW1VlPkU263bGAsimRTMrr25hcBKAE7eTDZbiCjCFtfgpmQTgJF6FV32JT+QLPgav448Og6
-	ONgSb6qZ1lCGgpO25hKZeYeed7FXKEzosLX4uARzASGrheRKc6jKPFSO2cGrJ0/idz178WawXfx
-	LSJkBegZ+g45OyWHDshaGMMet3jvqR8csYWYsDZG6eFMqrpKhDhbq/LLLu9TGXf+Ps14g9/1TB9
-	cCiLxY/MSuBWWeOHIjWx7oXvvf+WE5oh3TWNjQ==
-X-Received: by 2002:a05:690e:4549:10b0:662:b6fc:ab84 with SMTP id
- 956f58d0204a3-6677fa2ea7bmr2174279d50.17.1783398556262; Mon, 06 Jul 2026
- 21:29:16 -0700 (PDT)
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WkHq5c0WdPERIfAOsePlmqHmZKAi31vcpKwHmCmT2hk=;
+ b=Hj/IZIryQf8oFo8/7YziYUQxF9T8ixfxEo/OBafy2MRU7I2vGoIlvwWGVO8z3/fJZvIl9oVH13ohw3NdMhqDvAr9OcGScKY/u9c7rc1I0jbRirengv0UwE2gP2gRpIUi8yjJNiZB42brInj7knLmGvtkzWkxiPUthTprx+PmW/k=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
+ CH0PR01MB7017.prod.exchangelabs.com (2603:10b6:610:106::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.13; Tue, 7 Jul 2026 05:31:11 +0000
+Received: from MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.21.0181.012; Tue, 7 Jul 2026
+ 05:31:09 +0000
+Date: Mon, 6 Jul 2026 22:31:03 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Robin Murphy <robin.murphy@arm.com>
+cc: will@kernel.org, mark.rutland@arm.com, 
+    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+    ilkka@os.amperecomputing.com
+Subject: Re: [PATCH 1/5] perf/arm-cmn: Rename filter variables for clarity
+In-Reply-To: <7022c44c7ef30cacf9923a704eca6953ffaea6b7.1782830759.git.robin.murphy@arm.com>
+Message-ID: <13b5ef38-fda1-d760-25cb-d92171fd707a@os.amperecomputing.com>
+References: <cover.1782830759.git.robin.murphy@arm.com> <7022c44c7ef30cacf9923a704eca6953ffaea6b7.1782830759.git.robin.murphy@arm.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0259.namprd04.prod.outlook.com
+ (2603:10b6:303:88::24) To MN2PR01MB5615.prod.exchangelabs.com
+ (2603:10b6:208:11c::29)
 MIME-Version: 1.0
-References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-7-wenst@chromium.org>
- <ake09vk4fEv1D9QC@ashevche-desk.local> <CAGXv+5GNucSXrhL=YxarSJHD2ezzYDK3EovFu-zy012KgZ+ZBg@mail.gmail.com>
- <ake6FNy83LLtCs3b@ashevche-desk.local> <CAGXv+5EgpizA3Pc8ScNuChPhvFKWd5F6dxB-wT4-7EwabE-9dQ@mail.gmail.com>
- <akvRMcGnUPxE3sxR@ashevche-desk.local>
-In-Reply-To: <akvRMcGnUPxE3sxR@ashevche-desk.local>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 7 Jul 2026 12:29:05 +0800
-X-Gm-Features: AVVi8CeDQS-P0cN7_fGlNwSI_p7eUQN2BPzLo_iMICLRCJ8sboVGUDAVuWI9R6g
-Message-ID: <CAGXv+5EqsDbzTg9eDMGK3Ph6Pe3_uDoSrjVL4q23cy6jZCk2tw@mail.gmail.com>
-Subject: Re: [PATCH v3 06/13] usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|CH0PR01MB7017:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e629e4d-434a-4a98-8cf8-08dedbe8f21c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|55112099003|11063799006|56012099006|4143699003|18002099003|22082099003|21046099003|6133799003;
+X-Microsoft-Antispam-Message-Info: 7z7wTxGniIjfUQYFCwo4yV8JFSQW/qUF7ukbtJGicORqgE8/D5Z7B3lj/1mclXl21bgsv3OKltCHTklMjH06IdG9vnaFAn9r5Zh7cI53oUX86qLJfNi8f1jM/y5W2ddjJ3OXM55W9Kyyn9HBJT9cYtg1fwk0tt1XzN6YdVF7ldXVQoS+QA61EbSiKvpPRY7rdzmQiKCt26kozHo2a4EKq0E0KhDyW3nhCYBH0co6IuuRtlEGS8R27XOi5629RYv1bcx9XC3U0nw9BMl3YWD+GiJV/eJ1F1xgSISNJSmjn0ajROey7SReO/Vtsl8tTJyv/48L0dokwEyQkcWDnDULMRdzBMuxsYTIqT52ZRmjHDryIIPo1JErae2PwM5G96HavQr6NCzd2cNjgqak2Z4bx3I/NrpD1fVhBDLvyg7tibaOmiuMj3A7uAAaxtqUlpYdJG5FUCbanIaE+Mbc6p5l9f5I7h/2gfqGbI/OZ3nKUgtGz2ed6z8fOIasiX39f6Vg4DiRHtGcX0GZkG9EVcQTqLHWJ6f+qX6+6dbUVoSqlazR/zf1VKMqvCWfhXW2kFh0NT64yScpsYnyS08cQeJtrwBi6biJik5LyhbX22kOImXqyGf8V+EQzGuF4ekIt7t7NGyqjdFp1TRtUgEOxTMdqwa5fBwCfbgCem6RHAO7N+A=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(55112099003)(11063799006)(56012099006)(4143699003)(18002099003)(22082099003)(21046099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3ZIW+rk7th/kTwHYySBwdb+ej1nEa1QqT0SoGPGgnQeXN0EFASxqALHbZ+w7?=
+ =?us-ascii?Q?B2E/eLBs3iOf6DblUSNTJ85HhYlizOvnlyfMVyQ+b5FKXNO+mqLDrd3lmdX3?=
+ =?us-ascii?Q?f/g/hEo8Sb8SU+rSaDv9QqsC02gMMKIVfXL6cY8UVm+x/CTmPjaL613ZtXlv?=
+ =?us-ascii?Q?YpqcxJ4jAdrBw/Y+nC7BPBcA+UNYJGpnBKqrAGKSMmUnG5jyBpsbxRmjjgYk?=
+ =?us-ascii?Q?DXteL9Tv5FodqxTdDZ/VgmghSNxdDz875DtH2GGVGnshclxlh0KgI+5n1841?=
+ =?us-ascii?Q?Xv50nifTfSN9nvKHEebjO/zxWQdbZvz+oOsHwt/wZLP0RWU/xtOpP8jNnM5p?=
+ =?us-ascii?Q?iwXzlbpth3F7DmkL+aY8BH2hDuNPoNjZOlosETiHJv0VVjX6MT5Xc3vW1bmG?=
+ =?us-ascii?Q?1nI7hThWPD5GjUbcHGRuwtSLCNsZysXRyLzkwWEO2KoHdjofd6ErVIkyEM3v?=
+ =?us-ascii?Q?bP0l2WWJuQ+E9vt2mFqAxCc7+uk6DQNTELo4V0bRA0+bgyyVRWOydHh4dYCH?=
+ =?us-ascii?Q?yEkQ84CnwpTByP+S4hyiOOKWIfknNV+A3Tw/ihfP9t2WECuflJPEXNF3LUFj?=
+ =?us-ascii?Q?y9e9qgljTPYZAmyI8sQD1nQ5O5dNAzL0tYG4GoyvRB4rz5kYCwPVVQPTe2xU?=
+ =?us-ascii?Q?De/7CqyqoehlcywOMjGCDtvYrwJsK5a5EcC2JP+BiDaN8QNb6RZqf4yJAHX4?=
+ =?us-ascii?Q?cLSwVCa81FQ2odB1LG/tDKtgMKYD8QMAtkbzpUX+gp+X05lw/xskIMWhF8ln?=
+ =?us-ascii?Q?iyEebdxcqqHdVGsmfcKIERy06lp6AkSuC4WOJdXiPJ6R1cnRif60Uz1rlbkc?=
+ =?us-ascii?Q?BGS/bzFu9NkSy6vMqPfVVgyitk/UI2STMFpw46HEfpEmhOdOy5hwJ4IjH3dc?=
+ =?us-ascii?Q?xb+WlftSd+JwH4yfDavCXVUR0GcXljJRupCjeS8EnE2DhTLaN2pGvCyPt1eS?=
+ =?us-ascii?Q?cT48p6GWGltVKkh0jMQgFh5Pv5STClAdM5DbHayeVEcbukqfBmzTJgVMb+fx?=
+ =?us-ascii?Q?dci4mnEVgcJ1j69DEYUHWi04AS4rwYlkZ8A4ZFw0+636kuMFqad0Xo+uUFAF?=
+ =?us-ascii?Q?afNOQHivQBKohzI8N6yjsm+5rDim/pjMJJWrJNbzY+/t3u/voeeu0MX2XYrx?=
+ =?us-ascii?Q?FU5EjKFPtlCIBoQRs9thN0/8I7TkTWaZFy3u0MHFBFlBPF+isCtRg/YABhIB?=
+ =?us-ascii?Q?z2zImWimeeFHMVG0Camq53Fu2zBj/H++9PnEgjkwDJ2MPtq+8Pf2PJv35RHV?=
+ =?us-ascii?Q?/VA0RJbbHX789n4PXgxLav1Prr0biu9NAu7UBu6lKrNXxO80FgQ966ht4nA8?=
+ =?us-ascii?Q?T33aHW7HNfR2xU2Z2435nx7ozqRdfkhkXEKOTcst8RLyOWQiluH3wBkMF15a?=
+ =?us-ascii?Q?2OyTJl7XEh7Xn8lk8N6m9owWCP5m+7QMeP/MutAk1il+70GVpGfHsgAClT6L?=
+ =?us-ascii?Q?czPsd+upuh7n89hcuntJtp4lUOTM4TvvMnI7vStg0j604LFQIYtWThokwUCp?=
+ =?us-ascii?Q?GhrrcAEjL72duFKJTU8cMj+xTEDerj3sRO0IQbD0Ikl6KW182GS+f/mzwqGf?=
+ =?us-ascii?Q?aBMW7vmClKP5fu8V5fXvBUCTyVHpu6ZDKLt2+StL4xIIN5SQIK5oaSVfW9w5?=
+ =?us-ascii?Q?SlLtBBQjuPm6BnwmnIgZ5r3+terlvu4s4dSJ4fMD3vYiY+tuclsXKwde83EV?=
+ =?us-ascii?Q?2ENUGZdSQj3n6r7EGLJntcM36KKeLzVDEbgwjT+6Ud6yXQzSZtzZbp2wqEnA?=
+ =?us-ascii?Q?sdxAIZLd3xRo+FPZS2UZcwgsLBsL9PU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e629e4d-434a-4a98-8cf8-08dedbe8f21c
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 05:31:09.4351
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MDM0FDd2qFtGabArM0hpvVuRv2cXuQWyNEWzrTZC0zxmLM6U/h+FXfzL4U+XVnVEUmIrCwt7A9DX4Ut9Y0zHh1r/uJSTkwKdnAGWI5jb4N4AFOhs9jk5e/YFQ3GJLkbl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_212917_796992_11D8A970 
-X-CRM114-Status: GOOD (  34.50  )
+X-CRM114-CacheID: sfid-20260706_223119_415247_3CDCBEAB 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,102 +136,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026 at 12:01=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Mon, Jul 06, 2026 at 07:08:07PM +0800, Chen-Yu Tsai wrote:
-> > On Fri, Jul 3, 2026 at 9:33=E2=80=AFPM Andy Shevchenko
-> > <andriy.shevchenko@linux.intel.com> wrote:
-> > > On Fri, Jul 03, 2026 at 09:17:16PM +0800, Chen-Yu Tsai wrote:
-> > > > On Fri, Jul 3, 2026 at 9:11=E2=80=AFPM Andy Shevchenko
-> > > > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > > On Fri, Jul 03, 2026 at 07:03:07PM +0800, Chen-Yu Tsai wrote:
->
-> ...
->
-> > > > > At a brief look this will be the only function that takes usb_por=
-t
-> > > > > instead of usb_hub in the entire hub.h (I don't count container_o=
-f()
-> > > > > as a function). With that being said I would rather see it to be =
-moved
-> > > > > to port.c altogether (yes, it's more invasive change, but looks m=
-ore
-> > > > > consistent).  I would even dare to move struct usb_port (and cont=
-ainer_of()
-> > > > > accompanied with that) and this function to port.h. This might re=
-quire
-> > > > > a separate patch, though.
-> > > >
-> > > > I agree with the reasoning, especially given the function name. How=
-ever
-> > > > I wonder if it would cause problems given the linking order. I'll g=
-ive
-> > > > it a try nevertheless and report back.
-> > >
-> > > Thanks!
-> > >
-> > > In case it won't fly (but I still think it's better to split), can yo=
-u at least
-> > > group usb_port APIs and struct? Means moving the proto closer to that=
- struct
-> > > usb_port followed by container_of().
-> >
-> > Looks like it works out fine. port.o is linked in after hub.o, so movin=
-g
-> > the function from the latter to the former doesn't cause issues. One mi=
-ght
-> > even say that it is the correct thing to do.
->
-> That's what I say! :-)
->
-> > > > > Perhaps something like: 1) "move struct usb_port and associated A=
-PIs to port.h";
-> > > > > 2) "...this patch...".
-> >
-> > There are still some left in hub.c:
-> >
-> > static void usb_lock_port(struct usb_port *port_dev)
-> > static void usb_unlock_port(struct usb_port *port_dev)
-
-These are only used internally in hub.c as a wrapper for the port mutex.
-
-> > static void port_over_current_notify(struct usb_port *port_dev)
-
-This is only used by the hub's overcurrent event handler.
-
-> > static void hub_usb3_port_prepare_disable(struct usb_hub *hub,
-> >                                           struct usb_port *port_dev)
->
-> This one takes hub as well.
->
-> > These are used only in hub.c and moving them probably makes things
-> > messier?
->
-> Perhaps better naming to each (kinda moving to usb hub namespace)?
->
-> > OOTH, the following bits are in port.c but declared in hub.h:
-> >
-> > int usb_hub_create_port_device(struct usb_hub *hub,
-> >          int port1);
-> > void usb_hub_remove_port_device(struct usb_hub *hub,
-> >          int port1);
-> >
-> > Any preferences for these while we're reorganizing the code?
->
-> These ones would be good to be in hub.c if there is no circular dependenc=
-ies or
-> alike.
-
-Those two, along with all the static functions they call, ends up being
-half of port.c. That doesn't help the size of hub.c, which is already
-over 6000 lines. I think I'll leave this one as is.
-
-Both this part and the remaining bits in hub.c I mentioned above are
-outside the scope of this series. We can discuss whether they really
-need to be moved or renamed.
 
 
-Thanks
-ChenYu
+On Tue, 30 Jun 2026, Robin Murphy wrote:
+> CMN has already grown many more event-specific filters than the original
+> Occupancy ID, but since they are all independent of each other we've
+> just overloaded them onto the same name. Before we add yet more, and
+> they begin to overlap, rename all our "occupid" variables to "filter" so
+> that things can be a bit clearer and more consistent (but leaving the
+> format attribute itself, to avoid UAPI concerns).
+>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+
+Looks good to me
+
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+Cheers, Ilkka
+
+> ---
+> drivers/perf/arm-cmn.c | 53 ++++++++++++++++++++++--------------------
+> 1 file changed, 28 insertions(+), 25 deletions(-)
+>
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index 50402bc4a21d..2a8a67da72c3 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -163,13 +163,13 @@
+> /* Event attributes */
+> #define CMN_CONFIG_TYPE			GENMASK_ULL(15, 0)
+> #define CMN_CONFIG_EVENTID		GENMASK_ULL(26, 16)
+> -#define CMN_CONFIG_OCCUPID		GENMASK_ULL(30, 27)
+> +#define CMN_CONFIG_FILTER		GENMASK_ULL(30, 27)
+> #define CMN_CONFIG_BYNODEID		BIT_ULL(31)
+> #define CMN_CONFIG_NODEID		GENMASK_ULL(47, 32)
+>
+> #define CMN_EVENT_TYPE(event)		FIELD_GET(CMN_CONFIG_TYPE, (event)->attr.config)
+> #define CMN_EVENT_EVENTID(event)	FIELD_GET(CMN_CONFIG_EVENTID, (event)->attr.config)
+> -#define CMN_EVENT_OCCUPID(event)	FIELD_GET(CMN_CONFIG_OCCUPID, (event)->attr.config)
+> +#define CMN_EVENT_FILTER(event)		FIELD_GET(CMN_CONFIG_FILTER, (event)->attr.config)
+> #define CMN_EVENT_BYNODEID(event)	FIELD_GET(CMN_CONFIG_BYNODEID, (event)->attr.config)
+> #define CMN_EVENT_NODEID(event)		FIELD_GET(CMN_CONFIG_NODEID, (event)->attr.config)
+>
+> @@ -301,7 +301,7 @@ struct arm_cmn_node {
+> 	struct {
+> 		u8 val : 4;
+> 		u8 count : 4;
+> -	} occupid[SEL_MAX];
+> +	} filter[SEL_MAX];
+> 	union {
+> 		u8 event[4];
+> 		__le32 event_sel;
+> @@ -672,7 +672,7 @@ struct arm_cmn_event_attr {
+> 	enum cmn_node_type type;
+> 	enum cmn_filter_select fsel;
+> 	u16 eventid;
+> -	u8 occupid;
+> +	u8 filter;
+> };
+>
+> struct arm_cmn_format_attr {
+> @@ -681,13 +681,13 @@ struct arm_cmn_format_attr {
+> 	int config;
+> };
+>
+> -#define _CMN_EVENT_ATTR(_model, _name, _type, _eventid, _occupid, _fsel)\
+> +#define _CMN_EVENT_ATTR(_model, _name, _type, _eventid, _filter, _fsel)\
+> 	(&((struct arm_cmn_event_attr[]) {{				\
+> 		.attr = __ATTR(_name, 0444, arm_cmn_event_show, NULL),	\
+> 		.model = _model,					\
+> 		.type = _type,						\
+> 		.eventid = _eventid,					\
+> -		.occupid = _occupid,					\
+> +		.filter = _filter,					\
+> 		.fsel = _fsel,						\
+> 	}})[0].attr.attr)
+> #define CMN_EVENT_ATTR(_model, _name, _type, _eventid)			\
+> @@ -709,8 +709,8 @@ static ssize_t arm_cmn_event_show(struct device *dev,
+> 				  eattr->type, eattr->eventid);
+>
+> 	if (eattr->fsel > SEL_NONE)
+> -		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,occupid=0x%x\n",
+> -				  eattr->type, eattr->eventid, eattr->occupid);
+> +		return sysfs_emit(buf, "type=0x%x,eventid=0x%x,filter=0x%x\n",
+> +				  eattr->type, eattr->eventid, eattr->filter);
+>
+> 	return sysfs_emit(buf, "type=0x%x,eventid=0x%x\n", eattr->type,
+> 			  eattr->eventid);
+> @@ -1320,7 +1320,7 @@ static ssize_t arm_cmn_format_show(struct device *dev,
+> static struct attribute *arm_cmn_format_attrs[] = {
+> 	CMN_FORMAT_ATTR(type, CMN_CONFIG_TYPE),
+> 	CMN_FORMAT_ATTR(eventid, CMN_CONFIG_EVENTID),
+> -	CMN_FORMAT_ATTR(occupid, CMN_CONFIG_OCCUPID),
+> +	CMN_FORMAT_ATTR(filter, CMN_CONFIG_FILTER),
+> 	CMN_FORMAT_ATTR(bynodeid, CMN_CONFIG_BYNODEID),
+> 	CMN_FORMAT_ATTR(nodeid, CMN_CONFIG_NODEID),
+>
+> @@ -1333,6 +1333,9 @@ static struct attribute *arm_cmn_format_attrs[] = {
+> 	_CMN_FORMAT_ATTR(wp_val, 1, CMN_CONFIG1_WP_VAL),
+> 	_CMN_FORMAT_ATTR(wp_mask, 2, CMN_CONFIG2_WP_MASK),
+>
+> +	/* Old name for UAPI compatibility */
+> +	CMN_FORMAT_ATTR(occupid, CMN_CONFIG_FILTER),
+> +
+> 	NULL
+> };
+>
+> @@ -1544,30 +1547,30 @@ static void arm_cmn_event_read(struct perf_event *event)
+> }
+>
+> static int arm_cmn_set_event_sel_hi(struct arm_cmn_node *dn,
+> -				    enum cmn_filter_select fsel, u8 occupid)
+> +				    enum cmn_filter_select fsel, u8 filter)
+> {
+> 	u64 reg;
+>
+> 	if (fsel == SEL_NONE)
+> 		return 0;
+>
+> -	if (!dn->occupid[fsel].count) {
+> -		dn->occupid[fsel].val = occupid;
+> +	if (!dn->filter[fsel].count) {
+> +		dn->filter[fsel].val = filter;
+> 		reg = FIELD_PREP(CMN__PMU_CBUSY_SNTHROTTLE_SEL,
+> -				 dn->occupid[SEL_CBUSY_SNTHROTTLE_SEL].val) |
+> +				 dn->filter[SEL_CBUSY_SNTHROTTLE_SEL].val) |
+> 		      FIELD_PREP(CMN__PMU_SN_HOME_SEL,
+> -				 dn->occupid[SEL_SN_HOME_SEL].val) |
+> +				 dn->filter[SEL_SN_HOME_SEL].val) |
+> 		      FIELD_PREP(CMN__PMU_HBT_LBT_SEL,
+> -				 dn->occupid[SEL_HBT_LBT_SEL].val) |
+> +				 dn->filter[SEL_HBT_LBT_SEL].val) |
+> 		      FIELD_PREP(CMN__PMU_CLASS_OCCUP_ID,
+> -				 dn->occupid[SEL_CLASS_OCCUP_ID].val) |
+> +				 dn->filter[SEL_CLASS_OCCUP_ID].val) |
+> 		      FIELD_PREP(CMN__PMU_OCCUP1_ID,
+> -				 dn->occupid[SEL_OCCUP1ID].val);
+> +				 dn->filter[SEL_OCCUP1ID].val);
+> 		writel_relaxed(reg >> 32, dn->pmu_base + CMN_PMU_EVENT_SEL + 4);
+> -	} else if (dn->occupid[fsel].val != occupid) {
+> +	} else if (dn->filter[fsel].val != filter) {
+> 		return -EBUSY;
+> 	}
+> -	dn->occupid[fsel].count++;
+> +	dn->filter[fsel].count++;
+> 	return 0;
+> }
+>
+> @@ -1649,7 +1652,7 @@ static void arm_cmn_event_stop(struct perf_event *event, int flags)
+>
+> struct arm_cmn_val {
+> 	u8 dtm_count[CMN_MAX_DTMS];
+> -	u8 occupid[CMN_MAX_DTMS][SEL_MAX];
+> +	u8 filter[CMN_MAX_DTMS][SEL_MAX];
+> 	u8 wp[CMN_MAX_DTMS][4];
+> 	u8 wp_combine[CMN_MAX_DTMS][2];
+> 	int dtc_count[CMN_MAX_DTCS];
+> @@ -1694,7 +1697,7 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
+> 		val->dtm_count[dtm]++;
+>
+> 		if (sel > SEL_NONE)
+> -			val->occupid[dtm][sel] = CMN_EVENT_OCCUPID(event) + 1;
+> +			val->filter[dtm][sel] = CMN_EVENT_FILTER(event) + 1;
+>
+> 		if (type != CMN_TYPE_WP)
+> 			continue;
+> @@ -1745,8 +1748,8 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+> 		if (val->dtm_count[dtm] == CMN_DTM_NUM_COUNTERS)
+> 			goto done;
+>
+> -		if (sel > SEL_NONE && val->occupid[dtm][sel] &&
+> -		    val->occupid[dtm][sel] != CMN_EVENT_OCCUPID(event) + 1)
+> +		if (sel > SEL_NONE && val->filter[dtm][sel] &&
+> +		    val->filter[dtm][sel] != CMN_EVENT_FILTER(event) + 1)
+> 			goto done;
+>
+> 		if (type != CMN_TYPE_WP)
+> @@ -1892,7 +1895,7 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+> 		}
+>
+> 		if (hw->filter_sel > SEL_NONE)
+> -			hw->dn[i].occupid[hw->filter_sel].count--;
+> +			hw->dn[i].filter[hw->filter_sel].count--;
+>
+> 		dtm->pmu_config_low &= ~CMN__PMEVCNT_PAIRED(dtm_idx);
+> 		writel_relaxed(dtm->pmu_config_low, dtm->base + CMN_DTM_PMU_CONFIG);
+> @@ -1978,7 +1981,7 @@ static int arm_cmn_event_add(struct perf_event *event, int flags)
+> 			input_sel = CMN__PMEVCNT0_INPUT_SEL_DEV + dtm_idx +
+> 				    (nid.port << 4) + (nid.dev << 2);
+>
+> -			if (arm_cmn_set_event_sel_hi(dn, hw->filter_sel, CMN_EVENT_OCCUPID(event)))
+> +			if (arm_cmn_set_event_sel_hi(dn, hw->filter_sel, CMN_EVENT_FILTER(event)))
+> 				goto free_dtms;
+> 		}
+>
+> -- 
+> 2.54.0.dirty
+>
+>
 
