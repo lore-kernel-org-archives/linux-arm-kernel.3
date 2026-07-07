@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9CCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713C0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1wR4i3S+qlUwOJNrTeVvJuUHl23Tu3l5qGQqGSCCrM=; b=qOuYnHdBMjv7TWltCHRrLZkNVN
-	Ax3VMo1fAle+YPv7JH4z3+XLWcE/R6JRGsbfu3cAzFrtH+xuyITHWMn/g9SKuzncDI4VIM/r4M6pK
-	widYpYEu//+v2lGMdgDrL5tmxCJeIn/2v5yQ1h0JVU1uXoQpLKtnxkCJyWVJZkqpmgiXs1E7EbcHs
-	GZP+xSc+2ZMJcLZBnR2v7Fkbe2xBI75lE+QVcxcxXWhPYg1++EDZQOn9Obpc3EV7XhHQDWQlxo7uk
-	E1qf2gsA/6pxSTcOC3+MN5nZm9sf8XzF5iM0uF6e+r9UTHEFauMCupbMhfyY/jp6cbAy1Faev03vN
-	QwqFKvYg==;
+	bh=oHjFAW0/kMYO7d81PjERqxMLKtKumm5xqXxdNB7Ix38=; b=YXEZ3UaJ0COrMcQ6hVILzkcnwG
+	7F3QFqRM1+p3jaSdkEcn0zyVShWnVtqH9JydCIEY7QBUgXdJUiGyUte12lx/8knAgiUx5X+WI6P3l
+	Aj4atrQ06yxfq/34FXP9bAgxw8q4tdvrbJnahDXgX9RxCaho9AiVoRLOTUvFq0EZ7Fo0mUV5su6jI
+	HspULP59CzZznH2fYA3iX42X3hX+Vc7TSGgFqlmYkWEtYBoViP784gjdA3Pziac0MV0BRyRQYyNQp
+	Ov/KogkiQlmylJlwzz9haLGLsM11X8faS4GW9Caq1EdUVCtLM//iUhr3To05RrAsLwcS6E0wQ9k7g
+	JTpcVHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4XO-0000000Eucs-0CZr;
-	Tue, 07 Jul 2026 12:04:30 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wh4Pe-0000000EtiS-2wHD;
+	Tue, 07 Jul 2026 11:56:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4XK-0000000EucQ-3Y4M
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 12:04:28 +0000
-Message-ID: <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1783425863;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V1wR4i3S+qlUwOJNrTeVvJuUHl23Tu3l5qGQqGSCCrM=;
-	b=CKowxmzEvsFi8bPEpRBxQBVEESRS+TLUCPFAFp2Q4CQOSUnmA2luvb+oOSG1ITQLz9Wn8C
-	7IIXPpr5ArZNaxWGpffrKpCC3+CbZqbKCk7zB4JsIpGPqulFijoHPaPnGHwcuHdY5RjVt1
-	YLmBUWejdchZmVwbrsNEyVaGPfcmAWA=
-Date: Tue, 7 Jul 2026 14:04:21 +0200
+	id 1wh4PZ-0000000EtfQ-2lWI;
+	Tue, 07 Jul 2026 11:56:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783425383;
+	bh=5La47mugR86zNwVAYVmIlynmty3b35suIyPgIrKNa6Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QkUazNn2ulg5g0wRD75nGqhs3FODngy61+asFxo9b5oAqQLyrCpdMUt5imj3yszwe
+	 U6G+nKWXawpzRFongj99CeFI1GHvp4VuoOhqpNAxgcp08p7RY69xOXCu4Qf3iiT369
+	 HLJOAuArQy/SdwO50/+G2tJo/j5eWXT2q+P0KZracXexDmCDX9RJ71wYJ90B+4qzlH
+	 6SBIzevm+25I9yup2XMoL0LIp6Dl33BXPTnDnM3hLC5TNA8RZphTGZBWvlF0GgMNlV
+	 3DjP7I1b2EG2NXRaRPqMppMAnHUceu9JjIzboa+chN2nigEM+OX9BzkYXWR/wKdWu2
+	 Z8Qsis+ohYePQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 101AA17E013E;
+	Tue, 07 Jul 2026 13:56:22 +0200 (CEST)
+Message-ID: <16980e9f-c183-41c4-8001-ac7807cc087b@collabora.com>
+Date: Tue, 7 Jul 2026 13:56:21 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-To: Marc Zyngier <maz@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
- <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
- <86a4s3p2vy.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/42] drm/mediatek: Use hashtable for components
+ discovery and registration
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+ <20260701122057.19648-7-angelogioacchino.delregno@collabora.com>
+ <79f44c827c78fd823300509c22058f2b6f3600b6.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <86a4s3p2vy.wl-maz@kernel.org>
+In-Reply-To: <79f44c827c78fd823300509c22058f2b6f3600b6.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_050427_147858_34053EC2 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260707_045625_869695_9DCA01F5 
+X-CRM114-Status: GOOD (  45.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,92 +94,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/7/26 11:25, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 23:38:27 +0100,
-> Yureka Lilian <yureka@cyberchaos.dev> wrote:
->> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
->> provide standardized power management for PCI devices.
+On 7/6/26 09:02, CK Hu (胡俊光) wrote:
+> On Wed, 2026-07-01 at 14:20 +0200, AngeloGioacchino Del Regno wrote:
+>> As a preparation for refactoring the concept of hardware component
+>> identification, search, and final usage, remove the ddp_comp array
+>> of components and replace it with a hashtable, indexed by ID.
 >>
->> Notably, this allows enabling powering on the WiFi, SD card reader on
->> various Macs by means of the pwrctrl framework before probing the ports.
->>
->> Previously, a custom solution for powering on the WiFi and SD card
->> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
->> driver for this purpose.
->>
->> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
->>
-> nit: this paragraph and the accompanying link don't belong in the
-> commit message and should be moved below the --- mark or even better,
-> to the cover letter.
-ack, will leave it out of the commit message of the individual commit in v2
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 >> ---
->>   drivers/pci/controller/Kconfig      |  1 +
->>   drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
->>   2 files changed, 17 insertions(+)
+>>   drivers/gpu/drm/mediatek/mtk_crtc.c     | 44 ++++++++++++++++-------
+>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 48 ++++++++++++++++++-------
+>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h | 23 +++++++++++-
+>>   drivers/gpu/drm/mediatek/mtk_drm_drv.c  |  7 ++--
+>>   drivers/gpu/drm/mediatek/mtk_drm_drv.h  |  2 +-
+>>   5 files changed, 94 insertions(+), 30 deletions(-)
 >>
->> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
->> index 2247709ef6d6..af64630d28fa 100644
->> --- a/drivers/pci/controller/Kconfig
->> +++ b/drivers/pci/controller/Kconfig
->> @@ -46,6 +46,7 @@ config PCIE_APPLE
->>   	depends on OF
->>   	depends on PCI_MSI
->>   	select PCI_HOST_COMMON
->> +	select PCI_PWRCTRL_GENERIC
->>   	select IRQ_MSI_LIB
->>   	help
->>   	  Say Y here if you want to enable PCIe controller support on Apple
->> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
->> index c2cffc0659f4..db038a9d4831 100644
->> --- a/drivers/pci/controller/pcie-apple.c
->> +++ b/drivers/pci/controller/pcie-apple.c
->> @@ -30,6 +30,7 @@
->>   #include <linux/msi.h>
->>   #include <linux/of_irq.h>
->>   #include <linux/pci-ecam.h>
->> +#include <linux/pci-pwrctrl.h>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+>> index f39f197057a7..3f4d6ab1bfc2 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_crtc.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+>> @@ -725,8 +725,12 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
+>>   		crtc_state->connectors_changed, encoder_mask, crtc_index);
 >>   
->>   #include "pci-host-common.h"
->>   
->> @@ -825,6 +826,21 @@ static int apple_pcie_init(struct pci_config_window *cfg)
->>   	if (WARN_ON(!pcie))
->>   		return -ENOENT;
->>   
->> +	ret = pci_pwrctrl_create_devices(pcie->dev);
->> +	if (ret) {
->> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
->> +		return ret;
->> +	}
+>>   	for (i = 0; i < mtk_crtc->num_conn_routes; i++) {
+>> -		unsigned int comp_id = mtk_crtc->conn_routes[i].route_ddp;
+>> -		struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
+>> +		const struct mtk_drm_route *conn_route = &mtk_crtc->conn_routes[i];
+>> +		struct mtk_ddp_comp *comp;
 >> +
->> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
->> +	if (ret) {
->> +		if (ret != -EPROBE_DEFER) {
->> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
->> +			pci_pwrctrl_destroy_devices(pcie->dev);
+>> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, conn_route->route_ddp);
+> 
+> I don't know why you invent conn_route? Keep comp_id use it here looks the same.
+> 
+
+I'm not inventing conn_route, that's something that was already there as a dynamic
+replacement of the last component in a stack of possible outputs for a single
+full-fledged display pipeline.
+
+The change here is about changing the search/retrieval of a `route_ddp` from a
+number that comes from an enumeration, to a full component structure instead....
+
+>> +		if (!comp)
+>> +			continue;
+> 
+> In original code, it never check comp is null or not.
+> I think it base on an assumption that it would not be null.
+> If it's null here, print error message and it's not necessary to do the rest thing.
+> 
+
+.... and the component structure, with the new code, has to be *initialized*: this
+is because we cannot assume that a component that was not registered will actually
+be registered later (which was a broken behavior of mediatek-drm!).
+
+
+
+----> IMPORTANT PART: <-----
+Note that, at this point, "comp" is *not* pointing to a *statically* initialized
+array of components, but to a *dynamically* initialized one: while before this the
+comp pointer was guaranteed to be *always* a valid pointer to a comp structure, now
+it is *not guaranteed anymore*, because again - it's *dynamically* allocated, so
+we NEED to check for comp != NULL, or we're exposing ourselves to a possible NULL
+pointer kernel panic (or worse)!
+
+
+
+If the component is not initialized at this point, it simply means that it cannot
+be - in any way - used by mediatek-drm, so.. if !comp -> continue means effectively
+"if the component is not registered, we cannot use it, hence don't try to evaluate
+the possibility of using it".
+
+Is it clear now?
+
+>>   
+>>   		if (comp->encoder_index >= 0 &&
+>>   		    (encoder_mask & BIT(comp->encoder_index))) {
+>> @@ -1028,10 +1032,11 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   {
+>>   	struct mtk_drm_private *priv = drm_dev->dev_private;
+>>   	struct device *dev = drm_dev->dev;
+>> +	struct mtk_ddp_comp *dma_comp;
+>>   	struct mtk_crtc *mtk_crtc;
+>>   	unsigned int num_comp_planes = 0;
+>>   	int ret;
+>> -	int i;
+>> +	int i, j;
+>>   	bool has_ctm = false;
+>>   	uint gamma_lut_size = 0;
+>>   	struct drm_crtc *tmp;
+>> @@ -1051,7 +1056,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   		struct mtk_ddp_comp *comp;
+>>   
+>>   		node = priv->comp_node[comp_id];
+>> -		comp = &priv->ddp_comp[comp_id];
+>> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
+>>   
+>>   		/* Not all drm components have a DTS device node, such as ovl_adaptor,
+>>   		 * which is the drm bring up sub driver
+>> @@ -1063,7 +1068,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   			return 0;
+>>   		}
+>>   
+>> -		if (!comp->dev) {
+>> +		if (!comp || !comp->dev) {
+>>   			dev_err(dev, "Component %pOF not initialized\n", node);
+> 
+> I think you should print other error message and return other value for !comp.
+> 
+
+In mtk_crtc_create, at this point, the component (which always has a node, pointed
+by node = priv->comp_node[comp_id]) has to be initialized by mtk_ddp_comp.
+
+Keeping in mind that the component is actually a device, if the component itself
+was not initialized at this point, this means that there is NO DEVice associated
+with it.
+
+This is why -ENODEV.
+
+Also, we're printing %pOF (like before) because this gives hints about precisely
+which one was not registered at this point.
+
+>>   			return -ENODEV;
+>>   		}
+>> @@ -1089,12 +1094,17 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   		return ret;
+>>   	}
+>>   
+>> -	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
+>> +	for (i = 0, j = 0; i < mtk_crtc->ddp_comp_nr; i++, j++) {
+>>   		unsigned int comp_id = path[i];
+>>   		struct mtk_ddp_comp *comp;
+>>   
+>> -		comp = &priv->ddp_comp[comp_id];
+>> -		mtk_crtc->ddp_comp[i] = comp;
+>> +		comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
+>> +		if (!comp) {
+> 
+> In original code, it never check comp is null or not.
+> I think it base on an assumption that it would not be null.
+> If it's null here, print error message and it's not necessary to do the rest thing.
+> 
+
+The iterator here tries to still setup a display pipeline in case a component is
+missing, and this actually works in a couple of corner cases, which were not
+possible before the restructuring of mediatek-drm.
+
+In later commits, this case will be handled differently: the problem here is rather
+that the code readability is not the best at this point in time (of the series),
+but this will make a lot more sense when going forward in this exact series.
+
+The main issue here is that mediatek-drm's complexity is very, very high, and the
+maintainability suffers a lot: doing each and every change as a perfectly clean
+(and perfectly readable) diff means adding another ~4k thousand lines of changes
+that are simply addition and removal of the same lines over and over again.
+
+>> +			j--;
+>> +			dev_dbg(dev, "Cannot find component %d.\n", comp_id);
+>> +			continue;
 >> +		}
->> +		return ret;
+>> +		mtk_crtc->ddp_comp[j] = comp;
+>>   
+>>   		if (comp->funcs) {
+>>   			if (comp->funcs->gamma_set && comp->funcs->gamma_get_lut_size) {
+>> @@ -1131,7 +1141,14 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   	 * In the case of ovl_adaptor sub driver, it needs to use the
+>>   	 * dma_dev_get function to get representative dma dev.
+>>   	 */
+>> -	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(&priv->ddp_comp[path[0]]);
+>> +	dma_comp = mtk_ddp_comp_find_by_id(&priv->hlist, path[0]);
+>> +	if (dma_comp == NULL) {
+> 
+> if (!dma_comp) is more simple.
+> 
+
+Yeah, I agree. If you're really worried about seeing this instead of !dma_comp I
+can change it here... but if you can ignore that, in later commits this will be
+removed and completely changed so that it becomes
+
+	ret = mtk_crtc_find_suitable_dma_dev(mtk_crtc);
+	if (ret) {
+		dev_err(dev, "Could not find appropriate DMA device!\n");
+		return -EINVAL;
+	}
+	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
+
+Note that if I change this simple line here, I'll have to fix other patches as
+they won't apply anymore because of the changed line... so again, if we could
+ignore that it would be great...
+
+>> +		dev_err(dev, "Could not find appropriate DMA device!\n");
+>> +		return -EINVAL;
 >> +	}
 >> +
-> Why is this done globally while the whole driver works on a per-port
-> basis, and that the proposed DT updates are also per port?
+>> +	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
+>> +	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
+>>   
+>>   	ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
+>>   	if (ret < 0)
+>> @@ -1188,17 +1205,18 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+>>   		for (i = 0; i < num_conn_routes; i++) {
+>>   			unsigned int comp_id = conn_routes[i].route_ddp;
+>>   			struct device_node *node = priv->comp_node[comp_id];
+>> -			struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
+>> +			struct mtk_ddp_comp *comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
+>>   
+>> -			if (!comp->dev) {
+>> +			if (!comp || !comp->dev) {
+> 
+> In original code, it never check comp is null or not.
+> I think it base on an assumption that it would not be null.
+> If it's null here, print error message and it's not necessary to do the rest thing.
+> 
 
-pci_pwrctrl_power_on_devices takes a struct device as parameter, but
-pcie-apple does not allocate device structs for the individual ports.
-This could be changed of course. But since pci_pwrctrl_* operate on
-the subnodes recursively, it works just fine this way.
-Additionally, we would like to be sure all the endpoints can be powered
-before we start initializing the individual ports. Otherwise we could
-end up in a situation where some ports are initialized but others are
-not when we realize some driver needed to power on the endpoints for
-port n is not yet bound. There is no appropriate pci_pwrctrl API for
-checking for the availability without changing the state, so this is
-an additional reason to do it early.
+Already explained why we need comp to be checked for NULL.
 
->
-> Thanks,
->
-> 	M.
->
+>>   				dev_dbg(dev, "comp_id:%d, Component %pOF not initialized\n",
+>>   					comp_id, node);
+>>   				/* mark encoder_index to -1, if route comp device is not enabled */
+>> -				comp->encoder_index = -1;
+>> +				if (comp)
+>> +					comp->encoder_index = -1;
+>>   				continue;
+>>   			}
+>>   
+>> -			mtk_ddp_comp_encoder_index_set(&priv->ddp_comp[comp_id]);
+>> +			mtk_ddp_comp_encoder_index_set(comp);
+>>   
+>>
+> 
+> [snip]
+> 
+>> 		}
+>>   @@ -1116,8 +1118,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+>>   							    PLATFORM_DEVID_AUTO,
+>>   							    (void *)private->mmsys_dev,
+>>   							    sizeof(*private->mmsys_dev));
+>> -		private->ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR].dev = &ovl_adaptor->dev;
+>> -		mtk_ddp_comp_init(dev, NULL, &private->ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR],
+>> +		mtk_ddp_comp_init(&ovl_adaptor->dev, NULL, &private->hlist,
+> 
+> mtk_ddp_comp_init(dev, NULL, &private->hlist,
+> 
+
+That was only done for readability purposes. This will be entirely moved out of
+here in a later commit.
+
+Same as before, if you really think that this needs to be (dev, NULL, ...) instead
+of (&ovl_adaptor->dev, NULL, ...) I can change that, but this means I'll have to
+fix 30 patches ahead (plus ones that I have in my tree that are not in this series)
+
+It's not a bug, nor anything critical, not breaking anything, and resolved with
+later commits changing everything so, for the sake of efficiency, if this could
+be ignored (as it's just a nit), I'd be happy.
+
+Cheers,
+Angelo
 
