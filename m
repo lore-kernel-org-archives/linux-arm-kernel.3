@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 02:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86332C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 03:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=582ssehZuBggHrWvwnV4WymCsZ3Xyi0XLCoJ7Dsgrkk=; b=jSKBteGoL9DxmMCu44IYbkNnfb
-	vwngeFR2VzVcnQ733xu4SFaTTI3vdFHrJcZQcZM2kRFQbyXt2J8k1NGMCznzBgNl4rg8lgmQWeTYa
-	Mi+XTgQWdHOgi30W/Dngig1Ohe2o/w8ghdokxJQVt4lII1Y+2vhQ/twRFBY7C76jt7Y//RCehYAbu
-	5KLNlgDqMpCvuFBvAt9OcQq7CbmlEw3itVb7183ohAkQUDl1tFJ1gdV6aFxoj7F8XCjnGLXn8aXCt
-	AQHxReZqdw6c2mlhL/zhUnuq6b4eX3HNRmOD/AH7RTqRDAp7luYzN2cg2Rk58y7skcxgBuS8b4BZz
-	1/Wgomew==;
+	bh=EXqyHBs1kBtCPhYjI0EwQemI55P4LRleAN6bdVwX2cs=; b=U+3fepe0u8GEih/cPjRr6GqRlj
+	Pg2a+xCvrP+Xn7bzbPaK66mle5wpZ4+mxn1G1Y94krbg2hDzjvxnC7o8gYGgDC+fEPAY3Uk9ULv/+
+	6k02obkKMgo+m5zXGhORkph2xVU4Aqk573CbMYm54+2BsSXgOJfmJeOo7Q+mtrJKWiFkOukOIkTTq
+	lVkQQSxEzmsDscFrmEcpdl0TvTCKcFcEwJlVAFhJhGUW5/SYB2Ry1t2RgjG7DrtbvEemG+nBiVvWo
+	uLi7qIZSVMsU8i2y7hoMArR/PryLTH5tIwLMkHDLOnPUyV3vsQl+cLZQ8CeXUZWW2POj6wuaVcz7q
+	QZ7e5Y3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgvl1-0000000Dx3S-3h2C;
-	Tue, 07 Jul 2026 02:41:59 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wgw5D-0000000Dy4O-4AQ1;
+	Tue, 07 Jul 2026 03:02:51 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgvkx-0000000Dx2G-1MKp
+	id 1wgw5A-0000000Dy3n-0Ykp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 02:41:58 +0000
+	Tue, 07 Jul 2026 03:02:50 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=582ssehZuBggHrWvwnV4WymCsZ3Xyi0XLCoJ7Dsgrkk=;
-	b=D5lqzzCjwEmH2rlh0kb0PeRmTsagbVwz4s4VpznnNnwi9OaJ83s30xwuC4w3yiYGljO4eRYl7
-	S8g4zAs88nmaKBzWYgB3zZ28JDNBlqA9pQ8xV89wxT4denFMcVSQevn4hlyELetPMsVxOqZnv27
-	pTMdvE+LIPUK8pzs9lnbcFs=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gvQHD3qqLzRhQg;
-	Tue,  7 Jul 2026 10:32:24 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7BC6440591;
-	Tue,  7 Jul 2026 10:41:36 +0800 (CST)
-Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+	bh=EXqyHBs1kBtCPhYjI0EwQemI55P4LRleAN6bdVwX2cs=;
+	b=RdrZkx6I/RpcC4QwldmkROMcQcdlP6D9E+UpBI643BBQKOMjsWQHmCBCBXwTKYzoNi6q93vdA
+	d739jgKEfUa8EgxZlpMphkHOoCYR23asyh9OZo8RTo8VTuc5Q6wjCdvqPcmMaovwaNvjOdItCVc
+	hnbkdDYC4RRVTApzctXQxms=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gvQlP0rwdzKm5j;
+	Tue,  7 Jul 2026 10:53:21 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D4ED540565;
+	Tue,  7 Jul 2026 11:02:36 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 10:41:36 +0800
-Received: from [10.67.146.137] (10.67.146.137) by
- kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 10:41:35 +0800
-Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
- guarantee with VTTBR_EL2.CnP
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Marc Zyngier <maz@kernel.org>, Wei-Lin Chang <weilin.chang@arm.com>,
-	<oupton@kernel.org>, <joey.gouly@arm.com>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>, "guoyang (C)"
-	<guoyang2@huawei.com>, "huanglingyan (A)" <huanglingyan2@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>
-References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
- <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
- <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
- <86o6gkpokm.wl-maz@kernel.org>
- <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
- <86jyr8pkw8.wl-maz@kernel.org>
- <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
- <akvKvePWiu4pB47Q@J2N7QTR9R3.cambridge.arm.com>
-From: Tangnianyao <tangnianyao@huawei.com>
-Message-ID: <7d97b19a-ef56-dea1-cd99-056e0e34a7fa@huawei.com>
-Date: Tue, 7 Jul 2026 10:41:35 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+ 15.2.1544.11; Tue, 7 Jul 2026 11:02:34 +0800
+Message-ID: <58a9fd8b-387c-41c6-91a2-48ec885870d5@huawei.com>
+Date: Tue, 7 Jul 2026 11:02:32 +0800
 MIME-Version: 1.0
-In-Reply-To: <akvKvePWiu4pB47Q@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Content-Language: en-US
-X-Originating-IP: [10.67.146.137]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq500001.china.huawei.com (7.202.195.224)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/12] arm64: smp: Defer RCU registration during
+ secondary CPU bringup
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
+	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
+	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <20260624092537.2916971-6-ruanjinjie@huawei.com>
+ <akvoVCNFwDorQg6y@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <akvoVCNFwDorQg6y@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_194155_972742_8A9F904E 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20260706_200248_840348_3CBCBCDA 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +98,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 7/6/2026 23:33, Mark Rutland wrote:
-> On Mon, Jul 06, 2026 at 10:15:04PM +0800, Tangnianyao wrote:
->> Two SMT threads(PE0,PE1) on the same physical core share TLB.
-> Critially those are *NOT* allowed to share entries allocated with
-> CnP==0, and are only allowed to share entries where CnP was enabled at
-> stage 1 (and stage 2 if applicable).
->
-> Please see the ARM ARM:
->
->   https://developer.arm.com/documentation/ddi0487/mc/
->
-> Specifically, section D8.12.3.4 "Common not private translations":
->
->   https://developer.arm.com/documentation/ddi0487/mc/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-16-Translation-Lookaside-Buffers/-D8-16-3-Use-of-ASIDs-and-VMIDs-to-reduce-TLB-maintenance-requirements
->
->> VM0 has 2 vcpus, vcpu0 and vcpu1 that share all architectural context
->> except the address translation context.
->>
->> Vcpu0 may observe TLB entries that are supposed to be private to vcpu1
->> in the following case:
->>
->>     PE0(core0,smt0)         PE1(core0,smt1)
->> vcpu0 load           
->> vcpu0 va->pa0        
->> vcpu0 put            
->>                                        vcpu1 load
->>                                        vcpu1 flush local tlb
->>                                        vcpu1 modify desc to va->pa1
->> vcpu0 load
->> vcpu0 hit *va->pa1*
-> How is CnP managed in this example?
->
-> If *either* of the vCPUs don't set TTBRn_EL1.CnP, that is not permitted
-> to happen.
->
-> If *both* of the vCPUs set TTBRn_EL1.CnP, then surely that is
-> indistinguishable from physical CPUs:
->
->     PE0(core0,smt0)         PE1(core0,smt1)
->     cpu0 va->pa0        
->                             cpu1 flush local tlb
->                             cpu1 modify desc to va->pa1
->     cpu0 hit *va->pa1*
->
-> Mark. 
->
-> .
->
-Thanks for the clarification.
-Stage-1 CnP determines whether Stage-1 translation entries may be shared
-across vCPUs, and the hardware is responsible for enforcing the
-architectural semantics.
+On 7/7/2026 1:39 AM, Will Deacon wrote:
+> On Wed, Jun 24, 2026 at 05:25:30PM +0800, Jinjie Ruan wrote:
+>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>> index c14b179c595d..87f92cf9ffa8 100644
+>> --- a/arch/arm64/kernel/smp.c
+>> +++ b/arch/arm64/kernel/smp.c
+>> @@ -35,6 +35,7 @@
+>>  #include <linux/kgdb.h>
+>>  #include <linux/kvm_host.h>
+>>  #include <linux/nmi.h>
+>> +#include <linux/lockdep.h>
+>>  
+>>  #include <asm/alternative.h>
+>>  #include <asm/atomic.h>
+>> @@ -215,15 +216,23 @@ asmlinkage notrace void secondary_start_kernel(void)
+>>  	if (system_uses_irq_prio_masking())
+>>  		init_gic_priority_masking();
+>>  
+>> -	rcutree_report_cpu_starting(cpu);
+>> -	trace_hardirqs_off();
+>> +	lockdep_hardirqs_off(CALLER_ADDR0);
+>>  
+>> +	/*
+>> +	 * Since RCU is still offline on this CPU, any nested native printk
+>> +	 * or lock acquisition would normally trigger a false-positive
+>> +	 * "suspicious RCU usage" lockdep splat.
+>> +	 */
+>> +	lockdep_off();
+> 
+> On the flip side, should we really be taking locks at this point? I'm
+> actually quite sympathetic to lockdep here and I worry that disabling
+> it briefly is going to hide real problems down the line.
 
-Given that, why does KVM still need to guarantee that TLBs are private to
-each vCPU?
+Hi Will,
 
-Assuming VTTBR_EL2.CnP == 1:
-If TTBRx_EL1.CnP == 1, the guest is responsible for ensuring that the
-translations referenced by TTBRx_EL1 are shareable, as required by the
-architecture.
-If TTBRx_EL1.CnP == 0, the hardware must ensure that Stage-1 translations
-are not shared, again according to the architectural definition.
+I fully share your concern. Disabling lockdep globally or even across a
+large function like check_local_cpu_capabilities() is risky — it would
+suppress *all* lock validation in that path, not just the harmless
+early-boot warnings.
 
-The reason I'm asking is the potential performance impact. In a scenario
-where multiple vCPUs of the same VM are scheduled onto a single PE, this
-TLB flush may prevent a vCPU from reusing its previously populated
-translation entries, potentially increasing TLB misses.
+> 
+> ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting() earlier") was to
+> handle the useless print in cpuinfo_detect_icache_policy(), but I've
+> decided just to remove that one. So I think the remaining prints we have
+> to worry about in this early boot code are from error paths in the
+> CPU feature detection logic (check_local_cpu_capabilities()).
+> 
+> Given that those error paths should all be fatal, perhaps we could
+> rework cpu_die_early() and cpu_panic_kernel() as macros that take a
+> string argument and either call printk_deferred() (similarly to what you
+> suggested in a previous version of your series [1]) or do the
+> lockdep_off() there before a pr_crit().
+> 
+> What do you think?
 
-Thanks,
-Nianyao Tang
+That is an excellent point. Reworking cpu_die_early() and
+cpu_panic_kernel() to uniformly use printk_deferred() based on the
+specific error type or the string argument is a much cleaner approach.
+
+This makes perfect sense because these paths are inherently fatal, and
+switching to deferred printing avoids the risky lock-taking and RCU
+runtime constraints during early boot entirely. It cleanly resolves the
+diagnostic noise without broadly blinding lockdep or hiding potential
+locking issues down the line.
+
+I fully agree with this approach.
+
+Best regards,
+Jinjie
+
+> 
+> Will
+> 
+> [1] https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
+
 
