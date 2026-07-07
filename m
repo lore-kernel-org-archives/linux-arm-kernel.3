@@ -4,99 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A473C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9D0C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qs3A+LONAtni+h8Qp1wmlltG03uWEkxp59/Fd3Ox+rE=; b=XJd71oNgNkcsgJP7NPjzE1FN/i
-	JR8esMlsdN9OvPWlkVEiqEPALG/rqeIfTf6ReZlAsWPTZk4OlHBojEG4V8txe+8Fc3eejD3MmJIXb
-	uDuni9XExLI6YFZlW+Pl9tPZxz4uNXcyp8ziFNC84ZIWp25TQZ4TxwbPk5LCKCrqj0FGTc6ki79kA
-	1s3rIAVgpOkl2IpetozWPK8HupbQsZTSKxAl+/Ktyv+D9lSmA27KAwjDYEk/aNc4kQ7sJYF+fKHih
-	gVPwBWaaMTjStX7K4Ke/Absi47Lzg5Dql2wh+4rCNnakrNNrsLTESney9tpHQ8LKJFK4Nidrtw6eG
-	76BnPKUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Hg/UtyOFE2XM0kVP7XbzUzpvw8tF4yZt/+RLGcUafU=; b=j9UqJT/5VMT1rz1CJpLiqNu2DM
+	sS2JY/3UG6mnVNCHkZ8gIU4vD9mj3Q18kGciHZa64eWUNvFqRYqRNZkvFEWe3+gqcQxs3EGZ88c6I
+	luLu0mVAc5f/t9w9B5cEFix4Je+eEsKeX1ZKQX8UhlO+9p1XJG+qY2H11z4Ekm91dJnSmugE1ehM9
+	3K1JEDn6DppRWcZ2/sdADkK9ppdkyLR4shGjTLSc7cXcS3P2u6vex/ew19XZRLNuObw0AnmJnfwoT
+	y46gPz3TeMlrPgulbnmJDnyTgbHgAL+dk+wKufltU9GuPnjc4gMHX4/R7KD+Vb33/aX82QQGGJcRP
+	ptIUhmjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2QE-0000000Ef7S-3aZx;
-	Tue, 07 Jul 2026 09:48:58 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wh2SI-0000000EfMj-0KJy;
+	Tue, 07 Jul 2026 09:51:06 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2QB-0000000Ef6n-3LkL
+	id 1wh2SF-0000000EfJv-0Enc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:48:57 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493b7612475so37121055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 02:48:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1783417733; x=1784022533; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qs3A+LONAtni+h8Qp1wmlltG03uWEkxp59/Fd3Ox+rE=;
-        b=rWJquRdm8lLTA89moM2fsbPWmngKBDjJUb9dO5ZVd58iZyQ799rcvs8e+0U+OzHpAO
-         9J2OY+GcANTMHfFlvRqS3i2OHYCgzaRu0fvUe6W7vFl880jBDc/4QfbatAX/Xaw8pfLB
-         dJjgByINFposrWHPmlxvPXzTsSekZGL+5//pvKyjfSWDfLs8qdxvRL2yVrWsN5NTXLhs
-         sP21OXsRZ+yw1R4FxZ8HGY9Ud101yzi3Yfd+unKJFwtQBG4W4mEp5uZ3kEtvsI8J1Rt+
-         fc95XO2Qxr4EQ4ehvvPLpSkdIYcFLWzas14zSg+6sG0l3ZQFhRHxlg4FexGQ2eY09Pdu
-         pSsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783417733; x=1784022533;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Qs3A+LONAtni+h8Qp1wmlltG03uWEkxp59/Fd3Ox+rE=;
-        b=pR0pSc45UZR850UuDU3bidBpsI6F6urQhMR9GIBJ18+T9ubJJbsi19zU3t1DhXWYGD
-         druHk061pag5hApm2t4UfUbSjOPvN9wqgdbRC8NXUZHLXX8IADx1qU2ePuw37B0a6uYC
-         DQ6K0Q/Qcd1TZfElUE+o5xf8X/89rW3XMY9BZJdUXfJXESpZ+6fGYUV2eyonKMIK+z7Y
-         oV8EjJtqvJ7ccnY3tEdS6vJcv/kKpkZDzvz7W/MwPJALJzVKbLgpcFsRPHNqtQg0I7uW
-         R0x565ugXwBHknomVQxACfA8LU99n0jJTvlOFs7Y4Rg+N97aBOPn0MvN6gDXsK8GYlYM
-         UvAA==
-X-Forwarded-Encrypted: i=1; AHgh+Rppd9kOob/vCVaCMFtp2vWkk1qAyG1aLjeg/01WGwLiwQL+QR3lQBv4giMECGaLRClZfwLpdyCRyIQttNHDebvU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwK7BCVwPL89FMgr1Xcp2+81lfuvokTSM/MuxtzfCsKK0Tfuv+8
-	OVJvw6BuLxGa1EqKeS4vSlaS/0pZXmLd3ZNi5Sy79HEWq9yt+1hCeyN2kAkBr3Ns+yQ=
-X-Gm-Gg: AfdE7ckI/EHbndmEc1FxXtkkczcZsc2IAamYURmE0LX3RCCOxhlCrMskiVgkagVjVfc
-	VpcyFSiShby9wgQvvOnBa/IDQghAPfinD+9dhoOrn1yDddMOoOWRfEnl9SequXCxdfohu7qnCZ2
-	7rPd5OIo/lPyjGWx0zJ0YLVUSukTKGcMWdlJWGxNZAZN9WKwgCFNp8Rvox/JVa1RjsM/UGN+PAo
-	jmcKopZnSGEPAX58uMySKJCi8jS29T7SKEyrPG3qSygCQrJOTLtZyDPT2IvGS2fIlSD5VDfckM7
-	uQKuIQcnIJzXLBI/MqT4oZK5ggtFLvxGB1xD2hin7bFaaGryoNZZUGc57765eCvZ8+u7zd54z+g
-	0rg6u7Xjfm3jE7FU+pXjrgmPOnW5iA+UJ3/j9YxsDmJB1gWMRc5xuoQTVkxYS3pgiWioEk6lPoO
-	ZZlKw2L9zqvtLyzFWVSa8zrcVoOOzx2rlBm+spWoFI6mApmQA2p1SgBAxwi6oP7ExVOnh1dJwzg
-	tZhhw/WnRpuZFVeCTG49m290o0X/9tPAsf4WP0OWjPGkpNhMHsQJIOEdPgYxphxyqvTQihroA==
-X-Received: by 2002:a05:600c:8b67:b0:493:bd2f:c5dd with SMTP id 5b1f17b1804b1-493df08c35dmr46181645e9.21.1783417733495;
-        Tue, 07 Jul 2026 02:48:53 -0700 (PDT)
-Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0078d49sm47904175e9.0.2026.07.07.02.48.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 02:48:52 -0700 (PDT)
-Date: Tue, 7 Jul 2026 10:48:50 +0100
-From: Daniel Thompson <daniel@riscstar.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Cc: Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Avoid freeing and re-requesting IRQ during
- XDP set prog
-Message-ID: <akzLgrzsw4xYmnLH@aspen.lan>
-References: <20260706-tc956x-stmmac-no_irq_teardown-v1-1-df009d0272bf@riscstar.com>
+	Tue, 07 Jul 2026 09:51:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=3Hg/UtyOFE2XM0kVP7XbzUzpvw8tF4yZt/+RLGcUafU=; b=Dm7aVc3us4GiTs9GzwS8SuMAGV
+	7X9v84iFU58/HIQ0LeBgJ+BAhZeXanwQW7dNchk7SMPRlgiAsIVrFH+Vf3N2qahdVByDOWK59xEMS
+	WfPaxchi2V7yDV1PiIuZWG1xiGt/tVI8sl6R023YIFSl+mxc2TME8pL2+SvLD/ePuGsOwhoP7LCrJ
+	OuQXa6rKMj0kXgvoBq3M7uXcv4aJt2kSf5CKN0uLLZDkRYorcqtDGXa8SKMYDWS0LB4fevemRwuUr
+	q5Mun1xikNq3WyRID4hZwe17BCNmoq00x0IdzhrdnaDbY4lMzRoCz5FGA026oYwhq0RCmpc2zAeOk
+	zC6TPfxw==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh2SC-000PUk-2d;
+	Tue, 07 Jul 2026 11:51:01 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh2SC-000Ck1-0b;
+	Tue, 07 Jul 2026 11:51:00 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux@ew.tq-group.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v2 0/8] TQMLX2160A-MBLS2160A DT fixes/updates
+Date: Tue,  7 Jul 2026 11:50:47 +0200
+Message-ID: <20260707095057.1745867-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260706-tc956x-stmmac-no_irq_teardown-v1-1-df009d0272bf@riscstar.com>
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_024856_123617_5BFC437A 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260707_025103_100302_7DE1B7D1 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,43 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 05:17:58PM +0100, Daniel Thompson wrote:
-> Currently stmmac will run a full cycle of IRQ tear down and setup when
-> setting up a new XDP program. This makes tuning TSN systems difficult
-> because whenever a new XDP program is installed then the irq threads will
-> be stopped and restarted which will undo any thread tuning.
->
-> The problem is avoided by removing stmmac_free_irq()/stmmac_request_irq()
-> from stmmac_xdp_release()/stmmac_xdp_open().
->
-> stmmac_free_irq() implicitly synchronizes interrupts and, with that
-> removed, I was unable to prove that later actions in
-> stmmac_xdp_release() are safe when there are concurrent interrupts. To
-> avoid problems let's also move the code to disable DMA interrupts earlier
-> in the sequence and explicitly sync the interrupts handler(s).
->
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> <snip>
-> @@ -7156,10 +7201,8 @@ int stmmac_xdp_open(struct net_device *dev)
->  	stmmac_reset_queues_param(priv);
->
->  	/* DMA CSR Channel configuration */
-> -	for (chan = 0; chan < dma_csr_ch; chan++) {
-> +	for (chan = 0; chan < dma_csr_ch; chan++)
->  		stmmac_init_chan(priv, priv->ioaddr, priv->plat->dma_cfg, chan);
-> -		stmmac_disable_dma_irq(priv, priv->ioaddr, chan, 1, 1);
-> -	}
+Hi,
 
-Sashiko picked up that stmmac_init_chan() has the effect of enabling DMA
-irqs, making this code unsafe.
+this series adds small fixes and improvements for TQMLX2160A DTs.
+The DT overlays address specific hardware behaviour when serdes is
+configured differently.
 
-Given stmmac_xdp_open() can only be called on a running interface (and that
-stmmac_xdp_open() explicitly sets sph) then re-initializing with stmmac_init_chan()
-should have no effect and we can drop that as well.
+Best regards,
+Alexander
 
-I'll double check with a code review across all the dwmac versions
-before pushing out a v2!
+Changes in v2:
+* Updated recipient list
+* Added patch 8 to the series
 
+Alexander Stein (2):
+  arm64: dts: fsl-lx2160a-tqmlx2160a: Remove deprecated properties
+  arm64: dts: fsl-lx2160a: Add vcc-supply for SPI-NOR flashes
 
-Daniel.
+Nora Schiffer (6):
+  arm64: dts: fsl-lx2160a-tqmlx2160a: fix LED polarity
+  arm64: dts: fsl-lx2160a-tqmlx2160a-mblx2160a: use DPMAC 17 and 18 for
+    SGMII in SERDES2 configs 7 and 11
+  arm64: dts: fsl-lx2160a-tqmlx2160a: add aliases for all 18 DPMAC
+    instances
+  arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: add various GPIO hogs
+  arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: enable pcs_mdio17 and
+    pcs_mdio18 in appropriate overlays
+  arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: specify Ethernet PHY
+    reset GPIOs
+
+ .../fsl-lx2160a-tqmlx2160a-mblx2160a.dts      | 306 +++++++++++++++++-
+ ...l-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso |  20 ++
+ ...sl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso |  20 ++
+ .../dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi |  33 +-
+ 4 files changed, 367 insertions(+), 12 deletions(-)
+
+-- 
+2.54.0
+
 
