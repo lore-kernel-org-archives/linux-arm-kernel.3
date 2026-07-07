@@ -4,138 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1FFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E0DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UR1wLZjrMZ++1kyBD4e57sSNMlAB4gbKtToiL3P7lOQ=; b=ZFmwU/IA/V6eg89hZMK/suQNvT
-	EiEZOCJvLTjH5DrQDbWQcVaJ26oUwwCOXa+OpuvMxATaH0ONdmvV4E1PYXXiIAENWqEA8dkBm9QMp
-	JB0gaDECT87+XIbYeuVrcQgxsqS6Re4CZY0CGyL83kcVjsl5ly3PA/G62umwC5RcrY4E5OPCjq51y
-	3fDKcl6p43HGMlqkQ/oWl0tsGqRBCEPugQ/UyeoM9xGTZzlNOIGgPV21yAPyj0fpItdx+p4M0PtaP
-	fkuDzNOUYS3MuW7B88KLS16EGB2XBd87fQao2F6QKil2idLfPmbkzrNpxeWosiPns/FFWjxdgs5RF
-	vUsZ+AgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/0L4272XicdnCVTlaYkSLBNwZCjsMYx6J5/Ki3naDCg=; b=UECTAdIbbn9sEX2TVN/os74tB1
+	Tt74PG/CNd6pHvmYzqs73a+806G1cYwcNk6P+mbG+Uuf3Qa6hiQd+LbbbA0lYageNWpB+evm7vOTs
+	6Pcn8ggDq1R6Q0Je/Egu6RQhthqQymRvbc9KP/HwvnV3EtZLWBzcBOj/SrC6V+5F63tQKSHhfxRoG
+	fAFYXNWx7npRwaxHNQA65rxzCo4VglrY1/5SI4oRmiRpaRNq/KDme+hg/iwxdLjAVJAPE2/WlWFxf
+	Z1SurycZJj8pc163Qnl0hWtFeGPDXUcqkzrvaWiGM1Bl7ySVg/UeY9Ozk2eqT2VB2Tcjuc9kWENvY
+	2km7veuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz3d-0000000EBL3-0PE6;
-	Tue, 07 Jul 2026 06:13:25 +0000
-Received: from mail-westus2azon11010069.outbound.protection.outlook.com ([52.101.46.69] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wgzCz-0000000ECjZ-39co;
+	Tue, 07 Jul 2026 06:23:05 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz3W-0000000EBEc-1H4Q
+	id 1wgzCv-0000000ECiI-3bRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 06:13:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WvNUvEWhTWCYtY62hcyQ+4CXkTpuq6jf2bN9cjRWJKls8Lu6PGwJn1Uk22bGwjFKcY4hFEJw9efRrcY9YTVbi3R5PwrvfPtWgWrEjQN9Jv0SKKyUzn6knDTioFEBJBq6RoUCk/dS5h2Qs0nfNHBKEDG0pO4MurwVyyvQou64Pf+m0iojGHFMPrk0Fpj1+iKI5GZ33BsKQmr/20GdXhiKmZirgd1YZJK7mw3JG+E1nEoPMNzetTyF2yR3ZIk4LCER/CRXfnufryg8yOiU7UNiNIJpbfS/8BZ7X+0OoK39LY+boiO9EKmGE8fdVf76OH5nQ22StAMZ3Dbx2tLexoTIUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UR1wLZjrMZ++1kyBD4e57sSNMlAB4gbKtToiL3P7lOQ=;
- b=a4+Ix3FERPdijwYXrqVDKBoQ5yFyJh8+Nt+SywVnytuSsP96WscGhzh539zc1JHXOKAidUt88GKQ1Ew7aRxGoGubbz3f/O5uCzgrdrcSNPj/dizBj7/syhnRpAUxefGyTS8OI5fDyAoZ4+cxTIRIyHCn9GAPMWlfRAthtLE+ea3zeQ9+oNSimJizeHbSnGd4+9KvnjVdbNUmziXyolkZzwRPD7p4GnJRlEfBQVtI5gP+8pMJUdMOqvwLmsaIPRP8hlpRdppruS9pjLShhbZiRX1YpUPsT49JfRBTxGI8lglBbKBCSL5GYrO2i44cTNI2+1Ugz4LiKHGl8dOKE03cXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UR1wLZjrMZ++1kyBD4e57sSNMlAB4gbKtToiL3P7lOQ=;
- b=ciXDFwzet6A1FO7ac1FLAZRR8lEhWlNsEpKB/RQlRPV60ncUCujhPxugnZA6UFSHXE67uuQ17OsF9JDXn1i8+fJ8AezQOUO6krx6or8SLJ+DOEhVvzkBRQ/y/JOcXfqlwg2jhIs8vBu4L1JiWPYaq4Pciep6Cax/lbuP3taXX8rOS7dqiMY53b+N44xA/uvpchb8WM2J1262p1vvm6iHwQ1g+2dVlnniIFbK12RtXIjOX9OTuSyugEprH0m5TeavxwEGCKd/W5Fi+9b3YbIgofLCA0f4y14odGJBka53sdSQ7eCL4oahudDqb5BvjlkM70Q1ZzmLIuoNRB+FBfBdkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by SJ0PR03MB6598.namprd03.prod.outlook.com (2603:10b6:a03:38a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Tue, 7 Jul
- 2026 06:13:09 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0181.009; Tue, 7 Jul 2026
- 06:13:09 +0000
-From: muhammad.nazim.amirul.nazle.asmade@altera.com
-To: dinguyen@kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: rmk+kernel@armlinux.org.uk,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	robh@kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 4/4] net: stmmac: dwmac-socfpga: Add support for Agilex5 TSN GMAC with FPGA converter
-Date: Mon,  6 Jul 2026 23:13:05 -0700
-Message-ID: <20260707061305.27580-5-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260707061305.27580-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260707061305.27580-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR05CA0162.namprd05.prod.outlook.com
- (2603:10b6:a03:339::17) To SJ0PR03MB6964.namprd03.prod.outlook.com
- (2603:10b6:a03:432::18)
+	Tue, 07 Jul 2026 06:23:04 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id 7867F22BA6;
+	Tue,  7 Jul 2026 08:22:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1783405375;
+	bh=/0L4272XicdnCVTlaYkSLBNwZCjsMYx6J5/Ki3naDCg=; h=From:To:Subject;
+	b=ogT3ycFrxbBdTSIJwRSTgdvlDCdIZrEEhX6YesAYV8i91hyxXwM6/yc2PDtqIsGnO
+	 8nUxqHSOmEV2YzrbJEaFsSOrIniOme2iBj348DrizR1xw9TtE376HWNWDOBEK/sQmM
+	 33EAmdZ/k6hII5nHOTN8h3kttMUyTYGc1b++GpX0pgz1IlTpKnq6Btozv7EHA9gOCM
+	 iud1o4xvhZpdhfrZ9BICaqU8vr4FusXF6BcDpJzathRYYuc6ypihL+ES7BA69MdFQf
+	 e9+PLiOInpZImkV2f6AYuYQpGJFFeTCzpD5kwlWhDz3iNceJRH+tWEM6hFpmnzUKvd
+	 hvtcNWnPUd9wA==
+Date: Tue, 7 Jul 2026 08:22:50 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: hongxing.zhu@oss.nxp.com
+Cc: frank.li@nxp.com, smoch@web.de, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Message-ID: <20260707062250.GA20259@francesco-nb>
+References: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|SJ0PR03MB6598:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e30f1c2-4b45-4cc5-d5ff-08dedbeed13f
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|23010399003|56012099006|11063799006|3023799007|18002099003|22082099003|55112099003;
-X-Microsoft-Antispam-Message-Info: 3TqYb7ebRLHjJ9DMhjUrfeR0bWvqOmA7HTQq0aaYUqsc4TM9YBWPf+zJZmrosuxEa0lFN06RljuMh7wb0oEzSc4kcNUE+ToE48Euwx5lgvpcfNDZFRrKHH7SL9qm45xHR08a0lqZZdsbe/FE2djoicHLnqn36PfFWOOjeuXUvytovAWw+tfQous16mYUgG8Oive2gxvKG5UwaRiwUzP0abY7bLbNvYJPlPUWgiJNTzeDA7PSW38i86T6B6NNmZhHjorNmOtnIyDNT6H/4v6bA1FQTUEjW4OLTXgBriGFQSxp8zx/s+K5KxalzlTAG5jgAB9IW589eDLUwR4URacmZiBMq1T/Cx+9IhWja7RHS96jnCMmfmnrxL8ccCCIYFnWmhDh2DQeanNo1msmrKyQ3M+nwhFjPhdyxed3JfXAi/GEl1nyVVry1kDBLYR9dylxG2LFAEzCF92VaPz1EJnF/qHBcjhNZCLL6wCXPoS71V6qzTB3M3+PtNtRsH+rGrxq75Vx+oCo1Srm1rg1ttaXRsg34VjTY4ZvOg/Msw3lyQO94M6I6s5g6QVvXtfVedibYUTdFUXCyIMa+hh01MNYCwJ8SwRl9SlKxisUDI6wxSaLKhx+nqX6EJSyQtRPJB4dkhehamziFI15XgfZ1jvsb+R3SZwgYHSjUqXBZ4aQQZo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(23010399003)(56012099006)(11063799006)(3023799007)(18002099003)(22082099003)(55112099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4LuhgQtYBF4FZKjfb6j4ncJul26Jarj6cc3F0y+pHA12j/E2MxVJqM+6egDf?=
- =?us-ascii?Q?8HknJkM/NyYO5hCYO1TK9Gs9ydW4B6K2o22E1vCWq4JNpxrS2EoUqpELlCab?=
- =?us-ascii?Q?u+P4rvLEl3kxuAPIfdCdS3+8KpLILc7THmcOWjeDheaxBEreEX0B7h4n3Th6?=
- =?us-ascii?Q?PKZMbzv6HJhtYU/u6RyiXVopboRtYflFEYTTjy3unSlwlrLY2Ut0DUyR2SOU?=
- =?us-ascii?Q?Jly85E5RfXNjSPDiIn9cNpA4bwLC7fkfEVxYOfgRL06MdMHI5qrKH643Eiv6?=
- =?us-ascii?Q?MxmO4eKKYSDcUzOcASwYdgyrsa3rVhTP2vv9LUcARgEXw0SYRkHw4KLhQrd3?=
- =?us-ascii?Q?7pKPBYaF5lEqO47GmAMmVjLHLppS28jK3QirY1su+1ZKS/k1pVWnlG1a5Ls8?=
- =?us-ascii?Q?GSgR5S3/9c2NT10snBZJ7D8FkSba1+R2JcfJdtgiLqv2APbrifI7W5jWfith?=
- =?us-ascii?Q?/VYI5LanjF5Nr5ypqj4a5UoQBeh9pXZvLfndakxDTtxpJdetdhSS44L8GMEm?=
- =?us-ascii?Q?LFlYgMQBl8Eb8+BIKiJxifFh+Lu13oCYnQs2WZBBJZSeijz1IpEMdpMOeB7J?=
- =?us-ascii?Q?VQthetbbWrKUBAdux5DP+A8CpY53iawyI96NKuxqlxZofe4VNn/eTLYRhRvL?=
- =?us-ascii?Q?rxElfL8SazPqu3/fSuJ88NLgUJ61vHfQsplwLPhVKZV+X4aDnMIVXwGX6LJr?=
- =?us-ascii?Q?8cJuqk23zsyhhlLgHoJYkR2cjyqb+SAjMm3ftMxh47NONZrZ0ynrrvVINK4P?=
- =?us-ascii?Q?HDsO3QJ771Hv/eYlw934T1gaQ0t9+Giih0djeE8Lq4RZlIz+zoSXa5v+FIWJ?=
- =?us-ascii?Q?SK6aSCLc/spf1AQ9HakSVAvKzcAIOieARAQBBMiUPUaMkfa9tYetS++EkoQD?=
- =?us-ascii?Q?gSlEw9W5yHIt3M+zieTPu6l0YHt6k+zkHdKX1Psl+SrNxddD2rBPJTap/Wy2?=
- =?us-ascii?Q?RzHMO8xuPleymp7+Uvmjkfh0ZzqfJCe7677S7vfsUbikDqwjf+7yX0I7qa4Z?=
- =?us-ascii?Q?1/8+XiTf2SSs3+9URKuYzmIYyUef48URzNo534OmIFkMRRU0m+2cSxyzH2V7?=
- =?us-ascii?Q?MLjTrZ2edjUr25xoep0R9MmubQyttJg+XbhYYkjPq2F9O0T24knG7dLkoGaG?=
- =?us-ascii?Q?mkT5ZNBDkCk6ivVP77Nxwm6w4Fq0Q/Nu39YIdKZOUi2/J1ilr8eo70iBBmJI?=
- =?us-ascii?Q?8wHDIEogxwp1UfdWMzm9y7y6JAZcSJ4CFMNGSTIUmKGE+e7uWSMvXlkI4gIi?=
- =?us-ascii?Q?NsnwV9S4lyDNT/E4Lxt72V3xcBQ0WNnym2erTAwQMYoqhMyALYXqhkUDm47N?=
- =?us-ascii?Q?aH2TIPxasmUrtPtVOOdDZOLoLFF42+0EyaADrWZryFn43p+Fi146Pkb6pBUB?=
- =?us-ascii?Q?CvaksbGcYOpnJu09rO62hXo2CYAkosRqwtSsC86Wr4o9qJA+Qpd+wYiNg01n?=
- =?us-ascii?Q?GCjb56SX96UrDaU/prWyi0juwEPPwLPJUvA7Od6jWqN1lT6qLRuY7j1uNzho?=
- =?us-ascii?Q?AxpTlLQnBBn/wSD6ogwlHnIIBXjTjunKPOVHrd1YCKbRAsPMFR3TpT9pP+pZ?=
- =?us-ascii?Q?tXwFCs5JdFubKgsZWU4jACxdYERmZ3W25Gk15FyQPDsQelMs6UhSMXXEfLdQ?=
- =?us-ascii?Q?7RgI33xl07zhjIkhS1oQyL7EZejNq1vAgvGfg2zkGy5+ZtqGxtiIc3ToQgte?=
- =?us-ascii?Q?coaB/WeKhBvdt5K1ZwbewcJPpiDdKUU0QBT+zaI4gXRwOt5mJGR3OzetmGpi?=
- =?us-ascii?Q?Ypme9v1T9mk6tCHANR9rnn77W21dOh+beCZjfv3SudjemiKhqRNsegN3ShKH?=
-X-MS-Exchange-AntiSpam-MessageData-1: CN5WWT2xhxaQEA==
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e30f1c2-4b45-4cc5-d5ff-08dedbeed13f
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 06:13:09.4755
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c8OFb8opH2A4Esx6uDes+5XQnJQntngCYaDK0UcU9gNA/CVeMi5HgiEvkrmKonNZywrAulP49EdLoVXTNOvx5YFlpJ6ArVpM4zxu7ZS/JIQ9aVgZo9y+pfUxk4zdj4LJWIEX9/i4bK3z7dJn3EyOqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB6598
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_231318_695726_4771D0ED 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20260706_232302_928282_07ABC909 
+X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,67 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+On Mon, Jul 06, 2026 at 11:06:29AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
+> 
+> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+> introduced a boot hang on i.MX6Q/DL variants by changing the initialization
+> sequence.
 
-The Agilex5 SoCDK TSN Config2 board uses a GMII-to-RGMII converter
-implemented as FPGA soft IP between gmac1 and its PHY. This converter
-provides the RGMII TX/RX clock delays, so the MAC interface selector
-must be configured for GMII while the PHY is configured without delays.
+Is this related to
 
-Add the "altr,socfpga-stmmac-agilex5-tsn" compatible to the match table
-and detect it in probe to force GMII for the MAC interface selector and
-strip the delay bits from phy_interface so the PHY is not configured to
-add delays already provided by the FPGA converter.
+https://lore.kernel.org/all/20260629143439.361560-1-leoreis.costa@gmail.com/
 
-Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 1d7f0a57d288..bf591a68502f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -69,12 +69,13 @@ struct socfpga_dwmac {
- 	void __iomem *tse_pcs_base;
- 	void __iomem *sgmii_adapter_base;
- 	bool f2h_ptp_ref_clk;
-+	phy_interface_t mac_interface;
- 	const struct socfpga_dwmac_ops *ops;
- };
- 
- static phy_interface_t socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
- {
--	return dwmac->plat_dat->phy_interface;
-+	return dwmac->mac_interface;
- }
- 
- static void socfpga_sgmii_config(struct socfpga_dwmac *dwmac, bool enable)
-@@ -650,6 +651,15 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
- 	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
- 
-+	dwmac->mac_interface = plat_dat->phy_interface;
-+
-+	if (of_device_is_compatible(pdev->dev.of_node,
-+				    "altr,socfpga-stmmac-agilex5-tsn")) {
-+		dwmac->mac_interface = PHY_INTERFACE_MODE_GMII;
-+		if (phy_interface_mode_is_rgmii(plat_dat->phy_interface))
-+			plat_dat->phy_interface = PHY_INTERFACE_MODE_RGMII;
-+	}
-+
- 	ops->setup_plat_dat(dwmac);
- 
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-@@ -674,6 +684,7 @@ static const struct of_device_id socfpga_dwmac_match[] = {
- 	{ .compatible = "altr,socfpga-stmmac", .data = &socfpga_gen5_ops },
- 	{ .compatible = "altr,socfpga-stmmac-a10-s10", .data = &socfpga_gen10_ops },
- 	{ .compatible = "altr,socfpga-stmmac-agilex5", .data = &socfpga_agilex5_ops },
-+	{ .compatible = "altr,socfpga-stmmac-agilex5-tsn", .data = &socfpga_agilex5_ops },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, socfpga_dwmac_match);
--- 
-2.43.7
+Thanks,
+Francesco
 
 
