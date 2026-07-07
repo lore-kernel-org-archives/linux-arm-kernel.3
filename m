@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87676C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19451C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ea0IOau1aAltI3DRKVxyYkxeEjLOa5kYpwFj12qVzqc=; b=aj6zb9AXSKVcbuHWftnzjzudzH
-	wuRVBy3QlsSTCHUiBEj9FHFkxJol1pQav5uavcEzLAV1letsnr0T0zJ+TZSM62x5Il/tyxppZenJB
-	q0iHkdmML7sqpmVnuitcCzHvSuSxdbCeUCPsNClbsidTyw15os9dakSqiUfjSFs87TnS3OG2dPgQT
-	7cgENJo4jOQVJywxjV7KWm4ihw3wWe3C/UytDIOrxvUEIlXDOTCaZF3Iifhcw/VJ92hK7FYnjHqrj
-	0lXQ9V/q3GZPjlADpTOGOuqTSGFLnHoOI/W8eeLpG9aRnx/fkC/9r+nqoThJBoN3J+NLl6NkrC7/5
-	YFjTFZJQ==;
+	bh=D5hZ22QT8RyLsAdZuaKt1QczN1BYUT1xrNG23rF5y4k=; b=x6eNZg6iaAOP0uP216EVr/7dMh
+	ne6Sipz5UxdRF5ISQ5gThzA0tKzHUszmHkhLzRzC2n5Hf+nH2Tt1P1GedObxkBgdunJk+0CZ8Xrlz
+	wKjEasO4iJvDz8i32SBSlcCPLaR71uy1wJEN4832Xb0rvAxCaptXYAEipDr/0EewvbAiKaaURf28/
+	whQCWGjIofYt0RCFOns/jKLq3/e214yJi+OeSUNCmuBRc3JwS4bL5NVSAV+C+1VxzdC03YxWpDVfZ
+	oG1S9ENvrhT90RQ1SVpoXiIrrNRYLCXAKkX8VbKhKoDI32pDkXMMo7VvQkYwsfE2YTuFV4QSsenSl
+	LCUmfIeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0oz-0000000EPhA-34Fz;
-	Tue, 07 Jul 2026 08:06:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0oy-0000000EPgn-2C6o
+	id 1wh0pj-0000000EPpc-43IQ;
+	Tue, 07 Jul 2026 08:07:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh0pg-0000000EPnl-1URU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:06:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB220618A6;
-	Tue,  7 Jul 2026 08:06:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E980D1F000E9;
-	Tue,  7 Jul 2026 08:06:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783411583;
-	bh=ea0IOau1aAltI3DRKVxyYkxeEjLOa5kYpwFj12qVzqc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ehzJVAlxIC/pC2sXhGD1Zd5xyp2mkGV8OuobvUJm80sNhARBCJldhVJnR/fvzUlg8
-	 t2QQb326FSv7l+dfyMjQn+q4qi0x/iJZD8qCoLvIATEMQErD8y3iRKIcZPoxzVgszV
-	 oRoggpbomDjX7tQZq9G9GaoCtyybcTlqjfRz4+F1rB3X4H4ooSWHLgUZt7CnfLeeFM
-	 zwEb6VljE8Xh9Fi9TviWiquZI1cqM+c0j9tSvLQJ700z+8l/66JsCg+ZgzcpDbHZNA
-	 MK5IFv5kO6A9ODArwj2zGJLks6KS3/uwYgDXQCaGY1s1PvXpmfKk7P0jRMoD6rRJUF
-	 QGcIHGnDYecHw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v7 00/22] dma-mapping: Track shared DMA state through
- direct, pool and swiotlb paths
-In-Reply-To: <20260701054926.825925-1-aneesh.kumar@kernel.org>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
-Date: Tue, 07 Jul 2026 13:36:10 +0530
-Message-ID: <yq5av7argr65.fsf@kernel.org>
+	Tue, 07 Jul 2026 08:07:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EAFF1BCA;
+	Tue,  7 Jul 2026 01:07:02 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F345D3F85F;
+	Tue,  7 Jul 2026 01:07:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783411626; bh=sX5EZVB1oH6zpg7xImmTctzFiDXuMYq5ff7tEmh8srU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BWSdSlSUWi/i+8R9Rwqt13/A4lRDyMQiKHmpd+S/MVokGklEgEtGj5nBElK3DzPer
+	 00RuQT3IL8dsj29H0B4J5tr/8FDpz5BbRP9Y7F+KxQD0qFJmm1Q+1f0jk7Md4E6QNS
+	 m2eA6BqpBKqLTXVUuAGml7AfiY0BxMZ1bGdfTXSE=
+Date: Tue, 7 Jul 2026 09:07:03 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <20260707080703.GC1024232@e132581.arm.com>
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <20260629090007.1718746-9-yeoreum.yun@arm.com>
+ <20260706173940.GB1024232@e132581.arm.com>
+ <akvyAOJZDqB4yG3m@e129823.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akvyAOJZDqB4yG3m@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_010708_663903_BF5FD125 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
+On Mon, Jul 06, 2026 at 07:20:48PM +0100, Yeoreum Yun wrote:
 
-> This series tracks confidential-computing shared DMA state through the
-> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
-> DMA buffers are handled consistently.
->
-> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
-> shared/decrypted buffer handling. This series consolidates the
-> force_dma_unencrypted() checks in the top-level functions and ensures
-> that the remaining DMA interfaces use DMA attributes to make the correct
-> decisions.
->
-> The series separates mapping and allocation state:
-> - DMA_ATTR_CC_SHARED describes the DMA address attribute requested for a
->   mapping. It tells the DMA mapping path that the DMA address must target
->   shared/decrypted memory.
-> - __DMA_ATTR_ALLOC_CC_SHARED is an internal DMA-mapping attribute used only
->   by allocation paths after the DMA core decides that the backing pages
->   must be allocated as shared/decrypted memory.
->
-> The series:
-> - moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
-> - uses __DMA_ATTR_ALLOC_CC_SHARED through the dma-direct alloc/free paths
-> - teaches the atomic DMA pools to track encrypted versus decrypted
->   state
-> - tracks swiotlb pool encryption state and enforces strict pool
->   selection
-> - centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
->   DMA attributes
-> - passes DMA attributes down to dma_capable() so capability checks can
->   validate whether the selected DMA address encoding matches
->   DMA_ATTR_CC_SHARED
-> - makes dma_direct_map_phys() choose the DMA address encoding from
->   DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
->   cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
->   relying on SWIOTLB_FORCE for DMA mappings
-> - use the selected swiotlb pool state to derive the returned DMA
->   address
-> - reports CC_ATTR_GUEST_MEM_ENCRYPT for arm64 Realms, powerpc secure
->   guests, and s390 protected virtualization guests.
->
-> Dependency:
-> This series depends on the pKVM changes posted at:
-> https://lore.kernel.org/all/20260603110522.3331819-1-smostafa@google.com
->
-> Please merge this series only after the pKVM changes above are merged.
-> Otherwise pKVM will be broken.
->
+[...]
 
-A rebased tree on top of the dependent pKVM changes can be found at:
-https://gitlab.arm.com/linux-arm/linux-cca/-/tree/scratch/pkvm/testing?ref_type=heads
+> > However, a corner case was mentioned by Sashiko:
+> > 
+> >  | It appears etm4_enable_hw() modifies drvdata->ss_status while executing
+> >  | via IPI, but sshot_ctrl_store() can modify the same array concurrently
+> >  | from process context since the lock is no longer held across the
+> >  | smp_call_function_single() call.
+> > 
+> > "drvdata->ss_status" is a race condition between SMP call and sysfs
+> > knobs. Should we change to spinlock_irqsave/irqrestore when access
+> > drvdata->ss_status?
+> 
+> I know this, but  This is currently ignorable since
+> whatever perf or sysfs session, the ss_status is always clear
+> the PENDING and STATUS bits (and we make a compromise for this right now).
+> 
+> And the sshot_ctrl_store()'s action is always clear above bits.
+> 
+> So, This is ignorable comment from Sashiko.
 
-The patches had minor conflicts. I am not sure how we want to get this
-merged.
-
-Should we ask the pKVM maintainers for a topic branch, and then I can
-repost the updated series on top of that?
-
--aneesh
-
+I understand it now, we can ignore it. Thanks for explanation.
 
