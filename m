@@ -4,109 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6551FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5689C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 19:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EyozU/vDPu2HCP79K3EvyVa5mFVfDBDWP++SpDgv144=; b=DF5XbriEV2O+bWuOAJgcaGdJA8
-	FXp+PVXxo7a9qp6UIsMuLYUlSQ6FT7DfwLyUpKS3sOCKiaylzG7uROuz2ci406CgMkN8WwsW3IHhr
-	+c3veksTaGzC8EQteZO32N+PErBHIBYR+CDTft7LzmYzjzZjzO2p4v88RPJ3ga4C+xIy0R+nHHshN
-	KVpoI5jJ0UZ5WVqdoqTF6SpreEgCKGmd8R14wkKtYjYMxQ29vJaAw79TXiEZ+5w5TWoo+bD16Od5T
-	1o9p1W5G4BlmA3ofAGSbrVMP2vJ5JWbNLJlvInPm3f57A+JzGWRXrvKbiSB4fdYzTwpD16ht5Y+D7
-	ofVPg68A==;
+	bh=QzuQavQKc4mdVC+7oXwG28ZoqFmPWm0/w5LBLFtSdog=; b=t4UBkOMTSHwBcfcdkjXrtVmR7w
+	jmrHm5uvsPHyJrmdy9F0M+j6+Oxu2N6za57VoGlRqEoobkSnwfrLgBPPtVL7s9ZggJrsgbYOy8+Jy
+	yv6WNS9hpjsOtVngXHfO2lOKprXkRjvP3CwL+Pf17YCVQIF2TDVEUSgm2eyqdr3zorYiEreiuQ2Wf
+	lKYb6W9pPJ2iiieYjOzN6I9WkWqwC5Dnd4HxiMVPC/wZULTu9DrWiohz8cPLIy7DARGeuC1Zl7Txb
+	GvUJow7lIgE3fha+YyoDKDw0+quttiZWWZu9jjrtqgZLj0Vm79jWui6zSGKL9ltc/otQlK1cPF9Jz
+	JiT0l9bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBYM-0000000Flo4-3cKD;
-	Tue, 07 Jul 2026 19:33:59 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1whBbT-0000000Fm8A-0IRe;
+	Tue, 07 Jul 2026 19:37:11 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whBYJ-0000000Flmx-0srI
+	id 1whBbQ-0000000Fm7J-1KsT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 19:33:57 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ca7aaa4b85so44168145ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 12:33:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783452834; cv=none;
+	Tue, 07 Jul 2026 19:37:09 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c9b1edf2bdso58209905ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 12:37:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783453027; cv=none;
         d=google.com; s=arc-20260327;
-        b=LKvBP3QKESiVG0HAGs5qwcmb8vGR0zX+vY1aPD4TyFeBCQp4PPnR2zjBVToF5TBrVy
-         0n+UEm6ncR6iny3YGz5HfbwRFrEqIgMhH0D3IQmVS1hEpZG5F3D1e3IiIDl25jbNq9mS
-         A2HwXzPisaUA4cuQ/va6AZByripJg9M89aPdtmWDPEakt3V53ZdE3grdkfCvh09L8bJ0
-         IYA+4OSgG5DHYXoqrZ2uza9xJ/4QEA1Mhucn1iM4dDBdPd423LMYkfkcjZuDDXDU1D61
-         GmDyAST2V8oOdo6XxP/ZSon0B9BnjSRUTGsu8fn5y8snIPxs7TGxpkGNZ/qnwdonLSU5
-         qnfQ==
+        b=kWZo9EkcJtfEBhDn3aG4fD6o1egKnJRWNrLJHjx/3qgdkmTfG13ARsCWXQich7gz4D
+         t+RerxOjOOZFt5vLc61xGtkjm1y2rpt49m9ruLMU7XEtOCAtpQUSaa/vAcfchZ1CqbXL
+         0kT32PeS1trwTknuzw9cr/DbRbA1vsIdnjcjmq992zZDrrQPMPN7aio3AChCVeOyy36O
+         L3cc3BGSUfCOTKhaJA2ttyMeA441x9rx77GhxKZdUivT7th7Uz+yjAO7NnepZeJDrUpC
+         SDp9mu0ZDVJLsqxePwJ6ldgjZjumm5Fz6R+nRmoqlp+TqAD+9jF6BIAQ+MzcteRWXME2
+         DYMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=EyozU/vDPu2HCP79K3EvyVa5mFVfDBDWP++SpDgv144=;
-        fh=MJacz9A8jFgSQr3RxJGVPHYU5KFberfVrj9BR+GHiqM=;
-        b=YfoVzjkhN4gi8/ANLa2KGskUm7TeS8xqqIzjRM5gmbtYR/1bh0sJgQEKO2zCwXR9g9
-         xQ4l9DUtlqv2vTozHYn2y9OWhEhUSONHQhJxEvdH+V3UNJaYMxgCkFojbDbAPb/T8KsV
-         Qu0epOQqvdpqUejPTckWVL58hOfulESMwyA2tJNjzDH2IxFCsabIkCulazdGh1ECu5YE
-         p0JG2PMQTkB+5lkkQcmnoU/7qFn8UpDATFyc4ghuTbmCG3LudoarLffGynKJcSZTf/cy
-         37yguJdlHG/XqLR1g20ekWJ5btI5DB/H2b+vRQeyApr9NCx/amprHYmlSksAadRwZ8gV
-         wKIg==;
+        bh=QzuQavQKc4mdVC+7oXwG28ZoqFmPWm0/w5LBLFtSdog=;
+        fh=hAzRnrU0BrdVOMwX7ot9dfePajksDURArUKrYCaecqE=;
+        b=iOdcdql8Mqwz+Oliqteno5HyEmZ+u4/d4fs4WptWJ4lwdtlSPFZRTYQlFFWg+5npvr
+         vVSqsHLrW21BIasakxv8fvDdGEG9yoxLMfRy89Hs45whDi2s+QiB1Enp3Pfyhb/tYE7Q
+         mrdH0QaiGFDHGwfzQzK9BTPGD5PMKWxLU0VA3ZCmHJl65R0vY2FnVieSQ6/LwzJ+fmyY
+         kG96ATOR8v/wXlLI6uVPxcaUx/brcGh6ckIcs3XwK2sQwA6FAABRPLNE7nUt91PDk2ts
+         4IQOFFqK7m2Qlrw+YDlLUtlnyb81BFHmGxlb+OVSc6P+U+54Cehdwu+C1/Y78ExdNJAn
+         ay+A==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1783452834; x=1784057634; darn=lists.infradead.org;
+        d=googlemail.com; s=20251104; t=1783453027; x=1784057827; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=EyozU/vDPu2HCP79K3EvyVa5mFVfDBDWP++SpDgv144=;
-        b=gUGCgq5+TCusR+QLhid3SipeLavCLRi9cQPfcioYSBSHXlOeJDGZy5V5lJotMYpl8c
-         DEFUa7TDmU9xSzvBLTDJhezMyFrLgKS72ZyUPyHWbt2UG1LWqdWiDSCOu5tllF8cqDqb
-         YOYBMUwB2VRdvlprxIW7tkOmtgd4f6x9978IaWrLFAMYKiRmlDeyJT4bpW6K/uRJbDHo
-         TsfL1OqA+tCfUtaBgLqrf8LXGBdMkkDMcRWQWgiiBVjROjr1+31Vnd0QfbGS3NunO9XV
-         /waoQBAAKwAoWqornJ1165iJs/YCmKbLLQeceFCKORp0b+lbxrPu022MiIQ9IK3liHM1
-         mOFQ==
+        bh=QzuQavQKc4mdVC+7oXwG28ZoqFmPWm0/w5LBLFtSdog=;
+        b=IuIJEz78JdbEF4BdB9Yf0EdtNny4lTzOojE2g+EP6X5CcxudMuqeCuuC0mUSC814fM
+         P3jgwkFlAFn3nilJyp6l4BvtPd0SRhq+5nCFduV24iJCx6heUK3cft31p4nyNMr0bdml
+         MfX476lSW//ZbnJEa8wnQvlu3ZaQDNcwr4MWPC2knpAzqloTy60Opbf3eE/jOVOzWE/3
+         BV06DmJY5PYUw9/Bybd7GZMhyIPJvx8JF5i3vYpqLQqt9C0zP/pvdBX0VqgC+BjtG8Ea
+         qImlU2zfFflpwU9lZFaMuvg5xyj/mOjGLQQfKFNJF1TTqGNemqAQwMXlH6n/66OUKwR2
+         Zh6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783452834; x=1784057634;
+        d=1e100.net; s=20251104; t=1783453027; x=1784057827;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EyozU/vDPu2HCP79K3EvyVa5mFVfDBDWP++SpDgv144=;
-        b=QNEWP+fbDGJ1scnZvuY7ksudZBrRlgXXKpaHpyhrHDHijkyj8P92lMgcWMDWcFS6JN
-         HdGufXe8Uff5Jo77k+Pwp0c4quHWo8BSRn438DDul9FKspDizGQpzdGsV0Exf+XVX8j+
-         HmOqoSLFtIb99B4qq84egl62aQt7/fzM0ZfrkFtp50OEkeZ91eWh+mQEYQCa0i4cIDpx
-         1tfKbjjNoiq9J0A4TWEPEvM8I90v5zDRhou7pGrnRbKELP8zQyfurxhLj0JVHZfs8LWl
-         bvGCd1BAvyS8RIoSPlFmy2fDJ568gYNWUyngc/QA+AuoblX+w0Yu6AtxV2Jv0WZxYJam
-         TjmA==
-X-Forwarded-Encrypted: i=1; AHgh+RpCFJW8301n/21An7FDPrTYr4iv4aus4Y/e17oVXh29qIWGKhDSHBiVY4ZdbKCrYD3GSp7vckeaz/vYdDkq21DY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBSB6yU7iuWDninsu1KiYT8DaKh15i1KcwrxGffkkXSfi6SGYc
-	FLXU+BFS02uiA2ZwEmJQBRAQvBwI3P/DE0WjRUMPaWfUIsY4zeQdqwa8z5GuIRDGyD09+0kWsG/
-	Jr7tMYA2jQg56BdJcSM/Xi8NhQrJ3I2VYaa7h
-X-Gm-Gg: AfdE7cnT9Hp5Ub4gHa/WavgVf+GPOTe06+Br0CQcHMKw1iAkUMPYeztUmXV7FKRUgJQ
-	UUM252UabizMBKshUNKbXh3ZRUiU0VU4jybz3N7zl3fU58prUInvT21IzAy6zoeHL0Ld6d4UG2X
-	pXyNr7T+/Yjviw7xDhmFpbU8feKPlVZHF//wJoFbJhf4zieNHADJwtMx1VnwwQ7iP4z5ccas2wZ
-	Nj8T2vDGpJZi2M4amGbhjmn/RLbt1jjfuw4v6iPy0iC/r8eUpF/vfPpYZm+i/sAbkNLp01kAP72
-	2VfxatNVlSktYGA3JFTeCQlaR2NQ04eCTxho
-X-Received: by 2002:a17:902:e88f:b0:2cc:307c:51fc with SMTP id
- d9443c01a7336-2ccbe722438mr59133075ad.21.1783452834318; Tue, 07 Jul 2026
- 12:33:54 -0700 (PDT)
+        bh=QzuQavQKc4mdVC+7oXwG28ZoqFmPWm0/w5LBLFtSdog=;
+        b=Ut4UlitMpfUGeTvBhrfcJEuLY9cRiAwgGgUR2UNEcbIptSgGVIYv1nKU3cIYbJtP8E
+         jlfVoKr6qBm4phqrEoRynjBvA9zbBtHTkIvU8TycyzSS0rNhG/KwpMxy0aHBoHTvyiFi
+         LUaaUSaYiXynSHMH9iXPpf+MXSXpw/J08ayUQXSDussTqvSx541A9qiDDHR0mJ8KaWnv
+         Ul9cRFnreLBa1XCcHHt2URlHv2nuiSFHIm/iesvhYEOvzBylLLxMSs3LpL6FDIMfKhZH
+         ZSyT1CI9AFtijWeVEB6wjHichgEgvG9ijSLHEz8Xpo9I/8hcDKGCh0p1B6WPENwb55wz
+         CQ+A==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0dH5STDYOSRHsGux5JG/C67nOTg3gIvw7YgzDywcgFLf+z4BjVNJFaSOavQqF/8sZ9aEBZPqRZ5hdtvoFWbiX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/DQgAmcjbWQykgPmv0cNYa5l/Dy1aJ1pbre9rYuC1LaJNkqUw
+	30Wllxk0HJHbyB22C2Bv3ptOg2iiJUWQ8zC3eMGdKkPRD6DEXZfQp5e7Ye9v8itash5DkP/BvvY
+	JIuH2KXphFDMPwe0k0co4mg5uJ0hPw2g=
+X-Gm-Gg: AfdE7cnzpiYcPTqRDM0wxSvAztsJfkiBhT26iP7Rnpx29m+4FAt2zRQBDqhNvd+0DPi
+	yX3oWlaERUBZZpUoSJkbvoXjKQZrKsYksOKaYjvoh7shdb/I20DtbloLzUgRo1xDiJCkVdO/29G
+	U7YcEHsLZFqYG0pv4dP8Yxi5oSNW34cPNAUYu8yOLR9NodSakfOCQQM1GNUenlnIFcVi9hD0PkF
+	b0/qBCbHxA0Mtq/g06dRuXz5iySFFHmD92yHQWHacCjvBUUF9awqdrqtW4LsfNZW48e6oWO+P26
+	cuGoDTqICgMWTiphIga+SFCflQ==
+X-Received: by 2002:a17:902:d2c8:b0:2cc:90aa:878b with SMTP id
+ d9443c01a7336-2ccbe728946mr63686975ad.10.1783453027559; Tue, 07 Jul 2026
+ 12:37:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com> <20260706-a9-ir-v1-2-4f082ca8aaf1@amlogic.com>
-In-Reply-To: <20260706-a9-ir-v1-2-4f082ca8aaf1@amlogic.com>
+References: <20260624135650.727077-1-jerrysteve1101@gmail.com> <20260624135650.727077-2-jerrysteve1101@gmail.com>
+In-Reply-To: <20260624135650.727077-2-jerrysteve1101@gmail.com>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 7 Jul 2026 21:33:42 +0200
-X-Gm-Features: AVVi8CclFQkx9s_G2Hys9qfZAMuAY5MfDBKVgSfmmojs2V4cbQk8rdJWoP8wXjg
-Message-ID: <CAFBinCBbRrt6jWj4pczE=-j86Sw2aiAaBpUoTx1x9XErw5NFpQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: amlogic: a9: Add IR controller support
-To: xianwei.zhao@amlogic.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 7 Jul 2026 21:36:56 +0200
+X-Gm-Features: AVVi8Cf-yuy-zDtbpT62GueylgVb7F5kepgWe3Xe-FkNm7a-D4HMWegM9GI0Nag
+Message-ID: <CAFBinCAz7nDsXc80LQH+f2yC=o79E3nBhzL6OAUwYk2r3n_n1A@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] arm64: dts: amlogic: meson-axg: Disable nfc node
+ by default
+To: Jun Yan <jerrysteve1101@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Arseniy Krasnov <avkrasnov@salutedevices.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_123355_252811_5B3920A5 
-X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-CacheID: sfid-20260707_123708_368195_1BC74ADF 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,21 +123,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei Zhao,
-
-On Mon, Jul 6, 2026 at 4:43=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
-[...]
-> +                               func-ir-in {
-> +                                       remote_pins: group-remote-pins {
-Can we keep the established naming:
-$ git grep remote_input_ao_pins arch/arm64/boot/dts/amlogic/ | wc -l
-37
-
-I'm worried that adding IR blaster/output support at some point will
-then lead to confusion.
-
-
-Best regards,
-Martin
+On Wed, Jun 24, 2026 at 3:57=E2=80=AFPM Jun Yan <jerrysteve1101@gmail.com> =
+wrote:
+>
+> nand_rb0 and emmc_ds share one pad. Before enabling nand_rb0 for nfc,
+> disable nfc nodes by default to resolve pinctrl resource contention.
+>
+> No mainline AXG boards enable nfc currently thus no extra DTS adjustments
+> are needed.
+>
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
