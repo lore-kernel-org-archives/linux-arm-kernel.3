@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CD7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ECBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQp87igVa4M0MUxA2BB6aKIbyWzFWiUeWysnPZhlWK0=; b=EFuVKvoO+obJREyO9bEc0OF9S4
-	zoMduqeTt67A9TPbChRUd2aIZLugdC0C77zuVo9LEYq1P8jMiC0LQTlwL7qYUTN4fkRa1iY3H497n
-	VaHgsEehgJIjUdVFyRuQMJ4nqFnL1yYQvtV5Qqfp99e507bsXvv+Ega6Smnb7ASINF8LjW8r6rOca
-	yXdNSdgsOkY+AP9UNWqAzMizC/8q/GXK+PxMBQ+g0NNzZReNtQW5yUV6//0Wbx9nbDzpdo7C5+k8p
-	+8Nk5/ssx8vVa9g7tvwlrKZevNvCKHuEqs/PGsiY2KYXmT4bw/SiHsLw+FVRCvmuJ21Zzxmr78Oh9
-	KWCDNJQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ltAiiJOY4Rh6R3USCVTRewP6JRiLBCJCatFHoJxYfOY=; b=tmJJZ6pllPPvbu1GClLwa7i+AK
+	5lOHjj9QJ2mUDCPSbGkPUHnk7ckwIp7mEzhrdpMFbDTGQeb1M8LDWa6TmZaAGFxVKOAKASxt9eEzE
+	X9KK5I0i69ebYz36tbEVz28V7+/BV+0aLCrWIL7fDrnKFv52dtPO2yO2PVcfwNaYPIU7pASy1vo/p
+	5W+yIXOG9Vu9l+Y0rnu6CWwAJTxMvndRPaCqL7/i/YKOaCb7nr+AZVYXvhibut9rrHcZw/OjmQ5Qw
+	kIx6VSKg+Qhwp2Gx7ZYUwjc7pjk4u8ev8JSopUx3rgRDj5hXNfYzzhrmFtpzgLTR8ce8WdeFLjqaQ
+	ZZ3xBFGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh13y-0000000ESAe-3fG5;
-	Tue, 07 Jul 2026 08:21:54 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wh14Z-0000000ESbS-06y3;
+	Tue, 07 Jul 2026 08:22:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh13p-0000000ERzy-2rjO;
-	Tue, 07 Jul 2026 08:21:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783412502;
-	bh=yRFtRc/8CY6QhoblVADW6T5FZ96+tHK2oCTcPJgNl7s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l8E70hUK27HaAhWyDDUGq83eZrgrzShx19lG+2vENSxAYCqCzqalr5R50+rhvrUnT
-	 8sEOutSuePjJdK3n2QAgmawSYWY/kSrAt0gLBgMbwdZLs7jU+t3sWz6ol45KuC6mHr
-	 3YfFNO+mNUI95qPth6mISBRA8nt6spOOhqGp12ekoBFVHM2ii6At1qc02EmessXJxu
-	 lJKvVqcX9c0/oKSxsB9m1ZXww5cWQME8H8JISMNTpE4q85p04VT1uq6E9bUyFAo7c7
-	 XsAIqEYDRwI5ZmCSKShhAtF05HOLWCZ5ldHfKr2wJBiUhFYhLI6zseL4x09SIrmooS
-	 XXcsLgPdubBoQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD8D217E1078;
-	Tue, 07 Jul 2026 10:21:41 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 07 Jul 2026 10:21:24 +0200
-Subject: [PATCH net-next 6/6] net: stmmac: mediatek: add support for MT8189
- SoC
+	id 1wh14Y-0000000ESaq-024l
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 08:22:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 605D4618AF
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 08:22:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1153C1F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 08:22:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783412549;
+	bh=ltAiiJOY4Rh6R3USCVTRewP6JRiLBCJCatFHoJxYfOY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=L0RTCN1n4h2MOCTtx/K1SWL7s1kbREzTYeE3CG9SXhN/tB5cuOAFtujxs59gfZM/B
+	 H+2JJCNXQcWYFpd54b2GOsZWCrPavSHZX4v2nbHDU9oQZAQPRHqnf6fsdSicTG+kzw
+	 0dBl9jrxU6w4/JDKsri7DfGc15iEe5DXDX2zjXNvJoL3hzIV4/kO5JxFtgpythM9dM
+	 wafj4/9Yvblp1ubcGoy9DqcPVpQYdGkhHURM3IBd1KV1cTe2BthukMMG9fT2cN9KhM
+	 9PCcJKoTz+gNcksL23jQwultmJ1GeyKYcyWNNxwr0slpIGzxbEVNyFAQnEuDQVq5Bi
+	 HZ/aDKVkdrpSA==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39957d210f4so34065011fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 01:22:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro65XMBJ7BX1a3cBJYrOm97Gd7Wb5oAaQZCsuq2LE81HIPjUvcuEmmNqzc8ZPhOFOnVDotQtFh7oKCc4WjThZ8s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0mYBH8l3Arf2irAJ/DcGaBi8fdVwSpTAHBJ538wbMEncsgu1K
+	Q5IRMzkrBD7ekj/CIEFTxC0L0x5fPMTC2GWXT3WeKaCREAa3tGEC6O47yrlJjB3cfqRDQ7FnVGa
+	zkItB28McIj7v3Dm2QsvbeQfe1LLXeRnSvA02RXuveA==
+X-Received: by 2002:a05:651c:234d:10b0:399:8a8e:64e4 with SMTP id
+ 38308e7fff4ca-39c5ffc9258mr7569231fa.19.1783412547763; Tue, 07 Jul 2026
+ 01:22:27 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 7 Jul 2026 01:22:26 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 7 Jul 2026 01:22:26 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <akyxXxtj8nyCs-yf@ashevche-desk.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-dwmac-mediatek-mt8189-v1-6-17f345eaaca3@collabora.com>
-References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
-In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Biao Huang <biao.huang@mediatek.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: maxime.chevallier@bootlin.com, rmk+kernel@armlinux.org.uk, 
- kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783412493; l=2415;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=yRFtRc/8CY6QhoblVADW6T5FZ96+tHK2oCTcPJgNl7s=;
- b=rjmFjCSXIVFAAiwlRsbFDumpnHH5IheY8Gf75lMU0wWH1m9chQHK5CCQ/0CP5zbOLJj/U4I7k
- Vvhz8WTFGu+CtMHY+W5Pz6L89CX8GNvO/mhR0/hOwZiXpIg9gfTve7B
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_012145_880747_33CE33B8 
-X-CRM114-Status: GOOD (  13.69  )
+References: <20260622092335.1166876-1-eleanor.lin@realtek.com>
+ <178246069898.6685.11577448681947659397.b4-ty@oss.qualcomm.com>
+ <a00c475a6ce0469682305c4b4269b181@realtek.com> <CAMRc=Md-iOQ5qb5uPZcKJkpS8fmYscw8TRXqe7rRrJS7acE32w@mail.gmail.com>
+ <akyxXxtj8nyCs-yf@ashevche-desk.local>
+Date: Tue, 7 Jul 2026 01:22:26 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfD2j3xt1dXojFbyn=Df_9epMgEmLvSdCAfS7BSS6HD6w@mail.gmail.com>
+X-Gm-Features: AVVi8CfM53nWTpEzDBmB2ofkWlre7XvkEwA0f3764nQdW9C9z_xUKQQo5Zl9o_8
+Message-ID: <CAMRc=MfD2j3xt1dXojFbyn=Df_9epMgEmLvSdCAfS7BSS6HD6w@mail.gmail.com>
+Subject: Re: (subset) [PATCH v4 0/4] gpio: realtek: Add support for Realtek
+ DHC RTD1625
+To: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
+Cc: =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>, 
+	=?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>, 
+	=?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>, 
+	=?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	"linusw@kernel.org" <linusw@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
+	"afaerber@suse.com" <afaerber@suse.com>, "mwalle@kernel.org" <mwalle@kernel.org>, 
+	=?UTF-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,73 +100,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like MT8195 SoC, MT8189 SoC uses the Ethernet control registers from
-the peripheral configuration (pericfg) but at a different
-offset. It also needs additional features.
+On Tue, 7 Jul 2026 09:57:19 +0200, "andriy.shevchenko@intel.com"
+<andriy.shevchenko@intel.com> said:
+> On Tue, Jul 07, 2026 at 12:24:16AM -0700, Bartosz Golaszewski wrote:
+>> On Tue, 7 Jul 2026 08:55:26 +0200, "Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=
+=90=9B]"
+>> <eleanor.lin@realtek.com> said:
+>> >> On Mon, 22 Jun 2026 17:23:31 +0800, Yu-Chun Lin wrote:
+>
+> [...]
+>
+>> >> Applied, thanks!
+>> >>
+>> >> [1/4] dt-bindings: gpio: realtek: Add realtek,rtd1625-gpio
+>> >>
+>> >> https://git.kernel.org/brgl/c/8f32808e1530b2229e07695fb39c54fee910bd4=
+a
+>> >> [2/4] gpio: Replace "default y" with "default ARCH_REALTEK" in Kconfi=
+g
+>> >>
+>> >> https://git.kernel.org/brgl/c/b5d23fcdb12972c522e96f90ab48be8a0d971b0=
+e
+>> >> [3/4] gpio: realtek: Add driver for Realtek DHC RTD1625 SoC
+>> >>
+>> >> https://git.kernel.org/brgl/c/a57e27c43b0315ee86c6896510d69be5257e093=
+e
+>> >
+>> > Thank you for applying the patches!
+>> >
+>> > I'm currently working on v6 of the patch series that incorporates Andy=
+'s
+>> > gpio-regmap patches, and it should build on top of gpio/for-next. Howe=
+ver,
+>> > I have a conflict with the driver patch that was already applied.
+>> >
+>> > Could you please revert that commit from gpio/for-next?
+>>
+>> Can you just post the series as a follow-up? I try to avoid rebases unle=
+ss
+>> absolutely necessary.
+>
+> Would be just leading reverts in the series appropriate? Otherwise it wil=
+l give
+> a lot of additional work for peanuts.
+>
 
-Thus, add compatible, clock definitions and specific platform data to
-support the MT8189 SoC.
+Yes, that's alright. It will make the review easier. We can then squash the
+reverts with the new patches when applying.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c    | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-index 6b0a42b5839f..e7e336b1f114 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-@@ -37,6 +37,8 @@
- #define ETH_FINE_DLY_RXC	BIT(0)
- 
- /* Peri Configuration register for mt8189 */
-+#define MT8189_PERI_ETH_CTRL_BASE		0x270
-+
- #define MT8189_CTRL0_TXC_OUT_OP			BIT(20)
- #define MT8189_CTRL0_DLY_GTXC_STAGE_FINE	GENMASK(11, 6)
- 
-@@ -116,6 +118,10 @@ static const char * const mt8195_dwmac_clk_l[] = {
- 	"axi", "apb", "mac_cg", "mac_main", "ptp_ref"
- };
- 
-+static const char * const mt8189_dwmac_clk_l[] = {
-+	"mac_main", "ptp_ref"
-+};
-+
- static int set_phy_interface_v1(struct mediatek_dwmac_plat_data *plat,
- 				u8 phy_intf_sel)
- {
-@@ -444,6 +450,19 @@ static int set_delay_v2(struct mediatek_dwmac_plat_data *plat)
- 	return 0;
- }
- 
-+static const struct mediatek_dwmac_variant mt8189_gmac_variant = {
-+	.dwmac_set_phy_interface = set_phy_interface_v2,
-+	.dwmac_set_delay = set_delay_v2,
-+	.clk_list = mt8189_dwmac_clk_l,
-+	.num_clks = ARRAY_SIZE(mt8189_dwmac_clk_l),
-+	.dma_bit_mask = 35,
-+	.rx_delay_max = 9280,
-+	.tx_delay_max = 9280,
-+	.peri_eth_ctrl_offset = MT8189_PERI_ETH_CTRL_BASE,
-+	.use_out_op = true,
-+	.use_stage_fine = true,
-+};
-+
- static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
- 	.dwmac_set_phy_interface = set_phy_interface_v2,
- 	.dwmac_set_delay = set_delay_v2,
-@@ -694,6 +713,8 @@ static void mediatek_dwmac_remove(struct platform_device *pdev)
- static const struct of_device_id mediatek_dwmac_match[] = {
- 	{ .compatible = "mediatek,mt2712-gmac",
- 	  .data = &mt2712_gmac_variant },
-+	{ .compatible = "mediatek,mt8189-gmac",
-+	  .data = &mt8189_gmac_variant },
- 	{ .compatible = "mediatek,mt8195-gmac",
- 	  .data = &mt8195_gmac_variant },
- 	{ }
-
--- 
-2.55.0
-
+Bart
 
