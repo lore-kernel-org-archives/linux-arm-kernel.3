@@ -4,71 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02FEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C01C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZFqJenKHf79crL8FtIJ8E7FQoJ2ItmaH9orqP1Mmhj8=; b=TYMqGAPDCXbJdCsTLhoSG8vztZ
-	h8wBmKYLoRbjcelYwcM8mFo5fpgfk4Lx2J4QXjl7b5jEC11qbF46VEx37464OIaDg1NrzTnbkcQOl
-	QCIq+vUiVc6ufsdBZ3koMThmMU2UXhD42vnt/3/oXVEdjWu+bXVYQt31Swp0H6sWChg1CrY3zlHS3
-	cYoXyuyXKJSbukodaTSa36BbTSxk5M4fYmpPByUNW3CVPGx9QKd4UEuu+OQXuho+729eN7GPdnqj3
-	RJPr6j6QfK/IznqJvgifjx2h0ve+snEjMN9ZQPc3elkqH0hVZ68pgxEflXS/mGwvovcMR/Ir8A1X2
-	CPIUbcmw==;
+	bh=4oR0hu9iskowfYfYb9jZeUmxASNDppST3z0H103Mh1I=; b=24frqPU4XuC7z2CB//6llrcSqS
+	nAzfpDNVn+UZ6ptgdzYukoeZepkY5200xl7MknTd/OUhP95tglZ0hviEx3R8frpa0rWdm/pzij6Bx
+	YvHOIWSmLoeOmeL9WpHDjwkn2N+THmW78AjS83znlCiAMzxh1cABdhhLYQszqUOLpGblPTdJ5WgIX
+	iBjWmoOsblk99PsHFzgb7k10s4uTKVx/5L87+7rcweNzLsV7uwIYogfcW3lMqCJ4eEMuvn3FcFstE
+	ikEVcvHEDtyoOWAdH0SKenPLLsaxR9P+ohcFERaB5FmJwbRh/TY1cOrVA2o380RxCmltsxSHC6rzw
+	j0fhPgkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0qb-0000000EQ39-332z;
-	Tue, 07 Jul 2026 08:08:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh0rG-0000000EQFv-40zk;
+	Tue, 07 Jul 2026 08:08:46 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0qa-0000000EQ2q-3y11
+	id 1wh0rE-0000000EQF2-0USk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:08:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30342618A6
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 08:08:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEAE1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 08:08:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783411683;
-	bh=ZFqJenKHf79crL8FtIJ8E7FQoJ2ItmaH9orqP1Mmhj8=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=lubf3GRN11yRP6pd3XtD9CF11ay8H0xWcijybnNwc7z/zgJGFwiA9v49GBdDJR4rJ
-	 ZaUXrmc8fi+RcbawHc0XdafcLMy7Ne9Oh4Rmf3daWSPmcgDkxcEzVzw58z51lKGTbX
-	 LbfdEslLiW9k7O5LmKtKdKGpPIYcRfT0v7OfH5lOJ4dpPxpw7mHkeKNXLglno8Aroy
-	 xtQOlbf/E/z8EPgv3iuwElMi22LJ8OaESFnyzk01ih6p9XQdVPsUQ7bjCQV5wp+Vq8
-	 D7g/+5b6lEvT7WqtG810HEZhLbyF/OBlOH1RAOLKRxCf5+aC2mjf82HvXH+wQR723n
-	 sXZoMrB+zi3pA==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-39b3027009fso31578011fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 01:08:03 -0700 (PDT)
-X-Gm-Message-State: AOJu0YwYdK91Mi/pILir5chQxqd0T1qIaHyjupcU5qOjF27PwGrBQWNy
-	bYnlrvw+LLg3sp9Mnvwka8rHPGqHFzuOwUFF2ECWtGIwwzL3LAV3pCVeYnJbNOY/jGJSxPxwX0I
-	iCJJMhqr8/FuAlPOBMFBpEU3vkVAIBmC0YEsRx/XZ7g==
-X-Received: by 2002:a05:651c:551:b0:39c:6927:5c0e with SMTP id
- 38308e7fff4ca-39c69275c6emr4674581fa.18.1783411682550; Tue, 07 Jul 2026
- 01:08:02 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 7 Jul 2026 01:08:01 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 7 Jul 2026 01:08:01 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
+	Tue, 07 Jul 2026 08:08:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fQnggwcgFpseyrlCbDrMG2UUlPC5Y+AHPtypBYUKUW8UB3l5IOlZbtphllZ7EiwFkGWcdQj961nFHla+QOC6cH3HNDpEZmg4+afoKQlKl8mSpR0FZ9/rGHeIwZE8vDLfPRtWXO++K1LSNp9Tz4nFyIVu5iZF+tEGLmXPYfeSnyyFoJpTr+CirBeXtrXbHtobbvzFsICRvqtYzaa2FA7NJyazfIoEuTC3oAnoZLUsMTH1XxkpyQgSfYK5n0V3q61kKQW64tFheA/eHc7nVwaGGiCXA8tbUYiXtjqF7U5W7WiHjForKrinOd5APzMNpOuOc0RX8ohTSQaOTRw7IOUyKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4oR0hu9iskowfYfYb9jZeUmxASNDppST3z0H103Mh1I=;
+ b=Hx3CZEHA/4WStXwiEnr+wDwAvoyzMV4VNO+t/9EZ+7g0tzlFuwiTHfKIhn+dqO+7lsKySwUOlYxyDs+/bWW8LDc3gtqNUtilkEjNx8QtdUvxKoLspiD+UlqExqz2vihHzp6SqHuOsZETpd01RYRkguWYUvqfjB6matkIdCtyEK6sChJLiMC4aBzscw1Trq8vA2BNcNv+tb4h4fM8FfI6qwIJa8QqiYMeQ1tR+J+JjJbeKj/Nmw9UOl3LAzcqVGFKF0FNeE4JVuM3f9G8nehcXV276Z721e0xkzpbdm1HrTXFQNwbZ4cL+RCW/PUo+WiULEGirZfWH42BrvXGCMeaFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4oR0hu9iskowfYfYb9jZeUmxASNDppST3z0H103Mh1I=;
+ b=A08000sommOp+qi1tunsSSqyt4f+FZlpyS7wIC/NjYSprKoN503FDNlrv/9x7zPKxGygJXkoCycde5cMjE70gfnH32CpZoQgVCf/uUZz7KEIv+lZr157RZGfQuG1AtX6YKJp91okfR9fXI5KaXmMYCyJMvHqKAzrmm8+P9zOlzNUDzzxc7VSsj51CuEdk1qFFEZZyAyVaFMITaQcyUaUUtndvvq52JdG27wxmDIellms/CbcEI+vb7Uu9MHa7Xt2Pl7o1qb4yOpqbdnAIgDkYXxrQmkMtdvcq/BEXRalG7HuDfOxHo9+BkjP41s2VSrVieOTc1W1wbCRgr95Odo+Wg==
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by DS3PR03MB989144.namprd03.prod.outlook.com (2603:10b6:8:39b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Tue, 7 Jul
+ 2026 08:08:38 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0181.009; Tue, 7 Jul 2026
+ 08:08:38 +0000
+From: "Nazle Asmade, Muhammad Nazim Amirul"
+	<muhammad.nazim.amirul.nazle.asmade@altera.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "dinguyen@kernel.org"
+	<dinguyen@kernel.org>, "maxime.chevallier@bootlin.com"
+	<maxime.chevallier@bootlin.com>
+CC: "rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: altera: Add Agilex5 SoCDK TSN
+ Config2 board
+Thread-Topic: [PATCH v2 1/4] dt-bindings: arm: altera: Add Agilex5 SoCDK TSN
+ Config2 board
+Thread-Index: AQHdDdet/Hhk5cW5yEi55aAhwx3SLbZhm7EAgAAYPYA=
+Date: Tue, 7 Jul 2026 08:08:37 +0000
+Message-ID: <a93fc9d6-8e69-4625-884b-1b5c54748b6e@altera.com>
+References: <20260707061305.27580-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20260707061305.27580-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <8e9a2c05-178b-4360-b814-660d049e50a3@kernel.org>
+In-Reply-To: <8e9a2c05-178b-4360-b814-660d049e50a3@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|DS3PR03MB989144:EE_
+x-ms-office365-filtering-correlation-id: 525c865f-4b2d-4d4e-5ef8-08dedbfef312
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|55112099003|4143699003|11063799006|38070700021|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: C5kc5wc3Y08XyrRLH//bMvSMkM4z237XVW4Dsm9RciyRtzxOrOsrzx8KaXNhcRl5i9spqWUdJsBEGO8+YSDJCFhaxxfjqC4ZXhHnzQYXXwZo8XfJGxAfWsxq7DdFNLWT4xiO0cGdwhHuNa1iTIJGwhqu0RLGniykspdInWhtMgXENdWvaJhYVtsn1OYShEmhNQKZ1S4Uh3SRTOd3M5ERjnPFiRgFM7OnrGAtEyY5v6YszU9SroFE9n+IbIhhxrucg0nLhup2+Z1opl3c0SeeKbOdmgmUi42p11lY02b/45O0OA7nsrdu1UROIP3hMs7UWMvdiruTNlcHsRaK/OlzqWoFlAlBWRjGqckD1s+4WqAybSbb7ABjzRX+RlZaOJUFzH/Lz34Q2SmXalOAS/fSktS9rugCqKb1HBWhb/zF8C1P4tP1Yry+ve4+mAfTHQKoEleJdkPu19if2t/NOJ+MZR2dfB6hyKZhNpH0XA2IptaCFWVMWsHHbArq1LFDOWv69d9tpEfWzU2N1x5dkjmi2dsg3EgSIHzXwG3a6ZjZtyULqaD8MTghSyXaj9TdJzY1mcoP5IYJkP+usMy+Kru2Cvbpqc/e/g0DdTADaRZxKHyMS0F8Ro6R51CvjkcnJNttcCQSPwSWSehkthBvofcbo3+b7hEfBbrXRHiGJkuQskuIG03aPfKDAalMbSu6nUf/80JAHZbLQRtF/74rBpaIR0IjQAN0veSiVQhhmNGyYMo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(55112099003)(4143699003)(11063799006)(38070700021)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YXVKeGZkWURtcnZKWWk3UjV5Q3djNGs0SU9tOW5TNTRjc2JJT243NXVyL2NB?=
+ =?utf-8?B?T3I4NUUxSHZEZ094QnNTUTY0SXZBQjdLM0Q4UC82WEZUQmRRamQ4M2F0VU9P?=
+ =?utf-8?B?aXR1TTJheExndzAvYU8yR3VjYk0vTnp3djRNbGF2bUt0OU5xb3N1OWFzZE02?=
+ =?utf-8?B?M1dxWVVadmwrTis2eXhiTDdiaWdIbmVucTduV0xOL3BpVjFBazlSdmFqYWVW?=
+ =?utf-8?B?elIxSTFPY3VkMW85Z1lqVFBUSWozQThnWC9EZWFxRW1sK2RuOGROSzdvNkpl?=
+ =?utf-8?B?TnZuK0MvSlJ3YXBOYmtQTjZuVTF5V0JoZnF4aUp2V3c1MUpNbmFmVWFXMGpr?=
+ =?utf-8?B?TFNTSklCRFlGWjVnZnhaMmZDSDJLVkdvSnBkZTVZUzBkVFlmYTBqb0R5NGp0?=
+ =?utf-8?B?Wk1FWkVDOUNyRkZYV0dGaWVPU0RoditoV1JSd1kvTVFqb0hGZWJ2ZStsS2JI?=
+ =?utf-8?B?dDM2Rm5OcEhHN1NQN2JzSkpTSXN4dVdXdEkzc0l5STJwTlNPdmxTRno3Tm85?=
+ =?utf-8?B?SVZPckY0eEYvQ3FSNnhYZzE5d0ZXTmpZYmNtUnl0a0JTQmFSNUFpS05ZeHBE?=
+ =?utf-8?B?R1NFNHFKTXYzNkNpNG1MMWg2ekVYb05vZkVGZW9Sb1pnSXl0dDhjektWL3NG?=
+ =?utf-8?B?eVhnZmhhWXErRUlRbUZxRW96MEFNZ2l6ak5OSTlNSEVBYm9pMmZBeExidFRN?=
+ =?utf-8?B?U3ZESEJSWXhmS3grVWYwZnRqRkdycFhrQWlONlcwUDJDbGkwZ0Q3eS90TkV2?=
+ =?utf-8?B?NTJ1US9Md3RGTFBTMEx5R20wWmtTYVNYL1haOWNrMlNubS81SEVBM202RmRn?=
+ =?utf-8?B?YlBkSFpJK2FtZktWKzJLbG4yRkdxemNzMXBSdW9CNGUvOWNpdFlvOVJkNDBK?=
+ =?utf-8?B?WVNFbXlBdE9qbHRqREFJcVJSQ2tVS1RkUllEbE9Jb1hqS0R5aERKKzM0TjRF?=
+ =?utf-8?B?OGdWcUROZW5jUmVUeFFERHhWTGMzUkkzVW5FRExDRDcvQUVKYWJoV0t2c0RH?=
+ =?utf-8?B?UWMyN016N1JEaHZIeVlPelplQ0JkOS9GMzQ4dURsTlI5eHkxcWliRHU5Y3VG?=
+ =?utf-8?B?NUxkT3d5Z2hnTGpmc0IwZ0JjbE5BSVZ4eDBiNkVDUGZ0eEYyVFA4bzhEUkRm?=
+ =?utf-8?B?VURlc2JHZWhUWmlTT1JBRXdQL3JzVEVSVWhDalB5K2F3eDluaklRMkZMbjky?=
+ =?utf-8?B?R2R6UktmNWx4SHM0cmx1TFpyUTBJdzJ4azk4UXJTR1NRck1WM0lRSEpXU0Jt?=
+ =?utf-8?B?akRreG0wT2FieDFhSzQzSDNZSTFZMHFoV2xPUHZTMy9GcWdnQXVhcVNjdlFz?=
+ =?utf-8?B?V1hrbkw5SjJBMzlSbTRxK0QybXVOUmdmMy95em1Xb3JoY1B5QmZzeFlFNW9V?=
+ =?utf-8?B?ZVlrdDM2WU1tbEM4ZjJUc1c4dHBlRzhnYVVPK1o4MTFjSkFKcURqTW9QcGRj?=
+ =?utf-8?B?UG1kTUs5bVZsNHVCNmpuRmF1NndnSUQ3RFZFZ3Jram45WVhqYnplTFRjREFl?=
+ =?utf-8?B?RWh6d0VVaFZvYUVpZ1A0WmdHek9DZjB4dXk2UzdEcFBlWWtUSDFXOERhdjR1?=
+ =?utf-8?B?aHNha3EvYUttM3NScCt1cWpuaEZGTWNjYVByMHNUdXRFOE5EWDQ1MGN4UC9O?=
+ =?utf-8?B?MGJqMkhtY0hLVzNXRmc0K0NNQ3J5a1FNL09nTlBqVkNMQUMzUFIzbU1vaitN?=
+ =?utf-8?B?ZTFxakxNcm4rUzVidjY4RkhWaEdzd3hSRXgvaXBxNlZ4STRLVTBKRjdaV1ZV?=
+ =?utf-8?B?UkxwRDR3YVhoNWgwa2daT2MzL0JXRDZjekF0bEVkTkY5Z1liVElZWnhqWXcr?=
+ =?utf-8?B?YXNGclhDM0hSS2w3MitmR2lablpONTR0Ni83QVd4d1R6c2xseENCUVQrMVJp?=
+ =?utf-8?B?YytpeWdkamlteEZmZy9tV3R6cHZKcVhxNDhUc3Y5NzNWUVZIYmozVjVhNU8x?=
+ =?utf-8?B?OFdKK0Y1SUJhdm9GbTlRUWFWVWlzWnIxWVVEY05ITHQwRDkrVURTUzNKSVZv?=
+ =?utf-8?B?RGJ3cHp1ak9PSGlXMTJVUWQzbFBVRHFaSWNwNkROZVdNTmE1Y2diWkM1TWIy?=
+ =?utf-8?B?a3dOSnFqNXJDZEFjUGdwWGhrQzJuSFBWdlRjakd3VXQ0eEhKb3AwNEhNczNL?=
+ =?utf-8?B?MWtvS3NXV3h6eFBPSThVdDBTR3Zrck5IVEVSM2pSNjBUWXZ5a0ZnTFl2c2o5?=
+ =?utf-8?B?MytNMkhEc0ZYV0JWTkVLWloxdVRQRVJ3RGMrdFJnRmw4a3lmaWx1MnRRQmpB?=
+ =?utf-8?B?QS8rVGRHaUtzVk16SjkzdnhBVTNtalZoYkh4RmF3VTRTcmljY1pMa01KMHJm?=
+ =?utf-8?B?cWQzd1ZQU2E4UExwVjd0SXM0Nmcra21ndEpYbTVxNFUvalE2U3dYcURlN1li?=
+ =?utf-8?Q?5uq5hOwxf2Xny5K/ZMyuguVMVWJ0uKXwBNl0GRZgRSgNB?=
+x-ms-exchange-antispam-messagedata-1: cnhyLG0e4EWniQ==
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <94E97A14C6450C4A929232EE785AC613@namprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
-Date: Tue, 7 Jul 2026 01:08:01 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdfRs13TAqRqwff+=v3SrTXynyhCb75udG46hmwTRwuKw@mail.gmail.com>
-X-Gm-Features: AVVi8CdXMJVBF0F-w40gf2-4DxP-Pr9ZrnyQOzWnxVH-2OB9v_JiQsUD63iUHTg
-Message-ID: <CAMRc=MdfRs13TAqRqwff+=v3SrTXynyhCb75udG46hmwTRwuKw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] ARM: sa1100: convert gpio-keys to software nodes
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Russell King <linux@armlinux.org.uk>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 525c865f-4b2d-4d4e-5ef8-08dedbfef312
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jul 2026 08:08:37.9144
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: eLupp7rqkSnC64Iel7fxCxo9gOqcuZ0AyMJ2M1K5nh/zgkkQpN/nb9S3Aq90z4IBVtxBhGA1yQFcXhyMmsQZjeYqW8yRuUn4RDDdqiwiy5Qjc6+EEBdgrymnGiEt79o6gcPCddu1c7MV0GhVzA/wUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR03MB989144
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_010844_160563_4CA28B48 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +167,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jul 2026 05:13:59 +0200, Dmitry Torokhov
-<dmitry.torokhov@gmail.com> said:
-> This patch series converts StrongARM SA-1100 evaluation and handheld
-> boards (Assabet, Collie, and HP iPAQ H3xxx) from legacy platform data
-> (struct gpio_keys_platform_data) to static software nodes and device
-> properties.
->
-> The first patch registers a shared software node for the SA-1100 SoC
-> GPIO controller in drivers/gpio/gpio-sa1100.c, attaching its firmware
-> node directly to the GPIO chip prior to registration. The subsequent
-> patches convert the board setup files to define static software nodes
-> referencing the SoC GPIO controller directly, allowing pin bindings to
-> be resolved via the attached firmware node without relying on name
-> matching.
->
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
-
-Will this board not die? Anyway:
-
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+T24gNy83LzIwMjYgMjo0MSBwbSwgS3J6eXN6dG9mIEtvemxvd3NraSB3cm90ZToNCj4+IEFkZCBj
+b21wYXRpYmxlIHN0cmluZyBmb3IgdGhlIEludGVsIFNvQ0ZQR0EgQWdpbGV4NSBTb0NESyBUU04g
+Q29uZmlnMg0KPj4gYm9hcmQgdmFyaWFudC4gVGhpcyBib2FyZCBlbmFibGVzIGdtYWMxIGFzIGEg
+VFNOIHBvcnQgd2l0aCBhbiBGUEdBDQo+PiBHTUlJLXRvLVJHTUlJIGNvbnZlcnRlciBwcm92aWRp
+bmcgdGhlIFJHTUlJIGNsb2NrIGRlbGF5cy4NCj4+DQo+PiBTaWduZWQtb2ZmLWJ5OiBOYXppbSBB
+bWlydWw8bXVoYW1tYWQubmF6aW0uYW1pcnVsLm5hemxlLmFzbWFkZUBhbHRlcmEuY29tPg0KPiBT
+byB5b3UganVzdCBpZ25vcmVkIHRoZSB0YWc/IFN1cmUsIHdlIGNhbiBpZ25vcmUgcGF0Y2hlcyBh
+cyB3ZWxsLg0KPiBEcm9wcGluZyBmcm9tIHBhdGNod29yay4NCj4gDQo+IEJlc3QgcmVnYXJkcywN
+Cj4gS3J6eXN6dG9mDQpIaSBLcnp5c3p0b2YsDQoNCkFwb2xvZ2llcyBmb3IgdGhlIG92ZXJzaWdo
+dC4gSW4gdjIgd2UgcmVzdHJ1Y3R1cmVkIHRoZSBzZXJpZXMgYnkgYWRkaW5nIA0KYSBuZXcgcGF0
+Y2ggZm9yIHRoZSBuZXQgTUFDIGJpbmRpbmcgKGFsdHIsc29jZnBnYS1zdG1tYWMpLCBhbmQgZHVy
+aW5nIA0KdGhhdCByZW9yZ2FuaXphdGlvbiB3ZSBhY2NpZGVudGFsbHkgZHJvcHBlZCB5b3VyIEFj
+a2VkLWJ5IHRhZyBmcm9tIHBhdGNoIA0KMS80LiBUaGlzIHdhcyBvdXIgbWlzdGFrZSBhbmQgbm90
+IGludGVudGlvbmFsLg0KDQpXZSB3aWxsIGNhcnJ5IHlvdXIgQWNrZWQtYnkgaW4gdjMuDQoNCkJS
+LA0KTmF6aW0NCg==
 
