@@ -4,78 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97204C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7FBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRr4dvDSTrtgIM0uL2TEeCIgJbcPdJkwFKqZsm9On88=; b=jTrxwD0UOcp1XwtMUk0J2qC8Cu
-	yBK6UwOwCJ3p1yrctwqyfXtsDHMKfjYGSwtXGVzAjLOjd4AmpFjMjPsN22ycVDSwUqk7j2kK0heR+
-	1BS+zN3o6gTBRhmFI4LKhMGHu60Y7EDJZY/tF+kzFKGoXXdBAFhCrW/91JfDmFtDXnIfnyBlMQJYn
-	wN0iY5D5xvWMPhSz5bq7prDcZQ/Qt0C3bIJfv87hU7GRBR+uPH7xZCi4N4T73lbj4hTCV+3sRbvNw
-	OXgU7Gg0N8IX5+o1eImJHFaUoSU7m+tQ97FYX39mQV0fVFD5iWl7OA+PfKfxR2KsAqfVqkABwtpFx
-	YQS18jIQ==;
+	bh=qE+rW76cn3sDLX/D9ZZD30jDNJ3D8l046pv+8Eie1AI=; b=xy/mScy2hCaLV8O3RN0eAxsOYL
+	/3Hwa/LBU/ZaE5rlFgvSvRbBKZi8LJJ2fnZkPyV93XR2+y6uUDpXsXDMA/33Pu9sNqlCIcEdVYOKi
+	jGnzOziNeQqRz8f231YAlbSwwEIcNmkdHMhWCv6zsUxZFQIt7LfyIymQCK7Ak9kUuo8RRFaUd9opW
+	YxuKF8EkVnwMnmPfV7ymQzguZOrDI/FMJbbthk02g4/SKfihtFakIQxkSORbEByx39uIfCacBNFcR
+	/jM4j1gDuyVwXMXSDiPgWLOUAv516ZunvMMjE/jW2AL3w81A9pNQXJuVdkbjThoT5dRG3TM4RbFqt
+	hdJH+A2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2X2-0000000EgR1-470r;
-	Tue, 07 Jul 2026 09:56:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh2Z3-0000000Egfa-1dgU;
+	Tue, 07 Jul 2026 09:58:05 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2X1-0000000EgQr-1xsD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:56:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8925D618AE;
-	Tue,  7 Jul 2026 09:55:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E5041F000E9;
-	Tue,  7 Jul 2026 09:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783418158;
-	bh=CRr4dvDSTrtgIM0uL2TEeCIgJbcPdJkwFKqZsm9On88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dSbu4sezCpiyZYiGx0PLDZAQ55o+ZeIKfjWWXZYfT7bA+FsgQHZN5Optg9YptTxjc
-	 6Ts0kg8S7I/y2DmY9LrQ60hFpWf2JXFT/EhFO+4vYT48lkCPy1v34uiUNTsCYysXe8
-	 l7byjyy2QjcGH8pgXrxdS9dpdEOfSmLrbri92hbWYD73+0J3oC4nzYnKeYzjQqulCY
-	 PizqRD5BicV39E55wY/U7TMtNah8F7G4a5kMvhlOI+X/s6iTgSTvO9JMyeaXLyQx8y
-	 Y52od4UC+Ky9QjRPxgo/DcSNvyvwrPu1dILUXBsQjHR577uU7Z9OfNHOI6QsroQSFp
-	 R6ETxyqFCaCMA==
-Date: Tue, 7 Jul 2026 11:55:54 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+	id 1wh2Z0-0000000Egf2-3Dw9;
+	Tue, 07 Jul 2026 09:58:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pt5lhwRmdYZLMYHLdnTDOxRl74R5F5y5n5XYZIbcp6J2RLPLoY1YZAXWFPLecjlLM9pKCebw0QsxrX3p2jwTjn098nhxPIl5qeh2KL0dIE7cMloqtNRiOWdEwkplF2Fsph2Vivx9P0dbESCrEFlmIMWSmfGN7YS3xRge+bp60BsRaoJpTLkDo111vZCxA3iTO6HhmJa4QJb4Fs75eXgzMKskYoHV+Q9pyUg04qsYePJ3l5vPA6qQzIabeX71MZR4ADwRgiiRtlMi+d6DZWR3+fs+b154zaQ2qc4rfWEkYRUXqMRMefKftRRuflqcBhD9Xjph/gT0Rd4ApvIOfN+OXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qE+rW76cn3sDLX/D9ZZD30jDNJ3D8l046pv+8Eie1AI=;
+ b=V+gHQUp99da6SSxQswqPbknMNm+JE6njQ6ptxs63ERRPl+xR1lnIS0+Vu5qiU8HG4oTNO1BReydEvWRWZz4c03O0qr4pzSaFKc5p4aywiJCm7vzbT+WvlaFyM5DzWxT7hvTfJNbyfl/PdEXMYHnmojhjRAqJbt/WS9CAPzqWKZVTOBDjchDP7yesAXYMvPEpyTdirGjuQ2bGTb5F5w+k3YoRi4WaFijIsLYrbkJAeekqAgBubdADVDNTuIPi8FVxmm0ST1KRnNg8Uue65bz6HfIZAm5DDSroG+QITUVdxHlPXob9pCm47o2mp3etkFIcjYRh3XD/b2Q8QzdJmuxhdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qE+rW76cn3sDLX/D9ZZD30jDNJ3D8l046pv+8Eie1AI=;
+ b=pThxNAHsy8cVJD/Ynclyjq2Ran8EU/gybyjR4Zv7y7rGU+TfxpzgCk06wI/7VSJbAOiWChdBpc5TVhacBfbq2u+A+4SJN318AgI+q7JJpeET7N0JNisnch3hipApuimH6TYoyf/bBW+H5ZHKgn1T8VC8Z0LJieTxVxZrmP4LB6PTrW+QeUSL7K33ks8umYruUgvYVlBhyuM3ZbKqJRd5CJkSUilGub/WSj6QElWXbkN7TAPzUs2hLayAW3xniHdCkcW6K5UhbzavkHyKG4VwYMrgTlE248d5dSEgpJBlw8WVam13Sgpb2EoHRrxw5NnxWVih4sJNInXJnIUFST3ibg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by OSNPR03MB10133.apcprd03.prod.outlook.com (2603:1096:604:49f::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Tue, 7 Jul
+ 2026 09:57:49 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4%3]) with mapi id 15.21.0181.009; Tue, 7 Jul 2026
+ 09:57:49 +0000
+Message-ID: <bd77ea7a-966a-4127-8e57-6be1afe4f379@amlogic.com>
+Date: Tue, 7 Jul 2026 17:57:44 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] Add PWM support Amlogic S7 S7D S6
+Content-Language: en-US
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, Junyi Zhao <junyi.zhao@amlogic.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260521-s6-s7-pwm-v3-0-57b073fbafef@amlogic.com>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <20260521-s6-s7-pwm-v3-0-57b073fbafef@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR06CA0005.apcprd06.prod.outlook.com
+ (2603:1096:4:186::12) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="x6pdrlblnduy4h5o"
-Content-Disposition: inline
-In-Reply-To: <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|OSNPR03MB10133:EE_
+X-MS-Office365-Filtering-Correlation-Id: fffaaa43-48a3-41e4-7217-08dedc0e3400
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|18002099003|22082099003|5023799004|11063799006|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: XzSqQti4149kiE75NyNwNIzPr8BKq2v006X3r4cB9xTvnvhmU4ZtxN350nxSUiFPHvOHQSXe8zzSMKtlmN8CbXb5KnjiIzbsyU3YvNydDRPGrI0r/LRmcmP/XamioSmeqGGaWdp4DSXMcDknGxGHCazus4uUR3jzmPdhmHO8RxTLF2q8aOL3N6hOyt7ZfgK8D46Cf/m5HfhkjPVzG8/lcOh5IKSJvDhERQp3dkbE90EQagDeSnKlOzvrBXkSx+fYvofx75nx0VVKpEe4aycNZqtt+DEhhRY+wZtSao6gFySBALKztE0lhBe4xFc8Y5NoH8Toz7HvUKoyM6R6rUeH+0SIAjs+3kAqSzx8bUvNmsVP/gJgVzMfhyc9LiRyXwm/ttFirar4vHSdbqo17SFbsAJrcRKa3/gbqbFyqZNZmJ9Pr5vPDwOniZVKhXrXvgLFLbt12x3yip0P8LUAMlnxD9Wvlxf0uvN1FM+G1H7lzrS3Y/BN1B2a9mnvJ8RUsV0P76zjB0A+TqMOOQykLpLU5G3bDppjGoWcVE3KT9GGcryisIECyWEAefgSihin2mvxjWueoAHfVWJoLN8yYm8DI/GPVGkSJmQB1ztFOVp+GUroDx2bHn4YVOB94+qRpzu3mChf7DJTWPE9zVwXV3iIhFmc+NHSeelblkZFsOR5n3w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(5023799004)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a25CUVdSZ0U4STFoRzlBM0E5dW4rTlRHM3IrcU5zRXFoTE9Ga3NMTUl3RmFD?=
+ =?utf-8?B?U2dNN0dnLytYVEVBL21CcHpKQkhiOWk2Y3dqSFFMQk1UVE1CQ2UzYkZ3dFk5?=
+ =?utf-8?B?Z3YvSjJ3YlNwVUZBdytLdWVWQjliaFU0QTJ5L3hseE5ubXFHK3ROeXZCZlZ2?=
+ =?utf-8?B?eWh6VHhPTUFQSitQN3NqWTZBUE04SXgxK2dyL1Y4WmJNYnQzS1lKNGRCbHBy?=
+ =?utf-8?B?TG5JeGZJTytCcnMyK3hWMm9SMkplTE1SeGdRUllRTGZ3RjVIa0kwK1ZFcVJS?=
+ =?utf-8?B?SDJ2V1BUR0c5U2M1aTkzWHF5YUhqZ3RPNEdCZEZEdVR6Mjd0bk1vT3RMb1M3?=
+ =?utf-8?B?RG42MWpWL2JVOTZlOTRVdXJ6Z2grUGlNbGlUbTQwdnpNWml1ZmRSbGVqeUhB?=
+ =?utf-8?B?VGk2NVJ3SlBtQWovT2tiWTVxczFWd1lqZlVQRVlPR0NvL1dQY3Y2Y0trZW9l?=
+ =?utf-8?B?U1dER0JVKzhWSG0vZVNibGkrei8xRTlnZjJBNUpPcUNSb3BPZC9kWThtbUdp?=
+ =?utf-8?B?VlZJY00weEcxY3UwOTlIN3BzWlJ3WjJLc1d1UDgwc2QwSElWdkJiOTF4dVNH?=
+ =?utf-8?B?YXE2U0hiWWtwL3pzNU05Y092RlBJUk82RTEwL2FKVFB1YUxYZCtLWjdZdURi?=
+ =?utf-8?B?S2t2dHhIRFNKYTlpMFdFOFN0NEJoM3ZCR3RDNXNUYy92ZW5PalVhanVTQUhB?=
+ =?utf-8?B?VW1WTTd3WkVWd00xSEFLRVhBRUI5QU0xRjRHR01sNW8zaGxSNDZxYjlad3pV?=
+ =?utf-8?B?OWlMWGJjdGt5T3d0bWlxRUlMMFUzYmxtb2FHakZPczRYbTlJSTF5YnU5Z3FJ?=
+ =?utf-8?B?dnFzYzBuL0NSRjV0S29TbzJFTnRMclNkS1h4aE90blJ2SnEwMHlpTFkzNjNy?=
+ =?utf-8?B?b0VpS2xZNnhWd0QvN0k5VmowNDVFb09oU2pSZ2E1L0gvQk1oRlNPbkNzQVhS?=
+ =?utf-8?B?UkZSM21oaFRvOVlrS0VoLzkrRFk4YXZ3NVVLQzRtcUFVUCtDbXJ5S1JwYmI0?=
+ =?utf-8?B?eHlreUpIVS90L2p3MEIwcEw1aEl2T0IrRDNFSEs2b1R5TXJXaDdHUjNzTzVM?=
+ =?utf-8?B?YVMvOTRMRkwxYmdwLzRBVFhnRkgvN3NMUC9qZzJRNklsRlk4RUxtOHoyMXdm?=
+ =?utf-8?B?cXNacGVhYmYzMUYxUERrYkM3TUxQdXo3UzZQU1BJdFp1amxxcUJZeXg4Vndx?=
+ =?utf-8?B?R0NkNjVuVDQwQmJOWmpHaGY5VytnelRjS2R6a3dMUzVKU2ZGcVRZdGlGSmxs?=
+ =?utf-8?B?Rkh1NWhXS1lKZzN6OGV0THpIWlJYa0x5M2RsenhxN3g1WHJOMllhVmRxRjY1?=
+ =?utf-8?B?d21BTG1tbTBJd1Z2TWVZMU5FTVNvR2JON0ZvL21WM1h5VGU0U3FUamFYbzQ4?=
+ =?utf-8?B?YzBKTDdpVk1KZHNzZHpUMXdwNTRhbHBNWmh6VVNJdFcxYzVuRkpsOVNObXJE?=
+ =?utf-8?B?OXg1dnJCRVl6UTVmR3JoZmdtUXR5TUt5TlBwNm56aFFuRVAwQ2MyaUthMGFE?=
+ =?utf-8?B?RkpTMmdxbytROWxEYVIyVEdCUGFaa2Z5dW4wSXVQS2RzY045aWw5NXFVYmV1?=
+ =?utf-8?B?NWtNeGdRL1o4OGRXRm9jdU4wNWZuU3FaVGd5WlRZNDZJTm9pVC9hNlRqT0l2?=
+ =?utf-8?B?QVVRR25OcGg0SGxhWnVDL21NdHhKbGI1cHVybnE1eFlRL3hKb2hOZ2pYbEZu?=
+ =?utf-8?B?alBKaThBT1N6MzJxUE1DbTNNS0d6TVEzbmFYL2pGeVhDeE1xeGhTYkE0cUVF?=
+ =?utf-8?B?aE1OUEpETGswaENWVitoU3FVZUZia3JqdnhWdUR2ZzJuK0hYdi9SOGY1a21o?=
+ =?utf-8?B?MGNhdmw2dkE5R25FZ0lOWkZJUmlmeTlWN3N0d1VlK01nYXJjNXg2UlVsN2ZD?=
+ =?utf-8?B?bDVVdW5vU00vbU9WRWtjcmM2dGUxcHJwUFZZQnJkeXJKTk9zc3ZwbWJkQ0hY?=
+ =?utf-8?B?L2FkWGdhVDlvRnNyQVpuQ3lxVVpnenl3cXhTQ21uWTJZbVpibURKeW4ra1A0?=
+ =?utf-8?B?RGxWWnFDVmo3cHhldE1pbVhJa0ZyZUYzWGRDSkpWT1VoU2Nzc0JKUm9pWUNN?=
+ =?utf-8?B?Y1lWL1FuOVZXRkFwQm5WYUIyM3pZTlkvaWkwYjlVOEhKN09zRnZCTVZGWDNn?=
+ =?utf-8?B?d0JSSVhVK0hzUVIvRTZ5Wm1oZ0piS0ZoU05NeFR1eWpIanVsa0Z6c2I0a1cr?=
+ =?utf-8?B?VmFnNHZhN3RkRTJQbTNESWVLemxQWSs4YVdqNm5BZWN4SkgwVlVybkorcFgz?=
+ =?utf-8?B?S04rS2Jlblo3MnU5WG5TRWJhaEhBMjJSZXdDdUxoQ0VWVUE0QjQ4Tnpwckds?=
+ =?utf-8?B?MS9jMHRlZHJKTFQvNXpqRmI0RXNQSFFCbERwTlFia0F6TWZ5azU4dz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fffaaa43-48a3-41e4-7217-08dedc0e3400
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 09:57:49.5743
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xcS79i61PqgfcdaWON70TAyraq+upPz+opuUXrYhVtnj2u2fI3HbMFyoYMJAHrycguYnuLmIKK2ebfWCSkzGNs+6RRp6fQTfZMo7bxiJx08=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR03MB10133
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_025802_825337_F88949CA 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,197 +152,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Uwe,
+    Gentle ping. I'd appreciate it if you could take another look when 
+you have time.
 
---x6pdrlblnduy4h5o
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-MIME-Version: 1.0
-
-On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
-> On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
-> > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
-> >> Hi Maxime,
-> >>
-> >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
-> >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
-> >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
-> >> >> > Hi,x
-> >> >> >
-> >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
-> >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
-> >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
-> >> >> >> >> In preparation to introduce bridge hotplug, split out from
-> >> >> >> >> drm_bridge_connector_init() the code adding the drm_connector=
- into a
-> >> >> >> >> dedicated function. This will be needed to be able to add (an=
-d re-add) the
-> >> >> >> >> connector from different code paths.
-> >> >> >> >
-> >> >> >> > Same story here, explaining what you need later on that calls =
-for that
-> >> >> >> > change would be nice.
-> >> >> >>
-> >> >> >> Here's a more verbose version:
-> >> >> >>
-> >> >> >>     Currently drm_bridge_connector_init() does two things:
-> >> >> >>
-> >> >> >>      * allocate and initialize the drm_bridge_connector
-> >> >> >>        (which embeds a drm_connector)
-> >> >> >>      * initialize and register the embedded drm_connector
-> >> >> >>
-> >> >> >>     For bridge hotplug we need to separate these two actions:
-> >> >> >>
-> >> >> >>      * the drm_connector needs to be added and removed at any ti=
-me based on
-> >> >> >>        hotplug events
-> >> >> >>      * the drm_bridge_connector is designated to create and remo=
-ve the
-> >> >> >>        drm_connector, so it must be persistent for the card life=
-time
-> >> >> >>
-> >> >> >>     As the lifetimes of drm_bridge_connector and drm_connector b=
-ecome
-> >> >> >>     different, we need to create them in different moments.
-> >> >> >>
-> >> >> >>     In preparation to support that, split out from
-> >> >> >>     drm_bridge_connector_init() the code adding the drm_connecto=
-r into a
-> >> >> >>     dedicated function. No functional changes, just moving code =
-around for
-> >> >> >>     now. A future commit will make the drm_connector be created =
-based on
-> >> >> >>     hotplug events.
-> >> >> >>
-> >> >> >> Looks good?
-> >> >> >
-> >> >> > The message itself, yes, thanks.
-> >> >> >
-> >> >> > However, I have questions now :)
-> >> >> >
-> >> >> > Do we really expect drm_bridge_connector to stick around when a b=
-ridge
-> >> >> > gets unplugged? If so, how does it cope with having, say, an HDMI
-> >> >> > connector, and then swapping out the hotplugged part for an LVDS =
-one?
-> >> >> > Does the HDMI connector sticks around indefinitely?
-> >> >>
-> >> >> In your example, the HDMI drm_connector would be unregistered and p=
-ut on
-> >> >> hotunplug. Its allocation will stick around until the last put but =
-that's
-> >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
-> >> >> drm_connector will be created and registered.
-> >> >>
-> >> >> > *Especially* if we're using overlays for this, I'd expect everyth=
-ing
-> >> >> >  after the first hotplugged bridge to be destroyed, no?
-> >> >>
-> >> >> As said, it would be unregistered immediately but might be freed la=
-ter on
-> >> >> if still refcounted.
-> >> >>
-> >> >> This is visible in patches 36+15, the path to follow is:
-> >> >>
-> >> >>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) [=
-patch 36]
-> >> >>  -> drm_bridge_connector_dynconn_release()                      [pa=
-tch 15]
-> >> >>
-> >> >> Does this solve your concern?
-> >> >
-> >> > Not really, I'm talking about drm_bridge_connector. The fact that
-> >> > bridges are destroyed make sense to me. The fact that
-> >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
-> >> > connector for bridges. If you don't have bridges because they got
-> >> > destroyed, and connector, drm_bridge_connector doesn't have a reason=
- to
-> >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
-> >>
-> >> It is not a hotplug-bridge in a trench coat, no :) The code is clear a=
-bout
-> >> this.
-> >>
-> >> I'd say with this series a "drm_bridge_connector" is just becoming
-> >> something more (perhaps something else too). Somewhat as "a drm_bridge=
- is
-> >> either a bridge or something else". :)
-> >>
-> >>
-> >> But let's leave names aside for a moment. If just looking at the curre=
-nt
-> >> code, the drm_bridge_connector is "a handler, owned by the card/encode=
-r and
-> >> having the same lifetime, which takes care of drm_connector
-> >> creation/destruction at card probe/removal".
-> >>
-> >> What we need now is just the same plug " and on hotplug events" append=
-ed.
-> >>
-> >> So in both cases there needs to be "a handler persitent with the card".
-> >>
-> >> Do we agree so far?
-> >
-> > Ish. If we go for that, then we need to update the name.
->=20
-> drm_connector_manager?
-> drm_bridge_connector_manager?
->=20
-> > drm_bridge_connector for something that is neither a bridge or a
-> > connector is not great.
-> >
-> > But even then, I'm not even sure why we need to have that "manager" in
-> > the first place. You want to make bridges be aware if they are the last
-> > in the chain or not. Use that property in attach to either create a
-> > drm_bridge_connector instance if you're last, or attach the next bridge
-> > if you aren't.
->=20
-> What? o_O
->=20
-> Several encoder drivers have been painfully converted to create a
-> drm_bridge_connector.
-
-I mean, it was done at a time where bridge hotplug wasn't a thing and
-the assumption was that the bridge chain is static. You're now breaking
-that assumption, it shouldn't come as a surprise that it might break
-other things.
-
-And I know that you have experienced it already, which makes your
-reaction even more surprising to me :)
-
-> Now if the bridges start doing it themselves we should go back to
-> those encoder drivers and ditch all the drm_bridge_connector from
-> there?
->=20
-> I must be missing something. Can you elaborate on this?
-
-drm_bridge_connectors bring together a (complete) bridge chain and a
-connector. If you don't have either anymore, then we shouldn't keep it
-around.
-
-What I was suggesting before was only a suggestion. I guess we could
-also make the encoder own the hotplug handling code and create the
-drm_bridge_connector when the chain is complete, and remove it when it's
-no longer the case.
-
-We can discuss alternatives too. But either way, we shouldn't have it
-stick around.
-
-Maxime
-
---x6pdrlblnduy4h5o
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCakzNIQAKCRAnX84Zoj2+
-du+qAX43kljZZucgvri1zfEzUShKq54Eo19xSTUSYyjPDqJ97MVWyR/twJsiom7M
-c1IT+5gBgPOy0Sqp9zNOEu4WUU2GiUkEcQulYkP9buQk0paAeCEbBX7WLLC9xT12
-W3H+U3JZYg==
-=wzdu
------END PGP SIGNATURE-----
-
---x6pdrlblnduy4h5o--
+On 2026/5/21 16:26, Xianwei Zhao via B4 Relay wrote:
+> Add bindings and driver support Amlogic S7/S7D/S6 SoCs.
+> 
+> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
+> ---
+> Changes in v3:
+> - Use npwm instead of single_pwm in priv_data and format adjustments.
+> - Link to v2:https://lore.kernel.org/r/20260402-s6-s7-pwm-v2-0-657dce040956@amlogic.com
+> 
+> Changes in v2:
+> - Simpler s7 clock desc, and drop the example in bindings.
+> - Make minor changes to probe based on Martin's suggestion.
+> - Link to v1:https://lore.kernel.org/r/20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com
+> 
+> ---
+> Junyi Zhao (1):
+>        dt-bindings: pwm: amlogic: Add new bindings for S6 S7 S7D
+> 
+> Xianwei Zhao (1):
+>        pwm: meson: Add support for Amlogic S7
+> 
+>   .../devicetree/bindings/pwm/pwm-amlogic.yaml       | 19 ++++++++++
+>   drivers/pwm/pwm-meson.c                            | 41 ++++++++++++++++++++--
+>   2 files changed, 57 insertions(+), 3 deletions(-)
+> ---
+> base-commit: b1385d0c7b7c633e55adcf4a7c1ef46c43a84a4a
+> change-id: 20260325-s6-s7-pwm-281658b88736
+> 
+> Best regards,
+> --
+> Xianwei Zhao<xianwei.zhao@amlogic.com>
 
