@@ -4,73 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B017C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A252C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FryudSw1T2aBIUC8yNaOKfA0SsyG7mefxgdiOUUg/jo=; b=xV4YDegUuHCiFHt5vn6/rfLbaw
-	nFshwSnetLSGGczPGzvPBK0KssGw0yjyvTGuOryQFQaTCK5dF6U3At6plQi9nW5g1s1wGmpg+oIxM
-	OF1vvpFC15EfhBOicVcrp9vPXXX6dpS1UUH+g0lZ5dJ7iTEcnjZ8bleadVK0GD0P4Vdk/HqZukRpM
-	kIgkU0XINsPBFcosrYxUzaBADyJKdpFDNDlz/qJbjZnlNgDcego5VWsbu4yb+leyCyhSx/limitQo
-	rSOlbWTGn7tZpSbk3l/6NrDC7nEXCsxxHzoYwanS/aDd3/kvBlCiVeUDdFoRU3MKSik2TeWY45PdN
-	mLJ/JBTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RC3dNlBAR6ONOLfeHygyeiD6qTZffC37EqkdFP+33q4=; b=4P30/8NIz2uL/k3I8+KTUMW5J4
+	1807k5j0LebGATaKXKbdKA+mdQlhTATSoWcGik9rbXwGZN3Td09Sg2rwl6eWilJ8Vrclkla112+Xz
+	fVylPbvbEO20gJl3AJMY3WSSHlStGV42dz3PxNtgXr3E+VEAwe12plubcDQR/tFG9mc5DaRHBdJCX
+	8OLi099SlnZIaOpvctkVtZfkRXjbwWiYHP19OZqUHsYZryrM5UAL7NBev+vXRtmTIEvGD22+uYRvQ
+	cMqsRz1yDgUIGL7QM0FFxaz4WJBitwLcgsbN+p7d2/Ql5PTbzd95MDS8RCMFtemmgpDWzoI0wPdJa
+	hU7YXmVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whA81-0000000FbrM-0F53;
-	Tue, 07 Jul 2026 18:02:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whADW-0000000FcEf-0TQL;
+	Tue, 07 Jul 2026 18:08:22 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whA7z-0000000FbrE-3cac
+	id 1whADU-0000000FcDx-1lQn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 18:02:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D6734328E;
-	Tue,  7 Jul 2026 18:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41221F000E9;
-	Tue,  7 Jul 2026 18:02:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783447359;
-	bh=FryudSw1T2aBIUC8yNaOKfA0SsyG7mefxgdiOUUg/jo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N+Vnbwoua/QGFqX1FJgxTZEeQArxQywA5ZLkb+cuyiLT1RyZBO8UKEnY1TN1bRU+y
-	 mmImothqrfHNURIQLWJ/FVvuF+nGkjn62x3ctvrxuKVMdasv+rz8+EhJWbyE9bVMAP
-	 XeXPvElu8iOFTsq5ShjS+JCrJ+t9w6iHaJZ2BvoL54Gs1evNMASXj19FeDmeueAseD
-	 M7yO3DIThFb6/MbvZUUbt+47vSyWcwfhLN5nmXrCiCUy18/Fgo7e71ItmXyNIni1sr
-	 e1Cudg/8AwbbkWQxfyGpEJeGE//8QxHgz5emwJUSZxpzTmnrZQg99BNpuQfCaJSKtR
-	 0RMZFg5mGzjig==
-Date: Tue, 7 Jul 2026 11:02:37 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v8 5/7] KVM: arm64: PMU: Implement fixed-counters-only
- emulation
-Message-ID: <ak0_PSnxyAWm9_Fu@kernel.org>
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <akvyvclUQ2b2YHiU@kernel.org>
- <cb5d5f13-a1a9-47dd-a717-5533a8b32b20@rsg.ci.i.u-tokyo.ac.jp>
- <5e66748a-bfda-41a9-8614-88cbf2fe1f09@rsg.ci.i.u-tokyo.ac.jp>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Tue, 07 Jul 2026 18:08:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jO3ibcj6SoxqdQgD1nPbYQDeSRgl2JGp/oba3bRnIpM+r9BncGp243rXGqmbT924c238FmTjni02WiWsWcYijzcbQtlar57JPZi95Wx+aKef+BiY8w/Lg4FpiOG6fOqb6IAcM5EAYXuiUfIHCInAjzM6lhPo4L5cYNZzWAohg4UfLVAnKTnFuap5VP8RN04TvTImd1pWEwWFdAABKHQ80lxoDFz0oEAy1S0Vn2TR0cR9HE6Tq0iuMgXRZWiPwS5rn0PeRP/QI9mPY/nKyApNpMJLTF7d8XtJNBEA9B3xMuI4td8h6CxDTav6nKnHchW4eMCKgebPT+SZoJOBEowYWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RC3dNlBAR6ONOLfeHygyeiD6qTZffC37EqkdFP+33q4=;
+ b=Izfh8xsQWE6gqNxfCyg7dMp/Hgw5ICL7REqSCP7i8FSDXWoML50d+Lkunx9Q+jZdxAJK6d9LfUmQOJjHWJQUWRdDbxf4AYER2c8clySgsK/UHWhyCNrmizYmq/G+fx6LL9MLMd0fD8Jm+2wypLiRBxGfdbiYAFjl+gtwk3uHpsjjSP4MxGib1P3OQutQwCVf6Jjd5MQMKqn6Bi68oUmyeTeDjfnpyyBz/TmlH9DxMHzVyZg6yrTFXUGa0CeDvoFzwCEVDn9AyPWdovUoEKmkjE8NZD1k9UzLkbyviO4lVCn+MsSe+0vpwd1G/FQqmFDLU3yL1DAOsC7MgTANKZeKPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RC3dNlBAR6ONOLfeHygyeiD6qTZffC37EqkdFP+33q4=;
+ b=sEmit50N2cQY9lyMNTrRxts9J4pBmNR7w0dKtlKDIjARkxHhoR/BwZFQtjLecDc9u4R/RcVZZZFyYiuWqu61CSgjfhj0uGnecSnAWGHuT3Jh3ebBxAJEAdXRhAxvA/snKw5dzbS7Lq/xIUnhbSh5SWDI11PDC6n787jm4TPG5dZZ0tqc/ad7C/v4RBRbNKvbjRLZCgzUrp5aUk2B0w5p4qQuXW8huF90hcaMGR3UmUglz+8HLdnpH2dlNqDB3Qng5xVKeGf7vR/LjuFqwTArpwqK7PXAa63gLDs1phjT+lIXP6YxOKJbL9gIwqSkLg8rcInZboxIiiwwgw4QWQ5swA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by MW4PR12MB7286.namprd12.prod.outlook.com (2603:10b6:303:22f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Tue, 7 Jul
+ 2026 18:08:12 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.008; Tue, 7 Jul 2026
+ 18:08:12 +0000
+Date: Tue, 7 Jul 2026 15:08:11 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
+Message-ID: <20260707180811.GB226829@nvidia.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <akzh9qFEfi2umwDW@google.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5e66748a-bfda-41a9-8614-88cbf2fe1f09@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <akzh9qFEfi2umwDW@google.com>
+X-ClientProxiedBy: YT4PR01CA0426.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10b::10) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MW4PR12MB7286:EE_
+X-MS-Office365-Filtering-Correlation-Id: 258faf90-318c-4d7d-6a93-08dedc52b554
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|1800799024|376014|22082099003|4143699003|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: i7h3cWwlF2f1lnA9H8gtgbSdAnAoRVdRSe5gMnI3ZW1YD6qetqP1bnQhXb7oAS0qADa8c8BOlOipI8zoz70s/0nU94oNLvgyjFhxvNYcSN4GD2YTVh2Xr47uwzHmh7AX+Jgj52GSIhCYC4MuoMyU72t4AwIo+FaE0jnTYgjQe0TYXC7idQp7Vue84gOQoMvLl172h+j+ChD/UEky4/c2tV4qBdOeQi8hu9wPY5kmUPKT/SEYxw4rvtFoYR5voR4xduAtpb6SMX3M+ZkuHfSkrROUQK5YyPmfx+JRjHcgmitz1D9bsvaNWGg5v6lWrtZEWzG+0f4EXDv1AP6nmdnSN+lIuvl9AFsta/kLWPeNCvRl7Z/q9FmYl9Xgfj+OWmX2X9HW+c8tmvkeGjd/hPQucj2TsUs2I9ZIymqQ3gUjOH01Py8dpBYYz3fQyDgpMR5qj1lt5tPJuR75kzO3pb3N0cnYTcP44tfppCoQQK73tahUvYCKmnThn0vxGAroXOz5JPaCNxIgQm++auD8sepxe/HXuYJrTvDQPk1kKMUb/KEjxTL5Zruwah7IezezPbAym6KAKokdyDpxwuOEZGBYmdKguFn4ZmDnR164vhz/oYb+KRAk3nGBiNjMcITFBE5UTMGYkFxq7R418qvI5LpqLc1bHC5u1fIdxpUBCGvs0Ho=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(1800799024)(376014)(22082099003)(4143699003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YVlTN3NwVWNnVjI5aVN3Nk9hcDlPblBoNTlrcW9mWk9jTVNWS1JuNFRkOStr?=
+ =?utf-8?B?NnlrekpYbnh2RXliNnhkdkY1OHBFY1RaVEwrVXJDWFB3WnRZRnhXNDA5ZTNK?=
+ =?utf-8?B?RFh5TWVsOFE2ZXhvbDUwZkVyZ2czd3J4blIwaFc2OHpWd3dvL0ZZSXRjS1hi?=
+ =?utf-8?B?VUpEcGtvUE8yc294cmkvL0E5MkVHQkU1M1pFellMOHJMMW5pazBxVEw0WFNt?=
+ =?utf-8?B?dmxTeXJqY3F1MnlWQ093QnNQZEhZbkpvZVh6a2ErTFNJcG0rT0RPL1l4SU9p?=
+ =?utf-8?B?K1pwbmEvamhqR0FKUmw5cVpJZittZnFpWkhBVW1oNGNBQWxJNUN6enBPVFFW?=
+ =?utf-8?B?RVlBcXozSml0aGNraFRMRHdCU1ZhKzQvWGR4Q3kybTFrZUxaaEJ0ektPRHpk?=
+ =?utf-8?B?dEIvZS9ycUdQQlhqQzRYN2VNTVZOMWk5S3loUlVOZ05vZHVkcmFmQ2JUOVkx?=
+ =?utf-8?B?Si9mWFE5U0VKbjhsdjJzQ3Z1TGRETXNua0c3U1N6ZmVlVXRtemtLQmN4TmxI?=
+ =?utf-8?B?RHptSS82YzJ6V2UrNGtwaGNNcS8yemYvK1NPeXA3RUFKTUVJTkVTZUVxYUFu?=
+ =?utf-8?B?NlNzdncrWGVHTDZpekorS0w0ZUduYSszL1FWU241VXplRVo2dkxYTjZvTnhq?=
+ =?utf-8?B?dzlYS3oya3l6Q213OGlXbUdsaXNPODYxYkRkN0h2ajFaZUpBR1lINGQxVkt3?=
+ =?utf-8?B?K25XdFhDZE9BUUNTd0dXQzd1dG11cUErWFBpa2pzbFZOWDVnOTkzYnB2MFU3?=
+ =?utf-8?B?aThUdHJKdGNRTHNTWnRlbzNaQnhib3h2OG83S1hRSC9EMFBPQTFIcjlyUVcr?=
+ =?utf-8?B?QzJFY0RiN1FFSEZ4T1NybnNvYWxTcjdjN0JGWUVXM1NHa0VwVENIY2NDN2p3?=
+ =?utf-8?B?eXU5L2szUjlzM253N2IrQjg2N08wMDVHOUJjMUE4RG1UWWRuS1k5cGhHUjFa?=
+ =?utf-8?B?Q3FQbTlPNk5GcitwaDlvcUpHTnFTVnBsVjhEekVBQ1M5SjZkdW9BRFo4dTI1?=
+ =?utf-8?B?dlhFbWhUZHEzSGlCK0VWQTNieWdvRG4xcUtRR0JTb1hURHVLZG1BR2FhNGFl?=
+ =?utf-8?B?R09YRVZKM2dxTHIraEJHN01PczBCL253d0EveGpjeWdsaDcvcHBsbnlsYWhp?=
+ =?utf-8?B?RUxmOUdNMmZEMDNGTlFRVzloeHoyUDZDNUl6QVJBZFc2SkMxMVJaQXh5ZWM0?=
+ =?utf-8?B?bHlQVi9reWtUQ1BnNEJxeEVLUUtnRnpDRWRxL01OdzR6L1pJR2dpY1A5OVBz?=
+ =?utf-8?B?MTlneUVpNHhjNWhzbnhjbTlwdmNGWDZDeDlhWDg0RFp5OUpxUHE2QmdIekJi?=
+ =?utf-8?B?TmdPOGxSMTJkc2R3TWRzK0JWaFFVbGJHVEdpMnZjQjd3cmhLQ1J3aVFQVnl5?=
+ =?utf-8?B?QUQ5emtWVndMSHp4bmt2cENvTk1uYktVS2RzMGFINGJTQ1BocUE3U01NWG4w?=
+ =?utf-8?B?WjJiQ0Z3cjE5azNFZ3krQjdWNVZYSm5OZ25BRXV5NkhXdFcvbUg3QmJDSGpl?=
+ =?utf-8?B?TlFvbGNwaXB4cHI3b2MrWTUybk1iUmRhZlFmdlQ5KzFOUEZCQ1ppazdFK2VD?=
+ =?utf-8?B?T2E3eUlldDJyNUd6bEJ2eUU2MkorOUpMajVrUE9pNkRzb1NOejA0ZjVoKzhX?=
+ =?utf-8?B?U1UvYVhYb05XQko0MkRjWjFLNklFcnY4c25RRjN1ODJTZk5LVTZBNkdNcHd4?=
+ =?utf-8?B?d1dZeGN1SFZyd2ZpY3o1K25OOWJHaXRYbjQ4ZTV4RFcrRmd5bE9nUVR0K2xS?=
+ =?utf-8?B?d3h4M3NROVh5SEVrQXNhcGluQnBFK2RmKzZieklVTFg3aXI2ejY1ekw0VHNy?=
+ =?utf-8?B?b3JoR2VxM1p6bjhEVlNZZ25QTWFtdXhMWUNMRjZwOUFpbExuRGxJN3VpOXBD?=
+ =?utf-8?B?dDJ6WW0waDRRQzJ5OHVxYmVjNHlxc0VWMEVsa1RyTWc4Yi9uNkdLRGdTQmgz?=
+ =?utf-8?B?QUp5N2h1WXAxaEprbjBUanNqQmp3eHF6ZWo4VlE4clZMaldBWEIrNmorZTZJ?=
+ =?utf-8?B?allLelFIWFNIS215a3lNaGxPa3pXUTJhanRJSEJvdXdweFlZT21KMmdYRnd5?=
+ =?utf-8?B?NE9uSU1xVGFlcmNuM3lmaHhSc2FBSEYyeFVRN2hzMyt3eUJjd3FNMG52RHZn?=
+ =?utf-8?B?ZXpLQWlxM0t0U0NiQ2wwUTJmYkxKMmxSTTYxb3B6MER2SmtVUGlVVHVQWU1P?=
+ =?utf-8?B?VllKMy8zNFBqVFlsbnRiMzFzbGVkZERJRWp2QTdKUEE0TVIza0xtYlFRR1NX?=
+ =?utf-8?B?ZklFSUJ4WXNWcEMycE1hK0s3em93Nzd2UGMxK0JPWGNGWWtSaFZvanU4N1Qz?=
+ =?utf-8?Q?GbuLXvqlILT5VBo0Ab?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 258faf90-318c-4d7d-6a93-08dedc52b554
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 18:08:12.2801
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A7UdSQ7VESj6LDDIUi7H+WXJWAN5oo1mH9YrLCdOs4UPOsy9Ul5MZpBnhvfzs087
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7286
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_110820_464383_17406F8C 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,113 +154,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 09:52:49PM +0900, Akihiko Odaki wrote:
-> On 2026/07/07 20:23, Akihiko Odaki wrote:
-> > On 2026/07/07 3:23, Oliver Upton wrote:
-> > > Just detect the changing PMU implementation here, KVM_REQ_RELOAD_PMU
-> > > will need to detect the PMCs that require an update anyway. Stash the
-> > > last cpu in kvm_arch_vcpu_load() and pass it to this:
-> > > 
-> > > void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
-> > > {
-> > >     if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu)
-> > >         return;
-> > > 
-> > >     if (kvm_pmu_probe_armpmu(vcpu->cpu) !=
-> > > kvm_pmu_probe_armpmu(last_cpu))
-> > >         kvm_make_request(KVM_REQ_RELOAD_PMU);
-> > > }
-> > 
-> > It is a nice way to simplify the code and to avoid hardcoding
-> > ARMV8_PMU_INSTR_IDX. I'll use the code for the next version.
-> 
-> I tried this but unfortunately it doesn't seem to work. kvm_arch_vcpu_put()
-> sets vcpu->cpu to -1 so we cannot simply read it to get the last cpu in
-> kvm_arch_vcpu_load().
+On Tue, Jul 07, 2026 at 11:24:38AM +0000, Mostafa Saleh wrote:
 
-Urgh, there's no reason for doing that any more. Let's fix it, I want a
-straightforward way to detect pCPU migrations. There may be other
-reasons for using it in the future.
+> The smmu_domain is only used for the tgsz_lg2, canâ€™t we add that
+> directly instead? Decoupling the invalidation form the domain would
+> make it easier for KVM to re-use the code.
 
-Untested, but could you give this a whirl?
+Sure, done
 
-From bb5af058030aada66f5c9eafa54db604979acf55 Mon Sep 17 00:00:00 2001
-From: Oliver Upton <oupton@kernel.org>
-Date: Tue, 7 Jul 2026 09:50:00 -0700
-Subject: [PATCH] KVM: arm64: Don't clear vcpu->cpu in kvm_arch_vcpu_put()
-
-commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
-reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
-running at the time of access. The VGIC has gone through an entire
-rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
-vgic-new: Add userland access to VGIC dist registers") the user
-accessors just grab all vCPU mutexes instead.
-
-Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
-detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
-much more pedantic check that the provided vCPU is actually what's
-running on the present CPU.
-
-Signed-off-by: Oliver Upton <oupton@kernel.org>
----
- arch/arm64/kvm/arm.c   |  1 -
- arch/arm64/kvm/reset.c | 15 ++++++++++-----
- 2 files changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 50adfff75be8..735acc42b50b 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -749,7 +749,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	kvm_arm_vmid_clear_active();
- 
- 	vcpu_clear_on_unsupported_cpu(vcpu);
--	vcpu->cpu = -1;
- }
- 
- static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aac..6aba085c0673 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -190,7 +190,8 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
- void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_reset_state reset_state;
--	bool loaded;
-+	struct kvm_vcpu *running;
-+	bool loaded = false;
- 	u32 pstate;
- 
- 	spin_lock(&vcpu->arch.mp_state_lock);
-@@ -198,10 +199,15 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 	vcpu->arch.reset_state.reset = false;
- 	spin_unlock(&vcpu->arch.mp_state_lock);
- 
--	preempt_disable();
--	loaded = (vcpu->cpu != -1);
--	if (loaded)
-+	guard(preempt)();
-+
-+	if ((running = kvm_get_running_vcpu())) {
-+		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
-+			return;
-+
-+		loaded = true;
- 		kvm_arch_vcpu_put(vcpu);
-+	}
- 
- 	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
- 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
-@@ -269,7 +275,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	if (loaded)
- 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
--	preempt_enable();
- }
- 
- u32 kvm_get_pa_bits(struct kvm *kvm)
--- 
-2.47.3
-
+Jason
 
