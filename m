@@ -4,145 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5746C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4661C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsASyIWmAtkxRgXRPjjruR2WEiGzZEDLIP6qCnvVRHU=; b=Excer/90Iw4REguXPC2ilPKOl5
-	d3tS39/yJI2erNLlEXADfWfciNo/8seB/6EUJ0GLZgoPgAGyBqk167uh/Nb1O7z/blHRkH4wpxB+8
-	CL7dGhMWdnWVZ1zHpwBpDlGUpO8SG0ZoRu4NNixe9xwxQmJaeHdSOpYrlHDhxAGgsWlcvT+2fZIv6
-	DPWtOnp6oRMQPluoCzwOppq7DKDEQPEH6nezmsT3zhAFv9Nmxj/jDQm8Iy4MSBiMB3K5ps1/6qs5n
-	7boxERMGUnrVSkQIvueJZrGIa4HBH91BsmK6XfqmkvxFeLJtqnEbki+MwpXBSQyAJ7OrzxEloEfYM
-	HmEGJopA==;
+	bh=6372JEEZ7siNM2rDDA9jkfJcw0t4wmUTZbohTnpUyzU=; b=TJGYipkCXg+wuBdk8hKpUkzkWT
+	QiP7v+3KMXlswsIskPZiTxb7P+VqiwXkk7KNG5YdOnOeWZEICIs4LF7UdGpYFE4mWWdJndOCjhN5o
+	NbzFhCwPctKb4W0TSsCQ4U1pfpdGokIDbF+7FkjVD1Q0yJ9ynKhfPdxnTHTNa/ILtRd+oz6PRA2gP
+	8BXaws4JEiRUoF9LtAJA2vD1EukeCOPrBARS4z7MN1yXqvzZGZZUxzMbDxFC2DxALEE66UhkKX3MG
+	yeKo5BxF7oJJy9KXG6nMmB7X1GVUPn9MIOfWyeSEn1uEHb7ODeMoWp42LeUx6KTC0aBEXX/MUaPoU
+	lxRiZFZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUGR-0000000HTud-1aaX;
-	Wed, 08 Jul 2026 15:32:43 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUGO-0000000HTu6-34Ru
+	id 1whTy8-0000000HRnA-1CMR;
+	Wed, 08 Jul 2026 15:13:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whTy4-0000000HRmk-3UqB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 15:32:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JEaOC5ryLrVVHv2vXftmj+8F1IqnWAqC5A6oICiljXFZic+xfn0VNkXggW2x+UzaGzQM2vRKpATDWpSNW8swmRN1u7KIhSNeTVl8u8oT4speEm5xNV5RjYQLDouYj1MDOY49rjmLA1zdM8kLIV2/bAEJBzP+/zA5G8TRYBIAQE350GW9BXrvn/cpxma+XtkcsEeRGBkzv4gool9gtktDdMXVL/VEqGyeHo5MahkFM0c8Bfoa8rkZiY32C/G7wcAzO/nV10Y8O/VpjuYMvKEC6URDSLhXU+diEnVOAQucbq6wGkU/UJzgw9GkSqQLGDNVHNr7xF6BE/sRYuURCHZF3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YsASyIWmAtkxRgXRPjjruR2WEiGzZEDLIP6qCnvVRHU=;
- b=FtNgwuIKJR+kBF8VXBIVr+OOe3NIUyqEYKUcu/Q4U9xICxslhZYEU5fr5sd6cdEtzULR9OVdbJ2mmx1+gjRPCXfIKUjUniIr77svczzXWs/gGmNZ7oE021aPuWZjEVhnT50wajnOmu0HHWFpQgP19U9vd6JpnJyEoLWQoOMl8BotrHvqnA+jpBrwb8ql7buuE5eLbnpp6LZfI1PQOIUDJSYtu18wxBI7WVHCkWaYPCP8os34Vef3RQUMMeDrRcGHwqti9UGxiwQSRBd7iWlMXntp2++wejqc1REDvjZyU1xlYOoP6fdW16JGRLFrL/cIV+o+9kZ3vylRmJg8AhvPXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YsASyIWmAtkxRgXRPjjruR2WEiGzZEDLIP6qCnvVRHU=;
- b=y9rOZHPlw73FwF+oxqgonXvZriLv6XyPg0YsqB7QPpz+hpntKsijxNcfTTPvDUtWsAZeqaKuw9THHn5RMeF2aswNBrZ+UVKxJ/mQCezPfV876ekxkgpvwD31iJ74Rt9kMlIIvAmf6Uhd4KEXPbJsUkR5nleaY+E4sTHYoLBHeko=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by CY5PR12MB6036.namprd12.prod.outlook.com (2603:10b6:930:2c::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 15:32:26 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0181.010; Wed, 8 Jul 2026
- 15:32:26 +0000
-Message-ID: <95fb4fa5-f5c0-47f0-99de-aaf4c440dd93@amd.com>
-Date: Wed, 8 Jul 2026 21:02:16 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 1/4] dmaengine: xilinx_dma: Fix MCDMA descriptor fields
- based on DMA direction
-To: Srinivas Neeli <srinivas.neeli@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Suraj Gupta <suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Alex Bereza <alex@bereza.email>,
- Folker Schwesinger <dev@folker-schwesinger.de>, dmaengine@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260708100652.603074-1-srinivas.neeli@amd.com>
- <20260708100652.603074-2-srinivas.neeli@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260708100652.603074-2-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0131.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1d2::19) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Wed, 08 Jul 2026 15:13:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CE9E152B;
+	Wed,  8 Jul 2026 08:13:39 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.2.213.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E09DD3F66F;
+	Wed,  8 Jul 2026 08:13:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783523623; bh=KsPnCN5iKtR3Tyf39tnbed0nBIUgL2+cHyPoFgvOS+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bc3j9izUpviX6IatkwKRU96CeLl6uZh+YJkdbarL3THb7zXIVe/Emj1TyPom5OXfB
+	 x5DD6cjTp2lNyx5Gt+tswereaoWfbfc/MILAc1PTljO0ECmMsXO4G7/OISlMis8Jtb
+	 ykZpwidCAERTAn1hhSvDXDK+PS/zTlKeAIafe/b4=
+Date: Wed, 8 Jul 2026 16:13:39 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 24/28] KVM: arm64: Engage NV3 ERET trap elision
+Message-ID: <20260708151339.GB12293@e124191.cambridge.arm.com>
+References: <20260702160248.1377250-1-maz@kernel.org>
+ <20260702160248.1377250-25-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|CY5PR12MB6036:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e086d78-bb3e-4e0d-357c-08dedd061d31
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|23010399003|376014|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: YjFefU4s2X7PjUHv3ZQBIDKl4FyI5McTe7BPn4hXfRZftqD+4/0H+kGTbXb5dAYSihWoF8WDnfzEB5UqNQhT4S3ZbeGXTdQPYYkvm3FPCm9VAuV1hPHfUA+hW3MvRrWkf5Jmp3WvVFIJO4AyyrvyCYkCFXcaVvQFHtjsJ88HmsifPfiV3Wx6cm8g7ThhR8Io7/TwUAQLa+N+zBVABtzmv0+6Cd5mpU4oeNI23EzFGBBxz3v900LqYIU4Fw72iMNJgjEVOhaxUJpQj95G6yzxgNm4mMCCUHK2ZHWlcUpvlF+i8YmHTx7MlQtCaZZ5iU/VHctdxs6F4t8oOGdPRmWJbFsrcWl5Ao3jYxINHRM2IivBfnPDn+e6qtrJhtWIESEifb8UyAlKmeruZobA0Zk49Mdd48qhwsRl0REGK7uYsk/dDVOCP/WV7DjyiSANhwXiQuk4gOs5raK9Os6kWp+66p48YfsfafSGixO0bbhhzQNu8aaAG1x3rnRCbypsfNdnPWLbEboZTsXUUb7risSzLGxZhtA1Y6Z7KAI3VqYjezf82rRLg2CcnR9g6qK45jOFLx1oWYuBdWoEZM/jJSMz+UW/mQ5iYOWTTH2MJ1z91a3lGstoRjlmHJxh6PMsWdgy+vW+5nAqwpXIBgYgefMBq0r065i2evYGBjyHIAxd/VA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(23010399003)(376014)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3QvNXpTMFA2Vzllb1FnZFNIMnpuZnRhLzlsV1V6Yk05ZVA0WUx2NG5KYTVj?=
- =?utf-8?B?VGl5RDcrNENZWmhXazBHazJneXhaZUdVL1FQdTJzWGtUbmhCLzgvblZnSTlz?=
- =?utf-8?B?UG5ORWpkNkZtQzBKQmlvY1NQUjhqVkRtVXhTWnluTHhweXBScVdMTVVkaEIw?=
- =?utf-8?B?OFloVzZGb3o4RGliYUQ4T3Jua2s5Q3JuMmovSWpZWmxqNTBvQzdlMjBQd0NZ?=
- =?utf-8?B?MFJWdVV4eS9BNDI0Z3AvanVjY2kxOVIvMWRkUXlyYkl1MUwzZ1JCaWhKRWJD?=
- =?utf-8?B?dTN6dHF0NGxZTUpFK3VIbU5UT2Z1MFl5dWIrcDYreGw4a1R0V0tuUXpabDg2?=
- =?utf-8?B?dXB5T3dFV1dxazJzSm1Mb1dUbGhPL0NKbFZPNXhqU1RZZi9IYUJ2VGZGbTBF?=
- =?utf-8?B?Q0JkeU9iS2FWWVA0cTQ2QmgxNmZFN3FHR2IvR3VYT3VrMHJqQTdRSERmcGgx?=
- =?utf-8?B?cFFQdFczd3VKM21EbzJDKzFkZGtETDdxWEp3U0pKNW9peko0QklBRi9rdmx4?=
- =?utf-8?B?K0hSUmtWUnVvVkFvM1hFU1ZaQzRUSG80ZHBBNE42bmswNnhyaitIS3Awb24v?=
- =?utf-8?B?by9iZUM1K3JsWnNzL09UK1ZJUDlGTVdFTnFYUHJJY0FEMTBGWW51VDQ3dnRn?=
- =?utf-8?B?UnlMRFM2bWhKWVcrRjVnMjk1OHZBZUdnL0QzSjQ5MTRKcWdIMmt6SExOTjlw?=
- =?utf-8?B?V0RoK2hncXdjZ3BlbS82QWU3WDYyZG54S3pwYUEwUmQ3NDByU0U0RmdPbWRW?=
- =?utf-8?B?dFVvdlkrNHFNZFNPWVZycU1lYWFIWXVWQ2RTTDJGRjh6VytKdE5hMWwwNnRJ?=
- =?utf-8?B?WUZiMjgyWE1qeWNoMmt1ZnhMeFhFTGZiY1JxV1RMRm1GaWhNR1JvUVg2T0ZU?=
- =?utf-8?B?MVFQaHowOWp0cUF1Q0hDNUVScG9BZHdMWHIxNEtmQ2VVVnA5YkNrRXZXUVMy?=
- =?utf-8?B?MnpwWWhWckxLVnJPMGlkRXpYNk8rUXJZNDRHNUpwQ1o4ZnNVMUw2YTBwbzJr?=
- =?utf-8?B?K3hUS3IvRzVFSERpdmZKdk1FRUZoNUtWNkFnSy9TdzVURUxkeUFpckhGdFF4?=
- =?utf-8?B?K1JOZVFmT204WjNmbkZnM2FaSHA0NW45ZFRFVER4dmV0MlpYbWFoeHgvcjBx?=
- =?utf-8?B?Z0w3Y0hobjlBZUJUME1Sa3BHaUhyVEpzT0hVSWEyOXk3YVNOVDd3Vm1WSFg5?=
- =?utf-8?B?U0FnUkMwSzBRcEF3UjQ2UGx2S2xuWCtJM1JEYXNTckFxRzl4bFhOL2JyclNy?=
- =?utf-8?B?TVJPZkdDMkN2UkZXVC9WK05JK0gzOSt0NFZFZXRFZnpVVmd4MTlMUUphZ2RM?=
- =?utf-8?B?UmhTRUVJbHhzUktyU1dFL1J3K2tMdnJmNndQei85R1hmQTV2UnIyRytscE9t?=
- =?utf-8?B?ZEFrSHpsbzU4TmdQYzB2eUk0WHRiTHlHL0tHajlHRWN2b0Z4MzB0ZzVFWFRs?=
- =?utf-8?B?VmNFWlNWN0RIUVVIZDc0NldRM0pYTStpdWlaU1BYQkthVzI4U0xPamhBSHZF?=
- =?utf-8?B?NDdSTVl1QWwrUWZGS1lCL3ZIN3FPVHhsRXVzRVBXRnZqaGNkTG1Xb0t4c2Uy?=
- =?utf-8?B?VTViK2hxdGR3VkNQaU5jamxVWUwwY09LdGxVdTdWbTZ0RlFKTjZTWjVLbTJB?=
- =?utf-8?B?OUdQN3ZwdmxtTHI4NUxCWGY2SHdSMGs2R3JwNFpkSzRKMzE2aWVmK1FsQ0ND?=
- =?utf-8?B?ejlXRGVKTmJ5QlpLR0RrR1dZWWxBdDFyZGpBUGRlYVd3OG90WVJ3YlV4WDdm?=
- =?utf-8?B?cnVoWnRNbVQyZlk3NzB0cFphTCtwdWJ5dGVwckRsbUN5YVFFVk5zT1g5SDda?=
- =?utf-8?B?TGpoa05sQlpCMkFDb2pob2dhQ3JYaUdUUzJHSXRqZ2pkR0wxa25sNDhQclJW?=
- =?utf-8?B?ZmkwYjlTUzBaNjc1eDNCNU9nVHJpa3BhT0hkUnRlK0NraFlRcWdjaGNqM3Vy?=
- =?utf-8?B?N1p2cUpGbm4rR3pLMmxHVEI2RVFudjByd3BIcFk3K2VERzlFL0wwYWNGcDUy?=
- =?utf-8?B?b1VkbXlNWTZzRVhtckNpNVl2bHU3N1BaM3RnMC93dEU1MkhEWjFEZy82T2kr?=
- =?utf-8?B?M2s5UURyTDVJM0xwVytTZmVxQjFNNDNvenNpOXF3M1pzSW1HV3RBNzBHQit5?=
- =?utf-8?B?R0lEclNZeTQvbnBwNkV3YitjbWtSSVZyaTloUlI5ZDIxeVBQQ2ZYYkxjOWZ0?=
- =?utf-8?B?ZGFaOUZFbm5jUmNVNWFWenJ5M2tQTUhodXRvQUNsZUNGb25NYVVjTlRoYjlS?=
- =?utf-8?B?VEFDZjdJZURFd3d6QTU1UFpmKzBHRUJVb2ZZZG4yTEtVZmN6c3NrWkZkT09N?=
- =?utf-8?B?WlcrMi91RnA3c2ZYdVpJL1pjUy9TZ3JGTEdnZVYza1B6TU5DRGdVQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e086d78-bb3e-4e0d-357c-08dedd061d31
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 15:32:26.5774
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OFR2AoPeChl7C1OASACfthTBnYXUzscnM0vZkRubeOmNJsBxqYXXjO/zQZjm9BUk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6036
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702160248.1377250-25-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_083240_777135_86F4CD9E 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20260708_081344_915115_9B282F9D 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,97 +71,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The MCDMA BD format differs between memory-to-device (MM2S) and
-> device-to-memory (S2MM) directions, but the driver was using generic
-> 'status' and 'sideband_status' fields for both. This led to incorrect
-> residue calculations when the hardware updates direction-specific fields.
+On Thu, Jul 02, 2026 at 05:02:44PM +0100, Marc Zyngier wrote:
+> When running on NV3 HW, always engage ERET trap elision when running
+> the L1 context, as there is no benefit in not doing so.
 > 
-> Refactor the descriptor structure to use unions with direction-specific
-> field mappings, and update the residue calculation logic to select the
-> correct status field based on DMA direction.
+> An L1 can itself engage trap elision by setting its own view of
+> HCRX_EL2.NVTGE==1, which will subsequently be honored.
 > 
-> This matches the hardware descriptor layout and fixes incorrect
-> residue reporting.
-> 
-> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
-> ---
-> Changes in V3:
->   - Renamed subject from "for MM2S vs S2MM" to "based on DMA direction".
->   - Reworded commit message for clarity.
->   - Added XILINX_MCDMA_BD_HW_SIZE macro and static_assert to verify
->     descriptor size at compile time.
->   - Refactored residue calculation to separate addition and subtraction
->     operations for better readability.
-> 
-> Changes in V2:
->   - No change.
-> ---
->   drivers/dma/xilinx/xilinx_dma.c | 26 +++++++++++++++++++-------
->   1 file changed, 19 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 98b41b8f8915..ff5b29a808e9 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -223,6 +223,7 @@
->   #define XILINX_MCDMA_IRQ_ERR_MASK		BIT(7)
->   #define XILINX_MCDMA_BD_EOP			BIT(30)
->   #define XILINX_MCDMA_BD_SOP			BIT(31)
-> +#define XILINX_MCDMA_BD_HW_SIZE			64
->   
->   /**
->    * struct xilinx_vdma_desc_hw - Hardware Descriptor
-> @@ -277,8 +278,10 @@ struct xilinx_axidma_desc_hw {
->    * @buf_addr_msb: MSB of Buffer address @0x0C
->    * @rsvd: Reserved field @0x10
->    * @control: Control Information field @0x14
-> - * @status: Status field @0x18
-> - * @sideband_status: Status of sideband signals @0x1C
-> + * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
-> + * @s2mm_status: Status field for s2mm @0x18
-> + * @mm2s_status: Status field for mm2s @0x1C
-> + * @s2mm_sideband_status: Sideband status for s2mm @0x1C
->    * @app: APP Fields @0x20 - 0x30
->    */
->   struct xilinx_aximcdma_desc_hw {
-> @@ -288,10 +291,17 @@ struct xilinx_aximcdma_desc_hw {
->   	u32 buf_addr_msb;
->   	u32 rsvd;
->   	u32 control;
-> -	u32 status;
-> -	u32 sideband_status;
-> +	union {
-> +		u32 mm2s_ctrl_sideband;
-> +		u32 s2mm_status;
-> +	};
-> +	union {
-> +		u32 mm2s_status;
-> +		u32 s2mm_sideband_status;
-> +	};
->   	u32 app[XILINX_DMA_NUM_APP_WORDS];
->   } __aligned(64);
-> +static_assert(sizeof(struct xilinx_aximcdma_desc_hw) == XILINX_MCDMA_BD_HW_SIZE);
->   
->   /**
->    * struct xilinx_cdma_desc_hw - Hardware Descriptor
-> @@ -1015,9 +1025,11 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
->   					   struct xilinx_aximcdma_tx_segment,
->   					   node);
->   			aximcdma_hw = &aximcdma_seg->hw;
-> -			residue +=
-> -				(aximcdma_hw->control & chan->xdev->max_buffer_len) -
-> -				(aximcdma_hw->status & chan->xdev->max_buffer_len);
-> +			residue += aximcdma_hw->control & chan->xdev->max_buffer_len;
-> +			if (chan->direction == DMA_DEV_TO_MEM)
-> +				residue -= aximcdma_hw->s2mm_status & chan->xdev->max_buffer_len;
-> +			else
-> +				residue -= aximcdma_hw->mm2s_status & chan->xdev->max_buffer_len;
->   		}
->   	}
->   
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
+>  arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
+>  2 files changed, 14 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index c562d8171d5e1..b32870a5e1236 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -706,6 +706,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>  
+>  		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+> +
+> +		/*
+> +		 * NV3 is a host-specific extension, and we always use it
+> +		 * when present and that the guest uses NV. It may be be
+> +		 * hidden from the guest though.
+> +		 */
+> +		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
+> +		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
+> +			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
+> +		}
+>  	}
+>  }
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index c5c06ae41b229..f129f22f15618 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  	u64 esr = kvm_vcpu_get_esr(vcpu);
+>  	u64 spsr, elr, mode;
+>  
+> +	/* With NV3, the fast path is handled in HW */
+> +	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
+> +		return false;
+> +
+>  	/*
+>  	 * Going through the whole put/load motions is a waste of time
+>  	 * if this is a VHE guest hypervisor returning to its own
+> -- 
+> 2.47.3
+> 
 
