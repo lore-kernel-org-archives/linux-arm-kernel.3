@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB10EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35856C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S5+zqCqm6NB7VrbhQXn4pi19V8+eCmczdyzKDDG/9iE=; b=VKCHuNdjKSEI/ZCPQfMe4Q7Kzx
-	mhleqN5wuqHC8oytWJUPbVQBT238H0ObA4LtytSG3z/tHX/DsJO+k7+rYalLyul724kZy0SBOmgWP
-	fJLG99R3yP9daq+CPUBKFHVLK6oKDGgKNPdt8V62TstJhuGrFMD2qdzf0ij1KYixbD38w8E3css1t
-	RaT37JQfuNcOLtNKuEHTo50sdJAktiSatJBCbc1l6+nYby7aaW4r9UeJ4e3N6yRWX/dbUrBGVrtoc
-	ouIJioaW+2i9capPXM7aluEv7gHKWRFj15ONx/P2lGzy6QTBM69xHpYemeIfoDlnDUOjXwQmgH0K/
-	X9VsRm2A==;
+	bh=d2geZ5N1dfUvN0fQi/WPixbY0lL3+W7Dp92RODNu8P4=; b=kDgruhCUlW4G8EFcdy/NMtlV0e
+	YNCL2rq6URet5NLOjKvqLcgoYsKWeIqOTQYPHsDJS9q3k+2SgLPvKm4fE204aWJ1hcOd7U6hyIPfQ
+	pd3gkS/LAE5MOTWs4Qs5Z/0X4OkXImSUkzVb8BGyeA+bMe1ywa/kxflebql/78+DvpPlEUWzgrOdy
+	DROBiPS98s8edKuDbisQLmGIZ4Ux3olsWh5jaVFk3hfoMWQafJSMFRN7cmllDSYAGH8Bv6ZmIj/mQ
+	uREHHbZqbpxP6VfCeJCdPQWk87XFbTPpvzNfdE3cATNHQPsjpXUQgnf/TjB+sYj93h15jEJXqN3TA
+	cUVrKmhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPLF-0000000GrNj-2AfQ;
-	Wed, 08 Jul 2026 10:17:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whPLM-0000000GrU7-1Pbj;
+	Wed, 08 Jul 2026 10:17:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPLE-0000000GrMR-19PR
+	id 1whPLK-0000000GrRz-0phg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 10:17:20 +0000
+	Wed, 08 Jul 2026 10:17:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D93AC43251;
-	Wed,  8 Jul 2026 10:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A12BF1F00A3A;
-	Wed,  8 Jul 2026 10:17:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D6E6601EC;
+	Wed,  8 Jul 2026 10:17:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 372341F00A3D;
+	Wed,  8 Jul 2026 10:17:20 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -61,9 +61,9 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add firmware property
-Date: Wed,  8 Jul 2026 12:16:23 +0200
-Message-ID: <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
+Subject: [PATCH v2 06/10] dt-bindings: power: renesas,r8a78000-mdlc: Add firmware property
+Date: Wed,  8 Jul 2026 12:16:24 +0200
+Message-ID: <b4d16ddb0c0af56f4103feadb3014e71899edec1.1783505329.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783505329.git.geert+renesas@glider.be>
 References: <cover.1783505329.git.geert+renesas@glider.be>
@@ -89,18 +89,18 @@ direct hardware access.
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v2:
-  - Spin off from "dt-bindings: clock: Document Renesas R-Car X5H Clock
-    Pulse Generator".
+  - Spin off from "dt-bindings: power: Document Renesas R-Car X5H Module
+    Controller".
 ---
- .../devicetree/bindings/clock/renesas,r8a78000-cpg.yaml    | 7 +++++++
+ .../devicetree/bindings/power/renesas,r8a78000-mdlc.yaml   | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-index 4e23bba334382346..fc499e7cf52e4f0c 100644
---- a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-+++ b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-@@ -35,6 +35,12 @@ properties:
-       <dt-bindings/clock/renesas,r8a78000-cpg.h>.
+diff --git a/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml b/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
+index 1dba1e1b1c5b52d0..9616f0244415896c 100644
+--- a/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
++++ b/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
+@@ -43,6 +43,12 @@ properties:
+       and thus identical to the second power domain specifier cell.
      const: 1
  
 +  firmware:
@@ -112,10 +112,10 @@ index 4e23bba334382346..fc499e7cf52e4f0c 100644
  required:
    - compatible
    - reg
-@@ -52,4 +58,5 @@ examples:
-             clocks = <&extal_clk>, <&extalr_clk>;
-             clock-names = "extal", "extalr";
-             #clock-cells = <1>;
+@@ -58,4 +64,5 @@ examples:
+             reg = <0xc3060000 0x1000>;
+             #power-domain-cells = <2>;
+             #reset-cells = <1>;
 +            firmware = <&scmi>;
      };
 -- 
