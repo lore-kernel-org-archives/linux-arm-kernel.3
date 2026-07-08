@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF411C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9FDC44503
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zcJcB1E4eAZy0egEbo5b49ra1AlE1ZZgAl0aBZPFpg=; b=XviROHm9L+ZZHZ4BZD3u5+alN0
-	vMG/TlfRIAdz6xzwxnTQl4B5UdMdvkHdp30OL8InkeGQ8JRUAkwysV2OiZoCC3NANZeZi4KO/+VnC
-	cNXAErMDsjXmnZpfHYm5yzVL/Al14PCLf1zkPtNysswfH8gWP3DrZNUIhsUNtGVIcaOTSUSjtqwWS
-	vMREHkYxx7GemKg1yuKKjHAonN4Q7QnZ+LXUrV8Si9Y0+L8RFb3zTw2Aw7cwarGgEZi0mKU57z+pr
-	9tMrlEgQU++cXhNaZWP+FSNBkLVKe0q3lxLKvrnjU0VeZpFqNY1aNr7nDgbLvaJBSbozpESjH8gca
-	8OODyQkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mQO7OwEt2ayLBwYgGRVhBYGfbjzxMLDxfhpK0SkwD/o=; b=Q79yqvdTbLhW1q3Mdr3mtD771O
+	nrdpRsB1/bLLHbSWtSFhtuCFfgeMqO0Mg/NJsaoJaKScSWg6O9D2o2dgqfgl3Zgme2dArKpDZkbxD
+	6kn/mVAI+uofeVnjwwZc3Es2XV2WI0HJgd2LLIzwkaUabn1zT1RqVeNwS68FRzz29uTy7XymCgydF
+	WFzOVgLQL4Kw/TeucNwUdhVOS9Weos+twX48ewZrauuXuqqMM4ZTr5vbWAdkKemB8CYtjmlw8GBYE
+	3u7KeKFgh4wiGNX6AyAQgfE8lYo6YTIoGxYSM2s11auPFYkN8AMrqZBcFrs7uDZrcC29NjYH7igIy
+	7nmmUFfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWXY-000000008bJ-244F;
-	Wed, 08 Jul 2026 17:58:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whWY1-000000008fb-2nMQ;
+	Wed, 08 Jul 2026 17:59:01 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWXW-000000008b6-2im3
+	id 1whWXy-000000008ee-2D6w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 17:58:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B9D940279;
-	Wed,  8 Jul 2026 17:58:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFE91F000E9;
-	Wed,  8 Jul 2026 17:58:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783533509;
-	bh=2zcJcB1E4eAZy0egEbo5b49ra1AlE1ZZgAl0aBZPFpg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=lUFCGVvhi3r0g2REAtCb2IGA8CZvBtpISzpqNOsLlIz4oC8RYsx/4BDzxBWlKpED0
-	 OO0H8pEE+Rj/gvkRHSvopojk6+7GJ2AVOWtst9fH1KbISbjRghLiVKG8hjeEoo2NJL
-	 1pONN4spCjOkHAEVviRtqhHebsdb8FkdHq+W9mwMHVu3D2rDo+PIliDI8dLOzCpavH
-	 2v63vsnLIDMQkmI7iMKzYlLlawSHemKEODU9IgIdU5HL7fCECve8y+XTvAEm18oYQ/
-	 fjk+++bhVL1mK2ZtC2q+a75eR0XtyKKWF5XVAIEO0u/AFkjmd4VWUqV8Us3U8DJG1R
-	 Qf80NCztIqmrQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-In-Reply-To: <ak42F240d-53QeFN@arm.com>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
- <ak42F240d-53QeFN@arm.com>
-Date: Wed, 08 Jul 2026 23:28:14 +0530
-Message-ID: <yq5apl0xgy89.fsf@kernel.org>
+	Wed, 08 Jul 2026 17:59:00 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-698ae09e356so27932a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 10:58:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783533536; x=1784138336; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mQO7OwEt2ayLBwYgGRVhBYGfbjzxMLDxfhpK0SkwD/o=;
+        b=hJr2SRc9NXYHURux4FYF9sJyFQ/a43AQouNbQ2HUnYIFuW4x77tLJ3EB6pD96stADM
+         jFMIr33DwV+4Isd+hs6OM4Uku9VUX57aYnMOW/F1txyh9EmG3ZqLvwMXWExr61as3EEz
+         DJGF5DIwRnGVkhQXy3UkB1FuE1fIGLm0dZgX5Wl2+ej8LMLTu2Q54tiYhxjw8WPaEcmz
+         joOwIl/g3YwZn4Js2zBRUJ0DDhIBfEwpGkucvyp3kH12gSA76EXVNyAsDPSFG5rbqsvD
+         G0RI5SVF15IgEpRxf92U8vHdppMqOYkG3YWpF9JjZBraYx5M+x/NyfzbnjO0EgrwuKne
+         aIUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783533536; x=1784138336;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mQO7OwEt2ayLBwYgGRVhBYGfbjzxMLDxfhpK0SkwD/o=;
+        b=asF+5SC8flcj3aKVDQlsRofXIo6Zh9KYd1I/spThVCmeyPhI1vnrYm6iJoGlM2HPAY
+         paeqXTRCnc/J44tP9SYAnp0pQt2k4kVMOCPKlyNBX7eKI8QciPw3IhXgdWskowE1bMO1
+         w5Ic5hzbAuEZFqjrM7+FbKOt1QBoepP7Puixv3Dy0n/Sotnd8dmKR4PojFxKi+ExAJkt
+         +ZwBB1jQ4jbYook+tneaWC1FdnriBvF63OV8WBEQ5tPyIfmUMZIXme0DvVB/oK/KimCI
+         2LKmpB/WcrcnVsoftvXTGP3bZcfWM/jLyWw89Bx0xyWfoHB2ID3uoTUvi1H7EH/9BuU8
+         IGOw==
+X-Forwarded-Encrypted: i=1; AHgh+RpSki8pOMnOJezl/vQOMZv2NkJYjzFDYpcbqXEK6v/aIDa2YIbNtJet1bIlRx99uBJ+AtXPr3c6tIHS4byNPVu/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwygbeDmXYmP6fKYuAdD6kqed5uDp171T1jqwuuzDzr+6ChlpE
+	nc7EF1G64mRA6qdFMkqCfZUqfEy9Phi/TeVpEJLu4gVInt/lcRdtQRDs
+X-Gm-Gg: AfdE7cnJLDRmSlS/Cy6/eeleeafLC8y2COxCdmBH6cibfVJBSuQ/b3tapMO4LvW/8WF
+	5bOwl+QO4mIiLkZ0o8cFFF7neNp9kqRqoH8C1KQhGvcjYvVcd6pKgfeAbAleLpnxWkNDNcJVHJi
+	0W8+xv4dk6yf0J+s71phEUFFEMouP7rwL5nCCXW4oQe3To5BQQXHnrst7I9+alUjwT4WPvjOzBt
+	tcF2O2pr9YRpjr5/zsD1tc8sNVR+Z8DZuvScA802MXY0054aZA/ZHRUop4X9w/u5ZXFGVn/IbII
+	raPDy5+kewWO0cEaUQpjC9Yboluy4FJTpNf9HxZCgsfad5ACV4WJWs1rVn8g6t0traKfF5vE6HW
+	omJjtFJDSdG3jeqG1W8R8oKItZW/Dsz/snP9MpqCEkwzPrUehsHPx1vsnBDJrC+IWDQvjY0kzrz
+	FNmEAhPQ==
+X-Received: by 2002:a17:906:4fce:b0:c12:5e26:da50 with SMTP id a640c23a62f3a-c15ce14c65bmr157380766b.65.1783533535639;
+        Wed, 08 Jul 2026 10:58:55 -0700 (PDT)
+Received: from olympus.. ([2a0a:ef40:ea3:3f01:2e0:4cff:fe68:285])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15ad9bcc26sm357653666b.34.2026.07.08.10.58.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 10:58:55 -0700 (PDT)
+From: Dawid Olesinski <dawidro@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Corentin Labbe <clabbe@baylibre.com>,
+	linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dawid Olesinski <dawidro@gmail.com>
+Subject: [PATCH v2 0/4] crypto: rockchip: Add RK356x/RK3588 cryptographic offloader
+Date: Wed,  8 Jul 2026 18:58:21 +0100
+Message-ID: <20260708175837.1718437-1-dawidro@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_105858_601265_59B1B650 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+This series adds support for the second-generation (V2) Rockchip
+cryptographic hardware accelerator found on RK3568 and RK3588 SoCs.
 
-> On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
->> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
->> index 97987f850a33..acf67c7064db 100644
->> --- a/arch/arm64/mm/init.c
->> +++ b/arch/arm64/mm/init.c
->> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
->>  	unsigned int flags = SWIOTLB_VERBOSE;
->>  	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->>  
->> -	if (is_realm_world()) {
->> +	if (is_realm_world())
->>  		swiotlb = true;
->> -		flags |= SWIOTLB_FORCE;
->> -	}
->
-> For this part:
->
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->
->> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
->> index e05dc7649366..f3fc28f352ba 100644
->> --- a/kernel/dma/direct.h
->> +++ b/kernel/dma/direct.h
->> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
->>  {
->>  	dma_addr_t dma_addr;
->>  
->> +	/*
->> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
->> +	 * as shared by default.
->> +	 */
->> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
->> +		attrs |= DMA_ATTR_CC_SHARED;
->> +
->>  	if (is_swiotlb_force_bounce(dev)) {
->> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
->> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
->> -				return DMA_MAPPING_ERROR;
->> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
->> +			return DMA_MAPPING_ERROR;
->>  
->> -			return swiotlb_map(dev, phys, size, dir, attrs);
->> -		}
->> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
->> -		return DMA_MAPPING_ERROR;
->> +		return swiotlb_map(dev, phys, size, dir, attrs);
->>  	}
->>  
->> -	if (attrs & DMA_ATTR_MMIO) {
->> -		dma_addr = phys;
->> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
->> -			goto err_overflow;
->> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
->> +	if (attrs & DMA_ATTR_CC_SHARED)
->>  		dma_addr = phys_to_dma_unencrypted(dev, phys);
->> +	else
->> +		dma_addr = phys_to_dma_encrypted(dev, phys);
->
-> For AMD/SME, on host with memory encryption we now end up setting the C
-> bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
-> some other MMIO bus understands this attribute. Maybe we should stick to
-> something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
-> since this is not universally defined, just use the old dma_addr = phys
-> if MMIO and ignore any unlikely DMA offsets.
->
+The IP block provides AES (ECB, CBC, XTS) and hash (SHA-1, SHA-256,
+SHA-384, SHA-512, MD5, SM3) offload via an LLI-based DMA engine.
 
-Considering for AMD/SME system an unencrypted dma addr is one without C
-bit, will this be good?
+The series is ordered as required: binding first, then driver, then
+the two DTS nodes that reference the binding.
 
-	/*
-	 * For host memory encryption and device requiring unencrypted DMA,
-	 * MMIO memory is treated as shared by default.
-	 */
-	if (attrs & DMA_ATTR_MMIO) {
-		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) || force_dma_unencrypted(dev))
-			attrs |= DMA_ATTR_CC_SHARED;
-	}
+A prerequisite patch removing SECURECRU reset definitions from the
+non-secure CRU driver is sent separately to the clk/reset tree, as it
+touches a different subsystem. That patch is not a hard dependency for
+the driver to build or load, but it is needed for correctness on RK3588:
+those register offsets map into TrustZone-protected MMIO and must not be
+accessed directly by Linux.
 
+This work started from unmerged patches by Corentin Labbe
+<clabbe@baylibre.com> posted at:
+https://patchew.org/linux/20231107155532.3747113-1-clabbe@baylibre.com/
 
->
-> In the other case, for an arm CCA guest, if the MMIO is shared we end up
-> setting the shared attribute but that's fine, it's only an IPA address.
->
-> -- 
-> Catalin
+The implementation has been substantially reworked. Notable changes from
+Corentin's original series:
+  - DMA descriptor race condition and DMA mapping leak on timeout fixed
+  - Per-device algorithm copy replaces global device list, removing a
+    locking bottleneck and correctly supporting multiple instances
+  - Runtime PM autosuspend added; clocks and reset gated between requests
+  - Multi-SG hash requests routed to software fallback (hardware padding
+    engine requires total message length upfront and cannot maintain
+    state across LLI boundaries)
+  - Hardware interrupt enable register write corrected to use the
+    HIWORD_UPDATE mask that the hardware requires
+  - Software fallback for all registered algorithms; statesize promotion
+    for export/import compatibility with ARM Crypto Extensions drivers
+  - SCMI reset and clock references in DTS corrected for RK3588
 
--aneesh
+Tested on Orange Pi 5 Pro (RK3588S). All nine algorithm selftests pass.
+AES-CBC throughput measured at ~100 MiB/s with cryptsetup. PM
+autosuspend/resume verified over 1000 consecutive hash requests with no
+errors. 20 modprobe/rmmod cycles produce no DMA coherent memory leaks.
+
+Patch series for the crypto subsystem:
+  [1/4] dt-bindings: crypto: rockchip: Add RK356x/RK3588 crypto engine
+  binding
+  [2/4] crypto: rockchip: Add RK356x/RK3588 cryptographic offloader driver
+  [3/4] arm64: dts: rockchip: Add crypto node to rk356x-base
+  [4/4] arm64: dts: rockchip: Add crypto node to rk3588-base
+
+Separate patch for clk/reset tree:
+  clk: rockchip: rk3588: Remove SECURECRU reset definitions
+
+Changes in v2:
+ - dt-bindings: wrap example in a bus node with #address/#size-cells = 2
+   and add the SCMI clock/reset dt-binding includes so dt_binding_check
+   passes (Rob Herring / Krzysztof Kozlowski review).
+ - crypto: fix Kconfig to select CRYPTO_SM3 instead of the non-existent
+   CRYPTO_SM3_GENERIC.
+ - crypto: drop IRQF_SHARED (the line is dedicated) and request the IRQ
+   only after clocks are enabled and the completion is initialised;
+   reorder probe accordingly.
+ - crypto: set a 32-bit DMA mask before allocating the descriptor table.
+ - crypto: suspend the device explicitly on removal before disabling
+   runtime PM to avoid leaking clocks.
+ - crypto: call synchronize_irq() on the DMA timeout paths to close a
+   race with delayed interrupts.
+ - crypto: convert fallback statistics to atomic_long_t.
+ - crypto: use cpu_to_le32() for all LLI descriptor fields (big-endian
+   correctness).
+ - crypto: read key/IV with get_unaligned_be32() to fix an alignment
+   fault and a big-endian double-swap.
+ - crypto: fix the CBC/XTS IV backup offset to use the processed length
+   instead of the scatterlist capacity.
+ - arm64: dts: rk356x: move the crypto node into unit-address order.
+
+v1: https://patchwork.kernel.org/project/devicetree/cover/20260530160704.3453555-1-dawidro@gmail.com/
+
+Build/rebase fixes (not from review):
+ - crypto: use sizeof(struct sm3_ctx) for the SM3 statesize, as
+   struct sm3_state was removed by the lib/crypto SM3 conversion.
+ - crypto: add the missing SHA-224 zero-message case.
+
+Dawid Olesinski (4):
+  dt-bindings: crypto: rockchip: Add RK356x/RK3588 crypto engine binding
+  crypto: rockchip: Add RK356x/RK3588 cryptographic offloader driver
+  arm64: dts: rockchip: Add crypto node to rk356x-base
+  arm64: dts: rockchip: Add crypto node to rk3588-base
+
+ .../crypto/rockchip,rk3588-crypto.yaml        |  75 ++
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  12 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  12 +
+ drivers/crypto/Kconfig                        |  32 +
+ drivers/crypto/Makefile                       |   1 +
+ drivers/crypto/rockchip/Makefile              |   5 +
+ drivers/crypto/rockchip/rk2_crypto.c          | 746 ++++++++++++++++++
+ drivers/crypto/rockchip/rk2_crypto.h          | 249 ++++++
+ drivers/crypto/rockchip/rk2_crypto_ahash.c    | 565 +++++++++++++
+ drivers/crypto/rockchip/rk2_crypto_skcipher.c | 728 +++++++++++++++++
+ 10 files changed, 2425 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/rockchip,rk3588-crypto.yaml
+ create mode 100644 drivers/crypto/rockchip/rk2_crypto.c
+ create mode 100644 drivers/crypto/rockchip/rk2_crypto.h
+ create mode 100644 drivers/crypto/rockchip/rk2_crypto_ahash.c
+ create mode 100644 drivers/crypto/rockchip/rk2_crypto_skcipher.c
+
+-- 
+2.47.3
+
 
