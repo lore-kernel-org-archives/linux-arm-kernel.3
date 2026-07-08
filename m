@@ -4,116 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B9BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC84C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I3bZ88C66V6HFKhaWI5jy3JTUop5eLI3MOR7Pc6VePI=; b=Vk6Z/cS1hQZ7/JUqs6Dv6v2SL2
-	QlJ14EcJY+3cHAKt2GWBm0KIgeDtZDlJhKdD/AaKau+IVPcySia3h09c2Aj7OhWqMayrrTM3VCrCw
-	3h+CHqLZGAfiIQuvgutkyVUTTEsh+jgwiBIHlR8ZY0d18dxyquD4gc9Z8ntkDCLNMr0Z36MhhdRqE
-	649Wd7W4zS/DmjJD4S56QlTASbkCf1UuP+PjRFsIBzDBraovUnhAOaF1+T8pPpgrDZy5F2yT7fUbl
-	5gaEyOPZC2plXdyOr7Va5dl2VRLjNHa2Y4M3Fg/ohR0ny5CrfhpR10h2NGZHFBATp84VtCTcE7vhj
-	xDD2fKqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=; b=JemfxS6AT1UZ/nlOhQlrjJsEGa
+	W04R//C1NAnTwzoPtdS+IU7JwM4GIlOY0havpDMKWetWhbmr7IwUTqrlcs5OcvVqdVG0eZjLJOkF7
+	wRSDNukwpyce5Wa0HGi7pA04/2AUoL0x/mznLWsO+SAuLHeKsN2ZDaTqYgTyiwMhBcpP88vmEtEnm
+	SdMLgF5VYutfneg02ygaJqGLxGFFMc2FmFwp/PT5GrSpcLQUnTqHE45Vyf/DO6vz6fk6nRmYFa2DC
+	hSgNA7zewPxmUikW0o5L6ggc0j1hX609+EqtchhOH5AgGa+JIm/eWLG8RT4hpjZXvx+xgzP0rkQ8O
+	IIOEqWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLYb-0000000GOde-3E2U;
-	Wed, 08 Jul 2026 06:14:53 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1whLfl-0000000GOyI-0k73;
+	Wed, 08 Jul 2026 06:22:17 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLYY-0000000GOd0-1hCe
+	id 1whLfh-0000000GOxW-39R4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 06:14:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NuoNlP2lnSmN79zravD+PDF0pR9eysu+++JDXlK3+G2e7u5DEwwTAAIna4qEqS1PbcpJjwWhKs9P5wmAHUf9YodjbvSTXhVYRKtaEpNj0oesYICwh3786iPCvoheQUAZhql2K+WEssw9dn/7ylVmZGJ4bv9saUOYj76bTiXeFgOs5mQO9fPYFqYUCbaWrYODV/gYnP3COXj7b1a4geCpMjC8xsV00z8kirlz8/G3OAeqHUkrVuVUbhbasYaJOD2T8I52bmPHJ9Hg1qcPcQqO3cTXM6WNTxe4NUGpEaZ+H7oOynEW03wYwDVnvoPRfb84VybYJm4txiaaKFYhTX7mlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I3bZ88C66V6HFKhaWI5jy3JTUop5eLI3MOR7Pc6VePI=;
- b=H7olsI7Mu3NiUQPcKfzi2Eyx6nFnuaiPP14s56qzBc2kEUcsAIzFx1bdZDo9F1eqfkDne4gQ18tbQhHRSIwO/Lez5ADatHXoBioTQqijDH3ckzoHtVOSjOzQzD4BmxYYYazho+JNfOpnko7a6wA4lajqXAbZdvKLGVK1tBjjv122ptK4HkhvcqOCIhGQx7tZPj95DnpzH/HazIysYD4lWH7nWvVK/yDHieA433UiOiPWaaBjcxbGoBiVhuy6MVu1qxv00CXwFKurxs6ehy/zAcwgdjI08mPv86DQFyKtW0/MzvYI2mjGoWjFbZ3465/kyeLf7mfw9wBHgFf+pR612w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I3bZ88C66V6HFKhaWI5jy3JTUop5eLI3MOR7Pc6VePI=;
- b=cOd7wxjIoJNSTK2pTjufGKF9aGYe4MCmz/Q8r/pS6LoAf652yoFl8d4JrLNG2MHMe3oJZa23zVCIpX9heJ8z2sC+H/Z9wtOfIpz3FlVhgrw+72s80mFUFED2UrtOu2yf1elLNPw1zQdcEXHYL/1GWIKIoye9MC57v0BozSGY+YGhWfxXk4yCKEOc36WhVxffCQTNoBTaSyV8WV/m6mX7GxaRf7nA6+7btEEIHLGU+fFFZSqdVMQ8b12aCMsx60wco0G0Atj0KTKmDYVXOm9XkCRINzKecGfv2q9elWHmRTaygrU0XrlnNy1piB4LIpi7G4gDR3bpja6UiPV50ilymw==
-Received: from BL1PR13CA0191.namprd13.prod.outlook.com (2603:10b6:208:2be::16)
- by CY8PR12MB7564.namprd12.prod.outlook.com (2603:10b6:930:97::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
- 2026 06:14:40 +0000
-Received: from BN2PEPF000044A8.namprd04.prod.outlook.com
- (2603:10b6:208:2be:cafe::82) by BL1PR13CA0191.outlook.office365.com
- (2603:10b6:208:2be::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
- Jul 2026 06:14:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF000044A8.mail.protection.outlook.com (10.167.243.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 06:14:39 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 23:14:24 -0700
-Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 23:14:21 -0700
-From: Jacky Huang <jackyhuang@nvidia.com>
-To: <sashiko-reviews@lists.linux.dev>
-CC: Jacky Huang <jackyhuang@nvidia.com>, <andrew@codeconstruct.com.au>,
-	<joel@jms.id.au>, <robh@kernel.org>, <krzysztof.kozlowski@oss.qualcomm.com>,
-	<conor+dt@kernel.org>, <andrew@lunn.ch>, <devicetree@vger.kernel.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
-Date: Wed, 8 Jul 2026 15:13:43 +0900
-Message-ID: <20260708061352.2885386-1-jackyhuang@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260706101526.2556226-3-jackyhuang@nvidia.com>
-References: <20260706101526.2556226-1-jackyhuang@nvidia.com> <20260706101526.2556226-3-jackyhuang@nvidia.com>
+	Wed, 08 Jul 2026 06:22:15 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66766d649fdso403579d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 23:22:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783491732; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QDKTGPxvnUHVi+NumO9Skdfdusu8Z3JaBzbVac0pym5l+gWyziwa56klN4MPIAcWPi
+         x05tKz+V6NHldVkKJdfAAFN27gN8Uv6SlO26S0RwpBMzTp1F4MsxRn4zeBgWL0xoOR/d
+         t7+PgwFGnap03js3vEGN5Ah3YFSbA8vIvA1ErFdFutDimkPoNGgIYujdFM2L/fkBPr9e
+         aUNFD3QDgyL52mW7MLGokZlC6lEBCVLPKrD63FTxEeP2IcDTbXhrV5+/6FlPF5Xb2ZIS
+         j1WB4Pn2z93Sal71oqoRAh0UG6SiUYguePXv5GkyvlXfpHaRuxnc8cCAIfwZSQS76js/
+         4egg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
+        fh=cyqMS1EhhnWRbQQHJm6Q0JmvQ53i0/DxzzwfBn6Gj9k=;
+        b=I5AB/+J9/5mE6bXPk1wkB9GxUaKfdeXSjP3q1ArSEpbAad570NeVPDbFpHjtTC4WzJ
+         LSV9V3o19+rAVTRCmPZ1E8bs4Lu7e7P3zLiC2p5m3Z2n1gea3KXMw499vRIoTHYMGywO
+         jVP4NfmECjXzn3Y7iofpFXOnieh0Ec2lOJ4AB6HC1VmHuxULdlVsB7hS5B377J2AAuXI
+         gisWcbVWHziUddUxcgImIgdRO5bl9WRUlUrBIQ6qOLbM1JRjC9iEJoaiMy6EvErxBSGm
+         l1FCsz04LK6d3Z0uzp4q28dL7EiCRiRXWR/CEi41uCl/Lho9QgXasRcuP+OMYyLU7JPU
+         GAbA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783491732; x=1784096532; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
+        b=UTmMs2FLc2EBrUotfblVDsMIZDXJi4BejbxUTd5MOCo2V3+0ux1hRhjVRd2XJvUvfs
+         /wxXZMJMdsBs08Vcp2fx3nK4zB6mwAC63+Irv4XID4YOLECtnqThWo4ZWuP3kHXiDtlj
+         IYJlgbR4SNg4Xg6c81PJcW4VMc+cj7MLc5pWo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783491732; x=1784096532;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
+        b=hnFBSLyJxYBTlm1XI4Ehjqdhy3szdjRN+xhetgdHflEY9fUB4eZGFbqY80/WoFPmVY
+         heOmYnt8toSh6/fVVM7XYw3l0SY3/TF+uN/+sUL/D01cnX/LmwsEKUtGKK3haJxREEAx
+         mz6aCyQlZ/ygBpHC2jST+EgJeDiENc+/4PQ19oXqrGprAZYIq7QLlC+K09xWDZ7ItTOL
+         peDBof6t4NqBcHYzJThm7YKrrTQGnXTy7ED2iQjCtTmeyu6lnXa8NUlP5Hoz5B0WonLN
+         DhPLZh0uyoWrwEbP9M4MzagMptZptC+1VsX3uanYkdMQwLQB3rItEBZeOV1ckxDxpqvm
+         JBYA==
+X-Forwarded-Encrypted: i=1; AHgh+RolBpD5dC9aEKvTtJeTgpOJh4A5CTk1ypEgxHINmQs6CjudARleLk5Eo22gIZSoDHKp3sjWRCj1j+FQwmMOJqYQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP+e57bH0CB9ZX/RI3bSQ21jt9YKAuV8V4qrzVgkFNoezLXlmW
+	AV6jZBFAxX7xx+UoxhEBWA6Nqipu/0m2k+bCB2lJVxwR510LzEUlmXzvOEI8OIn9p77KtmixWep
+	2dgMy7CWpYeuar6dKAKpkhOt8QeSvmWjRJTYaU7FO
+X-Gm-Gg: AfdE7cm7uwfgY8dC69lvSIMvJU/DAEEHUQMvaxvBCVRSz6vLIyRdagN4lgeV//Dpp+F
+	1b+QS67x1LJ8JQfi0r3yeXCf0/c82YlWxPGnMA/i2qkRROHH4niIzcpiEElHMb8UNM0mvRFeEhY
+	VPCTHDmfw3NKEYfyb7ZnDsoyYU4T1m+h6CH8yD4sN8UIND+Jiie6m1wIuMhyjDJgL7patYjxT5m
+	Pqn2N1qhbnd2hSGHFn6B3sPPDsUSBEn2tEVfxpv+M4yyxrpuLMRXxRGM0opG8Wu+FqEaAWN7Sn2
+	D9wQAMQ454LUSIuJpsNoPiFg0XA=
+X-Received: by 2002:a05:690e:4841:b0:666:2480:2b0a with SMTP id
+ 956f58d0204a3-6679f201176mr697881d50.50.1783491732443; Tue, 07 Jul 2026
+ 23:22:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.37]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A8:EE_|CY8PR12MB7564:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8fecfa8-5edf-4bc9-c484-08dedcb831d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|30052699003|7416014|376014|11063799006|4143699003|56012099006|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: CtiOzK3IWcQlLQgENkx5Osi+eI0qD/DfNWQ74UEgFTcBWTr/FY4eJFQOy9iMNvTg7hCuAEQrV33whNGXfdbrxwHqzjfONDAHalBLmxI4BZercDBfpvO3v3ilJr1VKSMTcJ/KLRliCm1LrwUAdgYT5Gz2qqBD55nGLbdBuLAgSM9gMFdRlRRhNrproejaSizJF2vHHnu9UV/ElZQNs4bVwk+MgrM+tK+5r+PDs1vnVTy8Q6+6lGQPHNuUKitw6qqGbQxd7o6JhBc0o13KslI2EaqlrS4oZbNIWUlUHOZRjcDh8RniBRI/Vxw3R1lSsXMN7FsB2Zsz35C2zITGXeg2DACX5e81/k2UkAW29+RbgwNOjF+SNMdkTgxAyEkQzOpOQ0Xh0AhU/GODW9YVBmjSP1ni+lSf1KLzNoIH7RvHN/b9NA3ll9L7SB3Ocj1okz6kJ9sfROaDggrxHETotDmW3IbHDMziRz58IoNTJeUmE2GxixdIPDcIvGqCVrv92mcVbaK+Km/hr1dc8uuy4q3PSf4ek7R5xkm5Q21Z7xjKnlYp77sqam/iw06RjtfEX1kQNTbe+Mr4/W+jbiFrCRm0xYIsrlLL0R/n68wQZSMmN+OKFp6WzxarZfYECUt43hNe0zgImBVsiWeuoPqd8RV/EgwS+J9lrpV1HTSMZJWYTP2onCSlESqLWLDFxsr03zL4ZP/y1lhLZvAmG/OZryY9vg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(30052699003)(7416014)(376014)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xdZ4R90iNcYQu77M2arQMfjBukuw3DjblNZ3P/rlgXwBQiRYrRLCIBZkfUKdnhqVsRJAbfZx/mIvLQ3rE3UBcjY8hS3Li1raKTYg2NH9M/mvUDkCo5MlYZWYsx05bDQUINYSq/lKIVUt/jG23uwwyC/ZZDTmX/lE9/J4gK2sP/ADNFKEYG/5tBgf0hI/lkvUNjel4bYEdUJiH3hQZbN0hrJ60nP6MEaepkJbx2oNQGdWt0ZalM5lX2LkUMiDqih6YDbs00vk8grBE7ru8a/BwGGJxCYHUv9ubmBlkHg0XyuCIdySAeCLFkiWMWtJFGRrJY8iHz9Ja4O246W3mVdEns0JLiqGZ5tGgmF0dgjge6YGoUFKD/yw+M92NupB4XODmy3FYnkuxxObAanVFDVlBxgKosum99ChpD77a4TezhiU+IvAGJpGoTW+zn+GV71M
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 06:14:39.9617
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8fecfa8-5edf-4bc9-c484-08dedcb831d6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7564
+References: <20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com>
+ <20260701-add-mediatek-genio-520-720-evk-v2-3-19d5da4ef984@collabora.com>
+In-Reply-To: <20260701-add-mediatek-genio-520-720-evk-v2-3-19d5da4ef984@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 8 Jul 2026 14:22:01 +0800
+X-Gm-Features: AVVi8CeA6CFM4kR5Bt4fLtWwaGoE3MK5l8ZS1mrdHaGZI7ndDG_5d5ZiXOKEMvU
+Message-ID: <CAGXv+5F9RPzKWTH1heDEUmWgE2k9mnvdj_uLO9MS5aKqN+3cDw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] arm64: dts: mediatek: add Genio 720-EVK board
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sean Wang <sean.wang@mediatek.com>, kernel@collabora.com, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_231450_538898_CA5AAB9E 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260707_232213_840248_F686C5F7 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,33 +120,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 10:24:00AM +0000, sashiko-bot wrote:
-> [Severity: High]
-> Does this incorrectly nest cp2112a inside an interface@1 node?
+On Thu, Jul 2, 2026 at 12:36=E2=80=AFAM Louis-Alexis Eyraud
+<louisalexis.eyraud@collabora.com> wrote:
 >
-> The CP2112 is a single-interface USB Class 0 device. According to the USB
-> device tree bindings and the kernel's usb_of_has_combined_node() logic,
-> shouldn't this be defined as a standalone device node directly on device@1,
-> similar to how cp2112c and cp2112g are defined?
+> Add support for MediaTek MT8189 SoC and its variants, and a devicetree
+> for the basic hardware enablement of the Genio 720-EVK board, based on
+> MT8391 SoC.
 >
-> By nesting cp2112a inside interface@1 with reg = <1 1> (specifying interface
-> 1 when the CP2112 only has interface 0), it seems the USB subsystem will
-> fail to match the OF node to the device. Could this cause the
-> gpio-controller and interrupt-controller properties to be ignored?
-
-This was already addressed in the v1 thread. cp2112a and cp2112b are
-NVIDIA composite devices that expose 3 USB interfaces, so
-usb_of_has_combined_node() returns false and interface@1 is used.
-
-> [Severity: High]
-> Are the properties for cp2112b also incorrectly nested in an interface@1
-> child node here?
+> MT8391 SoC is a variant of MT8189 SoC with a difference for the Arm
+> Cortex-A78 CPU core maximum frequency (2.6 Ghz for MT8391, 3 Ghz for
+> MT8189). MT8391 hardware register maps are identical to MT8189.
 >
-> Similar to cp2112a above, defining this inside an interface node rather than
-> directly on device@1 could prevent the USB core from attaching the OF nodes
-> to the instantiated devices, silently breaking GPIO and interrupt control.
+> The Genio 720-EVK board has following features:
+>   - MT8391 SoC
+>   - MT6365 PMIC
+>   - MT6319 Buck IC
+>   - MT6375 Charger IC
+>   - 8GB LPDDR5 RAM
+>   - 64GB eMMC 5.1
+>   - 128GB UFS
+>   - 20V DC Jack
+>   - USB Type-C Power Adapter
+>   - Micro SD card slot
+>   - Push Button x 4 (Power, Reset, Download and Home Key)
+>   - LED x 3 (System Power, Reset, DC-IN Power)
+>   - USB Type-C Connector (USB 3.2) x 2
+>   - USB Type-C Connector (USB 2.0) x 1
+>   - 3.5mm Earphone Jack x 1 (with Microphone Input)
+>   - 3.5mm Line Out Audio Jack x 1
+>   - Analog Microphone x 1
+>   - Digital Microphone x 2
+>   - Gigabit Ethernet with RJ45 connector
+>   - DP x 1 (Mode over USB Type-C)
+>   - LVDS port x 1
+>   - eDP port x 1
+>   - UART x2 with serial-to-usb converters and USB Type-C connectors
+>   - UART Port x 2 on Pin Header
+>   - M.2 Slot x 2
+>   - I2C Capacitive Touch Pad
+>   - 4-Lane DSI x 1
+>   - 4-Data Lane CSI x 2
+>   - I2S Pin header
+>   - 40-Pin 2.54mm Pin Header x 1
+>   - CAN Bus x 1 (RS232 Connector)
+>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  arch/arm64/boot/dts/mediatek/Makefile              |   1 +
+>  arch/arm64/boot/dts/mediatek/mt8189.dtsi           | 920 +++++++++++++++=
+++++++
+>  .../boot/dts/mediatek/mt8391-genio-720-evk.dts     |  27 +
+>  .../boot/dts/mediatek/mt8391-genio-common.dtsi     | 673 +++++++++++++++
+>  4 files changed, 1621 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/=
+mediatek/Makefile
+> index a86fb313b1a9..5c75ea1ef09a 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -173,6 +173,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-genio-1200-ev=
+k-ufs.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-genio-700-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-grinn-genio-700-sbc.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-tungsten-smarc.dtb
+> +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8391-genio-720-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-kontron-3-5-sbc-i1200.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt8189.dtsi
+> new file mode 100644
+> index 000000000000..272b1b34c953
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> @@ -0,0 +1,920 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + *
+> + * Copyright (c) 2025 Collabora Ltd.
+> + * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> + */
+> +
+> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/power/mediatek,mt8189-power.h>
+> +#include <dt-bindings/phy/phy.h>
+> +
+> +/ {
 
-Same as above for cp2112b. No change is needed.
+[...]
 
-Jacky
+> +       soc {
+> +               compatible =3D "simple-bus";
+> +               #address-cells =3D <2>;
+> +               #size-cells =3D <2>;
+> +               ranges;
+> +               dma-ranges =3D <0x0 0x0 0x0 0x0 0x10 0x0>;
+> +
+> +               performance: performance-controller@108d78 {
+> +                       compatible =3D "mediatek,cpufreq-hw";
+> +                       reg =3D <0 0x00108d78 0 0x120>, <0 0x00108e98 0 0=
+x120>;
+> +                       #performance-domain-cells =3D <1>;
+> +               };
+> +
+> +               gic: interrupt-controller@c000000 {
+> +                       compatible =3D "arm,gic-v3";
+> +                       reg =3D <0 0xc000000 0 0x40000>, /* distributor *=
+/
+> +                             <0 0xc040000 0 0x200000>; /* redistributor =
+*/
+> +                       interrupt-parent =3D <&gic>;
+> +                       interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
+> +                       interrupt-controller;
+> +                       #interrupt-cells =3D <4>;
+> +                       #redistributor-regions =3D <1>;
+> +
+> +                       ppi-partitions {
+> +                               ppi_cluster0: interrupt-partition-0 {
+> +                                       affinity =3D <&cpu0 &cpu1 &cpu2 &=
+cpu3 &cpu4 &cpu5>;
+> +                               };
+> +
+> +                               ppi_cluster1: interrupt-partition-1 {
+> +                                       affinity =3D <&cpu6 &cpu7>;
+> +                               };
+> +                       };
+> +               };
+> +
+> +               apdma: dma-controller@11300b00 {
+> +                       compatible =3D "mediatek,mt8189-uart-dma", "media=
+tek,mt6985-uart-dma";
+> +                       reg =3D <0 0x11300b00 0 0x80>,
+> +                             <0 0x11300b80 0 0x80>,
+> +                             <0 0x11300c00 0 0x80>,
+> +                             <0 0x11300c80 0 0x80>,
+> +                             <0 0x11300d00 0 0x80>,
+> +                             <0 0x11300d80 0 0x80>,
+> +                             <0 0x11300e00 0 0x80>,
+> +                             <0 0x11300e80 0 0x80>;
+> +                       interrupts =3D <GIC_SPI 432 IRQ_TYPE_LEVEL_HIGH 0=
+>,
+> +                                    <GIC_SPI 433 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 435 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 436 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 437 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 438 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                                    <GIC_SPI 439 IRQ_TYPE_LEVEL_HIGH 0>;
+> +                       clocks =3D <&peri_ao CLK_PERAO_DMA_B>;
+> +                       clock-names =3D "apdma";
+> +                       dma-requests =3D <8>;
+> +                       #dma-cells =3D <1>;
+> +               };
+> +
+> +               auxadc: adc@11019000 {
+
+The .dtsi file's device nodes should be sorted by base address.
+This file's device node order is inconsistent.
+
+
+ChenYu
 
