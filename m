@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397C0C43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5A5C44503
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYFEot0xG+gqPBMU77C4lYbv1Usc9k6OYGJ/3Ree3IU=; b=bPT8+erURAwJZ1XM8N72FCUbiU
-	IaL9gLubUEjQViHfLe4DudUVDYeefdA5GfpUNyz0v6CRnKX9wiQ/CzxDVDQ4eJ2BklFaS+rX2u2oh
-	MRCVL73Jgp2LCQnbh+0wFnQVhELDA3DcRPh7SchBdJaXOsOqr9wkbmpH3+7lfuxqa0XJLk0vvbhW4
-	RUCXEyq1aPES4jG72yyH1C8D1K/IdLQo1ulh+wLYGCwEbf2FkO8KzIKO7AHEt7OyeT4Ts+aMz0TS/
-	ETSu943Y5l0UGeW1wJnlZYH0qKz+vnEGX5Nc5Pf375TWZgQORuFeQ0XhDYxxs24kul0D3oO+Reoxd
-	oM6rWyow==;
+	bh=avFc8g+L1eyCm5XCDbsRZSWjyRAAOJ2Cs9ZxfGGqCu0=; b=sgSoOLvIZ+J1j0EA+VxmYj2iHI
+	mXiksKRejF/lI4vxTWj5AkegZ/RvdS7sZDou5Tlc/jvE2GuNgsUrTBvVg4T+GOHhrRvtL5y/7kaj5
+	ISXzqIpZwI+yX6FE2WA1jMah6ZDolXMKgDOkhT1dtcBLbLtfoCzdMo+6Smj693FURDR7jqGYK1KK3
+	VehyQHOAN7UN5Xb+M9hS3YBAVEd7GiYnRwx9g6pBea/qeqUBMnyvAtr+jdpIi1ySqmbEB+L+fWXcd
+	4NiVp0kLiXJdQcljYg1lmeaIihSri0JmHs8ZUxIYTht7jtfvTEsANyw5ropjqPnYlNMoAxKO/pPUN
+	mAz/gyfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhR-0000000GCHh-3SbA;
-	Wed, 08 Jul 2026 03:11:49 +0000
+	id 1whIhU-0000000GCMs-2e1e;
+	Wed, 08 Jul 2026 03:11:52 +0000
 Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhI-0000000GC8q-48TN
+	id 1whIhM-0000000GCAf-0ief
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 03:11:42 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2cc8bde6318so5478795ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:40 -0700 (PDT)
+	Wed, 08 Jul 2026 03:11:45 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2ccea73f81bso4132865ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783480300; x=1784085100; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jYFEot0xG+gqPBMU77C4lYbv1Usc9k6OYGJ/3Ree3IU=;
-        b=NTeAyRd2BDUc/LyQzS1dRPn7rPc6OhOWedSGP0ty+1CAmny8zGRjnghJhEor507+dv
-         IxDocHJu5YX1gMe5EIExFI9VjXxKrjr2YjGVYuGZvbtY9D/2Q32EallGQBb4sPCYILOV
-         /eoAwOLerMLmbEwABhSovJMPiFSTS5t+PdyK0A8X7OoZbgfHQVTHG8oGyPiWXS+envBu
-         Bk//wwV8S2R3Ghep+aV2TUoPfWI+JdPemfo7DdHfOg+oEZktJnsf8E7QYbTqEJ7dpBy/
-         pAlS5LNTpQPDXESsgF8A72OEYTRVwhg6u5JnxteDSOpx30shbPQ9Qc+gU7U4quUSYVhK
-         iXrw==
+        d=google.com; s=20251104; t=1783480302; x=1784085102; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=avFc8g+L1eyCm5XCDbsRZSWjyRAAOJ2Cs9ZxfGGqCu0=;
+        b=R3oesT0E2FGt4MflMBea2ceS5D3/QDwsZ4eIvbnznm0ZB1dsoxF4hvMqbebnmeGnSB
+         gxixLbH9/iOQbUHMokLko049Qn3H7WMZR1iNzm1qLyrX+KOfm6cJzQoUjIGywxofyW20
+         1/3nbrz+HA8/t85EdV9zEuVKWya/82YrYMURwycaD+MhyXxz1vSdGbd8WwAEZ6F5Gslu
+         s6YQkvNZHWbKGKY5zoej1vZVPXM9aTMotdllhyjN+WJ+f7dT9Zsy5UA2K8a9jKAWFsLq
+         ClFWWMOQ6nQ0ECjapoaIFPvEKt/Scil0TeLFgpEyuw3avmI7n++kcF2KF8r98ryeyNPM
+         pnyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783480300; x=1784085100;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jYFEot0xG+gqPBMU77C4lYbv1Usc9k6OYGJ/3Ree3IU=;
-        b=gTSZS/ahx2TNWtvlvT13YloDMRJIcc1mj4C0pfbyQFMB75ymagfN7wX0s+vNtaJoiW
-         IIxF8ZKIbZdMAA6qeH2TxC9ez5oWv919u9lXmk9dFutJEfIbzWa+kzPBwGkMioPZTrF5
-         S4aD6rKKzxglvziCQzk0ZTbwEpzqqcS7efjX3vtoI+JitwTBr4U0cd4Aig2YdEcROnvb
-         vPv6DTxYoqoHE8KNy2nBKAjOUXmnl39TAZGyLSVlwOWiepbANdenq6L2wo1ZtGSZmZVT
-         09j7bK41oAo60zHDBpM0xfxZIrh1o63+OXLnVgv4Z5QWD/jQsr+amf0gAD3O4IAH9BhQ
-         H4FA==
-X-Forwarded-Encrypted: i=1; AHgh+RrvxE3Fo/ShSNBskkyNBBXo3K5n6Gz8+s6ea4oU6KEAiQ2JZaZpbRCX99xXI/BUTH8VIuD8nflh+Qc9/IKMN/nA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR+6cHLZVjgVamXKsPhw0qkYSnFfMe7tVABG54xN+KXAqpWZ4H
-	3v74+1RSHKCWLuhdfC9cB+gkhrEC0+OyUwMQLUEuzAc6xBSxs0Z3LEVPKoDOVy+aCeLJbkFNDws
-	KK7uC1n3He8Obgc6ErKLBjg==
-X-Received: from plbkq14.prod.google.com ([2002:a17:903:284e:b0:2c7:e8ed:e941])
+        d=1e100.net; s=20251104; t=1783480302; x=1784085102;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=avFc8g+L1eyCm5XCDbsRZSWjyRAAOJ2Cs9ZxfGGqCu0=;
+        b=QmBH4K4xr245mQnkCntlHRDgeGm/UnFU7DiPTUTA3Z1DRDvNC6sQLHvMhKJwzb5j4r
+         K47I9UUOYRhx4pj/i/jIzWJl69yd1HIfAftw9V+xo7ztCdqTfp2l/oRWSdX+tge3REmE
+         4+96qyhHEC1Oyi3VGnTiIdDaG4soxdJSfm2UJCWVHAiHaQd5nJDsPxb7Ben9DUQifVxz
+         YiLtiF19lRoMXo9+6NufCBJ/o1KK1UqzsoKaaXwC3rwg0FTfUMQ41QaQ8eqHzDX3RZew
+         m3oYzhwCqNDgJ9//tieg2pRJ7xmiLiEn/jBUAwJ0+l51qbwPdZAd/N8QZWtSHIf4Lkzv
+         PTxg==
+X-Forwarded-Encrypted: i=1; AHgh+RqfeQYdvYdDmGAbE+ft0yd55vsB15azSAF32vs3PBDS4GphVFbxowoyM3MObyz5PBV5KVnpnPhA9UAXcTXZUSmw@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywth/7E11LNiKDwForx+6q4Hzfe2BrvL6U+U4bhfQPCQVNpcy7P
+	ev6cMabnbHXS4rLh1fOUPn58PRZzjw+9W6AGFRe/YTsFTWeqIZQF+SHsNQw2h4aN86icJNQjJwo
+	JWSnespa8KOIA5/WfJ9jHVA==
+X-Received: from plcs20.prod.google.com ([2002:a17:903:30d4:b0:2c6:a770:7a87])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:1b4e:b0:2ca:d658:d874 with SMTP id d9443c01a7336-2ccea45e8camr7594005ad.23.1783480299668;
- Tue, 07 Jul 2026 20:11:39 -0700 (PDT)
-Date: Wed,  8 Jul 2026 03:11:17 +0000
+ 2002:a17:903:32cb:b0:2ca:53e1:b915 with SMTP id d9443c01a7336-2ccea3b6c11mr7143285ad.14.1783480302107;
+ Tue, 07 Jul 2026 20:11:42 -0700 (PDT)
+Date: Wed,  8 Jul 2026 03:11:20 +0000
 In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20260708031129.3503195-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260708031129.3503195-8-jthoughton@google.com>
-Subject: [PATCH 07/18] arm64: Add system_supports_hvo
+Message-ID: <20260708031129.3503195-11-jthoughton@google.com>
+Subject: [PATCH 10/18] arm64: Support hugetlb vmemmap optimization
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>
@@ -78,8 +80,8 @@ Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.co
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_201141_301970_69523059 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260707_201144_236579_CCBF85C1 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,101 +96,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Track HVO compatibility as its own system feature. If every boot CPU
-supports it, later onlining a CPU that doesn't support it won't be
-allowed.
+Now that HVO is architecturally sound for arm64, enable support. Add a
+new Kconfig for this support, as it comes with a regression, described
+below.
 
-HVO requires BBM Level 2 no abort for the block -> table transitions
-when optimizing the vmemmap, and it requires hardware AF management to
-avoid taking page faults on the !AF translation that is installed as
-part of the RW table -> RO + new OA table transitions.
+Add a comment about BBML2_NOABORT where HVO is relying on it.
 
-Another possibility would be to disable HVO if an incompatible CPU were
-onlined; I haven't done this.
+If a late-onlined CPU does not support HVO (HW AF and BBML2_NOABORT)
+while all boot CPUs do support HVO, the late CPU won't be onlined after
+this commit when a kernel is compiled with
+HUGETLB_PAGE_OPTIMIZE_VMEMMAP=y.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- arch/arm64/include/asm/cpucaps.h    |  2 ++
- arch/arm64/include/asm/cpufeature.h |  5 +++++
- arch/arm64/kernel/cpufeature.c      | 16 ++++++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- 4 files changed, 24 insertions(+)
+ arch/arm64/Kconfig   | 12 ++++++++++++
+ mm/hugetlb_vmemmap.c |  4 ++++
+ 2 files changed, 16 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 25c61cda901c..6db3ef827f86 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -75,6 +75,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
- 	case ARM64_HAS_LSUI:
- 		return IS_ENABLED(CONFIG_ARM64_LSUI);
-+	case ARM64_HVO_COMPATIBLE:
-+		return IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP);
- 	}
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..cf4bd6bd7f11 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -259,6 +259,7 @@ config ARM64
+ 	select USER_STACKTRACE_SUPPORT
+ 	select VDSO_GETRANDOM
+ 	select VMAP_STACK
++	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_WANT_OPTIMIZE_HUGETLB_VMEMMAP
+ 	help
+ 	  ARM 64-bit (AArch64) Linux support.
  
- 	return true;
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index e818ad1b56e2..a62c284962cf 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -885,6 +885,11 @@ static inline bool system_supports_bbml2_noabort(void)
- 	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
- }
+@@ -1607,6 +1608,17 @@ config ARCH_SPARSEMEM_ENABLE
+ 	def_bool y
+ 	select SPARSEMEM_VMEMMAP_ENABLE
  
-+static inline bool system_supports_hvo(void)
-+{
-+	return alternative_has_cap_unlikely(ARM64_HVO_COMPATIBLE);
-+}
++config ARM64_WANT_OPTIMIZE_HUGETLB_VMEMMAP
++	bool "Enable support for HugeTLB Vmemmap Optimization (HVO)"
++	default n
++	depends on HUGETLB_PAGE && SPARSEMEM_VMEMMAP && ARM64_HW_AFDBM
++	help
++	  Enable support for HVO. When enabled, late-onlining of CPUs that do
++	  not support features required by HVO will not be onlined if all boot
++	  CPUs do have such support.
 +
- int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
- bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
- 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..3b9224b99a5f 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2172,6 +2172,16 @@ static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int sco
- 	return cpu_supports_bbml2_noabort();
- }
- 
-+static bool hvo_compatible(const struct arm64_cpu_capabilities *caps, int scope)
-+{
-+	/*
-+	 * We need BBML2 to support Block -> Table transitions without taking
-+	 * faults, and we need HW AF support to support changing the OA without
-+	 * taking faults.
-+	 */
-+	return cpu_supports_bbml2_noabort() && supports_hw_af(scope);
-+}
++	  If unsure, say N
 +
- static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
- {
- 	/*
-@@ -3067,6 +3077,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
- 		.matches = has_bbml2_noabort,
- 	},
-+	{
-+		.desc = "HugeTLB Vmemmap Optimization Support",
-+		.capability = ARM64_HVO_COMPATIBLE,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = hvo_compatible,
-+	},
- 	{
- 		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
- 		.capability = ARM64_HAS_LPA2,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 9b85a84f6fd4..630953d59c52 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -70,6 +70,7 @@ HAS_VIRT_HOST_EXTN
- HAS_WFXT
- HAS_XNX
- HAFT
-+HVO_COMPATIBLE
- HW_DBM
- KVM_HVHE
- KVM_PROTECTED_MODE
+ config HW_PERF_EVENTS
+ 	def_bool y
+ 	depends on ARM_PMU
+diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+index 21377f795293..977249e22ed0 100644
+--- a/mm/hugetlb_vmemmap.c
++++ b/mm/hugetlb_vmemmap.c
+@@ -86,6 +86,10 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+ 
+ 		/* Make pte visible before pmd. See comment in pmd_install(). */
+ 		smp_wmb();
++		/*
++		 * On arm64, this requires BBML2_NOABORT. Its support has
++		 * already been checked.
++		 */
+ 		pmd_populate_kernel(&init_mm, pmd, pgtable);
+ 		if (!(walk->flags & VMEMMAP_SPLIT_NO_TLB_FLUSH))
+ 			flush_tlb_kernel_range(start, start + PMD_SIZE);
 -- 
 2.55.0.795.g602f6c329a-goog
 
