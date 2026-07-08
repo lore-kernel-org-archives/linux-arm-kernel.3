@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9DDC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F04C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+3DDIC4PQymPZk8Lzuoy1hNZXPh/rY0lef4PRU+Vgo=; b=V821GgqsBf/X6lEFpP3KP2PT4k
-	CDDLvavDsAPbAGsmQyH4dQyNoY9e8rTH97xsp0LUgeqGq6EbhRVyTaMDWfXkaDbXGcHRfqq8PC7xJ
-	sewJ9caldteuCB828WmRouCfZf9UU2D1+dJbV/8c4T6YO/GHcfff4PEkvgl4lJmycvM1dYLEOV8Gi
-	k7tFZWwOWyGjLxt0gvp2XPQICvVZBQ+wU3JitGNjGm/BmCSJ22k8JDEkvvHth8SR3fX2veeGLv9WW
-	fQ5aY7nsJP7YMkLYTjdyHI45PnWBbFZh8RgY1TsrHDxRjApdF3L24dt3Ji+k50rpjba98gYJ5vxSt
-	l5eYM6HQ==;
+	bh=y1yMKaThBH4by4GQ13G90z2f3G5Qb2br9h5YbOQflV8=; b=NwtnkByNqrlvvAlcBMiuS5MIGw
+	yhjm478E5wo1eascd0acO4CAwFlfUoWg5k1hZ0fv5ppbT+RNMFnhvO6kgIcgbE/iaFmwjkp3yK/u6
+	Y4MEwhT9AgfyivShjp7+JSJ79dg6jLmK3X6pulwgwl+8TGgHgGfzilaqWHPtStx8yA4Q3gEVRjBPU
+	M4oziAsT/a7M55yRZiImqvF7xC+Z6AGiUA2vsdWQHnr32ZOVF3gu3LME9i2a6Nf+XDUfTBe0t/tAc
+	xf3rifcWnwTIZUMKHBtk2UWaC2NUZOl6MMsWx36m05YXZQQ/Y+LH4b5Ap24izIouQ4rE6/DhLw8U3
+	hj4PmrqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8y-0000000Gg0q-30as;
-	Wed, 08 Jul 2026 09:00:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whO8x-0000000GfzJ-3RFC;
+	Wed, 08 Jul 2026 09:00:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8v-0000000GfxO-4B9o
+	id 1whO8t-0000000GfwL-3lvH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:00:34 +0000
+	Wed, 08 Jul 2026 09:00:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0775412D2;
-	Wed,  8 Jul 2026 09:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3F01F000E9;
-	Wed,  8 Jul 2026 09:00:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 186416001A;
+	Wed,  8 Jul 2026 09:00:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 394CD1F00A3A;
+	Wed,  8 Jul 2026 09:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501233;
-	bh=7+3DDIC4PQymPZk8Lzuoy1hNZXPh/rY0lef4PRU+Vgo=;
+	s=k20260515; t=1783501230;
+	bh=y1yMKaThBH4by4GQ13G90z2f3G5Qb2br9h5YbOQflV8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=K+SeFUTetjIL+PihBvnhdPSutJGC4EU+7KrYuzh8y1FSwWAVd0B1yDl/kBXFi5dLD
-	 ppHbVF4IXNk6XZOjujrTs4Q6lFMh5WpcnIX6SX3+rA09reitJyhCz5aPdD8sSusNbj
-	 gIRe8ymIwmzOPA+yYyEhy/paLbMiAncMLWrMNbKw2DvO/wPN1pUHks1YzYhyuxJlbT
-	 jDXAKttK/EF8pEUc5xSj6U2MMZ5jXMa5SeVOVwqQgkGD9Uv6uluXDtGiNW/ghtddXU
-	 bwclpVQ2slrfaHtIPvgYo4+30rPaxQEChVMDLSyrP1pAx8aLbTOsc2jldt0cc23NkQ
-	 8SPlqD7+qzFwA==
+	b=BXMIvPPs118em0CzQTi9Wx6iq4blEjTIlziU35Ka0qPEQqfd5GZ1tU1mTJiPHWNbv
+	 tpA9LxlildFpfJmjLhnGYc1rf76sUfnq4sMDx82wkHLXcdhB+A6FRN6MBpD82WB7DZ
+	 Qws8y1Uj0kJ+4mu+83UcWC4UBYLOBokUecP6zcXY9ooW2vom15s6UXaXn2rJgGM83/
+	 I7rDgfxYvarVDtgH3Zw8jTWioLeau+nNnofHzI0jqWrcInZDxC4fki6NYg0JfpWWhn
+	 HeIGVWzavQRtAB5w0oO61v07PURGmdXdNWgHfyW31WTo/Dypcqo+juS2zaU9xzHlVE
+	 NV4oAsNcE1iWw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:05 +0100
-Subject: [PATCH v4 09/16] firmware: arm_scmi: Protect device request lookup
- with RCU
+Date: Wed, 08 Jul 2026 10:00:02 +0100
+Subject: [PATCH v4 06/16] firmware: arm_scmi: Reject out of range DT
+ protocol IDs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-9-53142cd60b63@kernel.org>
+Message-Id: <20260708-scmi_core_fixes-v4-6-53142cd60b63@kernel.org>
 References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,43 +69,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI device request notifier looks up protocol OF nodes from the
-active_protocols IDR. The IDR lookup can run concurrently with protocol
-activation while probe is still registering protocols and creating their
-SCMI devices.
+SCMI protocol IDs carried in message headers are limited by
+MSG_PROTOCOL_ID_MASK. The DT parsing paths noticed protocol IDs
+outside that range, but only logged an error and then kept processing
+the invalid value.
 
-Wrap the lookup in an RCU read-side critical section as required by the
-IDR API for lockless readers.
+That lets a malformed 32-bit DT reg value reach helpers which take a u8
+protocol ID, where it can be truncated and/or treated as a different
+protocol.
 
-Fixes: 53b8c25df708 ("firmware: arm_scmi: Add common notifier helpers")
+For channel setup, two different out-of-range values can also be used as
+distinct IDR keys while aliasing the generated SCMI protocol identity.
+
+Skip DT protocol nodes whose reg value does not fit the SCMI protocol ID
+field before setting up channels or creating protocol devices.
+
+Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/firmware/arm_scmi/driver.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 67267507ea1d..73cfe2eaacea 100644
+index 3b0c8b6087e6..8c4a3036ae43 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -33,6 +33,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/processor.h>
-+#include <linux/rcupdate.h>
- #include <linux/refcount.h>
- #include <linux/slab.h>
- #include <linux/xarray.h>
-@@ -2958,7 +2959,9 @@ static int scmi_device_request_notifier(struct notifier_block *nb,
- 	struct scmi_device_id *id_table = data;
- 	struct scmi_info *info = req_nb_to_scmi_info(nb);
+@@ -2873,9 +2873,11 @@ static int scmi_channels_setup(struct scmi_info *info)
+ 		if (of_property_read_u32(child, "reg", &prot_id))
+ 			continue;
  
-+	rcu_read_lock();
- 	np = idr_find(&info->active_protocols, id_table->protocol_id);
-+	rcu_read_unlock();
- 	if (!np)
- 		return NOTIFY_DONE;
+-		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
++		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+ 			dev_err(info->dev,
+ 				"Out of range protocol %d\n", prot_id);
++			continue;
++		}
  
+ 		ret = scmi_txrx_setup(info, child, prot_id);
+ 		if (ret)
+@@ -3339,8 +3341,10 @@ static int scmi_probe(struct platform_device *pdev)
+ 		if (of_property_read_u32(child, "reg", &prot_id))
+ 			continue;
+ 
+-		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
++		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+ 			dev_err(dev, "Out of range protocol %d\n", prot_id);
++			continue;
++		}
+ 
+ 		if (!scmi_is_protocol_implemented(handle, prot_id)) {
+ 			dev_err(dev, "SCMI protocol %d not implemented\n",
 
 -- 
 2.43.0
