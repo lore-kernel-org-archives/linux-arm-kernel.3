@@ -4,159 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC06C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53AFC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euqtbZ8JKHVRTKJRjjj0PorQ8eQxhdkHP+XNgxpwhdw=; b=xZPe3ll831q1cTLqkSAMLC26AE
-	S2Fzdo1QLsEpB+EJPt9eN6GjzJcWKmSkDcCx0UVhgvUIdzynU2fEe54B3v2D4UFRbyPLXMtr7PdKe
-	Gi5xFrcyrlvQ8o5bDJsfx8ra8x83aaikNfQRsCFd831rw9hBOe8e8xZju8X47zPx3e4+W1qnnCfQX
-	St8sLCFybqp8csv9nJnw+ivZ7bG+YKlbeXiBk8/aD7olAkhfTA6DN4FYJviuEov6BoA7pbCUdSman
-	kYegM19A57jbMKVVIIkSMJ7kKODm3Dp6Xw7KaV79y760mPat7FYizw+oirKQ8NtA4qyQtdbVgazJl
-	sjVH+4Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=; b=Q2BjjFfCnB0Jio19a1pGfg1q1C
+	g6GG4sfWRxVMJ3BiCqhgXGCGme29x6JUAHhsHd+dsvFYQrM3o1dSwcyWvJ8ep2nyiZ9uo7RuNPYQa
+	hkEmmPjeDl611z0jE2lHmRcGkEcwc08K++voJie+LEqqLIj5Km0YZXtK2M/9F5U7S3ZP9/wahG89U
+	8vFnKTUuEcU162ASbs6pAU5gPdgiPzEK4Gy2dqprzWF/acE1rftWr51buebBvhcr9mf4f+3IZvhA2
+	R5sk1hIYXS9hwSTBQ4Q3N+wzVEopIbCNa2GND1pEL5wsb4cdbcUyarhMc5CPhaWUkPDeqAN1YTh5P
+	64yaQrTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUaM-0000000HX2I-2K0z;
-	Wed, 08 Jul 2026 15:53:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1whUeQ-0000000HXXt-0I1A;
+	Wed, 08 Jul 2026 15:57:30 +0000
+Received: from mail-centralusazon11010059.outbound.protection.outlook.com ([52.101.61.59] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUaJ-0000000HX1c-3hhz
+	id 1whUeN-0000000HXXO-2iFo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 15:53:16 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 668C3HQH2752124
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Jul 2026 15:53:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	euqtbZ8JKHVRTKJRjjj0PorQ8eQxhdkHP+XNgxpwhdw=; b=povksdEEU32r3U2F
-	208oi4s1n1bP0yeqPcIppmU/CFq/z0p08+vUOGb1+bJfQopePrfbWPCi5pKmapfu
-	xY5ZMZL+fhM+mHK636+iv6T2bySKiKVPwxvAafADP1rm0E9YF71ZlCObddX9+b7h
-	eJ2ZLa89O4/eY1XXhqiLtPo3zpQQUrhecZ1u9YWOyFZncUKFGmH4wNDPyVYOcFWx
-	C4TRD1jkgEth0B8iasVRKmeX2uUWUJw3TedN9oHHXd/jfF9gRTq6QBCYw9Rvfbya
-	yN2GRoHefAatw7UHrkAFHJQ5+aqvsBJYfxPgWtc66NTUjrf/uYyO0qdv7XZbyuUl
-	8jB6Eg==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f9g7hjjy0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 15:53:15 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8f18c4d1f82so21437946d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 08:53:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783525994; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XJBEOahzwevynaCCCc+3CsOBsY+4M5VHBcbmybdXwQpyxr9QbQ0tN/MGLZTrWLnz+2
-         VtOb/pr6vglvYrd9e3isQAUR7sMAr6NWrXy3MQP47O1PGDZyCQ44JdEfHd9bdlb7UOZU
-         uzrulimXI5a6pRQqOhtoLNCqJhaur1ENzkj3sn/OuJnNLBJAzqaafOxAWnKqgmsXMBEW
-         WBl6XgufghETfH7BhRUkEdooq20nRR5tsKQzB+xUZ277BVYHViadM0VF8lcuN+Lg1pJi
-         yldVvb5iN4dQPM6YSgJE5acEfJ9ymoFCy7fU4Y7Kjx3wvpARkhPSSLWrBEA3NNox78WD
-         CkVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=euqtbZ8JKHVRTKJRjjj0PorQ8eQxhdkHP+XNgxpwhdw=;
-        fh=cGhJSjSTgTkmVQUqUU/TGWD+FMWcU7sK3jtmlTehGmg=;
-        b=POydPZsV3HhLYsQ8SAs8Wv+WSA7HuaTekYxDlOYRtDiSo5yvit0ADHjdciY7cUDwgr
-         CoTSdsQRduqgVRnxjUhvIHBjKZwydD0niiZ8wps4hnH9xV9ODa7NPAXxHHiwhWncKs21
-         ibOm0gpz/zYtZ+xMeLhOzQznkGPsx1+UpbxvmdgGzUO0rp/HkWd7CoVKNqOPRaxu9PAH
-         dYHHtoZu8bK7+RTWFJew8fkxiWEjtQrP9BIbXZKIzyUrDSsmN4ozPGQxZrl9Z68qVhbe
-         iMd2MOCrvWFa2x4/nUShgUDrgbIr2mW1Z0xcyaTBxWmZm8WRp4iy+FbX7AaIz833ydTi
-         f4zw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783525994; x=1784130794; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=euqtbZ8JKHVRTKJRjjj0PorQ8eQxhdkHP+XNgxpwhdw=;
-        b=aBqvRbS/nXFF7/XLsA/mZDkNuXLPe4YlXkrtqF2EscfJdH8mU4eOOGM2FS6LEeBESp
-         JCllvZSRTl8p6dqrZbbF4a0p9bfYIDV2+mT3N5kFsKdBYUXsELv357UCqDB/ME15hlo+
-         cu/Hgrka+308fRJ4Wt9oip3DTmatkzaSXzitKfZ+H2CS3SpM70LrSwXW4gASal0ZhS58
-         snRtt8RgbL4/5Rc5gA+ixDa3tZ/mbEWfVnFYdoZzSm7uygZeVhodz9MfwkEw/dyyNRVW
-         JshXMORrI7x2PNrj6eI6NKDMsmK5OGICLWDSdPPbQg+Fln8xCQFfrWgRf+yDgLkwSyf2
-         LVUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783525994; x=1784130794;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=euqtbZ8JKHVRTKJRjjj0PorQ8eQxhdkHP+XNgxpwhdw=;
-        b=rcqYh84TqmlvnO5DP1rfEa8QINGgsX5M38Rr0fUNIsgaFWuQBxMbR9xIpsT8ZP6T6l
-         M/gTNOzZEYsZpITHQpkJhN7QctVhmB00VkIJFLiSrd/SliUZ+gLxjqLJUt65LMaOESzR
-         EJVcrBMZ/CFF9tSPGTc0uCDHH+pJUlUgr53mrRdtetqVOP/lo1usclzwv15/kBfufTbR
-         hCjlXwrL4cXNbsKGR0IYdziyrtGe9i6P08ZetcS1ivKNW3bD+RIyDYr3h0raF+zMalC6
-         TBlSkR00i5jqdhLMwz5pGnrkg9MyJZY/A4csXBf4bHHewk60sywb67xX1XJDM1TX7bqH
-         tbKQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqo9n5l4s2ZRqfVKvDy4CjW3XuYQYAB+dPFuMUlM6gYbF0h94D9yV1TKbrdMvS13EChvfjIdOa3tNgYljbmuGqQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbPQcsqHRFwHvcCPD9STpyMZHFT4/Coh4vXKSrJ6NIgcTt7X1T
-	yu5pRqqxvF2FcFPOAGjXgdmRHm+0OBoTV//zRbzAxSqckyKT1FDNZzlIIgVDjDXNCUHKztcLi8F
-	I76KOijb5WHskTJWoFJcsjsBj/kbRY5MeBxkSYHMQX4vvAzK9AeNOw+KjuZIE/ZI1EprgJ9r7Rb
-	AmhltOYVtP4zo/lMwdVNsVqpCwspDzschyQMoeCtYVowtw6BrkOksyvKUG5ieK
-X-Gm-Gg: AfdE7cn/CbKrcE/PJsnutn1qFDW0NWMKITSRdC1eRd5FozB6kvCaktwdBC68XMcVEwN
-	CaguyUIecw6CVwPeehVCGbHqidMHxQpOrj0j0mSnaVLtda4vpXhvSz65k+wQvlrw9CuOY5/brQ9
-	hcwEjf3sLrvT6cDLjsqsANs24TOQbB2e/5H7aBYQd+pxHe2pweUOgl3wLnKjUpm7vdJ/X0
-X-Received: by 2002:a05:6214:5508:b0:8f1:323a:fc54 with SMTP id 6a1803df08f44-8fec361ce5fmr26792446d6.42.1783525994355;
-        Wed, 08 Jul 2026 08:53:14 -0700 (PDT)
-X-Received: by 2002:a05:6214:5508:b0:8f1:323a:fc54 with SMTP id
- 6a1803df08f44-8fec361ce5fmr26792106d6.42.1783525993919; Wed, 08 Jul 2026
- 08:53:13 -0700 (PDT)
+	Wed, 08 Jul 2026 15:57:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fYDpvmHgEoOgZ00gXu+uh4NJoybSs5JYGg8fjJ2Gi1dcLFthTHZivzFnVJfiEoaysYeRE8GVXLuNQ2UNiGQ6vNKjsG09ON3HrJTwE3ebybBzCAGkKC4DLzDpAqVdrRwTBViExRqyM8R8R0QR7VkMy7aeTKvIQymClvP0BMiirecXMvmhQ5Wcx4weVNfrFehBEucG1CVUjlUo2z9/7HX7RhFer4ZtXAcgo/AEXYUNNkN4iwLxQprXOHJg7JaFPqSUOfYX6T7WxeARfEn1OHPuc3a/toSNgCzJLe5P1f3txFJB2sfC60qpBwgjKeX59m0/CZyc0ucype167wqrAMyMxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=;
+ b=pr+cXSG5QrWIdj83C6+scHAs5jurZb3OtBCNHIWqq4dtcKd3sg9CABdKRxHmEr4SImhlNFLfVRNzecfaO0anPOatZikT8efONF7kN1+PeXahjMiEQLBWEwvn3gAodiFvFdc5JXTQDRh6sTPhY8aGVy0HTnPt0JNJUDoAIUc9Whb0xjPVyFvuNE24VrYSSN01WKUFKtq4Cz7rghKo2fA6CZ7DT186Ty2toWRTgvh3xwBiRqHNmcuhwowV23tcQi6maO3r8M30qdaUiYgxC0whDW8S8n7SHMkIY6/JolgGAb0biF8g6KPxj2iZu+wFfCh8+7L2oPUE2BfmvwqbtJMXiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=;
+ b=IUZHpYmdHRngZ0Xnqofwn6PM+Br0tTmHVnwHTfkZb7XuyFjvAOKR2BpoiNCSkydSugKIs/zIBinBaPyQgrkmRsd7ltM+RhGIsuzmVbFqqRoCnxc1LaMCH4ri5Dz+/mMQg6cQhceRh9dAOWJ2ctzPfev49KYjXH3j6H0un/CCUTU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by IA1PR12MB8493.namprd12.prod.outlook.com (2603:10b6:208:447::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
+ 2026 15:57:12 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0181.010; Wed, 8 Jul 2026
+ 15:57:11 +0000
+Message-ID: <c5c9473f-2a60-4385-9c5c-0d0fabe6c8e1@amd.com>
+Date: Wed, 8 Jul 2026 21:26:59 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 2/4] dmaengine: xilinx_dma: Move descriptors to done
+ list based on completion bit
+To: Srinivas Neeli <srinivas.neeli@amd.com>, Vinod Koul <vkoul@kernel.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Suraj Gupta <suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Alex Bereza <alex@bereza.email>,
+ Folker Schwesinger <dev@folker-schwesinger.de>, dmaengine@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com
+References: <20260708100652.603074-1-srinivas.neeli@amd.com>
+ <20260708100652.603074-3-srinivas.neeli@amd.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260708100652.603074-3-srinivas.neeli@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN3PR01CA0124.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:96::12) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org> <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
-In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Wed, 8 Jul 2026 17:53:01 +0200
-X-Gm-Features: AVVi8Cfl9mmuZ0-N0YzXyQTku0PxVhLh9qj1SZFF_tsUR-VGJVPz8z3CnsVKBnw
-Message-ID: <CAPx+jO-ow2vo2wMxERLGse88wLoaR=HLdOWk6Qwv97ZdbE4R5Q@mail.gmail.com>
-Subject: Re: [PATCH 10/11] regulator: db8500: Add power domain regulators
-To: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Mark Brown <broonie@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-        Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDE1NiBTYWx0ZWRfX5+vjj08EePtT
- JaROmfnMzg5bi9HToVvxzgUHYv0tS0vvq+Alejy9+z0FMfdPepKRXDQ6DuP57n1JTcD079WZgPR
- 8nEJWNVHiX5DfgoEzBw0QG1vgkLBgKbrAip4RIou4+6mCz1h1HeakyX97OaE2bsSOugjQoHGUph
- 1dyFyMxVpgzCrleM77e3cXWu03plpQ8kb8J8Cp6Y9zBbcabEHXAw640QJtfYCNQN78cPdtlGmTZ
- P9m60wJ5pi5aVAyH9dNJDQdOeMpJTcuBvTI9RMtRXQ1r/4WDioWdr+FIFKiGcBwrZ6NiF4Ks/zZ
- WC1JgoPJjz3OVcEU2BwxLWyJCMDf0I4bp6kAK9z+U7U9Opu40hX0Dc0NDmsyRpv8jk3KsRcNXjK
- 2jaa94/UgNajaWgi5MZcyiqnLs+Jx94iLYYFuSB+Tfgx2vGwk5RRlDr9DnGVitLgRB5Y/5TvwLK
- 3iJ3mMf2BYMNd+3eeuQ==
-X-Proofpoint-GUID: laraxSy_cnLu3PYnGhtKpkcDFuPb7phN
-X-Authority-Analysis: v=2.4 cv=TMp1jVla c=1 sm=1 tr=0 ts=6a4e726b cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8 a=l53Gh-upYCO10StVhpkA:9
- a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDE1NiBTYWx0ZWRfX9nGQox0ZXi2S
- NeFwQE8a5TPMEmYoNIkt0OrLzRfa35NxTgNk6oAUJS+tHM/dF6pLCwGoc9omSxDyk8Ayei/+KY1
- K/Tg54hNK+AfFdgSRqdK3zW0Kz1cemk=
-X-Proofpoint-ORIG-GUID: laraxSy_cnLu3PYnGhtKpkcDFuPb7phN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-08_02,2026-07-08_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 suspectscore=0 adultscore=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 phishscore=0 spamscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607080156
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|IA1PR12MB8493:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97e0044c-e72f-4319-b0c2-08dedd09924d
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|366016|376014|4143699003|5023799004|11063799006|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: cmP1jVVzDwJNItLHrsTVljswJ0Dvo8GiAk65uOCpa75AEvO8xJj34g4rKSsc7cgdQETMhAIVM7S3bzOriwPICVDiMGzmOCpiVGxkhMwOs+rnWblAD+gHzirlZZbxoUfTR6+ZD+t8kMfcu5DW5aU53tWzIVJns/HQ3utCtr8vK9IgVwZDmX0GLE1a987rKlMrgqnVMnn40L3evSJRnj17UXyyjxN9is7uId2C3MkKW+s7nXqpyw1jULIxgsEhyPve6RMqIOSss1PmGHsPGffJo3aVgbfwY1xS+6ib/CmYD7TRDT6Av++fj6bUJQ09BMw4u2Voj1ZFSTdYISAzbI5gc8tx+IZ9WnrG+x2OGXWnZKPi5ltp9pp5+574dkfzvF124fZy2tNLBecOitllWd87zU9LW1GQ389q8NkVGgNEZpODpUTwQ5s52CHhywMmxk1GtI8WwP/zDTSFOPh4n19/Z8tfnUbaHCjk6b4hCFIdrAMiLoMbdhE0MyDTAUt+ldk5mzMx6eVUo2tW/HFaQQ3jB0fghdY3fhHCcp0ZTE/BRXvtsianoDu5BW/FCZz6/UlYlko7frHyVXmc2knVLH1sXM/By7IePvI6kC25ffjVy2Z9BEKgs79YgZtBw/S9fUI9K4AFjVtBGjS3bNXZ9z/RsgxT0C1WvfXp4kgPxig1fQ8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(366016)(376014)(4143699003)(5023799004)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGttSE11STJnRmpSdGpydlVKNjA1Z3lzdTlSVmd6QzN5TnJ0SDF2YlZQeWx0?=
+ =?utf-8?B?a0g5dVBURzB5UVovdmx5SzJvUkRIenozR0lhT1cvYm1CNkMvODg2RXNTOTBo?=
+ =?utf-8?B?ZmVlTktEQnYzRjJpT2VBRU9Cb3lDTkNHY09wOXhBYjdBcVJlR2lRaXllNnJW?=
+ =?utf-8?B?cENSTkxkREswaWl4bE0xRmlCS2hSRmt6cm5DUFpoR0d1bXdZUW9nWVBXUkxZ?=
+ =?utf-8?B?aFBKOTZ0RUhFeDJ4eWdkMkQvQVVnUDlDNGhkMnlMOTRMZlF5YXpmY2s2cVJP?=
+ =?utf-8?B?cmQxRXIzRGtsMWE3c0tDZ242UGhYdkF6aFVIY2NjRlJRN2sxZFF5QnN5Rklo?=
+ =?utf-8?B?UkRmcUNjNTVnRDZRNUlBZEdIZ2Q1YWpXdjlxK2M3aFFvS1pObDdrM1VxV0pZ?=
+ =?utf-8?B?dENqRTJuWVZnRGhNcWc1VmRkemVVNzkxcnhkR1lZMCtUQ2Z0T04wbEFQTi83?=
+ =?utf-8?B?RExqWGlRakx3OHhQQ1RTVloxN2M0TVJFakMvQUpabjhYdFRNMmV3a1lTenFp?=
+ =?utf-8?B?MDJaejdjeXF1bVlZejNTaC9IcXh1RS9xYXFGOWRmSEZ3VkNwVTh3clVyQnZN?=
+ =?utf-8?B?V052Q3REZkdYS0lHR1JOb2ZCSERWRVZMM2hFTWxoWTc2RExIdWlxUko1Rkt4?=
+ =?utf-8?B?c1lXeTJ6andCeGxwMmZNUFNqMG1Lajl1V1I2N1VqdGNWRDhsQ2xtdjlTQ3Ev?=
+ =?utf-8?B?Zlpva1FkOG1WOTRXa3dxSElRQ016dkxKZHM2Nkowb0FNTGlVeXhJdGJjL0p5?=
+ =?utf-8?B?RDdtU3dvZko0YUgrQUpFM1lHVUhhS0RzYi9OdkJFRnpWbnorZEw2dTh1UVBl?=
+ =?utf-8?B?SGRScXFVczBOc3hRS0x5TC8zRUViNkNyMm5xczVjN0thcUwraEdRbkNIUnh1?=
+ =?utf-8?B?NUU3cWVlVGoyNlNjeitZb3Y2eGdqcWx1QTYwbS9lWGk2KzBSZkNwMzFnbTRv?=
+ =?utf-8?B?T3FsTVg1VWZoNDFUN04ya3FxYkV5WXd4QjBxZmsyaGM2aTladWZ6Tk1LbENw?=
+ =?utf-8?B?TkJ2MFZYbmt3MW5sZjhHWHc3UGpUWG43VHhKbkxpVnd0ODY4Z29OQVdZMFVS?=
+ =?utf-8?B?dG9yejd2VlBLVXQ5VTd2UGpsS1poVFBmNXJJRitPRTI0dDJyaEw3Lys4S1BF?=
+ =?utf-8?B?c0xCNVU2K0p4UHlScWMzZTF4cWZQOGtocTFBK0UxbWp0cVRXOTV0Yk12RTcv?=
+ =?utf-8?B?Z3dwTTZuQVh0N3dQZ2pqT3JjeTREbGtxcm9TRUtHRDR2ODhwZCtteFY2Tnoy?=
+ =?utf-8?B?eE9YU1dnZ1pKNmdnMCt6N2xhUDl2RjZjTkFrWVZjYzJBZnZaZUpObmJmQzhk?=
+ =?utf-8?B?TUxQa3Q5S1VVdklHekQyMFFXSEJtYUNrZk4wTE9rQmFaTlJzU0NtN2k5UFpo?=
+ =?utf-8?B?QW5XVDB1L2V5dmpubGpEOENmc2Q1eVBGblYrT1AxNEFuOXU4dy9DYUxoSmdX?=
+ =?utf-8?B?ajFhNmhFUFVRSWxadlg2ZVU3RTNKZE9DaWpyOTlBOG9Eck03R3ZDaXRvUUZU?=
+ =?utf-8?B?QUZjN0ptOFNzTTQwV1dUdGFCc052Y0VCdE1ub2VGUE5sSWN1SFVKd3hIZ1BB?=
+ =?utf-8?B?YkhLU2NqcW9wN1FpalJkZU5ZdWNNckZKVG1lMFJYQlhvUVBHSlk0ZVlpSHVw?=
+ =?utf-8?B?Z1RnaXRCM3BDd2xRNmV5TTQwb2xXdlVzZ05lY0RwbUZ6aThhejR5MWRHamNk?=
+ =?utf-8?B?b1N2SmZ4aEF4Y05kNmZEWjRqQlVVU3hzaU9aemZHNERaL2REekszVmxma3ZD?=
+ =?utf-8?B?anlEb2hjSUE3QjNsMDBiaERCRUhFK0oycDRQbzQzalV0VE5wQlA5QW91SHQx?=
+ =?utf-8?B?YzBJSndtYTVMQ091bTJMQlJFMUM3NzdscSt6VHg1Wlc3eEN2TmFoUDNSUnFo?=
+ =?utf-8?B?ZWdveVhIdWN0bWVlb1NoUUJXZUNCUWxEUmRNQmRYUmVkbmxvblAva3BYNW1h?=
+ =?utf-8?B?MnVYd25vRGNnaHo3QVJMNG8wZTJQS2p3aTVlaXQ3L1hIaU56QXlhbWV0eHRW?=
+ =?utf-8?B?cEY1cjBXalZvYlkwSjlsL2xzOW8weXZ1YWxBYm5YL3hCZS9yNjRFSUFXaVp0?=
+ =?utf-8?B?TGkwcjhQeTBLZ3d4UzhjL0xyMm5VbS9LVllSNks1UmdBcDQyRHB2UW5LRTdL?=
+ =?utf-8?B?Y1dzL1ZSb3pxWjRaeFFxY0ZiS0FVby90SXFCaXRTcE9xZUNGN1JINnBvV0h5?=
+ =?utf-8?B?b1dHSWRKMEFCN2hjRHhmOUM0K1luK0pnSkg4UGpzbkpHNXpTeTVhMUhHZFow?=
+ =?utf-8?B?NDBrRCtKTTVoV2NHTUlxNXpRM0hCZnVhbjZobHVaRWRtSkJhN3Q0a3NvN3Ra?=
+ =?utf-8?B?RFVCWTZHdVczZ2ZTdDVpbDVmekx5elhyZmVhOUtJUisxNS9qcTFOQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97e0044c-e72f-4319-b0c2-08dedd09924d
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 15:57:11.5849
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aXp1zDYZW26gHnW5Z9CaaLVbgaVIkS3gWD0U7/ThkROkXMHOYnbxtbjZiw3ao5Jz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_085315_925710_422178A6 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260708_085727_711954_5773F2E6 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,72 +157,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 7:01=E2=80=AFAM Linus Walleij <linusw@kernel.org> w=
-rote:
->
-> Add a DB8500 regulator driver for the VAPE and VSMPS2 compatibility nodes=
-.
->
-> Back the regulator enable state with the corresponding power domains.
->
-> This is done for off-chip consumers: the corresponding voltage rails are
-> routed out so they are used for powering different peripherals using
-> these voltages as supplies.
->
-> Assisted-by: Codex:gpt-5-5
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> In AXI MCDMA scatter-gather mode, xilinx_dma_complete_descriptor() walks
+
+avoid "scatter-gather" mode.
+
+> the channel's active_list and unconditionally moves every entry to the
+> done_list. The MCDMA IOC interrupt handler invokes this function on
+> every interrupt-on-completion, but with interrupt coalescing
+> (IRQThreshold > 1) an IOC interrupt may fire after only a subset of the
+> queued descriptors have actually been processed by the hardware. As a
+> result, descriptors whose completion bit is not yet set in the BD status
+> were being reported as completed to client drivers.
+> 
+> Add a check for the descriptor completion bit before moving entries from
+> the active list to the done list, using the appropriate direction-
+> specific status field (s2mm_status for DMA_DEV_TO_MEM, mm2s_status for
+> DMA_MEM_TO_DEV).
+> 
+> The MCDMA completion check is intentionally not guarded by chan->has_sg,
+> unlike the AXIDMA branch above. AXI MCDMA only operates in scatter-gather
+> mode (has_sg is always true), so the guard would always pass and is
+> omitted. The completion bit is therefore checked unconditionally.
+
+Not need to talk about has_sg check and compare it with AXIDMA but if 
+you still prefer make it precise.
+
+Once addressed , feel free to add.
+
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
+
+Just a note that this change aligns with changes that were done in past 
+for AXIDMA in commit 7bcdaa658102 dmaengine: xilinx_dma: Freeup active 
+list based on descriptor completion bit
+
+> 
+> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 > ---
->  arch/arm/boot/dts/st/ste-dbx5x0.dtsi |   2 +
->  drivers/regulator/Kconfig            |  11 ++
->  drivers/regulator/Makefile           |   1 +
->  drivers/regulator/db8500-regulator.c | 221 +++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 235 insertions(+)
->
-> diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/=
-ste-dbx5x0.dtsi
-> index a6fef302c994..fd6a075e4c93 100644
-> --- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-> +++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-> @@ -673,6 +673,7 @@ db8500-prcmu-regulators {
->                                 // DB8500_REGULATOR_VAPE
->                                 db8500_vape_reg: db8500_vape {
->                                         regulator-always-on;
-> +                                       power-domains =3D <&pm_domains DO=
-MAIN_VAPE>;
+> Changes in V3:
+>   - Added Fixes tag.
+>   - Expanded commit message to explain the interrupt coalescing scenario
+>     and why the has_sg guard is omitted for MCDMA.
+>   - Changed local variable from 'bool completed' to 'u32 status' for
+>     cleaner status field access.
+>   - Simplified completion check logic.
+> 
+> Changes in V2:
+>   - No change.
+> ---
+>   drivers/dma/xilinx/xilinx_dma.c | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index ff5b29a808e9..1b5b00f08c5f 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1784,6 +1784,17 @@ static void xilinx_dma_complete_descriptor(struct xilinx_dma_chan *chan)
+>   					      struct xilinx_axidma_tx_segment, node);
+>   			if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
+>   				break;
+> +		} else if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
+> +			struct xilinx_aximcdma_tx_segment *seg;
+> +			u32 status;
+> +
+> +			seg = list_last_entry(&desc->segments,
+> +					      struct xilinx_aximcdma_tx_segment,
+> +					      node);
+> +			status = (chan->direction == DMA_DEV_TO_MEM) ?
+> +				seg->hw.s2mm_status : seg->hw.mm2s_status;
+> +			if (!(status & XILINX_DMA_BD_COMP_MASK))
+> +				break;
+>   		}
+>   		if (chan->has_sg && chan->xdev->dma_config->dmatype !=
+>   		    XDMA_TYPE_VDMA)
 
-Hmm, isn't this the other way around? The power-domains node should
-have a regulator supply?
-
-We may even consider to skip to model the regulator altogether and
-make the power domain operate directly on the prcmu instead.
-
->                                 };
->
->                                 // DB8500_REGULATOR_VARM
-> @@ -693,6 +694,7 @@ db8500_vsmps1_reg: db8500_vsmps1 {
->
->                                 // DB8500_REGULATOR_VSMPS2
->                                 db8500_vsmps2_reg: db8500_vsmps2 {
-> +                                       power-domains =3D <&pm_domains DO=
-MAIN_VSMPS2>;
-
-Ditto.
-
->                                 };
->
->                                 // DB8500_REGULATOR_VSMPS3
-> diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
-> index acc698c17bd2..8db63d8d3fa4 100644
-> --- a/drivers/regulator/Kconfig
-> +++ b/drivers/regulator/Kconfig
-> @@ -397,6 +397,17 @@ config REGULATOR_DA9210
->           converter 12A DC-DC Buck controlled through an I2C
->           interface.
->
-
-[...]
-
-Kind regards
-Uffe
 
