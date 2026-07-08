@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA75C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E37BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g97KZ8DCuIS+c0VePT80lsI4HYIhSP/AZ9opA2fRq10=; b=OWSSSS3UFhYlCPpzD7yALepHrQ
-	kfGygfdYt/KVIz1+rcWRO0I43/MQpfXVV4KKMqABeIYLyG9Zm1av4NPyp13pQiWfqSdJoUZyf/sGS
-	30VHoxIy6x4wdib/fFcIfoOJxGEHb5KoDI8/ywlRnc//iWU+jWPetJmVFAi2jVTI1iWjuxK4UkCw8
-	NKPEBziIZ5ctYucvACQipPN1vcfLvBuX4U1ndyAcEun/gpPfKurMX0+k9zt4T/ZWNvPm1AklYHCbU
-	SqwPBM4wf2jZPSJkWu8wmBI9V8MoGpwonazsS9sIksj6PdQ+/DnfOHxrLFe1Z2ds2/fnfHfTSbfrB
-	/KU4v2fg==;
+	bh=Yn77aa8uoI89j7RCjY/OwI/1RZwt436WtRsFNItz3AY=; b=N+Lc0IEqQvXrz/JIkKH06LqA/t
+	hOd4+yskkpakEiOgdQtofJ4rt8DC7P2WNG+iVYKzrRKE+ZOqcbr7wv8eF4mzsHfH31fD5P0VIpx3M
+	HgfPaQFbE7pnNhg17m1WD6l/WfDp5Ue0UT1v5WHZly4mEOJOp4tHGGFrabhPIdCJxH+ILg9w3BFq/
+	0f11dV1IYNQXclFPZvXIaFpOxD37jWTKzgEy5XK/PyWtyvsWnXjSTckLcXPGyrXL4LFVuwIXadgax
+	cZrZgHqXCrojEupNycwehCQkn0P3EV6t6BpX9siPn0wtbkJqetzyzBlAd7QgQqn+CTTqBhT+XxeF7
+	0jRMx9nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhG-0000000GC7Q-4C5n;
-	Wed, 08 Jul 2026 03:11:39 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1whIhN-0000000GCCL-3PBm;
+	Wed, 08 Jul 2026 03:11:45 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhE-0000000GC64-3qKd
+	id 1whIhF-0000000GC68-37nV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 03:11:38 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2cc88e22f92so7909135ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:35 -0700 (PDT)
+	Wed, 08 Jul 2026 03:11:39 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-37d4eede8ccso242893a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783480295; x=1784085095; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g97KZ8DCuIS+c0VePT80lsI4HYIhSP/AZ9opA2fRq10=;
-        b=QRY4BS4tSjGYY8rAR1hCZ2TgMcf2DholJZ5MVfKHtIkAwbyayO9AC7TJ65ho/bX4Wi
-         T3bpD4oYY3jt7k2EKhDrBK7Qz8S1GtI/CDa4AOPlx2nSMb9bo8aqJNLBVoNqF0qVtO8C
-         2R0wvkSDF8pAIdQuA+tjr0XNUmI3EvLrPHQQ3v0ogn+/jyxaOltRuMArInS32CdtY0+o
-         qpmytDBx6olJWitHLEl+2mFM+47k7+X/r0PanFRji5t5+D6uPdurrbRgyG9CwWDOKlRP
-         udmEwe9f4bB6+qKnyWzMK9JPLRcpQXYNNQEQomjBrXZ6UQ1ENG3ZgSLxtbH8ydFEIK2Q
-         03Eg==
+        d=google.com; s=20251104; t=1783480296; x=1784085096; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yn77aa8uoI89j7RCjY/OwI/1RZwt436WtRsFNItz3AY=;
+        b=Y+dVe7A1pwTc5yP0WV3Abpoj0xgChR6u2CdtdGkIjVdpDbG+QzaNIJi6AAXkB0Buhx
+         6w01Y2f5xKN0+7pvvaBdEY21rOQtZyd2OU6843nW7rLbeHhUOxZfizWR8DyNj3W/pzmk
+         hZHGcH6Sx7QmG9DNX0nxFZPvWh7pLLqKph9Uigs6jL6KlsjrBY4Be9IGgPzqQTq3Fnq4
+         YWAz5TVEi8b/VTTI/AOUaWhd7bpWWU7GPPT9ouihh02PBI480T4Aj5VU4QYNxjOxA2Sa
+         eKzOhlILhSFMTI+uV/OolltOVYekX/knwRDW+i0RjF+y/3zQ2VCjzuHOAfyFwKtzWamH
+         5X5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783480295; x=1784085095;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g97KZ8DCuIS+c0VePT80lsI4HYIhSP/AZ9opA2fRq10=;
-        b=brm/1WZKP6ctA/XtOndKNZXGsqx5xzeyEap2SxBQ7WmYgOjrt3sEwicNnYhVfq5fJI
-         +qhhZVOrY4LTykaJOzKnZeSZRvzOK8pJBO6bfiz/xDQbQzflX0WdsX4oDWboAg2ieFPM
-         YnfVXKoLbxfgtNJ2zIwEag5dZiIF+3hqfCue32ajV8e/lajHzQBH6CpYm/rgDA+ALOvv
-         QScvpHXDezqfM/cVA3ml00MYcHdA4f1KM++551F0vszlhXAgYrqSxw7p66zgJDh5wmNF
-         A8cin93E6GperQSjieDYklgfqDQHR8Y6GY2PXS9z+il31hium/rxWqGMa7oknRP/dznM
-         aY7Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqR+NWPddtqdBO3v55mo8uJBfiLH+PCIFDgvD2SRX4rTZwUqjbhqh+Y+uPoRH4N/Bq7hFP+YTtD1cK4sdathe2w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyu/mCrCFeBlgw4ryqeXsAY13Q9sUxczNZC1MLXNCX64A3SvNJK
-	G5wQOLPPeKom1LbmzzwowpIVGt5ViW8+6Q7UQvKdPXGtsRDAj4ndNLckJxvK34PZUyWzrlUPVcX
-	gClfSvuCmOe8/r7bl55v8/Q==
-X-Received: from plcd11.prod.google.com ([2002:a17:903:208b:b0:2ca:e02e:5b86])
+        d=1e100.net; s=20251104; t=1783480296; x=1784085096;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yn77aa8uoI89j7RCjY/OwI/1RZwt436WtRsFNItz3AY=;
+        b=DubMEbJEsslKsTluyuXth3ds5AhNAMiCFJbrBp7KJZP5PvngHfOyfDzs0z/4BcRNY6
+         d5D3azkVgNh6USqkVwWNREnmgpjSD6oVP6RLEvPK2e5KBmXJWeZ92/118AOqtv8TTgRo
+         OxN7HNTELHKXqnaNXA8aEIi35GfigEgwFAC7uhTqspPPb0KdO4F8SoICV37tZP1K5nOJ
+         K3i01dc0LcCJAsdgTNI1AsoKZsAytq+MJOww0pcn7oDqlw+qdnHLjCgMht4kM7QHBa9/
+         pbDgl8fYeys70uvvHFmSRcXAv6TLoSajEqrtjT40aVoGad9Pion4wywHXRm5h7HZpHcE
+         BXPQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqxPiXbKECcFGljHDGRzo/9PlP/1fArMQcVHWvPjj6DfH72rH6sWQvipd6I15eH8u37iV/PBx9WMlB09hz2wnlS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZoHO1pLjbnMsJaIBxJ3O24R5VLDPJ9D+7q7aHc/8Vr93nXrnB
+	C5W7+y4I5neRtedHoV/pNBRO6e0kJ9almvK1VTIA2SZKNeLo4qg0BQpVfjNJsNDtNkFrWK9INsI
+	KhSZfLsBKy4Sn0zPDb/g+jA==
+X-Received: from plkb6.prod.google.com ([2002:a17:903:fa6:b0:2ca:c401:c941])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:4b4c:b0:2ca:6c8:abd8 with SMTP id d9443c01a7336-2ccea2f919dmr7181815ad.12.1783480294770;
- Tue, 07 Jul 2026 20:11:34 -0700 (PDT)
-Date: Wed,  8 Jul 2026 03:11:11 +0000
+ 2002:a17:90b:5290:b0:381:6466:7160 with SMTP id 98e67ed59e1d1-38941acc1ddmr622962a91.26.1783480295545;
+ Tue, 07 Jul 2026 20:11:35 -0700 (PDT)
+Date: Wed,  8 Jul 2026 03:11:12 +0000
 In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20260708031129.3503195-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260708031129.3503195-2-jthoughton@google.com>
-Subject: [PATCH 01/18] hugetlb_vmemmap: Always flush TLB if needed upon PTE remapping
+Message-ID: <20260708031129.3503195-3-jthoughton@google.com>
+Subject: [PATCH 02/18] hugetlb_vmemmap: Move vmemmap_get_tail up
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>
@@ -80,8 +78,8 @@ Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.co
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_201136_981709_619D6D00 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260707_201137_834119_11283C27 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,37 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmemmap_remap_range() can potentially leave the vmemmap in a partially
-optimized state. In this case, a TLB flush should be done if the walk
-caller asked for it, even if the optimization was not fully applied.
+In a follow-up patch, it will be used in
+vmemmap_remap_alloc().
 
-A follow-up patch will more completely deal with partially-optimized
-folios.
+No functional change intended.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- mm/hugetlb_vmemmap.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ mm/hugetlb_vmemmap.c | 52 ++++++++++++++++++++++----------------------
+ 1 file changed, 26 insertions(+), 26 deletions(-)
 
 diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index 133b46dfb09f..da29954e9533 100644
+index da29954e9533..8d4e8ee51fdd 100644
 --- a/mm/hugetlb_vmemmap.c
 +++ b/mm/hugetlb_vmemmap.c
-@@ -164,13 +164,11 @@ static int vmemmap_remap_range(unsigned long start, unsigned long end,
- 	ret = walk_kernel_page_table_range(start, end, &vmemmap_remap_ops,
- 				    NULL, walk);
- 	mmap_read_unlock(&init_mm);
--	if (ret)
--		return ret;
- 
- 	if (walk->remap_pte && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
- 		flush_tlb_kernel_range(start, end);
- 
--	return 0;
-+	return ret;
+@@ -355,6 +355,32 @@ static int alloc_vmemmap_page_list(unsigned long start, unsigned long end,
+ 	return -ENOMEM;
  }
  
- /*
++static struct page *vmemmap_get_tail(unsigned int order, struct zone *zone)
++{
++	const unsigned int idx = order - VMEMMAP_TAIL_MIN_ORDER;
++	struct page *tail, *p;
++	int node = zone_to_nid(zone);
++
++	tail = READ_ONCE(zone->vmemmap_tails[idx]);
++	if (likely(tail))
++		return tail;
++
++	tail = alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
++	if (!tail)
++		return NULL;
++
++	p = page_to_virt(tail);
++	for (int i = 0; i < PAGE_SIZE / sizeof(struct page); i++)
++		init_compound_tail(p + i, NULL, order, zone);
++
++	if (cmpxchg(&zone->vmemmap_tails[idx], NULL, tail)) {
++		__free_page(tail);
++		tail = READ_ONCE(zone->vmemmap_tails[idx]);
++	}
++
++	return tail;
++}
++
+ /**
+  * vmemmap_remap_alloc - remap the vmemmap virtual address range [@start, end)
+  *			 to the page which is from the @vmemmap_pages
+@@ -491,32 +517,6 @@ static bool vmemmap_should_optimize_folio(const struct hstate *h, struct folio *
+ 	return true;
+ }
+ 
+-static struct page *vmemmap_get_tail(unsigned int order, struct zone *zone)
+-{
+-	const unsigned int idx = order - VMEMMAP_TAIL_MIN_ORDER;
+-	struct page *tail, *p;
+-	int node = zone_to_nid(zone);
+-
+-	tail = READ_ONCE(zone->vmemmap_tails[idx]);
+-	if (likely(tail))
+-		return tail;
+-
+-	tail = alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
+-	if (!tail)
+-		return NULL;
+-
+-	p = page_to_virt(tail);
+-	for (int i = 0; i < PAGE_SIZE / sizeof(struct page); i++)
+-		init_compound_tail(p + i, NULL, order, zone);
+-
+-	if (cmpxchg(&zone->vmemmap_tails[idx], NULL, tail)) {
+-		__free_page(tail);
+-		tail = READ_ONCE(zone->vmemmap_tails[idx]);
+-	}
+-
+-	return tail;
+-}
+-
+ static int __hugetlb_vmemmap_optimize_folio(const struct hstate *h,
+ 					    struct folio *folio,
+ 					    struct list_head *vmemmap_pages,
 -- 
 2.55.0.795.g602f6c329a-goog
 
