@@ -4,179 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757DAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA890C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=; b=IOqYwpiUp2H5b8r1gRAjEsXHzS
-	xy+nlFfRw7Dh00fMrJmW41IZw1BKpqGyrMPPKtilmayuhlymyzuIByvh223fIS6oG9A2We/+3K32c
-	w3+z0ZCIMCqy7cq046WfeUPPe0zOCqVKbbSoAnQuoIbMz41FAoEJzkxVlJl2bvgLvrr9EQwOwSBMw
-	UOAgB8gdia1R/U3hul3o71zESXePqMQmbtb3GXzqk8dbTgNIgRpDb7BinB+BUJsHRypVcUTEHDPIc
-	vHfunwD4A5quKvwUGAp7a5bi2n179Zc7Lzpz/fGhMLf9aY86TKHBHWWquEswjjufsdle22Dmb8FCL
-	qZGO+phg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xfi2I+7+9MUtsLjquSYysMJTL2x83JAkX+WfNxMAzcw=; b=WqqkADtt0ZpS1PZJKa+fPLvXrZ
+	uT2Oliyolkoi8xu4HZxCR+zA8c782YuX1lIrMvrsbrYBQMCoOYllXmcngh74Dlir7wiw70uh+gCz+
+	9U5KhcNpbBjQQ6GdTZbJ+YhKIlOH6H1klhUSgxO3sTx0lwO9kfmmkg1P8sJl+ZmUhE7+PHZvvbSsf
+	Q0wz5otebi4gFhm6GSaFX2fmf6QinjsQsQRm+v7NQ+Ru+N+zc1VM4Ldy52JVLOl7FVOM0SW0j4kWn
+	yEyImEcyIa+iCJYBH/y8LX7dnC6914mJiyZllmeI1/q9mX4HnGfIMLAALvKYGpXkiAq2xjw+D+qPj
+	ZJQcG/tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLtN-0000000GPZW-2HsF;
-	Wed, 08 Jul 2026 06:36:21 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1whLvO-0000000GPjP-0XDK;
+	Wed, 08 Jul 2026 06:38:26 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLtK-0000000GPZ6-3YZJ
+	id 1whLvL-0000000GPio-0yVa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 06:36:20 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6685BlOq627148;
-	Wed, 8 Jul 2026 01:36:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s6
-	1Q=; b=c8AwILXt4zWJQI8a75bIS/2PvWqsprpLBh+nO5rYeNWZeOUGiUp3SX31w
-	PpROPgrehO//vlIPo1P7g9ttBunzlTJn7IJADi+dFVXK33AAhDitNK2xs/pdkCdK
-	erMRb0AKgxfl+2NkgF4T+b3BXHRGFrV259XMU0kKv6ZMfhjaYjc3QC14fL4mSRaM
-	Ujx85YhNHf3nZzvdeB0edp4x0NVWH8RRGd+KLcBZ2pc+xz/7Xv3zcn8oiJ5io3Pe
-	1KxzAc6QR2KKHZdKiFwSvdd981d2VYIPDgmbf+CepNcMLg62yxtxIPZWuTkCJCv/
-	2cRiXQJP2pR7hbn5VxkFbQgcq1iFA==
-Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010033.outbound.protection.outlook.com [52.101.85.33])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f94m7d2hh-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 08 Jul 2026 01:36:02 -0500 (CDT)
+	Wed, 08 Jul 2026 06:38:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UdBEDi7VZd5ZktJGP3jJcXGvjKN6MYM2E1otRBHitxdGwsivL+7aAURX/flA1D+2ho2Pr4laTgbliF1Ky9J+SR/E2gJSXIFi8XyCytDSqGUwDWL+GpvF6DfCI0pfonQcHZRfV6a46b9t9ZUMa3pwU1D8UHo1b7YOV8WK/ZBvymgnXB3U7F++qFej96D7l81Kei3yR9Pxl0Vc4GclDjVHpcrYIvAGolN8pgzvLPIMndfjZOLLDPmzGg2PcxYqS0t66YCDSIK7ZeCnZs213eKnm1DqMRp1GTLuf3HaEb1xHQ0Lf0c6K5+pHvbQwEjLlS1Jt8UUxFYOH6IQEi/gTpcr7Q==
+ b=vQT82Q5MAP1VTo6EjQfhnK10F6yYTo4ykzhRXEmwwNJZtTxhRHfH0hVqRRGi4fX4E2OWoXN1xfu9sDzx6n5TwDZNWAfAZBDwJBQDowQnZ56fwsBUdmnoCN4zCq0F9J6rViUvJz3lzJtWQy/s60HcliOxDRxtIC2UlmATCaXerpmgJ1nE2jbZhrNguovM3qt/T7pIzVnjt2bhPObrowLLfaYsRKuNe25Wy5l0CwnKNaUCEh7FkKUNjEo7Fh8QzdAoCRpe8eMMk1p898CL6Xt7q93LS+Arf8zeacwj8cKxnkh420hfrdSHQB6d33wFWAwezTOqA/WCHC8lcmraVO/yoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=;
- b=AFElopExZJ5yint9tqBDnhJXhiFtqrmBAS1cM6qXSG1UL7cnif7Nzs5PzFfcwQqFbx5EoT6UxLs/EQFhGJIiFhxUymK1N/4SMM+kh6c3uB0PEhZBCNcYm2XrpXwbh0AZroYHo5+dU3X9XOppOzCAAshvUIXCDbPmtPDfL7HUdfgwqwh/PD1YHq7FcQf9Wv9zwn8piII0Yt6XZlV7VOnUhJVDrdBjRFHDvUH6fCYeuapcb3qqlvyS7kc6tuqAFIwGmc9S9wFHJOpyR2IexMAv3PRLrO/Oi2lIagelfo7Ffm+fjFgpGYqlmoU0bJCFCo+b0bEGtcnRN2fsKo7XEJfIsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=xfi2I+7+9MUtsLjquSYysMJTL2x83JAkX+WfNxMAzcw=;
+ b=oOJTwmwwGYariSDdP5XESk7HVuC21dakA8WPfrp3TRkPCF4lQSmaBYOChYcCDijtGZVypafEMEXuA521g/HBJfKpuVWuUsGEZqxcGyyaJ02EKalxvqEBr29gu6hOFjTDjpp04dt2A9TBAr4R5gkQ7kJpfwVlsP1odIZPfkto+0ku+eR2+KzDo6V62SfFVJkLaQVu0pGu5rKxfU993iVubDbEJIWfAtY22TfUdncMlDGZRvqkMG9B2x3CDCjzZBhvrVMndf3QtFSacSYlAGZjXkaUJqnR2f2ZXwjU5HW+4u1XONlTdjlUfHc22yo2+5vFwYbqOcGWVQwo+p93UdQxeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=;
- b=F5RyAcpauQHRKfUsgH2MqBDN1B+cTb3Vd4h5cqhhmUw2n+crerMVaDkSHv38ZIOWiLKMJODA74BiM69RF5tfXCTbOKa82R+CFW/knSJYnkF6KY8klMRFRCUp/ijfXKV9KqmOWhnt74tOuTRjk1G8sxxdCMZQeaKvKM/BzUfnKOM=
-Received: from PH8PR02CA0017.namprd02.prod.outlook.com (2603:10b6:510:2d0::20)
- by LV3PR10MB7937.namprd10.prod.outlook.com (2603:10b6:408:21c::17) with
+ bh=xfi2I+7+9MUtsLjquSYysMJTL2x83JAkX+WfNxMAzcw=;
+ b=lEB6c3hDi+24o1SXheNS1miq0lIfdAoxFKfFw64QEFTqwyiXDnxUezZTqPh5z7FBuzB9aj3zRWtsWkTrxKngjcF6r1OpA+Jeb11BRhwcnoKz1yZ/3nDDDrXs5nhq6ZKRrzF8g9/Uex31yqd/MwwmBKmacPv9voHrdn8zVQtuRgwGaoj90av28yfGBszZNux48H8NnEBDVO+nhS+XGGHCqvE2J9+8xIHTRzoAXSf4MKDQoOOpyQjeM0Mmpa0htMsIR/p/07hIAlXQip/4BXidINzwUXIAxepRbFRG69CpJpNbnsT8JrxvvBa/PbM5aK60hAw3wg828QSzF6FPhTGZKA==
+Received: from AM7PR04MB6870.eurprd04.prod.outlook.com (2603:10a6:20b:107::21)
+ by AS8PR04MB8357.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 8 Jul 2026
- 06:35:57 +0000
-Received: from SN1PEPF0002BA52.namprd03.prod.outlook.com
- (2603:10b6:510:2d0:cafe::9e) by PH8PR02CA0017.outlook.office365.com
- (2603:10b6:510:2d0::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Wed, 8
- Jul 2026 06:35:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SN1PEPF0002BA52.mail.protection.outlook.com (10.167.242.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 06:35:56 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
- 2026 01:35:53 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
- 2026 01:35:53 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 8 Jul 2026 01:35:53 -0500
-Received: from [10.24.51.87] (devarsh-precision-tower-3620.dhcp.ti.com [10.24.51.87])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6686ZlYg2124653;
-	Wed, 8 Jul 2026 01:35:48 -0500
-Message-ID: <4cdc9944-9486-461b-b637-702921a4367e@ti.com>
-Date: Wed, 8 Jul 2026 12:05:47 +0530
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
+ 2026 06:38:17 +0000
+Received: from AM7PR04MB6870.eurprd04.prod.outlook.com
+ ([fe80::f080:2b31:578e:716f]) by AM7PR04MB6870.eurprd04.prod.outlook.com
+ ([fe80::f080:2b31:578e:716f%5]) with mapi id 15.21.0181.012; Wed, 8 Jul 2026
+ 06:38:17 +0000
+From: "Luke Wang (OSS)" <ziniu.wang_1@oss.nxp.com>
+To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, "Luke Wang (OSS)"
+	<ziniu.wang_1@oss.nxp.com>
+CC: "adrian.hunter@intel.com" <adrian.hunter@intel.com>, "ulfh@kernel.org"
+	<ulfh@kernel.org>, Bough Chen <haibo.chen@nxp.com>, Frank Li
+	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, dl-S32
+	<S32@nxp.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v5 3/8] mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate()
+ to allow default state restore
+Thread-Topic: [PATCH v5 3/8] mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate()
+ to allow default state restore
+Thread-Index: AQHdDqRc6cdYDyNt0UGtnZbPmS8dYQ==
+Date: Wed, 8 Jul 2026 06:38:17 +0000
+Message-ID: <AM7PR04MB6870BB87AA247B3D6E8DA29DEDFF2@AM7PR04MB6870.eurprd04.prod.outlook.com>
+References: <20260707110303.3779799-1-ziniu.wang_1@oss.nxp.com>
+ <20260707110303.3779799-4-ziniu.wang_1@oss.nxp.com>
+ <ak1NMS43Yrfsh7CS@SMW015318>
+In-Reply-To: <ak1NMS43Yrfsh7CS@SMW015318>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM7PR04MB6870:EE_|AS8PR04MB8357:EE_
+x-ms-office365-filtering-correlation-id: df665b8d-94a8-499c-f7a0-08dedcbb7ec2
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|23010399003|366016|6133799003|22082099003|18002099003|4143699003|56012099006|11063799006|5023799004|38070700021;
+x-microsoft-antispam-message-info: sZqOJ9lTH9dy8hlGfd3Z9hbg8aCid6TKhA8xZQxydoS5uZEpJH1W4WCm4YaTZNcMbjR+476FHWO9CWpTuSOZASvCgqBlsBPyGsBhkxIfmmH3bGvau8SW5hgv0WrH49HNZMjglbU9CK/tkdGr9ynxRm013DWK6qtZqom8Af+jK4Op5dhuRIH+6ZYv9KHZ8gl17UCa6mMQwDq0yU4UGQKR8ml3ZjHCucxIUHWxw4R+p83xYQyEMjFPPZ05UXxRNpxPYkprr2JzRDBXeiC7u3cngDqcDwX6OER8NfT+32MtrqxfIZQbw8iuHPW+BsR1jZ1+LEcKBtH1WbmV1QW3Q/3lvVe2bcKapq1PkhdhnqckaxyMBjfOe97OoKNcz6mGjY3o6Wepzce3D81JzDQZ3qWJDhScOjro3wsI3kP8ex9auD1oakBoX0NDQo26GifOaxg7v8m7Pz2hZLsZUaxgPDgs1yHlydu5BLiAVK9uGKZ1QvYMiVhHlhLnfK5VGX+dVLxEo5TnKEV8izcnXyrREN4nFTL+eaq/TW0mky7NC1ngFVwHGgNzu5FZ8V1OfwHJFDb3qXbgsr8DvbYGEYsVQdxAYCSQAzaTT/xzO1tqsmuOOMN+pvJBtsiXYOpH247PrJpfss0ncSTqJHZfW0mp8sUtaY9MSBoja+qJ4q/QLGboJ1UhiB9AG+SRy7ap5ZX/VeSQMzBw+e0ITMo9e7yxy4Zo4WC99fVCkOXn/m54IZBE4Jk=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB6870.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(5023799004)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UTpR3GTtpvYVdvJsQ+Ru5D4Sy7Lq25xFqICZOsCqETZNvadfxBIj6QmPinph?=
+ =?us-ascii?Q?UDiYmIxfdEa4VIQsH1ZrLFfpSb0yvrGazGexkOHggBWmJjoa875pFK4hxT/q?=
+ =?us-ascii?Q?va0MAzSGwuRHaxhJxt3Xk7ZnCQNchj0hKt870sehY22HruGfk0TLVvnZCGYb?=
+ =?us-ascii?Q?nbpJ21r2pT2//got9xubbh+krxidaHRUbsH21vNbI5OWNCTaAebnMlko352z?=
+ =?us-ascii?Q?rzpbbTyJHjLEBw68oBbbtHR7Jh1d6OvlsRng366MbLMXpX2J2KbJ2n+pkmLj?=
+ =?us-ascii?Q?9d/DCpzga0kIE+PXwG1felat21dC8k7E3VrajexU7j9Qsh11yJarDmmHWx7V?=
+ =?us-ascii?Q?9z2XKtnKx6serpqA0KFQsEM3+WtSR90U3VH57JUh9VVc1jdFGQdzUKRQoVyh?=
+ =?us-ascii?Q?hGm7NUaYGLndTkS70Uc9NP31Syv3OvL6hdzZL6QbpvWIQiMPyPIPYV+g1Q4/?=
+ =?us-ascii?Q?WhRCSbd3u15KaE68cyvckv8/K8kOrqPgzu9TQR3jaWsAPjZtmxsTaGNtsnbd?=
+ =?us-ascii?Q?DzVhJKSdDo9Rz7NpKJk68c57ikG3zAYjg5OKVzOIV0mckQsvwOYdcSA1J2Ej?=
+ =?us-ascii?Q?KaXxcUXaaV+Y0LxJRxiquxb3H0lQT1kLOHIkjJ9qzoV4667YrceT5ay0Nzhm?=
+ =?us-ascii?Q?UeV7VLThoaygySx8BdVSZ1CyMniViLz7fKG1OASVzfmgk3+9hTIT6UNbYAbl?=
+ =?us-ascii?Q?iFh/wCgk0DpGYl6S9M6avHvlYfrSiRhxW3X6UXoF9Ntqu8O3Tylxw1Sb2mBS?=
+ =?us-ascii?Q?kqCTD5jjLUjpOvp4+n/6YJ4cuwAQW6h5QOSxOVaHNNb0hxVMxFfr0bQu7tiL?=
+ =?us-ascii?Q?FfSFqqcNZzwXSrAAGyUN6LLsopk5//Sq3yKH95ytyjf3mZBRPN2HAwDqLDwJ?=
+ =?us-ascii?Q?wwOQmnRjFC0kVeaZgsF6GllpQ2t+BUtdQ8RCV9zeUrbHvw8uiSDtIo3a/8jm?=
+ =?us-ascii?Q?k828qw4J8FC55EPHpOPuk1Ku7Z2xX8kJhATxgyFvgwL0YrT07vNizG4qxFoE?=
+ =?us-ascii?Q?0TQqhdLRtgcAX3Fvwx226eJBtLhmcIUudvysTYRv587IOAaWS4Pwshj6oIMX?=
+ =?us-ascii?Q?JdGu748QWuIPVCJxG11W6KYsnO1mgR9cr3zmEXHgovfMg4k4kseychF1To0n?=
+ =?us-ascii?Q?01JptOsD3gHLzdYNBdcHr2hYB3FNgJcwUfO3iMW1r8hiK7lfLWanwEE0A5n5?=
+ =?us-ascii?Q?6To2os+TqI1nE6FCy3+JjIWTPTkOrg02DMr52fS86z32HaYwun+ufpReZ8WT?=
+ =?us-ascii?Q?ifT3B5PhGu53xlewLGUEAs53nQ+ibNh2sI/+Im+mazPSCXBEjIlnF5ooL+P5?=
+ =?us-ascii?Q?uq4ZnQmPBSaJPrx8JnrE+kVKma1Qtc8AebrE5EAUU28LeIQcV4r6GktLmZOs?=
+ =?us-ascii?Q?pYu8I1BIjQEq3pEDZcMIfrmvSSSVGBdudN3GVbp+PlOCurbSFqff7FuWSvjd?=
+ =?us-ascii?Q?vjON8jUfgmUIqe8fQvwcgvh+MC03HRweJxNGpqzdBBFHQV4cSTklLz90giv/?=
+ =?us-ascii?Q?++YdneTTliYYcWxFIMcIj65GsxwORjfugKb/QVU9OtIC+0Vh5C4hKH/PKOhS?=
+ =?us-ascii?Q?aIYRviqU5y81wV2YO8wXUcFKPuxj77QgKRh9CK5ajtd9sXvSgjdDuVG9/Mm1?=
+ =?us-ascii?Q?JG+KYYh9WrHrCCpHgUuWQSqlqpYO3n/fv6bWX/LQ1Jq+vwtUIDOVHmbId1uS?=
+ =?us-ascii?Q?b14W2fdba1ATI5jOfdHNBptmSU1ti+7VazvhJRjoF/PuxPrZ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/15] drm/tidss: Add support for DPIENABLE bit
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Lee
- Jones <lee@kernel.org>,
-        Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
- Menon <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain
-	<s-jain1@ti.com>,
-        Louis Chauvet <louis.chauvet@bootlin.com>
-CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
- <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
-Content-Language: en-US
-From: Devarsh Thakkar <devarsht@ti.com>
-In-Reply-To: <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA52:EE_|LV3PR10MB7937:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d16a0ba-5934-4fc4-03d5-08dedcbb2a6e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|1800799024|82310400026|23010399003|376014|921020|18002099003|22082099003|3023799007|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: Di++5lGbNV2MVqRyjHS6Ukjq/F5FgQgwF9oHBB2Cg6d8XCG2gFTl09BpaL/NyvkEQqmDSxJTD8LeWgsnOIwGIXeG8KhRza9D/kwMybRYHrLl6UNmpzYx2SdtelC4Uwxm7TFf1DP5mr75qMfHrLvScBfjWACiil9PTRIRPM10H3OgZAwhBDeAhnwwjLW+GKE5CFl1Sr15CnEhGF21qNy/94PFeFtd6I9wVHv5WIHPpYekIoD69257l5y2ffWImluC0HW7ZW8araU5HqnlrSwhKmL7Bb4lYZ7usFUNKuVAQV6J+zBuprTPW/JEm76fR6eZLa68hRIlSUcQXv3MWWVad5XGjir+kx0xaL6FePldrSf04bkfxGdemsWmw2CN6LecZf2waekjOZSTrvDMzOV9yxymyjNbdaJGc4m3mA4N62ei6QkK8qTMbSzqoFGM8MXgHA02WI/C4JJyEj08786zM6tBEYAMzRRYdR2/wLe/PJhEmaRSfpQetaUSr37QutibXMIU5m6BScPdW2TIBIJUd7UEz3fiVeCCXmT2d6wPqR2OJnsQtu45EtuMzOl9gqGLhffEUq3fdfygcIquDi3kbwpiEtaS6sUFM+atYR551tq3PsrgVbXYX7BmfWsy7yKser5vk8I9B7pxXnZYEaBgGI0bvH4QKUxSA4KwrKwz+qnkzX2Di/38vVqPWL8ZJdOTYcJ+ZzEtU2KD2Qc0JFy34CextR+HslokOmQr0eCapeG0jVIj6F2bNHPmc1Me6hSs
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(1800799024)(82310400026)(23010399003)(376014)(921020)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ulV+OBRobZNnNHs5WeiP3dVaPmxHJPMhytUJA5tG/Y4RYoEY5YjcQ7UFLbPJytUfdMHbmgp9fYwC43/uhzjS+44+VlHWll677GxC0PdAiLIPAaVdum7Qq4SKKt31dXuXDlmvrNGn4z7Qs/hhv/AjcNTMKtopvf7PagVEhpGOd29Ini/3mdHbUiuEYUh4mI+X/k3RDgXzJm7rwQj4jrrmxvX5GJa9deCDHbyF4gBwqG2AS2xgC91VGgax8xvyxWdxfG/seuw47up/jfvwS/d2+VaKwfxzu8Yco3dLFXSPwI2kZ0gSxYQHCHRtQQ6aef/ySBraZbnw3h3SLiP4rjLZIBsM3aPMOOg3hGxbU+GlgYF+KoT1HNJvTf5nEijGlnDCrwD3b/30y7SJwONjszaoE/J6Z4e8ceEnfjD7nSV0uL2937DmR7i/RpZjsEQzvuXN
-X-Exchange-RoutingPolicyChecked: nCXhERC1tepJv1Cnvmm1KSPKIHSDQtS/MAuIGUV0N79+2aIxi0vVBnSW0r+Tb5AgDYNk4xavmlzUgV5BnDWFno+MOufBRa9DWzLi8Aw9/2Y5EAGd6YmpVN7rXm3p5TRXPKnUnd1s/5ZvK6hFR3kKl7BkZxPEmEyAVyW1guMKo9hi0sNJm5peOpwxz60ABFIiZ25H0SQyI9n49G2iHL9P87TVSLyLdnTSrDMjS0mdhy50mV8RXHk9KCWvKVuK89foKCGuXHhbD4WZx8ExjyHSW9LiQvnkEp4m7VIB01DszMlQ+1e5WxEkpxbsChfKu7ZNiloOxuMrVNHHmrd/F8hXCA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 06:35:56.1730
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB6870.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: df665b8d-94a8-499c-f7a0-08dedcbb7ec2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jul 2026 06:38:17.6381
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d16a0ba-5934-4fc4-03d5-08dedcbb2a6e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA52.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB7937
-X-Authority-Analysis: v=2.4 cv=f594wuyM c=1 sm=1 tr=0 ts=6a4defd2 cx=c_pps
- a=+v7uXpzEFv5PX1YPhMLqHw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
- a=vqHznLqP4jQ7SChzMA0A:9 a=QEXdDO2ut3YA:10 a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: fq349C4d0Px9rIiNujwSRlQkWCOlmkxm
-X-Proofpoint-ORIG-GUID: fq349C4d0Px9rIiNujwSRlQkWCOlmkxm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDA2MSBTYWx0ZWRfX7rmsAatiE4Z/
- gHcEN4DwSf9MYx6xT9wSNZIWSAdvHmdHTAsfQCAlaNWte59atAokDgtRcLPnkIJrArZy1Njsxa2
- SJhqDq8Y4fca/aSl880J6sTfuGxCMAZEQANm2+2ZS35M/yeZo00o7TJKafefOJmIb0rdC2jZnoF
- WAl1BE3vdFQmKriVVEHStYNynI3yZV/bPAkDing+y2roL6lUPWZSkfWsioWyPv4tVmR6YT6xacs
- 1crJ5Plfj+SK9w2KQ7byPGN1fETw8F27LwzNaNTc+o4pWGnnQnooeXYepOAq7Hm6sWTFYUrO73t
- Ch8qyEJIWnvGgL7DjryXeh9QvlLupZfWXU+AcdNOLefgzDOyE81vj9pq/drIt/D2NJf1T0iyZlg
- qVEULO6vVubPD2ewc5Wc5V4zl/DLXBjloPJG7nKd5fwjlXXaktBkKy54lpEsahiIcRCd+Fllrl5
- yFTxs0RDnvALBUYeY3w==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDA2MSBTYWx0ZWRfX8FEONdkDrJU6
- uk1hU8Mi8+dyh0e6DbzCS+zDYCpDg5EgtaxlCQgw+UpdFhZla1uN0fV9TLkN5yJUam0R0yveicu
- S8Su5QnYC5Fl1YK7EE9y8xgVzRECR8c=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-07_06,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 spamscore=0 bulkscore=0 phishscore=0
- lowpriorityscore=0 malwarescore=0 clxscore=1011 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607080061
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3AfKuTCFCFmDp9guw9pHq5mV1TFUDaPdyMD2x8OE1vtOZkXDiVVS0TOSIcGp/pftTn0U3BV8XjDC2vtX8cXupw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8357
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_233619_166551_5B243302 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20260707_233823_323290_67A5715A 
+X-CRM114-Status: GOOD (  25.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,126 +151,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 29/05/26 14:15, Tomi Valkeinen wrote:
-> Many (or even all?) K3 SoCs have DSS VP_CONTROL.DPIENABLE bit described
-> in their documentation. This bit controls whether the DPI block is
-> enabled, and is set to 1 by default (i.e. DPI is enabled at HW reset).
-> 
-> However, in almost all SoCs the setting does not actually do anything,
-> and at the moment the bit is not managed by the driver.
-> 
-> The exception is AM62L, which does have DPIENABLE connected, and
-> disabling the DPI block when it is not in use provides power savings.
-> 
-> Let's add a new feature flag for this, 'has_vp_control_dpienable', and
-> implement the support.  Disable DPIENABLE for all videoports at resume
-> time, so that it is 0 by default. Specifically enable and disable it in
-> dispc_vp_enable() and dispc_vp_disable() for DPI output.
-> 
-
-I think in commit msg you probably mean to capture 
-dispc_vp_prepare/dispc_vp_unprepare instead of dispc_vp_enable() and 
-dispc_vp_disable() for enabling/disabling DPIENABLE bits. With that 
-correction in commit msg,
-
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
-
-Regards
-Devarsh
 
 
-> Tested-by: Swamil Jain <s-jain1@ti.com>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->   drivers/gpu/drm/tidss/tidss_dispc.c      | 23 +++++++++++++++++++++--
->   drivers/gpu/drm/tidss/tidss_dispc.h      |  2 ++
->   drivers/gpu/drm/tidss/tidss_dispc_regs.h |  1 +
->   3 files changed, 24 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-> index 08342a9a5e8c..1b8d52f10673 100644
-> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
-> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-> @@ -442,6 +442,8 @@ const struct dispc_features dispc_am62l_feats = {
->   	},
->   
->   	.vid_order = {0},
-> +
-> +	.has_vp_control_dpienable = true,
->   };
->   
->   static const u16 *dispc_common_regmap;
-> @@ -1210,6 +1212,11 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
->   			     (!ipc ? DPI0_CLK_CTRL_DATA_CLK_INVDIS : 0) |
->   			     (rf ? DPI0_CLK_CTRL_SYNC_CLK_INVDIS : 0));
->   	}
-> +
-> +	if (dispc->feat->has_vp_control_dpienable &&
-> +	    dispc->vp_data[hw_videoport].dpi_output)
-> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1,
-> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
->   }
->   
->   void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
-> @@ -1226,6 +1233,11 @@ void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
->   
->   void dispc_vp_unprepare(struct dispc_device *dispc, u32 hw_videoport)
->   {
-> +	if (dispc->feat->has_vp_control_dpienable &&
-> +	    dispc->vp_data[hw_videoport].dpi_output)
-> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
-> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
-> +
->   	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X) {
->   		dispc_vp_write(dispc, hw_videoport, DISPC_VP_DSS_OLDI_CFG, 0);
->   
-> @@ -2445,10 +2457,17 @@ static void dispc_vp_init(struct dispc_device *dispc)
->   
->   	dev_dbg(dispc->dev, "%s()\n", __func__);
->   
-> -	/* Enable the gamma Shadow bit-field for all VPs*/
-> -	for (i = 0; i < dispc->feat->num_vps; i++)
-> +	for (i = 0; i < dispc->feat->num_vps; i++) {
-> +		/* Enable the gamma Shadow bit-field for all VPs*/
->   		VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONFIG, 1,
->   			       DISPC_VP_CONFIG_GAMMAENABLE_MASK);
-> +
-> +		if (dispc->feat->has_vp_control_dpienable) {
-> +			/* Disable DPIENABLE for all VPs */
-> +			VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONTROL, 0,
-> +				       DISPC_VP_CONTROL_DPIENABLE_MASK);
-> +		}
-> +	}
->   }
->   
->   static void dispc_initial_config(struct dispc_device *dispc)
-> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
-> index 6f53d554259c..0fbfb86adfbf 100644
-> --- a/drivers/gpu/drm/tidss/tidss_dispc.h
-> +++ b/drivers/gpu/drm/tidss/tidss_dispc.h
-> @@ -92,6 +92,8 @@ struct dispc_features {
->   	u32 num_vids;
->   	struct dispc_vid_info vid_info[TIDSS_MAX_PLANES];
->   	u32 vid_order[TIDSS_MAX_PLANES];
-> +	/* The DSS has VP_CONTROL.DPIENABLE bit */
-> +	bool has_vp_control_dpienable;
->   };
->   
->   extern const struct dispc_features dispc_k2g_feats;
-> diff --git a/drivers/gpu/drm/tidss/tidss_dispc_regs.h b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-> index 4cdde24d8372..4246c72efdd5 100644
-> --- a/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-> +++ b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-> @@ -230,6 +230,7 @@ enum dispc_common_regs {
->   
->   #define DISPC_VP_CONTROL			0x4
->   #define DISPC_VP_CONTROL_DATALINES_MASK			GENMASK(10, 8)
-> +#define DISPC_VP_CONTROL_DPIENABLE_MASK			GENMASK(6, 6)
->   #define DISPC_VP_CONTROL_GOBIT_MASK			GENMASK(5, 5)
->   #define DISPC_VP_CONTROL_ENABLE_MASK			GENMASK(0, 0)
->   
-> 
+> -----Original Message-----
+> From: Frank Li (OSS) <frank.li@oss.nxp.com>
+> Sent: Wednesday, July 8, 2026 3:02 AM
+> To: Luke Wang (OSS) <ziniu.wang_1@oss.nxp.com>
+> Cc: adrian.hunter@intel.com; ulfh@kernel.org; Bough Chen
+> <haibo.chen@nxp.com>; Frank Li <frank.li@nxp.com>;
+> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> imx@lists.linux.dev; linux-mmc@vger.kernel.org; dl-S32 <S32@nxp.com>;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: Re: [PATCH v5 3/8] mmc: sdhci-esdhc-imx: fix
+> esdhc_change_pinstate() to allow default state restore
+>=20
+> On Tue, Jul 07, 2026 at 07:02:58PM +0800, ziniu.wang_1@oss.nxp.com wrote:
+> > From: Luke Wang <ziniu.wang_1@nxp.com>
+> >
+> > esdhc_change_pinstate() checks for pins_100mhz and pins_200mhz at the
+> > top of the function and returns -EINVAL if either is not defined. This
+> > prevents the default case from ever being reached, which means devices
+> > with a sleep pinctrl state but without high-speed pin states (100mhz/
+> > 200mhz) can never restore their default pin configuration.
+> >
+> > Move the IS_ERR checks for pins_100mhz and pins_200mhz into their
+> > respective switch cases.
+> >
+> > Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> > ---
+> >  drivers/mmc/host/sdhci-esdhc-imx.c | 8 +++++---
+> >  1 file changed, 5 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhc=
+i-
+> esdhc-imx.c
+> > index 7230d70e02ae..ead4685d621a 100644
+> > --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> > +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> > @@ -1326,19 +1326,21 @@ static int esdhc_change_pinstate(struct
+> sdhci_host *host,
+> >
+> >  	dev_dbg(mmc_dev(host->mmc), "change pinctrl state for uhs %d\n",
+> uhs);
+> >
+> > -	if (IS_ERR(imx_data->pinctrl) ||
+> > -		IS_ERR(imx_data->pins_100mhz) ||
+> > -		IS_ERR(imx_data->pins_200mhz))
+> > +	if (IS_ERR(imx_data->pinctrl))
+> >  		return -EINVAL;
+>=20
+> Maybe off topic,  I suggest set pins_100mhz and pins_200mhz to
+> default pinctrl if not exist.
+>=20
+> Currently driver use pinctrl_200mhz/100mhz judge if support SDR50 and
+> HS200.
+> Actually it is hidden ABI.
+>=20
+> You can save max support speed to variable after check pinctrl_200mhz
+> and pinctl_100mhz. then make these two variable to fallback to low
+> frequency
+> one.
+>=20
+> So you can reduce these check in code.
+>=20
+> Is it simpler?
 
+Good point - using the presence of the 100MHz/200MHz pinctrl states to gate
+the UHS/HS200 caps is a hidden ABI, and making it explicit would be cleaner=
+.
+
+I'd prefer to keep this out of the current series, though - these eight are
+suspend/resume fixes. I'll send it as a separate patch on top once this
+series lands.
+
+Thanks,
+Luke
+
+>=20
+> Frank
+>=20
+> >
+> >  	switch (uhs) {
+> >  	case MMC_TIMING_UHS_SDR50:
+> >  	case MMC_TIMING_UHS_DDR50:
+> > +		if (IS_ERR(imx_data->pins_100mhz))
+> > +			return -EINVAL;
+> >  		pinctrl =3D imx_data->pins_100mhz;
+> >  		break;
+> >  	case MMC_TIMING_UHS_SDR104:
+> >  	case MMC_TIMING_MMC_HS200:
+> >  	case MMC_TIMING_MMC_HS400:
+> > +		if (IS_ERR(imx_data->pins_200mhz))
+> > +			return -EINVAL;
+> >  		pinctrl =3D imx_data->pins_200mhz;
+> >  		break;
+> >  	default:
+> > --
+> > 2.34.1
+> >
+> >
 
