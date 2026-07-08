@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549D6C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=; b=q4q5LhVS2CLy8feePkYOS470uY
-	FuXOL7MWJIx76isX+P/gHllDCNj6xzMfUKz2zGq83pb5kw9R8XjIwh6ISVu0vIDG0CC2lv5HqaSbS
-	TbJ5SaFl43qJ++HxkcVD3Y2wBWX6cuF2frL3SovxlzfWTlMoK62A24U0tmxVUJj2+SSojwXSbyAET
-	OMJBDaXyJ52FgqMczWvdZb+gsc6le16iS7RNb8AC/pEh3QO5+Sxa9tDj4yNf/ha+gDkTgXUhZ/v7l
-	P6JiwjbI0DbGQkBlvQThIdjyqKo4K6Prk5RTJvK2mQc5i5kdUCkkZ8noZ6wl5jVTZgoxxivVyKDEi
-	iOpuk3/w==;
+	bh=RozeYceB4iwycNfbGDK46tH90J5JBru51kfxpqOiyNk=; b=bBD7UFb9tTAOVgi6un4g8tpMPW
+	vvLzeraegQ9GZKhwo6uY7ylz/yUa/yekO4k4rDxu9QyriuChfMrHW78aGzcBqdwmhVxRJ2i8NlmoP
+	qFciVREzZL6V9PZXLE0Y+YJkPs+/mtdhhv8bNb0yLL6mORKpP1/o8egrdWEi75bUg9h/+Q8+OiOKJ
+	TThMA70Mfd/qAD9ywLFmsuSBS2l/T+1MQ17JE+ip9lP8xTcX9T9P0TN4bGBiHJqXd+CcGehXy4hrN
+	cBU0g60dNnIQkwG4T2QXZXODOCqriARnpbJmPBuApM79d3fFCTlfPaXfDqxojmDEcq1RLAAMnSn1R
+	EdmHVaAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whT7R-0000000HGDy-2r1T;
-	Wed, 08 Jul 2026 14:19:21 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1whT7a-0000000HGJu-46HM;
+	Wed, 08 Jul 2026 14:19:30 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whT7P-0000000HGCJ-2kRj
+	id 1whT7Y-0000000HGHR-0VyL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 14:19:20 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2caced6038eso9602905ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 07:19:19 -0700 (PDT)
+	Wed, 08 Jul 2026 14:19:29 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cace91f112so8237245ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 07:19:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783520359; x=1784125159; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783520367; x=1784125167; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=;
-        b=X/I2Dt42a9pVcBGKX6UeVvpfuPW86TWlohvRLAHBFqnjATL8VNGKeUljrY+8QkIU4K
-         ZVr4gm1OtZiJHC8A9TP5ZSIUpJJvnkRkN6L1vfaa7kx/hOMiPb4tWktH5Cj5nPAZKdc1
-         egpNGIe8lh/qX7ZPHQNVllLr781ikIJ17FB/S46xta/tOoToWKNOx1PqRwLv1jDDR1Lu
-         xRwSSgI+xNiPXuciNjD6GFlkxPpX+rqpcIzXYAmYBV6sElTc+gDFz4n2/bLGHcYJAPxn
-         UErUgKqVMZygZSSbpwX721L/ePDnyV5HbC9C873xlyHSEjO8Jo/u2g6EbdukByqP4KSL
-         mS0w==
+        bh=RozeYceB4iwycNfbGDK46tH90J5JBru51kfxpqOiyNk=;
+        b=sSHwmepZ9kbTZQLhrp5vxWvvC+DH5DioWLdxmLmsxssPKM1u1LQu6ljsBUECad2uOO
+         NqbYIO2nlewDaru8/Qviaw8/7JbK+zUXSEk9TC6hgbuVS7vLWe1CEdPi+jfZnPvTJOkK
+         QWtjd3Mfmbs9C2SNPQiPr6nyIXAo0syw/npBYRf/YBoODNJsvNvfaJUqU42eb72ipYuc
+         TfHAY31YfTMqeGg9Y7SiG8yvUvO+qkrnqwQVcIvgF1U/ZXnmbAS12gBbEyG2HaB7jBnC
+         ehAeO6rD8pfjFN8lF1XLDtXSuonznwq32Hp6TTvyTiFgnQIDAZ60E3sqVM0g0Wb+ye4v
+         3c5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783520359; x=1784125159;
+        d=1e100.net; s=20251104; t=1783520367; x=1784125167;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=;
-        b=JB41jRi0S9o5tSChd2IweWTe3AsCh7RsyeTnKo5qi1KLIIAi+PD8hNC4cpuBBQEwvG
-         KnOsUB2+l68YH7k58Z06zd3dqdIIU3GxGFcE2sUa1xWdSoGU75zT2lvkUtn2YuyfBvQ/
-         M1g9abIoUAvinwXvodnx9/3rU0/Ee56kEPSqW2SZBIosoUwy48TkoJxhR4ghlfN+w/z6
-         kqRWaDZQR14mmlNBTBeHSYCCPWy3BaIdFekunEaNe5bp3m03kw5QZgzkq3Eimh6b3qk6
-         oEi5fcP6M8zkmX2DIqfb34e+1Se16l+YKY1FdIc2p5zTg1uG8SvApNxgFemqVwujHnP+
-         UkAA==
-X-Forwarded-Encrypted: i=1; AHgh+RoYhDueTsE2F0VDYtQYpyfYuG02VcCxRMTsXvHOYaVash4p6tlNYJb4P6/zmEF8fLS+aqLJ409XmkEileUzS5qj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGhleVI9JXag0JFLNsRU+TXNUZWytQIjDkHfAQp0ul84AMXCQd
-	4qmvybWiiuKOcaZTkq3uLX+C1/53mQmWWUDnJVDbdjWao/TYx+jTU2Xn
-X-Gm-Gg: AfdE7ck4nG14sbdqX6w6chrsYqvVW6J6fF+/8GP0ReBBeojkc+TOw2s5+Dym6mQJnt4
-	RDQ3b6JbHvHVSoOb7XuEkLK6gha+Ocj36JnxzIxMuJs+Vgd8ov/bSERHNMCGfG5zYL5qFFGU+Pp
-	deLv/iom6AoE+KFMker6LpICdL3ZK8eAVRi47UeelSiKA/cBIYzIU7MATNqiDjBnPUSD7ptWNre
-	CWXzVtB0rT3Pi0nXq/pBEuNkl9SWEMzwYu4AO9LF5k7o+6El0Za2zP95xzjbC3RkNKUyr4Cu2Qw
-	/2ps1Kk+QC8rmQW8JV4vgSgVVPQ6ZC4yVfMb5WoDziHtOecK0hsPx6hX+Azt57OqqtXzOMpQx1+
-	cfwbtWpde8yhX79J0P7Og3keKWwp5woNGt95hPx/7LHsK7XkqHdObxg5jwhSUun/L6OOj+D92yl
-	BRKVh7h2QYNT/AUA/YxjcSoyV7e4v4DKnHTjt4zym2FogATNU=
-X-Received: by 2002:a17:902:ce82:b0:2ca:9a9f:bb10 with SMTP id d9443c01a7336-2cccadc6e24mr67354425ad.22.1783520359028;
-        Wed, 08 Jul 2026 07:19:19 -0700 (PDT)
+        bh=RozeYceB4iwycNfbGDK46tH90J5JBru51kfxpqOiyNk=;
+        b=UOMAlpjD5ACLiLelSShhLvC995hDcRGf0pOnbydq+TuDtyLu3e8TMKhBvjrYUGPDL8
+         BoI2SoHBGK8UFi7IrtwpAPR1dwnbVjOoeVVR2xJz0BcewpwYC8CU7NIhObe/U1BH1K7E
+         YDVxYjwGP0xlghV8K4/F3aO83l2y+PGZYYtIenjx6mu+GxmVwPhtH/Lsk+XJ6WcYiuzA
+         3ZvGYXU+MbcWcVGc4rkcNWBYIQxtoJ0OHrxL9hkbf0K1vcjj3WlphROanWI5Q8YKwdXq
+         OAuWd0RESyP++p5+qLf9CHrmhZlxba/u+4OYE7YMfCwRxDRAyfwftmdgfIwMA80WB/T8
+         XeEg==
+X-Forwarded-Encrypted: i=1; AHgh+RoLCjEkbt7zpt8LvFbOJcewCsWlSmF1Rs/9t0rJrsGDyIuVKxyxpOz3MCVQBRXIvjd+ajbS07r0U16HCgX8bBU1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpLDaje8UF9dTYQjhQ+4ITt7sfbL9bIwTlSIYnXArUaCGmEBbn
+	K2Ivw/kVwie4nVAKa9+k+S1qZvm1UApP/rubEdzqzCOHrR0rjK1cguGw
+X-Gm-Gg: AfdE7cmxlxI+AFCzVxBeQ+FSr9+l5Zzj4ppRbqAZtd/M2FLYsDmH30+YN1/WDr6XYG1
+	FSxQEr6f5dc5tn9h1nzW9UwxPQ/9YPLFdMjPmas0XLvqhFLqe8djwjXmTlrDePitCgAYKrYxtu/
+	KXmgrtKa8rZyivR3pVZ2OM9t8kurem72VCsQzmuhCvuB8qEFuzARtMZB7ag4EOJx6Ixov4dWTed
+	JhZgR9LQqbzKv6qv9IMjZynTXw93Jh1PZ/aNmj9IKJqBK+conZwrb0kpYUAnnRpRrMGOb8sblVY
+	xZzxbUSiUTjljKMCmIIXVs6JsNHHUNOUneAX9OVBPynufIbKRfpKDx2MZsYrkKfCSVbB9Qj5sfX
+	E75cPEbf8NYS1cP8yWG/l1N/YP/iZotNyGWo8Lg0nkXd8XcJ3uB8+yWCYjxUnmpCMX7P49r5Eu7
+	Y1UbaSxhdpa5ywdorg8nUxtuRFXraweICPO8ECxDOyMB1fRUA=
+X-Received: by 2002:a17:903:2984:b0:2cb:ea0b:9164 with SMTP id d9443c01a7336-2ccea3849d2mr28129135ad.6.1783520367125;
+        Wed, 08 Jul 2026 07:19:27 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3bcc0sm28841575ad.67.2026.07.08.07.19.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3bcc0sm28841575ad.67.2026.07.08.07.19.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 07:19:18 -0700 (PDT)
+        Wed, 08 Jul 2026 07:19:26 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Takashi Iwai <tiwai@suse.com>,
@@ -103,17 +103,17 @@ Cc: Support Opensource <support.opensource@diasemi.com>,
 	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 02/27] ASoC: codecs: da7219: Use guard() for mutex locks
-Date: Wed,  8 Jul 2026 21:17:09 +0700
-Message-ID: <20260708141734.578926-3-phucduc.bui@gmail.com>
+Subject: [PATCH v2 03/27] ASoC: codecs: es8316: Use guard() for mutex locks
+Date: Wed,  8 Jul 2026 21:17:10 +0700
+Message-ID: <20260708141734.578926-4-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260708141734.578926-1-phucduc.bui@gmail.com>
 References: <20260708141734.578926-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_071919_722521_3234D9EB 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20260708_071928_169907_0946D28D 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,174 +135,94 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/da7219.c | 62 ++++++++++++---------------------------
- 1 file changed, 19 insertions(+), 43 deletions(-)
+ sound/soc/codecs/es8316.c | 31 +++++++++++++------------------
+ 1 file changed, 13 insertions(+), 18 deletions(-)
 
-diff --git a/sound/soc/codecs/da7219.c b/sound/soc/codecs/da7219.c
-index f0874d891e12..f6d371e93549 100644
---- a/sound/soc/codecs/da7219.c
-+++ b/sound/soc/codecs/da7219.c
-@@ -8,6 +8,7 @@
-  */
+diff --git a/sound/soc/codecs/es8316.c b/sound/soc/codecs/es8316.c
+index 6a428387e496..e83dab0b7083 100644
+--- a/sound/soc/codecs/es8316.c
++++ b/sound/soc/codecs/es8316.c
+@@ -9,6 +9,7 @@
  
+ #include <linux/module.h>
  #include <linux/acpi.h>
 +#include <linux/cleanup.h>
  #include <linux/clk.h>
- #include <linux/clkdev.h>
- #include <linux/clk-provider.h>
-@@ -256,13 +257,10 @@ static int da7219_volsw_locked_get(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
+ #include <linux/delay.h>
+ #include <linux/i2c.h>
+@@ -621,15 +622,15 @@ static irqreturn_t es8316_irq(int irq, void *data)
+ 	struct snd_soc_component *comp = es8316->component;
+ 	unsigned int flags;
  
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_get_volsw(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
+-	mutex_lock(&es8316->lock);
++	guard(mutex)(&es8316->lock);
  
--	return ret;
-+	return snd_soc_get_volsw(kcontrol, ucontrol);
- }
+ 	regmap_read(es8316->regmap, ES8316_GPIO_FLAG, &flags);
+ 	if (flags == 0x00)
+-		goto out; /* Powered-down / reset */
++		return IRQ_HANDLED; /* Powered-down / reset */
  
- static int da7219_volsw_locked_put(struct snd_kcontrol *kcontrol,
-@@ -270,13 +268,10 @@ static int da7219_volsw_locked_put(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
+ 	/* Catch spurious IRQ before set_jack is called */
+ 	if (!es8316->jack)
+-		goto out;
++		return IRQ_HANDLED;
  
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_put_volsw(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_put_volsw(kcontrol, ucontrol);
- }
- 
- static int da7219_enum_locked_get(struct snd_kcontrol *kcontrol,
-@@ -284,13 +279,10 @@ static int da7219_enum_locked_get(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_get_enum_double(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_get_enum_double(kcontrol, ucontrol);
- }
- 
- static int da7219_enum_locked_put(struct snd_kcontrol *kcontrol,
-@@ -298,13 +290,10 @@ static int da7219_enum_locked_put(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_put_enum_double(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_put_enum_double(kcontrol, ucontrol);
- }
- 
- /* ALC */
-@@ -422,9 +411,8 @@ static int da7219_tonegen_freq_get(struct snd_kcontrol *kcontrol,
- 	__le16 val;
- 	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = regmap_raw_read(da7219->regmap, reg, &val, sizeof(val));
--	mutex_unlock(&da7219->ctrl_lock);
-+	scoped_guard(mutex, &da7219->ctrl_lock)
-+		ret = regmap_raw_read(da7219->regmap, reg, &val, sizeof(val));
- 
- 	if (ret)
- 		return ret;
-@@ -456,12 +444,11 @@ static int da7219_tonegen_freq_put(struct snd_kcontrol *kcontrol,
- 	 */
- 	val_new = cpu_to_le16(ucontrol->value.integer.value[0]);
- 
--	mutex_lock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 	ret = regmap_raw_read(da7219->regmap, reg, &val_old, sizeof(val_old));
- 	if (ret == 0 && (val_old != val_new))
- 		ret = regmap_raw_write(da7219->regmap, reg,
--				&val_new, sizeof(val_new));
--	mutex_unlock(&da7219->ctrl_lock);
-+				       &val_new, sizeof(val_new));
- 
- 	if (ret < 0)
- 		return ret;
-@@ -1167,15 +1154,12 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
- 	int ret = 0;
- 
--	mutex_lock(&da7219->pll_lock);
-+	guard(mutex)(&da7219->pll_lock);
- 
--	if ((da7219->clk_src == clk_id) && (da7219->mclk_rate == freq)) {
--		mutex_unlock(&da7219->pll_lock);
-+	if (da7219->clk_src == clk_id && da7219->mclk_rate == freq)
- 		return 0;
--	}
- 
--	if ((freq < 2000000) || (freq > 54000000)) {
--		mutex_unlock(&da7219->pll_lock);
-+	if (freq < 2000000 || freq > 54000000) {
- 		dev_err(codec_dai->dev, "Unsupported MCLK value %d\n",
- 			freq);
- 		return -EINVAL;
-@@ -1193,7 +1177,6 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 		break;
- 	default:
- 		dev_err(codec_dai->dev, "Unknown clock source %d\n", clk_id);
--		mutex_unlock(&da7219->pll_lock);
- 		return -EINVAL;
- 	}
- 
-@@ -1203,17 +1186,13 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 		freq = clk_round_rate(da7219->mclk, freq);
- 		ret = clk_set_rate(da7219->mclk, freq);
- 		if (ret) {
--			dev_err(codec_dai->dev, "Failed to set clock rate %d\n",
--				freq);
--			mutex_unlock(&da7219->pll_lock);
-+			dev_err(codec_dai->dev, "Failed to set clock rate %d\n", freq);
- 			return ret;
+ 	if (es8316->jd_inverted)
+ 		flags ^= ES8316_GPIO_FLAG_HP_NOT_INSERTED;
+@@ -682,8 +683,6 @@ static irqreturn_t es8316_irq(int irq, void *data)
  		}
  	}
  
- 	da7219->mclk_rate = freq;
+-out:
+-	mutex_unlock(&es8316->lock);
+ 	return IRQ_HANDLED;
+ }
  
--	mutex_unlock(&da7219->pll_lock);
+@@ -700,18 +699,16 @@ static void es8316_enable_jack_detect(struct snd_soc_component *component,
+ 	es8316->jd_inverted = device_property_read_bool(component->dev,
+ 							"everest,jack-detect-inverted");
+ 
+-	mutex_lock(&es8316->lock);
++	scoped_guard(mutex, &es8316->lock) {
++		es8316->jack = jack;
+ 
+-	es8316->jack = jack;
 -
- 	return 0;
+-	if (es8316->jack->status & SND_JACK_MICROPHONE)
+-		es8316_enable_micbias_for_mic_gnd_short_detect(component);
+-
+-	snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
+-				      ES8316_GPIO_ENABLE_INTERRUPT,
+-				      ES8316_GPIO_ENABLE_INTERRUPT);
++		if (es8316->jack->status & SND_JACK_MICROPHONE)
++			es8316_enable_micbias_for_mic_gnd_short_detect(component);
+ 
+-	mutex_unlock(&es8316->lock);
++		snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
++					      ES8316_GPIO_ENABLE_INTERRUPT,
++					      ES8316_GPIO_ENABLE_INTERRUPT);
++	}
+ 
+ 	/* Enable irq and sync initial jack state */
+ 	enable_irq(es8316->irq);
+@@ -727,7 +724,7 @@ static void es8316_disable_jack_detect(struct snd_soc_component *component)
+ 
+ 	disable_irq(es8316->irq);
+ 
+-	mutex_lock(&es8316->lock);
++	guard(mutex)(&es8316->lock);
+ 
+ 	snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
+ 				      ES8316_GPIO_ENABLE_INTERRUPT, 0);
+@@ -738,8 +735,6 @@ static void es8316_disable_jack_detect(struct snd_soc_component *component)
+ 	}
+ 
+ 	es8316->jack = NULL;
+-
+-	mutex_unlock(&es8316->lock);
  }
  
-@@ -1296,13 +1275,10 @@ static int da7219_set_dai_pll(struct snd_soc_dai *codec_dai, int pll_id,
- {
- 	struct snd_soc_component *component = codec_dai->component;
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->pll_lock);
--	ret = da7219_set_pll(component, source, fout);
--	mutex_unlock(&da7219->pll_lock);
-+	guard(mutex)(&da7219->pll_lock);
- 
--	return ret;
-+	return da7219_set_pll(component, source, fout);
- }
- 
- static int da7219_set_dai_fmt(struct snd_soc_dai *codec_dai, unsigned int fmt)
+ static int es8316_set_jack(struct snd_soc_component *component,
 -- 
 2.43.0
 
