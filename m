@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F583C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21D7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gntOwzFKtescMFhT2EhV8pgjBFcz+C06+ta5dBrFjaY=; b=h8uknFD2Lnpq9AlnEX/BZiV0md
-	j1+j49fAcdRZCwJWPAtxIbPb5r5AI2fJHjPmF/ChwZvD1rijEu7ezU/81EfLsNNyshOgXn5E4vrgh
-	mcDv4bE7jTKZj9QMDVjxgGLkFUvqheEa4032oVxYpGrONg7KO1ZLC/RhQSeq8Mp1da7TFwBQ/wpQF
-	xP2lF/jEgVg0GzZzWmNjiQpxzCqwAsEuG9EtoX+VKcWh76Y7d1d7W16Mvqv5VJXxTsQ2WdtygnZmM
-	s8lIi8be/uDpHQcBeIk7SZ2HSqmNACjPavnFJ7zU6I7atf5ebtdVJkx+BeupN2DpElh3lALef2zSy
-	MbI1ckqA==;
+	bh=9qfsIQpBX/+c7Z6mG3JzLtjdxK3jsS22aMaGA7zXRJM=; b=UJr2J00s3I+mDCRKRJN9C8RAvL
+	8KYM7eJuA+HOMchnzVc/MUd9H98BoGUaVObb7StiuopzsKKVW6JIdcjAajlSAHsUQGwOXCvRODWTU
+	IRxZZKe9mJzRK/R0+Hk8H0TM6a+ybZEtpW+Au9QAXD0IbOuqQgQkLC32KgOIhFXfgT8nx2uSJ+VP+
+	DT+f7cq5RyfdFIKiYwjBiGlmVqApyNphjfOChsI6EQ8hG0B1XLmlbmUOQFIxLNpuYnTr4LXbcpIZe
+	yFACuEJf3jpMNbhi4w999UfF9ziK0XBUULbVI3IEekxuj8A7/+KuZ3VZ23JA5J+o4Gqud3vxtUmhf
+	PbW8EOrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whS5G-0000000HB22-1Cn9;
-	Wed, 08 Jul 2026 13:13:02 +0000
-Received: from mail-eastus2azon11011034.outbound.protection.outlook.com ([52.101.57.34] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1whS5O-0000000HB5j-22s9;
+	Wed, 08 Jul 2026 13:13:10 +0000
+Received: from mail-southcentralusazon11013004.outbound.protection.outlook.com ([40.93.196.4] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whS5C-0000000HAzm-11WL
+	id 1whS5L-0000000HB41-3ler
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 13:12:59 +0000
+	Wed, 08 Jul 2026 13:13:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RSECJYiYfmJ4VhUD4eq6Mgbm+4MTsphoDVUDd0LvAGr+8b47kPipIL8oXSc8GW0hiNpntVKuT2TsS71ukwFfyhf9YqbVGbQEUQj7K0tVs4rAlUJ3GtsWdo1XBblEAjyOULuUpEw5K5gDoV8JV+PxHaXZdyjKw4Bug/c2SaL8SmJW/YxHUgj5mIH23SvjNUbLBjquBycu6b9atJttD3aLyFMJlTGguDtPilScuXh58z0WOg5D1g++1f/b5mYdRxsm15ZZuMhyj3D8Q7yxpSWiXwYU7FNtfJL/PjWkNTfGb5zNgqNgb+sXtCc6K3ivERbCqyUgzMNa8F/JB67LOXfMxw==
+ b=YOaK3mdcJe+hCCMkrDfVC87hKHbb5v2NKLonsg+9ALBuFcPJ+0NKbglrNrNmRweeavFj3z1nDnipIcwhpN2X36tJdMic4JMJ8R90dMBgCfnkcc1Ygo6k4p0fET5PMxFpG9vcny2vIRfyqrbQTmnngiJMl5EipXbp6TgaLpRIBNfO1MX7/WCQ4Bzmm8rdu2RwQY0WjH2ADpJLCyzO1obOzFNzIfsLvv1VMg/u8YUUZwwMXG1f4et4wTXgxlDlVCppjob7oVSp/BvKlB9lqU8aw11/CoDjTiA9KHfxW2Oh7e6+3chziqgGvQ7m0z3sExqU8zJOiohYt6CpwSJnS5HvXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gntOwzFKtescMFhT2EhV8pgjBFcz+C06+ta5dBrFjaY=;
- b=s/BNIyz7lpKUdYyC+tZMWtKfNtLUpFrLpP0SBMfUr5Qn3KIHjImvDfdUKQ4+0ZxLzMJNwQAp4mLtpI6zMFnOAEQHKmrLaZtyoiit5K2Bney1L2Xlmco/kbG63k6gX8OucQGKhNpMOIZovriX2eGXbtCt8KLz3wCLMTu4qiGtOiarVNnR+c9+X32ZZfIiNd8U4lARDHyh3HInR1gznh1daR/A7WrCSj/MpOa9j/k+yLg7OoUm9lXHtJFPAbBPGBwpSRKT1YijwtcQNYXidWw4PyaYpfsJKuMB6CwuCdg1nn7GT3uPOs4uYz3V35R7Cb32i8VLOXntSDhcWowhYQpi8g==
+ bh=9qfsIQpBX/+c7Z6mG3JzLtjdxK3jsS22aMaGA7zXRJM=;
+ b=zFsBtiahzenAiMHX9lrgBXJ5YFFVFQllhsf/BRu3Ady1kR+fFS5zXdGuaiRA+aljt0RPfqOnDVSCar2XB48InscUZuS9nHhuk7KSWlwJlEofr/064oCvs5vM+nPeZfMoDeFzgMATPviX1kq4tB9e1f3hMcS+Wdh2Q6gYHDyU9ufYsDLO0JUnq0qV/NRI6XBp+lRLu36QeHiUaISamDkM3hmECfv7eI0AHRb/payC7nM6VKHbAtYt+g4r5HCrGtN1186DAmGJTp0sJwToBGVFMVeXX9a5kgraQfUXUdyTrPTwd+UxVa+dVPK3ljalZ2DrtKz9lJIQ21HB5c/ixvdCrA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gntOwzFKtescMFhT2EhV8pgjBFcz+C06+ta5dBrFjaY=;
- b=G9qKYa9Hn4ZVwd3kub9QWjq+SsiN6AHTpIUTfoGzatTWmgw4htq5FVCNgov4hdYQftghw8ueG9GegGLw04D/zcIiLkvvR3eVtowwkuZ7vQ7JHY8sX/d+AKl30llpJ1rwLUtehixAUQW5ObzrG2gDRRyo46g+7fLihC7vntDLXrk=
-Received: from SJ0PR05CA0036.namprd05.prod.outlook.com (2603:10b6:a03:33f::11)
- by PH7PR12MB8779.namprd12.prod.outlook.com (2603:10b6:510:26b::8) with
+ bh=9qfsIQpBX/+c7Z6mG3JzLtjdxK3jsS22aMaGA7zXRJM=;
+ b=KchxZ6p07aVSKrgIle1laaCBkChFdKoHhozftzH3iVMXS7E/vWXI2V+AwDpASdq9XQfOozCtnj6ghkE9jDTjTOXuNnKTNgO9ViGUF9AwynIZQtk3vEBo6sJSNTEa38L696uyiI55sdPlwZ8BdBRMki2V8CYFkyvMRtOLiLav0z8=
+Received: from MW4PR03CA0155.namprd03.prod.outlook.com (2603:10b6:303:8d::10)
+ by DS4PR12MB999077.namprd12.prod.outlook.com (2603:10b6:8:2f9::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
- 2026 13:12:45 +0000
-Received: from CO1PEPF000066E6.namprd05.prod.outlook.com
- (2603:10b6:a03:33f:cafe::ab) by SJ0PR05CA0036.outlook.office365.com
- (2603:10b6:a03:33f::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Wed, 8
- Jul 2026 13:12:40 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 8 Jul
+ 2026 13:12:57 +0000
+Received: from CO1PEPF000066ED.namprd05.prod.outlook.com
+ (2603:10b6:303:8d:cafe::8) by MW4PR03CA0155.outlook.office365.com
+ (2603:10b6:303:8d::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Wed, 8
+ Jul 2026 13:12:57 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,61 +59,63 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- CO1PEPF000066E6.mail.protection.outlook.com (10.167.249.4) with Microsoft
+ CO1PEPF000066ED.mail.protection.outlook.com (10.167.249.10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 13:12:40 +0000
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 13:12:57 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 8 Jul
- 2026 08:12:35 -0500
+ 2026 08:12:41 -0500
 Received: from localhost (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
- Transport; Wed, 8 Jul 2026 08:12:35 -0500
+ Transport; Wed, 8 Jul 2026 08:12:41 -0500
 From: Michal Simek <michal.simek@amd.com>
 To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
 	<michal.simek@amd.com>, <git@amd.com>
-CC: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley
-	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring
-	<robh@kernel.org>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
- BINDINGS" <devicetree@vger.kernel.org>, kishore Manne
-	<nava.kishore.manne@amd.com>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v5 1/5] dt-bindings: firmware: xilinx: Add missing example for ZynqMP
-Date: Wed, 8 Jul 2026 15:12:22 +0200
-Message-ID: <12dba601a8b631e565dd98e52a89b0ec18fcdce2.1783516336.git.michal.simek@amd.com>
+CC: Rob Herring <robh@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+	Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "open list:OPEN
+ FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	kishore Manne <nava.kishore.manne@amd.com>, "moderated list:ARM/ZYNQ
+ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, "open list:COMMON CLK
+ FRAMEWORK" <linux-clk@vger.kernel.org>
+Subject: [PATCH v5 3/5] dt-bindings: clock: Move xlnx,zynqmp-clk to its own schema
+Date: Wed, 8 Jul 2026 15:12:24 +0200
+Message-ID: <973a8a5441cf13622594b95dd0dd20a5f42ccece.1783516336.git.michal.simek@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783516336.git.michal.simek@amd.com>
 References: <cover.1783516336.git.michal.simek@amd.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1509; i=michal.simek@amd.com; h=from:subject:message-id; bh=aOcMD/LuV1/vAtOT38CtZfDM+OvNBaEMwW/CWQ4aT00=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT5+ezS5/t2YoYIt13/jlvMX462vHnise3uzQkPPkw/l WjkeTRYtKOUhUGMg0FWTJFlOpOOw5pv15aKLY/Mh5nDygQyhIGLUwAm4nGV4b+3l94jw4vXT+i+ mG3VYd32vIH9xUH5tpa+c5IxYVtnzHrMyPBCuDLGZZLP+xXmrtPvXV/QPGHmqQC1uqafKY8kfZI m1nEDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7784; i=michal.simek@amd.com; h=from:subject:message-id; bh=GqjjMlJrFfYpjRByXDUg9N2DTkZe+cLqX5LhRI5kO3g=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT5+ezJON4stuDj9dknNE8u/PnaJyv52qFJhS7Zgct7J UzTV11e3FHKwiDGwSArpsgynUnHYc23a0vFlkfmw8xhZQIZwsDFKQAT2fGF4b+/gJV+4OOC9DN5 QgmXzarmJj6/mv3NN+eZi06xPssqwUaGf2bmK25G1y2+4rk+KPqVwccpK7IWbw99+vZHy9H5qjE bdBkA
 X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E6:EE_|PH7PR12MB8779:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16bea52b-62b2-4359-e8cc-08dedcf2971d
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066ED:EE_|DS4PR12MB999077:EE_
+X-MS-Office365-Filtering-Correlation-Id: f419cfd0-a4c4-4d26-4d82-08dedcf2a10b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|23010399003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: EkTMR68POKiTBgIZ4V5VjxY1yAf/INFbzymAZzWwsK7nlXxBY1twpvT3N9NBn911CQlbJ5Vxehw0mT1NuF9oGWMvRJiZbiBGksm/tMbBZgxOsUY+DF4G5aLXEFErDW56UzEyEGhYGPMNdbRmB0JkjZNds7vHDaBVwMOGRyifBoaI0Bv582NI+8grgBmQ0y6lAhONzLpnFlETFcmBor3Sx51KOv9iziohFGkWBTQpwcRfCGB5Q7boEUF32zmdtVK7wXeRcVnGCwuO8dAD0Lx24EVeyb6wmrxPHMBLiOSJzgA/ocPOrvOBxrm5PHvfKoMReyJFzNWH/Xvtt9sodUNMcxYdfpX5kQ6GUiBE6vQz5Vw9eNIELCKefVSAtok/yQ50u3pPBwoHHD/0AitCsKHXrUt9aTCDbE5KqA5HmzXrqhZQjCOSvHOlfyTbY90TSEJzDQvVoukVljyW57beBOnzDDyEzjmIxNVTsnIVQOCmhF/0m96S5IJ6rg4LUvfUCQzCjbxNC/88qkeP1WG6bXfrjEw1Gbvg1pf50qCN2aq2Et+IeExZjqJpF5NKQlEud1kk9j1FRbCtF1+GayUly1596ax4CKKDER0kpEVpxiAluXp+AmR1o+HbMKkrfgRK2ewCKM7FNvbSclzVpw+rGjIJ+JsaKqk55Pt/+dcG9xhKFd6aQq+4Jsspd3EEe1upjcs/BROuK0+2C3L27LDjIiLh0Q==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(23010399003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|7416014|82310400026|23010399003|1800799024|56012099006|11063799006|3023799007|18002099003|22082099003|13003099007;
+X-Microsoft-Antispam-Message-Info: PVOCOQiWps6CVDEviRmXrarvbeaxeqoUFpe6rIIe+4BABkYF1hWE+onycOREmjNfC/49y6+vURXkMxSxgJ6sr9UYy1HHknBd+f7Uy5TjrE9ClOe5fn52/A2luM3Iv9UO1PxLVQqONsF/AOGn4me82iBXaoZrIDTksi7zA+S7Z3Tb/hE9gat/qO/8ybttAdLMg8EetMBFFAP/RcXAQtgQpc627eichVC2rTBr97ZbLnyXXBvZSgI/PBtOewooJhyH3VccVSMcyxPWM/10bA+9ztWXnFCBv5F2I6GvSBOLmQ47dHdocvZFrie9zRtQyThYBh1HNZ+BUS2oNVCAFj99Sp5Rln3XtQdBSaSa4Eq7rrUs3WgfWmAB9Pak02S5dfUYzMiD9M6LjULslbNxkuDLD7fqKmIfat6EeYJ2zb5yz+tFjx6O9yUKPV2P8c9sSafUt44qmiRCpgTLQusyuahMhh8kXBeMvszURboNTxiWKKpFOGRg8HKG3fvdhkLDPwtaXOffKuZ0nyfel7HSxGYsCrYRrUqDYiwVXChvGvkRuANOqgc3KBB4UUUh2wNKiB/hIywcTirHhI+9EYSmR+L8ZbAnbiu6gIxhiPo3y0WBXidCGga5SQNo6tijOmuXzFGUGn+oF9IrWTZfwwP0F3cd0w==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(7416014)(82310400026)(23010399003)(1800799024)(56012099006)(11063799006)(3023799007)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R/S1WVNhmQkW9tyz8EF5qhAZlq0YvCGadJ61ynT/8gHbhIIeT8zQzoNPQ4Nh3qykd+YIo6S0KpCYno2hcNHwiZWEPnXJ5XOC/at3RX3jHI1PYG3eNTTNXdvcw88/u1s/W5bwm1DE6Rg2LCc12X5kG0VzYSyGneBRZ8myM7vV58oNpkjZ2VUybr00zoaTEoxb+FZ3dWPBbREPIru11Q1BGH7Us5kpmc0JbKRn3koTVBdti2z/4aoMxir7BtHPEa8uiq/bMQ/evfmmf13Oa8nEejSwvmMhHFE8bNNFFRTijddCIxuugVDy7rGk38nAJRVum4YnXZA9eDZH5KATekd4EfRRaUXNgMPwCYht/HoZvok8AZVbigy9KJY1i/mA4bhiUqSbXoBWPVKRbBMWRtFtrU3bE15QGJQ/D6Z65AR0Jj0EeSKHARgzFjVvYEJa2df2
+X-MS-Exchange-AntiSpam-MessageData-0: 4kTLIVFtcxo8/6E2lkYjMBVRu/TmpWUqNJrT+qzgdR1M13HGGtiUDxcJ33oIj7IuBDi0Qus31J9IkVHGJbA5x8d4MAVqpVHthaoAW7PXrbJScwxCTtyGzFoSzomgj20Nkz9xL7cDeH8JJVFZ5mGwZuVnseO1idhxWsWxRY+hLvdMz37MgVRSvLf9U4ntVwc1ez76WjpZ2VzBOwpLhCgXSfTK1U72WvkuGuD/cMLc9vmDtzQusahmlr/N6J9FnJyTTh+ZSfB19lxQT98DH4cYsTswHbQq4/HUTEw1aAdBVuxXqyhmJ5n0Zd+/G+Iq93Sa8Ha1lU5j1y0aUAhwHQq95Jqn1VuSPToNh1fgNRCn2pvd0JjGMAfOSRIo6Oej4yups8HX4sX7hOmfdNvStv2xTh/qq/czKW7YmzlZqXUhwZNgg/HbSeFBT3xS5nUHE41s
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 13:12:40.7607
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 13:12:57.4558
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16bea52b-62b2-4359-e8cc-08dedcf2971d
+X-MS-Exchange-CrossTenant-Network-Message-Id: f419cfd0-a4c4-4d26-4d82-08dedcf2a10b
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066ED.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8779
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB999077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_061258_314652_4613B9CC 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260708_061307_990670_E65E5573 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,41 +130,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document clock-controller under zynqmp-firmware in the binding example so
-ZynqMP DTs validate against xlnx,versal-clk.yaml (Versal example already did).
+The ZynqMP clock controller binding shares only #clock-cells with the
+Versal bindings. Move it to a dedicated xlnx,zynqmp-clk.yaml schema.
+Also remove "(Optional clock)" from clock description because it is visible
+from schema itself.
 
+Also update versal-firmware example to match changes in
+xlnx,zynqmp-firmware.yaml.
+
+Suggested-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Michal Simek <michal.simek@amd.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 
 Changes in v5:
-- update commit message s/zynqmp-clk/versal-clk/
+- Also update firmware node to match xlnx,versal-firmware enforced by
+  schema (change taken from next patch)
+- Update commit message
+
+Changes in v4:
+- Update regex from previous patch
 
 Changes in v3:
-- new patch in series
+- Cover change in zynqmp-firmware.yaml
+- Move clock-cells to be the last in the example
+- Remove comment around (Optional clock) which is obvious from schema
+  itself
 
- .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml    | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v2:
+- New patch in series
+- Split zynqmp-clk from versal-clk
 
+ .../bindings/clock/xlnx,versal-clk.yaml       | 54 ++-------------
+ .../bindings/clock/xlnx,zynqmp-clk.yaml       | 68 +++++++++++++++++++
+ .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  7 +-
+ 3 files changed, 78 insertions(+), 51 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
+
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml b/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
+index b1623c2ab0f6..7b6d9ec83863 100644
+--- a/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
++++ b/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
+@@ -17,9 +17,7 @@ description: |
+ properties:
+   compatible:
+     oneOf:
+-      - enum:
+-          - xlnx,versal-clk
+-          - xlnx,zynqmp-clk
++      - const: xlnx,versal-clk
+       - items:
+           - enum:
+               - xlnx,versal-net-clk
+@@ -32,11 +30,11 @@ properties:
+     description: List of clock specifiers which are external input
+       clocks to the given clock controller.
+     minItems: 2
+-    maxItems: 8
++    maxItems: 3
+ 
+   clock-names:
+     minItems: 2
+-    maxItems: 8
++    maxItems: 3
+ 
+ required:
+   - compatible
+@@ -87,44 +85,11 @@ allOf:
+             - const: pl_alt_ref
+             - const: alt_ref
+ 
+-  - if:
+-      properties:
+-        compatible:
+-          contains:
+-            enum:
+-              - xlnx,zynqmp-clk
+-
+-    then:
+-      properties:
+-        clocks:
+-          minItems: 5
+-          items:
+-            - description: PS reference clock
+-            - description: reference clock for video system
+-            - description: alternative PS reference clock
+-            - description: auxiliary reference clock
+-            - description: transceiver reference clock
+-            - description: (E)MIO clock source  (Optional clock)
+-            - description: GEM emio clock  (Optional clock)
+-            - description: Watchdog external clock (Optional clock)
+-
+-        clock-names:
+-          minItems: 5
+-          items:
+-            - const: pss_ref_clk
+-            - const: video_clk
+-            - const: pss_alt_ref_clk
+-            - const: aux_ref_clk
+-            - const: gt_crx_ref_clk
+-            - pattern: "^mio_clk([0-6][0-9]|7[0-7])+.*$"
+-            - pattern: "gem[0-3]+_emio_clk.*$"
+-            - pattern: "swdt[0-1]+_ext_clk.*$"
+-
+ examples:
+   - |
+     firmware {
+-      zynqmp_firmware: zynqmp-firmware {
+-        compatible = "xlnx,zynqmp-firmware";
++      versal-firmware {
++        compatible = "xlnx,versal-firmware";
+         method = "smc";
+         versal_clk: clock-controller {
+           #clock-cells = <1>;
+@@ -134,13 +99,4 @@ examples:
+         };
+       };
+     };
+-
+-    clock-controller {
+-        #clock-cells = <1>;
+-        compatible = "xlnx,zynqmp-clk";
+-        clocks = <&pss_ref_clk>, <&video_clk>, <&pss_alt_ref_clk>,
+-                 <&aux_ref_clk>, <&gt_crx_ref_clk>;
+-        clock-names = "pss_ref_clk", "video_clk", "pss_alt_ref_clk",
+-                      "aux_ref_clk", "gt_crx_ref_clk";
+-    };
+ ...
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml b/Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
+new file mode 100644
+index 000000000000..c64550471581
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
+@@ -0,0 +1,68 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/xlnx,zynqmp-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Xilinx ZynqMP clock controller
++
++maintainers:
++  - Michal Simek <michal.simek@amd.com>
++
++description:
++  The clock controller is a hardware block of Xilinx ZynqMP clock tree. It
++  reads required input clock frequencies from the devicetree and acts as clock
++  provider for all clock consumers of PS clocks.
++
++properties:
++  compatible:
++    const: xlnx,zynqmp-clk
++
++  "#clock-cells":
++    const: 1
++
++  clocks:
++    description: List of clock specifiers which are external input
++      clocks to the given clock controller.
++    minItems: 5
++    items:
++      - description: PS reference clock
++      - description: reference clock for video system
++      - description: alternative PS reference clock
++      - description: auxiliary reference clock
++      - description: transceiver reference clock
++      - description: (E)MIO clock source
++      - description: GEM emio clock
++      - description: Watchdog external clock
++
++  clock-names:
++    minItems: 5
++    items:
++      - const: pss_ref_clk
++      - const: video_clk
++      - const: pss_alt_ref_clk
++      - const: aux_ref_clk
++      - const: gt_crx_ref_clk
++      - pattern: "^mio_clk([0-6][0-9]|7[0-7])+.*$"
++      - pattern: "gem[0-3]+_emio_clk.*$"
++      - pattern: "swdt[0-1]+_ext_clk.*$"
++
++required:
++  - compatible
++  - "#clock-cells"
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller {
++        compatible = "xlnx,zynqmp-clk";
++        clocks = <&pss_ref_clk>, <&video_clk>, <&pss_alt_ref_clk>,
++                 <&aux_ref_clk>, <&gt_crx_ref_clk>;
++        clock-names = "pss_ref_clk", "video_clk", "pss_alt_ref_clk",
++                      "aux_ref_clk", "gt_crx_ref_clk";
++        #clock-cells = <1>;
++    };
++...
 diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-index d50438b0fca8..680082c29f01 100644
+index 680082c29f01..72af37cdb103 100644
 --- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
 +++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-@@ -132,6 +132,14 @@ examples:
-       zynqmp_firmware: zynqmp-firmware {
-         compatible = "xlnx,zynqmp-firmware";
-         #power-domain-cells = <1>;
-+        clock-controller {
-+          compatible = "xlnx,zynqmp-clk";
-+          clocks = <&pss_ref_clk>, <&video_clk>, <&pss_alt_ref_clk>,
-+                   <&aux_ref_clk>, <&gt_crx_ref_clk>;
-+          clock-names = "pss_ref_clk", "video_clk", "pss_alt_ref_clk",
-+                        "aux_ref_clk", "gt_crx_ref_clk";
-+          #clock-cells = <1>;
-+        };
-         soc-nvmem {
-           compatible = "xlnx,zynqmp-nvmem-fw";
-           nvmem-layout {
+@@ -48,8 +48,7 @@ properties:
+     const: 1
+ 
+   clock-controller:
+-    $ref: /schemas/clock/xlnx,versal-clk.yaml#
+-    description: The clock controller is a hardware block of Xilinx versal
++    description: The clock controller is a hardware block of Xilinx SoC
+       clock tree. It reads required input clock frequencies from the devicetree
+       and acts as clock provider for all clock consumers of PS clocks.list of
+       clock specifiers which are external input clocks to the given clock
+@@ -113,10 +112,14 @@ allOf:
+             const: xlnx,zynqmp-firmware
+     then:
+       properties:
++        clock-controller:
++          $ref: /schemas/clock/xlnx,zynqmp-clk.yaml#
+         pinctrl:
+           $ref: /schemas/pinctrl/xlnx,zynqmp-pinctrl.yaml#
+     else:
+       properties:
++        clock-controller:
++          $ref: /schemas/clock/xlnx,versal-clk.yaml#
+         pinctrl:
+           $ref: /schemas/pinctrl/xlnx,versal-pinctrl.yaml#
+ 
 -- 
 2.43.0
 
