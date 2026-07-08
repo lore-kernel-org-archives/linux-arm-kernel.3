@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF20C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC22C43602
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LmDNA6n/wCEDx/4MyjN30bZMYHbGggBnQ4KmGwZnlo=; b=DSoAe2HeWH63LyxQVFtWwgTxgu
-	SB1ybwtP3dMU+yNnFYS7IbQmp/C7FLujsrU67rTGSZuHr7OPnxSwCmDJg2cYTCmgZaMfuDm37DvJm
-	T/PIoeluYkiUYGoCijusP97MDUoigaKDIs3wvNFf6mWxxEYxYHcN8Rb9VdNWZK1hO45TlW7a0Klb3
-	sIJd/1+6eeFKVcDE75CxSdVXmFpeCH1lXH/EJaxvChc4s5uCWT1xKKj6hG93ANRUxFj+U5psBfExn
-	ZVByRl5H1FKGBxw3LfaNgidal40ReQnBAnvYVPPAIeb75BNsKkWDFH4qoIt5EHQrgyIgTQxn9RU/w
-	ivOWmBSA==;
+	bh=uujWU4pxjJzuJYUbcpSqUlEN3LiP3PT6PxeH0l499rg=; b=xT2YFi59yeQRVrCd6IpStUjVwd
+	N6C3qHZDYqO/y+yLajhV9zQB79NcJGCrr6YqtXRlsgACykBMCWbnzmXHssYMQjpHzTyiaBrb9e25f
+	mJw7pornaf7DD7D4smzha0izsIgS5Ah+klzzgb4sJFC3JZUFofWQmBQfHDGze2Y/+rq0pSfrSMs9Z
+	vYus7KV2Yp8HAURHs1tXlPlxrAVSJs0DMoM0UzD7S0fnuOAbV0GEPWxW46tBwu+g5wWxHbsGH7oGj
+	hylyKblGrb7DjmjZfOJ7kT1qzvrikEY7UaOatV/5uWYNHL/Z7c2pxFwAEG0mB4OItd8D0QyqCa0//
+	7C3wkCNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO9G-0000000GgKO-1gsw;
+	id 1whO9G-0000000GgJy-175Q;
 	Wed, 08 Jul 2026 09:00:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO91-0000000Gg4E-2RNJ
+	id 1whO91-0000000Gg3W-0hLB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 08 Jul 2026 09:00:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A1F643BC6;
-	Wed,  8 Jul 2026 09:00:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB8E91F000E9;
+	by tor.source.kernel.org (Postfix) with ESMTP id 96A55600C3;
 	Wed,  8 Jul 2026 09:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B261F00A3A;
+	Wed,  8 Jul 2026 09:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501239;
-	bh=3LmDNA6n/wCEDx/4MyjN30bZMYHbGggBnQ4KmGwZnlo=;
+	s=k20260515; t=1783501238;
+	bh=uujWU4pxjJzuJYUbcpSqUlEN3LiP3PT6PxeH0l499rg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PkOlbRxvYBy07ZQfhwTUPtOOyauaQURLx32jDAzDzQIt8wbtBl6pp7rUkbEpa87pu
-	 Dtbj2UnVfQp25A3c5ke3n8xPgB3kkiJ9BV6nm+3eia+5iBzzLrWbDD3suUA4kSqmP3
-	 Hzwm+ipIGKaDLvCW6iVTjy82o588QuDibIsNSHkBDT6Jj5UoLWhbvBcRAutLgyiURr
-	 c8auVr5GPJ0ESEjwR43qh/JWazmB5UB3o0CpqIMX8ESasSABsdEtTPhUakmf7rE8E3
-	 XFf+0rxPNaZ9lajywMnAM3nQWstobUyJEWoI3ecODMlVPBm3bV9i3hJDfLZV1B2MIX
-	 qmimIkoNUAmAQ==
+	b=J1New+MTdEK4xAH04oUgG0dKCW4yEZj1lq/KwjVGJkFLEEQGZ6LzTnJC5FcRayPOM
+	 rzk2vLAtO8KLmm1fbr4I8wlOwQ4MQsk0ym1/m1M01FzIdAkjtRAkv4ruvHN21E6qqC
+	 TqAjZxTjxTQKF569OSLbMoTjChgonnjHCxmFRzUS9yycDLQWPIJH+Q9SYOdUvakhAC
+	 7h77soTtttzY0aBfNtg42cjzi60vLuOAC3S/7sCV2ABkn9i/XOJPVQvY/Uce2St+Sa
+	 o9JKpbJAC1kLfKEs2vGPTIwN3W8+h3LG0meT38i2Xx6mZFSEhobYIsm2isQ5cGkVRS
+	 1NkDV1CvToPhA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:11 +0100
-Subject: [PATCH v4 15/16] firmware: arm_scmi: Fix SCMI device destroy
- lifetimes
+Date: Wed, 08 Jul 2026 10:00:10 +0100
+Subject: [PATCH v4 14/16] firmware: arm_scmi: Unwind P2A receiver mailbox
+ setup failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-15-53142cd60b63@kernel.org>
+Message-Id: <20260708-scmi_core_fixes-v4-14-53142cd60b63@kernel.org>
 References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,140 +69,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_child_dev_find() drops the reference returned by
-device_find_child() before returning the scmi_device pointer. A
-concurrent unregister can then release the device while the destroy path
-is still using the returned pointer.
+mailbox_chan_setup() can request an additional P2A receiver channel after
+successfully acquiring the primary P2A channel. If that later request
+fails, the function returns immediately and leaves the primary channel
+allocated.
 
-Make the lookup helper return the device_find_child() reference and keep
-it until scmi_device_destroy() has finished unregistering the child.
+Unwind the primary mailbox channel before returning the error so probe
+deferral or other setup failures do not leave the channel busy for later
+probe attempts.
 
-Also split device_unregister() in __scmi_device_destroy() so the SCMI bus
-ID is not made reusable until after device_del() has removed the old
-scmi_dev.N name from sysfs. This avoids a new SCMI device reusing the
-same ID while the old device is still registered.
-
-The final device release callback is also a possible cleanup path when
-SCMI children are deleted by driver core recursion rather than
-__scmi_device_destroy(). Release the SCMI bus ID from a common helper
-used by destroy, register-failure and final-release paths, and clear
-scmi_dev->id after freeing it so the final release cannot free the same
-ID again.
-
-Fixes: 9ca67840c0dd ("firmware: arm_scmi: Balance device refcount when destroying devices")
+Fixes: fa8b28ba22d9 ("firmware: arm_scmi: Add support for platform to agent channel completion")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/bus.c | 39 +++++++++++++++++++++++----------------
- 1 file changed, 23 insertions(+), 16 deletions(-)
+ drivers/firmware/arm_scmi/transports/mailbox.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index a14df82a9310..e1f66c08c81d 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -237,8 +237,9 @@ static int scmi_match_by_id_table(struct device *dev, const void *data)
- 	return scmi_dev_match_by_id_table(scmi_dev, id_table);
- }
- 
--static struct scmi_device *scmi_child_dev_find(struct device *parent,
--					       int prot_id, const char *name)
-+/* Returns a device_find_child() reference which must be dropped by caller. */
-+static struct scmi_device *
-+scmi_child_dev_find_get(struct device *parent, int prot_id, const char *name)
- {
- 	struct scmi_device_id id_table[2] = { 0 };
- 	struct device *dev;
-@@ -250,9 +251,6 @@ static struct scmi_device *scmi_child_dev_find(struct device *parent,
- 	if (!dev)
- 		return NULL;
- 
--	/* Drop the refcnt bumped implicitly by device_find_child */
--	put_device(dev);
--
- 	return to_scmi_dev(dev);
- }
- 
-@@ -390,17 +388,22 @@ void scmi_driver_unregister(struct scmi_driver *driver)
- }
- EXPORT_SYMBOL_GPL(scmi_driver_unregister);
- 
--static void scmi_device_release_syspower(struct scmi_device *scmi_dev)
-+static void scmi_device_release_resources(struct scmi_device *scmi_dev)
- {
- 	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
- 		cmpxchg(&scmi_syspower_registered, scmi_dev, NULL);
-+
-+	if (scmi_dev->id) {
-+		ida_free(&scmi_bus_id, scmi_dev->id);
-+		scmi_dev->id = 0;
-+	}
- }
- 
- static void scmi_device_release(struct device *dev)
- {
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 
--	scmi_device_release_syspower(scmi_dev);
-+	scmi_device_release_resources(scmi_dev);
- 	of_node_put(dev->of_node);
- 	kfree_const(scmi_dev->name);
- 	kfree(scmi_dev);
-@@ -413,9 +416,9 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
- 		 dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
- 		 scmi_dev->name);
- 
--	scmi_device_release_syspower(scmi_dev);
--	ida_free(&scmi_bus_id, scmi_dev->id);
--	device_unregister(&scmi_dev->dev);
-+	device_del(&scmi_dev->dev);
-+	scmi_device_release_resources(scmi_dev);
-+	put_device(&scmi_dev->dev);
- }
- 
- static struct scmi_device *
-@@ -433,9 +436,11 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 	 * each DT defined protocol at probe time, and the concurrent
- 	 * registration of SCMI drivers.
- 	 */
--	scmi_dev = scmi_child_dev_find(parent, protocol, name);
--	if (scmi_dev)
-+	scmi_dev = scmi_child_dev_find_get(parent, protocol, name);
-+	if (scmi_dev) {
-+		put_device(&scmi_dev->dev);
- 		return scmi_dev;
-+	}
- 
- 	scmi_dev = kzalloc_obj(*scmi_dev);
- 	if (!scmi_dev)
-@@ -479,13 +484,13 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 
- 	return scmi_dev;
- put_dev:
-+	scmi_device_release_resources(scmi_dev);
- 	put_device(&scmi_dev->dev);
--	ida_free(&scmi_bus_id, id);
- 	return NULL;
- free_name:
- 	kfree_const(scmi_dev->name);
- free_dev:
--	scmi_device_release_syspower(scmi_dev);
-+	scmi_device_release_resources(scmi_dev);
- 	kfree(scmi_dev);
- 	return NULL;
- }
-@@ -567,9 +572,11 @@ void scmi_device_destroy(struct device *parent, int protocol, const char *name)
- {
- 	struct scmi_device *scmi_dev;
- 
--	scmi_dev = scmi_child_dev_find(parent, protocol, name);
--	if (scmi_dev)
-+	scmi_dev = scmi_child_dev_find_get(parent, protocol, name);
-+	if (scmi_dev) {
- 		__scmi_device_destroy(scmi_dev);
-+		put_device(&scmi_dev->dev);
-+	}
- }
- EXPORT_SYMBOL_GPL(scmi_device_destroy);
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index 37e3eab529ea..308736c3ead9 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -241,9 +241,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		smbox->chan_platform_receiver = mbox_request_channel(cl, p2a_rx_chan);
+ 		if (IS_ERR(smbox->chan_platform_receiver)) {
+ 			ret = PTR_ERR(smbox->chan_platform_receiver);
++			smbox->chan_platform_receiver = NULL;
+ 			if (ret != -EPROBE_DEFER)
+ 				dev_err(cdev, "failed to request SCMI P2A Receiver mailbox\n");
+-			return ret;
++			goto err_free_chan;
+ 		}
+ 	}
  
 
 -- 
