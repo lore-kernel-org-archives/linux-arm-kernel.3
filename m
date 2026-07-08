@@ -4,79 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D92C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9411C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MN+/pCt7HlUdRnnMFSDW76Ip6VHjfwc/YeBpH5RZ7Rs=; b=fHCeRfPN0UGDNXsRszLv2vSZ1G
-	CCZgGrvcUZCNGOvJQa4cdSYAq5OtPXn+gAXL1husWFDp1sZb53C6lo8+OLoYPsYJLdp7E0DccTQ6W
-	e1s0SU5Vak813O+dpP4HeX0kgKKlZ8er1hoAe3Uj5IL9dJ3KT/P3eJdYQFRXut9WhcKbNMTXoFWBf
-	NV0+BJ2KWaWrJY34teGrJRLFRM0NP2HZneAIfvD7uJFv3lIcB5Aml1fh5n66AKLMgUJjlNFgD8+/v
-	v3Q8lUvwkrmJb1Yoja/bM0ShauTY7NEfTout/qiviGKQsz/UbDjEtVvfZ8pZldG8l4gxgdEORQLVi
-	YECyTq4w==;
+	bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=; b=ASJJVAmW1W8FQ35NRQrBbKvjbM
+	FJ//whF78+oSDwyDErj2qt8x3rGqSQ3S6VPhvFXXM09el+KF6YdfuVUG+iIoF01ADKG4E28iBHI7R
+	n0FKxESrW1DgxJzPgd0g3X00INnXJfz306nLaIbqgEOb8OsRSo8v3EiPdy+jloQmJNCJKnLmr8keF
+	3etL+0wofZ6IuWMDcldoyZcmwO0a8FmCQVLI2ed3JYer+qI2OD4abV+A2fYx8OMTJSau6UGfPAdqt
+	/ipndcmy27YWfI/AD7SwrmDVbm6+/r+TLSMN7v6ZZlsuIPDJUkqbrL+q/RXCp6AX2LTIdr2iZ/3wS
+	sow5SRwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWBH-000000007R6-2rQc;
-	Wed, 08 Jul 2026 17:35:31 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1whWLi-000000008E5-0wFy;
+	Wed, 08 Jul 2026 17:46:18 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWBF-000000007QQ-1quU;
-	Wed, 08 Jul 2026 17:35:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783532117; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=j57xiw5gBZ3ISXdrCXkJM83me5csvjYEBMRpjYp2+H8tBuUa/ucMoaMm6PVMGKJ4wa1FaEKp1XIOq/sJKI6yvjxVxxQxvsSP1g64iXgcNmSWVrw483qrZrz/nDq7sWQShbIK9LX+4NvThRVfJV0YPfnIEErllKIKuV6nwkUlQB4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783532117; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MN+/pCt7HlUdRnnMFSDW76Ip6VHjfwc/YeBpH5RZ7Rs=; 
-	b=bilwU6Y+zvS2KOjKVWbtMf3Vv5+xM6T3uQraxlbxnIS30dQb5Jrb74w/cjPBRiDEm7g7o3lPZxj0MFxlx5XvcOF4jcMNjxyw0RdUQLurOSzWVtZmZ+c0B4/vLiEU1T1PydRbXMfnSDMzl6SJIz4ti8FwmjVWenrXceSi/9bDNzE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=robert.mader@collabora.com;
-	dmarc=pass header.from=<robert.mader@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783532117;
-	s=zohomail; d=collabora.com; i=robert.mader@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=MN+/pCt7HlUdRnnMFSDW76Ip6VHjfwc/YeBpH5RZ7Rs=;
-	b=dY0JpsDTXZ69QDzauHnsRhzFHduBwYeAzf6v4004kheCPu8cYIU29vrROq2/WYfw
-	1J4pp/AH7kwu4lLXVEhJxKO0JfsjT0PxsTNoGvYxun3AiHbdyYwsTdy5Cp0ttZiDKE5
-	tmujY6wvOFrLDwM9Jv7kDZwjXAJdnrUmgH8EvtWc=
-Received: by mx.zohomail.com with SMTPS id 1783532115402945.6183609354152;
-	Wed, 8 Jul 2026 10:35:15 -0700 (PDT)
-Message-ID: <18739a62-c5f5-4e33-b636-2368687fffa1@collabora.com>
-Date: Wed, 8 Jul 2026 19:35:08 +0200
+	id 1whWLf-000000008DW-3P4V
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 17:46:16 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c126b8118afso140043066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 10:46:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783532773; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UkCWdEem06V6sPUHXodzYub29QyeB5QuLO30gyEtq43JfIm/NLNHaIYYlfCfkx1dUn
+         ygbcbtuC9HuwoUa3PmEdpLYRbwe11dy4q6tHp8tNlzS21asAidV2GKtj3L/LipCwWTGA
+         R/9VGA4jVG3s7AUDhEu31R+LEXCAUFUOYjEqslxue85/MmfiXG1ua8x+qGsu3XITOqrk
+         vf6x3dXr48cdtCucwXIHXjYwGRtjq/Qcsz5AVzzVZYQyHH0v7xYOfWKuoKYGK0KzW041
+         yQb4fu9YcfuoPZhALXFfeeDPoMFUiWO57KXOqIy9IbHWmMAHnoQ5UQdc0b96k2i1WW1X
+         vjuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
+        fh=jhzsIeCXJzr6iL7n+EBusHitlKIJiy+2yQIsOkYv/aw=;
+        b=qa7/zX2h2A7LMHYXqgmppi/8zCPrLnseLedeSRB5HRT0u5x7hAyoUQAoBLWQj8dR2H
+         0mXzGICA18S4TP9jlMMv79Hoefb70P2FmLubRl/LylS1MI+hPccHMcITuVz+4rn15z4b
+         mI/NKDkrW5IUM3f8UKMKshLDi43ltdwGDneRh+ZAPq4X8oFcnu20uQtwh2aYs8MTsCo/
+         ZKcklmER0rRg/7HzB70fr8i2GYsM/+B/dFJfy4WR2d6C6RFiKBNfi/FOZjX0oy/chcRp
+         CERRPeUCR9PSdzHs4WpUQLz0+roUOgYoQ8LYDkDOrux4u248fGdsJBA6Ke3H1Bu0xOPw
+         IVvw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1783532773; x=1784137573; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
+        b=PtbkMDCqTkXM2oVqFFYJ34nZhE/eJCnvF0b18yVtyn3Xs2OpH70mJuiZNJoxoSufz1
+         2VU41KE8Plqp8NbeUD8D9Oo+yUwgjB5wPgiend2ZrYNub3ygCPN2AdIVP7pt7TUxB7z6
+         UBJVeEZkV47V9628w4SeGck3A8MAwwezb3nGDRBj2eO9UHa87hLdlHV26VaPbnjeMCmt
+         KtKhi5TpjWAJvmxj9VV11t7NJIJK40cCKw3Lqlq4KFtrTIK+TAg0+YgIdN3o+TBkHt/3
+         bj4tpljZl0uFkMg5MzLWFNGLUFTC3mK/uJ7B6q/yvsBViJLlIrGeroMAgWAboU4FwvlS
+         7tzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783532773; x=1784137573;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
+        b=VlHjlovkAg9I0XUUtrpcWnl18AzC8rnqM4PfwFVrVVrpFJQNUpiAO3VZX0JjKmoobh
+         lR5iyllih/MNmWrH4vi26jpJteJ7Glfiz0+ZSVwzwaypvAJmvtV18bwjO5eyvBdMF2zo
+         XNWuOSh5D/Pi6GDDd90I5PtdfJEeThWqgzCdsE5M4lVEFgeWHXTFP4RnfCT8gySWqG6r
+         gniGocIrPDEneaIfdqRVgE2Pa826xcEqq9I8ZpHzXhPq1EQR6FptPt+9WtKYy9A6BphK
+         f+tcDB3SDulI58wRjMDPWkqVM+jLD+xf1muSyxcTAg946/48sLEWOAC5y+zfABkbZxet
+         LZSw==
+X-Forwarded-Encrypted: i=1; AHgh+RoE2pRv1Zxl5b2ITJeQzZcjqqVTHb0E+3jXjOVWnHN9bRhiP23U2K70Q6MElKNd9P1XTBGtkmljbd5RlKMnynw/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv8qX8kbBYqzV4535kEu0aXtxC3o2UBTS9684PDxXs1Z8Id1mY
+	3zOXv2cAe+r+adowk8iER92wOeT9QLJvKHxQMxZbkXtVrE3iOLE4j8G8XMMqsoqkHuOO0FXR0Mo
+	T1A86OliZLdxNUFRYbSHnM2ntarKfWj/WuvzXsQGp6A==
+X-Gm-Gg: AfdE7cntDjaWx9J85dmGGc52SWFJSCnYi13gTYDJcwNfFqULljvk33ll/8NnDPbvXMB
+	pYLI6wdW5SK8Hh16HIRWJEV+nXfx8zcGxIpFE4qE7B3rXHLwhSjp0Hu74GKmLExngDIN3Y29jXK
+	pFtUq5uXJ7fibm/QnkkMxv4pRjEtD1F0qOx9jMpL/aLC0byUg/4x3aIAxBoH8TEa3Sl3NCa4NYA
+	qmN0vdr2tyYAM5F4wmcWor2TQTvm3nwjfHCOvqhUU7m1dmHemPLRSV617MRG1OsaH3XNQ6WoVXV
+	I+wwp+PlEknmSTFcM9ynXvtG79iNrfFALS7R4OVLImw1CAWvPcQ=
+X-Received: by 2002:a05:6938:a08c:20b0:c11:fb01:c642 with SMTP id
+ a640c23a62f3a-c15ce005650mr115272066b.17.1783532773640; Wed, 08 Jul 2026
+ 10:46:13 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 20/21] drm/vkms: Introduce support for post-blend color
- pipeline
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
- <nfraprado@collabora.com>
-References: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
- <20251223-mtk-post-blend-color-pipeline-v3-20-7d969f9a37a0@collabora.com>
-Content-Language: en-US, de-DE
-From: Robert Mader <robert.mader@collabora.com>
-In-Reply-To: <20251223-mtk-post-blend-color-pipeline-v3-20-7d969f9a37a0@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260708165201.624271-1-robert.marko@sartura.hr> <550f7779-8188-45db-8de3-c25eda948cbb@sirena.org.uk>
+In-Reply-To: <550f7779-8188-45db-8de3-c25eda948cbb@sirena.org.uk>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Wed, 8 Jul 2026 19:46:00 +0200
+X-Gm-Features: AVVi8Cfz0AdebYHyA0wucUiR5Guc3jIkYaeEJZQYyfl7PA2Z50uPMBVIKA0DJLA
+Message-ID: <CA+HBbNE6Y=N2677j5Lzs_edx1bTVjtmrP6jTaT-Mh_5GdFNNvA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] spi: atmel-quadspi: add controller init callback
+To: Mark Brown <broonie@kernel.org>
+Cc: conor@kernel.org, nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, 
+	robh@kernel.org, krzk+dt@kernel.org, alexandre.belloni@bootlin.com, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, daniel.machon@microchip.com, 
+	luka.perkov@sartura.hr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_103529_558204_CC91D49C 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20260708_104615_899327_B8D773D8 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,529 +120,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 23.12.25 19:01, Ariel D'Alessandro wrote:
-> From: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
+On Wed, Jul 8, 2026 at 7:23=E2=80=AFPM Mark Brown <broonie@kernel.org> wrot=
+e:
 >
-> Introduce a post-blend color pipeline with the same colorop blocks as
-> the pre-blend color pipeline.
+> On Wed, Jul 08, 2026 at 06:51:08PM +0200, Robert Marko wrote:
+> > Allow controller variants to provide a custom initialization callback
+> > through their capability data.
 >
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> Co-developed-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> ---
->   drivers/gpu/drm/vkms/tests/vkms_config_test.c |  70 ++++++++++-------
->   drivers/gpu/drm/vkms/vkms_colorop.c           | 103 ++++++++++++++++++++++++++
->   drivers/gpu/drm/vkms/vkms_composer.c          |   5 +-
->   drivers/gpu/drm/vkms/vkms_config.c            |   5 +-
->   drivers/gpu/drm/vkms/vkms_config.h            |  29 +++++++-
->   drivers/gpu/drm/vkms/vkms_crtc.c              |   6 +-
->   drivers/gpu/drm/vkms/vkms_drv.c               |   7 +-
->   drivers/gpu/drm/vkms/vkms_drv.h               |   6 +-
->   drivers/gpu/drm/vkms/vkms_output.c            |   3 +-
->   9 files changed, 202 insertions(+), 32 deletions(-)
+> This doesn't apply against current code (specifically the DT patch).
 >
-> diff --git a/drivers/gpu/drm/vkms/tests/vkms_config_test.c b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> index 1e4ea1863420f..ec1d84ae508ad 100644
-> --- a/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> +++ b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> @@ -84,6 +84,7 @@ struct default_config_case {
->   	bool enable_writeback;
->   	bool enable_overlay;
->   	bool enable_plane_pipeline;
-> +	bool enable_crtc_pipeline;
->   };
->   
->   static void vkms_config_test_empty_config(struct kunit *test)
-> @@ -109,22 +110,38 @@ static void vkms_config_test_empty_config(struct kunit *test)
->   }
->   
->   static struct default_config_case default_config_cases[] = {
-> -	{ false, false, false, false },
-> -	{ true, false, false, false },
-> -	{ true, true, false, false },
-> -	{ true, false, true, false },
-> -	{ false, true, false, false },
-> -	{ false, true, true, false },
-> -	{ false, false, true, false },
-> -	{ true, true, true, false },
-> -	{ false, false, false, true },
-> -	{ true, false, false, true },
-> -	{ true, true, false, true },
-> -	{ true, false, true, true },
-> -	{ false, true, false, true },
-> -	{ false, true, true, true },
-> -	{ false, false, true, true },
-> -	{ true, true, true, true },
-> +	{ false, false, false, false, false },
-> +	{ true, false, false, false, false },
-> +	{ true, true, false, false, false },
-> +	{ true, false, true, false, false },
-> +	{ false, true, false, false, false },
-> +	{ false, true, true, false, false },
-> +	{ false, false, true, false, false },
-> +	{ true, true, true, false, false },
-> +	{ false, false, false, true, false },
-> +	{ true, false, false, true, false },
-> +	{ true, true, false, true, false },
-> +	{ true, false, true, true, false },
-> +	{ false, true, false, true, false },
-> +	{ false, true, true, true, false },
-> +	{ false, false, true, true, false },
-> +	{ true, true, true, true, false },
-> +	{ false, false, false, false, true },
-> +	{ true, false, false, false, true },
-> +	{ true, true, false, false, true },
-> +	{ true, false, true, false, true },
-> +	{ false, true, false, false, true },
-> +	{ false, true, true, false, true },
-> +	{ false, false, true, false, true },
-> +	{ true, true, true, false, true },
-> +	{ false, false, false, true, true },
-> +	{ true, false, false, true, true },
-> +	{ true, true, false, true, true },
-> +	{ true, false, true, true, true },
-> +	{ false, true, false, true, true },
-> +	{ false, true, true, true, true },
-> +	{ false, false, true, true, true },
-> +	{ true, true, true, true, true },
->   };
->   
->   KUNIT_ARRAY_PARAM(default_config, default_config_cases, NULL);
-> @@ -142,7 +159,8 @@ static void vkms_config_test_default_config(struct kunit *test)
->   	config = vkms_config_default_create(params->enable_cursor,
->   					    params->enable_writeback,
->   					    params->enable_overlay,
-> -					    params->enable_plane_pipeline);
-> +					    params->enable_plane_pipeline,
-> +					    params->enable_crtc_pipeline);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	/* Planes */
-> @@ -174,6 +192,8 @@ static void vkms_config_test_default_config(struct kunit *test)
->   	crtc_cfg = get_first_crtc(config);
->   	KUNIT_EXPECT_EQ(test, vkms_config_crtc_get_writeback(crtc_cfg),
->   			params->enable_writeback);
-> +	KUNIT_EXPECT_EQ(test, vkms_config_crtc_get_default_pipeline(crtc_cfg),
-> +			params->enable_crtc_pipeline);
->   
->   	vkms_config_for_each_plane(config, plane_cfg) {
->   		struct vkms_config_crtc *possible_crtc;
-> @@ -381,7 +401,7 @@ static void vkms_config_test_invalid_plane_number(struct kunit *test)
->   	struct vkms_config_plane *plane_cfg;
->   	int n;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	/* Invalid: No planes */
-> @@ -406,7 +426,7 @@ static void vkms_config_test_valid_plane_type(struct kunit *test)
->   	struct vkms_config_encoder *encoder_cfg;
->   	int err;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	plane_cfg = get_first_plane(config);
-> @@ -487,7 +507,7 @@ static void vkms_config_test_valid_plane_possible_crtcs(struct kunit *test)
->   	struct vkms_config_plane *plane_cfg;
->   	struct vkms_config_crtc *crtc_cfg;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	plane_cfg = get_first_plane(config);
-> @@ -506,7 +526,7 @@ static void vkms_config_test_invalid_crtc_number(struct kunit *test)
->   	struct vkms_config_crtc *crtc_cfg;
->   	int n;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	/* Invalid: No CRTCs */
-> @@ -529,7 +549,7 @@ static void vkms_config_test_invalid_encoder_number(struct kunit *test)
->   	struct vkms_config_encoder *encoder_cfg;
->   	int n;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	/* Invalid: No encoders */
-> @@ -554,7 +574,7 @@ static void vkms_config_test_valid_encoder_possible_crtcs(struct kunit *test)
->   	struct vkms_config_encoder *encoder_cfg;
->   	int err;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	crtc_cfg1 = get_first_crtc(config);
-> @@ -600,7 +620,7 @@ static void vkms_config_test_invalid_connector_number(struct kunit *test)
->   	struct vkms_config_connector *connector_cfg;
->   	int n;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	/* Invalid: No connectors */
-> @@ -623,7 +643,7 @@ static void vkms_config_test_valid_connector_possible_encoders(struct kunit *tes
->   	struct vkms_config_encoder *encoder_cfg;
->   	struct vkms_config_connector *connector_cfg;
->   
-> -	config = vkms_config_default_create(false, false, false, false);
-> +	config = vkms_config_default_create(false, false, false, false, false);
->   	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
->   
->   	encoder_cfg = get_first_encoder(config);
-> diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
-> index dd6120434690e..6c4a6cb186564 100644
-> --- a/drivers/gpu/drm/vkms/vkms_colorop.c
-> +++ b/drivers/gpu/drm/vkms/vkms_colorop.c
-> @@ -102,6 +102,91 @@ static int vkms_initialize_plane_color_pipeline(struct drm_plane *plane,
->   	return ret;
->   }
->   
-> +static int vkms_initialize_crtc_color_pipeline(struct drm_crtc *crtc,
-> +					       struct drm_prop_enum_list *list)
-> +{
-> +	struct drm_colorop *ops[MAX_COLOR_PIPELINE_OPS];
-> +	struct drm_device *dev = crtc->dev;
-> +	int ret;
-> +	int i = 0, j = 0;
-> +
-> +	memset(ops, 0, sizeof(ops));
-> +
-> +	/* 1st op: 1d curve */
-> +	ops[i] = kzalloc(sizeof(*ops[i]), GFP_KERNEL);
-> +	if (!ops[i]) {
-> +		ret = -ENOMEM;
-> +		goto cleanup;
-> +	}
-> +
-> +	ret = drm_crtc_colorop_curve_1d_init(dev, ops[i], crtc, supported_tfs,
-> +					     DRM_COLOROP_FLAG_ALLOW_BYPASS);
-> +	if (ret)
-> +		goto err_colorop_init;
-> +
-> +	list->type = ops[i]->base.id;
-> +	list->name = kasprintf(GFP_KERNEL, "Color Pipeline %d", ops[i]->base.id);
-> +
-> +	i++;
-> +
-> +	/* 2nd op: 3x4 matrix */
-> +	ops[i] = kzalloc(sizeof(*ops[i]), GFP_KERNEL);
-> +	if (!ops[i]) {
-> +		ret = -ENOMEM;
-> +		goto cleanup;
-> +	}
-> +
-> +	ret = drm_crtc_colorop_ctm_3x4_init(dev, ops[i], crtc, DRM_COLOROP_FLAG_ALLOW_BYPASS);
-> +	if (ret)
-> +		goto err_colorop_init;
-> +
-> +	drm_colorop_set_next_property(ops[i - 1], ops[i]);
-> +
-> +	i++;
-> +
-> +	/* 3rd op: 3x4 matrix */
-> +	ops[i] = kzalloc(sizeof(*ops[i]), GFP_KERNEL);
-> +	if (!ops[i]) {
-> +		ret = -ENOMEM;
-> +		goto cleanup;
-> +	}
-> +
-> +	ret = drm_crtc_colorop_ctm_3x4_init(dev, ops[i], crtc, DRM_COLOROP_FLAG_ALLOW_BYPASS);
-> +	if (ret)
-> +		goto err_colorop_init;
-> +
-> +	drm_colorop_set_next_property(ops[i - 1], ops[i]);
-> +
-> +	i++;
-> +
-> +	/* 4th op: 1d curve */
-> +	ops[i] = kzalloc(sizeof(*ops[i]), GFP_KERNEL);
-> +	if (!ops[i]) {
-> +		ret = -ENOMEM;
-> +		goto cleanup;
-> +	}
-> +
-> +	ret = drm_crtc_colorop_curve_1d_init(dev, ops[i], crtc, supported_tfs,
-> +					     DRM_COLOROP_FLAG_ALLOW_BYPASS);
-> +	if (ret)
-> +		goto err_colorop_init;
-> +
-> +	drm_colorop_set_next_property(ops[i - 1], ops[i]);
-> +
-> +	return 0;
-> +
-> +err_colorop_init:
-> +	kfree(ops[i]);
-> +
-> +cleanup:
-> +	for (j = 0; j < i; j++) {
-> +		drm_colorop_cleanup(ops[j]);
-> +		kfree(ops[j]);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->   int vkms_initialize_plane_colorops(struct drm_plane *plane)
->   {
->   	struct drm_prop_enum_list pipeline;
-> @@ -119,3 +204,21 @@ int vkms_initialize_plane_colorops(struct drm_plane *plane)
->   
->   	return 0;
->   }
-> +
-> +int vkms_initialize_crtc_colorops(struct drm_crtc *crtc)
-> +{
-> +	struct drm_prop_enum_list pipeline;
-> +	int ret;
-> +
-> +	/* Add color pipeline */
-> +	ret = vkms_initialize_crtc_color_pipeline(crtc, &pipeline);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Create COLOR_PIPELINE property and attach */
-> +	ret = drm_crtc_create_color_pipeline_property(crtc, &pipeline, 1);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-> index d4f87a2aa3359..621f008b165a6 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.c
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-> @@ -495,7 +495,10 @@ static void blend(struct vkms_writeback_job *wb,
->   			blend_line(plane[i], y, crtc_x_limit, stage_buffer, output_buffer);
->   		}
->   
-> -		apply_lut(crtc_state, output_buffer);
-> +		if (crtc_state->base.color_pipeline_enabled)
+> As mentioned in submitting-patches.rst when submitting a patch series
+> you should supply a cover letter for that patch series which describes
+> the overall content of the series.  This helps people understand what
+> they are looking at and how things fit together.
 
-AFAICS you could just use crtc_state->base.state->plane_color_pipeline 
-here - that should allow you to drop "[PATCH v3 11/21] drm/crtc: Track 
-crtc color pipeline client cap in drm_crtc_state"
+Hi Mark,
 
-Regards
+Thanks for pointing that out. I missed that the SDMCC is not yet
+upstream, which is why this one didn't apply cleanly.
 
-> +			color_transform(crtc_state->base.color_pipeline, output_buffer);
-> +		else
-> +			apply_lut(crtc_state, output_buffer);
->   
->   		*crc32 = crc32_le(*crc32, (void *)output_buffer->pixels, row_size);
->   
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-> index 8788df9edb7ca..a65c3638eff4d 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.c
-> +++ b/drivers/gpu/drm/vkms/vkms_config.c
-> @@ -34,7 +34,8 @@ EXPORT_SYMBOL_IF_KUNIT(vkms_config_create);
->   struct vkms_config *vkms_config_default_create(bool enable_cursor,
->   					       bool enable_writeback,
->   					       bool enable_overlay,
-> -					       bool enable_plane_pipeline)
-> +					       bool enable_plane_pipeline,
-> +					       bool enable_crtc_pipeline)
->   {
->   	struct vkms_config *config;
->   	struct vkms_config_plane *plane_cfg;
-> @@ -56,6 +57,7 @@ struct vkms_config *vkms_config_default_create(bool enable_cursor,
->   	if (IS_ERR(crtc_cfg))
->   		goto err_alloc;
->   	vkms_config_crtc_set_writeback(crtc_cfg, enable_writeback);
-> +	vkms_config_crtc_set_default_pipeline(crtc_cfg, enable_crtc_pipeline);
->   
->   	if (vkms_config_plane_attach_crtc(plane_cfg, crtc_cfg))
->   		goto err_alloc;
-> @@ -454,6 +456,7 @@ struct vkms_config_crtc *vkms_config_create_crtc(struct vkms_config *config)
->   
->   	crtc_cfg->config = config;
->   	vkms_config_crtc_set_writeback(crtc_cfg, false);
-> +	vkms_config_crtc_set_default_pipeline(crtc_cfg, false);
->   
->   	list_add_tail(&crtc_cfg->link, &config->crtcs);
->   
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-> index 8f7f286a4bdd7..e12e4065f01f0 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.h
-> +++ b/drivers/gpu/drm/vkms/vkms_config.h
-> @@ -61,6 +61,7 @@ struct vkms_config_plane {
->    * @link: Link to the others CRTCs in vkms_config
->    * @config: The vkms_config this CRTC belongs to
->    * @writeback: If true, a writeback buffer can be attached to the CRTC
-> + * @default_pipeline: If true, CRTC will be created with the default pipeline.
->    * @crtc: Internal usage. This pointer should never be considered as valid.
->    *        It can be used to store a temporary reference to a VKMS CRTC during
->    *        device creation. This pointer is not managed by the configuration and
-> @@ -71,6 +72,7 @@ struct vkms_config_crtc {
->   	struct vkms_config *config;
->   
->   	bool writeback;
-> +	bool default_pipeline;
->   
->   	/* Internal usage */
->   	struct vkms_output *crtc;
-> @@ -205,7 +207,8 @@ struct vkms_config *vkms_config_create(const char *dev_name);
->   struct vkms_config *vkms_config_default_create(bool enable_cursor,
->   					       bool enable_writeback,
->   					       bool enable_overlay,
-> -					       bool enable_plane_pipeline);
-> +					       bool enable_plane_pipeline,
-> +					       bool enable_crtc_pipeline);
->   
->   /**
->    * vkms_config_destroy() - Free a VKMS configuration
-> @@ -314,6 +317,30 @@ vkms_config_plane_set_default_pipeline(struct vkms_config_plane *plane_cfg,
->   	plane_cfg->default_pipeline = default_pipeline;
->   }
->   
-> +/**
-> + * vkms_config_crtc_get_default_pipeline() - Return if the CRTC will
-> + * be created with the default pipeline
-> + * @crtc_cfg: CRTC to get the information from
-> + */
-> +static inline bool
-> +vkms_config_crtc_get_default_pipeline(struct vkms_config_crtc *crtc_cfg)
-> +{
-> +	return crtc_cfg->default_pipeline;
-> +}
-> +
-> +/**
-> + * vkms_config_crtc_set_default_pipeline() - Set if the CRTC will
-> + * be created with the default pipeline
-> + * @crtc_cfg: CRTC to configure the pipeline
-> + * @default_pipeline: New default pipeline value
-> + */
-> +static inline void
-> +vkms_config_crtc_set_default_pipeline(struct vkms_config_crtc *crtc_cfg,
-> +				      bool default_pipeline)
-> +{
-> +	crtc_cfg->default_pipeline = default_pipeline;
-> +}
-> +
->   /**
->    * vkms_config_plane_attach_crtc - Attach a plane to a CRTC
->    * @plane_cfg: Plane to attach
-> diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
-> index 9a7db1d510222..60c372c0ce2d8 100644
-> --- a/drivers/gpu/drm/vkms/vkms_crtc.c
-> +++ b/drivers/gpu/drm/vkms/vkms_crtc.c
-> @@ -10,6 +10,7 @@
->   #include <drm/drm_vblank.h>
->   #include <drm/drm_vblank_helper.h>
->   
-> +#include "vkms_config.h"
->   #include "vkms_drv.h"
->   
->   static bool vkms_crtc_handle_vblank_timeout(struct drm_crtc *crtc)
-> @@ -202,7 +203,7 @@ static const struct drm_crtc_helper_funcs vkms_crtc_helper_funcs = {
->   };
->   
->   struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *primary,
-> -				   struct drm_plane *cursor)
-> +				   struct drm_plane *cursor, struct vkms_config_crtc *crtc_cfg)
->   {
->   	struct vkms_output *vkms_out;
->   	struct drm_crtc *crtc;
-> @@ -228,6 +229,9 @@ struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *pri
->   
->   	drm_crtc_enable_color_mgmt(crtc, 0, false, VKMS_LUT_SIZE);
->   
-> +	if (vkms_config_crtc_get_default_pipeline(crtc_cfg))
-> +		vkms_initialize_crtc_colorops(crtc);
-> +
->   	spin_lock_init(&vkms_out->lock);
->   	spin_lock_init(&vkms_out->composer_lock);
->   
-> diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-> index dd1402f437736..39195540fe2b1 100644
-> --- a/drivers/gpu/drm/vkms/vkms_drv.c
-> +++ b/drivers/gpu/drm/vkms/vkms_drv.c
-> @@ -55,6 +55,10 @@ static bool enable_plane_pipeline;
->   module_param_named(enable_plane_pipeline, enable_plane_pipeline, bool, 0444);
->   MODULE_PARM_DESC(enable_plane_pipeline, "Enable/Disable plane pipeline support");
->   
-> +static bool enable_crtc_pipeline;
-> +module_param_named(enable_crtc_pipeline, enable_crtc_pipeline, bool, 0444);
-> +MODULE_PARM_DESC(enable_crtc_pipeline, "Enable/Disable CRTC pipeline support");
-> +
->   static bool create_default_dev = true;
->   module_param_named(create_default_dev, create_default_dev, bool, 0444);
->   MODULE_PARM_DESC(create_default_dev, "Create or not the default VKMS device");
-> @@ -232,7 +236,8 @@ static int __init vkms_init(void)
->   		return 0;
->   
->   	config = vkms_config_default_create(enable_cursor, enable_writeback,
-> -					    enable_overlay, enable_plane_pipeline);
-> +					    enable_overlay, enable_plane_pipeline,
-> +					    enable_crtc_pipeline);
->   	if (IS_ERR(config))
->   		return PTR_ERR(config);
->   
-> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-> index bdeb52623f4d6..1688c885f2285 100644
-> --- a/drivers/gpu/drm/vkms/vkms_drv.h
-> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
-> @@ -229,6 +229,7 @@ struct vkms_output {
->   };
->   
->   struct vkms_config;
-> +struct vkms_config_crtc;
->   struct vkms_config_plane;
->   
->   /**
-> @@ -287,10 +288,12 @@ void vkms_destroy(struct vkms_config *config);
->    * @crtc: uninitialized CRTC device
->    * @primary: primary plane to attach to the CRTC
->    * @cursor: plane to attach to the CRTC
-> + * @crtc_cfg: CRTC configuration
->    */
->   struct vkms_output *vkms_crtc_init(struct drm_device *dev,
->   				   struct drm_plane *primary,
-> -				   struct drm_plane *cursor);
-> +				   struct drm_plane *cursor,
-> +				   struct vkms_config_crtc *crtc_cfg);
->   
->   /**
->    * vkms_output_init() - Initialize all sub-components needed for a VKMS device.
-> @@ -325,5 +328,6 @@ int vkms_enable_writeback_connector(struct vkms_device *vkmsdev, struct vkms_out
->   
->   /* Colorops */
->   int vkms_initialize_plane_colorops(struct drm_plane *plane);
-> +int vkms_initialize_crtc_colorops(struct drm_crtc *crtc);
->   
->   #endif /* _VKMS_DRV_H_ */
-> diff --git a/drivers/gpu/drm/vkms/vkms_output.c b/drivers/gpu/drm/vkms/vkms_output.c
-> index 86ce07a617f52..a0856ba90ac24 100644
-> --- a/drivers/gpu/drm/vkms/vkms_output.c
-> +++ b/drivers/gpu/drm/vkms/vkms_output.c
-> @@ -34,7 +34,8 @@ int vkms_output_init(struct vkms_device *vkmsdev)
->   		cursor = vkms_config_crtc_cursor_plane(vkmsdev->config, crtc_cfg);
->   
->   		crtc_cfg->crtc = vkms_crtc_init(dev, &primary->plane->base,
-> -						cursor ? &cursor->plane->base : NULL);
-> +						cursor ? &cursor->plane->base : NULL,
-> +						crtc_cfg);
->   		if (IS_ERR(crtc_cfg->crtc)) {
->   			DRM_ERROR("Failed to allocate CRTC\n");
->   			return PTR_ERR(crtc_cfg->crtc);
->
--- 
-Robert Mader
-Consultant Software Developer
+I'll make sure to include a cover letter when I respin the whole series.
 
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
-Registered in England & Wales, no. 5513718
+Regards,
+Robert
 
+
+
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
