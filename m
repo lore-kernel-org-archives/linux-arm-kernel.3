@@ -4,58 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 20:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0D2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJ7RzD76kxiwljUbH1ziAXYuUhJpqXoVIn6sTFD2pwE=; b=ia5+txUHdTrSzyS+/5RJ5Lib14
-	vGyCpBaoWyBhagw9xp8Ei4jHaZGRQTEkfyLGO+NMQNgeQOrDh6Z8tqveMWuOR/J8HvNHJls5iXOWg
-	0ixlW40ZRYckLapiDMuXjiQyRHk+oC1gb6gdGEOyLeLEa7apDPuw/WvGEUD1RVn23d8ZhtLfrj8Oc
-	7/uShdDJXNTLj6acD+UbOhCjCMaefWmdKtfaXRGqrsPNbJuAtkvxBYnbmnQDH6lwcvwSaDGxq7OfD
-	utqrnWztLAGc9yh/4jH583KbBBhdGuMhfjtnwN/mmqzgxtXXtFJ+9laala1ARpyQzGwleoNbjFawz
-	uqb+hgdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kLIOwX59rHzsWSB5b+uNiac52cGHyBK2fTin2R68I0w=; b=Y8e4bm/IOtK4FHmireHVuRPex2
+	sEPnsk9hQ5eWDm/LaeBbaVbS+kLG6KM5f5baaiIFm45CDUpp6n5iia3Le3u/aRxOQFW/IUQaJTKh5
+	qs6NkzNVIQPguOEKw6xhwvf3Vs0rgtssuIWGGljU1tGcnYT0Q5nTidnFSMbgvhtmTITToo2cAon63
+	2D2OJH0PPDK0cvGFHk4oG7GDfgiUQu1pioo9outmrjL5MJpEcrF3wvITQm6IDMu9iSwnYE2sm50ha
+	hvI8NDhY02KHA/x6VgjAKXoazDX8iM2gqbrpqJ2a5PoJiUKsRJgNui++LHpQmDdlAeY+RLJgXNfSe
+	/QpCSmxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZIq-00000000Ohn-2uPJ;
-	Wed, 08 Jul 2026 20:55:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whZ1o-00000000NB7-1s1Z;
+	Wed, 08 Jul 2026 20:37:56 +0000
+Received: from mail-francesouthazon11011039.outbound.protection.outlook.com ([40.107.130.39] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZIp-00000000Ohf-0j3l
+	id 1whZ1m-00000000NAX-0cn5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 20:55:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92CC1438CE;
-	Wed,  8 Jul 2026 20:55:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716CB1F000E9;
-	Wed,  8 Jul 2026 20:55:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783544130;
-	bh=XJ7RzD76kxiwljUbH1ziAXYuUhJpqXoVIn6sTFD2pwE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OWQMXKEg5gL80ediEM7XpANIGPN5P9I3NJ4YQoKIIhmnUW5y9mCnRGcqgkyym6mUX
-	 t/jyIClHSv/PksG2SOeCIhnVX7P/kBBlKlBs2eKlM9g/vo7KWAkko+18MXos2fXKMY
-	 S6kPBRgSVOz2gvg4U0tRp7tIvMX9+c5b0khtJ9mByl+f7V1ELjUpeTxo1rWEoDwRak
-	 8VGv2pACQhR/nx9UJSTCurclz4ENk46GC8WD0zt9oebTt8FcTaWeSl2gaeUgeNkFC3
-	 iKCC18yhsWHZFP8Zs2GdUR7mUJJdnaygiWMoyJPs/sTcK8XI1cjMqHvGKF6KEifVMY
-	 /Qh3df2v71N8A==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org,
+	Wed, 08 Jul 2026 20:37:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k8K+ioMU4VdFRUmHQkToCHKhsGchN0+HDk4KFatWaZpT0giLOIqeh8JmuYqgSHr9Yo6c0axLUo0bRXv6h5NKU5CisAMjhxthyovxsIg68UJ1mDzcUYXKi7PhgPYaOBcNMs9UJqWVvIh6+xzmfj3uVDVPnXAAqkNzjG9WhTfQxs3pR9QW8mejrvELwB7NJZwtNum2sVaHRhSElTiAVbf8T8JL2NTSxo2so/LZEbO4FGCvwCodukQX2mLWThnHMOq48qi/aO2f+mRXYIrFRNsYcqVkHLS94oUqbSP8D2oSEuYL3e8tinkPHoQMG2NQ4NAJ9kUsLsa1qcUxKEtolWMtZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kLIOwX59rHzsWSB5b+uNiac52cGHyBK2fTin2R68I0w=;
+ b=mqDryuo94ToEJBUXWpq5Cm8rM6bwUOngk8bLrXMDpzLbNP3C4ixxo8LuI6YaLv6tcYW2Csp7L0nNrL/Y/Utq6Nt3eP1xjWF1WF4WcEV2Yb7gsf5MJDXabbfz26LYkJdkzbK85iEE6L8nytxh3VDA599pHmQ5r3WOK4DIrrvzbK2KJqYqaHy7UhlYAbbr9I6n0l+Y9QjiypphV+8lNi3oian32GIdub0dOymcGn9CJo+Yaj8m4JFJXuKhIRWtYCCrrSUnGv016HSlsyicAMkLdXoZ3bkcqg3slE6H/gZFXAK1YJwM5rafWXen2JEWq3Unnir8+arUKk42TgIhsibtLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kLIOwX59rHzsWSB5b+uNiac52cGHyBK2fTin2R68I0w=;
+ b=a3b/+HSDvPPZmU55yBZ3zFakOgZiJs8C5SH7VTxu+Qc/VTU9HMjA9Av7mRVwL03aJ2Bc+cTBRf5hW2my7ezhj87T/vYD0awW5T3dyvA9yGOoTwx96v3TsB3k+eBSHc0wUS4Q4nmIA+QPqfbVUD8EExGQXthOhB9NJwmnneTJTJRZX//TMAJaROkQYgu8AZTdUWPwGW2pTRF8zAKt0d/rClxvQXvmtr4cvrs9ZGTYxeEG2fP3xIFCXEHfjRkdXy3iKckhZY9k4e3q7TQBdasMSD7AZHrYZrCfZz48zqoidiV3Xeyok8c2+REh//TFHpzDsdTesXIHfFRu5Y8oy5n6og==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR01MB10416.eurprd04.prod.outlook.com (2603:10a6:102:23f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
+ 2026 20:37:48 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
+ 20:37:48 +0000
+Date: Wed, 8 Jul 2026 15:37:36 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: chancel.liu@oss.nxp.com
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v4 02/16][UPDATED] firmware: arm_scmi: Quiesce notifications before teardown
-Date: Wed,  8 Jul 2026 21:55:22 +0100
-Message-ID: <20260708205522.139187-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260708-scmi_core_fixes-v4-2-53142cd60b63@kernel.org>
-References: <20260708-scmi_core_fixes-v4-2-53142cd60b63@kernel.org>
+Subject: Re: [PATCH 5/6] arm64: dts: imx91-9x9-qsb: Add WM8524 sound card
+ support
+Message-ID: <ak61EPNcUKdDetbt@SMW015318>
+References: <20260707065725.312450-1-chancel.liu@oss.nxp.com>
+ <20260707065725.312450-6-chancel.liu@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260707065725.312450-6-chancel.liu@oss.nxp.com>
+X-ClientProxiedBy: PH7P220CA0099.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR01MB10416:EE_
+X-MS-Office365-Filtering-Correlation-Id: 13f03baf-79fc-43f4-0dae-08dedd30c5b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|19092799006|1800799024|18002099003|22082099003|4143699003|56012099006|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: T/w2l+kHel2vnJcWad0nbw3apX+meVSRTEYB48cFfFinEez7PLWyh2dcACAoU0uM4LX3yicWz1LK8Zt2qZfApiyLQfLI9bOBAUYF6rS+BsTltxvK1siebe6fPYrNAgIRJ+KTRbclJVTqY2O0qExbhLOgdbELLtKD+xJ+QKzjq7U0u7B6uluQ7vgpYykk3lW1s7Vuxwd3MwW2wy+2rKnXQK+Mratrwt32m19N2wEvDOxUhn99nK4fLFW+l1iloR3omeTyVzGTOI0aeGqV3HRWhaLmlfnxuHs5C/n4/9YjzFpLyGQcFFhZoM37M+ZrINP+7i8OKd61DcFrTt8HXnqLVbzfVuX9tuCe/5NGoFKRUP4fhWXvLVAeFYDO6iZjJJxDoRVbCdhBVQ4U85ulc6FFPiDzBFVaK6wQzHqFnYpTsVKYupEbIAXZJf4dc8Ksh3L0tQ64R29ZQoF0xBiB8p+F8Xmi12/nnOvgQ1HzXNLMLGpZMog4cOrXjChybGDFO5lO/AlPEUoqps4yI1QouBw3q6vPGg+BuOhtNe86BAlemnoF5IY0AZBJ9GmIVmiYJNbZ4S5ggzgu5W93icvckCzQ8n2pL5kp7+ZgaOB9pPL7fBlsnQ/jGt1ZykBU8yX/T/sEEmmzUNv0jfBH+a5RXY8AOByqXntghhyvopQUJFHhV0c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(19092799006)(1800799024)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5tXjw5EEmKUjwk0LhVvRgsgwX0oy2EhSnx1RB/arvH6MBurNUFc0hSAmqi32?=
+ =?us-ascii?Q?RipWQs+WQSqLXM6GbecgPV+uiMBxTZKbtpbbU7HLDd6YAE/upmcAOPoFRHeM?=
+ =?us-ascii?Q?ggavWclA2xEKK97V9U1npTRkNfSKdUebkKTbJ6UWiUZnezlip4g9IXcOV0w7?=
+ =?us-ascii?Q?7oqiIlsI+VSrxoR2xwjKsnfcCFzo6Rd44atPAeWHJLA9z7pQ0ht2Gm9HYIw3?=
+ =?us-ascii?Q?2dGlG02wOP7u6+pwb28QMZwXth+CPAzRhxMglka57YzWRd7ZzPT+SgZpOZNL?=
+ =?us-ascii?Q?8A++hscD1fCWsEeWbvgLtLd5eb/mzLQbBBSF+oOq3/nrO1+ErbS+gurJ7fP1?=
+ =?us-ascii?Q?lck22K3JW0wVaIQQsAGIu66GG3I8Uu7jTblROSViAzV+0NVBOnvrnBq9W17z?=
+ =?us-ascii?Q?WvO9qD/RF8zANTERWkk9vvvEEDSibwZKfOto60CShQkfKhxpxceOdplDP4xA?=
+ =?us-ascii?Q?RwwZiZjE9tLG1O4lRn61sg8ntrqDUJJUUo1wFb0rtUKW5APCmHK488yDu9fJ?=
+ =?us-ascii?Q?Jt3ONU/t/PG+VybDzPo3J1jrAsueNDJQM4FSUnR1vlHKZiDicINXQ81LHWFe?=
+ =?us-ascii?Q?imlxEyZL+m28EiCXNpqCHGaxL0ODIoNDwG17L8X94QSr0MF5/Sifj9bORmtO?=
+ =?us-ascii?Q?yVQW5Z2HccmEBtgQRsKNJ9kartVmQTYQn/wcGqsbWJ5n2J3ohLZdJbX5Crbf?=
+ =?us-ascii?Q?bcbZLQcX5oUu0ZN5jaCw51x4WDsEf7hJb/fUqktNBkonivxzC8PW+TBaj4LE?=
+ =?us-ascii?Q?KkkmB/VqpzL1MXaVy9NOOMRcbiQfkIq4PqqeOqIyJjecLPR7w10omsAi75+W?=
+ =?us-ascii?Q?n+Ey69I/QyNKgx/HcBPPmcehJ0c6l/PBMQKuIpwwoM+RPcT5L0K8VStONscH?=
+ =?us-ascii?Q?1OM8SXYW14c0HvCAoKD7WI4h4X9qa8NsJSNPyHPMfxXIDG9+HmRknlE2JfoZ?=
+ =?us-ascii?Q?QdSfWu989nw5Tks7OoS6oYcxiNYh4ND0wRgo/nMQ2w+gZRTIL4yAKo7KNZcR?=
+ =?us-ascii?Q?ZfviDa1xmyOFqxWA1uXLlLYrHdSnX/V3dVw6aGAOhrqs5GTLiN1hlAgThM7y?=
+ =?us-ascii?Q?MDbHnN4RaJbaPb2fW1DcAKeleASTckpLL3nGgWfg6wzXl6jd0pGKMn3F1Kjj?=
+ =?us-ascii?Q?nn49PwHzC07K+14idsWu39x/I1i2H6DfFMHASQHOeca49mejsBJHIyCfbXKo?=
+ =?us-ascii?Q?KCKRXIC/z4my8O5KwHlBgf2RLfAH1BAFhqoPDE5lAAsVsOvC9+X2w8lOFqJA?=
+ =?us-ascii?Q?VtO32GVP5A6dQDuBdsCfC9iaEcuRIQAr2iz8U/7g8trVJxIfWeR/tPhoOWfo?=
+ =?us-ascii?Q?jIDOaj6JNDtIo3pmm62TxHMvBsbCOezeLzkbcNAhNHaSrL1ndgtsHjzOy49L?=
+ =?us-ascii?Q?6ysnAsKc9r9LPHpimETTdEJe8Z7WX2JzMrjZAqpFxfdH2Q7dD7LCBkTtFN4k?=
+ =?us-ascii?Q?qfP1Due9+3d+UrgG0mrQOpPl4w2MmBHAaqByPhp2gQNNPxl9+XeQ1IM6MTlq?=
+ =?us-ascii?Q?bntwjHwfPfb95a6vrP/ReFhdleNwOsjNKFj75UnrVq/PuuMZUnmlIspoepDU?=
+ =?us-ascii?Q?JKJglipLsMHTkp9l/eeieOU1mlfXKyozmf5TWleMHbjPSkT7j4wLDOll90NZ?=
+ =?us-ascii?Q?EhGGgWQKgLJG/cIDle97LiFvbRgrxeD8HZekHkzUjY4PO5cMCLTZD+XIgKCZ?=
+ =?us-ascii?Q?vCaKMpVA6csAOOfk6Y57UMmFi9EKaGD5n6e0b6aFLcVoSLpbHO5SfCR7RUrY?=
+ =?us-ascii?Q?3wZN8XWH6gdQohq7I/F9SFFaDYGkIRcanHwbBSq+pZBeI+wDIq2F?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13f03baf-79fc-43f4-0dae-08dedd30c5b1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 20:37:48.3373
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ENTyrHcNUh5hNa2aGOSDfBP5FpYZ1mZJY/ygSQLhBHwsW8HhwQbaBil7BAT5qK+3zgJqNoyxFBfU/rqrbNV6oIHcN3/ghxiTSAxF8L/BeEYCmr+dz9iFi6VaYTKsyjeA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR01MB10416
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_133754_192156_E343D8DC 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,173 +141,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_notification_exit() clears and releases the notification instance, but
-transport callbacks can still deliver incoming notifications until the
-TX/RX channels are freed. During remove, an RX interrupt in that window can
-enter scmi_notify() while notification state is being torn down and then
-dereference freed memory. The same ordering exists on the probe error path
-after notification initialization.
+On Tue, Jul 07, 2026 at 03:57:24PM +0900, chancel.liu@oss.nxp.com wrote:
+> From: Chancel Liu <chancel.liu@nxp.com>
+>
+> Add WM8524 sound card support which connects to SAI1.
+>
+> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> ---
+>  .../boot/dts/freescale/imx91-9x9-qsb.dts      | 67 +++++++++++++++++++
+>  1 file changed, 67 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+> index 1f2d8082d255..c5b9dfee95eb 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts
+> @@ -110,6 +110,28 @@ linux,cma {
+>  			linux,cma-default;
+>  		};
+>  	};
+> +
+> +	sound-wm8524 {
+> +		compatible = "audio-graph-card2";
+> +		label = "wm8524-audio";
+> +		links = <&sai1_port1>;
+> +		widgets = "Line", "Line Out Jack";
+> +		routing =
+> +			"Line Out Jack", "LINEVOUTL",
+> +			"Line Out Jack", "LINEVOUTR";
+> +	};
+> +
+> +	wm8524: audio-codec {
+> +		#sound-dai-cells = <0>;
+> +		compatible = "wlf,wm8524";
 
-The notification late-init worker has a separate lifetime issue: protocol
-event registration queues ni->init_work on the system workqueue, so
-destroying ni->notify_wq does not drain that work. If the devres group is
-released while init_work is still pending or running, the late-init worker
-can dereference the freed notification instance.
+compatible should first property
 
-Unregister the requested device notifier first, quiesce the notification
-core so no late-init work can run while channels are being torn down, then
-clean up TX/RX channels before releasing the notification core resources.
-The final notification exit path also cancels any pending late-init work
-before destroying the notification workqueue and releasing the notification
-devres group.
+> +		wlf,mute-gpios = <&pcal6524 2 GPIO_ACTIVE_LOW>;
+> +
+> +		port {
+> +			codec_ep: endpoint {
+> +				remote-endpoint = <&sai1_ep1>;
+> +			};
+> +		};
+> +	};
+>  };
+>
+>  &adc1 {
+> @@ -186,6 +208,15 @@ MX91_PAD_SD2_RESET_B__GPIO3_IO7                         0x31e
+>  		>;
+>  	};
+>
+> +	pinctrl_sai1: sai1grp {
+> +		fsl,pins = <
+> +			MX91_PAD_SAI1_TXC__SAI1_TX_BCLK				0x31e
+> +			MX91_PAD_SAI1_TXFS__SAI1_TX_SYNC			0x31e
+> +			MX91_PAD_SAI1_TXD0__SAI1_TX_DATA0			0x31e
+> +			MX91_PAD_SAI1_RXD0__SAI1_MCLK				0x31e
+> +		>;
+> +	};
+> +
+>  	pinctrl_uart1: uart1grp {
+>  		fsl,pins = <
+>  			MX91_PAD_UART1_RXD__LPUART1_RX                          0x31e
+> @@ -433,6 +464,42 @@ &lpuart1 {
+>  	status = "okay";
+>  };
+>
+> +&sai1 {
+> +	#sound-dai-cells = <0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_sai1>, <&sai1_fun>, <&sai1_enable>;
+> +	assigned-clocks = <&clk IMX93_CLK_SAI1>;
+> +	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
+> +	assigned-clock-rates = <24576000>;
+> +	fsl,sai-mclk-direction-output;
 
-Fixes: 1e7cbfaa66d3 ("firmware: arm_scmi: Free mailbox channels if probe fails")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 13 ++++++------
- drivers/firmware/arm_scmi/notify.c | 32 +++++++++++++++++++++++++++++-
- drivers/firmware/arm_scmi/notify.h |  1 +
- 3 files changed, 39 insertions(+), 7 deletions(-)
+vendor property should be last but before status
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 1d1f5d25d773..1354de59ea84 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3325,7 +3325,7 @@ static int scmi_probe(struct platform_device *pdev)
- 			dev_err(dev, "%s", err_str);
- 			return 0;
- 		}
--		goto notification_exit;
-+		goto raw_mode_cleanup;
- 	}
- 
- 	mutex_lock(&scmi_list_mutex);
-@@ -3367,17 +3367,18 @@ static int scmi_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
--notification_exit:
-+raw_mode_cleanup:
- 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT))
- 		scmi_raw_mode_cleanup(info->raw);
--	scmi_notification_exit(&info->handle);
- clear_dev_req_notifier:
- 	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
- 					   &info->dev_req_nb);
- clear_bus_notifier:
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- clear_txrx_setup:
-+	scmi_notification_quiesce(&info->handle);
- 	scmi_cleanup_txrx_channels(info);
-+	scmi_notification_exit(&info->handle);
- clear_ida:
- 	ida_free(&scmi_id, info->id);
- 
-@@ -3401,6 +3402,9 @@ static void scmi_remove(struct platform_device *pdev)
- 	list_del(&info->node);
- 	mutex_unlock(&scmi_list_mutex);
- 
-+	/* Stop transport callbacks before tearing down notifications. */
-+	scmi_notification_quiesce(&info->handle);
-+	scmi_cleanup_txrx_channels(info);
- 	scmi_notification_exit(&info->handle);
- 
- 	mutex_lock(&info->protocols_mtx);
-@@ -3415,9 +3419,6 @@ static void scmi_remove(struct platform_device *pdev)
- 					   &info->dev_req_nb);
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- 
--	/* Safe to free channels since no more users */
--	scmi_cleanup_txrx_channels(info);
--
- 	ida_free(&scmi_id, info->id);
- }
- 
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index 40ec184eedae..2491c848d4f3 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -209,6 +209,7 @@ struct scmi_registered_events_desc;
-  * @init_work: A work item to perform final initializations of pending handlers
-  * @notify_wq: A reference to the allocated Kernel cmwq
-  * @pending_mtx: A mutex to protect @pending_events_handlers
-+ * @shutting_down: Flag to block late-init work scheduling during teardown
-  * @registered_protocols: A statically allocated array containing pointers to
-  *			  all the registered protocol-level specific information
-  *			  related to events' handling
-@@ -225,6 +226,7 @@ struct scmi_notify_instance {
- 	struct workqueue_struct	*notify_wq;
- 	/* lock to protect pending_events_handlers */
- 	struct mutex		pending_mtx;
-+	bool			shutting_down;
- 	struct scmi_registered_events_desc	**registered_protocols;
- 	DECLARE_HASHTABLE(pending_events_handlers, SCMI_PENDING_HASH_SZ);
- };
-@@ -845,7 +847,10 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	 * Finalize any pending events' handler which could have been waiting
- 	 * for this protocol's events registration.
- 	 */
--	schedule_work(&ni->init_work);
-+	mutex_lock(&ni->pending_mtx);
-+	if (!ni->shutting_down)
-+		schedule_work(&ni->init_work);
-+	mutex_unlock(&ni->pending_mtx);
- 
- 	return 0;
- }
-@@ -1706,6 +1711,29 @@ int scmi_notification_init(struct scmi_handle *handle)
- 	return -ENOMEM;
- }
- 
-+/**
-+ * scmi_notification_quiesce()  - Stop notification late initialization
-+ * @handle: The handle identifying the platform instance to quiesce
-+ *
-+ * Prevent new late-init work from being queued and wait for any already queued
-+ * or running late-init work to complete before transport channels are torn
-+ * down.
-+ */
-+void scmi_notification_quiesce(struct scmi_handle *handle)
-+{
-+	struct scmi_notify_instance *ni;
-+
-+	ni = scmi_notification_instance_data_get(handle);
-+	if (!ni)
-+		return;
-+
-+	mutex_lock(&ni->pending_mtx);
-+	ni->shutting_down = true;
-+	mutex_unlock(&ni->pending_mtx);
-+
-+	cancel_work_sync(&ni->init_work);
-+}
-+
- /**
-  * scmi_notification_exit()  - Shutdown and clean Notification core
-  * @handle: The handle identifying the platform instance to shutdown
-@@ -1717,6 +1745,8 @@ void scmi_notification_exit(struct scmi_handle *handle)
- 	ni = scmi_notification_instance_data_get(handle);
- 	if (!ni)
- 		return;
-+
-+	scmi_notification_quiesce(handle);
- 	scmi_notification_instance_data_set(handle, NULL);
- 
- 	/* Destroy while letting pending work complete */
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-index 76758a736cf4..f18f98c5ab3b 100644
---- a/drivers/firmware/arm_scmi/notify.h
-+++ b/drivers/firmware/arm_scmi/notify.h
-@@ -82,6 +82,7 @@ struct scmi_protocol_events {
- };
- 
- int scmi_notification_init(struct scmi_handle *handle);
-+void scmi_notification_quiesce(struct scmi_handle *handle);
- void scmi_notification_exit(struct scmi_handle *handle);
- int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 				  const struct scmi_protocol_handle *ph,
--- 
-2.43.0
-
+Frank
+> +	clocks = <&clk IMX93_CLK_SAI1_IPG>, <&clk IMX93_CLK_DUMMY>,
+> +		 <&clk IMX93_CLK_SAI1_GATE>, <&clk IMX93_CLK_DUMMY>,
+> +		 <&clk IMX93_CLK_DUMMY>, <&clk IMX93_CLK_AUDIO_PLL>;
+> +	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k";
+> +	status = "okay";
+> +
+> +	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		sai1_port1: port@1 {
+> +			reg = <1>;
+> +			playback-only;
+> +
+> +			sai1_ep1: endpoint {
+> +				dai-format = "i2s";
+> +				dai-tdm-slot-num = <2>;
+> +				dai-tdm-slot-width = <32>;
+> +				bitclock-master;
+> +				frame-master;
+> +				mclk-fs = <256>;
+> +				system-clock-direction-out;
+> +				remote-endpoint = <&codec_ep>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>  &usbotg1 {
+>  	adp-disable;
+>  	disable-over-current;
+> --
+> 2.50.1
+>
+>
 
