@@ -4,139 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC39FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9C2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mr2rRZbrqiZvM3P2Mbiv7Hhhh1gtLUGvzA4Eih0xk+o=; b=yA5BMd1UlDodOKaoF043sto6Uy
-	Vpbl4CAH2QjBhMNoKeTpHL9aq79VEaPf65WX4fbtdaAkQYCmP/Ub9R+ChtVb9iLxefHf8S3ZyfzAy
-	ubdRUqa284rxJME7tHXNPrFTOP8TVFznImwEDt+O74tR0vLCKD3kIHhtbPvK9GlXjlhEqepa2K7J/
-	iRuuXD1MB6Jb54zNG5n9jWlV6NkG3oYkYR1wfgOEyDBoXtys7AXw1UbqjxWKENYBjteWqPLRNYNDR
-	oDDCb9S1AVFYp11ItWBVL+dHsJqQ6tToEbHKojRQicQFLSfR1tiuD24wPptIY0rfKfFqUSBWJv+4n
-	mbi/TYrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DoDbn2USP7rhV4t6L+eml08WCJvJ3oAL0lApnhJ84Ds=; b=A3S86jJBYNVNox
+	W3R1SjgfjEC28DTX7CzFIp9+2JpcJA1K0/vqHwpSuDq2TXoh+wBDw2Qm0MxvcxMko5LPS444XWE+4
+	gmfCBxzkUnChstMfTDVvLVhtRAMpIGNQPQonYntG/Ps0gk49UhUGlEjm6kRlXeEPT7GRBjkEOFpzw
+	WSCp5Jx1KHA7hmQbtxvrYDUGRDSpyHuKDxWSWBJApWaOFuXjLl8N/SGF6kp19+gu/7mhjQ4Rtg6RN
+	YiIBpHvJjSoCSmzx3tR7oYoqRxhfqClHIhYj5a7WDTW3VULuchoyLNmdjiX3IpGh5zWYJWT/PbH91
+	f5oGKgGMys/DkAifmi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whT0v-0000000HFb0-1hjC;
-	Wed, 08 Jul 2026 14:12:37 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1whT1L-0000000HFi2-2DCB;
+	Wed, 08 Jul 2026 14:13:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whT0s-0000000HFa4-3TMm
+	id 1whT1J-0000000HFhV-3si4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 14:12:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uRk1Y0CqVgoL0oe/ATa+JUgX7YtYVpMQFFwIiKljmKyf/pjmUlrCQFOBtqkEJc3D5I5V4yeDbTFslA+jQs6+leFlYGx7pHcS5U8mCt0SuaL3476NMuIbmaNtiE5Rr9wvrE22ezg0SvZlyR+Z1u5Aa3uNrNaiDXs4ZuWJIeFzV/YGAW/Be67QajktnpPxJGuFTHNMTM+tRyEbg3bDfP7xRVN9oSiFBPSy+r7nc79SfGBBpgJbMfBh0/2jcuRPEsaPhBaXfYla5g9cLbn89qNZO6B++igpLZr3ak36yN7+h5A8qPyd1NJ4BVAyATfAeicCqNCH4DMJnULmOP5vWEiPPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mr2rRZbrqiZvM3P2Mbiv7Hhhh1gtLUGvzA4Eih0xk+o=;
- b=N9k3mr2TeFr53wbEGYGnQgKfcPId3kSyrj1FWiF8uooZI701wpdp1bbefjjb5WQTIHX79TP2p3nchejgDUXJLFtRJxzz8UeYxJKpq2sqTBxnIpoEWjcZkrxmxpN4RB9r/9S+i2xr2KqWNbFihukBYDrEAwM3BqRR2shODuHWz/KdEdTHovD5XvVwGO6iiUVWbSVAwg37O1KBMREFw9Hq+4hALQCNPpO56i7GAVUq0LERd8OTtpAuSSkZU5JEh40thCQG8vq5SqgfUHQoeHFWH4Kohx+iArt3bjdnBFMqvNeR2x5i4WIJlyOrPXH+2k8BH+OfOCGUlUbTzB+4F2+a/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mr2rRZbrqiZvM3P2Mbiv7Hhhh1gtLUGvzA4Eih0xk+o=;
- b=G/Jd5h77qh5imLSthgYp9HRjnMbbqCkaqw/1i9ZsKQRBvMcKcSuYDTmm3RiU7M79x4o7V2Zc+0SxuAtfDG6bBq5QTG3Yp5IA0cV/LIKlnjZZu39XVcYJ0zayS9/z6U7HsD5kaRSFTGW1OzjXSm1mKIj1ctGHOTam8dyvN4cLVYZefAxDTr/GdSDGtQyPI45PCnuySoXnsG/AM03UpbTTSebus85uijbfZLvkC+lv/fHcGTJz91AQqIwQSeBo30ZC1DyKdhZ8JI8bwMYcAs+ScIfU8/pdCs+nIHaOsWhpCnjIrE7mUS3MEFp157nafH70fWrSkIkpKpAGWY8mze3yKQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by MN2PR12MB4159.namprd12.prod.outlook.com (2603:10b6:208:1da::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Wed, 8 Jul
- 2026 14:12:27 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0181.009; Wed, 8 Jul 2026
- 14:12:27 +0000
-Message-ID: <d4307831-7634-4b43-a909-1f7e8664e852@nvidia.com>
-Date: Wed, 8 Jul 2026 19:42:21 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] iommu/arm-smmu-v3: Detect Tegra264 erratum
-To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>
-Cc: robin.murphy@arm.com, joro@8bytes.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260609073204.1760077-1-amhetre@nvidia.com>
- <20260609073204.1760077-3-amhetre@nvidia.com>
- <ak2K2vhIQSTNAPto@Asurada-Nvidia>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <ak2K2vhIQSTNAPto@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Wed, 08 Jul 2026 14:13:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0344760008;
+	Wed,  8 Jul 2026 14:13:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D84A51F000E9;
+	Wed,  8 Jul 2026 14:12:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783519980;
+	bh=DoDbn2USP7rhV4t6L+eml08WCJvJ3oAL0lApnhJ84Ds=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LURa7VZD2J7mM+oWfn8gDUQhA8YEbMA3yGnJsR2SzmPa4o2NGjVSNkNcEdH3zaiia
+	 bDw3ICsi9UD1I01KUr6EmwGJ1BwiesNT5wzR2Hzszl0p/v3ACYhZlNsnowUpPLcDkT
+	 TRx7iWSW7YZ08PBqtZpehbvIruqAGQfkOIXsPqtawlUkjrR3p9CUrhj69qS8W3TrD1
+	 BXZ4+8UTz4Mz2jHsUq/ThUki4yrH0mDW5FobotZZ7CkMilWn+HukbG1akPoZXg3rkW
+	 mfpeHKTP64mGmLNvSFdkrXEWoJrZbad6veXU+sPfrnTCmkgxQsu6Yo6v4co3TpVUtR
+	 zC22/06T0N0DA==
+Date: Wed, 8 Jul 2026 23:12:55 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Subject: Re: [RFC 2/3] arm64: kprobes: Allow reentering kprobes while
+ single-stepping
+Message-Id: <20260708231255.4162b7acfdb4a703aa076a33@kernel.org>
+In-Reply-To: <68189403-9728-4938-8ee2-924e4702eab7@transsion.com>
+References: <20260704234730.46d51c47d75e7d208e7bec9f@kernel.org>
+	<20260706083636.159883-1-hupu@transsion.com>
+	<20260706083636.159883-3-hupu@transsion.com>
+	<20260708095400.7582bc9589fd9da925aa9c1d@kernel.org>
+	<68189403-9728-4938-8ee2-924e4702eab7@transsion.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4PR01CA0069.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:26c::8) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|MN2PR12MB4159:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8a4baba-2461-4225-2a1d-08dedcfaf0f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|4143699003|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: NGsTSiwxp22g4frAwT6DaxW1UR1lxSYPUw8vnQkCZ8G0rUaSjBu82KPTiiQI5Sq6X0Fn5Vyp8BBnJv/jY9RRXWbQhqQbm5EPrnDXgftbQz/UgaM/4Yj/shBuXRVgKYTDYngLyYjS6U+GDPoimwGXcgIBCalqCp8k9cI+FUdF6vqyH+lZVQS7jBw6WwHVwhEt+hGcQuxYj4WljYvNrd99V0HjGVwg+BYhZDmTlmkozctgVlU6VUmtwCnv2OfZYmLm7IcygyEnNn/2K1uzcMXAFP9WOt2B5ghmq2yIUb6TbxIcCd2moJLDQFR0UTzQdTJg0aH/g4884mKFa+WU8gKQhY6KK4EF+uyB7HLPLPiJobza5q+K7idMwmzMaxu2U6onnfi3Nt6Y5dtDl5Rd8GPcee4FJxWKzp0PTrLMfyXxdp+d29Vfu+KXqPVccE6zn3v11oeAe0Vdsq6WzpFbGfTQwLOwduxauBDSDY/GQ4a2/eZ2bgMNc2lBtmS4+dX60lcTa7iXCDyccIScRpM2XEcVejgDUnIezy7Vez3TpvMMA8InPhVEE4+h0AaGxiQMN4Qu6S95dTH8+G2Xh7qQiYCl+n20THWNghxVW0eCBuFw9A07c6GAynnt2o1yJs33Qp5wpeSBulfsO9HpKdIUmvE8Y/GlGrHVYVlEt0d6FxGEonQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(4143699003)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enBGclh3c1pXcThlbHRxbGdpZFNmZG5EWG9mYW9Iczd3ZEZZR3ppQmxlSDlB?=
- =?utf-8?B?RllOTUVKbU9MWDZCWmFrMllOTFoxdWFkRFdMU3paaEI5RTBwTUtVTHdDeGty?=
- =?utf-8?B?OE1iTG5Nd3dSUWFoanFjdU1aZTlFUEV5d3lVc1dJcjgrekxnWXRWeWkvN2No?=
- =?utf-8?B?Wmw3ckJ4MENVSE1EZ0VtRld1THNZcUNRRiswRlcyTWRGOE9LTzdqeTkvZzgr?=
- =?utf-8?B?d3VpR1NEKzJNWXh3VVN5M1JuMVFzd0YzSnB5RlJlU3Z2bnh6OXlONEYxajZk?=
- =?utf-8?B?UlNramJtUWZWVUxpak1qSmlhY0ZuR1EyUitpNDFDQXZ0SGVoZVFPYXZEbVZ2?=
- =?utf-8?B?NDBsL2JaLzRkR2hYT0JlRFJWQUQrYi9GQnlzR0Faczdia3NrWjVhM2Z4YUV0?=
- =?utf-8?B?YStIeG41ZXluVW5SVU1sNDVCQlhlcEZCRjByczhnRFZkZ2pKQkdLaWFTdk5C?=
- =?utf-8?B?dXpRR0krdGFCOWFUNjhvUTM2K1lIRXZQNXFwSlFHTTRQK2Y5Z0Yrak5Dbnhk?=
- =?utf-8?B?bG5uRXRXM0pUS0pERGdodXh2YjBYTFIzTmpPRnJLR243QkcxQ2lFQkdhSEpO?=
- =?utf-8?B?UVA2ekx0Z3pYU09WSmpTcTNQMVlkdmlNOVFhdjhCc29CVHM3ZCt0UTdyWksr?=
- =?utf-8?B?ZEV5WC94N2UwcjNVb2t1VHlhN3pFSlovZGR2NnczYzdtcGtaSzEwNUJZMi92?=
- =?utf-8?B?SVZ5SEUwdHM0QWVVd1ZoM2RoMVZIdWVuMXJ2ZHJpZVNRdGY0K2g5VEhFY2ow?=
- =?utf-8?B?ZXJwQlpvWGdnWm1IWVJWYTBvaEdPMU9TSlpzTlM5dnkrWTVRRFZ3SWM3czVS?=
- =?utf-8?B?NlpyaGorQ2plUkdQK25qc2YvQmpxcHVxTXZPM09MLzkxT29DQTlRTC9PQ3Uv?=
- =?utf-8?B?Q0tQd3lwQ2pXWi9sMmVpNlVMem9uYng0RE9jTEZtcUVpdHk3UWZQakk1Zm1H?=
- =?utf-8?B?cDN5N25YMlFsbldDMDA0dWNKcER5elhKUVorUkMxa1BqNWFjTmRwZklmL0xE?=
- =?utf-8?B?VFBKNi9zMDB3YnVJWFdNelhUaTExWXNGTUpSL1pRSUwzQ3RtMFdBNW1Vejhv?=
- =?utf-8?B?cXlMSUwwZGVuQnl3Tlp3SnNCUjBucENxODNDS0d0ZHV3Z0FYWTZnWWJWMXRY?=
- =?utf-8?B?TnFRbHpnN0FLYmpYR0xqbXZ1YlB2MVRhS055RWp3VUMyQ3V0YkJ6aEV3N1dX?=
- =?utf-8?B?UXJhSml6T3BUelRSNU52SnlJQk5xYWZwZStGTU9SRlU0L00rNGtKb1J0YTJp?=
- =?utf-8?B?QXpGcmQveDRhRnFVN2dRTHBvZ3hPSHlDNGRFNHdVbjFMT1hpOFphei9ROFBL?=
- =?utf-8?B?VHZBR3I0b3pFREI0V25iTXVubVVUWGgzVWduNkZsMXMwY3pZVEk4bWh3MjNW?=
- =?utf-8?B?SE5INWJoWm4xNVFaTGhNZ3RkSzZlZE9uR2NqZ2ZGamk2ZEF6ZU9hQzVQbE1V?=
- =?utf-8?B?YVlwcmEySXlGTFhqYldNSmZTdzZwTmhnME5NeGlDQm95dFdqR1RZcmR0V0JT?=
- =?utf-8?B?R2dKVDY1MUVKVnpXbGdlZjBtTDZDcDQvQ3JNSmJtR2lUeS8xTU9SUFUrWDVE?=
- =?utf-8?B?N05OK0pPQ09BUlhHU2poZE9NUUNyVGxsMFdRdnlLS2xZeSs2OE9yR0Zua0VE?=
- =?utf-8?B?cXFCZTM3L3FWNmN2RS9QOWhGTmhxZ1lzU2kwa0dZdkpJWnY2NVoxd1hrallE?=
- =?utf-8?B?LzV3VGxRZUdTb056Z05FUGRIa2VuT1lHdUhibkdpOURCV1BIRVFJeGlNY0hQ?=
- =?utf-8?B?bWMyRUZaWkpicElPRkc3MlhQeitZWEl6WE02YXl3bjJycmpJRXFTdUREb2Uz?=
- =?utf-8?B?TXhhbEFMTXlpU2E2K1VFN2IwNUI0aVJCaGdpMC9oTitlVlEzVnJhdGJZUnpK?=
- =?utf-8?B?T25MVEdVYTlLcjhTVUU5aXR4RlZLQkNSMy9FcEsybXFWNjlEdEhnTStrT0RG?=
- =?utf-8?B?Sk91NlpBWDdvTnV4S0dXYUxlL280eVplVmcxYWVTUHhVUnRDOUVKZGN4RkM4?=
- =?utf-8?B?azVlM3I3LzZmZitCUDZJSDMrOFBRdDhpZTR5OFMxcTBmSlB3TXR3QjRobnQy?=
- =?utf-8?B?SzloVXY1WEU4SDZyOEtOVDVIVHlLdklLQUlhTVVPbUJWb2YzZFFQaDdraTFD?=
- =?utf-8?B?TlhMWlpqbUdNVHZrK0ZMeGVENXVnMVh5d1VnOE1YMDBLbThmSGwzNU83TXRs?=
- =?utf-8?B?SVBXaENiSXhZZERtTGdzTHZkckJEUEU5bEFMdWlheW5FY2V5M1pjSVRQeDVu?=
- =?utf-8?B?S0REU3lIUWR4Slk4MmlwVWRtdzFYVlE2K0tSZy8vTEtFTCtiU1FQVTUxbVhp?=
- =?utf-8?B?MWFnMjJORnJmbnpUY1RFaUtvVUhTVDZ3V3FobnhSeFpzRkwycVU2UT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8a4baba-2461-4225-2a1d-08dedcfaf0f7
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 14:12:27.7217
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8rwkXwfSdXs0wxd/TwchJeCDk+LuL+HgyLqgQWlHL6CLwDtR3WhtzXBh/cZmD6abMBAjHjQQAkgQYd/ylCUDPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4159
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_071234_874192_6BD22154 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,33 +69,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Pu Hu <hupu@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 8 Jul 2026 07:12:39 +0000
+Hongyan Xia <hongyan.xia@transsion.com> wrote:
+
+> On 7/8/2026 8:54 AM, Masami Hiramatsu wrote:
+> > On Mon, 6 Jul 2026 08:36:49 +0000
+> > Pu Hu <hupu@transsion.com> wrote:
+> >
+> >> From: Pu Hu <hupu@transsion.com>
+> >>
+> >> A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
+> >> can happen when tracing or perf code runs from the debug exception path
+> >> while the first kprobe is preparing or executing its out-of-line
+> >> single-step instruction.
+> >>
+> >> Currently arm64 treats a kprobe hit in KPROBE_HIT_SS as unrecoverable,
+> >> the same as a hit in KPROBE_REENTER. This is too strict. A hit in
+> >> KPROBE_HIT_SS is still a one-level reentry and can be handled by saving
+> >> the current kprobe state and setting up single-step for the new probe,
+> >> just like reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.
+> >>
+> >> The truly unrecoverable case is hitting another kprobe while already in
+> >> KPROBE_REENTER, because the reentry save area has already been consumed.
+> >>
+> >> Move KPROBE_HIT_SS to the recoverable reentry cases and leave
+> >> KPROBE_REENTER as the unrecoverable nested reentry case.
+> >>
+> >> This mirrors the x86 fix in commit 6a5022a56ac3
+> >> ("kprobes/x86: Allow to handle reentered kprobe on single-stepping").
+> >
+> > Can you also check the Sashiko comment?
+> >
+> > https://sashiko.dev/#/patchset/20260706083636.159883-1-hupu%40transsion.com?part=2
+> >
+> > This seems indicating potentially brakage of reenter kprobes on arm64.
+> > But is it possible to hit another kprobe while SS on arm64? It is
+> > the same question about the previous one, can NMI happens during
+> > the single stepping? (maybe yes, because it is non-maskable)
+> 
+> It is possible as this is what we hit. There are
+> preempt_enable/disable() calls during SS which can trigger perf events
+> sampling the user stack, which may then trigger page faults and send the
+> CPU into one more level of exception context. I believe this is what you
+> saw in 6a5022a56ac3?
+
+Ah, it was more generic perf NMI case, not only preempt_enable/disable().
+But anyway, the result is same.
+
+> > Anyway, for making it safer, we need to add saved_irqflags to prev_kprobe.
+> 
+> Yes, this seems to be a legit bug that needs to be fixed. Thank you.
+
+OK, thanks!
 
 
-On 7/8/2026 4:55 AM, Nicolin Chen wrote:
-> On Tue, Jun 09, 2026 at 07:32:03AM +0000, Ashish Mhetre wrote:
->> +arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_device *smmu,
->> +				     struct arm_smmu_cmd *cmd)
->> +{
-> [...]
->> +	if (!static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
->> +		return false;
->> +	if (!(smmu->options & ARM_SMMU_OPT_REPEAT_TLBI_CFGI))
->> +		return false;
-> Are they redundant?
-
-Yes, both are set together in exactly one place, arm_smmu_device_dt_probe(),
-guarded by the same "nvidia,tegra264-smmu" compatible check.
-If we want to go with static key, then that makes option bit completely 
-useless.
-Shall I respin v5 that uses only static key and drops the option bit 
-completely?
-
-Thanks,
-Ashish Mhetre
-
-> Nicolin
-
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
