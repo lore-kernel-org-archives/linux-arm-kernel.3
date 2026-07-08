@@ -4,116 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA86C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1553C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sA++AxO5NtmYTBb+M8Kemba0fl9Obtf3m3Dlj5iG+Uo=; b=LZcvNHfMiHXUo7JhpY97nveshj
-	GX7hMaFM3qJEsEwAvjcPDIoJn19TzndDOSU/sCosmFo0bdlPP2KBA6V1PJ1YOGe1c3O+WHPzDie8t
-	LEdALwFijXLVWQXIy+g7kVvHfCBVGl0M+tzm7MvxVaTDg8PXZEJaIjpedhZnf0y2rsSE/HfXWvHjF
-	DvKJJfwJsDDgDwT8kNpY2EjkaCwtLPS3aA1QLe14+VoA3IUJhhTdIXUc6RjuC8rjdnSnH1WX1yiWY
-	jPM9emJDsdgfaHJihdIim27Hy4Bwje27MuvUugv5nAQVeNjJ76nH5AYv7f8nZBUlhBurVJl3QMd02
-	XstBAZlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+2oxnA5/005eAPx9+D3ISlHqx+7lNA7OCwPVcy4+pQ=; b=OwZPY9XoK2TrRxocpqsOA8f4K3
+	ZMS5kzqHauaCPfF3spDilXae6cifCE9IUL/omc/wcb93xTeHQZVPJ+asvbTDSEHXtu3k92/VnQbfV
+	qeImHYR16wVwB+5E0G4VX+DnTnXL/g2/DWK47lFKp6q8h6paLhBVXcJ0PtcxgfSDU2Kto/i3PyS1c
+	vxiGM4SCn/yzS+M53BBMYsdaDnf9ytoKqV+dJqlfU4AX/ktboY5ehV1i0ujKD6C+W5N9AzvKvYED1
+	bXDUT/tZM48N6INegMcrE4BFpkM+M0cwD5aG2ltybayMW7WTwIG67rr1cC5nKo2GLY1HTTLXZpNZe
+	wvLbiw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTAv-0000000HJ4e-3L1S;
-	Wed, 08 Jul 2026 14:22:57 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1whTEP-0000000HJo5-1fO0;
+	Wed, 08 Jul 2026 14:26:33 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTAj-0000000HItH-0zU5
+	id 1whTEE-0000000HJmH-49iY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 14:22:56 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cc84e77e78so6183155ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 07:22:45 -0700 (PDT)
+	Wed, 08 Jul 2026 14:26:32 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b7612475so6536355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 07:26:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783520564; x=1784125364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sA++AxO5NtmYTBb+M8Kemba0fl9Obtf3m3Dlj5iG+Uo=;
-        b=npTDoh/q1Wvjmit7A2FA1WpSbBGKxBLK9zmlq5Ys7O+LIt4vpwcQs7EqVIabeNirYD
-         XPHZLX0Y5WuHluvkMDcFhTxI4jyit87D8E59CA7oCQLDEMTL+0Foqyv+WGt09NaKnP+H
-         VFhsKeR9E7fDkwfiDz7J282MOyZO6xLzlB7ZvTHJWaGl9F16DWS33sa77k15zE8zH39u
-         izLOcLOGg3xnovhEOLpZfheopiQP29De4NTqnP9R95Mb2fmu02jsVrAqwaspIsVxE3ZR
-         62qNaGsUOzMU8ri4x9SQJFsXxKTVw8+5KcUn6m9Kf3tptoMNlL4xXlNBeQbq+D48H/3q
-         X8CQ==
+        d=suse.com; s=google; t=1783520781; x=1784125581; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y+2oxnA5/005eAPx9+D3ISlHqx+7lNA7OCwPVcy4+pQ=;
+        b=F/ii0ofBrPGeIj2CArYPaWQEw08JYUJZcjcLnr44Kif/PK5nkKn+a986g9zETFO9Yv
+         Zg8aDpyEh0+V/Gly4QsGi/t+41PzDHEGexuMGJ9CibfMQjg4gR8ao2Gnmbmus0R7jDvv
+         kcy1F2sjtENLQT1xVi2ldlELB7wM/E64zR2wWdt8p8okwYLieSM1og6wSLrUXbKbnhWW
+         o+bL+8yP7xYbRMT5sGdSdbmGcwADMcoWvs/lUG5ULcHVXFlTYWSdh9y9H9C2Qimv3+fq
+         pD8DEdhJD++Tv0ZjwSl/xFICyxnO0pV2CVEbgeZfrPCooU6aw8HfYCJM+i2Jm5/787x3
+         71Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783520564; x=1784125364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=sA++AxO5NtmYTBb+M8Kemba0fl9Obtf3m3Dlj5iG+Uo=;
-        b=onlhUv9qxPNRarIY0Lo5Ux52hRk5H6v7Nub1TmJh7k1mvk8lfjqoXR+L6rdsYu8NZ3
-         Q4Vsp3vxCkufJ1+yIKCFdrGeoGJxCm8tIvUk9puZdy7BxQ6LKzwkPUkS0hgeT/IH6exb
-         eKgyCVBvJbwj9gCKez0FaMP/9cpMwT22iZBdjqVTAS4WMxaQOOK42j8cwLaIO0xBysyw
-         vl2sP9E/A7XrNHA2h7MG+5/6UKqmjfLNcYZEko3sH/rCS8PAFNoh1Q+/NZHqsGuuCKzo
-         aUWc7mGnF8eAPXtfaFhwxyADhjefNYBdrdYT+blu6D4uxnCmUXCTI0lepX93pHwDdqcX
-         oQwA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr6rERaeDoNn2VUONJLPMaSw5+GIx1080Vv8p5A1h+jY9BscGH/xksGXixFBEpHFHsCUX/HajefET7yOPw1ibVm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwirFnn3q2OXJHPgb4S+hdGGTLmsC0di66ra2BoOIOtslqIT5Ob
-	95ENzXe/ciIliZvRMHMSKgn06L384CunQ0oe6nsXuEj8NUyLCpOZIp8K
-X-Gm-Gg: AfdE7cmLB7O6dSvXVTVprgBXGHE37gUuHoy+6fs7gJd1dpEyrBoRdbJqkNef8lsVX8F
-	7vtarpm3Orqx82eS8kV0ZIat0ZcWOaurpTaYcRPFJx16t3rqVDRPvE4oIZNxCCDkWDFutVJJY59
-	u3rDdAhFRtWZCJzv3qyMMNUjVJrv/P7QxRjSJD6NNNMY1djFRc7Iu1mSIOfObYOmPXBBUvUqnzS
-	0zUaYb4Tw3vs79SY0d88lLlanLNN0BoCFeuQvUwgq5E7yZ1863xSAUPRULVOvG4tKona2EhDrSx
-	pAKzQUsMUdiyjCXE3XjJRVxaoaUrospeVbxt2fUm5M48YCOk0c3ZgV4swEp1LTQfNCBUwAo85cR
-	YLjM3OY9cVdupq385N4/IHvK4jr0OmGm+oGsHhnctKNCnK+UtXseC8S81mAXtKto+XtWrURhr1v
-	0emNvfimZ7qfLC3/PrwP/8xaU2HX+qL+XRSvHi0lVoKuCyJCc=
-X-Received: by 2002:a17:903:234f:b0:2c9:97a8:8c17 with SMTP id d9443c01a7336-2ccea5962bemr27443295ad.42.1783520564494;
-        Wed, 08 Jul 2026 07:22:44 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3bcc0sm28841575ad.67.2026.07.08.07.22.37
+        d=1e100.net; s=20251104; t=1783520781; x=1784125581;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y+2oxnA5/005eAPx9+D3ISlHqx+7lNA7OCwPVcy4+pQ=;
+        b=FfDWOxYEf3gvQUnsUVoXOJuz0DTnyyRcIgLeNHFqZJSMJFjSWNrezqfYUVQ7/KOS2f
+         uCTLd7TygMLcLcOJ9uqNP0D0P54PBIywUM9y5RCzOWh4c8oVZRSfFVNJA5+d6rRQkLLn
+         3xpRPiARFjqm3iQ47yR3V1vovFxH2TS8QDdGMgX91bbFYRFHt/9nSnJpddN1Fjivm6yI
+         dCxM6MULPQh1M+UbOain9fQ4H1vrmajRo3HusMfkPFp4U9ivRGBKXQdhK5V+1VmDLat8
+         w+nbUtNUPstc7gfh5JAEsMlusIJ1vYJAgqvAdZtNkuK4PWSNkfPt9IQj5B+31+KP0PZD
+         di/A==
+X-Forwarded-Encrypted: i=1; AHgh+Ro9xNgYhjCpymhnP3aHZ+L480IIu/2MFhEW/oM8s6hrLl2VWf0PPTdxc/Gaznm6764oIic+wRVJFOcQ2eDyhNbU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA3JJwcXWSrK9Fd2kuDI8s7FKcV//regwMVxhpXSc3pAzaAaR2
+	Lv5Yran1gMG47W1aOtWtsCdufE0rtyw0cbOsRtdQIb81jpnjfX70UNRcpOC9PgT0HgQ=
+X-Gm-Gg: AfdE7cnJPnaywD+PhqVPbXF6V20D2YZ/pez28LHoR4xIKTbKw1jHMTR/4DXNQQOHWbm
+	4LNk20prJ+jwyKU1daOpHY3MfyVkk/XaHtbK598kbCCJ7Cpo47jZioWm1Um2BK5xyq47XMhXIiG
+	gQT1CxMJely02oGOu0L3OYWqMzkf88+coTVSWgv4BzYdF3udeQOETl/RmI4uaueMiqYhKBjW4bY
+	FkkGlqDr+t2gogHXjazwAxVXSjKxGu3riocIFzoDPeUuNLUNpEuGFiDw25pEk2h/C1QkTn8PJ4w
+	/pmgIxPBQzfRFnhto0Qihglyjmk6Lv9lQSU/kgVQ3g1MQETqxhddHz50qDS/Zz28Fs4LIZsjv97
+	27xmYTmqOw+j1XS9rVq6EfYY1ZytKba3qjCYrQhJsq/aWY8tlq6Nw2SE8vcW0bByhldK+RkpjGs
+	eIik1q6Clehyz91iY=
+X-Received: by 2002:a05:600c:4e93:b0:490:e5c1:b8b9 with SMTP id 5b1f17b1804b1-493e67f7c3emr28578075e9.0.1783520781102;
+        Wed, 08 Jul 2026 07:26:21 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f5ca1fsm153295645e9.15.2026.07.08.07.26.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 07:22:44 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Takashi Iwai <tiwai@suse.com>,
-	Nick Li <nick.li@foursemi.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Cc: Support Opensource <support.opensource@diasemi.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	Sen Wang <sen@ti.com>,
-	Oder Chiou <oder_chiou@realtek.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	u.kleine-koenig@baylibre.com,
-	Zhang Yi <zhangyi@everest-semi.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Kees Cook <kees@kernel.org>,
-	HyeongJun An <sammiee5311@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Qianfeng Rong <rongqianfeng@vivo.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
+        Wed, 08 Jul 2026 07:26:20 -0700 (PDT)
+Date: Wed, 8 Jul 2026 16:26:18 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Benedikt Spranger <b.spranger@linutronix.de>,
+	Andrew Murray <amurray@thegoodpenguin.co.uk>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 27/27] ASoC: codecs: rt722: Use guard() for mutex locks
-Date: Wed,  8 Jul 2026 21:17:34 +0700
-Message-ID: <20260708141734.578926-28-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260708141734.578926-1-phucduc.bui@gmail.com>
-References: <20260708141734.578926-1-phucduc.bui@gmail.com>
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
+ emiting code
+Message-ID: <ak5eCp5qw9LYrnAH@pathway.suse.cz>
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260703165654.71be8707@mitra>
+ <CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
+ <20260707145411.53a10893@mitra>
+ <ak0VguIf-PxmbUOS@pathway.suse.cz>
+ <87qzldvqpm.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87qzldvqpm.fsf@jogness.linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_072245_274990_68655B89 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260708_072623_037273_EB624550 
+X-CRM114-Status: GOOD (  28.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,102 +124,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Wed 2026-07-08 10:25:17, John Ogness wrote:
+> On 2026-07-07, Petr Mladek <pmladek@suse.com> wrote:
+> > To summarize this discussion:
+> >
+> >   + Benedikt would prefer to add the synchronous mode before
+> >     moving the delay from the printk() caller to the console emit
+> >     code path.
+> >
+> >   + The delay in the printk() caller code path did not guarantee
+> >     the output but it increased the chance to see it.
+> >
+> >   + The synchronous mode will be even more reliable than the delay
+> >     in printk() caller path.
+> >
+> > Please, let me know if I did not get it right,
+> >
+> > John, did you have any plan how to add the synchronous mode, please?
+> > Does it look complicated?
+> >
+> > I guess that we would somehow need to "mis-use" the emergency
+> > priority and force it everywhere by some global system setting.
+> 
+> The synchronous mode would rely on the driver being nbcon. I envision
+> something like this:
 
-Clean up the code using guard() for mutex locks.
-Merely code refactoring, and no behavior change.
+Thanks for sharing the code.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/codecs/rt722-sdca-sdw.c | 29 ++++++++++++++++-------------
- sound/soc/codecs/rt722-sdca.c     |  4 ++--
- 2 files changed, 18 insertions(+), 15 deletions(-)
+> ---- BEGIN SYNC IDEA ----
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1200,7 +1200,7 @@ static bool nbcon_kthread_should_wakeup(struct console *con, struct nbcon_contex
+>  	cookie = console_srcu_read_lock();
+>  
+>  	flags = console_srcu_read_flags(con);
+> -	if (console_is_usable(con, flags, false)) {
+> +	if (!(flags & CON_SYNC) &&  console_is_usable(con, flags, false)) {
 
-diff --git a/sound/soc/codecs/rt722-sdca-sdw.c b/sound/soc/codecs/rt722-sdca-sdw.c
-index 284900933ebf..895b8b2ed607 100644
---- a/sound/soc/codecs/rt722-sdca-sdw.c
-+++ b/sound/soc/codecs/rt722-sdca-sdw.c
-@@ -6,6 +6,7 @@
- //
- //
- 
-+#include <linux/cleanup.h>
- #include <linux/delay.h>
- #include <linux/device.h>
- #include <linux/module.h>
-@@ -514,13 +515,13 @@ static int rt722_sdca_dev_system_suspend(struct device *dev)
- 	 * deferred work completes and before the parent disables
- 	 * interrupts on the link
- 	 */
--	mutex_lock(&rt722_sdca->disable_irq_lock);
--	rt722_sdca->disable_irq = true;
--	ret1 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
--				SDW_SCP_SDCA_INTMASK_SDCA_0, 0);
--	ret2 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
--				SDW_SCP_SDCA_INTMASK_SDCA_8, 0);
--	mutex_unlock(&rt722_sdca->disable_irq_lock);
-+	scoped_guard(mutex, &rt722_sdca->disable_irq_lock) {
-+		rt722_sdca->disable_irq = true;
-+		ret1 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
-+					SDW_SCP_SDCA_INTMASK_SDCA_0, 0);
-+		ret2 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
-+					SDW_SCP_SDCA_INTMASK_SDCA_8, 0);
-+	}
- 
- 	if (ret1 < 0 || ret2 < 0) {
- 		/* log but don't prevent suspend from happening */
-@@ -542,13 +543,15 @@ static int rt722_sdca_dev_resume(struct device *dev)
- 		return 0;
- 
- 	if (!slave->unattach_request) {
--		mutex_lock(&rt722->disable_irq_lock);
--		if (rt722->disable_irq == true) {
--			sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK1, SDW_SCP_SDCA_INTMASK_SDCA_0);
--			sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK2, SDW_SCP_SDCA_INTMASK_SDCA_8);
--			rt722->disable_irq = false;
-+		scoped_guard(mutex, &rt722->disable_irq_lock) {
-+			if (rt722->disable_irq) {
-+				sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
-+						SDW_SCP_SDCA_INTMASK_SDCA_0);
-+				sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
-+						SDW_SCP_SDCA_INTMASK_SDCA_8);
-+				rt722->disable_irq = false;
-+			}
- 		}
--		mutex_unlock(&rt722->disable_irq_lock);
- 	}
- 
- 	ret = sdw_slave_wait_for_init(slave, RT722_PROBE_TIMEOUT);
-diff --git a/sound/soc/codecs/rt722-sdca.c b/sound/soc/codecs/rt722-sdca.c
-index 1b6729f363fc..decf9407ab6d 100644
---- a/sound/soc/codecs/rt722-sdca.c
-+++ b/sound/soc/codecs/rt722-sdca.c
-@@ -6,6 +6,7 @@
- //
- //
- 
-+#include <linux/cleanup.h>
- #include <linux/bitops.h>
- #include <linux/delay.h>
- #include <linux/dmi.h>
-@@ -294,7 +295,7 @@ static void rt722_sdca_btn_check_handler(struct work_struct *work)
- 
- static void rt722_sdca_jack_init(struct rt722_sdca_priv *rt722)
- {
--	mutex_lock(&rt722->calibrate_mutex);
-+	guard(mutex)(&rt722->calibrate_mutex);
- 	if (rt722->hs_jack) {
- 		/* set SCP_SDCA_IntMask1[0]=1 */
- 		sdw_write_no_pm(rt722->slave, SDW_SCP_SDCA_INTMASK1,
-@@ -317,7 +318,6 @@ static void rt722_sdca_jack_init(struct rt722_sdca_priv *rt722)
- 		rt722_sdca_index_update_bits(rt722, RT722_VENDOR_HDA_CTL,
- 			RT722_GE_RELATED_CTL2, 0x4000, 0x4000);
- 	}
--	mutex_unlock(&rt722->calibrate_mutex);
- }
- 
- static int rt722_sdca_set_jack_detect(struct snd_soc_component *component,
--- 
-2.43.0
+The dependency on con->flags means that the sync mode can be entered
+only in task context where synchronize_srcu() can be called. It might
+be good enough. But I am afraid that people are creative and would
+like to have even atomic variant sooner or later.
 
+Also it will do the flush in NORMAL_PRIO which is good. But it might
+fail to get the context ownership when it is blocked, for example,
+by uart_port_lock() which might be even sleepable context in
+PREEMPT_RT kernel.
+
+>  		/* Bring the sequence in @ctxt up to date */
+>  		ctxt->seq = nbcon_seq_read(con);
+>  
+> ---- END SYNC IDEA ----
+> 
+> BTW: The sync mode is the final piece so that PeterZ can start using
+> mainline code for debugging by serial instead of his own workaround [0].
+
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/log/?h=debug/experimental
+
+I see.
+
+Best Regards,
+Petr
 
