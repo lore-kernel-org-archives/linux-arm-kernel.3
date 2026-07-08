@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C63C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CA6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRLBDv0GR5+I5QEs+yagz6DalTxaINze8PKIAjmPSRo=; b=C7CIV98D9bEbPFtFp4xnAg0+zi
-	/1058lNQQdy4fSRLDxzeKa3DPeHDq6qZ3cu5979ShJTUTB7ECSzngRc14BVjfe61YYuhUq6Z5GhMF
-	fowSU7t+smcyx+b9HMu+rQI5yjb53Qk3UO0oFHfskg9gKamfExlhcHOM9Te3HZUaehTKoBXJxhHEd
-	nf0jL87dS7jE+bN4MaMSQp3UpfxRRpH0ZAZ/Wo9wkCLiIY74KyWslx6lBQUfKIDjAMUURtvtcI88j
-	g5QAsIvcruGDwOvarseo1MLR4sRSYiOwU7Dg5kkI+6mu5lGUtH4WMGnS9qvQRdZ1KPyHZAdeEPYVB
-	XAQrOjdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iejLwwqek4aNsTCLsqpQjn1MYQJqHAgg5RquMvqL+mg=; b=MPWChP66LL9JcsFOK+KPNuRV3l
+	8Dqgg0jxY39lWz/qu/LpR6gkyJVun8x4IftZzfLzw+it5bkH09bN8WvRJ9dgGFaW0UrS6UkoiQI3e
+	fCGkVu8eVaiXQiRjgPRXKjHHhYzvP9VHpMjeTH7zGBWB475S+dU+UOrCUvz1FupQKBKz1jOIwf5/L
+	yl5afkFWQMsEwOqvSjDFmem9a2hzy6/WFExCviCUQ5VxQ0gNCz6A44/9Lpgm5LqqOX9rMcqniJNyZ
+	c5IW41rPmO2lHpiO8MAv0E34j+9G74Q9qaXjJDe5ghGkhHyhgAo8qXr+6U6sEsf69DWdrt47uHhPv
+	5uddB9gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whb7t-00000000Yht-1gO2;
-	Wed, 08 Jul 2026 22:52:21 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1whaHO-00000000UNw-0bjP;
+	Wed, 08 Jul 2026 21:58:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whb7n-00000000YdT-2ck0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 22:52:17 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-6a18bd9c3caso1551816eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 15:52:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783551133; x=1784155933; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BRLBDv0GR5+I5QEs+yagz6DalTxaINze8PKIAjmPSRo=;
-        b=keB4SCG57F3k0KfBAYvRo4gHSGrOC4TSK3/c2ij2qrn5OK6/HE08WbcYT0QSJhoIEd
-         GcZOFxiC1nB1TdeuId4gH4VVtkxRi6QCiiCF0cwyodkmHR6EbH+gKvaoBStgh3497JBC
-         lZmNuFAAJ01mJ5s7AWsTWfXKhaXdcAaXZy+CPgAly/98+gFBLQu/LZkl00BiAlyiU1dM
-         dFcWI2v/VlpxIUkeeyC27j6gaSQgi20r7iFYqRGq5ONVgQWPb4duUEuaZukaJctvEQjW
-         vvIybWpTG7mmdyzB9aAxowsXIdD9P83FHgwqWOX2AdRWwKDsI4SeMW/JkVJ8wHf3A3zd
-         k3fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783551133; x=1784155933;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BRLBDv0GR5+I5QEs+yagz6DalTxaINze8PKIAjmPSRo=;
-        b=U9qT7Lyj/hNCfFEeHbTDnmXUR8LCiZrCS4YAQ7DwsywEpcUTIxH4F+BrsR1T8T0HA4
-         5tK9Zqn0NEyiiL/ME4g3X8dlolmQTydVvmoaWyoGITBNK5ZUJBV8kh5HUdfYEOU0Cl7p
-         uOU5tBUAVGT2M8ROvAs1WiS9idM5SNYz+QggbLGoxGk/72uzjFoS84Z8xvdoa+0PdAAN
-         vFTZT/jp9NiAEmcKSvzGCOueJagDqKR3nFVLJNcorQjtyzpWsnKBnRqLk5KTftle1A7p
-         5N85woJ4HQE85MLSpKWAdQi0x29X99SIFw6RfwFkN8s5MB/hiZbAtl58hqkq9vWobRdy
-         RlIg==
-X-Forwarded-Encrypted: i=1; AFNElJ89P8zwpahvN6qO4DgX3yPknjMsrX0mKyKUbXgZi/+xftKXyZmqQcmAUDIRyOCpDgOt+wAYXbyz+BPQ086cfQ+x@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ6uc6G+M66+YoZ9cVfARJK7ImVowcf5hJgPWQg/dsrJNKKGaP
-	02O2oDT4s14YggxhPaSIR/ugBPsh09P5KjjlJ5pMUz7VweB881WuwLzvGbmP3YxmU2D+PrN8NFU
-	iS+TDO6uRADktHnZb449cIh8bUg==
-X-Received: from ilmq1.prod.google.com ([2002:a92:d401:0:b0:503:8d4a:5b5b])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:5708:10b0:6a3:74fd:a86f with SMTP id 006d021491bc7-6a374fdb227mr1250772eaf.9.1783551133388;
- Wed, 08 Jul 2026 15:52:13 -0700 (PDT)
-Date: Wed,  8 Jul 2026 22:51:24 +0000
-In-Reply-To: <20260708225124.4130846-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20260708225124.4130846-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260708225124.4130846-7-coltonlewis@google.com>
-Subject: [PATCH 6.6 v2 6/6] arm64: Revamp HCR_EL2.E2H RES1 detection
-From: Colton Lewis <coltonlewis@google.com>
-To: stable@vger.kernel.org
-Cc: oliver.upton@linux.dev, sashal@kernel.org, gregkh@linuxfoundation.org, 
-	mizhang@google.com, catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, ahmed.genidi@arm.com, leo.yan@arm.com, 
-	miguel.luis@oracle.com, dbrazdil@google.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Jan Kotas <jank@cadence.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1whaHF-00000000UBz-3zV6;
+	Wed, 08 Jul 2026 21:58:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783547876;
+	bh=Ux9JXRFq9ZIgTcJ9AL9bQIKbKW6ZLn++vU4tGoOlq3g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=XqfHnrrKNCn9TqMVDCL1yIbS/V9pJpqv7cikJPbEg7SkLjdOpzTRK7YDUpdIDgRI3
+	 dAbEVutK94JMecpyxwpjV0LVgVCAJzz+XOQDi8mFJLi7zsW5XEQ1QGE+JqcoMVjymD
+	 IwGRZC9UDt8HdhZLflmWSi8ddAsnEWiz0ybx+uXw5uH0sn608wq/etYRZ5h482DKPM
+	 s+tohUzKKLDw8oknse9itQGBSr4r4TVm/yJehnAKSSlLhwNJ869Z6gYKNw7UVN3jJY
+	 jZg/hCp6gxUvnxMp+Or3Lt4958sW6eww0x7WdygCVA9KxfEfNSEndBWuv9uxnscHvs
+	 JryMhDcH7O2Yw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 046EA17E0D53;
+	Wed, 08 Jul 2026 23:57:56 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 09 Jul 2026 00:57:29 +0300
+Subject: [PATCH v3 07/14] drm/rockchip: vop2: Reset AXI and DCLK to improve
+ robustness
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-dw-hdmi-qp-yuv-v3-7-a4a982a9f2e7@collabora.com>
+References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
+In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_155215_700800_23BC8E32 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260708_145758_155902_811A1BBF 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,110 +88,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+Assert the AXI reset in the CRTC disable path, and the VP DCLK reset in
+the enable path.
 
-[ Upstream commit ca88ecdce5f51874a7c151809bd2c936ee0d3805 ]
+These resets are intended to leave the hardware in a clean state for the
+next use, helping recover from exceptions such as IOMMU page faults, as
+well as to prevent random display output glitches, such as a blank
+image, observed when switching modes that also change the color format,
+e.g. from RGB to YUV420 and vice versa.
 
-We currently have two ways to identify CPUs that only implement FEAT_VHE
-and not FEAT_E2H0:
+For now this seems to affect only the RK3588, hence the resets are
+optional and will be provided in the device tree for this SoC only.
 
-- either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-- or the HCR_EL2.E2H bit is RAO/WI
-
-However, there is a third category of "cpus" that fall between these
-two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-is zero.
-
-A consequence of this is that on systems such as Neoverse V2, a NV
-guest cannot reliably detect that it is in a VHE-only configuration
-(E2H is writable, and ID_AA64MMFR0_EL1 is 0), despite the hypervisor's
-best effort to repaint the id register.
-
-Replace the RAO/WI test by a sequence that makes use of the VHE
-register remnapping between EL1 and EL2 to detect this situation,
-and work out whether we get the VHE behaviour even after having
-set HCR_EL2.E2H to 0.
-
-This solves the NV problem, and provides a more reliable acid test
-for CPUs that do not completely follow the letter of the architecture
-while providing a RES1 behaviour for HCR_EL2.E2H.
-
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Tested-by: Jan Kotas <jank@cadence.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/15A85F2B-1A0C-4FA7-9FE4-EEC2203CC09E@global.cadence.com
-
-[ Backport: Resolved conflict in arch/arm64/include/asm/el2_setup.h
-  by replacing msr_hcr_el2 macro usages with raw msr hcr_el2 (since
-  the macro is missing in 6.6.y). ]
+Co-developed-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/include/asm/el2_setup.h | 38 +++++++++++++++++++++++++-----
- 1 file changed, 32 insertions(+), 6 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 36 ++++++++++++++++++++++++++++
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
+ 2 files changed, 40 insertions(+)
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 76b0d50d286d5..4c7467b382b60 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -24,22 +24,48 @@
- 	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
- 	 * can reset into an UNKNOWN state and might not read as 1 until it has
- 	 * been initialized explicitly.
--	 *
--	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
--	 * don't advertise it (they predate this relaxation).
--	 *
- 	 * Initalize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
- 	 * indicating whether the CPU is running in E2H mode.
- 	 */
- 	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
- 	sbfx	x1, x1, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
- 	cmp	x1, #0
--	b.ge	.LnVHE_\@
-+	b.lt	.LnE2H0_\@
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 2cd04bedaa2c..8f0f4aa05fac 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -17,6 +17,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
++#include <linux/reset.h>
+ #include <linux/swab.h>
  
-+	/*
-+	 * Unfortunately, HCR_EL2.E2H can be RES1 even if not advertised
-+	 * as such via ID_AA64MMFR4_EL1.E2H0:
-+	 *
-+	 * - Fruity CPUs predate the !FEAT_E2H0 relaxation, and seem to
-+	 *   have HCR_EL2.E2H implemented as RAO/WI.
-+	 *
-+	 * - On CPUs that lack FEAT_FGT, a hypervisor can't trap guest
-+	 *   reads of ID_AA64MMFR4_EL1 to advertise !FEAT_E2H0. NV
-+	 *   guests on these hosts can write to HCR_EL2.E2H without
-+	 *   trapping to the hypervisor, but these writes have no
-+	 *   functional effect.
-+	 *
-+	 * Handle both cases by checking for an essential VHE property
-+	 * (system register remapping) to decide whether we're
-+	 * effectively VHE-only or not.
-+	 */
-+	msr	hcr_el2, x0		// Setup HCR_EL2 as nVHE
-+	isb
-+	mov	x1, #1		// Write something to FAR_EL1
-+	msr	far_el1, x1
-+	isb
-+	mov	x1, #2		// Try to overwrite it via FAR_EL2
-+	msr	far_el2, x1
-+	isb
-+	mrs	x1, far_el1	// If we see the latest write in FAR_EL1,
-+	cmp	x1, #2		// we can safely assume we are VHE only.
-+	b.ne	.LnVHE_\@	// Otherwise, we know that nVHE works.
+ #include <drm/drm.h>
+@@ -867,6 +868,26 @@ static void vop2_core_clks_disable_unprepare(struct vop2 *vop2)
+ 	clk_disable_unprepare(vop2->hclk);
+ }
+ 
++static void vop2_reset_assert_deassert(struct vop2 *vop2, struct reset_control *rstc)
++{
++	int ret;
 +
-+.LnE2H0_\@:
- 	orr	x0, x0, #HCR_E2H
--.LnVHE_\@:
- 	msr	hcr_el2, x0
- 	isb
-+.LnVHE_\@:
- .endm
++	if (!rstc)
++		return;
++
++	ret = reset_control_assert(rstc);
++	if (ret < 0) {
++		drm_warn(vop2->drm, "failed to assert reset: %d\n", ret);
++		return;
++	}
++
++	udelay(10);
++
++	ret = reset_control_deassert(rstc);
++	if (ret < 0)
++		drm_err(vop2->drm, "failed to deassert reset: %d\n", ret);
++}
++
+ static void rk3588_vop2_power_domain_enable_all(struct vop2 *vop2)
+ {
+ 	u32 pd;
+@@ -953,6 +974,8 @@ static int vop2_enable(struct vop2 *vop2)
  
- .macro __init_el2_sctlr
+ static void vop2_disable(struct vop2 *vop2)
+ {
++	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
++
+ 	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
+ 
+ 	pm_runtime_put_sync(vop2->dev);
+@@ -1981,6 +2004,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 
+ 	vop2_crtc_atomic_try_set_gamma(vop2, vp, crtc, crtc_state);
+ 
++	vop2_reset_assert_deassert(vop2, vp->dclk_rst);
++
+ 	drm_crtc_vblank_on(crtc);
+ 
+ 	vp->enabled = true;
+@@ -2596,6 +2621,12 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 			return dev_err_probe(drm->dev, PTR_ERR(vp->dclk),
+ 					     "failed to get %s\n", dclk_name);
+ 
++		vp->dclk_rst = devm_reset_control_get_optional_exclusive(vop2->dev,
++									 dclk_name);
++		if (IS_ERR(vp->dclk_rst))
++			return dev_err_probe(drm->dev, PTR_ERR(vp->dclk_rst),
++					     "failed to get %s reset\n", dclk_name);
++
+ 		np = of_graph_get_remote_node(dev->of_node, i, -1);
+ 		if (!np) {
+ 			drm_dbg(vop2->drm, "%s: No remote for vp%d\n", __func__, i);
+@@ -2955,6 +2986,11 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
+ 		return dev_err_probe(drm->dev, PTR_ERR(vop2->pll_hdmiphy1),
+ 				     "failed to get pll_hdmiphy1\n");
+ 
++	vop2->axi_rst = devm_reset_control_get_optional_exclusive(vop2->dev, "axi");
++	if (IS_ERR(vop2->axi_rst))
++		return dev_err_probe(drm->dev, PTR_ERR(vop2->axi_rst),
++				     "failed to get axi reset\n");
++
+ 	vop2->irq = platform_get_irq(pdev, 0);
+ 	if (vop2->irq < 0)
+ 		return dev_err_probe(drm->dev, vop2->irq, "cannot find irq for vop2\n");
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index b209b2d5b96d..1c2d7d97a6c2 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -165,6 +165,8 @@ enum vop2_win_regs {
+ 	VOP2_WIN_MAX_REG,
+ };
+ 
++struct reset_control;
++
+ struct vop2_regs_dump {
+ 	const char *name;
+ 	u32 base;
+@@ -238,6 +240,7 @@ struct vop2_video_port {
+ 	struct vop2 *vop2;
+ 	struct clk *dclk;
+ 	struct clk *dclk_src;
++	struct reset_control *dclk_rst;
+ 	unsigned int id;
+ 	const struct vop2_video_port_data *data;
+ 
+@@ -335,6 +338,7 @@ struct vop2 {
+ 	struct clk *pclk;
+ 	struct clk *pll_hdmiphy0;
+ 	struct clk *pll_hdmiphy1;
++	struct reset_control *axi_rst;
+ 
+ 	/* optional internal rgb encoder */
+ 	struct rockchip_rgb *rgb;
+
 -- 
-2.55.0.795.g602f6c329a-goog
+2.54.0
 
 
