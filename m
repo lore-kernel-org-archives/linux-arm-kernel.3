@@ -4,57 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8087FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF19C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvc4cOFpx5prvpYKBDW+w8VBy4WicBwN3XrzpjNgkrY=; b=m8dRD7qTv16NFfE8Gf6/HwXVZO
-	Qsjzo0Dh122Dnl8064p5wU85UK3LjtV9TbdzBC1FZeMsj/LzpTErf644enklyVtnkvlaDTMDBQNg6
-	g2hSnDbZRG0wf738FmiJ/+S7Xjl+nQiGp41tsXyjzWHRZEwcvD21dAmN0W6XNbMqabZuW5ubmVMJ7
-	09yIdagsEDwehGEiL9+rRhFEIXGRP33+7unLdXOZE3TI8CQOfJXxF5h8TGCl191P3axWcghri1aXR
-	uEjOx6oM7al05Lc8n6G0t9zjrv1yKa4h4fJAJfCi03RsiXUMdZ3zBZTHVL3uE5TvHuzguxnq81bK1
-	mXWJ0BPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QiQMvuBEKbz3IC4tovbH4hMkKdurz1w/2IHV/DGw0uw=; b=QIZJb/HCUjx0Scg1VubSP7Pd87
+	aKZ1Q7DHlwgPp2Fw4/wo1zYyjjHIfhWpkzl7VwViRPfopttvcg6o1wuYrkdvrmjHY5CRvPdXD+1t9
+	do2c8bY9Gs4mKt+rrALXgUkk49ek4MFoNCf4guqn9V3k9j1YU2CXwa5uvW5u9RPy2RKTNo4yLdDQ0
+	YmXiqdb04GpEmzvxhDqSgisi+8ggTLFpBDZpvHre8Jroz6ByIL0J9inKYPAHAySBiSgfyvMFVCLEO
+	3LkmifcAYDFhBt2zOcaFdzsJcpFBGLfGYlH22twtqu9yw7gUauZ61hy376WAL1sbqPuXb/6Y79dyJ
+	lJ8dbw6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO9H-0000000GgLz-0Qhu;
-	Wed, 08 Jul 2026 09:00:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whO9U-0000000GgeB-1lG5;
+	Wed, 08 Jul 2026 09:01:08 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO93-0000000Gg5J-09D4
+	id 1whO9J-0000000GgMs-0iC7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:00:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7958D601EC;
-	Wed,  8 Jul 2026 09:00:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C9F81F00A3E;
-	Wed,  8 Jul 2026 09:00:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501240;
-	bh=gvc4cOFpx5prvpYKBDW+w8VBy4WicBwN3XrzpjNgkrY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=XUqfHMHDX7OoC7d9pqhnfx6oLU7AJXlTpdyEN8o2nPVUA689MjrfkvnV3DTmCf5fq
-	 gY5q9U+jSo5IVc5QIErRdiMG7YX9Hmj+1/NuyERyahShBQAJeBMmya0iH/2917zdc5
-	 vboLB+3WS/qG4XjYOkLvrpDwvY0sI3XNjHJUXFxlr4wU7Z5NalviguIxl6IwJQjtVG
-	 LiqVe3tiRnz0eNKcfDeImOMjpsD32mJd536tGVhRCF/8iXxYbR+/+tzsXoewX6/XSa
-	 5IfH31QxUMvAUtVvdKK7l2tlxW61j+jyuNGVOADHjOwZvBnFHp7caCMrZHZ5yKFuBO
-	 gLHOqyS1m8+5Q==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:12 +0100
-Subject: [PATCH v4 16/16] firmware: arm_scmi: Fix transport device teardown
- lookup
+	Wed, 08 Jul 2026 09:00:59 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so43115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 02:00:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783501255; x=1784106055; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QiQMvuBEKbz3IC4tovbH4hMkKdurz1w/2IHV/DGw0uw=;
+        b=iezUcIoGAC77xV4ynMyu14MSHPMDiIb+JGvL/y076v5DoN00eUq10UoLQLGETcmrOp
+         NgqJ2yDQn7MTQmmafT2rJr/ELT5RFHlx6yqQRCJilP41zc6P8LKuyzN9YkmoKeRKn82j
+         z0gmXLLOdq1nBPnPNJXApBRIfGP5WKYLx2wRHGkQITEeZxKIaNSJIwtCXDlPZfpXlhM5
+         Pios23boPXLbtuCZZ8ib9bkCa82NPOqN8svuDVmaGIJMpi2XEK7oUdiPAqqFIvOhyIMf
+         ud+ko2bhqf2UCnwlPEiOn4/NYk9bisbgz4esKx9h/L+eTa/67B/8Za6NXOZObeOU1hmv
+         CvNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783501255; x=1784106055;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QiQMvuBEKbz3IC4tovbH4hMkKdurz1w/2IHV/DGw0uw=;
+        b=K/UqBmwcLvLp6TZz3/k4p7a6PacBrnxqKOt33+Mtf7UVoJfcQ59FXAByJv6Cn1CX9K
+         ZUSCCYa/dXCOGCLW8oU+fdgXTy0mquhedbM1iT+AfW2Qg619El9CF4CEmnzNyuVQy5HF
+         I0u4wdGLpRZv7chxb17VIfW7JgAL22oxIfOMnUlNn6KLqr0HtmT3bwpIe0WlqUCSn6Dq
+         ZCYA0N5cjxLXi3LE7eX0TYSNOs1rg0mR+U8i6HtgnuO2lRMS29x6ZhYzk36A+RElrA2p
+         A31+eKNah7KutS+rJpFYSP18QQEdXIh0hoK5tP9VOf5mM1/33pgBu7kuQqQcmiw5tgkw
+         QaHA==
+X-Forwarded-Encrypted: i=1; AHgh+RqPqbzp2zUZ2bR/fIHgTp8AAUg8DFUEE0LYfKO39zgV8XZ4YJXtu6ZPhnRAUCiNcEyp4LIcXPZc0ug6wpxcEQYF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzOrajaiChDfrdqaAm4xw+aeb+klfGYv/FxJ5MMKebrJKzh9wM
+	TmS+63uAsiN4Obmo+dJGFgGCMU2gKGhvcpaaRxuNu37UjRunRA7a/bPvLAhQ3ul9zQ==
+X-Gm-Gg: AfdE7cnZ0/EmAf6DromwqxyTfNEvpeKTIabh+dtIsKqHhHkNFrXVebn+VBhSbtWvqbI
+	vnqcYYIuxrfRSFAzM0ZD3dbWSgLK0GYL2FDr7Ia49opxNMW3cTj6k4Uxm+oe/ppgjvXksm/CBNN
+	u0e8w0OSHC8D2HRuN42E+yVqrHQSrv33OjvqsDuofkCdyqXcnrNV0CPdM9i12GBIVWw5WY9ea6K
+	Ur7gfBOxG2T4NJfuGb+SEAiuQorXeiEoCISRThsXeovBlc2kGBYVkUC94eKri/nILeIdaFhSmzx
+	i+W2xcjhW6qU76mZZstY1m/NouKe8YgCdR4MvX5wkELKgHT7Suru9cbmHygr3P6xjjqs5YsHkmH
+	IvUo8zwKyo6k2RR90PUH/MyAUMK/9qZXwwK1rDN50NSPzgGrG9iXBcUXPKnULvDfLnLZDawxCrJ
+	lHZEpjo8MJy5/GYmSglgfc7labm8mEbbEjDO9RSOo//ubY/++J
+X-Received: by 2002:a05:600c:591a:b0:493:caa7:4fd2 with SMTP id 5b1f17b1804b1-493e121b946mr1933975e9.6.1783501254766;
+        Wed, 08 Jul 2026 02:00:54 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f41014sm120832345e9.6.2026.07.08.02.00.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 02:00:53 -0700 (PDT)
+Date: Wed, 8 Jul 2026 09:00:50 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
+ commands
+Message-ID: <ak4Rwnr39HuP053s@google.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <akzoeexW-4W70QdU@google.com>
+ <20260707145812.GK220801@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-16-53142cd60b63@kernel.org>
-References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
-In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260707145812.GK220801@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_020058_241870_D8A914E7 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,119 +109,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI transport devices are deliberately excluded from normal SCMI bus
-matching so protocol drivers cannot bind to the internal transport
-children. However, scmi_device_destroy() uses the same protocol/name
-lookup to find devices that must be unregistered during channel teardown.
+On Tue, Jul 07, 2026 at 11:58:12AM -0300, Jason Gunthorpe wrote:
+> On Tue, Jul 07, 2026 at 11:52:25AM +0000, Mostafa Saleh wrote:
+> > On Mon, Jul 06, 2026 at 01:26:42PM -0300, Jason Gunthorpe wrote:
+> > > Store the required cmd data in the tlbi and just copy it out when
+> > > processing each item in the invs list. The cmd form only depends on
+> > > if the instance supports RIL or not, otherwise it is always the same.
+> > > 
+> > > This avoids redundant calculations for each invs entry.
+> > 
+> > I do not understand how does this avoids redundant calculation?
+> > This would be the case if the domain shares multiple SMMUs,
+> > otherwise, a range TLB invalidation should be unique and can not be
+> > reused.
+> 
+> Right, if there are multiple SMMUs for the domain then currently it
+> recomputes the range for every one.
+> 
+> At the moment I think we can't have multiple SMMUs per domain but
+> Nioclin has a patch series changing that
 
-Split the match helper so driver matching still skips transport devices,
-while explicit child lookup can find them for teardown. Use a shared
-transport-device name prefix macro for both matching and name generation.
+Yes, it is not possible at the moment, I think it makes sense to have
+it in this series, but a comment would be helpful as it is not clear
+from just reading the code.
 
-Since transport-device names are derived from direction and protocol ID,
-reject duplicate protocol channel setup before creating or finding a
-transport device. This prevents malformed firmware with duplicate
-protocol child nodes from reusing an existing transport device and then
-destroying it when the duplicate IDR insertion fails.
+However, as I mentioned I am not sure if that actually helps on a real
+system, is that something that you noticed during perf or based on the
+code?
 
-Fixes: 9593804c44c2 ("firmware: arm_scmi: Exclude transport devices from bus matching")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/bus.c    | 22 +++++++++++++++++-----
- drivers/firmware/arm_scmi/common.h |  2 ++
- drivers/firmware/arm_scmi/driver.c |  5 ++++-
- 3 files changed, 23 insertions(+), 6 deletions(-)
+Thanks,
+Mostafa
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index e1f66c08c81d..7f06d56e4905 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -200,21 +200,33 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
- 		scmi_protocol_device_unrequest(entry);
- }
- 
--static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
--				      const struct scmi_device_id *id_table)
-+static bool scmi_device_is_transport(const struct scmi_device *scmi_dev)
-+{
-+	return !strncmp(scmi_dev->name, SCMI_TRANSPORT_DEVNAME_PREFIX,
-+			strlen(SCMI_TRANSPORT_DEVNAME_PREFIX));
-+}
-+
-+static int __scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
-+					const struct scmi_device_id *id_table,
-+					bool skip_transport)
- {
- 	if (!id_table || !id_table->name)
- 		return 0;
- 
--	/* Always skip transport devices from matching */
- 	for (; id_table->protocol_id && id_table->name; id_table++)
- 		if (id_table->protocol_id == scmi_dev->protocol_id &&
--		    strncmp(scmi_dev->name, "__scmi_transport_device", 23) &&
-+		    !(skip_transport && scmi_device_is_transport(scmi_dev)) &&
- 		    !strcmp(id_table->name, scmi_dev->name))
- 			return 1;
- 	return 0;
- }
- 
-+static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
-+				      const struct scmi_device_id *id_table)
-+{
-+	return __scmi_dev_match_by_id_table(scmi_dev, id_table, true);
-+}
-+
- static int scmi_dev_match_id(struct scmi_device *scmi_dev,
- 			     const struct scmi_driver *scmi_drv)
- {
-@@ -234,7 +246,7 @@ static int scmi_match_by_id_table(struct device *dev, const void *data)
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 	const struct scmi_device_id *id_table = data;
- 
--	return scmi_dev_match_by_id_table(scmi_dev, id_table);
-+	return __scmi_dev_match_by_id_table(scmi_dev, id_table, false);
- }
- 
- /* Returns a device_find_child() reference which must be dropped by caller. */
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index b9723c105fc1..fe8c22cfb9f7 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -34,6 +34,8 @@
- 
- #define SCMI_SHMEM_MAX_PAYLOAD_SIZE	104
- 
-+#define SCMI_TRANSPORT_DEVNAME_PREFIX	"__scmi_transport_device"
-+
- enum scmi_error_codes {
- 	SCMI_SUCCESS = 0,	/* Success */
- 	SCMI_ERR_SUPPORT = -1,	/* Not supported */
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 515ae884bb2c..894c3427bc0b 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2762,6 +2762,9 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	idx = tx ? 0 : 1;
- 	idr = tx ? &info->tx_idr : &info->rx_idr;
- 
-+	if (idr_find(idr, prot_id))
-+		return -EEXIST;
-+
- 	if (!info->desc->ops->chan_available(of_node, idx)) {
- 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
- 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
-@@ -2779,7 +2782,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	cinfo->no_completion_irq = info->desc->no_completion_irq;
- 
- 	/* Create a unique name for this transport device */
--	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-+	snprintf(name, sizeof(name), SCMI_TRANSPORT_DEVNAME_PREFIX "_%s_%02X",
- 		 idx ? "rx" : "tx", prot_id);
- 	/* Create a uniquely named, dedicated transport device for this chan */
- 	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
-
--- 
-2.43.0
-
+> 
+> Jason
 
