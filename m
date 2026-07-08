@@ -4,138 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D721C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4010CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=; b=ZcqXmLZ3J8sUH+FsPHwCFRSzeu
-	7LYj2XooyxXgoZxo1UqqSgCSfxYexW8+YOnn+mQffWZhOixhziCTJ2y7LP4MF2lFkccaMwc+rMTBy
-	e/yJsYchlGrq1x5EaBDLlaxQv+JcTYFTZvgap2tB4QeFekjAV0+c2g4fZfxImXGWAxOarMxOLLYLq
-	RJE1AzXSbKlmrYYbd6jMT9gUCeXFos5G2ouWvyHuL3FraxxFhakOfb0kPu1PHLOjzsZLzzxpVbeP1
-	myfvhYUue2LDkYVaUc1EAJIMwHYxV0lkvjms9sh5AzEUPgPfPFJcOY8YiAPRB28NBTXdZcgfa7wyy
-	S+pJAPjg==;
+	bh=QOSXPs572gwC1zNEaba3iUlnyvy4QAECU2owztJON50=; b=n1u2EsKHCb/Rby0VwFi6MOERCi
+	HTQsjKE1qlJtonzjb6yTN5X9F8c8fivLFtto+Bp436QgxHx4MqRrlmApJp2jx4iLtzyzcXSJPcsBB
+	X5F6P8AUsIfeRtuZ2KUIijaqR2FYo1wJo9zrn4JYwXK80GCWA+qS7bZ19GKBqH+NhyIyUsKS8FCcm
+	zKel/xsHc4XmbzdM6CkOLKzGmB+MR7Le0uRoZUARduOe5ZtKhgdbnWNHNvF0gtoMNzISRfMel8iC3
+	1kfY80mPilBDTh/gvcFqNEP06ZyPqOqyAemBOF7gkwuH77p05piFGSbRFgp4KeFg6aYW43KMIBeyR
+	4+eSvwgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZsl-00000000RtH-437y;
-	Wed, 08 Jul 2026 21:32:39 +0000
-Received: from mail-northeuropeazon11010050.outbound.protection.outlook.com ([52.101.84.50] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1whZut-00000000S3d-1flH;
+	Wed, 08 Jul 2026 21:34:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZsj-00000000Rsa-435A
+	id 1whZur-00000000S2t-1dH2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:32:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RBaU9CMrXPtJiJWKu9xZYwQ46C1uHiE1RcDVsB7FhwmAT8yeCDAWlukMcyHhMNprapzDR4++dBx8rqw/ackqSY5ot0hrIcYi8AuWgH008G1bErYJrF6qmY7pLELMjAvHN8C46gqUJtHCmtvU4TOEqBO7wMbYdUZlRSFWQDxov95AqkXvkouVBo8ELEemxNXkB00GoplvL02ihZSn5yItkeJbmJQNFCUusQ138BBd9AfXeuowSptnDmilTfzH8FJ32W5iR1Ndju2nh0oWsEkEJUwavVDfL8KhIqcvl5Q2/Taq166okPy0Hfy8+3hQLIOMr4XVxS53mjL4FyPMyh0Arw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=;
- b=XpQQnnnUS8eXQHx/QjcqGd7hn5vn4xkiD795i1YoshXS8H4XP9qz+tGAAto5NLqDG/qTvNc68kofzGvpdWsnAi44i3SHPKOlEaZzzDAEFxD5hWXfsVM7w7tgU/RY5HtxVkSU8B8fv6VGmODaiZzsSLwGDT+gnoNS4qW5tlmyUjjZe4ENu1I+Z7dGQuvlqrhCw5ErvRquHuHL+iaD8mK+beULebL/PoRkC3U9vz1Vs4jBSBPjJmEfUTDflUIGvKaKYR/bjn335AFL4NA497qhpb9QRcoAQurwNnzwp8Xp4XWKpE3ZnVl1jPud4qNLx9vJ9zL78V5zPxRHPY98RaWSAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=;
- b=J1IPZdq0Nn/0rcn9uNHt3mgG5V5Cg0SUGbFAdI9J38GeTRcFeEjW+SzXVJO6UYKUDkb7N6vkx6iXRh7Bs/mCjDFFx0JBb++GVnHFDDTH2T4KyzsMPQmMWKKEPTAwdlyMKa684FyaZ1uZunq4/zZVF6C6/geGsBhVxxkk87eLKEUztR79bmyj8y47YHpsLAHeeg8KIMDf3781bnIyaUH6/qov+gGIMmvkvVBcBJ4A2qdFE3oAC9ujC+YGpjK+g/9ClGRLRbzsLE05SBDLutPqYUVUREaGeQEr3aK39PPx+Ici55ONp67cQ7WY2kdMjlYX5z+8lsFTuDb7huanXxc0Yg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB10341.eurprd04.prod.outlook.com (2603:10a6:800:217::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 21:32:32 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 21:32:32 +0000
-Date: Wed, 8 Jul 2026 16:32:22 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: ludovic.desroches@microchip.com, vkoul@kernel.org, Frank.Li@kernel.org,
-	tudor.ambarus@linaro.org, nicolas.ferre@microchip.com,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, zhongling0719@126.com,
-	sashiko-bot@kernel.org
-Subject: Re: [PATCH v4] dma: at_hdmac: Fix use-after-free by proper tasklet
- cleanup
-Message-ID: <ak7B5gxc9LrMmxO4@SMW015318>
-References: <20260708025959.40283-1-zenghongling@kylinos.cn>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260708025959.40283-1-zenghongling@kylinos.cn>
-X-ClientProxiedBy: PH7P221CA0045.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 08 Jul 2026 21:34:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D343601ED
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jul 2026 21:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E5961F0155D
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jul 2026 21:34:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783546488;
+	bh=QOSXPs572gwC1zNEaba3iUlnyvy4QAECU2owztJON50=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=oLWiMIEJ0W+2X8o0NSe2rZ6aZ3sA6U0G3Dq+g9ru8SeVgFY7ajC/IFv/EZWpsR5Xk
+	 geK/gPYk+UMZRfpa7k1QenCnUGWTbPm3ZsHpkyFzbIAayQBkS6sjilk9ExJRQu8Fs8
+	 7EUnOZAdU1U0xEUWoDATI9FLYwtAhcc2Ly8+nhDxtj4JA8NlBLjGZxSP1Y6GZSOwvI
+	 c+vM8ee3gvlIvJVR8u83IXaNI3/rRtMq7NuqbKXPpIyvrNqSEkSKhU01Jg0EunLJhk
+	 uLfFyYjwY7928goknVNQYJCKy4nlHiR+Dd4FM77K/mm76Z7uNJh7YJTm+FHDnLrUBz
+	 pC+WHzxSmARzw==
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-698c0ff45b5so453576a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 14:34:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro3PXKehieLFcuJ1R8rnRt0j0DpPGFd9HdRaz/vIbviX0vkgQO1OOqd6OnVIT6dXTh0K8KUAH1VDmSqoB8I6NIY@lists.infradead.org
+X-Gm-Message-State: AOJu0YziBXmL53DMr+6z0lSMgcK7PIt4mTA3Sa0pdvKHTVy7MpzDgLwW
+	j8d+7qSBltsop233mAXjCsTC5tBBm8W8zslGRAs5dtfSQ2UnGW3rcCqeav5lnLkD46vW7+fxBsZ
+	XVncP+sVJXyQjVgprdh6gP5aXLD/wbA==
+X-Received: by 2002:a17:906:2099:b0:c15:c323:36e5 with SMTP id
+ a640c23a62f3a-c15e744ffafmr1138866b.10.1783546486746; Wed, 08 Jul 2026
+ 14:34:46 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10341:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36b003e5-ad7a-40f5-3384-08dedd386b14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|1800799024|366016|376014|19092799006|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: z6nDbytrhPQDHKO/xC6IT0g4XIUzP2LSWvlH0adQ/pI7UC3tAPLrM7RsSIF/f+sMn2Vbbp1U/dSa6YM3Bb7m5sxL4ifjAg6oSfB0PWcj84TfFBlUrvzEz1iiy18ZUtGxF9pJHm8CyD+ac+P0xT/OKRSCyi1HzmzIr2GoIlfwG6CVZtJx8nBMbq2kzVXrEA7lL5Q4wD4/EQ5RuIIfVdAGFfaDTND1fsJF57QbRWdAkZIZ3GZWfrdz0R8HUQ4gM+uATkU6Jcz+TB/O1NoGTq8q4/xhbkCr2+jdIfzF1NPYYdWCpATlkoIztEwetrsO7E/5BKjmFmVwF3CifJag6XqzI/i4VLq5H/K+uejo9FrpZGK8b3EtNfp5KU8QNVgWzq0iKLdORSRzNRCU/V9BNmit20h28K2cub/zm44Bsj/vUSR3tilJV3RcyOe9Y4k5Da9CwniMDjIr7MYMUQYWjlVkAv0la+/0EPmnbtaI/g8uPsAgeM5zT0pKFUrOzIEhdcU6/3TX5Z3fE5N1Pvw5OAuiSbCT+rXpasneJAEWTBaYzP4orsj++i/Pj1BqgevumhbHP+lbOtF+5K1PBDJ79SwTqsaOfDCzA3Kwq+zHgE0oj02Ta6obW2i0mflozx2nlRKOszsHON5i8suIvcSAbYysskJOMXKzwMWX0fGcxdZryo8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(1800799024)(366016)(376014)(19092799006)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SC9UWVB0RG8vbnZhVjBFOEwvd3Y2d1dsNmxOTDluSlo0dzJ4NXQxMWlkVS9N?=
- =?utf-8?B?aCtUMmpkTXJoajdtbkxXNzlMYy9WWUR1YVdsU01xZS83SXNDNkhEVmZVSFFY?=
- =?utf-8?B?SWpJMzZKWHk3K2hGQkROUlFJOStiWUdGeGJmaEJkSG9sWGozMXdlRURCYSs2?=
- =?utf-8?B?NWN2V3FiYk9kbmx5emE2ZWN0T1pIa0QxNmlPeUN0VXZ0NGhEaVMrZThMMktZ?=
- =?utf-8?B?RkNRVGlrTVoxOHpLZENkYjBTOG9GN2xDSmxuMzg2Y3NIamVlZ2FRNG1TN2hl?=
- =?utf-8?B?WlU1OGJScDBLU21uRUFmNmVKZFhVcFhZWkdBa0hUSWFORWswSTlJeEYvK3Iz?=
- =?utf-8?B?TG53cDR4VjFVelZ2ZEVJdzNSK1d1dGRnSEcybXZ5Mzg5RmJrdEF5OWVYakJU?=
- =?utf-8?B?S0hHS2ZQbmlCUVBWSVdNWnVteEowUkN3RnJGVnpsbkdJWkU1S001cGZFRmxX?=
- =?utf-8?B?a0Nla3JUNTlwVnlDSkt1T29lZmEvMU9vUnBSbzYrL2YxbFE0b0VRb2VqeTc1?=
- =?utf-8?B?MzJPaFBrc3ZEb1VxblZwSlUxYmNMQnFmMEZUTGxSVUloOTg2c3M5dnlPZkZk?=
- =?utf-8?B?d291Z2xYc2JPMjlzODJHTExWakEyeVZ2R0s1NnJqTkh1YXFMSDgwUEN0b0xk?=
- =?utf-8?B?YUwzblR3WHI1U21GSWd3M3Q4UDg0bHM2MlFyV1lnaHhGU1p5cjI2RzhiUkJk?=
- =?utf-8?B?bGFNWHVtdFdERTFCdGNSUHdRQVBMa21iMkRDWENDbWNPM0lMT1FOS3V6UW5w?=
- =?utf-8?B?L2VCSzVDUGRWRkNyMVBSRisxL28rNEtmcW02bVJ4Wit1OVJ0QzhmVmdHWER1?=
- =?utf-8?B?cVVzbHozOU92SEV4Q1ZJb3l0VVZRaTJNTFQ1bFJqQzdGaXV3MktRNlErdmtS?=
- =?utf-8?B?TUVMaHBZNHhkY2tGcXhneHBLaEYwYjVwcTNreml2N2NCbkIycXhaM3VMQWU0?=
- =?utf-8?B?L3d0N1lVeVZ3ZGVwbnBkaGRjSDhaaTlIajhmeFRORkpTZ3RZSHZyQW5Zc3JF?=
- =?utf-8?B?emlCR1EwNGM2VkRMUmtYdlhmNEhpWG5sa0RHWkZzcHNqOTQwSmFtQWVGMEVM?=
- =?utf-8?B?SStSek9jN2kzdkE2ZWhqZzdjMkV0aU5oNGJIaTdiUXY1OExxMXdZam5CbjA2?=
- =?utf-8?B?SkNYL2l0MEVWNXRIOTJLT3hlbUxjYXlaWTRGWURVQm1aTGxwa3dzVmJYYVls?=
- =?utf-8?B?ZEVNSk9PYmk4M0x6bUtZSlY1UmtFbVlpMUtuaGVmV3Z4TXBNRDZrSXRYWTBv?=
- =?utf-8?B?Ri9CSWMxS0JvbFIwdkxLVXdqOXJRc3VzK0NmcVFEa0VPdktKVm04SlAxRmNV?=
- =?utf-8?B?eVlzVGZYa3VqcDVWdjhWOVQ4ZWdnbTNmZ3lQU1hZRVZqRmxLUU9ObGIvV0Zh?=
- =?utf-8?B?YXo4WSs2Y2pkMFNHMjlGeDhuRmVPalFnMUhSMXZOUWNjQ09yTDJTTDVvbG5v?=
- =?utf-8?B?MC9NWTJpWmtGSmllYnlLVm1JUnlmY0Voak43MWtKUWxuTHpTMTcydHFFMFBJ?=
- =?utf-8?B?MHQ1aDI3Z1V4OWRkdTY5WUdrSHNrSGtBdDd6dzh5b2ZHMERhc05aUk4vTW83?=
- =?utf-8?B?NURucnlLb3JQZlRJY0pSTjZ0ZmdQUUM2RksvSHhhc05Pem1HRk1qaUhnUEhZ?=
- =?utf-8?B?T3NqczZxalk3YmNodGlRcWhtMHlFOFBGQXVDd3NQNFlxZFFDQm9sUlg0dFlp?=
- =?utf-8?B?ZEQ3dXhKcHZhb21LQ040VGpzS3FPY013eUtpTE9qVWE2SHVFTWRZNjd4ZE1x?=
- =?utf-8?B?S21uSG85SWtVQjFWaVhrcDJ4eDdXTGlQT01ickVrUzVmRnk3WmtzeDM1L3li?=
- =?utf-8?B?Sy9EbXpuanQxaWx3NXpXSm9VeXVWY1dDNEJUTFRaT3pKQnh4c0hYNi9OSW13?=
- =?utf-8?B?ckpmS2lzTi9KUHBNVGlQMndKRHhFYUo3elJXN3RVb291YWt6N0VNaFBSbjRi?=
- =?utf-8?B?cEtoOFM5SG1mbHZoRHBRVzVpZWlLTTYvZExpKzJna0pBdFJuTHBSZzd4dml5?=
- =?utf-8?B?UGZBK0dzRGRaeUhtR0xjOEJaTmlyWEpZeldnSzROMEl4R3hXMU1uWEFpZG80?=
- =?utf-8?B?YklxS3pUUjVkV0NNZVg0RGJsYzhJVW1id09aaDYxSHlKZnpsTU1GNlBkazVO?=
- =?utf-8?B?c3ViMVIvOHV2ZkN1VHRpcno2Zms0dzJZdEkyc01lRVlaODJUcmJIaWEyYzVS?=
- =?utf-8?B?ejlpZzR4NnYvdnpzVWVDTTd6TjRXQTRyWmFIRnRyWnpHaUFCUEpBaVYyUUdY?=
- =?utf-8?B?V20vOEc2Y2tFbldBeHBrdGdDOHRSU0JJam1OVEk2cU1zSDRHUkFCRXRjSzhk?=
- =?utf-8?B?MFg2TEozOVVlTEdndnhEKzJGK2lsZDlJZWhWQWYzalNzSnk0ZFZjV0NVSm9k?=
- =?utf-8?Q?Xjgv4IdnFxy9xjV0KuKUn8k/EDLmUdTSJlqlU?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36b003e5-ad7a-40f5-3384-08dedd386b14
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 21:32:32.1396
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a/IgggfYk6e4PNPbjrxo0jZXiu3js5SS/m3jEpsy3tDv8tDe+qHL8AKZaEV63fHAbjqke7Wsqqe2B7iRa/wJC6c+d/eojN9rEQjGoaWec/9PebsKK9fw5V0Rx7iGbfpV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10341
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_143238_007931_C7909502 
-X-CRM114-Status: GOOD (  21.84  )
+References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
+ <20260701-mt8189-clocks-system-base-v1-2-2b048feea50a@collabora.com>
+ <20260701193311.GA1402559-robh@kernel.org> <d1e37bd4f2a05fed6c7bfdc5d9a0fa90c892d608.camel@collabora.com>
+In-Reply-To: <d1e37bd4f2a05fed6c7bfdc5d9a0fa90c892d608.camel@collabora.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 8 Jul 2026 16:34:35 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqK8mmkhp8rM1QVB8cqLmTVqy5toFdt3Y1AFLJ5-wOdhgQ@mail.gmail.com>
+X-Gm-Features: AUfX_mw1Ig80oWjopfC3vG9UTQnueKyNCwAlWOrtHD_SpQ7K2JXbmkzTxRjcs9w
+Message-ID: <CAL_JsqK8mmkhp8rM1QVB8cqLmTVqy5toFdt3Y1AFLJ5-wOdhgQ@mail.gmail.com>
+Subject: Re: [PATCH 02/15] dt-bindings: clock: mediatek: regroup MT8188
+ dt-bindings into MT8186
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Edward-JW Yang <edward-jw.yang@mediatek.com>, Richard Cochran <richardcochran@gmail.com>, 
+	kernel@collabora.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,111 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 10:59:59AM +0800, Hongling Zeng wrote:
-> Current cleanup paths have a use-after-free vulnerability:
-> - vchan_init() creates tasklets that access at_dma_chan memory
-> - free_irq() only waits for IRQ handler, NOT tasklets
-> - atdma is devm-managed and freed after probe/remove
-> - Running tasklets accessing freed memory → Use-After-Free!
+On Wed, Jul 8, 2026 at 8:45=E2=80=AFAM Louis-Alexis Eyraud
+<louisalexis.eyraud@collabora.com> wrote:
 >
-> The fix requires careful ordering:
-> - free_irq() FIRST to synchronize with running IRQ handlers and prevent
->   them from scheduling new tasklets
-> - Then kill tasklets to wait for already-scheduled ones to complete
-> - Only then free other resources
+> Hello Rob,
 >
-> Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
-> Reported-by: sashiko-bot@kernel.org
-> Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+> On Wed, 2026-07-01 at 14:33 -0500, Rob Herring wrote:
+> > On Wed, Jul 01, 2026 at 03:11:07PM +0200, Louis-Alexis Eyraud wrote:
+> > > Regroup the MT8188 clock and system clock dt-bindings into MT8186
+> > > ones
+> > > to ease maintainability and have common files for several currently
+> > > supported SoC or new future ones, that have the same kind of clock
+> > > controller design.
+> > >
+> > > Note:
+> > > The `#clock-cells` property is a required property for all
+> > > compatibles
+> > > declared in MT8188 clock and system clock dt-bindings but not in
+> > > MT8186
+> > > ones.
+> > > To avoid ABI breakage, conditional blocks to check this requirement
+> > > for MT8188 compatibles are added, rather than enforcing it for
+> > > MT8186
+> > > compatibles.
+> >
+> > If the existing DTs are just wrong, then I would just make #clock-
+> > cells
+> > required. But please update the .dts files so the warnings don't
+> > grow.
+> >
+> I've tested to make the #clock-cells required for the MT8186, MT8192
+> and MT8195 system and functional clock controllers.
+> I did not see new warnings, so no extra dts patches would be needed.
 >
-> ---
-> Change in v4:
->   - Fix error path fallthrough causing double-free_irq()
->   - Use channel iteration index (chan_id not initialized before registration)
->   - Remove unnecessary defensive checks
-> ---
->  drivers/dma/at_hdmac.c | 31 ++++++++++++++++++++++---------
->  1 file changed, 22 insertions(+), 9 deletions(-)
+> I'll add new patches (one per SoC) in the next revision of the series
+> for this, as it simplifies the grouping patches (no more if/then to
+> require #clock-cells for the MT8188/MT8189 clock controllers) and the
+> note in commit message could be removed.
 >
-> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-> index e5b30a57c477..044a0fb38b7a 100644
-> --- a/drivers/dma/at_hdmac.c
-> +++ b/drivers/dma/at_hdmac.c
-> @@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
->  		cpu_relax();
->  }
+> > The grouping I would do here is:
+> >
+> > - clock controller only
+> > - reset controller only
+> > - both clock and reset controller
+> >
+> > That should avoid any if/then schemas.
+> >
 >
-> +static void at_dma_cleanup_channels(struct at_dma *atdma)
-> +{
-> +	struct dma_chan *chan, *_chan;
-> +	int i = 0;
-> +
-> +	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
-> +			device_node) {
-> +		/* Disable interrupts */
-> +		atc_disable_chan_irq(atdma, i++);
-> +		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
-> +		list_del(&chan->device_node);
-> +	}
-> +}
-> +
->  static int __init at_dma_probe(struct platform_device *pdev)
->  {
->  	struct at_dma		*atdma;
-> @@ -2105,12 +2119,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  err_of_dma_controller_register:
->  	dma_async_device_unregister(&atdma->dma_device);
->  err_dma_async_device_register:
-> +	free_irq(platform_get_irq(pdev, 0), atdma);
-> +	at_dma_cleanup_channels(atdma);
->  	dma_pool_destroy(atdma->memset_pool);
-> +	dma_pool_destroy(atdma->lli_pool);
-> +	goto err_clk;
+> By this grouping, I understand you suggest having separate dt-bindings
+> files, that could look like:
+> - mediatek,mt8186-clock.yaml: clock controllers
+> - <name to be found>: reset controllers
+> - <name to be found>: clock controllers with reset controller
+> - mediatek,mt8186-sys-clock.yaml: system clock controllers.
+> - <name to be found>: system clock controllers with reset controller
+>
+> Is that what you meant?
 
-I forget the reason why need goto here. Can you call disable_irq() or
-disable hardware irq and call synchronize_irq() at free_irq() place. then
-goto can fallback to below clean up code
+I think so, but not sure I understand the distinction with clock
+controllers and system clock controllers.
 
-Frank
+> There is no pure reset controllers for those SoC so no dedicated file
+> would needed at the moment.
+> The system clock controllers all have reset-controllers, even they may
+> currently be not all implemented, so no separate files for system clock
+> controllers would needed as well.
+>
+> Also, from what I see the current dt-bindings, the system clocks
+> controllers for the MT8186/MT8188/MT8192/MT8195 SoC have the #reset-
+> cells property but it is not required for them (examples:
+> mediatek,mt8188-infracfg-ao or mediatek,mt8195-infracfg_ao).
+>
+> With the patches to make the #clock-cells property required, I already
+> removed the biggest if/else block in mediatek,mt8186-clock.yaml, so
+> only the one regarding #reset-cells property remains.
+>
+> So, should I create separate files, following the grouping suggestion,
+> for the v2 of this patch?
 
->  err_memset_pool_create:
->  	dma_pool_destroy(atdma->lli_pool);
->  err_desc_pool_create:
->  	free_irq(platform_get_irq(pdev, 0), atdma);
->  err_irq:
-> +err_clk:
->  	clk_disable_unprepare(atdma->clk);
->  	return err;
->  }
-> @@ -2118,23 +2137,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  static void at_dma_remove(struct platform_device *pdev)
->  {
->  	struct at_dma		*atdma = platform_get_drvdata(pdev);
-> -	struct dma_chan		*chan, *_chan;
->
->  	at_dma_off(atdma);
->  	if (pdev->dev.of_node)
->  		of_dma_controller_free(pdev->dev.of_node);
->  	dma_async_device_unregister(&atdma->dma_device);
->
-> -	dma_pool_destroy(atdma->memset_pool);
-> -	dma_pool_destroy(atdma->lli_pool);
->  	free_irq(platform_get_irq(pdev, 0), atdma);
->
-> -	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
-> -			device_node) {
-> -		/* Disable interrupts */
-> -		atc_disable_chan_irq(atdma, chan->chan_id);
-> -		list_del(&chan->device_node);
-> -	}
-> +	at_dma_cleanup_channels(atdma);
-> +	dma_pool_destroy(atdma->memset_pool);
-> +	dma_pool_destroy(atdma->lli_pool);
->
->  	clk_disable_unprepare(atdma->clk);
->  }
-> --
-> 2.25.1
->
+Shrug. There's no hard rule here, it's a judgment call. With one
+if/then block dropped, it's a bit more tolerable to keep it as-is. If
+the if/then schemas are as long as the rest of the schema (minus any
+example), then I would say to split the schemas.
+
+Rob
 
