@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1836DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B82C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DxyegdDTBkuws1o4l0mkPGvs9ZTLGu40cJligZL/Yo=; b=Uuchxop60+U/qOrHnjUbtgZYhV
-	UXnAOoI2mL4qhvwEeQulxvHgwaZ0jhQYcD6ovtC5ltw6NdASzJBXs2HPsVB+bFDKYzt4kCxAMECzq
-	K5iiduMCh7/QaYWxueGtf7L/FJrhWoWGrpxbuar0cPbIS7XEO7Jp7Q5+dTR52QPntbNQ9iTkWDFhZ
-	hZ9d35WLQbCvQGYWZPF2MVQ+znENQaqgaaIDtFhMMryboLpP17dewbWjiO4NMAtRD9oy2JLgMlNB9
-	bwSZLP0sdZs5OvwjjQqh8If/bBhvlGrb/CeT/Fl5HPSVywLcUeAS/d9HErv7eII4LKmivymgDW5Bs
-	qvix7/cQ==;
+	bh=4NDGpn45MhaTYlhQFUuH7sBQd7vZ4HzbwwdEmS2fdAw=; b=zALZWPZDvH0+R9n81ALiaPUyAA
+	GzlxCthalTYTb1qkzXEryF3evMxQtffqOVUGI+EGFl3H/CQOCEs7DZVc54HvX814n742Re5ILaKvC
+	qRwk5PFcfDl26F8Dw3EMBrf5WMqy/DcIxHpbX5Zb9H81m982n0SbSoDr8ZtVwS1tVOJ7u8UxzShQ7
+	KDj1GibQaYQVSifhk5PFdxr0pctfXQSQbQu/UGU8imx4j5eon4u/ORmYI+0HQJyJb3C+BJB9l7rmG
+	k7A/AwWpNOLfJ04mkkjVL2cSY05QB092CknBgTOPgVhJk8lwLdf0dgmu76VLZAEJRaQVmHImlWGOI
+	dVef6eow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhp-0000000GCqt-3tkm;
-	Wed, 08 Jul 2026 03:12:13 +0000
+	id 1whIhr-0000000GCtm-2K3b;
+	Wed, 08 Jul 2026 03:12:15 +0000
 Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhQ-0000000GCE5-1dSm
+	id 1whIhS-0000000GCHw-37ym
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 03:11:50 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2ca5d2474c7so9176075ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:47 -0700 (PDT)
+	Wed, 08 Jul 2026 03:11:52 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2cc77a6943eso7051875ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783480307; x=1784085107; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1783480309; x=1784085109; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7DxyegdDTBkuws1o4l0mkPGvs9ZTLGu40cJligZL/Yo=;
-        b=c1FSoyCA7C3XJ2vZkVXDCLelE4mRShq7Nd+195CNoK2NN/Dw83EL+gNssOR/gC/A7m
-         2jlQt6bKTMHTfhjVROxsYACcSp/ZVE4WaJT9uBktkSlfJ1PFeCAphy7BWT80YjMyJB+m
-         biSxrL8UGTkA7SujSa1atVqkJ4ERjJNEPeV2WPQsU2BuKRNbwanZMTJVCJ5311UZzaq8
-         sbpzyKp+04EdU9tjBkM5B2ZqRbFzNc3qkPkAOTBFtjTL366wYvBVMmM7rhnvS/FCPq1h
-         aNfun3bHN7KcMoaLfjMtPI+GmfU8LcRbJY/YKuOT3NJKGrIdGU0Bpi7tIDM3vhPJUa/e
-         7bUA==
+        bh=4NDGpn45MhaTYlhQFUuH7sBQd7vZ4HzbwwdEmS2fdAw=;
+        b=smRykzpVoURWCJX97uBe18xy+TmfdmbiJeu9mnjkt7p1Q15zm4i/bi+WG32EszWW21
+         fdVIwyTQ8NWYscwSoJLFBmezW1u07T+EvIlC/Jjk1pcgca19J90GqpaH1ULoyyy2Pklo
+         IRFuBBxX+2x0QqtJ5yeUkcK/RbyA9JHFfxCb7DXarJkElk4kVQHZNHVOw4bJAqR8Fa3C
+         9jZ/E2/+w4gsFOnPt+IVuQ01aaK+rzH5K3aR8ckS81ClSERIbUTqWduflzEnfc8dXaxI
+         kzW6cFkbN/5Fn4BunfZUfpRojyC1Wa6CWTS2vjgrfbYLAfTmgausUQUKs01kkAdX0gP8
+         x81g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783480307; x=1784085107;
+        d=1e100.net; s=20251104; t=1783480309; x=1784085109;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7DxyegdDTBkuws1o4l0mkPGvs9ZTLGu40cJligZL/Yo=;
-        b=sKFRNZ87jTyQb89fjlv3jPPiJipk6EMyXsPEa0Wo6ZS8gA2BT5FOvvqIFM6Vr9IxWm
-         MFjXNDNJFxWJ1XBhF/MAPz+pGg664DYtgJb8bnYjzsRUkdQfgzWEs4AKXES+hRCiwC18
-         Vk5XWr+tIC7Z5RVzVrc703Ci2HDNFghwIrqHOdJjirJFVOoKTp20cOaBIRvtydVgYT/U
-         c0g9kyd3u0+1PdvY4vLJym+B9jbP6Hueh+Je8UlMBUiUN4kpFe4yIXSI8B3W6NTtIg7p
-         KAPfLgb+B10gslfc2wvfB2KgJGDqsV//h6PysJ+w33ClIiYb8ZZ+xxXm9XAVKl5ig69v
-         2i6A==
-X-Forwarded-Encrypted: i=1; AHgh+RpAOJZJLbLhsFjtJWBli5ClhSnX63iRvymEvvrR/w1tg1pnodrrFZbAMcz9wqaMKA5/EyceZLoKu524NHNi8w09@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzDmRdn2cZF1Q2T+P2p7jGMlqS4eIkk2Ds7L2xMs+fle8ArwnB
-	wtiD2RgfH4+GE7XcFfSpECc09orkd7bWHcQrBk7GcomX0MyYlh+5fG4/tlkhoZ0s1Bw0sUI58tp
-	1I9Wa/tkWnRRBoHbTgBDdPw==
-X-Received: from plbjl21.prod.google.com ([2002:a17:903:1355:b0:2cc:7709:3bc8])
+        bh=4NDGpn45MhaTYlhQFUuH7sBQd7vZ4HzbwwdEmS2fdAw=;
+        b=od79N//B04wxDXhqbSrVTxkkji9TYhj7Nm+5PQ+qVhThz9AxJ0a5zndjN/qhYxptvg
+         c0RTVu03x5HNMji2MrqPdGnfz0SwNrpOmBb4iguUJyLJ7raZDxliAr48gzE7AeHLZg/0
+         D184RvVfxIvsIKZKX4/yIBLxtclLAvx2MsyHVTajev9Nel8ZfIrIcPAXWGVy3qBXiKl5
+         siBuzeDP5sMqxYADNlUV0QWspttco30BYCTklvAUjIqVKbB0w2eBN6WfXlLmVahtnmau
+         JIR0ol5JUC6yGLeBBLAtgW80AzVpNrSYdHIf1dS4W5LGgpGimI7U8mExxqaQUvlMOiQ6
+         fZ+Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpF6AHKY0Nc0A5USgtuASmI9y1HvUIkop/u3KQDBjizlOI5xVs7JcI4LSoH4kAlxcn8dNyTUfKRznfUNzmvu2fB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuJXBvTCufvUYvuEc7vf4VYTWgbagaO4ZtAqpkyZEnZrU9qPHK
+	d/ENiPXfepuevtzEmKV9V/luzYY9XpF05nDiCBRMGlcvLWFyX8IDbIvb2suA2adKhH+5bsHkHUA
+	Uoj3mHqEf+4f8V7nqUWPGXw==
+X-Received: from plwh17.prod.google.com ([2002:a17:902:f7d1:b0:2cc:ed0e:f302])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:4b4e:b0:2ca:c7a:859b with SMTP id d9443c01a7336-2ccea36d9cfmr6381555ad.36.1783480306686;
- Tue, 07 Jul 2026 20:11:46 -0700 (PDT)
-Date: Wed,  8 Jul 2026 03:11:25 +0000
+ 2002:a17:903:4b48:b0:2c0:b6c7:2271 with SMTP id d9443c01a7336-2ccea2a5ecamr7510755ad.4.1783480309200;
+ Tue, 07 Jul 2026 20:11:49 -0700 (PDT)
+Date: Wed,  8 Jul 2026 03:11:28 +0000
 In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20260708031129.3503195-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260708031129.3503195-16-jthoughton@google.com>
-Subject: [PATCH 15/18] hugetlb_vmemmap: Add a way to permanently disable HVO
- when needed
+Message-ID: <20260708031129.3503195-19-jthoughton@google.com>
+Subject: [PATCH 18/18] arm64: Remove user-selectable HVO Kconfig
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>
@@ -81,8 +80,8 @@ Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.co
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_201148_466154_75E991AB 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20260707_201150_858466_30FCA3D5 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,132 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hugetlb_vmemmap_optimization_try_disable() is used by callers to
-permanently disable HVO if it becomes impossible to use.
+The Kconfig is not ideal; it is niche and difficult to understand for
+users. The Kconfig was added to avoid the following regression: if HVO
+is compiled in and all boot CPUs support it, any late CPUs that do not
+will not be onlined.
 
-If HVO is already actively in use,
-hugetlb_vmemmap_optimization_try_disable() returns false to inform the
-caller to take appropriate action (e.g., for arm64, not to online an
-incompatible late CPU).
+The implementation now avoids this regression as long as HVO is not
+actively in use. Therefore, drop the Kconfig.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- MAINTAINERS                     |  1 +
- include/linux/hugetlb_vmemmap.h | 20 +++++++++++++++++
- mm/hugetlb_vmemmap.c            | 40 +++++++++++++++++++++++++++++++++
- 3 files changed, 61 insertions(+)
- create mode 100644 include/linux/hugetlb_vmemmap.h
+ arch/arm64/Kconfig | 13 +------------
+ 1 file changed, 1 insertion(+), 12 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ff47013ce995..55bd4c09f494 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12013,6 +12013,7 @@ F:	Documentation/mm/hugetlbfs_reserv.rst
- F:	Documentation/mm/vmemmap_dedup.rst
- F:	fs/hugetlbfs/
- F:	include/linux/hugetlb.h
-+F:	include/linux/hugetlb_vmemmap.h
- F:	include/trace/events/hugetlbfs.h
- F:	mm/hugetlb.c
- F:	mm/hugetlb_cgroup.c
-diff --git a/include/linux/hugetlb_vmemmap.h b/include/linux/hugetlb_vmemmap.h
-new file mode 100644
-index 000000000000..a671eb4a4ff4
---- /dev/null
-+++ b/include/linux/hugetlb_vmemmap.h
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_HUGETLB_VMEMMAP_H
-+#define _LINUX_HUGETLB_VMEMMAP_H
-+
-+#include <linux/types.h>
-+
-+#ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
-+
-+bool hugetlb_vmemmap_optimization_try_disable(void);
-+
-+#else /* CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP */
-+
-+static inline bool hugetlb_vmemmap_optimization_try_disable(void)
-+{
-+	return true;
-+}
-+
-+#endif
-+
-+#endif /* _LINUX_HUGETLB_VMEMMAP_H */
-diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index a490a34998d9..7e7f8579cc2a 100644
---- a/mm/hugetlb_vmemmap.c
-+++ b/mm/hugetlb_vmemmap.c
-@@ -17,6 +17,7 @@
- #include <linux/pagewalk.h>
- #include <linux/pgalloc.h>
- #include <linux/hugetlb.h>
-+#include <linux/hugetlb_vmemmap.h>
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index cf4bd6bd7f11..2a59155f68dc 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -259,7 +259,7 @@ config ARM64
+ 	select USER_STACKTRACE_SUPPORT
+ 	select VDSO_GETRANDOM
+ 	select VMAP_STACK
+-	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_WANT_OPTIMIZE_HUGETLB_VMEMMAP
++	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_HW_AFDBM
+ 	help
+ 	  ARM 64-bit (AArch64) Linux support.
  
- #include <asm/tlbflush.h>
- #include "hugetlb_vmemmap_internal.h"
-@@ -463,6 +464,39 @@ static int vmemmap_remap_alloc(const struct hstate *h, struct folio *folio,
- 	return ret;
- }
+@@ -1608,17 +1608,6 @@ config ARCH_SPARSEMEM_ENABLE
+ 	def_bool y
+ 	select SPARSEMEM_VMEMMAP_ENABLE
  
-+enum hugetlb_hvo_status {
-+	HVO_INACTIVE = 0,
-+	HVO_ACTIVE,
-+	HVO_PERMANENTLY_INACTIVE,
-+};
-+static enum hugetlb_hvo_status hvo_status = HVO_INACTIVE;
-+
-+static bool hugetlb_hvo_status_try_set(enum hugetlb_hvo_status status)
-+{
-+	enum hugetlb_hvo_status old;
-+
-+	old = READ_ONCE(hvo_status);
-+
-+retry:
-+	/* The current setting is what we want. */
-+	if (old == status)
-+		return true;
-+
-+	/* The current setting cannot be changed. */
-+	if (old != HVO_INACTIVE)
-+		return false;
-+
-+	if (!try_cmpxchg_relaxed(&hvo_status, &old, status))
-+		goto retry;
-+
-+	return true;
-+}
-+
-+bool hugetlb_vmemmap_optimization_try_disable(void)
-+{
-+	return hugetlb_hvo_status_try_set(HVO_PERMANENTLY_INACTIVE);
-+}
-+
- static bool vmemmap_optimize_enabled = IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON);
- static int __init hugetlb_vmemmap_optimize_param(char *buf)
- {
-@@ -571,6 +605,9 @@ static bool vmemmap_should_optimize_folio(const struct hstate *h, struct folio *
- 	if (!hugetlb_vmemmap_optimizable(h))
- 		return false;
- 
-+	if (!hugetlb_hvo_status_try_set(HVO_ACTIVE))
-+		return false;
-+
- 	return true;
- }
- 
-@@ -809,6 +846,9 @@ static bool vmemmap_should_optimize_bootmem_page(struct huge_bootmem_page *m)
- 	    !IS_ALIGNED(psize, pmd_vmemmap_size))
- 		return false;
- 
-+	if (!hugetlb_hvo_status_try_set(HVO_ACTIVE))
-+		return false;
-+
- 	return true;
- }
- 
+-config ARM64_WANT_OPTIMIZE_HUGETLB_VMEMMAP
+-	bool "Enable support for HugeTLB Vmemmap Optimization (HVO)"
+-	default n
+-	depends on HUGETLB_PAGE && SPARSEMEM_VMEMMAP && ARM64_HW_AFDBM
+-	help
+-	  Enable support for HVO. When enabled, late-onlining of CPUs that do
+-	  not support features required by HVO will not be onlined if all boot
+-	  CPUs do have such support.
+-
+-	  If unsure, say N
+-
+ config HW_PERF_EVENTS
+ 	def_bool y
+ 	depends on ARM_PMU
 -- 
 2.55.0.795.g602f6c329a-goog
 
