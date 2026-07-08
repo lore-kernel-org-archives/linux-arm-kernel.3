@@ -4,142 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A6DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 08:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2785C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+6Vt21AsOHlA83gCYarHWnf/dU9DGsvShFv44erfBJ4=; b=NQfONA881IsuEHwT/o0L8Cqtve
-	k7MwJ3BCifAXIbcATB+4cDNhg0CjZiLK/BN5TfpfejwnfoFb+GVgeGLUrjbTmqq/1bCtLxXRGrUvo
-	+6+AdssJBAbFUZXmJh25WjL/uk+DecwN7GmuRtj8kH6yXcDqm2ArAn0x+cWGz7GaWA2G4HdW7JLXH
-	QweD9rW3baYairEklF/IMW28levMfZccXS62Zkgb9e0F1VAYCppz8v09YezyqJxC/MISjoyWr86I5
-	6UaBXiboH4V6VKe5+2GvE6axm0wTbdA3ka7oU0LvpSR0O7mfSe13c3hS/XgqgCBJiQ8G2yCnAz6n3
-	w3MXrQuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LIP5sA6CbF1eR02kWXqug5HbdDA/BAiLc/L7lQ0febQ=; b=qDqVfvtQvn+D8LzMV8l427Qhjh
+	VpUAfLWsXAyMM/RsShyfZ+XZ0UZM08c1Fw+9TGnrd5UNqqyGRDfltCyTZ0wViVXJu1IGa/DpkRJZv
+	jG9DRKCrdVz4QL/xd8kLLWf9GceEaJkDjbX0Kuu7ipOv7rXC/qLXNwZg8u4dxMhBoc7XEP3hh1DcM
+	wy+syBsgauV28f+U670aCJHHinoS+RbDbGH6RsVW0LSpCh+IFjuQxrX5HHFiEXHAsbJuM9gJ1ejqQ
+	CLwXsddvuqqn+UozgGJQCCTQAgtHmNBJS8O2Adb6CV8cTLPGAc0QEbMM+1E0rMGZK5t88bN0ANITe
+	ciY7MfVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO4X-0000000GfQl-2RFp;
-	Wed, 08 Jul 2026 08:56:01 +0000
-Received: from mail-japaneastazon11022088.outbound.protection.outlook.com ([52.101.126.88] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1whO8q-0000000Gfuv-1cRs;
+	Wed, 08 Jul 2026 09:00:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO4U-0000000GfPS-0wHp
+	id 1whO8o-0000000GfuZ-3JXU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 08:55:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tGYICAm9wfPRqTf7+3JqJiUI3+uO19TetyzuaFQK33fkBM4qoY6iQ+euDwc66PBb1Tv6sxFd9+g10qgEdWNCtuPf3hjIKIvBitb73F1FbZkpvXB540a3K6fC1lbUopOfhGOn4BecxS90LhPSwWPoKavoVODEyDc6pR0jB9naAKggv+xu7OZtatmT8Bgs+yv+Rfdx+l84HLmDhPXvZnJZlYYyxttWcBpIWoLmaRkOoGoaVjUKpHPZQju0/xggBsJVNfWR7RUCieGnqRM8iFEOZC42IB8473S/UqGJnqhKrLxGuhyrFHiZM6lobNl2JMFQbv59C7P6/i2j0+oCtWhMTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+6Vt21AsOHlA83gCYarHWnf/dU9DGsvShFv44erfBJ4=;
- b=eSDx6gpSyZxR/RPYMcp5ePtDHGH6XCi7VRlNiIZeOWmslT3JFY0X8BqZXPvPoffi5+Zt3GR25RYFuVoMPCzyLOz1K/iE8kei0qfMgfEeGCZvah7cAvPcrS8aHnPoDC/5awO2FWYuF2juUcMVcLcN9hAtLO4jQY0jNVVEhU2D1awpFn7dQfVsHY+qwZSZlCQC9vjqDC4XRo/HXGEsO1Fy4wxGkMhWPwBes5xwr/rHBPdEdZoi8U5sOT7xjcfbmXlUdmEgoydiFSPTzm6BOirLzKwqf490EbjH3v1B8gT59tdkr1fOh4vdePWarweFVUaxFHHmPnDUzkp2kS2mxci+vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=transsion.com; dmarc=pass action=none
- header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+6Vt21AsOHlA83gCYarHWnf/dU9DGsvShFv44erfBJ4=;
- b=vaZF7KCNOq4WFGWwxhDZlxliKsFAlPtBhSqGfMDxfw9xNwbtq8TB8zmo8YUZjuSQHQj45c2oD+8qHbvoyVJMRewUyRMjsu/uL2HtOmJnRMY0JObhOqaFUsHSlJgGrUuJOcWWevLlV9p6dDgfw7iYNjFcwiw4hsi9gR+N7YDLBo4=
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- (2603:1096:820:c7::13) by SEYPR04MB7025.apcprd04.prod.outlook.com
- (2603:1096:101:173::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 08:55:38 +0000
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0181.010; Wed, 8 Jul 2026
- 08:55:37 +0000
-From: Hongyan Xia <hongyan.xia@transsion.com>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Subject: Re: [RFC 1/3] arm64: kprobes: Do not handle non-XOL faults as kprobe
- faults
-Thread-Topic: [RFC 1/3] arm64: kprobes: Do not handle non-XOL faults as kprobe
- faults
-Thread-Index: AQHdDSKWeYDuD+6wREWe1V8CS7jw5rZizCCAgABW2gCAAB1iAIAAFDgA
-Date: Wed, 8 Jul 2026 08:55:37 +0000
-Message-ID: <c33043c2-f931-4687-ad16-2d60ab12faca@transsion.com>
-References: <20260704234730.46d51c47d75e7d208e7bec9f@kernel.org>
- <20260706083636.159883-1-hupu@transsion.com>
- <20260706083636.159883-2-hupu@transsion.com>
- <20260708094623.9a1d40bed37bce3c7969ad20@kernel.org>
- <8cc07468-804e-4ee1-acad-77bc99af74c6@transsion.com>
- <20260708164224.c080a1e834f02ac953007e5c@kernel.org>
-In-Reply-To: <20260708164224.c080a1e834f02ac953007e5c@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=transsion.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|SEYPR04MB7025:EE_
-x-ms-office365-filtering-correlation-id: f794989a-ba46-48b8-1e9f-08dedcceae3a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|23010399003|376014|1800799024|38070700021|6133799003|56012099006|4143699003|11063799006|5023799004|18002099003|22082099003|3023799007|4133799003;
-x-microsoft-antispam-message-info: Zx1jqp+svofwpezqw5cmeMSKr8kMeJYMuFGjZwwO5SOCNqDR58DDDSRy2zkOtsRAlnCYW89JVYYPkgW5m12hMvwJYurAvs1RXdWVbJfiuQvp6hEEY3VPydn1PNe41NQsHd2U+ngEe5e1brZvmlIQLhSsc3xM6BECZ8khDrBmTJhD6YgEqhumWQ/UX4+ZTXmsY9S0DlHrHjcgWOlmsmSnbGlkqZ54DiFabD5xjHAI+GYL64s7JRH6l9iIalsOvhHdfWjsEkR1JDNvV071wEqv2Zx4/QO7lA7vjAY31iQVd4f1ZaqW6zxd6BmVxKF60urzGSXM1uis8R7rXUDQSU5vqbilqWdZ4r/sq/yxfR2IFelxLs1DWethxofMsGpLdLpE8AjRy3Da0RUkHgEK1TU+fUVtt8G0RPp4naRqT+ahrvFBASbeR0K9CIoXCe4FQk39dMs6K4uwodvwayz3e+WxNbrFZ/LEl6tdVjOf5M6Gi4I5O6wQrGfPcFa2p9YnOMVh85j+zxOJSEVjpFEVl6AMEF3XQ+BQ6UDfWnYlEFVQh5ACQoivTWoqo7JNIjU5Q87m67eOQ2n+Q9Yc59HrHU0eSeWoDHsdRHqVja9opdwhq/Xq9GDQz8frfn4jzVGWI9U8vYYj/PdhZ91U8r7Pjy/2ZdLePihDeZUvAGQcgVGVyOM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(23010399003)(376014)(1800799024)(38070700021)(6133799003)(56012099006)(4143699003)(11063799006)(5023799004)(18002099003)(22082099003)(3023799007)(4133799003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QXlubkNud0UvY09SVUdlNy9zalQzNGY3QmNtMnJJRmJlN21hZWxMbHd1bW1R?=
- =?utf-8?B?T0l2NGJaOThSMytpUjRCNzFBRkJCRnpVckRNWmJ1Y005Z1ZkQk53RlF0eERX?=
- =?utf-8?B?NWMzQlpRZXJTWUxtcVUvNzdKdWNUak1VQVNyd0Yvc29SUXNsUGJxVXd2OUVR?=
- =?utf-8?B?WEJxZlorL3pRN1RSaTRsbnovdHpwUWEwN1k0SVkzNkFpRWdOY3owbjVMTG5t?=
- =?utf-8?B?MGw5b056bGN1akE4dFp2VWtmZDB1UnFvTnViU1ZIeUdzWUFtNGtQVll1NTN3?=
- =?utf-8?B?TkdqbGMzcyt4K214UHdDa0lNeGhuOG8wZitiV2R1dURtRkpYWXZwdWdZSi80?=
- =?utf-8?B?aTZDK29VV3lQMklWQk1zYWV4eXhoMXNycHZPUG8rc2xZR0NEblI5NWNXQURl?=
- =?utf-8?B?Zmh2QjgyUUVZRmxzRHhpdXhKbjdJMEdYUlJucWJ5dEltQlIxMUtWYkZGNEV6?=
- =?utf-8?B?QWVVc3VLekZuK1hPRVpnOVRMMDFJbDR5ZWtybmJ6V2V3dzZ2ZldRb1ZWRllh?=
- =?utf-8?B?V3JyMEtNRU5jZmxqTFFWTWk2YnB4TEN0eTRrdFpUYlI1eWI5VkFkNU41aGIr?=
- =?utf-8?B?U0lGVytoTWpSdnllR3FYdGVCZFFWU0k3NFFOSHB3WDJZSlcvVG9HckZJUk9O?=
- =?utf-8?B?QzdXUFluR1ltQk96UGxMOGY2RkhyOHNLd0toanhheTF1N2lsVmdvdkNNSllE?=
- =?utf-8?B?OHd0dEdWUUx2Z2lid0hhdk0rSmFVNlMvMjQxTCsyYnpuOStHMkV1VlBkRkdM?=
- =?utf-8?B?M3lwcFlsK3UySUd1WW02Mmh3bnpscUlJU3RKMUtDYnh6WTdFRU9DM253UFgv?=
- =?utf-8?B?OWhWQ3NIdUQwMzdZNzFrd0ZUNVI1NGJtN0ZrOWtSd0piWEM2OC84K2xJUWNq?=
- =?utf-8?B?bk8yOHM0YUpyRHh4eERiYm12OUxOUGFETU9YOVN1dnB6U2drUGNaSlo4N2Zi?=
- =?utf-8?B?ajVVUjdOTTErZGdxbU5WOUp6YkZpaWp0NEx5bCszazJtWjBMeG5JVlNQbjdt?=
- =?utf-8?B?T1JkTElVVnFndjNVWXNkdDcwU3BIeE9SRXZRTW1SakRhOEVmQWxJRFJBL3Ra?=
- =?utf-8?B?aWdrNlBBRC9hTkFhQ09GRDlmRDREbGUrcUs4WVJtZFkzT1BWWXZSc1hyWDVB?=
- =?utf-8?B?OERQL1k3OXhlV2VsbmpxSmM5MmtqWk0wa25pbVNTamJUWGxuWCtramh6TkUr?=
- =?utf-8?B?eWt6LzlFZ05BV3p6MUtyWHJSeFI2TDhKcE4xWitXZm5CNVVubENOQUpweWRK?=
- =?utf-8?B?WGRMRDBkeitKak50WHBNQlBmY2RwK29GUmRSQmJkL3hPMGtYaHhxMlMwbG4x?=
- =?utf-8?B?K0w3Z0NmUHllSXdQb0hGa0hFRmdaNFpJazVPeWI5VC85NEtCOGsyNFlHMDI4?=
- =?utf-8?B?TEoyMWxQVU1NZGJIaEw0S0RPSHhROWZlTDdBSHZSSFppRXZNZXp2bkxYT0U2?=
- =?utf-8?B?d2lHUlJlbkNpMmhrbTVUQVpLTzkvOGpZOVFoSy81dDRCcFdkaS8zbldKQ1NC?=
- =?utf-8?B?NVRWVEJQUjdrVUdjK0s3dDRhdElHMk1NeC93N0FyL2c5eEladlYyN0lDQXJC?=
- =?utf-8?B?NEtDMVd0cFBYTU1BOHoranVRb3NHMUw3Rk5JVjQyUUZ4M3g3N01VdTZJUm9G?=
- =?utf-8?B?YXNlcldmRTFOeEhvQndPVGpIMUpoL1kvRXM4OGRiVXRFdHF0bnJWZ3kyaVho?=
- =?utf-8?B?QytIb1hxNjVUWjdKVnhJdE9TT01URHlXTEp3b041SnJ5WW44aGFKbnY4a3E1?=
- =?utf-8?B?WjBCalRIc0JsUGJoMk80N0g1ZVJweG01VDRNdUF6YWJZMWZ1UStRTnR1dXhu?=
- =?utf-8?B?ZDFHUTNPR0F6VDkxc1JaU1RTb2s5TTVVODVkSG9lcUF0VlNNY0t6KzBWMzhT?=
- =?utf-8?B?eVdMY3dSNWI4T2IxVHhPOUZkMW40RnZCSjFJaVZEemJ0L2dTVXczSHNmbnli?=
- =?utf-8?B?VTZYZ2FzZmdqMG1TQ2pkTXZ4M0VaYWdqSTJTYWdSdi9lOHJXV3hLbmE1VTFI?=
- =?utf-8?B?bWhNNzBJRGZJQ3FwaVVhRGU2YmlRYzkwZ1RqMkNoa0NZMUtzb0xJOU1nWnla?=
- =?utf-8?B?ZFBDVzcwbjFQaVN3cVJtbW1CeG5LWFE2YnNmMkwzcE9kYk1FL3FwdXlVT09V?=
- =?utf-8?B?Vm1UWnBqK1VYSlN5akhSOTFOMUpGTlFQcWZUZHpPZ1lwdmpJQ0FIT3lTT295?=
- =?utf-8?B?aS9uRjM5RytyWXZmNjFKQTloaTNVU3JQd25UN3orNzIwUHVPbHlBZWlxQ0Yz?=
- =?utf-8?B?bFB2Q29zRTl5dk1XSllOaWZ6cmorVUVQSVJtSlV2Qk9hODVER2dHZFR3VWgy?=
- =?utf-8?B?UTFva1NWcXVlUGFWZHBFR2RQL3MrdldTOXhxaXBoTEhLcjRDVFNBQWYvRURw?=
- =?utf-8?Q?AxT/ENBlcRKRB9es=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B273D7FD266A444AB004403AB1F99057@apcprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Wed, 08 Jul 2026 09:00:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3290E412D2;
+	Wed,  8 Jul 2026 09:00:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83F6B1F00A3A;
+	Wed,  8 Jul 2026 09:00:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783501226;
+	bh=LIP5sA6CbF1eR02kWXqug5HbdDA/BAiLc/L7lQ0febQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=k91u+TW6gJfK8oS31dlL3XO7svN77k+kpwfskIgDaee53ff7l3UnBBdbgnJzAW+6s
+	 a0kHorJUu9zYQlewOgkMpplz0lT0pPXy8zkkUopxSoZ1qGVONp28EMFNXFJhyiwX/6
+	 H9hnrhKAc8rAo/vO2U7UhsiNVjpF7VpNLNA12ZqTObfYqfqOtNtyHyisvUoXGECY3J
+	 MhIuontO24DYRHteJ+6wAmqdNEww8yeE70vFLKsnLi6l3GQbfy5Uivv7uvRvfykHkU
+	 T2YCi0ETouvDJ+hVTMYvBX4zMDSf86V9bkjHUcI6lsaX/8HVFnMKNmYij6peA3LuiE
+	 bSnyK+DWxJzmg==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Wed, 08 Jul 2026 09:59:57 +0100
+Subject: [PATCH v4 01/16] firmware: arm_scmi: Publish channel state before
+ callbacks
 MIME-Version: 1.0
-X-OriginatorOrg: transsion.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f794989a-ba46-48b8-1e9f-08dedcceae3a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jul 2026 08:55:37.7024
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: HdVFVedSRqkGqg14dBBRuWayfLLSrhXVvGoqPzxzQgb+R/tIfYUdp3qvWKBAr3zOjCIGx3Jr0Ouv1nag/rRGkScaEqeApSRQHkU4o2Eq+9g=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR04MB7025
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_015558_425357_22A73116 
-X-CRM114-Status: GOOD (  28.42  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260708-scmi_core_fixes-v4-1-53142cd60b63@kernel.org>
+References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
+In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,107 +66,144 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Pu Hu <hupu@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy84LzIwMjYgMzo0MiBQTSwgTWFzYW1pIEhpcmFtYXRzdSB3cm90ZToNCj4gT24gV2VkLCA4
-IEp1bCAyMDI2IDA1OjU3OjI0ICswMDAwDQo+IEhvbmd5YW4gWGlhIDxob25neWFuLnhpYUB0cmFu
-c3Npb24uY29tPiB3cm90ZToNCj4NCj4+IEhpIE1hc2FtaSwNCj4+DQo+PiBPbiA3LzgvMjAyNiA4
-OjQ2IEFNLCBNYXNhbWkgSGlyYW1hdHN1IHdyb3RlOg0KPj4+IE9uIE1vbiwgNiBKdWwgMjAyNiAw
-ODozNjo0OCArMDAwMA0KPj4+IFB1IEh1IDxodXB1QHRyYW5zc2lvbi5jb20+IHdyb3RlOg0KPj4+
-DQo+Pj4+IEZyb206IFB1IEh1IDxodXB1QHRyYW5zc2lvbi5jb20+DQo+Pj4+DQo+Pj4+IGtwcm9i
-ZV9mYXVsdF9oYW5kbGVyKCkgaGFuZGxlcyBmYXVsdHMgdGFrZW4gd2hpbGUga3Byb2JlcyBpcyBp
-bg0KPj4+PiBLUFJPQkVfSElUX1NTIG9yIEtQUk9CRV9SRUVOVEVSIHN0YXRlIGFzIGZhdWx0cyBj
-YXVzZWQgYnkgdGhlDQo+Pj4+IHNpbmdsZS1zdGVwcGVkIGluc3RydWN0aW9uLg0KPj4+Pg0KPj4+
-PiBUaGF0IGFzc3VtcHRpb24gaXMgbm90IGFsd2F5cyB0cnVlLiBXaGlsZSBhIGtwcm9iZSBpcyBw
-cmVwYXJpbmcgb3INCj4+Pj4gZXhlY3V0aW5nIHRoZSBvdXQtb2YtbGluZSBzaW5nbGUtc3RlcCBp
-bnN0cnVjdGlvbiwgb3RoZXIgY29kZSBtYXkgcnVuDQo+Pj4+IGluIHRoYXQgd2luZG93LiBGb3Ig
-ZXhhbXBsZSwgcGVyZiBvciB0cmFjZSBjb2RlIGNhbiBiZSBpbnZva2VkIGZyb20gdGhlDQo+Pj4+
-IGRlYnVnIGV4Y2VwdGlvbiBwYXRoIGFuZCBtYXkgdGFrZSBhIGZhdWx0IG9mIGl0cyBvd24uIElu
-IHRoYXQgY2FzZSB0aGUNCj4+Pj4gZmF1bHQgZGlkIG5vdCBoYXBwZW4gb24gdGhlIGtwcm9iZSBY
-T0wgaW5zdHJ1Y3Rpb24sIGJ1dCB0aGUga3Byb2JlIGZhdWx0DQo+Pj4+IGhhbmRsZXIgbWF5IHN0
-aWxsIHRyeSB0byByZWNvdmVyIGl0IGFzIGEga3Byb2JlIHNpbmdsZS1zdGVwIGZhdWx0Lg0KPj4+
-Pg0KPj4+PiBUaGlzIGNhbiBjb3JydXB0IHRoZSBleGNlcHRpb24gcmVjb3ZlcnkgZmxvdyBhbmQg
-bGVhdmUgdGhlIHJlYWwgZmF1bHQgdG8NCj4+Pj4gYmUgaGFuZGxlZCB3aXRoIGEgd3JvbmcgUEMu
-IEEgdHlwaWNhbCByZXByb2R1Y2VyIGlzIHJ1bm5pbmcgc2ltcGxlcGVyZg0KPj4+PiB3aXRoIHBy
-ZWVtcHRpcnEgdHJhY2Vwb2ludHMgYW5kIGR3YXJmIGNhbGxjaGFpbnMgd2hpbGUgYSBrcHJvYmUg
-aXMNCj4+Pj4gaW5zdGFsbGVkIG9uIGEgZnJlcXVlbnRseSBleGVjdXRlZCBrZXJuZWwgZnVuY3Rp
-b24uDQo+Pj4+DQo+Pj4+IEZpeCB0aGlzIGJ5IGhhbmRsaW5nIGZhdWx0cyBpbiBLUFJPQkVfSElU
-X1NTL0tQUk9CRV9SRUVOVEVSIG9ubHkgd2hlbg0KPj4+PiB0aGUgZmF1bHRpbmcgUEMgcG9pbnRz
-IGF0IHRoZSBjdXJyZW50IGtwcm9iZSdzIFhPTCBpbnN0cnVjdGlvbi4gRmF1bHRzDQo+Pj4+IGZy
-b20gYW55IG90aGVyIFBDIGFyZSBsZWZ0IHRvIHRoZSBub3JtYWwgZmF1bHQgaGFuZGxpbmcgcGF0
-aC4NCj4+Pj4NCj4+Pj4gVGhpcyBmb2xsb3dzIHRoZSBzYW1lIGlkZWEgYXMgdGhlIHg4NiBmaXgg
-aW4gY29tbWl0IDYzODFjMjRjZDZkNQ0KPj4+PiAoImtwcm9iZXMveDg2OiBGaXggcGFnZS1mYXVs
-dCBoYW5kbGluZyBsb2dpYyIpLg0KPj4+Pg0KPj4+PiBTaWduZWQtb2ZmLWJ5OiBQdSBIdSA8aHVw
-dUB0cmFuc3Npb24uY29tPg0KPj4+PiBTaWduZWQtb2ZmLWJ5OiBIb25neWFuIFhpYSA8aG9uZ3lh
-bi54aWFAdHJhbnNzaW9uLmNvbT4NCj4+Pj4gLS0tDQo+Pj4+ICAgIGFyY2gvYXJtNjQva2VybmVs
-L3Byb2Jlcy9rcHJvYmVzLmMgfCAxNCArKysrKysrKysrKysrKw0KPj4+PiAgICAxIGZpbGUgY2hh
-bmdlZCwgMTQgaW5zZXJ0aW9ucygrKQ0KPj4+Pg0KPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02
-NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyBiL2FyY2gvYXJtNjQva2VybmVsL3Byb2Jlcy9rcHJv
-YmVzLmMNCj4+Pj4gaW5kZXggNDNhMDM2MWE4YmYwLi5lNGQyODUyY2UyZmIgMTAwNjQ0DQo+Pj4+
-IC0tLSBhL2FyY2gvYXJtNjQva2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMNCj4+Pj4gKysrIGIvYXJj
-aC9hcm02NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYw0KPj4+PiBAQCAtMjg1LDYgKzI4NSwyMCBA
-QCBpbnQgX19rcHJvYmVzIGtwcm9iZV9mYXVsdF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdz
-LCB1bnNpZ25lZCBpbnQgZnNyKQ0KPj4+PiAgICAgICAgIHN3aXRjaCAoa2NiLT5rcHJvYmVfc3Rh
-dHVzKSB7DQo+Pj4+ICAgICAgICAgY2FzZSBLUFJPQkVfSElUX1NTOg0KPj4+PiAgICAgICAgIGNh
-c2UgS1BST0JFX1JFRU5URVI6DQo+Pj4+ICsgICAgICAgICAgICAgLyoNCj4+Pj4gKyAgICAgICAg
-ICAgICAgKiBBIGZhdWx0IHRha2VuIHdoaWxlIGEga3Byb2JlIGlzIHNpbmdsZS1zdGVwcGluZyBp
-cyBub3QNCj4+Pj4gKyAgICAgICAgICAgICAgKiBuZWNlc3NhcmlseSBjYXVzZWQgYnkgdGhlIGlu
-c3RydWN0aW9uIGluIHRoZSBYT0wgc2xvdC4gRm9yDQo+Pj4+ICsgICAgICAgICAgICAgICogZXhh
-bXBsZSwgdHJhY2luZyBvciBwZXJmIGNvZGUgcnVubmluZyBpbiB0aGlzIHdpbmRvdyBtYXkgdGFr
-ZQ0KPj4+PiArICAgICAgICAgICAgICAqIGFuIHVucmVsYXRlZCBmYXVsdC4NCj4+Pj4gKyAgICAg
-ICAgICAgICAgKg0KPj4+PiArICAgICAgICAgICAgICAqIEhhbmRsZSB0aGUgZmF1bHQgaGVyZSBv
-bmx5IHdoZW4gdGhlIGZhdWx0aW5nIFBDIGlzIHRoZSBYT0wNCj4+Pj4gKyAgICAgICAgICAgICAg
-KiBpbnN0cnVjdGlvbiBvZiB0aGUgY3VycmVudCBrcHJvYmUuIE90aGVyd2lzZSBsZXQgdGhlIG5v
-cm1hbA0KPj4+PiArICAgICAgICAgICAgICAqIGZhdWx0IGhhbmRsaW5nIHBhdGggZGVhbCB3aXRo
-IGl0Lg0KPj4+PiArICAgICAgICAgICAgICAqLw0KPj4+PiArICAgICAgICAgICAgIGlmIChjdXIt
-PmFpbnNuLnhvbF9pbnNuICYmDQo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICBpbnN0cnVjdGlv
-bl9wb2ludGVyKHJlZ3MpICE9ICh1bnNpZ25lZCBsb25nKWN1ci0+YWluc24ueG9sX2luc24pDQo+
-Pj4+ICsgICAgICAgICAgICAgICAgICAgICBicmVhazsNCj4+Pg0KPj4+IENhbiB5b3UgY2hlY2sg
-U2FzaGlrbydzIGNvbW1lbnRzWzFdPw0KPj4+DQo+Pj4gWzFdIGh0dHBzOi8vc2FzaGlrby5kZXYv
-Iy9wYXRjaHNldC8yMDI2MDcwNjA4MzYzNi4xNTk4ODMtMS1odXB1JTQwdHJhbnNzaW9uLmNvbT9w
-YXJ0PTENCj4+Pg0KPj4+IEl0IHNlZW1zIHRoYXQgaXQgY29tcGxhaW5zIGFib3V0IHNpbXVsYXRl
-ZCBrcHJvYmUncyBjYXNlLg0KPj4+IEluIHRoYXQgY2FzZSwgY3VyLT5haW5zbi54b2xfaW5zbiA9
-PSBOVUxMLiBUaGUgc2ltdWxhdGlvbiBzaG91bGQgYmUgZG9uZQ0KPj4+IGluIHRoZSBrcHJvYmUg
-Y29udGV4dCAod2hpY2ggaXMgYSBkZWJ1ZyB0cmFwKS4gSSdtIG5vdCBzdXJlIHRoZSBhcm02NA0K
-Pj4+IGNhbiBjYXVzZSBOTUkgaW4gdGhhdCBjb250ZXh0LCBidXQgaWYgaXQgaGFwcGVucyBhbmQg
-Y2F1c2VzIGEgZmF1bHQsDQo+Pj4gaXQgbWF5IGNhdXNlIGEgcHJvYmxlbS4NCj4+Pg0KPj4+IFNv
-IEkgdGhpbmsgd2UgY2FuIGp1c3QgaWdub3JlIHRoZSBmYXVsdCBvbiB0aGUgc2ltdWxhdGVkIGtw
-cm9iZXMuDQo+Pj4NCj4+PiBUbyBlbnN1cmUgdGhhdCwgeW91IGNhbiBqdXN0IGFkZDoNCj4+Pg0K
-Pj4+ICAgICAgICAgICBpZiAoY3VyICYmICFjdXItPmFpbnNuLnhvbF9pbnNuKQ0KPj4+ICAgICAg
-ICAgICAgICAgICAgIHJldHVybiAwOw0KPj4+DQo+Pj4gYXQgdGhlIGVudHJ5IG9mIHRoaXMgZnVu
-Y3Rpb24uIChhbmQgcmVtb3ZlIHJlZHVuZGFudCBjdXItPmFpbnNuLnhvbF9pbnNuIGNoZWNrKQ0K
-Pj4NCj4+IFJpZ2h0LCBib3RoIGNhc2VzOg0KPj4NCj4+IDEuIHNpbmdsZS1zdGVwIFhPTA0KPj4g
-Mi4gc2ltdWxhdGVkDQo+Pg0KPj4gaGF2ZSB0aGlzIHByb2JsZW0gYW5kIHRoaXMgcGF0Y2ggZml4
-ZWQgMS4gMiByZW1haW5zIHVuY2hhbmdlZC4NCj4+DQo+PiBJZGVhbGx5IHdlIHNob3VsZCBmaXgg
-Ym90aCwgYnV0IHRoZSBzaW11bGF0ZWQgY2FzZSBzZWVtcyBtb3JlDQo+PiBjb21wbGljYXRlZCwg
-YW5kIGF0IGxlYXN0IHdlIGRpZG4ndCBtYWtlIHRoaW5ncyB3b3JzZSBmb3IgMi4gU28gSSB3b25k
-ZXINCj4+IGlmIHdlIGNhbiBhbmFseXplIDIgbW9yZSB0aG9yb3VnaGx5IGFuZCBmaXggaXQgaW4g
-YSBzZXBhcmF0ZSBwYXRjaC4NCj4NCj4gT0ssIGJ1dCBiYXNpY2FsbHkgdGhpcyBmYXVsdCBoYW5k
-bGVyIGlzIG9ubHkgZm9yIHRoZSBTUyBYT0wsDQo+IG5vdCBmb3Igc2ltdWxhdGVkIG9uZSAoYXMg
-c2FtZSBhcyB4ODYpLiBTbyBqdXN0IHNraXAgdGhlDQo+IHNpbXVsYXRlZCBjYXNlIGlzIGVub3Vn
-aCBpbiB0aGlzIHBhdGNoLg0KPiAoTm90ZSB0aGF0IHg4NiBhbHNvIGhhdmUgc2ltdWxhdGVkIHBh
-dGgsIGFuZCB0aGF0IGlzIG5vdCBoYW5kbGVkDQo+IGJ5IHRoZSBmYXVsdCBoYW5kbGVyKQ0KDQpI
-bW0sIHdoYXQgaGFwcGVucyBpZiB0aGUgb3JpZ2luYWwgUEMgaXMgYSBzaW11bGF0ZWQgaW5zdHJ1
-Y3Rpb24gdGhhdCBoYXMNCmEgcmVjb3ZlcmFibGUgZXhfdGFibGUgZW50cnkgdGhhdCBoYW5kbGVz
-IHBvdGVudGlhbCBwYWdlIGZhdWx0LCBhbmQgdGhpcw0KUEMgYWxzbyBoYXMgYW4gYXR0YWNoZWQg
-a3Byb2JlPyBUaGVuIHRoZSBzaW11bGF0ZWQgY2FzZSBzaG91bGQgYmUgYWJsZQ0KdG8gZW50ZXIg
-a3Byb2JlX2ZhdWx0X2hhbmRsZXIoKT8NCg0KLmV4X3RhYmxlOg0KICAgICAgICBpbnNuIGZvbywg
-aGFuZGxlciBiYXINCg0KZm9vOg0KICAgICAgICBMRFIgc3ltYm9sICMgTG9hZCBQQy1yZWxhdGl2
-ZS4gU2ltdWxhdGVkLiBLcHJvYmUgYXR0YWNoZWQuDQogICAgICAgIHJldA0KDQpXaGVuIGZvbyBp
-cyBjYWxsZWQgYW5kIHRoZSBrcHJvYmUgZmlyZXMsIGl0IGVudGVycyBzaW11bGF0ZWQgcGF0aCBi
-dXQNCnRoZW4gTERSIHRyaWdnZXJzIGEgcGFnZSBmYXVsdC4gSXQgdGhlbiBlbnRlcnMga3Byb2Jl
-X2ZhdWx0X2hhbmRsZXIoKSB0bw0KZml4dXAgdGhlIFBDLiBUaGVuIHRoZSBmaXh1cF9leGNlcHRp
-b24oKSBvZiB0aGUgbm9ybWFsIHBhZ2UgZmF1bHQgZmluZHMNCnRoZSBleF90YWJsZSBlbnRyeSBh
-bmQgdGhpcyBjYXNlIGlzIHN1Y2Nlc3NmdWxseSBoYW5kbGVkPw0KDQpMb29rcyBsaWtlIHRoaXMg
-aGFuZGxlciBjYW4gYmUgZW50ZXJlZCBieSBzaW11bGF0ZWQgaW5zdHJ1Y3Rpb25zPyBPcg0KdGhp
-cyBpcyBvbmx5IHRoZW9yZXRpY2FsIGFuZCB3aG9ldmVyIGFycmFuZ2UgY29kZSBsaWtlIHRoaXMg
-c2hvdWxkIGJlDQpmaXJlZCBpbW1lZGlhdGVseT8NCg0KPg0KPiBUaGFuayB5b3UsDQo+DQo+Pg0K
-Pj4+IFRoYW5rIHlvdSwNCj4+Pg0KPj4+PiArDQo+Pj4+ICAgICAgICAgICAgICAgICAvKg0KPj4+
-PiAgICAgICAgICAgICAgICAgICogV2UgYXJlIGhlcmUgYmVjYXVzZSB0aGUgaW5zdHJ1Y3Rpb24g
-YmVpbmcgc2luZ2xlDQo+Pj4+ICAgICAgICAgICAgICAgICAgKiBzdGVwcGVkIGNhdXNlZCBhIHBh
-Z2UgZmF1bHQuIFdlIHJlc2V0IHRoZSBjdXJyZW50DQo+Pj4+IC0tDQo+Pj4+IDIuNDMuMA0KPj4+
-Pg0KPj4+IC0tDQo+Pj4gTWFzYW1pIEhpcmFtYXRzdSAoR29vZ2xlKSA8bWhpcmFtYXRAa2VybmVs
-Lm9yZz4NCj4+DQo+DQo+DQoNCg==
+Transport setup can enable callbacks before the setup routine returns.
+mailbox_chan_setup() registers the mailbox client with
+mbox_request_channel(), and the mailbox controller startup path can enable
+interrupt delivery before SCMI mailbox channel state has been published.
+Similarly, smc_chan_setup() requests the optional A2P completion IRQ before
+the SMC transport has made its cinfo pointer visible.
+
+If a pending or spurious callback fires in those windows, the transport RX
+callback can dereference a NULL transport cinfo pointer. Publishing only
+the transport-private pointer is not sufficient either: an early callback
+can enter the SCMI core before scmi_chan_setup() has assigned
+cinfo->handle.
+The core derives scmi_info from cinfo->handle in the RX path, so a NULL
+handle can still fault even when the transport-private cinfo is valid.
+
+Assign cinfo->handle before invoking the transport setup callback. Publish
+the mailbox and SMC transport-private channel state before requesting the
+mailbox channels or IRQ, and clear the early-published pointers again on
+setup failure. Also unwind mailbox setup devres resources on failure so an
+optional RX setup error that is ignored by the core does not leave stale
+transport state behind.
+
+Fixes: 5c8a47a5a91d ("firmware: arm_scmi: Make scmi core independent of the transport type")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/driver.c             |  2 +-
+ drivers/firmware/arm_scmi/transports/mailbox.c | 18 +++++++++++++-----
+ drivers/firmware/arm_scmi/transports/smc.c     | 15 +++++++++------
+ 3 files changed, 23 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 3e0d975ec94c..1d1f5d25d773 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2782,6 +2782,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 
+ 	cinfo->id = prot_id;
+ 	cinfo->dev = &tdev->dev;
++	cinfo->handle = &info->handle;
+ 	ret = info->desc->ops->chan_setup(cinfo, info->dev, tx);
+ 	if (ret) {
+ 		of_node_put(of_node);
+@@ -2814,7 +2815,6 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 		return ret;
+ 	}
+ 
+-	cinfo->handle = &info->handle;
+ 	return 0;
+ }
+ 
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index ae0f67e6cc45..b6459fbb8151 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -211,13 +211,18 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 	cl->tx_block = false;
+ 	cl->knows_txdone = tx;
+ 
++	cinfo->transport_info = smbox;
++	smbox->cinfo = cinfo;
++	mutex_init(&smbox->chan_lock);
++
+ 	smbox->chan = mbox_request_channel(cl, tx ? 0 : p2a_chan);
+ 	if (IS_ERR(smbox->chan)) {
+ 		ret = PTR_ERR(smbox->chan);
++		smbox->chan = NULL;
+ 		if (ret != -EPROBE_DEFER)
+ 			dev_err(cdev,
+ 				"failed to request SCMI %s mailbox\n", desc);
+-		return ret;
++		goto err_clear_cinfo;
+ 	}
+ 
+ 	/* Additional unidirectional channel for TX if needed */
+@@ -241,11 +246,14 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		}
+ 	}
+ 
+-	cinfo->transport_info = smbox;
+-	smbox->cinfo = cinfo;
+-	mutex_init(&smbox->chan_lock);
+-
+ 	return 0;
++
++err_clear_cinfo:
++	cinfo->transport_info = NULL;
++	smbox->cinfo = NULL;
++	devm_iounmap(dev, smbox->shmem);
++	devm_kfree(dev, smbox);
++	return ret;
+ }
+ 
+ static int mailbox_chan_free(int id, void *p, void *data)
+diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
+index 21abb571e4f2..1fce3ccdeb7f 100644
+--- a/drivers/firmware/arm_scmi/transports/smc.c
++++ b/drivers/firmware/arm_scmi/transports/smc.c
+@@ -172,6 +172,13 @@ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		scmi_info->param_page = SHMEM_PAGE(res.start);
+ 		scmi_info->param_offset = SHMEM_OFFSET(res.start);
+ 	}
++
++	scmi_info->func_id = func_id;
++	scmi_info->cap_id = cap_id;
++	scmi_info->cinfo = cinfo;
++	smc_channel_lock_init(scmi_info);
++	cinfo->transport_info = scmi_info;
++
+ 	/*
+ 	 * If there is an interrupt named "a2p", then the service and
+ 	 * completion of a message is signaled by an interrupt rather than by
+@@ -183,18 +190,14 @@ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 				  IRQF_NO_SUSPEND, dev_name(dev), scmi_info);
+ 		if (ret) {
+ 			dev_err(dev, "failed to setup SCMI smc irq\n");
++			cinfo->transport_info = NULL;
++			scmi_info->cinfo = NULL;
+ 			return ret;
+ 		}
+ 	} else {
+ 		cinfo->no_completion_irq = true;
+ 	}
+ 
+-	scmi_info->func_id = func_id;
+-	scmi_info->cap_id = cap_id;
+-	scmi_info->cinfo = cinfo;
+-	smc_channel_lock_init(scmi_info);
+-	cinfo->transport_info = scmi_info;
+-
+ 	return 0;
+ }
+ 
+
+-- 
+2.43.0
+
 
