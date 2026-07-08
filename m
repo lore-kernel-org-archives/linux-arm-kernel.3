@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9730DC44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5C7C44506
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGbjO+pNrdd+UW4OsilpKM9X8br0di0p/DjFAoXl5PA=; b=wvfY0Pkoy5QijZiUyQlWsjo+qD
-	0Xhh41hjtdiaLjvYMRQaB6t4+Y9S/GhUmYhJTUKIQlP1ElxdVMTTyelsy/ceiZIoYCtyz32tefsXS
-	nkrIlpLBDwd8adrsrTkzYjTX5jVODvLZNcqty9x3AgcYaGh5YTZSb1vWYNAR6Xsk6/XyRcUzp+fM1
-	B5/6dl+uGYTYCGWtLwHkcje3rygGPKtNdv+LgsYOETP8uz+1/chiiCj/odHVeWybQT4ZtE7d6eXCJ
-	A5zusoVpzT3yQWzEkVxrz4+rczV2C9E7XSTzuQksinAJLrCYzMB8KOCdYyY1HqLh9nafEEwOQTouJ
-	rbs0BVWA==;
+	bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=; b=vP1fXPBPbULe42qrIiqBAGzzII
+	78Kso6kN0lOkBxCvwKDGCQm8lLZaUzJm/yVkT46DuHxRyjnzysWdvvhKH0q88eQy+7gW3fFztom57
+	IZlMnUudZcSFqV14jYslrfh1S2gcB2eLcWTl1sdQ7Ya7WlhHiJO6wHpRQzk8P3T9der0AB8xBhDbl
+	a+/qB8UUVWtE4XeuHluZY1nFGY8BnBPwMahzahiZXwRONsGhVesYkyyoE3LJhtqhUXYvmvLUdbUyx
+	tk6GcYB9IBd4fJdoDs73qCVUwSaj+iv0QMWHwKLqtt12vYZjt/xBz54pqhHrKutjApd80JSVB6SU6
+	rZLs6k+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whYCk-00000000I0a-34VK;
+	id 1whYCk-00000000I0S-2SD0;
 	Wed, 08 Jul 2026 19:45:10 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+Received: from mail-eastus2azon11010017.outbound.protection.outlook.com ([52.101.56.17] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whYCg-00000000HxZ-1p5P
+	id 1whYCd-00000000HuL-1YzT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 19:45:07 +0000
+	Wed, 08 Jul 2026 19:45:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mzQivZX738fUdfcOq2f1z80ORX3jI2AA6xxygxukuQnuE/ITETkJwYUrSYrBuZwWXLQAV5GiDko3OMWoQLm0cNIL2jZx9plgZn30stmyQFf8UOY97/cKVOwAHTmDIr0uFfHzrP4ggBP+vetZortduLo95jc4w+rHHCiW68+YIadbv9pKa+hR81JbImAyF0oBeHlKXgCvzoND0KJnWPKLT8phy2Uz57e7nVqvzI7wsTMYvHayZEIxePPkscRjHlfYAJrVJVqp7i2S+X1wUe8kxb+kOwBjPAv10lzJmYVTpOHeKwRs+Ijfi0UUYEINuUc6RZSULnDoIMILV6SJku6Hiw==
+ b=UJwZujN5MgAeQaIbeIYU+lh5m+JBxeg+CfID4vS9qTtnxIsLIFHCdVxsLl/qUOCspsCEhnB7qckiUAqTGWeJulKvqOb3t6miMmFbdP2iAGvOnXbSlxMySoI8f1qXavYEzCWUs09k90fIlSOLSLU+FXU3XQX8gkbcqNqFxVNgxfteiXVO3EGjCI0N6URP0RsjYrwI/TJi8CJpcI919Us6/s+z0RdbsEeQT5wu0kLpqMOEHFYdSSK37nPcaUoZO06dYoNYgLklvbrmx0pjyXSFqSYzCUVM5E0WpW79zES7EJns0jb0pNXJakU08i2OyKtEz17tCKU/TuLGV1asaymPuQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sGbjO+pNrdd+UW4OsilpKM9X8br0di0p/DjFAoXl5PA=;
- b=hdZI/lQ0FtxDA681vU7BWisUc51MkMAsAv2Qpn/WMWskC+AJMVq9w/ZEmsi+bszqCVnFImFlg8HngTITcQIxe9jP7TJrCJ3Keb/JCqfMcPBjZ9pZjJwcDW94WwpGMIwRnube6bs+hchg65+F+qST2aiJBcPuf7qXljJt64J0c1yYMVEH1Sx8Jtz/JnnaNvQt0NyGHw4DGEr/otnvY0IUe2pTt3laCcfas9nSCS/dEUwHiILoT6NOTBFu1qPKM0ZgMolP/EHTIn8AMEohRfQUfVmr3uUZEXtGM/vWhElAZV9cq3GO0Oqna5l3I0PjblfKR1WR9MMd0RrXc/OKqFv2XQ==
+ bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=;
+ b=Tjp8E8J1fa3CgGVRddN6ZeowKBiVweuVPq0x5S7bhXvH+XgmvKnbGCNB/qRmsyWxFPNYbN9VWGb/GOtQxnK6v2DhNkDEIpeOP8RyUd8jERNajhaLxfqeFLOibCQkUz+SedsKXd0fMWPgkM8J5297xcaFHv+qewUkHPdZ1kZ8tWw3c94dVGcqyChE5sGkzUalxopFRRjT+raC5SlLAN8Js5+Yt92doircL2ip7iZnYVIXSGZ/9o+/FGrN8Npbxknr65jWitXCeD00QULwk34rZ79e9YN5a26T7UjeacJL2YI6N2TYO2V6RoWE3ct5yz+oS9jeuHHmBRKXQcJAQ9Johw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sGbjO+pNrdd+UW4OsilpKM9X8br0di0p/DjFAoXl5PA=;
- b=bxIBn/m4nw2aN4o01jD73yYVEjiLhJ01FOYblWCtlr8m19g19Fkm4bYVrSqzAd89gq7ERYCcNb1IoMry2peTb+BMgD35LomldHVOqCI9adDCqloXg+qKcZupFV6Xh0i1oFcfcIafNuGiFFKU5evJahZwIli7Pf+CYMY0MUxCrEfcAVBOBFzlZAEfquY1bnw3PZOLXsZD77BnxLsAnHg7AVWGS1zqJzHEgBYXNAXRl8w58IbLVT6PT0ZIMhyNxoZDjcpZcOU+ZN1kLx06aiTnF6BVV90Eqfti6lU+w6WVbDIGkFchRvHM1SHaxWV4sovZJwIOcmiRYdcMRJgAhXzNBA==
-Received: from SJ0PR03CA0142.namprd03.prod.outlook.com (2603:10b6:a03:33c::27)
- by PH7PR12MB6696.namprd12.prod.outlook.com (2603:10b6:510:1b3::10) with
+ bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=;
+ b=WRsU5JCatNy+82ahsm28+ebG42u8uPKkShIO6j/Sefk5xnqdTZdDA5N2J6W7L9g/y74ZIoKig0M+0bfZB5IH6ahWMQW5YgRS+dWOkCSYmHE+MEGiyBWOmda9mPERcu67q1g7vzNQXSpj+SqZUVfkWcxRfC45DkrBn2Cb/wdmXL1SdXB1zfDVNS7+F6lCVYNqx9N6GtH0zK4Bq5C3rl3LcOUYk6u2WmvW/Qqqq1uQdFHJqgWxas9vCJuxRHb60lbGiaydgxGVjyJc6eTUuHGszopNb3Gvb5LZCyMRObNcoqp0aZ/Zw7q17w6nRY9Nf8WiCjEVHZiu57ibpnqkSKxcGg==
+Received: from SJ0PR13CA0231.namprd13.prod.outlook.com (2603:10b6:a03:2c1::26)
+ by SA3PR12MB7974.namprd12.prod.outlook.com (2603:10b6:806:307::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 19:44:53 +0000
-Received: from SJ5PEPF00000209.namprd05.prod.outlook.com
- (2603:10b6:a03:33c:cafe::2e) by SJ0PR03CA0142.outlook.office365.com
- (2603:10b6:a03:33c::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Wed, 8 Jul
+ 2026 19:44:50 +0000
+Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::67) by SJ0PR13CA0231.outlook.office365.com
+ (2603:10b6:a03:2c1::26) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
- Jul 2026 19:44:53 +0000
+ Jul 2026 19:44:50 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,29 +60,29 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.233 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.233) by
- SJ5PEPF00000209.mail.protection.outlook.com (10.167.244.42) with Microsoft
+ SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 19:44:53 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 19:44:50 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
  (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 8 Jul
- 2026 12:44:42 -0700
+ 2026 12:44:38 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 8 Jul 2026 12:44:41 -0700
+ 15.2.2562.20; Wed, 8 Jul 2026 12:44:38 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Wed, 8 Jul 2026 12:44:41 -0700
+ Transport; Wed, 8 Jul 2026 12:44:37 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, "Kevin
  Tian" <kevin.tian@intel.com>, Lu Baolu <baolu.lu@linux.intel.com>
 CC: Robin Murphy <robin.murphy@arm.com>, <joro@8bytes.org>, David Woodhouse
 	<dwmw2@infradead.org>, <linux-arm-kernel@lists.infradead.org>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 5/5] iommu/vt-d: Convert nested cache invalidation to the core array loop
-Date: Wed, 8 Jul 2026 12:44:20 -0700
-Message-ID: <15bf2bf57e7bca35fdfd8262d2524026bb7574d3.1783539724.git.nicolinc@nvidia.com>
+Subject: [PATCH v3 1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation commands
+Date: Wed, 8 Jul 2026 12:44:16 -0700
+Message-ID: <194fec44b30b7b4233d218686cd76d63208932ff.1783539724.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783539724.git.nicolinc@nvidia.com>
 References: <cover.1783539724.git.nicolinc@nvidia.com>
@@ -92,28 +92,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000209:EE_|PH7PR12MB6696:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a9ec960-569a-4765-5ace-08dedd29616f
+X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|SA3PR12MB7974:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95dc810b-362c-4e7a-7812-08dedd295fcf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|23010399003|1800799024|5023799004|6133799003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: ynqoZRiMaSXYp1CM0iOfZLDepEOcpfUlORiE9D6zb2IF/iPZyu3cka0YqTP/doEVlR/uLLhxK2wlT9O7vKFVXB9Te5vRuPCBoGjBQN+Z7MYcvnTKba59QgbF/C+A8XZpUxlgKeYiYKdJ/TlV39ZaTeN0YXDkh8pLXntvb0s/OkXSoaQ6fNEdUadf1kgIlBRUx+LH+ZYVmk+Pap4RoaubWQZb9CnsCSxteAauz6bj+frIp7CdN7smd0Ap4R2O2U3LJEly91gpr/cC3YG4ZDx/NqkVBe0I2bmVMmvRmGaMo7oPPrwhxmgBQfvce4KZDXS8RjOBA4DVSHkz66T5LhOubb5kluJYSyzMG/j0TqmmBHxriC6U2yCeX4WxhwbRyhRwDt/yfLpY4nWlsQj9hWIgaTId1X1PLY1lgozwoQ3b16Xyin1MfC7QAXvmIw5MbKcOtcvSlOEouJuUQPdatr0ceWSulmE246HLWJMWAc+XRATK4ZVltzBKLmhNQqZMA8vaWs6/pSUlbD0OfoJNmBCOGffev1ZLETteBwmwsZp279efuNYNRWMmyVvfJI1RcBowk243JwRTUvxGpDwmhdK2Ru2I0qguta0hVSnSNxZ/IEtBznuxAhl6RUNQEs74EFRqpj2t2xUxNZBqh8mF2d6mQ2/XrxfeTZGth2gzlAw1OErl6c+U+gp+IPa5+nt6+xF74CFFdtJvYrvIew+MRpyn4A==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(23010399003)(1800799024)(5023799004)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|1800799024|3023799007|11063799006|56012099006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: dU8RozKN3zfIhMlgblzLAAt764nxqJuXIKGiRQ5dZ+kRFpfS0/fX/pE0EjgYM5EQ1JRyy7uzdIJ50ksxjZEQ7BxUpZklI0PIAXWR4TKPswn3S/5gOpUUXzHfFqJ+8kWaDtIqdGVD/HyM7XjPnXzOYfmgVAEpIJhHSLU/hX9p25pz0BWBKlCRyt8QRxHeUPkyOs8r8iuEfeZ8Qvirsds09S3QKxcaCjM1MZ5jQMGG7pkhYM1+nWER5B0w9KxLuFOqYWzojorhMlOCh5bxD8QSXCkSvmxCSd7Qi/6Us8YoELdjfW6e0KodKwCAMzn8jd1RUW9OBCAm/7LLSHhFEEjKhBHnUcWqYlbAi1o+6kNP98Gv3t1omOIOLbi4rWoAOi4TcgWN/mSLLuSdxL4+gLpxd1Qw8B6r7GgmwvFhClDTcBYN0cNTtwESbvu70BvGRbLCoPga1+2YHw/1unjG39kOptncjLyUWuKtVjJm2z3U0aTZOqccbig9ot3xJioAIT4YNCuMYUlvNb6A0QWR9hNZvz/A6pGwkvNT5VOQA9dr0zl5Nv7EX9ckYhfcUjORmH+rXKI+SgJM6zIIaj6TQNNy05t5VprrVakVdgafl+fOzLwLO0lNEgJ+Ii8E0MhWoAhqyjhU2Lptu9TQfE3RxtpLI2MAkNcBN9hF6BqStq9ol3f+Dw6CMiUSIvpGHjK/A3vuzNg/ZRk78iW8czXcSGPSQw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(1800799024)(3023799007)(11063799006)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 53DUw7Xjkg1f5EgqO2JoAjQa/C8SKJWPMPfbZkgrPZ/V983yEDMfgWAlHzPNqJRLY8Yo/xEwYUvmOIr/QWWILQ0sstfKMKpZmNRm/OSSL2+zfaYRstq+FS8nJlMDy7XJ2pRRZVv1HnpKR8gkDLl6kTiExv1IE304UjpZQ5LNemXus4RMQu+IbKC2uJyF8LohE5QG6i58Nn2g4tqClsmDEOpUpXDwgSlcd9GWIz/+QHHYDAeehJDsQ35QayYAGrAVdjrPtb5i4y0yhyCRKs10AR5LQwsYvUmQSY9kBS4xMNkKG0E1LwmHolxQxSDU2jqt1agpQqvJIsoTUBM46z21/fTkMtLeGu672A+lgbzTJu8tmst/GriPW0Hsg0jhu9Bsti1Xm2YjmcaP4dQaLFG8Kz37KsJqB6eFMZS5ebkUQKxKnBhbCnQcbeQCMVv6fYOO
+X-MS-Exchange-AntiSpam-MessageData-0: CpwzAcDdXg9zDbewRxRvka0VWhmr6O9Yk8ZYs6Yrpjn6MXi4zhytbmb2Mt2C96JMVPlKjbvFqxgi5UAH48Pg3cHYCGQ6wYCUuwe5VuCK89rIv6MBi8pibrlTtMcFe44Zea1vX9e9JsAfelGVR7pos/yTXElo3QVM8PkfBCMPhhRX2hClrRUnscpK16nJ3b1qmHIeaES7RuaMZaVBN0+3XGxIwDhM1ZKIq53BH8QhTqPcb80CPtGG2p2QyPZMDjWWZRVBYpNprmr3mNocEtR3MfVuEjh9QOiG6iSrGq9heDuu/tS0i/Wc6+2Nh3ZVTD9IuB272bGGfOtAj4mfBr4sGpo5djKGnDjmtpnAlCzCJRqC+wAn4RelQ4q3FZwRTgS5Curcm6LBHo/shKKVC6ny5lM/mrrAdnLMMI/g+yATUph77/TU/Zuhn8KwiYnfHF+4
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:44:53.1110
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:44:50.3825
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a9ec960-569a-4765-5ace-08dedd29616f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95dc810b-362c-4e7a-7812-08dedd295fcf
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000209.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6696
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7974
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_124506_486019_9EAACF15 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260708_124503_492923_98932AF9 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,96 +128,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-intel_nested_cache_invalidate_user() used to walk the whole request array
-on its own, copying and then flushing one single entry at a time.
+The arm_vsmmu_cache_invalidate() op hands a guest's invalidation commands
+to the trusted main command queue after enforcing only the VMID or the SID,
+and passes the rest of the command through to the queue unchanged.
 
-The iommufd core now iterates the request array itself and re-invokes the
-op with the not-yet-handled sub-array, so handle just a single request per
-call out of the front of that sub-array and report one handled entry via
-the array->entry_num. An empty array keeps returning a success, used as a
-probe of IOMMU_HWPT_INVALIDATE_DATA_VTD_S1 support.
+That lets a guest set bits the host never meant to forward: a reserved or
+undefined bit makes a command malformed; per the Arm SMMUv3 specification,
+in its section 4.1.3 "Command errors", a CERROR_ILL is raised, among other
+cases, when:
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Assisted-by: Claude:claude-opus-4-8
+  A valid command opcode is used and a Reserved or undefined field is
+  optionally detected as non-zero, which results in the command being
+  treated as malformed.
+
+Restrict each opcode to the fields that the driver supports and reject the
+command with -EIO if it sets any other bit, before the command reaches the
+queue. This stops the host from forwarding any bit whose meaning it does
+not control. Document this contract in the uAPI header, so user space must
+take the responsibility to forward valid commands only.
+
+Some fields and whole opcodes are legal only on an SMMU that implements
+the matching feature, so accept them conditionally:
+
+ - NUM, SCALE, TG and TTL need FEAT_RANGE_INV.
+ - SCALE bit 25, for values above 31, and TTL == 0b01 with a 16KB TG
+   need SMMU_IDR5.DS. The raw IDR5 that iommufd reports has let a VMM
+   expose DS to its guest all along, so add the minimal ARM_SMMU_FEAT_DS
+   detection and gate the two encodings on it, rather than regress such
+   a VMM by rejecting them unconditionally. Widening the SCALE field
+   does not change what the host emits in the range invalidation path,
+   which now masks its scale value explicitly to keep the pre-existing
+   5-bit truncation.
+ - ASID is limited to asid_bits, since its upper 8 bits are RES0 on an
+   SMMU that only supports 8-bit ASIDs.
+ - ATC_INV needs FEAT_ATS. Per the specification's section 4.5 "ATS and
+   PRI", CMD_ATC_INV is ILLEGAL when:
+
+     SMMU_IDR0.ATS == 0 and this command is issued on a Non-secure or
+     Secure Command queue.
+
+ - SSV, SSID and Global need a non-zero ssid_bits. Without it, setting
+   them is not illegal but CONSTRAINED UNPREDICTABLE, which a guest
+   should not be able to provoke. Global also takes effect only when
+   SSV == 1, broadening the invalidation from the one SSID to all the
+   PASIDs of the single device that the SID field addresses.
+
+Some values inside the accepted fields are Reserved too:
+
+ - NUM == 0, SCALE == 0 and TTL == 0 together are a Reserved combination
+   and cause a CERROR_ILL.
+ - NUM, SCALE and TTL turn RES0 when TG == 0.
+ - An ATC_INV Size above 52, the invalidate-all span, is permitted to
+   raise a CERROR_ILL.
+
+Reject these Reserved values the same way. In contrast, an out-of-range
+address or ID value is defined as CONSTRAINED UNPREDICTABLE that would
+be scoped to the guest itself, so it does not deserve a check.
+
+Fixes: d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-fable-5
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/intel/nested.c | 54 ++++++++++++++++++++----------------
- 1 file changed, 30 insertions(+), 24 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   4 +-
+ include/uapi/linux/iommufd.h                  |   4 +-
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 116 ++++++++++++++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   6 +-
+ 4 files changed, 116 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/iommu/intel/nested.c b/drivers/iommu/intel/nested.c
-index 2b979bec56cef..36e0e8e85c065 100644
---- a/drivers/iommu/intel/nested.c
-+++ b/drivers/iommu/intel/nested.c
-@@ -93,7 +93,7 @@ static int intel_nested_cache_invalidate_user(struct iommu_domain *domain,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index c909c9a88538b..3c59e62978a13 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -64,6 +64,7 @@ struct arm_vsmmu;
+ 
+ #define ARM_SMMU_IDR5			0x14
+ #define IDR5_STALL_MAX			GENMASK(31, 16)
++#define IDR5_DS				(1 << 7)
+ #define IDR5_GRAN64K			(1 << 6)
+ #define IDR5_GRAN16K			(1 << 5)
+ #define IDR5_GRAN4K			(1 << 4)
+@@ -415,7 +416,7 @@ struct arm_smmu_cmd {
+ 
+ #define CMDQ_TLBI_0_NUM			GENMASK_ULL(16, 12)
+ #define CMDQ_TLBI_RANGE_NUM_MAX		31
+-#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(24, 20)
++#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(25, 20)
+ #define CMDQ_TLBI_0_VMID		GENMASK_ULL(47, 32)
+ #define CMDQ_TLBI_0_ASID		GENMASK_ULL(63, 48)
+ #define CMDQ_TLBI_1_LEAF		(1UL << 0)
+@@ -921,6 +922,7 @@ struct arm_smmu_device {
+ #define ARM_SMMU_FEAT_HD		(1 << 22)
+ #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
+ #define ARM_SMMU_FEAT_BBML2		(1 << 24)
++#define ARM_SMMU_FEAT_DS		(1 << 25)
+ 	u32				features;
+ 
+ #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+index 0425d452d41ed..691b810ca574f 100644
+--- a/include/uapi/linux/iommufd.h
++++ b/include/uapi/linux/iommufd.h
+@@ -909,7 +909,9 @@ struct iommu_hwpt_vtd_s1_invalidate {
+  *     CMDQ_OP_CFGI_CD
+  *     CMDQ_OP_CFGI_CD_ALL
+  *
+- * -EIO will be returned if the command is not supported.
++ * User space must forward only valid commands: the kernel rejects, with
++ * -EIO, any command carrying an unsupported opcode, an unsupported field,
++ * or a field value that the underlying SMMU hardware does not implement.
+  */
+ struct iommu_viommu_arm_smmuv3_invalidate {
+ 	__aligned_le64 cmd[2];
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index 1e9f7d2de3441..a5cfbc2499034 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -305,6 +305,26 @@ struct arm_vsmmu_invalidation_cmd {
+ 	};
+ };
+ 
++/* Reject the range field values that the spec defines as Reserved */
++static int arm_vsmmu_validate_range(struct arm_smmu_device *smmu,
++				    struct arm_vsmmu_invalidation_cmd *cmd)
++{
++	bool range = cmd->cmd.data[0] & (CMDQ_TLBI_0_NUM | CMDQ_TLBI_0_SCALE);
++	u8 ttl = FIELD_GET(CMDQ_TLBI_1_TTL, cmd->cmd.data[1]);
++	u8 tg = FIELD_GET(CMDQ_TLBI_1_TG, cmd->cmd.data[1]);
++
++	/* NUM, SCALE and TTL are RES0 when TG == 0 */
++	if (!tg)
++		return (range || ttl) ? -EIO : 0;
++	/* TTL == 0b01 with a 16KB TG requires SMMU_IDR5.DS */
++	if (tg == 2 && ttl == 1 && !(smmu->features & ARM_SMMU_FEAT_DS))
++		return -EIO;
++	/* NUM == 0, SCALE == 0 with TTL == 0 is a reserved combination */
++	if (!range && !ttl)
++		return -EIO;
++	return 0;
++}
++
+ /*
+  * Convert, in place, the raw invalidation command into an internal format that
+  * can be passed to arm_smmu_cmdq_issue_cmdlist(). Internally commands are
+@@ -315,33 +335,107 @@ struct arm_vsmmu_invalidation_cmd {
+ static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
+ 				      struct arm_vsmmu_invalidation_cmd *cmd)
  {
- 	struct dmar_domain *dmar_domain = to_dmar_domain(domain);
- 	struct iommu_hwpt_vtd_s1_invalidate inv_entry;
--	u32 index, processed = 0;
-+	u32 processed = 0;
- 	int ret = 0;
- 
- 	if (array->type != IOMMU_HWPT_INVALIDATE_DATA_VTD_S1) {
-@@ -101,31 +101,37 @@ static int intel_nested_cache_invalidate_user(struct iommu_domain *domain,
- 		goto out;
- 	}
- 
--	for (index = 0; index < array->entry_num; index++) {
--		ret = iommu_copy_struct_from_user_array(&inv_entry, array,
--							IOMMU_HWPT_INVALIDATE_DATA_VTD_S1,
--							index, __reserved);
--		if (ret)
--			break;
--
--		if ((inv_entry.flags & ~IOMMU_VTD_INV_FLAGS_LEAF) ||
--		    inv_entry.__reserved) {
--			ret = -EOPNOTSUPP;
--			break;
--		}
--
--		if (!IS_ALIGNED(inv_entry.addr, VTD_PAGE_SIZE) ||
--		    ((inv_entry.npages == U64_MAX) && inv_entry.addr)) {
--			ret = -EINVAL;
--			break;
--		}
--
--		cache_tag_flush_range(dmar_domain, inv_entry.addr,
--				      inv_entry.addr + nrpages_to_size(inv_entry.npages) - 1,
--				      inv_entry.flags & IOMMU_VTD_INV_FLAGS_LEAF);
--		processed++;
-+	/*
-+	 * The core re-invokes this op for the remaining requests, so handle one
-+	 * request per call. A zero-length array only probes the type, validated
-+	 * above.
-+	 */
-+	if (!array->entry_num)
-+		return 0;
++	struct arm_smmu_device *smmu = vsmmu->smmu;
++	u64 allowed[2] = { CMDQ_0_OP };
++	u64 *data = cmd->cmd.data;
 +
-+	ret = iommu_copy_struct_from_user_array(
-+		&inv_entry, array, IOMMU_HWPT_INVALIDATE_DATA_VTD_S1, 0,
-+		__reserved);
-+	if (ret)
-+		goto out;
+ 	/* Commands are le64 stored in u64 */
+-	cmd->cmd.data[0] = le64_to_cpu(cmd->ucmd.cmd[0]);
+-	cmd->cmd.data[1] = le64_to_cpu(cmd->ucmd.cmd[1]);
++	data[0] = le64_to_cpu(cmd->ucmd.cmd[0]);
++	data[1] = le64_to_cpu(cmd->ucmd.cmd[1]);
 +
-+	if ((inv_entry.flags & ~IOMMU_VTD_INV_FLAGS_LEAF) ||
-+	    inv_entry.__reserved) {
-+		ret = -EOPNOTSUPP;
-+		goto out;
++	/* Collect the fields userspace is allowed to set for each opcode */
++	switch (data[0] & CMDQ_0_OP) {
++	case CMDQ_OP_TLBI_NH_VA:
++		/* An SMMU with 8-bit ASIDs treats the upper 8 bits as RES0 */
++		allowed[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID,
++					 GENMASK(smmu->asid_bits - 1, 0));
++		fallthrough;
++	case CMDQ_OP_TLBI_NH_VAA:
++		/* NUM/SCALE/TG/TTL are range fields gated on FEAT_RANGE_INV */
++		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
++			if (arm_vsmmu_validate_range(smmu, cmd))
++				return -EIO;
++			allowed[0] |= CMDQ_TLBI_0_NUM | CMDQ_TLBI_0_SCALE;
++			allowed[1] |= CMDQ_TLBI_1_TG | CMDQ_TLBI_1_TTL;
++			/* SCALE bit 25 (values above 31) is RES0 without DS */
++			if (!(smmu->features & ARM_SMMU_FEAT_DS))
++				allowed[0] &= ~FIELD_PREP(CMDQ_TLBI_0_SCALE,
++							  BIT(5));
++		}
++		allowed[0] |= CMDQ_TLBI_0_VMID;
++		allowed[1] |= CMDQ_TLBI_1_LEAF | CMDQ_TLBI_1_VA_MASK;
++		break;
++	case CMDQ_OP_TLBI_NH_ASID:
++		/* An SMMU with 8-bit ASIDs treats the upper 8 bits as RES0 */
++		allowed[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID,
++					 GENMASK(smmu->asid_bits - 1, 0));
++		fallthrough;
++	case CMDQ_OP_TLBI_NH_ALL:
++		allowed[0] |= CMDQ_TLBI_0_VMID;
++		break;
++	case CMDQ_OP_ATC_INV:
++		/* ATC_INV is illegal unless the SMMU implements ATS */
++		if (!(smmu->features & ARM_SMMU_FEAT_ATS))
++			return -EIO;
++		/* A Size above 52 (invalidate-all) may raise a CERROR_ILL */
++		if (FIELD_GET(CMDQ_ATC_1_SIZE, data[1]) > ATC_INV_SIZE_ALL)
++			return -EIO;
++		/*
++		 * SSV/SSID/Global need substream support. SSID and Global are
++		 * IGNORED (not RES0) when SSV == 0, so they need no SSV check.
++		 */
++		if (smmu->ssid_bits)
++			allowed[0] |= CMDQ_0_SSV | CMDQ_ATC_0_SSID |
++				      CMDQ_ATC_0_GLOBAL;
++		allowed[0] |= CMDQ_ATC_0_SID;
++		allowed[1] |= CMDQ_ATC_1_SIZE | CMDQ_ATC_1_ADDR_MASK;
++		break;
++	case CMDQ_OP_CFGI_CD:
++		/* No SSV for CFGI_CD; SSID requires substream support */
++		if (smmu->ssid_bits)
++			allowed[0] |= CMDQ_CFGI_0_SSID;
++		allowed[1] |= CMDQ_CFGI_1_LEAF;
++		fallthrough;
++	case CMDQ_OP_CFGI_CD_ALL:
++		allowed[0] |= CMDQ_CFGI_0_SID;
++		break;
 +	}
 +
-+	if (!IS_ALIGNED(inv_entry.addr, VTD_PAGE_SIZE) ||
-+	    (inv_entry.npages == U64_MAX && inv_entry.addr)) {
-+		ret = -EINVAL;
-+		goto out;
- 	}
++	/*
++	 * Reject any other bit, e.g. a RES0 bit or a Secure bit, before the
++	 * command reaches the trusted main cmdq, so a guest cannot wedge the
++	 * shared queue for every device with a CERROR_ILL.
++	 *
++	 * By contrast, an out-of-range address or ID value does not need a
++	 * check: the spec defines it as CONSTRAINED UNPREDICTABLE, which is
++	 * scoped to the guest itself and does not raise a CERROR_ILL.
++	 */
++	if ((data[0] & ~allowed[0]) || (data[1] & ~allowed[1]))
++		return -EIO;
  
-+	cache_tag_flush_range(dmar_domain, inv_entry.addr,
-+			      inv_entry.addr +
-+				      nrpages_to_size(inv_entry.npages) - 1,
-+			      inv_entry.flags & IOMMU_VTD_INV_FLAGS_LEAF);
-+	processed = 1;
- out:
- 	array->entry_num = processed;
- 	return ret;
+-	switch (cmd->cmd.data[0] & CMDQ_0_OP) {
++	switch (data[0] & CMDQ_0_OP) {
+ 	case CMDQ_OP_TLBI_NSNH_ALL:
+ 		/* Convert to NH_ALL */
+-		cmd->cmd.data[0] = CMDQ_OP_TLBI_NH_ALL |
+-			      FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
+-		cmd->cmd.data[1] = 0;
++		data[0] = CMDQ_OP_TLBI_NH_ALL |
++			  FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
++		data[1] = 0;
+ 		break;
+ 	case CMDQ_OP_TLBI_NH_VA:
+ 	case CMDQ_OP_TLBI_NH_VAA:
+ 	case CMDQ_OP_TLBI_NH_ALL:
+ 	case CMDQ_OP_TLBI_NH_ASID:
+-		cmd->cmd.data[0] &= ~CMDQ_TLBI_0_VMID;
+-		cmd->cmd.data[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
++		data[0] &= ~CMDQ_TLBI_0_VMID;
++		data[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
+ 		break;
+ 	case CMDQ_OP_ATC_INV:
+ 	case CMDQ_OP_CFGI_CD:
+ 	case CMDQ_OP_CFGI_CD_ALL: {
+-		u32 sid, vsid = FIELD_GET(CMDQ_CFGI_0_SID, cmd->cmd.data[0]);
++		u32 sid, vsid = FIELD_GET(CMDQ_CFGI_0_SID, data[0]);
+ 
+ 		if (arm_vsmmu_vsid_to_sid(vsmmu, vsid, &sid))
+ 			return -EIO;
+-		cmd->cmd.data[0] &= ~CMDQ_CFGI_0_SID;
+-		cmd->cmd.data[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
++		data[0] &= ~CMDQ_CFGI_0_SID;
++		data[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
+ 		break;
+ 	}
+ 	default:
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index a10affb483a4f..9f121f9f404ea 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2446,9 +2446,10 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
+ 			/* Determine how many chunks of 2^scale size we have */
+ 			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
+ 
++			/* Keep the pre-DS 5-bit truncation when scale > 31 */
+ 			cmd->data[0] = orig_data0 |
+ 				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
+-				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
++				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
+ 
+ 			/* range is num * 2^scale * pgsize */
+ 			inv_range = num << (scale + tg);
+@@ -5098,6 +5099,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 	/* Maximum number of outstanding stalls */
+ 	smmu->evtq.max_stalls = FIELD_GET(IDR5_STALL_MAX, reg);
+ 
++	if (reg & IDR5_DS)
++		smmu->features |= ARM_SMMU_FEAT_DS;
++
+ 	/* Page sizes */
+ 	if (reg & IDR5_GRAN64K)
+ 		smmu->pgsize_bitmap |= SZ_64K | SZ_512M;
 -- 
 2.43.0
 
