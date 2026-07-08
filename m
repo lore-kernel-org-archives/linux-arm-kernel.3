@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D492C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32450C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxEnLEysA0x6qP1GhzE2jlVqsDd0b1OoIx2vxLPTsw8=; b=KWCOCU85VB13mHYD5Os8ETH81T
-	dsdOi+14mCPBYV2gkCQu1SJ4gMsBJXoM0Tmy2GbCCwSmQVWUDHUn9TC8s8bXuImKlNubNybzRliZV
-	fLqcSzz8lBK0C6e58uZqbo5BuVKxkn/D4Br1LRPfHKyyVMcJcNdtR3Ob0Ta/PZfqyIkcvT3uUoj0h
-	wp7FWIiD9V0+0pOXLerspGMX9A8sCz89zWORUBsNB6IRZHrbviCQEUQgFVh0SnbSXgAJUFY6m5w9g
-	deOFyWKPKj29QGTt3kn80dtKbJiOFRd6coXuoUbnRhgwkjhH/xJMiY34ILEq+D+DSks9wOQ4vDZqF
-	23sVntCQ==;
+	bh=kYk3Pc1Nggb7PXn+wQLL4rEcgFB4xZch1ROiy/CjaL4=; b=FFrQdD1EcpQprgVuwNJBPahDXZ
+	nypS8QV3K29uf5+loBteHqhL4suE7ZVRGs127bU7kvWAxTbGPiFM9odISDpSCm/IwcfZ1axI3gu6G
+	1UYTsaHv90Rqrnof3s5xDNlkx2nuNzAws1MqtbLFGXaY4KebeBbc8Mb1ckQ0mkhsGyrXFQGlm21yE
+	tw53YgTxvyLLiShdzK9/9w9zb6ZgEM3DxbcTKd4kQodK9w24ohazhk+vzg4vZZrR+fyY8MEkf7z+P
+	fHyk261Nb+qTlqe4SC3RIQo5+bvsrAaUM9TmitblD7FI18gutv4RtCRX2XQPgmALNE3fcSbxadTTU
+	QaKY8jBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVVX-000000001vJ-30my;
-	Wed, 08 Jul 2026 16:52:23 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVVR-000000001s3-2T9W
+	id 1whVdN-000000002Uu-2nXh;
+	Wed, 08 Jul 2026 17:00:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whVdK-000000002UP-2ljy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:52:18 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-476a130c138so1024368f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:52:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1783529536; x=1784134336; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gxEnLEysA0x6qP1GhzE2jlVqsDd0b1OoIx2vxLPTsw8=;
-        b=gXdZodF4qf02VU7PODa/4tQAAojPUNewOs2QvMftqT9Jht5xlfGHMs3cUFIdVsuXDO
-         kJH4WefIZruDJ2/mlJF+zSfOe8Q15lhCbfsj8524CnOtizbEHAxiRzXLgpOGpE0wBnDa
-         Gtg9F75WXgtflB2f52GUchpCZpiTMsgzPMBAr3QD09lqDybIqPb2Tu7yj8Mv1A8hgvkl
-         PBTThcuS2PxJMct8iSAUwKLOk1/reYdIY1uMnX7xeevIv30TXp/9YgCmsx297kl48Ag+
-         zCfSDZRKFDumPbjQgPHWXIAGIEAcVY9Dn3LQ/b0przSDG5cSV+Xy8bph7gf6XgS6QUWS
-         AZZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783529536; x=1784134336;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gxEnLEysA0x6qP1GhzE2jlVqsDd0b1OoIx2vxLPTsw8=;
-        b=FzZ8KTTmasTNvN/55ytIVFeZTISVPwkSGwyZpB/ow15eZvhwN/6OKVX5kylCtidWJ7
-         wEIaU1YI5nfOPi2WO+oPJwVrC2Kl4uYx3F5BbjK+Ru48ITdJlsG5CGs6TfTSzMnntvP+
-         jKkZRCp4zP1omlYHDZJ1mOsBXoNbYk8iJajyg8TVRmgp8lV8qdglB7wii+x6ojuEy/n8
-         JygvciYteCdp4ALLuGYTCL0CIO/Ziqz3SUgdYXIjjA4056l9sqgYjapITHRbLKmV6iTz
-         ZFkQiSjHbvwYEQAdBAkKEBaXaOjr/4cNIRWXsgN0R4ts0QNWwC5gLqjxYfxZUYoc1CEF
-         H4PA==
-X-Forwarded-Encrypted: i=1; AHgh+RpNxwr0HycjJl1KywTzFRAyXS54DHoDJV6n4PJHuZ3QJAhqjavPgi12jTQjpdaWijzIqvd2RF5Um4iA0KAHcuHH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqBtoK7jwNYsqnoqmUu/fYkbjTHl8RGWFZPzRpH6a+6P95LFH/
-	KCv2eP1L9m6/NKoRkpsmkp2bskcU4WB6GYU6zKwizptAzOuvHEaYSIiEKE6CjQzzKUY=
-X-Gm-Gg: AfdE7cnaeNCjj2S8WEVlNhH0T/NEj8fpMCqyMil/8uo/EB/JsQ/EWqjy2/RskUIlCEs
-	feCUhSr+UhSqZYbfFtKs27FFxJ5scb4XwZN5C4cI5QGWPqjtPJDbP3N16DeGp3B8wCtmlc5YIdR
-	fus6+8FOFzKmYyDMRyi8RYKX4EF5dfElDTKbHgIIrhTp5IhCztGwnlZMgCYBsSvJokDTQ6DD5vf
-	zxoSmdXG1WZbUm28xaZV7W7fCZf5umz9C3fsePFp9e4vOgzMm3ZnIHCKCxobVZ0VBpet5TklP/r
-	dq7qUViv31fvH6R4NRtaPHHTWMVduy154CTIR15C0lbyetAGPcuYgPBo/kOvfRYq5xzd2nNwfbI
-	eIkoD8Zp85uq/C/onye/ZvD8LG1UCp1ajGr3XWxt5+xj3oicQHdhLPUYvfwPVXt7Tz3wPNIwsw9
-	cI49/xc7OyiztaR8eGk/jtxA1oO+nJbnUi5X3Y7ZxxVjd3wGCzSGZUnhWCxJLHAA6oB4MwPwbYu
-	/zxnxAukup/nDbVntlPSF3dM8pbNvnfMmejZR20P1U=
-X-Received: by 2002:a05:6000:40cb:b0:475:a05c:c63e with SMTP id ffacd0b85a97d-47df075c7f8mr3562703f8f.31.1783529535977;
-        Wed, 08 Jul 2026 09:52:15 -0700 (PDT)
-Received: from threadripper-fedora-workstation (dh207-15-57.xnet.hr. [88.207.15.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0f214d2sm42902679f8f.33.2026.07.08.09.52.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 09:52:15 -0700 (PDT)
-From: Robert Marko <robert.marko@sartura.hr>
-To: conor@kernel.org,
-	nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	broonie@kernel.org,
-	alexandre.belloni@bootlin.com,
+	Wed, 08 Jul 2026 17:00:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 571C71D14;
+	Wed,  8 Jul 2026 10:00:20 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F10AE3F7B4;
+	Wed,  8 Jul 2026 10:00:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783530024; bh=cfr+dPlXU3RH6R71sBVR+lg3TvtZzuQin7cnXsJOpN4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Pq+8oaDkeXoQ71qDYisedxETmd1HbvAj5vViUMd6MuR6hyiF6ruvC+QvM7UCNiKz4
+	 j2JEIUr4Iz3K1+/wgoWOITAQyfw0CWCirp6sPN0EoVFJmj/tE+602UJxK/KHkgrw/A
+	 COdzQ4BYhIQEyLWi3AuFlC/PoaiuIizLMOmsOgH4=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	daniel.machon@microchip.com
-Cc: luka.perkov@sartura.hr,
-	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH 4/4] arm64: dts: microchip: lan969x: add QSPI nodes
-Date: Wed,  8 Jul 2026 18:51:11 +0200
-Message-ID: <20260708165201.624271-4-robert.marko@sartura.hr>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] KVM: arm64: Avoid re-testing walk_continue
+Date: Wed,  8 Jul 2026 18:00:21 +0100
+Message-ID: <ak6CJWdhPaIYj2GU@LeoBrasDK>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260708165201.624271-1-robert.marko@sartura.hr>
-References: <20260708165201.624271-1-robert.marko@sartura.hr>
+In-Reply-To: <8733xt77tq.wl-maz@kernel.org>
+References: <20260708134101.2514759-1-leo.bras@arm.com> <20260708134101.2514759-2-leo.bras@arm.com> <8733xt77tq.wl-maz@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_095217_641419_4D831E9E 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20260708_100026_921494_E16DE2C5 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the required DT nodes for both QSPI controllers.
+On Wed, Jul 08, 2026 at 05:41:05PM +0100, Marc Zyngier wrote:
+> On Wed, 08 Jul 2026 14:40:57 +0100,
+> Leonardo Bras <leo.bras@arm.com> wrote:
+> > 
+> > In __kvm_pgtable_visit(), a couple tests for kvm_pgtable_walk_continue()
+> > will 'goto out' if it should not continue. This means the same test will be
+> > ran again before returning ret, which is unnecessary.
+> > 
+> > Return ret directly instead.
+> > This will simplify next patch.
+> 
+> This reads quite badly, and doesn't explain what you are trying to do.
+> How about something like:
+> 
+> "__kvm_pgtable_visit() performs a bunch of calls to
+>  kvm_pgtable_walk_continue() to find out whether the walk can continue
+>  further, and if not, falls back to an 'goto out' which retests the
+>  possibility of continuing the walk.
+> 
+>  Given that there is no reason why the situation would have changed
+>  between the two checks, turn this goto into an early return,
+>  simplifying the code and paving the way for further rework."
+> 
 
-Signed-off-by: Robert Marko <robert.marko@sartura.hr>
----
- arch/arm64/boot/dts/microchip/lan9691.dtsi | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Agree, your version looks better.
+Will try to be more clear, and reuse some of your version, in my next 
+version.
 
-diff --git a/arch/arm64/boot/dts/microchip/lan9691.dtsi b/arch/arm64/boot/dts/microchip/lan9691.dtsi
-index a8679ee6da13..7db9378c60a3 100644
---- a/arch/arm64/boot/dts/microchip/lan9691.dtsi
-+++ b/arch/arm64/boot/dts/microchip/lan9691.dtsi
-@@ -396,6 +396,24 @@ clks: clock-controller@e00c00b4 {
- 			clock-names = "cpu", "ddr", "sys";
- 		};
- 
-+		qspi0: spi@e0804000 {
-+			compatible = "microchip,lan9691-qspi";
-+			reg = <0xe0804000 0x00000100>,
-+			      <0x20000000 0x08000000>;
-+			reg-names = "qspi_base", "qspi_mmap";
-+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&fabric_clk>, <&clks GCK_ID_QSPI0>;
-+			clock-names = "pclk", "gclk";
-+			assigned-clocks = <&clks GCK_ID_QSPI0>;
-+			assigned-clock-rates = <100000000>;
-+			dmas = <&dma AT91_XDMAC_DT_PERID(1)>,
-+			       <&dma AT91_XDMAC_DT_PERID(0)>;
-+			dma-names = "tx", "rx";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		sdmmc0: mmc@e0830000 {
- 			compatible = "microchip,lan9691-sdhci";
- 			reg = <0xe0830000 0x00000300>;
-@@ -418,6 +436,21 @@ sdmmc1: mmc@e0838000 {
- 			status = "disabled";
- 		};
- 
-+		qspi2: spi@e0834000 {
-+			compatible = "microchip,lan9691-qspi";
-+			reg = <0xe0834000 0x00000100>,
-+			      <0x30000000 0x04000000>;
-+			reg-names = "qspi_base", "qspi_mmap";
-+			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&fabric_clk>, <&clks GCK_ID_QSPI2>;
-+			clock-names = "pclk", "gclk";
-+			assigned-clocks = <&clks GCK_ID_QSPI2>;
-+			assigned-clock-rates = <100000000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		reset: reset-controller@e201000c {
- 			compatible = "microchip,lan9691-switch-reset",
- 				     "microchip,lan966x-switch-reset";
--- 
-2.55.0
-
+Thanks!
+Leo
 
