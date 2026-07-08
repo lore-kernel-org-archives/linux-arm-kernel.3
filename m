@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D23C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD64FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jWIe7G/7fkcX9co8suO8AJv+we8rXUPiImUac+7exj0=; b=Fe6uiBjCy0N0yCYvrrfIei5qx9
-	qnGh0/R4QFkdkYT3psOSXwl95DzekQ6estNtKssUCzfrgPbI22tjqWgxbPi8F8Q0XPBE9uKx2F3lk
-	pI48n50g6T17qtMZAwUIVZ8bbNP8iXiAjYuVf5dj0wGKUGFaPh5A8zF58iLE0u+GsKAynwtYjoP3N
-	2qZsc6FLvk4E0kJAmXxsGo4Q4BfoF3f/EeTlKaUMxRQy6Gtlc+52vOCzi7APtmehnk6gdDsEWZmgO
-	Mo1hTAPuzbv/GuTXnzEoKmTRggzYmyxEAo1Vp6yumkdMoTUDKwo3NyodNy/upnIgl+GpYTJoXXA0A
-	blPGXayg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ry1jHIlsPrzEH0RoCtXw3fNNBOioPl60LBp1/5+t9Cg=; b=ysWLLdfGWbn/B9
+	rA1PD06jrbPuraHZ/W5YlMfu2uhLlUuuplHdkgvOAfMtjvVE5Bl+UXvIHcSS8FRcIYDrQyhoAIYwF
+	NJJVAyZCV1qVBWer9ixzhHQxaNcpoL/fTPCmCxVR1dYs5jGNXMWyUNMNFMOMXIt0zA/NVR1aD3vA5
+	VzZo4CUP3eS6SoAA4ACbUrOtQJxSZ01xYEYmmYaY1PioVKcN5xQAYkbDDbHYLpAofzE3lfEQzvFfW
+	LlJpP0P8+z0k8svG3UFlIHuo1AF/oD5O1vk9UDioRhVayHpFWdmIipPT0N2cY9RAANwwk2AUgbBYA
+	FQ+KKyAWUSDz/+s3F/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMVn-0000000GT8q-30xv;
+	id 1whMVn-0000000GT8L-25VW;
 	Wed, 08 Jul 2026 07:16:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMVm-0000000GT6K-0i0R
+	id 1whMVl-0000000GT69-3qCG
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 08 Jul 2026 07:16:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DE3543F5D;
-	Wed,  8 Jul 2026 07:16:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id ECF24C2BCF7;
+	by tor.source.kernel.org (Postfix) with ESMTP id F3A1160008;
+	Wed,  8 Jul 2026 07:16:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9D888C2BCC7;
 	Wed,  8 Jul 2026 07:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783494961;
-	bh=T2hjJ4VW2vv/BzLonzPN9qyF2cwvwXce9kLJVx7y2NI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fn6fKnGuJBujzL/KyGm3delqzpXmsKW5dP3Wq3eESKOtVlwlaqpdIedUcj3AuW2rF
-	 KgUul1NOxy9OL71gCR9ZWwBoVscieLPJWKgGRwz0E36GpAXUB5RhyuokztQrqCb2vw
-	 M8cdhTuehgpBUhUdN9jet/gVFt/+i+vfhKXzE3CQrylP13HvK0OLGT4luzacu82mi8
-	 ZPKFHV0Y00NLMozbs8tVFUYUXq9XVR/cw7hmUN4FJDd3Z6RntzTVCSUXr4kbqLbn+C
-	 ZIBnsBSZu5OOm/kLZPe3z6QztDtkx29JWyGu6xn3NuazO1AUay84AYmXIcCAzNOfds
-	 lY5AlYcn9M/1g==
+	s=k20201202; t=1783494960;
+	bh=ByYtCtKpL5zN/yGVXFT5sli8OKOR0P5NbnNTzjELoN0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=p/YeNzASzq7aKDoVCUOwMCQGWEmGoLWaJrvVKLx52HyRj4Yu5JiKi9fQOx6DXhZyB
+	 QGJBHD5zp4Ieszp6nXteQrutvrpRs8PygkVn4R6gATRImzBptL6UdsG+1xme48aA57
+	 jn+ENfboaCcgy1NRu1HbrC0fF1TXk0mMbieJGGn1SjiENljtjlOqW8XGnBGuM7nA2S
+	 3UXKW6eC6C+Qrh4kZlDJdPFvqdOBW5yx3ZGtHTqtnlmPr4SDy04yOiLPlaF4y+P13a
+	 ZuIfvme1Y2Z8DKkixa8XQZwl1RSck6AgDGsn++CR+5TkPsfsrhpppk8V5m5oykQmRd
+	 Z0jhlXDw4Dxvw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5F26C43602;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 77E14C43458;
 	Wed,  8 Jul 2026 07:16:00 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Wed, 08 Jul 2026 09:15:42 +0200
-Subject: [PATCH RFC 6/6] arm64: dts: apple: t8103: Add PSCI and CPU idle
- states
+Subject: [PATCH RFC 0/6] PSCI-via-EFI to support firmware and kernel
+ sharing EL2 for Apple Silicon
+Date: Wed, 08 Jul 2026 09:15:36 +0200
+Message-Id: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-efi-psci-v1-6-9efb3abf0e4c@kernel.org>
-References: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
-In-Reply-To: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyNT3dS0TN2C4uRM3UTLJDPzpDSzNEMTUyWg8oIioFQF2KhopSA3Z6X
+ Y2loAT/7/NF8AAAA=
+X-Change-ID: 20260625-efi-psci-a9b67bf6f145
 To: Mark Rutland <mark.rutland@arm.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,13 +69,13 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
  asahi@lists.linux.dev, Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4506; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3357; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=T2hjJ4VW2vv/BzLonzPN9qyF2cwvwXce9kLJVx7y2NI=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ5bvT91/7B+f1b4PCA9wehDms1b2+923e2YwzGTVqba8E
- tnh8467o5SFQYyLQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRS+UM/zSFc+T7pFeZbvEw
- ZXvzfb5XeJaBj7ex5MnovTJzT70MLmNkaI8yWerEprTO85ndrj4Nxdql25j5Ahw4f65xPjfJxqC
- JFwA=
+ bh=ByYtCtKpL5zN/yGVXFT5sli8OKOR0P5NbnNTzjELoN0=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ5bvT5WlF8I4rk6Sn5nG6cMjrV3d2vA75pVuJfeDjve1K
+ 1ZrnrPqKGVhEONikBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAExkrSEjw2P1OXzND6zaJ9/+
+ pXRxV4RW6oRK9u44du2vsQZlq27XbWb4KzDz0GxmlsYNH4rEWN7utj4oLCNjHflwftn5nWtOMvs
+ msQIA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -92,142 +94,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch the base M1 from spin-table to PSCI and also add two basic idle
-states that we support for now.
+Hi,
+
+Usually, idle and sleep state are implemented in firmware running in
+e.g. EL3 with the kernel trapping into that from EL2. Unfortunately,
+there's no EL3 on Apple Silicon machines and we'd rather not run the
+kernel in EL1 since this would result in losing KVM support.
+
+While the shallower states could be implemented inside a custom cpuidle
+driver (like we do downstream, see [1]) the deeper states result in a
+complete loss of state and require bootstraping the cores again which is
+quite involved. So instead we need some way to call back into our
+open-source firmware to be able to handle that. This is even more
+important for M4+ which don't even support the architectural wfi anymore
+and always lose state when that instruction is executed.
+
+Luckily, EFI runtime services provide much of scaffolding we need,
+namely a way to keep some code and data mapped and the ability to jump
+into there from inside the kernel.
+
+This series adds a custom EFI table that points to a PSCI entry point
+(plus some other stuff that has to be available before EFI runtime
+services are set up) and adds support for this new conduit to the psci
+code. We can't directly use the normal EFI runtime path because that one
+takes a sleeping lock and we need to be able to call into PSCI from
+atomic context during e.g. cpu bringup or during idle.
+It also adds support for specifying the specific MAIR attributes for EFI
+runtime mappings as defined in the latest UEFI spec since Apple Silicon
+is rather allergic to using Device-nGnRnE vs. Device-nGnRE for its MMIO.
+
+This all results in a surprisingly small diffstat. I believe this
+approach was originally suggested in some IRC discussion years ago,
+possibly by Ard, but I can't find the old logs anymore.
+Happy to add a Suggested-by tag though if anyone remembers.
+
+The firmware implementation I used for testing can be found at [2] and
+the full kernel tree with this series applied at [3].
+
+Best,
+
+Sven
+
+[1] https://github.com/AsahiLinux/linux/blob/asahi/drivers/cpuidle/cpuidle-apple.c
+[2] https://github.com/AsahiLinux/m1n1/tree/psci-via-efi
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git/log/?h=efi-psci
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- arch/arm64/boot/dts/apple/t8103.dtsi | 51 ++++++++++++++++++++++++++++++------
- 1 file changed, 43 insertions(+), 8 deletions(-)
+Sven Peter (6):
+      dt-bindings: arm: psci: Add EFI conduit
+      arm64/efi: Add and parse custom PSCI EFI configuration table
+      efi: Add EFI_MEMORY_ISA_{MASK,VALID}
+      arm64/efi: Honor EFI_MEMORY_ISA_MASK for Device-nGnRnE vs -nGnRE
+      firmware/psci: Add EFI runtime conduit
+      arm64: dts: apple: t8103: Add PSCI and CPU idle states
 
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index da774096b667..3dbcaa698a90 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -24,6 +24,11 @@ aliases {
- 		gpu = &gpu;
- 	};
- 
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "efi";
-+	};
-+
- 	cpus {
- 		#address-cells = <2>;
- 		#size-cells = <0>;
-@@ -64,7 +69,8 @@ cpu_e0: cpu@0 {
- 			compatible = "apple,icestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x0>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&ecluster_opp>;
- 			capacity-dmips-mhz = <714>;
-@@ -78,7 +84,8 @@ cpu_e1: cpu@1 {
- 			compatible = "apple,icestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x1>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&ecluster_opp>;
- 			capacity-dmips-mhz = <714>;
-@@ -92,7 +99,8 @@ cpu_e2: cpu@2 {
- 			compatible = "apple,icestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x2>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&ecluster_opp>;
- 			capacity-dmips-mhz = <714>;
-@@ -106,7 +114,8 @@ cpu_e3: cpu@3 {
- 			compatible = "apple,icestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x3>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&ecluster_opp>;
- 			capacity-dmips-mhz = <714>;
-@@ -120,7 +129,8 @@ cpu_p0: cpu@10100 {
- 			compatible = "apple,firestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x10100>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&pcluster_opp>;
- 			capacity-dmips-mhz = <1024>;
-@@ -134,7 +144,8 @@ cpu_p1: cpu@10101 {
- 			compatible = "apple,firestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x10101>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&pcluster_opp>;
- 			capacity-dmips-mhz = <1024>;
-@@ -148,7 +159,8 @@ cpu_p2: cpu@10102 {
- 			compatible = "apple,firestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x10102>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&pcluster_opp>;
- 			capacity-dmips-mhz = <1024>;
-@@ -162,7 +174,8 @@ cpu_p3: cpu@10103 {
- 			compatible = "apple,firestorm";
- 			device_type = "cpu";
- 			reg = <0x0 0x10103>;
--			enable-method = "spin-table";
-+			enable-method = "psci";
-+			cpu-idle-states = <&cpu_retention_wfi &cpu_deep_wfi>;
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			operating-points-v2 = <&pcluster_opp>;
- 			capacity-dmips-mhz = <1024>;
-@@ -185,6 +198,28 @@ l2_cache_1: l2-cache-1 {
- 			cache-unified;
- 			cache-size = <0xc00000>;
- 		};
-+
-+		idle-states {
-+			entry-method = "psci";
-+
-+			cpu_retention_wfi: cpu-retention-wfi {
-+				compatible = "arm,idle-state";
-+				idle-state-name = "wfi";
-+				arm,psci-suspend-param = <0x00000000>;
-+				entry-latency-us = <1>;
-+				exit-latency-us = <1>;
-+				min-residency-us = <1>;
-+			};
-+
-+			cpu_deep_wfi: cpu-deep-wfi {
-+				compatible = "arm,idle-state";
-+				idle-state-name = "deep-wfi";
-+				arm,psci-suspend-param = <0x00000001>;
-+				entry-latency-us = <5>;
-+				exit-latency-us = <5>;
-+				min-residency-us = <10000>;
-+			};
-+		};
- 	};
- 
- 	ecluster_opp: opp-table-0 {
+ Documentation/devicetree/bindings/arm/psci.yaml | 12 ++++
+ arch/arm64/boot/dts/apple/t8103.dtsi            | 51 ++++++++++++---
+ arch/arm64/include/asm/efi.h                    | 56 +++++++++++++++++
+ arch/arm64/kernel/efi.c                         | 82 ++++++++++++++++++++++++-
+ arch/arm64/kernel/setup.c                       |  2 +-
+ drivers/firmware/psci/psci.c                    | 64 +++++++++++++++++++
+ include/linux/arm-smccc.h                       |  1 +
+ include/linux/efi.h                             |  3 +
+ 8 files changed, 261 insertions(+), 10 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260625-efi-psci-a9b67bf6f145
 
+Best regards,
 -- 
-2.55.0
+Sven Peter <sven@kernel.org>
 
 
 
