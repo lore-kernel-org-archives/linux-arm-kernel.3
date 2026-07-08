@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B775CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BA5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZsRXfT5ibQiwiJAzw9HJHDQeaykvfcjebj1qaMIo5g8=; b=gEGTsJid08BoB52dcG9LMJ5RVF
-	WIbmsrz3hMv1OMkBIkKrWAN7K8ZngpWt5h0szSjBt/sjnV9N2NF93/pfYY/ECczEb/Q9kjX77SzA1
-	xPle5af8HUjploHpkDG8mpwsIEflAwIYD8kGdECwDvoibbLCJ1bUZ4N+QdN5nehRUkPgbmrrSD5t4
-	t67tfy5RjXgWPy6hZYRPWmbgml+MmiwQXXAVyhEhvKy1cKlyChjXIoiYQVyhxSWvbqMg5bWT5zSZc
-	H2UtWwqamZDRjET5Iy7QstTE6K/Wrh/KShbK5jvl5i9ZIOegr/an+CNHdqFuU1vFoUKjxMyva/aGu
-	BE3Me9ug==;
+	bh=2dERfihgZZP+MocUx+v5NwwvdSmaQ1OgSs+UDsOWnc4=; b=zmY0Yp2s6WotbdvyVIOOKcDV8U
+	eVwEZiGzlyyf/iN8MvAmBwGKAwLvZzdOC9BYkQA5Mu6NNXvtGAEBf2CnQ3+NwP/cnqLx225NkMmo9
+	NwLqR7D69MkUdhDAiHAhJW1HVhtpKn7IRuoO0lyTfJ5Io/Av4x2hF6PkJmuCXcjI1ANWFvPGcjadw
+	JHPeNcrwNuuYxjEtEe0Qvagu4bfSJ1vWXGyXeovD9ao1DdXaCjYFKzOHQeX1heV/BSIUUtBDByar8
+	iuYmdpA6lHHINNZMpKJCt5AUr5NQXOFRpDJzCYCD6UuLNkw33F6icyqyqr2NwWYkH67bswEtp/WDF
+	CxoH3u5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPRd-0000000Gt0p-2kyd;
-	Wed, 08 Jul 2026 10:23:57 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1whPRi-0000000Gt4U-2Ccx;
+	Wed, 08 Jul 2026 10:24:02 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPRY-0000000GsvR-38jC
+	id 1whPRa-0000000Gswc-2u7m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 10:23:55 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4798bea72f9so345129f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 03:23:52 -0700 (PDT)
+	Wed, 08 Jul 2026 10:23:57 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-493b7612475so3878735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 03:23:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783506231; x=1784111031; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783506233; x=1784111033; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=ZsRXfT5ibQiwiJAzw9HJHDQeaykvfcjebj1qaMIo5g8=;
-        b=EGjO9p3s1QrIB2SINroUK5HDFcpv7KMB/pTQXWw9XQc5NMVqnQg0BpqDZ4KzAX0Ni8
-         1qh2PrlarEM/H7N29kGhTfcgl2/0YaZhiuf7t+6jLOPmaPDI8iJT4+spnELZUAs4QSnv
-         ga2834DRaVcI+95/DjUwXm1z4+E0Q22P28Bfufe/sJEdzXPCwexSzKovakQVuf6MCPEf
-         vrE6+6txdXvZWMstOINp8qASkrUGs+OPNrCZCiQdKJjyzqebRr09JVfoasfOdlBf/1+U
-         wpKo5uFnFzCK1iBrdd+DpPgT+L0+W02QpMYj9o+Z3rAQBBNysyc7OVcPQ9XzOrOSVfCc
-         FdYw==
+        bh=2dERfihgZZP+MocUx+v5NwwvdSmaQ1OgSs+UDsOWnc4=;
+        b=HQxm4+cvXxDb9T3Yp/URZ9OTSTdmGOnsUXlA34S4gm19tJ6Q1C5xGanQXhk2+kmEUZ
+         LZZAWnQXda2w4v3hYINJAWhYrfDy4ukdoJTW4BT1IbFuXXQIvb7vWJ0/oprdbNcvXmN6
+         PBmJNCoWXtmKGNktCb+287sT/4JcUvi2EZ8Pw4gUq0FFdRBGOd0zXbVyfyq1CVKplIea
+         SYCT89R0YAzq54Gm7anAMLeUOLCrV77dZIOGZ/Rgr//9iu9jI+FoRtH9Am9gwrjV+hbz
+         4HlnZu8DlBSdoTdHH9eOyoXT2s5cGk/rK4X/odkHyMFVD68VmKZA1AfkbHxMfVkJHboY
+         6Hzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783506231; x=1784111031;
+        d=1e100.net; s=20251104; t=1783506233; x=1784111033;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZsRXfT5ibQiwiJAzw9HJHDQeaykvfcjebj1qaMIo5g8=;
-        b=rCFaCWmDi50YTic+ZHJKkJtjDaNekZlm6g26SHBIKJyT8fgxc9BNeCK5JbCdKl9hpV
-         odlSVo7w6GHSMQcOJj4uuepfQJA66Uc80MgA0V6GzKuyZ7O9KUasaraoxMbqXJW9CKb0
-         6VLZlkNLz4nfflrkzUiPi/uzsxcCUGzBMTDe1+yZIKFhizDsHUP+aYBqrezZy/6OYiO1
-         3T66n88zEOCUFJaO3uu3fvWd5e0eAX2g5KkxkNjyNEOSJFSXEemoS+3SIAK43Fu+S11b
-         gy3xFj7Hyu//oZbIp8C8zosLdxzOdyf1ioozSR5jsVSrhST7HpMgtrRrtRZIHjCLRhV7
-         iGHw==
-X-Forwarded-Encrypted: i=1; AHgh+RprBbpjsOyyjUZjTPB13ld2JflD/Op82IWJcpcVxAQOnjStM4xTPHfiBOmOp7ZPff/WEeWdSJk7xju4FVXU8wxb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe6bbotCRFbxAqRZ98TLEAQXZJhdSbXfzFvbVhH0kKqQWoAWac
-	qPZChYudMdOmBjHGS8WFi2e3i8b9y6GXbT8M86mjdKwS2SBrtrVPq2eW
-X-Gm-Gg: AfdE7clVmYt4xTCrqHKCerIlcWWTTwyc5vEilkwTUQv6FuKb+IwiE5F3Np18eYalC89
-	hl9bva9Fk0oALICGfDzfnjqSR9e6UyJ/KtzI4IQyThkaS92LTMYN4gJ6jnxko9/LMRKvNml8ZMo
-	i/Aau8zdSS8ERICXQMrPu/KjtxKYI4LT/NlUdr8JZyLj47bMyDwdWLNwqB4aWByI9H2Lj8s98VT
-	OLA7+NeY6/SY4ViUM6/tEHq/YOzwAMK2S8ORsLApvJeaulvY1VhumAqE6xmvClJxKqijWWMmCVc
-	2OLlDo38UexTl5zTFqIrfn+i6PTF/cTFVsj/VD58PFNweYSanvvkw1X1agkslJc+jP7yRzx9oNu
-	P/5XngvACtW68QQIXXHhrDSZBoRE8SwE9u1SqX/ukNeuRti25GmMRzsgbjjsSueyzwdvQ7HsYXN
-	l2uhfrFwSam+v0iB2j90FfpxaOtJvmMT/RcrlE1xkQBigY0wsXkd7DBzIat1AcRrdbHHdzJYWjl
-	o5BCvhv
-X-Received: by 2002:a05:6000:26ce:b0:473:1706:7f01 with SMTP id ffacd0b85a97d-47df077caedmr1960726f8f.43.1783506230730;
-        Wed, 08 Jul 2026 03:23:50 -0700 (PDT)
+        bh=2dERfihgZZP+MocUx+v5NwwvdSmaQ1OgSs+UDsOWnc4=;
+        b=kBailD8mM53pgc0/CkhMIuPaAFZRSYfQQfNI9ZWDENNcYF5rBXqJbauT6INe7rQnO3
+         JiMGQ0GuIEN1VWpxB8Ferbmz6XOrlH4yr2sp36zzTIswXYNjdFIV85coshtfWpV0b7tD
+         2bNhhe9Cc39KCJSoMws6u25Xru/m9i1LpIHFTmqx1fC4P5IjPniGc80Z28zUCqtP5GlD
+         qrMuxyaZFTQ0Nl+g6YqmIEzxxQzPRdOISQrfdASJKX4iKqBzhiny7X5iifex1ZYH2Vd4
+         4mY4CmnSiQkeRRW/hRIIE1H3/UO0pjs6eIuEiyhufgEIt3LOl+HIlsrGOP8WNz4Z7Oee
+         NUuw==
+X-Forwarded-Encrypted: i=1; AHgh+RoMwOLmTSgnTOuxA1QWhYqydUorj+1Z+CqsPOicS0EfLpTT8Bu529EGhmR8lyjoEMaXbgZX0V7ujmBZAFPliNwC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKEY9vSSIV5iKcR9YHDuAjamLVC/8xZ8HMLx1CG3Dl+WBBE5N2
+	1LdZZ/4N32nh+ZJMUUgn1VgJg/5qHUdinhpqi0/hW20bqShFwJg5sPj8
+X-Gm-Gg: AfdE7cnRDSFQjIMOdKWJJOhxQzQe89GYBvsCDglVHTBACeFLrHsewWV1UAypjvt4C5J
+	u5x9LJ1wxVCyd6fiMslFnLy4LwL3EpaXUqC0kyca/lsADId4yMlHa4lWYBCzt/h87dZ0l5hrY2l
+	7gZJ/CkGR3615t283ofX7zB9/Wvj9DlO3Qik+zLwpbgqbxSvd59Se9ADYl5p+f7iAYNV7ztoQ2O
+	RTRTg2nc9wT2SfGdqjt07o7UH9qCo8cZN3JRZ9xv2HC4z5v1LKyT0yVNAxobC/Sxueh2Jn3kM4u
+	6UaNpc+l+CdDts21UowE2ljAt9Mj8mpUw4fzZwIGjtA/LCvp61YyccdqM1pMH8o4tdOTqcKQHCf
+	IZ/sDsZ4e/XYkthzvW6dvk0W2W15ixsRhpIEm1puH5TueUNueJTpDfSpbDc4WT9g+eKP7pXmH4t
+	pp0gye0FKNZ/o81+ave0aRv7Fu4Z8yhjutLjwglRqJVg5K9sJCBRmq1gQ0C+ksmvKjYRFhMR01G
+	YQnYIt2
+X-Received: by 2002:a05:600c:6291:b0:493:e4cd:def1 with SMTP id 5b1f17b1804b1-493e84edbbdmr7236775e9.11.1783506232601;
+        Wed, 08 Jul 2026 03:23:52 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47aa0f2186bsm40660248f8f.36.2026.07.08.03.23.48
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47aa0f2186bsm40660248f8f.36.2026.07.08.03.23.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 03:23:50 -0700 (PDT)
+        Wed, 08 Jul 2026 03:23:51 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -88,17 +88,17 @@ To: Andrew Lunn <andrew@lunn.ch>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next 1/5] net: phy: mediatek: export __mtk_tr_write
-Date: Wed,  8 Jul 2026 12:23:27 +0200
-Message-ID: <20260708102341.53919-2-ansuelsmth@gmail.com>
+Subject: [PATCH net-next 2/5] net: phy: mediatek: move MTK GE SoC registers define to dedicated header
+Date: Wed,  8 Jul 2026 12:23:28 +0200
+Message-ID: <20260708102341.53919-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260708102341.53919-1-ansuelsmth@gmail.com>
 References: <20260708102341.53919-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_032353_381418_08523D6D 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260708_032355_156143_DCC7AB54 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +113,800 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export __mtk_tr_write to directly write to debug register.
+In preparation for support of special Software Calibration for Airoha
+PHY, move the MTK GE SoC registers define to a dedicated header.
+
+It's also needed to generalize the cal_cycle function as Airoha needs
+only part of its logic (the wait logic) to complete a calibration cycle.
+
+This is to keep cleaner code and permit sharing these define in multiple
+source code.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/net/phy/mediatek/mtk-phy-lib.c | 5 +++--
- drivers/net/phy/mediatek/mtk.h         | 2 ++
- 2 files changed, 5 insertions(+), 2 deletions(-)
+ MAINTAINERS                           |   1 +
+ drivers/net/phy/mediatek/mtk-ge-soc.c | 371 ++------------------------
+ drivers/net/phy/mediatek/mtk-ge-soc.h | 351 ++++++++++++++++++++++++
+ 3 files changed, 373 insertions(+), 350 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/mtk-ge-soc.h
 
-diff --git a/drivers/net/phy/mediatek/mtk-phy-lib.c b/drivers/net/phy/mediatek/mtk-phy-lib.c
-index dfd0f4e439a2..78b998af5238 100644
---- a/drivers/net/phy/mediatek/mtk-phy-lib.c
-+++ b/drivers/net/phy/mediatek/mtk-phy-lib.c
-@@ -36,8 +36,8 @@ static void __mtk_tr_read(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
- 		*tr_high, *tr_low);
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c3f72058a2f2..16e47aea84c3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16512,6 +16512,7 @@ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	drivers/net/phy/mediatek/mtk-2p5ge.c
+ F:	drivers/net/phy/mediatek/mtk-ge-soc.c
++F:	drivers/net/phy/mediatek/mtk-ge-soc.h
+ F:	drivers/net/phy/mediatek/mtk-phy-lib.c
+ F:	drivers/net/phy/mediatek/mtk-ge.c
+ F:	drivers/net/phy/mediatek/mtk.h
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+index 9a54949644d5..46bae11ad740 100644
+--- a/drivers/net/phy/mediatek/mtk-ge-soc.c
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
+@@ -11,322 +11,10 @@
  
--static void __mtk_tr_write(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
--			   u8 data_addr, u32 tr_data)
-+void __mtk_tr_write(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
-+		    u8 data_addr, u32 tr_data)
- {
- 	__phy_write(phydev, 0x11, tr_data & 0xffff);
- 	__phy_write(phydev, 0x12, tr_data >> 16);
-@@ -45,6 +45,7 @@ static void __mtk_tr_write(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
- 		tr_data >> 16, tr_data & 0xffff);
- 	__mtk_tr_access(phydev, false, ch_addr, node_addr, data_addr);
- }
-+EXPORT_SYMBOL_GPL(__mtk_tr_write);
+ #include "../phylib.h"
+ #include "mtk.h"
++#include "mtk-ge-soc.h"
  
- void __mtk_tr_modify(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
- 		     u8 data_addr, u32 mask, u32 set)
-diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index 320f76ffa81f..f172f7d671c9 100644
---- a/drivers/net/phy/mediatek/mtk.h
-+++ b/drivers/net/phy/mediatek/mtk.h
-@@ -72,6 +72,8 @@ struct mtk_socphy_priv {
- 	unsigned long		led_state;
+ #define MTK_PHY_MAX_LEDS			2
+ 
+-#define MTK_GPHY_ID_MT7981			0x03a29461
+-#define MTK_GPHY_ID_MT7988			0x03a29481
+-#define MTK_GPHY_ID_AN7581			0x03a294c1
+-#define MTK_GPHY_ID_AN7583			0xc0ff0420
+-
+-#define MTK_EXT_PAGE_ACCESS			0x1f
+-#define MTK_PHY_PAGE_STANDARD			0x0000
+-#define MTK_PHY_PAGE_EXTENDED_3			0x0003
+-
+-#define MTK_PHY_LPI_REG_14			0x14
+-#define MTK_PHY_LPI_WAKE_TIMER_1000_MASK	GENMASK(8, 0)
+-
+-#define MTK_PHY_LPI_REG_1c			0x1c
+-#define MTK_PHY_SMI_DET_ON_THRESH_MASK		GENMASK(13, 8)
+-
+-#define MTK_PHY_PAGE_EXTENDED_2A30		0x2a30
+-
+-/* Registers on Token Ring debug nodes */
+-/* ch_addr = 0x0, node_addr = 0x7, data_addr = 0x15 */
+-/* NormMseLoThresh */
+-#define NORMAL_MSE_LO_THRESH_MASK		GENMASK(15, 8)
+-
+-/* ch_addr = 0x0, node_addr = 0xf, data_addr = 0x3c */
+-/* RemAckCntLimitCtrl */
+-#define REMOTE_ACK_COUNT_LIMIT_CTRL_MASK	GENMASK(2, 1)
+-
+-/* ch_addr = 0x1, node_addr = 0xd, data_addr = 0x20 */
+-/* VcoSlicerThreshBitsHigh */
+-#define VCO_SLICER_THRESH_HIGH_MASK		GENMASK(23, 0)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x0 */
+-/* DfeTailEnableVgaThresh1000 */
+-#define DFE_TAIL_EANBLE_VGA_TRHESH_1000		GENMASK(5, 1)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x1 */
+-/* MrvlTrFix100Kp */
+-#define MRVL_TR_FIX_100KP_MASK			GENMASK(22, 20)
+-/* MrvlTrFix100Kf */
+-#define MRVL_TR_FIX_100KF_MASK			GENMASK(19, 17)
+-/* MrvlTrFix1000Kp */
+-#define MRVL_TR_FIX_1000KP_MASK			GENMASK(16, 14)
+-/* MrvlTrFix1000Kf */
+-#define MRVL_TR_FIX_1000KF_MASK			GENMASK(13, 11)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x12 */
+-/* VgaDecRate */
+-#define VGA_DECIMATION_RATE_MASK		GENMASK(8, 5)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x17 */
+-/* SlvDSPreadyTime */
+-#define SLAVE_DSP_READY_TIME_MASK		GENMASK(22, 15)
+-/* MasDSPreadyTime */
+-#define MASTER_DSP_READY_TIME_MASK		GENMASK(14, 7)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x18 */
+-/* EnabRandUpdTrig */
+-#define ENABLE_RANDOM_UPDOWN_COUNTER_TRIGGER	BIT(8)
+-
+-/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x20 */
+-/* ResetSyncOffset */
+-#define RESET_SYNC_OFFSET_MASK			GENMASK(11, 8)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x0 */
+-/* FfeUpdGainForceVal */
+-#define FFE_UPDATE_GAIN_FORCE_VAL_MASK		GENMASK(9, 7)
+-/* FfeUpdGainForce */
+-#define FFE_UPDATE_GAIN_FORCE			BIT(6)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x3 */
+-/* TrFreeze */
+-#define TR_FREEZE_MASK				GENMASK(11, 0)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x6 */
+-/* SS: Steady-state, KP: Proportional Gain */
+-/* SSTrKp100 */
+-#define SS_TR_KP100_MASK			GENMASK(21, 19)
+-/* SSTrKf100 */
+-#define SS_TR_KF100_MASK			GENMASK(18, 16)
+-/* SSTrKp1000Mas */
+-#define SS_TR_KP1000_MASTER_MASK		GENMASK(15, 13)
+-/* SSTrKf1000Mas */
+-#define SS_TR_KF1000_MASTER_MASK		GENMASK(12, 10)
+-/* SSTrKp1000Slv */
+-#define SS_TR_KP1000_SLAVE_MASK			GENMASK(9, 7)
+-/* SSTrKf1000Slv */
+-#define SS_TR_KF1000_SLAVE_MASK			GENMASK(6, 4)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x8 */
+-/* clear this bit if wanna select from AFE */
+-/* Regsigdet_sel_1000 */
+-#define EEE1000_SELECT_SIGNAL_DETECTION_FROM_DFE	BIT(4)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0xd */
+-/* RegEEE_st2TrKf1000 */
+-#define EEE1000_STAGE2_TR_KF_MASK		GENMASK(13, 11)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0xf */
+-/* RegEEE_slv_waketr_timer_tar */
+-#define SLAVE_WAKETR_TIMER_MASK			GENMASK(20, 11)
+-/* RegEEE_slv_remtx_timer_tar */
+-#define SLAVE_REMTX_TIMER_MASK			GENMASK(10, 1)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x10 */
+-/* RegEEE_slv_wake_int_timer_tar */
+-#define SLAVE_WAKEINT_TIMER_MASK		GENMASK(10, 1)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x14 */
+-/* RegEEE_trfreeze_timer2 */
+-#define TR_FREEZE_TIMER2_MASK			GENMASK(9, 0)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x1c */
+-/* RegEEE100Stg1_tar */
+-#define EEE100_LPSYNC_STAGE1_UPDATE_TIMER_MASK	GENMASK(8, 0)
+-
+-/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x25 */
+-/* REGEEE_wake_slv_tr_wait_dfesigdet_en */
+-#define WAKE_SLAVE_TR_WAIT_DFE_DETECTION_EN	BIT(11)
+-
+-#define ANALOG_INTERNAL_OPERATION_MAX_US	20
+-#define TXRESERVE_MIN				0
+-#define TXRESERVE_MAX				7
+-
+-#define MTK_PHY_ANARG_RG			0x10
+-#define   MTK_PHY_TCLKOFFSET_MASK		GENMASK(12, 8)
+-
+-/* Registers on MDIO_MMD_VEND1 */
+-#define MTK_PHY_TXVLD_DA_RG			0x12
+-#define   MTK_PHY_DA_TX_I2MPB_A_GBE_MASK	GENMASK(15, 10)
+-#define   MTK_PHY_DA_TX_I2MPB_A_TBT_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_A2		0x16
+-#define   MTK_PHY_DA_TX_I2MPB_A_HBT_MASK	GENMASK(15, 10)
+-#define   MTK_PHY_DA_TX_I2MPB_A_TST_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_B1		0x17
+-#define   MTK_PHY_DA_TX_I2MPB_B_GBE_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_B_TBT_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_B2		0x18
+-#define   MTK_PHY_DA_TX_I2MPB_B_HBT_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_B_TST_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_C1		0x19
+-#define   MTK_PHY_DA_TX_I2MPB_C_GBE_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_C_TBT_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_C2		0x20
+-#define   MTK_PHY_DA_TX_I2MPB_C_HBT_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_C_TST_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_D1		0x21
+-#define   MTK_PHY_DA_TX_I2MPB_D_GBE_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_D_TBT_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_TX_I2MPB_TEST_MODE_D2		0x22
+-#define   MTK_PHY_DA_TX_I2MPB_D_HBT_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_DA_TX_I2MPB_D_TST_MASK	GENMASK(5, 0)
+-
+-#define MTK_PHY_RXADC_CTRL_RG7			0xc6
+-#define   MTK_PHY_DA_AD_BUF_BIAS_LP_MASK	GENMASK(9, 8)
+-
+-#define MTK_PHY_RXADC_CTRL_RG9			0xc8
+-#define   MTK_PHY_DA_RX_PSBN_TBT_MASK		GENMASK(14, 12)
+-#define   MTK_PHY_DA_RX_PSBN_HBT_MASK		GENMASK(10, 8)
+-#define   MTK_PHY_DA_RX_PSBN_GBE_MASK		GENMASK(6, 4)
+-#define   MTK_PHY_DA_RX_PSBN_LP_MASK		GENMASK(2, 0)
+-
+-#define MTK_PHY_LDO_OUTPUT_V			0xd7
+-
+-#define MTK_PHY_RG_ANA_CAL_RG0			0xdb
+-#define   MTK_PHY_RG_CAL_CKINV			BIT(12)
+-#define   MTK_PHY_RG_ANA_CALEN			BIT(8)
+-#define   MTK_PHY_RG_ZCALEN_A			BIT(0)
+-
+-#define MTK_PHY_RG_ANA_CAL_RG1			0xdc
+-#define   MTK_PHY_RG_ZCALEN_B			BIT(12)
+-#define   MTK_PHY_RG_ZCALEN_C			BIT(8)
+-#define   MTK_PHY_RG_ZCALEN_D			BIT(4)
+-#define   MTK_PHY_RG_TXVOS_CALEN		BIT(0)
+-
+-#define MTK_PHY_RG_ANA_CAL_RG5			0xe0
+-#define   MTK_PHY_RG_REXT_TRIM_MASK		GENMASK(13, 8)
+-
+-#define MTK_PHY_RG_TX_FILTER			0xfe
+-
+-#define MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG120	0x120
+-#define   MTK_PHY_LPI_SIG_EN_LO_THRESH1000_MASK	GENMASK(12, 8)
+-#define   MTK_PHY_LPI_SIG_EN_HI_THRESH1000_MASK	GENMASK(4, 0)
+-
+-#define MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG122	0x122
+-#define   MTK_PHY_LPI_NORM_MSE_HI_THRESH1000_MASK	GENMASK(7, 0)
+-
+-#define MTK_PHY_RG_TESTMUX_ADC_CTRL		0x144
+-#define   MTK_PHY_RG_TXEN_DIG_MASK		GENMASK(5, 5)
+-
+-#define MTK_PHY_RG_CR_TX_AMP_OFFSET_A_B		0x172
+-#define   MTK_PHY_CR_TX_AMP_OFFSET_A_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_CR_TX_AMP_OFFSET_B_MASK	GENMASK(6, 0)
+-
+-#define MTK_PHY_RG_CR_TX_AMP_OFFSET_C_D		0x173
+-#define   MTK_PHY_CR_TX_AMP_OFFSET_C_MASK	GENMASK(13, 8)
+-#define   MTK_PHY_CR_TX_AMP_OFFSET_D_MASK	GENMASK(6, 0)
+-
+-#define MTK_PHY_RG_AD_CAL_COMP			0x17a
+-#define   MTK_PHY_AD_CAL_COMP_OUT_MASK		GENMASK(8, 8)
+-
+-#define MTK_PHY_RG_AD_CAL_CLK			0x17b
+-#define   MTK_PHY_DA_CAL_CLK			BIT(0)
+-
+-#define MTK_PHY_RG_AD_CALIN			0x17c
+-#define   MTK_PHY_DA_CALIN_FLAG			BIT(0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN0_A		0x17d
+-#define   MTK_PHY_DASN_DAC_IN0_A_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN0_B		0x17e
+-#define   MTK_PHY_DASN_DAC_IN0_B_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN0_C		0x17f
+-#define   MTK_PHY_DASN_DAC_IN0_C_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN0_D		0x180
+-#define   MTK_PHY_DASN_DAC_IN0_D_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN1_A		0x181
+-#define   MTK_PHY_DASN_DAC_IN1_A_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN1_B		0x182
+-#define   MTK_PHY_DASN_DAC_IN1_B_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN1_C		0x183
+-#define   MTK_PHY_DASN_DAC_IN1_C_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DASN_DAC_IN1_D		0x184
+-#define   MTK_PHY_DASN_DAC_IN1_D_MASK		GENMASK(9, 0)
+-
+-#define MTK_PHY_RG_DEV1E_REG19b			0x19b
+-#define   MTK_PHY_BYPASS_DSP_LPI_READY		BIT(8)
+-
+-#define MTK_PHY_RG_LP_IIR2_K1_L			0x22a
+-#define MTK_PHY_RG_LP_IIR2_K1_U			0x22b
+-#define MTK_PHY_RG_LP_IIR2_K2_L			0x22c
+-#define MTK_PHY_RG_LP_IIR2_K2_U			0x22d
+-#define MTK_PHY_RG_LP_IIR2_K3_L			0x22e
+-#define MTK_PHY_RG_LP_IIR2_K3_U			0x22f
+-#define MTK_PHY_RG_LP_IIR2_K4_L			0x230
+-#define MTK_PHY_RG_LP_IIR2_K4_U			0x231
+-#define MTK_PHY_RG_LP_IIR2_K5_L			0x232
+-#define MTK_PHY_RG_LP_IIR2_K5_U			0x233
+-
+-#define MTK_PHY_RG_DEV1E_REG234			0x234
+-#define   MTK_PHY_TR_OPEN_LOOP_EN_MASK		GENMASK(0, 0)
+-#define   MTK_PHY_LPF_X_AVERAGE_MASK		GENMASK(7, 4)
+-#define   MTK_PHY_TR_LP_IIR_EEE_EN		BIT(12)
+-
+-#define MTK_PHY_RG_LPF_CNT_VAL			0x235
+-
+-#define MTK_PHY_RG_DEV1E_REG238			0x238
+-#define   MTK_PHY_LPI_SLV_SEND_TX_TIMER_MASK	GENMASK(8, 0)
+-#define   MTK_PHY_LPI_SLV_SEND_TX_EN		BIT(12)
+-
+-#define MTK_PHY_RG_DEV1E_REG239			0x239
+-#define   MTK_PHY_LPI_SEND_LOC_TIMER_MASK	GENMASK(8, 0)
+-#define   MTK_PHY_LPI_TXPCS_LOC_RCV		BIT(12)
+-
+-#define MTK_PHY_RG_DEV1E_REG27C			0x27c
+-#define   MTK_PHY_VGASTATE_FFE_THR_ST1_MASK	GENMASK(12, 8)
+-#define MTK_PHY_RG_DEV1E_REG27D			0x27d
+-#define   MTK_PHY_VGASTATE_FFE_THR_ST2_MASK	GENMASK(4, 0)
+-
+-#define MTK_PHY_RG_DEV1E_REG2C7			0x2c7
+-#define   MTK_PHY_MAX_GAIN_MASK			GENMASK(4, 0)
+-#define   MTK_PHY_MIN_GAIN_MASK			GENMASK(12, 8)
+-
+-#define MTK_PHY_RG_DEV1E_REG2D1			0x2d1
+-#define   MTK_PHY_VCO_SLICER_THRESH_BITS_HIGH_EEE_MASK	GENMASK(7, 0)
+-#define   MTK_PHY_LPI_SKIP_SD_SLV_TR		BIT(8)
+-#define   MTK_PHY_LPI_TR_READY			BIT(9)
+-#define   MTK_PHY_LPI_VCO_EEE_STG0_EN		BIT(10)
+-
+-#define MTK_PHY_RG_DEV1E_REG323			0x323
+-#define   MTK_PHY_EEE_WAKE_MAS_INT_DC		BIT(0)
+-#define   MTK_PHY_EEE_WAKE_SLV_INT_DC		BIT(4)
+-
+-#define MTK_PHY_RG_DEV1E_REG324			0x324
+-#define   MTK_PHY_SMI_DETCNT_MAX_MASK		GENMASK(5, 0)
+-#define   MTK_PHY_SMI_DET_MAX_EN		BIT(8)
+-
+-#define MTK_PHY_RG_DEV1E_REG326			0x326
+-#define   MTK_PHY_LPI_MODE_SD_ON		BIT(0)
+-#define   MTK_PHY_RESET_RANDUPD_CNT		BIT(1)
+-#define   MTK_PHY_TREC_UPDATE_ENAB_CLR		BIT(2)
+-#define   MTK_PHY_LPI_QUIT_WAIT_DFE_SIG_DET_OFF	BIT(4)
+-#define   MTK_PHY_TR_READY_SKIP_AFE_WAKEUP	BIT(5)
+-
+-#define MTK_PHY_LDO_PUMP_EN_PAIRAB		0x502
+-#define MTK_PHY_LDO_PUMP_EN_PAIRCD		0x503
+-
+-#define MTK_PHY_DA_TX_R50_PAIR_A		0x53d
+-#define MTK_PHY_DA_TX_R50_PAIR_B		0x53e
+-#define MTK_PHY_DA_TX_R50_PAIR_C		0x53f
+-#define MTK_PHY_DA_TX_R50_PAIR_D		0x540
+-
+-/* Registers on MDIO_MMD_VEND2 */
+-#define MTK_PHY_LED1_DEFAULT_POLARITIES		BIT(1)
+-
+-#define MTK_PHY_RG_BG_RASEL			0x115
+-#define   MTK_PHY_RG_BG_RASEL_MASK		GENMASK(2, 0)
+-
+-/* 'boottrap' register reflecting the configuration of the 4 PHY LEDs */
+-#define RG_GPIO_MISC_TPBANK0			0x6f0
+-#define   RG_GPIO_MISC_TPBANK0_BOOTMODE		GENMASK(11, 8)
+-
+ /* These macro privides efuse parsing for internal phy. */
+ #define EFS_DA_TX_I2MPB_A(x)			(((x) >> 0) & GENMASK(5, 0))
+ #define EFS_DA_TX_I2MPB_B(x)			(((x) >> 6) & GENMASK(5, 0))
+@@ -346,51 +34,16 @@
+ #define EFS_RG_BG_RASEL(x)			(((x) >> 4) & GENMASK(2, 0))
+ #define EFS_RG_REXT_TRIM(x)			(((x) >> 7) & GENMASK(5, 0))
+ 
+-enum {
+-	NO_PAIR,
+-	PAIR_A,
+-	PAIR_B,
+-	PAIR_C,
+-	PAIR_D,
+-};
+-
+-enum calibration_mode {
+-	EFUSE_K,
+-	SW_K
+-};
+-
+-enum CAL_ITEM {
+-	REXT,
+-	TX_OFFSET,
+-	TX_AMP,
+-	TX_R50,
+-	TX_VCM
+-};
+-
+-enum CAL_MODE {
+-	EFUSE_M,
+-	SW_M
+-};
+-
+ struct mtk_socphy_shared {
+ 	u32			boottrap;
+ 	struct mtk_socphy_priv	priv[4];
  };
  
-+void __mtk_tr_write(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
-+		    u8 data_addr, u32 tr_data);
- void __mtk_tr_modify(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
- 		     u8 data_addr, u32 mask, u32 set);
- void mtk_tr_modify(struct phy_device *phydev, u8 ch_addr, u8 node_addr,
+-/* One calibration cycle consists of:
+- * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
+- *   until AD_CAL_COMP is ready to output calibration result.
+- * 2.Wait until DA_CAL_CLK is available.
+- * 3.Fetch AD_CAL_COMP_OUT.
+- */
+-static int cal_cycle(struct phy_device *phydev, int devad,
+-		     u32 regnum, u16 mask, u16 cal_val)
++int mtk_cal_cycle_wait(struct phy_device *phydev)
+ {
+ 	int reg_val;
+ 	int ret;
+ 
+-	phy_modify_mmd(phydev, devad, regnum,
+-		       mask, cal_val);
+ 	phy_set_bits_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_RG_AD_CALIN,
+ 			 MTK_PHY_DA_CALIN_FLAG);
+ 
+@@ -409,7 +62,25 @@ static int cal_cycle(struct phy_device *phydev, int devad,
+ 	ret = phy_read_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_RG_AD_CAL_COMP);
+ 	if (ret < 0)
+ 		return ret;
+-	ret = FIELD_GET(MTK_PHY_AD_CAL_COMP_OUT_MASK, ret);
++
++	return FIELD_GET(MTK_PHY_AD_CAL_COMP_OUT_MASK, ret);
++}
++
++/* One calibration cycle consists of:
++ * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
++ *   until AD_CAL_COMP is ready to output calibration result.
++ * 2.Wait until DA_CAL_CLK is available.
++ * 3.Fetch AD_CAL_COMP_OUT.
++ */
++static int cal_cycle(struct phy_device *phydev, int devad,
++		     u32 regnum, u16 mask, u16 cal_val)
++{
++	int ret;
++
++	phy_modify_mmd(phydev, devad, regnum,
++		       mask, cal_val);
++
++	ret = mtk_cal_cycle_wait(phydev);
+ 	phydev_dbg(phydev, "cal_val: 0x%x, ret: %d\n", cal_val, ret);
+ 
+ 	return ret;
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.h b/drivers/net/phy/mediatek/mtk-ge-soc.h
+new file mode 100644
+index 000000000000..9aaa7e3caa41
+--- /dev/null
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.h
+@@ -0,0 +1,351 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _MTK_GE_SOC_H_
++#define _MTK_GE_SOC_H_
++
++#include <linux/bitfield.h>
++
++#define MTK_GPHY_ID_MT7981			0x03a29461
++#define MTK_GPHY_ID_MT7988			0x03a29481
++#define MTK_GPHY_ID_AN7581			0x03a294c1
++#define MTK_GPHY_ID_AN7583			0xc0ff0420
++
++#define MTK_EXT_PAGE_ACCESS			0x1f
++#define MTK_PHY_PAGE_STANDARD			0x0000
++#define MTK_PHY_PAGE_EXTENDED_3			0x0003
++
++#define MTK_PHY_LPI_REG_14			0x14
++#define MTK_PHY_LPI_WAKE_TIMER_1000_MASK	GENMASK(8, 0)
++
++#define MTK_PHY_LPI_REG_1c			0x1c
++#define MTK_PHY_SMI_DET_ON_THRESH_MASK		GENMASK(13, 8)
++
++#define MTK_PHY_PAGE_EXTENDED_2A30		0x2a30
++
++/* Registers on Token Ring debug nodes */
++/* ch_addr = 0x0, node_addr = 0x7, data_addr = 0x15 */
++/* NormMseLoThresh */
++#define NORMAL_MSE_LO_THRESH_MASK		GENMASK(15, 8)
++
++/* ch_addr = 0x0, node_addr = 0xf, data_addr = 0x3c */
++/* RemAckCntLimitCtrl */
++#define REMOTE_ACK_COUNT_LIMIT_CTRL_MASK	GENMASK(2, 1)
++
++/* ch_addr = 0x1, node_addr = 0xd, data_addr = 0x20 */
++/* VcoSlicerThreshBitsHigh */
++#define VCO_SLICER_THRESH_HIGH_MASK		GENMASK(23, 0)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x0 */
++/* DfeTailEnableVgaThresh1000 */
++#define DFE_TAIL_EANBLE_VGA_TRHESH_1000		GENMASK(5, 1)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x1 */
++/* MrvlTrFix100Kp */
++#define MRVL_TR_FIX_100KP_MASK			GENMASK(22, 20)
++/* MrvlTrFix100Kf */
++#define MRVL_TR_FIX_100KF_MASK			GENMASK(19, 17)
++/* MrvlTrFix1000Kp */
++#define MRVL_TR_FIX_1000KP_MASK			GENMASK(16, 14)
++/* MrvlTrFix1000Kf */
++#define MRVL_TR_FIX_1000KF_MASK			GENMASK(13, 11)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x12 */
++/* VgaDecRate */
++#define VGA_DECIMATION_RATE_MASK		GENMASK(8, 5)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x17 */
++/* SlvDSPreadyTime */
++#define SLAVE_DSP_READY_TIME_MASK		GENMASK(22, 15)
++/* MasDSPreadyTime */
++#define MASTER_DSP_READY_TIME_MASK		GENMASK(14, 7)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x18 */
++/* EnabRandUpdTrig */
++#define ENABLE_RANDOM_UPDOWN_COUNTER_TRIGGER	BIT(8)
++
++/* ch_addr = 0x1, node_addr = 0xf, data_addr = 0x20 */
++/* ResetSyncOffset */
++#define RESET_SYNC_OFFSET_MASK			GENMASK(11, 8)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x0 */
++/* FfeUpdGainForceVal */
++#define FFE_UPDATE_GAIN_FORCE_VAL_MASK		GENMASK(9, 7)
++/* FfeUpdGainForce */
++#define FFE_UPDATE_GAIN_FORCE			BIT(6)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x3 */
++/* TrFreeze */
++#define TR_FREEZE_MASK				GENMASK(11, 0)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x6 */
++/* SS: Steady-state, KP: Proportional Gain */
++/* SSTrKp100 */
++#define SS_TR_KP100_MASK			GENMASK(21, 19)
++/* SSTrKf100 */
++#define SS_TR_KF100_MASK			GENMASK(18, 16)
++/* SSTrKp1000Mas */
++#define SS_TR_KP1000_MASTER_MASK		GENMASK(15, 13)
++/* SSTrKf1000Mas */
++#define SS_TR_KF1000_MASTER_MASK		GENMASK(12, 10)
++/* SSTrKp1000Slv */
++#define SS_TR_KP1000_SLAVE_MASK			GENMASK(9, 7)
++/* SSTrKf1000Slv */
++#define SS_TR_KF1000_SLAVE_MASK			GENMASK(6, 4)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x8 */
++/* clear this bit if wanna select from AFE */
++/* Regsigdet_sel_1000 */
++#define EEE1000_SELECT_SIGNAL_DETECTION_FROM_DFE	BIT(4)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0xd */
++/* RegEEE_st2TrKf1000 */
++#define EEE1000_STAGE2_TR_KF_MASK		GENMASK(13, 11)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0xf */
++/* RegEEE_slv_waketr_timer_tar */
++#define SLAVE_WAKETR_TIMER_MASK			GENMASK(20, 11)
++/* RegEEE_slv_remtx_timer_tar */
++#define SLAVE_REMTX_TIMER_MASK			GENMASK(10, 1)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x10 */
++/* RegEEE_slv_wake_int_timer_tar */
++#define SLAVE_WAKEINT_TIMER_MASK		GENMASK(10, 1)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x14 */
++/* RegEEE_trfreeze_timer2 */
++#define TR_FREEZE_TIMER2_MASK			GENMASK(9, 0)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x1c */
++/* RegEEE100Stg1_tar */
++#define EEE100_LPSYNC_STAGE1_UPDATE_TIMER_MASK	GENMASK(8, 0)
++
++/* ch_addr = 0x2, node_addr = 0xd, data_addr = 0x25 */
++/* REGEEE_wake_slv_tr_wait_dfesigdet_en */
++#define WAKE_SLAVE_TR_WAIT_DFE_DETECTION_EN	BIT(11)
++
++#define ANALOG_INTERNAL_OPERATION_MAX_US	20
++#define TXRESERVE_MIN				0
++#define TXRESERVE_MAX				7
++
++#define MTK_PHY_ANARG_RG			0x10
++#define   MTK_PHY_TCLKOFFSET_MASK		GENMASK(12, 8)
++
++/* Registers on MDIO_MMD_VEND1 */
++#define MTK_PHY_TXVLD_DA_RG			0x12
++#define   MTK_PHY_DA_TX_I2MPB_A_GBE_MASK	GENMASK(15, 10)
++#define   MTK_PHY_DA_TX_I2MPB_A_TBT_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_A2		0x16
++#define   MTK_PHY_DA_TX_I2MPB_A_HBT_MASK	GENMASK(15, 10)
++#define   MTK_PHY_DA_TX_I2MPB_A_TST_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_B1		0x17
++#define   MTK_PHY_DA_TX_I2MPB_B_GBE_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_B_TBT_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_B2		0x18
++#define   MTK_PHY_DA_TX_I2MPB_B_HBT_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_B_TST_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_C1		0x19
++#define   MTK_PHY_DA_TX_I2MPB_C_GBE_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_C_TBT_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_C2		0x20
++#define   MTK_PHY_DA_TX_I2MPB_C_HBT_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_C_TST_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_D1		0x21
++#define   MTK_PHY_DA_TX_I2MPB_D_GBE_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_D_TBT_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_TX_I2MPB_TEST_MODE_D2		0x22
++#define   MTK_PHY_DA_TX_I2MPB_D_HBT_MASK	GENMASK(13, 8)
++#define   MTK_PHY_DA_TX_I2MPB_D_TST_MASK	GENMASK(5, 0)
++
++#define MTK_PHY_RXADC_CTRL_RG7			0xc6
++#define   MTK_PHY_DA_AD_BUF_BIAS_LP_MASK	GENMASK(9, 8)
++
++#define MTK_PHY_RXADC_CTRL_RG9			0xc8
++#define   MTK_PHY_DA_RX_PSBN_TBT_MASK		GENMASK(14, 12)
++#define   MTK_PHY_DA_RX_PSBN_HBT_MASK		GENMASK(10, 8)
++#define   MTK_PHY_DA_RX_PSBN_GBE_MASK		GENMASK(6, 4)
++#define   MTK_PHY_DA_RX_PSBN_LP_MASK		GENMASK(2, 0)
++
++#define MTK_PHY_LDO_OUTPUT_V			0xd7
++
++#define MTK_PHY_RG_ANA_CAL_RG0			0xdb
++#define   MTK_PHY_RG_CAL_CKINV			BIT(12)
++#define   MTK_PHY_RG_ANA_CALEN			BIT(8)
++#define   MTK_PHY_RG_ZCALEN_A			BIT(0)
++
++#define MTK_PHY_RG_ANA_CAL_RG1			0xdc
++#define   MTK_PHY_RG_ZCALEN_B			BIT(12)
++#define   MTK_PHY_RG_ZCALEN_C			BIT(8)
++#define   MTK_PHY_RG_ZCALEN_D			BIT(4)
++#define   MTK_PHY_RG_TXVOS_CALEN		BIT(0)
++
++#define MTK_PHY_RG_ANA_CAL_RG5			0xe0
++#define   MTK_PHY_RG_REXT_TRIM_MASK		GENMASK(13, 8)
++
++#define MTK_PHY_RG_TX_FILTER			0xfe
++
++#define MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG120	0x120
++#define   MTK_PHY_LPI_SIG_EN_LO_THRESH1000_MASK	GENMASK(12, 8)
++#define   MTK_PHY_LPI_SIG_EN_HI_THRESH1000_MASK	GENMASK(4, 0)
++
++#define MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG122	0x122
++#define   MTK_PHY_LPI_NORM_MSE_HI_THRESH1000_MASK	GENMASK(7, 0)
++
++#define MTK_PHY_RG_TESTMUX_ADC_CTRL		0x144
++#define   MTK_PHY_RG_TXEN_DIG_MASK		GENMASK(5, 5)
++
++#define MTK_PHY_RG_CR_TX_AMP_OFFSET_A_B		0x172
++#define   MTK_PHY_CR_TX_AMP_OFFSET_A_MASK	GENMASK(13, 8)
++#define   MTK_PHY_CR_TX_AMP_OFFSET_B_MASK	GENMASK(6, 0)
++
++#define MTK_PHY_RG_CR_TX_AMP_OFFSET_C_D		0x173
++#define   MTK_PHY_CR_TX_AMP_OFFSET_C_MASK	GENMASK(13, 8)
++#define   MTK_PHY_CR_TX_AMP_OFFSET_D_MASK	GENMASK(6, 0)
++
++#define MTK_PHY_RG_AD_CAL_COMP			0x17a
++#define   MTK_PHY_AD_CAL_COMP_OUT_MASK		GENMASK(8, 8)
++
++#define MTK_PHY_RG_AD_CAL_CLK			0x17b
++#define   MTK_PHY_DA_CAL_CLK			BIT(0)
++
++#define MTK_PHY_RG_AD_CALIN			0x17c
++#define   MTK_PHY_DA_CALIN_FLAG			BIT(0)
++
++#define MTK_PHY_RG_DASN_DAC_IN0_A		0x17d
++#define   MTK_PHY_DASN_DAC_IN0_A_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN0_B		0x17e
++#define   MTK_PHY_DASN_DAC_IN0_B_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN0_C		0x17f
++#define   MTK_PHY_DASN_DAC_IN0_C_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN0_D		0x180
++#define   MTK_PHY_DASN_DAC_IN0_D_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN1_A		0x181
++#define   MTK_PHY_DASN_DAC_IN1_A_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN1_B		0x182
++#define   MTK_PHY_DASN_DAC_IN1_B_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN1_C		0x183
++#define   MTK_PHY_DASN_DAC_IN1_C_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DASN_DAC_IN1_D		0x184
++#define   MTK_PHY_DASN_DAC_IN1_D_MASK		GENMASK(9, 0)
++
++#define MTK_PHY_RG_DEV1E_REG19b			0x19b
++#define   MTK_PHY_BYPASS_DSP_LPI_READY		BIT(8)
++
++#define MTK_PHY_RG_LP_IIR2_K1_L			0x22a
++#define MTK_PHY_RG_LP_IIR2_K1_U			0x22b
++#define MTK_PHY_RG_LP_IIR2_K2_L			0x22c
++#define MTK_PHY_RG_LP_IIR2_K2_U			0x22d
++#define MTK_PHY_RG_LP_IIR2_K3_L			0x22e
++#define MTK_PHY_RG_LP_IIR2_K3_U			0x22f
++#define MTK_PHY_RG_LP_IIR2_K4_L			0x230
++#define MTK_PHY_RG_LP_IIR2_K4_U			0x231
++#define MTK_PHY_RG_LP_IIR2_K5_L			0x232
++#define MTK_PHY_RG_LP_IIR2_K5_U			0x233
++
++#define MTK_PHY_RG_DEV1E_REG234			0x234
++#define   MTK_PHY_TR_OPEN_LOOP_EN_MASK		GENMASK(0, 0)
++#define   MTK_PHY_LPF_X_AVERAGE_MASK		GENMASK(7, 4)
++#define   MTK_PHY_TR_LP_IIR_EEE_EN		BIT(12)
++
++#define MTK_PHY_RG_LPF_CNT_VAL			0x235
++
++#define MTK_PHY_RG_DEV1E_REG238			0x238
++#define   MTK_PHY_LPI_SLV_SEND_TX_TIMER_MASK	GENMASK(8, 0)
++#define   MTK_PHY_LPI_SLV_SEND_TX_EN		BIT(12)
++
++#define MTK_PHY_RG_DEV1E_REG239			0x239
++#define   MTK_PHY_LPI_SEND_LOC_TIMER_MASK	GENMASK(8, 0)
++#define   MTK_PHY_LPI_TXPCS_LOC_RCV		BIT(12)
++
++#define MTK_PHY_RG_DEV1E_REG27C			0x27c
++#define   MTK_PHY_VGASTATE_FFE_THR_ST1_MASK	GENMASK(12, 8)
++#define MTK_PHY_RG_DEV1E_REG27D			0x27d
++#define   MTK_PHY_VGASTATE_FFE_THR_ST2_MASK	GENMASK(4, 0)
++
++#define MTK_PHY_RG_DEV1E_REG2C7			0x2c7
++#define   MTK_PHY_MAX_GAIN_MASK			GENMASK(4, 0)
++#define   MTK_PHY_MIN_GAIN_MASK			GENMASK(12, 8)
++
++#define MTK_PHY_RG_DEV1E_REG2D1			0x2d1
++#define   MTK_PHY_VCO_SLICER_THRESH_BITS_HIGH_EEE_MASK	GENMASK(7, 0)
++#define   MTK_PHY_LPI_SKIP_SD_SLV_TR		BIT(8)
++#define   MTK_PHY_LPI_TR_READY			BIT(9)
++#define   MTK_PHY_LPI_VCO_EEE_STG0_EN		BIT(10)
++
++#define MTK_PHY_RG_DEV1E_REG323			0x323
++#define   MTK_PHY_EEE_WAKE_MAS_INT_DC		BIT(0)
++#define   MTK_PHY_EEE_WAKE_SLV_INT_DC		BIT(4)
++
++#define MTK_PHY_RG_DEV1E_REG324			0x324
++#define   MTK_PHY_SMI_DETCNT_MAX_MASK		GENMASK(5, 0)
++#define   MTK_PHY_SMI_DET_MAX_EN		BIT(8)
++
++#define MTK_PHY_RG_DEV1E_REG326			0x326
++#define   MTK_PHY_LPI_MODE_SD_ON		BIT(0)
++#define   MTK_PHY_RESET_RANDUPD_CNT		BIT(1)
++#define   MTK_PHY_TREC_UPDATE_ENAB_CLR		BIT(2)
++#define   MTK_PHY_LPI_QUIT_WAIT_DFE_SIG_DET_OFF	BIT(4)
++#define   MTK_PHY_TR_READY_SKIP_AFE_WAKEUP	BIT(5)
++
++#define MTK_PHY_LDO_PUMP_EN_PAIRAB		0x502
++#define MTK_PHY_LDO_PUMP_EN_PAIRCD		0x503
++
++#define MTK_PHY_DA_TX_R50_PAIR_A		0x53d
++#define MTK_PHY_DA_TX_R50_PAIR_B		0x53e
++#define MTK_PHY_DA_TX_R50_PAIR_C		0x53f
++#define MTK_PHY_DA_TX_R50_PAIR_D		0x540
++
++/* Registers on MDIO_MMD_VEND2 */
++#define MTK_PHY_LED1_DEFAULT_POLARITIES		BIT(1)
++
++#define MTK_PHY_RG_BG_RASEL			0x115
++#define   MTK_PHY_RG_BG_RASEL_MASK		GENMASK(2, 0)
++
++/* 'boottrap' register reflecting the configuration of the 4 PHY LEDs */
++#define RG_GPIO_MISC_TPBANK0			0x6f0
++#define   RG_GPIO_MISC_TPBANK0_BOOTMODE		GENMASK(11, 8)
++
++enum CAL_ITEM {
++	REXT,
++	TX_OFFSET,
++	TX_AMP,
++	TX_R50,
++	TX_VCM,
++	RX_OFFSET,
++};
++
++enum {
++	NO_PAIR,
++	PAIR_A,
++	PAIR_B,
++	PAIR_C,
++	PAIR_D,
++};
++
++enum calibration_mode {
++	EFUSE_K,
++	SW_K
++};
++
++enum CAL_MODE {
++	EFUSE_M,
++	SW_M
++};
++
++/* MTK GE SoC common functions */
++int mtk_cal_cycle_wait(struct phy_device *phydev);
++
++#endif /* _MTK_GE_SOC_H_ */
 -- 
 2.53.0
 
