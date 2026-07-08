@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573F2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D98C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2AT9xr1vEyQ54p+OXNl/EXreb4EIkVz492WmIMeztY=; b=HAA60+FfqeBNxinq/zMWPN1Ufy
-	C4lQ+p3Zu7RBtwuyJUVppvwUxJwZfmSDMPoYvqhvn5KgoJIZ/p0daAsvtAWWeKx767NowB5syJxTc
-	7YA85h0GwWDI1NhsJph9gGhUmStvy2CMVHWoHsPGJgbhBnHBhfKLX7ocb9U0QZDL+0mjrTZpKT/si
-	eiDhDMcqX3uwhyOM9UbkQqN6mrSbfZn87inyXE0WxaNU6e1/rqFNv2uYdMM0jGSbRdnZ5VmhJfNIZ
-	KEHB5YCBhE4UIFQFme/sJeiq065fMJL2KvW3qMUJEzw3Hw3bWVF2nNOscQTn4E8ZvMt07cM1Ug5ce
-	qWsFSStg==;
+	bh=LMTh0V639Yf2I2TTVIIe/eluhRhvYcsFWaLhme4GuFU=; b=IOOAP2JQkown/l23xrHPbAn+p4
+	0ozm+zcT6DTEBVvQeMvMch6kXF9yqJydkUfHS3tcu4aX8EZAUrCJ5tSiXP+H5AsOpiPo045hz7wuH
+	ZSuRY3NK0zbs3kJA3WT/kudnl4grbf3p4F/k2pt1eHheC+0ROeW65+bP4FBaXVPkKNgzXfZw9pbNI
+	964dO8HBd2/r0NzKB04Boj5pi78kzJyn2nK1ZX9C1xxsgU4N5SEtTdXvbM3jQKTiOgQwGfCO1BFbS
+	XzQI/8F2rKr91YQt3JOoP+OShRzN2WOOYcvECkqerJsSiy3EJp8qjdN1qtYPotkLuNHof2mBIT2Pe
+	AhZiVTrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whR8K-0000000H4Ex-3lln;
-	Wed, 08 Jul 2026 12:12:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whR8I-0000000H4EV-25fx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 12:12:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8995215A1;
-	Wed,  8 Jul 2026 05:12:00 -0700 (PDT)
-Received: from [10.1.37.27] (Suzukis-MBP.cambridge.arm.com [10.1.37.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B81CF3F7B4;
-	Wed,  8 Jul 2026 05:11:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783512724; bh=8/7zvmWxegXEn2qwWzbLy+la1fhDjUolmn1c+tkuiCo=;
+	id 1whR8o-0000000H4LD-0Nfs;
+	Wed, 08 Jul 2026 12:12:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whR8k-0000000H4Ji-2NK2;
+	Wed, 08 Jul 2026 12:12:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783512750;
+	bh=LWzKAWbjXwRZm/8P259BKzlhUiJ6T2PGRVC7hN/IGTE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VYLThK6nv7poE0WxqyAkkUzVattkhpNXgz0FB5kUhD63AtBVZyrisuMmv5M0CoESI
-	 L6c2zVVqqGetqMAqNotIZPSb5x7ZJI/M+DkEmmj/SyrIe71mPHqJUlt3Lr8T1+qgXX
-	 3+YkEUZClQkuG47VW0GuZxUiJRDmk0w4H31JziKU=
-Message-ID: <79a41669-72f0-4068-9f38-62fb586d9180@arm.com>
-Date: Wed, 8 Jul 2026 13:11:57 +0100
+	b=khi/t3Rn7xuVoMQK1wZmJSqjU13hZ8VjC9Trgd3XIn6eOMPD6pcUnkVdIBhUWN/3N
+	 kTRZuDS4OM+fAXzDZgihCWwkiPmM1l72+SdSp4ZedCgpggoFTdwF50yzcOjlN1f1Ub
+	 jjLzAzV4lhmYA0vx3HYXEod5M4AN+3zpDt9YCNzr5tFmWGhvlFUoC8T01SL1LNMTDj
+	 SdeCysDTcbel7p4EpfA9Av1A/u1m2/ZSHSLBdNpD0MzuxGlcFUqJIw6CXOy4r2W6Fn
+	 CVRXhu0TVZvLErOJxH+HxzucljwRIa4HfBCOR1oamCcNVEMXM3Eo/RQhnA26HA2Cz+
+	 wBgg5s+g9CMrg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B78B317E0713;
+	Wed, 08 Jul 2026 14:12:29 +0200 (CEST)
+Message-ID: <956e84d2-728a-4e8c-8026-ae1a41e69171@collabora.com>
+Date: Wed, 8 Jul 2026 14:12:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-Content-Language: en-GB
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
- Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260701054926.825925-17-aneesh.kumar@kernel.org>
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Adam Thiede <me@adamthiede.com>,
+ Thorsten Leemhuis <regressions@leemhuis.info>,
+ =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "bisson.gary@gmail.com" <bisson.gary@gmail.com>
+Cc: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "regressions@lists.linux.dev" <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com> <ajka2220depklK1_@owl5>
+ <bac79214-050d-448b-be63-0586d45c807d@adamthiede.com>
+ <f0d99b1a-e383-4d14-adb1-4ccab46efddb@leemhuis.info>
+ <5baeb90d2c3736df67ad075ede4ac765bfeaed2d.camel@mediatek.com>
+ <84233951-ee22-4980-9f17-2af1df51fdbf@leemhuis.info>
+ <6fed12a6-0c94-477f-8a2e-466c33ea2e29@collabora.com>
+ <dbc251f2-0c67-4970-a101-c19129055082@adamthiede.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <dbc251f2-0c67-4970-a101-c19129055082@adamthiede.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_051206_618201_A41EC710 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260708_051234_764169_BB75E208 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +93,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2026 06:49, Aneesh Kumar K.V (Arm) wrote:
-> Teach dma_direct_map_phys() to select the DMA address encoding based on
-> DMA_ATTR_CC_SHARED.
-> 
-> Use phys_to_dma_unencrypted() for decrypted mappings and
-> phys_to_dma_encrypted() otherwise. If a device requires unencrypted DMA
-> but the source physical address is still encrypted, force the mapping
-> through swiotlb so the DMA address and backing memory attributes remain
-> consistent.
-> 
-> Update the arm64, x86, s390 and powerpc secure-guest setup to not use
-> swiotlb force option
-> 
-> Tested-by: Jiri Pirko <jiri@nvidia.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
-> Changes from v3:
-> * Handle DMA_ATTR_MMIO
-> ---
->   arch/arm64/mm/init.c                 |  4 +--
->   arch/powerpc/platforms/pseries/svm.c |  2 +-
->   arch/s390/mm/init.c                  |  2 +-
->   arch/x86/kernel/pci-dma.c            |  4 +--
->   kernel/dma/direct.c                  |  4 ++-
->   kernel/dma/direct.h                  | 45 +++++++++++++++-------------
->   6 files changed, 31 insertions(+), 30 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 97987f850a33..acf67c7064db 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
->   	unsigned int flags = SWIOTLB_VERBOSE;
->   	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->   
-> -	if (is_realm_world()) {
-> +	if (is_realm_world())
->   		swiotlb = true;
-> -		flags |= SWIOTLB_FORCE;
-> -	}
->   
->   	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
->   		/*
+On 7/8/26 03:25, Adam Thiede wrote:
+> On 7/7/26 05:38, AngeloGioacchino Del Regno wrote:
+>> On 7/7/26 10:51, Thorsten Leemhuis wrote:
+>>> On 7/7/26 04:20, CK Hu (胡俊光) wrote:
+>>>> On Mon, 2026-07-06 at 12:16 +0200, Thorsten Leemhuis wrote:
+>>>>> On 6/22/26 15:23, Adam Thiede wrote:
+>>>>>> On 6/22/26 06:22, Gary Bisson wrote:
+>>>>>>> On Thu, Jun 18, 2026 at 04:06:28PM -0500, Adam Thiede wrote:
+>>>>>>>> On 1/20/26 05:36, Gary Bisson wrote:
+>>>>>>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
+>>>>>>>>> running in order to lock its PLL during its own pre-enable function.
+>>>>>>>>>
+>>>>>>>>> Without this change, the bridge gives the following error:
+>>>>>>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
+>>>>>>>>> sn65dsi83 14-002c: Unexpected link status 0x01
+>>>>>>>>> sn65dsi83 14-002c: reset the pipe
+>>>>>>>>> [...]
+>>>>>>>>
+>>>>>>>> This commit was part of 7.1 and caused a problem for me.
+>>>>>>>> I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330
+>>>>>>>> chromebook with a Mediatek MT8173 processor.
+>>>>>>>> The problem: when the display on my laptop powers off (via suspend or
+>>>>>>>> idle,
+>>>>>>>> like xset dpms off) the picture does not come back when the display
+>>>>>>>> powers
+>>>>>>>> back on (from resume). The display backlight comes on and brightness is
+>>>>>>>> adjustable but there is no picture. The only fix is to reboot.
+>>>>>>>>
+>>>>>>>> Reverting this commit and applying it as a patch on top of 7.1
+>>>>>>>> addresses the
+>>>>>>>> issue for me.
+>>>>>>>>
+>>>>>>>> You can view the config I'm using here:
+>>>>>>>> https://urldefense.com/v3/__https://gitlab.postmarketos.org/ postmarketOS/ 
+>>>>>>>> pmaports/-/__;!!CTRNKA9wMg0ARbw! 
+>>>>>>>> jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAN9bmax5$
+>>>>>>>> merge_requests/8819
+>>>>>>>>
+>>>>>>>> Is there any sort of testing or other debugging info I can provide to
+>>>>>>>> help
+>>>>>>>> address this issue?
+>>>>>>>
+>>>>>>> Thanks for reporting the issue, could you share some logs? Is the driver
+>>>>>>> saying anything during resume? Also, what type of panel is used on that
+>>>>>>> chromebook?
+>>>>>>
+>>>>>> The curious thing is that there are no real logs in dmesg or /var/log/
+>>>>>> messages about this. This picture just fails to come back. If there are
+>>>>>> some kernel params I can set to get deeper logging, that would help, but
+>>>>>> I'm not aware of any.
+>>>>>>
+>>>>>> I think the panel is a "BOE NV116WHM-T00" - I used this command to get
+>>>>>> info: cat /sys/class/drm/card0-eDP-1/edid | edid-decode
+>>>>>>
+>>>>>> Output: https://urldefense.com/v3/__https://termbin.com/8nbd__;!! 
+>>>>>> CTRNKA9wMg0ARbw! 
+>>>>>> jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAJooSyqL$
+>>>>>
+>>>>> This looked stalled. If I'm mistaken here, please let me known; but if
+>>>>> no solution is in sight, should we maybe just revert the change until a
+>>>>> proper was found?
+>>>>
+>>>> It's welcome anyone to provide a revert patch,
+>>>> but I would still wait for the fixup patch until 7.2-rc4.
+>>>> If no fixup patch exist, then apply the revert patch.
+>>>  From my understanding of things the position in the devel cycle doesn't
+>>> matter much in a case like this. To quote Linus statements from
+>>> https://www.kernel.org/doc/html/latest/process/handling- regressions.html#on- 
+>>> how-quickly-regressions-should-be-fixed
+>>>
+>>> """
+>>>  From 2026-01-22:
+>>>
+>>>   But a user complaining should basically result in an immediate fix -
+>>>   possibly a "revert and rethink".
+>>>
+>>> With a later clarification on 2026-01-28:
+>>>
+>>>   It's also worth noting that "immediate" obviously doesn't mean "right
+>>>   this *second* when the problem has been reported".
+>>>
+>>>   But if it's a regression with a known commit that caused it, I think
+>>>   the rule of thumb should generally be "within a week", preferably
+>>>   before the next rc.
+>>> """
+>>>
+>>> Adam reported the problem about three weeks ago, so we are way past the
+>>> "rule of thumb" timeframe Linus set.
+>>>
+>>> Ciao, Thorsten
+>>
+>> This is a kind of odd situation here. The fix from Adam is actually correct, as in,
+>> the SN65DSI83 bridge gets broken without...
+>>
+>> ....but then, there's some more oddness going on: I tried to reproduce this on my
+>> MT8173 Elm device, but there I can resume the system just fine, and the display is
+>> up and running like normal?
+>>
+>> I'm not sure what to advice here at this point - just adding some info.
+>>
+>> Cheers,
+>> Angelo
+> Angelo, would you mind sharing your config, and the details of what you're running? 
+> It might be a configuration difference.
+> Thanks!
 
+Sure, here it is:
 
-For arm64 CCA bits:
+https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-dev/arch/arm64/configs/defconfig?ref_type=heads
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cheers,
+Angelo
 
