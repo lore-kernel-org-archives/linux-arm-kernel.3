@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C07C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 08:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954ABC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 08:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0jyaycIlFsITmoKtSt+baeUtSj03KZOHsdXm+Zi9cFI=; b=L7m0wH8srxjnHA1Mm/w/dUUWw3
-	4iNoEReb2Du9bMwq8uW0KG+IH4Tjsasx75LnmoRecZyIztclZg1s8SkPS4VQT4vYBLZTchqwVFF36
-	MBHgf7aFOQ8ud6/9VzwNyid5/cPMuwieMM5fQMl4wBXb4X3ajSYlpQ3tMtUsBO98E1VYUQcPAG175
-	0Qq8PGUWFCrrFOrofzRbmcepKWwzSo6vg2H3W9ioe/bRDo/SN6OphSad2HdXJ5hVpKIaS3Llv1PHD
-	poQRqzEjBqAYl80auADJl9zEmw2OHLfD7JnTkcI/umdIzxbwAP2SqsBK6QRT0RpkBOgL4m/+AmdW1
-	n56Jlq2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7OCS9ttjcsJjAtXg7NkqqhNNIFwWFmPdzpD3nDuHjg=; b=2TTFKskbpwKZItkt122FBS+nrT
+	kxGs7MEgwRJcaypOw/ayGAVivXEEZkOlyKbbm6VUEYdt7BsLPxxsujOFk+v8jdfio2PTnwOp8IKWj
+	wgUYsv+18IAgbXM5peM2KWsevRFkWAVqERJ3JUcJbzRGYxSYWZS5PGLbMNoAXK+KQpOQX4IEbZPFN
+	LI6STR9o9fZg117c4S7iFSxOzLsndCNDDbheLkqu28D3P/+N+Usqf399RqWkOmbVQ7ls1NBJ9xQkJ
+	8Z6Et5KVCs1icrWs3uBIYmLW0aKCtEUtAVGdOKNtPYGTOH/U+sYyW0bPuRc7uJ1sAbP6vv4wejkQJ
+	kpv8nRfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whNas-0000000GcAT-1dpu;
-	Wed, 08 Jul 2026 08:25:22 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1whNdz-0000000GcP0-0APp;
+	Wed, 08 Jul 2026 08:28:35 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whNaq-0000000GcA2-0Fe0
+	id 1whNdv-0000000GcNi-048J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 08:25:21 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cad225673bso3572575ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 01:25:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783499118; x=1784103918; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0jyaycIlFsITmoKtSt+baeUtSj03KZOHsdXm+Zi9cFI=;
-        b=rmdqHjFEDjLu0GP8yQRGm/QYXo7bazGHYQul3kokWBEhe7dFAhX0i0sBW/2FuJxDh9
-         rj9pMGnsYev2SoAeWAGTQS/7+rTV+beVlMZjerfqT2gqLetS7lyyyoq8z0lq4YZ2POCv
-         1+WYv5e4X0ueoXJDwctYhqusQJLZZhzvuJs5gLPhVe0di/fhJF6DAQQSdZvpHCVJuG9Z
-         cLoiZ2xcmnP2lclutssnIXTElCTNz1NhPdGOCew6BbfkjDEPsyYWzgN2G2gemWRO7ExH
-         6dncEJnDh2GBl8J16TP2OSWajdmi/JLPxR5c7YpI8c9c4LatrnbBGkgwqd2/YEgZgEtM
-         00PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783499118; x=1784103918;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0jyaycIlFsITmoKtSt+baeUtSj03KZOHsdXm+Zi9cFI=;
-        b=FN938pELo2TQM1tbMtzy71QIWimX06m2GesgL7B8TUYJVJ5/ZBPLCqKuzELq2h2vE0
-         ZAKJ30u4OHaf0tEWNGccgHeFN0bOSiXu9hRXy7Jo5y1h/YnOraLLZhWtDYq4s27tumj7
-         MfVxtR4EWpV8ZKw09O/28vxNdWK5W1o5DaLzgBW8TGSoDyjSIwjTjDHv780FwimGvFIA
-         qJ7A9eud7fOFYkYN2c9rfBS4FO8AXS3cGhNpC9/wK4D5SrI8LWUytVwQ/QggGyNHRVQa
-         PVr5Cbjon/G4O+qUIFbASbynSRaHBA/PfCPZNtKgp8M1aqlHWCGV90wV/WiOe7K9utAR
-         2XEg==
-X-Forwarded-Encrypted: i=1; AHgh+RpbH6rLsrYucEvdDSUMkp5LgpeON0omIowHrCHUf3oDU2mQ9sU3QbnpJamuieQjNxvgDxN0Pv4qDjrPdCN0kZFG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuArRZ7gUm3K4mP824oOQJJh4FIH/5btzG3N8c6NVB6liL4hV7
-	u9gh7CyYD6brFTnKnrJDZosgajv2CF22wsWdHHCQ+HmCmYrRk7QnqFLS
-X-Gm-Gg: AfdE7cnABw4ShdvzDaY/DnSbB1SoANJm8Rcr2cKCnUpGXBSG4yrZVyLlWrUF9GGAzuF
-	vT+/Bz/Q3OHpqN2W5Mlx9HMoA/Fmeak5p5lV1L910Pmy3rvgKNZvDkI7t+nnlO8ghqLAYS5amr4
-	TuaxRHdwQIHuSkZqSL7Oo2tqCyu29N3I7KmkwpQvrKNxlUtVA0wDn5bSwiTAfhrEnSIiNBhZ7L3
-	XoPqzGDjUXFlQajT/Hi9yxun9dVJNF9Fv1et+0Gk7vvmVdzJuSOtjJUxBJLWOMS0OdWp2M9J3Kh
-	ZRKDLZ48gUNkum9W1pd/CJQ9gtOpTVhWH6qGqaALpMl/VwNjs7pivSzWgbXU/U1Nsqw9s8GdA0Z
-	MzAzkzbUHC/NMfCRzQXQ/A6j7Wb3ZaTrK9Rqq0WNU7l6R8zA0WkuhRXp50Xaj2/YReBQh2rwuA7
-	r/JHWiNI8pmRJN6bohMYD64+hbCXNklZASN6Pr/dkl+Tn3bS7ltxuy6NnPIc6lRLsQhj5t5rM=
-X-Received: by 2002:a17:903:b07:b0:2c8:1c05:16aa with SMTP id d9443c01a7336-2ccea2d56f0mr17414495ad.19.1783499118444;
-        Wed, 08 Jul 2026 01:25:18 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3d952sm24010315ad.61.2026.07.08.01.25.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 01:25:18 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: arnd@arndb.de,
-	olof@lixom.net
-Cc: soc@lists.linux.dev,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
-Date: Wed,  8 Jul 2026 16:24:57 +0800
-Message-Id: <20260708082457.460710-1-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 08 Jul 2026 08:28:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=m7OCS9ttjcsJjAtXg7NkqqhNNIFwWFmPdzpD3nDuHjg=;
+	b=nJNt57MLrEVPte5Syar1+jRTg+YWjqen7Dz1aoXFz0/qSO1DjzXv/s+xQNLHSzE2c8xL6ZBJO
+	a8y4KdgCkrkIT4/D1eHnyiTb+dVxJULuS1y8JNOd26kzKJaZ5ZCBJbWx/LBaSt617rIK3iiTjW3
+	CHxgZjTGpR1jcm5e7Z9DaDo=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gw9wm2VTLz1prPP;
+	Wed,  8 Jul 2026 16:19:04 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 51A1A4056D;
+	Wed,  8 Jul 2026 16:28:20 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 8 Jul
+ 2026 16:28:19 +0800
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <saket.dumbre@intel.com>, <beata.michalska@arm.com>,
+	<zhenglifeng1@huawei.com>, <sumitg@nvidia.com>, <zhanjie9@hisilicon.com>,
+	<geert+renesas@glider.be>, <cuiyunhui@bytedance.com>,
+	<vanshikonda@os.amperecomputing.com>, <ionela.voinescu@arm.com>,
+	<jeremy.linton@arm.com>, <viresh.kumar@linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linuxarm@huawei.com>
+CC: <prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>,
+	<xuwei5@huawei.com>, <lihuisong@huawei.com>, <yubowen8@huawei.com>,
+	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>
+Subject: [PATCH v2 1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
+Date: Wed, 8 Jul 2026 16:28:17 +0800
+Message-ID: <20260708082818.808041-2-zhangpengjie2@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260708082818.808041-1-zhangpengjie2@huawei.com>
+References: <20260708082818.808041-1-zhangpengjie2@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_012520_103559_D3CBD575 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260708_012831_661819_7D757D5F 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,143 +86,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add controller nodes for the four Bosch M_CAN blocks found on the
-Nuvoton MA35D1 SoC.
+cppc_get_perf_ctrs() reads the delivered and reference performance
+counters one at a time.
 
-Additionally, configure pinctrl and enable CAN1 and CAN3 on the
-MA35D1 SOM board. Also, update the APLL frequency to 200MHz to ensure
-the CAN controllers receive the required input clock for 50MHz operation.
+Allow architectures to provide both FFH feedback counters in one
+operation when that either narrows the sampling window or avoids extra
+cross-CPU reads. Add a small FFH-specific hook for that case and fall
+back to the existing per-register reads when unsupported.
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+Tested-by: Sumit Gupta <sumitg@nvidia.com>
+Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
 ---
-Resend note:
- - resend with the complete Cc list; no patch changes
+ drivers/acpi/cppc_acpi.c | 50 ++++++++++++++++++++++++++++++++++++----
+ include/acpi/cppc_acpi.h |  7 ++++++
+ 2 files changed, 52 insertions(+), 5 deletions(-)
 
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 32 +++++++++++-
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 52 +++++++++++++++++++
- 2 files changed, 83 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index f6f20a17e501..fb23b0573bdc 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -37,6 +37,22 @@ clk_hxt: clock-hxt {
- 	};
- };
+diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+index 9f572f481241..b6356476a46e 100644
+--- a/drivers/acpi/cppc_acpi.c
++++ b/drivers/acpi/cppc_acpi.c
+@@ -1004,6 +1004,22 @@ int __weak cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+ 	return -ENOTSUPP;
+ }
  
-+&can1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can1>;
-+	assigned-clocks = <&clk CAN1_DIV>;
-+	assigned-clock-rates = <50000000>;
-+	status = "okay";
-+};
++/**
++ * cpc_read_ffh_fb_ctrs() - Read FFH feedback counters together
++ * @cpunum:	Target CPU
++ * @reg1:	first CPPC register information
++ * @val1:	place holder for first return value
++ * @reg2:	second CPPC register information
++ * @val2:	place holder for second return value
++ *
++ * Return: 0 on success, error code otherwise
++ */
++int __weak cpc_read_ffh_fb_ctrs(int cpunum, struct cpc_reg *reg1,
++				u64 *val1, struct cpc_reg *reg2, u64 *val2)
++{
++	return -EOPNOTSUPP;
++}
 +
-+&can3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can3>;
-+	assigned-clocks = <&clk CAN3_DIV>;
-+	assigned-clock-rates = <50000000>;
-+	status = "okay";
-+};
-+
- &clk {
- 	assigned-clocks = <&clk CAPLL>,
- 			  <&clk DDRPLL>,
-@@ -45,7 +61,7 @@ &clk {
- 			  <&clk VPLL>;
- 	assigned-clock-rates = <800000000>,
- 			       <266000000>,
--			       <180000000>,
-+			       <200000000>,
- 			       <500000000>,
- 			       <102000000>;
- 	nuvoton,pll-mode = "integer",
-@@ -56,6 +72,20 @@ &clk {
- };
+ /**
+  * cpc_write_ffh() - Write FFH register
+  * @cpunum:	CPU number to write
+@@ -1496,6 +1512,33 @@ bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+ }
+ EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc_cpu);
  
- &pinctrl {
-+	can-grp {
-+		pinctrl_can1: can1-pins {
-+			nuvoton,pins = <11 14 4>,
-+				       <11 15 4>;
-+			bias-disable;
-+		};
++static int cppc_read_fb_ctrs(int cpunum,
++			     struct cpc_register_resource *delivered_reg,
++			     struct cpc_register_resource *reference_reg,
++			     u64 *delivered, u64 *reference)
++{
++	int ret;
 +
-+		pinctrl_can3: can3-pins {
-+			nuvoton,pins = <11 10 3>,
-+				       <11 11 3>;
-+			bias-disable;
-+		};
-+	};
++	/*
++	 * For FFH feedback counters, try a paired read first to reduce
++	 * sampling skew between delivered and reference counters. Fall
++	 * back to the existing per-register reads if unsupported.
++	 */
++	if (CPC_IN_FFH(delivered_reg) && CPC_IN_FFH(reference_reg)) {
++		ret = cpc_read_ffh_fb_ctrs(cpunum,
++					&delivered_reg->cpc_entry.reg, delivered,
++					&reference_reg->cpc_entry.reg, reference);
++		if (ret != -EOPNOTSUPP)
++			return ret;
++	}
 +
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
- 			nuvoton,pins = <4 14 1>,
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index e51b98f5bdce..494724a25f3b 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -244,6 +244,58 @@ gpion: gpio@340 {
- 			};
- 		};
++	ret = cpc_read(cpunum, delivered_reg, delivered);
++	if (ret)
++		return ret;
++
++	return cpc_read(cpunum, reference_reg, reference);
++}
++
+ /**
+  * cppc_perf_ctrs_in_pcc - Check if any perf counters are in a PCC region.
+  *
+@@ -1561,11 +1604,8 @@ int cppc_get_perf_ctrs(int cpunum, struct cppc_perf_fb_ctrs *perf_fb_ctrs)
+ 		}
+ 	}
  
-+		can0: can@403c0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403c0000 0x0 0x200>, <0x0 0x403c0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			clocks = <&clk HCLK3>, <&clk CAN0_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can1: can@403d0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403d0000 0x0 0x200>, <0x0 0x403d0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			clocks = <&clk HCLK3>, <&clk CAN1_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can2: can@403e0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403e0000 0x0 0x200>, <0x0 0x403e0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			clocks = <&clk HCLK3>, <&clk CAN2_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
-+		can3: can@403f0000 {
-+			compatible = "bosch,m_can";
-+			reg = <0x0 0x403f0000 0x0 0x200>, <0x0 0x403f0200 0x0 0x2000>;
-+			reg-names = "m_can", "message_ram";
-+			interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "int0", "int1";
-+			clocks = <&clk HCLK3>, <&clk CAN3_GATE>;
-+			clock-names = "hclk", "cclk";
-+			bosch,mram-cfg = <0x0 4 4 32 32 32 8 8>;
-+			status = "disabled";
-+		};
-+
- 		uart0: serial@40700000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40700000 0x0 0x100>;
+-	ret = cpc_read(cpunum, delivered_reg, &delivered);
+-	if (ret)
+-		goto out_err;
+-
+-	ret = cpc_read(cpunum, reference_reg, &reference);
++	ret = cppc_read_fb_ctrs(cpunum, delivered_reg, reference_reg,
++				&delivered, &reference);
+ 	if (ret)
+ 		goto out_err;
+ 
+diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+index 8693890a7275..5acebe62feac 100644
+--- a/include/acpi/cppc_acpi.h
++++ b/include/acpi/cppc_acpi.h
+@@ -176,6 +176,8 @@ extern int cppc_get_transition_latency(int cpu);
+ extern bool cpc_ffh_supported(void);
+ extern bool cpc_supported_by_cpu(void);
+ extern int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val);
++extern int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
++				struct cpc_reg *reg2, u64 *val2);
+ extern int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val);
+ extern int cppc_get_epp_perf(int cpunum, u64 *epp_perf);
+ extern int cppc_set_epp_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls, bool enable);
+@@ -250,6 +252,11 @@ static inline int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+ {
+ 	return -EOPNOTSUPP;
+ }
++static inline int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
++				       struct cpc_reg *reg2, u64 *val2)
++{
++	return -EOPNOTSUPP;
++}
+ static inline int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val)
+ {
+ 	return -EOPNOTSUPP;
 -- 
-2.34.1
+2.33.0
 
 
