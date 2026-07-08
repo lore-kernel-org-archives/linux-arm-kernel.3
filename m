@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A41C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 11:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8228C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 11:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvVAlEJVuGFLkU8Sx+0lCwd7KQJAZlMmHPeMITO1ozY=; b=p/e4Mnm2aZoxGDpfsjHp7Qw1qn
-	qrBcjuGvhpILh2VgydzQOdSD1YCK2Bmle1Q3Rh2la0xAdIdL1KT3gZC8FSPXuwBBWXBLwemgVz0l+
-	8H/sRpkmwKJ99tRplU2Ck5BYo5+3pkQaD2Bpp++5xaBZfyfQSeWSLfJMw5n0QUlybkFQR/emklOQb
-	MMtc1WxHPIWJ+x5eqoEggCHpgUfRTIqA/FK5s6510lSQ+ItM1Tk8osmdozts9B01xJt5q4ggXot+U
-	IrjH08jIYHhyZdl2rw9NTFnT4UbeBsBdOWbS55GWXESLYWIF1YgBjJX8ZAwsoanObHm6/n00URmNL
-	SWgrZq3A==;
+	bh=gcY7T0lP5le5CCNf+zhfFY+iI1N5QvSyJZnptU0Oys8=; b=vSBGEKZvN1iGdYe8d3Offhwnnj
+	9q1qTk5nQoisht3AobZylZJxMC2o8miAequIr234SpqR2C7mAIUMEgi4zuhz/0TcSxxGrD0nyCABU
+	L3hZKnwa3qCo0vC5IYboKW/eygHe7iabALZInWf0gAsYCeQmuwT+VsRTIk2M3j5lmclUIEM3ylRbN
+	H5oiZPYmhKNFSH0tkGXoLy/xwdE2lXFzqA0X7pXkAqTfVDzymzXlFXLeCuhkWOG9L+zQRMstfFej7
+	muJ0MVAeAP8UAt3xbLY0agpHiD4bjT4gx73bcqb0dD1RgAYDRyfdcY6B4R3rKJ+GfMb5Pw166WCuC
+	6e/N0c5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whQZP-0000000H1lK-27bI;
-	Wed, 08 Jul 2026 11:36:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whQZK-0000000H1im-2sH7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 11:35:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00BCE1E5E;
-	Wed,  8 Jul 2026 04:35:53 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E39E3F85F;
-	Wed,  8 Jul 2026 04:35:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783510557; bh=skF61y21KgPsVGfJvwoIpH8oYC/C836tWg/Zi0aByAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BDUtEDVyOjE2X987uSwyfq3z9RD7lBFkhkdA5EBvVEUJF3xFy0wXNZao/bpBtdGJT
-	 bzEIyGgplNZ8FteGaCdPd8M9i1hu4qN4jloW+AkzdgaaYEgqMwYQieSh7ECTVL08I/
-	 ukOcYIu1QhMGKdh1zDxGves8zlEW6X1jwQ6tkJ14=
-Date: Wed, 8 Jul 2026 12:35:51 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-Message-ID: <ak42F240d-53QeFN@arm.com>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
+	id 1whQaa-0000000H1xU-3HzS;
+	Wed, 08 Jul 2026 11:37:16 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whQaX-0000000H1wp-2r2B;
+	Wed, 08 Jul 2026 11:37:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783510592; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fiM838OSJXxgoJdBoSWbg9eOpW3CqgvOWxKDidB7HrEtGzON8fr84bpH54/eWTMokKJGeHDcDC3nnYVk4PXKtWKRZ8YuoHs69TJbi8n1og/TFEs+dgzdDAJ2+0DE/KcqDXEHYoeEU9AYTGFqDed3+FOib+ScgGx/A8oJGBRFiak=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783510592; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gcY7T0lP5le5CCNf+zhfFY+iI1N5QvSyJZnptU0Oys8=; 
+	b=Gb1vx0D3oEAGSswxky62uf/lSq8w8KZrVtlO0xcj6NALwgSI8elGNHJix84Q3+ITAfHFzoZc9fEBQyukiWVOJkdmrVr0HuZauE7AYvG2itYZUaKYdFplRrq4EReb8NcMpzEkeZeiDqIab3npvRk3Fr2+SKleQLi0R6yMI711yaI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783510592;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=gcY7T0lP5le5CCNf+zhfFY+iI1N5QvSyJZnptU0Oys8=;
+	b=SgpZaz1LyvYikKA5/5BCe443LYNenKVSqHw4XguZa+HpuQiaQYXH8hvKhF1ve3KN
+	ZZoSo3RXdwCGd6wE8gqO29opjDcsyyTT+lqZyJ5l1iegYaA+7VTNePrzVIX43pIzAZs
+	LmElpjbQ+VBGQ+Mc7vZhhZGbSXxNb2Y7Y6gzMLQI=
+Received: by mx.zohomail.com with SMTPS id 1783510588746822.2863328296761;
+	Wed, 8 Jul 2026 04:36:28 -0700 (PDT)
+Message-ID: <8304b0a704c8db697767584b8c34388f07ba401d.camel@collabora.com>
+Subject: Re: [PATCH net-next 1/6] dt-bindings: net: mediatek-dwmac: add
+ support for MT8189 SoC
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Biao Huang
+ <biao.huang@mediatek.com>,  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	maxime.chevallier@bootlin.com, rmk+kernel@armlinux.org.uk,
+ kernel@collabora.com, 	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Date: Wed, 08 Jul 2026 13:36:21 +0200
+In-Reply-To: <b810b9cd-8f5e-4c9d-8496-908aae55dac1@lunn.ch>
+References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
+	 <20260707-dwmac-mediatek-mt8189-v1-1-17f345eaaca3@collabora.com>
+	 <b810b9cd-8f5e-4c9d-8496-908aae55dac1@lunn.ch>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-17-aneesh.kumar@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_043558_830485_D85D2869 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260708_043713_773572_E8DC48AC 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,74 +93,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 97987f850a33..acf67c7064db 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
->  	unsigned int flags = SWIOTLB_VERBOSE;
->  	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->  
-> -	if (is_realm_world()) {
-> +	if (is_realm_world())
->  		swiotlb = true;
-> -		flags |= SWIOTLB_FORCE;
-> -	}
+Hi Andrew,
 
-For this part:
+On Tue, 2026-07-07 at 14:42 +0200, Andrew Lunn wrote:
+> > +=C2=A0 - if:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enu=
+m:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 - mediatek,mt8189-gmac
+> > +=C2=A0=C2=A0=C2=A0 then:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - d=
+escription: MAC Main clock
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - d=
+escription: PTP clock
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - d=
+escription: RMII reference clock provided by MAC
+>=20
+> Since this is a MAC, it sounds like it is consuming its own clock?
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+In the driver ([1]), this clock is described as being only used and
+needed in RMII when MAC provides the reference clock, and useless
+otherwise (RGMII/MII or RMII when PHY provides the reference clock).
 
-> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-> index e05dc7649366..f3fc28f352ba 100644
-> --- a/kernel/dma/direct.h
-> +++ b/kernel/dma/direct.h
-> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
->  {
->  	dma_addr_t dma_addr;
->  
-> +	/*
-> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
-> +	 * as shared by default.
-> +	 */
-> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
-> +		attrs |= DMA_ATTR_CC_SHARED;
-> +
->  	if (is_swiotlb_force_bounce(dev)) {
-> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
-> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> -				return DMA_MAPPING_ERROR;
-> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> +			return DMA_MAPPING_ERROR;
->  
-> -			return swiotlb_map(dev, phys, size, dir, attrs);
-> -		}
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> -		return DMA_MAPPING_ERROR;
-> +		return swiotlb_map(dev, phys, size, dir, attrs);
->  	}
->  
-> -	if (attrs & DMA_ATTR_MMIO) {
-> -		dma_addr = phys;
-> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
-> -			goto err_overflow;
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> +	if (attrs & DMA_ATTR_CC_SHARED)
->  		dma_addr = phys_to_dma_unencrypted(dev, phys);
-> +	else
-> +		dma_addr = phys_to_dma_encrypted(dev, phys);
+Its use and configuration also depends on the "mediatek,rmii-clk-from-
+mac" vendor property ([2]) presence in devicetree.
 
-For AMD/SME, on host with memory encryption we now end up setting the C
-bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
-some other MMIO bus understands this attribute. Maybe we should stick to
-something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
-since this is not universally defined, just use the old dma_addr = phys
-if MMIO and ignore any unlikely DMA offsets.
+Do you wish this clock description be reworded in the dt-bindings for
+both occurrences?
 
-In the other case, for an arm CCA guest, if the MMIO is shared we end up
-setting the shared attribute but that's fine, it's only an IPA address.
+[1]:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/dr=
+ivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c#n480
+[2]:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Do=
+cumentation/devicetree/bindings/net/mediatek-dwmac.yaml#n108
 
--- 
-Catalin
+Regards,
+Louis-Alexis
+>=20
+> 	Andrew
 
