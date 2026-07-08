@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37613C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B317C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSrEVIc8I4v07uohcflk865RNS4QPYoK87cBft0LbSM=; b=NqmfebPc9WjzOFcZt8paNndn2d
-	uImJiMnptHY2FxphQXvZ7vz7cetlsihuKmUU9OoKqSB9Iel/WtlEBzyyjO4xwxZ2il7X3pZEc5qFR
-	szmSi6AJghhR2aEsRK+gmBnT2/sWsMJwfJwYjcm2RkUKIVEOmHZ70mOExpCKOLu47AzhTK7e/uvS6
-	S5+mUfXI2Zpq8C9b+qMSAQ0vWZr+6USt4jCWVI6xDOR5QOaBET/LG3u/XNVIBHm68adp+PmGHaPyl
-	mFDJ3QG0jzWxaK03erfpFV8AV/g+dKBcj/ih8OTBp6NXU+Xlkwtx+ywX8+tl6ezBEQGxKvS9jIQWB
-	kMvb5fBw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RWwnnS6GeaolTc9bMDjJoioBxiXpdchd+xEqkloj854=; b=K8ePoKE2PsHFEYDGb+JSrTPVHT
+	BQ/qCaQIGwWGs5OgZXeC6Ye8Zb5iRFmcDKXfOiMe1e6YLeWr5aDfYnk5V2Teo8i248mNYgrNznOkG
+	VmgQ3qkJCjNeQ5Serb57Um0po7q+OUZVO7rHFy2hzFYJ0k6VraH39N2yGs1D58QG+UgU9zmAj1IXY
+	cUpxohGwiUpHhkGpuV0o4ZS7iletkhV+QPCR3V6ePZCUd+DGssVsNyRg2BSBbFMxZQYJoReyS3KVm
+	qc47YkjDh9sh3rgjV4fA/sbUigCd9O3NiP7iGukNAgvC7BJSE88C2/T4utS/Y7O6zuh64Hlkyck5I
+	aAiiYw3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whP1V-0000000Gn8g-0GjY;
-	Wed, 08 Jul 2026 09:56:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whP2p-0000000GnQH-3HAW;
+	Wed, 08 Jul 2026 09:58:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whP1T-0000000Gn7x-0hFm
+	id 1whP2o-0000000GnQ0-49Dd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:56:55 +0000
+	Wed, 08 Jul 2026 09:58:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56213601EC;
-	Wed,  8 Jul 2026 09:56:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED3B91F00A3A;
-	Wed,  8 Jul 2026 09:56:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9529D40935;
+	Wed,  8 Jul 2026 09:58:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 904611F000E9;
+	Wed,  8 Jul 2026 09:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783504614;
-	bh=OSrEVIc8I4v07uohcflk865RNS4QPYoK87cBft0LbSM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HlcTHUEsJFmDC0ZybPXosmPoLjcHJc1ZrYdI5BbtiFZFWW+fjLQB85cQhMZj6bxxP
-	 7X92SlATxbpmo1NZCeZFgOch6oJz4E5ZiAppcOotnPwePTsYIFx1jci6fNTpKcDq0x
-	 dTuMYaDswy5tyZzi6atIUSb7oHn2//ape9Tyayu+XhAhTOnsVFyviK8eaM/ypgiXO4
-	 jzN5i4FW6QYjLc6/THZTj3BDKmG/cFLrbtVlFJAsH/9ukbaKXUzeqgqLmmzqXxm8P1
-	 zv4gjQn0mIYDv5VZ5bNwmemtdOd2POWex0OffYJRTGGI9eJcGvD2ipxYfPBRDiaeDG
-	 q3oiZA9dNNO7A==
+	s=k20260515; t=1783504698;
+	bh=RWwnnS6GeaolTc9bMDjJoioBxiXpdchd+xEqkloj854=;
+	h=From:To:Cc:Subject:Date;
+	b=h9aDP3qaagnR2LQYiES34wpJhH6BpLm1rDyCK1/kU+o2iPw9xoXYUyWD1pDFq+hFF
+	 DtP3VWpsBT5QZ0eKeqQrZaLFSNVu8NLdBH/mBGbTtQY7w1JpzsntHQgqvWdvq1Nkah
+	 HrmXFkyXFKhOq5l4NDjtwnJY4GZ16QVa/V6ZIdGuhwvBWTYUWAryOxWNTjXn9CHuhm
+	 glJA1Fxh0YtkK/2CIRZ1OAkMgCDiU55aIZAYwg+ybMF6i6nL+LFEf2TyHhp6+jUOqp
+	 SqBOae0AQ3tbOuSP8XiPXSQNum4YRitjWC0Ssp2EBpKRxKVzZ2IFmm/86Y3wNNqQ5k
+	 VWXQ3kjKC9n2A==
 From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-To: victor.liu@nxp.com
+To: bhelgaas@google.com
 Cc: linux-kernel@vger.kernel.org,
 	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jacky Chou <jacky_chou@aspeedtech.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] drm/imx: include dc-drv.h to avoid sparse warning
-Date: Wed,  8 Jul 2026 11:56:45 +0200
-Message-ID: <20260708095645.385291-2-jirislaby@kernel.org>
+Subject: [PATCH] PCI: aspeed: Switch to irq_domain_create_linear()
+Date: Wed,  8 Jul 2026 11:58:14 +0200
+Message-ID: <20260708095814.385480-1-jirislaby@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260708095645.385291-1-jirislaby@kernel.org>
-References: <20260708095645.385291-1-jirislaby@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,44 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sparse (build with C=1) warns:
-drivers/gpu/drm/imx/dc/dc-ic.c:273:24: warning: symbol 'dc_ic_driver' was not declared. Should it be static?
+irq_domain_add_linear() is going away as being obsolete now. Switch to
+the preferred irq_domain_create_linear(). That differs in the first
+parameter: It takes more generic struct fwnode_handle instead of struct
+device_node. Therefore, of_fwnode_handle() is added around the
+parameter.
 
-And it is right. Include dc-drv.h which declares the struct. This
-ensures the types of both match.
+Note some of the users can likely use dev->fwnode directly instead of
+indirect of_fwnode_handle(dev->of_node). But dev->fwnode is not
+guaranteed to be set for all, so this has to be investigated on case to
+case basis (by people who can actually test with the HW).
 
 Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Liu Ying <victor.liu@nxp.com>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Joel Stanley <joel@jms.id.au>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: linux-pci@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/gpu/drm/imx/dc/dc-ic.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/pci/controller/pcie-aspeed.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-ic.c b/drivers/gpu/drm/imx/dc/dc-ic.c
-index d8aa46ee6a7a..0f2fc7aecf31 100644
---- a/drivers/gpu/drm/imx/dc/dc-ic.c
-+++ b/drivers/gpu/drm/imx/dc/dc-ic.c
-@@ -14,6 +14,8 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
+diff --git a/drivers/pci/controller/pcie-aspeed.c b/drivers/pci/controller/pcie-aspeed.c
+index 9aa9e14c6148..74b03a55643f 100644
+--- a/drivers/pci/controller/pcie-aspeed.c
++++ b/drivers/pci/controller/pcie-aspeed.c
+@@ -725,10 +725,10 @@ static int aspeed_pcie_init_irq_domain(struct aspeed_pcie *pcie)
+ {
+ 	int ret;
  
-+#include "dc-drv.h"
-+
- #define USERINTERRUPTMASK(n)	(0x8 + 4 * (n))
- #define INTERRUPTENABLE(n)	(0x10 + 4 * (n))
- #define INTERRUPTPRESET(n)	(0x18 + 4 * (n))
+-	pcie->intx_domain = irq_domain_add_linear(pcie->dev->of_node,
+-						  PCI_NUM_INTX,
+-						  &aspeed_intx_domain_ops,
+-						  pcie);
++	pcie->intx_domain = irq_domain_create_linear(dev_fwnode(pcie->dev),
++						     PCI_NUM_INTX,
++						     &aspeed_intx_domain_ops,
++						     pcie);
+ 	if (!pcie->intx_domain) {
+ 		ret = dev_err_probe(pcie->dev, -ENOMEM,
+ 				    "failed to get INTx IRQ domain\n");
 -- 
 2.55.0
 
