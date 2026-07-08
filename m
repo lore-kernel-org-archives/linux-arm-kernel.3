@@ -4,121 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF576C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 05:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18DEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 05:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=; b=i+KlyqQFqsIm9DMPZDBN5axuuy
-	O/PZtUrDxBzu/G1BWIFYnh+EPMiJlsR7mfqVGa5y1Hq064dLcb3gv1+kHKX2RdMZm7UqxPaO1ia2g
-	Tlpg3c6SDkP1Y6/pCoVRyVMGdusoIvSb/Wfa94uE4da3lt9XLC7QvVlAZrDsBgDKvddesf2drAYMg
-	Oddw5fULplmLTGPNv5iGwCmR/ZHKma8TxIGeo5BvDfQATcCVPrZAw/ytJw/3DxpWNof7ZEqSc6gI8
-	v5iaH1J+84VqNU7mhtWW1riLcrCOeXWZQ4Yl8O6kKF0Sv/jOwO1z/ddC1uKp150WtVAXt/9VXoF6n
-	JEL+Z7Kg==;
+	bh=kiskDyrwXEN+kIr4FUm41x7tvccZKQs6stoJI+7Vkas=; b=ilJvzbn2Lymu9Ap+Ic2pjP++mN
+	r3G/BqR+DB3aM3+yuIvo+CAR7K/7RS0K2vEjU8AjajfEc/Dwy5aRwaQ+PILqtfS7mFQw7+3t65Uh4
+	NrVYI2yUfTLGVEyJirNjq+Re/4WKIXHTASi9gE7aflbcrbI7nnvELklqr5Wt2HsUd98SdSyP5xfFh
+	9yW+FwUf/sDrDbPEDULy6pnl+4t+4Smtkzdgw4702WyZaR5PVr2VEjWFmzZP/09nNrNSnE3FhT0GY
+	vY3eFEQBE5ntFZLpt5aY+R06rydiBrboIEyXw6LxlrsINP/bcYYRigRsZnD6Pf/JkcuRKEMwspnma
+	P1XhgV+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whKr7-0000000GMei-1U1O;
-	Wed, 08 Jul 2026 05:29:57 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1whL6U-0000000GNey-1aIB;
+	Wed, 08 Jul 2026 05:45:50 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whKr4-0000000GMe7-1RVY
+	id 1whL6Q-0000000GNeU-1pFe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 05:29:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ehuj5NrIAyw8gUJUiKBhgoiTAoQwMsqnuN1yRyNLCyMnC/eptqYifabiK+OGfCGU1R8khhzEb7srDAuHCkdPCNngfWnqdfTBBUXprElDcue7Xe39hcAl3VrguH8+MH0DSzop35lIqAzOVrAfP4K8OTihGCY0NnU7uz1+AFswU/IKpsmkzipFG8ECiT44Tmp6FMRFvsnExSRrKBFfRDzZGyW4qcT1cdcSHiaZgFMo2EPjXNDn1W3y7cQX0iPgIJe7UimbY0gg29HQy/eB9B55LfXHTV+13j5+EtNEtofVdDYuyJ2//vYMSjl0QygTMGNzbEri1/oArNPCm0DWYxf6Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=;
- b=BrSRYPcQsVBGouruz2Df0Xfje+0StQMYkPywYFRqWk6ibDrDAt9xOjbm1J4j5enITcv9ttC1SsckEK9urXjPnOevRb9CC3nySGaPXhLhVdXIbpXLh6HEeGonV8lHUBbLtJUa5S2uBefEe+9SRNGM7Da5B0ageUnzSr+wrwbE7SzjLS9bsssiDORkNGsK5+BA68e7HHIpds9SS2+9s6Cb7tYPToV+Rf9fi5dkVd6WcXbB3wuHVHTkhoIvmlAwXTxs6KKm558rmvZ72I/hNXNCetkc2C28Q7ascpctvv2QfIo3lkVEN8SZzGApsOsgEG8r4wrBbLPFmkyTvuv0XG5g1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=;
- b=k8MpYvF7qJUu3OkB9k9n3wTM3cVyLTHUpnkyg70CRauzgSqGH7IeKrAvqvnScPaj/wSYaVsv+82BYBKLmSSf92mKaplO/CGgUw4A7zvsiYWc9ki9P1KHnSth1//+0nW1xNN/GpYdhl2wsyp/mh4pii8tWJZNkhrULC0cnjZQzNQY2plITOfar8IvwRVQhzvaVhcXjrmP8rMw+vYLn8BRIBGbYinAPFqQ2KfJiiqoQg4cl/a4qFSle2ybnzSLAYEds/PHYFjxBVCy431/KcPivGAPzJc/eWdn5PEoNgJLfbEwwuPp6hDPxZqFyP/mBHIBdtTb2xH6cOUlTr9cU9D/7A==
-Received: from SJ0PR03CA0190.namprd03.prod.outlook.com (2603:10b6:a03:2ef::15)
- by IA5PR12MB999300.namprd12.prod.outlook.com (2603:10b6:208:608::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
- 2026 05:29:48 +0000
-Received: from CO1PEPF00012E84.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef:cafe::2a) by SJ0PR03CA0190.outlook.office365.com
- (2603:10b6:a03:2ef::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
- Jul 2026 05:29:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CO1PEPF00012E84.mail.protection.outlook.com (10.167.249.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 05:29:46 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 7 Jul
- 2026 22:29:36 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 7 Jul 2026 22:29:36 -0700
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 7 Jul 2026 22:29:35 -0700
-Date: Tue, 7 Jul 2026 22:29:34 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
- Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 7/8] iommu/arm-smmu-v3: Change how the tlbi describes
- the invalidation
-Message-ID: <ak3gPqsdg94TTDLJ@Asurada-Nvidia>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+	Wed, 08 Jul 2026 05:45:49 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.trumtrar@pengutronix.de>)
+	id 1whL6M-0003gK-H7; Wed, 08 Jul 2026 07:45:42 +0200
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Shawn Guo
+ <shawnguo@kernel.org>,  Frank Li <Frank.Li@nxp.com>,  Sascha Hauer
+ <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] arm64: dts: imx8mp-skov: support new 7inch panel
+ board
+In-Reply-To: <akupDXc1QA4uKfR6@shlinux89> (Peng Fan's message of "Mon, 6 Jul
+	2026 21:09:33 +0800")
+References: <20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de>
+	<20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-3-dfc0c8827c02@pengutronix.de>
+	<akupDXc1QA4uKfR6@shlinux89>
+User-Agent: mu4e 1.14.2; emacs 30.2
+Date: Wed, 08 Jul 2026 07:45:41 +0200
+Message-ID: <87se5ukpa2.fsf@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E84:EE_|IA5PR12MB999300:EE_
-X-MS-Office365-Filtering-Correlation-Id: 763def0c-a2bd-445a-475a-08dedcb1eca0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|7416014|1800799024|376014|36860700016|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: e2+j1xPCc3vlTU8mmIt4PEtbhE/9lps+EP0Kn1pffTBXzRGWaUBe+EVRIXuAaVTKQNGGM2kO7+aGd23uIOBxjR6wL3Lz3EbPS6eT+/rHOQtcH6ZgqF2M41T0CWBmTMbbi1G6xL13hgzcUSio+Ert3ArbEfDBUf9mq4sX+gKMfB2r/Ap+BIs63qc+YqnMNV/By+JzlZ96eyoEkb3m7HiI+w8d55+RjiVfNH7EfffHA8EekEZnouaZNoWkKJgRlTipktVAtnXFzAaKiTE+aMmcU7XQOHmfikvlpTEnxl6KWXQkWSP0mzdiZYhP3jESkCMtPiMUXU43WOnTiYETjK9oJfgBBcjWzLY7F0G0SnhsX5DgdDa8WgxDGcgyaggNZtwmv2shdhXzMTE0H1atScWDIuxG0b97CCKIBcq6GFRrlwGH+diQU1GfOze0S9UP1cXRvCmeb5q3SrY0DBL2xXfHwPDjca3KipBA0sqe6id73vQtByV56/0O2CrkVvVQANo+dcWGK9OISqmsVRquuEGMybP7su2buuEHLVBhaO2lZEiVuVh1lp4HoLyi7MbJOhbDdaQFA7K5pZ3bTfWfeGKwWnOeDSNhLIuikUm0VVXsQcThfff80E8LzYoDKeaaxdfy5ZP5eZkXUtV4bA65EkQ91jLOXCLgnO3wcSjnVf3rcz6GaFINXAiuaFHk2Fth+nJTSpRJfXSspoV2yT0gakSgvQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(7416014)(1800799024)(376014)(36860700016)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: raHNQO0VNm6IvJwMhqzGZCM5KC2PIlG7grYVjrgStOp0t0emFXhuXTKWqeap3ZVgItw2BaeTuPRI9uukvvsnWcCDQJsdBZ3D25RjkSPNmICHiDJqshE9j0XM3aGzmnQyhFSSaU0PbCMu7mJiyp5aMCMAilcx/0zz+H9IadOKUoBFbc0R91K9io5jVTDa4gm3Uo25gcza3k2v8lcnzF8Fnn6BbDFWc6wVPIUUvDfkDv5F7TQ1WnaohDRLBhMD3ALT4+sRg7hT7XEuoXG0sw++SLvywlVVswv7NohrFbpiro1/KqtNPLeOhHhh2mYMLAqafTUnDAzw695O1GHIPnhbqi2ELFzpkT4zphFD0OKp+kv/bh0u8df53096mxfpOiZoNLzYQuqQDuFZs0Ax9mUmaBa/ZgKVUt3Y4tLtYp7QdgURJq7LKaylF13aw20tgs/0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 05:29:46.9504
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 763def0c-a2bd-445a-475a-08dedcb1eca0
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E84.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA5PR12MB999300
+Content-Type: text/plain; format=flowed
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_222954_403195_822E5E34 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260707_224546_496987_B98D6284 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,70 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:26:44PM -0300, Jason Gunthorpe wrote:
-> + * Compute the stride for non-RIL single-page invalidation. Returns the log2
-> + * stride of the lowest affected level. Single invalidation removes all IOPTEs
-> + * that contain the IOVA invalidated, and we can reliably assume that the
-> + * architected page size and table sizes (not contiguous!) are reflected in the
-> + * IOTLB. Thus if there is a 2M leaf entry we only need to issue a single IOTLB
-> + * invalidation within that 2M IOVA.
-> + */
-> +static u8 arm_smmu_tlbi_calc_stride(struct arm_smmu_tlbi *tlbi)
-> +{
-> +	unsigned int tg_lg2 = tlbi->smmu_domain->tgsz_lg2;
-> +	u8 combined = tlbi->table_levels_bitmap | tlbi->leaf_levels_bitmap;
-> +
-> +	if (!combined)
-> +		return U8_MAX;
-> +	return (tg_lg2 - 3) * __ffs(combined) + tg_lg2;
-> +}
-> +
-> +/*
-> + * One TLBI command per stride-sized entry. Sets use_full_inv if too many
 
-This is raised by Claude; not sure whether it is a false positive
-or not.
+Hi,
 
-This changes a previous per-pte invalidation to per-pmd one. Yet,
-the spec states in 4.4 TLB invalidation (last paragraph):
+On 2026-07-06 at 21:09 +08, Peng Fan <peng.fan@oss.nxp.com> wrote:
 
-  To match a TLB entry, the least significant bits of the address
-  are ignored as needed, given the size of the entry.
+> On Mon, Jul 06, 2026 at 09:17:57AM +0200, Steffen Trumtrar wrote:
+> >This board is similar to the already upstream
+> >imx8mp-skov-revc-tian-g07017.dts but uses a different 7" panel with a
+> >different touch controller.
+> >
+> >Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> >---
+> > arch/arm64/boot/dts/freescale/Makefile             |  1 +
+> > .../imx8mp-skov-revc-jutouch-jt070tm041.dts        | 79 ++++++++++++++++++++++
+> 
+> Sorry to jump in at v4.
+> 
+> Compared with imx8mp-skov-revc-tian-g07017.dts, the differences are mainly
+> in panel and touch.
+> 
+> Have ever considered using overlay?
+>
 
-So, the following scenario would likely miss leaf entries:
+no, I actually didn't. This way it is easier to decide in the bootloader which board I'm on. I could definitely do it, if this is the way to go, but would add some overhead on my side. I don't see that many overlays in arm/dts/nxp/imx. 
 
-VFIO_IOMMU_UNMAP_DMA / IOMMU_IOAS_UNMAP
-  iommu_unmap(domain, iova=0x40000000, size=2M)
-    __iommu_unmap()
-      iommu_pgsize()  -> picks pgsize=2M (aligned, 2M in pgsize_bitmap;
-                         irrelevant that the region was mapped as 4K pages)
-      arm_lpae_unmap_pages(iova, 2M, pgcount=1, gather)
-        __arm_lpae_unmap(lvl=0) -> lvl=1 -> lvl=2:    size == BLOCK_SIZE(lvl 2)
-          pte = READ_ONCE(*ptep)         -> a TABLE descriptor, not a block
-          __arm_lpae_clear_pte()          # L2 descriptor := 0
-          io_pgtable_tlb_flush_walk(iova, 2M, granule=4K)
-            arm_smmu_tlb_inv_walk()
-              tlbi = { start=0x40000000, last=0x401fffff,
-                       table_levels_bitmap = BIT((ilog2(2M)-12)/9) = 0b010,
-                       leaf_levels_bitmap  = 0 }              <-- the false claim
-              arm_smmu_domain_tlbi()
-                arm_smmu_tlbi_calc_single():
-                  calc_stride: __ffs(0b010) = 1 -> stride = 2M
-                  num_ops = 2M >> 21 = 1
-                arm_smmu_domain_tlbi_inv()
-                  non-RIL entry: ONE TLBI_NH_VA @0x40000000, Leaf=0
-                    -> kills the walk entry + the 4K leaf at base
-                    -> 511 4K leaves SURVIVE
-          __arm_lpae_free_pgtable()       # subtree freed, no invalidation
-    iommu_iotlb_sync(domain, &gather)     # gather->pgsize == 0 -> returns immediately
 
-> +	 * If leaf_levels_bitmap is 0 then this is a walk cache only
-> +	 * invalidation.
-[...]
-> +	u8 leaf_levels_bitmap;
+Best regards,
+Steffen
 
-Or is that only to implement a walkcache-only invalidation, such
-that the leaf entries will have separate invalidation call(s)?
-
-Nicolin
+-- 
+Pengutronix e.K.                | Dipl.-Inform. Steffen Trumtrar |
+Steuerwalder Str. 21            | https://www.pengutronix.de/    |
+31137 Hildesheim, Germany       | Phone: +49-5121-206917-0       |
+Amtsgericht Hildesheim, HRA 2686| Fax:   +49-5121-206917-5555    |
 
