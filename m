@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C633C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89981C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uft61UqF2OH845ovVMSC0RoRp8WC5Tyhv6JXJK2f1jU=; b=vFPjaKOkt+t3iiosZZeWBeDAUS
-	zMhG6FSuM3mQCxUHWazVrnyM1008mUMiGDXL1H7sm1vMd1IHBRS1oB91aaJdOCWQ9skRUbyMAoJoy
-	wtP9UuM7221K9nbutGSYd+/cb5hXm2TOb/KjCUOLvc+RKB3rBbwIYcXWMJf9Tb+SvL7mzD4BXNhFk
-	bTbuiy3woAD/ZEIsSGcMl+OueYnclHjlImSnwXDRCyYFKJGgPyaYJg9tHfpNfAwDxbOoo0AKHArUL
-	awlzTBvropFkjGYYStdvWPACuLN4zq+Uer4uPofvU2rFnVyUyzB7loJcgo1o9xAJq1cb/rdPtjbUV
-	FvoJXb6Q==;
+	bh=5rGUgl8D8cEFi7JteuJI6fPSAC+UPbsjLAqZsYFvBLY=; b=V8NzGLvFDMyBRQVnAb8unUY38e
+	PQjUOqC5buZxHtsZ2UF4qU+rVeRJoEbvp9d3QXxnpO1Nww7hdZ2T1czGeAc5PDxWfI/zjh+HSzGJA
+	wh4QeeO+EUt5XyWYa7Xg5IJU00HolHpf9NKiSZ63remtniTFY/eKSsU4mxOaCntLSx+XtioxxqkAN
+	M2hfP8fff+cOAbBsgnD5yIrkvGxI3BgJxTcLOWfTrkqw/nBmZLwUxQxMV0P2dIB3PHZpVEGMlbwB7
+	lTucbrR6HlGom/ayB0xgNwFfQFNXwi646pX1QuxGbCO1IyHZeaYxO/ycY+/nkqLqGA1G1R8zJ3CVI
+	KHt76IVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whOiN-0000000Gloi-1cLh;
-	Wed, 08 Jul 2026 09:37:11 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1whOp0-0000000Gm7f-0KFK;
+	Wed, 08 Jul 2026 09:44:02 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whOiJ-0000000GloA-0DrL
+	id 1whOox-0000000Gm7J-1T3d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:37:09 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=uft61UqF2OH845ovVMSC0RoRp8WC5Tyhv6JXJK2f1jU=;
-	b=cvAKe2faq47q7nZiX5huwb1SMtBoX7Zd0csNmOprhdaoUgMG9gMDSZh63+li1lINBwggS0kJY
-	Iwx3k4IynFJeI52XyFCLkCNRwe/l7hyLuNsAeQf+HIFoGFnkN1NytOygH2VjkAUlPt27JfywUBT
-	6MIxnSl7kaxZMEz2EWUDIMM=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gwCRt3kxzz1prLP;
-	Wed,  8 Jul 2026 17:27:38 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8363C40577;
-	Wed,  8 Jul 2026 17:36:54 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 8 Jul 2026 17:36:51 +0800
-Message-ID: <7e1b4daa-1466-4cf6-9d22-d19a2c9429d4@huawei.com>
-Date: Wed, 8 Jul 2026 17:36:50 +0800
+	Wed, 08 Jul 2026 09:44:00 +0000
+Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 6689hWTh023275
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 8 Jul 2026 18:43:33 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=5rGUgl8D8cEFi7JteuJI6fPSAC+UPbsjLAqZsYFvBLY=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1783503813; v=1;
+        b=i5/M71p/b8sSTK+HDV4OHUq/SgIc9wIyvsE8xdPImpdn4DlyASk6OCwfGZiB4AV7
+         QixiwPfKNM++x5DdafRW/wl24DGg0NFa9IXroeXxpS7Ln4z8cH+dgAgzI2mNJDsa
+         UV9SYpU2sL7Fj/lLqQ2OhnQvVNrtgUbruVG3CpWZtD6XWrqmqcyKKmBQhedrymw/
+         b7yXnKmuqBcMfeGZn753Chok+ZaLEfh/NCxlJHLRF1R24b5NQelMjxXXrRqf2tfc
+         j0RVP2JGVBe8gnVi4sSl4zm+FMOJgW7vQqeWrmMc7510oHCGR+oU4a8OvPvWYPt/
+         /diQ9dYSZcwlUnWPP3IqKg==
+Message-ID: <a2d7ed42-b82e-4c0c-8985-32c12d7c49b0@rsg.ci.i.u-tokyo.ac.jp>
+Date: Wed, 8 Jul 2026 18:43:32 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
-	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
-	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
-	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
-	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
-	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
-	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
-	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
-	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
-	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
-	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
-	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
- <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
- <akvoN5vvQaW3MdmI@willie-the-truck>
- <3bf910b8-c7e8-4a22-8e1d-fa701694369f@huawei.com>
- <akzW7HrxNkj2DMas@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <akzW7HrxNkj2DMas@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v8 5/7] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <akvyvclUQ2b2YHiU@kernel.org>
+ <cb5d5f13-a1a9-47dd-a717-5533a8b32b20@rsg.ci.i.u-tokyo.ac.jp>
+ <5e66748a-bfda-41a9-8614-88cbf2fe1f09@rsg.ci.i.u-tokyo.ac.jp>
+ <ak0_PSnxyAWm9_Fu@kernel.org>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <ak0_PSnxyAWm9_Fu@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_023707_746752_C6FD875F 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20260708_024359_614722_B92D50F9 
+X-CRM114-Status: GOOD (  32.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,130 +91,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/7/2026 6:37 PM, Will Deacon wrote:
-> On Tue, Jul 07, 2026 at 04:14:06PM +0800, Jinjie Ruan wrote:
->>
->>
->> On 7/7/2026 1:39 AM, Will Deacon wrote:
->>> Hi Jinjie,
->>>
->>> On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
->>>> On 6/24/2026 8:16 PM, Will Deacon wrote:
->>>>> Please just give me the time I asked for. If you want to help out in the
->>>>> meantime, there are plenty of patches that need reviewing...
+On 2026/07/08 3:02, Oliver Upton wrote:
+> On Tue, Jul 07, 2026 at 09:52:49PM +0900, Akihiko Odaki wrote:
+>> On 2026/07/07 20:23, Akihiko Odaki wrote:
+>>> On 2026/07/07 3:23, Oliver Upton wrote:
+>>>> Just detect the changing PMU implementation here, KVM_REQ_RELOAD_PMU
+>>>> will need to detect the PMCs that require an update anyway. Stash the
+>>>> last cpu in kvm_arch_vcpu_load() and pass it to this:
 >>>>
->>>> It was a mistake on my part, and I sincerely apologize for wasting
->>>> community review resources and disrupting your schedule.
+>>>> void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
+>>>> {
+>>>>      if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu)
+>>>>          return;
 >>>>
->>>> I will absolutely back off now and wait for your official series. Lesson
->>>> learned. Thanks for your patience and for calling me out on this.
+>>>>      if (kvm_pmu_probe_armpmu(vcpu->cpu) !=
+>>>> kvm_pmu_probe_armpmu(last_cpu))
+>>>>          kvm_make_request(KVM_REQ_RELOAD_PMU);
+>>>> }
 >>>
->>> So I've mostly got the old series back on its feet:
->>>
->>>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+>>> It is a nice way to simplify the code and to avoid hardcoding
+>>> ARMV8_PMU_INSTR_IDX. I'll use the code for the next version.
 >>
->> Hi Will,
->>
->> I tested the above-mentioned latest patch on v7.2-rc1 with error inject
->> on QEMU, which constructed the following errors:
->>
->> 1、CPU4 does not support 52-bit VA
->>
->> 2、CPU6 does not support 4K granule
->>
->> 3、CPU16 and CPU17 call cpu_die_early() early in check_early_cpu_features().
->>
->> 4、CPU18 call cpu_panic_kernel() early in check_early_cpu_features().
->>
->> The error output is not correct especially for CPU4, CPU6, and CPU18 as
->> below, it seems that some error messages are overlapping on the same
->> CPU, and some errors are causing the CPU to be misidentified.:
->>
->> (This leaves another blind spot where the 'failed to report alive state'
->> message is skipped for CPU16 and CPU17, as pointed out in
->> https://lore.kernel.org/all/bddf7a68-7789-4ec2-819c-aaaee8173c70@huawei.com/):
->>
->> [    0.594323] CPU16: will not boot
->> [    0.605818] CPU17: will not boot
->>
->> ...
->>
->> [   11.052387] CPU4 failed to report alive state
->> [   11.059799] Parallel CPU bringup failed; consider passing
->> "cpuhp.parallel=off" for a more accurate diagnosis.
->> [   11.060179] CPU4 detected lack of support for 52-bit VAs
->> [   11.060426] CPU4 detected lack of support for 4K granules
->>
->> [   11.061103] Kernel panic - not syncing: CPU4 detected unsupported
->> configuration
->> [   11.061534] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
->> 7.2.0-rc1-00019-g52296829d92b #305 PREEMPT
->> [   11.062052] Hardware name: linux,dummy-virt (DT)
->> [   11.062230] Call trace:
->> [   11.062339]  show_stack+0x18/0x24 (C)
->> [   11.062528]  dump_stack_lvl+0x11c/0x168
->> [   11.062684]  dump_stack+0x18/0x24
->> [   11.062818]  vpanic+0x568/0x574
->> [   11.062947]  do_panic_on_target_cpu+0x0/0x1c
->> [   11.063111]  secondary_start_kernel+0x0/0x188
->> [   11.063276]  cpuhp_bringup_ap+0x244/0x254
->> [   11.063430]  cpuhp_invoke_callback+0x168/0x2ac
->> [   11.063594]  __cpuhp_invoke_callback_range+0x90/0x118
->> [   11.063776]  _cpu_up+0xec/0x1b8
->> [   11.063905]  cpu_up+0xcc/0x158
->> [   11.064032]  cpuhp_bringup_mask+0x9c/0xe0
->> [   11.064189]  bringup_nonboot_cpus+0x12c/0x14c
->> [   11.064352]  smp_init+0x30/0x8c
->> [   11.064481]  kernel_init_freeable+0x18c/0x40c
->> [   11.064645]  kernel_init+0x24/0x1dc
->> [   11.064785]  ret_from_fork+0x10/0x20
->> [   11.066612] SMP: stopping secondary CPUs
->> [   11.068198] ---[ end Kernel panic - not syncing: CPU4 detected
->> unsupported configuration ]---
+>> I tried this but unfortunately it doesn't seem to work. kvm_arch_vcpu_put()
+>> sets vcpu->cpu to -1 so we cannot simply read it to get the last cpu in
+>> kvm_arch_vcpu_load().
 > 
-> I think this is actually working as intended. CPU4 has detected the
-> problems and the system has panicked as expected. Systems like this are
+> Urgh, there's no reason for doing that any more. Let's fix it, I want a
+> straightforward way to detect pCPU migrations. There may be other
+> reasons for using it in the future.
+> 
+> Untested, but could you give this a whirl?
 
-Indeed, the system was already on the verge of collapse, and such
-accurate CPU error information was not needed.
+It looks good to me. I'll test it and include it in the next version.
 
-> horribly broken anyway, so if you _really_ need to identify the CPUs
-> causing problems, you can disable parallel onlining on the cmdline (as
-> the diagnostic message above suggests).
-
-You are right! With cpuhp.parallel=0 we can obtain more accurate and
-comprehensive startup error information as below, I agree with your
-current approach to handling mistakes:
-
-[   10.707438] CPU4 failed to report alive state
-[   10.708939] CPU4 detected lack of support for 52-bit VAs
-[   10.709194] CPUs may be stuck in kernel
-
-...
-
-[   21.013667] CPU6 failed to report alive state
-[   21.014489] CPU6 detected lack of support for 4K granules
-
-...
-
-[   21.148989] CPU16: will not boot
-[   31.426165] CPU16 failed to report alive state
-[   31.432408] psci: CPU16 killed (polled 0 ms)
-[   31.432618] CPU16: died during early boot
-
-[   31.447677] CPU17: will not boot
-[   41.722466] CPU17 failed to report alive state
-[   41.722755] psci: CPU17 killed (polled 0 ms)
-[   41.722895] CPU17: died during early boot
-
-[   52.002883] CPU18 failed to report alive state
-[   52.003366] Kernel panic - not syncing: CPU18 detected unsupported
-configuration
-
+Regards,
+Akihiko Odaki
 
 > 
-> Will
+>  From bb5af058030aada66f5c9eafa54db604979acf55 Mon Sep 17 00:00:00 2001
+> From: Oliver Upton <oupton@kernel.org>
+> Date: Tue, 7 Jul 2026 09:50:00 -0700
+> Subject: [PATCH] KVM: arm64: Don't clear vcpu->cpu in kvm_arch_vcpu_put()
+> 
+> commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
+> reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
+> running at the time of access. The VGIC has gone through an entire
+> rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
+> vgic-new: Add userland access to VGIC dist registers") the user
+> accessors just grab all vCPU mutexes instead.
+> 
+> Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
+> detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
+> much more pedantic check that the provided vCPU is actually what's
+> running on the present CPU.
+> 
+> Signed-off-by: Oliver Upton <oupton@kernel.org>
+> ---
+>   arch/arm64/kvm/arm.c   |  1 -
+>   arch/arm64/kvm/reset.c | 15 ++++++++++-----
+>   2 files changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 50adfff75be8..735acc42b50b 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -749,7 +749,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>   	kvm_arm_vmid_clear_active();
+>   
+>   	vcpu_clear_on_unsupported_cpu(vcpu);
+> -	vcpu->cpu = -1;
+>   }
+>   
+>   static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index b963fd975aac..6aba085c0673 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -190,7 +190,8 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+>   void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>   {
+>   	struct vcpu_reset_state reset_state;
+> -	bool loaded;
+> +	struct kvm_vcpu *running;
+> +	bool loaded = false;
+>   	u32 pstate;
+>   
+>   	spin_lock(&vcpu->arch.mp_state_lock);
+> @@ -198,10 +199,15 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>   	vcpu->arch.reset_state.reset = false;
+>   	spin_unlock(&vcpu->arch.mp_state_lock);
+>   
+> -	preempt_disable();
+> -	loaded = (vcpu->cpu != -1);
+> -	if (loaded)
+> +	guard(preempt)();
+> +
+> +	if ((running = kvm_get_running_vcpu())) {
+> +		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
+> +			return;
+> +
+> +		loaded = true;
+>   		kvm_arch_vcpu_put(vcpu);
+> +	}
+>   
+>   	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
+>   		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
+> @@ -269,7 +275,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>   
+>   	if (loaded)
+>   		kvm_arch_vcpu_load(vcpu, smp_processor_id());
+> -	preempt_enable();
+>   }
+>   
+>   u32 kvm_get_pa_bits(struct kvm *kvm)
 
 
