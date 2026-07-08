@@ -4,149 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B644C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E9BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fc1/K0+NmG9viDws8wGoYe1VDGNZEaqIuB4Po6+bc8c=; b=tUcxqGQ2svB9kNRkNc+4rfDII+
-	uAULX20xhVBL4GmXnDKHsI34XIy1u2RvzBsbbuHYZTtOLqEzNYO+2pNvRrlobSuba6Ugh7Up+RwMz
-	pRfnAuaxuBB355gQYZ037UdVnJODSGTexunv9onKBpPWCKVaxV0js5a1EUzUCb35BJ/3kU2tSh+uc
-	0eLNFCJ2oSm7pEZU0fwpUs7o1q3H1alI0EKA8NRKKDVcqREARHhx9Ol47ww4BpCaMBQ/5r8DBSMq6
-	9POUcMduRdkx2nIzaaHcd2ilVL6s8SL/Lyw2n0Q3VqXljwsfSENzK7nlrvUl+hSKdEW+U71fTrGS+
-	2VHiBpPA==;
+	bh=k3WIbEaVLTfjHf3FpdkW9n5ZS8PaWn2g4SXwnVVpva4=; b=SlM1mmgVPhPsxrIbDxqAF4TvU2
+	ba/RsYimihzVKF8+Xljjo4sbNSJbhgAjRxMT9O3dfclKbm3WODUTXFnOv2L93MnT079E3ITuDKHq/
+	Rcq/6GByLWB2Zu3j33BFBK1dzPaOXqk9F1pf8tQlGws2Q0UwUqYnd11tqG6sUauyGm42Doi0Y05JB
+	Bni2NMopcTAowLtcZ0rgEexiyghobQJbIhAYlOD+b1MGmKrtGbsdZSPE62nDDyQPFmfktHjzlXXlI
+	QDezsbO6nEwid3TnOn2hyqe2huyvLmr34sgQTSqQBpHtnZpJWdpio4hMydngc7vHQ6B5UYLYhbzo1
+	MUliUtWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whXv0-00000000GFg-2gzx;
-	Wed, 08 Jul 2026 19:26:50 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1whXyi-00000000GjC-1rad;
+	Wed, 08 Jul 2026 19:30:40 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whXuy-00000000GCC-0zD5
+	id 1whXyg-00000000Gic-24N3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 19:26:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JrODoQWRjvVNMfmNz/lYbXObxnhSUJ3jbVPpVz2pm89s2qhAgi2uxa3DOl8U0gvpKICvB0TNlTBfvuslomBMKH9OnSIwTsZjBk+Uzpqf1mPelrB0GmmruYnVPOTBPj9dfQXyqTrz3P3fRGTndepgDtVfRlu6cDR3vYdOuDmOW9oJ0EhnUsyRistypa8C4QVgFsnlvBC3u0bdGEDVHc6QW5aqkQZSfZcygZaKVqU4zeDHerIOw3l1+IdP+c7n/EYt4/KDRiXGQ3xevIBAznj83apxLnmQisCvAihM1SlimP/ld4sOXEvWPXG3jng90WiI0vIJG7fdL/9yhtv3AQ1zkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fc1/K0+NmG9viDws8wGoYe1VDGNZEaqIuB4Po6+bc8c=;
- b=mHhBSjHmeZJk2feyvsecmOY9+mN/ib4NYdNu+5/w8Vtqju44etSa56Q7sKdDmCdGL8CwY4LshZ+uYZFO13tuu9vMr1uxbiSMBQTsDq3v3iRdEi1hREGe9js9bzK17O0j2plgHEc/amG/YxiN+qCOxp8NZIMlt5M1DJAUy7E8J6vSzX9srcH6jx2ipqDfOrMQ2t2/6SHA1ZACXZggxN8RiC9jbCqOff7ucy1+3xAZ0PuH7wqmeEa5nCWlLh9LTerSGPZq4OcpQvPo8wLPzVcCX3wacAzn1NhFGA1WI5x1AEYQDOVu2pqZ0TI9XVuLFpTExI9MTtiP8QjgKNY3h7ug/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fc1/K0+NmG9viDws8wGoYe1VDGNZEaqIuB4Po6+bc8c=;
- b=mDhowjJUrpTM9Ypu7zfzlklM00DB/h7ioHEsDWAkX2DKa9vWjpjMoJY0OiaMRYyVc8+tjqvLndOUQG+P1woGzhyVZGaXoZkqjHp73C7JOEjQa/a7hF7wRKoDYZGl7ciQoNEvCVu3bPmb5riJq1LUBDniDeuCe3/APZrTYLg67AOJ/XbiSnOdWmHccwjNlyw0tFWsCjoi/kPgCWPgWcbhdps4puI/Fd7vwm3R+EQ+hAeTdtNwhqyBdGrTC4jH/NWiVdiQPEAg/PRq3M8xzL+CSGY1YEXkrVuMRyQ0zqo/4dQrhzPqB6GcOcELQ7wzbRRT2Bv1e2qHkOBCZ1S0kwesoA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB12342.eurprd04.prod.outlook.com (2603:10a6:150:31a::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 8 Jul 2026
- 19:26:45 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 19:26:45 +0000
-From: Frank.Li@oss.nxp.com
-Date: Wed, 08 Jul 2026 15:26:13 -0400
-Subject: [PATCH 5/5] ARM: dts: ls1021a-moxa-uc-8410a: remove undocument
- property default-state of gpio-keys
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-ls-dts-warning-v1-5-5daa24061c31@nxp.com>
-References: <20260708-ls-dts-warning-v1-0-5daa24061c31@nxp.com>
-In-Reply-To: <20260708-ls-dts-warning-v1-0-5daa24061c31@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- ioana.ciornei@nxp.com, vladimir.oltean@nxp.com, SZ Lin <sz.lin@moxa.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783538774; l=965;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=5rypDWE8LgIi91AkjNtgZZv1pNhDGR9qk5w9RF4XPig=;
- b=gDsCZ4Q0pkfqTsrSg5Di0gLW48ex/9uELq4ueqAgIHQp44XafuM8kaWnswLVyRxEa1XvsBkfn
- 6dzGrgMOBO5DIZT5Kxmqk08MRVVLos3zuJcqgdc516e5EcxiQA31Fun
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA1PR03CA0002.namprd03.prod.outlook.com
- (2603:10b6:806:2d3::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 08 Jul 2026 19:30:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783539038; x=1815075038;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qAq+ZSPXLg44QlTgS1ix9LoGfl+1op/1FU+72xyaugQ=;
+  b=KGTLhf4vNDO0yCEW4eot4EKdNjWpxsphQ56GVIuqW4nOSOIua14O5rja
+   mj6C2n0TYqF1t+9D56J0IYS6tAz+e3gdHs1JvsSadqoRqnk8jol/bVMuP
+   14m5zFagRMHpzK93z7imamt3L5LU+QfCyHtPxDQyzs68BTikPyKntPbKN
+   Ml2SX3kchcvlB/l2R9y1xJNbQIi3VlaUbK0n97mIPN4TcYGBsEsNIDIqa
+   2GFT6kzK8E4KybJtYgpMAVbhJV+hF+z113GLFaU5+HAT1B/FXDHXBNDtS
+   tum2MYy/M7HEf/sQbLXxFgTalYXTybgX1zEMm9SpdAtmfa8GpTx+8rTAo
+   A==;
+X-CSE-ConnectionGUID: bQPMOEqQTbeWicChhYUgbw==
+X-CSE-MsgGUID: K5Od49xOSEmIIq4qoa2xOg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="86759744"
+X-IronPort-AV: E=Sophos;i="6.25,153,1779174000"; 
+   d="scan'208";a="86759744"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2026 12:30:37 -0700
+X-CSE-ConnectionGUID: B1vqodKVQpqhh0ViXt/yQA==
+X-CSE-MsgGUID: ga5rGlrpT2e1FEmaSw3fbA==
+X-ExtLoop1: 1
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.100])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2026 12:30:35 -0700
+Date: Wed, 8 Jul 2026 22:30:32 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v10 4/7] i2c: davinci: calculate bus freq from Hz instead
+ of kHz
+Message-ID: <ak6lWKWDM8XwqLgw@ashevche-desk.local>
+References: <20260708-i2c-mux-v10-0-09dca03c8a15@gmail.com>
+ <20260708-i2c-mux-v10-4-09dca03c8a15@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB12342:EE_
-X-MS-Office365-Filtering-Correlation-Id: c89708e5-eee0-4d58-27d9-08dedd26d8f4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|7416014|366016|23010399003|1800799024|18002099003|11063799006|22082099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: BqlnUHYfQHUwtNAKJgnID/erwfdlgknNtpNCqhC43Pbo8x74skFet41smmoK2uqKCmi42EukeFDWgAiPgAedu0Q0B1sqKJIVm/fj9HFpdHjI+umvFHw59sFXwsVzoUm8YupsPkKwOI7idpCXoCxL7QCVN68uP/dErm9/kTU8PdlJWoHehB2gdyPRzesKrjBRJSU/u9dVSKgbULGqcReC3TE3slRrERQ5XGqYWu6Q4SB0oxMwY5OQUez3RFJGgYa+ZLP6fZCD5vbQLv+3bL+NqaiRP294fAPo5lEEAzj0pLeiTZIWhBe2q4J6vTNhvPfDVb9HSO4bF8WX4yfZK3HIYNArE8fQ6xhjh6hdJVHBrRWCr4mNxtD5Krl00aNnVFsA8F8tLcgGfRSpzsam9FNRbAJVI/vGkmPHcvAvm3su0m4s1PlmvFGpwh7oFvGH8NYgVUzNjMWnPjkLIILSwG0G0HgEjiF1hMCOSqd7puN9IyOTAA0WD8pOeZSIGMrtSjFSuhJMrwgg7+hTmL7LDoAlAj7soNWsMZT2mqbV58BRtqi59LVfwMBspMS/qh3nRQM+ryt75fIjk1hx/NDwZCYENWWQeACka9iysUpYTNTyULyLF/haj8/5+2Dc1qpilVrZiI81/x53Sklhc6NlaFrhbCw6Tn8+9rLvqGqr9jfK4Kc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(7416014)(366016)(23010399003)(1800799024)(18002099003)(11063799006)(22082099003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZmhJRU9RNmRWLzNqRkd1Ny9nM0FaVXM0aVFGVnY5NTJYLzNnTFBIV2VnbWNl?=
- =?utf-8?B?TTZ4d2lBWjVMRWZOUXdqYW4vcHoyNTRWVkFPQmtlV1hSQ3FzV0thT0ZCRnFm?=
- =?utf-8?B?bkNDdytwall0Q09CbkRXVGdZYzhhNysxUityYUJ1bnBwdytJMzVwVWpZcXE4?=
- =?utf-8?B?ZllaWVRqTE9WbmlPMndLTUNveG9RVnVsMS8vTUNxUk9DWmV3bWRCaHZOeHZq?=
- =?utf-8?B?aWpHdzJBNERzTHpaUzQvZU10b3AzLzcwb21JbExBOTB6RmpncVdocVoza2lp?=
- =?utf-8?B?ZEJOUmNCUStrY3NGdkNqbFhwZzVLK2tST29HdHdSU0ZiWmZTVWwrR2s4bXNR?=
- =?utf-8?B?dU1jVmxGakxKajFRbUdsb2xMTnp2QWJDTkxCOEVqRWF4NFloSnQrL2I4d1Jq?=
- =?utf-8?B?eGRkenAwdDRnbXVrTWVZRkNUbjY3emliMWNKY2VwMGZwMDBjM2YrcmdoN3VP?=
- =?utf-8?B?WU5MNnBMN3JhWkM0WVJGamVrc1VNWDFlWDZGNGh1aEZlOVVxR2FSSE1xTTZW?=
- =?utf-8?B?SlZ5RFBqWGZ6d2JBa29ORHlueXQxZ0U0Y0ZpMFdDWHhLK3ZFZDVaTVlWdkhD?=
- =?utf-8?B?OTJWcXR0Y0FZK0hoRjhBaGtuZXFYRDErb0JXNzVvWHU1emt3TllLVmlsNmFI?=
- =?utf-8?B?dDdNSHpiTE1WVzJWNC9NWnhIaUxnRzAyTXoxbjk3YzZ3VWVlUDlJb2xhUFov?=
- =?utf-8?B?VitvblFRN2JjUUR4Tkdab1hBZEFGS2J5MTNtSDFVa0kwZkFUMStMS2dvNU8z?=
- =?utf-8?B?UWpta3I0NEV2SzNNMTFpbytKQTVYaGFmb0xoNzVkUDhnc2N5NjVFR3V3MnhF?=
- =?utf-8?B?RjlsMmFWS3ZMNWxOLzYwS01hWnNQc1JsY1BwSGZCZCtGK1NRTURYcVRJb3JL?=
- =?utf-8?B?bWhBTXhVWHRsL2VFQ0I4TmxnOWE3Y3BKd2U1a2VYUkhSMEsvWTBJdGtkYjQr?=
- =?utf-8?B?R3E4UjFwWjJxNHJJckJBYjRTblMrM0c2cm96NXBzRmtaTHo5NmJkVzJmVmpG?=
- =?utf-8?B?cjVsellqNUpHU3haNTRnWEFaQlYrN2JCcGg3T0laeHVpSEluS0N0Wkd1RUZy?=
- =?utf-8?B?d09NNy9pRWd3ZWlOM3p1a2hDS1RLZ0g5b1RLaUMvWFhZbFVyMU9VSnpPYnNR?=
- =?utf-8?B?ZGZqcTBJeFlwQzhlelcreFYwV2pubGhTWTBtc05FdWFpcE9jS2gzM1paRURQ?=
- =?utf-8?B?eEZDRC96NUxsQTkrbG51WDBzaFpzY2xUaXlQR3FOTG1UOEdKb2E0cXhPY0tL?=
- =?utf-8?B?cVRlWVIyV3hJQW45a1hyR2ZtNjJFc1BKYmRsR1llbkxTRGlQTk5HN2RENnJH?=
- =?utf-8?B?U2VrZFVwUkxheHZCTmVxamw1SXRSMm9qamlPUUJWaUJGODVoRlZ5VE9GN2FW?=
- =?utf-8?B?aDBBQVB5aEVyTFZ5WTVhblVuOHZIYVRabTNVTWphdk1QeFc3OEZPQTNCTjM5?=
- =?utf-8?B?eUhaaE1uSFR0d1NrMFY1WHBML0dyK2puYnlFM3BYTGxBZ1hpaHljNWxydEpD?=
- =?utf-8?B?WFQ5MDBRSStISDhZaXgxQXBqK2w3VSs2Q1BWdFpZRmc0NkZKOFNMekpKQWNJ?=
- =?utf-8?B?T1BPa3BZYUo0bEFSWksyVyt2V1F5MWp4L2xld3dqLzR4WXVTTXN5Ylk4dUF5?=
- =?utf-8?B?NWtaQ2t6SnRuRVFSVFFreGhsM2w2SWgxdWN6MzdRK20wRXkvNGgwL0J2U09W?=
- =?utf-8?B?aGVmVTFOaEFWOHBvenZqRHAxYzRKYlFIT0tkSEF0bEt1QTV0OEppU0QvMVps?=
- =?utf-8?B?REdUeWpNeFliMzZMeDZDalJPOWRYajdMc2ZjeEg1eW1pc0ZKREUxNk9BU3pC?=
- =?utf-8?B?Mit5QWoyQlk5cnNUUGcrRmlJejF0TkhRS1pSQkFpM2NXLzQ3UlVMbTg3Ujda?=
- =?utf-8?B?WTJmSVRZY1NGZWZDWlBONWxTaG5LUlN4cU84eUV5dVh6VGp2OFFHcEtkK3NJ?=
- =?utf-8?B?WjNNUk5kSGdjd3FDM1dNL3NDL0RvZ1FrM1BKaExBNTdWZ1grVEhidU5HbXBy?=
- =?utf-8?B?aHk1Z0haWC93bWx2OFBndDRBYjFUU1pBblQ5WnBwdGlIWFBwUDEvaXYwcUtz?=
- =?utf-8?B?WnN2cWJKQ1lxdXBIR3ZPbVdUWDZjS3YrQ2d1Uk9YWEtKbENrS3hJdXg2UmRk?=
- =?utf-8?B?NVpyaXluL3FranZhR21JeE9FRFRLTGtFTUFoSTE0TVpIQm5hMHhXbDZNSmNp?=
- =?utf-8?B?c2c0OWtvWkRTY0gvSTFOK0o0N29hNUptWE1mVHpEQ0NseVdQd01TRnlWVUtx?=
- =?utf-8?B?TUtRV3ZFUWFCMGhoMmFYRUR5dlV3MCtBc2ZYQk5hNGd2SUlRLzlQV0JZaGlu?=
- =?utf-8?B?MUE0czcrRGcwRkRPL1NIOWlhVkNmNWxwZkc2ZVFwamUybVVuVHoxRWtRZ1Mw?=
- =?utf-8?Q?Dz5qVpy/X/sZxE8RissYmJDnyiyfNbQeEnFEw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c89708e5-eee0-4d58-27d9-08dedd26d8f4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:26:45.4254
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 22Meu0PBKyMzy7EYvzCAYLc9IkYf9rPJ00XC+wbprDHNMUcrpM0kXDeI+T8FBjUorYPLWiFEkcDqd76IqU2xHketO2sCi3kLOiBm0bNqW67ecUnHdMjervDc+0COzMUE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12342
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708-i2c-mux-v10-4-09dca03c8a15@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_122648_306514_92F4154F 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_123038_575629_67D55E3F 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,32 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Wed, Jul 08, 2026 at 02:16:16PM +0200, Marcus Folkesson wrote:
+> The bus frequency is unnecessarily converted between Hz and kHz in
+> several places.
+> This is probably an old legacy from the old times (pre-devicetrees)
+> when the davinci_i2c_platform_data took the bus_freq in kHz.
+> 
+> Stick to Hz.
 
-default-state = "on" is wrong copied from gpio-leds nodes. Remove it to fix
-below CHECK_DTBS warnings:
-  arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dtb: gpio-keys (gpio-keys): pushbtn-key: Unevaluated properties are not allowed ('default-state' was unexpected)
-        from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml
+...
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts | 1 -
- 1 file changed, 1 deletion(-)
+> -#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100000
+> -
 
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts
-index b2a87ef23c8e8..ad83d8814fbb7 100644
---- a/arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-moxa-uc-8410a.dts
-@@ -132,7 +132,6 @@ pushbtn-key {
- 			label = "push button key";
- 			gpios = <&gpio1 21 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_MISC>;
--			default-state = "on";
- 		};
- 	};
- };
+You need to rebase this on top of the i2c-next.
+
+...
+
+> +	/* standard bus frequency */
+> +	unsigned int		bus_freq_hz;
+
+While at it, I would dare to suggest _Hz as we started doing in IIO (id est
+we start following more closely the SI units in the suffixes of constant
+definitions and variables to be case sensitive).
+
+...
+
+>  	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+>  	if (r)
+> -		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
+> +		prop = I2C_MAX_STANDARD_MODE_FREQ;
+>  
+
+See above about rebase.
 
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
