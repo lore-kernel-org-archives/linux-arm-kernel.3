@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B908C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FF3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zN2oUR8BAiRUPpmi+aVokh9lPchc4FxbHbJed38llJA=; b=g+jUiuFsSa1/JGF76v6SfoHPtC
-	SME3qVvjPA2RseY7P0ve0qacSs27QliyyN0NhI9uNa3ERp6YfNj5m2gGftXG6xjJsb4be4X6/sZ5i
-	1ouDRMHbUasErpHwtZdNp+numZHtjvAsLy0AmVjC4Dg76hn66i4FaqBLrw1p/3cNWDsxtCReOKqCR
-	ivUbGC7w9GJvG8BUU49ur1BIGlKS2f1uCRyeGXWjUfcloF3cDdzsIClgkaz4Row/M10IUDXLG4aAU
-	uY4FP6ULDrfejrIxpmCamK60aW5R3WOVn33NFhWuC6H14l1NxI4LRq8n+0Et4bOAGkrFNucJZZYzq
-	dh/1Wbcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hO17YRpuaXnOXgeP7ftbHwpUP+dSdnes8jnl1DmJr/I=; b=tDh+akq8AmiOOzfOWBAiYfQymD
+	srCmFwqXAAjGTzlPJsIrK4G97AgPlwiWW7V6sctItIJDkJ7RgDWB4TBGgZmpuWb4mcAFWIvueXv5p
+	+0rN2b6WNW7/YFjc1uDLpUnbUr4HWkjcQ5xF8XSgvilnW7Lz07UfTH+XK2bYNizF/OqRvQxqrOgyd
+	aDSx5+vM8jGr88aNujijTyK+FcoCINYaPsQ6kzQoWDyVPuUaaV8wvXfdASmQX9SLIiPU4Pxn2cTEb
+	cjOUAZNuADsu2w7Pnw3YJwR3l6ibZrrZHIzj+i3XdSED8XZXM8LEhIRHyCC5pbSc/3BNt8KRRg+df
+	vyGOe2Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUoX-0000000HZ1Q-2Njn;
-	Wed, 08 Jul 2026 16:07:57 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whUsX-0000000HZSp-0XAx;
+	Wed, 08 Jul 2026 16:12:05 +0000
+Received: from mail-ej1-f44.google.com ([209.85.218.44])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUoU-0000000HYzk-2ySB;
-	Wed, 08 Jul 2026 16:07:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783526871;
-	bh=LLe4ZfwptTpf0NWitnBIO04oMxVgHdZxrrmVHykXx0o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SOlau34c6QE620EznPcJ0xr0xPA24/oz7+z5o3T+l8V2P9wCG5jkHP5XJUWuJvICD
-	 LEJceHjcaIr3ka+gQPqfMml43CkkQrTOcUmwLEmZxLvunbJ3M2KVCCRlY7ghzu/kcC
-	 1laSSsXCU6SjRocHxoGFmPCxaaNy7GUF1lcTkmpsFMRi/KoFrwHr8lB2Hd7uZEXQui
-	 vXECFWFoQe4TKHXyoxbQ+MfVV/UV2QqH+bVFB3jBUlKisKVLbG5f9bVUIkxKupZJHB
-	 pR9Fxmg4405I+WSZtjfnQHWbhtHQhXTNDHLtUsGL2YDLlzMlfurmRs5Y8PNM3vYaTX
-	 qh6j45v0wwilw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1D84D17E05D3;
-	Wed, 08 Jul 2026 18:07:50 +0200 (CEST)
-Message-ID: <eb16fada-f33f-47cc-98c9-2c2bfa91b4c5@collabora.com>
-Date: Wed, 8 Jul 2026 19:07:49 +0300
+	id 1whUsV-0000000HZSA-0C92
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 16:12:04 +0000
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c126e47a82cso113415166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:12:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783527120; x=1784131920;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=hO17YRpuaXnOXgeP7ftbHwpUP+dSdnes8jnl1DmJr/I=;
+        b=HBCFZxBb1JGVceqn5Cq0E6c/G1d7MfckUCyK9nUF/GWou0YEO0ZdJDXkp8itahQdQu
+         qOzcbmu10n7FzgjPI/uKcBUBJ2XFW93C1OPB0SApSpBAVnNiXcuSjUi0Xvq/HcpRiphR
+         3DzxpF+OrRB1OwVSyUnY97Mz7FQ6JK8ScFUNUmo1TUqHfoLKIMGJIRgIFKbOPedNPlEr
+         qLAOEqsZw8MDkDEWNNT2C0cxElOAZwrp0YNVoeCGB3OmBp2GsV9UYo8pmtR5Lw1IQ4dh
+         NpMDgo0ChnUJ3Bbe9rYXZfkl3yvkFcr7nOyg3YXDVBTxmCojSTYyXKV/PuGDdWFiOypU
+         ZktA==
+X-Forwarded-Encrypted: i=1; AHgh+RpkDAR/AlO0H9G97zJi6gPrRbj88Y1N3UXYYwU5gDQXjtHdZOWZNVUizaBru3lEGvOuwncHUfNp3g6Soa0M0XoA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaIhpKM5YRScEomXg7Pa8BBUIPGehsV7q4+Wk85KQhDFAZBLom
+	9DbpQGochZoe/n7zRGg9uPY+Fe2E2YNGuUsno2e+RnPwu2Z/hd/qtl+4FVw78PHLY5g=
+X-Gm-Gg: AfdE7cmtECJICHT8BRhnsRSi0F42rg48LTCU273OdBeSgt1u40O4LjCosr45+fiXaNz
+	N8kc9hOSeFv4AnHdpDMXo+5VoOoUkYJrY9TLjcmMy8+UNh3CCNaQN0CruIwS3QsrY1Ffv+oRrhi
+	6xAJ3E0/X2TuPKyMPnO0FQq5dZD59dYz0u8ZZcw1cyzlAvLwzgS42Yyms/oQD2VAvP1l+z1sVGN
+	eFn+ub2FcqFw2an+ofOoql+3X/iYrZPNciMgpwci5BvJR5G5lWreUGSGQ/N97mZ6LjlAThMNuY8
+	eqNRlofiphwpeOfKnwGob65RHY8QlfQyzkWCXQhwMtVO3ib2AbLzq+3/6Y9jZQ3uW26ZRxAQDrB
+	8RTGHtlWE9wnU48vlqXYllLxqwt01HXZ4ZrKzDE4dFNLE1vbgDew/0bl99GTwbu7F+Ivamnoah8
+	IgjNlE7N/uw8j46gNrHNcNXIK8hMj8tc9dnyMDEnFeCZ7+6QHYLg==
+X-Received: by 2002:a17:907:e155:b0:c05:3c55:ee86 with SMTP id a640c23a62f3a-c15ce09a0damr85249866b.46.1783527120366;
+        Wed, 08 Jul 2026 09:12:00 -0700 (PDT)
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com. [209.85.208.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15d6cbadaasm96678166b.46.2026.07.08.09.11.59
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Jul 2026 09:12:00 -0700 (PDT)
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-698bf7a1a2dso1277390a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:11:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp3dUyIQ47wmqSOPRhfhryKmxMxP4o/viYv4b7a0WqmqYDz4d3SEcRF6WK07zgKDCDILiFlvR/Oj+KitRQhAI9P@lists.infradead.org
+X-Received: by 2002:a05:6402:1475:b0:698:1973:1da9 with SMTP id
+ 4fb4d7f45d1cf-69ab44a2082mr1330602a12.19.1783526681164; Wed, 08 Jul 2026
+ 09:04:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/39] Add HDMI 2.0 support to DW HDMI QP TX
-To: Maud Spierings <maud_spierings@hotmail.com>
-Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com,
- andrzej.hajda@intel.com, andy.yan@rock-chips.com, daniels@collabora.com,
- dave.stevenson@raspberrypi.com, diederik@cknow-tech.com,
- dmitry.baryshkov@oss.qualcomm.com, dri-devel@lists.freedesktop.org,
- heiko@sntech.de, hjc@rock-chips.com, jernej.skrabec@gmail.com,
- jonas@kwiboo.se, kernel-list@raspberrypi.com, kernel@collabora.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, luca.ceresoli@bootlin.com,
- maarten.lankhorst@linux.intel.com, mcanal@igalia.com, mripard@kernel.org,
- neil.armstrong@linaro.org, rfoss@kernel.org, simona@ffwll.ch,
- tzimmermann@suse.de
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <VI0P189MB368755F862D5D09583250AA3E3F12@VI0P189MB3687.EURP189.PROD.OUTLOOK.COM>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <VI0P189MB368755F862D5D09583250AA3E3F12@VI0P189MB3687.EURP189.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <cover.1783505329.git.geert+renesas@glider.be> <3c76a2d4-a8b8-493a-9196-c5cc72958118@mailbox.org>
+In-Reply-To: <3c76a2d4-a8b8-493a-9196-c5cc72958118@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 8 Jul 2026 18:04:27 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUVUKYrrms0Vd4i3_nwq2LVjvnvFRWswi8UY3cA67u2-w@mail.gmail.com>
+X-Gm-Features: AVVi8CdIlIxklIbGHNZaygjBAfJd_Dhsc8WBwlY036WlOLVf0uDAr_hqlDulMbU
+Message-ID: <CAMuHMdUVUKYrrms0Vd4i3_nwq2LVjvnvFRWswi8UY3cA67u2-w@mail.gmail.com>
+Subject: Re: [PATCH v2 00/10] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_090754_913559_4C182BE8 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260708_091203_102261_B3EFEF58 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,61 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 11:33 AM, Maud Spierings wrote:
->> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
->> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
->> management for high TMDS clock ratio and scrambling.
->>
->> Since SCDC state is lost on sink disconnects, the bridge driver needs to
->> trigger a CRTC reset during connector detection.  To support this, the
->> series introduces the connector and bridge scrambling infrastructure
->> (patches 1-8), wires it up through the bridge connector layer with an
->> atomic-aware detect_ctx hook (patches 9-11), then implements the SCDC
->> scrambling feature in the DW HDMI QP bridge driver (patches 12-15).
->>
->> Patches 16-18 are minor cleanups in the Rockchip platform driver.
->> Patches 19-23 improve HPD handling by deferring IRQ registration until
->> the connector is fully initialized, adding .enable_hpd()/.disable_hpd()
->> PHY ops, and restricting HPD events to the affected connector.
->>
->> Patches 24-25 convert vc4 HDMI to the common SCDC scrambling helpers as
->> a proof of reuse, replacing the driver-local scrambling implementation.
->>
->> Patches 26-30 add KUnit tests: connector scrambler validation, a new
->> 4K@60Hz 600MHz EDID, hdmi_state_helper scrambling tests, and EDID
->> conformity fixes for some of the existing test blobs.
->>
->> This has been tested on the following boards:
->>
->> * Radxa ROCK 5B (RK3588)
->> * Radxa ROCK 4D (RK3576)
->> * Raspberry Pi 5 Model B Rev 1.1 (BCM2712 D0)
->>
->> Note that commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer:
->> Default to EL2 virtual timer when running VHE"), introduced in v7.2-rc1,
->> causes Raspberry Pi 5 to hang during boot.  Reverting the commit
->> restores normal boot.  This issue has already been reported in [1];
->> alternatively, the workaround proposed in [2] can be applied.
->>
->> Regards,
->> Cristian
->>
->> [1] https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
->> [2] https://lore.kernel.org/all/20260619204832.586079-1-dan@reactivated.net/
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> 
-> Tested on an Orangepi 5+ board (rk3588), with a 4k60 tv and a 1440p100 monitor.
-> 
-> To all applicable patches:
-> 
-> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Hi Marek,
 
-Thanks for checking this out!
+On Wed, 8 Jul 2026 at 17:42, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 7/8/26 12:16 PM, Geert Uytterhoeven wrote:
+> > Geert Uytterhoeven (10):
+> >    firmware: arm_scmi: Add scmi_get_base_info()
+> >    of: property: fw_devlink: Add support for firmware
+> >    pmdomain: Make genpd_get_from_provider() public
+> >    reset: Add reset_controller_get_provider()
+> >    dt-bindings: clock: renesas,r8a78000-cpg: Add firmware property
+> >    dt-bindings: power: renesas,r8a78000-mdlc: Add firmware property
+> >    clk: renesas: r8a78000: Add SCMI remapping support
+> >    pmdomain: renesas: r8a78000: Add SCMI remapping support
+> >    arm64: dts: renesas: ironhide: Enable SCMI devpd, sys, clock, and
+> >      reset
+> >    arm64: dts: renesas: ironhide: Add CPG/MDLC firmware properties
+>
+> I think 10/10 did not make it either to my inbox or lore.k.o , but the
+> remaining 9 patches look good. Thank you !
 
-b4 will apply the tag to all patches, but I'll manually drop it from the VC4 and
-KUnit related patches, and probably some others that aren't really testable
-as-is.
+Thanks, I did something silly while sending.
+Lore now has it, b4 still seems to miss it, unless I specify the
+Message-ID of 10/10.
 
-Cristian
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
