@@ -4,62 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F026CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D721C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kqIrEXbeHY5bm5UyiCQAEi+0E2KgKT4ZChlIYWiy4d8=; b=b4m0bZ7sRqAJjdy62EmnIAEJYs
-	2oPx3xOyHPjlkhosRYxMD+yCMbjcEiz82PHkPEUxvLDM4cBj57FsmrwAwwARDqvVQCamCBHW/oQIw
-	kvmsfqxTD01BRDAT5nPsoHA5Ly95mEtv0m/ilRYgA68Ofv3DO5/QN76oBy7c+50uPBlh3Gf6MMemo
-	rKTHv7+VeCVD1mz6higkGfcbOLitOJSFMD9d8YPcGL7QNL9g5jipF/1lhuYwUMI/BxuTa6VZRzjfZ
-	PwKs5HH4u9s/DHSrR3i/UJjh7SWsjIiG28SapGORnsqDmX7h5AjFlcYDGRJRs2+A/I0ON7KF7JI1C
-	g7554XVg==;
+	bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=; b=ZcqXmLZ3J8sUH+FsPHwCFRSzeu
+	7LYj2XooyxXgoZxo1UqqSgCSfxYexW8+YOnn+mQffWZhOixhziCTJ2y7LP4MF2lFkccaMwc+rMTBy
+	e/yJsYchlGrq1x5EaBDLlaxQv+JcTYFTZvgap2tB4QeFekjAV0+c2g4fZfxImXGWAxOarMxOLLYLq
+	RJE1AzXSbKlmrYYbd6jMT9gUCeXFos5G2ouWvyHuL3FraxxFhakOfb0kPu1PHLOjzsZLzzxpVbeP1
+	myfvhYUue2LDkYVaUc1EAJIMwHYxV0lkvjms9sh5AzEUPgPfPFJcOY8YiAPRB28NBTXdZcgfa7wyy
+	S+pJAPjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZs6-00000000RnW-2pjT;
-	Wed, 08 Jul 2026 21:31:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZs3-00000000Rmz-2WCC
+	id 1whZsl-00000000RtH-437y;
+	Wed, 08 Jul 2026 21:32:39 +0000
+Received: from mail-northeuropeazon11010050.outbound.protection.outlook.com ([52.101.84.50] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whZsj-00000000Rsa-435A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:31:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4D2B1A00;
-	Wed,  8 Jul 2026 14:31:47 -0700 (PDT)
-Received: from [10.20.1.47] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A8CB3F905;
-	Wed,  8 Jul 2026 14:31:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783546312; bh=+4gaZD2CDpjlyl0wK8WUbWgheN0F7E51RWUGwzhlNho=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vSo1/gwoag9ds+EaTxKNDNyxJz1HbaB9WcTaIQrDMpce8hm0Bv5etX/ovU8IvR58U
-	 7uoP1N6954gCQhzHXndyxfoCrEE9SQNIrbM2TqQoldF9jrjuz1ZTxv/Og5974anjpK
-	 U7UrjfV5jOm49cRfOs/bUU/y7/fBHzzGqBk9DGpE=
-Message-ID: <55dda4c0-10c8-46d2-be90-4f6a5f609313@arm.com>
-Date: Wed, 8 Jul 2026 23:31:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
-To: wens@kernel.org
-Cc: Linus Walleij <linusw@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260313000652.11470-1-andre.przywara@arm.com>
- <CAGb2v66_S44PVae0D5a5Q8DSEAWuP-LxD6gtEpgrd=vVMvZedQ@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CAGb2v66_S44PVae0D5a5Q8DSEAWuP-LxD6gtEpgrd=vVMvZedQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Wed, 08 Jul 2026 21:32:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RBaU9CMrXPtJiJWKu9xZYwQ46C1uHiE1RcDVsB7FhwmAT8yeCDAWlukMcyHhMNprapzDR4++dBx8rqw/ackqSY5ot0hrIcYi8AuWgH008G1bErYJrF6qmY7pLELMjAvHN8C46gqUJtHCmtvU4TOEqBO7wMbYdUZlRSFWQDxov95AqkXvkouVBo8ELEemxNXkB00GoplvL02ihZSn5yItkeJbmJQNFCUusQ138BBd9AfXeuowSptnDmilTfzH8FJ32W5iR1Ndju2nh0oWsEkEJUwavVDfL8KhIqcvl5Q2/Taq166okPy0Hfy8+3hQLIOMr4XVxS53mjL4FyPMyh0Arw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=;
+ b=XpQQnnnUS8eXQHx/QjcqGd7hn5vn4xkiD795i1YoshXS8H4XP9qz+tGAAto5NLqDG/qTvNc68kofzGvpdWsnAi44i3SHPKOlEaZzzDAEFxD5hWXfsVM7w7tgU/RY5HtxVkSU8B8fv6VGmODaiZzsSLwGDT+gnoNS4qW5tlmyUjjZe4ENu1I+Z7dGQuvlqrhCw5ErvRquHuHL+iaD8mK+beULebL/PoRkC3U9vz1Vs4jBSBPjJmEfUTDflUIGvKaKYR/bjn335AFL4NA497qhpb9QRcoAQurwNnzwp8Xp4XWKpE3ZnVl1jPud4qNLx9vJ9zL78V5zPxRHPY98RaWSAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pku8GHPaxhSQ41SOECDhGw3a3aohHX3YGpZ/O7z1uVI=;
+ b=J1IPZdq0Nn/0rcn9uNHt3mgG5V5Cg0SUGbFAdI9J38GeTRcFeEjW+SzXVJO6UYKUDkb7N6vkx6iXRh7Bs/mCjDFFx0JBb++GVnHFDDTH2T4KyzsMPQmMWKKEPTAwdlyMKa684FyaZ1uZunq4/zZVF6C6/geGsBhVxxkk87eLKEUztR79bmyj8y47YHpsLAHeeg8KIMDf3781bnIyaUH6/qov+gGIMmvkvVBcBJ4A2qdFE3oAC9ujC+YGpjK+g/9ClGRLRbzsLE05SBDLutPqYUVUREaGeQEr3aK39PPx+Ici55ONp67cQ7WY2kdMjlYX5z+8lsFTuDb7huanXxc0Yg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB10341.eurprd04.prod.outlook.com (2603:10a6:800:217::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
+ 2026 21:32:32 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
+ 21:32:32 +0000
+Date: Wed, 8 Jul 2026 16:32:22 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Hongling Zeng <zenghongling@kylinos.cn>
+Cc: ludovic.desroches@microchip.com, vkoul@kernel.org, Frank.Li@kernel.org,
+	tudor.ambarus@linaro.org, nicolas.ferre@microchip.com,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, zhongling0719@126.com,
+	sashiko-bot@kernel.org
+Subject: Re: [PATCH v4] dma: at_hdmac: Fix use-after-free by proper tasklet
+ cleanup
+Message-ID: <ak7B5gxc9LrMmxO4@SMW015318>
+References: <20260708025959.40283-1-zenghongling@kylinos.cn>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260708025959.40283-1-zenghongling@kylinos.cn>
+X-ClientProxiedBy: PH7P221CA0045.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10341:EE_
+X-MS-Office365-Filtering-Correlation-Id: 36b003e5-ad7a-40f5-3384-08dedd386b14
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|1800799024|366016|376014|19092799006|11063799006|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: z6nDbytrhPQDHKO/xC6IT0g4XIUzP2LSWvlH0adQ/pI7UC3tAPLrM7RsSIF/f+sMn2Vbbp1U/dSa6YM3Bb7m5sxL4ifjAg6oSfB0PWcj84TfFBlUrvzEz1iiy18ZUtGxF9pJHm8CyD+ac+P0xT/OKRSCyi1HzmzIr2GoIlfwG6CVZtJx8nBMbq2kzVXrEA7lL5Q4wD4/EQ5RuIIfVdAGFfaDTND1fsJF57QbRWdAkZIZ3GZWfrdz0R8HUQ4gM+uATkU6Jcz+TB/O1NoGTq8q4/xhbkCr2+jdIfzF1NPYYdWCpATlkoIztEwetrsO7E/5BKjmFmVwF3CifJag6XqzI/i4VLq5H/K+uejo9FrpZGK8b3EtNfp5KU8QNVgWzq0iKLdORSRzNRCU/V9BNmit20h28K2cub/zm44Bsj/vUSR3tilJV3RcyOe9Y4k5Da9CwniMDjIr7MYMUQYWjlVkAv0la+/0EPmnbtaI/g8uPsAgeM5zT0pKFUrOzIEhdcU6/3TX5Z3fE5N1Pvw5OAuiSbCT+rXpasneJAEWTBaYzP4orsj++i/Pj1BqgevumhbHP+lbOtF+5K1PBDJ79SwTqsaOfDCzA3Kwq+zHgE0oj02Ta6obW2i0mflozx2nlRKOszsHON5i8suIvcSAbYysskJOMXKzwMWX0fGcxdZryo8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(1800799024)(366016)(376014)(19092799006)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SC9UWVB0RG8vbnZhVjBFOEwvd3Y2d1dsNmxOTDluSlo0dzJ4NXQxMWlkVS9N?=
+ =?utf-8?B?aCtUMmpkTXJoajdtbkxXNzlMYy9WWUR1YVdsU01xZS83SXNDNkhEVmZVSFFY?=
+ =?utf-8?B?SWpJMzZKWHk3K2hGQkROUlFJOStiWUdGeGJmaEJkSG9sWGozMXdlRURCYSs2?=
+ =?utf-8?B?NWN2V3FiYk9kbmx5emE2ZWN0T1pIa0QxNmlPeUN0VXZ0NGhEaVMrZThMMktZ?=
+ =?utf-8?B?RkNRVGlrTVoxOHpLZENkYjBTOG9GN2xDSmxuMzg2Y3NIamVlZ2FRNG1TN2hl?=
+ =?utf-8?B?WlU1OGJScDBLU21uRUFmNmVKZFhVcFhZWkdBa0hUSWFORWswSTlJeEYvK3Iz?=
+ =?utf-8?B?TG53cDR4VjFVelZ2ZEVJdzNSK1d1dGRnSEcybXZ5Mzg5RmJrdEF5OWVYakJU?=
+ =?utf-8?B?S0hHS2ZQbmlCUVBWSVdNWnVteEowUkN3RnJGVnpsbkdJWkU1S001cGZFRmxX?=
+ =?utf-8?B?a0Nla3JUNTlwVnlDSkt1T29lZmEvMU9vUnBSbzYrL2YxbFE0b0VRb2VqeTc1?=
+ =?utf-8?B?MzJPaFBrc3ZEb1VxblZwSlUxYmNMQnFmMEZUTGxSVUloOTg2c3M5dnlPZkZk?=
+ =?utf-8?B?d291Z2xYc2JPMjlzODJHTExWakEyeVZ2R0s1NnJqTkh1YXFMSDgwUEN0b0xk?=
+ =?utf-8?B?YUwzblR3WHI1U21GSWd3M3Q4UDg0bHM2MlFyV1lnaHhGU1p5cjI2RzhiUkJk?=
+ =?utf-8?B?bGFNWHVtdFdERTFCdGNSUHdRQVBMa21iMkRDWENDbWNPM0lMT1FOS3V6UW5w?=
+ =?utf-8?B?L2VCSzVDUGRWRkNyMVBSRisxL28rNEtmcW02bVJ4Wit1OVJ0QzhmVmdHWER1?=
+ =?utf-8?B?cVVzbHozOU92SEV4Q1ZJb3l0VVZRaTJNTFQ1bFJqQzdGaXV3MktRNlErdmtS?=
+ =?utf-8?B?TUVMaHBZNHhkY2tGcXhneHBLaEYwYjVwcTNreml2N2NCbkIycXhaM3VMQWU0?=
+ =?utf-8?B?L3d0N1lVeVZ3ZGVwbnBkaGRjSDhaaTlIajhmeFRORkpTZ3RZSHZyQW5Zc3JF?=
+ =?utf-8?B?emlCR1EwNGM2VkRMUmtYdlhmNEhpWG5sa0RHWkZzcHNqOTQwSmFtQWVGMEVM?=
+ =?utf-8?B?SStSek9jN2kzdkE2ZWhqZzdjMkV0aU5oNGJIaTdiUXY1OExxMXdZam5CbjA2?=
+ =?utf-8?B?SkNYL2l0MEVWNXRIOTJLT3hlbUxjYXlaWTRGWURVQm1aTGxwa3dzVmJYYVls?=
+ =?utf-8?B?ZEVNSk9PYmk4M0x6bUtZSlY1UmtFbVlpMUtuaGVmV3Z4TXBNRDZrSXRYWTBv?=
+ =?utf-8?B?Ri9CSWMxS0JvbFIwdkxLVXdqOXJRc3VzK0NmcVFEa0VPdktKVm04SlAxRmNV?=
+ =?utf-8?B?eVlzVGZYa3VqcDVWdjhWOVQ4ZWdnbTNmZ3lQU1hZRVZqRmxLUU9ObGIvV0Zh?=
+ =?utf-8?B?YXo4WSs2Y2pkMFNHMjlGeDhuRmVPalFnMUhSMXZOUWNjQ09yTDJTTDVvbG5v?=
+ =?utf-8?B?MC9NWTJpWmtGSmllYnlLVm1JUnlmY0Voak43MWtKUWxuTHpTMTcydHFFMFBJ?=
+ =?utf-8?B?MHQ1aDI3Z1V4OWRkdTY5WUdrSHNrSGtBdDd6dzh5b2ZHMERhc05aUk4vTW83?=
+ =?utf-8?B?NURucnlLb3JQZlRJY0pSTjZ0ZmdQUUM2RksvSHhhc05Pem1HRk1qaUhnUEhZ?=
+ =?utf-8?B?T3NqczZxalk3YmNodGlRcWhtMHlFOFBGQXVDd3NQNFlxZFFDQm9sUlg0dFlp?=
+ =?utf-8?B?ZEQ3dXhKcHZhb21LQ040VGpzS3FPY013eUtpTE9qVWE2SHVFTWRZNjd4ZE1x?=
+ =?utf-8?B?S21uSG85SWtVQjFWaVhrcDJ4eDdXTGlQT01ickVrUzVmRnk3WmtzeDM1L3li?=
+ =?utf-8?B?Sy9EbXpuanQxaWx3NXpXSm9VeXVWY1dDNEJUTFRaT3pKQnh4c0hYNi9OSW13?=
+ =?utf-8?B?ckpmS2lzTi9KUHBNVGlQMndKRHhFYUo3elJXN3RVb291YWt6N0VNaFBSbjRi?=
+ =?utf-8?B?cEtoOFM5SG1mbHZoRHBRVzVpZWlLTTYvZExpKzJna0pBdFJuTHBSZzd4dml5?=
+ =?utf-8?B?UGZBK0dzRGRaeUhtR0xjOEJaTmlyWEpZeldnSzROMEl4R3hXMU1uWEFpZG80?=
+ =?utf-8?B?YklxS3pUUjVkV0NNZVg0RGJsYzhJVW1id09aaDYxSHlKZnpsTU1GNlBkazVO?=
+ =?utf-8?B?c3ViMVIvOHV2ZkN1VHRpcno2Zms0dzJZdEkyc01lRVlaODJUcmJIaWEyYzVS?=
+ =?utf-8?B?ejlpZzR4NnYvdnpzVWVDTTd6TjRXQTRyWmFIRnRyWnpHaUFCUEpBaVYyUUdY?=
+ =?utf-8?B?V20vOEc2Y2tFbldBeHBrdGdDOHRSU0JJam1OVEk2cU1zSDRHUkFCRXRjSzhk?=
+ =?utf-8?B?MFg2TEozOVVlTEdndnhEKzJGK2lsZDlJZWhWQWYzalNzSnk0ZFZjV0NVSm9k?=
+ =?utf-8?Q?Xjgv4IdnFxy9xjV0KuKUn8k/EDLmUdTSJlqlU?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 36b003e5-ad7a-40f5-3384-08dedd386b14
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 21:32:32.1396
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a/IgggfYk6e4PNPbjrxo0jZXiu3js5SS/m3jEpsy3tDv8tDe+qHL8AKZaEV63fHAbjqke7Wsqqe2B7iRa/wJC6c+d/eojN9rEQjGoaWec/9PebsKK9fw5V0Rx7iGbfpV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10341
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_143155_804552_DAC3C277 
-X-CRM114-Status: GOOD (  42.54  )
+X-CRM114-CacheID: sfid-20260708_143238_007931_C7909502 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,397 +150,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+On Wed, Jul 08, 2026 at 10:59:59AM +0800, Hongling Zeng wrote:
+> Current cleanup paths have a use-after-free vulnerability:
+> - vchan_init() creates tasklets that access at_dma_chan memory
+> - free_irq() only waits for IRQ handler, NOT tasklets
+> - atdma is devm-managed and freed after probe/remove
+> - Running tasklets accessing freed memory → Use-After-Free!
+>
+> The fix requires careful ordering:
+> - free_irq() FIRST to synchronize with running IRQ handlers and prevent
+>   them from scheduling new tasklets
+> - Then kill tasklets to wait for already-scheduled ones to complete
+> - Only then free other resources
+>
+> Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+> Reported-by: sashiko-bot@kernel.org
+> Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+>
+> ---
+> Change in v4:
+>   - Fix error path fallthrough causing double-free_irq()
+>   - Use channel iteration index (chan_id not initialized before registration)
+>   - Remove unnecessary defensive checks
+> ---
+>  drivers/dma/at_hdmac.c | 31 ++++++++++++++++++++++---------
+>  1 file changed, 22 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+> index e5b30a57c477..044a0fb38b7a 100644
+> --- a/drivers/dma/at_hdmac.c
+> +++ b/drivers/dma/at_hdmac.c
+> @@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
+>  		cpu_relax();
+>  }
+>
+> +static void at_dma_cleanup_channels(struct at_dma *atdma)
+> +{
+> +	struct dma_chan *chan, *_chan;
+> +	int i = 0;
+> +
+> +	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+> +			device_node) {
+> +		/* Disable interrupts */
+> +		atc_disable_chan_irq(atdma, i++);
+> +		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
+> +		list_del(&chan->device_node);
+> +	}
+> +}
+> +
+>  static int __init at_dma_probe(struct platform_device *pdev)
+>  {
+>  	struct at_dma		*atdma;
+> @@ -2105,12 +2119,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>  err_of_dma_controller_register:
+>  	dma_async_device_unregister(&atdma->dma_device);
+>  err_dma_async_device_register:
+> +	free_irq(platform_get_irq(pdev, 0), atdma);
+> +	at_dma_cleanup_channels(atdma);
+>  	dma_pool_destroy(atdma->memset_pool);
+> +	dma_pool_destroy(atdma->lli_pool);
+> +	goto err_clk;
 
-many thanks for the thorough review, finally found some time to reply:
+I forget the reason why need goto here. Can you call disable_irq() or
+disable hardware irq and call synchronize_irq() at free_irq() place. then
+goto can fallback to below clean up code
 
-On 3/14/26 10:59, Chen-Yu Tsai wrote:
-> On Fri, Mar 13, 2026 at 8:08 AM Andre Przywara <andre.przywara@arm.com> wrote:
->>
->> Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
->> register frame. So far we were instantiating one GPIO chip per pinctrl
->> device, which covers multiple banks of up to 32 GPIO pins per bank. The
->> GPIO numbers were set to match the absolute pin numbers, even across the
->> typically two instances of the pinctrl device.
->>
->> Convert the GPIO part of the sunxi pinctrl over to use the gpio_generic
->> framework. This alone allows to remove some sunxi specific code, which
->> is replaced with the existing generic code. This will become even more
->> useful with the upcoming A733 support, which adds set and clear
->> registers for the output.
->> As a side effect this also changes the GPIO device and number
->> allocation: Each bank is now represented by its own gpio_chip, with only
->> as many pins as there are actually implemented. The numbering is left up
->> to the kernel (.base = -1).
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/pinctrl/sunxi/Kconfig         |   1 +
->>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 245 ++++++++++++--------------
->>   drivers/pinctrl/sunxi/pinctrl-sunxi.h |  11 +-
->>   3 files changed, 124 insertions(+), 133 deletions(-)
->>
->> diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
->> index dc62eba96348e..5905810dbf398 100644
->> --- a/drivers/pinctrl/sunxi/Kconfig
->> +++ b/drivers/pinctrl/sunxi/Kconfig
->> @@ -4,6 +4,7 @@ if ARCH_SUNXI
->>   config PINCTRL_SUNXI
->>          bool
->>          select PINMUX
->> +       select GPIO_GENERIC
->>          select GENERIC_PINCONF
->>          select GPIOLIB
->>
->> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
->> index 48434292a39b5..4235f9feff00d 100644
->> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
->> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-> 
-> [...]
-> 
->>   static int sunxi_pinctrl_gpio_to_irq(struct gpio_chip *chip, unsigned offset)
->>   {
->>          struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
->>          struct sunxi_desc_function *desc;
->> -       unsigned pinnum = pctl->desc->pin_base + offset;
->> -       unsigned irqnum;
->> +       unsigned int pinnum, irqnum, i;
->>
->>          if (offset >= chip->ngpio)
->>                  return -ENXIO;
->>
->> +       for (i = 0; i < SUNXI_PINCTRL_MAX_BANKS; i++)
->> +               if (pctl->banks[i].chip.gc.base == chip->base)
-> 
-> Can't you simply compare the instance?
-> 
->      if (&pctl->bankd[i].chip.gc == chip)
+Frank
 
-Yes, I could, by I think comparing pointers is somewhat frowned upon, 
-and since base is considered a unique identifiers within all GPIO chips, 
-I found it cleaner to compare the base.
-Is comparing pointers commonly accepts in the kernel? Theoretically 
-there could be multiple VAs pointing to the same object.
-
-> 
->> +                       break;
->> +       if (i == SUNXI_PINCTRL_MAX_BANKS)
->> +               return -EINVAL;
->> +       pinnum = pctl->desc->pin_base + i * PINS_PER_BANK + offset;
->> +
->>          desc = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
->>          if (!desc)
->>                  return -EINVAL;
->> @@ -1039,18 +952,19 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
->>   {
->>          struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
->>          struct sunxi_desc_function *func;
->> -       int ret;
->> +       int pinnum = pctl->irq_array[d->hwirq], ret;
->> +       int bank = (pinnum - pctl->desc->pin_base) / PINS_PER_BANK;
->>
->> -       func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
->> -                                       pctl->irq_array[d->hwirq], "irq");
->> +       func = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
->>          if (!func)
->>                  return -EINVAL;
->>
->> -       ret = gpiochip_lock_as_irq(pctl->chip,
->> -                       pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
->> +       ret = gpiochip_lock_as_irq(&pctl->banks[bank].chip.gc,
->> +                                  d->hwirq % IRQ_PER_BANK);
->>          if (ret) {
->>                  dev_err(pctl->dev, "unable to lock HW IRQ %lu for IRQ\n",
->>                          irqd_to_hwirq(d));
->> +
->>                  return ret;
->>          }
->>
->> @@ -1063,9 +977,10 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
->>   static void sunxi_pinctrl_irq_release_resources(struct irq_data *d)
->>   {
->>          struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
->> +       int pinnum = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
->> +       struct gpio_chip *gc = &pctl->banks[pinnum / PINS_PER_BANK].chip.gc;
->>
->> -       gpiochip_unlock_as_irq(pctl->chip,
->> -                             pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
->> +       gpiochip_unlock_as_irq(gc, pinnum);
->>   }
->>
->>   static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned int type)
->> @@ -1493,6 +1408,84 @@ static int sunxi_pinctrl_setup_debounce(struct sunxi_pinctrl *pctl,
->>          return 0;
->>   }
->>
->> +static bool sunxi_of_node_instance_match(struct gpio_chip *chip, unsigned int i)
->> +{
->> +       struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
->> +
->> +       if (i >= SUNXI_PINCTRL_MAX_BANKS)
->> +               return false;
->> +
->> +       return (chip->base == pctl->banks[i].chip.gc.base);
-> 
-> Same here.
-> 
->> +}
->> +
->> +static int sunxi_num_pins_of_bank(struct sunxi_pinctrl *pctl, int bank)
-> 
-> IMHO num_pins_in_bank would be better.
-
-Ah yes, I agree.
-
-> 
-> And I think having a comment above saying this returns the *actual* number
-> of valid pins would help.
-
-That looks indeed useful, added that.
-
-> Or just call it sunxi_num_valid_pins_in_bank?
-
-Mmh, maybe not, see below ...
-
-> 
->> +{
->> +       int max = -1, i;
->> +
->> +       for (i = 0; i < pctl->desc->npins; i++) {
->> +               int pinnum = pctl->desc->pins[i].pin.number - pctl->desc->pin_base;
->> +
->> +               if (pinnum / PINS_PER_BANK < bank)
->> +                       continue;
->> +               if (pinnum / PINS_PER_BANK > bank)
->> +                       break;
->> +               if (pinnum % PINS_PER_BANK > max)
->> +                       max = pinnum % PINS_PER_BANK;
-> 
-> This doesn't work for existing sun5i platforms, which have pins non-existent
-> on some variants, so we end up with holes in each bank.
-> 
-> Instead we have to actually calculate the number of valid pins.
-
-Well, I think the function name promises too much, what we really need 
-is "the maximum pin index used + 1", to allocate an array holding pins, 
-indexed by their number. IIUC the GPIO code doesn't really support holes 
-in each gpiochip. And it doesn't really need to, we just have 
-potentially a few smaller gaps, compared to the bigger number of larger 
-gaps we have today. They wouldn't be referenced at all, so I don't think 
-it's a problem.
-I can rename the function to include "max" somewhere.
-
-> 
->> +       }
->> +
->> +       return max + 1;
->> +}
->> +
->> +static int sunxi_gpio_add_bank(struct sunxi_pinctrl *pctl, int index)
->> +{
->> +       char bank_name = 'A' + index + pctl->desc->pin_base / PINS_PER_BANK;
->> +       struct sunxi_gpio_bank *bank = &pctl->banks[index];
->> +       struct gpio_generic_chip_config config;
->> +       struct gpio_chip *gc = &bank->chip.gc;
->> +       int ngpio, ret;
->> +
->> +       ngpio = sunxi_num_pins_of_bank(pctl, index);
->> +       bank->pctl = pctl;
->> +       bank->base = pctl->membase + index * pctl->bank_mem_size;
->> +       if (!ngpio) {
->> +               gc->owner = THIS_MODULE;
->> +               gc->ngpio = 0;
->> +               gc->base = -1;
->> +               gc->of_gpio_n_cells = 3;
->> +
->> +               return 0;
->> +       }
->> +
->> +       config = (struct gpio_generic_chip_config) {
->> +               .dev = pctl->dev,
->> +               .sz = 4,
->> +               .dat = bank->base + DATA_REGS_OFFSET,
->> +               .set = bank->base + DATA_REGS_OFFSET,
->> +               .clr = NULL,
->> +               .flags = GPIO_GENERIC_READ_OUTPUT_REG_SET |
->> +                        GPIO_GENERIC_PINCTRL_BACKEND,
->> +       };
->> +
->> +       ret = gpio_generic_chip_init(&bank->chip, &config);
->> +       if (ret)
->> +               return dev_err_probe(pctl->dev, ret,
->> +                                    "failed to init generic gpio chip\n");
-> 
-> Generic GPIO assumes that the GPIO pin range starts from 0, and is contiguous.
-> This breaks down with the sun5i and sun6i families. For example, on the A31s,
-> there is no PC16 ~ PC23, nor PH0 ~ PH8, just to show a few.
-
-But is this really a problem? We have much larger gaps today already, in 
-the existing driver. At the end of the day those pins just wouldn't be 
-referenced. Or am I missing something?
-
->> +       gc->owner               = THIS_MODULE;
->> +       gc->label               = devm_kasprintf(pctl->dev, GFP_KERNEL,
->> +                                                "%s-P%c", gc->label,
->> +                                                bank_name);
->> +       gc->ngpio               = ngpio;
-> 
-> Also set gc->offset?
-
-Yes, I figured this myself when playing around with the gpio-line-names 
-property. Fixed.
-
-> 
->> +       gc->base                = -1;
->> +       gc->of_gpio_n_cells     = 3;
->> +       gc->of_node_instance_match = sunxi_of_node_instance_match;
->> +       gc->set_config          = gpiochip_generic_config;
->> +       gc->to_irq              = sunxi_pinctrl_gpio_to_irq;
->> +       gc->can_sleep           = false;
->> +
->> +       return gpiochip_add_data(gc, pctl);
-> 
-> Can we switch to devm_gpiochip_add_data() instead? It simplifies the
-> teardown as well.
-
-Sure, didn't know this existed.
-
-> 
->> +}
->> +
->>   int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
->>                                    const struct sunxi_pinctrl_desc *desc,
->>                                    unsigned long flags)
->> @@ -1503,6 +1496,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
->>          struct sunxi_pinctrl *pctl;
->>          struct pinmux_ops *pmxops;
->>          int i, ret, last_pin, pin_idx;
->> +       int gpio_banks;
->>          struct clk *clk;
->>
->>          pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
->> @@ -1590,38 +1584,23 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
->>                  return PTR_ERR(pctl->pctl_dev);
->>          }
->>
->> -       pctl->chip = devm_kzalloc(&pdev->dev, sizeof(*pctl->chip), GFP_KERNEL);
->> -       if (!pctl->chip)
->> -               return -ENOMEM;
->> -
->> -       last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
->> -       pctl->chip->owner = THIS_MODULE;
->> -       pctl->chip->request = gpiochip_generic_request;
->> -       pctl->chip->free = gpiochip_generic_free;
->> -       pctl->chip->set_config = gpiochip_generic_config;
->> -       pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
->> -       pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
->> -       pctl->chip->get = sunxi_pinctrl_gpio_get;
->> -       pctl->chip->set = sunxi_pinctrl_gpio_set;
->> -       pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
->> -       pctl->chip->to_irq = sunxi_pinctrl_gpio_to_irq;
->> -       pctl->chip->of_gpio_n_cells = 3;
->> -       pctl->chip->can_sleep = false;
->> -       pctl->chip->ngpio = round_up(last_pin, PINS_PER_BANK) -
->> -                           pctl->desc->pin_base;
->> -       pctl->chip->label = dev_name(&pdev->dev);
->> -       pctl->chip->parent = &pdev->dev;
->> -       pctl->chip->base = pctl->desc->pin_base;
->> -
->> -       ret = gpiochip_add_data(pctl->chip, pctl);
->> -       if (ret)
->> -               return ret;
->> +       last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number -
->> +                  pctl->desc->pin_base;
->> +       for (gpio_banks = 0;
-> 
-> If you switch to devm_gpiochip_add_data() above, you won't need
-> gpiochip_remove() below, and you can declare |gpio_banks| inline here in
-> the for statement.
-
-Nice, will do this.
-
-
->> +            gpio_banks <= last_pin / PINS_PER_BANK;
->> +            gpio_banks++) {
->> +               ret = sunxi_gpio_add_bank(pctl, gpio_banks);
->> +               if (ret)
->> +                       goto gpiochip_error;
->> +       }
->>
->>          for (i = 0; i < pctl->desc->npins; i++) {
->>                  const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
->> +               int bank = (pin->pin.number - pctl->desc->pin_base) / PINS_PER_BANK;
->> +               struct gpio_chip *gc = &pctl->banks[bank].chip.gc;
->>
->> -               ret = gpiochip_add_pin_range(pctl->chip, dev_name(&pdev->dev),
->> -                                            pin->pin.number - pctl->desc->pin_base,
->> +               ret = gpiochip_add_pin_range(gc, dev_name(&pdev->dev),
->> +                                            pin->pin.number % PINS_PER_BANK,
->>                                               pin->pin.number, 1);
->>                  if (ret)
->>                          goto gpiochip_error;
->> @@ -1690,6 +1669,8 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
->>          return 0;
->>
->>   gpiochip_error:
->> -       gpiochip_remove(pctl->chip);
->> +       while (--gpio_banks >= 0)
->> +               gpiochip_remove(&pctl->banks[gpio_banks].chip.gc);
->> +
->>          return ret;
->>   }
->> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
->> index ad26e4de16a85..085131caa02fe 100644
->> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
->> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
->> @@ -14,6 +14,7 @@
->>   #define __PINCTRL_SUNXI_H
->>
->>   #include <linux/kernel.h>
->> +#include <linux/gpio/generic.h>
-> 
-> gpio comes before kernel?
-
-Indeed.
-
-> And maybe we should try to stop including the massive kernel.h header.
-
-OK, will have a look what should be included instead.
-
-Cheers,
-Andre
-
-> 
-> 
-> Thanks
-> ChenYu
-> 
->>   #include <linux/spinlock.h>
->>
->>   #define PA_BASE        0
->> @@ -159,9 +160,17 @@ struct sunxi_pinctrl_regulator {
->>          refcount_t              refcount;
->>   };
->>
->> +struct sunxi_pinctrl;
->> +
->> +struct sunxi_gpio_bank {
->> +       struct gpio_generic_chip chip;
->> +       struct sunxi_pinctrl *pctl;
->> +       void __iomem *base;
->> +};
->> +
->>   struct sunxi_pinctrl {
->>          void __iomem                    *membase;
->> -       struct gpio_chip                *chip;
->> +       struct sunxi_gpio_bank          banks[SUNXI_PINCTRL_MAX_BANKS];
->>          const struct sunxi_pinctrl_desc *desc;
->>          struct device                   *dev;
->>          struct sunxi_pinctrl_regulator  regulators[11];
->> --
->> 2.46.4
->>
->>
-
+>  err_memset_pool_create:
+>  	dma_pool_destroy(atdma->lli_pool);
+>  err_desc_pool_create:
+>  	free_irq(platform_get_irq(pdev, 0), atdma);
+>  err_irq:
+> +err_clk:
+>  	clk_disable_unprepare(atdma->clk);
+>  	return err;
+>  }
+> @@ -2118,23 +2137,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>  static void at_dma_remove(struct platform_device *pdev)
+>  {
+>  	struct at_dma		*atdma = platform_get_drvdata(pdev);
+> -	struct dma_chan		*chan, *_chan;
+>
+>  	at_dma_off(atdma);
+>  	if (pdev->dev.of_node)
+>  		of_dma_controller_free(pdev->dev.of_node);
+>  	dma_async_device_unregister(&atdma->dma_device);
+>
+> -	dma_pool_destroy(atdma->memset_pool);
+> -	dma_pool_destroy(atdma->lli_pool);
+>  	free_irq(platform_get_irq(pdev, 0), atdma);
+>
+> -	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+> -			device_node) {
+> -		/* Disable interrupts */
+> -		atc_disable_chan_irq(atdma, chan->chan_id);
+> -		list_del(&chan->device_node);
+> -	}
+> +	at_dma_cleanup_channels(atdma);
+> +	dma_pool_destroy(atdma->memset_pool);
+> +	dma_pool_destroy(atdma->lli_pool);
+>
+>  	clk_disable_unprepare(atdma->clk);
+>  }
+> --
+> 2.25.1
+>
 
