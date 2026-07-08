@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AFEC43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66856C43602
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=; b=O4PXdclSvQWJH2CqhZyP6BmKe1
-	5PBTjbGolyiToSRzXlBWkIFRYoZSj2ecdj7L5Fp0SOsZkuHZzDTLkWdx4lVl/Sn8bWsRAVVkgQ4aN
-	tOLHjnpNdxPf4XAaXgzmxh+lE5xDu17UsBsvUXSdeW42POEn2C0T4OwcvlMnTyW6sIWuv82rPI4MQ
-	iRzQKhPxUJTM/E1nyxVNrJUyYp0zfERCyASuXnFJmvlx2MxrGpZhBuGdUIFN0TERXXx49F5WZkmJN
-	nz7AIRT6nRjj8D8ksCQTF75b7QyZWQwHr+QPAsy5ef5F8pL2OcQdkulVLAxYL7Jsi1dlcB/TJdC5r
-	LH2VyccQ==;
+	bh=BybbGgDiYgbz9TZX1FD4MxIQneZDoTZK5llcNLbHG8c=; b=yW0yvZRx788dp52yzgLj2t5FPT
+	FJfxuEY6voPl7jIl+LjA7u6G706vrbCvqDvRCQoDCVNRc8c8hD/HHpkfiURyj9pVKPCnbwWx3qpRF
+	MT7DSL/gbyPnfJeXAf8rqPZxqsSzQLEWtQHnQJkQ7oHWn1qdsXHgdm7SJKWRsu7QBjGJ/m1itrk/i
+	GhFkfadQ7lPsiuKpJ2BoGbiW37uQnBZDDqCS8ABiuyY7fSrlEe8RJCtF4Avsc+BtvGlpg7CnIfGfb
+	/4giTIJAP3jz0k0yZIH9p3cgle5bLFiqHAHlI5MkXXgEPYfQYHwUF6IHhUUnj8sXhIwzbBk5Tccwf
+	EU7d7weA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO9B-0000000GgEj-1veU;
+	id 1whO9B-0000000GgED-0nPK;
 	Wed, 08 Jul 2026 09:00:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8y-0000000Gfzd-1Na4
+	id 1whO8w-0000000Gfxd-3fw8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:00:36 +0000
+	Wed, 08 Jul 2026 09:00:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C13B66001D;
-	Wed,  8 Jul 2026 09:00:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E438C1F000E9;
+	by sea.source.kernel.org (Postfix) with ESMTP id A186043D6E;
 	Wed,  8 Jul 2026 09:00:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2EF71F00A3A;
+	Wed,  8 Jul 2026 09:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501235;
-	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=;
+	s=k20260515; t=1783501234;
+	bh=BybbGgDiYgbz9TZX1FD4MxIQneZDoTZK5llcNLbHG8c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HJEiVZsPywwMg6M5aHHmJM3FibXT6peOFS+hroRKr5p41D/reu45046H83c/F5nIl
-	 15nhGsyGBFoqkibdcAyq9hdWbH32iknd4RAP80iPNYI8etPiSslov3CWGOyVrNZ0cW
-	 2kiUkbqhrQ1pNC2FDV3d/s0pN66eqaIFu2O9aCoj4QQbDQ9O5WhbpA5K82AmxN2Yju
-	 fhGlZzq6kqe3KghAofTydnPLW0Z1W1eYhpogO8zbJNPYfgJtHX/m/zAHjs6KV6ipAY
-	 3YntcNZVrYMNDIUGw9O++miscbE7NzDBipJoUIk/C+t3LLonrJuG86f4y1v1nKu0g+
-	 s5KUFBqbtoGww==
+	b=i3RUqeVUGYa7012mJuLHBrb4cf5FE3G2MDlS89NcgC6xE+mIgTJc5IxeoaNqZQTm6
+	 3T9rgtXKD/Lkn2oezaPtyIIvHJO0sP0mXqFxMZk/7jdC69fPzgVksr76EZ9HmtzPUi
+	 jQmLyk/SGhsShNGihsLOA2tFCdRcScSf6wPnD8tesW43uOcciN4oQowhqdOcJqBl4O
+	 hppYJ2M8nrN5BPKguHf8gIdraBSQHuW+IGwZ2P83ggyBL9pzP/ss8qTV3XKBSWIQaq
+	 /rtxJbWhfUFVDB8U4adEeffiXoiUdlUvVeFKzj5IiEEv1TCcnPda5/ZFwshKRLmHq/
+	 6qc9FXPurm6PQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:07 +0100
-Subject: [PATCH v4 11/16] firmware: arm_scmi: Clear SystemPower flag on
- create failure
+Date: Wed, 08 Jul 2026 10:00:06 +0100
+Subject: [PATCH v4 10/16] firmware: arm_scmi: Drop handle on protocol bind
+ failures
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-11-53142cd60b63@kernel.org>
+Message-Id: <20260708-scmi_core_fixes-v4-10-53142cd60b63@kernel.org>
 References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,157 +69,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__scmi_device_create() reserves the singleton SystemPower protocol device
-before registering the SCMI device. If any later step fails, a stale
-reservation can make a later retry reject SystemPower device creation
-permanently, for example after probe deferral.
+The SCMI bus notifier acquires an SCMI handle when the driver core emits
+BUS_NOTIFY_BIND_DRIVER, before invoking the protocol driver probe
+callback. The protocol probe path only checks whether sdev->handle is
+set.
 
-A plain global boolean is not enough to track the reservation. A delayed
-final release of an older SystemPower device could clear the boolean after
-a newer device has already claimed it, breaking the singleton guarantee for
-the active device.
+If device_link_add() fails after the handle has been acquired, the
+protocol device can still bind with a valid handle but without the
+dependency link to the SCMI parent. A concurrent parent unbind can then
+miss the child and tear down the SCMI instance while the child still
+holds a handle into it.
 
-Track the reservation with the scmi_device pointer itself. Claim it with
-cmpxchg(NULL, scmi_dev) after allocating the device object, and release it
-with cmpxchg(scmi_dev, NULL) from the common cleanup helper. This lets the
-create-failure, explicit destroy and final release paths clear only the
-reservation owned by the device being cleaned up.
+If the protocol driver probe later fails, for example with
+-EPROBE_DEFER, the driver core emits BUS_NOTIFY_DRIVER_NOT_BOUND rather
+than BUS_NOTIFY_UNBOUND_DRIVER. The SCMI notifier only released the
+handle on BUS_NOTIFY_UNBOUND_DRIVER, so each failed protocol-device bind
+leaked the SCMI instance users refcount and left sdev->handle set after
+the failed probe.
 
-Fixes: 2c3e674465e7 ("firmware: arm_scmi: Refactor device create/destroy helpers")
+Make the link helper report failure and drop the acquired handle if the
+link cannot be created. Also handle BUS_NOTIFY_DRIVER_NOT_BOUND in the
+same cleanup path used for unbind so failed probes balance the earlier
+BUS_NOTIFY_BIND_DRIVER acquisition.
+
+Fixes: 971fc0665f13 ("firmware: arm_scmi: Move handle get/set helpers")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/bus.c | 59 ++++++++++++++++++++++-------------------
- 1 file changed, 32 insertions(+), 27 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 31 +++++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 793be9eabaed..dcaefc1aa892 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -7,7 +7,6 @@
- 
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
--#include <linux/atomic.h>
- #include <linux/types.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -33,8 +32,8 @@ struct scmi_requested_dev {
- 	struct list_head node;
- };
- 
--/* Track globally the creation of SCMI SystemPower related devices */
--static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
-+/* Track globally the SCMI SystemPower protocol device. */
-+static struct scmi_device *scmi_syspower_registered;
- 
- /**
-  * scmi_protocol_device_request  - Helper to request a device
-@@ -391,10 +390,17 @@ void scmi_driver_unregister(struct scmi_driver *driver)
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 73cfe2eaacea..3e0f0fac9626 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2629,21 +2629,31 @@ static int scmi_handle_put(const struct scmi_handle *handle)
+ 	return 0;
  }
- EXPORT_SYMBOL_GPL(scmi_driver_unregister);
  
-+static void scmi_device_release_syspower(struct scmi_device *scmi_dev)
-+{
-+	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
-+		cmpxchg(&scmi_syspower_registered, scmi_dev, NULL);
+-static void scmi_device_link_add(struct device *consumer,
++static bool scmi_device_link_add(struct device *consumer,
+ 				 struct device *supplier)
+ {
+ 	struct device_link *link;
+ 
+ 	link = device_link_add(consumer, supplier, DL_FLAG_AUTOREMOVE_CONSUMER);
+ 
+-	WARN_ON(!link);
++	return !WARN_ON(!link);
 +}
 +
- static void scmi_device_release(struct device *dev)
- {
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 
-+	scmi_device_release_syspower(scmi_dev);
- 	kfree_const(scmi_dev->name);
- 	kfree(scmi_dev);
- }
-@@ -406,9 +412,7 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
- 		 dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
- 		 scmi_dev->name);
- 
--	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
--		atomic_set(&scmi_syspower_registered, 0);
--
-+	scmi_device_release_syspower(scmi_dev);
- 	ida_free(&scmi_bus_id, scmi_dev->id);
- 	device_unregister(&scmi_dev->dev);
- }
-@@ -419,6 +423,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- {
- 	int id, retval;
- 	struct scmi_device *scmi_dev;
-+	bool syspower = (protocol == SCMI_PROTOCOL_SYSTEM);
- 
- 	/*
- 	 * If the same protocol/name device already exist under the same parent
-@@ -431,39 +436,33 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 	if (scmi_dev)
- 		return scmi_dev;
- 
-+	scmi_dev = kzalloc_obj(*scmi_dev);
-+	if (!scmi_dev)
-+		return NULL;
++static void scmi_clear_handle(struct scmi_device *scmi_dev)
++{
++	if (!scmi_dev->handle)
++		return;
 +
-+	scmi_dev->protocol_id = protocol;
-+
- 	/*
--	 * Ignore any possible subsequent failures while creating the device
--	 * since we are doomed anyway at that point; not using a mutex which
--	 * spans across this whole function to keep things simple and to avoid
--	 * to serialize all the __scmi_device_create calls across possibly
--	 * different SCMI server instances (parent)
-+	 * Reserve the singleton SystemPower protocol device using the device
-+	 * pointer itself, so delayed release of an older device cannot clear
-+	 * a reservation owned by a newer device.
- 	 */
--	if (protocol == SCMI_PROTOCOL_SYSTEM &&
--	    atomic_cmpxchg(&scmi_syspower_registered, 0, 1)) {
-+	if (syspower && cmpxchg(&scmi_syspower_registered, NULL, scmi_dev)) {
- 		dev_warn(parent,
- 			 "SCMI SystemPower protocol device must be unique !\n");
-+		kfree(scmi_dev);
- 		return NULL;
++	scmi_handle_put(scmi_dev->handle);
++	scmi_dev->handle = NULL;
+ }
+ 
+ static void scmi_set_handle(struct scmi_device *scmi_dev)
+ {
+ 	scmi_dev->handle = scmi_handle_get(&scmi_dev->dev);
+-	if (scmi_dev->handle)
+-		scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev);
++	if (scmi_dev->handle &&
++	    !scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev))
++		scmi_clear_handle(scmi_dev);
+ }
+ 
+ static int __scmi_xfer_info_init(struct scmi_info *sinfo,
+@@ -2927,6 +2937,7 @@ static int scmi_bus_notifier(struct notifier_block *nb,
+ {
+ 	struct scmi_info *info = bus_nb_to_scmi_info(nb);
+ 	struct scmi_device *sdev = to_scmi_dev(data);
++	const char *status;
+ 
+ 	/* Skip devices of different SCMI instances */
+ 	if (sdev->dev.parent != info->dev)
+@@ -2936,18 +2947,22 @@ static int scmi_bus_notifier(struct notifier_block *nb,
+ 	case BUS_NOTIFY_BIND_DRIVER:
+ 		/* setup handle now as the transport is ready */
+ 		scmi_set_handle(sdev);
++		status = "about to be BOUND.";
++		break;
++	case BUS_NOTIFY_DRIVER_NOT_BOUND:
++		scmi_clear_handle(sdev);
++		status = "NOT BOUND.";
+ 		break;
+ 	case BUS_NOTIFY_UNBOUND_DRIVER:
+-		scmi_handle_put(sdev->handle);
+-		sdev->handle = NULL;
++		scmi_clear_handle(sdev);
++		status = "UNBOUND.";
+ 		break;
+ 	default:
+ 		return NOTIFY_DONE;
  	}
  
--	scmi_dev = kzalloc_obj(*scmi_dev);
--	if (!scmi_dev)
--		return NULL;
--
- 	scmi_dev->name = kstrdup_const(name ?: "unknown", GFP_KERNEL);
--	if (!scmi_dev->name) {
--		kfree(scmi_dev);
--		return NULL;
--	}
-+	if (!scmi_dev->name)
-+		goto free_dev;
+ 	dev_dbg(info->dev, "Device %s (%s) is now %s\n", dev_name(&sdev->dev),
+-		sdev->name, action == BUS_NOTIFY_BIND_DRIVER ?
+-		"about to be BOUND." : "UNBOUND.");
++		sdev->name, status);
  
- 	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
--	if (id < 0) {
--		kfree_const(scmi_dev->name);
--		kfree(scmi_dev);
--		return NULL;
--	}
-+	if (id < 0)
-+		goto free_name;
- 
- 	scmi_dev->id = id;
--	scmi_dev->protocol_id = protocol;
- 	scmi_dev->dev.parent = parent;
- 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
- 	scmi_dev->dev.bus = &scmi_bus_type;
-@@ -482,6 +481,12 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 	put_device(&scmi_dev->dev);
- 	ida_free(&scmi_bus_id, id);
- 	return NULL;
-+free_name:
-+	kfree_const(scmi_dev->name);
-+free_dev:
-+	scmi_device_release_syspower(scmi_dev);
-+	kfree(scmi_dev);
-+	return NULL;
+ 	return NOTIFY_OK;
  }
- 
- static struct scmi_device *
 
 -- 
 2.43.0
