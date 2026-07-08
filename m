@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FF3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73FCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hO17YRpuaXnOXgeP7ftbHwpUP+dSdnes8jnl1DmJr/I=; b=tDh+akq8AmiOOzfOWBAiYfQymD
-	srCmFwqXAAjGTzlPJsIrK4G97AgPlwiWW7V6sctItIJDkJ7RgDWB4TBGgZmpuWb4mcAFWIvueXv5p
-	+0rN2b6WNW7/YFjc1uDLpUnbUr4HWkjcQ5xF8XSgvilnW7Lz07UfTH+XK2bYNizF/OqRvQxqrOgyd
-	aDSx5+vM8jGr88aNujijTyK+FcoCINYaPsQ6kzQoWDyVPuUaaV8wvXfdASmQX9SLIiPU4Pxn2cTEb
-	cjOUAZNuADsu2w7Pnw3YJwR3l6ibZrrZHIzj+i3XdSED8XZXM8LEhIRHyCC5pbSc/3BNt8KRRg+df
-	vyGOe2Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yfr5Zf8QzEAmiPLqkiJdK20n52r9vrdmIA+s+Q3YgkU=; b=tk/UH6QgBehGSXWq3XUer/7Ysx
+	Y4PLCRJVBS9jhd69rWvjwntSslTYUQUJSzKV6BC4Gm7CqdjE83XajD3hN7I2//nxrPx2iLacFXon5
+	Kytk3/eIndul0Gm85ajV23Yj6shDG/BP9KU8II1h28rpQye3RiOFzW5Hn7CyZKzX3oLjMawLY+sLE
+	uTtbh59dlSz4dej/4V6Fdhxpp5DbQH06dXGV3A1Vg5jqrybKo7LaftyROqUt3xOyVKaWN2YVDN/GV
+	naddsp0uV/LYoQCbzovv3JWovGkSBSVssLzyZNxKQGHDUGA076pkyJ/kmscijkWcmnVzEuLAdMglm
+	Vi4bjjQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUsX-0000000HZSp-0XAx;
-	Wed, 08 Jul 2026 16:12:05 +0000
-Received: from mail-ej1-f44.google.com ([209.85.218.44])
+	id 1whUtk-0000000HZfR-1EIO;
+	Wed, 08 Jul 2026 16:13:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUsV-0000000HZSA-0C92
+	id 1whUti-0000000HZfI-3yn7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:12:04 +0000
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c126e47a82cso113415166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:12:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783527120; x=1784131920;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hO17YRpuaXnOXgeP7ftbHwpUP+dSdnes8jnl1DmJr/I=;
-        b=HBCFZxBb1JGVceqn5Cq0E6c/G1d7MfckUCyK9nUF/GWou0YEO0ZdJDXkp8itahQdQu
-         qOzcbmu10n7FzgjPI/uKcBUBJ2XFW93C1OPB0SApSpBAVnNiXcuSjUi0Xvq/HcpRiphR
-         3DzxpF+OrRB1OwVSyUnY97Mz7FQ6JK8ScFUNUmo1TUqHfoLKIMGJIRgIFKbOPedNPlEr
-         qLAOEqsZw8MDkDEWNNT2C0cxElOAZwrp0YNVoeCGB3OmBp2GsV9UYo8pmtR5Lw1IQ4dh
-         NpMDgo0ChnUJ3Bbe9rYXZfkl3yvkFcr7nOyg3YXDVBTxmCojSTYyXKV/PuGDdWFiOypU
-         ZktA==
-X-Forwarded-Encrypted: i=1; AHgh+RpkDAR/AlO0H9G97zJi6gPrRbj88Y1N3UXYYwU5gDQXjtHdZOWZNVUizaBru3lEGvOuwncHUfNp3g6Soa0M0XoA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaIhpKM5YRScEomXg7Pa8BBUIPGehsV7q4+Wk85KQhDFAZBLom
-	9DbpQGochZoe/n7zRGg9uPY+Fe2E2YNGuUsno2e+RnPwu2Z/hd/qtl+4FVw78PHLY5g=
-X-Gm-Gg: AfdE7cmtECJICHT8BRhnsRSi0F42rg48LTCU273OdBeSgt1u40O4LjCosr45+fiXaNz
-	N8kc9hOSeFv4AnHdpDMXo+5VoOoUkYJrY9TLjcmMy8+UNh3CCNaQN0CruIwS3QsrY1Ffv+oRrhi
-	6xAJ3E0/X2TuPKyMPnO0FQq5dZD59dYz0u8ZZcw1cyzlAvLwzgS42Yyms/oQD2VAvP1l+z1sVGN
-	eFn+ub2FcqFw2an+ofOoql+3X/iYrZPNciMgpwci5BvJR5G5lWreUGSGQ/N97mZ6LjlAThMNuY8
-	eqNRlofiphwpeOfKnwGob65RHY8QlfQyzkWCXQhwMtVO3ib2AbLzq+3/6Y9jZQ3uW26ZRxAQDrB
-	8RTGHtlWE9wnU48vlqXYllLxqwt01HXZ4ZrKzDE4dFNLE1vbgDew/0bl99GTwbu7F+Ivamnoah8
-	IgjNlE7N/uw8j46gNrHNcNXIK8hMj8tc9dnyMDEnFeCZ7+6QHYLg==
-X-Received: by 2002:a17:907:e155:b0:c05:3c55:ee86 with SMTP id a640c23a62f3a-c15ce09a0damr85249866b.46.1783527120366;
-        Wed, 08 Jul 2026 09:12:00 -0700 (PDT)
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com. [209.85.208.50])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15d6cbadaasm96678166b.46.2026.07.08.09.11.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Jul 2026 09:12:00 -0700 (PDT)
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-698bf7a1a2dso1277390a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:11:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp3dUyIQ47wmqSOPRhfhryKmxMxP4o/viYv4b7a0WqmqYDz4d3SEcRF6WK07zgKDCDILiFlvR/Oj+KitRQhAI9P@lists.infradead.org
-X-Received: by 2002:a05:6402:1475:b0:698:1973:1da9 with SMTP id
- 4fb4d7f45d1cf-69ab44a2082mr1330602a12.19.1783526681164; Wed, 08 Jul 2026
- 09:04:41 -0700 (PDT)
+	Wed, 08 Jul 2026 16:13:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8526601ED;
+	Wed,  8 Jul 2026 16:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AE901F000E9;
+	Wed,  8 Jul 2026 16:13:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783527197;
+	bh=yfr5Zf8QzEAmiPLqkiJdK20n52r9vrdmIA+s+Q3YgkU=;
+	h=From:To:Cc:Subject:Date;
+	b=QuQ5rORC2BJ+4iEkH95ElRXMac4sTZeDwlFIMs+c0EAVRrSNbJYdKVLCHsNma0q6G
+	 crVKepBLgdIkmXpEXN1JkEoCjaXRu4Uvle7DTy/sB+Ep6l+cW1XCpw9J2sLT5VCFAS
+	 CHLaOrUcfWitOSCaBkg67qi8ENFWWLbE0nOrEwZfm3pM/rMdza7glLLhpUwY4I9O4v
+	 z/zgtpBgf28mkZt1GvcVa3881rb9e0XjU9iEFHJ+UsPaHiFG8y/iQubf/4pH+GdbeH
+	 ElSQmDLINOMKkO6hHkCEh86k6Wgb4gc82Q3E544abnmfapLTrPUgjnEAzrFrL+4OZa
+	 R9trNpAQZXiAQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1whUtf-00000002uOx-1Kbd;
+	Wed, 08 Jul 2026 16:13:15 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Mostafa Saleh <smostafa@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Sebastian Ene <sebastianene@google.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.2, take #2
+Date: Wed,  8 Jul 2026 17:12:42 +0100
+Message-ID: <20260708161242.1912769-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <cover.1783505329.git.geert+renesas@glider.be> <3c76a2d4-a8b8-493a-9196-c5cc72958118@mailbox.org>
-In-Reply-To: <3c76a2d4-a8b8-493a-9196-c5cc72958118@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 8 Jul 2026 18:04:27 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUVUKYrrms0Vd4i3_nwq2LVjvnvFRWswi8UY3cA67u2-w@mail.gmail.com>
-X-Gm-Features: AVVi8CdIlIxklIbGHNZaygjBAfJd_Dhsc8WBwlY036WlOLVf0uDAr_hqlDulMbU
-Message-ID: <CAMuHMdUVUKYrrms0Vd4i3_nwq2LVjvnvFRWswi8UY3cA67u2-w@mail.gmail.com>
-Subject: Re: [PATCH v2 00/10] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_091203_102261_B3EFEF58 
-X-CRM114-Status: GOOD (  20.69  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, fuad.tabba@linux.dev, broonie@kernel.org, smostafa@google.com, oupton@kernel.org, sebastianene@google.com, sudeep.holla@kernel.org, vdonnefort@google.com, weilin.chang@arm.com, will@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +90,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Paolo,
 
-On Wed, 8 Jul 2026 at 17:42, Marek Vasut <marek.vasut@mailbox.org> wrote:
-> On 7/8/26 12:16 PM, Geert Uytterhoeven wrote:
-> > Geert Uytterhoeven (10):
-> >    firmware: arm_scmi: Add scmi_get_base_info()
-> >    of: property: fw_devlink: Add support for firmware
-> >    pmdomain: Make genpd_get_from_provider() public
-> >    reset: Add reset_controller_get_provider()
-> >    dt-bindings: clock: renesas,r8a78000-cpg: Add firmware property
-> >    dt-bindings: power: renesas,r8a78000-mdlc: Add firmware property
-> >    clk: renesas: r8a78000: Add SCMI remapping support
-> >    pmdomain: renesas: r8a78000: Add SCMI remapping support
-> >    arm64: dts: renesas: ironhide: Enable SCMI devpd, sys, clock, and
-> >      reset
-> >    arm64: dts: renesas: ironhide: Add CPG/MDLC firmware properties
->
-> I think 10/10 did not make it either to my inbox or lore.k.o , but the
-> remaining 9 patches look good. Thank you !
+Here's the second drop of KVM/arm64 fixes for 7.2. This time around,
+we have a locking issue in kvm_io_bus_get_dev(), which is only used by
+arm64, a few S2 page table fixes, a set of FFA proxy fixes for pKVM,
+and finally a very esoteric fix for emulation of sign-extended loads
+from MMIO. Not only this is rather niche, it dates back to day one of
+KVM support for 32bit ARM...
 
-Thanks, I did something silly while sending.
-Lore now has it, b4 still seems to miss it, unless I specify the
-Message-ID of 10/10.
+Note that this is on top of the kvmarm-fixes-7.2-1 tag pull request
+posted at [1] about 12 days ago.
 
-Gr{oetje,eeting}s,
+Please pull,
 
-                        Geert
+	M.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+[1] https://lore.kernel.org/all/20260626133526.817232-1-maz@kernel.org
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+The following changes since commit d098bb75d14fde2f12155f1a95ec0168160867ce:
+
+  KVM: arm64: account pKVM reclaim against the VM mm (2026-06-22 10:48:08 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.2-2
+
+for you to fetch changes up to 8d187d4b33c262c0f3e44842553521151d8629e8:
+
+  KVM: arm64: Fix propagation of TLBI level in kvm_pgtable_stage2_relax_perms() (2026-07-07 17:43:39 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.2, take #2
+
+- Move locking for kvm_io_bus_get_dev() into the caller, ensuring
+  race-free checks that the returned object is of the correct type
+
+- Fix initialisation of the page-table walk level when relaxing
+  permissions
+
+- Correctly update the XN attribute when relaxing permissions
+
+- Fix the sign extension of loads from emulated MMIO regions
+
+- Assorted collection of fixes for pKVM's FFA proxy, together with a
+  couple of FFA driver adjustments
+
+----------------------------------------------------------------
+Fuad Tabba (2):
+      KVM: arm64: Fix sign-extension of MMIO loads
+      KVM: arm64: selftests: Add MMIO sign-extending load test
+
+Marc Zyngier (2):
+      KVM: Move kvm_io_bus_get_dev() locking responsibilities to callers
+      KVM: arm64: Fix propagation of TLBI level in kvm_pgtable_stage2_relax_perms()
+
+Mostafa Saleh (3):
+      KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
+      KVM: arm64: Ensure FFA ranges are page aligned
+      firmware: arm_ffa: Fix out-of-bound writes in ffa_setup_and_transmit()
+
+Oliver Upton (2):
+      KVM: arm64: Ensure level is always initialized when relaxing perms
+      KVM: arm64: Only update XN attr when requested during S2 relaxation
+
+Sebastian Ene (3):
+      KVM: arm64: Validate the offset to the mem access descriptor
+      KVM: arm64: Zero out the stack initialized data in the FFA handler
+      firmware: arm_ffa: Fix Endpoint Memory Access Descriptor offset calculation
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c                     |  44 ++--
+ arch/arm64/kvm/hyp/pgtable.c                      |  15 +-
+ arch/arm64/kvm/mmio.c                             |   7 +-
+ arch/arm64/kvm/vgic/vgic-its.c                    |   2 +
+ drivers/firmware/arm_ffa/driver.c                 |  25 ++-
+ include/linux/arm_ffa.h                           |   9 +-
+ tools/testing/selftests/kvm/Makefile.kvm          |   1 +
+ tools/testing/selftests/kvm/arm64/mmio_sign_ext.c | 255 ++++++++++++++++++++++
+ virt/kvm/kvm_main.c                               |  16 +-
+ 9 files changed, 331 insertions(+), 43 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
 
