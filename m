@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA00C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09FDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93EN29IqJ6bd5F8a4d6goWGreJMuVVomREVtrVg8Odk=; b=pXRG0ZdqIbUNgTXLk3RJYZjA2U
-	wfGdlUZp71DCFvQzYs9gCpb6fPiq4AT+TWYGAavvCL1WklvMrAbA3nDVyYrkpufN13DpF1f9MhAsT
-	ZUT9yw+k9uTmnf6VEPp5VogO2+Fu08CLBpHf57VPKR8MDNGkGS0Z09cm+BPzOcXw0Vf7hWtwB9fMT
-	7tJqFpao6EopLwqDoSZwTYyy9BlGhttZbp1+lAPGATmUuPzhnGPedCdc0m+HFaPj+qLOXhQChwaV3
-	OtJob/KCbVW8BOVp6+RLZeFTcHOHSTKDQByNl9pwV1Z1IXa4AdJvh4KF8n8jxenrgRdav/WLCBqOz
-	O18dq6xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+ULPXPFiSOdZmCJgGf8LxNKIrP883dRhcYk2KSZlt2Y=; b=hXEAPuyKNqFnE+Ft3S5eeb/2ID
+	QRSfDqqAH55Oqt5yVaTgxJoKB6DlGo5wfIJLab8fBTg6hgqCvG7hHJmNQweQQuTGq/BcOfX18YLdD
+	+GVNtrNBfGfeG9sMbJjPDseAmBNX5Esi9n+D1IEbKbLiSkVqUuFmUhaHh1bQNPT2DblMm8Om7tGGz
+	Q55xSUq8pGle8TU2zcSY2ob/6l7A2gzzqlHp76LpbpEho4Gyg1Q/hftmdZC4OQ3dzZJsQpiXpSquV
+	0aiYz56PFVThr8V8FDAD6InS3Mpm7FupWnBDuHMzg6Ev71yCAeevqln+mYHrRpnUYQElltzKfvhPL
+	3QiAoo2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPPS-0000000GsZQ-42zA;
-	Wed, 08 Jul 2026 10:21:42 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1whPRZ-0000000Gsx0-2y9E;
+	Wed, 08 Jul 2026 10:23:53 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPPP-0000000GsXv-13K2
+	id 1whPRX-0000000Gsur-0Me2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 10:21:41 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-382ef647e20so569751a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 03:21:37 -0700 (PDT)
+	Wed, 08 Jul 2026 10:23:52 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47de0093c42so498592f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 03:23:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783506097; x=1784110897; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=93EN29IqJ6bd5F8a4d6goWGreJMuVVomREVtrVg8Odk=;
-        b=pr2m2y1ErplqchrPSxhW7DiJFHNJcodEc1O+qY7hXmzuKKhbq2QX4dDz9X2QzQAQIL
-         hXb6SiChTA9BzPO2sEnxN4zBpeQVnf8RWKibVydntfi4/ePQCHq9743pZLfqjN06pmqa
-         0t+KC/XQ24uEMPMls7FvwEHQKsu/vzkWz9PsCNkX75kjPZL7Yfp2+qDi0TSpc/HvxpvC
-         IqYu2Z0Z4UD27cXUcZ6UhBWSsMVl+sEWH4dpYpi4H87/5K1KKMacviedVfnLL495rEvE
-         iKnOqR7+sxoQJdYYsQFEEkWfQmw4J0f9q4PFBqqlyAZ7sk8j0rn5Fe7PABytiXkxX/Al
-         Fpkg==
+        d=gmail.com; s=20251104; t=1783506229; x=1784111029; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+ULPXPFiSOdZmCJgGf8LxNKIrP883dRhcYk2KSZlt2Y=;
+        b=kh8fuHzXlOvNKl5AIgI9jO1PWspT2PGJF4y88W3qmSBFctWPsiRTzJIv8yhvfv570F
+         eFyYNUJrApozuTAmegQDMUG4UhGthTur0NwZC6hSYctcq4ZsVLoGGfz3AGTIpuqFCp9p
+         B9fq9C+dlLwJuVSAgeMsVEKp3uQI0gpEmOQQSxdQbHZe6dnQmnVJHw8r737Q6mifMT29
+         dYYj3k1xeStySz8Wp/UNppuPcNSZDalG2hHPnqTFCCdw3uJznmIXBi6evhRGFxXEqmgw
+         oLvkJpfV7CKkOJsg6XBIK0jnkMyH588dKcccAcAETI7Riyev7TYpapFq3PUIOm3f3mr1
+         HmfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783506097; x=1784110897;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20251104; t=1783506229; x=1784111029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=93EN29IqJ6bd5F8a4d6goWGreJMuVVomREVtrVg8Odk=;
-        b=aFOTRu9EL3VKMCq2WobHpQ2LlVGU8uOY0MIPT8tW92eamalfONrIN9N6nnLaaSjq2N
-         OBnurdLoLbNJ2jpheOAcIEuCsc9WDIM5lnflAh7gjJeDz0D7A08BnKg869KCjj/Cwt63
-         qjaQ/EoSyGx8X5933U5c6cRA1ywviFgf+CkAjAjqmGlO1Q+jOT28m/YmQKhqShcOVwx0
-         4NaWYfI5kGBTr1o64gXH7m+YWwI03Jsmv8Nz9kr2vrjARYiJQjI7O867Nni/ynHUgrhe
-         xWWqUyGYWpbUVGG34YX+lXcUtFAXto72Ispt615lzzKuNBchYNAPQuom3g/TuMoPUDhD
-         /oEA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp4dPvNFA11/CHV+KbIZAGeuuu9YtzkQBHeQusX6ufWXqKRQ371Xox472gpKvZ1UAeG3GmGiFLob5JmFbtC8tE7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1DpmzsvZ61ZzOfDwoZm5KIpHVIc7KIzAO2mckjjQ0o6NK1dRQ
-	0cP4L/+0tTLfu2UC/R6V+iBXfw33jXv8iT9AVYY+i1x9vHiwXgJIQTll
-X-Gm-Gg: AfdE7cmue08mZP2vuZ3OQw0vbmiN4cjkkjkThSmNju+p8bWtuGdGXXVfumq+VaSTeyu
-	q6M/5GQVoQJxaNYav5D9ZmKCZohbd5J0RI/tLe6iUTpe/HIAEWG8eLjmt4euS5UAKxSaXEOWAtY
-	P8itCwZmK7F+GLbfW2oJgAWpBVefyS6nBuhSOLvOMRhFGTGQltvbervIueARlsIKkHrpaRDg4RR
-	Y5o0SVCL2EphG9mVVymk/BP6ZL07zfDvbE7jXRB6vbiVgLXsXZR8Pt85/MyXmrsrGDgKfj8mkqa
-	Hx4/k0bz18LBAM3FTI4PKru3QS0KgQ7PpLa/pWHS/Fyiv88co+b9EiXJ6uUrNQP/XoS+9VgYNGX
-	ehiPkSQHWQ4cFbswPyl1qlObt+ywau969kSjcf+1mBjVbTqm/Ml9pshHi1CDnLMmPmNrcP5LIYZ
-	3CNm+SUL9FfaA1GD7+GFPjcex7SQT1Yw==
-X-Received: by 2002:a17:90b:3b43:b0:381:3b5d:30f4 with SMTP id 98e67ed59e1d1-38941102113mr1927534a91.1.1783506097233;
-        Wed, 08 Jul 2026 03:21:37 -0700 (PDT)
-Received: from i386.168.1.127 ([2402:a00:163:2ce9:9c6f:e28:3da8:7980])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-387d3a65609sm2512387a91.14.2026.07.08.03.21.32
+        bh=+ULPXPFiSOdZmCJgGf8LxNKIrP883dRhcYk2KSZlt2Y=;
+        b=f9lBzYHJ/ub2xFre+/YfDXFwWi7GZZNXaBmk+LUCMqBDJZFkDn0TwaiybzRR9pXkw5
+         CXOtDC8g4djNR8UKTgIUQaUNU4d+4RVk4BvF8HTeZ+4z26woKjwtiBxaBxkJt46X8eoA
+         SBdrmC86Mc8B/7+HCs2it/I/5ZVVFVNsSiDWoYdH36nNRnYRrL9kF9Fj4YOJeTzuN/l8
+         M5VrokXHbAgeBJQfpP5lOLddg1SICHqSA0L/Hx1bdcpB7pKBDPAwAKdWSBNoHYzQLwiP
+         zZDv0MEIUt+wRJ3lcPeAksFlR8TEhzBpC5G1BtGB29ljGhYAYJW1lNaUUWrT9DR8ypEi
+         FODw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp5TvLWzvVDH9XKlYWKDqnX7lUKTJ2bKmFNiXIHRkVUs+sr1T5czOWia46Y6jkxlChZuBUoeLS1C1SiEzoJFtct@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLvRYu3UN/XcmniiEyngHtXQhtmEgMJg1FBB7N2D4VEFImAzQK
+	/3eOQZQR2pM60PsOnc2JPC44JxDuD17mG5GLVq8ZCBzjftGxfNWWdgWJ
+X-Gm-Gg: AfdE7ckPfIXdtOlpvak6x6kjOTaDtCp/krNX+BtcsUAMmaDHPYV/em0Dj5Bbp9G0J5l
+	jR+WshIUDrBYh1x2E5zdnlmRN2jpV2ocMi+9GH8duke/qNrWBMZwHuuipW2lF6m78DtD9RqTRpH
+	AUOkm82LRY2AQZKTgshUn5wuWa1o3+NZ4kTQAkfkoYg2WnNRb4/zUdk3kfUO71TsNIO8Dja8S5f
+	dEePvBGa5wQi8FCl/CtZaE9Q4itlhU0I0QfCn01/WlMTGkNckev7SOdk7pcDN6198bYlhpEj+2r
+	R025INRviyTe7FwxGog8QU+0+i4W0XAm+bF8ZrCKTtPhQLRQGvHE1tcgP69/0/0PMFBzRkdTWto
+	h7+Km8Y47n4Eiv9jWCe3K5zLdoL6LsYKrsYLtzALm9i3UMX525LYFG/NIXZbhdoz3n3JsbD+aaH
+	suJNYgEUiLJKXelkD58pWVDU0mMNGdn7sX6IE6XSC621bnbSU6U9/Bry3UcuiIlMhtf6xy0rhoZ
+	6hzd8up
+X-Received: by 2002:a05:6000:2481:b0:475:f0d1:eb5a with SMTP id ffacd0b85a97d-47df07b9659mr2019348f8f.53.1783506228883;
+        Wed, 08 Jul 2026 03:23:48 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47aa0f2186bsm40660248f8f.36.2026.07.08.03.23.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 03:21:36 -0700 (PDT)
-Date: Wed, 8 Jul 2026 15:51:30 +0530
-From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board
- support
-Message-ID: <kzl6ykopmcj7nl6jnf4uav75cdn2znd3jb4vjlrde364homti6@2y2zfyvwni4x>
-References: <20260608060940.52549-1-hrushirajg23@gmail.com>
- <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
- <20260707160354.GB3176120-robh@kernel.org>
- <14045151.uLZWGnKmhe@phil>
+        Wed, 08 Jul 2026 03:23:48 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next 0/5] net: phy: mediatek: calibration for AN7581/3
+Date: Wed,  8 Jul 2026 12:23:26 +0200
+Message-ID: <20260708102341.53919-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <14045151.uLZWGnKmhe@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_032139_691704_821F835C 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20260708_032351_171253_3D1F67FA 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +110,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 08:23:47PM +0200, Heiko Stuebner wrote:
-> Am Dienstag, 7. Juli 2026, 18:03:54 Mitteleuropäische Sommerzeit schrieb Rob Herring:
-> > On Thu, Jul 02, 2026 at 09:04:55PM +0200, Heiko Stuebner wrote:
-> > > 
-> > > On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
-> > > > This series adds initial device tree support for the Vicharak Axon
-> > > > single-board computer, which is based on the Rockchip RK3588 SoC.
-> > > > 
-> > > > The Vicharak Axon is a feature-rich SBC targeting developer and embedded
-> > > > use cases. It ships with:
-> > > > 
-> > > >   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
-> > > >   - RK806 PMIC providing all SoC power domains
-> > > >   - eMMC 5.1 (on-board) and microSD slot
-> > > >   - Gigabit Ethernet via RGMII (RTL8211F)
-> > > >   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
-> > > >   - PCIe 3.0 x4 and two PCIe 2.0 slots
-> > > >   - SATA 3.0
-> > > >   - USB 2.0 host ports (EHCI/OHCI)
-> > > >   - NXP PCA9554 I/O expander for status LEDs
-> > > >   - Haoyu HYM8563 RTC
-> > > > 
-> > > > [...]
-> > > 
-> > > Applied, thanks!
-> > > 
-> > > [1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
-> > >       commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
-> > > [2/2] arm64: dts: rockchip: add Vicharak Axon board
-> > >       commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
-> > 
-> > Both have issues and should be dropped.
-> 
-> I've dropped both the Axon as well as the Vaaman2 board from the
-> same vendor now.
-> 
-> The whole thing is confusing.
-> 
-> I should've caught the pinctrl issue, and do remember running a dtbscheck
-> on at least one Vcharak board - but that must have been the Vaaman2 board
-> because there the pmic fullfills the binding (and general setup of other
-> rk3588 boards).
-> 
-> The vendor-prefix is missing indeed. I found earlier versions of the
-> version-avalanche had it, up until v6 [0] . Though I haven't figured out
-> yet why it was lost.
+This small series adds calibration support for Airoha AN7581 and
+AN7583 integrated PHYs.
 
-Regarding the missing vendor prefix 'vicharak' that was noted: the prefix 
-was already submitted separately upstream by my team in a different patch [1]. 
-Because it was already submitted, Krzysztof asked us to drop it from our 
-own series to avoid duplicates [2]. 
+The calibration logic is quite big so I decided to split
+the driver from the mediatek one to keep things organized.
 
-[1] https://lkml.org/lkml/2026/6/24/929
-[2] https://lore.kernel.org/linux-rockchip/96c9b1eb-9f8e-430d-9c38-eb4d489d7d24@kernel.org/
+Minor change were needed and just additional symbol to use what
+is common between mediatek and airoha PHYs.
 
-> 
-> Hence I dropped both boards.
-> 
-> 
-> Hrushiraj: please start anew with both boards.
-> 
-> But include all the tags you received in previous versions.
-> 
-> 
-> Heiko
-> 
-> 
-> [0] https://lore.kernel.org/linux-rockchip/20260601162143.170030-2-hrushirajg23@gmail.com/
-> 
-> 
+I followed the naming pattern of mtk by calling the new source
+airoha-ge-soc and related config.
 
-Hrushiraj 
+The calibration use lots of static table and software calibration
+at runtime instead of using efuse to calibrate.
+
+There is one pecularity where some register and calibration needs
+to be done on port0 first and then with the related port.
+
+This is O.K. as port0 presence is mandatory for the functionality
+of the integrated switch and it's assumed to be always present
+on the MDIO bus.
+
+MAINTAINERS is updated to reflect the changed code.
+
+(this was tested from a long time and also verified by Airoha for
+correct order of calibration)
+
+Christian Marangi (5):
+  net: phy: mediatek: export __mtk_tr_write
+  net: phy: mediatek: move MTK GE SoC registers define to dedicated
+    header
+  net: phy: mediatek: split Airoha code to dedicated source
+  net: phy: mediatek: add calibration logic for AN7581
+  net: phy: mediatek: add calibration logic for AN7583
+
+ MAINTAINERS                              |    9 +
+ drivers/net/phy/mediatek/Kconfig         |   16 +-
+ drivers/net/phy/mediatek/Makefile        |    1 +
+ drivers/net/phy/mediatek/airoha-ge-soc.c | 1812 ++++++++++++++++++++++
+ drivers/net/phy/mediatek/mtk-ge-soc.c    |  517 +-----
+ drivers/net/phy/mediatek/mtk-ge-soc.h    |  364 +++++
+ drivers/net/phy/mediatek/mtk-phy-lib.c   |   77 +-
+ drivers/net/phy/mediatek/mtk.h           |   15 +
+ 8 files changed, 2311 insertions(+), 500 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/airoha-ge-soc.c
+ create mode 100644 drivers/net/phy/mediatek/mtk-ge-soc.h
+
+-- 
+2.53.0
+
 
