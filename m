@@ -4,98 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1EAC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319FBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FeTFZKGeXcKtdGzHWtUv5E1DeHN3B2mS7xb47BxMxw0=; b=1Y1HNZhpEj0pZo5PMcyNMo17ss
-	U+wpKAiSahFHlWb4/uZXVvsH300yOMrSy2PUAgocs83Ke7naO3tMIT0f4H+WeqZOqXy84x8S8776F
-	Bv8V0lVIVyUpuCNiw0YKwQIvL+G15ljzLOgjOBSd2JeqiFmFJQPOWeRTepDh8v83xlGWvgK5pzkUB
-	cp9BkUtj+HzDvectEHMmetS1WIUrHZEuTzhBrxAoNruALiGL3D4xHhU0J3yA4z7HDTrE7DYscD6Vq
-	vC0W8Non0OYXEx7Z+usdS2bpxa8zi085o8UeojKRmh5bgrBE/iA/Ut7wYbkTWDpf40ug1zx36Xkbu
-	XL+t1EaA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hDF+/OTRPKVzsa0KeAPg8wf1kzxM6JSavTh2UwnGYsY=; b=I2iunPURI1dyX3TkkZgQylQPBm
+	7YwMLHRgAfbobM1iEYAfCmWgWTv1PKvXf8lZNPYLogpZ9/wHfK/IbDNuXpWLYMF/ZW2Q617AGXw6p
+	+gklFj9K68qpuQSjoo6/vZYjnqGqlhabRU6k1WSb4NuAq3o8qZp3LQshfnkaDvAfnaY+gPVh3Jw7z
+	dKUp9ShgtYepZDR7zd3p2KGSCwEda+N7QpM2PmK3J1MBfxpCZPudNd6EwA9c3a5jqXu7wxU7DCcAm
+	eJXGVEZkiro6sXJY23vEtY51l2wycAKfIvQCj75Tyybhm+crZZIf0eHHDpjYR9Ji+NqU4KIAmuk3a
+	AsxExdxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRc4-0000000H8Ug-3Wwd;
-	Wed, 08 Jul 2026 12:42:52 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1whRdT-0000000H8fk-0Ob8;
+	Wed, 08 Jul 2026 12:44:19 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRc1-0000000H8TG-2zBR
+	id 1whRdQ-0000000H8fB-1Hgr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 12:42:51 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8478cc93299so648640b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 05:42:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783514569; x=1784119369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FeTFZKGeXcKtdGzHWtUv5E1DeHN3B2mS7xb47BxMxw0=;
-        b=NH+AQhEvffnzctiDU/ENoewgB0O9n7tqq3BTdt5G7HLzMJcr4Yk1tZIJbpJVOH4yeB
-         y+h0E1O+L9NS4qEBHBmLgq2WWxbWbnXTnDANqgKTm5YVWmJTgv+l83JT/Wrrn+FuBBNO
-         jBlWLcDBKO240be3iuvqFcdDwn+bPlY0QqONJMYlbNk7wLfhaRzCaOOjwd7CfLr5YAGB
-         XhNYV4eINbfPuz+AW7USZsOgaMJcPtVAhhPrEWfEpA4PgDnnrc97TPqwnYUQyG+FVjoM
-         HDH83e0GdhSLddo9fD/61/JCrHnVxthmZY3u7v3L0OLRgs8L9TbLYhPz1gQF1XtdF+SR
-         DWOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783514569; x=1784119369;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FeTFZKGeXcKtdGzHWtUv5E1DeHN3B2mS7xb47BxMxw0=;
-        b=tITPh8gNwcP7cWeTevI+RdzlBo9lOpBw3kNO3vrfE5tFNYRbRNanuE0Qs/ghvKtV24
-         aekG7pE2tkmdZ9ayRP/LxpLQO5TUlAIyYlNSPqZkUuiZC/UbKU6R8XkcCN+WPFhxQiSt
-         NcoUkBEHvANCo2jcw+xqe+tGT69PDq/tKv8KQth0YbfavX7u0fhIW/EFYHmr3IWTSdp7
-         gjrfAZinvvNAZEwX1yqwxkXK3z+btDcnMAaKPKSUNKZZdaA56H7R9tJeiJBFz8byG4V+
-         HYseZrtc6RbFRC78PgdHfy/SARB+kk8ol3adMIiozPDwXqGjzt1kWMdx8TP+NsTMeqr4
-         aYcQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoCRJ9cXia/25F9iL0PxhGeikH1p/OGaiYuLNk2EjI3w9TmbzcSd8jUBj4G/QsiIPTGCY4bD7G8viZyf++HFF+C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEvmM4yvNZxsz7SBMEhppOkOAuSuHYqjlJzT6yEgPoOfWqXG6h
-	NoK4b5GG2P5jAnJHNBX6tRh8AQsGDx9CAxfDuNJT1O7263JrX2kIttcU
-X-Gm-Gg: AfdE7ckRBEoB5OsLjfjTvRkOGFcSK0PlfORSHolMWFKfXeZi+G3+I3jQhHIzYXXkY09
-	ZBPKv1kcnkJUw9trqp4Af7zXV9owNHm8Y6WxjoBQkv9trO3EsL5f6bF/tNFmNZnJ/M3HsmZo78j
-	WDr9or0nTLgJPvN4pZWUDGrcgwz+tDhL+zCpaezD7jkW6Y2NqV+pRgA4/tBFn+vEYspFXbIpT/C
-	sTlTSehUFBun+YmfCzq8qf/U6UkuIPPgDVG39XFdzEdsPzUdqJnC1hVe4+MhHN0p3xPCFHrUNMu
-	dzd7Yi0vLp/1UUGWGyMjKWLNuToJkrbXRQcPyhdeXyaNiPNdJiVjzEW+hCv9mRHtRCmNrdPsnNs
-	ycbjbZdLSecHj7NiQctT4IuaoVPQCyewbqYPsDMCw/LP0sqy0dRPVvHtuMxU6+d0jpc+TD5tX+g
-	YNgA==
-X-Received: by 2002:a05:6a00:3021:b0:847:8b1d:22fe with SMTP id d2e1a72fcca58-8484341100bmr2523607b3a.50.1783514568759;
-        Wed, 08 Jul 2026 05:42:48 -0700 (PDT)
-Received: from lgs.. ([101.36.106.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d7c2casm6963729b3a.43.2026.07.08.05.42.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 05:42:48 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-	Houlong Wei <houlong.wei@mediatek.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] media: mediatek: vcodec: unregister VPU watchdog handler
-Date: Wed,  8 Jul 2026 20:42:35 +0800
-Message-ID: <20260708124235.763036-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 08 Jul 2026 12:44:17 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 895847587E;
+	Wed,  8 Jul 2026 12:44:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783514654; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hDF+/OTRPKVzsa0KeAPg8wf1kzxM6JSavTh2UwnGYsY=;
+	b=ODioz/aM0QFgAXmqpD/oUA9HB3yB9M/Bl1c9MNyVxw/fvF14YGY/IleiHweFd/cgga9Frk
+	ImfYsUYa3sSKBL1E/XjdTmdhUp82jHXWxcUjIAXbj691vjSApUzs/lRkJI7yGKcK2K3pcO
+	MVCF1f6L9qz0daiwE40hW4gTHxUYCDk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783514654;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hDF+/OTRPKVzsa0KeAPg8wf1kzxM6JSavTh2UwnGYsY=;
+	b=K2zuVha/qKYTnseDH6XD1GPQmAWxSfn1sZNQSDTMShoOZRQ8cku5+qVTc0Cb9/+bFz2hRb
+	/l/AsPPGrN9YGtAg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783514652; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hDF+/OTRPKVzsa0KeAPg8wf1kzxM6JSavTh2UwnGYsY=;
+	b=h6exN740bbdw6hpDzzBYDkmQzHiitjpwb0W2hCr3rvLIdOBfFhDJ6dPgqvwSYe/+tXLLuc
+	6EB3may42kikv5x1Tsi3iZkYrqYme9PxOMrRFn5Qtezmer1oci88vBUhkrVKSPRF0UN+Vr
+	ueZBatEhC8Cp/v8hNzPiVBoyFiLR6k0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783514652;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hDF+/OTRPKVzsa0KeAPg8wf1kzxM6JSavTh2UwnGYsY=;
+	b=HUeeAx+WjTStqntL0Yt2VJ6IqQBhpd7QXppSm9VZ2Wt/Y+bIwkmbfJAZj2reBWX366tT5a
+	bQDisnohF0X7K1Ag==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E49F2779AE;
+	Wed,  8 Jul 2026 12:44:11 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id a8ljNhtGTmq8GAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 08 Jul 2026 12:44:11 +0000
+Message-ID: <1c84099b-6f0d-4655-9aea-015a821b50db@suse.de>
+Date: Wed, 8 Jul 2026 14:44:11 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/9] drm/imx: replace struct drm_simple_display_pipe with
+ regular atomic helpers
+To: Ze Huang <ze.huang@oss.qualcomm.com>,
+ Alexey Brodkin <abrodkin@synopsys.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, xen-devel@lists.xenproject.org
+References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+ <20260705-drm-simple-kms-removal-v1-3-b4e1ca053623@oss.qualcomm.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260705-drm-simple-kms-removal-v1-3-b4e1ca053623@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo,qualcomm.com:email,i.mx:url,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_054249_752326_05BE0AA3 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260708_054416_646716_8C2B9EFF 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,91 +172,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_vcodec_fw_vpu_init() registers a VPU watchdog reset handler and
-passes the vcodec device as the private data.
+Hi,
 
-The handler is stored in the VPU device and can outlive the vcodec
-device. If firmware initialization fails after the handler has been
-registered, or if the vcodec device is later removed, the VPU watchdog
-table can keep a pointer to a vcodec device that is about to be released.
-A later VPU watchdog reset can then call the reset handler with a stale
-pointer and dereference freed memory while walking the vcodec context
-list.
+the imx driver is well maintained IIRC. I'd advise you to split off this 
+patch from the series and send it out separately. That is more likely to 
+catch the attention of the driver's maintainers.
 
-Add a VPU watchdog unregister helper and clear the vcodec watchdog
-handler from both the firmware initialization failure path and the VPU
-firmware release path before dropping the VPU device reference.
+Best regards
+Thomas
 
-Fixes: 01abf5fbb081 ("media: mediatek: vcodec: separate struct 'mtk_vcodec_ctx'")
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- .../mediatek/vcodec/common/mtk_vcodec_fw_vpu.c    |  4 ++++
- drivers/media/platform/mediatek/vpu/mtk_vpu.c     | 15 +++++++++++++++
- drivers/media/platform/mediatek/vpu/mtk_vpu.h     |  2 ++
- 3 files changed, 21 insertions(+)
+Am 04.07.26 um 20:31 schrieb Ze Huang:
+> Convert i.MX LCDC to explicit primary plane, CRTC and encoder objects.
+>
+> Keep no-scaling plane check and GEM framebuffer prepare callback from
+> simple-KMS path. Only touch hardware state when framebuffer exists,
+> since atomic plane updates can run on disabling transitions.
+>
+> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+> ---
+>   drivers/gpu/drm/imx/lcdc/imx-lcdc.c | 178 ++++++++++++++++++++++++++----------
+>   1 file changed, 130 insertions(+), 48 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
+> index f52832b43aca..d091dc562098 100644
+> --- a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
+> +++ b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
+> @@ -14,9 +14,9 @@
+>   #include <drm/drm_gem_dma_helper.h>
+>   #include <drm/drm_gem_framebuffer_helper.h>
+>   #include <drm/drm_of.h>
+> +#include <drm/drm_plane_helper.h>
+>   #include <drm/drm_print.h>
+>   #include <drm/drm_probe_helper.h>
+> -#include <drm/drm_simple_kms_helper.h>
+>   #include <drm/drm_vblank.h>
+>   #include <linux/bitfield.h>
+>   #include <linux/clk.h>
+> @@ -102,7 +102,9 @@
+>   
+>   struct imx_lcdc {
+>   	struct drm_device drm;
+> -	struct drm_simple_display_pipe pipe;
+> +	struct drm_plane plane;
+> +	struct drm_crtc crtc;
+> +	struct drm_encoder encoder;
+>   	struct drm_connector *connector;
+>   	void __iomem *base;
+>   
+> @@ -135,14 +137,13 @@ static unsigned int imx_lcdc_get_format(unsigned int drm_format)
+>   	}
+>   }
+>   
+> -static void imx_lcdc_update_hw_registers(struct drm_simple_display_pipe *pipe,
+> +static void imx_lcdc_update_hw_registers(struct drm_crtc *crtc,
+>   					 struct drm_plane_state *old_state,
+>   					 bool mode_set)
+>   {
+> -	struct drm_crtc *crtc = &pipe->crtc;
+> -	struct drm_plane_state *new_state = pipe->plane.state;
+> +	struct drm_plane_state *new_state = crtc->primary->state;
+>   	struct drm_framebuffer *fb = new_state->fb;
+> -	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(pipe->crtc.dev);
+> +	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(crtc->dev);
+>   	u32 lpcr, lvcr, lhcr;
+>   	u32 framesize;
+>   	dma_addr_t addr;
+> @@ -188,16 +189,16 @@ static void imx_lcdc_update_hw_registers(struct drm_simple_display_pipe *pipe,
+>   		clk_prepare_enable(lcdc->clk_per);
+>   }
+>   
+> -static void imx_lcdc_pipe_enable(struct drm_simple_display_pipe *pipe,
+> -				 struct drm_crtc_state *crtc_state,
+> -				 struct drm_plane_state *plane_state)
+> +static void imx_lcdc_crtc_helper_atomic_enable(struct drm_crtc *crtc,
+> +					       struct drm_atomic_commit *state)
+>   {
+>   	int ret;
+>   	int clk_div;
+>   	int bpp;
+> -	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(pipe->crtc.dev);
+> -	struct drm_display_mode *mode = &pipe->crtc.mode;
+> +	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(crtc->dev);
+> +	struct drm_display_mode *mode = &crtc->mode;
+>   	struct drm_display_info *disp_info = &lcdc->connector->display_info;
+> +	struct drm_plane_state *plane_state = crtc->primary->state;
+>   	const int hsync_pol = (mode->flags & DRM_MODE_FLAG_PHSYNC) ? 0 : 1;
+>   	const int vsync_pol = (mode->flags & DRM_MODE_FLAG_PVSYNC) ? 0 : 1;
+>   	const int data_enable_pol =
+> @@ -231,34 +232,34 @@ static void imx_lcdc_pipe_enable(struct drm_simple_display_pipe *pipe,
+>   
+>   	ret = clk_prepare_enable(lcdc->clk_ipg);
+>   	if (ret) {
+> -		dev_err(pipe->crtc.dev->dev, "Cannot enable ipg clock: %pe\n", ERR_PTR(ret));
+> +		dev_err(crtc->dev->dev, "Cannot enable ipg clock: %pe\n", ERR_PTR(ret));
+>   		return;
+>   	}
+>   	ret = clk_prepare_enable(lcdc->clk_ahb);
+>   	if (ret) {
+> -		dev_err(pipe->crtc.dev->dev, "Cannot enable ahb clock: %pe\n", ERR_PTR(ret));
+> +		dev_err(crtc->dev->dev, "Cannot enable ahb clock: %pe\n", ERR_PTR(ret));
+>   
+>   		clk_disable_unprepare(lcdc->clk_ipg);
+>   
+>   		return;
+>   	}
+>   
+> -	imx_lcdc_update_hw_registers(pipe, NULL, true);
+> +	imx_lcdc_update_hw_registers(crtc, NULL, true);
+>   
+>   	/* Enable VBLANK Interrupt */
+>   	writel(INTR_EOF, lcdc->base + IMX21LCDC_LIER);
+>   }
+>   
+> -static void imx_lcdc_pipe_disable(struct drm_simple_display_pipe *pipe)
+> +static void imx_lcdc_crtc_helper_atomic_disable(struct drm_crtc *crtc,
+> +						struct drm_atomic_commit *state)
+>   {
+> -	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(pipe->crtc.dev);
+> -	struct drm_crtc *crtc = &lcdc->pipe.crtc;
+> +	struct imx_lcdc *lcdc = imx_lcdc_from_drmdev(crtc->dev);
+>   	struct drm_pending_vblank_event *event;
+>   
+>   	clk_disable_unprepare(lcdc->clk_ahb);
+>   	clk_disable_unprepare(lcdc->clk_ipg);
+>   
+> -	if (pipe->crtc.enabled)
+> +	if (crtc->enabled)
+>   		clk_disable_unprepare(lcdc->clk_per);
+>   
+>   	spin_lock_irq(&lcdc->drm.event_lock);
+> @@ -273,17 +274,18 @@ static void imx_lcdc_pipe_disable(struct drm_simple_display_pipe *pipe)
+>   	writel(0, lcdc->base + IMX21LCDC_LIER);
+>   }
+>   
+> -static int imx_lcdc_pipe_check(struct drm_simple_display_pipe *pipe,
+> -			       struct drm_plane_state *plane_state,
+> -			       struct drm_crtc_state *crtc_state)
+> +static int imx_lcdc_crtc_helper_atomic_check(struct drm_crtc *crtc,
+> +					     struct drm_atomic_commit *state)
+>   {
+> +	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+>   	const struct drm_display_mode *mode = &crtc_state->mode;
+> -	const struct drm_display_mode *old_mode = &pipe->crtc.state->mode;
+> +	const struct drm_display_mode *old_mode = &crtc->state->mode;
+> +	int ret;
+>   
+>   	if (mode->hdisplay < LCDC_MIN_XRES || mode->hdisplay > LCDC_MAX_XRES ||
+>   	    mode->vdisplay < LCDC_MIN_YRES || mode->vdisplay > LCDC_MAX_YRES ||
+>   	    mode->hdisplay % 0x10) { /* must be multiple of 16 */
+> -		drm_err(pipe->crtc.dev, "unsupported display mode (%u x %u)\n",
+> +		drm_err(crtc->dev, "unsupported display mode (%u x %u)\n",
+>   			mode->hdisplay, mode->vdisplay);
+>   		return -EINVAL;
+>   	}
+> @@ -292,27 +294,42 @@ static int imx_lcdc_pipe_check(struct drm_simple_display_pipe *pipe,
+>   		old_mode->hdisplay != mode->hdisplay ||
+>   		old_mode->vdisplay != mode->vdisplay;
+>   
+> -	return 0;
+> +	if (!crtc_state->enable)
+> +		goto out;
+> +
+> +	ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
+> +	if (ret)
+> +		return ret;
+> +
+> +out:
+> +	return drm_atomic_add_affected_planes(state, crtc);
+>   }
+>   
+> -static void imx_lcdc_pipe_update(struct drm_simple_display_pipe *pipe,
+> -				 struct drm_plane_state *old_state)
+> +static void imx_lcdc_plane_helper_atomic_update(struct drm_plane *plane,
+> +						struct drm_atomic_commit *state)
+>   {
+> -	struct drm_crtc *crtc = &pipe->crtc;
+> -	struct drm_pending_vblank_event *event = crtc->state->event;
+> -	struct drm_plane_state *new_state = pipe->plane.state;
+> +	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state, plane);
+> +	struct drm_plane_state *new_state = plane->state;
+> +	struct drm_crtc *crtc = new_state->crtc ?: old_state->crtc;
+> +	struct drm_pending_vblank_event *event;
+>   	struct drm_framebuffer *fb = new_state->fb;
+>   	struct drm_framebuffer *old_fb = old_state->fb;
+>   	struct drm_crtc *old_crtc = old_state->crtc;
+>   	bool mode_changed = false;
+>   
+> -	if (old_fb && old_fb->format != fb->format)
+> -		mode_changed = true;
+> -	else if (old_crtc != crtc)
+> -		mode_changed = true;
+> +	if (!crtc)
+> +		return;
+>   
+> -	imx_lcdc_update_hw_registers(pipe, old_state, mode_changed);
+> +	if (fb) {
+> +		if (old_fb && old_fb->format != fb->format)
+> +			mode_changed = true;
+> +		else if (old_crtc != crtc)
+> +			mode_changed = true;
+>   
+> +		imx_lcdc_update_hw_registers(crtc, old_state, mode_changed);
+> +	}
+> +
+> +	event = crtc->state->event;
+>   	if (event) {
+>   		crtc->state->event = NULL;
+>   
+> @@ -327,11 +344,56 @@ static void imx_lcdc_pipe_update(struct drm_simple_display_pipe *pipe,
+>   	}
+>   }
+>   
+> -static const struct drm_simple_display_pipe_funcs imx_lcdc_pipe_funcs = {
+> -	.enable = imx_lcdc_pipe_enable,
+> -	.disable = imx_lcdc_pipe_disable,
+> -	.check = imx_lcdc_pipe_check,
+> -	.update = imx_lcdc_pipe_update,
+> +static int imx_lcdc_plane_helper_atomic_check(struct drm_plane *plane,
+> +					      struct drm_atomic_commit *state)
+> +{
+> +	struct drm_plane_state *plane_state = drm_atomic_get_new_plane_state(state, plane);
+> +	struct drm_crtc *crtc = plane_state->crtc;
+> +	struct drm_crtc_state *crtc_state = NULL;
+> +	int ret;
+> +
+> +	if (crtc)
+> +		crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+> +
+> +	ret = drm_atomic_helper_check_plane_state(plane_state, crtc_state,
+> +						  DRM_PLANE_NO_SCALING,
+> +						  DRM_PLANE_NO_SCALING,
+> +						  false, false);
+> +	return ret;
+> +}
+> +
+> +static const struct drm_plane_helper_funcs imx_lcdc_plane_helper_funcs = {
+> +	.prepare_fb	= drm_gem_plane_helper_prepare_fb,
+> +	.atomic_check	= imx_lcdc_plane_helper_atomic_check,
+> +	.atomic_update	= imx_lcdc_plane_helper_atomic_update,
+> +};
+> +
+> +static const struct drm_plane_funcs imx_lcdc_plane_funcs = {
+> +	.update_plane		= drm_atomic_helper_update_plane,
+> +	.disable_plane		= drm_atomic_helper_disable_plane,
+> +	.destroy		= drm_plane_cleanup,
+> +	.reset			= drm_atomic_helper_plane_reset,
+> +	.atomic_duplicate_state	= drm_atomic_helper_plane_duplicate_state,
+> +	.atomic_destroy_state	= drm_atomic_helper_plane_destroy_state,
+> +};
+> +
+> +static const struct drm_crtc_helper_funcs imx_lcdc_crtc_helper_funcs = {
+> +	.atomic_check	= imx_lcdc_crtc_helper_atomic_check,
+> +	.atomic_enable	= imx_lcdc_crtc_helper_atomic_enable,
+> +	.atomic_disable	= imx_lcdc_crtc_helper_atomic_disable,
+> +};
+> +
+> +static const struct drm_crtc_funcs imx_lcdc_crtc_funcs = {
+> +	.reset			= drm_atomic_helper_crtc_reset,
+> +	.destroy		= drm_crtc_cleanup,
+> +	.set_config		= drm_atomic_helper_set_config,
+> +	.page_flip		= drm_atomic_helper_page_flip,
+> +	.atomic_duplicate_state	= drm_atomic_helper_crtc_duplicate_state,
+> +	.atomic_destroy_state	= drm_atomic_helper_crtc_destroy_state,
+> +};
+> +
+> +static const struct drm_encoder_funcs imx_lcdc_encoder_funcs = {
+> +	.destroy = drm_encoder_cleanup,
+>   };
+>   
+>   static const struct drm_mode_config_funcs imx_lcdc_mode_config_funcs = {
+> @@ -369,7 +431,7 @@ MODULE_DEVICE_TABLE(of, imx_lcdc_of_dev_id);
+>   static irqreturn_t imx_lcdc_irq_handler(int irq, void *arg)
+>   {
+>   	struct imx_lcdc *lcdc = arg;
+> -	struct drm_crtc *crtc = &lcdc->pipe.crtc;
+> +	struct drm_crtc *crtc = &lcdc->crtc;
+>   	unsigned int status;
+>   
+>   	status = readl(lcdc->base + IMX21LCDC_LISR);
+> @@ -387,6 +449,9 @@ static int imx_lcdc_probe(struct platform_device *pdev)
+>   	struct imx_lcdc *lcdc;
+>   	struct drm_device *drm;
+>   	struct drm_bridge *bridge;
+> +	struct drm_plane *plane;
+> +	struct drm_crtc *crtc;
+> +	struct drm_encoder *encoder;
+>   	int irq;
+>   	int ret;
+>   	struct device *dev = &pdev->dev;
+> @@ -428,23 +493,40 @@ static int imx_lcdc_probe(struct platform_device *pdev)
+>   	if (ret)
+>   		return dev_err_probe(dev, ret, "Cannot initialize mode configuration structure\n");
+>   
+> -	/* CRTC, Plane, Encoder */
+> -	ret = drm_simple_display_pipe_init(drm, &lcdc->pipe,
+> -					   &imx_lcdc_pipe_funcs,
+> -					   imx_lcdc_formats,
+> -					   ARRAY_SIZE(imx_lcdc_formats), NULL, NULL);
+> +	plane = &lcdc->plane;
+> +	ret = drm_universal_plane_init(drm, plane, 0,
+> +				       &imx_lcdc_plane_funcs,
+> +				       imx_lcdc_formats,
+> +				       ARRAY_SIZE(imx_lcdc_formats),
+> +				       NULL,
+> +				       DRM_PLANE_TYPE_PRIMARY, NULL);
+> +	if (ret < 0)
+> +		return dev_err_probe(drm->dev, ret, "Cannot initialize primary plane\n");
+> +	drm_plane_helper_add(plane, &imx_lcdc_plane_helper_funcs);
+> +
+> +	crtc = &lcdc->crtc;
+> +	ret = drm_crtc_init_with_planes(drm, crtc, plane, NULL,
+> +					&imx_lcdc_crtc_funcs, NULL);
+> +	if (ret < 0)
+> +		return dev_err_probe(drm->dev, ret, "Cannot initialize CRTC\n");
+> +	drm_crtc_helper_add(crtc, &imx_lcdc_crtc_helper_funcs);
+> +
+> +	encoder = &lcdc->encoder;
+> +	ret = drm_encoder_init(drm, encoder, &imx_lcdc_encoder_funcs,
+> +			       DRM_MODE_ENCODER_NONE, NULL);
+>   	if (ret < 0)
+> -		return dev_err_probe(drm->dev, ret, "Cannot setup simple display pipe\n");
+> +		return dev_err_probe(drm->dev, ret, "Cannot initialize encoder\n");
+> +	encoder->possible_crtcs = drm_crtc_mask(crtc);
+>   
+>   	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
+>   	if (ret < 0)
+>   		return dev_err_probe(drm->dev, ret, "Failed to initialize vblank\n");
+>   
+> -	ret = drm_bridge_attach(&lcdc->pipe.encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> +	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>   	if (ret)
+>   		return dev_err_probe(drm->dev, ret, "Cannot attach bridge\n");
+>   
+> -	lcdc->connector = drm_bridge_connector_init(drm, &lcdc->pipe.encoder);
+> +	lcdc->connector = drm_bridge_connector_init(drm, encoder);
+>   	if (IS_ERR(lcdc->connector))
+>   		return dev_err_probe(drm->dev, PTR_ERR(lcdc->connector), "Cannot init bridge connector\n");
+>   
+>
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-index 3632037f78f5..c79a78c371ea 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-@@ -40,6 +40,9 @@ static int mtk_vcodec_vpu_ipi_send(struct mtk_vcodec_fw *fw, int id, void *buf,
- 
- static void mtk_vcodec_vpu_release(struct mtk_vcodec_fw *fw)
- {
-+	vpu_wdt_unreg_handler(fw->pdev,
-+			      fw->fw_use == ENCODER ? VPU_RST_ENC :
-+				       VPU_RST_DEC);
- 	put_device(&fw->pdev->dev);
- }
- 
-@@ -120,6 +123,7 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_vpu_init(void *priv, enum mtk_vcodec_fw_use
- 
- 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
- 	if (!fw) {
-+		vpu_wdt_unreg_handler(fw_pdev, rst_id);
- 		put_device(&fw_pdev->dev);
- 		return ERR_PTR(-ENOMEM);
- 	}
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-index 8d8319f0cd22..f59f45fecc75 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-@@ -437,6 +437,21 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
- }
- EXPORT_SYMBOL_GPL(vpu_wdt_reg_handler);
- 
-++void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
-+{
-+	struct mtk_vpu *vpu = platform_get_drvdata(pdev);
-+
-+	if (!vpu || id >= VPU_RST_MAX)
-+		return;
-+
-+	mutex_lock(&vpu->vpu_mutex);
-+	vpu->wdt.handler[id].reset_func = NULL;
-+	vpu->wdt.handler[id].priv = NULL;
-+	mutex_unlock(&vpu->vpu_mutex);
-+}
-+EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
-+
-+
- unsigned int vpu_get_vdec_hw_capa(struct platform_device *pdev)
- {
- 	struct mtk_vpu *vpu = platform_get_drvdata(pdev);
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-index 3951547e9ec5..2ccb481a04cf 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-@@ -141,6 +141,8 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
- 			void vpu_wdt_reset_func(void *priv),
- 			void *priv, enum rst_id id);
- 
-+void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id);
-+
- /**
-  * vpu_get_vdec_hw_capa - get video decoder hardware capability
-  *
 -- 
-2.43.0
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
+
 
 
