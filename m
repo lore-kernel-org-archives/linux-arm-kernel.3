@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA4DC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 11:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07159C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 11:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=egpcAQdW/SLTTZ7EKezQRyQCSwkm0Zu7f8FvgmBPrNw=; b=WOC5AoEydz9SXUPXdziCOW6Vsr
-	Sd4NBn+TRHSr2TUyDns0ol3pzO8pXZA/2hzmKFYi+AsbUCVj0hJPIpr2LE9YGYN1cDokPGmweAHqx
-	C5wxkj6qXwG2B3omhYGTZG4x07JBFC8o1ba4KvNSB5BA8ugxi54k3lW2FQKjY4r9VNe8qSV0hH8hz
-	BIpysgg7UgGaC3NoI2L8zeeCDEE7oYVY0Z89JjLNL3gg14ttREaQHzjr4taZ/1v32z6UCUtoHuaA8
-	rWkDYnD3svvT0TFRpm2XUexohs0sHT9EK3ZF7j6DCTGoSZ2d6rH2ch0t5yGsbJuo1s5Z+AAPV3PHp
-	infZ3BzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N374Tu+DnZvgsYocxjq6kxZ4l1yWY06JzrVGLISM3n0=; b=UoXLnzZYE9baxuF2i8URmYv+bn
+	V6pCzt6bJb3UX8kY7oPMcyTOPgSkc21oEPXY8hC3bHOGKNhskCoY/Yncki88gAAV9u8FXg68y8t7n
+	H1192KWMG5RfMWq6jNuEtRyV0QxaR2J8yD66+wpA0ho7Kp9ZASQRGgEiO/fPZPXBHBGiyPZXY2EHX
+	vE7EVmM0wyM6yOpNcY9jEn8kyP7+8FTZyH79UusrTRkI+mhWZY6Nnc6JGEbZHXgna5RhxOMkzCwQe
+	LmRsNebj7GsM/Vxq9vjaL1SjWHevel7ISXOaQG4+lmev5sUEbVVJSqg5PwZ7PEGzb8jsz01J0j6xc
+	OxzOoeWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whQI3-0000000GzUO-0KrO;
-	Wed, 08 Jul 2026 11:18:07 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whQHy-0000000GzPX-0yvc
+	id 1whQId-0000000GziR-1DL1;
+	Wed, 08 Jul 2026 11:18:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whQIa-0000000GzhJ-0TgY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 11:18:04 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47de0093c42so556646f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 04:18:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783509480; x=1784114280; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=egpcAQdW/SLTTZ7EKezQRyQCSwkm0Zu7f8FvgmBPrNw=;
-        b=EdpVtSWQ189f+wcx5yocmX6u7iD7Q+wu5LYE5hADEXh4Krx+EtlbH9M18oC31EYaZg
-         +fFDXEsfvOHG5Rje5B2UKMkYJcofpc9X7KrDZF1CdKfbpzaUUEsw22vKAB4nIGrGnXcI
-         Ox0DJtBaOJL1GwZl5s+DRcjkK6LmIhcYKrMgbm0CvDh+dGtF6NnCM8GGqbAGvv8dVuDS
-         yk9G8EnEASTyTvi/P86fkbZvyZAM8xXKCobRLMXUiOtSUVWo5NFlq5eit7HICNusA0Jm
-         SkWsC26wWSxVi4nfQ0HgNVSx6QkOZbeUxrei9iI3/olc9tcUNxz6RQ8lsVufopgqMymF
-         jsGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783509480; x=1784114280;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=egpcAQdW/SLTTZ7EKezQRyQCSwkm0Zu7f8FvgmBPrNw=;
-        b=AyYbgmEMBWopMFcxv3JY5J0JKmt2g+qjfzuXqzIqf8mp1Kl/Sv26XuzoOOLtVfvj/C
-         v3CKD0N5rG3/TKUzUW8Y3rC+GjFw45nONIFIhfoeZT347GS5ENIWhPScvyeeX9opxzDh
-         kV6do2v1TROCNQOTRwwJKNpvaDe068qevmMMAePPDTyz+gG9c94O54AaLAVkEN8Fwc9g
-         raozHhwH0gMhpfOPXrRrDidU7akKHP5JF20OUEPER2St/X9cXRjQy9W5MpPi5BMUkANA
-         0temAn6zS0D9/wGMgyd2hvVHAMI2omI8EQFFAWZG0/oXQ+1nebAYvh436F2ixj5IlLK5
-         JDFA==
-X-Forwarded-Encrypted: i=1; AHgh+RpaE8vHLrlK8nCP9tjQ7ZZnCap1Gwx6T2QXkk6feX3T66+6DCyfI7u0fz8v1vjGKVawcKyt1x2ZEn4kS9zBvff3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpzwA3IBdltzVK3CRDo04wFkJER+aT3SEzMyZS9Fpx7tDAIwhm
-	FnM+EdC0Jm2HrHZKaE/acApIaXc6QaZ/30uTWlt8PZFRTexIZsC8NfXXWW5O7AYMVPk=
-X-Gm-Gg: AfdE7ck5c7tZgYnjHvRXVutxL7FkrP28Vk8cX/pTD4x250sgFuwhVMlb4Q/PrhA3Gj3
-	ELNgmktu1Fod5kRbdYtcP2NPlSe4lh2KVsYkFWvuJdSNCMeQ9HYzNq6TaOke+T93nIinJGySgEL
-	y2nmqrjE0MqlF0qadtfou7V3h1cxOvp8S7kWX6PmerpRZFLb6wXYAurS2tCpufyaULf9aCfLuyC
-	1CQQp5ZxgAjNQHSy/Hpts8kcAibBvUUmylMkD5n0jysCDAyhwioU8mv2Cv3jzHU1rkfoXD6eaEG
-	zkKAhOXFBKFokJSKrM3RUvcdekV3AxYtsM3Pyx2URuLnTC5lLLhLj7cR0sM1PYHXN97jbcdNyVZ
-	h5UrbESBkv+IqZo1ESw822MCBBjXfhazw9E1KPPkqBvv37ffperCgYUdM+V+FQVaAhnJS/aVCQl
-	FPDFwlnpLoLeff+t+yGQATCOKW6PQ2j9bdwZ5M9jhxctawTEX2TnjqrNnQw21lqSgb4iH/ImKq2
-	pu1SFZ/yS8mnCIdZg==
-X-Received: by 2002:a05:6000:290f:b0:473:c18:f2cb with SMTP id ffacd0b85a97d-47df075637dmr2204598f8f.18.1783509480468;
-        Wed, 08 Jul 2026 04:18:00 -0700 (PDT)
-Received: from 1.0.0.127.in-addr.arpa (host-79-16-115-126.retail.telecomitalia.it. [79.16.115.126])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0a55be4sm37867694f8f.31.2026.07.08.04.17.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 04:17:59 -0700 (PDT)
-From: Carlo Caione <ccaione@baylibre.com>
-Date: Wed, 08 Jul 2026 13:17:40 +0200
-Subject: [PATCH 1/2] arm64: dts: mediatek: alias all enabled serial ports
- on Genio boards
+	Wed, 08 Jul 2026 11:18:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A96B71516;
+	Wed,  8 Jul 2026 04:18:34 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.2.213.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BAA73F85F;
+	Wed,  8 Jul 2026 04:18:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783509519; bh=Q3mIYycQy8bOLg/worl5ZK/PQN7XNptnDVDQhCRzReM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X9En1xPYusv8IDZUhoObjF477Iwi+uP/2tcsxErNG3U1j4VAUJ3/e3FZ16l4tSQ43
+	 Jkvjm9GWmNxtp09fyP2qj3CQ0aKO/sEr2f2AjcjTcFwgRkRn3UUW4cvnY6Vj1yfhtn
+	 L7fOug012cdLeudm56L6DVc3F+m2flj3MBom21pg=
+Date: Wed, 8 Jul 2026 12:18:32 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 19/28] KVM: arm64: Make HCR_EL2 a non-VNCR register
+Message-ID: <20260708111832.GA99849@e124191.cambridge.arm.com>
+References: <20260702160248.1377250-1-maz@kernel.org>
+ <20260702160248.1377250-20-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-ccaione-genio-serial-aliases-v1-1-bf22229e9383@baylibre.com>
-References: <20260708-ccaione-genio-serial-aliases-v1-0-bf22229e9383@baylibre.com>
-In-Reply-To: <20260708-ccaione-genio-serial-aliases-v1-0-bf22229e9383@baylibre.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-serial@vger.kernel.org, dlechner@baylibre.com, jstephan@baylibre.com, 
- Carlo Caione <ccaione@baylibre.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702160248.1377250-20-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_041802_282868_6C87BAB6 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260708_041840_321122_D3478972 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,73 +71,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only serial0 is aliased, so the remaining enabled uarts get first-free
-line numbers. When the console uart defers on its clocks, another uart
-can win line 0: console=ttyS0 then ends up on the wrong connector and
-the boot looks like a hang on the serial console, depending on probe
-order. Alias every enabled uart so line numbers are stable.
+On Thu, Jul 02, 2026 at 05:02:39PM +0100, Marc Zyngier wrote:
+> FEAT_NV3 makes a fundamental change to the architecture, by moving
+> guest-initiated HCR_EL2 accesses to the NVHCR_EL2 register. As the
+> names suggests, this is HCR_EL2 for a NV guest.
+> 
+> But where do NVHCR_EL2 accesses from a guest go? The are redirected
+> to the VNCR page, right where HCR_EL2 is stored in the NV2 case.
+> Does it hurt? Good. There's more coming.
+> 
+> The challenge here is to make KVM work seamlessly, without rewriting
+> everything. Which implies that things such as __vcpu_sys_reg(HCR_EL2)
+> must work, no matter the underlying NV implementation.
+> 
+> A simple way to deal with it is to move HCR_EL2's canonical storage
+> outside of VNCR for the vast majority of the KVM code, and only have
+> a copy at entry/exit times. Given that we don't really support NV3
+> yet, this is pretty simple.
+> 
+> In the process, advertise NVHCR_EL2 as the register that now holds
+> offset 0x78 in the VNCR page.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Signed-off-by: Carlo Caione <ccaione@baylibre.com>
----
- arch/arm64/boot/dts/mediatek/mt8365-evk.dts              | 2 ++
- arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi    | 2 ++
- arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi | 2 ++
- arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi    | 1 +
- 4 files changed, 7 insertions(+)
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-index a30ee523b0b5..c535de34dfac 100644
---- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
-@@ -24,6 +24,8 @@ aliases {
- 		mmc0 = &mmc0;
- 		mmc1 = &mmc1;
- 		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
- 	};
- 
- 	chosen {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-index b0c97930a0e6..26e24431d467 100644
---- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-@@ -33,6 +33,8 @@ aliases {
- 		mmc0 = &mmc0;
- 		mmc1 = &mmc1;
- 		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
- 	};
- 
- 	backlight_lcm1: backlight-lcm1 {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
-index 888248a75e93..51f12328a1d6 100644
---- a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
-@@ -17,6 +17,8 @@ aliases {
- 		i2c5 = &i2c5;
- 		i2c6 = &i2c6;
- 		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
- 	};
- 
- 	chosen {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-index edc5539bebde..86e487fb1832 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi
-@@ -22,6 +22,7 @@ aliases {
- 		mmc0 = &mmc0;
- 		mmc1 = &mmc1;
- 		serial0 = &uart0;
-+		serial1 = &uart1;
- 	};
- 
- 	chosen {
+> ---
+>  arch/arm64/include/asm/kvm_host.h     | 3 ++-
+>  arch/arm64/include/asm/vncr_mapping.h | 2 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c       | 9 +++++++++
+>  3 files changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5c..2648c8a717ba0 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -543,6 +543,7 @@ enum vcpu_sysreg {
+>  	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
+>  	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
+>  	ZCR_EL2,	/* SVE Control Register (EL2) */
+> +	HCR_EL2,	/* Hypervisor Control Register */
+>  
+>  	/* Any VNCR-capable reg goes after this point */
+>  	MARKER(__VNCR_START__),
+> @@ -571,7 +572,7 @@ enum vcpu_sysreg {
+>  	VNCR(TFSR_EL1),	/* Tag Fault Status Register (EL1) */
+>  	VNCR(VPIDR_EL2),/* Virtualization Processor ID Register */
+>  	VNCR(VMPIDR_EL2),/* Virtualization Multiprocessor ID Register */
+> -	VNCR(HCR_EL2),	/* Hypervisor Configuration Register */
+> +	VNCR(NVHCR_EL2),/* NV Hypervisor Configuration Register */
+>  	VNCR(HSTR_EL2),	/* Hypervisor System Trap Register */
+>  	VNCR(VTTBR_EL2),/* Virtualization Translation Table Base Register */
+>  	VNCR(VTCR_EL2),	/* Virtualization Translation Control Register */
+> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
+> index 14366d35ce82f..9e8a49fa8b638 100644
+> --- a/arch/arm64/include/asm/vncr_mapping.h
+> +++ b/arch/arm64/include/asm/vncr_mapping.h
+> @@ -11,7 +11,7 @@
+>  #define VNCR_VTCR_EL2           0x040
+>  #define VNCR_VMPIDR_EL2         0x050
+>  #define VNCR_CNTVOFF_EL2        0x060
+> -#define VNCR_HCR_EL2            0x078
+> +#define VNCR_NVHCR_EL2          0x078
+>  #define VNCR_HSTR_EL2           0x080
+>  #define VNCR_VPIDR_EL2          0x088
+>  #define VNCR_TPIDR_EL2          0x090
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index 8268779df4fa9..05bcf8bf7f978 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -70,6 +70,9 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+>  		if (!vcpu_el2_e2h_is_set(vcpu))
+>  			hcr |= HCR_NV1;
+>  
+> +		/* Publish the guest's view of HCR_EL2 to the HW */
+> +		__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
+> +
+>  		/*
+>  		 * Nothing in HCR_EL2 should impact running in hypervisor
+>  		 * context, apart from bits we have defined as RESx (E2H,
+> @@ -547,6 +550,7 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
+>  	 */
+>  	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
+>  		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> +		u64 hcr;
+>  
+>  		switch (mode) {
+>  		case PSR_MODE_EL1t:
+> @@ -559,6 +563,11 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
+>  
+>  		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
+>  		*vcpu_cpsr(vcpu) |= mode;
+> +
+> +		/* Publish the latest HCR_EL2 to the emulation */
+> +		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
 
--- 
-2.55.0
+My alarm bells went off reading this, because the context (in-memory) seemed
+wrong, but I see that patch 23 further modifies this for NV3!
 
+> +
+> +		__vcpu_assign_sys_reg(vcpu, HCR_EL2, hcr);
+>  	}
+>  
+>  	/* Apply extreme paranoia! */
+> -- 
+> 2.47.3
+> 
 
