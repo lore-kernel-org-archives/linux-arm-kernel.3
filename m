@@ -4,108 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9411C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF411C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=; b=ASJJVAmW1W8FQ35NRQrBbKvjbM
-	FJ//whF78+oSDwyDErj2qt8x3rGqSQ3S6VPhvFXXM09el+KF6YdfuVUG+iIoF01ADKG4E28iBHI7R
-	n0FKxESrW1DgxJzPgd0g3X00INnXJfz306nLaIbqgEOb8OsRSo8v3EiPdy+jloQmJNCJKnLmr8keF
-	3etL+0wofZ6IuWMDcldoyZcmwO0a8FmCQVLI2ed3JYer+qI2OD4abV+A2fYx8OMTJSau6UGfPAdqt
-	/ipndcmy27YWfI/AD7SwrmDVbm6+/r+TLSMN7v6ZZlsuIPDJUkqbrL+q/RXCp6AX2LTIdr2iZ/3wS
-	sow5SRwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2zcJcB1E4eAZy0egEbo5b49ra1AlE1ZZgAl0aBZPFpg=; b=XviROHm9L+ZZHZ4BZD3u5+alN0
+	vMG/TlfRIAdz6xzwxnTQl4B5UdMdvkHdp30OL8InkeGQ8JRUAkwysV2OiZoCC3NANZeZi4KO/+VnC
+	cNXAErMDsjXmnZpfHYm5yzVL/Al14PCLf1zkPtNysswfH8gWP3DrZNUIhsUNtGVIcaOTSUSjtqwWS
+	vMREHkYxx7GemKg1yuKKjHAonN4Q7QnZ+LXUrV8Si9Y0+L8RFb3zTw2Aw7cwarGgEZi0mKU57z+pr
+	9tMrlEgQU++cXhNaZWP+FSNBkLVKe0q3lxLKvrnjU0VeZpFqNY1aNr7nDgbLvaJBSbozpESjH8gca
+	8OODyQkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWLi-000000008E5-0wFy;
-	Wed, 08 Jul 2026 17:46:18 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1whWXY-000000008bJ-244F;
+	Wed, 08 Jul 2026 17:58:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whWLf-000000008DW-3P4V
+	id 1whWXW-000000008b6-2im3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 17:46:16 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c126b8118afso140043066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 10:46:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783532773; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UkCWdEem06V6sPUHXodzYub29QyeB5QuLO30gyEtq43JfIm/NLNHaIYYlfCfkx1dUn
-         ygbcbtuC9HuwoUa3PmEdpLYRbwe11dy4q6tHp8tNlzS21asAidV2GKtj3L/LipCwWTGA
-         R/9VGA4jVG3s7AUDhEu31R+LEXCAUFUOYjEqslxue85/MmfiXG1ua8x+qGsu3XITOqrk
-         vf6x3dXr48cdtCucwXIHXjYwGRtjq/Qcsz5AVzzVZYQyHH0v7xYOfWKuoKYGK0KzW041
-         yQb4fu9YcfuoPZhALXFfeeDPoMFUiWO57KXOqIy9IbHWmMAHnoQ5UQdc0b96k2i1WW1X
-         vjuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
-        fh=jhzsIeCXJzr6iL7n+EBusHitlKIJiy+2yQIsOkYv/aw=;
-        b=qa7/zX2h2A7LMHYXqgmppi/8zCPrLnseLedeSRB5HRT0u5x7hAyoUQAoBLWQj8dR2H
-         0mXzGICA18S4TP9jlMMv79Hoefb70P2FmLubRl/LylS1MI+hPccHMcITuVz+4rn15z4b
-         mI/NKDkrW5IUM3f8UKMKshLDi43ltdwGDneRh+ZAPq4X8oFcnu20uQtwh2aYs8MTsCo/
-         ZKcklmER0rRg/7HzB70fr8i2GYsM/+B/dFJfy4WR2d6C6RFiKBNfi/FOZjX0oy/chcRp
-         CERRPeUCR9PSdzHs4WpUQLz0+roUOgYoQ8LYDkDOrux4u248fGdsJBA6Ke3H1Bu0xOPw
-         IVvw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1783532773; x=1784137573; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
-        b=PtbkMDCqTkXM2oVqFFYJ34nZhE/eJCnvF0b18yVtyn3Xs2OpH70mJuiZNJoxoSufz1
-         2VU41KE8Plqp8NbeUD8D9Oo+yUwgjB5wPgiend2ZrYNub3ygCPN2AdIVP7pt7TUxB7z6
-         UBJVeEZkV47V9628w4SeGck3A8MAwwezb3nGDRBj2eO9UHa87hLdlHV26VaPbnjeMCmt
-         KtKhi5TpjWAJvmxj9VV11t7NJIJK40cCKw3Lqlq4KFtrTIK+TAg0+YgIdN3o+TBkHt/3
-         bj4tpljZl0uFkMg5MzLWFNGLUFTC3mK/uJ7B6q/yvsBViJLlIrGeroMAgWAboU4FwvlS
-         7tzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783532773; x=1784137573;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iqseJKw45hRXs0Xsj9yYbmCdsUhBG43DpFEld216CxA=;
-        b=VlHjlovkAg9I0XUUtrpcWnl18AzC8rnqM4PfwFVrVVrpFJQNUpiAO3VZX0JjKmoobh
-         lR5iyllih/MNmWrH4vi26jpJteJ7Glfiz0+ZSVwzwaypvAJmvtV18bwjO5eyvBdMF2zo
-         XNWuOSh5D/Pi6GDDd90I5PtdfJEeThWqgzCdsE5M4lVEFgeWHXTFP4RnfCT8gySWqG6r
-         gniGocIrPDEneaIfdqRVgE2Pa826xcEqq9I8ZpHzXhPq1EQR6FptPt+9WtKYy9A6BphK
-         f+tcDB3SDulI58wRjMDPWkqVM+jLD+xf1muSyxcTAg946/48sLEWOAC5y+zfABkbZxet
-         LZSw==
-X-Forwarded-Encrypted: i=1; AHgh+RoE2pRv1Zxl5b2ITJeQzZcjqqVTHb0E+3jXjOVWnHN9bRhiP23U2K70Q6MElKNd9P1XTBGtkmljbd5RlKMnynw/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv8qX8kbBYqzV4535kEu0aXtxC3o2UBTS9684PDxXs1Z8Id1mY
-	3zOXv2cAe+r+adowk8iER92wOeT9QLJvKHxQMxZbkXtVrE3iOLE4j8G8XMMqsoqkHuOO0FXR0Mo
-	T1A86OliZLdxNUFRYbSHnM2ntarKfWj/WuvzXsQGp6A==
-X-Gm-Gg: AfdE7cntDjaWx9J85dmGGc52SWFJSCnYi13gTYDJcwNfFqULljvk33ll/8NnDPbvXMB
-	pYLI6wdW5SK8Hh16HIRWJEV+nXfx8zcGxIpFE4qE7B3rXHLwhSjp0Hu74GKmLExngDIN3Y29jXK
-	pFtUq5uXJ7fibm/QnkkMxv4pRjEtD1F0qOx9jMpL/aLC0byUg/4x3aIAxBoH8TEa3Sl3NCa4NYA
-	qmN0vdr2tyYAM5F4wmcWor2TQTvm3nwjfHCOvqhUU7m1dmHemPLRSV617MRG1OsaH3XNQ6WoVXV
-	I+wwp+PlEknmSTFcM9ynXvtG79iNrfFALS7R4OVLImw1CAWvPcQ=
-X-Received: by 2002:a05:6938:a08c:20b0:c11:fb01:c642 with SMTP id
- a640c23a62f3a-c15ce005650mr115272066b.17.1783532773640; Wed, 08 Jul 2026
- 10:46:13 -0700 (PDT)
+	Wed, 08 Jul 2026 17:58:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B9D940279;
+	Wed,  8 Jul 2026 17:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFE91F000E9;
+	Wed,  8 Jul 2026 17:58:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783533509;
+	bh=2zcJcB1E4eAZy0egEbo5b49ra1AlE1ZZgAl0aBZPFpg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=lUFCGVvhi3r0g2REAtCb2IGA8CZvBtpISzpqNOsLlIz4oC8RYsx/4BDzxBWlKpED0
+	 OO0H8pEE+Rj/gvkRHSvopojk6+7GJ2AVOWtst9fH1KbISbjRghLiVKG8hjeEoo2NJL
+	 1pONN4spCjOkHAEVviRtqhHebsdb8FkdHq+W9mwMHVu3D2rDo+PIliDI8dLOzCpavH
+	 2v63vsnLIDMQkmI7iMKzYlLlawSHemKEODU9IgIdU5HL7fCECve8y+XTvAEm18oYQ/
+	 fjk+++bhVL1mK2ZtC2q+a75eR0XtyKKWF5XVAIEO0u/AFkjmd4VWUqV8Us3U8DJG1R
+	 Qf80NCztIqmrQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+In-Reply-To: <ak42F240d-53QeFN@arm.com>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-17-aneesh.kumar@kernel.org>
+ <ak42F240d-53QeFN@arm.com>
+Date: Wed, 08 Jul 2026 23:28:14 +0530
+Message-ID: <yq5apl0xgy89.fsf@kernel.org>
 MIME-Version: 1.0
-References: <20260708165201.624271-1-robert.marko@sartura.hr> <550f7779-8188-45db-8de3-c25eda948cbb@sirena.org.uk>
-In-Reply-To: <550f7779-8188-45db-8de3-c25eda948cbb@sirena.org.uk>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Wed, 8 Jul 2026 19:46:00 +0200
-X-Gm-Features: AVVi8Cfz0AdebYHyA0wucUiR5Guc3jIkYaeEJZQYyfl7PA2Z50uPMBVIKA0DJLA
-Message-ID: <CA+HBbNE6Y=N2677j5Lzs_edx1bTVjtmrP6jTaT-Mh_5GdFNNvA@mail.gmail.com>
-Subject: Re: [PATCH 1/4] spi: atmel-quadspi: add controller init callback
-To: Mark Brown <broonie@kernel.org>
-Cc: conor@kernel.org, nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, 
-	robh@kernel.org, krzk+dt@kernel.org, alexandre.belloni@bootlin.com, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, daniel.machon@microchip.com, 
-	luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_104615_899327_B8D773D8 
-X-CRM114-Status: GOOD (  13.60  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,38 +96,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 7:23=E2=80=AFPM Mark Brown <broonie@kernel.org> wrot=
-e:
+Catalin Marinas <catalin.marinas@arm.com> writes:
+
+> On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index 97987f850a33..acf67c7064db 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
+>>  	unsigned int flags = SWIOTLB_VERBOSE;
+>>  	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
+>>  
+>> -	if (is_realm_world()) {
+>> +	if (is_realm_world())
+>>  		swiotlb = true;
+>> -		flags |= SWIOTLB_FORCE;
+>> -	}
 >
-> On Wed, Jul 08, 2026 at 06:51:08PM +0200, Robert Marko wrote:
-> > Allow controller variants to provide a custom initialization callback
-> > through their capability data.
+> For this part:
 >
-> This doesn't apply against current code (specifically the DT patch).
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 >
-> As mentioned in submitting-patches.rst when submitting a patch series
-> you should supply a cover letter for that patch series which describes
-> the overall content of the series.  This helps people understand what
-> they are looking at and how things fit together.
+>> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
+>> index e05dc7649366..f3fc28f352ba 100644
+>> --- a/kernel/dma/direct.h
+>> +++ b/kernel/dma/direct.h
+>> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
+>>  {
+>>  	dma_addr_t dma_addr;
+>>  
+>> +	/*
+>> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
+>> +	 * as shared by default.
+>> +	 */
+>> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
+>> +		attrs |= DMA_ATTR_CC_SHARED;
+>> +
+>>  	if (is_swiotlb_force_bounce(dev)) {
+>> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
+>> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+>> -				return DMA_MAPPING_ERROR;
+>> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+>> +			return DMA_MAPPING_ERROR;
+>>  
+>> -			return swiotlb_map(dev, phys, size, dir, attrs);
+>> -		}
+>> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
+>> -		return DMA_MAPPING_ERROR;
+>> +		return swiotlb_map(dev, phys, size, dir, attrs);
+>>  	}
+>>  
+>> -	if (attrs & DMA_ATTR_MMIO) {
+>> -		dma_addr = phys;
+>> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
+>> -			goto err_overflow;
+>> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
+>> +	if (attrs & DMA_ATTR_CC_SHARED)
+>>  		dma_addr = phys_to_dma_unencrypted(dev, phys);
+>> +	else
+>> +		dma_addr = phys_to_dma_encrypted(dev, phys);
+>
+> For AMD/SME, on host with memory encryption we now end up setting the C
+> bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
+> some other MMIO bus understands this attribute. Maybe we should stick to
+> something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
+> since this is not universally defined, just use the old dma_addr = phys
+> if MMIO and ignore any unlikely DMA offsets.
+>
 
-Hi Mark,
+Considering for AMD/SME system an unencrypted dma addr is one without C
+bit, will this be good?
 
-Thanks for pointing that out. I missed that the SDMCC is not yet
-upstream, which is why this one didn't apply cleanly.
+	/*
+	 * For host memory encryption and device requiring unencrypted DMA,
+	 * MMIO memory is treated as shared by default.
+	 */
+	if (attrs & DMA_ATTR_MMIO) {
+		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) || force_dma_unencrypted(dev))
+			attrs |= DMA_ATTR_CC_SHARED;
+	}
 
-I'll make sure to include a cover letter when I respin the whole series.
 
-Regards,
-Robert
+>
+> In the other case, for an arm CCA guest, if the MMIO is shared we end up
+> setting the shared attribute but that's fine, it's only an IPA address.
+>
+> -- 
+> Catalin
 
-
-
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+-aneesh
 
