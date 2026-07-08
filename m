@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E22BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BACEBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s17L25CKf6N69n47kq5IfOEmXIhfMV81UIxYDG1zrNg=; b=Rj0bHi9pbSQxQ8NhCH9neklfmr
-	lXEWbUqjHee0QTD27DULsNplNVz9F7xCZw08Dwwd+KrcPdUm5CE/X06ozGVXS8vJVOZ9pfeKPVYlE
-	l7E0Y2yLImeSRazNZnZq+OtV4aWYOpYhAgkdhiEcZ3aNOpW8JxY6uJkTS9Ga9rd93Uj6Yqrt+KiXc
-	GCCmNns5rfaYBjsYN6cklZCjr/aqLjJ4z4+0RjMEkKC4smLAoQAjqPcC3Z5rUAbXnh/w8/kILOorA
-	7HcE4aJN3KNQT3LtH9mJR6bgUmN6yKkZtKgtg1EGZh6wv6TX3U83jT4spXzmEpI/6mmA2zonUIuff
-	k2RuoBDA==;
+	bh=0vXeI+uCXnMRTRUaf8HMNBKTFOd8TopxxzIUG1swgmA=; b=guT79NxkRLpR/Sa6u6UuDZOoud
+	XfraNR1imX2YczVrUTyvuHP8Flm6LtfYqI7KxH4FfZ1NX8tQTjLobZTpGzkC3yozrTJuemSj/Gjkj
+	m63SdHGxRs0vClx31pr1E7R2RdSTxqdSgndqS/FGUT6Z+zH1kTfw/xcJGLRcpdrow1ADxKzPn2H3S
+	6l9m2I0+a9UzIjnZQvksMWxtcMrkvR2jn7oHNUHsDP/BnDkWR+IKebZQM3MrsesuYEErUDk117SmD
+	UFzZE+O+EbYtDoDy1LXfRntECOezRZcPFDT73c0JRcanKQIRyV7TKmud74IHllnrNRx8+u07ybprj
+	JA0n5o3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVIu-000000000k5-0Uuw;
-	Wed, 08 Jul 2026 16:39:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whVJG-000000000om-0y8C;
+	Wed, 08 Jul 2026 16:39:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVIs-000000000jn-3C6C
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:39:18 +0000
+	id 1whVJE-000000000oH-3BJU;
+	Wed, 08 Jul 2026 16:39:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C5F9439BB;
-	Wed,  8 Jul 2026 16:39:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E6381F000E9;
-	Wed,  8 Jul 2026 16:39:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02073600C3;
+	Wed,  8 Jul 2026 16:39:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFF5F1F000E9;
+	Wed,  8 Jul 2026 16:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783528758;
-	bh=s17L25CKf6N69n47kq5IfOEmXIhfMV81UIxYDG1zrNg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dUl1bxY9rew5rS9hqYip2CHsshSWH5nY76m0otTtVHyCzupnUfD3dyMmXcm/hPIIu
-	 Q4PvC2p7Z428yGtVZTjIpR71+UoV/gW9OPkM8t9uRChGLC3tGID2VlHD8GG68XBSLD
-	 rTQEi3T5xH479HRADzb0ra8fNgofDFY6HF9PW71qdLzIxVU+DSPc7q8MVZL2oPZMNN
-	 oo4o9sMmhnzgkjFVVCncFdNn1UTdpnRewQgsXZ0bIBY8sEzDXLcseQUwugf8y/f+Fg
-	 7pTNsRT+w1UD22+IFK+0orjJbnp9WWMWTCE+f9SSE7RHLJLTzZsn9g+VxQMMe4KM13
-	 8+UDVg2Ovb1rg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1whVIp-00000002v6F-3wwj;
-	Wed, 08 Jul 2026 16:39:16 +0000
-Date: Wed, 08 Jul 2026 17:41:05 +0100
-Message-ID: <8733xt77tq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] KVM: arm64: Avoid re-testing walk_continue
-In-Reply-To: <20260708134101.2514759-2-leo.bras@arm.com>
-References: <20260708134101.2514759-1-leo.bras@arm.com>
-	<20260708134101.2514759-2-leo.bras@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1783528779;
+	bh=0vXeI+uCXnMRTRUaf8HMNBKTFOd8TopxxzIUG1swgmA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mAKVPYvLfywT4c/A7TNfSBbuW0PmTrerhJVp61IvBtaET8sHc8VIztbtUWBp0UqZx
+	 /tz6XVc2uJoqaZHv2oc1kjKDqoeVdSEdTShBIqdsu/34W4tgFke/gOmjTBF3GdsbRy
+	 J+oupoeLzOALtt+soh9dr19rB9cFk8RZQi49pW+CqpW9uh5I8YABFIhjk5yOXl9r/z
+	 VHFGAO5p3YlYiiwIBuK0zwmxsvrtn8uaeuM8nMWIMvdDsycG7QQcyCUrGVdji/Ola9
+	 ZYfWXCrtrmiFHq46lv+JVjhr78iuQ1O4B0fqMWvX22K5dqJCWoxagqwjTdabI1MPux
+	 1M9rxYeT7hlqQ==
+Date: Wed, 8 Jul 2026 17:39:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Gokul Praveen <g-praveen@ti.com>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, neil.armstrong@linaro.org, nm@ti.com,
+	robh@kernel.org, sjakhade@cadence.com, kristo@kernel.org,
+	vigneshr@ti.com, vkoul@kernel.org, yamonkar@cadence.com
+Subject: Re: [PATCH v5 net-next 1/2] dt-bindings: phy: cadence-torrent:
+ Update property values to support multilink SERDES configuration
+Message-ID: <20260708-purifier-subside-667f32244c09@spud>
+References: <20260708083725.66777-1-g-praveen@ti.com>
+ <20260708083725.66777-2-g-praveen@ti.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SevP7+UOVskAfqSk"
+Content-Disposition: inline
+In-Reply-To: <20260708083725.66777-2-g-praveen@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +73,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Jul 2026 14:40:57 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
-> 
-> In __kvm_pgtable_visit(), a couple tests for kvm_pgtable_walk_continue()
-> will 'goto out' if it should not continue. This means the same test will be
-> ran again before returning ret, which is unnecessary.
-> 
-> Return ret directly instead.
-> This will simplify next patch.
+--SevP7+UOVskAfqSk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This reads quite badly, and doesn't explain what you are trying to do.
-How about something like:
+On Wed, Jul 08, 2026 at 02:07:24PM +0530, Gokul Praveen wrote:
+> Update the maxItems value of clocks parameter as 3 clocks
+> (refclk,pll1_refclk,phy_en_refclk) are supported.
+>=20
+> Update the clock-names parameter to support mutilink SERDES configuration
+> as the existing enum configuration of the clock-names parameter does not
+> allow both pll1_refclk and phy_en_refclk to be used at the same time,
+> hence preventing the support for the configuration  (refclk,pll1_refclk,
+> phy_en_refclk), which is neeed for multilink SERDES usecases.
+>=20
+> For multilink SERDES configurations where the links require different
+> clock speeds, all 3 clocks(refclk, pll1_refclk and phy_en_refclk)
+> are needed.
+>=20
+> For example,considering the USXGMII+SGMII multilink SERDES configuration
+> usecase, having only 1 reference clock(refclk) fails because USXGMII
+> requires a clock speed of 156.25 Mhz and SGMII protocol requires an
+> clock speed of 100 Mhz.
+>=20
+> Since one reference clock(refclk) alone cannot cater to the 2
+> different clock speed requirements of these protocols, the second
+> input reference clock(pll1_refclk) along with phy_en_refclk
+> is also needed.
 
-"__kvm_pgtable_visit() performs a bunch of calls to
- kvm_pgtable_walk_continue() to find out whether the walk can continue
- further, and if not, falls back to an 'goto out' which retests the
- possibility of continuing the walk.
+This binding supports 2 devices and the generic compatible. Do all these
+devices have the new refclk?
 
- Given that there is no reason why the situation would have changed
- between the two checks, turn this goto into an early return,
- simplifying the code and paving the way for further rework."
+Thanks,
+Conor.
 
-	M.
+>=20
+> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+> ---
+>  Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.ya=
+ml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> index 9af39b33646a..ac0f625cd76d 100644
+> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> @@ -34,7 +34,7 @@ properties:
+> =20
+>    clocks:
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 3
+>      description:
+>        PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for =
+PLL1).
+>        pll1_refclk is optional and used for multi-protocol configurations=
+ requiring
+> @@ -48,6 +48,7 @@ properties:
+>      items:
+>        - const: refclk
+>        - enum: [ pll1_refclk, phy_en_refclk ]
+> +      - const: phy_en_refclk
+> =20
+>    reg:
+>      minItems: 1
+> --=20
+> 2.34.1
+>=20
 
--- 
-Jazz isn't dead. It just smells funny.
+--SevP7+UOVskAfqSk
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCak59RgAKCRB4tDGHoIJi
+0jCnAQDwtt/OwP4pRnpx2Cyg3NCRTTNs5l3WIiTgazMbaX9XagD+KZWxE6E1LGe+
+AxAPK0PIAm6SzsOvq7pGRtKDUpY01gg=
+=70nt
+-----END PGP SIGNATURE-----
+
+--SevP7+UOVskAfqSk--
 
