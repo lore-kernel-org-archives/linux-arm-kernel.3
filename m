@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16DD6C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FEFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HzvBEeJ5wdYXClPXLrmc2/W46aJenc8FFAfoLDxjZi4=; b=1GHAZkNI/7kskhJSf2jpCzD8KP
-	r0E/LPU6P5LzAiXfcFB15jwAyKOe3J8KCVW/dAzn0KG/szkHlAeZBvHSlElmByHW6UX0/j/GCRNFa
-	lc+xY4yCZl0QpY44XkQy5mZzd1VBtJveruzH+IzBGf5+bl8YKF2aytCGgDqsd+vxRGJFoPFOxn1NL
-	2YXsQy13rAeLcZnXIgS/o43Zi5C1lVrjTqUUTV1xf5q0wDubYifIvTNUOUeWMGxN8KAFav0cMmCXW
-	mHpnKMZIVHhjFgj9zl7MjxFD3fgvQvB4CBZqEeiPufsdAZzxMQNdMnNfVhVNzLocDjEIhR/Y77A+U
-	Rv+gUpGg==;
+	bh=nZ7xCp940lKXmz4uQJ0f3D2aRgCUjhm0aQj61Hq0smk=; b=SCKqTTTPb7FRgY9NfEVzwbjpBs
+	NXNb3HIxp3Pevhto7sqAw5WFnGd7B/B56Ugem+RBTolB4StGO2vt74fdC4FOoyNkt/uR57To6NWJy
+	JV4GW0+/9LZi6GIBunvfuSe992HRKi8+Inug6yHu32YZhgfbosnMAwMQnnT090uUHpLNgr/9KDvnz
+	XuYYOuGUAsxn8k8NIuH15aseJIHjnZR31HXzMS46RoVWB6XcAFCE9Lszi0+CEtwwl9MarjGjQ8q4k
+	z9/IGx8mR72k08YrX/UG8Uzg2rb+StNgIaiJiN955vY9OrSJhFQxhDc/IthJs12Vrijuk7PHbezr9
+	ud6vKkyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaFU-00000000TsN-2wqV;
-	Wed, 08 Jul 2026 21:56:08 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1whaHE-00000000UBL-04QE;
+	Wed, 08 Jul 2026 21:57:56 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaFS-00000000TpU-0CHR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:56:07 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	id 1whaHC-00000000UA5-0JYP;
+	Wed, 08 Jul 2026 21:57:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783547871;
+	bh=/oiDzG1yPzVXvmDyvrB8YcOt78K9ESwEa+Uivy/4TVI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JXftbO836SRt+7spmf+gMbaW7sGKoxSJ8jLMy2hnoiewRzlegabKBA11t4yOquc4o
+	 9maQ5OPPwS6Topcw4fQejXD+605QvIJ+ReO5KfaDn7JlTrINAni+Ofbe56aBj/FHT6
+	 8qM/69tqLiGuLcyr//UL+foYKwLaw4WZn+zrvCjGG6sGaU5QlOCg5wNfqesnbdqn/b
+	 yKawpyJKA5FGOOLuHh2hU+okMmaROMwU54yiQfYxsyo9UWYLUxOvCLofkGPlTQeFdT
+	 O+GDB6HJ6ElCWSkQo6am3HJjI5R4diJCL2Xgqq/oqITsYri4sFX9KyO4xXAKc3s+H4
+	 76XNdoOWFPorg==
+Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gwX3R5DgLz8v4b;
-	Wed, 08 Jul 2026 23:56:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783547763;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HzvBEeJ5wdYXClPXLrmc2/W46aJenc8FFAfoLDxjZi4=;
-	b=wqwYngLVVmMeY2bpMaFiVTrMKc0ovlIcK8JL1hGtGzfUSV70WkKp/hXAbjWxZ6DkFeT/uE
-	TIAJJo1tnFC2PRxiTS8pLkKE1WtkMJfxlUzq+ia1VCZlExZKdplL0hXNS8nMU7H48UJV/+
-	HoRgnSl5sjTmb7NF2SvcKZIuriTMp1jLqyoFwcedzh9hQtoAiopJNYLTXOgmHHsFmkzl5z
-	96QcIcFixt+GgFGyNaOZOm+3s5y1MvXjP3wUEVlOXluRQOyJQPOsXrZC1DFKPKUmvw5lja
-	KZQIXaz6b5nXc1BuqrOlUgbsxKoOetg2J/QL1NhCGLa0D4y8YOECYVxmPBjU1w==
-Message-ID: <59725f93-5269-4b0e-8633-48821219877f@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783547762;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HzvBEeJ5wdYXClPXLrmc2/W46aJenc8FFAfoLDxjZi4=;
-	b=sw8ZGUcl5e3xihbCg2aT+g6H4ko5yZcdtxzrqesfKSBURVIqY2cbMnr0FBZFggidxEcvdJ
-	ZD8Mzyx+0bIiJJAbfzzGOwrQyfNfC+cXf1iOb+8Jywj5V3QOfZJDgQK/LI/7XqZMQmi/5X
-	jIV2qZPAtS6ptTEls1CFj0bjOuKp2Eryyq27A9MKDCuE3f5OIntcrejoH21iyn/hFi4UMb
-	aPIRlYzabNymh/vQeRfijsiwJ8cwhm4geK8NdZMEL1FaNi5uk75OwBc2mPklr3QBL+fM84
-	Lx8tLm+rDlVsVGhyrAIrFq4DsK4P9EJ9NP28hA1+yHs/betaDEHzC9wgRSpuIA==
-Date: Wed, 8 Jul 2026 15:07:30 +0200
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AC23517E05D3;
+	Wed, 08 Jul 2026 23:57:51 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 09 Jul 2026 00:57:23 +0300
+Subject: [PATCH v3 01/14] dt-bindings: display: vop2: Add missing reset
+ properties
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 6/6] arm64: dts: renesas: r8a78000: Add MDLC nodes
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1783505142.git.geert+renesas@glider.be>
- <dca2c4940ba38b897f04b6fb67591de9835900e1.1783505142.git.geert+renesas@glider.be>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <dca2c4940ba38b897f04b6fb67591de9835900e1.1783505142.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: ox9kdwr3htbuf418b9dpqo5cy4n7x8wj
-X-MBO-RS-ID: 08bf7c3d4b9e58172e1
+Message-Id: <20260709-dw-hdmi-qp-yuv-v3-1-a4a982a9f2e7@collabora.com>
+References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
+In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_145606_240262_6529C500 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_145754_293625_679FB150 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +89,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/8/26 12:15 PM, Geert Uytterhoeven wrote:
-> Add device nodes for the Module Control (MDLC) blocks on the R-Car X5H
-> (R8A78000) SoC.
-> 
-> Complete hardware desciption of all (H)SCIF serial ports, by linking
-> them to an MDLC for power domains and resets.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+provided only on RK3588.
 
-[...]
+While at it, move 'iommus' in the example up into the expected position
+to keep the properties in alphabetical order.
 
-> +		mdlc_ddr7: system-controller@e8380000 {
-> +			compatible = "renesas,r8a78000-mdlc";
-> +			reg = <0 0xe8380000 0 0x1000>;
-> +			#power-domain-cells = <2>;
-> +			#reset-cells = <1>;
-> +			bootph-all;
-> +		};
-> +
-> +		mdlc_hscn: system-controller@c9c90000 {
-> +			compatible = "renesas,r8a78000-mdlc";
-> +			reg = <0 0xc9c90000 0 0x1000>;
-> +			#power-domain-cells = <2>;
-> +			#reset-cells = <1>;
-> +			bootph-all;
-> +		};
-> +
-> +		mdlc_rt: system-controller@19440000 {
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../bindings/display/rockchip/rockchip-vop2.yaml   | 46 +++++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 2 deletions(-)
 
-Please keep the list sorted (0x19440000 should be before 0xc9c90000).
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 93da1fb9adc4..f993cef0323b 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -82,6 +82,20 @@ properties:
+       - {}
+       - {}
+ 
++  resets:
++    minItems: 5
++    maxItems: 6
++
++  reset-names:
++    minItems: 5
++    items:
++      - const: axi
++      - const: ahb
++      - const: dclk_vp0
++      - const: dclk_vp1
++      - const: dclk_vp2
++      - const: dclk_vp3
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -148,6 +162,12 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -194,6 +214,12 @@ allOf:
+             - {}
+             - const: pll_hdmiphy0
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           minItems: 4
+ 
+@@ -246,6 +272,12 @@ allOf:
+             - const: pll_hdmiphy0
+             - const: pll_hdmiphy1
+ 
++        resets:
++          minItems: 6
++
++        reset-names:
++          minItems: 6
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -289,9 +321,19 @@ examples:
+                               "dclk_vp0",
+                               "dclk_vp1",
+                               "dclk_vp2";
+-                power-domains = <&power RK3568_PD_VO>;
+-                rockchip,grf = <&grf>;
+                 iommus = <&vop_mmu>;
++                power-domains = <&power RK3568_PD_VO>;
++                resets = <&cru SRST_A_VOP>,
++                         <&cru SRST_H_VOP>,
++                         <&cru SRST_VOP0>,
++                         <&cru SRST_VOP1>,
++                         <&cru SRST_VOP2>;
++                reset-names = "axi",
++                              "ahb",
++                              "dclk_vp0",
++                              "dclk_vp1",
++                              "dclk_vp2";
++                rockchip,grf = <&grf>;
+                 vop_out: ports {
+                     #address-cells = <1>;
+                     #size-cells = <0>;
 
-> +			compatible = "renesas,r8a78000-mdlc";
-> +			reg = <0 0x19440000 0 0x1000>;
-> +			#power-domain-cells = <2>;
-> +			#reset-cells = <1>;
-> +			bootph-all;
-> +		};
-With that fixed:
+-- 
+2.54.0
 
-Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-Thank you !
 
