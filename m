@@ -4,151 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A88C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C44C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 04:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgqYdqgAHiA8ufrgH8v9pk34W8DLhMxDAZXmCg+cJdo=; b=k9vk/jA7fynGNgGIlIi9MUiIqP
-	lRO2qEnZ+TPI3IzwsWE3Zj3R51yy2MOmbcVAXwx6Fv1b246Hwv7aToaKYanwa+ujqhB8J+WRvBDRQ
-	srx4i82SvN4HLAq18pwPkIYTsMtkYPGV2NN458nC2e1gFJvpB/GqkzgsyttKu4hwjTxb2+1HwOX5U
-	ZaDsg+vF3XT1GOF3SftE9ZitpfCFp9SSZsQ3milwWeQ0r7CHN/TutFLmHBhuxImmNQAGHdOj7j+nL
-	9zOoyQyrEZ7hPiIYRyR7En6dZxgtAucUGImomSAWN+ncpaEZlrW8z1imCAKEf2TgDZPXUUEds1NM9
-	AiEpiyTw==;
+	bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=; b=EHQw6cJDDeHKopjXYrRrDKRNER
+	UEyjgtkoDbIwQ5c3+qMnxWjQD/2nxIcDcT9XLGFSWupUozw3Jp/J/JjZsDy4HKBZldkFdKPeAjiEX
+	+Gg+b1BS0x6bHwv9a1LU5KBgPYSjBwxCuOUc/OOSrTPeKgmGCwCsrsgxAVACkrWTFTubzLFLD8gh5
+	OAP8IYJjDKvKizedsyKieXJLucoOxaNihWRibNf00ptno5aykRpJ16A3UbejmklSfgIbM26bOpmcP
+	0t75yCHJhApt5rnbH+J6ipQ8T9hyxVn1au1xu98dtjR55o648GBpzefPXitAofYJt7kFnZ84RNLxO
+	V1wHvGhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJOe-0000000GIYG-1pI7;
-	Wed, 08 Jul 2026 03:56:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whJrP-0000000GJiU-3GuU;
+	Wed, 08 Jul 2026 04:26:12 +0000
+Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJOd-0000000GIXv-1wZL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 08 Jul 2026 03:56:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=kgqYdqgAHiA8ufrgH8v9pk34W8DLhMxDAZXmCg+cJdo=; b=eKZSEJ4YKJvkiSrYq+dFNVsOiA
-	At9ZnKnWuz+aKl8Pmr5UnSBzwCk1Nwd+gAlnjXAXXcgcAp+Djw5WUeI9PfiobwwL2cuQB6EB3eZls
-	4koG3URLxSm3GR6SIbpO8nxkAJ8qbFZ3BU6ii7qBKe+I+3CYkZt8qxP2fhM82B4EiDTjUcapdNLPy
-	Pq46dEFo7sUxeNJagBB4bKi41ig+wRBefy3svnlmFTEwa1jKf8z0XQZLrqowr8fJhHXapoA84sE0/
-	CDru1wIDRnkyA13D3WNDTmIT8/6XOcSh/NLrc4tJFQiZKpQjK4L4DQBlHon1sT8WYhnJ5VnkGl1z+
-	bah7ZJ6g==;
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whJOa-00000007zL5-2BbS
+	id 1whJrL-0000000GJhJ-3PQS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 03:56:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=euCF3fp1mGe2X+zQNOApTOVdIJv1AAsH8TmiWRgiVemBg3ANK//L2qBZKJs2jwgraEL87d9+joxM3fhBvaM5kGuaKgdu/AwUn/LP5CwpMpG03cQllX54MSDCTUZQefNiRSqnAxN1829r1v6trLU6MJyTj+9XtHtf4aQtXTIIlXljrtakwB6y6ASuCOd6BQVN4eqnwprq3TITpMyvUXEaOj/J1LqnPxFU18UWO5MH7w1T5qWjrNbePF54SapuOck1W4WYQ1ZXGDldXXztgfp9iuw8UNNWGnf9RNdhMborZTZVYbq0DA0/BKwLBj9qBfSAJ+tm6RqwkLpTIHwG1Sp18g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kgqYdqgAHiA8ufrgH8v9pk34W8DLhMxDAZXmCg+cJdo=;
- b=XyhGdAxEmxuhwjw7tkW5p+wAZ+dGRShVShASvqUSZornHm/xqmsIXR3HbhSlnE+AHohp3lo86baGyqLwiq5B0+hc2OaL0XQjSxRMdZufwgAIOfdR1CrtziJLQa60skBueRqx9lmfI4YzTY6t7kaBqbcN+IBdVjRvHfzOGW3i8CWLizMkmYW9W8t18XsOWtl2wrHKxhPY+niRwKn6uvNUcJ/luC3DI0BzNL/4YaL3iVNTKD7D8AcGAxnwJEoNMp70wIy69QY/60zi+UmzTyX3h3wiCUtlCtTIm3UPsNi1KkX1LG92VRATy4Oz8slgBk4cqS39UrffCk9Z0rT0fuWRig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kgqYdqgAHiA8ufrgH8v9pk34W8DLhMxDAZXmCg+cJdo=;
- b=AnfwVlGTULDRKIg6E5QQwucf0adgptkMLP+Y7WmSgpoEUDXjwTpxtrWlKIMHS3M81yUsNOaI6kcJ3nGEmf5PPztTEAS0CHO8ck7L+DlRV88t+/CEUrnl1mXEZw08IV6AVHxKD8PL5buovG2mBksj1UZ6HqMP4L0k6xsy1X4mWeyPuUS/EO81zWhenFHsiFkUJM6bHPqAVOfxvrDpL17qA6qX1se61g3cbZfg762cHNEaLnmQ+5jFlp642CZ1EufdtNFeUSEJq6FSisjw1h4WZ6WR6XhZ+970X92yMOBObqT/uM9SViyD/ssL8s75k0Wco3m40bgOlyMHftCyGj5o1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by VI0PR04MB11768.eurprd04.prod.outlook.com (2603:10a6:800:2ee::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
- 2026 03:56:20 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0181.012; Wed, 8 Jul 2026
- 03:56:20 +0000
-From: hongxing.zhu@oss.nxp.com
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v2] PCI: imx6: Update MPLLB bandwidth to improve i.MX95 Gen3 PCIe stability
-Date: Wed,  8 Jul 2026 11:59:28 +0800
-Message-Id: <20260708035928.580236-3-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
-References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0211.apcprd04.prod.outlook.com
- (2603:1096:4:187::19) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	Wed, 08 Jul 2026 04:26:10 +0000
+Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-667627ae83aso294652d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 21:26:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783484766; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UbSsiUZdf7GzZNZUSvactiTUNNnNRqcWNilRWSUQJxwOFUuDUx67dXvfaYjw4jRJ81
+         ydc0sivjuPCkccWaj3ZKls/yOkt0gkCNSQyEL4cGuVg5s73np5D39OkfdJxTOvnq3SL/
+         beodnsPUbPqEQyC/h/d4Ii06Y0afP2wySV567aXkdiwSP8ZsSq5Fya4Ldd3QSc448SoH
+         fXGX9603YmvH5gCXOBYttMilIhXsX7xkDuMRek52l+p2aBV9ALockJGx22G2a0B41ZOw
+         hzcSK0Ww4pPD3wUnH+E7kkMF+hDj5yfg0UYDlOhN0/adjLzrEjAwPHm70/ySSuZqpkBg
+         kWwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
+        fh=VG8Fn+CnSvRen2tw2mpIQEeZf502cd6tbtw5FwLvz8k=;
+        b=KB2qQygRHotVrFpBFx3jeR52V7UeYsQFCJe5HHzY9a/8dz5EKqZC18mZfQ9n8c/xqU
+         oDQgUsbhpHSVwUWGoYOONmR6RBRh5UNijzsQaEegA0jaBa81P4z0vZJQ4ZtQJTnisjWv
+         gDIG5ErtoovvXLc8uDnnVHAAGHHk/I7casBvaCgCFQL+KFBOvTTK0GFdBfD8qbAcPVdZ
+         Wst5MngKAU5TnoAaI6W1cip5qywQkJdC6Zi/eRW02NfzeURpVVpr2RQWtEXjfJ2Iu9UI
+         T4FPACd92+33WSGP1y3Ny7ghNGwXlE3qZcWagJxZ0tf/OHr0PeKBY5+XlQnl3hPRrWmP
+         ePQA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783484766; x=1784089566; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
+        b=URGZnyuJt9w/VzhRXTedvaHvxJhDiVd3dV8FeAUcOVpYkuQpIheruvA2gvkT5T05nE
+         3zgq6VNcaIC8DwB4KD5IPkdHGLsJrQBAtNmz7VCzjSykFdH32kxk3YMe2h0OtKB9xPhU
+         ZUohvXcvFpeaLQu3tukP60mDKgQXPOrgs5hrY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783484766; x=1784089566;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
+        b=D43vyPPfLsk+2NqU5KjpAOAYXqdSUY3He6GCDoMLpXIG1JzUdYepYf5ir9VgsjSa0t
+         hsFJWYgzUUTNacF5G4b+QrA1EJzcHxCvBkBjAhx/u9SllOk1DeGydPk05P+diyZYG1Ru
+         yDN5HvVXliZiGmYrIVCLI1fMKSDgCnsijGHY4AJpQ6fKfBXUxQAcelNZ7vehhwmE5IWJ
+         +nBRNbpb5mnfvTZu0iOWdNFXZrrxzdF06O06VtJ6TZSL+9MGqnx9sslmEOJWQ4iU4TQ0
+         THwmZXlrWSKm1hnVvBj3qRh4A4L4cfjakfNwITXeMq0o/QZInxIHZjTdeDOGDzrR2j04
+         nGug==
+X-Forwarded-Encrypted: i=1; AHgh+RoA+OE5y84pQA07cCkJDITDA0p15fw9rQOl32dOoWg0lP8YYG89p9ddr0BnpgHAA0NQzInaKEt06ccjSkAuRFpR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxouHZjBQ8vxE/phknWNUpFox57FXkC3w5jJzpktoDxcAX+65kS
+	8YYseLJLwJBWWR2JDYTs5wf4hGHFTVjkmkUXH467AmIcxuCeXPxa3sTnXPfk+DVc5VLz49/vHKI
+	BR/gRTOjGJ4cbGDVutVVGpZfPhMrTdpQVMUrRi9e6
+X-Gm-Gg: AfdE7cnrLPVvSmFJwXJLmwasq5I5riS/DJhRw/acp7bvd+oajpQ7TfNfV0jcV4a+Mma
+	83XPObSdwX3ywDfBCalWj8clZJNK5VKUa0XSNI32rGrWloDZN10RIz99vBCub6Itnr8SbqlPBcZ
+	nQJq3S39b+7QxDlZJUyP/+jmt8YAtUtPwisUkgTfV3B1uxJEqu+AnVl7SORQ20pheAQYoIvJFLS
+	ObXgyH1uzCCdkMZIJV98JMcNUn76y0NYeh9u8YCaaiO9OOdTOR60LAwpzQdd/gugvz4zIxIU6mO
+	qDwLilFDe5BMIm2rAsq9kIV4lf0=
+X-Received: by 2002:a05:690e:1916:b0:662:dcc4:c6bb with SMTP id
+ 956f58d0204a3-6679f0909a2mr589124d50.37.1783484766428; Tue, 07 Jul 2026
+ 21:26:06 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|VI0PR04MB11768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07e9650c-7988-43b7-fd40-08dedca4deae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|19092799006|366016|921020|3023799007|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 28hvds+8ZRmQ/UcXI3a4ZJaX841ekkha4yABOaazB7wMh0kAITOlQMY0UtXAc3vEDJxZDL7KfH1st+6JwdUD5ZttDE0dMbrn1DRXds4cwjsGogCwKZGDtACDFAgFQe6voWCPMoWsfzyPBFZLQ6Y+Cvtm/54mnSv5AWn0yWO/zdeN+VwrnYz2tOu9KPkk7w/GphLL4NW6GSgo8+llL7fWsJU0EPN0lpfuwpUMMVrVVoB1yZGLkpQEHHfqcOSHwz8tCUbG4dUlLo8FpOqistby6dCMNWe3/ugjqF1G69eOg/SIj9aP1+U/9HUZ9LwHCXjL9jnL1KGpArwXu/2M9eXTxPg8lgtf6G0lXtHtN/4oRTP3QrDKnLYAwWs+l3ce5SpYRomSuo8l18F/Pcr8AEcfly4xrdYbZbMIlgBtoeW4b4UZuxCTQYXHWteW5INRW4hJdLEuu72r4eHYrDwoYsLomQKUDc6oDlAETdoDQiyUeixqgSi/vFDNfL0qB7yXqtloMT/IUBxp0/AVSRAXVXEVxsJYCcyJeudJXNsmi1J02rTMevwB9ew7xgjfiAkPa/Qf+JL1WHP8ICymv7eD5n8plbnpT6bUAnvLHkKrPpz4PJLaqNM1+UGt51mc0PYbI0GenEdOgYMpZCkEShk23hzKqcrWjy2sGL+aEbkWaNEpQbj8J5E0ogIiqmbEHHBIwPq58qR1xxCBPhvplMrB+yetsg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(19092799006)(366016)(921020)(3023799007)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YJwcX19oUcriShwCTQU8x1rg9G+4TqfnWdrEuCeJPFr9r/k5N6ZiS+LWnFWz?=
- =?us-ascii?Q?90zlgvtyKlyWSMIQvUwRbNnCxAOia8VuRtVhq0vBxsjn0XZx2kDpNKFzhq3g?=
- =?us-ascii?Q?bpLLx6mVwGcdP2rS1CWxvz4DOgt4+mUcpyAgKcM+xTyfZBeTfiLxdy8CA/KF?=
- =?us-ascii?Q?xIA3kBRuP7DNNcbyMBobE/3woWWk+yun2nr/fSabMjuz2GMNFOpO+F4PkHP8?=
- =?us-ascii?Q?9t8NXWi6WniYkG6PXsi8mDERD8lIdegohiY0IS6vWo9Mgjx2m1FK/+QlfdZZ?=
- =?us-ascii?Q?JPtW7eWPgRQINpvpLia+2CJ0D39CMhHSiTrzGEtBrXGvQQYJ6QXhTJqaZJQK?=
- =?us-ascii?Q?QfQQi6bRx28maI1FWE0GOTbJvCEYmPm8RvZIb5PsqaldoM/aTKB/og5Szr0l?=
- =?us-ascii?Q?GTxXXlFQBq3S1vT43DZw8KLcrYDRrk0lPj+2uHX655BruG4IuTXyZ5j7CSwy?=
- =?us-ascii?Q?3BW/zMcpwGP7iaT9x3tLudVuUsCMPrGG095R/H+SeVwPDaXN1tHMyP0tMovD?=
- =?us-ascii?Q?tsQvlHQ4U4hns2u42w7avnBlJO+RqMdfeey9zQ687ESYZk0AVIyyNUb4RY7J?=
- =?us-ascii?Q?KRqrNEiTqHWuMZkes7p/s8H34pEIuf0rM+XkhWwjg6QyQEGQC4yYBkw0crJY?=
- =?us-ascii?Q?yil3ruk7ovK746WrxdMXeDX/XJ1PH0eS6ZhJE3bi64CjlTAoarOE00RGFatS?=
- =?us-ascii?Q?a6hbtk23fmO3m+5d/LGEC2ucc7WxpUq9IOYoSxPK4KIWGqkW9A92xhrYicXI?=
- =?us-ascii?Q?YXg+15cI65nY8Um2G6DjEW0GiStBS8Y8bWQ++3+Qy69iJ3k8XaY5ZW0Wz2Dn?=
- =?us-ascii?Q?tPtEwsXrqZnVqb5iOcqjh1drNXKEJhzbVLapQgpwDBwR8auL6v7a0zUuMtv8?=
- =?us-ascii?Q?w31oILfcOx1l4mheBxNNH8mO2kzGapYSlWjZ2OUTzKBjJqzYlB987owMo8De?=
- =?us-ascii?Q?gq25ozy7N1RikgaUtzzpypeuX0+QoTOSIVwyZ4j9tR8ebatAn0YIzZ7O0mHO?=
- =?us-ascii?Q?KTGJiBTprr+C+35Wjov5MDsR4/zyNJbOqIGpLSwux5KOVD1aRYff3+sUUIyR?=
- =?us-ascii?Q?a7qHnxTd/P0ij4CYzUwKcftwcaW3SEAkgFOQeo8nieAZzpgCPtZK6/U6NJ8T?=
- =?us-ascii?Q?yzbSeVjo6l2w4xegtsFyFAGM63wy2/drPJySDpbXeCiimYCYAAOilVYEK9dv?=
- =?us-ascii?Q?TCM6aNl3yt59t5Dwe+PXk1QT78pXSnb74QCi0xyJ6t1f1693YhWVRZKjWs7T?=
- =?us-ascii?Q?cDQJ+Wcu74h7rBOMpUBc5F0KoccvxrYjXno5hntPZb/asdr3HDNzh5Sz1q12?=
- =?us-ascii?Q?M6ou924gJUh1Ci8Cz6JNZTkL5dGbInob4UGfec/QU+3dRNtfnrjwBm+pJ5AD?=
- =?us-ascii?Q?5bLE/EsQA1oy6VFBOaERAdYlq6D7KDuKezrIaS8tAQ0Dc3bZSiuFdgQYvVMZ?=
- =?us-ascii?Q?JxWCRf+hYXfkRRbh+7Eugl4jUQ0lWNW/mVOVI8ksv+JIweWopIZmWLI4Wf/+?=
- =?us-ascii?Q?3voQ2k7npqDqw64PiOeTGNIQ1pHUMmSXJ/Hr76JYIL+E1oz5Wt+atxHcZj6L?=
- =?us-ascii?Q?aUDXXKnkiTqw2pH+6AtJtxEyXMekqj4L3SwysKSgG5TDLdO3tUOpctuTx7YT?=
- =?us-ascii?Q?Xfx1RDhmhF8em7Lqy8H3AuIQxdbj7QNEfKZOl7yeUY1sOEXsHdGmo5tJIc+v?=
- =?us-ascii?Q?J2SU4Enok3QSKllgNfHaO98YGTWiuZ1X9TDirE9sBEmvU9n9in4lh9SsbeMF?=
- =?us-ascii?Q?phNKNrU7nt4hwJGBjICNxnjVAoFh84Lq3S+E118AV/JZVXJe3GDq?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07e9650c-7988-43b7-fd40-08dedca4deae
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 03:56:20.4979
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Rg4aTwguYhduLrpmcFejnlIAoCAsvgThg8GN+n1Cz7YnditFif+uIXFCRzJxZRfxDMN1+RkBGGRZdlAUEftZNaNMcyrQqjiqAXwl2YvzaS5prUM26PGAw8O5jrPIqPBd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11768
+References: <20260707104427.3409290-1-wenst@chromium.org> <176dd24c-c3cf-4ab9-8497-594ed65d10ec@collabora.com>
+ <CAGXv+5F86JU9+LPSy8PtuCPrdhBnvcA=PX1d++Yh3u7mK_Jxmw@mail.gmail.com> <94c10212-9c27-4875-8a88-78bfb67fb382@collabora.com>
+In-Reply-To: <94c10212-9c27-4875-8a88-78bfb67fb382@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 8 Jul 2026 12:25:55 +0800
+X-Gm-Features: AVVi8CdMjcjDEO3nU05c3hnTSzfBa4pXETiFq-WswvUgQmZHYpqwsoBeVo-3znY
+Message-ID: <CAGXv+5EsWVbLtUP6b75fvkDVSqUDoAOA1t3hPO4cA9sAA02=WA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Add MT6319 PMIC
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_045624_717618_90B8D3C7 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260707_212607_908758_F356806A 
+X-CRM114-Status: GOOD (  37.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,83 +116,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+On Tue, Jul 7, 2026 at 7:24=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> On 7/7/26 13:08, Chen-Yu Tsai wrote:
+> > On Tue, Jul 7, 2026 at 7:05=E2=80=AFPM AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com> wrote:
+> >>
+> >> On 7/7/26 12:44, Chen-Yu Tsai wrote:
+> >>> The Geralt design uses a MT6319 PMIC to power the big cores and LPDDR=
+4X
+> >>> DRAM.
+> >>>
+> >>> Add a device node for it and hook up all the supplies.
+> >>>
+> >>> This change requires a firmware fix for the SPMI bus to read back
+> >>> correctly. The required firmware version is 15842.175.0. This is
+> >>> included in ChromeOS releases R150-16700.22.0 (available in Beta
+> >>> channel as of writing or stable channel in mid-July) or
+> >>> R151-16721.0.0 and later.
+> >>>
+> >>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> >>
+> >> This is a big problem then.
+> >>
+> >> I take it as if the firmware fix is not in place, probing the CPU powe=
+r supplies
+> >> will fail, with all the consequences.
+> >
+> > That's right.
+> >
+> >> This means that with this, we're breaking all Geralt machines with old=
+er firmware,
+> >> which is not acceptable...
+> >>
+> >> ...so this needs a different solution, or strong reasons to make me un=
+derstand that
+> >> I'm wrong, if I'm wrong.
+> >
+> > We can drop the CPU supplies (they don't matter since cpufreq is hardwa=
+re
+> > driven) and just add the regulators. How does that sound? If the firmwa=
+re
+> > isn't updated, the PMIC will fail to probe, but since nothing is using =
+it,
+> > the system will continue to work (with some annoying error messages).
+> >
+>
+> That'd be wrong, but less wrong than not having anything described...
 
-Bandwidth marginality was observed during i.MX95 Gen3 PCIe tests with
-the default MPLLB_BINDWIDTH value. This margin degradation worsens
-across voltage and temperature (VT) variations and different test
-matrices, potentially causing link stability issues.
+Yeah. As I said, it doesn't affect usability.
 
-Testing with MPLLB_BINDWIDTH value of 140 (0x8c) shows significant
-improvement in bandwidth margins across all VT conditions and test
-scenarios.
+> ...I wonder if, at this point, you could set the SPMI node to status =3D =
+"fail" and
+> have the *new* firmware override that to "ok".
+>
+> That's the only reasonable way to go forward, IMO.
 
-Implement PHY register write helper function and configure:
-- MPLLB_BW_OVRD_IN = 140 (0x8c) for improved bandwidth margin
-- MPLLB_BW_OVRD_EN to enable the override
+I'm afraid it is unlikely to get a firmware release to fix a non-critical
+issue. We were fortunate that there was an actual critical issue being
+fixed that allowed me to merge the small fix for the SPMI controller.
 
-This ensures robust PCIe Gen3 performance across all operating
-conditions.
+I think it would be great if everyone could update their OS and firmware,
+but I understand that some devices never get updates, such as those in
+board farms that never boot into ChromeOS.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
-Changes in v2:
-Update the register name and bit definitions.
-Don't move IMX95_PCIE_PHY_CR_PARA_SEL settings.
----
- drivers/pci/controller/dwc/pci-imx6.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 53f3da6ab30d5..5f75aa09e0377 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -80,6 +80,15 @@
- #define IMX95_SID_MASK				GENMASK(5, 0)
- #define IMX95_MAX_LUT				32
- 
-+#define IMX95_PCIE_PHY_REG_ADDR			0x3008
-+#define IMX95_PCIE_PHY_REG_EN			BIT(31)
-+#define IMX95_PCIE_PHY_REG_ADDR_MASK		GENMASK(15, 0)
-+#define IMX95_PCIE_PHY_REG_DATA			0x300c
-+#define IMX95_PCIE_PHY_MPLLB_OVRD_IN		0x2004
-+#define IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN		0x400
-+#define IMX95_PCIE_PHY_MPLLB_OVRD_BW_IN		0x2005
-+#define IMX95_PCIE_PHY_MPLLB_BW			0x8c
-+
- #define IMX95_PCIE_RST_CTRL			0x3010
- #define IMX95_PCIE_COLD_RST			BIT(0)
- 
-@@ -269,6 +278,16 @@ static int imx95_pcie_select_ref_clk_src(struct imx_pcie *imx_pcie)
- 	return 0;
- }
- 
-+static void imx95_pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
-+{
-+	udelay(200);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
-+			   IMX95_PCIE_PHY_REG_EN, IMX95_PCIE_PHY_REG_EN);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
-+			   IMX95_PCIE_PHY_REG_ADDR_MASK, addr);
-+	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_DATA, data);
-+}
-+
- static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
- 	/*
-@@ -289,6 +308,11 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			IMX95_PCIE_PHY_CR_PARA_SEL,
- 			IMX95_PCIE_PHY_CR_PARA_SEL);
- 
-+	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_OVRD_BW_IN,
-+			     IMX95_PCIE_PHY_MPLLB_BW);
-+	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_OVRD_IN,
-+			     IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN);
-+
- 	return 0;
- }
- 
--- 
-2.34.1
+ChenYu
 
+> Of course, avoid having the firmware adding the CPU supplies, because tha=
+t would
+> be rather sketchy then. Just "if spmi status fail found, change to ok".
+>
+> Cheers,
+> Angelo
+>
+> >
+> > ChenYu
+> >
+> >> Cheers,
+> >> Angelo
+> >>
+> >>> ---
+> >>>    .../boot/dts/mediatek/mt8188-geralt.dtsi      | 66 +++++++++++++++=
+++++
+> >>>    1 file changed, 66 insertions(+)
+> >>>
+> >>> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/a=
+rm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> >>> index f382f90c48f5..fea52c377d88 100644
+> >>> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> >>> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> >>> @@ -4,6 +4,8 @@
+> >>>     */
+> >>>    /dts-v1/;
+> >>>    #include <dt-bindings/gpio/gpio.h>
+> >>> +#include <dt-bindings/spmi/spmi.h>
+> >>> +
+> >>>    #include "mt8188.dtsi"
+> >>>    #include "mt6359.dtsi"
+> >>>
+> >>> @@ -241,6 +243,14 @@ &cpu5 {
+> >>>        cpu-supply =3D <&mt6359_vcore_buck_reg>;
+> >>>    };
+> >>>
+> >>> +&cpu6 {
+> >>> +     cpu-supply =3D <&mt6319_buck1>;
+> >>> +};
+> >>> +
+> >>> +&cpu7 {
+> >>> +     cpu-supply =3D <&mt6319_buck1>;
+> >>> +};
+> >>> +
+> >>>    /*
+> >>>     * Geralt is the reference design and doesn't have target TDP.
+> >>>     * Ciri is (currently) the only device following Geralt, and its
+> >>> @@ -1156,6 +1166,14 @@ pins-bus {
+> >>>                };
+> >>>        };
+> >>>
+> >>> +     spmi_pins: spmi-pins {
+> >>> +             pins-bus {
+> >>> +                     pinmux =3D <PINMUX_GPIO175__FUNC_B0_SPMI_M_SCL>=
+,
+> >>> +                              <PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA>;
+> >>> +                     bias-disable;
+> >>> +             };
+> >>> +     };
+> >>> +
+> >>>        uart0_pins: uart0-pins {
+> >>>                pins-bus {
+> >>>                        pinmux =3D <PINMUX_GPIO31__FUNC_O_UTXD0>,
+> >>> @@ -1267,6 +1285,54 @@ &spi2 {
+> >>>        status =3D "okay";
+> >>>    };
+> >>>
+> >>> +&spmi {
+> >>> +     pinctrl-names =3D "default";
+> >>> +     pinctrl-0 =3D <&spmi_pins>;
+> >>> +     #address-cells =3D <2>;
+> >>> +     #size-cells =3D <0>;
+> >>> +     status =3D "okay";
+> >>> +
+> >>> +     pmic@6 {
+> >>> +             compatible =3D "mediatek,mt6319-regulator", "mediatek,m=
+t6315-regulator";
+> >>> +             reg =3D <0x6 SPMI_USID>;
+> >>> +             pvdd1-supply =3D <&pp4200_s5>;
+> >>> +             pvdd2-supply =3D <&pp4200_s5>;
+> >>> +             pvdd3-supply =3D <&pp4200_s5>;
+> >>> +             pvdd4-supply =3D <&pp4200_s5>;
+> >>> +
+> >>> +             regulators {
+> >>> +                     mt6319_buck1: vbuck1 {
+> >>> +                                     regulator-name =3D "ppvar_dvdd_=
+proc_bc";
+> >>> +                                     regulator-min-microvolt =3D <52=
+0000>;
+> >>> +                                     regulator-max-microvolt =3D <11=
+55000>;
+> >>> +                                     regulator-enable-ramp-delay =3D=
+ <256>;
+> >>> +                                     regulator-allowed-modes =3D <0 =
+1 2>;
+> >>> +                                     regulator-always-on;
+> >>> +                     };
+> >>> +
+> >>> +                     /* vbuck2 is ganged with vbuck1 */
+> >>> +
+> >>> +                     mt6319_buck3: vbuck3 {
+> >>> +                                     regulator-name =3D "pp1125_emi_=
+vdd2";
+> >>> +                                     regulator-min-microvolt =3D <10=
+60000>;
+> >>> +                                     regulator-max-microvolt =3D <11=
+70000>;
+> >>> +                                     regulator-enable-ramp-delay =3D=
+ <256>;
+> >>> +                                     regulator-allowed-modes =3D <0 =
+1 2>;
+> >>> +                                     regulator-always-on;
+> >>> +                     };
+> >>> +
+> >>> +                     mt6319_buck4: vbuck4 {
+> >>> +                                     regulator-name =3D "pp0600_emi_=
+vddq";
+> >>> +                                     regulator-min-microvolt =3D <57=
+0000>;
+> >>> +                                     regulator-max-microvolt =3D <65=
+0000>;
+> >>> +                                     regulator-enable-ramp-delay =3D=
+ <256>;
+> >>> +                                     regulator-allowed-modes =3D <0 =
+1 2>;
+> >>> +                                     regulator-always-on;
+> >>> +                     };
+> >>> +             };
+> >>> +     };
+> >>> +};
+> >>> +
+> >>>    &uart0 {
+> >>>        pinctrl-names =3D "default";
+> >>>        pinctrl-0 =3D <&uart0_pins>;
+> >>
 
