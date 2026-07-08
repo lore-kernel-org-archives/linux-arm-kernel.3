@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68748C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D6DC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkJStVQQrBUVTUaskhv5zoU/YZtR/Z//KEgb+Nu4U5Q=; b=1GI4YS1uZvIDoP7L6NINS23PCP
-	+8xJTpXBPRiGFYmy0oR8yLlp+uEmB+IrmyD3l5/ZjVgwhXEo0i6XPNZfUregX7eI1SnMlMLWzUxgc
-	BYAx1P2qf7ezMGK8x7LSr2/nyaqizIcpl0Ti056Nqsa1DXxkfYDpVQBTu06z/i9hxW/C5vAOTdUHA
-	KScz+/OgOX9gH2rK96ab8Sz6ItE0eQadzvRC1qtcCAeP32SqspDMzjcru20E9y/ghtxTI84hglxSf
-	OGzCLlOVSTizR+4TAYbmCv156ynyFBbsb4Yk2Rzmn0upy+ps8UHyKZAOCnUT6+oT3eW10q0xDDJdw
-	j2GzFynA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sRu2JDPnd+KPGNqW7sFeAghfeumOeGPFi0g23iNWPro=; b=VQMYMT8T2ep+aRCoX8cRsIm7k9
+	MlPhx028f7HYE1HkwfrztMdsuImK/ehllCCyMb8lpesgFLH9KTh3BPZtk9KeuQHlTZx8oUGdnLmiq
+	gBsjc3lqDaIB5Gwu9lQFv8T38DQAjwD+3/6Zz3I5SfgitAgBuQhlztpkHMvKOGxKiV8HrYdthpt/S
+	K1AJlSs8V7xBeI28qGLOQsogj2AKyrENKTeBxZeP16u/2vmeFUe/HpKamjYh8cth1k+cqjmLhsNUe
+	b5jisZrdu0fOpGeiX81Tl2pbIEKji9xnVloQj6X0+j7jpni/Ap8IAfv9mxidHjka2YCAO/rI/LjD6
+	TVBmLNNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZXs-00000000QF3-3NTU;
-	Wed, 08 Jul 2026 21:11:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whZfD-00000000Qeu-2mYn;
+	Wed, 08 Jul 2026 21:18:39 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZXq-00000000QEa-0zrS;
-	Wed, 08 Jul 2026 21:11:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A555140267;
-	Wed,  8 Jul 2026 21:11:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEF91F000E9;
-	Wed,  8 Jul 2026 21:10:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783545061;
-	bh=tkJStVQQrBUVTUaskhv5zoU/YZtR/Z//KEgb+Nu4U5Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dekQRjgjNEfXhlQmyfoUDHiLn7BOa1vrUXPYlOF7nZT0gYD6oWWmhiYaf1OQ34y31
-	 qbk2C0vFSHkKFrQSQrGyMQWPiMLPaKBRt7Q/Cdoyk8W3jGRGBtPQN07cQm6DaL94DJ
-	 liYCCyfJECEuEN9RP9GTZpUqVsh1vA7E2jpW+il+Afq+NyvgBUWpXE49gsa6njMmm5
-	 pIBI2zhomAjp6hSuqoOZ2DwGWQG5OW+HXEZUMS38cM2HFh2pYITcTKOdCkkNECtRbu
-	 XDVCXFhBzOP0+TcbgG3tosHfbUe70o7c/6ZnxShy8QP07T6fDX/4V0IvI5rLU5VoEn
-	 Nmh0+1GaRps4Q==
-Date: Wed, 8 Jul 2026 22:10:56 +0100
-From: Lee Jones <lee@kernel.org>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	id 1whZfB-00000000Qdh-2tQJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 21:18:38 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493c486f012so4999115e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 14:18:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783545515; x=1784150315; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sRu2JDPnd+KPGNqW7sFeAghfeumOeGPFi0g23iNWPro=;
+        b=MwqlZBKyIrDeQ3dIcoRt3NibVyI51wGo8uHEUceYI0D/bLOdCk4stH7FlLG3MnUrNF
+         Ive53XVm817stZIT7h3GANWcfJAMOvz+H6N/wb/w0Jhm+aKovznTmwwiBFKo8MupyhuT
+         poLV7jqRpZcYIalOU0Tw3pWRRPS333CU+9dXY6rALQQzyoKJ/mK4xfgfGQhwGdd/qSaR
+         CB9iZ1w5brVsWyfShqU2ELPX16W0X8pN50bfo6hJ5pilrQW7WFM76hcR4UEdsBGWbYP3
+         fGFFyYzRfQX2ItgsN/iZApKE6NKF/HXsDVnLkV9npgHq+ZWMGUL3A0zVvmLK+F9OmRed
+         FvFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783545515; x=1784150315;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sRu2JDPnd+KPGNqW7sFeAghfeumOeGPFi0g23iNWPro=;
+        b=L3zpqO8PT3qRn8d0EJEFqO0sA1KQTB3uE9+iWvIfNZjME2a3IB46wq5ppWI2Fyu486
+         f8iIdvTEgoBNvt1YgAjYHGPUqwHuBlPbi0xG6+ISVJNEucJ/HsbZGfcO1Uk0RdQLKedT
+         03jAxvNhREc0VR4m4ZA7pufxqqbI7gV08Ms0CegKn0d3qHd31kqvF0MeFO0SDqsnxvdT
+         K6CW13QvHCAABNLN6tx1l8+f6xDpJb/Sab6YvGL1lt9r5gLDwa2rq/fUb0Z9h6FIy+EM
+         +ruTbJ5ZCTX2xvnOJjrZb6mje6Q2XivrVXe23B5MzbKObgW3RbpdFz6BDVFKRMOpCCRh
+         FduQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro858aeqJVQwJIdVJlJb0WPpx6iSykR8D2bmt474+cW9CNZ6ZVORziJOSH7rNz7QZsdB3vkwqMKeaNXkJChWie+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzbp9Dilmu8sblh7hp1XbEyF5juuCZlT9yWVNt6Cz8ohly8CpX3
+	AAJOm/Zpx3pV+CSfNJddV+SHk0yKXf8a9j3kBA0RuMPEDljWg5VZpwMN
+X-Gm-Gg: AfdE7ckmcnf3Xtj6tAhNqHKESnbgfrV1pPsgJQHb6azBL46ylQtr/Hy+acAGlbn7wjt
+	9WE8jKu3u78q37i2hnCJ0EWeVbJ5fHhn8UkC2Vve29UjYLcuALGAne67H5M5S/80HNgZhze65KH
+	S5o0dE1taBdCO7O0gVIX7ZDcyfMcvgBGRpfB2YFrnWhnc5p+3igMKL9zUzQPRUG9OQi2zBKRO1b
+	gJFElcBt+rkz9IUIYTiKnPJko6Z1TbMUhjD8z0qYUBynbXCIZDN702KeoafB4dBTit7vPoD6XZI
+	Cecc2RmtHLsV5uZZ5mNIChE7D/i2RejrVEhSOVRhuESFFUqLxPL1KQkx3sZ9FjPfwY7Lqtr3cOD
+	VDpXStd/18wTcEGui++HRthya+VmFhdVo1dtD6XpZEews6SLxmcynQOSVniNv7opgT3Pv+BL+gT
+	idIAx0StJnYeJz/v5BcV1ckKSvWjhH6+DMbKsKoT067xbYIyRUQo6XAkf79YJmVSRcmSEIr8zBC
+	ug74Al7a7OOawBHQ9cCu1HGyaU=
+X-Received: by 2002:a05:600c:1d04:b0:493:df58:90a3 with SMTP id 5b1f17b1804b1-493e68926bfmr42265745e9.25.1783545515083;
+        Wed, 08 Jul 2026 14:18:35 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.vodafonedsl.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e5a58853sm68494175e9.1.2026.07.08.14.18.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 14:18:34 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	matthias.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v4 3/4] mfd: mt6397-core: add mt6323 AUXADC support
-Message-ID: <20260708211056.GB1727174@google.com>
-References: <20260623-mt6323-adc-v4-0-299680ad3194@protonmail.com>
- <20260623-mt6323-adc-v4-3-299680ad3194@protonmail.com>
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Subject: [PATCH v1 0/3] Add support for Variscite VAR-SOM-AM62 and Symphony board
+Date: Wed,  8 Jul 2026 23:18:24 +0200
+Message-ID: <cover.1783545241.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260623-mt6323-adc-v4-3-299680ad3194@protonmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_141837_743019_4A163666 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026, Roman Vivchar via B4 Relay wrote:
+The series includes:
+- Device tree bindings documentation
+- SOM device tree with common peripherals
+- Symphony carrier board device tree with board-specific features
 
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
-> devices array to allow the corresponding driver to probe using compatible
-> string.
-> 
-> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
->  drivers/mfd/mt6397-core.c | 3 +++
->  1 file changed, 3 insertions(+)
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-Doesn't apply.  Please rebase and resent with my:
+Stefano Radaelli (3):
+  dt-bindings: arm: ti: Add bindings for Variscite VAR-SOM-AM62
+  arm64: dts: ti: Add support for Variscite VAR-SOM-AM62
+  arm64: dts: ti: var-som-am62: Add support for Variscite Symphony Board
 
-Acked-by: Lee Jones <lee@kernel.org>
+ .../devicetree/bindings/arm/ti/k3.yaml        |   6 +
+ arch/arm64/boot/dts/ti/Makefile               |   1 +
+ .../boot/dts/ti/k3-am625-var-som-symphony.dts | 545 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi  | 491 ++++++++++++++++
+ 4 files changed, 1043 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi
 
-> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-> index 3e58d0764c7e..013b0857fb54 100644
-> --- a/drivers/mfd/mt6397-core.c
-> +++ b/drivers/mfd/mt6397-core.c
-> @@ -125,6 +125,9 @@ static const struct resource mt6323_pwrc_resources[] = {
->  
->  static const struct mfd_cell mt6323_devs[] = {
->  	{
-> +		.name = "mt6323-auxadc",
-> +		.of_compatible = "mediatek,mt6323-auxadc",
-> +	}, {
->  		.name = "mt6323-rtc",
->  		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
->  		.resources = mt6323_rtc_resources,
-> 
-> -- 
-> 2.54.0
-> 
-> 
 
+base-commit: 5c73cd9f0819c1c44e373e3dabb68318b1de1a12
 -- 
-Lee Jones
+2.47.3
+
 
