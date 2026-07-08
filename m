@@ -4,108 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC84C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757DAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=; b=JemfxS6AT1UZ/nlOhQlrjJsEGa
-	W04R//C1NAnTwzoPtdS+IU7JwM4GIlOY0havpDMKWetWhbmr7IwUTqrlcs5OcvVqdVG0eZjLJOkF7
-	wRSDNukwpyce5Wa0HGi7pA04/2AUoL0x/mznLWsO+SAuLHeKsN2ZDaTqYgTyiwMhBcpP88vmEtEnm
-	SdMLgF5VYutfneg02ygaJqGLxGFFMc2FmFwp/PT5GrSpcLQUnTqHE45Vyf/DO6vz6fk6nRmYFa2DC
-	hSgNA7zewPxmUikW0o5L6ggc0j1hX609+EqtchhOH5AgGa+JIm/eWLG8RT4hpjZXvx+xgzP0rkQ8O
-	IIOEqWIQ==;
+	bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=; b=IOqYwpiUp2H5b8r1gRAjEsXHzS
+	xy+nlFfRw7Dh00fMrJmW41IZw1BKpqGyrMPPKtilmayuhlymyzuIByvh223fIS6oG9A2We/+3K32c
+	w3+z0ZCIMCqy7cq046WfeUPPe0zOCqVKbbSoAnQuoIbMz41FAoEJzkxVlJl2bvgLvrr9EQwOwSBMw
+	UOAgB8gdia1R/U3hul3o71zESXePqMQmbtb3GXzqk8dbTgNIgRpDb7BinB+BUJsHRypVcUTEHDPIc
+	vHfunwD4A5quKvwUGAp7a5bi2n179Zc7Lzpz/fGhMLf9aY86TKHBHWWquEswjjufsdle22Dmb8FCL
+	qZGO+phg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLfl-0000000GOyI-0k73;
-	Wed, 08 Jul 2026 06:22:17 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1whLtN-0000000GPZW-2HsF;
+	Wed, 08 Jul 2026 06:36:21 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whLfh-0000000GOxW-39R4
+	id 1whLtK-0000000GPZ6-3YZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 06:22:15 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66766d649fdso403579d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 23:22:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783491732; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QDKTGPxvnUHVi+NumO9Skdfdusu8Z3JaBzbVac0pym5l+gWyziwa56klN4MPIAcWPi
-         x05tKz+V6NHldVkKJdfAAFN27gN8Uv6SlO26S0RwpBMzTp1F4MsxRn4zeBgWL0xoOR/d
-         t7+PgwFGnap03js3vEGN5Ah3YFSbA8vIvA1ErFdFutDimkPoNGgIYujdFM2L/fkBPr9e
-         aUNFD3QDgyL52mW7MLGokZlC6lEBCVLPKrD63FTxEeP2IcDTbXhrV5+/6FlPF5Xb2ZIS
-         j1WB4Pn2z93Sal71oqoRAh0UG6SiUYguePXv5GkyvlXfpHaRuxnc8cCAIfwZSQS76js/
-         4egg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
-        fh=cyqMS1EhhnWRbQQHJm6Q0JmvQ53i0/DxzzwfBn6Gj9k=;
-        b=I5AB/+J9/5mE6bXPk1wkB9GxUaKfdeXSjP3q1ArSEpbAad570NeVPDbFpHjtTC4WzJ
-         LSV9V3o19+rAVTRCmPZ1E8bs4Lu7e7P3zLiC2p5m3Z2n1gea3KXMw499vRIoTHYMGywO
-         jVP4NfmECjXzn3Y7iofpFXOnieh0Ec2lOJ4AB6HC1VmHuxULdlVsB7hS5B377J2AAuXI
-         gisWcbVWHziUddUxcgImIgdRO5bl9WRUlUrBIQ6qOLbM1JRjC9iEJoaiMy6EvErxBSGm
-         l1FCsz04LK6d3Z0uzp4q28dL7EiCRiRXWR/CEi41uCl/Lho9QgXasRcuP+OMYyLU7JPU
-         GAbA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783491732; x=1784096532; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
-        b=UTmMs2FLc2EBrUotfblVDsMIZDXJi4BejbxUTd5MOCo2V3+0ux1hRhjVRd2XJvUvfs
-         /wxXZMJMdsBs08Vcp2fx3nK4zB6mwAC63+Irv4XID4YOLECtnqThWo4ZWuP3kHXiDtlj
-         IYJlgbR4SNg4Xg6c81PJcW4VMc+cj7MLc5pWo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783491732; x=1784096532;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nyXdoI7KZnNpfNaLYiInRne3qbmZfDvP+wR+FbUBMps=;
-        b=hnFBSLyJxYBTlm1XI4Ehjqdhy3szdjRN+xhetgdHflEY9fUB4eZGFbqY80/WoFPmVY
-         heOmYnt8toSh6/fVVM7XYw3l0SY3/TF+uN/+sUL/D01cnX/LmwsEKUtGKK3haJxREEAx
-         mz6aCyQlZ/ygBpHC2jST+EgJeDiENc+/4PQ19oXqrGprAZYIq7QLlC+K09xWDZ7ItTOL
-         peDBof6t4NqBcHYzJThm7YKrrTQGnXTy7ED2iQjCtTmeyu6lnXa8NUlP5Hoz5B0WonLN
-         DhPLZh0uyoWrwEbP9M4MzagMptZptC+1VsX3uanYkdMQwLQB3rItEBZeOV1ckxDxpqvm
-         JBYA==
-X-Forwarded-Encrypted: i=1; AHgh+RolBpD5dC9aEKvTtJeTgpOJh4A5CTk1ypEgxHINmQs6CjudARleLk5Eo22gIZSoDHKp3sjWRCj1j+FQwmMOJqYQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP+e57bH0CB9ZX/RI3bSQ21jt9YKAuV8V4qrzVgkFNoezLXlmW
-	AV6jZBFAxX7xx+UoxhEBWA6Nqipu/0m2k+bCB2lJVxwR510LzEUlmXzvOEI8OIn9p77KtmixWep
-	2dgMy7CWpYeuar6dKAKpkhOt8QeSvmWjRJTYaU7FO
-X-Gm-Gg: AfdE7cm7uwfgY8dC69lvSIMvJU/DAEEHUQMvaxvBCVRSz6vLIyRdagN4lgeV//Dpp+F
-	1b+QS67x1LJ8JQfi0r3yeXCf0/c82YlWxPGnMA/i2qkRROHH4niIzcpiEElHMb8UNM0mvRFeEhY
-	VPCTHDmfw3NKEYfyb7ZnDsoyYU4T1m+h6CH8yD4sN8UIND+Jiie6m1wIuMhyjDJgL7patYjxT5m
-	Pqn2N1qhbnd2hSGHFn6B3sPPDsUSBEn2tEVfxpv+M4yyxrpuLMRXxRGM0opG8Wu+FqEaAWN7Sn2
-	D9wQAMQ454LUSIuJpsNoPiFg0XA=
-X-Received: by 2002:a05:690e:4841:b0:666:2480:2b0a with SMTP id
- 956f58d0204a3-6679f201176mr697881d50.50.1783491732443; Tue, 07 Jul 2026
- 23:22:12 -0700 (PDT)
+	Wed, 08 Jul 2026 06:36:20 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6685BlOq627148;
+	Wed, 8 Jul 2026 01:36:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s6
+	1Q=; b=c8AwILXt4zWJQI8a75bIS/2PvWqsprpLBh+nO5rYeNWZeOUGiUp3SX31w
+	PpROPgrehO//vlIPo1P7g9ttBunzlTJn7IJADi+dFVXK33AAhDitNK2xs/pdkCdK
+	erMRb0AKgxfl+2NkgF4T+b3BXHRGFrV259XMU0kKv6ZMfhjaYjc3QC14fL4mSRaM
+	Ujx85YhNHf3nZzvdeB0edp4x0NVWH8RRGd+KLcBZ2pc+xz/7Xv3zcn8oiJ5io3Pe
+	1KxzAc6QR2KKHZdKiFwSvdd981d2VYIPDgmbf+CepNcMLg62yxtxIPZWuTkCJCv/
+	2cRiXQJP2pR7hbn5VxkFbQgcq1iFA==
+Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010033.outbound.protection.outlook.com [52.101.85.33])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f94m7d2hh-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 08 Jul 2026 01:36:02 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UdBEDi7VZd5ZktJGP3jJcXGvjKN6MYM2E1otRBHitxdGwsivL+7aAURX/flA1D+2ho2Pr4laTgbliF1Ky9J+SR/E2gJSXIFi8XyCytDSqGUwDWL+GpvF6DfCI0pfonQcHZRfV6a46b9t9ZUMa3pwU1D8UHo1b7YOV8WK/ZBvymgnXB3U7F++qFej96D7l81Kei3yR9Pxl0Vc4GclDjVHpcrYIvAGolN8pgzvLPIMndfjZOLLDPmzGg2PcxYqS0t66YCDSIK7ZeCnZs213eKnm1DqMRp1GTLuf3HaEb1xHQ0Lf0c6K5+pHvbQwEjLlS1Jt8UUxFYOH6IQEi/gTpcr7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=;
+ b=AFElopExZJ5yint9tqBDnhJXhiFtqrmBAS1cM6qXSG1UL7cnif7Nzs5PzFfcwQqFbx5EoT6UxLs/EQFhGJIiFhxUymK1N/4SMM+kh6c3uB0PEhZBCNcYm2XrpXwbh0AZroYHo5+dU3X9XOppOzCAAshvUIXCDbPmtPDfL7HUdfgwqwh/PD1YHq7FcQf9Wv9zwn8piII0Yt6XZlV7VOnUhJVDrdBjRFHDvUH6fCYeuapcb3qqlvyS7kc6tuqAFIwGmc9S9wFHJOpyR2IexMAv3PRLrO/Oi2lIagelfo7Ffm+fjFgpGYqlmoU0bJCFCo+b0bEGtcnRN2fsKo7XEJfIsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XgGymhqQ7TMMPY4orG81N97yV9kUvZLvE774RS3s61Q=;
+ b=F5RyAcpauQHRKfUsgH2MqBDN1B+cTb3Vd4h5cqhhmUw2n+crerMVaDkSHv38ZIOWiLKMJODA74BiM69RF5tfXCTbOKa82R+CFW/knSJYnkF6KY8klMRFRCUp/ijfXKV9KqmOWhnt74tOuTRjk1G8sxxdCMZQeaKvKM/BzUfnKOM=
+Received: from PH8PR02CA0017.namprd02.prod.outlook.com (2603:10b6:510:2d0::20)
+ by LV3PR10MB7937.namprd10.prod.outlook.com (2603:10b6:408:21c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 8 Jul 2026
+ 06:35:57 +0000
+Received: from SN1PEPF0002BA52.namprd03.prod.outlook.com
+ (2603:10b6:510:2d0:cafe::9e) by PH8PR02CA0017.outlook.office365.com
+ (2603:10b6:510:2d0::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Wed, 8
+ Jul 2026 06:35:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SN1PEPF0002BA52.mail.protection.outlook.com (10.167.242.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 06:35:56 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
+ 2026 01:35:53 -0500
+Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
+ 2026 01:35:53 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 8 Jul 2026 01:35:53 -0500
+Received: from [10.24.51.87] (devarsh-precision-tower-3620.dhcp.ti.com [10.24.51.87])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6686ZlYg2124653;
+	Wed, 8 Jul 2026 01:35:48 -0500
+Message-ID: <4cdc9944-9486-461b-b637-702921a4367e@ti.com>
+Date: Wed, 8 Jul 2026 12:05:47 +0530
 MIME-Version: 1.0
-References: <20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com>
- <20260701-add-mediatek-genio-520-720-evk-v2-3-19d5da4ef984@collabora.com>
-In-Reply-To: <20260701-add-mediatek-genio-520-720-evk-v2-3-19d5da4ef984@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 8 Jul 2026 14:22:01 +0800
-X-Gm-Features: AVVi8CeA6CFM4kR5Bt4fLtWwaGoE3MK5l8ZS1mrdHaGZI7ndDG_5d5ZiXOKEMvU
-Message-ID: <CAGXv+5F9RPzKWTH1heDEUmWgE2k9mnvdj_uLO9MS5aKqN+3cDw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] arm64: dts: mediatek: add Genio 720-EVK board
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Sean Wang <sean.wang@mediatek.com>, kernel@collabora.com, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 10/15] drm/tidss: Add support for DPIENABLE bit
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>,
+        Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain
+	<s-jain1@ti.com>,
+        Louis Chauvet <louis.chauvet@bootlin.com>
+CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
+ <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
+Content-Language: en-US
+From: Devarsh Thakkar <devarsht@ti.com>
+In-Reply-To: <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA52:EE_|LV3PR10MB7937:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d16a0ba-5934-4fc4-03d5-08dedcbb2a6e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|1800799024|82310400026|23010399003|376014|921020|18002099003|22082099003|3023799007|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: Di++5lGbNV2MVqRyjHS6Ukjq/F5FgQgwF9oHBB2Cg6d8XCG2gFTl09BpaL/NyvkEQqmDSxJTD8LeWgsnOIwGIXeG8KhRza9D/kwMybRYHrLl6UNmpzYx2SdtelC4Uwxm7TFf1DP5mr75qMfHrLvScBfjWACiil9PTRIRPM10H3OgZAwhBDeAhnwwjLW+GKE5CFl1Sr15CnEhGF21qNy/94PFeFtd6I9wVHv5WIHPpYekIoD69257l5y2ffWImluC0HW7ZW8araU5HqnlrSwhKmL7Bb4lYZ7usFUNKuVAQV6J+zBuprTPW/JEm76fR6eZLa68hRIlSUcQXv3MWWVad5XGjir+kx0xaL6FePldrSf04bkfxGdemsWmw2CN6LecZf2waekjOZSTrvDMzOV9yxymyjNbdaJGc4m3mA4N62ei6QkK8qTMbSzqoFGM8MXgHA02WI/C4JJyEj08786zM6tBEYAMzRRYdR2/wLe/PJhEmaRSfpQetaUSr37QutibXMIU5m6BScPdW2TIBIJUd7UEz3fiVeCCXmT2d6wPqR2OJnsQtu45EtuMzOl9gqGLhffEUq3fdfygcIquDi3kbwpiEtaS6sUFM+atYR551tq3PsrgVbXYX7BmfWsy7yKser5vk8I9B7pxXnZYEaBgGI0bvH4QKUxSA4KwrKwz+qnkzX2Di/38vVqPWL8ZJdOTYcJ+ZzEtU2KD2Qc0JFy34CextR+HslokOmQr0eCapeG0jVIj6F2bNHPmc1Me6hSs
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(1800799024)(82310400026)(23010399003)(376014)(921020)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ulV+OBRobZNnNHs5WeiP3dVaPmxHJPMhytUJA5tG/Y4RYoEY5YjcQ7UFLbPJytUfdMHbmgp9fYwC43/uhzjS+44+VlHWll677GxC0PdAiLIPAaVdum7Qq4SKKt31dXuXDlmvrNGn4z7Qs/hhv/AjcNTMKtopvf7PagVEhpGOd29Ini/3mdHbUiuEYUh4mI+X/k3RDgXzJm7rwQj4jrrmxvX5GJa9deCDHbyF4gBwqG2AS2xgC91VGgax8xvyxWdxfG/seuw47up/jfvwS/d2+VaKwfxzu8Yco3dLFXSPwI2kZ0gSxYQHCHRtQQ6aef/ySBraZbnw3h3SLiP4rjLZIBsM3aPMOOg3hGxbU+GlgYF+KoT1HNJvTf5nEijGlnDCrwD3b/30y7SJwONjszaoE/J6Z4e8ceEnfjD7nSV0uL2937DmR7i/RpZjsEQzvuXN
+X-Exchange-RoutingPolicyChecked: nCXhERC1tepJv1Cnvmm1KSPKIHSDQtS/MAuIGUV0N79+2aIxi0vVBnSW0r+Tb5AgDYNk4xavmlzUgV5BnDWFno+MOufBRa9DWzLi8Aw9/2Y5EAGd6YmpVN7rXm3p5TRXPKnUnd1s/5ZvK6hFR3kKl7BkZxPEmEyAVyW1guMKo9hi0sNJm5peOpwxz60ABFIiZ25H0SQyI9n49G2iHL9P87TVSLyLdnTSrDMjS0mdhy50mV8RXHk9KCWvKVuK89foKCGuXHhbD4WZx8ExjyHSW9LiQvnkEp4m7VIB01DszMlQ+1e5WxEkpxbsChfKu7ZNiloOxuMrVNHHmrd/F8hXCA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 06:35:56.1730
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d16a0ba-5934-4fc4-03d5-08dedcbb2a6e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA52.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB7937
+X-Authority-Analysis: v=2.4 cv=f594wuyM c=1 sm=1 tr=0 ts=6a4defd2 cx=c_pps
+ a=+v7uXpzEFv5PX1YPhMLqHw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
+ a=vqHznLqP4jQ7SChzMA0A:9 a=QEXdDO2ut3YA:10 a=D0XLA9XvdZm18NrgonBM:22
+X-Proofpoint-GUID: fq349C4d0Px9rIiNujwSRlQkWCOlmkxm
+X-Proofpoint-ORIG-GUID: fq349C4d0Px9rIiNujwSRlQkWCOlmkxm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDA2MSBTYWx0ZWRfX7rmsAatiE4Z/
+ gHcEN4DwSf9MYx6xT9wSNZIWSAdvHmdHTAsfQCAlaNWte59atAokDgtRcLPnkIJrArZy1Njsxa2
+ SJhqDq8Y4fca/aSl880J6sTfuGxCMAZEQANm2+2ZS35M/yeZo00o7TJKafefOJmIb0rdC2jZnoF
+ WAl1BE3vdFQmKriVVEHStYNynI3yZV/bPAkDing+y2roL6lUPWZSkfWsioWyPv4tVmR6YT6xacs
+ 1crJ5Plfj+SK9w2KQ7byPGN1fETw8F27LwzNaNTc+o4pWGnnQnooeXYepOAq7Hm6sWTFYUrO73t
+ Ch8qyEJIWnvGgL7DjryXeh9QvlLupZfWXU+AcdNOLefgzDOyE81vj9pq/drIt/D2NJf1T0iyZlg
+ qVEULO6vVubPD2ewc5Wc5V4zl/DLXBjloPJG7nKd5fwjlXXaktBkKy54lpEsahiIcRCd+Fllrl5
+ yFTxs0RDnvALBUYeY3w==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDA2MSBTYWx0ZWRfX8FEONdkDrJU6
+ uk1hU8Mi8+dyh0e6DbzCS+zDYCpDg5EgtaxlCQgw+UpdFhZla1uN0fV9TLkN5yJUam0R0yveicu
+ S8Su5QnYC5Fl1YK7EE9y8xgVzRECR8c=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-07_06,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 spamscore=0 bulkscore=0 phishscore=0
+ lowpriorityscore=0 malwarescore=0 clxscore=1011 adultscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607080061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_232213_840248_F686C5F7 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260707_233619_166551_5B243302 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,167 +191,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 2, 2026 at 12:36=E2=80=AFAM Louis-Alexis Eyraud
-<louisalexis.eyraud@collabora.com> wrote:
->
-> Add support for MediaTek MT8189 SoC and its variants, and a devicetree
-> for the basic hardware enablement of the Genio 720-EVK board, based on
-> MT8391 SoC.
->
-> MT8391 SoC is a variant of MT8189 SoC with a difference for the Arm
-> Cortex-A78 CPU core maximum frequency (2.6 Ghz for MT8391, 3 Ghz for
-> MT8189). MT8391 hardware register maps are identical to MT8189.
->
-> The Genio 720-EVK board has following features:
->   - MT8391 SoC
->   - MT6365 PMIC
->   - MT6319 Buck IC
->   - MT6375 Charger IC
->   - 8GB LPDDR5 RAM
->   - 64GB eMMC 5.1
->   - 128GB UFS
->   - 20V DC Jack
->   - USB Type-C Power Adapter
->   - Micro SD card slot
->   - Push Button x 4 (Power, Reset, Download and Home Key)
->   - LED x 3 (System Power, Reset, DC-IN Power)
->   - USB Type-C Connector (USB 3.2) x 2
->   - USB Type-C Connector (USB 2.0) x 1
->   - 3.5mm Earphone Jack x 1 (with Microphone Input)
->   - 3.5mm Line Out Audio Jack x 1
->   - Analog Microphone x 1
->   - Digital Microphone x 2
->   - Gigabit Ethernet with RJ45 connector
->   - DP x 1 (Mode over USB Type-C)
->   - LVDS port x 1
->   - eDP port x 1
->   - UART x2 with serial-to-usb converters and USB Type-C connectors
->   - UART Port x 2 on Pin Header
->   - M.2 Slot x 2
->   - I2C Capacitive Touch Pad
->   - 4-Lane DSI x 1
->   - 4-Data Lane CSI x 2
->   - I2S Pin header
->   - 40-Pin 2.54mm Pin Header x 1
->   - CAN Bus x 1 (RS232 Connector)
->
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Hi,
+
+On 29/05/26 14:15, Tomi Valkeinen wrote:
+> Many (or even all?) K3 SoCs have DSS VP_CONTROL.DPIENABLE bit described
+> in their documentation. This bit controls whether the DPI block is
+> enabled, and is set to 1 by default (i.e. DPI is enabled at HW reset).
+> 
+> However, in almost all SoCs the setting does not actually do anything,
+> and at the moment the bit is not managed by the driver.
+> 
+> The exception is AM62L, which does have DPIENABLE connected, and
+> disabling the DPI block when it is not in use provides power savings.
+> 
+> Let's add a new feature flag for this, 'has_vp_control_dpienable', and
+> implement the support.  Disable DPIENABLE for all videoports at resume
+> time, so that it is 0 by default. Specifically enable and disable it in
+> dispc_vp_enable() and dispc_vp_disable() for DPI output.
+> 
+
+I think in commit msg you probably mean to capture 
+dispc_vp_prepare/dispc_vp_unprepare instead of dispc_vp_enable() and 
+dispc_vp_disable() for enabling/disabling DPIENABLE bits. With that 
+correction in commit msg,
+
+Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
+
+Regards
+Devarsh
+
+
+> Tested-by: Swamil Jain <s-jain1@ti.com>
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 > ---
->  arch/arm64/boot/dts/mediatek/Makefile              |   1 +
->  arch/arm64/boot/dts/mediatek/mt8189.dtsi           | 920 +++++++++++++++=
-++++++
->  .../boot/dts/mediatek/mt8391-genio-720-evk.dts     |  27 +
->  .../boot/dts/mediatek/mt8391-genio-common.dtsi     | 673 +++++++++++++++
->  4 files changed, 1621 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/=
-mediatek/Makefile
-> index a86fb313b1a9..5c75ea1ef09a 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -173,6 +173,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-genio-1200-ev=
-k-ufs.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-genio-700-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-grinn-genio-700-sbc.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-tungsten-smarc.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8391-genio-720-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-kontron-3-5-sbc-i1200.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l-8-hd-panel.dtbo
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/d=
-ts/mediatek/mt8189.dtsi
-> new file mode 100644
-> index 000000000000..272b1b34c953
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
-> @@ -0,0 +1,920 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + *
-> + * Copyright (c) 2025 Collabora Ltd.
-> + * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> + */
+>   drivers/gpu/drm/tidss/tidss_dispc.c      | 23 +++++++++++++++++++++--
+>   drivers/gpu/drm/tidss/tidss_dispc.h      |  2 ++
+>   drivers/gpu/drm/tidss/tidss_dispc_regs.h |  1 +
+>   3 files changed, 24 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+> index 08342a9a5e8c..1b8d52f10673 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+> @@ -442,6 +442,8 @@ const struct dispc_features dispc_am62l_feats = {
+>   	},
+>   
+>   	.vid_order = {0},
 > +
-> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/power/mediatek,mt8189-power.h>
-> +#include <dt-bindings/phy/phy.h>
+> +	.has_vp_control_dpienable = true,
+>   };
+>   
+>   static const u16 *dispc_common_regmap;
+> @@ -1210,6 +1212,11 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
+>   			     (!ipc ? DPI0_CLK_CTRL_DATA_CLK_INVDIS : 0) |
+>   			     (rf ? DPI0_CLK_CTRL_SYNC_CLK_INVDIS : 0));
+>   	}
 > +
-> +/ {
+> +	if (dispc->feat->has_vp_control_dpienable &&
+> +	    dispc->vp_data[hw_videoport].dpi_output)
+> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1,
+> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
+>   }
+>   
+>   void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
+> @@ -1226,6 +1233,11 @@ void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
+>   
+>   void dispc_vp_unprepare(struct dispc_device *dispc, u32 hw_videoport)
+>   {
+> +	if (dispc->feat->has_vp_control_dpienable &&
+> +	    dispc->vp_data[hw_videoport].dpi_output)
+> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
+> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
+> +
+>   	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X) {
+>   		dispc_vp_write(dispc, hw_videoport, DISPC_VP_DSS_OLDI_CFG, 0);
+>   
+> @@ -2445,10 +2457,17 @@ static void dispc_vp_init(struct dispc_device *dispc)
+>   
+>   	dev_dbg(dispc->dev, "%s()\n", __func__);
+>   
+> -	/* Enable the gamma Shadow bit-field for all VPs*/
+> -	for (i = 0; i < dispc->feat->num_vps; i++)
+> +	for (i = 0; i < dispc->feat->num_vps; i++) {
+> +		/* Enable the gamma Shadow bit-field for all VPs*/
+>   		VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONFIG, 1,
+>   			       DISPC_VP_CONFIG_GAMMAENABLE_MASK);
+> +
+> +		if (dispc->feat->has_vp_control_dpienable) {
+> +			/* Disable DPIENABLE for all VPs */
+> +			VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONTROL, 0,
+> +				       DISPC_VP_CONTROL_DPIENABLE_MASK);
+> +		}
+> +	}
+>   }
+>   
+>   static void dispc_initial_config(struct dispc_device *dispc)
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
+> index 6f53d554259c..0fbfb86adfbf 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc.h
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc.h
+> @@ -92,6 +92,8 @@ struct dispc_features {
+>   	u32 num_vids;
+>   	struct dispc_vid_info vid_info[TIDSS_MAX_PLANES];
+>   	u32 vid_order[TIDSS_MAX_PLANES];
+> +	/* The DSS has VP_CONTROL.DPIENABLE bit */
+> +	bool has_vp_control_dpienable;
+>   };
+>   
+>   extern const struct dispc_features dispc_k2g_feats;
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc_regs.h b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> index 4cdde24d8372..4246c72efdd5 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> @@ -230,6 +230,7 @@ enum dispc_common_regs {
+>   
+>   #define DISPC_VP_CONTROL			0x4
+>   #define DISPC_VP_CONTROL_DATALINES_MASK			GENMASK(10, 8)
+> +#define DISPC_VP_CONTROL_DPIENABLE_MASK			GENMASK(6, 6)
+>   #define DISPC_VP_CONTROL_GOBIT_MASK			GENMASK(5, 5)
+>   #define DISPC_VP_CONTROL_ENABLE_MASK			GENMASK(0, 0)
+>   
+> 
 
-[...]
-
-> +       soc {
-> +               compatible =3D "simple-bus";
-> +               #address-cells =3D <2>;
-> +               #size-cells =3D <2>;
-> +               ranges;
-> +               dma-ranges =3D <0x0 0x0 0x0 0x0 0x10 0x0>;
-> +
-> +               performance: performance-controller@108d78 {
-> +                       compatible =3D "mediatek,cpufreq-hw";
-> +                       reg =3D <0 0x00108d78 0 0x120>, <0 0x00108e98 0 0=
-x120>;
-> +                       #performance-domain-cells =3D <1>;
-> +               };
-> +
-> +               gic: interrupt-controller@c000000 {
-> +                       compatible =3D "arm,gic-v3";
-> +                       reg =3D <0 0xc000000 0 0x40000>, /* distributor *=
-/
-> +                             <0 0xc040000 0 0x200000>; /* redistributor =
-*/
-> +                       interrupt-parent =3D <&gic>;
-> +                       interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
-> +                       interrupt-controller;
-> +                       #interrupt-cells =3D <4>;
-> +                       #redistributor-regions =3D <1>;
-> +
-> +                       ppi-partitions {
-> +                               ppi_cluster0: interrupt-partition-0 {
-> +                                       affinity =3D <&cpu0 &cpu1 &cpu2 &=
-cpu3 &cpu4 &cpu5>;
-> +                               };
-> +
-> +                               ppi_cluster1: interrupt-partition-1 {
-> +                                       affinity =3D <&cpu6 &cpu7>;
-> +                               };
-> +                       };
-> +               };
-> +
-> +               apdma: dma-controller@11300b00 {
-> +                       compatible =3D "mediatek,mt8189-uart-dma", "media=
-tek,mt6985-uart-dma";
-> +                       reg =3D <0 0x11300b00 0 0x80>,
-> +                             <0 0x11300b80 0 0x80>,
-> +                             <0 0x11300c00 0 0x80>,
-> +                             <0 0x11300c80 0 0x80>,
-> +                             <0 0x11300d00 0 0x80>,
-> +                             <0 0x11300d80 0 0x80>,
-> +                             <0 0x11300e00 0 0x80>,
-> +                             <0 0x11300e80 0 0x80>;
-> +                       interrupts =3D <GIC_SPI 432 IRQ_TYPE_LEVEL_HIGH 0=
->,
-> +                                    <GIC_SPI 433 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 435 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 436 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 437 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 438 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                                    <GIC_SPI 439 IRQ_TYPE_LEVEL_HIGH 0>;
-> +                       clocks =3D <&peri_ao CLK_PERAO_DMA_B>;
-> +                       clock-names =3D "apdma";
-> +                       dma-requests =3D <8>;
-> +                       #dma-cells =3D <1>;
-> +               };
-> +
-> +               auxadc: adc@11019000 {
-
-The .dtsi file's device nodes should be sorted by base address.
-This file's device node order is inconsistent.
-
-
-ChenYu
 
