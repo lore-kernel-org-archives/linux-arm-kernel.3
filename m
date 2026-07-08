@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703B1C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C571C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 14:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7yyVToNBncWBiaSgF0uUkZd17kcwMguzJKxwkT8l9ls=; b=y5qJTFOjjDxTvOH4DXf51McJqF
-	ApTp24UvfptTaokCpEfbQ2mpXQQA8Xw9bAJf63EbPZa0N4tR8q8UX2Qs9UE6CCoDwM/bxoBRkcQ0r
-	FMGxb84XNwif2Oitd3tz3byfcPptJeme4fUsmVwfxsFpaf20N3hTkK61T9MkuNlamO54m+gAdbP9L
-	Y/VE0krbsyyofEb143vcdnMQrONqXE1Ib9hz6nVMlcc1CCr1Ql9sV2h4XE5vMW+xcxV9xNTq1tB+z
-	yoNuRsHqgHGgj5IeIJoJI9qmooKZjhNAp9u9YMraIxnVwf5NzB1LrUgDmQ++4k4jWjUfxfNDHuGIh
-	vId5eNug==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=91/kfvMItbzWVK/DAFZhdWsgWZENE5O8NFb3fp/lN2Q=; b=Ow+r/2aXtg+kTfR3Wj0aEgiqoI
+	mLwgtaw9QbxkQsbRB6jPKRTJPj+9NUA5ZH6wNBr8MHyQyIe/R/yVpknJSaC8+tO2V0QfLJq8iCAcN
+	Yq0kaSsTAU2XT/Z+r+CjnVO1bYGy2efntbYQ2vWjnzBrJnhorU0/E8MiCSlyF20JajboglwmiZSSt
+	GHCa4picLjhCgbk4XBDs44drU6Rx3vkQegy1wD8tGEFomRxPdtZtmfV5xnNT4LqOY37FbVxjfRO+F
+	pHWx2qUxEkBdYLLOHuP6yi5MRAcJqO4dKIJFVUiWDMsH0nkKZJm72Dbh+1+tm/IW7tz48Nnm4uRNw
+	wbvRGj6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTVO-0000000HNMN-3RCU;
-	Wed, 08 Jul 2026 14:44:06 +0000
+	id 1whTVa-0000000HNT0-1arN;
+	Wed, 08 Jul 2026 14:44:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTVM-0000000HNLi-2MWS
+	id 1whTVY-0000000HNRQ-0Bvk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 14:44:05 +0000
+	Wed, 08 Jul 2026 14:44:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A24AC1CDD;
-	Wed,  8 Jul 2026 07:43:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2EE921CDD;
+	Wed,  8 Jul 2026 07:44:10 -0700 (PDT)
 Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 203113F7B4;
-	Wed,  8 Jul 2026 07:43:57 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9B75E3F7B4;
+	Wed,  8 Jul 2026 07:44:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783521840; bh=PHN32ex2ufL8mW+siWwXKAxwSV8HYJONz7jukXjGBKI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KIeiA2ZTN8KfIxqM14f5juJxThtYcmvICWu/A3cggH0s7uZYmqBVrvZWLmwn5Jebj
-	 39VxVSrEIUdzMQJ7cfXfJ/yOqWV2Y6njS21WRz3NoCa17BrP56pCkyXgRc/NoaoLX8
-	 1HJ4QiQ6Nr1ok+3OwdpgfTVzexqtEVE4g/6mIbYM=
+	t=1783521854; bh=hs/KT2Dmc859Gy+ccolk+2FJrdrfEunyTJEUFd36scM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=t6so7CUlRotG4uuo5MemBPFunfXW7pEjn0FqwMJFlTBW1T9xunSDcYSXKHixtcM6r
+	 6B08+bCDKjEFVmfRSZQvkDjbgOXm6oZ0m9uot2xhAVV7is6odhd5OOb7DiE/HAw5sJ
+	 /LOgUfh73xcSvG3z/MSGB6bQnXBMb9gdyBebdGS4=
 From: Linu Cherian <linu.cherian@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,15 +50,18 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v2 0/6] Add BBML3 cpu feature 
-Date: Wed,  8 Jul 2026 20:13:25 +0530
-Message-ID: <20260708144331.679816-1-linu.cherian@arm.com>
+Subject: [PATCH v2 4/6] arm64: sysreg: Add BBM_3
+Date: Wed,  8 Jul 2026 20:13:29 +0530
+Message-ID: <20260708144331.679816-5-linu.cherian@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260708144331.679816-1-linu.cherian@arm.com>
+References: <20260708144331.679816-1-linu.cherian@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_074404_664239_9D6A7D5C 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260708_074416_129808_19C0B073 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Patches 1, 2 and 3 adds more cpus to the bbml2_noabort 
-  support list. bbml2_noabort would eventually gets renamed
-  to bbml3 in a subsequent patch as they are functionally
-  equivalent. 
-- Patches 4, 5 & 6 introduces BBML3 cpu feature
+Add BBM_3 definition for ID_AA64MMFR1_EL1 register.
 
-Changelog from v1:
-* Patches associated with adding cpus to BBML2_NOABORT,
-  support list, were kept at bottom in v1 is now moved
-  up in this version, for ease of backporting.
+Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+---
+ arch/arm64/tools/sysreg | 1 +
+ 1 file changed, 1 insertion(+)
 
-* Adding BBM_3 definition in sysreg moved into a separate patch
-
-* MMFR2_ID check for BBM_3 has been changed from == BBM_3 to
-  >= BBM_3, so that BBML3 cpu feature gets enabled for BBM_4 as well.
-
-* For feature detection, MMFR2_ID check comes first followed by 
-  midr check for code readability
-
-* Errata details for C1-Ultra and C1-Premium added to commit message
-
-Linu Cherian (6):
-  arm64: cputype: Add Cortex-A520AE definitions
-  arm64: cputype: Add C1-Nano definitions
-  arm64: cpufeature: Extend bbml2_noabort support list
-  arm64: sysreg: Add BBM_3
-  arm64: cpufeature: Add BBML3
-  arm64: cpufeature: Detect BBML3 based on MMFR2 ID
-
- arch/arm64/include/asm/cpufeature.h |  6 ++--
- arch/arm64/include/asm/cputype.h    |  4 +++
- arch/arm64/kernel/cpufeature.c      | 54 ++++++++++++++---------------
- arch/arm64/mm/contpte.c             | 21 +++++------
- arch/arm64/mm/mmu.c                 | 52 +++++++++++++--------------
- arch/arm64/mm/proc.S                |  4 +--
- arch/arm64/tools/cpucaps            |  2 +-
- arch/arm64/tools/sysreg             |  1 +
- 8 files changed, 71 insertions(+), 73 deletions(-)
-
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index bc1788b1662b..082256ec3bf9 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2259,6 +2259,7 @@ UnsignedEnum	55:52	BBM
+ 	0b0000	0
+ 	0b0001	1
+ 	0b0010	2
++	0b0011	3
+ EndEnum
+ UnsignedEnum	51:48	TTL
+ 	0b0000	NI
 -- 
 2.43.0
 
