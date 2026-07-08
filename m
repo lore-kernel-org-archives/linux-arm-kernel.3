@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0920C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 23:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D8AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 23:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/WEBswxTzx7nXmGRTr84fTpVHfRG3sFxcVJfE6FqGQ=; b=HCHydxPzvfIa2YD8xmZNn77Llm
-	z15m9PcXDLIzJuztdQZ6NydVORbA3GRaxsuLArSTtyb3p0KgFsEDnDxnDMRj7P0qnsIjP0P1JlF+1
-	a4OttdSVbawRF0KxEeArPvXBUpzRn2AGhzcwL8rmX5p3tNOiN+0okUsDDKhTEXClSb71chUJatFwM
-	MZCv4DqpcUnXPlJ6BjHG2PnwPQl1IhZ7nbn2tmjGsY7IaZrIfvjxKJLtw/PIt+Er4Oohxm9DAV798
-	6IZxh6TeClF9GUqUqvY2b3RVydTmTNmrUZMoTdc/jYYPxP7G8iBv+FGFRJyK24NEZbCij1kKZuZ9K
-	STxxCX5A==;
+	bh=LR60eLgUfNNIz6B0v46FKwzAtiy9XGoPTayqxcAz4UQ=; b=yqhYeIoU0DxMhPuBxKUOGNSh9C
+	ii+tHHlExLqNsJSsvZw4PeoDRrDhoI/Av0rKi0/hmvGJneX/3T9Af0WH4kWMq83UpHV/3xE2tLsDf
+	VKcjtbpHq89q1L0Lc/QHA6+cmBscYwzOboujx1XJ041T4Np9C2L1Db7vTwPUv4SaSdVkfbbpeiWkf
+	DZt0xPzf0+6qt35S/rU4SOoTowCAP3ni/dEon7w1a09cJH0kWXbbEnu7eUYuqZJt+cloFWOF6+Y23
+	N0Ghxc1BDKV6dVlmQ3MzqmcNSyDCMZsgRunMGb2fm2JMt0gL13KjNCRptDNyBTAW+0J+sK6vVVmkp
+	qofFgsMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHN-00000000UN5-3B3Q;
-	Wed, 08 Jul 2026 21:58:05 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whbOy-00000000a4p-0SWe;
+	Wed, 08 Jul 2026 23:10:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHF-00000000UBA-1Ccc;
-	Wed, 08 Jul 2026 21:57:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783547874;
-	bh=9/bogiHgeqmdeHsMRYIm/Lu04Scp19gUBuFTY0xhIG8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YTTWMBc3kznoPFtISG7eRNIOhmjs2iH26n6yDn6KXbleKqCfaTi/o4tjAl7rTtHI2
-	 viJ5D3cTYBfyuDN7ZN69lVqkadQWrdx9WUD8anvD5/UJdPmYlXVljjBUkmnrU0OGdO
-	 bbvUcRkNr7fvehpUwzMkvBRen0BWnxkt3GpQ5ceMQxcYHS9Dwnj6mCi6Fk5YbtrdEa
-	 DJvTvPQ5Mw77TgXnxL+0lMAamQsmWMCD+aLLhlhwG1ntmbVGn9+Ux3Vy8lUKMDmrf3
-	 20eOXBWELfOGgcRWA1zsYA0V4g3mZ/XnBpLQKpVT0Hurn84v3YdEbRduHHaKZx94b8
-	 w4F5f01jiiNsQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 96F2917E0D43;
-	Wed, 08 Jul 2026 23:57:54 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 09 Jul 2026 00:57:27 +0300
-Subject: [PATCH v3 05/14] drm/rockchip: vop2: Avoid division by zero when
- computing max_dclk
+	id 1whbOx-00000000a4Y-1pNZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 23:09:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CACB660EEF
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jul 2026 23:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C1D21F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jul 2026 23:09:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783552198;
+	bh=LR60eLgUfNNIz6B0v46FKwzAtiy9XGoPTayqxcAz4UQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ZqLGG/LaE2yyMqM5XS0hIvwyGP4VAC2nYijzaQlQfIaDqC4xDUQr93yEZe96t90jy
+	 VymKJ+2dNoXJ0R90xBkWS3du9UT3kY79XAn6bzUKknfEpUTxnHM6QE7X2l+BB0xYbo
+	 cwLCu/lnPGJjQS3pil9w7fjr6vJN/rv+nWiHl6vwGXiVOcVBJ0Sg0UuLfA7DpObG8X
+	 3dtK6Nb/81VPz7HN1L7VIbbeezTa9yQCWAGc/Bb0heQOcjAxtvPDGvlr4CsC+tQDDf
+	 XQ9VtCE1WQQ5Sx8FsNYcHIPYNyyrcoAuBxDyDOZ8Y0d+4eXb8TBqQwXlD7MHuq2KVY
+	 /XVaqMZw9G9iw==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aec139da7eso380537e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 16:09:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrKfe4Ntll2ikM9rPyi0SmUntfNpPJwB8LQ+vpNOsqwqVBDkU7I5+YTPvbDG9VDF4rPzCClO0Lu44X17doGIkdi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrWk0BLzTgfCH0GNYEpwLUA6VXy/UYCdwdAANzh8iSsWkP33ah
+	aiZnbW95YJ98CZY9dM+xyHqD/NplRsdtM6vqD+3Ls0EuFlOFAmsE4BhM0gY8Hmk/BkLKqaGjJ8E
+	cVGk7u9yQhlfXYr/tKlrJLv1XxmvK0bk=
+X-Received: by 2002:ac2:4f08:0:b0:5ae:b5d7:7844 with SMTP id
+ 2adb3069b0e04-5b016d1b33fmr49718e87.5.1783552197150; Wed, 08 Jul 2026
+ 16:09:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-dw-hdmi-qp-yuv-v3-5-a4a982a9f2e7@collabora.com>
-References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
-In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_145757_515049_3204CC9B 
-X-CRM114-Status: GOOD (  13.59  )
+References: <20260708-dts-stmpe-v1-0-1f51d15bb358@nxp.com>
+In-Reply-To: <20260708-dts-stmpe-v1-0-1f51d15bb358@nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 9 Jul 2026 01:09:43 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=tBRFXzqa6gXNnZ3-DRUMvs=waSdDvq5h5MPHAQoheqw@mail.gmail.com>
+X-Gm-Features: AUfX_mwW-7N7MmlP00AndlWeAaBl8FEBrFYJNUhifSWGKsGcvxauySd-Uj-hISw
+Message-ID: <CAD++jL=tBRFXzqa6gXNnZ3-DRUMvs=waSdDvq5h5MPHAQoheqw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] ARM: dts: imx: cleanup st,stmpe touch screen related
+ CHECK_DTB warings
+To: Frank.Li@oss.nxp.com
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DCLK reparenting logic in vop2_crtc_atomic_enable() is gated only on
-the presence of an HDMI PHY PLL on the SoC.
+On Wed, Jul 8, 2026 at 9:49=E2=80=AFPM <Frank.Li@oss.nxp.com> wrote:
 
-This condition is true on any board that wires up an HDMI PHY, even when
-the CRTC is currently driving a non-HDMI output such as DSI or LVDS.
-Those encoders do not set vcstate->output_bpc, so it stays 0, hence the
-subsequent DIV_ROUND_CLOSEST_ULL() then divides by zero.
+> cleanup st,stmpe touch screen related CHECK_DTB warings.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Frank Li (3):
+>       dt-bindings: mfd: st,stmpe: add deprecated properties
+>       dt-bindings: mfd: st,stmpe: let interrupt property optional
+>       ARM: dts: imx: remove undocument properties of st,stmpe*
 
-Note this division happens before the drm_for_each_encoder_mask() loop
-that would establish whether the pipe is actually driven by HDMI, so the
-loop provides no protection.
+Those look OK I think:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Default bpc to 8 when it would otherwise be 0.  The resulting max_dclk
-value is a don't-care on the non-HDMI paths that trigger this, since the
-encoder loop will not select the PHY PLL as the DCLK source there.
-
-Fixes: b0362c45c401 ("drm/rockchip: vop2: Check bpc before switching DCLK source")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260623203310.9F8C81F000E9@smtp.kernel.org/
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4bb1985b8726..e9f5d015b645 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1931,8 +1931,9 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
- 	 */
- 	if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
--		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8,
--							       vcstate->output_bpc);
-+		unsigned int bpc = vcstate->output_bpc ?: 8;
-+		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8, bpc);
-+
- 		if (clock <= max_dclk) {
- 			drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
- 				struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-
--- 
-2.54.0
-
+Yours,
+Linus Walleij
 
