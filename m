@@ -4,81 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D98C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92125C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LMTh0V639Yf2I2TTVIIe/eluhRhvYcsFWaLhme4GuFU=; b=IOOAP2JQkown/l23xrHPbAn+p4
-	0ozm+zcT6DTEBVvQeMvMch6kXF9yqJydkUfHS3tcu4aX8EZAUrCJ5tSiXP+H5AsOpiPo045hz7wuH
-	ZSuRY3NK0zbs3kJA3WT/kudnl4grbf3p4F/k2pt1eHheC+0ROeW65+bP4FBaXVPkKNgzXfZw9pbNI
-	964dO8HBd2/r0NzKB04Boj5pi78kzJyn2nK1ZX9C1xxsgU4N5SEtTdXvbM3jQKTiOgQwGfCO1BFbS
-	XzQI/8F2rKr91YQt3JOoP+OShRzN2WOOYcvECkqerJsSiy3EJp8qjdN1qtYPotkLuNHof2mBIT2Pe
-	AhZiVTrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mPiJLzDy5wCVrssyWPG+1Q+mzAwuM5/ksgfu6bEPf+Q=; b=L9i1nB/SLfuvScNoveVTrTaxqC
+	Du0prO7sgVmz8Cr5sHTfZAb8EeFBfVd49W/OetFfuT/A1JFL1WWC4Rb911mV6OpbfiWGNT8EPZ2mY
+	EuEIExa04BGO6rT25mwlURGDRwY+GBqe/oTmeMuLQ4I91j6iXMPKUQ8ozvew5gyl3TtTqS+Gsg8Dt
+	TS5mpmLc/zzayyy3ql1kGW1QpzjRfuleBs/d9iLILoCJsccaIo3HH/sLpfPLnDH1TY+H2c+2FOSAt
+	SOQP900uFlfq6RASAhhqO8AdA28YxtVpDppb25k3qRT/bLNsfxzXvgkp05KIThncZf+/YSk3x4o/J
+	X90gCyYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whR8o-0000000H4LD-0Nfs;
-	Wed, 08 Jul 2026 12:12:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whR9G-0000000H4Tj-1iV6;
+	Wed, 08 Jul 2026 12:13:06 +0000
+Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whR8k-0000000H4Ji-2NK2;
-	Wed, 08 Jul 2026 12:12:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783512750;
-	bh=LWzKAWbjXwRZm/8P259BKzlhUiJ6T2PGRVC7hN/IGTE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=khi/t3Rn7xuVoMQK1wZmJSqjU13hZ8VjC9Trgd3XIn6eOMPD6pcUnkVdIBhUWN/3N
-	 kTRZuDS4OM+fAXzDZgihCWwkiPmM1l72+SdSp4ZedCgpggoFTdwF50yzcOjlN1f1Ub
-	 jjLzAzV4lhmYA0vx3HYXEod5M4AN+3zpDt9YCNzr5tFmWGhvlFUoC8T01SL1LNMTDj
-	 SdeCysDTcbel7p4EpfA9Av1A/u1m2/ZSHSLBdNpD0MzuxGlcFUqJIw6CXOy4r2W6Fn
-	 CVRXhu0TVZvLErOJxH+HxzucljwRIa4HfBCOR1oamCcNVEMXM3Eo/RQhnA26HA2Cz+
-	 wBgg5s+g9CMrg==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B78B317E0713;
-	Wed, 08 Jul 2026 14:12:29 +0200 (CEST)
-Message-ID: <956e84d2-728a-4e8c-8026-ae1a41e69171@collabora.com>
-Date: Wed, 8 Jul 2026 14:12:29 +0200
+	id 1whR9E-0000000H4T1-2yK3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 12:13:06 +0000
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6684m76q1629049;
+	Wed, 8 Jul 2026 07:12:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	PODMain02222019; bh=mPiJLzDy5wCVrssyWPG+1Q+mzAwuM5/ksgfu6bEPf+Q=; b=
+	NEeqBsNipzyb92BkIy1K9L0W7uL0itG3v4/ltelKXmSPjKM741zhz8erdjdhWU9s
+	WxhzOC3sdLMTsXJA3AsPYifNqOkgEpwh+uNSaDFYHeNuIARZxEKJzowOs+i/D5OD
+	d/IOQY7yeVCMKYFYtY9jND8+q+vjoLpNBNDrhg458Iar54KCnH3KaJ4b5v8PzjL3
+	WYMU6XDa3nm0LtdAe9OiWtlhUL/FYMe94jOlaXOtkZRd6ZAbCrhb53g9djLus6c+
+	yYxt4uvHwdepK4ihWhFgCyAlRUkFTfU8xaUbz3xVHWa4ysGCdXZB4LP4r9tF73E/
+	m6iFO9JFwhT1Q8U8Vr5G1Q==
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11023090.outbound.protection.outlook.com [40.107.201.90])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4f6xkjp699-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 08 Jul 2026 07:12:42 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rkbYx7GfrIvnFfmhxG6J1LuNxKracKPBjr4ROUv8TJ15JPl6tGZWJ6A8TfkhqbcLtH6CvvK8npET+44vsJZuEUUgebvr9YEnSAApIqMl5+e//IB4RcRpPENE1ZaZhxWdrJ29FUVsQheEhZrG1fU4b662g1PU6QVegT3YfQB7ppLTC8tGZQuK/f22CtqVkaHxEBIZGN8/KU+H1/2BkriMYMvKV3zmuCkSc+to61g/7KwtKpFMg0JP9pzCub86ZasRoeI+IsuP4guPsYRIssG1YpuFDwEDYvMC2iF0UUZe5woykH/GoX4MdokidauztJ1Jw1Z2GAQY1vmEv8e2dXw2ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xt+HEVbiRucuRSlUuND8Ll0TzQMdxcMD5FWInv8pXMk=;
+ b=BUQR19ucS40HaNufg9S+CxlUj0IYZUOi+RzQ4Jv7tpnlQv5nhq5yMpD5APs4/zSpsNZerWaeLPyajHdOsSAgzfpv4jkhFsSIaqyB3a6dAmdn0fViw7vVVlAD3KSXIiEUQA4guuiZ4Hal4YI26XaIy2m62vKc+vIcXNS/p5s5qg7wbd7zQyizaph4EiYo1XX4qv5ZD/Vlrc9rAB3SnhVBvBbfGjW05YoQITm//H5xWegO1XizdsLSqHmBwt68CuXpIn3x9tYZSFWOsg2LRjdXyizjPf+oRYRb8gzLdMkuJcgqTRDmgRuOvndk5hLCBP4OtquosFbvfEF3sw0l4N7/xQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=analog.com
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xt+HEVbiRucuRSlUuND8Ll0TzQMdxcMD5FWInv8pXMk=;
+ b=SC5LDbjAZtkk8oFLT6F+rUNb5XPpPvTl4y/gDVhb/XWfT+3VE3YhJBX+//r38Z5ld9+14YxxqOUSPcSgHmPbBiyqL6oL+1Ch9HWPh1yrQ+8W3LHDmzdEUbXvHLHgBvc5uobhLoWQW82XEiDu6kYwB6DueBCpknEYhGVcYosEneU=
+Received: from BLAPR03CA0063.namprd03.prod.outlook.com (2603:10b6:208:329::8)
+ by BL1PPF75D1B5ED6.namprd19.prod.outlook.com (2603:10b6:20f:fc04::eb8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
+ 2026 12:12:38 +0000
+Received: from BL6PEPF0001AB73.namprd02.prod.outlook.com
+ (2603:10b6:208:329:cafe::36) by BLAPR03CA0063.outlook.office365.com
+ (2603:10b6:208:329::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Wed, 8
+ Jul 2026 12:12:38 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
+ smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ BL6PEPF0001AB73.mail.protection.outlook.com (10.167.242.166) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Wed, 8 Jul 2026 12:12:38 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id B1736406541;
+	Wed,  8 Jul 2026 12:12:37 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 8EC9D82025A;
+	Wed,  8 Jul 2026 12:12:37 +0000 (UTC)
+Date: Wed, 8 Jul 2026 13:12:36 +0100
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Lee Jones <lee@kernel.org>,
+        Michael Hennerich <michael.hennerich@analog.com>,
+        Chen-Yu Tsai <wens@kernel.org>,
+        Marek Vasut <marek.vasut+renesas@gmail.com>,
+        James Ogletree <jogletre@opensource.cirrus.com>,
+        Fred Treven <fred.treven@cirrus.com>,
+        Ben Bright <ben.bright@cirrus.com>,
+        Support Opensource <support.opensource@diasemi.com>,
+        Andy Shevchenko <andy@kernel.org>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        Chanwoo Choi <cw00.choi@samsung.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+        Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Andreas Kemnade <andreas@kemnade.info>,
+        Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
+        Tony Lindgren <tony@atomide.com>,
+        Andreas Werner <andreas.werner@men.de>,
+        Samuel Kayode <samkay014@gmail.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>, mfd@lists.linux.dev,
+        linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
+        linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org,
+        linux-omap@vger.kernel.org, imx@lists.linux.dev,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 13/23] mfd: Use named initializers for arrays of
+ i2c_device_id
+Message-ID: <ak4+tEBnZAhohI1n@opensource.cirrus.com>
+References: <cover.1783507945.git.u.kleine-koenig@baylibre.com>
+ <5aec0fc2ac0cd1d2e27027ad0c180e2647bd494e.1783507945.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-To: Adam Thiede <me@adamthiede.com>,
- Thorsten Leemhuis <regressions@leemhuis.info>,
- =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "bisson.gary@gmail.com" <bisson.gary@gmail.com>
-Cc: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "simona@ffwll.ch" <simona@ffwll.ch>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "regressions@lists.linux.dev" <regressions@lists.linux.dev>
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
- <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com> <ajka2220depklK1_@owl5>
- <bac79214-050d-448b-be63-0586d45c807d@adamthiede.com>
- <f0d99b1a-e383-4d14-adb1-4ccab46efddb@leemhuis.info>
- <5baeb90d2c3736df67ad075ede4ac765bfeaed2d.camel@mediatek.com>
- <84233951-ee22-4980-9f17-2af1df51fdbf@leemhuis.info>
- <6fed12a6-0c94-477f-8a2e-466c33ea2e29@collabora.com>
- <dbc251f2-0c67-4970-a101-c19129055082@adamthiede.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <dbc251f2-0c67-4970-a101-c19129055082@adamthiede.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <5aec0fc2ac0cd1d2e27027ad0c180e2647bd494e.1783507945.git.u.kleine-koenig@baylibre.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB73:EE_|BL1PPF75D1B5ED6:EE_
+X-MS-Office365-Filtering-Correlation-Id: 978338dc-3f64-42a4-dcb4-08dedcea33fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|23010399003|61400799027|18002099003|16102099003|22082099003|11063799006|56012099006|5023799004|4143699003;
+X-Microsoft-Antispam-Message-Info: NaHGl+PDpkkXJtvjKW41PH/jE0ylBuu5v/uCUrioZ2uwn+H+DJgGiVncFP4nHB9XqOa0JIIfVa0jY6skzCvqfnzDdOdPtF5vzC8DHEqPLRBB7+0aSSXzSe791hZtryCgmNw3g1ZENUjm9wukFkSOUcW3Z9ZP/7GVDhdUrFIeuiDJly6xNSe4cLwqGLBqCWL3UQygXFz8L7rOJUIs5oJZzG5CKRrQHgiwRm08CUCFa1yGkUxqY2UznlouuZUJ88ZWQk+RvTOwZTTXMpo6cHlhYhmj8Dga6ohGjbCQtZJM2/wwubUtGauIiHS5HX8r1gL9ZRAlfRdorUxv8jjBSs/nczh9cZUVH/hbStADP++anL5cNISh0RZC4BQ+qKZR6iSmchQj0OKFI7K1gOtVWp1c0uTS1BK9ZumTH699gL9lPvNJmqWuUUo5qdqTsY5gELCQgc3WlUHIvaBTvQAEAQWbvLb96+x65Xdwq25je1h8h0DTzwIVjl+l8kNrSrLy+VGi8xF5OGEzIoS6uLfy0Wx7OUTjnf1Uaxn6lhJdmRPXhU5mavle/aOh3IKf580MJ1rGV4zVIFyLYbvL7ncPvgV3HC2AKy88W83iIO1bL9ew7K5XE4USu2icK1O7KFsdeHmT71XOGjC2FYUKDkFeqOSKmMdh/I7DYTtBFNrJ8vWv6Qu6aDHolz0NjiIl3rayX7wXh6qXVA2NuUtsNE7pCaw46g==
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(23010399003)(61400799027)(18002099003)(16102099003)(22082099003)(11063799006)(56012099006)(5023799004)(4143699003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MiZb7vDO8Nf/eMjB72nqvyGIORwPxiuVvOIFGaQeXNt4WP4xCrYiwagyREoMq4xX854orAI9QNvndnHGbv+lQC1tYivzy36tQ2TKgEKDyBUR2tYWBf9DSFX4+NTgeu5+C0mz9LxLp4IJ+ontXrmvP7qvfw5ZETwSWymt8Md5wGVD+PTwftNTWuF0D754X39/SQITRh0IISP2O6aovvpnAvX5u8yTquQfn2TsSe0B2j2+RG/7p6xv3Q2sNteyY4Xn/O7FUUCuuBnGNHyt14SCP+QasHcQzxK2NFRWjoQVoUOYC7ttHA0gUzKkCjasOITP6QN3Qaak110LzUYv3FUAp+EPgJ+eIiZOa7WLwN150I+Jk+pP/XWFAOwaXjQiUF8gj9yNNKmLHfvIMIn0fDlLMuXoGd2zRj9RpileDTAERmPCtkzAdmcndnj1J5ubhvM1
+X-Exchange-RoutingPolicyChecked: ZeJrDXOm8A0kX2L8jdcEpaMhqbjpseueAkrkrB6ljFQwAUq5OLwYO6q5YjylwEJbeWuAXTBFsrR42nHzocsRwO90CKze1RJp7lWFnKbJzAMqYTw/lWOiJJeFoMN0u0QSY+q9aqeUCcSmxGxwGvAoVo/Jsjn2i5TX210fJKNo4ulWW8nP0zMUnW2lTto8gpKuQ5sLqmbtb3li5XfQE3jABZSFH+71725ymtpamFpzax5nrr7s3i2sUsd8iJhTKAZhI77X3I529ihUPrtysOb/SxcE1e7+Fdf1Sh+NoF4eB6Na31KkdNEB5FAqwDqhG94JC6CM+lIPylfQ0H20ao8EtA==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 12:12:38.4962
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 978338dc-3f64-42a4-dcb4-08dedcea33fd
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-BL6PEPF0001AB73.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PPF75D1B5ED6
+X-Proofpoint-ORIG-GUID: EhiErDDWciTEN6GeePdQU2jPXppFnCu3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDExOSBTYWx0ZWRfX+L+BMz3bhoEx
+ xM8ccIClQWqyk8gK7CkR3+3gkRkyP3pXiPTeuL5/2BCPYpn+ShmLeyuFnEb+ZHkG4vNm6RmYOkh
+ CirH6i7ocESmpPqts81nZP5DUsE8nm4=
+X-Authority-Analysis: v=2.4 cv=YYiNIQRf c=1 sm=1 tr=0 ts=6a4e3eba cx=c_pps
+ a=1es5Iy7n+cWvltLRflzOuA==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=8nJEP1OIZ-IA:10 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
+ a=IpJZQVW2AAAA:8 a=w1d2syhTAAAA:8 a=iIrBw4RlzRzBrTmksMcA:9 a=3ZKOabzyN94A:10
+ a=wPNLvfGTeEIA:10 a=IawgGOuG5U0WyFbmm1f5:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDExOSBTYWx0ZWRfX8xJ8JhG8nVuE
+ Y8t8utLiRoAp/OcoyE1CfbYK0uwsqSjgXGM37+s81htqHmhqYQl50IEuBymUPloxvdkMzAb5Dxe
+ wZQRnHUlOrr9LQhTIWsDU/8dB9ZE1lcNJhMiqk8euRvESHcvjZvBKX04TZesESNHjogJlDttH8M
+ b2O2qWkeny96ptzGgycsWpl6En/47V1/8MADiJCwHdrNTQY8DdjoG7iSNA6naAIqHymO868p1Nr
+ 4DsdRxZMUEKdnM2btWgEMeBC6osY/yLEeYpCsebnYwm5GTLX7yqrzLlxjc7HjlaKTBvY1ZYtEHd
+ wrVG5dfJBEAds1AfN0+wWslJFYeW9bVKaz977D+jfOV1EtGul70ZytEkW2px4GcUVs49Hopu35F
+ QAoKgAF+yKkZbfYK/TPNIXWsQWeflgZSJwqHkDZTu7mw2BZgfkMA6QxvE8n8vatcCrg99HlkFuU
+ rNOrJqJ/emZZ9spo47w==
+X-Proofpoint-GUID: EhiErDDWciTEN6GeePdQU2jPXppFnCu3
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_051234_764169_BB75E208 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20260708_051304_863866_F9CE6939 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,116 +185,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/8/26 03:25, Adam Thiede wrote:
-> On 7/7/26 05:38, AngeloGioacchino Del Regno wrote:
->> On 7/7/26 10:51, Thorsten Leemhuis wrote:
->>> On 7/7/26 04:20, CK Hu (胡俊光) wrote:
->>>> On Mon, 2026-07-06 at 12:16 +0200, Thorsten Leemhuis wrote:
->>>>> On 6/22/26 15:23, Adam Thiede wrote:
->>>>>> On 6/22/26 06:22, Gary Bisson wrote:
->>>>>>> On Thu, Jun 18, 2026 at 04:06:28PM -0500, Adam Thiede wrote:
->>>>>>>> On 1/20/26 05:36, Gary Bisson wrote:
->>>>>>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
->>>>>>>>> running in order to lock its PLL during its own pre-enable function.
->>>>>>>>>
->>>>>>>>> Without this change, the bridge gives the following error:
->>>>>>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
->>>>>>>>> sn65dsi83 14-002c: Unexpected link status 0x01
->>>>>>>>> sn65dsi83 14-002c: reset the pipe
->>>>>>>>> [...]
->>>>>>>>
->>>>>>>> This commit was part of 7.1 and caused a problem for me.
->>>>>>>> I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330
->>>>>>>> chromebook with a Mediatek MT8173 processor.
->>>>>>>> The problem: when the display on my laptop powers off (via suspend or
->>>>>>>> idle,
->>>>>>>> like xset dpms off) the picture does not come back when the display
->>>>>>>> powers
->>>>>>>> back on (from resume). The display backlight comes on and brightness is
->>>>>>>> adjustable but there is no picture. The only fix is to reboot.
->>>>>>>>
->>>>>>>> Reverting this commit and applying it as a patch on top of 7.1
->>>>>>>> addresses the
->>>>>>>> issue for me.
->>>>>>>>
->>>>>>>> You can view the config I'm using here:
->>>>>>>> https://urldefense.com/v3/__https://gitlab.postmarketos.org/ postmarketOS/ 
->>>>>>>> pmaports/-/__;!!CTRNKA9wMg0ARbw! 
->>>>>>>> jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAN9bmax5$
->>>>>>>> merge_requests/8819
->>>>>>>>
->>>>>>>> Is there any sort of testing or other debugging info I can provide to
->>>>>>>> help
->>>>>>>> address this issue?
->>>>>>>
->>>>>>> Thanks for reporting the issue, could you share some logs? Is the driver
->>>>>>> saying anything during resume? Also, what type of panel is used on that
->>>>>>> chromebook?
->>>>>>
->>>>>> The curious thing is that there are no real logs in dmesg or /var/log/
->>>>>> messages about this. This picture just fails to come back. If there are
->>>>>> some kernel params I can set to get deeper logging, that would help, but
->>>>>> I'm not aware of any.
->>>>>>
->>>>>> I think the panel is a "BOE NV116WHM-T00" - I used this command to get
->>>>>> info: cat /sys/class/drm/card0-eDP-1/edid | edid-decode
->>>>>>
->>>>>> Output: https://urldefense.com/v3/__https://termbin.com/8nbd__;!! 
->>>>>> CTRNKA9wMg0ARbw! 
->>>>>> jrsPDtSEUdaINzLlq92Li8gmsEBkTOxZ6WUzNHjvIN6CyOJjHiHkNSOhIRPXFTLPlaYlxU2uvryVkwjUAJooSyqL$
->>>>>
->>>>> This looked stalled. If I'm mistaken here, please let me known; but if
->>>>> no solution is in sight, should we maybe just revert the change until a
->>>>> proper was found?
->>>>
->>>> It's welcome anyone to provide a revert patch,
->>>> but I would still wait for the fixup patch until 7.2-rc4.
->>>> If no fixup patch exist, then apply the revert patch.
->>>  From my understanding of things the position in the devel cycle doesn't
->>> matter much in a case like this. To quote Linus statements from
->>> https://www.kernel.org/doc/html/latest/process/handling- regressions.html#on- 
->>> how-quickly-regressions-should-be-fixed
->>>
->>> """
->>>  From 2026-01-22:
->>>
->>>   But a user complaining should basically result in an immediate fix -
->>>   possibly a "revert and rethink".
->>>
->>> With a later clarification on 2026-01-28:
->>>
->>>   It's also worth noting that "immediate" obviously doesn't mean "right
->>>   this *second* when the problem has been reported".
->>>
->>>   But if it's a regression with a known commit that caused it, I think
->>>   the rule of thumb should generally be "within a week", preferably
->>>   before the next rc.
->>> """
->>>
->>> Adam reported the problem about three weeks ago, so we are way past the
->>> "rule of thumb" timeframe Linus set.
->>>
->>> Ciao, Thorsten
->>
->> This is a kind of odd situation here. The fix from Adam is actually correct, as in,
->> the SN65DSI83 bridge gets broken without...
->>
->> ....but then, there's some more oddness going on: I tried to reproduce this on my
->> MT8173 Elm device, but there I can resume the system just fine, and the display is
->> up and running like normal?
->>
->> I'm not sure what to advice here at this point - just adding some info.
->>
->> Cheers,
->> Angelo
-> Angelo, would you mind sharing your config, and the details of what you're running? 
-> It might be a configuration difference.
-> Thanks!
+On Wed, Jul 08, 2026 at 01:15:20PM +0200, Uwe Kleine-K�nig (The Capable Hub) wrote:
+> While being less compact, using named initializers allows to more easily
+> see which members of the structs are assigned which value without having
+> to lookup the declaration of the struct. And it's also more robust
+> against changes to the struct definition.
+> 
+> The mentioned robustness is relevant for a planned change to struct
+> i2c_device_id that replaces .driver_data by an anonymous union.
+> 
+> This patch doesn't modify the compiled arrays, only their representation
+> in source form benefits.
+> 
+> Signed-off-by: Uwe Kleine-K�nig (The Capable Hub) <u.kleine-koenig@baylibre.com>
+> ---
+>  drivers/mfd/arizona-i2c.c        | 12 ++++++------
+>  drivers/mfd/cs40l50-i2c.c        |  2 +-
+>  drivers/mfd/madera-i2c.c         | 18 +++++++++---------
+>  drivers/mfd/wm831x-i2c.c         | 14 +++++++-------
+>  drivers/mfd/wm8350-i2c.c         |  6 +++---
+>  drivers/mfd/wm8400-core.c        |  2 +-
+>  drivers/mfd/wm8994-core.c        |  8 ++++----
 
-Sure, here it is:
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 
-https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-dev/arch/arm64/configs/defconfig?ref_type=heads
-
-Cheers,
-Angelo
+Thanks,
+Charles
 
