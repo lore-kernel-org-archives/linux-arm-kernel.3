@@ -4,127 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C5BAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C633C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdXCHFlSHY6Pi75XVezjTuGAQRUzEJGxffv1ff2kPdo=; b=AZpVsKnMzO6lmeYwgJCzKGDDgE
-	F4qyogmZjA/vSpIecZO5iK93tcOkMoYRaKgXgDlq4Wkqv/H/ZzzisyKurJjkOsQgQpfKqXpRTVxLW
-	vfo7tzxxeL38VMIXhgD/53EYa2UxrYl34qwFatp9Yo0r/ruwBpOm+Py6bm7wvHZ26zjiM1h8zt/zq
-	fSz4FODtpZX+wG9wID6Sh9uMvDHVOjGUkQk7yQKV2uJB6tRcuGQLHMx1fFLRuygwPFLpQUoThuMCO
-	/e7+an/Eo5ARwBO8GUsOSNElw63ae4X23fnu/VUw2zod5k0jKKyNT1cc9y7tWj0WuN8e602uNvaIi
-	4gV2HY3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uft61UqF2OH845ovVMSC0RoRp8WC5Tyhv6JXJK2f1jU=; b=vFPjaKOkt+t3iiosZZeWBeDAUS
+	zMhG6FSuM3mQCxUHWazVrnyM1008mUMiGDXL1H7sm1vMd1IHBRS1oB91aaJdOCWQ9skRUbyMAoJoy
+	wtP9UuM7221K9nbutGSYd+/cb5hXm2TOb/KjCUOLvc+RKB3rBbwIYcXWMJf9Tb+SvL7mzD4BXNhFk
+	bTbuiy3woAD/ZEIsSGcMl+OueYnclHjlImSnwXDRCyYFKJGgPyaYJg9tHfpNfAwDxbOoo0AKHArUL
+	awlzTBvropFkjGYYStdvWPACuLN4zq+Uer4uPofvU2rFnVyUyzB7loJcgo1o9xAJq1cb/rdPtjbUV
+	FvoJXb6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whOc2-0000000Gl3R-46ri;
-	Wed, 08 Jul 2026 09:30:39 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	id 1whOiN-0000000Gloi-1cLh;
+	Wed, 08 Jul 2026 09:37:11 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whObz-0000000Gl21-22so;
-	Wed, 08 Jul 2026 09:30:37 +0000
-X-UUID: a31695847aaf11f1a87c2323a98e90a4-20260708
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:ebc3fc81-4464-4f9f-b862-a8b97f2ce416,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:ed79e314-ea64-44d4-98db-4e1fb89955a3,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,B
-	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a31695847aaf11f1a87c2323a98e90a4-20260708
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef22.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 204283926; Wed, 08 Jul 2026 17:30:19 +0800
-X-UUID: a0d994747aaf11f1b328fd8a884f4420-20260708
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:67e242bb-a205-4bc1-8542-34d19cf307b3,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:b579e314-ea64-44d4-98db-4e1fb89955a3,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a0d994747aaf11f1b328fd8a884f4420-20260708
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 2050100014; Wed, 08 Jul 2026 17:30:16 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Wed, 8 Jul 2026 17:30:12 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
- 15.02.2562.043; Wed, 8 Jul 2026 17:30:12 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
-	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
-	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Topic: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Index: AQHdA/KoG0AzoVDQmky5mWyAxH40ubZVI4cU///wpwCABNxa7P//y6CAgAm0KDo=
-Date: Wed, 8 Jul 2026 09:30:12 +0000
-Message-ID: <e85332119e154021b062b5fc55c0e7b8@compal.com>
-References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
- <20260624-t9xx_driver_v1-v3-2-73ff03f60c48@compal.com>
- <2a90ae6b-2b6d-4340-b557-915252cc3488@lunn.ch>
- <49939d4d682f4c1fb359973ea2cdbd00@compal.com>
- <92b1e341-31a1-4f60-80d5-ccf8f742a38a@lunn.ch>
- <4ec081f8df234cc584702abc67213965@compal.com>,<1e75c090-f4aa-4a02-82f5-fd4f3854acbe@lunn.ch>
-In-Reply-To: <1e75c090-f4aa-4a02-82f5-fd4f3854acbe@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30054.005
-x-tm-as-result: No-10--3.904000-8.000000
-x-tmase-matchedrid: CEwNJ/T/RZQuv++HU7VXryRFbfQbCufdN0X64jGy2db7+pncqRJfyx3E
-	y8bUOyJjLw+bI5poIljs40ztshOst3xCS+CiD3FqO9AbTF0WkMJ2Tr80kEaYUBxnMY5CbhsDBK5
-	jsahkTKnXaWrmEWCMgtXNOAQ2MSi2E+WLy1iJCWo58Sarp97J8xfqd/DJ3Zya7rEbQf2fdE7Y1X
-	9Lfi2tyajbSjLATgmfsOVWI173K16vZxwuuLqHzTAkd+hz53cJ9DE2tWwfka1IaQZV+iBbeJT/N
-	1bEGeXqAyJyOEvE0jHbYRPoS4v8I1dlNryGcEYBugRp53kzD5HdjOqvc66oIgeBiFV2jjCF
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--3.904000-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30054.005
-x-tm-snts-smtp: 67EF2485A09C352298FE9A9653BA47C3F06CDA692DB1F078D6CA9BF212C9D1CA2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1whOiJ-0000000GloA-0DrL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 09:37:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=uft61UqF2OH845ovVMSC0RoRp8WC5Tyhv6JXJK2f1jU=;
+	b=cvAKe2faq47q7nZiX5huwb1SMtBoX7Zd0csNmOprhdaoUgMG9gMDSZh63+li1lINBwggS0kJY
+	Iwx3k4IynFJeI52XyFCLkCNRwe/l7hyLuNsAeQf+HIFoGFnkN1NytOygH2VjkAUlPt27JfywUBT
+	6MIxnSl7kaxZMEz2EWUDIMM=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gwCRt3kxzz1prLP;
+	Wed,  8 Jul 2026 17:27:38 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8363C40577;
+	Wed,  8 Jul 2026 17:36:54 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 8 Jul 2026 17:36:51 +0800
+Message-ID: <7e1b4daa-1466-4cf6-9d22-d19a2c9429d4@huawei.com>
+Date: Wed, 8 Jul 2026 17:36:50 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
+	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
+	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <ajvKkLw5bL-FT5JC@willie-the-truck>
+ <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+ <akvoN5vvQaW3MdmI@willie-the-truck>
+ <3bf910b8-c7e8-4a22-8e1d-fa701694369f@huawei.com>
+ <akzW7HrxNkj2DMas@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <akzW7HrxNkj2DMas@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_023035_872910_1325595C 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_023707_746752_C6FD875F 
+X-CRM114-Status: GOOD (  20.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,16 +99,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5kcmV3LA0KDQo+ID4gV2Ugd2lsbCBhbHNvIHJlbW92ZSBhbGwgdW5uZWNlc3NhcnkgZGV2
-bV9rZnJlZSgpIGNhbGxzIGZyb20gcHJvYmUNCj4gPiBlcnJvciBwYXRocyBhbmQgcmVtb3ZlIHBh
-dGhzLCBrZWVwaW5nIHRoZW0gb25seSB3aGVyZSByZXNvdXJjZXMNCj4gPiBhcmUgZnJlZWQgYW5k
-IHJlLWFsbG9jYXRlZCBhdCBydW50aW1lIChlLmcuLCBDTERNQSBxdWV1ZSBsaWZlY3ljbGUNCj4g
-PiBkdXJpbmcgbW9kZW0gcmVzZXQgY3ljbGVzKS4NCj4NCj4gVGhlcmUgaXMgbm8gcG9pbnQgdXNp
-bmcgZGV2bV8gaWYgeW91IGFyZSBnb2luZyB0byBtYW51YWxseSBtYW5hZ2UNCj4gdGhlaXIgcmVs
-ZWFzZS4gQW55dGhpbmcgd2hpY2ggaGFzIGEgc2hvcnRlciBsaWZldGltZSB0aGFuIHRoZSBkZXZp
-Y2UNCj4gc2hvdWxkIHVzZSBremFsbG9jKCkva2ZyZWUoKS4NCg0KV2Ugd2lsbCBjb252ZXJ0IGFs
-bCBydW50aW1lLW1hbmFnZWQgcmVzb3VyY2VzIGZyb20NCmRldm1fa3phbGxvYy9kZXZtX2tmcmVl
-IHRvIHBsYWluIGt6YWxsb2Mva2ZyZWUsIHNpbmNlIHRoZXkgaGF2ZQ0Kc2hvcnRlciBsaWZldGlt
-ZXMgdGhhbiB0aGUgZGV2aWNlLiBPbmx5IGRldmljZS1saWZldGltZSByZXNvdXJjZXMNCndpbGwg
-cmVtYWluIGFzIGRldm1fa3phbGxvYy4NCg0KVGhhbmtzLg0KICAgIEphY2sgV3U=
+
+
+On 7/7/2026 6:37 PM, Will Deacon wrote:
+> On Tue, Jul 07, 2026 at 04:14:06PM +0800, Jinjie Ruan wrote:
+>>
+>>
+>> On 7/7/2026 1:39 AM, Will Deacon wrote:
+>>> Hi Jinjie,
+>>>
+>>> On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
+>>>> On 6/24/2026 8:16 PM, Will Deacon wrote:
+>>>>> Please just give me the time I asked for. If you want to help out in the
+>>>>> meantime, there are plenty of patches that need reviewing...
+>>>>
+>>>> It was a mistake on my part, and I sincerely apologize for wasting
+>>>> community review resources and disrupting your schedule.
+>>>>
+>>>> I will absolutely back off now and wait for your official series. Lesson
+>>>> learned. Thanks for your patience and for calling me out on this.
+>>>
+>>> So I've mostly got the old series back on its feet:
+>>>
+>>>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+>>
+>> Hi Will,
+>>
+>> I tested the above-mentioned latest patch on v7.2-rc1 with error inject
+>> on QEMU, which constructed the following errors:
+>>
+>> 1、CPU4 does not support 52-bit VA
+>>
+>> 2、CPU6 does not support 4K granule
+>>
+>> 3、CPU16 and CPU17 call cpu_die_early() early in check_early_cpu_features().
+>>
+>> 4、CPU18 call cpu_panic_kernel() early in check_early_cpu_features().
+>>
+>> The error output is not correct especially for CPU4, CPU6, and CPU18 as
+>> below, it seems that some error messages are overlapping on the same
+>> CPU, and some errors are causing the CPU to be misidentified.:
+>>
+>> (This leaves another blind spot where the 'failed to report alive state'
+>> message is skipped for CPU16 and CPU17, as pointed out in
+>> https://lore.kernel.org/all/bddf7a68-7789-4ec2-819c-aaaee8173c70@huawei.com/):
+>>
+>> [    0.594323] CPU16: will not boot
+>> [    0.605818] CPU17: will not boot
+>>
+>> ...
+>>
+>> [   11.052387] CPU4 failed to report alive state
+>> [   11.059799] Parallel CPU bringup failed; consider passing
+>> "cpuhp.parallel=off" for a more accurate diagnosis.
+>> [   11.060179] CPU4 detected lack of support for 52-bit VAs
+>> [   11.060426] CPU4 detected lack of support for 4K granules
+>>
+>> [   11.061103] Kernel panic - not syncing: CPU4 detected unsupported
+>> configuration
+>> [   11.061534] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+>> 7.2.0-rc1-00019-g52296829d92b #305 PREEMPT
+>> [   11.062052] Hardware name: linux,dummy-virt (DT)
+>> [   11.062230] Call trace:
+>> [   11.062339]  show_stack+0x18/0x24 (C)
+>> [   11.062528]  dump_stack_lvl+0x11c/0x168
+>> [   11.062684]  dump_stack+0x18/0x24
+>> [   11.062818]  vpanic+0x568/0x574
+>> [   11.062947]  do_panic_on_target_cpu+0x0/0x1c
+>> [   11.063111]  secondary_start_kernel+0x0/0x188
+>> [   11.063276]  cpuhp_bringup_ap+0x244/0x254
+>> [   11.063430]  cpuhp_invoke_callback+0x168/0x2ac
+>> [   11.063594]  __cpuhp_invoke_callback_range+0x90/0x118
+>> [   11.063776]  _cpu_up+0xec/0x1b8
+>> [   11.063905]  cpu_up+0xcc/0x158
+>> [   11.064032]  cpuhp_bringup_mask+0x9c/0xe0
+>> [   11.064189]  bringup_nonboot_cpus+0x12c/0x14c
+>> [   11.064352]  smp_init+0x30/0x8c
+>> [   11.064481]  kernel_init_freeable+0x18c/0x40c
+>> [   11.064645]  kernel_init+0x24/0x1dc
+>> [   11.064785]  ret_from_fork+0x10/0x20
+>> [   11.066612] SMP: stopping secondary CPUs
+>> [   11.068198] ---[ end Kernel panic - not syncing: CPU4 detected
+>> unsupported configuration ]---
+> 
+> I think this is actually working as intended. CPU4 has detected the
+> problems and the system has panicked as expected. Systems like this are
+
+Indeed, the system was already on the verge of collapse, and such
+accurate CPU error information was not needed.
+
+> horribly broken anyway, so if you _really_ need to identify the CPUs
+> causing problems, you can disable parallel onlining on the cmdline (as
+> the diagnostic message above suggests).
+
+You are right! With cpuhp.parallel=0 we can obtain more accurate and
+comprehensive startup error information as below, I agree with your
+current approach to handling mistakes:
+
+[   10.707438] CPU4 failed to report alive state
+[   10.708939] CPU4 detected lack of support for 52-bit VAs
+[   10.709194] CPUs may be stuck in kernel
+
+...
+
+[   21.013667] CPU6 failed to report alive state
+[   21.014489] CPU6 detected lack of support for 4K granules
+
+...
+
+[   21.148989] CPU16: will not boot
+[   31.426165] CPU16 failed to report alive state
+[   31.432408] psci: CPU16 killed (polled 0 ms)
+[   31.432618] CPU16: died during early boot
+
+[   31.447677] CPU17: will not boot
+[   41.722466] CPU17 failed to report alive state
+[   41.722755] psci: CPU17 killed (polled 0 ms)
+[   41.722895] CPU17: died during early boot
+
+[   52.002883] CPU18 failed to report alive state
+[   52.003366] Kernel panic - not syncing: CPU18 detected unsupported
+configuration
+
+
+> 
+> Will
+
 
