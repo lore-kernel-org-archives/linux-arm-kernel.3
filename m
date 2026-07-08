@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9CEC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D24C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2+1NqPvaIfnlCLjCKHB5j5DJdAmlBEYwyNPxM6Gzb/w=; b=fJmcaGtcDovODhPAL7gyPwxMDG
-	i5Y3uIiZ/LbjHu7ukTIfoFzfiaXc0YaYO++a1R0WfRsHdkPVJy5rrOfo3ehRKXlEjfsH87NKexrvD
-	diqj2GTfZPHMSf9uZruRgxDZrPrDAX3dYpyR/N/jcoRUW62ykZ1HokQSPjAObAHZTteF6ufoEt3Iz
-	3LPOTYjBYR5YzaX+pbJW+BxB8OYTTS+JBX+DTbiy0oGhYN5x+MtocmcmCbBk5r2XSjXUvfkg6ZBVb
-	2iQkn7FCz07fCpTtDR6La5Hn26AILna2jAz7uDo1Jb1HQLdqvREWAB4JEzQ3imkOc8VfhIWy9j9bH
-	+gUGOg6g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15Evjjv6nOA2ibwzSz3yiXrKqJJ4uuMjXI71hmBUmYc=; b=AJOwruxyc2/bfKZTsmmSIGb2FO
+	gmuZQXjKax0BdECMK2JS45w2wUsZFMDv92z647NI3e2bc9GaA/zKr7QemW4iDyoqBV0rDdJrml18Q
+	K75+ALeGP8nrpamvii5G9GaJBqli4pxpzIrjU4lRVy9FayLoK5N3MZKbXubgw1apzhm0yIb4DvZYu
+	/0jo4ssjgegu5Yv7trIptdO+8i7B8i8Vrfc93SNPpRFS4HzGPuL1mTKuxrXh1g6w5/39W1niCnGgA
+	WuBQp9t5FKioVSk/VcC7S18mu5w94t+m/vsFM0vk3T+sCFRnTt6UHb3h0DRCrD1JfLigrHNCa7RiK
+	0c4yHFMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whSWc-0000000HCq9-2WVN;
-	Wed, 08 Jul 2026 13:41:18 +0000
+	id 1whSWh-0000000HCrh-2uUN;
+	Wed, 08 Jul 2026 13:41:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whSWY-0000000HCoc-3x3T
+	id 1whSWa-0000000HCpI-0Zy2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 13:41:16 +0000
+	Wed, 08 Jul 2026 13:41:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10CE11D14;
-	Wed,  8 Jul 2026 06:41:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC16E1E2F;
+	Wed,  8 Jul 2026 06:41:10 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B07673F66F;
-	Wed,  8 Jul 2026 06:41:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 995C53F66F;
+	Wed,  8 Jul 2026 06:41:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783518071; bh=eAIG+1tdkUjfLhi8Y8FkIzAF5Cl7mijllxZ5rBU5AKU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=a1FkJSKWYcB+PAO7SnOuI9BjrlDrYjJQMlJsvP4NF5B6BYBW8jTwxU5CmNpHx22j9
-	 1HSNqvYPUtcB+wMlAWyVENS7Jf7h+nQqq2xpol0T8kG9D0TmkGv8GmOHi4LZU+QtJ+
-	 981SiJ53eS00au/vSV+CMtatKWEEGO7ZK0uE6xLQ=
+	t=1783518075; bh=NW6eWueBtLdx5hfRlGevqmEOA+KOqE48kzpV7R9aUS0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Yi0TuugKrNBHvyRgzBnPvfGJHG6S9Z3kcQlmsy33xioh+aN2NY26pWken/pE1rkd4
+	 gbh/jmKPv94zewFdU926jXi/GKa7/VNnXyOa9jrBkrzclBLTs1H7loevVP2u6640go
+	 IGDXmruDcrmeVOjYHsB7OOjgavfLgFRgFNgcPVdA=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -54,17 +54,19 @@ To: Marc Zyngier <maz@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/3] Optimize S2 page splitting
-Date: Wed,  8 Jul 2026 14:40:56 +0100
-Message-ID: <20260708134101.2514759-1-leo.bras@arm.com>
+Subject: [PATCH v3 2/3] KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
+Date: Wed,  8 Jul 2026 14:40:58 +0100
+Message-ID: <20260708134101.2514759-3-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260708134101.2514759-1-leo.bras@arm.com>
+References: <20260708134101.2514759-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4333; i=leo.bras@arm.com; h=from:subject; bh=eAIG+1tdkUjfLhi8Y8FkIzAF5Cl7mijllxZ5rBU5AKU=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLL8gvX350z00dK+a9Pw0re7M+vRC8dVDH+sb+pFGc01C PfRmd3bUcrCIMbFICumyCL7aP4qnu9TMo5c+bEAZg4rE8gQBi5OAZiI/npGhvuM0x6dXnXzxh+x /ss2YfNk71QFHeJe12Rz9kxxm8v/eiWG/5431btuPeDK/1BwcI6uW1myx2urxltqiY9Lz0odmRs gzQkA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4894; i=leo.bras@arm.com; h=from:subject; bh=NW6eWueBtLdx5hfRlGevqmEOA+KOqE48kzpV7R9aUS0=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLL8/Gdldu/gEdxRNTOw7GN+mZhQlpJj1O0b9mfeqAu4u qotu+DXUcrCIMbFICumyCL7aP4qnu9TMo5c+bEAZg4rE8gQBi5OAZiICicjw7oXxs16/01uXjyo Fv778j+HU07nXWbeEes3F+lI0PaQa2ZkuNPPvm3RVD/Xc/nni9dfDtD/dJ49NNi3n/Nmi9PeOVE veQA=
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_064115_062709_964BAEB3 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260708_064116_265216_C8530B0C 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,113 +81,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While playing with dirty-bit tracking, I decided to take a look on how page
-splitting works. Found out all entries are walked, even though we can infer,
-for instance that:
-- If a level-3 entry is walked, it means the parent level-2 entry is split
-- If a split just succeeded in an table entry, it means all children nodes
-  are already split
+Add the new walking flags that tell kvm_pgtable_walk() to skip lower levels
+when walking the pagetables.
 
-This patches' idea is to introduce new walking flags to skip pagetable
-levels 0-3.
-
-The idea of skipping child nodes was also tested, but it was marginally
-slower than just skipping levels, so it was discarted.
-
-Optimization measured on two scenarios involving eager-splitting on a
-VM with 32 memslot of 2GB (total 64GB), and vcpu per slot:
-- Scenario 1: No manual protect, whole memslot split at dirty-track enable
-  (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
-  - Split happens only once, whole region
-  - Evalutes improved batch performance of splitting
-- Scenario 2: Manual protect, split happens during every dirty-bit clean
-  (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
-  - Split called multiple times, for smaller 64-page sections.
-  - Evaluate improved performance for multiple calls
-
-Scenario 1, improvement on dirty-track enable ioctl for the memslot:
-- Memory was already split (4k pages):  -43.18% runtime (stdev 3.87%)
-- THP backed memory:                    -25.77% runtime (stdev 1.01%)
-- 64x1GB hugetlb memory:                -25.62% runtime (stdev 1.09%)
-
-Scenario 2, improvement on dirty-log clean ioctl for the memslot:
-- Memory was already split (4k pages):  -39.88% runtime (stdev 2.71%)
-- THP backed memory:                    -25.18% runtime (stdev 0.32%)
-- 64x1GB hugetlb memory:                -49.17% runtime (stdev 1.86%)
-
-For collecting above numbers, the following script was ran in both vanilla
-and patched kernels, with kernel parameter 'default_hugepagesz=1G', on an
-TX2 with 128GB RAM.
-
---- dirty_test.sh
-#!/bin/bash
-filename=$(uname -r |cut -d'-' -f 4-)
-
-run_test(){
-  base_test="./dirty_log_perf_test -b 2G -v 32 -m 6 -m 8"
-
-  # Manual cleaning disable
-  ${base_test} -g
-  ${base_test} -g -s anonymous_thp
-  echo 64 > /proc/sys/vm/nr_hugepages  
-  ${base_test} -g -s shared_hugetlb
-  echo 0 > /proc/sys/vm/nr_hugepages
-
-  # Manual cleaning enable
-  ${base_test}
-  ${base_test} -s anonymous_thp
-  echo 64 > /proc/sys/vm/nr_hugepages  
-  ${base_test} -s shared_hugetlb
-  echo 0 > /proc/sys/vm/nr_hugepages
-}
-
-run_test 2>&1 | tee ${filename}
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
-
-Above dirty_log_perf_test command is the standard kvm selftest found in the
-kernel tree. It tested the following guest modes:
-Testing guest mode: PA-bits:40,  VA-bits:48,  4K pages
-Testing guest mode: PA-bits:40,  VA-bits:48, 64K pages
-(Modes with PA-bits:36 were discarted in this version, given the amount
-of RAM being used for testing, and the similarity of previous results)
-
-Performance numbers from above modes were used to calculate average and
-stdev showed in the optimization results.
-
-Changes since v2:
-- Rebased on top of v7.2-rc1
-- Improved testing, added more memory, re-tested
-  - Now: 32 vcpus @ total of 64G
-  - Before: 1cpu @ 16G
-
-Changes since v1:
-- Fixed inverted flag verification priority (Sashiko)
-- Fixed incorrectly skipping POST call if level was skipped (Sashiko), and to that
-- New pre-patch that changes goto-out -> return to avoid re-testing walk_continue 
-v1 Link: https://lore.kernel.org/lkml/20260610202112.2695205-2-leo.bras@arm.com/
-
-Changes since RFC:
-- Changed approach from return value to walk flags (Will Deacon)
-- Discarted skip_child approach (Oliver Upton)
-- Measured in real hardware, and from userspace perspective (Marc Zyngier)
-- Better explanation of what and how numbers were collected
-RFC Link: https://lore.kernel.org/all/20260515195904.2466381-1-leo.bras@arm.com/
-
-Thanks!
-Leo
-
-
-Leonardo Bras (3):
-  KVM: arm64: Avoid re-testing walk_continue
-  KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
-  KVM: arm64: Make stage2_split_walker() skip unnecessary walks
-
  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
- arch/arm64/kvm/hyp/pgtable.c         | 28 +++++++++++++++++++++-------
- 2 files changed, 34 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++++++---
+ 2 files changed, 29 insertions(+), 3 deletions(-)
 
-
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..20c7c12e0e76 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -311,31 +311,44 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
+  * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
+  *					with other software walkers.
+  * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
+  *					the walker returns -EAGAIN.
+  * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
+  *					without Break-before-make's
+  *					TLB invalidation.
+  * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
+  *					without Cache maintenance
+  *					operations required.
++ * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
++ * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
++ * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
++ * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
+  */
+ enum kvm_pgtable_walk_flags {
+ 	KVM_PGTABLE_WALK_LEAF			= BIT(0),
+ 	KVM_PGTABLE_WALK_TABLE_PRE		= BIT(1),
+ 	KVM_PGTABLE_WALK_TABLE_POST		= BIT(2),
+ 	KVM_PGTABLE_WALK_SHARED			= BIT(3),
+ 	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
+ 	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
+ 	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
++	KVM_PGTABLE_WALK_SKIP_LEVEL0		= BIT(7),
++	KVM_PGTABLE_WALK_SKIP_LEVEL1		= BIT(8),
++	KVM_PGTABLE_WALK_SKIP_LEVEL2		= BIT(9),
++	KVM_PGTABLE_WALK_SKIP_LEVEL3		= BIT(10),
+ };
+ 
++#define KVM_PGTABLE_WALK_SKIP_LEVELS 	(KVM_PGTABLE_WALK_SKIP_LEVEL0 | \
++					 KVM_PGTABLE_WALK_SKIP_LEVEL1 | \
++					 KVM_PGTABLE_WALK_SKIP_LEVEL2 | \
++					 KVM_PGTABLE_WALK_SKIP_LEVEL3 )
++
+ struct kvm_pgtable_visit_ctx {
+ 	kvm_pte_t				*ptep;
+ 	kvm_pte_t				old;
+ 	void					*arg;
+ 	struct kvm_pgtable_mm_ops		*mm_ops;
+ 	u64					start;
+ 	u64					addr;
+ 	u64					end;
+ 	s8					level;
+ 	enum kvm_pgtable_walk_flags		flags;
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 4be1d51a6ac5..b9a2078efc51 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -137,20 +137,33 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+ 	 * Ignore the return code altogether for walkers outside a fault handler
+ 	 * (e.g. write protecting a range of memory) and chug along with the
+ 	 * page table walk.
+ 	 */
+ 	if (r == -EAGAIN)
+ 		return walker->flags & KVM_PGTABLE_WALK_IGNORE_EAGAIN;
+ 
+ 	return !r;
+ }
+ 
++static __always_inline bool kvm_pgtable_skip_level(s8 level, enum kvm_pgtable_walk_flags flags)
++{
++	flags &= KVM_PGTABLE_WALK_SKIP_LEVELS;
++
++	if (likely(!flags))
++		return false;
++
++	if (level >= (ffs(flags) - ffs(KVM_PGTABLE_WALK_SKIP_LEVELS)))
++		return true;
++
++	return false;
++}
++
+ static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
+ 			      struct kvm_pgtable_mm_ops *mm_ops, kvm_pteref_t pgtable, s8 level);
+ 
+ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+ 				      struct kvm_pgtable_mm_ops *mm_ops,
+ 				      kvm_pteref_t pteref, s8 level)
+ {
+ 	enum kvm_pgtable_walk_flags flags = data->walker->flags;
+ 	kvm_pte_t *ptep = kvm_dereference_pteref(data->walker, pteref);
+ 	struct kvm_pgtable_visit_ctx ctx = {
+@@ -185,35 +198,35 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+ 	 * into a newly installed or replaced table.
+ 	 */
+ 	if (reload) {
+ 		ctx.old = READ_ONCE(*ptep);
+ 		table = kvm_pte_table(ctx.old, level);
+ 	}
+ 
+ 	if (!kvm_pgtable_walk_continue(data->walker, ret))
+ 		return ret;
+ 
+-	if (!table) {
++	if (!table || kvm_pgtable_skip_level(level + 1, ctx.flags)) {
+ 		data->addr = ALIGN_DOWN(data->addr, kvm_granule_size(level));
+ 		data->addr += kvm_granule_size(level);
+ 		goto out;
+ 	}
+ 
+ 	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
+ 	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
+ 	if (!kvm_pgtable_walk_continue(data->walker, ret))
+ 		return ret;
+ 
+-	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
++out:
++	if (table && ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
+ 		ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_TABLE_POST);
+ 
+-out:
+ 	if (kvm_pgtable_walk_continue(data->walker, ret))
+ 		return 0;
+ 
+ 	return ret;
+ }
+ 
+ static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
+ 			      struct kvm_pgtable_mm_ops *mm_ops, kvm_pteref_t pgtable, s8 level)
+ {
+ 	u32 idx;
 -- 
 2.55.0
 
