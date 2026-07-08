@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D75C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B62C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oSZ0VvgFHGlDOd8o6hkiwFx03nfgdvtHM1XfLEEIwY=; b=PN7xAgUDf0yHiz7h8cDvTa1yhi
-	DBhlNcnTAU5CZHFBtvFF7DcJ01ZnGNqDVtHZgDAyeEEPXkTnDZkXFoy+HtNzaI3L49fklL04niBZ2
-	6CtGNEW9N+QbaPL8T04jCpMgygK9JC1kqc8E8ggEK0bWqMU9rJ6AH+4aMAne7dMfymH/7ImS1Syxd
-	bsNmmSAZ2Bvp2EF9QcMmDEJi0TEHOqzqq/xM2NozWYts2Lk6nzZ5VKaAK61DLsIO6dKZn4pjab1TV
-	wEtk4jsYVUH4FDGqwqwYFEwiLYwAdRe/WXjUII8x0V6aWh+0SkBv+624ctyRP8ndvmSClRAVx4Tqs
-	bIl5ssPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jg71Yd7tgNPuzfuRQuzaDcmvLXEgrpTxuBWJKiWgB3s=; b=ed1nTURbwAjtybpnhD7FrPPnJ5
+	I8yrZT0FMT4DH05NClzYserCTwERLH22ar/ksZnvkAVS6phVS+ee6s548MJm8j9MFHJUQwJTDvRli
+	bxM2PMULc6ZUcP1lEJ8TCGJliTNnc15yQy7awJuarkVMpJqBVMsyVyhiiXwyCC3ErkPbDe/HXoY3X
+	tiMf+8j8NWtQvVigH/RZZ66AFGsKX/59jcnNKLyAk4OYAa+vdW3q9ySJRjYqbxB7Hs3gXStv8XyLG
+	aLWXx+RfifFPIg7YP17XdUG37MuG3lA9kjWQtowbOQM3zZPqaldfi4Q0PVM0EMKtdNtkcjoz/xUVk
+	1+0UsUYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPdo-0000000Gv11-0m2S;
-	Wed, 08 Jul 2026 10:36:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1whPgP-0000000GvTi-08QA;
+	Wed, 08 Jul 2026 10:39:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPdi-0000000GuvP-2nPe;
-	Wed, 08 Jul 2026 10:36:28 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783506983;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4oSZ0VvgFHGlDOd8o6hkiwFx03nfgdvtHM1XfLEEIwY=;
-	b=Gb3HtCoKx6JK0GUWAyn+2ejS0xH2woEWxw3+K/nj2+wIJBR7fWvEPMFvFkyMvlwrSHvH3y
-	eYqC9WH6f0zAbTbuXVSWvtLBe4ST35ka3Sx3qaoz/My1koLC2UrFc5rGvE+V0VwrOd6njF
-	/6QPl/3E393XAhbRW6KoVsP/8FRAxYG9XY/ou3u5uSQQnxhnOp9j85d7VB+TGEBiacExE3
-	xJRbPhjE0DAIxiNex0yDdcKTec11EZmdD/YpK0wBUMeLP0I3e2YCMqu/Pyf5yPUyWPHO70
-	yB/zK+5LOoE4/L0SthgVe+xva8k3B7NyCM772BL/6skjkpHuTGfdHgW9SEka3Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783506983;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4oSZ0VvgFHGlDOd8o6hkiwFx03nfgdvtHM1XfLEEIwY=;
-	b=fRArbuaPMd9AD20Wgcx6lGklXPR5RU5QhFZJ34To/S8oQ81VuWWkxh+y3qq05R2rkX18yj
-	OVN5nvYiWZtrpKCA==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Andrew Murray <amurray@thegoodpenguin.co.uk>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Russell King
- <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Steven Rostedt
- <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>,
- Andrew Morton <akpm@linux-foundation.org>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Randy
- Dunlap <rdunlap@infradead.org>, Linus Torvalds
- <torvalds@linux-foundation.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
- emiting code
-In-Reply-To: <ak0b2S9jjYy49a8V@pathway.suse.cz>
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
- <87zf08w7qo.fsf@jogness.linutronix.de> <ak0b2S9jjYy49a8V@pathway.suse.cz>
-Date: Wed, 08 Jul 2026 12:42:22 +0206
-Message-ID: <87echdvkd5.fsf@jogness.linutronix.de>
+	id 1whPgM-0000000GvSl-3kYq;
+	Wed, 08 Jul 2026 10:39:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783507148;
+	bh=iwFN7k1l7x6sZkU0ZQcIM16C6PmtP6fEROcDVf8SnW8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c7219e4rWLH+NttiNekbwSuQ/urAUx9f7qHZWqWQ7lsm7kC/ZXj54eakGLwu6gPbB
+	 VIUX2fhwzzbK3xtqcH+hlfX4q+HYzLwZGYsFSQA6J+tcvYAedUDIzPr4q6N3O5OTTk
+	 ZEyuHF2rg7PKwJ/PLY2m1gvjg3vruEOHX7lpta7MIqqn9XIa58zeob2rv+6lh7dSgr
+	 SnZQQqyo9iHjNupsSDLsZfQGgIry09xpJ79KehJI9WoaaWGJqQQP+/k4HkYU2Bzb6r
+	 3ySGC0lMVr5rX0iZnZAy1TxVbbOmzsmZIsxItdx147A+51rDaG7SkGMFujqsHxUtzw
+	 sRhpSAH+k7hJw==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9200417E00F6;
+	Wed, 08 Jul 2026 12:39:07 +0200 (CEST)
+Message-ID: <31117c25-5410-429a-887b-87c767387c58@collabora.com>
+Date: Wed, 8 Jul 2026 13:39:07 +0300
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 09/39] drm/display: hdmi-state-helper: Add fallback
+ TMDS rate validation
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-9-d79890d00b6a@collabora.com>
+ <20260707-venomous-helpful-magpie-b2962b@penduick>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260707-venomous-helpful-magpie-b2962b@penduick>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_033627_036832_19F20147 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260708_033911_093013_684DC628 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +90,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-07, Petr Mladek <pmladek@suse.com> wrote:
->> This is too deep (also pointed out by Sashiko) because it multiplies the
->> delay times the number of consoles. For the legacy printing, it would be
->> more appropriate to put the delay inside console_flush_all() and
->> legacy_kthread_func().
->
-> True. The question is if the proper solution is worth the complexity.
-> We would need to pass the information down two level of the API.
-> It would require adding a new (output) parameter to console_flush_one_record(),
-> nbcon_legacy_emit_next_record(), and console_emit_next_record().
->
-> It is not that complicated but these functions are already hairy
-> enough so we should be careful.
+On 7/7/26 2:23 PM, Maxime Ripard wrote:
+> Hi,
+> 
+> On Thu, Jul 02, 2026 at 05:46:22PM +0300, Cristian Ciocaltea wrote:
+>> Validate the computed TMDS character rate against
+>> connector->hdmi.max_tmds_char_rate when no driver-specific
+>> tmds_char_rate_valid() hook is provided.
+>>
+>> This gives HDMI connectors a common fallback for rejecting modes whose
+>> TMDS character rate exceeds the connector limit, while still allowing
+>> drivers with custom validation requirements to implement their own
+>> tmds_char_rate_valid() callback.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+>> index ce17eeefc2da..db76699093e8 100644
+>> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+>> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+>> @@ -566,6 +566,9 @@ hdmi_clock_valid(const struct drm_connector *connector,
+>>  		status = funcs->tmds_char_rate_valid(connector, mode, clock);
+>>  		if (status != MODE_OK)
+>>  			return status;
+>> +	} else if (connector->hdmi.max_tmds_char_rate) {
+>> +		if (clock > connector->hdmi.max_tmds_char_rate)
+>> +			return MODE_CLOCK_HIGH;
+> 
+> I think we should handle this the same way we do for
+> info->max_tmds_clock: if it's set, we always check that before calling
+> the driver.
+> 
+> It reduces the boilerplate in drivers, and it's always a relevant check
+> anyway.
+Ack.
 
-Fair enough. But then it should be consistent and
-console_emit_next_record() should perform the delay before allowing the
-handover. Something like this:
-
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 2fe9a963c823a..62fd6a5ebef66 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -3161,6 +3161,8 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
- 		 */
- 
- 		con->write(con, outbuf, pmsg.outbuf_len);
-+		printk_delay(false);
-+
- 		con->seq = pmsg.seq + 1;
- 	} else {
- 		/*
-@@ -3182,6 +3184,7 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
- 		printk_legacy_allow_spinlock_enter();
- 		con->write(con, outbuf, pmsg.outbuf_len);
- 		printk_legacy_allow_spinlock_exit();
-+		printk_delay(true);
- 
- 		start_critical_timings();
- 
-
-John
+Thanks,
+Cristian
 
