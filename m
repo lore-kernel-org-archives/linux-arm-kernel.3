@@ -4,100 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4182C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F026CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Po5UqSLZjCX3EuBcYbTTZpWtM2EO/qQUe6h2OziL82Y=; b=Lh4zCg7C1oP2uAyrBTkPmBK1Tz
-	yf91E7/+C+2z9uSGpGbdPbs18h2/XlJh37YjeyamTyy+QGD0S0LNRC/xRbQqhFw38ghgGg5qvklvG
-	WWzCBXcNnAKi3SqRW2EQKwbWolSaSFx9zJ2Xk4sKoopOhAiyPJdKQjOCWq9v1MxQqj0TEQdFnn9XS
-	czWfBTSSLZMovRO9E8Y2hPNSdI3IfhgXIrQEdQpiDSQOJdbnWVPeNHFtXV57CoyzsjAeulI+dp2QJ
-	0GI0kJOxg30Bc3pr6zF/rGTu2YkTuK4gZbjrLf2Llq8wGPqEjBbO4h2WrefwgoRRPZeIW57kUWjK/
-	6DqABS+Q==;
+	bh=kqIrEXbeHY5bm5UyiCQAEi+0E2KgKT4ZChlIYWiy4d8=; b=b4m0bZ7sRqAJjdy62EmnIAEJYs
+	2oPx3xOyHPjlkhosRYxMD+yCMbjcEiz82PHkPEUxvLDM4cBj57FsmrwAwwARDqvVQCamCBHW/oQIw
+	kvmsfqxTD01BRDAT5nPsoHA5Ly95mEtv0m/ilRYgA68Ofv3DO5/QN76oBy7c+50uPBlh3Gf6MMemo
+	rKTHv7+VeCVD1mz6higkGfcbOLitOJSFMD9d8YPcGL7QNL9g5jipF/1lhuYwUMI/BxuTa6VZRzjfZ
+	PwKs5HH4u9s/DHSrR3i/UJjh7SWsjIiG28SapGORnsqDmX7h5AjFlcYDGRJRs2+A/I0ON7KF7JI1C
+	g7554XVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZfM-00000000Qjv-0hCs;
-	Wed, 08 Jul 2026 21:18:48 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZfH-00000000QgS-2nEf
+	id 1whZs6-00000000RnW-2pjT;
+	Wed, 08 Jul 2026 21:31:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whZs3-00000000Rmz-2WCC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:18:45 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493b27c7451so3610405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 14:18:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783545522; x=1784150322; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Po5UqSLZjCX3EuBcYbTTZpWtM2EO/qQUe6h2OziL82Y=;
-        b=mpggOZfqpT/lPLvrCVuufJoXB74SHe8VQ/XaTzMaUhfxsMguaH28vNqtAtEpHX4K1g
-         gyJQ++0vsqpEgptridt0GdYI4uAW37e4ZSUfPERHX17P07hv7J1WBqcZstRKC9gEfT9B
-         mWEqiimAztR4V+2DkDo0ybzIdYx7ldAln1MxanVZms/tEvjnGCILKI+mDsp0vUFrem+M
-         jHu3s2HPs5olP4jD+8Jq71rRB2xTd2zcjJ6WWExp6+LB8APyRFxxQ8JaqdL0Uk7A79v/
-         GyW6P09nvlB6CCxLCg9uxnfmTbhg7QDg2Zuvv2oE9IKnck3Bxu94Mk1lkvnM7/2rwJVN
-         AAHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783545522; x=1784150322;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Po5UqSLZjCX3EuBcYbTTZpWtM2EO/qQUe6h2OziL82Y=;
-        b=Tln4Jhc041z6E6SlXG+PNLgic2YOBQoGZVGE7lOUGVNtLyNvDpbl25zbdE1McG05gJ
-         v3Pny0M50iOoXiuASWslvZ5fl7Z/OZ+69DO9mLVm+Kdk9cfuP863ZFXiSPrnArf0jl1O
-         xFZ0mG54ultFbIP09yF6swQZwtSZdSE+CEJgZH/YoopcvGK5zNcCzpWPKk1i93svO9PV
-         N3WZvnLg5j5JQUgh/nko2q6LFDNjH0NXREvI/YWreQTfCiaYCL3m2wE2ts3MX80wRu4D
-         lGs+/J3vgrLRmhBO/hLhFJtI2qc4V+GUxuch70aviLEaBGvjTf8jn15BYzi0t1j8lwhg
-         SCDA==
-X-Forwarded-Encrypted: i=1; AHgh+RrC9yCtzLVYs/xpH5seAs0twRHPjG2m56lH7U6thAd4ujLxWqoWfabPJERHhf5g9ak4yZ39x+FVqcfTpPQh1xoX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJSdGGvA3sgZkaixDgjPH2ZSavvz3/876l1POiQCUqqdWB5rlL
-	yHG7mzZDGbMGkIiAb00yMHCpZJ2SE8/emtulGFv7IxzjmFntMP7dslGwL8VwPQ==
-X-Gm-Gg: AfdE7ckXeMf0xGl76FGwTxbM4QsvJhJ53Jvc/L/VSYh1w+yU68R+8zw0c7glxofY/z3
-	HjEAXV7n55SBN0b0KAznA9HIe5XPeTZVaHJAJAHSeiVXyQZ0B7GRQi7vCrikj0DPin40WBgp9L0
-	vUS6n/UTKWUyRpV22a0dnd/1XSEJu82XLxUnr5baOSneNWDiNFR6XLuNooNT6lp+iTDHj+f/R+1
-	TsH1Ss0/MxFQc9J/E0mLWm5vnGYTRXtzA+OIihldZhVPifj5+3QuO1rCwDl6JirfdTb3HAvxO/Q
-	4Pj1w+8Qay+uhQVh5LDg0kLuv4kS6fQpf0QTKDursoBfyfbPOI9eI1aRXansBe+OmIo8USUlhez
-	uoMXNecXWR8NmQEMlprR90+AiOSzWml/yH8ZezPt9XksBlDie0KYZygPjuH0apsgGe52/ZuHi+3
-	HIgyM0UZjBXpLLyZCAVrMmTTGs5dMr70GEUcZhwL1qe+fFsWEbuxaHU82f87jLFn46XV4wWXYAe
-	ZS5gmNtxzcg+lXleF6k/4K5rCs=
-X-Received: by 2002:a05:600c:c0d2:10b0:493:c566:7bd6 with SMTP id 5b1f17b1804b1-493ec775ff9mr39175e9.18.1783545521370;
-        Wed, 08 Jul 2026 14:18:41 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.vodafonedsl.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e5a58853sm68494175e9.1.2026.07.08.14.18.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 14:18:40 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	matthias.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Subject: [PATCH v1 3/3] arm64: dts: ti: var-som-am62: Add support for Variscite Symphony Board
-Date: Wed,  8 Jul 2026 23:18:27 +0200
-Message-ID: <09a0962ea44181ad2c951c129ced30dd4a57aa21.1783545241.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1783545241.git.stefano.r@variscite.com>
-References: <cover.1783545241.git.stefano.r@variscite.com>
+	Wed, 08 Jul 2026 21:31:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4D2B1A00;
+	Wed,  8 Jul 2026 14:31:47 -0700 (PDT)
+Received: from [10.20.1.47] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A8CB3F905;
+	Wed,  8 Jul 2026 14:31:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783546312; bh=+4gaZD2CDpjlyl0wK8WUbWgheN0F7E51RWUGwzhlNho=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vSo1/gwoag9ds+EaTxKNDNyxJz1HbaB9WcTaIQrDMpce8hm0Bv5etX/ovU8IvR58U
+	 7uoP1N6954gCQhzHXndyxfoCrEE9SQNIrbM2TqQoldF9jrjuz1ZTxv/Og5974anjpK
+	 U7UrjfV5jOm49cRfOs/bUU/y7/fBHzzGqBk9DGpE=
+Message-ID: <55dda4c0-10c8-46d2-be90-4f6a5f609313@arm.com>
+Date: Wed, 8 Jul 2026 23:31:39 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
+To: wens@kernel.org
+Cc: Linus Walleij <linusw@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260313000652.11470-1-andre.przywara@arm.com>
+ <CAGb2v66_S44PVae0D5a5Q8DSEAWuP-LxD6gtEpgrd=vVMvZedQ@mail.gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAGb2v66_S44PVae0D5a5Q8DSEAWuP-LxD6gtEpgrd=vVMvZedQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_141843_858282_C64321EB 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260708_143155_804552_DAC3C277 
+X-CRM114-Status: GOOD (  42.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,593 +74,397 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Hi Chen-Yu,
 
-Add device tree support for the Variscite Symphony carrier board with
-the VAR-SOM-AM62 system on module.
+many thanks for the thorough review, finally found some time to reply:
 
-The Symphony board includes
-- uSD Card support
-- USB ports and OTG
-- Additional Gigabit Ethernet interface
-- Uart interfaces
-- OV5640 Camera support
-- GPIO Expander and TPM
-- CAN, I2C and general purpose interfaces
-- Capacitive touch controller
+On 3/14/26 10:59, Chen-Yu Tsai wrote:
+> On Fri, Mar 13, 2026 at 8:08 AM Andre Przywara <andre.przywara@arm.com> wrote:
+>>
+>> Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
+>> register frame. So far we were instantiating one GPIO chip per pinctrl
+>> device, which covers multiple banks of up to 32 GPIO pins per bank. The
+>> GPIO numbers were set to match the absolute pin numbers, even across the
+>> typically two instances of the pinctrl device.
+>>
+>> Convert the GPIO part of the sunxi pinctrl over to use the gpio_generic
+>> framework. This alone allows to remove some sunxi specific code, which
+>> is replaced with the existing generic code. This will become even more
+>> useful with the upcoming A733 support, which adds set and clear
+>> registers for the output.
+>> As a side effect this also changes the GPIO device and number
+>> allocation: Each bank is now represented by its own gpio_chip, with only
+>> as many pins as there are actually implemented. The numbering is left up
+>> to the kernel (.base = -1).
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/pinctrl/sunxi/Kconfig         |   1 +
+>>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 245 ++++++++++++--------------
+>>   drivers/pinctrl/sunxi/pinctrl-sunxi.h |  11 +-
+>>   3 files changed, 124 insertions(+), 133 deletions(-)
+>>
+>> diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
+>> index dc62eba96348e..5905810dbf398 100644
+>> --- a/drivers/pinctrl/sunxi/Kconfig
+>> +++ b/drivers/pinctrl/sunxi/Kconfig
+>> @@ -4,6 +4,7 @@ if ARCH_SUNXI
+>>   config PINCTRL_SUNXI
+>>          bool
+>>          select PINMUX
+>> +       select GPIO_GENERIC
+>>          select GENERIC_PINCONF
+>>          select GPIOLIB
+>>
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> index 48434292a39b5..4235f9feff00d 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> 
+> [...]
+> 
+>>   static int sunxi_pinctrl_gpio_to_irq(struct gpio_chip *chip, unsigned offset)
+>>   {
+>>          struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+>>          struct sunxi_desc_function *desc;
+>> -       unsigned pinnum = pctl->desc->pin_base + offset;
+>> -       unsigned irqnum;
+>> +       unsigned int pinnum, irqnum, i;
+>>
+>>          if (offset >= chip->ngpio)
+>>                  return -ENXIO;
+>>
+>> +       for (i = 0; i < SUNXI_PINCTRL_MAX_BANKS; i++)
+>> +               if (pctl->banks[i].chip.gc.base == chip->base)
+> 
+> Can't you simply compare the instance?
+> 
+>      if (&pctl->bankd[i].chip.gc == chip)
 
-Link: https://www.variscite.it/product/single-board-computers/symphony-board/
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../boot/dts/ti/k3-am625-var-som-symphony.dts | 545 ++++++++++++++++++
- 2 files changed, 546 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
+Yes, I could, by I think comparing pointers is somewhat frowned upon, 
+and since base is considered a unique identifiers within all GPIO chips, 
+I found it cleaner to compare the base.
+Is comparing pointers commonly accepts in the kernel? Theoretically 
+there could be multiple VAs pointing to the same object.
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 371f9a043fe5..e33c4d0363a9 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -29,6 +29,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am625-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-can.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-nau8822-btl.dtbo
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
-new file mode 100644
-index 000000000000..28a48541b9a7
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
-@@ -0,0 +1,545 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Variscite Symphony carrier board for VAR-SOM-AM62
-+ *
-+ * Link: https://www.variscite.it/product/single-board-computers/symphony-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ * Copyright (C) 2026 Stefano Radaelli <stefano.r@variscite.com>
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "k3-am625-var-som.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-AM62 on Symphony-Board";
-+	compatible = "variscite,var-som-am62-symphony", "variscite,var-som-am62", "ti,am625";
-+
-+	aliases {
-+		ethernet0 = &cpsw_port1;
-+		ethernet1 = &cpsw_port2;
-+		mmc0 = &sdhci0;
-+		mmc1 = &sdhci1;
-+		mmc2 = &sdhci2;
-+		serial0 = &main_uart0;
-+		serial2 = &main_uart2;
-+		serial5 = &main_uart5;
-+		serial6 = &main_uart6;
-+		spi5 = &main_spi2;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	clk_ov5640_fixed: clock-24000000 {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-back {
-+			label = "Back";
-+			linux,code = <KEY_BACK>;
-+			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-home {
-+			label = "Home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-menu {
-+			label = "Menu";
-+			linux,code = <KEY_MENU>;
-+			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			label = "Heartbeat";
-+			linux,default-trigger = "heartbeat";
-+			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	reg_2p8v: regulator-2p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_sdhc1_vmmc: regulator-sdhc1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD";
-+		vin-supply = <&pinctrl_sd1_vmmc>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
-+		compatible = "regulator-gpio";
-+		regulator-name = "+V3.3_SD_VQMMC";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	reg_ov5640_buf_en: regulator-camera-buf-en {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640_buf_en";
-+		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	transceiver1: can-phy {
-+		compatible = "ti,tcan1042";
-+		#phy-cells = <0>;
-+		max-bitrate = <5000000>;
-+	};
-+
-+	connector {
-+		compatible = "gpio-usb-b-connector", "usb-b-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_extcon>;
-+		label = "USB-C";
-+		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
-+		status = "okay";
-+
-+		port {
-+			usb_con_hs: endpoint {
-+				remote-endpoint = <&typec_hs>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY. */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>,
-+		    <&pinctrl_rgmii2>;
-+	status = "okay";
-+
-+	cpts@3d000 {
-+		/* MAP HW3_TS_PUSH to GENF1 */
-+		ti,pps = <2 1>;
-+	};
-+};
-+
-+&cpsw3g_mdio {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mdio1>;
-+	status = "okay";
-+
-+	cpsw3g_phy1: ethernet-phy@5 {
-+		compatible = "ethernet-phy-id0283.bc30";
-+		reg = <5>;
-+		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
-+	};
-+};
-+
-+&cpsw_port2 {
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the Symphony PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy1>;
-+	status = "okay";
-+};
-+
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&epwm1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epwm1>;
-+};
-+
-+&main_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	/* GPIO expander */
-+	pca9534: gpio@20 {
-+		compatible = "nxp,pca9534";
-+		reg = <0x20>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pca9534>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-+
-+		usb3-sel-hog {
-+			gpio-hog;
-+			gpios = <4 0>;
-+			output-low;
-+			line-name = "usb3_sel";
-+		};
-+
-+		eth-som-vselect-hog {
-+			gpio-hog;
-+			gpios = <6 0>;
-+			output-low;
-+			line-name = "eth-vselect";
-+		};
-+
-+		eth-mdio-enable-hog {
-+			gpio-hog;
-+			gpios = <7 0>;
-+			output-high;
-+			line-name = "eth-mdio-enable";
-+		};
-+	};
-+
-+	ov5640: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_ov5640_fixed>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_2p8v>;
-+		DOVDD-supply = <&reg_1p8v>;
-+		DVDD-supply = <&reg_1p5v>;
-+		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_ov5640>;
-+
-+		port {
-+			csi2_cam0: endpoint {
-+				remote-endpoint = <&csi2rx0_in_sensor>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&main_i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	pcal6408: gpio@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		/* RGB_SEL */
-+		lvds-brg-enable-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_HIGH>;
-+			output-low;
-+			line-name = "lvds_brg_en";
-+		};
-+	};
-+
-+	st33ktpm2xi2c: tpm@2e {
-+		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
-+		label = "tpm";
-+		reg = <0x2e>;
-+		reset-gpios = <&pcal6408 4 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	/* Capacitive touch controller */
-+	ft5x06_ts: touchscreen@38 {
-+		compatible = "edt,edt-ft5206";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_captouch_pins>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
-+		touchscreen-size-x = <800>;
-+		touchscreen-size-y = <480>;
-+		touchscreen-inverted-x;
-+		touchscreen-inverted-y;
-+		wakeup-source;
-+	};
-+
-+	rtc@68 {
-+		compatible = "dallas,ds1337";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&main_mcan0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mcan0>;
-+	phys = <&transceiver1>;
-+	status = "okay";
-+};
-+
-+&main_pmx0 {
-+	pinctrl_captouch_pins: main-captouch-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01b8, PIN_INPUT, 7) /* (C13) SPI0_CS1.GPIO1_16 */
-+		>;
-+	};
-+
-+	pinctrl_epwm1: main-epwm1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x019c, PIN_OUTPUT, 6) /* (B18) MCASP0_AXR1.EHRPWM1_A */
-+		>;
-+	};
-+
-+	pinctrl_extcon: main-extcon-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01a8, PIN_INPUT, 7) /* (D20) MCASP0_AFSX.GPIO1_12 */
-+		>;
-+	};
-+
-+	pinctrl_i2c0: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
-+			AM62X_IOPAD(0x1e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
-+		>;
-+	};
-+
-+	pinctrl_i2c1: main-i2c1-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1e8, PIN_INPUT_PULLUP, 0) /* (B17) I2C1_SCL */
-+			AM62X_IOPAD(0x1ec, PIN_INPUT_PULLUP, 0) /* (A17) I2C1_SDA */
-+		>;
-+	};
-+
-+	pinctrl_mcan0: main-mcan0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1dc, PIN_INPUT, 0) /* (E15) MCAN0_RX */
-+			AM62X_IOPAD(0x1d8, PIN_OUTPUT, 0) /* (C15) MCAN0_TX */
-+		>;
-+	};
-+
-+	pinctrl_mmc1: main-mmc1-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x23c, PIN_INPUT, 0) /* (A21) MMC1_CMD */
-+			AM62X_IOPAD(0x234, PIN_INPUT, 0) /* (B22) MMC1_CLK */
-+			AM62X_IOPAD(0x230, PIN_INPUT, 0) /* (A22) MMC1_DAT0 */
-+			AM62X_IOPAD(0x22c, PIN_INPUT, 0) /* (B21) MMC1_DAT1 */
-+			AM62X_IOPAD(0x228, PIN_INPUT, 0) /* (C21) MMC1_DAT2 */
-+			AM62X_IOPAD(0x224, PIN_INPUT, 0) /* (D22) MMC1_DAT3 */
-+			AM62X_IOPAD(0x240, PIN_INPUT, 0) /* (D17) MMC1_SDCD */
-+		>;
-+	};
-+
-+	pinctrl_ov5640: main-ov5640-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0028, PIN_OUTPUT, 7) /* (J22) OSPI0_D7.GPIO0_10 */
-+			AM62X_IOPAD(0x0054, PIN_OUTPUT, 7) /* (P21) GPMC0_AD6.GPIO0_21 */
-+			AM62X_IOPAD(0x0058, PIN_OUTPUT, 7) /* (R23) GPMC0_AD7.GPIO0_22 */
-+		>;
-+	};
-+
-+	pinctrl_pca9534: main-pca9534-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01f0, PIN_INPUT, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
-+		>;
-+	};
-+
-+	pinctrl_rgmii2: main-rgmii2-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x184, PIN_INPUT, 0) /* (AE23) RGMII2_RD0 */
-+			AM62X_IOPAD(0x188, PIN_INPUT, 0) /* (AB20) RGMII2_RD1 */
-+			AM62X_IOPAD(0x18c, PIN_INPUT, 0) /* (AC21) RGMII2_RD2 */
-+			AM62X_IOPAD(0x190, PIN_INPUT, 0) /* (AE22) RGMII2_RD3 */
-+			AM62X_IOPAD(0x180, PIN_INPUT, 0) /* (AD23) RGMII2_RXC */
-+			AM62X_IOPAD(0x17c, PIN_INPUT, 0) /* (AD22) RGMII2_RX_CTL */
-+			AM62X_IOPAD(0x16c, PIN_INPUT, 0) /* (Y18) RGMII2_TD0 */
-+			AM62X_IOPAD(0x170, PIN_INPUT, 0) /* (AA18) RGMII2_TD1 */
-+			AM62X_IOPAD(0x174, PIN_INPUT, 0) /* (AD21) RGMII2_TD2 */
-+			AM62X_IOPAD(0x178, PIN_INPUT, 0) /* (AC20) RGMII2_TD3 */
-+			AM62X_IOPAD(0x168, PIN_INPUT_PULLDOWN, 0) /* (AE21) RGMII2_TXC */
-+			AM62X_IOPAD(0x164, PIN_INPUT, 0) /* (AA19) RGMII2_TX_CTL */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vmmc: main-sd1-vmmc-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0078, PIN_OUTPUT, 7) /* (U24) GPMC0_AD15.GPIO0_30 */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vqmmc: main-sd1-vqmmc-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
-+		>;
-+	};
-+
-+	pinctrl_spi2: main_spi2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01b0, PIN_INPUT, 1) /* (A20) MCASP0_ACLKR.SPI2_CLK */
-+			AM62X_IOPAD(0x0194, PIN_OUTPUT, 1) /* (B19) MCASP0_AXR3.SPI2_D0 */
-+			AM62X_IOPAD(0x0198, PIN_INPUT, 1) /* (A19) MCASP0_AXR2.SPI2_D1 */
-+			AM62X_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
-+		>;
-+	};
-+
-+	pinctrl_uart0: main-uart0-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14) UART0_RXD, change muxmode from 0 to 7 to deactivate Debug UART RXD */
-+			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14) UART0_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart2: main-uart2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (R24) GPMC0_AD8.UART2_RXD */
-+			AM62X_IOPAD(0x0060, PIN_OUTPUT, 2) /* (R25) GPMC0_AD9.UART2_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart6: main-uart6-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x009c, PIN_INPUT, 3) /* (V25) GPMC0_WAIT1.UART6_RXD */
-+			AM62X_IOPAD(0x0244, PIN_OUTPUT, 1) /* (C17) MMC1_SDWP.UART6_TXD */
-+		>;
-+	};
-+
-+	pinctrl_usb1: main-usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18) USB1_DRVVBUS */
-+		>;
-+	};
-+};
-+
-+&main_spi2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2>;
-+	ti,pindir-d0-out-d1-in;
-+	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart0>;
-+	status = "okay";
-+};
-+
-+&main_uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&main_uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	/* SD Card */
-+	vmmc-supply = <&reg_sdhc1_vmmc>;
-+	vqmmc-supply = <&reg_sdhc1_vqmmc>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc1>;
-+	disable-wp;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	usb-role-switch;
-+	status = "okay";
-+
-+	port {
-+		typec_hs: endpoint {
-+			remote-endpoint = <&usb_con_hs>;
-+		};
-+	};
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usb1>;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	status = "okay";
-+};
-+
-+&usbss1 {
-+	status = "okay";
-+};
--- 
-2.47.3
+> 
+>> +                       break;
+>> +       if (i == SUNXI_PINCTRL_MAX_BANKS)
+>> +               return -EINVAL;
+>> +       pinnum = pctl->desc->pin_base + i * PINS_PER_BANK + offset;
+>> +
+>>          desc = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
+>>          if (!desc)
+>>                  return -EINVAL;
+>> @@ -1039,18 +952,19 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+>>   {
+>>          struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+>>          struct sunxi_desc_function *func;
+>> -       int ret;
+>> +       int pinnum = pctl->irq_array[d->hwirq], ret;
+>> +       int bank = (pinnum - pctl->desc->pin_base) / PINS_PER_BANK;
+>>
+>> -       func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
+>> -                                       pctl->irq_array[d->hwirq], "irq");
+>> +       func = sunxi_pinctrl_desc_find_function_by_pin(pctl, pinnum, "irq");
+>>          if (!func)
+>>                  return -EINVAL;
+>>
+>> -       ret = gpiochip_lock_as_irq(pctl->chip,
+>> -                       pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
+>> +       ret = gpiochip_lock_as_irq(&pctl->banks[bank].chip.gc,
+>> +                                  d->hwirq % IRQ_PER_BANK);
+>>          if (ret) {
+>>                  dev_err(pctl->dev, "unable to lock HW IRQ %lu for IRQ\n",
+>>                          irqd_to_hwirq(d));
+>> +
+>>                  return ret;
+>>          }
+>>
+>> @@ -1063,9 +977,10 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+>>   static void sunxi_pinctrl_irq_release_resources(struct irq_data *d)
+>>   {
+>>          struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+>> +       int pinnum = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
+>> +       struct gpio_chip *gc = &pctl->banks[pinnum / PINS_PER_BANK].chip.gc;
+>>
+>> -       gpiochip_unlock_as_irq(pctl->chip,
+>> -                             pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
+>> +       gpiochip_unlock_as_irq(gc, pinnum);
+>>   }
+>>
+>>   static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned int type)
+>> @@ -1493,6 +1408,84 @@ static int sunxi_pinctrl_setup_debounce(struct sunxi_pinctrl *pctl,
+>>          return 0;
+>>   }
+>>
+>> +static bool sunxi_of_node_instance_match(struct gpio_chip *chip, unsigned int i)
+>> +{
+>> +       struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+>> +
+>> +       if (i >= SUNXI_PINCTRL_MAX_BANKS)
+>> +               return false;
+>> +
+>> +       return (chip->base == pctl->banks[i].chip.gc.base);
+> 
+> Same here.
+> 
+>> +}
+>> +
+>> +static int sunxi_num_pins_of_bank(struct sunxi_pinctrl *pctl, int bank)
+> 
+> IMHO num_pins_in_bank would be better.
+
+Ah yes, I agree.
+
+> 
+> And I think having a comment above saying this returns the *actual* number
+> of valid pins would help.
+
+That looks indeed useful, added that.
+
+> Or just call it sunxi_num_valid_pins_in_bank?
+
+Mmh, maybe not, see below ...
+
+> 
+>> +{
+>> +       int max = -1, i;
+>> +
+>> +       for (i = 0; i < pctl->desc->npins; i++) {
+>> +               int pinnum = pctl->desc->pins[i].pin.number - pctl->desc->pin_base;
+>> +
+>> +               if (pinnum / PINS_PER_BANK < bank)
+>> +                       continue;
+>> +               if (pinnum / PINS_PER_BANK > bank)
+>> +                       break;
+>> +               if (pinnum % PINS_PER_BANK > max)
+>> +                       max = pinnum % PINS_PER_BANK;
+> 
+> This doesn't work for existing sun5i platforms, which have pins non-existent
+> on some variants, so we end up with holes in each bank.
+> 
+> Instead we have to actually calculate the number of valid pins.
+
+Well, I think the function name promises too much, what we really need 
+is "the maximum pin index used + 1", to allocate an array holding pins, 
+indexed by their number. IIUC the GPIO code doesn't really support holes 
+in each gpiochip. And it doesn't really need to, we just have 
+potentially a few smaller gaps, compared to the bigger number of larger 
+gaps we have today. They wouldn't be referenced at all, so I don't think 
+it's a problem.
+I can rename the function to include "max" somewhere.
+
+> 
+>> +       }
+>> +
+>> +       return max + 1;
+>> +}
+>> +
+>> +static int sunxi_gpio_add_bank(struct sunxi_pinctrl *pctl, int index)
+>> +{
+>> +       char bank_name = 'A' + index + pctl->desc->pin_base / PINS_PER_BANK;
+>> +       struct sunxi_gpio_bank *bank = &pctl->banks[index];
+>> +       struct gpio_generic_chip_config config;
+>> +       struct gpio_chip *gc = &bank->chip.gc;
+>> +       int ngpio, ret;
+>> +
+>> +       ngpio = sunxi_num_pins_of_bank(pctl, index);
+>> +       bank->pctl = pctl;
+>> +       bank->base = pctl->membase + index * pctl->bank_mem_size;
+>> +       if (!ngpio) {
+>> +               gc->owner = THIS_MODULE;
+>> +               gc->ngpio = 0;
+>> +               gc->base = -1;
+>> +               gc->of_gpio_n_cells = 3;
+>> +
+>> +               return 0;
+>> +       }
+>> +
+>> +       config = (struct gpio_generic_chip_config) {
+>> +               .dev = pctl->dev,
+>> +               .sz = 4,
+>> +               .dat = bank->base + DATA_REGS_OFFSET,
+>> +               .set = bank->base + DATA_REGS_OFFSET,
+>> +               .clr = NULL,
+>> +               .flags = GPIO_GENERIC_READ_OUTPUT_REG_SET |
+>> +                        GPIO_GENERIC_PINCTRL_BACKEND,
+>> +       };
+>> +
+>> +       ret = gpio_generic_chip_init(&bank->chip, &config);
+>> +       if (ret)
+>> +               return dev_err_probe(pctl->dev, ret,
+>> +                                    "failed to init generic gpio chip\n");
+> 
+> Generic GPIO assumes that the GPIO pin range starts from 0, and is contiguous.
+> This breaks down with the sun5i and sun6i families. For example, on the A31s,
+> there is no PC16 ~ PC23, nor PH0 ~ PH8, just to show a few.
+
+But is this really a problem? We have much larger gaps today already, in 
+the existing driver. At the end of the day those pins just wouldn't be 
+referenced. Or am I missing something?
+
+>> +       gc->owner               = THIS_MODULE;
+>> +       gc->label               = devm_kasprintf(pctl->dev, GFP_KERNEL,
+>> +                                                "%s-P%c", gc->label,
+>> +                                                bank_name);
+>> +       gc->ngpio               = ngpio;
+> 
+> Also set gc->offset?
+
+Yes, I figured this myself when playing around with the gpio-line-names 
+property. Fixed.
+
+> 
+>> +       gc->base                = -1;
+>> +       gc->of_gpio_n_cells     = 3;
+>> +       gc->of_node_instance_match = sunxi_of_node_instance_match;
+>> +       gc->set_config          = gpiochip_generic_config;
+>> +       gc->to_irq              = sunxi_pinctrl_gpio_to_irq;
+>> +       gc->can_sleep           = false;
+>> +
+>> +       return gpiochip_add_data(gc, pctl);
+> 
+> Can we switch to devm_gpiochip_add_data() instead? It simplifies the
+> teardown as well.
+
+Sure, didn't know this existed.
+
+> 
+>> +}
+>> +
+>>   int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>                                    const struct sunxi_pinctrl_desc *desc,
+>>                                    unsigned long flags)
+>> @@ -1503,6 +1496,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>          struct sunxi_pinctrl *pctl;
+>>          struct pinmux_ops *pmxops;
+>>          int i, ret, last_pin, pin_idx;
+>> +       int gpio_banks;
+>>          struct clk *clk;
+>>
+>>          pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+>> @@ -1590,38 +1584,23 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>                  return PTR_ERR(pctl->pctl_dev);
+>>          }
+>>
+>> -       pctl->chip = devm_kzalloc(&pdev->dev, sizeof(*pctl->chip), GFP_KERNEL);
+>> -       if (!pctl->chip)
+>> -               return -ENOMEM;
+>> -
+>> -       last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
+>> -       pctl->chip->owner = THIS_MODULE;
+>> -       pctl->chip->request = gpiochip_generic_request;
+>> -       pctl->chip->free = gpiochip_generic_free;
+>> -       pctl->chip->set_config = gpiochip_generic_config;
+>> -       pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
+>> -       pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
+>> -       pctl->chip->get = sunxi_pinctrl_gpio_get;
+>> -       pctl->chip->set = sunxi_pinctrl_gpio_set;
+>> -       pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
+>> -       pctl->chip->to_irq = sunxi_pinctrl_gpio_to_irq;
+>> -       pctl->chip->of_gpio_n_cells = 3;
+>> -       pctl->chip->can_sleep = false;
+>> -       pctl->chip->ngpio = round_up(last_pin, PINS_PER_BANK) -
+>> -                           pctl->desc->pin_base;
+>> -       pctl->chip->label = dev_name(&pdev->dev);
+>> -       pctl->chip->parent = &pdev->dev;
+>> -       pctl->chip->base = pctl->desc->pin_base;
+>> -
+>> -       ret = gpiochip_add_data(pctl->chip, pctl);
+>> -       if (ret)
+>> -               return ret;
+>> +       last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number -
+>> +                  pctl->desc->pin_base;
+>> +       for (gpio_banks = 0;
+> 
+> If you switch to devm_gpiochip_add_data() above, you won't need
+> gpiochip_remove() below, and you can declare |gpio_banks| inline here in
+> the for statement.
+
+Nice, will do this.
+
+
+>> +            gpio_banks <= last_pin / PINS_PER_BANK;
+>> +            gpio_banks++) {
+>> +               ret = sunxi_gpio_add_bank(pctl, gpio_banks);
+>> +               if (ret)
+>> +                       goto gpiochip_error;
+>> +       }
+>>
+>>          for (i = 0; i < pctl->desc->npins; i++) {
+>>                  const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
+>> +               int bank = (pin->pin.number - pctl->desc->pin_base) / PINS_PER_BANK;
+>> +               struct gpio_chip *gc = &pctl->banks[bank].chip.gc;
+>>
+>> -               ret = gpiochip_add_pin_range(pctl->chip, dev_name(&pdev->dev),
+>> -                                            pin->pin.number - pctl->desc->pin_base,
+>> +               ret = gpiochip_add_pin_range(gc, dev_name(&pdev->dev),
+>> +                                            pin->pin.number % PINS_PER_BANK,
+>>                                               pin->pin.number, 1);
+>>                  if (ret)
+>>                          goto gpiochip_error;
+>> @@ -1690,6 +1669,8 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>          return 0;
+>>
+>>   gpiochip_error:
+>> -       gpiochip_remove(pctl->chip);
+>> +       while (--gpio_banks >= 0)
+>> +               gpiochip_remove(&pctl->banks[gpio_banks].chip.gc);
+>> +
+>>          return ret;
+>>   }
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> index ad26e4de16a85..085131caa02fe 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+>> @@ -14,6 +14,7 @@
+>>   #define __PINCTRL_SUNXI_H
+>>
+>>   #include <linux/kernel.h>
+>> +#include <linux/gpio/generic.h>
+> 
+> gpio comes before kernel?
+
+Indeed.
+
+> And maybe we should try to stop including the massive kernel.h header.
+
+OK, will have a look what should be included instead.
+
+Cheers,
+Andre
+
+> 
+> 
+> Thanks
+> ChenYu
+> 
+>>   #include <linux/spinlock.h>
+>>
+>>   #define PA_BASE        0
+>> @@ -159,9 +160,17 @@ struct sunxi_pinctrl_regulator {
+>>          refcount_t              refcount;
+>>   };
+>>
+>> +struct sunxi_pinctrl;
+>> +
+>> +struct sunxi_gpio_bank {
+>> +       struct gpio_generic_chip chip;
+>> +       struct sunxi_pinctrl *pctl;
+>> +       void __iomem *base;
+>> +};
+>> +
+>>   struct sunxi_pinctrl {
+>>          void __iomem                    *membase;
+>> -       struct gpio_chip                *chip;
+>> +       struct sunxi_gpio_bank          banks[SUNXI_PINCTRL_MAX_BANKS];
+>>          const struct sunxi_pinctrl_desc *desc;
+>>          struct device                   *dev;
+>>          struct sunxi_pinctrl_regulator  regulators[11];
+>> --
+>> 2.46.4
+>>
+>>
 
 
