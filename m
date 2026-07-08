@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B62C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620F2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jg71Yd7tgNPuzfuRQuzaDcmvLXEgrpTxuBWJKiWgB3s=; b=ed1nTURbwAjtybpnhD7FrPPnJ5
-	I8yrZT0FMT4DH05NClzYserCTwERLH22ar/ksZnvkAVS6phVS+ee6s548MJm8j9MFHJUQwJTDvRli
-	bxM2PMULc6ZUcP1lEJ8TCGJliTNnc15yQy7awJuarkVMpJqBVMsyVyhiiXwyCC3ErkPbDe/HXoY3X
-	tiMf+8j8NWtQvVigH/RZZ66AFGsKX/59jcnNKLyAk4OYAa+vdW3q9ySJRjYqbxB7Hs3gXStv8XyLG
-	aLWXx+RfifFPIg7YP17XdUG37MuG3lA9kjWQtowbOQM3zZPqaldfi4Q0PVM0EMKtdNtkcjoz/xUVk
-	1+0UsUYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4UyoSNyXebLeXjulHaoflPQw9V3It1bzboWcTLzP7s=; b=OX5lIHB6KzPVMep/RA7PfE73bD
+	M1m4hKmi+VCuiS4bDIDqmTxCz9vlrZxrOSQuPkei4MjTrZ6vxBIjmBI5R3W0JcmqOE6xWSonmRpUw
+	cdF8BL/gyCJJT7CI3/7vnrbaIugOmZScxIVFuQNJ+1+rS5WHILAUfPi32CoeGcLGug7dH3gZxpHtc
+	zCMN/F8ZYifiKdGwWBh/ithyUZfVTcui82tVwMU3J+j5kAXi4qHUYwdfjW3cPovlDz9XNxSMuQzBE
+	YMK/o1uxXEV466HzqkI6YgDhiESRfxYAKJGcxejV/6DPhYN9JY9j6beZGPsJvTeysgZxbaMBITZ3/
+	xqRaekCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPgP-0000000GvTi-08QA;
-	Wed, 08 Jul 2026 10:39:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whPk0-0000000Gvta-33bH;
+	Wed, 08 Jul 2026 10:42:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPgM-0000000GvSl-3kYq;
-	Wed, 08 Jul 2026 10:39:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783507148;
-	bh=iwFN7k1l7x6sZkU0ZQcIM16C6PmtP6fEROcDVf8SnW8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c7219e4rWLH+NttiNekbwSuQ/urAUx9f7qHZWqWQ7lsm7kC/ZXj54eakGLwu6gPbB
-	 VIUX2fhwzzbK3xtqcH+hlfX4q+HYzLwZGYsFSQA6J+tcvYAedUDIzPr4q6N3O5OTTk
-	 ZEyuHF2rg7PKwJ/PLY2m1gvjg3vruEOHX7lpta7MIqqn9XIa58zeob2rv+6lh7dSgr
-	 SnZQQqyo9iHjNupsSDLsZfQGgIry09xpJ79KehJI9WoaaWGJqQQP+/k4HkYU2Bzb6r
-	 3ySGC0lMVr5rX0iZnZAy1TxVbbOmzsmZIsxItdx147A+51rDaG7SkGMFujqsHxUtzw
-	 sRhpSAH+k7hJw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9200417E00F6;
-	Wed, 08 Jul 2026 12:39:07 +0200 (CEST)
-Message-ID: <31117c25-5410-429a-887b-87c767387c58@collabora.com>
-Date: Wed, 8 Jul 2026 13:39:07 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 09/39] drm/display: hdmi-state-helper: Add fallback
- TMDS rate validation
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-9-d79890d00b6a@collabora.com>
- <20260707-venomous-helpful-magpie-b2962b@penduick>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260707-venomous-helpful-magpie-b2962b@penduick>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_033911_093013_684DC628 
-X-CRM114-Status: GOOD (  17.57  )
+	id 1whPjy-0000000Gvst-0wkv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 10:42:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D44C60008;
+	Wed,  8 Jul 2026 10:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F29401F000E9;
+	Wed,  8 Jul 2026 10:42:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783507373;
+	bh=l4UyoSNyXebLeXjulHaoflPQw9V3It1bzboWcTLzP7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Eok20oS+ydCL9nQkOELYtvSANI3EO+8Mppguumlyf4qv4bE/mnNXLqjmaKSJLdLAz
+	 e6wySYAdHbh0lv8vXonOiEQ1APKQGtVddR3qvacEXeqAGRcGA1Nr85Lgc3tF1lgoo2
+	 bLF4lm+DuOFXrVmxvIDPZq/3uf3OfiMmil7FQwibynaZFTySQNWU4ZltrUHId1Jlf5
+	 YsFeiJTQHvj3P9MVcPixYII7pO1Y15qOzHIniZGV/3SMGy3jCBCoW3GvxJ3JKpl6Bi
+	 8IQwKmj/gDaHZCvwr6Vo2JjHZnC0Ya/9yiBQRw77Z5UBjQ53S4As7lVm39Rmv10X43
+	 qSS3NqxqZ35vg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1whPju-00000002mQn-1Zh5;
+	Wed, 08 Jul 2026 10:42:50 +0000
+Date: Wed, 08 Jul 2026 11:44:37 +0100
+Message-ID: <874ii97obu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 25/27] KVM: s390: arm64: Implement vCPU IOCTLs
+In-Reply-To: <20260706085229.979525-26-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-26-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +109,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/7/26 2:23 PM, Maxime Ripard wrote:
-> Hi,
+On Mon, 06 Jul 2026 09:52:25 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> On Thu, Jul 02, 2026 at 05:46:22PM +0300, Cristian Ciocaltea wrote:
->> Validate the computed TMDS character rate against
->> connector->hdmi.max_tmds_char_rate when no driver-specific
->> tmds_char_rate_valid() hook is provided.
->>
->> This gives HDMI connectors a common fallback for rejecting modes whose
->> TMDS character rate exceeds the connector limit, while still allowing
->> drivers with custom validation requirements to implement their own
->> tmds_char_rate_valid() callback.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 3 +++
->>  1 file changed, 3 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> index ce17eeefc2da..db76699093e8 100644
->> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> @@ -566,6 +566,9 @@ hdmi_clock_valid(const struct drm_connector *connector,
->>  		status = funcs->tmds_char_rate_valid(connector, mode, clock);
->>  		if (status != MODE_OK)
->>  			return status;
->> +	} else if (connector->hdmi.max_tmds_char_rate) {
->> +		if (clock > connector->hdmi.max_tmds_char_rate)
->> +			return MODE_CLOCK_HIGH;
-> 
-> I think we should handle this the same way we do for
-> info->max_tmds_clock: if it's set, we always check that before calling
-> the driver.
-> 
-> It reduces the boilerplate in drivers, and it's always a relevant check
-> anyway.
-Ack.
+> +static void adjust_pc(struct kvm_vcpu *vcpu)
+> +{
+> +	if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
+> +		kvm_skip_instr(vcpu);
+> +		vcpu_clear_flag(vcpu, INCREMENT_PC);
+> +	}
+> +}
+
+Can you clarify the semantics of adjust_pc() here? arm64 also deals
+with exceptions in the same code, and I wonder how you deal with this.
+
+> +
+> +static void arm_vcpu_run(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
+> +
+> +	adjust_pc(vcpu);
+> +
+> +	local_irq_disable();
+> +	guest_enter_irqoff();
+> +	local_irq_enable();
+> +
+> +	sae_block->icptr = 0;
+> +
+> +	sae64a(sae_block);
+> +
+> +	local_irq_disable();
+> +	guest_exit_irqoff();
+> +	local_irq_enable();
+> +}
+> +
+> +/** kvm_arch_vcpu_ioctl_run() - run arm64 vCPU
+> + *
+> + * Execute arm64 guest instructions using SAE.
+> + *
+> + * Returns:
+> + * 1 enter the guest (should not be observed by userspace)
+> + * 0 exit to userspace
+> + * < 0 exit to userspace, where the return value indicates n error
+> + *
+> + *
+> + */
+> +int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+> +{
+> +	DECLARE_KERNEL_FPU_ONSTACK32(fpu_save);
+> +	struct kvm_run *kvm_run = vcpu->run;
+> +	int ret;
+> +
+> +	if (kvm_run->exit_reason == KVM_EXIT_MMIO) {
+> +		ret = kvm_handle_mmio_return(vcpu);
+> +		if (ret <= 0)
+> +			return ret;
+> +	}
+> +
+> +	vcpu_load(vcpu);
+> +
+> +	kernel_fpu_begin(&fpu_save, KERNEL_FPC | KERNEL_VXR);
+> +	load_vx_regs((vcpu->arch.ctxt.vregs));
+> +
+> +	if (!vcpu->wants_to_run) {
+> +		ret = -EINTR;
+> +		goto out;
+> +	}
+> +
+> +	kvm_sigset_activate(vcpu);
+> +
+> +	might_fault();
+> +
+> +	ret = 1;
+> +	do {
+> +		if (signal_pending(current)) {
+> +			kvm_run->exit_reason = KVM_EXIT_INTR;
+> +			ret = -EINTR;
+> +			continue;
+> +		}
+> +
+> +		if (need_resched())
+> +			schedule();
+> +
+> +		if (ret > 0)
+> +			ret = check_vcpu_requests(vcpu);
+> +
+> +		vcpu->arch.sae_block.icptr = 0;
+> +
+> +		arm_vcpu_run(vcpu);
+> +
+> +		ret = handle_exit(vcpu);
+> +
+> +	} while (ret > 0);
+> +
+> +	kvm_sigset_deactivate(vcpu);
+> +out:
+> +	if (unlikely(vcpu_get_flag(vcpu, INCREMENT_PC)))
+> +		adjust_pc(vcpu);
+
+arm64 has the following statements:
+
+	if (unlikely(vcpu_get_flag(vcpu, PENDING_EXCEPTION) ||
+		     vcpu_get_flag(vcpu, INCREMENT_PC)))
+		kvm_call_hyp(__kvm_adjust_pc, vcpu);
+
+It isn't clear to me why you can afford not to deal with pending
+exceptions when returning to userspace.
 
 Thanks,
-Cristian
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
