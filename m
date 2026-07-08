@@ -4,117 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47884C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A28C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=; b=AsO3XVQHIY206OSdkZl1OO0raY
-	+gVWF2vCvcGikpiYZ5HadVtBL+oMcQMVZc5KEUSIQdxdVqSqND+2KsXfC5T9WNGUI5rLQEsKyDKBR
-	WIJMoli6c+59NgHpig7zbqZIf+XCD4eUvP4J2KYJfRBiKEs7JljiRLXg0R2XR+Xe7/E1gOAUSY7rf
-	UyRTT0Qo6+c5jFSsI8t+b0/UtY2WIlxa4L7iOyg237uY/VM80nWCPsUniu4FogW62T/1k7kSQ2wvK
-	YVD/hrBLyRRvV4uhG/Sf6G5l1Gju6jucskdt8tZuIWG05Ihl249tB16VTl7PDUpwQpWg8fxHWZ7nJ
-	dNykMxJg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q8ZEoBcqKgzNRobQRMh7+gF+FHzys4fqC/0fXgc5Wpg=; b=1rLIv0QMr4YPLLtTA+wR8wV4ru
+	MGKDVu8cM+ANqDNzhgnwhzNEigsqh6TEUgM/Hqo9YT3cXT3U5av7jnUr2oRCuZAP+NwFGWKb13LIm
+	eHOpcuqj3IOdTgRO7o0wYTfycXV4yyPtwtLsAquFPxCyOvqXtQiw7YQ//aFHJdTIsehakvwVqw8ok
+	absaUqdUmFVlkVYJZQb3vFRF2c3riCLpXGp6ZWH3VGaTAzKD1DLszj0qSopvTr0Ud46mygGi14a4Y
+	/Yf8nedjF0sbL8FJJmiFgb42vvofgjHKa4pdRvX0kDsme4XDjP8mSA9MXZ0Sp0iGcDAlab3l0CfNn
+	YnU4x8iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMYy-0000000GUDU-1qfj;
-	Wed, 08 Jul 2026 07:19:20 +0000
-Received: from mail-eastus2azon11010052.outbound.protection.outlook.com ([52.101.56.52] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1whMZ2-0000000GUEt-2VVi;
+	Wed, 08 Jul 2026 07:19:24 +0000
+Received: from mail-westusazon11010051.outbound.protection.outlook.com ([52.101.85.51] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMYv-0000000GUCD-1pnu
+	id 1whMYx-0000000GUCq-2HLs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 07:19:19 +0000
+	Wed, 08 Jul 2026 07:19:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bgxumvahzo7SAapWU85rSM7ocKwhIjXmqnmWoC0gde1QbjNXrF+NbTvOvaGOSwBwKp1SGngGMTAr3xc0fjM3j0nWZpSkh5VWKn+RqhE57xkaQBhSZIRWS6eiltOVz6XdgnVsWOzdp29ZdcOe/6BIQH6oASkFsqemPq8iYxx62Gpshc7gHRF+KBXbW5vuVgp3kaJVzQxfA3w4gbnkfgbXfTawU7KNG8qmyUBSgJO7WV1DRxMAJV+YTf6CLYWQroR+F19c7CNVNKxW8/dFti23nFg+Fj5LwyTl3Ut2QJjz6VQ2YM28MR1AcBZkI4w6tLo4jfHijnUxnJyeiT48o+JPUA==
+ b=vsjW1894m3JQM9gTdLdBSstSWtPB+fVdUNPOVoM2Ck/DppWSkkDhfHpZ+87Z5yZfUOlomE/bBFINfX/CiBDdgaHv51OF3a0OvPlFnU1y6Wi57YPKJBYEUUA1+HkAMlTY+Rcpn8SvORu26oQoNbc/0y/DlzxTyMvn9i32Ueneb7Xq40+0YmeH1292A6s7BHOpV+q2DYQ4Sz06e6WL5Os/lDOh368lNbYgTB/a0JrxU829Ld29W/CDRfKs32Gjp8KYpO9I9wnDGbbVButZroktIJJ2ywbexF24EjWoB5kxRcrsVaXUnEC1eAttGL1yy8ltK+OFqZp9DBXOV7Ua6boicw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=;
- b=ul/WhHPH9F4fyZ3DyFLcz/FnnBLxZkhK389Bes9aHP2YR8Qafx3wQixxcCfPCL8WEaMauuCMnKgWyK8NiQwawYcLDUKQ7qSiPJWge/z/+i6dGbWb8j6vNvryKZ4/FoF8Qn+Wo79J437nCWXNQBFALagMo5CRGR5k8DDBscqiaIA8K06XcqWjbq7zGoEGRBWbHqVhEcK/CQRbKIY7F9qCEOMH8tXjC/fDvtuQhQMzc2Ex87sjsPYD8Oqt77Irtdgi4sceSWTInRgAmhYv27hWY9160qmT5BRHl48bLMF958yIojOwV47+FkI4X5aGRYbPjAmke2CCOkrEqbkdVjOFxQ==
+ bh=q8ZEoBcqKgzNRobQRMh7+gF+FHzys4fqC/0fXgc5Wpg=;
+ b=JcFSjcbXfCD+t+alr2Kfbgi8CKsWXhbmK7Kuh6D7Ub9M0Qyam2DUQrtjdh9NT1vTDH9L6i9DoLiXaNCuu6Sta87MFbzIJriYIXtpZKTip7KbOH7/iqGE82LZprFTy58CTHzDhl5f5Hx/hDQb2WobtETONxtM991z12SN89+aKF3KJq+dF+CAcobaV0ApEZVDuXuTFjxOdoeXeq2OYnqawvr25/45E/L/NA3t3sUTRl+EPJqaw747ke1YINpKoyUMiciN+BqTFS5hvucUYOUEZS/7g2J6mHub+2dXCUHXBEI1w1iTjPyWmpVMj+hFUqm2Ys8SGTe913KjFhIbQ4akCQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=;
- b=hMhakzGoamu1MbUB+YAqCEovM49EwDSSrV9v6i/gtXGFe7SqgQAUFz/kE5lKGnxFs4vcU2tN5PUVb/AxX1mSo3CJq2YaaWp1DI7up6Eg+o1Pgi5UzDSoUICgETe9tMLPHkQUUkeNk0s6CHOA90ruGbOHu+usEtstO66zcVBmS4c=
-Received: from CH5PR05CA0008.namprd05.prod.outlook.com (2603:10b6:610:1f0::17)
- by PH7PR12MB8779.namprd12.prod.outlook.com (2603:10b6:510:26b::8) with
+ bh=q8ZEoBcqKgzNRobQRMh7+gF+FHzys4fqC/0fXgc5Wpg=;
+ b=gzx+uxpXImHmIQtPYjxY/foCuNObPwKf7ThII1D1tdQHozKy7QuU9WpNCpo5L1S1tCQbHUk3KV+y3wJbeuPTYgz7eg7VJeH4D8fA+FE+JpldBwwn2hEj2tfle40PS5vOpI+hNzfqUi3ZqB6dxCJw7q/0Mwz09tIWf5CwigoD28g=
+Received: from BY3PR10CA0017.namprd10.prod.outlook.com (2603:10b6:a03:255::22)
+ by MW4PR12MB7465.namprd12.prod.outlook.com (2603:10b6:303:212::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
- 2026 07:19:09 +0000
-Received: from CH1PEPF0000AD7C.namprd04.prod.outlook.com
- (2603:10b6:610:1f0:cafe::5) by CH5PR05CA0008.outlook.office365.com
- (2603:10b6:610:1f0::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.3 via Frontend Transport; Wed, 8
- Jul 2026 07:19:09 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 8 Jul 2026
+ 07:19:14 +0000
+Received: from CO1PEPF00012E62.namprd05.prod.outlook.com
+ (2603:10b6:a03:255:cafe::5) by BY3PR10CA0017.outlook.office365.com
+ (2603:10b6:a03:255::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Wed, 8
+ Jul 2026 07:19:13 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH1PEPF0000AD7C.mail.protection.outlook.com (10.167.244.84) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CO1PEPF00012E62.mail.protection.outlook.com (10.167.249.71) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 07:19:08 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 07:19:13 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 8 Jul
- 2026 02:19:06 -0500
+ 2026 02:19:09 -0500
 Received: from localhost (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
- Transport; Wed, 8 Jul 2026 02:19:05 -0500
+ Transport; Wed, 8 Jul 2026 02:19:09 -0500
 From: Michal Simek <michal.simek@amd.com>
 To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
 	<michal.simek@amd.com>, <git@amd.com>
-CC: Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Stephen Boyd <sboyd@kernel.org>, "open
- list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
-	<devicetree@vger.kernel.org>, kishore Manne <nava.kishore.manne@amd.com>,
-	"moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>, "open list:COMMON CLK FRAMEWORK"
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v4 0/5] clock: versal-clk: Fix Versal NET clock binding and switch to CCF
-Date: Wed, 8 Jul 2026 09:18:47 +0200
-Message-ID: <cover.1783495122.git.michal.simek@amd.com>
+CC: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring
+	<robh@kernel.org>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
+ BINDINGS" <devicetree@vger.kernel.org>, kishore Manne
+	<nava.kishore.manne@amd.com>, "moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 1/5] dt-bindings: firmware: xilinx: Add missing example for ZynqMP
+Date: Wed, 8 Jul 2026 09:18:48 +0200
+Message-ID: <09439b3fc9dcab12b930113e7a004e94653c970c.1783495122.git.michal.simek@amd.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1783495122.git.michal.simek@amd.com>
+References: <cover.1783495122.git.michal.simek@amd.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3701; i=michal.simek@amd.com; h=from:subject:message-id; bh=RIAZw6f0I42gb3b3t6ib21Xapc6CHPE+tmls/puPOr8=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT5/rx32bpB0uGjrcPS47nr/VfqFrlen2CXKXLg9fnHt zQfrQtr7ihlYRDjYJAVU2SZzqTjsObbtaViyyPzYeawMoEMYeDiFICJMLUw/HdI0f62s9mTz9Ak /3R7EEfYA/cl0TcO5LG3hRXrp94L+8LIcE1t+UaTdxM4l57g29WtlKXYnZW5WDk5PPxoYsxxzRl 3mAE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1466; i=michal.simek@amd.com; h=from:subject:message-id; bh=q4/8keAAPo0cms9nW8wpK+eXG0kso84RLX+tawgn0a8=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT5/rzv5muiVnv05CuXi88SAtepbUm4HH74lA7jo9lCl VvO/dnC2VHKwiDGwSArpsgynUnHYc23a0vFlkfmw8xhZQIZwsDFKQATsf7CyLCxY7/7XfakLe1B tSsPm6vp+P5es45XYlGOydQTV02kOpIZGc4ob+s751Mnsklu+3aT2QYfVjbfc9lYd2lv7LXeN46 Km/kB
 X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7C:EE_|PH7PR12MB8779:EE_
-X-MS-Office365-Filtering-Correlation-Id: c690601d-850b-4ecd-8492-08dedcc133cf
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E62:EE_|MW4PR12MB7465:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc80d267-57f2-458b-51a4-08dedcc136ca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|23010399003|36860700016|1800799024|3023799007|11063799006|18002099003|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: PnmF2hx/avRr+MUsw2E9Ggo45q4PDsbW+9DijTRbzFtIQx5uPDwkQlmdFMcy+q1lkgU9m2Llt8V6nNy/gjCBubjtQLHFFnOb9Yvdj0jG6vKnKmEBj/EFbUua9RO6FPvdPOk8Q6a5leKCAwPqabH8evtbKWjbb0aoqHw+ZetiPoQwRHN6j440liscumOlv0RhZEYYuRpY0T9Zl9MlurbF9MYTaCXiXIEWiksrP5U2uUzz6irzuWwi2kNKVbJbY2b7uovd76b1UnUHqkRkPOc2t6NzBjeMg/UxsoKxxFGFBcmhd2Qnix4weRH0txzswuckCKmyWtaQ1DmPAqZkn0gpBk3bxm0jCejqDagzwlj85H9LM7IT2BaRNHciQoM3JZcfW7kXnY6T/GdhGqwrBPprjI9TthX6aotMAnq7y7l4Pmj9dJaVCb90wqslbcyVWWKCeAYTXuzM60WGTF1hotfJC51CAZfNnnxefVGtV5awZ1h2vhgPP8H1c/Uf7INQwqac5PPI/Bf0utZPkEAqEaWIcWdCZhq/2RzjEQ9OLb9cfYlt+HV8OLaEXA0n+JjZ15fGkudSivoDOMX15EMJ/XidfRq7tLommOqaSnGd4VPvIZ4wUdhkbg8jPHN5c7jWmHHn/Z05+AK4AkrjgoFykM2Jds04VWlXwMMf6CLcatKiBncf58RwG5ibihtFwmAgKQ6AAv20GaDZLrZ8xIHxkpH7Ag==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(23010399003)(36860700016)(1800799024)(3023799007)(11063799006)(18002099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|36860700016|376014|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Daz3a2dW43g+irfpDPcVakQIE4+hXrRG7kzrGWNAQoIe6rpm94ZsEjZy2k2U5yG1zgu2asl+SZjbE4LD9xkUllgyv8XmWDDHxKxJzhoJEilQHtt4CPOPn0XUdASeoM1Ls8D8OQcnw7hLfVnqQPjqDDw7oZQQPJSm+q0Kkmlyy3d8RC/eHs6fjbAGlEt848OWoIrdpYGPfb5mTKGgvZXNwnHIhuzw0TRD2ux5dmaTv+CKJ+DBC5L7U1GChDQDfo5+A3yVFz2BR34Tsk7UrxwGarMGeZ0MvP0kAb2G0rcKZtOQ9gem/B0O6P3v7+6u2537qBDbOtneLcMjiVtOtVG85/gf34zFpvvFWH2hxAJZW8gkbDa8UVbztsO89HgdB/CdX7iNWp9vS6skZXTAW9mdqL82zvU5dukcttimkt88MEnurGABBIOqadb1NEFP9J7GPzr02vGW70SNwDT0qy9Ltjd4DGlyXZOyZkX1p8ynyNSicLXH/wVpl0qnowEbdv2+ePfMa1Yh9SpcpsCs2qDRLQiMytGL/PPVuWgsoqD4Febf/zvFMGQuJADdgROnHzyml+6rBkN0NwyfC+E1BivS1LZuPqPoJEuyipTOMBgZA829I7i5W0T/wBlE4NOBz98OvscdCCRYJgnC8t9yORSGIQkQZQkaXVQlR7iOZ8iR/3UJfyUh12S0xEMBgIYRyOI6kgPWgv2DPdKLkh7Rky0BEg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(36860700016)(376014)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jIuro5HgLPkDxuvNavC5vrRlNOURw9/6XdQyc8LmA992mJ+a9eqRNDzKFZ3FW3uYtboZGvDsr4Mi9PZQXpCgtoQrvEzdnmz9MR4fmu8m6r8sv9VZLWS4H2MdQZkU5Y3SeaSjSPblqBoT4IbR72LMASmWd5TkmzFCHnmjSMSBncQHYGOnwq1BwfL3iNd3YExvzyr2SIiZ3u5DWrYLHeKYieaUjuENg0eizfn3/MvG7lwxDjMI1EFA6NRBKvefGh1pSc7bK26/mEw/JP9ni0mf/f+WAqh0/8O7EdnTum7OBClKzoQxzzEXRvGS7aWVMZdcEhT3+4yLB5xw0sExSPNo2CyxLgnvor+Xpe7ChdAWxMtCLdVwyqDi6n1mwQWWcPmFkSG/Dt8VmXQHxNpixBhY4h78zI4y2srnrFYusU1HoWJKjyagawOPp7RTIOeNGYZq
+X-MS-Exchange-AntiSpam-MessageData-0: 4zG0NsR3f150wN5ItPIxIk6fGr5S5j9Abtnd9nsGNB4Lxj74VFlSrPrNnSEJ2oUVo9ATi83LHeQ5Cag0ryMc+RujqATycPvLPuyAZWm5+N1dyAhQXzaoWimKmU2IUrDLdku5jhHVikKEaq6MIQKLXwtr4/twsSfSneozrmGJbdLHa3UOJ9HgJHiQW5AxoVHPVUosOrmAmk7BHValkpJHvGwZndcecfokfRKQkMOGnpMuoYo4MEPRAVSMPq+WFCIB4CdvPJVg2sRlIZsUjIlSk6IgS+BfeydsPjtzszR32asZxU3oaFikOk44CRi1KgYoeeRefhvvfbPm0H7ZGjWN8jnf7QKXONNvJe0bMbpLQw1V8gblJgI/CUvNl69latpJqdl7i4efC/FGZ2INSgrvQT/DyOc6tgc/QQ1BSuI0EuLy/mt5FntcfdWvp6JKaYvt
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 07:19:08.8856
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 07:19:13.8406
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c690601d-850b-4ecd-8492-08dedcc133cf
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc80d267-57f2-458b-51a4-08dedcc136ca
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E62.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8779
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_001917_929360_20C51855 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260708_001919_584099_145AC36E 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,92 +128,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes the Versal NET clock controller DT binding validation
-and switches the platform to use the firmware-based CCF clock interface.
+Document clock-controller under zynqmp-firmware in the binding example so
+ZynqMP DTs validate against xlnx,zynqmp-clk.yaml (Versal example already did).
 
-Patch 1 extracts zynqmp to own DT binding file.
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
 
-Patch 2 restructures the if/then conditions in the versal-clk binding
-schema so that xlnx,versal-net-clk is matched first before falling back
-to xlnx,versal-clk. This fixes false "too long" validation errors caused
-by both conditions matching simultaneously when the fallback compatible
-is present. A dedicated example for the Versal NET 3-clock configuration
-is added and all examples are split into separate blocks for independent
-validation.
-
-Patch 3 switches Versal NET from static fixed-clock definitions to the
-firmware-based clock interface, enabling proper clock management
-through platform firmware. DT macro headers for clocks, power domains
-and resets are added.
-
-Thanks,
-Michal
-
-Changes in v4:
-- simplify expression to [0-6][0-9] from 0[0-9||[1-6][0-9]
-- Update regex from previous patch
-- Also update firmware node to match xlnx,versal-firmware enforced by
-  schema
+(no changes since v3)
 
 Changes in v3:
 - new patch in series
-- New patch in series
-- Cover change in zynqmp-firmware.yaml
-- Move clock-cells to be the last in the example
-- Remove comment around (Optional clock) which is obvious from schema
-  itself
-- Move clock-cells to be the last property in the example
-- use 2 spaces for indentation in example to follow the same style which is
-  already used
-- Add fixed tag
-- Remove interrupt from zynqmp-power - Versal NET is using event framework
-  instead. No interrupt is required.
-- Remove unused GEM{0,1}_REF_{R,T}X macros
-- Update commit message
-- s/zynqmp/versal-net/ in subject
-- Update copyrights
-- Make all macro values lower case
-- Fix guarding macro names
 
-Changes in v2:
-- New patch in series
-- Split zynqmp-clk from versal-clk
-- Update logic without ZynqMP part in this file and have if/else only
-  around min/maxItems
-- use clock-<HZ> node name for fixed clocks
-- Reuse existing versal-net-clk.dtsi file
+ .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml    | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Michal Simek (5):
-  dt-bindings: firmware: xilinx: Add missing example for ZynqMP
-  dt-bindings: clock: versal-clk: Fix mio_clk index range in clock-names
-    pattern
-  dt-bindings: clock: Move xlnx,zynqmp-clk to its own schema
-  dt-bindings: clock: versal-clk: Fix Versal NET clock validation
-  arm64: versal-net: Switch Versal NET to firmware clock interface
-
- .../bindings/clock/xlnx,versal-clk.yaml       |  93 ++---
- .../bindings/clock/xlnx,zynqmp-clk.yaml       |  68 ++++
- .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  15 +-
- .../arm64/boot/dts/xilinx/versal-net-clk.dtsi | 345 +++++++++++++-----
- arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h  | 123 +++++++
- .../boot/dts/xilinx/xlnx-versal-net-clk.h     |  74 ++++
- .../boot/dts/xilinx/xlnx-versal-net-power.h   |  38 ++
- .../boot/dts/xilinx/xlnx-versal-net-resets.h  |  53 +++
- .../arm64/boot/dts/xilinx/xlnx-versal-power.h |  55 +++
- .../boot/dts/xilinx/xlnx-versal-resets.h      | 106 ++++++
- 10 files changed, 797 insertions(+), 173 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-clk.h
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-power.h
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-resets.h
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-power.h
- create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-resets.h
-
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-branch: xnext/versal-net
-
+diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+index d50438b0fca8..680082c29f01 100644
+--- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
++++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+@@ -132,6 +132,14 @@ examples:
+       zynqmp_firmware: zynqmp-firmware {
+         compatible = "xlnx,zynqmp-firmware";
+         #power-domain-cells = <1>;
++        clock-controller {
++          compatible = "xlnx,zynqmp-clk";
++          clocks = <&pss_ref_clk>, <&video_clk>, <&pss_alt_ref_clk>,
++                   <&aux_ref_clk>, <&gt_crx_ref_clk>;
++          clock-names = "pss_ref_clk", "video_clk", "pss_alt_ref_clk",
++                        "aux_ref_clk", "gt_crx_ref_clk";
++          #clock-cells = <1>;
++        };
+         soc-nvmem {
+           compatible = "xlnx,zynqmp-nvmem-fw";
+           nvmem-layout {
 -- 
 2.43.0
 
