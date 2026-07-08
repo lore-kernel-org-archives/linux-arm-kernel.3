@@ -4,98 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 890FCC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEFFC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rFFEb1yJr4W/OXQaHP4cwompeqYq2+VX2v909Wsi6ek=; b=mvbP+ONZ+QDJxlHoeWIKjosUVm
-	Ge+JHBqVx881Emh9UUuHRA+WK3E/p+sui8VWOTHEzYUEQ2TB4lG0RUuA+NprN6kKUBhxv0vdiK7zD
-	R/w3Gsf3QhEdEL5Klt3ZhUmaa7L2C3zP8AuLFoQpS1hILlqAOnL3VnSNu9J1avXiK0Y7YhGNwM+VR
-	PfREpgayd3h10j1N9EgTVZtgHAu5zunT8i3bO+8KuPhaKpL2AP708cQ/5pHFBpitzBvgQCohs4Pha
-	E8+EZdivyv2C81fnB51Odufc39E2WXFseIS0jGsn1fVTKgH9tQJKgD5tq30H1wA/o6U982cYOvTcD
-	Q+DeAgig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X5dzTTCatZZvkmE8q15IV7Lpko/hPbN5TdQoKiurduA=; b=BTfB8Q+aKxj7PFr26EgiOHsZgo
+	V2QynNT6ot2gVBuAf/FMLOE2QSSUovXNgLzcXc4j/8CqovfujyVBVyImhjFhMfmwq1o4mczZ7ZWgX
+	Gb/JGvglrSCvlhguM5mZCs+gssMzArkMi+E2bKlc0dhZLaVK6O6gNqZcyweKINFo8DG4gmNfvOi4E
+	ezZejbyG0NpGPNRa9nTVFK8Ha8bp07B8IIyWyu4bKuV1LVuvvuzvCZa3l1cI4raqJ+HW1pDjXsxc4
+	Ny+J/wRRPyJ6kQpKCgYVACxT91AqGKh9LMAH0q+expLy1r/dWkflCl5v76OZV5xIPh6MJds9RFTX/
+	tF69T/Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRXc-0000000H84v-0nrw;
-	Wed, 08 Jul 2026 12:38:16 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1whRbb-0000000H8On-2inT;
+	Wed, 08 Jul 2026 12:42:23 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRXY-0000000H84X-3aaM
+	id 1whRbZ-0000000H8Nw-2cJN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 12:38:14 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so4585215e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 05:38:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783514290; x=1784119090; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=rFFEb1yJr4W/OXQaHP4cwompeqYq2+VX2v909Wsi6ek=;
-        b=TBLghfIGkdKHWv7qIKG8DMoMmO9WvvrZVVHYICJ3jfB4WIGcYNM1mcwW6VJwnkq36U
-         S3PlGumpdOmLgJOfZlEJGw0gekLzR20QHQi7Y307+uZfiwMGUtHFj1R5VuzDRHDvPUpT
-         /oZT8STWaezPJ2Sn7KHg+Zxd30BSJXULUwTwZQAmpTZ4jxnWXUOxkDKrZfCcL1gZtO/t
-         MM1vBXwMHUzNB/uPg2J247IKpicpsaKtEgQjNKlq+83cB4+PLpSrMCFxboQ9a2Ez8MGx
-         +OSqd4XnLL5o0TylVaDIZ1jebMe3gKN8QMtP+aD1XaqKkdtyk65thrI1uX6X44Oy+sZb
-         TxtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783514290; x=1784119090;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=rFFEb1yJr4W/OXQaHP4cwompeqYq2+VX2v909Wsi6ek=;
-        b=WtRquInPDiYPhSFK5EIHrX4YmQ8PpyJx7VyYruUYxTP4q2vhKbOA6KIVWDKla5FzCd
-         iI3WP/76x/w6xWOrjwabttLf1xIR+2kYtWqigIztSSVNkHTc4iM8vyVQ8i/SIxXLa/pQ
-         MOvw5oZqV+qsAzwL6Bkghm1PM7SJjVoNJioOuXTXeNadMezjK/7AeRXq9eJyprzNp75+
-         ZhOYiT5KlbT4onGULK3DEc5f3wLC5K7gxR0u01dF1wQLpbzVE7yC4zA70zcITcy8m2MK
-         x8xUHXtPgqzmwwlJ+2DU6l5WdE9DghYOXmZEFRzHgPjbG8HE47vAaY6FdW17GhHGQRv0
-         y4Tw==
-X-Forwarded-Encrypted: i=1; AHgh+RrHpF6jUAn5Wp3qFjD0BdLLbxOHLUOjXAhsrKlcrs0pM4CyPJgSxGmtAHLcnx5RsZY1gBYtBxn9Kj3vtxWR8QLm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrMpg4pe8BNlOC5a7Edf0uppZqn+lXwzVvA/i/aP+raALeohzW
-	KP41Ib7bwVRuZwLn9HVaBAcFM8zUG0u/uCv3hnXK+JA31MZAZm/bdwtWChCDT8HdK3LWH04EcGf
-	X6SSI
-X-Gm-Gg: AfdE7clnMfqIYbDVFtMKPrXQYuZ3sbc3TOlKKSCLiyONQmta4BxI78LrrnP3uwelZ4i
-	dJ3Eu71INbpXdg2sQ4RcLnW1NnnXZXP52v/EYhAoWETeOo1ULlPJ5S0CA6NmWglx8NGbtUkKHIz
-	2IfWEAvVBlsJqnGqu0SDOMV1/y4M0EOl7cJc+jd4PJrf5S1m7MAvILH7QfDaGkpeooL0vZwegMv
-	8Gc+GLvfnA6/asL2SI0hAOlhQkEs9BgWkmBvQJY5JB/h+z62Xk1MNtOjGfDwoHOi6Qqny30qzcE
-	g94laHmsYmXeIZUuKj6dmGxLrXwuAhkba8T7b8b+RTmmyZQKzwmECDFb3OBSKg5zDBrxH1o4AZv
-	CjY0wI1beDImdqEE6PZYKUKUCau2y1eCDnQgUOyBiF0l/DKnvtAgbZG9zlv24Z1+dxDkZVDcqTv
-	7upSSs+y2bQDM=
-X-Received: by 2002:a05:600c:a00f:b0:493:bc4b:b8c with SMTP id 5b1f17b1804b1-493e69e9902mr24247945e9.38.1783514290519;
-        Wed, 08 Jul 2026 05:38:10 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:6a8f:4433:b91b:5334])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493e0f4fc0bsm125307795e9.10.2026.07.08.05.38.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 05:38:09 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>,  Alexandre Belloni
- <alexandre.belloni@bootlin.com>,  Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
- Holland <samuel@sholland.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Maxime
- Ripard <mripard@kernel.org>,  linux-rtc@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
-  linux-clk@vger.kernel.org
-Subject: Re: [PATCH v4 9/9] clk: sunxi-ng: sun6i-rtc: add a733 support
-In-Reply-To: <CAGb2v67AXz=TPzNFnRMS9-vweL+6g5T57dwwYCdorwdi8HWcjA@mail.gmail.com>
-	(Chen-Yu Tsai's message of "Tue, 7 Jul 2026 00:47:30 +0800")
-References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-	<20260706-a733-rtc-v4-9-f330728db3d3@baylibre.com>
-	<CAGb2v67AXz=TPzNFnRMS9-vweL+6g5T57dwwYCdorwdi8HWcjA@mail.gmail.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 08 Jul 2026 14:38:08 +0200
-Message-ID: <1jpl0xhd1r.fsf@starbuckisacylon.baylibre.com>
+	Wed, 08 Jul 2026 12:42:23 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 0871876077;
+	Wed,  8 Jul 2026 12:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783514538; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=X5dzTTCatZZvkmE8q15IV7Lpko/hPbN5TdQoKiurduA=;
+	b=dUEBh06fNWTd2m8I8EOJluGoLByyD9XOlJ3przweVPZbhz6VZ7S1zsjn7DFg7zULfjPWm2
+	QnUpa1SkvgpZNH8hINzV8CAg1WtIfcJ1K0UzREvU38I4qdLzy/5uxYICxq1/MxFMLt48u7
+	cd3RpJS8rOX114IaN/X9ePsGlBoy+9U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783514538;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=X5dzTTCatZZvkmE8q15IV7Lpko/hPbN5TdQoKiurduA=;
+	b=liIbm3A1PHJAFrQqgluRDTsuHQKsA2UoHIJFH7AOynoG8lo5e9afqxGlIUN3trUGQ0IuTo
+	0/NfJkRIeI7DY6AQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=UK6WQbby;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Kz3KMMhw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783514537; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=X5dzTTCatZZvkmE8q15IV7Lpko/hPbN5TdQoKiurduA=;
+	b=UK6WQbby0uEoeFln5BDlhQtliE8Q+fOlMQaTPyWNztP1ofk9W69/pu9fLxccGUy43ajOcY
+	sFExOrJ7vDTzkIXuhRFtmdEVPT0e0E70KiR4kZ6gA9uXvWtg5nI8Ag9nSKiW97SUuXd9DE
+	y5QBxIf27c42uswsjGAUK9oMjo2v2I4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783514537;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=X5dzTTCatZZvkmE8q15IV7Lpko/hPbN5TdQoKiurduA=;
+	b=Kz3KMMhwjoyhH/AzT1OYB8kEQJge7Pt0/4KgWomD22Kc2swil+/M3DLVAh4str1zTv5f0F
+	9UNXwy3W8vz0V9BQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 79341779AE;
+	Wed,  8 Jul 2026 12:42:16 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id m8AlHKhFTmqiFgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 08 Jul 2026 12:42:16 +0000
+Message-ID: <3abfae37-770c-49bf-ba1c-98bd6b0b52bc@suse.de>
+Date: Wed, 8 Jul 2026 14:42:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] drm: replace simple display pipe users with atomic
+ helpers
+To: Ze Huang <ze.huang@oss.qualcomm.com>,
+ Alexey Brodkin <abrodkin@synopsys.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, xen-devel@lists.xenproject.org
+References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+ <9612bb41-db52-4169-a7fa-e57268d69e24@suse.de>
+ <DJRCCWQOT4TA.1OPAZI88KOWLW@oss.qualcomm.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <DJRCCWQOT4TA.1OPAZI88KOWLW@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 0871876077
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_053812_921597_72BEFE00 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260708_054221_962787_65E46E81 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,96 +183,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mar. 07 juil. 2026 at 00:47, Chen-Yu Tsai <wens@kernel.org> wrote:
+Hi
 
->> +
->> +static struct ccu_div osc24M_32k_div_a733_clk = {
->> +       .enable = BIT(1),
->> +       .div    = _SUNXI_CCU_DIV_TABLE(14, 2, osc24M_32k_div_a733_table),
->> +       .common = {
->> +               .reg            = DCXO_CTRL_REG,
->> +               .hw.init        = CLK_HW_INIT_PARENTS_DATA("osc24M-32k-div",
->> +                                                          osc24M,
->> +                                                          &ccu_rodiv_ops,
->> +                                                          0),
->> +       },
->> +};
->> +
->> +static SUNXI_CCU_GATE(osc24M_32k_clk, "osc24M-32k", "osc24M-32k-div",
+Am 06.07.26 um 10:22 schrieb Ze Huang:
+> On Mon Jul 6, 2026 at 3:27 PM CST, Thomas Zimmermann wrote:
+>> Hi
+>>
+>> Am 04.07.26 um 20:31 schrieb Ze Huang:
+>>> struct drm_simple_display_pipe was meant to simplify simple DRM
+>>> drivers, but instead adds an extra wrapper around normal DRM atomic
+>>> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
+>>> should be converted to regular atomic helpers and stop depending on the
+>>> simple-KMS interfaces.
+>>>
+>>> This series converts the following drivers:
+>>>
+>>>     - arcpgu
+>>>     - aspeed
+>>>     - imx lcdc
+>>>     - mcde
+>>>     - pl111
+>>>     - gm12u320
+>>>     - repaper
+>>>     - tve200
+>>>     - xen frontend
+>>>
+>>> Each patch replaces drm_simple_display_pipe_init() with explicit
+>>> primary plane, CRTC and encoder setup, and moves the old simple-pipe
+>>> callbacks into regular plane and CRTC helper callbacks named according
+>>> to local driver conventions.
+>>>
+>>> The conversions preserve helper behavior that used to be implicit in
+>>> drm_simple_kms_helper.c, including plane-state validation, CRTC
+>>> primary-plane checks, affected-plane propagation, framebuffer prepare
+>>> handling, and existing event/vblank flow where applicable.
+>>>
+>>> Result is less helper indirection and more explicit driver-side atomic
+>>> wiring, with no remaining simple-KMS dependency in these drivers.
+>>>
+>>> These changes are build-tested only. No hardware testing has been
+>>> performed on the affected devices.
+>> Thanks a lot for the series. That's quite a nice cleanup.  Did you use
+>> any AI to create these patches?
+>>
+> Hi Thomas,
 >
-> I'm not a big fan of using global clock parent names, especially when we
-> can have proper struct clk_hw pointer references. However in this case
-> it seems unavoidable without making a huge mess.
+> Yes, I did. I wrote the first two conversion patches (arcpgu and
+> aspeed) myself to understand the migration pattern. For the remaining
+> drivers, I used GPT-5.5 to help with the repetitive boilerplate
+> conversion.
 >
+> I should have reviewed the generated code more carefully before sending
+> the series. The sashiko-bot feedback shows that I missed several important
+> details, including commit-local state handling, the implicit NULL fb /
+> visibility checks from simple-KMS, and vblank/pageflip event ordering.
+> I am now going through these issues more carefully and working out the
+> correct fixes before sending a v2.
 
-Indeed there is no way around it to support different SoC path with
-static data.
+Great, thanks.
 
->> +                     LOSC_OUT_GATING_REG, BIT(16), 0);
->>
->>  static const struct clk_hw *rtc_32k_parents[] = {
->>         &osc32k_clk.common.hw,
->> @@ -267,6 +296,15 @@ static struct ccu_mux osc32k_fanout_clk = {
->>         },
->>  };
+The drivers you've picked are somewhat under-maintained, but I'll take a 
+look at your submissions.
 
-[...]
-
->>  };
->>  MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
->> @@ -375,6 +435,13 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
->>         osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
->>         osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
->>
->> +       if (data->have_dcxo_status)
->> +               sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
->> +                       &osc24M_32k_div_a733_clk.common.hw;
->> +
->> +       if (!data->have_phy_ref_gates)
->> +               sun6i_rtc_ccu_hw_clks.num = CLK_OSC24M_32K_DIV + 1;
->
-> Maybe keep the old CLK_NUMBER macro and call the new one CLK_NUMBER_A733?
-> The point is to not directly use a random macro + 1 here.
-
-Are you sure you about this ? You are going to end up with this
-CLK_NUMBER_A733 in the table which is going to be odd (unless I put an
-explanation next it) then this CLK_NUMBER without any suffix put next to
-clock gate things
-
-The choice I made initially was meant to keep thing as clear as possible
-* CLK_NUMBER remains the number of clock in the table
-* CLK_OSC24M_32K_DIV + 1 (while not very nice) clearly show which is the
-  last clock in that case. It is not random IMO.
-
-If you still prefer the suggestion above, I'll submit v5 with it but it
-look odd to me.
 
 >
-> Otherwise,
+> Do you expect AI assistance to be mentioned in the cover letter or commit
+> messages in some specific form? If there is a preferred tag or wording
+> for this, I will use it in v2.
+
+See Documentation/process/coding-assistents.rst for how to mark AI-made 
+patches.  Although not everyone agrees that it's a good idea.  IMHO you 
+should mention AI usage in the cover letter.
+
+
 >
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+> For issues that appear to be pre-existing but are exposed or carried over
+> by the migration, which is better?
+
+It's probably better to not bother about pre-existing issues for now.  
+Those are a rabbit hole.  If you're looking for follow-up patches to do. 
+You're welcome to address them.
+
+
 >
->> +
->>         return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
->>  }
+> 1. Include them as separate prep/fix patches at the beginning of the v2
+> series, before the corresponding conversion patches; or
+> 2. address those pre-existing issues in a separate follow-up series?
+>
+> Thanks for your time and review. :)
+>
+>> Best regards
+>> Thomas
 >>
->> diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
->> index ab7b92b47f59..4f4f4cb00f1d 100644
->> --- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
->> +++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
->> @@ -11,6 +11,6 @@
->>  #define CLK_RTC_32K            6
->>  #define CLK_OSC24M_32K_DIV     7
->>
->> -#define CLK_NUMBER             (CLK_OSC24M_32K_DIV + 1)
->> +#define CLK_NUMBER             (CLK_HOSC_SERDES1 + 1)
->>
->>  #endif /* _CCU_SUN6I_RTC_H */
->>
->> --
->> 2.47.3
->>
+> Best regards,
+> Ze
 
 -- 
-Jerome
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
+
+
 
