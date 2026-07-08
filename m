@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A77C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DB0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 03:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v3/ZNamF37j63F7OBjkPRQYLwgVzCnxnT7m65A9NwFE=; b=xy7OKG7A0NuQ4ch5rZg/lyaj5s
-	0RnhLmIbOPTzmBE5EdOeQlk4BJM2YV4weEXIp5RkT5htJK7i2BiWNNAlVnx7VS2eddPgMmyFVqmWo
-	3mBKugAVdEW2EL5kFpoa6jQRCDIyGIduaViHb5y3nDV2Sll+r6DxG4J1s+6oMG3L6nWu8qLlcgR3j
-	7Ij1er4xwcTT3Es+M4duVTnfREKSGF/9Lscb+4rl9OfvZo6q0sSmmDM5UR9RfK9Qu3bWPd5/CvOMk
-	QYKJcMyZlyWTSGWov9GGizcgaxkbX4ju/McHEVoG/EB1fXsqy4XiTo0SWnwLksBwWT1k3+GqVoerZ
-	UxCBHiTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1y90aAK6nhZ+0UdEOIvOdF0qHLw7mhDHPUcWoyIVM2Y=; b=MTxmawxv1v8bwtHVesoMSVw8j/
+	YWLvz1oW/U0uJ7WhwIBw/0nKR2UE6FbeBASouclYdG6bYfGRSrG8Pd1ElZHxSyZAb/1guSj9bRCXT
+	YddKxPAACTXYn7Cl+2UNn0rqe8hb82hMZ4LqL+ppetXAXBjREQ/Pyznf4ikrqyU6Tf1xxVmRCYmzQ
+	v/yvpOtGhJaDANgfrMjC1DyeY/l19Af3hlPyCsxRjcnC0qGE9S3S+rTP3rAIF7uFdQcfB7oJmykYk
+	LPAdaYIQrPOrsItrGUFtTx0oh0fER21k2vo7FDKd+RgpscceDusuIZ/CvUajz3M6DaWcxsNrcqDnj
+	JLoUWXSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhS-0000000GCIP-17mh;
-	Wed, 08 Jul 2026 03:11:50 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1whIuj-0000000GEeB-3398;
+	Wed, 08 Jul 2026 03:25:33 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whIhK-0000000GC9w-2lzo
+	id 1whIug-0000000GEdW-2IJb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 03:11:43 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2c9e994869aso5745855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 20:11:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783480301; x=1784085101; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v3/ZNamF37j63F7OBjkPRQYLwgVzCnxnT7m65A9NwFE=;
-        b=Pm265fsul1PoM31C/CC9LuF9db6bK0+JW+yqzXGdKRXCEidRsizVfPgZdZJyXRNOSe
-         2VdYnw2skt3COtXMi88QA8TMMLo3G6+5aDTzzEYHhCe3PnHU/+DPQxgjJOjlWEXIRWax
-         w2v9vcKdB0tftRyneXD+okXn3JG0/9LYcjaznFSRNJu1yGJDSNfaGI91evVvb2VOyjes
-         KQl3s11UCMiSyr811q1yioKGUgmEBILJ/bZZ+uEAdQBWSTzsCO8LY09DZD9hC9cNv/Lm
-         bJJjBkIkwGkiMsbYd/UA/Zw2+7XvbBjwNKK3GYxEmYRVhjLGITqAsXRD8o4FS6W2i1Zn
-         S5tg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783480301; x=1784085101;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v3/ZNamF37j63F7OBjkPRQYLwgVzCnxnT7m65A9NwFE=;
-        b=cORhYgiYIXGU7g/l3rVNNtaVnLkXt+KfOsq5sIsB8euAPCostSd7jisOxLbaoPs/sy
-         PhQGyFhtMEIDZhhAZSVuX6IjnNRvDD3fNsuSq079xcfby7sXnJYaAG1fChQbSULJYM4Q
-         4mxxoQFHYnXS4l4gHAsMaRts3LzmKRJALCGUPrwsvg8FI01MoblmDq3nbPZhSxnichBg
-         FbhI37b+o1zXidDCjbDsgJwdoFio/ka0kJY0k93cxhGYdMsQYH5g7RmE6CuEaZvEDt4A
-         Db8DUKV8BHOYeN0tqFYWdYu52nSl18R9K4kn7bRUEpUey6YMFfpmTgOTgZLsaC7/jq7H
-         G8jw==
-X-Forwarded-Encrypted: i=1; AHgh+RoA6Xah/bVyB8cPCW7YwzAw2dckLmeZodF6Tas25JSrCx7mzpOQ39m1MpnvZvJb+7AtdDw18z9/q8S2ytsKu0Xo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1gpQ7cKfVrtNARARHbpmfgiBfFyzxvcxI2HVeYsWFrvbTkHJj
-	wKMeNV9sennajevfWCYZcZCi4WyiWSLjhx2fhYWrRoJLZ+CkefLydNQMCmb9l5WjYn5Z4woL6Os
-	WhJgneFtrECXcc+e7vsnEAQ==
-X-Received: from plai17.prod.google.com ([2002:a17:902:c951:b0:2be:fea6:e21a])
- (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:384c:b0:2b7:975c:dacc with SMTP id d9443c01a7336-2ccea35af6bmr7910705ad.1.1783480301298;
- Tue, 07 Jul 2026 20:11:41 -0700 (PDT)
-Date: Wed,  8 Jul 2026 03:11:19 +0000
-In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
-Mime-Version: 1.0
-References: <20260708031129.3503195-1-jthoughton@google.com>
-X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260708031129.3503195-10-jthoughton@google.com>
-Subject: [PATCH 09/18] arm64: Prevent HVO if the HVO system feature is not enabled
-From: James Houghton <jthoughton@google.com>
-To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>
-Cc: Nikos Nikoleris <nikos.nikoleris@arm.com>, Linu Cherian <linu.cherian@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
-	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, 
-	James Houghton <jthoughton@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 08 Jul 2026 03:25:32 +0000
+X-UUID: a7e407fa7a7c11f1aa26b74ffac11d73-20260708
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:ae684cea-d52f-46d5-a2f7-460587711f77,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:164c4e05a8185255933934eb70240207,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a7e407fa7a7c11f1aa26b74ffac11d73-20260708
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1092104708; Wed, 08 Jul 2026 11:25:23 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>
+Subject: [PATCH v4] dmaengine: sun6i-dma: Fix use-after-free in error handling paths
+Date: Wed,  8 Jul 2026 11:25:18 +0800
+Message-Id: <20260708032518.50886-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_201142_728049_7B0E8B70 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260707_202530_898480_6759E740 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +83,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HVO system feature checks that all CPUs support HW AF and
-BBML2_NOABORT, both of which are needed for HVO (as of this patch).
+In error handling paths, the for loop frees v_lli in the loop body,
+then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
+increment expression, which is use-after-free.
 
-Signed-off-by: James Houghton <jthoughton@google.com>
+Fix by saving both the next virtual and physical pointers before
+freeing the current node.
+
+Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
 ---
- arch/arm64/include/asm/hugetlb.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+Changes in v2:
+ -Refactored the fix to avoid code duplication by creating a helper function
+  sun6i_dma_free_lli_list() that handles LLI list cleanup
+ -Add Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-index d038ff14d16c..73af7911fd83 100644
---- a/arch/arm64/include/asm/hugetlb.h
-+++ b/arch/arm64/include/asm/hugetlb.h
-@@ -11,6 +11,7 @@
- #define __ASM_HUGETLB_H
+---
+Change in v3:
+ -Further refactoring to move txd handling into the helper function
+  as suggested by Jernej
+---
+Change in v4:
+ -Add reviewed-by
+---
+ drivers/dma/sun6i-dma.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index fcc88a74d821..e161fc298b86 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -406,16 +406,12 @@ static inline void sun6i_dma_dump_lli(struct sun6i_vchan *vchan,
+ 		v_lli->len, v_lli->para, v_lli->p_lli_next);
+ }
  
- #include <asm/cacheflush.h>
-+#include <asm/cpufeature.h>
- #include <asm/mte.h>
- #include <asm/page.h>
+-static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
++static void sun6i_dma_free_desc(struct sun6i_dma_dev *sdev,
++				struct sun6i_desc *txd)
+ {
+-	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
+-	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
+ 	struct sun6i_dma_lli *v_lli, *v_next;
+ 	dma_addr_t p_lli, p_next;
  
-@@ -65,6 +66,12 @@ extern void huge_ptep_modify_prot_commit(struct vm_area_struct *vma,
- 					 unsigned long addr, pte_t *ptep,
- 					 pte_t old_pte, pte_t new_pte);
+-	if (unlikely(!txd))
+-		return;
+-
+ 	p_lli = txd->p_lli;
+ 	v_lli = txd->v_lli;
  
-+#define __HAVE_ARCH_HVO_SUPPORTED
-+static inline bool arch_hugetlb_vmemmap_optimization_supported(void)
+@@ -432,6 +428,17 @@ static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
+ 	kfree(txd);
+ }
+ 
++static void sun6i_dma_free_desc_virt(struct virt_dma_desc *vd)
 +{
-+	return system_supports_hvo();
++	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
++	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
++
++	if (unlikely(!txd))
++		return;
++
++	sun6i_dma_free_desc(sdev, txd);
 +}
 +
- #include <asm-generic/hugetlb.h>
+ static int sun6i_dma_start_desc(struct sun6i_vchan *vchan)
+ {
+ 	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vchan->vc.chan.device);
+@@ -788,10 +795,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
  
- static inline void __flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
+-		dma_pool_free(sdev->pool, v_lli, p_lli);
+-	kfree(txd);
++	sun6i_dma_free_desc(sdev, txd);
+ 	return NULL;
+ }
+ 
+@@ -869,10 +873,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
+ 	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
+ 
+ err_lli_free:
+-	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
+-	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
+-		dma_pool_free(sdev->pool, v_lli, p_lli);
+-	kfree(txd);
++	sun6i_dma_free_desc(sdev, txd);
+ 	return NULL;
+ }
+ 
+@@ -1432,7 +1433,7 @@ static int sun6i_dma_probe(struct platform_device *pdev)
+ 		struct sun6i_vchan *vchan = &sdc->vchans[i];
+ 
+ 		INIT_LIST_HEAD(&vchan->node);
+-		vchan->vc.desc_free = sun6i_dma_free_desc;
++		vchan->vc.desc_free = sun6i_dma_free_desc_virt;
+ 		vchan_init(&vchan->vc, &sdc->slave);
+ 	}
+ 
 -- 
-2.55.0.795.g602f6c329a-goog
+2.25.1
 
 
