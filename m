@@ -4,133 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C4CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB15DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 13:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PI5oP08SAUuVFDvBIqR8npejMXtq170Z+GeUPaPrndE=; b=Z7T5MBwlj2XemjrEkh1MRlHE9u
-	tfm99cy79rgHnccgPzSidvo9Piksv0ST7Hlyg8IiJ2e6of0stCCzNVLT817xBnmCoGKBnJKePeo7T
-	vdvgfW2l/u9LDmVqSrRktRl/U043PBPtn3Jo60eR27D/fGz3shhyeAvHHLIuGWDkKUKXRZjjPTJTx
-	9SifcLgjrV/n6+/CWtSS57t/Lo331m2hFdw3f0ZEuB0ytfE5LVuGr1UD7oSKRfk/hZpodh2hu8jmE
-	lhknR+/xh6bpbm0HxElRIKoqjK6GL6keDsNC1gytpEF8cPJMXDyjHtap7Nx61gUEwfNsNFMZMU9TB
-	L91Ad7SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YWYDk+GNN9g6DAJdkingBVY6lDBqC1vRAmfNGp/e3qI=; b=f3OIX7opVzwSzjjGgu5ImuZ1lq
+	BK7GfCamHtoXTziD57WQevLtCvMBnQiE41PYKfiitj8tHGIdweIxhzX2tycR8uzLvQB4d0bDsTM6I
+	xW/3LP21bSXgahqfQve4HjI767Ibqvh8b9dmGG8eOvWzqUO7emeMbEYXZu1p5R+kd+c4IVyvYNGF0
+	U98gmNFDlo3efxB0QkWuAL+QteFMKbhtdG+7x7uLTZ9KczYoDm13mk061A5KPWf9S7OHx9dGnD+2r
+	e+SlSCkf9gxjvJy/rBnTwURXS7JiwF6l7YJWxOHm13okjfWT5zm38v5zAJskj0T0Or7Bm8OddCXKR
+	pGi/GCDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whS8F-0000000HBW5-0Hvs;
-	Wed, 08 Jul 2026 13:16:07 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whS8C-0000000HBVc-2gwG
+	id 1whSWc-0000000HCq5-21Xs;
+	Wed, 08 Jul 2026 13:41:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whSWZ-0000000HCoi-23IT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 13:16:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K6cX8qsanlrNrqcKiDY2CGhyEN62ktUNs+Wr1Msylifnl/uM4T/JgslQUSGhp+m8juOFScVSgfHFrogroZokBhgbFmOohlOVYO0BxKYWENfes8rbv0Flc/usXZpay9IRRDzkR/hoxUEXbB+Ln9iyeVK03NLwvRcyt8viNPwjEehjqYgOjWvdlfX6p7EJL0XCeQvEDMwk+xJOiRB2Wzm1zmOJpBSg9DZRqgYlDWNAFb65lc77ZnCHwkfZ1PGnyLwY82oJn3MiCd7DORyvkv3bSZZ6s6vWnBoA1mtoaqlFoilDwN4ExXXBSP1OZKKcxdhdqEle0OWO3ZxatvDOp+D7Jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PI5oP08SAUuVFDvBIqR8npejMXtq170Z+GeUPaPrndE=;
- b=Dd1BanHbjxYndjYDXljMxoFKHNZF59TbtzlaCpNY2NN5UQhmhXpZ40sC9Sl98tvl3Vcu8CXxeLV4imjU1vCYKriZ8Rzr5g3N7kP54z5JEcvElnn7/jleUwv64mBrUIg2tu8HDaWUClgGO5UsRWB9kXd87qw2zbwrxJPlR3qXmflf7I+zJihaZxEWm5lcQToulzghKs/6Q7Rrzmgax70AIu1Fpt6uJ4XVNXcXiBPdecWjlNFNsBR2p2n27phybs7Gt28X6w2Dv6Gq+vrv0DbxptEovhZTGRm6lxfk78Gdq82fHb6oWGi9H3I7XfqLkIsctyDYf6aJ9t2eh2tMHWIfKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PI5oP08SAUuVFDvBIqR8npejMXtq170Z+GeUPaPrndE=;
- b=aSFpuNTyyrleDhRYr/z3w8gAMcXNiF9Q7m3fwZGuOLzi0y8pDg428ydlwIa3IBIUsRwBeUIIj7HIYpzJyXd20XnUs/eHWg390JHvyRhQSXjP1yXEeB/OhgY9ChR85Ap7qUdAv637e1zpzUcerRSp1dnX6TyqKwU24JPC1sGT7nqmv9siLcbj7l6pUpn6ouMhMKy9MOWRzBkDVhHgBdHURtFFpOqSDtieV+78RgUaOaDRyi6+rCsHG3MXP1Aa3cAVL6XwCpb2fEDn94v4kEr0MGHPUmxoUIf3XlNNibVUdTwb5ALRII4xYmU8P744auJwHk0yzjTss7LKUnq/QsCh+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by MW4PR12MB6923.namprd12.prod.outlook.com (2603:10b6:303:208::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
- 2026 13:15:54 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.008; Wed, 8 Jul 2026
- 13:15:54 +0000
-Date: Wed, 8 Jul 2026 10:15:53 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
- commands
-Message-ID: <20260708131553.GA674038@nvidia.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <akzoeexW-4W70QdU@google.com>
- <20260707145812.GK220801@nvidia.com>
- <ak4Rwnr39HuP053s@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ak4Rwnr39HuP053s@google.com>
-X-ClientProxiedBy: YT4PR01CA0491.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10c::28) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 08 Jul 2026 13:41:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 070D21D34;
+	Wed,  8 Jul 2026 06:41:09 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4E763F66F;
+	Wed,  8 Jul 2026 06:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783518073; bh=YbDjQDMMoWQhmCCvZio0JqviA+23kdltKgARyyYRlkA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=A/B1z5eKtfF8PlrI9UvIRNnXqBa5Qt7I7N1pq9PF/LpwD8Vtyt3Xomt3UKOAD8Frf
+	 QvZnnpDH6NIYEA5oImmN/tDUJa9v2MEIlU6HnJuOiWj2v4T8Ul308VMKpNRgpizwud
+	 2WTOyrX1PB1GgBLkb0sIFLm6bFcADQKGNqXZMa/A=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/3] KVM: arm64: Avoid re-testing walk_continue
+Date: Wed,  8 Jul 2026 14:40:57 +0100
+Message-ID: <20260708134101.2514759-2-leo.bras@arm.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260708134101.2514759-1-leo.bras@arm.com>
+References: <20260708134101.2514759-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MW4PR12MB6923:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42a52949-17f6-4a14-06e4-08dedcf30a43
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|7416014|4143699003|18002099003|56012099006|11063799006|22082099003;
-X-Microsoft-Antispam-Message-Info: HWMhIK+aiHrHFerJ4h2nRycfDBlr+nr0ZCxBQrxh+afkD3QoHE4QGmifLc1zfZGPZXRpEkWC5jdqvzyGVxPdgRkWVxjGHy+EDr3JVAG76b6Vly6ilFcVjAHLccA7Syq1lC8TdLHV9mb8KeaqB57zRdnCU2RIC6Z7ru3bF24XcW5kKFEfn3jlseCiFc7csCPqqwgZ3RkwSkgN5iGEiHe5MSR2fvCFgG6qYXHvpH/c63UZz6NMxAwnOJicRs273XIZSfsBZtISxl2+I9JaQc1uOhVLECOxbJ9KuYPKjvFcrMApVyDCfZ6TAWrxLL/XDojWeaCdKjVxXB4HhVuSNLRGBkBz08nywvrpgCa7/Uvl0hbbx78cwh847i8DyVMAGwPMHjPFLmgCcc17nKMNpEG1AhlxHzgjIwompStryei10KgMNyCGK2DEg6qUItnQUF2fyb5c8XpLT8Em/VS99xk++aMvVS9I6PZ7D0oLQo1JTS59IftCLoSpIl8npAX4UgssYZiYepnw9IKBPmj+yVakbIIh1ublXh0JrqwZx5Np4iivwJl+6WLlCQX5UAl//1VSLfORa2PKvzB28TkkdycqS5BrkArFW8CTO19VmbAb+Rbfl0rZpMNwIwP8YiO1rnegzt5nLn9AQmqMJQnFNKrtxKtK+S1nF6VEzulnKHkjD7U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(7416014)(4143699003)(18002099003)(56012099006)(11063799006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A0Ku5neEdyGPDEv0yZ2vqT+jTAdnggJUqnOdR4Xl0GpN7VWvTgNXq5fudEyG?=
- =?us-ascii?Q?pCjOfQIEXGkiHNxLM23c247DksRgRORw+xqweq8owiFuWtErNJurfgfMTCvI?=
- =?us-ascii?Q?U3+KmC0j/M/u7KUF7NjAk71MnKdgjgAvqdP603PsO9kzn2npV2WuNwK7+3CI?=
- =?us-ascii?Q?SlDDSURXcyAb1wd7n2M9ifhee11qKSEfgtjkATPOCkeTAfCKMTWjAiySGRW8?=
- =?us-ascii?Q?O7uMGAoib3IhFpFEuV4ojIIdPgFx8MgsOSnS36ZdA8Em7Of1jOyDF4hn43VT?=
- =?us-ascii?Q?s/8H1FoOFa6mzOv6ZKbPrt3tSQ7iB8HNm+9h3AWpO8ryrrvp/jXA2etO6wJx?=
- =?us-ascii?Q?r/CVi78KZ1AmOGDYS/RvzPeCyRg33r8XuEVjaWbgfzlH9MiB8wP7EJNlD+qo?=
- =?us-ascii?Q?G7osn5b3lD9BYCoDm4YsuAfhUeTdcrw++TPp8/6IbKkLnANUERzwGiHQhXGs?=
- =?us-ascii?Q?ppSedp42X2XPEjZeQkO1A+rr7s4Oe5XeXvPDfBOKKs6NujGKUrlRTVcU0yjM?=
- =?us-ascii?Q?Vfi3s5GjglvEmGkxuhgpobQeZgL9F0ZGqJ30lfWyZ/hG6+5IK7Rpu769aUKc?=
- =?us-ascii?Q?SgLl4DlQ5DFz5CNnBretmlOgkucu2e6fVeXHIwkPjYGI65IMNeyWYSQiucns?=
- =?us-ascii?Q?5S/o8iqJci7VHMurmn9IIqFbMZXRuUdB3VjYFuxNsmeYVl4Pysx55aEd7FM9?=
- =?us-ascii?Q?Uc9Q6CF0st46UlYt+00Nf1TUGmpwPiRGQT8YAmEEOV2/DM4ebJqwuGjIIO32?=
- =?us-ascii?Q?igjwgOBrKKss/tmUzUCEgkGLnEvljyWBjkybVL/pV1CKR7EwIb70iNBhkwCf?=
- =?us-ascii?Q?RpHwp6Jin2V9b9E4EmtVqgXnHJzNbjm7UxWOTElqjhWYd4JqKh2qDONBhldr?=
- =?us-ascii?Q?7JY+Cd0sz8g9G5RtPvTa3Mh1QEDaP3WaQ9yXIbpajwqInETGUuxOeFThNrhc?=
- =?us-ascii?Q?PV0iY+JeyJaC4MXmasqsvQN1Xdf7u72nUKt/KfN/MOFXaztLjlb6GMia5o2A?=
- =?us-ascii?Q?Lps2zJlDg+CvdNPYwp9yGcm+yofISXVIGtZgnhbrnsP6y5qw7hOwYNyOS3Cm?=
- =?us-ascii?Q?rIyivPAgJfYZQlkizJsM1IL2E3suRU4/kJlE2eU2ANop3zyOKdhHVmYIL5yd?=
- =?us-ascii?Q?1i4TweQvHNen0cCj+1oZDOsDyF0prQqYglvU+lK+PbtFuzG6/KIdQUugqb1e?=
- =?us-ascii?Q?2J5jT5fo3aZqDy8SxqOx5ZDzm4j6uCID+YPNh6hlclQEQDUHcjPmvAg66xOz?=
- =?us-ascii?Q?wdmHFMi+LiZde202z3PVWKxv2ookeSMiTOhNepaVUTM6VAwzl7AoTxcuig1M?=
- =?us-ascii?Q?LHFntQgCiKwYQWtolp6jjPSg5ZWQvOUpeJN2/+Tsh0hNA4ftv1tO53RBfXVS?=
- =?us-ascii?Q?pieEwL8iNMeXpPjdyXabNuLkYjYtVis5U5AwVLAwy6fUbdQODIO3Np+4A395?=
- =?us-ascii?Q?X6/SRvKoDdTc8U83WPSm5V18vuz5vJkXAoZmS1A3VnvEPNLe0IWn4OmOeqny?=
- =?us-ascii?Q?8U7AuARMIndvsenq8Qmeu5+1sa9V24O2k5wFG/t39tJ2FdROnrYwuMjo6igH?=
- =?us-ascii?Q?zsrqjyNgamnwx7dC2qZRrgEw/Q+Up2Z6BNxUddVrXuyMAbb/N3FEwz409V/D?=
- =?us-ascii?Q?n+MlVG4aOciSTK4cxXwiw/6FHnpGAPPSIy7azw61QLfOx6bCLHZFMdigW2fP?=
- =?us-ascii?Q?TQnH+VhJbQPQWgF5BlhupdCZg0akwQzVxbcmTrwC1AurIj5q?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42a52949-17f6-4a14-06e4-08dedcf30a43
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 13:15:54.2255
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eqqDexPj5TEFBGFRA6HKdJLbhq74Aaw4PZ3qR+eluNdDzc/SWLrS+rPij5q/RJDK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6923
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1682; i=leo.bras@arm.com; h=from:subject; bh=YbDjQDMMoWQhmCCvZio0JqviA+23kdltKgARyyYRlkA=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLL8/GfOEzi3dWtSZ5R5rHUa116DbxmaascZHWbzB2X1f pkSwynfUcrCIMbFICumyCL7aP4qnu9TMo5c+bEAZg4rE8gQBi5OAZiI8Q9GhrOFWoanjypYx1V/ Ob51vpLTRi8plnlfElRlJpzbl7xR8Dwjw6nll2RmiT4/LLTnxt39p+KLxdo8bycfW5JbeThNvvv GLEYA
+X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_061604_683735_71A72E0D 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20260708_064115_564924_B1C7411E 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,37 +81,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 09:00:50AM +0000, Mostafa Saleh wrote:
-> On Tue, Jul 07, 2026 at 11:58:12AM -0300, Jason Gunthorpe wrote:
-> > On Tue, Jul 07, 2026 at 11:52:25AM +0000, Mostafa Saleh wrote:
-> > > On Mon, Jul 06, 2026 at 01:26:42PM -0300, Jason Gunthorpe wrote:
-> > > > Store the required cmd data in the tlbi and just copy it out when
-> > > > processing each item in the invs list. The cmd form only depends on
-> > > > if the instance supports RIL or not, otherwise it is always the same.
-> > > > 
-> > > > This avoids redundant calculations for each invs entry.
-> > > 
-> > > I do not understand how does this avoids redundant calculation?
-> > > This would be the case if the domain shares multiple SMMUs,
-> > > otherwise, a range TLB invalidation should be unique and can not be
-> > > reused.
-> > 
-> > Right, if there are multiple SMMUs for the domain then currently it
-> > recomputes the range for every one.
-> > 
-> > At the moment I think we can't have multiple SMMUs per domain but
-> > Nioclin has a patch series changing that
-> 
-> Yes, it is not possible at the moment, I think it makes sense to have
-> it in this series, but a comment would be helpful as it is not clear
-> from just reading the code.
-> 
-> However, as I mentioned I am not sure if that actually helps on a real
-> system, is that something that you noticed during perf or based on the
-> code?
+In __kvm_pgtable_visit(), a couple tests for kvm_pgtable_walk_continue()
+will 'goto out' if it should not continue. This means the same test will be
+ran again before returning ret, which is unnecessary.
 
-Not measured, it just fell out of how the tlbi flow ended up being
-structured.
+Return ret directly instead.
+This will simplify next patch.
 
-Jason
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+---
+ arch/arm64/kvm/hyp/pgtable.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 91a7dfad6686..4be1d51a6ac5 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -183,32 +183,32 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+ 	 * Reload the page table after invoking the walker callback for leaf
+ 	 * entries or after pre-order traversal, to allow the walker to descend
+ 	 * into a newly installed or replaced table.
+ 	 */
+ 	if (reload) {
+ 		ctx.old = READ_ONCE(*ptep);
+ 		table = kvm_pte_table(ctx.old, level);
+ 	}
+ 
+ 	if (!kvm_pgtable_walk_continue(data->walker, ret))
+-		goto out;
++		return ret;
+ 
+ 	if (!table) {
+ 		data->addr = ALIGN_DOWN(data->addr, kvm_granule_size(level));
+ 		data->addr += kvm_granule_size(level);
+ 		goto out;
+ 	}
+ 
+ 	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
+ 	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
+ 	if (!kvm_pgtable_walk_continue(data->walker, ret))
+-		goto out;
++		return ret;
+ 
+ 	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
+ 		ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_TABLE_POST);
+ 
+ out:
+ 	if (kvm_pgtable_walk_continue(data->walker, ret))
+ 		return 0;
+ 
+ 	return ret;
+ }
+-- 
+2.55.0
+
 
