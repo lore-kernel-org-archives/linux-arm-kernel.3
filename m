@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4333FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D746C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AGr3oCYxPLMVKKZUQCL9hmIjVtutHyjzQRvWjACv84=; b=rkTQfLG3fIwyz+kh7WcQlDvu1V
-	LTJnupPDMHvm8m0O4LY5hjx7Z4CfY7/fAsA0yYgfaS72UgpoT8UPIlqCcBZlVSROzmec06317qqCu
-	Dz5h6qpJnsZjxn9kVgTrTiteqstobzTFcRhwYaEwE0uXeAQpflPl0TjCUEBXNZsFqGPU4gPNUrZwr
-	gMA0rSRu3pK2b3lGXffAScHiY+SKa/gtN0nZAoHQ/dhURhU4dSy4t0C08YiNURjL8gREvXSgc0vLb
-	BkRaVZ5L+pJ+cbGVKMVLzrTJpMJQ/CM0UpWxPbZ1rGD2l+t4NVh1XOhdZyeIrjM6ibPmkNwFWbMpj
-	ilJCvyXg==;
+	bh=K142f8rKZGqsHgCdoM7qSiaFYEcoIwkvsSfY7Nv73CU=; b=S/TxBveLNgzT1PScgasCn50T+O
+	s1d3NrP9u7tgkMZR2GfyTgPD696X4h8Ht1P4yW0Zua+fkIEQcTv7dqXQGGARGmqFE4JR7VBo6GgQ7
+	etETArndIVTzEQFvMeGif+wSDggxMr5BeMmAD1UnPkI3BFY++np01y3Kc3UNNb0M5k18/HrObSb55
+	+JLfT+b3TuLhA39gdk2tUCXp+s1r8ThhGgCTQC3YnHPWH2X2VroKPj1z8kU5lehBz003drjReedHn
+	rDfnEBX2waBF26vZ7DhAlWtDhhabrEo5/rLWAKJRjZfPRm1c9cJAUft/sODw9YXAuzfZldy9sV/dN
+	NdEhET0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHO-00000000UPJ-201i;
-	Wed, 08 Jul 2026 21:58:06 +0000
+	id 1whaHN-00000000UMM-2P2A;
+	Wed, 08 Jul 2026 21:58:05 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHG-00000000UCG-30Rm;
-	Wed, 08 Jul 2026 21:58:00 +0000
+	id 1whaHF-00000000UB2-0bvz;
+	Wed, 08 Jul 2026 21:57:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783547876;
-	bh=yqFiEUUjt1Aw5G9X9iVe12aG8sAEEd88WqAS4khKXaY=;
+	s=mail; t=1783547875;
+	bh=nPxcOdRn21XnWu17709PZumF07cqdMqnnR09iLzgE0o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Dkm+G7IMr5Ocqvrta4aVFmcb2oPcQ/MElrv8JElZVHOccclujYkTi9xyes9oenll0
-	 MXATwZiD3J9IgROMqTeTzoij3Jur2VwBUzMx0fu/oV9Y4eKbXqGhSHDklgkQEKMMUN
-	 Yq969+H61C53QYlcZ+4msMAtzvD48gRvRFc0sejQkFHWaJn3AmFpRVGxuX6oUHer3y
-	 4zWbbQ9Eoyp3R9r2/eAYIMpz47FQsC4dyp45IUFW6bchGKYY4Evv9gxOrTYVIGEDn/
-	 CJXtMnEb1jOE/nKCamYBeIAVFfDnsXSMxJKsTDMrowIQLOU1kYSPXiB0p+Vp7ap6I0
-	 KovWNyGtU5+SA==
+	b=E6iiilLafc1Tovp/wo7G45aJ8ptMlKjgEseg+TWV89yhybItjvORSKurf2UaVSJsk
+	 9wpU1v8q5GlWaXo670u+sc4WhOSEoBj94xY0tP2IGfc+xU31HP7L4BYubSYCMpEndQ
+	 D7nQOU4pG1xQHfoZm+IKBqMzv+o0YPx8svKlrJnnv32yChoDyXWawXdu2+ezx+MGZJ
+	 th9GaUXbSBopI2TdEy6UinCEKFRlneOBP/Am8nGpx1xDS8AIOF0LMz7aR55f0l6Y5B
+	 VydErsXKpnUimjYQ0Pe5Jsn3bkSm9aszVsAZ3o36XS8H9moakaQIVYkUQprighc1iE
+	 FEfkkEgvrc1fg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B827617E0DFF;
-	Wed, 08 Jul 2026 23:57:56 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4DB6517E0D4A;
+	Wed, 08 Jul 2026 23:57:55 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 09 Jul 2026 00:57:30 +0300
-Subject: [PATCH v3 08/14] drm/rockchip: vop2: Avoid DCLK source switch for
- 10-bit YUV422 output
+Date: Thu, 09 Jul 2026 00:57:28 +0300
+Subject: [PATCH v3 06/14] drm/rockchip: vop2: Fix VOP2_MAX_DCLK_RATE
+ overflow on 32-bit
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-dw-hdmi-qp-yuv-v3-8-a4a982a9f2e7@collabora.com>
+Message-Id: <20260709-dw-hdmi-qp-yuv-v3-6-a4a982a9f2e7@collabora.com>
 References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
 In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -69,11 +69,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_145759_323374_8351AAB2 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20260708_145757_370755_8ABD6094 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,63 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the color depth is always factored into the DCLK source
-decision for HDMI output, which can break certain modes when operating
-with depths greater than 8 bpc.
+VOP2_MAX_DCLK_RATE is defined as an unsigned long and is used scaled by
+the color-depth ratio when computing the maximum DCLK the HDMI PHY PLL
+can source.
 
-When the required transmission rate exceeds the 600 MHz limit of the
-HDMI PHY PLL, e.g. for 4K@60Hz 10-bit RGB output, VOP2 will normally
-fall back to using the less accurate system CRU as a DCLK source,
-assuming HDMI 2.1 FRL is supported by the pipeline, otherwise the mode
-will be rejected.  For YUV420 output format this never happens, as it
-uses half of the RGB bandwidth, hence the rate remains within the PHY
-PLL limits.
+On architectures where unsigned long is 32-bit, VOP2_MAX_DCLK_RATE * 8
+is evaluated in 32-bit arithmetic and overflows: 4800000000 wraps to
+505032704 before it is promoted to the 64-bit argument of
+DIV_ROUND_CLOSEST_ULL().  At 8 bpc this collapses max_dclk from the
+intended 600 MHz down to roughly 63 MHz.
 
-On the other hand, YUV422 always transmits two 12-bit components per
-clock cycle, regardless of the color depth, which from a clock-rate
-perspective is equivalent to three 8-bit RGB components.  For example,
-4K@60Hz 10-bit YUV422 requires the same bandwidth as 4K@60Hz 8-bit RGB,
-typically 594 MHz.  However, VOP2 wrongly assumes it needs 742.5 MHz
-(594 * 10 / 8) and ends up switching the DCLK source.
+As a result, low-resolution modes (e.g. 640x480 or 720x480, whose pixel
+clocks are well under 30 MHz) still pass the clock <= max_dclk check and
+are reparented to the HDMI PHY PLL as expected, but higher-resolution
+modes such as 1280x720 (~74 MHz), 1920x1080 (~148 MHz) and above are
+wrongly rejected and fall back to the system CRU as the DCLK source.
 
-As a consequence, the modes requiring uncommon pixel clocks, such as
-those corresponding to fractional refresh rates, will fail.  An example
-is 3840x2160@59.94Hz, which would likely rely on the 593.407 MHz clock
-rate unsupported by the system CRU.
+Define the constant as unsigned long long so that every expression using
+it is evaluated in 64-bit arithmetic, independent of the width of
+unsigned long.  This future-proofs any additional users of the macro as
+well.
 
-Note this only affects YUV422 with color depths greater than 8 bpc; for
-8-bit YUV422 the 8/bpc factor is unity and the bandwidth check is
-already correct.
-
-Prevent the incorrect switches of DCLK source to system CRU for YUV422
-output format by forcing 8 bpc when checking the bandwidth.
-
+Fixes: b0362c45c401 ("drm/rockchip: vop2: Check bpc before switching DCLK source")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260623203310.9F8C81F000E9@smtp.kernel.org/
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 8f0f4aa05fac..aa81b3b01fbd 100644
+index e9f5d015b645..2cd04bedaa2c 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1954,7 +1954,15 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
- 	 */
- 	if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
--		unsigned int bpc = vcstate->output_bpc ?: 8;
-+		/*
-+		 * YUV422 always transmits two 12-bit components per clock
-+		 * cycle, regardless of the color depth, which from a rate
-+		 * perspective is equivalent to three 8-bit RGB components.
-+		 * Force 8 bpc here so the bandwidth check reflects the actual
-+		 * TMDS rate and avoids an unnecessary DCLK source switch.
-+		 */
-+		unsigned int bpc = vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 ?
-+					8 : (vcstate->output_bpc ?: 8);
- 		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8, bpc);
+@@ -102,7 +102,7 @@ enum vop2_afbc_format {
+ 	VOP2_AFBC_FMT_INVALID = -1,
+ };
  
- 		if (clock <= max_dclk) {
+-#define VOP2_MAX_DCLK_RATE		600000000UL
++#define VOP2_MAX_DCLK_RATE		600000000ULL
+ 
+ /*
+  * bus-format types.
 
 -- 
 2.54.0
