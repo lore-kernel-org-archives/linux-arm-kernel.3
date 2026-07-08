@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305EDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6C9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFss4/S/yICf8SJT5ZkocKJZ9yfXRXHEIAWnYp4S8eo=; b=uhtBBuK8fgNip34rW3ZPSEUlSn
-	IZmTlepOi8a5ofiaYTQepCzkHHGkFPq/Ggz9NBu7q/wOLvDrLcsXKgizfy2skCHEGarm7xS4miADd
-	u72MUGr55vlm2DgtMYpz9U7hmVXh5U3wQbzqnOFuqh6wpFauRIEb2vWVPSi0WVk0ZmRTQdLXh3EaY
-	Q3yLYPrx5R4LVdgzRaZQNn6h6xzhx+WF0P1EabNfrXIL6lnqMOss8nW8er2t3Ns1nZuAH+lHlKQPg
-	WrJkX6uRHsYOLIbnMVBrf5PZ5bRHG7yEZrMUnjeCZwQy1lPdT8hNehhiUkZxTP3umABCcPz4f/j4r
-	5z7b/Tag==;
+	bh=mDggZD+QJqlEA2zRqaI2SGJsu6BDMXf4CbvxFZeGk4o=; b=ULj7DaErwmnE9M5wRhVM6hykta
+	2fi8MfeVzxP841Se7Z5+Tu1yNCRWpvBKQJHqJkg9AMWQvWfbjclEth8ZHH0TbAEtGmJO9TmUaSPMx
+	DIviP1g/Slz3geBJX1HO8Ncmo0rew8KjWVwhOkeTqnsViZBfE1Q2c/XtKx2H5OIRnWyfCD/s9qZtE
+	vJlCvAUP1ZvDKQQskLG1UqplItznxEyZzap2+TzduBbBZU7R2bAfcRBC82gRm6bv213PlaIYKj3Va
+	Acnzrzrm8rISLBAAxP74ASQxfGVlajYMOKvw15wCKU9aifUH0FdYVxeS1Z1DR7OEWTddC9xWGKwLT
+	glMuN3+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVC1-0000000Hb0W-0O6X;
-	Wed, 08 Jul 2026 16:32:13 +0000
+	id 1whVCf-0000000Hb4g-11nN;
+	Wed, 08 Jul 2026 16:32:53 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVBy-0000000Hb0O-46A3
+	id 1whVCe-0000000Hb4X-1f7p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:32:11 +0000
+	Wed, 08 Jul 2026 16:32:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B7B56001A;
-	Wed,  8 Jul 2026 16:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D8DE1F000E9;
-	Wed,  8 Jul 2026 16:32:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D33CA6001A;
+	Wed,  8 Jul 2026 16:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B411F000E9;
+	Wed,  8 Jul 2026 16:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783528329;
-	bh=zFss4/S/yICf8SJT5ZkocKJZ9yfXRXHEIAWnYp4S8eo=;
+	s=k20260515; t=1783528371;
+	bh=mDggZD+QJqlEA2zRqaI2SGJsu6BDMXf4CbvxFZeGk4o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZAP8EYUweI8vZ2h5UcuFPR8loWnsmjyNJ4N61SKwTa9UMG2G9e4qzXcDgkXuFtiU1
-	 8Q5JChIk4/07ORmx6DnL8cpQtfVdK9g4qftdyyC17KFBqnzzz+bIkNm+T+nPtJ9hmp
-	 6tST/6SipTtE5Qef5JsvDUF6ZVRsClYuSsaQTl/kMY3xIBUPxAVtblUa6ljSJaWFOp
-	 62piQNPCiV/pyvCPwLEV0h69TRPMt4FMEQ4chFhuC9Tm+mk539em3g5BvzkWhxgQAa
-	 lL0GvaArFiACjM6FtVxCn1N97Pi69ebrZ+X/VKznN0KrD/obxDdH29Hl1rXTFRE7fN
-	 RHWdwuO02IEwA==
-Date: Wed, 8 Jul 2026 17:32:04 +0100
+	b=PWBUVJVZn2RpPmIcNCiUj29WhFoz0zJiRDBkfpHwALAC5AMAA+a1dA+fqt9VsgdYN
+	 tsoe/6XGzIIVm0P1For4mrZkz1TNTHI81ILetovOyCEy1x8LfAJPGEUV4kLBF0Hh6C
+	 ZU4ZwAGnjeD5KeNEKq7zHwd50RB/5US3BUf1lD38Vgyv/LAJ5WYheF+2E7/Yiq50mX
+	 pJTn1Zrjd2WQvsvYrk4RUjHcewf7ZWj400z/vGjD2ZX5EsQzM+uVYFklwKz143DdDE
+	 EsVtkutYxc95WgF90qb3IaAtaUzV6gxdfFu4cPUMTbw9qUCbzqTCU5IG5smSEN1q5t
+	 7RWD+vKUGrgMA==
+Date: Wed, 8 Jul 2026 17:32:46 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -57,16 +57,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/6] dt-bindings: power: Document Renesas R-Car X5H
- Module Controller
-Message-ID: <20260708-sloppily-await-9056ac43f82f@spud>
+Subject: Re: [PATCH v2 1/6] dt-bindings: clock: Document Renesas R-Car X5H
+ Clock Pulse Generator
+Message-ID: <20260708-valley-lazy-5c330630485a@spud>
 References: <cover.1783505142.git.geert+renesas@glider.be>
- <1d79020a5eb2f269ea7ebb354cdfdf880049721c.1783505142.git.geert+renesas@glider.be>
+ <f0f2e810b249a60ff7c27d508366d66be061fed2.1783505142.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9S5YLxV5XE/gLITr"
+	protocol="application/pgp-signature"; boundary="+js/rSO4/JLZe+iv"
 Content-Disposition: inline
-In-Reply-To: <1d79020a5eb2f269ea7ebb354cdfdf880049721c.1783505142.git.geert+renesas@glider.be>
+In-Reply-To: <f0f2e810b249a60ff7c27d508366d66be061fed2.1783505142.git.geert+renesas@glider.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---9S5YLxV5XE/gLITr
+--+js/rSO4/JLZe+iv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---9S5YLxV5XE/gLITr
+--+js/rSO4/JLZe+iv
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCak57hAAKCRB4tDGHoIJi
-0q79AQCJny6b8ULtU4s5HEzRTQXsdH21tOGDifiLLTrYxwzSOAEAjIk+aGMPyEn1
-V/vEagzuhyvClTV9b5nPCGrzfvLaBAU=
-=oD0t
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCak57rgAKCRB4tDGHoIJi
+0suDAP0Y7kKxguK/KmeWU+H6eYs6+NPHihHz7U8UE2vznOiVFAD/QFYF6YnnLV6J
+OVFcr+QJR9wTl3FiI/QmhyUL3Gk76Ao=
+=aiCV
 -----END PGP SIGNATURE-----
 
---9S5YLxV5XE/gLITr--
+--+js/rSO4/JLZe+iv--
 
