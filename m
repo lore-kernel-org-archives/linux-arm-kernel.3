@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A076C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B00CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fNdlD17+le7OWabglfycXZnoWKec0Rc5Ynf/AvD7l74=; b=MA7NelqGxxtkWf2sfJUo7SStjz
-	RS390SDpVKnWxznYNrAiySJMvRzAIaFPE+8n6z0UDX33L9sOfLXz7Wu8W1oCq5PbM4D2xTXUVc1tt
-	GlH7esIonYrUx5yGLvyWYCsctNJzXcMtoxprSb9MPP/XNHV8SBHaZeZelpdCG5iDfVWhWu6K/HNIM
-	R8P5SFRTHEz/Hd5PhW5e3+xfVbqr8JfkzMzd4wbhmHdqYchuYnKWS2VyvHhMQ1Z7Qc5ceJ731/0vK
-	hlcRa7yR6Vh9gk99ykbRJVjJb3ibgxtbNtXwgxxHf78E/lc2Wu7BRHAZygwHDO5HNK0ucCOeAtObY
-	DLianuRg==;
+	bh=oAE7KuHcbYdI24x5VMTp+PIHL311ilvREmVKh4uXwos=; b=E5byIS5RPCSztnQAdMIaSetf5Z
+	nojr5AwHbcD0hkzp7yfc6w7iWrMKmFo3k4uVYLdeMbX6vkUBF8t5VI33oI1EWd4sVtg0FzVImxMjv
+	NoueOwxl1jl2HaHGV9x5YDZsy+LgoP88fO27QWSs3dl95t/ViJTMG5h0izelht9owzotHNggW1fHp
+	PmnTs3DJanEwF48mGwrIMPd2G4rm4Z3thRVa7P0o7YUo0Xt2oRm5cwdxenuF6W5ysCoto5DjPlJkr
+	7M8wTvVKwEBx6dgHM88Vo8Aa9jb4m5YYhqQwQN6f1iNQqHIrx9mW85hIX9xUDhZ7xxGWoyzdxKCZS
+	0mfFaNkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whahY-00000000XSs-0qII;
-	Wed, 08 Jul 2026 22:25:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whahb-00000000XUb-1GRU;
+	Wed, 08 Jul 2026 22:25:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whahW-00000000XSA-3gzz
+	id 1whaha-00000000XTm-2DWs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 22:25:06 +0000
+	Wed, 08 Jul 2026 22:25:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98F4F43D3F;
+	by tor.source.kernel.org (Postfix) with ESMTP id A5CC76001A;
+	Wed,  8 Jul 2026 22:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EF971F000E9;
 	Wed,  8 Jul 2026 22:25:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 489941F00A3D;
-	Wed,  8 Jul 2026 22:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783549506;
-	bh=fNdlD17+le7OWabglfycXZnoWKec0Rc5Ynf/AvD7l74=;
+	s=k20260515; t=1783549509;
+	bh=oAE7KuHcbYdI24x5VMTp+PIHL311ilvREmVKh4uXwos=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=D/VUTdBUOnQaqVvY1CC8TphDejeuhGNxErlCIBHLnXRz/hxabGV+Qrc4TrwI7D5x+
-	 XyidImsDnRXNXcdm5CBBnYCiuEBXPR1k3THmMUoVkhnZ/kQhq4VqqNBDjUQEB0A+17
-	 ZptIE3NKrsjuW7KK0Xk4JGAf7EaXOv0KAjn5IYwvkwbJNkZSbEgYUhai8Qc6Hk7kI0
-	 7UrKH5eTtrZW7iB8s3Zb8C0kdPfsThBXQxiGhEsi/p217SX+8jRChaXummaw+ZVV21
-	 HcW3/5WVXMgcXkTWo8uen17F8DPWrQFtMG0v6NljT+jatCNai9bOjg4TtME1NIj9Fa
-	 TUOYDhdXLm2oQ==
+	b=Ut0hY5DYQ2RIOniDc3GH7aZTRr7UMrVkXLH5pe6+yNYfwbzeOw9q3E+WpeSz3LqMP
+	 vZP8z5S2zpnGG6cIPL7xqR+FCupXI6FcobeDn1mIH4btMuPMcnjrUmMGi6xfqmk25G
+	 AmwyS2HlsKxtj1iuvlrf4z1T4VMAC8psTLadLOGipFCanlpMhQge4D2kgaU3R1jUE8
+	 AxRciLMKIemUNOBjNKXUQGE+xqK9SpC/M5epti+EOqD+G9cBezMLvzoaum3nlibCkB
+	 gfDj2qrIdNQFJLhw4eMAPhakZjs+odf+VwOTb4opM7bk2APxW21cSd6FoTOuuYD4Cu
+	 5bgMSo6+2nXmw==
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 09 Jul 2026 00:24:56 +0200
-Subject: [PATCH 2/3] ARM: ixp4xx: Relax endianness
+Date: Thu, 09 Jul 2026 00:24:57 +0200
+Subject: [PATCH 3/3] ARM: dts: ixp4xx: Drop the reg-offset hack
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-ixp4xx-little-endian-v1-2-e9622d0ba9e4@kernel.org>
+Message-Id: <20260709-ixp4xx-little-endian-v1-3-e9622d0ba9e4@kernel.org>
 References: <20260709-ixp4xx-little-endian-v1-0-e9622d0ba9e4@kernel.org>
 In-Reply-To: <20260709-ixp4xx-little-endian-v1-0-e9622d0ba9e4@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, Imre Kaloz <kaloz@openwrt.org>, 
@@ -71,40 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IXP4xx can now boot in little endian mode so relax the
-endianness requirements.
+The reg-offset hack only works when the IXP4xx platform is
+running in big endian mode, and it is there to byte-offset
+the byte where the serial registers appear in the BE config.
 
-This will make IXP4xx compile to little endian by default
-like everyone else.
+This is clearly wrong, workarounds need to be in the
+drivers. Drop the reg-offset.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/mach-ixp4xx/Kconfig | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/arch/arm/mach-ixp4xx/Kconfig b/arch/arm/mach-ixp4xx/Kconfig
-index cb46802f5ce5..2bc8a497d318 100644
---- a/arch/arm/mach-ixp4xx/Kconfig
-+++ b/arch/arm/mach-ixp4xx/Kconfig
-@@ -2,7 +2,6 @@
- menuconfig ARCH_IXP4XX
- 	bool "IXP4xx-based platforms"
- 	depends on ARCH_MULTI_V5
--	depends on CPU_BIG_ENDIAN
- 	select ARM_APPENDED_DTB # Old Redboot bootloaders deployed
- 	select CPU_XSCALE
- 	select GPIO_IXP4XX
-@@ -12,8 +11,8 @@ menuconfig ARCH_IXP4XX
- 	select I2C_IOP3XX
- 	select IXP4XX_IRQ
- 	select IXP4XX_TIMER
--	select USB_EHCI_BIG_ENDIAN_DESC
--	select USB_EHCI_BIG_ENDIAN_MMIO
-+	select USB_EHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
-+	select USB_EHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
- 	select USE_OF
- 	help
- 	  Support for Intel's IXP4XX (XScale) family of processors.
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi b/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
+index 0adeccabd4fe..b0f98da8def4 100644
+--- a/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
+@@ -84,11 +84,6 @@ pci@c0000000 {
+ 		uart0: serial@c8000000 {
+ 			compatible = "intel,xscale-uart";
+ 			reg = <0xc8000000 0x1000>;
+-			/*
+-			 * The reg-offset and reg-shift is a side effect
+-			 * of running the platform in big endian mode.
+-			 */
+-			reg-offset = <3>;
+ 			reg-shift = <2>;
+ 			interrupts = <15 IRQ_TYPE_LEVEL_HIGH>;
+ 			clock-frequency = <14745600>;
+@@ -98,11 +93,6 @@ uart0: serial@c8000000 {
+ 		uart1: serial@c8001000 {
+ 			compatible = "intel,xscale-uart";
+ 			reg = <0xc8001000 0x1000>;
+-			/*
+-			 * The reg-offset and reg-shift is a side effect
+-			 * of running the platform in big endian mode.
+-			 */
+-			reg-offset = <3>;
+ 			reg-shift = <2>;
+ 			interrupts = <13 IRQ_TYPE_LEVEL_HIGH>;
+ 			clock-frequency = <14745600>;
 
 -- 
 2.55.0
