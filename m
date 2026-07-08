@@ -4,121 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D41EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 01:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7D7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 01:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yClgSqN6XRF0GKugnCbKN5v66Tb2R1f2qpw2RwZVkWY=; b=lZYgQuxRVVn5myRIiUEfnQ7xn0
-	jsvpr0zuBqfsOb86W8oGnJE+rWatqb+evo2VQW/iXC4+y3jxOinhuR/1AmBKYeJH9ahz/m7i82b2p
-	7td3jD9eDBFh0lClHHaGfyOva4e3YB15OcwAnVAE4t5nNShbHkIKLpqdJGNJU5p5xt/YKPIXe3Pdh
-	Qys37yl3EValNhBJ9oFGr4EUNhn1UBeZCe3zJSzGxd8E5LsWlCMUmX1C42/e0ikT3WcUuYou3OL2q
-	EUXXMPeDJxO7w4un9pPiDe4hpavQ0HO8/RfEIUnNaaZnlilELPG62Wfliv/0PYfi8K7Ca3tXakUSx
-	ZTFoVezw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Dd0yo6CrKwB47yF27tbjHU5QXAXcxL+TJZdWwmiNyk=; b=1IN7ztZHDAIIUYdqvb91LmGlYm
+	VnIv7M75L9ajGcxt1sWtoYNCRYH/BGIVvfqJp9KtVhqDr6SkS7fXvLh85Hq5ZXNAFv1thxic2YEts
+	Nz2fR/vtRsmVp8kUHImsVwL1O4A98RdSaWHKzDgkFrqCh4+eO/qOJpSJseqPsZS2sYYMbcOTKrkTA
+	QKUBIjV838JDOiKVihQf1awbt+pMhSUaglI/CyGndQyfkBG3L858TTJBQG2z0XNsWAi8+FlUpurGc
+	DS0XeRd0I7S8kdOeUfsQYXU7PPMUhqEbKmpHteX1N0w5blWacK8LFCGeeiztUQZ5LyocMcdprhmZZ
+	PDosHY9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHIk-0000000G79U-3Nhv;
-	Wed, 08 Jul 2026 01:42:14 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1whHJg-0000000G7Gi-1KZl;
+	Wed, 08 Jul 2026 01:43:12 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whHIi-0000000G78r-1Ylo
+	id 1whHJc-0000000G7Fv-3zuV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 01:42:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XVdIKJs+QCvd8TAe8RfV941jrk+LPghTTHg9ydlU+nFzwBTCLz4WH2X+t7TaBU0wJLln/gmztODPBXXJMpX4vKVH213m00I+89j2pRqMKzwuHrV5+2NWB41yH8Svrf0zRYG5oVl1uIjfytsR+8iSxnT5GBALNBEqom62aT+1lsSf2VoaTainmPanZmUrV0dPkaPhPaggdIYwnmXYlCkql0vTpSlkONm5vDjhJR4ATGOD00Nc/gsZ1OuReEfBLCWF+FwifKzuww+dv3Ba5eRmlSIQMik+1+F660Dl9iZ9LIdXVMKdp2cWWYEQqdVedXb+1LVQx1l77x94IxFz2HA8vA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yClgSqN6XRF0GKugnCbKN5v66Tb2R1f2qpw2RwZVkWY=;
- b=WejgrNy5OYOabDDZsJrZCoiUeIKW/fKPpiAG+8+GG2f/8s2RP7P/ypbIVAiBSZZYVj2ooud5vtrsswIDrudGqu5Pf+l6Jcz+lpHU9tZwOsM25KIJBjIpcsNSoTWm/Xim3ZEjYdVdtW9TxnMxOfzpnPktFPnTkGCicJIdKcpzaqruGQQDh0F7wjoURNc7hyoy0ymD0hpBIA4urYRVaVqqKAWd/IXtJ8wdRdgtMmPkBczZ66ebQg+JZeYY/l4wKvWi1q16pLLiHRd9TYstUcZgmYxVEiPPZxZBAsw2mWZqlCw7vglpwuiR5bmX3p5mkF7oX42bCk+mkU5rfsDrbT5CMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yClgSqN6XRF0GKugnCbKN5v66Tb2R1f2qpw2RwZVkWY=;
- b=NZrPnClKrDdykK7CsdBpLQp/JUlBv5uT0vIY0Cfq/Xyc1kCNsicsVCQInfNljOD+ybGBbK5aV4zFaUrAAtK8pGYTjZ2FjrSZ+QSYJ5euUJlzQkGuY4aB7u5drDLXUqpN091t0WB8RqmMbPHOyNsw/vum5vvMXkb4Ghw6IQbHeC90fqPhRlm1eG+5H5mVkSFseGZwMD6+NfB7gj0OkQ02UdFB+S5bFxCYx7emvjCI8zgSCcoS1fF0kTjPMorTZTTWd+GKdERc/0yjZJn5MNdMoJ8X7oKb3ltmw2YS5cKJ0GWxubjlL66LrcRiJZnHfZ0D2nraK44uYrLtpAb2K+8EGQ==
-Received: from MW4PR03CA0093.namprd03.prod.outlook.com (2603:10b6:303:b7::8)
- by SJ0PR12MB5662.namprd12.prod.outlook.com (2603:10b6:a03:429::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 8 Jul
- 2026 01:42:04 +0000
-Received: from CO1PEPF00012E61.namprd05.prod.outlook.com
- (2603:10b6:303:b7:cafe::8f) by MW4PR03CA0093.outlook.office365.com
- (2603:10b6:303:b7::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Wed, 8
- Jul 2026 01:41:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CO1PEPF00012E61.mail.protection.outlook.com (10.167.249.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 01:41:58 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 18:41:25 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
- 2026 18:41:25 -0700
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 7 Jul 2026 18:41:24 -0700
-Date: Tue, 7 Jul 2026 18:41:23 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
- Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
- Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 7/8] iommu/arm-smmu-v3: Change how the tlbi describes
- the invalidation
-Message-ID: <ak2qw/dFEixxY/Uj@Asurada-Nvidia>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+	Wed, 08 Jul 2026 01:43:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1783474982; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=9Dd0yo6CrKwB47yF27tbjHU5QXAXcxL+TJZdWwmiNyk=;
+	b=Oe2O6UiysLogYHYeV9v5lrpkh+VsxpbrxAwoc4a0HNwuxJ4JQi8z+LmqmccVye3xrzkZpOOERDa5iZFHR4Rq7SJnZhxyiRjW/9rSjA24oFp/dW51hVczQDKM0MSAAAQTmGhUtkvj4yByklz3v3Hd1WmbNIC0fMNJ2knzOU5wPUY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R481e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X6fqE44_1783474978;
+Received: from 30.246.161.237(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X6fqE44_1783474978 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 08 Jul 2026 09:43:00 +0800
+Message-ID: <3f77c23d-5f04-4617-99f9-b08b1740cc21@linux.alibaba.com>
+Date: Wed, 8 Jul 2026 09:42:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E61:EE_|SJ0PR12MB5662:EE_
-X-MS-Office365-Filtering-Correlation-Id: 106c5f17-3756-4452-1a4d-08dedc9219e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|82310400026|1800799024|376014|11063799006|56012099006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: YUG/oAWbKSPGtGRu10OCo5MXwN4NiiMWbYu/Qm5D6XLPkNiluBbEpk13NPYem6u6+mbxo5y3Z1m8cLhdshA91ganXMSeypZgyJYnGVBme5hyK5iT0XnP5J/4kANow7NKU8mEaHEblNvTuJupD2GE3BPbnpRkMICrau6hs9q3nKGE7Zxc29HsgvAPPYWyuaYKdymqhHECFnt6P27sMu5nzlzPcnKQLKTnXtMbd8ToY0s7q8XIXK3ze7TxK9ZMWQDMXr6yoU/3wTdsgGslgBixT4na9vs9I0Zrc1UmcOWvG5T9iTfkPUB2Vz90ZEDSOG2ifFFYhkWBYD+pWMzXpkge3jNtYQhwiCdHpPmIv0Q1pNxh+sfX23st23C1NYsrVCBcDPPmupwYHdnKxzlQ04yzycVMwvPHiqAyLEmJJOeFt2uuzuT1iwk5cnSn+rtOU76/HAmY5CSk0Ymdyj8MAhxbDG5d2CQm8ILo/yoEGMoGFasUPt5nUGGnMplx5PRmtQfTGVvrP0WFHuycaqRCDObqiZvALvgn56vGChMx8JY4Ljers7G5wRXuqcJbDpie3ogKuwx9dG9LFIxtrazuR6EAB6PYBaOe+plQXD1vcf9PPGPRpzlLcFJ+2zu0JGUH7nJl3OzT2cekUw2iq2cptYPuKyje7pdgg7Fiigb+blrgM3ex0YCiQ53hps/mWkgNG3QyivA+uxcGI12Oq2kNB6hoDA==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(82310400026)(1800799024)(376014)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 7DimH9W+PyByGhb1IOECtDKhvKTpbwNyxK+5tKkTvZfecNxaBhnpKIT7gc/G08J7y/U2zULtm72KXRj7dWChuSsDUrejspQx3JVYJzei3Nt9c7JOHl/Om5KgkW7Vsmbtu3U34dyBZaTHdo867DFfuwdmeIKzF90nzi+fMS1hW9vKwAcLPlIa+ibpfbtpeTyPsM0DmfsUNa2uMF/7cMn3bCdBllK+0kyskg43wSiMy7/3XbcphUDqCZbITsZQb5K1rIeWjUUH9jmIWtroaunBA+IMjYdikL3ZviehF12ygCYManwZWwQyrkwVbJn+RKjVtO+9bhK7tCIol1rQUq4hqo8jiag2hVvmXUc44IZqyGaANDk5m8DrCUxHjFhLIygDmsUqB0sx1kbV8bRAmU7eAMIueto5/XYrKg9vqp77uFUk6OAKMHvWt3+cIX8pMZgA
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 01:41:58.9780
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 106c5f17-3756-4452-1a4d-08dedc9219e8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E61.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5662
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] ACPI: APEI: Handle repeated SEA error storms
+To: hejunhao <hejunhao3@h-partners.com>, rafael@kernel.org,
+ tony.luck@intel.com, guohanjun@huawei.com, mchehab@kernel.org,
+ jarkko@kernel.org, yazen.ghannam@amd.com, jane.chu@oracle.com,
+ lenb@kernel.org, linmiaohe@huawei.com, Borislav Petkov <bp@alien8.de>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org,
+ tanxiaofei@huawei.com, liuyonglong@huawei.com, mawupeng1@huawei.com
+References: <20260527082707.2013499-1-hejunhao3@h-partners.com>
+ <6ebea989-81c7-6237-1a31-8d6975796680@h-partners.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <6ebea989-81c7-6237-1a31-8d6975796680@h-partners.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_184212_411132_81620643 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260707_184309_667721_4B9DD1A7 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,42 +71,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:26:44PM -0300, Jason Gunthorpe wrote:
-> @@ -2331,8 +2331,8 @@ static struct arm_smmu_cmd arm_smmu_atc_inv_to_cmd(u32 sid, int ssid,
->  	 * This has the unpleasant side-effect of invalidating all PASID-tagged
->  	 * ATC entries within the address range.
->  	 */
-> -	page_start = tlbi->iova >> inval_grain_shift;
-> -	page_end = (tlbi->iova + tlbi->size - 1) >> inval_grain_shift;
-> +	page_start = tlbi->start >> inval_grain_shift;
-> +	page_end = tlbi->last >> inval_grain_shift;
++ Tony, and BP,
 
-arm_smmu_domain_inv() in the header passes in start=last=0, but
-it's supposed to flush the entire ATC, right?
+On 7/2/26 8:50 PM, hejunhao wrote:
+> Gentle ping for this one, and it's ready.
+> 
+> Best regards,
+> 
+> 
+> On 2026/5/27 16:27, Junhao He wrote:
+>> When hardware memory corruption occurs and a user process accesses the
+>> corrupted page, the CPU triggers a Synchronous External Abort (SEA).
+>> The kernel invokes do_sea() to handle the exception, which calls
+>> memory_failure() to handle the faulty page.
+>>
+>> Scenario 1: Memory Error Interrupt First, then SEA
+>> The page is already poisoned by the memory error interrupt path. The
+>> subsequent SEA handler sends a SIGBUS to the task, which accesses the
+>> poisoned page. This flow is correct.
+>>
+>> Scenario 2: SEA first, then memory error interrupt (problematic scenario)
+>> If a user task directly accesses corrupted memory through a PFNMAP-style
+>> mapping (e.g., devmem), the page may still be in the free-buddy state when
+>> SEA is handled. In this case, memory_failure() will poison the page without
+>> invoking kill_accessing_process(), and then takes the free-buddy recovery
+>> path.
+>>
+>> After the CPU returns to the task context, the task re-enters the SEA
+>> handler due to the same access. However, ghes_estatus_cached() suppresses
+>> all subsequent entries during the 10-second window, preventing
+>> ghes_do_proc() from being called. This suppression blocks the
+>> MF_ACTION_REQUIRED-based SIGBUS delivery, causing the kernel to fail to
+>> kill the task immediately. Consequently, the process keeps re-entering
+>> the SEA handler, leading to an SEA storm. Later, the memory error
+>> interrupt path also cannot kill the task, leaving the system stuck in
+>> this repeated loop.
+>>
+>> The following error logs are explained using the devmem process:
+>>    NOTICE:  SEA Handle
+>>    [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>    [Hardware Error]: event severity: recoverable
+>>    [Hardware Error]:   section_type: ARM processor error
+>>    [Hardware Error]:    physical fault address: 0x0000001000093c00
+>>    [T54990] Memory failure: 0x1000093: recovery action for free buddy page: Recovered
+>>    [ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory
+>>             (page:0x1000093 offset:0xc00 grain:1 - APEI location: ...)
+>>    NOTICE:  SEA Handle
+>>    NOTICE:  SEA Handle
+>>    ...
+>>    ...        ---> SEA storm
+>>    ...
+>>    NOTICE:  SEA Handle
+>>    [ T9955] Memory failure: 0x1000093: already hardware poisoned
+>>    ghes_print_estatus: 1 callbacks suppressed
+>>    [Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>    [Hardware Error]: event severity: recoverable
+>>    [Hardware Error]:   section_type: ARM processor error
+>>    [Hardware Error]:    physical fault address: 0x0000001000093c00
+>>    [T54990] Memory failure: 0x1000093: already hardware poisoned
+>>    [T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to hardware memory corruption
+>>
+>> To resolve this, return an error when encountering the same SEA again.
+>> The subsequent SEA handler invocation uses arm64_notify_die() to send a
+>> SIGBUS signal to the task, which terminates the process and prevents it
+>> from re-entering the handler loop.
+>>
+>> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
+>> ---
+>>   drivers/acpi/apei/ghes.c | 10 +++++++++-
+>>   1 file changed, 9 insertions(+), 1 deletion(-)
+>>
+>> Changes in V2:
+>> 1. update the commit message per suggestion from Xueshuai
+>> 2. Add a check to only return failure on the ghes_notify_sea() path,
+>>     avoiding impact on other NMI-type GHES handlers.
+>> Link to V1 - https://lore.kernel.org/all/20251030071321.2763224-1-hejunhao3@h-partners.com/
+>>
+>> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+>> index 3236a3ce79d6..787664740150 100644
+>> --- a/drivers/acpi/apei/ghes.c
+>> +++ b/drivers/acpi/apei/ghes.c
+>> @@ -1383,8 +1383,16 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+>>   	ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
+>>   
+>>   	/* This error has been reported before, don't process it again. */
+>> -	if (ghes_estatus_cached(estatus))
+>> +	if (ghes_estatus_cached(estatus)) {
+>> +		/*
+>> +		 * Return failure on duplicate SEA entries so that the
+>> +		 * subsequent SEA handler invocation sends a SIGBUS signal to
+>> +		 * the task to prevent it from re-entering the handler loop.
+>> +		 */
+>> +		if (is_hest_sync_notify(ghes))
+>> +			rc = -ECANCELED;
+>>   		goto no_work;
+>> +	}
+>>   
+>>   	llist_add(&estatus_node->llnode, &ghes_estatus_llist);
+>>   
 
->  static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
->  				struct iommu_iotlb_gather *gather)
->  {
-> +	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
-> +	unsigned int tg = smmu_domain->tgsz_lg2;
->  	struct arm_smmu_tlbi tlbi = {
-> -		.smmu_domain = to_smmu_domain(domain),
-> -		.iova = gather->start,
-> -		.size = gather->end - gather->start + 1,
-> -		.iopte_granule = gather->pgsize,
-> -		.leaf_only = true,
-> +		.smmu_domain = smmu_domain,
-> +		.start = gather->start,
-> +		.last = gather->end,
-> +		.leaf_levels_bitmap =
-[...]
-> +			BIT((ilog2(gather->pgsize) - tg) / (tg - 3)),
->  	};
->  
->  	if (!gather->pgsize)
+Hello Tony, BP,
 
-pgsize=0 is checked after ilog2(0).
+Could you please take a look at this patch?
 
-Thanks
-Nicolin
+Since `ghes_in_nmi_queue_one_entry()` is a common path for both ARM64
+and x86, an Ack from the x86 side would be appreciated.
+
+For ARM part, look good to me.
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+Shuai
 
