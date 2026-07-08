@@ -4,127 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DE7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68748C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z1CB5IdWjzvBOUlE+iPQ9fW7uvQXz7VqFlbF5M+sM2w=; b=tnBYkwAAcUIr73MIV66rw7HOAl
-	0uM0BGBqoQ8QCRwOU6mD07R6o6Ui3yakGlxK9NLzgoUae9rvx3qq6MsRVl7oFhBUCin0tYy1lnZKV
-	LKEP3d6UoocE8CtuyBJIKX4ybqPlhP3w1oMeVmirDX/bsP/aBDZKPwix9XkMJo4+Bl4ZKVu/e7qo2
-	OHjv4V9fd4OMjWhFyX0b9BqAVhIebBcJsjNDBAUA86I2KMA6Wc9Fl0qiCxv9UGReGAJUZoqqwFDZ2
-	0xgd1ZP9jW1Zb8PXuXl6UzHuVrMhsfaeW25X8s+D8Hk/pqcYTDY8uSjLtIABElHgrB3UXUKvtwZq7
-	BxcUZ/Eg==;
+	bh=tkJStVQQrBUVTUaskhv5zoU/YZtR/Z//KEgb+Nu4U5Q=; b=1GI4YS1uZvIDoP7L6NINS23PCP
+	+8xJTpXBPRiGFYmy0oR8yLlp+uEmB+IrmyD3l5/ZjVgwhXEo0i6XPNZfUregX7eI1SnMlMLWzUxgc
+	BYAx1P2qf7ezMGK8x7LSr2/nyaqizIcpl0Ti056Nqsa1DXxkfYDpVQBTu06z/i9hxW/C5vAOTdUHA
+	KScz+/OgOX9gH2rK96ab8Sz6ItE0eQadzvRC1qtcCAeP32SqspDMzjcru20E9y/ghtxTI84hglxSf
+	OGzCLlOVSTizR+4TAYbmCv156ynyFBbsb4Yk2Rzmn0upy+ps8UHyKZAOCnUT6+oT3eW10q0xDDJdw
+	j2GzFynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZQi-00000000Po2-0SsW;
-	Wed, 08 Jul 2026 21:03:40 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1whZXs-00000000QF3-3NTU;
+	Wed, 08 Jul 2026 21:11:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZQf-00000000PnZ-3amW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:03:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sioAiGUi2hsh9gLt/mM8h7RpD2Zn+ixNpcfz6W9r26EmabkhKMsBJCyWO22GFXQRvaxFoIVZqxt2ecWpFctY9feBCbJfKAksAA3HWPKHAU8STzq6/cBR+zincoHTpen3b61fHX+JBYbogYrcqAbSDUdmyyOy+atTJR5HDhSS7lWA5YuIzuRfzIl0qiwE5wA6WPwssTCOXjHS6WzKxcKqb2UiZbmbGXAKaqu0bKjoZHCzri6C/4hS1ZbFcRNE+wc5fuEgMORg/dlMdejRcKSV4w2W3iMIm1UzRbTkWHdfYatlhncgqx6XiagJ5gzizB/MXX5II0i8/vXjxjzhCidK5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z1CB5IdWjzvBOUlE+iPQ9fW7uvQXz7VqFlbF5M+sM2w=;
- b=XnSug3VsCmjKFOgIKbiQ2ir3M9SkxRQUHYB/eAPA1vJMTD1ZHlHgbSjVyYlf1FHULqDCJjSxgBIjzneJsM8cjAJHzhXV175hRQKv+rA8vv3XD36QKZz/+PaXtaJMJjgh6ui7jtA18uxrKjEkqrj+Xhdewy5J8U2xRDzl+/Qsmdk0iDadRGL9+4dYMR3yCCk/Abmjvm350YzSn8LoAxHt1frNI/MH8PsQgPpXp7YD0z9SH7BIRSTEZxVpBKZTNhGufufSXjyddMHPqxrY9gj6PLt90O0uEJ8hB4/I66HmvVyexDXyy8Qxf1spzFgfg31UGYnqYVthwN5U8u/w5dAaXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z1CB5IdWjzvBOUlE+iPQ9fW7uvQXz7VqFlbF5M+sM2w=;
- b=t1JXUIC5gau1l9siwbUqFMn6WPED9qtOXXEXG4Nv2Of1vJB4g4MuwdNekMGzhzUDlyHly14ywX68X5ALurkGl5EHbUv8JwchL5ltLsIpvvoS2r6UENTjMDuJuJovrBjuwgpu2+UeoqDBAR/aIxke+P7V4xhxDuxmtdLN6d3X8cEDS0Kzr6/j2y8LWbk4kjptpscz0SedO4jh0P0di0yJ5aFgbj+NxiHgWtF7uv4rEe8Z/zlJt3HW5w4twnW3Ar4iGGif1nqplWhZEcVcI0oOHwyMw1/JDXM8scEdGeTlaMYiC9EJJd9sp2NZmn4NGeQXeecuepeytMtZdqFA5+iJuw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8815.eurprd04.prod.outlook.com (2603:10a6:102:20e::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
- 2026 21:03:33 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 21:03:32 +0000
-Date: Wed, 8 Jul 2026 16:03:22 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org,
-	arnd@arndb.de, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, zhongling0719@126.com
-Subject: Re: [PATCH v4] dmaengine: sun6i-dma: Fix use-after-free in error
- handling paths
-Message-ID: <ak67GssLG5yliDe4@SMW015318>
-References: <20260708032518.50886-1-zenghongling@kylinos.cn>
+	id 1whZXq-00000000QEa-0zrS;
+	Wed, 08 Jul 2026 21:11:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A555140267;
+	Wed,  8 Jul 2026 21:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEF91F000E9;
+	Wed,  8 Jul 2026 21:10:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783545061;
+	bh=tkJStVQQrBUVTUaskhv5zoU/YZtR/Z//KEgb+Nu4U5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dekQRjgjNEfXhlQmyfoUDHiLn7BOa1vrUXPYlOF7nZT0gYD6oWWmhiYaf1OQ34y31
+	 qbk2C0vFSHkKFrQSQrGyMQWPiMLPaKBRt7Q/Cdoyk8W3jGRGBtPQN07cQm6DaL94DJ
+	 liYCCyfJECEuEN9RP9GTZpUqVsh1vA7E2jpW+il+Afq+NyvgBUWpXE49gsa6njMmm5
+	 pIBI2zhomAjp6hSuqoOZ2DwGWQG5OW+HXEZUMS38cM2HFh2pYITcTKOdCkkNECtRbu
+	 XDVCXFhBzOP0+TcbgG3tosHfbUe70o7c/6ZnxShy8QP07T6fDX/4V0IvI5rLU5VoEn
+	 Nmh0+1GaRps4Q==
+Date: Wed, 8 Jul 2026 22:10:56 +0100
+From: Lee Jones <lee@kernel.org>
+To: rva333@protonmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v4 3/4] mfd: mt6397-core: add mt6323 AUXADC support
+Message-ID: <20260708211056.GB1727174@google.com>
+References: <20260623-mt6323-adc-v4-0-299680ad3194@protonmail.com>
+ <20260623-mt6323-adc-v4-3-299680ad3194@protonmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260708032518.50886-1-zenghongling@kylinos.cn>
-X-ClientProxiedBy: SA1P222CA0065.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8815:EE_
-X-MS-Office365-Filtering-Correlation-Id: caf81cef-880f-47d0-5046-08dedd345e71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|19092799006|56012099006|11063799006|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: I8K3wUbVe5vGY6qpzoAaYJr0xRMghgkUc4skEJSJuvOhb1CjB20dfrJyWVPFsUhr0oaXRX2KbecL2XFSNSdqFmCKYC1o8CVTztikyroLPTOMS4RBOUiVz7qlMmJFiqTxWp3SR58pr7wSJAXtGPrYhDPtv4NAFx+pALIp8cbjLQa+Z5jN7iUAXCkKeeMmiM9X4Xy4wfWOUaIcrC4PR8L6RkTzqCr72Ym/xXw0Gv5jlWTsUn6q2QgIhUZpvkNk8Z9YLo5U7IdrDMIJy31kKTJT8DkGwM9lt0bO0a+A1ZQo29cezIB07YP8xYIxx66x3LNtAAXhMRV2hnk1iQdY7yKNyG+Gv+sUChuLq0oQbReUy8dboHaPvxo+yquu+CDRr5aGNLlqohmOwWtKt230bUf4kUg49bf9XTGHgYpZuJtt6NF3IhV9Kbi4OQoJ6NwlXDlA42EHRwoWDNKuvFyCQDHIm5FnYqh/Ao+ZdyoZ+gjb9eS3H5ZwsnN9Usto7VkCLXg3UURXTQHhlGyLjLepwg53RlaK5BhkOSWWmxHMuFpHxAbkl5lRQ0f1/34TSD5NqyhVNhms6a/HSAIUwiRcV2wkhHtTRj+EC/zBQXbYhkfo5yBdQQiDmIwzSJNdUzGLzcrky5eBBx3yBdBXDhkyBexN/uJNu/2oCocyCth+E2kpJ3A=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZV1zN0hLFbcwhqpHMJW3zF1d88gFIY1up0TEAc4myTPz/fW60RhcxFph56aV?=
- =?us-ascii?Q?Kej80P+Nhyx49Qhf0aiIdkBItYswMXsf6L8xek6s/B6yGTOTYdyDFwt9NAH9?=
- =?us-ascii?Q?95r7Rd+t8jTIbND+WbP+Lvpc7NQLr4MPGF4l69g5mV7/nxWt/ePIJ0pdVnOF?=
- =?us-ascii?Q?hSpNKsrm6BQRO0khE/pFYbhTmfATSw7C8lGWqvQsZHFhKmqBsjG511+8TY3O?=
- =?us-ascii?Q?QASEWbYCzr/5QUt4/jLMFeC6kNQRDe6k4M2oElXb1JxrFol81Gw1D2EGoeVn?=
- =?us-ascii?Q?lgMwWj0AcnkBjllLVD9WtNTpmpZ1M13bS7OCzzpD6aAI1Y+4eYDU7RHCza3j?=
- =?us-ascii?Q?7z/av5aRjFytkSPdAg39GBIkOzaMtbxkVs8y4UAGwOspIldhJ+8i0F//mH0c?=
- =?us-ascii?Q?hoNxHCwsxyyv7U8kQbWmeVztuONMtAX/Ka6v9i+uBPYSk/6eSznlan1zeYVA?=
- =?us-ascii?Q?VpGQN6sE5ZfVr72LelDqcCuX6rnNe+s/gjKiY2g4vRhI6P/xSXf2bwEqJZ6U?=
- =?us-ascii?Q?eLiwic9e+1ZSlFZds0HlXgMdLZbzpWR5anagZxmVKGfMRrgiOGugMleVgVZq?=
- =?us-ascii?Q?AxaZGOHXGz14umMfio8GTKUZrqwKI9VuP5JR3dGT554gz6+40gWWVnWOtVmg?=
- =?us-ascii?Q?nyp7pc7ZHhNVvzU5Aswdv8gb8hmjzn12gWTCNGgWFWeISoNXDmkiZBFVIdoZ?=
- =?us-ascii?Q?8U76GxlBf5NZqyOG6Zwnm+7ogrl7JjFyQKrA7w+RtUfvHjVCo6b0lP/IPK9b?=
- =?us-ascii?Q?DZ0oNzxurcz7bPyIRfuuUMkY04tG3WJMCcHRhONqCSmPH49ApS07YwhGATzw?=
- =?us-ascii?Q?DT5IOiMWEcVWsQw8FGF520sj70L2R+9VjiVm4V6uDVKlEC7CzBC2BMj+AEFY?=
- =?us-ascii?Q?PWqu77biwkMJFSxgfEUWUgWPZkglqweeD23UVgPdVegHKO0dtXpW6HHVTyi9?=
- =?us-ascii?Q?M2cjul0+9RhQ/w4aLgSPaxaSy5OyXf2hkO6H7E3thHFGZBQRHe0PCQ6S9cD4?=
- =?us-ascii?Q?THUpB1nkrPZQPa6fIZT+B9xGYBKRYj4V6sjcD8ivRpefmVzYjW79CjsMNECa?=
- =?us-ascii?Q?x1MPT1RBMvovPtF9vu0hsMzu6IghkDIKiBGBXIKTwlaKJGl6pA4W3mBivvIQ?=
- =?us-ascii?Q?87bzbX9ELHtbvR2/YkDLe1rrzp5Ias+sz1zOkxFwCR7hLK71h3+MJhsc+tNX?=
- =?us-ascii?Q?gwT5wuZGocUUiA8CyJP8QsUwDiVYOJereX/5F6tkCgzMyMqkU86b0BxnK119?=
- =?us-ascii?Q?FjdsHvUApmDNdtg/keR518JECZ3bi1zyVz+grK85UbyUqbUaMlPJyCqSHGWW?=
- =?us-ascii?Q?5r81IVKrr9RymNOCHd6ddmahqzoaqJd/0YDuK1E+P88PvpYJz8xB4Fx25mpm?=
- =?us-ascii?Q?CFyLeZkmL7L7MjEmdj1Bu3ZlGMa+2N9S3O+tLOUhR8N0hqdUdB0vsIW3628f?=
- =?us-ascii?Q?M9FJLFbRvXnO8+yv9qL6ZcvOB6JpA4xEyA5O63O7R0fozRjXspi0imYkmBNK?=
- =?us-ascii?Q?7bDnjDD4cTSyTnulKa3Ijr2Fwiy1K2FImyJovS31rW69eVR02rNtTEAWJJ1H?=
- =?us-ascii?Q?XUGk6Ww3KSocnKAuReHlPaQJuOmM+UpyR3OUxre0GYeUcYICP4kXdbtb7+VJ?=
- =?us-ascii?Q?OtOnoWa7AYFFx6I39d1V2N6gFOukdp+M0yQFgYrjhmzXAt254fYKISDcmwmG?=
- =?us-ascii?Q?Xv7RP2iSkkgR8C8GaN65hPvGPUqk4ZOV5u3zJIQHygKoDZv8f3j+1J9uIxiB?=
- =?us-ascii?Q?edgd5B3Uz7AYLGik/RFCv9gTwl2AGyqizHAFpSP19nVCh0PT/1Ai?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: caf81cef-880f-47d0-5046-08dedd345e71
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 21:03:32.9038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ji25BfFDCJYq1pkLcyBvrrMkH/h719gUmKBKud0ug4SxbWH1JPlNJUgxLiA3lzc2/T00LrOaAnycL/OE0Baw7NaHn7WUkeyeOi9gc9J/tRxbBMBeKQBSKaanoFm6F9C1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8815
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_140337_897923_221E486C 
-X-CRM114-Status: GOOD (  23.72  )
+In-Reply-To: <20260623-mt6323-adc-v4-3-299680ad3194@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,117 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 11:25:18AM +0800, Hongling Zeng wrote:
-> In error handling paths, the for loop frees v_lli in the loop body,
-> then accesses v_lli->v_lli_next and v_lli->p_lli_next in the
-> increment expression, which is use-after-free.
->
-> Fix by saving both the next virtual and physical pointers before
-> freeing the current node.
->
+On Tue, 23 Jun 2026, Roman Vivchar via B4 Relay wrote:
 
-Is this statement out of date? You call sun6i_dma_free_desc_virt()
-where saving "both the next virtual and physical pointers..."?
+> From: Roman Vivchar <rva333@protonmail.com>
+> 
+> The mt6323 PMIC includes an AUXADC. Register the AUXADC in the mt6323
+> devices array to allow the corresponding driver to probe using compatible
+> string.
+> 
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  drivers/mfd/mt6397-core.c | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Frank
+Doesn't apply.  Please rebase and resent with my:
 
-> Fixes: 555859308723 ("dmaengine: Add driver for Allwinner sun6i DMA")
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-> Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->
-> ---
-> Changes in v2:
->  -Refactored the fix to avoid code duplication by creating a helper function
->   sun6i_dma_free_lli_list() that handles LLI list cleanup
->  -Add Suggested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->
-> ---
-> Change in v3:
->  -Further refactoring to move txd handling into the helper function
->   as suggested by Jernej
-> ---
-> Change in v4:
->  -Add reviewed-by
-> ---
->  drivers/dma/sun6i-dma.c | 31 ++++++++++++++++---------------
->  1 file changed, 16 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index fcc88a74d821..e161fc298b86 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -406,16 +406,12 @@ static inline void sun6i_dma_dump_lli(struct sun6i_vchan *vchan,
->  		v_lli->len, v_lli->para, v_lli->p_lli_next);
->  }
->
-> -static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
-> +static void sun6i_dma_free_desc(struct sun6i_dma_dev *sdev,
-> +				struct sun6i_desc *txd)
->  {
-> -	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-> -	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
->  	struct sun6i_dma_lli *v_lli, *v_next;
->  	dma_addr_t p_lli, p_next;
->
-> -	if (unlikely(!txd))
-> -		return;
-> -
->  	p_lli = txd->p_lli;
->  	v_lli = txd->v_lli;
->
-> @@ -432,6 +428,17 @@ static void sun6i_dma_free_desc(struct virt_dma_desc *vd)
->  	kfree(txd);
->  }
->
-> +static void sun6i_dma_free_desc_virt(struct virt_dma_desc *vd)
-> +{
-> +	struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-> +	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vd->tx.chan->device);
-> +
-> +	if (unlikely(!txd))
-> +		return;
-> +
-> +	sun6i_dma_free_desc(sdev, txd);
-> +}
-> +
->  static int sun6i_dma_start_desc(struct sun6i_vchan *vchan)
->  {
->  	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(vchan->vc.chan.device);
-> @@ -788,10 +795,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
->  	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
->
->  err_lli_free:
-> -	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
-> -	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
-> -		dma_pool_free(sdev->pool, v_lli, p_lli);
-> -	kfree(txd);
-> +	sun6i_dma_free_desc(sdev, txd);
->  	return NULL;
->  }
->
-> @@ -869,10 +873,7 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
->  	return vchan_tx_prep(&vchan->vc, &txd->vd, flags);
->
->  err_lli_free:
-> -	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
-> -	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
-> -		dma_pool_free(sdev->pool, v_lli, p_lli);
-> -	kfree(txd);
-> +	sun6i_dma_free_desc(sdev, txd);
->  	return NULL;
->  }
->
-> @@ -1432,7 +1433,7 @@ static int sun6i_dma_probe(struct platform_device *pdev)
->  		struct sun6i_vchan *vchan = &sdc->vchans[i];
->
->  		INIT_LIST_HEAD(&vchan->node);
-> -		vchan->vc.desc_free = sun6i_dma_free_desc;
-> +		vchan->vc.desc_free = sun6i_dma_free_desc_virt;
->  		vchan_init(&vchan->vc, &sdc->slave);
->  	}
->
-> --
-> 2.25.1
->
+Acked-by: Lee Jones <lee@kernel.org>
+
+> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
+> index 3e58d0764c7e..013b0857fb54 100644
+> --- a/drivers/mfd/mt6397-core.c
+> +++ b/drivers/mfd/mt6397-core.c
+> @@ -125,6 +125,9 @@ static const struct resource mt6323_pwrc_resources[] = {
+>  
+>  static const struct mfd_cell mt6323_devs[] = {
+>  	{
+> +		.name = "mt6323-auxadc",
+> +		.of_compatible = "mediatek,mt6323-auxadc",
+> +	}, {
+>  		.name = "mt6323-rtc",
+>  		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
+>  		.resources = mt6323_rtc_resources,
+> 
+> -- 
+> 2.54.0
+> 
+> 
+
+-- 
+Lee Jones
 
