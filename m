@@ -4,131 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3428DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 06:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9029EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aw9iRK6Rsso52PQ5ppgSnxDvjHojjygfPfvoXQltGk8=; b=KEHBx6l4n8Rh3kiV2vcmcDmrFb
-	Gkrl9nA+8wAljxf6t+l8xf6mZJwwfPDV2jl8KiwTU7o9LNf2SHgDUSPRQ3Ndel4JJdl0SJpu9bXon
-	LHFCNVqbNV03DnHenzU4a/qIoKiEdYesGrLrJWTF1h5e8j4b5tj3UAhFCmuFKySUFV5z5sQg2ntzd
-	bgNkZRF1DAyWCL49dDHpmm8ppV3Ri8tcc2hkCd9jb3YdCkgAnh/+FIgzasc/CIX/NNEt8pRcs2+UM
-	vvYaTQPSl3rytzhH9pSF78gt9iwjwszUkM0WpUWG9tAVLmU2lPC+KZrs2zCJOaPwDNOghkV3MhlVh
-	ZgpaocKw==;
+	bh=blQnLE3QF5OGl50/VGSrziVsUsYR4d4CLR+QxxJMASU=; b=GIjVUkiqdU8Ge+HKOrcK1hbm6W
+	k5/FYIKefwX/+RBbHLz8NPB/ZlD3k1g6w/RvuT2iOhP4JafYZY79AgxbTeoumb1gXLNj4AFlElW3l
+	NHuZunA1wCF8pv1B+OVawp2nLVWrP1rAy3GD3LwmFzywC35ayvzDjkE62QTwhu9+F/lJ0BlQVhYcg
+	1TGj2HHqDi3L7QJ6fM6LP5VjB/8VRjuoniB6QdEQKNhktT+NvirXPaHWYc8NBtDUgdUA7NSRVzNVp
+	SAuyQQZ+tseu8zRDYJFESRzfFvz9QhP6PxkUd+FogdanlxH4Yi+jcb7ACT4ZHatIf3x8SecVpe1PN
+	eVPxVHMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whM8l-0000000GRSy-47IA;
-	Wed, 08 Jul 2026 06:52:16 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1whML1-0000000GSLN-3fwG;
+	Wed, 08 Jul 2026 07:04:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whM8j-0000000GRSJ-1PbA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 06:52:14 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 667MmSYt1572023;
-	Wed, 8 Jul 2026 06:52:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=Aw9iRK6Rsso52PQ5ppgSnxDvjHojjy
-	gfPfvoXQltGk8=; b=HbE2LrI0lh37yava6HgliQ/Jpfurywmzv52RcCx1jhQl87
-	/RWFsm2Gqu/QSi6qNQ0hwBI6MRY/1oTizT78DM0i94K2G9/VLgJCdR/ZMJ+2nZy4
-	bRbgadCXS25L8D6yzxAQFz22kwroAk9z73r8jkOqz+WzbrgJcJ3dtwxThcmL5b2v
-	Zgc7WDDfrittalR3RYiXXjjLjXCFoGSnLzZaZiK6R/FxRlULGv+gLUnw//MPZzyq
-	8Lze1CDxjVHweVFMzjOeLcv/UZvzsJCiqSAygLOnEB8eNUUvwFSR/ndE/rJL7DHn
-	tHsrFbZYiAdlszd6YrGutD/5P3o8MH2s+6UbP/eA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qknjm0c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jul 2026 06:51:59 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6686neQG005665;
-	Wed, 8 Jul 2026 06:51:59 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7dgk6dyu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 08 Jul 2026 06:51:59 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6686ppiS50069990
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 8 Jul 2026 06:51:52 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D29C820043;
-	Wed,  8 Jul 2026 06:51:51 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 728A420040;
-	Wed,  8 Jul 2026 06:51:51 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  8 Jul 2026 06:51:51 +0000 (GMT)
-Date: Wed, 8 Jul 2026 08:51:50 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 24/27] KVM: s390: arm64: Implement vm/vcpu create
- destroy.
-Message-ID: <20260708065150.583632-C-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-25-seiden@linux.ibm.com>
- <8633xuq1ic.wl-maz@kernel.org>
+	id 1whML0-0000000GSKs-2KVM;
+	Wed, 08 Jul 2026 07:04:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF36340369;
+	Wed,  8 Jul 2026 07:04:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4DAA1F000E9;
+	Wed,  8 Jul 2026 07:04:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783494293;
+	bh=blQnLE3QF5OGl50/VGSrziVsUsYR4d4CLR+QxxJMASU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Db6dN4K1AdG21HPkpWzWQ0eFqmwQLsnC424gTKAuHfBxcTm1bqcX+NfJWjpWojk6c
+	 FJXPhJVoa9oLvP373F02aYAhcQYxvuZTvhG4eyuB6h3NXZaJmdj+Q86WhIKoT56nuC
+	 WRHVD6CmkAXdR6i+OJs4T4wFfHJqHB4/KSoKqPnPxXGtaqVOte3QZ0zNadqm4iSMaQ
+	 ZX1hHbT5E6fQkkZcJ/b5rVm/SThbozAz7BjvLmX4gbL3t098nmtc2BXsUHDDZajoJ2
+	 pECPGKxGIc76g6sySi7ZqMJlVC2u3ftXJ+4jFZ8D++wpvdLTBJkJoGdtAC6MoYysCw
+	 tlPcRdwJcGEgQ==
+Date: Wed, 8 Jul 2026 09:04:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: ulfh@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, nfraprado@collabora.com, 
+	irving-ch.lin@mediatek.com, macpaul.lin@mediatek.com, aford173@gmail.com, mbrugger@suse.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, justin.yeh@mediatek.com, 
+	kernel@collabora.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: power: mediatek: Add support for
+ MT8196 direct HFRP
+Message-ID: <20260708-poetic-ebony-tanuki-dbdbe6@quoll>
+References: <20260707155535.199383-1-angelogioacchino.delregno@collabora.com>
+ <20260707155535.199383-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8633xuq1ic.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a4df38f cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=Wq-2yyKVzZd0Sq0-aLcA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: hfPSuFXwe_2IBBAWx3l80NDomi6fZ2go
-X-Proofpoint-ORIG-GUID: hfPSuFXwe_2IBBAWx3l80NDomi6fZ2go
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDA2MyBTYWx0ZWRfX+Du9LcSDl8Hv
- lbcP82N6DL6RF0yGgTJv3h7PYfO2gvlZ8KEbx0mZ3iFC+s+yL5cliEUzhYg8reYP3ZyFEfQadoJ
- gPpImWZsCqujLZsNzTse+DqZiz+Ue/w=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDA2MyBTYWx0ZWRfX7ArL2wGBPYhr
- HdsgGhFzUsQbEZ54eFFUU138oXqZmYbwhKNgS8xv8qQiTkH9UM1cZWRdcPhLLZ/kfJ0C6hg61o0
- qex5KL0pBzgQKSiDdX/mwZ/OCVmRH/wNmwLQZLek6+kvi7UhBWC+uLw46IUoQ/3VwcAP6f0xJwc
- NUk7T6WVkg/x6EFRJnSDk0jLsN+aixq7o/TKZfSbAlLo95SEQo5abxFoDAapUugK4KJR3MdBbj4
- YC7WIcTe5YTlJOzJmGDT8YgBLgIyDGZG4/g051h/knNbyclwRUdk5/cFNQ7nfl5Yxp/o/Zo8Y5J
- CLTxsNIRfwRIjpiBt6SvMdYkcyZmyNkdfQnp2hnw67k7aLDT2kPFYf0Hq8WIqkyx0auQs56YoUT
- S9hahiLnW9IYxxp3ANGTYbpARafomJ3joZL1bG/HcPOjx+Fqw0AHXyg3cSowCkFt4NpVhx8b0tm
- D3zlSoQdhcB6DDVbPSQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-07_06,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
- bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607080063
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_235213_494643_81A69FF3 
-X-CRM114-Status: GOOD (  21.27  )
+In-Reply-To: <20260707155535.199383-2-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,64 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 04:10:19PM +0100, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 09:52:24 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > Implement init and destroy IOCTLS for vcpu and vm.
-> > Implement arch vm IOCTL. Use s390 gmap.
-> > 
-> > Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
-> > Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
-> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> > Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >  arch/s390/kvm/arm64/arm.c       | 190 ++++++++++++++++++++++++++++++++
-> >  arch/s390/kvm/arm64/arm.h       |  56 ++++++++++
-> >  arch/s390/kvm/gmap/faultin.c    |   5 +
-> >  arch/s390/kvm/gmap/gmap.c       |   4 +
-> >  arch/s390/kvm/gmap/trace-gmap.h |  13 +++
-> >  5 files changed, 268 insertions(+)
-> > 
-> > diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-> > index 19249ec5c539..3a4092698fae 100644
-> > --- a/arch/s390/kvm/arm64/arm.c
-> > +++ b/arch/s390/kvm/arm64/arm.c
-> > @@ -8,6 +8,10 @@
-> >  #include <linux/kvm_types.h>
-> >  #include <linux/kvm_host.h>
-> >  
-> > +#include <arm64/kvm_mmu.h>
-> > +
-> > +#include <gmap.h>
-> > +
-> >  #include "arm.h"
-> >  
-> >  static unsigned long system_supported_vcpu_features(void);
-> > @@ -31,6 +35,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> >  		break;
-> >  	case KVM_CAP_IOEVENTFD:
-> >  	case KVM_CAP_ARM_USER_IRQ:
-> > +	case KVM_CAP_PRE_FAULT_MEMORY:
+On Tue, Jul 07, 2026 at 05:55:32PM +0200, AngeloGioacchino Del Regno wrote:
+> Add support for the HFRPSYS direct control power domains in the
+> MT8196 SoC, controlling power for the DisplayPort and for the
+> Embedded DisplayPort Transmitter IPs.
 > 
-> arm64 *doesn't* support this yet. Please make sure you don't deviate
-> from what arm64 currently supports.
->
+> Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../devicetree/bindings/power/mediatek,power-controller.yaml  | 1 +
+>  include/dt-bindings/power/mediatek,mt8196-power.h             | 4 ++++
+>  2 files changed, 5 insertions(+)
 
-I hoped the corresponding arm64 series is merged when we got this :) 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-I will remove this advertisement. I'll keep the implementation as the compiler
-expect that function to be present anyways, as native s390 KVM now implements
-this CAP. OK? 
+Best regards,
+Krzysztof
 
-
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
 
