@@ -4,104 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C44C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 04:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF576C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 05:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=; b=EHQw6cJDDeHKopjXYrRrDKRNER
-	UEyjgtkoDbIwQ5c3+qMnxWjQD/2nxIcDcT9XLGFSWupUozw3Jp/J/JjZsDy4HKBZldkFdKPeAjiEX
-	+Gg+b1BS0x6bHwv9a1LU5KBgPYSjBwxCuOUc/OOSrTPeKgmGCwCsrsgxAVACkrWTFTubzLFLD8gh5
-	OAP8IYJjDKvKizedsyKieXJLucoOxaNihWRibNf00ptno5aykRpJ16A3UbejmklSfgIbM26bOpmcP
-	0t75yCHJhApt5rnbH+J6ipQ8T9hyxVn1au1xu98dtjR55o648GBpzefPXitAofYJt7kFnZ84RNLxO
-	V1wHvGhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=; b=i+KlyqQFqsIm9DMPZDBN5axuuy
+	O/PZtUrDxBzu/G1BWIFYnh+EPMiJlsR7mfqVGa5y1Hq064dLcb3gv1+kHKX2RdMZm7UqxPaO1ia2g
+	Tlpg3c6SDkP1Y6/pCoVRyVMGdusoIvSb/Wfa94uE4da3lt9XLC7QvVlAZrDsBgDKvddesf2drAYMg
+	Oddw5fULplmLTGPNv5iGwCmR/ZHKma8TxIGeo5BvDfQATcCVPrZAw/ytJw/3DxpWNof7ZEqSc6gI8
+	v5iaH1J+84VqNU7mhtWW1riLcrCOeXWZQ4Yl8O6kKF0Sv/jOwO1z/ddC1uKp150WtVAXt/9VXoF6n
+	JEL+Z7Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJrP-0000000GJiU-3GuU;
-	Wed, 08 Jul 2026 04:26:12 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1whKr7-0000000GMei-1U1O;
+	Wed, 08 Jul 2026 05:29:57 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whJrL-0000000GJhJ-3PQS
+	id 1whKr4-0000000GMe7-1RVY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 04:26:10 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-667627ae83aso294652d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 21:26:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783484766; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UbSsiUZdf7GzZNZUSvactiTUNNnNRqcWNilRWSUQJxwOFUuDUx67dXvfaYjw4jRJ81
-         ydc0sivjuPCkccWaj3ZKls/yOkt0gkCNSQyEL4cGuVg5s73np5D39OkfdJxTOvnq3SL/
-         beodnsPUbPqEQyC/h/d4Ii06Y0afP2wySV567aXkdiwSP8ZsSq5Fya4Ldd3QSc448SoH
-         fXGX9603YmvH5gCXOBYttMilIhXsX7xkDuMRek52l+p2aBV9ALockJGx22G2a0B41ZOw
-         hzcSK0Ww4pPD3wUnH+E7kkMF+hDj5yfg0UYDlOhN0/adjLzrEjAwPHm70/ySSuZqpkBg
-         kWwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
-        fh=VG8Fn+CnSvRen2tw2mpIQEeZf502cd6tbtw5FwLvz8k=;
-        b=KB2qQygRHotVrFpBFx3jeR52V7UeYsQFCJe5HHzY9a/8dz5EKqZC18mZfQ9n8c/xqU
-         oDQgUsbhpHSVwUWGoYOONmR6RBRh5UNijzsQaEegA0jaBa81P4z0vZJQ4ZtQJTnisjWv
-         gDIG5ErtoovvXLc8uDnnVHAAGHHk/I7casBvaCgCFQL+KFBOvTTK0GFdBfD8qbAcPVdZ
-         Wst5MngKAU5TnoAaI6W1cip5qywQkJdC6Zi/eRW02NfzeURpVVpr2RQWtEXjfJ2Iu9UI
-         T4FPACd92+33WSGP1y3Ny7ghNGwXlE3qZcWagJxZ0tf/OHr0PeKBY5+XlQnl3hPRrWmP
-         ePQA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783484766; x=1784089566; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
-        b=URGZnyuJt9w/VzhRXTedvaHvxJhDiVd3dV8FeAUcOVpYkuQpIheruvA2gvkT5T05nE
-         3zgq6VNcaIC8DwB4KD5IPkdHGLsJrQBAtNmz7VCzjSykFdH32kxk3YMe2h0OtKB9xPhU
-         ZUohvXcvFpeaLQu3tukP60mDKgQXPOrgs5hrY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783484766; x=1784089566;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9TWqEVDO1Px1PCZICb5KMgjoiJimA/1tHVt9yLna+xE=;
-        b=D43vyPPfLsk+2NqU5KjpAOAYXqdSUY3He6GCDoMLpXIG1JzUdYepYf5ir9VgsjSa0t
-         hsFJWYgzUUTNacF5G4b+QrA1EJzcHxCvBkBjAhx/u9SllOk1DeGydPk05P+diyZYG1Ru
-         yDN5HvVXliZiGmYrIVCLI1fMKSDgCnsijGHY4AJpQ6fKfBXUxQAcelNZ7vehhwmE5IWJ
-         +nBRNbpb5mnfvTZu0iOWdNFXZrrxzdF06O06VtJ6TZSL+9MGqnx9sslmEOJWQ4iU4TQ0
-         THwmZXlrWSKm1hnVvBj3qRh4A4L4cfjakfNwITXeMq0o/QZInxIHZjTdeDOGDzrR2j04
-         nGug==
-X-Forwarded-Encrypted: i=1; AHgh+RoA+OE5y84pQA07cCkJDITDA0p15fw9rQOl32dOoWg0lP8YYG89p9ddr0BnpgHAA0NQzInaKEt06ccjSkAuRFpR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxouHZjBQ8vxE/phknWNUpFox57FXkC3w5jJzpktoDxcAX+65kS
-	8YYseLJLwJBWWR2JDYTs5wf4hGHFTVjkmkUXH467AmIcxuCeXPxa3sTnXPfk+DVc5VLz49/vHKI
-	BR/gRTOjGJ4cbGDVutVVGpZfPhMrTdpQVMUrRi9e6
-X-Gm-Gg: AfdE7cnrLPVvSmFJwXJLmwasq5I5riS/DJhRw/acp7bvd+oajpQ7TfNfV0jcV4a+Mma
-	83XPObSdwX3ywDfBCalWj8clZJNK5VKUa0XSNI32rGrWloDZN10RIz99vBCub6Itnr8SbqlPBcZ
-	nQJq3S39b+7QxDlZJUyP/+jmt8YAtUtPwisUkgTfV3B1uxJEqu+AnVl7SORQ20pheAQYoIvJFLS
-	ObXgyH1uzCCdkMZIJV98JMcNUn76y0NYeh9u8YCaaiO9OOdTOR60LAwpzQdd/gugvz4zIxIU6mO
-	qDwLilFDe5BMIm2rAsq9kIV4lf0=
-X-Received: by 2002:a05:690e:1916:b0:662:dcc4:c6bb with SMTP id
- 956f58d0204a3-6679f0909a2mr589124d50.37.1783484766428; Tue, 07 Jul 2026
- 21:26:06 -0700 (PDT)
+	Wed, 08 Jul 2026 05:29:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ehuj5NrIAyw8gUJUiKBhgoiTAoQwMsqnuN1yRyNLCyMnC/eptqYifabiK+OGfCGU1R8khhzEb7srDAuHCkdPCNngfWnqdfTBBUXprElDcue7Xe39hcAl3VrguH8+MH0DSzop35lIqAzOVrAfP4K8OTihGCY0NnU7uz1+AFswU/IKpsmkzipFG8ECiT44Tmp6FMRFvsnExSRrKBFfRDzZGyW4qcT1cdcSHiaZgFMo2EPjXNDn1W3y7cQX0iPgIJe7UimbY0gg29HQy/eB9B55LfXHTV+13j5+EtNEtofVdDYuyJ2//vYMSjl0QygTMGNzbEri1/oArNPCm0DWYxf6Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=;
+ b=BrSRYPcQsVBGouruz2Df0Xfje+0StQMYkPywYFRqWk6ibDrDAt9xOjbm1J4j5enITcv9ttC1SsckEK9urXjPnOevRb9CC3nySGaPXhLhVdXIbpXLh6HEeGonV8lHUBbLtJUa5S2uBefEe+9SRNGM7Da5B0ageUnzSr+wrwbE7SzjLS9bsssiDORkNGsK5+BA68e7HHIpds9SS2+9s6Cb7tYPToV+Rf9fi5dkVd6WcXbB3wuHVHTkhoIvmlAwXTxs6KKm558rmvZ72I/hNXNCetkc2C28Q7ascpctvv2QfIo3lkVEN8SZzGApsOsgEG8r4wrBbLPFmkyTvuv0XG5g1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T90hqP6T7FJPiN3qI0bRF9tXPkt3mXT54EaEQtpLV0A=;
+ b=k8MpYvF7qJUu3OkB9k9n3wTM3cVyLTHUpnkyg70CRauzgSqGH7IeKrAvqvnScPaj/wSYaVsv+82BYBKLmSSf92mKaplO/CGgUw4A7zvsiYWc9ki9P1KHnSth1//+0nW1xNN/GpYdhl2wsyp/mh4pii8tWJZNkhrULC0cnjZQzNQY2plITOfar8IvwRVQhzvaVhcXjrmP8rMw+vYLn8BRIBGbYinAPFqQ2KfJiiqoQg4cl/a4qFSle2ybnzSLAYEds/PHYFjxBVCy431/KcPivGAPzJc/eWdn5PEoNgJLfbEwwuPp6hDPxZqFyP/mBHIBdtTb2xH6cOUlTr9cU9D/7A==
+Received: from SJ0PR03CA0190.namprd03.prod.outlook.com (2603:10b6:a03:2ef::15)
+ by IA5PR12MB999300.namprd12.prod.outlook.com (2603:10b6:208:608::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
+ 2026 05:29:48 +0000
+Received: from CO1PEPF00012E84.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef:cafe::2a) by SJ0PR03CA0190.outlook.office365.com
+ (2603:10b6:a03:2ef::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
+ Jul 2026 05:29:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CO1PEPF00012E84.mail.protection.outlook.com (10.167.249.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 05:29:46 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 7 Jul
+ 2026 22:29:36 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Tue, 7 Jul 2026 22:29:36 -0700
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 7 Jul 2026 22:29:35 -0700
+Date: Tue, 7 Jul 2026 22:29:34 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
+ Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 7/8] iommu/arm-smmu-v3: Change how the tlbi describes
+ the invalidation
+Message-ID: <ak3gPqsdg94TTDLJ@Asurada-Nvidia>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-References: <20260707104427.3409290-1-wenst@chromium.org> <176dd24c-c3cf-4ab9-8497-594ed65d10ec@collabora.com>
- <CAGXv+5F86JU9+LPSy8PtuCPrdhBnvcA=PX1d++Yh3u7mK_Jxmw@mail.gmail.com> <94c10212-9c27-4875-8a88-78bfb67fb382@collabora.com>
-In-Reply-To: <94c10212-9c27-4875-8a88-78bfb67fb382@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 8 Jul 2026 12:25:55 +0800
-X-Gm-Features: AVVi8CdMjcjDEO3nU05c3hnTSzfBa4pXETiFq-WswvUgQmZHYpqwsoBeVo-3znY
-Message-ID: <CAGXv+5EsWVbLtUP6b75fvkDVSqUDoAOA1t3hPO4cA9sAA02=WA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Add MT6319 PMIC
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E84:EE_|IA5PR12MB999300:EE_
+X-MS-Office365-Filtering-Correlation-Id: 763def0c-a2bd-445a-475a-08dedcb1eca0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|7416014|1800799024|376014|36860700016|18002099003|22082099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: e2+j1xPCc3vlTU8mmIt4PEtbhE/9lps+EP0Kn1pffTBXzRGWaUBe+EVRIXuAaVTKQNGGM2kO7+aGd23uIOBxjR6wL3Lz3EbPS6eT+/rHOQtcH6ZgqF2M41T0CWBmTMbbi1G6xL13hgzcUSio+Ert3ArbEfDBUf9mq4sX+gKMfB2r/Ap+BIs63qc+YqnMNV/By+JzlZ96eyoEkb3m7HiI+w8d55+RjiVfNH7EfffHA8EekEZnouaZNoWkKJgRlTipktVAtnXFzAaKiTE+aMmcU7XQOHmfikvlpTEnxl6KWXQkWSP0mzdiZYhP3jESkCMtPiMUXU43WOnTiYETjK9oJfgBBcjWzLY7F0G0SnhsX5DgdDa8WgxDGcgyaggNZtwmv2shdhXzMTE0H1atScWDIuxG0b97CCKIBcq6GFRrlwGH+diQU1GfOze0S9UP1cXRvCmeb5q3SrY0DBL2xXfHwPDjca3KipBA0sqe6id73vQtByV56/0O2CrkVvVQANo+dcWGK9OISqmsVRquuEGMybP7su2buuEHLVBhaO2lZEiVuVh1lp4HoLyi7MbJOhbDdaQFA7K5pZ3bTfWfeGKwWnOeDSNhLIuikUm0VVXsQcThfff80E8LzYoDKeaaxdfy5ZP5eZkXUtV4bA65EkQ91jLOXCLgnO3wcSjnVf3rcz6GaFINXAiuaFHk2Fth+nJTSpRJfXSspoV2yT0gakSgvQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(7416014)(1800799024)(376014)(36860700016)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: raHNQO0VNm6IvJwMhqzGZCM5KC2PIlG7grYVjrgStOp0t0emFXhuXTKWqeap3ZVgItw2BaeTuPRI9uukvvsnWcCDQJsdBZ3D25RjkSPNmICHiDJqshE9j0XM3aGzmnQyhFSSaU0PbCMu7mJiyp5aMCMAilcx/0zz+H9IadOKUoBFbc0R91K9io5jVTDa4gm3Uo25gcza3k2v8lcnzF8Fnn6BbDFWc6wVPIUUvDfkDv5F7TQ1WnaohDRLBhMD3ALT4+sRg7hT7XEuoXG0sw++SLvywlVVswv7NohrFbpiro1/KqtNPLeOhHhh2mYMLAqafTUnDAzw695O1GHIPnhbqi2ELFzpkT4zphFD0OKp+kv/bh0u8df53096mxfpOiZoNLzYQuqQDuFZs0Ax9mUmaBa/ZgKVUt3Y4tLtYp7QdgURJq7LKaylF13aw20tgs/0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 05:29:46.9504
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 763def0c-a2bd-445a-475a-08dedcb1eca0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E84.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA5PR12MB999300
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_212607_908758_F356806A 
-X-CRM114-Status: GOOD (  37.18  )
+X-CRM114-CacheID: sfid-20260707_222954_403195_822E5E34 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,207 +133,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026 at 7:24=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> On 7/7/26 13:08, Chen-Yu Tsai wrote:
-> > On Tue, Jul 7, 2026 at 7:05=E2=80=AFPM AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com> wrote:
-> >>
-> >> On 7/7/26 12:44, Chen-Yu Tsai wrote:
-> >>> The Geralt design uses a MT6319 PMIC to power the big cores and LPDDR=
-4X
-> >>> DRAM.
-> >>>
-> >>> Add a device node for it and hook up all the supplies.
-> >>>
-> >>> This change requires a firmware fix for the SPMI bus to read back
-> >>> correctly. The required firmware version is 15842.175.0. This is
-> >>> included in ChromeOS releases R150-16700.22.0 (available in Beta
-> >>> channel as of writing or stable channel in mid-July) or
-> >>> R151-16721.0.0 and later.
-> >>>
-> >>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >>
-> >> This is a big problem then.
-> >>
-> >> I take it as if the firmware fix is not in place, probing the CPU powe=
-r supplies
-> >> will fail, with all the consequences.
-> >
-> > That's right.
-> >
-> >> This means that with this, we're breaking all Geralt machines with old=
-er firmware,
-> >> which is not acceptable...
-> >>
-> >> ...so this needs a different solution, or strong reasons to make me un=
-derstand that
-> >> I'm wrong, if I'm wrong.
-> >
-> > We can drop the CPU supplies (they don't matter since cpufreq is hardwa=
-re
-> > driven) and just add the regulators. How does that sound? If the firmwa=
-re
-> > isn't updated, the PMIC will fail to probe, but since nothing is using =
-it,
-> > the system will continue to work (with some annoying error messages).
-> >
->
-> That'd be wrong, but less wrong than not having anything described...
+On Mon, Jul 06, 2026 at 01:26:44PM -0300, Jason Gunthorpe wrote:
+> + * Compute the stride for non-RIL single-page invalidation. Returns the log2
+> + * stride of the lowest affected level. Single invalidation removes all IOPTEs
+> + * that contain the IOVA invalidated, and we can reliably assume that the
+> + * architected page size and table sizes (not contiguous!) are reflected in the
+> + * IOTLB. Thus if there is a 2M leaf entry we only need to issue a single IOTLB
+> + * invalidation within that 2M IOVA.
+> + */
+> +static u8 arm_smmu_tlbi_calc_stride(struct arm_smmu_tlbi *tlbi)
+> +{
+> +	unsigned int tg_lg2 = tlbi->smmu_domain->tgsz_lg2;
+> +	u8 combined = tlbi->table_levels_bitmap | tlbi->leaf_levels_bitmap;
+> +
+> +	if (!combined)
+> +		return U8_MAX;
+> +	return (tg_lg2 - 3) * __ffs(combined) + tg_lg2;
+> +}
+> +
+> +/*
+> + * One TLBI command per stride-sized entry. Sets use_full_inv if too many
 
-Yeah. As I said, it doesn't affect usability.
+This is raised by Claude; not sure whether it is a false positive
+or not.
 
-> ...I wonder if, at this point, you could set the SPMI node to status =3D =
-"fail" and
-> have the *new* firmware override that to "ok".
->
-> That's the only reasonable way to go forward, IMO.
+This changes a previous per-pte invalidation to per-pmd one. Yet,
+the spec states in 4.4 TLB invalidation (last paragraph):
 
-I'm afraid it is unlikely to get a firmware release to fix a non-critical
-issue. We were fortunate that there was an actual critical issue being
-fixed that allowed me to merge the small fix for the SPMI controller.
+  To match a TLB entry, the least significant bits of the address
+  are ignored as needed, given the size of the entry.
 
-I think it would be great if everyone could update their OS and firmware,
-but I understand that some devices never get updates, such as those in
-board farms that never boot into ChromeOS.
+So, the following scenario would likely miss leaf entries:
 
+VFIO_IOMMU_UNMAP_DMA / IOMMU_IOAS_UNMAP
+  iommu_unmap(domain, iova=0x40000000, size=2M)
+    __iommu_unmap()
+      iommu_pgsize()  -> picks pgsize=2M (aligned, 2M in pgsize_bitmap;
+                         irrelevant that the region was mapped as 4K pages)
+      arm_lpae_unmap_pages(iova, 2M, pgcount=1, gather)
+        __arm_lpae_unmap(lvl=0) -> lvl=1 -> lvl=2:    size == BLOCK_SIZE(lvl 2)
+          pte = READ_ONCE(*ptep)         -> a TABLE descriptor, not a block
+          __arm_lpae_clear_pte()          # L2 descriptor := 0
+          io_pgtable_tlb_flush_walk(iova, 2M, granule=4K)
+            arm_smmu_tlb_inv_walk()
+              tlbi = { start=0x40000000, last=0x401fffff,
+                       table_levels_bitmap = BIT((ilog2(2M)-12)/9) = 0b010,
+                       leaf_levels_bitmap  = 0 }              <-- the false claim
+              arm_smmu_domain_tlbi()
+                arm_smmu_tlbi_calc_single():
+                  calc_stride: __ffs(0b010) = 1 -> stride = 2M
+                  num_ops = 2M >> 21 = 1
+                arm_smmu_domain_tlbi_inv()
+                  non-RIL entry: ONE TLBI_NH_VA @0x40000000, Leaf=0
+                    -> kills the walk entry + the 4K leaf at base
+                    -> 511 4K leaves SURVIVE
+          __arm_lpae_free_pgtable()       # subtree freed, no invalidation
+    iommu_iotlb_sync(domain, &gather)     # gather->pgsize == 0 -> returns immediately
 
-ChenYu
+> +	 * If leaf_levels_bitmap is 0 then this is a walk cache only
+> +	 * invalidation.
+[...]
+> +	u8 leaf_levels_bitmap;
 
-> Of course, avoid having the firmware adding the CPU supplies, because tha=
-t would
-> be rather sketchy then. Just "if spmi status fail found, change to ok".
->
-> Cheers,
-> Angelo
->
-> >
-> > ChenYu
-> >
-> >> Cheers,
-> >> Angelo
-> >>
-> >>> ---
-> >>>    .../boot/dts/mediatek/mt8188-geralt.dtsi      | 66 +++++++++++++++=
-++++
-> >>>    1 file changed, 66 insertions(+)
-> >>>
-> >>> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/a=
-rm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> >>> index f382f90c48f5..fea52c377d88 100644
-> >>> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> >>> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> >>> @@ -4,6 +4,8 @@
-> >>>     */
-> >>>    /dts-v1/;
-> >>>    #include <dt-bindings/gpio/gpio.h>
-> >>> +#include <dt-bindings/spmi/spmi.h>
-> >>> +
-> >>>    #include "mt8188.dtsi"
-> >>>    #include "mt6359.dtsi"
-> >>>
-> >>> @@ -241,6 +243,14 @@ &cpu5 {
-> >>>        cpu-supply =3D <&mt6359_vcore_buck_reg>;
-> >>>    };
-> >>>
-> >>> +&cpu6 {
-> >>> +     cpu-supply =3D <&mt6319_buck1>;
-> >>> +};
-> >>> +
-> >>> +&cpu7 {
-> >>> +     cpu-supply =3D <&mt6319_buck1>;
-> >>> +};
-> >>> +
-> >>>    /*
-> >>>     * Geralt is the reference design and doesn't have target TDP.
-> >>>     * Ciri is (currently) the only device following Geralt, and its
-> >>> @@ -1156,6 +1166,14 @@ pins-bus {
-> >>>                };
-> >>>        };
-> >>>
-> >>> +     spmi_pins: spmi-pins {
-> >>> +             pins-bus {
-> >>> +                     pinmux =3D <PINMUX_GPIO175__FUNC_B0_SPMI_M_SCL>=
-,
-> >>> +                              <PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA>;
-> >>> +                     bias-disable;
-> >>> +             };
-> >>> +     };
-> >>> +
-> >>>        uart0_pins: uart0-pins {
-> >>>                pins-bus {
-> >>>                        pinmux =3D <PINMUX_GPIO31__FUNC_O_UTXD0>,
-> >>> @@ -1267,6 +1285,54 @@ &spi2 {
-> >>>        status =3D "okay";
-> >>>    };
-> >>>
-> >>> +&spmi {
-> >>> +     pinctrl-names =3D "default";
-> >>> +     pinctrl-0 =3D <&spmi_pins>;
-> >>> +     #address-cells =3D <2>;
-> >>> +     #size-cells =3D <0>;
-> >>> +     status =3D "okay";
-> >>> +
-> >>> +     pmic@6 {
-> >>> +             compatible =3D "mediatek,mt6319-regulator", "mediatek,m=
-t6315-regulator";
-> >>> +             reg =3D <0x6 SPMI_USID>;
-> >>> +             pvdd1-supply =3D <&pp4200_s5>;
-> >>> +             pvdd2-supply =3D <&pp4200_s5>;
-> >>> +             pvdd3-supply =3D <&pp4200_s5>;
-> >>> +             pvdd4-supply =3D <&pp4200_s5>;
-> >>> +
-> >>> +             regulators {
-> >>> +                     mt6319_buck1: vbuck1 {
-> >>> +                                     regulator-name =3D "ppvar_dvdd_=
-proc_bc";
-> >>> +                                     regulator-min-microvolt =3D <52=
-0000>;
-> >>> +                                     regulator-max-microvolt =3D <11=
-55000>;
-> >>> +                                     regulator-enable-ramp-delay =3D=
- <256>;
-> >>> +                                     regulator-allowed-modes =3D <0 =
-1 2>;
-> >>> +                                     regulator-always-on;
-> >>> +                     };
-> >>> +
-> >>> +                     /* vbuck2 is ganged with vbuck1 */
-> >>> +
-> >>> +                     mt6319_buck3: vbuck3 {
-> >>> +                                     regulator-name =3D "pp1125_emi_=
-vdd2";
-> >>> +                                     regulator-min-microvolt =3D <10=
-60000>;
-> >>> +                                     regulator-max-microvolt =3D <11=
-70000>;
-> >>> +                                     regulator-enable-ramp-delay =3D=
- <256>;
-> >>> +                                     regulator-allowed-modes =3D <0 =
-1 2>;
-> >>> +                                     regulator-always-on;
-> >>> +                     };
-> >>> +
-> >>> +                     mt6319_buck4: vbuck4 {
-> >>> +                                     regulator-name =3D "pp0600_emi_=
-vddq";
-> >>> +                                     regulator-min-microvolt =3D <57=
-0000>;
-> >>> +                                     regulator-max-microvolt =3D <65=
-0000>;
-> >>> +                                     regulator-enable-ramp-delay =3D=
- <256>;
-> >>> +                                     regulator-allowed-modes =3D <0 =
-1 2>;
-> >>> +                                     regulator-always-on;
-> >>> +                     };
-> >>> +             };
-> >>> +     };
-> >>> +};
-> >>> +
-> >>>    &uart0 {
-> >>>        pinctrl-names =3D "default";
-> >>>        pinctrl-0 =3D <&uart0_pins>;
-> >>
+Or is that only to implement a walkcache-only invalidation, such
+that the leaf entries will have separate invalidation call(s)?
+
+Nicolin
 
