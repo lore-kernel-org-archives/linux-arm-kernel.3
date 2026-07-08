@@ -4,150 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81696C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD54DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2b9WfmhokkM2Ox6I+BLF+kHKEb+Mw0dUlnPTgkMPa4Y=; b=zF9rhmIculMCfNun8NXnUQklMc
-	0pcopnG+8qTw1bHav26y5KwQYDIIrPogo8eeKLQKKHvzR0NaM6kmBAimgOdX248oqPr1wyub8etAs
-	zRgWA8B0uaq0WiLWDLwCo7agn8cpOPXM+w4M4FWx2bBydsST0FpgGj/kXZ6d8ocF45EIeSQe6yjNr
-	07dD2mvC667kL0p2eSTJAh2V666Ns54uDqFBbmYzhov5lDFe3y1dIZjRNddJEvtaEsZ5g+Jo0CvTT
-	GMvRvCpk8sWzjBULvOYH3Npa2m0EXvgU/uOV6JYiOXt1/Vg6dUUgtHeUiViBpF2PqhTcBaG7O/JDJ
-	iIOKJnYQ==;
+	bh=kEMm9QuKYkuKATX8nQVckgqvQIGgEyMpKgrrFFvElyA=; b=V5nf33ApvoZfKsBcAPhIBKrofP
+	CKTKsSpYaB6ub1qmd7KkaEwkyqTN6rhI5a7Tp9BgM/5Bpf6rQ6JMooRy4kbPQYder3I2uyhVKJGPf
+	kmP9HVUuT/v06XRv3bkIDuh9fMGUYYTvcvE5Wi/i2IHHfJVHoi8A3OsCpTKmoMUcGM4waxi5rO/N6
+	qUFS+aTmxvTS9Fic4iT8FavPI6t9Z920y268J2LhNDZvqYBnh66nT0jguwhIcTCNY0FMFQ1eSTkIe
+	weGZXmImrDLfSiBXcat+khfmEF3G9onliuTVAXyuQWeD51cVHCdLoF4vWHQk08H/6elqzCJ1vIpry
+	ZH4vFrJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whY7z-00000000HN9-0I4p;
-	Wed, 08 Jul 2026 19:40:15 +0000
-Received: from mail-swedencentralazon11013069.outbound.protection.outlook.com ([52.101.83.69] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1whYAq-00000000Hew-1n1M;
+	Wed, 08 Jul 2026 19:43:12 +0000
+Received: from mail.johnrowley.me ([2a01:4f8:1c1a:a56f::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whY7w-00000000HLI-1rD3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 19:40:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SUD3GWvB7YTCZKq0uBshT9fYYh/5+Hx4qrXuRVgmb0czdNAFXQPKhPOScssxngrcVjRif2ZIfD0uFcrdEyq+F5725A3F2l9P8CcGejcfCLFufX4FTCVLUbDNGsnCCRDKIXGswtTJ23XfFTYtTlaa4Uy/jRVX1e5Dsa0KRNB/B7U9fxPmSfDWpc2c9dSX+7SHMwOAKLwDQT61/DveLEgWutsbAzuHfJoNX0B/YY1PM3wLmCWW//m95HcHdbTFhtC2GkJ98U2kdDsNsaLqzutPFqJcwzzNkkBJTqS2dFGodPtumAnx/J8gsHuuYIodr1E00Ijva9xf0273SnqU/EKmRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2b9WfmhokkM2Ox6I+BLF+kHKEb+Mw0dUlnPTgkMPa4Y=;
- b=fb17lC2X8XfJMiKI4B8MWU8sLMJWAvonac+8ewmQXdHvjVBK8zW4epGgaSUb4sN4fRIR7Tod9TaoyJWy91I/RpOXNLb4K42hcGehnCzBafDBjx5W3p5XEx1ZRQB8ZFLMkNBIjFvMnBb01Ui4Jj1Df54H7c3FJfxCHfKwL+mMcKr07VVYLOuD6+aYl5TS5O81xcgAV166KTZX+RD+U0iY6q4QJ7Y8SnSsQwpG1jPZofAATPAY+N0zD1nXa33bT7cM0I7dPUmAY20aDkrMj3wjkala1KLPze8VLL3cooSP2ebssSazLT95OOlCVEYt4IRGpFSIZgqR78WSYEM4v8vBXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2b9WfmhokkM2Ox6I+BLF+kHKEb+Mw0dUlnPTgkMPa4Y=;
- b=afMhst9RLzgZJcb1xfQmlBWLMu5soiS4jAYjWQZd0DvzUKW+MTT5BMSozc1dhcX8hjRJTmtJ2RyhASiYvnHPRrixbd9W1cCDvzMePb3tAdhVrc4Z7EAqav4MOtD7lUKe1RHORzY0tH3kQ+8zdyFhQD4BfxAhqYUPReEGSaMHM+KEk3bTE7VinewdzdhG5nm8OBZgmtbACJ6K/0NniBBbJ9baTet56xNAfJpGLyTtjj9rsnGE39JIjT3FIdgT3WNVUhEEs5p4+nq1qu2KWXQfy/wEDgPpdFB4t9OOf/w7+SoKiP6tbkUKltr072TP5UIBHC4YOMC0/TFr0XuxjJC4Uw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB11465.eurprd04.prod.outlook.com (2603:10a6:20b:6c2::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 19:40:08 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 19:40:08 +0000
-From: Frank.Li@oss.nxp.com
-Date: Wed, 08 Jul 2026 15:39:52 -0400
-Subject: [PATCH 2/2] ARM: dts: ls1021a-iot: rename display@0 to display0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-ls-dts-display-v1-2-1986b2611895@nxp.com>
-References: <20260708-ls-dts-display-v1-0-1986b2611895@nxp.com>
-In-Reply-To: <20260708-ls-dts-display-v1-0-1986b2611895@nxp.com>
-To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, vladimir.oltean@nxp.com, ioana.ciornei@nxp.com, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783539593; l=1327;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=j/dMvugCgLP24DzGvgUdGJE3YrQeulJ0DqsTIpeKndo=;
- b=3scRRSWD6oJZYdT47u22So9JvkJUR7CNmfJUkx0asIczV5RcJ/8WtFgsMKR/GCVE57H+ulvMo
- qUjhn8jHCcuB1gRuy/O7jJUQ/MEMVeTNRFLPxj+RdOuf8QuxscSlQiW
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA0PR11CA0185.namprd11.prod.outlook.com
- (2603:10b6:806:1bc::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1whYAo-00000000Hdo-0O7r;
+	Wed, 08 Jul 2026 19:43:11 +0000
+Date: Wed, 8 Jul 2026 20:42:56 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=johnrowley.me;
+	s=2025; t=1783539781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kEMm9QuKYkuKATX8nQVckgqvQIGgEyMpKgrrFFvElyA=;
+	b=dmX8Aw/OrQnlYzC3ureeT1tIYh721plKtz8eFF7WRGH7ZbyMvweab19QSznZRAfH/YrlNp
+	OQKG2iyeQSxllmf7jsVgFMj9tW+owZzTzUxe+x5F5qhPWFQjKNy8pkadp0xJZkcFs5Xwmx
+	w3s9+7IwaE9zI+Gv8Qlu1f5GwBrOT9rL/u1sRXp5O4RBcEX8A296yeeSxkt30s/1Wv3/Xs
+	Sfxx2+hqT9s7Eh1sEwY5m36MkEPStVAuBI9hjS/TK6yPWnlMtud17Dy4BEz3ocpRIcGb3L
+	OyL0t6x6gezbH9i5YwW5PuVGz1g2PPhbU/Q5v2zRWMxlp3ZcQEs2w0MNuuNVTQ==
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=user smtp.mailfrom=lkml@johnrowley.me
+ARC-Seal: i=1; a=rsa-sha256; d=johnrowley.me; s=2025; cv=none; t=1783539781;
+	b=fuoPR/5JafdmYWEprBKsuKz6KWNBEZoJbsbBMTbEQWbogkrpMjC/xp5zFTqYwvHzT0uhQW
+	Y3ybpQwVn1EGDF5yUSgIgPS4BbsXYVI7qNwSe8uZWnaD7ReT1savA2SR6TXYdgFR+qKx/V
+	Vq6oiZ3vFbpZV0GMxRaGZnxG4fF651bS0N4CsIaCZYeOZpSUiqj12Ko+vBxjnI3rMTKjaT
+	jTRSJZDaPuyGZtwL6R1WY8/2TQJaTIXGIrzyv7JM5XTDEBawCBN1kxUHBp0TB615N2uUxY
+	/G1M5gv4A4jUsS7zHfn1xxWDTTVKi/fIWYSAgO0omwKtLHVslqyb/BXXkvhGYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=johnrowley.me;
+	s=2025; t=1783539781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kEMm9QuKYkuKATX8nQVckgqvQIGgEyMpKgrrFFvElyA=;
+	b=VgXPQetL6mK/JLHHsyDGhCW3x9nfu1NNEXjl9nqIsFR+ZdOjG6497ZMKgYZA7oxE9Rcb9V
+	JOpkkJDQ8qn1AtVxgrJOhYDIjP55OjA385Hr/iWjCXvO6ftD+b2wCHrPUn+UAJ/Bl4tley
+	ocWLUd5nJufm/GoG2J0Lu7kB4PiQzgsYZwzVBjIydFkPJIawMqKVQzSEc9KLwyhrHRn10g
+	iz5KFdVZ0fi1F9M5X9JU9auPAaxXZFQBh8dYuhfVwv5DJkAFOj57wxRYNngsNxR+m3K/20
+	bpncVlQ/zW31Nu6/vGx5lH6XNe2qBf8TIji2hDZ1ldnVZJAI1qxwfopP7wTd0w==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=user smtp.mailfrom=lkml@johnrowley.me
+From: John Rowley <lkml@johnrowley.me>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH wireless-next] wifi: mt76: fix MAC address for non OF
+ pcie cards
+Message-ID: <ak6notej5X7Oiyj8@localhost.localdomain>
+References: <20260630210215.400379-1-rosenp@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB11465:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95d6e21a-2a22-4f22-5966-08dedd28b74b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|23010399003|1800799024|366016|921020|18002099003|22082099003|11063799006|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: 9yZcDNb7g720zu6EAPVgGOHalJKhF5Slu8GqoAn3o8Ecvq5pijGsMohQ8YKr/emdEEaKe+zoqb0Lx/S+rrZ7ET4vZ3tmIDGEUlCcuVhWjPlea94l0V3RezEcj5bWLGOVXIn31a3SgEi7RliuGNOB/+na76vnqjJ/7XUDY84D7YJ+ZzZYfFsbWFz5kcUrXTUCxPkv70hwurxi1oAx8OhS9jjH7FSTm4pobFZyYOHRIIlt9+1RyN8ujpP2QUgf4rZGMmfLp0QrN/EPNjBGDBDXH2OVy8Rp0/14YZl+DJVD86g27gW35pQaxv5fQM67aSPPVT4tDe2yWWL6SGeRM++0yGEyk5RtoBGVCkplRveeaoEoXIbY0PqEiats9m7V+C6VR4c9rQQsdgOi7QMnrtptPeMN2p9TRq2DTBPXt0NyC3N2LusZqJp5ahwB6UMzskac+lAUnOI4JxGX8LGJ+htNHKdcf7XExX2RL7HQmDiH/5VoS+0CN/0/TdAwSF6xjCmUw3mlyNFceLxkjAnJgRXyM4rF4qaUxizvTWi+eQkwONoj1F6BCZnOvPP2TTuGNKx6BwMP48f1f5uwuDcLUR1kkWKC9W2RSUMzNIjuUkqepLl1NfKhvy5l97TPPKGAsrCu7mhyoBsnZLSEaHZFbGIx/iT1t9IE2cUsPJ+knrutCvwknMGYfffX7VLZwiPNoxrzN0PzrJsQfWZ+Fr5Jd2fVpw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(23010399003)(1800799024)(366016)(921020)(18002099003)(22082099003)(11063799006)(56012099006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEhrVmZONUJLTlBFdmh4NnQ3VVd4cFg4M1JWUFJNM3FVMGVQMGZyWjlra3ZC?=
- =?utf-8?B?dDE2eDRJV3NNYXpJZ1hxQ3k2Rm9wSUFFeVNHNlUwcWpZRVk2NjdzOGN4VG12?=
- =?utf-8?B?c1dvbXd6Mm9pdmVqTkZXZXVJODJKK3F3aFVQTFNuUmZRZ2NyaWNDUFRIWXN5?=
- =?utf-8?B?aWtUOVVrQUNzSGU3dHp4dFhpZEZUa2pOQUVJSHliSWRoSG5HL2hsYkFZMkQr?=
- =?utf-8?B?MERmWWJmZ0c0em00bE9YSk5uQ3J4aFdSQ20rOGtCbGNtZG9IZTkwWHJjQVhJ?=
- =?utf-8?B?ekdjWWVZeWFoQ3E0TGtyUlhOLzBxMDNrenJqZnU1eGFyYUZ0ZEdYME8yUDRw?=
- =?utf-8?B?YTFEc3I1Vno4NmhNcEYwaHR5MTdkR2VMelBQd2FSSlBSMDZWTWZvcjU2N3hO?=
- =?utf-8?B?NHFWK3JacjZTczR0WVpRSitLMW1wbkhtUXZLaDJEWGhoTkRsb1BPL2VmR3RM?=
- =?utf-8?B?emtKWm5WbWFjaHFOYzZQVWF2bHVMemZtU1NLOS9mTlJuM2VMc2wwQ3NWenJo?=
- =?utf-8?B?cVQ2VndZQnpBcmQxZGE1dVRUamcyY0JMbEVlVVRaTnYrQzEvZjZyMzJnWXN4?=
- =?utf-8?B?a01FRXpSdGt2OFJSWjR3ejZ4cUdxUzFVTkNObi9KR0tQOWxSV0lDL2h5SDNR?=
- =?utf-8?B?UjROVXoxYVQ4Qk5uOFREVTlhRHR2c1JuNzlleGtNNEw4V200dytKQ3lzUE1Q?=
- =?utf-8?B?cGFGUnh1V1lDTlJUNkhYVGRvZXdOZzNjbURtVVdweFp0bGE1VlZ5bVczM043?=
- =?utf-8?B?bWR6OHdvMk4zbmRURWdPbWtRTWRKUHZROG9ZZXFjQitRdk1PekNMbThTTzY3?=
- =?utf-8?B?dW5RTnhhSDkxR2IzM0xUZGlhVGNGRUhDTk9rTjFzMW04bVlyRE1IV3RzZWd0?=
- =?utf-8?B?MXlUM3lVOTd4bGUwdy9IUnNYRUUrMmI3UmF5cytZd3lFTStQRUdqeFEyQnZR?=
- =?utf-8?B?TDdGcldpUHhQY29qRmxjbE1XcmpXb2tRQ2hpTWxWeGNONC9kU3Z6bFBMTk0r?=
- =?utf-8?B?cHRtZUxQTlZkUUFabk4rN0IwOXJvakFTeG8wN3p4K2ZISmZDVzdWcFhoMFY5?=
- =?utf-8?B?WWRlWUFzMGtwYzFJUWFWcG5TR3ErMmhJWmgwZml1L210Tm5BVm9wVjFTWm04?=
- =?utf-8?B?UHBFaXgxcHgyT3J6akI1ekJRTXZra0NLeXR5dXMxRi8xVWVLMXBvUk5uMnY2?=
- =?utf-8?B?Zko3YTZKOWlVMkd4VjFIbWJ1a2c4MTdzY0NpVkVqUmFGQlk4OUFxek16ekhI?=
- =?utf-8?B?Wm1xbHpRMTMrVCttb0ticld5ajJPQVJZZzdSNnpLVGxFem9aMXllWnZBbjhh?=
- =?utf-8?B?R3E2Ry82SklzWHpqbVo4Mld3NzQ3NjZxVUl4ZHZZTjhhcXpOK2JNbzJRVEYw?=
- =?utf-8?B?QWRkVFZxYTQ0T1dlaVFuTWZ4TDJuZHNmWG1TRGZySzhCQkRHclo0akF0UHRZ?=
- =?utf-8?B?NTZBMXpEdVA2NW8zdnBxaFIxUzVqRjI0cXRMNDB1WDNYaTQ2bTdnTnlMcHlr?=
- =?utf-8?B?aTBLQkJIMHFoUXA3ellIN0t5cU9VTWFWR1pncFF0U1o4dUxzZDZ6MlluTVhX?=
- =?utf-8?B?VTNMVUk1UlpEdUt3M3Y4YkdtMmNTYUdSejRPVmYwQ0g4bC9ZbFRQdllQNENs?=
- =?utf-8?B?cTNkU3NCNWxKZDNVaHYwRTRBRkxjQVhHODVYUjRURkFvVDlSZ05mQ20rU3Jj?=
- =?utf-8?B?cEZaZzROcE9RODhobDBaMnVzYS9FOVdKVWx4ODBGcmlHSFRUOFJzK0I5Y3Ey?=
- =?utf-8?B?Q2JyTld0azMwM1orcXVFelEvVWlJT2wrSzdJRm5Xb0cvcGlLT2ZGRm94WDIw?=
- =?utf-8?B?TUQrWHp6d08rS0RrUGxNWVI3emRuMDJSS0RzLzV1ZngzUU9GZkZhUUhFbzdU?=
- =?utf-8?B?ZnV0QXY2RnNyQ3VPTGJ1cGJDaEFiNnAvckltTGgzd0JiVitJVE9sOGg5RHI2?=
- =?utf-8?B?S0h0U3dvcmxoRzc4TVlpUUt1VTFGMXVpL3pYWGJFN1pmaFZKanZIblpKanBH?=
- =?utf-8?B?cWszd0tadlRQT3pISkwza2VsMnp0eVc3MmpjeWlYajNnaktST3g5cUNhNUhF?=
- =?utf-8?B?bHRmQjhEVEZocjdISU1JL25FdktQQ1psQlpHR2lwNWhocHFKaHd0OGt4VzhE?=
- =?utf-8?B?NTJ6a2Q5N0JDVFM4NWl2bVFYRXFUbWxuQlBxdk1UdkR4NGo0WGtKOGxJQVFW?=
- =?utf-8?B?WHU0Sm1hMGJBTUpMVThKVlNHQkx5Y29SZlpWY2NIbXhIOFdNV1hqQTYzWVF3?=
- =?utf-8?B?RGMwRG1YR28zaXBBYUM4Z001dWpaU00zTEJnZWhoVkVGelhpMVdJN0IyRXJt?=
- =?utf-8?B?QllYbVZwQ3ByTHd4aDZuM2dqOTBDS2tzZWZ6UVdTejBwSCtHTFUzVGczY2xP?=
- =?utf-8?Q?RITJpZSlLCgGcST18tZPW1Lt6BLHyu1x9DtaU?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95d6e21a-2a22-4f22-5966-08dedd28b74b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:40:07.9838
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RvGqfSAjha6P33VeAWv82NtPOLyIwB7VyxTHI8KDWxqo9N0RIsqJwLuLo+CU+RMHFAkntltkqXaeM5kTQd4++4rzoWlR92/MZMH6RyXCa6fZTFaqRfnM9i9XKBDM8BZ8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11465
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260630210215.400379-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_124012_494366_8C95408D 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20260708_124310_285735_606A08C8 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,45 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Tue, Jun 30, 2026 at 02:02:15PM -0700, Rosen Penev wrote:
+> If seems the check for err is wrong as the proper macaddr gets written
+> to from the EEPROM itself. Meaning checking err from of_get_mac_address is
+> wrong as the proper macaddr has been written by this point.
+> 
+> Fixes: 31ee1582717e ("wifi: mt76: fix of_get_mac_address error handling")
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Rename node name display@0 to display0 since no reg under it. Rename mode0
-to timing0.
+Fixed, thanks.
 
-Fix below CHECK_DTBS warnings:
+Tested-by: John Rowley <lkml@johnrowley.me>
 
-arch/arm/boot/dts/nxp/ls/ls1021a-iot.dtb: dcu@2ce0000 (fsl,ls1021a-dcu): 'display', 'display@0' do not match any of the regexes: '^pinctrl-[0-9]+$'
-        from schema $id: http://devicetree.org/schemas/display/fsl,ls1021a-dcu.yaml
-arch/arm/boot/dts/nxp/ls/ls1021a-iot.dtb: display-timings: 'mode0' does not match any of the regexes: '^pinctrl-[0-9]+$', '^timing'
-        from schema $id: http://devicetree.org/schemas/display/panel/display-timings.yaml
-
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-index e13ccae629a71..07b01434fc047 100644
---- a/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-@@ -82,13 +82,13 @@ &dcu {
- 	display = <&display>;
- 	status = "okay";
- 
--	display: display@0 {
-+	display: display0 {
- 		bits-per-pixel = <24>;
- 
- 		display-timings {
- 			native-mode = <&timing0>;
- 
--			timing0: mode0 {
-+			timing0: timing0 {
- 				clock-frequency = <25000000>;
- 				hactive = <640>;
- 				vactive = <480>;
-
--- 
-2.43.0
-
+> ---
+>  drivers/net/wireless/mediatek/mt76/eeprom.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> index b99d7452800f..afdb73661866 100644
+> --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
+> +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> @@ -181,7 +181,7 @@ mt76_eeprom_override(struct mt76_phy *phy)
+>  	if (err == -EPROBE_DEFER)
+>  		return err;
+>  
+> -	if (err) {
+> +	if (!is_valid_ether_addr(phy->macaddr)) {
+>  		eth_random_addr(phy->macaddr);
+>  		dev_info(dev->dev,
+>  			 "Invalid MAC address, using random address %pM\n",
+> -- 
+> 2.55.0
+> 
+> 
 
