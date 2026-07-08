@@ -4,108 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4A5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DB1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 12:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqIdz9eEaKfnjtFoMaD9625M1qr2VdseCv1Uqzseygc=; b=CE7pQzDETkafuhutMdwtDa00P7
-	La4BAX+aFV8TtA9MhK4Sg8ikQ85wJooZZ7iJ0FmeGvH+kahjTPmbU8Np2YnmFOUPWpcRV57Yb/QK1
-	be3uAYHMpEXNIv2mZZzVkJoWYUC2PJ2WZiOjlSsP422pZBRAr5A33YBTBXydC0Vt3sWFQVHkudKnt
-	dhsy8pzbd5m7KMtLqupyaPig5P5zC9cRmrmX8Gcv8uLlrUW3q7qAmFka0KED6w69IRWicfRmnWcYK
-	x4cU+UOW35rTuyl6MxFUhFMXOLZvHwSZtcsSgBYK42EbmGN22HLjRNdS5idENDMJbTvAtgvEkWshE
-	9wDUo0Xg==;
+	bh=qRWldEfKotFz0RFdvk3K7yQLwFVfCSqWSdZVW6pQ84g=; b=Z0U19BV6wS+Q+D0K+svg0wN8Ot
+	8bvE2/lSgAjYSdLGOwqfiOlQIdO3JeHyrOoeXbOWNeJ7fOoB/DGwDVMMpwdCnL5WB6/qid59TxNre
+	FJT9579YKcndSPzlPinwyMWAqmfWkhOMKYShneoSotbekbFVr5S8cfbzwZdQ5gn8NnIMUeUJd5mkH
+	xGZ43fevM/GfPKzFuUwv6JDXIYHTnM0irDDK9zV9ZeKPPVRHnYmtNgZHNJdEPtNzWtQgur0TCFXxx
+	3oYTu/EOVDPxicUfe0pYpPI/3UnPgcF3Q/sje/YyrhYLtJ3vIWkkjbYchzqh/oistnqpP9/bU6GX1
+	lLs4XNdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRnm-0000000H9O0-27ZC;
-	Wed, 08 Jul 2026 12:54:58 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1whRqP-0000000H9Zu-0klA;
+	Wed, 08 Jul 2026 12:57:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whRnj-0000000H9NP-1u1Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 12:54:56 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6976b0c5adbso1280854a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 05:54:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1783515293; x=1784120093; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=NqIdz9eEaKfnjtFoMaD9625M1qr2VdseCv1Uqzseygc=;
-        b=lvu7nPoAnAT6gD/SV5iidZMpyHpKhD+P9NuSU/N2YSFIcTGG6otabOKBvlAjRqDF1B
-         DHRX2mgx+5e7wlegcE/X0QFSSli8CJtLy8+8PYj+UYuYLTvcG0QOMjL1rjLMCyH1ToK1
-         q03UFjYERPMzQx780e25IMtqxSRUGFCeYGmZLEP8ZCDZbJBOpireFGK+4MDotBgPGhRE
-         XPs3Gzj7jjJ9an90tPMgxQGPHHDX46qDSrTl0GcqVwQr0DvTr/niKf4zIlN3q3AT6oyS
-         iFPEQSfBII75ipLbkDvU8yXAD7RWb1VC1XCI3y/pYPkGqVDV/e77PV+KJ0l+tn2YRzGx
-         05dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783515293; x=1784120093;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NqIdz9eEaKfnjtFoMaD9625M1qr2VdseCv1Uqzseygc=;
-        b=plECHE4fn/EsLuGZpSmcsQE1eMrDJeUUAWUtpwp9YKQOAIOO+bNMp2nECmyGy978cp
-         /AOW4hjfNZCiteGYSkmsIFoANIVFUcX4jtPPD9mSwctaSZgLZrXkvJskLf05lyGXF31K
-         ih8TGGUbmqBajQypCaHafnchH3iN5sdEZhRvWmG3toE6Izm0nqHXCINfK1u3y2bZLpfh
-         jGYgv/npseKIReslJtvN+DlDzVy1HPtixv9tbYuP9q3WttvpLsseMhzqYSu8Yrjw8bSr
-         Y+/OCW/aUmZ15HiBQzC2AXbiESGfomiprEV5TEab/KwF/YjNgDVViqHtk6/xaDwrQcBL
-         Vi/A==
-X-Forwarded-Encrypted: i=1; AHgh+Rqqva1JBZKZslwXtZj3J+61UECbgw23XPY8D3+DFsGw7FL7bhba6AcpGAxvXP6Ugyvv6NS7qPCQGelq4h1zt6/3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ/i2ifvSGCUfFqtfToDHM5ALLZT3kY7pr+gxocrrWR1wJLYHL
-	qe69FDHvuox9X+7m2xRNVhbO1zdnBPBEzlLLi3A/ecn5wunZkbI5Lcfdg2OzjirUpeQ=
-X-Gm-Gg: AfdE7ck1Qri1HruSQMXG7OLRgSPDfNAho/m4yIBlDHui1iLVQ/zhAPCxh8PWCQcIFMT
-	dbYCXteUTJMQzTzIEjNdrgiuo9EpGyczz6YIiV+eswZFN1U2CzSW+Nx4jlk4WXeRsxzg5AGPa7O
-	nysfqrR2ER1WF+phqs5ub7k8DsygxMm+8cwUCIkoY08LS9GmzE0u/lZsKRZJqNq/WzO5Sk6vWmZ
-	R03anfClq9v96DOXOmYLgs+hkVx/U1KiAX1G/Xo4Xn9MugRv4HzvR9hELT55E0zkrYCkeliE4tq
-	yVi5ZdOF+nI7WKCLfOMp3drnAbiqPM5uVcm/mcKPMubNhqiext+D5N5zAra8WSCbA8OBeVauqjV
-	IUdiU9DNkGt+JxHW8Dn0JIlTeI1VgP3nu1uzu9xLQuEwMiygmFS5DVXTbme6pd4QdwDdzZ5QyHV
-	L+WmH5pcgnt4R/hJf6Nug=
-X-Received: by 2002:a05:6402:1906:b0:698:b60b:aac2 with SMTP id 4fb4d7f45d1cf-69ab4453d30mr1054344a12.4.1783515292855;
-        Wed, 08 Jul 2026 05:54:52 -0700 (PDT)
-Received: from draszik.lan ([212.129.81.171])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69aa613d4e2sm2000319a12.24.2026.07.08.05.54.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 05:54:52 -0700 (PDT)
-Message-ID: <4a5a09fd68fe45939bdcec4a3c5a781d664eb34c.camel@linaro.org>
-Subject: Re: [PATCH v2 13/23] mfd: Use named initializers for arrays of
- i2c_device_id
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= "(The Capable Hub)"
-	 <u.kleine-koenig@baylibre.com>
-Cc: Lee Jones <lee@kernel.org>, Michael Hennerich
- <michael.hennerich@analog.com>,  Chen-Yu Tsai <wens@kernel.org>, Marek
- Vasut <marek.vasut+renesas@gmail.com>, James Ogletree	
- <jogletre@opensource.cirrus.com>, Fred Treven <fred.treven@cirrus.com>, Ben
- Bright <ben.bright@cirrus.com>, Support Opensource
- <support.opensource@diasemi.com>, Andy Shevchenko <andy@kernel.org>,
- Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald	
- <rf@opensource.cirrus.com>, Chanwoo Choi <cw00.choi@samsung.com>, Krzysztof
- Kozlowski <krzk@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas
- Kemnade	 <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger
- Quadros	 <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Andreas
- Werner	 <andreas.werner@men.de>, Samuel Kayode <samkay014@gmail.com>,
- Maxime Coquelin	 <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, 	mfd@lists.linux.dev,
- linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-omap@vger.kernel.org, imx@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Wed, 08 Jul 2026 13:55:06 +0100
-In-Reply-To: <5aec0fc2ac0cd1d2e27027ad0c180e2647bd494e.1783507945.git.u.kleine-koenig@baylibre.com>
-References: <cover.1783507945.git.u.kleine-koenig@baylibre.com>
-	 <5aec0fc2ac0cd1d2e27027ad0c180e2647bd494e.1783507945.git.u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-8+build1 
+	id 1whRqO-0000000H9Zf-2e9n;
+	Wed, 08 Jul 2026 12:57:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 179A960054;
+	Wed,  8 Jul 2026 12:57:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45F481F000E9;
+	Wed,  8 Jul 2026 12:57:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783515459;
+	bh=qRWldEfKotFz0RFdvk3K7yQLwFVfCSqWSdZVW6pQ84g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TgoZy0kS3bz79fZjR9pb0xVWBZcQ38mOq5nUZTlP1W5U7hHHvwuUMWxW/RteOsLR6
+	 vheU6GNS9szCoKdTolmTKXZy4MZr3JRDAt4bbyWMdIPFdR7Iq1/ubyLY6z6mymZ8cb
+	 4sZelPFPMfAwghJQ1QNXlLKwPgKs3Q+Z8HFdXo1CkTrrtbCp5ieCmiPIieyQNTk9AQ
+	 FCD2REueExEfHu0hgQ4uXjNRnKdYKJ6E8uY0pdxPkCRP+8K1M4DEVEIwGupeJEKf2y
+	 OqzaHPxKmpCOi+hje6tEswt6x9HOHJCG+KJBPN1EzmotWRjqA4f6yasvNAUZxNFoSa
+	 nJzuJJGTVhj9g==
+Date: Wed, 8 Jul 2026 14:57:37 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net] net: airoha: Fix DMA direction for NPU mailbox buffer
+Message-ID: <ak5JQZwD2D4ogWw3@lore-desk>
+References: <178351055214.98729.11403147818632027428@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_055455_521786_C4F5322B 
-X-CRM114-Status: GOOD (  11.17  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fqtiECgthKw6C3p6"
+Content-Disposition: inline
+In-Reply-To: <178351055214.98729.11403147818632027428@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,25 +71,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-07-08 at 13:15 +0200, Uwe Kleine-K=C3=B6nig (The Capable Hub) =
-wrote:
-> While being less compact, using named initializers allows to more easily
-> see which members of the structs are assigned which value without having
-> to lookup the declaration of the struct. And it's also more robust
-> against changes to the struct definition.
->=20
-> The mentioned robustness is relevant for a planned change to struct
-> i2c_device_id that replaces .driver_data by an anonymous union.
->=20
-> This patch doesn't modify the compiled arrays, only their representation
-> in source form benefits.
->=20
-> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koenig@b=
-aylibre.com>
-> ---
-> =C2=A0drivers/mfd/max77759.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 2 +-
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org> # for Maxim MAX7=
-7759
+--fqtiECgthKw6C3p6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> airoha_npu_send_msg() always maps the mailbox buffer with DMA_TO_DEVICE,
+> but some callers expect the NPU to write response data back into the
+> same buffer:
+>=20
+> - airoha_npu_wlan_msg_get() (NPU_OP_GET): NPU writes response into
+>   the buffer, then the caller reads it via memcpy()
+> - airoha_npu_ppe_stats_setup() (NPU_OP_SET): NPU writes back
+>   npu_stats_addr field in the response
+>=20
+> On non-cache-coherent architectures like EN7581 (Cortex-A53 without
+> hardware cache coherency for NPU DMA), DMA_TO_DEVICE unmap is a no-op
+> =E2=80=94 it does not invalidate the CPU cache. If the NPU-written cache =
+line
+> is still present in the CPU cache when the caller reads the buffer,
+> the CPU observes stale data instead of the NPU response.
+>=20
+> This is a timing-sensitive bug: small mailbox buffers (~24 bytes)
+> typically fit in a single cache line and may survive in the cache
+> until the caller reads them, producing silent data corruption rather
+> than a crash. The bug is more likely to trigger when the caller reads
+> the response immediately after dma_unmap_single() without intervening
+> cache-evicting operations.
+>=20
+> Fix by using DMA_BIDIRECTIONAL for both map and unmap, which ensures
+> dma_unmap_single() invalidates the CPU cache on non-coherent systems.
+> The mailbox buffers are small so there is no performance concern.
+
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
+>=20
+> Fixes: c52918744ee1e49cea86622a2633b9782446428f ("net: airoha: npu: Move =
+memory allocation in airoha_npu_send_msg() caller")
+> Signed-off-by: Wayen Yan <win847@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_npu.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
+net/airoha/airoha_npu.c
+> index 870d61fdd9c6..b679bed952de 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -168,7 +168,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu=
+, int func_id,
+>  	dma_addr_t dma_addr;
+>  	int ret;
+> =20
+> -	dma_addr =3D dma_map_single(npu->dev, p, size, DMA_TO_DEVICE);
+> +	dma_addr =3D dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
+>  	ret =3D dma_mapping_error(npu->dev, dma_addr);
+>  	if (ret)
+>  		return ret;
+> @@ -191,7 +191,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu=
+, int func_id,
+> =20
+>  	spin_unlock_bh(&npu->cores[core].lock);
+> =20
+> -	dma_unmap_single(npu->dev, dma_addr, size, DMA_TO_DEVICE);
+> +	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
+> =20
+>  	return ret;
+>  }
+> --=20
+> 2.51.0
+>=20
+>=20
+
+--fqtiECgthKw6C3p6
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCak5JQQAKCRA6cBh0uS2t
+rEkuAQDBR2AU7po/548CG9jgOQ4FrFUOWREXpwLycau0KwabmgEAoT0GbuBjIF0v
+B0mV4hsyWdRr1ux3Q6bkcxszl+YIfwg=
+=TO0g
+-----END PGP SIGNATURE-----
+
+--fqtiECgthKw6C3p6--
 
