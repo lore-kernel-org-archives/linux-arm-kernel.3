@@ -4,167 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DC4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D70C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 22:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j5VFDg4cvcKUJrZE224EJ+K9tYievBZCYkSkeyJJGu8=; b=a/YKErQR3dhsOjtr3ekeVgkKOl
-	H+dwcjBCCjLUHzbUDKL3lxNdtwYC6JSGLFSkHuQs4tW01vVRJRiJft6p/JU+ADic4ECb4xf3d9C70
-	xnCJL0ar9dtQQ1bkKOXczg8r9eJfXSeXEsANsXLDD3u5yJ/C5qwJZ1Pox6C5wz4y2yaSvFbW6nnkI
-	qxu/OSLU/DogOccsZhrDaYMkvaj84Q0VJzgn+OW7sv6L6LvuEiJDVFO+euK9ByohSjixIl/TSKMpg
-	J63nUjqhZ2cVu63vWkmFjvy1IyQed3ApGGwYB8v4RzPvNDYnzbGY+qaD4fz9P2o/+HJ4s17aNjfYc
-	AlHj8WYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=k72FKtErkVWXYuvUzP0hO6M77clth2kx7kycCbq0WD4=; b=cBNIFF3in0tmxy
+	nwIqYV4LTNCVYSAtQzC4TOd9Zve+r9RStCtpMQbt+4/hydd/AmYvMmACJjK2huqO2ZWPdTfe2kzxB
+	uirVQvWlPsLQIE3nV3eJRimXV3JooOUopKB4o/ah3aohAqP9nybxxlKWw1PULv+YFVt7pqnf/ehf7
+	qPtSJm9DjgbT/WHR5fBL4ackWklRdTekjrrsQGUMMgvQ6FV6ryV2GSU5uk8tQ5WH2Cn2AbW3pewsy
+	V2qX0LBfIWDKk1sMcReYiWTCCoWJdZONYvbMsbgyaiP9ayCkcCV/5YIVikOYpBp/Yx2gUtfbRv6jQ
+	FcBaq0Wg++LWENcCptbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaUH-00000000WeA-2ht8;
-	Wed, 08 Jul 2026 22:11:25 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1whahS-00000000XQU-3zRk;
+	Wed, 08 Jul 2026 22:25:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaUE-00000000WdB-3msh
+	id 1whahR-00000000XQJ-2wo1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 22:11:24 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 668K7SXN2288697;
-	Wed, 8 Jul 2026 17:11:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=j5VFDg4cvcKUJ
-	rZE224EJ+K9tYievBZCYkSkeyJJGu8=; b=HzQwbM11Wem4zIdhQwKWAIfy3yRVl
-	h6JAqWqR1RUuiyP336iLjH6dnIN7X3wfeiFOi6DHzOsxE7VOmk8S3R31tbOdaiT5
-	N7KvM7ybxKCmAs4L8Vd9BCeKJXxsyeApPkRY+EX4TYzSozahH4ORPDPhb+NPnh8e
-	hgLwuih6zIjYSXgsPJLM0JAGH3tB+j3SNsYjgIFDO1zUcVBwp1JcsqKa71rZDRQL
-	v7ZfNT8Z30rauB0pQJgiZ6Arv23/+Kqgedzw8C3aHGwJRzoYAd9BWwB/3L1e6C4D
-	dTgGIIh8wods8KzrLh9fzvNfhHCUUirRaVtZGgz3YyMDW24F+Re+Y5IUA==
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010005.outbound.protection.outlook.com [40.93.198.5])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4f9nft48m2-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 08 Jul 2026 17:11:00 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NqZeYq1rx0GPLDsnc+iWbMqxTa8jGkowGgk01MVjk8aR2FvcnAwsyBs/gA0laXRwz+tjJsnJv4nyrLgWaR8Rj5xV2Jo5gvMT7PuoqQ/xI2PxEu+6I5JbEKZp8PBLWZ5zgHFoj3ZYf2ZxZKoW6BH8bEuVYvOQFNuzmVnnqDdyd+tbQFpJukddQiB9bUDDVY4ttmrstQVyDIBLs9VNRkl5jH7P38BnWW6J3lM+Xjs9DY5nAvYmPCrYMYK+uhu8zfGVRrFahpn/ujLBF/TjiqyYb4lAeF2lBz2dzkn9Mh9WidLIhBTTSC1C9yW313IVpP/2FVoNvrnrRMmcmJEnpmEaPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j5VFDg4cvcKUJrZE224EJ+K9tYievBZCYkSkeyJJGu8=;
- b=BZs/zCmvk8aN+3QI24nNslXd3NtScGvKJ4LlijVaoCHiJQYc539x/Jeq86sMZAU/tqheS3A1QX2K0b1VwBdB1VWoUGd8+y2lzmPANFY1dZVG9VNidZbsyaSKJlu5O60K2riDS9iwJtCdNURcFamnCuRuFf3W7bHjj5YB8pUAM6hEx0x+lojrdB36wIfq6i/l5PXV1qwUWmkWfqo6SiZi9Zf1czFXXa6cwCMaZSXtxahCabu5CcG8MPXzLhE+ib77EI1NwWUBVk7heMPZr9IKp8JgRUWmS0dk1hE08tfKvdGY/mQLva0glYMaOeRc9enln0EbcOPYIY8O8BlT18Yzaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j5VFDg4cvcKUJrZE224EJ+K9tYievBZCYkSkeyJJGu8=;
- b=EuD4tfcyn4pBONFj0Be4JOynfqSmcSQNezUE/iAamQbsI5Faei+A1sQi67MgdLkfKxO8MbRD4c8qMKd0ziI/XehueohWeeweeVgaPEDN768W73Cuk7jitMNKDqfQkdk+c3SeJNZ5tWpqjoAuh97Y2vfb3IPAXYI/3MSmtScjo8Q=
-Received: from BLAPR03CA0044.namprd03.prod.outlook.com (2603:10b6:208:32d::19)
- by CH0PR10MB4971.namprd10.prod.outlook.com (2603:10b6:610:c3::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
- 2026 22:10:57 +0000
-Received: from BL6PEPF0002256F.namprd02.prod.outlook.com
- (2603:10b6:208:32d:cafe::21) by BLAPR03CA0044.outlook.office365.com
- (2603:10b6:208:32d::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
- Jul 2026 22:10:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL6PEPF0002256F.mail.protection.outlook.com (10.167.249.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 22:10:57 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
- 2026 17:10:57 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 8 Jul
- 2026 17:10:57 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 8 Jul 2026 17:10:57 -0500
-Received: from localhost (mz02jj9v.dhcp.ti.com [128.247.81.246])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 668MAvZx3314376;
-	Wed, 8 Jul 2026 17:10:57 -0500
-From: Sen Wang <sen@ti.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>,
-        Andreas Kemnade
-	<andreas@kemnade.info>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
-        Russell King
-	<linux@armlinux.org.uk>
-CC: <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, Sen Wang <sen@ti.com>
-Subject: [PATCH] ARM: omap2plus_defconfig: Enable SND_ALOOP
-Date: Wed, 8 Jul 2026 17:10:31 -0500
-Message-ID: <20260708221032.1600089-1-sen@ti.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 08 Jul 2026 22:25:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 168BF407B6;
+	Wed,  8 Jul 2026 22:25:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F6A71F000E9;
+	Wed,  8 Jul 2026 22:24:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783549501;
+	bh=k72FKtErkVWXYuvUzP0hO6M77clth2kx7kycCbq0WD4=;
+	h=From:Subject:Date:To:Cc;
+	b=b8GPc4j6lHcpRrNKWph1ZmKBd4PfZG6VijUiWEVTXPAyeva93kV6pzyoKiff+vhfJ
+	 pK9+o9/M177Bg5x0STwXjI2M3/v/G86AX4nfc/uSM4yfEyZe4pjSmFkVfGt+sBmmBY
+	 +IiU5tniRfjanBZ5RfriXEDPwrNVE5O4yDMKALT8HlXbRuWHACzhVlh7jy0Ss1+A5y
+	 iA3j0CXPZY1oLBa4U7hthbz8dydjmHgn5uMadUMRogEogYad1ElwMC/JkEK7ZSkz67
+	 Lc55U7IZviXNqKCuRvuj6/a+IJRuHclQcwxuIrzQwQVsbyV7rIv95NhEGWZDAY67Cd
+	 EwqO+r96XvzqQ==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH 0/3] ARM: Enable IXP4xx to use little endian mode
+Date: Thu, 09 Jul 2026 00:24:54 +0200
+Message-Id: <20260709-ixp4xx-little-endian-v1-0-e9622d0ba9e4@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0002256F:EE_|CH0PR10MB4971:EE_
-X-MS-Office365-Filtering-Correlation-Id: 114428bb-2afd-482b-1ef8-08dedd3dc99b
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|82310400026|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: tNmKCrO6QgKIvGCFV/nylryYy26j0E8lSqVh77ctrs9dMCOn8o94R9SOqpg2JX/9iRwTPEyeH44l/A+Bg49Lm2C+bE6TAHeRAnX++M2GrgELOZo/UwPiNdSBZkuffj7OhMl6RKtNoyts/RahtRTcNiWmD0xAenlnwiWjSPs0fP0hcumfbmiGUOgNHcCQrFlJm0jk23UC6wTXlTEOAQwhJtTxkcJf3YdfImsYMCaPgFIiYdVa0cww1ATvGcLEBlbGs8V41+0Y5oaZJvuuBN5PtFScL2MN2CDgWXZEwUa/pHO5h2ndPdcDUOJUdBcXnwj0Di6CBA8vWHDIpbxe84MAtoiNf8m0wAxHTcB5wlOCvKEYN9LOsq4sn/4NfWRpI5rAH0MlAzNdIHDWNfbsuxJvpyC20Wn5jaOK/cdOeid2MwO0rKMdbqIhmnPoDn4GAgYNE9N94H6jgNSW0+HQM82W8+QLQMQkisdBHHarxmz/p8cc9qdqsClIrH0kIoM643byAMIz786374IrTNFvec6l9EG4bBuTvfugRmO9sR6u9mtiqKb5yofY0Nz1TGo+iDCFoVPC4q1TnzW/D/fbaYD/D6nTIwZ4IHCYnSWsxTKt86tGedmVe7mzYQeG4uNXE+DiarKZwtAe25pb3V/zyAjU7bDHUZzCW8RFNPRHMBPJo4Gs5fWQyzS5nP7IfKtvrAe1GZ4pzDRFvdtfItWVbBPsCg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jmJ8xI+j+MUEpMatzN/oKGLYuUCJ/ie9N27god3jQNGsCn3Zz4S1MkfoYeSRzvpfLoWVfPCReCUcDJT91nhv+G7eNlO9hYPiBLAl1E0MG2Tz/dKMLsIjAic2ZZPmVe7juIjQO9wso4E7T38TlDVXvLZ3dvWhXkZ9wr2BlNjsRACyI6vx7rrWENZ9M2sgq+UVvKOJDqS5tf3h2si5zHaS9cvi6SEv3yNltlLeIY16HOX6jQ2OfvIeA05VpeOc6wA9+WCWOs0hmicT5rivcXjLrJD8CDn3EvD6y7w3OHKR56NmjWFP/9ePKQfMS1BCx3Gk4o10RtGpoTd3gQM/xVTvMkZVeiEbComb0lZtC0ES6mcZjJd8f7O0RShoOE8RLntYzkAk+w6vnJOGmcykUoPp3q2w68V1ELEmsQpdz2vLBnmbgU23YGycRfTCNFnmMtoc
-X-Exchange-RoutingPolicyChecked: pGat1wQtzXoN4br5UaxkmWiMgqpGCtp82TWxLWdOtp7XSgr41avZWoR7e3YPcPYOUAbQz3rGSNRILfQlKPms9KPWuXf9sbC5aNvZU4zk9xmNs4LP9nKGGyPcK+Md7yLwqMlbrDE2+GZvGNGCB/w11ibfuteNZd7bEHn9gPGifvz9YS+LGS+J2L5hFZdlRFqEs9PVP4xPw5T5gF6w8OsiPuyx6PUZt7SmqC/61Kpa1DKySbJodbCUOO3pOlAkbtZBVbp0c5OxzuGqIt3cWJLx5Qg9N0T6FLFe7AKga66u0FRvUEG/HFXmII1+jD3zu/BLOsLe0b8n++e+uvBILan6wQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 22:10:57.7097
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 114428bb-2afd-482b-1ef8-08dedd3dc99b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB4971
-X-Authority-Analysis: v=2.4 cv=AaOB2XXG c=1 sm=1 tr=0 ts=6a4ecaf4 cx=c_pps
- a=bt8r0o3PvT4lvF5YbTRm1A==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=oFaIfZNELmqWH1DmM9cA:9
-X-Proofpoint-GUID: gw1QPFfirBhn-TgWZ2_Iag1oxW_TsMez
-X-Proofpoint-ORIG-GUID: gw1QPFfirBhn-TgWZ2_Iag1oxW_TsMez
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA4MDIxOCBTYWx0ZWRfXyCHOacc4wnnP
- iR5w2QeHDBKpoGOVZX5cVrEh9Kv1bFSVkfMJr+Fu6rrYxJ190JkMqnX6Ro3X5F0Gw6YMkTTvb5J
- eoANqJheKk84a1p/wgBshFNYS42QO8o=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA4MDIxOCBTYWx0ZWRfX6je3UP4/B88z
- m6BSqH3a8g7abVQnZbFStwJXiETk5sZNpjQPJ7Yr2C2iQLAa/+ep8sxzHWZQKH6mUhVNODLd6dM
- G/FeihIytvucNh1XS9hem5z5yWI5cYamoByJXzLYETZ8FV5b47tvhoERkaX2qCQ4NbLqURMBzTe
- RJluB4SKpI2H4W5eE8ye1V5H2hFhJLMSqST+5lRv26bcCvC9ACs4vH6PIvwpiOEu9Wxr6TzS74j
- vNIG2GwLU39fm4mDsHtbNLAIe03p5RD1mwLw1BXfpgnz3itZ0dsDHgLp1GsC/dXQqd//ea5ul43
- tikmTt/aR0+Nm2AFHKEwyORS9gRkIDfkR0J/DhY5cbS+wTXCVvECgToMZkH2sj3N8RsBOLEC4gC
- TAgJtDr0JzBhWJOlWIK1dZ+ejbY0Q5JEsxutPCmkJ8KFDWW4KnIKXdgp9MW/PSA72jPlTXojwtq
- j0yUj4q691LzrneqvFw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-08_04,2026-07-08_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 bulkscore=0 clxscore=1011 malwarescore=0
- impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607080218
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_151123_083361_4BB258BB 
-X-CRM114-Status: GOOD (  11.18  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqEMAxA4atI1hOI9Q+9yjALtVEjUqXtSEG8u
+ 1WX3+K9AxxbYQdNcoDlXZysJiL9JNBPrRkZRUeDIlVSRRVK2PIQcBHvF0Y2WlqDdZ1Rp9VAmSo
+ gppvlQcKz/f5eu383c+/vF5znBaafYSR4AAAA
+X-Change-ID: 20260707-ixp4xx-little-endian-9930bd2f0325
+To: Russell King <linux@armlinux.org.uk>, Imre Kaloz <kaloz@openwrt.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,32 +73,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the generic PCM loopback driver on AM335x, AM437x, and AM57x
-platforms, matching arm64 defconfig (commit 7235cdd9cc52 ("arm64:
-defconfig: Enable SND_ALOOP")).
+This modifies the boot path for the IXP4xx, the remaining big
+endian ARM system, to enable it to be booted into little
+endian mode.
 
-snd-aloop lets a test setup loop audio between capture and playback
-without external hardware, which is useful for automated audio path
-validation on these boards.
+Motivation: big endian is less and less supported by the kernel
+and for the ARM architecture, IXP4xx is carrying the entire load
+since it is booting into big endian by default. After this there
+is no currently supported ARM system that cannot be booted in
+little endian mode, and the big endian support may be retired,
+if so desired.
 
-Signed-off-by: Sen Wang <sen@ti.com>
+How this is done:
+
+- Enable the XScale to switch to little endian mode from a big
+  endian boot loader just as it can today switch into big endian
+  mode from a little endian boot loader.
+
+- This works fine because when we switch endianness all bus
+  accesses are also endianness-switched (swap32) and everything
+  will keep running as before from memory.
+
+- The object file will boot in big endian mode. This is done
+  by padding the file to an even number of bytes and then
+  endianness-swap (swap32) the entire binary before it is loaded
+  into memory. This means the file will "look as if it is
+  big endian" when it starts executing, and the first few
+  instrucions up until the endianness switch snippet are
+  executed as big endian.
+
+- Workarounds for addressing the last byte in 32bit address of
+  the serial port at 0xc8000000 by pointing at 0xc8000003 were
+  uniformly dropped. If the system shall actually boot in
+  big endian mode again, we need to fix the serial driver
+  instead of using this hack.
+
+I did not add the logic to pad and byteswap the image to get a
+bootable "big endian" object to the kernel build: just the bare
+minimum. The missing pieces are:
+
+  $(Q)size=$$(stat -c%s $(output_dir)/zImage); \
+  pad=$$(( (4 - size % 4) % 4 )); \
+  if [ $$pad -ne 0 ]; then \
+      dd if=/dev/zero bs=1 count=$$pad >> $(output_dir)/zImage 2>/dev/null; \
+  fi
+  $(OBJCOPY) --reverse-bytes=4 -I binary -O binary zImage zImage-swap32
+
+The resulting zImage-swap32 will boot on a big endian system
+and switch itself into little endian mode.
+
+Tested on the IXP4xx Avila platform with a little endian
+OpenWrt root filesystem on flash.
+
+Surprisingly all drivers on the IXP4xx appear to work just fine
+in little endian mode, due to care taken when authoring them.
+
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/configs/omap2plus_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Arnd Bergmann (1):
+      ARM: decompressor: always set endianess on xscale
 
-diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 0464f6552169..f488a2f66d7e 100644
---- a/arch/arm/configs/omap2plus_defconfig
-+++ b/arch/arm/configs/omap2plus_defconfig
-@@ -520,6 +520,7 @@ CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
- CONFIG_LOGO=y
- CONFIG_SOUND=m
- CONFIG_SND=m
-+CONFIG_SND_ALOOP=m
- CONFIG_SND_OSSEMUL=y
- CONFIG_SND_MIXER_OSS=m
- CONFIG_SND_PCM_OSS=m
--- 
-2.43.0
+Linus Walleij (2):
+      ARM: ixp4xx: Relax endianness
+      ARM: dts: ixp4xx: Drop the reg-offset hack
+
+ arch/arm/boot/compressed/Makefile             |  8 --------
+ arch/arm/boot/compressed/big-endian.S         | 14 --------------
+ arch/arm/boot/compressed/head-xscale.S        | 12 ++++++++++++
+ arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi | 10 ----------
+ arch/arm/mach-ixp4xx/Kconfig                  |  5 ++---
+ 5 files changed, 14 insertions(+), 35 deletions(-)
+---
+base-commit: aa4ffae4701cc6edf6303bf35c42e24f335d6899
+change-id: 20260707-ixp4xx-little-endian-9930bd2f0325
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
