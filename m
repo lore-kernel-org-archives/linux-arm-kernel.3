@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AB4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C6EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=864WgdCGKVvhVw+X58LxeAIhuiQbwracGrd3VXI+iDM=; b=q1XMoBHWi/qflzcxr9RfNxkDs3
-	jII1qb9D0pJCQ+8qv4kg2PwYOS8n40nmkUjV565K5hVzZ6hVWWLbevNPZOfxp8SEdnk58zzoY20Ga
-	IEvnrYW4JomotdC1+IfAA297jry5pqH1E18JE24uG/AjFtyFG3w/WW1Ph3cLjyN4FuXnyh2aCKCvY
-	+CRf0krKoru/39Z/A/UjWA8BZh4jTlK7RmvI86k5T6+fKwDPpBFJriNB6gEY1m3T5m2ZhXgL7qSRX
-	gtKD0tpRoMGERZm0fqF+IHvvthI4GxnujmNKht2VznLaTa1BuMuY/X1zxs2RWzvehYi+sqQvKSbsS
-	8noBp2DA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OUt8rJZ/0AQq1r05KhxBp9d1v78gt9AIlJqD+iFhvcE=; b=ac66YAVI3UKIMs+n4/flZYmliw
+	SkJL1EiYNq/YOJnRwv7B4S/NJQRIUU7icQcy2XUW9g7d86Yl8y1emQh0MXiBDSGGdmsurmFVtuVra
+	lrbpx29f/Ve0hq7PDAZC6rLYdQb9l6zrpqmefUk04NJx0DfSivHSwwgZYxgAi52HXDbf/Cn/paWCq
+	aHhmZSw5CTku+IVLUnAE9oyOGFwF1zdVl69VtsTfXoetwLpT2fmvJrrsZCzQn8t27XOic+0O2iQrm
+	pE+lbtmXle0Kt6Ri80vwWEfTEFYRXgYsycci6ctcvSe27EflyfPSNA5kSW1tZrbt+iUcm7L99foBp
+	SBnACadQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaDm-00000000Ta4-3dZ1;
-	Wed, 08 Jul 2026 21:54:22 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1whaFH-00000000Tlg-0mCW;
+	Wed, 08 Jul 2026 21:55:55 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaDk-00000000TZR-2Il0
+	id 1whaFF-00000000Tkm-037W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 21:54:21 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493b27c7451so3829775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 14:54:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783547659; x=1784152459; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=864WgdCGKVvhVw+X58LxeAIhuiQbwracGrd3VXI+iDM=;
-        b=RJi0why+Z8aiJ/enPQ8qcrQ6gyKwfc1ez2JqBO34n22MGD5doAmqIRdWyTBj4G6Jsw
-         3BR6ni0seQ8HYMaPeAcqMFuNNEinoyV7ZtWaKjB7p06Dh+cxfAXFvSCIn0Twy+xrxkY4
-         N7e69GWqV1ny44lttFd6DoZjAbXiWOpL1YFsIpwtlhl1/XsEervM01pnk/oO6sB41V3C
-         CXf9HiU+dQpRmGuhg6tQ9Cs3vY5EF65SaXvpWyHmCrMjTQxt81mhhTEu7B8oAuZY4VPg
-         g9CZkmdTf6SR06y0QrR+ztOdko9tsEVjpk2ZelJqGanJfSN99H4mPRyaG4/uTUrCT0U1
-         Y6CQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783547659; x=1784152459;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=864WgdCGKVvhVw+X58LxeAIhuiQbwracGrd3VXI+iDM=;
-        b=QoaJ37eZgi6+qYmdvYbEm2wTAlNPu+oR44QmcrR+o/GUg69jaD/vlvVkk1TYduBHPS
-         seNhenYS+Y7EDNyRhiJRIrDZDkkpILiSRRCXv1VaIvsZ2yGByZmrmCSQ18kVbPrRTEGU
-         OATH3EoPfzOVBRr07z6Cg8Xl3BEv96AvgTXxADFRhdzAxMRFr2qqwE2OuOKmS+D2sNdh
-         EJTqkqrtIjGaJOZA2jK45vACBU214utnZ+nll9H0ZYBqtaphm0J2naLw6MdjIF9YPhn4
-         yvgmO3frqQmhySzJ92kF4y9ZymVAJQSGR3BYcJh0h2Lgy8/ohJxLK1kmVc8rC7VWTX3k
-         uxtw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro5hazyH7uuCecgljiZw+8otJgMmgKLoRbg7N6T5YJDwb6G05ar9jtCuNPUmJqkpuZy6P5IJ+CLV1dbo/x7Zso/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrfQ/PXhjR4atta95Z+SdqHsN8NsNuprp+Y7TjHRtAvwj4ksYX
-	Y0xWrW+lFEBzo2i5pTPpGqAEGPkSLtBOo9YEvYIFuDY/MS7w95hMQiPA
-X-Gm-Gg: AfdE7cmSfWxkS+6an553HJcvhYzFiTlH3d+PCxu+42n5h7TJdGluG9f8DumNMuY6T8g
-	qP0/DVFxCAxYutN3eqvaddedIPs1zwv+PLXPxJij1ezLA/OAz9aWIRugFgmXEEy5Kai7r+vUsXH
-	qHvAgT7/phNW4pu2PHWA9506TDyKzRnF9HEb3ZphP8esdRok4Phdq21g2+0MYsBWVnTBmVhZogt
-	84ptghulN+Z0AjW43WFECB9V0X32y9WVn+yH0A/oR39oY4jbInUUzRy8xRHWTNFDwv1Zgl67+9H
-	OhX0C3O8fIO+ttAV8ncampGPbCihDDrZYgGhnJEI+pnMMqjyZKX8T7otf7+m+wOcHsJmgadRJLK
-	0eXGp0DTaaa+fQrLq1RquhQR9QfZbf0ZuDHDWGAggLpaWywqynM7PEzgb5AgIvxUHIuvXaBE5OU
-	evqujoboY0yjeAedr7DGEFALZASOa5mfMqR/5lJc8TYFVbvX4cRA==
-X-Received: by 2002:a05:600c:3421:b0:493:cbd4:8925 with SMTP id 5b1f17b1804b1-493ec55d788mr490785e9.4.1783547658604;
-        Wed, 08 Jul 2026 14:54:18 -0700 (PDT)
-Received: from osama.. ([2a02:908:1b8:2060:7550:b182:7bdf:fbd0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47df6a31dd5sm1032704f8f.16.2026.07.08.14.54.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 14:54:18 -0700 (PDT)
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] drm/imx: ipuv3: handle PRG channel configuration failure
-Date: Wed,  8 Jul 2026 23:54:16 +0200
-Message-ID: <20260708215416.147586-1-osama.abdelkader@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 08 Jul 2026 21:55:54 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gwX385Sw4zKw3Y;
+	Wed, 08 Jul 2026 23:55:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783547748;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OUt8rJZ/0AQq1r05KhxBp9d1v78gt9AIlJqD+iFhvcE=;
+	b=vLvb3sDhhB6nPt89m4m8Uz15sXDTqI7whoSF1zVP9CNL2mH3EzfYRLOHY/O4UD0bB++5yZ
+	omii7FWlBOpRA5FTGV9aH9DoVwsH4zQU9eN5pv8ZOl4Wf+BH9PiGxp58OzAfHaud+tCFf7
+	Y3e2YgQ8ip13t/2HJ2k0fP+qnBzQ7ID/HV2V/y7ZvVJTXipJ7JqvKOBRt1OCB2NODce4Kz
+	rY1U6+b25Vh0hxo1bsW/lBI3y8V2XUI+3kZoCTI5G+Zm2++0d+T4O1nFssZmCGqQpo9Vxw
+	Bowl+WrgNZbssBRczd4H53E8eGCd0CsQRid6jCFeO+wFR17gaVqvMlsReSZW3w==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=nYaqeC9A;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <9c29915b-0b57-41b9-a6cf-5d970756527c@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783547747;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OUt8rJZ/0AQq1r05KhxBp9d1v78gt9AIlJqD+iFhvcE=;
+	b=nYaqeC9ARNfKvDhiZffpXJQxY+Z+/gFn3LTQ+2FfP/4KjwAy0vs4L9K09YtlYcSgZRPeZA
+	pJseT5WmLFAzE+ynTiyoXCK1pe98XaCHQskMCYmFbp2JTEHb9q+muRm2a/jpa0WtJ2aX5h
+	xCsgQzeOdrSQhaDRynfr3zTk3PH2nD5VZs/9ECt65Hgq2MtE1yA59S2qmUr+qbMg6RWD4z
+	/FfKx7oMhtOJMe/C5pOsOunw0SIDas7YPAxRukba7uiEKQiJUl4wfmzUqP4GuFdfeEeKqX
+	Kd+s6+WBA5jV6cVpiWaM7Fa2GGZVFmZ9OnLKOfvPGk7o76Is+xIdthEEfvhJFg==
+Date: Wed, 8 Jul 2026 14:38:06 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 2/6] dt-bindings: power: Document Renesas R-Car X5H
+ Module Controller
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1783505142.git.geert+renesas@glider.be>
+ <1d79020a5eb2f269ea7ebb354cdfdf880049721c.1783505142.git.geert+renesas@glider.be>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <1d79020a5eb2f269ea7ebb354cdfdf880049721c.1783505142.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: d9791c4cacc79975d9f
+X-MBO-RS-META: owwmi4kprmaabd8g38rhbdeqr9d9i8uo
+X-Rspamd-Queue-Id: 4gwX385Sw4zKw3Y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_145420_603513_364B20FA 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260708_145553_213558_C1906D32 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,44 +105,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ipu_prg_channel_configure() can fail when no PRE is available for the PRG
-channel, but ipu_plane_atomic_update() ignores its return value.
-
-Atomic check is expected to prevent this condition. If it still happens,
-warn and abort the update instead of continuing with the original
-framebuffer address after the PRG/PRE setup failed.
-
-Fixes: 00514e859335 ("drm/imx: use PRG/PRE when possible")
-Cc: stable@vger.kernel.org
-Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
----
- drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
-index d6806d1ae6e1..78a3ea0581c0 100644
---- a/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
-+++ b/drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c
-@@ -629,10 +629,14 @@ static void ipu_plane_atomic_update(struct drm_plane *plane,
- 	 */
- 	if (ipu_state->use_pre) {
- 		axi_id = ipu_chan_assign_axi_id(ipu_plane->dma);
--		ipu_prg_channel_configure(ipu_plane->ipu_ch, axi_id, width,
--					  height, fb->pitches[0],
--					  fb->format->format, fb->modifier,
--					  &eba);
-+		if (WARN_ON_ONCE(ipu_prg_channel_configure(ipu_plane->ipu_ch,
-+							   axi_id, width,
-+							   height,
-+							   fb->pitches[0],
-+							   fb->format->format,
-+							   fb->modifier,
-+							   &eba)))
-+			return;
- 	}
- 
- 	if (!old_state->fb ||
--- 
-2.43.0
-
+On 7/8/26 12:15 PM, Geert Uytterhoeven wrote:
+> Document support for Renesas R-Car X5H Module Controllers, and add
+> binding definitions for power domains not backed by registers.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
