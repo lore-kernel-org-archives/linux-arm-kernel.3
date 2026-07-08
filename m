@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6455DC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573B6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fctgsY7YqsrEhu1k2wzh+cl4u0ifkrhHsMZg+Rriyw=; b=zDIywEuKpgYLRPrTZyX0cEfbOh
-	P8bUx/IX5CMhRbQD3+70SczN46iXKEdjMGT31fMCBBRA/rGdfrDk0pmzpzjc2i+WO+obBvpEiosXF
-	acWHeGkR1k8wnLdnTLNuQzWXBnsHfSA3y6lu2NEgJEf87TvJF75aFiGErGnnY+7uA77CQqoT9xuVF
-	XcMgX2az1ohWue4Z2V7hjT7WFJHF1KsqEpCIoTSWoEHxVUjs1ppHo2VmLW7A0YZfjQWHJkxNHKHqL
-	8Yn67u7/gegOFigTtmy+4qukWNSCUq4BzZW9PJFaMIipFb8Kvtf01p9NiXaz7d/4JlnUR37hBXujK
-	hzIlM5ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yVimvhatc65Owlde0V/MOtWQPfIwkXZ1GniY6IYK8AE=; b=3H7AknesCiIDOnTEPKWSrOKDcc
+	gVd6chlYKbNR6ow/Y4Vv9gKI1pM+l6+DoQRSDw3qtR16Wzv8AxWXluPnC1Fsaph8JCmgg+LIGQWwb
+	AKKOjxiy/xypA2+DYtrBlliJXEo2jHxoMsd/QBEqwaAJMTH546dgd0/aP7diO0DXlOUjDQi0Tlika
+	eIDG2rY2/oqKgpR23V9fxf8QZsgt/0isNLg4Noo7jgBRrf1bQL60gOisjlOLX7wWRqrUTGHeC5+sB
+	NgCSQd3oKlZOMfdqpUuCsaK2/sdLEJ5CNzy7mkrzw1bAG/NX5aYSXANHgl/IzTp6mr+hnqpuYQ+77
+	pjJ9SdUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whU9g-0000000HSzt-0MK6;
-	Wed, 08 Jul 2026 15:25:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whU9d-0000000HSzN-0XRq
+	id 1whUA5-0000000HT5T-0oVl;
+	Wed, 08 Jul 2026 15:26:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whUA3-0000000HT55-3ihs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 15:25:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4A3A1D14;
-	Wed,  8 Jul 2026 08:25:34 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CA363F905;
-	Wed,  8 Jul 2026 08:25:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783524339; bh=CgJko2Bh+h3b+qr0aWBDGt72KBNs22h2ls6+1sgNj70=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZIakAqvlbM7AK9RmfXmXx/06jJgSnHaiBnx5wiv3+43dfDmh+Abx1xFI7orkc9VBL
-	 7deRDveKNGdzk/gcGsoOjkj29jlJWt124mhQMOQvl7IeVBJjMZciEVL+tqG5vbTP7q
-	 0OTiYIn7jMEI6kP3J/LK7xUNirdaNwGWL0D8rFdI=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] Optimize S2 page splitting
-Date: Wed,  8 Jul 2026 16:25:35 +0100
-Message-ID: <ak5r73cHx36SP0-O@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260708134101.2514759-1-leo.bras@arm.com>
-References: <20260708134101.2514759-1-leo.bras@arm.com>
+	Wed, 08 Jul 2026 15:26:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A01B43B44;
+	Wed,  8 Jul 2026 15:26:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB831F000E9;
+	Wed,  8 Jul 2026 15:26:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783524367;
+	bh=yVimvhatc65Owlde0V/MOtWQPfIwkXZ1GniY6IYK8AE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gDhSlbSNBaBZGjTVhSc1SE3KOE3xKeG78VYrDpRrru2etALr/MsRqmirN0OVpkj+B
+	 r0jxEk5eOPYRfs7gNNz20QzeEpCMd3qJLCiHIMamEUhAshXSST0xAIm2ulX+kSvuJj
+	 z0pGxmnsA4gtthbkijOWfdGOyC+iJO8S/0q2aKZl3OWK1PJ8DYq4vEFr8e2NbpLJvr
+	 ZkkZ+/D38zBTHOQlRYJUk4bpYIca2QNQ0dzRlxjeV9/7SboZhKKnpC0G5dwS6+HvQh
+	 9PEWb92P9Tdn1mR9Aww2bI7QTMZiDDDjohTYDQbNe8iddTLQLml1O5Z4Z6RdUKl2gJ
+	 3qF+zxxgUhNVQ==
+Date: Wed, 8 Jul 2026 10:26:03 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v3 3/6] arm64: dts: qcom: kodiak: Add GEM_NOC
+ interconnect for adreno SMMU
+Message-ID: <ak5qkRKk2eHHLYmo@baldur>
+References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
+ <20260706-smmu_interconnect_addition-v3-3-afdca0125a65@oss.qualcomm.com>
+ <h6opbtr2ced3sannj3ym573qc2sjk7ek3clpto5j5mtqfrfk6w@34sk2zraoqtj>
+ <807f145d-88d3-460a-9862-b63fe2a52cf7@oss.qualcomm.com>
+ <a4f5sod3aflubxkk4mm4k5ozddydqcnqeac4s6vnozkd2nvxbi@hmh6zclsw5z3>
+ <4e5a3d82-b946-4490-885a-ea7061939c32@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_082541_245796_C315FC8F 
-X-CRM114-Status: GOOD (  24.98  )
+In-Reply-To: <4e5a3d82-b946-4490-885a-ea7061939c32@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 02:40:56PM +0100, Leonardo Bras wrote:
-> While playing with dirty-bit tracking, I decided to take a look on how page
-> splitting works. Found out all entries are walked, even though we can infer,
-> for instance that:
-> - If a level-3 entry is walked, it means the parent level-2 entry is split
-> - If a split just succeeded in an table entry, it means all children nodes
->   are already split
+On Wed, Jul 08, 2026 at 03:31:07PM +0530, Bibek Kumar Patro wrote:
 > 
-> This patches' idea is to introduce new walking flags to skip pagetable
-> levels 0-3.
 > 
-> The idea of skipping child nodes was also tested, but it was marginally
-> slower than just skipping levels, so it was discarted.
+> On 7/7/2026 10:14 PM, Dmitry Baryshkov wrote:
+> > On Tue, Jul 07, 2026 at 06:37:24PM +0530, Bibek Kumar Patro wrote:
+> > > 
+> > > 
+> > > On 7/6/2026 11:12 PM, Dmitry Baryshkov wrote:
+> > > > On Mon, Jul 06, 2026 at 10:26:36PM +0530, Bibek Kumar Patro wrote:
+> > > > > On Kodiak platforms, the Adreno SMMU requires a bandwidth vote on
+> > > > > the GEM_NOC path (MASTER_GPU_TCU -> SLAVE_EBI1) before its registers
+> > > > > are accessible. Without this vote, the SMMU may become unreachable,
+> > > > > leading to intermittent probe failures and runtime issues.
+> > > > > 
+> > > > > Add the required interconnect to ensure reliable register access.
+> > > > > 
+> > > > > Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> > > > > ---
+> > > > >    arch/arm64/boot/dts/qcom/kodiak.dtsi | 2 ++
+> > > > >    1 file changed, 2 insertions(+)
+> > > > > 
+> > > > > diff --git a/arch/arm64/boot/dts/qcom/kodiak.dtsi b/arch/arm64/boot/dts/qcom/kodiak.dtsi
+> > > > > index 90e50c245c0c..721526f023dd 100644
+> > > > > --- a/arch/arm64/boot/dts/qcom/kodiak.dtsi
+> > > > > +++ b/arch/arm64/boot/dts/qcom/kodiak.dtsi
+> > > > > @@ -3389,6 +3389,8 @@ adreno_smmu: iommu@3da0000 {
+> > > > >    			power-domains = <&gpucc GPU_CC_CX_GDSC>;
+> > > > >    			dma-coherent;
+> > > > > +			interconnects = <&gem_noc MASTER_GPU_TCU QCOM_ICC_TAG_ALWAYS
+> > > > > +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
+> > > > 
+> > > > Why is it ALWAYS? Would it be better to declare it as ACTIVE_ONLY and
+> > > 
+> > > Added QCOM_ICC_TAG_ALWAYS, to hold the vote in SLEEP bucket as well
+> > > preventing gem_noc going to sleep when icc_set_bw is being called.
+> > 
+> > _why_?
+> > 
 > 
-> Optimization measured on two scenarios involving eager-splitting on a
-> VM with 32 memslot of 2GB (total 64GB), and vcpu per slot:
-> - Scenario 1: No manual protect, whole memslot split at dirty-track enable
->   (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
->   - Split happens only once, whole region
->   - Evalutes improved batch performance of splitting
-> - Scenario 2: Manual protect, split happens during every dirty-bit clean
->   (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
->   - Split called multiple times, for smaller 64-page sections.
->   - Evaluate improved performance for multiple calls
+> Now when i think of where we implemented the hooks, ALWAYS is not needed. We
+> should keep it ACTIVE_ONLY since we are already voting it
+> back in resume pah. I'll fix it in next revision.
 > 
-> Scenario 1, improvement on dirty-track enable ioctl for the memslot:
-> - Memory was already split (4k pages):  -43.18% runtime (stdev 3.87%)
-> - THP backed memory:                    -25.77% runtime (stdev 1.01%)
-> - 64x1GB hugetlb memory:                -25.62% runtime (stdev 1.09%)
-> 
-> Scenario 2, improvement on dirty-log clean ioctl for the memslot:
-> - Memory was already split (4k pages):  -39.88% runtime (stdev 2.71%)
-> - THP backed memory:                    -25.18% runtime (stdev 0.32%)
-> - 64x1GB hugetlb memory:                -49.17% runtime (stdev 1.86%)
-> 
-> For collecting above numbers, the following script was ran in both vanilla
-> and patched kernels, with kernel parameter 'default_hugepagesz=1G', on an
-> TX2 with 128GB RAM.
-> 
-> --- dirty_test.sh
-> #!/bin/bash
-> filename=$(uname -r |cut -d'-' -f 4-)
-> 
-> run_test(){
->   base_test="./dirty_log_perf_test -b 2G -v 32 -m 6 -m 8"
-> 
->   # Manual cleaning disable
->   ${base_test} -g
->   ${base_test} -g -s anonymous_thp
->   echo 64 > /proc/sys/vm/nr_hugepages  
->   ${base_test} -g -s shared_hugetlb
->   echo 0 > /proc/sys/vm/nr_hugepages
-> 
->   # Manual cleaning enable
->   ${base_test}
->   ${base_test} -s anonymous_thp
->   echo 64 > /proc/sys/vm/nr_hugepages  
->   ${base_test} -s shared_hugetlb
->   echo 0 > /proc/sys/vm/nr_hugepages
-> }
-> 
-> run_test 2>&1 | tee ${filename}
-> ---
-> 
-> Above dirty_log_perf_test command is the standard kvm selftest found in the
-> kernel tree. It tested the following guest modes:
-> Testing guest mode: PA-bits:40,  VA-bits:48,  4K pages
-> Testing guest mode: PA-bits:40,  VA-bits:48, 64K pages
-> (Modes with PA-bits:36 were discarted in this version, given the amount
-> of RAM being used for testing, and the similarity of previous results)
-> 
-> Performance numbers from above modes were used to calculate average and
-> stdev showed in the optimization results.
-> 
-> Changes since v2:
-> - Rebased on top of v7.2-rc1
-> - Improved testing, added more memory, re-tested
->   - Now: 32 vcpus @ total of 64G
->   - Before: 1cpu @ 16G
-v2 Link: https://lore.kernel.org/all/20260618131447.764085-1-leo.bras@arm.com/
 
+The path is between the SMMU and DDR, so clearly it has to do with the
+TCU's ability to fetch things from DDR.
+
+ACTIVE_ONLY states that the vote should only be applied when the
+application subsystem (CPUSS) is not in low-power mode (CPU is active).
+
+So, are you saying that in all cases that cpuidle might select such
+low-power state the GPU TCU is "stopped", and does not need to perform
+any memory transactions?
+
+
+To me these two are orthogonal and TAG_ALWAYS is logically correct, but
+perhaps there's some practical dependency that I'm missing?
+
+Regards,
+Bjorn
+
+> > > 
+> > > > then drop the extra suspend/resume play?
+> > > 
+> > > Not sure if I understood it correctly.
+> > > Did you mean the extra suspend/resume play in arm_smmu_runtime_suspend
+> > > or in arm_smmu_device_shutdown() path?
+> > 
+> > runtime_suspend/resume. I might be incorrect here, but I think it is
+> > exactly what you need.
+> > 
 > 
-> Changes since v1:
-> - Fixed inverted flag verification priority (Sashiko)
-> - Fixed incorrectly skipping POST call if level was skipped (Sashiko), and to that
-> - New pre-patch that changes goto-out -> return to avoid re-testing walk_continue 
-> v1 Link: https://lore.kernel.org/lkml/20260610202112.2695205-2-leo.bras@arm.com/
+> Yes, I think we should go with the ACTIVE_ONLY flag and we would need
+> this voting in suspend resume path (For the same reason mentioned in commit
+> description and cover letter of the series).
 > 
-> Changes since RFC:
-> - Changed approach from return value to walk flags (Will Deacon)
-> - Discarted skip_child approach (Oliver Upton)
-> - Measured in real hardware, and from userspace perspective (Marc Zyngier)
-> - Better explanation of what and how numbers were collected
-> RFC Link: https://lore.kernel.org/all/20260515195904.2466381-1-leo.bras@arm.com/
+> ALWAYS would avoid the need for this handling, it would keep the vote active
+> unnecessarily, but still that would have been nondeterministic.
 > 
-> Thanks!
-> Leo
+> Thanks & regards,
+> Bibek
 > 
-> 
-> Leonardo Bras (3):
->   KVM: arm64: Avoid re-testing walk_continue
->   KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
->   KVM: arm64: Make stage2_split_walker() skip unnecessary walks
-> 
->  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
->  arch/arm64/kvm/hyp/pgtable.c         | 28 +++++++++++++++++++++-------
->  2 files changed, 34 insertions(+), 7 deletions(-)
-> 
-> 
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> -- 
-> 2.55.0
+> > > 
+> > > Thanks & regards,
+> > > Bibek
+> > > 
+> > > > 
+> > > > >    		};
+> > > > >    		gfx_0_tbu: tbu@3dd9000 {
+> > > > > 
+> > > > > -- 
+> > > > > 2.34.1
+> > > > > 
+> > > > 
+> > > 
+> > 
 > 
 
