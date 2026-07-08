@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62136C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782EBC44503
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 21:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EL3sakANKl4IKT+Mrzgw3U0qq0DE1KrPj/PZOJU3/ps=; b=38k5tyir6Yk3z3K8FgV8Gjedxg
-	45N7n6jr2EKrc+wvBvxkHlbXS4qs4Wy6FW9tVAlKC0pgue0g0vjbZXFB1Ir/wpxJ9Ef8prm6BSvru
-	DvxufXOR6NBvH//4dRHg/HSLG+psY1WsVHnaS0AjAwZ2PjDQlEbhZM52WW6lxcMi/OQ+onJiXCSys
-	D0QZW0ZOE7y9jO7SbSw9PNjJFGsmfn2VBI+JvLwNA9TWlBURIBYneDh66RpbML6Mq/cT7fxlBkiXQ
-	6Rnsj/dolCeMDUK1nprvkXSk9Srgq9eTYC4x63RSZKj8yKuZwxK5i5Dzz+QnIKevD6kJYDjC7b73U
-	q5KbAwKA==;
+	bh=xxmbCEiytSsPBgAGH60+X3LGOPGAkZ5dtzNlfPK/Sb8=; b=TDLOCskBfM+OrvhHG1kFBmHcr2
+	MSALjnIdauw1aobxRMvBPE93x+WOqvB4iFIoHhoj2pvivY5T7klQoSNK3PfkGxxvCyfkrfngtLn8p
+	NFJZjWsqWDMGMa+yy83Kr4fGiVBzfk/kwYcu+GO6sd2uP6wIh4raaFm9xl/0MclYh77GtkutMqttU
+	IElXQ9VE5+ccjqZBMYPDkrSmq+gi1I56+SOC9+IcN2K4ZyvE4Na1l/ykFX1JdXOJ1C89r5lK3OJ4n
+	RcAIQFnDB9r3UCMY7T7chyos7johWbsmMyIA9kVQhcWVt5H0bZp55FnCLCBgNtF6goIiYqfwZ7k3L
+	hFztxaJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHO-00000000UQQ-3F71;
-	Wed, 08 Jul 2026 21:58:06 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whaHP-00000000UTn-3bJF;
+	Wed, 08 Jul 2026 21:58:07 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whaHI-00000000UDh-0ZWq;
-	Wed, 08 Jul 2026 21:58:01 +0000
+	id 1whaHI-00000000UEN-3T0i;
+	Wed, 08 Jul 2026 21:58:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783547877;
-	bh=3nRFDQlKOP6ZG+eGUXeQmggd6GXikaD+VZE3rmeWFfA=;
+	s=mail; t=1783547879;
+	bh=9plGv+lce7EtVXWIsCW46kOTvzURvxmyne5/JsliDBk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZFp075GfS7phgXxgTOt/KV5/XuoLR545W73kH+cgoibmGNOvRv6qmBw4gNaf3FdEa
-	 20V1mH5Pi/VyCcOyAvFE7IWtoScFZAbKFJTB/qpdrb65qQQmJkIT/fOkc7NKM3vGjJ
-	 zdEp8zxMhmnp17ByLHijoHvmf3j3aebiFmCGQd1EFe3a/0rhxFXUBrfaK1DYhnYmZ5
-	 O7ekxYuv7BDvM6gVIvC1zu0qyQUUNiD2pv0Lu0k4GmAqHwuVNvU0P9FhMWfpDe61yR
-	 Xd3wNru8CzeeCCM3GfDqd2hOQS9c/a6Sb4DYYbl3IVcAcRHkQ9nMzYqNwsaGFFQbat
-	 1E68ETTxM1Exw==
+	b=Ns9ssnAbbNfo/FXvR5qx+j+bcBOliVejnkFsYrX23n0neoZS9oxGG15D5UcOJcXo3
+	 W2+fzGCKScmOy6mvkxmrEov+PRF5bt3sfPjidiP+CmdGVH8o89co8UfVFh5XkL5UQl
+	 R7xst4H4+ByTs4z9bWtwgdAwRkI4bTYq3tixSVMcTCDydzJr8dUtjrusY7kQr/aZIK
+	 QUmniJk+uxpm5eR15pHU4nWmCDQPtrqQkGCCGaTdH8Sfy0hgD1JiPJUJgwLW4hkTJJ
+	 sPYdBC/i9/v5fCVO0OVCzrKturKk+v4FHOaofuNwAS944Txw9GrmO0tQZBA0yZyxhE
+	 XBT3f174cIbIQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 72D1417E0E04;
-	Wed, 08 Jul 2026 23:57:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D479417E0B79;
+	Wed, 08 Jul 2026 23:57:58 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 09 Jul 2026 00:57:31 +0300
-Subject: [PATCH v3 09/14] drm/rockchip: vop2: Consolidate HDMI PHY PLL
- clock parent switch
+Date: Thu, 09 Jul 2026 00:57:33 +0300
+Subject: [PATCH v3 11/14] drm/bridge: dw-hdmi-qp: Log resolution and
+ refresh rate in atomic_enable()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-dw-hdmi-qp-yuv-v3-9-a4a982a9f2e7@collabora.com>
+Message-Id: <20260709-dw-hdmi-qp-yuv-v3-11-a4a982a9f2e7@collabora.com>
 References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
 In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -72,8 +72,8 @@ Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_145800_344511_33543493 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260708_145801_011479_AD8B7C2D 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DCLK parent switch logic for HDMI0 and HDMI1 PHY PLLs was
-duplicated, with each endpoint repeating the same clk_get_parent(),
-clk_set_parent() and error handling calls.
+The debug entry in the HDMI branch of dw_hdmi_qp_bridge_atomic_enable()
+logged the mode field as the fixed 'HDMI' label, giving no information
+about the actual display timing being configured.
 
-Refactor this by first selecting the appropriate PHY PLL clock handle
-based on the active HDMI endpoint, then performing the parent switch in
-a single shared code path.
+Extend it to also include the active resolution and refresh rate,
+retrieved from the CRTC mode in the incoming atomic state:
+
+  dw_hdmi_qp_bridge_atomic_enable mode=HDMI:1920x1080@50Hz fmt=RGB rate=185625000 bpc=10
+
+This makes the log line self-contained and directly useful when
+debugging mode-setting issues, format negotiation, or TMDS rate
+mismatches without having to cross-reference a separate mode dump.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 36 +++++++++++-----------------
- 1 file changed, 14 insertions(+), 22 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index aa81b3b01fbd..65902db7f7c0 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1964,42 +1964,34 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 		unsigned int bpc = vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 ?
- 					8 : (vcstate->output_bpc ?: 8);
- 		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8, bpc);
-+		struct clk *pll_hdmiphy = NULL;
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index cfd1b18c06e6..0e6142301791 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -752,6 +752,8 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 	struct drm_connector_state *conn_state;
++	const struct drm_display_mode *mode;
++	struct drm_crtc_state *crtc_state;
+ 	struct drm_connector *connector;
+ 	unsigned int op_mode;
  
- 		if (clock <= max_dclk) {
- 			drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
- 				struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+@@ -764,9 +766,15 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		return;
  
- 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
--					if (!vop2->pll_hdmiphy0)
--						break;
--
--					if (!vp->dclk_src)
--						vp->dclk_src = clk_get_parent(vp->dclk);
--
--					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
--					if (ret < 0)
--						drm_warn(vop2->drm,
--							 "Could not switch to HDMI0 PHY PLL: %d\n",
--							 ret);
-+					pll_hdmiphy = vop2->pll_hdmiphy0;
- 					break;
- 				}
- 
- 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
--					if (!vop2->pll_hdmiphy1)
--						break;
--
--					if (!vp->dclk_src)
--						vp->dclk_src = clk_get_parent(vp->dclk);
--
--					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
--					if (ret < 0)
--						drm_warn(vop2->drm,
--							 "Could not switch to HDMI1 PHY PLL: %d\n",
--							 ret);
-+					pll_hdmiphy = vop2->pll_hdmiphy1;
- 					break;
- 				}
- 			}
- 		}
+ 	if (connector->display_info.is_hdmi) {
+-		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
++		crtc_state = drm_atomic_get_new_crtc_state(state, conn_state->crtc);
++		mode = &crtc_state->mode;
++		dev_dbg(hdmi->dev,
++			"%s mode=HDMI:%ux%u@%uHz fmt=%s rate=%llu bpc=%u\n",
++			__func__, mode->hdisplay, mode->vdisplay,
++			drm_mode_vrefresh(mode),
+ 			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
+ 			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
 +
-+		if (pll_hdmiphy) {
-+			if (!vp->dclk_src)
-+				vp->dclk_src = clk_get_parent(vp->dclk);
-+
-+			ret = clk_set_parent(vp->dclk, pll_hdmiphy);
-+			if (ret < 0)
-+				drm_warn(vop2->drm,
-+					 "Failed to switch DCLK to HDMI PHY PLL: %d\n",
-+					 ret);
-+		}
- 	}
- 
- 	clk_set_rate(vp->dclk, clock);
+ 		op_mode = 0;
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+ 	} else {
 
 -- 
 2.54.0
