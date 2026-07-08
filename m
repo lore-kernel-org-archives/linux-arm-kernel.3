@@ -4,116 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5C7C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226BFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 19:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=; b=vP1fXPBPbULe42qrIiqBAGzzII
-	78Kso6kN0lOkBxCvwKDGCQm8lLZaUzJm/yVkT46DuHxRyjnzysWdvvhKH0q88eQy+7gW3fFztom57
-	IZlMnUudZcSFqV14jYslrfh1S2gcB2eLcWTl1sdQ7Ya7WlhHiJO6wHpRQzk8P3T9der0AB8xBhDbl
-	a+/qB8UUVWtE4XeuHluZY1nFGY8BnBPwMahzahiZXwRONsGhVesYkyyoE3LJhtqhUXYvmvLUdbUyx
-	tk6GcYB9IBd4fJdoDs73qCVUwSaj+iv0QMWHwKLqtt12vYZjt/xBz54pqhHrKutjApd80JSVB6SU6
-	rZLs6k+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XfaEmAmhA3/LRZ1KASmf+cILHI69XhZOKYik6s/B0E8=; b=tus4E7RdVnisdqo9G781XKlhpz
+	Inc4hcQLXK0J2Jt4vr6YPkF1cNizbv7zyYHFM5H0o326fhpCn60Ofy79eVlhmSGn18qymIRyEaWUj
+	HXnCTt9CZbovDkb+OAMVeuxSUJWjhaMnsmeAveQddT7MWm7eZnlO1ukPvrfUCbn8ZXW+nKSZM1G4N
+	VPZwFLl0uOO4lb3zjCRPPoOHG15WMz+Ec1EJeaezfDzK+fGfg7SVqmUzK42rV95UQ621gvxvjOKew
+	Mh3yb6L7/r1IwfcCKu5npUGdmYrLtAgpHVw1sKxAYZ+CYb/OpaW3rs0M9Y5JtvnBdmb57Z+SAp6zH
+	Q4uee0Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whYCk-00000000I0S-2SD0;
-	Wed, 08 Jul 2026 19:45:10 +0000
-Received: from mail-eastus2azon11010017.outbound.protection.outlook.com ([52.101.56.17] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1whYGe-00000000ITr-0oC2;
+	Wed, 08 Jul 2026 19:49:12 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whYCd-00000000HuL-1YzT
+	id 1whYGb-00000000ITM-24Pv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 19:45:05 +0000
+	Wed, 08 Jul 2026 19:49:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UJwZujN5MgAeQaIbeIYU+lh5m+JBxeg+CfID4vS9qTtnxIsLIFHCdVxsLl/qUOCspsCEhnB7qckiUAqTGWeJulKvqOb3t6miMmFbdP2iAGvOnXbSlxMySoI8f1qXavYEzCWUs09k90fIlSOLSLU+FXU3XQX8gkbcqNqFxVNgxfteiXVO3EGjCI0N6URP0RsjYrwI/TJi8CJpcI919Us6/s+z0RdbsEeQT5wu0kLpqMOEHFYdSSK37nPcaUoZO06dYoNYgLklvbrmx0pjyXSFqSYzCUVM5E0WpW79zES7EJns0jb0pNXJakU08i2OyKtEz17tCKU/TuLGV1asaymPuQ==
+ b=u/sLsNxaoA5x2+J/w4QtUt4/PvLHLJnrsfsZFWYHeMw95N0MPRyLsMlBcvfOKGYirBoLO4fAMGPO2Ni8X53xkUaIl7hWCCkREDKtEbk5iZy4DdK5xFY1Y63uAAGzGYvlDcvGAR88IljNdxSgJQ9FABb2NMwb7dI1hkjZVxq9fZMf8jWVuNMVLSevkoHallwZGTEH9x7B1ANorAcYILtj7Z4laZGlmZ0euSU06fGVpPWr9NvDoWqJGINjhvrfyqo/8xjU9BNjThfW5B5Jwf3Uu+FNganUu9CPfj7eiCaR/21dl8vweY9wDu7FZ3+oeuX5vcwXmQYBKwikY7iMVrldVg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=;
- b=Tjp8E8J1fa3CgGVRddN6ZeowKBiVweuVPq0x5S7bhXvH+XgmvKnbGCNB/qRmsyWxFPNYbN9VWGb/GOtQxnK6v2DhNkDEIpeOP8RyUd8jERNajhaLxfqeFLOibCQkUz+SedsKXd0fMWPgkM8J5297xcaFHv+qewUkHPdZ1kZ8tWw3c94dVGcqyChE5sGkzUalxopFRRjT+raC5SlLAN8Js5+Yt92doircL2ip7iZnYVIXSGZ/9o+/FGrN8Npbxknr65jWitXCeD00QULwk34rZ79e9YN5a26T7UjeacJL2YI6N2TYO2V6RoWE3ct5yz+oS9jeuHHmBRKXQcJAQ9Johw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=XfaEmAmhA3/LRZ1KASmf+cILHI69XhZOKYik6s/B0E8=;
+ b=QLYz/KOMMWpAQMwEV5SBaIpp8CbT3niDQNddp/yRXtBxVCFhA6/db7EA9lM/diYRoPlUoYSlte+XbZpGBQEyAH1gGhjscVqKIvyJNbNhpDlifVfsu5oK8jiPYLyK6UeMMi2y5RRaE+FCh+GklgBNNCu+o0mSoBiUtXEYkWt4l11yL8TrVD+YV/eW6yBqOTHH5YMjAFfLwUBq7+7c6vQkA1z2veviiBP7r/E84VIi0B5MpetIkcv9HM3etoY9jgfwgaMZ04ciIHJ5iKNP7lXBPbtfxlRpYHVmErT5JcB8jJ/UOOgtdC3xfDfBmiUK9J2gi3cj56cljbQLnHHC0SN0/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D2JQkiNXOv8g1wVvgQE/9lvQJ8a+sIlFA4W6wTm/wqk=;
- b=WRsU5JCatNy+82ahsm28+ebG42u8uPKkShIO6j/Sefk5xnqdTZdDA5N2J6W7L9g/y74ZIoKig0M+0bfZB5IH6ahWMQW5YgRS+dWOkCSYmHE+MEGiyBWOmda9mPERcu67q1g7vzNQXSpj+SqZUVfkWcxRfC45DkrBn2Cb/wdmXL1SdXB1zfDVNS7+F6lCVYNqx9N6GtH0zK4Bq5C3rl3LcOUYk6u2WmvW/Qqqq1uQdFHJqgWxas9vCJuxRHb60lbGiaydgxGVjyJc6eTUuHGszopNb3Gvb5LZCyMRObNcoqp0aZ/Zw7q17w6nRY9Nf8WiCjEVHZiu57ibpnqkSKxcGg==
-Received: from SJ0PR13CA0231.namprd13.prod.outlook.com (2603:10b6:a03:2c1::26)
- by SA3PR12MB7974.namprd12.prod.outlook.com (2603:10b6:806:307::17) with
+ bh=XfaEmAmhA3/LRZ1KASmf+cILHI69XhZOKYik6s/B0E8=;
+ b=ARMhS4lHWUmpivEIi6e0ztVswwnaKZ67wroGZQW42f7/wSJTsr8nqr30VMxbfnBx9qQoUZ/y2H9XEXhPmX2tYwtYwDDRUvMeDVCq1OmnYggeZCG4xaYuBACOqAKe+V1uIjl1ALZb02elIsWXTp77i3owb88Dflcx1RCz0f9t2O7G2gJ762VP8RvbEOUKAso2jSXOleCf3sxiSoDBrs45ZGFcVtf5g6L7N25YheLU/fNKKC37vSO1IR1ZNZ9c8AR4YwtgeW63jKkQjXMLkhbQVwOMMvD+NGcn3oHCx9uqO74LAALbXyxsgTgkRUOVozbhh5hZ1AFxGUeNz2CvR9o0EQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB7150.eurprd04.prod.outlook.com (2603:10a6:800:12a::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Wed, 8 Jul
- 2026 19:44:50 +0000
-Received: from SJ5PEPF0000020A.namprd05.prod.outlook.com
- (2603:10b6:a03:2c1:cafe::67) by SJ0PR13CA0231.outlook.office365.com
- (2603:10b6:a03:2c1::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
- Jul 2026 19:44:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ5PEPF0000020A.mail.protection.outlook.com (10.167.244.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 19:44:50 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 8 Jul
- 2026 12:44:38 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 8 Jul 2026 12:44:38 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Wed, 8 Jul 2026 12:44:37 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, "Kevin
- Tian" <kevin.tian@intel.com>, Lu Baolu <baolu.lu@linux.intel.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <joro@8bytes.org>, David Woodhouse
-	<dwmw2@infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation commands
-Date: Wed, 8 Jul 2026 12:44:16 -0700
-Message-ID: <194fec44b30b7b4233d218686cd76d63208932ff.1783539724.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1783539724.git.nicolinc@nvidia.com>
-References: <cover.1783539724.git.nicolinc@nvidia.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
+ 2026 19:49:03 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
+ 19:49:03 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH 0/3] ARM: dts: imx: cleanup st,stmpe touch screen related
+ CHECK_DTB warings
+Date: Wed, 08 Jul 2026 15:48:55 -0400
+Message-Id: <20260708-dts-stmpe-v1-0-1f51d15bb358@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKepTmoC/yXMywqAIBBA0V+JWSdYkD1+JVqYTjVBDxyLQPr3r
+ JYHLjcAoyNkaJIADk9i2taILE3ATHodUZCNhlzmSpayEtazYL/sKOqqqEut1KD7DGK/Oxzo+l5
+ t95uPfkbj3wHc9wOSq48VbQAAAA==
+X-Change-ID: 20260708-dts-stmpe-98597a66fab1
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Linus Walleij <linusw@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783540138; l=731;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=Mi/kVlI+lkKa9JV0ui54lnEc4jkHvpOrF5K19Niml9c=;
+ b=1LcSusC/GxlOAfekhT6uy+z0hvX+O5L+0KXVkgPYQUFCBp/2b3f1rXSHVEMd3vKWMCi6z+naV
+ dFNGq6Ac3ZXDnhNsF1Fuqktk03r42Ls3XpDAI2m/KI2yInaSLVrC/Ji
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH1PEPF00013307.namprd07.prod.outlook.com
+ (2603:10b6:518:1::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF0000020A:EE_|SA3PR12MB7974:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95dc810b-362c-4e7a-7812-08dedd295fcf
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7150:EE_
+X-MS-Office365-Filtering-Correlation-Id: e088816c-8e8b-44ad-226f-08dedd29f671
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|1800799024|3023799007|11063799006|56012099006|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: dU8RozKN3zfIhMlgblzLAAt764nxqJuXIKGiRQ5dZ+kRFpfS0/fX/pE0EjgYM5EQ1JRyy7uzdIJ50ksxjZEQ7BxUpZklI0PIAXWR4TKPswn3S/5gOpUUXzHfFqJ+8kWaDtIqdGVD/HyM7XjPnXzOYfmgVAEpIJhHSLU/hX9p25pz0BWBKlCRyt8QRxHeUPkyOs8r8iuEfeZ8Qvirsds09S3QKxcaCjM1MZ5jQMGG7pkhYM1+nWER5B0w9KxLuFOqYWzojorhMlOCh5bxD8QSXCkSvmxCSd7Qi/6Us8YoELdjfW6e0KodKwCAMzn8jd1RUW9OBCAm/7LLSHhFEEjKhBHnUcWqYlbAi1o+6kNP98Gv3t1omOIOLbi4rWoAOi4TcgWN/mSLLuSdxL4+gLpxd1Qw8B6r7GgmwvFhClDTcBYN0cNTtwESbvu70BvGRbLCoPga1+2YHw/1unjG39kOptncjLyUWuKtVjJm2z3U0aTZOqccbig9ot3xJioAIT4YNCuMYUlvNb6A0QWR9hNZvz/A6pGwkvNT5VOQA9dr0zl5Nv7EX9ckYhfcUjORmH+rXKI+SgJM6zIIaj6TQNNy05t5VprrVakVdgafl+fOzLwLO0lNEgJ+Ii8E0MhWoAhqyjhU2Lptu9TQfE3RxtpLI2MAkNcBN9hF6BqStq9ol3f+Dw6CMiUSIvpGHjK/A3vuzNg/ZRk78iW8czXcSGPSQw==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(1800799024)(3023799007)(11063799006)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|1800799024|366016|921020|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: PZtxetOL3TbgA/gDpEdqeNC2gaVlaT3BX/Kj70Bb74NcdCZ2cJf0DWuwJnAcbkRYSzM0xl+9X3Fh4PwewAscBTQ6KKMnkEvYClu956NZr6kN4yDi0y0JpBKbJ/22iJ/SFk2wDxvcGFnA9q3tPZeK23sHKfWR+rc5MdOE6EKuMWUUMmmhGHXVWkcgjGpTCp+aAvoL5WLWZ5BQpje5EjSnRduXk0XFJ7RMzFNArx2jb29WAG8td/gBZzynIEIPRa6ADQGTccOrYKgxuZDfwYQZFpzc9XKitaHBgi6FEnJvwXjnvRJqiOGt36Qv5S6+VS6KiaiW4RhZicvAnZppRR7V7llb/Y9QWw+g1c9ak8NBIi5+BnB+yZ+7VzQ2xxGinf/wbHwSKF/W4NOd5EVhD6DrcRE46ShR3Z5pIAUb3VVnbCgdgi2AbtR/s26FDqPPcHFpN263dAGYzu73mHbExWazDomm8LHy3wtpiPSAOxt+3rVEnMq9cT7jP58EbeTZ6cEBT7tMxVwbgfcqPmghyRvJt/82VYqE7yXwmcoVqUf6L5BMS4ZDkm81pCPXUiE0l5ep01qLZPT9lBg9hff5vw9YpInzNTG+quPBELINQUs8js54jN5A1MskDbH112qgeCzt3OxA+/F5W+xP+5HdRarqOqfIzqyHYpIMUz4445zUfHj5qCbCLASYauqUjzOsDVGeCE+olaYa9bmYJ1+37acX2w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(1800799024)(366016)(921020)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CpwzAcDdXg9zDbewRxRvka0VWhmr6O9Yk8ZYs6Yrpjn6MXi4zhytbmb2Mt2C96JMVPlKjbvFqxgi5UAH48Pg3cHYCGQ6wYCUuwe5VuCK89rIv6MBi8pibrlTtMcFe44Zea1vX9e9JsAfelGVR7pos/yTXElo3QVM8PkfBCMPhhRX2hClrRUnscpK16nJ3b1qmHIeaES7RuaMZaVBN0+3XGxIwDhM1ZKIq53BH8QhTqPcb80CPtGG2p2QyPZMDjWWZRVBYpNprmr3mNocEtR3MfVuEjh9QOiG6iSrGq9heDuu/tS0i/Wc6+2Nh3ZVTD9IuB272bGGfOtAj4mfBr4sGpo5djKGnDjmtpnAlCzCJRqC+wAn4RelQ4q3FZwRTgS5Curcm6LBHo/shKKVC6ny5lM/mrrAdnLMMI/g+yATUph77/TU/Zuhn8KwiYnfHF+4
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:44:50.3825
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NmkwVGRqMDJKa1V5VFg0TXZ6a2ZJdDhNK3htTDN6YlNGR1lWOVh6cHVzazJJ?=
+ =?utf-8?B?TjF4UUt1NUxZRm9ia2FhUlQzVnprb0FLYUZOZllQK2MrSDVlQ1kzR0pVOHcx?=
+ =?utf-8?B?a1RzRXlLTm1ybUlLTTBjMmhJQSt0QXJTMDhBWXg3NXl0UVNmZmRnSnFoOUVx?=
+ =?utf-8?B?aVRWRlZkTmtod3hMbzBpTFQ0SitaVi9IbW9FRHArQy9HdkE1WHkyM2E0RGk2?=
+ =?utf-8?B?b21WWEMyRHJWZnZKemVZNnNxaVp0ZzVWNk5OZkxMSzZPZkYva2R5S0Jhb2d0?=
+ =?utf-8?B?bjdoYzNobHJ3MnFZN0k3bFkrVzNNOEVUQzcwUS9Jd0dMWVVLdnBjR1RqeDlx?=
+ =?utf-8?B?OS8vVlJYekhRb1g0Q2w3MklhM0szWXFZODZVVU9ZM1BTdWFUbTZuc1hEVkxX?=
+ =?utf-8?B?Vy9TL1Q5RVk0T01Sb0dFVVlGcEc0aGkva1pyWng1WjU0Vjc5MHhTaFVSMTZN?=
+ =?utf-8?B?MDBWK2s2R1NjOHloQkpCTTJBYWF0MVdRS1pNV1pIL0JHMHFhMkM2bUl5YWtL?=
+ =?utf-8?B?aUdYeE1YZ0RUR21iRGlBR0N5aEh4SFVPY2hiRkoyeDBKR1BrL2pJemExVTJy?=
+ =?utf-8?B?VlBhRXNWaTRjSEFMVThjeWh2dFovZk9EV2tPMlJTU3g4MS9VNkxBTHZNNDhU?=
+ =?utf-8?B?NFI4MGJxa1JzalIrWUlvdXAyaUM4VkQyRjRRYTJsZVhkQmEvZHpOeGoxQVdz?=
+ =?utf-8?B?bU44SjAwM0ZNd245WnphWlVaQkQzb0hzK3A4ZjNJWDhWWkIyVzY0RVBVMWs3?=
+ =?utf-8?B?Mmpnc25lUEhvUDJGSFdyandRRE9hcW8xNm5qeWJHL0ZLRGs5M3JtZ3VvWElZ?=
+ =?utf-8?B?MG5LSzlsb2Z1d1d0bW9kU2JZNCtzSzVGYmRBS0dkQ1Jiazh0eUdnL21OdVRn?=
+ =?utf-8?B?L2NJY1lmdnUvL2E0T3JsWWdkRUE0RGpRZUJEQlQ5eERTM0U0OXJlMVl5eCtV?=
+ =?utf-8?B?SXdaT1BMVllocmV6SlJrOS91eG5zbTU3SGtJeGtOZzJtTWZiL1ZXanl6b2Ju?=
+ =?utf-8?B?aGNPL3RPQllnQmhCbWxLV1NBb1Q1V0lsZXg5RlhGdFovS21rbkdpeG1CbFlB?=
+ =?utf-8?B?SHNEOHVXc2IxNE1NZFlBRFdZUnUzVDh1ZUFLc3JvZ2I3LzZuNU1oTWRmTW1E?=
+ =?utf-8?B?aWZhdFVrL1FsRDJodC9KaWRRT2lCZ3dvTmVqMXMyTjk1NmFicDdwamwrMzNy?=
+ =?utf-8?B?d3dZUjdjOHlxRHZWTWFaWTJKcjZpOVdTNzdDT2IyRUhublM2TUZ0ZlU1Nkha?=
+ =?utf-8?B?UitDRjZVTWFpbWdkTE1LbjJXakVoRnB3U202bHBBR3RHU3NRdjBlSnVzek1X?=
+ =?utf-8?B?KzdmOEh1blFkZzdWSUF1MTlRekIwYU5hUDZGOTh5ajhxL0pLRWhyRkpSc2th?=
+ =?utf-8?B?aVJFZVdKS2czVjUzS1BSRWlJb3R5eXI5RXJCOXBCaHljdlJKWnh5aUMrMjV2?=
+ =?utf-8?B?cFVCWlFOdTk0MkxXYXU1eW1NK1J5NEdVVkxvK0RMaUNaRHRab3FmVHhvZlJM?=
+ =?utf-8?B?Q3dUQlJUaVgyUGtvS3E2YWNudnQ1aFlxU3BXakxINjY5STU1VlpDVWovODFR?=
+ =?utf-8?B?YkgzMG5MMDNMUFZBMUhDVkx6bU80cHFMMjhNcEFkVWlMbWgrNEFJYmxFQ05n?=
+ =?utf-8?B?S05RYnZpci9Sb1EwYjlzTE9KeGd5OGxPdEpnRHk3dDhoNTN3eFBmcmcySUtw?=
+ =?utf-8?B?c3VGM0pCVytxSitoWEdZcy8wZkdCVTZ2WkFSR2phbExLUHY4UXhZajFUNGcv?=
+ =?utf-8?B?RVZBUmx0dFlhRWxONldGL3NmQkdvVkdJdWs4WmF5VjRHQ1FLeTdYQW51U1JE?=
+ =?utf-8?B?SUpaQUE3TTh1NUEzNVJIZGU2dU5ORS91OEdSd1Z4Rm1nZGRzMkdBcmp1QzBl?=
+ =?utf-8?B?SUExQS9hMllXNzBNM0dUcStreGJYdGlzUTBFdkI4OGNqU3dKdENUWWpqWEh4?=
+ =?utf-8?B?TVE1ZEtSQkNjZnpqd2toeGRHRWFTSXp6Mi9NUzlIMTVqS2RQdlZLcGJxZnBw?=
+ =?utf-8?B?RXRpcjBQSlBXd2FJZWk2K2wwSlF6R3VkZXhOR1M1ZmxQUTMwTGR1RHA1K1Yv?=
+ =?utf-8?B?VklQemdxWitra3hHTGpTcFh2N2FCVGtySXdZRDZ0WFhPRCtlelU2ejRnRDNI?=
+ =?utf-8?B?dlp0eWhQVGY3bnBGYjlFKysvZjdQNzhuSHJhclByOVlXTGhSOFVZUFdJdjcy?=
+ =?utf-8?B?bnJOUUFLcDJaMmVWeTdrSjlWVTZyTFAzWWNKejdwU2E5QVRmSDd5cTA5TWpu?=
+ =?utf-8?B?RXBIRkRzY0pHZ1FyNEFxTnZaS05ZWDJQTDdkRTl5U2drWlB5a2twMVlSUDho?=
+ =?utf-8?B?UXI2dWVqTDZIa3hIK2EzSUJqMFpKb1B4alNrUklxcmRxbE16UlVLeDVYSVoz?=
+ =?utf-8?Q?T7WcNrap2zaKHED+2wgKycsdqClbgWKySBcMW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e088816c-8e8b-44ad-226f-08dedd29f671
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 19:49:03.3488
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95dc810b-362c-4e7a-7812-08dedd295fcf
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF0000020A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7974
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r7HN75urJVojF9SwilBS8jRYgB2mrPWkrnLt6fPw3jpiInz38dISAJGqFlg1mhIj/j1U93Q4y16WsxIINk4LEpbSxKXygH6N2uw3BUh3KhupZqee0CDYnNZ0NX7ZDwKH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_124503_492923_98932AF9 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20260708_124909_539779_61DBF531 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,295 +165,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm_vsmmu_cache_invalidate() op hands a guest's invalidation commands
-to the trusted main command queue after enforcing only the VMID or the SID,
-and passes the rest of the command through to the queue unchanged.
+cleanup st,stmpe touch screen related CHECK_DTB warings.
 
-That lets a guest set bits the host never meant to forward: a reserved or
-undefined bit makes a command malformed; per the Arm SMMUv3 specification,
-in its section 4.1.3 "Command errors", a CERROR_ILL is raised, among other
-cases, when:
-
-  A valid command opcode is used and a Reserved or undefined field is
-  optionally detected as non-zero, which results in the command being
-  treated as malformed.
-
-Restrict each opcode to the fields that the driver supports and reject the
-command with -EIO if it sets any other bit, before the command reaches the
-queue. This stops the host from forwarding any bit whose meaning it does
-not control. Document this contract in the uAPI header, so user space must
-take the responsibility to forward valid commands only.
-
-Some fields and whole opcodes are legal only on an SMMU that implements
-the matching feature, so accept them conditionally:
-
- - NUM, SCALE, TG and TTL need FEAT_RANGE_INV.
- - SCALE bit 25, for values above 31, and TTL == 0b01 with a 16KB TG
-   need SMMU_IDR5.DS. The raw IDR5 that iommufd reports has let a VMM
-   expose DS to its guest all along, so add the minimal ARM_SMMU_FEAT_DS
-   detection and gate the two encodings on it, rather than regress such
-   a VMM by rejecting them unconditionally. Widening the SCALE field
-   does not change what the host emits in the range invalidation path,
-   which now masks its scale value explicitly to keep the pre-existing
-   5-bit truncation.
- - ASID is limited to asid_bits, since its upper 8 bits are RES0 on an
-   SMMU that only supports 8-bit ASIDs.
- - ATC_INV needs FEAT_ATS. Per the specification's section 4.5 "ATS and
-   PRI", CMD_ATC_INV is ILLEGAL when:
-
-     SMMU_IDR0.ATS == 0 and this command is issued on a Non-secure or
-     Secure Command queue.
-
- - SSV, SSID and Global need a non-zero ssid_bits. Without it, setting
-   them is not illegal but CONSTRAINED UNPREDICTABLE, which a guest
-   should not be able to provoke. Global also takes effect only when
-   SSV == 1, broadening the invalidation from the one SSID to all the
-   PASIDs of the single device that the SID field addresses.
-
-Some values inside the accepted fields are Reserved too:
-
- - NUM == 0, SCALE == 0 and TTL == 0 together are a Reserved combination
-   and cause a CERROR_ILL.
- - NUM, SCALE and TTL turn RES0 when TG == 0.
- - An ATC_INV Size above 52, the invalidate-all span, is permitted to
-   raise a CERROR_ILL.
-
-Reject these Reserved values the same way. In contrast, an out-of-range
-address or ID value is defined as CONSTRAINED UNPREDICTABLE that would
-be scoped to the guest itself, so it does not deserve a check.
-
-Fixes: d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   4 +-
- include/uapi/linux/iommufd.h                  |   4 +-
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 116 ++++++++++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   6 +-
- 4 files changed, 116 insertions(+), 14 deletions(-)
+Frank Li (3):
+      dt-bindings: mfd: st,stmpe: add deprecated properties
+      dt-bindings: mfd: st,stmpe: let interrupt property optional
+      ARM: dts: imx: remove undocument properties of st,stmpe*
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index c909c9a88538b..3c59e62978a13 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -64,6 +64,7 @@ struct arm_vsmmu;
- 
- #define ARM_SMMU_IDR5			0x14
- #define IDR5_STALL_MAX			GENMASK(31, 16)
-+#define IDR5_DS				(1 << 7)
- #define IDR5_GRAN64K			(1 << 6)
- #define IDR5_GRAN16K			(1 << 5)
- #define IDR5_GRAN4K			(1 << 4)
-@@ -415,7 +416,7 @@ struct arm_smmu_cmd {
- 
- #define CMDQ_TLBI_0_NUM			GENMASK_ULL(16, 12)
- #define CMDQ_TLBI_RANGE_NUM_MAX		31
--#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(24, 20)
-+#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(25, 20)
- #define CMDQ_TLBI_0_VMID		GENMASK_ULL(47, 32)
- #define CMDQ_TLBI_0_ASID		GENMASK_ULL(63, 48)
- #define CMDQ_TLBI_1_LEAF		(1UL << 0)
-@@ -921,6 +922,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_HD		(1 << 22)
- #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
- #define ARM_SMMU_FEAT_BBML2		(1 << 24)
-+#define ARM_SMMU_FEAT_DS		(1 << 25)
- 	u32				features;
- 
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 0425d452d41ed..691b810ca574f 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -909,7 +909,9 @@ struct iommu_hwpt_vtd_s1_invalidate {
-  *     CMDQ_OP_CFGI_CD
-  *     CMDQ_OP_CFGI_CD_ALL
-  *
-- * -EIO will be returned if the command is not supported.
-+ * User space must forward only valid commands: the kernel rejects, with
-+ * -EIO, any command carrying an unsupported opcode, an unsupported field,
-+ * or a field value that the underlying SMMU hardware does not implement.
-  */
- struct iommu_viommu_arm_smmuv3_invalidate {
- 	__aligned_le64 cmd[2];
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 1e9f7d2de3441..a5cfbc2499034 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -305,6 +305,26 @@ struct arm_vsmmu_invalidation_cmd {
- 	};
- };
- 
-+/* Reject the range field values that the spec defines as Reserved */
-+static int arm_vsmmu_validate_range(struct arm_smmu_device *smmu,
-+				    struct arm_vsmmu_invalidation_cmd *cmd)
-+{
-+	bool range = cmd->cmd.data[0] & (CMDQ_TLBI_0_NUM | CMDQ_TLBI_0_SCALE);
-+	u8 ttl = FIELD_GET(CMDQ_TLBI_1_TTL, cmd->cmd.data[1]);
-+	u8 tg = FIELD_GET(CMDQ_TLBI_1_TG, cmd->cmd.data[1]);
-+
-+	/* NUM, SCALE and TTL are RES0 when TG == 0 */
-+	if (!tg)
-+		return (range || ttl) ? -EIO : 0;
-+	/* TTL == 0b01 with a 16KB TG requires SMMU_IDR5.DS */
-+	if (tg == 2 && ttl == 1 && !(smmu->features & ARM_SMMU_FEAT_DS))
-+		return -EIO;
-+	/* NUM == 0, SCALE == 0 with TTL == 0 is a reserved combination */
-+	if (!range && !ttl)
-+		return -EIO;
-+	return 0;
-+}
-+
- /*
-  * Convert, in place, the raw invalidation command into an internal format that
-  * can be passed to arm_smmu_cmdq_issue_cmdlist(). Internally commands are
-@@ -315,33 +335,107 @@ struct arm_vsmmu_invalidation_cmd {
- static int arm_vsmmu_convert_user_cmd(struct arm_vsmmu *vsmmu,
- 				      struct arm_vsmmu_invalidation_cmd *cmd)
- {
-+	struct arm_smmu_device *smmu = vsmmu->smmu;
-+	u64 allowed[2] = { CMDQ_0_OP };
-+	u64 *data = cmd->cmd.data;
-+
- 	/* Commands are le64 stored in u64 */
--	cmd->cmd.data[0] = le64_to_cpu(cmd->ucmd.cmd[0]);
--	cmd->cmd.data[1] = le64_to_cpu(cmd->ucmd.cmd[1]);
-+	data[0] = le64_to_cpu(cmd->ucmd.cmd[0]);
-+	data[1] = le64_to_cpu(cmd->ucmd.cmd[1]);
-+
-+	/* Collect the fields userspace is allowed to set for each opcode */
-+	switch (data[0] & CMDQ_0_OP) {
-+	case CMDQ_OP_TLBI_NH_VA:
-+		/* An SMMU with 8-bit ASIDs treats the upper 8 bits as RES0 */
-+		allowed[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID,
-+					 GENMASK(smmu->asid_bits - 1, 0));
-+		fallthrough;
-+	case CMDQ_OP_TLBI_NH_VAA:
-+		/* NUM/SCALE/TG/TTL are range fields gated on FEAT_RANGE_INV */
-+		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-+			if (arm_vsmmu_validate_range(smmu, cmd))
-+				return -EIO;
-+			allowed[0] |= CMDQ_TLBI_0_NUM | CMDQ_TLBI_0_SCALE;
-+			allowed[1] |= CMDQ_TLBI_1_TG | CMDQ_TLBI_1_TTL;
-+			/* SCALE bit 25 (values above 31) is RES0 without DS */
-+			if (!(smmu->features & ARM_SMMU_FEAT_DS))
-+				allowed[0] &= ~FIELD_PREP(CMDQ_TLBI_0_SCALE,
-+							  BIT(5));
-+		}
-+		allowed[0] |= CMDQ_TLBI_0_VMID;
-+		allowed[1] |= CMDQ_TLBI_1_LEAF | CMDQ_TLBI_1_VA_MASK;
-+		break;
-+	case CMDQ_OP_TLBI_NH_ASID:
-+		/* An SMMU with 8-bit ASIDs treats the upper 8 bits as RES0 */
-+		allowed[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID,
-+					 GENMASK(smmu->asid_bits - 1, 0));
-+		fallthrough;
-+	case CMDQ_OP_TLBI_NH_ALL:
-+		allowed[0] |= CMDQ_TLBI_0_VMID;
-+		break;
-+	case CMDQ_OP_ATC_INV:
-+		/* ATC_INV is illegal unless the SMMU implements ATS */
-+		if (!(smmu->features & ARM_SMMU_FEAT_ATS))
-+			return -EIO;
-+		/* A Size above 52 (invalidate-all) may raise a CERROR_ILL */
-+		if (FIELD_GET(CMDQ_ATC_1_SIZE, data[1]) > ATC_INV_SIZE_ALL)
-+			return -EIO;
-+		/*
-+		 * SSV/SSID/Global need substream support. SSID and Global are
-+		 * IGNORED (not RES0) when SSV == 0, so they need no SSV check.
-+		 */
-+		if (smmu->ssid_bits)
-+			allowed[0] |= CMDQ_0_SSV | CMDQ_ATC_0_SSID |
-+				      CMDQ_ATC_0_GLOBAL;
-+		allowed[0] |= CMDQ_ATC_0_SID;
-+		allowed[1] |= CMDQ_ATC_1_SIZE | CMDQ_ATC_1_ADDR_MASK;
-+		break;
-+	case CMDQ_OP_CFGI_CD:
-+		/* No SSV for CFGI_CD; SSID requires substream support */
-+		if (smmu->ssid_bits)
-+			allowed[0] |= CMDQ_CFGI_0_SSID;
-+		allowed[1] |= CMDQ_CFGI_1_LEAF;
-+		fallthrough;
-+	case CMDQ_OP_CFGI_CD_ALL:
-+		allowed[0] |= CMDQ_CFGI_0_SID;
-+		break;
-+	}
-+
-+	/*
-+	 * Reject any other bit, e.g. a RES0 bit or a Secure bit, before the
-+	 * command reaches the trusted main cmdq, so a guest cannot wedge the
-+	 * shared queue for every device with a CERROR_ILL.
-+	 *
-+	 * By contrast, an out-of-range address or ID value does not need a
-+	 * check: the spec defines it as CONSTRAINED UNPREDICTABLE, which is
-+	 * scoped to the guest itself and does not raise a CERROR_ILL.
-+	 */
-+	if ((data[0] & ~allowed[0]) || (data[1] & ~allowed[1]))
-+		return -EIO;
- 
--	switch (cmd->cmd.data[0] & CMDQ_0_OP) {
-+	switch (data[0] & CMDQ_0_OP) {
- 	case CMDQ_OP_TLBI_NSNH_ALL:
- 		/* Convert to NH_ALL */
--		cmd->cmd.data[0] = CMDQ_OP_TLBI_NH_ALL |
--			      FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
--		cmd->cmd.data[1] = 0;
-+		data[0] = CMDQ_OP_TLBI_NH_ALL |
-+			  FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
-+		data[1] = 0;
- 		break;
- 	case CMDQ_OP_TLBI_NH_VA:
- 	case CMDQ_OP_TLBI_NH_VAA:
- 	case CMDQ_OP_TLBI_NH_ALL:
- 	case CMDQ_OP_TLBI_NH_ASID:
--		cmd->cmd.data[0] &= ~CMDQ_TLBI_0_VMID;
--		cmd->cmd.data[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
-+		data[0] &= ~CMDQ_TLBI_0_VMID;
-+		data[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, vsmmu->vmid);
- 		break;
- 	case CMDQ_OP_ATC_INV:
- 	case CMDQ_OP_CFGI_CD:
- 	case CMDQ_OP_CFGI_CD_ALL: {
--		u32 sid, vsid = FIELD_GET(CMDQ_CFGI_0_SID, cmd->cmd.data[0]);
-+		u32 sid, vsid = FIELD_GET(CMDQ_CFGI_0_SID, data[0]);
- 
- 		if (arm_vsmmu_vsid_to_sid(vsmmu, vsid, &sid))
- 			return -EIO;
--		cmd->cmd.data[0] &= ~CMDQ_CFGI_0_SID;
--		cmd->cmd.data[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
-+		data[0] &= ~CMDQ_CFGI_0_SID;
-+		data[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, sid);
- 		break;
- 	}
- 	default:
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index a10affb483a4f..9f121f9f404ea 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2446,9 +2446,10 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 			/* Determine how many chunks of 2^scale size we have */
- 			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
- 
-+			/* Keep the pre-DS 5-bit truncation when scale > 31 */
- 			cmd->data[0] = orig_data0 |
- 				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
--				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-+				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
- 
- 			/* range is num * 2^scale * pgsize */
- 			inv_range = num << (scale + tg);
-@@ -5098,6 +5099,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	/* Maximum number of outstanding stalls */
- 	smmu->evtq.max_stalls = FIELD_GET(IDR5_STALL_MAX, reg);
- 
-+	if (reg & IDR5_DS)
-+		smmu->features |= ARM_SMMU_FEAT_DS;
-+
- 	/* Page sizes */
- 	if (reg & IDR5_GRAN64K)
- 		smmu->pgsize_bitmap |= SZ_64K | SZ_512M;
--- 
-2.43.0
+ .../devicetree/bindings/mfd/st,stmpe.yaml          | 25 +++++++++++++++++++++-
+ arch/arm/boot/dts/nxp/imx/imx6q-novena.dts         |  3 ---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi      |  3 ---
+ 3 files changed, 24 insertions(+), 7 deletions(-)
+---
+base-commit: 6c94b38b83a04c43ea49004275f0391404051093
+change-id: 20260708-dts-stmpe-98597a66fab1
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
 
