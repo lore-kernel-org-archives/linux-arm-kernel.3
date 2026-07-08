@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C0BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 00:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3446C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 00:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
 	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZPa4plMMy8iNMbmyGa8gqrqo+2w2vQ9zdj+sw1yvhu4=; b=rVK0PW79wdYigF
-	MeD4lix62MZsRUrwLk2t7GiHR2Bh9Lafv5VFlSrwiVIhXBC1A7C9bLZv1SHoccQ2l4Cp6MAOn0ZnA
-	cIPhJIaKJgIxRIoFiBlzQ/eHmotwKc8aIkJqETpkjWLEQSvWCFqL8/tvJEoeqbK/KG/2HhSXqXsHo
-	l8HDWfomcQfusFCkZKz0sfkrAE0a6pdP0KxqAKXuhMR4TNwda6sO/hVHT1lQ0WDRl+an4z49bZHuc
-	xZkb8sNTNEoR6Qw8aRFL6i50ngbxXbwBcAhKF4IOdP95UdezFHuQQrNnZsH0DHiBkndBBjE9uOhHg
-	zPfJdvcY5/bn+j+VKqIg==;
+	List-Owner; bh=XRAnSmciVx2Uv4vUT+zMl7S2GSv+W3820dA+59HEuQ8=; b=cVIFsGlspxzRXu
+	Bab1yOjvujwCClr9jDApkD/vV/jhLC22gEzW51xWN9MhfwefqMqUXMcKYrbf/JRjCB9jzvJkHQr7p
+	fAGDT1Fqybh64lKZlovPd3KhfcQBtAO5b1GVuegxVIE22zYAkdcEtnJi3VoXy8hM9y8T25C7k1Z8e
+	XtVGBHPkgTJEE5HkuBVVpx+qKR2gAtHb83/nk93UMklb36HPJDCmvY8+3OAzVcEOAAhig2pU8gTjz
+	LzYdPnKcTtTlS6HQ5UH3mGu+nWvb1rKjNOIIdM4QJntiJ/UiaYlKxhlCTTAfuqfMTmmT6QrLgL7xz
+	NPweTDOeQzYq5tDQoLRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whGYB-0000000G4eW-3x8t;
-	Wed, 08 Jul 2026 00:54:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whGZn-0000000G4m3-0Vx2;
+	Wed, 08 Jul 2026 00:55:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whGYA-0000000G4eK-3KKz
+	id 1whGZl-0000000G4lt-2zCK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 00:54:06 +0000
+	Wed, 08 Jul 2026 00:55:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E469432DC;
-	Wed,  8 Jul 2026 00:54:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CA91F000E9;
-	Wed,  8 Jul 2026 00:54:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 212E14075D;
+	Wed,  8 Jul 2026 00:55:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124341F000E9;
+	Wed,  8 Jul 2026 00:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783472046;
-	bh=ZPa4plMMy8iNMbmyGa8gqrqo+2w2vQ9zdj+sw1yvhu4=;
+	s=k20260515; t=1783472145;
+	bh=XRAnSmciVx2Uv4vUT+zMl7S2GSv+W3820dA+59HEuQ8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=N2Jx82NDbi6EzBMJXNZ+eQya5X1w9wWA/Dumuygz7IlwXT7d5gZZcIGhWwpYmv49U
-	 cObt4MJcGrCZpDMIVerxelhPQY3BRpujm7Gx77KwqWJjQJRUoLBr1INMp+x4EYHZWa
-	 5UNPl+F7ChI/S4WckCJCNrJ9TsBSOfbP4tpZ1joBzf1xyia0VcPLzYbVyqsKcA5ENq
-	 1GqQSMvbxl0FoEKTukuqOwz+DwpjEjHkYvbb1FJeEyGAVtctAS8iOO40k6vKB+/Eqm
-	 OaEfG9ICQlsQ24OMyY6SnZJgI8L5e/WWHdUklazZ1NXLmCgHNaq31J1HSqLAW4z48v
-	 8lg3xJJ85tjSQ==
-Date: Wed, 8 Jul 2026 09:54:00 +0900
+	b=oZ/nGzZeYoH2tT49qy0JP7bPImKjYNCoqtGmbMWIGBgeDFbE8SO6DCo58NrcxAN9C
+	 vATmCqgUsIO930R4BTHH5pyVrRwvJE3cr7M+WPLO/9u+C3n/bh8NYmZOVUcUQh8Let
+	 VUFVvI2f4FLqj609hnDneqUzOMRM2WxJ2VujUxQIuIfL/SNghUH0mp3Aa/Z/F1frBk
+	 UVx8xtryZ64qzN+191OYfvfG19bkyM8FiPZfL8W2Hquykb22LHoa5K2nWO7lpPjfDc
+	 WxwIrJWtZ3Ow3AZcvyfZSILzOGb0Frvq8B09eK2qhR8k84fXcIiORHFICg53bIfXIP
+	 VLojfCpZDBDXg==
+Date: Wed, 8 Jul 2026 09:55:40 +0900
 From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 To: Pu Hu <hupu@transsion.com>
-Subject: Re: [RFC 2/3] arm64: kprobes: Allow reentering kprobes while
- single-stepping
-Message-Id: <20260708095400.7582bc9589fd9da925aa9c1d@kernel.org>
-In-Reply-To: <20260706083636.159883-3-hupu@transsion.com>
+Subject: Re: [RFC 0/3] arm64: kprobes: Fix single-step fault and reentry
+ handling
+Message-Id: <20260708095540.31c97fcbe9a56f3fd7f0b284@kernel.org>
+In-Reply-To: <20260706083636.159883-1-hupu@transsion.com>
 References: <20260704234730.46d51c47d75e7d208e7bec9f@kernel.org>
 	<20260706083636.159883-1-hupu@transsion.com>
-	<20260706083636.159883-3-hupu@transsion.com>
 X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -71,73 +70,81 @@ Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 08:36:49 +0000
+Hi, Pu,
+
+Thanks for updating the series. But even if it just update
+the signed-off-by, please update the version.
+
+Also, can you check the Sashiko's comments?
+
+https://sashiko.dev/#/patchset/20260706083636.159883-1-hupu%40transsion.com
+
+Thank you,
+
+On Mon, 6 Jul 2026 08:36:46 +0000
 Pu Hu <hupu@transsion.com> wrote:
 
 > From: Pu Hu <hupu@transsion.com>
 > 
-> A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
-> can happen when tracing or perf code runs from the debug exception path
-> while the first kprobe is preparing or executing its out-of-line
-> single-step instruction.
+> This series fixes two arm64 kprobes issues observed when running
+> simpleperf with preemptirq tracepoints and dwarf callchains while a
+> kprobe is active on a frequently executed kernel function.
 > 
-> Currently arm64 treats a kprobe hit in KPROBE_HIT_SS as unrecoverable,
-> the same as a hit in KPROBE_REENTER. This is too strict. A hit in
-> KPROBE_HIT_SS is still a one-level reentry and can be handled by saving
-> the current kprobe state and setting up single-step for the new probe,
-> just like reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.
+> The crash happens in the kprobe debug exception path. While a kprobe is
+> preparing or executing its XOL single-step instruction, perf/trace code
+> can run in the same window. That code may either take a fault of its own
+> or hit another kprobe.
 > 
-> The truly unrecoverable case is hitting another kprobe while already in
-> KPROBE_REENTER, because the reentry save area has already been consumed.
+> Patch 1 makes kprobe_fault_handler() handle a fault in
+> KPROBE_HIT_SS/KPROBE_REENTER only when the faulting PC points at the
+> current kprobe's XOL instruction. Otherwise the fault is left to the
+> normal fault handling path.
 > 
-> Move KPROBE_HIT_SS to the recoverable reentry cases and leave
-> KPROBE_REENTER as the unrecoverable nested reentry case.
+> Patch 2 allows a kprobe hit in KPROBE_HIT_SS to be handled as a
+> recoverable one-level reentry. Only a hit while already in
+> KPROBE_REENTER remains unrecoverable.
 > 
-> This mirrors the x86 fix in commit 6a5022a56ac3
-> ("kprobes/x86: Allow to handle reentered kprobe on single-stepping").
-
-Can you also check the Sashiko comment?
-
-https://sashiko.dev/#/patchset/20260706083636.159883-1-hupu%40transsion.com?part=2
-
-This seems indicating potentially brakage of reenter kprobes on arm64.
-But is it possible to hit another kprobe while SS on arm64? It is
-the same question about the previous one, can NMI happens during
-the single stepping? (maybe yes, because it is non-maskable)
-
-Anyway, for making it safer, we need to add saved_irqflags to prev_kprobe.
-
-Thank you,
-
+> Patch 3 adds a kprobes selftest which registers a kprobe on a frequently
+> executed filemap fault path and drives repeated file-backed page faults
+> from userspace. This provides a smaller reproducer for validating the
+> fault handling fix.
 > 
-> Signed-off-by: Pu Hu <hupu@transsion.com>
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> ---
->  arch/arm64/kernel/probes/kprobes.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
+> This follows the same logic as the existing x86 fixes:
+>   6381c24cd6d5 ("kprobes/x86: Fix page-fault handling logic")
+>   6a5022a56ac3 ("kprobes/x86: Allow to handle reentered kprobe on single-stepping")
 > 
-> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-> index e4d2852ce2fb..764b2228cca0 100644
-> --- a/arch/arm64/kernel/probes/kprobes.c
-> +++ b/arch/arm64/kernel/probes/kprobes.c
-> @@ -240,10 +240,16 @@ static int __kprobes reenter_kprobe(struct kprobe *p,
->  	switch (kcb->kprobe_status) {
->  	case KPROBE_HIT_SSDONE:
->  	case KPROBE_HIT_ACTIVE:
-> +	case KPROBE_HIT_SS:
-> +		/*
-> +		 * A probe can be hit while another kprobe is preparing or
-> +		 * executing its XOL single-step instruction. This is still a
-> +		 * recoverable one-level reentry, so handle it in the same way as
-> +		 * reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.
-> +		 */
->  		kprobes_inc_nmissed_count(p);
->  		setup_singlestep(p, regs, kcb, 1);
->  		break;
-> -	case KPROBE_HIT_SS:
->  	case KPROBE_REENTER:
->  		pr_warn("Failed to recover from reentered kprobes.\n");
->  		dump_kprobe(p);
+> Reproducer:
+> 
+>   simpleperf record -p <pid> -f 10000 \
+>     -e preemptirq:preempt_disable \
+>     -e preemptirq:preempt_enable \
+>     --duration 9 --call-graph dwarf \
+>     -o /data/local/tmp/perf.data
+> 
+> The new selftest can be built from tools/testing/selftests/kprobe/ and
+> used to exercise the page fault handling path with the test kprobe
+> module loaded.
+> 
+> Before this series, the crash reproduced frequently. With both patches
+> applied, it was no longer reproduced in our testing.
+> 
+> 
+> Pu Hu (3):
+>   arm64: kprobes: Do not handle non-XOL faults as kprobe faults
+>   arm64: kprobes: Allow reentering kprobes while single-stepping
+>   selftests/kprobes: Add kprobe stress test for page fault handling
+> 
+>  arch/arm64/kernel/probes/kprobes.c            |  22 +++-
+>  tools/testing/selftests/kprobe/.gitignore     |   2 +
+>  tools/testing/selftests/kprobe/Makefile       |  75 +++++++++++++
+>  tools/testing/selftests/kprobe/fault_stress.c | 105 ++++++++++++++++++
+>  .../selftests/kprobe/kprobe_folio_stress.c    |  70 ++++++++++++
+>  5 files changed, 273 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/kprobe/.gitignore
+>  create mode 100644 tools/testing/selftests/kprobe/Makefile
+>  create mode 100644 tools/testing/selftests/kprobe/fault_stress.c
+>  create mode 100644 tools/testing/selftests/kprobe/kprobe_folio_stress.c
+> 
 > -- 
 > 2.43.0
 > 
