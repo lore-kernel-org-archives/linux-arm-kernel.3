@@ -4,110 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C6DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B8AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FuShbMRKE0SZi3ijoimKFf4ervQLR1MwgbAPy6duExE=; b=gkX7lktohjSHtvqhRa6E//fBV7
-	nq+aq5emMxYcZtnxys3E7PnbwfFINTnrtF/bme1UyjG53ZjC2vLeRFrOCB4XyH6WZmUM0Xp0TSVcR
-	wOFzjgxdeFVm5PkIcZb3mlcTbnClfW5a0RDwp637ULI6hJsrY6aR8KJ7jy2CXAxda9jvkWFjav0n3
-	R4ONw8wZQHek4Wio3y47s6dBWNc/P2lsqyKX66rtKsDH5CBC7lya6RwriQD1ZRcCVXBlmELvOkueJ
-	h2+X9xogjeyp3b3PJiRMZDGd4udeKVk6uxH/jlMwhStXjHLh8MzXR979ZupSVxzRO1RCKmgu6rXXJ
-	9qhA5t4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=exy7p9QtkuXDfpcyj8ku2UPNcwFPx2QlA4xJwPA8uFs=; b=WJ0VTFe2xYICFzJr+kAloFcU4a
+	STAk0x5fTfvk/QXOgQ5B6FSPQaLc8WaI2WIigC4cAbnLGKLcDebWx8qEP82C/VKXj3GX/CdrqxJry
+	ZvfHTh+/m5yxk6EWQ1UJyx5rhzQJZSIMwqr6IyHQ2NChUDMkluLHJ9wOh+fqlK8/PMOUWfap4YjKf
+	K+ZTK//QrnJf7OuKIdpRsp36iQcDjAExrFAKi6i2gUa+qmBi3zI+bSnBG/16fJzfuW1VojRgzP9Tq
+	rxyuxS9YDnZ8HyG+VDseN2S2UQvoJaQMkDlX4YgwDOOhhfKB1+9P8m5l8KtbL81XPViRircudHxkT
+	SYTY6Wcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUmO-0000000HYdQ-43EQ;
-	Wed, 08 Jul 2026 16:05:44 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1whUoK-0000000HYvU-0yve;
+	Wed, 08 Jul 2026 16:07:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUmM-0000000HYcC-0oVE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:05:43 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-80cbb0688c8so13302167b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:05:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783526740; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bLl5DydbJJUQVMw6ZTWuOJsvd2y9T/0SDKxxW2bVLFDKSvPDDyMNZX9m4KcUsrmGtk
-         YYBOQq3t3fWkIAltvKWLVwypKIlBYwwNbgO08pK4VUvwxTAa/abVYJV9G3VCd1/3Aa3/
-         1DsZMmtc59I4ZmDRKfF9n672mZp4H1pGnu2bzy4bfvxuyglrFt6Hxz61TQbt0GChKpOh
-         6iZpwEn9a+zeEmI6+a1ACQb5CCQoYkc8qHrNGkWPQqnE1tLLQXndgESZfiX+EIo9DOgl
-         4arW3t7TJOBJdpI5Q23O4ay6aZZofaSRRFU1coXXRNX6fh34IJRTNJrF2+mlLbhtRx5K
-         8BNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FuShbMRKE0SZi3ijoimKFf4ervQLR1MwgbAPy6duExE=;
-        fh=GTYx8Vzv3y2KBZFZE8+CKyQ4in1dbYcG07jnIE6MALo=;
-        b=jN2TcpFLARLIqvSGDRznUBzwlO9Wgdx0SZDNd9P6da+hZMjfDk6XGmq5VsAiwe8ThO
-         /5fAj441Ydu9uGpF9SlGyqlkN9Mp5/d41sViSfBt03OalFbP4zhRKtW7maST9D6LGAgO
-         0/WpXkZKAvTSkMZakQs4FR66hM1TBM5XYDBX1Oo2P4H7rT+p8faOdOBF/SU3hpuIJb5B
-         ETVVHLBdnR6G7juaTGHzlvezLZSeQcrZbc8f5AWRqqKC+wzX+XvXdO4mfFAPxqgZLv5k
-         Dvt8h85g4kouPbvsDX71o2SxdosT0hcZ8KyNNigRy+Jy5t/BHaolD3b5yRc9FeX6eXIx
-         g/CQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783526740; x=1784131540; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FuShbMRKE0SZi3ijoimKFf4ervQLR1MwgbAPy6duExE=;
-        b=Eq6acJklqHREATDAo27xeTNWkbRKySl4GDQf2BI3FwFUD0ucNLX10SMBrrzV6MPzw7
-         NI7RoiUmVymlf1WB8rzWPmehboslUBUOEBrj8ejmD+V/mkpab/sDkl6Oxsz2gjYsvKtZ
-         jJ4bobr4h3P/WW+uc0ZkqVoOnG0bhFkiTjgUb++uXFJDx6NhdMT7V+koIu8yYfZLvqh7
-         PBp6cTUSkvUfRoHQdAgsgC8gzPaxHtwS4uG5cg5SJcEWzHdmD9bhTjMNGLww4QQ0lNmD
-         P+8QLEzMMmyCWsdHDsbRDfoSUD4G0qA6W3O/DNQWdlRHfMGb4DWEC1pxyDpMMtk7ihnk
-         efGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783526740; x=1784131540;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FuShbMRKE0SZi3ijoimKFf4ervQLR1MwgbAPy6duExE=;
-        b=Ma+gSyNlXX7AzSP1Eu0+g8icUIQ6vcJVCAtcMdyNOrazZMmWwxmE4LhOkDNm7lQJsi
-         SZvbJsjJZOGoGlFpFQEXi/II3SFIxKOUCpxr75xsog48Zv3MzpzOXDzLIYBgVUrEb7t8
-         WHDmH+KenuU+lHB1WTzBj0ILaFpjC4feUGEXnfSML6AaMkB1cGEjuBBQfCkfOM+VSGc+
-         7nw1hNgQVC/DNgKQjSjjyt/8baNbX7QTxkGdp+o3xiAOUxZxKfgbVdD9Rv/8a7ZvJIMk
-         oQKP4PoFyS+4Kvv4JceUqhuk+Ih/QithceNU2L8+hio5PxdlNuAkGPZc1cSnDRzfcZdg
-         0B2A==
-X-Forwarded-Encrypted: i=1; AHgh+RqjLUDvWq5NTEvgMERX46GJoqZ4OygePIPv8LZjNIO19iATTnaVrfy7LifC4X5BIk7jn9k/6lriO3gSbU/Jp0f3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz90SVeNa0ESBp4Zfu9DDzJioc8IJkxfHPgmCaUVyJkc2gm8gNo
-	8+TTofIgX4ljnxgA+biB5Gfi4MEtL0zC6tPgUWcJvdwYS3w7vCMkYuJlfqhrDGL1J8Vk8gfzHql
-	bdtaKR5Ox3y4mG5wHEyah52BpfBkWomM=
-X-Gm-Gg: AfdE7cmdzU574TaeRMT8XsTNUUe76qVQbnB0jN0SCLV6/cMQJ15le4HQIebwHA5FTIr
-	0s1n6EK0JSbNv8RvJNQXtPSFJD4oB3UQ/748tWxxrf9zV8O1SpBN+lKt8ggoeFMJs09iI/m89sy
-	YQ0+GzXm8IMMa+yfxB1J5aa7ST9e2pmykMxLiCTE8FacM9kKrVzYwwIBnzFjYBf5s6QfdB45OTK
-	xiZsUlpPoF3n8pMw/z8YezJVYcycsK2tR5mjmz0d6m2GpIVnAaXMbS/4G8zE6FQsl0me3JR7Vzj
-	eycLvhZE
-X-Received: by 2002:a53:b117:0:b0:666:27de:9cb with SMTP id
- 956f58d0204a3-6679f2042f6mr1904126d50.75.1783526740339; Wed, 08 Jul 2026
- 09:05:40 -0700 (PDT)
+	id 1whUoJ-0000000HYvK-0OnS;
+	Wed, 08 Jul 2026 16:07:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 30C9F60EEF;
+	Wed,  8 Jul 2026 16:07:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DDD81F000E9;
+	Wed,  8 Jul 2026 16:07:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783526861;
+	bh=exy7p9QtkuXDfpcyj8ku2UPNcwFPx2QlA4xJwPA8uFs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Rg4kOn0EmMXipQiZft2pT0tgPbKnaXcpO04jmtwP+QMMUUY8Q/55DbvS4+rYmQDXR
+	 LRIDIRoWWpW37aIOILZnrO9ncO5AItSr4gxKR0MXnWu0+q8CCKNJE9xkeltwqjRKzN
+	 PzCJ4bLZgLIFdu3KRyHfV8mIfkrYjjayvzcvXAXuChWUCLfwwly7KWb3xX5aZIMIkw
+	 52I4zRgs7IpJ/ad6VA8zsN2/XyDHVfugavlkjaa+hKHyaKKmNrFtrrDf9OAGj3RNvW
+	 M+ULQey0YwCexrrYCMfzEcNVqTWWhYBCgbJo3G8vIwT08q1IxpznB9fSre5MDgdQ+z
+	 UMDJaZL2UgkjA==
+Date: Wed, 8 Jul 2026 18:07:39 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Aniket Negi <aniket.negi03@gmail.com>
+Cc: netdev@vger.kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, aniket.negi@airoha.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v5] net: airoha: fix MIB stats collection to be
+ lossless
+Message-ID: <ak51y14ExRpUsoIU@lore-desk>
+References: <20260707152639.105628-1-aniket.negi03@gmail.com>
 MIME-Version: 1.0
-References: <20260429-d3cold-v5-5-89e9735b9df6@oss.qualcomm.com>
- <20260629211614.6942-1-threeway@gmail.com> <hzv6l3g7q55ofr6hu7y7indrn2uzc5kdvlbu3q7om44iw35nbb@5rc5uuhqbnid>
-In-Reply-To: <hzv6l3g7q55ofr6hu7y7indrn2uzc5kdvlbu3q7om44iw35nbb@5rc5uuhqbnid>
-From: Steev Klimaszewski <threeway@gmail.com>
-Date: Wed, 8 Jul 2026 11:05:27 -0500
-X-Gm-Features: AVVi8CfNmJVMSvN9XdJeS7IaTnkgNSzIRTTUJaHWTxnojYvf0u8gwqelENm5DeQ
-Message-ID: <CAOvMTZhpx57GGakfiS+1tz0t8XVPaydkaCONUxoPFdeXpv+xQA@mail.gmail.com>
-Subject: Re: [PATCH v5 5/5] PCI: qcom: Add D3cold support
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: krishna.chundru@oss.qualcomm.com, bhelgaas@google.com, 
-	bjorn.andersson@oss.qualcomm.com, jingoohan1@gmail.com, jonathanh@nvidia.com, 
-	kwilczynski@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, lpieralisi@kernel.org, robh@kernel.org, 
-	will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_090542_238983_ED0DF072 
-X-CRM114-Status: GOOD (  19.83  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5uWWnxEBTL4lVj+c"
+Content-Disposition: inline
+In-Reply-To: <20260707152639.105628-1-aniket.negi03@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,44 +77,437 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
 
-On Wed, Jul 8, 2026 at 2:53=E2=80=AFAM Manivannan Sadhasivam <mani@kernel.o=
-rg> wrote:
->
-> On Mon, Jun 29, 2026 at 04:16:14PM -0500, Steev Klimaszewski wrote:
-> > Hi Krishna, and Mani,
-> >
-> > Turns out, this patchset causes issues but only on some machines.  On a=
- WDK2023
-> > (Volterra), this breaks suspend, and on *my* X13s, it also seems to whe=
-n using
-> > the command `sudo rtcwake -m freeze -s 300` when resuming it crashes th=
-e
-> > machine.  Interestingly, it does not crash on another user's X13s.
-> >
-> > Included is the info from Volterra's lspci -vvv and further down will b=
-e my
-> > lspci -vvv - my X13s has a WD_BLACK 2TB SN770M in it which is not what =
-it came
-> > with from Lenovo.
-> >
->
-> I tested suspend/resume on my x13s and it did not crash. So the differenc=
-e seems
-> to be with the SSDs. I did compare my lspci output and yours, but couldn'=
-t spot
-> anything obvious.
->
-> Since NVMe devices do not support wakeup, the pcie-qcom driver should be
-> transitioning the devices into D3Cold. But I'm not sure why the crash hap=
-pens
-> only with these SSDs.
->
-> Since both devices have ASPM enabled, can you quickly try booting with
-> 'pcie_aspm=3Doff' in cmdline and suspend?
->
-> - Mani
+--5uWWnxEBTL4lVj+c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-With pcie_aspm=3Doff it still crashes on my X13s when resuming from suspend
+> REG_FE_GDM_MIB_CLEAR after every read creates a race window where
+> packets arriving between read and clear are lost from statistics.
+>=20
+> Switch to a delta-based approach instead:
+>=20
+> - 64-bit H+L registers (ok pkts/bytes, E64..L1023): read absolute
+>   hardware total directly into a local variable; clamp with max(new, old)
+>   to prevent torn-read regression when the counter carries between the
+>   two reads.
+>=20
+> - 32-bit registers (drops, bc, mc, errors, runt, long): accumulate
+>   (u32)(curr - prev) into a 64-bit software counter; unsigned
+>   subtraction handles wrap-around transparently.
+>=20
+> - tx/rx_len[0] ([0,64] bucket): combines RUNT_CNT (32-bit, delta via
+>   tx_runt/rx_runt) and E64_CNT (64-bit, absolute) into a single local
+>   accumulator; max(new, old) applied here too to guard against a torn
+>   read of E64 when the RUNT accumulator is unchanged between polls.
+>=20
+> MIB counters are zeroed by the SCU FE reset (EN7581_FE_RST) asserted
+> in airoha_hw_init() at module load, so no explicit MIB clear is needed
+> in airoha_fe_init().
+>=20
+> Merge airoha_dev_get_hw_stats() into airoha_update_hw_stats() and
+> move stats_lock inside. Plain spin_lock() is correct: the function
+> is only called from ndo_get_stats64() in process context. Each dev
+> refreshes only its own MIB counters; sibling devs on a shared GDM3/4
+> port are polled when their own netdev is queried.
+>=20
+> Fixes: 8f4695fb67b2 ("net: airoha: better handle MIBs for GDM ports with =
+multiple devs attached")
+> Signed-off-by: Aniket Negi <aniket.negi03@gmail.com>
+
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
+> ---
+>=20
+> Changes in v5:
+> - Link to V4: https://lore.kernel.org/20260706154730.36949-1-aniket.negi0=
+3@gmail.com
+> - Drop MIB clear loop from airoha_fe_init(): SCU FE reset (EN7581_FE_RST)
+>   resets MIB counters at module load, making the explicit clear redundant
+> - Rename local variable tmp -> data; drop prev variable; use + instead
+>   of | for H+L combination; inline max(data, dev->stats.x) per
+>   maintainer nits (Lorenzo Bianconi)
+> - Extend max() clamping to the hybrid tx/rx_len[0] (RUNT+E64) bucket to
+>   guard against E64 torn reads when the RUNT accumulator is stable
+> - Fix undefined behaviour: split i++ out of expressions that also read
+>   i as an array subscript in the same statement
+> - Retain REG_FE_GDM_MIB_CLEAR/FE_GDM_MIB_{RX,TX}_CLEAR_MASK definitions
+>   in airoha_regs.h as register documentation (per Lorenzo Bianconi)
+>=20
+> Changes in v4:
+> - Add max(new, old) clamping for 64-bit H+L register pairs to ensure
+>   monotonically non-decreasing stats despite torn reads between H and L
+> - Use local variable for all 64-bit H+L computations to prevent lockless
+>   readers from seeing intermediate values during piecewise write
+> - Add one-shot MIB counter clear in airoha_fe_init() to establish a
+>   clean baseline (kexec, driver rebind, warm reboot)
+> - Document sibling dev polling design in commit message
+>=20
+> Changes in v3:
+> - Link to V2: https://lore.kernel.org/20260701173941.314795-1-aniket.negi=
+03@gmail.com/
+> - Add Acked-by tag from Lorenzo
+> - Rename from tx_runt_cnt to tx_runt, tx_long_cnt to tx_long,
+>   tx_runt_accum64 to tx_runt64
+> - Rename from rx_runt_cnt to rx_runt, rx_long_cnt to rx_long,
+>   rx_runt_accum64 to rx_runt64
+> - Condense the marked comments in V2, remove new line after comment
+>=20
+> Changes in v2:
+> - Link to V1: https://lore.kernel.org/20260630111834.233643-1-aniket.negi=
+03@gmail.com
+> - Store _CNT_L register reads in val before adding to stats
+> - Fix double-counting bug in the RUNT+E64 combined bucket
+> - Replace 7-element tx_len[]/rx_len[] shadow arrays with focused fields
+> - Rename inner struct hw_prev_stats to mib_prev
+> - Rename airoha_dev_get_hw_stats() to airoha_update_hw_stats() and
+>   move the port spin_lock inside, removing the separate wrapper
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 171 ++++++++++++++---------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  27 ++++
+>  2 files changed, 132 insertions(+), 66 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 59001fd4b6f7..90aa8b0210bd 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1686,11 +1686,14 @@ static void airoha_qdma_stop_napi(struct airoha_q=
+dma *qdma)
+>  	}
+>  }
+> =20
+> -static void airoha_dev_get_hw_stats(struct airoha_gdm_dev *dev)
+> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+>  {
+>  	struct airoha_gdm_port *port =3D dev->port;
+>  	struct airoha_eth *eth =3D dev->eth;
+>  	u32 val, i =3D 0;
+> +	u64 data;
+> +
+> +	spin_lock(&port->stats_lock);
+> =20
+>  	/* Read relevant MIB for GDM with multiple port attached */
+>  	if (port->id =3D=3D AIROHA_GDM3_IDX || port->id =3D=3D AIROHA_GDM4_IDX)
+> @@ -1701,152 +1704,188 @@ static void airoha_dev_get_hw_stats(struct airo=
+ha_gdm_dev *dev)
+> =20
+>  	u64_stats_update_begin(&dev->stats.syncp);
+> =20
+> -	/* TX */
+> +	/* TX - 64-bit H+L registers: hw accumulates the total, read directly.
+> +	 * Use local variable to prevent readers from seeing intermediate value=
+s.
+> +	 * Clamp to prevent regression from torn reads between H and L.
+> +	 */
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
+> -	dev->stats.tx_ok_pkts +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+> -	dev->stats.tx_ok_pkts +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_ok_pkts =3D max(data, dev->stats.tx_ok_pkts);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_H(port->id));
+> -	dev->stats.tx_ok_bytes +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_L(port->id));
+> -	dev->stats.tx_ok_bytes +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_ok_bytes =3D max(data, dev->stats.tx_ok_bytes);
+> =20
+> +	/* TX - 32-bit registers: accumulate delta to handle wrap-around. */
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_DROP_CNT(port->id));
+> -	dev->stats.tx_drops +=3D val;
+> +	dev->stats.tx_drops +=3D (u32)(val - dev->stats.mib_prev.tx_drops);
+> +	dev->stats.mib_prev.tx_drops =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_BC_CNT(port->id));
+> -	dev->stats.tx_broadcast +=3D val;
+> +	dev->stats.tx_broadcast +=3D (u32)(val - dev->stats.mib_prev.tx_broadca=
+st);
+> +	dev->stats.mib_prev.tx_broadcast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_MC_CNT(port->id));
+> -	dev->stats.tx_multicast +=3D val;
+> +	dev->stats.tx_multicast +=3D (u32)(val - dev->stats.mib_prev.tx_multica=
+st);
+> +	dev->stats.mib_prev.tx_multicast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_RUNT_CNT(port->id));
+> -	dev->stats.tx_len[i] +=3D val;
+> +	dev->stats.mib_prev.tx_runt64 +=3D
+> +		(u32)(val - dev->stats.mib_prev.tx_runt);
+> +	dev->stats.mib_prev.tx_runt =3D val;
+> =20
+> +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute). */
+> +	data =3D dev->stats.mib_prev.tx_runt64;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data +=3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.tx_len[i] =3D max(data, dev->stats.tx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_LONG_CNT(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	dev->stats.tx_len[i++] +=3D (u32)(val - dev->stats.mib_prev.tx_long);
+> +	dev->stats.mib_prev.tx_long =3D val;
+> =20
+>  	/* RX */
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_H(port->id));
+> -	dev->stats.rx_ok_pkts +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_L(port->id));
+> -	dev->stats.rx_ok_pkts +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_ok_pkts =3D max(data, dev->stats.rx_ok_pkts);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_H(port->id));
+> -	dev->stats.rx_ok_bytes +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_L(port->id));
+> -	dev->stats.rx_ok_bytes +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_ok_bytes =3D max(data, dev->stats.rx_ok_bytes);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_DROP_CNT(port->id));
+> -	dev->stats.rx_drops +=3D val;
+> +	dev->stats.rx_drops +=3D (u32)(val - dev->stats.mib_prev.rx_drops);
+> +	dev->stats.mib_prev.rx_drops =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_BC_CNT(port->id));
+> -	dev->stats.rx_broadcast +=3D val;
+> +	dev->stats.rx_broadcast +=3D (u32)(val - dev->stats.mib_prev.rx_broadca=
+st);
+> +	dev->stats.mib_prev.rx_broadcast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_MC_CNT(port->id));
+> -	dev->stats.rx_multicast +=3D val;
+> +	dev->stats.rx_multicast +=3D (u32)(val - dev->stats.mib_prev.rx_multica=
+st);
+> +	dev->stats.mib_prev.rx_multicast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ERROR_DROP_CNT(port->id));
+> -	dev->stats.rx_errors +=3D val;
+> +	dev->stats.rx_errors +=3D (u32)(val - dev->stats.mib_prev.rx_errors);
+> +	dev->stats.mib_prev.rx_errors =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_CRC_ERR_CNT(port->id));
+> -	dev->stats.rx_crc_error +=3D val;
+> +	dev->stats.rx_crc_error +=3D (u32)(val - dev->stats.mib_prev.rx_crc_err=
+or);
+> +	dev->stats.mib_prev.rx_crc_error =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OVERFLOW_DROP_CNT(port->id));
+> -	dev->stats.rx_over_errors +=3D val;
+> +	dev->stats.rx_over_errors +=3D (u32)(val - dev->stats.mib_prev.rx_over_=
+errors);
+> +	dev->stats.mib_prev.rx_over_errors =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_FRAG_CNT(port->id));
+> -	dev->stats.rx_fragment +=3D val;
+> +	dev->stats.rx_fragment +=3D (u32)(val - dev->stats.mib_prev.rx_fragment=
+);
+> +	dev->stats.mib_prev.rx_fragment =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_JABBER_CNT(port->id));
+> -	dev->stats.rx_jabber +=3D val;
+> +	dev->stats.rx_jabber +=3D (u32)(val - dev->stats.mib_prev.rx_jabber);
+> +	dev->stats.mib_prev.rx_jabber =3D val;
+> =20
+>  	i =3D 0;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_RUNT_CNT(port->id));
+> -	dev->stats.rx_len[i] +=3D val;
+> +	dev->stats.mib_prev.rx_runt64 +=3D
+> +		(u32)(val - dev->stats.mib_prev.rx_runt);
+> +	dev->stats.mib_prev.rx_runt =3D val;
+> =20
+> +	/* rx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute). */
+> +	data =3D dev->stats.mib_prev.rx_runt64;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data +=3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	data =3D (u64)val << 32;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	data +=3D val;
+> +	dev->stats.rx_len[i] =3D max(data, dev->stats.rx_len[i]);
+> +	i++;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_LONG_CNT(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	dev->stats.rx_len[i] +=3D (u32)(val - dev->stats.mib_prev.rx_long);
+> +	dev->stats.mib_prev.rx_long =3D val;
+> =20
+>  	u64_stats_update_end(&dev->stats.syncp);
+> -}
+> -
+> -static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+> -{
+> -	struct airoha_gdm_port *port =3D dev->port;
+> -	int i;
+> -
+> -	spin_lock(&port->stats_lock);
+> -
+> -	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
+> -		if (port->devs[i])
+> -			airoha_dev_get_hw_stats(port->devs[i]);
+> -	}
+> -
+> -	/* Reset MIB counters */
+> -	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
+> -		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
+> =20
+>  	spin_unlock(&port->stats_lock);
+>  }
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index f6d01a8e8da1..fe934f9ffe8a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -245,6 +245,33 @@ struct airoha_hw_stats {
+>  	u64 rx_fragment;
+>  	u64 rx_jabber;
+>  	u64 rx_len[7];
+> +
+> +	struct {
+> +		/* Previous HW register values for 32-bit counter delta
+> +		 * tracking. Storing the last seen value and accumulating
+> +		 * (u32)(curr - prev) into the 64-bit software counter
+> +		 * handles wrap-around transparently via unsigned arithmetic.
+> +		 * tx_runt64/rx_runt64 hold the running sum of runt deltas.
+> +		 * These fields are never reported to userspace.
+> +		 */
+> +		u32 tx_drops;
+> +		u32 tx_broadcast;
+> +		u32 tx_multicast;
+> +		u32 tx_runt;
+> +		u32 tx_long;
+> +		u64 tx_runt64;
+> +		u32 rx_drops;
+> +		u32 rx_broadcast;
+> +		u32 rx_multicast;
+> +		u32 rx_errors;
+> +		u32 rx_crc_error;
+> +		u32 rx_over_errors;
+> +		u32 rx_fragment;
+> +		u32 rx_jabber;
+> +		u32 rx_runt;
+> +		u32 rx_long;
+> +		u64 rx_runt64;
+> +	} mib_prev;
+>  };
+> =20
+>  enum {
+>=20
+> base-commit: 60444706aa17616efc03190d099ac347e28b3d0a
+> --=20
+> 2.43.0
+>=20
+
+--5uWWnxEBTL4lVj+c
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCak51ywAKCRA6cBh0uS2t
+rL6KAQC3G82YIv750NxWZybN2S5Lci/5VhTEmgD3aXjffILFyAEAgLSY7/aKW8R2
+vcZBRHW43BT5uvbGRSVKULCOJp1FvA0=
+=GN8V
+-----END PGP SIGNATURE-----
+
+--5uWWnxEBTL4lVj+c--
 
