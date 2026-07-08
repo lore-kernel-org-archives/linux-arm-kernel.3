@@ -4,133 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7D3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5931BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5BM8hFMOpOEi6oJ60bZNA95Aeiqe5CgLvgjuL5GOco=; b=BbuIFXVrw032pLjsGIOWrgVhQ/
-	c83GAThr4TwWwyJLmC56tU4TVRV3sCudG9fdyjE5fKjxkTD7+IFRANRq2R+Zd1njzmnyKWG3Y+tIB
-	uW2vmlIptnyt5dDVa7CPA3xdO5e9SDTI7i6Bp7bHn3hpTgKxEA83tE5+qgiAyeYH5noxZ64T/Uzkg
-	NQw83uBiI7LkQmSlc4EqniU0rvro0B1Fx3lWXv+DEjvO/ooODoIW8+Rt3QPjuwGKNTq4CzJHLXLmi
-	TLVzSPFMg4/mQgA0wFtkGHK1R1hEJ/vtL6wZuvk1IRwLZ+ej6zUPgoXVLFy6wnf+z6JFVpKlB9X2Z
-	w+XzBUHw==;
+	bh=y2V4c6FXtAmxv+8d6AOr3BYyTP+hfZgC/AR0Ye5xNZs=; b=IToXZtFj0synJwcaYhAk52OHzF
+	M9Pct41Qtozbxzzcnf//3VQBlncwvWfL0STXvGAtHVe0OfxupcR/DsjWKTL/rb+jwKNO23PzY75oS
+	5a+Lb3VdERl+Iye5iqdyx+BSHWLjKdTiSpKGgjsGIP3NvnXyB18FP3S3Og45r69rDic9uivWLFlAF
+	vMyumxLUVpGThYRoG3G9ybBpbosGV8rMEcLU9SYw4zjXegpE2TrN9YhhjteVnBdQoHpXWlOyyTPin
+	4joY930BtASp2+ZdFgDvfdkAOsZGLPT4cMM2+evB9nz+ZmfjgLEwD87pQ9JfJ1mXLhp0z96qAfvjb
+	VmvaF4aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTqB-0000000HR0u-0wrX;
-	Wed, 08 Jul 2026 15:05:35 +0000
-Received: from mail-northeuropeazon11010030.outbound.protection.outlook.com ([52.101.84.30] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1whTtm-0000000HRLD-2Xvt;
+	Wed, 08 Jul 2026 15:09:18 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whTq7-0000000HR0U-3NVT
+	id 1whTtk-0000000HRKF-0SV7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 15:05:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UbY5m8XgU5MQcfUj2vTLJGzCMScUqeXpIxldmwDjCOkksGM2AfihKUkRwnosQxm38FBtl7ZiRXbaAqypyikcX89RREdKewT7abjQdSo1l7aOPrCOzunAkveLEZ3DS86q2Kj0G6LUxQVki4nJ2Sjrgxzinc0dajmoFgvisRIJI4a2tWGDeMNZjHCcMjtunWkLF/V2y2IXnz6yIZFeI1m3m5vhnzW0VJj7jf22arSXLiwNfJNtwsSQUQZtfSqj7XokKJwWTsU7ROUcLWA6dkh2QOfGo9iFuHZXbidLLBLeNtCWtUD03MCU3d2MT2z9W/1uwgmuRUIYs6dL80VscXAM2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L5BM8hFMOpOEi6oJ60bZNA95Aeiqe5CgLvgjuL5GOco=;
- b=BQZvqlgIEFHmwoVlDDqo5AszSMyyh8ljETCFUohrTJZi8aztIH7ZGj8xfc6IaIxpCUqXLCvB3jGQ7e0BhNztZbA3dohcpfTVODu9vKq9ATcIILRm1X/GW0UgybAFP/UxV8KQ97nbFZGRiWvMSefgnX1WB0tSL3XMlLALsgtix3CAu4DDqNp2QaHiulPiRWj3i3V9HUGZewImx7wmFPqBAlA6SfFn3tb0cnzREw7MXuYYAHunpmOdwqia4tbBGwEsQBsHhzUAA4lo8oCpMXCUTmWtTMxT4OrLjf2aBItWe5uoJGW8Z9riUjCr5gsyaaFcy6gTqzhzGcRWsI0ObSDa6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L5BM8hFMOpOEi6oJ60bZNA95Aeiqe5CgLvgjuL5GOco=;
- b=VMyXfMwA96WdAGwCMdWFUyu9tF38T0MqV4FInRDtJSkGFQjpGXLqCmfaxKXpdAqdSKUCmu2AhD+YzpQkck7HmYXHl6PvS60moRceSpt7yjJj21ibSeEheUKX16UveD8ks1BWHStJgitpAu6krxnJHyOn5Do5iqErtY93z+YLasUSY8Ey+ODtRsQv/5duz0aQ1KTZn3lFynpsbbScxKGGEbjrl3gjeDK7xKhjlqRVOK18WF0oLW3h8ZQPdWBW06utM8yazqKvgVPCoSMHQCg4HBEGsa/C9UawJ82wBPlxLtBhi1e/NXcNILCw1fCD3PVLherxIBdXNU/cgo5qz/zPxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB11034.eurprd04.prod.outlook.com (2603:10a6:102:483::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 15:05:25 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 15:05:25 +0000
-Date: Wed, 8 Jul 2026 10:05:14 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: Peng Fan <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] arm64: dts: imx8mp-skov: support new 7inch panel
- board
-Message-ID: <ak5nKnRUmOxDxgZd@SMW015318>
-References: <20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de>
- <20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-3-dfc0c8827c02@pengutronix.de>
- <akupDXc1QA4uKfR6@shlinux89>
- <87se5ukpa2.fsf@pengutronix.de>
+	Wed, 08 Jul 2026 15:09:17 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493d92b7db3so8515685e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 08:09:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1783523353; x=1784128153; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y2V4c6FXtAmxv+8d6AOr3BYyTP+hfZgC/AR0Ye5xNZs=;
+        b=KH0DaG6VgdeYC8wpS9xdYp/hFNNAtMZNmVrJzHDZHnbbL7zW9LQTmt3zFhLn1/mOea
+         D/t8BjMQ7sgZfcny1n96NmuGuaoDWc5xHmjktyrmfDWte7YU0ep4n+rX0ktWP9DL3U7Z
+         pRme4UZyBT5P3oZLEQH/UwnMzVlovULos99n4tc1gRB0aPXtwX3H1WMqY4jihk1MaiK1
+         HRQFwL+JBLMqtRjhJlx3N3ZQxA8dpIWx0GQgBf+N9q1wHbKGYilAu68GTEZWYJpCoGRX
+         AXrkYfs8LmRse5b4LWQ6wVdv8VPdhO4Ov3pJkK40+pbQCzNzew9uthujXnuOJbLOPj8M
+         P3VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783523353; x=1784128153;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y2V4c6FXtAmxv+8d6AOr3BYyTP+hfZgC/AR0Ye5xNZs=;
+        b=sXoUbP1lUwphsjsx0rVVu9vceJ+oQhwtJVnES4z0IosBMnyyCGu1MAhKPEu1IIuKj3
+         MxHZTuoDOloOQzAVpQLpF/I34cKhnqlLx6i//1jAsHqCbbCIbF8bOWa8OgxJosXF/RZP
+         TgaeJJH7S05HnZs249n2uiD5Zr7GyvXgT8c/fzdVw8pJIb9sZCodho000tMd/ggS8bBY
+         Ik//GWufe5JNjzqYNfbKNbaIU5RDTM+z6TRQ2hsCi/1fbBzVME9Eplwl4zfJ3t+9iEim
+         mXvjTmz3NDT3sYWIWO61HJgK3G6dfm5qObLlFTFd+Bnu6FPeY9zTQQpeD8FqbFLJ4Xy4
+         IqNw==
+X-Forwarded-Encrypted: i=1; AHgh+RolGHM4I40eqhme1A1diUbe6rrQuvwRv9UcO5aEGhxrkbHuKYGilJnn2V98X4QbY7t7yTzaKa48+GEW6Ip4/iEI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0NKvcAn4+VyURv2gCe4emvKLn4+e6qKR84LrthtaBx5LykS02
+	tfRacFg/psV1w2UHyaGQqwh6Smj6ThAmonkiEvyqwAr2Nmt6YwPnAIU/6HbISndRBaU=
+X-Gm-Gg: AfdE7clseo1I0PRT/1iDPznlTuCZhiK0qWdR/2gsPmfK8d2XDrc3SoykPwKlEdyhv9X
+	8rouYYU8KoWBvGtMHYJkA0aDqL6i0GvnU3h98+xKsEhvtVWsDutDkcVbzEay8LJKZoz7qdPd31Z
+	Qib+VI3TgHeeorG8Fy2paUOAffFrcxIe0Y1noCHuPiWzxCSi7SJtlBDOTmnKvhkEWEu650Qz75F
+	d3cbuqu6oWwvEX8wpDZCw4iarI3GsoZdAwPEdCkpycQpJ7sChLMbu2+UntsX9lg2JFD5js403EY
+	Td4uALlzmQxF8LmtcX43bRatZYTTnuJ6yBImT3uiQ4iIUMbK32nd4SCLhrIHsEEyLYMS82uK2/1
+	qirQYrN6lrSl6Yz10wHXG/bHB62RUnrLC4qsqa9AI6PPe5yZav5rbTpc9FfcNDsqNY1HbgqrJ6x
+	baHA4SoEjLYTAAcLA=
+X-Received: by 2002:a05:600c:34d3:b0:493:b4cf:d37f with SMTP id 5b1f17b1804b1-493e68c699bmr33093525e9.16.1783523353384;
+        Wed, 08 Jul 2026 08:09:13 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f5b811sm238538095e9.13.2026.07.08.08.09.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 08:09:12 -0700 (PDT)
+Date: Wed, 8 Jul 2026 17:09:10 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Benedikt Spranger <b.spranger@linutronix.de>,
+	Andrew Murray <amurray@thegoodpenguin.co.uk>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
+ emiting code
+Message-ID: <ak5oFk3Snnt9Wr95@pathway.suse.cz>
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260703165654.71be8707@mitra>
+ <CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
+ <20260707145411.53a10893@mitra>
+ <ak0VguIf-PxmbUOS@pathway.suse.cz>
+ <87qzldvqpm.fsf@jogness.linutronix.de>
+ <ak5eCp5qw9LYrnAH@pathway.suse.cz>
+ <87zf01ttve.fsf@jogness.linutronix.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87se5ukpa2.fsf@pengutronix.de>
-X-ClientProxiedBy: SN7PR04CA0177.namprd04.prod.outlook.com
- (2603:10b6:806:125::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11034:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01cc5e9d-a67d-4598-cba8-08dedd0256bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|7416014|376014|22082099003|18002099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: Bd0iHHWtDlrKYh/VyGQGTOnLGW9jTczLwJv/jxQ+SA8TiWz4aF0K3IkYkJEy2FpB3w32feYbKMYBzs7fTkewjb66UZOkwoP+tA/PvFFbZ5Th0eXG/6QOk+/gZj/gB6mE0Y1fqjZUWfR8QjzCngIHpRYeqr4xBQ7mWTe16bD1mefeCUQpF+5e+/Ipksr5yVmKn5vx66Jwyq1SODkXQQIs+zrgFOvjp0VYh/M3XiB/kMJSf8zjwHZcbi3LBc/BEe81I3LjFIl/9YDcNDfIxaqJcbzFevRPIu75oWuuk3roHdPSoZ7GGgjlfufsKbXj+79Ja356+YqoYNl2el5RXahhmmhQ8AyiURXZHg4CqanynSenoAROGO+6dJ11TwFsvPDtRo71oniIDKOUAay4RhTHQOnjZmOqdSVxzYQQR+MbasQqeHFds06H4ZuX1SAv9q4vMHq6WriCPzxQjNZmvYDMlrhW+V82fIXS52xHlfKOZfNHMGG2ruT6Ssw13oz8APamaUpZgTJ62ouaNIjcGH5VUF9T/4Ui7aCffNMimgRN9HW2BxgFMhCIS1HA5NmGmb5DwS3OYL+y1YjSWmmPCf9tLp/3c/0+hsPymCFeQGdZIkU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(7416014)(376014)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9lCF2v/9B6eOa/bjHNRfQ55kYdORfAatttX/Jr9NDHFt1MtE5Z0I1GQnbzON?=
- =?us-ascii?Q?B/XbwRux3BshA0xaZRM5UzMJFA1ENVhVyJSLl68S1SekqExjeWodps7S1OOu?=
- =?us-ascii?Q?MRN+ZJGqoRj6ugD1eb8ppKPfGrson0DDMbIdyZtvuzw/6hvxhvTevs9X1KtI?=
- =?us-ascii?Q?az9Ufc5b9toig0HrTzFU9sHFkadkPb0G7Ux0YEAmNHue4q3HMvRWqW0+0Z80?=
- =?us-ascii?Q?Uq0hAuQXogAiP0pVK4slzfH88Pq6K8T+Y9hQ8nkVBbeBZHcBD1jYaHNE1Wyz?=
- =?us-ascii?Q?TWowBNxF2F+zZu/kt/PM+4sVfilPK/ly7m5vdi5TI3UQTpTHwiHy1UPoq19z?=
- =?us-ascii?Q?EdxJOD2hJ04e4Vm3cRXEU3wUVlRvTJGWIMhjPa8IgOsziobZl1f8ztMOXKSw?=
- =?us-ascii?Q?AqwGIaHcMeTevJQeAdNoUy1OX9l2AVhNC70ecKPMyhsyKYvChU8zkaIfi4Zq?=
- =?us-ascii?Q?3z9VNAsHl+ueNjjbtAnYFF4XTezQcWs639AvwV1fMRyLdEevIlwa54i7CKkq?=
- =?us-ascii?Q?LfP3XOI1hEsPnvAutgTlhpIKEhRG52JMXkvHqP+e5ijC58rILKNl6GHC4oD9?=
- =?us-ascii?Q?8Cz4YfKHygypk8FSSaPAjcQJja2GnwTODfc2tNvoBHyubnz62tjzizwnboIv?=
- =?us-ascii?Q?/hIuZ05GPoAIA1xiR3LhCEPH2yENo1Cfqvv/fhL872a0UhSqEtbxekNUl6d2?=
- =?us-ascii?Q?vb8j82oDj+DJCnyLkFbMEGrvzEKuNuyDn78M3u27aY++XQsDltRdWI+HRmfz?=
- =?us-ascii?Q?avWiMJzhL+N77TCotlNr4f5g6S8IeXFU8stU/6QV8zVvp9t8Uj6kfTyksha7?=
- =?us-ascii?Q?jNUX/Np3O/gXkCLXg/GRhmaFsvGHbsviPOcthM+CLE7k2RbGJrm8RI9s0mv+?=
- =?us-ascii?Q?tYcnIQWVig9jVDifhDmDYhgZtH6/RPUgQSILvZPURz8FJBcUBF0ZKp6O/sdF?=
- =?us-ascii?Q?qinCwTfaM9v5srPVAGarybhn45q678zkhdcKoFiGeSb8iYUeIwMLI0n8yJoH?=
- =?us-ascii?Q?fPX9DMSzNoDL3SUdpMjXQlIaFYzrqGahep1V+LsgO/qKbn240JNCqIHeQqKw?=
- =?us-ascii?Q?loJc/fkj8u+TQHSpickYUdmUiqTXE14x6C3SCzkkfvMvWeBhtHYfWal+s0uW?=
- =?us-ascii?Q?SK/3cYamQ2pF6Db9/kN/XmBjIit0DQz7oHMKE4/w5cjpFEJgpCfhhhUYMLIU?=
- =?us-ascii?Q?YHinwzKm5KPt41ItMepn/7IBsEknAtitSVReedQiDvag2BzimM1yIcUZZsfq?=
- =?us-ascii?Q?r0Zrm8yKxJqGJclGTdhsrBFKAa25hXZyTLpgHZ1hB+0JOlxixMxCIKTzGkt2?=
- =?us-ascii?Q?9WqU+tE/IXOOmIET85WwXV6h2DNj9Q7u0a1RvaIzqwZMwOt+HIl2eYC4YKgv?=
- =?us-ascii?Q?f38Z5c/U35uMMi4TEJ+wvO/NKzCZC1EW1376xWH31OLne9iV6F9C2LLN1jUC?=
- =?us-ascii?Q?4su3eTysN6Tmol0ynYMzBaOlA1LvnYbQwS/kYmi6y0NeaZyPLsVLIA+bWcOl?=
- =?us-ascii?Q?vIITBjZTBpASh3wy7+K+FZlDSGD8XOy3Xd4OaYQpnsIW8Uk8fmhnr5taaBJ1?=
- =?us-ascii?Q?whyTCyPB5henKV2fZXuD629cBJNPOjVEtF2hG9waE4pksTUPtZ04FUT9m+vY?=
- =?us-ascii?Q?P0r2YyvK/5vFNXI315Cg27Dhnbp1mfTrTREqdF775u8LtC2+C1CmUvZ2jhyI?=
- =?us-ascii?Q?50j+KLz0Jv1c1gFwrviPfP29cqsgjAEn4V9dRp+MBRswssuKr4hFosyDU3oa?=
- =?us-ascii?Q?1cSBqARU8uIItJEhlEiN5SscDEMnwg43LZrP3GeB+M6MERnylvHq?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01cc5e9d-a67d-4598-cba8-08dedd0256bd
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 15:05:25.2346
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pm37xNIKGEIzqyyvPYutBIDFeDV+UV3q6Vq3sK6RNvvT7WYzVXDjw7D6jriaRKWJz0UeS/PKxMYj1jxe0rUVqRk1rPghZnYN6i2FmPtdl8m2JNm0uukZGQvp19XULYDD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11034
+In-Reply-To: <87zf01ttve.fsf@jogness.linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_080531_847433_F9C7797D 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260708_080916_190269_E8A6C77D 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,50 +126,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 07:45:41AM +0200, Steffen Trumtrar wrote:
->
-> Hi,
->
-> On 2026-07-06 at 21:09 +08, Peng Fan <peng.fan@oss.nxp.com> wrote:
->
-> > On Mon, Jul 06, 2026 at 09:17:57AM +0200, Steffen Trumtrar wrote:
-> > >This board is similar to the already upstream
-> > >imx8mp-skov-revc-tian-g07017.dts but uses a different 7" panel with a
-> > >different touch controller.
-> > >
-> > >Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-> > >---
-> > > arch/arm64/boot/dts/freescale/Makefile             |  1 +
-> > > .../imx8mp-skov-revc-jutouch-jt070tm041.dts        | 79 ++++++++++++++++++++++
+On Wed 2026-07-08 16:59:57, John Ogness wrote:
+> On 2026-07-08, Petr Mladek <pmladek@suse.com> wrote:
+> >> The synchronous mode would rely on the driver being nbcon. I envision
+> >> something like this:
+> >>
+> >> ---- BEGIN SYNC IDEA ----
+> >> --- a/kernel/printk/nbcon.c
+> >> +++ b/kernel/printk/nbcon.c
+> >> @@ -1200,7 +1200,7 @@ static bool nbcon_kthread_should_wakeup(struct console *con, struct nbcon_contex
+> >>  	cookie = console_srcu_read_lock();
+> >>  
+> >>  	flags = console_srcu_read_flags(con);
+> >> -	if (console_is_usable(con, flags, false)) {
+> >> +	if (!(flags & CON_SYNC) &&  console_is_usable(con, flags, false)) {
 > >
-> > Sorry to jump in at v4.
-> >
-> > Compared with imx8mp-skov-revc-tian-g07017.dts, the differences are mainly
-> > in panel and touch.
-> >
-> > Have ever considered using overlay?
-> >
->
-> no, I actually didn't. This way it is easier to decide in the bootloader
-> which board I'm on. I could definitely do it, if this is the way to go, but
-> would add some overhead on my side. I don't see that many overlays in
-> arm/dts/nxp/imx.
+> > The dependency on con->flags means that the sync mode can be entered
+> > only in task context where synchronize_srcu() can be called. It might
+> > be good enough. But I am afraid that people are creative and would
+> > like to have even atomic variant sooner or later.
+> 
+> You mean it can only be _modified_ in task context. Yes. I expect it is
+> either specified as a boot arg or modified via some sysfs interface.
 
-There are much under arm64/dts/freecale, arm/dts/nxp/imx is old ARM7 platform.
-Generally attached devices use overlay to descript it, especially have
-differece devices, likes display panel, camera module.
+Makes sense.
 
-Frank
+> > Also it will do the flush in NORMAL_PRIO which is good. But it might
+> > fail to get the context ownership when it is blocked, for example,
+> > by uart_port_lock() which might be even sleepable context in
+> > PREEMPT_RT kernel.
+> 
+> Indeed. This is the same limitation of the atomic printing in
+> general. But I do not think this can be worked around during normal
+> operation. Ignoring locks is not an option.
 
->
->
-> Best regards,
-> Steffen
->
-> --
-> Pengutronix e.K.                | Dipl.-Inform. Steffen Trumtrar |
-> Steuerwalder Str. 21            | https://www.pengutronix.de/    |
-> 31137 Hildesheim, Germany       | Phone: +49-5121-206917-0       |
-> Amtsgericht Hildesheim, HRA 2686| Fax:   +49-5121-206917-5555    |
->
+Let's see how it works in practice. But it might work pretty well.
+
+Now, the question is how to move forward. It would be nice to
+have the sync mode available before we add this boot/printk_delay
+clean up.
+
+Would you have time to prepare and send a patch anytime soon, please?
+
+Or I wonder whether Andrew Murray might try to create a patch
+based on your "SYNC IDEA".
+
+Best Regards,
+Petr
 
