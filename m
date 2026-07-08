@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8F8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6F6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nvzXlqdntkeYd6Lz6Tq6hR2GvHLprwV8utLcRsUGXgk=; b=XapJrckkOdD0rl0cO+yG8GhSF2
-	QQK5ww4O3EtEBtBEP5PUtRwsBuU3OnSTX2p/T/U76oXgXhr4/8l21H+2Xoa4pSz2fSoeLfgwu1Ix3
-	tI1ewfwOziVkibsAKDMJfCw2Z9243tQfA9F+K/bfvZquatLITDaGTtiNqkLz1H1MlcbUOwXDUPWwQ
-	cSv0DG7pbl7b6LP2G7gMZnIEbNI7piYeWHseR74jflY0PmKSlEHWN+iexi1plKUr9zig3brTAzeWX
-	Gu+BpEN3uEbkcXURkPhlFJ1mtlsLVXPz90tatSO3t54KO1w19fSKl1qdm4Abz/BvOGswYM8Zy7hpH
-	CynzKzKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xls0ncCjyWcLCH10SsoXeKirDHltIOo0E/jR/8APp6g=; b=Ob9bI7KHSjKhSzxsn7pNI++88C
+	j8Rd78BiuPzaYzM4ySfT46GnscNMidFsnlrV6SI008JgFkCCBHmSQaGcv46QFMeKqzACqcqDCHCwO
+	yMOnnsenHL1xKxLlMTg/cacdCcao1LWkU3nvIV9bQkWYcKK/46BxBRxJqVbpYIOQ+FZSh9wh3D6iy
+	OtztAzJmJ9D57m9b3ZJuz5oUYgmecw56ghmX3lZm26bGRyUEg3L+M5jjBZDGgkb8KsKIeGepxEdtZ
+	d2a9hxOuBcZFVugJBbRUOeDlW/OOycUc67xRsSEvChdsrGDS+0EtVoUqPrfTv2s2YrwE/MVsQeFps
+	OWOMLLfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMhu-0000000GVXw-2DZj;
-	Wed, 08 Jul 2026 07:28:34 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1whMpQ-0000000GWEV-1x14;
+	Wed, 08 Jul 2026 07:36:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMhr-0000000GVXE-1vtY;
-	Wed, 08 Jul 2026 07:28:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783495695; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=WR5jo7+vNWexm49ePnWJOndMo1YlNnhLvzLsnvOGNkAw7Yqz6+O5R2/lJUMWFmcamZ/p7xmgwbDcps7hG3OHydjhtqfGChWey+1WU8DR8pt9jHvIoFBugPOfWIi+A98szZWp9Z/0FR/eDBIrn0qM1OeQn7L7YZwaUH+sH0oNC0Y=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783495695; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nvzXlqdntkeYd6Lz6Tq6hR2GvHLprwV8utLcRsUGXgk=; 
-	b=mD8doOq0sE4gog0+/qNqHVag3+yT/oNYfgA7rNTMtEW8+hFuckEzn1WKuxjwLXX0zuWDXwAa9a/vcfjztyFTLPUm9EVOQCWkDosgDW0EsqTW76lcRl5tXNvQGiTzb7l1vefDIRTFOaETlkKYw7v7jqOQB3/wy4xrW6l6ck7HIJo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=robert.mader@collabora.com;
-	dmarc=pass header.from=<robert.mader@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783495695;
-	s=zohomail; d=collabora.com; i=robert.mader@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=nvzXlqdntkeYd6Lz6Tq6hR2GvHLprwV8utLcRsUGXgk=;
-	b=f4xLgGRkJ2ufgc51CfXJ0UGO08OQ8/7KRgGSsaU+OjaFp0gAMaAOjCAT8UUZbdr7
-	DmTR3+gowpM8M5bETqjafQGItxHQWNqHOUKISNrHgLqgMIw+b7fgBEwDWWOOOvk+OoM
-	lLCb6NtI5uF8XwI/z0uX+rsESFOkWTGZu2nbDAwU=
-Received: by mx.zohomail.com with SMTPS id 1783495694387551.6316499671505;
-	Wed, 8 Jul 2026 00:28:14 -0700 (PDT)
-Message-ID: <e8384d37-5fb6-442a-b17a-547506abd157@collabora.com>
-Date: Wed, 8 Jul 2026 09:28:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/21] drm: Introduce
- DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
- <nfraprado@collabora.com>
-References: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
- <20251223-mtk-post-blend-color-pipeline-v3-6-7d969f9a37a0@collabora.com>
-Content-Language: en-US, de-DE
-From: Robert Mader <robert.mader@collabora.com>
-In-Reply-To: <20251223-mtk-post-blend-color-pipeline-v3-6-7d969f9a37a0@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_002831_564179_161C9734 
-X-CRM114-Status: GOOD (  25.98  )
+	id 1whMpO-0000000GWE9-0vXV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Jul 2026 07:36:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F36EA431F8;
+	Wed,  8 Jul 2026 07:36:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D24431F000E9;
+	Wed,  8 Jul 2026 07:36:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783496177;
+	bh=xls0ncCjyWcLCH10SsoXeKirDHltIOo0E/jR/8APp6g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Ip4NvB47gbOwipZa0QyaFhGhU4Vm+o/21PVfALYlAyU6X0qJyBv4zSdlp/zMVzpOM
+	 BTI3YYYMtX3GtDTOvAalB+L3bvT11rvpKtqt7d6LHlu+NX5opY4w+bJSIZW02QITLn
+	 /3dQC6ZjeWlTa+WoM5tyjJI2XGPyha02Vo21UBZUd6lZm4z1OJ976CmocY7Yi2FI1N
+	 QcS7aTomqtppnG+LbYRUdzOarl/452D7tERIU83hgc7aLI5g+fVUjCJuDBBzLJU0BS
+	 MJDitX2DWqgbP+PQ1j2dHuodEFH5RLddS2fFDwdb6wVCv8xD2uOuD56qeXgcW8g6UH
+	 ACxJKR8XzLxJg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1whMpL-00000002hwZ-1cyF;
+	Wed, 08 Jul 2026 07:36:15 +0000
+Date: Wed, 08 Jul 2026 08:36:14 +0100
+Message-ID: <861pdeorv5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 24/27] KVM: s390: arm64: Implement vm/vcpu create destroy.
+In-Reply-To: <20260708065150.583632-C-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-25-seiden@linux.ibm.com>
+	<8633xuq1ic.wl-maz@kernel.org>
+	<20260708065150.583632-C-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,227 +111,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, thanks for the series!
+On Wed, 08 Jul 2026 07:51:50 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Tue, Jul 07, 2026 at 04:10:19PM +0100, Marc Zyngier wrote:
+> > On Mon, 06 Jul 2026 09:52:24 +0100,
+> > Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > > 
+> > > Implement init and destroy IOCTLS for vcpu and vm.
+> > > Implement arch vm IOCTL. Use s390 gmap.
+> > > 
+> > > Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
+> > > Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
+> > > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> > > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> > > Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > > Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > > ---
+> > >  arch/s390/kvm/arm64/arm.c       | 190 ++++++++++++++++++++++++++++++++
+> > >  arch/s390/kvm/arm64/arm.h       |  56 ++++++++++
+> > >  arch/s390/kvm/gmap/faultin.c    |   5 +
+> > >  arch/s390/kvm/gmap/gmap.c       |   4 +
+> > >  arch/s390/kvm/gmap/trace-gmap.h |  13 +++
+> > >  5 files changed, 268 insertions(+)
+> > > 
+> > > diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+> > > index 19249ec5c539..3a4092698fae 100644
+> > > --- a/arch/s390/kvm/arm64/arm.c
+> > > +++ b/arch/s390/kvm/arm64/arm.c
+> > > @@ -8,6 +8,10 @@
+> > >  #include <linux/kvm_types.h>
+> > >  #include <linux/kvm_host.h>
+> > >  
+> > > +#include <arm64/kvm_mmu.h>
+> > > +
+> > > +#include <gmap.h>
+> > > +
+> > >  #include "arm.h"
+> > >  
+> > >  static unsigned long system_supported_vcpu_features(void);
+> > > @@ -31,6 +35,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+> > >  		break;
+> > >  	case KVM_CAP_IOEVENTFD:
+> > >  	case KVM_CAP_ARM_USER_IRQ:
+> > > +	case KVM_CAP_PRE_FAULT_MEMORY:
+> > 
+> > arm64 *doesn't* support this yet. Please make sure you don't deviate
+> > from what arm64 currently supports.
+> >
+> 
+> I hoped the corresponding arm64 series is merged when we got this :) 
 
-On 23.12.25 19:01, Ariel D'Alessandro wrote:
-> From: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
->
-> Introduce DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE which a DRM client can set
-> to enable the usage of CRTC (post-blend) color pipelines instead of the
-> now deprecated CRTC color management properties: "GAMMA_LUT",
-> "DEGAMMA_LUT" and "CTM".
->
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> Co-developed-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> ---
->   drivers/gpu/drm/drm_atomic_uapi.c   | 20 ++++++++++++++++++++
->   drivers/gpu/drm/drm_connector.c     |  1 +
->   drivers/gpu/drm/drm_crtc_internal.h |  1 +
->   drivers/gpu/drm/drm_ioctl.c         |  9 +++++++++
->   drivers/gpu/drm/drm_mode_object.c   |  9 +++++++++
->   include/drm/drm_file.h              |  7 +++++++
->   include/uapi/drm/drm.h              | 19 +++++++++++++++++++
->   7 files changed, 66 insertions(+)
->
-> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
-> index 07d0d224fe58c..d1bc78b2567a9 100644
-> --- a/drivers/gpu/drm/drm_atomic_uapi.c
-> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
-> @@ -433,6 +433,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
->   	if (property == config->prop_active)
->   		state->active = val;
->   	else if (property == crtc->color_pipeline_property) {
-> +		if (!file_priv->crtc_color_pipeline) {
-> +			drm_dbg_atomic(dev,
-> +				"Setting COLOR_PIPELINE CRTC property not permitted without DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE client cap\n");
-> +			return -EINVAL;
-> +		}
->   		/* find DRM colorop object */
->   		struct drm_colorop *colorop = NULL;
->   
-> @@ -451,6 +456,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
->   	} else if (property == config->prop_vrr_enabled) {
->   		state->vrr_enabled = val;
->   	} else if (property == config->degamma_lut_property) {
-> +		if (file_priv->crtc_color_pipeline) {
-> +			drm_dbg_atomic(dev,
-> +				"Setting DEGAMMA_LUT CRTC property not permitted with DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE client cap\n");
-> +			return -EINVAL;
-> +		}
->   		ret = drm_property_replace_blob_from_id(dev,
->   					&state->degamma_lut,
->   					val,
-> @@ -459,6 +469,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
->   		state->color_mgmt_changed |= replaced;
->   		return ret;
->   	} else if (property == config->ctm_property) {
-> +		if (file_priv->crtc_color_pipeline) {
-> +			drm_dbg_atomic(dev,
-> +				"Setting CTM CRTC property not permitted with DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE client cap\n");
-> +			return -EINVAL;
-> +		}
->   		ret = drm_property_replace_blob_from_id(dev,
->   					&state->ctm,
->   					val,
-> @@ -467,6 +482,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
->   		state->color_mgmt_changed |= replaced;
->   		return ret;
->   	} else if (property == config->gamma_lut_property) {
-> +		if (file_priv->crtc_color_pipeline) {
-> +			drm_dbg_atomic(dev,
-> +				"Setting GAMMA_LUT CRTC property not permitted with DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE client cap\n");
-> +			return -EINVAL;
-> +		}
->   		ret = drm_property_replace_blob_from_id(dev,
->   					&state->gamma_lut,
->   					val,
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 4d6dc9ebfdb5b..aec8a5c0d593a 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -3440,6 +3440,7 @@ int drm_mode_getconnector(struct drm_device *dev, void *data,
->   	 */
->   	ret = drm_mode_object_get_properties(&connector->base, file_priv->atomic,
->   			file_priv->plane_color_pipeline,
-> +			file_priv->crtc_color_pipeline,
->   			(uint32_t __user *)(unsigned long)(out_resp->props_ptr),
->   			(uint64_t __user *)(unsigned long)(out_resp->prop_values_ptr),
->   			&out_resp->count_props);
-> diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
-> index c094092296448..ab02e6295271d 100644
-> --- a/drivers/gpu/drm/drm_crtc_internal.h
-> +++ b/drivers/gpu/drm/drm_crtc_internal.h
-> @@ -164,6 +164,7 @@ void drm_mode_object_unregister(struct drm_device *dev,
->   				struct drm_mode_object *object);
->   int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
->   				   bool plane_color_pipeline,
-> +				   bool crtc_color_pipeline,
->   				   uint32_t __user *prop_ptr,
->   				   uint64_t __user *prop_values,
->   				   uint32_t *arg_count_props);
-> diff --git a/drivers/gpu/drm/drm_ioctl.c b/drivers/gpu/drm/drm_ioctl.c
-> index 2884075660ddd..14746afd82783 100644
-> --- a/drivers/gpu/drm/drm_ioctl.c
-> +++ b/drivers/gpu/drm/drm_ioctl.c
-> @@ -383,6 +383,15 @@ drm_setclientcap(struct drm_device *dev, void *data, struct drm_file *file_priv)
->   			return -EINVAL;
->   		file_priv->plane_color_pipeline = req->value;
->   		break;
-> +	case DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE:
-> +		if (!file_priv->atomic)
-> +			return -EINVAL;
-> +		if (req->value > 1)
-> +			return -EINVAL;
-> +		if (!drm_core_check_feature(dev, DRIVER_CRTC_COLOR_PIPELINE))
-> +			return -EINVAL;
+If the quality of the previous postings of that series is anything to
+go by, I doubt this will be merged on this side of the death of the
+universe.
 
-For DRM_CLIENT_CAP_PLANE_COLOR_PIPELINE we just solved the equivalent 
-problem by checking if drivers actually expose pipelines (see 
-https://lore.kernel.org/dri-devel/20260703073230.19982-1-robert.mader@collabora.com/ 
-which just landed drm-misc-fixes and is marked for backporting). I 
-initially went with the same approach of using a driver feature (see 
-https://lore.kernel.org/dri-devel/20260630084229.529682-2-robert.mader@collabora.com/), 
-however the explicit check turned out to be both sufficient and simpler. 
-Using that approach would allow you to drop the patches 5, 17 and 21.
+> I will remove this advertisement. I'll keep the implementation as the compiler
+> expect that function to be present anyways, as native s390 KVM now implements
+> this CAP. OK? 
 
-Regards
+As long as the code isn't reachable from the arm64 side, that's fine
+by me.
 
-> +		file_priv->crtc_color_pipeline = req->value;
-> +		break;
->   	default:
->   		return -EINVAL;
->   	}
-> diff --git a/drivers/gpu/drm/drm_mode_object.c b/drivers/gpu/drm/drm_mode_object.c
-> index b45d501b10c86..ea4508f6a09a6 100644
-> --- a/drivers/gpu/drm/drm_mode_object.c
-> +++ b/drivers/gpu/drm/drm_mode_object.c
-> @@ -388,6 +388,7 @@ EXPORT_SYMBOL(drm_object_property_get_default_value);
->   /* helper for getconnector and getproperties ioctls */
->   int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
->   				   bool plane_color_pipeline,
-> +				   bool crtc_color_pipeline,
->   				   uint32_t __user *prop_ptr,
->   				   uint64_t __user *prop_values,
->   				   uint32_t *arg_count_props)
-> @@ -416,6 +417,13 @@ int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
->   				continue;
->   		}
->   
-> +		if (!crtc_color_pipeline && obj->type == DRM_MODE_OBJECT_CRTC) {
-> +			struct drm_crtc *crtc = obj_to_crtc(obj);
-> +
-> +			if (prop == crtc->color_pipeline_property)
-> +				continue;
-> +		}
-> +
->   		if (*arg_count_props > count) {
->   			ret = __drm_object_property_get_value(obj, prop, &val);
->   			if (ret)
-> @@ -475,6 +483,7 @@ int drm_mode_obj_get_properties_ioctl(struct drm_device *dev, void *data,
->   
->   	ret = drm_mode_object_get_properties(obj, file_priv->atomic,
->   			file_priv->plane_color_pipeline,
-> +			file_priv->crtc_color_pipeline,
->   			(uint32_t __user *)(unsigned long)(arg->props_ptr),
->   			(uint64_t __user *)(unsigned long)(arg->prop_values_ptr),
->   			&arg->count_props);
-> diff --git a/include/drm/drm_file.h b/include/drm/drm_file.h
-> index 6ee70ad65e1fd..d0c323378ae46 100644
-> --- a/include/drm/drm_file.h
-> +++ b/include/drm/drm_file.h
-> @@ -214,6 +214,13 @@ struct drm_file {
->   	 */
->   	bool plane_color_pipeline;
->   
-> +	/**
-> +	 * @crtc_color_pipeline:
-> +	 *
-> +	 * True if client understands CRTC (post-blend) color pipelines
-> +	 */
-> +	bool crtc_color_pipeline;
-> +
->   	/**
->   	 * @was_master:
->   	 *
-> diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
-> index d726828bdf408..991ef14c5377c 100644
-> --- a/include/uapi/drm/drm.h
-> +++ b/include/uapi/drm/drm.h
-> @@ -927,6 +927,25 @@ struct drm_get_cap {
->    */
->   #define DRM_CLIENT_CAP_PLANE_COLOR_PIPELINE	7
->   
-> +/**
-> + * DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE
-> + *
-> + * If set to 1 the DRM core will allow setting the COLOR_PIPELINE
-> + * property on a &drm_crtc, as well as drm_colorop properties.
-> + *
-> + * Setting of these crtc properties will be rejected when this client
-> + * cap is set:
-> + * - GAMMA_LUT
-> + * - DEGAMMA_LUT
-> + * - CTM
-> + *
-> + * The client must enable &DRM_CLIENT_CAP_ATOMIC first.
-> + *
-> + * This client cap can only be set if the driver sets the corresponding driver
-> + * cap &DRM_CAP_CRTC_COLOR_PIPELINE.
-> + */
-> +#define DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE	8
-> +
->   /* DRM_IOCTL_SET_CLIENT_CAP ioctl argument type */
->   struct drm_set_client_cap {
->   	__u64 capability;
->
+	M.
+
 -- 
-Robert Mader
-Consultant Software Developer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
-Registered in England & Wales, no. 5513718
-
+Without deviation from the norm, progress is not possible.
 
