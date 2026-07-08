@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2521C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E22BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2E/foWG+GBw4iT2amZe5GTPBRmywetPiSoahCrwoJo4=; b=xrNBDSriw0EZOMCpPpQSaIYKVS
-	dU0BUn/uyPDYIRRUx+VTD37ZiJZpwcvhVhWeFZZxMQjqoD/c9IQhfGXjcGVQdn5S9ZS/uOlaWVwUU
-	E3MHThMO7rQZBG+kMRQKtP6lTI+6GYWdnbr3QIulgyhI9XZBrakFMpGSS7+/XILVD6sPZOvseJAis
-	uXJn8kNcMcFXI05YJWPJlVqu0VUq0GQ2S3s1I1TXopdZ/cO54LkaFYcybaeezG6z+UAKwOjI85LLM
-	/41t1sHILYrUzCL36JmBJjbTJKu3iIVcbyhYuMxCjHl+/nBTGjOS8RTnwaumSRgbx+NIBCnQE0pue
-	HmGj6ffA==;
+	bh=s17L25CKf6N69n47kq5IfOEmXIhfMV81UIxYDG1zrNg=; b=Rj0bHi9pbSQxQ8NhCH9neklfmr
+	lXEWbUqjHee0QTD27DULsNplNVz9F7xCZw08Dwwd+KrcPdUm5CE/X06ozGVXS8vJVOZ9pfeKPVYlE
+	l7E0Y2yLImeSRazNZnZq+OtV4aWYOpYhAgkdhiEcZ3aNOpW8JxY6uJkTS9Ga9rd93Uj6Yqrt+KiXc
+	GCCmNns5rfaYBjsYN6cklZCjr/aqLjJ4z4+0RjMEkKC4smLAoQAjqPcC3Z5rUAbXnh/w8/kILOorA
+	7HcE4aJN3KNQT3LtH9mJR6bgUmN6yKkZtKgtg1EGZh6wv6TX3U83jT4spXzmEpI/6mmA2zonUIuff
+	k2RuoBDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVIM-000000000cU-3hQZ;
-	Wed, 08 Jul 2026 16:38:46 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1whVIu-000000000k5-0Uuw;
+	Wed, 08 Jul 2026 16:39:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVIK-000000000bl-2FzZ
+	id 1whVIs-000000000jn-3C6C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:38:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=2E/foWG+GBw4iT2amZe5GTPBRmywetPiSoahCrwoJo4=; b=Wkgdns+7FKN/7OvfARMas0Wy62
-	BvrLXWVMBmU0pX3RgmMx+CIrySrPxjAhlJTpjKvRqN4VqxaZ3pSqJrpWE+SdXHb+WWjovvCKlZ5m6
-	po+/T3o6oV75Xw7XRrhHUev+RcQV0bIi7A3fAkBrlT2yLT5kr5ZLS2yfr5yVyG6tx5cg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1whVHq-00BLyX-N9; Wed, 08 Jul 2026 18:38:14 +0200
-Date: Wed, 8 Jul 2026 18:38:14 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?iso-8859-1?Q?Gr=E9goire?= Layet <gregoire.layet@9elements.com>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
-	devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jacky_chou@aspeedtech.com,
-	yh_chung@aspeedtech.com, ninad@linux.ibm.com,
-	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	Wed, 08 Jul 2026 16:39:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C5F9439BB;
+	Wed,  8 Jul 2026 16:39:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E6381F000E9;
+	Wed,  8 Jul 2026 16:39:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783528758;
+	bh=s17L25CKf6N69n47kq5IfOEmXIhfMV81UIxYDG1zrNg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dUl1bxY9rew5rS9hqYip2CHsshSWH5nY76m0otTtVHyCzupnUfD3dyMmXcm/hPIIu
+	 Q4PvC2p7Z428yGtVZTjIpR71+UoV/gW9OPkM8t9uRChGLC3tGID2VlHD8GG68XBSLD
+	 rTQEi3T5xH479HRADzb0ra8fNgofDFY6HF9PW71qdLzIxVU+DSPc7q8MVZL2oPZMNN
+	 oo4o9sMmhnzgkjFVVCncFdNn1UTdpnRewQgsXZ0bIBY8sEzDXLcseQUwugf8y/f+Fg
+	 7pTNsRT+w1UD22+IFK+0orjJbnp9WWMWTCE+f9SSE7RHLJLTzZsn9g+VxQMMe4KM13
+	 8+UDVg2Ovb1rg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1whVIp-00000002v6F-3wwj;
+	Wed, 08 Jul 2026 16:39:16 +0000
+Date: Wed, 08 Jul 2026 17:41:05 +0100
+Message-ID: <8733xt77tq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/7] dt-bindings: serial: 8250: aspeed: add compatible
- string for ast2600
-Message-ID: <8eb54ff0-b8ce-44e6-8251-c19e0b6773cc@lunn.ch>
-References: <cover.1783524645.git.gregoire.layet@9elements.com>
- <cbe59dfba231dcd55fa86233dc076b017d67463a.1783524645.git.gregoire.layet@9elements.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cbe59dfba231dcd55fa86233dc076b017d67463a.1783524645.git.gregoire.layet@9elements.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_093844_582885_653306A2 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH v3 1/3] KVM: arm64: Avoid re-testing walk_continue
+In-Reply-To: <20260708134101.2514759-2-leo.bras@arm.com>
+References: <20260708134101.2514759-1-leo.bras@arm.com>
+	<20260708134101.2514759-2-leo.bras@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -      polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH).  Only
-> -      applicable to aspeed,ast2500-vuart.
-> +      polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH). Only
-> +      applicable to aspeed,ast2500-vuart and aspeed,ast2600-vuart.
+On Wed, 08 Jul 2026 14:40:57 +0100,
+Leonardo Bras <leo.bras@arm.com> wrote:
+> 
+> In __kvm_pgtable_visit(), a couple tests for kvm_pgtable_walk_continue()
+> will 'goto out' if it should not continue. This means the same test will be
+> ran again before returning ret, which is unnecessary.
+> 
+> Return ret directly instead.
+> This will simplify next patch.
 
-nitpick, if you need to respin. Don't change to two spaces to
-one.
+This reads quite badly, and doesn't explain what you are trying to do.
+How about something like:
 
-Whitespace changes distract from real changes. So it is normal to put
-them in a patch of their own. In this case, i don't think it needs to
-change at all. Two spaces after a . is a common style.
+"__kvm_pgtable_visit() performs a bunch of calls to
+ kvm_pgtable_walk_continue() to find out whether the walk can continue
+ further, and if not, falls back to an 'goto out' which retests the
+ possibility of continuing the walk.
 
-      Andrew
+ Given that there is no reason why the situation would have changed
+ between the two checks, turn this goto into an early return,
+ simplifying the code and paving the way for further rework."
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
