@@ -4,97 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620F2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FFEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 10:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4UyoSNyXebLeXjulHaoflPQw9V3It1bzboWcTLzP7s=; b=OX5lIHB6KzPVMep/RA7PfE73bD
-	M1m4hKmi+VCuiS4bDIDqmTxCz9vlrZxrOSQuPkei4MjTrZ6vxBIjmBI5R3W0JcmqOE6xWSonmRpUw
-	cdF8BL/gyCJJT7CI3/7vnrbaIugOmZScxIVFuQNJ+1+rS5WHILAUfPi32CoeGcLGug7dH3gZxpHtc
-	zCMN/F8ZYifiKdGwWBh/ithyUZfVTcui82tVwMU3J+j5kAXi4qHUYwdfjW3cPovlDz9XNxSMuQzBE
-	YMK/o1uxXEV466HzqkI6YgDhiESRfxYAKJGcxejV/6DPhYN9JY9j6beZGPsJvTeysgZxbaMBITZ3/
-	xqRaekCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=98rENIB3mGoVN8IzGK5+Rv/mhcjDzkejvD/k8HXEbKY=; b=uY6lUAuaNclwUheOt3Viw0hWhf
+	snC3214Lkm2fwu1V1Qasq8MQ8DeIrPJAzvi2zdkPknB6CDOY2+EMlwODzvhsHLKvMNWHQyVZlLPpd
+	tnNmaTJ+4ZvqGH5mz8gyVJ78pEZbLL2mhjVZcE0COOn1nGr0Tb+o9Enh6gc+hnam02EtK1wsZwm25
+	v+Ls69k+oFI63aMGw0qLuwEE5HJtUDhfbOLtLKfho6HaxODmiFKyeBcu/N56XwN2eZdbP5/oG3yLM
+	pzuReIVnEm0KLRMBbq454HrMZFx57KreULXcBbK55fQjvwv2tf7Enk8EV+KJkVAW8oggWeSVV7UOc
+	5jeB1w8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPk0-0000000Gvta-33bH;
-	Wed, 08 Jul 2026 10:42:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whPkL-0000000Gvxo-3iAy;
+	Wed, 08 Jul 2026 10:43:17 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whPjy-0000000Gvst-0wkv
+	id 1whPkI-0000000Gvwc-38ac
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 10:42:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D44C60008;
-	Wed,  8 Jul 2026 10:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F29401F000E9;
-	Wed,  8 Jul 2026 10:42:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783507373;
-	bh=l4UyoSNyXebLeXjulHaoflPQw9V3It1bzboWcTLzP7s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Eok20oS+ydCL9nQkOELYtvSANI3EO+8Mppguumlyf4qv4bE/mnNXLqjmaKSJLdLAz
-	 e6wySYAdHbh0lv8vXonOiEQ1APKQGtVddR3qvacEXeqAGRcGA1Nr85Lgc3tF1lgoo2
-	 bLF4lm+DuOFXrVmxvIDPZq/3uf3OfiMmil7FQwibynaZFTySQNWU4ZltrUHId1Jlf5
-	 YsFeiJTQHvj3P9MVcPixYII7pO1Y15qOzHIniZGV/3SMGy3jCBCoW3GvxJ3JKpl6Bi
-	 8IQwKmj/gDaHZCvwr6Vo2JjHZnC0Ya/9yiBQRw77Z5UBjQ53S4As7lVm39Rmv10X43
-	 qSS3NqxqZ35vg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1whPju-00000002mQn-1Zh5;
-	Wed, 08 Jul 2026 10:42:50 +0000
-Date: Wed, 08 Jul 2026 11:44:37 +0100
-Message-ID: <874ii97obu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 25/27] KVM: s390: arm64: Implement vCPU IOCTLs
-In-Reply-To: <20260706085229.979525-26-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-	<20260706085229.979525-26-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 08 Jul 2026 10:43:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1783507392; x=1784112192; i=smoch@web.de;
+	bh=98rENIB3mGoVN8IzGK5+Rv/mhcjDzkejvD/k8HXEbKY=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=HmvSYbVGsxRsgzkFyCHKY11mw7awZ6ax2mPPLLHmDK2UyiR5KmdcM3JSgBMWF4nM
+	 y5gb0mCvvdiV37QH0GaXOXpVAtLDRTNnnv+UXZUooPdGecUIRLfc18joPYewUkHWg
+	 abp/x3Lf77/vNa6J4vMM4UfCi2hM812UisyYKpJKmokJjBXVXx/lqigH3qaAy04Na
+	 b293HYtXB4I/ldabkmVV5+YaMI4416WXFG7sCzjcAN0kx9ZMSvVFfbLQYWTTmiUWu
+	 ZMvrgwiSx91wjLGa3TphOELQqukIuAu1u2A4iApYJiONKqV7NBkybOrW6o7hjc7xh
+	 52mf5r65GVDe1a+wIg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MBB80-1wmKLh42DW-00Bg5x; Wed, 08
+ Jul 2026 12:43:12 +0200
+Message-ID: <04ff27d2-2b9e-4ca5-918d-8c4211685eae@web.de>
+Date: Wed, 8 Jul 2026 12:43:08 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>,
+ Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+ <l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>
+Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Hongxing Zhu <hongxing.zhu@nxp.com>
+References: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
+ <a42a7e16-1798-4db5-9f03-ba608a700645@web.de>
+ <GV2PR04MB120197631BE612B526EAA33068CF02@GV2PR04MB12019.eurprd04.prod.outlook.com>
+ <4836b6f1-d40d-479d-acf7-a67769e0c8ac@web.de>
+ <0c649fcb-f084-4cc2-bed4-cc335b40c599@web.de>
+ <GV2PR04MB12019244AC0F11642FA466DE78CFF2@GV2PR04MB12019.eurprd04.prod.outlook.com>
+Content-Language: en-US, de-DE
+From: Soeren Moch <smoch@web.de>
+In-Reply-To: <GV2PR04MB12019244AC0F11642FA466DE78CFF2@GV2PR04MB12019.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:O4IzZMH8IYa+aCtKatLsZYQxcvdLppHR6JLxIrgPN5Zh0ZxGm3K
+ SikqpQSdkwWXLSwudfvLiNMKEj10lxoXc/18mb9ZezMuT8jkjYMC907hhs3ce8aczp2j5B4
+ wNZyES7EUFTn+QiCRxY5efypH7yTcG5kaxChIohk3EDxvkXhOFkv6ygKSB4R49tm5pn7Fev
+ 2efztF8wMB81wFseQamIA==
+UI-OutboundReport: notjunk:1;M01:P0:OCK1sjmDm5I=;JM1uVIehAE6HRnOpa7OpVta2g/a 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 sPxTBaDuQS7n2KmKFiGDr0yVnTSgS+
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_034315_271310_B52189DE 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,117 +100,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 09:52:25 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> +static void adjust_pc(struct kvm_vcpu *vcpu)
-> +{
-> +	if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
-> +		kvm_skip_instr(vcpu);
-> +		vcpu_clear_flag(vcpu, INCREMENT_PC);
-> +	}
-> +}
 
-Can you clarify the semantics of adjust_pc() here? arm64 also deals
-with exceptions in the same code, and I wonder how you deal with this.
 
-> +
-> +static void arm_vcpu_run(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
-> +
-> +	adjust_pc(vcpu);
-> +
-> +	local_irq_disable();
-> +	guest_enter_irqoff();
-> +	local_irq_enable();
-> +
-> +	sae_block->icptr = 0;
-> +
-> +	sae64a(sae_block);
-> +
-> +	local_irq_disable();
-> +	guest_exit_irqoff();
-> +	local_irq_enable();
-> +}
-> +
-> +/** kvm_arch_vcpu_ioctl_run() - run arm64 vCPU
-> + *
-> + * Execute arm64 guest instructions using SAE.
-> + *
-> + * Returns:
-> + * 1 enter the guest (should not be observed by userspace)
-> + * 0 exit to userspace
-> + * < 0 exit to userspace, where the return value indicates n error
-> + *
-> + *
-> + */
-> +int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
-> +{
-> +	DECLARE_KERNEL_FPU_ONSTACK32(fpu_save);
-> +	struct kvm_run *kvm_run = vcpu->run;
-> +	int ret;
-> +
-> +	if (kvm_run->exit_reason == KVM_EXIT_MMIO) {
-> +		ret = kvm_handle_mmio_return(vcpu);
-> +		if (ret <= 0)
-> +			return ret;
-> +	}
-> +
-> +	vcpu_load(vcpu);
-> +
-> +	kernel_fpu_begin(&fpu_save, KERNEL_FPC | KERNEL_VXR);
-> +	load_vx_regs((vcpu->arch.ctxt.vregs));
-> +
-> +	if (!vcpu->wants_to_run) {
-> +		ret = -EINTR;
-> +		goto out;
-> +	}
-> +
-> +	kvm_sigset_activate(vcpu);
-> +
-> +	might_fault();
-> +
-> +	ret = 1;
-> +	do {
-> +		if (signal_pending(current)) {
-> +			kvm_run->exit_reason = KVM_EXIT_INTR;
-> +			ret = -EINTR;
-> +			continue;
-> +		}
-> +
-> +		if (need_resched())
-> +			schedule();
-> +
-> +		if (ret > 0)
-> +			ret = check_vcpu_requests(vcpu);
-> +
-> +		vcpu->arch.sae_block.icptr = 0;
-> +
-> +		arm_vcpu_run(vcpu);
-> +
-> +		ret = handle_exit(vcpu);
-> +
-> +	} while (ret > 0);
-> +
-> +	kvm_sigset_deactivate(vcpu);
-> +out:
-> +	if (unlikely(vcpu_get_flag(vcpu, INCREMENT_PC)))
-> +		adjust_pc(vcpu);
+On 08.07.26 11:50, Hongxing Zhu (OSS) wrote:
+>> -----Original Message-----
+>> From: Soeren Moch <smoch@web.de>
+>> Sent: Tuesday, July 7, 2026 7:04 PM
+>> To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>; Frank Li
+>> <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
+>> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+>> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
+>> festevam@gmail.com
+>> Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>> imx@lists.linux.dev; linux-kernel@vger.kernel.org; Hongxing Zhu
+>> <hongxing.zhu@nxp.com>
+>> Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separatin=
+g PHY
+>> power and reference clock control
+>>
+>> On 07.07.26 10:55, Soeren Moch wrote:
+>>> On 07.07.26 05:03, Hongxing Zhu (OSS) wrote:
+>>>>> -----Original Message-----
+>>>>> From: Soeren Moch <smoch@web.de>
+>>>>> Sent: Monday, July 6, 2026 10:09 PM
+>>>>> To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>; Frank Li
+>>>>> <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
+>>>>> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+>>>>> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
+>>>>> festevam@gmail.com
+>>>>> Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>>>>> imx@lists.linux.dev; linux-kernel@vger.kernel.org; Hongxing Zhu
+>>>>> <hongxing.zhu@nxp.com>
+>>>>> Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by
+>>>>> separating PHY power and reference clock control
+>>>>>
+>>>>>
+>>>>>
+>>>>> On 06.07.26 05:06, hongxing.zhu@oss.nxp.com wrote:
+>>>>>> From: Richard Zhu <hongxing.zhu@nxp.com>
+>>>>>>
+>>>>>> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+>>>>>> regulators") introduced a boot hang on i.MX6Q/DL variants by
+>>>>>> changing the initialization sequence.
+>>>>>>
+>>>>>> The issue stems from coupling PHY power (TEST_PD) and reference
+>>>>>> clock
+>>>>>> (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+>>>>>> managed together, the timing between PHY power-up and reference
+>>>>>> clock enablement cannot be properly controlled, leading to
+>>>>>> initialization failures.
+>>>>>>
+>>>>>> Fix this by separating the two concerns:
+>>>>>>
+>>>>>> - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where
+>>>>>> it
+>>>>>>  =C2=A0=C2=A0=C2=A0 logically belongs with reset operations. This e=
+nsures PHY power
+>>>>>> state
+>>>>>>  =C2=A0=C2=A0=C2=A0 is managed as part of the core reset sequence.
+>>>>>>
+>>>>>> - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset()
+>>>>>> for
+>>>>>>  =C2=A0=C2=A0=C2=A0 shared PHY power management, avoiding code dupl=
+ication.
+>>>>>>
+>>>>>> - Make imx6q_pcie_enable_ref_clk() responsible only for reference
+>>>>>> clock
+>>>>>>  =C2=A0=C2=A0=C2=A0 (REF_CLK_EN) control, simplifying its purpose.
+>>>>>>
+>>>>>> - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk()
+>>>>>> as
+>>>>>>  =C2=A0=C2=A0=C2=A0 proper sequencing is now handled by the core_re=
+set functions.
+>>>>>>
+>>>>>> This refactoring ensures PHY power is controlled during reset
+>>>>>> operations, fixing the boot hang while improving code maintainabili=
+ty.
+>>>>>>
+>>>>>> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+>>>>>> regulators")
+>>>>>> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+>>>>> With this patch on top of v7.2-rc2 I see everything booting, lspci
+>>>>> shows the root complex, but no PCIe device behind it.
+>>>>> Tested on a i.MX6Q based tbs2910 board.
+>>>>>
+>>>>> For me it is not clear whether this fail to detect PCIe devices is
+>>>>> related to the patches in question, the reset timing, or something
+>>>>> else. Needs further investigation.
+>>>> Thanks for your kindly help to tests.
+>>>> Did you ever encounter the boot failure without this patch based on
+>>>> v7.2-rc1
+>>>> or later?
+>>> Have not tested this. Unfortunately currently I have no access to my
+>>> tbs2910 test board.
+>>> I used a production system for this test here, but this is very
+>>> difficult to recover from boot hangs.
+>>>> After applied this patch, my i.MX6Q Sabresd board can boot up
+>>>> successfully.
+>>>> And the endpoint device can be detected as well.
+>>>>
+>>>> My Local commits:
+>>>> ad5939d49b268 (HEAD -> v7.2-rc2_pcie) PCI: imx6: Add runtime PM
+>>>> support for i.MX95
+>>>> db7b15f198125 PCI: imx6: Update MPLLB bandwidth for i.MX95 PCIe Gen3
+>>>> stability
+>>>> a26735515c076 PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+>>>> power and reference clock control
+>>>> d617eadf52a46 PCI: dwc: Add force_l2 flag for platforms requiring L2
+>>>> entry without D3cold 8cdeaa50eae8d (tag: v7.2-rc2) Linux 7.2-rc2
+>>> My commits (v7.2-rc2 plus my patch to enable MSIs for the endpoint
+>>> plus this patch discussed here):
+>>> 8cdeaa50eae8 Linux 7.2-rc2
+>>> b62414d07e24 PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
+>>> e8176c6a27ed PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+>>> power and reference clock control
+>>>
+>>> I'm not sure what your other mentioned patches are.
+>>>> Kernel logs:
+>>>> Starting kernel ...
+>>>>
+>>>> [=C2=A0=C2=A0=C2=A0 0.000000] Booting Linux on physical CPU 0x0 [=C2=
+=A0=C2=A0=C2=A0 0.000000] Linux
+>>>> version 7.2.0-rc2-00004-gad5939d49b26
+>>>> (nxa08258@shlinux89) (arm-poky-linux-gnueabi-gcc (GCC) 15.2.0, GNU ld
+>>>> (GNU Binutils) 2.45.0.20250908) #38 SMP Tue Jul=C2=A0 7 02:36:46 UTC =
+2026
+>>>> ...
+>>>> root@imx6qpdlsolox:~# lspci
+>>>> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+>>>> 01:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network
+>>>> Connection
+>>> on linux-7.2-rc2 plus patches (see above):
+>>> root@matrix2:~# lspci
+>>> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+>>>
+>>> on linux-7.0 (not tested on 7.1):
+>>> root@matrix2:~# lspci
+>>> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
+>>> 01:00.0 Multimedia controller: Philips Semiconductors SAA7160 (rev 02)
+>>>
+>>> I guess the new power-on/reset timing is not sufficient to init the
+>>> endpoint in time.
+>>> Did you reduce the time from powering up the PCIe slot to release of
+>>> PERST#?
+>>> There is a power switch on the tbs2910 board for the PCIe slot, not
+>>> sure if this is available also on SabreSD.
+> No, i.MX6Q Sabresd board doesn't have a power switch.
+Sorry, I was wrong here. On tbs2910 there is no separate 3V3 regulator=20
+for the
+PCIe slot, on sabresd there is (reg_pcie, gpio3 19).
 
-arm64 has the following statements:
+At least there still is a difference, which could be a reason for the=20
+different
+PCIe endpoint detection behavior on cold boot.
 
-	if (unlikely(vcpu_get_flag(vcpu, PENDING_EXCEPTION) ||
-		     vcpu_get_flag(vcpu, INCREMENT_PC)))
-		kvm_call_hyp(__kvm_adjust_pc, vcpu);
+Best Regards,
+Soeren
+>> I found out that the endpoint device is (often?) detected after reboot,=
+ it is not
+>> (never) on cold boot. (linux-7.2-rc2 plus patches) Could also point to =
+timing
+>> problems of the slot power supply (or reset duration).
+>> Unfortunately I have only very limited time for testing.
+> Understand, thanks for your kindly help.
+>
+> Best Regards
+> Richard Zhu
+>>> Best regards,
+>>> Soeren
+>>>> Best Regards
+>>>> Richard Zhu
+>>>>> Regards,
+>>>>> Soeren
 
-It isn't clear to me why you can afford not to deal with pending
-exceptions when returning to userspace.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
