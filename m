@@ -4,109 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B33FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3D5C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 17:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHRAJ8KCEo3kBblosOTrn2Ke4Sb1IqEMIQxw9CoxcGU=; b=tRq9/Oc3zsy5bMLyCMhk+Vso4t
-	Hna1vuBSbMlAOwjvH6UqJ0NKDwJ0tSoVYsUxHnLTu1C+9cl09WyvcVpocOP2wBQHbZuSI0wxvwZcD
-	ImiZ1pRFaZWe9X9kTPZ7XI3QFs2J3SN+VAeh5jzbswuFWgr5ms/g1WMV8e/PiygTtovgCmLdpMq3d
-	EBCtBMkd0Ik8+1y0t4Jnj0m2DwM36Jlg3HoM5wQElAYTL+MBpwy95kAlQG2McGJHCZT2p0ozwTUje
-	qxyw/HApH+EmE5Ty83BBGOD4LyRQ7vS00PIyYotNTUKT8ZvJRXT1bsfEikG5ojvbCFMEXCj37veiu
-	Kml8QJkw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=amf9A3ny0stjzBNYa5xxQpkuKUHxHwl/QGUYuXrMddg=; b=eSJfMdz0Lacjbg4sH81LBnizsE
+	ZDYwh+zvFcVk+XUATK+kK6xRCckO3V7K7vcvzpJtNLyDP1yhwhQN73y/FL6ToPtBgjveN57xwBu3F
+	5qn0P+mH33jEHz0JN2P2KOWmtIpjLq3FWgGwhPyz70S/zdNYAUKuWsediTv3sNxo7Y3CjK6iK5PMU
+	C05K1F4YK0JHNCeH4WAof24TiwuitGWKuaJo3Oen4pfmtaAKGQZlP5xQ8lp2iiOEL7NGHlJFJeeOs
+	Nu00fJtmmCrAXoB78YjHDUk5JoHAPi6ewEnxyXh7mfAXOFZvS6Asi6Zu4piZrZEbbXI499qZmb3Q2
+	WRE0mcWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVi9-000000002yE-13sF;
-	Wed, 08 Jul 2026 17:05:25 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1whVjm-000000003BV-38Qt;
+	Wed, 08 Jul 2026 17:07:06 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVi7-000000002xl-0AD2
+	id 1whVjj-000000003Ad-42Ve
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 17:05:24 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c125c082ee2so4687366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 10:05:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783530321; cv=none;
-        d=google.com; s=arc-20260327;
-        b=irO3gGSzj6bAFIQ1xVRtvPF9HU3BntbM9+a9/JVbMyXT/qSH6eI0EfLAtt1Rx26Q3k
-         wSn7O4fHXI+fcM3Pu/gX5g3sLQ+DtNANO/owc1rMmzsG6skh16nrrTgpD7GDRJHP1sUb
-         pI5/a9WB4tbXs3JnEKXkaICTE36MDvwHBFBcmf80LtfQRJPXndpUjCiptbA8LwsfGsFy
-         Mb+WpFeODeh7fKTy7iJa1OwhxgjPhsjdNo6k/H9HjIbRK2WSxjlNXGFqvqcHO8vvDVld
-         kYN32RGf7+J1ASG6EAD5S+i97IUb4zdV8+fonZ2jKo7eGOUyHNfAHlGgBInprbUaBWxS
-         HemQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pHRAJ8KCEo3kBblosOTrn2Ke4Sb1IqEMIQxw9CoxcGU=;
-        fh=2/MMs/KvNsPX176MVuCVHGtWDwj59wrttg2VIOiiY2A=;
-        b=iV7TEjTZrEw316l0SkYtVHgeOPawKAwdhNxPMyzluqiAEEUwXmT9Se2s5XCDdy7TG3
-         X91eaaexJvgbtnunBjW+TirUeX4RLalzZE3yuTmh19/REsuv51nyk2LJVEAINStIz1Zm
-         j9/Xi7ClaUqhOxcRrWUySJ7qkn8wCV5cJMurg7hYhcvUJ2Ohjl72Ddtoy8orIOYQAu5K
-         Qyg0mviWVjGVi58QFOIyI97sAt8L3wDZ5ZpXizepQHnENqyRFr+HnrEVOzzVd2WsiTIH
-         s71qq+XxCQF77SKCrc1Luc0MVP2VJJ9tLWXtznspBnItXmUgwjbRANRzWbBnNtk7DpFt
-         Nuag==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 08 Jul 2026 17:07:05 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84347ad88edso1359020b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 10:07:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1783530321; x=1784135121; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pHRAJ8KCEo3kBblosOTrn2Ke4Sb1IqEMIQxw9CoxcGU=;
-        b=Qq218JMyzXaqMU8ZJiG7Yo+LdgdKwY1BL+PrqucypbwTLVCrchJDbqZsonnvYb4p8Y
-         hvch9jEgEwKiE1T86rYOvUlFKW581A1RHp23bw2DvZHx2an0E5wLkldEsyczg/a7BrkL
-         igfv6auv6b8nMGE51nqSOnkPY+H3SK/cWOca3DvGehyzZM0Jg++Z12EYs5gGHBnWf4ej
-         AHQF4PrtdR0wgNeqZQTvy0nP/WRZvS8O8icjuCFhO0sK9M63P4E3DcaINzeK6eDJHA1e
-         vY7jcZ4UVXeJb8XBm4exqukZczBB93wiyXF1xJ5wMUqUe7shII7412y/9NUcmZIHCuH9
-         QDuw==
+        d=gmail.com; s=20251104; t=1783530423; x=1784135223; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=amf9A3ny0stjzBNYa5xxQpkuKUHxHwl/QGUYuXrMddg=;
+        b=jiRz4hjv8tOT3T0Klo5vBE7wQsacDisZVt0TDNIPseZfrlFUD3dUff//h0wq0+YxTn
+         yX4VJbEo0KHqbYwMXt3PGxON1tGGEjwbQpSgFzYKRzjZQy0nYsJRox+6WGhShsDK1nmt
+         0NeIDgAMnuxIdUPJr42kr5YSRr0lcG/cjYChc7CR69k0PDSPVB8SDPETvZ5OcAsQzXz8
+         PwK92I5KP3xXW69VisICPpZQkz8Z8W3BGD8Q+O5CEfVS/wZeoGeunA8Tb2Jv7kg6h9pt
+         v84yiwL3QUktRUwOKw531rE1jaJKafpJfWJaz74FtTISAY9MuLcto6sA9PueWSDf2AW2
+         Uncg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783530321; x=1784135121;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pHRAJ8KCEo3kBblosOTrn2Ke4Sb1IqEMIQxw9CoxcGU=;
-        b=L2yY+xpkLK1QOyOpzTIMJEd4kZuz6Dt4TrxQLe/e3Yjl1mO8RiDXRMKOEkFMq0O1+N
-         jBd+CoS/CsIhNWf8ZC/6exmUziwuCahmMcxPYuG7YeaWYKGo0e+bulSvKXdDktZnaMEV
-         JfFhJojdvzU+iNpUb34b/t8QMB1zOqudt5TnNeuk5V21aozaxJq15x0B6huBnYuZW5Kx
-         Zzn349FSAL9pHrNRGbO5dwpzdGT8MZA7cK70/wRKwSfsbN0UNRd7CmyvKZMOt6mAEcRT
-         3DlwmLSMRf9SG1TQ7L5mUphANFtLY1+dLYnZufFmt5byKSelFDQp84u/TAmfD5DfAaTK
-         5Drg==
-X-Forwarded-Encrypted: i=1; AHgh+Rqytn1FAewgPKwdgI4TsEodySCfaTUsT+HkLN1vmqbKjYZMKnHmv9Ya3jM5w5rxTu7P/jzN3IdIYTo3z7+sRDLZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwsAk+unPN2Q/wsbtpMaUfjtHRBs5XaRXqLNSsgKGT7q8Lj/oA
-	jrjTjxXckVNLWfIxlvUcVn88dJxd2+wwd6sB4AMLJ4HPGZcp3nHTVY8zdUnUi5YRIy7iFcYAsyL
-	hl0E7zKbfTILSuRd2oVkOty+RWVjPDxCjh19U/aNtog==
-X-Gm-Gg: AfdE7clPQ/n/zuUl8JI7tJwsH6iLGpqmC/rW4o+88mG2GUgDRMPBvTpmHptCwIPc2O5
-	xWtHwcRAEc+mFeWu4+RKFeyHxvTN0Tu5ps/dA09R1OS9LAqNjsHEhNkpIWLwS4rW/hpYfSs/hOi
-	7wRAo9fUrkGZWeDGWnL4RfNqY73NKxY8sJZKHTDidQO+9AJmYGhICIlhjBNHYRTkz7AZZ9UxQCA
-	oLVwfZ72INdcKCMOjTxmq6iJ/O6gH3rdQGNkoYcMSOVnVIc7+AXAACcdJtg/Niz97xdCJR7U5Rh
-	/jWAH0i40avwOGhOnBHg8SqwvEtB1oIQww5X+Q6w7JL1YcKiQhIUvFLYPlrnPQ==
-X-Received: by 2002:a17:906:4fc5:b0:c12:d971:1c1d with SMTP id
- a640c23a62f3a-c15ce0ee72cmr168212366b.45.1783530320904; Wed, 08 Jul 2026
- 10:05:20 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783530423; x=1784135223;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=amf9A3ny0stjzBNYa5xxQpkuKUHxHwl/QGUYuXrMddg=;
+        b=NON9Qh9JBoy3wj9lRBRpjQEi93ICruCk4CnXCpIq5YB4blGmy0nodSQ+DB69h6lK0W
+         leXYP5jfVCxSG6VLaMf3mgsK+1UyIOHpGk0BSvJ7SEJ+Pm1ZLoYC99tKd7mulojmgvCG
+         IBZpI0bR+Kya8Oay30bppJ1Wqcx0DkvWkS4/aMvFNhCJxLRs7OXfVdn086p7rFjiSRKu
+         yvK1ryy+ZGtKYZa999jJs0elBU6iBuOrS/cu/5/xGuokb4Chbu83YCT9HX7oAoDfkgia
+         eVbAH3ywdEVFgTrN9xgCKWKB5alhrgumDybH+AdKKBkB6iUSS7IkIRIQNwKntSRL5aif
+         g9zg==
+X-Forwarded-Encrypted: i=1; AHgh+RqjnjMgLdxxrtCTyAD5SL1+5cKIRZbdswvXlgJNFJC/hPlvBoCc1/AtzoW54u4mrSez5WEYlUyxcWrcnfzPPWZX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJNJPSJ+Gt5OGofRX3zYvTSlS+3DhIjumrRBUvRmgSbxRHyHqg
+	1p36NwoO6s/aB6Ob0sFl5QYgRmNieHkMuuUj6yac/92as3zJhJ6qBfJI
+X-Gm-Gg: AfdE7clv+9lqsor/zUhSyz8B9Ww9haPuaL3ena86ch2pzKpgiUi3xhAilL2VvA3uDnY
+	ashvTp9WVbNOeMxwwawOAbkuixcfkef5qEIglI6YHKcef8Rzb1bkHaUub1V9yBAIZ32+jtrtwK1
+	g3RnmGRAstsRMAD60I+yq4jwv7MWjRGMt0s9HljOBQp1ZEahHL0I9gEzAh1fvqgJUm9d4N1fQGD
+	UdqKR6sV5ah0BkrEcvbfXBu+sDUO/w8FLlf4P2VPrdUafUHFUQGmW88FEgT2r5eKwrKXIXkr97A
+	p0iDMhsU/phV9nchQ+yK7gHG4QyVHUQgo68rRoBje7/WMRHo3idodCtEfseeZyxJcXcKwhPu/y5
+	MP6xfNDmQiYbxD94yYtal+D24w71jdE3LL7YjdChdV5ktoq9+9wjmEIBaDgxhTiL29OEktmvLAu
+	wVxQr96a/Pgdkr2Y9tJg==
+X-Received: by 2002:a05:6a00:a15:b0:848:2f77:e2df with SMTP id d2e1a72fcca58-8484392f4a8mr3717327b3a.72.1783530422835;
+        Wed, 08 Jul 2026 10:07:02 -0700 (PDT)
+Received: from ubuntu.. ([110.9.142.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84847275fa0sm1119528b3a.22.2026.07.08.10.06.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 10:07:02 -0700 (PDT)
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+To: akpm@linux-foundation.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Will Deacon <will@kernel.org>
+Cc: linux-mm@kvack.org,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>
+Subject: [PATCH 0/3] mm/early_ioremap: clarify and clean up early_ioremap_reset()
+Date: Thu,  9 Jul 2026 02:06:44 +0900
+Message-ID: <20260708170647.362562-1-ekffu200098@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260708165201.624271-1-robert.marko@sartura.hr>
- <20260708165201.624271-3-robert.marko@sartura.hr> <20260708-guide-outing-b471d0dc92c9@spud>
-In-Reply-To: <20260708-guide-outing-b471d0dc92c9@spud>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Wed, 8 Jul 2026 19:05:09 +0200
-X-Gm-Features: AVVi8Cdu_ypWhE5d2JkOMVlQ29SNXhJeaUvRunEjCDsT2tHn5OyCd62kkjaC3iM
-Message-ID: <CA+HBbNHceio1GXxsua0L7CUbm2YxaTDE9A2H=cZ-0r2GYP2CUg@mail.gmail.com>
-Subject: Re: [PATCH 3/4] spi: atmel-quadspi: add LAN969x QSPI support
-To: Conor Dooley <conor@kernel.org>
-Cc: nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, robh@kernel.org, 
-	krzk+dt@kernel.org, broonie@kernel.org, alexandre.belloni@bootlin.com, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, daniel.machon@microchip.com, 
-	luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_100523_104095_3ADB01F5 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260708_100704_000724_B77D05C2 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +112,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 7:02=E2=80=AFPM Conor Dooley <conor@kernel.org> wrot=
-e:
->
-> On Wed, Jul 08, 2026 at 06:51:10PM +0200, Robert Marko wrote:
-> > Microchip LAN969x has two QSPI controllers based on SAMA7G5 QSPI.
-> >
-> > It requires pad calibration, supports DMA, and supports 100 MHz operati=
-on.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
->
-> > @@ -1708,7 +1769,10 @@ static const struct of_device_id atmel_qspi_dt_i=
-ds[] =3D {
-> >               .compatible =3D "microchip,sama7d65-qspi",
-> >               .data =3D &atmel_sama7d65_qspi_caps,
-> >       },
-> > -
-> > +     {
-> > +             .compatible =3D "microchip,lan9691-qspi",
->
-> Where is this compatible string documented?
+__late_set_fixmap() and __late_clear_fixmap() are only used after
+early_ioremap_reset() has been called, but the comment above them does
+not say anything about that. So arm64, riscv and powerpc, whose
+__set_fixmap() works before and after paging_init(), describe the same
+situation in three different ways:
 
-Ugh,
-I managed to somehow forget to export and send the dt-bindings patch as wel=
-l.
+                 calls reset    defines the macros
+        arm64    yes            yes
+        riscv    no             yes
+        powerpc  no             no
 
-Sorry for that, will respin for v2 tomorrow.
+Patch 1 documents when early_ioremap_reset() needs to be called and
+that only architectures calling it need to define the macros.
 
-Regards,
-Robert
+Patches 2 and 3 remove the unneeded riscv macros, which are
+unreachable, and the arm64 reset call and macros, which change
+nothing.
 
->
-> > +             .data =3D &atmel_lan969x_qspi_caps,
-> > +     },
-> >
-> >       { /* sentinel */ }
-> >  };
-> > --
-> > 2.55.0
-> >
+No functional change.
 
+Sang-Heon Jeon (3):
+  mm/early_ioremap: clarify early_ioremap_reset() semantics
+  riscv: remove unused __late_set_fixmap() and __late_clear_fixmap()
+  arm64: remove early_ioremap_reset() call and __late_* macros
 
+ arch/arm64/include/asm/fixmap.h |  3 ---
+ arch/arm64/kernel/setup.c       |  2 --
+ arch/riscv/include/asm/fixmap.h |  3 ---
+ mm/early_ioremap.c              | 10 +++++++---
+ 4 files changed, 7 insertions(+), 11 deletions(-)
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+-- 
+2.43.0
+
 
