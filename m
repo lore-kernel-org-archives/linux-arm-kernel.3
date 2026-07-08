@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6542AC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AFEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfr7ZZKY7R0Q0fpXvMzQrwETE6t9nlZGm9NBFjMImJA=; b=kFekpF1z68sb/kIx9hinLc3ffH
-	hnNoR8O9YYk6lUi6zDbKjjWpu3O8x3JIywfQTN2puhfKxefxjQEuBsB0CokJfDrJk5NyC6399mC6E
-	VACDqdsABbWB5CcdWkJ1v7h0UCh+1xRTmVbxtBIuog6cQ2cVwyUINudiL0lmff2twvt066IWGY902
-	xzTkE0qV6AOiMdzCk6AQvIcyvsfqSWUTD4iGSL4YBWp4wzL+7dw7+oaiTalORrrSqndhUPGgYeg8c
-	PcxVUlIpWvCt0m6qaKOPAA9im5zjvhJhBi02KXGMwe7N4p7VTBqkAJJsGUk52swFlWBUdZpGyJx4W
-	5aZJWaiQ==;
+	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=; b=O4PXdclSvQWJH2CqhZyP6BmKe1
+	5PBTjbGolyiToSRzXlBWkIFRYoZSj2ecdj7L5Fp0SOsZkuHZzDTLkWdx4lVl/Sn8bWsRAVVkgQ4aN
+	tOLHjnpNdxPf4XAaXgzmxh+lE5xDu17UsBsvUXSdeW42POEn2C0T4OwcvlMnTyW6sIWuv82rPI4MQ
+	iRzQKhPxUJTM/E1nyxVNrJUyYp0zfERCyASuXnFJmvlx2MxrGpZhBuGdUIFN0TERXXx49F5WZkmJN
+	nz7AIRT6nRjj8D8ksCQTF75b7QyZWQwHr+QPAsy5ef5F8pL2OcQdkulVLAxYL7Jsi1dlcB/TJdC5r
+	LH2VyccQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8y-0000000Gfzl-06CV;
-	Wed, 08 Jul 2026 09:00:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whO9B-0000000GgEj-1veU;
+	Wed, 08 Jul 2026 09:00:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8u-0000000Gfwm-0FLP
+	id 1whO8y-0000000Gfzd-1Na4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:00:32 +0000
+	Wed, 08 Jul 2026 09:00:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEA6443714;
-	Wed,  8 Jul 2026 09:00:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BCB11F00A3D;
-	Wed,  8 Jul 2026 09:00:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C13B66001D;
+	Wed,  8 Jul 2026 09:00:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E438C1F000E9;
+	Wed,  8 Jul 2026 09:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501231;
-	bh=qfr7ZZKY7R0Q0fpXvMzQrwETE6t9nlZGm9NBFjMImJA=;
+	s=k20260515; t=1783501235;
+	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fbfI+/v8X0xielvI1RsXQ1n5XyY+6FHzeH85+L7HbQJqEtLURu8BrYFRmaTrcMcA9
-	 c2bwM7L6mFunuay0XQRUg728UHhWb5bJ7bt9kx9amYn0zNsPVdWqVTLqsvD1xTIcJf
-	 805VtogtJ862AoL/1hGAw6DrnuXlRM9Af8UsGe8hg8PupiTZBG/Yssx4iLy0+82xCH
-	 ptXNkgKzzg3VptCYACv/NFvfBmpNX/sewiP+YaMHNhtUUjXjOJ9rTWyFw7Cp+g49Rw
-	 tjLnLpDtvwCWh/HsUtn8kMRE5sNqdEIbuKvNf40j8+dydPsCiWZ0aOQD8TTO9yE8Fq
-	 QrAx9COJvHIPg==
+	b=HJEiVZsPywwMg6M5aHHmJM3FibXT6peOFS+hroRKr5p41D/reu45046H83c/F5nIl
+	 15nhGsyGBFoqkibdcAyq9hdWbH32iknd4RAP80iPNYI8etPiSslov3CWGOyVrNZ0cW
+	 2kiUkbqhrQ1pNC2FDV3d/s0pN66eqaIFu2O9aCoj4QQbDQ9O5WhbpA5K82AmxN2Yju
+	 fhGlZzq6kqe3KghAofTydnPLW0Z1W1eYhpogO8zbJNPYfgJtHX/m/zAHjs6KV6ipAY
+	 3YntcNZVrYMNDIUGw9O++miscbE7NzDBipJoUIk/C+t3LLonrJuG86f4y1v1nKu0g+
+	 s5KUFBqbtoGww==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:03 +0100
-Subject: [PATCH v4 07/16] firmware: arm_scmi: Use channel ID for transport
- teardown
+Date: Wed, 08 Jul 2026 10:00:07 +0100
+Subject: [PATCH v4 11/16] firmware: arm_scmi: Clear SystemPower flag on
+ create failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-7-53142cd60b63@kernel.org>
+Message-Id: <20260708-scmi_core_fixes-v4-11-53142cd60b63@kernel.org>
 References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,41 +69,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI protocols can share the BASE transport channel when firmware does
-not describe a dedicated channel for the protocol. In that case multiple
-IDR entries can point at the same scmi_chan_info, whose owning transport
-device was created with cinfo->id.
+__scmi_device_create() reserves the singleton SystemPower protocol device
+before registering the SCMI device. If any later step fails, a stale
+reservation can make a later retry reject SystemPower device creation
+permanently, for example after probe deferral.
 
-scmi_chan_destroy() used the IDR iterator key when destroying the
-transport device. If an alias entry is visited before the owning channel
-entry, the lookup can miss the device because the iterator key does not
-match the protocol ID used when the transport device was created. The
-code then clears cinfo->dev, so the later owning entry skips teardown and
-leaks the transport device.
+A plain global boolean is not enough to track the reservation. A delayed
+final release of an older SystemPower device could clear the boolean after
+a newer device has already claimed it, breaking the singleton guarantee for
+the active device.
 
-Destroy the transport device using cinfo->id, which is the protocol ID
-that owns the channel and was used when creating the transport device.
+Track the reservation with the scmi_device pointer itself. Claim it with
+cmpxchg(NULL, scmi_dev) after allocating the device object, and release it
+with cmpxchg(scmi_dev, NULL) from the common cleanup helper. This lets the
+create-failure, explicit destroy and final release paths clear only the
+reservation owned by the device being cleaned up.
 
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
+Fixes: 2c3e674465e7 ("firmware: arm_scmi: Refactor device create/destroy helpers")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/firmware/arm_scmi/bus.c | 59 ++++++++++++++++++++++-------------------
+ 1 file changed, 32 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 8c4a3036ae43..41f1b2c49521 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2896,7 +2896,7 @@ static int scmi_chan_destroy(int id, void *p, void *data)
- 		struct scmi_device *sdev = to_scmi_dev(cinfo->dev);
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 793be9eabaed..dcaefc1aa892 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -7,7 +7,6 @@
  
- 		of_node_put(cinfo->dev->of_node);
--		scmi_device_destroy(info->dev, id, sdev->name);
-+		scmi_device_destroy(info->dev, cinfo->id, sdev->name);
- 		cinfo->dev = NULL;
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+-#include <linux/atomic.h>
+ #include <linux/types.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -33,8 +32,8 @@ struct scmi_requested_dev {
+ 	struct list_head node;
+ };
+ 
+-/* Track globally the creation of SCMI SystemPower related devices */
+-static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
++/* Track globally the SCMI SystemPower protocol device. */
++static struct scmi_device *scmi_syspower_registered;
+ 
+ /**
+  * scmi_protocol_device_request  - Helper to request a device
+@@ -391,10 +390,17 @@ void scmi_driver_unregister(struct scmi_driver *driver)
+ }
+ EXPORT_SYMBOL_GPL(scmi_driver_unregister);
+ 
++static void scmi_device_release_syspower(struct scmi_device *scmi_dev)
++{
++	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
++		cmpxchg(&scmi_syspower_registered, scmi_dev, NULL);
++}
++
+ static void scmi_device_release(struct device *dev)
+ {
+ 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
+ 
++	scmi_device_release_syspower(scmi_dev);
+ 	kfree_const(scmi_dev->name);
+ 	kfree(scmi_dev);
+ }
+@@ -406,9 +412,7 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+ 		 dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
+ 		 scmi_dev->name);
+ 
+-	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
+-		atomic_set(&scmi_syspower_registered, 0);
+-
++	scmi_device_release_syspower(scmi_dev);
+ 	ida_free(&scmi_bus_id, scmi_dev->id);
+ 	device_unregister(&scmi_dev->dev);
+ }
+@@ -419,6 +423,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ {
+ 	int id, retval;
+ 	struct scmi_device *scmi_dev;
++	bool syspower = (protocol == SCMI_PROTOCOL_SYSTEM);
+ 
+ 	/*
+ 	 * If the same protocol/name device already exist under the same parent
+@@ -431,39 +436,33 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	if (scmi_dev)
+ 		return scmi_dev;
+ 
++	scmi_dev = kzalloc_obj(*scmi_dev);
++	if (!scmi_dev)
++		return NULL;
++
++	scmi_dev->protocol_id = protocol;
++
+ 	/*
+-	 * Ignore any possible subsequent failures while creating the device
+-	 * since we are doomed anyway at that point; not using a mutex which
+-	 * spans across this whole function to keep things simple and to avoid
+-	 * to serialize all the __scmi_device_create calls across possibly
+-	 * different SCMI server instances (parent)
++	 * Reserve the singleton SystemPower protocol device using the device
++	 * pointer itself, so delayed release of an older device cannot clear
++	 * a reservation owned by a newer device.
+ 	 */
+-	if (protocol == SCMI_PROTOCOL_SYSTEM &&
+-	    atomic_cmpxchg(&scmi_syspower_registered, 0, 1)) {
++	if (syspower && cmpxchg(&scmi_syspower_registered, NULL, scmi_dev)) {
+ 		dev_warn(parent,
+ 			 "SCMI SystemPower protocol device must be unique !\n");
++		kfree(scmi_dev);
+ 		return NULL;
  	}
  
+-	scmi_dev = kzalloc_obj(*scmi_dev);
+-	if (!scmi_dev)
+-		return NULL;
+-
+ 	scmi_dev->name = kstrdup_const(name ?: "unknown", GFP_KERNEL);
+-	if (!scmi_dev->name) {
+-		kfree(scmi_dev);
+-		return NULL;
+-	}
++	if (!scmi_dev->name)
++		goto free_dev;
+ 
+ 	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+-	if (id < 0) {
+-		kfree_const(scmi_dev->name);
+-		kfree(scmi_dev);
+-		return NULL;
+-	}
++	if (id < 0)
++		goto free_name;
+ 
+ 	scmi_dev->id = id;
+-	scmi_dev->protocol_id = protocol;
+ 	scmi_dev->dev.parent = parent;
+ 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+ 	scmi_dev->dev.bus = &scmi_bus_type;
+@@ -482,6 +481,12 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	put_device(&scmi_dev->dev);
+ 	ida_free(&scmi_bus_id, id);
+ 	return NULL;
++free_name:
++	kfree_const(scmi_dev->name);
++free_dev:
++	scmi_device_release_syspower(scmi_dev);
++	kfree(scmi_dev);
++	return NULL;
+ }
+ 
+ static struct scmi_device *
 
 -- 
 2.43.0
