@@ -4,145 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53AFC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA9BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 15:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=; b=Q2BjjFfCnB0Jio19a1pGfg1q1C
-	g6GG4sfWRxVMJ3BiCqhgXGCGme29x6JUAHhsHd+dsvFYQrM3o1dSwcyWvJ8ep2nyiZ9uo7RuNPYQa
-	hkEmmPjeDl611z0jE2lHmRcGkEcwc08K++voJie+LEqqLIj5Km0YZXtK2M/9F5U7S3ZP9/wahG89U
-	8vFnKTUuEcU162ASbs6pAU5gPdgiPzEK4Gy2dqprzWF/acE1rftWr51buebBvhcr9mf4f+3IZvhA2
-	R5sk1hIYXS9hwSTBQ4Q3N+wzVEopIbCNa2GND1pEL5wsb4cdbcUyarhMc5CPhaWUkPDeqAN1YTh5P
-	64yaQrTA==;
+	bh=F6oSopg6Mj71dblp8EqeqZ8bJLpEkBsZJC781RVV1v4=; b=0xGg0+T5gmh4h/yeemRzjsmzIj
+	xFj73/NaDTpwaW4e1VwqyvRxTXMazcxcCMQusaNmftK7v4Zuxj2njQOg3Zap/x4YBUzEQpwAqNREq
+	7GaKeZ6MQsxXlH2YGqPRuv6Ov+/cGPWJmo3evvXOJpWO9ED8l4/AgoIuF2dp2ncm3yWQThElL4MBr
+	ZDLJsK8VDM5oJ9l548jC4U8rE3wsUvlM3WNNKxLmjmUKD5dm1Sdw4cvRK3ob+hRF34THljYA6Um0f
+	qZKrz6PpiRupeqJc4AQvCfR5eCxTsIieONsbgmmkXKnB8mw6amWNU8D5uKn88HhUq3J3ORKJNAXP5
+	ZmpSteiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUeQ-0000000HXXt-0I1A;
-	Wed, 08 Jul 2026 15:57:30 +0000
-Received: from mail-centralusazon11010059.outbound.protection.outlook.com ([52.101.61.59] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1whUfv-0000000HXk7-1hWV;
+	Wed, 08 Jul 2026 15:59:03 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whUeN-0000000HXXO-2iFo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 15:57:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fYDpvmHgEoOgZ00gXu+uh4NJoybSs5JYGg8fjJ2Gi1dcLFthTHZivzFnVJfiEoaysYeRE8GVXLuNQ2UNiGQ6vNKjsG09ON3HrJTwE3ebybBzCAGkKC4DLzDpAqVdrRwTBViExRqyM8R8R0QR7VkMy7aeTKvIQymClvP0BMiirecXMvmhQ5Wcx4weVNfrFehBEucG1CVUjlUo2z9/7HX7RhFer4ZtXAcgo/AEXYUNNkN4iwLxQprXOHJg7JaFPqSUOfYX6T7WxeARfEn1OHPuc3a/toSNgCzJLe5P1f3txFJB2sfC60qpBwgjKeX59m0/CZyc0ucype167wqrAMyMxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=;
- b=pr+cXSG5QrWIdj83C6+scHAs5jurZb3OtBCNHIWqq4dtcKd3sg9CABdKRxHmEr4SImhlNFLfVRNzecfaO0anPOatZikT8efONF7kN1+PeXahjMiEQLBWEwvn3gAodiFvFdc5JXTQDRh6sTPhY8aGVy0HTnPt0JNJUDoAIUc9Whb0xjPVyFvuNE24VrYSSN01WKUFKtq4Cz7rghKo2fA6CZ7DT186Ty2toWRTgvh3xwBiRqHNmcuhwowV23tcQi6maO3r8M30qdaUiYgxC0whDW8S8n7SHMkIY6/JolgGAb0biF8g6KPxj2iZu+wFfCh8+7L2oPUE2BfmvwqbtJMXiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wiVXL4I5vnajX3RW2E00xVb4sve/CQZy+lpyfm/0CTk=;
- b=IUZHpYmdHRngZ0Xnqofwn6PM+Br0tTmHVnwHTfkZb7XuyFjvAOKR2BpoiNCSkydSugKIs/zIBinBaPyQgrkmRsd7ltM+RhGIsuzmVbFqqRoCnxc1LaMCH4ri5Dz+/mMQg6cQhceRh9dAOWJ2ctzPfev49KYjXH3j6H0un/CCUTU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by IA1PR12MB8493.namprd12.prod.outlook.com (2603:10b6:208:447::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 8 Jul
- 2026 15:57:12 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0181.010; Wed, 8 Jul 2026
- 15:57:11 +0000
-Message-ID: <c5c9473f-2a60-4385-9c5c-0d0fabe6c8e1@amd.com>
-Date: Wed, 8 Jul 2026 21:26:59 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 2/4] dmaengine: xilinx_dma: Move descriptors to done
- list based on completion bit
-To: Srinivas Neeli <srinivas.neeli@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Suraj Gupta <suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Alex Bereza <alex@bereza.email>,
- Folker Schwesinger <dev@folker-schwesinger.de>, dmaengine@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260708100652.603074-1-srinivas.neeli@amd.com>
- <20260708100652.603074-3-srinivas.neeli@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260708100652.603074-3-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN3PR01CA0124.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:96::12) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	id 1whUfr-0000000HXjR-3ZYz;
+	Wed, 08 Jul 2026 15:59:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=F6oSopg6Mj71dblp8EqeqZ8bJLpEkBsZJC781RVV1v4=; b=nlkdh0pC/i9VfopWXyeRFh4sQU
+	Fvsv91+qmcZLKoGg6EkCnpuhZMj5Tm+KA4tjj7c/zUEfrIDIfJHuTAzGvHEnB8a8sLXDaWLbVSqBc
+	mIxpbFgiuENlEZtxw8NL1yvWZl9vfq4o+d1PUh3CrQXqrwEqCQ4kc/gfMxid8lwYuSqjWEeSvhbnn
+	uwgQUn0WQrNDAmtNn5QxKU+lHBrazr+78M+9t6YIcoVCsLb99PhhYmKDrQ72LW+ez8NidZ1IrXclX
+	DtmEyeoWAdmpdRyZvmI8GaELHnOrPda/BooWXiumgF1k/Bld2clwK4bOBbxs0bMQa8OP4jOrieQma
+	n/udY47Q==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: MidG971 <midgy971@gmail.com>, Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: tomeu@tomeuvizoso.net, ogabbay@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, xxm@rock-chips.com, chaoyi.chen@rock-chips.com,
+ finley.xiao@rock-chips.com, diederik@cknow-tech.com, jonas@kwiboo.se
+Subject: Re: [RFC PATCH v4 9/9] pmdomain: rockchip: Add a regulator to the RK3568 NPU
+ power domain
+Date: Wed, 08 Jul 2026 17:58:37 +0200
+Message-ID: <3205744.kC03pvyZki@diego>
+In-Reply-To: <CAPx+jO_2=SYo0smYzwd8T+TUtHZtgXU0dSWQgZGZ_haV3aOU_Q@mail.gmail.com>
+References: <20260613070116.438906-1-midgy971@gmail.com>
+ <20260613070116.438906-10-midgy971@gmail.com>
+ <CAPx+jO_2=SYo0smYzwd8T+TUtHZtgXU0dSWQgZGZ_haV3aOU_Q@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|IA1PR12MB8493:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97e0044c-e72f-4319-b0c2-08dedd09924d
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|366016|376014|4143699003|5023799004|11063799006|56012099006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: cmP1jVVzDwJNItLHrsTVljswJ0Dvo8GiAk65uOCpa75AEvO8xJj34g4rKSsc7cgdQETMhAIVM7S3bzOriwPICVDiMGzmOCpiVGxkhMwOs+rnWblAD+gHzirlZZbxoUfTR6+ZD+t8kMfcu5DW5aU53tWzIVJns/HQ3utCtr8vK9IgVwZDmX0GLE1a987rKlMrgqnVMnn40L3evSJRnj17UXyyjxN9is7uId2C3MkKW+s7nXqpyw1jULIxgsEhyPve6RMqIOSss1PmGHsPGffJo3aVgbfwY1xS+6ib/CmYD7TRDT6Av++fj6bUJQ09BMw4u2Voj1ZFSTdYISAzbI5gc8tx+IZ9WnrG+x2OGXWnZKPi5ltp9pp5+574dkfzvF124fZy2tNLBecOitllWd87zU9LW1GQ389q8NkVGgNEZpODpUTwQ5s52CHhywMmxk1GtI8WwP/zDTSFOPh4n19/Z8tfnUbaHCjk6b4hCFIdrAMiLoMbdhE0MyDTAUt+ldk5mzMx6eVUo2tW/HFaQQ3jB0fghdY3fhHCcp0ZTE/BRXvtsianoDu5BW/FCZz6/UlYlko7frHyVXmc2knVLH1sXM/By7IePvI6kC25ffjVy2Z9BEKgs79YgZtBw/S9fUI9K4AFjVtBGjS3bNXZ9z/RsgxT0C1WvfXp4kgPxig1fQ8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(366016)(376014)(4143699003)(5023799004)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGttSE11STJnRmpSdGpydlVKNjA1Z3lzdTlSVmd6QzN5TnJ0SDF2YlZQeWx0?=
- =?utf-8?B?a0g5dVBURzB5UVovdmx5SzJvUkRIenozR0lhT1cvYm1CNkMvODg2RXNTOTBo?=
- =?utf-8?B?ZmVlTktEQnYzRjJpT2VBRU9Cb3lDTkNHY09wOXhBYjdBcVJlR2lRaXllNnJW?=
- =?utf-8?B?cENSTkxkREswaWl4bE0xRmlCS2hSRmt6cm5DUFpoR0d1bXdZUW9nWVBXUkxZ?=
- =?utf-8?B?aFBKOTZ0RUhFeDJ4eWdkMkQvQVVnUDlDNGhkMnlMOTRMZlF5YXpmY2s2cVJP?=
- =?utf-8?B?cmQxRXIzRGtsMWE3c0tDZ242UGhYdkF6aFVIY2NjRlJRN2sxZFF5QnN5Rklo?=
- =?utf-8?B?UkRmcUNjNTVnRDZRNUlBZEdIZ2Q1YWpXdjlxK2M3aFFvS1pObDdrM1VxV0pZ?=
- =?utf-8?B?dENqRTJuWVZnRGhNcWc1VmRkemVVNzkxcnhkR1lZMCtUQ2Z0T04wbEFQTi83?=
- =?utf-8?B?RExqWGlRakx3OHhQQ1RTVloxN2M0TVJFakMvQUpabjhYdFRNMmV3a1lTenFp?=
- =?utf-8?B?MDJaejdjeXF1bVlZejNTaC9IcXh1RS9xYXFGOWRmSEZ3VkNwVTh3clVyQnZN?=
- =?utf-8?B?V052Q3REZkdYS0lHR1JOb2ZCSERWRVZMM2hFTWxoWTc2RExIdWlxUko1Rkt4?=
- =?utf-8?B?c1lXeTJ6andCeGxwMmZNUFNqMG1Lajl1V1I2N1VqdGNWRDhsQ2xtdjlTQ3Ev?=
- =?utf-8?B?Zlpva1FkOG1WOTRXa3dxSElRQ016dkxKZHM2Nkowb0FNTGlVeXhJdGJjL0p5?=
- =?utf-8?B?RDdtU3dvZko0YUgrQUpFM1lHVUhhS0RzYi9OdkJFRnpWbnorZEw2dTh1UVBl?=
- =?utf-8?B?SGRScXFVczBOc3hRS0x5TC8zRUViNkNyMm5xczVjN0thcUwraEdRbkNIUnh1?=
- =?utf-8?B?NUU3cWVlVGoyNlNjeitZb3Y2eGdqcWx1QTYwbS9lWGk2KzBSZkNwMzFnbTRv?=
- =?utf-8?B?T3FsTVg1VWZoNDFUN04ya3FxYkV5WXd4QjBxZmsyaGM2aTladWZ6Tk1LbENw?=
- =?utf-8?B?TkJ2MFZYbmt3MW5sZjhHWHc3UGpUWG43VHhKbkxpVnd0ODY4Z29OQVdZMFVS?=
- =?utf-8?B?dG9yejd2VlBLVXQ5VTd2UGpsS1poVFBmNXJJRitPRTI0dDJyaEw3Lys4S1BF?=
- =?utf-8?B?c0xCNVU2K0p4UHlScWMzZTF4cWZQOGtocTFBK0UxbWp0cVRXOTV0Yk12RTcv?=
- =?utf-8?B?Z3dwTTZuQVh0N3dQZ2pqT3JjeTREbGtxcm9TRUtHRDR2ODhwZCtteFY2Tnoy?=
- =?utf-8?B?eE9YU1dnZ1pKNmdnMCt6N2xhUDl2RjZjTkFrWVZjYzJBZnZaZUpObmJmQzhk?=
- =?utf-8?B?TUxQa3Q5S1VVdklHekQyMFFXSEJtYUNrZk4wTE9rQmFaTlJzU0NtN2k5UFpo?=
- =?utf-8?B?QW5XVDB1L2V5dmpubGpEOENmc2Q1eVBGblYrT1AxNEFuOXU4dy9DYUxoSmdX?=
- =?utf-8?B?ajFhNmhFUFVRSWxadlg2ZVU3RTNKZE9DaWpyOTlBOG9Eck03R3ZDaXRvUUZU?=
- =?utf-8?B?QUZjN0ptOFNzTTQwV1dUdGFCc052Y0VCdE1ub2VGUE5sSWN1SFVKd3hIZ1BB?=
- =?utf-8?B?YkhLU2NqcW9wN1FpalJkZU5ZdWNNckZKVG1lMFJYQlhvUVBHSlk0ZVlpSHVw?=
- =?utf-8?B?Z1RnaXRCM3BDd2xRNmV5TTQwb2xXdlVzZ05lY0RwbUZ6aThhejR5MWRHamNk?=
- =?utf-8?B?b1N2SmZ4aEF4Y05kNmZEWjRqQlVVU3hzaU9aemZHNERaL2REekszVmxma3ZD?=
- =?utf-8?B?anlEb2hjSUE3QjNsMDBiaERCRUhFK0oycDRQbzQzalV0VE5wQlA5QW91SHQx?=
- =?utf-8?B?YzBJSndtYTVMQ091bTJMQlJFMUM3NzdscSt6VHg1Wlc3eEN2TmFoUDNSUnFo?=
- =?utf-8?B?ZWdveVhIdWN0bWVlb1NoUUJXZUNCUWxEUmRNQmRYUmVkbmxvblAva3BYNW1h?=
- =?utf-8?B?MnVYd25vRGNnaHo3QVJMNG8wZTJQS2p3aTVlaXQ3L1hIaU56QXlhbWV0eHRW?=
- =?utf-8?B?cEY1cjBXalZvYlkwSjlsL2xzOW8weXZ1YWxBYm5YL3hCZS9yNjRFSUFXaVp0?=
- =?utf-8?B?TGkwcjhQeTBLZ3d4UzhjL0xyMm5VbS9LVllSNks1UmdBcDQyRHB2UW5LRTdL?=
- =?utf-8?B?Y1dzL1ZSb3pxWjRaeFFxY0ZiS0FVby90SXFCaXRTcE9xZUNGN1JINnBvV0h5?=
- =?utf-8?B?b1dHSWRKMEFCN2hjRHhmOUM0K1luK0pnSkg4UGpzbkpHNXpTeTVhMUhHZFow?=
- =?utf-8?B?NDBrRCtKTTVoV2NHTUlxNXpRM0hCZnVhbjZobHVaRWRtSkJhN3Q0a3NvN3Ra?=
- =?utf-8?B?RFVCWTZHdVczZ2ZTdDVpbDVmekx5elhyZmVhOUtJUisxNS9qcTFOQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97e0044c-e72f-4319-b0c2-08dedd09924d
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 15:57:11.5849
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aXp1zDYZW26gHnW5Z9CaaLVbgaVIkS3gWD0U7/ThkROkXMHOYnbxtbjZiw3ao5Jz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8493
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_085727_711954_5773F2E6 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20260708_085859_909436_29EBBBC6 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,79 +72,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> In AXI MCDMA scatter-gather mode, xilinx_dma_complete_descriptor() walks
+Hi Ulf,
 
-avoid "scatter-gather" mode.
+Am Mittwoch, 8. Juli 2026, 17:24:04 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Ulf Hansson:
+> On Sat, Jun 13, 2026 at 9:01=E2=80=AFAM MidG971 <midgy971@gmail.com> wrot=
+e:
+> >
+> > From: Midgy BALON <midgy971@gmail.com>
+> >
+> > The RK3568 NPU rail (vdd_npu) needs to be enabled before the domain is
+> > powered on and disabled after it is powered off. Give DOMAIN_RK3568 a
+> > regulator parameter (like DOMAIN_RK3588 already has) so the NPU domain
+> > can set need_regulator, letting genpd manage the rail wired up as the
+> > domain's domain-supply instead of marking it always-on in DT.
+> >
+> > Suggested-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > Signed-off-by: Midgy BALON <midgy971@gmail.com>
+>=20
+> This looks good to me. I assume this can be picked up independently of
+> the other patches, whenever you decide to move forward from the RFC.
+> If not, please let me know.
 
-> the channel's active_list and unconditionally moves every entry to the
-> done_list. The MCDMA IOC interrupt handler invokes this function on
-> every interrupt-on-completion, but with interrupt coalescing
-> (IRQThreshold > 1) an IOC interrupt may fire after only a subset of the
-> queued descriptors have actually been processed by the hardware. As a
-> result, descriptors whose completion bit is not yet set in the BD status
-> were being reported as completed to client drivers.
-> 
-> Add a check for the descriptor completion bit before moving entries from
-> the active list to the done list, using the appropriate direction-
-> specific status field (s2mm_status for DMA_DEV_TO_MEM, mm2s_status for
-> DMA_MEM_TO_DEV).
-> 
-> The MCDMA completion check is intentionally not guarded by chan->has_sg,
-> unlike the AXIDMA branch above. AXI MCDMA only operates in scatter-gather
-> mode (has_sg is always true), so the guard would always pass and is
-> omitted. The completion bit is therefore checked unconditionally.
+Correct, this could be applied any time.
 
-Not need to talk about has_sg check and compare it with AXIDMA but if 
-you still prefer make it precise.
+>=20
+> Kind regards
+> Uffe
+>=20
+> > ---
+> >  drivers/pmdomain/rockchip/pm-domains.c | 36 ++++++++++++++++++--------
+> >  1 file changed, 25 insertions(+), 11 deletions(-)
+> >
+> > diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/=
+rockchip/pm-domains.c
+> > index 490bbb1d1d8e8..19db307e3811d 100644
+> > --- a/drivers/pmdomain/rockchip/pm-domains.c
+> > +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> > @@ -138,6 +138,20 @@ struct rockchip_pmu {
+> >         .active_wakeup =3D wakeup,                        \
+> >  }
+> >
+> > +#define DOMAIN_M_R(_name, pwr, status, req, idle, ack, wakeup, regulat=
+or)      \
+> > +{                                                      \
+> > +       .name =3D _name,                          \
+> > +       .pwr_w_mask =3D (pwr) << 16,                      \
+> > +       .pwr_mask =3D (pwr),                              \
+> > +       .status_mask =3D (status),                        \
+> > +       .req_w_mask =3D (req) << 16,                      \
+> > +       .req_mask =3D (req),                              \
+> > +       .idle_mask =3D (idle),                            \
+> > +       .ack_mask =3D (ack),                              \
+> > +       .active_wakeup =3D wakeup,                        \
+> > +       .need_regulator =3D regulator,                    \
+> > +}
 
-Once addressed , feel free to add.
+but Midgy please do some alphabetical sorting ... in my book=20
+    DOMAIN_M_R
+should be _below_
+    DOMAIN_M_G
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
+> > +
+> >  #define DOMAIN_M_G(_name, pwr, status, req, idle, ack, g_mask, wakeup,=
+ keepon) \
 
-Just a note that this change aligns with changes that were done in past 
-for AXIDMA in commit 7bcdaa658102 dmaengine: xilinx_dma: Freeup active 
-list based on descriptor completion bit
 
-> 
-> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
-> Changes in V3:
->   - Added Fixes tag.
->   - Expanded commit message to explain the interrupt coalescing scenario
->     and why the has_sg guard is omitted for MCDMA.
->   - Changed local variable from 'bool completed' to 'u32 status' for
->     cleaner status field access.
->   - Simplified completion check logic.
-> 
-> Changes in V2:
->   - No change.
-> ---
->   drivers/dma/xilinx/xilinx_dma.c | 11 +++++++++++
->   1 file changed, 11 insertions(+)
-> 
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index ff5b29a808e9..1b5b00f08c5f 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -1784,6 +1784,17 @@ static void xilinx_dma_complete_descriptor(struct xilinx_dma_chan *chan)
->   					      struct xilinx_axidma_tx_segment, node);
->   			if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
->   				break;
-> +		} else if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
-> +			struct xilinx_aximcdma_tx_segment *seg;
-> +			u32 status;
-> +
-> +			seg = list_last_entry(&desc->segments,
-> +					      struct xilinx_aximcdma_tx_segment,
-> +					      node);
-> +			status = (chan->direction == DMA_DEV_TO_MEM) ?
-> +				seg->hw.s2mm_status : seg->hw.mm2s_status;
-> +			if (!(status & XILINX_DMA_BD_COMP_MASK))
-> +				break;
->   		}
->   		if (chan->has_sg && chan->xdev->dma_config->dmatype !=
->   		    XDMA_TYPE_VDMA)
+Heiko
+
+
+> >  {                                                      \
+> >         .name =3D _name,                                  \
+> > @@ -241,8 +255,8 @@ struct rockchip_pmu {
+> >  #define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)            =
+ \
+> >         DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeu=
+p, false)
+> >
+> > -#define DOMAIN_RK3568(name, pwr, req, wakeup)          \
+> > -       DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
+> > +#define DOMAIN_RK3568(name, pwr, req, wakeup, regulator)              =
+ \
+> > +       DOMAIN_M_R(name, pwr, pwr, req, req, req, wakeup, regulator)
+> >
+> >  #define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset,=
+ req, idle, g_mask, wakeup)      \
+> >         DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_stat=
+us, r_offset, req, idle, idle, g_mask, wakeup)
+> > @@ -1274,15 +1288,15 @@ static const struct rockchip_domain_info rk3562=
+_pm_domains[] =3D {
+> >  };
+> >
+> >  static const struct rockchip_domain_info rk3568_pm_domains[] =3D {
+> > -       [RK3568_PD_NPU]         =3D DOMAIN_RK3568("npu",  BIT(1), BIT(2=
+),  false),
+> > -       [RK3568_PD_GPU]         =3D DOMAIN_RK3568("gpu",  BIT(0), BIT(1=
+),  false),
+> > -       [RK3568_PD_VI]          =3D DOMAIN_RK3568("vi",   BIT(6), BIT(3=
+),  false),
+> > -       [RK3568_PD_VO]          =3D DOMAIN_RK3568("vo",   BIT(7), BIT(4=
+),  false),
+> > -       [RK3568_PD_RGA]         =3D DOMAIN_RK3568("rga",  BIT(5), BIT(5=
+),  false),
+> > -       [RK3568_PD_VPU]         =3D DOMAIN_RK3568("vpu",  BIT(2), BIT(6=
+),  false),
+> > -       [RK3568_PD_RKVDEC]      =3D DOMAIN_RK3568("vdec", BIT(4), BIT(8=
+),  false),
+> > -       [RK3568_PD_RKVENC]      =3D DOMAIN_RK3568("venc", BIT(3), BIT(7=
+),  false),
+> > -       [RK3568_PD_PIPE]        =3D DOMAIN_RK3568("pipe", BIT(8), BIT(1=
+1), false),
+> > +       [RK3568_PD_NPU]         =3D DOMAIN_RK3568("npu",  BIT(1), BIT(2=
+),  false, true),
+> > +       [RK3568_PD_GPU]         =3D DOMAIN_RK3568("gpu",  BIT(0), BIT(1=
+),  false, false),
+> > +       [RK3568_PD_VI]          =3D DOMAIN_RK3568("vi",   BIT(6), BIT(3=
+),  false, false),
+> > +       [RK3568_PD_VO]          =3D DOMAIN_RK3568("vo",   BIT(7), BIT(4=
+),  false, false),
+> > +       [RK3568_PD_RGA]         =3D DOMAIN_RK3568("rga",  BIT(5), BIT(5=
+),  false, false),
+> > +       [RK3568_PD_VPU]         =3D DOMAIN_RK3568("vpu",  BIT(2), BIT(6=
+),  false, false),
+> > +       [RK3568_PD_RKVDEC]      =3D DOMAIN_RK3568("vdec", BIT(4), BIT(8=
+),  false, false),
+> > +       [RK3568_PD_RKVENC]      =3D DOMAIN_RK3568("venc", BIT(3), BIT(7=
+),  false, false),
+> > +       [RK3568_PD_PIPE]        =3D DOMAIN_RK3568("pipe", BIT(8), BIT(1=
+1), false, false),
+> >  };
+> >
+> >  static const struct rockchip_domain_info rk3576_pm_domains[] =3D {
+> > --
+> > 2.39.5
+> >
+> >
+> > _______________________________________________
+> > Linux-rockchip mailing list
+> > Linux-rockchip@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>=20
+
+
+
 
 
