@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E67C44503
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846D3C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 09:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFSMF/UUQ/jmj4LT03D5ukygscU0JNIQNzF2vvZDJ4k=; b=EJoxsd+WDBTXKgKU+zEymVMz3H
-	+YqLvDnNXo1kYDjoN3K1f+hYVSOl5ruZZKSf9YyCjY8y1TcyFn3QCV1F/maFZsxxjFkpsjS0sycJM
-	sgA5E1mSuA7bUI4kHh3NedoQYrvztv3pCCnaJn4az653Vl5RXWN59dM1WZn00U077hIPffLZ42Ivt
-	ayarAou08kpw+/ATSeQo8aKv4DZAPw7Es6oIcvwRpHhG2MsmsMnllc4VaiwhKt+wQcJTTCoxQFvfL
-	BKDxxYnx+PhYFrVtHBPKEof8K5AJt1yA9/bkhtlykRnQR9AwbWyDW0AzcLyWK/gDm3RIHlprx2+S+
-	vz+j66Iw==;
+	bh=v3I1DWLH7zeKVOM/hYjiYR73bFir5/f89XictzBGoEY=; b=fWijqZOM0bAV21/ImngoERiBlg
+	oW6f5BiQI8duCXY+Pg+TIpAkF2gqF0wHAhzgfY8f7FSJ4+Qj+6Gxylg5r3KQXUjaEFtapbovcxvXT
+	Orf7IMqRQ8hII3nHoJpTeijTCqPoz6HzeAD9YQDFSpSEW9zI/YWLOjqYD/huyJTnz697q0fBNCd3B
+	ImnwgayZpDa81MjJ1Kvm0UQbcTi2xMIPfVMwXhK/iObc4pxl92cRa2USmhp7lK+AYGkLwXe1NMD6I
+	6DhGMPTe8AkY6v8tqNug0vwku7EC/ESzA1q6oJ+3VyTsYACbYj/yhYGRSTKIj995Gw3Ap3WUbZAz9
+	avGLN+qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8x-0000000GfyW-1evl;
-	Wed, 08 Jul 2026 09:00:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whO8w-0000000GfxY-1J9R;
+	Wed, 08 Jul 2026 09:00:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whO8s-0000000Gfvx-2qVU
+	id 1whO8q-0000000Gfuu-1FcY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 09:00:30 +0000
+	Wed, 08 Jul 2026 09:00:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 247DA6001A;
-	Wed,  8 Jul 2026 09:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 484021F00A3D;
-	Wed,  8 Jul 2026 09:00:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1411543BC6;
+	Wed,  8 Jul 2026 09:00:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 660831F000E9;
+	Wed,  8 Jul 2026 09:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783501229;
-	bh=EFSMF/UUQ/jmj4LT03D5ukygscU0JNIQNzF2vvZDJ4k=;
+	s=k20260515; t=1783501228;
+	bh=v3I1DWLH7zeKVOM/hYjiYR73bFir5/f89XictzBGoEY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fm96ya9Lx5ykmSLDc5Dq5mu/CNPVnbAUim/eDPtYdyc7gh+RRv4aLruwZzcXf6g60
-	 r0b3R3jjv6ysiwddJGZd3vsjESEz3LmgjOohoHsvFpsGoqX+hjk6IC/WgwNPIUf+8h
-	 g9UZcOTAnezryqMUAiQ/4hibQ5UjSJU2Y8xiDqMvQxd8v1Ow2TdBL8JlZU2Z49BSMi
-	 4S2hXlmM86EbAZedfZWXxYazN3YRI8ehkFCsFp1PmGAjCH+YminAjLA8GRnF/shUWL
-	 QV+uCiltELxIfbwZVTp92gZIJZrRveVWPhxRfsqM0ZEG8SBXxB0lwC0LM3G30RsfR7
-	 yMYsA6rPf0Adw==
+	b=Utkvgm4Sgc8y0FGkI3Koyu6NHDyzxage+Yy3Jhxd1U87YOtYBVv6R1azbym/4rSNg
+	 XraHlxq1cXFXtMFvCSvjHs2MLlj/ejAuW7yJ/UKGIUUR+ZAexhx+gy9Fn1lttVtvvs
+	 SyA12nG+wTbTLsJwdpwRxs6ewwKyzZ/6EJGrm5vHYHhkxEmkh+llB2ydGyEcW/Xpsd
+	 Yezvnz+jWwX3AaD4ooDQBX/9SynPuyewv0Jjai0gF442D/EtJyKz0eNv9ABprZMo73
+	 yBw06P1lAELqXFciH0qceT4H73jXn6U9b17TQwcQbGCBTr9ZJ4yBOK6OxoUcnNFrn1
+	 CQ5YeYcyWjzTQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 08 Jul 2026 10:00:01 +0100
-Subject: [PATCH v4 05/16] firmware: arm_scmi: Avoid IDR updates while
- cleaning channels
+Date: Wed, 08 Jul 2026 09:59:59 +0100
+Subject: [PATCH v4 03/16] firmware: arm_scmi: Clean up channels on setup
+ failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-scmi_core_fixes-v4-5-53142cd60b63@kernel.org>
+Message-Id: <20260708-scmi_core_fixes-v4-3-53142cd60b63@kernel.org>
 References: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 In-Reply-To: <20260708-scmi_core_fixes-v4-0-53142cd60b63@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,49 +69,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_cleanup_channels() walks the TX/RX channel IDRs with
-idr_for_each() to free transport resources and destroy the dedicated
-transport devices before calling idr_destroy().
+scmi_channels_setup() can fail after the common BASE channel or earlier
+protocol channels have already been registered in the TX/RX IDRs.
 
-The destroy callback removed each entry from the same IDR being walked.
-That is not needed for this cleanup path, and it is unsafe because
-idr_for_each() has not advanced its radix-tree iterator while the
-callback is running. Removing the current entry from the callback can
-invalidate the iterator state. The callback also cannot be protected by
-rcu_read_lock(), because scmi_device_destroy() may sleep.
-
-Leave IDR teardown to the following idr_destroy() call and keep the
-callback limited to device destruction.
+Route this failure through the existing channel cleanup label so the
+transport channels, transport devices and IDR state created before the
+failure are released before the probe error path frees the SCMI instance
+ID.
 
 Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 9428c0777899..3b0c8b6087e6 100644
+index 6f588840bf11..0a8a1d9de008 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2885,7 +2885,7 @@ static int scmi_channels_setup(struct scmi_info *info)
- 	return 0;
- }
- 
--static int scmi_chan_destroy(int id, void *p, void *idr)
-+static int scmi_chan_destroy(int id, void *p, void *data)
- {
- 	struct scmi_chan_info *cinfo = p;
- 
-@@ -2898,8 +2898,6 @@ static int scmi_chan_destroy(int id, void *p, void *idr)
- 		cinfo->dev = NULL;
+@@ -3263,7 +3263,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 	ret = scmi_channels_setup(info);
+ 	if (ret) {
+ 		err_str = "failed to setup channels\n";
+-		goto clear_ida;
++		goto clear_txrx_setup;
  	}
  
--	idr_remove(idr, id);
--
- 	return 0;
- }
- 
+ 	ret = bus_register_notifier(&scmi_bus_type, &info->bus_nb);
 
 -- 
 2.43.0
