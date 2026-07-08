@@ -4,129 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74EBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 20:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F2BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 20:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpAl2LpETSiul+DxLsPYjXdIv06G75C9yDItENpzmzw=; b=iR6gbPM48wjtHpsDMRv7iUTEzU
-	wx6J9RG0QlwJiMG6DP8qiGulUqOWwOBlQdKAJGbs9A78NJSh9qBP8O+poO8MUFdK+9aTfAunR45Qm
-	Pu8m0BFQnuAB8KdPclhRVybUmrL6tGq1yJCZ/RZW0JRZIsJ7Y1Vr7y/goeGYJ2/6OLDeT99xPrShO
-	uCHo6qBJ0NZw9Npg6hg3hrXwzu8bg6HYQSVpd6sZFNKjTMjNPziEffXw4/Ka8cRON/LSn00CjZcdr
-	fS43/N3voLR9e9cGdqfVeBTMeRdupSG8khRq6c/mdMaIY7o+C1UQ0lhG1kegCN7toG4Pml2yP67A1
-	28DQpE5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XJ7RzD76kxiwljUbH1ziAXYuUhJpqXoVIn6sTFD2pwE=; b=ia5+txUHdTrSzyS+/5RJ5Lib14
+	vGyCpBaoWyBhagw9xp8Ei4jHaZGRQTEkfyLGO+NMQNgeQOrDh6Z8tqveMWuOR/J8HvNHJls5iXOWg
+	0ixlW40ZRYckLapiDMuXjiQyRHk+oC1gb6gdGEOyLeLEa7apDPuw/WvGEUD1RVn23d8ZhtLfrj8Oc
+	7/uShdDJXNTLj6acD+UbOhCjCMaefWmdKtfaXRGqrsPNbJuAtkvxBYnbmnQDH6lwcvwSaDGxq7OfD
+	utqrnWztLAGc9yh/4jH583KbBBhdGuMhfjtnwN/mmqzgxtXXtFJ+9laala1ARpyQzGwleoNbjFawz
+	uqb+hgdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZ9J-00000000O18-3Wr5;
-	Wed, 08 Jul 2026 20:45:41 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1whZIq-00000000Ohn-2uPJ;
+	Wed, 08 Jul 2026 20:55:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whZ9H-00000000O0L-12qV
+	id 1whZIp-00000000Ohf-0j3l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 20:45:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZiqqiLAFekil6LqA6LzoFy46C7V8mBUCI7ZSnBeIgjtXBmyyH2ljQCrs08vVrZVLNllbZ8xGxmafYOzhTfMmv5LdDsGOMdTgoTs6LO7Jhm+TLIXLHUTE0TptJkgA6lSn3ZPuyPFRw+dgMdHbEA8sEyPY/xw9ysGZOTcHCjRw2Cm4cMH6fiJxbDkhtrGIbkAmLfUBuTQ/XASKYdE+vUmnjJWsxWVjxYTL42ROWJkXSM8Lby+sCXCZ7x2okBybENZLc3Zek6DirXGlJlFiTHj+hVvS8A9DoC5x4vjrE7UWKHeqZ+5OTuCuUndtqODm6lLraI/mKQzKCpAx2vkxLd5L/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NpAl2LpETSiul+DxLsPYjXdIv06G75C9yDItENpzmzw=;
- b=sAdn+jVkbpuK8NRFUd9nJsD6e5OuTizgO0WGv85QBItcVSnMRuhPLB9AMtLJ2mmy8E+wX2T0Q9PggvPcuj/H70O60ZA9KvZsT3AAp7vOmXc8M1V7dNYYdocFyj6VIQs6Prv+TyeAy1+ELp9iKHbRZpgnQJk97BVaeEXMJVE+Czddj0Y1W21Jf4/caIfVSGB5haLhmAS9nQNbi2KWnAP208RS+yNcVg9fCRbV9H9bFUFx5V3qENp4fpeuzU4yCnKsXvWT1I1IKU2eCz4QnHRt0OUTAWS5KvJ2i10tJFQvnp8lsU4CwgW5QoapNWWj8XRB4y1W7AwGJuBR/mQmpU1k4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NpAl2LpETSiul+DxLsPYjXdIv06G75C9yDItENpzmzw=;
- b=cQcARz27yfmdo3vQ9CNIY2QvF/w19cBDzTIBpqVbZJ9tjuhZoHThrD/5+I50FvQjSnXzZ/t7GzFAgt0nNdXAWgasZdKoPmRCTigZv0CEo6qcr4GfgUxMkzvr56hcyyTZ4zUfrIBoOQ4tvbXNdIyIAfwVCDlmxdsA0w5WqkxoFZctrv69NvZ1T5+DVx9VqKWzwlzeV69dV71kwWfeuLMxyMisdoEOaaqA6nRHo5irgkTeu3ixvhn8adc0ygRfZ+aXjZkgNngAAr4Zr3Eqysgqm8AIv+wSmLMzI6UQb/ohb2M0OG5X0C6c981ZSFOjKp1fvtE/nLxARc3b+w0GtT785w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7898.eurprd04.prod.outlook.com (2603:10a6:10:1ed::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Wed, 8 Jul
- 2026 20:45:35 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 8 Jul 2026
- 20:45:35 +0000
-Date: Wed, 8 Jul 2026 15:45:25 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: chancel.liu@oss.nxp.com
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Wed, 08 Jul 2026 20:55:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92CC1438CE;
+	Wed,  8 Jul 2026 20:55:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716CB1F000E9;
+	Wed,  8 Jul 2026 20:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783544130;
+	bh=XJ7RzD76kxiwljUbH1ziAXYuUhJpqXoVIn6sTFD2pwE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=OWQMXKEg5gL80ediEM7XpANIGPN5P9I3NJ4YQoKIIhmnUW5y9mCnRGcqgkyym6mUX
+	 t/jyIClHSv/PksG2SOeCIhnVX7P/kBBlKlBs2eKlM9g/vo7KWAkko+18MXos2fXKMY
+	 S6kPBRgSVOz2gvg4U0tRp7tIvMX9+c5b0khtJ9mByl+f7V1ELjUpeTxo1rWEoDwRak
+	 8VGv2pACQhR/nx9UJSTCurclz4ENk46GC8WD0zt9oebTt8FcTaWeSl2gaeUgeNkFC3
+	 iKCC18yhsWHZFP8Zs2GdUR7mUJJdnaygiWMoyJPs/sTcK8XI1cjMqHvGKF6KEifVMY
+	 /Qh3df2v71N8A==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/6] ASoC: dt-bindings: fsl,micfil: Add audio-graph port
- support
-Message-ID: <ak625RN6DKsr4kWL@SMW015318>
-References: <20260707065725.312450-1-chancel.liu@oss.nxp.com>
- <20260707065725.312450-3-chancel.liu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260707065725.312450-3-chancel.liu@oss.nxp.com>
-X-ClientProxiedBy: SN7PR04CA0215.namprd04.prod.outlook.com
- (2603:10b6:806:127::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v4 02/16][UPDATED] firmware: arm_scmi: Quiesce notifications before teardown
+Date: Wed,  8 Jul 2026 21:55:22 +0100
+Message-ID: <20260708205522.139187-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260708-scmi_core_fixes-v4-2-53142cd60b63@kernel.org>
+References: <20260708-scmi_core_fixes-v4-2-53142cd60b63@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7898:EE_
-X-MS-Office365-Filtering-Correlation-Id: 551cdce5-d1e4-46bf-6dcd-08dedd31dc28
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|1800799024|7416014|376014|56012099006|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wtshSqhZlwYyogZuAOKKqPmVVk40qCo57QJbW5MGnZULCMKSzWWF1eiMtPmCzn3o3jypWdiqRCMONbUaGLaZ/XNiESIXUdxrgSDhWzLSyLzjVbU92mdSAKJfr0IMYwEWW4yp/Dt8U5hiKri/6S8j3WIAArD6eUSui4NGPpX+wnnYl6Kob2i79E8W76a3h1WhSU56CTAamG28pojk0uFO5nA9eLmJA4tpMs0IG+2gN81Ppkw4Cny96aAPni3NSqIfbSKFFD2gNNUm61M+Z5B88H1QTm15r9iN796e7euakT6LZWoTbIjzJ2j7m6/1mqRBqlNnCMowLUaYA+kzbEk705IGQNqeaC1DsnZb4tNxbIT7R3U/NUfdDfeOrbTO3Gc+Myy1sAzvf6Ym2ms/CNTJJ/fMtty7vcznyCBGTLJLUHwn43ll8GWS26DvmnvIAFReqcQagO3qftrJ2YnM5fWSuDsH8FodFUm4uivQOqyV5yYitxweVxjQUk1+5PH+avLL6D2gti5mQ8NE7n1R+kL+jt6ZF06pV9R6Ic3LOwVqRdDJY+HfK7GfZrt3kGMgL7IAdPU/cEo7fvFXpPGIUDwaVsOMBznaiz1bngBJfRPFeDTtF3weBo3OKEhPntN+4+5V0cCv19AADcMrx0qxV/Q1iIXpk+57TVSGYeISBM3YVMo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(1800799024)(7416014)(376014)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jQjDNdGZnLvq383/OZY5OLf+X16N1Qovm+aRPUMY6SNb7ehBUr1WKjAP1Pkm?=
- =?us-ascii?Q?6qFolmtxBHZhXM82KFeI/t/NKRBJcwI66o3wZUPl8AVtOayhggrDDtpDjN17?=
- =?us-ascii?Q?bb2ErpJAB5/uayZiKZmAPIaDUVVzD2+nLX49Ag9ItALTACHCwea0jopgyALl?=
- =?us-ascii?Q?XmYf38Xg4dgdFXQo75z4r03QnrEZTSc65saXUBz5QANiPF3/8EsgTCXvudzB?=
- =?us-ascii?Q?W+kt2NTBzKtzwRBMXD6ND0bQ7MgT9hfCv9ugZYEb3uDECSeD1hI+KpeAQJRM?=
- =?us-ascii?Q?yGj8v4EBDh5eUqJurk5rruR6SuLQzZVowbHJHqVKmg/W1DSsxedRqKexPN7a?=
- =?us-ascii?Q?3vb8+Q9WvIrbGwnG0Bi5Nte6dait43ZLqWOSYjCvynuF5AzrqOf6I4oM8sav?=
- =?us-ascii?Q?5uiHOTqjLjD7ooQGa0sAEcmNu6gBKzmijZ5b/VaRA3XPe6Ziuveahk9vIOab?=
- =?us-ascii?Q?FM+Rhxf/FKuAswJDSeotAJTiSHnMSFY4NVdZXTAVUp6bNuckQ3uUJdq1Tj+P?=
- =?us-ascii?Q?2KraLLZvHCPZq++/yBMfoGXY7y8ui/QIsv79VKTdFt6qu4lOHnfnycxe/Vsn?=
- =?us-ascii?Q?4nI6furu+CKCTyAp3UCgDURrfCSXPFzCyb1BkZ2xtJMEFj6Oq2tOAnoumgGi?=
- =?us-ascii?Q?aTFg/uSPd5b++vcolIarsftMunJTpMGsuRp4qrrGncYbO8mCL0eAXly065yg?=
- =?us-ascii?Q?QDO/tuh0SZppTwjMkmGEfwAQvEU8SF1jlujfHAkiLYS0TamJXgxMc8Tinlbt?=
- =?us-ascii?Q?a+zsmirrBl0WCemEJjjWXdDqIoOo+uHxLyNjNttbn7ri48MIJ6K5EXVpKcYj?=
- =?us-ascii?Q?U5FhXrDafCzckmTaipOMYnsv+0dTBPsuf2ZNq3v9sYvE82eehtGVv0OLfH6U?=
- =?us-ascii?Q?CrFWxmkHHQVTRVpKh8bKN5bzZesOOoYI/6CyeN823eXFtoEwOis/R3Rm5k39?=
- =?us-ascii?Q?5gBI6MXcPBYCVyhbcn5hdfBS7hW1kdf/3x5OI8B672nWCvhyr4QxfNPXylbb?=
- =?us-ascii?Q?qQG1C5N1Jw1ufFaUrb0F5j85YT8K6rOJMax1+7iG46FxHyY9g6wWjuTkXd17?=
- =?us-ascii?Q?70H/TJSAem92DWzes6oYAfVEhk2QOKJl+WhEUbXd5LoQeLdo2tM7H8IzEejy?=
- =?us-ascii?Q?+0J0AEdE1dubOOPoWlqPAg+e4fC2yrFgD/jnluNhg3y7YghPrE6C74+HyH9L?=
- =?us-ascii?Q?eR/hou5xzlWHgrcSrZ7WAh0rvpwzBO0k3i0Xs8KR7T8QEei3eJVwnWasEre1?=
- =?us-ascii?Q?SOXe9NRQHg2CR+5eYLf+5YQHVkKuQraDEC/CE39YVCM70NaVdrmqiqvI9ia8?=
- =?us-ascii?Q?/VGvxF6U6l3nILH73WPiuBr9wasr2/a3inPnSI2j3MrFoo4kEe/qGeWfZoOH?=
- =?us-ascii?Q?WKezNhYNEGRVWBEZ+pn3cc2arvOem9d+eVY5mcB9eXH6catSGqA1cO6LVipU?=
- =?us-ascii?Q?FOqCc03TT02ABOphv5i1RI/ORLBsxwMBRaBux9cYrbs1H/I8huTDJZieY2Q0?=
- =?us-ascii?Q?yHiFuq672dNpu/dQaqLxxr55tjZ/tF67EFrRHbE2kF3Sx2EkIJiwVjsFxT1s?=
- =?us-ascii?Q?wMa3DRjzHr6gr1edupBAfDipG27bzX6jbEJZ3UsBPPgMvXMnNa3K2dk9etFa?=
- =?us-ascii?Q?L2HjANnKauh3xMb2Iiu4/drXgOtVLb9EBu7Akhx6D2Zs3wyZn6a4cCGzMbPN?=
- =?us-ascii?Q?xq3VJVdNRb5vQNEyEcCfV8rnNwK3LPXcxriEmNoxE99uvmFKqmwTIcIQiC4K?=
- =?us-ascii?Q?LqXMaSoQ6Y0XX/EUPCecCBCN3OGSaIQWnYxJ4rCFiJLXc8mxJa9V?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 551cdce5-d1e4-46bf-6dcd-08dedd31dc28
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 20:45:35.3696
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rWl7G6hJ3rPPD829qxzNOs0FGmIn7akJsKz9M8zw0XHg/C+5yBIyGzaL13gCTQF25t5oIUtnwqRKdlxsQ+76vtijFDbapbGUjKbb/B6Oql9WkHuGGWKQihwCibkvH7mb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7898
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_134539_286571_2E1B9B32 
-X-CRM114-Status: GOOD (  14.12  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,37 +70,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 03:57:21PM +0900, chancel.liu@oss.nxp.com wrote:
-> From: Chancel Liu <chancel.liu@nxp.com>
->
-> Add port property referencing audio-graph-port.yaml to allow MICFIL to
-> be used with audio-graph-card and audio-graph-card2.
->
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
+scmi_notification_exit() clears and releases the notification instance, but
+transport callbacks can still deliver incoming notifications until the
+TX/RX channels are freed. During remove, an RX interrupt in that window can
+enter scmi_notify() while notification state is being torn down and then
+dereference freed memory. The same ordering exists on the probe error path
+after notification initialization.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The notification late-init worker has a separate lifetime issue: protocol
+event registration queues ni->init_work on the system workqueue, so
+destroying ni->notify_wq does not drain that work. If the devres group is
+released while init_work is still pending or running, the late-init worker
+can dereference the freed notification instance.
 
->  Documentation/devicetree/bindings/sound/fsl,micfil.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,micfil.yaml b/Documentation/devicetree/bindings/sound/fsl,micfil.yaml
-> index c47b7a097490..4c7dadb310de 100644
-> --- a/Documentation/devicetree/bindings/sound/fsl,micfil.yaml
-> +++ b/Documentation/devicetree/bindings/sound/fsl,micfil.yaml
-> @@ -66,6 +66,10 @@ properties:
->    "#sound-dai-cells":
->      const: 0
->
-> +  port:
-> +    $ref: audio-graph-port.yaml#
-> +    unevaluatedProperties: false
-> +
->  required:
->    - compatible
->    - reg
-> --
-> 2.50.1
->
->
+Unregister the requested device notifier first, quiesce the notification
+core so no late-init work can run while channels are being torn down, then
+clean up TX/RX channels before releasing the notification core resources.
+The final notification exit path also cancels any pending late-init work
+before destroying the notification workqueue and releasing the notification
+devres group.
+
+Fixes: 1e7cbfaa66d3 ("firmware: arm_scmi: Free mailbox channels if probe fails")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/driver.c | 13 ++++++------
+ drivers/firmware/arm_scmi/notify.c | 32 +++++++++++++++++++++++++++++-
+ drivers/firmware/arm_scmi/notify.h |  1 +
+ 3 files changed, 39 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 1d1f5d25d773..1354de59ea84 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3325,7 +3325,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 			dev_err(dev, "%s", err_str);
+ 			return 0;
+ 		}
+-		goto notification_exit;
++		goto raw_mode_cleanup;
+ 	}
+ 
+ 	mutex_lock(&scmi_list_mutex);
+@@ -3367,17 +3367,18 @@ static int scmi_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
+-notification_exit:
++raw_mode_cleanup:
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT))
+ 		scmi_raw_mode_cleanup(info->raw);
+-	scmi_notification_exit(&info->handle);
+ clear_dev_req_notifier:
+ 	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
+ 					   &info->dev_req_nb);
+ clear_bus_notifier:
+ 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
+ clear_txrx_setup:
++	scmi_notification_quiesce(&info->handle);
+ 	scmi_cleanup_txrx_channels(info);
++	scmi_notification_exit(&info->handle);
+ clear_ida:
+ 	ida_free(&scmi_id, info->id);
+ 
+@@ -3401,6 +3402,9 @@ static void scmi_remove(struct platform_device *pdev)
+ 	list_del(&info->node);
+ 	mutex_unlock(&scmi_list_mutex);
+ 
++	/* Stop transport callbacks before tearing down notifications. */
++	scmi_notification_quiesce(&info->handle);
++	scmi_cleanup_txrx_channels(info);
+ 	scmi_notification_exit(&info->handle);
+ 
+ 	mutex_lock(&info->protocols_mtx);
+@@ -3415,9 +3419,6 @@ static void scmi_remove(struct platform_device *pdev)
+ 					   &info->dev_req_nb);
+ 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
+ 
+-	/* Safe to free channels since no more users */
+-	scmi_cleanup_txrx_channels(info);
+-
+ 	ida_free(&scmi_id, info->id);
+ }
+ 
+diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+index 40ec184eedae..2491c848d4f3 100644
+--- a/drivers/firmware/arm_scmi/notify.c
++++ b/drivers/firmware/arm_scmi/notify.c
+@@ -209,6 +209,7 @@ struct scmi_registered_events_desc;
+  * @init_work: A work item to perform final initializations of pending handlers
+  * @notify_wq: A reference to the allocated Kernel cmwq
+  * @pending_mtx: A mutex to protect @pending_events_handlers
++ * @shutting_down: Flag to block late-init work scheduling during teardown
+  * @registered_protocols: A statically allocated array containing pointers to
+  *			  all the registered protocol-level specific information
+  *			  related to events' handling
+@@ -225,6 +226,7 @@ struct scmi_notify_instance {
+ 	struct workqueue_struct	*notify_wq;
+ 	/* lock to protect pending_events_handlers */
+ 	struct mutex		pending_mtx;
++	bool			shutting_down;
+ 	struct scmi_registered_events_desc	**registered_protocols;
+ 	DECLARE_HASHTABLE(pending_events_handlers, SCMI_PENDING_HASH_SZ);
+ };
+@@ -845,7 +847,10 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 	 * Finalize any pending events' handler which could have been waiting
+ 	 * for this protocol's events registration.
+ 	 */
+-	schedule_work(&ni->init_work);
++	mutex_lock(&ni->pending_mtx);
++	if (!ni->shutting_down)
++		schedule_work(&ni->init_work);
++	mutex_unlock(&ni->pending_mtx);
+ 
+ 	return 0;
+ }
+@@ -1706,6 +1711,29 @@ int scmi_notification_init(struct scmi_handle *handle)
+ 	return -ENOMEM;
+ }
+ 
++/**
++ * scmi_notification_quiesce()  - Stop notification late initialization
++ * @handle: The handle identifying the platform instance to quiesce
++ *
++ * Prevent new late-init work from being queued and wait for any already queued
++ * or running late-init work to complete before transport channels are torn
++ * down.
++ */
++void scmi_notification_quiesce(struct scmi_handle *handle)
++{
++	struct scmi_notify_instance *ni;
++
++	ni = scmi_notification_instance_data_get(handle);
++	if (!ni)
++		return;
++
++	mutex_lock(&ni->pending_mtx);
++	ni->shutting_down = true;
++	mutex_unlock(&ni->pending_mtx);
++
++	cancel_work_sync(&ni->init_work);
++}
++
+ /**
+  * scmi_notification_exit()  - Shutdown and clean Notification core
+  * @handle: The handle identifying the platform instance to shutdown
+@@ -1717,6 +1745,8 @@ void scmi_notification_exit(struct scmi_handle *handle)
+ 	ni = scmi_notification_instance_data_get(handle);
+ 	if (!ni)
+ 		return;
++
++	scmi_notification_quiesce(handle);
+ 	scmi_notification_instance_data_set(handle, NULL);
+ 
+ 	/* Destroy while letting pending work complete */
+diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
+index 76758a736cf4..f18f98c5ab3b 100644
+--- a/drivers/firmware/arm_scmi/notify.h
++++ b/drivers/firmware/arm_scmi/notify.h
+@@ -82,6 +82,7 @@ struct scmi_protocol_events {
+ };
+ 
+ int scmi_notification_init(struct scmi_handle *handle);
++void scmi_notification_quiesce(struct scmi_handle *handle);
+ void scmi_notification_exit(struct scmi_handle *handle);
+ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 				  const struct scmi_protocol_handle *ph,
+-- 
+2.43.0
+
 
