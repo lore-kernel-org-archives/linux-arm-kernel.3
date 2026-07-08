@@ -4,111 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A714C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE9CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 16:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDnpig3MZnB+M3jCpE7pEOtfxRospLvUmeedSs6shPQ=; b=sXoMbChstelOxobWsKjwdpVpdP
-	BtJ9YQo6isOw7gNUm8tfYLHzmMvtcL8pyq+9tPfNuCLv5GSegAVaz8SfDGu7KfmfD1YRXFMkg5xJw
-	VYB7jw/mFob3BjyudRSwbrG3VpYlZVKrKjC+CgZC19dj0M2JmMoYygU3Zzdx+hdJd6fHH4XjrSIAi
-	E73DkLl0qKnZoX+tGlPlHwr6R2ClWjx0lSG5b6NLfX4gaJq1o95Xx5W0OkOlLqKJxHuztob9ApgZl
-	+j+gQYKqYf29XhLeiDeteYMWMqgGD76K7raz0ti+T+UuLWEbrU8UkgqLpArBD7hb1IHtXHW6RXHXt
-	ltErnp8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UKgh5ApTuCOuav59S8TO2YqC8DCsibHGOqh1KF7QsrM=; b=q0+s48GezFqOXV1OD7gayjEriJ
+	5WCi1+ZuqDOwgGXEdJkPpaPMTJcMzok+k0LqWiQCgb778pBuT9OYMohBM3MBKIciEh5RGQf/I7exA
+	mtOXwCRJJvBDcwKAshz8rV+rL6+gIBYF7CcFDCDitsrrcM+QSylmOWIzON+QZLjnF55P39Xl5azWs
+	uRWKbhIUZ0CCIbV/LoWokhGJhDB/CXB+a9jBY/JHlGgNCEVqi9SH5oqa6FK3/lDqyapWAJRAgkj6U
+	tQ1ROMKZna1VW+PQI00KybQDnSFlN3LF1ccwqyZuWT1+UGEdyYVu1jAgHBlKPtL0No1McLrB00Ump
+	fjXT1SJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVTc-000000001as-2vsM;
-	Wed, 08 Jul 2026 16:50:24 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1whVU3-000000001fG-3aNI;
+	Wed, 08 Jul 2026 16:50:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whVTZ-000000001aS-3bru
+	id 1whVU0-000000001eD-3oV8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 16:50:24 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-c15b509c323so2832366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:50:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783529418; cv=none;
-        d=google.com; s=arc-20260327;
-        b=A5qdA9vl+ZmfOwC2F78ZaiMYZ+dVzTgpTV0X6DWSJp7OGhZRz1EC1bXw2Rh0PvvWip
-         GH6rz44d+xo/CUxgc2rv4gTIANcGNTzOIeJy90DLb4URyuoKYPAAQKzJsZEIepZpNQBv
-         7fpGYwfc9MnrEP5ECUmJAE3s65cjCrD45kkvciNMyO78QWUawuvM/QP3lYs0FZvPsVKu
-         1htKyqS5Zsujwcni/Azy/gNT1d+fNQcVJUwiJcdgPFODazpsO/kXwXBMr6FjXQUN+Sw4
-         EE4En7pI/hluT3qOcB+uTn4C6ir4yB/r0d+RX+01qxAMkfMcrQUUA8aNWukfRwftA3zQ
-         81mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DDnpig3MZnB+M3jCpE7pEOtfxRospLvUmeedSs6shPQ=;
-        fh=IdnWiyvlUmDI85Yhsdwq/BaOtMCV7FbY5KzlX68CQBc=;
-        b=DNb8l3mQ6qUW0F5XAGmBWj8HYn1MvnJCpscIasncQgls9prAyG3cFeX1oOOyroRL18
-         Aci6djYwFoWcq9WW0qCMZAefNu8g9DVUmMMuc1ZuNVL47tsR9wgigGLeOmn78t9Zi7Fu
-         s2A8icV0m2xw7vcDR7GqNZIpE2lynq0OHYPwnJTXkzsRVknC8i1O9IIf/4zVmNGEoVnA
-         N2ufQBctyU7Vkb1y/GN4FkoMyEkVnb3tGll5XieKiduIwvKwl24igL1zjt3cOTleIo++
-         3TswKoYNWFzLI1iGPLXbiZQqrGnJ4KzYyM2H+beJujUIUpHRSw6Z/MUZrnhRRgP5IvIf
-         5SEw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783529418; x=1784134218; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DDnpig3MZnB+M3jCpE7pEOtfxRospLvUmeedSs6shPQ=;
-        b=wkDJq0PeiysAw5juFx1Op6zlhgp5COhx71VVe8jtYTPHvSqCJgt9eEg6W7vl8nOGaP
-         CoFdHzKsKjWWxB4OKRf97np5v+Vf7fc6+oSbNb6OoKeAvNwTgHFg1a6c895x/SQgjk+b
-         lHpNLODMmHSdTOO0QSss+jh0iDGE/8w24rHz4+0Ln7xziuLBwiq2TwkUKNzCLKChI/0g
-         N6i0vCVHjT5AhjTArTxCdSW1SzT6X2ic7ML9QG+bRMikFWAJaLE7YTGbPegPPYl29eY5
-         KzuYKUsGoVfpO8z+jkjJKYjBzHmbiLmpgoCPIz2hQnwiYcSL7Py/PWR4Euw3HIjMdMpW
-         Xtjw==
+	Wed, 08 Jul 2026 16:50:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783529446;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UKgh5ApTuCOuav59S8TO2YqC8DCsibHGOqh1KF7QsrM=;
+	b=OW3qO8fbKM/sApYx/A9l26ruVnL+hTHbbdGjCW6uUXfuHCD+OiMkNHfoSQfDrhk50OAk/f
+	z+fBPLS98L03ZvfSAqi2WANwwI7tGFUYFJ2jb9+MHyX7ImzdTSTp2Sn8/T1c7ESdNiv6R9
+	NlV5uWQJSMWS5j6uELtYRfxydkWUODc=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-130-QogUGKrMM92OCdmasXq2vQ-1; Wed, 08 Jul 2026 12:50:45 -0400
+X-MC-Unique: QogUGKrMM92OCdmasXq2vQ-1
+X-Mimecast-MFC-AGG-ID: QogUGKrMM92OCdmasXq2vQ_1783529444
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-7ea35baee37so26450347b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 09:50:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783529418; x=1784134218;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1783529444; x=1784134244;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DDnpig3MZnB+M3jCpE7pEOtfxRospLvUmeedSs6shPQ=;
-        b=kDZCo8TOE5PDtwOiEFobXKYpHpuN+5TayMTWQcDZvDF33Ra3/Dq3fSup01dMZQYD9D
-         Ye/hoT2ibKJJMk1FDfvhi3H8CgMz2kBmPyVHaVzOWOBXdMYSg1rn5k8R5Lxl3tN8w2WI
-         T6KyxKPwIOXbj+KyrMwpmSiMzrjrJT5rA3IALUilULSclkdsXu/ewG75G0B86MefaofZ
-         CiO341I33H96eA9s5GjhlPZSGpldjmRaxW1lrkc9rJ8F8TYZpe4sCd6v2nHe4p4TrfnE
-         n/92CekOGMCMOWn4OLItywXqXq0bjRQmL0/jnhwHcdphUsIMEBLerLCLm9JKiyidfIPV
-         Oa2w==
-X-Forwarded-Encrypted: i=1; AHgh+RqZX81tgV1jtmFFLZyiBkLUn53vgeGH7ZKC8AGkeeFpePsOREGnqWhsNr5YM8xJ3DkqbL7Ssbh8AJ98fmiB530c@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL7Zi6LUWnuFXLJxuFVBvIHhjPMv58ccMMwucGJixVcSRRh6/T
-	9lqlIMbElvv5gGpsSiLlguubUyvrt9JVhL8/uT5xz0PB/FVQRNuCv9o65bDhTel9ccuFgaG0m7O
-	cU49kDhi4ZohDLWWGI0nMrzUIyDF92COJR8mFUhJb
-X-Gm-Gg: AfdE7cmeCvuC8zHD4OHIrCKlkYNt7nyTaLfGGUV6uEFr9PN8Pc2sHiNzvgnRPzT8Htw
-	pUSlTwGvHfC4Qn2xLCwuckYFFyF5XFxx8Pf1mJ+c69QXYM/WYeeAHc/GpQJAxgKkPTBv5Mn+393
-	zGEOcxJT74TbIu43tF4hsJ64QChU3co0V/FT/Ur2rK3E4iDctK5YDZCCeFJhh9RxbJYrQFZz93Z
-	UWt06ln7T2O+cTEQ82z8pwVC1PdjGffy/MpQUkOp2fcPJrlB9SH1VKZnQE8hhoEuLkDUqjq6jCX
-	epGsQJ0WQGz8edFBWCdt8Kt47lDFqgQCYwnCUEz/tOt47tkOHR6H/eIvSRw=
-X-Received: by 2002:a17:906:f58a:b0:bee:6806:d69a with SMTP id
- a640c23a62f3a-c15ce0fa3a9mr165048166b.38.1783529417441; Wed, 08 Jul 2026
- 09:50:17 -0700 (PDT)
+        bh=UKgh5ApTuCOuav59S8TO2YqC8DCsibHGOqh1KF7QsrM=;
+        b=WfKyShVzAELG8kAKYIDmzTcafH1xP9DmjCP2ZMQH27AATqixSNR2lIlopdmZ4f8vAX
+         yGfjpZ/gEPL1vHtkAnoQWh8CVn2izOCoLL2Ts6AllB5BRVsZWvfZ85ADPn4vob5TuRUC
+         Thdb+OWOgQW8OCtspB/+XqnI1VK+Y1FBPTteKAJr9arWbQky3ptRo4ljFuXHw6oXSyvP
+         lOJpXABVmqrymHJrsjEtuMg4ezgi8+B9bXKH0QGR50Yc1cQU85VXc5fF/KTW8C4vRjbx
+         IhlpT6unM4ga9e4VuH9qPgSIbZUUdBY7H/1/mZ3kdD8hSchtbBolI4xRXwhYrnjwml9q
+         O2Rg==
+X-Forwarded-Encrypted: i=1; AHgh+RrUSlD/Tcx3qx+8IPZkOErL2uudYVlBwVx2/il4DzXMN4P7nc3YqVgBpzXuEa05RVkpq1MKver3GhKSesJQa23Z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5O8lDVMkUZP3e/sbe4JP2nxb4iY2QaMdWApsF2pag43Rf6DKX
+	cZi5/OxAnp6clSwPedEY8QLQJuB3QQbj8xRfqFcEaMVbgrvxejMz8A/g31cNBJ3zJIt/2GApLkV
+	rUyF365ch768UADWv2CVGADwcUrQPAfL/PTd2MQ+QbNpNABkv78qgcHyjc2oEY2d/KFcQ/zP5cF
+	xE
+X-Gm-Gg: AfdE7ckU+4TPJsZrAnduy2+tfK+zdrx3cQF8k1GzMeiN98swioTdO7Dcc8/Mwx7cWCT
+	S2RhOTHHErRGjOs6b6n3CXHf+PM05wwkzTNEvsByvvj5puoPQlcMwiXFsZ2j0MtgA+CxEtL64mk
+	IdhvTly45p/2ik7DpN2plQA7CHMMmDfXXPmnSRDlaUBXUnyPrIW3EZ10Cszv6BpMdSMPYmXFnT9
+	aj0OQqlRZg6H6X+4KXvwmyV4o/M2bWn169o8D6kWLEJi0YjP9RTecAklTH3mM4WcqQT0tVDoK1K
+	MG9xao9ToSbcrPivU1CJSYzyYFfPN6PgZ0TMXjbq0GwUgAIkOzKjsxiRGfc6VupJM4qM8wv37ez
+	a5X+o19Iw4BQ8XkIoPeA4vup/Kg6NasNlJ0D0mhIaMHrSKg==
+X-Received: by 2002:a05:690c:b03:b0:7dc:7764:3e83 with SMTP id 00721157ae682-81dbf597344mr25866617b3.17.1783529444314;
+        Wed, 08 Jul 2026 09:50:44 -0700 (PDT)
+X-Received: by 2002:a05:690c:b03:b0:7dc:7764:3e83 with SMTP id 00721157ae682-81dbf597344mr25866277b3.17.1783529443859;
+        Wed, 08 Jul 2026 09:50:43 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8143dfebd55sm86860117b3.0.2026.07.08.09.50.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Jul 2026 09:50:43 -0700 (PDT)
+Date: Wed, 8 Jul 2026 12:50:41 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Johnson Wang <johnson.wang@mediatek.com>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] clk: mediatek: pllfh: Fix IO remapping leak in
+ register_pllfhs error path
+Message-ID: <ak5_4aTPwWPdczms@redhat.com>
+References: <20260708-clk-mediatek-pllfh-fix-v1-1-2cfc2d6b258e@collabora.com>
 MIME-Version: 1.0
-References: <20260708031129.3503195-1-jthoughton@google.com> <FC9E78F0-8FF7-44AF-A848-8401B4702488@linux.dev>
-In-Reply-To: <FC9E78F0-8FF7-44AF-A848-8401B4702488@linux.dev>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 8 Jul 2026 09:49:40 -0700
-X-Gm-Features: AVVi8Cfv5yaxCo1wy94skRAUBfR5X0m2laz06imtAANj8KZpWB7cPkC9ZIIhScg
-Message-ID: <CADrL8HVkrojXbBuEX-W=UHBmyyFzqxdGBvtAoPP53SyYa10uag@mail.gmail.com>
-Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
-	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
-	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260708-clk-mediatek-pllfh-fix-v1-1-2cfc2d6b258e@collabora.com>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7-E8lvfZiIybxcj57nCeXV-KyGQ6BeW1kWA1e3YjeTE_1783529444
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_095021_939714_E0FB6491 
-X-CRM114-Status: GOOD (  48.60  )
+X-CRM114-CacheID: sfid-20260708_095049_025482_7597EE47 
+X-CRM114-Status: GOOD (  35.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,143 +118,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 1:41=E2=80=AFAM Muchun Song <muchun.song@linux.dev> =
-wrote:
-> > On Jul 8, 2026, at 11:11, James Houghton <jthoughton@google.com> wrote:
-> >
-> > Hi everyone,
-> >
-> > This patch series uses a trick with the Access Flag on CPUs that suppor=
-t
-> > hardware update of the AF to update vmemmap page table entries without
-> > introducing a time window where CPUs accessing the vmemmap might fault.
-> >
-> > By avoiding faults, the HugeTLB vmemmap optimization (HVO) can be
-> > implemented correctly on arm64 in a much more straightforward way than
-> > previously attempted, most recently here[1] (please see [1] for a
-> > breakdown of the other approaches attempted before).
->
-> Hi,
->
-> Thanks for your ongoing efforts on supporting HVO on arm64. This is truly
-> one of the most useful features that arm64 has been missing for a while.
+Hi Louis-Alexis,
 
-Hi Muchun,
+Thanks for the patch.
 
-Thanks for taking a look so quickly. :)
+On Wed, Jul 08, 2026 at 11:18:59AM +0200, Louis-Alexis Eyraud wrote:
+> When mtk_clk_register_pllfhs function fails to register a PLL, it
+> unregisters all PLLs and cleans up itself in its error path before
+> returning, so the function callers don't need to do it.
+> 
+> But contrary to mtk_clk_unregister_pllfhs function, that does almost
+> the same sequence, it does not free the IO memory mapped on fhctl node,
+> leading to a leak.
+> 
+> Fix this leak by factorizing the cleanup sequence in a new private
+> function and use it both mtk_clk_register_pllfhs and
+> mtk_clk_unregister_pllfhs functions.
+> 
+> Also, change the loop index start value to avoid the -1 operation on
+> index at each loop.
+> 
+> Fixes: d7964de8a8ea ("clk: mediatek: Add new clock driver to handle FHCTL hardware")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+> This patch aims to fix a issue, detected by Sashiko
+> during another series review ([1]), regarding the use of 
+> mtk_clk_register_pllfhs function.
+> 
+> The patch is based on linux-next tree (tag: next-20260707).
+> 
+> [1]: https://sashiko.dev/#/patchset/20260701-mt8189-clocks-system-base-v1-0-2b048feea50a%40collabora.com?part=6
+> ---
+>  drivers/clk/mediatek/clk-pllfh.c | 87 ++++++++++++++++++----------------------
+>  1 file changed, 39 insertions(+), 48 deletions(-)
+> 
+> diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/clk-pllfh.c
+> index aa95cd9197b3..7463aa35d7e3 100644
+> --- a/drivers/clk/mediatek/clk-pllfh.c
+> +++ b/drivers/clk/mediatek/clk-pllfh.c
+> @@ -197,6 +197,43 @@ static void mtk_clk_unregister_pllfh(struct clk_hw *hw)
+>  	kfree(fh);
+>  }
+>  
+> +static void mtk_clk_cleanup_pllfhs(const struct mtk_pll_data *plls, int num_plls,
+> +				   struct mtk_pllfh_data *pllfhs, int num_fhs,
+> +				   struct clk_hw_onecell_data *clk_data)
+> +{
+> +	void __iomem *base = NULL, *fhctl_base = NULL;
+> +	int i;
+> +
+> +	for (i = num_plls - 1; i > 0; i--) {
 
-> >
-> > For large-memory systems that allocate most of their available memory t=
-o
-> > HugeTLB, HVO saves a huge amount of memory (1.5% of system memory).
-> >
-> > This series has four parts:
-> >  1. Some preparatory changes (patches 1-3)
-> >  1. Bare minimum HVO support (patches 4-10)
->
-> It looks like there is a typo in the number here.
+It looks like this should be i >= 0
 
-Oh yes, so there is. I'll fix it in the next version of the cover letter.
+> +		const struct mtk_pll_data *pll = &plls[i];
+> +		struct mtk_pllfh_data *pllfh;
+> +		bool use_fhctl;
+> +
+> +		if (IS_ERR_OR_NULL(clk_data->hws[pll->id]))
+> +			continue;
+> +
+> +		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
+> +		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
+> +
+> +		if (use_fhctl) {
+> +			fhctl_base = pllfh->state.base;
+> +			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
+> +		} else {
+> +			base = mtk_clk_pll_get_base(clk_data->hws[pll->id],
+> +						    pll);
+> +			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
+> +		}
+> +
+> +		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
+> +	}
+> +
+> +	if (fhctl_base)
+> +		iounmap(fhctl_base);
+> +
+> +	iounmap(base);
 
-> >  2. Drop BBML2_NOABORT requirement for HVO (patches 11-13)
-> >  3. Drop the user-configurable Kconfig for HVO (patches 14-18)
-> >
-> > Parts 3 and 4 are technically optional. More details below.
-> >
-> > The main functional caveat with this series is that bootmem HugeTLB
-> > pages are not "pre-HVOed". They will be HVOed, but because at pre-HVO
-> > time SMP CPUs have not been enabled, we cannot query for full system
-> > support.
->
-> Do you mean that the support for AF might vary across different CPUs?
-> I'm not that familiar with arm64, so it seems a bit strange to me that
-> such basic hardware features can differ so much from one CPU to another.
+When use_fhctl is enabled for all PLLs, base will be NULL.
 
-Yes, hardware updates of the Access Flag is a per-CPU feature. It is
-available for a CPU to use if TCR_EL1.HA is set. TCR_EL1 is a system
-register; each CPU has its own. (Linux will always enable HW AF for a
-CPU when it is onlined[1] if support is advertised, so we simply need
-to check if support is advertised to know that it is in fact enabled.)
+Brian
 
-These days it is not uncommon for a system to have two (or more?)
-different core implementations, like with "fast" cores and "efficient"
-cores.
+> +}
+> +
+> +
+>  int mtk_clk_register_pllfhs(struct device *dev,
+>  			    const struct mtk_pll_data *plls, int num_plls,
+>  			    struct mtk_pllfh_data *pllfhs, int num_fhs,
+> @@ -238,24 +275,7 @@ int mtk_clk_register_pllfhs(struct device *dev,
+>  	return 0;
+>  
+>  err:
+> -	while (--i >= 0) {
+> -		const struct mtk_pll_data *pll = &plls[i];
+> -		struct mtk_pllfh_data *pllfh;
+> -		bool use_fhctl;
+> -
+> -		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
+> -		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
+> -
+> -		if (use_fhctl)
+> -			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
+> -		else
+> -			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
+> -
+> -		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
+> -	}
+> -
+> -	iounmap(base);
+> -
+> +	mtk_clk_cleanup_pllfhs(plls, i, pllfhs, num_fhs, clk_data);
+>  	return PTR_ERR(hw);
+>  }
+>  EXPORT_SYMBOL_GPL(mtk_clk_register_pllfhs);
+> @@ -264,38 +284,9 @@ void mtk_clk_unregister_pllfhs(const struct mtk_pll_data *plls, int num_plls,
+>  			       struct mtk_pllfh_data *pllfhs, int num_fhs,
+>  			       struct clk_hw_onecell_data *clk_data)
+>  {
+> -	void __iomem *base = NULL, *fhctl_base = NULL;
+> -	int i;
+> -
+>  	if (!clk_data)
+>  		return;
+>  
+> -	for (i = num_plls; i > 0; i--) {
+> -		const struct mtk_pll_data *pll = &plls[i - 1];
+> -		struct mtk_pllfh_data *pllfh;
+> -		bool use_fhctl;
+> -
+> -		if (IS_ERR_OR_NULL(clk_data->hws[pll->id]))
+> -			continue;
+> -
+> -		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
+> -		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
+> -
+> -		if (use_fhctl) {
+> -			fhctl_base = pllfh->state.base;
+> -			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
+> -		} else {
+> -			base = mtk_clk_pll_get_base(clk_data->hws[pll->id],
+> -						    pll);
+> -			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
+> -		}
+> -
+> -		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
+> -	}
+> -
+> -	if (fhctl_base)
+> -		iounmap(fhctl_base);
+> -
+> -	iounmap(base);
+> +	mtk_clk_cleanup_pllfhs(plls, num_plls, pllfhs, num_fhs, clk_data);
+>  }
+>  EXPORT_SYMBOL_GPL(mtk_clk_unregister_pllfhs);
+> 
+> ---
+> base-commit: b3a87fbe738f19cbe19411cf749f3d8c09c04de4
+> change-id: 20260708-clk-mediatek-pllfh-fix-7e9ca35989e2
+> 
+> Best regards,
+> -- 
+> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> 
 
-[1] See the CONFIG_ARM64_HW_AFDBM bits in arch/arm64/mm/proc.S
-
-> > This series is based on 7.2-rc2 (0e35b9b6ec0f).
-> >
-> > This series almost 100% cleanly applies to mm-new, which has some of
-> > Muchun's HVO patches, with one trivial conflict. I imagine this series
-> > will conflict pretty heavily with some of Muchun's other patches[2].
->
-> You know, as we iterate on HVO, the codebase is becoming increasingly
-> complex and difficult to maintain. Aside from the work in [2] that you
-> mentioned, I actually have some local patches aimed at refactoring
-> hugetlb_vmemmap.c as well to reduce this maintenance complexity. I really
-> want to avoid piling more code on top of it right now, as that would
-> only make things worse.
->
-> Therefore, my personal suggestion is that if this approach is
-> theoretically validated on arm64, it it better to wait until the HVO
-> refactoring is complete, and then review your work based on the clean
-> codebase. For now, what we need to focus on is evaluating the feasibility
-> and soundness of the approach itself. What do you think?
-
-I agree. The first order of business should be for the Arm folks to
-tell me if they think this approach is unsound (though I've been
-chatting with Will about this for quite some time :)).
-
-I'm happy to rebase on top of your refactoring work when it is ready.
-
-> >
-> > -- The AF trick --
-> >
-> > The trick is that translations with the AF unset cannot be cached in th=
-e
-> > TLB (see Rule R_DWZCQ in the Arm ARM), so they can be atomically update=
-d
-> > without needing a full break-before-make sequence.
-> >
-> > So the PTE update sequence becomes:
-> >  1. Atomically clear the AF on the existing PTE.
-> >  2. Invalidate the TLB.
-> >  3. cmpxchg the AF=3D0 PTE with the new PTE. If this fails, goto 1.
-> >
-> > If there is a CPU on the system that does not support hardware access
-> > flag updates, clearing the AF is problematic, as those CPUs might fault
-> > on the vmemmap usage. Therefore, HVO compatbility checks all CPUs for H=
-W
-> > AF updates.
->
-> Sorry, I am not familiar with arm64, so I will leave it to the arm64
-> maintainers (or experts) to verify the feasibility here. Once the viabili=
-ty
-> of the approach is confirmed, I will look into the HVO-related implementa=
-tion
-> details and consider how to support this feature on top of the refactored
-> code in the future.
-
-Sounds good, thanks Muchun.
-
-I'm hoping you can look at patches 1-3 anyway. I think they're the
-right thing to do, even without the arm64 changes.
-
-> > -- Application to HVO --
-> >
-> > HVO relies on the following page table transitions:
-> >  - When enabling HVO for a page, PMD block entries in the vmemmap are
-> >    shattered into PMD table entries. The first PTE remains mapped
-> >    normally (RW mapping to a real page of struct pages), but the
-> >    remaining PTEs in the vmemmap are mapped read-only to a shared
-> >    page of struct pages (that is, there is an OA change and a
-> >    permissions change).
->
-> Just to clarify, does OA mean Output Address? Please spell it out for
-> readers who are less familiar with this context.
-
-That's right, sorry about that. I'll spell it out more clearly in
-future versions of the series.
-
-Thanks, Muchun!
 
