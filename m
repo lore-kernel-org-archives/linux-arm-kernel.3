@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43774C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47884C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Jul 2026 07:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtEIand9GnbkU6Gmk6cHJc/OJJrgfSZv10wVu3h9OTs=; b=H0l2UIg1mp+Ok+TkbdS1Hos9Bv
-	iWyZYj4GxJuGTuYvLonk12mENZgU9zR4DZoWnQXcDnyC8lxV4YCXgBspKuvojHKkXu/Btz3HLFxGe
-	JP4g+7hsGmoTvScu56M/8b+s4Xl/xxP0uZaxuR2KuOykqJC2CTO1FGTdmO9uO8h0B9H5RHsmbkS4m
-	lyj8rWBaL9xYs233E0BTi/l8fWU9ROEHW7uH1pTDh/Gg+JnCSYVwCAgOq6VHF97HMwYDP6kH3JbqR
-	r+uclKdD6HO00mEY4SYj3DDIVhs9UJvkZBADhLfNPSHJLfWPCorCxUXZfVlCzm3hKHR0GRTmSv5X5
-	N46z+OrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=; b=AsO3XVQHIY206OSdkZl1OO0raY
+	+gVWF2vCvcGikpiYZ5HadVtBL+oMcQMVZc5KEUSIQdxdVqSqND+2KsXfC5T9WNGUI5rLQEsKyDKBR
+	WIJMoli6c+59NgHpig7zbqZIf+XCD4eUvP4J2KYJfRBiKEs7JljiRLXg0R2XR+Xe7/E1gOAUSY7rf
+	UyRTT0Qo6+c5jFSsI8t+b0/UtY2WIlxa4L7iOyg237uY/VM80nWCPsUniu4FogW62T/1k7kSQ2wvK
+	YVD/hrBLyRRvV4uhG/Sf6G5l1Gju6jucskdt8tZuIWG05Ihl249tB16VTl7PDUpwQpWg8fxHWZ7nJ
+	dNykMxJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMYU-0000000GU7s-17lC;
-	Wed, 08 Jul 2026 07:18:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whMYy-0000000GUDU-1qfj;
+	Wed, 08 Jul 2026 07:19:20 +0000
+Received: from mail-eastus2azon11010052.outbound.protection.outlook.com ([52.101.56.52] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whMYS-0000000GU7a-1S3R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 08 Jul 2026 07:18:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:In-Reply-To:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NtEIand9GnbkU6Gmk6cHJc/OJJrgfSZv10wVu3h9OTs=; b=kqDsnWkl5YaRkrA5/tyUGYvvbl
-	xCc1CajvStPLQY0SnB0QFiSqnKHR2R1IByMBo0/7rIkuvRu4hsU6vj5/vKhNIWrKqLcnZPQitsmPy
-	OgPpnyhfWd4WgwP3sWY00ZzsmV0aigwXSOlbTeY8pWGsblU/reCZXBYcQZEua1qpg4pUhDdQVu2Iz
-	C4uuiFw3IIC5zfvQVzaqlXP/QHfX1y6H9yuXsx1G7DzWQW0BsCPPQN1+B0TuLFSdL6QaliNCzyriy
-	4XVGaZmEwHBqakc/UdlImamZLHb4t16/Rq4IBp5DN848PkerzXjydaXKa9JPqu65mldh0PuqFsU4T
-	nM925jYg==;
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whMY9-000000085K5-1yhv
+	id 1whMYv-0000000GUCD-1pnu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Jul 2026 07:18:43 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260708071821euoutp01197a477a194867bc0748f58cb17eb1a0~AP1hvkZ4s2193121931euoutp010
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Jul 2026 07:18:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260708071821euoutp01197a477a194867bc0748f58cb17eb1a0~AP1hvkZ4s2193121931euoutp010
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783495101;
-	bh=NtEIand9GnbkU6Gmk6cHJc/OJJrgfSZv10wVu3h9OTs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dqgy0tx6XfSS9ZQOmJv6oBqEiBm18HkmXtHwlF7mqVY+2G9fPOU4A7YwzY/BuPI+g
-	 R2WivM4MbVng3qen7ibHCFcwIDme3asMvIy6ZRahvtdLWQdQiAzRV3Yw0KMzd8X8Sr
-	 plnn1GtrAunRxeJ1NVIECjQgsaLmaU30x+99Ef3c=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260708071821eucas1p1781d839e4c171db030e3cc100140a18b~AP1hX0Igg1688916889eucas1p1b;
-	Wed,  8 Jul 2026 07:18:21 +0000 (GMT)
-Received: from AMDC4622.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.34]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260708071820eusmtip236a9c2dfa6bc4bffa3c1d0aa81ba9c6d~AP1gt38kQ3160531605eusmtip2G;
-	Wed,  8 Jul 2026 07:18:20 +0000 (GMT)
-Date: Wed, 8 Jul 2026 09:18:17 +0200
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, k.tegowski@samsung.com,
-	k.domagalski@samsung.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 1/2] net/stmmac: Protect against zero queue DTS
- config
-Message-ID: <ak35uSDb8YGJDixt@AMDC4622.eu.corp.samsungelectronics.net>
+	Wed, 08 Jul 2026 07:19:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bgxumvahzo7SAapWU85rSM7ocKwhIjXmqnmWoC0gde1QbjNXrF+NbTvOvaGOSwBwKp1SGngGMTAr3xc0fjM3j0nWZpSkh5VWKn+RqhE57xkaQBhSZIRWS6eiltOVz6XdgnVsWOzdp29ZdcOe/6BIQH6oASkFsqemPq8iYxx62Gpshc7gHRF+KBXbW5vuVgp3kaJVzQxfA3w4gbnkfgbXfTawU7KNG8qmyUBSgJO7WV1DRxMAJV+YTf6CLYWQroR+F19c7CNVNKxW8/dFti23nFg+Fj5LwyTl3Ut2QJjz6VQ2YM28MR1AcBZkI4w6tLo4jfHijnUxnJyeiT48o+JPUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=;
+ b=ul/WhHPH9F4fyZ3DyFLcz/FnnBLxZkhK389Bes9aHP2YR8Qafx3wQixxcCfPCL8WEaMauuCMnKgWyK8NiQwawYcLDUKQ7qSiPJWge/z/+i6dGbWb8j6vNvryKZ4/FoF8Qn+Wo79J437nCWXNQBFALagMo5CRGR5k8DDBscqiaIA8K06XcqWjbq7zGoEGRBWbHqVhEcK/CQRbKIY7F9qCEOMH8tXjC/fDvtuQhQMzc2Ex87sjsPYD8Oqt77Irtdgi4sceSWTInRgAmhYv27hWY9160qmT5BRHl48bLMF958yIojOwV47+FkI4X5aGRYbPjAmke2CCOkrEqbkdVjOFxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Sq2miVTJs0j+kdKCuAN3J/c/g43BF25GnZktxVU/QFs=;
+ b=hMhakzGoamu1MbUB+YAqCEovM49EwDSSrV9v6i/gtXGFe7SqgQAUFz/kE5lKGnxFs4vcU2tN5PUVb/AxX1mSo3CJq2YaaWp1DI7up6Eg+o1Pgi5UzDSoUICgETe9tMLPHkQUUkeNk0s6CHOA90ruGbOHu+usEtstO66zcVBmS4c=
+Received: from CH5PR05CA0008.namprd05.prod.outlook.com (2603:10b6:610:1f0::17)
+ by PH7PR12MB8779.namprd12.prod.outlook.com (2603:10b6:510:26b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Wed, 8 Jul
+ 2026 07:19:09 +0000
+Received: from CH1PEPF0000AD7C.namprd04.prod.outlook.com
+ (2603:10b6:610:1f0:cafe::5) by CH5PR05CA0008.outlook.office365.com
+ (2603:10b6:610:1f0::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.3 via Frontend Transport; Wed, 8
+ Jul 2026 07:19:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH1PEPF0000AD7C.mail.protection.outlook.com (10.167.244.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 07:19:08 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 8 Jul
+ 2026 02:19:06 -0500
+Received: from localhost (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
+ Transport; Wed, 8 Jul 2026 02:19:05 -0500
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@amd.com>, <git@amd.com>
+CC: Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette
+	<mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
+	<shubhrajyoti.datta@amd.com>, Stephen Boyd <sboyd@kernel.org>, "open
+ list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+	<devicetree@vger.kernel.org>, kishore Manne <nava.kishore.manne@amd.com>,
+	"moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:COMMON CLK FRAMEWORK"
+	<linux-clk@vger.kernel.org>
+Subject: [PATCH v4 0/5] clock: versal-clk: Fix Versal NET clock binding and switch to CCF
+Date: Wed, 8 Jul 2026 09:18:47 +0200
+Message-ID: <cover.1783495122.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <d4fb7a9f-c0bb-4ced-8428-14bd2aa66d85@lunn.ch>
-X-CMS-MailID: 20260708071821eucas1p1781d839e4c171db030e3cc100140a18b
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----eLQjSWLrXY9-oLo2Anxe58pGrKtOPid212nTY8jU3vRtfcwP=_131043_"
-X-RootMTR: 20260707174438eucas1p132b5c02ceed2493cc7de98ab28c390ee
-X-EPHeader: CA
-X-CMS-RootMailID: 20260707174438eucas1p132b5c02ceed2493cc7de98ab28c390ee
-References: <20260707174431.1264520-1-j.raczynski@samsung.com>
-	<CGME20260707174438eucas1p132b5c02ceed2493cc7de98ab28c390ee@eucas1p1.samsung.com>
-	<20260707174431.1264520-2-j.raczynski@samsung.com>
-	<d4fb7a9f-c0bb-4ced-8428-14bd2aa66d85@lunn.ch>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3701; i=michal.simek@amd.com; h=from:subject:message-id; bh=RIAZw6f0I42gb3b3t6ib21Xapc6CHPE+tmls/puPOr8=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT5/rx32bpB0uGjrcPS47nr/VfqFrlen2CXKXLg9fnHt zQfrQtr7ihlYRDjYJAVU2SZzqTjsObbtaViyyPzYeawMoEMYeDiFICJMLUw/HdI0f62s9mTz9Ak /3R7EEfYA/cl0TcO5LG3hRXrp94L+8LIcE1t+UaTdxM4l57g29WtlKXYnZW5WDk5PPxoYsxxzRl 3mAE=
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7C:EE_|PH7PR12MB8779:EE_
+X-MS-Office365-Filtering-Correlation-Id: c690601d-850b-4ecd-8492-08dedcc133cf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|23010399003|36860700016|1800799024|3023799007|11063799006|18002099003|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: PnmF2hx/avRr+MUsw2E9Ggo45q4PDsbW+9DijTRbzFtIQx5uPDwkQlmdFMcy+q1lkgU9m2Llt8V6nNy/gjCBubjtQLHFFnOb9Yvdj0jG6vKnKmEBj/EFbUua9RO6FPvdPOk8Q6a5leKCAwPqabH8evtbKWjbb0aoqHw+ZetiPoQwRHN6j440liscumOlv0RhZEYYuRpY0T9Zl9MlurbF9MYTaCXiXIEWiksrP5U2uUzz6irzuWwi2kNKVbJbY2b7uovd76b1UnUHqkRkPOc2t6NzBjeMg/UxsoKxxFGFBcmhd2Qnix4weRH0txzswuckCKmyWtaQ1DmPAqZkn0gpBk3bxm0jCejqDagzwlj85H9LM7IT2BaRNHciQoM3JZcfW7kXnY6T/GdhGqwrBPprjI9TthX6aotMAnq7y7l4Pmj9dJaVCb90wqslbcyVWWKCeAYTXuzM60WGTF1hotfJC51CAZfNnnxefVGtV5awZ1h2vhgPP8H1c/Uf7INQwqac5PPI/Bf0utZPkEAqEaWIcWdCZhq/2RzjEQ9OLb9cfYlt+HV8OLaEXA0n+JjZ15fGkudSivoDOMX15EMJ/XidfRq7tLommOqaSnGd4VPvIZ4wUdhkbg8jPHN5c7jWmHHn/Z05+AK4AkrjgoFykM2Jds04VWlXwMMf6CLcatKiBncf58RwG5ibihtFwmAgKQ6AAv20GaDZLrZ8xIHxkpH7Ag==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(23010399003)(36860700016)(1800799024)(3023799007)(11063799006)(18002099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jIuro5HgLPkDxuvNavC5vrRlNOURw9/6XdQyc8LmA992mJ+a9eqRNDzKFZ3FW3uYtboZGvDsr4Mi9PZQXpCgtoQrvEzdnmz9MR4fmu8m6r8sv9VZLWS4H2MdQZkU5Y3SeaSjSPblqBoT4IbR72LMASmWd5TkmzFCHnmjSMSBncQHYGOnwq1BwfL3iNd3YExvzyr2SIiZ3u5DWrYLHeKYieaUjuENg0eizfn3/MvG7lwxDjMI1EFA6NRBKvefGh1pSc7bK26/mEw/JP9ni0mf/f+WAqh0/8O7EdnTum7OBClKzoQxzzEXRvGS7aWVMZdcEhT3+4yLB5xw0sExSPNo2CyxLgnvor+Xpe7ChdAWxMtCLdVwyqDi6n1mwQWWcPmFkSG/Dt8VmXQHxNpixBhY4h78zI4y2srnrFYusU1HoWJKjyagawOPp7RTIOeNGYZq
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 07:19:08.8856
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c690601d-850b-4ecd-8492-08dedcc133cf
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8779
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_081842_047616_6586F5C5 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20260708_001917_929360_20C51855 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +129,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------eLQjSWLrXY9-oLo2Anxe58pGrKtOPid212nTY8jU3vRtfcwP=_131043_
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
+This series fixes the Versal NET clock controller DT binding validation
+and switches the platform to use the firmware-based CCF clock interface.
 
-On Tue, Jul 07, 2026 at 08:57:28PM +0200, Andrew Lunn wrote:
-> On Tue, Jul 07, 2026 at 07:44:30PM +0200, Jakub Raczynski wrote:
-> > Commit 8a7bca6de6de protected against inputing number of tx/rx_queues_to_use
-> > over kernel supported limit in DTS config. AI review mentioned that we also
-> > should protect against zero queue input, because this would cause issues
-> > down the line. Missing config is not an issue as stmmac_plat_dat_alloc()
-> > does apply '1' by default.
-> > 
-> > Fix this by adding check for zero queues input during DTS parsing
-> > 
-> > Fixes: 8a7bca6de6de ("net/stmmac: Apply MTL_MAX queue limit if config missing")
-> 
-> I'm not sure a Fixes: is justified here. Does this bother somebody? As
-> far as i understand, for this to actually do something the system is
-> broken anyway?
+Patch 1 extracts zynqmp to own DT binding file.
 
-Yes, more below
+Patch 2 restructures the if/then conditions in the versal-clk binding
+schema so that xlnx,versal-net-clk is matched first before falling back
+to xlnx,versal-clk. This fixes false "too long" validation errors caused
+by both conditions matching simultaneously when the fallback compatible
+is present. A dedicated example for the Versal NET 3-clock configuration
+is added and all examples are split into separate blocks for independent
+validation.
 
-> 
-> >  	if (!of_property_read_u32(rx_node, "snps,rx-queues-to-use", &value)) {
-> >  		if (value > MTL_MAX_RX_QUEUES)
-> >  			value = MTL_MAX_RX_QUEUES;
-> > +		else if (value == 0)
-> > +			value = 1;
-> 
-> If the DT is broken, don't we want it to be fixed? -EINVAL would make
-> it obvious.
-> 
->     Andrew
->
+Patch 3 switches Versal NET from static fixed-clock definitions to the
+firmware-based clock interface, enabling proper clock management
+through platform firmware. DT macro headers for clocks, power domains
+and resets are added.
 
-EINVAL would be better, I agree.
+Thanks,
+Michal
 
-Mentioned patch changed U8_MAX -> MTL_MAX_RX_QUEUES (and TX), because
-inputing more just panicked kernel and there was already verification for
-that, so it was fixed by silent fix of incorrect value.
-We triggered this while were testing XGMAC hardware that supports 16 queues
-(current driver limit is 8). Original fix having EINVAL would also be good.
+Changes in v4:
+- simplify expression to [0-6][0-9] from 0[0-9||[1-6][0-9]
+- Update regex from previous patch
+- Also update firmware node to match xlnx,versal-firmware enforced by
+  schema
 
-Inputing 0 is much less honest mistake but rather some testing how kernel
-handles other/incorrect values. So at the very least, this should not be able
-to panic kernel. But as above, I agree EINVAL actually would fit better here,
-that will be for V2, and so it would for original 8a7bca6de6de.
+Changes in v3:
+- new patch in series
+- New patch in series
+- Cover change in zynqmp-firmware.yaml
+- Move clock-cells to be the last in the example
+- Remove comment around (Optional clock) which is obvious from schema
+  itself
+- Move clock-cells to be the last property in the example
+- use 2 spaces for indentation in example to follow the same style which is
+  already used
+- Add fixed tag
+- Remove interrupt from zynqmp-power - Versal NET is using event framework
+  instead. No interrupt is required.
+- Remove unused GEM{0,1}_REF_{R,T}X macros
+- Update commit message
+- s/zynqmp/versal-net/ in subject
+- Update copyrights
+- Make all macro values lower case
+- Fix guarding macro names
 
-Whether it justifies Fixes or not, I am not sure, it is real possibility to
-trigger panic if system has dynamic DTS loading (CONFIG_OF_OVERLAY) on
-system with wrong permissions.
+Changes in v2:
+- New patch in series
+- Split zynqmp-clk from versal-clk
+- Update logic without ZynqMP part in this file and have if/else only
+  around min/maxItems
+- use clock-<HZ> node name for fixed clocks
+- Reuse existing versal-net-clk.dtsi file
 
-BR
-Jakub Raczynski
+Michal Simek (5):
+  dt-bindings: firmware: xilinx: Add missing example for ZynqMP
+  dt-bindings: clock: versal-clk: Fix mio_clk index range in clock-names
+    pattern
+  dt-bindings: clock: Move xlnx,zynqmp-clk to its own schema
+  dt-bindings: clock: versal-clk: Fix Versal NET clock validation
+  arm64: versal-net: Switch Versal NET to firmware clock interface
 
-------eLQjSWLrXY9-oLo2Anxe58pGrKtOPid212nTY8jU3vRtfcwP=_131043_
-Content-Type: text/plain; charset="utf-8"
+ .../bindings/clock/xlnx,versal-clk.yaml       |  93 ++---
+ .../bindings/clock/xlnx,zynqmp-clk.yaml       |  68 ++++
+ .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  15 +-
+ .../arm64/boot/dts/xilinx/versal-net-clk.dtsi | 345 +++++++++++++-----
+ arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h  | 123 +++++++
+ .../boot/dts/xilinx/xlnx-versal-net-clk.h     |  74 ++++
+ .../boot/dts/xilinx/xlnx-versal-net-power.h   |  38 ++
+ .../boot/dts/xilinx/xlnx-versal-net-resets.h  |  53 +++
+ .../arm64/boot/dts/xilinx/xlnx-versal-power.h |  55 +++
+ .../boot/dts/xilinx/xlnx-versal-resets.h      | 106 ++++++
+ 10 files changed, 797 insertions(+), 173 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-clk.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-power.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-resets.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-power.h
+ create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-resets.h
 
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+branch: xnext/versal-net
 
-------eLQjSWLrXY9-oLo2Anxe58pGrKtOPid212nTY8jU3vRtfcwP=_131043_--
+-- 
+2.43.0
+
 
