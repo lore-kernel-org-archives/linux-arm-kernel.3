@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1EBC44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4ABC43458
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2oDA5m5xsSRPDpyQ8/0uzYVtn++XBIRfyElhKzpi8oc=; b=3qcuXAU4oqEziweny/XgOGQHt3
-	zNkZZnEaOV2HKw65ipDVnSd2LQmb3/TjBxu3rQDjB2bZ5KCbiKBcLIjzJJyXtyTRQspcMh2q1J37I
-	JpPkDca5SAoDIKyqrzwzJdnj7QHhcrL3AETKsQrnchu8JxCkgq8djNPorlNANb/f0ltx7G3P54Kp+
-	jNWK2dlB+SDY0etMUZs0IJvU7XGWPsG+OUPZsPGjoORPwMk7PJtAKbC42fCMIFph5/l/9qWRL2wXV
-	keY0qH8s4LxU5UmxENlvXwZ1aavqrLoUT5yeQTmbhyfjK7gFdUzyFKz4GuDoUODHJB4fkSJHelBK5
-	9JgvpFvA==;
+	bh=gsPsYtomW2YxU2RKJbZc0z4M9iFOjqDaIw86JrwGFp8=; b=iyhd3fehR2l3DDXCjYrquFb/c1
+	CVjoCf7nzM7ZhY+kyVTyRFI1gIFuOA1sWZ8jyQAuaxA7cYClPeWGPNG4NuIp08mRXAL80H9EUiWEa
+	BD7yyaa1D1fAYC6Hpz3elVIrS4m570C3u3EZLkKZlSng4kegmJo+ED3fdXTOeoJFkJI7wEljHeK6s
+	1wbM/DO7h91vHpD5I9ZMYH/JtRJfSZZcRsNXsrgS+frrGprH7I6t9o/tyr3wkUfv8KxW3bACQOFi1
+	BO+vWB7q+k3FPAaILoExilHoYnNzipy5gQRLl1Q+bs9oZrWK7hBOeSGFE3Swj96uFUPkMzvou6I9w
+	h1YUsj0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmzO-00000002BDr-1GPD;
+	id 1whmzO-00000002BEP-2DrX;
 	Thu, 09 Jul 2026 11:32:22 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmz7-00000002Apq-1wWY;
+	id 1whmz7-00000002Aqo-0A3Y;
 	Thu, 09 Jul 2026 11:32:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783596719;
-	bh=+4IxEI1iwggfoTrsvZ7tlp4NbQe+d8nHT1G1ctZjbs8=;
+	s=mail; t=1783596723;
+	bh=pcT/DwFpiMuPxOlLtF07ftAvX6Thu/1CkokaUMuSUL4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YzwRWpwxiLgAsdqpQa6L5OnLYFvCpGYwUGvUJ8bwbMfXlmVVjE0QVknqu3ecceOYE
-	 6v0JVleXa2OJrWjfVXFvY8bIDkNcOiJ3haTneB6pC8xF3LkdOm0RUI3KAGzDl+j6ll
-	 g+F6+G8uvt9oLWp3R/h/0J6gSZALFclvWyzTFEZG4qu9jxtdqJz3EmyH0yHdLA1GOu
-	 DzLGr+55xxu13VVMwMx6cVUwZf7PcUuYB2PJv8012uZbDZHeIMLrpE6iorFzUM5G6/
-	 uie20jdQAt/5IMB/cnfAjPJUqVNcsjYC7QkiZRL0kLfsF5VXpityCxYT4yL8Xpyoc5
-	 r0UXKLGM1Dy7Q==
+	b=QSiG207RcnI0nswk+SUjvzufa/JWtA0t3c54BjRx+18IeV/fl2pksSLWp/+OCUCEK
+	 RVpLht5tEQ7oFiPNRooAgrtyQtThK76MEyQmXOYFjbo0aDSkcfqaw8Kxb80Mv+TxoU
+	 /L2IhNPDg2MzehatoyNzRZpVjaeTbqyunMFOwE/zmMFLz5Ccc0TEIJCopiup+JYpsk
+	 ZHC870hyLCwdEj43gHqViNOxEAwxQz1l5haWUg5p1rT7DGWbbq6cy/6KoAiHnQkOfY
+	 JOlCa8Rrj49QTBG8lDDjFIm0kem2AQKCZFMBvTdzJ22ybgz4jIea9mz3EyzMJ79fcp
+	 XO60VquFbtIaA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4174417E0DFB;
-	Thu, 09 Jul 2026 13:31:58 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 513B017E0D33;
+	Thu, 09 Jul 2026 13:32:02 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -70,18 +70,17 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v4 05/12] drm/mediatek: mtk_dp: Clarify SMC eDP/DP video unmute commands
-Date: Thu,  9 Jul 2026 13:31:41 +0200
-Message-ID: <20260709113148.49090-6-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v4 08/12] drm/mediatek: mtk_dp: Add support for PHY from devicetree
+Date: Thu,  9 Jul 2026 13:31:44 +0200
+Message-ID: <20260709113148.49090-9-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260709113148.49090-1-angelogioacchino.delregno@collabora.com>
 References: <20260709113148.49090-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_043205_764823_63D508A0 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_043205_297839_2A22BC03 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +95,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The eDP/DP video unmute commands are not expressed as bits:
-instead, in the firmware, those are defined as incremental
-unsigned integer numbers: use the correct representation of
-those to improve readability.
+Add support for specifying `phys` in devicetree to pass handle
+to the DisplayPort PHY.
 
-This commit brings no functional changes.
+In order to retain compatibility with older devicetrees, check if
+`phys` was specified: if not, initialize the regmap_mmio with the
+legacy configuration and register the mediatek-dp-phy platform
+device from this driver, and get the PHY calibration data.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dp.c | 50 ++++++++++++++++++++++++++-----
+ 1 file changed, 43 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 8399a6b41168..b50264ca1f31 100644
+index 383c8e66b527..e2a6001fc0cc 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dp.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -36,8 +36,8 @@
- #include "mtk_dp_reg.h"
+@@ -426,6 +426,15 @@ static const struct regmap_config mtk_dp_regmap_legacy_config = {
+ 	.name = "mtk-dp-registers",
+ };
  
- #define MTK_DP_SIP_CONTROL_AARCH32	MTK_SIP_SMC_CMD(0x523)
--#define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	(BIT(0) | BIT(5))
--#define MTK_DP_SIP_ATF_VIDEO_UNMUTE	BIT(5)
-+#define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	33
-+#define MTK_DP_SIP_ATF_VIDEO_UNMUTE	32
++static const struct regmap_config mtk_dp_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = SEC_OFFSET + 0x90,
++	.name = "mtk-dp-registers",
++};
++
++
+ static struct mtk_dp *mtk_dp_from_bridge(struct drm_bridge *b)
+ {
+ 	return container_of(b, struct mtk_dp, bridge);
+@@ -1287,7 +1296,13 @@ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
+ 	if (ret)
+ 		return ret;
  
- #define MTK_DP_THREAD_CABLE_STATE_CHG	BIT(0)
- #define MTK_DP_THREAD_HPD_EVENT		BIT(1)
+-	mtk_dp_set_calibration_data(mtk_dp);
++	/*
++	 * For legacy, deprecated strategy, set partial PHY calibration here.
++	 * New-style will set all PHY calibrations with phy ops instead.
++	 */
++	if (mtk_dp->phy_dev)
++		mtk_dp_set_calibration_data(mtk_dp);
++
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
+ 			   DP_PWR_STATE_BANDGAP_TPLL_LANE, DP_PWR_STATE_MASK);
+ 
+@@ -2120,8 +2135,9 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
+ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
+ 			   struct platform_device *pdev)
+ {
+-	struct device_node *endpoint;
++	const struct regmap_config *regmap_cfg;
+ 	struct device *dev = &pdev->dev;
++	struct device_node *endpoint;
+ 	int ret;
+ 	void __iomem *base;
+ 	u32 linkrate;
+@@ -2131,7 +2147,12 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	mtk_dp->regs = devm_regmap_init_mmio(dev, base, &mtk_dp_regmap_legacy_config);
++	if (!mtk_dp->legacy_regoff)
++		regmap_cfg = &mtk_dp_regmap_config;
++	else
++		regmap_cfg = &mtk_dp_regmap_legacy_config;
++
++	mtk_dp->regs = devm_regmap_init_mmio(dev, base, regmap_cfg);
+ 	if (IS_ERR(mtk_dp->regs))
+ 		return PTR_ERR(mtk_dp->regs);
+ 
+@@ -2754,6 +2775,7 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
+ 		return dev_err_probe(dev, ret,
+ 				     "Failed to add phy unregister devm action");
+ 
++	/* PHY calibration data is in mtk_dp only for legacy devicetree */
+ 	mtk_dp_get_calibration_data(mtk_dp);
+ 
+ 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
+@@ -2804,7 +2826,12 @@ static int mtk_dp_probe(struct platform_device *pdev)
+ 
+ 	mtk_dp->dev = dev;
+ 	mtk_dp->data = (struct mtk_dp_data *)of_device_get_match_data(dev);
+-	mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
++
++	/* Prefer PHY from devicetree - if not found, this is legacy */
++	if (of_property_present(dev->of_node, "phys"))
++		mtk_dp->legacy_regoff = 0;
++	else
++		mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
+ 
+ 	ret = mtk_dp_dt_parse(mtk_dp, pdev);
+ 	if (ret)
+@@ -2855,9 +2882,18 @@ static int mtk_dp_probe(struct platform_device *pdev)
+ 					     "Failed to register audio driver\n");
+ 	}
+ 
+-	ret = mtk_dp_register_phy(mtk_dp);
+-	if (ret)
+-		return ret;
++	if (!mtk_dp->legacy_regoff) {
++		mtk_dp->phy = devm_phy_get(dev, NULL);
++		if (IS_ERR(mtk_dp->phy))
++			return dev_err_probe(dev, PTR_ERR(mtk_dp->phy),
++					     "Failed to get phy\n");
++
++		mtk_dp->phy_dev = NULL;
++	} else {
++		ret = mtk_dp_register_phy(mtk_dp);
++		if (ret)
++			return ret;
++	}
+ 
+ 	mtk_dp->bridge.of_node = dev->of_node;
+ 	mtk_dp->bridge.type = mtk_dp->data->bridge_type;
 -- 
 2.54.0
 
