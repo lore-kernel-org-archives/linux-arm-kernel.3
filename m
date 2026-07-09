@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF38C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22281C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=05+LHhpaaEHtiLUM/uJYO+V0R+R9kRnyL/DEaqmQD5k=; b=zBEhLu0fAHRYFGG/BVSkCkjJmm
-	BM1MrNCg+ocC1bw/RNEiysIOwKzbOaiYF11R5hfYjxD1S+wjPb3u15XufPEk6y2lcKakmPAxN10Cg
-	6Fw8xhefY29EA3p4zFfDgPsGwGe3YcqTjCz7t+l3yE7gOSySXTU3q36zdF62zrIHbPRSRW6B/rtlI
-	x/pBzl1WO44G6d7+9q0FbQsojjrN9Opkpiqqr9HOjTnve41bN8fwpvZmMQCoFdrWIrpT6v2gkr0T5
-	Uj3kJJ75vNlKhHUwOXLQvmYyrONj7UjYGVAgElaoST2dy0qLY4s5IcuRNs0j+0JuDjOEn1YcoGN3y
-	rBLCqvcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D4umqGeoeFLr6ftk+dGLX5Hz/2l8UNfoWaVJnZJbcDk=; b=dC53utKbv83hkx
+	8KDt8AxH9+n66QeRc+umd6N6IOGt3jZh5h9SKZRphGkrPEuwbyUl71kt4KP1nSsOOqcMwxmUGr+Uw
+	9T6L+fL+KD9VdLDUT44bmQO34ECa3oSsoSpz5+MulO4V9ECmRfHtoANohlbFAqNF0ruSt0Zy3GneH
+	j4dEAeMKI3GCGpv9boos/9XTEPB9lLixUQDZhCNlV8zfeTkl7RWrWq5B3XDqTwEYVMXoWfxnFFX2M
+	NKm/YUFOf26KKZDiZ3b/IbVKYa+4LKWxfx9aACRbcC4BEY59vaUi+C+Ip379theoqzQqWc8Er/ZEF
+	t2c5tIiDyOibsUn7CSbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkEA-00000001RFD-0JiG;
-	Thu, 09 Jul 2026 08:35:26 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1whkJc-00000001Rto-0oHK;
+	Thu, 09 Jul 2026 08:41:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkE7-00000001RE3-1EPn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:35:25 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-382ef647e20so1799629a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:35:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783586122; x=1784190922; darn=lists.infradead.org;
-        h=mime-version:content-type:message-id:date:subject:cc:to:from:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=05+LHhpaaEHtiLUM/uJYO+V0R+R9kRnyL/DEaqmQD5k=;
-        b=CJa14V1snqpxs0x+e5/fegMPyoB5dY/RfuyxBrv6RYx7b001mfDT1vIF1ecYSY8HOj
-         IQqnCE1zswkf1B3UpEvPhhFHW3joA5SfHngmWcOadlYyxinsG80TBqyo4WBSO71HrXFG
-         qpAIuzudy7K+eS05IlI5OTRUORboyVv4eoI8qlzDfo4z34hwXS2ViaO57oU0o0OlY8bG
-         pW+f2mpmlJJnil6gCT9IBewNSi5zfPNQ7PA8xv1UEg7AmfkbBUORFNIfASEIq7R+6QMs
-         +d6x1f/1g5lYPK22jV6/0hdtfgNJM4m08fdHCXrpBkby7eJx7dgP0v4gA7sPsVOwvLBz
-         tZqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783586122; x=1784190922;
-        h=mime-version:content-type:message-id:date:subject:cc:to:from
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=05+LHhpaaEHtiLUM/uJYO+V0R+R9kRnyL/DEaqmQD5k=;
-        b=StP6qRVH4O32ClSI/WBzk5Jw01aHQJ4ceIszyG/SYDZQFILdSCHDHe/u/T6EVbFEmV
-         BzK6JcXhM5Qo0vagz+aDVMt9iC6xYTsVrIBW/3xcpDsNZoUFqa+E6eteosR/p0ZS1YFk
-         g/GoWciU9etT6I5K32B8ZPVwIda6yzuGnqFmWWaESueVbnW6ZGqVa/XRJ2J6goacC+vm
-         eh1IBjQHKWtp7aoMnXTQfOdlV4/0BbWDi+4GyH4nTXwM9I+tHInszAYC9ia/WifAEc4L
-         Et8fBezOYLfiV/OaWIDdmHevZ1tEJ+FJJy3dURMCns6YgLFDEzXdDdpB66Fe82pL5NOJ
-         /CJA==
-X-Forwarded-Encrypted: i=1; AHgh+RqD/JJzfN4z93Ptpl+PPahxeyawniiYv+a+amWKq7LaRlyk4sxZF6VtGIxyEwD57JdJOuGRJjtrrnKjZXdzEsh0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV6J0oBiiEILzcnXYuSx/XUEwcJYNxkSQeGpJ/OTmJUAdWsqER
-	VdjXxigiswWh2IxXEqvD2b7mDw4GjfbjeBFPwWgGIYMaDowKZGbF/8sR
-X-Gm-Gg: AfdE7cnWF1nTaEBtNDRODpwyG+2+BoVswd1Bvh1T397+So4kPi7VovJOCMcR2twaxvI
-	njJrBJG/AL585l0eZdEs6oDrttkoqMiBIHUcBqq/exNBHwxxKL03g9nwNP0/MBgtc8I49VBnDoD
-	0OiOLT+xuz+5ws4V1yEME5j/cyGaoMyue078Q8LtMvJaPuQZc3GdOYX+BWIW9EQz5KZ8nQAe9bg
-	PLT62JquhHsq7EeYqzULqa8KHYlgln/kIJoI5sIdb8bKhSYw1o57KJbFwoF10T+V1k3BjwMjfw4
-	8iocIPcQXRE8bPtEsE9mQpBYJuBi+tU9xm5rAU+sfq0bLnpKM07h5fGdugYt0tCYNsJU/EXpc6L
-	1pIqF+3WMY8wQ08runA4pLrYj/GopBoOxRxZpS/lmJe8crMT8HMZoqW+yGtMxLtTGWNLMwUmmuc
-	/25NCVhQ==
-X-Received: by 2002:a17:90b:4a4f:b0:37f:c69d:ce69 with SMTP id 98e67ed59e1d1-389415edb6fmr6386335a91.10.1783586122340;
-        Thu, 09 Jul 2026 01:35:22 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38a5564f58csm811721a91.8.2026.07.09.01.35.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 01:35:22 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next] ipv6: initialize ipcm6_cookie before parsing control messages
-Date: Thu, 9 Jul 2026 16:32:30 +0800
-Message-ID: <178358611790.128118.11036367713019213946@gmail.com>
-Content-Type: text/plain; charset=utf-8
+	id 1whkJa-00000001Rtd-3bTx;
+	Thu, 09 Jul 2026 08:41:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F47243625;
+	Thu,  9 Jul 2026 08:41:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D089B1F000E9;
+	Thu,  9 Jul 2026 08:40:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783586462;
+	bh=D4umqGeoeFLr6ftk+dGLX5Hz/2l8UNfoWaVJnZJbcDk=;
+	h=From:Subject:Date:To:Cc;
+	b=TF+sRJn9wetWvMfU0qANWtkHuUr6cJTyk9itf1gBHkAh32EYt1HTY2pL0rxdNrjzV
+	 3fs6VMBOFuLWXmxOcWpiJRRwukZuLhSzgntG1d2zMAsmYnNIvcAGXnLFvHxYFReGvK
+	 LIzak11bgPIsrJAsh6Azp8TIiGVrWLyBwDgmcHC809MyfqoIaHaqnGlR4rJKtdc8/b
+	 xb9QvH6auIofaK7mlzSB/wpXkcesBMymRDmkBcOwBbi480wbYden5ujV4QsTC66oO3
+	 Z/FYvFFqVdozJlsMUdnkdXDFCJLIe17Rhs1qz8/BCDAkwdsYPgQDXMcP0ofaGRjUcr
+	 rb0iTUeFcYb/Q==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v4 0/7] irqchip/ACPI: Arm GICv5 IWB ACPI IRQ probe deferral
+Date: Thu, 09 Jul 2026 10:40:10 +0200
+Message-Id: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_013523_336744_C57CB521 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGpeT2oC/4XOQU7DMBCF4atUXjPIHsdO0hX3QCxsZ5waqiQaF
+ wOqcnecdlEhFlk+afT9cxWZOFEWx8NVMJWU0zzV0TwdRDi5aSRIQ90CJVrZYAtjClAMuLAkSF8
+ eFp49wUCRmN0ZwhC6pvfKdaYRFVmYYvq+BV7f7jt/+ncKl03dLk4pX2b+uX1Q1HZ3jxlp9mJFg
+ QSvW9+Zvu+0xZcP4onOzzOPYqsVfHhW6l0Pq4c6Rqest+T9P08/vFaqXU9XLxhjMUQZCfs/3rq
+ uv8jwKKl/AQAA
+X-Change-ID: 20260427-gic-v5-acpi-iwb-probe-deferral-cdc849b1a854
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Sunil V L <sunilvl@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +80,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ip6_datagram_send_ctl() parses both SOL_IPV6 and SOL_SOCKET control
-messages. For SOL_SOCKET messages it passes ipc6->sockc to
-__sock_cmsg_send(), which updates fields such as tsflags with
-read-modify-write operations.
+On Arm GICv5 systems, the IWB (Interrupt Wire Bridge) handles wired interrupts
+and it is in charge of translating interrupt wires to GICv5 ITS messages.
 
-The IPV6_2292PKTOPTIONS and flowlabel option paths only set ipc6.opt
-before calling ip6_datagram_send_ctl(). If a SOL_SOCKET control message
-such as SO_TIMESTAMPING_* or SCM_TS_OPT_ID is present, this can read
-uninitialized sockc state.
+In ACPI systems, an IWB is backed by a platform device. Device drivers for
+devices whose IRQs are routed to an IWB might probe earlier than the IWB device
+driver, which can result in failures in that until the IWB driver is probed and
+its IRQ domain is duly registered, IRQs routed to it cannot be resolved.
 
-Initialize the ipcm6_cookie with ipcm6_init_sk(), as the normal IPv6
-sendmsg paths do, before overriding ->opt with the temporary option
-buffer.
+Some interrupt controllers for the RISC-V architecture suffer from the same
+issue; RISC-V, in its ACPI IRQ layer solved the problem by automatically
+creating device dependencies that result in the interrupt controllers drivers
+being probed before any device driver whose devices IRQs are routed to them is
+probed.
 
-Signed-off-by: Wayen Yan <win847@gmail.com>
+Instead of reinventing the wheel, this series move the aforementioned RISC-V
+code to generic ACPI IRQ handling code (while fixing some bits and pieces) and
+implement GICv5 IWB ACPI probe deferral on top of it.
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 ---
- net/ipv6/ip6_flowlabel.c | 1 +
- net/ipv6/ipv6_sockglue.c | 1 +
- 2 files changed, 2 insertions(+)
+Changes in v4:
+- Applied v3 review comments and tags
+- Link to v3: https://patch.msgid.link/20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org
 
-diff --git a/net/ipv6/ip6_flowlabel.c b/net/ipv6/ip6_flowlabel.c
-index 1ab5ad0dcf24..5cbfb82710f4 100644
---- a/net/ipv6/ip6_flowlabel.c
-+++ b/net/ipv6/ip6_flowlabel.c
-@@ -405,6 +405,7 @@ fl_create(struct net *net, struct sock *sk, struct in6_flowlabel_req *freq,
- 		msg.msg_control = (void *)(fl->opt+1);
- 		memset(&flowi6, 0, sizeof(flowi6));
- 
-+		ipcm6_init_sk(&ipc6, sk);
- 		ipc6.opt = fl->opt;
- 		err = ip6_datagram_send_ctl(net, sk, &msg, &flowi6, &ipc6);
- 		if (err)
-diff --git a/net/ipv6/ipv6_sockglue.c b/net/ipv6/ipv6_sockglue.c
-index b4c977434c2e..0dcd2c224014 100644
---- a/net/ipv6/ipv6_sockglue.c
-+++ b/net/ipv6/ipv6_sockglue.c
-@@ -839,6 +839,7 @@ int do_ipv6_setsockopt(struct sock *sk, int level, int optname,
- 		msg.msg_controllen = optlen;
- 		msg.msg_control_is_user = false;
- 		msg.msg_control = (void *)(opt+1);
-+		ipcm6_init_sk(&ipc6, sk);
- 		ipc6.opt = opt;
- 
- 		retv = ip6_datagram_send_ctl(net, sk, &msg, &fl6, &ipc6);
--- 
-2.51.0
+Changes in v3:
+- Added stub to clear ACPI device dependencies
+- Added review tags
+- Rebased against v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260603-gic-v5-acpi-iwb-probe-deferral-v2-0-23ffa16b6ebb@kernel.org
 
+Changes in v2:
+- Split the patchset in several logic units according to review
+- Link to v1: https://patch.msgid.link/20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org
+
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Len Brown <lenb@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+To: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Huacai Chen <chenhuacai@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+To: Hanjun Guo <guohanjun@huawei.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-acpi@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: loongarch@lists.linux.dev
+
+---
+Lorenzo Pieralisi (7):
+      ACPI: Add acpi_device_clear_deps() helper function
+      ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
+      ACPI: RISC-V: Check acpi_get_handle() status in riscv_acpi_add_prt_dep()
+      ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop handling
+      ACPI: irq: Move RISC-V interrupt controllers autodep to ACPI IRQ code
+      ACPI/IORT: Implement ACPI infrastructure to enable GICv5 IWB probe deferral
+      irqchip/gic-v5: Enable GICv5 IWB ACPI probe ordering detection
+
+ arch/riscv/include/asm/acpi.h       |   1 +
+ drivers/acpi/arm64/iort.c           |  22 ++++-
+ drivers/acpi/irq.c                  | 172 +++++++++++++++++++++++++++++++++++-
+ drivers/acpi/riscv/irq.c            | 141 +----------------------------
+ drivers/acpi/scan.c                 |   1 +
+ drivers/irqchip/irq-gic-v3.c        |   2 +-
+ drivers/irqchip/irq-gic-v5-iwb.c    |   2 +
+ drivers/irqchip/irq-gic-v5.c        |  13 ++-
+ drivers/irqchip/irq-gic.c           |   2 +-
+ drivers/irqchip/irq-loongarch-cpu.c |   2 +-
+ drivers/irqchip/irq-riscv-intc.c    |   3 +-
+ include/linux/acpi.h                |  13 ++-
+ include/linux/acpi_iort.h           |   3 +-
+ 13 files changed, 223 insertions(+), 154 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260427-gic-v5-acpi-iwb-probe-deferral-cdc849b1a854
+
+Best regards,
+--  
+Lorenzo Pieralisi <lpieralisi@kernel.org>
 
 
