@@ -4,115 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6393C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54Dj02k3uul5TPtw9U5JIJjN3eOpWu3nQg9JkvEUFro=; b=w5X1lf+42SYT5MhrSFREiJeRG4
-	gZGKRhHElRoHLHE6ZrwhTwXXwjqpf593GGGdBREInnWi/olY/uYBB/mS312M0q7zBqK1US4g/6oIC
-	fxOJGY0gzNaWACtu0oov4MIrTVpuRmRXy6iiN9U+2Z8Rpg6TPKWLpjcXZIGerhvgzNEU4nALhVras
-	JkyDI31ZtCP370hUV9Hhhrt5Oh1vXw5z64srrmfqPwkcnrecuA+xispF9hmDd1bam/gqp6cJeTiPy
-	+A2pdYaHqkC5zI3j/sX8GJ58Cs9OJo7Z4xo/s7dQpYmC7bsQJLoMXHNi/6lz1ljK0uoMWrfKf2+Yk
-	2pPWp5Bw==;
+	bh=mWIjba/tlXRMEiBrgsOvE8OqewTbNijE7rghrumqevc=; b=KTm2UWpJ0on3vWS1ZhyDDtVv5C
+	oZetQpK4tHhjp/UaCjuVGR+Of5zINGxPUEjrNHrTt199h70S6jGFw0cDv2JfXOIXQUWHEMKzxJ4a8
+	YEK0RU7qx939nYdfvqewT5G5Uxc8SUpwjnCCpcpNM0vQtQv/1Mofx8YDI14UQM8rA1/7vejMIwBHm
+	TNaVOhF7egIKypDaT/yhQAPv4DYn8/8vt9J8hRxWp+IKfEIl5z7pXnCMUDjjK1US1btI2UeKqCaWw
+	Ns84YlLCWe1PdwZRIz8BnLmQrnYgpX5Tt243DwxXTZgk6O9vgvhniQHGqIKNxxawSYj6c1qyreM/C
+	WdD5RKvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqG7-00000002rab-0Q8c;
-	Thu, 09 Jul 2026 15:01:51 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1whqLk-00000002sCZ-2Erp;
+	Thu, 09 Jul 2026 15:07:40 +0000
+Received: from mail-northeuropeazon11010022.outbound.protection.outlook.com ([52.101.84.22] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqG5-00000002rZq-08AI
+	id 1whqLi-00000002sBk-0dgP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 15:01:50 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-6a2c1edb210so259915eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 08:01:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783609308; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XvJc8ifcTMVXq4vTK9gsPxj0CbEmJp1KKuC/RR7T70j465/axx7+7xYgrZ7UH8KLEC
-         NlhQMA/R5+91fvlEDPlN7Fsm4QkGa6jriq/csD4G1+egrhNG4go6rUU1ygcoRsJLz61v
-         VIvSEBKGa61Kq4Nvlyj8RBSGyqgmZiQIJCagZSXvjO64dTKA1FgUn9AfTSTInpN55Ltl
-         Mz0I0GOgckcthZSjlUn3FlkVSCLag45buru7VVnEMTgDAAHgPp8pobz/QR13YGwLlynK
-         LlYTlm1RJAPUotKAQ2y+C1Nv+LeUGr3g3uv11Pb50Wv52KXlCRKvBLhlCBxihdB72319
-         bTRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=54Dj02k3uul5TPtw9U5JIJjN3eOpWu3nQg9JkvEUFro=;
-        fh=iUZyvnHg0WMpS7oIiQPWMj4drQRl4vE4TQ5yJhx3N64=;
-        b=Riyx8indLyui5i97Za4Jl3h0VRRc1XJRJPR9yL7ECJbpbKt5/wCu6/X2aXqq4NoF/h
-         GY2KL7pxZalpGvdVwO4y2HStUUYuEn1OydQx6TID54jlS7sqU/BpPVGoTBhwrXVlNHXj
-         Rf4VfIKPGVDvJ87KgaBBC9XC9j1gGj/ZB11y/Pa9gdcfIN7EWdu1R9yUbCROALrwh9cD
-         PyNkc64izpJ9/D1pxnzrh0oUlOA7vIeMUhAPd4sFox2N22b5fHT+PzXP4umFIRpbGqVG
-         sJsAzaHfw3wVXLyOb7EOtqWupprdVHB6ROMrv+qNMWJT1JxFOtvoA5lgDnIMRXeDfWnH
-         GOgw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783609308; x=1784214108; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=54Dj02k3uul5TPtw9U5JIJjN3eOpWu3nQg9JkvEUFro=;
-        b=V09K660aCE8/LB5GSpigFj5nj8ejb7K/2qynrmPwoz4XBx0zJ4YZtHJLvy6IJ8+8vY
-         C/DoH4t5BOqYhaKVF7YEqxwMVUJmxKStsyz1PmMWujP5fY2zNWE0o9U7nAQTxi7omPrZ
-         sE/XhY7ICY7m2LwUayHaECNuHpJ5zxWpBrKGqa9nynlHct8st4naREYU/nvDEHVyMmb5
-         ge45y0MJVVCe3VmMzvRQqKutMK1XdfR7m4vzejRLnHshQBrxn8t0nQNGIaihlMLaDNYE
-         Dgdhe5UZciwUp6E0D+uoPJ3B1nck51NMwUVVkaCv7YxmAfBfj9A2DlQn/pBqAm45dk2s
-         uu/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783609308; x=1784214108;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=54Dj02k3uul5TPtw9U5JIJjN3eOpWu3nQg9JkvEUFro=;
-        b=ODqBLXdyt9ig0GMkWZfTqqUOJ1SaZGYZwzDV33h/692i7vXJUqMu0iZRU3RaIxkH0f
-         IthlrcuFflYBHTb97YNhkej7CEx4+Wlq/Cv+hPRVX2nD3BbvDbteM6pnbnlkuW8CrDO/
-         un0itbe3cNgRduz1mDHLQS9l/0vLrQknkKCCzhH3W+QkYRgg1a5/TdBy2YavD3eAWfyU
-         cBJVa7eiwbwA7n0KMEPRKEsLYeubY/NVn8z8kb+Ign/klVO+7uflLUwyJE8Euxe5YrO+
-         ziRYcm+EkHPD8j55OUOX6kFyWso0YWm1hoJA8qHQ8Un6p1ig54oZ7+fnL61yuyFAYIBZ
-         obqQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9f6xO1n/xRtz8MKFg3j6vyDdUcMejDgLu81gVRcu7/nKqFUUVDUCYc3gcX2sDKiyzYfRQ13bPU4KzZ5Za6zwfO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIkG5od/dYxtQqvd25bcm1MJJl0T7vpWurgkPty3SBtd4L7XcP
-	TTnm7lO9PJIknr9ho1piAboUAxLb9QkTWMHekscYSQvtPDnS9QvQ7E57TfnOkrdHKoBdrZQq0xH
-	o0u78vTay8V7w36BzOw+5nMyM3wTgvoccnyfgURgT/g==
-X-Gm-Gg: AfdE7cmoafadDC2/pAiV14YgWFJI2RtGWoJz6+mG0ftEw3O6lXQxiHWef8wP4QfJCBk
-	e7C0qQql+AAOhGuHRlRScBRkap4EgOHcsAE1jUCreVzw9i35V1smSrPSrbtsMmleQXHneaP2lHF
-	m4+Xm1APcEWhckcrj+yLmg46oE6vK5ChhcYqqhFok6g8WW3ETtyGPj1+LajKqLbBZmqr05/b+8A
-	cEv+nqASIfLzsD+LcUtoHoh+qePC3rdUctJI+R8BlnjQyGQMMvG/VHcG52ici0F6m7id9QA7+n6
-	e1+uWaFwnqRnYp2eWo/2sOU35xYHvvBmdqX9gSQomKx3kBMoDPsAzDKatx4kd8ShliHbc5S8kub
-	qXG+QdVfTS7yPz/G9dGiUekjxrhbV
-X-Received: by 2002:a05:6820:80c9:b0:6a1:7d5d:d55b with SMTP id
- 006d021491bc7-6a36da40a78mr6610565eaf.63.1783609306048; Thu, 09 Jul 2026
- 08:01:46 -0700 (PDT)
+	Thu, 09 Jul 2026 15:07:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sR8d+0TEF6/wQWYQrestdobcNy41cOJxqvfb27cGCB2TaIdLC044sD6AqLzKAzAicPT+cSY0ed07Et1DKJTTfVJQhTwBYD1WSTy7nF+PXUNLzSlKDbJO8c9IxbWTej08HmJvtdlr7UhOGC5/AUcXc24OXk02TtvWCFeLG5e7cD4vF9StosqrA69IngOL7R6VxlZh0bd5/qqKPxiu93/fwDcmul4+WhWzkG5qqnn5xM1vTgSeWjZvZqfyugXlVjX5Huvs8XJR2AvH+B66KQF2esjj1CPQEgDFmie3iGF3mxB3PTw5w5iQJ7hVafmnp+BoBEpnlwEs30EzYtbhwot7sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mWIjba/tlXRMEiBrgsOvE8OqewTbNijE7rghrumqevc=;
+ b=L6XkRZcZaV9YXjxf8Mm6xfJmvK49lJWZwSivcS0TxL3Zb2W0P3Ndukd/LQ8oULY0AmbvgTqVnOO29i2bKIiJmYUo6AaoqVH/Kr58EcpNVSt9xQdjGo0NGqtDpB0uL10dZwVM5BXE3ORtJPS+zFs0actrdktBGCkx4AXylXziQLZxcfSqim1akkbUv2CIFA3M+u1KktsY4ABI6WoTobBqZQsjDmS7viRRoKmtw8whYLxVmL1CeuCPE3HszDuQWXVdkF2XL6xc+KEaHWybOcDFbo9KPlOHuFtHtyuFj05RDxoczcDRBwwISt6uFrQSgPxyvIIcllNbvNzEeIi/G/XCpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mWIjba/tlXRMEiBrgsOvE8OqewTbNijE7rghrumqevc=;
+ b=i0GlN0X7EZgSJ69IplTEcfUCWFhiFdySUNgdeIWukYz7RVovknGWEPS4TuC0bbqQZPvP2ggPnCorl56hlmxGn7nxVFNFTRSP05uF8rC4IRR0CCjhyFlsjc/n0gN8dYjLeDQndx1FcoA7Eype4nPxETwLs4TanMQ2Z8NjgdMV19P45c3pvNwUhRLgTqpkOv6g4Bq2N5Zcer6Ye65nfbe2G9SDEaHbqeGNzZ92STu0i6WjZTihWqnJlGTAI+CeWj4YOuo7GxeXxSPLpbEdxFCQPlGu/RtoQtUoJY0hMeWp2katnyQrZnyMvZaQ7/mj1/h7Uh+5ihraoahawYM4wGBnZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU4PR04MB10768.eurprd04.prod.outlook.com (2603:10a6:10:585::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Thu, 9 Jul
+ 2026 15:07:33 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 9 Jul 2026
+ 15:07:32 +0000
+Date: Thu, 9 Jul 2026 10:07:21 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Haoning.CHENG@cn.bosch.com
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: thermal: imx: Document calibration
+ offset property
+Message-ID: <ak-5KdXFUldV2eTP@SMW015318>
+References: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com>
+ <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-1-00ff72495e24@cn.bosch.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-1-00ff72495e24@cn.bosch.com>
+X-ClientProxiedBy: SN7PR04CA0238.namprd04.prod.outlook.com
+ (2603:10b6:806:127::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk> <87zf08w7qo.fsf@jogness.linutronix.de>
-In-Reply-To: <87zf08w7qo.fsf@jogness.linutronix.de>
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Thu, 9 Jul 2026 16:01:33 +0100
-X-Gm-Features: AUfX_mzxAEUtA0gfeGBkNwUL4IfvDIIDWxjRLhkwrbukoka3ocYrFDWdq-jaaZM
-Message-ID: <CALqELGxAXDF-cz-b=2G64TayXDU1U1vBzb_qBwcEJ2Bvw+fFjA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
- emiting code
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Petr Mladek <pmladek@suse.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB10768:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b0ddae6-8e08-4894-1c60-08deddcbccdb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|19092799006|1800799024|22082099003|18002099003|6133799003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: IPdo3pYqLt9Xm2KD9xddg2pAIUspIqa6qfHxZGY4J39g/Kh8KP17r0RVOWJ2W6AqgoHTGrY469h2+A8OVqhaOSFi8rhS+NAXHK/aI1xUoTuL0FSmkq8s82X07T7jRWZV93H/cl2CJgcJTLDcnOGWAqwoDiRDg8JZjLoqQ1qDl+sNeR9VJO+TyU10lMaD688qobuINBwSgGq+k+94mPsk75JFUxBBPfCJCdgx8BcWn8T6gaZK/THjjK+IlOGt+PXqT8dsfDPwEmBV8q/pqSS/7y3ul4XWMhVu/FQNUGHvaXBcJo2hHsjREjGR5WiUNiZ6wgMr8tWYU5+WV8f0gs4/Hi4pnZA7Toh+G8CR8T0Y+HvI3Z7bTbsx4wA5x0klQlVZKUUbgux+2NQJPpxd2cu4uEYzcfUy1KMuwI9UnsxGsyPf2fx76ERo7xC/bXbDxPtkQ/Lzlh200NctyIsWdFc52UAOXxBw3uS7Pb0esJskmOeD2LhEBeFKi8y3odhqhXXPPHwF85KTu+Roh1nRe7EILF08rnHXtQluLXfKIssnQb73gEcKRuYkCv0yWQugtqeO/+7z9/VQEg3p7+Gu6Velh3O8TUDi1ex6PYTqPY+SvpqRVmVF5h+OAXCjEBpl8XZiRNruXoNGHONgJjNuczAcBD0YdiyVcLaVqmPUmZFWdDY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(19092799006)(1800799024)(22082099003)(18002099003)(6133799003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ygzEedx5qJ700db6omnvJivpBYQ8m+ykKT60/h6qAsANlejJwNHYZdjwaj4i?=
+ =?us-ascii?Q?jt5MkHDsDPXaxB1qEWR2wuBgYA1lD1UzxP3B1zSSJDSRSber5QnMNQ4+gMwm?=
+ =?us-ascii?Q?FSE+UEyyLpPpzRlP3l+OKvwKrCVO3a+7Kql9OTscBm/zJAA+B0rdBOUoTfT2?=
+ =?us-ascii?Q?t29Gu0yN2rTmuInrmbOGIePCgOGa7tgsDVYObA5hLDYss+xqQbXo2xu6Y20C?=
+ =?us-ascii?Q?tXP5ymGfxQlYeC2hkxsoZlJ4O+lSkWY6j5rHzNaAQ28j92U3RP1mYWhuNiqf?=
+ =?us-ascii?Q?NhhOoysx6YIZkWUKtIyEosHIftohCwiIr6zB8fyYmk3gPrI0cb7HWgiNypBQ?=
+ =?us-ascii?Q?hngpms7VbFgqGVQ0sCFctKme37fFWpujv9hwUXUxtbJnA57sJfAkxh1YCkqi?=
+ =?us-ascii?Q?Rk9PbY+Ytlyspti2m766Ipmzaf6145yuO4KiG3YSmx3SjDk/UBW5zEvRaicK?=
+ =?us-ascii?Q?wraiaceC7oCYhdiUOvNaY9bjkXxfETwVDJ80UYKgzeVtUxAxfYGOk4emE0Dg?=
+ =?us-ascii?Q?Tp8ZpuH0R9E3A7PLbcp3VxDGXW4NEofLz3m/ZMFjGhF5GtCyzzeWh982FZ7N?=
+ =?us-ascii?Q?hYQTrZTvZd4IQOW/gymie4cXoncY1091ndVcMFB8+1LX2BdYiWQ9vpaq3seO?=
+ =?us-ascii?Q?xMI59swXJPwLfERd6lqu553vqVQvMxrCRyRtgF3gjk9foYVxqbcij0a6sMYG?=
+ =?us-ascii?Q?4YdiN3cAUn1Oo+83vx7+GHJnPMKgma6fHsMcgYchnzrvN81TI+eDOpC2wbx2?=
+ =?us-ascii?Q?H8DhIxEMxGQtFyLJRa1hQ8rkB41UKk0Ge7FV1K/P0dSeQDUNHJcmrieQyhUI?=
+ =?us-ascii?Q?+EpDG2ux6CP0XJ86+aP0KRHrrRfvjxUmRezCUInjFsrrGwdUoqNIOGAJAzRg?=
+ =?us-ascii?Q?Z9+/ATVTFTTTTzX7QVoCcBMYAPdmEwh1oE7z7rsBn6y8nPpJooPmICLuqeI4?=
+ =?us-ascii?Q?bvRRePWz7+sjVpQFV6sZNRWu7mOqlepqjQVxMSc4DphmBC5oWByttA9oL4TJ?=
+ =?us-ascii?Q?J82TJNnd/YzAO998gNK9qjJDa4lBstyz+BZFff1+xEdzBHrO3n1jWQiSPxYi?=
+ =?us-ascii?Q?9kJKlreLDLUNv2DOiljRe42BJ++YQlnzCLfT9/HbDalO2/e5kRI4qQ7iyGcK?=
+ =?us-ascii?Q?bdy+DvwXx9GNikQdb1obutGOU1Ec3XGq4gxjnCroecF+a3dTBirGjQ1Fyt55?=
+ =?us-ascii?Q?7LrY9fdLqkX2e0oCIce/+M8o1OtAVPyqKZ8xSb6TfcHMUMQkXUPCLEue7agG?=
+ =?us-ascii?Q?kcOI7o7QjkX1oaZxQVJ7J30US3D+sYPD6S/yZiwFOMKmpSI1wSDexP/zCT3h?=
+ =?us-ascii?Q?bnLomltW6nE3i6ezL+H7KIUzE1ROhaOtDuG2Wdt4rXN9L78t5OTZi9RqR1Ai?=
+ =?us-ascii?Q?Qj8omXK+vMB9xn/2accEjiwYU4fibED4oWZcef5nnm8pLThqS3KP5WMsO3kj?=
+ =?us-ascii?Q?oWEz8b4J+y6j8YSG9+It56HWsI4c/6YrjhSVfiOB7PBeBMZlv5C9qjEpTWWF?=
+ =?us-ascii?Q?lb4vHaeaTG7O/TFVCBhVjM9c/5s6sPBAbXm0NdopELqOBj3OlBSCc23v/Bc/?=
+ =?us-ascii?Q?/P8RHbaBwFy4ip+hr3F7FmExxJzY6dXr2ZDvlbAg63Cj/8HojxarXZ9256Hn?=
+ =?us-ascii?Q?quqa+61n0ZTobfI16qPeGjn6biexA6SCErGzNbQRy+bckhCG5uezNTHNhPaI?=
+ =?us-ascii?Q?hVhNacEDg3gtytyDYBnpdXZLAIuTDZxBbW1w5laXFdsUgousTxr7iNIFnzdW?=
+ =?us-ascii?Q?4VCM1372V44hDs3qDAEI+GkJAe4hQXqb7tEK+Qv2e6Xj9MTvTsfN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b0ddae6-8e08-4894-1c60-08deddcbccdb
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 15:07:32.1124
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9R2bt1DpVaCstnWd2gtci8K9HOYaUkaVtGm86uyREwjELYOR8CB+4Vka9g3J+jn0rET7i2I/99W2o44rcVKBQBp25Ki3fsK+WkwUtkLypVr485lWCcegwL9e7JwnQoW9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10768
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_080149_093030_FDAC7201 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20260709_080738_215420_9100F9D9 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,102 +146,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Jul 2026 at 13:57, John Ogness <john.ogness@linutronix.de> wrote:
+On Thu, Jul 09, 2026 at 04:10:21PM +0800, HaoNing Cheng via B4 Relay wrote:
+> [You don't often get email from devnull+haoning.cheng.cn.bosch.com@kernel.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 >
-> Hi,
+> From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 >
-> Sorry I am so late to this party.
+> Some boards need a small per-design correction to align the reported CPU
+> temperature with board-level measurements.
 >
-> On 2026-06-30, Andrew Murray <amurray@thegoodpenguin.co.uk> wrote:
-> > diff --git a/include/linux/console.h b/include/linux/console.h
-> > index d624200cfc1708bf73925892a466efe0c95c5586..3478b556c0eb9579530409dc6fbb9b5a8bff581c 100644
-> > --- a/include/linux/console.h
-> > +++ b/include/linux/console.h
-> > @@ -290,6 +290,8 @@ struct nbcon_context {
-> >   * @outbuf:          Pointer to the text buffer for output
-> >   * @len:             Length to write
-> >   * @unsafe_takeover: If a hostile takeover in an unsafe state has occurred
-> > + * @emitted:         The write context attempted to emit the message. Might
-> > + *                   be incomplete.
-> >   * @cpu:             CPU on which the message was generated
-> >   * @pid:             PID of the task that generated the message
-> >   * @comm:            Name of the task that generated the message
-> > @@ -298,7 +300,8 @@ struct nbcon_write_context {
-> >       struct nbcon_context    __private ctxt;
-> >       char                    *outbuf;
-> >       unsigned int            len;
-> > -     bool                    unsafe_takeover;
-> > +     unsigned char           unsafe_takeover : 1;
-> > +     unsigned char           emitted         : 1;
->
-> This is the wrong structure to add this flag. This structure is for
-> the nbcon drivers.
->
-> struct nbcon_context would be the correct structure.
+> Document the optional fsl,temp-calibration-offset-millicelsius property,
+> a signed offset in millicelsius that is added to the calculated sensor
+> temperature.
 
-That's no problem, I'll update on the next series.
+why board difference cause such offset, I suppose it is cause by SoC
+variance. The offset may difference if you change to another chip. another
+words, if you have 1000 boards, Is this offset the same?
 
 
+> The property is optional and the existing behaviour is kept
+> when it is omitted.
 >
-> > diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-> > index 4b03b019cd5ee25d68e9ace84392045e91241a7f..ae45cb0589c0effafc66f1756bdaecd1c1e53ab9 100644
-> > --- a/kernel/printk/nbcon.c
-> > +++ b/kernel/printk/nbcon.c
-> > @@ -1525,6 +1532,8 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
-> >       }
-> >
-> >       progress = nbcon_emit_one(&wctxt, use_atomic);
-> > +     if (progress && wctxt.emitted)
-> > +             printk_delay(use_atomic);
-> >
-> >       if (use_atomic) {
-> >               start_critical_timings();
+> Update the binding example to show its usage.
 >
-> This is too deep (also pointed out by Sashiko) because it multiplies the
-> delay times the number of consoles. For the legacy printing, it would be
-> more appropriate to put the delay inside console_flush_all() and
-> legacy_kthread_func().
+> Signed-off-by: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+> ---
+>  Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 >
-> > @@ -1584,6 +1593,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
-> >                       if (!nbcon_context_try_acquire(ctxt, false))
-> >                               return -EPERM;
-> >
-> > +                     wctxt.emitted = 0;
-> > +
-> >                       /*
-> >                        * nbcon_emit_next_record() returns false when
-> >                        * the console was handed over or taken over.
-> > @@ -1600,6 +1611,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
-> >                       if (nbcon_seq_read(con) < stop_seq)
-> >                               err = -ENOENT;
-> >                       break;
-> > +             } else if (wctxt.emitted > 0) {
-> > +                     printk_delay(true);
+> diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> index 949b154856c5..eb7243a7ebaf 100644
+> --- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> @@ -59,6 +59,13 @@ properties:
+>    clocks:
+>      maxItems: 1
 >
-> @emitted is a flag:
->
->                 } else if (wctxt.emitted) {
->
+> +  fsl,temp-calibration-offset-millicelsius:
+> +    maxItems: 1
 
-Good spot, that was sloppy of me. I'll fix.
+suppose it int32, why need maxItems here?
 
-Thanks,
+Frank
 
-Andrew Murray
-
-> > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> > index cc203327247aa4f81f55b907c66ac88f30ce6da8..5278d9cb19e4177a00998fba5c1438251e033578 100644
-> > --- a/kernel/printk/printk.c
-> > +++ b/kernel/printk/printk.c
-> > @@ -3211,6 +3208,8 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
-> >               *handover = console_lock_spinning_disable_and_check(cookie);
-> >               printk_safe_exit_irqrestore(flags);
-> >       }
-> > +     printk_delay(true);
-> > +
+> +    description:
+> +      A signed calibration offset, in millicelsius, added to the calculated
+> +      sensor temperature to compensate for board-level measurement
+> +      differences. When absent, no offset is applied.
+> +
+>    "#thermal-sensor-cells":
+>      const: 0
 >
-> Again, too deep. Let console_flush_all() and legacy_kthread_func()
-> perform the delay appropriately between each message.
+> @@ -109,6 +116,7 @@ examples:
+>              nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
+>              nvmem-cell-names = "calib", "temp_grade";
+>              clocks = <&clks IMX6SX_CLK_PLL3_USB_OTG>;
+> +            fsl,temp-calibration-offset-millicelsius = <(-6400)>;
+>              #thermal-sensor-cells = <0>;
+>          };
+>      };
 >
-> John Ogness
+> --
+> 2.43.0
+>
+>
+>
 
