@@ -4,110 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859F2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9186C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8up9YknUH72DuNpBb/fmTdhl5fIKBCdLdnO90H4hqE=; b=h/eBd93ASNCY5sYnP0Ofbaeaj7
-	YtRqKD9e6V3FMCCMy5Cc7EoHHWT/b0G+/kIOEgRSroQH4IHpq3bF8PcxJYaANXaoCTkL28gr+xgAD
-	EPGdjhaPUFsovW9IuDhf2R94bfKcozMQlCXCYbGbB/cGfqqJT9v2O5wFNfI0l276vXqtfLV/HeedW
-	GOb2beV3bVSb4BcabohZZtzWkLHOqKyyzeSBXQ1pdOuebP/m0Y4DelLNJMX4lzDEHmWKQNRKXFMcE
-	5B6EwlqcfgMal/F7F6qMMhm7FAkFdewzGP/ahiI1MV0T82mAATSvrNFxmz8LIOFVONwF14Qz8zenq
-	xAB3diLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ni2J59PvZ402xhEiYbQS7z3/DPTmjUedbVMOjYoksPo=; b=dILUD1yxxaw9jth4DkEMqEBEnu
+	q2Lgb++3nWuqgmP6u4pOihli+N73P0ZJaHQlNgftbgk7rnJs5Gpn/ZXY5pHvAmAyLZosJP1MD+5n4
+	dENCdpIKt143GY0ttOidIgzGSmeqtngy/vLB5tv5tF2DimJ5qrY/sKwOXzh6peojEvA+Tl5fOlHDF
+	sw6FcUjurE9emKbucFKaiXjM1Sd5rKPQhp8BQy1h9duw4Rn7D29CucdQEEFvzaN9+Ajvxk0kn7zYP
+	+duyzRfDguNTSGmEGC2+FVDRi70ESYuAYCHXtbE4QJ+3iW3R9RLc1bKdpAoM9mW6AyuYBUXEF+x4J
+	pEu0ye/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlbd-00000001rUm-17aT;
-	Thu, 09 Jul 2026 10:03:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whldH-00000001rps-2bFb;
+	Thu, 09 Jul 2026 10:05:27 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlbc-00000001rUK-0kYh
+	id 1whldF-00000001rpG-0hEW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 10:03:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EC806111A;
-	Thu,  9 Jul 2026 10:03:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1650B1F000E9;
-	Thu,  9 Jul 2026 10:03:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783591423;
-	bh=X8up9YknUH72DuNpBb/fmTdhl5fIKBCdLdnO90H4hqE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=on8J6TC7rSi/uQfDu+aIqT4su/uxGM4PLRIHnX7nxWGIdUzXhwcZIopti+Kcv7djP
-	 2ANk38puMfrlnaFW89fzkZWWx1soSqy6BaKnHA4IGS9ACPkeogpMeJ+OE5YQta9vZr
-	 gb0uOxMN6dVW46PVhPtpTwtSrzufB2E7WYlLYvgjSnvgP/XioqZYQHhC9nHzw3p1Wz
-	 8riTw9MvVrfIC++2WkGCqK2vWWXqzI1QmA2ZIxcMQEKinNX8+qjIsnISXMTcKljr3i
-	 0RrodIUXI8vZtu1ZepcZ52lfixGPpVXNMvb6OZeNcUb5T4x9zUOEb980pomfrJpdTR
-	 Khz4uLqXRF5ig==
-Message-ID: <cf7b402b-a084-4a19-b2be-d9e7d86d6e7a@kernel.org>
-Date: Thu, 9 Jul 2026 12:03:36 +0200
+	Thu, 09 Jul 2026 10:05:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783591526; x=1815127526;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kynRmd6VkJDJaKnAtp481E/LYoCY9IfgfoGNoe6Bgsc=;
+  b=bR+M0CV4l1kr3OnHYLiy6aVCPkN9U4sugdomOgGwqI8Opl3n2LcSLrYz
+   pEfjwvHynJE9TWgCkVLdK/vV6in3/MedLvxV1qa9lwAzyE+W/nmf5X7yU
+   d4b/QWtMQXpBiZV7Z1CTRXrBKQp4nv/moozCASMdZrjiD7lcbsIQIdynG
+   vEDShyOeY0+1EMsySB1t7Ygqlh5V7lDYb9QRE9X5KqImjHvAQE+rxYn8C
+   IdkdJnSBtfm2t5QZ0I2YEvQdJswTQMnWRPgPdgGPBPYUZH87tkZ+DlUdL
+   9Z7hgupLIuSRLtPfQxkXd6wn9RmeylDAx7yEntLRDiBAh6Q+vFaQMwMpw
+   w==;
+X-CSE-ConnectionGUID: rDjvfOlNTgWq8SgzsH9hmQ==
+X-CSE-MsgGUID: kERNywtdTgGknTtyc1X3lQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84286574"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84286574"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:05:25 -0700
+X-CSE-ConnectionGUID: hTUNBWWGR3eFq+am3Mq5pg==
+X-CSE-MsgGUID: 7Ic9mailTa6mlsefKI3aRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="255200185"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:05:22 -0700
+Date: Thu, 9 Jul 2026 13:05:19 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v10 0/7] I2C Mux per channel bus speed
+Message-ID: <ak9yXzjO_DwJXXgD@ashevche-desk.local>
+References: <20260708-i2c-mux-v10-0-09dca03c8a15@gmail.com>
+ <ak6m6srzX8dd6_nT@ashevche-desk.local>
+ <ak9c6nGBsgMTP099@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] firmware: samsung: acpm: add fire-and-forget xfer
- support
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-References: <20260612-acpm-fast-xfer-v1-0-1aa6cd2268ba@linaro.org>
- <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260612-acpm-fast-xfer-v1-1-1aa6cd2268ba@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak9c6nGBsgMTP099@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_030525_250756_09D44BCA 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,114 +92,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2026 06:34, Alexey Klimov wrote:
->  
-> +int acpm_dvfs_set_rate_fast(struct acpm_handle *handle,
-> +			    unsigned int acpm_chan_id, unsigned int clk_id,
-> +			    unsigned long rate)
-> +{
-> +	struct acpm_xfer xfer = {0};
-> +	u32 cmd[4];
-> +
-> +	acpm_dvfs_init_set_rate_cmd(cmd, clk_id, rate);
-> +	acpm_set_xfer(&xfer, cmd, ARRAY_SIZE(cmd), acpm_chan_id, false);
-> +
-> +	return acpm_do_xfer_fast(handle, &xfer);
-> +}
-> +
-> +
-
-Just one blank line
-
->  static void acpm_dvfs_init_get_rate_cmd(u32 cmd[4], unsigned int clk_id)
->  {
->  	cmd[0] = FIELD_PREP(ACPM_DVFS_ID, clk_id);
-> diff --git a/drivers/firmware/samsung/exynos-acpm-dvfs.h b/drivers/firmware/samsung/exynos-acpm-dvfs.h
-> index b37b15426102..107d9aa27690 100644
-> --- a/drivers/firmware/samsung/exynos-acpm-dvfs.h
-> +++ b/drivers/firmware/samsung/exynos-acpm-dvfs.h
-> @@ -14,6 +14,9 @@ struct acpm_handle;
->  int acpm_dvfs_set_rate(struct acpm_handle *handle,
->  		       unsigned int acpm_chan_id, unsigned int id,
->  		       unsigned long rate);
-> +int acpm_dvfs_set_rate_fast(struct acpm_handle *handle,
-> +			    unsigned int acpm_chan_id, unsigned int id,
-> +			    unsigned long rate);
->  unsigned long acpm_dvfs_get_rate(struct acpm_handle *handle,
->  				 unsigned int acpm_chan_id,
-
+On Thu, Jul 09, 2026 at 10:33:46AM +0200, Marcus Folkesson wrote:
+> On Wed, Jul 08, 2026 at 10:37:14PM +0300, Andy Shevchenko wrote:
+> > On Wed, Jul 08, 2026 at 02:16:12PM +0200, Marcus Folkesson wrote:
 
 ...
 
-> +	do {
-> +		val = readl(base + mlen * i);
-> +		rx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, val);
-> +
-> +		if (rx_seqnum) {
-> +			seqnum = rx_seqnum - 1;
-> +			rx_data = &achan->rx_data[seqnum];
-> +
-> +			if (rx_data->rxcnt)
-> +				__ioread32_copy(rx_data->cmd, base + mlen * i, rx_data->rxcnt);
-> +
-> +			/* Signal the waiting thread (if any). If it hasn't started
+> > > - Move {__,}i2c_adapter_set_clk_freq() to i2c-mux.c
+> > 
+> > Can you point to the discussion where it was suggested, please?
+> > It was like ages ago (too many patches to review) and I probably
+> > missed and/or forgot the rationale for that. Also if we move
+> > to i2c-mux, why do we leave it in the adapter namespace?
+> 
+> Hrm, it seems like the mailing list wasn't CC:ed for that comment.
 
-Please use Linux style comments.
+Please, be sure next time everything like this important will be available
+to all.
 
-> +			 * spinning yet, it will see this instantly when it does. */
-> +			smp_store_release(&rx_data->completed, true);
-> +
-> +			/* Only free the sequence number if it belongs to an
-> +			 * async request. Senders who use regular acpm_do_xfer()
-> +			 * will free their own sequence numbers in
-> +			 * acpm_dequeue_by_polling().
-> +			 */
-> +			if (rx_data->is_async)
-> +				clear_bit_unlock(seqnum, achan->bitmap_seqnum);
-> +		}
-> +
-> +		i = (i + 1) % achan->qlen;
-> +	} while (i != rx_front);
-> +
-> +	writel(rx_front, achan->rx.rear);
-> +
-> +	spin_unlock(&achan->rx_lock);
-> +}
-> +
->  /**
->   * acpm_dequeue_by_polling() - RX dequeue by polling.
->   * @achan:	ACPM channel info.
-> @@ -388,15 +446,15 @@ static int acpm_wait_for_queue_slots(struct acpm_chan *achan, u32 next_tx_front)
->  }
->  
+> It was suggested by Peter and the rationale to remove it was:
+> 
+> "
+> I'not sure it's a good idea to expose {__,}i2c_adapter_set_clk_freq().
+> 
+> Do we really want to make it so simple for random (non-mux) I2C drivers
+> to muck about with the bus speed? Any bus speed changes not coordinated
+> with mux-locked bus speed changes are going to be problematic. This is
+> shown by the discussion about D2 for the multi-level mux-locked example
+> (patch 5/5) -> it is problematic even when the bus speed is changed by
+> the mux code itself.
+> 
+> I think these helpers should be moved from i2c.h to i2c-mux.c.
+> "
+
+Okay, let's assume I'm fine with this reasoning, I would still go with
+the proper namespace. Otherwise it's inconsistent.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-...
-
-> +
->  /**
->   * acpm_do_xfer() - do one transfer.
->   * @handle:	pointer to the acpm handle.
-> @@ -485,7 +606,7 @@ int acpm_do_xfer(struct acpm_handle *handle, const struct acpm_xfer *xfer)
->  	msg.chan_id = xfer->acpm_chan_id;
->  	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
->  
-> -	scoped_guard(mutex, &achan->tx_lock) {
-> +	scoped_guard(spinlock, &achan->tx_lock) {
-
-This blind replacement just feels completely wrong. Not only you made
-huge part of code non-sleepable but actually put spinlock over
-readl_poll_timeout with 2*500 ms timeout.
-
-
-
->  		tx_front = readl(achan->tx.front);
->  		idx = (tx_front + 1) % achan->qlen;
->  
-> @@ -654,8 +775,8 @@ static int acpm_channels_init(struct acpm_info *acpm)
->  		if (ret)
->  			return ret;
->  
-Best regards,
-Krzysztof
 
