@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B67C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCCAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9pQ/gqP0G3y+IbZnocO3iDIwsT0eZyiWm41rqRCN6BY=; b=SzdOszhxefIfF4B64hU2e5TmkM
-	0psvKIiWY3EuVZ2FF5snGSZv0HRMgmkP/x2hfLFuCzsmxyo2H3tJVJgMbQDIyLwc1GlVayVYBu8iY
-	ohl7R/y0qaQync9Qx/VXl7b2zJ7gxf8xVQdfs6Z0pQwZbiHtKy4baF8EBYKnTZHcQ0goyEX101WDy
-	XmEorMGb28L92WG1fRwauerug8tmpC69G0r9DQEMUg1i/8jpOirOsrSNj7FGoz5ZlAbR06lintV6Q
-	lB1k07xrAr7Ibf9iJPDG+LFHrDTnirVC2QwhcElUo/r7cKHbWIjC8dqBjdG4zJwIe4WOiKglyFLMX
-	yqxI85xA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tewPeVsAxKBBt/hHzLYO7y76PO1MYevgazh3aupzok=; b=fhlQ7k6/x2aj+Rjqk6o4MFMgRf
+	UaKYpSOduXRDFvv99Ilz6mi124/qHzO5dgI4WJDEi9MSDWk66Jx7q+yyr8WD78EHFfdQEEBd7iY6o
+	CUsly0JjPDKs1TUB61ZAYEhoD6Ydc02SExtpwkqGjS7K6dZD46DJQGd8AFcP5sEo1k38ldzUdkk7T
+	4sT22ZM+IUtqLaNbGY7YRC8w04QozfsZzF8x8cEZuLX7zUQv4EWL3mcuQw3wk8TOZpHkYnpzo+4P9
+	mERfXTAbIgSJ7mDWZob/t6jIWIxkiLfc/gXcPXyVw8oSVI7tE7V5zDEKYdNC6nmqsNmJ7e3nBePgW
+	4/NFkusw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoqi-00000002Z38-2pui;
-	Thu, 09 Jul 2026 13:31:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whorZ-00000002ZF7-3dT8;
+	Thu, 09 Jul 2026 13:32:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoqh-00000002Z2t-2h3v;
-	Thu, 09 Jul 2026 13:31:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11A6C403AC;
-	Thu,  9 Jul 2026 13:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DC8FDC2BCB7;
-	Thu,  9 Jul 2026 13:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783603890;
-	bh=28FI2HV+RQto7uL7vOBZUQ3tD2S865OcagwBjanwseE=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=Vcf2M8ynpe3cb+4GqG9PhCk8FBZz8xsKHdrgyyV3RTw/BFvxJgd0KF9O8MLB3QcJA
-	 IqDMBoCXOST783QPl3xEV1ZIZLfGKnSb8csbKj2I0AXVfhvfRRlYs/XRrHBTu+mvxj
-	 UNlX7xeowNdrJwYZuXCWK74Lzavk2dxBRvcIQIMlJjtjkFT2A2GQP52FESMPdUaxha
-	 fzuD7ZPhGzrJ7yrDiM9NumS46gfI2WDkfcLIgy/eup7LOESIULgo7cj8xEIdyN90+6
-	 EETEduw+J+/8NKR+mvwFnMk4xZh553+kSulxDFuEltfHxXkT3fdCKRjcI893IyOcxl
-	 vN6Ffv4IutBhg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8CF9C43458;
-	Thu,  9 Jul 2026 13:31:30 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Thu, 09 Jul 2026 16:31:29 +0300
-Subject: [PATCH v2] i2c: mediatek: fix WRRD for SoCs without auto_restart
- option
+	id 1whorY-00000002ZES-3BHx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 13:32:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EE0C40C3F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF371F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:32:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783603944;
+	bh=2tewPeVsAxKBBt/hHzLYO7y76PO1MYevgazh3aupzok=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=iVOSba0zKtGQZJDwP6Ch8En1yzWDPJ7FpupRO9mNJugTmRp4X9Hzn8Yx3Ant60nxh
+	 L5SMnh010N74dTKHcIbaemwoiXvYn9EZlCUpGml9M+QVmcmqAM6bWe7eA3/8xdEVbz
+	 lfF+LXeTKC6s8Nej9STb1lHQSGMqPDIiaV/SFtp3/KVUkgl4GMysE5oM1TFaw7YJp0
+	 wZwzy9Avc+Spwityl5htaw+oROAMDMd4/1Ye/fXlvq4TzwRozafubrsGjQumOnzsEg
+	 eVv3ahzvNgN5wTs+JOc4gS2d1GGyJr52jGcTlKBg4OQGkC2FylDN8XCS43AewDMz8U
+	 pdrxTfHraYYmQ==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so2090172e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:32:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpkZpvj74Jy8Zh37f4zRSi5MnC3UsWnLU/ayBqwigYsL/+zsI/Ae4lBeIG7dlzAXlYSOYXMIdOiD1UAGyCs0O9D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw639Kdn/gx/SqnmElG7enC9ju4msbaQ6rX4JBYoccjBFUJubDM
+	AwrYs9r+CoTw+BcyGaqiHjEn008QUTKu9HgPpjlRynKf9wza5J9ddGJ39ATiP/BTQM4YtoQvkWM
+	GWnQRy0bOfkwAZM+3s1meYV8ltlbYUsc=
+X-Received: by 2002:a05:6512:64a8:b0:5b0:12cf:ae3f with SMTP id
+ 2adb3069b0e04-5b012cfb1e8mr1407950e87.31.1783603942165; Thu, 09 Jul 2026
+ 06:32:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-6572-6595-i2c-v2-1-b2fb8510d1d3@protonmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/12N0QqCQBBFf0XmuQ13cjfsyf8IH9Zpyol0ZdekE
- P+91eglBi4cuPfMDJGDcIRTNkPgSaL4PgHuMqDW9TdWckkMmKPNLR6UNUdMURolSMoylVSwdek
- gbYbAV3ltvnP95fhs7kzjKlkbrcTRh/f2cNJr7+cu/tyTVlqV2hjixjnGvBqCH33fOXnsyXdQL
- 8vyAXrC7/bBAAAA
-X-Change-ID: 20260623-6572-6595-i2c-6ec9c4e6a6a6
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- stable@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783603888; l=2133;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=5I4uNLRRu2akfikPizlAwyA4WFLdXzLI6g0+07ulnqg=;
- b=knMH5OtWF4DJGyJyp/5TwXppDN/rEXeTi+WquMx+mWXenqL3U45hmu6DwLPj1jf6sZkwwXkMG
- 41rs/GAxG3jDmbD3MVx/NKtXxKLTrR01TvdgYiQGk3Zrgt8YKihoscR
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+References: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
+In-Reply-To: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Thu, 9 Jul 2026 15:32:10 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0hDK+C+ZJ4YKd0xbyHW+vEot9z-YrivWSrg1ag7Ebx4cA@mail.gmail.com>
+X-Gm-Features: AUfX_my3RabqhVkiaUs2JZU-hHXS-RHiCuP5fgE1pk66iBa2OI-yzz3XlXSUIdk
+Message-ID: <CAJZ5v0hDK+C+ZJ4YKd0xbyHW+vEot9z-YrivWSrg1ag7Ebx4cA@mail.gmail.com>
+Subject: Re: [PATCH v4 0/7] irqchip/ACPI: Arm GICv5 IWB ACPI IRQ probe deferral
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Sunil V L <sunilvl@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +83,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+On Thu, Jul 9, 2026 at 10:41=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@kerne=
+l.org> wrote:
+>
+> On Arm GICv5 systems, the IWB (Interrupt Wire Bridge) handles wired inter=
+rupts
+> and it is in charge of translating interrupt wires to GICv5 ITS messages.
+>
+> In ACPI systems, an IWB is backed by a platform device. Device drivers fo=
+r
+> devices whose IRQs are routed to an IWB might probe earlier than the IWB =
+device
+> driver, which can result in failures in that until the IWB driver is prob=
+ed and
+> its IRQ domain is duly registered, IRQs routed to it cannot be resolved.
+>
+> Some interrupt controllers for the RISC-V architecture suffer from the sa=
+me
+> issue; RISC-V, in its ACPI IRQ layer solved the problem by automatically
+> creating device dependencies that result in the interrupt controllers dri=
+vers
+> being probed before any device driver whose devices IRQs are routed to th=
+em is
+> probed.
+>
+> Instead of reinventing the wheel, this series move the aforementioned RIS=
+C-V
+> code to generic ACPI IRQ handling code (while fixing some bits and pieces=
+) and
+> implement GICv5 IWB ACPI probe deferral on top of it.
+>
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> ---
+> Changes in v4:
+> - Applied v3 review comments and tags
+> - Link to v3: https://patch.msgid.link/20260701-gic-v5-acpi-iwb-probe-def=
+erral-v3-0-c5562cf0fe29@kernel.org
+>
+> Changes in v3:
+> - Added stub to clear ACPI device dependencies
+> - Added review tags
+> - Rebased against v7.2-rc1
+> - Link to v2: https://patch.msgid.link/20260603-gic-v5-acpi-iwb-probe-def=
+erral-v2-0-23ffa16b6ebb@kernel.org
+>
+> Changes in v2:
+> - Split the patchset in several logic units according to review
+> - Link to v1: https://patch.msgid.link/20260505-gic-v5-acpi-iwb-probe-def=
+erral-v1-0-b37b85998362@kernel.org
+>
+> To: "Rafael J. Wysocki" <rafael@kernel.org>
+> To: Len Brown <lenb@kernel.org>
+> To: Sunil V L <sunilvl@ventanamicro.com>
+> To: Marc Zyngier <maz@kernel.org>
+> To: Thomas Gleixner <tglx@kernel.org>
+> To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> To: Huacai Chen <chenhuacai@kernel.org>
+> To: Anup Patel <anup@brainfault.org>
+> To: Hanjun Guo <guohanjun@huawei.com>
+> To: Sudeep Holla <sudeep.holla@kernel.org>
+> To: Catalin Marinas <catalin.marinas@arm.com>
+> To: Will Deacon <will@kernel.org>
+> Cc: linux-acpi@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: loongarch@lists.linux.dev
+>
+> ---
+> Lorenzo Pieralisi (7):
+>       ACPI: Add acpi_device_clear_deps() helper function
+>       ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
+>       ACPI: RISC-V: Check acpi_get_handle() status in riscv_acpi_add_prt_=
+dep()
+>       ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop handling
+>       ACPI: irq: Move RISC-V interrupt controllers autodep to ACPI IRQ co=
+de
+>       ACPI/IORT: Implement ACPI infrastructure to enable GICv5 IWB probe =
+deferral
+>       irqchip/gic-v5: Enable GICv5 IWB ACPI probe ordering detection
+>
+>  arch/riscv/include/asm/acpi.h       |   1 +
+>  drivers/acpi/arm64/iort.c           |  22 ++++-
+>  drivers/acpi/irq.c                  | 172 ++++++++++++++++++++++++++++++=
++++++-
+>  drivers/acpi/riscv/irq.c            | 141 +----------------------------
+>  drivers/acpi/scan.c                 |   1 +
+>  drivers/irqchip/irq-gic-v3.c        |   2 +-
+>  drivers/irqchip/irq-gic-v5-iwb.c    |   2 +
+>  drivers/irqchip/irq-gic-v5.c        |  13 ++-
+>  drivers/irqchip/irq-gic.c           |   2 +-
+>  drivers/irqchip/irq-loongarch-cpu.c |   2 +-
+>  drivers/irqchip/irq-riscv-intc.c    |   3 +-
+>  include/linux/acpi.h                |  13 ++-
+>  include/linux/acpi_iort.h           |   3 +-
+>  13 files changed, 223 insertions(+), 154 deletions(-)
+> ---
 
-MediaTek mt65xx family SoCs have no auto restart, however, they still
-support the WRRD mode in the hardware. Because auto_restart is set to 0,
-the WRRD mode will be never enabled, leading to read errors.
-
-Fix this by removing auto_restart check from the WRRD enable path.
-
-Fixes: b49218365280 ("i2c: mediatek: fix potential incorrect use of I2C_MASTER_WRRD")
-Cc: stable@vger.kernel.org
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
-This is a preparation for the mt6572/6595 upstreaming.
-
-mt65xx family SoCs don't have auto restart, but vendor kernels keep using
-WRRD mode. Lack of the WRRD mode makes i2c reads impossible from both
-userspace and kernel drivers.
-
-Without patch (mt6595, da9210 buck at 0x68):
-~ # i2cget -y 1 0x68 0x00
-Error: Read failed
-~ # i2cget -y 1 0x68 0x01
-Error: Read failed
-
-With patch:
-~ # i2cget -y 1 0x68 0x00
-0x80
-~ # i2cget -y 1 0x68 0x01
-0x00
-
-Same behavior observed on mt6572 devices.
-
-This change doesn't affect SoCs with auto restart option.
----
-Changes in v2:
-- Add Fixes and Reviewed-by tags
-- Add Cc stable
-- Link to v1: https://patch.msgid.link/20260624-6572-6595-i2c-v1-1-9155cebaae20@protonmail.com
----
- drivers/i2c/busses/i2c-mt65xx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index 126040ca05f1..307925fb78e3 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -1258,7 +1258,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
- 
- 	/* checking if we can skip restart and optimize using WRRD mode */
--	if (i2c->auto_restart && num == 2) {
-+	if (num == 2) {
- 		if (!(msgs[0].flags & I2C_M_RD) && (msgs[1].flags & I2C_M_RD) &&
- 		    msgs[0].addr == msgs[1].addr) {
- 			i2c->auto_restart = 0;
-
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260623-6572-6595-i2c-6ec9c4e6a6a6
-
-Best regards,
---  
-Roman Vivchar <rva333@protonmail.com>
-
-
+All applied as 7.3 material, thanks!
 
