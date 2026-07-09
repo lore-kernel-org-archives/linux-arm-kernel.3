@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E75C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6248DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LuOciaS8DK8jmb2CFQM4/jZaaLCATTx50eQ2Thwjxio=; b=X51uevHQ7+icVLLL+lbGqLF0DA
-	HVP4YMXQzMdrI6wiuEkvTTUzdfmsEeMX21Mr2XYuOZ2zo859NvlqOWte8ZWNx39AwASflhYmlaOn3
-	XkBPuJs1soD5DE8AFaPd5hxqSKTI37Eid/C9dat2CtUkRD71/J4zedaCnxRM3HGgrgqaT984ivjxw
-	OoMzhjH+rvLPLjrIhcY4+EgoX/QDxdo/DMfWx2ysccSmO+gwQWiPLN0vLkXZ2ZAdWK/1YpqMShNb7
-	kbmwokukqmYyOUj8t/Agiw2BB71+WDjd3qHHTHbnG/M0BoDGVq44QegP0WKdV/Xs9vBijIpsN1FuD
-	gJ3QYNZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ppA8m/5ehAsAUIEID5gc3TtaxaY7qhRvgyIt23MZjI0=; b=bqwaG24crWQ66gbYDSMzqz+qN1
+	YC/xtMdCCTEWIWCQdo4LGH8VVIjRnBuf8C7GdOk5KWuEW2ut1CbFTgrRP4PmDesZ+urPqi60WkB3N
+	09f1+2639p7jQdFXJJK7jTSVYl95aX2gaHIQHo6+AXoEduwD3qHgrLvIv5djqlpxP7csZN5lTf1FM
+	Hn7VwpQ0p3dgwRVcGMC1gDb626m3CaY0/4/aNY0JMj+PCgm7sINCZfoiUfvYSbVxqIKK0++M9iqn/
+	NLjNYoJU/UpeOYoBRzDW0b1e7Qb0OEKIvPaylml3QgooK1YQrllCMeFTUPutdWhFCEm7eUqp6PWUI
+	45fj6hDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnlH-00000002OUf-2ZJ0;
-	Thu, 09 Jul 2026 12:21:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whnmm-00000002OgR-3WNx;
+	Thu, 09 Jul 2026 12:23:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnlG-00000002OUR-3Shb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:21:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 466046001A;
-	Thu,  9 Jul 2026 12:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 197831F000E9;
-	Thu,  9 Jul 2026 12:21:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783599710;
-	bh=LuOciaS8DK8jmb2CFQM4/jZaaLCATTx50eQ2Thwjxio=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ejE2Et99WozJ1ypz+xTfglTg5W4D821r3YBkSWZ69VfT/DXUVQDgsyOw2BKsE5Rus
-	 n5UQr2tQffCuQ+eTIMbnAhij7IZKyiJDuQ3EjdGG1tJVzTdwUqLrELSFHkS8pQqxsA
-	 hlEspvq+80/eU+Gj45dsw0kymVVmclO6yyDyVAdylITZ6ebavOl8agRveBg1in94XG
-	 Us/hNWSBeZUmgejcm52jNyPqjdI2sacuRoPucQqiAAeFH820A8aiLPNxMeIvRI0m57
-	 TumZ6eFD9Ldh/KW5/ZRTF6fxvikmcBe9pvzdWBw7P4MW1GRSGQcmLSCYYjKPEHwWym
-	 qupaWM2bLQdzQ==
-Date: Thu, 9 Jul 2026 13:21:43 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v11 00/29] KVM: arm64: Implement support for SME
-Message-ID: <ac8c0aa6-d84d-4fd4-9059-ea79adc337a1@sirena.org.uk>
-References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
+	id 1whnmk-00000002OfM-0a9G;
+	Thu, 09 Jul 2026 12:23:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783599796;
+	bh=9Pqlzqz8P8MV2DzBL9Guxas/1Kj0iveewylpu/2a7js=;
+	h=From:Date:Subject:To:Cc:From;
+	b=aH4tVViNv6WsvRqhKw3v+bPERQ+FMnHani7zy6qxpCzNi8y34LojosQdlo+08hiIC
+	 2qGtNlLLR3ObR5sPEvrUvAxKXUqGtu2VezVEU4t0/zapGWruS+fwMJFhfIMidsw4jT
+	 JC2cS0dbIBPrAefzIKdek9lfB28FcsoLYE2RKxbBbhH26Y4G6fWakw0Jag/u8V07J+
+	 r/7fzO7zom6sSTydeGeZyW4w39Uq1gumFhajbve0evB424pJ3IxRUE1Y+xAcsLPHjP
+	 w6Iyv99qivcxqRi95CmBjYuWH8E6XMEgGJ9ELcg7YXOeUadpI4moDeFaYtP13/ZhwP
+	 yQSfu0uJucuBg==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9EEC717E003B;
+	Thu, 09 Jul 2026 14:23:15 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 09 Jul 2026 14:23:00 +0200
+Subject: [PATCH v2] clk: mediatek: pllfh: Fix IO remapping leak in
+ register_pllfhs error path
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lvkuTVR/BvRRX0hU"
-Content-Disposition: inline
-In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
-X-Cookie: MS-DOS must die!
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-clk-mediatek-pllfh-fix-v2-1-a235078fe9d5@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WOzQ6CMBCEX4Xs2TVQw58n38NwKGWRDYViWwmG8
+ O5WiGeP3yTfzKzgyDI5uEYrWJrZsRkDiFMEqpPjg5CbwCBikcV5XKDSPQ7UsPTU46R122HLC+Z
+ UKnlJy6IkAUGeLIV4L75XB1t6vkK/P0KopSNUZhjYX6ORFo+/DfgKHTtv7Hs/Nie78e/DnGCCQ
+ rVKNFkt0oJuymgta2PlOQxBtW3bB2Qe8DTxAAAA
+X-Change-ID: 20260708-clk-mediatek-pllfh-fix-7e9ca35989e2
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>, 
+ Johnson Wang <johnson.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783599795; l=5633;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=9Pqlzqz8P8MV2DzBL9Guxas/1Kj0iveewylpu/2a7js=;
+ b=jE9jCdzkzh8aa4HUmAnn3mHzLjEi6hLljo63wHj/jSpK2+2wIGLOJG+IHzYvklQG1GNRk/l2v
+ sDXLBohmW1SCJVwKh95ucfEzUimvEuvpkkD9S+c9fcAG1Uw24owDcsB
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_052322_928525_7A58A88A 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +92,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When mtk_clk_register_pllfhs function fails to register a PLL, it
+unregisters all PLLs and cleans up itself in its error path before
+returning, so the function callers don't need to do it.
 
---lvkuTVR/BvRRX0hU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+But contrary to mtk_clk_unregister_pllfhs function, that does almost
+the same sequence, it does not free the IO memory mapped on fhctl node,
+leading to a leak.
 
-On Thu, Jul 09, 2026 at 01:51:37AM +0100, Mark Brown wrote:
-> [ Note: I've spoken with both Mark Rutland and James Morse both of whom
->   might potentially have some overlapping changes, they've both agreed
->   that they'll deal with any rebasing if it's a question of this getting
->   in or something else. ]
+Fix this leak by factorizing the cleanup sequence in a new private
+function and use it both mtk_clk_register_pllfhs and
+mtk_clk_unregister_pllfhs functions.
 
-Main testing for this was, in addition to a lot of not particularly
-relevant coverage, running the KVM and arm64 selftests and KVM unit
-tests.  I also ran the arm64 selftests (particularly fp-stress) in
-guests while running fp-stress in continuous mode on the host.  Testing
-was done for each of nVHE, VHE, protected mode and nested mode.
+Also, change the loop index start value to avoid the -1 operation on
+index at each loop.
 
---lvkuTVR/BvRRX0hU
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: d7964de8a8ea ("clk: mediatek: Add new clock driver to handle FHCTL hardware")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+This patch aims to fix a issue, detected by Sashiko
+during another series review ([1]), regarding the use of 
+mtk_clk_register_pllfhs function.
 
------BEGIN PGP SIGNATURE-----
+The patch is based on linux-next tree (tag: next-20260708).
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpPklYACgkQJNaLcl1U
-h9B0qAf+LBdXTQ7AYWPPO2VCenkHI7Mk3Ar2J3NEDvdagbuxAigD9tRaRejVQbv6
-X+hE5pP2Ij0vPRnhodiUla8xiKplqUKX9qF8UKOi3K1USJMLnOC4FKyukI4seelo
-/OMB3xjuTCcOhkffh0zUSv+6ssNVUQa9F0eGoXaDCBB0Z+Y5ut+96O3TB6o9CY2P
-PYeZeycw0bLZvYzuOYXwRej52aiR/J4asZV5i8OOWTTEMEJIXB2PaVWTBnhMiEDR
-VEGyfz/uIdg1RJv5lcChLnlP38Ai0leGL9Gh+bSo672GA8KEUdycqNrTpQuCV2j8
-MSqXDTT5NYsRGwpA29E9JKTBqQ+46w==
-=Cpl8
------END PGP SIGNATURE-----
+[1]: https://sashiko.dev/#/patchset/20260701-mt8189-clocks-system-base-v1-0-2b048feea50a%40collabora.com?part=6
+---
+Changes in v2:
+- Rebased on next-20260708
+- Fixed loop stop condition in mtk_clk_cleanup_pllfhs function (B. Masney and
+  Sashiko)
+- Reworked base and fhctl_base address handling in mtk_clk_cleanup_pllfhs. 
+  The function has now both addresses as arguments, so it can either
+  use the provided addresses (register cleanup case) or find them in
+  the pllfh data structures if NULL addresses were given (unregister case) to
+  unmap them (B. Masney and Sashiko)
+- Link to v1: https://lore.kernel.org/r/20260708-clk-mediatek-pllfh-fix-v1-1-2cfc2d6b258e@collabora.com
+---
+ drivers/clk/mediatek/clk-pllfh.c | 98 ++++++++++++++++++++--------------------
+ 1 file changed, 49 insertions(+), 49 deletions(-)
 
---lvkuTVR/BvRRX0hU--
+diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/clk-pllfh.c
+index aa95cd9197b3..6249fb87b1f5 100644
+--- a/drivers/clk/mediatek/clk-pllfh.c
++++ b/drivers/clk/mediatek/clk-pllfh.c
+@@ -197,12 +197,56 @@ static void mtk_clk_unregister_pllfh(struct clk_hw *hw)
+ 	kfree(fh);
+ }
+ 
++static void mtk_clk_cleanup_pllfhs(void __iomem *iomem_base,
++				   const struct mtk_pll_data *plls, int num_plls,
++				   void __iomem *iomem_fhctl_base,
++				   struct mtk_pllfh_data *pllfhs, int num_fhs,
++				   struct clk_hw_onecell_data *clk_data)
++{
++	void __iomem *base = iomem_base;
++	void __iomem *fhctl_base = iomem_fhctl_base;
++	int i;
++
++	for (i = num_plls - 1; i >= 0; i--) {
++		const struct mtk_pll_data *pll = &plls[i];
++		struct mtk_pllfh_data *pllfh;
++		bool use_fhctl;
++
++		if (IS_ERR_OR_NULL(clk_data->hws[pll->id]))
++			continue;
++
++		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
++		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
++
++		if (!base)
++			base = mtk_clk_pll_get_base(clk_data->hws[pll->id],
++							pll);
++
++		if (use_fhctl) {
++			if (!fhctl_base)
++				fhctl_base = pllfh->state.base;
++			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
++		} else {
++			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
++		}
++
++		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
++	}
++
++	if (fhctl_base)
++		iounmap(fhctl_base);
++
++	if (base)
++		iounmap(base);
++}
++
++
+ int mtk_clk_register_pllfhs(struct device *dev,
+ 			    const struct mtk_pll_data *plls, int num_plls,
+ 			    struct mtk_pllfh_data *pllfhs, int num_fhs,
+ 			    struct clk_hw_onecell_data *clk_data)
+ {
+-	void __iomem *base;
++	void __iomem *base, *fhctl_base = NULL;
+ 	int i;
+ 	struct clk_hw *hw;
+ 
+@@ -238,24 +282,8 @@ int mtk_clk_register_pllfhs(struct device *dev,
+ 	return 0;
+ 
+ err:
+-	while (--i >= 0) {
+-		const struct mtk_pll_data *pll = &plls[i];
+-		struct mtk_pllfh_data *pllfh;
+-		bool use_fhctl;
+-
+-		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
+-		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
+-
+-		if (use_fhctl)
+-			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
+-		else
+-			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
+-
+-		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
+-	}
+-
+-	iounmap(base);
+-
++	mtk_clk_cleanup_pllfhs(base, plls, i, fhctl_base, pllfhs, num_fhs,
++			       clk_data);
+ 	return PTR_ERR(hw);
+ }
+ EXPORT_SYMBOL_GPL(mtk_clk_register_pllfhs);
+@@ -264,38 +292,10 @@ void mtk_clk_unregister_pllfhs(const struct mtk_pll_data *plls, int num_plls,
+ 			       struct mtk_pllfh_data *pllfhs, int num_fhs,
+ 			       struct clk_hw_onecell_data *clk_data)
+ {
+-	void __iomem *base = NULL, *fhctl_base = NULL;
+-	int i;
+-
+ 	if (!clk_data)
+ 		return;
+ 
+-	for (i = num_plls; i > 0; i--) {
+-		const struct mtk_pll_data *pll = &plls[i - 1];
+-		struct mtk_pllfh_data *pllfh;
+-		bool use_fhctl;
+-
+-		if (IS_ERR_OR_NULL(clk_data->hws[pll->id]))
+-			continue;
+-
+-		pllfh = get_pllfh_by_id(pllfhs, num_fhs, pll->id);
+-		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
+-
+-		if (use_fhctl) {
+-			fhctl_base = pllfh->state.base;
+-			mtk_clk_unregister_pllfh(clk_data->hws[pll->id]);
+-		} else {
+-			base = mtk_clk_pll_get_base(clk_data->hws[pll->id],
+-						    pll);
+-			mtk_clk_unregister_pll(clk_data->hws[pll->id]);
+-		}
+-
+-		clk_data->hws[pll->id] = ERR_PTR(-ENOENT);
+-	}
+-
+-	if (fhctl_base)
+-		iounmap(fhctl_base);
+-
+-	iounmap(base);
++	mtk_clk_cleanup_pllfhs(NULL, plls, num_plls, NULL, pllfhs,
++			       num_fhs, clk_data);
+ }
+ EXPORT_SYMBOL_GPL(mtk_clk_unregister_pllfhs);
+
+---
+base-commit: 451b00e20bcd5526c6def9ee76f9bdb322ae9b46
+change-id: 20260708-clk-mediatek-pllfh-fix-7e9ca35989e2
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
