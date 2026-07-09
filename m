@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E331C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80904C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fq3P8bJh7ADQ4hub+ycBPI53NyHDDuF30EBNSbR9a1o=; b=2bVwY0MMtjDlcFnMOPxo4NUpf4
-	GXXNzJG8kvl+eKwWy3tuKVsghCamp2VFRlfCUowHDnFziwJypLmDfj07ADsuujvv0SjI9DT7J1MNF
-	1mB9S/ebHtKAgX/8X57XfHHDcUWrE3qNyc8PboLU3DyuEiyvASMmqb0+Cqs3T+WNyUsIWBHNCahTI
-	vZJE/z6PdWhAJ5pW4ASagbvB9i9IGKEja+R/5OL9ErKdm7LJ0IrIhqGR6zyCfALuDW60YbtwSiB1l
-	aYmbrwYl44Cx+0uESlw1vZgRLSFJgK8RwAxgiWlKP+qXXNrf/NLmmggqkk2sIzd8bfCo8R9vD+ji6
-	FrLbxRMQ==;
+	bh=DOoIJVHRWsyOpW55vTJGgugNcFYv/4dJlWhKUx42kV4=; b=0sTZm0nf6O4OehhfryQ7VIRmZ5
+	zXVS5LV74+BzddkIi/2OzDd4C503jhee56Nw/cKoGwNKdJ2t/9e8xEZLxwOrDRNvLc6YFws5BWUEd
+	2XtetCOHt8aRpyRW+vJfRhHqJ9/VpS9HUz7iG/wYzjbkbj66Sv2+EFGXTm7kIdcAGs7ubGQvSGFC+
+	PqqOe2zYkFAJ72mNJB1M5gPbXs9kYx2/hgXlSCyGlr8WKXvuGG7y6lb05lWBbc2NnFd8v3ckCiDz/
+	LsGaLB4gnaVd/pZgS/2o+QA+9ksxvySNWV173ET5KXLMxmYUfMjNLYCl5I59Av4J3LBfqe2QIPfP7
+	DwEOMFtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whklL-00000001irq-28mM;
-	Thu, 09 Jul 2026 09:09:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whklG-00000001ilZ-2eBn;
-	Thu, 09 Jul 2026 09:09:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783588175;
-	bh=4yj28qkcMVotuPHzrx68NXl5l3n1gcF9UxI2/VOlSXQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gJMr4LIUQrXMkvq5JrzkESBoTywKaPq2HDNImv6LAP1TDroYGskYzgksYo5s0IGyT
-	 9TTW93/z/59LdiO8KivpYFoG9BvXlJZibVzWuyOhQUhimGou4Re24+hDXo53qX7GIn
-	 jQstqi1PrmTF7ouOoX2XwaNchQmbN0C80L2alB8k1CPdWEMj5MRllqRPngmnLflt09
-	 4y4T2GdEoONiiLlDwYLAOWMWnvcBszgrhZybP+VNWg86ojkAWBMqa49lpav/UFfAsA
-	 6lhaUJGhYvCnI4kVgY8GWawoyaLstU+Oy66pBKg/GV58Kn3b+9Q6cYqPW2OW9V4Wgh
-	 apfHSsmhBLO1w==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DF8D817E0D56;
-	Thu, 09 Jul 2026 11:09:34 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com
-Subject: [PATCH v3 3/7] arm64: dts: mediatek: mt8183: Add and use UART AP_DMA controller
-Date: Thu,  9 Jul 2026 11:09:20 +0200
-Message-ID: <20260709090924.27056-4-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
-References: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
+	id 1whlb7-00000001rM4-46cP;
+	Thu, 09 Jul 2026 10:03:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whlb3-00000001rL7-3ddN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 10:03:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF0F9357C;
+	Thu,  9 Jul 2026 03:03:03 -0700 (PDT)
+Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 287803F7B4;
+	Thu,  9 Jul 2026 03:03:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783591388; bh=ecLtVnEwb3NP4soxChOKajrwfO3Sl/4YUqD3QznhpYs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ooBPQon+vGBTV5jo+7tu6X1T4i29xOLgqNL8HUdyjPh8ZLWLNeyLIf9Qqw0Y7Eu3n
+	 DeIaW22GaUUVClAfamohQb2ua55C9PHP1MNQI0jTLbY94ROaSSX/1UduhoDv3AXCRu
+	 lU+hs0CyEiS/cnSueZDDsOLCwj2BH/tNUK3yt8hE=
+Message-ID: <9498c202-ed82-49ae-b960-df44b53596e6@arm.com>
+Date: Thu, 9 Jul 2026 12:03:03 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/15] arm_mpam: propagate MSC read errors for state
+ saving functions
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-8-andre.przywara@arm.com>
+ <fa9440a9-cfbe-4eef-a255-a4aed196640e@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <fa9440a9-cfbe-4eef-a255-a4aed196640e@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_020939_575302_6F70C9FF 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_030309_990334_D9D7514D 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +83,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC has a DMA controller (AP_DMA) that provides one channel
-for each data direction (transmit and receive) for all of the
-UART controllers in the SoC.
+Hi,
 
-In order to increase the efficiency of data TX/RX over the UART
-controllers, add the UART DMA controller and assign the right
-channels to each of the three UART controllers.
+On 7/1/26 22:19, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/2/26 17:22, Andre Przywara wrote:
+>> Allow the mpam_save_mbwu_state() function to return an error, and
+>> propagate read errors from the lower level up.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 47 +++++++++++++++++++++-------------
+>>   1 file changed, 29 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index d18c7be86aaa..c50ca0e4f426 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1773,6 +1773,7 @@ static int mpam_save_mbwu_state(void *arg)
+>>   {
+>>   	int i;
+>>   	u64 val;
+>> +	int ret;
+>>   	struct mon_cfg *cfg;
+>>   	u32 cur_flt, cur_ctl, mon_sel;
+>>   	struct mpam_msc_ris *ris = arg;
+>> @@ -1789,31 +1790,41 @@ static int mpam_save_mbwu_state(void *arg)
+>>   		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+>>   			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+>>   		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+>> -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+>> -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+>> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+>> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+>> +		if (!ret)
+>> +			ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+>> +		if (!ret)
+>> +			mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+>>   
+>> -		if (mpam_ris_has_mbwu_long_counter(ris)) {
+>> -			val = mpam_msc_read_mbwu_l(msc);
+>> -			mpam_msc_zero_mbwu_l(msc);
+>> -		} else {
+>> -			u32 val32;
+>> +		if (!ret) {
+>> +			if (mpam_ris_has_mbwu_long_counter(ris)) {
+>> +				val = mpam_msc_read_mbwu_l(msc);
+>> +				mpam_msc_zero_mbwu_l(msc);
+>> +			} else {
+>> +				u32 val32;
+>>   
+>> -			mpam_read_monsel_reg(msc, MBWU, &val32);
+>> -			val = val32;
+>> -			mpam_write_monsel_reg(msc, MBWU, 0);
+>> +				ret = mpam_read_monsel_reg(msc, MBWU, &val32);
+>> +				if (!ret) {
+>> +					val = val32;
+>> +					mpam_write_monsel_reg(msc, MBWU, 0);
+>> +				}
+>> +			}
+>>   		}
+>>   
+>> -		cfg->mon = i;
+>> -		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+>> -		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+>> -		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+>> -		mbwu_state->correction += val;
+>> -		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+>> +		if (!ret && val != MSMON___L_NRDY) {
+>> +			cfg->mon = i;
+>> +			cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+>> +			cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+>> +			cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+>> +			mbwu_state->correction += val;
+>> +			mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+>> +		}
+>>   		mpam_mon_sel_unlock(msc);
+>> +		if (ret)
+>> +			break;
+> 
+> There is a lot of if(!ret) in this loop. Does it not end up cleaner to
+> add an out_unlock label after the loop and jump to that in the failure
+> cases?
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8183.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Yeah, I changed it, I guess the diff looks better. Not entirely sure 
+it's cleaner, there is now this little bitter taste of a global unlock 
+where the current lock/unlock pair is *inside* the loop. Feel free to 
+have a look and comment on an eventual v3 post.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183.dtsi b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-index 95cc06799533..8b0992548431 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-@@ -1071,6 +1071,22 @@ gce: mailbox@10238000 {
- 			clock-names = "gce";
- 		};
- 
-+		apdma: dma-controller@11000780 {
-+			compatible = "mediatek,mt8183-uart-dma", "mediatek,mt6577-uart-dma";
-+			reg = <0 0x11000780 0 0x80>, <0 0x11000800 0 0x80>,
-+			      <0 0x11000880 0 0x80>, <0 0x11000900 0 0x80>,
-+			      <0 0x11000980 0 0x80>, <0 0x11000a00 0 0x80>;
-+			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_LOW>,
-+				     <GIC_SPI 109 IRQ_TYPE_LEVEL_LOW>,
-+				     <GIC_SPI 110 IRQ_TYPE_LEVEL_LOW>,
-+				     <GIC_SPI 111 IRQ_TYPE_LEVEL_LOW>,
-+				     <GIC_SPI 112 IRQ_TYPE_LEVEL_LOW>,
-+				     <GIC_SPI 113 IRQ_TYPE_LEVEL_LOW>;
-+			clocks = <&infracfg CLK_INFRA_AP_DMA>;
-+			#dma-cells = <1>;
-+			dma-requests = <6>;
-+		};
-+
- 		auxadc: auxadc@11001000 {
- 			compatible = "mediatek,mt8183-auxadc",
- 				     "mediatek,mt8173-auxadc";
-@@ -1088,6 +1104,8 @@ uart0: serial@11002000 {
- 			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_LOW>;
- 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART0>;
- 			clock-names = "baud", "bus";
-+			dmas = <&apdma 0>, <&apdma 1>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -1098,6 +1116,8 @@ uart1: serial@11003000 {
- 			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_LOW>;
- 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART1>;
- 			clock-names = "baud", "bus";
-+			dmas = <&apdma 2>, <&apdma 3>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -1108,6 +1128,8 @@ uart2: serial@11004000 {
- 			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_LOW>;
- 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART2>;
- 			clock-names = "baud", "bus";
-+			dmas = <&apdma 4>, <&apdma 5>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
--- 
-2.54.0
+Cheers,
+Andre
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>>   	}
+>>   
+>> -	return 0;
+>> +	return ret;
+>>   }
+>>   
+>>   /*
+> 
 
 
