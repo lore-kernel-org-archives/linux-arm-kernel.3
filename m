@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AE4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65C3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DsxSqKUeBewE1QvpReBm89h1NUFp0Jx+VpOolwkxbc8=; b=3NycQjNnhMhpHh0ljeoMdCmnOT
-	PR4cpQfw6sLeUvulB2zTqHs+DFC9ySLQZagUQMyGgceYHsO/WFkiOAZ6qykQUkTTqu84ClB3IaNOX
-	6lvJ3xKuXrACbIE4KEb8AAo5KL3cr6aMX3aW2xIDVavDoJLLKPRKuW7+YyUB1qnZ8lFrHhYMRpFpA
-	yuOLKy3KKTBil9cvQJv26RQfppVajm2BbEIDtTpD03rVe99Kge+XoZ9ddGOqmI54IzxUDl5yFMMzQ
-	0Tn8CUYcXfKgZ77tbBupSf/m5Qdd9gYfEgaWETBkZHFVx5B+sR91Munp6IJPNhsWyp7n+cEgEMZj3
-	XYqEidtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/mEJc4WGa98zOd2lK/D/SXkSnUzqbrwiOlui2MNB/Kg=; b=asQT+Tb5ynLCnKZM6xxhuKMI+q
+	mlQbcdqyybRrm0q6U55VcOnlM2jRwcS1+WxEZuvkTMWS/o9IsX45QP6U+a5wGcdnEtRpFuzIptQ61
+	P+3FdKOSDrwW1eUGc6H0Al2sjTlIfu9/rnUzEz9AfqvK8aa1OsgTajj42rLZIUh74HzFUi49x2ZTe
+	5+r/jQZJBOMIxRE/ieUYhcO9GaZnFSIDpPDe66k0CeOQYMuGxT85yydfoU7yZQUXAWJRr19e6BGyB
+	+TvevrfXO9La8CMLUXgQA0NK/6dc3KfWxzXsuL1rsO3zoTA/2LyLbmG68x51M1lOolegGa192h679
+	MZaBlZ/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjfb-00000001Mvx-356H;
-	Thu, 09 Jul 2026 07:59:43 +0000
+	id 1whjq3-00000001NXt-3Bja;
+	Thu, 09 Jul 2026 08:10:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjfa-00000001MvM-3E9W
+	id 1whjq2-00000001NXT-24O1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:59:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7305600C3;
-	Thu,  9 Jul 2026 07:59:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9E361F000E9;
-	Thu,  9 Jul 2026 07:59:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783583981;
-	bh=DsxSqKUeBewE1QvpReBm89h1NUFp0Jx+VpOolwkxbc8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oS+mytNwoGWa3dxIGDz4lglwz5Sl6tSYwBF2Q71P2TwFT4q7e1wyPlzl1r4jXlXOD
-	 EBK75EQsPwsm8nh9By4vrx6wkrq6w63EQKHnT1XyJU0nJPiKjLPvEUkBzLb+JObSVS
-	 aLcAlUF5QGRHlwxkt0IrknOYtLutxYJpmbZp+tUS/PReIoSlv5GTJbZtyzkwWHPoTF
-	 aez7uI5WXU7BMH++Cu7578UdbAerPv+EwK+qivXPepP66FXri5+xhC8HhkAHwLZvse
-	 sZ298ZrepPpJgkE7Uy5XDm01qQF9rGCXGOSjuwPwmxPNCLVkv8s71IIO1VNCcTzDcW
-	 FrwH2SiAacyRQ==
-Date: Thu, 9 Jul 2026 09:59:37 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jingyi Wang <jingyi.wang@oss.qualcomm.com>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 1/5] dt-bindings: arm: coresight-tnoc: Drop
- arm,primecell to bind on platform bus
-Message-ID: <20260709-versed-marvellous-pigeon-22e2ba@quoll>
-References: <20260707-fix-tracenoc-probe-issue-v5-0-bf733ed9ebd0@oss.qualcomm.com>
- <20260707-fix-tracenoc-probe-issue-v5-1-bf733ed9ebd0@oss.qualcomm.com>
+	Thu, 09 Jul 2026 08:10:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 79C14600C3;
+	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2334FC2BCB7;
+	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783584628;
+	bh=Ed32Ov8Wnno8739CLzEbPeqoJp38IFrosMVh+VgXch8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=isKz1Yr1asl+P5K7S/EKfjxIAY5ZCTMlhDEWlWr2DB0dwspgHgIS0NVKPFw2E4E7R
+	 hj+x1z3a36AOsfFjgQidxck7kzfscVfAyYg2QGNtomeTA8nZy5TfTBdN6vgMUzzKE0
+	 KE5yqt1M3tq0dNjLNzbEK371NE2uXGSxeil1CD7Yzg3t4WQsPOUON6CRm4PuipaqtH
+	 4u3YROKwik93m3UmuFjElf/k4CGNEvQZUdNc278CENQiI4BkgO2n5GN7IOEg+lg42d
+	 q7Nw+K3yHH3PMRr7dXbrEqsuigMJPT7Bz/PNGFDT6NzPHx6ntGMSD5eXxeTak+Fsnv
+	 r2kYp9zb7KQ/w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0FC9AC43458;
+	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
+From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
+Subject: [PATCH v2 0/2] thermal: imx: Add calibration offset support
+Date: Thu, 09 Jul 2026 16:10:20 +0800
+Message-Id: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260707-fix-tracenoc-probe-issue-v5-1-bf733ed9ebd0@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGxXT2oC/6WOQQqDMBREr1Ky7pckFY1d9R7FRRK/NaUxkh9FE
+ e9etUfoZuDBMPNWRhgdErtfVhZxcuRCv4O8XpjtdP9CcM3OTHJZ8JJXYHKgxeteSwFCyD2dnyF
+ 1GL3+AI3DEGKCcaAUUXsoQCjQXOWVyhs0ZcH25SFi6+bz9Vn/mEbzRpuOq6PROUohLqfWJI7ef
+ waTAA6ct0q1uaxu3Dxsn5lAtsts8Kzetu0Ldgrj2wsBAAA=
+X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783584623; l=2596;
+ i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
+ bh=Ed32Ov8Wnno8739CLzEbPeqoJp38IFrosMVh+VgXch8=;
+ b=Qyrh0pqJkAqTC9HXSwX1SHEZKZTEkWAVYLM+8N93HWAlXkURPGf0G31phtpodLYbKIiy6kuna
+ NKeMx9peD9ABEqQcUTVZhaAG9aeqsZxqjJ/ZbzRYsS8SE5Nep6ZFdPq
+X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
+ pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
+X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
+ with auth_id=860
+X-Original-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +90,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 05:08:49PM +0800, Jie Gan wrote:
-> The TNOC compatible previously required the two-string AMBA form
-> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
-> AMBA bus.
-> 
-> Change the compatible to a single "qcom,coresight-tnoc" string with no
-> "arm,primecell" entry, so the device is created on the platform bus and
-> bound by the platform driver through its compatible string.
+Some i.MX boards need a small per-design correction to align the
+reported CPU temperature with board-level measurements. This series
+adds an optional DT property to specify such a calibration offset
+and implements the corresponding support in the imx_thermal driver.
 
-I asked already: this is not a valid reason. References to Linux
-structures are not correct here. If this is your reason, then answer is:
-fix drivers, by renaming or doing whatever is necessary to platform bus
-to behave like amba bus.
-> 
-> Drop the custom select block as well. It was only needed to avoid
-> matching the "arm,primecell" string on unrelated nodes; with the single
-> "qcom,coresight-tnoc" compatible the schema's auto-generated select
-> already matches the right nodes.
+Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
+property in the i.MX thermal DT binding.
 
-Why are you describing the diff? It's obvious.
+Patch 2 reads this property in the imx_thermal driver and applies
+the offset to the i.MX6/6SX/7D calibration formulas. When the
+property is absent, the default offset remains 0, preserving the
+current behaviour.
 
+Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+---
+Changes in v2:
+- dt-bindings: Removed explicit `$ref: /schemas/types.yaml#/definitions/int32`
+  for fsl,temp-calibration-offset-millicelsius; the `-millicelsius` suffix
+  already resolves to int32-array via property-units.yaml (Rob).
+- dt-bindings: Fixed example indentation.
+- driver: Replaced C integer division (/) with DIV_ROUND_CLOSEST() in
+  imx_set_alarm_temp() to prevent off-by-one alarm threshold mismatch that
+  could cause IRQ storms on i.MX7D.
+- driver: Added clamp() bounds check for alarm_value [0, 0x1ff] to avoid
+  corrupting adjacent register fields (PANIC_ALARM).
+- Link to v1: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com
 
-> 
-> Update the example node to use the standalone compatible form.
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Zhang Rui <rui.zhang@intel.com>
+To: Lukasz Luba <lukasz.luba@arm.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 
-And here.
+---
+HaoNing Cheng (2):
+      dt-bindings: thermal: imx: Document calibration offset property
+      thermal/drivers/imx: Add calibration offset support
 
-You got comments at v4, nothing improveed. Your commit msg tells useless
-things like what you did or you want different Linux behavior.
+ .../devicetree/bindings/thermal/imx-thermal.yaml       |  8 ++++++++
+ drivers/thermal/imx_thermal.c                          | 18 +++++++++++++-----
+ 2 files changed, 21 insertions(+), 5 deletions(-)
+---
+base-commit: c50a940dcde35c647e097e89a9150003abd48329
+change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
 
 Best regards,
-Krzysztof
+--  
+Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+
 
 
