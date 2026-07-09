@@ -4,113 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FF8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1C5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJC4lX0tZTp50J0S7on2pHdgb/jZHm/OiyTuKIg2KPY=; b=sZUqZQuvC9wuHV4sZVLbESkJlV
-	+YGX7RGOAfNMq2RQ5YbSvfZkR8dUDbCArGwYNp3akNiLxPW1s7Kd6im5KZemQd5eSG8Hy+gwF6Jyu
-	cDDTegzrma+w/UWD2aYKL4ecxv0loLLfkxObQ2xXRar+QddI88DKVeWqG1M4PHbhTDVOYb42S1+Nx
-	xJZR8Evq06TU5qill7uT+sdprD13H/UAQzlPl3zR85+xlVh/IYDWkrkjneTesMnoNXi8u8SAcefiL
-	SmqcSuTfn1/xMdtEmVnIy4UPjzmqdGZ8T9a95aHiS/EYRoULJ+gUwtgAxZ8mZPE0+ezOCoL/NFIW5
-	ocmQ4Jqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PPd4R3RZr6XUvBWe8w2VqRwuexC/tSsRCq8hfew2igY=; b=HNkNb05sE0l/jLXg25FI65hWW1
+	W73thwigGy8VBflRe2BpPVZg0JQaqVLtyUftRiV5JH/Gv161ZgfZYWesVNdaNxr4l9QlpfgM2BC0K
+	WoTvHrFTGdp63cKL5VRHoyFjV344O9iHk31UTe4PN7DFzuxFu6Voyg4aISl9181M38oS2GkAC1O9f
+	wZcnmtgJ0XIKqrSgRgvdgZujehKZwwDcJW8e62VtcEWQIoJ6OmzdmrvYKJ9Y7X3BAgBVJhiXK/0+V
+	Xhl5KgsJsV5KCjnmHnM/ju1UWlVukRAnfFSzbS3W3fAnS9OzqIv8IMQi9BwGmybYoizkTxE0cNDaR
+	syuVbNDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpdB-00000002jy9-1xWF;
-	Thu, 09 Jul 2026 14:21:37 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1whpdd-00000002k1p-2SW2;
+	Thu, 09 Jul 2026 14:22:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpd8-00000002jxg-0JpV
+	id 1whpdd-00000002k1f-0c0o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:21:36 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-4728c12ba97so1019428f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:21:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783606892; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Bumdjobp4AyHbGGc0GI+FzNxDtBT+Su1iLzlSw1+zkQQb40EsevnS2FTSm1o+qvPJo
-         8dxuWmXNVMVWziIPF/z2M9UHVxdnIFZdBzxJl3M+UnxwVI9JoC/NgpJfVgRF7m72lQXU
-         CO6hG6WM0KU2v2bSoxJ/KH5aj8AkzvPeDL3p+UWa36O37xgoI3pSf6sHmhYdSgzDQQ/1
-         yPyly2FwK6WijTJB6O6lOcO4fW/jWOzdPB8FJu5RgBU3+jHMxIzDvtKFO2nBeK0RgULc
-         js/AlfzNDLRE3/K/pE/wCC5jwrfTxUvO55+UuDCg0lyTkSeD3UZvdg/VO3ZbS2eSV9kr
-         t9nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PJC4lX0tZTp50J0S7on2pHdgb/jZHm/OiyTuKIg2KPY=;
-        fh=apaq05MJXtzBhAh2zvWTTmwFx31RPl6dn/T8iJl7pv8=;
-        b=VmYBsTN4hg0UldL8/hvhjlhK34Ir+uUGNLnjdMaBv6elOfjr15NW9jDezDj+BM3VNW
-         AJq5DCGKvRnxc2vN5ZtN3c+tQo1gCOwwGK974BsQCqmsIlfPI9NX/q69JMFWRPzN1PEV
-         shsBeo5xAx8NC/M4WVkWvn0k9eNy/shQ1ufWFNB6GK3Q4g3JnH9FLjPZmTL2ua3mAWSJ
-         5qZOLt7Nc3XUke9raO+3Jz8H7TSHOl+ebKsL1I7VnnoXx7ygmT/kZ5mevvB9rx9438lp
-         ZvAdacqF4vxFZLC9oLfGF05BaVA3ByjhasQzDQxNq/Lfzkg5S5naOnQJN9gMfvGNl6Oa
-         Of9A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1783606892; x=1784211692; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PJC4lX0tZTp50J0S7on2pHdgb/jZHm/OiyTuKIg2KPY=;
-        b=JpSRd+5s3XUz6fZRlOEvFLICl3fdmvjB9LW0Dybrji8PeMksgdg88D8zyFGSClajAY
-         9/QwY8gMJkjdHWIxb7cALcOe/S9pRNw/spsgGLMQCBm1zTw7/cuLhf9AcBXAZ6zD1hzz
-         HhU/2oGjXsndRNFgFaAqgXrG+M6CHF+gywCw48o0qerJrNCoqn8Rc9lIGmqWJTXs8htN
-         fxux01tTdOUjnFAZUBW2+6iGEKPIm2uUhxzy/WV6Gn6ivX89O4VWpoIBBWKrqgItQnvG
-         rHXrfPzZOOT1t+N0NO0wfMBOzcN7aUX6kOA7wYjKWJPkmiZ5oLx6gSQ/GjQBinVVQkAK
-         UhLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783606892; x=1784211692;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PJC4lX0tZTp50J0S7on2pHdgb/jZHm/OiyTuKIg2KPY=;
-        b=Xz+/99ft5AcmN3BLU3PurH8jO9w6tt8pcZxKWg1QK6GL4h/RfqSdHfstn0AY26LDMk
-         kLmsqwChN49DHC/JqrGOrsEdZeZo3ohqhF8wEtWF0dWoKZMDLBZ1g+vqpcEns7doU5EF
-         G8SRXPcP61EEDxuGBlNdGuh1cH5qEvn+LymbUmgTrnaVm4vQiPTzH/v8X2Tc5Fa1KhB9
-         wndPcotDiLIdG/HWIxsm7oWHg4auA7PJB/CNDbW70AhFWrdlR0OCwlY4fkcmDHvF5YM7
-         rJHP3WK01M8Q4zkY0LlJjr8mlu3m4O0lXXkq3HlGo8J5M/ae1B50deHa2LhWMVBMonMu
-         R+qw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5vlVuE1vA4EvDyQOJxd539Fi63aTNl34MxH3eGOPjrI17cmGS2pAQSlJqC/qebUmGgLgpU5gAqh+RQfThkwC6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWXDdOWFytWWzJlGVUiRCwFfsIvFHdnn6v0acxxUVedXvZOGeB
-	Gu8kA2EjSKKBoGWu4SKevDqd1E8j7MJF4SuNNVEuPq/9q9KTlODAfmTWYmXgaVRXssWgctuq7nU
-	OMmhMqsKv2q+nmkLLOVOX5OBQLRLyK/VuFC5qbmFFyg==
-X-Gm-Gg: AfdE7cklVkvhvffDLVrQLwCcWDnxpwn0AtwP23EDPeh795YHGslX1055/7JGSAwrpD1
-	DtwsNftyTHywDCakL6luj50wxQCDP3EDOhbhmDyKonhPHWLk2pIxs3qS+cuKt61BilZjihcNLLa
-	UUa6j+qxc2l3RU3kUioW0FvCLZv8t8E/wZ8EBQCYoXNsLQDQIdJDKnzEVFf8+YRnsf5dN4kAun0
-	87sfOimeAk3IRbmNheCK5DfmKP5/46KOFK8G75RYQBm9/T91b8mk7N3MLhBIp3SYh+t93z8nDnt
-	QX9Ph3qF/lmrOxY+DYrThUDN24HgQzm8+exI0GAxWvAS0VlxBx/kOePdwdBLTDrK/mCd
-X-Received: by 2002:a05:6000:25c7:b0:477:3986:9b54 with SMTP id
- ffacd0b85a97d-47df07390e5mr7576513f8f.20.1783606891990; Thu, 09 Jul 2026
- 07:21:31 -0700 (PDT)
+	Thu, 09 Jul 2026 14:22:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DF110404E9;
+	Thu,  9 Jul 2026 14:22:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D35A11F000E9;
+	Thu,  9 Jul 2026 14:21:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783606924;
+	bh=PPd4R3RZr6XUvBWe8w2VqRwuexC/tSsRCq8hfew2igY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U08lohmL+eSOg1LzXZz61RAnsviHoTM8uo6PezdCXwkZ0kCcScSo7S/bMAVS5stPn
+	 IlnPyj/jltNh/nTNg+T8ltK51/WdXLFxB7UM+nyRs1gsv7XUXPBwCSND4dFHCSw7Jh
+	 JgJ7XLHUqCTInOiiYAOls0uhaHscVPp2rt3Qgrl814QeN3zAXkTuarAPY3WFzT/CRm
+	 k+7zqVWpPxRfiCOnp8TtyDt55QxOBsDZfYGzKqzhsKURSUUUHmp1eQDosGhysk5aC1
+	 05bPv+Q3wj3zg/WGUDtQafiL/OHy2rdEs9a/aLjZkPr8c6DRRDa1fcIeojzwz3bAF0
+	 Mb/4oRbxSDinA==
+Date: Thu, 9 Jul 2026 15:21:57 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Brian Masney <bmasney@redhat.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jyoti Bhayana <jbhayana@google.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Ulf Hansson <ulfh@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-hwmon@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-rtc@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] firmware: arm_scmi: Ensure automatic module
+ loading
+Message-ID: <20260709-exuberant-galago-of-spirit-1c908f@sudeepholla>
+References: <20260618-scmi-modalias-v2-0-8c7547c1be21@oss.qualcomm.com>
+ <8c2a4ae3-95cc-489a-a7a4-90a3ee2597e9@oss.qualcomm.com>
+ <20260709-spicy-fiery-squid-6eec1d@sudeepholla>
+ <dae4deba-7e5f-434e-80ae-89033bdeb793@oss.qualcomm.com>
+ <ak-h8oPcL69fCUg2@redhat.com>
+ <f05860be-dd75-49f8-b27a-bff7b554e71b@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <cover.1783524645.git.gregoire.layet@9elements.com>
- <cbe59dfba231dcd55fa86233dc076b017d67463a.1783524645.git.gregoire.layet@9elements.com>
- <20260709-convivial-classy-mouse-db0b2d@quoll>
-In-Reply-To: <20260709-convivial-classy-mouse-db0b2d@quoll>
-From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Thu, 9 Jul 2026 16:21:19 +0200
-X-Gm-Features: AUfX_mxl9lcJsse3vhAYFsJh4Ndo0WrxC586WRK2sT65vAOI74m33ywGfCLJYeM
-Message-ID: <CAFi2wKYXVoBRHOCgA_6F20F2Wm4Z2wVz19+XRE9dH=gP3X+i_A@mail.gmail.com>
-Subject: Re: [PATCH v4 1/7] dt-bindings: serial: 8250: aspeed: add compatible
- string for ast2600
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
-	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
-	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
-	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_072134_510278_70F70FB7 
-X-CRM114-Status: GOOD (  16.52  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f05860be-dd75-49f8-b27a-bff7b554e71b@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,39 +102,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Thu, Jul 09, 2026 at 04:07:17PM +0200, Hans de Goede wrote:
+> Hi Brian,
+> 
+> On 9-Jul-26 15:28, Brian Masney wrote:
+> > Hi Hans,
+> > 
+> > On Thu, Jul 09, 2026 at 03:22:29PM +0200, Hans de Goede wrote:
+> >> On 9-Jul-26 12:10, Sudeep Holla wrote:
+> >>> On Thu, Jun 18, 2026 at 10:31:12PM +0200, Hans de Goede wrote:
+> >>>> On 18-Jun-26 17:56, Bjorn Andersson wrote:
+> >>>>> SCMI drivers such as the Arm SCMI CPUfreq driver are allowed to built as
+> >>>>> modules, but they are then not automatically loaded. Rework the SCMI
+> >>>>> device table alias support to make modpost consume the information from
+> >>>>> MODULE_DEVICE_TABLE(scmi, ...) and allow drivers to be loaded based on
+> >>>>> this information, if known. Also add a protocol-based alias to also
+> >>>>> trigger driver loading when only the SCMI protocol id is known.
+> >>>>>
+> >>>>> Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+> >>>>
+> >>>> So I just gave this a test spin and unfortunately it does not work.
+> >>>>
+> >>>> The problem with Fedora's kernel-config / setup is that the
+> >>>> request_module() from patch 2/2 runs from the initramfs, but
+> >>>> the scmi_cpufreq module is only available in the rootfs.
+> >>>>
+> >>>> It does work if I explictly add the scmi_cpufreq module to
+> >>>> the initramfs, then it does get autoloaded.
+> >>>>
+> >>>> We really need some place to put a uevent sysfs attr which then
+> >>>> gets replayed when udev is restarted from the rootfs and then
+> >>>> re-reads all the uevent files as part of its coldplug
+> >>>> enumeration.
+> >>>>
+> >>>
+> >>> I don't have much knowledge on uevent to provide any suggestions/help.
+> >>> But isn't this a generic requirement ? I mean you could have modules
+> >>> install on the rootfs and not all of them are packed in initramfs ?
+> >>> Just wondering if that works for other modules, we can examine how
+> >>> do they work and what are we missing ?
+> >>
+> >> scmi is special because the actual devices under /sys/bus/scmi/devices
+> >> only get created when the module with the driver is loaded because
+> >> of some funtion/id mapping requiring info from the driver.
+> >>
+> >> Patch 2/2 tries to work around this by loading all scmi drivers matching
+> >> the scmi protocol which is known at bus enumeration time, but this only
+> >> works if the actual scmi driver is in the initramfs because this done
+> >> through directly calling modprobe() from the kernel which does not
+> >> get "replayed" when switching to the real rootfs.
+> > 
+> > Should the SCMI drivers be added to the dracut module here?
+> > 
+> > https://github.com/dracut-ng/dracut/blob/main/modules.d/70kernel-modules/module-setup.sh#L73
+> > 
+> > A few years ago we had to add the interconnect drivers to the list for
+> > Fedora.
+> 
+> That would be one solution. I first want to understand the problem better
+> though. The scmi bus not creating the devices until the kmod with the driver
+> has loaded is weird.
 
-On Thu, 9 Jul 2026 at 10:50, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Wed, Jul 08, 2026 at 03:35:53PM +0000, Gr=C3=A9goire Layet wrote:
-> > The ast2600 was using the ast2500 vuart compatible string.
-> > Make it possible to have ast2600-specific properties.
->
-> Then add these properties here as well. Adding a new device is one
-> commit: its compatible and its properties.
+I need to recall why we moved from static list of devices to dynamic.
+One reason I can think right now is the vendor protocols and their drivers
+But in general it was an attempt to help multiple drivers bind to different
+scmi_devices that have same protocol ID. E.g. the performance protocol
+can be used by cpufreq and devfreq/performance genpd drivers.
 
-I thought it was necessary to split the two. I will squash the two
-dt-bindings commits for the next revision.
+> I wonder if we can just move a small part of the drivers
+> (some mapping table) into the bus code and then just have this work as it
+> does on regular busses. I hope to be able to make some time to look into
+> this soonish.
+> 
 
-> >    aspeed,sirq-polarity-sense:
-> >      $ref: /schemas/types.yaml#/definitions/phandle-array
-> >      description: |
-> > -      Phandle to aspeed,ast2500-scu compatible syscon alongside regist=
-er
-> > -      offset and bit number to identify how the SIRQ polarity should b=
-e
-> > -      configured. One possible data source is the LPC/eSPI mode bit. O=
-nly
-> > -      applicable to aspeed,ast2500-vuart.
-> > +      Phandle to aspeed,ast2500-scu or aspeed,ast2600-scu compatible s=
-yscon
->
-> This is a deprecated property, so it cannot apply to a new device -
-> aspeed,ast2600-vuart. You cannot use deprecated code for new bindings or
-> device support.
+I started with that few years ago and we then moved to this dynamic
+device creation. But I agree if it is deviation from the norms(which I
+wasn't aware of at the time), we can remove it.
 
-True, I'll remove it.
-
+-- 
 Regards,
-Gr=C3=A9goire
+Sudeep
 
