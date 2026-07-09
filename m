@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D50C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3392DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFFulc+Le0ou7IB7lFets28c0DyVwRTFWSDm7SBac8M=; b=ueIKT3P+Ncap8+37JlRgvc1d6i
-	xoQSMd/CXP91WsnIaV4i1504PaIn0j3hLEpIXyhDOABrNQNfy6CWeOblDvgN4GUheGUfFVeYyJYOe
-	dsk7MhLHZdO3nyTU8+7/hw8y4p3qGtVIdOyBqmWHVJg2FUrcoEs7e+47qHBJZnDeN+8UxXMdA6R/U
-	dSXpFSkD3+gNildtkMn8xlcx0Bh6EJmvGlIiEej/uAVTejFdJG0y6Ly6e3wfBWVLV2fYoais4/qRD
-	QFT6nW4ilmprad88u3Td6BMbPOx305OGVgAr/bqs37A2WesIRqDZJmO7iY29N12xFOFXo2uE1rWix
-	SGyae7yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J/amYTKuN5haorsgwaKpTG+QmBMHe7keeBZMV8QJ3hs=; b=BT/DbZ7/A0OtlR4lC+qPBHyAMs
+	3rciQALCo3kCFlAf37c+4mGzo/7LlvOudOgy0OjB7OkTIayW7Tv7ZtS9LYsoOt9CSk76agqKdGRfg
+	qGoe83pfiKlEhZ2hQSAaK9htp56IWcGArcTdA6yi90vC9UyD24mAYIFaMhKjPB5yo2+nN7j2U2GD+
+	JMgfYjyfOdIgzHrZjwVGjdSc9XjlVbpfl/Lpj578kXATJtv9CAoo7XlQMdaIc+kmYGE6uOvXbz3Dz
+	KV1Jojz0R7xIOmAuIiO7UsmUqkvSBPgq6iXd60g9Ti2cAyb0/kReMzP0X+x0ELr6yjcQ1Z0QfmYPc
+	ctTrfMHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkWz-00000001epB-1vsy;
-	Thu, 09 Jul 2026 08:54:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkVC-00000001aXL-29GC
+	id 1whl6M-00000001lhn-3hDJ;
+	Thu, 09 Jul 2026 09:31:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whl6J-00000001lgW-3Dxk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:53:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4812043610;
-	Thu,  9 Jul 2026 08:53:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3241F00A3E;
-	Thu,  9 Jul 2026 08:53:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587182;
-	bh=yFFulc+Le0ou7IB7lFets28c0DyVwRTFWSDm7SBac8M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=H0WBp+EFZ5AFr+A0M5wUOR9aSoEABalbTW4St07665pLbXGikc1FeLbmjBSsBDUMU
-	 W9zxiGDQZ95q46Qw68LSnkikb3DCDOE899QyYZ9eNiE+aA0V2LacDPAX+8jRAox1Kw
-	 Yy1oIXz7g7C2M56rDv6mrwPAFyW3qjh28gHpmweiFdEF4tXksv/QTAn3vAkpkZVsFt
-	 DP7l3tSGI0CG9B0CESYwT20h8XPe+ilqmKq2rotahVPhmyNe660jlT2HkuB6cs3c3H
-	 IhuxSnnLi8Mddma/y/sU8bHtmtgE6wwmCvhMUzAbY/ZKCMEu0HIk8f3L09R4P0BRa3
-	 vmBNfBHzoeoBA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 09 Jul 2026 09:52:27 +0100
-Subject: [PATCH v5 03/16] firmware: arm_scmi: Clean up channels on setup
- failure
+	Thu, 09 Jul 2026 09:31:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB37E357B;
+	Thu,  9 Jul 2026 02:31:17 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 174E33F66F;
+	Thu,  9 Jul 2026 02:31:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783589482; bh=Blzkef+vFl6oEiCGDH7RYNN90UCJTQHPs7D692yzfSs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MHc9sccaZKDuO9jTgaSCj4DUQqaXcPUV6zIdVrtUfAkiInpOEHfpQmc0altcLjCc7
+	 qRZc4URa30EJElenTdeE1MJucDI+aJlYnFxq0V3x5hiylzJ0Bf25FH/jVoHmFTM3ap
+	 CVSw5Ucc2uWJTazHfjN/jbpyxOzb4Db1prLxN0v8=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: james.morse@arm.com,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	corbet@lwn.net,
+	x86@kernel.org,
+	linux-doc@vger.kernel.org,
+	dave.martin@arm.com
+Subject: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time conversion to be per-arch
+Date: Thu,  9 Jul 2026 10:31:08 +0100
+Message-ID: <20260709093111.367851-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-scmi_core_fixes-v5-3-bea6a3024f05@kernel.org>
-References: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-In-Reply-To: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_023123_851626_90B9ECCA 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,42 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_channels_setup() can fail after the common BASE channel or earlier
-protocol channels have already been registered in the TX/RX IDRs.
+This version fixes a couple of non-functional mistakes in v4 pointed out by Reinette.
 
-Route this failure through the existing channel cleanup label so the
-transport channels, transport devices and IDR state created before the
-failure are released before the probe error path frees the SCMI instance
-ID.
+The patches should stay together so please could this all go via tip.
 
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Changelogs in patches.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 1354de59ea84..ef41b377d3de 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3263,7 +3263,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	ret = scmi_channels_setup(info);
- 	if (ret) {
- 		err_str = "failed to setup channels\n";
--		goto clear_ida;
-+		goto clear_txrx_setup;
- 	}
- 
- 	ret = bus_register_notifier(&scmi_bus_type, &info->bus_nb);
-@@ -3379,7 +3379,6 @@ static int scmi_probe(struct platform_device *pdev)
- 	scmi_notification_quiesce(&info->handle);
- 	scmi_cleanup_txrx_channels(info);
- 	scmi_notification_exit(&info->handle);
--clear_ida:
- 	ida_free(&scmi_id, info->id);
- 
- out_err:
+From cover letter of v3:
+
+This is a new version of Dave Martin's patch [1] to delegate rounding of
+bandwidth control user values to the arch code. As there is now more than one
+architecture using resctrl, I split the original patch into two, a core resctrl
+patch and an x86 patch, and added an MPAM patch. Please let me know if the patch
+break down and ordering is sensible and whether the pattern should be followed
+for any future similar changes.
+
+This does have a user visible effect on MB schema when using MPAM hardware
+with 'bandwidth_gran' greater than 1. I'm not sure if MPAM hardware with such
+coarse controls exists in the wild but it is spec compliant and I've tested it
+on a model.
+
+[1] https://lore.kernel.org/lkml/20251031154225.14799-1-Dave.Martin@arm.com/
+
+v3: https://lore.kernel.org/lkml/20260515140612.1205251-1-ben.horgan@arm.com/
+v4: https://lore.kernel.org/lkml/20260706160639.2136674-1-ben.horgan@arm.com/
+
+Based on v7.2-rc2
+
+Ben Horgan (1):
+  arm_mpam: resctrl: Add pass-through resctrl_arch_preconvert_bw()
+
+Dave Martin (2):
+  x86,fs/resctrl: Add resctrl_arch_preconvert_bw()
+  fs/resctrl: Factor MBA parse-time conversion to be per-arch
+
+ Documentation/filesystems/resctrl.rst     | 17 +++++++++--------
+ arch/x86/kernel/cpu/resctrl/ctrlmondata.c |  6 ++++++
+ drivers/resctrl/mpam_resctrl.c            |  5 +++++
+ fs/resctrl/ctrlmondata.c                  |  6 +++---
+ include/linux/resctrl.h                   | 19 +++++++++++++++++++
+ 5 files changed, 42 insertions(+), 11 deletions(-)
 
 -- 
 2.43.0
