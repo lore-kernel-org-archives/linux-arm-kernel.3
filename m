@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A64C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5150CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1pV70xEOvQyB3ukvmw0oiht/Cdcq4jFyt2B8YWj7CXI=; b=jyrQUTI9gdH0BOLF+9DFuqfYvB
-	waiIdrjPL4HfASUiegFMmGH12TrHrudWfAOgir5AahxlVEk2E/gYQ1gLMzfbbENnrCcay6LDDnYyg
-	2ECWPmx2yTqb3WAP2+DumIEIOEfLJNGPLnXknQn7mh1Hm/APmpONoa1wg7xYtLSi/JccNf2N+yLL5
-	d5D8A4JfTYA6rORvewhfAY5FHtWh+zFVL/U/Y0aoPCqE4R6d+bzJdkanquHhirGgo24fKYr2R9PRF
-	uOeulsy4Ki2ALB0ETG3ugvzt91SiyNUEbSQ01MN56QXdWNH3RsEnOiIJd3Rdlwkzkh33ub058RjFU
-	ec6VGNVw==;
+	bh=hu7RJDXVjMt/MUj7Dde25d8+nHf2eRwwqw8qorwPda0=; b=Ya6rRjMVEBDPmLRGVSuJ4E8GVl
+	KSGffPsCAXDlmnEi8xaD818qr7kv8F+bA0kxBUSFJklwgeb/soACbs0KvysReEjcBsm5ifU4AvZDy
+	2HV4dYMZPvkKQmoQqynXmofOIbSK+TYlBZ1wd2pFfxD0TUpwCbueBjm/GoFR8zZJhKFheIdl/N04d
+	gI+037S/pAURrVb9usWOvcqTIGhxkSyWWZB5S0sBpdLtC9deX/shPsCUncoUKbOjTLodClflCn7ho
+	4y94hdY0hpYSY7Ef5c8Ahmkrr5Q5g+kzuPCnCDAMI+HRwHHHcRk5u7y3ZluGfpY4lMEpjdhn9Vm4p
+	4X0hoOVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whsJD-000000036Y4-3RCX;
-	Thu, 09 Jul 2026 17:13:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whsNd-000000036tB-1dR7;
+	Thu, 09 Jul 2026 17:17:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whsJB-000000036Xv-3II5;
-	Thu, 09 Jul 2026 17:13:09 +0000
+	id 1whsNc-000000036sv-3tq7;
+	Thu, 09 Jul 2026 17:17:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DBCC61381;
-	Thu,  9 Jul 2026 17:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7581F000E9;
-	Thu,  9 Jul 2026 17:13:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0339561381;
+	Thu,  9 Jul 2026 17:17:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E220E1F000E9;
+	Thu,  9 Jul 2026 17:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783617189;
-	bh=1pV70xEOvQyB3ukvmw0oiht/Cdcq4jFyt2B8YWj7CXI=;
+	s=k20260515; t=1783617463;
+	bh=hu7RJDXVjMt/MUj7Dde25d8+nHf2eRwwqw8qorwPda0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QkSi7MVBWoMXoAzvPr4vFBO+UOTmSx0mkflKFEeuc7vobI3Jbqwu5iTWL1GvopSRb
-	 f4SlmQRhVJ8Qf6+C/iSIVrvPXdD+Ljz2j6xRwtWg9/kepoLUkLXmEYxmZhveT5Jj9C
-	 Jz2h/abnW5jgGd4+eLH0B0I7QOLliL74pkqi4mQGHVbb7rEMimQcdFoJfp4tpyrSmJ
-	 7xA1/u/t8BH6C05HeazzEhfzzDQys5AJfYhBW4dJ1peg07TbJnnsxcqD9yTlpSJbqe
-	 TrXWLB0qzD8ycP7cfZbGHGQXIXc9fFUchp9KMuguNs3eMWg9EWdm3RNhKnQkBKDvXY
-	 9w7A9xnz+l+NA==
-Date: Thu, 9 Jul 2026 18:13:04 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: fix ETS channel derivation in
- airoha_tc_setup_qdisc_ets()
-Message-ID: <20260709171304.GV1364329@horms.kernel.org>
-References: <20260704-airoha-ets-handle-fix-v1-1-42516b3549a1@kernel.org>
+	b=hrWVg5NdnRkfv23bl3dStmf6K1bZbQqAsdmgNROeNtC6upsn+egi3YbvnFMxKnQDm
+	 EFkTAuE/iRyWUBEKW1ukVsYOfLnX+BqFIj3gErTfolCNBgw2Dmf/ZC7qgiE5zHXbST
+	 Z9XcuXXBW9BiUexjO5oA+SFpupSCIbb/LJ5cNe86ys1GEJSUEMuSgdJRvBF0T0rovi
+	 1z/CReHMtCa2sijCoZaGkO1kxt36d9H90Dkf8uFQWITEHFDDT+4nbXxgVIexzRHv3X
+	 csaAfEMHXaIILJJ1gPuWgBkLbP+4592aFblDIGNdWGLG2dXCG10YsYgyxoOCn4/uUU
+	 gaicFrvskiLRQ==
+Date: Thu, 9 Jul 2026 18:17:34 +0100
+From: Mark Brown <broonie@kernel.org>
+To: phucduc.bui@gmail.com
+Cc: Takashi Iwai <tiwai@suse.com>, Nick Li <nick.li@foursemi.com>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	Oder Chiou <oder_chiou@realtek.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	u.kleine-koenig@baylibre.com, Zhang Yi <zhangyi@everest-semi.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 00/27] ASoC: codecs: Use guard() for mutex & spin
+ locks - part 2
+Message-ID: <c74c52c5-91b3-4764-a7a1-26fc940bf735@sirena.org.uk>
+References: <20260709045902.498848-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="61d5AFFcly1gk4TJ"
 Content-Disposition: inline
-In-Reply-To: <20260704-airoha-ets-handle-fix-v1-1-42516b3549a1@kernel.org>
+In-Reply-To: <20260709045902.498848-1-phucduc.bui@gmail.com>
+X-Cookie: MS-DOS must die!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +91,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 04, 2026 at 04:21:38PM +0200, Lorenzo Bianconi wrote:
-> Derive the hardware QoS channel from opt->parent instead of opt->handle
-> in airoha_tc_setup_qdisc_ets(). The ETS qdisc handle is either
-> user-specified or auto-allocated by qdisc_alloc_handle() and bears no
-> relation to the HTB leaf classid that identifies the hardware channel.
-> HTB derives the channel from TC_H_MIN(opt->classid), and ETS is always
-> attached as a child of an HTB leaf, so its opt->parent matches that
-> classid. Using opt->handle instead can cause two ETS qdiscs on different
-> HTB leaves to collide on the same hardware channel, corrupting scheduler
-> configuration and stats.
-> 
-> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+--61d5AFFcly1gk4TJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Thu, Jul 09, 2026 at 11:58:35AM +0700, phucduc.bui@gmail.com wrote:
+
+> bui duc phuc (27):
+>   ASoC: codecs: da7213: Use guard() for mutex locks
+>   ASoC: codecs: da7219: Use guard() for mutex locks
+
+Only the first two of these seem to have come through which has rather
+confused things?
+
+--61d5AFFcly1gk4TJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpP164ACgkQJNaLcl1U
+h9CXVwf9Hi+8k/grZJpWPryXkF9eQnmQKdVD9kTokae7G8oJR/aQEzZjTiF475Tk
+pc+ahjdUoUcnZYBQLiaqQTJTnWvQW62QrUAGVXOzPv8KWas47Wd3Jd0LmWpgDpYv
+MfzehjZyymLLmCVN8oImAvE97g7oUmbILYWnfkjfSMANhkSjbEHi/+VXT+tmxCzs
+ihiM5Chu+C65wTbVjLw2c6ql/7p2aE61fnYsr2RCrFaV/1Xwbf+rO9AQIAdomo9w
+nLP/cAg+fau0Wo6W44Pd1p8wWL0Bt6CR6QSgCRhv258l5YZWxS/uK5HNypSPnA9e
+gNdNfKpYEndx7XQWxZrIeV7iSdzNNg==
+=rheX
+-----END PGP SIGNATURE-----
+
+--61d5AFFcly1gk4TJ--
 
