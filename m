@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8736C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D50C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMBVFDSljvSf4iCDRlBQTGvBtWXGxxkV5RPlQKApDWM=; b=RRFVgzC4d2m9Pi22G/r1gWWiL2
-	1GEWGeBMP7OlsesjUL9RPqHxbH6648akPqyK+8/oT4nOfRRN+Vwn9tpBeteNf7o6MR+DTcSdNSS9f
-	IgFstIR+qtUxsF4b1wxBYc0Hrj1FyQE6pT0g8yLpmgocdbdTgPKoJxy+S1vGvuV3/luAmdvMRpb7Q
-	hbwuI0hT1KvAzMoVeU2oX4NPdKE63bVeWdG1AbXZgV12bnFj+eHiZ3UwBjNc1J8sGhglJQmttwKvx
-	O2XNx8EzN4pOpcbljbKVDK3JZdwhBhKq4sEUU4HOx9JSOPoRjifmd0B1Wux3gIIVN3raDuBxr9OAy
-	dNJuV4yQ==;
+	bh=yFFulc+Le0ou7IB7lFets28c0DyVwRTFWSDm7SBac8M=; b=ueIKT3P+Ncap8+37JlRgvc1d6i
+	xoQSMd/CXP91WsnIaV4i1504PaIn0j3hLEpIXyhDOABrNQNfy6CWeOblDvgN4GUheGUfFVeYyJYOe
+	dsk7MhLHZdO3nyTU8+7/hw8y4p3qGtVIdOyBqmWHVJg2FUrcoEs7e+47qHBJZnDeN+8UxXMdA6R/U
+	dSXpFSkD3+gNildtkMn8xlcx0Bh6EJmvGlIiEej/uAVTejFdJG0y6Ly6e3wfBWVLV2fYoais4/qRD
+	QFT6nW4ilmprad88u3Td6BMbPOx305OGVgAr/bqs37A2WesIRqDZJmO7iY29N12xFOFXo2uE1rWix
+	SGyae7yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkWv-00000001eg4-3hb6;
-	Thu, 09 Jul 2026 08:54:49 +0000
+	id 1whkWz-00000001epB-1vsy;
+	Thu, 09 Jul 2026 08:54:53 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkUw-00000001aUs-3fwv;
-	Thu, 09 Jul 2026 08:52:46 +0000
+	id 1whkVC-00000001aXL-29GC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 08:53:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 71EE443F85;
-	Thu,  9 Jul 2026 08:52:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D452F1F00A3D;
-	Thu,  9 Jul 2026 08:52:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4812043610;
+	Thu,  9 Jul 2026 08:53:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3241F00A3E;
+	Thu,  9 Jul 2026 08:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587166;
-	bh=vMBVFDSljvSf4iCDRlBQTGvBtWXGxxkV5RPlQKApDWM=;
+	s=k20260515; t=1783587182;
+	bh=yFFulc+Le0ou7IB7lFets28c0DyVwRTFWSDm7SBac8M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=S0XP92IXyNjbyhVM7iPqEpJXW19G71PWW8a19Z/YchM55XF6VDr5MM+tBRIGnnPNL
-	 x6dKFYVXDll15LcaukTfJA5iHo5OnOLR3iaBzP5bspflciiIW79LwFPS+dTdcCVLVl
-	 htRiGX79MW7BNGxcQTro5g9CmngTwV3UraNgKTRl8vbd3yKt2omoF2ymo5vAnA6clX
-	 +mukWhOBOO+GSakD8Xp6imfaFY3Mdq/HDwe1X8090OVN0G6hmCSpYSuJsKH6m0HxIn
-	 v3Qi8fqOPuWwRbycNdmNuAwtptSpD1CxJHT4dVdniIHHDhP2IGaEippnQhjFLdNtfH
-	 KEYbINk4z1Ccg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 09 Jul 2026 10:52:13 +0200
-Subject: [PATCH nf-next v5 6/6] selftests: netfilter: nft_flowtable.sh: add
- SIT flowtable selftest
+	b=H0WBp+EFZ5AFr+A0M5wUOR9aSoEABalbTW4St07665pLbXGikc1FeLbmjBSsBDUMU
+	 W9zxiGDQZ95q46Qw68LSnkikb3DCDOE899QyYZ9eNiE+aA0V2LacDPAX+8jRAox1Kw
+	 Yy1oIXz7g7C2M56rDv6mrwPAFyW3qjh28gHpmweiFdEF4tXksv/QTAn3vAkpkZVsFt
+	 DP7l3tSGI0CG9B0CESYwT20h8XPe+ilqmKq2rotahVPhmyNe660jlT2HkuB6cs3c3H
+	 IhuxSnnLi8Mddma/y/sU8bHtmtgE6wwmCvhMUzAbY/ZKCMEu0HIk8f3L09R4P0BRa3
+	 vmBNfBHzoeoBA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Thu, 09 Jul 2026 09:52:27 +0100
+Subject: [PATCH v5 03/16] firmware: arm_scmi: Clean up channels on setup
+ failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-b4-flowtable-sw-accel-ip6ip-v5-6-828ceaf85bab@kernel.org>
-References: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
-In-Reply-To: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
- Ido Schimmel <idosch@nvidia.com>, Pablo Neira Ayuso <pablo@netfilter.org>, 
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
- Shuah Khan <shuah@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
- linux-kselftest@vger.kernel.org
-X-Mailer: b4 0.14.3
+Message-Id: <20260709-scmi_core_fixes-v5-3-bea6a3024f05@kernel.org>
+References: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
+In-Reply-To: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,127 +69,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to IPIP, IP6IP6 and IPv4 over IPv6, introduce specific selftest
-for SIT flowtable sw acceleration in nft_flowtable.sh
+scmi_channels_setup() can fail after the common BASE channel or earlier
+protocol channels have already been registered in the TX/RX IDRs.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Route this failure through the existing channel cleanup label so the
+transport channels, transport devices and IDR state created before the
+failure are released before the probe error path frees the SCMI instance
+ID.
+
+Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- tools/testing/selftests/net/netfilter/config       |  1 +
- .../selftests/net/netfilter/nft_flowtable.sh       | 45 ++++++++++++++++++++++
- 2 files changed, 46 insertions(+)
+ drivers/firmware/arm_scmi/driver.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/net/netfilter/config b/tools/testing/selftests/net/netfilter/config
-index c3c121b6f300..a212b9edbcd9 100644
---- a/tools/testing/selftests/net/netfilter/config
-+++ b/tools/testing/selftests/net/netfilter/config
-@@ -35,6 +35,7 @@ CONFIG_IP_SCTP=m
- CONFIG_IPV6=y
- CONFIG_IPV6_MULTIPLE_TABLES=y
- CONFIG_IPV6_TUNNEL=m
-+CONFIG_IPV6_SIT=m
- CONFIG_IP_VS=m
- CONFIG_IP_VS_PROTO_TCP=y
- CONFIG_IP_VS_RR=m
-diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable.sh b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-index b14c80c6e372..46bd080108be 100755
---- a/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-@@ -597,6 +597,10 @@ ip -net "$nsr1" addr add 192.168.210.1/24 dev tun6
- ip -net "$nsr1" addr add fee1:3::1/64 dev tun6 nodad
- ip netns exec "$nsr1" sysctl net.ipv4.conf.tun6.forwarding=1 > /dev/null
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 1354de59ea84..ef41b377d3de 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3263,7 +3263,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 	ret = scmi_channels_setup(info);
+ 	if (ret) {
+ 		err_str = "failed to setup channels\n";
+-		goto clear_ida;
++		goto clear_txrx_setup;
+ 	}
  
-+ip -net "$nsr1" link add name sit1 type sit local 192.168.10.1 remote 192.168.10.2 ttl 255
-+ip -net "$nsr1" link set sit1 up
-+ip -net "$nsr1" addr add fe01:3::1/64 dev sit1 nodad
-+
- ip -net "$nsr2" link add name tun0 type ipip local 192.168.10.2 remote 192.168.10.1
- ip -net "$nsr2" link set tun0 up
- ip -net "$nsr2" addr add 192.168.100.2/24 dev tun0
-@@ -608,6 +612,10 @@ ip -net "$nsr2" addr add 192.168.210.2/24 dev tun6
- ip -net "$nsr2" addr add fee1:3::2/64 dev tun6 nodad
- ip netns exec "$nsr2" sysctl net.ipv4.conf.tun6.forwarding=1 > /dev/null
+ 	ret = bus_register_notifier(&scmi_bus_type, &info->bus_nb);
+@@ -3379,7 +3379,6 @@ static int scmi_probe(struct platform_device *pdev)
+ 	scmi_notification_quiesce(&info->handle);
+ 	scmi_cleanup_txrx_channels(info);
+ 	scmi_notification_exit(&info->handle);
+-clear_ida:
+ 	ida_free(&scmi_id, info->id);
  
-+ip -net "$nsr2" link add name sit1 type sit local 192.168.10.2 remote 192.168.10.1 ttl 255
-+ip -net "$nsr2" link set sit1 up
-+ip -net "$nsr2" addr add fe01:3::2/64 dev sit1 nodad
-+
- ip -net "$nsr1" route change default via 192.168.100.2
- ip -net "$nsr2" route change default via 192.168.100.1
- 
-@@ -622,6 +630,7 @@ ip -6 -net "$ns2" route add default via dead:2::1
- 
- ip netns exec "$nsr1" nft -a insert rule inet filter forward 'meta oif tun0 accept'
- ip netns exec "$nsr1" nft -a insert rule inet filter forward 'meta oif tun6 accept'
-+ip netns exec "$nsr1" nft -a insert rule inet filter forward 'meta oif sit1 accept'
- ip netns exec "$nsr1" nft -a insert rule inet filter forward \
- 	'meta oif "veth0" tcp sport 12345 ct mark set 1 flow add @f1 counter name routed_repl accept'
- 
-@@ -648,6 +657,19 @@ if ! test_tcp_forwarding_nat "$ns1" "$ns2" 1 "IP4IP6 tunnel"; then
- 	ret=1
- fi
- 
-+ip -6 -net "$nsr1" route delete default
-+ip -6 -net "$nsr1" route add default via fe01:3::2
-+ip -6 -net "$nsr2" route delete default
-+ip -6 -net "$nsr2" route add default via fe01:3::1
-+
-+if test_tcp_forwarding "$ns1" "$ns2" 1 6 "[dead:2::99]" 12345; then
-+	echo "PASS: flow offload for ns1/ns2 SIT tunnel"
-+else
-+	echo "FAIL: flow offload for ns1/ns2 with SIT tunnel" 1>&2
-+	ip netns exec "$nsr1" nft list ruleset
-+	ret=1
-+fi
-+
- # Create vlan tagged devices for IPIP traffic.
- ip -net "$nsr1" link add link veth1 name veth1.10 type vlan id 10
- ip -net "$nsr1" link set veth1.10 up
-@@ -672,6 +694,11 @@ ip -6 -net "$nsr1" route delete default
- ip -6 -net "$nsr1" route add default via fee1:5::2
- ip netns exec "$nsr1" nft -a insert rule inet filter forward 'meta oif tun6.10 accept'
- 
-+ip -net "$nsr1" link add name sit1.10 type sit local 192.168.20.1 remote 192.168.20.2 ttl 255
-+ip -net "$nsr1" link set sit1.10 up
-+ip -net "$nsr1" addr add fe01:5::1/64 dev sit1.10 nodad
-+ip netns exec "$nsr1" nft -a insert rule inet filter forward 'meta oif sit1.10 accept'
-+
- ip -net "$nsr2" link add link veth0 name veth0.10 type vlan id 10
- ip -net "$nsr2" link set veth0.10 up
- ip -net "$nsr2" addr add 192.168.20.2/24 dev veth0.10
-@@ -689,6 +716,11 @@ ip -net "$nsr2" link set tun6.10 up
- ip -net "$nsr2" addr add 192.168.220.2/24 dev tun6.10
- ip -net "$nsr2" addr add fee1:5::2/64 dev tun6.10 nodad
- ip netns exec "$nsr2" sysctl net.ipv4.conf.tun6/10.forwarding=1 > /dev/null
-+
-+ip -net "$nsr2" link add name sit1.10 type sit local 192.168.20.2 remote 192.168.20.1 ttl 255
-+ip -net "$nsr2" link set sit1.10 up
-+ip -net "$nsr2" addr add fe01:5::2/64 dev sit1.10 nodad
-+
- ip -6 -net "$nsr2" route delete default
- ip -6 -net "$nsr2" route add default via fee1:5::1
- 
-@@ -715,6 +747,19 @@ if ! test_tcp_forwarding_nat "$ns1" "$ns2" 1 "IP4IP6 tunnel over vlan"; then
- 	ret=1
- fi
- 
-+ip -6 -net "$nsr1" route delete default
-+ip -6 -net "$nsr1" route add default via fe01:5::2
-+ip -6 -net "$nsr2" route delete default
-+ip -6 -net "$nsr2" route add default via fe01:5::1
-+
-+if test_tcp_forwarding "$ns1" "$ns2" 1 6 "[dead:2::99]" 12345; then
-+	echo "PASS: flow offload for ns1/ns2 SIT tunnel over vlan"
-+else
-+	echo "FAIL: flow offload for ns1/ns2 with SIT tunnel over vlan" 1>&2
-+	ip netns exec "$nsr1" nft list ruleset
-+	ret=1
-+fi
-+
- # Restore the previous configuration
- ip -net "$nsr1" route change default via 192.168.10.2
- ip -net "$nsr2" route change default via 192.168.10.1
+ out_err:
 
 -- 
-2.55.0
+2.43.0
 
 
