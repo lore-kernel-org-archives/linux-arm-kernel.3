@@ -4,53 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7902C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EC2C44507
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=su7CsgQlUkOZDvSIPfzFoT9bGDT49NqAfUV87oMqav0=; b=jwwG57SMA8sKPHb/B2FKIyM1Te
-	HKlIwRaL9vHqskbmHu89XkLxaSf5fkXSs9dBEhCg++fegtuuWMWflAdaozxMLs2CRoH5JlO0wHzYh
-	8vYT23yUjZsobzlDUGkFXvz5YrpGPwI6zA8gLOEtnPva6QpGCGWvAQl1YQq+20hvmip7SvdlwHZMn
-	mFambGRj3cjdrnGfd+x+4KOU6jmLg3mzm2yjsXTvjbd3kitF2h83Sd0Atzuv/6595cGqv8ysJ7RPN
-	GiTuVto3NKJ2M2/68H5fnZh2pOMn5KtKDESlLtt3A6fGnXc300t4No+1tI1Ec5ExOiAIL1EJSaMrk
-	XChrvTnA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8psXzlPUn1qaPIoR8K5/IlKByb97VV49Dd43WJ9R3cY=; b=U90bJLI8TveblF
+	ea/kxwVEFt4A+IKaTPlB/5L5w2n/dsdbwRSas8SXzXiG8pA7Y+jejWeV7XDb/hfvYsTrUub2GxDL6
+	xT13k2hK7DtfjHznzvrZyoou7Iqu0FXVLG2OrYSLzb+3p1z3TWZakWI5pmfgNCfSf2vCxByS2PmVW
+	Q6RhzAzfRPi47QwQnh9tIjktJUodP6VDKEmFTM3Pz+CtBK8F9lK2PLxBs/k5D4pBvGZxgvW1HxxJp
+	3nbxjb91vNsNg+q3g/3ZJTi3fDonZMbehNsTqB6ncNQYgyi5uvHyfPq8mSZV2enYmyDnc15VD1hR4
+	+o28d/4cVwU9EPaZ+BJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkWp-00000001eSW-2nzW;
-	Thu, 09 Jul 2026 08:54:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whkWo-00000001eQJ-2hem;
+	Thu, 09 Jul 2026 08:54:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkUn-00000001aSr-1wXD;
-	Thu, 09 Jul 2026 08:52:37 +0000
+	id 1whkUj-00000001aRa-2CBD;
+	Thu, 09 Jul 2026 08:52:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACD5D60EEF;
-	Thu,  9 Jul 2026 08:52:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE6AB1F00A3F;
-	Thu,  9 Jul 2026 08:52:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B554D6001A;
+	Thu,  9 Jul 2026 08:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E80BE1F00A3E;
+	Thu,  9 Jul 2026 08:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587156;
-	bh=su7CsgQlUkOZDvSIPfzFoT9bGDT49NqAfUV87oMqav0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=I2Xe4HbXUeq/IZ1lwXF1BJxmxZrZdAU73d5J5S5wVSJIXGC680HPBRU9J2yip0SDg
-	 AeVtU8xGI7R6TvFly5jROEUY9sk0Nx7x+mrjgMjO61anHwBTkt5excEdlAiqhzNs9h
-	 Jzvih1saoOgKmEpAOZr5eVSWmERiS+923iRD7VmTmRcLLrtF8u4BGOoxWFl//gxP4g
-	 ObYDnddJIcuE8mNLjrMW93O8UimMvnqvYdFSjXs1HYop+5wnl4kC4yjbNmrv8lcuX7
-	 /AF2ZVyikZ2DJwy+Yoa5MKv1uokxMywr0KVs1EZQrazkLVpkdParRaToBIYqSQ4Qjv
-	 Vj8iYsUjN3J2Q==
+	s=k20260515; t=1783587151;
+	bh=8psXzlPUn1qaPIoR8K5/IlKByb97VV49Dd43WJ9R3cY=;
+	h=From:Subject:Date:To:Cc;
+	b=lOIJkr5F6wf2m2HlMDzWb9WTkTrWiKGJb+f+ZevlnbU0PUurj5sZSCvQLqmkglkhD
+	 kuumua3+lnvwfHhm4D+NYXWhBUSGfeB2yAPc64aIHoHR6H9co2UtY3h31/FsRnnDwe
+	 yqbWO5KNt1j0LFLsN7f3sEClEdxVguVkbsZfA2TUrfs/0lnEf6gnyh55TC9mmq/T+B
+	 LGWzgEvErhdbrNyqiWELAE4/R+jVxO0T6pb84BVMlOoUps8/p2KA8J21mXSMSn7S+A
+	 ST8inBqcJISCDEFcmO/GiSQBbBijFCqCWRAGDe3hEG4jykt6rByhj2DNW51eAi2t8N
+	 JeLidx9474e7Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 09 Jul 2026 10:52:09 +0200
-Subject: [PATCH nf-next v5 2/6] net: netfilter: add encap_proto to
- flow_offload_tunnel
+Subject: [PATCH nf-next v5 0/6] Add IPv4 over IPv6 and SIT flowtable SW
+ acceleration
+Date: Thu, 09 Jul 2026 10:52:07 +0200
+Message-Id: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-b4-flowtable-sw-accel-ip6ip-v5-2-828ceaf85bab@kernel.org>
-References: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
-In-Reply-To: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43QQWrDMBAF0KsErTtFmpElq6veo3ShyKNE1NhGM
+ k5C8N0jvGlKwHT5+fD+MHdROCcu4uNwF5mXVNI41NC8HUQ4++HEkLqaBUo0spENHDXEfrzM/tg
+ zlAv4ELiHNJk0gVVSSdKhU9qKKkyZY7pu+pcYIgx8ncV3Lc6pzGO+bauL2up/DSwKJDgfyIUQH
+ Hv3+cN54P59zKcNXvAZM/sYVkyTi51Ga9HwC0ZPGKl9jCrWGI8tmkhoXy/Tv5iVtI/piklJrq2
+ vRGrxD7au6wM4OfNgtwEAAA==
+X-Change-ID: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -79,112 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add encap_proto (AF_INET or AF_INET6) to struct flow_offload_tunnel
-to allow its use as part of the hash table key during flowtable entry
-lookup.
-This is a preliminary change to support IPv4 over IPv6 tunneling via
-the flowtable infrastructure for software acceleration.
+Similar to IPIP and IP6I6 tunnels, introduce sw acceleration for IPv4 over
+IPv6 and SIT tunnels in the netfilter flowtable infrastructure.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- include/linux/netdevice.h             | 1 +
- include/net/netfilter/nf_flow_table.h | 1 +
- net/ipv4/ipip.c                       | 1 +
- net/ipv6/ip6_tunnel.c                 | 1 +
- net/netfilter/nf_flow_table_ip.c      | 2 ++
- net/netfilter/nf_flow_table_path.c    | 2 ++
- 6 files changed, 8 insertions(+)
+Changes in v5:
+- Fix ipip6_tunnel_fill_forward_path() to take into account not only
+  IPv6 packet since SIT tunnels can encapsulate even IPv4/MPLS traffic.
+- Return an error in ipip6_tunnel_fill_forward_path() if tunnel daddr is
+  not set since NBMA tunnels are not supported yet.
+- Return an error in ipip6_tunnel_fill_forward_path() if encap.type is
+  not TUNNEL_ENCAP_NONE
+- cosmetics
+- Link to v4: https://lore.kernel.org/r/20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00398cd12382@kernel.org
 
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index a97aee0e49b2..45d99e11b06e 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -902,6 +902,7 @@ struct net_device_path {
- 			};
- 
- 			u8	l3_proto;
-+			u8	encap_proto;
- 		} tun;
- 		struct {
- 			enum {
-diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
-index 7b23b245a5a8..4d406801ec90 100644
---- a/include/net/netfilter/nf_flow_table.h
-+++ b/include/net/netfilter/nf_flow_table.h
-@@ -118,6 +118,7 @@ struct flow_offload_tunnel {
- 	};
- 
- 	u8	l3_proto;
-+	u8	encap_proto;
- };
- 
- struct flow_offload_tuple {
-diff --git a/net/ipv4/ipip.c b/net/ipv4/ipip.c
-index d1aa048a6099..4d2195b4ae3e 100644
---- a/net/ipv4/ipip.c
-+++ b/net/ipv4/ipip.c
-@@ -370,6 +370,7 @@ static int ipip_fill_forward_path(struct net_device_path_ctx *ctx,
- 	path->tun.src_v4.s_addr = tiph->saddr;
- 	path->tun.dst_v4.s_addr = tiph->daddr;
- 	path->tun.l3_proto = IPPROTO_IPIP;
-+	path->tun.encap_proto = AF_INET;
- 	path->dev = ctx->dev;
- 
- 	ctx->dev = rt->dst.dev;
-diff --git a/net/ipv6/ip6_tunnel.c b/net/ipv6/ip6_tunnel.c
-index 38da07101601..a121f715afd2 100644
---- a/net/ipv6/ip6_tunnel.c
-+++ b/net/ipv6/ip6_tunnel.c
-@@ -1863,6 +1863,7 @@ static int ip6_tnl_fill_forward_path(struct net_device_path_ctx *ctx,
- 		path->type = DEV_PATH_TUN;
- 		path->tun.src_v6 = t->parms.laddr;
- 		path->tun.dst_v6 = t->parms.raddr;
-+		path->tun.encap_proto = AF_INET6;
- 		if (ctx->ether_type == cpu_to_be16(ETH_P_IP))
- 			path->tun.l3_proto = IPPROTO_IPIP;
- 		else
-diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
-index 29e93ac1e2e4..cf2c74e3fd56 100644
---- a/net/netfilter/nf_flow_table_ip.c
-+++ b/net/netfilter/nf_flow_table_ip.c
-@@ -198,6 +198,7 @@ static void nf_flow_tuple_encap(struct nf_flowtable_ctx *ctx,
- 			tuple->tun.dst_v4.s_addr = iph->daddr;
- 			tuple->tun.src_v4.s_addr = iph->saddr;
- 			tuple->tun.l3_proto = IPPROTO_IPIP;
-+			tuple->tun.encap_proto = AF_INET;
- 		}
- 		break;
- 	case htons(ETH_P_IPV6):
-@@ -206,6 +207,7 @@ static void nf_flow_tuple_encap(struct nf_flowtable_ctx *ctx,
- 			tuple->tun.dst_v6 = ip6h->daddr;
- 			tuple->tun.src_v6 = ip6h->saddr;
- 			tuple->tun.l3_proto = IPPROTO_IPV6;
-+			tuple->tun.encap_proto = AF_INET6;
- 		}
- 		break;
- 	default:
-diff --git a/net/netfilter/nf_flow_table_path.c b/net/netfilter/nf_flow_table_path.c
-index c8011ec36532..caaf48c5fd2a 100644
---- a/net/netfilter/nf_flow_table_path.c
-+++ b/net/netfilter/nf_flow_table_path.c
-@@ -129,6 +129,7 @@ static int nft_dev_path_info(const struct net_device_path_stack *stack,
- 				info->tun.src_v6 = path->tun.src_v6;
- 				info->tun.dst_v6 = path->tun.dst_v6;
- 				info->tun.l3_proto = path->tun.l3_proto;
-+				info->tun.encap_proto = path->tun.encap_proto;
- 				info->num_tuns++;
- 			} else {
- 				if (info->num_encaps >= NF_FLOW_TABLE_ENCAP_MAX)
-@@ -278,6 +279,7 @@ static int nft_dev_forward_path(const struct nft_pktinfo *pkt,
- 		route->tuple[!dir].in.tun.src_v6 = info.tun.dst_v6;
- 		route->tuple[!dir].in.tun.dst_v6 = info.tun.src_v6;
- 		route->tuple[!dir].in.tun.l3_proto = info.tun.l3_proto;
-+		route->tuple[!dir].in.tun.encap_proto = info.tun.encap_proto;
- 		route->tuple[!dir].in.num_tuns = info.num_tuns;
- 	}
- 
+Changes in v4:
+- Rebase on top of nf-next and fixed conflicts.
+- Link to v3: https://lore.kernel.org/r/20260531-b4-flowtable-sw-accel-ip6ip-v3-0-56a2826f3279@kernel.org
 
+Changes in v3:
+- Drop nf_flow_tunnel_v4_push and nf_flow_tunnel_v6_push routines
+- Rebase on top of net-next tree.
+- Link to v2: https://lore.kernel.org/r/20260506-b4-flowtable-sw-accel-ip6ip-v2-0-439fd427726e@kernel.org
+
+Changes in v2:
+- Fix MTU check in nf_flow_offload_forward() and in
+  nf_flow_offload_ipv6_forward()
+- Add SIT sw acceleration support
+- Link to v1: https://lore.kernel.org/r/20260505-b4-flowtable-sw-accel-ip6ip-v1-0-9ac39ccc9ea9@kernel.org
+
+---
+Lorenzo Bianconi (6):
+      net: netfilter: add ether_type to net_device_path_ctx
+      net: netfilter: add encap_proto to flow_offload_tunnel
+      net: netfilter: add IPv4 over IPv6 tunnel flowtable acceleration
+      selftests: netfilter: nft_flowtable.sh: add IPv4 over IPv6 flowtable selftest
+      net: netfilter: add SIT tunnel flowtable acceleration
+      selftests: netfilter: nft_flowtable.sh: add SIT flowtable selftest
+
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  13 +-
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c    |  13 +-
+ include/linux/netdevice.h                          |   5 +-
+ include/net/netfilter/nf_flow_table.h              |   1 +
+ net/core/dev.c                                     |   6 +-
+ net/ipv4/ipip.c                                    |   1 +
+ net/ipv6/ip6_tunnel.c                              |   6 +-
+ net/ipv6/sit.c                                     |  51 +++
+ net/netfilter/nf_flow_table_core.c                 |  16 +-
+ net/netfilter/nf_flow_table_ip.c                   | 411 +++++++++++++--------
+ net/netfilter/nf_flow_table_path.c                 |  20 +-
+ tools/testing/selftests/net/netfilter/config       |   1 +
+ .../selftests/net/netfilter/nft_flowtable.sh       |  78 +++-
+ 13 files changed, 434 insertions(+), 188 deletions(-)
+---
+base-commit: a88e11651a59b616a8e614e178f68cd730eed0fe
+change-id: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
+
+Best regards,
 -- 
-2.55.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
