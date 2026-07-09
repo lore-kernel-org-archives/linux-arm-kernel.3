@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58212C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E297C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZ/mnhx5BfIO2ZyDyqNqTQiyhKuWuY4CpjZZF+oTV20=; b=FNUqd/DqYUQvCi5KG5JxWFURfW
-	GqLUUssMfcf98v58tOrcdiSAZfM9y/Zyqg7LHdscYc0tBGu3iJhQPJJ5nKuAYEQMMeJbte6OnECIY
-	KZ4H3RHpmmxhILJcJXncoydBOA4PL/aXLF58Mb3dqQwg94hXB4WftGEUoySa+qJJEs2Vgqxm6SyZD
-	rzbdZDBrGAoSYJqJopF7qF/GKppKyrFtumICPhP5ZuahiqFRlQ+gEmUR7mhTRhhtomyj0HEV9emUV
-	fkNWrVmRyn3yoRlo1Vz5sKJYiYOhN/tzDpuIxKVsIYZ5xPxNtlEFlGr5+JR0zZnXHDaG7CL9jPGb0
-	Gf+3RexA==;
+	bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=TRpWVbbJ1RgZ2b3V3IHe7pqx83
+	iog0JsE5sTke8ltuC1e3KbGk3zSXo7f7x5fx2/4ylOXuiP7tUSmNODRPeX1H26bmMWs+ixtyYCCZz
+	Nv/m1WRnL0SAFNiQxlTjVdBCflMDP4yTIbHNR7PcJwi/7pmbsxVjsg8aveJPvybVqyKJ3HGchIZrt
+	Xfo4f067wby+zuOuM/3YvVG62UZ3zmXeEGs5+tQBbZ+rReJHz64yv0i0AP311aamLyDC/93T08Ap3
+	CduTz3HVhtJaRHadhwz9HHqxVpAQTmIdE3Zc8aeMUyfHFqXIyf67dh8E96PioizHy/etZlFUdzn/v
+	RUmZcH4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEV-00000001Hsq-39T4;
-	Thu, 09 Jul 2026 07:31:43 +0000
+	id 1whjEW-00000001Htr-34v2;
+	Thu, 09 Jul 2026 07:31:44 +0000
 Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjE7-00000001HlA-128X
+	id 1whjEI-00000001HnZ-1mNQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:31:39 +0000
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailflow.phl.internal (Postfix) with ESMTP id 9921F1380072;
-	Thu,  9 Jul 2026 03:31:17 -0400 (EDT)
+	Thu, 09 Jul 2026 07:31:40 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id CAC5413800A2;
+	Thu,  9 Jul 2026 03:31:25 -0400 (EDT)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Thu, 09 Jul 2026 03:31:17 -0400
+  by phl-compute-04.internal (MEProxy); Thu, 09 Jul 2026 03:31:25 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582277;
-	 x=1783589477; bh=iZ/mnhx5BfIO2ZyDyqNqTQiyhKuWuY4CpjZZF+oTV20=; b=
-	EHXgBwZpWw89q8hMrlb2UJuLlMJHwKpUZcJSLt+FgoGl+K+x9c42v3HKu7UQOJnH
-	/BQBwb99DF/vckNmL1GCfl2geefVFW69U6zOIzNzjkSwifvE4S+prmmKfe/+o5P1
-	46cCIhsO2Bsm8oBM9gLOhI6P/RQdtsjpK8STa4O6PwDJ4gOjsDQC4rRTWpnjh8yJ
-	cSHxki+WYKESxVGxfkAkneh3sMtNhVZkaIJaOtkgXm5TUUU1al3G08iwADwSbVYh
-	vd8i1lWnqdnq4F+LWTTZXJrKjXSqZANoYrYd9j4KbGGHzkWDMMM6uECSnxMfprK+
-	CXcj4wMuQz4Jt+xhU/3A5g==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582285;
+	 x=1783589485; bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=
+	pA1yMmoDuuIDFRT3lNHde80m4TM+bn7gJYQEb2bCYMawWTRryPBgIklO2xMY70vM
+	OdY+YKdDyLSGmf7ShmnrwviBDiCbYBKf7rshzOYENcb6JuLS816dd+cDuu9PR45P
+	Muh8JhKaI6ZeYXnpmvqkTQAr2R3kLXnUf1eXWAQE5c6/Ko2nFlYzoSkjan/F7mTr
+	K1jKOwY3ZCze0zWbbFXkmRNRqDnq+j+SaFI6fhUOVPYVLJrSuSaR+gRYbwgmW4r2
+	W0L+mEJcXVYPvkJRe7bcB5YB8/38Ht7D3vR5TC1NQHDUso8wG8luAg1w4/qIeCl5
+	O6ptPekuWEYN7E2C78RJ5w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582277; x=
-	1783589477; bh=iZ/mnhx5BfIO2ZyDyqNqTQiyhKuWuY4CpjZZF+oTV20=; b=e
-	akYw1haxtgwb3F/Yk8DtlgXur+HOXUhj+b9aAbLAofs7KymV1PlgQbwPVyWFAN8X
-	pgo0LtjzGXpGj3IGV4iH0cuzf+QfFlW+ruL9Angdw8eoYYv30ulm0zVIz12upfUK
-	FyDR/oSJ4cAKftvbAO4ZlGiJIwHx7YbZI+8XdsbiVDWCC5ZzSm3Om0rs09kT7gXF
-	ekSZ1wmJKH407CJX8ncjftBHbW0+UtI7DsazaAFCeI1MtgaT1KW/fJBDjbA4CQw3
-	jB1D8z/r5DdlMHpjd6fwzOunyEa0D5Cqcdat/Ea8hXF+Y6yE2dalIydXFfUcLGvR
-	ObXBC4KBdJ7ZB6HBIejHQ==
-X-ME-Sender: <xms:RU5Pavg6z4_FPq2wiX4b70iBt1BllBH-0iFCoPCqyLXRXT6Ok_lkvg>
-    <xme:RU5Pag7fJ9lUCipOpxX8p1wlAe1vKAJju8YymrmGrf-dJNQrqytG0U4AIWfNT9ws6
-    FughVq1mnnzJ7CXEmsUhEnBSQ1W7nGmJj82K1WngqsXiXMuVf-r-PMP>
-X-ME-Received: <xmr:RU5PasqddGX1YKnhl-X-oIqhfzZgo44hI8S3ZZ42dPODPOdRCYFVSdgMrpzJFuSg6u6NYCMn4yGuL8Rsy4TGcLYtWfRStnDt_jw>
-X-ME-Proxy-Cause: dmFkZTFsuIvKvdTrsul69N9MoRm4Dr98inKDAObe/T0H784nX6XMVG5hwVL1cCfadnj5NH
-    AMFCYN3ChKpOd+iUGRKmw3ZZ9407sALvWnZoqEoAyCH7BDmB6tqxdNTqVCxfKwJBg8h8se
-    5v5mTr8CsYgHfwEZT1pcpqQ75AP3b6kkcmEF8u5olx6PNdzqDboZp1aet4XMTrQstmVUvU
-    vB5IfLgD2Ayfj1gHColpiKvQ2yVixe8QP0JA93u+VtzbGlWUR9plEC8+MLEb50o6YMIgBi
-    cw9oTEJFi+AnMynJnoU5b1bYzkudAKQQbtpG+irtuIAcvLtoaBZzEjOdVaJDr5JJexkSVC
-    ypjJ0Yht0A8u3sfQISonuM0iEIts9a0CH4tla154lUoCGJkxNticxTtI1N1tO7IvFDXXfV
-    97e6XHFyt+fTlgJnE6exQuWYabDI8EYK7U1TMvG9sXHG3q6g+YIw1WdqYubZt5um5fJTSd
-    W8X4pxI4zTm6Mh/sDfY1nUwEcrNlZSZJtzJwOTwhXIVbQkv8qPycM9aAxhKwxYqiHgfgZJ
-    16mxnHdNXU3g76VQaqEIvEzVvmd3t+cqZ3k1iLUDDA6xAXjIqLH4u5iNGX/7zS3PpBAuQ/
-    ubEkiuolwmmS/3xBFuP3kUmUoydhXaz6Pt4p3YpucBMT5RmiFj6H5kzB4tcg
-X-ME-Proxy: <xmx:RU5PauV6RaeVJVFoZyR_79coPpvep68WVED9shx6nCL6co4f16svYw>
-    <xmx:RU5Par5qYyKEDNmvRGLL6AqoP6Dq2gc-dGuFFkJB6_7zGiWCUX452A>
-    <xmx:RU5Pak1uje93IawdBHdz0wsT8rrnLBaH-m8CwfAoq5VonyxgImoefA>
-    <xmx:RU5Paq9kCs7fI-TEtyzA4RoqoTx-6NDw06tlv2VrvUt48mm2HUu3cw>
-    <xmx:RU5PahQCDUxAkG1za9pYABmv1D9K_gZL7kw17ZJQ0rYZZWlj51BmgbzE>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582285; x=
+	1783589485; bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=P
+	hrDLi2K2+kxA6ICuD4ssVIsqMFYMz03Y415DTfMCVokx0SiRF3P9Bv5ozP64pAU8
+	tacpIlPVCJgQ1kAy7QhLUjjEXRX/1DA8mGdbDJ5pk65FCQIKFnrtjQmGkcaYDHNf
+	yYeLFMwmwVJwNAOS3XSCbcmP6p+iwAQi0uHiOGT5iNKnOscONSSeDR7WfIfjUs1X
+	CXPjlV5JYM9fThlgQrS+9fw0GJpj/B51+u+qpZa78HTC6k9NVuMvl8PVVjbBCmoh
+	ZQlN7JxGcrGJB5Arcu31gghIIu3yT3HpMZ6waXgyVGUlySTSllewfvtQtZiC5pmr
+	PVxoOvoc0eMQwx/rwEu5g==
+X-ME-Sender: <xms:TU5PamJkQieoP5Oist3VmcZue47XWUE2x3Z4W_GTSwcRvEXKYNK-tw>
+    <xme:TU5PajC9HeYS0i7iAj4wBoPTVDJ42YZ2PKF62GxuWzlaeLCYsKvD0Zgvl-C_tMd1X
+    0kySzMW1q7ufLkHq5hWx7ZIsOwKA_EwO3l0R0OXkeR00GFssYe2qena>
+X-ME-Received: <xmr:TU5PakS-DhOTscIlMCnG-cxHUT2emcZQ-kB6PUX-R4j7H2vQThLmR7STHWufo99CE-fvZAo9tus-JG32TDGNTgxQdix7XSifpOA>
+X-ME-Proxy-Cause: dmFkZTFDgvji+KZOYa7+nDRYV5XjpiHYyZNb+S62U1l3I0KgY+OxJTHOccc7LleD76+n6b
+    Vf0fTkznQWCQtUJWgIlosDWTwuMIFaBxPt3fTu/P9Cx41Cuvrk6EyPr+NNfcbSVCPT3+Dc
+    C6efMtdHDRJF5NN4unR+Llnrm9yKKGkxbNssZuc0MV99+GgEHaiE4b6Jv7DPfedmhEtrjl
+    UIJxXa0C0eF7kFlLWMf7rGql7KQXWx+/7Zo6i0e6y7H1udqz2uSFZ55rFZXpgMXMistz7D
+    Zk29AuVpkBQ7eIeXTsIe1jlElcCjhKZ98d11EqdTlN+SxLlaQ0qYrg2hFiC7rk7Z0xHush
+    K9qxGA9r9bA+DJsK+gvEQJDyEf/Nje3JyMT30TO/jD0s1jUq64OZA3eH2rX/baT9aV07uW
+    /0N+FyM9wWpP0OQp/HyxcNnogudiUmrJVF2x+5mz0vn0or/bvBKyNGRHknV5jd6LctLRrs
+    NreWOgvHxQuVgqrQhAqREE5mmN3QNL50aEvYQ9IYE185+CNuQXUwyhUVuhpB3YwemTtuVR
+    W7fSDVX8syzj1Zwup62/44G1m/o5QyKXuhvTr2/+ViUz44giVbKmsoK0DcYYrLyhtZgveR
+    pWsBextCNl2jhgbpBOKAcsAzCjzYtCxR/ikUDb5WDopHK7EDMtm8jgmNopqw
+X-ME-Proxy: <xmx:TU5Patfqisel_f6GRr2GzkmMrd_mM3Q6uYJ1Zyy0itvvSkJxJer2pA>
+    <xmx:TU5PasiAn1EusVAMJPuMW64NfAwrg0HxBnQ-1KVZy5i-CZ7swB3WuA>
+    <xmx:TU5Pao_MJwVNMtJuQoUAh4kLwGksACxVfuy7P9PRVJrkhmFz-HoCWg>
+    <xmx:TU5PasnSS9IQrhEl89kNqE-pAWvYUd6VkGkmmUMIdqYK9WPKX8MBOA>
+    <xmx:TU5PanYmakzPKwNq4cqhSN0xrpn3o7hTRmvlzhBLatIZEAe_nc37rfPh>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Jul 2026 03:31:16 -0400 (EDT)
+ 9 Jul 2026 03:31:24 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Thu, 09 Jul 2026 09:30:47 +0200
-Subject: [PATCH 01/11] dt-bindings: arm: apple: Add M3 Pro/Max/Ultra
- devices (T603x)
+Date: Thu, 09 Jul 2026 09:30:51 +0200
+Subject: [PATCH 05/11] dt-bindings: power: apple,pmgr-pwrstate: Add t6030
+ and t6031 compatibles
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-apple-t603x-initial-devices-v1-1-55b305833123@jannau.net>
+Message-Id: <20260709-apple-t603x-initial-devices-v1-5-55b305833123@jannau.net>
 References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 In-Reply-To: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
@@ -102,17 +102,17 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3254; i=j@jannau.net;
- h=from:subject:message-id; bh=pqcKq2hay0R2/b5p3LSUXovMevcuRRsTTjo24eXTAHo=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/PxvV0w5KzzxFEha99iw/c7poq7o1b05sXYfqUi/Rn
- XXSmr86JrIwiHExWIopsiRpv+xgWF2jGFP7IAxmDisTyBBpkQYGIGBh4MtNzCs10jHSM9U21DM0
- 0jHWMWLg4hSAqY7jZfifsX1KmEDHCTVOW0H2e8GlbA1hNQ3FnTzGO3vqLnYefZrMyDA5Qpx/j8S
- 56QVqyy/kv1lWPSc2LmNmoNmH109cr31TfswEAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=994; i=j@jannau.net;
+ h=from:subject:message-id; bh=6j04J5ZsMYC1glEYGPI5SeONi9pfivKJ6lbbwpnFQEk=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/P9tbgefVVBZPCFsibOmfd+rOtnb2kJPzPSw3W2Zfn
+ 8v8ZlNDx0QWBjEuBksxRZYk7ZcdDKtrFGNqH4TBzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
+ RjrGOkYMXJwCMNUGnIwMvf5TlF6V5sjNsHu8T/xuePXc1JwTP0O+HG7iWTi7tbOnl5Ghy17vlvD
+ x1RZlC9ztBCPqpcTtLq7cGTrt0GZNzcfaE3bzAQA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003120_158824_333A9B9D 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20260709_003130_875941_29442C74 
+X-CRM114-Status: UNSURE (   7.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,83 +128,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M3 Pro, Max and Ultra Apple silicon SoC family (T6030, T6031, T6032
-and T6034) differs from its M1 and M2 predecessors. Most notable is that
-T6030 (M3 Pro) appears to be a separately designed SoC. MMIO address
-spaces, interrupt and pin numbers do not match. It has two CPU clusters
-with 6 efficiency or performance cores. T6031 (M3 Max) as one cluster
-with 4 effciency cores and two clusters with 6 performance cores each.
-T6032 (M3 Ultra) is like in the previous generations two T6031 dies
-connected with an high speed interface and appears from operation system
-perspective as a single SoC.
-T6034 is a separate identifier for smaller M3 Max variant. It has fewer
-performance CPU cores (10 instead of 12), fewer GPU cores (30 instead of
-40) and less memory controllers (384-bit instead of 512-bit combined
-width).
-Apple has only released 14- and 16-inch Macbook Pros with T6030, T6031
-and T6034 (M3 Pro and Max) and as only desktop device the Mac Studio
-with T6032 (M3 Ultra).
-
-Signed-off-by: Janne Grunau <j@jannau.net>
+The pmgr-powerstate registers on Apple M3 Pro, Max and Ultra SoCs are
+compatible with "apple,t8103-pmgr-pwrstate". Add
+"apple,t6030-pmgr-pwrstate" for M3 Pro and "apple,t6030-pmgr-pwrstate"
+for M3 Max and Ultra as per-SoC compatibles.
 ---
- Documentation/devicetree/bindings/arm/apple.yaml | 37 ++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+ Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/apple.yaml b/Documentation/devicetree/bindings/arm/apple.yaml
-index e49403c73f9d..111c28d94736 100644
---- a/Documentation/devicetree/bindings/arm/apple.yaml
-+++ b/Documentation/devicetree/bindings/arm/apple.yaml
-@@ -123,6 +123,14 @@ description: |
-   - Mac Studio (M2 Ultra, 2023)
-   - Mac Pro (M2 Ultra, 2023)
+diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+index c9be097cfba0..e269f433524e 100644
+--- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
++++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+@@ -45,6 +45,8 @@ properties:
+       - items:
+           - enum:
+               - apple,t6020-pmgr-pwrstate
++              - apple,t6030-pmgr-pwrstate
++              - apple,t6031-pmgr-pwrstate
+               - apple,t8122-pmgr-pwrstate
+           - const: apple,t8103-pmgr-pwrstate
  
-+  Devices based on the "M3 Pro", "M3 Max" and "M3 Ultra" SoCs:
-+
-+  - MacBook Pro (14-inch, M3 Pro, 2023)
-+  - MacBook Pro (14-inch, M3 Max, 2023)
-+  - MacBook Pro (16-inch, M3 Pro, 2023)
-+  - MacBook Pro (16-inch, M3 Max, 2023)
-+  - Mac Studio (M3 Ultra, 2025)
-+
-   The compatible property should follow this format:
- 
-   compatible = "apple,<targettype>", "apple,<socid>", "apple,arm-platform";
-@@ -365,6 +373,35 @@ properties:
-           - const: apple,t6022
-           - const: apple,arm-platform
- 
-+      - description: Apple M3 Pro SoC based platforms
-+        items:
-+          - enum:
-+            - apple,j514s # MacBook Pro (14-inch, M3 Pro, 2023)
-+            - apple,j516s # MacBook Pro (16-inch, M3 Pro, 2023)
-+          - const: apple,t6030
-+          - const: apple,arm-platform
-+
-+      - description: Apple M3 Max SoC based platforms
-+        oneOf:
-+          - items:
-+            - enum:
-+              - apple,j514c # MacBook Pro (14-inch, M3 Max, 16 cores, 2023)
-+              - apple,j516c # MacBook Pro (16-inch, M3 Max, 16 cores, 2023)
-+            - const: apple,t6031
-+            - const: apple,arm-platform
-+          - items:
-+            - enum:
-+              - apple,j514m # MacBook Pro (14-inch, M3 Max, 14 cores, 2023)
-+              - apple,j516m # MacBook Pro (16-inch, M3 Max, 14 cores, 2023)
-+            - const: apple,t6034
-+            - const: apple,arm-platform
-+
-+      - description: Apple M3 Ultra SoC based platforms
-+        items:
-+          - const: apple,j575d # Mac Studio (M3 Ultra, 2025)
-+          - const: apple,t6032
-+          - const: apple,arm-platform
-+
- additionalProperties: true
- 
- ...
 
 -- 
 2.54.0
