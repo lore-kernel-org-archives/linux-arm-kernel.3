@@ -4,116 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49541C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAACC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=; b=bZJofak6qxm36czdENp+uLSX9k
-	/7QSNk60fVscgOT2x/Bns+yoLbgglz8Xip+0KAe6swKiKogXVkoV3fsNrNGbyl5oSryhupwTUfbyJ
-	Hwa+lWluHjlueqQaeQT+d2bdGNtPTkQOjkiRfRJrzFZjUQ/ko2e/1ybdDR73Q9sKTXypKDZH0EiFA
-	/5MOwsE9mmPbbzoWOX5g6qmtZqHKqf/Ovc/gjD2pD9tUgQzg0+mb5+RquxNgszEhAzSf1JUJFzw2q
-	jtJhndcAl1N+WIDc/5NVqwUJL2CTlQZMrl007iVukQMn5NHWjzyriJ1fJXgpC2nyUf3RX43g7SDU/
-	XNx6KTgQ==;
+	bh=tQ+V+NoyUcPuvrO7cKOPdWAVnLPgCtZojOaNp2ZcxCc=; b=oqQCYvF6p0Wh8X1SSPeYPxdBtG
+	0BtU6TgegBJ5X2Cp8mwZzs7pU+A06fMueakIV2AVtF+vXVLGoDwj+Xd0I8PSEiH43VnET7gG0QpKW
+	/WkeHQiRXXoHPUhsXZrU8hbG97ybdwNfghogfWx5K89hgky5HK/DOWnt4T3+YM2qcqJHgCtI4PhnA
+	J/qcmLK502apY7DIomSVfuBrzQ1hkGHqQh27Bmqs1jx4muQW8Ng+eLAkZIUUQDU2WM0PwYb5ctlgF
+	KkT7YBKKWlXQc9iu2JpmlmxXimbP5KZpmi2z9gEDxPE9kZSKxkh0IPEHz0SD/PHFfB/2nSfdW3oEX
+	lsai3txQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whgrn-000000011t3-3mVB;
-	Thu, 09 Jul 2026 05:00:07 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1whh97-0000000136t-1hZT;
+	Thu, 09 Jul 2026 05:18:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whgrj-000000011r3-1aeo
+	id 1whh95-0000000136b-2BDv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 05:00:06 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3811e59df58so946267a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 22:00:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783573202; x=1784178002; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=;
-        b=ihKmQdKcxpzjQzm/uSlnQu97tEaSyc5l+AOtL7LLCq6yBLmLZXtYlkHWQO+6YtfvK2
-         fk7wkqpheQTWK4o/WkyZsbP2XK839aGbJxTnhbUEzvk1+CjlhC1VO8TWnzYiS3jk6qc1
-         RUuJEWelE9YDUIUxwKIUOY6XbA+4JZuPV27IbXaZTDJVG+43ltj4TgB/kLBWfR/x790l
-         GP72iSPzJbrw8DPYJLKKgX8eSWOX+b+QFVbG7FxvAetaNGuaRnYnLoRt5TDDHyGBApgP
-         EfwHIRoZlQHlxOtXintSreg3zBOFZ5UQnyCr3YILye5C2cDVoiN2NxL+QtUSlcjqTw7r
-         KTeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783573202; x=1784178002;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E63rONCybeKNZ9BBxLw4/pUgmeGU/hnyC6bCIs5It3Y=;
-        b=CygQP5RNuI+6nuU9UuSXwowqij5R7HKqsnEtaXwuhc2mJyv5d7ytPsAJ7XlTalVV0c
-         JaspbzjxWvTy0nbwuOsZxH3WLxOVu8NWquFV0wBN7wYguZKePJr3BGDfL6OM18l0xBPR
-         RCdWyH8hmwtFx7/W5WaIQfSY9JXCa3UVMYgzH7WV9FuE8ZJPoRa3AyTxigPe08u+50Xx
-         sUmRLtBVWcHSDk+q/gZTs+QpeUSJr/prTNcQDMbtXjbkYfeNfxLBHrcPh4awNpF2dlMi
-         xuyBXzlTwiBhSe56x3rGQeToZWVi66tH+nMyFf9ideonBSceOGnAGK3oRYcI48cujWnP
-         sycQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrMaqVyx5Ar8AV+R7T3KN6+z5jse+rwD+mbQoaIGuKXZVS6NgVlMyu7x7FZoDRp1lFhiorZ34VCb8rpiyhmMAJL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoONAWE5Imc+EYGJz/sYU/YxfMgx4+k8K6NinBfoxW7vpXVFWQ
-	ZE1uR16hW4qnD5N20H8NC8NjTZOWQaN+hcxmrwEvFzTWHHVNSCX1fMlz
-X-Gm-Gg: AfdE7ck0pdgRlySANFJBDrLBCDGMGgeUTxyXxjOsh4jt1nMIBZRDywAcrbU02qZvN9Y
-	3XckbRxq06p9MPgdFOvD1BsiZqnfAFvk/7mLclZYB/Lks79aExHj97UH1tfNdLULGW2pchPBQOe
-	hGr7iAKEhRmraMyiOReOOkOISSGy9cRPmFGrBDw3afDED8kRZzhYqqYyqqKNLhz7rmxuHzUwQOx
-	tbDdNXvHkpiZctSgBr9WRYTqzrH5QhtkFQE5JDvmHo/Gell2RHV8+IIzxbulQ8qTLOVg02qayvo
-	qJsBGj8n4wFjC7s/uUU22Ys9ghTN7xixXFwq6lUuK00hGBwDmJttY66uc9h4CVXNY3XxYX04wQj
-	x5jpdsPtsiHiWH5vgnmqiFoCR/Eb0o4tvGXmi4UXyUhuzAXfE3+siV/jdGvBdm02KyXSHgC4Rp+
-	4QIsPXAqsmxeenXO1+SZ6yqTfG1LnFxTskIzjqh3v1oCoLyeQ=
-X-Received: by 2002:a17:90b:5384:b0:387:e0bb:57fe with SMTP id 98e67ed59e1d1-389421ae15amr5296615a91.37.1783573202444;
-        Wed, 08 Jul 2026 22:00:02 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38a5506b47esm490481a91.3.2026.07.08.21.59.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 22:00:02 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Takashi Iwai <tiwai@suse.com>,
-	Nick Li <nick.li@foursemi.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Cc: Support Opensource <support.opensource@diasemi.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	Sen Wang <sen@ti.com>,
-	Oder Chiou <oder_chiou@realtek.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	u.kleine-koenig@baylibre.com,
-	Zhang Yi <zhangyi@everest-semi.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Kees Cook <kees@kernel.org>,
-	HyeongJun An <sammiee5311@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Qianfeng Rong <rongqianfeng@vivo.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v3 02/27] ASoC: codecs: da7219: Use guard() for mutex locks
-Date: Thu,  9 Jul 2026 11:58:37 +0700
-Message-ID: <20260709045902.498848-3-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260709045902.498848-1-phucduc.bui@gmail.com>
-References: <20260709045902.498848-1-phucduc.bui@gmail.com>
+	Thu, 09 Jul 2026 05:17:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 810516001A;
+	Thu,  9 Jul 2026 05:17:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A151F000E9;
+	Thu,  9 Jul 2026 05:17:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783574278;
+	bh=tQ+V+NoyUcPuvrO7cKOPdWAVnLPgCtZojOaNp2ZcxCc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=k32G/98MDVwSpEfyGKC/N9IIzGeaQas9poCOPA0KblZhNluiI1Z7fB5vBh8c3W4GK
+	 QKkFwAzJ0DWHo7fPX2BnHa/8JiBIvZi8WiKO2f9Y2hN8QSx3Eq6tsWctpJy3YrLRNi
+	 f9D53gOZGVVGTJUuiJNK7sNxsT5F/jPskZApFqTJNh/vWL/bw7bvy+Q+5+hv6kDpd/
+	 +gKDdASXtSzKsnt8xGKiRtfwHgVOZhIF5FtZW/CILAfYGdMkLGkI/gNCeK+T/ApASP
+	 hJQwkOwwQpI7TMQ0fHRJbjzJ+KYEcMZ6khfk3TrzT46oBQReSYNTPSPlnBy3au1h16
+	 kTyzNnbZcdKdQ==
+Message-ID: <1af9eb75-fcab-4541-8ba7-ec620546f031@kernel.org>
+Date: Thu, 9 Jul 2026 07:17:51 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/7] serial: 8250_aspeed_vuart: add VUART over PCI
+To: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>,
+ joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
+ devicetree@vger.kernel.org, gregkh@linuxfoundation.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: andrew@lunn.ch, jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com,
+ ninad@linux.ibm.com, anirudhsriniv@gmail.com, linux-serial@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1783524645.git.gregoire.layet@9elements.com>
+ <28c6e7c493559feffc7e6231b0a2f0b73b7fda41.1783524645.git.gregoire.layet@9elements.com>
+Content-Language: en-US
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <28c6e7c493559feffc7e6231b0a2f0b73b7fda41.1783524645.git.gregoire.layet@9elements.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_220003_430039_19A2FBA5 
-X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,182 +118,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On 08. 07. 26, 17:35, Grégoire Layet wrote:
+...
+> --- a/drivers/tty/serial/8250/8250_aspeed_vuart.c
+> +++ b/drivers/tty/serial/8250/8250_aspeed_vuart.c
+> @@ -32,6 +32,26 @@
+>   #define ASPEED_VUART_DEFAULT_SIRQ	4
+>   #define ASPEED_VUART_DEFAULT_SIRQ_POLARITY	IRQ_TYPE_LEVEL_LOW
+>   
+> +#define ASPEED_SCU_SILICON_REVISION_ID			0x04
+> +#define AST2600A3_REVISION_ID				0x05030303
+> +
+> +#define ASPEED_SCUC24			0xC24
+> +#define  ASPEED_SCUC24_MSI_ROUTING_MASK			GENMASK(11, 10)
+> +#define  ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1		(0x2 << 10)
 
-Clean up the code using guard() for mutex locks.
-Merely code refactoring, and no behavior change.
+So is this
+FIELD_PREP(ASPEED_SCUC24_MSI_ROUTING_MASK, 2)
+?
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/codecs/da7219.c | 62 ++++++++++++---------------------------
- 1 file changed, 19 insertions(+), 43 deletions(-)
+> +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN		BIT(18)
+> +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN			BIT(17)
 
-diff --git a/sound/soc/codecs/da7219.c b/sound/soc/codecs/da7219.c
-index f0874d891e12..f6d371e93549 100644
---- a/sound/soc/codecs/da7219.c
-+++ b/sound/soc/codecs/da7219.c
-@@ -8,6 +8,7 @@
-  */
- 
- #include <linux/acpi.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/clkdev.h>
- #include <linux/clk-provider.h>
-@@ -256,13 +257,10 @@ static int da7219_volsw_locked_get(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_get_volsw(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_get_volsw(kcontrol, ucontrol);
- }
- 
- static int da7219_volsw_locked_put(struct snd_kcontrol *kcontrol,
-@@ -270,13 +268,10 @@ static int da7219_volsw_locked_put(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_put_volsw(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_put_volsw(kcontrol, ucontrol);
- }
- 
- static int da7219_enum_locked_get(struct snd_kcontrol *kcontrol,
-@@ -284,13 +279,10 @@ static int da7219_enum_locked_get(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_get_enum_double(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_get_enum_double(kcontrol, ucontrol);
- }
- 
- static int da7219_enum_locked_put(struct snd_kcontrol *kcontrol,
-@@ -298,13 +290,10 @@ static int da7219_enum_locked_put(struct snd_kcontrol *kcontrol,
- {
- 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = snd_soc_put_enum_double(kcontrol, ucontrol);
--	mutex_unlock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 
--	return ret;
-+	return snd_soc_put_enum_double(kcontrol, ucontrol);
- }
- 
- /* ALC */
-@@ -422,9 +411,8 @@ static int da7219_tonegen_freq_get(struct snd_kcontrol *kcontrol,
- 	__le16 val;
- 	int ret;
- 
--	mutex_lock(&da7219->ctrl_lock);
--	ret = regmap_raw_read(da7219->regmap, reg, &val, sizeof(val));
--	mutex_unlock(&da7219->ctrl_lock);
-+	scoped_guard(mutex, &da7219->ctrl_lock)
-+		ret = regmap_raw_read(da7219->regmap, reg, &val, sizeof(val));
- 
- 	if (ret)
- 		return ret;
-@@ -456,12 +444,11 @@ static int da7219_tonegen_freq_put(struct snd_kcontrol *kcontrol,
- 	 */
- 	val_new = cpu_to_le16(ucontrol->value.integer.value[0]);
- 
--	mutex_lock(&da7219->ctrl_lock);
-+	guard(mutex)(&da7219->ctrl_lock);
- 	ret = regmap_raw_read(da7219->regmap, reg, &val_old, sizeof(val_old));
- 	if (ret == 0 && (val_old != val_new))
- 		ret = regmap_raw_write(da7219->regmap, reg,
--				&val_new, sizeof(val_new));
--	mutex_unlock(&da7219->ctrl_lock);
-+				       &val_new, sizeof(val_new));
- 
- 	if (ret < 0)
- 		return ret;
-@@ -1167,15 +1154,12 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
- 	int ret = 0;
- 
--	mutex_lock(&da7219->pll_lock);
-+	guard(mutex)(&da7219->pll_lock);
- 
--	if ((da7219->clk_src == clk_id) && (da7219->mclk_rate == freq)) {
--		mutex_unlock(&da7219->pll_lock);
-+	if (da7219->clk_src == clk_id && da7219->mclk_rate == freq)
- 		return 0;
--	}
- 
--	if ((freq < 2000000) || (freq > 54000000)) {
--		mutex_unlock(&da7219->pll_lock);
-+	if (freq < 2000000 || freq > 54000000) {
- 		dev_err(codec_dai->dev, "Unsupported MCLK value %d\n",
- 			freq);
- 		return -EINVAL;
-@@ -1193,7 +1177,6 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 		break;
- 	default:
- 		dev_err(codec_dai->dev, "Unknown clock source %d\n", clk_id);
--		mutex_unlock(&da7219->pll_lock);
- 		return -EINVAL;
- 	}
- 
-@@ -1203,17 +1186,13 @@ static int da7219_set_dai_sysclk(struct snd_soc_dai *codec_dai,
- 		freq = clk_round_rate(da7219->mclk, freq);
- 		ret = clk_set_rate(da7219->mclk, freq);
- 		if (ret) {
--			dev_err(codec_dai->dev, "Failed to set clock rate %d\n",
--				freq);
--			mutex_unlock(&da7219->pll_lock);
-+			dev_err(codec_dai->dev, "Failed to set clock rate %d\n", freq);
- 			return ret;
- 		}
- 	}
- 
- 	da7219->mclk_rate = freq;
- 
--	mutex_unlock(&da7219->pll_lock);
--
- 	return 0;
- }
- 
-@@ -1296,13 +1275,10 @@ static int da7219_set_dai_pll(struct snd_soc_dai *codec_dai, int pll_id,
- {
- 	struct snd_soc_component *component = codec_dai->component;
- 	struct da7219_priv *da7219 = snd_soc_component_get_drvdata(component);
--	int ret;
- 
--	mutex_lock(&da7219->pll_lock);
--	ret = da7219_set_pll(component, source, fout);
--	mutex_unlock(&da7219->pll_lock);
-+	guard(mutex)(&da7219->pll_lock);
- 
--	return ret;
-+	return da7219_set_pll(component, source, fout);
- }
- 
- static int da7219_set_dai_fmt(struct snd_soc_dai *codec_dai, unsigned int fmt)
+Perhaps switch the two (to be in asc order)? And define 14 as _RESERVED 
+as well?
+
+> +#define ASPEED_SCU_PCIE_CONF_CTRL	0xC20
+
+Hmm, should these go before 0xC24?
+
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN					BIT(8)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_MMIO				BIT(9)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_MSI				BIT(11)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_IRQ				BIT(13)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_PCIE_BUS_MASTER	BIT(14)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_E2L				BIT(15)
+> +#define  SCU_PCIE_CONF_BMC_DEV_EN_LPC_DECODE		BIT(21)
+> +
+> +#define ASPEED_SCU_BMC_DEV_CLASS	0xC68
+> +
+>   struct aspeed_vuart {
+>   	struct device		*dev;
+>   	int			line;
+> @@ -412,6 +432,63 @@ static int aspeed_vuart_map_irq_polarity(u32 dt)
+>   	}
+>   }
+>   
+> +static int aspeed_ast2600_vuart_over_pci_set_enabled(struct platform_device *pdev)
+> +{
+...
+> +	if (silicon_revision_id == AST2600A3_REVISION_ID)
+> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
+> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_MASK,
+> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
+> +	else
+> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
+> +					/**
+> +					 * The bit 14 is reserved in the Datasheet.
+> +					 */
+
+If you defined reserved as suggested above, no need for the comment.
+
+> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_MASK,
+> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
+> +	if (rc) {
+> +		dev_err(dev, "could not set PCI device 1 MSI interrupt routing\n");
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+
+thanks,
 -- 
-2.43.0
-
+js
+suse labs
 
