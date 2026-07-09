@@ -4,119 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB621C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556BDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RRwQIJh1889dCPoOcbcg16JSZb+Bt3uDLhus1mbDjw=; b=UE5L1FWL2Rg4upKTnaGBCq4Nk6
-	HmcTKfy8T+cNgeBjBw6LG9N8LtOeGnv/eKAxUB8HvvK6XqyXL6uZedPZmWhBnYRFFKt9s/5XLfH8h
-	11orpjIb/lKE/UZX8AtRIenjEqdAmF8kdcF6K3RD7mVsomwSUyHLlXQ0B/lpBEtNoY1bK7mm5wjXz
-	NulLtFJxSLImzD59BE+Tb1XabkBlbtV0Soovkb1SFIaS435TNk7vKNKJYyReWeK7zrET44SIC2ZbL
-	hO8trnpYNvyohVOJmfHIV33Rpwb+m1Ldk76E2j5Y5ex1Dc/CUqEqrvl722jFeawFQ6sng/bOFjE3m
-	PSbENA3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vbv3tP+npgSg/Xbj8qGq20Y7fKajQ7fLEGhH+bY+H4w=; b=h8FPu+sj1SbifrLGn58XrCP+rS
+	r1n0d2m43Pd+0z3fm2dq5x0uA8fgSe2pOH/8ST7rIohZ7qtRI8J+1lbYjAn+xj76UU2PFw4IiwJRx
+	pxAYnMESOWyI+RDQmobgib06b/4DESSF2Z8mpLBOhBQbnpm0S4I+QIsLVMkIDMOPus2bOGyApH9eS
+	bcEErWwNn8zGUMmQItFOGxb5YYdTugXhPY/bjwnIHsFkd7YE83GfiT3DAG/VuYvK8JpCMy3byIqfU
+	Q5mFuy9v0nZMyO4xtH6izBtPd6BQWwCvoV+BUcm9U58BxkqvTeF4DE1O/bsOADCVenqc9z6AvciVd
+	gUHgxYJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wheaU-00000000pyW-0p42;
-	Thu, 09 Jul 2026 02:34:06 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1whefs-00000000r1l-0ciu;
+	Thu, 09 Jul 2026 02:39:40 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wheaS-00000000pxk-2C0n
+	id 1whefp-00000000qxe-1nE4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 02:34:05 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cace91f112so13926875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 19:34:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783564444; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CAR7vpu3PLPXogzR3r3OKiRMucCe2axm6Tc44WgD9NTf0qzWVV1U0NjT7USGCgNfL+
-         sJhlx3fa/WXvclcLK5/j3j7wgKq8OftEG9TkGGg4vjUVocypbTsnXKjjNMrhvtJha/Ot
-         ZBXa19yag3q4eQnXhf934x2NUzGQOkPhFoTy5/CIdUIK9Qnr+V8IyWTlPQle52auYV4c
-         XzyJDKhAOejPC3YbxynCPbc0Ii4QxznJ5rrJK0KpXdQeX5GdQKs0yoRg3XRUxF3EjGlm
-         1LHa4XT072yFVRZVl3c7v3K17dSVQKUQSnth3NLbyPUi0HCUx1pSJG6N9h+qPNhVebAk
-         lpsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9RRwQIJh1889dCPoOcbcg16JSZb+Bt3uDLhus1mbDjw=;
-        fh=1ZYRILd5FyLyBOQohuGZcykJM7eRTTvd5nOCowDqDdo=;
-        b=D4pKYUXzaW1GQntwKIP+qf+Hg3w+bzffN/tofNrbVZhe79bxGvLQDBHLolsla0JviR
-         4/7AFJcftsrLdiWb1JJqCKuh3DM8Ov1eOpwOQEcm70zpbQpCGFBMQNPUVO/Nd/bRAS1t
-         XmJNiw74HbzU1ndWN7wiSNT0YErzwISGQMFdjWI1DgxFLROSwweAQHzILtPDytlmHsn1
-         gVN18TQVzH1kNKWP7RKfZhKU8wdtbcCbPS88H8L3pZIBl0PQOdUoq1Z5opYbij/uoM13
-         Fk70zNXf999jZgkuie/CHkKkmD/GZc/B5oRCIUszH84HRs5hK73kBjGUmveCLLnhlln/
-         MBEA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783564444; x=1784169244; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9RRwQIJh1889dCPoOcbcg16JSZb+Bt3uDLhus1mbDjw=;
-        b=dmfb7M6HFIo9jCH2WwcdZ1XZnQAZGc0Voar+j9ub30OJovKsamzu/xbem0BwYSjORd
-         tiFWDDNQ1nYR8t1NKKoNsAoEbihZYowizD/V0cTH+v29Rz8Gw5sUx889kgT/FKfu2/p5
-         dO3d/vZv0LX+uwAJpbH3XbDJThBGvRz8rJQreIxEGvMOiwairsxqdNq0vGv5W60w5s0i
-         dEF942p1n56gYIEVZEYS/lch7cABcWkY4erjnxOPOJY8lWi+zYSoD63NzQ+ci1ef+UB4
-         OjQYmUCB4VGnUgaGywIAq4p04vukrdIuq6sgHTRaLf+aQantz3vxRj0ZYBKcYC9fap4C
-         rZlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783564444; x=1784169244;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9RRwQIJh1889dCPoOcbcg16JSZb+Bt3uDLhus1mbDjw=;
-        b=Qbj7FJ+T+96Qbj+nqvA8B7P8BhLJiLP9d+BmY02llWMVV7NuX5AWf1cjZ1Dq+V1J/Q
-         OOhRvDTQskvRFcQV+bG0j/LmNrdGylsYdH4W0P8PSDAhhYbNsli59DHfRh4+w+woun8d
-         Q2MFbv2wLW4Zefo+OOXiIOM3FjvFIqH4U7nNkDESCmaZkIf3wB/QXK7cWDR/Z5ScnAXw
-         t2OXEAWpZ13F0ktIZG7qtAfxNRkU6aY5QzjtUwbDOWd1kl4POYsMskLNMWzsU4eZx3du
-         kwnw4AjSwh27ENNaNGRzBVQW4ER8o0CzyjZYYQzpbLo2AylI2kQ2uZHfAndBSvZQ2jtb
-         WI8w==
-X-Forwarded-Encrypted: i=1; AHgh+RpqzZZCBUguBQ+49lkOzJNCp0lqzbbLWH3BnG4mY+ejkdPkk9vNZrqOBHuwG4avoj8lv7ctDZOteqsn0U8seNjs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjToTdMa3X+iaUSZk6zqcVdLBK1A95/9eRcDzUtNo1V3ghzI0i
-	EDGZVP7bWjye7FDD3oWMtDU3Qn8FwUmrAaRYgVKbmiUDIIf1GDBKGpO1i/F1fb8/nCqLGFPBkf4
-	kQyaDt7okmRojmARo83JK6gcMOVZVKeA=
-X-Gm-Gg: AfdE7cmAt/Pv3zwsy89uaAuywFcxzK2FdWs28i7uK3ZqwpI8zyUJbsCOsnlSt1MnUDM
-	boF984Bl5ZejlA/YBH4c6ov9asEerfgQaTb+yRZ+rupgpHTBqb6tzez3J/5Q7JOf5Jq4bqAeoNu
-	+JgO/4fzGrljeEUZK7D90KIh/BlcvlkcGnOSKZ4W1G+vdelIoBPz/7iV3g/vOh0nY9fscjNaHQN
-	QQG5V65NzFeOIoNWy8/yxt7js/0+eL65AS16pvvJmNANHvDW6sDJND0qjgtK1gmvNJCLPbGni2y
-	YABF9uIBMn4BlQDyGbVYNQnXihM=
-X-Received: by 2002:a17:902:ce91:b0:2ca:ec6f:aeca with SMTP id
- d9443c01a7336-2ccea3847b4mr47728935ad.8.1783564443676; Wed, 08 Jul 2026
- 19:34:03 -0700 (PDT)
+	Thu, 09 Jul 2026 02:39:39 +0000
+X-UUID: 66cfd7bc7b3f11f1aa26b74ffac11d73-20260709
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:1a00e568-ab91-4baa-9e11-cd10ab01f59a,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:1916384cc01ba5efa0dbd20f345f8e72,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 66cfd7bc7b3f11f1aa26b74ffac11d73-20260709
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1805109752; Thu, 09 Jul 2026 10:39:26 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: ludovic.desroches@microchip.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	tudor.ambarus@linaro.org,
+	nicolas.ferre@microchip.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	sashiko-bot@kernel.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v6] dma: at_hdmac: Fix use-after-free by proper tasklet  cleanup
+Date: Thu,  9 Jul 2026 10:39:22 +0800
+Message-Id: <20260709023922.645413-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260708141734.578926-1-phucduc.bui@gmail.com> <c9f7eaac-9bf7-408a-a4a6-56f3ec6177a6@sirena.org.uk>
-In-Reply-To: <c9f7eaac-9bf7-408a-a4a6-56f3ec6177a6@sirena.org.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Thu, 9 Jul 2026 09:33:52 +0700
-X-Gm-Features: AVVi8CfyewtsE3QT1H6Qb0mhvtRsc5zTxpasaNVBWAckYMH2ZTVpwhyO0FrCTdA
-Message-ID: <CAABR9nEjwXufG5FyWm=ExiDEmpO50U8Tnr6yg=CSFPo3SWrJJw@mail.gmail.com>
-Subject: Re: [PATCH v2 00/27] ASoC: codecs: Use guard() for mutex & spin locks
- - part 2
-To: Mark Brown <broonie@kernel.org>
-Cc: Takashi Iwai <tiwai@suse.com>, Nick Li <nick.li@foursemi.com>, 
-	Herve Codina <herve.codina@bootlin.com>, 
-	Support Opensource <support.opensource@diasemi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Srinivas Kandagatla <srini@kernel.org>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Richard Fitzgerald <rf@opensource.cirrus.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
-	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, u.kleine-koenig@baylibre.com, 
-	Zhang Yi <zhangyi@everest-semi.com>, Marco Crivellari <marco.crivellari@suse.com>, 
-	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_193404_561972_F1CDAD47 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260708_193937_762351_444BBFA4 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,15 +83,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Current cleanup paths have a use-after-free vulnerability:
+- vchan_init() creates tasklets that access at_dma_chan memory
+- free_irq() only waits for IRQ handler, NOT tasklets
+- atdma is devm-managed and freed after probe/remove
+- Running tasklets accessing freed memory → Use-After-Free!
 
-Thanks for letting me know.
->
-> This doesn't apply against current code, please check and resend.
+The fix requires careful ordering:
+- free_irq() FIRST to synchronize with running IRQ handlers and prevent
+  them from scheduling new tasklets
+- Then kill tasklets to wait for already-scheduled ones to complete
+- Only then free other resources
 
-I'll rebase the series on the current for-next, check that it applies
-cleanly, and resend.
+Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+Reported-by: sashiko-bot@kernel.org
+Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Suggested-by: Frank Li <Frank.Li@nxp.com>
 
-Best regards,
-Phuc
+---
+ Change in v6:
+  - Replace free_irq() in error path with disable_irq()to allow natural
+    fall-through without goto, per Frank's suggestion
+  - free_irq() now called only once, in err_desc_pool_create label
+---
+ drivers/dma/at_hdmac.c | 28 +++++++++++++++++++---------
+ 1 file changed, 19 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index e5b30a57c477..09b1aedefb45 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
+ 		cpu_relax();
+ }
+ 
++static void at_dma_cleanup_channels(struct at_dma *atdma)
++{
++	struct dma_chan *chan, *_chan;
++	int i = 0;
++
++	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
++			device_node) {
++		/* Disable interrupts */
++		atc_disable_chan_irq(atdma, i++);
++		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
++		list_del(&chan->device_node);
++	}
++}
++
+ static int __init at_dma_probe(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma;
+@@ -2105,6 +2119,8 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ err_of_dma_controller_register:
+ 	dma_async_device_unregister(&atdma->dma_device);
+ err_dma_async_device_register:
++	disable_irq(platform_get_irq(pdev, 0));
++	at_dma_cleanup_channels(atdma);
+ 	dma_pool_destroy(atdma->memset_pool);
+ err_memset_pool_create:
+ 	dma_pool_destroy(atdma->lli_pool);
+@@ -2118,23 +2134,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ static void at_dma_remove(struct platform_device *pdev)
+ {
+ 	struct at_dma		*atdma = platform_get_drvdata(pdev);
+-	struct dma_chan		*chan, *_chan;
+ 
+ 	at_dma_off(atdma);
+ 	if (pdev->dev.of_node)
+ 		of_dma_controller_free(pdev->dev.of_node);
+ 	dma_async_device_unregister(&atdma->dma_device);
+ 
+-	dma_pool_destroy(atdma->memset_pool);
+-	dma_pool_destroy(atdma->lli_pool);
+ 	free_irq(platform_get_irq(pdev, 0), atdma);
+ 
+-	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+-			device_node) {
+-		/* Disable interrupts */
+-		atc_disable_chan_irq(atdma, chan->chan_id);
+-		list_del(&chan->device_node);
+-	}
++	at_dma_cleanup_channels(atdma);
++	dma_pool_destroy(atdma->memset_pool);
++	dma_pool_destroy(atdma->lli_pool);
+ 
+ 	clk_disable_unprepare(atdma->clk);
+ }
+-- 
+2.25.1
+
 
