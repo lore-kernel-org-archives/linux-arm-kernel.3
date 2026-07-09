@@ -4,87 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84450C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D03C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMMlPYy7nnXpVB6FvIeH87WDzCUQamWqEFmFsgEttos=; b=bNuTcFmPwG4eRfbgHPRGO7nNLy
-	XtJjWxrHW/MIO5JDFbwmubx2gKMhW6XwffvrmrKta1I2hC+Dogz1DVqdXHl8PU0glpdnuysWL9R9l
-	gIs5AEqyl3t/xuMiB9MGhv0kuUCU0cEOg9t86EA/xK7OEZcZQ+/RNx2gATvG2CfXZaDp3uxw7NjCH
-	SAMMEKSTn238tnqPDuPrEDWoH3Yf1feXGNIDvj/A79dKSk+9QPIrD6lf05U9MQr6iGe5NWdnJ/7GH
-	fiODkglyd8lQ6FbUb3vx4m+X34UX2Br1hOUTxdlqAQ6Rlpc399lgL2rewCQdqB454Q28V/zmvU4l/
-	5bYgOVfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tykZSdBbFVnoxsjT3yV+4MRoChTaLH6xBUntMi9i5W8=; b=N+tni7pJfGrlLk
+	ocgQHbxNiWbbryFxq3+X5EKFPtSZv3UaAxO2JOWkaNTlzyuqj9Q386gDSv4O4+nM29sP4zwtcD1Xa
+	V4KKyt2okSGwKb1+EPV5WXWecmAnSRCUiycy6cnoaeirIHslY47ckMpq/4NfRlv+4e3FKB8yhhUSH
+	VTO7YQNMjCNrxAbTGTix/kGpN45HLyVV04iAA7WIgpP4j+beBhjU0qh/KGJAQj/i24/vdA8IndWhe
+	uoDT/l7HgDv4pMi7JKHDNyHmT2okDYDPahbYwgLfC8szj9dLUYJzXTZ/Mutk918FUJYlRQ0a8GoGz
+	wfanEw7ZUcmL+Vsz+cOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whiwJ-00000001FQO-3dv4;
-	Thu, 09 Jul 2026 07:12:55 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1whjEJ-00000001HoF-2WaC;
+	Thu, 09 Jul 2026 07:31:31 +0000
+Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whiwG-00000001FOx-3UfM;
-	Thu, 09 Jul 2026 07:12:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1783581131;
-	bh=wMMlPYy7nnXpVB6FvIeH87WDzCUQamWqEFmFsgEttos=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=jnWY5PvmrwVmHvDAq8v5sZp58U1L+Uo3Z0cNQWdTxisgiPq4khRVj/P1pohQyAf5p
-	 gqpwjcEt7OBYa7ChLMxNdp+WZWFjMCYgdEodNY2O0Zn6UHDQlkD6yIIF9JMc4qN8K2
-	 qxc1d1OVQ7sqTZsaVJUyYw1mgE6EPTLrWrq2BP1I=
-X-QQ-mid: zesmtpgz6t1783581129t6844ee2f
-X-QQ-Originating-IP: z+G+QLWqjlW2I2IbBBHbbVGoiBJyh6Msi3DKDcj+EiM=
-Received: from [127.0.0.1] ( [61.154.14.86])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 09 Jul 2026 15:12:06 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2660938683507216801
-Message-ID: <C19180EE3CEA14F2+991fd802-3b76-4805-8c2d-a15cd8417a13@airkyi.com>
-Date: Thu, 9 Jul 2026 15:12:04 +0800
+	id 1whjE7-00000001Hkg-0zUL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 07:31:28 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailflow.phl.internal (Postfix) with ESMTP id 7BC79138006C;
+	Thu,  9 Jul 2026 03:31:15 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Thu, 09 Jul 2026 03:31:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1783582275; x=1783589475; bh=ty
+	kZSdBbFVnoxsjT3yV+4MRoChTaLH6xBUntMi9i5W8=; b=hrhXbskg7JksXDuhBv
+	pHSvTZd++o1Vmt7b3L4uOQO2/ACUBJDBMlVJXM0JcuJVERnncBNTzucq4b5my8yP
+	XnNg1UXNWqMy+kmlieCZndfewzQtUFKNS2u/6rmZxEd6XM6h/mnPhzp7oS3PWGvX
+	jI7c/OvWTQzUPwf/NwH357ABxZe/HRaeWjtPJcDUf2nj98XDARAH5YQw3rSV4DD1
+	l747e1WbLXj2TMWJV7+gKSrzesjowFKYaHOeMXIeDfVHCWyF96CTNDyGs/VCU/SQ
+	DtssinlyUUEREryjZ3AlneErCnqYdVATDS3UDqeaYOFOR3FZvW1jXPS+xhJCsJXX
+	/Llg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1783582275; x=1783589475; bh=tykZSdBbFVnoxsjT3yV+4MRoChTa
+	LH6xBUntMi9i5W8=; b=RFwp6tIWojWBFLZDWC5WAYOMVlj4RM0q9CjscGm3Zlgh
+	ATAhn8WHAaKRA8GItkeStdixzP6i4YM4h6KZM9EeRKjtsttiWQEiJjVqMwBk5gFh
+	xxt4ThvagRrU7HGbgqq0u9tkOL/bQnX9YMeRG3Q+mU0EUIXdl4hYxH6ntIeGXLXF
+	BVv7IzOq+v+AIbdnGVUKVIvsNBjmF7CUO4ElxcrnIuhkyKEvYqsy4cepYNW9JdwJ
+	1ymbm+R/RmqfxwOjcLxFcBNQVgctvItbe/T4+GNJLsbZjmAehVn2hYRcAc83r1zz
+	N8Ug1+delKrjwIG+EOxEWeOdZ0D69fTwtRgSZlrLVQ==
+X-ME-Sender: <xms:Qk5PapHK1MCI5wSYHX4pCDhHSXnnNEItquukk4c3NTeDt2K84iM4Xw>
+    <xme:Qk5PapGWcBzcsF2mORJhqFxs2crrE8itSAUN93Z-e0KrxQDwTFTfrqIVAg_BLA9zF
+    W-TZ7X4WL1-6qmopyRS7NDvzWVWU_MKoG7CLJTDjkwpJ29DWKJARAE>
+X-ME-Received: <xmr:Qk5PaqAxhdsSrf3gspn8Dwv3_-SKxUNex04JzmoNEAbQ1XKleg0cHUvC8a7J91HgLKJheCDJiC9CTvB16tzwCw_a3llcf-ehBbI>
+X-ME-Proxy-Cause: dmFkZTFSjdEBfLERVP1KXx0Gpwc6pvTv5Wcp1YpThT70UXH1FfpqSJZOc0ISQHxtU+MxDh
+    +67W+jKjcWO8Emjnwx9c2cPI4vcHYm1fIHunL9bsxD8PvVLg5zc3fwVzQnOE6XGe4mQMXh
+    TSRu6QPliu32CCyJiDgidFV/7cS84vyzWqS9tOjtyj+mnlJB8CW0rhQxWJ8lM8jziJMgf7
+    H2SI+DFO4cOB23YJrS8Fxa11AAGNyy9ItlV/2w5Gsa33KvxZDeGAZ4/eEPGffX9DTjsgJH
+    rKsoYtROEtnhh1n33QQUze7uf45lNJYJ0FYDovQk5IIReAIcX4szV+xhyKuYFmiO7YGxN+
+    daQL240SQMBC0r16xXUA08C+cDICvlWtBgD9i+daAwsYUlMg0G22prlM8K/0VTpgt4BtDh
+    V13zM8XQ9qHUdwWnGekOridrdTdY4oITDg/j3ifY1ZWOd4NQMc230YjEzrrafOQJtmZrrP
+    BDbt8JdBQxbT/MwObfW8DgI/NK+HGdx33+ceu1NA2bHslqU0LbJkmLq3dMvKXPAIKEJiR1
+    uhzGa5MVoKK+gkCHHsMigTnA37v4VhiDaUelwJ+Ybe17Q19Vl0bqC/UU9CN6LJf6WA9Lql
+    ftAqFgnYlnhnqp5bH4rZRZ5MRh5hbyyTsVtEcUC3cfINW4KQj5bLVuFq6MSg
+X-ME-Proxy: <xmx:Qk5Pal06FD5BdD0PI-YxYR0xLFVuDllFzEnM8too4AaWQos66OnbVA>
+    <xmx:Qk5PagCv8twDCim9dDzErvGkCFu-mJJyvDikCmD2QKowwBYshrCnBA>
+    <xmx:Qk5PaubCS7lrU8__KEGzuPXGQDdKqR3DtshK3dWxCGZqblVjO7frUQ>
+    <xmx:Qk5PasawQIjMxHYAEMWX5QoQF_ua2g0kxvSDS_Nz3A9fLZDdpYKxTA>
+    <xmx:Q05Pas6ZstJ0dtMI1s7oIfw-7SmibGgDUFcOxtm-4l-AyTxEPiz8rQiG>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 9 Jul 2026 03:31:14 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH 00/11] Initial Apple M3 Pro, Max and Ultra device trees
+Date: Thu, 09 Jul 2026 09:30:46 +0200
+Message-Id: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] DSI Controller improvements for Rockchip platforms
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Guochun Huang <hero.huang@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>
-References: <20260603033532.164-1-kernel@airkyi.com>
-Content-Language: en-US
-From: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <20260603033532.164-1-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NjuDfT6zrIZc7HGFn6Y4r6ydJY+KSXEurk7aJJvtRix+Q3pcOm2UdHcP
-	oJWmXeJj8KvYPiL+jlbohMkm691cKOXrBTJVKxwyHYZqjwpCHUvsTrpfFWNFpE754ZkDPFv
-	ZkTpzRnwgnWU6aYHRkvJP7IsJtFQRRBBePd4eryY/KwoYcySgqfnIYLpo/SsRXuKGoouufR
-	Ib2UZbbBmKyulpUHgkZcdP8fDBr8N/Ep1my1LoiNS7re15+QXYreKxQFOaMq499bEdFCNdq
-	vFXA6L1no9CLSJjyvS1Bg4RM3b34WY67dlWVrhQiNid9LzD6Z/Kh3XTJyC4S7NoLelGjORV
-	YlZ1n5BzpXZs9I+L3tvJMFSU9E36bij2T7hRcO9vDj9QluYZKEHgZlYtKq0Bo+uTe6ZnBKx
-	QUp8cVZNgbFIctG2FQTk3GcsmfalC/b1vrDB5f2Dry2yryD5esBxTnSq2Nodgu0y49cJcA3
-	zKkGKOJkkn8Urnvgrj11T3aP5jWRYO8P/9/aKpjPebPgNffRAA3CHLB7tVnLYN5peMNDEBy
-	oER//DlRnO2sGq8CP6/p4yWi3AqoxPMx9gm8fvdbe182+egVk1O1aF5JvNHNdTKNxCxr03Q
-	jsJrVJRTJ8NAm4YuVncihV6BhKdzVVNUjNNQ4hQcdJJ3y0NrRWT2GPDXiWO/UgnBlY6/Rwp
-	/RC/Y82Q/26PpD5S7WnaKlvPgYyc6UK3Zmmy7XDWk7+hgZNsVhjZFSKUhmg+imjs2+2ske/
-	TTwxEF6+SaNlg8O2XON0smH8sl3otpSZYzj7xpUWQ1csB0Cha+Z9hKgHc6uFnROx3OK2eTo
-	gaMpD73qacWlPPjWgqnDJ1oNezoea4w/mL8TLOBNrChWg3MxL/HmnwNyk4SplMHf3IN1Wr7
-	uvHA1j02dBYf/4ytyF/v7sk5SN6WQa1iR0A3KfNpc7/gQ1tVWjrGFe/mushoqt1dGjPv6+R
-	JcavSKZ7HQloZYSk8LcuRZMU0VOVSBjH2OCHmo0H329t80VgjMKxQJHDPDiwAfgUFImDHDj
-	pCGK4z7QV5YXZoSTgorDJDwDJBask=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBG4auUWTsQR1rRq4iLMfnVkRJDEqVQe
+ vfGuvwW781UkA2Fzt1MGV8r9o4N+11H/qnxAbbQTOJkcEfXs6Y0guvgDhNbtGo6cmihR2EBvEo
+ 4BemV2iFl3G3a7pfr3+Vze8HX35KWZQViqfcWfwAAAA==
+X-Change-ID: 20260705-apple-t603x-initial-devices-2eeca2d9d25a
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
+ Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4913; i=j@jannau.net;
+ h=from:subject:message-id; bh=XsJSiWwd2mbK2l11b/JXgHSqFuO9/PYl34cq33dd54o=;
+ b=kA0DAAoWoRs8240vZWYByyZiAGpPTjuh9olovaOYNi3XzaP1uc61FQmexw9PBlpGAc/0hjYyu
+ YiRBAAWCgA5FiEEYivpiACrfCFcfeBWoRs8240vZWYFAmpPTjsbFIAAAAAABAAObWFudTIsMi41
+ KzEuMTIsMywyAAoJEKEbPNuNL2Vm7AcA/iD+hDv9ElL1sz9sRA/SN6GrZQ2xJQ6sdUFXTTUym0s
+ vAQDKbRQtKmQe72JfQHpxagdyyBgz7xwRrGYKMROSSPjACQ==
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_001253_177782_0FD3A28C 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_003120_146789_23F308B3 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +127,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+This series adds device trees for Apple silicon devices with M3 Pro, Max
+and Ultra SoCs. The M3 generation has fewer devices than their M1 and M2
+predecessors. The only non-laptop device is the M3 Ultra Mac Studio. The
+Laptops are the known 14 and 16-inch Macbook Pros now with M3 Pro and
+M3 Max SoCs. The M3 Max variant with fewer CPU and GPU cores has
+additionally only a 384-bit wide memory bus instead of 512-bit of the
+full M3 Max. It has a separate identifier (T6034) and so there are six
+laptop device trees.
+Another difference to M1 and M2 Pro/Max/Ultra is that the M3 Pro is
+distinct SoC design and not a smaller M3 Max. For this reason both M3
+Max variants and the M3 Ultra will use "apple,t6030" as compatible
+prefix. In the M1 and M2 generations Pro, Max and Ultra SoCs shared
+"apple,t6000" / "apple,t6020" as common prefix. There is currently no
+known difference but M3 Pro and M3 Max are not as closely related as
+previously.
 
-Gentle ping for this series, thanks.
+This series adds the same level of hardware as the base M3 (T8122) has
+in v7.2-rc1. This includes CPU cores, interrupt controller, power
+states, watchdog, serial, pin controller, i2c and the boot framebuffer.
+This is intended as base so that support for additional hardware can be
+added to all M3 based devices at the same time.
 
-On 6/3/2026 11:35 AM, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> This series is dedicated to enhancing the DSI controller and PHY timing
-> interaction, refining the lane rate calculation, and addressing the
-> associated hardware limitations.
-> 
-> Changes in v2:
-> - Link to v1: https://lore.kernel.org/all/20260324085838.90-1-kernel@airkyi.com/
-> - Fix the unit conversion for max_mbps.
-> - Split the lane rate calculation into a separate patch.
-> - Add more comment about timing config.
-> 
-> Chaoyi Chen (3):
->   drm/rockchip: dsi: Add maximum per lane bit rate calculation
->   drm/rockchip: dsi: Add dphy_get_timing support for multiple PHY types
->   drm/rockchip: dsi: Relax the lane rate margin requirements
-> 
->  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 66 +++++++++++++++++--
->  1 file changed, 60 insertions(+), 6 deletions(-)
-> 
+Merge strategy:
+Since the dt-binding add new compatible strings without driver changes
+it would be preferred if the whole [1] series would be merged through
+apple-soc/arm-soc. This will help ensuring a warning free
+`make dtbs_check` for followup series with additional M3* hardware
+support I hope to send for this cycle.
 
--- 
-Best, 
-Chaoyi
+This series will conflict with the M4 series [3] sent A couple of days
+ago. I would prefer if this could be merged first (in order of SoC
+release).
 
+[1]: I see that the M4 watchdog change was already picked up by Guenter
+     in [2] 
+
+Link: https://lore.kernel.org/asahi/a03c19ee-cf74-4f26-826d-f2bfb816fb3f@roeck-us.net/ [2]
+Link: https://lore.kernel.org/asahi/20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev/ [3]
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+Janne Grunau (11):
+      dt-bindings: arm: apple: Add M3 Pro/Max/Ultra devices (T603x)
+      dt-bindings: interrupt-controller: apple,aic2: Invert #interrupt-cells condition
+      dt-bindings: interrupt-controller: apple,aic2: Add apple,t6031-aic3 compatible
+      dt-bindings: arm: apple: apple,pmgr: Add t6030 and t6031 compatibles
+      dt-bindings: power: apple,pmgr-pwrstate: Add t6030 and t6031 compatibles
+      dt-bindings: watchdog: apple,wdt: Add t6030 and t6031 compatibles
+      dt-bindings: pinctrl: apple,pinctrl: Add t6030 and t6031 compatibles
+      dt-bindings: i2c: apple,i2c: Add t6030 and t6031 compatibles
+      dt-bindings: pwm: apple,s5l-fpwm: Add t6030 and t6031 compatibles
+      arm64: dts: apple: Initial T603[124] (M3 Max and Ultra) device trees
+      arm64: dts: apple: Initial T6030 (M3 Pro) device trees
+
+ Documentation/devicetree/bindings/arm/apple.yaml   |   37 +
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |    2 +
+ .../devicetree/bindings/i2c/apple,i2c.yaml         |    2 +
+ .../bindings/interrupt-controller/apple,aic2.yaml  |   10 +-
+ .../devicetree/bindings/pinctrl/apple,pinctrl.yaml |    2 +
+ .../bindings/power/apple,pmgr-pwrstate.yaml        |    2 +
+ .../devicetree/bindings/pwm/apple,s5l-fpwm.yaml    |    2 +
+ .../devicetree/bindings/watchdog/apple,wdt.yaml    |    2 +
+ arch/arm64/boot/dts/apple/Makefile                 |    7 +
+ arch/arm64/boot/dts/apple/t6030-j514s.dts          |   22 +
+ arch/arm64/boot/dts/apple/t6030-j516s.dts          |   22 +
+ arch/arm64/boot/dts/apple/t6030-pmgr.dtsi          | 1437 ++++++++++++
+ arch/arm64/boot/dts/apple/t6030.dtsi               |  524 +++++
+ arch/arm64/boot/dts/apple/t6031-base.dtsi          |  297 +++
+ arch/arm64/boot/dts/apple/t6031-die0.dtsi          |  197 ++
+ arch/arm64/boot/dts/apple/t6031-dieX.dtsi          |  107 +
+ arch/arm64/boot/dts/apple/t6031-gpio-pins.dtsi     |   53 +
+ arch/arm64/boot/dts/apple/t6031-j514c.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6031-j516c.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6031-pmgr.dtsi          | 2400 ++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t6031.dtsi               |   48 +
+ arch/arm64/boot/dts/apple/t6032-j575d.dts          |   46 +
+ arch/arm64/boot/dts/apple/t6032.dtsi               |  419 ++++
+ arch/arm64/boot/dts/apple/t6034-j514m.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6034-j516m.dts          |   18 +
+ arch/arm64/boot/dts/apple/t6034.dtsi               |   12 +
+ arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi     |   67 +
+ 27 files changed, 5785 insertions(+), 4 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260705-apple-t603x-initial-devices-2eeca2d9d25a
+
+Best regards,
+--  
+Janne Grunau <j@jannau.net>
 
 
