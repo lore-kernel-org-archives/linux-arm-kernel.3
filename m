@@ -4,104 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB3C1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E331C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E3HJTWjS7+7k2AMeQ/ADfiVkN81b/TWdXvCN6CQ3PZA=; b=trbkpq2Apfbd/XsdugoH1WHD7X
-	jILOPrT4uHeEWspup9RKvkC0O+HNrjFq7dA+2GxitCJq550Y7XdVOzvHxs/hFzzVNWYriYrGY4jdp
-	JMj78uUitmtdDxUtUuYyYtKltHht2c7e5TJ8hPE5qkCsiPutOhbQtoVKFqs4SzEgA35eF5IVdmaKg
-	9VfxhNwwcEn8Rt4jrflAp4WDzMQ77XWQYmIcZXifqfU8yLP47eVbISgr50gGhU1kypg/G4Fjpr/OJ
-	3O+swOgL3uY1fHP1PvAU2dnFPj6ddZB8lUCJOYLgdwVQtGMhx/dWfqFkPVFU8SuBYlJFqBJvU36HX
-	dtTCJz2g==;
+	bh=fq3P8bJh7ADQ4hub+ycBPI53NyHDDuF30EBNSbR9a1o=; b=2bVwY0MMtjDlcFnMOPxo4NUpf4
+	GXXNzJG8kvl+eKwWy3tuKVsghCamp2VFRlfCUowHDnFziwJypLmDfj07ADsuujvv0SjI9DT7J1MNF
+	1mB9S/ebHtKAgX/8X57XfHHDcUWrE3qNyc8PboLU3DyuEiyvASMmqb0+Cqs3T+WNyUsIWBHNCahTI
+	vZJE/z6PdWhAJ5pW4ASagbvB9i9IGKEja+R/5OL9ErKdm7LJ0IrIhqGR6zyCfALuDW60YbtwSiB1l
+	aYmbrwYl44Cx+0uESlw1vZgRLSFJgK8RwAxgiWlKP+qXXNrf/NLmmggqkk2sIzd8bfCo8R9vD+ji6
+	FrLbxRMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlWx-00000001qDg-0nOl;
-	Thu, 09 Jul 2026 09:58:55 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1whklL-00000001irq-28mM;
+	Thu, 09 Jul 2026 09:09:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlWr-00000001q4P-0taN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:58:53 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2caea3f742bso8771765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:58:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783591128; x=1784195928; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=E3HJTWjS7+7k2AMeQ/ADfiVkN81b/TWdXvCN6CQ3PZA=;
-        b=YDULfuhBvOo5RCecSwshpOhnMSp0pbW0fWI2GsQLBvzA+y2egfItl6uMgLoTeykAxR
-         f0pKPETACUwgQcJwSy1TAuL8aDRIFDaGhi/4jTyUf+bsLj9Om0TH4e55Jlzp1fSjddgX
-         VIWoDAqaJl5E7Dvot/F8eRX+XJjXtp8cewPCM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783591128; x=1784195928;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E3HJTWjS7+7k2AMeQ/ADfiVkN81b/TWdXvCN6CQ3PZA=;
-        b=AsCGXg6qUfrEFthZLdzEFrkD6FUI9EKFFCIZ9fnMAzkvy6htypQHkIAVsHzx+XdWLS
-         m3qcl9rTY9eRt9KPaVF4ziw7F2gtscXA5JUclfnzD3RZShRPlLtegZyBLP0/7+QPqHm9
-         N6+OdtxsWnAGBUVxHk5JKwUOcrFaboDrFdzIt2oh1g0x/HDq1yJP8K5N6GTh6HKlBcCn
-         16c1JMIxopIYErBEkfUSQUmiF+5CY7GJcCpWnf7jIoWa4MwkSLaGxgvBnGK5OrmT/9T6
-         s3U92DWfXydNbd9Eo+xThPXEbrB5aesXlB6t1MBA6upQMH9AoQPsSTeGtlgXbnBwS932
-         eKwQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqdP655Umt4dshvJj8djKKeN//ZlXF/08zngg0Kt93lYPScHheU0d04mCXeAtYRbVfobisyohfcUo5Dh786eEWP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtPJbtdATnRbzHIG2i5wLmNI6y2TefKXSfrPe+64uOPR8nBQxY
-	48otTZzv2XFvIexoztOtFN2iKRIJP/d5vdkKGrQcJESqFUmwMD5OmjtYJcmF2jAbrg==
-X-Gm-Gg: AfdE7cn4zkhnFNDvD25nGTJno4Ipao80ATgjdddEb+KLktIhH6+McLFROLZBbZ94xt/
-	+VA8+WOAzCc4nxaGizn54hw5kia8ENkMqklOOZnHe5qGq0Oyd0wftI/fd9XAh5aUmeY7LwAdrQN
-	ESmu+2pANvkC0ENpCzr7XgnunerKkxURYS59y6ZOVMb+eeVDUa7pg1SgR/5w8vmTEAofkjI21qZ
-	VnCmqD02KipOXV/M+UieWksMx1lZjur3rPvznztrEwobuLud7DVz+p+KhwaVCnBUTs1FPFKhWxV
-	K5vp7l8UC1YRHRwh/2bDaZQ1ZFZGOzRcIhzZW7ZBW2rkk9oAg31F9La2uoXa/X8nZttiRIOKrJ5
-	QfkdWxj7YA7BJjwUjqw5sKxJgTKwxAA4UjWC+sxkBLYhQ1LDmIpcAxvxV4a5/fjz9xmfoc2rjoo
-	2dnQzbNdJbh5LR7RZXKFYhwDi/1ankRV/7o4lifjNbgF4e32rJmSthSAdCAOo4jJsTWrv5dg==
-X-Received: by 2002:a17:903:17c6:b0:2cc:7e4a:bcc5 with SMTP id d9443c01a7336-2ccea480bdfmr74905205ad.32.1783591128101;
-        Thu, 09 Jul 2026 02:58:48 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:bd09:6ddb:180a:69c5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d5bd2fsm41082155ad.78.2026.07.09.02.58.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 02:58:47 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org,
+	id 1whklG-00000001ilZ-2eBn;
+	Thu, 09 Jul 2026 09:09:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783588175;
+	bh=4yj28qkcMVotuPHzrx68NXl5l3n1gcF9UxI2/VOlSXQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gJMr4LIUQrXMkvq5JrzkESBoTywKaPq2HDNImv6LAP1TDroYGskYzgksYo5s0IGyT
+	 9TTW93/z/59LdiO8KivpYFoG9BvXlJZibVzWuyOhQUhimGou4Re24+hDXo53qX7GIn
+	 jQstqi1PrmTF7ouOoX2XwaNchQmbN0C80L2alB8k1CPdWEMj5MRllqRPngmnLflt09
+	 4y4T2GdEoONiiLlDwYLAOWMWnvcBszgrhZybP+VNWg86ojkAWBMqa49lpav/UFfAsA
+	 6lhaUJGhYvCnI4kVgY8GWawoyaLstU+Oy66pBKg/GV58Kn3b+9Q6cYqPW2OW9V4Wgh
+	 apfHSsmhBLO1w==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DF8D817E0D56;
+	Thu, 09 Jul 2026 11:09:34 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: [PATCH v4 13/14] arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
-Date: Thu,  9 Jul 2026 17:57:18 +0800
-Message-ID: <20260709095726.704448-14-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-In-Reply-To: <20260709095726.704448-1-wenst@chromium.org>
-References: <20260709095726.704448-1-wenst@chromium.org>
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com
+Subject: [PATCH v3 3/7] arm64: dts: mediatek: mt8183: Add and use UART AP_DMA controller
+Date: Thu,  9 Jul 2026 11:09:20 +0200
+Message-ID: <20260709090924.27056-4-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
+References: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_025849_299016_A0402CD3 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260709_020939_575302_6F70C9FF 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,134 +81,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Mt8195 Cherry design features an M.2 E-key slot for WiFi/BT combo
-cards. Only PCIe and USB are wired from the SoC to the slot, along with
-some auxiliary signals.
+This SoC has a DMA controller (AP_DMA) that provides one channel
+for each data direction (transmit and receive) for all of the
+UART controllers in the SoC.
 
-Add the proper representation for it, replacing the PCIe wifi node and
-vpcie3v3-supply property under the PCIe controller, and the vbus-supply
-property under the xhci3 node.
+In order to increase the efficiency of data TX/RX over the UART
+controllers, add the UART DMA controller and assign the right
+channels to each of the three UART controllers.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
-Changes since v2:
-- Drop default GPIO output state from kill pins pinconfig
----
- .../boot/dts/mediatek/mt8195-cherry.dtsi      | 73 +++++++++++++++++--
- 1 file changed, 68 insertions(+), 5 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-index ef7afc436aef..8d4cc30d91e4 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-@@ -266,6 +266,47 @@ tboard_thermistor2: thermal-sensor-t2 {
- 						120000 51
- 						125000 44>;
- 	};
-+
-+	wifi-bt-connector {
-+		compatible = "pcie-m2-e-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&m2_e_key_kill_pins>;
-+		vpcie3v3-supply = <&pp3300_wlan>;
-+		w-disable1-gpios = <&pio 61 GPIO_ACTIVE_LOW>;
-+		w-disable2-gpios = <&pio 59 GPIO_ACTIVE_LOW>;
-+		/* PCIe auxiliary signals wired to controller. */
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* PCIe for WiFi */
-+			port@0 {
-+				reg = <0>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				wifi_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&pcie1_ep>;
-+				};
-+			};
-+
-+			/* USB for Bluetooth */
-+			port@2 {
-+				reg = <2>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				bt_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&usb3_ep>;
-+				};
-+			};
-+
-+			/* SDIO, UART and I2S not implemented */
-+		};
-+	};
- };
- 
- &adsp {
-@@ -791,14 +832,14 @@ pcie@0 {
- 		reg = <0 0 0 0 0>;
- 		device_type = "pci";
- 		num-lanes = <1>;
--		vpcie3v3-supply = <&pp3300_wlan>;
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		ranges;
- 
--		wifi@0 {
--			reg = <0 0 0 0 0>;
--			wakeup-source;
-+		port {
-+			pcie1_ep: endpoint {
-+				remote-endpoint = <&wifi_ep>;
-+			};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183.dtsi b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
+index 95cc06799533..8b0992548431 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
+@@ -1071,6 +1071,22 @@ gce: mailbox@10238000 {
+ 			clock-names = "gce";
  		};
- 	};
- };
-@@ -1085,6 +1126,13 @@ pins-bus {
+ 
++		apdma: dma-controller@11000780 {
++			compatible = "mediatek,mt8183-uart-dma", "mediatek,mt6577-uart-dma";
++			reg = <0 0x11000780 0 0x80>, <0 0x11000800 0 0x80>,
++			      <0 0x11000880 0 0x80>, <0 0x11000900 0 0x80>,
++			      <0 0x11000980 0 0x80>, <0 0x11000a00 0 0x80>;
++			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 109 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 110 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 111 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 112 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 113 IRQ_TYPE_LEVEL_LOW>;
++			clocks = <&infracfg CLK_INFRA_AP_DMA>;
++			#dma-cells = <1>;
++			dma-requests = <6>;
++		};
++
+ 		auxadc: auxadc@11001000 {
+ 			compatible = "mediatek,mt8183-auxadc",
+ 				     "mediatek,mt8173-auxadc";
+@@ -1088,6 +1104,8 @@ uart0: serial@11002000 {
+ 			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART0>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 0>, <&apdma 1>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
  		};
- 	};
  
-+	m2_e_key_kill_pins: m2-e-key-kill-pins {
-+		pins-kill {
-+			pinmux = <PINMUX_GPIO61__FUNC_GPIO61>,
-+				 <PINMUX_GPIO59__FUNC_GPIO59>;
-+		};
-+	};
-+
- 	mmc0_pins_default: mmc0-default-pins {
- 		pins-cmd-dat {
- 			pinmux = <PINMUX_GPIO126__FUNC_MSDC0_DAT0>,
-@@ -1637,9 +1685,24 @@ &xhci2 {
- &xhci3 {
- 	/* MT7921's USB Bluetooth has issues with USB2 LPM */
- 	usb2-lpm-disable;
--	vbus-supply = <&pp3300_wlan>;
- 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
- 	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			usb3_ep: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&bt_ep>;
-+			};
-+		};
-+	};
- };
+@@ -1098,6 +1116,8 @@ uart1: serial@11003000 {
+ 			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART1>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 2>, <&apdma 3>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
  
- #include <arm/cros-ec-keyboard.dtsi>
+@@ -1108,6 +1128,8 @@ uart2: serial@11004000 {
+ 			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART2>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 4>, <&apdma 5>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
 -- 
-2.55.0.795.g602f6c329a-goog
+2.54.0
 
 
