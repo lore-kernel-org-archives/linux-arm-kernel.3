@@ -4,132 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60973C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C05DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=; b=ibL17NxQUham+sil1RXcnpaXh0
-	I+cqFdrfCDRkbegbH4sQlMQ2ESD354sNS7aFALXDlLOITuxdCASk3CMxvJ6ly36GxTVCQgq2u5cjZ
-	NrBJc6TW01GzfmGwM6iSUaD2VvNVwI4ct6EXp2EKfMh3zD+gvBiNEN8pVB60I3gie4HXjdf1znJff
-	ksa0KcgPSgaw5hDMH6PoLeu0Ih4rSGieZZRac/qW70aEpHYVbJT+75iiAVDHZM7PI1ezDgWvYYMv3
-	RQmjRqhwiibVHu2dNAfMH3EQGvPPV3QsmabdP5JJMyYe9nz3mjAzc2ycJTr3d1p4gaEpquA/nF8+F
-	U8Ejgo/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BmsvLtE51JsvqUb4kaVyH7ncNDCmu7y58Wka6Jpy3e4=; b=35BL18GpvayDldvbWU85o7e2y2
+	Yy1Bb/Rn0+xXL4tpVwVALVm0YwVr8ghJzabQtAvARZaT1K1uUhLkkgfRHSf77KZUBzx4h44izN1uY
+	9rKMcd/IIOI0oxUxcCeh5kyp+YHuNqAkQYlMMEdwDzVHwShg3VvloYkhcHLXKQut4bZ7yWCd+2XRA
+	zkGz2Vxz2eBfdEWMLkQgWzJ5z/C3BkXfHiTLqhmTy9ab2UUnZwZraaLImsm4amIDDt6PGGg7Uxr4f
+	VdZnAqS7n0GoZZbZUKWw3iexXVIQHEsrirPZvSHEtWzI/c4KSmcvSiYuPdKcpZZH8Ump5+1TAantM
+	karJMW/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnXn-00000002JeJ-3z3O;
-	Thu, 09 Jul 2026 12:07:55 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1whnZA-00000002JnO-0Y4g;
+	Thu, 09 Jul 2026 12:09:20 +0000
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnXl-00000002JdQ-1JvC
+	id 1whnZ6-00000002Jn1-2sgK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:07:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YwWNtAX/KCWiNToyPvueq2ScXcOv9rdwHfd9v8AO63KJ/H6ZqEGhXfR0LgdngiSnEGaISgjEp9LOlAgh5FLJiviTLjajdWeKrtQ709dQSgGtGFMuTlIynSYWkkT+WxJbVKdeHo3wX1ED9IavJhhRFmzelFM+Dx810xJySEX6UxASTMxgFoV7TvFTYyg/G+jzKLAVGegjXaSU+ZFtBfyQ0d9EOfxrYqsnO1CIndh+HfeGUqXhmZ0kjbThqljpp0IU9Ka8sGejZ7FxIEx8Tj6DNkTjNJwptj5sKAhttVQb9cao7l7mVPcCHhEOOM58UWLF1SnFDA7HpzXZFN67+OMOAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=;
- b=Z059xqMpgTDMsg/tmgwK3j5LdCdrYeQ/j69s56B/pN1LFUb4jht12H+OKQXqMIKFVIIwgeYfjlyv9wOTAoVugq8y8KasBn1rRc2IMTKZYigqxC05Eug/36IFA0KumHhYxdvfs+PIuVhW+C4UNlCCXbMlItk2i/uJ49kFQ9El0FwwhhPojK8Sza0hlTYPapVKUFBKszByL73Afs3m8i/TuecZR9s6KL0BHIxV4pvs1j5asTkgv1Wd8JraLrxTIJAZny0bJqubdnihtqXNrrPJqZn2Bf5U7inEMO2AotLYS79X8Doy0YqyFSNT4YtGPWYvUbifmw/EK77wh0cdqokXeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=;
- b=uYQmZeTQysNZw+BsliFR7BGApiefCIFUSCaLzTB7C8Yuwz5DscbFgcXRzkmRoY5cwY0DGCUoAVv+tARtmdtiD+LUS0ECVlVEGpbbBY+ybsonJAUbElQ9OYQiAZBNxVFN9sycL9T3VHfGKmQp38at7tk7ZctCLsZsIHoGP0LERA6BttMNoyQmuOqdPaYVLjrOu4m/N12678iYBAWYuXZGS6kBtYkjDW5GPQSJ3Y9XxAmboAokhXrN4UH7C2UTeMu2hpV16ReqsUw3CwE+vOwpMgxwvZPRg5BqHTqgo5r3Vz4gQrJDNqL3VKRhlWCVU7fHMCo7nvRpiddWVNr7LsSWjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DM6PR12MB4106.namprd12.prod.outlook.com (2603:10b6:5:221::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Thu, 9 Jul
- 2026 12:07:46 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.014; Thu, 9 Jul 2026
- 12:07:45 +0000
-Date: Thu, 9 Jul 2026 09:07:44 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
- commands
-Message-ID: <20260709120744.GF422027@nvidia.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <ak1iOWrvLv/6ACsP@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ak1iOWrvLv/6ACsP@Asurada-Nvidia>
-X-ClientProxiedBy: YT4PR01CA0392.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:108::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Thu, 09 Jul 2026 12:09:18 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpS84dTUBnP0KFlwfPIroCWF6IIaXEt5RcD5jO2E3jhlrj2ITHqbE0Jad9ugn14Gu2XGkEfZdk4iAiu7en3w1iD@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783598953;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BmsvLtE51JsvqUb4kaVyH7ncNDCmu7y58Wka6Jpy3e4=;
+	b=KOvnZxn7kBbhGC2+uTQkEuFpqg6dU6ZPZW8cgmKYOTwL0dGEwjIrxsTo7s1d7ITkxFNzRA
+	2xpFsqjV57CrCnZyl1eGL/6Z2c+c1HgN/IWion8oCZXLlYirPbeI+MYa7RXU0O0FlFWWMC
+	J3KlztzutcLBhaKmTlQbQc/Vkkvuqbo=
+X-Gm-Message-State: AOJu0YyMFc6mR6+7FauyjYsAz2OxQ1Kfrc1j4LM8LnUdyEk513T1MaNK
+	b2OB8NCZIVcV5lZCvu3TLBtoYMtegen3Hq+H9fLamVZ7R8PARKpqviWQcF/QM+ysQCziOwg590K
+	h9gZNR2m+Y+r0KgqkmYdKdZ1Vl1Vk3DMDroLfm/8v
+X-Received: by 2002:a05:622a:1f0d:b0:51c:d16:b48e with SMTP id
+ d75a77b69052e-51c9a8c1f20mr7564121cf.22.1783598945046; Thu, 09 Jul 2026
+ 05:09:05 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4106:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5ff6b9a-8702-4fd9-17aa-08deddb2afa4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: rts3xrVjp/V77QnJ/gG5JsiCcH7vbEFYbF6a+xfrdwYfvMGLNrAHYoHbFTDqvcOHx5xTRDjhJi2d/7qEffqlNyldaXDcw1BK7twzcHdZFnSmOaaPEQZXxT4isRjq6Mvtq5WaF5IPPrcHBJsl+JLaNYDrk2w2vt4SmW1tMFqoGdiT3dDj7eF1lKTfA25oGr8rUNDR43KuGQI9w1fHEI/ZhjfueBwAkt9ZByDn9m4nzfLIDtStVu8yCiPNgVhxyuuY4XrJ6XsaIUSOQBu+9qLiBM5vqQR7auCVmZl/A9mpgqAi6vo8BwigOz2YwkQkPucNHOjfpidW3cZfnHcLR0aqJKziInBendnzbwIOu5HC+szOTtJ+cJ93YoPYffv4T92A/FCSQWeETQzHgXCE/mkG+Jc4bBhxIDwhFT9YIAOibrGdw2d2m0awGC87qzjSgxhdBLmFj15GlpULWGNKdFmSB84wqLo4dkd0SiFBFLR9cyb9ZuwjZgGjEQZYAgpQdk7LDUzM77YtTeRzekd8+jXap9qx9TMo5tl1L13H1Wa8J8+4brh+R9dd6AcFbY4VInM4sCJdzDdduYKp7vJFSWCjJuzXbv32btmqReJenJ8HMMRlG1DfeXFOiYNQzWxaPeFvw3jcGx+3WIE2YupiX0hfj2NF0ke8yp9jPtsNUhJERVU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGBmPYU0I8dPPyg4+XCfqzQ7EvphWosuR1RvHAibrZ+ka9esvUuG3okApVlE?=
- =?us-ascii?Q?uEOROZmexkO/C7vBh5lHELAylbZnJsxxGxmgSvE+3EBrL1PEaD6ZkiHyA+Uu?=
- =?us-ascii?Q?d492Sybb4KuD41xRXOU0M7WTr9XV/LQtZNEa+jrttBIkeQo6C2Uzk5lStwPe?=
- =?us-ascii?Q?606v4yHro7veJ71HBgbFjCj5UWIaVHvmZKQjjxktlnlnW/vYpg/eSofaH1uB?=
- =?us-ascii?Q?KUCbjy3O/8Aj5OBagEONAVmhx8Z4lXfDIdlRWOzGRiaEUpBE29NMl9aluHAQ?=
- =?us-ascii?Q?o+Si1HtloobPtPhZFB75GdLZ7fVitwWOAbmr5+jFV38lgcV+DrzEj5aQMX66?=
- =?us-ascii?Q?qnYymFORHrtrVDY4dV4glAE5sT4Qk9KUPEp0fiY+orQ7IcgpODt0mVmESL6S?=
- =?us-ascii?Q?1zDF/TJ/b6l/DXi979U57lDDnm3n0evHs0sDoaF+UxhizBaxVSnIqnueeBF7?=
- =?us-ascii?Q?ZMDubLGmNCyo8UrP9ZzZDdaZJDULa7EO2HMciwuwrXAU/obNh9iU/FH1PgT5?=
- =?us-ascii?Q?y6oNo9x5GAf2qUTaEjTJ3A0eewq2h7XbHrezUBabnQAMhF+FCJVoti1D+Bu1?=
- =?us-ascii?Q?a4UC2hVbjdC7+gv2DV326uinj6G6U0vWRVYV3hkmSXeahqgLB/QVQfpCsP3s?=
- =?us-ascii?Q?XQ2F+sqGHwAktaYZI6tOq/zoQnWUHQH12edGsxqIOVKaphqNvoKht2qFpKRI?=
- =?us-ascii?Q?fwZTORuFFQm+ROqBsh5XfSQx2M3DJiKvyTnscNFaKsbYLp3CCsn5yoEOPtgr?=
- =?us-ascii?Q?kBPaKWJKThKhHYCU+PNklQnRxo4M/JhGehm99tgK+Z0apRnZToYL+/MiZXtX?=
- =?us-ascii?Q?uDBUymsCkV/40LIvK3bPOMpqqHv0BdP4WF1aaGd9RSSPVceOhPaz5obhPXvx?=
- =?us-ascii?Q?wxRXB7+aJ7FmA5BOO95TFoEJq0mb3IgrTlYsJG+HbIaqIG1gO/BxhFT4CSaF?=
- =?us-ascii?Q?M7VxOv9duaO2BJhSWPG0EBpWnnCz+4Q0doTOk5Jm3I3BTuEUhB71bKCkIHM1?=
- =?us-ascii?Q?8gwYF2RDY3A49zgIrVsLEioRrhEBJ3eng71Iz9k8Yq3jM/EdoZ//vnsPcyeh?=
- =?us-ascii?Q?uCG97Mo79TCVn9YrzWS3ycUp9iO5dJ+IWsEvNYhQl4Yl8ap8Zi9IoBJX/076?=
- =?us-ascii?Q?X2THo7tS4w/p1cS42pSSiq7mpogBApzs23UpDhUt6obDEO1f5nHtwfRxOwmj?=
- =?us-ascii?Q?khcMj8kbsVDeQAOL9/yGDmFy5aquwO9n3cJYreLjSCrUY4LbYF5FOeYqt4ON?=
- =?us-ascii?Q?C8AkAkiszMTZAyjFPYHtSkWmoIjLlaxx3oPN/v1gC5aU2z52F3Wff0jfguJn?=
- =?us-ascii?Q?2hVC3ZPLWGGeQwGko1VQZCUHz2fn7PXTXC/y4ufzHDFcOgElhIKila5gUUIx?=
- =?us-ascii?Q?XYV1TMetGRePa4TlTQhIWqnMIqrvWNy9txLdgEGDC5P6G2rroW8dgU5nB9ns?=
- =?us-ascii?Q?uotrsKMc8RknkQTNFTr+LCUtZeBIivllET3v0U4WWoE2w4BZ4uoLxWBt7F0y?=
- =?us-ascii?Q?u3KdXhKQUWhzWXha3AV7mE5JaNARnAye84Csev3CaGnUaXPmR2X9ZFQfb84W?=
- =?us-ascii?Q?C+BtJSzOF5YTugCjpDmdHns0IyVxzgShsA90b8z53ktzkA9EFI+vwmoz5VpJ?=
- =?us-ascii?Q?hPML4aGtOR1vUXkrubCYfl9c6cViznDgqhN3RZp8dyknu/9/UqtmxpCU6znG?=
- =?us-ascii?Q?ZdRlqZttEmhfxhXV0GJ5aXEzA0Ce/Fdh3eL0SiPsX3oQGbpM?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5ff6b9a-8702-4fd9-17aa-08deddb2afa4
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 12:07:45.7057
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +Klx6EyY+WrjJQQSJKvJ8oJSpeGGoMS6Ua889TQY/zP4njvCVhnRhs+va7V1G/d8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4106
+References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
+ <CA+EHjTyAxBx4jhGq-Gme5hPi1ZyDAkL2CP_U22ykkQemD1dUhg@mail.gmail.com>
+ <ak-Fyvzpj9SkF75j@J2N7QTR9R3> <CA+EHjTydGzbgi9FwWQaFjuRNqUFC_HeOfHggZAHhPL4FfLYBog@mail.gmail.com>
+ <ak-Kzyv0eXq05QQA@J2N7QTR9R3>
+In-Reply-To: <ak-Kzyv0eXq05QQA@J2N7QTR9R3>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 9 Jul 2026 13:08:28 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxzKJ=UxdvPmboNSo6KBppDtr88z3_BdqghJ-6f_ttqMA@mail.gmail.com>
+X-Gm-Features: AUfX_myJfL1pQLx--A1TjYYVTKJyGE6cEnwXXwo5heMGbxsjfkRXSVoLh7fWFO8
+Message-ID: <CA+EHjTxzKJ=UxdvPmboNSo6KBppDtr88z3_BdqghJ-6f_ttqMA@mail.gmail.com>
+Subject: Re: [PATCH v11 00/29] KVM: arm64: Implement support for SME
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Ben Horgan <ben.horgan@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_050753_363852_26FAC743 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20260709_050917_018800_F5781A2F 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,74 +87,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 01:31:53PM -0700, Nicolin Chen wrote:
-> > +	tlbi->range.data0 =
-> > +		FIELD_PREP(CMDQ_TLBI_0_NUM,
-> > +			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
-> > +		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-> > +	tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> > +			    FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-> > +			    FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-> > +			    (cur_tg << tg_lg2);
-> 
-> Could this be slightly cleaner:
-> 
-> 	unsigned int num = 0, scale = 0;
-> 	...
-> 	if (num_tg == 1) {
-> 		if (!ttl)
-> 			ttl = 3;
-> 		goto build;
+Hi Mark and Mark,
 
-I'm not keen on gotos outside error unwind, but how about
+On Thu, 9 Jul 2026 at 12:49, Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> On Thu, Jul 09, 2026 at 12:31:45PM +0100, Fuad Tabba wrote:
+> > On Thu, 9 Jul 2026 at 12:28, Mark Rutland <mark.rutland@arm.com> wrote:
+> > >
+> > > On Thu, Jul 09, 2026 at 11:26:41AM +0100, Fuad Tabba wrote:
+> > > > > base-commit: 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
+> > > >
+> > > > I think this SHA is local to your tree. I can't locate it, and neit=
+her
+> > > > could Sashiko [1, 2].
+> > >
+> > > That's the tagged commit for v7.2.-rc2. See:
+> > >
+> > >   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
+commit/?id=3D4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
+> > >
+> > > I think that neither you nor sashiko have fetched mainline recently.
+> >
+> > Thanks, I have 7.2-rc2, but `git show
+> > 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37` gives me `fatal: bad object
+> > 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37` . The SHA for rc2 is
+> > 8cdeaa50eae8dad34885515f62559ee83e7e8dda (which is what shows in the
+> > link above, not sure what ID is, which is the part that matches your
+> > SHA.
+>
+> Sorry, 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37 is the tag object for
+> v7.2-rc2, which points to commit object
+> 8cdeaa50eae8dad34885515f62559ee83e7e8dda.
+>
+> The odd thing is that we see different behaviour; for me (with git
+> 2.30.2) running:
+>
+>         git show 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
+>
+> ... gives me the description of the tag as per the example in the
+> context below.
+>
+> I'm surprised that git show doesn't find that for you.
+>
+> > That's what confused both Sashiko and I, since it's used as the base-co=
+mmit SHA.
+>
+> Sure; I'm just surprised as above that git show doesn't find the tag
+> object.
 
-+       tlbi->range.data1 =
-+               FIELD_PREP(CMDQ_TLBI_1_LEAF, !tlbi->table_levels_bitmap) |
-+               FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | (cur_tg << tg_lg2);
-+
-        /*
-         * SMMUv3 H.a Section 4.4.1.1: TG!=0, NUM==0, SCALE==0, TTL==0 is
-         * Reserved and causes CERROR_ILL. Single page uses NUM=0, SCALE=0 with
-@@ -2472,11 +2476,7 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
-                if (WARN_ON(!ttl))
-                        ttl = 3;
-                tlbi->range.data0 = 0;
--               tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF,
--                                              !tlbi->table_levels_bitmap) |
--                                   FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--                                   FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
--                                   (cur_tg << tg_lg2);
-+               tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
-                return;
-        }
- 
-@@ -2513,11 +2513,7 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
-                FIELD_PREP(CMDQ_TLBI_0_NUM,
-                           DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
-                FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
--       tlbi->range.data1 =
--               FIELD_PREP(CMDQ_TLBI_1_LEAF, !tlbi->table_levels_bitmap) |
--               FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--               FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
--               (cur_tg << tg_lg2);
-+       tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
- }
+Two different issues that manifested in the same way:
+- Sashiko wasn't advancing HEAD after fetch (
+https://github.com/sashiko-dev/sashiko/pull/317 )
+- Neither Sashiko nor I were fetching tags
 
-Which removes most of the duplication
+Thanks for this, and sorry for the noise.
 
-> > +	if (invs->has_range_inv) {
-> > +		if (!tlbi.range.use_full_inv)
-> > +			arm_smmu_tlbi_calc_range(&tlbi);
-> > +	} else {
-> > +		tlbi.range.use_full_inv = true;
-> 
-> I am a bit unsure about this line since invs has no RIL entry.
-> 
-> Is it set for a defensive reason?
+Cheers,
+/fuad
 
-Yes, it should never matter but since the has_range_inv and per-smmu
-tests are disjoint I included it defensively. I will replace it with a
-comment.
-
-Jason
+>
+> Mark.
+>
+> >
+> > Cheers,
+> > /fuad
+> >
+> > >
+> > > I have it locally after fetching from Linus's tree, as below.
+> > >
+> > > Mark.
+> > >
+> > > | [mark@lakrids:~/src/linux]% git describe 4c45e14df2f4e77982ad70d6d8=
+e3fe750edd4c37
+> > > | v7.2-rc2
+> > > | [mark@lakrids:~/src/linux]% git show 4c45e14df2f4e77982ad70d6d8e3fe=
+750edd4c37
+> > > | tag v7.2-rc2
+> > > | Tagger:     Linus Torvalds <torvalds@linux-foundation.org>
+> > > | TaggerDate: Sun Jul 5 14:44:06 2026 -1000
+> > > |
+> > > | Linux 7.2-rc2
+> > > | -----BEGIN PGP SIGNATURE-----
+> > > |
+> > > | iQFSBAABCgA8FiEEq68RxlopcLEwq+PEeb4+QwBBGIYFAmpK+lYeHHRvcnZhbGRz
+> > > | QGxpbnV4LWZvdW5kYXRpb24ub3JnAAoJEHm+PkMAQRiGsv8H/Rn7Hr3Hp8t6au8B
+> > > | xQueZThJWjqQ4v8pyLnXF6OomKiDR24OTXMCrFgDkcmZ7RK2ALqowI3tQVwLUTuI
+> > > | yUN0qL2z2y+LyTcO0CYf3Lple8KlgLAXYMsv7pGLsOvhS7BW2jW97/bcbpUNxoHb
+> > > | eghxqbIEnyRImUbbyg+nW7VVk65RKdPUNkBPXfQ2NMVwe+SDE5Rl+NXNVqDNjGad
+> > > | soDTUBrD9yXkWX+4s0myleE62UzzH5nYgGPQeQgYmzWgq7LybH6WBlbQK9D7ODJR
+> > > | Cw3LCq1hwZZ2w04Yx+XwMHquGJYHW8L2pj77h95uhzksz8buKnM0AGwBCTC6RMoi
+> > > | AyUQvdc=3D
+> > > | =3DJUWl
+> > > | -----END PGP SIGNATURE-----
+> > > |
+> > > | commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda (HEAD, tag: v7.2-rc=
+2, kernel-org-tip/locking/debug, kernel-org-stable/master, kernel-org-rw-pm=
+/master, kernel-org-rw-pm/fixes, kernel-org-powerpc/topic/ppc-kvm, kernel-o=
+rg-powerpc/next-test, kernel-org-powerpc/next, kernel-org-powerpc/fixes-tes=
+t, kernel-org-powerpc/fixes, google-android-kvm/master)
+> > > | Author:     Linus Torvalds <torvalds@linux-foundation.org>
+> > > | AuthorDate: Sun Jul 5 14:44:06 2026 -1000
+> > > | Commit:     Linus Torvalds <torvalds@linux-foundation.org>
+> > > | CommitDate: Sun Jul 5 14:44:06 2026 -1000
+> > > |
+> > > |     Linux 7.2-rc2
+> > > |
+> > > | diff --git a/Makefile b/Makefile
+> > > | index b9c5792c79e01..b4035d3cef266 100644
+> > > | --- a/Makefile
+> > > | +++ b/Makefile
+> > > | @@ -2,7 +2,7 @@
+> > > |  VERSION =3D 7
+> > > |  PATCHLEVEL =3D 2
+> > > |  SUBLEVEL =3D 0
+> > > | -EXTRAVERSION =3D -rc1
+> > > | +EXTRAVERSION =3D -rc2
+> > > |  NAME =3D Baby Opossum Posse
+> > > |
+> > > |  # *DOCUMENTATION*
+> > >
 
