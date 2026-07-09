@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEC3C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3FCC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BZVe6otb3QQFEcQn2qk27wQbZsgcsUGTrPl64ZnFclY=; b=3EnOI0VseUttox4peiWMYIMcAs
-	IotPoNJEhoaJsDs0JE9Aek44RXdqHs5l9tG4ywVG3J60LhGzXtAf+KPK8tLz2/R1aSApXhbILS6DM
-	qJVBY+rj4tyAK4DAVUHHhCsiN+MT3Mip0jcWdpmnkliW0Acf0AKpsKkRH45WvazbY1rGHxnuTfVvY
-	treUuP8kqvTmLu1NLdGxa4eyD98IbnRYOILeAJ6KRAtXBmEEKBgJti5y8FTrV5HOYReK4NLCx5rYs
-	M/LKiLgXgHTRE/D/l3GbiWciLsuCXA91z/oTnAhTAfp0S9SaN8mKCCKBB1GgfKTvJYyP8jXbLfZbY
-	NlsMRtUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LpRMy1ZVBsoG1dstlnJwPXUYPRKsH6HHD2nNnOP7LSc=; b=vQ3qQufUvcqxcMB83m58zHHHYv
+	OKa5xseWrzfcLy3ujzPBh+ARnm8d4MI427S7WHvJcZmW2D0E7pOZ/AD50A05TcCElucig6NUOyHg6
+	ySyyuffgKNCUVJXUDzRO5tN6XqV3oHvXC6u/Eu8beD+lkA6t9Pgpv2wNWUfWOk5Nxis1oRd/HEXGB
+	GnY6ZhXg2grzviFm21JvMR6ArkBjjAGpYP9u/0wppKlPGa5rIImgs+aHLN6+ctiety8ncKmuyC3y3
+	XaopjB9oSNaXY/6GDiVVTPVlgHJLUEBA+3Ksy3KCmE7kjgLNaJG7BNaRLAv+qnjW6LIUEtwKscSJ4
+	O0fXOU1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkk6-00000001iVh-3a1r;
-	Thu, 09 Jul 2026 09:08:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkk3-00000001iV4-2r3P
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:08:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B6253569;
-	Thu,  9 Jul 2026 02:08:18 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 873013F66F;
-	Thu,  9 Jul 2026 02:08:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783588102; bh=d5BvzN3MfufyvQVrVAt/h8a8nHtc61wj1/+yZBdDRrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XSlK0AowdDo+6xAFhpXJK7l0Vv+3NGFmBgg8pxsKDst4190Fxt1eIe1SIJK+xORgq
-	 LY/ghwUgINI1+y2TN75ycigsQOzr6y+yxSyaag1CAM9Ci3eVFes9Z1/Y1/c3URt+ZA
-	 Tlj8vHkQ4NP/rVfmLXjtM4g6prlftGxiawNzjnsI=
-Date: Thu, 9 Jul 2026 10:08:19 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, will@kernel.org, rppt@kernel.org,
-	maz@kernel.org, aneesh.kumar@kernel.org
-Subject: Re: [PATCH 1/3] arm64/mm: Simplify SWIOTLB setup in arch_mm_preinit()
-Message-ID: <ak9lA6dUnBYzwMlI@arm.com>
-References: <20260603110522.3331819-1-smostafa@google.com>
- <20260603110522.3331819-2-smostafa@google.com>
+	id 1whklI-00000001inO-0U7u;
+	Thu, 09 Jul 2026 09:09:40 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whklG-00000001il4-02RG;
+	Thu, 09 Jul 2026 09:09:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783588173;
+	bh=c8jG8dKuHKzZNHv5reXxu0tytMV65aXZ7vtITaZALMU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZGXZP0+9ha1Cms0Ij3L+Ocz5rsL26qRbEQdewRYk+M5utd2LnhM04Dju/kDNiZvvI
+	 zlJY/Juxs+xXvjW8sNT8CS3gQGttOqk52szKRwOYOg6bKuA0PsksrSTENFe9xPZiqK
+	 dMZkWjlIU1Gq4zH+2yBuQjxwka3f/XzCoIYfw4t9S472vFml4x5bpWrIKDYsmD+/sW
+	 zQz4neVhhwqeGCZjzNiJiY8qDnD2dQ1/xUFmYrZW7J2CQQOO2iJTJ1WwmwkS4mBrOg
+	 Fmvan/lhSu3Q/81wYNBlSK9Yxz+xMYAzOH6NtnaX8cSxAAlZ/3WsWsix9A8wqequqc
+	 ejDhhA3LEykpA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1E65C17E0564;
+	Thu, 09 Jul 2026 11:09:33 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com
+Subject: [PATCH v3 0/7] Add and use UART AP_DMA controller on MTK SoCs
+Date: Thu,  9 Jul 2026 11:09:17 +0200
+Message-ID: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260603110522.3331819-2-smostafa@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_020823_756845_80667684 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260709_020938_508393_B1CAFCEF 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,50 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 03, 2026 at 11:05:20AM +0000, Mostafa Saleh wrote:
-> At the moment, arch_mm_preinit() checks if the system has limited
-> addressing or is running under CCA to enable SWIOTLB, only after to
-> be forced to true anyway if it was false due to
-> CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC being unconditionally true for
-> arm64.
-> 
-> Simplify this logic, by making it clear that SWIOTLB is always used
-> but its size depends on the address layout of the system.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/mm/init.c | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 97987f850a33..fcc9c05a8fe6 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -336,25 +336,22 @@ void __init arch_setup_zero_pages(void)
->  void __init arch_mm_preinit(void)
->  {
->  	unsigned int flags = SWIOTLB_VERBOSE;
-> -	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
-> +	bool limited_addressing = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->  
->  	if (is_realm_world()) {
-> -		swiotlb = true;
->  		flags |= SWIOTLB_FORCE;
-> -	}
-> -
-> -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
-> +	} else if (!limited_addressing) {
+Changes in v3:
+ - MT8173: Removed first DMA as it clashes with the I2C4 DMA
+ - MT8186: Fixed IRQ levels
+ - MT8195: Reordered apdma node (same as mt8188)
 
-I'm fine with implementing Mike's comment on doing the check inline.
+Changes in v2:
+ - Fixed node ordering in mt8188
+ - Fixed interrupts in mt8173
+ - Fixed interrupt cells and fallback compatible in mt8186
 
-I recall some people still comment out the dma kmalloc bounce option:
+First of all: not all of them will use this and that's sure - but the
+devicetree describes hardware, and this hardware was not described on
+any of the SoCs that support the UART AP_DMA controller.
 
-https://github.com/raspberrypi/linux/commit/a07564753639fe5ffb3f59d7364f14e6e68e3e9e
+Besides, there is also driver support for this controller for all SoCs!
 
-(there was no way I could convince them it's worse memory wastage
-without the option)
+Let's add support for this IP in all of the SoCs that have it.
 
-So happy to make it slightly harder for them ;).
+AngeloGioacchino Del Regno (7):
+  arm64: dts: mediatek: mt6795: Remove deprecated UART DMA property
+  arm64: dts: mediatek: mt8173: Add and use UART AP_DMA controller
+  arm64: dts: mediatek: mt8183: Add and use UART AP_DMA controller
+  arm64: dts: mediatek: mt8186: Add and use UART AP_DMA controller
+  arm64: dts: mediatek: mt8188: Add and use UART AP_DMA controller
+  arm64: dts: mediatek: mt8192: Add and use UART AP_DMA controller
+  arm64: dts: mediatek: mt8195: Add and use UART AP_DMA controller
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+ arch/arm64/boot/dts/mediatek/mt6795.dtsi |  4 +--
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi | 22 ++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi | 22 ++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi | 22 ++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 33 +++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi | 17 +++++++++++
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi | 37 ++++++++++++++++++++++++
+ 7 files changed, 154 insertions(+), 3 deletions(-)
+
+-- 
+2.54.0
+
 
