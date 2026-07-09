@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B17C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2E0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DM/6oD8ApXS0Kg5hiipfejBF2lSa9KZ0WHSwF3lBGc=; b=kjZMwAcgkfX/co+sWUpH6ql+/n
-	kPe3PVHthXqDGfJs0J7bar7o8B+PZt6KEk18HYEuZuoWxZpc+KOObq+QBlCcvNKSS5b1vMCWwjnh6
-	ouLaK5OdvtvjDPylJdmygY1Am9uF1l0WWVkDZ+Bft4TvMV9+1XX1enMDgpv5iQD1qAmidLfv9aKO4
-	cfFEg2pIT9ICCfwfAgcpwThMLq68WzeFvTRoVVHoPh3hXtqE1gMTnoVoPiWmPzW0X1YZiHV+5HOwx
-	GFbDIdaxLKzd9f9XVb/eUu4NEzkmvnJnkOa0oPPY1Ta0bhMw9Gxq+UmEg44poaCy6eQVUUsZ0o4AI
-	qCf5dhKQ==;
+	bh=Z2vlbfzxX/wMu0zVb9lRzKa28OIFiNFkHAACUpMr2rA=; b=1f1CofVpTNmyJKCEQe0oQKxfOx
+	6x9ntxpJqvXpbsDw7CxDi0kSYP+JrDdh/Vy/MVO3YAuEIe2fXgr0EDGj0oyAkmrJfsGsHgiSeF8g1
+	Lso4jHCiaBa35H+L8yNoBLB9ZW3h/qasu/x66QvHXDWJxAs9jdp8H2RptNkDV+5Y0fnnqO0vtmfbs
+	/8zRyZUy+UTQmDCqvmzqQ2IKKS30UdmmMY5PRFlk6WYbeWd8MLxaFQuqlRtJ7LR2z5pb8/xYfC2Mt
+	7hpZYzZvUStTd61o4ptYJUEkXWpoGIS+bhdTmBw6VFQnpH/M3VzfA/tJ1TE2xiDqkSc+4EYiDVRb6
+	k00NuEqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whp9O-00000002dwT-0qXO;
-	Thu, 09 Jul 2026 13:50:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whp9L-00000002dvo-0qHs;
-	Thu, 09 Jul 2026 13:50:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783605041;
-	bh=4wdH6AGIdQUkCwGwkppnR1MG/7RO3rn/yOme0vJchCk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=TVKrhXE5tTCw+l7BZOGSxtRUBOUkgQzRCdTjNpwNL7gNEv2tKDOn70zSdLIsetN1b
-	 uVzsvAekzRpgHdN2dsKDCk8R4vdo74JavuDMIhZ+WySmA9KLoDxJ3pJ9KONLNVUIH+
-	 f3uJq0gNuZ35R/o07svK3z84yM/irsa/QExRGEnztO1oG8H+6FnB8ssG2xLWQVN5Zt
-	 eph/9ZB5vGtbKXbY78+qzHYZjVlnJkTLZLMI+QUcXOSCzHJ9lg9ULggoMJE8IpmovP
-	 Lfh4wwdtlWP0R6tb7wEeNa0sCAchrHx9yraiQtbOJ+x9sOW1A23o61OvO0D6q/qa0m
-	 DmbjHX3pTy7dQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A26C17E003B;
-	Thu, 09 Jul 2026 15:50:41 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Griffin Kroah-Hartman <griffin@kroah.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>
-In-Reply-To: <20260709132416.212212-1-griffin@kroah.com>
-References: <20260709132416.212212-1-griffin@kroah.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo Add error handling in
- devm_kasprintf()
-Message-Id: <178360504157.57747.16235792548671319644.b4-ty@b4>
-Date: Thu, 09 Jul 2026 15:50:41 +0200
+	id 1whpBo-00000002eG9-2eld;
+	Thu, 09 Jul 2026 13:53:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whpBl-00000002eFZ-3ZQe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 13:53:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 202393592;
+	Thu,  9 Jul 2026 06:53:12 -0700 (PDT)
+Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBA0F3FAA1;
+	Thu,  9 Jul 2026 06:53:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783605196; bh=L4nQOnLMi4te8m+trxid3Rvc9kuvAbuNW0fxjmrocUo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bQffwXAozmLmlnqq2T17AWwpP7l+ue9c7jnxxVh2jTux17PQ2u2n3UhMCDWEBDOel
+	 XUMBavUIva9q5FOqm4gcQDWMdku117tmPJ5F3EADiDYRsaRadPqd+/0LVhCEdJC+w2
+	 AOLNAmKfHyWbyIFbv1+fy4xw8DQxqj+uUenYDAmk=
+Message-ID: <3136473a-c0f1-4168-a9b7-44f7a13ac53c@arm.com>
+Date: Thu, 9 Jul 2026 15:53:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 15/15] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-16-andre.przywara@arm.com>
+ <df2e5828-5666-463e-84f9-ca1e69955690@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <df2e5828-5666-463e-84f9-ca1e69955690@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_065047_785186_B1DE7ECB 
-X-CRM114-Status: UNSURE (   5.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_065317_986060_C9ADB0E1 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +82,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jul 2026 15:24:16 +0200, Griffin Kroah-Hartman wrote:
-> Add an error check to the devm_kasprintf() function in
-> mtk_socinfo_create_socinfo_node(), returning -ENOMEM if the function
-> failed.
+Hi,
 
-Applied to v7.2-next/soc, thanks!
+On 7/3/26 13:00, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/2/26 17:22, Andre Przywara wrote:
+>> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+>> registers through a firmware interface. This requires a shared memory
+>> region to hold the message, and a mailbox to trigger the access.
+>> For ACPI this is wrapped as a PCC channel, described using existing
+>> ACPI abstractions.
+>>
+>> Add code to parse those PCC table descriptions associated with an MSC,
+>> and store the parsed information in the MSC struct.
+>> There can be multiple PCC channels, and each channel can serve multiple
+>> MSCs, so we need to keep track of the channel usage, using a list and
+>> a refcount.
+>> This will be used by the MPAM-Fb access wrapper code.
+>>
+>> [1] https://developer.arm.com/documentation/den0144/latest
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/acpi/arm64/mpam.c      |   2 +
+>>   drivers/resctrl/mpam_devices.c | 113 ++++++++++++++++++++++++++++++++-
+>>   2 files changed, 113 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> index 84963a20c3e7..64bc84bb2029 100644
+>> --- a/drivers/acpi/arm64/mpam.c
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
+>>   	} else if (iface == MPAM_IFACE_PCC) {
+>>   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>>   							tbl_msc->base_address);
+>> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
+>> +							tbl_msc->identifier);
+>>   	}
+>>   
+>>   	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 4a088e6cd235..35214520bfd4 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -19,6 +19,7 @@
+>>   #include <linux/irqdesc.h>
+>>   #include <linux/list.h>
+>>   #include <linux/lockdep.h>
+>> +#include <linux/mailbox_client.h>
+>>   #include <linux/mutex.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/printk.h>
+>> @@ -27,6 +28,9 @@
+>>   #include <linux/types.h>
+>>   #include <linux/workqueue.h>
+>>   
+>> +#include <acpi/pcc.h>
+>> +#include <acpi/acpi_io.h>
+>> +
+>>   #include "mpam_internal.h"
+>>   #include "mpam_fb.h"
+>>   
+>> @@ -50,6 +54,88 @@ static LIST_HEAD(mpam_all_msc);
+>>   
+>>   struct srcu_struct mpam_srcu;
+>>   
+>> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
+>> +static DEFINE_MUTEX(pcc_chan_list_lock);
+>> +static LIST_HEAD(pcc_chan_list);
+>> +
+>> +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
+>> +{
+>> +	/* TODO: wake up tasks blocked on this MSC's PCC channel */
+>> +}
+>> +
+>> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
+>> +					       int subspace_id)
+>> +{
+>> +	struct mpam_pcc_chan *cur;
+>> +
+>> +	mutex_lock(&pcc_chan_list_lock);
+>> +
+>> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
+>> +		if (cur->subspace_id == subspace_id) {
+>> +			cur->refcount++;
+>> +			mutex_unlock(&pcc_chan_list_lock);
+>> +
+>> +			return cur;
+>> +		}
+>> +	}
+>> +
+>> +	cur = kzalloc_obj(*cur);
+>> +	if (!cur) {
+>> +		mutex_unlock(&pcc_chan_list_lock);
+>> +		return ERR_PTR(-ENOMEM);
+>> +	}
+>> +
+>> +	cur->pcc_cl.dev = dev;
+>> +	cur->pcc_cl.rx_callback = mpam_pcc_rx_callback;
+>> +	cur->pcc_cl.tx_block = true;
+>> +	cur->pcc_cl.tx_tout = 1000; /* 1s */
+>> +
+>> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
+>> +	if (IS_ERR(cur->pcc_chan)) {
+>> +		long err = PTR_ERR(cur->pcc_chan);
+>> +
+>> +		kfree(cur);
+>> +		mutex_unlock(&pcc_chan_list_lock);
+>> +		return ERR_PTR(err);
+>> +	}
+>> +
+>> +	mutex_init(&cur->pcc_chan_lock);
+>> +	cur->subspace_id = subspace_id;
+>> +	cur->refcount = 1;
+>> +
+>> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
+>> +
+>> +	mutex_unlock(&pcc_chan_list_lock);
+>> +
+>> +	return cur;
+>> +}
+>> +
+>> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
+>> +{
+>> +	struct mpam_pcc_chan *cur, *tmp;
+>> +
+>> +	if (!pcc_chan)
+>> +		return 0;
+>> +
+>> +	mutex_lock(&pcc_chan_list_lock);
+>> +
+>> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
+>> +		if (cur == pcc_chan) {
+>> +			if (!--cur->refcount) {
+>> +				pcc_mbox_free_channel(cur->pcc_chan);
+>> +				list_del(&pcc_chan->pcc_chans);
+>> +				kfree(cur);
+>> +			}
+>> +			mutex_unlock(&pcc_chan_list_lock);
+>> +			return 0;
+>> +		}
+>> +	}
+>> +
+>> +	mutex_unlock(&pcc_chan_list_lock);
+>> +
+>> +	return -ENOENT;
+>> +}
+>> +
+>>   /*
+>>    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
+>>    * can be enabled.
+>> @@ -2202,6 +2288,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>>   {
+>>   	struct mpam_msc *msc = platform_get_drvdata(pdev);
+>>   
+>> +	mpam_pcc_chan_put(msc->pcc_chan);
+>> +
+>>   	mutex_lock(&mpam_list_lock);
+>>   	mpam_msc_destroy(msc);
+>>   	mutex_unlock(&mpam_list_lock);
+>> @@ -2212,7 +2300,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>   {
+>>   	int err;
+>> -	u32 tmp;
+>> +	u32 pcc_subspace_id;
+>>   	struct mpam_msc *msc;
+>>   	struct resource *msc_res;
+>>   	struct device *dev = &pdev->dev;
+>> @@ -2257,7 +2345,8 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>   	if (err)
+>>   		return ERR_PTR(err);
+>>   
+>> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+>> +	if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>> +				     &pcc_subspace_id))
+>>   		msc->iface = MPAM_IFACE_MMIO;
+>>   	else
+>>   		msc->iface = MPAM_IFACE_PCC;
+>> @@ -2273,6 +2362,26 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>   		}
+>>   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>>   		msc->mapped_hwpage = io;
+>> +	} else if (msc->iface == MPAM_IFACE_PCC) {
+>> +		u32 msc_id;
+>> +
+>> +		if (device_property_read_u32(&pdev->dev, "msc-id", &msc_id)) {
+>> +			pr_err("missing MPAM-Fb MSC identifier\n");
+>> +			return ERR_PTR(-EINVAL);
+>> +		}
+>> +		msc->mpam_fb_msc_id = msc_id;
+>> +
+>> +		msc->pcc_chan = mpam_pcc_chan_get(&pdev->dev, pcc_subspace_id);
+>> +		if (IS_ERR(msc->pcc_chan)) {
+>> +			pr_err("Failed to request MSC PCC channel\n");
+>> +			return (void *)msc->pcc_chan;
+>> +		}
+>> +
+>> +		if (msc->pcc_chan->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
+>> +			pr_err("MPAM-Fb PCC channel size too small.\n");
+>> +			mpam_pcc_chan_put(msc->pcc_chan);
+>> +			return ERR_PTR(-ENOMEM);
+>> +		}
+> 
+> I think we need a version check here just in case a MPAM-Fb 2.x is released.
 
-[1/1] soc: mediatek: mtk-socinfo Add error handling in devm_kasprintf()
-      commit: e4a3c99bbf779d6357adb8101ad18f34c2194306
+OK, that was slightly more involved, since that requires an MPAM-Fb 
+message to learn the protocol version, but I did it now. Includes 
+refactoring of mpam_fb_send_request() to support more than two message 
+types.
 
 Cheers,
-Angelo
-
-
+Andre
 
