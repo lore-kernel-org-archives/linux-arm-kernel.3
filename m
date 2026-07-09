@@ -4,102 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F17CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8FAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ClBPAUdo6N5oJZIf4ypP10hp87KU/iyoMuoMwuvEL3A=; b=sspUMWcrAWUugqemR8yIBLyCXE
-	aSLB8cou7ArP78mtlb+Y840UJwoQ1F1x8bv6q2TL5qwk2TsH2ff5FOak6c7p0eSrPsbCvsFHTzV61
-	SvdsG4QMaAztUQ79jxisulHRx49MfL2LPzhRAJrfagyaYZ+PJa8qgIg2v2yus2rXX1ZSke24IDG4Q
-	r63sgwe5O6KI/G/zKZViizFwonJlcGgiP+CEenreQ8xT1wSF88G9tDbdJjlgOSQ2dnF+YbiiMxxvw
-	xGKIVuwIBqTCh1TlYgSHjYsg0EwGDV68KlrWF7ZZeg+koeRp8lLcy5AntDjHhKXi23zi3YiJoV53M
-	jSzQXtsQ==;
+	bh=+IUzkoDTo8ryJAbWgSPaFMbWYYZ4BmqlEHKHtTm8xic=; b=cNTqlAEv2avcbmVc6kfmLQtIw8
+	0GsdQ2LSTu5ULu2CVrf05OiJq/9Buo6uOdj0d9+dkwX/z5NjCgUW/FgKZE49w5CwIPOnEeEDgYKqq
+	xPBIQ8pl0jlFM5eefoIvKk/apokY7ZNDZfKV8bwn5VJeJw0nh0q8wVfpPrfWbK3kSxC5Bu2VeeIgW
+	altVcda8VcocnFWdU6KlZDTCMhSRYyAkwEFLbcbpH//3nnBS6uYI3lBhU+xPKb98Ts/DqPL5YnZYI
+	Hytsk7zDc7cpBlidarah2kx/49/RsnOcOptbl6RBiiFdEYvbGU7Us6kA5kEKm70IbKjpu4uauGkUm
+	OMIa20Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjLj-00000001KHm-2GCC;
-	Thu, 09 Jul 2026 07:39:11 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjLh-00000001KFw-0mNK
+	id 1whjQQ-00000001LXG-1Fyy;
+	Thu, 09 Jul 2026 07:44:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whjQN-00000001LWW-3UWl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:39:10 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8484a0b998fso1508547b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 00:39:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783582748; x=1784187548; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ClBPAUdo6N5oJZIf4ypP10hp87KU/iyoMuoMwuvEL3A=;
-        b=VvzRjF8KBcx5PiYg21CG2XHVWKOiycsRIXcHMFOy19JwC5L3AIPzWawbIXekxfsLXx
-         B7uyuBi3AP0XovRO9qA+0VYr7H6liXGylKxAyv6l/epwKnT2uXzFG4430d7QfMkGxeyO
-         tmrIrv+OQyjNvBgcI6DOO0pdmDLDLq9fNwmHah2QjL3UVtOdX8spt9p3gjpp4HC9i1i0
-         YlIW/biCBrlTlkpBaOpU8cSWDx5WMhe6qL8ad9I1eD9lMVkhDnJFbFvZFg2JKcwqXodA
-         aw/pzmCFTNBwpnIUJj2YXr/Khu9uHobmy4gu8wdIypNKdDHLLn9nOeoFrbiP7gNVCGFN
-         p4Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783582748; x=1784187548;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ClBPAUdo6N5oJZIf4ypP10hp87KU/iyoMuoMwuvEL3A=;
-        b=DSf7O0+0d7rCzt0oSiNtHbQikAoI+jKOgkFRC+EZn3cisB9hG5otE79+/SzyADZCXG
-         RBHSQc6mR98qjOUNHuG4hsq+3sxceGKYMQDxed4OsR2rez/97uRwAqKDAIf7Bpfj3kGn
-         m0DeZyC/N1WOmsIHKBYFlTRFj37DcAvMXvpqYS2zOlAujIsfU4qb8cCW9L+pkFghemQf
-         2mkCFTJZAkFM/nDdXWbqrcAOv2DiDtrDBFR6wS5md94fJ3VlUx1+C0+CmfGQCy+Xsq5X
-         iAC1RfBYHafPPhSUe2MMPMG4LwcR0H5TX0UL29fyTmwsv3FgUbnyDzKpCAnEzlFbuCi+
-         g62w==
-X-Forwarded-Encrypted: i=1; AHgh+Rr/v7GwG6EYg3NelZ2fcS0kQuKgH2GbP1w4588gJNrbt/TFhMpwFCybTodz9GLImbj2WF3qBRNUBPwy9s7qXGk5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgYymu08qNl7hK6CeH2YSxaAEavvod1q44W431N0v3/Ltyjgnn
-	vljXG9FpB63XJ/vf40PGp9R0AYZ6hj3T2t9BPQPn7IxVbmeJc+OXukX2
-X-Gm-Gg: AfdE7clQVpV6ylxzHY/RFdBMt11OXJGQcdD8/k0J1+U8YkhfUMjnAcBqPFnoGYB/+j4
-	qGJCoSWxS+Mq/8P2LCC1r1nMyQnHUriKCxr+BLsT4KGCNnePx935XB2zx/zVSn+FaMO47srw5ks
-	POAv9gUIqI8uPNdeu2JXXJfX46b8lD21AwyPzkjcWXIed79ydVVW/poYagtmKuzmkrs5ZVTGpZ7
-	r1KrlxRqlP2sr78wki/I0rjmM2TAIYSgqQRpGDaZodWjjRXxzbOp6W5koEuU9FcKvkjwihbl4dy
-	AaPgnCakzbR+VUlSXA+tKIuK5Nu7MSL8mFw9qxz5JkQ2uJlFAz3Dw+Rr+S56WcXbvtCziY31Ns4
-	u5USbbh+HFpCktdJWpNxc5EXTrr7fvKYzTvn0sM93P/gUF1b2StBeMnXXSszM7fWHHKOh2MukdB
-	URvcJutT1evxOWC0Gicmwp+vb2SlUVPCGvMGM=
-X-Received: by 2002:a05:6a00:2e07:b0:847:7f38:27ad with SMTP id d2e1a72fcca58-848438a7e6amr5640848b3a.53.1783582748319;
-        Thu, 09 Jul 2026 00:39:08 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ca5b3162a49sm3334902a12.15.2026.07.09.00.39.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 00:39:07 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
-To: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	linux-mm@kvack.org,
-	urezki@gmail.com,
-	will@kernel.org
-Cc: Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	david@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	"Barry Song (Xiaomi)" <baohua@kernel.org>,
-	Wen Jiang <jiangwen6@xiaomi.com>,
-	Xueyuan Chen <xueyuan.chen21@gmail.com>,
-	Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v6 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Thu,  9 Jul 2026 15:38:23 +0800
-Message-Id: <20260709073823.6643-7-jiangwen6@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260709073823.6643-1-jiangwen6@xiaomi.com>
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
+	Thu, 09 Jul 2026 07:44:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78B09168F;
+	Thu,  9 Jul 2026 00:43:54 -0700 (PDT)
+Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061383F66F;
+	Thu,  9 Jul 2026 00:43:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783583038; bh=IgdTSArHQ8oteKx5khmzg/wtXtBIJn8DUtYY+BXoEMY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZofewIXyrEbVv1Dz0DDeV2p7J/CuvpU/Q9ZDTKY27/4tAhvAG8rKCaYqonSW0Ytu2
+	 WiwySDPCzw0ipoQ679VApyzY5O6PapengItCRYzO3n/5gtu0FdxHeS/xaM4yF7/DJj
+	 DKcJQu1mJG/2FrF+1mhkNsISAwa3ZQn53/Kk6Vkw=
+Message-ID: <29e02d92-b294-40e2-8d85-eb62bcb8ae17@arm.com>
+Date: Thu, 9 Jul 2026 09:43:52 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/15] arm_mpam: propagate MSC read errors for
+ __ris_msmon_read()
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-7-andre.przywara@arm.com>
+ <332b1348-285f-4b4a-9d3d-97f040739703@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <332b1348-285f-4b4a-9d3d-97f040739703@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003909_231728_27A70EC1 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260709_004359_958355_C86CCC6D 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,88 +83,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+Hi Ben,
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries. We do not expect any significant overhead for
-this.
+On 7/1/26 22:14, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/2/26 17:22, Andre Przywara wrote:
+>> Allow the function for RIS accesses to return an error, and propagate
+>> read errors from the lower level up.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 35 +++++++++++++++++++++++++++-------
+>>   1 file changed, 28 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index b259fe20a614..d18c7be86aaa 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1285,9 +1285,14 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
+>>   	return overflow_val;
+>>   }
+>>   
+>> +/*
+>> + * This function might be called via smp_call_function_any(), so propagate
+>> + * errors inside the arg struct.
+>> + */
+>>   static void __ris_msmon_read(void *arg)
+>>   {
+>>   	u64 now;
+>> +	int ret;
+>>   	u32 now32;
+>>   	bool nrdy = false;
+>>   	bool config_mismatch;
+>> @@ -1326,7 +1331,9 @@ static void __ris_msmon_read(void *arg)
+>>   	 * Read the existing configuration to avoid re-writing the same values.
+>>   	 * This saves waiting for 'nrdy' on subsequent reads.
+>>   	 */
+>> -	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>> +	ret = read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>> +	if (ret)
+>> +		goto out_unlock;
+>>   
+>>   	if (mpam_feat_msmon_mbwu_31counter == m->type)
+>>   		overflow = cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS;
+>> @@ -1351,7 +1358,9 @@ static void __ris_msmon_read(void *arg)
+>>   
+>>   	switch (m->type) {
+>>   	case mpam_feat_msmon_csu:
+>> -		mpam_read_monsel_reg(msc, CSU, &now32);
+>> +		ret = mpam_read_monsel_reg(msc, CSU, &now32);
+>> +		if (ret)
+>> +			goto out_unlock;
+>>   		nrdy = now32 & MSMON___NRDY;
+>>   		now = FIELD_GET(MSMON___VALUE, now32);
+>>   
+>> @@ -1371,7 +1380,9 @@ static void __ris_msmon_read(void *arg)
+>>   			else
+>>   				now = FIELD_GET(MSMON___L_VALUE, now);
+>>   		} else {
+>> -			mpam_read_monsel_reg(msc, MBWU, &now32);
+>> +			ret = mpam_read_monsel_reg(msc, MBWU, &now32);
+>> +			if (ret)
+>> +				goto out_unlock;
+>>   			nrdy = now32 & MSMON___NRDY;
+>>   			now = FIELD_GET(MSMON___VALUE, now32);
+>>   		}
+>> @@ -1402,10 +1413,15 @@ static void __ris_msmon_read(void *arg)
+>>   	if (nrdy)
+>>   		m->err = -EBUSY;
+>>   
+>> -	if (m->err)
+>> -		return;
+>> +	if (!m->err)
+>> +		*m->val += now;
+> 
+> Why does this change? Can't you keep this the 'if' statement as before
+> and more the 'return' after the '*m->val += now;'?
 
-Add __get_vm_area_node_aligned_caller() as a wrapper over
-__get_vm_area_node() to simplify repeated calls with fixed
-arguments.
+Because I need to explicitly return now anyway, since the error path 
+below would just unlock again otherwise. So it would look like:
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
----
- mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+	if (m->err)
+		return;
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index db0492151ad08..2ac805cdf18ad 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3314,6 +3314,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
- 				  NUMA_NO_NODE, GFP_KERNEL, caller);
- }
- 
-+static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-+		unsigned long align, unsigned long flags, const void *caller)
-+{
-+	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-+				  VMALLOC_START, VMALLOC_END,
-+				  NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * find_vm_area - find a continuous kernel virtual area
-  * @addr:	  base address
-@@ -3626,6 +3634,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, pgprot_t prot, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3664,7 +3696,8 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
- 
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = vmap_get_aligned_vm_area(size, flags, prot,
-+				__builtin_return_address(0));
- 	if (!area)
- 		return NULL;
- 
--- 
-2.34.1
+	*m->val += now;
+
+	return;
+out_unlock:
+	mpam_mon_sel_unlock(msc);
+...
+
+which seemed like one return would be enough, and just conditionally do 
+the assignment instead. I'd prefer to keep it like in this patch, but 
+let me know if you disagree and I would change it to the one sketched above.
+
+Cheers,
+Andre
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>> +
+>> +	return;
+>>   
+>> -	*m->val += now;
+>> +out_unlock:
+>> +	mpam_mon_sel_unlock(msc);
+>> +
+>> +	m->err = ret;
+>>   }
+>>   
+>>   static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+>> @@ -1729,6 +1745,7 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>   {
+>>   	int i;
+>>   	u64 val;
+>> +	int ret = 0;
+>>   	struct mon_read mwbu_arg;
+>>   	struct mpam_msc_ris *ris = _ris;
+>>   	struct mpam_class *class = ris->vmsc->comp->class;
+>> @@ -1741,10 +1758,14 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>   			mwbu_arg.val = &val;
+>>   
+>>   			__ris_msmon_read(&mwbu_arg);
+>> +			if (mwbu_arg.err) {
+>> +				ret = mwbu_arg.err;
+>> +				break;
+>> +			}
+>>   		}
+>>   	}
+>>   
+>> -	return 0;
+>> +	return ret;
+>>   }
+>>   
+>>   /* Call with MSC cfg_lock held */
+> 
 
 
