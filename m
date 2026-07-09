@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC2EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 21:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE953C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 22:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WaYVtw2KNaav0d67ZyLyqLXRgtCpafRyQuoxKoWLGTI=; b=BjTLBxwEs7ej0iUnVpaxdSm9Qu
-	xS+0OVZbmXQFJCw3oXdUmucaGzobppsZyYd3Q87jgcL5ljMxp5ZtCWS8OcL7vmw199H+TTcwuuHG+
-	/7RaEE5bZcUO0y7geHqY3UQxOyl6+AJwRmX0tiNCN4F0N+YRyIRyiPBpBXkr6lKzWlCKLJCxzURmh
-	wph5/pou1t66pRGRajMoNZQyUtnHyAL/Y4kQaKN+T7f3vubnwabGEd5KlyIYEEoliWmY3+7RucnZh
-	x7xl2Q9Sw2mlWG1VMNIueWeY0/rWLvYEwtolaTdXnh6n/OBYJ1M0mDoYpf2P26oBGSMh3LyBCrbS3
-	tdV8eJhg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=laLRk3O1bPDNGHI/gc/k6EDjwMB+P9jDPSaWLIRQBbw=; b=tG/GiFQqaIoosreSpjcT2ZFQLB
+	cg0hAvwfNzUaBqrkeGcScBdCEQGZ/rZiLwH8qc7BR3N/eIcacByRTEuvQ66OrrNa7u+ehAaoerVzG
+	j6r2D90gzC3Nc3A0QvuFO1LaHyGKb77It7OgGJUAHZ+K8RE9xboN7KUNZXdLWMULvjLkJTgJZXqq2
+	JRXISdCObhaimkemecsDHduUkuXH7cNArC/nCO7x4R5+oZ4DHkDWS/r1TUHMbyUi2MEaUIb5t5RoE
+	xu4ukrHdaP8vNj63K1kDtCC85bSa8euDDKnaOYfNscSTYDbTX62cb1PY1JUp3Kb214F3B3STVvNFx
+	Xl5LiADg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whwhL-00000003j2y-0Kt7;
-	Thu, 09 Jul 2026 21:54:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whwhH-00000003j2T-36Pr
+	id 1whwzR-00000003kqI-2AjT;
+	Thu, 09 Jul 2026 22:13:05 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whwzO-00000003kpA-3Alm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 21:54:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AAD41684;
-	Thu,  9 Jul 2026 14:54:11 -0700 (PDT)
-Received: from [10.20.1.47] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0B5A3FC81;
-	Thu,  9 Jul 2026 14:54:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783634055; bh=1x1O5/8NBvG8DI4JQrMszZeE1Jwu6g4smxeeLeZbpEU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FPiJjvtHpd87gexTA0oqaHquzJS63oNRK8N3kdLk5oTZfZDaM5utI21ONiMczZBpp
-	 cMj3nW2VG6VdKgfpif/dDZkzwukvGlg67JV3/yWz4mpW+KavZIkJ1SyRazKlzBJYhw
-	 NHHFJbhI0heWxAdldhaN/c4USKhaHgSE5pn6Yq90=
-Message-ID: <a3064c25-9a82-47e4-acff-7ec63b08bd11@arm.com>
-Date: Thu, 9 Jul 2026 23:54:12 +0200
+	Thu, 09 Jul 2026 22:13:04 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gx8NS4jDdzKnR7;
+	Fri, 10 Jul 2026 00:12:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783635176;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=laLRk3O1bPDNGHI/gc/k6EDjwMB+P9jDPSaWLIRQBbw=;
+	b=OqvJPZhIiakwtCop6MXeEMt/soVSIahHllBwACDTaxN+2QwcFt2Wh6NafVwkj6QxTTdFR7
+	uq7ex/AKbTFMye2Le8u31XmMtt+l5pWdWILFQoaWhCD3FL3Ss4hovXj5VQCoCaL5CorxVj
+	r51VM2FT52f59V/54rYVwWFpJzRLPnWutP1RHAyPxMKQWEW1eZXcHN41uOs1xePiEXAcOa
+	xsYjXNCPoA6wzO90KsSiulqw4YqGWKChGUyKe3rxgKPM34IzEQBqw2frKjpgxXMxdrFupO
+	J0WSHSTGO53Ka7sL1IgbTVnLUlbXb7F7dzboWyXCvlBzRdfe3jWsuuRIZSYloQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DHl5iHBZ;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783635175;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=laLRk3O1bPDNGHI/gc/k6EDjwMB+P9jDPSaWLIRQBbw=;
+	b=DHl5iHBZuPMJ33GHGleJrtpeJzBwFkFvJztFvwlkPGoyPQpEE9E4SLab+fzrQVyd0MDknn
+	4gsxYj2Zudf1S+pprtoDwjKNjUJvsjfLETZclIk3CJlev33PclRiWsjVybn0tJsQMl83Cc
+	nj3zxRLIKrJjMlF8Jqv9XfhoyxrOBZxvGZcnSLV9c6QqB5FIhPA0/kpHuPgZ91GIvtzywB
+	mLEOhbvwUt6LJ670o5Ro+hEkTwGmelvoJ15dg9ChTK7HgTR4pDyjjR3p6ObVXWFS4oH2pM
+	hxr5BjymqQpGtehVhnCC/p0M5QQG9HsihuUaUOSbyWQgxHOzopooOpI4PHs9NA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	stable@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: ironhide: Describe inline ECC carveouts
+Date: Fri, 10 Jul 2026 00:12:16 +0200
+Message-ID: <20260709221245.146406-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/15] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-14-andre.przywara@arm.com>
- <b72c0ba1-b7c3-4afd-b572-2f6a6eef8642@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <b72c0ba1-b7c3-4afd-b572-2f6a6eef8642@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 64a105b4cf20af77a8f
+X-MBO-RS-META: gte15z866jw5dyzru7hp41k38a9ssom7
+X-Rspamd-Queue-Id: 4gx8NS4jDdzKnR7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_145419_955383_534C5343 
-X-CRM114-Status: GOOD (  41.43  )
+X-CRM114-CacheID: sfid-20260709_151302_976356_39EC9EC1 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,417 +96,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The DBSC5 DRAM controller protects DRAM content using inline ECC.
+The inline ECC utilizes areas of DRAM for its operation, which are
+in the DRAM address range, but must not be accessed or modified.
+Describe the inline ECC carveout areas used by the DBSC5 controller
+on this hardware as reserved-memory, which must not be accessed.
 
-On 7/8/26 13:21, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 7/2/26 17:22, Andre Przywara wrote:
->> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->> alternative way of accessing the "Memory System Components" (MSC) in an
->> MPAM enabled system.
->> Normally the MSCs are MMIO mapped, but in some implementations this
->> might not be possible (MSC located outside of the local socket, MSC
->> mapped secure-only) or desirable (direct MMIO access too slow or needs
->> to be mediated through a control processor). MPAM-fb standardises a
->> protocol to abstract MSC accesses, building on the SCMI protocol.
->>
->> Add functions that do an MSC read or write access by redirecting the
->> request through a firmware interface. For now this done via an ACPI
->> PCC shared memory and mailbox combination.
->>
->> Since the protocol used is only a small subset of the full SCMI spec,
->> and the SCMI protocol has no full ACPI support anyway, open-code the
->> SCMI message generation and handshake, for just the fields we need.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/Makefile        |   2 +-
->>   drivers/resctrl/mpam_devices.c  |  27 +++++--
->>   drivers/resctrl/mpam_fb.c       | 137 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_fb.h       |  17 ++++
->>   drivers/resctrl/mpam_internal.h |  12 +++
->>   include/linux/arm_mpam.h        |   2 +-
->>   6 files changed, 190 insertions(+), 7 deletions(-)
->>   create mode 100644 drivers/resctrl/mpam_fb.c
->>   create mode 100644 drivers/resctrl/mpam_fb.h
->>
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> index 4f6d0e81f9b8..097c036724e9 100644
->> --- a/drivers/resctrl/Makefile
->> +++ b/drivers/resctrl/Makefile
->> @@ -1,5 +1,5 @@
->>   obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
->> -mpam-y						+= mpam_devices.o
->> +mpam-y						+= mpam_devices.o mpam_fb.o
->>   mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
->>   
->>   ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 824bc6c97851..b858ff389bff 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -28,6 +28,7 @@
->>   #include <linux/workqueue.h>
->>   
->>   #include "mpam_internal.h"
->> +#include "mpam_fb.h"
->>   
->>   /* Values for the T241 errata workaround */
->>   #define T241_CHIPS_MAX			4
->> @@ -181,6 +182,9 @@ static int __mpam_read_reg(struct mpam_msc *msc, u16 reg, u32 *res)
->>   {
->>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
->> +	if (msc->iface == MPAM_IFACE_PCC)
->> +		return mpam_fb_send_read_request(msc, reg, res);
->> +
->>   	*res = readl_relaxed(msc->mapped_hwpage + reg);
->>   
->>   	return 0;
->> @@ -197,9 +201,12 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
->>   
->>   static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
->>   {
->> -	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
->> +	if (msc->iface == MPAM_IFACE_PCC)
->> +		return mpam_fb_send_write_request(msc, reg, val);
->> +
->> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->>   	writel_relaxed(val, msc->mapped_hwpage + reg);
->>   
->>   	return 0;
->> @@ -1127,7 +1134,8 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
->>   
->>   	mpam_mon_sel_lock_held(msc);
->>   
->> -	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> +	if (msc->iface == MPAM_IFACE_MMIO)
->> +		WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
->>   	ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
->> @@ -1475,9 +1483,15 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
->>   					 srcu_read_lock_held(&mpam_srcu)) {
->>   			arg->ris = ris;
->>   
->> -			err = smp_call_function_any(&msc->accessibility,
->> -						    __ris_msmon_read, arg,
->> -						    true);
->> +			if (msc->iface == MPAM_IFACE_MMIO) {
->> +				err = smp_call_function_any(&msc->accessibility,
->> +							    __ris_msmon_read,
->> +							    arg, true);
->> +			} else {
->> +				__ris_msmon_read(arg);
->> +				err = 0;
->> +			}
->> +
->>   			if (!err && arg->err)
->>   				err = arg->err;
->>   
->> @@ -1913,6 +1927,9 @@ static int mpam_get_msc_preferred_cpu(struct mpam_msc *msc)
->>   
->>   static int mpam_touch_msc(struct mpam_msc *msc, int (*fn)(void *a), void *arg)
->>   {
->> +	if (msc->iface != MPAM_IFACE_MMIO)
->> +		return fn(arg);
->> +
->>   	lockdep_assert_irqs_enabled();
->>   	lockdep_assert_cpus_held();
->>   	WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> new file mode 100644
->> index 000000000000..687be6f8a152
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -0,0 +1,137 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2024 Arm Ltd.
->> +
->> +#include <linux/arm_mpam.h>
->> +#include <linux/cleanup.h>
->> +#include <linux/device.h>
->> +#include <linux/errno.h>
->> +#include <linux/gfp.h>
->> +#include <linux/list.h>
->> +#include <linux/mailbox_client.h>
->> +#include <linux/mutex.h>
->> +#include <linux/of.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/printk.h>
->> +#include <linux/processor.h>
->> +#include <linux/slab.h>
->> +#include <linux/spinlock.h>
->> +#include <linux/types.h>
->> +
->> +#include <acpi/pcc.h>
->> +
->> +#include <asm/mpam.h>
->> +
->> +#include "mpam_fb.h"
->> +
->> +#define MPAM_FB_PROTOCOL_ID	0x1a
->> +#define MPAM_MSC_ATTRIBUTES_CMD	0x3
->> +#define MPAM_MSC_READ_CMD	0x4
->> +#define MPAM_MSC_WRITE_CMD	0x5
->> +
->> +#define MPAM_MSC_PROT_ID_MASK	GENMASK(17, 10)
->> +#define MPAM_MSC_TOKEN_MASK	GENMASK(27, 18)
->> +
->> +#define PCC_CHAN_FLAGS_IRQ	BIT(0)
-> 
-> 
->> +#define MPAM_READ_MSG_SIZE	(PCC_TYPE3_MSG_PAYLOAD_OFS + 3 * sizeof(u32))
-> 
-> How about packed structs for the msgs to avoid the magic numbers?
-> Something like:
-> struct mpam_fb_read_msg {
-> 	uint32_t read;
-> 	uint32_t flags;
-> 	uint32_t offset;
-> } __packed;
+In case of high DRAM utilization, unless the inline ECC carveouts
+are properly reserved, Linux may use and corrupt the memory used
+by the DBSC5 DRAM controller for inline ECC, which would lead to
+the system becoming unstable.
 
-Well, the "magic numbers" are actually the reference, in the 
-specification, so hiding them away in a C struct is not necessarily the 
-best solution. But since we use a struct already for the generic PCC 
-header, I will follow suit here.
+Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ .../boot/dts/renesas/r8a78000-ironhide.dts    | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
- >
->> +#define MPAM_WRITE_MSG_SIZE	(PCC_TYPE3_MSG_PAYLOAD_OFS + 4 * sizeof(u32))>> +
->> +static atomic_t mpam_fb_token = ATOMIC_INIT(0);
->> +
->> +static int mpam_fb_build_read_message(int msc_id, int reg, unsigned int token,
->> +				      void __iomem *msg_buf)
->> +{
->> +	struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem = msg_buf;
->> +	void __iomem *payload_ofs = msg_buf + sizeof(*pcc_shmem);
-> 
-> What about pcc_shmem->signature?
-
-Do you mean why it's not populated? According to the ACPI spec v6.6, 
-14.3 "Extended PCC Subspace Shared Memory Region":
-"The signature is populated by the platform and is verified by OSPM."
-
->> +
->> +	writel_relaxed(PCC_CHAN_FLAGS_IRQ, &pcc_shmem->flags);
-> 
-> Based on the acpi spec, this can be ignored if a platform interrupt is
-> not set in PCCT global flags. Do we rely on the interrupt?
-
-No, we actually leave that to PCC to decide, so we should probably not 
-set it here. I will clear it.
-
-> 
->> +	writel_relaxed(MPAM_READ_MSG_SIZE, &pcc_shmem->length);
->> +	writel_relaxed(MPAM_MSC_READ_CMD |
->> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
->> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
->> +		       &pcc_shmem->command);
->> +
->> +	writel_relaxed(cpu_to_le32(msc_id), payload_ofs + 0x0);
-> 
-> Why cpu_to_le32() here? writel_relaxed() looks to already do this?
-
-Ah yeah, of course, thanks for spotting!
-
-> 
->> +	writel_relaxed(0, payload_ofs + 0x4);
->> +	writel_relaxed(cpu_to_le32(reg), payload_ofs + 0x8);
-> 
-> Does memcpy_toio() work here to reduce the number of repeated calls to
-> writel_relaxed()?
-
-Not sure it makes too much sense to first fill a struct with the value, 
-and then memcpy_toio()ing the data?
-With using the struct members as targets it's more readable already, I 
-think, so I'd prefer to stick to the writel's.
-
-> 
->> +
->> +	return MPAM_READ_MSG_SIZE;
->> +}
->> +
->> +static int mpam_fb_build_write_message(int msc_id, int reg, u32 val,
->> +				       unsigned int token,
->> +				       void __iomem *msg_buf)
->> +{
->> +	struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem = msg_buf;
->> +	void __iomem *payload_ofs = msg_buf + sizeof(*pcc_shmem);
->> +
->> +	writel_relaxed(MPAM_WRITE_MSG_SIZE, &pcc_shmem->length);
->> +	writel_relaxed(MPAM_MSC_WRITE_CMD |
->> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
->> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
->> +		       &pcc_shmem->command);
->> +
->> +	writel_relaxed(cpu_to_le32(msc_id), payload_ofs + 0x0);
->> +	writel_relaxed(0, payload_ofs + 0x4);
->> +	writel_relaxed(cpu_to_le32(reg), payload_ofs + 0x8);
->> +	writel_relaxed(cpu_to_le32(val), payload_ofs + 0xc);
->> +
->> +	return MPAM_WRITE_MSG_SIZE;
->> +}
->> +
->> +static int mpam_fb_send_request(struct mpam_msc *msc, u16 reg, u32 *result,
->> +				bool is_write)
->> +{
->> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
->> +	struct acpi_pcct_ext_pcc_shared_memory *pcc_shmem;
->> +	struct mpam_pcc_chan *pcc_chan = msc->pcc_chan;
->> +	struct pcc_mbox_chan *chan;
->> +	void __iomem *payload_ofs;
->> +	u32 status;
->> +	int ret;
->> +
->> +	if (!pcc_chan)
->> +		return -ENODEV;
->> +
->> +	chan = pcc_chan->pcc_chan;
->> +
->> +	guard(mutex)(&pcc_chan->pcc_chan_lock);
->> +
->> +	if (is_write)
->> +		ret = mpam_fb_build_write_message(msc->mpam_fb_msc_id, reg,
->> +						  *result, token, chan->shmem);
->> +	else
->> +		ret = mpam_fb_build_read_message(msc->mpam_fb_msc_id, reg,
->> +						 token, chan->shmem);
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	ret = mbox_send_message(chan->mchan, NULL);
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	pcc_shmem = chan->shmem;
->> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
->> +	status = readl(&pcc_shmem->command);
->> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token)
->> +		return -ETIMEDOUT;
->> +
->> +	ret = readl(payload_ofs + 0x0);
->> +	if (ret < 0)
->> +		return ret;
-> 
-> This needs translating from an MPAM-FB error code to a kernel error code.
-
-Ah, right.
-
->> +
->> +	if (!is_write)
->> +		*result = readl(payload_ofs + 0x4);
->> +
->> +	return 0;
->> +}
->> +
->> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result)
->> +{
->> +	return mpam_fb_send_request(msc, reg, result, false);
->> +}
->> +
->> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->> +{
->> +	return mpam_fb_send_request(msc, reg, &value, true);
->> +}
->> diff --git a/drivers/resctrl/mpam_fb.h b/drivers/resctrl/mpam_fb.h
->> new file mode 100644
->> index 000000000000..45cd572a28ad
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_fb.h
->> @@ -0,0 +1,17 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +// Copyright (C) 2024-2025 Arm Ltd.
->> +
->> +#ifndef MPAM_FB_H_
->> +#define MPAM_FB_H_
->> +
->> +#include <linux/types.h>
->> +#include "mpam_internal.h"
->> +
->> +#define PCC_TYPE3_MSG_PAYLOAD_OFS	0x10
->> +#define MPAM_WRITE_MSG_SIZE	(PCC_TYPE3_MSG_PAYLOAD_OFS + 4 * sizeof(u32))
->> +#define MPAM_FB_MAX_MSG_SIZE	MPAM_WRITE_MSG_SIZE
-> 
-> Duplicates of those in mpam_fb.c
-
-Yes, on purpose. We need that value in mpam_devices.c, just for a safey 
-check, but I didn't want to break abstraction by allowing MPAM-Fb 
-specifics to bleed into the generic MPAM code.
-  >> +
->> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
-> 
-> These 2 declarations can just go in mpam_internal.h and get rid of the
-> extra header.
-
-Indeed, good idea!
-
-Cheers,
-Andre
-
-> 
-> Thanks,
-> 
-> Ben
-> 
->> +
->> +#endif
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 4616f1283f1a..9e7778534143 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -11,6 +11,7 @@
->>   #include <linux/io.h>
->>   #include <linux/jump_label.h>
->>   #include <linux/llist.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/resctrl.h>
->>   #include <linux/spinlock.h>
->> @@ -57,6 +58,15 @@ struct mpam_garbage {
->>   	struct platform_device	*pdev;
->>   };
->>   
->> +struct mpam_pcc_chan {
->> +	struct list_head	pcc_chans;
->> +	struct mbox_client	pcc_cl;
->> +	struct pcc_mbox_chan	*pcc_chan;
->> +	struct mutex		pcc_chan_lock; /* only one message at a time */
->> +	int			subspace_id;
->> +	int			refcount;
->> +};
->> +
->>   struct mpam_msc {
->>   	/* member of mpam_all_msc */
->>   	struct list_head	all_msc_list;
->> @@ -66,6 +76,8 @@ struct mpam_msc {
->>   
->>   	/* Not modified after mpam_is_enabled() becomes true */
->>   	enum mpam_msc_iface	iface;
->> +	struct mpam_pcc_chan	*pcc_chan;
->> +	int			mpam_fb_msc_id;	/* in its own name space */
->>   	u32			nrdy_usec;
->>   	cpumask_t		accessibility;
->>   	bool			has_extd_esr;
->> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
->> index f92a36187a52..002f56e15362 100644
->> --- a/include/linux/arm_mpam.h
->> +++ b/include/linux/arm_mpam.h
->> @@ -12,7 +12,7 @@ struct mpam_msc;
->>   
->>   enum mpam_msc_iface {
->>   	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
->> -	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
->> +	MPAM_IFACE_PCC,		/* using the MPAM-Fb firmware redirection */
->>   };
->>   
->>   enum mpam_class_types {
-> 
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+index d2b3fc08954a1..f073145a682bf 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
++++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+@@ -107,6 +107,47 @@ tee@8c400000 {
+ 			reg = <0x0 0x8c400000 0x0 0x02000000>;
+ 			no-map;
+ 		};
++
++		/* DRAM controller inline ECC areas */
++		ecc@10cccd0000 {
++			reg = <0x10 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@12cccd0000 {
++			reg = <0x12 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@14cccd0000 {
++			reg = <0x14 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@16cccd0000 {
++			reg = <0x16 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@18cccd0000 {
++			reg = <0x18 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@1acccd0000 {
++			reg = <0x1a 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@1ccccd0000 {
++			reg = <0x1c 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
++
++		ecc@1ecccd0000 {
++			reg = <0x1e 0xcccd0000 0x0 0x33330000>;
++			no-map;
++		};
+ 	};
+ };
+ 
+-- 
+2.53.0
 
 
