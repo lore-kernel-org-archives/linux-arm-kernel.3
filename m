@@ -4,118 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D55C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68290C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHQJsV8E07+RUjPxkTHWjIGqSk2RzvsByCrBzmrJwh4=; b=YnzAg+Bgkl1J+QViI4W+gGvqrK
-	nsc+r+cbRVbMo5nint5exSW5dXU4F/HYU+RoUhYGmNh8jcUE8cLhlDY/3jfLA2piHS6+I3Irir759
-	uQ3lQQMqTNbeXsuLJMPjHru5z9wsygpXWi83kxhXiEPcBpCZmf/QvmMcbsQCYieYBE75tPhsTSTUA
-	OukW8GaZEQgQhwnvBx46CRyrFZjN5DcJKhLm6mXcdsJC7Lz/hzypeUjV3K4Xk4h++jW1M8pY56fco
-	ieezIarCZA7OgYxy+aMb7xQwPeY5lrJ9To/7aFSCT174zMYRK3Om2rK6+u751n7EZfkjYzmIfFMnd
-	ncm67lHg==;
+	bh=fcmzrkQ1j0Dq2H7/O5937U4Q3EEVnnu3gg56rRtA5X0=; b=X1kMJM8IXQpSb7eYzuMi8SLggN
+	tE7Gg36w0Tzj7ruhb6wavXXqXTHxVdWNtpPS1qs3Htpbq8IKMAbgWDywVnPqL7GlSwduppusccf4q
+	McEeOYRQFbACun8B4aY8uhsLx89pjkv15eKterbqw3ZK+ganeUjoApwXk9lDRLGy8WlnDCDpK6Are
+	FtIEA1lVA+HJNLTXWEU9aJf78OvzxmMg+Tu2briI2mmfXKVbsilMHGi0YEI2GNnI0syM+aotC29FO
+	23nTJ5xMu/EX1A2KY4sCVVsrcGcafAsBuX56lnpwo7T9V6eyI9ZWsC5QSFVdeB0Kgw8AjZp7ojVMy
+	PJf2qEGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkPG-00000001U6D-41ZS;
-	Thu, 09 Jul 2026 08:46:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkPD-00000001Tzg-3ift
-	for linux-arm-kernel@lists.infradead.org;
+	id 1whkPE-00000001U1h-42fC;
 	Thu, 09 Jul 2026 08:46:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D8FC6001A;
-	Thu,  9 Jul 2026 08:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96B81F000E9;
-	Thu,  9 Jul 2026 08:46:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783586810;
-	bh=IHQJsV8E07+RUjPxkTHWjIGqSk2RzvsByCrBzmrJwh4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=G4WMipwo6eRMq/hlnTebvOx53KZRTAJtF1RXSC74Ah0K8bVFiJF3mMHsLhIPi9mOH
-	 uyX3/0ixjcGw7d+uHWj3SeJWSxiylw/ykmz3BZ0Xcaa55nfvYjhbCqXffRfhHxRPkw
-	 6wqzoecwSL7Vpgl7Izm94BDcjeKR8t708UJX57+IsJzdu9pxPaedaafLIYPH/yhV9m
-	 Nr96bsibJqpVDElifbl85D9O7Mk6dkp5ceHiHPK9+dwAuJIA13kn8QRyEG4rXc1rM/
-	 9sMY6QqxK5Kw9xWRJLhn9t9zBH+YKeMt7pgapYvsgg3jAnVAQEyNPe++Tnp+Y5A98D
-	 +bVR26kgMBSVQ==
-Message-ID: <02baada9-3f87-4e60-a469-44af5ebe1afe@kernel.org>
-Date: Thu, 9 Jul 2026 10:46:40 +0200
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whkP7-00000001TtB-2Gu0;
+	Thu, 09 Jul 2026 08:46:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783586801;
+	bh=bf2FQO045X8y0Y9MppGwFg2bPO27noy0vY4iLupwXOo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KFEWtVe9U9+QSh/BlrFdVbWulM0w2mlJZ+LCzv/mKb4YdmXPPfoVLuqII3ld8STOE
+	 rJYkeTdTUd0SoEesFX9O0g3X1as1SoPojmiudlPRKqzsN18ErOMzC1fjtq6jjITGvL
+	 NVF4MVUjmOYW796EvhVrLm6G4rOo9/ntEGm7sof00GhYeOARt2h62xjJDlBw5s3FFG
+	 xU5YentouVSzhRwuKsqItA3fQjt6OduuZIrquWmzmYnoB9g859zlu23tplzoqL4Y8T
+	 jsw6Dfg2/rNsrpamj7DjcHsqunNsvYBPvOJK/HqkTtlkdxi74VweL7q0SUTOLfrzdj
+	 JD8Lj+p+uhVAw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BAEF17E0D53;
+	Thu, 09 Jul 2026 10:46:41 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: ulfh@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	nfraprado@collabora.com,
+	irving-ch.lin@mediatek.com,
+	macpaul.lin@mediatek.com,
+	aford173@gmail.com,
+	mbrugger@suse.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH v3 2/5] pmdomain: mediatek: Fix possible nullptr KP in HWV cleanup/on-check
+Date: Thu,  9 Jul 2026 10:46:32 +0200
+Message-ID: <20260709084635.24912-3-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
+References: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/5] dt-bindings: arm: coresight-tnoc: Drop
- arm,primecell to bind on platform bus
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Abel Vesa <abel.vesa@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Abel Vesa <abelvesa@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260707-fix-tracenoc-probe-issue-v5-0-bf733ed9ebd0@oss.qualcomm.com>
- <20260707-fix-tracenoc-probe-issue-v5-1-bf733ed9ebd0@oss.qualcomm.com>
- <20260709-versed-marvellous-pigeon-22e2ba@quoll>
- <e5876525-4568-43bd-8c91-6dc462b18fa3@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <e5876525-4568-43bd-8c91-6dc462b18fa3@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_014645_808889_4CAF5B64 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,33 +87,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2026 10:34, Jie Gan wrote:
-> 
-> 
-> On 7/9/2026 3:59 PM, Krzysztof Kozlowski wrote:
->> On Tue, Jul 07, 2026 at 05:08:49PM +0800, Jie Gan wrote:
->>> The TNOC compatible previously required the two-string AMBA form
->>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
->>> AMBA bus.
->>>
->>> Change the compatible to a single "qcom,coresight-tnoc" string with no
->>> "arm,primecell" entry, so the device is created on the platform bus and
->>> bound by the platform driver through its compatible string.
->>
->> I asked already: this is not a valid reason. References to Linux
->> structures are not correct here. If this is your reason, then answer is:
->> fix drivers, by renaming or doing whatever is necessary to platform bus
->> to behave like amba bus.
-> 
-> The issue is that we are not allowed to introduce a DT property to 
-> bypass the AMBA bus validation, which reads the Component ID (CID) 
+Should probe fail for HW_VOTER type power domains, this driver was
+unconditionally trying to perform cleanup for DIRECT_CTL domains,
+but only after checking if the target domain is powered on... with
+the DIRECT_CTL scpsys_domain_is_on() code again.
 
-It is the first time "bypass the AMBU bus validation" appears in this
-patch. You do not see that as a problem?
+And there's more: the scpsys_domain_is_on() function is also being
+unconditionally used in the probe path, for any power domain that
+has flag MTK_SCPD_KEEP_DEFAULT_OFF!
 
-Again, third time and the last: describe the actual hardware and the
-actual problem coming from the hardware.
+This bug was never experienced by anyone because the HWV domains
+never failed probe, and because none of those is declared with the
+aforementioned flag - but it's still something critical.
 
-Best regards,
-Krzysztof
+In order to fix this, add a check for MTCMOS Type and, based on
+that, call the correct functions for an "is on" check, and also
+do the same for the cleanup path, calling the correct functions
+for the "power off" action.
+
+For the latter, since there's a call to pm_genpd_remove() right
+before calling power_off, be cautious and add a variation of the
+power off functions (with a _internal suffix) for those to get a
+pointer to scpsys_domain instead of one to generic_pm_domain as,
+even if that's still working, this is way too much fragile and
+would break at some point.
+
+Fixes: 88914db077b6 ("pmdomain: mediatek: Add support for Hardware Voter power domains")
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/pmdomain/mediatek/mtk-pm-domains.c | 40 ++++++++++++++++++----
+ 1 file changed, 33 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+index e1cfd4223473..f0a6339affd7 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+@@ -393,9 +393,8 @@ static int scpsys_hwv_power_on(struct generic_pm_domain *genpd)
+ 	return ret;
+ };
+ 
+-static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
++static int scpsys_hwv_power_off_internal(struct scpsys_domain *pd)
+ {
+-	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
+ 	const struct scpsys_hwv_domain_data *hwv = pd->hwv_data;
+ 	struct scpsys *scpsys = pd->scpsys;
+ 	u32 val;
+@@ -464,6 +463,13 @@ static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
+ 	return ret;
+ };
+ 
++static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
++{
++	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
++
++	return scpsys_hwv_power_off_internal(pd);
++}
++
+ static int scpsys_ctl_pwrseq_on(struct scpsys_domain *pd)
+ {
+ 	struct scpsys *scpsys = pd->scpsys;
+@@ -694,9 +700,8 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
+ 	return ret;
+ }
+ 
+-static int scpsys_power_off(struct generic_pm_domain *genpd)
++static int scpsys_power_off_internal(struct scpsys_domain *pd)
+ {
+-	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
+ 	struct scpsys *scpsys = pd->scpsys;
+ 	bool tmp;
+ 	int ret;
+@@ -737,6 +742,13 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
+ 	return 0;
+ }
+ 
++static int scpsys_power_off(struct generic_pm_domain *genpd)
++{
++	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
++
++	return scpsys_power_off_internal(pd);
++}
++
+ static struct
+ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_node *node)
+ {
+@@ -884,7 +896,14 @@ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_no
+ 	 * late_init time.
+ 	 */
+ 	if (MTK_SCPD_CAPS(pd, MTK_SCPD_KEEP_DEFAULT_OFF)) {
+-		if (scpsys_domain_is_on(pd))
++		bool domain_is_on;
++
++		if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER)
++			domain_is_on = scpsys_hwv_domain_is_enable_done(pd);
++		else
++			domain_is_on = scpsys_domain_is_on(pd);
++
++		if (domain_is_on)
+ 			dev_warn(scpsys->dev,
+ 				 "%pOF: A default off power domain has been ON\n", node);
+ 	} else {
+@@ -973,6 +992,7 @@ static int scpsys_add_subdomain(struct scpsys *scpsys, struct device_node *paren
+ 
+ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
+ {
++	struct scpsys *scpsys = pd->scpsys;
+ 	int ret;
+ 
+ 	/*
+@@ -984,8 +1004,14 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
+ 		dev_err(pd->scpsys->dev,
+ 			"failed to remove domain '%s' : %d - state may be inconsistent\n",
+ 			pd->genpd.name, ret);
+-	if (scpsys_domain_is_on(pd))
+-		scpsys_power_off(&pd->genpd);
++
++	if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER) {
++		if (scpsys_hwv_domain_is_enable_done(pd))
++			scpsys_hwv_power_off_internal(pd);
++	} else {
++		if (scpsys_domain_is_on(pd))
++			scpsys_power_off_internal(pd);
++	}
+ 
+ 	clk_bulk_put(pd->num_clks, pd->clks);
+ 	clk_bulk_put(pd->num_subsys_clks, pd->subsys_clks);
+-- 
+2.54.0
+
 
