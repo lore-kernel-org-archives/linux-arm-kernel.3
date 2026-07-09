@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFFEC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC52C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BG2vUOiSPIba29gWhBMtcZSw2rJwWxQBPPTNcsunIWw=; b=uJfj4/7MgYX7hHjez16T9JkDbH
-	np1gvGqIrgOOlMnypiqU0V85u/53piT0Q7zvK8vsk6QGTTradqK/iBcwWrlrr6e0RPwzKd8gBQgsj
-	1ktG4ChJbFhVRehjoLTTiJdSi2DjQuPTeFNaoE9SkN3yshjs0vAEmAt5H4eS1WWJP29AA8kbVpvzC
-	NmMEisTlwSIOXt6z6+A6rTxkMBSNUrTNMALhfK5Iq6wb7/ci6BK2KTTQqlt6wJi6mrZuhwVJ+Q2EP
-	fVM41x4ZwnuZ0DTnHW1p1XP7WCBc1xPnVMEM9fMOTaPtPbwzLmGiqxCx0IZDcMjP6XEUxU/qlAq4V
-	U4ixpj2A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=; b=svXZO+iuVjjtNNBSQihMjCX5Fd
+	rFh8dgtK8jscIklnTKj908Lo+EZkAqfwpDeTNj6RJqt3F5iUEsG2irMBfzRsHjT37bo9bN/NYZL9i
+	B8lfaxqB+TvbAaeuvquGwrij8WURw2kp3xI8MCyrBFm+Fev3rWGS+RGjrMbMDspUV0XLgu/CYLh9Q
+	BtZQga4oe5uoN+QrOZiZayIjJEppJnLGZ84DEuhJgLsCy04TrhIXWQPHOoRse5R0TRZSpSjKl+S+w
+	HHExhv14PAVoRcTOkpAix84qb2e1Nez77gDllKv+0GKlYFNli8j2pyZZiIZj3uHJ1o6fZXVWEh2Gh
+	HA/kiUgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlVp-00000001ola-3pP6;
-	Thu, 09 Jul 2026 09:57:45 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1whlVu-00000001opX-13UP;
+	Thu, 09 Jul 2026 09:57:50 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlVj-00000001ohs-25iM
+	id 1whlVo-00000001ojx-1PkH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:57:45 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cc80b585bfso5636505ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:57:39 -0700 (PDT)
+	Thu, 09 Jul 2026 09:57:46 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ca64c3ce5fso10055855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:57:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783591058; x=1784195858; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BG2vUOiSPIba29gWhBMtcZSw2rJwWxQBPPTNcsunIWw=;
-        b=FAei4X8wWXB9qqE1EhcabswGjgOCiH1jJoukClxddKTClVoJs2oM6CIlVAhcBQqaqV
-         NEQyPdLlRTH8Pt2AgfajMeFuEegh001nxam49aIQYR3xGpLuCmrWGzWDkilAhpWiEv04
-         QeVkmGGPxB+UAe7SWoP7Cm3Bq2+nWv1amWBfI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783591058; x=1784195858;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1783591063; x=1784195863; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BG2vUOiSPIba29gWhBMtcZSw2rJwWxQBPPTNcsunIWw=;
-        b=L3tEmo0re+WTNjY5cDrrlsWI2OPgYxQtYixWiykMdX7I9Pp/7UhQxME3PCLja4ZcqU
-         3b/STPiLymuMLW7MLK5JnV+jyIW/MBTxJNdN+QkkF6xSqnYvGyWLJ2wGP4FdEU/pIxFo
-         R79QSF0PHXtNsGdSbgKJWkErU6Oh+D5AN0JFRGJ0trPilJAcvlYFkSrRzFtQ+CfRNddu
-         Me4Ba4Vrjj+2Oi8ZEU2pue5YNEO2P5gptwY58XNNqUt3CeMSUN2cCsNqg6rD2HmvOi+h
-         W8Bp/4pcvMxllrbjridnBkC2Wk+RV/Fg2jV9D7SfH72qb4w9cWywEWxFaeotUiPRjvNZ
-         enxQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqmZYlR+6pX6kk1aq2unl+5u7ZJDdRKM4ZMjotS8hPd1tePFXyPNIw98KWjn+1HnrwCZ3EjAADgmb2yCxGFboaD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN2POZ5dF8sheBZ0o9kzWM/aNrMSsfgnZXtEDdFGBRPZ+PJtln
-	k7LIQMzgez3A14s/K6t+r6r5+3itWdOTv2ySMcnKd9a2Jptf5JNeDy87I3aVfnbUXg==
-X-Gm-Gg: AfdE7cmZbZC5IZnrWZ4XP5A2FkjR0RRDqVaNcTtqHcRzumB/frnRF+kznyzL83W968p
-	PmHg5nhjNDImCSlDLRoMgXzllEGpj23veuWmH/mL1D4iRJ6LOA4yJMwX4VRDlW7ZhYNNcdI3NGr
-	NXYiXwpqIVcmKyzCF94A8xy5Ztu8HgpkEo74A34We6KybBjJW6bBKl/DG2sr97kVXi/GhB+EL2e
-	tMhx/+PDhFydxEr9Xk8d7C4JZRtmCWug8+lrTf7Auf7y4j5pvmFmKb8a97vrrL8pTWt4EEUKv41
-	YUfLQ8R2XAlLa1846r6A74797Cx0ngVCESbkz+wuhiqp6YzSALyKRxjPSU+DuZS0jEUWUiQ3V0b
-	RWKMY0Mkn8JNCP/9uf46xU0Wms0qbnWX73QYFI+7vBP5NVQP0DmiLvrYDPAaEbHhK6f5uxH/2RY
-	G0jcxXF4YDmCE7r/JleVRWXRXsoSMGZ2qmtk9hYKy6/QMXSUiPUK26nghZmLi83SGhKm/9GqlWv
-	bByqBQ5
-X-Received: by 2002:a17:903:644:b0:2ca:cef2:dea8 with SMTP id d9443c01a7336-2ccea46aea4mr43494035ad.35.1783591058447;
-        Thu, 09 Jul 2026 02:57:38 -0700 (PDT)
+        bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=;
+        b=gpJW4fJ/7NSsWOJcP1b0yBOeIiF3TFT50fsHALTXn10WKNPRkgG5u2vdANBnDAo4nt
+         F+9LwhGGRoMQcV5FqDdf+SFJpmwvfozBtkRrdSIuLQKRmfxDwh5G013s2SYlubiRYmIw
+         BbQ8MVYRWEcbTbgVrIZl0iOquTnQe9Rtzx/KU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783591063; x=1784195863;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=;
+        b=ZSffCvCyx8pbr7zFt5/Jf4PRk2iSdQM0yrevAHhwCeu3M6n8B6C/0EqunHo0AavJOZ
+         O0lSLYNZthtd0raV/ckMBr+ZO0MkuAm2uVA3i4P0kCFaHHDgPuj45hLgWVghyWjmJNtn
+         WSvd30BZCsGz8wQ8Y6nSCUBgNc6RJllzpZ+AH1771/C0EDTjkoEElMvg+Q7oXehHhsqx
+         NiDqEWRfs/4HErk0YaVwceiGrg5Lbv8yu+quMYKOWphio7xLxEMcsZMU25WZMUTl7bUB
+         yIk7cYec3lX1x9lLKJ93hHTr+TIi0h2dvdRBy5tpNQ7ECe8edhL285C1ikF36cvJ3xKF
+         Rz6w==
+X-Forwarded-Encrypted: i=1; AHgh+RptE3sC+xyAJJnIdKkwPx7X78r6sYzrJ4BI3qyzS2OoqcNUFb2KvVslQV8CoURqIRbhjrNVhLdgIlt32rCow750@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyfGY6R7fi8xQmXQW94dvUu1qytduP7LE4e0kooWQz55cnDb6I
+	4aKmMVZWL2QEHYrcorOzeQypPzOLgNF00OV19cUyHw9j5JSaKCzBOuU8Jqq1bJ5UDQ==
+X-Gm-Gg: AfdE7ckU0nQlXa4VVUZkvNipI1i/S5Sdi2rpPcoRNigvLc4mQC+wlopnkXBHChqke7w
+	0+qfq/EHfhPzyGvXLYp2gDBodQadx1wsFiO8E/u3b8p9nDB/IuT6zJA6Xvy/C4CR/PHMxnxYPtr
+	6+RVAdpUK/sMLrxw05J+i6rEkTjCVNDDGWxVCyKFWt90fpqWlPcYWsDbUCBXo8IVs0hwxQYOtQd
+	3bm8nLBRBpIbzrov6r1gm1f9hbZZ7uiCg0UQmY0ERajwB3djVezRveXp33R/C0M+03Dxg3mu6kc
+	4RcVPqKCc1zVV3Cps3nD7+00cKCSvgDPLGt2W6d8+ra02ChED6/dH8d2dbTA9X3cWf5fW5om7MJ
+	xgy42POMSzktIu3YA+gzCfcdsCTiwyh9UvEJ9cwEPVn18FkImyKfjY1GxGT47/875s3d9GwHhbt
+	xrtamJBT80EjBTrFzh9MiWuz81zOlpC9dZ6VbU7Q+a3gqI/BGh/FVLogUaSj/oy4mo3/KajA==
+X-Received: by 2002:a17:902:f68f:b0:2ca:c411:78a with SMTP id d9443c01a7336-2ccea371ddamr71754425ad.3.1783591063427;
+        Thu, 09 Jul 2026 02:57:43 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:bd09:6ddb:180a:69c5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d5bd2fsm41082155ad.78.2026.07.09.02.57.34
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d5bd2fsm41082155ad.78.2026.07.09.02.57.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 02:57:37 -0700 (PDT)
+        Thu, 09 Jul 2026 02:57:42 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Bartosz Golaszewski <brgl@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -90,16 +90,19 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: [PATCH v4 00/14] arm64: mediatek: Add M.2 E-key slot on Chromebooks
-Date: Thu,  9 Jul 2026 17:57:05 +0800
-Message-ID: <20260709095726.704448-1-wenst@chromium.org>
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v4 01/14] device property: Add fwnode_graph_get_port_by_id()
+Date: Thu,  9 Jul 2026 17:57:06 +0800
+Message-ID: <20260709095726.704448-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
+In-Reply-To: <20260709095726.704448-1-wenst@chromium.org>
+References: <20260709095726.704448-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_025739_576902_5BFFEBD3 
-X-CRM114-Status: GOOD (  35.93  )
+X-CRM114-CacheID: sfid-20260709_025744_390792_1C70A4E9 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,189 +117,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+In some cases the driver needs a reference to the port firmware node.
+Once such case is the upcoming USB power sequencing integration. The
+USB hub port is tied to the corresponding port firmware node if it
+exists.
 
-This is v4 of my attempt at integrating the power sequencing API into
-the USB core to support the USB connection on M.2 E-key slots. M.2
-E-key was enabled in v7.1-rc1 with just PCIe and UART supported [1].
+Provide a helper for this.
 
-Changes since v3:
-- Added missing stub function for !POWER_SEQUENCING (patch 3) (Sashiko)
-- Added missing fwnode_handle_put() (patch 5) (Sashiko)
-- Added new patch to move |struct usb_port| related declarations to
-  separate header (patch 6) (Andy)
-- Patch 9 (usb hub pwrseq integration)
-  - Adapted to move of usb_port_is_power_on() to port.c and port.h
-  - Simplified usb_hub_set_port_pwrseq() (Andy)
-  - Renamed usb_hub_set_port_pwrseq()'s "set" parameter to "on"
-  - Dropped usb_hub_restore_port_pwrseq() (use usb_hub_set_port_pwrseq()
-    with inverted argument)
-  - Fixed off-by-one access in hub_is_port_power_switchable() (Sashiko)
-  - Assign retval from dev_err_probe() instead of the other way around (Andy)
-  - Clear hub->ports[port1 - 1] in USB port error and remove paths to
-    avoid other threads from accidental UAF while the USB hub device is
-    being unwound (Sashiko)
-  - Short-circuit out of helpers if !IS_ENABLED(CONFIG_POWER_SEQUENCING)
-    to avoid errors from stub functions (Sashiko)
-- Drop redundant device node validity check; device_match_of_node()
-  does it internally (patch 11) (Andy)
-- Link to v3:
-  https://lore.kernel.org/all/20260703110317.1283411-1-wenst@chromium.org/
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+Changes since v2:
+- Moved "Return:" kernel-doc section to the end. (Andy)
 
-Major changes since v2:
-- Removed changes for MT8192 Asurada family: one of the device is
-  shipped with RTL8822CE-VR, which is PCIe + UART and needs more work.
-- Removed changes for USB A ports: VBUS one the type A ports on
-  Chromebooks are not directly controllable from the OS and VBUS is
-  modeled as always on. As such the changes I made don't actually
-  change how the system works.
-- Added new pwrseq_power_is_on() function
-- Make new pwrseq integration effectively OF only by not assigning the
-  port fwnode if the hub's fwnode is an ACPI node
-- Added patch to convert remaining instances of directly setting/clearing
-  USB_PORT_FEAT_POWER to usb_hub_set_port_power()
-- Power sequencing state removed again in favor of state tracking by
-  pwrseq subsystem
-- Power sequencing descriptor again separately requested for HS and SS
-  ports
-- Dropped pwrseq_power_off() call before pwrseq_put(); the latter calls
-  the former implicitly if the power state was left on
-- Squashed DT binding revert and addition into one patch
-- Link to v2:
-  https://lore.kernel.org/all/20260610084053.2059858-1-wenst@chromium.org/
+Changes since v1:
+- New patch
+---
+ drivers/base/property.c  | 22 ++++++++++++++++++++++
+ include/linux/property.h |  1 +
+ 2 files changed, 23 insertions(+)
 
-
-Major changes since v1:
-- No longer adding the "index" parameter the power sequencing API
-- Switched from OF graph to fwnode graph APIs
-- Tie "port@" node to usb_port device, and use this device as consumer
-  to acquire power sequencing descriptor
-- Power sequencing descriptor now only tied to USB 2.0 port to avoid
-  double reference
-- Power sequencing state tracking added
-- Link to v1
-  https://lore.kernel.org/all/20260515090149.3169406-1-wenst@chromium.org/
-
-The series is based on next-20260708.
-
-
-Patch 1 and 2 add new fwnode graph helpers. These are used by the patch
-5 and 8, respectively.
-
-Patch 3 adds a new pwrseq_power_is_on() for a power sequencer consumer
-to query the current request state. Note that this is not the _actual_
-state.
-
-Patch 4 reworks the USB hub driver to return the actual error code from
-hub_configure() in hub_probe(). This is needed in the next patch to
-correctly return -EPROBE_DEFER returned by pwrseq_get() in patch 9.
-
-Patch 5 makes the USB port device associated with a "port@" fwnode if
-available. This depends on patch 1.
-
-Patch 6 moves some |struct usb_port| related stuff from hub.c and hub.h
-to port.c and port.h. No actual code or functionality is changed.
-
-Patch 7 changes usb_port_is_power_on() so that |struct usb_port*| is
-passed in instead of |struct usb_hub*|. This patch does not change any
-functionality.
-
-Patch 8 changes some USB hub port power control code that directly
-toggles USB_PORT_FEAT_POWER to use usb_hub_set_port_power().
-
-Patch 9 lets the USB hub driver look for power sequencers for each port.
-Currently this only works for M.2 E-key connections, but it could be
-extended to cover other cases. It should also make port reset via turning
-off the port VBUS work, even when VBUS is not directly controlled by the
-hub. This depends on patch 2 and 3 for the new helpers.
-
-Patch 10 reverts an incorrectly modeled OF graph connection for the
-MediaTek XHCI controller and adds a proper representation.
-
-Patch 11 adds matching pwrseq consumer by "port@" node to the M.2 slot
-driver. This is only used for the USB target, but there is no attempt
-to differentiate the connection type. The driver simply tries matching
-the "port@" node first, then falling back to the port parent or device's
-node.
-
-Patch 12 reworks the power sequencing targets for the E-key connector in
-the pcie-m2 driver to add targets for USB and SDIO. The former is used
-later on in this series.
-
-Patches 13 and 14 enable the M.2 E-key slots (or slot-like integration)
-found on MT8195 and MT8188 MediaTek-based Chromebooks. 
-
-
-This series unfortunately spans multiple trees. The way I see it:
-
-  - Patches 1 and 2 go through the driver core, and an immutable tag is
-    provided to be merged together with the USB patches.
-
-  - Patch 3 has an ack from Bartosz, and goes through the USB tree. But
-    Bartosz also wants an immutable branch/tag to have a copy in the
-    pwrseq tree.
-
-  - Patches 4 through 10 (all the USB related ones) go through the USB
-    tree, along with the dependencies above.
-
-  - Patches 11 and 12 go through the power sequencing tree.
-
-  - Patches 13 and 14 (device tree only) go through the soc tree via the
-    mediatek tree.
-
-Some of us discussed v1 at Embedded Recipes, and I believe Bartosz, Mani
-and I agree on this approach. The debate is likely going to be on
-whether this should be integrated into the USB core or not. I believe it
-should, so that the power sequencing timing is tied to the USB port
-being brought up. I do have a fallback option of just enabling the USB
-power sequencing target inside the M.2 slot driver if a valid OF graph
-connection is seen. But this is less desired for the reason given above.
-
-Please have a look and share your thoughts.
-
-
-Thanks
-ChenYu
-
-
-[1] https://lore.kernel.org/all/20260326-pci-m2-e-v7-0-43324a7866e6@oss.qualcomm.com/
-
-Chen-Yu Tsai (14):
-  device property: Add fwnode_graph_get_port_by_id()
-  device property: Add fwnode_graph_get_next_port_endpoint()
-  power: sequencing: Add pwrseq_power_is_on()
-  usb: hub: Return actual error from hub_configure() in hub_probe()
-  usb: hub: Associate port@ fwnode with USB port device
-  usb: core: Move struct usb_port and related APIs to port.h
-  usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
-  usb: hub: Use usb_hub_set_port_power() to control port power
-    everywhere
-  usb: hub: Power on connected M.2 E-key connectors with power
-    sequencing API
-  dt-bindings: usb: mediatek,mtk-xhci: Switch to ports for USB
-    connections
-  power: sequencing: pcie-m2: support matching on remote "port" node
-  power: sequencing: pcie-m2: Add usb and sdio targets for E-key
-    connector
-  arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
-  arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
-
- .../bindings/usb/mediatek,mtk-xhci.yaml       | 17 +++-
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 92 ++++++++++++++++++-
- .../boot/dts/mediatek/mt8195-cherry.dtsi      | 73 ++++++++++++++-
- drivers/base/property.c                       | 47 ++++++++++
- drivers/power/sequencing/core.c               | 18 ++++
- drivers/power/sequencing/pwrseq-pcie-m2.c     | 52 ++++++++---
- drivers/usb/Kconfig                           |  1 +
- drivers/usb/core/hub.c                        | 71 +++++++-------
- drivers/usb/core/hub.h                        | 56 ++---------
- drivers/usb/core/port.c                       | 92 ++++++++++++++++++-
- drivers/usb/core/port.h                       | 68 ++++++++++++++
- include/linux/property.h                      |  3 +
- include/linux/pwrseq/consumer.h               |  6 ++
- 13 files changed, 483 insertions(+), 113 deletions(-)
- create mode 100644 drivers/usb/core/port.h
-
+diff --git a/drivers/base/property.c b/drivers/base/property.c
+index 9387bb83eb54..3e3e19ef66a9 100644
+--- a/drivers/base/property.c
++++ b/drivers/base/property.c
+@@ -1346,6 +1346,28 @@ int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+ }
+ EXPORT_SYMBOL(fwnode_graph_parse_endpoint);
+ 
++/**
++ * fwnode_graph_get_port_by_id - get the port matching a given id
++ * @fwnode: parent fwnode_handle containing the graph
++ * @id: id of the port
++ *
++ * The caller is responsible for calling fwnode_handle_put() on the returned
++ * fwnode pointer.
++ *
++ * Return: A 'port' firmware node pointer with refcount incremented.
++ */
++struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id)
++{
++	struct fwnode_handle *ep;
++
++	ep = fwnode_graph_get_endpoint_by_id(fwnode, id, 0, FWNODE_GRAPH_ENDPOINT_NEXT);
++	if (!ep)
++		return NULL;
++
++	return fwnode_get_next_parent(ep);
++}
++EXPORT_SYMBOL_GPL(fwnode_graph_get_port_by_id);
++
+ const void *device_get_match_data(const struct device *dev)
+ {
+ 	return fwnode_call_ptr_op(dev_fwnode(dev), device_get_match_data, dev);
+diff --git a/include/linux/property.h b/include/linux/property.h
+index 14c304db4664..e04901c0bd8f 100644
+--- a/include/linux/property.h
++++ b/include/linux/property.h
+@@ -505,6 +505,7 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
+ 
+ void __iomem *fwnode_iomap(struct fwnode_handle *fwnode, int index);
+ 
++struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
+ struct fwnode_handle *fwnode_graph_get_next_endpoint(
+ 	const struct fwnode_handle *fwnode, struct fwnode_handle *prev);
+ struct fwnode_handle *
 -- 
 2.55.0.795.g602f6c329a-goog
 
