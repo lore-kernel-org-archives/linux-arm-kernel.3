@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40499C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EA1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfsrG2MPET8AxO9SgwNGEU+Eemm5g9zvIrdAEMChdew=; b=rnqjSIshJTobctNadEwu77rscA
-	bqxrwgW8drYub2yioghXLK0CQxkzV2HAVn/blGcM/47pBXSsObYVQ3OitedG/fm03btpNX/Rev0oi
-	cCQtMk7BaWv4eJwvB39ylB1dCr2oneht2ri5R5R/kPo/FJl6SyB7dhfVuKqCHcAoTp7RkXgFot7Cg
-	+ND9nO5Oz3FjEzmcmusMyBno0RvfBIRDXd2jbP8ozApHEFcex+06i0tyUUERx9NIdabC4lkFqKRww
-	00DiCT67idPSzXAWBMoRZla9w9oxbaGMCPGsCeDIjqVSXidi2kaWU2KfMrtRRkpp8FEsPRidRSeWN
-	PIJH4jbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mY+40GHIsfUvxGoEyM3B4UK7YBXR4Zoh8ak0Z/sMJt0=; b=rBzAc8ICS9w6VKwhgKRT0+yKvu
+	S+l03hcQjcD1Xy+GHZGN44pPrAm6aQ7hQwHxHw6G0DXpSf3FUG5LOPRTrg0eAt+IgVoNlBw88Xq4c
+	Nd0mzWTqIx25e30zNgjHLk3oKSyXzHzstzIXrUqpZ7gPT7m3CJpuGtR0xXB8pYQ43ilr0/P0UZaLY
+	2yB9dI97uRgtlYN0xKbA+WKFjXGqlq6T+40N6heVCAmjhVXfFpsARJSuoqcuPxB2kKSdA4nOxVB7d
+	QmbfHBltRVFDYa0e+1Vm72UeMtp9pTtZe+EfKM6QTVCqOMXshKwNAZ0IdOD9oDdeyjM0CNdfl7s3J
+	KOiTdf7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkWr-00000001eVJ-1Ajg;
-	Thu, 09 Jul 2026 08:54:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whmnl-000000028Tp-1yLy;
+	Thu, 09 Jul 2026 11:20:21 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkUp-00000001aTe-3GAB;
-	Thu, 09 Jul 2026 08:52:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CD3E6136B;
-	Thu,  9 Jul 2026 08:52:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F9301F000E9;
-	Thu,  9 Jul 2026 08:52:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587158;
-	bh=QfsrG2MPET8AxO9SgwNGEU+Eemm5g9zvIrdAEMChdew=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=m2cFbyy/fOyz/ZzW3jnSpY7WdpucnN2zRQf2LKWgJUYt7Sa/Zyo88rzM4S+eTgejt
-	 p6fQUWJ70CV270l0iOsFqca0UcSp3Qu4TwFiGtYwPUoHTWcgAc7IRcNnCtRpnrVRwo
-	 yVQF+R/dxw2yDj367w8naj7pHWkwtNT4cXARvGkEYBF+KSoFEtUp0BvXTPpDmWW9iR
-	 LU0npNQWxNCiJn/yP1oAAlb1CgwxaYiPjeQG8K/w3BHBfzNdq3xgWbjuJeMsBVcW9v
-	 ILz8sdore9unp6QzRHHgA7pR0SZz1/uevr/HNicaj5BMQqgbxkFCaOTFKsbkkAqa1G
-	 OFMinc7SRMTmQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 09 Jul 2026 10:52:10 +0200
-Subject: [PATCH nf-next v5 3/6] net: netfilter: add IPv4 over IPv6 tunnel
- flowtable acceleration
+	id 1whmni-000000028Sm-35PV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 11:20:20 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493d92b7db3so18370085e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 04:20:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1783596016; x=1784200816; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mY+40GHIsfUvxGoEyM3B4UK7YBXR4Zoh8ak0Z/sMJt0=;
+        b=DYrXWnBVC/vA6cYMhMYkXDs0ZHzCdE/lYiH5HiDxcFmmof0Y/l3LUSi/7S7irWMki/
+         yNQcHaGEbYWjVoZReuuAAW+ZdtSppiEaR3pWvMljURu3DJD91eH7B/0gMqVkkxh+Ov06
+         1kekEnVw1fbxBced8mTmUOqf9x3m4dMXDUJ9tViJzCyO7GR+V8SG7/SuBGSB3ga9/OQ9
+         OAltWN/3KW1zNHGTlAQwohTijv2KF8FN1XboQieBFilOYx83F0nqmduGXhEGKhzn9zFC
+         GGrXuVDFMi7g5OCH6kbBZuqf0LaINJpCAq0fRzSWg2OfeaWW/aI9aoS+kwdTK4fe9pCL
+         pyHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783596016; x=1784200816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mY+40GHIsfUvxGoEyM3B4UK7YBXR4Zoh8ak0Z/sMJt0=;
+        b=itSEn/7gMOwd7Wc3EwFGDfIFSxzjz19UvrkEQNmahDG8ItLfbgboGa3n1NdBjyKas6
+         88wN/Sp2jNd7B/QSPj6Vt0PHbKOg7FQvCEx1wj471zZYhd4bNrlCELgQcWKDNVdJD2zJ
+         WxP+bzi9aSoAMadCEEv+M32aTjU9jyb4tJZjNuHg1uXQGjfjXxPq5Ck6OCHuMi6X06aI
+         o9bSXKWPF/RCb8fyQe3GgTeJCFHhSNCtn9seDgbGPMgzb1i/XTjZ2EsuK5m+ZL/6mfrR
+         A22krKLHBi3mFEfSoMCPKSdorTjdKfdqh1DFvdLEQK+0ldOqHr6aDXrmkh3vlnWeZvhQ
+         bleA==
+X-Forwarded-Encrypted: i=1; AHgh+RolQBBD9yzCg+NfboNmNklGmEihhfi2sXiDvmojoSKNW9tGyTJw2YO1Iqijh4nvPFNBTD/JcFTnNTH9q6JmfcQo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfTA1JXAIIkjwK4o5OikxKUv5OjhDa7kQQ/SMBStuLlHKlsCGs
+	+4DDxQmi0VyNQBhW6uxLHn08FRAM2TE6MqJFYfSCeD6hcOq5s46mj/9WzfZrS02Xycg=
+X-Gm-Gg: AfdE7clXbZv0dz+OyfAVsXQIW1HtruPNsW4H2c9k6Ec8/kUBAbWZKDGymiPaZrzf2ur
+	IH7ji9VuvQrg3Kz85P+ffrgRxFAd7AIZH16OeEn8gO9IsUk/CWkkCcGOehl0SGGRyDQDF71pShK
+	xi6MzeQVWlT4pofLeNeARLIBT9iAI0hPW1T+yXAPs80n8pWcOAwHt+Bf/8eKYcUTOSPUMCbfk8n
+	tcOmhwYKKbCRPH8e4tdQhRpZYErK1WsF4y4MOxfmJqN04e+tPiLbkR8Hg80Wa8G5/qBAhU8gtKH
+	sAw3sh3N+JKsm4Lz8dJTy6ynbbPRuv994ZJTnDhjmNzPnRe4cD3ssaOj6ThPydZbVDJUWIdncoE
+	OFnuY3M5k+vn0ArN7Cbg0AjzypUh0JZ1e0BtoBQLk3T4W9Mtrv5loYBlNa3kP80tGi9Kl3mUoh7
+	7tFrlYTbsafDhPJlKnwG+BcpioF1ca2Ut2s7tLxEEFDFFiFSQ1PrZ2iNvinvSLwZ9/2HfzR/mt3
+	XCOIMBGdXNaPopQ2jDcJOHO33GhsJNsmWbgB/Ib4n0=
+X-Received: by 2002:a05:600c:3491:b0:493:c59c:94f1 with SMTP id 5b1f17b1804b1-493e7e82e10mr58748345e9.2.1783596016565;
+        Thu, 09 Jul 2026 04:20:16 -0700 (PDT)
+Received: from threadripper-fedora-workstation (dh207-15-57.xnet.hr. [88.207.15.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6f3c42sm53910475e9.1.2026.07.09.04.20.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jul 2026 04:20:16 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	tudor.ambarus@linaro.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	daniel.machon@microchip.com
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v2 0/5] spi: atmel-quadspi: add support for LAN969x
+Date: Thu,  9 Jul 2026 13:19:06 +0200
+Message-ID: <20260709112006.390742-1-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-b4-flowtable-sw-accel-ip6ip-v5-3-828ceaf85bab@kernel.org>
-References: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
-In-Reply-To: <20260709-b4-flowtable-sw-accel-ip6ip-v5-0-828ceaf85bab@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
- Ido Schimmel <idosch@nvidia.com>, Pablo Neira Ayuso <pablo@netfilter.org>, 
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
- Shuah Khan <shuah@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
- linux-kselftest@vger.kernel.org
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_042018_816136_044CC0C2 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,491 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce sw flowtable acceleration for the TX/RX paths of
-IPv4 over IPv6 tunnels, relying on the netfilter flowtable
-infrastructure.
-The feature can be tested with a forwarding scenario between two
-NICs (eth0 and eth1), where an IPv4 over IPv6 tunnel is used to
-reach a remote site via eth1 as the underlay device:
+This series adds QSPI support for the Microchip LAN969x which has two QSPI
+controllers based on SAMA7G5.
 
-    ETH0 -- TUN0 <==> ETH1 -- [IP network] -- TUN1 (2001:db8:2::2)
+It requires pad calibration, supports DMA, and supports 100 MHz operation.
 
-[IP configuration]
+It requires a different init sequence to SAMA7G5 so support for custom
+.init per controller caps is added, and existing controllers relying on
+checking gclk are converted to it.
 
-6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether 00:00:22:33:11:55 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.0.2/24 scope global eth0
-       valid_lft forever preferred_lft forever
-7: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether 00:11:22:33:11:55 brd ff:ff:ff:ff:ff:ff
-    inet6 2001:db8:2::1/64 scope global nodad
-       valid_lft forever preferred_lft forever
-8: tun0@NONE: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1480 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/tunnel6 2001:db8:2::1 peer 2001:db8:2::2 permaddr ce9c:2940:7dcc::
-    inet 192.168.100.1/24 scope global tun0
-       valid_lft forever preferred_lft forever
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 
-$ ip route show
-default via 192.168.100.2 dev tun0
-192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.2
-192.168.100.0/24 dev tun0 proto kernel scope link src 192.168.100.1
+Changes in v2:
+* Make the DTS nodes apply on top of next-20260708, as SDMMC is not yet upstream
 
-$ ip -6 route show
-2001:db8:2::/64 dev eth1 proto kernel metric 256 pref medium
+Robert Marko (5):
+  dt-bindings: spi: Document LAN969x QSPI
+  spi: atmel-quadspi: add controller init callback
+  spi: atmel-quadspi: use init callback for gclk variants
+  spi: atmel-quadspi: add LAN969x QSPI support
+  arm64: dts: microchip: lan969x: add QSPI nodes
 
-$ nft list ruleset
-table inet filter {
-    flowtable ft {
-        hook ingress priority filter
-        devices = { eth0, eth1 }
-    }
-
-    chain forward {
-        type filter hook forward priority filter; policy accept;
-        meta l4proto { tcp, udp } flow add @ft
-    }
-}
-
-When reproducing this scenario using veth interfaces, the following
-results were observed:
-
-- TCP stream received from IPv4 over IPv6 tunnel:
-  - net-next (baseline):                ~126 Gbps
-  - net-next + IP6IP flowtable support: ~138 Gbps
-
-- TCP stream transmitted to IPv4 over IPv6 tunnel:
-  - net-next (baseline):                ~127 Gbps
-  - net-next + IP6IP flowtable support: ~140 Gbps
-
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- net/netfilter/nf_flow_table_core.c |  16 +++-
- net/netfilter/nf_flow_table_ip.c   | 177 +++++++++++++++++++++++++------------
- net/netfilter/nf_flow_table_path.c |  10 ++-
- 3 files changed, 137 insertions(+), 66 deletions(-)
-
-diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-index 99c5b9d671a0..18f89e6fb435 100644
---- a/net/netfilter/nf_flow_table_core.c
-+++ b/net/netfilter/nf_flow_table_core.c
-@@ -76,9 +76,14 @@ struct flow_offload *flow_offload_alloc(struct nf_conn *ct)
- }
- EXPORT_SYMBOL_GPL(flow_offload_alloc);
- 
--static u32 flow_offload_dst_cookie(struct flow_offload_tuple *flow_tuple)
-+static u32 flow_offload_dst_cookie(struct flow_offload_tuple *flow_tuple,
-+				   u8 tun_encap_proto)
- {
--	if (flow_tuple->l3proto == NFPROTO_IPV6)
-+	bool dst_v6;
-+
-+	dst_v6 = tun_encap_proto ? tun_encap_proto == NFPROTO_IPV6
-+				 : flow_tuple->l3proto == NFPROTO_IPV6;
-+	if (dst_v6)
- 		return rt6_get_cookie(dst_rt6_info(flow_tuple->dst_cache));
- 
- 	return 0;
-@@ -99,10 +104,12 @@ static int flow_offload_fill_route(struct flow_offload *flow,
- 				   enum flow_offload_tuple_dir dir)
- {
- 	struct flow_offload_tuple *flow_tuple = &flow->tuplehash[dir].tuple;
-+	u8 l3proto, encap_proto = route->tuple[!dir].in.tun.encap_proto;
- 	struct dst_entry *dst = nft_route_dst_fetch(route, dir);
- 	int i, j = 0;
- 
--	switch (flow_tuple->l3proto) {
-+	l3proto = encap_proto ? encap_proto : flow_tuple->l3proto;
-+	switch (l3proto) {
- 	case NFPROTO_IPV4:
- 		flow_tuple->mtu = ip_dst_mtu_maybe_forward(dst, true);
- 		break;
-@@ -138,7 +145,8 @@ static int flow_offload_fill_route(struct flow_offload *flow,
- 	case FLOW_OFFLOAD_XMIT_NEIGH:
- 		flow_tuple->ifidx = route->tuple[dir].out.ifindex;
- 		flow_tuple->dst_cache = dst;
--		flow_tuple->dst_cookie = flow_offload_dst_cookie(flow_tuple);
-+		flow_tuple->dst_cookie = flow_offload_dst_cookie(flow_tuple,
-+								 encap_proto);
- 		break;
- 	default:
- 		WARN_ON_ONCE(1);
-diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
-index cf2c74e3fd56..26a50e92459d 100644
---- a/net/netfilter/nf_flow_table_ip.c
-+++ b/net/netfilter/nf_flow_table_ip.c
-@@ -191,27 +191,27 @@ static void nf_flow_tuple_encap(struct nf_flowtable_ctx *ctx,
- 		break;
- 	}
- 
--	switch (inner_proto) {
--	case htons(ETH_P_IP):
--		iph = (struct iphdr *)(skb_network_header(skb) + offset);
--		if (ctx->tun.proto == IPPROTO_IPIP) {
-+	if (ctx->tun.proto == IPPROTO_IPIP || ctx->tun.proto == IPPROTO_IPV6) {
-+		switch (inner_proto) {
-+		case htons(ETH_P_IP):
-+			iph = (struct iphdr *)(skb_network_header(skb) +
-+					       offset);
- 			tuple->tun.dst_v4.s_addr = iph->daddr;
- 			tuple->tun.src_v4.s_addr = iph->saddr;
--			tuple->tun.l3_proto = IPPROTO_IPIP;
-+			tuple->tun.l3_proto = ctx->tun.proto;
- 			tuple->tun.encap_proto = AF_INET;
--		}
--		break;
--	case htons(ETH_P_IPV6):
--		ip6h = (struct ipv6hdr *)(skb_network_header(skb) + offset);
--		if (ctx->tun.proto == IPPROTO_IPV6) {
-+			break;
-+		case htons(ETH_P_IPV6):
-+			ip6h = (struct ipv6hdr *)(skb_network_header(skb) +
-+						  offset);
- 			tuple->tun.dst_v6 = ip6h->daddr;
- 			tuple->tun.src_v6 = ip6h->saddr;
--			tuple->tun.l3_proto = IPPROTO_IPV6;
-+			tuple->tun.l3_proto = ctx->tun.proto;
- 			tuple->tun.encap_proto = AF_INET6;
-+			break;
-+		default:
-+			break;
- 		}
--		break;
--	default:
--		break;
- 	}
- }
- 
-@@ -363,7 +363,7 @@ static bool nf_flow_ip6_tunnel_proto(struct nf_flowtable_ctx *ctx,
- 	if (ipv6_ext_hdr(ip6h->nexthdr))
- 		return false;
- 
--	if (ip6h->nexthdr == IPPROTO_IPV6) {
-+	if (ip6h->nexthdr == IPPROTO_IPIP || ip6h->nexthdr == IPPROTO_IPV6) {
- 		ctx->tun.proto = ip6h->nexthdr;
- 		ctx->tun.hdr_size = sizeof(*ip6h);
- 		ctx->offset += ctx->tun.hdr_size;
-@@ -384,6 +384,10 @@ static void nf_flow_ip_tunnel_pop(struct nf_flowtable_ctx *ctx,
- 
- 	skb_pull(skb, ctx->tun.hdr_size);
- 	skb_reset_network_header(skb);
-+	if (ctx->tun.proto == IPPROTO_IPIP)
-+		skb->protocol = htons(ETH_P_IP);
-+	else
-+		skb->protocol = htons(ETH_P_IPV6);
- }
- 
- static bool nf_flow_skb_encap_protocol(struct nf_flowtable_ctx *ctx,
-@@ -489,8 +493,16 @@ static int nf_flow_offload_forward(struct nf_flowtable_ctx *ctx,
- 	flow = container_of(tuplehash, struct flow_offload, tuplehash[dir]);
- 
- 	mtu = flow->tuplehash[dir].tuple.mtu + ctx->offset;
--	if (flow->tuplehash[!dir].tuple.tun_num)
-+	switch (flow->tuplehash[!dir].tuple.tun.encap_proto) {
-+	case AF_INET:
- 		mtu -= sizeof(*iph);
-+		break;
-+	case AF_INET6:
-+		mtu -= sizeof(struct ipv6hdr);
-+		break;
-+	default:
-+		break;
-+	}
- 
- 	if (unlikely(nf_flow_exceeds_mtu(skb, mtu)))
- 		return 0;
-@@ -617,6 +629,7 @@ static int nf_flow_tunnel_ipip_push(struct net *net, struct sk_buff *skb,
- 	/* Push down and install the IP header. */
- 	skb_push(skb, sizeof(*iph));
- 	skb_reset_network_header(skb);
-+	skb->protocol = htons(ETH_P_IP);
- 
- 	iph = ip_hdr(skb);
- 	iph->version	= 4;
-@@ -636,56 +649,57 @@ static int nf_flow_tunnel_ipip_push(struct net *net, struct sk_buff *skb,
- 	return 0;
- }
- 
--static int nf_flow_tunnel_v4_push(struct net *net, struct sk_buff *skb,
--				  struct flow_offload_tuple *tuple,
--				  __be32 *ip_daddr)
--{
--	if (tuple->tun_num)
--		return nf_flow_tunnel_ipip_push(net, skb, tuple, ip_daddr);
--
--	return 0;
--}
--
--static int nf_flow_tunnel_ip6ip6_push(struct net *net, struct sk_buff *skb,
--				      struct flow_offload_tuple *tuple,
--				      struct in6_addr **ip6_daddr)
-+static int nf_flow_tunnel_ip6_push(struct net *net, struct sk_buff *skb,
-+				   struct flow_offload_tuple *tuple,
-+				   struct in6_addr **ip6_daddr)
- {
--	struct ipv6hdr *ip6h = (struct ipv6hdr *)skb_network_header(skb);
--	struct rtable *rt = dst_rtable(tuple->dst_cache);
--	__u8 dsfield = ipv6_get_dsfield(ip6h);
-+	struct dst_entry *dst = tuple->dst_cache;
- 	struct flowi6 fl6 = {
- 		.daddr = tuple->tun.src_v6,
- 		.saddr = tuple->tun.dst_v6,
- 		.flowi6_proto = IPPROTO_IPV6,
- 	};
--	u8 hop_limit = ip6h->hop_limit;
-+	u8 hop_limit, dsfield;
-+	struct ipv6hdr *ip6h;
- 	int err, mtu;
- 	u32 headroom;
- 
-+	if (tuple->tun.l3_proto == IPPROTO_IPIP) {
-+		struct iphdr *iph = (struct iphdr *)skb_network_header(skb);
-+
-+		dsfield = ipv4_get_dsfield(iph);
-+		hop_limit = iph->ttl;
-+	} else {
-+		ip6h = (struct ipv6hdr *)skb_network_header(skb);
-+		dsfield = ipv6_get_dsfield(ip6h);
-+		hop_limit = ip6h->hop_limit;
-+	}
-+
- 	err = iptunnel_handle_offloads(skb, SKB_GSO_IPXIP6);
- 	if (err)
- 		return err;
- 
--	skb_set_inner_ipproto(skb, IPPROTO_IPV6);
--	headroom = sizeof(*ip6h) + LL_RESERVED_SPACE(rt->dst.dev) +
--		   rt->dst.header_len;
-+	skb_set_inner_ipproto(skb, tuple->tun.l3_proto);
-+	headroom = sizeof(*ip6h) + LL_RESERVED_SPACE(dst->dev) +
-+		   dst->header_len;
- 	err = skb_cow_head(skb, headroom);
- 	if (err)
- 		return err;
- 
- 	skb_scrub_packet(skb, true);
--	mtu = dst_mtu(&rt->dst) - sizeof(*ip6h);
-+	mtu = dst_mtu(dst) - sizeof(*ip6h);
- 	mtu = max(mtu, IPV6_MIN_MTU);
- 	skb_dst_update_pmtu_no_confirm(skb, mtu);
- 
- 	skb_push(skb, sizeof(*ip6h));
- 	skb_reset_network_header(skb);
-+	skb->protocol = htons(ETH_P_IPV6);
- 
- 	ip6h = ipv6_hdr(skb);
- 	ip6_flow_hdr(ip6h, dsfield,
- 		     ip6_make_flowlabel(net, skb, fl6.flowlabel, true, &fl6));
- 	ip6h->hop_limit = hop_limit;
--	ip6h->nexthdr = IPPROTO_IPV6;
-+	ip6h->nexthdr = tuple->tun.l3_proto;
- 	ip6h->daddr = tuple->tun.src_v6;
- 	ip6h->saddr = tuple->tun.dst_v6;
- 	ipv6_hdr(skb)->payload_len = htons(skb->len - sizeof(*ip6h));
-@@ -696,14 +710,18 @@ static int nf_flow_tunnel_ip6ip6_push(struct net *net, struct sk_buff *skb,
- 	return 0;
- }
- 
--static int nf_flow_tunnel_v6_push(struct net *net, struct sk_buff *skb,
--				  struct flow_offload_tuple *tuple,
--				  struct in6_addr **ip6_daddr)
-+static int nf_flow_tunnel_push(struct net *net, struct sk_buff *skb,
-+			       struct flow_offload_tuple *tuple,
-+			       __be32 *ip_daddr, struct in6_addr **ip6_daddr)
- {
--	if (tuple->tun_num)
--		return nf_flow_tunnel_ip6ip6_push(net, skb, tuple, ip6_daddr);
--
--	return 0;
-+	switch (tuple->tun.encap_proto) {
-+	case AF_INET:
-+		return nf_flow_tunnel_ipip_push(net, skb, tuple, ip_daddr);
-+	case AF_INET6:
-+		return nf_flow_tunnel_ip6_push(net, skb, tuple, ip6_daddr);
-+	default:
-+		return 0;
-+	}
- }
- 
- static int nf_flow_encap_push(struct sk_buff *skb,
-@@ -815,6 +833,7 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff *skb,
- 		.in	= state->in,
- 	};
- 	struct nf_flow_xmit xmit = {};
-+	struct in6_addr *ip6_daddr;
- 	struct flow_offload *flow;
- 	struct neighbour *neigh;
- 	struct rtable *rt;
-@@ -843,26 +862,43 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff *skb,
- 	flow = container_of(tuplehash, struct flow_offload, tuplehash[dir]);
- 	other_tuple = &flow->tuplehash[!dir].tuple;
- 	ip_daddr = other_tuple->src_v4.s_addr;
-+	ip6_daddr = &other_tuple->src_v6;
- 
--	if (nf_flow_tunnel_v4_push(state->net, skb, other_tuple, &ip_daddr) < 0)
-+	if (nf_flow_tunnel_push(state->net, skb, other_tuple, &ip_daddr,
-+				&ip6_daddr) < 0)
- 		return NF_DROP;
- 
- 	switch (tuplehash->tuple.xmit_type) {
--	case FLOW_OFFLOAD_XMIT_NEIGH:
--		rt = dst_rtable(tuplehash->tuple.dst_cache);
-+	case FLOW_OFFLOAD_XMIT_NEIGH: {
-+		struct dst_entry *dst;
-+
- 		xmit.outdev = dev_get_by_index_rcu(state->net, tuplehash->tuple.ifidx);
- 		if (!xmit.outdev) {
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
- 		}
--		neigh = ip_neigh_gw4(rt->dst.dev, rt_nexthop(rt, ip_daddr));
-+		if (other_tuple->tun.encap_proto == AF_INET6 ||
-+		    ctx.tun.proto == IPPROTO_IPV6) {
-+			struct rt6_info *rt6;
-+
-+			rt6 = dst_rt6_info(tuplehash->tuple.dst_cache);
-+			neigh = ip_neigh_gw6(rt6->dst.dev,
-+					     rt6_nexthop(rt6, ip6_daddr));
-+			dst = &rt6->dst;
-+		} else {
-+			rt = dst_rtable(tuplehash->tuple.dst_cache);
-+			neigh = ip_neigh_gw4(rt->dst.dev,
-+					     rt_nexthop(rt, ip_daddr));
-+			dst = &rt->dst;
-+		}
- 		if (IS_ERR(neigh)) {
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
- 		}
- 		xmit.dest = neigh->ha;
--		skb_dst_set_noref(skb, &rt->dst);
-+		skb_dst_set_noref(skb, dst);
- 		break;
-+	}
- 	case FLOW_OFFLOAD_XMIT_DIRECT:
- 		xmit.outdev = dev_get_by_index_rcu(state->net, tuplehash->tuple.out.ifidx);
- 		if (!xmit.outdev) {
-@@ -1112,8 +1148,12 @@ nf_flow_offload_ipv6_lookup(struct nf_flowtable_ctx *ctx,
- 	if (!nf_flow_skb_encap_protocol(ctx, skb, htons(ETH_P_IPV6)))
- 		return NULL;
- 
--	if (nf_flow_tuple_ipv6(ctx, skb, &tuple) < 0)
-+	if (ctx->tun.proto == IPPROTO_IPIP) {
-+		if (nf_flow_tuple_ip(ctx, skb, &tuple) < 0)
-+			return NULL;
-+	} else if (nf_flow_tuple_ipv6(ctx, skb, &tuple) < 0) {
- 		return NULL;
-+	}
- 
- 	return flow_offload_lookup(flow_table, &tuple);
- }
-@@ -1134,13 +1174,18 @@ nf_flow_offload_ipv6_hook(void *priv, struct sk_buff *skb,
- 	struct flow_offload *flow;
- 	struct neighbour *neigh;
- 	struct rt6_info *rt;
-+	__be32 ip_daddr;
- 	int ret;
- 
- 	tuplehash = nf_flow_offload_ipv6_lookup(&ctx, flow_table, skb);
- 	if (tuplehash == NULL)
- 		return NF_ACCEPT;
- 
--	ret = nf_flow_offload_ipv6_forward(&ctx, flow_table, tuplehash, skb);
-+	if (ctx.tun.proto == IPPROTO_IPIP)
-+		ret = nf_flow_offload_forward(&ctx, flow_table, tuplehash, skb);
-+	else
-+		ret = nf_flow_offload_ipv6_forward(&ctx, flow_table, tuplehash,
-+						   skb);
- 	if (ret < 0)
- 		return NF_DROP;
- 	else if (ret == 0)
-@@ -1157,28 +1202,44 @@ nf_flow_offload_ipv6_hook(void *priv, struct sk_buff *skb,
- 	dir = tuplehash->tuple.dir;
- 	flow = container_of(tuplehash, struct flow_offload, tuplehash[dir]);
- 	other_tuple = &flow->tuplehash[!dir].tuple;
-+	ip_daddr = other_tuple->src_v4.s_addr;
- 	ip6_daddr = &other_tuple->src_v6;
- 
--	if (nf_flow_tunnel_v6_push(state->net, skb, other_tuple,
--				   &ip6_daddr) < 0)
-+	if (nf_flow_tunnel_push(state->net, skb, other_tuple, &ip_daddr,
-+				&ip6_daddr) < 0)
- 		return NF_DROP;
- 
- 	switch (tuplehash->tuple.xmit_type) {
--	case FLOW_OFFLOAD_XMIT_NEIGH:
--		rt = dst_rt6_info(tuplehash->tuple.dst_cache);
-+	case FLOW_OFFLOAD_XMIT_NEIGH: {
-+		struct dst_entry *dst;
-+
- 		xmit.outdev = dev_get_by_index_rcu(state->net, tuplehash->tuple.ifidx);
- 		if (!xmit.outdev) {
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
- 		}
--		neigh = ip_neigh_gw6(rt->dst.dev, rt6_nexthop(rt, ip6_daddr));
-+		if (other_tuple->tun.encap_proto == AF_INET ||
-+		    ctx.tun.proto == IPPROTO_IPIP) {
-+			struct rtable *rt4;
-+
-+			rt4 = dst_rtable(tuplehash->tuple.dst_cache);
-+			neigh = ip_neigh_gw4(rt4->dst.dev,
-+					     rt_nexthop(rt4, ip_daddr));
-+			dst = &rt4->dst;
-+		} else {
-+			rt = dst_rt6_info(tuplehash->tuple.dst_cache);
-+			neigh = ip_neigh_gw6(rt->dst.dev,
-+					     rt6_nexthop(rt, ip6_daddr));
-+			dst = &rt->dst;
-+		}
- 		if (IS_ERR(neigh)) {
- 			flow_offload_teardown(flow);
- 			return NF_DROP;
- 		}
- 		xmit.dest = neigh->ha;
--		skb_dst_set_noref(skb, &rt->dst);
-+		skb_dst_set_noref(skb, dst);
- 		break;
-+	}
- 	case FLOW_OFFLOAD_XMIT_DIRECT:
- 		xmit.outdev = dev_get_by_index_rcu(state->net, tuplehash->tuple.out.ifidx);
- 		if (!xmit.outdev) {
-diff --git a/net/netfilter/nf_flow_table_path.c b/net/netfilter/nf_flow_table_path.c
-index caaf48c5fd2a..5e84b7f18a26 100644
---- a/net/netfilter/nf_flow_table_path.c
-+++ b/net/netfilter/nf_flow_table_path.c
-@@ -216,12 +216,13 @@ static int nft_flow_tunnel_update_route(const struct nft_pktinfo *pkt,
- 	struct dst_entry *tun_dst = NULL;
- 	struct flowi fl = {};
- 
--	switch (nft_pf(pkt)) {
-+	switch (tun->encap_proto) {
- 	case NFPROTO_IPV4:
- 		fl.u.ip4.daddr = tun->dst_v4.s_addr;
- 		fl.u.ip4.saddr = tun->src_v4.s_addr;
- 		fl.u.ip4.flowi4_iif = nft_in(pkt)->ifindex;
--		fl.u.ip4.flowi4_dscp = ip4h_dscp(ip_hdr(pkt->skb));
-+		if (nft_pf(pkt) == NFPROTO_IPV4)
-+			fl.u.ip4.flowi4_dscp = ip4h_dscp(ip_hdr(pkt->skb));
- 		fl.u.ip4.flowi4_mark = pkt->skb->mark;
- 		fl.u.ip4.flowi4_flags = FLOWI_FLAG_ANYSRC;
- 		break;
-@@ -229,13 +230,14 @@ static int nft_flow_tunnel_update_route(const struct nft_pktinfo *pkt,
- 		fl.u.ip6.daddr = tun->dst_v6;
- 		fl.u.ip6.saddr = tun->src_v6;
- 		fl.u.ip6.flowi6_iif = nft_in(pkt)->ifindex;
--		fl.u.ip6.flowlabel = ip6_flowinfo(ipv6_hdr(pkt->skb));
-+		if (nft_pf(pkt) == NFPROTO_IPV6)
-+			fl.u.ip6.flowlabel = ip6_flowinfo(ipv6_hdr(pkt->skb));
- 		fl.u.ip6.flowi6_mark = pkt->skb->mark;
- 		fl.u.ip6.flowi6_flags = FLOWI_FLAG_ANYSRC;
- 		break;
- 	}
- 
--	nf_route(nft_net(pkt), &tun_dst, &fl, false, nft_pf(pkt));
-+	nf_route(nft_net(pkt), &tun_dst, &fl, false, tun->encap_proto);
- 	if (!tun_dst)
- 		return -ENOENT;
- 
+ .../bindings/spi/atmel,quadspi.yaml           |  1 +
+ arch/arm64/boot/dts/microchip/lan9691.dtsi    | 33 ++++++++
+ drivers/spi/Kconfig                           |  2 +-
+ drivers/spi/atmel-quadspi.c                   | 78 ++++++++++++++++++-
+ 4 files changed, 110 insertions(+), 4 deletions(-)
 
 -- 
 2.55.0
