@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548EDC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7C0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRzgkCokkYWeOPF3FDrRjraYcAbGSe4f3k3UbSQ8tck=; b=xci+jEDdpvRj0Q/DOukMTxEkHL
-	70fsDVXmJM5DZEn7XPMScAsuvgVTr2t4GCxuU7YLSlIG3Ii0ZuNEyQnznYLgeiDwlVQ5TFjJqPYDL
-	Bv7Bm9vqCMaPn+YQsnhasnDeiH66jngCZvnXgYTUNatcMx09PqhmaAAEM0HkUhvzE4xsmgGkUSMxa
-	MBhgYG0LMeLmlHmPmeYgWMrlkyu7yfHOaZnMrmU0CiBjOtruiTO9J764dCr/4CF3vKtx4909uzOkC
-	k63pdMpIN/3emE1hbe55fgDo28Mru9ML6tqRBq2clU9LbUxNTFDF40J2rkg5m5Ltt5pdj122qficx
-	Ai0hCpQg==;
+	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=; b=vVhtkBNvfiWgf3cGhl9g4ISx2Q
+	7cx6q0/AmKoU/EuKqjwWEPVgE8CiSO40ohL7tI7Jtd++D20bpQr/N1CZ8o/bSCRyvLEWvD8vTfOaC
+	zJn8NEE8HHiX/Ul++ktroX8e6WpFqLwjpDh3gucAXxdggPwgjvc/yFa27HlC2OO2t9eCy3sCpWSZ6
+	cHXdpPFhP3+4OGJo+qWMntEHNB6Ya/oIVt/kLdUFAwrbUuPOjfPYgyaD1k31AycKAwWlPc1Ewq6Sb
+	nnBq4D3bu4s9/b0enrK8HQx0TJR0vBrfVFy7w8rtrMy7m+pkEYFv3pJCu//uNMAA1/y/jTpjw7MvL
+	admI6log==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0f-00000000gON-0i7L;
-	Thu, 09 Jul 2026 00:53:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whd0k-00000000gTK-17Q0;
+	Thu, 09 Jul 2026 00:53:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0e-00000000gNh-1em6
+	id 1whd0i-00000000gRS-34dx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 00:53:00 +0000
+	Thu, 09 Jul 2026 00:53:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2EBB6136C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 311BC6111A;
+	Thu,  9 Jul 2026 00:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07AF1F00A3A;
 	Thu,  9 Jul 2026 00:52:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CEF71F00A3D;
-	Thu,  9 Jul 2026 00:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783558379;
-	bh=ZRzgkCokkYWeOPF3FDrRjraYcAbGSe4f3k3UbSQ8tck=;
+	s=k20260515; t=1783558383;
+	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=DgPNJUm/krhS42h9PWSRuwD5nJ2uzy/kJu9TM86brWrzXwmxi0kHClMZaj+zWU2Jk
-	 4EB9dv9xyGyOZ5CmOaAd2oOLKMoXdV6OriRDWbJAttH/7eL1i1U0xE4Gq0TDKWi4M/
-	 JeroJkFGC+4vO/rKxtGEl8qIPa243YZP4AoNligXDnFkMi7vYLgiKnEM116PyanRL8
-	 RczWQrzUe2nPbHSLWzEXPDxpw7q3U4+n77eIkRHN2NbsN92tVIl1r+6aNtfZPaPbUP
-	 XXJSxVTiuTqJ0sGUPrHR7wHCEz8qPWXCMz/tQn/xrKY7GotFN5UAq5clJFZtMtKD5r
-	 a3Fagh+8epEIg==
+	b=hLZDHwtdVJfYkin1OmHE6LlmALn3shzuRWiYf/tMXs8/rZ57O6nBuKJPc2Rlpsq8E
+	 LkVyfKMOFzKmAIMet8THqq+uB1o0aFJLRHW06XYfD9OBobviJeyQbyUDLsdnSIGTrH
+	 brIZYghv98Zx6btea/AE/x2F/dJvaoS9U/x++BwtMQyPEt5K87CRkZaacSAgXhpvu5
+	 Lovq8CacoHfLEzUCt5EuqVY9rgDtIdes6Kjdou8PyfCuRsg3rzIKOqf7i7a8M50a90
+	 U1bIWgyXqblRY3XDR06h2LAl/LM2luUf3jKsHaiclwuGRT7+9t8Y80BwmZF+ne4SzB
+	 RFJw2aUHh7Gmg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 09 Jul 2026 01:51:42 +0100
-Subject: [PATCH v11 05/29] arm64/fpsimd: Determine maximum virtualisable
- SME vector length
+Date: Thu, 09 Jul 2026 01:51:43 +0100
+Subject: [PATCH v11 06/29] KVM: arm64: Handle FEAT_IDST for guest accesses
+ to hidden registers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-kvm-arm64-sme-v11-5-32799f66db9d@kernel.org>
+Message-Id: <20260709-kvm-arm64-sme-v11-6-32799f66db9d@kernel.org>
 References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1382; i=broonie@kernel.org;
- h=from:subject:message-id; bh=++3RupEjJl/hieRBq4Zb2DcRHMWp0Yu3DKnrxPa5BCI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvC9yq76eGMiMwaDMr7oe2zDUIgL1q2FX4Aq6
- Eo16wMr1deJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wvQAKCRAk1otyXVSH
- 0EwaB/9woeMSozzvqL+P4vTBAJ50aS146ENpqdlNNNy+A+UXyHqE932HU1lx5Z52Np7ZpkeCDSJ
- nXhP3ZLJcd+Hu1xP1TgYZ2g+59QyX6x5ZSNq0cVIigfvr5YfewJqBPKWu4ucEmMl5nnS1k70ZJF
- 1ncRWZ6rqrTacCbLSOYfLkefbxHS+1mJS+TsAgyCcSz/PfTWSK/YoG/RAr9xSQrV12Kt0M3p+Vy
- vBd6QM7lvLaFqDY3sXHIFopYg9ADRIPgX23VSEd/QCs6WOhIxiX+CJ3N/NcXC/PUtbkm9kJ6rei
- LLlh+Zvir1jVl3hKfHAcNPjrQlOSjQ8smoxfz729ScHdbXln
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3302; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=u65dLobDDTfZ3Plqj3qN97beHdtUOk+/y5QgneNdn5w=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvC+1G/gf0rWduU6sz1wJdtXAqe0wQDYqusg4
+ fmly9Rc9AuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wvgAKCRAk1otyXVSH
+ 0G9+B/9g94EnScnAkSL17GenLDRRxzTbkQnlGqYDeJc+8jMDbf7W19NfvM7PcBwUypMA9ihN4DS
+ JIndEGPpdA/GeyET80BFF9lXBBVltr86cqtTRhHf7JzMB6aIwVOmg8PAcpl/kscxY/3DrkO1FTH
+ xf6VRUmZHeZrrBCYC0CBYMNlQyamAYeSv4wSkgQivQ8dL20cRuslL2V1FdMmn9Y+iIzeoaX8zp0
+ 0xxLYJUIvO1FGGfqnSSZfRDYLTNrySc19+RrNW8GOFQYaKpnDnlscUTSKilz87nsGqSL11Xf5M9
+ qvCDWjpBSA5ve2MIefsQFLi7YX4XyXxwqpFOJS65H/WxAvQx
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,40 +91,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As with SVE we can only virtualise SME vector lengths that are supported by
-all CPUs in the system, implement similar checks to those for SVE. Since
-unlike SVE there are no specific vector lengths that are architecturally
-required the handling is subtly different, we report a system where this
-happens with a maximum vector length of 0.
+In preparation for adding support for SMIDR_EL1 which is only available in
+systems with SME factor out the FEAT_IDST injection from emulate-nested.c
+into a helper and use it when handling hidden ID registers, ensuring that
+we provide FEAT_IDST behaviour for them.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/include/asm/kvm_emulate.h |  1 +
+ arch/arm64/kvm/emulate-nested.c      |  6 +-----
+ arch/arm64/kvm/inject_fault.c        | 15 +++++++++++++++
+ arch/arm64/kvm/sys_regs.c            |  6 +++++-
+ 4 files changed, 22 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 5c156e2a47ea..7c4e69fd3922 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1277,6 +1277,7 @@ void __init sme_setup(void)
- 	 * minimum available VL will be used.
- 	 */
- 	set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
-+	info->max_virtualisable_vl = vec_virtualisable_vl(info);
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c..994afbf479fc 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
+ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
  
- 	pr_info("SME: minimum available vector length %u bytes per vector\n",
- 		info->min_vl);
-@@ -1284,6 +1285,10 @@ void __init sme_setup(void)
- 		info->max_vl);
- 	pr_info("SME: default vector length %u bytes per vector\n",
- 		get_sme_default_vl());
-+
-+	/* KVM decides whether to support mismatched systems. Just warn here: */
-+	if (info->max_virtualisable_vl < info->max_vl)
-+		pr_warn("SME: unvirtualisable vector lengths present\n");
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu);
++void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu);
+ void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index e688bc5139c1..f49b7b311d09 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2669,11 +2669,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
+ 		 * helper for the purpose of dealing with FEAT_IDST.
+ 		 */
+ 		if (in_feat_id_space(&params)) {
+-			if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
+-				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
+-			else
+-				kvm_inject_undefined(vcpu);
+-
++			kvm_inject_undefined_idreg(vcpu);
+ 			return true;
+ 		}
+ 
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index 89982bd3345f..e2f519ca3045 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -331,6 +331,21 @@ void kvm_inject_undefined(struct kvm_vcpu *vcpu)
+ 		inject_undef64(vcpu);
  }
  
- void sme_suspend_exit(void)
++/**
++ * kvm_inject_undefined_idreg - emulate UnimplementedIDRegister() pseudocode
++ * @vcpu: The vCPU in which to inject the exception
++ *
++ * It is assumed that this code is called from the VCPU thread and that the
++ * VCPU therefore is not currently executing guest code.
++ */
++void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu)
++{
++	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
++		kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
++	else
++		kvm_inject_undefined(vcpu);
++}
++
+ static bool serror_is_masked(struct kvm_vcpu *vcpu)
+ {
+ 	return (*vcpu_cpsr(vcpu) & PSR_A_BIT) && !effective_sctlr2_nmea(vcpu);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 5d5c579d4579..b352cd323e30 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -4759,7 +4759,11 @@ static void perform_access(struct kvm_vcpu *vcpu,
+ 
+ 	/* Check for regs disabled by runtime config */
+ 	if (sysreg_hidden(vcpu, r)) {
+-		kvm_inject_undefined(vcpu);
++		if (in_feat_id_space(params)) {
++			kvm_inject_undefined_idreg(vcpu);
++		} else {
++			kvm_inject_undefined(vcpu);
++		}
+ 		return;
+ 	}
+ 
 
 -- 
 2.47.3
