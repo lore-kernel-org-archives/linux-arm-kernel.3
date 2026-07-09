@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF486C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 19:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BB9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 19:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ukg8K27ZNplR+yNjefMWINfSHgjifpE3C2eq9F7iWjM=; b=n8/I5MyRTR14ggNt6Lag8IxP6C
-	4D92/bH+t3RqkJMhskBR3lHS7LoBYytCiyBiOtiBrMoUTXlB6Zu1EMk5w6E4VNIY5dIzG4A58pxyG
-	E76YpMap1eEFD4rhetr3CoEfw6p6HFtNdgOwLrDJQcZ6uK3Wo9UmgBkazVoFIxhN3UrXEDbJ7pob0
-	PWc5XOvA4RKQ6dX8te6QWOtQ8DVKNx7/8g+KXLwJHeoAkvquk935x3qCo2yJq13EoOQ/Hf1cNAoj3
-	BON0PHxA0Xz+G2ZWT2l6Vd/54kt6/motQOcFyHAY6ETAVQ7bclBiapvmfd4dU0HVeEP9vn/7CuxMV
-	Y9jZA7Gw==;
+	bh=FH3lm7NXX+24RKW27k5eUsQnvEkckwKRVzqXimt1qdQ=; b=Wniq9MWAuF4TQmoRvQPI+/m9R1
+	sIKMAAKTGdm5jXvARb8ffLHYhbLShXq+YxLf1x8rVF5n1etlx+TACr1k1hB4mpKNOrcrL1tu4LzJV
+	vOghWuhZVuMVybU2IqhdXGe4QxuGGK1u94sNIvOF6ETQWh5SloOuOnAUPEm0DOXL90qUuMtgE104j
+	2nrw818gO/q+NvBAsP1TkfePK1zdeWJf0QeW/dlq41dRGn8Gl9/qpz6+1mXrsnOho3E3+K202ciUe
+	x4PLZmz+Lju9+tSf8t1t5SUd/CiaR1g5vZaudW048Hjeup+yM8tyOXfOZbsrUChp7nf/RPio6/b+L
+	U4p8/n9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuBx-00000003Qiw-1Q55;
-	Thu, 09 Jul 2026 19:13:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whuBu-00000003QhV-135w
+	id 1whuIO-00000003RnZ-1f7F;
+	Thu, 09 Jul 2026 19:20:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whuIL-00000003Rmt-2yFm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 19:13:48 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 669HXXjl2475471
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jul 2026 19:13:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ukg8K27ZNplR+yNjefMWINfSHgjifpE3C2eq9F7iWjM=; b=KNheesOfomsVUduc
-	CcvE8SZac96fJwdfD/TF5VQoEEcRgWj7I7Frf00hqvY9YqdBKm+Q4GHzmND/guqL
-	btUvlew9kmRNw+mfAP2J5jKDtmluhG7B4jpcDaecLJDHLua6GQA6kXhzFr+ldrb5
-	jq0mhLmSnUMZWsb9Obz8avq6lEubhe6hzOH4+7RJzLx85w70UhKvzl6DAzRxb0So
-	b/XFXEOcEn+TUYyz7rsBbLtMnbUfuTClcpfLx7lfS6duopKQc1jj+ivBPNAwOUCh
-	ZWXzokrJCv4KqAa8umDnUVMD6E43C8+9lcMn7+xCHPtCFduKmq8bbtZE1nNfKuRt
-	Jz7J5Q==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4faf5mrt84-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 19:13:45 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8f0c6ea10e8so601976d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 12:13:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783624425; x=1784229225; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ukg8K27ZNplR+yNjefMWINfSHgjifpE3C2eq9F7iWjM=;
-        b=axZTo/MgctnomYSJiaBxm/ZdQ78vKzdBMk58ntgCy3KUlM1WlO7MPcdZ3F4FQUTDX0
-         KCB8+/BW9WhTD0a2kQRK8PrcQ38fzgADDqF+q4DY/KLP+rUur9kUaEb5mfRYIV8CCF+s
-         iRWNr0sjQjrMmmKNax8J21UYhIv34jy/s7vZ3bsAnhFjU1IQdYFxWf8+2lW+5vGeBbmx
-         WL/3iT1flW8zLxy7dHlrqAK/Z7E90Qq7roNguRcbxHiJ72HJny5YxALhGmA/zhpev7tN
-         1xSQRUe+mnl6Xq/YzwMG4+noVtTfKSqn4bgSiAdKSGbfkucxOjSrCFkckNecu0gOyRQz
-         PnOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783624425; x=1784229225;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ukg8K27ZNplR+yNjefMWINfSHgjifpE3C2eq9F7iWjM=;
-        b=lhrDiXbT6mVkO8rIE+CXC5hvQPftFCCiHNKNc1H3hZVFRoiLknnUQbfaLVELkFYZeU
-         kF377qjxc3bDpvVEgaG1I1mr2T/iXnfh5Jei54D3OaAv4M10NaaDvfm5aVcVONgG6+Fy
-         CGIaHqhRNFZGEjfsWPlcsDB2IVbtw1wunbwNYP/XSHxYT7SQWKyU008Z7YDPbF53smI8
-         6iAMzPEiDmIF+RZPK0iQNU5IpR2a9rYEmZi33YPU6/TA3SnYZVzvKaI/d3+Myb7raHNp
-         Lh7V0eYDmbV9YUDiNxB/V2NNPzGn9uplj2YD0lg+wdHy6e/oqYn+Bwk2rQlxtlqnW1UO
-         BYQQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rojvh9J0vYKCXvusNcMMMHB/YIuMVcV53Z5SHKDBxhIkhoq2IOtpVBov+K9LcbXHG12KQWPe4hudmqtBeDzw7cj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwswW0iqGRo7ZZb5BFOKQBHX2gCZN20rkvWJW3d5Llpi51k6XfD
-	Xw6+Udnd4JNkipkFkQyaNhWWe/r498jZhQjA4fuSBzFEUSIRI1PeY3OfoZsQoFYEaA/sgZ+gpGL
-	qWkZYihtXkFWcj5U13XUXDRO+RyoWkhK91iq6Ti2HIVNv74Xxf/9DIMp5sixM/JAxVpcjMOLMEj
-	ADAA==
-X-Gm-Gg: AfdE7cm4Y5ogF/kT/iwu58UrCQLr6MyxajhgrJyZ+6TeHAToS13JGM68jDjxfPYp8Bu
-	Jv2kmfSbAAiumQFtGZDS9JEPfzsGbl4n+b7AZ3vZo3f0j8GJSaDFdD3M8Y23GBUTtzJeXy72qot
-	CUsgrIGUbPiER7jVzY4xoPkxEdHi92MtecIC16sDstw4mbHvf3KQFC/G32kuQiguXeBAPm6Ck/K
-	plYuOsUXIlewWUPyvpb2+8qJzoVrf8vrXpKJ9MZ2QrGzF8Wtz9m1eN36U9eiX7YWkNdYFnXp8qV
-	h55gJdDQQ/uxiOyO6vS7m+geIvdlXh4dY4xc1r6gBjDdMKtih206N/t317rLm/BURVabJdlGK9V
-	vRlOzft5yV9v0Sk2MP7fyKJI39wG/OZ0m1Rc=
-X-Received: by 2002:a05:6214:529c:b0:8eb:1061:552c with SMTP id 6a1803df08f44-8ff941c2fc6mr52516206d6.5.1783624424554;
-        Thu, 09 Jul 2026 12:13:44 -0700 (PDT)
-X-Received: by 2002:a05:6214:529c:b0:8eb:1061:552c with SMTP id 6a1803df08f44-8ff941c2fc6mr52515356d6.5.1783624423732;
-        Thu, 09 Jul 2026 12:13:43 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69c14972fc7sm595785a12.22.2026.07.09.12.13.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Jul 2026 12:13:42 -0700 (PDT)
-Message-ID: <88edd673-1220-43ca-805f-675890be0cfc@oss.qualcomm.com>
-Date: Thu, 9 Jul 2026 21:13:37 +0200
+	Thu, 09 Jul 2026 19:20:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1979624C0;
+	Thu,  9 Jul 2026 12:20:20 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FC133FC81;
+	Thu,  9 Jul 2026 12:20:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783624824; bh=gJZyg9aZnNVaQHMBJUbzs8vTjWnAnXA0CgT5tkdOYyc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SbhzWdwdMZaRpaCIqIayjgQ9Ekxmsqhmsdwuc/JpOHjccnB6Ec2vpO4KVlqlM3dIh
+	 HE5YGTXJK0oqx/zuccxDjoHMBbQ8m94TgXIREaKzEjZVa3uGEjJvUDZMMDRw+zhny5
+	 sqqFf9gzxrpe15HSKOyo6V4ofNWiWGcF5bc8K9f8=
+Message-ID: <6863f924-66be-4b3a-be46-18cbfd809488@arm.com>
+Date: Thu, 9 Jul 2026 20:20:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/7] arm64: dts: qcom: shikra: Add GPU cooling
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        Bjorn Andersson <andersson@kernel.org>
-Cc: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-References: <20260710-shikra-gpu-v6-0-b388ec5dce77@oss.qualcomm.com>
- <20260710-shikra-gpu-v6-6-b388ec5dce77@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260710-shikra-gpu-v6-6-b388ec5dce77@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: ulei-aJXLSewyxtuJQQQo4n8_HZ_HMLl
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA5MDE4OSBTYWx0ZWRfX7jkH3DKoGEJ0
- jbMBpr08OfKsqkFQ0BwOmyN5OgD12rfhhG1klVHZyt0rGXXDrSBHDtybZf92IKRnKlfvLO+gU2V
- XU4QZpZTvzDwiMugxmOmDKh01kaLaTo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA5MDE4OSBTYWx0ZWRfX0to8jjELPLVS
- xaj5MA9CfhTD3pcfCqce2BI/7GcB8sIYcwXP5CyBoV+EV18PJ3T+aWJsTKrYIJ1yfWghB5KZWY3
- rXlHB9K3G24SoyGlWTFYMzkbqzzmHdfy+Q4r2HJPCS791x9nQ73g+310x0HNwWcs35cHEgZvAOI
- qpFegAGeV2LSC8XHJMoQF7+1ksCNTu0EiUHpVZubDqXCzTJVBclAwJPhEBBViyp6mOPmNYLx6ZK
- ZChjPFEP1F/z7UXZxY+UuJA6XseSN//RHkF26Sf7K2IlZqdvTOUX8s5KQ1YyNrD7qH1EIQImOZX
- YnGumAAGEa22c64XXhLWVxdIJDR2YywvGpVy2Oy9CWM5ks3UDt7a9j9ToiiSm/ljd4KDR0e5qtm
- srsq7mLHZ0iMrgAQMrGEaEsQCoA37NGPHONl51l9oAlMGFpOaEn7L6SAX0GQCkzQvcQPsXi4x8+
- jt6i1McYHohc6U7pmKw==
-X-Proofpoint-GUID: ulei-aJXLSewyxtuJQQQo4n8_HZ_HMLl
-X-Authority-Analysis: v=2.4 cv=N+QZ0W9B c=1 sm=1 tr=0 ts=6a4ff2e9 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=QDjCMyA0A8yHJihhU1wA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-09_04,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 priorityscore=1501 phishscore=0 adultscore=0
- suspectscore=0 impostorscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607090189
+Subject: Re: [PATCH 5/5] perf/arm-cmn: Support CMN S3 r2
+To: Leo Yan <leo.yan@arm.com>
+Cc: will@kernel.org, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ ilkka@os.amperecomputing.com
+References: <cover.1782830759.git.robin.murphy@arm.com>
+ <1ce69a1cb72da220caa6bc83eb8ce74e295b595e.1782830759.git.robin.murphy@arm.com>
+ <20260709170954.GH1024232@e132581.arm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260709170954.GH1024232@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_121346_405665_814CB359 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260709_122026_045371_147158D8 
+X-CRM114-Status: GOOD (  33.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,23 +73,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/9/26 8:42 PM, Akhil P Oommen wrote:
-> From: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+On 09/07/2026 6:09 pm, Leo Yan wrote:
+> On Tue, Jun 30, 2026 at 04:19:20PM +0100, Robin Murphy wrote:
 > 
-> Unlike the CPU, the GPU does not throttle its speed automatically when it
-> reaches high temperatures. Set up GPU cooling by throttling the GPU speed
-> when reaching 115°C.
+> [...]
 > 
-> Without passive_delay, the governor fires only on trip crossing
-> interrupts. Temperature stabilizing between two trips generates no
-> interrupt, so not all cooling levels are applied. Set passive_delay to
-> enable periodic polling to ensure all cooling levels are applied.
+>> @@ -913,7 +956,12 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+>>   	CMN_EVENT_ATTR(_model, _name##_group1_read, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 3), \
+>>   	CMN_EVENT_ATTR(_model, _name##_group1_write, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 4), \
+>>   	CMN_EVENT_ATTR(_model, _name##_read, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 5), \
+>> -	CMN_EVENT_ATTR(_model, _name##_write, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 6)
+>> +	CMN_EVENT_ATTR(_model, _name##_write, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 6), \
+>> +	CMN_EVENT_ATTR(CMNS3R2, _name##_ccg_read, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 9), \
+>> +	CMN_EVENT_ATTR(CMNS3R2, _name##_ccg_write, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 10), \
+>> +	CMN_EVENT_ATTR(CMNS3R2, _name##_lbt_read, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 11), \
+>> +	CMN_EVENT_ATTR(CMNS3R2, _name##_lbt_write, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 12), \
+>> +	CMN_EVENT_ATTR(CMNS3R2, _name##_lbt, _type, _event, SEL_CBUSY_SNTHROTTLE_SEL, 13)
 > 
-> Signed-off-by: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+> If these CMN_EVENT_ATTR(CMNS3R2, ...) entries are appended to
+> CMN_EVENT_HN_SNT(), they will extend the CMNS3R2 attributes for other
+> models as well. For example:
+> 
+>    CMN_EVENT_HNF_SNT(CMN700, sn_throttle, 0x2a),
+> 
+> This would also add the CMNS3R2 attributes to CMN700. Is this intended?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Yes, hence why the new values hard-code CMNS3R2 at this level rather 
+than the incoming _model argument, so the additional attributes should 
+still end up being hidden by arm_cmn_event_attr_is_visible() on anything 
+else (indeed that probably won't scale well for the *next* CMN model, 
+but for now that's future Robin's problem...)
 
-Konrad
+As for the other angle, the documentation is not at all clear what 
+applies if an instance of S3 r2 itself were to have HN-Fs rather than 
+HN-Ses, nor whether that's even possible, so frankly I'm choosing not to 
+care much about what we end up doing in that case. At worst we may 
+advertise some aliases that aren't meaningful, and/or omit some that 
+are. I can't say how wrong that might be since I don't know what's right.
+
+>> +#define CMN_EVENT_HNS_OCC(_model, _name, _event)			\
+>> +	CMN_EVENT_HN_OCC(_model, hns_##_name, CMN_TYPE_HNS, _event),	\
+>> +	_CMN_EVENT_HNS(_model, _name##_rxsnp, _event, SEL_OCCUP1_ID, 5), \
+>> +	_CMN_EVENT_HNS(_model, _name##_lbt, _event, SEL_OCCUP1_ID, 6),	\
+>> +	_CMN_EVENT_HNS(_model, _name##_hbt, _event, SEL_OCCUP1_ID, 7),	\
+>> +	_CMN_EVENT_HNS(CMNS3R2, _name##_rnf, _event, SEL_OCCUP1_ID, 8),	\
+>> +	_CMN_EVENT_HNS(CMNS3R2, _name##_rni, _event, SEL_OCCUP1_ID, 9),	\
+>> +	_CMN_EVENT_HNS(CMNS3R2, _name##_ccglcn, _event, SEL_OCCUP1_ID, 10), \
+>> +	_CMN_EVENT_HNS(CMNS3R2, _name##_ccgrn, _event, SEL_OCCUP1_ID, 11)
+> 
+> I have a similar question here. My impression is that this is mainly for
+> the convenience of appending CMNS3R2 specific attributes, but it doesn't
+> necessarily mean those attributes should be added for every model.
+
+Note that the design here is that each event alias encodes a bitmap of 
+the models to which it is relevant - although with some simplification, 
+since we don't need to explicitly exclude models where the whole node 
+type could never be present anyway. So tht notion of "adding attributes 
+to a model" doesn't really make sense - at most we're adding the new 
+model to existing attributes in some places (mostly implicitly in the 
+"bitmap tricks" enum values), but mostly adding new attributes only 
+*for* the new model.
+
+>> @@ -1288,65 +1388,72 @@ static struct attribute *arm_cmn_event_attrs[] = {
+> 
+>> +	CMN_EVENT_HNS_HBT_ENHBT(cache_miss,		0x01),
+> 
+> I manually extend the macro and got the result:
+> 
+>    CMN_EVENT_ATTR(CMN700 | CMNS3R01, hns_cache_miss_all, CMN_TYPE_HNS, 0x1, SEL_HBT_LBT_SEL, 0),
+>    CMN_EVENT_ATTR(CMN700 | CMNS3R01, hns_cache_miss_hbt, CMN_TYPE_HNS, 0x1, SEL_HBT_LBT_SEL, 1),
+>    CMN_EVENT_ATTR(CMN700 | CMNS3R01, hns_cache_miss_lbt, CMN_TYPE_HNS, 0x1, SEL_HBT_LBT_SEL, 2),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_all, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 0),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_hbt, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 1),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_lbt, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 2),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_rnf, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 3),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_rni, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 4),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_ccglcn, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 5),
+>    CMN_EVENT_ATTR(CMNS3R2, hns_cache_miss_ccgrn, CMN_TYPE_HNS, 0x1, SEL_ENHANCED_HBT_LBT_SEL, 6),
+> 
+> CMNS3R2 has added items like rnf/rni/ccglcn/ccgrn, not sure if this is
+> purposed or not ...
+
+Indeed that is correct - in this case we can't encode (e.g.) a single 
+"hns_cache_miss_hbt" attribute even though the name, node type, event 
+code, and filter value are all common, since S3 r2 went and changed the 
+filter itself. Thus we define two sets of aliases, one encoding the 
+original selector and its values, and one for the new variant, but only 
+one set or the other will be exposed at runtime based on the model 
+match. (And if the model bitmaps were to overlap such that we did try to 
+expose both, then we'd blow up with a sysfs collision from trying to 
+create two attributes with the same name.)
+
+>> @@ -2431,21 +2538,33 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>>   	/*
+>>   	 * With the device isolation feature, if firmware has neglected to enable
+>>   	 * an XP port then we risk locking up if we try to access anything behind
+>> -	 * it; however we also have no way to tell from Non-Secure whether any
+>> -	 * given port is disabled or not, so the only way to win is not to play...
+>> +	 * it; however prior to CMN S3 r2p0 we also have no way to tell from
+>> +	 * Non-Secure whether any given port is disabled or not, so in that case
+>> +	 * the only way to win is not to play...
+>>   	 */
+>>   	reg = readq_relaxed(cfg_region + CMN_CFGM_INFO_GLOBAL);
+>> -	if (reg & CMN_INFO_DEVICE_ISO_ENABLE) {
+>> +	if (reg & CMN_INFO_DEVICE_ISO_ENABLE && model == CMNS3R01) {
+> 
+> As the comment claims "prior to CMN S3 r2p0", would here be:
+> 
+>    if (reg & CMN_INFO_DEVICE_ISO_ENABLE && model < CMNS3R2) {
+
+Although bit 44 of INFO_GLOBAL should be RES0 on CMN-700 and older 
+versions, it only carries the meaning of DEVICE_ISO_ENABLE from CMN S3 
+r0 onwards, so while we could get away with being lazy before, once we 
+have *some* check then it might as well be the most correctly-specific one.
+
+Thanks,
+Robin.
+
+> 
+>>   		dev_err(cmn->dev, "Device isolation enabled, not continuing due to risk of lockup\n");
+>>   		return -ENODEV;
+>>   	}
+> 
+> Thanks,
+> Leo
+
 
