@@ -4,117 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B76C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B83C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=; b=phFtxVN81nGUCkykdSBPAC1bci
-	HYd/fOzMBdialeAAUD6zr2opr9lnrMihaKjC8MrLvfLkl6Jk7QAvXhIJNAROddC5JaChw8MEVGlkE
-	K6WL7f5Xd83rHEyx5RNrOVK+P2Tt++zksnut9GRmGQTDVNi8NaogEvXZY8lUvtO3P5cNuDMeElpj8
-	rLYjQg+Gu8Eyz3hi+0wPKmDeHD/YtU5gVpZ7uXqui6RPQFLRamK7+uNYLzdtRgHPyAK54iqvVXURt
-	nCrNmesxI9L4qQi+A4DOLJk5EGkkwBFlPOrwIdp8UraeW053EdmmO6GlXiV0SbgcTwJKsasZAGX7Y
-	DFqpUmiA==;
+	bh=92JJ36rrwvvb7yLlV9W9rV0xnJPT/KBmVXI1YNHLk7c=; b=Okvgl2Go8W1SE3wrKdTmmhCa++
+	xdRe7grT9hQnDzfP1ZZFk8wfeC3gTTk/wetPqRcPZrDJsUftG2Nr4ZcWoar08EjmH1gNzKTUSQ5Q7
+	PyctriworBlgBiZJH7i0cbtB17IH/Hy25MoDL47WQgxT8TL3RP+DNpL6bgE1nBZrnUzOe2dmlJTPO
+	FXiht7xoJRUxb+UpJicqG2Sx54ped0iuDRGsMmwUwyNAa6OfIGjvi+BFz6+6xhnhpbejr+agsfS46
+	CsCEdlwoCyAHmkovQ8kBCFZ50GcP5PrvI+W4/aOAvsxekNOAqio1DlJ1p4dqFaOBn+fkknV4+Qu5m
+	/Pddkyjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpjP-00000002l0b-1aGF;
-	Thu, 09 Jul 2026 14:28:03 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1whpjd-00000002l67-2pyj;
+	Thu, 09 Jul 2026 14:28:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpjM-00000002kzj-2Z9c
+	id 1whpjZ-00000002l46-2tud
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:28:02 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6a198cdc4e4so731352eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:28:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783607279; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hNq2ATPQJ9KvYc5boJNS75iBBNXuipJwl9do8o0UMY49jq9Y7i8JFFnQYkE0gerwkw
-         ZzK8vUkMyKGalBnHQJsBSNFVr4UovpIuLftSxyKmIkzlE0p+u5PHjQTePLoBgUNYokWa
-         4l9cwx505TvTdl2WE2jL9JECCSsXX4DuTkg3SDZBUf6zUOTQIirIRsaNuWB1KJuASDWT
-         6Bm3XRkCzJN9E/DoMDIRP97gDdWBqJhy5kfjmL3wlK0u3LroC3XamPiLx2O16YpX+qhi
-         qxG6hpejRHrJUDhGvFA0F7B+65fgkPyLpnHxp+uQFtOM0SDCR1aAFG1rBsdY6JZOe1LD
-         uOQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
-        fh=vOo6TEL1n3QCAlzb314JnE5LjZKYwzG1ar9WdNbt5u0=;
-        b=gqDsxzGYBeYtszM+2lZe4xPBRBx02Mw8WV44QUtxy0g5GyljojjZQJyAMMCE3+dGd9
-         Z/f46KQS6ZvuBrt5x8+qxjC3wyOkrYMHubZEhSFI2+N5VXXba7ao7E/66TFkgJp0xxIO
-         ZZHjaNRj7EUhbqiMh9vFe4JZ+VUVtAIpHyLPrVFu7xufhvv3zt3m/qnj5BRriYkYwHU1
-         wVEG6R3rW8UvFUcZU6s9V4THdWXOQoGk8CS0ql42L+5s2fQJk6Mb0+rUbOXksZJHVXlk
-         zj9dnurrDcN/G7T61Bt33j8Z319AmbfHMnW80NA7AAfVNR88ermnaZVby8uUkuXmpCTE
-         UCRg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783607279; x=1784212079; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
-        b=gF5Ft7xW4SgxEpnch7UwPbcm77YHLhYzx6CUXwOIOb/v7rjXRpTJyI7c3LrMQ3HNpt
-         qNBI94IYKbW2IUsjEqASXMlBHL5uS5VNxgbo9Y0cvSeWQWdqvhubvbGsfvRJUePX775B
-         YsQjzLcIw+0+O5Qj6i/UmcnRILxypLjz99S+c4pV2//PQg1jtaW52KNUO7b2C55DdUXq
-         uzW0/SIJBMUbpBcXFAX64ByztK+EV7a043bi0syNFIUj+tWi3Z4dk7jxpxs/7YjVq+87
-         cdMT4ebvHXl7gc3SQgPtjSXpe/e7fcYIGJnDmsblXORUG286SJUKyKO+ytiWso5KyRiw
-         zmgQ==
+	Thu, 09 Jul 2026 14:28:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783607292;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=92JJ36rrwvvb7yLlV9W9rV0xnJPT/KBmVXI1YNHLk7c=;
+	b=jTjzgptwPo20f9zD7f0S9uwQWmbqDBjnYzNBwkMSWoLfWn/OhaJvNvzzffNfpZiMFPiPXA
+	/ASFojpjyIFs1/DbXAd5dA2vqQ+Dh0mT5waEYkGFMHzHwVo4teWNOLKxqPRB64F24FpHez
+	RAgI11AEJJp8RfEY9s/k8INxalFygFc=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-246-0eN5Q217NtGZKNbslfcsqA-1; Thu, 09 Jul 2026 10:28:09 -0400
+X-MC-Unique: 0eN5Q217NtGZKNbslfcsqA-1
+X-Mimecast-MFC-AGG-ID: 0eN5Q217NtGZKNbslfcsqA_1783607288
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c1c7f135bso36193051cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:28:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783607279; x=1784212079;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
-        b=ClBFkKbNrvA8tq+KtLMbN2obZGKP2VPRN8jNQzFxnmCkGLNemf6SFXT/ijc87fNor5
-         ms5H/0ObR1lFbkhNcp8XcYu+qcRlQsXVpph+VI0znL4OraD3ul/6TYjzKTvDVTGDedJc
-         Wcnmp+AKWTxBEnolZFYXWfj9dDEBfRuBsfRfp/cAoR5GDajxyqExbXXiM5pFazPVTrVJ
-         +7kvzbNtDwzfeCXk0iOb9PDESVPYFDdEpN4G+JTDgL6ct8MFEdQq137SxtWsnDjpK75j
-         o8uQ0KXTFFUlhP2OmlqEU9XymeT/sB8lSq1aKHOs1yk4uik6nNYbIk8e091jFQECXx/H
-         AMCA==
-X-Forwarded-Encrypted: i=1; AFNElJ8ofW2hTSIaIE0mEAwOrAhu56ccDnzdyALHGbfE4GxrfiC+7BFNVBeAOvO1t3rS2rpr6Wp6tpsQSGPKRLDqmEO9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdOnyXX8xY+n7LIM9f9WlZ6AuqQDY0rC9+x98kRFy5oULuG8I1
-	WlueVMWgXAmhLJytlCgpP3Jhmig5qvl0isIZu/wmwsgirH+q/u0/SshYMC6coDd8/PIKLxhZijR
-	k1Sj31b0dfNDCXsbpAEhxwK3tnipC2myGIuWzjvxr4Q==
-X-Gm-Gg: AfdE7cnmN6n/YnY7iCVPdx1XJ4iewV6iUf3WOi6OQCThxEJ8nHxAv8iF2fmxj4my+Bi
-	c5VnZ+4dgHdqLN9T187u+VVYODIHtoxcotT0zVXDbUYyvIG+AHLlzJr/7Ck7qaew8kYtpO6XVUQ
-	X52M1vl7c0eaY1cINt6i5x8UQWXA+vrTbIGMGm0EMFYjDwz2QIpTJ0Fs9D3F1N8i/0JpuXVLxfV
-	BiQMA6iixAOLH+H+ugKup3nkZWEJ9/v2iNRMi0cVM5TMe0JTCgQxYUcYIC8HoldL8vuxFzWoNQ+
-	2UvaepK6de5Nvx0eEm+n4jdJjUWIiNVR/3GroeZK8acvKSEv5rdho1OjMSy/87fvxOK2AAiJIF4
-	GLZkD/t3R/51zseH7IVpn06biNvDV
-X-Received: by 2002:a05:6820:210d:b0:6a1:87cb:c34e with SMTP id
- 006d021491bc7-6a36da8c20amr5154700eaf.72.1783607279485; Thu, 09 Jul 2026
- 07:27:59 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783607288; x=1784212088;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=92JJ36rrwvvb7yLlV9W9rV0xnJPT/KBmVXI1YNHLk7c=;
+        b=RdwyjD5yxwuLqoFZBpwLLbp7OfpGg072u5M73YMtOnjVm+IUPkJWP0/f6maqAZj7xZ
+         Eno9NUOdWkkp36eBcwUJ3YNlHsKvVd2EY5AKA3YKkI6y2qFn/hyGSRZqfIjXay2TwzI+
+         s01WWKWHQuxo4zkZBeVYolS27Yd4sevR6+hOGVpVdzcRijUcOZFtZNDpj2gcAf+fvheP
+         NV6oPdBA+fgFAggQOxW+ry1Y5oJhyEEOhetl5JWi9PGNYwyjuJdCKVywo3itMGfUD/ku
+         taHpTq18uZJA5sB0Jyb9xcHeiYAvZLw9hhQogoRUgg1XlEV+ra/8WR7bseTaP38OBdMD
+         ihXQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoMvjt97SX4XrhfsItxTggZUOJ1W2wY7EJ2CAcPaReOnyNu/u8oBdPtKwwjVbR1RBf976v4b4DUgqjSK2I8yvHt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyytwWHIDNbsKmcBu5ooYGRAPcdRYXLvWeBR6Hkjxd8QBo+S+9I
+	WFb2Jplm4BuIZ1jlaLbm4aiCYHPQAH0diTNvw3FzveE7y+0awDVM08uVjEgMHnlJTwOzQ8Q+tL6
+	sNXBrm31SxsVQ65UYlybl9R/9AjX2wXm1u82VKzkHelzdSXgXcNmXwTyM2DSzQOU++f5COR2C7c
+	dxVImmdg38
+X-Gm-Gg: AfdE7cl9BZI53ZtXcjfoQXwAtHJAJty8fPl500LkoHEiTHGDQaMmQndOtKuBvt/aKQq
+	m3TFqh5AcQnZCY5hYcM879IBCpem2FailNKqqlV4qHPAY5Q6cmnSqvxUDK6BnDWKyujyD5YVsrX
+	nthAeweq9y/tZ56HM6VjOC9dQGXkQ9XW2vBO3vtGaqTSez9UB/FxwEIU6dvPyFEtsxyM+767BWq
+	SVo0KtfTmsy0a6TO3Grn3tYhQ9w22yOih6QJpCVIN+8H+W7lECFIl6KxAc9kbp+yiEkKD2atAuQ
+	87R2YWRTjCG4VzF2lKZo5BUg4Uyaq27luXU1M+89rjprhmW5Sc/dd6Lzss/B32WaxoLyUjjoJf6
+	wr8hwOGoZlKHpRhNqtn8k+8n2PS+WEbTgLzmg+mJanDmq0A==
+X-Received: by 2002:ac8:7fc8:0:b0:51c:2068:a9f8 with SMTP id d75a77b69052e-51c8b399047mr79250371cf.5.1783607288360;
+        Thu, 09 Jul 2026 07:28:08 -0700 (PDT)
+X-Received: by 2002:ac8:7fc8:0:b0:51c:2068:a9f8 with SMTP id d75a77b69052e-51c8b399047mr79249991cf.5.1783607287938;
+        Thu, 09 Jul 2026 07:28:07 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c41d2cde7sm173167731cf.18.2026.07.09.07.28.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jul 2026 07:28:07 -0700 (PDT)
+Date: Thu, 9 Jul 2026 10:28:04 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Johnson Wang <johnson.wang@mediatek.com>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] clk: mediatek: pllfh: Fix IO remapping leak in
+ register_pllfhs error path
+Message-ID: <ak-v9MPymB4rg9rP@redhat.com>
+References: <20260709-clk-mediatek-pllfh-fix-v2-1-a235078fe9d5@collabora.com>
 MIME-Version: 1.0
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260703165654.71be8707@mitra> <CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
- <20260707145411.53a10893@mitra> <ak0VguIf-PxmbUOS@pathway.suse.cz> <87qzldvqpm.fsf@jogness.linutronix.de>
-In-Reply-To: <87qzldvqpm.fsf@jogness.linutronix.de>
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Thu, 9 Jul 2026 15:27:47 +0100
-X-Gm-Features: AUfX_mz4PcZ8QKTOvulicXteeeMZuJNGsMqSn_rhQXpmhC8-QWtUxRPj3PV0YiM
-Message-ID: <CALqELGx+7RSKL0+kdOxu0TpXaOifYkzxmOTv+4gTSHqrbLEJ5Q@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
- emiting code
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Petr Mladek <pmladek@suse.com>, Benedikt Spranger <b.spranger@linutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20260709-clk-mediatek-pllfh-fix-v2-1-a235078fe9d5@collabora.com>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: fCSnS2Qn70zt8srSuc4ENTaq5NVojczCWh3OyKLNpas_1783607288
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_072800_915392_5EEDD3ED 
-X-CRM114-Status: GOOD (  38.23  )
+X-CRM114-CacheID: sfid-20260709_072813_820411_974C3E0C 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,140 +118,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+On Thu, Jul 09, 2026 at 02:23:00PM +0200, Louis-Alexis Eyraud wrote:
+> When mtk_clk_register_pllfhs function fails to register a PLL, it
+> unregisters all PLLs and cleans up itself in its error path before
+> returning, so the function callers don't need to do it.
+> 
+> But contrary to mtk_clk_unregister_pllfhs function, that does almost
+> the same sequence, it does not free the IO memory mapped on fhctl node,
+> leading to a leak.
+> 
+> Fix this leak by factorizing the cleanup sequence in a new private
+> function and use it both mtk_clk_register_pllfhs and
+> mtk_clk_unregister_pllfhs functions.
+> 
+> Also, change the loop index start value to avoid the -1 operation on
+> index at each loop.
+> 
+> Fixes: d7964de8a8ea ("clk: mediatek: Add new clock driver to handle FHCTL hardware")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-On Wed, 8 Jul 2026 at 09:19, John Ogness <john.ogness@linutronix.de> wrote:
->
-> On 2026-07-07, Petr Mladek <pmladek@suse.com> wrote:
-> > To summarize this discussion:
-> >
-> >   + Benedikt would prefer to add the synchronous mode before
-> >     moving the delay from the printk() caller to the console emit
-> >     code path.
-> >
-> >   + The delay in the printk() caller code path did not guarantee
-> >     the output but it increased the chance to see it.
-> >
-> >   + The synchronous mode will be even more reliable than the delay
-> >     in printk() caller path.
-> >
-> > Please, let me know if I did not get it right,
-> >
-> > John, did you have any plan how to add the synchronous mode, please?
-> > Does it look complicated?
-> >
-> > I guess that we would somehow need to "mis-use" the emergency
-> > priority and force it everywhere by some global system setting.
->
-> The synchronous mode would rely on the driver being nbcon. I envision
-> something like this:
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
-Is it possible to apply synchronous mode for both nbcon and legacy
-consoles? For the debugging case Benedikt suggested (is this the main
-use case for this feature?), it would be helpful if a developer could
-indicate a preference for synchronous mode without first determining
-the console type. Though I'm not sure what means you propose to
-indicate such a preference.
-
-
->
-> ---- BEGIN SYNC IDEA ----
-> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> index 2fe9a963c823a..beb5bb3c037b5 100644
-> --- a/kernel/printk/printk.c
-> +++ b/kernel/printk/printk.c
-> @@ -2456,6 +2456,8 @@ asmlinkage int vprintk_emit(int facility, int level,
->
->         if (ft.nbcon_atomic)
->                 nbcon_atomic_flush_pending();
-> +       else if (have_nbcon_console_sync)
-> +               nbcon_atomic_flush_sync_pending();
->
->         if (ft.nbcon_offload)
->                 nbcon_kthreads_wake();
-
-My interest in misusing (not proposing that as a solution) the
-emergency mode, is that the flush mode is nicely abstracted by
-printk_get_console_flush_type. Depending on how you trigger the sync
-mode, could printk_get_console_flush_type be expanded to look at a
-flag and return ft.legacy_direct, ft.legacy_offload or
-ft.nbcon_atomic_sync ? I.e. if a sync flag isn't set then
-printk_get_console_flush_type returns based on NBCON_PRIO_type but if
-it is, then it shortcuts to ft.legacy_direct, ft.legacy_offload or
-ft.nbcon_atomic_sync?
-
-I'm not familiar with this area of printk, so please forgive any
-obvious issues with this. But as someone that happily uses printk to
-debug the kernel, it would be nice to have an easy way to do this
-without the friction of figuring out what console I have.
-
-
-> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-> index 4b03b019cd5ee..8f8f29f757614 100644
-> --- a/kernel/printk/nbcon.c
-> +++ b/kernel/printk/nbcon.c
-> @@ -1200,7 +1200,7 @@ static bool nbcon_kthread_should_wakeup(struct console *con, struct nbcon_contex
->         cookie = console_srcu_read_lock();
->
->         flags = console_srcu_read_flags(con);
-> -       if (console_is_usable(con, flags, false)) {
-> +       if (!(flags & CON_SYNC) &&  console_is_usable(con, flags, false)) {
->                 /* Bring the sequence in @ctxt up to date */
->                 ctxt->seq = nbcon_seq_read(con);
->
-> @@ -1654,7 +1654,7 @@ static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
->   *                                     write_atomic() callback
->   * @stop_seq:                  Flush up until this record
->   */
-> -static void __nbcon_atomic_flush_pending(u64 stop_seq)
-> +static void __nbcon_atomic_flush_pending(u64 stop_seq, bool sync_only)
->  {
->         struct console *con;
->         int cookie;
-> @@ -1666,6 +1666,9 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
->                 if (!(flags & CON_NBCON))
->                         continue;
->
-> +               if (sync_only && !(flags & CON_SYNC))
-> +                       continue;
-> +
->                 if (!console_is_usable(con, flags, true))
->                         continue;
->
-> @@ -1688,7 +1691,12 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
->   */
->  void nbcon_atomic_flush_pending(void)
->  {
-> -       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
-> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), false);
-> +}
-> +
-> +void nbcon_atomic_flush_sync_pending(void)
-> +{
-> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), true);
->  }
->
->  /**
-> @@ -1701,7 +1709,7 @@ void nbcon_atomic_flush_pending(void)
->  void nbcon_atomic_flush_unsafe(void)
->  {
->         panic_nbcon_allow_unsafe_takeover = true;
-> -       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
-> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), false);
->         panic_nbcon_allow_unsafe_takeover = false;
->  }
->
-> ---- END SYNC IDEA ----
->
-> BTW: The sync mode is the final piece so that PeterZ can start using
-> mainline code for debugging by serial instead of his own workaround [0].
->
-> John
-
-Thanks,
-
-Andrew Murray
-
->
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/log/?h=debug/experimental
 
