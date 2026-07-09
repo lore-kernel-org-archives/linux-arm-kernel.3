@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEEAFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC468C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3URZe3afUdt+QSwiBoogxYoiKVX6IF3no/luZq+pBn4=; b=09gOEuWExl7xDO2+XOUT2c8j5M
-	9Q3xOIJOztWu3sRooEWcK/4oTUnrIfersU/WIowLBg1EAnUUaWyj46f5bQKRTi56Ogi6LX8FI84NM
-	RZ56Q1muzfZyUwM8l+d798rYGzNRowtxoK0sPO4rzd49+bpSAynNbnjV13MLoUpTwMzhB3A2ZUFNp
-	GKVmFyUgbop/FRAjoepqTU0vUkjEbjn99ki7h4gFOGpIb0DV5utvezYQjNjUP+w/WUBBQYSmdrTsr
-	+jOFwmocaBujpBHmEK5hFvwlma1z0KBSyn3jw3gplKxvoyXQnPEn+ZcxxNKzaMltSCweBa/D6e6TQ
-	+3MJ65Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jKSBYecH+EyGOAeyvpg14uE+/2aOtGsY3OZpO4ezjEQ=; b=gdrRwBtrwCMxVxLp4HO6fdjSe5
+	kvfmDIzPwh5tubmSTBCtd8NHrl1iLM4sDZY/ZOybowaWFf9fHFhfWXl/NTXhhiLZsK0Ih0gj99lXQ
+	2ddjSw2a2JCiB1sI1f982pkdcuNVp1CZnZNxNa5ta75eadbUpBJh48k/6kUMJ/DDKe/ZncBd6Y4s1
+	uIVCKulZR9I4xS8Lx0zG76YdrFDAvvfwndIkEhvYUIm0j/hLT0ykQxvacsJKlumSoPUcJyQGs+kQh
+	nvIC6kiV0Mvm2iM6kyf2gBTvx51k+jPTMHi4DzsMJk9pFqgIhBAv/JPmnEjUEf/9mEuK4EJqrVNIw
+	6+sY0vQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whp2B-00000002bIj-2q6i;
-	Thu, 09 Jul 2026 13:43:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whp20-00000002ay9-1OlY;
-	Thu, 09 Jul 2026 13:43:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783604590;
-	bh=5G0c40uJbd/eR7jfuidEYqyEqimv15mwHokxJEwhMks=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J2vxiUbGFNTFeixFTWlg3SNsnUzUQ5wg1lWz+Zr+S21uVfbFcKB8CGtxYtVVozb7v
-	 bXhG6LfuaiKgEqjWaiJmwsflR0P7M7bDkYAei/199hzUmX11DFnD6e90eZxmKtE6z5
-	 Lrpw7M7eicCWcwmlWjR5FSopE9vX/K7M/c0ANlk4UCpk8T7973DewvWYpzBtVVb+9k
-	 atm2gWOwo2/8RatCtHQDEvuQg9YdGBkwfkqZyB+qA6y/5tU6G9iI2C7kiD5nPqlmTn
-	 MHL/1gJ52QdBewwQ/rEco4sKK1TcgvSH0Vyf6NYMHEyqeushqnsM3bwnpAZP5kJUNo
-	 QN55seCLK4nYQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7566217E0D53;
-	Thu, 09 Jul 2026 15:43:09 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 09 Jul 2026 15:42:52 +0200
-Subject: [PATCH v2 12/18] clk: mediatek: Add MT8189 vlpcfg clock support
+	id 1whpv6-00000002nkA-2s8Q;
+	Thu, 09 Jul 2026 14:40:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whpv4-00000002njX-1MgI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 14:40:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E39C5152B;
+	Thu,  9 Jul 2026 07:39:58 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E73A83F66F;
+	Thu,  9 Jul 2026 07:40:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783608003; bh=52TghAuaTr4O+tB+lgjiiJERJST0JojMUFPR+rQdHNE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JAg+IqJMSp0tqZbFfrthAWNrr5+D7zhml+CAzJPxWNRk8gzS1KegMJg5VAf+sJyAA
+	 +AEU+J75b3zzIgSBHVbA5eG8YPO+hxCN8Zgl7MKZfuEvEa/zQZ6pC7dJg0KHdN6CiJ
+	 zS/tNSOPG/01k1oJozBmhMdI9xWX2y5K1ufU31is=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	mark.rutland@arm.com,
+	catalin.marinas@arm.com
+Cc: ilkka@os.amperecomputing.com,
+	bwicaksono@nvidia.com,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH 0/4] perf/arm_cspmu: Miscellaneous improvements
+Date: Thu,  9 Jul 2026 15:39:52 +0100
+Message-ID: <cover.1783605641.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-mt8189-clocks-system-base-v2-12-2926da3db6cf@collabora.com>
-References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
-In-Reply-To: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Edward-JW Yang <edward-jw.yang@mediatek.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783604575; l=6536;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=5G0c40uJbd/eR7jfuidEYqyEqimv15mwHokxJEwhMks=;
- b=JebNl9lBJNCzQV40ZorGFy1U/zg6jMs4/gl1X+8TX45WSGP5w3dQanfXJvicobXlcmcgyMGYu
- InKlXLpiKEfBZ/pXfFhIrlFdZJMMandCaiBxJQpsofG81Cs6l9QYfL3
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_064312_608738_1D5625D7 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260709_074006_489862_BF32B034 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,156 +72,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 vlpcfg clock controller,
-which provides clock gate control for vlp domain IPs.
+Hi all,
 
-Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/clk/mediatek/Makefile            |   2 +-
- drivers/clk/mediatek/clk-mt8189-vlpcfg.c | 116 +++++++++++++++++++++++++++++++
- 2 files changed, 117 insertions(+), 1 deletion(-)
+These are a few quality-of-life improvements for CoreSight PMU that
+I've accumulated based on things which have come up in practical usage.
+There's no real dependency between any of the individual patches, it
+just felt right to send them as a series.
 
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 3b25df9e7b50..d9279b237b7b 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -124,7 +124,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
- obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
--				   clk-mt8189-vlpckgen.o
-+				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
- obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
- obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
- obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-vlpcfg.c b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-new file mode 100644
-index 000000000000..cc4ebfd46a6f
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-@@ -0,0 +1,116 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025-2026 MediaTek Inc.
-+ *                    Qiqi Wang <qiqi.wang@mediatek.com>
-+ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-mtk.h"
-+#include "clk-gate.h"
-+
-+#include <dt-bindings/clock/mediatek,mt8189-clk.h>
-+
-+static const struct mtk_gate_regs vlpcfg_ao_reg_cg_regs = {
-+	.set_ofs = 0x0,
-+	.clr_ofs = 0x0,
-+	.sta_ofs = 0x0,
-+};
-+
-+#define GATE_VLPCFG_AO_REG(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &vlpcfg_ao_reg_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr)
-+
-+static const struct mtk_gate vlpcfg_ao_reg_clks[] = {
-+	GATE_VLPCFG_AO_REG(CLK_VLPCFG_AO_APEINT_RX, "vlpcfg_ao_apeint_rx", "clk26m", 8),
-+};
-+
-+static const struct mtk_clk_desc vlpcfg_ao_reg_mcd = {
-+	.clks = vlpcfg_ao_reg_clks,
-+	.num_clks = ARRAY_SIZE(vlpcfg_ao_reg_clks),
-+};
-+
-+static const struct mtk_gate_regs vlpcfg_reg_cg_regs = {
-+	.set_ofs = 0x4,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, _flags)		\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &vlpcfg_reg_cg_regs, _shift,	\
-+		       &mtk_clk_gate_ops_no_setclr_inv, _flags)
-+
-+#define GATE_VLPCFG_REG(_id, _name, _parent, _shift)		\
-+	GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, 0)
-+
-+static const struct mtk_gate vlpcfg_reg_clks[] = {
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SCP, "vlpcfg_scp",
-+			      "vlp_scp_sel", 28, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_R_APXGPT_26M, "vlpcfg_r_apxgpt_26m",
-+			      "clk26m", 24, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRCK_TEST, "vlpcfg_dpmsrck_test",
-+			      "clk26m", 23, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_DPMSRRTC_TEST, "vlpcfg_dpmsrrtc_test",
-+			      "clk32k", 22, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRULP_TEST, "vlpcfg_dpmsrulp_test",
-+			      "osc_d10", 21, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST, "vlpcfg_spmi_p",
-+			      "vlp_spmi_p_sel", 20, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST_32K, "vlpcfg_spmi_p_32k",
-+			      "clk32k", 18, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_SYS, "vlpcfg_pmif_spmi_p_sys",
-+			      "vlp_pwrap_ulposc_sel", 13, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_TMR, "vlpcfg_pmif_spmi_p_tmr",
-+			      "vlp_pwrap_ulposc_sel", 12, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_SYS, "vlpcfg_pmif_spmi_m_sys",
-+			"vlp_pwrap_ulposc_sel", 11),
-+	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_TMR, "vlpcfg_pmif_spmi_m_tmr",
-+			"vlp_pwrap_ulposc_sel", 10),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DVFSRC, "vlpcfg_dvfsrc",
-+			      "vlp_dvfsrc_sel", 9, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PWM_VLP, "vlpcfg_pwm_vlp",
-+			      "vlp_pwm_vlp_sel", 8, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SRCK, "vlpcfg_srck",
-+			      "vlp_srck_sel", 7, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F26M, "vlpcfg_sspm_f26m",
-+			      "vlp_sspm_f26m_sel", 4, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F32K, "vlpcfg_sspm_f32k",
-+			      "clk32k", 3, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_ULPOSC, "vlpcfg_sspm_ulposc",
-+			      "vlp_sspm_ulposc_sel", 2, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_32K_COM, "vlpcfg_vlp_32k_com",
-+			      "clk32k", 1, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_26M_COM, "vlpcfg_vlp_26m_com",
-+			      "clk26m", 0, CLK_IS_CRITICAL),
-+};
-+
-+static const struct mtk_clk_desc vlpcfg_reg_mcd = {
-+	.clks = vlpcfg_reg_clks,
-+	.num_clks = ARRAY_SIZE(vlpcfg_reg_clks),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8189_vlpcfg[] = {
-+	{ .compatible = "mediatek,mt8189-vlpcfg", .data = &vlpcfg_reg_mcd },
-+	{ .compatible = "mediatek,mt8189-vlpcfg-ao", .data = &vlpcfg_ao_reg_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_vlpcfg);
-+
-+static struct platform_driver clk_mt8189_vlpcfg_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8189-vlpcfg",
-+		.of_match_table = of_match_clk_mt8189_vlpcfg,
-+	},
-+};
-+module_platform_driver(clk_mt8189_vlpcfg_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8189 vlpcfg clocks driver");
-+MODULE_LICENSE("GPL");
+Thanks,
+Robin.
+
+
+Robin Murphy (4):
+  ACPI/APMT: Use stable device ID
+  perf/arm_cspmu: Improve APMT-based PMU naming
+  perf/arm_cspmu: Improve sub-module error reporting
+  perf/arm_cspmu: Make IRQ more optional
+
+ drivers/acpi/arm64/apmt.c          |  2 +-
+ drivers/perf/arm_cspmu/arm_cspmu.c | 49 ++++++++++++++++++------------
+ 2 files changed, 31 insertions(+), 20 deletions(-)
 
 -- 
-2.55.0
+2.54.0.dirty
 
 
