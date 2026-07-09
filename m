@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F731C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622B2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MprQAKh2M/FtwGqOd4VDQqoZaU2yZXCQ18QWe8n/Kng=; b=Kos4tbXqPzY0RBMGu+HtbDbtJk
-	E5HvFhAeysHolOFTRejSjQ4OcSqfEEL2PurUwZPOXlZfCLd6697ydMH32HPKglNOTvnGxc7azFCCI
-	+R+6dGZUCkBdBN/7aZtM40r0EWvNRHgTfBHji9byiL5F8zkqiTHQbunjiYIdEPU3VsxLIgOtYahHx
-	7nnjgi7c3I7mS3xENJNrJsgCwDcwSfFJOkHSz1JqbLjn2TVU0b8Cdk+zM/M65oj4U1CrAXIG4WJmD
-	bbHP7ptSW66t6u0/f4bBHvyVUMmH7twcQeHyPaB8Fit0b7km9SPGdEQRk8f/pc4AcsZuPDnG8cn7h
-	OyQjsM4Q==;
+	bh=zotv+9/W82XImfl2782CKB6p3MKezqhOYvSCDectTr0=; b=jv0ZJMQUiG6SA24LgIb/4KS4wR
+	OEdtvgorGE72lCoThvUruDnJs4iRWUhjPhTMQlQG2UFEEfaZI2HYH7EWD2XB67fwsHPr8gpXUhYcp
+	yXRn4rOPxbQrQR7aXegkNn6ykKkxvKzKx0ElGOAHHsB7EhP60vY97hrlLGllvBsoxWe6lJfXIcNb5
+	MInBCBGzqK9oXOD1LPzpaGqK/geChpImxBilJAMzc5uhYgvp5bJGy1RAt17wwfPwXVx38KZOTfRAS
+	w+qif9AAJgR/isAZYsrmJyBspkDWAHwXgILipYQefHv1wSLlY97nIUtVkkX6UASxIXusKXq11yCLF
+	tuFoq6Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmUB-0000000249S-1YtT;
-	Thu, 09 Jul 2026 11:00:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whmNo-000000021p6-1EOK;
+	Thu, 09 Jul 2026 10:53:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmU9-0000000249D-4Air
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 11:00:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03178412B0;
-	Thu,  9 Jul 2026 11:00:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A5971F000E9;
-	Thu,  9 Jul 2026 10:59:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783594803;
-	bh=MprQAKh2M/FtwGqOd4VDQqoZaU2yZXCQ18QWe8n/Kng=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=MU5ohz9bmKHFCulLWiU8ZqPv5hZFxfJzR0OkiWeQ2G8uJYXIXQXInlOo0qCBwHHJP
-	 09mOvg9wZj8HP6g3wXbL4tx9uDhqXRCZCPk0xhibWa73B8uTh5B/WlQHss96tEgDj/
-	 X2ehGRo5lUQALbIc93vI1o413xDOkiHfnJG8Jm50du3Kk1sF3fnaezkDWZxNKrBYJ9
-	 K/4Ai66OKaHVMT+TgysvQj6bfdarHmBiUqgYPkDj8vVuDsGC/5MghGzRyhZxvvh9xg
-	 vN20w6xPqIbUSomclxBcPp2GJem99Zr+unNKUmNAw2M5x/WbY2o2K1LS/noslRr2RQ
-	 k2hosyPEkt3VQ==
-From: Lee Jones <lee@kernel.org>
-To: Lee Jones <lee@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Colin Foster <colin.foster@in-advantage.com>, 
- linux-kernel@vger.kernel.org, 
- James Ogletree <jogletre@opensource.cirrus.com>, 
- Fred Treven <fred.treven@cirrus.com>, Ben Bright <ben.bright@cirrus.com>, 
- Support Opensource <support.opensource@diasemi.com>, 
- Xu Yilun <yilun.xu@intel.com>, Tom Rix <trix@redhat.com>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- patches@opensource.cirrus.com, linux-sound@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>
-In-Reply-To: <cover.1783003256.git.u.kleine-koenig@baylibre.com>
-References: <cover.1783003256.git.u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v1 0/3] mfd: Initialize spi_device_id arrays using
- member names
-Message-Id: <178359479977.2113490.16055346814964770733.b4-ty@b4>
-Date: Thu, 09 Jul 2026 11:59:59 +0100
+	id 1whmNm-000000021k9-1xxw;
+	Thu, 09 Jul 2026 10:53:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7EE543E9D;
+	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CC670C2BCB7;
+	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783594409;
+	bh=K5/B3hvXP6NtIg38xM6A1WbsbVNfI0jBtabQyHTrsfg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=fip3K0iwMFY0IYoGdKJ7rTG4P3lhUFFPdariJIqS57Z3FT8IehavqWhCEQ8t0ZdY9
+	 J7ycj10qytUWzOMYjQQw+ixFhkwMaro620+Z8wBBzuKskiNQRfUtmpE31Wak61EYvu
+	 kYDBnH3+ga/kgCYJHpeNh8ciwhmBwOVMR2xDupgwy+FwHKSIfXXvdSZixgAc0ijRzZ
+	 0voSe881j3xAETq516JWLroD5yCKvgyByCJ3YwEx+4ZXPTW7kDSY/WjGgPFip44vPx
+	 624kiY2lYKUmI3yJ1holNipyeR27P+iHIxcJMgW/GuOJGJx2PIFRjw537yTp53hDki
+	 P7I9OuuMC6Q1w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BB0E8C44501;
+	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
+From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
+Date: Thu, 09 Jul 2026 18:53:28 +0800
+Subject: [PATCH v4 6/7] net: wwan: t9xx: Add AT & MBIM WWAN ports
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-t9xx_driver_v1-v4-6-a8c009d509c5@compal.com>
+References: <20260709-t9xx_driver_v1-v4-0-a8c009d509c5@compal.com>
+In-Reply-To: <20260709-t9xx_driver_v1-v4-0-a8c009d509c5@compal.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
+ Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
+ Minano Tseng <Minano.tseng@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783594407; l=14496;
+ i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
+ bh=2za6rg3WylwTk7RPzXldImaxwFpK4uRGfrIEh8PzKSI=;
+ b=3zYZLguAlX/x6AyuAGqAax/eIxWw8piei+0HV1auMJOk2gH4PcwArnxLuD9nRwCI4N/kqfg1p
+ VrwKyx+PpTeD+CRCRuLyD/XqOrYnBlpb7UrzOpdEyAL7gRpx8H7YNO0
+X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
+ pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
+X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
+ auth_id=793
+X-Original-From: Jack Wu <jackbb_wu@compal.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +91,529 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 02 Jul 2026 16:53:38 +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> this series targets to use named initializers for spi_device_id arrays.
-> In general these are better readable for humans and more robust to
-> changes in the respective struct definition.
-> 
-> This robustness is needed as I want to do
-> 
-> 	diff --git a/include/linux/device-id/spi.h b/include/linux/device-id/spi.h
-> 	index 812e7c3854a7..93d9cd45569a 100644
-> 	--- a/include/linux/device-id/spi.h
-> 	+++ b/include/linux/device-id/spi.h
-> 	@@ -13,7 +13,11 @@ typedef unsigned long kernel_ulong_t;
-> 
-> [...]
+From: Jack Wu <jackbb_wu@compal.com>
 
-Applied, thanks!
+Add AT & MBIM ports to the port infrastructure.
+The WWAN initialization method is responsible for creating the
+corresponding ports using the WWAN framework infrastructure. The
+implemented WWAN port operations are start, stop, tx, tx_blocking
+and tx_poll.
 
-[1/3] mfd: Drop unused assignment of spi_device_id driver data
-      commit: 8339fb0eca348d41f04bb9631707192569f753e6
-[2/3] mfd: Initialize spi_device_id arrays using member names
-      commit: bdaceafafa54b3fd4f9dba9e0044a910f16e4a2c
-[3/3] mfd: Unify style of spi_device_id arrays
-      commit: 6384e5c5e0bcfbc9a915d70cb3925e0022d7b337
+Signed-off-by: Jack Wu <jackbb_wu@compal.com>
+---
+ drivers/net/wwan/t9xx/mtk_port.c               |  26 ++
+ drivers/net/wwan/t9xx/mtk_port.h               |  13 +
+ drivers/net/wwan/t9xx/mtk_port_io.c            | 336 ++++++++++++++++++++++++-
+ drivers/net/wwan/t9xx/mtk_port_io.h            |   5 +
+ drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c |   8 +
+ 5 files changed, 387 insertions(+), 1 deletion(-)
 
---
-Lee Jones [李琼斯]
+diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
+index 5d2819d52883..0f37137f127a 100644
+--- a/drivers/net/wwan/t9xx/mtk_port.c
++++ b/drivers/net/wwan/t9xx/mtk_port.c
+@@ -819,6 +819,29 @@ int mtk_port_ch_disable(struct mtk_port *port)
+ 	return ret;
+ }
+ 
++static int mtk_port_enable_by_type(struct mtk_port_mngr *port_mngr, int tbl_type)
++{
++	struct mtk_port **ports;
++	int ret, idx;
++
++	if (tbl_type < 0 || tbl_type >= PORT_TBL_MAX)
++		return -EINVAL;
++
++	ports = kcalloc(port_mngr->port_cnt, sizeof(struct mtk_port *), GFP_KERNEL);
++	if (!ports)
++		return -ENOMEM;
++
++	ret = radix_tree_gang_lookup(&port_mngr->port_tbl[tbl_type],
++				     (void **)ports, 0, port_mngr->port_cnt);
++	for (idx = 0; idx < ret; idx++) {
++		if (ports[idx]->enable)
++			ports_ops[ports[idx]->info.type]->enable(ports[idx]);
++	}
++
++	kfree(ports);
++	return 0;
++}
++
+ static void mtk_port_disable(struct mtk_port_mngr *port_mngr)
+ {
+ 	struct mtk_port **ports;
+@@ -852,6 +875,9 @@ void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
+ 	case FSM_STATE_OFF:
+ 		mtk_port_disable(port_mngr);
+ 		break;
++	case FSM_STATE_READY:
++		mtk_port_enable_by_type(port_mngr, PORT_TBL_MD);
++		break;
+ 	default:
+ 		break;
+ 	}
+diff --git a/drivers/net/wwan/t9xx/mtk_port.h b/drivers/net/wwan/t9xx/mtk_port.h
+index a201c0007878..4846354981d7 100644
+--- a/drivers/net/wwan/t9xx/mtk_port.h
++++ b/drivers/net/wwan/t9xx/mtk_port.h
+@@ -56,6 +56,10 @@ enum mtk_ccci_ch {
+ 	/* to MD */
+ 	CCCI_CONTROL_RX				= 0x2000,
+ 	CCCI_CONTROL_TX				= 0x2001,
++	CCCI_UART2_RX				= 0x200A,
++	CCCI_UART2_TX				= 0x200C,
++	CCCI_MBIM_RX				= 0x20D0,
++	CCCI_MBIM_TX				= 0x20D1,
+ };
+ 
+ enum mtk_port_flag {
+@@ -73,6 +77,7 @@ enum mtk_port_tbl {
+ 
+ enum mtk_port_type {
+ 	PORT_TYPE_INTERNAL,
++	PORT_TYPE_WWAN,
+ 	PORT_TYPE_MAX
+ };
+ 
+@@ -81,6 +86,13 @@ struct mtk_internal_port {
+ 	int (*recv_cb)(void *arg, struct sk_buff *skb);
+ };
+ 
++struct mtk_wwan_port {
++	/* w_lock protects wwan_port when recv data and disable port at the same time */
++	struct mutex w_lock;
++	int w_type;
++	void *w_port;
++};
++
+ struct mtk_port_cfg {
+ 	enum mtk_ccci_ch tx_ch;
+ 	enum mtk_ccci_ch rx_ch;
+@@ -110,6 +122,7 @@ struct mtk_port {
+ 	char dev_str[MTK_DEV_STR_LEN];
+ 	struct mtk_port_mngr *port_mngr;
+ 	struct mtk_internal_port i_priv;
++	struct mtk_wwan_port w_priv;
+ };
+ 
+ struct mtk_port_mngr {
+diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
+index e3a2de6d2f29..882254b74026 100644
+--- a/drivers/net/wwan/t9xx/mtk_port_io.c
++++ b/drivers/net/wwan/t9xx/mtk_port_io.c
+@@ -3,6 +3,10 @@
+  * Copyright (c) 2022, MediaTek Inc.
+  */
+ #include <linux/netdevice.h>
++#include <linux/poll.h>
++#include <linux/slab.h>
++#include <linux/wait.h>
++#include <linux/wwan.h>
+ 
+ #include "mtk_port_io.h"
+ 
+@@ -41,6 +45,145 @@ static void mtk_port_struct_init(struct mtk_port *port)
+ 	init_waitqueue_head(&port->rx_wq);
+ }
+ 
++static int mtk_port_copy_data_from(void *to, union user_buf from, unsigned int len,
++				   unsigned int offset, bool from_user_space)
++{
++	if (from_user_space) {
++		if (copy_from_user(to, from.ubuf + offset, len))
++			return -EINVAL;
++	} else {
++		memcpy(to, from.kbuf + offset, len);
++	}
++
++	return 0;
++}
++
++static int mtk_port_common_write_frag_skb(struct mtk_port *port, struct sk_buff *skb,
++					  union user_buf buf, u32 packet_size,
++					  u32 cur_pos, bool from_user_space)
++{
++	struct sk_buff *frag_skb, *tmp = NULL;
++	u32 frag_size;
++	int ret;
++
++	frag_size = min(packet_size, port->tx_frag_size);
++	ret = mtk_port_copy_data_from(skb_put(skb, frag_size),
++				      buf, frag_size,
++				      cur_pos, from_user_space);
++	if (ret) {
++		dev_err(port->port_mngr->ctrl_blk->mdev->dev,
++			"Failed to copy skb for port(%s)\n", port->info.name);
++		goto err_reset_skb;
++	}
++	cur_pos += frag_size;
++	packet_size -= frag_size;
++	if (!packet_size)
++		return cur_pos;
++
++	while (packet_size > 0) {
++		frag_skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
++		if (!frag_skb) {
++			ret = -ENOMEM;
++			goto err_free_frag_list;
++		}
++
++		frag_size = min(packet_size, port->tx_frag_size);
++		ret = mtk_port_copy_data_from(skb_put(frag_skb, frag_size),
++					      buf, frag_size,
++					      cur_pos, from_user_space);
++		if (ret) {
++			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
++				"Failed to copy frag_skb for port(%s)\n", port->info.name);
++			dev_kfree_skb_any(frag_skb);
++			goto err_free_frag_list;
++		}
++		skb->data_len += frag_size;
++		skb->len += frag_size;
++		cur_pos += frag_size;
++		packet_size -= frag_size;
++		if (!tmp)
++			skb_shinfo(skb)->frag_list = frag_skb;
++		else
++			tmp->next = frag_skb;
++		tmp = frag_skb;
++	}
++	return cur_pos;
++
++err_free_frag_list:
++	frag_skb = skb_shinfo(skb)->frag_list;
++	while (frag_skb) {
++		tmp = frag_skb->next;
++		frag_skb->next = NULL;
++		dev_kfree_skb_any(frag_skb);
++		frag_skb = tmp;
++	}
++	skb_shinfo(skb)->frag_list = NULL;
++err_reset_skb:
++	skb->data_len = 0;
++	return ret;
++}
++
++static int mtk_port_common_write(struct mtk_port *port, union user_buf buf, unsigned int len,
++				 bool from_user_space)
++{
++	u32 packet_size, left_cnt = len, cur_pos;
++	struct sk_buff *skb;
++	int ret;
++
++	if (len == 0)
++		return -EINVAL;
++
++start_write:
++	ret = mtk_port_status_check(port);
++	if (ret)
++		goto end_write;
++
++	skb = __dev_alloc_skb(port->tx_mtu, GFP_KERNEL);
++	if (!skb) {
++		ret = -ENOMEM;
++		goto end_write;
++	}
++
++	skb_reserve(skb, sizeof(struct mtk_ccci_header));
++
++	packet_size = min_t(u32, left_cnt, port->tx_mtu - sizeof(struct mtk_ccci_header));
++	cur_pos = len - left_cnt;
++	/* Support scatter gather transmission */
++	if (port->tx_mtu > port->tx_frag_size) {
++		ret = mtk_port_common_write_frag_skb(port, skb, buf, packet_size,
++						     cur_pos, from_user_space);
++		if (ret < 0)
++			goto err_free_skb;
++	} else {
++		ret = mtk_port_copy_data_from(skb_put(skb, packet_size),
++					      buf, packet_size,
++					      cur_pos, from_user_space);
++		if (ret) {
++			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
++				"Failed to copy data for port(%s)\n", port->info.name);
++			goto err_free_skb;
++		}
++	}
++
++	ret = mtk_port_send_data(port, skb);
++	if (ret < 0) {
++		if (ret == -EINTR)
++			left_cnt -= packet_size;
++		goto end_write;
++	}
++
++	left_cnt -= ret;
++	if (left_cnt)
++		goto start_write;
++	else
++		goto end_write;
++
++err_free_skb:
++	dev_kfree_skb_any(skb);
++end_write:
++	return (len > left_cnt) ? (len - left_cnt) : ret;
++}
++
+ static int mtk_port_internal_init(struct mtk_port *port)
+ {
+ 	mtk_port_struct_init(port);
+@@ -101,7 +244,6 @@ static int mtk_port_internal_recv(struct mtk_port *port, struct sk_buff *skb)
+ 	return ret;
+ 
+ drop_data:
+-	dev_kfree_skb_any(skb);
+ 	return ret;
+ }
+ 
+@@ -234,6 +376,198 @@ static const struct port_ops port_internal_ops = {
+ 	.recv = mtk_port_internal_recv,
+ };
+ 
++static int mtk_port_wwan_open(struct wwan_port *w_port)
++{
++	struct mtk_port *port;
++	int ret;
++
++	port = wwan_port_get_drvdata(w_port);
++	ret = mtk_port_get_locked(port);
++	if (ret)
++		return ret;
++
++	ret = mtk_port_common_open(port);
++	if (ret)
++		mtk_port_put_locked(port);
++
++	return ret;
++}
++
++static void mtk_port_wwan_close(struct wwan_port *w_port)
++{
++	struct mtk_port *port = wwan_port_get_drvdata(w_port);
++
++	mtk_port_common_close(port);
++	mtk_port_put_locked(port);
++}
++
++static int mtk_port_wwan_write(struct wwan_port *w_port, struct sk_buff *skb)
++{
++	struct mtk_port *port = wwan_port_get_drvdata(w_port);
++	union user_buf user_buf;
++	int ret;
++
++	if (unlikely(!skb->len)) {
++		consume_skb(skb);
++		return 0;
++	}
++
++	port->info.flags &= ~PORT_F_BLOCKING;
++	user_buf.kbuf = (void *)skb->data;
++	ret = mtk_port_common_write(port, user_buf, skb->len, false);
++	if (ret < 0)
++		return ret;
++
++	consume_skb(skb);
++	return 0;
++}
++
++static int mtk_port_wwan_write_blocking(struct wwan_port *w_port, struct sk_buff *skb)
++{
++	struct mtk_port *port = wwan_port_get_drvdata(w_port);
++	union user_buf user_buf;
++	int ret;
++
++	if (unlikely(!skb->len)) {
++		consume_skb(skb);
++		return 0;
++	}
++
++	port->info.flags |= PORT_F_BLOCKING;
++	user_buf.kbuf = (void *)skb->data;
++	ret = mtk_port_common_write(port, user_buf, skb->len, false);
++	if (ret < 0)
++		return ret;
++
++	consume_skb(skb);
++	return 0;
++}
++
++static __poll_t mtk_port_wwan_poll(struct wwan_port *w_port, struct file *file,
++				   struct poll_table_struct *poll)
++{
++	struct mtk_port *port = wwan_port_get_drvdata(w_port);
++	union ctrl_hif_cmd_data hif_cmd;
++	struct mtk_ctrl_blk *ctrl_blk;
++	__poll_t mask = 0;
++
++	poll_wait(file, &port->trb_wq, poll);
++	if (mtk_port_status_check(port))
++		return EPOLLERR | EPOLLHUP;
++
++	ctrl_blk = port->port_mngr->ctrl_blk;
++	hif_cmd.rx_ch = port->info.rx_ch;
++	if (!ctrl_blk->ops->send_cmd(ctrl_blk->mdev, HIF_CTRL_CMD_CHECK_TX_FULL, &hif_cmd))
++		mask |= EPOLLOUT | EPOLLWRNORM;
++
++	return mask;
++}
++
++static const struct wwan_port_ops wwan_ops = {
++	.start = mtk_port_wwan_open,
++	.stop = mtk_port_wwan_close,
++	.tx = mtk_port_wwan_write,
++	.tx_blocking = mtk_port_wwan_write_blocking,
++	.tx_poll = mtk_port_wwan_poll,
++};
++
++static int mtk_port_wwan_init(struct mtk_port *port)
++{
++	mtk_port_struct_init(port);
++	port->enable = false;
++
++	mutex_init(&port->w_priv.w_lock);
++
++	switch (port->info.rx_ch) {
++	case CCCI_MBIM_RX:
++		port->w_priv.w_type = WWAN_PORT_MBIM;
++		break;
++	case CCCI_UART2_RX:
++		port->w_priv.w_type = WWAN_PORT_AT;
++		break;
++	default:
++		port->w_priv.w_type = WWAN_PORT_UNKNOWN;
++		break;
++	}
++
++	return 0;
++}
++
++static void mtk_port_wwan_exit(struct mtk_port *port)
++{
++	if (test_bit(PORT_S_ENABLE, &port->status))
++		ports_ops[port->info.type]->disable(port);
++}
++
++static void mtk_port_wwan_enable(struct mtk_port *port)
++{
++	struct mtk_port_mngr *port_mngr;
++	int ret;
++
++	port_mngr = port->port_mngr;
++
++	if (test_bit(PORT_S_ENABLE, &port->status))
++		return;
++
++	ret = mtk_port_ch_enable(port);
++	if (ret && ret != -EBUSY)
++		return;
++
++	port->w_priv.w_port = wwan_create_port(port_mngr->ctrl_blk->mdev->dev,
++					       port->w_priv.w_type,
++					       &wwan_ops, NULL, port);
++	if (IS_ERR(port->w_priv.w_port)) {
++		dev_warn(port_mngr->ctrl_blk->mdev->dev,
++			 "Failed to create wwan port for (%s)\n", port->info.name);
++		port->w_priv.w_port = NULL;
++		mtk_port_ch_disable(port);
++		return;
++	}
++
++	set_bit(PORT_S_WR, &port->status);
++	set_bit(PORT_S_ENABLE, &port->status);
++}
++
++static void mtk_port_wwan_disable(struct mtk_port *port)
++{
++	struct wwan_port *w_port;
++
++	if (!test_and_clear_bit(PORT_S_ENABLE, &port->status))
++		return;
++
++	clear_bit(PORT_S_WR, &port->status);
++	w_port = port->w_priv.w_port;
++	mutex_lock(&port->w_priv.w_lock);
++	port->w_priv.w_port = NULL;
++	mutex_unlock(&port->w_priv.w_lock);
++
++	mtk_port_ch_disable(port);
++	wwan_remove_port(w_port);
++}
++
++static int mtk_port_wwan_recv(struct mtk_port *port, struct sk_buff *skb)
++{
++	mutex_lock(&port->w_priv.w_lock);
++	if (!port->w_priv.w_port) {
++		mutex_unlock(&port->w_priv.w_lock);
++		return -ENXIO;
++	}
++
++	wwan_port_rx(port->w_priv.w_port, skb);
++	mutex_unlock(&port->w_priv.w_lock);
++	return 0;
++}
++
++static const struct port_ops port_wwan_ops = {
++	.init = mtk_port_wwan_init,
++	.exit = mtk_port_wwan_exit,
++	.reset = mtk_port_reset,
++	.enable = mtk_port_wwan_enable,
++	.disable = mtk_port_wwan_disable,
++	.recv = mtk_port_wwan_recv,
++};
++
+ const struct port_ops *ports_ops[PORT_TYPE_MAX] = {
+ 	&port_internal_ops,
++	&port_wwan_ops,
+ };
+diff --git a/drivers/net/wwan/t9xx/mtk_port_io.h b/drivers/net/wwan/t9xx/mtk_port_io.h
+index 0c10e893b7e0..ea92cd22dba0 100644
+--- a/drivers/net/wwan/t9xx/mtk_port_io.h
++++ b/drivers/net/wwan/t9xx/mtk_port_io.h
+@@ -23,6 +23,11 @@ struct port_ops {
+ 	int (*recv)(struct mtk_port *port, struct sk_buff *skb);
+ };
+ 
++union user_buf {
++	void __user *ubuf;
++	void *kbuf;
++};
++
+ void *mtk_port_internal_open(struct mtk_md_dev *mdev, char *name, int flag);
+ int mtk_port_internal_close(void *i_port);
+ int mtk_port_internal_write(void *i_port, struct sk_buff *skb);
+diff --git a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
+index 8611561dd67c..aab09cab360c 100644
+--- a/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
++++ b/drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c
+@@ -16,6 +16,10 @@ static const int mtk_srv_cfg_m9xx[NR_CLDMA][HW_QUE_NUM] = {
+ 
+ /* the number of RX GPDs should be at last two */
+ static const struct queue_info mtk_queue_info_m9xx[] = {
++	{CCCI_UART2_TX, CCCI_UART2_RX, CLDMA1, TXQ(5), RXQ(5),
++	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
++	{CCCI_MBIM_TX, CCCI_MBIM_RX, CLDMA1, TXQ(2), RXQ(2),
++	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
+ 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, CLDMA1, TXQ(0), RXQ(0),
+ 	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, Q_FRAG_3_5K, Q_FRAG_3_5K, 0},
+ 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, CLDMA0, TXQ(0), RXQ(0),
+@@ -23,6 +27,10 @@ static const struct queue_info mtk_queue_info_m9xx[] = {
+ };
+ 
+ static const struct mtk_port_cfg port_cfg_m9xx[] = {
++	{CCCI_UART2_TX, CCCI_UART2_RX, PORT_TYPE_WWAN, "AT",
++		PORT_F_ALLOW_DROP},
++	{CCCI_MBIM_TX, CCCI_MBIM_RX, PORT_TYPE_WWAN, "MBIM",
++		PORT_F_ALLOW_DROP},
+ 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, PORT_TYPE_INTERNAL, "MDCTRL",
+ 		PORT_F_ALLOW_DROP},
+ 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, PORT_TYPE_INTERNAL, "SAPCTRL",
+
+-- 
+2.34.1
+
 
 
