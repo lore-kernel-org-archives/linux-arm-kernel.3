@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE81C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999B9C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5ss7vtgFZzZH7j5PPKNgnRxv3EGS+90GapGuoUV2n0=; b=jEtxIIhY6PFgUqv/qBummipHba
-	RcrnuU0eopJa6IwUEvmhOLqeXb1QC89QsL50K19D/dRjmkXNUG8JOhXVKUc6J6P7u9/JoH7ov+vTv
-	EcmWyIysXNgvbu/PNWATlVZ7sThgXJkcbBDUoMhKuQHD5ToyR7rI8rle1Z75ua3FSljXoOB/XdKNi
-	TS9yZ6hC2MrFqfCl9iv3D3R7wQOrjW3yw2FfboGCC2JGCye4/p5t1lirLrt3slObyePsz7nvw69BH
-	4kQHCaVFyF/JCidI/jzdWQreQjQd82qFY+DzTIz3orMiCqrZ+AQAGb7x0MGAQ517oeUXZBV+zaNld
-	31HZE2uA==;
+	bh=91Kjy1zeybXRCeeGvh59yf06osK/tzkAkgdwJW/cTYM=; b=v/S57rnejL//722d6vYCGi5Kww
+	sLZKy16yBU4/xmRPTz71juAx+T4cd7UTNwMVY+l0uqJtnB//iY7sod0SCvPthI/WkbAkmQi8s5KsW
+	MV44KsOucON37S/Ya0XictGcrU/EK9qMY1uHo8hYVO+aWAOaccIBGF6Mah6xAfPLn7IrCyGbojHoD
+	ZiC3xdf8//CIJW9eNeAY1YgIHAoCGoNX2nsFLO98Oerz3Br3mLEj+8ICMXlFws6jH6I2HV6t5lDjF
+	qbPRCd3Wv6LkifkuldjoiaAosi5WwtFBuOKrcpEUbd1Z2R5cCBE28SUlAj82km8OIaFxblXRp/o70
+	+gxjr74w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoaI-00000002WFv-3N78;
-	Thu, 09 Jul 2026 13:14:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whobX-00000002WWA-19qN;
+	Thu, 09 Jul 2026 13:15:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoaH-00000002WFD-3lGK
+	id 1whobW-00000002WVl-0d4o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 13:14:33 +0000
+	Thu, 09 Jul 2026 13:15:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9E1D41444
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDF8D1F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:14:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F7B16132C
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B483E1F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783602870;
-	bh=G5ss7vtgFZzZH7j5PPKNgnRxv3EGS+90GapGuoUV2n0=;
+	s=k20260515; t=1783602948;
+	bh=91Kjy1zeybXRCeeGvh59yf06osK/tzkAkgdwJW/cTYM=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=hOBeV6NmI2/VWwdkKKCzhTr9V70OgiAzV6e+danD/PAs1pFdtoOapcND61wJePEab
-	 hb5TGVOkfYD30VrpcjGoWFvVzuMMbitc92qU3yas4Xe46xPlO0DnSzCi3nWbZ1joUy
-	 P2TRFPUHlNe6Akh09MvOurF9DWUAGuaskq2ZdT9dPigAi5VHYB1D/L7zAQRfEdUxu1
-	 QxhaQja0OvmDonAr9lYsDsjVhVvPKdOtS9+A47zLPsQWGgi1Hoy6DUf8x87tkfxANC
-	 B9aZavCk2B+P7VcRYD293mU9GMEZ0MbRPF5PS9NnWv089taHyXTp8+ejfkHH72+uaa
-	 FPg5KCkjzB7bA==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aeae350e0aso2033076e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:14:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrmM/i7qpIzEXDxmdGc6otFBV9DxNUFW4an85k5nW6M6E8LV1bUVItSCsaY2ULWH+0AQ1987u4rh7mUibISSDH0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnzEa7aS1mb6UNRp3b2Ir47lsme5XrYXNDNMFxpAwnwR8ku4h/
-	Xh/oqY8E42aPxMDzsRR0TAxusS0HZNkORJfboco7He9v/1Gr5diy1B29M2vRYk1uVLlkhGKF8il
-	JsjWHB2KqSO++65pmBwvkgCpVxobY49I=
-X-Received: by 2002:a05:6512:10cf:b0:5ae:b130:1e1 with SMTP id
- 2adb3069b0e04-5b011444080mr1822805e87.28.1783602869579; Thu, 09 Jul 2026
- 06:14:29 -0700 (PDT)
+	b=gSCxJZbIl24MhP0Zhqb0oxb1lCopKMBME/78SbkshPDxvaWHwYvJdrs1qT+wSxl0R
+	 e99/UJcY9v5ZXGmTNgoszPIWkY3J2z3PvVgyj+AAVN556CQRQqwputqNYVQq91YXUG
+	 AoV27x1xs79DoCZVWWyuNaVIimWLixuHtaf/su653g+rVRqLvIe74J+0FjDGD84YYH
+	 uXMtvW1pDNoCpLrFQlVWu/tRIlpX38kIbAB30q3uKbIXA4JaUc7iKcf5zxboO+d2KM
+	 8jVb36sm6Q4Kt+nljTkpXjfwqeGhudYv42gd5SyJ++sbXHz0VYPPMLFbPQeivlzs35
+	 bNvqZyk3Wy6RA==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b013aa02b2so1488405e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:15:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rq1lRd+a4l31gjrgeMXLVbEqEyo2NDONlSSPnW7c1+fw9xSKXm28ICHtJ+NkXMTmM8PoIWuG3JBOSMCxBae8xQH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxArg8AkBhmjgr/tjxNJWT6n3sjUNZyCS6EqMOIsxajrWG1yjsv
+	q2KBE2yhLwG69qhzoRLwhC/kGm7087v6mTzH7YLe4yUU++SdFsLk/UJqcWYfjEzU08ucobDlWui
+	QOzg9UuKji6risMW0d7xXdlQFHYwn0SQ=
+X-Received: by 2002:a05:6512:1092:b0:5ae:badc:47d3 with SMTP id
+ 2adb3069b0e04-5b016d615f0mr660965e87.28.1783602947523; Thu, 09 Jul 2026
+ 06:15:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260705001931.74149-1-pengpeng@iscas.ac.cn>
-In-Reply-To: <20260705001931.74149-1-pengpeng@iscas.ac.cn>
+References: <20260706101942.341681-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260706101942.341681-2-krzysztof.kozlowski@oss.qualcomm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 9 Jul 2026 15:14:16 +0200
-X-Gmail-Original-Message-ID: <CAD++jLndZn-4Rgfm9S3ZB47D1eX7cGDbtKkc6mNFMxHErrqt7Q@mail.gmail.com>
-X-Gm-Features: AUfX_myRqVpIkgJPekvGUSUV1D_ZMRcchbDmPbnIZZ_0Vm28P0syyO4R0Fvlacc
-Message-ID: <CAD++jLndZn-4Rgfm9S3ZB47D1eX7cGDbtKkc6mNFMxHErrqt7Q@mail.gmail.com>
-Subject: Re: [PATCH] net: xscale: ixp4xx: add missing MODULE_DEVICE_TABLE()
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: Imre Kaloz <kaloz@openwrt.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+Date: Thu, 9 Jul 2026 15:15:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=Xy_gdJ0GRtKJJRgjwWgpK6wjvQNqemyvbcZfuJZLNyg@mail.gmail.com>
+X-Gm-Features: AUfX_mwUf2c-_Y4UekW3PrE8vLF_7BJ35RTcEyy-SktxQFNLjW19tbLMp0sEH2A
+Message-ID: <CAD++jL=Xy_gdJ0GRtKJJRgjwWgpK6wjvQNqemyvbcZfuJZLNyg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: arm: Correct indentation
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -82,21 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 5, 2026 at 2:19=E2=80=AFAM Pengpeng Hou <pengpeng@iscas.ac.cn> =
-wrote:
+On Mon, Jul 6, 2026 at 12:19=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-> The driver has a match table for the of bus wired into its driver
-> structure, but the table is not exported with MODULE_DEVICE_TABLE().
+> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> No functional impact (same DTB).
 >
-> Add the missing MODULE_DEVICE_TABLE() entry so module alias information
-> is generated for automatic module loading.
->
-> This is a source-level fix.  It does not claim dynamic hardware
-> reproduction; the evidence is the driver-owned match table, its use by
-> the driver registration structure, and the missing module alias
-> publication.
->
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
