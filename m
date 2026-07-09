@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA05BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEEAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4yOipLOM76yQ4J1l/AoGPxGOwmes2/QBhbkzUXSfv48=; b=Xu/xk/+iBbTlM1E1FgMxmySLit
-	Ew5tUJD1rykh/ot1Q9339i6boCcowT+7ydC+APd1gdUpT9DFUc3eiMnyPUCB7akaL+FyVU6HZlYs+
-	cYOAZAfazKvM0AqSb2q5W96pFOs9oKz0TUjmpXZqkD7/jCs+iemj07o7WeuvrZHqp8GDcIzVyynzi
-	0RWc4LgNYtoDlPUtI2rZzErSZS2d4d/mbdzAlYq8vgYfND+r9d4FZEBCvYsgPcCmiuIucZsumo/bP
-	OWVjEIyXcDzhEFL1wDgFsKNUsZaDLVXQBCvW1tQ/cMAjyIdLkWYnI7JyCFvQNnfyNVP5IsPlWSeWa
-	p/Pc0REA==;
+	bh=3URZe3afUdt+QSwiBoogxYoiKVX6IF3no/luZq+pBn4=; b=09gOEuWExl7xDO2+XOUT2c8j5M
+	9Q3xOIJOztWu3sRooEWcK/4oTUnrIfersU/WIowLBg1EAnUUaWyj46f5bQKRTi56Ogi6LX8FI84NM
+	RZ56Q1muzfZyUwM8l+d798rYGzNRowtxoK0sPO4rzd49+bpSAynNbnjV13MLoUpTwMzhB3A2ZUFNp
+	GKVmFyUgbop/FRAjoepqTU0vUkjEbjn99ki7h4gFOGpIb0DV5utvezYQjNjUP+w/WUBBQYSmdrTsr
+	+jOFwmocaBujpBHmEK5hFvwlma1z0KBSyn3jw3gplKxvoyXQnPEn+ZcxxNKzaMltSCweBa/D6e6TQ
+	+3MJ65Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whndy-00000002Kh7-0Jw9;
-	Thu, 09 Jul 2026 12:14:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whp2B-00000002bIj-2q6i;
+	Thu, 09 Jul 2026 13:43:23 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whndw-00000002KaQ-1Ml0;
-	Thu, 09 Jul 2026 12:14:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4yOipLOM76yQ4J1l/AoGPxGOwmes2/QBhbkzUXSfv48=; b=cxR2YObU8Z/iBrqZhLu/c4nkzh
-	BS4CzBYetPFsi1yo0dwJ2HWaochSHiZcx/NDGbICQzrfxevPXVoi1Zz5q/LTpG4JdbgGTOrAQAwAc
-	ofe6eZBvhf1ITH+WYRRT7h4fMohlbK3gHdnW/WwTkUB4T6qoTILaN2tkMtNgTlPZOV5r1id9pMkfD
-	05XmiJ1DthY1OXtWJZK0XSTlNYgqaYX3vvsEutN78/PnXLA4iJLWK9/o4R0je6sxRUBgIGZsxQHKe
-	lffGf97C8Tc178Vo6G655A7hDwxpdWBjPX3uxFMbECu+3FL42/roDITAnsIGO2xAuCp7cag/dGz89
-	1VC0dMDw==;
-Received: from mail-24429.protonmail.ch ([109.224.244.29])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whndp-00000009Bkv-3gZz;
-	Thu, 09 Jul 2026 12:14:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1783599240; x=1783858440;
-	bh=4yOipLOM76yQ4J1l/AoGPxGOwmes2/QBhbkzUXSfv48=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=oaCgmtiJpF5ov1O6PcsF8Zf62ipzpbQ7Vm29b3b1i/u5dBmBJ6lHSwDHrGwmTIDa/
-	 E2iG2FFJ0zDl6HKwKoyMoIjK9Utt6IBaLP91AE/SA3dxbssEz0e0Hf3kmY7nDB2H8M
-	 tprFTDpyy/+Zf8wwthgArRQykZPbvRG3UglthMv5WhSo3h29Wkm9bSg5h7oR6S09F5
-	 4vc6Q6g3I+QqdSBz7W1d2XpZfq4wtSkIiu6m+Zzw3EcKzGiVQ78xTLfpGHi5pw2srA
-	 rIHtQWbFiwIN/1I51YXx6aefwBjFZVpIQKzUkZwrVCE1tGZa1Ce4fM/jILtV3sqFMB
-	 l4S0DWe8OpXcw==
-Date: Thu, 09 Jul 2026 12:12:55 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] i2c: mediatek: fix WRRD for SoCs without auto_restart option
-Message-ID: <GOZtJ6Ys4Syt4VaGQyJvmYEIe6dx97flmTygat-nc_gMwsKVrDaDOQjP2ZbX1Qqwx5PYjWo6rJwo-8H32NQQAQi4Z7x6y9wpBNyYea9liZA=@protonmail.com>
-In-Reply-To: <0eb85793-5995-4177-9b04-338246d6979e@collabora.com>
-References: <20260624-6572-6595-i2c-v1-1-9155cebaae20@protonmail.com> <0eb85793-5995-4177-9b04-338246d6979e@collabora.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: fbbc57c64a4c608f23b74d2008055f4ccc372fd6
+	id 1whp20-00000002ay9-1OlY;
+	Thu, 09 Jul 2026 13:43:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783604590;
+	bh=5G0c40uJbd/eR7jfuidEYqyEqimv15mwHokxJEwhMks=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=J2vxiUbGFNTFeixFTWlg3SNsnUzUQ5wg1lWz+Zr+S21uVfbFcKB8CGtxYtVVozb7v
+	 bXhG6LfuaiKgEqjWaiJmwsflR0P7M7bDkYAei/199hzUmX11DFnD6e90eZxmKtE6z5
+	 Lrpw7M7eicCWcwmlWjR5FSopE9vX/K7M/c0ANlk4UCpk8T7973DewvWYpzBtVVb+9k
+	 atm2gWOwo2/8RatCtHQDEvuQg9YdGBkwfkqZyB+qA6y/5tU6G9iI2C7kiD5nPqlmTn
+	 MHL/1gJ52QdBewwQ/rEco4sKK1TcgvSH0Vyf6NYMHEyqeushqnsM3bwnpAZP5kJUNo
+	 QN55seCLK4nYQ==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7566217E0D53;
+	Thu, 09 Jul 2026 15:43:09 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 09 Jul 2026 15:42:52 +0200
+Subject: [PATCH v2 12/18] clk: mediatek: Add MT8189 vlpcfg clock support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-mt8189-clocks-system-base-v2-12-2926da3db6cf@collabora.com>
+References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
+In-Reply-To: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783604575; l=6536;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=5G0c40uJbd/eR7jfuidEYqyEqimv15mwHokxJEwhMks=;
+ b=JebNl9lBJNCzQV40ZorGFy1U/zg6jMs4/gl1X+8TX45WSGP5w3dQanfXJvicobXlcmcgyMGYu
+ InKlXLpiKEfBZ/pXfFhIrlFdZJMMandCaiBxJQpsofG81Cs6l9QYfL3
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_131410_102845_A4E80DB3 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20260709_064312_608738_1D5625D7 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,67 +92,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+Add support for the MT8189 vlpcfg clock controller,
+which provides clock gate control for vlp domain IPs.
 
-On Thursday, July 9th, 2026 at 2:46 PM, AngeloGioacchino Del Regno <angelog=
-ioacchino.delregno@collabora.com> wrote:
+Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/clk/mediatek/Makefile            |   2 +-
+ drivers/clk/mediatek/clk-mt8189-vlpcfg.c | 116 +++++++++++++++++++++++++++++++
+ 2 files changed, 117 insertions(+), 1 deletion(-)
 
-> On 6/23/26 23:40, Roman Vivchar via B4 Relay wrote:
-> > From: Roman Vivchar <rva333@protonmail.com>
-> >
-> > MediaTek mt65xx family SoCs have no auto restart, however, they still
-> > support the WRRD mode in the hardware. Because auto_restart is set to 0=
-,
-> > the WRRD mode will be never enabled, leading to read errors.
-> >
-> > Fix this by removing auto_restart check from the WRRD enable path.
-> >
->=20
-> Are you sure that MT6577 and MT6589 do support WRRD?
+diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+index 3b25df9e7b50..d9279b237b7b 100644
+--- a/drivers/clk/mediatek/Makefile
++++ b/drivers/clk/mediatek/Makefile
+@@ -124,7 +124,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
+ obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
+ obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
+ obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
+-				   clk-mt8189-vlpckgen.o
++				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
+ obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
+diff --git a/drivers/clk/mediatek/clk-mt8189-vlpcfg.c b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+new file mode 100644
+index 000000000000..cc4ebfd46a6f
+--- /dev/null
++++ b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
+@@ -0,0 +1,116 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025-2026 MediaTek Inc.
++ *                    Qiqi Wang <qiqi.wang@mediatek.com>
++ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++
++#include "clk-mtk.h"
++#include "clk-gate.h"
++
++#include <dt-bindings/clock/mediatek,mt8189-clk.h>
++
++static const struct mtk_gate_regs vlpcfg_ao_reg_cg_regs = {
++	.set_ofs = 0x0,
++	.clr_ofs = 0x0,
++	.sta_ofs = 0x0,
++};
++
++#define GATE_VLPCFG_AO_REG(_id, _name, _parent, _shift)		\
++	GATE_MTK(_id, _name, _parent, &vlpcfg_ao_reg_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr)
++
++static const struct mtk_gate vlpcfg_ao_reg_clks[] = {
++	GATE_VLPCFG_AO_REG(CLK_VLPCFG_AO_APEINT_RX, "vlpcfg_ao_apeint_rx", "clk26m", 8),
++};
++
++static const struct mtk_clk_desc vlpcfg_ao_reg_mcd = {
++	.clks = vlpcfg_ao_reg_clks,
++	.num_clks = ARRAY_SIZE(vlpcfg_ao_reg_clks),
++};
++
++static const struct mtk_gate_regs vlpcfg_reg_cg_regs = {
++	.set_ofs = 0x4,
++	.clr_ofs = 0x4,
++	.sta_ofs = 0x4,
++};
++
++#define GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, _flags)		\
++	GATE_MTK_FLAGS(_id, _name, _parent, &vlpcfg_reg_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_no_setclr_inv, _flags)
++
++#define GATE_VLPCFG_REG(_id, _name, _parent, _shift)		\
++	GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, 0)
++
++static const struct mtk_gate vlpcfg_reg_clks[] = {
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SCP, "vlpcfg_scp",
++			      "vlp_scp_sel", 28, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_R_APXGPT_26M, "vlpcfg_r_apxgpt_26m",
++			      "clk26m", 24, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRCK_TEST, "vlpcfg_dpmsrck_test",
++			      "clk26m", 23, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_DPMSRRTC_TEST, "vlpcfg_dpmsrrtc_test",
++			      "clk32k", 22, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRULP_TEST, "vlpcfg_dpmsrulp_test",
++			      "osc_d10", 21, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST, "vlpcfg_spmi_p",
++			      "vlp_spmi_p_sel", 20, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST_32K, "vlpcfg_spmi_p_32k",
++			      "clk32k", 18, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_SYS, "vlpcfg_pmif_spmi_p_sys",
++			      "vlp_pwrap_ulposc_sel", 13, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_TMR, "vlpcfg_pmif_spmi_p_tmr",
++			      "vlp_pwrap_ulposc_sel", 12, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_SYS, "vlpcfg_pmif_spmi_m_sys",
++			"vlp_pwrap_ulposc_sel", 11),
++	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_TMR, "vlpcfg_pmif_spmi_m_tmr",
++			"vlp_pwrap_ulposc_sel", 10),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DVFSRC, "vlpcfg_dvfsrc",
++			      "vlp_dvfsrc_sel", 9, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PWM_VLP, "vlpcfg_pwm_vlp",
++			      "vlp_pwm_vlp_sel", 8, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SRCK, "vlpcfg_srck",
++			      "vlp_srck_sel", 7, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F26M, "vlpcfg_sspm_f26m",
++			      "vlp_sspm_f26m_sel", 4, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F32K, "vlpcfg_sspm_f32k",
++			      "clk32k", 3, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_ULPOSC, "vlpcfg_sspm_ulposc",
++			      "vlp_sspm_ulposc_sel", 2, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_32K_COM, "vlpcfg_vlp_32k_com",
++			      "clk32k", 1, CLK_IS_CRITICAL),
++	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_26M_COM, "vlpcfg_vlp_26m_com",
++			      "clk26m", 0, CLK_IS_CRITICAL),
++};
++
++static const struct mtk_clk_desc vlpcfg_reg_mcd = {
++	.clks = vlpcfg_reg_clks,
++	.num_clks = ARRAY_SIZE(vlpcfg_reg_clks),
++};
++
++static const struct of_device_id of_match_clk_mt8189_vlpcfg[] = {
++	{ .compatible = "mediatek,mt8189-vlpcfg", .data = &vlpcfg_reg_mcd },
++	{ .compatible = "mediatek,mt8189-vlpcfg-ao", .data = &vlpcfg_ao_reg_mcd },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_vlpcfg);
++
++static struct platform_driver clk_mt8189_vlpcfg_drv = {
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
++	.driver = {
++		.name = "clk-mt8189-vlpcfg",
++		.of_match_table = of_match_clk_mt8189_vlpcfg,
++	},
++};
++module_platform_driver(clk_mt8189_vlpcfg_drv);
++
++MODULE_DESCRIPTION("MediaTek MT8189 vlpcfg clocks driver");
++MODULE_LICENSE("GPL");
 
-Yes, I have checked their downstream kernels[1][2] and they both mention
-WRRD.
+-- 
+2.55.0
 
-We also tested mt6589 (privately) and the i2c was working. To be fair,
-it had some other fixes, but at worst this patch is no-op.
-
-mt6577 is a tough one... I don't think there's any recent kernel with
-it. I plan to make it work with upstream, but that's a TODO. Either way,
-vendor code has WRRD support.
-
-> If you're not 100% sure, or you want to be careful (which I would, in thi=
-s case),
-> please add a `unsigned char wrrd_supported:1` to struct mtk_i2c_compatibl=
-e, set
-> it to `1` on *all* of the SoCs that support auto_restart (as that's effec=
-tively
-> a different feature - it just happens that all the ones supporting this a=
-lso do
-> support that, up until today), and add a new one for your MT6572, declari=
-ng no
-> auto_restart but wrrd_supported.
->=20
-> That would make me sure that you're not breaking anything, and would guar=
-antee
-> you a R-b.
->
-
-As far as I know, there's no SoC without both auto restart and WRRD.
-Adding wrrd_supported that always equals to true sounds redundant to
-me.
-
-Let me know if you still prefer having separate flag for the WRRD.
-
-> Cheers,
-> Angelo
->=20
-
-[1]: https://github.com/GoldRenard/lenovo_A390_mt6577_uboot_kernel/blob/38e=
-a59263984e26c0dd8e5891b22a35f61e60ed5/mediatek/platform/mt6577/kernel/drive=
-rs/i2c/i2c.c#L963-L975
-[2]: https://github.com/bq/aquaris-5/blob/bc1d0d0e35c969670e2d869001be944ad=
-0c9c5e5/mediatek/platform/mt6589/kernel/drivers/i2c/i2c.c#L728
-
-Best regards,
-Roman
 
