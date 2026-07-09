@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BABC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C945C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3SuTrK7ua1jSt5ecvosiLTOXicZe+1p9rD4HzyC/xI=; b=08Irby3CUIsDXLfdDIebTK2w9H
-	GK5zywxkTcfbtv4r4DHDnZUAS/GlHwYaUSejJC6HOrZFrqLyXWzAXvu8fwXIYCyErBQ7LqsH+bDhO
-	k54nyGOtMqHa1TXEpC4HctTIoszr+WiPbw/xgMZe0ol8KAjCZ1XOFNWjAZvDXGY+FOqzYJYEp3cmF
-	C8c3Ue764nzmYqO5T3xQNipjFtriT4pULDsdrrcCo6X1Bd4NGtSYvQ1Wv6Qs0t83O0k9LqeIyqtAi
-	DUJ1AsDAeDclQmUfigbJ0r6xH9AiA91O9pmR3Mg3xgC1QcnCYFf4XLHH65gfx+Sfj3ID8yRzZQd1f
-	s1V1d1+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZUmhU+3j0fmAFVUoaHIRRyRWEPKFoYfTB7oMCRJhw40=; b=mvTyIv2WLhtZ9nLqmLqFnYA4Wx
+	U7LuhFiDpPVRnAGh9/DKEWyQAZRz8N4aPmZoU1iY2sia/01PodaLDX8xIV01MjFsEeSbgTBJapA/k
+	4K7K1bMofkKa0Tp5pWAql6ayEkpHX8cyjLFmZC5jGsDkr+Hw4FG5W5OZJ1wSv/xh8JgBYMtEQb+mK
+	xQMZo2aMahUbV70BiHKZVcsrXSV/0m9g1kQg48I+uWuJiUHqoqq5KBJmBqBFiRhUzC05dPEq9HQOb
+	ocNP+99/96fdk6Ogt3qaaBMrgRS5tTyzlSuDAMIZMqBeHzqI1KxlKADDbaz52A6qfbXpRLi8afXkm
+	RnZl8nLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnGb-00000002GUQ-0hlh;
-	Thu, 09 Jul 2026 11:50:09 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1whleX-00000001sF0-0SFv;
+	Thu, 09 Jul 2026 10:06:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnGY-00000002GT9-0r6c
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 11:50:07 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpiuBvsJzzn8O0TJltw7o4bmR8Lez8EjE+onSAwPP3i2F3PEMEqQ5arvGIS/XqL1xj97QfwfXwmWwycEj0D/Bmg@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783597802;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L3SuTrK7ua1jSt5ecvosiLTOXicZe+1p9rD4HzyC/xI=;
-	b=xVXS7T07k/cIqrNysR+kYtFgVMt29jB/UIvZ1/tVtHKc/Y1sfLDAKwRgX7Q9Q26i9YlKBC
-	kzq78UqyAs4QPsKQyP57nwMI+QjN1dkJX8XXfOIAvYcMu0yrDpxJtuXFsNIZdQ+RNFJfui
-	iORat/VhmYQ2fOfWu5o+8DD45GEDeb4=
-X-Gm-Message-State: AOJu0YxPgGGuGmrXEwuZVRf7BylooJSAMF9wQdftpwr3DhtxyF+orbZX
-	7rk7KXSiXzncug7qBtLGoEZHAfnCO7aQt7oC7wO+/RCfCwn6YX0empa4s8+RrUIyeeT6RaTSLTt
-	FmsUGL7D7uPKLkjIeXp5Wr+8e8mpKBjWOXvipRnra
-X-Received: by 2002:ac8:7f0d:0:b0:51c:6b7:d3de with SMTP id
- d75a77b69052e-51c9c573e75mr5591691cf.5.1783597796410; Thu, 09 Jul 2026
- 04:49:56 -0700 (PDT)
+	id 1whleM-00000001s2k-3AZ3;
+	Thu, 09 Jul 2026 10:06:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783591592;
+	bh=52ZbxRVzgWk/w7B77WATpCX38Vs0bPWfcHMxayt2XPg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WqIT8JI5ikcqk6CJK8YPR1posgF2AMTr7C0UFs3zFR0VTVm1nHZL+H7z0vy12FeWq
+	 pfOsfmGeDLjyc7aybERwU1rvO/UZdTlXuYgyY/e5WEvrf3aklSaEEqXEr9H3C4iM0B
+	 Yd5zAGX9JPNreFLUYGoc+FJB6OhwlYvdgP7xBThS8IfoQQ9c7BMOduShCL2OTE9XSP
+	 iaaW1Ax6u27CEYAt+ITXBJZoFrmKk3tPK5ZbPXT2/IkESUgJOPFl07XSUIjuMXjZro
+	 +To2jPzz1hD1votdl3YUQfcltBaOGkYqVpd85PH0nA9MsCrAMSkzSF8ukvuWhhe7nK
+	 4v0gaXKinnI/w==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BCC5A17E0D56;
+	Thu, 09 Jul 2026 12:06:31 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	granquet@baylibre.com,
+	rex-bc.chen@mediatek.com,
+	dmitry.osipenko@collabora.com,
+	ck.hu@mediatek.com,
+	amergnat@baylibre.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v2 09/11] drm/mediatek: mtk_dp: Add support for HotPlug Detection in DP AUX
+Date: Thu,  9 Jul 2026 12:06:15 +0200
+Message-ID: <20260709100617.42583-10-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
+References: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
- <CA+EHjTyAxBx4jhGq-Gme5hPi1ZyDAkL2CP_U22ykkQemD1dUhg@mail.gmail.com> <4b2fb0ef-4d3e-4a1f-8d33-177bb4af2005@sirena.org.uk>
-In-Reply-To: <4b2fb0ef-4d3e-4a1f-8d33-177bb4af2005@sirena.org.uk>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 9 Jul 2026 12:49:19 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyhRFMa+diHpWyKcCuB8DrTH4p1bvraiaQnO0Fru74cHw@mail.gmail.com>
-X-Gm-Features: AUfX_myGvG9GzTq40K-onGYQvIqSeZZ7bcchUs-KHtoNqS1WCKCcF98we18uqCM
-Message-ID: <CA+EHjTyhRFMa+diHpWyKcCuB8DrTH4p1bvraiaQnO0Fru74cHw@mail.gmail.com>
-Subject: Re: [PATCH v11 00/29] KVM: arm64: Implement support for SME
-To: Mark Brown <broonie@kernel.org>
-Cc: Konstantin Ryabitsev <konstantin@linuxfoundation.org>, Marc Zyngier <maz@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Peter Maydell <peter.maydell@linaro.org>, Eric Auger <eric.auger@redhat.com>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, tools@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_045006_387430_2D923574 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20260709_030634_955224_6558F149 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,79 +95,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Jul 2026 at 12:36, Mark Brown <broonie@kernel.org> wrote:
->
-> On Thu, Jul 09, 2026 at 11:26:41AM +0100, Fuad Tabba wrote:
-> > > base-commit: 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
->
-> > I think this SHA is local to your tree. I can't locate it, and neither
-> > could Sashiko [1, 2]. For a series this big and complex, it would be
-> > good to get Sashiko to review it. Could you please fix that?
->
-> That is the v7.2-rc2 tag, copying in Konstantin since this probably
-> wants fixing in b4 and Roman for sashiko since this might bite others.
-> I told b4 the code was based on v7.2-rc2 (which it is) by specifiying it
-> as "v7.2-rc2" in --edit-deps and it's translated that into the git
-> object hash for the tag and dropped that in there rather than the hash
-> of the commit that was signed.
+Newer MediaTek DisplayPort IPs can finally use the AUX to perform
+hotplug detection (HPD) without having to power up the entire eDP
+or DP IP (transmitter, encoder, etc).
 
-I figured out what the issue is in Sashiko and submitted a fix:
-https://github.com/sashiko-dev/sashiko/pull/317
+Enable support for configuring and performing HPD in AUX and check
+the correct HPD strategy with a new platform data variable.
+This is done in preparation for adding support for the embedded
+DisplayPort (eDP) IP found in the MT8196 SoC.
 
-It wasn't advancing the local HEAD after fetching.
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c     | 105 +++++++++++++++++++++++---
+ drivers/gpu/drm/mediatek/mtk_dp_reg.h |  18 +++++
+ 2 files changed, 112 insertions(+), 11 deletions(-)
 
-Cheers,
-/fuad
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 5184159018f3..a8bf12f8d264 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -168,6 +168,7 @@ struct mtk_dp_data {
+ 	bool audio_pkt_in_hblank_area;
+ 	u16 audio_m_div2_bit;
+ 	u8 hw_max_link_rate;
++	bool aux_hpd_supported;
+ };
+ 
+ static const struct mtk_dp_efuse_fmt mt8188_dp_efuse_fmt[MTK_DP_CAL_MAX] = {
+@@ -1047,7 +1048,30 @@ static u32 mtk_dp_swirq_get_clear(struct mtk_dp *mtk_dp)
+ 	return irq_status;
+ }
+ 
+-static u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
++static u32 mtk_dp_aux_hwirq_get_clear(struct mtk_dp *mtk_dp)
++{
++	u32 irq_status = mtk_dp_read(mtk_dp, MTK_DP_AUX_TX_P0_INT_STA);
++	u32 ret = 0;
++
++	if (irq_status) {
++		mtk_dp_update_bits(mtk_dp, MTK_DP_AUX_TX_P0_INT_CLR,
++				   irq_status, irq_status);
++		mtk_dp_update_bits(mtk_dp, MTK_DP_AUX_TX_P0_INT_CLR,
++				   0, irq_status);
++	}
++
++	/* Map those to the transmitter hwirqs for simplicity */
++	if (irq_status & HPD_CONNECT_EVENT)
++		ret |= MTK_DP_HPD_CONNECT;
++	if (irq_status & HPD_INTERRUPT_EVENT)
++		ret |= MTK_DP_HPD_INTERRUPT;
++	if (irq_status & HPD_DISCONNECT_EVENT)
++		ret |= MTK_DP_HPD_DISCONNECT;
++
++	return ret;
++}
++
++static u32 mtk_dp_trans_hwirq_get_clear(struct mtk_dp *mtk_dp)
+ {
+ 	u32 irq_status = (mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3418) &
+ 			  IRQ_STATUS_DP_TRANS_P0_MASK) >> 12;
+@@ -1062,8 +1086,28 @@ static u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
+ 	return irq_status;
+ }
+ 
++static inline u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
++{
++	if (mtk_dp->data->aux_hpd_supported)
++		return mtk_dp_aux_hwirq_get_clear(mtk_dp);
++
++	return mtk_dp_trans_hwirq_get_clear(mtk_dp);
++}
++
+ static void mtk_dp_hwirq_enable(struct mtk_dp *mtk_dp, bool enable)
+ {
++	u32 mask, val;
++
++	/* Valid only for SoCs with working AUX HPD, this register is ignored on the others */
++	if (enable) {
++		mask = HPD_CONNECT_EVENT | HPD_INTERRUPT_EVENT | HPD_DISCONNECT_EVENT;
++		val = 0;
++	} else {
++		mask = DP_TX_AUX_INT_MASK;
++		val = DP_TX_AUX_INT_MASK;
++	}
++	mtk_dp_update_bits(mtk_dp, MTK_DP_TX_AUX_INT_MASKING, val, mask);
++
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3418,
+ 			   enable ? 0 :
+ 			   IRQ_MASK_DP_TRANS_P0_DISC_IRQ |
+@@ -1089,9 +1133,34 @@ static void mtk_dp_initialize_settings(struct mtk_dp *mtk_dp)
+ 			   IRQ_MASK_AUX_TOP_IRQ, IRQ_MASK_AUX_TOP_IRQ);
+ }
+ 
++static void mtk_dp_initialize_aux_hpd_detect_settings(struct mtk_dp *mtk_dp)
++{
++	/* Set interrupt debounce threshold time */
++	mtk_dp_update_bits(mtk_dp, MTK_DP_AUX_P0_364C,
++			   FIELD_PREP_CONST(HPD_INT_LOW_TIME_THD, 2) |
++			   FIELD_PREP_CONST(HPD_INT_HIGH_TIME_THD, 6),
++			   HPD_INT_LOW_TIME_THD | HPD_INT_HIGH_TIME_THD);
++
++	/* Connection detect threshold time: 1.5ms + (0.1 * (x)) ms*/
++	mtk_dp_update_bits(mtk_dp, MTK_DP_AUX_P0_367C,
++			   FIELD_PREP(HPD_CONN_THD_DP_TX_AUX_MASK, 5),
++			   HPD_CONN_THD_DP_TX_AUX_MASK);
++
++	/* Disconnection detect threshold and debounce time */
++	mtk_dp_write(mtk_dp, MTK_DP_AUX_P0_37A0,
++		     FIELD_PREP_CONST(HPD_DISC_THD_AUX_TX, 5) |
++		     FIELD_PREP_CONST(HPD_DISC_DEB_AUX_TX, 8));
++
++	/* Crystal frequency for 1us timing normalization: set to 26MHz */
++	mtk_dp_update_bits(mtk_dp, REG_366C_AUX_TX_P0,
++			   FIELD_PREP_CONST(XTAL_FREQ_DP_TX_AUX_MASK, XTAL_FREQ_DP_TX_AUX_VAL),
++			   XTAL_FREQ_DP_TX_AUX_MASK);
++}
++
+ static void mtk_dp_initialize_hpd_detect_settings(struct mtk_dp *mtk_dp)
+ {
+ 	u32 val;
++
+ 	/* Debounce threshold */
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
+ 			   8, HPD_DEB_THD_DP_TRANS_P0_MASK);
+@@ -2012,7 +2081,11 @@ static void mtk_dp_init_port(struct mtk_dp *mtk_dp)
+ 	mtk_dp_initialize_settings(mtk_dp);
+ 	mtk_dp_initialize_aux_settings(mtk_dp);
+ 	mtk_dp_initialize_digital_settings(mtk_dp);
+-	mtk_dp_initialize_hpd_detect_settings(mtk_dp);
++
++	if (mtk_dp->data->aux_hpd_supported)
++		mtk_dp_initialize_aux_hpd_detect_settings(mtk_dp);
++	else
++		mtk_dp_initialize_hpd_detect_settings(mtk_dp);
+ 
+ 	mtk_dp_digital_sw_reset(mtk_dp);
+ }
+@@ -2079,6 +2152,7 @@ static irqreturn_t mtk_dp_hpd_event(int hpd, void *dev)
+ 	unsigned long flags;
+ 	u32 irq_status = mtk_dp_swirq_get_clear(mtk_dp) |
+ 			 mtk_dp_hwirq_get_clear(mtk_dp);
++	u32 val;
+ 
+ 	if (!irq_status)
+ 		return IRQ_HANDLED;
+@@ -2097,11 +2171,15 @@ static irqreturn_t mtk_dp_hpd_event(int hpd, void *dev)
+ 	spin_unlock_irqrestore(&mtk_dp->irq_thread_lock, flags);
+ 
+ 	if (cable_sta_chg) {
+-		if (!!(mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414) &
+-		       HPD_DB_DP_TRANS_P0_MASK))
+-			mtk_dp->train_info.cable_plugged_in = true;
+-		else
+-			mtk_dp->train_info.cable_plugged_in = false;
++		if (mtk_dp->data->aux_hpd_supported) {
++			val = mtk_dp_read(mtk_dp, MTK_DP_AUX_P0_364C);
++			val &= HPD_STATUS_DP_AUX_TX_P0_MASK;
++		} else {
++			val = mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414);
++			val &= HPD_DB_DP_TRANS_P0_MASK;
++		}
++
++		mtk_dp->train_info.cable_plugged_in = val > 0;
+ 	}
+ 
+ 	return IRQ_WAKE_THREAD;
+@@ -2113,10 +2191,15 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
+ 	u32 val;
+ 	int ret;
+ 
+-	ret = regmap_read_poll_timeout(mtk_dp->regs,
+-				       MTK_DP_TRANS_P0_3414 + mtk_dp->legacy_regoff,
+-				       val, !!(val & HPD_DB_DP_TRANS_P0_MASK),
+-				       wait_us / 100, wait_us);
++	if (mtk_dp->data->aux_hpd_supported)
++		ret = regmap_read_poll_timeout(mtk_dp->regs, MTK_DP_AUX_P0_364C,
++					       val, !!(val & HPD_STATUS_DP_AUX_TX_P0_MASK),
++					       wait_us / 100, wait_us);
++	else
++		ret = regmap_read_poll_timeout(mtk_dp->regs,
++					       MTK_DP_TRANS_P0_3414 + mtk_dp->legacy_regoff,
++					       val, !!(val & HPD_DB_DP_TRANS_P0_MASK),
++					       wait_us / 100, wait_us);
+ 	if (ret) {
+ 		mtk_dp->train_info.cable_plugged_in = false;
+ 		return ret;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+index 616ea6440b08..5a3b3e2b4f49 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
++++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+@@ -276,6 +276,11 @@
+ #define DP_TRANS_DUMMY_RW_0_MASK				GENMASK(3, 2)
+ 
+ /* offset: AUX_OFFSET (0x1600) */
++#define MTK_DP_AUX_TX_P0_INT_STA			0x1608
++#define HPD_CONNECT_EVENT				BIT(0)
++#define HPD_INTERRUPT_EVENT				BIT(2)
++#define HPD_DISCONNECT_EVENT				BIT(10)
++#define DP_TX_AUX_INT_MASK				GENMASK(15, 0)
+ #define MTK_DP_AUX_P0_360C			0x160c
+ #define AUX_TIMEOUT_THR_AUX_TX_P0_MASK			GENMASK(12, 0)
+ #define AUX_TIMEOUT_THR_AUX_TX_P0_VAL			0x1595
+@@ -323,6 +328,9 @@
+ #define MTK_DP_AUX_P0_3648			0x1648
+ #define MCU_REQUEST_ADDRESS_LSB_AUX_TX_P0_MASK		GENMASK(15, 0)
+ #define MTK_DP_AUX_P0_364C			0x164c
++#define HPD_STATUS_DP_AUX_TX_P0_MASK			BIT(15)
++#define HPD_INT_HIGH_TIME_THD				GENMASK(9, 7)
++#define HPD_INT_LOW_TIME_THD				GENMASK(6, 4)
+ #define MCU_REQUEST_ADDRESS_MSB_AUX_TX_P0_MASK		GENMASK(3, 0)
+ #define MTK_DP_AUX_P0_3650			0x1650
+ #define MCU_REQ_DATA_NUM_AUX_TX_P0_MASK			GENMASK(15, 12)
+@@ -330,6 +338,13 @@
+ #define MCU_ACK_TRAN_COMPLETE_AUX_TX_P0			BIT(8)
+ #define MTK_DP_AUX_P0_3658			0x1658
+ #define AUX_TX_OV_EN_AUX_TX_P0_MASK			BIT(0)
++#define MTK_DP_TX_AUX_INT_MASKING		0x1660
++#define MTK_DP_AUX_TX_P0_INT_CLR		0x1668
++#define REG_366C_AUX_TX_P0			0x166c
++#define XTAL_FREQ_DP_TX_AUX_VAL				0x68
++#define XTAL_FREQ_DP_TX_AUX_MASK			GENMASK(15, 8)
++#define MTK_DP_AUX_P0_367C			0x167c
++#define HPD_CONN_THD_DP_TX_AUX_MASK			GENMASK(9, 6)
+ #define MTK_DP_AUX_P0_3690			0x1690
+ #define RX_REPLY_COMPLETE_MODE_AUX_TX_P0		BIT(8)
+ 
+@@ -340,6 +355,9 @@
+ #define AUX_TX_FIFO_WDATA_NEW_MODE_T_AUX_TX_P0_MASK	BIT(1)
+ #define AUX_TX_FIFO_NEW_MODE_EN_AUX_TX_P0		BIT(2)
+ #define MTK_DP_AUX_P0_3708			0x1708
++#define MTK_DP_AUX_P0_37A0			0x17a0
++#define HPD_DISC_THD_AUX_TX				GENMASK(7, 4)
++#define HPD_DISC_DEB_AUX_TX				GENMASK(3, 0)
+ #define MTK_DP_AUX_P0_37C8			0x17c8
+ #define MTK_ATOP_EN_AUX_TX_P0				BIT(0)
+ 
+-- 
+2.54.0
 
->
-> Probably if b4 is going to resolve deps into hashes it should make sure
-> to resolve them into a commit object in case users aren't pulling tags
-> (which I'm guessing is what's affected both Sashiko and you here).
-> Either that or just keep the text (which would make it more obvious
-> what's happened but doesn't actually fix anything if it's automation
-> that's impacted).
->
-> Unless someone objects I'll resend with the dependency specified as the
-> commit object for Sashiko's benefit :/
->
-> FWIW:
->
-> $ git show 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
-> tag v7.2-rc2
-> Tagger: Linus Torvalds <torvalds@linux-foundation.org>
-> Date:   Sun Jul 5 14:44:06 2026 -1000
->
-> Linux 7.2-rc2
-> -----BEGIN PGP SIGNATURE-----
->
-> iQFSBAABCgA8FiEEq68RxlopcLEwq+PEeb4+QwBBGIYFAmpK+lYeHHRvcnZhbGRz
-> QGxpbnV4LWZvdW5kYXRpb24ub3JnAAoJEHm+PkMAQRiGsv8H/Rn7Hr3Hp8t6au8B
-> xQueZThJWjqQ4v8pyLnXF6OomKiDR24OTXMCrFgDkcmZ7RK2ALqowI3tQVwLUTuI
-> yUN0qL2z2y+LyTcO0CYf3Lple8KlgLAXYMsv7pGLsOvhS7BW2jW97/bcbpUNxoHb
-> eghxqbIEnyRImUbbyg+nW7VVk65RKdPUNkBPXfQ2NMVwe+SDE5Rl+NXNVqDNjGad
-> soDTUBrD9yXkWX+4s0myleE62UzzH5nYgGPQeQgYmzWgq7LybH6WBlbQK9D7ODJR
-> Cw3LCq1hwZZ2w04Yx+XwMHquGJYHW8L2pj77h95uhzksz8buKnM0AGwBCTC6RMoi
-> AyUQvdc=
-> =JUWl
-> -----END PGP SIGNATURE-----
->
-> commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda
-> Author: Linus Torvalds <torvalds@linux-foundation.org>
-> Date:   Sun Jul 5 14:44:06 2026 -1000
->
->     Linux 7.2-rc2
->
-> diff --git a/Makefile b/Makefile
-> index b9c5792c79e0..b4035d3cef26 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -2,7 +2,7 @@
->  VERSION = 7
->  PATCHLEVEL = 2
->  SUBLEVEL = 0
-> -EXTRAVERSION = -rc1
-> +EXTRAVERSION = -rc2
->  NAME = Baby Opossum Posse
->
->  # *DOCUMENTATION*
 
