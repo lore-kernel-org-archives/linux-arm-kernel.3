@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45945C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FF3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PcEitUQ7aBgp23U4uLLQhI5MWC7RTaqbg7d+dJwBmfA=; b=EK+09cAU1Col51
-	Ah8HG2/aCa3pF3mZqg1QzSkxikEHg+NLhtbKzqKuVACgyblH7vh6G3Pftulcx2qWwDfaLGdX42Qw7
-	EaIxr7rkKy8A0BI6TCgaOlnN+MP8Ysh3zSoavlusfPTferCP0/c31yaK9qgACUCj98o1wFF/q11yL
-	+Gkn/BarJ4UFB2gHprP3xkNKFgI5XjOSwqzF3gk22x0yDJYPpq+9S5+GhPH2WSjBy6JmBFv/zhVhv
-	dpnrIeA9Wuv9HsYOMCdJ9WC5lNEsz90AEJNWYfPqHpUbDTRFlZwYI1hrd0xgNEtP82gIOula/cWWq
-	IVtLArfVhmFhidaK9vUQ==;
+	List-Owner; bh=kEljFHsuJuISnuULmv2RmQ8iXEh/7hR5zgTn8PDcgTw=; b=LQ+YP3MUBEeT5U
+	FXhRPFt2YG03B1jZSG21jDfdzE+TS4kN+oqEVznf2+vO9jtT/oRg74rktLNw4Ujh/kDc8i/v3Skmd
+	KmElML+cBwMpvssp6bhRZrBfeNxOo5qsCAfxeE35S5HZ1crO6/+xTfCmGbnlf6ELRIJlk7W1TuD0z
+	fFF/07L8d6FLMow9lQl9k2s9JG55knUjKtdFlzU+gWXyrID+DgZJ4BjbEiizUXhrCG1NwSozGRHls
+	ouZIT7jxauPIFyH6GM9+wfZALcg3f04APOx4KxjkFL6yzo3SfN7BRNeGI+XehV3ZUW+U+i9TmylvT
+	0BWKnzXLdBYG7orfYQ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whneP-00000002LQ7-41d6;
-	Thu, 09 Jul 2026 12:14:45 +0000
+	id 1whneU-00000002Lb6-05JI;
+	Thu, 09 Jul 2026 12:14:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whneB-00000002L2t-0r1E
+	id 1whneI-00000002LDA-4Be4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:14:32 +0000
+	Thu, 09 Jul 2026 12:14:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D0ED1476;
-	Thu,  9 Jul 2026 05:14:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8391339;
+	Thu,  9 Jul 2026 05:14:33 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 198473F66F;
-	Thu,  9 Jul 2026 05:14:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E21FB3F66F;
+	Thu,  9 Jul 2026 05:14:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783599270; bh=PfMzUp8Ln9LlpEiUiLTk6yFc58iA5EoxyYS31nwn9Z8=;
+	t=1783599278; bh=67WicmVx1P8Z4kJpZqODhmevJy2Mk4CfMR5Bf0K/2G8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mF9d61aULYPfStKUkCdzKcY+Dp88fXlHMIzxJYjMPPQwQBFlTYvqkVpHRPv5gIfu8
-	 5no8W/AoaIbo2DBzDhzhnA9maoFxolmqp6dVlHZrMaMib7VrdKFfWvo8WIFcvfTUnV
-	 8QqD6COUAJ6xMhBtqoJGWHL1Ea10e5DFS4PkneQ4=
+	b=UZ4FncR/8jRIf3RLBOXYD/ZelzPrra2NAM7E47kSL93dKjvJgyqWU44HMSomtYLFi
+	 qiivkPj+rNSLWSU2+Xb7PWxS8hV/TbmJH1V7aDlGlGdMlEx7GUfHFVgcfzobNoHSX7
+	 YUY3gxtPaZRBDGmTS3PoMYu1MlvNe6SWXibVUMxg=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 25/36] arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
-Date: Thu,  9 Jul 2026 13:13:22 +0100
-Message-Id: <20260709121333.23507-26-vladimir.murzin@arm.com>
+Subject: [RFC PATCH 30/36] arm64: irq: Report FEAT_NMI masking local IRQs
+Date: Thu,  9 Jul 2026 13:13:27 +0100
+Message-Id: <20260709121333.23507-31-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260709121333.23507-1-vladimir.murzin@arm.com>
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_051431_293657_4855BF24 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_051439_126147_8294B4F6 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,66 +67,91 @@ Cc: mark.rutland@arm.com, maz@kernel.org, ruanjinjie@huawei.com, Mark Brown <bro
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 
-Encodings are provided for ALLINT which allow setting of ALLINT.ALLINT
-using an immediate rather than requiring that a register be loaded with
-the value to write. Since these don't currently fit within the scheme we
-have for sysreg generation add manual encodings like we currently do for
-other similar registers such as SVCR.
+As we clear SCTLR_EL1.SPINTMASK when enabling FEAT_NMI, ALLINT masks
+IRQs and FIQs regardless of superpriority.
+Update irqflags.h and `regs_irqs_disabled()` to take it into account,
+so we properly keep track of
 
-Since it is required that these immediate versions be encoded with xzr
-as the source register, provide asm wrappers which ensure this is the
-case.
+We have documentation at the top of irqflags.h which explains the DAIF
+masking. Since the additional masking with NMIs is related and also
+covers the IF in DAIF, extend the comment to note what's going on
+with NMIs.
 
+Co-developed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 ---
- arch/arm64/include/asm/interrupts/common_flags.h | 16 ++++++++++++++++
- arch/arm64/include/asm/sysreg.h                  |  2 ++
- 2 files changed, 18 insertions(+)
+ arch/arm64/include/asm/irqflags.h | 17 +++++++++++++++++
+ arch/arm64/include/asm/ptrace.h   |  9 ++++++++-
+ 2 files changed, 25 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-index 6ce60d1519e8..72ed6e75d146 100644
---- a/arch/arm64/include/asm/interrupts/common_flags.h
-+++ b/arch/arm64/include/asm/interrupts/common_flags.h
-@@ -44,6 +44,22 @@ typedef enum arm64_exc_context {
- 	CRITICAL_CONTEXT,
- } arm64_exc_context_t;
- 
-+
-+#ifdef CONFIG_ARM64_NMI
-+static __always_inline void _allint_clear(void)
-+{
-+	asm volatile(__msr_s(SYS_ALLINT_CLR, "xzr"));
-+}
-+
-+static __always_inline void _allint_set(void)
-+{
-+	asm volatile(__msr_s(SYS_ALLINT_SET, "xzr"));
-+}
-+#else
-+static __always_inline void _allint_clear(void) {}
-+static __always_inline void _allint_set(void) {}
-+#endif /* CONFIG_ARM64_NMI */
-+
- static __always_inline
- arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
- {
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 7aa08d59d494..6d2c6bc1b985 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -179,6 +179,8 @@
-  * System registers, organised loosely by encoding but grouped together
-  * where the architected name contains an index. e.g. ID_MMFR<n>_EL1.
+diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+index b571d34bf11d..a291a231d644 100644
+--- a/arch/arm64/include/asm/irqflags.h
++++ b/arch/arm64/include/asm/irqflags.h
+@@ -20,6 +20,16 @@
+  * always masked and unmasked together, and have no side effects for other
+  * flags. Keeping to this order makes it easier for entry.S to know which
+  * exceptions should be unmasked.
++ *
++ * With the addition of the FEAT_NMI extension we gain an additional
++ * class of superpriority IRQ/FIQ which is separately masked with a
++ * choice of modes controlled by SCTLR_ELn.{SPINTMASK,NMI}.
++ * Linux sets SPINTMASK to 0 and NMI to 1 which results in ALLINT.ALLINT
++ * masking both superpriority interrupts and IRQ/FIQ regardless of the
++ * I and F settings. Since these superpriority interrupts are being
++ * used as NMIs we do not include them in the interrupt masking here,
++ * anything that requires that NMIs be masked needs to explicitly do so,
++ * but we do check for ALLINT masking IRQs/FIQs.
   */
-+#define SYS_ALLINT_CLR			sys_reg(0, 1, 4, 0, 0)
-+#define SYS_ALLINT_SET			sys_reg(0, 1, 4, 1, 0)
- #define SYS_SVCR_SMSTOP_SM_EL0		sys_reg(0, 3, 4, 2, 3)
- #define SYS_SVCR_SMSTART_SM_EL0		sys_reg(0, 3, 4, 3, 3)
- #define SYS_SVCR_SMSTOP_SMZA_EL0	sys_reg(0, 3, 4, 6, 3)
+ 
+  /*
+@@ -103,6 +113,9 @@ static __always_inline unsigned long arch_local_save_flags(void)
+ {
+ 	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+ 
++	if (system_uses_nmi())
++		hwstate.allint = read_sysreg_s(SYS_ALLINT);
++
+ 	if (system_uses_irq_prio_masking())
+ 		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+ 
+@@ -117,6 +130,10 @@ static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+ 	if (hwstate.daif & PSR_I_BIT)
+ 		return true;
+ 
++	/* SCTLR_EL1.SPINTMASK is clear, so ALLINT masks *all* IRQs/FIQs. */
++	if (system_uses_nmi() && hwstate.allint > 0)
++		return true;
++
+ 	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+ 		return true;
+ 
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index c630165882e8..096d85d75bd7 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -206,9 +206,16 @@ static inline void forget_syscall(struct pt_regs *regs)
+ 		(regs)->pmr >= GIC_PRIO_IRQON :				\
+ 		true)
+ 
++#define irqs_allint_clear(regs)				\
++	(system_uses_nmi() ?				\
++		((regs)->pstate & PSR_ALLINT_BIT) == 0:	\
++		true)
++
+ static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+ {
+-	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
++	return (regs->pstate & PSR_I_BIT) ||
++		!irqs_priority_unmasked(regs) ||
++		!irqs_allint_clear(regs);
+ }
+ 
+ #define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
 -- 
 2.34.1
 
