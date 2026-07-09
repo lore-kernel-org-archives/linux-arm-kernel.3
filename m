@@ -4,74 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCCAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9483C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2tewPeVsAxKBBt/hHzLYO7y76PO1MYevgazh3aupzok=; b=fhlQ7k6/x2aj+Rjqk6o4MFMgRf
-	UaKYpSOduXRDFvv99Ilz6mi124/qHzO5dgI4WJDEi9MSDWk66Jx7q+yyr8WD78EHFfdQEEBd7iY6o
-	CUsly0JjPDKs1TUB61ZAYEhoD6Ydc02SExtpwkqGjS7K6dZD46DJQGd8AFcP5sEo1k38ldzUdkk7T
-	4sT22ZM+IUtqLaNbGY7YRC8w04QozfsZzF8x8cEZuLX7zUQv4EWL3mcuQw3wk8TOZpHkYnpzo+4P9
-	mERfXTAbIgSJ7mDWZob/t6jIWIxkiLfc/gXcPXyVw8oSVI7tE7V5zDEKYdNC6nmqsNmJ7e3nBePgW
-	4/NFkusw==;
+	bh=g8bbQ0UFrJNgIEmJIIRtCAu5z0XVNIydSzCgLYqggsw=; b=ROVZCmg5qa5gare5dYWj2Fblh3
+	s52X4Gedu0XP2lp7InFvWNYA/0uZN5ozf87aPlDOAR6mQvdhQdH6hzgqRfZC5Q2HyXqkqBFiYs4+x
+	YC9BvlaWmvvy/kCR9Eeu3Wuqa+rM+brsQKjwg/nVY/uxgPuSR0UN8vzCKKfoym/+NGJ+NySdaoBTz
+	w+zNj8mh09jtmtXrG5sUBfVYDTQrGwliw0JFK8CcssBoPJSb4M+6NF3kNvCwSsMAbeHYYpcGk/FtO
+	DKeGHw6AxAstcl2piaGBUzSQ9EUDc7iURHMNnCoHYLu0SusJEN9erBBI6xS56la00JGxVS2W4szzO
+	68HhYhww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whorZ-00000002ZF7-3dT8;
-	Thu, 09 Jul 2026 13:32:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whp1h-00000002al5-0HVZ;
+	Thu, 09 Jul 2026 13:42:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whorY-00000002ZES-3BHx
+	id 1whp1f-00000002akf-0lKA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 13:32:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EE0C40C3F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:32:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF371F00ADF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 13:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783603944;
-	bh=2tewPeVsAxKBBt/hHzLYO7y76PO1MYevgazh3aupzok=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=iVOSba0zKtGQZJDwP6Ch8En1yzWDPJ7FpupRO9mNJugTmRp4X9Hzn8Yx3Ant60nxh
-	 L5SMnh010N74dTKHcIbaemwoiXvYn9EZlCUpGml9M+QVmcmqAM6bWe7eA3/8xdEVbz
-	 lfF+LXeTKC6s8Nej9STb1lHQSGMqPDIiaV/SFtp3/KVUkgl4GMysE5oM1TFaw7YJp0
-	 wZwzy9Avc+Spwityl5htaw+oROAMDMd4/1Ye/fXlvq4TzwRozafubrsGjQumOnzsEg
-	 eVv3ahzvNgN5wTs+JOc4gS2d1GGyJr52jGcTlKBg4OQGkC2FylDN8XCS43AewDMz8U
-	 pdrxTfHraYYmQ==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so2090172e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:32:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpkZpvj74Jy8Zh37f4zRSi5MnC3UsWnLU/ayBqwigYsL/+zsI/Ae4lBeIG7dlzAXlYSOYXMIdOiD1UAGyCs0O9D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw639Kdn/gx/SqnmElG7enC9ju4msbaQ6rX4JBYoccjBFUJubDM
-	AwrYs9r+CoTw+BcyGaqiHjEn008QUTKu9HgPpjlRynKf9wza5J9ddGJ39ATiP/BTQM4YtoQvkWM
-	GWnQRy0bOfkwAZM+3s1meYV8ltlbYUsc=
-X-Received: by 2002:a05:6512:64a8:b0:5b0:12cf:ae3f with SMTP id
- 2adb3069b0e04-5b012cfb1e8mr1407950e87.31.1783603942165; Thu, 09 Jul 2026
- 06:32:22 -0700 (PDT)
+	Thu, 09 Jul 2026 13:42:52 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 669BN7tL1537225
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jul 2026 13:42:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	g8bbQ0UFrJNgIEmJIIRtCAu5z0XVNIydSzCgLYqggsw=; b=F9Hch3o4T7NJsf1P
+	wYr85a/DCvN6Lk4nLUGhMp6PTQ8FGNyRBL4yiBFkchly0uHRxjitwucI7vHbO41Q
+	tJnar2UtGCxsFj+B9TnV3UlOd8lNnGyad1xFdI9HqkhQGq1dnAAE75yCjkndoECa
+	R4gcK36CkRDIXEBDX1V7M1Han+SiynAuFBVvkiZwvIWLJuLueTQRYwWZH1yDT+z2
+	4fLwJINlvXvRhk4t6gZnB0o7DCb9bUdfxln07nk7QowDBzRE+SHAg+wyvCC9DSbz
+	Mmq2P3Ufltc2M6WYNQiyUmUJ/CIbHY6mcohhCoLsG2pqULDA3YRb2fhaUH9vjLSW
+	DbQShQ==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fa1ydtycw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 13:42:50 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3810e5c5871so3475960a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:42:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783604570; x=1784209370; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g8bbQ0UFrJNgIEmJIIRtCAu5z0XVNIydSzCgLYqggsw=;
+        b=S+VRDJ9o6TfxvXkt/C0iTlc1S+dDFBIU6yL7HVoWI5Y1Y8PrifpFM7toXHgDDJyq/g
+         PujXMFAFBzloBkmjg0343llhiFnAxHvL3Gi/rhi3Ky/ECJcMTPbzv8oHtEOdSkOBJix1
+         U2bgogqaRhn4laz+grTA7H0DEgQpHg1U5WbcGPPpCV6gqZdfU+h5kZ03ZO4sWIBGw7Sm
+         AOl+Hk2h57JkRozPtC45ngQztVzfKb0gT8lms42GQREfab3obtOiaVb1qPzea1fXHPyy
+         +1ebm0+nHYC0XZoLy/Z5Ix5gAjOw54A6Z178sGNuQMjyyc+kuJnoFs9kBFlF6rdNQmau
+         mgsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783604570; x=1784209370;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g8bbQ0UFrJNgIEmJIIRtCAu5z0XVNIydSzCgLYqggsw=;
+        b=MV6pe79TWeWfUuyS7Htrk7SrxIe5u0paJp7mKo45zgtv48JqmQ7aEj3UHxyGPuLWEH
+         BDFZk7oPO8XVIvW+cjooFr2gCiPIbwYQKB96zpYEbBclDLQBHXUP5OL8w4BPuv+dws4d
+         C5UcxKBmcOlydNnmvfAmGSqqSJWUmdzgBbhb4jj/P1/24Kh0Z/hbeTUlnwSwGzA+mtts
+         yhKHNq04lpdcbx/2sTUiEr4aHh7C6yKTNkRVIlguOohVtsrHbeoATiPBlYd0Hr3EbW6J
+         Fy6jPXRGBHWdQYIpbxxH3lvFyG0PLb+7oCyJOzvmsoPTuBIzKj2STebNY6Uq6Ko073Ln
+         enRA==
+X-Forwarded-Encrypted: i=1; AHgh+RpMqLoEUOoLHNP5CUIXs3MbSjn4+zeozg/1Qpi+t4Rq3xgjlC+4GxqIb0AM/WV0guyjrEt1mrX6OSBal/3U863t@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyJewowry7Yev+sxwktVCp6qbYbPIV717fDAO1pAD8VSoDupg1
+	0h0OXv9s+78Vbks43hg0cTH+5JE8aXf9Bhz+wFKZXkX8yUEu0sE6Q9PFpdFab+XNoXe8wzitKQt
+	7+Mqmp7FFlSD0QamWLRAsqe35VnNIKcLDpUYdJZ2RJUDuJUhpFIcGNvfyIZsNf5CcvqY8P6ZU0p
+	R+1w==
+X-Gm-Gg: AfdE7cnfd4zJqDNQLlhtjohfqn/DJU7Csl8o6Vcv/nFMwIEEdKtR/+xMVB4JCm70L/P
+	AQHRhOtOOXor92hKan5it8ppJbVobXI27pxAc8CUzp+KKMgwEBV9SRLRQG2EYE3JsRuO/GVUbBO
+	UMnNe4O3uxxUIFoFnEwJpAUvp3zAmvmIZ50lN7HknI8b3xYcGr07JbSLDEMoPJP26CLObHvJB5A
+	cZY51pj6KgZLsN4YSeI7A7cPCcZfxnk2zp+T7t38RkuY8Xz/emZVBtFIOEjs8guhsaIUK3UPzaQ
+	wM2DKVFrQPr5S2ExfidmNAIyxn71BgRgi3rF/Q0kQzVihm30na5uE1PvGeUVEcXF5D5x95oXE06
+	K/cyO8ye3BQ+/48Tc64nwjz/cQBdfSS3BR1Y=
+X-Received: by 2002:a17:90b:2d91:b0:381:1c96:829b with SMTP id 98e67ed59e1d1-38941102108mr6904992a91.3.1783604569736;
+        Thu, 09 Jul 2026 06:42:49 -0700 (PDT)
+X-Received: by 2002:a17:90b:2d91:b0:381:1c96:829b with SMTP id 98e67ed59e1d1-38941102108mr6904955a91.3.1783604569291;
+        Thu, 09 Jul 2026 06:42:49 -0700 (PDT)
+Received: from [10.204.104.211] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174892711sm32820196eec.13.2026.07.09.06.42.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jul 2026 06:42:48 -0700 (PDT)
+Message-ID: <54cb37bb-aaa5-4c5d-a563-acca4822dd35@oss.qualcomm.com>
+Date: Thu, 9 Jul 2026 19:12:39 +0530
 MIME-Version: 1.0
-References: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
-In-Reply-To: <20260709-gic-v5-acpi-iwb-probe-deferral-v4-0-48dae790f871@kernel.org>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 9 Jul 2026 15:32:10 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hDK+C+ZJ4YKd0xbyHW+vEot9z-YrivWSrg1ag7Ebx4cA@mail.gmail.com>
-X-Gm-Features: AUfX_my3RabqhVkiaUs2JZU-hHXS-RHiCuP5fgE1pk66iBa2OI-yzz3XlXSUIdk
-Message-ID: <CAJZ5v0hDK+C+ZJ4YKd0xbyHW+vEot9z-YrivWSrg1ag7Ebx4cA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/7] irqchip/ACPI: Arm GICv5 IWB ACPI IRQ probe deferral
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Sunil V L <sunilvl@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 03/13] drm/msm: look for lpac from dts
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-3-01d50c3e0c99@gmail.com>
+ <rwohvfbsw2brpxrfg26egu5arwe6g7n2etelo33eegmu5cz65k@3syofuxzsjrc>
+ <dc5aef2e-600e-4e97-b76b-dcc8bd72c709@gmail.com>
+ <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <m4vwrqt6yyaawpvkyrqfzs3kbipbhygmtrhphuthl2gmjvkgyt@u2d3dnvl2phy>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA5MDEzNSBTYWx0ZWRfXx0kFAqFEvXXb
+ a7Q5sd4Pt436pSCVWw1/+qczEfm/YyigoOkEnpKioDDGYIK5x5eA5j+Ym/mH2N6d14XZdo922O7
+ mA15yVSRJ7yKNBkONiXhgMPcRuaLmPo=
+X-Proofpoint-ORIG-GUID: H386puLLmCqtz5bP52xbXjz9ZT47Jpyk
+X-Authority-Analysis: v=2.4 cv=cOLQdFeN c=1 sm=1 tr=0 ts=6a4fa55a cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=9jRdOu3wAAAA:8 a=pGLkceISAAAA:8 a=mritAz9d6wIG9kTKuDcA:9
+ a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22 a=ZE6KLimJVUuLrTuGpvhn:22
+X-Proofpoint-GUID: H386puLLmCqtz5bP52xbXjz9ZT47Jpyk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA5MDEzNSBTYWx0ZWRfX09VHtDbj1cIO
+ AGKPkzgnRxdu9to2Idp9ZSN0zfIoD1ndzoiJXuOUvbcxO1rUxnm7kP85vwJLvIiC4WJFbbuZBwl
+ idlQNmRKnpQew2fv6g+9CfqLTC/msLNvwpKAtpK9PG/fnqX70l3ZlnOEgpY7hTw6agtjdDK4AaG
+ IrAKh+QhUjoG04QNFDpegeoJZuDFcC8p3W0vRC47v5A0ao02DNqwbg87WPB8SOtiiigPcCnxPPv
+ qs5nE1DoqoTqR5307bHtr2asSIqlWwaNyatg9eizx/z0kqI3XAlDwJP7UzBiGC0ap2dkh4QulcG
+ XDJcXX6tYKcWel2OrvsGXuE3tWytLLCkThu9fsjSu3WYk681m+EG7mm02Oq/ac2XqEoER9A057K
+ g1uKBZIVcHBRcbwTrDtbziW5vl++1mK+BbONxZ3fwTTjBY1C5aXaqopqHJXodqF8naznFGIxO9D
+ tYgnA+ALVV0lzGecgFg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-09_02,2026-07-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 bulkscore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 suspectscore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607090135
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_064251_229744_EF873D18 
+X-CRM114-Status: GOOD (  27.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,103 +171,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 9, 2026 at 10:41=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@kerne=
-l.org> wrote:
->
-> On Arm GICv5 systems, the IWB (Interrupt Wire Bridge) handles wired inter=
-rupts
-> and it is in charge of translating interrupt wires to GICv5 ITS messages.
->
-> In ACPI systems, an IWB is backed by a platform device. Device drivers fo=
-r
-> devices whose IRQs are routed to an IWB might probe earlier than the IWB =
-device
-> driver, which can result in failures in that until the IWB driver is prob=
-ed and
-> its IRQ domain is duly registered, IRQs routed to it cannot be resolved.
->
-> Some interrupt controllers for the RISC-V architecture suffer from the sa=
-me
-> issue; RISC-V, in its ACPI IRQ layer solved the problem by automatically
-> creating device dependencies that result in the interrupt controllers dri=
-vers
-> being probed before any device driver whose devices IRQs are routed to th=
-em is
-> probed.
->
-> Instead of reinventing the wheel, this series move the aforementioned RIS=
-C-V
-> code to generic ACPI IRQ handling code (while fixing some bits and pieces=
-) and
-> implement GICv5 IWB ACPI probe deferral on top of it.
->
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> ---
-> Changes in v4:
-> - Applied v3 review comments and tags
-> - Link to v3: https://patch.msgid.link/20260701-gic-v5-acpi-iwb-probe-def=
-erral-v3-0-c5562cf0fe29@kernel.org
->
-> Changes in v3:
-> - Added stub to clear ACPI device dependencies
-> - Added review tags
-> - Rebased against v7.2-rc1
-> - Link to v2: https://patch.msgid.link/20260603-gic-v5-acpi-iwb-probe-def=
-erral-v2-0-23ffa16b6ebb@kernel.org
->
-> Changes in v2:
-> - Split the patchset in several logic units according to review
-> - Link to v1: https://patch.msgid.link/20260505-gic-v5-acpi-iwb-probe-def=
-erral-v1-0-b37b85998362@kernel.org
->
-> To: "Rafael J. Wysocki" <rafael@kernel.org>
-> To: Len Brown <lenb@kernel.org>
-> To: Sunil V L <sunilvl@ventanamicro.com>
-> To: Marc Zyngier <maz@kernel.org>
-> To: Thomas Gleixner <tglx@kernel.org>
-> To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> To: Huacai Chen <chenhuacai@kernel.org>
-> To: Anup Patel <anup@brainfault.org>
-> To: Hanjun Guo <guohanjun@huawei.com>
-> To: Sudeep Holla <sudeep.holla@kernel.org>
-> To: Catalin Marinas <catalin.marinas@arm.com>
-> To: Will Deacon <will@kernel.org>
-> Cc: linux-acpi@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: loongarch@lists.linux.dev
->
-> ---
-> Lorenzo Pieralisi (7):
->       ACPI: Add acpi_device_clear_deps() helper function
->       ACPI: RISC-V: Fix riscv_acpi_irq_get_dep() loop termination
->       ACPI: RISC-V: Check acpi_get_handle() status in riscv_acpi_add_prt_=
-dep()
->       ACPI: RISC-V: Fix riscv_acpi_add_prt_dep() loop handling
->       ACPI: irq: Move RISC-V interrupt controllers autodep to ACPI IRQ co=
-de
->       ACPI/IORT: Implement ACPI infrastructure to enable GICv5 IWB probe =
-deferral
->       irqchip/gic-v5: Enable GICv5 IWB ACPI probe ordering detection
->
->  arch/riscv/include/asm/acpi.h       |   1 +
->  drivers/acpi/arm64/iort.c           |  22 ++++-
->  drivers/acpi/irq.c                  | 172 ++++++++++++++++++++++++++++++=
-+++++-
->  drivers/acpi/riscv/irq.c            | 141 +----------------------------
->  drivers/acpi/scan.c                 |   1 +
->  drivers/irqchip/irq-gic-v3.c        |   2 +-
->  drivers/irqchip/irq-gic-v5-iwb.c    |   2 +
->  drivers/irqchip/irq-gic-v5.c        |  13 ++-
->  drivers/irqchip/irq-gic.c           |   2 +-
->  drivers/irqchip/irq-loongarch-cpu.c |   2 +-
->  drivers/irqchip/irq-riscv-intc.c    |   3 +-
->  include/linux/acpi.h                |  13 ++-
->  include/linux/acpi_iort.h           |   3 +-
->  13 files changed, 223 insertions(+), 154 deletions(-)
-> ---
+On 7/7/2026 10:09 PM, Dmitry Baryshkov wrote:
+> On Tue, Jul 07, 2026 at 05:02:43PM +0200, Anna Maniscalco wrote:
+>> On 7/6/26 5:04 PM, Dmitry Baryshkov wrote:
+>>> On Sun, Jul 05, 2026 at 09:13:37PM +0200, Anna Maniscalco wrote:
+>>>> In order to associate the SID used by LPAC to it's own domain and
+>>>> context bank we need a separate node on the DTS.
+>>> Can we use iommu-map instead of adding a new device using the same
+>>> addresses? You provide zero explanations, but it seems like you are
+>>> trying to separate a part of the GPU into a separate device, but it's
+>>> unnecessary.
+>>
+>> What I was trying to say is that we need to map sid0 and sid1 to different
+>> context banks.
+>>
+>> From what I recall, so long as we use the same dt node, the iommu drivert
+>> provides no way of doing this.
+>>
+>> What kgsl does is having a node for the iommu and then subnodes for gfx lpac
+>> and secure.
+>>
+>> The address on the lpac device doesn't really matter. I have very limted
+>> knowledge of DTSs but I think we could just leave it out altogether?
+> 
+> I think, you were poined to the Glymur Iris patches. Another option is
+> the QDA driver being submitted too. Both ot them use iommu-map to
+> describe the same usecase - a set of SIDs which are used by the device
+> but which should not be a part of the defaut set. With it in place you
+> don't need to have separate qcom,lpac devices, no additional properties,
+> etc. 
+> 
+> I'd recommend following the same approach.
 
-All applied as 7.3 material, thanks!
+iiuc, the conclusion in this recent thread is to use child nodes for a
+similar case:
+https://lore.kernel.org/all/20260618151745.GD231643@ziepe.ca/
+
+-Akhil
+
+> 
+>>
+>>>
+>>>> Add the code to look up that node on initialization.
+>>>>
+>>>> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>>>> ---
+>>>>   drivers/gpu/drm/msm/adreno/adreno_gpu.c | 21 ++++++++++++++++++++-
+>>>>   drivers/gpu/drm/msm/msm_gpu.h           |  1 +
+>>>>   2 files changed, 21 insertions(+), 1 deletion(-)
+>>>>
+>>
+>> Best regards,
+>> -- 
+>> Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>>
+> 
+
 
