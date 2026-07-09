@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D80FC44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 04:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505F8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 04:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awUJTEIa7g3yBed2Klo/gvRsPy9nUmrKXk19wqIJEdQ=; b=Xx9P6OT6C3fgx886bz3zhPYDp4
-	q75yoIQdjzOX+lSCbmWmU/xQ3dCaPA+3JV4gRkHaonU5dfeFeKK79HoKIqQBIqBtc8DeC0zYWmYCK
-	DPvIpcXJo4HV7h4itDmfBA9mIsc7K0e4rBDOK08SB4m/khKJCN2AIyaztOzxCLaUrQfozRwZOKyqQ
-	PxTLjLN4hFhJkC77I+B0FMIcZj+SZIo110YsMzIfscLquJl+5KrJrXV7+yBLt7c56eZZqDLAeYNnF
-	OPfcPL+z6rfR7qjM+j5aeNg4LbRW3zZDQd/7wIJlvUeMUs6wE7T7V6YI267nVXTxPc/IUkSEYfGRQ
-	aNx01vtQ==;
+	bh=K26mBfWTEhCgyKuaP+D1jacUWyTXVy3FDjUtVm+Ftzw=; b=Q21C5rcW+rEkHvY5cs6gDKm9K9
+	6DX3FZAY1gIiM7WmuuJwvZtDeTOjFyurMSvVcXXT2WDhjV2RwL4Z+L6346Gb7ejeHqnzjIDsi/Vp9
+	JC5ZiukbYPca98BQMXqZzPUDg36mBwyPicMNVchyUgwS/5Lin8qRjnxAs4ZBY4Iv8/BLAEeUg8oY6
+	UhonFANk/sNc+2dDyaFpBADZR8hJFJ3uBRCNwL8wY6ckwP7cTLKKjo5KOdWSgKXoR+YAGWNyWfmAx
+	wzYOGjckZ4W97scGd8NMc5e7H/FVPNMRiSDSHbKkYTB7xIjJccjnu+zVHHUwb3oWqG5szaW69U94Y
+	5vFLxh3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whgl7-000000010YL-0QhL;
+	id 1whgl7-000000010Yd-0qzm;
 	Thu, 09 Jul 2026 04:53:13 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whgl1-000000010Vz-3p1T
+	id 1whgl3-000000010WV-2zNi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 04:53:09 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84862b0d5f8so15779b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 21:53:07 -0700 (PDT)
+	Thu, 09 Jul 2026 04:53:11 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-381018b9375so1569777a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 21:53:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783572787; x=1784177587; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783572789; x=1784177589; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=awUJTEIa7g3yBed2Klo/gvRsPy9nUmrKXk19wqIJEdQ=;
-        b=HSy2tuk+bXsptjhYeGc8bDkyH27e91s/IXX+4qCPk2sy6vheHAsoD4vAsqwX29R47m
-         B2B46Jubs0VFz+pnDbH9yL3Wn+DHq0G2P48r61vTmsIaSpzdpQROSVSNmzzvkh4bV2O1
-         3youxukxmGgEgwYQiEUDFm00HyFkA++m/WF74fmbh9LblkhUuH54Ys6OoUzZ7oSEOUwa
-         2Wk9VeWPaD2HQJ32nr6cT/Zfav3c7VxtytmLWX5uAvsQWaRZXJoqdJBCr06wK36d1ILD
-         hmwvf+cbZsbckiPydtPoqoB9IUwxARBgQDMI1JpUErWtxTC+GS3cbnogRjKSrQQf3Fa0
-         KLoA==
+        bh=K26mBfWTEhCgyKuaP+D1jacUWyTXVy3FDjUtVm+Ftzw=;
+        b=i6AgQRYUBWYU6Nxu+5iU28deFcopJ0kQJn4Z38jQk2y5Gh1h0gc74KQTeNmHtnetro
+         fI4vXbXWnquA+hSEGLwmAIysOulDDNA7k2SwUMq6t9SOjNjIQdHhDGKuPLEzZczoWLV4
+         ahpf+upP8QOaEQIDashpiYtweFLR85AC3qmh3SaSddPvrZxcarQnzA1DWM7evvvVitri
+         Use9ou4w4rQqYtEkTkKZA+7zEG0NZTdWTfj91NQb9dypK8n5+9faAc2IzlLRPWd+LqMi
+         jKfGmDOi1YYPimvx0d/sPdPxrEPSTCMeQkWB1cBtvQeI+chTiR4dl1hvsWwqtTY9SX2O
+         R76A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783572787; x=1784177587;
+        d=1e100.net; s=20251104; t=1783572789; x=1784177589;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=awUJTEIa7g3yBed2Klo/gvRsPy9nUmrKXk19wqIJEdQ=;
-        b=Y5fg4p5JdHR+r1YLS1B7/NYXf6uSsciq2to5/sc/FBTD+B2rGcZi+EptE0ZryWzB1A
-         WTe22pE6JrecJWXpk3id7aMbl25cUf/3AUhVHonlR1IwoSjjhXvehRfLy3qBt0eKdQzl
-         ZzkElPkh43qnu07MpjUWdhx/fm5/APvdZb6/y8329RD+cY7erhoMec3cLGG6IPPwiPHQ
-         gOOkW/9gsjC1dF4DZ2RUTczjNEh9DCji4nTBCZgy0Gpo9tR+Knfph6TWWM8jM1dDPrDC
-         pEtv+tboEFBYJdYVIJOk/L0IoYpgfsoSiaRKZEFpWhERIjpxbMF1IT9qyrBFyhF4DRah
-         YkaA==
-X-Forwarded-Encrypted: i=1; AHgh+RqTToYpwvHx3V1nqsI4p9NUF52jz8ktFpN3V8zkelNQ/NwnvFiz+uk3KRLJQE9b40DlShy5r5e/qQqXqhYSiQL3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8+pC8NkUNNY7OBePtysnGAWz64Vjodabs+ZEqYK4wF+hCO/xp
-	j26hY2nYoNkPaO0F77H5joczhGUl7B3HdXyb0q2J+B93dhq2+lmbdAPr
-X-Gm-Gg: AfdE7cmB6FppKGXF/JvxyQFByox/Z+b5kH8sk0onGOVfz0amWZLJsyN3Sop/LbfaHdk
-	YSnimSN/IyZuBPcq3gTx1p4eu3KwJFXWmHkCI6gzQMpit9tmanf5APy76p5IQL3hb5ph8Zbx+3I
-	6cffB3VYILTO1UesNK+74IPiuhBBrTJnViRbcH/TXvPO+0OuGGtl/2WWIgOHyLYDrsRuDwouY+W
-	+fMiN2WKBtdpUBbZofle2v80Enb37hDYaJFwe0pPW8qooluEmgMi+7yLnGAfULTt9lt2kGTWP1a
-	WHiomohtepG8qQYjMdgoFaZbGl1xNgghGMwsJAV1w5e0LIajykqJ6R3kAcwowIRR0cooAHa4DnX
-	Mb4tNHR87yAyZv0RA+OpH/JLcwLq3VIqO/pBghWCshNavLjmGCwQ2NmGb17ys3R7k8JgvzWeYzd
-	0SfjEh+f0kcTuVwJerAqt4gfeOxUl9MG+ap2mcuNCVWYbEsmb6HSUj1cwZL69hdQ4Ead3Db4+ON
-	eev
-X-Received: by 2002:a05:6300:2213:b0:3c0:b766:750c with SMTP id adf61e73a8af0-3c0bcc1a69bmr6988432637.58.1783572786880;
-        Wed, 08 Jul 2026 21:53:06 -0700 (PDT)
+        bh=K26mBfWTEhCgyKuaP+D1jacUWyTXVy3FDjUtVm+Ftzw=;
+        b=Pdu//rGqI/bS/sWxQXJpLKUeHGlAyoGyVnmPwcLzBR+orrLKSXsujWP5zlj5s46gql
+         +00RQVy7J4Pi7FU6U94PS58hiJYhZegkDxCZpuDtm90MegshKKFrOCvukOcs31WvpUAd
+         cnlqtaFot4xOSqNWQVC9ZbIe9UlqSfg6B1ExAX5EQ9j5wYTQD+dyHuvaBqR5sfvx9QuI
+         HIHzO7p3Bd9prBGYCCqpevbW/Pqr8obqulvO5FRhiL/9eKASqa1ukq4btQCoBehaYYu1
+         Xxal5Xy8n59gQcezl4KmCFZ1rpBh5bZp5fBh/X4j6B4zclcVJn+UR8stP22x0E+4XdlJ
+         9gLg==
+X-Forwarded-Encrypted: i=1; AHgh+RpORVZqpADbi3CZWjuNz9prsvDz+whqfD7+uo0afMx6E6dwaCSLh6z0incnBFvNwrTQCYewC3XIHk+7QPxX190b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAHqoae9IgWQsEsjRtbD0btL+zEyvWHt3RtsQN5cl4RPSgG9zg
+	fqP0PftHo00JcXPekCbkDp5QUVXY3yXcW2qELCuIoN2wZv1LHic8Y8Bz
+X-Gm-Gg: AfdE7cku6PLMRHkS+nPcgOei8v36Skdv+OFqxDRAekTC9Cz6eO8I0hXnRYt/Sw67qQ8
+	6nVZb76sj2ZfoojWmu4QnSgDKWLLgAaMiDPwnMm6vYTBvZLwzWMsa96SWUSWvplQdRfoqpzEYJz
+	TVxcmm7mxUXCwtE8NmnQD1RoDcjChStMxBesJGy3YWF+7M8awID7Tm8Dce8vY+jAZExBKc6j2+D
+	vxB9+LpoPdLz+96/ks5v423UTV2dnHUBVfsiFWjeDW4e4uayuiSQYl8OlkltbRDBKZPhsnxa8br
+	j1QWVk/wKxx9AaFzCO9oc00mlBMoY8rmBD6KRy8coJnA2LooLgy8tHSrBZNm4LToFdfvSdBoBs+
+	RGk50qczzGWoL2orF4V9XZGEbrzjt8yO26Ou6AyPvwIDJWZhdmOJ+AWHU4Wk17fxig1tPMCxs84
+	n+Vx4ADtDwsrZ7s3sbngtAVX/ghSWeVcuTPqI+Xn155bQqHToCsoJYK0ZPikd1eKlbo66lpL63O
+	qT+
+X-Received: by 2002:a05:6a21:670b:b0:3c0:9c19:65b5 with SMTP id adf61e73a8af0-3c0bcc3ae41mr7443493637.61.1783572788693;
+        Wed, 08 Jul 2026 21:53:08 -0700 (PDT)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:e229:88c8:fd09:9a39])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b658a99afsm26559252c88.0.2026.07.08.21.53.05
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b658a99afsm26559252c88.0.2026.07.08.21.53.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 21:53:06 -0700 (PDT)
+        Wed, 08 Jul 2026 21:53:07 -0700 (PDT)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Wed, 08 Jul 2026 21:52:59 -0700
-Subject: [PATCH v2 01/11] dt-bindings: input: samsung,s3c6410-keypad:
- introduce compact binding
+Date: Wed, 08 Jul 2026 21:53:00 -0700
+Subject: [PATCH v2 02/11] Input: samsung-keypad - handle compact binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260708-samsung-kp-v2-1-3c6ed4c9b3b6@gmail.com>
+Message-Id: <20260708-samsung-kp-v2-2-3c6ed4c9b3b6@gmail.com>
 References: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
 In-Reply-To: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -95,8 +94,8 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-input@vger.kernel.org,
  patches@opensource.cirrus.com
 X-Mailer: b4 0.16-dev-b242f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_215307_956741_552E00EA 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260708_215309_766839_FADD99F9 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,102 +110,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The binding with a sub-node per each key is very verbose and is hard to
-use with static device properties. Allow standard matrix keymap binding
-in addition to the verbose one.
+Add support for standard matrix keymap binding (in addition to the
+existing verbose binding with a sub-node for each key). This will
+allow easier conversions from platform data to device properties when
+using static device properties.
 
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- .../bindings/input/samsung,s3c6410-keypad.yaml     | 53 ++++++++++++++++++++--
- 1 file changed, 50 insertions(+), 3 deletions(-)
+ drivers/input/keyboard/samsung-keypad.c | 130 ++++++++++++++++----------------
+ 1 file changed, 66 insertions(+), 64 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/input/samsung,s3c6410-keypad.yaml b/Documentation/devicetree/bindings/input/samsung,s3c6410-keypad.yaml
-index a53569aa0ee7..2498c62444a1 100644
---- a/Documentation/devicetree/bindings/input/samsung,s3c6410-keypad.yaml
-+++ b/Documentation/devicetree/bindings/input/samsung,s3c6410-keypad.yaml
-@@ -37,6 +37,10 @@ properties:
+diff --git a/drivers/input/keyboard/samsung-keypad.c b/drivers/input/keyboard/samsung-keypad.c
+index 17127269e3f0..b9d4ea5f202a 100644
+--- a/drivers/input/keyboard/samsung-keypad.c
++++ b/drivers/input/keyboard/samsung-keypad.c
+@@ -231,83 +231,83 @@ static void samsung_keypad_close(struct input_dev *input_dev)
+ 	samsung_keypad_stop(keypad);
+ }
  
-   wakeup-source: true
+-#ifdef CONFIG_OF
+-static struct samsung_keypad_platdata *
+-samsung_keypad_parse_dt(struct device *dev)
++static const struct matrix_keymap_data *
++samsung_parse_verbose_keymap(struct device *dev)
+ {
+-	struct samsung_keypad_platdata *pdata;
+ 	struct matrix_keymap_data *keymap_data;
+-	uint32_t *keymap, num_rows = 0, num_cols = 0;
+-	struct device_node *np = dev->of_node, *key_np;
++	struct fwnode_handle *child;
++	u32 *keymap;
+ 	unsigned int key_count;
  
-+  keypad,num-columns: true
-+  keypad,num-rows: true
-+  linux,keymap: true
+-	if (!np) {
+-		dev_err(dev, "missing device tree data\n");
+-		return ERR_PTR(-EINVAL);
++	keymap_data = devm_kzalloc(dev, sizeof(*keymap_data), GFP_KERNEL);
++	if (!keymap_data)
++		return ERR_PTR(-ENOMEM);
 +
-   linux,input-no-autorepeat:
-     type: boolean
-     description:
-@@ -81,12 +85,33 @@ patternProperties:
-       - keypad,row
-       - linux,code
- 
-+dependencies:
-+  linux,keymap: [ "keypad,num-columns", "keypad,num-rows" ]
++	key_count = device_get_child_node_count(dev);
++	keymap = devm_kcalloc(dev, key_count, sizeof(*keymap), GFP_KERNEL);
++	if (!keymap)
++		return ERR_PTR(-ENOMEM);
 +
- required:
-   - compatible
-   - reg
-   - interrupts
--  - samsung,keypad-num-columns
--  - samsung,keypad-num-rows
++	keymap_data->keymap_size = key_count;
++	keymap_data->keymap = keymap;
 +
-+allOf:
-+  - $ref: input.yaml#
-+  - $ref: matrix-keymap.yaml#
-+  - if:
-+      required:
-+        - linux,keymap
-+    then:
-+      properties:
-+        samsung,keypad-num-columns: false
-+        samsung,keypad-num-rows: false
-+      patternProperties:
-+        '^key-[0-9a-z]+$': false
-+    else:
-+      properties:
-+        keypad,num-columns: false
-+        keypad,num-rows: false
-+      required:
-+        - samsung,keypad-num-columns
-+        - samsung,keypad-num-rows
- 
- additionalProperties: false
- 
-@@ -94,8 +119,9 @@ examples:
-   - |
-     #include <dt-bindings/clock/exynos4.h>
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/input/input.h>
- 
--    keypad@100a0000 {
-+    keypad1@100a0000 {
-         compatible = "samsung,s5pv210-keypad";
-         reg = <0x100a0000 0x100>;
-         interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
-@@ -119,3 +145,24 @@ examples:
-             linux,code = <3>;
-         };
-     };
-+  - |
-+    #include <dt-bindings/clock/exynos4.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/input/input.h>
++	device_for_each_child_node(dev, child) {
++		u32 row, col, key_code;
 +
-+    keypad2@100a0000 {
-+        compatible = "samsung,s5pv210-keypad";
-+        reg = <0x100a0000 0x100>;
-+        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clock CLK_KEYIF>;
-+        clock-names = "keypad";
++		fwnode_property_read_u32(child, "keypad,row", &row);
++		fwnode_property_read_u32(child, "keypad,column", &col);
++		fwnode_property_read_u32(child, "linux,code", &key_code);
 +
-+        keypad,num-rows = <2>;
-+        keypad,num-columns = <8>;
-+        linux,keymap = <
-+          MATRIX_KEY(0, 3, 2)
-+          MATRIX_KEY(0, 4, 3)
-+        >;
-+        linux,input-no-autorepeat;
-+        wakeup-source;
-+    };
++		*keymap++ = KEY(row, col, key_code);
+ 	}
+ 
++	return keymap_data;
++}
++
++static const struct samsung_keypad_platdata *
++samsung_keypad_parse_properties(struct device *dev)
++{
++	const struct matrix_keymap_data *keymap_data;
++	struct samsung_keypad_platdata *pdata;
++	u32 num_rows = 0, num_cols = 0;
++	int error;
++
+ 	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
+-	if (!pdata) {
+-		dev_err(dev, "could not allocate memory for platform data\n");
++	if (!pdata)
+ 		return ERR_PTR(-ENOMEM);
+-	}
+ 
+-	of_property_read_u32(np, "samsung,keypad-num-rows", &num_rows);
+-	of_property_read_u32(np, "samsung,keypad-num-columns", &num_cols);
+-	if (!num_rows || !num_cols) {
+-		dev_err(dev, "number of keypad rows/columns not specified\n");
+-		return ERR_PTR(-EINVAL);
+-	}
++	device_property_read_u32(dev, "samsung,keypad-num-rows", &num_rows);
++	device_property_read_u32(dev, "samsung,keypad-num-columns", &num_cols);
++
++	error = matrix_keypad_parse_properties(dev, &num_rows, &num_cols);
++	if (error)
++		return ERR_PTR(error);
++
+ 	pdata->rows = num_rows;
+ 	pdata->cols = num_cols;
+ 
+-	keymap_data = devm_kzalloc(dev, sizeof(*keymap_data), GFP_KERNEL);
+-	if (!keymap_data) {
+-		dev_err(dev, "could not allocate memory for keymap data\n");
+-		return ERR_PTR(-ENOMEM);
+-	}
+-	pdata->keymap_data = keymap_data;
++	if (!device_property_present(dev, "linux,keymap")) {
++		keymap_data = samsung_parse_verbose_keymap(dev);
++		if (IS_ERR(keymap_data))
++			return ERR_CAST(keymap_data);
+ 
+-	key_count = of_get_child_count(np);
+-	keymap_data->keymap_size = key_count;
+-	keymap = devm_kcalloc(dev, key_count, sizeof(uint32_t), GFP_KERNEL);
+-	if (!keymap) {
+-		dev_err(dev, "could not allocate memory for keymap\n");
+-		return ERR_PTR(-ENOMEM);
++		pdata->keymap_data = keymap_data;
+ 	}
+-	keymap_data->keymap = keymap;
+ 
+-	for_each_child_of_node(np, key_np) {
+-		u32 row, col, key_code;
+-		of_property_read_u32(key_np, "keypad,row", &row);
+-		of_property_read_u32(key_np, "keypad,column", &col);
+-		of_property_read_u32(key_np, "linux,code", &key_code);
+-		*keymap++ = KEY(row, col, key_code);
+-	}
+ 
+-	pdata->no_autorepeat = of_property_read_bool(np, "linux,input-no-autorepeat");
++	pdata->no_autorepeat =
++		device_property_read_bool(dev, "linux,input-no-autorepeat");
+ 
+-	pdata->wakeup = of_property_read_bool(np, "wakeup-source") ||
++	pdata->wakeup = device_property_read_bool(dev, "wakeup-source") ||
+ 			/* legacy name */
+-			of_property_read_bool(np, "linux,input-wakeup");
+-
++			device_property_read_bool(dev, "linux,input-wakeup");
+ 
+ 	return pdata;
+ }
+-#else
+-static struct samsung_keypad_platdata *
+-samsung_keypad_parse_dt(struct device *dev)
+-{
+-	dev_err(dev, "no platform data defined\n");
+-
+-	return ERR_PTR(-EINVAL);
+-}
+-#endif
+ 
+ static int samsung_keypad_probe(struct platform_device *pdev)
+ {
+ 	const struct samsung_keypad_platdata *pdata;
+-	const struct matrix_keymap_data *keymap_data;
+ 	const struct platform_device_id *id;
+ 	struct samsung_keypad *keypad;
+ 	struct resource *res;
+@@ -316,18 +316,17 @@ static int samsung_keypad_probe(struct platform_device *pdev)
+ 	int error;
+ 
+ 	pdata = dev_get_platdata(&pdev->dev);
+-	if (!pdata) {
+-		pdata = samsung_keypad_parse_dt(&pdev->dev);
++	if (pdata) {
++		if (!pdata->keymap_data) {
++			dev_err(&pdev->dev, "no keymap data defined\n");
++			return -EINVAL;
++		}
++	} else {
++		pdata = samsung_keypad_parse_properties(&pdev->dev);
+ 		if (IS_ERR(pdata))
+ 			return PTR_ERR(pdata);
+ 	}
+ 
+-	keymap_data = pdata->keymap_data;
+-	if (!keymap_data) {
+-		dev_err(&pdev->dev, "no keymap data defined\n");
+-		return -EINVAL;
+-	}
+-
+ 	if (!pdata->rows || pdata->rows > SAMSUNG_MAX_ROWS)
+ 		return -EINVAL;
+ 
+@@ -391,7 +390,7 @@ static int samsung_keypad_probe(struct platform_device *pdev)
+ 	input_dev->open = samsung_keypad_open;
+ 	input_dev->close = samsung_keypad_close;
+ 
+-	error = matrix_keypad_build_keymap(keymap_data, NULL,
++	error = matrix_keypad_build_keymap(pdata->keymap_data, NULL,
+ 					   pdata->rows, pdata->cols,
+ 					   keypad->keycodes, input_dev);
+ 	if (error) {
+@@ -430,11 +429,14 @@ static int samsung_keypad_probe(struct platform_device *pdev)
+ 	if (error)
+ 		return error;
+ 
+-	if (pdev->dev.of_node) {
+-		devm_kfree(&pdev->dev, (void *)pdata->keymap_data->keymap);
+-		devm_kfree(&pdev->dev, (void *)pdata->keymap_data);
++	if (!dev_get_platdata(&pdev->dev)) {
++		if (pdata->keymap_data) {
++			devm_kfree(&pdev->dev, (void *)pdata->keymap_data->keymap);
++			devm_kfree(&pdev->dev, (void *)pdata->keymap_data);
++		}
+ 		devm_kfree(&pdev->dev, (void *)pdata);
+ 	}
++
+ 	return 0;
+ }
+ 
 
 -- 
 2.55.0.795.g602f6c329a-goog
