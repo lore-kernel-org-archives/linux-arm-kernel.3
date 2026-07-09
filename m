@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA3FCC44506
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2E4C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LpRMy1ZVBsoG1dstlnJwPXUYPRKsH6HHD2nNnOP7LSc=; b=vQ3qQufUvcqxcMB83m58zHHHYv
-	OKa5xseWrzfcLy3ujzPBh+ARnm8d4MI427S7WHvJcZmW2D0E7pOZ/AD50A05TcCElucig6NUOyHg6
-	ySyyuffgKNCUVJXUDzRO5tN6XqV3oHvXC6u/Eu8beD+lkA6t9Pgpv2wNWUfWOk5Nxis1oRd/HEXGB
-	GnY6ZhXg2grzviFm21JvMR6ArkBjjAGpYP9u/0wppKlPGa5rIImgs+aHLN6+ctiety8ncKmuyC3y3
-	XaopjB9oSNaXY/6GDiVVTPVlgHJLUEBA+3Ksy3KCmE7kjgLNaJG7BNaRLAv+qnjW6LIUEtwKscSJ4
-	O0fXOU1A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jrrfogBkoUTUQtPpOPPb0EfuLBqOI+De983Yj09gBhs=; b=UxoyoYp9L20tKh/isW8OKtnF6S
+	PRYTDQdmnLoy3fhrZyVwptRponAywCvT1RKkXi8LllUmIf/9hJIm7hWnse1CS2PSAiKmev/6Q7ujG
+	5A9aY2YP8qpJ1/u90JuxV2zRdZLnrh6tXlAEpw13Oi+jlALmbfdv4AaLvMpcSncQAwUdL/jqlTKah
+	a0Henra1EGGH6/0Uhj2L/GzFsR9tI7ZoDUMM+ibq1bleHeBHhvBnVa71SwXrOudwV5e80mEwSBj64
+	YOX9AK+NLqW1MspQ5r6VxfttVC66HjQOJ06Dr2NZfk9BtFUe8vLSWAVBENdiyCp60kGODBqM3jAJc
+	X5orwQxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whklI-00000001inO-0U7u;
+	id 1whklI-00000001inn-1701;
 	Thu, 09 Jul 2026 09:09:40 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whklG-00000001il4-02RG;
+	id 1whklG-00000001ilY-28eG;
 	Thu, 09 Jul 2026 09:09:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783588173;
-	bh=c8jG8dKuHKzZNHv5reXxu0tytMV65aXZ7vtITaZALMU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ZGXZP0+9ha1Cms0Ij3L+Ocz5rsL26qRbEQdewRYk+M5utd2LnhM04Dju/kDNiZvvI
-	 zlJY/Juxs+xXvjW8sNT8CS3gQGttOqk52szKRwOYOg6bKuA0PsksrSTENFe9xPZiqK
-	 dMZkWjlIU1Gq4zH+2yBuQjxwka3f/XzCoIYfw4t9S472vFml4x5bpWrIKDYsmD+/sW
-	 zQz4neVhhwqeGCZjzNiJiY8qDnD2dQ1/xUFmYrZW7J2CQQOO2iJTJ1WwmwkS4mBrOg
-	 Fmvan/lhSu3Q/81wYNBlSK9Yxz+xMYAzOH6NtnaX8cSxAAlZ/3WsWsix9A8wqequqc
-	 ejDhhA3LEykpA==
+	s=mail; t=1783588174;
+	bh=Mar/IjyYNl2k5CmvryGot5Czt1iXajxPeDD0/orHm60=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UscovhSEgE9OWFcvoR/LAjwxZriz4UfJVXiKh1xC5NLQ9z5dVWzAkuOevR6Qzj8qp
+	 KypZGBCFsayu4wLO2la9xvWqg3T0bq+t+nnfmUdoFYTwzpbKb1qbW3Da9aajkb71Rz
+	 w9+sCHgLPVP4uHkxwn5PHoMr1Ks1GUSg9gZJgOHfUAg28UTs6tr6Famu8UfFkccSfj
+	 rECcv1LGnFej3/z4hOfpoLWh6cCZ/+9HQFR8CylW9VimPOoXVcOjOPrcLEjVX71124
+	 gGtul7dfRbpUE9GtsGB2DTFhi2gn1jIDQgGqjsceVf7IXlNbttRHKH62JA1Hzz/P1V
+	 Hjxj7zsmP9fPg==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1E65C17E0564;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B1D8717E05E8;
 	Thu, 09 Jul 2026 11:09:33 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
@@ -55,16 +55,17 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	justin.yeh@mediatek.com
-Subject: [PATCH v3 0/7] Add and use UART AP_DMA controller on MTK SoCs
-Date: Thu,  9 Jul 2026 11:09:17 +0200
-Message-ID: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 1/7] arm64: dts: mediatek: mt6795: Remove deprecated UART DMA property
+Date: Thu,  9 Jul 2026 11:09:18 +0200
+Message-ID: <20260709090924.27056-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
+References: <20260709090924.27056-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_020938_508393_B1CAFCEF 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_020938_769546_53D50D9D 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v3:
- - MT8173: Removed first DMA as it clashes with the I2C4 DMA
- - MT8186: Fixed IRQ levels
- - MT8195: Reordered apdma node (same as mt8188)
+Remove the mediatek,dma-33bits property as it is now deprecated
+and, while at it, also remove the fallback compatible as it was
+not entirely right to use anyway, because this IP is not fully
+compatible with the one found in MT6577 and would create more
+issues than the ones it could resolve (as in - it's better to
+not probe the controller than to probe it and manage it in some
+incorrect way).
 
-Changes in v2:
- - Fixed node ordering in mt8188
- - Fixed interrupts in mt8173
- - Fixed interrupt cells and fallback compatible in mt8186
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ arch/arm64/boot/dts/mediatek/mt6795.dtsi | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-First of all: not all of them will use this and that's sure - but the
-devicetree describes hardware, and this hardware was not described on
-any of the SoCs that support the UART AP_DMA controller.
-
-Besides, there is also driver support for this controller for all SoCs!
-
-Let's add support for this IP in all of the SoCs that have it.
-
-AngeloGioacchino Del Regno (7):
-  arm64: dts: mediatek: mt6795: Remove deprecated UART DMA property
-  arm64: dts: mediatek: mt8173: Add and use UART AP_DMA controller
-  arm64: dts: mediatek: mt8183: Add and use UART AP_DMA controller
-  arm64: dts: mediatek: mt8186: Add and use UART AP_DMA controller
-  arm64: dts: mediatek: mt8188: Add and use UART AP_DMA controller
-  arm64: dts: mediatek: mt8192: Add and use UART AP_DMA controller
-  arm64: dts: mediatek: mt8195: Add and use UART AP_DMA controller
-
- arch/arm64/boot/dts/mediatek/mt6795.dtsi |  4 +--
- arch/arm64/boot/dts/mediatek/mt8173.dtsi | 22 ++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8183.dtsi | 22 ++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8186.dtsi | 22 ++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 33 +++++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8192.dtsi | 17 +++++++++++
- arch/arm64/boot/dts/mediatek/mt8195.dtsi | 37 ++++++++++++++++++++++++
- 7 files changed, 154 insertions(+), 3 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt6795.dtsi b/arch/arm64/boot/dts/mediatek/mt6795.dtsi
+index 134cfa77e3b1..6dd706b27830 100644
+--- a/arch/arm64/boot/dts/mediatek/mt6795.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt6795.dtsi
+@@ -547,8 +547,7 @@ uart1: serial@11003000 {
+ 		};
+ 
+ 		apdma: dma-controller@11000380 {
+-			compatible = "mediatek,mt6795-uart-dma",
+-				     "mediatek,mt6577-uart-dma";
++			compatible = "mediatek,mt6795-uart-dma";
+ 			reg = <0 0x11000380 0 0x60>,
+ 			      <0 0x11000400 0 0x60>,
+ 			      <0 0x11000480 0 0x60>,
+@@ -568,7 +567,6 @@ apdma: dma-controller@11000380 {
+ 			dma-requests = <8>;
+ 			clocks = <&pericfg CLK_PERI_AP_DMA>;
+ 			clock-names = "apdma";
+-			mediatek,dma-33bits;
+ 			#dma-cells = <1>;
+ 		};
+ 
 -- 
 2.54.0
 
