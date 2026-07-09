@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCFEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 16:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE22FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 16:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k064ZvMun284uDaXZd4Db14gBsND1gm4KYQ67hv9h88=; b=ocWkGyV7nUFyuqJNkiT+hCKNkI
-	ixJ+zBC/IbbY7nrDkL7Fr3wNwvrZCqaUjPqlzPg4hF4KR1cRD8ipH+523VhJ+3VpNRXyyJ8oXZlao
-	UYBOoG/lnG72SNqv07J0PVYdQMZ/CfuRYD+pJfyKiPaIfSwCfr5o7kUgDmqP9DkzRDLEnEfwQCMfl
-	EOzXSMnfgxdO3c1yDc5y4Joj0UgfKexujCZnMUkcB+/VThvH/MUI4Ij/+jqmTlT25+J0B9xqMRlsQ
-	uTPNyrzfrUNYY5T4PKL/4eLTp/16O6lIk31RoDmZP0Okm3TcHp2+Yexn1d1BIBCSF5H5G8tL1p8sv
-	0WYgRR8w==;
+	bh=jF3qVdoEbsJ3VzaNGIP2qIoT+ymr1N9tdwI2e6ZvOkg=; b=evjnYhpbpjUJtImZjqhph2JRNF
+	m7n7hH75YYZUXtDfiTiXJnHnTqOV6SgF/vSnFoodkQJij73gEqBhgivc65HZZWvIn1moaauGz93i/
+	q7JM11RR1IoddJcq2tAFssP0DSLxPgjUgIppyifw24Joo6hPQ/slMiq89bmIeJF9HTMJWGs3P0XZH
+	8dkkhcLN2MTuEgGddkwaCmfkzObp26t/hM3LmzemoiZACh62JKAEhv9KV+Yui+eEfIrUZMrDJi3H9
+	SjoEFk6gQOPOrNpn6TShZdGfFNsz76zN57CZPeW8pSRAVHW+sbUcVRFe0nCx+Nq97oODF1ITxy17R
+	Ly8U7cgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whrOb-000000030Yp-1eIS;
-	Thu, 09 Jul 2026 16:14:41 +0000
+	id 1whrQX-000000030pk-3CjE;
+	Thu, 09 Jul 2026 16:16:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whrOa-000000030YG-0ebW;
-	Thu, 09 Jul 2026 16:14:40 +0000
+	id 1whrQW-000000030pY-3toe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 16:16:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9811640288;
-	Thu,  9 Jul 2026 16:14:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85A7F1F000E9;
-	Thu,  9 Jul 2026 16:14:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8B464138E;
+	Thu,  9 Jul 2026 16:16:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF2821F00A3D;
+	Thu,  9 Jul 2026 16:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783613679;
-	bh=k064ZvMun284uDaXZd4Db14gBsND1gm4KYQ67hv9h88=;
+	s=k20260515; t=1783613800;
+	bh=jF3qVdoEbsJ3VzaNGIP2qIoT+ymr1N9tdwI2e6ZvOkg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J46x5i9RvK2/EnDTyF1VX/OcvrhzbiVnrFH274TGikFB3gfR2FzdAeou/x0Cy7gtR
-	 LY3vL7tAIYDRP2oFB7CSpkr1QO1562a6nsiOEGHGpYkA35/xmzbI3ITMadaczaDaWN
-	 EL/Z7L8GpMRmv2OXJ7T7h0BO014EijAV6iQaegtltUopWVT1MM881d0KCLs1U8hVww
-	 MHUuQ4/ifUYl1ig8iAVOtBYT2zdICzI1cPjRJwT7c3gaAxJ+sFHXOmANwQSvAtYhn4
-	 Hv0QtKbVFTq7w2FY27YoXst7BrjThs5rnIf7Q10rdbmxbn9ATEBRXb9krMairuIQCv
-	 iIina1BbBhyeg==
-Date: Thu, 9 Jul 2026 17:14:35 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v8 2/3] net: airoha: fix ETS QoS stats counter
- underflow and cross-channel corruption
-Message-ID: <20260709161435.GR1364329@horms.kernel.org>
-References: <20260703-airoha-ethtool-priv_flags-v8-0-015ba5ac89ee@kernel.org>
- <20260703-airoha-ethtool-priv_flags-v8-2-015ba5ac89ee@kernel.org>
+	b=cwqDa2IxeR0ZYP/wu5gKBeyTyRvlGwRx7Rk1MI3pBXOKgl4hJpHOtOwOPfwza3mhp
+	 cFRHLJdSMHDWrXbFplOpVLDBgVxJikMF+l/ENcjsgI+K3xCJuyQBYQ/t2GDborCExl
+	 I2qysaFBQzMSMpsAo1CB5BLpZhkPF9NEMfNt6FoppGe1i+8D5GLoMuEHn17SOMMJ2o
+	 YgnTJhtGtdSF88NJeMBYUfczAn8ONGhajyUYCT8edBCJmtyAh2aed8Y/eqhEpJpJLa
+	 XsrInqpL+URkrBV7+hvirOI3IuvbegQ6XVj2C9JkwSLWL2G5UTmDdJSSei5RUnJ7ca
+	 mC2vvZkI2l4QQ==
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 25189F40090;
+	Thu,  9 Jul 2026 12:16:39 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-09.internal (MEProxy); Thu, 09 Jul 2026 12:16:39 -0400
+X-ME-Sender: <xms:Z8lPajBCIhaWVHhyGYjzssIFraZFDoGwnPuxSHvVmU4wGZwluKq7HA>
+    <xme:Z8lPai7gjfyE-PIKjtZnujbcBMmfjMGGYuyJhKGkB887nLyeD_33j_7jV3uB0ZVhg
+    Voo0p0GecxMlXJI5I1sf9iPofgIzwOQWFQPZz_CkMeyijAsmwElBw>
+X-ME-Received: <xmr:Z8lPantGXJ1-f0isSU2_l_epa1OxE2M5tKEMCbvEDQOVSeQDGNuJTqJmw_yXkQ>
+X-ME-Proxy-Cause: dmFkZTGWKpMVRfOvlVssIt8V4+GvxgmrUAKUiXyQp/UngjyA1pSIcf5yG8LmtmhOSgjUSq
+    a6qFev133morqnN+20kiSDmMcxuiGTjw74LonpIDBKD/tealNzs7h4fe//+qO6X/LEdcTh
+    mQTChkxWkwC8iUstLPTvsDASJHxTKg1pJdqU388/AuVgOJhqerONrNAww4agu7IiipIZb1
+    xSc5/cFZlRPwEgdZJ30QZhO0+2XElCXPwoK37BcBCsm9TUnSCqjnO+ZRbYMoF6ldnaQTDX
+    XoB5k6HuHPNdtiP/PzhhnbVI4Qa0J0dCeopBse9ZparPe/OTvyFI6qCOgPhxSoAR2xsGFH
+    akp5KNVf1nvr/ekmWN9zNXJCy+GCMidjd4CpQz/DEeLQNCoiW+Y85tBIXOJ8gERNQILE3k
+    0P/aMv6zFBg3XFWjxRn7/NEL34re6KlmmooBI8B2a491iUKaAjZia0apSBz+Exl+2sDaYI
+    SFVIFBshyD53XxHTnHhj1xt6wUhMlDMghw0XYe5bNt5Nio7DBvI/uy0f6HKnXdRuG2LbIs
+    7RHcAH+NAc+oIG5ICT/Wu+B6hRx7YI5EHzyYnnngNESPlDcXPbgbMZevr+47APXx27IXp/
+    +S5zzWfhTZOZBPNe14PeSwXOmkKHi6qLuundoWzZgMp0n1+9Z7Z90IBCaaOw
+X-ME-Proxy: <xmx:Z8lPaoyy3cWTOeid9DgwhMvG79e4bLDJRNWPDlyuZQThm6QR7zkmrQ>
+    <xmx:Z8lPaiaxaWyZjfDZ7jD45QdTqGhNOrZJ4ChCDqxth-YxNykIYF4xLg>
+    <xmx:Z8lPag1DYivlkNh8v9y9ekC0xRIxfA-aAJUc1Kj1brz18wujVYiUyg>
+    <xmx:Z8lPagjQqKeI_jwmebcrJ-b5h9UtrF4fzUdGXh15suyGlQfYgB0kzw>
+    <xmx:Z8lPatriLphKSN_6mi0SwLDunm_XaHIqGlBnXzndAhwNfusecswPZe3f>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 9 Jul 2026 12:16:38 -0400 (EDT)
+Date: Thu, 9 Jul 2026 17:16:37 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Doug Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
+	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer@gmail.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
+Message-ID: <ak_IRHwd02EjWMf8@thinkstation>
+References: <cover.1782744912.git.kas@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260703-airoha-ethtool-priv_flags-v8-2-015ba5ac89ee@kernel.org>
+In-Reply-To: <cover.1782744912.git.kas@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +102,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 11:19:26AM +0200, Lorenzo Bianconi wrote:
-> airoha_qdma_get_tx_ets_stats() has two bugs:
-> - The hardware counters read via airoha_qdma_rr() are 32-bit values
->   but are stored in u64 locals and subtracted from u64 baselines. When
->   a 32-bit hardware counter wraps around, the subtraction produces a
->   large underflow value passed to _bstats_update().
-> - The baseline counters (cpu_tx_packets, fwd_tx_packets) are stored as
->   single per-device fields, but airoha_qdma_get_tx_ets_stats() is
->   called with different channel values (0-3). Each call reads a
->   different channel's hardware counter but overwrites the same
->   baseline, corrupting the delta computation for other channels.
+On Mon, Jun 29, 2026 at 04:07:14PM +0100, Kiryl Shutsemau wrote:
+> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 > 
-> Fix both by:
-> - Narrowing the counter locals and baselines to u32 so that 32-bit
->   unsigned subtraction handles wrap-around naturally.
-> - Grouping the baselines into a per-channel qos_stats array so each
->   channel tracks its own previous counter value independently.
-> - Splitting the delta addition into two statements so the first u32
->   delta is widened to u64 on assignment and the second is added in
->   u64 arithmetic, preventing overflow when both deltas are large.
-> 
-> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> A class of debug/observability features needs to interrupt a CPU that has
+> its interrupts locally masked: the all-CPU backtrace behind sysrq-l /
+> RCU-stall / hung-task / hard-lockup dumps, and crash_smp_send_stop()
+> capturing a stuck CPU's state into the vmcore. On arm64 these need a
+> mechanism that reaches a CPU spinning with DAIF masked, which a normal IPI
+> cannot.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Gentle ping. Any feedback?
 
+I'm looking forward to finding an upstreamable solution to the problem.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
