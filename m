@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7FDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8AAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9/QBsgUl+YAHSU3KRVgzfp7o3z60FnCLy+stiPlLsM=; b=Uj4X89HmVgW9U3WODxUv4fcLE8
-	LF3BYQWYI4Iqo4z/x6x7gRxG4Tw+6G3GSp0nluezDLK/iYa7Qqw3gIf6dUibrU2j0o6By1sKSQcj2
-	yzzqI9pC0/3SCtSABT8Ss5vziznVzRl9QMZdIw+Wginml2ijN6XUlQxXafxwIzVzYdBWgfGuYCyD8
-	D3Tpd1LFodkQCzUoEjWg4HUSOp1diEeFnoINpBFPHPMfzwbuFg5FP7Jy73ulMyf0gSkz+HWaIV3Ko
-	fPtYTBD0d30F1i4qEuNH4bhha6YCelJ1VUZgPNhWoFfi0v8bKA1RFvuEkTw8u+NMN0omc7HsIkAHv
-	L4az2irw==;
+	bh=k6q2RcAVUcHJXSDerZte/wZkUxNLtsu6zF4B+0lVk2U=; b=BSXKsZG4haW48JrUg+uMWahJO+
+	AxeNvRkJFKrl1rIWgGE93ficpaPrQoRIv+nxXQMOP6QLmFBRgJP5y19/TgKgiwMjP0QQ4k2+Q9Xpw
+	3erPNJ4lsVgRCamOu9A9utuHzszHgRPLoyR1V9eeS0Wo9T7mJsVewGrWCTpSFP0X0JOJNsM/875dA
+	wFwtL70q5Bz6431AP1lvG0WHriEzCgyeBEkK0X4tgNtooSiPZZ2iGhIlRdn2BqVfe/13daUEyPPoa
+	jDL8iblkoA0nWOPLNH4TXf2QIEJsNoZu9dr5uTWiZZO8lns1Z6/NicUAIh9qfwConVWWARlNFM5DN
+	LGhIFP7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd29-00000000iGZ-1W0I;
-	Thu, 09 Jul 2026 00:54:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whd2D-00000000iKb-24ot;
+	Thu, 09 Jul 2026 00:54:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd27-00000000iEe-2xNK
+	id 1whd2C-00000000iJB-0JFx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 00:54:31 +0000
+	Thu, 09 Jul 2026 00:54:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28E3B6137A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 805FE6132C;
+	Thu,  9 Jul 2026 00:54:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AAA1F000E9;
 	Thu,  9 Jul 2026 00:54:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E82C01F00A3A;
-	Thu,  9 Jul 2026 00:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783558470;
-	bh=V9/QBsgUl+YAHSU3KRVgzfp7o3z60FnCLy+stiPlLsM=;
+	s=k20260515; t=1783558475;
+	bh=k6q2RcAVUcHJXSDerZte/wZkUxNLtsu6zF4B+0lVk2U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JHhSdyHrMv3HYWgzywYRpT7QlQXiZc7MOOUajFWvyWfSn//S91ntd/aiQVpkXl3gZ
-	 dXAV8b3b3t1MLfq7g1PBQCviLnyMLUGQFpbFOyvxkS9YdvqosFRCrHJE+kEV8pI/iV
-	 n3veUxbASo5fqzBuLX531xhxkVLd+tPlpSZxzJ0yUVOHakdc4LbPq57dktbzl48jEz
-	 h/cANciH0eBoW0OFO0p3XGuHFDlChbxyKGUjc3fdKQao2P3000I0rzL4KMPOjelgxL
-	 XxwNbVGh7nzpI7n0JTkISh/VA6rL2HHbGvWJxdlpPX5IVBDz7verl131f1nGVBCPA2
-	 UOzHL0f+IX4iA==
+	b=HoJz9Vmli3sSpaSM1Nz89eJTo9UTjIPscVMqNySYtDU5X+xmEm/38dreU1xfJHAqV
+	 3u0TIpFFzZwDKDqUXNQqdM5O6P3slWL8U9ZtTKuU5WRPKFNN3UE5V6/ZcuNhCbyCHm
+	 ITnSJgogby8zReDa9V/oluiOBl3GpB1u75A6NKGaeB6aaiwYPxvUzdifos4V0i0GlF
+	 g/oCwyHOMnYBLbkIWe+YzN0G7akc87gFipaQSX6D4sYpjxWpbrbud+GRsXheFnu6BP
+	 tqpdERB38eCcwpI73+caIj7yn4+9FfSmOOuyY76o4+AutBPJqsdvM1/3KT6JrG226/
+	 MHPCfm5oOHjnw==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 09 Jul 2026 01:52:03 +0100
-Subject: [PATCH v11 26/29] KVM: arm64: selftests: Remove spurious check for
- single bit safe values
+Date: Thu, 09 Jul 2026 01:52:04 +0100
+Subject: [PATCH v11 27/29] KVM: arm64: selftests: Skip impossible invalid
+ value tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-kvm-arm64-sme-v11-26-32799f66db9d@kernel.org>
+Message-Id: <20260709-kvm-arm64-sme-v11-27-32799f66db9d@kernel.org>
 References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1200; i=broonie@kernel.org;
- h=from:subject:message-id; bh=3zzAFIxW4QntGIfc+v0S58ciMfKRPipxII9rhMorBnU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvDOgySLljelyliKuU68aJ+WXhNqdDXOfQ0X4
- bcC9XPp6huJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wzgAKCRAk1otyXVSH
- 0GWSCACGxmWrQ//D7mkxehILTyoZqXgMWn4QUvdAzZvcEQUfnApZz2Fx+P0B/pacM1M/ANcFOXb
- 4rIK3YeCiQ9T+e4aP0ed5eIIWgGii4tUqB8W3WbaRBVDy5acbaPcC86EQprEW3SqPH1zASj9g4e
- W14/9v9xDstwShBLuGS2ko3BPgV6zVXWglpZgs4w1vSd27xd+N9/FHq2tbSdGkkO4fMEEDEbkhm
- Lqjb579vseeZ19GR2ZlmeGwh3mbE4rukGBN3bBzVhlXJY5r2TEJqfHiV8Xch4G2LhRMg6OeNqZ1
- 0nhUdWvXMFnrtZS5hisxWpteAQJxNdcxe7fcjzWIo2Ryaudi
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3690; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=DoSXFT1XFLMt5bL77ymD5uWM5fFd8Skxma7c37DB6O8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvDPVLP0gDdVcIl80KUoiHJ5DqH0Jzxiwp0QX
+ FaApF+QEr6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wzwAKCRAk1otyXVSH
+ 0P4BB/9FJSbZxdGTWKLLyNLNlwcdEUYepDiRgwTMmk5bOYX1RsjJRTvp/1D8N8aNEMHImWggjoj
+ uBf7QokelKa9Q9ri0oas57p5BvoO8q7nbPHWs4DtftZBAjATMXcd4i2kCQFhRCpWU1LzMWrjCsI
+ D0EeUqprgUV6xoIrLHcfGnbBWA5yRNWgqyRx3xL+3sWHW67HXVpioaovA3JDNgJSejnJWvcfY/6
+ CoUDnYidTEPfQPdSlbIeYQV8aFaenaYk1yBCT+BOzAYnzIJdZqKI5rzm+rplL7OSKad1v+2jiIu
+ 7W3L82XatZuRJDXh7HrpUTwJdCbWwqZtmvvICWOCTldFLJpO
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,32 +91,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_safe_value() currently asserts that bitfields it is generating a safe
-value for must be more than one bit wide but in actual fact it should
-always be possible to generate a safe value to write to a bitfield even if
-it is just the current value and the function correctly handles that.
-Remove the assert.
+The set_id_regs test currently assumes that there will always be invalid
+values available in bitfields for it to generate but this may not be the
+case if the architecture has defined meanings for every possible value for
+the bitfield. An assert added in commit bf09ee918053e ("KVM: arm64:
+selftests: Remove ARM64_FEATURE_FIELD_BITS and its last user") refuses to
+run for single bit fields which will show the issue most readily but there
+is no reason wider ones can't show the same issue.
 
-Fixes: bf09ee918053e ("KVM: arm64: selftests: Remove ARM64_FEATURE_FIELD_BITS and its last user")
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Rework the tests for invalid value to check if an invalid value can be
+generated and skip the test if not, removing the assert.
+
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 2 --
- 1 file changed, 2 deletions(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 64 +++++++++++++++++++++----
+ 1 file changed, 54 insertions(+), 10 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 7429a1055df5..9eceac84e297 100644
+index 9eceac84e297..da9349bf31ab 100644
 --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
 +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -279,8 +279,6 @@ u64 get_safe_value(const struct reg_ftr_bits *ftr_bits, u64 ftr)
+@@ -327,54 +327,95 @@ u64 get_safe_value(const struct reg_ftr_bits *ftr_bits, u64 ftr)
+ }
+ 
+ /* Return an invalid value to a given ftr_bits an ftr value */
+-u64 get_invalid_value(const struct reg_ftr_bits *ftr_bits, u64 ftr)
++u64 get_invalid_value(const struct reg_ftr_bits *ftr_bits, u64 ftr, bool *skip)
  {
  	u64 ftr_max = ftr_bits->mask >> ftr_bits->shift;
  
 -	TEST_ASSERT(ftr_max > 1, "This test doesn't support single bit features");
--
++	*skip = false;
+ 
  	if (ftr_bits->sign == FTR_UNSIGNED) {
  		switch (ftr_bits->type) {
  		case FTR_EXACT:
+ 			ftr = max((u64)ftr_bits->safe_val + 1, ftr + 1);
++			if (ftr >= ftr_max)
++				*skip = true;
+ 			break;
+ 		case FTR_LOWER_SAFE:
++			if (ftr == ftr_max)
++				*skip = true;
+ 			ftr++;
+ 			break;
+ 		case FTR_HIGHER_SAFE:
++			if (ftr == 0)
++				*skip = true;
+ 			ftr--;
+ 			break;
+ 		case FTR_HIGHER_OR_ZERO_SAFE:
+-			if (ftr == 0)
++			switch (ftr) {
++			case 0:
+ 				ftr = ftr_max;
+-			else
++				break;
++			case 1:
++				*skip = true;
++				break;
++			default:
+ 				ftr--;
++				break;
++			}
+ 			break;
+ 		default:
++			*skip = true;
+ 			break;
+ 		}
+ 	} else if (ftr != ftr_max) {
+ 		switch (ftr_bits->type) {
+ 		case FTR_EXACT:
+ 			ftr = max((u64)ftr_bits->safe_val + 1, ftr + 1);
++			if (ftr >= ftr_max)
++				*skip = true;
+ 			break;
+ 		case FTR_LOWER_SAFE:
+ 			ftr++;
+ 			break;
+ 		case FTR_HIGHER_SAFE:
+-			ftr--;
++			/* FIXME: "need to check for the actual highest." */
++			if (ftr == 0 || ftr == ftr_max)
++				*skip = true;
++			else
++				ftr--;
+ 			break;
+ 		case FTR_HIGHER_OR_ZERO_SAFE:
+-			if (ftr == 0)
+-				ftr = ftr_max - 1;
+-			else
++			switch (ftr) {
++			case 0:
++				if (ftr_max > 1)
++					ftr = ftr_max - 1;
++				else
++					*skip = true;
++				break;
++			case 1:
++				*skip = true;
++				break;
++			default:
+ 				ftr--;
++				break;
++			}
+ 			break;
+ 		default:
++			*skip = true;
+ 			break;
+ 		}
+ 	} else {
+-		ftr = 0;
++		switch (ftr_bits->type) {
++		case FTR_LOWER_SAFE:
++			if (ftr == 0)
++				*skip = true;
++			else
++				ftr = 0;
++			break;
++		default:
++			*skip = true;
++			break;
++		}
+ 	}
+ 
+ 	return ftr;
+@@ -409,12 +450,15 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, u64 reg,
+ 	u8 shift = ftr_bits->shift;
+ 	u64 mask = ftr_bits->mask;
+ 	u64 val, old_val, ftr;
++	bool skip;
+ 	int r;
+ 
+ 	val = vcpu_get_reg(vcpu, reg);
+ 	ftr = (val & mask) >> shift;
+ 
+-	ftr = get_invalid_value(ftr_bits, ftr);
++	ftr = get_invalid_value(ftr_bits, ftr, &skip);
++	if (skip)
++		return;
+ 
+ 	old_val = val;
+ 	ftr <<= shift;
 
 -- 
 2.47.3
