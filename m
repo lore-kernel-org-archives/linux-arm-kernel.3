@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3BCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683FCC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XwrLi6Y4IOFMOm9cNo6rhDN/s137jdU3eu/sEBPdb4=; b=D0iba6jz09LTN0ERPwF9j19Kp2
-	8K3AewryKIkCWRNSsVFGgFJYS+Cqmu1lDZ9PbgSNKI0BOT26TixZwPwqtJSdnWVmYMX/j7G8Kkvim
-	POhO9COakXywQ11jjEltvaReb1YAhpNDH6mYNCA/FWBl8DfXpfdz6ldWlqLjCSfWg6hEIlssqC0Et
-	SckPsgIOYPnYmSEo67TNylLh/EWIKhrtGKisZOUmveflCFZgAR2I0yCxakh7XwsiyKbTh7Ox08/ZW
-	AWjeHdIqY8QI7LTUbsozMMLNa9mmuE/aA9lHTb4IG5cZsOZ0vP+PVcIRW+/Il9Z19M97BwZh9k7nl
-	P55iWWuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j8+zcmKjsYTD7t/6LKmYib1wjgZiKLxo4tUgtQMTmbE=; b=kx8MV86JXvu2Wk3mKXFkmZkCPJ
+	NkQ2wQ7NzFpqHuOXiFJ8eBTDF2f1sqCPabHPVMXEn/kps3E9gB1+LZWsNst+7D9JQNTEf+L186J1V
+	OUtr8SPy6LkGNQy5s0hCtpNOXPFyHTe4j8C+SZcnqcKovvXMO6UFM4C1HNDKOmfdlr/0inOdbO3I3
+	Ghf5NhLRhHGJJLHS1Kd4WSOPGeUnoQmwI4Kvixh/drtg5SkFVbsUCYs0sZx3KprPMABr0X7JWHGVf
+	qDICEi6PceNrdTqsMpU0M811krYThZdK6r9+XxV2WJ0Xrgcx1OfL9FD7P43GaR4bX55azXsw6XEPS
+	X24glQ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjHp-00000001JK1-3ATx;
-	Thu, 09 Jul 2026 07:35:09 +0000
-Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjHm-00000001JHw-1aPN
+	id 1whjIQ-00000001JRc-3loF;
+	Thu, 09 Jul 2026 07:35:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whjIP-00000001JRE-1Tyr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:35:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1783582506; x=1815118506;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=E4bCVlb46K+E7Etx51AHeLIHo1jVe+mkYB5G49FAWJw=;
-  b=RmR2jzRCWFRnYQG3wT4eGF3UMxFh4vL4zzhwXscUuup6qteaR/XO4BUI
-   6KZPKLQtbDB4yAPmHYnVx6OM7biNCyzanuo66+AMtUi13GpjM9f02ZLIu
-   ZhoSTwXXyj4jEzq6SNrsjcjts3Gs/MckzLiQKO4ICFH4xQrq3dQ2szhti
-   TneMsSkLJjfd+PXha6nQMF8OfaaioM9Cc0Z4sKEfLY75xt7hrPmj43Pog
-   MLX8gifb+qKoDTIgzpPRsp6oNO9BLPB9jwK515uUDYRqQtkklvhLIt/Hk
-   gqSMWXQO4qfZg4pIM7mdKrz++zhPnCaNMNRj6ZZUHymPkamZ66gBfYfgA
-   g==;
-X-CSE-ConnectionGUID: 2LDGxL5aShGCWdaYYIDEug==
-X-CSE-MsgGUID: hfsBTA5hQnCiW/o9cya/AA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="244957981"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779116400"; 
-   d="scan'208";a="244957981"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 16:35:00 +0900
-Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 3356B3D1B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 07:35:00 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id DA6501C2FB9D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 07:34:59 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 3A9AC1406396;
-	Thu,  9 Jul 2026 07:34:55 +0000 (UTC)
-Date: Thu, 9 Jul 2026 16:34:52 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 0/6] KVM: arm64: ptdump: Shadow ptdump fixes
-Message-ID: <ak9PHJJzjliTeiFB@sm-arm-grace07>
-References: <20260630121005.1130996-1-weilin.chang@arm.com>
- <akYLdEuPXEGIZx3E@sm-arm-grace07>
- <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
- <akbuIDmd_zH9_m6K@sm-arm-grace07>
- <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
+	Thu, 09 Jul 2026 07:35:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AC7E15A1;
+	Thu,  9 Jul 2026 00:35:39 -0700 (PDT)
+Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98A4F3F66F;
+	Thu,  9 Jul 2026 00:35:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783582543; bh=vbqbyvnuH57S9mignVB1GcRt0BG6A+IPR4PiiZgLl1I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eTbrozMbjn/07jRWaVHEaVVGOFY7UnCtcWBon3bSgmbrPNm54rB2AEmKGeNN0CkRO
+	 t3d1lamvVNDo4vXf9PJXZ7u67nukR+KVXeUoCHd+cXZeDS6fdjfFq2OjIDc2xYbyWm
+	 jBdT5neNOIZYsfXu1k9U35WIDVPXfsDP3EHExMuA=
+Message-ID: <1e5149fe-ef5f-48f1-9ee8-a7de2d6bc2af@arm.com>
+Date: Thu, 9 Jul 2026 09:35:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/15] arm_mpam: propagate MSC read errors for hw_probe
+ functions
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-4-andre.przywara@arm.com>
+ <a628a34f-fd1a-4bd1-ba45-73d49922cc13@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <a628a34f-fd1a-4bd1-ba45-73d49922cc13@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003507_188841_7C5ABBF9 
-X-CRM114-Status: GOOD (  42.07  )
+X-CRM114-CacheID: sfid-20260709_003545_485348_A9E76208 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,129 +83,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 11:24:53AM +0100, Wei-Lin Chang wrote:
-> On Fri, Jul 03, 2026 at 08:02:56AM +0900, Itaru Kitayama wrote:
-> > On Thu, Jul 02, 2026 at 08:41:43AM +0100, Wei-Lin Chang wrote:
-> > > On Thu, Jul 02, 2026 at 03:55:48PM +0900, Itaru Kitayama wrote:
-> > > > Hi Wei-Lin,
-> > > > On Tue, Jun 30, 2026 at 01:09:59PM +0100, Wei-Lin Chang wrote:
-> > > > > Hi,
-> > > > > 
-> > > > > This is v2 of fixing shadow ptdump debugfs files. Unfortunately I couldn't make
-> > > > > per mmu ptdump files work after all, mainly because there isn't a clean way to
-> > > > > locate the specific nested mmu for each ptdump file as the nested mmus could be
-> > > > > freed when the file gets opened. Therefore in this series a single file
-> > > > > "shadow_page_tables" is created that dumps all valid mmus' page table
-> > > > > information.
-> > > > > 
-> > > > > An advantage of this is that this new ptdump file have a lifetime identical to
-> > > > > other ptdump files i.e. stage2_page_tables, ipa_range, etc., hence avoiding the
-> > > > > dentry UAF found last time [1].
-> > > > > 
-> > > > > With this all ptdump files are only removed when the last kvm reference gets
-> > > > > dropped and kvm_destroy_vm_debugfs() is called, in their open(), show()
-> > > > > functions the nested mmu array and mmu->pgt are checked with mmu_lock held to
-> > > > > prevent UAF.
-> > > > > 
-> > > > > Patch 1-2: Undo previous shadow ptdump implementation.
-> > > > > Patch 3:   Fix a mmu->pgt UAF that happens when ptdump files are read after
-> > > > >            mmu->pgt is freed.
-> > > > > Patch 4-5: Preparation for the shadow page table dump file.
-> > > > > Patch 6:   Implementation of the shadow page table dump file.
-> > > > > 
-> > > > > The fixes are tested with CONFIG_PROVE_LOCKING,
-> > > > > CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
-> > > > > 
-> > > > > Thanks!
-> > > > 
-> > > > Running your shadow stage 2 kselftest with bpftrace shows me that __kvm_pgtable_stage2_init()
-> > > > for shadow stage 2 translation tables are built with ia_bits = 52 and
-> > > > start_level = 0, but the debugfs entry for the active shadow stage 2 tables prints
-> > > > out that's 3 levels. Is this fully expected?
-> > > 
-> > > Where is this level information you are seeing from? If it is
-> > > "stage2_level", that only reports the number of levels for the canonical
-> > > stage-2 (non nested). For nested mmus only the page tables are dumped in
-> > > nested/shadow_page_tables.
-> > 
-> > Yes I know. The initial stage 2 translation table structure information is obtained by 
-> > instrumenting the kernel using eBPF fexit to __kvm_pgtable_stage2_init().
-> > 
-> > Since you're correctly loopin over nested_mmus array, and the output is
-> > correctly shown using the kvm_pgtable information via the kvm_s2_mmu for
-> > them, I am confused at this moment.
-> 
-> Two things here:
-> 
-> Firstly ia_bits being 52 is not expected to me, as I didn't change the
-> VM's IPA size via KVM_VM_TYPE_ARM_IPA_SIZE in the selftest, to me I
-> would expect ia_bits to be 40 (the default). Start level being 0 looks
-> normal.
+Hi Ben,
 
-Instrumenting the ptdump code you're proposing I see the shadow stage 2
-translation tables are constructed with the max 52-bit IPA; irrespective
-of the IPA bits set in the init_s2_mmu() helper for the guest hypervisor
-setup in the selftest, I am guessing here to me fixed? 52-bit IPA size 
-because it's awkward if nestd guest's IPA size is larger than the shadow 
-stage 2's IPA size.
+thanks for having a thorough look!
 
-I confirmed using the __vm_create() helper with various guest modes
-supported that canonical stage 2's "ipa_range" changes according to the 
-guest (L1) PA size so I wonder if it is a good idea to create something like
-shadow_ipa_range and shadow_stage2_levels files under nested directoy.
+On 7/1/26 22:00, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/2/26 17:22, Andre Przywara wrote:
+>> Allow the functions probing for MSC hardware and features to return an
+>> error, and propagate read errors from the lower level up.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 62 ++++++++++++++++++++++++----------
+>>   1 file changed, 44 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index ce8738adb6ff..011d1e3544d7 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -800,20 +800,22 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+>>   	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+>>   
+>>   	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
+>> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+>> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+>> +		return false;
+> 
+> This early return leaves the mon_sel lock held.
+
+Ouch, well spotted. I think this "if (WARN_ON_ONCE(...))" wrapper 
+distracted me from the lock...
+Changed it to use "goto out_unlock;"
+
+> 
+>>   	can_set = now & MSMON___NRDY;
+> 
+> As you're adding early returns to this function does it make sense to
+> return early if can_set is false?
+
+Well, this could have been done before as well, but it executes the 
+remaining accesses nevertheless. I don't feel like judging whether this 
+has a side effect, so just mimicked the current behaviour.
+I feel like this should be a separate patch, if we need it.
 
 Thanks,
-Itaru.
+Andre
+  >>
+>>   	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
+>>   	/* Configuration change to try and coax hardware into setting nrdy */
+>>   	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
+>> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+>> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+>> +		return false;
+>>   	can_clear = !(now & MSMON___NRDY);
+>>   	mpam_mon_sel_unlock(msc);
+>>   
+>>   	return (!can_set || !can_clear);
+>>   }
+>>   
+>> -static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>> +static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   {
+>>   	int err;
+>>   	struct mpam_msc *msc = ris->vmsc->msc;
+>> @@ -828,7 +830,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
+>>   		u32 ccap_features;
+>>   
+>> -		mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
+>> +		err = mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
+>> +		if (err)
+>> +			return err;
+>>   
+>>   		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
+>>   		if (props->cmax_wd &&
+>> @@ -853,7 +857,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
+>>   		u32 cpor_features;
+>>   
+>> -		mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
+>> +		err = mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
+>> +		if (err)
+>> +			return err;
+>>   
+>>   		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
+>>   		if (props->cpbm_wd)
+>> @@ -863,8 +869,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   	/* Memory bandwidth partitioning */
+>>   	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
+>>   		u32 mbw_features;
+>> -
+>> -		mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
+>> +		err = mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
+>> +		if (err)
+>> +			return err;
+>>   
+>>   		/* portion bitmap resolution */
+>>   		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
+>> @@ -893,8 +900,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   	/* Priority partitioning */
+>>   	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
+>>   		u32 pri_features;
+>> -
+>> -		mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
+>> +		err = mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
+>> +		if (err)
+>> +			return err;
+>>   
+>>   		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
+>>   		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
+>> @@ -915,7 +923,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
+>>   		u32 msmon_features;
+>>   
+>> -		mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
+>> +		err = mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
+>> +		if (err)
+>> +			return err;
+>>   
+>>   		/*
+>>   		 * If the firmware max-nrdy-us property is missing, the
+>> @@ -928,7 +938,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
+>>   			u32 csumonidr;
+>>   
+>> -			mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
+>> +			err = mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
+>> +			if (err)
+>> +				return err;
+>>   
+>>   			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
+>>   			if (props->num_csu_mon) {
+>> @@ -954,7 +966,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   			bool has_long;
+>>   			u32 mbwumon_idr;
+>>   
+>> -			mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
+>> +			err = mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
+>> +			if (err)
+>> +				return err;
+>>   
+>>   			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
+>>   			if (props->num_mbwu_mon) {
+>> @@ -987,16 +1001,22 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>   		u16 partid_max;
+>>   		u32 nrwidr;
+>>   
+>> -		mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
+>> +		err = mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
+>> +		if (err)
+>> +			return err;
+>> +
+>>   		partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
+>>   
+>>   		mpam_set_feature(mpam_feat_partid_nrw, props);
+>>   		msc->partid_max = min(msc->partid_max, partid_max);
+>>   	}
+>> +
+>> +	return 0;
+>>   }
+>>   
+>>   static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   {
+>> +	int ret;
+>>   	u64 idr;
+>>   	u16 partid_max;
+>>   	u8 ris_idx, pmg_max;
+>> @@ -1012,10 +1032,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   
+>>   	/* Grab an IDR value to find out how many RIS there are */
+>>   	mutex_lock(&msc->part_sel_lock);
+>> -	mpam_msc_read_idr(msc, &idr);
+>> -	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+>> -
+>> +	ret = mpam_msc_read_idr(msc, &idr);
+>> +	if (!ret)
+>> +		ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+>>   	mutex_unlock(&msc->part_sel_lock);
+>> +	if (ret)
+>> +		return ret;
+>>   
+>>   	mpam_enable_quirks(msc);
+>>   
+>> @@ -1028,8 +1050,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+>>   		mutex_lock(&msc->part_sel_lock);
+>>   		__mpam_part_sel(ris_idx, 0, msc);
+>> -		mpam_msc_read_idr(msc, &idr);
+>> +		ret = mpam_msc_read_idr(msc, &idr);
+>>   		mutex_unlock(&msc->part_sel_lock);
+>> +		if (ret)
+>> +			return ret;
+>>   
+>>   		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>>   		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>> @@ -1046,8 +1070,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   
+>>   		mutex_lock(&msc->part_sel_lock);
+>>   		__mpam_part_sel(ris_idx, 0, msc);
+>> -		mpam_ris_hw_probe(ris);
+>> +		ret = mpam_ris_hw_probe(ris);
+>>   		mutex_unlock(&msc->part_sel_lock);
+>> +		if (ret)
+>> +			return ret;
+>>   	}
+>>   
+>>   	/* Clear any stale errors */
+> 
 
-> 
-> Second thing is I still can't get what you are confused about, if it's
-> not about the first point. Note that the "3" in ptdump means it is a
-> level 3 mapping, not saying the page tables are using 3 levels.
-> 
-> Happy to discuss more if you clarify. I'll also check the ia_bits when I
-> get to it.
-> 
-> Thanks,
-> Wei-Lin Chang
-> 
-> > 
-> > Thanks,
-> > Itaru.
-> > 
-> > > 
-> > > Thanks,
-> > > Wei-Lin Chang
-> > > 
-> > > > 
-> > > > Thanks,
-> > > > Itaru.
-> > > > 
-> > > > > 
-> > > > > * Changes from v1 ([2]):
-> > > > > 
-> > > > >   - Move from per mmu ptdump files to one file that will dump all shadow page
-> > > > >     tables.
-> > > > > 
-> > > > > [1]: https://lore.kernel.org/kvmarm/ajty6I7ZqodP4ous@sm-arm-grace07/
-> > > > > [2]: https://lore.kernel.org/kvmarm/20260623142443.648972-1-weilin.chang@arm.com/
-> > > > > 
-> > > > > Wei-Lin Chang (6):
-> > > > >   KVM: arm64: ptdump: Remove shadow ptdump files
-> > > > >   KVM: arm64: ptdump: Undo making the ptdump code mmu aware
-> > > > >   KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
-> > > > >   KVM: arm64: ptdump: Factor out initialization of
-> > > > >     kvm_ptdump_guest_state
-> > > > >   KVM: arm64: ptdump: Extract kvm_ptdump_guest_open() from canonical
-> > > > >     ptdump path
-> > > > >   KVM: arm64: ptdump: Introduce the shadow ptdump file
-> > > > > 
-> > > > >  arch/arm64/include/asm/kvm_host.h |   5 +-
-> > > > >  arch/arm64/include/asm/kvm_mmu.h  |   4 -
-> > > > >  arch/arm64/kvm/nested.c           |  18 +--
-> > > > >  arch/arm64/kvm/ptdump.c           | 185 ++++++++++++++++++++----------
-> > > > >  4 files changed, 135 insertions(+), 77 deletions(-)
-> > > > > 
-> > > > > -- 
-> > > > > 2.43.0
-> > > > > 
 
