@@ -4,95 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529A9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853E3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=THSFgL0Y2FKUJgLIXJuUKx+xnsBMsYVZ+QMA86TDiMA=; b=iblfyAZETh9RiCD2wmOE/pAmwI
-	9Tt5loL9bvhTpPwmcosZi8opXA6JF6shh1K3fR55gdX+FvXEI4sJrVrvW4R1U86V2gzbw6rf2qM3x
-	Qb+3Bq6fW8bKFIrdEetP0tOEpXRoCg5lfF5+kXuG5TcHEXh64ci/WSpaPzQ5iuF1lPLMI4ZCip2Uw
-	Howj44bRnV4+ntOHIFbjtx76EbHLBh8prjvX9W6gQ2Np8xr6fQJph1u3b16XiWizpTMPO8/c0lzBx
-	ZKPiHZzV8WEiMEOTXWhHufUCy0zcPUeeBp1Mu9+lka3wWlcKl614fAbaFtlHReNzcbJhZCJjBT1i0
-	B01AA0mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l+2Omb5DUzskgrlR5kHajAzpSEQp/MXc5zGp9W3t4rg=; b=f6eiNc8t688aAb64+3yENWnsd9
+	uJRFaXPCE62RDYQGJ3hxMqDhmdogR9KIdSvlnNJvxSCzf8EeyPmGo3G/EHQNNnaF778YYJsCewTp7
+	g1RAw8BaDbaokFPmIt34Ls5/L7B5yEmt8TBea1tYBMCH4YWi0RgvN27d6SnDYioIdQr9iyRhZUZbJ
+	f+ipNDA0A1MfRjG7CfXO8WD1F6gk61MnhgAddiZlUwkEiSiF9ZgpoqeAqzdti55nsJsJvvm6oJ/5m
+	+jxYILM5rrLGTJ7A6paF9L9nofWNecVQsBDjQXvnns7nHMR/rq8GlD7nkyuNCGfGGpXt5YwuCpOYf
+	kuMJhINQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkDe-00000001R65-3TwY;
-	Thu, 09 Jul 2026 08:34:54 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1whkDh-00000001R7V-3vDO;
+	Thu, 09 Jul 2026 08:34:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkDc-00000001R5G-1fls
+	id 1whkDf-00000001R5z-2MhQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:34:53 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5b015b2d792so713962e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:34:51 -0700 (PDT)
+	Thu, 09 Jul 2026 08:34:57 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66960JoQ750012
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jul 2026 08:34:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	l+2Omb5DUzskgrlR5kHajAzpSEQp/MXc5zGp9W3t4rg=; b=QH4aKFOALyROa1dJ
+	Op4o9GswvuRrGVtMDVlQYqO/7EySTe76uunAUKFGppQr9QMa1aUYDs7rb0S3iBHL
+	ppZx1ot8Oon8YOpcOPHOVbDTxNl6H6jgP9DxmktMpt8bQij4JTO/NZ3vDrgOqazl
+	MBRjpLBPe1zDSHdZfVIq0yfWr1SVyRrY5bxKQ8xL3kBARRf05mv3OyhhvOJIQ57J
+	IX6VrkGh/zpZnOJfGLzaAeXvAs22Uh2qFLR55c1+dS61ycYdFpbkjGfrQpB2Hlee
+	2je3aWcjV597bdK/di31lsE9aJjsr0K2dRp255nm1d+kKX2FyjH7q9Hml/pOANwh
+	zDrG5Q==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f9wwft5rx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 08:34:53 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cce870a060so17649145ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:34:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783586090; x=1784190890; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=THSFgL0Y2FKUJgLIXJuUKx+xnsBMsYVZ+QMA86TDiMA=;
-        b=LELHdPZ8a403V38FEFL3p9A2DGxw/ezbYSc91lcK8LyBeiraOP0LWHLq7k3Tp9rtru
-         ioDCLot03qW3rIcIqpEG2TfWQOh8sm89009/tEuuUIjS8uH3u7P1T5jkXZRuNIkZPtla
-         SJ5BDuyD5WPKxndSbKAlvbsYhKBpymLLxSMLjBEYrW6JUCwkjNgsCp5Gt5FuFMS8mwr9
-         7ROmC9GCZuI+0BMKtTbuzRlIXbv9EIURc2ocFCjY6+cEcqbTZhq209gS5FvJS75PHIxS
-         yJlq4wlDePeokhN/YCfTROXlODMxynDYA/Vruwx0HG5/XD6nY3C3IS7ShiWZ6SVYzJcZ
-         f7Sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783586090; x=1784190890;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1783586093; x=1784190893; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=THSFgL0Y2FKUJgLIXJuUKx+xnsBMsYVZ+QMA86TDiMA=;
-        b=D+zLHLgI6rsn3/SfCIUWmdJzkYEhIEuervGXshjCXLYRCdWRJf1pqATjF5UWOh9vAX
-         48MxLVyfWDkKuz/Jy1VDEO9q4SJTcVZdn0SvSyaR/UF0u4bLpDt3MMpBpMZ1wJrUzxO4
-         Y3rDn7SB0FaRTKAmXcxilzi5d50Pe+FVz2HlMcU4vdqU1aPANZNqawvCgszc87ceNQEo
-         Bx4P3mpmJDtccM2JLpXqsE5fKITv5nGMb3lvpao+ipcRoQop868qW/6vTEmBFWfABY71
-         hEBxL8Q4cMVcKc5XQrx/Z989yk6MRjehQ0/ziOSemtpLxYP+kJAs3Mn+whnxX53wwF6O
-         DX2g==
-X-Forwarded-Encrypted: i=1; AHgh+RrK8CcDTLlitCKK6cRrdR1yWQZ9lfKm2XEEFAec3qeg1nSDBj02kik1gdvwGTrcvCxEV9mVwqVG71HANwyUf/Ou@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG8XiqmlOWVcGPpNxKCcBhQuqPHge6ezDxPG9S7o6P0mIJKdlq
-	g+VCOCq4EHfJEznH282VFpqZSU93hWYP5lEL0LY2WX4tRO97sKrHlqzo
-X-Gm-Gg: AfdE7cneprG9VpweNgdM5VxTN1gNW5/PlRFU1ur8FNTqMXE5JmSqgl2/52soVdfSMth
-	8urXQxe5vXtj9e8D6mpaaSw4agUtDDuqfrkSY/YfHHhz1MIenwMJxRgq7ZQk59Oy4nV85SOcaAJ
-	xZ9XPXWT8Sh9hId2QEMYSGkUzY8Nq5pPn7QgHM+91D7QmVhFaGBMCnZ+bdkZM7kxwPoy+4KKhAx
-	p9Z5YenWm7qQplmqhpLnBJ8mGxMaV5r64pVcYBFmQpZVVj3rQR2gG/eretbipUz9VHqaxebZ2uZ
-	uB2ZugYDHcvmbYuKqR4tJYDJjML7POfdeVAtRTrrdh54Iw3Pa6VRs6+GS8QK8G3rStUU2Plf7Qb
-	vbQnBsyFErQhlGEwmiRti6kcenTuAawkgLbESlTjXe0y+QQwGgb/sYm0PREpja8IwCYZz5QoXTP
-	hnhNpEd9Dqj6vOJv7BvFav/V8SdDPsZmFiA6I8vZjctL53np2yXA==
-X-Received: by 2002:a05:6512:159c:b0:5ae:d399:ceb8 with SMTP id 2adb3069b0e04-5b011472e03mr1731318e87.56.1783586090129;
-        Thu, 09 Jul 2026 01:34:50 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13c3a15sm5082954e87.68.2026.07.09.01.34.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 01:34:48 -0700 (PDT)
-Date: Thu, 9 Jul 2026 10:34:46 +0200
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v10 4/7] i2c: davinci: calculate bus freq from Hz instead
- of kHz
-Message-ID: <ak9dJm5GVfCOqAsU@gmail.com>
-References: <20260708-i2c-mux-v10-0-09dca03c8a15@gmail.com>
- <20260708-i2c-mux-v10-4-09dca03c8a15@gmail.com>
- <ak6lWKWDM8XwqLgw@ashevche-desk.local>
+        bh=l+2Omb5DUzskgrlR5kHajAzpSEQp/MXc5zGp9W3t4rg=;
+        b=WowMdLwnKdX9iJ6XzqBJ5U6WJaW+27iAf4Bslai8o6Oc8Psc+0xQsXJgA6JyI4Q4Gq
+         bDb5TyVIPXNB4lDUDIgoz8hMk7NPHYOWhMR9EWjGd+yUMMH30l7hEJkSBHO6qdhqss3U
+         7UCTfWSaqkSrFC2mGDdqCoTzVMlYFqc3yqMxgvjn6fhAsnaRXt3UpLqyvmiCA95HlAJB
+         Ksox/gkauaBMJw3/2wY1aDHBv602VsN2AK+W4yodFFiEP9eyfI9XVgiN017Vyb64zDk2
+         b/a+AdXjR7RFxkuIb5tOql8t0vWc6wNQK3Bx/A2houS1hrz7D2AaDGzWNOPmy6qHPImi
+         LNUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783586093; x=1784190893;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=l+2Omb5DUzskgrlR5kHajAzpSEQp/MXc5zGp9W3t4rg=;
+        b=YpfZ2aErFoXWeq7w/rV2WQnJvpvzJx1RM8npU9Kjr+qCRXrB3UOTDgej+uGigoes7K
+         mhYfmsOUDsg4vY9bZHTvTbY3oAiThlmhAUomm6kesm6WPptVPqBrfdrVO4dPW22Sigba
+         g2wxwuI/HHas9sxdTJ8L+rlI5hKgKqPGLsu0C5asDSOEkn+JHy97FXcTWSR0NFfoJRoA
+         Go5X+v8L2Mw6+UBUByvar57xmrsgVwN3lNGjTVCZ5h1wQRARK4AYOnedHO78vy61WrTt
+         z3H6jxfOJ2N9nYru+ammeYB1mLNZ5J4BAq3QZIJN6FHqEXo4oguWA2wGoHa9auV8tYws
+         q2vg==
+X-Forwarded-Encrypted: i=1; AHgh+RqsInTgasT6JeFN2c6feT7DCVLb6hO3OV3t8vQBy6BGt3+EMrxPnmCbzx+KhihUowHjumGAiYMKS/vgwZn6RCGA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza+R1ZFM76b6S4VXxsO0wz+B8KZB9tYKILMduMoMWldJBay9bX
+	Ug3PWY+MduyhFm6n12dUhBdzXsbcI1D2cqIFMIt3goayJGUf4GALsoiDD2B30VX1z4H/6Vx6z4Y
+	rgxrRL9XOfc8vWFyzInZJAPLevCE8rftrBc3GNrT7pFf0TDCgAOBbf49de4LIFdR+JniYFT/6PS
+	errA==
+X-Gm-Gg: AfdE7cmcwBbgI6tU4GwRJUxBmHIvpKEs3x4ivUYNCaXD7GViqOXaBxwb678sJ9t7bZb
+	sTkWyTJZrAetpvjJs8noboZ5Q8hu/bGAd02ntPvrlsg0oIOvlZboPk7Xadxi2pu2BT8wEWi22rR
+	8ajHX7GtPvdqcPgreejtlbXyE73KM7HtzlhkcQZ1RIr+2IIMDGsftn3bKRrOJXGhzZxyN4UBwlr
+	t0KcB7SOgSV1oFaXC0uwugXxg0lVzHF6Lpc6g90vM+0nblmR+eO828WtAev3zlFUEzB/M7st4FN
+	6two1WY+WHuKzwZGU1mfvyWlu2x1FAvg2VQi/x3Y6c2KKqav26SUSb916SV4lWpZfP0jk0hrpTz
+	e/kWhe85bIl7uuW7h8gy+zFc2owYQFY5MIfeXSEHS6J9MZx1n54fWdgNYa+bPtoZ6+CD+7kQydP
+	gg
+X-Received: by 2002:a17:903:2447:b0:2c6:8d95:fd6d with SMTP id d9443c01a7336-2ccea3cce67mr67471395ad.21.1783586092834;
+        Thu, 09 Jul 2026 01:34:52 -0700 (PDT)
+X-Received: by 2002:a17:903:2447:b0:2c6:8d95:fd6d with SMTP id d9443c01a7336-2ccea3cce67mr67470935ad.21.1783586092330;
+        Thu, 09 Jul 2026 01:34:52 -0700 (PDT)
+Received: from [10.133.33.179] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d1e1aesm40865795ad.39.2026.07.09.01.34.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jul 2026 01:34:51 -0700 (PDT)
+Message-ID: <e5876525-4568-43bd-8c91-6dc462b18fa3@oss.qualcomm.com>
+Date: Thu, 9 Jul 2026 16:34:46 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ak6lWKWDM8XwqLgw@ashevche-desk.local>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/5] dt-bindings: arm: coresight-tnoc: Drop
+ arm,primecell to bind on platform bus
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260707-fix-tracenoc-probe-issue-v5-0-bf733ed9ebd0@oss.qualcomm.com>
+ <20260707-fix-tracenoc-probe-issue-v5-1-bf733ed9ebd0@oss.qualcomm.com>
+ <20260709-versed-marvellous-pigeon-22e2ba@quoll>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260709-versed-marvellous-pigeon-22e2ba@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA5MDA4MSBTYWx0ZWRfXyLKMIofSN3uo
+ DV9brcQAJcHIlkTETRSwxWgtMQ9sBRlB4Lka2seTj61aTIOaKaLms7MXToWd2ptX/4Jz7l+yHMc
+ GVHsHZPWovUo0ywkHjtTukPFyFP7xwr0LkQ4VbV92Wh8ljxvtv1/HeuUXsCv2eNaNqRRfGOZEOE
+ g3qRvAjtduPLX83aF0zzx6HMEjfFeBHaMibGslYTcIQyw4tO+vNN5cJ7+SGe3ph+PWa3R71/0H6
+ sHOuM4E+L25AWSAIyjhFzur0i6PTFhefYYUYe1pTQzIeVroSS1D4DiSjmmau1i/X6denzzfCXm5
+ c+HdAIvhS7op/FG7aQHb7o3WCb2HOMDbKt2wDLqxN0F0fMDqhhcTocXv+hGN1/V2dzLoG4eaBmt
+ GcRauJpqnn47EVhfF9ch71I7v+WCVwC+wK1YaEwrKi5Tsv3LcJjFENDhnHYa07xYyoBGSuZSURm
+ H/ANuXpgk8nCIXsPhPg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA5MDA4MSBTYWx0ZWRfX8esAOcED51aK
+ fTduOaA4p5tQ/j4scnbmBwVcjZENXHMyg+hCTMtVeNmuY52E0Z3Wqa8gUqqkLixFOt7xm0GCgN/
+ usoN5U5G59LGWsZRtCiKYu6JOmLiqxE=
+X-Proofpoint-ORIG-GUID: FPb1DQdozJNCIIUbCcuLSNQDPhAXf56p
+X-Proofpoint-GUID: FPb1DQdozJNCIIUbCcuLSNQDPhAXf56p
+X-Authority-Analysis: v=2.4 cv=Krh9H2WN c=1 sm=1 tr=0 ts=6a4f5d2d cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=fv-GP7Tdd4dwdnXjSPsA:9 a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-09_01,2026-07-08_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 priorityscore=1501 impostorscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 suspectscore=0 bulkscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607090081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_013452_460912_756A79E5 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20260709_013455_723944_3A77D3FC 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +169,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 10:30:32PM +0300, Andy Shevchenko wrote:
-> On Wed, Jul 08, 2026 at 02:16:16PM +0200, Marcus Folkesson wrote:
-> > The bus frequency is unnecessarily converted between Hz and kHz in
-> > several places.
-> > This is probably an old legacy from the old times (pre-devicetrees)
-> > when the davinci_i2c_platform_data took the bus_freq in kHz.
-> > 
-> > Stick to Hz.
-> 
-> ...
-> 
-> > -#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100000
-> > -
-> 
-> You need to rebase this on top of the i2c-next.
 
-Thanks, will do.
-> 
-> ...
-> 
-> > +	/* standard bus frequency */
-> > +	unsigned int		bus_freq_hz;
-> 
-> While at it, I would dare to suggest _Hz as we started doing in IIO (id est
-> we start following more closely the SI units in the suffixes of constant
-> definitions and variables to be case sensitive).
 
-Sounds good, I will change to Hz.
+On 7/9/2026 3:59 PM, Krzysztof Kozlowski wrote:
+> On Tue, Jul 07, 2026 at 05:08:49PM +0800, Jie Gan wrote:
+>> The TNOC compatible previously required the two-string AMBA form
+>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
+>> AMBA bus.
+>>
+>> Change the compatible to a single "qcom,coresight-tnoc" string with no
+>> "arm,primecell" entry, so the device is created on the platform bus and
+>> bound by the platform driver through its compatible string.
+> 
+> I asked already: this is not a valid reason. References to Linux
+> structures are not correct here. If this is your reason, then answer is:
+> fix drivers, by renaming or doing whatever is necessary to platform bus
+> to behave like amba bus.
 
+The issue is that we are not allowed to introduce a DT property to 
+bypass the AMBA bus validation, which reads the Component ID (CID) 
+registers. Besides, I cannot fix this in the TraceNoC AMBA driver 
+because the driver is only invoked after amba_match() succeeds. Since 
+the device fails the AMBA match, the TraceNoC AMBA driver is never reached.
+
+The solution proposed by the CoreSight maintainer, Suzuki, is to define 
+a dedicated compatible string for the Aggregator TraceNoC device and 
+have it probed by the existing platform driver. If the AMBA bus cannot 
+identify the device as a valid AMBA device, we should not fake the 
+hardware description to make it appear as one.
+
+Thanks,
+Jie
+
+>>
+>> Drop the custom select block as well. It was only needed to avoid
+>> matching the "arm,primecell" string on unrelated nodes; with the single
+>> "qcom,coresight-tnoc" compatible the schema's auto-generated select
+>> already matches the right nodes.
 > 
-> ...
+> Why are you describing the diff? It's obvious.
 > 
-> >  	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
-> >  	if (r)
-> > -		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
-> > +		prop = I2C_MAX_STANDARD_MODE_FREQ;
-> >  
 > 
-> See above about rebase.
+>>
+>> Update the example node to use the standalone compatible form.
 > 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
+> And here.
 > 
-Best regards,
-Marcus Folkesson
+> You got comments at v4, nothing improveed. Your commit msg tells useless
+> things like what you did or you want different Linux behavior.
+> 
+> Best regards,
+> Krzysztof
+> 
+
 
