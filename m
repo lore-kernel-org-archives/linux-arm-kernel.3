@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC82C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 20:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1950FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 20:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MknKguO/y7D73sf31WE8ue3wCFrIJRDKGveYXgvd6kk=; b=BWq+X3S5BskjGU
-	HNc/QdDD8+Q911bvK7e/Y1kOkXcDAUDgrTu/JYVm4j6a3+pzx31NdIIEK7IlGhRp9ezg9xduG2hk7
-	LBHdrfbHZOrKx9SPO+v+5ZKWILHpW2oFAIgANzYcT+aZaF4p7uzDAydRvmOfswO3//MXrHMWM9Hfy
-	I/dmjwTBgtcONCd6ZTzib3F41vVLCfBlJfBOwck+rE8aHN618YKyVELXexUdhRJW8P6rg+zdd//Cm
-	XAFipw0DtD33GVejt8U2rr3ko337oN/++cvwe0DAX1RmQ4POrx1StJLX22VtMcs83pStcnlo4I2jB
-	+eLvKxjH4J0+gvYQDHLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=GQuKYkV+RrdDaj2kuGPtykS0VuTmijFhckMfHg5Fm6E=; b=Nrho6Z1uTxfw4Q
+	DBufsy9AsQjx8VSx/jjA/qbUaZMDGrf54YY1XLOCjpHkJkdqGCPdO4RtF38QX71rxcJE1iXQKMBRm
+	vuIscpXvfnV75RiyvjqU4VsdMsd83Mm4k5YZOovkjIM5F199wRzlXX9RaC+vgn7FDXw6bgTmLL8/z
+	dkg6xD3WN0R/4BhAKra6GY5/4bQsVSy5A7eQ5wkVRSGUOsieCBJL/TGpfjapPGe/S5v4zbA+icK+R
+	2E+vVOHPFuzv+1PtAX8LTkr4+rQvx8dYGCps1JoV9EY+LeFKSjeXIt2+jSNZI/S6wLjSkMwogXGb+
+	x6ZtU8JhWD+e2x7gNDLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whu1A-00000003LO4-057e;
-	Thu, 09 Jul 2026 19:02:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whv3g-00000003Xb4-1wW2;
+	Thu, 09 Jul 2026 20:09:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whu13-00000003LFp-0M36;
-	Thu, 09 Jul 2026 19:02:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783623750;
-	bh=1cXNReSpQ3xN4yaRnOLJD82kzsl0vFIJqafwsOicgKI=;
-	h=From:Subject:Date:To:Cc:From;
-	b=TXwFOOZjzbsBYTEsVWflRPwTfMJbuiSFeVm8UVLIkVEtcIop/k89ImGOHtjTfMQAC
-	 FTeQCA3DuPZ6SIneft3yigmGjRRtrxWoqMPQQ0qQk+dSO7D3W+n33x/Ob6f6qCqFys
-	 /JHeFlEcr753OvGOhRHv7Y+Dh7gLtKwGNrI/zYhiPj2u83nVt09vI61s1sbx8gOG+1
-	 61wNJUXnleN0fk0ZWO06ebNEQrtItClZ2Noh7xJxICluv2DopWI41tJ7KlrtnipTLL
-	 wvoFaP6Dw/C861en+uNPyIECKV6qZfsaawbBaaHdlGKxMleFD9cX4DFEYBMWLPBJPs
-	 M59k90SbmN5Ig==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDB4617E0D53;
-	Thu, 09 Jul 2026 21:02:29 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id A1463480028; Thu, 09 Jul 2026 21:02:29 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v11 00/36] phy: rockchip: usbdp: Clean up the mess
-Date: Thu, 09 Jul 2026 21:02:23 +0200
-Message-Id: <20260709-rockchip-usbdp-cleanup-v11-0-a149ac60f76c@collabora.com>
+	id 1whv3f-00000003Xal-1iZp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 20:09:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB1C243B39;
+	Thu,  9 Jul 2026 20:09:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CD391F00A3A;
+	Thu,  9 Jul 2026 20:09:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783627758;
+	bh=GQuKYkV+RrdDaj2kuGPtykS0VuTmijFhckMfHg5Fm6E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=hKBvQLIBI2Et62EU1THz3bg3Q+4e00bwkTJvLNGtXuDsckSdhXqWsv7Mi0StVbOTY
+	 aoKWr89W7DmkAC1ibeGSvrcyWaMmf8YOcLHa1nK+AGeMLKt9IGsQh0WEg6DgF4cV7w
+	 Z6Ln79/0ijRDOhdCXsGIoMExZKegHGM7qmyf4JjTrZ9F3tkLlR5FXj5cHr/ZG3u3IX
+	 wKl+5k+yFa3luBLvZ+0Ov5hUUh7znY5Zt57xoIgJSJ2zKa03kyIRJBRpiQLMC4nlP+
+	 6laPzpGq4y6TbF/cySM+OuW/dIHMrtg+dIu5YS2PZMZlkhG6gE9fzA+yPHNWre/R4E
+	 X4KUFOL2QJaSg==
+Date: Thu, 9 Jul 2026 15:09:17 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Steffen Persvold <spersvold@gmail.com>
+Cc: Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] PCI: host-generic: Fix NULL pointer dereference on
+ 32-bit CAM systems
+Message-ID: <20260709200917.GA875728@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD/wT2oC/4XSwU7DMAwG4FdBPVMUO42TcOI9EIckdVjEWKuWV
- aBp7066SyuUjKMt5XN+y5dm5inx3Dw/XJqJlzSn4ZQLgMeHJhzc6Z3b1OdGgwJJoJDtNISPcEh
- je559P7bhyO50Hlvlle2jVwRONvnxOHFM3zf59S3XhzR/DdPPbdACa/dfcoFWtECOokXuQdNLG
- I5H54fJPYXhs1nZBXcU1CnMlCfNAVFFS1yi5EbJO5TMlGQT2Vgnc+wS1W1Uh6ZKdZnSWivSwIE
- RS5TaKAKsUipTHIORgqwhG0sU7SlbpWgN6D1E1XkZZTGg3lGoqpReKcNehkiqi32JMnuKqpTJV
- KcjGbRGG1v8ld0oLeq7suuuJHD0nrDH4jGA2Ft3blRkzEmLGiA44+xf7Hq9/gIYblFAZgMAAA=
- =
-X-Change-ID: 20260203-rockchip-usbdp-cleanup-5b59dfb561a3
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@flipper.net>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>, William Wu <william.wu@rock-chips.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=14511;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=1cXNReSpQ3xN4yaRnOLJD82kzsl0vFIJqafwsOicgKI=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpP8EQjhvacYCH41gMsKagK2WP+O/dvOl1SC
- +Udp11dhBDlj4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqT/BEAAoJENju1/PI
- O/qatKwP/RptYRdVNH2uIC9nNGEPSJXhCi07DynBi9nYgUemsJPKNdmEq9EafvgklmAoB+BmbUS
- 4QVX402pPclulr6JOlJoXKu4kA1fSsbeUMiLl4HQLtQpmuqtWBwzuiTzYlApa8v6j2VhP8CILxX
- I0hqVXeGw52U/s/ANWzkBDSmBU8Ik5h36jkP5H+/hv54/+hmy3C0D75XR7ldYSC2z7fb5u7h4Jh
- I22yEy9jQkqajxSoRMtVk87iK8E0TFyGI+oOb5rGj+ZRQeH5Y73hRf3oHjh7vo30awYm5Iw2ny/
- RI+g6J1qFm4YMfQ02a3/6Ei6GUvgzLl7p2n/O+nqQZlhLDaiLvMH1gsJVafI/SkDpydZQ7iRTyH
- I3bfUsedCYKpPiVOGO3JoGAN98j3xMPOVv1l7sP/XeSMrm1XBsMus3SVyG38+q8ygH0aqubw5ex
- tUPzYPbP0vkMJRBxI7RJB3wkpi+ImfwmtAkusjic2rruAWILIFUGGagSj82Azptlk2GFkJ4qZ75
- RDZB+3tIj2YB6262c4K81QhOHJXTNaqY8oK4IB8gD1KmKw669xwL/aQbvSOehA/hPDf0+BUQVPG
- 1vm3E5MMT6pjtS0f6hlc85xheIQl+WJLbc/UaaJRvNsWKJqVCsOL6hoKzfiDLKQpId3tbPhVEga
- G7KUnOdqS78F2LTyaqcorNw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_120233_436058_F7B32B07 
-X-CRM114-Status: GOOD (  46.22  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260709122446.3151899-1-spersvold@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,273 +73,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series does a major overhaul of the Rockchip USBDP driver. The
-initial main goal was to add USB-C DP AltMode support to the RK3576
-and RK3588 and this series still prepares the PHY driver for exactly
-that. But in addition to that I uncovered a huge amount of issues,
-that are fixed along the way. Some of the more interesting ones are:
+On Thu, Jul 09, 2026 at 02:24:46PM +0200, Steffen Persvold wrote:
+> On 32-bit systems the config space is too large to ioremap in one go, so
+> pci_ecam_create() maps each bus segment separately and relies on the
+> ->add_bus callback (pci_ecam_add_bus) to populate the per-bus mapping in
+> cfg->winp[]. pci_ecam_map_bus() then uses that mapping as the base for
+> every config access.
+> 
+> The generic ECAM ops (pci_generic_ecam_ops) already provide the ->add_bus
+> and ->remove_bus callbacks, but the CAM (legacy) ops in pci-host-generic.c
+> do not. As a result, on a 32-bit host using "pci-host-cam-generic" the
+> per-bus mapping is never set up and the first config read dereferences a
+> NULL base, crashing during bus enumeration:
+> 
+> [    1.430647] Unable to handle kernel NULL pointer dereference at virtual address 00000800
+> [    1.439441] Oops [#1]
+> [    1.442152] CPU: 0 PID: 1 Comm: swapper Not tainted 6.9.7+ #43
+> [    1.448753] Hardware name: Digilent Nexys-Video-A7 RV32 (DT)
+> [    1.454968] epc : pci_generic_config_read+0x40/0xb0
+> [    1.460652]  ra : pci_generic_config_read+0x2c/0xb0
+> [    1.534729] [<c038db9c>] pci_generic_config_read+0x40/0xb0
+> [    1.541096] [<c038da04>] pci_bus_read_config_dword+0x50/0xb0
+> [    1.547623] [<c0391e94>] pci_bus_generic_read_dev_vendor_id+0x3c/0x1ec
+> [    1.555010] [<c039245c>] pci_scan_single_device+0xa4/0x11c
+> [    1.561273] [<c0392570>] pci_scan_slot+0x9c/0x23c
+> [    1.566716] [<c039388c>] pci_scan_child_bus_extend+0x58/0x2f4
+> [    1.573275] [<c0393db0>] pci_scan_root_bus_bridge+0x64/0xe8
+> [    1.579650] [<c0393e54>] pci_host_probe+0x20/0xc8
+> [    1.591396] [<c03bc6f4>] pci_host_common_probe+0x144/0x1e4
 
- * Currently the driver might trigger a fatal SError on USB-C hotplug,
-   since re-initializing the PHY stops the clocks going to DWC3. If
-   the DWC3 driver tries to access its registers at the same time the
-   system will crash.
- * The DWC3 hardware can get into a buggy state when the PHY is
-   disabled, which results in the PHY not coming up properly again.
- * Swithcing the USB-C connector orientation during hotplug breaks
-   USB3 speed, as the PHY is not being re-initialized.
- * The code always enables DP mode when USB-C is involved.
- * The driver has some locking issues uncovered by Sashiko.
+Remove timestamps, since they don't contribute to understanding the
+problem, and indent the quoted material two spaces.
 
-In addition to these bigger ones, Sashiko also found a bunch of
-minor problems, which are mostly harmless, but were fixed while
-going at it.
+If there's no other reason for a v2, we can do this while merging.
 
-I've tested the v10 code changes with dozens of replugs of different
-devices (2 different USB-C hubs with USB3 + HDMI via DP AltMode, 1 USB-C
-to HDMI adapter [4 lanes DP AltMode], 1 USB-C to DP adapter [4 lanes DP
-AltMode], 1 USB-C to NVMe adapter [no DP AltMode] as well as a direct
-USB-C connection to a Dell display) on a Sige 5 board and haven't run
-into any issues. In addition I also tested peripheral/gadget mode works
-by plugging the USB-C port into a laptop using an USB-A to USB-C cable.
-In all cases USB3 was working in both directions and DP mode was
-properly initialized, so that the DRM driver could query the available
-modes. Apart from that the series is boot tested via CI on Rock 5B
-and Rock 4D.
-
-Technically some of the later patches are fixes, that one would
-expect at the beginning of the series, but they are only possible
-after the big cleanups.
-
-Changes in v11:
-- Link to v10: https://lore.kernel.org/r/20260703-rockchip-usbdp-cleanup-v10-0-a392711ca8a9@collabora.com
-- Fix depreated -> deprecated typo in DT binding (Sashiko)
-- dwc3 patch: (un)register PHY notifier in probe/remove instead of
-  phy_init/exit to avoid AB-BA deadlock (Sashiko)
-- dwc3 patch: replace pm_runtime_get_sync by pm_runtime_resume_and_get
-  and add error handling (Sashiko)
-- implement error handling for PRE_RESET in USBDP driver to match
-  this (me)
-- dwc3 patch: add reset counter to have balanced runtime PM count if
-  dwc3 is removed during an active reset (Sashiko)
-- Keep code to disable USB3 in highspeed-only mode in phy_init (Sashiko)
-- Always set lane mux in last patch to make sure orientation
-  changes are handled properly (Sashiko)
-- Update commit message of last patch to mention USB reconnections
-  happening during PD state negotiation (Sashiko)
-
-Changes in v10:
-- Link to v9: https://lore.kernel.org/r/20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com
-- Add 'deprecated: true' to port in DT binding, since ports replaces it (Sashiko)
-- In 'Drop seamless DP takeover' simply remove any handling for
-  pre-enabled PHY as there is no known bootloader doing that and
-  Sashiko keeps finding things, which I cannot test. (Sashiko, myself)
-- Use on/off instead of enabled/disabled in PHY reinit message,
-  which is shorter (myself)
-- Use notifier_to_errno() in "add notifier infrastructure" (Sashiko)
-- Rework DWC3 PHY reset notifier patch, so that it works correctly
-  for multiple ports (Rockchip is single-port) and keep a runtime
-  reference while the PHY reset is going on to massively simplify
-  the locking logic. (Sashiko)
-- Drop patch renaming phy_needs_reinit keep the existing logic to
-  set it whenever the lane configuration changes (Sashiko)
-- Update "Simplify power state handling" patch, to mostly depend
-  on the DT configured or TypeC negotiated modes to avoid
-  data stream disconnections when DP is hotplugged in a dock or
-  USB is used with runtime PM (Sashiko)
-- Ensure sw_mode is not set when the PHY enablement function fails
-  (Sashiko)
-- Add new patch adding USB-only mode as USB-C state, which results
-  in proper powering off the DP side when the remote hardware is
-  not capable of DP AltMode. (myself)
-
-Changes in v9:
-- Link to v8: https://lore.kernel.org/r/20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com
-- Update DT binding to explicitly mention that port@3 is for the
-  DP aux channel and not DP in general (Sashiko got this wrong)
-- Add a 100ms cooldown sleep in "Drop seamless DP takeover" after HPD
-  is force disabled (Sashiko)
-- Update comment in "Register DP aux bridge" to explain why port@3 is
-  checked, but port@0 is used (Sashiko)
-- Check for high-speed only mode in "Support going from DP-only mode to
-  USB mode" (Sashiko)
-- Add new patch for rk_udphy_reset_deassert error handling (Sashiko)
-- Add new patch to avoid enabling USB3 in high-speed only mode during
-  PHY reinit (Sashiko)
-- Add 3 more patches to handle the LCPLL lock issue mentioned in the v8
-  cover letter after feedback from Rockchip. Apparently the DWC3 does
-  not cope very well with the PHY disappearing resulting in the PIPE
-  interface misbehaving, which in turn results in the LCPLL not locking.
-  The new patches avoid this by asserting DWC3_GUSB3PIPECTL_PHYSOFTRST.
-  As this assert needs to be done when the PHY wants to reset, a new
-  notifier system has been implemented to support triggering this from
-  the PHY driver. This also means, that this version now also involves
-  the USB subsystem.
-- Drop old patch trying to solve the DP-only -> USB mode switch in
-  favour of 5 new patches completely rewriting and simplifying the
-  power status handling. The new code ensures that the PHY always
-  has the right modes enabled and also makes sure a re-init happens
-  on an orientation change.
-- rebased on v7.2-rc1
-
-Changes in v8:
-- Link to v7: https://lore.kernel.org/r/20260625-rockchip-usbdp-cleanup-v7-0-38eb3cf654fd@collabora.com
-- Move patch "Limit DP lane count to muxed lanes" after single lane
-  support, which introduces dp_lanes variable to make sure series
-  is bi-sectable (Sashiko)
-- Force disable HPD in "Drop seamless DP takeover" patch and update
-  patch description to mention potential issues with SErrors for
-  bootloaders really keeping the DW-DP on. As mentioned in the new
-  commit message this is untested as I'm not aware of such a
-  bootloader anyways; this also means we need to keep the HPD GRF
-  register defines in the 'Drop DP HPD handling' patch (Sashiko)
-- Fix mode logic in "Properly handle TYPEC_STATE_SAFE and
-  TYPEC_STATE_USB" patch; I blame the heat (Sashiko)
-- Improve "Support going from DP-only mode to USB mode" patch to
-  better handle starting in DP only mode; due to TypeC logic
-  starting delayed this does not really happen, though (Sashiko)
-- Improve "Support going from DP-only mode to USB mode" to avoid
-  checking previous state and instead power on USB state based
-  on previous requested state to avoid effects from the flip
-  callback (Sashiko)
-- Update the debug message patch to include some more info
-- Ad one more patch, which disables USB3 at startup and drops
-  the -EPROBE_DEFER logic
-
-Changes in v7:
-- Link to v6: https://lore.kernel.org/r/20260619-rockchip-usbdp-cleanup-v6-0-3bb1f54b3f35@collabora.com
-- Add new patch handling missing clock-names in DT gracefully (Sashiko)
-- Add new patch handling rk_udphy_reset_deassert_all errors in init check (Sashiko)
-- Add new patch to handle Properly handle TYPEC_STATE_SAFE and TYPEC_STATE_USB (Sashiko)
-- Add new patch to avoid xHCI SErrors
-
-Changes in v6:
-- Link to v5: https://lore.kernel.org/r/20260612-rockchip-usbdp-cleanup-v5-0-efc83069869f@collabora.com
-- Add explicit <linux/string_choices.h> include in last patch (Sashiko)
-- Add new patch moving mode_change update after error handling (Sashiko)
-- Add new patch fixing error masking of devm_clk_bulk_get_all() (Sashiko)
-- Add new patch dropping seamless DP takeover as it is non-functional and buggy (Sashiko) 
-- Add new patch limiting DP lane count to muxed lanes (Sashiko)
-- Add error handling in the patch that keeps clocks running on PHY re-init (Sashiko)
-- Also look for DP being configured to second lane for the flip config
-  in DP single-lane mode, which should at least keep USB working for
-  this super unusual config (Sashiko)
-- Drop useless ret variable in patch introducing guard() for the mutex
-- Add error handling for PHY re-enablement in the patch fixing support for
-  DP-only -> USB mode (Sashiko)
-
-Changes in v5:
-- Link to v4: https://lore.kernel.org/r/20260428-rockchip-usbdp-cleanup-v4-0-7775671ece22@collabora.com
-- Picked up Acked-by from Rob Herring for DT binding
-- Fix typos in commit messages/comments
-- Add Fixes tag to "Do not looe USB3 PHY status" patch
-- Collect Reviewed-by: Neil Armstrong for multiple patches
-- Drop now unused code from "Drop DP HPD handling" patch (Sashiko)
-- Ignore mux events not involving DP AltMode (Sashiko)
-- Add new patch to support going back from DP only mode to USB combo
-  mode; technically this is a fix, but DP mode does not yet work
-  upstream, so it does not matter (Sashiko)
-- Add new patch adding a few debug messages, which are useful
-  to investigate potential hotplug issues in the future
-- Sashiko comments about the DT binding and property usage
-  are wrong as the first port is for the superspeed lanes
-  used for DP and USB, while the last port is just about
-  DP aux. I ignored them.
-- There is a pre-existing bug, that can already be hit with the
-  upstream kernel and that the series doesn't fix properly:
-  Accessing the USB3 controller registers requires the USB PHY
-  running, since it provides a clock. Re-initializing the PHY
-  means there is a race-condition - if the system tries to access
-  the USB3 controller in parallel to the re-init, the system will
-  hang and/or fail with an SError. By keeping the clocks running
-  and only asserting the resets this time is minimized by this
-  series. A proper fix for this will be looked into independently
-  from this series.
-- I used v7.1-rc6 as base, but the driver has no changes since
-  6.18 even in linux-next and there are no pending patches for
-  it on the mailinglist either, so it applies to *any* recent
-  kernel branch.
-
-Changes in v4:
-- Link to v3: https://lore.kernel.org/r/20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com
-- rebased to v7.1-rc1 (no changes)
-- Update DRM bridge registration patch to avoid registration when DP aux
-  port is not connected to anything, since this results in errors and some
-  boards use USBDP instances for USB3 only.
-- Add patch renaming mode_change into phy_needs_reinit
-- Add patch to re-init PHY on orientation change
-- Add patch to factor out lane_mux_sel setup
-- Add patch to handle mutex via guard functions
-
-Changes in v3:
-- Link to v2: https://lore.kernel.org/r/20260213-rockchip-usbdp-cleanup-v2-0-b67ec225f96e@collabora.com
-- Add patch to register the USBDP PHY as DRM bridge
-- Add patch to describe ports in DT binding (used by the DRM bridge)
-- Add patch to drop HPD handling from the PHY
-
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20260203-rockchip-usbdp-cleanup-v1-0-16a6f92ed176@collabora.com
-- Added new patches to fix USB3 SError
-
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-Frank Wang (1):
-      phy: rockchip: usbdp: Amend SSC modulation deviation
-
-Sebastian Reichel (33):
-      dt-bindings: phy: rockchip-usbdp: add improved ports scheme
-      phy: rockchip: usbdp: Update mode_change after error handling
-      phy: rockchip: usbdp: Do not lose USB3 PHY status
-      phy: rockchip: usbdp: Fix devm_clk_bulk_get_all check
-      phy: rockchip: usbdp: Handle missing clock-names DT property gracefully
-      phy: rockchip: usbdp: Drop seamless DP takeover
-      phy: rockchip: usbdp: Keep clocks running on PHY re-init
-      phy: rockchip: usbdp: Add missing mode_change update
-      phy: rockchip: usbdp: Limit DP lane count to muxed lanes
-      phy: rockchip: usbdp: Rename DP lane functions
-      phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
-      phy: rockchip: usbdp: Cleanup DP lane selection function
-      phy: rockchip: usbdp: Register DP aux bridge
-      phy: rockchip: usbdp: Drop DP HPD handling
-      phy: rockchip: usbdp: Rename mode_change to phy_needs_reinit
-      phy: rockchip: usbdp: Re-init the PHY on orientation change
-      phy: rockchip: usbdp: Factor out lane_mux_sel setup
-      phy: rockchip: usbdp: Properly handle TYPEC_STATE_SAFE and TYPEC_STATE_USB
-      phy: rockchip: usbdp: Use guard functions for mutex
-      phy: rockchip: usbdp: Clear USB status on PHY exit
-      phy: rockchip: usbdp: Hold mutex in DP PHY configure
-      phy: rockchip: usbdp: Add some extra debug messages
-      phy: rockchip: usbdp: Avoid xHCI SErrors
-      phy: rockchip: usbdp: Handle rk_udphy_reset_deassert errors
-      phy: rockchip: usbdp: Only enable USB3 when not in high-speed mode
-      phy: core: add notifier infrastructure
-      usb: dwc3: core: support PHY reset notifications
-      phy: rockchip: usbdp: Add phy reset notification support
-      phy: rockchip: usbdp: Drop -EPROBE_DEFER hack
-      phy: rockchip: usbdp: Rename mode to hw_mode
-      phy: rockchip: usbdp: Fix power state handling
-      phy: rockchip: usbdp: Re-init PHY on mux change
-      phy: rockchip: usbdp: Add USB-C state without DP enabled
-
-William Wu (1):
-      phy: rockchip: usbdp: Fix LFPS detect threshold control
-
-Zhang Yubing (1):
-      phy: rockchip: usbdp: Support single-lane DP
-
- .../bindings/phy/phy-rockchip-usbdp.yaml           |  24 +
- drivers/phy/phy-core.c                             |  60 +++
- drivers/phy/rockchip/Kconfig                       |   2 +
- drivers/phy/rockchip/phy-rockchip-usbdp.c          | 583 ++++++++++-----------
- drivers/usb/dwc3/core.c                            |  80 +++
- drivers/usb/dwc3/core.h                            |  18 +
- include/linux/phy/phy.h                            |  40 ++
- 7 files changed, 510 insertions(+), 297 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260203-rockchip-usbdp-cleanup-5b59dfb561a3
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+> Fix this by giving the CAM ops the same ->add_bus/->remove_bus callbacks.
+> Since pci_ecam_add_bus() and pci_ecam_remove_bus() are static to ecam.c,
+> move the CAM ops definition there as pci_generic_cam_ops (mirroring
+> pci_generic_ecam_ops) and export it for pci-host-generic.c to reference.
+> 
+> Fixes: 8fe55ef23387 ("PCI: Dynamically map ECAM regions")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Steffen Persvold <spersvold@gmail.com>
+> ---
+>  drivers/pci/controller/pci-host-generic.c | 11 +----------
+>  drivers/pci/ecam.c                        | 13 +++++++++++++
+>  include/linux/pci-ecam.h                  |  3 +++
+>  3 files changed, 17 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pci-host-generic.c b/drivers/pci/controller/pci-host-generic.c
+> index c1bc0d34..9e85c6e9 100644
+> --- a/drivers/pci/controller/pci-host-generic.c
+> +++ b/drivers/pci/controller/pci-host-generic.c
+> @@ -16,15 +16,6 @@
+>  
+>  #include "pci-host-common.h"
+>  
+> -static const struct pci_ecam_ops gen_pci_cfg_cam_bus_ops = {
+> -	.bus_shift	= 16,
+> -	.pci_ops	= {
+> -		.map_bus	= pci_ecam_map_bus,
+> -		.read		= pci_generic_config_read,
+> -		.write		= pci_generic_config_write,
+> -	}
+> -};
+> -
+>  static bool pci_dw_valid_device(struct pci_bus *bus, unsigned int devfn)
+>  {
+>  	struct pci_config_window *cfg = bus->sysdata;
+> @@ -60,7 +51,7 @@ static const struct pci_ecam_ops pci_dw_ecam_bus_ops = {
+>  
+>  static const struct of_device_id gen_pci_of_match[] = {
+>  	{ .compatible = "pci-host-cam-generic",
+> -	  .data = &gen_pci_cfg_cam_bus_ops },
+> +	  .data = &pci_generic_cam_ops },
+>  
+>  	{ .compatible = "pci-host-ecam-generic",
+>  	  .data = &pci_generic_ecam_ops },
+> diff --git a/drivers/pci/ecam.c b/drivers/pci/ecam.c
+> index 119de32f..a9b3bce2 100644
+> --- a/drivers/pci/ecam.c
+> +++ b/drivers/pci/ecam.c
+> @@ -208,6 +208,19 @@ const struct pci_ecam_ops pci_generic_ecam_ops = {
+>  };
+>  EXPORT_SYMBOL_GPL(pci_generic_ecam_ops);
+>  
+> +/* CAM ops */
+> +const struct pci_ecam_ops pci_generic_cam_ops = {
+> +	.bus_shift	= 16,
+> +	.pci_ops	= {
+> +		.add_bus	= pci_ecam_add_bus,
+> +		.remove_bus	= pci_ecam_remove_bus,
+> +		.map_bus	= pci_ecam_map_bus,
+> +		.read		= pci_generic_config_read,
+> +		.write		= pci_generic_config_write,
+> +	}
+> +};
+> +EXPORT_SYMBOL_GPL(pci_generic_cam_ops);
+> +
+>  #if defined(CONFIG_ACPI) && defined(CONFIG_PCI_QUIRKS)
+>  /* ECAM ops for 32-bit access only (non-compliant) */
+>  const struct pci_ecam_ops pci_32b_ops = {
+> diff --git a/include/linux/pci-ecam.h b/include/linux/pci-ecam.h
+> index d9306514..044f67ce 100644
+> --- a/include/linux/pci-ecam.h
+> +++ b/include/linux/pci-ecam.h
+> @@ -81,6 +81,9 @@ void __iomem *pci_ecam_map_bus(struct pci_bus *bus, unsigned int devfn,
+>  /* default ECAM ops */
+>  extern const struct pci_ecam_ops pci_generic_ecam_ops;
+>  
+> +/* default CAM ops */
+> +extern const struct pci_ecam_ops pci_generic_cam_ops;
+> +
+>  #if defined(CONFIG_ACPI) && defined(CONFIG_PCI_QUIRKS)
+>  extern const struct pci_ecam_ops pci_32b_ops;	/* 32-bit accesses only */
+>  extern const struct pci_ecam_ops pci_32b_read_ops; /* 32-bit read only */
+> 
+> base-commit: 53bf92818a8362815708fc7b18e6d2c6a5fc665b
+> -- 
+> 2.40.1
+> 
 
