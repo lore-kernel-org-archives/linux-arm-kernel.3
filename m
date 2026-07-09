@@ -4,129 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20FFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 06:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7209EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 06:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Umjxh1wdEigWfrDYfCtSPiAZ4y/Nii4EbVro+PImADI=; b=QU9jWJio9JdjIZRzij89r8PuV+
-	hW7SkFDX5MrgPNzUMsB5ObzSVnIgCs1agx0wxs3n+WJAlOyhNpMWo7yH/rRwC3gLRr3r5PW9e2/LB
-	r31XMF0+2P3hVYTdj/4j0H2C5kD95pKB/t1AXxvqJBL/38OSWX6cfU4eR5t6EzenjY17UY2M6LoAe
-	uMeSixNayCieDlfTkZEO3QRdJyYweUma892Nis0qvzopyp8Nu9bAKiWfTmgGl9VzIxhZkRfWKY5J7
-	7OaApftUUY6rYKrI57B75QtKf/zFguYTtTDBz4Rr7mbGK434DYuyEIOIheiK1o9QepPNWrzRAR6T+
-	zqzfWK7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8aF1jWcB6IB9KR+4XWsQOiLJ0TW7MXvqDka6LPg71dM=; b=dIM8WRm+fDFB6wVMMicpEVM5mU
+	FtDNMW3p+sR4H5lGisGmO2hPD8opoeDSw+fGFN5M/VOYgicmW/ZX7ClxYYxkKp75OWOVkWb5kfEQn
+	2Nufj+a777XuwHju2LVydtwW/9jO6G7zq6Jaub/xkNcpgto4wZPDg60ro/2L/p/xiJCrMU3KV3QSl
+	EKFZLXYIphNSV4eroXWzAs/p89T4K5/0fDOq1redAdmI6x5MBDdPnPulc5aTIKjkSRjBtPPvPDI86
+	FzWoMaj6epMaO3p2d/QcrHTzGFlT/LntsCrpBIbcpJA/yHkmuUpJXn0wQX9xSN+T26Vr41WoUIR+Q
+	B/Yv/cOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whie6-00000001Dk1-3nT7;
-	Thu, 09 Jul 2026 06:54:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whijH-00000001E4Q-2Z3o;
+	Thu, 09 Jul 2026 06:59:27 +0000
+Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whie5-00000001Djg-21KT;
-	Thu, 09 Jul 2026 06:54:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA9D86001A;
-	Thu,  9 Jul 2026 06:54:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA18F1F000E9;
-	Thu,  9 Jul 2026 06:53:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783580044;
-	bh=Umjxh1wdEigWfrDYfCtSPiAZ4y/Nii4EbVro+PImADI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eve+Ku/buy7nr9gkUgllmP30UOO+QyApAmLGK6h4Qn42Nr4HNLucG+pYmO07Wtxmk
-	 DWtBcDkCybkjMlqjaJAwd+FunPhP/l5E8qcTL2xsPlkrRQwgTqcC58b15eC4WZCrNW
-	 fy+PA4ct/pREL/oK75G/cagLF2JMP2E0x1x6qNQGOEUW/edqJPbb3eXflbtPImj6rr
-	 6mU9S7lgocbnzdZMe07a8786qBJXU0lxf05aRXoxRuFJMsGDl2iAXDkYuqhNkARf4s
-	 MxPTFY6X9AF2y/gnXEoGeobYHJvx5MR4EWTe2hp42in/8iWVNNdGaLMqCpALPbiZyj
-	 rFX4rJG1dpVLQ==
-Message-ID: <9320a573-ebf8-459b-a313-3a8b73a6180b@kernel.org>
-Date: Thu, 9 Jul 2026 08:53:54 +0200
+	id 1whijE-00000001E2r-3btb;
+	Thu, 09 Jul 2026 06:59:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=superkali.me; s=default; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8aF1jWcB6IB9KR+4XWsQOiLJ0TW7MXvqDka6LPg71dM=; b=EPWmXbpPXQfTrkeIfmqIdPvbxQ
+	wOW1LiG49jLz1d8Q5Ne7HjE3dsDF0OUhozjqMdKtMb/PZSfWxpruPh+31py9o0zgBXWiPNKNw53+p
+	rHIRqI5JDlWPZx4khUMn6KqjR72+8SdcSb+soUkVAxXKQLW8Rb1VFcmvUnm01O5Tf2u+OYMpWiF6m
+	QnXAd31jSLZI7UsDQ4hpUSsfHm+yvUuAlaLBCxcozca16FWoFmS3Qc7JCprmT9NBijoHqRjsIsHjk
+	MFS5D7+5rBzGVgJUt5rADZKbF08amGGl7AYPe4T/oSj7dQyb3r4QEDfmnZlRmDeE/kbp5fhpf9MLm
+	fz/U84Pg==;
+Received: from [81.57.40.39] (port=46604 helo=vscode.iliadbox.lan)
+	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <hello@superkali.me>)
+	id 1whiiX-00000009Qd7-3dNf;
+	Thu, 09 Jul 2026 08:58:39 +0200
+From: Daniele Briguglio <hello@superkali.me>
+Date: Thu, 09 Jul 2026 08:58:38 +0200
+Subject: [PATCH] arm64: dts: rockchip: yy3588: fix HDMI-RX signal detect
+ GPIO
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
- callback
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Richard Genoud <richard.genoud@bootlin.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Peter Korsgaard <jacmet@sunsite.dk>, Michal Simek <michal.simek@amd.com>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Russell King <linux@armlinux.org.uk>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- bjorn.andersson@oss.qualcomm.com,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org,
- linux-mips@vger.kernel.org,
- Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
- aniket.randive@oss.qualcomm.com, chandana.chiluveru@oss.qualcomm.com
-References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- xsFNBE6S54YBEACzzjLwDUbU5elY4GTg/NdotjA0jyyJtYI86wdKraekbNE0bC4zV+ryvH4j
- rrcDwGs6tFVrAHvdHeIdI07s1iIx5R/ndcHwt4fvI8CL5PzPmn5J+h0WERR5rFprRh6axhOk
- rSD5CwQl19fm4AJCS6A9GJtOoiLpWn2/IbogPc71jQVrupZYYx51rAaHZ0D2KYK/uhfc6neJ
- i0WqPlbtIlIrpvWxckucNu6ZwXjFY0f3qIRg3Vqh5QxPkojGsq9tXVFVLEkSVz6FoqCHrUTx
- wr+aw6qqQVgvT/McQtsI0S66uIkQjzPUrgAEtWUv76rM4ekqL9stHyvTGw0Fjsualwb0Gwdx
- ReTZzMgheAyoy/umIOKrSEpWouVoBt5FFSZUyjuDdlPPYyPav+hpI6ggmCTld3u2hyiHji2H
- cDpcLM2LMhlHBipu80s9anNeZhCANDhbC5E+NZmuwgzHBcan8WC7xsPXPaiZSIm7TKaVoOcL
- 9tE5aN3jQmIlrT7ZUX52Ff/hSdx/JKDP3YMNtt4B0cH6ejIjtqTd+Ge8sSttsnNM0CQUkXps
- w98jwz+Lxw/bKMr3NSnnFpUZaxwji3BC9vYyxKMAwNelBCHEgS/OAa3EJoTfuYOK6wT6nadm
- YqYjwYbZE5V/SwzMbpWu7Jwlvuwyfo5mh7w5iMfnZE+vHFwp/wARAQABzSFKaXJpIFNsYWJ5
- IDxqaXJpc2xhYnlAa2VybmVsLm9yZz7CwXcEEwEIACEFAlW3RUwCGwMFCwkIBwIGFQgJCgsC
- BBYCAwECHgECF4AACgkQvSWxBAa0cEnVTg//TQpdIAr8Tn0VAeUjdVIH9XCFw+cPSU+zMSCH
- eCZoA/N6gitEcnvHoFVVM7b3hK2HgoFUNbmYC0RdcSc80pOF5gCnACSP9XWHGWzeKCARRcQR
- 4s5YD8I4VV5hqXcKo2DFAtIOVbHDW+0okOzcecdasCakUTr7s2fXz97uuoc2gIBB7bmHUGAH
- XQXHvdnCLjDjR+eJN+zrtbqZKYSfj89s/ZHn5Slug6w8qOPT1sVNGG+eWPlc5s7XYhT9z66E
- l5C0rG35JE4PhC+tl7BaE5IwjJlBMHf/cMJxNHAYoQ1hWQCKOfMDQ6bsEr++kGUCbHkrEFwD
- UVA72iLnnnlZCMevwE4hc0zVhseWhPc/KMYObU1sDGqaCesRLkE3tiE7X2cikmj/qH0CoMWe
- gjnwnQ2qVJcaPSzJ4QITvchEQ+tbuVAyvn9H+9MkdT7b7b2OaqYsUP8rn/2k1Td5zknUz7iF
- oJ0Z9wPTl6tDfF8phaMIPISYrhceVOIoL+rWfaikhBulZTIT5ihieY9nQOw6vhOfWkYvv0Dl
- o4GRnb2ybPQpfEs7WtetOsUgiUbfljTgILFw3CsPW8JESOGQc0Pv8ieznIighqPPFz9g+zSu
- Ss/rpcsqag5n9rQp/H3WW5zKUpeYcKGaPDp/vSUovMcjp8USIhzBBrmI7UWAtuedG9prjqfO
- wU0ETpLnhgEQAM+cDWLL+Wvc9cLhA2OXZ/gMmu7NbYKjfth1UyOuBd5emIO+d4RfFM02XFTI
- t4MxwhAryhsKQQcA4iQNldkbyeviYrPKWjLTjRXT5cD2lpWzr+Jx7mX7InV5JOz1Qq+P+nJW
- YIBjUKhI03ux89p58CYil24Zpyn2F5cX7U+inY8lJIBwLPBnc9Z0An/DVnUOD+0wIcYVnZAK
- DiIXODkGqTg3fhZwbbi+KAhtHPFM2fGw2VTUf62IHzV+eBSnamzPOBc1XsJYKRo3FHNeLuS8
- f4wUe7bWb9O66PPFK/RkeqNX6akkFBf9VfrZ1rTEKAyJ2uqf1EI1olYnENk4+00IBa+BavGQ
- 8UW9dGW3nbPrfuOV5UUvbnsSQwj67pSdrBQqilr5N/5H9z7VCDQ0dhuJNtvDSlTf2iUFBqgk
- 3smln31PUYiVPrMP0V4ja0i9qtO/TB01rTfTyXTRtqz53qO5dGsYiliJO5aUmh8swVpotgK4
- /57h3zGsaXO9PGgnnAdqeKVITaFTLY1ISg+Ptb4KoliiOjrBMmQUSJVtkUXMrCMCeuPDGHo7
- 39Xc75lcHlGuM3yEB//htKjyprbLeLf1y4xPyTeeF5zg/0ztRZNKZicgEmxyUNBHHnBKHQxz
- 1j+mzH0HjZZtXjGu2KLJ18G07q0fpz2ZPk2D53Ww39VNI/J9ABEBAAHCwV8EGAECAAkFAk6S
- 54YCGwwACgkQvSWxBAa0cEk3tRAAgO+DFpbyIa4RlnfpcW17AfnpZi9VR5+zr496n2jH/1ld
- wRO/S+QNSA8qdABqMb9WI4BNaoANgcg0AS429Mq0taaWKkAjkkGAT7mD1Q5PiLr06Y/+Kzdr
- 90eUVneqM2TUQQbK+Kh7JwmGVrRGNqQrDk+gRNvKnGwFNeTkTKtJ0P8jYd7P1gZb9Fwj9YLx
- jhn/sVIhNmEBLBoI7PL+9fbILqJPHgAwW35rpnq4f/EYTykbk1sa13Tav6btJ+4QOgbcezWI
- wZ5w/JVfEJW9JXp3BFAVzRQ5nVrrLDAJZ8Y5ioWcm99JtSIIxXxt9FJaGc1Bgsi5K/+dyTKL
- wLMJgiBzbVx8G+fCJJ9YtlNOPWhbKPlrQ8+AY52Aagi9WNhe6XfJdh5g6ptiOILm330mkR4g
- W6nEgZVyIyTq3ekOuruftWL99qpP5zi+eNrMmLRQx9iecDNgFr342R9bTDlb1TLuRb+/tJ98
- f/bIWIr0cqQmqQ33FgRhrG1+Xml6UXyJ2jExmlO8JljuOGeXYh6ZkIEyzqzffzBLXZCujlYQ
- DFXpyMNVJ2ZwPmX2mWEoYuaBU0JN7wM+/zWgOf2zRwhEuD3A2cO2PxoiIfyUEfB9SSmffaK/
- S4xXoB6wvGENZ85Hg37C7WDNdaAt6Xh2uQIly5grkgvWppkNy4ZHxE+jeNsU7tg=
-In-Reply-To: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-yy3588-hdmirx-d5-fix-v1-1-900a6790386c@superkali.me>
+X-B4-Tracking: v=1; b=H4sIAJ1GT2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcwNL3cpKY1MLC92MlNzMogrdFFPdtMwKXUvDRAszQ3NzYxNTQyWg1oK
+ iVKAw2NjoWAi/uDQpKzW5BGSWUm0tAFopeB14AAAA
+X-Change-ID: 20260709-yy3588-hdmirx-d5-fix-91a861773451
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Daniele Briguglio <hello@superkali.me>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783580318; l=1813;
+ i=hello@superkali.me; h=from:subject:message-id;
+ bh=iFef+RMo4HD2L2iqYTWAnm1yAXxvyc5ptpgmGuUjzjc=;
+ b=UCQjMBPadCMciZrzLQcdA3pxynAHmzMfHADkyU2CwwQZycfvm/6rKPhrA3a/znGshyo3923GF
+ NMmlUAIPPXDAToHT1ML913ozQHQ9SwxAbKFzqlrIxXyMsnBRZ+esFEJ
+X-Developer-Key: i=hello@superkali.me; a=ed25519;
+ pk=5tynRWQdL93CDcapJ73FkcCRY2PeBOJOIAoIhRig53U=
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - superkali.me
+X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
+X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_235925_075140_ADC31AE5 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,58 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09. 07. 26, 8:25, Praveen Talari wrote:
-> The uart_ops.pm callback has been declared void since its introduction,
-> which means any error from a driver's power management implementation is
-> silently discarded by uart_change_pm(). Beyond losing the error
-> information, uart_change_pm() unconditionally updates state->pm_state
-> even when the underlying hardware transition failed. This causes the
-> serial core to track a power state that does not reflect reality:
-> subsequent calls to uart_change_pm() see the stale cached state as
-> matching the requested state and skip the callback entirely, leaving the
-> hardware permanently stuck with no further recovery attempt.
-> 
-> On modern platforms where the .pm callback performs real work —
-> enabling clock trees, interacting with runtime PM, asserting voltage
-> regulators — this is a correctness gap. Failures are invisible to the
-> PM framework, the port proceeds to call ops->startup() on potentially
-> unpowered hardware, and suspend/resume errors are hidden from the core
-> that needs to handle them.
-> 
-> This series fixes the problem in four steps:
-> 
->    Patch 1 changes the uart_ops.pm callback signature from void to int,
->    updates uart_change_pm() to propagate errors and only commit
->    state->pm_state on success, and handles the return value at every
->    call site in serial_core.c with appropriate policy per context
->    (propagate, log, or skip-on-failure).
+The YY3588 declares the HDMI-RX signal detect on GPIO1_C6, but the
+receiver never sees an attached source there and cannot capture any
+input.
 
-So does this break build without the below applied? IOW: breaks 
-bisectability?
+That value was copied from the vendor device tree and is wrong. The
+core-board schematics are not available and the SoM documentation does
+not clearly show where this signal is routed, so the correct pin was
+read from the device tree in the board's Android image: GPIO1_D5. With
+GPIO1_D5 the receiver detects a connected source and locks, and v4l2
+reports the input timing (1920x1080p60).
 
->    Patch 2 updates the 8250 driver family: serial8250_do_pm() and
->    serial8250_pm() are updated to return int (with the exported symbol
->    declaration updated in serial_8250.h), and the 8250 sub-driver
->    pm callbacks are updated to return 0.
-> 
->    Patch 3 updates the remaining non-8250 serial drivers. All .pm
->    implementations are updated to return 0. The sh-sci forward
->    declaration shared with rsci is also updated.
-> 
->    Patch 4 updates arch-level implementations: SA1100 (assabet, h3xxx),
->    OMAP1/ams-delta (modem_pm, now propagates regulator errors), and
->    MIPS/Alchemy (alchemy_8250_pm).
-> 
-> All existing .pm implementations return 0, so there is no functional
-> change for any current driver. The series purely adds the infrastructure
-> for drivers to report errors going forward, with the serial core ready
-> to handle them correctly.
+Fixes: 19847bde695f ("arm64: dts: rockchip: Add Youyeetoo YY3588")
+Signed-off-by: Daniele Briguglio <hello@superkali.me>
+---
+ arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-OK, now I miss the rationale behind the patchset. Neither there is a 
-possible code path to actually test this?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts b/arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts
+index 658d87504841..e31d04b85edf 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts
+@@ -341,7 +341,7 @@ &hdmi_receiver_cma {
+ };
+ 
+ &hdmi_receiver {
+-	hpd-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
++	hpd-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_LOW>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_5v_det>;
+ 	status = "okay";
+@@ -605,7 +605,7 @@ &pcie3x4 {
+ &pinctrl {
+ 	hdmirx {
+ 		hdmirx_5v_det: hdmirx-5v-det {
+-			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+ 
 
-thanks,
--- 
-js
-suse labs
+---
+base-commit: f5ed1537219ae8bf55446232d331b114653a1475
+change-id: 20260709-yy3588-hdmirx-d5-fix-91a861773451
+
+Best regards,
+--  
+Daniele Briguglio <hello@superkali.me>
+
 
