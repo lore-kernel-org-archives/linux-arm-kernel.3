@@ -4,107 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04BCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315C8C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uD6Osf6Z82OsRPDVnF3a4ym/ndZXwELdg64JuzBVz90=; b=D/ehWsv3KueGL30LGCp6lThftY
-	piEeBOTFx3FnF/yjdckINnZwyOEgmQ2RgfHrVajO5kyrorWKFboFRWuknzCAskIWNVVf00K3eT3o7
-	mHiNtTUJlQAo2FZrfau6MCZg7AEo24rJ+42T3ikai+IhsK+am2xHxLaT+AyMesfOKc3zUwPSnQBY3
-	hDFXy23v9CCQ5fpndWCoCLK+C0IkB3QXMhJ257pjy0ySpjhiGSyf7ETCVInVAcGzh00oOnTpf6ied
-	WxypHURqygCdJR1zxK4gWYB7yKaM1BRMXXl5v+B6Sl9jjIdVLPLuzyovhZsneDABCWHXypGM3VrzD
-	WRWkD/SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pdSw+G21z2NrE5iHKTKAJzseZhloGwIrHZmDJjo4p4c=; b=hCBTiE3tSPnNZIzv8FCsSVNXf0
+	jaRf2I8cwsaMi0O86brLtR68fBR1o4oXbPiapIl1rJhnZDD3piL2KsMjs9BTzLzXq+IW/egO9dY1x
+	qfDxOhLXfPSO6ovQdxYHH6eIl8ivNzFM+7YY6usVckR2WZKJypwaa+voM2bEIblwAvLTJdN5C3JN0
+	ETV/w2ew7SSK9KdME/Hn76RhVdLr6EF3fcck1TY7ugvknrDL4ZOfFPFtC++htUx5eK5sLzNmacNfA
+	U8WCc7OwMvkHR+VpBnsCiQjpp/e76WC+kRrP9EKmuWI6J7YwHnt2O0U9GQToOMzjn9qEiHqfOQAQi
+	NRI0G80w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whimJ-00000001ELG-0rmX;
-	Thu, 09 Jul 2026 07:02:35 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1whirD-00000001Eki-3JaN;
+	Thu, 09 Jul 2026 07:07:39 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whimG-00000001EKJ-2701
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:02:34 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-6675db463b9so1287176d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 00:02:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783580551; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CfQe91jSkoVzbwmSckzxuNTF8Yn0Z/c5MmhY6B0MHgtWYGe2aAgRl+ogNbkHbh/c4k
-         Jm4/GTcX5bd5DhsL4tk1diIKJic+SKf99bF47QhwafIh4iKxzOXai0IefrjffmP2RsjK
-         ct1oT7I2VCKLYsSOTVRRNIYzeY53Fy9ECF4yUEUH5ykgb5ygWn6MQtnTj/rNzhh4oYag
-         DdNlpq4cbMQmbqa9KVDylX1rs1AV7xxXcDuCubr6FP2lmzE6n0uFSzxpz5y68suJl/zL
-         HkU13ai+LgntEJ5DJA1fghU7FRIlcAiR3VFsImFkIKrRI5VVgInHQvsgSZJhrnbI/rEd
-         whXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=uD6Osf6Z82OsRPDVnF3a4ym/ndZXwELdg64JuzBVz90=;
-        fh=eCL0KbG2oc+XSlEAWJ8n/owk7nH0IBTgbXoVhUir/qg=;
-        b=e2+wpPgVaLlxynSzyAua0ZH+50IgdMdjpa7DxMZ1Vv+Fefcm+8UsLfhRqJxiqPXS6B
-         da16I7pigxrBoPpIhi99V8hcX5emixv7gAhSCo95xaujrZSlh9+zjtHpXpf8wBrAobij
-         cysH22o0Rrkgvkt7wyqe4ty6WYqCfpHg/oY/HCXU2mcmIKent3yQUkG3Hpw6rvGfLgxP
-         jpUThdC7B7Kl3/djuuljNptQXmeFNZSQTmj8sVEilRqU5KUPlBJsIG0gmisd8oa8HfbW
-         26FSnvfAIfVF6kUjF5fDXWmgGSpXoo+Vm2WNq39PRlHlgxrEKJDN1itn82hZMmHgcDpd
-         pCWg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783580551; x=1784185351; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uD6Osf6Z82OsRPDVnF3a4ym/ndZXwELdg64JuzBVz90=;
-        b=N+S55Gfs+A1UnPe+Dj8FIeTfkP68AMPTaNLAMPb62gKzOf5wJXhbshlopHL/ua5dn0
-         mULJmFIstEZAqzVXugdYvDvcGEqY9rMp2UCGCwyHY1/baFKFC4E/5zcV8v2fB5h7Gxot
-         I44seM/dlP/qVqV1jZTSBoMiIGNMT3qwEYrYs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783580551; x=1784185351;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uD6Osf6Z82OsRPDVnF3a4ym/ndZXwELdg64JuzBVz90=;
-        b=YlsOBxIuciugmtQZfZ5pWOtO10bCp+oI1LWv7OslzCRd1Wy99PaTrYDC6LSri6sxid
-         GMYaNiqdT09KmkB8dkh9/lBWWao6FNoFs7o3E2BxcI7bj48mk67KlJ6fqSXqAJ31qSob
-         uB9XwiJvjxQ7mcTn7i3s2sZUXC7Ae6CBoiNpH1ixXYcxGS6rLIzmkbrwa/FuC6VvZqZp
-         tJsGHP1uOWGGrQlNNiz6mSC4N5cHSLz9cCk86ZEmz5nGj9Ae6FG8F+A7X63GkfmGSI/T
-         O4yWtKUWcDgBlB9H2b9gk8SM2MJtICZxDMUWN9FF7C21cWLtwROBLRPcpeBNv/a4qTiZ
-         rAUg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq4AzOrXfsuxTFAQdIqRosNZununKIAuESryTQjoZp0UdtXja61gGnL0vOAXETDBqPo016dOQk9OmKBzsLTQktF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzXFj8eBnZjrXgzPafEeIQL7a2QvPjzAOXWI3Q4wKDN8x1kAjz
-	JH7etB5VnF2bQiYsM25mbj78bv/sxry+Hz73X3N2QLlk/EfXFfDHWUaIl7Mu7gp7njRgKQATEMk
-	c0/BrsJXMNId/GcKwcqTS+cpYqViu/uv3N4OzYQ4j
-X-Gm-Gg: AfdE7cnYLdY01oYy8oyTs/bAm80FJp893DD8TUU/l2aLFd0+TOHYtxrYqDwRjtPJbDs
-	v6C/wfNlq+8LLxAsqVK6or9Nlv4WAcv4a6nPGzWNgSlaHHukJDonV7yuskTklPIy8juIhwy8FBR
-	X+MX2KeDC/Br9V9/A9o4yzqvTxmMIgNPeCrONxiDhVGvrNJTyQAW/eAtv4HWOXr5rdx2a+wHKHF
-	oyrhyFiFIkQZX/+hzu23SnhpeRS45l3pHP5gpTghHoLV7GKuTuzoKWSGmDV7o/fKD7R4wSGuj5J
-	3y4IpPOIvgJ/psVf22xq37W2BZzUm2iLV21NPw==
-X-Received: by 2002:a53:cf41:0:b0:667:8b91:2436 with SMTP id
- 956f58d0204a3-6679f2660e4mr3536586d50.101.1783580550797; Thu, 09 Jul 2026
- 00:02:30 -0700 (PDT)
+	id 1whirB-00000001Ejd-3ICN;
+	Thu, 09 Jul 2026 07:07:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=pdSw+G21z2NrE5iHKTKAJzseZhloGwIrHZmDJjo4p4c=; b=wzpkFYTSB2o038W334C7hu8s9v
+	7+L3+hqneJ1n9ursKNn/qF9aAa80jolpgMvJtb93jbbHpRHdG7+hl4Hfgwotw3LsMcvvE7NGnbpHi
+	9bFxj2FYvyUZbgVxteLRtrPMAZUOt0YENy0Hg9DFimz1NYygsj0BXE2v77IoA+8H4/3fPk0tX6Qai
+	9MNf5M9KYENWFUWpkudTS1bInIn8spWFtpDgqpeTmTaYvRRZrzRS3ULHq7/RMFB+tahmMaQ2B0uXo
+	l5z9MVr1Xc+4GJPPZKcA1sh1Xo4ASqn09/xQX2HsOyMt+jqVybBUP0gYe8w8Vm4iOpudzcyPjxnsF
+	08GKkryQ==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Dawid Olesinski <dawidro@gmail.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S . Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Corentin Labbe <clabbe@baylibre.com>, linux-crypto@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] arm64: dts: rockchip: Add crypto node to rk356x-base
+Date: Thu, 09 Jul 2026 09:07:23 +0200
+Message-ID: <4011768.FjKLVJYuhi@diego>
+In-Reply-To: <ak7jEYTAGgeDdi1W@venus>
+References: <20260708175837.1718437-1-dawidro@gmail.com>
+ <20260708175837.1718437-4-dawidro@gmail.com> <ak7jEYTAGgeDdi1W@venus>
 MIME-Version: 1.0
-References: <20260709063450.1615041-1-justin.yeh@mediatek.com> <20260709063450.1615041-4-justin.yeh@mediatek.com>
-In-Reply-To: <20260709063450.1615041-4-justin.yeh@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 9 Jul 2026 15:02:20 +0800
-X-Gm-Features: AVVi8Cc-6951WW98xAGZ6jiAvP0W_Uwp4fM0w9OTetzj576Smn-XC53Uyv0aJbs
-Message-ID: <CAGXv+5F3K+xpF8OVJPZgwd7cGJ6oWLZg3Qjh9hgdCop8bCMLEQ@mail.gmail.com>
-Subject: Re: [PATCH v5 3/4] pinctrl: mediatek: mt7986: register both platform
- drivers from a single initcall
-To: Justin Yeh <justin.yeh@mediatek.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_000232_932644_0CAA864A 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20260709_000737_876965_36B4978F 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,27 +70,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 9, 2026 at 2:35=E2=80=AFPM Justin Yeh <justin.yeh@mediatek.com>=
- wrote:
->
-> The MT7986 driver registers two separate platform drivers (mt7986a and
-> mt7986b) and used to call arch_initcall() twice, once for each.
->
-> This is fine while the driver is built-in, but a single translation unit
-> can only provide one module_init(). Since arch_initcall() expands to
-> module_init() when built as a module, having two of them would break the
-> module build with a redefinition of init_module()/__inittest().
->
-> Fold both platform drivers into a single driver array and register them
-> from one initcall using platform_register_drivers(), matching the shape o=
-f
-> the other MediaTek pinctrl SoC drivers. platform_register_drivers() also
-> rolls back the first registration if the second one fails.
->
-> No functional change for built-in builds; this is a preparatory cleanup
-> for enabling module builds.
->
-> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+Am Donnerstag, 9. Juli 2026, 01:56:10 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Sebastian Reichel:
+> Hi,
+>=20
+> On Wed, Jul 08, 2026 at 06:58:24PM +0100, Dawid Olesinski wrote:
+> > Add the device tree node for the V2 cryptographic hardware accelerator
+> > on RK356x SoCs (RK3566, RK3568).
+> >=20
+> > The IP block sits in the non-secure peripheral domain. Its three clocks
+> > (core, aclk, hclk) and reset line are accessible directly through the
+> > main non-secure CRU, so no firmware intermediary is required.
+> >=20
+> > The node is disabled by default; board files that wish to use hardware
+> > crypto offload must enable it.
+>=20
+> Why is it disabled by default? It doesn't seem to be board specific
+> at all to me (the same question applies to the RK3588 DT).
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+You're definitly right about that ... there are no board specific resources
+needed, so Dawid please drop the status from both nodes.
+
+
+Heiko
+
+> >=20
+> > Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 12 ++++++++++++
+> >  1 file changed, 12 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64=
+/boot/dts/rockchip/rk356x-base.dtsi
+> > index a5832895bd39..9de7e7487ca1 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> > +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+> > @@ -1112,6 +1112,18 @@ sdhci: mmc@fe310000 {
+> >  		status =3D "disabled";
+> >  	};
+> > =20
+> > +	crypto: crypto@fe380000 {
+> > +		compatible =3D "rockchip,rk3568-crypto";
+> > +		reg =3D <0x0 0xfe380000 0x0 0x2000>;
+> > +		interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
+> > +		clocks =3D <&cru CLK_CRYPTO_NS_CORE>, <&cru ACLK_CRYPTO_NS>,
+> > +			 <&cru HCLK_CRYPTO_NS>;
+> > +		clock-names =3D "core", "aclk", "hclk";
+> > +		resets =3D <&cru SRST_CRYPTO_NS_CORE>;
+> > +		reset-names =3D "core";
+> > +		status =3D "disabled";
+> > +	};
+> > +
+> >  	/*
+> >  	 * Testing showed that the HWRNG found in RK3566 produces unacceptably
+> >  	 * low quality of random data, so the HWRNG isn't enabled for all RK3=
+56x
+>=20
+
+
+
+
 
