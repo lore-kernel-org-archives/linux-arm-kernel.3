@@ -4,85 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5866C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BC1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ezt2SofOrqZTo5xv7YFTnXKeo4BljsFdsLljsLCtGx0=; b=JrTX8c94IqdE2I7z/teRp0czTD
-	eOquwwd9ONi+kZKkH6uAKWMRu63XXjQDgGd4ewgyqjSDM2S+LYBmjrAWxYZkdF5t8j5MXYbLoQh8r
-	StVLtUV83NVlaSK9OEzpDgbts/Ou6g6Yib3L3CSgxeFuBrkoO/QmWSXcA3qKWH3/5McMKVMnO/4u1
-	qSzZ0jZfgd9pdvwTuhoAgbpLbvE2BqFelgf7ySm4uaKwfqeHS/68JhSKlfwSk7a4OjYuZsOakN5vA
-	n9ldwWJ2OUR6JYQ35DICQXg0zQHFfoIUtHo7fKUcshL4GFQIW99mR3Lxo5T/5H59rwP3w0INu8lI4
-	00beVSuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vhHFYSLcv+6lYQ28t2RolA7btajCBASXtU6eML3rNHg=; b=MSyOaHz2GHanq4PeqRJJO5MetU
+	t0SXu8T3RoLH31+PyMXBUde4vkAIVd0I1R4+8/F5RiPK0gOi49fN8vcSZcLI/rzTrcc046Wmp9C8Z
+	ZP9YhVu6zgNmmLQIs3O+5THJYe4ARaMQG3sRoAZRRDBoemgd8971rD/IwHDu15IvEewol5+7fknap
+	qwrZwnCRE44GahCu/CGjKyWVxXwLluklUW13iRIzBkXEgLWw9zTKwpODjK8+TWaS7WhXlocOlZBIM
+	rv2fU0/00nWLbmIHhqW0TzD5vR5nNBXOJ7eFTlK3/3ppdEKpG+JZ+8CwrxG/hueCH5YSBrrWy0Y4e
+	3Z5g0WpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmNm-000000021l1-3PGg;
-	Thu, 09 Jul 2026 10:53:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1who8s-00000002SMg-0ycs;
+	Thu, 09 Jul 2026 12:46:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmNl-000000021jL-2qii;
-	Thu, 09 Jul 2026 10:53:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C1E64184E;
-	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 44EB3C2BCB7;
-	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783594409;
-	bh=mqQBhz/HMPQayPRAajQKmkdZDJ3luKs8aaJSgln6cao=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=j+QPvegc4tIDS6otfyA2YYQeWRC0xvpqoyzGwHG1ECSG21dTztr8T0pa69GxAgZqr
-	 IHzoPwlA+vTj4M1Q+apBQ12j2Zw0ku8nqYkux0K4qxWCqwijohg0kkW3lx0Kn8ha6x
-	 ZLiweYNeOEdDer/ES0fiHT/FLuXJWDZ29UbMD8hYRa4BsTtLoRS+29bVmiaCQF0crz
-	 31wOsShzEEWqok6+bbMBP5vH1bqdN4mHJ8futuaf1z6wAGdV4r9U76y4a3GkoBqlwI
-	 U4wHzbzwgo9zazzOGDBxaqXelY128xE2fwhk7A1ez1yDhfXU+gc71fovQNOeaXe0aJ
-	 BAYWbMAJBbIyA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 30803C43458;
-	Thu,  9 Jul 2026 10:53:29 +0000 (UTC)
-From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
-Subject: [PATCH v4 0/7] net: wwan: t9xx: Add MediaTek T9XX WWAN driver
-Date: Thu, 09 Jul 2026 18:53:22 +0800
-Message-Id: <20260709-t9xx_driver_v1-v4-0-a8c009d509c5@compal.com>
+	id 1who8o-00000002SLQ-3Bg1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 12:46:12 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 669BNUMT1672688
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Jul 2026 12:46:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vhHFYSLcv+6lYQ28t2RolA7btajCBASXtU6eML3rNHg=; b=L0/y0OAl+AJJOS7f
+	w1PWvdtiYchzvRoPPGZqJ5PC98dZZjGkwHWPnmyI6lPB4JZ+Ch5QzTuUsb8GAI3S
+	uoOyMLGYwDBqyN8db+oziIhRKWnYKbKIYpB4Ugdo5K906W+JosP8C/9peN2Uic+6
+	FrUTAqylERxjEUAC8DmesG62n6SDOCQ218Ur2HHgA0OdxxF/3QFMpg4n4HUH1DXo
+	pW0BKIKVtQmUVYkWNrYqohMTHT1rT8KyUjqW+tA+tTm319j4f3QpsHe8QNaOfi/j
+	80OoPdp1MGq2xuPTsx2olI93kDkLY+qvmWo8xaiC8KuMDkvJEPhRkOO05CRYVxZ5
+	Amnd3w==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f9sqsca56-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 12:46:02 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c88aab7c1d4so1923159a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 05:46:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783601162; x=1784205962; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vhHFYSLcv+6lYQ28t2RolA7btajCBASXtU6eML3rNHg=;
+        b=BwuOyh6XMkAl3grEF0T4hiC2VHkKmqjjhgN9QrFuNd7GDMC3Oup3aGw3wxbT7GPm3t
+         ehkOsv5U0fNekznLqehF4Usspa/iOZLj9v/ATOdEd1G9QnkFJYV7x0Xd3S58ZxmNGMaR
+         hquv8iW5DGE71+PXVAkI01/vgnS+lkf9s5fulhIo6q8xzswztgb2YZV92XVftV2pBdHs
+         d0H+B6FuxbMFW4UzGZi4mdGdsswspY7XuVCm9FfPA6jVPy8K+Zrq0Uy2fCykjEX/wXiT
+         nldbSjU3vKeUMkHnCyQparn9g1DxiKym/fsq9Kaz/Kevqsw5SF1Kuw21nt4hFMp/1Ek9
+         iKYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783601162; x=1784205962;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vhHFYSLcv+6lYQ28t2RolA7btajCBASXtU6eML3rNHg=;
+        b=jjUo9qrLUwvbwxtiV9zA9x2zav7srjLk0wdrKXWmtL+rwdoCYotVmWIcYj8rzaLTLs
+         csBoP7IXm9DeUAKZuJ6SVCXXs74X+wPJE26pNVjNr38yImnXFNM4LCu2TNfbn47TfqPy
+         7+oj/CnDEmcp78MTB0t5n11h7yh5l4vSfpsm+Gr4P85KtC9s/OzLyWjrVRM2if+uwvlE
+         ZXHEOEJJsW0pyokW6P/dXNmmq+F3BqBujGtZGIdTgy/wIckcB+2iG09OyxpdssCBBl75
+         falXcT5hPxg1/CYaN9o0XRbk2hprCLwd7GRMwab0fiM+UFfjPv7HWsoZRf9eAlfH2bQq
+         D1rQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoAf5KGQxtXJPkrV2GUJGtozavXc8nG94ptld6xx6b7gVpkVUH7NAGubHUp0jgzdEqUIlKn45nS77I4Pk3gOWZv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7rAL657OX6eFalsbh1/99R4W1F/M57fJGtSZ0nKed8Rc++NUS
+	0MxHR2cuwZVmWMbYADlmKWm2WFWuznUUcQnF/I/l8EZrCXfRuTNX67Y/xqaHp5ou5pOaH+HJGpT
+	NTA0JRYABhpuwDrpNKYnkElpXYjEN2oyfkWoE8uBi8y/rJ+ShJtPLPuEbcTUXrVtJ3aXDLEf4SD
+	KG5w==
+X-Gm-Gg: AfdE7cmARRKI/WunYHyXdpfEG4pPM+vH1JFV6fJMb9g/QT7P1JkmiLwvCdvbtTniXg1
+	t40w2OZvGV8nZTku6d/os2BO7zTZePISRKHylfoyLwHiRjreVAbrE8CgyHGz4uYfJDxNK8PPuZt
+	oiZmdnX5O6oZAHy05TQcvz1JEaSmijFrz1Ua4QK8Rn0v9sA45dtUT8H9HCvAA3Z8hP5O2PlQEbE
+	z0ripfBVHqzsVKofBF+s9XJ1xkTRftfTd6lSOKDAGJ8yVDsEw3zzYBQwIpKT3iXA0d/No+tc87a
+	VEw3DVXPNsoSmLxWUTo3WXmv4PWkqLipQpey0OoNddoQL+emuIDzTXdVOPY5XUyTWAKhHN2TTgd
+	9ZdaC1SM2GgtWUPVHDAAG7PoPyKfc17cxZgSF+htLq2s=
+X-Received: by 2002:a05:6a20:3ca3:b0:39f:acae:f12e with SMTP id adf61e73a8af0-3c0bced482bmr10459359637.22.1783601161849;
+        Thu, 09 Jul 2026 05:46:01 -0700 (PDT)
+X-Received: by 2002:a05:6a20:3ca3:b0:39f:acae:f12e with SMTP id adf61e73a8af0-3c0bced482bmr10459285637.22.1783601161268;
+        Thu, 09 Jul 2026 05:46:01 -0700 (PDT)
+Received: from [192.168.0.6] ([49.204.111.130])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174ac178dsm31739101eec.28.2026.07.09.05.45.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jul 2026 05:46:00 -0700 (PDT)
+Message-ID: <bc3afb69-bcf0-4a73-a9df-4321c32707ea@oss.qualcomm.com>
+Date: Thu, 9 Jul 2026 18:15:48 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
+ callback
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Richard Genoud <richard.genoud@bootlin.com>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Orson Zhai <orsonzhai@gmail.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Chunyan Zhang <zhang.lyra@gmail.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Peter Korsgaard <jacmet@sunsite.dk>,
+        Michal Simek <michal.simek@amd.com>,
+        Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+        Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        bjorn.andersson@oss.qualcomm.com,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org,
+        linux-mips@vger.kernel.org,
+        Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+        aniket.randive@oss.qualcomm.com, chandana.chiluveru@oss.qualcomm.com
+References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
+ <9320a573-ebf8-459b-a313-3a8b73a6180b@kernel.org>
+ <5eecf3a0-b608-4057-b400-236f6952b380@oss.qualcomm.com>
+ <ak906CqHYDooQTVu@ashevche-desk.local>
+Content-Language: en-US
+From: Praveen Talari <praveen.talari@oss.qualcomm.com>
+In-Reply-To: <ak906CqHYDooQTVu@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKN9T2oC/3XNTQrCMBAF4KtI1kby18a68h4ipU1mNKJtSWqol
- N7dVBcqRRgYHsz3ZiQBvINAdquReIguuLZJQa1XxJyr5gTU2ZSJYCJnmShoXwxDab2L4MvIKdd
- K4bZCrWVBEuo8oBtehYfjO4d7fQHTzy3zxdmFvvWP18fI57u/5WkYrW2NIAzjkOm9aW9ddd2kR
- eb2KD4+52zhRfImzyprUcha4sLLLy/UwsvktURkEnNm1PbHT9P0BPCLWk0/AQAA
-X-Change-ID: 20260529-t9xx_driver_v1-1744f8af7739
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
- Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
- Minano Tseng <Minano.tseng@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783594406; l=16237;
- i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
- bh=mqQBhz/HMPQayPRAajQKmkdZDJ3luKs8aaJSgln6cao=;
- b=SAfTc4+5YuhHIB2vJ79u44xEObuFPCO9TdLf+l0L87NYHw5PjQ62h0UnVBs915nYtx61sbL5a
- 0mBcv1AHLj6ADyhbdqTxb2gezP+oc7mGzOCweoMfe/739XCkZn+fb5f
-X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
- pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
-X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
- auth_id=793
-X-Original-From: Jack Wu <jackbb_wu@compal.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA5MDEyMyBTYWx0ZWRfX016qon8kdHkK
+ Oxt4+zzNXLM/aKz2eZRZQ9/jnQ2x2qYPC6YLwP01PK+wS9M7cQu/U9mch6G8voOVN9atlhOIx+4
+ 5w392oG+G6GAQQI8mEidmtybOi872cw=
+X-Proofpoint-GUID: roYK2gIYm3p4Uwl8kv9FavUEOPm3Jd41
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA5MDEyMyBTYWx0ZWRfXwQkIyvKGPqWY
+ 6lwh/uWwFgx1W4FlAjGH1tJ4h3QnfHnVZHxIEjEjFllcCov7ejavcT8BxKYSfcgmCw7P2m1R2BH
+ bbSgEM0tumZK52epOCzT1w7PqTPp1lAzPiSJ2YQNhbScUxvOwHTz/ur4Me1WWdkRL82u5rmmJaA
+ fCOf2CkHFbPYIrjZVevKsoJoNNAZQkVA6ov/UhYC0/X1I8G1zMq6pUmli9YTyOrXeMQrKCaoyaJ
+ pZiN1WeYAQZZmgRcZrbZklvTbihb0+VX7mjYpH3eNFjMao531de/oHzGDgNIHJWxlFYYzs/ZMj4
+ gymBeO3O1DQ3hhjPe37jug2ibzQ/PNmZFq08wd+GtmlLxQVkYmqWivJo5hQ2WAc6zmVMQqT+wXD
+ qDao6zyF+XJiZ7viOtHoKBsalI9wBoDos7qPqBlvVKf7PALhq3kHISXvT75z4NR6S7WnzTjWRKX
+ t+IwZTtcyQXsY/KWN3g==
+X-Authority-Analysis: v=2.4 cv=Sv2gLvO0 c=1 sm=1 tr=0 ts=6a4f980a cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=vz+FLylpEn3mlzyIWlmD3A==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=2TZWhx8y46JuiruMumEA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-ORIG-GUID: roYK2gIYm3p4Uwl8kv9FavUEOPm3Jd41
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-09_02,2026-07-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
+ impostorscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607090123
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_054610_951492_22B22BC0 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,289 +181,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T9XX is the PCIe host device driver for MediaTek's
-t900 modem. The driver uses the WWAN framework
-infrastructure to create the following control ports
-and network interfaces for data transactions.
-* /dev/wwan0at0 - Interface that supports AT commands.
-* /dev/wwan0mbim0 - Interface conforming to the MBIM
-  protocol.
-* wwan0-X - Primary network interface for IP traffic.
+Hi Andy
 
-The main blocks in the T9XX driver are:
-* HW layer - Abstracts the hardware bus operations for
-   the device, and provides generic interfaces for the
-   transaction layer to get the device's information and
-   control the device's behavior. It includes:
+On 09-07-2026 15:46, Andy Shevchenko wrote:
+> On Thu, Jul 09, 2026 at 02:22:17PM +0530, Praveen Talari wrote:
+>> On 09-07-2026 12:23, Jiri Slaby wrote:
+>>> On 09. 07. 26, 8:25, Praveen Talari wrote:
+> ...
+>
+>>> OK, now I miss the rationale behind the patchset. Neither there is a
+>>> possible code path to actually test this?
+>> The rationale is that qcom_geni_serial_pm() calls
+>> pm_runtime_resume_and_get() which can fail, but its return value is
+>> currently discarded because the callback is void.
+> So, you take the solution from a wrong end. Just get rid of .pm() in your driver.
 
-   * PCIe - Implements probe, removal and interrupt
-     handling.
-   * MHCCIF (Modem Host Cross-Core Interface) - Provides
-     interrupt channels for bidirectional event
-     notification such as handshake and port enumeration.
+Ok I agree. Now i can control resources via PM runtime APIs from 
+startup(get_sync()) and shutdown(put_sync()) APIs right?
 
-* Transaction layer - Implements data transactions for
-   the control plane and the data plane. It includes:
+Thanks,
 
-   * DPMAIF (Data Plane Modem AP Interface) - Controls
-     the hardware that provides uplink and downlink
-     queues for the data path. The data exchange takes
-     place using circular buffers to share data buffer
-     addresses and metadata to describe the packets.
-   * CLDMA (Cross Layer DMA) - Manages the hardware
-     used by the port layer to send control messages to
-     the device using MediaTek's CCCI (Cross-Core
-     Communication Interface) protocol.
-   * TX Services - Dispatch packets from the port layer
-     to the device.
-   * RX Services - Dispatch packets to the port layer
-     when receiving packets from the device.
+Praveen Talari
 
-* Port layer - Provides control plane and data plane
-   interfaces to userspace. It includes:
-
-   * Control Plane - Provides device node interfaces
-     for controlling data transactions.
-   * Data Plane - Provides network link interfaces
-     wwanX (0, 1, 2...) for IP data transactions.
-
-* Core logic - Contains the core logic to keep the
-   device working. It includes:
-
-   * FSM (Finite State Machine) - Monitors the state
-     of the device, and notifies each module when the
-     state changes.
-
-The compilation of the T9XX driver is enabled by the
-CONFIG_MTK_T9XX and CONFIG_MTK_T9XX_PCI config option
-which depends on CONFIG_WWAN.
-
-This v2 submission covers the control plane only
-(patches 1-6). The data plane will follow in a
-separate series once the control plane is accepted.
-
----
-Changes in v4:
-- Patch 1 (Add PCIe core):
-  - Add ACPI dependency to Kconfig (depends on PCI && ACPI)
-    and remove #ifdef CONFIG_ACPI / #else guards from
-    mtk_pci_fldr() and mtk_pci_pldr()
-  - Remove unnecessary parentheses in (mdev)->dev across
-    all dev_err/dev_warn calls
-  - Remove devm_kfree() calls from mtk_pci_probe() error
-    path and mtk_pci_remove(), devres handles cleanup
-  - Remove mtk_dev_alloc()/mtk_dev_free() wrappers, use
-    devm_kzalloc() directly in mtk_pci_probe()
-  - Convert ext_evt callbacks from devm_kzalloc/devm_kfree
-    to kzalloc/kfree for runtime-managed resources
-- Patch 2 (Add control plane transaction layer):
-  - Remove mtk_dev_alloc()/mtk_dev_free() declarations and
-    implementations from mtk_dev.h and mtk_dev.c
-  - Remove empty module_init/module_exit stubs, defer to
-    Patch 4 where they have actual content
-  - Remove devm_kfree() and unused ctrl_blk variable in
-    mtk_ctrl_exit(), devres handles cleanup
-- Patch 3 (Add control DMA interface):
-  - Remove inline keyword from mtk_cldma_clr_bd_dsc() in
-    .c file, let compiler decide inlining
-  - Replace dev_warn() with dev_warn_ratelimited() for SKB
-    alloc/map failure messages in data path
-  - Replace open-coded do/while polling loop with
-    read_poll_timeout() from <linux/iopoll.h> in
-    mtk_cldma_stop_queue()
-  - Remove ctrl_port_chl_mtu module_param, MODULE_PARM_DESC,
-    and mtk_ctrl_queue_info_update() with associated macros
-  - Remove unnecessary parentheses in (mdev)->dev across
-    mtk_cldma.c and mtk_trans_ctrl.c
-  - Convert CLDMA txq/rxq/cd from devm_kzalloc/devm_kfree
-    to kzalloc/kfree for runtime-managed resources
-  - Convert trb_srv/srv_que from devm_kzalloc/devm_kfree
-    to kzalloc/kfree for runtime-managed resources
-  - Remove devm_kfree() and unused variables from
-    mtk_cldma_exit() and mtk_trans_ctrl_exit(), devres
-    handles cleanup for device-lifetime resources
-  - Remove unnecessary NULL checks before kfree() for
-    bd_dsc_pool in txq_free/rxq_free
-- Patch 4 (Add control port):
-  - Add module_init/module_exit with mtk_port_io_init/exit
-    content, moved from Patch 2
-  - Remove unnecessary parentheses in (mdev)->dev in
-    mtk_port.c
-  - Remove devm_kfree() from mtk_port_mngr_init() error
-    path and mtk_port_mngr_exit(), devres handles cleanup
-  - Simplify mtk_trans_ctrl_init() error path: replace goto
-    err_free_trans with direct return -ENOMEM
-- Patch 5 (Add FSM thread):
-  - Remove unnecessary parentheses in (mdev)->dev across
-    mtk_fsm.c and mtk_ctrl_plane.c
-  - Convert FSM notifiers from devm_kzalloc/devm_kfree to
-    kzalloc/kfree for runtime-managed resources
-  - Convert CLDMA drv_info from devm_kzalloc/devm_kfree to
-    kzalloc/kfree for runtime-managed resources
-  - Remove devm_kfree() from mtk_fsm_init()/mtk_fsm_exit()
-    and mtk_ctrl_init()/mtk_ctrl_exit(), devres handles
-    cleanup for device-lifetime resources
-- Link to v3: https://patch.msgid.link/20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com
-
-Changes in v3:
-- Address sashiko AI code review comments and fix sparse warnings
-- Patch 1 (Add PCIe core):
-  - Move extern declaration of mtk_dev_cfg_0900 from mtk_pci.c to mtk_pci.h to fix sparse warning
-  - Remove mtk_pci_bar_exit(): pcim_iounmap_region() was called with bitmask instead of BAR index, and pcim_iomap_regions() is devres-managed so manual unmap is redundant [sashiko]
-  - Remove pci_disable_device() from probe error path and remove path: pcim_enable_device() registers devres cleanup, manual disable causes enable_cnt underflow [sashiko]
-- Patch 3 (Add control DMA interface):
-  - Add #include "mtk_cldma.h" in mtk_cldma_drv_m9xx.c to fix sparse undeclared symbol warnings for mtk_cldma_regs_m9xx and cldma_drv_ops_m9xx
-  - Move extern declaration of mtk_ctrl_info_m9xx from mtk_trans_ctrl.c to mtk_trans_ctrl.h to fix sparse undeclared symbol warning
-  - Replace kcalloc + radix_tree_gang_lookup with radix_tree_for_each_slot() in mtk_ctrl_remove_radix_tree() to eliminate allocation in teardown path [sashiko]
-  - Add missing mtk_pci_dev_exit() call in mtk_pci_remove() to properly clean up FSM and trans_ctrl resources before device removal [sashiko]
-- Patch 4 (Add control port):
-  - Replace kcalloc + radix_tree_gang_lookup with radix_tree_for_each_slot() and single-entry gang_lookup in mtk_port_tbl_destroy() to eliminate allocation failure in teardown path [sashiko]
-  - Add port = NULL after mtk_port_put_locked() in mtk_port_internal_open() error path to prevent returning un-refcounted pointer [sashiko]
-  - Restore skb_unlink + trb_complete for non-EAGAIN errors in mtk_ctrl_trb_handler() TX path to prevent infinite retry loop [sashiko]
-- Patch 5 (Add FSM thread):
-  - Check mtk_pci_register_irq() return value in mtk_cldma_dev_init() and add err_destroy_wq error label to fix unreachable dead code [sashiko]
-  - Propagate specific error codes (ENOMEM/EIO/EINVAL) from mtk_cldma_dev_init() error paths instead of generic -EIO [sashiko]
-  - Free head SKB after detaching frag_list in mtk_cldma_rxq_free() scatter-gather mode to fix memory leak [sashiko]
-- Patch 6 (Add AT & MBIM WWAN ports):
-  - Remove unused write_lock mutex from struct mtk_port and its mutex_init call [sashiko]
-- Link to v2: https://patch.msgid.link/20260610-t9xx_driver_v1-v2-0-c65addf23b3f@compal.com
-
-Changes in v2:
-- Split series into control plane (this v2) and data plane (follow-up)
-- Patch 1 (Add PCIe core):
-  - Rename BAR_NUM to MTK_PCI_BAR_NUM for driver prefix consistency
-  - Replace magic numbers in mtk_pci_setup_atr() with named defines
-  - Remove redundant ATR register comments, use blank line separators
-  - Add kernel-doc comments to all non-static functions
-  - Convert 4 MMIO wrapper functions to static inline in header [sashiko]
-  - Remove unnecessary unlikely() from IRQ validation paths
-  - Add irq_cnt == 0 and irq_id < 0 guards in mtk_pci_get_virq_id() [sashiko]
-  - Initialize hw_bits at declaration for consistency
-  - Merge same-type variable declarations into single lines
-  - Add #else/#endif comments for CONFIG_ACPI blocks
-  - Add newlines in mtk_pci_pldr() for readability
-  - Move return into default case in mtk_pci_dev_reset()
-  - Simplify mtk_mhccif_init() error path to use direct returns
-  - Change -EFAULT to -ENOLINK for PCIe link check failure
-  - Rename goto label "out" to "log_err" in mtk_pci_probe()
-  - Wrap long lines to stay within 80 columns
-  - Fix IRQ vector leak: add pci_free_irq_vectors() on error path [sashiko]
-  - Fix mtk_pci_remove() ordering: free IRQ before cancel_work_sync [sashiko]
-  - Fix mtk_pci_pldr() ACPI buffer leak: free first result before second call [sashiko]
-  - Replace msleep(500) with MTK_PLDR_POWER_OFF_DELAY_MS define
-  - Remove unused EXT_EVT_H2D_DRM_DISABLE_AP and related register define [sashiko]
-  - Increase MTK_IRQ_NAME_LEN from 20 to 32 to fix W=1 format-truncation warning [sashiko]
-- Patch 2 (Add control plane transaction layer):
-  - Add kernel-doc comments to mtk_ctrl_init() and mtk_ctrl_exit()
-  - Change mtk_ctrl_exit() return type from int to void
-  - Set mdev->ctrl_blk to NULL after freeing in mtk_ctrl_exit() [sashiko]
-  - Change ctrl_blk from void* to typed struct mtk_ctrl_blk* [sashiko]
-  - Remove redundant "depends on MTK_T9XX" from MTK_T9XX_PCI Kconfig [sashiko]
-  - Use mtk_dev_free() instead of devm_kfree() in mtk_pci_probe() error path [sashiko]
-- Patch 3 (Add control DMA interface):
-  - Add @ops kernel-doc parameter for mtk_ctrl_init()
-  - Rename 'err' to 'ret' consistently throughout the patch
-  - Reorder variable declarations to follow reverse Christmas tree style
-  - Change mtk_cldma_txq_free() return type from int to void
-  - Change mtk_cldma_rxq_free() return type from int to void
-  - Change mtk_cldma_exit() return type from int to void
-  - Remove unnecessary zero-initialization of ret in mtk_cldma_start_xfer()
-  - Remove unnecessary zero-initialization of ret in mtk_cldma_tx()
-  - Use direct return instead of goto out in mtk_cldma_submit_tx() error paths
-  - Move software state before HWO flag in mtk_cldma_submit_tx()
-  - Squash variable declarations in mtk_cldma_check_intr_status()
-  - Remove unlikely() from validation paths in mtk_cldma_check_ch_cfg()
-  - Clamp data_recv_len with min_t to prevent skb_over_panic in mtk_cldma_rx_skb_adjust() [sashiko]
-  - Use READ_ONCE() for HWO flag polling in mtk_cldma_check_rx_req() [sashiko]
-  - Fix mtk_cldma_rx_done_work() to always unmask interrupt on error path [sashiko]
-  - Add DMA address guard in mtk_cldma_txq_free() teardown loop [sashiko]
-  - Add IS_ERR() check for kthread_run() in mtk_ctrl_trb_srv_init() [sashiko]
-  - Fix queue_info memory leak on validation failure in mtk_pcie_hif_init() [sashiko]
-  - Handle non-EAGAIN errors in mtk_ctrl_trb_handler() TX path [sashiko]
-  - Fix 'err' typo to 'ret' in mtk_cldma_txbuf_set() error message
-  - Remove unused variable mdev in mtk_cldma_rx_check_again() [sashiko]
-  - Remove unused variables trans and ctrl_blk in mtk_cldma_txq_free() and mtk_cldma_rxq_free() [sashiko]
-- Patch 4 (Add control port):
-  - Add @cfg kernel-doc parameter for mtk_ctrl_init()
-  - Update mtk_ctrl_init() return description to cover additional error codes
-  - Fix double list_del in mtk_port_stale_list_grp_cleanup() [sashiko]
-  - Fix direct mtk_port_trb_free() call to use kref_put() in mtk_port_ch_enable() error path [sashiko]
-  - Fix direct mtk_port_trb_free() call to use kref_put() in mtk_port_ch_disable() error path [sashiko]
-  - Add mtk_port_tbl_destroy() in mtk_port_mngr_init() error path to prevent port memory leak [sashiko]
-  - Change port_ops exit/reset/enable/disable callbacks from int to void
-  - Move -EIO dispatch comment to where the code was introduced
-- Patch 5 (Add FSM thread):
-  - Add bounds check for rtft_entry in mtk_fsm_parse_hs2_msg() [sashiko]
-  - Add skb length validation before accessing ctrl_msg_header in mtk_fsm_sap_ctrl_msg_handler() [sashiko]
-  - Fix skb leak on CTRL_MSG_HS2 mismatch return in mtk_fsm_sap_ctrl_msg_handler() [sashiko]
-  - Add skb length validation before accessing ctrl_msg_header in mtk_fsm_md_ctrl_msg_handler() [sashiko]
-  - Replace devm_kzalloc/devm_kfree with kzalloc/kfree for FSM events [sashiko]
-  - Fix mtk_fsm_evt_submit() to return -ETIMEDOUT on blocking event timeout [sashiko]
-  - Change FSM kthread from TASK_INTERRUPTIBLE to TASK_UNINTERRUPTIBLE [sashiko]
-  - Remove unused variable hw_id in mtk_cldma_dev_exit() [sashiko]
-- Patch 6 (Add AT & MBIM WWAN ports):
-  - Use imperative mode in commit message
-  - Remove unnecessary zero-initialization of ret in mtk_port_copy_data_from()
-  - Change copy_from_user() error code from -EFAULT to -EINVAL in mtk_port_copy_data_from()
-  - Return -EINVAL for zero-length write in mtk_port_common_write()
-  - Change mtk_port_wwan_exit/enable/disable() return type from int to void
-  - Fix packet_size to account for CCCI header reservation in mtk_port_common_write() [sashiko]
-  - Fix WWAN tx callbacks to consume skb and return 0 per wwan_port_ops contract [sashiko]
-  - Fix wwan_create_port() error path: clear ERR_PTR to NULL and call mtk_port_ch_disable() [sashiko]
-- Patch 7 (Add maintainers entry): new patch
-- Link to v1: https://patch.msgid.link/20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com
-
----
-Jack Wu (7):
-      net: wwan: t9xx: Add PCIe core
-      net: wwan: t9xx: Add control plane transaction layer
-      net: wwan: t9xx: Add control DMA interface
-      net: wwan: t9xx: Add control port
-      net: wwan: t9xx: Add FSM thread
-      net: wwan: t9xx: Add AT & MBIM WWAN ports
-      net: wwan: t9xx: Add maintainers entry
-
- MAINTAINERS                                     |    9 +
- drivers/net/wwan/Kconfig                        |   17 +
- drivers/net/wwan/Makefile                       |    1 +
- drivers/net/wwan/t9xx/Makefile                  |   14 +
- drivers/net/wwan/t9xx/mtk_ctrl_plane.c          |  108 ++
- drivers/net/wwan/t9xx/mtk_ctrl_plane.h          |   88 ++
- drivers/net/wwan/t9xx/mtk_dev.c                 |   33 +
- drivers/net/wwan/t9xx/mtk_dev.h                 |  111 ++
- drivers/net/wwan/t9xx/mtk_fsm.c                 |  946 +++++++++++++++
- drivers/net/wwan/t9xx/mtk_fsm.h                 |  140 +++
- drivers/net/wwan/t9xx/mtk_port.c                |  966 +++++++++++++++
- drivers/net/wwan/t9xx/mtk_port.h                |  174 +++
- drivers/net/wwan/t9xx/mtk_port_io.c             |  573 +++++++++
- drivers/net/wwan/t9xx/mtk_port_io.h             |   41 +
- drivers/net/wwan/t9xx/mtk_utility.h             |   33 +
- drivers/net/wwan/t9xx/pcie/Makefile             |   15 +
- drivers/net/wwan/t9xx/pcie/mtk_cldma.c          | 1418 +++++++++++++++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_cldma.h          |  173 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.c      |  369 ++++++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h      |  174 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.c |  178 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.h |  101 ++
- drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c  |   55 +
- drivers/net/wwan/t9xx/pcie/mtk_pci.c            | 1085 +++++++++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_pci.h            |  234 ++++
- drivers/net/wwan/t9xx/pcie/mtk_pci_drv_m9xx.c   |   69 ++
- drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h        |   71 ++
- drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c     |  563 +++++++++
- drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h     |  107 ++
- 29 files changed, 7866 insertions(+)
----
-base-commit: eb3f4b7426cfd2b79d65b7d37155480b32259a11
-change-id: 20260529-t9xx_driver_v1-1744f8af7739
-
-Best regards,
---  
-Jack Wu <jackbb_wu@compal.com>
-
-
+> With that, problem solved. Really, this series is a road to even more broken
+> PM solutions.
+>
 
