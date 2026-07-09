@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F42C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 22:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A95C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 22:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78osRNk8qRzph/366BzOmfMhZhXhz27WDl9JWZTx3ao=; b=0Rcnmgd3neF1KUT2TWrfOCRYjv
-	p6wr4F4Xx6MNPpeh+pD+0GgiHOg2iCEWXvr3bG4PRU2IaqGR+uIqfslcGxthf4r2iJ7l4RfdJJC54
-	QBLDlHgDDPPlFobN3l5+3XG1LlWz8kaZpCDUV66jacmmeqrPGlIWvb6io68td1BrMqGUmqBZHHiON
-	h2NsEa5aSU5bWVlbkT/KBnfU66i7yoOjmzHutJSyGLhYzIjyIYR9HLTKRkXsLQDTRPvy6My1pzUTd
-	jQRJlipfXNc+eoC+WZjn3go2xTSfS9tLm+YQbhEjycC9gTXrv1KvlPQgQJ0NSmaLeqib5Ih6dKveE
-	i0GdcT9Q==;
+	bh=S+WyHlE4oxu8xuOxQGOIEBY4bo4OikBdt2+d9yKecQo=; b=VFl0liFlLpHaCX/cZzAh7NJptX
+	41DvPcm4akA76wb0V3oWZEwj6qJsMbJzwPzG2xJX2ZX7Xsrgz4/FTkWWC0N5F7I5BnAP1vymN4kx+
+	xjn550zxPGWI2+iC+ioAZx356ONA6tIlf/EaAuz9mnJWmtGuUDNX2IrR7jgdAhypbUA5xXkgsD4L+
+	fcYMoMtZeTQ0baj8VPMcHn3/A0vLzVk2si57sceJeuIeHZXpYGw9yjqjiJt67d+mT9sl6wJzC0GQE
+	y95qhtxZG7jIQHSPps07gegnMNIhXBajUSOL/XAiYx8CznfrydTnAGlrylWWZN4Qv/vleiOW28ld+
+	b/l3D73w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whxMw-00000003nzt-1xNJ;
-	Thu, 09 Jul 2026 22:37:22 +0000
-Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
+	id 1whxN5-00000003o4q-3jqL;
+	Thu, 09 Jul 2026 22:37:31 +0000
+Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whxMs-00000003nwY-2D17
+	id 1whxMu-00000003nxc-3SaJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 22:37:20 +0000
-Received: by mail-oi1-x249.google.com with SMTP id 5614622812f47-487059fb570so484545b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 15:37:17 -0700 (PDT)
+	Thu, 09 Jul 2026 22:37:22 +0000
+Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-4413ecf22a0so215070fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 15:37:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783636637; x=1784241437; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1783636639; x=1784241439; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=78osRNk8qRzph/366BzOmfMhZhXhz27WDl9JWZTx3ao=;
-        b=KjjbM9xv2kyJ+1D2pR6kxOnZ3TiA8cw+OuQZDzOTc6e8mxn/iszvdW+wuYp/iUPT0d
-         Y3sgsYi7w2Le9wduGbZ16quTxHQ23SiBLRmCq549zcWor+q3MWxSbC9fuE/T0j/gd5JJ
-         uQFIqThCJhZOvmgzaVdBekLGR+1iMzaJS6QBJpn4uYnDGYCqJDyOahX7wh6Hr93EHN7I
-         RsE5fjvQsDQTfhLXKi997qmiITmIh5bma9PSUNmiySC4ZzG69ESzF0wZefGp4pYHIYc2
-         Ykxdl4wKiTEhdanfhRNzOqDKs6EJEEXRmaHkGaLv4TWnxXDgkXWDtoRd6bF/Blh26wDy
-         7edw==
+        bh=S+WyHlE4oxu8xuOxQGOIEBY4bo4OikBdt2+d9yKecQo=;
+        b=RkUmhS85wX8qQQ2qLGF2Cp/rv2X+QDl4zf3xRDZnF7EL+pVj74BKN9Gft+RwQSS4II
+         bsIBKPFKWHUd2vUS6ibPJRl4MmfYeEaUV6I8qrbLy4aeM7xZzu540CgkEWDybEyfkGl9
+         jeO1ZP3vUaaNrorIwIvtY0C/U7YmT0xMzPnF7OPA2Rhoa7FAnQouAoQnG5Y8CInb5cpt
+         WMp9Yq+LfjMElpuwdNe2UKZDN4vRUT5ykRDOIE2kHvCvAkK7wgBXcMmDlg7jUoiIup8u
+         6xODbB/Y3l8YG767BM7f7knaFjOTIqcAS/80QGxDEAi2UGgYv1ybuGvU9SRYtrA1A+UK
+         LMug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783636637; x=1784241437;
+        d=1e100.net; s=20251104; t=1783636639; x=1784241439;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=78osRNk8qRzph/366BzOmfMhZhXhz27WDl9JWZTx3ao=;
-        b=Rpv85380yY93fsxfwYeO28EBxf4LhXHYY9nO3k+jFokx4sGxKFA1sbfEo9ZrNQCs9f
-         9bbS8GJ4I5S7DLxDHV1m6uH4tjq7LH5DHnKBOqtwTxfwj8427fX/yWokT5F+NOEtazaW
-         L1uSsHu8yHOtIUQYjBunOEnF776xrIul/14JObCxJgA5PfAm+TjYUbjfv085ONCjqlq+
-         mIx6vEFI3bsLSAGx5++xTL+FjmOAZnBl3FyuqhbP/zBXUKf4m5IO2NK8F36pTvqdCDB6
-         dwy5zkkCnuM2DcnUF5NC97/x92Y6D6mhhGkceqjxEX4JvQeVoaYOH0QviFLuXwXiJj3n
-         Ormg==
-X-Forwarded-Encrypted: i=1; AFNElJ9CccTtmzGx8Lc5Zc4jEM85ukjA246Qku/3/8kuEoT18u402aYEs/nn3iyfhd1wEnQYfYJW5UR4r0WENgU77Y14@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzqgqo+E1H/5GCn4HMh8nbhkLm1a3PcqadCwpzz9GE4UKE0XqYp
-	jhOUGT2xi1LsPE2/PJ8EHKYlz3vAzaiBavVA91cnROxpKWtXtA1lLdiLpl7afrDLNW0UoBwA2t/
-	z3PM9hprHkXIOnp4USRMNpoaAhw==
-X-Received: from ilbcl1.prod.google.com ([2002:a05:6e02:3781:b0:503:6571:319a])
+        bh=S+WyHlE4oxu8xuOxQGOIEBY4bo4OikBdt2+d9yKecQo=;
+        b=fYW7lySpTyyK02WFWb7G8M0z3Pr8jYvSnNu5HSrkGfp32IrF0uDPSa2c9XwxYc6npM
+         0mNOjSL62zy+AYTPIgXjvcL5n9ycLIVeA17dhXeJpihZyl8iWVs/fw399byYHazCPr6r
+         xvDuEYet25l7apSJGuQUAsSM2jUlltfg5mCBEq+yZe84MsKqIY7WhT7CzVM9RlrCRF2E
+         FDXpHeHuxzuBkcr5HloKybPyj9YZNQuryutX1HCq9a4Mw25SwoIOus9a3VpuCGYDnL4L
+         SKpraJMiLGWg+FcJ/yVp1ZdGVNXylmVtCxLx3HhLsGpAokKLpkTeIW1l59JX4XlkCZ/2
+         oW9A==
+X-Forwarded-Encrypted: i=1; AFNElJ+kseXo9TLOj2GULbM3TR9qicx30gIwU+yatrjRWiCgtkQ7l7THjb4R9VS4GaQ1hurkNg0fRNRbe0hgEPXZyj9d@lists.infradead.org
+X-Gm-Message-State: AOJu0YwquLAmVuiMlp5Pp/UaOlsnjePBa9Y+Y6iaeJQGAvvkCs6zcMcX
+	VhISlhrX1YsaX84AMrpuTdqWBGkbAGr5Xxo/XGjS9HYg59JxKUFEyHmYEg5QHo1DYl3hIVbnwix
+	YxvCzSztg2ulimMOcvEP6OQ0fwA==
+X-Received: from jabms16-n1.prod.google.com ([2002:a05:6638:e050:10b0:5e7:2c1b:b294])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:250c:b0:495:f74a:5bed with SMTP id 5614622812f47-4a203fc3ef9mr7510176b6e.28.1783636636840;
- Thu, 09 Jul 2026 15:37:16 -0700 (PDT)
-Date: Thu,  9 Jul 2026 22:36:00 +0000
+ 2002:a05:6808:4d01:b0:4a3:2bd1:5218 with SMTP id 5614622812f47-4a32bd160fdmr4018778b6e.20.1783636638778;
+ Thu, 09 Jul 2026 15:37:18 -0700 (PDT)
+Date: Thu,  9 Jul 2026 22:36:02 +0000
 In-Reply-To: <20260709223604.12934-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260709223604.12934-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
-Message-ID: <20260709223604.12934-4-coltonlewis@google.com>
-Subject: [PATCH 6.6 v3 3/6] arm64: Fix early handling of FEAT_E2H0 not being implemented
+Message-ID: <20260709223604.12934-6-coltonlewis@google.com>
+Subject: [PATCH 6.6 v3 5/6] KVM: arm64: Initialize SCTLR_EL1 in __kvm_hyp_init_cpu()
 From: Colton Lewis <coltonlewis@google.com>
 To: stable@vger.kernel.org
 Cc: oliver.upton@linux.dev, sashal@kernel.org, gregkh@linuxfoundation.org, 
@@ -76,11 +76,11 @@ Cc: oliver.upton@linux.dev, sashal@kernel.org, gregkh@linuxfoundation.org,
 	mark.rutland@arm.com, ahmed.genidi@arm.com, leo.yan@arm.com, 
 	miguel.luis@oracle.com, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Colton Lewis <coltonlewis@google.com>
+	Ben Horgan <ben.horgan@arm.com>, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_153718_598181_0CC56D3D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260709_153720_874629_8613D62A 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,89 +95,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+From: Ahmed Genidi <ahmed.genidi@arm.com>
 
-[ Upstream commit b3320142f3db9b3f2a23460abd3e22292e1530a5 ]
+[ Upstream commit 3855a7b91d42ebf3513b7ccffc44807274978b3d ]
 
-Commit 3944382fa6f2 introduced checks for the FEAT_E2H0 not being
-implemented. However, the check is absolutely wrong and makes a
-point it testing a bit that is guaranteed to be zero.
+When KVM is in protected mode, host calls to PSCI are proxied via EL2,
+and cold entries from CPU_ON, CPU_SUSPEND, and SYSTEM_SUSPEND bounce
+through __kvm_hyp_init_cpu() at EL2 before entering the host kernel's
+entry point at EL1. While __kvm_hyp_init_cpu() initializes SPSR_EL2 for
+the exception return to EL1, it does not initialize SCTLR_EL1.
 
-On top of that, the detection happens way too late, after the
-init_el2_state has done its job.
+Due to this, it's possible to enter EL1 with SCTLR_EL1 in an UNKNOWN
+state. In practice this has been seen to result in kernel crashes after
+CPU_ON as a result of SCTLR_EL1.M being 1 in violation of the initial
+core configuration specified by PSCI.
 
-This went undetected because the HW this was tested on has E2H being
-RAO/WI, and not RES1. However, the bug shows up when run as a nested
-guest, where HCR_EL2.E2H is not necessarily set to 1. As a result,
-booting the kernel in hVHE mode fails with timer accesses being
-cought in a trap loop (which was fun to debug).
+Fix this by initializing SCTLR_EL1 for cold entry to the host kernel.
+As it's necessary to write to SCTLR_EL12 in VHE mode, this
+initialization is moved into __kvm_host_psci_cpu_entry() where we can
+use write_sysreg_el1().
 
-Fix the check for ID_AA64MMFR4_EL1.E2H0, and set the HCR_EL2.E2H bit
-early so that it can be checked by the rest of the init sequence.
+The remnants of the '__init_el2_nvhe_prepare_eret' macro are folded into
+its only caller, as this is clearer than having the macro.
 
-With this, hVHE works again in a NV environment that doesn't have
-FEAT_E2H0.
-
-Fixes: 3944382fa6f2 ("arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is negative")
+Fixes: cdf367192766ad11 ("KVM: arm64: Intercept host's CPU_ON SMCs")
+Reported-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Ahmed Genidi <ahmed.genidi@arm.com>
+[ Mark: clarify commit message, handle E2H, move to C, remove macro ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ahmed Genidi <ahmed.genidi@arm.com>
+Cc: Ben Horgan <ben.horgan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Will Deacon <will@kernel.org>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Link: https://lore.kernel.org/r/20250227180526.1204723-3-mark.rutland@arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Link: https://lore.kernel.org/r/20240321115414.3169115-1-maz@kernel.org
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+[ Backport: Resolved context conflicts when removing the
+  __init_el2_nvhe_prepare_eret macro and invocation:
+  - arch/arm64/include/asm/el2_setup.h: conflicted because 6.6.y lacks later
+    GCS/MPAM macros (__init_el2_gcs / __init_el2_mpam) surrounding the definition.
+  - arch/arm64/kvm/hyp/nvhe/hyp-init.S: conflicted because __kvm_init_el2_state
+    does not exist in 6.6.y (EL2 state is initialized inline). ]
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/kernel/head.S | 29 ++++++++++++++++-------------
- 1 file changed, 16 insertions(+), 13 deletions(-)
+ arch/arm64/include/asm/el2_setup.h   | 4 ----
+ arch/arm64/kernel/head.S             | 3 ++-
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S   | 1 -
+ arch/arm64/kvm/hyp/nvhe/psci-relay.c | 3 +++
+ 4 files changed, 5 insertions(+), 6 deletions(-)
 
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 3498dc5d02c18..76b0d50d286d5 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -229,10 +229,6 @@
+ .Lskip_fgt_\@:
+ .endm
+ 
+-.macro __init_el2_nvhe_prepare_eret
+-	mov	x0, #INIT_PSTATE_EL1
+-	msr	spsr_el2, x0
+-.endm
+ 
+ /**
+  * Initialize EL2 registers to sane values. This should be called early on all
 diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index e32c8dd0b17a7..e0e710b36da37 100644
+index ff7769821166a..9996029853d23 100644
 --- a/arch/arm64/kernel/head.S
 +++ b/arch/arm64/kernel/head.S
-@@ -576,6 +576,21 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
- 	isb
- 0:
- 	mov_q	x0, HCR_HOST_NVHE_FLAGS
-+
-+	/*
-+	 * Compliant CPUs advertise their VHE-onlyness with
-+	 * ID_AA64MMFR4_EL1.E2H0 < 0. HCR_EL2.E2H can be
-+	 * RES1 in that case. Publish the E2H bit early so that
-+	 * it can be picked up by the init_el2_state macro.
-+	 *
-+	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
-+	 * don't advertise it (they predate this relaxation).
-+	 */
-+	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
-+	tbz	x1, #(ID_AA64MMFR4_EL1_E2H0_SHIFT + ID_AA64MMFR4_EL1_E2H0_WIDTH - 1), 1f
-+
-+	orr	x0, x0, #HCR_E2H
-+1:
- 	msr	hcr_el2, x0
- 	isb
+@@ -601,7 +601,8 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+ 	msr	sctlr_el1, x1
+ 	mov	x2, xzr
+ 3:
+-	__init_el2_nvhe_prepare_eret
++	mov	x0, #INIT_PSTATE_EL1
++	msr	spsr_el2, x0
  
-@@ -588,22 +603,10 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+ 	mov	w0, #BOOT_CPU_MODE_EL2
+ 	orr	x0, x0, x2
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index 3efa9cfaa9d48..9b2ada54be538 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -207,7 +207,6 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
+ 	/* Initialize EL2 CPU state to sane values. */
+ 	init_el2_state				// Clobbers x0..x2
+ 	finalise_el2_state
+-	__init_el2_nvhe_prepare_eret
  
- 	mov_q	x1, INIT_SCTLR_EL1_MMU_OFF
+ 	/* Enable MMU, set vectors and stack. */
+ 	mov	x0, x28
+diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+index d57bcb6ab94d2..5688a16e2ea75 100644
+--- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
++++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+@@ -218,6 +218,9 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+ 	if (is_cpu_on)
+ 		release_boot_args(boot_args);
  
--	/*
--	 * Compliant CPUs advertise their VHE-onlyness with
--	 * ID_AA64MMFR4_EL1.E2H0 < 0. HCR_EL2.E2H can be
--	 * RES1 in that case.
--	 *
--	 * Fruity CPUs seem to have HCR_EL2.E2H set to RES1, but
--	 * don't advertise it (they predate this relaxation).
--	 */
--	mrs_s	x0, SYS_ID_AA64MMFR4_EL1
--	ubfx	x0, x0, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
--	tbnz	x0, #(ID_AA64MMFR4_EL1_E2H0_SHIFT + ID_AA64MMFR4_EL1_E2H0_WIDTH - 1), 1f
--
- 	mrs	x0, hcr_el2
- 	and	x0, x0, #HCR_E2H
- 	cbz	x0, 2f
--1:
++	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
++	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
 +
- 	/* Set a sane SCTLR_EL1, the VHE way */
- 	pre_disable_mmu_workaround
- 	msr_s	SYS_SCTLR_EL12, x1
+ 	__host_enter(host_ctxt);
+ }
+ 
 -- 
 2.55.0.795.g602f6c329a-goog
 
