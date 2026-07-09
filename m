@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4D5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E84C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcmF8Egqc5+nTxN0P5fzHkCVpU6of7QL5hLJubaQl5Y=; b=xxg3vEx6WNoRFE1z/6v/laa66E
-	YxG4IfoBroMuvICkNY90UNoV0afp5RyLrnU50cOHhW4+aOnyMsTxK3BgdSpMo6ZIbf9s2GWLHm5Rp
-	m6Aa5ZsuYuN8Bqc4z+JJRPnr3vLSnMaiMiyMbLCBnkEJhaUWIoaJRlfsCzEAII/uZbBUzd6CFeW2w
-	2G4dWtpjLJ/I0/CvwNdIVMOS64vGysDpT5wm/U9zXHlIhXnmDhc7zaOZ2TtZwcmycYStQyqkhUYvB
-	ZCj9el7mW7haJMfxJHK2XU6/wmwRidLZTDodAnLzy1AAHriJ9OeqEerQOAQViz9q8DqIWTQQzAXC4
-	gwgurG6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OEahzOA/KTRGTvkyoCk8o8fpVF85458RzotimJ/M6YA=; b=4hmFIaBAG61+MW1BLXTpvKWnfM
+	U6944SoWL1oIUXfFA8Y7skuD+VpMCtezZO4WKp7WTH63eBcVPlGICiYsShLGzy7qU33fhN3/2/Rb9
+	jSLdpsRbFtBolLCtWDj/20xZMYPWVcE5b1Xx6lalR5pIe6rU9gGsHRqfB9g9jo76vTW/SyVBSHIYf
+	zCeApSngAfj/A4t2dSXvAFHBTrmuv5qoXN++4Xg1y3g3OrEq18fClHKg0eXnrWX/dxgcItmfSio9s
+	P+EfxNadZzdgocdkABw/LFSF+kOqiNReUsYJVZmSt0Q/WrxRlgyyY2Fj7M3NRTy4Hf7E6XvByCar9
+	tVUEoKPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjq6-00000001NZ7-3wqA;
-	Thu, 09 Jul 2026 08:10:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whjqB-00000001Nas-0Bhj;
+	Thu, 09 Jul 2026 08:10:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjq3-00000001NXY-0Azn
+	id 1whjq6-00000001NYO-2Jbj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:10:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78CB243ACD;
-	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 40571C2BCF4;
-	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783584628;
-	bh=TpGJ0HgZLVDPaYc57SOUoH7whSlNEtTx1wMSxT+hVHk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=IWJlOnrYOr1Qe/r4tVCS0B5CHvMEG9ofGLbXn3rQfKYFgRzT/H8nHZWHHh0B1s8Jt
-	 09VioFuLxnN6HmFy/SLZ+++joQ2yP2X0O5Ft0BjvwFgRtqlkxowJ9f4YBiH5rIlb9/
-	 xXkvfzJgjHZ6F8v1Ld9LXnHEtzF8nFX+Cx6awDASc8HgVMivtWG8Kc9a/d3Nb1dmh3
-	 9PhXIEA4g6reDGyCgExeRCo0vSaXqqU4anBvgDqM5Xalf4zDMSLal7YFQpH9gfTtBZ
-	 hv+rTg8MPfigBsxy6T6VxAlVl46IUfCu7SG+OjO47gUUkT9eOF8wFoCB3f4owt4pnC
-	 LyJs5lsuF/+1g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2EA7FC44503;
-	Thu,  9 Jul 2026 08:10:28 +0000 (UTC)
-From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Date: Thu, 09 Jul 2026 16:10:22 +0800
-Subject: [PATCH v2 2/2] thermal/drivers/imx: Add calibration offset support
+	Thu, 09 Jul 2026 08:10:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4FF36111A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 08:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8D11F01558
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 08:10:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783584633;
+	bh=OEahzOA/KTRGTvkyoCk8o8fpVF85458RzotimJ/M6YA=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=WTBH081nAVdwug7LFzIXFDgrbegoCxoadFT6WO6Frj2908/6QzMGpqt+CfrEXJqRU
+	 rcgGiDX4HCNTU8FqoW1govO01jdvhuzUXNNJ0tTwJ/a75ha6cknVn+4Ri9j8V9UT6j
+	 FEDw2qbGgQMoPPJBJI33u2xbH/NNR/2Po70XNcNawxYMXR37COZ6bP05UqWxnXPglt
+	 +/3qvpADr+xjrw+F8R/KNXi2aw9RGkyyEgsPKWJU1EspALz+kc34kr4mUtD5XemHJd
+	 k7mj/FGZm/6JeoPOKEQouTiImik/jECjqVZ4/3PN4IM+ItDJKnXZfeOx0R9CmyjUkp
+	 t8QVaWsR+PBRg==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aeb77b3afbso1566356e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:10:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqsgm8ObjFjy1eMBB0Lp655CVeydW0p9vqpb2NOSGytg3YwIvZmZpkdxAtb8vC/YouyWwGKVFT5TD+N7SCa4Ek0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPsUz10OBGIdtIHISktfaSuh3Qtpw5rcB6zy4q/vyfCYQIWpnJ
+	/pc6jyh9rkvBdh6kTlQhHrmOvmMLbTcTROqU+BZNWsOnl5i1gwS3Fpfy/I7A6OHn/Dr7LFBb1QO
+	uaGdjFB6+XIH+dPrM9riKgALMO72paHgErnlLv4eWBg==
+X-Received: by 2002:ac2:57cb:0:b0:5ae:b75a:7176 with SMTP id
+ 2adb3069b0e04-5b0115b31cbmr957946e87.65.1783584632201; Thu, 09 Jul 2026
+ 01:10:32 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 9 Jul 2026 01:10:30 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 9 Jul 2026 01:10:30 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-2-00ff72495e24@cn.bosch.com>
-References: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com>
-In-Reply-To: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783584623; l=2625;
- i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=MRMJXW3PasN1+vP3XrwOg3tSDMAKHZqZCG42ukJ5xEc=;
- b=SJTjctrQ1rBbwltm4KOKrbYdL+m5Hm3vJLKDmxkNxuaBIKT2Wpr9VlsjHRvXwUU7cyUX9+Bbc
- OMGxoPkO7FyAvJqfL2qIT4IPKHLPAc2gcNqIeYVZ3N/SUzIPYd9Mtlu
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
- pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
-X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
- with auth_id=860
-X-Original-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+References: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
+Date: Thu, 9 Jul 2026 01:10:30 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfJQm8RqhiLbRA1x7skt=jW8vvTD-1VCDcw-dO_VjisZQ@mail.gmail.com>
+X-Gm-Features: AVVi8CddxA9iUF7IgAB_SRFc1uKWkA3NnqyOXCt0i1LuR82tf86E-F3pS5f_rfg
+Message-ID: <CAMRc=MfJQm8RqhiLbRA1x7skt=jW8vvTD-1VCDcw-dO_VjisZQ@mail.gmail.com>
+Subject: Re: [PATCH v2 00/11] Remove support for platform data from samsung keypad
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	patches@opensource.cirrus.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Russell King <linux@armlinux.org.uk>, Mark Brown <broonie@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Sam Protsenko <semen.protsenko@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,86 +87,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+On Thu, 9 Jul 2026 06:52:58 +0200, Dmitry Torokhov
+<dmitry.torokhov@gmail.com> said:
+> Hi,
+>
+> This is a reworked and extended version of the series previously posted
+> to convert the Samsung keypad driver and Cragganmore 6410 board to
+> generic device properties. The first 8 patches of the original series
+> (general cleanups) have been merged into mainline, and this version
+> focuses on the remaining keypad rework and extends the board conversion.
+>
+> Specifically, we rework the Samsung keypad driver to stop using platform
+> data and instead rely on generic device properties, and convert the
+> Cragganmore board to use software nodes for all its peripherals, removing
+> legacy GPIO lookup tables.
+>
+> We start by introducing a compact matrix keypad binding and implementing
+> it in the driver. To support referencing Samsung GPIO chips in board
+> properties, we add infrastructure to register and attach software nodes
+> to Samsung gpio_chips. We then switch the Cragganmore keypad to use
+> software properties and drop platform data support from the driver.
+>
+> To convert the PMIC DVS regulator on Cragganmore, we add software node
+> support to the wm831x regulator driver, allowing DVS configuration via
+> device properties. Once the board is converted, we clean up the driver
+> by removing legacy DVS platform data fields.
+>
+> Finally, we convert the remaining peripherals on Cragganmore (GPIO keys,
+> PMIC, WM1250, SPI0, basic-mmio-gpio, and LEDs) to software properties.
+> This allows us to eliminate all legacy GPIO lookup tables, which also
+> fixes incorrect GPIO chip names ("GPIO<N>" vs "GP<N>") from previous
+> descriptor conversions.
+>
+> Mark, it would be great if you could give this a spin on Cragganmore.
+>
+> Thanks!
+>
 
-Some boards need a small per-design correction to align the reported CPU
-temperature with board-level measurements.
+I admit I haven't looked at the series in great detail but it looks sane and
+you've been doing these conversions before so I trust your judgment.
 
-Read the optional fsl,temp-calibration-offset-millicelsius property from
-DT and apply it to the i.MX6/6SX/7D calibration formulas. When the
-property is not present, the default offset remains 0, preserving the
-current behaviour.
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-Signed-off-by: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
----
- drivers/thermal/imx_thermal.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-index 38c993d1bcb3..8062d34ffed8 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -207,6 +207,7 @@ struct imx_thermal_data {
- 	struct regmap *tempmon;
- 	u32 c1, c2; /* See formula in imx_init_calib() */
- 	int temp_max;
-+	s32 calibration_offset;
- 	int alarm_temp;
- 	int last_temp;
- 	bool irq_enabled;
-@@ -240,10 +241,13 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
- 
- 	data->alarm_temp = alarm_temp;
- 
--	if (data->socdata->version == TEMPMON_IMX7D)
--		alarm_value = alarm_temp / 1000 + data->c1 - 25;
--	else
-+	if (data->socdata->version == TEMPMON_IMX7D) {
-+		alarm_value = DIV_ROUND_UP(alarm_temp - data->calibration_offset,
-+					   1000) + data->c1 - 25;
-+		alarm_value = clamp(alarm_value, 0, 0x1ff);
-+	} else {
- 		alarm_value = (data->c2 - alarm_temp) / data->c1;
-+	}
- 
- 	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
- 		     soc_data->high_alarm_mask);
-@@ -274,7 +278,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
- 
- 	/* See imx_init_calib() for formula derivation */
- 	if (data->socdata->version == TEMPMON_IMX7D)
--		*temp = (n_meas - data->c1 + 25) * 1000;
-+		*temp = (n_meas - data->c1 + 25) * 1000 + data->calibration_offset;
- 	else
- 		*temp = data->c2 - n_meas * data->c1;
- 
-@@ -413,7 +417,7 @@ static int imx_init_calib(struct platform_device *pdev, u32 ocotp_ana1)
- 	temp64 *= 1000; /* to get result in °mC */
- 	do_div(temp64, 15423 * n1 - 4148468);
- 	data->c1 = temp64;
--	data->c2 = n1 * data->c1 + 28581;
-+	data->c2 = n1 * data->c1 + 28581 + data->calibration_offset;
- 
- 	return 0;
- }
-@@ -629,6 +633,10 @@ static int imx_thermal_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, data);
- 
-+	of_property_read_s32(dev->of_node,
-+			     "fsl,temp-calibration-offset-millicelsius",
-+			     &data->calibration_offset);
-+
- 	if (of_property_present(dev->of_node, "nvmem-cells")) {
- 		ret = imx_init_from_nvmem_cells(pdev);
- 		if (ret)
-
--- 
-2.43.0
-
-
+Thanks,
+Bartosz
 
