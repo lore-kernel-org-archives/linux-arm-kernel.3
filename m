@@ -4,117 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E34C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA96C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ETsmdmb+3cHXN08EH+iCV/ETN1CcrQj41jPmLj5YZI=; b=P2nXA3MiqRRFE1c7yVUyLQvm2Y
-	cn5MVikIo32+whNRmwlprcec1Zr2gZktbNvEOjb3xkausFbAz0wDB+0xgXr3XLHkOifLlM0Rrlfou
-	kYxdaLObHgkFpknABFwkGFqMQv0K+bK3aFcT8G7tGp3vi55oTYkivKXtZt/7PztP6fosBUFQMFK+H
-	ArxHQ8G4L4GdKifdHLDai8cowHdY94an9sggPeoshsWDEjcrFpyUauKA16pXjDz4cr80jmNXW7y7Y
-	HjXoMCR9av+isIFtiaHpPF88kzDR9RlpA31ckUKxRHV2J+/bhMTcfGt7tBMbv8nh6tYJl1FqESfKm
-	5nQZgw9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ROxPXBQ91YEteN34Jnna2ozV1gz067cxXFbUj2fqoY=; b=k4PJlKEki4jI7zYpX4+IY1h2zS
+	cT+yn42EJeZLz8RLfu1nfsI0r7xSilCfRP0EZ8S8ynTGpbPEXgmuJ0bvRaAzYVmxv2dXNezHsv4FV
+	5WU/veIXaR/VuAd2xKGRUvMbjp2aV+AgIx0N47uij4oInJQgwtgp9NU6NQkVWZFnPAM2K0hn+5n50
+	lh057ZOzXWydTecjp//9Fo0NMOdrbAZnPOOJJ4Bj37BXa5uQRKrV9MJrdUFQadlLlMz6GetShlf9v
+	Yd4TWXvEaqNtW3sdUQSXQiekRNJkm8gZTqUyeCE+2RGMqA62nuNa9I1zqYWQUBDLZPb4m5rcHakNR
+	ZiI/H1nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqfT-00000002vD5-3HSf;
-	Thu, 09 Jul 2026 15:28:03 +0000
-Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqfQ-00000002vBs-1Zdt
+	id 1whqiR-00000002vUE-1M1c;
+	Thu, 09 Jul 2026 15:31:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whqiP-00000002vTo-0oui
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 15:28:01 +0000
-Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-44ae14b4fd6so1074725fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 08:28:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783610879; cv=none;
-        d=google.com; s=arc-20260327;
-        b=fxDKEimzpub8xxUrfoDalY7cQ+C3sV8VuVBYmcyFyGN7sXI2Pk/C60xFYxzpk4zEDN
-         EXU7MV1JY1RKDE0Fy8oRc9k9dNBxQcgrciBAnwqpMHK0W5qNPDOJL68yWgli1ho1voHC
-         g0rrSWx12NIgZSHg+7PEwXj/y45FmEzEAy5yF2Lq15VdfDQicRXyfd94RucyEuyJNE/i
-         3qgrtLaMn/jfWZEbD3GJQCBkeDXJ88QOrHSfO83Jk0sT2Ra1b/s2ftDOGhhV0JLtuJmx
-         vZ+JVSruSl5nxzx3gNGR6YnP7ru6FT1CTBQptArcALTWtFYXmpU7vLBfKy23gA934j+A
-         X75A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=3ETsmdmb+3cHXN08EH+iCV/ETN1CcrQj41jPmLj5YZI=;
-        fh=Mxsvs3aAOOP99u+CQJcXioNV8VPxrUQKjeWsx03xIHw=;
-        b=RyNUsUY8pMWrKBav22jIUUCe9sCORS9XjYnownTqCVjlzoEBCiflNzlbPH6wobq/D9
-         jbZ27nl0g0gQmoWtfM2gnFBh0FXWHd88nu4d2sCm8eGgjRuaGC8u20HiCAkWBRU0mPEp
-         9hYfP9wKr2nMDYcadvqmowjkSyyCWDIungv8cPdEuF01tClfrzPb2wQ6K5sdkXU+Kgci
-         B1e8hT+nEyP9OFQN6RX2+9GlW7R3z6IMdiNmC1AFTMYCXuvbYBtJk59mLPt3HJzOAFgJ
-         pEzoR2q2XTm3iXpbUGQxcwk3gPBYPD7FOUT78OcmavDLKHnfX0Vw3T/Aag8N1TNFs7YX
-         wybw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783610879; x=1784215679; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3ETsmdmb+3cHXN08EH+iCV/ETN1CcrQj41jPmLj5YZI=;
-        b=ETi4Kw/vLzz/sYi9HKPCrkwn/xgjvsQ6bZP9Q5hmWpE3K4F0lhQFpUY1uD594LQ6+L
-         jb7L9uGc1uUhPJcpuMv71nZYwtD7XxUoZXCQwapoJ3qMVrwsobA82uaof7IrsmU99KxW
-         vzaMyJUl77u2gb86sCATh7eLd16lLGlnSK6HUvoqCGWdJth73s9oeJsSbQ8lqSKTxLbR
-         Gu1BnlbGW7/n5bUXt1x8TrMkIP48EYU7KhEW4LZXS5PaxXbT7/c9Km5CB/y0GzAQrJwe
-         3UXHcK5i24WhMpZ2xYyBHi4WvT05QGzen3MWjAiYx0+DXHnU/cyJ7NhI6AZVJyfcQ/80
-         C/rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783610879; x=1784215679;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3ETsmdmb+3cHXN08EH+iCV/ETN1CcrQj41jPmLj5YZI=;
-        b=rtmeyaULYwiuFgJsftgEz6x0V+X3iFoPhsl6AbY8l/YjlZ2cpIXYz9oMm5qHSZNsZ+
-         wBw7iCL1LJ4WotrwPhvLTeslKvGGAe/04lvtLH6PB5m0T30Tosbrb7czZIZbsoh4/vJW
-         1gkyD0huukF88IosSIvNrxFZmALf05gNpKOpoK7a5rXhrhUjzr9C73eHjGfuU0gJgAQj
-         rjeppZFlgjG+apjqlzr79388bZDr1v/2t2B6IZ1Wn1ouKmZwBrVFc9/IGQGftli5g+3V
-         QwXOlwPrVmWr7B11k8fgOt4mwlDoJLNSdMMxe9bXpmuNyEavf+iobt7MSpQ6PCvl1Gcy
-         qyNg==
-X-Forwarded-Encrypted: i=1; AFNElJ/KgqQLM61qQjcwk36Z1naN/C5w0r2AfvQFrzEfDrmycyLaWLkRcSl8SQJil05xc9fUfGWPQHt/pn1QkJEuuNhj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN+irWktvQ5PmECA6tz4qE1B4znR9UojMuqm4USFbvx0Ut1t8T
-	wktiUOWgJC6jkBZPbttvWN5RA6OOa4ClTM9otjalgvqsqlxoZg1c51E7HVFgKiEbUqlY3OB2J/V
-	AJrH26tzUhCV+WxWUaG8PhnEmJ9xfIMRcmWGg3NkAyQ==
-X-Gm-Gg: AfdE7ckxRM6s5Ur7O+8r4DM9uHk4zb6xR0o3R2C1ey2uPJNjXnzZz8UBHVBv9ModxcP
-	4Fntf0Eu/smBos+/3Poa9r1y3oRTLqkWZYDmdI+pthFDxG9ByWKZrYVpZy0YFJsChq2h8mDQS5S
-	R37t5ytpRSq7kWQ2zRnpaJ653g+ivFKtT5d67v3QXNZcH82OrxRFv9iPaeBxpqaWxp9fdz71uxV
-	nJguFnxZuigdEDIZjFIBBILln1U7t8bFM+uAP+tudNo2I+XzQn19dTZSGP94tD91MUO+rMVtJMH
-	keE1eW7muimASiwJYaih8JFVDYj5owkQUAjx/hkQuaEvSGAB4TCIvBz0n4thS9wMu0Q98o7tp5u
-	UlpkyZBahDR7eRonn09LYrQDL9yjA
-X-Received: by 2002:a05:6820:4dc6:b0:6a3:c14:c985 with SMTP id
- 006d021491bc7-6a36da6566dmr5303668eaf.72.1783610879362; Thu, 09 Jul 2026
- 08:27:59 -0700 (PDT)
+	Thu, 09 Jul 2026 15:31:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EC481570;
+	Thu,  9 Jul 2026 08:31:00 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFBC23F85F;
+	Thu,  9 Jul 2026 08:31:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783611064; bh=LGskLhmxYfvHzHuCkKOj7Dy/A6cwneAsqkt5alVmAzI=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=FCSV/iR7WdzNJ8q/yUAXRNzxwp9D4CwI1WTaNrC+TlkDFXavtgvXkcrnyIlB1e69f
+	 pHkoqAoeEgd6f7iDa9lTzLCa3FXz5nKErmi8YY0ZAa+EYHvujBHZIpFNBjyyMiEN7Z
+	 dD2iWqsc4bXfsNedkgJ0oF5ci98ZA2jFQh0yU0a0=
+Message-ID: <2a1ed630-3f88-400e-85cc-596b4dd5f5a8@arm.com>
+Date: Thu, 9 Jul 2026 16:31:00 +0100
 MIME-Version: 1.0
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
- <87zf08w7qo.fsf@jogness.linutronix.de> <ak0b2S9jjYy49a8V@pathway.suse.cz>
- <87echdvkd5.fsf@jogness.linutronix.de> <ak5X718OcOi8OeT4@pathway.suse.cz>
-In-Reply-To: <ak5X718OcOi8OeT4@pathway.suse.cz>
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Thu, 9 Jul 2026 16:27:47 +0100
-X-Gm-Features: AUfX_mzqUqAOJpVXS1zSrcgE0KUX94znIqSV83ZukwijZLhjWKW1vacbJxvZC-s
-Message-ID: <CALqELGwMa8N8VRQeDWK=vWX+YGpa66HNMSA1VmvSvu1-adbh3A@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
- emiting code
-To: Petr Mladek <pmladek@suse.com>
-Cc: John Ogness <john.ogness@linutronix.de>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Russell King <linux@armlinux.org.uk>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] ACPI/APMT: Use stable device ID
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org, mark.rutland@arm.com, catalin.marinas@arm.com
+Cc: ilkka@os.amperecomputing.com, bwicaksono@nvidia.com,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>
+References: <cover.1783605641.git.robin.murphy@arm.com>
+ <c113eff51124250fc5798589ce905052046b43b3.1783605641.git.robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <c113eff51124250fc5798589ce905052046b43b3.1783605641.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_082800_589804_CEC29E86 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20260709_083105_299310_0F7B978E 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,87 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Jul 2026 at 15:00, Petr Mladek <pmladek@suse.com> wrote:
->
-> On Wed 2026-07-08 12:42:22, John Ogness wrote:
-> > On 2026-07-07, Petr Mladek <pmladek@suse.com> wrote:
-> > >> This is too deep (also pointed out by Sashiko) because it multiplies the
-> > >> delay times the number of consoles. For the legacy printing, it would be
-> > >> more appropriate to put the delay inside console_flush_all() and
-> > >> legacy_kthread_func().
-> > >
-> > > True. The question is if the proper solution is worth the complexity.
-> > > We would need to pass the information down two level of the API.
-> > > It would require adding a new (output) parameter to console_flush_one_record(),
-> > > nbcon_legacy_emit_next_record(), and console_emit_next_record().
-> > >
-> > > It is not that complicated but these functions are already hairy
-> > > enough so we should be careful.
+On 09/07/2026 3:39 pm, Robin Murphy wrote:
+> The APMT node format includes a unique identifier, so we can use this as
+> the platform device ID to give userspace stable and identifiable device
+> names, rather than auto numbering dependent on how the table is parsed.
+> 
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Hanjun Guo <guohanjun@huawei.com>
+> Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>   drivers/acpi/arm64/apmt.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/acpi/arm64/apmt.c b/drivers/acpi/arm64/apmt.c
+> index bb010f6164e5..ba48fcb26d52 100644
+> --- a/drivers/acpi/arm64/apmt.c
+> +++ b/drivers/acpi/arm64/apmt.c
+> @@ -79,7 +79,7 @@ static int __init apmt_add_platform_device(struct acpi_apmt_node *node,
+>   	int ret, count;
+>   	struct resource res[DEV_MAX_RESOURCE_COUNT];
+>   
+> -	pdev = platform_device_alloc(DEV_NAME, PLATFORM_DEVID_AUTO);
+> +	pdev = platform_device_alloc(DEV_NAME, node->id);
 
-Indeed - It would have been nice to put the delay in
-console_flush_one_record, but nbcon_legacy_emit_next_record and
-console_emit_next_record don't provide an easy way of knowing if the
-record was actually printed.
+Per the Sashiko comment, while I really wouldn't expect it to be an 
+issue in practice, I guess we could explicitly check and truncate 
+node->id to INT_MAX (probably with some degree of warning) here just in 
+case.
 
+Cheers,
+Robin.
 
-> >
-> > Fair enough. But then it should be consistent and
-> > console_emit_next_record() should perform the delay before allowing the
-> > handover. Something like this:
->
-> Great catch!
+>   	if (!pdev)
+>   		return -ENOMEM;
+>   
 
-I'll update the series to reflect this.
-
-
->
-> > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> > index 2fe9a963c823a..62fd6a5ebef66 100644
-> > --- a/kernel/printk/printk.c
-> > +++ b/kernel/printk/printk.c
-> > @@ -3161,6 +3161,8 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
-> >                */
-> >
-> >               con->write(con, outbuf, pmsg.outbuf_len);
-> > +             printk_delay(false);
-> > +
-> >               con->seq = pmsg.seq + 1;
-> >       } else {
-> >               /*
-> > @@ -3182,6 +3184,7 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
-> >               printk_legacy_allow_spinlock_enter();
-> >               con->write(con, outbuf, pmsg.outbuf_len);
-> >               printk_legacy_allow_spinlock_exit();
-> > +             printk_delay(true);
->
-> It is pity that this is inside printk_safe context with IRQs
-> disabled. A solution might be to call it before the write.
-
-I tried to be consistent about always performing the delay before or
-after the emit. As part of this series I moved the delay so it now
-occurs after the emit. This made it easier to know if the message was
-actually emitted (rather than delaying, and then a handover occurring
-before actually emitting).
-
-
->
-> But maybe, this is good enough. This code path is called from
-> vprintk_emit() and it might be in an atomic context anyway.
-> Also it increases the chance of successful handover which
-> might help as well.
->
-> Anyway, it would be nice to mention these pitfalls into commit message.
-
-Sure.
-
-Thanks for the feedback Petr, John, Benedikt!
-
-Andrew Murray
-
->
-> >
-> >               start_critical_timings();
-> >
-> >
-> > John
 
