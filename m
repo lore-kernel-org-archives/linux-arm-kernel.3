@@ -4,88 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CC8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 20:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A69C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 20:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y63+X/Dp2CE9yVCvl/H556o9pFY78+UE7i0NS2qgTOQ=; b=KsbodwgRI+Y3WmoLFL+KPu8KMR
-	1hgLRM2I6IfxqN2hKCDg1cWkkQuYhK8zIw/RoT8uWfcMEfJljJHdaR3aQ/cNkA4tBZwbnuIF0RgRD
-	Hz7VvhdtdiJfJSZwoF+zi//UcK5vSRI007bVKxsw0kqI8mQfLrabKWYWnKO8+gaVvHRKR0SWYs9UA
-	6sG1p5zpp5V5QM3Ly+b5E+DeJBaDCG4a3EvbDS/dSGCe+JfnALwlJKzjTIqHCbeaY5BgQhVwiGRhJ
-	ZIGKPLdSLBtp/PbrJBFS9jse76aIcPVQ8m6YT9AW9YijPik+tLpm7neg8HTRrhG0NVtKu6uB1PGAx
-	6eqawZ2w==;
+	bh=0/DWIjUhhLryFkb1gmSDF7p9ux6CXlZXy79Hsf+JYpQ=; b=oyVBb72mF3Dhin9r/Ak44FVPs8
+	IH8sjo1a/l6/kukBspQj2iXPJ0Xvn2LmBpEQZywyTPgk6GiClf2PMulkeVP+xBiZzZtxMwiVhr+io
+	sr8SeuKe2iSoFzCFX2Ai7RLyrHuEazO7uCesQgQnSOIs5ikBnpZ9s+ORdc8MrrZqAwFY8HKapKmGq
+	hFycJpe51hjLzLeZYZ8A+yDW4xvPG++q1fAvxo2T7/PPLK+fNPeeRjV1Ucy5hm5lxqqRtCK9Wqvk2
+	wswkWHoo4zCg1M2KOSqe2kOcdMXORkqZB6NxCSVcI94K8bqTiKq0GtERL1KAdcZnJ2MwY+VBZYg5L
+	JWCWcRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whv5f-00000003Xzb-3Ds1;
-	Thu, 09 Jul 2026 20:11:23 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1whvNh-00000003Zn8-2qza;
+	Thu, 09 Jul 2026 20:30:01 +0000
+Received: from mail-northeuropeazon11011030.outbound.protection.outlook.com ([52.101.65.30] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whv5c-00000003Xxt-21uL
+	id 1whvNf-00000003ZlX-1VTL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 20:11:22 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gx5h2054QzMlG0;
-	Thu, 09 Jul 2026 22:11:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783627874;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=y63+X/Dp2CE9yVCvl/H556o9pFY78+UE7i0NS2qgTOQ=;
-	b=kTKLOhlw3dsSSCas3hT947tSt8hLZ7VuE67zkz08cCekv0sCG3XK+UWyejs4mZXm/va7Z5
-	PdzXUQCODshhkZkBiwgPll1wKekhioHcvTUQIz9rs3CLR/ZdDEGSX/DTTbXl0zT5h/iHGN
-	jbV1mFi1kStbkfj5O5/e5ObfZb3kh40msFybnVGzzry5zDXvxqcGVFQUKFpsYjzOjgrevl
-	HyyRYodIxwP6J4Ht0a2+2zo0xHqxVHphGbGty9dqMdopKpBm5/P14gAkOr8bTZYqisaA+R
-	A+zEv65aQk2Qb2EUlaiYo8r0C7sLkHE7RL31HoRfoQNDhT1ddd0m67wxpOPgpA==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783627871;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=y63+X/Dp2CE9yVCvl/H556o9pFY78+UE7i0NS2qgTOQ=;
-	b=uIkgdiNHZKtufAVbUtlD0aL5irzPN8QnGD6gc3U6mD9xmTsOzlYD6M8kNcqq+9lFU8WzxX
-	vU5WAZxE9F75QicH1c667VzICAvmEF8hT49vrqjKaDYi7H0JWlHsHYmpNhRhEA9mUTuMzO
-	2E94bRKN2g+6nmfBw8z0dUUc6OUZB5FmftpadY4IPB680c+Z7TaDjqWN7/lQV0n0B0hWXV
-	uu5R1uYiTa6eS5Ei4LsnsKqtdybZYew9G+YV0B3A8uGPiho2zRYilhAin6GSbglylT48vu
-	24ePWv1x7fGKiGtzNHgl1VuqeQui93ZpxmmOnqnjrKBKNdrHLdGbD8hxtdJKiA==
-To: linux-pci@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	kernel test robot <lkp@intel.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] PCI: rcar-gen4: Inline GIC_TRANSLATER offset macro
-Date: Thu,  9 Jul 2026 22:10:03 +0200
-Message-ID: <20260709201103.90162-1-marek.vasut+renesas@mailbox.org>
+	Thu, 09 Jul 2026 20:30:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZG1dYKLKtGNEZuHzwlqFTQIogE3GKYzYiV+Sl6nAbLNuP5pSTK48i32R22o6HMhsaX/B1HcUcNYHVTT4g+NSQ2P/mqe4r0rw+3dYmlmF5dIax8h2y+wjqk0gNQmc1iDYNLSsN2wWX/kpbl0JvCStjnZTO9v+6P9ja+AlvdVfARCo2JoW1sGafiuFO2+HkHzZrjtG+8GTsrYkzPlGQcz1lodJHhk1JE51A2LQz819+z3xsGa0M8VQsbS/14oHNieXlENqeQp9FObzWSho3NELir/UBxneoihoUu2JjppCcnscZ38IIq5AndwssH0wPY+0uqAa/h57GrzEMXnXfCKE9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0/DWIjUhhLryFkb1gmSDF7p9ux6CXlZXy79Hsf+JYpQ=;
+ b=Cchl8GFPcMR3ku3wj+za/33d183253dWJFtIl3aRSfRVcqPTb+syut4NCv309f1rKHO2iIcdKauWkryth2oEoSW8Q9tV84aXss6HY2h9tEpYJDCdeDmoeB73jQCVaeZe9CI7R8iW7zIUh9GTYOvZlNYK9VEV5G0KSoGtucouV5rRIL/um7pzZtILb0v0Jm5zm4R8davCwgXVKuKS9r2dRYQMj62IFiO7KJFNXIwYU94REXMCoFVBwmXuT+LtMGLSghjdnUgJHxnQmJ1yKvPmeecKPvrK1d841fskm/6jRBskwhhv7oBhUzBLrhGs3n83/5ILPopYcYVKGhZ8ngLbHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0/DWIjUhhLryFkb1gmSDF7p9ux6CXlZXy79Hsf+JYpQ=;
+ b=L/IKHd/lx5h2RfZnrHy3D/7V1Djxah4VY0wcC/8YyWu5PzD8WP3rxbumZ9Tu04Pztv5B9Mh91C++4pFyWoNlyVv6/OEXh1PfS6lzwTbNpMoBoK/1YPLyeV02sb2p+SCPmgd7ToAmNXTc81wUOp94QuYeeUhNgrLoKhUKs0yNysdZ5gN9Ufoc6M9F1+TcShscKCE1u7ypb2/fve5IGgvLagxykdKfXBvfSdJeUvMFChaQRtan9XoXrdm/Ny8FoSoKXQVrjZc8vMt7hy/wHNgiR99UF9UkQ4xEq4IFTLaX5ISRGMfqOzciWtjXO6mo7TIFFAIu+6hfA+fQ7jfz9oOmJA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA6PR04MB11886.eurprd04.prod.outlook.com (2603:10a6:102:517::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 9 Jul 2026
+ 20:29:50 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 9 Jul 2026
+ 20:29:50 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH v2 0/4] arm64: dts: imx8qm: collect some small update and
+ fixes
+Date: Thu, 09 Jul 2026 16:29:42 -0400
+Message-Id: <20260709-qm_dts-v2-0-3ebcce82bb79@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALYEUGoC/2WNTQ7CIBgFr9J8azGACMZV72EaU35qMSmtgKSm4
+ e5CXbqcZN68DYLx1gS4Nht4k2ywsytADw2osXcPg6wuDBRTjgXm6DXddQwIsxNnXDIuzhKKvHg
+ z2HUP3bofh7d8GhXruhqjDXH2n/0pker9RRNBGBFGiOjZZZBatm5djmqeoMs5fwEkAVtLrAAAA
+ A==
+X-Change-ID: 20260706-qm_dts-043646b4675b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783628984; l=1010;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=74m/F6wlHA0zQaHaha4quZrGPqMtR8vEZE9eDrtavSQ=;
+ b=XboCHA7gmrLYSJzYvHilQog01OSAh/PH2iNerkLRtjJT6GM558QsGTiuS4u3u2mT49QElpodW
+ yT6SzPfxzDICCAm35elPR4o2/NqYuBb9+3JEZkLtMEfnEHuDVY10peo
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH8PR07CA0030.namprd07.prod.outlook.com
+ (2603:10b6:510:2cf::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: d77ea4e9cdf5251e9bc
-X-MBO-RS-META: 5e9qh5qrbhxy7cjhaabxdnijm8n14tk1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA6PR04MB11886:EE_
+X-MS-Office365-Filtering-Correlation-Id: b307fcf5-a9df-44a3-d61b-08deddf8d321
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|23010399003|1800799024|7416014|56012099006|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: d6+lvTJxeze7vQtANu14yFh2FtoUZrfo6DN+Hlwb49PeHZWsSB0P2xETJUMlk6zkcZeoqdZbzSseZom/m9J3GweRiiY5Fj4hWzU745yuxJWYxaznM9VGSMxGm6Ix8VXZPr4DFvmOTwAws5PxKSphQJ2dnr8l7pBza+/S3GisZ19dYdGFsopRVIEILULI76MX3sfINgzw8EeAKT/IvxnqaREq0kOa7MSXyN6RvCXKYEF5+MlDmL1Ajejl02n9FqnQpi5LVZyxvf1HJ8pP8p5Pd7igQxgF/i9STENZqIIHQtasJN3HWnso+qsKwvHa0NgphaIcvYyW9uIr8QUCpIxtPe7bvF51YmHBkINaRek5xaP2efN07lXcQBtJOXvI4PjnxTAEKfK/wMx+10Jc2MLZ7Oq5qeO139iQoElLor2g/c08kNkeufjvyS+68wjZyPz5C59GbXVVTdFQklWETJ1dEv4LjVM7mvV+10plNH15yHMue49J/0jWlXI35kEVwU+URURrlAFKKx9kBkuKAd0hrNUIM8YG4LRz0eCQVBZ/zOiFQ7dEA57hZs0O3RrmRitcIg5CbeLSmWMfdEWpN0EXggodNiGTLIYtz+QGujxIPMLKzuTvV2pHxrV8mYmLxrGD
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(23010399003)(1800799024)(7416014)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N08vdHdGSUQ4WEQwNHUyQjY4TU9hcnU5d3BzRzREM0tzcHhxSzM1MHcwOU1Q?=
+ =?utf-8?B?TUNUc0craW1xR3J1SnF2Q2IxdWJFWkwzbHAremlBMjJlRUtIMTFvbDFCT3dU?=
+ =?utf-8?B?VlZLV20zOHJhNHkzM29mcGxwTGhndEJLZzlxZFd4U0F2N3kvVXUwVG5OUC9M?=
+ =?utf-8?B?SUpxZGtteXhWNWtxYXNabDBpUWhOR3Zsbmd0RDJhaUxXMFRXTzJHNTNwMDRP?=
+ =?utf-8?B?SWdmWS8wc2sxQjBmMW5IZ3gxM2RqbmZwU0lsT0ozMnZHSlpkamlsY2d0T1lz?=
+ =?utf-8?B?dnRsVm0zU3dmaUlYdFAxOHYyY1h4NmlVZEs3ZzdVanBCeDdaWldINjV1V1hO?=
+ =?utf-8?B?c1BWV1RiSnZCTnNhUDIxdFduZU0vYVFhY2xueGxpY0lrREQ4SWh2bDNuM3dF?=
+ =?utf-8?B?R0JUdXFvYWVCeXpmK1d3RitVT0UzUk82cjhkUTZNSWQzck1TSVkyY0h5dnh0?=
+ =?utf-8?B?ZDQ2MXMveS9HM2E1Tk9ZbVpRWHFVblE1VXluV2xGMTB6K1VVN2FNbTE3ZERr?=
+ =?utf-8?B?L1JiNngzNEZYNnNHSlZLSGs5VC9NZE4zTlFQaERNUldmRTN2K0YwVlFDUDZD?=
+ =?utf-8?B?OGRIdEs0cTVERld2RTNudmFZNUQ1VzlOTjZkL3R4c09CeDRQcS9EVzNLYVYx?=
+ =?utf-8?B?alF3MFJra3A0Q2YxQVJnSDFkditsVXFQQVJoeHZjUjQ3LzdXcDhJKzBwVWR5?=
+ =?utf-8?B?c3dJbDI0dW1xSm1BNzlPNEJ1c2EvY0JlVVI1VWJ6SUIxVkt5ZkdxK3FpQUVE?=
+ =?utf-8?B?VElkWUdNREF4L2g4RWw1YzdLYzNqSlN4T1Zhd3ZBMy9RdmF0T3B0ZlRnWHVt?=
+ =?utf-8?B?RDU0N1IwVjJnTXFXL0d6eVZHTUJOMk1sMzBOcjNEN0psaENnSWdIdUpkY0VT?=
+ =?utf-8?B?blRGWmFnb05OYnFlb2xNR3F1VlJNUmNyTmRVK1IxWlgreUFrSTgydExzd2R4?=
+ =?utf-8?B?dlhFdDAwWWdoZ3BhRmRIaUl1dUtITEprU3NGemNzQXNKcEE3TllnNUV2b2tE?=
+ =?utf-8?B?Sm5xRjJubVBUSjNHOU4yK1JydTBkUHBLRzgxdjEvNUpab3I4bFJ3NmtMWFdZ?=
+ =?utf-8?B?Y3lTbGpIWWw3RXJ1Y3lFeTE3Q1N3VE1yR1NmVitxVEJDZHA5Q09UMnc5aG9P?=
+ =?utf-8?B?UkRmbzhZam5iSm1tRTh1TUJMK1Y0b09KdExiR3BCcGFvZFNvK3ViM1JLRWZr?=
+ =?utf-8?B?YzBOZXJPbm1iSHhBWjFFUk1adW9BUVhWWE0xV2lvRm9odDBEdERsblBsYnF3?=
+ =?utf-8?B?T2prUUZQRzlPZEJWRCtlaG9DdG4yMC9ZR0dXMXl5a25rOWR1TkVsa0t1Kzdp?=
+ =?utf-8?B?dm40MmRWa25FNXp5TGFBemRaM2dENDRucjFlYmVHT2ZSOE4rU3IvUUJTazdq?=
+ =?utf-8?B?UWF3UlkrdzBmWllEL0hwamRGUFRmOHVuTGlORWcrTktvdWJhTkFjN3h0cHIx?=
+ =?utf-8?B?NTd5T3M0MDM5aGhFQ2xWQkF2S2VsbnQ1MnU1RkdTS2M4dGVFY0Q0ampZMGJ6?=
+ =?utf-8?B?enA0L3AvbVJOMDdOQnVlSlpOODl4RDA0c2Ewbyt0RVUrSUl2NHJYemxRanV3?=
+ =?utf-8?B?b3JoU0l5YStlNktXVlF5RnMxTExjcXBtM2tqR1paTkFsQ1A2UzVQRkdiVUJt?=
+ =?utf-8?B?RkJRbzJZVzl5NUdMeUhMdmtGSlVtNjNndG1RaE16VjdTYmFRUzNFVE9iWm84?=
+ =?utf-8?B?MjhoSHVVQ1lCQzNLS3huUXJTR1FDL1F2Kzg0ci9FZVpCUXJSRStaV2QvYitM?=
+ =?utf-8?B?eVhlZm1LeE5kSnVLSS9zUVZwVklBQ29uY2hRR21SRFFrcGQyQnFWNXplc0dE?=
+ =?utf-8?B?WGpNYnkxOGR3VlZCeVAzQURZeHA5VHltRmJVdmdOOHh0eHRlMm9JWVorYWtY?=
+ =?utf-8?B?Q1ZxSFFsSEZkR2FkNmVXOFk0amhsYlQzM0R6N3pkMjFpaHpyVHAzMU5QWk5Z?=
+ =?utf-8?B?KzZpNXZQelRoanQ4dS9SR3NzZ1JES1NMSWtYWlF0V1ZsYjYyWUc4VVZ5K0I5?=
+ =?utf-8?B?RzYyZkdyS1ZNMi9DZUFHZEVnNE9JTTlJMUZ0NVAzRFpDMnMrckpzQ25Sb3FK?=
+ =?utf-8?B?WGxVcmN3eUEvR0NObjhGUkZiRDhla2lDWmRiVDlpM29QMm1kbzRwZGRCdE1Y?=
+ =?utf-8?B?ekJJQzhBVXFoS29ncjhHb3pSWGZuZVBoNjhoZFU4WkNoWUVBUVdYMG9PWVdz?=
+ =?utf-8?B?NXlGUkNVdlpFMzMvQlVpMDRKeVZsMWhCdzExY1FTdTlRYWUybXBCMFZsTWJL?=
+ =?utf-8?B?dUhRNFg1a2lCUURPbFVmODdCTVlyY0tqQmlsdTZvelZ5YzBXTnFSUU9aM090?=
+ =?utf-8?B?dnlqZndtQVhGUzV3Nkw1UHBTVHlWT3JONXYwQ1M1ekdobVBINUFESE9MSUlu?=
+ =?utf-8?Q?mwmYGY5rUv7bkOEDaFktnS9aALw3frjfeslAx?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b307fcf5-a9df-44a3-d61b-08deddf8d321
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 20:29:49.9845
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Uh8fRXA7qidxtvbX4x2m4kAHe7nv9xHy4GqbQpcqb4FCyb9FNX+HPOjWgcKvBhDOG7fdOZ8sHyiQOC+lmKNFuZFXQsxyQJyn2lHcEgaZyLaB1s5E13fH9p2hIHECAQ6F
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11886
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_131120_679075_57D21B30 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260709_132959_406812_2240D804 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,67 +162,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of pulling in the whole linux/irqchip/arm-gic-v3.h , copy the
-one GITS_TRANSLATER register offset macro directly into the driver.
-This repairs the ability to build the driver on non-ARM non-GIC targets
-the way it was possible until now, which retains good build test coverage.
+Collect some small update and fixes.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202607100310.iQw5m9Uo-lkp@intel.com/
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pci@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-Note: The alternative I could think of would be ifdeffery which
-      is not nice and thwarts the build coverage, or limit the
-      driver to ARM/ARM64 in Kconfig which also thwarts the build
-      coverage. I could also split off the register macros in
-      linux/irqchip/arm-gic-v3.h into some separate header
-      linux/irqchip/arm-gic-v3-regs.h and include that which
-      might be OKish and avoids duplication. Thoughts ?
----
- drivers/pci/controller/dwc/pcie-rcar-gen4.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Changes in v2:
+- remove two sashiko found issue
+  1. remove power-domain-names
+  2. remove mu6
+- Link to v1: https://patch.msgid.link/20260706-qm_dts-v1-0-14117a48fbdb@nxp.com
 
-diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-index 5f7211b91ee5b..4b75615c516f0 100644
---- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-+++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-@@ -13,7 +13,6 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
--#include <linux/irqchip/arm-gic-v3.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -26,6 +25,9 @@
- #include "../../pci.h"
- #include "pcie-designware.h"
- 
-+/* GIC ITS TRANSLATER register offset in GIC ITS space */
-+#define GITS_TRANSLATER		0x10040
-+
- /* Renesas-specific */
- /* PCIe Mode Setting Register 0 */
- #define PCIEMSR0		0x0000
--- 
-2.53.0
+---
+Frank Li (4):
+      arm64: dts: imx8qm-ss-dma: add lpuart4 node
+      arm64: dts: imx8qm-ss-audio: add spdif1 node
+      arm64: dts: imx8qm-ss-lsio: add lsio mu8 and mu8b
+      arm64: dts: imx8-ss-audio: Fix LPCG clock indices for ASRC0
+
+ arch/arm64/boot/dts/freescale/imx8-ss-audio.dtsi   |  8 ++---
+ arch/arm64/boot/dts/freescale/imx8qm-ss-audio.dtsi | 38 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi   | 15 +++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-ss-lsio.dtsi  | 21 ++++++++++++
+ 4 files changed, 78 insertions(+), 4 deletions(-)
+---
+base-commit: 31bd73273b9bf03a3fe32227b417f00d4a94c6ac
+change-id: 20260706-qm_dts-043646b4675b
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
 
