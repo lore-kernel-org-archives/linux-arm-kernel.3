@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAACC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73D3C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQ+V+NoyUcPuvrO7cKOPdWAVnLPgCtZojOaNp2ZcxCc=; b=oqQCYvF6p0Wh8X1SSPeYPxdBtG
-	0BtU6TgegBJ5X2Cp8mwZzs7pU+A06fMueakIV2AVtF+vXVLGoDwj+Xd0I8PSEiH43VnET7gG0QpKW
-	/WkeHQiRXXoHPUhsXZrU8hbG97ybdwNfghogfWx5K89hgky5HK/DOWnt4T3+YM2qcqJHgCtI4PhnA
-	J/qcmLK502apY7DIomSVfuBrzQ1hkGHqQh27Bmqs1jx4muQW8Ng+eLAkZIUUQDU2WM0PwYb5ctlgF
-	KkT7YBKKWlXQc9iu2JpmlmxXimbP5KZpmi2z9gEDxPE9kZSKxkh0IPEHz0SD/PHFfB/2nSfdW3oEX
-	lsai3txQ==;
+	bh=U07Tc0YIkdsfSk0M4VsXB1xF7rMsrEoDAqiLn01Euk8=; b=wOW3qjArYt73NJSh8MHsF+/sAH
+	Fh7YHFPwx/cydbeH9te7acCl34LKs3Rx0al0qun9HbLkP/oNtpPETVtEQ+0fu+FnS9JTITNjdYgAi
+	zGgxDfrrEE5ZtPJ671uQhS6hnbDne2fpjIkLadUh+sB805IBn7pxjnsYF7Fw2xAn2yn/APzVNrYgv
+	wa2seo+AB2FUqpe4ym530K/HyYKvQRJUDzUQdRkrAczpuzgCoOW18p2axfCoNyVg8QofKA7FOPh+R
+	Kx99t6Cj6DvMe87RRFgIxN9IToQhGGjOc5498Q0MrAXVtj8b3dYzrjdNBhDMJYTUyEy9nMoOnVpJy
+	fzRrm6dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whh97-0000000136t-1hZT;
-	Thu, 09 Jul 2026 05:18:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whhAA-000000013Cp-2Qyb;
+	Thu, 09 Jul 2026 05:19:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whh95-0000000136b-2BDv
+	id 1whhA9-000000013Ci-1rTy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 05:17:59 +0000
+	Thu, 09 Jul 2026 05:19:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 810516001A;
-	Thu,  9 Jul 2026 05:17:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A151F000E9;
-	Thu,  9 Jul 2026 05:17:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E1FB24170B;
+	Thu,  9 Jul 2026 05:19:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551E51F000E9;
+	Thu,  9 Jul 2026 05:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783574278;
-	bh=tQ+V+NoyUcPuvrO7cKOPdWAVnLPgCtZojOaNp2ZcxCc=;
+	s=k20260515; t=1783574344;
+	bh=U07Tc0YIkdsfSk0M4VsXB1xF7rMsrEoDAqiLn01Euk8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=k32G/98MDVwSpEfyGKC/N9IIzGeaQas9poCOPA0KblZhNluiI1Z7fB5vBh8c3W4GK
-	 QKkFwAzJ0DWHo7fPX2BnHa/8JiBIvZi8WiKO2f9Y2hN8QSx3Eq6tsWctpJy3YrLRNi
-	 f9D53gOZGVVGTJUuiJNK7sNxsT5F/jPskZApFqTJNh/vWL/bw7bvy+Q+5+hv6kDpd/
-	 +gKDdASXtSzKsnt8xGKiRtfwHgVOZhIF5FtZW/CILAfYGdMkLGkI/gNCeK+T/ApASP
-	 hJQwkOwwQpI7TMQ0fHRJbjzJ+KYEcMZ6khfk3TrzT46oBQReSYNTPSPlnBy3au1h16
-	 kTyzNnbZcdKdQ==
-Message-ID: <1af9eb75-fcab-4541-8ba7-ec620546f031@kernel.org>
-Date: Thu, 9 Jul 2026 07:17:51 +0200
+	b=ZQgTkk7o5Gtq0vBhgRq3X7NnyvQ48WC5NiKRizm7GFYjlmx1EZ74vLx2y/vXe4W8q
+	 3bCn3NMtd8UdUmQm51tHQZvt7pN1Fp+cXBafzR79pg5S65KftCbLa/z4MCsLtqVfXz
+	 aybFZGLDx2iH1v1QkwN1wuop+TPdStRDkhNE4QJJZsLtknaWkG5rx/0gF8YTwcWvHk
+	 kT7t1dGAFRun27RZnf/T9shpuCNhF6fBMpzufXX8E+pYZRrnOKAcSEh79MYHPlOTNJ
+	 iY/b8tosGccljiA4OrLp2dzde735byWJQZ3mdFaZcd3ROFioJ/PLQscjob0ISvBYVn
+	 0/3nvBlZuuvMw==
+Message-ID: <f391981a-29f8-4ed3-b582-744aa47cbe1d@kernel.org>
+Date: Thu, 9 Jul 2026 07:18:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 4/7] serial: 8250_aspeed_vuart: add VUART over PCI
-To: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>,
- joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
+To: Andrew Lunn <andrew@lunn.ch>,
+ =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
  devicetree@vger.kernel.org, gregkh@linuxfoundation.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: andrew@lunn.ch, jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com,
- ninad@linux.ibm.com, anirudhsriniv@gmail.com, linux-serial@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+ krzk+dt@kernel.org, conor+dt@kernel.org, jacky_chou@aspeedtech.com,
+ yh_chung@aspeedtech.com, ninad@linux.ibm.com, anirudhsriniv@gmail.com,
+ linux-serial@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <cover.1783524645.git.gregoire.layet@9elements.com>
  <28c6e7c493559feffc7e6231b0a2f0b73b7fda41.1783524645.git.gregoire.layet@9elements.com>
+ <694c7c37-fb42-4994-93eb-04ed4ae299cf@lunn.ch>
 Content-Language: en-US
 From: Jiri Slaby <jirislaby@kernel.org>
 Autocrypt: addr=jirislaby@kernel.org; keydata=
@@ -101,9 +102,9 @@ Autocrypt: addr=jirislaby@kernel.org; keydata=
  f/bIWIr0cqQmqQ33FgRhrG1+Xml6UXyJ2jExmlO8JljuOGeXYh6ZkIEyzqzffzBLXZCujlYQ
  DFXpyMNVJ2ZwPmX2mWEoYuaBU0JN7wM+/zWgOf2zRwhEuD3A2cO2PxoiIfyUEfB9SSmffaK/
  S4xXoB6wvGENZ85Hg37C7WDNdaAt6Xh2uQIly5grkgvWppkNy4ZHxE+jeNsU7tg=
-In-Reply-To: <28c6e7c493559feffc7e6231b0a2f0b73b7fda41.1783524645.git.gregoire.layet@9elements.com>
+In-Reply-To: <694c7c37-fb42-4994-93eb-04ed4ae299cf@lunn.ch>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,79 +119,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08. 07. 26, 17:35, Grégoire Layet wrote:
-...
-> --- a/drivers/tty/serial/8250/8250_aspeed_vuart.c
-> +++ b/drivers/tty/serial/8250/8250_aspeed_vuart.c
-> @@ -32,6 +32,26 @@
->   #define ASPEED_VUART_DEFAULT_SIRQ	4
->   #define ASPEED_VUART_DEFAULT_SIRQ_POLARITY	IRQ_TYPE_LEVEL_LOW
->   
-> +#define ASPEED_SCU_SILICON_REVISION_ID			0x04
-> +#define AST2600A3_REVISION_ID				0x05030303
-> +
-> +#define ASPEED_SCUC24			0xC24
-> +#define  ASPEED_SCUC24_MSI_ROUTING_MASK			GENMASK(11, 10)
-> +#define  ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1		(0x2 << 10)
+On 08. 07. 26, 18:46, Andrew Lunn wrote:
+>> +	if (silicon_revision_id == AST2600A3_REVISION_ID)
+>> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
+>> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_MASK,
+>> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
+>> +	else
+>> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
+>> +					/**
+>> +					 * The bit 14 is reserved in the Datasheet.
+>> +					 */
+>> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_MASK,
+>> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
+> 
+> checkpatch should be warning about these long lines. Traditionally,
+> the limit is 80 character lines, but recently 100 has been accepted by
+> some subsystems. The exception is when wrapping the lines will make
+> them less readable, but i don't think that applies here.
 
-So is this
-FIELD_PREP(ASPEED_SCUC24_MSI_ROUTING_MASK, 2)
-?
+FWIW 100 is fine by me. 80 is too ancient limit.
 
-> +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN		BIT(18)
-> +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN			BIT(17)
-
-Perhaps switch the two (to be in asc order)? And define 14 as _RESERVED 
-as well?
-
-> +#define ASPEED_SCU_PCIE_CONF_CTRL	0xC20
-
-Hmm, should these go before 0xC24?
-
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN					BIT(8)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_MMIO				BIT(9)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_MSI				BIT(11)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_IRQ				BIT(13)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_PCIE_BUS_MASTER	BIT(14)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_E2L				BIT(15)
-> +#define  SCU_PCIE_CONF_BMC_DEV_EN_LPC_DECODE		BIT(21)
-> +
-> +#define ASPEED_SCU_BMC_DEV_CLASS	0xC68
-> +
->   struct aspeed_vuart {
->   	struct device		*dev;
->   	int			line;
-> @@ -412,6 +432,63 @@ static int aspeed_vuart_map_irq_polarity(u32 dt)
->   	}
->   }
->   
-> +static int aspeed_ast2600_vuart_over_pci_set_enabled(struct platform_device *pdev)
-> +{
-...
-> +	if (silicon_revision_id == AST2600A3_REVISION_ID)
-> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
-> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_MASK,
-> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
-> +	else
-> +		rc = regmap_update_bits(scu, ASPEED_SCUC24,
-> +					/**
-> +					 * The bit 14 is reserved in the Datasheet.
-> +					 */
-
-If you defined reserved as suggested above, no need for the comment.
-
-> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_MASK,
-> +					ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1);
-> +	if (rc) {
-> +		dev_err(dev, "could not set PCI device 1 MSI interrupt routing\n");
-> +		return -EIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-
-thanks,
 -- 
 js
 suse labs
