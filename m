@@ -4,109 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CB6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208D6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DiPeyVYQaEiVqx7WKQEaIVABISxwCwD67P0r37Z1zdw=; b=VpiF98T5/TmbkJAbNpukXXS5Fr
-	XMN3YNofi5+A2UwsBXiEuwgbk/ivrmB7o4cRUtT9EpgoU7Tt01unhCeDP/Gu6QP4sLjtXGk1Csw3m
-	SIshPZZD54bQJYPGlvEks9dyF5+Rorc9lq/vYiEV1romx/vQwqkSppSIEL9NPOl/AChiqucdZEQuO
-	spCkcZJ234gxo923hzQo7MAocyyFJNPCbsD3k2UdhCbR5s206LR0BG2/IuznbYaBmOT3YwCWYaXb8
-	auW/A4aUzip4wfw7iQc6qjqqj5+lrzWkbvZBLkSZ/ovbx5XDFF7HSHdajNJF/2OdUowQTPbIFnwEm
-	qehvGBnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tH41RNED5+clJ8bDU3yrsPjDBxC2yWIilI8EOLE574U=; b=22PKFfgMyb7T670Vf0t+qFq30Q
+	EbnQlRAdI5NOKy9RxO04tmEyr0X52H71TmalqhkS10hDXic0Ylj3AxV6BeYAorzLcJXMHDYGZ7QA7
+	6NBAurjrpNCVgeHf/tZb2OXhyY/6dF5b8F3X5+Dvy/oTlLSgZtHNrGl+h9ApeI7R7hx6IXoHP7yzI
+	ZmRDC1XLk03K9wDJfDiBqP/2D9D2fRjKlN2Aeic1675ZVBV8wv7JYJCgPxWB6+JnflJk1wTJBJGaa
+	TPThBqZn4ZmWK3x/YJrPQjIjOFwyAwnxLa6jOFGVEZ9Dw1wSQuqOQWclq1r7E3W/HAM2sAumW0hBy
+	KI6qzhkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wheAc-00000000nZY-0SF2;
-	Thu, 09 Jul 2026 02:07:22 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1wheJE-00000000oDe-1gvo;
+	Thu, 09 Jul 2026 02:16:16 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wheAa-00000000nYp-0a0Y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 02:07:21 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-81cfc429bc2so9725087b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Jul 2026 19:07:19 -0700 (PDT)
+	id 1wheJC-00000000oCh-0HN9;
+	Thu, 09 Jul 2026 02:16:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783562839; x=1784167639; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=DiPeyVYQaEiVqx7WKQEaIVABISxwCwD67P0r37Z1zdw=;
-        b=FZC6jaIWPR/HC3TBgXdMzhFT8Y776dWdq2WiBMm9xtK3iPNQBjF2EWXQMgFDbr2Tog
-         2osViER/wz4muOPV7ZyldttUUxELrTwuhna2N6xslXow+ndBCqpRbDGDF8F3Kmf+nhQ8
-         lkyZ+4dqpu24ad6/rIRQaQrlCDi7U6k1vr2luXqR0K+HJfijYG/taAPpnM+B2dCqu5t6
-         ZWnrAEXL7JhCKcZCqVZKdPCefxGAB1Qo8FB6CgD3J64XL9iz/pAeungxQB9/8TptwppZ
-         nM6ViedMm9MlL/iITYyu9CefsXSa+5oL61X+qchaY5u+NqpT+PQzrYPMUBWbhguPsFzR
-         OWRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783562839; x=1784167639;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DiPeyVYQaEiVqx7WKQEaIVABISxwCwD67P0r37Z1zdw=;
-        b=eiziAnd1FPAdInvtDvHfPPcmejSiLWCAD89DDF57/CCGyEDn8kT1oRx71yaUuwPSJ/
-         P7v61bZKn4sKVYpLDK8UJzitXPhgofSAl5H1Te/xkyHQDIPvGJUG7j9N/tiE6f8rR2Dd
-         Dy2XlGg2b+Whqv4BUpqPIw2ZoN/Ka88TjwYicFVb1TEasLoIg0EKmNsbRjL+D4fiIR2t
-         tojN2sSrWvwUFy+o67kKjHFh/y2duqi3laX/SVgkZHoNagylAHApH+8Fy5b4hWv3rhPR
-         4nLYnGM4+ng0SOsIe+hqNev/QkbZRqrLkzkqwzCQwvr6iujRqREf0FDtZ6UDBkjqzcoJ
-         h9Lg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro4P2kPL55wRIN7nwpy9l61L5sQ5BELlD08YpnNRqtDeV+VotlUSogU3oIKG+w+3UYuOhiZdsibRtAXuiylEy+Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkIPvDmUBfyolCguua+UwFQRp3Xkx+5QQwccH+nkv6D8oUdy49
-	c42G64J0u4Utm6R9E67+IJuifHPyfQ6SCEhMfYFRFtJ0MFpWaNlGdvqH
-X-Gm-Gg: AfdE7clANPrkLMSt54AQDRwCQ0R30seQNTHO6Jg2xRysloOJkBo9M0TBpG528LnDT39
-	JTbpzJ5gMzOd4pBSoDFE67Dyx+lt2cQi6iZCYqDTV1I0lcx3i4FFLjWUVICm6HEuhwnKWnQCn+7
-	8HlNawj/s/BdmmgbGG7VdhAIF7JuERGzjpBD939sj5a2DOb0f4PM0sQu+dbVvjzRaWO1onz4gXA
-	r5lyATFCmayARoy5vihomiSjc5qhfzXNamFqRbOn2G0ouqraxVHACGm9U2EeGYNtHeEvolSJDol
-	0FEMXODf4RzJaDMolpJUw8yHPj6Z1C+NG7Rf4vg3vYGSn6fbra/TUhagtOm+ZwbFt4weblapdHe
-	eQKHKUwZFLAjt0Z+MFYdu4/jVgwGHaAKRASoktIEDs0RF91rvZFgpPTKjDFJG5uW9cwZXxx/zAf
-	G1Vkb9KVLGt9RL/k4QNJ88kgcdyVSgFJ/gNO8U3NhpI7TZ8IUs4Y/YaAhn1L56KbaYBg==
-X-Received: by 2002:a05:690c:4b90:b0:814:608a:acb4 with SMTP id 00721157ae682-81dbeb5f73emr38829227b3.27.1783562838726;
-        Wed, 08 Jul 2026 19:07:18 -0700 (PDT)
-Received: from gmail.com (172.235.85.34.bc.googleusercontent.com. [34.85.235.172])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6be904a4sm6869687b3.7.2026.07.08.19.07.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Jul 2026 19:07:18 -0700 (PDT)
-Date: Wed, 08 Jul 2026 22:07:17 -0400
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Shiming Cheng <shiming.cheng@mediatek.com>, 
- davem@davemloft.net, 
- edumazet@google.com, 
- kuba@kernel.org, 
- pabeni@redhat.com, 
- horms@kernel.org, 
- matthias.bgg@gmail.com, 
- angelogioacchino.delregno@collabora.com, 
- willemb@google.com, 
- daniel.zahka@gmail.com, 
- alice@isovalent.com, 
- sd@queasysnail.net, 
- eilaimemedsnaimel@gmail.com, 
- imv4bel@gmail.com, 
- nbd@nbd.name, 
- dsahern@kernel.org, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-Cc: stable@vger.kernel.org, 
- steffen.klassert@secunet.com, 
- lena.wang@mediatek.com, 
- shiming.cheng@mediatek.com
-Message-ID: <willemdebruijn.kernel.2801a1401793d@gmail.com>
-In-Reply-To: <20260709014704.3625-1-shiming.cheng@mediatek.com>
-References: <20260709014704.3625-1-shiming.cheng@mediatek.com>
-Subject: Re: [PATCH v7] net: gro: fix double aggregation of flush-marked skbs
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+	d=codeconstruct.com.au; s=2022a; t=1783563355;
+	bh=tH41RNED5+clJ8bDU3yrsPjDBxC2yWIilI8EOLE574U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ftms0R3l1Hxi9KJ9589VO97Frg6kN7OeNXibsjqRd65pV+OUowKvaK4G4y+TYgTcP
+	 uB8ZX8+0DdAGA9lY46OHDqUkT6OKe9E+U6Qv3eAvvB2EFuX83vJgLY32mW9W7R2I3G
+	 +bdp1eQu07nsN0ZxcHvRxL+ScRsJuX6dFWeI1ii/hsUmk6FVy6+KDGykQo2oHiHIm9
+	 4FEHkiIC5/XDz69xWmYZ9N8Ig7zcnjVc4pCi+OBHq3yDJBRjbDDph0P556SoViAXfd
+	 92Bij0zFycrY5a3rYKvMIzMD5MaGxwK7jNQEI3u5uDKgKDeiaeMte/jhozACIZDuW1
+	 4PMwao+akqDRQ==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 4823960288;
+	Thu,  9 Jul 2026 10:15:53 +0800 (AWST)
+Message-ID: <ddb133ca1a3be605ee776b2276c1907c9ad32491.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 2/3] phy: add AST2700 usb3.2 phy driver
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Philipp Zabel
+ <p.zabel@pengutronix.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 09 Jul 2026 11:45:52 +0930
+In-Reply-To: <20260116-upstream_usb3phy-v2-2-0b0c9f3eb6f4@aspeedtech.com>
+References: <20260116-upstream_usb3phy-v2-0-0b0c9f3eb6f4@aspeedtech.com>
+	 <20260116-upstream_usb3phy-v2-2-0b0c9f3eb6f4@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_190720_266247_75A23FE9 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260708_191614_309527_23CFB811 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,64 +75,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reminder to mark patches [PATCH net v7]
+Hi Ryan,
 
-(or PATCH net-next when targeting that tree)
+On Fri, 2026-01-16 at 10:53 +0800, Ryan Chen wrote:
 
-Shiming Cheng wrote:
-> Commit 0ab03f353d36 ("net-gro: Fix GRO flush when receiving a GSO
-> packet.") added a flush check to skb_gro_receive(), but
-> skb_gro_receive_list() lacks the same validation.
-> 
-> As a result, packets marked with NAPI_GRO_CB(skb)->flush may still be
-> re-aggregated.
-> 
-> This allows already-GRO'd packets with existing frag_list to be
-> re-aggregated into a new GRO session, corrupting the frag_list chain
-> structure. When skb_segment() attempts to unpack these malformed packets,
-> it encounters invalid state and triggers a kernel panic.
-> 
-> Scenario (Tethering/Device forwarding):
->   1. Driver: Generated aggregated packet P1 via LRO with frag_list
->   2. Dev A: Receives aggregated fraglist packet and flush flag set
->   3. Dev A: Re-enters GRO, skb_gro_receive_list() is called
->   4. Missing flush check allows re-aggregation despite flush flag
->   5. Frag_list chain becomes corrupted (loops or dangling refs)
->   6. Dev B: TX path calls skb_segment(), crashes on corrupted frag_list
-> 
-> Root cause in skb_segment():
->   The check at line ~4891:
->     if (hsize <= 0 && i >= nfrags && skb_headlen(list_skb) &&
->         (skb_headlen(list_skb) == len || sg)) {
-> 
->   When frag_list is corrupted by double aggregation, when list_skb is
->   a NULL pointer from skb->next, skb_headlen(list_skb) dereference
->   NULL/corrupted pointers occurs.
-> 
-> Call Trace:
->  skb_headlen(NULL skb)
->  skb_segment
->  tcp_gso_segment
->  tcp4_gso_segment
->  inet_gso_segment
->  skb_mac_gso_segment
->  __skb_gso_segment
->  skb_gso_segment
->  validate_xmit_skb
->  validate_xmit_skb_list
->  sch_direct_xmit
->  qdisc_restart
->  __qdisc_run
->  qdisc_run
->  net_tx_action
-> 
-> Fix: Add NAPI_GRO_CB(skb)->flush validation to the early-return check in
-> skb_gro_receive_list(), matching the defensive programming pattern of
-> skb_gro_receive().
-> 
-> Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+...
+
+> diff --git a/drivers/phy/aspeed/phy-aspeed-usb3.c b/drivers/phy/aspeed/ph=
+y-aspeed-usb3.c
+> new file mode 100644
+> index 000000000000..872d2163fcf5
+> --- /dev/null
+> +++ b/drivers/phy/aspeed/phy-aspeed-usb3.c
+> @@ -0,0 +1,236 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright 2026 Aspeed Technology Inc.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +
+> +#define PHY3S00		0x00
+> +#define PHY3S00_INIT_DONE		BIT(15)
+> +#define PHY3S00_SRAM_BYPASS		BIT(7)
+> +#define PHY3S00_SRAM_EXT_LOAD	BIT(6)
+>=20
+
+...
+
+> +
+> +static int aspeed_usb3_phy_init(struct phy *phy)
+> +{
+> +	struct aspeed_usb3_phy *aspeed_phy =3D phy_get_drvdata(phy);
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D clk_prepare_enable(aspeed_phy->clk);
+> +	if (ret) {
+> +		dev_err(aspeed_phy->dev, "Failed to enable clock %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret =3D reset_control_deassert(aspeed_phy->rst);
+> +	if (ret) {
+> +		clk_disable_unprepare(aspeed_phy->clk);
+> +		return ret;
+
+Nit: Given we have to do this below if the reset_control_deassert()
+succeeds, perhaps add a label below and use goto here?
+
+> +	}
+> +
+> +	/* Wait for USB3 PHY internal SRAM initialization done */
+> +	ret =3D readl_poll_timeout(aspeed_phy->regs + PHY3S00, val,
+> +				 val & PHY3S00_INIT_DONE,
+> +				 USEC_PER_MSEC, 10 * USEC_PER_MSEC);
+> +	if (ret) {
+> +		dev_err(aspeed_phy->dev, "SRAM init timeout\n");
+> +		goto err_assert_reset;
+> +	}
+> +
+> +	val =3D readl(aspeed_phy->regs + PHY3S00);
+> +	val |=3D PHY3S00_SRAM_BYPASS;
+> +	writel(val, aspeed_phy->regs + PHY3S00);
+
+According to the datasheet PHY3S00[15] (PHY3S00_INIT_DONE above)
+indicates that the PHY internal SRAM initialisation is complete. The
+datasheet reports the SRAM is used for configuration of calibration
+among other things. PHY3S00[6] instructs the PHY that software has
+completed loading the configuration data into SRAM, however
+PHY3S00_SRAM_BYPASS (PHY3S00[7]) tells the PHY to load configuration
+from "hard wired" values.
+
+Is it necessary to wait for SRAM initialisation to complete if we're
+bypassing it? Or are there other side-effects involved in the setting
+of PHY3S00[15]?
+
+> +
+> +	/* Set protocol1_ext signals as default PHY3 settings based on SNPS doc=
+uments.
+> +	 * Including PCFGI[54]: protocol1_ext_rx_los_lfps_en for better compati=
+bility
+> +	 */
+> +	writel(PHY3P00_DEFAULT, aspeed_phy->regs + PHY3P00);
+> +	writel(PHY3P04_DEFAULT, aspeed_phy->regs + PHY3P04);
+> +	writel(PHY3P08_DEFAULT, aspeed_phy->regs + PHY3P08);
+> +	writel(PHY3P0C_DEFAULT, aspeed_phy->regs + PHY3P0C);
+> +
+> +	return 0;
+> +
+> +err_assert_reset:
+> +	reset_control_assert(aspeed_phy->rst);
+> +	clk_disable_unprepare(aspeed_phy->clk);
+> +	return ret;
+> +}
+>=20
+
+...
+
+>=20
+> +static struct platform_driver aspeed_usb3_phy_driver =3D {
+> +	.probe		=3D aspeed_usb3_phy_probe,
+> +	.driver		=3D {
+> +		.name	=3D KBUILD_MODNAME,
+> +		.of_match_table	=3D aspeed_usb3_phy_match_table,
+> +	},
+> +};
+> +module_platform_driver(aspeed_usb3_phy_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("ASPEED USB3.0 PHY Driver");
+
+MODULE_AUTHOR()?
+
+Andrew
 
