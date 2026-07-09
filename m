@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44EAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQqtsvZ3BMfepcYWgRcnRUjPPP25Gh+uDRBYwRXYJWE=; b=khwsf3s3WhFYoDSnJuYEB9U+lk
-	4+3IdpPHfBxALCzygnpD+SFhj4xBMVVPgz2+6QHRlxJBhLwPDDYUv4+t22MH+BZBsMvdXDL0E4U72
-	ZxsH8lmbstzG48+ULceHPH4C8goqEXxSkGTKvFF4HYEA8VOGF7XorQZWDzVqh9Z0d6dyJTa9j3I+4
-	N9ujeenAFSEtgTdJWhFLCSqYyk7Qe9lqfzpzeRCCGxzq7km836Lxxw/21sWhO5xWTpfAlUxkakPue
-	PftizPD164B4TLZpu3crsjfMX/QbkBUPRXnxYutAHi76PQfocg6ZqjKnSzr658mlQcpe3Jw5gjfiB
-	lJzB+Zzg==;
+	bh=wUBlcEnGApt/7Mw66KcgTZ0NsDullSXiDqZImdqYWzI=; b=0z6DcngAUcu/Qr5ftLF/2F5G9v
+	Xdaj68uTDrkbkdH1Xz86SJ/WHzggWYyVFYZXDvEWwClBHFJaDAufccpnHNBwjRlOwSD5DO2Zwp057
+	xR/xV/F83ZZx20pC/J1sHwKqsKAzdjyuIEq+4wOQjGvwSsPVhvZ5lOdQTh5x3jAzCk6QIuR7nLxlq
+	rhacgYLYE6yWahorewbox/ux2+But2WQUF0J0axlNZGgT2dpaqwBE0tysHThKYTx99gBdQM8LLbk0
+	MKjN38kYYIDxUuLrTDz1sJZN1MJ/O9kWHi8GkT5SLdKUIAq+/REzpWKpHjx01NSPBvwjmLmUFA2CN
+	BGL3zL8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1who4X-00000002RfY-2kMx;
-	Thu, 09 Jul 2026 12:41:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1who4p-00000002RkZ-3CC1;
+	Thu, 09 Jul 2026 12:42:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1who4W-00000002RfQ-4BUM
+	id 1who4o-00000002Rk9-1Oj4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:41:45 +0000
+	Thu, 09 Jul 2026 12:42:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42AD960EEF;
-	Thu,  9 Jul 2026 12:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E90C01F000E9;
-	Thu,  9 Jul 2026 12:41:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE5434052F;
+	Thu,  9 Jul 2026 12:42:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03BB1F000E9;
+	Thu,  9 Jul 2026 12:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783600904;
-	bh=WQqtsvZ3BMfepcYWgRcnRUjPPP25Gh+uDRBYwRXYJWE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Xzjy5hPyo2DjQhrnPLTIzPPYdMyyaV7ZD45/nq1TbE60yWbX/IIB0ild2cKXv5CD+
-	 omiPZc+Fjr8HR7CNhBGhSnuUhyEZBmnSAL03WO8W/K/4O1G8U3Y98cDqkD6cJb6GL9
-	 0UhM+8nWfaisUyai710fHlLO5QNWvvMlQVtIsL50BuvG1aSdoiKqSfa+rtVbITJmo0
-	 prZYGStsyMBKoiyMSzXo/+qM6nj/wW7pCI46zNcGD41ieo0wTPUvgH3ROsJ+PGYya2
-	 u9HM1jyNGc/S+KOLm45XYmTi/mcBHMmb9W26tP6nOdMyYvzqkGnYsLRs+pHAU6/QeS
-	 fvDoBTX9su/Tg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1who4T-00000003H2e-1Npk;
-	Thu, 09 Jul 2026 12:41:41 +0000
-Date: Thu, 09 Jul 2026 13:43:26 +0100
-Message-ID: <87v7ao5o5t.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
+	s=k20260515; t=1783600921;
+	bh=wUBlcEnGApt/7Mw66KcgTZ0NsDullSXiDqZImdqYWzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=V6Zu/moVwwHFxIa4gm4Zz4rPu8o1umr1KjhPuYvfpRLTRGb6BufJQB4IdPCXCaviJ
+	 UF7JzVSuiDP91dTU2vbj5JGzg8vACiiqi/0aZ+a6Sgub9oS20DzsajelCtk0EPZJyX
+	 6zVikU6GJIwbY34RGJyotbcXCMhyHtcpUaRE3a/xUbsPJKYeG06Nj2Tzek/U4ToyM2
+	 yRyLh7GXzbt+0mgjpiSlfU9I1z8Q2PuUU6AdAGdULocfMaHTxje0r7GPdoG1ocuX9m
+	 jza0pNn5wRPE395q4eLOBJkH7a7XCFlgMWqV0GJmeKVqf23q00WZnm7RNgLWl7q8dz
+	 Ax0roqnXc4Uig==
+Date: Thu, 9 Jul 2026 14:41:50 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
 To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,	linux-pci@vger.kernel.org,
-	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Bjorn
- Helgaas <bhelgaas@google.com>,	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,	Geert Uytterhoeven
- <geert+renesas@glider.be>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
+Cc: linux-pci@vger.kernel.org, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 Subject: Re: [PATCH v4 0/5] PCI: rcar-gen4: irqchip/gic-v3: Handle GIC ITS
-In-Reply-To: <c12941e4-3715-404e-b674-090c62b868b8@mailbox.org>
+Message-ID: <c6btcryv3ziapzdktqqxd7ucrlt42omlqfhduld2snzqlxdj4y@spvm4or5eacb>
 References: <20260707203743.88299-1-marek.vasut+renesas@mailbox.org>
-	<ybnitlgx3dcqsesubz6jz7pn6snseuxhtz564tinbtvukianaq@33ubmcynyqmt>
-	<c12941e4-3715-404e-b674-090c62b868b8@mailbox.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, mani@kernel.org, linux-pci@vger.kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, robh@kernel.org, yoshihiro.shimoda.uh@renesas.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <ybnitlgx3dcqsesubz6jz7pn6snseuxhtz564tinbtvukianaq@33ubmcynyqmt>
+ <c12941e4-3715-404e-b674-090c62b868b8@mailbox.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c12941e4-3715-404e-b674-090c62b868b8@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jul 2026 13:33:22 +0100,
-Marek Vasut <marek.vasut@mailbox.org> wrote:
-> 
+On Thu, Jul 09, 2026 at 02:33:22PM +0200, Marek Vasut wrote:
 > On 7/9/26 2:19 PM, Manivannan Sadhasivam wrote:
 > > On Tue, Jul 07, 2026 at 10:35:38PM +0200, Marek Vasut wrote:
-> >> Configure all R-Car Gen4 PCIe controller MSI registers fully, both in
-> >> case MSI are enabled and disabled.
-> >> 
-> >> Patch GIC ITS driver and add quirks for R-Car Gen4 GIC ITS, which is
-> >> configured to 32-bit address width for AXI or APB interface.
-> >> 
-> >> Switch R-Car V4H to use GIC ITS in its DT and describe the GIC ITS
-> >> implementation cacheable and shareable limitations.
-> >> 
-> >> Marek Vasut (5):
-> >>    PCI: dwc: Determine whether iMSI is used before calling .init
-> >>    PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
-> >>    irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
-> >>    irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+> > > Configure all R-Car Gen4 PCIe controller MSI registers fully, both in
+> > > case MSI are enabled and disabled.
+> > > 
+> > > Patch GIC ITS driver and add quirks for R-Car Gen4 GIC ITS, which is
+> > > configured to 32-bit address width for AXI or APB interface.
+> > > 
+> > > Switch R-Car V4H to use GIC ITS in its DT and describe the GIC ITS
+> > > implementation cacheable and shareable limitations.
+> > > 
+> > > Marek Vasut (5):
+> > >    PCI: dwc: Determine whether iMSI is used before calling .init
+> > >    PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
+> > >    irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
+> > >    irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
 > > 
 > > Is there a functional dependency between irqchip and PCI patches? Since the
 > > irqchip patches touch ARM64 Kconfig etc... I'm wondering if it still need to go
@@ -123,24 +107,18 @@ Marek Vasut <marek.vasut@mailbox.org> wrote:
 >   irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
 >   irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
 > 
-> This one does yes depend on the two and two patches above, and can
-> only be applied once all four aforementioned patches land, otherwise
-> things really yes will break:
+> This one does yes depend on the two and two patches above, and can only be
+> applied once all four aforementioned patches land, otherwise things really
+> yes will break:
 >   arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
 > 
-> Would you like me to split the series up , or can you and Marc (?)
-> pick the relevant parts via matching trees ?
+> Would you like me to split the series up , or can you and Marc (?) pick the
+> relevant parts via matching trees ?
 
-I don't think there's anything for me to pick. The whole thing looks
-like a consistent set, and it probably should be kept together.
+I'll merge the PCI patches and it is Thomas who can merge irqchips ones.
 
-Given that the irqchip stuff has been acked by the relevant party, and
-that the last patch will cause havoc if taken on its own, the only
-course of action is to route the whole thing together, the PCI tree
-being the most obvious victim.
-
-	M.
+- Mani
 
 -- 
-Jazz isn't dead. It just smells funny.
+மணிவண்ணன் சதாசிவம்
 
