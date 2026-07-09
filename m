@@ -4,83 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D900C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4ABC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MiE3f5DSGiw98Mw9G+hMtGLlBv3oVMuvCosguIRCRIE=; b=oFCDDvGHKOb857elDUjSXLO//9
-	YLwGwZL3lgzPPeDQvtd7WAFfaX3XWQJaanwyaZ4Y8jkFY/n3qunj8vkmv5tNitrdXNxGpCpx6nqtP
-	I+ruQfYE28dhXcX5fn5VHuq4Bjhk/ZX8rwrFDayudgj2D8cdU6+eCJs3UOF6h9hSRA3a+gww+k3sF
-	5296orqUXaVksIGeWAeyPEW0d5tHDkga7XWTTMI+S3PONvkBM1q8k9Gpcg/KP+VYt/jYeQEPeYT+B
-	8D5/EBM/J9FMBOl0fYAw3KH/K5HJt1WNV9jfXrx1evy+y9p+WMzZuchYknoHsGtjgeaM2vy7K9Oq5
-	awFuKZgQ==;
+	bh=Gol9/XjPsuWC33Y3ZFspoQDpaFNdCRi6rrIQM7LoDsU=; b=BFLTWSkDBi9zfHBLBviJKvfqKv
+	nVrVhOsqm5r1vSKxF795HNOvCTsbJr3uOKJ4JFPZHEEpCJkrHopCLY4eeZDrUGwcwRwAttqVad6bC
+	55tk97D3C5n4FtDqFfw1qcp19f0F1hZPeyc4KXEf3TFVQ92tW/4vQsy/llR3cdcUnafH2XNWhhnvs
+	cLqJ9221fXSgGgVI8yQXAdxtcAjWVzT73g1fa3muo7p5syfCqo8xkNrIY9JoDcn2FWrTDKfe1nuEs
+	PNukiKnVA1dzkcdU78dsGOHq9pBJtHzY2NCmTmTaGXSL92xQUKIyP9OCB7iOMH4NYUg8zeOH9+Bj/
+	SbYtI6Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmh9-000000025tZ-1y0s;
-	Thu, 09 Jul 2026 11:13:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmh5-000000025sL-3aZO
+	id 1whmi0-0000000265r-38g5;
+	Thu, 09 Jul 2026 11:14:24 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whmhx-0000000263W-0VoJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 11:13:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25E443570;
-	Thu,  9 Jul 2026 04:13:22 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E40B83FE53;
-	Thu,  9 Jul 2026 04:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783595606; bh=SAV3PQ7+eCtje2uVxH/LefEDAxakMvTJxqH9sWGHNjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dqr2VgVo4J5uM+joPiCCMcuMryXYkHoDl8Yseh7vn5qnsw8KiVm31/w5zxn+qHZz6
-	 FQ+PFakz3CMKt8/wA88yoTOV9CvFtW55mtYdapJsL6VEivjrkA7AVCtB4s+WoNPG6B
-	 FEJ4cXCyQS9OxIYWx7h63mAscI4uPmXdfA6VwK+M=
-Date: Thu, 9 Jul 2026 12:13:19 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-Message-ID: <ak-CT3oanlDfgTy4@arm.com>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
- <ak42F240d-53QeFN@arm.com>
- <yq5apl0xgy89.fsf@kernel.org>
+	Thu, 09 Jul 2026 11:14:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kkJvkwWxgf4yPugVGkZrqqzeXg31clRnDMnamNaB5monAQEljQAzLA4EsPAiKynFpK8Q8j85jKzQdsbmpHZTi/xSMjvnd0oDH5MJibxfv5hylra5DB8Tdqex0/xvGoavcDSwx7T7gs1gq0z1wS7u5MbQ1voMoy0J25o1Z2A50MMjJ9g+oRODN4yNdjZ9PM6j9M0d0ju2d7KbIS7BIhGKGLOe9HAMM/cztasymCeRQD6Tl0zTKmr1TN2ejLEF2IpwCh7zbWuMiiIpUO+Y8dAPTUqii/BRulbS0N6d+ZF+KKYC+36RKPBUoPK9rJeaGn0Nl4+hGFWpBCw437ZKwUwiNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gol9/XjPsuWC33Y3ZFspoQDpaFNdCRi6rrIQM7LoDsU=;
+ b=yBoFtc+AN3+HPnD7uS5jP0YAiu+3tSrjv9dsfqQJlJbTS9EiFxRgk6hk/AGKry/Dcf4RRjQmwt6NwegskGVJj/9sXc80SX//T6q06N5disg462ktf98FFPioyR62+thgGEWqBiBU0l72U/xDeZi+X00L4qffwnQY5kOqVl8FLgo3YEU3XXpt5/1hlLuYJG2WZKsCfz2PYM47H0NRj+kDG6mznfpVpyTR3ievbAhoQnDzJgqK1eKoqFCB5cZUWwcgCo/cbJ90cojke9xWb9wyzs6PFTHXpvIExqIon1SDvSsh5dACH/Zhaz8PEQwAQKX2EM9t4nPy4j3NLBaFnn7iag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gol9/XjPsuWC33Y3ZFspoQDpaFNdCRi6rrIQM7LoDsU=;
+ b=mWVNe+H1iOqfc2edslgvSWQNTPOj1TBVIivS+ZpnjVM/EQx4t7e2KmB+aRrGjPdntEp5fvYkKfgucT/9c+YpMb7+7DcBaVpJ81YinRVL3RX/DmvHu17v2aGk/6dxNakCAbPjIRbNGMIDxUxIzVvHD8tqBJdsRCn3XdhJZuxV4Y8=
+Received: from SJ0P220CA0023.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::21)
+ by BL1PR12MB5708.namprd12.prod.outlook.com (2603:10b6:208:387::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 9 Jul
+ 2026 11:14:13 +0000
+Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
+ (2603:10b6:a03:41b:cafe::5a) by SJ0P220CA0023.outlook.office365.com
+ (2603:10b6:a03:41b::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Thu, 9
+ Jul 2026 11:14:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 11:14:13 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 9 Jul
+ 2026 06:14:10 -0500
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 9 Jul 2026 06:14:07 -0500
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michal Simek
+	<michal.simek@amd.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 1/8] dt-bindings: clock: clocking-wizard: Add static-config mode support
+Date: Thu, 9 Jul 2026 16:43:56 +0530
+Message-ID: <20260709111403.1579159-2-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260709111403.1579159-1-shubhrajyoti.datta@amd.com>
+References: <20260709111403.1579159-1-shubhrajyoti.datta@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5apl0xgy89.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|BL1PR12MB5708:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85952434-c922-4c94-8d05-08deddab352e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|23010399003|82310400026|5023799004|11063799006|3023799007|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8z1PF2rrPvMSwn/lOXp2OsTLcTloziDGcx46bilAlUfpkQgn75uMPRRbjRp6Ntfgo8dEZqXaWT9j26KOEijmhye6Pd5RBYnVhI74E6E/3p6Xi13etNkA9hIUy+/6udou+3JdRelqY1WBkuRvjM2JedUmcBh0m0rZ3bN0R0J6HO9ERL2b/DL4Xti0Chw2u3NAMP3D3ZG8Zlqr+o/p82gB4xy6/RNWRAIHr7wbaecovNPMKCFHrQH8qakMfxJJp4SyY0L2jf3e5GslfAPbvcq6w7UNAOwz4EHxHy2LgOweScXrQn1xehwStdsdI7uVxQ45SJ2OQdptW08/YA5VDu6Qj9fD22Gzf4G6bz9lAIPZ/0Q2XzvNrrD72NTzIdeWbNOomVui7ulsA2lSG9rAZYTjXQqLyg5GPtDLomeMOdROR0NeksGCBwoJOe+zYUpzEerAjhBxxFQKEu4dOm88jauQ7d04sDBeDArfwRl8tw2bbockld13ZjO2g+0qMG/soghsXb1Gx1+Pxm3WQwhLYpGC8l6bKhQk93NxtjRW8TSKs/5yVI2RgoqcUuVXBJEX0kePELW1VK6YATWQA959UazasBe8Yt+joUoT3lc7G9O7Fqqqqss27BwojduTnykCW4fFfTzdonsoRajk20s8YoFKhBCzF7bvqwzHLudspjMB3ose3LNHjglXR/LLrHLTrZyX67drJQ4dLu5R+V0ad36htA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(5023799004)(11063799006)(3023799007)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: l2O4+MVHBPChw1kugVGzeDBuSbMq5yQCww5Klh+bdFvKp4q4FYQ9fxh2ig6y0eLFufwZ1fVMxg2D//ED5t2IjEWQifjzK6CjZLioBM9P8uWHpEb/I6dGId32ExnUoBCpKqriNc4eYcDfinh52mXpfv/IcRo23JB7pFUKFsKOI/l3aWKhVMtsw6+ygyE1hPp0wvmmSJ95Db516MgPtbiLTFEKKWw2BHts0tktVv9cCF+wYzog+ke0L8TJ2NVt9Jt2XOJvxCKwgR0asoAk6Nb3je22zBOCY8V4vHrZFEA9xi07SPEBe529pz6UxMmZu469nDJ/MxU7z8WTVdjGUJy9FGEG4qPvIvYPxzdoFuaxjtS69Zk6TJwCOZW+67mGmHPul9/Doyl+IY8KWuxYJuZgzW+22ktvoNBPBOxjv0qJ0TsaBhK67kmLXkuSPK9Bcb4e
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 11:14:13.3568
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85952434-c922-4c94-8d05-08deddab352e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE17.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5708
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_041327_991258_5D4F75AC 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20260709_041421_211462_4BA4AE1A 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,90 +123,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 11:28:14PM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> 
-> > On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> >> index 97987f850a33..acf67c7064db 100644
-> >> --- a/arch/arm64/mm/init.c
-> >> +++ b/arch/arm64/mm/init.c
-> >> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
-> >>  	unsigned int flags = SWIOTLB_VERBOSE;
-> >>  	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
-> >>  
-> >> -	if (is_realm_world()) {
-> >> +	if (is_realm_world())
-> >>  		swiotlb = true;
-> >> -		flags |= SWIOTLB_FORCE;
-> >> -	}
-> >
-> > For this part:
-> >
-> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> >
-> >> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-> >> index e05dc7649366..f3fc28f352ba 100644
-> >> --- a/kernel/dma/direct.h
-> >> +++ b/kernel/dma/direct.h
-> >> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
-> >>  {
-> >>  	dma_addr_t dma_addr;
-> >>  
-> >> +	/*
-> >> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
-> >> +	 * as shared by default.
-> >> +	 */
-> >> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
-> >> +		attrs |= DMA_ATTR_CC_SHARED;
-> >> +
-> >>  	if (is_swiotlb_force_bounce(dev)) {
-> >> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
-> >> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> >> -				return DMA_MAPPING_ERROR;
-> >> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> >> +			return DMA_MAPPING_ERROR;
-> >>  
-> >> -			return swiotlb_map(dev, phys, size, dir, attrs);
-> >> -		}
-> >> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> >> -		return DMA_MAPPING_ERROR;
-> >> +		return swiotlb_map(dev, phys, size, dir, attrs);
-> >>  	}
-> >>  
-> >> -	if (attrs & DMA_ATTR_MMIO) {
-> >> -		dma_addr = phys;
-> >> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
-> >> -			goto err_overflow;
-> >> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> >> +	if (attrs & DMA_ATTR_CC_SHARED)
-> >>  		dma_addr = phys_to_dma_unencrypted(dev, phys);
-> >> +	else
-> >> +		dma_addr = phys_to_dma_encrypted(dev, phys);
-> >
-> > For AMD/SME, on host with memory encryption we now end up setting the C
-> > bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
-> > some other MMIO bus understands this attribute. Maybe we should stick to
-> > something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
-> > since this is not universally defined, just use the old dma_addr = phys
-> > if MMIO and ignore any unlikely DMA offsets.
-> >
-> 
-> Considering for AMD/SME system an unencrypted dma addr is one without C
-> bit, will this be good?
-> 
-> 	/*
-> 	 * For host memory encryption and device requiring unencrypted DMA,
-> 	 * MMIO memory is treated as shared by default.
-> 	 */
-> 	if (attrs & DMA_ATTR_MMIO) {
-> 		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) || force_dma_unencrypted(dev))
-> 			attrs |= DMA_ATTR_CC_SHARED;
-> 	}
+Static-config MMCM/PLL ratios are fixed at IP build time, so the kernel
+cannot read per-output multiply/divide from registers and needs DT pairs
+to register fixed-factor clocks. Also add the tuples by pair in example.
 
-Yes, I think it does the trick, preserves the current semantics for AMD.
-I guess you could use a single 'if' for all checks (up to you).
+In static-config mode the IP exposes only fixed-factor clock outputs and
+has no runtime-programmable registers, so reg is not required.
+Make reg optional for static-config
 
+In static-config mode the AXI bus interface is unused, so s_axi_aclk
+is not required. Allow clocks/clock-names to have only one entry
+(clk_in1) when xlnx,static-config is present and enforce two entries
+otherwise. Update the static-config example accordingly.
+
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+---
+
+Changes in v2:
+Merged the similar patches
+Allow check for current dt even if it is unused.
+
+ .../bindings/clock/xlnx,clocking-wizard.yaml  | 53 +++++++++++++++++--
+ 1 file changed, 48 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+index b497c28e8094..865927b9f1be 100644
+--- a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
++++ b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+@@ -29,11 +29,13 @@ properties:
+     const: 1
+ 
+   clocks:
++    minItems: 1
+     items:
+       - description: clock input
+       - description: axi clock
+ 
+   clock-names:
++    minItems: 1
+     items:
+       - const: clk_in1
+       - const: s_axi_aclk
+@@ -57,27 +59,68 @@ properties:
+     description:
+       Number of outputs.
+ 
++  xlnx,clk-mul-div:
++    $ref: /schemas/types.yaml#/definitions/uint32-matrix
++    description:
++      Fixed MMCM/PLL multiply/divide ratios, one (multiplier, divisor)
++      pair per clock output relative to clk_in1. The number of entries
++      must equal xlnx,nr-outputs.
++    minItems: 1
++    maxItems: 8
++    items:
++      items:
++        - description: multiplier
++          minimum: 1
++        - description: divisor
++          minimum: 1
++
+ required:
+   - compatible
+-  - reg
+   - "#clock-cells"
+   - clocks
+   - clock-names
+   - xlnx,speed-grade
+   - xlnx,nr-outputs
+ 
++allOf:
++  - if:
++      required:
++        - xlnx,static-config
++    then:
++      required:
++        - xlnx,clk-mul-div
++    else:
++      required:
++        - reg
++      properties:
++        clocks:
++          minItems: 2
++        clock-names:
++          minItems: 2
++
+ additionalProperties: false
+ 
+ examples:
+   - |
+-    clock-controller@b0000000  {
++    clock-controller@b0000000 {
+         compatible = "xlnx,clocking-wizard";
+         reg = <0xb0000000 0x10000>;
+         #clock-cells = <1>;
+-        xlnx,static-config;
++        clocks = <&clkc 15>, <&clkc 18>;
++        clock-names = "clk_in1", "s_axi_aclk";
++        xlnx,nr-outputs = <6>;
+         xlnx,speed-grade = <1>;
++    };
++
++  - |
++    clock-controller {
++        compatible = "xlnx,clocking-wizard";
++        #clock-cells = <1>;
++        clocks = <&clkc 15>;
++        clock-names = "clk_in1";
+         xlnx,nr-outputs = <6>;
+-        clock-names = "clk_in1", "s_axi_aclk";
+-        clocks = <&clkc 15>, <&clkc 15>;
++        xlnx,speed-grade = <1>;
++        xlnx,static-config;
++        xlnx,clk-mul-div = <12 1>, <10 2>, <8 1>, <6 1>, <4 2>, <2 1>;
+     };
+ ...
 -- 
-Catalin
+2.34.1
+
 
