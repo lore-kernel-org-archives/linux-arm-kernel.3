@@ -4,71 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BD1C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60973C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/PnDXPcyoXfrg6ldJBfveqhHq0Ntq3HxAu5yHp4IaU=; b=Yosh/nNtlSxQVIb8j3I4C3RVvs
-	GTKhCW5J0vWAZfmE/iu1wcLnt+2FhzZ2d7AnTbbzKcEqUgXFxPedGNFvcZg3ijD1KtSxq6OeQz7f8
-	C8CfEsbMA0zzHD3rcMj7p5DmvYDwrAe+FDdI3sdq2RbaxMhCe/OygtuFmZ7AMgcbzNt68cX6TY+Dj
-	5jBvxW3GH4BeFeX+yr0lMRlaPCs2L7Wy1XnzQ1hgEQUFbqyxSXebjsj1rXdfLXg3RwnIUPgjCLHvl
-	9zv77vQLnvPUaJp+RfOy3IlW+oAXh0FntnOH4nk1WS4ZfoP9s8/dzjbrh87W3/dZr3areP+U6woD6
-	SzOrjiVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=; b=ibL17NxQUham+sil1RXcnpaXh0
+	I+cqFdrfCDRkbegbH4sQlMQ2ESD354sNS7aFALXDlLOITuxdCASk3CMxvJ6ly36GxTVCQgq2u5cjZ
+	NrBJc6TW01GzfmGwM6iSUaD2VvNVwI4ct6EXp2EKfMh3zD+gvBiNEN8pVB60I3gie4HXjdf1znJff
+	ksa0KcgPSgaw5hDMH6PoLeu0Ih4rSGieZZRac/qW70aEpHYVbJT+75iiAVDHZM7PI1ezDgWvYYMv3
+	RQmjRqhwiibVHu2dNAfMH3EQGvPPV3QsmabdP5JJMyYe9nz3mjAzc2ycJTr3d1p4gaEpquA/nF8+F
+	U8Ejgo/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnWy-00000002JV5-2HQR;
-	Thu, 09 Jul 2026 12:07:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnWw-00000002JUE-0uTp
+	id 1whnXn-00000002JeJ-3z3O;
+	Thu, 09 Jul 2026 12:07:55 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whnXl-00000002JdQ-1JvC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:07:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D264F3569;
-	Thu,  9 Jul 2026 05:06:56 -0700 (PDT)
-Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 05E973F66F;
-	Thu,  9 Jul 2026 05:06:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783598821; bh=jPtXJeS/69sVHJHwLW5PFf9uHtm+WegMDEkeOn5/+UY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jwhKsbjBWbONaR3cbE8YYLNW83WLz7CITsLvHnWNTKklG84IrXtK14DRnZ1whfZhx
-	 cWi+Wg5k7sDU+z15Rm1DNs6WIN6c8gdhHNorK38niMOi0pr7VHopxOKO7bwwQfmgsv
-	 wsWsFIz989IDWMiUSTMHFD5ThS1olDSLQ2yFElPE=
-Message-ID: <00e8ba98-735d-4c78-9056-3032036183e7@arm.com>
-Date: Thu, 9 Jul 2026 14:06:56 +0200
+	Thu, 09 Jul 2026 12:07:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YwWNtAX/KCWiNToyPvueq2ScXcOv9rdwHfd9v8AO63KJ/H6ZqEGhXfR0LgdngiSnEGaISgjEp9LOlAgh5FLJiviTLjajdWeKrtQ709dQSgGtGFMuTlIynSYWkkT+WxJbVKdeHo3wX1ED9IavJhhRFmzelFM+Dx810xJySEX6UxASTMxgFoV7TvFTYyg/G+jzKLAVGegjXaSU+ZFtBfyQ0d9EOfxrYqsnO1CIndh+HfeGUqXhmZ0kjbThqljpp0IU9Ka8sGejZ7FxIEx8Tj6DNkTjNJwptj5sKAhttVQb9cao7l7mVPcCHhEOOM58UWLF1SnFDA7HpzXZFN67+OMOAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=;
+ b=Z059xqMpgTDMsg/tmgwK3j5LdCdrYeQ/j69s56B/pN1LFUb4jht12H+OKQXqMIKFVIIwgeYfjlyv9wOTAoVugq8y8KasBn1rRc2IMTKZYigqxC05Eug/36IFA0KumHhYxdvfs+PIuVhW+C4UNlCCXbMlItk2i/uJ49kFQ9El0FwwhhPojK8Sza0hlTYPapVKUFBKszByL73Afs3m8i/TuecZR9s6KL0BHIxV4pvs1j5asTkgv1Wd8JraLrxTIJAZny0bJqubdnihtqXNrrPJqZn2Bf5U7inEMO2AotLYS79X8Doy0YqyFSNT4YtGPWYvUbifmw/EK77wh0cdqokXeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QgzaHHkVMrTeFc6N/HiFXKPEOgtv96vPn9AUoM+0Tjw=;
+ b=uYQmZeTQysNZw+BsliFR7BGApiefCIFUSCaLzTB7C8Yuwz5DscbFgcXRzkmRoY5cwY0DGCUoAVv+tARtmdtiD+LUS0ECVlVEGpbbBY+ybsonJAUbElQ9OYQiAZBNxVFN9sycL9T3VHfGKmQp38at7tk7ZctCLsZsIHoGP0LERA6BttMNoyQmuOqdPaYVLjrOu4m/N12678iYBAWYuXZGS6kBtYkjDW5GPQSJ3Y9XxAmboAokhXrN4UH7C2UTeMu2hpV16ReqsUw3CwE+vOwpMgxwvZPRg5BqHTqgo5r3Vz4gQrJDNqL3VKRhlWCVU7fHMCo7nvRpiddWVNr7LsSWjA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM6PR12MB4106.namprd12.prod.outlook.com (2603:10b6:5:221::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Thu, 9 Jul
+ 2026 12:07:46 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.014; Thu, 9 Jul 2026
+ 12:07:45 +0000
+Date: Thu, 9 Jul 2026 09:07:44 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 5/8] iommu/arm-smmu-v3: Precompute the invalidation
+ commands
+Message-ID: <20260709120744.GF422027@nvidia.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <5-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <ak1iOWrvLv/6ACsP@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak1iOWrvLv/6ACsP@Asurada-Nvidia>
+X-ClientProxiedBy: YT4PR01CA0392.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:108::8) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/15] arm_mpam: prevent MPAM-Fb accesses inside IRQ
- handler
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-15-andre.przywara@arm.com>
- <f418f531-bc0b-4bff-a96f-121034c6c693@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <f418f531-bc0b-4bff-a96f-121034c6c693@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4106:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5ff6b9a-8702-4fd9-17aa-08deddb2afa4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|18002099003|22082099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: rts3xrVjp/V77QnJ/gG5JsiCcH7vbEFYbF6a+xfrdwYfvMGLNrAHYoHbFTDqvcOHx5xTRDjhJi2d/7qEffqlNyldaXDcw1BK7twzcHdZFnSmOaaPEQZXxT4isRjq6Mvtq5WaF5IPPrcHBJsl+JLaNYDrk2w2vt4SmW1tMFqoGdiT3dDj7eF1lKTfA25oGr8rUNDR43KuGQI9w1fHEI/ZhjfueBwAkt9ZByDn9m4nzfLIDtStVu8yCiPNgVhxyuuY4XrJ6XsaIUSOQBu+9qLiBM5vqQR7auCVmZl/A9mpgqAi6vo8BwigOz2YwkQkPucNHOjfpidW3cZfnHcLR0aqJKziInBendnzbwIOu5HC+szOTtJ+cJ93YoPYffv4T92A/FCSQWeETQzHgXCE/mkG+Jc4bBhxIDwhFT9YIAOibrGdw2d2m0awGC87qzjSgxhdBLmFj15GlpULWGNKdFmSB84wqLo4dkd0SiFBFLR9cyb9ZuwjZgGjEQZYAgpQdk7LDUzM77YtTeRzekd8+jXap9qx9TMo5tl1L13H1Wa8J8+4brh+R9dd6AcFbY4VInM4sCJdzDdduYKp7vJFSWCjJuzXbv32btmqReJenJ8HMMRlG1DfeXFOiYNQzWxaPeFvw3jcGx+3WIE2YupiX0hfj2NF0ke8yp9jPtsNUhJERVU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGBmPYU0I8dPPyg4+XCfqzQ7EvphWosuR1RvHAibrZ+ka9esvUuG3okApVlE?=
+ =?us-ascii?Q?uEOROZmexkO/C7vBh5lHELAylbZnJsxxGxmgSvE+3EBrL1PEaD6ZkiHyA+Uu?=
+ =?us-ascii?Q?d492Sybb4KuD41xRXOU0M7WTr9XV/LQtZNEa+jrttBIkeQo6C2Uzk5lStwPe?=
+ =?us-ascii?Q?606v4yHro7veJ71HBgbFjCj5UWIaVHvmZKQjjxktlnlnW/vYpg/eSofaH1uB?=
+ =?us-ascii?Q?KUCbjy3O/8Aj5OBagEONAVmhx8Z4lXfDIdlRWOzGRiaEUpBE29NMl9aluHAQ?=
+ =?us-ascii?Q?o+Si1HtloobPtPhZFB75GdLZ7fVitwWOAbmr5+jFV38lgcV+DrzEj5aQMX66?=
+ =?us-ascii?Q?qnYymFORHrtrVDY4dV4glAE5sT4Qk9KUPEp0fiY+orQ7IcgpODt0mVmESL6S?=
+ =?us-ascii?Q?1zDF/TJ/b6l/DXi979U57lDDnm3n0evHs0sDoaF+UxhizBaxVSnIqnueeBF7?=
+ =?us-ascii?Q?ZMDubLGmNCyo8UrP9ZzZDdaZJDULa7EO2HMciwuwrXAU/obNh9iU/FH1PgT5?=
+ =?us-ascii?Q?y6oNo9x5GAf2qUTaEjTJ3A0eewq2h7XbHrezUBabnQAMhF+FCJVoti1D+Bu1?=
+ =?us-ascii?Q?a4UC2hVbjdC7+gv2DV326uinj6G6U0vWRVYV3hkmSXeahqgLB/QVQfpCsP3s?=
+ =?us-ascii?Q?XQ2F+sqGHwAktaYZI6tOq/zoQnWUHQH12edGsxqIOVKaphqNvoKht2qFpKRI?=
+ =?us-ascii?Q?fwZTORuFFQm+ROqBsh5XfSQx2M3DJiKvyTnscNFaKsbYLp3CCsn5yoEOPtgr?=
+ =?us-ascii?Q?kBPaKWJKThKhHYCU+PNklQnRxo4M/JhGehm99tgK+Z0apRnZToYL+/MiZXtX?=
+ =?us-ascii?Q?uDBUymsCkV/40LIvK3bPOMpqqHv0BdP4WF1aaGd9RSSPVceOhPaz5obhPXvx?=
+ =?us-ascii?Q?wxRXB7+aJ7FmA5BOO95TFoEJq0mb3IgrTlYsJG+HbIaqIG1gO/BxhFT4CSaF?=
+ =?us-ascii?Q?M7VxOv9duaO2BJhSWPG0EBpWnnCz+4Q0doTOk5Jm3I3BTuEUhB71bKCkIHM1?=
+ =?us-ascii?Q?8gwYF2RDY3A49zgIrVsLEioRrhEBJ3eng71Iz9k8Yq3jM/EdoZ//vnsPcyeh?=
+ =?us-ascii?Q?uCG97Mo79TCVn9YrzWS3ycUp9iO5dJ+IWsEvNYhQl4Yl8ap8Zi9IoBJX/076?=
+ =?us-ascii?Q?X2THo7tS4w/p1cS42pSSiq7mpogBApzs23UpDhUt6obDEO1f5nHtwfRxOwmj?=
+ =?us-ascii?Q?khcMj8kbsVDeQAOL9/yGDmFy5aquwO9n3cJYreLjSCrUY4LbYF5FOeYqt4ON?=
+ =?us-ascii?Q?C8AkAkiszMTZAyjFPYHtSkWmoIjLlaxx3oPN/v1gC5aU2z52F3Wff0jfguJn?=
+ =?us-ascii?Q?2hVC3ZPLWGGeQwGko1VQZCUHz2fn7PXTXC/y4ufzHDFcOgElhIKila5gUUIx?=
+ =?us-ascii?Q?XYV1TMetGRePa4TlTQhIWqnMIqrvWNy9txLdgEGDC5P6G2rroW8dgU5nB9ns?=
+ =?us-ascii?Q?uotrsKMc8RknkQTNFTr+LCUtZeBIivllET3v0U4WWoE2w4BZ4uoLxWBt7F0y?=
+ =?us-ascii?Q?u3KdXhKQUWhzWXha3AV7mE5JaNARnAye84Csev3CaGnUaXPmR2X9ZFQfb84W?=
+ =?us-ascii?Q?C+BtJSzOF5YTugCjpDmdHns0IyVxzgShsA90b8z53ktzkA9EFI+vwmoz5VpJ?=
+ =?us-ascii?Q?hPML4aGtOR1vUXkrubCYfl9c6cViznDgqhN3RZp8dyknu/9/UqtmxpCU6znG?=
+ =?us-ascii?Q?ZdRlqZttEmhfxhXV0GJ5aXEzA0Ce/Fdh3eL0SiPsX3oQGbpM?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5ff6b9a-8702-4fd9-17aa-08deddb2afa4
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 12:07:45.7057
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +Klx6EyY+WrjJQQSJKvJ8oJSpeGGoMS6Ua889TQY/zP4njvCVhnRhs+va7V1G/d8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_050702_354144_2ABB65FD 
-X-CRM114-Status: GOOD (  28.28  )
+X-CRM114-CacheID: sfid-20260709_050753_363852_26FAC743 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,120 +144,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 7/3/26 12:54, Ben Horgan wrote:
-> Hi Andre,
+On Tue, Jul 07, 2026 at 01:31:53PM -0700, Nicolin Chen wrote:
+> > +	tlbi->range.data0 =
+> > +		FIELD_PREP(CMDQ_TLBI_0_NUM,
+> > +			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
+> > +		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
+> > +	tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
+> > +			    FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
+> > +			    FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
+> > +			    (cur_tg << tg_lg2);
 > 
-> On 7/2/26 17:22, Andre Przywara wrote:
->> When an MPAM MSC gets into an error condition, it can trigger an error
->> IRQ. We cannot really do much about those errors, but we at least query
->> and log the error, then disable MPAM functionality.
->>
->> This error report relies on reading the MSC's error status register
->> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
->> MSC accesses, since they involve mailbox routines that might sleep.
->> The same is true for clearing the interrupt at the source, which
->> requires MSC access.
->>
->> For simplicity just skip the ESR read when the MSC is not using direct
->> MMIO accesses, and just ignore the pending interrupts. We will wrap up
->> MPAM functionality regardless, knowing the exact error value will not
->> change that.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/mpam_devices.c | 35 +++++++++++++++++++---------------
->>   1 file changed, 20 insertions(+), 15 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index b858ff389bff..4a088e6cd235 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -2639,7 +2639,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->>   
->>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   {
->> -	u64 reg;
->> +	u64 reg = 0;
->>   	u16 partid;
->>   	u8 errcode, pmg, ris;
->>   
->> @@ -2648,25 +2648,30 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   					   &msc->accessibility)))
->>   		return IRQ_NONE;
->>   
->> -	mpam_msc_read_esr(msc, &reg);
->> +	/* MPAM-Fb MSC accesses cannot be done in atomic context. */
->> +	if (msc->iface == MPAM_IFACE_MMIO) {
->> +		mpam_msc_read_esr(msc, &reg);
->>   
->> -	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->> -	if (!errcode)
->> -		return IRQ_NONE;
->> +		errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->> +		if (!errcode)
->> +			return IRQ_NONE;
->>   
->> -	/* Clear level triggered irq */
->> -	mpam_msc_clear_esr(msc);
->> +		/* Clear level triggered irq */
->> +		mpam_msc_clear_esr(msc);
->>   
->> -	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
->> -	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
->> -	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
->> +		partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
->> +		pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
->> +		ris = FIELD_GET(MPAMF_ESR_RIS, reg);
->>   
->> -	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
->> -			   msc->id, mpam_errcode_names[errcode], partid, pmg,
->> -			   ris);
->> +		pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
->> +				   msc->id, mpam_errcode_names[errcode], partid,
->> +				   pmg, ris);
->>   
->> -	/* Disable this interrupt. */
->> -	mpam_disable_msc_ecr(msc);
->> +		/* Disable this interrupt. */
->> +		mpam_disable_msc_ecr(msc);
+> Could this be slightly cleaner:
 > 
-> As an error interrupt is final can we just disable the IRQ?
+> 	unsigned int num = 0, scale = 0;
+> 	...
+> 	if (num_tg == 1) {
+> 		if (!ttl)
+> 			ttl = 3;
+> 		goto build;
 
-Doing that should be covered by mpam_unregister_irqs() as part of the 
-mpam_broken_work, shouldn't it? Or do you want to do it earlier?
+I'm not keen on gotos outside error unwind, but how about
 
-> Is it
-> useful? I see there is a function disable_irq_no_sync().
++       tlbi->range.data1 =
++               FIELD_PREP(CMDQ_TLBI_1_LEAF, !tlbi->table_levels_bitmap) |
++               FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | (cur_tg << tg_lg2);
++
+        /*
+         * SMMUv3 H.a Section 4.4.1.1: TG!=0, NUM==0, SCALE==0, TTL==0 is
+         * Reserved and causes CERROR_ILL. Single page uses NUM=0, SCALE=0 with
+@@ -2472,11 +2476,7 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+                if (WARN_ON(!ttl))
+                        ttl = 3;
+                tlbi->range.data0 = 0;
+-               tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF,
+-                                              !tlbi->table_levels_bitmap) |
+-                                   FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
+-                                   FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
+-                                   (cur_tg << tg_lg2);
++               tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
+                return;
+        }
+ 
+@@ -2513,11 +2513,7 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+                FIELD_PREP(CMDQ_TLBI_0_NUM,
+                           DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
+                FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
+-       tlbi->range.data1 =
+-               FIELD_PREP(CMDQ_TLBI_1_LEAF, !tlbi->table_levels_bitmap) |
+-               FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
+-               FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
+-               (cur_tg << tg_lg2);
++       tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
+ }
 
-If we want to do it earlier, the _nosync variant sounds promising, 
-although the comment talks about it being nested, so I guess it would 
-need to be balanced? Which might be tricky here, since I guess the IRQ 
-would be disabled again in mpam_unregister_irqs()?
+Which removes most of the duplication
 
->> +	} else {
->> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
+> > +	if (invs->has_range_inv) {
+> > +		if (!tlbi.range.use_full_inv)
+> > +			arm_smmu_tlbi_calc_range(&tlbi);
+> > +	} else {
+> > +		tlbi.range.use_full_inv = true;
 > 
-> Should we report by irq number?
-> As MSC may share interrupts we don't know which MSC caused the error irq
-> at this point. On MMIO platforms we read the ESR to establish this.
-
-I see what you mean, though I am not sure if the user would be able to 
-make sense of any interrupt number? I would put it in anyway, more 
-information doesn't hurt.
-
-Cheers,
-Andre
-
-> Thanks,
+> I am a bit unsure about this line since invs has no RIL entry.
 > 
-> Ben
-> 
->> +	}
->>   
->>   	/* Are we racing with the thread disabling MPAM? */
->>   	if (!mpam_is_enabled())
-> 
+> Is it set for a defensive reason?
 
+Yes, it should never matter but since the has_range_inv and per-smmu
+tests are disjoint I included it defensively. I will replace it with a
+comment.
+
+Jason
 
