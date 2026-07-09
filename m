@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0F9C44509
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD818C44506
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIP5sA6CbF1eR02kWXqug5HbdDA/BAiLc/L7lQ0febQ=; b=JmOnlVYERypgWBzRu2+8DjrZvB
-	6O+24GuENQidoy5gHjt9LIe1Uu4kYhTQdaSewJ3jQt7kWgilj+g4Wx9/yb18QdIc4BtPYJNABKnwb
-	P6EP24QtOWvowiEzfIWlXcyJjXzE9aeP+N1SS3f5MwoQYD81dxYCjEsVFuS4oErTI8cwi38gbVkTn
-	xuf/FvnxPnZIZNsuNT04uiFE/w6Ew/OiviUbEWJyPJilSsQT3ee7ZCCXwl3WG4Dcq2p0H7RKgaG7a
-	IXi0Vc1MJ8frCHyg3YmRRWYIlknddBCSN979mVJCm0+Kdbl6l48QVzsdngwQnGSQWfyU7lNWAiHzL
-	C1P9zyOA==;
+	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=; b=I2dLKw5BDikCdsca1ndbNCZGnJ
+	XTM8OZm0hrfwxqrraQIN8ygSJMt2i74cAWPEE995MtebV9MatBvRhNoVm4jsn9gGN8T5XHMcGDnMt
+	DTYq73qbSdf18UQjPpftXafjdCuJ1AkMjaDFnrInET3mrYz8NmiWQAIUjspBiCRA0omqHGd3XAHkA
+	h71+zhyOf/+j1su7zZsqwp+rAC+OBvE/6cgpBbRYZsPdXQHM7KXBG7KUDCYVP66/w/vnpmMhbmuvy
+	5zx9Ib2+DOId+sWkioT7DJ+Z2/aDFui4606B3MeYy3d7mYoAlO89aDTqi4PsU2w6gkfp7hX2N+Pr2
+	dShLA9iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkWx-00000001ekS-3h4j;
-	Thu, 09 Jul 2026 08:54:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whkX3-00000001f0U-2BBV;
+	Thu, 09 Jul 2026 08:54:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkVB-00000001aX6-0erw
+	id 1whkVJ-00000001aYj-48Nw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:53:01 +0000
+	Thu, 09 Jul 2026 08:53:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93B956001A;
-	Thu,  9 Jul 2026 08:53:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97261F00A3A;
-	Thu,  9 Jul 2026 08:52:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD2E8418FE;
+	Thu,  9 Jul 2026 08:53:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B8211F000E9;
+	Thu,  9 Jul 2026 08:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587180;
-	bh=LIP5sA6CbF1eR02kWXqug5HbdDA/BAiLc/L7lQ0febQ=;
+	s=k20260515; t=1783587189;
+	bh=1/1+F1RFMl2GV9XWTGIsSj/agttsISF6u+8SbWZvUWE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=A354h2h7YTbyjYx/iTaKJlVgbfTgPO07hzKmLil1Y1S1BnWZusRzzpfFWUPlyBhBV
-	 zi3HqToDHAFhsh9lPw3fgTY5o/TUwNnQj/8SLooUqt7FMGga39NaYU779jBhlwEGnP
-	 3ZvzChDGfWAMvyhXud5qPTFEJdHrSYta0yqLHPs339yU06xnLv6hX4zEcOV41+vEev
-	 u04jkFU3alT0N59tZrKdjkZnVvlmOZJ7Jki31ZHQBL4ziNHUgiBF9a7vjOhcvoEnNa
-	 90hW32tBts8J1votIAC8xj1zdg1aFqlTypeWnmL+TTtrg97JhsLycTZ0FvOG8acbsS
-	 hw03kLk7go4oQ==
+	b=Y42YLwAoMYdnKw2te+9pIxu/adZDYLDby2JEemEnqigXGF/yebra/LzeVZhGaXARO
+	 sxJMdRjlV+s8nQ+xcN10lRFPN769HMA1PQTEqPC/GxL6hRFaBxFa55qGt6fDW0s/Wu
+	 O9ODj+zL8QnPc1990L3hW5MfuMbu9/7ncXWNdWFSO2gGaUJJ95MTvkkCwOnyLUqPE0
+	 JY6o+HrKIKiZm+U26NxJt3TEISKhmRAa2dHt24hfNrmqHu2fzA2rxZnwPl+y5kQRIX
+	 Nep0v/7owz05u4+CvEw6tvkVKvQ4/E6odZqOLq+XLQf93PuZgGX8tSFgbfpOdbMosh
+	 /1XBVIVHRZ/Jw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 09 Jul 2026 09:52:25 +0100
-Subject: [PATCH v5 01/16] firmware: arm_scmi: Publish channel state before
- callbacks
+Date: Thu, 09 Jul 2026 09:52:35 +0100
+Subject: [PATCH v5 11/16] firmware: arm_scmi: Clear SystemPower flag on
+ create failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-scmi_core_fixes-v5-1-bea6a3024f05@kernel.org>
+Message-Id: <20260709-scmi_core_fixes-v5-11-bea6a3024f05@kernel.org>
 References: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
 In-Reply-To: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,139 +69,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Transport setup can enable callbacks before the setup routine returns.
-mailbox_chan_setup() registers the mailbox client with
-mbox_request_channel(), and the mailbox controller startup path can enable
-interrupt delivery before SCMI mailbox channel state has been published.
-Similarly, smc_chan_setup() requests the optional A2P completion IRQ before
-the SMC transport has made its cinfo pointer visible.
+__scmi_device_create() reserves the singleton SystemPower protocol device
+before registering the SCMI device. If any later step fails, a stale
+reservation can make a later retry reject SystemPower device creation
+permanently, for example after probe deferral.
 
-If a pending or spurious callback fires in those windows, the transport RX
-callback can dereference a NULL transport cinfo pointer. Publishing only
-the transport-private pointer is not sufficient either: an early callback
-can enter the SCMI core before scmi_chan_setup() has assigned
-cinfo->handle.
-The core derives scmi_info from cinfo->handle in the RX path, so a NULL
-handle can still fault even when the transport-private cinfo is valid.
+A plain global boolean is not enough to track the reservation. A delayed
+final release of an older SystemPower device could clear the boolean after
+a newer device has already claimed it, breaking the singleton guarantee for
+the active device.
 
-Assign cinfo->handle before invoking the transport setup callback. Publish
-the mailbox and SMC transport-private channel state before requesting the
-mailbox channels or IRQ, and clear the early-published pointers again on
-setup failure. Also unwind mailbox setup devres resources on failure so an
-optional RX setup error that is ignored by the core does not leave stale
-transport state behind.
+Track the reservation with the scmi_device pointer itself. Claim it with
+cmpxchg(NULL, scmi_dev) after allocating the device object, and release it
+with cmpxchg(scmi_dev, NULL) from the common cleanup helper. This lets the
+create-failure, explicit destroy and final release paths clear only the
+reservation owned by the device being cleaned up.
 
-Fixes: 5c8a47a5a91d ("firmware: arm_scmi: Make scmi core independent of the transport type")
+Fixes: 2c3e674465e7 ("firmware: arm_scmi: Refactor device create/destroy helpers")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c             |  2 +-
- drivers/firmware/arm_scmi/transports/mailbox.c | 18 +++++++++++++-----
- drivers/firmware/arm_scmi/transports/smc.c     | 15 +++++++++------
- 3 files changed, 23 insertions(+), 12 deletions(-)
+ drivers/firmware/arm_scmi/bus.c | 59 ++++++++++++++++++++++-------------------
+ 1 file changed, 32 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 3e0d975ec94c..1d1f5d25d773 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2782,6 +2782,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 793be9eabaed..dcaefc1aa892 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -7,7 +7,6 @@
  
- 	cinfo->id = prot_id;
- 	cinfo->dev = &tdev->dev;
-+	cinfo->handle = &info->handle;
- 	ret = info->desc->ops->chan_setup(cinfo, info->dev, tx);
- 	if (ret) {
- 		of_node_put(of_node);
-@@ -2814,7 +2815,6 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 		return ret;
- 	}
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
  
--	cinfo->handle = &info->handle;
- 	return 0;
+-#include <linux/atomic.h>
+ #include <linux/types.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -33,8 +32,8 @@ struct scmi_requested_dev {
+ 	struct list_head node;
+ };
+ 
+-/* Track globally the creation of SCMI SystemPower related devices */
+-static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
++/* Track globally the SCMI SystemPower protocol device. */
++static struct scmi_device *scmi_syspower_registered;
+ 
+ /**
+  * scmi_protocol_device_request  - Helper to request a device
+@@ -391,10 +390,17 @@ void scmi_driver_unregister(struct scmi_driver *driver)
  }
+ EXPORT_SYMBOL_GPL(scmi_driver_unregister);
  
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index ae0f67e6cc45..b6459fbb8151 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -211,13 +211,18 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 	cl->tx_block = false;
- 	cl->knows_txdone = tx;
- 
-+	cinfo->transport_info = smbox;
-+	smbox->cinfo = cinfo;
-+	mutex_init(&smbox->chan_lock);
++static void scmi_device_release_syspower(struct scmi_device *scmi_dev)
++{
++	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
++		cmpxchg(&scmi_syspower_registered, scmi_dev, NULL);
++}
 +
- 	smbox->chan = mbox_request_channel(cl, tx ? 0 : p2a_chan);
- 	if (IS_ERR(smbox->chan)) {
- 		ret = PTR_ERR(smbox->chan);
-+		smbox->chan = NULL;
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(cdev,
- 				"failed to request SCMI %s mailbox\n", desc);
--		return ret;
-+		goto err_clear_cinfo;
- 	}
+ static void scmi_device_release(struct device *dev)
+ {
+ 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
  
- 	/* Additional unidirectional channel for TX if needed */
-@@ -241,11 +246,14 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 		}
- 	}
++	scmi_device_release_syspower(scmi_dev);
+ 	kfree_const(scmi_dev->name);
+ 	kfree(scmi_dev);
+ }
+@@ -406,9 +412,7 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+ 		 dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
+ 		 scmi_dev->name);
  
--	cinfo->transport_info = smbox;
--	smbox->cinfo = cinfo;
--	mutex_init(&smbox->chan_lock);
+-	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
+-		atomic_set(&scmi_syspower_registered, 0);
 -
- 	return 0;
-+
-+err_clear_cinfo:
-+	cinfo->transport_info = NULL;
-+	smbox->cinfo = NULL;
-+	devm_iounmap(dev, smbox->shmem);
-+	devm_kfree(dev, smbox);
-+	return ret;
++	scmi_device_release_syspower(scmi_dev);
+ 	ida_free(&scmi_bus_id, scmi_dev->id);
+ 	device_unregister(&scmi_dev->dev);
  }
+@@ -419,6 +423,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ {
+ 	int id, retval;
+ 	struct scmi_device *scmi_dev;
++	bool syspower = (protocol == SCMI_PROTOCOL_SYSTEM);
  
- static int mailbox_chan_free(int id, void *p, void *data)
-diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-index 21abb571e4f2..1fce3ccdeb7f 100644
---- a/drivers/firmware/arm_scmi/transports/smc.c
-+++ b/drivers/firmware/arm_scmi/transports/smc.c
-@@ -172,6 +172,13 @@ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 		scmi_info->param_page = SHMEM_PAGE(res.start);
- 		scmi_info->param_offset = SHMEM_OFFSET(res.start);
- 	}
+ 	/*
+ 	 * If the same protocol/name device already exist under the same parent
+@@ -431,39 +436,33 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	if (scmi_dev)
+ 		return scmi_dev;
+ 
++	scmi_dev = kzalloc_obj(*scmi_dev);
++	if (!scmi_dev)
++		return NULL;
 +
-+	scmi_info->func_id = func_id;
-+	scmi_info->cap_id = cap_id;
-+	scmi_info->cinfo = cinfo;
-+	smc_channel_lock_init(scmi_info);
-+	cinfo->transport_info = scmi_info;
++	scmi_dev->protocol_id = protocol;
 +
  	/*
- 	 * If there is an interrupt named "a2p", then the service and
- 	 * completion of a message is signaled by an interrupt rather than by
-@@ -183,18 +190,14 @@ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 				  IRQF_NO_SUSPEND, dev_name(dev), scmi_info);
- 		if (ret) {
- 			dev_err(dev, "failed to setup SCMI smc irq\n");
-+			cinfo->transport_info = NULL;
-+			scmi_info->cinfo = NULL;
- 			return ret;
- 		}
- 	} else {
- 		cinfo->no_completion_irq = true;
+-	 * Ignore any possible subsequent failures while creating the device
+-	 * since we are doomed anyway at that point; not using a mutex which
+-	 * spans across this whole function to keep things simple and to avoid
+-	 * to serialize all the __scmi_device_create calls across possibly
+-	 * different SCMI server instances (parent)
++	 * Reserve the singleton SystemPower protocol device using the device
++	 * pointer itself, so delayed release of an older device cannot clear
++	 * a reservation owned by a newer device.
+ 	 */
+-	if (protocol == SCMI_PROTOCOL_SYSTEM &&
+-	    atomic_cmpxchg(&scmi_syspower_registered, 0, 1)) {
++	if (syspower && cmpxchg(&scmi_syspower_registered, NULL, scmi_dev)) {
+ 		dev_warn(parent,
+ 			 "SCMI SystemPower protocol device must be unique !\n");
++		kfree(scmi_dev);
+ 		return NULL;
  	}
  
--	scmi_info->func_id = func_id;
--	scmi_info->cap_id = cap_id;
--	scmi_info->cinfo = cinfo;
--	smc_channel_lock_init(scmi_info);
--	cinfo->transport_info = scmi_info;
+-	scmi_dev = kzalloc_obj(*scmi_dev);
+-	if (!scmi_dev)
+-		return NULL;
 -
- 	return 0;
+ 	scmi_dev->name = kstrdup_const(name ?: "unknown", GFP_KERNEL);
+-	if (!scmi_dev->name) {
+-		kfree(scmi_dev);
+-		return NULL;
+-	}
++	if (!scmi_dev->name)
++		goto free_dev;
+ 
+ 	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+-	if (id < 0) {
+-		kfree_const(scmi_dev->name);
+-		kfree(scmi_dev);
+-		return NULL;
+-	}
++	if (id < 0)
++		goto free_name;
+ 
+ 	scmi_dev->id = id;
+-	scmi_dev->protocol_id = protocol;
+ 	scmi_dev->dev.parent = parent;
+ 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+ 	scmi_dev->dev.bus = &scmi_bus_type;
+@@ -482,6 +481,12 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	put_device(&scmi_dev->dev);
+ 	ida_free(&scmi_bus_id, id);
+ 	return NULL;
++free_name:
++	kfree_const(scmi_dev->name);
++free_dev:
++	scmi_device_release_syspower(scmi_dev);
++	kfree(scmi_dev);
++	return NULL;
  }
  
+ static struct scmi_device *
 
 -- 
 2.43.0
