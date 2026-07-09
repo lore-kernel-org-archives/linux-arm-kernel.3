@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC52C44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 521ADC44506
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=; b=svXZO+iuVjjtNNBSQihMjCX5Fd
-	rFh8dgtK8jscIklnTKj908Lo+EZkAqfwpDeTNj6RJqt3F5iUEsG2irMBfzRsHjT37bo9bN/NYZL9i
-	B8lfaxqB+TvbAaeuvquGwrij8WURw2kp3xI8MCyrBFm+Fev3rWGS+RGjrMbMDspUV0XLgu/CYLh9Q
-	BtZQga4oe5uoN+QrOZiZayIjJEppJnLGZ84DEuhJgLsCy04TrhIXWQPHOoRse5R0TRZSpSjKl+S+w
-	HHExhv14PAVoRcTOkpAix84qb2e1Nez77gDllKv+0GKlYFNli8j2pyZZiIZj3uHJ1o6fZXVWEh2Gh
-	HA/kiUgw==;
+	bh=tHa+N6e2rl6wq1SgVHpliLB/r9n0zCkbXlX81Kt00W0=; b=j9/d7psLt/EejORz9HlAPPbqL2
+	Km7IYI+XbgETRE4I8wfY3jr46fZySOwSm2gv+SRWNQJcGBFQwuvN3HflKgpHk4FDh6JXRFJ9OG4KF
+	CjFGqXp48Vi9GOTCkbX4fbj+IkLj9tlqh2x5Hxccf1l7fgx4qeG2YvZmYh02p5uvYONPusUAV10Bf
+	NNwVL3SiyDhZjFXpCVwJ9V3yIHrRa8rSU8oFwCoeokL6UWW+JXSLEYKVRY2rPAACNKYmak+Yhb22z
+	nf98KvZHq3D0vs1ZIa+YnlGvSiDnJ225ZLCPYUnLaJIYdFtGe+NcTgG0eJ/s9pHj30Dx81p3Ms35k
+	gMd4QHxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlVu-00000001opX-13UP;
+	id 1whlVu-00000001oq0-212R;
 	Thu, 09 Jul 2026 09:57:50 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlVo-00000001ojx-1PkH
+	id 1whlVs-00000001onu-3IGh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:57:46 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ca64c3ce5fso10055855ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:57:44 -0700 (PDT)
+	Thu, 09 Jul 2026 09:57:49 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cc891373e0so15986465ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:57:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783591063; x=1784195863; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1783591068; x=1784195868; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=;
-        b=gpJW4fJ/7NSsWOJcP1b0yBOeIiF3TFT50fsHALTXn10WKNPRkgG5u2vdANBnDAo4nt
-         F+9LwhGGRoMQcV5FqDdf+SFJpmwvfozBtkRrdSIuLQKRmfxDwh5G013s2SYlubiRYmIw
-         BbQ8MVYRWEcbTbgVrIZl0iOquTnQe9Rtzx/KU=
+        bh=tHa+N6e2rl6wq1SgVHpliLB/r9n0zCkbXlX81Kt00W0=;
+        b=G+qMTF9M9bk7Chc16x7g5mOLlfD6aOS15iOCY7cfB1E4RJgAUrT/xTwjE/Tjl0Q1NN
+         2whaM+3l1PGoUhzB2YKRCfZL/tyP4YcJPRMIjoXjUNX+kTA12lfURf6y9kHhj8m7t1fN
+         SEnchdjtDoVFlFv3JdyQmL3Vj5Jg3IvH9AHL0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783591063; x=1784195863;
+        d=1e100.net; s=20251104; t=1783591068; x=1784195868;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xZ53TpctVBGf+9janmV3YEfLWaus5++lNyVuWbfltaU=;
-        b=ZSffCvCyx8pbr7zFt5/Jf4PRk2iSdQM0yrevAHhwCeu3M6n8B6C/0EqunHo0AavJOZ
-         O0lSLYNZthtd0raV/ckMBr+ZO0MkuAm2uVA3i4P0kCFaHHDgPuj45hLgWVghyWjmJNtn
-         WSvd30BZCsGz8wQ8Y6nSCUBgNc6RJllzpZ+AH1771/C0EDTjkoEElMvg+Q7oXehHhsqx
-         NiDqEWRfs/4HErk0YaVwceiGrg5Lbv8yu+quMYKOWphio7xLxEMcsZMU25WZMUTl7bUB
-         yIk7cYec3lX1x9lLKJ93hHTr+TIi0h2dvdRBy5tpNQ7ECe8edhL285C1ikF36cvJ3xKF
-         Rz6w==
-X-Forwarded-Encrypted: i=1; AHgh+RptE3sC+xyAJJnIdKkwPx7X78r6sYzrJ4BI3qyzS2OoqcNUFb2KvVslQV8CoURqIRbhjrNVhLdgIlt32rCow750@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyfGY6R7fi8xQmXQW94dvUu1qytduP7LE4e0kooWQz55cnDb6I
-	4aKmMVZWL2QEHYrcorOzeQypPzOLgNF00OV19cUyHw9j5JSaKCzBOuU8Jqq1bJ5UDQ==
-X-Gm-Gg: AfdE7ckU0nQlXa4VVUZkvNipI1i/S5Sdi2rpPcoRNigvLc4mQC+wlopnkXBHChqke7w
-	0+qfq/EHfhPzyGvXLYp2gDBodQadx1wsFiO8E/u3b8p9nDB/IuT6zJA6Xvy/C4CR/PHMxnxYPtr
-	6+RVAdpUK/sMLrxw05J+i6rEkTjCVNDDGWxVCyKFWt90fpqWlPcYWsDbUCBXo8IVs0hwxQYOtQd
-	3bm8nLBRBpIbzrov6r1gm1f9hbZZ7uiCg0UQmY0ERajwB3djVezRveXp33R/C0M+03Dxg3mu6kc
-	4RcVPqKCc1zVV3Cps3nD7+00cKCSvgDPLGt2W6d8+ra02ChED6/dH8d2dbTA9X3cWf5fW5om7MJ
-	xgy42POMSzktIu3YA+gzCfcdsCTiwyh9UvEJ9cwEPVn18FkImyKfjY1GxGT47/875s3d9GwHhbt
-	xrtamJBT80EjBTrFzh9MiWuz81zOlpC9dZ6VbU7Q+a3gqI/BGh/FVLogUaSj/oy4mo3/KajA==
-X-Received: by 2002:a17:902:f68f:b0:2ca:c411:78a with SMTP id d9443c01a7336-2ccea371ddamr71754425ad.3.1783591063427;
-        Thu, 09 Jul 2026 02:57:43 -0700 (PDT)
+        bh=tHa+N6e2rl6wq1SgVHpliLB/r9n0zCkbXlX81Kt00W0=;
+        b=cesDwutUESiNqMgUlkK8vUxS0tHiufVMY0rkT4TExBbycvc9rb5eAh9QFoBvsQhAIO
+         Vol9RDdeTwDKeqIBNJVfk8QRFeq6ReqdxgDQF/KJ/3yQLpxNHiobZj1hPY5/B8hXeW4N
+         iWgH+AVc/vBQ+8hbR18hakcm3i5toN1PlWmZM2VQqRzg/lF2UjKpnu2UCHa3IsvAtANO
+         PL7+PORxJCh0jf/rsxGMO8xpDCC5pqgyiNKJU5cVGGY+Tl8ea4GjXuq8xJcTw2UFdSP6
+         vyETcH15xmWLehIWAoWMYYPp9CriD2ADxuLsS+b2xsBIjanwsrrpfJ/oJPFYVmfLVORo
+         TV7g==
+X-Forwarded-Encrypted: i=1; AHgh+Rqj6bnvMh8BeRZBtly4ibW08HsVgf9NswVsiiTj7xCUMHf89PkAbhj/iX1ayG+m+ZKmkQSGPvJ+gnyLLmDwFH+V@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkboQHhdhDMlbEXVWmj990BCkVMtz2xrkoaozCleHfvrbcDRUM
+	C/MAWDi4KvA8JgfcGkBKd5ErvGhfTqyVdA4SIwkXJPRLOS3jsuEwVnPiATu4saF3PQ==
+X-Gm-Gg: AfdE7ck1UU5v9TGF+2lKUQFCN62hAOUk2Yqb2o3iBz/K0AaSp5cOm5pMsM8WqD+w0VT
+	B/IYzsCJe8QpGISOy/lcsmZ+g1nMJZz5GC1dg+wnKgO4PYNFNzftwMvJawSWUIXT3M5W7sLVQ2L
+	MIgoPwSQBEQEqJVevVu+95J0MBSlq/TqijqJINeX/Z35ZH9IwPd0v7hZ5rEnbPan6cxLan58KcO
+	2+XrTjH7cYxX7aLhn7lwX5Yc7dYfgk2dIySFtOFmy8vXm8NtJtXPBqaZ+OfUg6RJ2vSxweQeKmk
+	9ESQAzw5xWzCDyf00B5bMBTqWwgyndMVjGWjjQh5Yyz+17OE2Rqw0IQBlEo1yavhgM4Xu8hLFpV
+	8ZMRNQfKPcXnKBMFlNy4L4AP1aYdtHKxv9i7J6rPTgIzVGhwh4E643CP81b++ff2Mo3oc5pE+aJ
+	siaqAhnNuJpU3hgHTK/pK+atNBuQwsdDWP02HLXS2uTfVx2bJ6JsEAC7OYWHn7aFjYKLx9onjT4
+	zVKBoB1
+X-Received: by 2002:a17:903:46cc:b0:2c9:e261:95c4 with SMTP id d9443c01a7336-2ccea464f02mr67670245ad.30.1783591068202;
+        Thu, 09 Jul 2026 02:57:48 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:bd09:6ddb:180a:69c5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d5bd2fsm41082155ad.78.2026.07.09.02.57.38
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d5bd2fsm41082155ad.78.2026.07.09.02.57.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 02:57:42 -0700 (PDT)
+        Thu, 09 Jul 2026 02:57:47 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Bartosz Golaszewski <brgl@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -92,17 +93,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Alan Stern <stern@rowland.harvard.edu>,
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v4 01/14] device property: Add fwnode_graph_get_port_by_id()
-Date: Thu,  9 Jul 2026 17:57:06 +0800
-Message-ID: <20260709095726.704448-2-wenst@chromium.org>
+Subject: [PATCH v4 02/14] device property: Add fwnode_graph_get_next_port_endpoint()
+Date: Thu,  9 Jul 2026 17:57:07 +0800
+Message-ID: <20260709095726.704448-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
 In-Reply-To: <20260709095726.704448-1-wenst@chromium.org>
 References: <20260709095726.704448-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_025744_390792_1C70A4E9 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260709_025748_824159_57779952 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,69 +118,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some cases the driver needs a reference to the port firmware node.
-Once such case is the upcoming USB power sequencing integration. The
-USB hub port is tied to the corresponding port firmware node if it
-exists.
+Due to design constraints of the power sequencing API, the consumer
+must first be sure that the other side is actually a provider, or it
+will continually get -EPROBE_DEFER when requesting the power
+sequencing descriptor.
 
-Provide a helper for this.
+In the upcoming USB power sequencing integration, the USB hub driver
+first needs to check whether a graph connection exists, and whether
+the other side of the connection is a supported connector type. The
+USB port is tied to a "port" firmware node, and this new helper will
+be used to get the endpoint under the known "port" firmware node.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
 Changes since v2:
-- Moved "Return:" kernel-doc section to the end. (Andy)
-
-Changes since v1:
-- New patch
+- Dropped unused |ep| variable
+- Rewrote as do {} while()
+- Dropped WARN() use
 ---
- drivers/base/property.c  | 22 ++++++++++++++++++++++
- include/linux/property.h |  1 +
- 2 files changed, 23 insertions(+)
+ drivers/base/property.c  | 25 +++++++++++++++++++++++++
+ include/linux/property.h |  2 ++
+ 2 files changed, 27 insertions(+)
 
 diff --git a/drivers/base/property.c b/drivers/base/property.c
-index 9387bb83eb54..3e3e19ef66a9 100644
+index 3e3e19ef66a9..7e7ad3635806 100644
 --- a/drivers/base/property.c
 +++ b/drivers/base/property.c
-@@ -1346,6 +1346,28 @@ int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+@@ -1099,6 +1099,31 @@ int fwnode_irq_get_byname(const struct fwnode_handle *fwnode, const char *name)
  }
- EXPORT_SYMBOL(fwnode_graph_parse_endpoint);
+ EXPORT_SYMBOL(fwnode_irq_get_byname);
  
 +/**
-+ * fwnode_graph_get_port_by_id - get the port matching a given id
-+ * @fwnode: parent fwnode_handle containing the graph
-+ * @id: id of the port
++ * fwnode_graph_get_next_port_endpoint - Get next endpoint firmware node in port
++ * @port: Pointer to the target port firmware node
++ * @prev: Previous endpoint node or %NULL to get the first
 + *
 + * The caller is responsible for calling fwnode_handle_put() on the returned
-+ * fwnode pointer.
++ * fwnode pointer. Note that this function also puts a reference to @prev
++ * unconditionally.
 + *
-+ * Return: A 'port' firmware node pointer with refcount incremented.
++ * Return: an endpoint firmware node pointer or %NULL if no more endpoints
++ * are available.
 + */
-+struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id)
++struct fwnode_handle *fwnode_graph_get_next_port_endpoint(const struct fwnode_handle *port,
++							  struct fwnode_handle *prev)
 +{
-+	struct fwnode_handle *ep;
++	do {
++		prev = fwnode_get_next_child_node(port, prev);
++		if (fwnode_name_eq(prev, "endpoint"))
++			break;
++	} while (prev);
 +
-+	ep = fwnode_graph_get_endpoint_by_id(fwnode, id, 0, FWNODE_GRAPH_ENDPOINT_NEXT);
-+	if (!ep)
-+		return NULL;
-+
-+	return fwnode_get_next_parent(ep);
++	return prev;
 +}
-+EXPORT_SYMBOL_GPL(fwnode_graph_get_port_by_id);
++EXPORT_SYMBOL_GPL(fwnode_graph_get_next_port_endpoint);
 +
- const void *device_get_match_data(const struct device *dev)
- {
- 	return fwnode_call_ptr_op(dev_fwnode(dev), device_get_match_data, dev);
+ /**
+  * fwnode_graph_get_next_endpoint - Get next endpoint firmware node
+  * @fwnode: Pointer to the parent firmware node
 diff --git a/include/linux/property.h b/include/linux/property.h
-index 14c304db4664..e04901c0bd8f 100644
+index e04901c0bd8f..931e703393cb 100644
 --- a/include/linux/property.h
 +++ b/include/linux/property.h
-@@ -505,6 +505,7 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
- 
+@@ -506,6 +506,8 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
  void __iomem *fwnode_iomap(struct fwnode_handle *fwnode, int index);
  
-+struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
+ struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
++struct fwnode_handle *fwnode_graph_get_next_port_endpoint(
++	const struct fwnode_handle *port, struct fwnode_handle *prev);
  struct fwnode_handle *fwnode_graph_get_next_endpoint(
  	const struct fwnode_handle *fwnode, struct fwnode_handle *prev);
  struct fwnode_handle *
