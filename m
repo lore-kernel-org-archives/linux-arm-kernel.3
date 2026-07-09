@@ -4,75 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76AD4C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D55C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0BDPOx5/TOCEfhnUdGgadc+xzKGAGVOIkKWWlMHjtk=; b=aC/zJmU7VigC38ZGX3JzubfdJx
-	ZGoxsT7qtky6q/Zj3qoSqn18h1baeN6hbezS4bVkWCH5giTKJ6SoN2EZRup7VEPbwdPO4H3sg+pBo
-	RqLQrCA3XxlXQ3Da66CYcHmGWi8KCRqundocCIX9YZ7e7N4o43mwRoxMZLeBrGPrTX1vaTx9b5W5y
-	QKNBi1lo/TqKO418nJO5hZwT7nG52QNQkUIMEv8N+RMlx6NkVRv5pRTU7AuYB+cBwaYaQImCzfH7C
-	zo8m4IjbbylODCyq5UdWZTmw+05GIEnPXlAlopQPPysdlfkMxcZ48quzoJOM5P7jIpfs8GWONTn8T
-	5PA3U29w==;
+	bh=IHQJsV8E07+RUjPxkTHWjIGqSk2RzvsByCrBzmrJwh4=; b=YnzAg+Bgkl1J+QViI4W+gGvqrK
+	nsc+r+cbRVbMo5nint5exSW5dXU4F/HYU+RoUhYGmNh8jcUE8cLhlDY/3jfLA2piHS6+I3Irir759
+	uQ3lQQMqTNbeXsuLJMPjHru5z9wsygpXWi83kxhXiEPcBpCZmf/QvmMcbsQCYieYBE75tPhsTSTUA
+	OukW8GaZEQgQhwnvBx46CRyrFZjN5DcJKhLm6mXcdsJC7Lz/hzypeUjV3K4Xk4h++jW1M8pY56fco
+	ieezIarCZA7OgYxy+aMb7xQwPeY5lrJ9To/7aFSCT174zMYRK3Om2rK6+u751n7EZfkjYzmIfFMnd
+	ncm67lHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkPF-00000001U2a-0rEJ;
-	Thu, 09 Jul 2026 08:46:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whkPG-00000001U6D-41ZS;
+	Thu, 09 Jul 2026 08:46:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkPA-00000001Ttn-2WQo;
-	Thu, 09 Jul 2026 08:46:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783586804;
-	bh=qzkG82fCo2yCvES8L+QvDNPl1CSrAGsEROUCjOB7JQA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QGdBVPxufFk462JAQ3czVGczYRbRWJoJcyK9oeyrd7tQZehU2lWJzExKr1kq6xcY3
-	 UWJSfNNWG89PQCWrZaVvDEN0ZwcIpfhNF96wFuDQO2aDBZcura4cK4gyGrDBwx3R8S
-	 VOuWu4TB2riIZ2vCG0hwKpnQDdzdzUpHffydrdJHV4qjOnoK8IVuBGHFT9PfZtAzg3
-	 EqeBIgimodbuRSKZuEUIQKhgzPvROpesd07wLUVYH/iiX1FlrFOgUfhjzI+2Gy8+Im
-	 JESRQ5J8RmRA/XOl22mYpYlz5YzA/l2m5HM/ODSz8yrRAxVQ9tYbs276YSWHf/qROV
-	 7AfqpbThMxlHg==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0F1017E0E04;
-	Thu, 09 Jul 2026 10:46:43 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: ulfh@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nfraprado@collabora.com,
-	irving-ch.lin@mediatek.com,
-	macpaul.lin@mediatek.com,
-	aford173@gmail.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH v3 5/5] pmdomain: mediatek: Add support for MT8196 HFRP DirectCTL domains
-Date: Thu,  9 Jul 2026 10:46:35 +0200
-Message-ID: <20260709084635.24912-6-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
-References: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
+	id 1whkPD-00000001Tzg-3ift
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 08:46:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D8FC6001A;
+	Thu,  9 Jul 2026 08:46:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96B81F000E9;
+	Thu,  9 Jul 2026 08:46:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783586810;
+	bh=IHQJsV8E07+RUjPxkTHWjIGqSk2RzvsByCrBzmrJwh4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=G4WMipwo6eRMq/hlnTebvOx53KZRTAJtF1RXSC74Ah0K8bVFiJF3mMHsLhIPi9mOH
+	 uyX3/0ixjcGw7d+uHWj3SeJWSxiylw/ykmz3BZ0Xcaa55nfvYjhbCqXffRfhHxRPkw
+	 6wqzoecwSL7Vpgl7Izm94BDcjeKR8t708UJX57+IsJzdu9pxPaedaafLIYPH/yhV9m
+	 Nr96bsibJqpVDElifbl85D9O7Mk6dkp5ceHiHPK9+dwAuJIA13kn8QRyEG4rXc1rM/
+	 9sMY6QqxK5Kw9xWRJLhn9t9zBH+YKeMt7pgapYvsgg3jAnVAQEyNPe++Tnp+Y5A98D
+	 +bVR26kgMBSVQ==
+Message-ID: <02baada9-3f87-4e60-a469-44af5ebe1afe@kernel.org>
+Date: Thu, 9 Jul 2026 10:46:40 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_014649_104409_9F1F5749 
-X-CRM114-Status: GOOD (  12.20  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/5] dt-bindings: arm: coresight-tnoc: Drop
+ arm,primecell to bind on platform bus
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+ Abel Vesa <abel.vesa@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Abel Vesa <abelvesa@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260707-fix-tracenoc-probe-issue-v5-0-bf733ed9ebd0@oss.qualcomm.com>
+ <20260707-fix-tracenoc-probe-issue-v5-1-bf733ed9ebd0@oss.qualcomm.com>
+ <20260709-versed-marvellous-pigeon-22e2ba@quoll>
+ <e5876525-4568-43bd-8c91-6dc462b18fa3@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <e5876525-4568-43bd-8c91-6dc462b18fa3@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +130,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the power domains provided by the HFRPSYS Power
-Controller of the MT8196 SoC.
-Those control power to the eDP and DP Transmitter IPs.
+On 09/07/2026 10:34, Jie Gan wrote:
+> 
+> 
+> On 7/9/2026 3:59 PM, Krzysztof Kozlowski wrote:
+>> On Tue, Jul 07, 2026 at 05:08:49PM +0800, Jie Gan wrote:
+>>> The TNOC compatible previously required the two-string AMBA form
+>>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
+>>> AMBA bus.
+>>>
+>>> Change the compatible to a single "qcom,coresight-tnoc" string with no
+>>> "arm,primecell" entry, so the device is created on the platform bus and
+>>> bound by the platform driver through its compatible string.
+>>
+>> I asked already: this is not a valid reason. References to Linux
+>> structures are not correct here. If this is your reason, then answer is:
+>> fix drivers, by renaming or doing whatever is necessary to platform bus
+>> to behave like amba bus.
+> 
+> The issue is that we are not allowed to introduce a DT property to 
+> bypass the AMBA bus validation, which reads the Component ID (CID) 
 
-Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/pmdomain/mediatek/mt8196-pm-domains.h | 27 +++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c    |  6 ++++-
- 2 files changed, 32 insertions(+), 1 deletion(-)
+It is the first time "bypass the AMBU bus validation" appears in this
+patch. You do not see that as a problem?
 
-diff --git a/drivers/pmdomain/mediatek/mt8196-pm-domains.h b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
-index 2e4b28720659..d704c9fa9337 100644
---- a/drivers/pmdomain/mediatek/mt8196-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
-@@ -602,6 +602,27 @@ static const struct scpsys_hwv_domain_data hfrpsys_hwv_domain_data_mt8196[] = {
- 	},
- };
- 
-+static const struct scpsys_domain_data hfrpsys_domain_data_mt8196[] = {
-+	[MT8196_POWER_DOMAIN_EDPTX] = {
-+		.name = "edp-tx",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0x74,
-+		.pwr_sta_offs = 0x74,
-+		.pwr_sta2nd_offs = 0x74,
-+		.caps = MTK_SCPD_SIMPLE_PWRSEQ,
-+	},
-+	[MT8196_POWER_DOMAIN_DPTX] = {
-+		.name = "dp-tx",
-+		.sta_mask = MT8196_PWR_ACK,
-+		.sta2nd_mask = MT8196_PWR_ACK_2ND,
-+		.ctl_offs = 0x78,
-+		.pwr_sta_offs = 0x78,
-+		.pwr_sta2nd_offs = 0x78,
-+		.caps = MTK_SCPD_SIMPLE_PWRSEQ,
-+	},
-+};
-+
- static const struct scpsys_soc_data mt8196_scpsys_data = {
- 	.domains_data = scpsys_domain_data_mt8196,
- 	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8196),
-@@ -616,6 +637,12 @@ static const struct scpsys_soc_data mt8196_scpsys_hwv_data = {
- 	.type = SCPSYS_MTCMOS_TYPE_HW_VOTER,
- };
- 
-+static const struct scpsys_soc_data mt8196_hfrpsys_data = {
-+	.domains_data = hfrpsys_domain_data_mt8196,
-+	.num_domains = ARRAY_SIZE(hfrpsys_domain_data_mt8196),
-+	.type = SCPSYS_MTCMOS_TYPE_DIRECT_CTL,
-+};
-+
- static const struct scpsys_soc_data mt8196_hfrpsys_hwv_data = {
- 	.hwv_domains_data = hfrpsys_hwv_domain_data_mt8196,
- 	.num_hwv_domains = ARRAY_SIZE(hfrpsys_hwv_domain_data_mt8196),
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index 632c5dcdceda..8309a4b46afb 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -1071,7 +1071,7 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
- 		if (scpsys_hwv_domain_is_enable_done(pd))
- 			scpsys_hwv_power_off_internal(pd);
- 	} else {
--		if (scpsys_domain_is_on(pd))
-+		if (scpsys_domain_is_on(pd) || MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ))
- 			scpsys_power_off_internal(pd);
- 	}
- 
-@@ -1288,6 +1288,10 @@ static const struct of_device_id scpsys_of_match[] = {
- 		.compatible = "mediatek,mt8196-power-controller",
- 		.data = &mt8196_scpsys_data,
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-hfrp-power-controller",
-+		.data = &mt8196_hfrpsys_data,
-+	},
- 	{
- 		.compatible = "mediatek,mt8196-hwv-hfrp-power-controller",
- 		.data = &mt8196_hfrpsys_hwv_data,
--- 
-2.54.0
+Again, third time and the last: describe the actual hardware and the
+actual problem coming from the hardware.
 
+Best regards,
+Krzysztof
 
