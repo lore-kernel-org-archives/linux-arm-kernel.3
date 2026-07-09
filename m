@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD5EC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99029C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdqFK4QtAP512tn3Ad28QyzpZm5T12rP4k6rkOKPHM8=; b=OJ4OFWGUwzJUFELg1P5PIzjkmv
-	kqr1hI2N5PdMb248R7IuREG2MyOzpOqjQRcSQSGxtMc8CZdxWA9+wM8YqCzY960nMj7S8O64mJgBl
-	Was8Lkeuc7A2ZMKt374kepX+ZQ4NINheM5QaSDnlL/lpyHesGeViFw7fUinbeb4tzZ9ruzSQ4EXjp
-	SYm/neXV8U4jqbZkaRme+LOGPmnZq2Z7B0RDCcjA9Q8JAgw2Q0p29OI8MET3XeySuchLAGvShBiRo
-	kvwqxGxNGt91AD5og1rg2Wv+iVrB3UZ2d86nX+1ZRqGeM2iY52jOD23+P/qLSLoB3dZLoh6/NyWMK
-	N3vxH70g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+NtRvec8F8aekKuz6iezeEslYswvJ60lH8RuxMxcZU=; b=iQ2mWE82KgIoCpSzZWiQ0WScpD
+	f7wFiToVdOwRfw/EXw0b9ytXqcjX8aGhlfvVkcuW1pLzlSY1IT+8J48rIAhhMsB1qVfo6HjFMONFh
+	sZRH1lKnRApBjmLQFCUTLavF3S/lYts5n0mxSRWP21hbeKGffCW2Z0IJRfr1q1LC+9fjbflVYknQI
+	9zZKIXQIWEq7RCd7LNAG29IakWiYox0oIJDITQspNFVk7yWQ0Ff8v6yUO0dsLbwN00jL8YvX+VixB
+	f9Ty78xQeHDDIYakQkoIwoGATxWXqGeP1SERyPAG6kTX1+ABqGOdLV7A/PcA2NcDmUxwjHV/LzVJT
+	gtL7TOkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkXL-00000001fle-3BGz;
-	Thu, 09 Jul 2026 08:55:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whkXX-00000001gGm-1Xfq;
+	Thu, 09 Jul 2026 08:55:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkVP-00000001aZb-0lbt
+	id 1whkX4-00000001f1A-0cor
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:53:15 +0000
+	Thu, 09 Jul 2026 08:54:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A4156111A;
-	Thu,  9 Jul 2026 08:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C00081F000E9;
-	Thu,  9 Jul 2026 08:53:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B656243F84;
+	Thu,  9 Jul 2026 08:54:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2D41F0155C;
+	Thu,  9 Jul 2026 08:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587194;
-	bh=QdqFK4QtAP512tn3Ad28QyzpZm5T12rP4k6rkOKPHM8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=V+4erSVsCGuw5dunJZ8WZ97C+y6/WCggzVb/YEoLSxL4Fc+/8m+Yj5fMfmOKJthFG
-	 GXs6zwj8pqINC0MlC1wp2lh2rM3xahWJOLsksOn375brh75dWka/hVAeYrdjBJvwMb
-	 HYrgmaLvP0i5EGhnQxEFyDldAuQy9aTtQ38vGtLv543xz2kg8IdHg6eI+5tbXzasyL
-	 jTwugsHRNwyGzSFEMiXV3PyZvs107JzJeZitzpg1C3WdRq6ahVPUU5UfK1nAAqyAmU
-	 Ll3CN3xUZ5u04JNw5YIuVE7AJwRBjHgxc0+k8LGBSVcZfWLo4aEk3/djz4oEtrSjbt
-	 nad77ToHOkFtg==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 09 Jul 2026 09:52:40 +0100
-Subject: [PATCH v5 16/16] firmware: arm_scmi: Fix transport device teardown
- lookup
+	s=k20260515; t=1783587297;
+	bh=E+NtRvec8F8aekKuz6iezeEslYswvJ60lH8RuxMxcZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ev/MX5jc/Q/G6Qw04KbVPZw5mRQE+925mjjdbilnfAAOVJNfB1vqvULVLTCS81vKk
+	 wN2ytgPlflg25QwFvcSP2Mv0/Og4TU7H5c3xEcu8NHXE2ECgL5+5plo48ZJQVghFzF
+	 ARE7QFfwFhP2oxWPJQtYxV8h4ax//Sd33HlQF2Bo5rtU+5NcVs10Z9Cev8yw3fQhzM
+	 74/hC6VBgPCPGTR9nk/d7uzrDgXFSYvRHsdwaKfU4yNLh06rO1EPX2L5jhL+ypVDGJ
+	 d3Hgo4aJ7/3SoluWgBzvIxxhHBj0j/dKNRgKt+m0jpCu4Y9TGMHVfy4bB/NJB0jyl8
+	 5sg4Dq9ZRwf1A==
+Date: Thu, 9 Jul 2026 10:54:53 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?R3LDqWdvaXJl?= Layet <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
+	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
+	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/7] dt-bindings: serial: 8250: aspeed: add
+ aspeed,vuart-over-pci bool prop
+Message-ID: <20260709-shaggy-discreet-dodo-e5ffbb@quoll>
+References: <cover.1783524645.git.gregoire.layet@9elements.com>
+ <501428d6a6cb1548bf357c25313dbc319724ead2.1783524645.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-scmi_core_fixes-v5-16-bea6a3024f05@kernel.org>
-References: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-In-Reply-To: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <501428d6a6cb1548bf357c25313dbc319724ead2.1783524645.git.gregoire.layet@9elements.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,119 +75,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI transport devices are deliberately excluded from normal SCMI bus
-matching so protocol drivers cannot bind to the internal transport
-children. However, scmi_device_destroy() uses the same protocol/name
-lookup to find devices that must be unregistered during channel teardown.
+On Wed, Jul 08, 2026 at 03:35:54PM +0000, Gr=C3=A9goire Layet wrote:
+> The ASPEED AST2600 has 2 Virtual UARTs accessible over PCI.
+> The ASPEED AST2600 can be used as a PCI device.
+> 2 Virtual UART can be exposed to the host via this PCI device.
+> These are 8250-compatible register sets and can be used to have UART
+> communication between the PCI BMC and the host.
+>=20
+> This boolean can be set to specify if a VUART is used over PCI. A VUART
+> over PCI needs a syscon phandle. The syscon gives a regmap to the SCU,
+> which is used to set the enable bits of the PCI device.
+> On the aspeed's chips, the clocks phandle already points at the SCU node.
+> But deriving the regmap from the clock provider would misuse the clocks
+> binding. An explicit syscon phandle states the dependency directly.
+>=20
+> Signed-off-by: Gr=C3=A9goire Layet <gregoire.layet@9elements.com>
+> ---
+>  .../devicetree/bindings/serial/8250.yaml      | 22 +++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documen=
+tation/devicetree/bindings/serial/8250.yaml
+> index 8f22121381fc..2ea8981bba80 100644
+> --- a/Documentation/devicetree/bindings/serial/8250.yaml
+> +++ b/Documentation/devicetree/bindings/serial/8250.yaml
+> @@ -27,6 +27,16 @@ allOf:
+>              enum:
+>                - aspeed,ast2500-vuart
+>                - aspeed,ast2600-vuart
+> +  - if:
+> +      required:
+> +        - aspeed,vuart-over-pci
+> +    then:
+> +      required:
+> +        - syscon
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: aspeed,ast2600-vuart
 
-Split the match helper so driver matching still skips transport devices,
-while explicit child lookup can find them for teardown. Use a shared
-transport-device name prefix macro for both matching and name generation.
+else:
+=2E..
+disallow new properties (see example-schema)
 
-Since transport-device names are derived from direction and protocol ID,
-reject duplicate protocol channel setup before creating or finding a
-transport device. This prevents malformed firmware with duplicate
-protocol child nodes from reusing an existing transport device and then
-destroying it when the duplicate IDR insertion fails.
+>    - if:
+>        properties:
+>          compatible:
+> @@ -223,6 +233,12 @@ properties:
+>            - const: uartclk
+>            - const: reg
+> =20
+> +  syscon:
 
-Fixes: 9593804c44c2 ("firmware: arm_scmi: Exclude transport devices from bus matching")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/bus.c    | 22 +++++++++++++++++-----
- drivers/firmware/arm_scmi/common.h |  2 ++
- drivers/firmware/arm_scmi/driver.c |  5 ++++-
- 3 files changed, 23 insertions(+), 6 deletions(-)
+That's explicitly forbidden by writing bindings (and mentioned as the
+antipattern in my older talks about DT).
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index e1f66c08c81d..7f06d56e4905 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -200,21 +200,33 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
- 		scmi_protocol_device_unrequest(entry);
- }
- 
--static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
--				      const struct scmi_device_id *id_table)
-+static bool scmi_device_is_transport(const struct scmi_device *scmi_dev)
-+{
-+	return !strncmp(scmi_dev->name, SCMI_TRANSPORT_DEVNAME_PREFIX,
-+			strlen(SCMI_TRANSPORT_DEVNAME_PREFIX));
-+}
-+
-+static int __scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
-+					const struct scmi_device_id *id_table,
-+					bool skip_transport)
- {
- 	if (!id_table || !id_table->name)
- 		return 0;
- 
--	/* Always skip transport devices from matching */
- 	for (; id_table->protocol_id && id_table->name; id_table++)
- 		if (id_table->protocol_id == scmi_dev->protocol_id &&
--		    strncmp(scmi_dev->name, "__scmi_transport_device", 23) &&
-+		    !(skip_transport && scmi_device_is_transport(scmi_dev)) &&
- 		    !strcmp(id_table->name, scmi_dev->name))
- 			return 1;
- 	return 0;
- }
- 
-+static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
-+				      const struct scmi_device_id *id_table)
-+{
-+	return __scmi_dev_match_by_id_table(scmi_dev, id_table, true);
-+}
-+
- static int scmi_dev_match_id(struct scmi_device *scmi_dev,
- 			     const struct scmi_driver *scmi_drv)
- {
-@@ -234,7 +246,7 @@ static int scmi_match_by_id_table(struct device *dev, const void *data)
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 	const struct scmi_device_id *id_table = data;
- 
--	return scmi_dev_match_by_id_table(scmi_dev, id_table);
-+	return __scmi_dev_match_by_id_table(scmi_dev, id_table, false);
- }
- 
- /* Returns a device_find_child() reference which must be dropped by caller. */
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index b9723c105fc1..fe8c22cfb9f7 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -34,6 +34,8 @@
- 
- #define SCMI_SHMEM_MAX_PAYLOAD_SIZE	104
- 
-+#define SCMI_TRANSPORT_DEVNAME_PREFIX	"__scmi_transport_device"
-+
- enum scmi_error_codes {
- 	SCMI_SUCCESS = 0,	/* Success */
- 	SCMI_ERR_SUPPORT = -1,	/* Not supported */
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 532f1f65b2ab..ef29fd223287 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2762,6 +2762,9 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	idx = tx ? 0 : 1;
- 	idr = tx ? &info->tx_idr : &info->rx_idr;
- 
-+	if (idr_find(idr, prot_id))
-+		return -EEXIST;
-+
- 	if (!info->desc->ops->chan_available(of_node, idx)) {
- 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
- 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
-@@ -2779,7 +2782,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	cinfo->no_completion_irq = info->desc->no_completion_irq;
- 
- 	/* Create a unique name for this transport device */
--	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-+	snprintf(name, sizeof(name), SCMI_TRANSPORT_DEVNAME_PREFIX "_%s_%02X",
- 		 idx ? "rx" : "tx", prot_id);
- 	/* Create a uniquely named, dedicated transport device for this chan */
- 	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
-
--- 
-2.43.0
-
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the SCU syscon, used to enable the VUART over the BMC P=
+CI
+> +      device. Only applicable to aspeed,ast2600-vuart.
+> +
+>    dmas:
+>      minItems: 1
+>      maxItems: 4
+> @@ -316,6 +332,12 @@ properties:
+>        polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH). Only
+>        applicable to aspeed,ast2500-vuart and aspeed,ast2600-vuart.
+> =20
+> +  aspeed,vuart-over-pci:
+> +    type: boolean
+> +    description:
+> +      Enable the VUART over the BMC PCI device. Only applicable to
+> +      aspeed,ast2600-vuart.
+> +
+>  required:
+>    - reg
+>    - interrupts
+> --=20
+> 2.54.0
+>=20
 
