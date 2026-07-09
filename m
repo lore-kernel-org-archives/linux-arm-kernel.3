@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E297C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BA9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=TRpWVbbJ1RgZ2b3V3IHe7pqx83
-	iog0JsE5sTke8ltuC1e3KbGk3zSXo7f7x5fx2/4ylOXuiP7tUSmNODRPeX1H26bmMWs+ixtyYCCZz
-	Nv/m1WRnL0SAFNiQxlTjVdBCflMDP4yTIbHNR7PcJwi/7pmbsxVjsg8aveJPvybVqyKJ3HGchIZrt
-	Xfo4f067wby+zuOuM/3YvVG62UZ3zmXeEGs5+tQBbZ+rReJHz64yv0i0AP311aamLyDC/93T08Ap3
-	CduTz3HVhtJaRHadhwz9HHqxVpAQTmIdE3Zc8aeMUyfHFqXIyf67dh8E96PioizHy/etZlFUdzn/v
-	RUmZcH4A==;
+	bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=wyq2CNp61tp1BI+lx+ZYIiwLuO
+	m6Zpb4WQgT6I5zRWXheAsi4t9+cN+go5OWInWSlWdrlefrerRkZVh2i+iaZrDQ+MIJE1d8kVPV+9c
+	yjhZNr/SVwilEbKrr5o3Syr+yyHQwPqmbyDDwLdIcagFCOAPLOc3FgG8ID3ZdoF8fdBhufMCSa6zV
+	1jawXVq7aDbN5XHVF60GDdHUy8QCPD94wgkrsi5T2TU7nfd30CB00JxXVEgBN4gmzQ0weHy1nmMRT
+	j9VrgjBSOsTGZmfhiE3Oj1Xj+KcrmhQS6YjSA0N5NVv7MiNrC41kByzGIc6D6f/IeDT76yyYo5h20
+	l3I1Gvvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEW-00000001Htr-34v2;
-	Thu, 09 Jul 2026 07:31:44 +0000
+	id 1whjEh-00000001I12-1QYd;
+	Thu, 09 Jul 2026 07:31:55 +0000
 Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEI-00000001HnZ-1mNQ
+	id 1whjER-00000001Hq5-3PSF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:31:40 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id CAC5413800A2;
-	Thu,  9 Jul 2026 03:31:25 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Thu, 09 Jul 2026 03:31:25 -0400
+	Thu, 09 Jul 2026 07:31:43 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id BE16E1380149;
+	Thu,  9 Jul 2026 03:31:33 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 09 Jul 2026 03:31:33 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582285;
-	 x=1783589485; bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=
-	pA1yMmoDuuIDFRT3lNHde80m4TM+bn7gJYQEb2bCYMawWTRryPBgIklO2xMY70vM
-	OdY+YKdDyLSGmf7ShmnrwviBDiCbYBKf7rshzOYENcb6JuLS816dd+cDuu9PR45P
-	Muh8JhKaI6ZeYXnpmvqkTQAr2R3kLXnUf1eXWAQE5c6/Ko2nFlYzoSkjan/F7mTr
-	K1jKOwY3ZCze0zWbbFXkmRNRqDnq+j+SaFI6fhUOVPYVLJrSuSaR+gRYbwgmW4r2
-	W0L+mEJcXVYPvkJRe7bcB5YB8/38Ht7D3vR5TC1NQHDUso8wG8luAg1w4/qIeCl5
-	O6ptPekuWEYN7E2C78RJ5w==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582293;
+	 x=1783589493; bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=
+	NcjXP36jr3upWS9hN+FAjMOkg9AJoqH2V1/XdxVXx2FPQytKW5D3LEdp5rrLr0vz
+	HRMvhIrdQIHfK/4E5WxY8MqJsfaIccn483PTiP6SjKEcqiiSnuhMnnP6fYo6LP/t
+	wJgvblgDbNy3uKytHHw9IQpJVtHXDaG3wVb4N+8tqcGIvPRu1n9CD594Qx/3iMoL
+	VsVjnqNnH8cuX/Eazj0B8ml2F0eKXa1Xox6VRx6JLeAlGlc/d0yFqOWu8ePjyrqT
+	51XuIuvTNLN7K0+YCabxcDylDRr2TE6vqivL0D5yop+VclYMXa9O7GlbQ6pgBnqA
+	/3nbJWQFrmOcg0sqTozPxA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582285; x=
-	1783589485; bh=6cw29mlAkLYr8FXLoHcl6TTmhyQjc2qvZWL680Rsq4g=; b=P
-	hrDLi2K2+kxA6ICuD4ssVIsqMFYMz03Y415DTfMCVokx0SiRF3P9Bv5ozP64pAU8
-	tacpIlPVCJgQ1kAy7QhLUjjEXRX/1DA8mGdbDJ5pk65FCQIKFnrtjQmGkcaYDHNf
-	yYeLFMwmwVJwNAOS3XSCbcmP6p+iwAQi0uHiOGT5iNKnOscONSSeDR7WfIfjUs1X
-	CXPjlV5JYM9fThlgQrS+9fw0GJpj/B51+u+qpZa78HTC6k9NVuMvl8PVVjbBCmoh
-	ZQlN7JxGcrGJB5Arcu31gghIIu3yT3HpMZ6waXgyVGUlySTSllewfvtQtZiC5pmr
-	PVxoOvoc0eMQwx/rwEu5g==
-X-ME-Sender: <xms:TU5PamJkQieoP5Oist3VmcZue47XWUE2x3Z4W_GTSwcRvEXKYNK-tw>
-    <xme:TU5PajC9HeYS0i7iAj4wBoPTVDJ42YZ2PKF62GxuWzlaeLCYsKvD0Zgvl-C_tMd1X
-    0kySzMW1q7ufLkHq5hWx7ZIsOwKA_EwO3l0R0OXkeR00GFssYe2qena>
-X-ME-Received: <xmr:TU5PakS-DhOTscIlMCnG-cxHUT2emcZQ-kB6PUX-R4j7H2vQThLmR7STHWufo99CE-fvZAo9tus-JG32TDGNTgxQdix7XSifpOA>
-X-ME-Proxy-Cause: dmFkZTFDgvji+KZOYa7+nDRYV5XjpiHYyZNb+S62U1l3I0KgY+OxJTHOccc7LleD76+n6b
-    Vf0fTkznQWCQtUJWgIlosDWTwuMIFaBxPt3fTu/P9Cx41Cuvrk6EyPr+NNfcbSVCPT3+Dc
-    C6efMtdHDRJF5NN4unR+Llnrm9yKKGkxbNssZuc0MV99+GgEHaiE4b6Jv7DPfedmhEtrjl
-    UIJxXa0C0eF7kFlLWMf7rGql7KQXWx+/7Zo6i0e6y7H1udqz2uSFZ55rFZXpgMXMistz7D
-    Zk29AuVpkBQ7eIeXTsIe1jlElcCjhKZ98d11EqdTlN+SxLlaQ0qYrg2hFiC7rk7Z0xHush
-    K9qxGA9r9bA+DJsK+gvEQJDyEf/Nje3JyMT30TO/jD0s1jUq64OZA3eH2rX/baT9aV07uW
-    /0N+FyM9wWpP0OQp/HyxcNnogudiUmrJVF2x+5mz0vn0or/bvBKyNGRHknV5jd6LctLRrs
-    NreWOgvHxQuVgqrQhAqREE5mmN3QNL50aEvYQ9IYE185+CNuQXUwyhUVuhpB3YwemTtuVR
-    W7fSDVX8syzj1Zwup62/44G1m/o5QyKXuhvTr2/+ViUz44giVbKmsoK0DcYYrLyhtZgveR
-    pWsBextCNl2jhgbpBOKAcsAzCjzYtCxR/ikUDb5WDopHK7EDMtm8jgmNopqw
-X-ME-Proxy: <xmx:TU5Patfqisel_f6GRr2GzkmMrd_mM3Q6uYJ1Zyy0itvvSkJxJer2pA>
-    <xmx:TU5PasiAn1EusVAMJPuMW64NfAwrg0HxBnQ-1KVZy5i-CZ7swB3WuA>
-    <xmx:TU5Pao_MJwVNMtJuQoUAh4kLwGksACxVfuy7P9PRVJrkhmFz-HoCWg>
-    <xmx:TU5PasnSS9IQrhEl89kNqE-pAWvYUd6VkGkmmUMIdqYK9WPKX8MBOA>
-    <xmx:TU5PanYmakzPKwNq4cqhSN0xrpn3o7hTRmvlzhBLatIZEAe_nc37rfPh>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582293; x=
+	1783589493; bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=E
+	fOYLRLABOf1jQaS0RUJ1Tra54OMvskUxlTA9lIszIsRAprkn6dG/ZIXmkFrC1cUz
+	MyzhHM4oVNbVwHFakRFz1uoREeU4zwSWYUsJvA3fjmMc1LsciP2lSG2aZWk2MkJZ
+	Vzu1kbTYZHC86R6JhglcIA9BnJtg/TXheP3PEkiwl2sTOqlGtD1bOvp7v8Jbi2aY
+	xh9wBc74wbvIGIGpcbTrMqNeE62MiNYtpCsLenTw45m9B6hgVq3L3/z2VO7wKtfx
+	gfn5n2nCGavuxuLRkJUr6p7IMtSpD7S60NyT4cqqTHdfSJmX+10Xxx4A1ypFcMUb
+	F1OPVLawmrMANTjOElnhg==
+X-ME-Sender: <xms:VU5PaqiPjSioJ9Cshf_s5uppcfWRYnQt9sqpF1oRTq0f3aXUFzH50w>
+    <xme:VU5Pav4NiJQ0LnOc2Fz2Z7TNbdCUQpA8OGtR-qQpQHxdHldVXUt1cI9QaO-N-zzos
+    yZgMc44twHPiIci0tDNYhxQVAtH0ytSjKhriBW8q1QQzhQBA5ENyV8>
+X-ME-Received: <xmr:VU5Pavo51PzPcIYOVzxHcuSsO5CdJu_ZZEjmXrLA03k6cw2axAMn4jp8IjVov1qhzLYKn-tB1XheEOzPTRWJHnajhFSSsLijWu8>
+X-ME-Proxy-Cause: dmFkZTGTDz8RTLhItPbFFd+gcnt5D2cnrDrA9F0Bu4iuiJUOABQ/t6OEIghgd/I7rUj0fu
+    DyRTW0vng3TTYmRifDkSqezpta5UmBqSTxduanIbo/irNS/7zSwkm3liyg6HqibupBIxF4
+    qaBZR4W3LUq0RAzlY7KFquqnRzToKaRax/SSlc/VeNsQ8Ii2ifFnWadAhB/GXoVH5qtbmM
+    7/xAVskeXjkTi/OSNh3fcUFwygXTI3pwsAhkGvaFtWofwSFRarcsFBxFMXD/PBZqIdLBgS
+    sA8WGpz+BiJMX3wwD4hYH+vVlcJ5WzOfGtR1yboz7lR9X0/+HB2hbuocXq1tPn379K9mSh
+    Uvs+ZwJTatqycpHD9Gv0grUb7P5xPTWsWCSaxCTBMdDcrUxI1N8iW5piy/eutEFJFNddXU
+    u447zJvK9glK0RWRRoVpl84pUfBruFhm1k3sDVG0Vf/CaW0cdqGrIBN0jUXhYTS/VuXU4O
+    qIBAruU1FEjSc8tFf1W3MW7Prq84veqXedQovzbqIdf7hjcebbFakK1hj+VuCFCqT7Hh+7
+    KoQlb+3lg3it5XU/8Lx1Zs/v6zKUiM2zrfrv7VmlkkyeW+BMzLmWYzqowr0Vd9l0I5bez0
+    V1qQQUAR+L8/CoKj3u93ey8OuhcA+Q5D6ap4NGocXVcL+F30S/2zDAOnLVZw
+X-ME-Proxy: <xmx:VU5PalUbjp0wqBR5BVwEKBpG9dLZXA3QTbWvYjy6f0DqnCo_tq23Ow>
+    <xmx:VU5Pam5atEa3IxCCMz6i_Vcg7mTDT-X_SytnPOwrJhY1g930ypEOTA>
+    <xmx:VU5Paj2cm7MTacsk62FqTZPz2WG4WDd-a1gTVcW_aDizZcjZOlqcuA>
+    <xmx:VU5Pat-TmX6-3VMQwNZiSyyVgpD8auGfzayfM6V9OaLFMlEcYy3uxQ>
+    <xmx:VU5PagT_NqOhuhEyOEFhF_WQBfXhgj-sAN_scZwnD4BCuW8kW5BBaLlU>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Jul 2026 03:31:24 -0400 (EDT)
+ 9 Jul 2026 03:31:33 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Thu, 09 Jul 2026 09:30:51 +0200
-Subject: [PATCH 05/11] dt-bindings: power: apple,pmgr-pwrstate: Add t6030
- and t6031 compatibles
+Date: Thu, 09 Jul 2026 09:30:55 +0200
+Subject: [PATCH 09/11] dt-bindings: pwm: apple,s5l-fpwm: Add t6030 and
+ t6031 compatibles
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-apple-t603x-initial-devices-v1-5-55b305833123@jannau.net>
+Message-Id: <20260709-apple-t603x-initial-devices-v1-9-55b305833123@jannau.net>
 References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 In-Reply-To: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
@@ -102,17 +102,17 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=994; i=j@jannau.net;
- h=from:subject:message-id; bh=6j04J5ZsMYC1glEYGPI5SeONi9pfivKJ6lbbwpnFQEk=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/P9tbgefVVBZPCFsibOmfd+rOtnb2kJPzPSw3W2Zfn
- 8v8ZlNDx0QWBjEuBksxRZYk7ZcdDKtrFGNqH4TBzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
- RjrGOkYMXJwCMNUGnIwMvf5TlF6V5sjNsHu8T/xuePXc1JwTP0O+HG7iWTi7tbOnl5Ghy17vlvD
- x1RZlC9ztBCPqpcTtLq7cGTrt0GZNzcfaE3bzAQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=915; i=j@jannau.net;
+ h=from:subject:message-id; bh=Ppfdy02YJ5CZLZtqqh7kewhrMf6+EmjK3Cy3GA55q3o=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/P3sT456O+JXSP42lPPimx0hkya04HcQW/7p1TZLf/
+ 8VNBZkdE1kYxLgYLMUUWZK0X3YwrK5RjKl9EAYzh5UJZIi0SAMDELAw8OUm5pUa6RjpmWob6hka
+ 6RjrGDFwcQrAVEdGM/z3Nlx2P3HB7lueyoLqU1daf/OaIWVf7qZ5Nk1qjgBb/VxzRoa/OwRfTir
+ vCjnqpG38xMnyQXvu4xUXXnUuD5Vmjcw5Op0JAA==
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003130_875941_29442C74 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20260709_003139_949961_959E964A 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,27 +128,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pmgr-powerstate registers on Apple M3 Pro, Max and Ultra SoCs are
-compatible with "apple,t8103-pmgr-pwrstate". Add
-"apple,t6030-pmgr-pwrstate" for M3 Pro and "apple,t6030-pmgr-pwrstate"
-for M3 Max and Ultra as per-SoC compatibles.
+The PWM controller on Apple silicon M3 Pro, Max and Ultra SoCs is
+compatible with the t8103 (M1) one. Add "apple,t6030-pinctrl" for M3 Pro
+and "apple,t6031-pinctrl" for M3 Max and Ultra as per-SoC compatibles.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 2 ++
+ Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-index c9be097cfba0..e269f433524e 100644
---- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-+++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-@@ -45,6 +45,8 @@ properties:
-       - items:
-           - enum:
-               - apple,t6020-pmgr-pwrstate
-+              - apple,t6030-pmgr-pwrstate
-+              - apple,t6031-pmgr-pwrstate
-               - apple,t8122-pmgr-pwrstate
-           - const: apple,t8103-pmgr-pwrstate
+diff --git a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+index 25ef04b60ca1..dd95037ea5ee 100644
+--- a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+@@ -21,6 +21,8 @@ properties:
+           - apple,t8122-fpwm
+           - apple,t6000-fpwm
+           - apple,t6020-fpwm
++          - apple,t6030-fpwm
++          - apple,t6031-fpwm
+       - const: apple,s5l-fpwm
  
+   reg:
 
 -- 
 2.54.0
