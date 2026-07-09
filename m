@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A80C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A746C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fV6MbZxaEIWb8I6xAjF/w/nGojtb3KKFpIcUzJkXR4g=; b=ujAZ/lbOcygR9EiVe0iE7WZaIp
-	N6GyGY5OwXDvydADis0HxTiZUhyxFJxGY7aOFd4Mi8Wa0mkmPZoS98ta36OKII4VsyJGupAsx6LXO
-	+yKnfKzLn1s58Hq0N/siqF02wziF6FRDq7Z5j0bOW83byqP9ejHg0Ud7ZUMW3+DytoMIIdfVq5hkK
-	nQTXValMIZ+wTNMo8q6u1oQY/S64xhFPC/Lus83WRBFWh1zgB83Gqi1xxaKG4Al933c52H+IUxEKf
-	JfmSfFZDCDiPFyaaGdMpObec5QBduDpDKlFjf6BpwTEZoy6GnsA9Xl0+JR1quq+dLEi5H12NoXj3c
-	1ne42Ytg==;
+	bh=FjxUpCh3UV4T1LBVAzv7OZK7wAlK818T02sqq8fvTHI=; b=uZqX7r6cnZRlzY9g7qLvxUrHQF
+	ZJqpE38rf5PIf8cALzX1rD+aHpEqmFbaoSfhiQ6c9Ps46YGqm6t/kdms3mhgI38vZN7uUgGri66x2
+	85jL+wpUh/PczNKINlDhmolxcE6haPEPa1sSgbHS+ktXSVGZQO4yHRhoVn7cBQt5JvtDrzO+dae1n
+	js2k+aunbodEFrBJfInytXUZh9xD8jMOXUDmAWjTLgMtx6b2BF0Upx2p/EDMPyxluVu8+mOWNLY3v
+	YyMOQCIwGiVes3Dp4zArJjxDb+bUHOwp4TEjNfKsGygSGvatjgBRwDC2385E3ObRYOBhgms9+2xi7
+	glYOC9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpM5-00000002hTH-22YK;
+	id 1whpM5-00000002hTj-2cYY;
 	Thu, 09 Jul 2026 14:03:57 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpM1-00000002hR6-2mdi;
+	id 1whpM2-00000002hRR-1VEO;
 	Thu, 09 Jul 2026 14:03:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783605831;
-	bh=UZ3PHDW4zdDEQxDflFdrx632qTOxZ6BffzUYxwD25o8=;
+	s=mail; t=1783605832;
+	bh=XjvVRfcKcK2Mimm4SQHCDuE4JbyoJqNRUTqqp0ymYHE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aonCRNv78A6rJhUU9Yelak8FMv9h3vWd6X2KAv9D+3tQKgL++k+u9a1CpDyQtYB/+
-	 WPfEDilYkS7rR5HAw0oZeMANo/AkMQmUD+CdMx8odchxfd8iqykMH9x3u6O01WUuLV
-	 jflyz1wXeIZeXc0NbPmTQmpiP6vFzyOvV3MZNIN/M4QdpxtRNASsv90LpqhEcZbsU1
-	 lAsryKztCwJVB3kbtOGk8O4D8CHnrdVJ8JDju87BwDCiwXR3eQX4GqvBU8Y8KLzWY0
-	 9msiVgM+eXtV109ZqNUaHwKCQknMsjMhj8Hy6sKk7QfaH/2X5K1hLZ26I49X8JllFT
-	 eeMV5WEPOa57g==
+	b=axxhB02KuIM+ZNdLMCoAwg37XbrA/+4D7/vcjclUz7KsivGjEIb7WTgNZ95WGZllQ
+	 CARfzVIuXiXXrZIR3MaUaxQ0UeFz2tMCrCTNum76JH/Xw4QDmMZYVkxBB0tDuALThI
+	 1AGRpetMNTrEXtmxfcyZpm09z2w1W1stT5jsp01SaMpaylROHWRRYp5Jhi4mqACUba
+	 PMbe55SuLBN9/UEo4T5d51QfQQdmHsA8B6xhn9K/OibLN/7AUrBhXRLQgI0DRy/n9a
+	 hgq24SOtA3dwAsD6LlYUeyYXOwTHfQ1n1Bd4ABmXU7vPKEFAYkUvIXgu5UvfWDc2Y9
+	 jWkJ5zkJIEKJw==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B592F17E071A;
-	Thu, 09 Jul 2026 16:03:50 +0200 (CEST)
-Message-ID: <9c128479-ff4e-43dc-a220-4653a3068e56@collabora.com>
-Date: Thu, 9 Jul 2026 16:03:50 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F1D6F17E0D33;
+	Thu, 09 Jul 2026 16:03:51 +0200 (CEST)
+Message-ID: <37250e83-39f7-4291-85e0-648c5a5c629e@collabora.com>
+Date: Thu, 9 Jul 2026 16:03:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/18] dt-bindings: clock: mediatek: regroup MT8192
+Subject: Re: [PATCH v2 07/18] dt-bindings: clock: mediatek: regroup MT8195
  dt-bindings into MT8186
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
@@ -63,14 +63,14 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  netdev@vger.kernel.org
 References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
- <20260709-mt8189-clocks-system-base-v2-6-2926da3db6cf@collabora.com>
+ <20260709-mt8189-clocks-system-base-v2-7-2926da3db6cf@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260709-mt8189-clocks-system-base-v2-6-2926da3db6cf@collabora.com>
+In-Reply-To: <20260709-mt8189-clocks-system-base-v2-7-2926da3db6cf@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_070353_858223_F38CDE25 
+X-CRM114-CacheID: sfid-20260709_070354_546805_F2022EBE 
 X-CRM114-Status: UNSURE (   6.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,7 +88,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/9/26 15:42, Louis-Alexis Eyraud wrote:
-> Regroup the MT8192 clock and system clock dt-bindings into MT8186 ones
+> Regroup the MT8195 clock and system clock dt-bindings into MT8186 ones
 > to ease maintainability and have common files for several currently
 > supported SoC or new future ones, that have the same kind of clock
 > controller design.
