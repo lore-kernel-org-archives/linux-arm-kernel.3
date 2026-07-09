@@ -4,73 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A142C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDCFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ElFNuuVHav11jlXT2tYgxUaeRfnidh0joOXtmtl3810=; b=XxYXfYsHc43ioyjpLJOsUhsa5x
-	n2tfWPm9STufzCGmpxVNHq+bjrgNdvxIsRUEJaVyDyzoTMSfiB3AK8f/GZDsFjEUysiKef9fVqT1D
-	QJqnq7riG4Z5bqX+Y4pJBL/2uDdVXE0qUPt2XoxaIIVtrRoWj9R3eBYckgM7SwuRgxangyVh826Wy
-	ZjPDvVy+Rn1LkJsQgMrkD3V5fv08/AJeBBJKSD4GyFSIAAOva8fs0annyc08ki87OM3UrSmBG6F0b
-	e1S6pTBNOGBTQgM1JcsVS30F1KY41PEnKxq1Lhs6LBhdYdJIzpgfumdC5FISgJYSV1mxeddIt1dIb
-	/XaJlNbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYjxNYVwQUH+tnwHGdXumKGXm34E00c2T8jSHKpsEzQ=; b=Y1Qg7R2uyryyiK55XwChmoEBCu
+	gxHnp1ZKcR+563h1JsVdUvwfjPaOfc7yxo0nWht5RKC/CRWZaHInnqzK5qG4UHfQvUDXckpsC3r6P
+	rJLQR766t1F2sZeM49wQrhgL8O1KAXi8t9iRiF8lfPZ9TScp8MbqJMSYLEgKOEBmMDWSsvtA3SO5m
+	I8WkoyWS7wb7cIGOhw301jOf6N3nrOziFJXXlpkTo2leVMzVy1Ru/afAtjXtMRvsVn7DsCh6p1R2Y
+	tb0XSR16wUGI99HCONj+GjkdIN7VNzcVQ9zBI4u7rS89rfkVdQxVUOnWwPJYIKR48BsWziaOC7O+t
+	HlzQrIFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlTq-00000001oFt-3jxX;
-	Thu, 09 Jul 2026 09:55:42 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1whlUx-00000001oQq-0HaG;
+	Thu, 09 Jul 2026 09:56:51 +0000
+Received: from mail-westus3azon11012039.outbound.protection.outlook.com ([40.107.209.39] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlTn-00000001oEz-1gNK
+	id 1whlUt-00000001oPd-2W7J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:55:41 +0000
-Content-Type: text/plain;
-	charset=utf-8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783590936;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ElFNuuVHav11jlXT2tYgxUaeRfnidh0joOXtmtl3810=;
-	b=gs/boVWvqp9saHyn5lfka+F54TUV/ESt2lma5lx2+y3wAuHWuvFi8z8bUd7lGvjGqMTCTw
-	xmyeNZXZVYS0vLdnhlkQE8ah/XNhliWvKtBS4t+A2AvfTLx7qZAXMayb6YYeJvnPl9Rsen
-	rIc9SKpxCht6wdPhAZK/YmtdlttInOc=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <CADrL8HVkrojXbBuEX-W=UHBmyyFzqxdGBvtAoPP53SyYa10uag@mail.gmail.com>
-Date: Thu, 9 Jul 2026 17:54:45 +0800
-Cc: Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <ABB70C2A-316E-4C19-A855-C9920BE105E1@linux.dev>
-References: <20260708031129.3503195-1-jthoughton@google.com>
- <FC9E78F0-8FF7-44AF-A848-8401B4702488@linux.dev>
- <CADrL8HVkrojXbBuEX-W=UHBmyyFzqxdGBvtAoPP53SyYa10uag@mail.gmail.com>
-To: James Houghton <jthoughton@google.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 09 Jul 2026 09:56:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZO7POv29WoJGOOCIGKhYmJbQt39MlIEQ5yTNQJzRnFm7BzBeW4rmK63Tqw0uGxgBpNxezHBXW1WqY9guJUCGazivJ5ipu+ELSEZLFYRRtCmNm+2BSd/w6sVolrRvIMAc3jSHaWuyKAby8eCN6yhlAZ0xDy85F/aJB6Q/tiUfPxnrsb9R91zHYTZmXMooUPhR3zegttmBt5+vciTIR7kPCLDr515LStHzGLMkZ4HBQfuSd9mlfaURuctmBp30oNonlvNVAVOkBRNSLgnLOShWX+wf4PV+SCOpEcgH9hl5kNKUWHRuMwGYcVx4n8ESRDBW5RQA2bABulVcqbIovt7dbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KYjxNYVwQUH+tnwHGdXumKGXm34E00c2T8jSHKpsEzQ=;
+ b=NUzWVLXXKwEYo5RZr6TqdIoYgSGHg5s4XDWThrbMz/EhNoo3LfjpTSOWv4xNfIq7UqBetgw2pwz/piFEOVVQK4CJ+WfbUK03K+r/mMKz4q4cUSfgU/yMMrODU3acdhYN1Ipc26Ad1vANNFlggfe1F0EkSPeRDhfOvtF5C910KX1SgfazEI6bvSfhL3cCYYukBATw1XgxXAsQxm5PdyVXyMA02pZCwnVIhI5KWO7DSxuGx+eX7Nzag+dpqAcYAOqtDHzFjS0fF5sr1OtWnhlBDE/lmR8js/8bprKgDoe6zu3SKQ/Im2CBL7FLdnK91rk8bzPPXw7PFiCZHXd5h9Oyhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KYjxNYVwQUH+tnwHGdXumKGXm34E00c2T8jSHKpsEzQ=;
+ b=hp2RDbO0MrRRASsrNu5aloz7FoRxkCwAoFKO6daXe/6l4ZcZ3Xsz2hkXuLF79Lrh3mpPbEl1g6j7/FS8nuKpC/BHtjIkjC6M2BZSaW6BQ4fpbu765oKBR3dmm9bUY1qWFM6awKiiXBnfYOQKzSI+CV+PiqDaC69t+wdSn+tp6CVrY6oRJqe0K/7hCnD1lNo397/4hrDkiASpqxsSLm/qBZma8cqAuf+n0WXWRWu5kg4hxFZ0K+wlG9oorx7shZ4L9jR6rNGpqnYhBAgNJ7F3Sl+fUdwx6NSw87W3TQTMhGoSsdzrek9DeNrpCzisho12y+OZpLFCQV+g3SikfsNAJQ==
+Received: from BY3PR03CA0002.namprd03.prod.outlook.com (2603:10b6:a03:39a::7)
+ by CH2PR12MB4311.namprd12.prod.outlook.com (2603:10b6:610:a8::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Thu, 9 Jul
+ 2026 09:56:40 +0000
+Received: from SJ5PEPF000001F7.namprd05.prod.outlook.com
+ (2603:10b6:a03:39a::4) by BY3PR03CA0002.outlook.office365.com
+ (2603:10b6:a03:39a::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.11 via Frontend Transport; Thu, 9
+ Jul 2026 09:56:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001F7.mail.protection.outlook.com (10.167.242.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 09:56:39 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Jul
+ 2026 02:56:19 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Jul
+ 2026 02:56:19 -0700
+Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
+ mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via
+ Frontend Transport; Thu, 9 Jul 2026 02:56:19 -0700
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+CC: <linux-tegra@vger.kernel.org>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>
+Subject: [PATCH v5 3/3] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat workaround on Tegra264
+Date: Thu, 9 Jul 2026 09:56:09 +0000
+Message-ID: <20260709095613.831769-3-amhetre@nvidia.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260709095613.831769-1-amhetre@nvidia.com>
+References: <20260709095613.831769-1-amhetre@nvidia.com>
+MIME-Version: 1.0
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F7:EE_|CH2PR12MB4311:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd0faed1-7e75-4109-874d-08dedda05f9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|23010399003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: LlUdCzaWDsKVIIisUyKfDLJxzNk+ZEtbFA5KM1o2oe0XprhKFotGXn/5A/1Ohv7OpkeZQGaYyP5l1/3z7oP7fVu4NK2EsQ4NrYo0/AnmSOOHAs1bxARxvWgneY1jZ+9QRzFrhFsROiD61ggh4RYtrNN8GIyc322YDZOXSlML2wN5uhGBBY2H6lJIu9IrUigc/W4luSkGW6I4FnPCiCLrPNCSvfeku5PL0vvw3H3w6k7PJ+HLwPu4Gbq9MZsJ0yDFTs0JvZlINMGqzWhI2U6ST02cu3sU+8+PncEmYz/JwOk8vlm7H6pR0eT4uuZGvI+UTzolAEAJdYDZxR6RoQHsgehGcScwu33xu0vop6coE6nH0FRtpx0+VdGsgD9z/+A6nKRw3FOw9fCmISmJqHB9+UGm8MAPbgMKWoCcNtDijSAOoFl8WLmhQqmPKvz+q5ajlP+81dC0BKNokp14JJOGq/+DE8TtLOqOtGSAJWtKJrv26hJjFklH5V8C8F0ZN75QsK9RgEGAApVVCG5AMc791ZozAqJOLc+yE8BGhHdKSWD+wrWheZk4BFprBsE4ZRbnAFf5LL0ArA9LsaieCcxsEpXLNZqyZfsmAPWTmyFEUY42AMlawxx2VUmNbmXyyJ0P4iLPOyqFH89D3F+vFSwmzPKjNJpkmWBSNPnPkQEZh3wSGasNUhUeJD4LpXMS/9VDWgHPYuteKjFwlilaJyYd7A==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(23010399003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ZSQqVpa4/bIlZCn362OQMpjyMNG+Kem0sPOyBpaSVS7wWKcRiX1m2r2u6aazl/m8ZdokmwF0LH+ObsaqnJG4XbuqpIESXspFJiUKtoZCp/HM66owJB+IsScY2MuCuR0ze5mv6HRJshr9Ftxk7fK+Jzkvra3GGF7b4zo6x3VLOh/+jIUddFeOHNy7AGFGRCgti7xRjKw2oIVHGCbfZyEwNe794pqlnDAVpK2iTkYoJI4gRZC8U/nSxztVf0K0u1rChG4TX/+TFXK47tULFcjl7ziA0Nyj5pRe/Z18utqfAf+QmC4rryvGzQZFkUWehTXgkaN47kagvQ9Ve9C1h9rz+Uylyh6V/qckaaTkLcgO7LX7Sg0k+c0goN5SBpcqQazjvk3tadJM7VTzLrqx2V1n+YpnuD0Dw8SU4OVwL7XlFx24LNnsYcy+X/cDBuMUdHJ8
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 09:56:39.9374
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd0faed1-7e75-4109-874d-08dedda05f9c
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4311
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_025540_537967_86B93A2A 
-X-CRM114-Status: GOOD (  40.60  )
+X-CRM114-CacheID: sfid-20260709_025647_640490_63A46893 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,203 +130,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Nvidia Tegra264 SMMU is affected by an erratum where a TLB entry can
+survive an invalidation that races with concurrent traffic targeting
+the same entry. The hardware-recommended software workaround is to
+issue every CFGI/TLBI command (each followed by CMD_SYNC) twice, and
+that infrastructure is already in place behind
+arm_smmu_erratum_repeat_tlbi_cfgi_key.
 
+Neither IDR nor IIDR flags this Tegra264-specific bug, so hardware
+detection is not possible. Tegra264 is device-tree-only (no ACPI/IORT
+support) and already has a dedicated "nvidia,tegra264-smmu" compatible,
+so DT-probe is the only viable detection path.
 
-> On Jul 9, 2026, at 00:49, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> On Wed, Jul 8, 2026 at 1:41=E2=80=AFAM Muchun Song =
-<muchun.song@linux.dev> wrote:
->>> On Jul 8, 2026, at 11:11, James Houghton <jthoughton@google.com> =
-wrote:
->>>=20
->>> Hi everyone,
->>>=20
->>> This patch series uses a trick with the Access Flag on CPUs that =
-support
->>> hardware update of the AF to update vmemmap page table entries =
-without
->>> introducing a time window where CPUs accessing the vmemmap might =
-fault.
->>>=20
->>> By avoiding faults, the HugeTLB vmemmap optimization (HVO) can be
->>> implemented correctly on arm64 in a much more straightforward way =
-than
->>> previously attempted, most recently here[1] (please see [1] for a
->>> breakdown of the other approaches attempted before).
->>=20
->> Hi,
->>=20
->> Thanks for your ongoing efforts on supporting HVO on arm64. This is =
-truly
->> one of the most useful features that arm64 has been missing for a =
-while.
->=20
-> Hi Muchun,
+Enable the workaround on instances matching the existing
+"nvidia,tegra264-smmu" compatible by calling static_branch_enable() on
+arm_smmu_erratum_repeat_tlbi_cfgi_key. Document the erratum in
+Documentation/arch/arm64/silicon-errata.rst.
 
-Hi,
+Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst | 2 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 +++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
->=20
-> Thanks for taking a look so quickly. :)
->=20
->>>=20
->>> For large-memory systems that allocate most of their available =
-memory to
->>> HugeTLB, HVO saves a huge amount of memory (1.5% of system memory).
->>>=20
->>> This series has four parts:
->>> 1. Some preparatory changes (patches 1-3)
->>> 1. Bare minimum HVO support (patches 4-10)
->>=20
->> It looks like there is a typo in the number here.
->=20
-> Oh yes, so there is. I'll fix it in the next version of the cover =
-letter.
->=20
->>> 2. Drop BBML2_NOABORT requirement for HVO (patches 11-13)
->>> 3. Drop the user-configurable Kconfig for HVO (patches 14-18)
->>>=20
->>> Parts 3 and 4 are technically optional. More details below.
->>>=20
->>> The main functional caveat with this series is that bootmem HugeTLB
->>> pages are not "pre-HVOed". They will be HVOed, but because at =
-pre-HVO
->>> time SMP CPUs have not been enabled, we cannot query for full system
->>> support.
->>=20
->> Do you mean that the support for AF might vary across different CPUs?
->> I'm not that familiar with arm64, so it seems a bit strange to me =
-that
->> such basic hardware features can differ so much from one CPU to =
-another.
->=20
-> Yes, hardware updates of the Access Flag is a per-CPU feature. It is
-> available for a CPU to use if TCR_EL1.HA is set. TCR_EL1 is a system
-> register; each CPU has its own. (Linux will always enable HW AF for a
-> CPU when it is onlined[1] if support is advertised, so we simply need
-> to check if support is advertised to know that it is in fact enabled.)
->=20
-> These days it is not uncommon for a system to have two (or more?)
-> different core implementations, like with "fast" cores and "efficient"
-> cores.
->=20
-> [1] See the CONFIG_ARM64_HW_AFDBM bits in arch/arm64/mm/proc.S
-
-Thanks for your detailed explanation. When enabling HVO via the cmdline,
-can we simply prevent CPUs that do not support AF from coming online?
-Would implementing it this way be much simpler? In practice, developers
-definitely know whether the current system is suitable for enabling HVO.
-If some CPUs do not support AF, they would just need to evaluate the
-trade-off between memory savings and having fewer online CPUs than =
-expected.
-
-For scenarios where HVO is enabled via sysctl, we simply need to check
-if all CPUs support AF. If any do not, the system should return an =
-error.
-
-Then, we can proceed with the Pre-HVO.
-
->=20
->>> This series is based on 7.2-rc2 (0e35b9b6ec0f).
->>>=20
->>> This series almost 100% cleanly applies to mm-new, which has some of
->>> Muchun's HVO patches, with one trivial conflict. I imagine this =
-series
->>> will conflict pretty heavily with some of Muchun's other patches[2].
->>=20
->> You know, as we iterate on HVO, the codebase is becoming increasingly
->> complex and difficult to maintain. Aside from the work in [2] that =
-you
->> mentioned, I actually have some local patches aimed at refactoring
->> hugetlb_vmemmap.c as well to reduce this maintenance complexity. I =
-really
->> want to avoid piling more code on top of it right now, as that would
->> only make things worse.
->>=20
->> Therefore, my personal suggestion is that if this approach is
->> theoretically validated on arm64, it it better to wait until the HVO
->> refactoring is complete, and then review your work based on the clean
->> codebase. For now, what we need to focus on is evaluating the =
-feasibility
->> and soundness of the approach itself. What do you think?
->=20
-> I agree. The first order of business should be for the Arm folks to
-> tell me if they think this approach is unsound (though I've been
-> chatting with Will about this for quite some time :)).
->=20
-> I'm happy to rebase on top of your refactoring work when it is ready.
->=20
->>>=20
->>> -- The AF trick --
->>>=20
->>> The trick is that translations with the AF unset cannot be cached in =
-the
->>> TLB (see Rule R_DWZCQ in the Arm ARM), so they can be atomically =
-updated
->>> without needing a full break-before-make sequence.
->>>=20
->>> So the PTE update sequence becomes:
->>> 1. Atomically clear the AF on the existing PTE.
->>> 2. Invalidate the TLB.
->>> 3. cmpxchg the AF=3D0 PTE with the new PTE. If this fails, goto 1.
->>>=20
->>> If there is a CPU on the system that does not support hardware =
-access
->>> flag updates, clearing the AF is problematic, as those CPUs might =
-fault
->>> on the vmemmap usage. Therefore, HVO compatbility checks all CPUs =
-for HW
->>> AF updates.
->>=20
->> Sorry, I am not familiar with arm64, so I will leave it to the arm64
->> maintainers (or experts) to verify the feasibility here. Once the =
-viability
->> of the approach is confirmed, I will look into the HVO-related =
-implementation
->> details and consider how to support this feature on top of the =
-refactored
->> code in the future.
->=20
-> Sounds good, thanks Muchun.
->=20
-> I'm hoping you can look at patches 1-3 anyway. I think they're the
-> right thing to do, even without the arm64 changes.
-
-Yes, I've looked it over. I think that making modifications across
-several areas will be much simpler on top of my refactored codebase.
-For example:
-
- - In patch 2: There is no longer a need to move vmemmap_get_tail().
- - In patch 3: Handling partially-HVOed pages becomes straightforward
-               because vmemmap_restore_pte() no longer relies on
-               ->vmemmap_tail to detect whether a restoration is needed.
- - In patch 4: I have updated the ->remap_pte callback to return an int
-               as well, making it easy to adapt your changes.
-
-Overall, the implementation is significantly cleaner, so I won't list
-every detail here.
-
-Muchun,
-Thanks.
-
->=20
->>> -- Application to HVO --
->>>=20
->>> HVO relies on the following page table transitions:
->>> - When enabling HVO for a page, PMD block entries in the vmemmap are
->>>   shattered into PMD table entries. The first PTE remains mapped
->>>   normally (RW mapping to a real page of struct pages), but the
->>>   remaining PTEs in the vmemmap are mapped read-only to a shared
->>>   page of struct pages (that is, there is an OA change and a
->>>   permissions change).
->>=20
->> Just to clarify, does OA mean Output Address? Please spell it out for
->> readers who are less familiar with this context.
->=20
-> That's right, sorry about that. I'll spell it out more clearly in
-> future versions of the series.
->=20
-> Thanks, Muchun!
-
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 014aa1c215a1..076b3947d259 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -312,6 +312,8 @@ stable kernels.
+ |                |                 | T241-MPAM-4,    |                             |
+ |                |                 | T241-MPAM-6     |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| NVIDIA         | T264 SMMU       | T264-SMMU-3     | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 15b9d0170520..edb7a5d38cf9 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -5331,8 +5331,10 @@ static int arm_smmu_device_dt_probe(struct platform_device *pdev,
+ 	if (of_dma_is_coherent(dev->of_node))
+ 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+ 
+-	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu"))
++	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu")) {
+ 		tegra_cmdqv_dt_probe(dev->of_node, smmu);
++		static_branch_enable(&arm_smmu_erratum_repeat_tlbi_cfgi_key);
++	}
+ 
+ 	return ret;
+ }
+-- 
+2.50.1
 
 
