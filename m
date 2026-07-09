@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97450C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71BBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 03:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPzUjVYeTGVy0p5nTu0E1LwAP36Ua88/dAXmfMtmXgg=; b=OTnrbGYb6oHb1pIzlhPOI4/2pv
-	McAEN3utdvFlwdy7YXRjgG6+L6NID5Y6GHS13XtOuARs/K2OJDq3A9s9T+Uu87kTxEy5wAbkcot5P
-	/rMgSjPWf8SvpAxsTcMG+NGKDxva6EGKmYcdSJ41hB3XXAJcY7HK9PpsyrygYYiBTj9i88BQ8ubJz
-	VxHkm0dBrXO4KZp1L8liRp5bOMEz3TvtRFISnpLJV8wQ2ZHkiA9xnnwgOcgsOWCfsOq1JVCxtBJEC
-	93u+E4UxKlFewoyjReh/0n1zN5nx78DsWT0AG02tKQPLSzrkoHoWMXNz/ptY3xrJlAUczDf7fK3D0
-	5QokTkvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y33sl6LlKQwmsMxpToD1qauD4dOYyjLtnlR4y1Y+rgA=; b=LN9IZu0nWvx7OmioHWAPPLI0M1
+	xy4zdHG+0LWiEYBLxu3+CjYbiy3VoywMHqOnIGnBnn+6mZ3JkffNtEmysdg0D8H3TcKznxiAXzQS7
+	jlzQSY0H+NKTLt0R7i71vyYjDjsaGWwCOk3V6JrxDQQ0Av/1/RRxIqAeVrpLPbWUFpw69h29gOzvf
+	V4Tbv6PwgV2P7ytfUm8EWnWpmovSH6FYhFWPcPFkgUcOs0reBWBHakihj+j3gGtetEfZIRjQMtIRq
+	UuTOPASlLFv+FXf21iK/gAyD2vNoAyMvySKc7H+MLREkvXcmW/JeAsNt6L/wYqTASk0B5Rx+LgdBA
+	Iq4Dt+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whegc-00000000rD7-19F5;
-	Thu, 09 Jul 2026 02:40:26 +0000
-Received: from m16.mail.126.com ([220.197.31.6])
+	id 1whfQN-00000000tWd-3uv2;
+	Thu, 09 Jul 2026 03:27:43 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whegZ-00000000rB0-0GBI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 02:40:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=Message-ID:Date:From:MIME-Version:To:Subject:
-	Content-Type; bh=zPzUjVYeTGVy0p5nTu0E1LwAP36Ua88/dAXmfMtmXgg=;
-	b=W04D3AYDk7sFoPiHa+PV8e+zfacdmjnjWg/9sWyINApP/QihEQVfqN8dojbKek
-	YDuJ9uy9B3Mt+g4MGrNgcyTQDEcx+uyE6Jcs3ocbpYsNao+Hy7UAVxbD2gXs2vaw
-	w4SpFujtnuCBegGhgXSEC5kWCm+oL5aUTgXbaUkZ+fl3k=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDnL0z5CU9qxiduDA--.8579S2;
-	Thu, 09 Jul 2026 10:39:54 +0800 (CST)
-Message-ID: <6A4F09E8.8040807@126.com>
-Date: Thu, 09 Jul 2026 10:39:36 +0800
-From: Hongling Zeng <zhongling0719@126.com>
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Thunderbird/31.2.0
+	id 1whfQM-00000000tVC-1WAO;
+	Thu, 09 Jul 2026 03:27:43 +0000
+X-UUID: 21ef83527b4611f1acbe4559397dec65-20260708
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=y33sl6LlKQwmsMxpToD1qauD4dOYyjLtnlR4y1Y+rgA=;
+	b=U9jxRMqmqZc8Kze8lYxPq+B72oLntXH22eAqf9PyA+Z9K/ESLCaf64iuTktu6sDAYl8XyVYgUtnxAG6Z43VcHVzrbMhQIt/F33mnT3pgNo/zED/W5dnbbU8oikHkrCMcPv3r4Vgp4YB52o2q9a9C+mdJyxactmzEy/VF7/YArDU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:ec071874-6396-4516-8560-9511f9577827,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:3cf1e618-ab14-4403-9336-76696324c5a8,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 21ef83527b4611f1acbe4559397dec65-20260708
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1218157964; Wed, 08 Jul 2026 20:27:37 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 9 Jul 2026 11:27:35 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 9 Jul 2026 11:27:35 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
+Subject: [PATCH v9 3/3] media: mediatek: jpeg: add compatible for MT8189 SoC
+Date: Thu, 9 Jul 2026 11:26:56 +0800
+Message-ID: <20260709032657.25730-4-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260709032657.25730-1-jianhua.lin@mediatek.com>
+References: <20260709032657.25730-1-jianhua.lin@mediatek.com>
 MIME-Version: 1.0
-To: Frank Li <Frank.li@oss.nxp.com>, 
- Hongling Zeng <zenghongling@kylinos.cn>
-CC: ludovic.desroches@microchip.com, vkoul@kernel.org, 
- Frank.Li@kernel.org, tudor.ambarus@linaro.org, 
- nicolas.ferre@microchip.com, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- sashiko-bot@kernel.org
-Subject: Re: [PATCH v4] dma: at_hdmac: Fix use-after-free by proper tasklet
- cleanup
-References: <20260708025959.40283-1-zenghongling@kylinos.cn> <ak7B5gxc9LrMmxO4@SMW015318>
-In-Reply-To: <ak7B5gxc9LrMmxO4@SMW015318>
-Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnL0z5CU9qxiduDA--.8579S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuF47ZFy3KrWUJF13ur4fAFb_yoWrZr4fpr
-	WUJFWYkrW0qrn09Fnruw4kua4Fva1Sqw4SgrW7Kw13A34YvrnYyFW8Cw1UWFZxAFykXr1S
-	gFZ8tFyrur1rJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j4Hq7UUUUU=
-X-Originating-IP: [112.64.161.44]
-X-CM-SenderInfo: x2kr0wpolqwiqxrzqiyswou0bp/xtbBrhruv2pPCfq6pQAA3s
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_194023_568002_AE064AB8 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260708_202742_413822_533E1BE9 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +90,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Compared to the previous generation ICs, the MT8189 uses a 34-bit IOVA
+address space (16GB) and requires a single clock configuration.
 
-在 2026年07月09日 05:32, Frank Li 写道:
-> On Wed, Jul 08, 2026 at 10:59:59AM +0800, Hongling Zeng wrote:
->> Current cleanup paths have a use-after-free vulnerability:
->> - vchan_init() creates tasklets that access at_dma_chan memory
->> - free_irq() only waits for IRQ handler, NOT tasklets
->> - atdma is devm-managed and freed after probe/remove
->> - Running tasklets accessing freed memory → Use-After-Free!
->>
->> The fix requires careful ordering:
->> - free_irq() FIRST to synchronize with running IRQ handlers and prevent
->>    them from scheduling new tasklets
->> - Then kill tasklets to wait for already-scheduled ones to complete
->> - Only then free other resources
->>
->> Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
->> Reported-by: sashiko-bot@kernel.org
->> Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
->> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
->>
->> ---
->> Change in v4:
->>    - Fix error path fallthrough causing double-free_irq()
->>    - Use channel iteration index (chan_id not initialized before registration)
->>    - Remove unnecessary defensive checks
->> ---
->>   drivers/dma/at_hdmac.c | 31 ++++++++++++++++++++++---------
->>   1 file changed, 22 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
->> index e5b30a57c477..044a0fb38b7a 100644
->> --- a/drivers/dma/at_hdmac.c
->> +++ b/drivers/dma/at_hdmac.c
->> @@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
->>   		cpu_relax();
->>   }
->>
->> +static void at_dma_cleanup_channels(struct at_dma *atdma)
->> +{
->> +	struct dma_chan *chan, *_chan;
->> +	int i = 0;
->> +
->> +	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
->> +			device_node) {
->> +		/* Disable interrupts */
->> +		atc_disable_chan_irq(atdma, i++);
->> +		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
->> +		list_del(&chan->device_node);
->> +	}
->> +}
->> +
->>   static int __init at_dma_probe(struct platform_device *pdev)
->>   {
->>   	struct at_dma		*atdma;
->> @@ -2105,12 +2119,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
->>   err_of_dma_controller_register:
->>   	dma_async_device_unregister(&atdma->dma_device);
->>   err_dma_async_device_register:
->> +	free_irq(platform_get_irq(pdev, 0), atdma);
->> +	at_dma_cleanup_channels(atdma);
->>   	dma_pool_destroy(atdma->memset_pool);
->> +	dma_pool_destroy(atdma->lli_pool);
->> +	goto err_clk;
-> I forget the reason why need goto here. Can you call disable_irq() or
-> disable hardware irq and call synchronize_irq() at free_irq() place. then
-> goto can fallback to below clean up code
->
-> Frank
-   Thank you for the suggestion. I've updated to v6 following your advice:
-   - Replaced free_irq() with disable_irq() to allow fallthrough without 
-goto
-   - free_irq() is now called only once at err_desc_pool_create label
-   The new approach ensures IRQ handler cannot schedule tasklets before 
-tasklet_kill(), then free_irq() handles the actual release.
+Therefore, add new compatible strings ("mediatek,mt8189-jpgenc" and
+"mediatek,mt8189-jpgdec") along with their specific driver data to
+support the JPEG encoder and decoder of the MT8189 SoC.
 
-    Please help to review again.
-Thanks!
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+---
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
->
->>   err_memset_pool_create:
->>   	dma_pool_destroy(atdma->lli_pool);
->>   err_desc_pool_create:
->>   	free_irq(platform_get_irq(pdev, 0), atdma);
->>   err_irq:
->> +err_clk:
->>   	clk_disable_unprepare(atdma->clk);
->>   	return err;
->>   }
->> @@ -2118,23 +2137,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
->>   static void at_dma_remove(struct platform_device *pdev)
->>   {
->>   	struct at_dma		*atdma = platform_get_drvdata(pdev);
->> -	struct dma_chan		*chan, *_chan;
->>
->>   	at_dma_off(atdma);
->>   	if (pdev->dev.of_node)
->>   		of_dma_controller_free(pdev->dev.of_node);
->>   	dma_async_device_unregister(&atdma->dma_device);
->>
->> -	dma_pool_destroy(atdma->memset_pool);
->> -	dma_pool_destroy(atdma->lli_pool);
->>   	free_irq(platform_get_irq(pdev, 0), atdma);
->>
->> -	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
->> -			device_node) {
->> -		/* Disable interrupts */
->> -		atc_disable_chan_irq(atdma, chan->chan_id);
->> -		list_del(&chan->device_node);
->> -	}
->> +	at_dma_cleanup_channels(atdma);
->> +	dma_pool_destroy(atdma->memset_pool);
->> +	dma_pool_destroy(atdma->lli_pool);
->>
->>   	clk_disable_unprepare(atdma->clk);
->>   }
->> --
->> 2.25.1
->>
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index d147ec483081..14f2991a4053 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1868,6 +1868,10 @@ static struct clk_bulk_data mt8173_jpeg_dec_clocks[] = {
+ 	{ .id = "jpgdec" },
+ };
+ 
++static struct clk_bulk_data mtk_jpeg_dec_clocks[] = {
++	{ .id = "jpgdec" },
++};
++
+ static const struct mtk_jpeg_variant mt8173_jpeg_drvdata = {
+ 	.clks = mt8173_jpeg_dec_clocks,
+ 	.num_clks = ARRAY_SIZE(mt8173_jpeg_dec_clocks),
+@@ -1899,6 +1903,38 @@ static const struct mtk_jpeg_variant mtk_jpeg_drvdata = {
+ 	.multi_core = false,
+ };
+ 
++static const struct mtk_jpeg_variant mtk8189_jpegenc_drvdata = {
++	.clks = mtk_jpeg_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
++	.formats = mtk_jpeg_enc_formats,
++	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
++	.qops = &mtk_jpeg_enc_qops,
++	.irq_handler = mtk_jpeg_enc_irq,
++	.hw_reset = mtk_jpeg_enc_reset,
++	.m2m_ops = &mtk_jpeg_enc_m2m_ops,
++	.dev_name = "mtk-jpeg-enc",
++	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.support_34bit = true,
++};
++
++static const struct mtk_jpeg_variant mtk8189_jpegdec_drvdata = {
++	.clks = mtk_jpeg_dec_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_dec_clocks),
++	.formats = mtk_jpeg_dec_formats,
++	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
++	.qops = &mtk_jpeg_dec_qops,
++	.irq_handler = mtk_jpeg_dec_irq,
++	.hw_reset = mtk_jpeg_dec_reset,
++	.m2m_ops = &mtk_jpeg_dec_m2m_ops,
++	.dev_name = "mtk-jpeg-dec",
++	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
++	.support_34bit = true,
++};
++
+ static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata = {
+ 	.formats = mtk_jpeg_enc_formats,
+ 	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
+@@ -1938,6 +1974,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
+ 		.compatible = "mediatek,mtk-jpgenc",
+ 		.data = &mtk_jpeg_drvdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8189-jpgenc",
++		.data = &mtk8189_jpegenc_drvdata,
++	},
++	{
++		.compatible = "mediatek,mt8189-jpgdec",
++		.data = &mtk8189_jpegdec_drvdata,
++	},
+ 	{
+ 		.compatible = "mediatek,mt8195-jpgenc",
+ 		.data = &mtk8195_jpegenc_drvdata,
+-- 
+2.45.2
 
 
