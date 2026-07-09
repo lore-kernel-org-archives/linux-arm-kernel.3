@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE322C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA08AC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7PlXoIiOCrPIQKlfbRweJ5ktznIESIxsbV+6crBLVM=; b=Op00GinRhK3NsGwyenckGI5wcG
-	OrCzYdAlrdbibqIQG4UOKMOh4uZbc+6JtdVHaipdwAwY+RmurcTiLr7E+cPIhXaJ+tmejL0zHu/4G
-	5D1Wg+NSpgUb+ex6vSudwwQJAo6jWScyDnFP+rCtxrc8Dt5jWLHfH991DNoYoEjf4Dm/p5o9oQ37g
-	1ADTIxugFlsMKxUe2KrPohy8sFmmNHRafDmrtcIzACKrdJw/BrNOzUhD/wD6y4o68NzYbH6MJaNHP
-	LQvoQkpIGVZFETPe11bPRq8DKR0cA65cFzmTfswXxcyD3WsZYPLINMXAHwOvBomwjY+k/Fz818EiT
-	h4rDA2XQ==;
+	bh=6AeTQzIzHBeFMVZbMOHIYTBm0lF6jvBV/+e/FiVKNV8=; b=C+q+HG/0os5L548jHqQ6ijoZzD
+	ix8ygoIB2Z57CNMamuyyzBhI9ToA3dmA9Vt2COdO1ZFeE/ubbF7vopwQS7saI8HZBWtUNU8z7Qs9t
+	eWITj6/ZBqko341JMUTfmsHUWR31F/Q5GtAMAmHYyAPaqz9TqxrVie5atXrhh8aKZ8+1pjQua/FwH
+	UauEAnLw9JQ4A3rJPN/+4dBsLh0nOhWHcnFh4CYBElLmYxVqj6egOdqaE3WGC5WVK/1o0CP+sPKaq
+	zCkJTMEOX5eSzJUervylEAJIqTFY0rcXrwMERJB5p2G2f/UZBwzBzBHlPXCepuraUyeL7sgR2YQ5e
+	xOv13ycQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEW-00000001HtH-0Gy4;
-	Thu, 09 Jul 2026 07:31:44 +0000
+	id 1whjEW-00000001HuA-47pQ;
+	Thu, 09 Jul 2026 07:31:45 +0000
 Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEI-00000001Hna-1mJI
+	id 1whjE8-00000001HlF-1YuM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:31:40 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id 7EAEC1380140;
-	Thu,  9 Jul 2026 03:31:27 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Thu, 09 Jul 2026 03:31:27 -0400
+	Thu, 09 Jul 2026 07:31:41 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id A0A1013800A3;
+	Thu,  9 Jul 2026 03:31:19 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 09 Jul 2026 03:31:19 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582287;
-	 x=1783589487; bh=u7PlXoIiOCrPIQKlfbRweJ5ktznIESIxsbV+6crBLVM=; b=
-	sa7Z4+uB2yhPy8EDyrVi2APYP7691CdSYOMjEiqfYbdhqe0pAlKsBoV+xaqTxI9A
-	w9yjRvmPe3fKeX74g/vPIL4hyrPG2JOb5BIl4QHsRnOwJ1RcKL+ex3+/ChlvUIXk
-	ZnimqzrAZidqkWMWelVN1+o2zmTjOqZdALUb9ulMqmZqO0e6u7XDzOYUxOjDExzW
-	QPEN9HZnOStV5/3Tcsdgh0CoffzQZhTGZZMCTZOx0G1+gF+vxKULDW9cEaLAQamt
-	fT87qp8Ox6AyZwJkXj4k4lC/2fgNdTdajsojFK7tJtgjhIA0RFxWQ61uTS1mpWXk
-	dgzZK3TBPXtzsyq0y32yxw==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582279;
+	 x=1783589479; bh=6AeTQzIzHBeFMVZbMOHIYTBm0lF6jvBV/+e/FiVKNV8=; b=
+	Hjj0fm4QY0sZpzWnVcpZPeISxW2xep7myJhp1XvNvABpE9dZZWMIS/rzEDqY7UII
+	YM2xliZOqzAoVP25Hs3eFOK8q3QpE/YIZyjzXCZ1DjPe3CkgPEK2s+fPGmXZamm9
+	q0ZqAottj3Ko4y556MJV/GJ9iLolUD9iMCgK2879XHjp7FVHR24gRE5xgtBE8Zm0
+	e2VwjtEkK57Tf+BB/K9qiiiPBAlyNDt5bQiT9GM9eWfZp3seJjqE9LSTMghGNe5B
+	IesBBQMrNPSq04vjVZdZgmDIYMiFrGRdDxrqyGN78xPVnJs/8hY/pX/16mUOmA/w
+	or+20GpO45kE2A/m4UyGQg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582287; x=
-	1783589487; bh=u7PlXoIiOCrPIQKlfbRweJ5ktznIESIxsbV+6crBLVM=; b=P
-	+9IFoSlOUQ54GDb+4js5y5Owj10xbad54ohXY7hYgxuRhdPk4GxPiZiW/let3M69
-	+nULKQXZZhMQKSszyuaRKiVbpFRflnCvFJUsk/4CW+PMdd+avNYiCefI450kvA5C
-	mZ3CyYhZ1QofLkSyFOuW+dPZt+UtBqF4PTPdx28+bK3EkGFxfPfwacN9hrqEBMw9
-	9P43tYEquel+2yP3oDpddOGf+KaLYSJPc/+VXOEEzKbEdyAycRIsKuvd9lNIX6Mo
-	1GMmt6Coy67czyj5ygwTrReCwYvp2xhESePqqvyLWzGv73w0cfycgIMyqtPJwNdm
-	tgG2usq8UjG+r/KLOV1Zg==
-X-ME-Sender: <xms:T05PagMu0KtmKKAThENdwEN38TVH3utSO9t_CPrFcSIOm6NKd9L9aQ>
-    <xme:T05Par08DzhN4w7BJKx0HrS9iGyWwH2B9qpVi_P17ba1W8Z1IdyhY4vkhHSJe9sR8
-    SJE3NC8f7v4FkpBODkjol3d28QJoX_44IEQd0L8g0qtADFjdURZTT1K>
-X-ME-Received: <xmr:T05Pak27dsuk6qqA0qZSJk2C-1uVIcG42RvRR6oKkFpG9jCIkKjNI6BGLXNKPz7MC01uRRqhU4trkUI66nSt2ZGkfpJobIh5YLE>
-X-ME-Proxy-Cause: dmFkZTFDgvji+KZOYa7+nDRYV5XjpiHYyZNb+S62U1l3I0KgY+OxJTHOccc7LleD76+n6b
-    Vf0fTkznQWCQtUJWgIlosDWTwuMIFaBxPt3fTu/P9Cx41Cuvrk6EyPr+NNfcbSVCPT3+Dc
-    C6efMtdHDRJF5NN4unR+Llnrm9yKKGkxbNssZuc0MV99+GgEHaiE4b6Jv7DPfedmhEtrjl
-    UIJxXa0C0eF7kFlLWMf7rGql7KQXWx+/7Zo6i0e6y7H1udqz2uSFZ55rFZXpgMXMistz7D
-    Zk29AuVpkBQ7eIeXTsIe1jlElcCjhKZ98d11EqdTlN+SxLlaQ0qYrg2hFiC7rk7Z0xHuex
-    96SP6TUDNib5CWq8FO9WrL/spXSXAjPCh/lp2j0A+P7U1a7Hp4bIw1eCUCiuJjmxLxkdOj
-    WLrsJ51jTsZr+Yq/yWTV07wXtJzPxaYON5PUNNTYucuLmSUTpzGnI46WyO+mEe5lokxeYy
-    r3pNxnfOd0XEOgBicDrnzjA5rsgIRVz9Bp6sperVy5pbFEyR24bk92f3iwxbmKwbh4krGc
-    RBJEv1R0Tu6DZuA3Hi2ODnVlUKTSJxDVaJX08Yz8NnarJ+820WGEVZEmtLFj+IrG9uasDS
-    uDE2jBIccG/LkGST3ztEZGNHDBRtsZ/H9F0nzR9yY7fSYSI1DHs/pZpROYIg
-X-ME-Proxy: <xmx:T05Paqy9c8v_-83UTRO0b1xxltdz9VtKqfpWFrAIhKMMu_qXjpatiw>
-    <xmx:T05PanmjiDur7PQSfmf9vpWVbkRkI0y0DdYAqL9KT1N8qwAqA9_lfw>
-    <xmx:T05PauyXwotjL1aZCXa0Al2ieGUOXyoGSd_qee5IfruvOjO59yNFwQ>
-    <xmx:T05PamL3pVRFVOnDTaLSXfRq5C6JNQUtpUUtG8gr5mDJBmbsWNiBag>
-    <xmx:T05PaqMU25wPu2t0l4cSlfHyOji2Pm5FLaoGHy8EcgQ6DHRyXXswYcET>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582279; x=
+	1783589479; bh=6AeTQzIzHBeFMVZbMOHIYTBm0lF6jvBV/+e/FiVKNV8=; b=g
+	1dYVUsOiiSmSeEIlCtS3fPdvsdZDpHTY3mowA+41IrsmbKjhVSYC8++lJO/FDraQ
+	eTL4uOfhDmvmND5j9LQGr1bEb/ZGuG3am63R9+NMyAnAYvfUnoDqUSIYAPOQO1Uo
+	AyBSWrRJg5i3VTonN2/KyE5Rb9PdKsAIhob7PNHvqV7jf5+Lwa/mPtynVZf/N5S5
+	y9FY6E74t+Zbt49n4BOxyScjWsVrsglxkMMsCabYdZ/Wx5NqHBm4pHCjK6nuHrUR
+	anoJf/exuLV8tRRgTAkfzlr9z8edHf7hs7srJtiu91eN1hzX5cVDdUt3ZKZy7SDc
+	6r0p7AgAW5H+GqBwDxZ5A==
+X-ME-Sender: <xms:R05Pao7qQ7vrdZDYHl3n1nVpcIx09AjhCch-Y0OJOmlNpk4bpIJQjA>
+    <xme:R05Pauxl3yHKP7r4hDw3K42xq436kAXF2XbBjFbLWdg1WbrW8dxkskipDuk1AerXk
+    uVQTbFpysJ7mF0czEEMX_sgEbHsE8jiFDFeFC15Uz6y3kW3suvbJ0M>
+X-ME-Received: <xmr:R05PalB-bBfrFOcdg7jVHNTYvc_giBOvpLSfC3nr3CymrDYd1fsQPHZWd1I5le-YeC2rUTxosLXmPXo5kVAP6jfe-abYAK1MKgQ>
+X-ME-Proxy-Cause: dmFkZTGYKeAHgJKVIjqCymJpihoZrEqDQaRIPCKXxcc6uiPXzJNTDc4H4LzsUaMF9MJqYB
+    2rpTe0oGhrtQRwfHcGfbJPzdaNrx81amtkEDFVv/fGamGt7vZBPR3jcucmA5JRiTwERHZr
+    8zGRG/w0d07G5jQ4PlCj5gdYeuagoIAoYXQ4A9l2tOaakbVPoRmPGeCRSKDT6z7tQH03AB
+    WTVwikV9P4YqczS+ivH9R0MDJM1iJWbkLmAFvo0DWmHZGz3C5uxbmrt35Eg98JoTPuzJKd
+    X/sNvlqMxvVsFiGXNnL3d3+h2N4QVm3ifsTcrDacstkEioZW9DpvzWMrk8s16EPWaQL8MG
+    ZAbowBZnyXLv9tsluktebIjGBtGna6618xVyGFC2mYgWtKZYeM+pQvke/silwCVX5Ge3VR
+    Kg7Kj8Nh8cDYUIV9qspbjnjh4lj6p+MECTV8TEVE6tvqhAFuyYQEyw8IdZEb5ZIBjPa1gZ
+    WXlBWiUNpUdEIxwSPN32jX/cjd/R9h/ZAJZdNRAfAMI2jSVo3IbyrUxuDz9j5CqSAQyRyD
+    dXUatib5QbK2Sn/nRYOS4ZDYNaj/5mYDPKFmi9qp85y+KyqNBDvUJbBcmacBEiptS/a9Ng
+    tA46s3a95YKozWlCKfGx9iaeADmTq467dhS8VPZ4CvI9FUXMjcNM+Ca4q/Dg
+X-ME-Proxy: <xmx:R05PavN3EFFZrZP8Px0MZ7CYRrnBHDC2msytRe7JBSHL3psr-Z7kqQ>
+    <xmx:R05ParS9EzpyT0U1QUFw4CQCdwLAwS9Uytt9uISdc7cN59Ps5dr8Pw>
+    <xmx:R05PagvF8T6U1XCYXO8T5Bovf05W1sDdqFD68WNM3GtVY5Phy7LxqA>
+    <xmx:R05PapUH2nyuuTysUxSSLPmMv9nI1t5WqKTjhUj3xRe2vx7DAlq6xg>
+    <xmx:R05ParLi3iDwZdyHU-4VrqX60O9PXzhQEEQ5vBsQQE_DaznU0tPnLn3N>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Jul 2026 03:31:26 -0400 (EDT)
+ 9 Jul 2026 03:31:18 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Thu, 09 Jul 2026 09:30:52 +0200
-Subject: [PATCH 06/11] dt-bindings: watchdog: apple,wdt: Add t6030 and
- t6031 compatibles
+Date: Thu, 09 Jul 2026 09:30:48 +0200
+Subject: [PATCH 02/11] dt-bindings: interrupt-controller: apple,aic2:
+ Invert #interrupt-cells condition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-apple-t603x-initial-devices-v1-6-55b305833123@jannau.net>
+Message-Id: <20260709-apple-t603x-initial-devices-v1-2-55b305833123@jannau.net>
 References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 In-Reply-To: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
@@ -102,17 +102,17 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=929; i=j@jannau.net;
- h=from:subject:message-id; bh=6qF9+LQf/ahNi17synXQrvJc75Sa7pH4BXwkTf4Bvf8=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/PzvFvf4XlPbuml1waZ/n29NfLCeJJ32fscjQUuY5n
- 4HoPjanjoksDGJcDJZiiixJ2i87GFbXKMbUPgiDmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
- jXSMdYwYuDgFYKpZ7Bj+qfhfCMtJfy7iULYkTHPitNUuCW0WhQwK73VPcU6dnrVbipHhkMPCqbK
- WQW+NC2u+Pdoq01+Z8uVK+Ntz5pd/fGXuqW/iBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1499; i=j@jannau.net;
+ h=from:subject:message-id; bh=yxRKZLxoxk7Y1QKVW7z6u95eMhug7tWF1IITEe6Dojg=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/P5sv6jJlRW8OS114FsP4Oqdq+9xyk8CEU6a/JBb19
+ tz4MamzYyILgxgXg6WYIkuS9ssOhtU1ijG1D8Jg5rAygQyRFmlgAAIWBr7cxLxSIx0jPVNtQz1D
+ Ix1jHSMGLk4BmOr8ZQz/M63czQqvcbPlaRyW/xFw/+W+xdKPkvhi2Gv7Hu55EHNiMSPD6XOCv3e
+ 8im49eXe7xcO7+++KTLDSvXqrNON170PbxDZBBgA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003130_820873_6F0C5D38 
-X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-CacheID: sfid-20260709_003120_929073_AEAA1C6C 
+X-CRM114-Status: UNSURE (   8.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,28 +128,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The watchdog on Apple silicon M3 Pro, Max and Ultra SoCs is compatible
-with the t8103 (M1) one. Add "apple,t6030-wdt" for M3 Pro and
-"apple,t6031-wdt" for M3 Max and Ultra as per-SoC compatibles.
+The condition for 3 or 4 #interrupt-cells list compatibles for the 3
+cells variant (not used in SoCs consisting out of multiple dies). This
+includes the AICv3 base compatible "apple,t8122-aic3". This will match
+    compatible = "apple,t6031-aic3", "apple,t8122-aic3";
+shared for M3 Max and Ultra based devices which require the additional
+interrupt cell for the die number.
+Instead list the compatibles used for multi-die SoCs explicitly and use
+4 #interrupt-cells for them.
 
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- Documentation/devicetree/bindings/watchdog/apple,wdt.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../devicetree/bindings/interrupt-controller/apple,aic2.yaml      | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-index 845b5e8b5abc..bef8255022fa 100644
---- a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-@@ -18,6 +18,8 @@ properties:
-       - items:
-           - enum:
-               - apple,t6020-wdt
-+              - apple,t6030-wdt
-+              - apple,t6031-wdt
-               - apple,t8122-wdt
-           - const: apple,t8103-wdt
-       - items:
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+index d0d9a90e96e7..a94787939d34 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+@@ -128,16 +128,16 @@ allOf:
+         compatible:
+           contains:
+             enum:
+-              - apple,t8112-aic
+-              - apple,t8122-aic3
++              - apple,t6000-aic
++              - apple,t6020-aic
+     then:
+       properties:
+         '#interrupt-cells':
+-          const: 3
++          const: 4
+     else:
+       properties:
+         '#interrupt-cells':
+-          const: 4
++          const: 3
+ 
+ examples:
+   - |
 
 -- 
 2.54.0
