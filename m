@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C05DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63584C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmsvLtE51JsvqUb4kaVyH7ncNDCmu7y58Wka6Jpy3e4=; b=35BL18GpvayDldvbWU85o7e2y2
-	Yy1Bb/Rn0+xXL4tpVwVALVm0YwVr8ghJzabQtAvARZaT1K1uUhLkkgfRHSf77KZUBzx4h44izN1uY
-	9rKMcd/IIOI0oxUxcCeh5kyp+YHuNqAkQYlMMEdwDzVHwShg3VvloYkhcHLXKQut4bZ7yWCd+2XRA
-	zkGz2Vxz2eBfdEWMLkQgWzJ5z/C3BkXfHiTLqhmTy9ab2UUnZwZraaLImsm4amIDDt6PGGg7Uxr4f
-	VdZnAqS7n0GoZZbZUKWw3iexXVIQHEsrirPZvSHEtWzI/c4KSmcvSiYuPdKcpZZH8Ump5+1TAantM
-	karJMW/A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LgYdaZ3pSMddt2a+O542LweJ/RKvDVSPl6eweVEmgdA=; b=tZWBr3YJWwN7PbHGaFoHHsm20v
+	WMKXLN7dT3x3SFXdtwOzuULKjYBsAQuvDBXN6DHZvK8v3naiVjKDOZfjYNMSJBoXmS9K+R0TTVSWm
+	GUO2TpcYc77HZS868gksjoZI8GZrwzSVQ6eTEnbDuDBX5Pcb1Inh7Ahq4dWt+ZrV7/JqZOK/BC8ic
+	CnbWcxaILoUdAena7QV7PGXqQ1+6l5ewgwj/cs5xIiFhEhwr6iTDYyPpr9loImNu9Z4C8PTWFRTxz
+	DYwfrOQ4QFQgSwChvQ0Bo50mmMQchnoN/P5N3JmWd9vn93phQReI4n1MKKH7ItWSKcIj3MxEmNors
+	nuGkugcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnZA-00000002JnO-0Y4g;
-	Thu, 09 Jul 2026 12:09:20 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnZ6-00000002Jn1-2sgK
+	id 1whndh-00000002KNN-2tet;
+	Thu, 09 Jul 2026 12:14:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whnde-00000002KM1-2eUq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:09:18 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpS84dTUBnP0KFlwfPIroCWF6IIaXEt5RcD5jO2E3jhlrj2ITHqbE0Jad9ugn14Gu2XGkEfZdk4iAiu7en3w1iD@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783598953;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BmsvLtE51JsvqUb4kaVyH7ncNDCmu7y58Wka6Jpy3e4=;
-	b=KOvnZxn7kBbhGC2+uTQkEuFpqg6dU6ZPZW8cgmKYOTwL0dGEwjIrxsTo7s1d7ITkxFNzRA
-	2xpFsqjV57CrCnZyl1eGL/6Z2c+c1HgN/IWion8oCZXLlYirPbeI+MYa7RXU0O0FlFWWMC
-	J3KlztzutcLBhaKmTlQbQc/Vkkvuqbo=
-X-Gm-Message-State: AOJu0YyMFc6mR6+7FauyjYsAz2OxQ1Kfrc1j4LM8LnUdyEk513T1MaNK
-	b2OB8NCZIVcV5lZCvu3TLBtoYMtegen3Hq+H9fLamVZ7R8PARKpqviWQcF/QM+ysQCziOwg590K
-	h9gZNR2m+Y+r0KgqkmYdKdZ1Vl1Vk3DMDroLfm/8v
-X-Received: by 2002:a05:622a:1f0d:b0:51c:d16:b48e with SMTP id
- d75a77b69052e-51c9a8c1f20mr7564121cf.22.1783598945046; Thu, 09 Jul 2026
- 05:09:05 -0700 (PDT)
+	Thu, 09 Jul 2026 12:14:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 254AA339;
+	Thu,  9 Jul 2026 05:13:50 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 715433F66F;
+	Thu,  9 Jul 2026 05:13:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783599234; bh=vcxiRk9gnwB3VRS/VvRWmwGe5qiJtqUoCS7N0kwO638=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MY4OFpQSZ9KFnQNoHeKqoB5ac+XynmXusOk9BH7RHdcMEY4KqM4GcndrMmlearZS+
+	 fY3+fd6JsVlrc+d94QZYYCa/D7G0+2uPOEDSnE7Mf2ZWsnb13RSyZ+nAdPN5PwNrbD
+	 1NyTWeVxtWqOR+eL4LwlCvB4IvudsTu55pgHOMes=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com,
+	maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	ruanjinjie@huawei.com
+Subject: [RFC PATCH 00/36] arm64: Add support for FEAT_NMI
+Date: Thu,  9 Jul 2026 13:12:57 +0100
+Message-Id: <20260709121333.23507-1-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
-References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
- <CA+EHjTyAxBx4jhGq-Gme5hPi1ZyDAkL2CP_U22ykkQemD1dUhg@mail.gmail.com>
- <ak-Fyvzpj9SkF75j@J2N7QTR9R3> <CA+EHjTydGzbgi9FwWQaFjuRNqUFC_HeOfHggZAHhPL4FfLYBog@mail.gmail.com>
- <ak-Kzyv0eXq05QQA@J2N7QTR9R3>
-In-Reply-To: <ak-Kzyv0eXq05QQA@J2N7QTR9R3>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 9 Jul 2026 13:08:28 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxzKJ=UxdvPmboNSo6KBppDtr88z3_BdqghJ-6f_ttqMA@mail.gmail.com>
-X-Gm-Features: AUfX_myJfL1pQLx--A1TjYYVTKJyGE6cEnwXXwo5heMGbxsjfkRXSVoLh7fWFO8
-Message-ID: <CA+EHjTxzKJ=UxdvPmboNSo6KBppDtr88z3_BdqghJ-6f_ttqMA@mail.gmail.com>
-Subject: Re: [PATCH v11 00/29] KVM: arm64: Implement support for SME
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Ben Horgan <ben.horgan@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_050917_018800_F5781A2F 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20260709_051358_851770_983D637A 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,123 +69,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark and Mark,
+FEAT_NMI provides an architected mechanism for supporting non-maskable
+interrupts (NMIs) and less-masked interrupts (LMIs).
 
-On Thu, 9 Jul 2026 at 12:49, Mark Rutland <mark.rutland@arm.com> wrote:
->
-> On Thu, Jul 09, 2026 at 12:31:45PM +0100, Fuad Tabba wrote:
-> > On Thu, 9 Jul 2026 at 12:28, Mark Rutland <mark.rutland@arm.com> wrote:
-> > >
-> > > On Thu, Jul 09, 2026 at 11:26:41AM +0100, Fuad Tabba wrote:
-> > > > > base-commit: 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
-> > > >
-> > > > I think this SHA is local to your tree. I can't locate it, and neit=
-her
-> > > > could Sashiko [1, 2].
-> > >
-> > > That's the tagged commit for v7.2.-rc2. See:
-> > >
-> > >   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-commit/?id=3D4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
-> > >
-> > > I think that neither you nor sashiko have fetched mainline recently.
-> >
-> > Thanks, I have 7.2-rc2, but `git show
-> > 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37` gives me `fatal: bad object
-> > 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37` . The SHA for rc2 is
-> > 8cdeaa50eae8dad34885515f62559ee83e7e8dda (which is what shows in the
-> > link above, not sure what ID is, which is the part that matches your
-> > SHA.
->
-> Sorry, 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37 is the tag object for
-> v7.2-rc2, which points to commit object
-> 8cdeaa50eae8dad34885515f62559ee83e7e8dda.
->
-> The odd thing is that we see different behaviour; for me (with git
-> 2.30.2) running:
->
->         git show 4c45e14df2f4e77982ad70d6d8e3fe750edd4c37
->
-> ... gives me the description of the tag as per the example in the
-> context below.
->
-> I'm surprised that git show doesn't find that for you.
->
-> > That's what confused both Sashiko and I, since it's used as the base-co=
-mmit SHA.
->
-> Sure; I'm just surprised as above that git show doesn't find the tag
-> object.
+Since we already support pseudo-NMIs via priority masking, introducing
+another flavour of NMI on top of the existing infrastructure could
+easily become messy, making the code harder to follow and reason
+about.
 
-Two different issues that manifested in the same way:
-- Sashiko wasn't advancing HEAD after fetch (
-https://github.com/sashiko-dev/sashiko/pull/317 )
-- Neither Sashiko nor I were fetching tags
+To avoid that, this series first makes room for the new NMI "tenant"
+by restructuring the existing exception masking logic.
 
-Thanks for this, and sorry for the noise.
+The main idea is to separate the logical view of exception state from
+its hardware representation. To achieve this, we introduce logical
+exception contexts that can be mapped onto the corresponding hardware
+state. This naturally consolidates the hardware-specific handling into
+a small number of places, while allowing the rest of the code to
+operate purely in terms of logical exception contexts.
 
-Cheers,
-/fuad
+Since this restructuring is non-trivial and carries a risk of subtle
+behavioural changes, the series adds extensive debug checks to verify
+that the hardware state always matches the expected logical state.
 
->
-> Mark.
->
-> >
-> > Cheers,
-> > /fuad
-> >
-> > >
-> > > I have it locally after fetching from Linus's tree, as below.
-> > >
-> > > Mark.
-> > >
-> > > | [mark@lakrids:~/src/linux]% git describe 4c45e14df2f4e77982ad70d6d8=
-e3fe750edd4c37
-> > > | v7.2-rc2
-> > > | [mark@lakrids:~/src/linux]% git show 4c45e14df2f4e77982ad70d6d8e3fe=
-750edd4c37
-> > > | tag v7.2-rc2
-> > > | Tagger:     Linus Torvalds <torvalds@linux-foundation.org>
-> > > | TaggerDate: Sun Jul 5 14:44:06 2026 -1000
-> > > |
-> > > | Linux 7.2-rc2
-> > > | -----BEGIN PGP SIGNATURE-----
-> > > |
-> > > | iQFSBAABCgA8FiEEq68RxlopcLEwq+PEeb4+QwBBGIYFAmpK+lYeHHRvcnZhbGRz
-> > > | QGxpbnV4LWZvdW5kYXRpb24ub3JnAAoJEHm+PkMAQRiGsv8H/Rn7Hr3Hp8t6au8B
-> > > | xQueZThJWjqQ4v8pyLnXF6OomKiDR24OTXMCrFgDkcmZ7RK2ALqowI3tQVwLUTuI
-> > > | yUN0qL2z2y+LyTcO0CYf3Lple8KlgLAXYMsv7pGLsOvhS7BW2jW97/bcbpUNxoHb
-> > > | eghxqbIEnyRImUbbyg+nW7VVk65RKdPUNkBPXfQ2NMVwe+SDE5Rl+NXNVqDNjGad
-> > > | soDTUBrD9yXkWX+4s0myleE62UzzH5nYgGPQeQgYmzWgq7LybH6WBlbQK9D7ODJR
-> > > | Cw3LCq1hwZZ2w04Yx+XwMHquGJYHW8L2pj77h95uhzksz8buKnM0AGwBCTC6RMoi
-> > > | AyUQvdc=3D
-> > > | =3DJUWl
-> > > | -----END PGP SIGNATURE-----
-> > > |
-> > > | commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda (HEAD, tag: v7.2-rc=
-2, kernel-org-tip/locking/debug, kernel-org-stable/master, kernel-org-rw-pm=
-/master, kernel-org-rw-pm/fixes, kernel-org-powerpc/topic/ppc-kvm, kernel-o=
-rg-powerpc/next-test, kernel-org-powerpc/next, kernel-org-powerpc/fixes-tes=
-t, kernel-org-powerpc/fixes, google-android-kvm/master)
-> > > | Author:     Linus Torvalds <torvalds@linux-foundation.org>
-> > > | AuthorDate: Sun Jul 5 14:44:06 2026 -1000
-> > > | Commit:     Linus Torvalds <torvalds@linux-foundation.org>
-> > > | CommitDate: Sun Jul 5 14:44:06 2026 -1000
-> > > |
-> > > |     Linux 7.2-rc2
-> > > |
-> > > | diff --git a/Makefile b/Makefile
-> > > | index b9c5792c79e01..b4035d3cef266 100644
-> > > | --- a/Makefile
-> > > | +++ b/Makefile
-> > > | @@ -2,7 +2,7 @@
-> > > |  VERSION =3D 7
-> > > |  PATCHLEVEL =3D 2
-> > > |  SUBLEVEL =3D 0
-> > > | -EXTRAVERSION =3D -rc1
-> > > | +EXTRAVERSION =3D -rc2
-> > > |  NAME =3D Baby Opossum Posse
-> > > |
-> > > |  # *DOCUMENTATION*
-> > >
+With this restructuring in place, wiring FEAT_NMI into the new
+framework becomes much more manageable.
+
+This work would not have been possible without the contributions of
+Ada Couprie Diaz, Mark Brown, and Lorenzo Pieralisi - please credit
+them for everything that works well. Any remaining bugs or issues are
+entirely my own.
+
+I'd especially appreciate feedback on the overall approach. Please
+don't hesitate to bikeshed the naming or other details - improving
+clarity is one of the main goals of this series. Of course, technical
+review is more than welcome as well.
+
+The series would also benefit from extensive testing on real hardware
+(without NMI, with pseudo-NMI, and with FEAT_NMI), as most of the
+testing so far has been done on QEMU and FVP.
+
+P.S.
+I'm aware that Jinjie Ruan has a similar series on the mailing
+list. I'm very open to collaborating and aligning our efforts if that
+makes sense.
+
+Thanks
+Vladimir
+
+Ada Couprie Diaz (19):
+  arm64: debug: don't mask DAIF for mdscr_write()
+  arm64: hibernate: mask DAIF before restoring hibernated kernel
+  arm64: suspend: rely on daif helpers to handle PMR
+  arm64: irq: introduce a helper for GIC priority initialization
+  arm64: entry: mask DAIF before returning from C EL1 handlers
+  irqchip/gic-v3: make the unmasking of pseudo-NMIs explicit when
+    handling IRQs
+  arm64: irqflags: introduce arm64-specific irqflags type
+  arm64: irqflags: save and use both DAIF and PMR
+  arm64: interrupts: introduce interrupt masking helpers for entry code
+  arm64: entry: replace DAIF helpers with entry helpers
+  arm64: interrupts: introduce generic interrupt masking helpers
+  arm64: replace local_daif helpers
+  arm64: cpuidle: use new helpers to bypass interrupt priority masking
+  arm64: remove daifflags.h
+  arm64: gicv3: remove GIC_PRIO_PSR_I_SET
+  arm64: ptrace: Add PSR_ALLINT_BIT
+  arm64: cpufeature: Detect PE support for FEAT_NMI
+  arm64: nmi: Manage masking for superpriority interrupts
+  arm64: irq: Report FEAT_NMI masking local IRQs
+
+Lorenzo Pieralisi (1):
+  irqchip/gic-v3: Implement FEAT_GICv3_NMI support
+
+Mark Brown (5):
+  arm64: booting: Document boot requirements for FEAT_NMI
+  arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
+  arm64: idreg: Add an override for FEAT_NMI
+  arm64: nmi: Add handling of superpriority interrupts as NMIs
+  arm64: nmi: Add Kconfig for NMI
+
+Vladimir Murzin (11):
+  arm64: ptrace: Remove INIT_PSTATE_EL2
+  arm64: suspend: Initialize PMR on resume
+  arm64: process: Use helper to check exception state
+  arm64: cpufeature: Remove system_has_prio_mask_debugging()
+  arm64: irqflags: Switch to CONFIG_DEBUG_IRQFLAGS
+  arm64: Kconfig: Remove CONFIG_ARM64_DEBUG_PRIORITY_MASKING
+  efi/runtime-wrappers: Permit architectures to override IRQ flags
+    checks
+  arm64/efi: Implement override for IRQ flags checks
+  arm64: suspend: Always initialise PSTATE.ALLINT
+  arm64/efi: Add ALLINT to IRQ flags checks
+  arm64: kprobes: Disable NMIs
+
+ Documentation/arch/arm64/booting.rst          |   6 +
+ arch/arm/include/asm/arch_gicv3.h             |   6 +-
+ arch/arm64/Kconfig                            |  29 +-
+ arch/arm64/include/asm/arch_gicv3.h           |   7 +-
+ arch/arm64/include/asm/assembler.h            |  24 +-
+ arch/arm64/include/asm/cpucaps.h              |   2 +
+ arch/arm64/include/asm/cpufeature.h           |  14 +-
+ arch/arm64/include/asm/cpuidle.h              |  14 +-
+ arch/arm64/include/asm/daifflags.h            | 144 --------
+ arch/arm64/include/asm/efi.h                  |  42 ++-
+ arch/arm64/include/asm/entry-common.h         |  10 +-
+ .../include/asm/interrupts/common_flags.h     | 248 ++++++++++++++
+ arch/arm64/include/asm/interrupts/entry.h     | 116 +++++++
+ arch/arm64/include/asm/interrupts/masking.h   | 176 ++++++++++
+ arch/arm64/include/asm/irqflags.h             | 148 ++++-----
+ arch/arm64/include/asm/kvm_host.h             |   1 -
+ arch/arm64/include/asm/mmu_context.h          |   1 -
+ arch/arm64/include/asm/ptrace.h               |  17 +-
+ arch/arm64/include/asm/sysreg.h               |   2 +
+ arch/arm64/include/uapi/asm/ptrace.h          |   1 +
+ arch/arm64/kernel/acpi.c                      |  15 +-
+ arch/arm64/kernel/cpufeature.c                |  68 +++-
+ arch/arm64/kernel/debug-monitors.c            |   4 -
+ arch/arm64/kernel/entry-common.c              | 311 ++++++++++++------
+ arch/arm64/kernel/entry.S                     |  18 +-
+ arch/arm64/kernel/hibernate.c                 |  23 +-
+ arch/arm64/kernel/irq.c                       |   9 +-
+ arch/arm64/kernel/machine_kexec.c             |   4 +-
+ arch/arm64/kernel/pi/idreg-override.c         |   1 +
+ arch/arm64/kernel/probes/kprobes.c            |  24 +-
+ arch/arm64/kernel/process.c                   |  24 +-
+ arch/arm64/kernel/setup.c                     |   4 +-
+ arch/arm64/kernel/signal.c                    |   1 -
+ arch/arm64/kernel/smp.c                       |  18 +-
+ arch/arm64/kernel/suspend.c                   |  26 +-
+ arch/arm64/kernel/traps.c                     |   1 -
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   2 +-
+ arch/arm64/kvm/hyp/vgic-v3-sr.c               |   7 +-
+ arch/arm64/kvm/hyp/vhe/switch.c               |  12 +-
+ arch/arm64/mm/fault.c                         |   1 -
+ arch/arm64/mm/mmu.c                           |   7 +-
+ arch/arm64/mm/proc.S                          |   7 +
+ arch/arm64/tools/cpucaps                      |   2 +
+ drivers/firmware/efi/runtime-wrappers.c       |  32 +-
+ drivers/irqchip/irq-gic-v3.c                  | 127 +++++--
+ include/linux/irqchip/arm-gic-v3-prio.h       |   8 -
+ include/linux/irqchip/arm-gic-v3.h            |   4 +
+ 47 files changed, 1247 insertions(+), 521 deletions(-)
+ delete mode 100644 arch/arm64/include/asm/daifflags.h
+ create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+ create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+ create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+
+-- 
+2.34.1
+
 
