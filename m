@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1852BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CC1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 15:25:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dewwjEHiC/f1j2kZT3ud3l+ya40w4quf5jCt4g64WtA=; b=u2raLz1qk4hM9N
-	oPbUUsoQhJ+rXtptBuhM9YnPOzvclZklW6lh9vvdGNKHQZnceCxC41ToccAGndylBaRdBKoctl/R8
-	LaSGMX7imYPPju7k+7eKa+6woHGzWtN6430SGXQ+2VvMdqyz7ujy0GqTV8cgnUATLjDWJF3bFL1bP
-	zs44jNlqqgIt6z9rmVFWlCqjC00U9ts/C2+ZhMekH6ccdBq1i4UbVBGlEUCeuXNXMdOCcIEqqfMee
-	TPMaJaLYB4EmKx8tOexhTDPX+ELL4V7WNUQnd+3yniXs7GVbp/LIU2t1vxtd0fPBTniAkJSoyyeNe
-	10cHn/6D5IXRFXRZJPSg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=; b=X7y+SCEyFgJLfjiZEm8/gdho+Q
+	YWMrsiZvlowP6fF79XyYP57lUvT7o1+LvpWXGPIgBAclF2Z4697EQsgz2h6Mwep5JMg9t/qzG/634
+	NZt1lTtXA0wcvnDRlDW/g5+kTgdUvG4iiOlAKBuC5Pv0FuYo0wTyjI0N+PGA7NoRU5q1l4DbN7OgB
+	xfIMCqBaji9+MkNlXy6h74go6y+/YwndVOJV0HNeMEVMKgkE9WaJJIz8XEVa5SbOWMyHXD1arU0nE
+	vpn5OWmGgQ23tzDu/6SadZoSW/DpDe7aV1TK/e5Ry/OrDgEDGcPMoD2AgpvudvYCDPwcrJlsowGlB
+	uqpho74w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqdB-00000002uYa-2fTH;
-	Thu, 09 Jul 2026 15:25:41 +0000
-Received: from mail-wm2-x0b.google.com ([2a00:1450:4864:31::b])
+	id 1whqdE-00000002uaz-40g0;
+	Thu, 09 Jul 2026 15:25:44 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whqd8-00000002uXu-28Nt
+	id 1whqdB-00000002uYI-2XAo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 15:25:39 +0000
-Received: by mail-wm2-x0b.google.com with SMTP id 5b1f17b1804b1-493f17dc838so351315e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 08:25:37 -0700 (PDT)
+	Thu, 09 Jul 2026 15:25:42 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so16289475e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 08:25:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1783610736; x=1784215536; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=dewwjEHiC/f1j2kZT3ud3l+ya40w4quf5jCt4g64WtA=;
-        b=dqawGL0UGykYhN+nv6e12dkuq+nOw+v7xqI1iuUNk2LQmVnrXNKS07YXuv48xKEhzi
-         icLW6sT+UV1nwsYF9hLmaMeeUavGiM63BTGAGtjig3fOIAukGH57y54O/ojCYht6KJaX
-         /iBMTwXbCmTzrwcnxzjlU9wUlsZRB5HE/793OtzwGa3x0KAA0lp3Pp7lLYvJRVDPaCAA
-         uSlZd4gpv+af2qZhlq14i7+KTMAWlbEg8ui3ZHbxF5+ZYAs1g01nqUMOw8ArYp0aPJOg
-         ea2YpuNcFrUWLnBKyNDYhL8FnySyGl30iVqzotKs1PX3BxOuOOf1ZIdlOmipm4YSf0k3
-         BkZw==
+        d=linaro.org; s=google; t=1783610740; x=1784215540; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=;
+        b=fZs/xpWeOpLryn+X1JQ23MsnXCfZT1tPHfWUsnAFXlQe4U9MyN5508ErlpMyYPRWfT
+         8H8/+v14SlIE0jjnZlO2c7tY26ycq3y3yfgwhRJatWK5FNYTU4GYPEsfEfU4Mpmo580m
+         o21gOkT51/gioh6qfW/Hc5UPbTKtSBBjGLb4deMDy3lMbU8xQVGl8fiXFaBf25GmbvcY
+         AkuKjanITLiTPefrrSNVejGuQx5VzFglx76RV+osiscc3kpN2X9CmBeAd8rmiUI7HmiH
+         bq95ep6kjIlEZi0INimkFHYYwssy4J6qxb/RfK6BBW8RBqHmrV7oGkV0qI7jNXypWzDX
+         ixkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783610736; x=1784215536;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=dewwjEHiC/f1j2kZT3ud3l+ya40w4quf5jCt4g64WtA=;
-        b=R9UpXAjRkFIrlEUoyYWhTEHDUKaZdm0tTLDO4ZEMdYnMFRLBrs9src+VT7OLiXrP6P
-         rI20peZHjIBFpa/ilTXQCwzf77k6UXl1hk4icsKBzzB/AbMiO+a+1/XH7byQ7zlNLuMw
-         nVSPaceaM2T6TBJtqlOSNkSblmI7Rqun7/jmlPHdL5UnXprwkRW++EatsHIDc0ip3rqy
-         zzfj/JCDsy14y3bcqELJLwcV3JWzZ1unj0gOgBPL0PN/ZDe7/H5kKVw3MoiKuj0xghJg
-         s/+k1Jab4JMbYW/lmkydf9lO9NgWFSlDOn0qAPbnlLBSXaTJ6924n7O+D0Uim+93+43i
-         lYWg==
-X-Forwarded-Encrypted: i=1; AHgh+RoaQwRmjknHZugzSupaetQJILoRQNWCC0HHaGnnNngy3r4li4POYmnx+a8DaNV/yaehMm8t7c1ZR6bB13z86YrU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1CwIaIjy3nOo4Eaga+mIW4DovbUNWW8jNnTRSGAy2VVBwGyrd
-	YLRW1LxDThP/8Hav/UJnrjA11NtWwHX7gBfsnCyQFiQb4YHWsvbh088UnRLDqya34o4=
-X-Gm-Gg: AfdE7cntpP6rwcG5SZ3AxXhAidcyqlx599VWJBtWNvCL7NNXuFaEZnFc+ZkQeTcM/Me
-	0l5zO4m76NlIHkhDR2krnVSvrgqNodzA6/fSy95QrDqM8/E3sZFQe+ejQb1z/c6nkbMUgkvM91S
-	um5cPtp2E0MFRN3mKD8KHfj8/wspmScfPE9HGFMd+6DIuTkdDhHfIm79O4K6OsOWvZ3xyGHw9l3
-	GLzhkPqLGuf5z0IqZAurKgVAkCXLe9YkUX7rQFpM/eYEdWEbXeQJvxYAYeOaiDj8JMTtalY6xZ1
-	yIqs52J5S0A/dJiGUaBbOpR4w8/24qXF6reXkLSfg8MBkdKNFUSy13Oq//gdI//n+u7r81kO3nu
-	pAPU+7uPHJYBdndt1dT1pX5e1BPmvjHcC19cyap5jirAYUbkgt3gNgZY2mkXg+ILuPBbAqMAxd7
-	NGuW7lGuoKKpy1xh7es1d0Zg==
-X-Received: by 2002:a05:600c:4e0e:b0:490:e60b:6860 with SMTP id 5b1f17b1804b1-493e6892ea6mr70392285e9.7.1783610736370;
-        Thu, 09 Jul 2026 08:25:36 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783610740; x=1784215540;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=;
+        b=oi2PJd9BvnjOtHk0loKH1yO2NDzbeYBMANlz8bFwcO+11Lg7zSuTBLR0m2ucN6UfSW
+         yr+g2m83oTPKpIoRSVaLhfWLW9/L2e7e5hUafTlMdBC2ORRx3UiUq9lezwg6+yyKvsPh
+         VqD/M1HDcI+nnt0kCdLZp4WWaSnSKMElGW6RznYWbti1ZNZYl52dv08VBJl0EYIS5ber
+         XoFXLkOeGVL4q+aPt0YLPx+a11pFcuVDoVk5vi0bu5uH+U3tJmeSB6dMkJv1hILtzOfi
+         AxwV0D6hoQMVKKfTUtA9TntmFs7q83NaEaCv5qzo6+TFMDOqdKPfE/RaJcyxDDgATB3y
+         Yc+g==
+X-Forwarded-Encrypted: i=1; AHgh+Rr2Lhvq8kOSqBfgwXbkNErqs66jtv3+hez7HgsiQAw8ufURVZ9E058YdMzgL9wEVYuutXYG6yO5aapd4Fjb5Jgy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIk6dk+OwbY03x0Z+w7NJ82AzMIlPghxjNv+LJJNnYXQOHvA6Z
+	wsGV2MvTzbu9YRJlUL+mAYMvK/1nEZxOwndw2rqu30sKDyfkr3P/Wag7CTuZhV/7jh4=
+X-Gm-Gg: AfdE7cnHCQ1hAg6wCl9++3t2d5QstsO5muMElRSErFEz2vU6k13LyxvcaKPQH9kcLYv
+	8dGUn1neKO87Fw61r2HR461R6OsJ0CwJ/S2GraAnxxOlflGa6z1puyDaTjEu/uIKn3KNHB6We1+
+	+Lm9yO1jIB4W7yRl2G92tXgbPeA/OWoX5Qf3zbZcRcHuHCYNlqRJey7YDQaK0Kb9LhoLMcxvoJn
+	dfRGFaOMMRM+H4eYTsapr12MAnoQbSP+YzaRAdpNFiWwaVBdXc7YposfAwfG1SFQ46MBgsVmoI9
+	9+Ao+7sivZyFjFChTRoIhrKMRimiPDkc5YJC3owCd6TiNvGWXUtn50XnIzHWzm8XV8IhHG9JzXr
+	hCRlMBeh32rp2YU0EW4MTLarkZCVwVfS7oNG6LQfWKUKznyL0CIZOSAZETB0TFUPQsYjek5xqtI
+	4KNew1yEhWJ1hOmYWuo/Txjg==
+X-Received: by 2002:a05:600c:3b28:b0:492:7142:f46e with SMTP id 5b1f17b1804b1-493e689487dmr78790675e9.2.1783610739703;
+        Thu, 09 Jul 2026 08:25:39 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb73b161sm61866165e9.9.2026.07.09.08.25.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb73b161sm61866165e9.9.2026.07.09.08.25.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 08:25:35 -0700 (PDT)
+        Thu, 09 Jul 2026 08:25:39 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 0/4] coresight: Prevent per-thread events from sharing a
- sink
-Date: Thu, 09 Jul 2026 16:25:20 +0100
-Message-Id: <20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org>
+Date: Thu, 09 Jul 2026 16:25:22 +0100
+Subject: [PATCH v2 2/4] coresight: tmc-etf: Prevent per-thread events from
+ sharing a sink
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGC9T2oC/4XNwQ6CMAzG8VchO1szBjL05HsYDgurUANsaZFoC
- O/uJPHspcm/h9+3KkEmFHXJVsW4kFCYUphDptreTR0C+dTKaFNpq2t4uBEFWoHxOcwUB4SIDHP
- P6LwA+tybU7q2KFUyIuOdXrt/a1L3JHPg9z635N/vTz7/kZccNPiiLrHypbWuvQ40OQ7HwJ1qt
- m37APfNAYXLAAAA
+Message-Id: <20260709-james-cs-multiple-per-threads-v2-2-10ac7ac6af0b@linaro.org>
+References: <20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org>
+In-Reply-To: <20260709-james-cs-multiple-per-threads-v2-0-10ac7ac6af0b@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
  Mathieu Poirier <mathieu.poirier@linaro.org>, 
@@ -91,8 +90,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_082538_590858_E6EDD759 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260709_082541_696807_BCE2C161 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +106,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Concurrent per-thread events results in a WARN on N1SDP which leads to
-the realization that per-thread events shouldn't have been sharing sinks
-in the first place.
+Like the previous commit to ETR, ETF sinks shouldn't share per-thread
+events. Fix it by returning -EBUSY if a second per-thread event tries to
+use the same sink.
 
-This slips through because different events will have the same PID if
-owned by the same process, and we only check the PID and nothing else.
-That results in unexpected WARNs because it looks like we assumed it
-couldn't happen (although exclusive PMU rules allow it). But even if it
-was supported it would result in trace from the wrong thread in another
-event's per-thread buffer, so we should disallow it.
-
-Fix it everywhere the same PID checking logic was copy pasted. Then the
-PIDs can be dropped from a few structs as they are now unused.
-
+Fixes: 880af782c6e8 ("coresight: tmc-etf: Add support for CPU-wide trace scenarios")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-Changes in v2:
-- Fix inherited events by following event->parent
-- Link to v1: https://lore.kernel.org/r/20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org
-
----
-James Clark (4):
-      coresight: tmc-etr: Prevent per-thread events from sharing a sink
-      coresight: tmc-etf: Prevent per-thread events from sharing a sink
-      coresight: etb10: Prevent per-thread events from sharing a sink
-      coresight: ultrasoc-smb: Prevent per-thread events from sharing a sink
-
- drivers/hwtracing/coresight/coresight-core.c     | 31 ++++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-etb10.c    | 30 ++++++-----------------
- drivers/hwtracing/coresight/coresight-priv.h     |  2 --
  drivers/hwtracing/coresight/coresight-tmc-core.c |  2 --
- drivers/hwtracing/coresight/coresight-tmc-etf.c  | 23 ++++++------------
- drivers/hwtracing/coresight/coresight-tmc-etr.c  | 20 +++++----------
- drivers/hwtracing/coresight/coresight-tmc.h      |  2 +-
- drivers/hwtracing/coresight/ultrasoc-smb.c       | 22 +++++------------
- drivers/hwtracing/coresight/ultrasoc-smb.h       |  5 ++--
- include/linux/coresight.h                        |  3 +++
- 10 files changed, 64 insertions(+), 76 deletions(-)
----
-base-commit: 98495b5a4d77dd22e106f462b76e1093a55b29a7
-change-id: 20260708-james-cs-multiple-per-threads-ed1d25ed1734
+ drivers/hwtracing/coresight/coresight-tmc-etf.c  | 23 +++++++----------------
+ drivers/hwtracing/coresight/coresight-tmc.h      |  1 -
+ 3 files changed, 7 insertions(+), 19 deletions(-)
 
-Best regards,
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index c89fe996af23..77bdf8892617 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -801,8 +801,6 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
+ 	drvdata->config_type = BMVAL(devid, 6, 7);
+ 	drvdata->memwidth = tmc_get_memwidth(devid);
+-	/* This device is not associated with a session */
+-	drvdata->pid = -1;
+ 	drvdata->etr_mode = ETR_MODE_AUTO;
+ 
+ 	if (drvdata->config_type == TMC_CONFIG_TYPE_ETR) {
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+index 8882b1c4cdc0..4ed83f07eec8 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+@@ -250,11 +250,9 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
+ 				    struct coresight_path *path)
+ {
+ 	int ret = 0;
+-	pid_t pid;
+ 	unsigned long flags;
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct perf_output_handle *handle = path->handle;
+-	struct cs_buffers *buf = etm_perf_sink_config(handle);
+ 
+ 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	do {
+@@ -270,10 +268,9 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
+ 			break;
+ 		}
+ 
+-		/* Get a handle on the pid of the process to monitor */
+-		pid = buf->pid;
+-
+-		if (drvdata->pid != -1 && drvdata->pid != pid) {
++		if (drvdata->event &&
++		    !coresight_sink_can_share(drvdata->event,
++					      handle->event)) {
+ 			ret = -EBUSY;
+ 			break;
+ 		}
+@@ -282,19 +279,15 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
+ 		if (ret)
+ 			break;
+ 
+-		/*
+-		 * No HW configuration is needed if the sink is already in
+-		 * use for this session.
+-		 */
+-		if (drvdata->pid == pid) {
++		/*  No HW configuration is needed if the sink is already in use. */
++		if (csdev->refcnt) {
+ 			csdev->refcnt++;
+ 			break;
+ 		}
+ 
+ 		ret  = tmc_etb_enable_hw(drvdata);
+ 		if (!ret) {
+-			/* Associate with monitored process. */
+-			drvdata->pid = pid;
++			drvdata->event = handle->event;
+ 			coresight_set_mode(csdev, CS_MODE_PERF);
+ 			csdev->refcnt++;
+ 		}
+@@ -351,9 +344,8 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
+ 	/* Complain if we (somehow) got out of sync */
+ 	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
+ 	tmc_etb_disable_hw(drvdata);
+-	/* Dissociate from monitored process. */
+-	drvdata->pid = -1;
+ 	coresight_set_mode(csdev, CS_MODE_DISABLED);
++	drvdata->event = NULL;
+ 
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+@@ -432,7 +424,6 @@ static void *tmc_alloc_etf_buffer(struct coresight_device *csdev,
+ 	if (!buf)
+ 		return NULL;
+ 
+-	buf->pid = task_pid_nr(event->owner);
+ 	buf->snapshot = overwrite;
+ 	buf->nr_pages = nr_pages;
+ 	buf->data_pages = pages;
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 220fe45fca83..595d6a3b0767 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -254,7 +254,6 @@ struct tmc_drvdata {
+ 	struct miscdevice	miscdev;
+ 	struct miscdevice	crashdev;
+ 	raw_spinlock_t		spinlock;
+-	pid_t			pid;
+ 	bool			reading;
+ 	bool			stop_on_flush;
+ 	union {
+
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
