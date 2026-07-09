@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68290C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C86BC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fcmzrkQ1j0Dq2H7/O5937U4Q3EEVnnu3gg56rRtA5X0=; b=X1kMJM8IXQpSb7eYzuMi8SLggN
-	tE7Gg36w0Tzj7ruhb6wavXXqXTHxVdWNtpPS1qs3Htpbq8IKMAbgWDywVnPqL7GlSwduppusccf4q
-	McEeOYRQFbACun8B4aY8uhsLx89pjkv15eKterbqw3ZK+ganeUjoApwXk9lDRLGy8WlnDCDpK6Are
-	FtIEA1lVA+HJNLTXWEU9aJf78OvzxmMg+Tu2briI2mmfXKVbsilMHGi0YEI2GNnI0syM+aotC29FO
-	23nTJ5xMu/EX1A2KY4sCVVsrcGcafAsBuX56lnpwo7T9V6eyI9ZWsC5QSFVdeB0Kgw8AjZp7ojVMy
-	PJf2qEGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a1rwfWs0eVUYLQvnn313Ek+k2iZwPDLH9jg+S7+NtUA=; b=GofLITnQEDOyI8FBgeC3H8fy8v
+	sg/dLX7A1mpol5Lw+haLKGAPPNEP1vHQqUPfCOeH9tJzzB227BeLHXOAjOaB5ESlkMlE1IwvRgzIc
+	jvODjb531PKEqQ2wSmskZQyI9YdtF4r4AsJ3wynJyXj3YHdj1mPypLrmcaZQR+Y6DbR68JY60woAA
+	nqHWZo+pPbdoOKPO0pploqSVadtFbGOws2XX22mu1KD4oVGz9PkWRgVaefeLZK8MpHd2uGNF7bXMz
+	VrXnLLnA6rWQPMQNr7SnL4iCxF2lp6fiVKn9B0p/Zlgy2VvD5GKZ5Ho9qsG4sbSmU8WpGKloFs4je
+	6/wVnENA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkPE-00000001U1h-42fC;
-	Thu, 09 Jul 2026 08:46:52 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whkWo-00000001ePb-20QI;
+	Thu, 09 Jul 2026 08:54:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkP7-00000001TtB-2Gu0;
-	Thu, 09 Jul 2026 08:46:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783586801;
-	bh=bf2FQO045X8y0Y9MppGwFg2bPO27noy0vY4iLupwXOo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KFEWtVe9U9+QSh/BlrFdVbWulM0w2mlJZ+LCzv/mKb4YdmXPPfoVLuqII3ld8STOE
-	 rJYkeTdTUd0SoEesFX9O0g3X1as1SoPojmiudlPRKqzsN18ErOMzC1fjtq6jjITGvL
-	 NVF4MVUjmOYW796EvhVrLm6G4rOo9/ntEGm7sof00GhYeOARt2h62xjJDlBw5s3FFG
-	 xU5YentouVSzhRwuKsqItA3fQjt6OduuZIrquWmzmYnoB9g859zlu23tplzoqL4Y8T
-	 jsw6Dfg2/rNsrpamj7DjcHsqunNsvYBPvOJK/HqkTtlkdxi74VweL7q0SUTOLfrzdj
-	 JD8Lj+p+uhVAw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BAEF17E0D53;
-	Thu, 09 Jul 2026 10:46:41 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: ulfh@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nfraprado@collabora.com,
-	irving-ch.lin@mediatek.com,
-	macpaul.lin@mediatek.com,
-	aford173@gmail.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH v3 2/5] pmdomain: mediatek: Fix possible nullptr KP in HWV cleanup/on-check
-Date: Thu,  9 Jul 2026 10:46:32 +0200
-Message-ID: <20260709084635.24912-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
-References: <20260709084635.24912-1-angelogioacchino.delregno@collabora.com>
+	id 1whkTC-00000001aFz-3GXo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 08:50:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 49F5243436;
+	Thu,  9 Jul 2026 08:50:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6478A1F000E9;
+	Thu,  9 Jul 2026 08:50:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783587058;
+	bh=a1rwfWs0eVUYLQvnn313Ek+k2iZwPDLH9jg+S7+NtUA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gxaMoZ7DMEct622BGXXQ2Ri8Sr/J+tvZNU6g0FIegAoymMY/llbxd69ppfm/oxOj8
+	 F/ygKBf7/fmoDsb4JgXAudUtdk+OVg8nZMkEddDkCi+oINbIN2XjQMqrCqvvYyNcai
+	 T++YqXgDP4X5eCQRe5sUImYg26aXYViq8185n4MMoadByVpazZw4C8lFvxMSTdnjhz
+	 Iug1z0tdGaZ6DJPqWaNhmNrVLYwxK9IRWFk0GLyCD/rg3VNeX49FxbyvX2qGyWzvGz
+	 QNk3i4hWWa7yOqO61Yw8sZmWB2wq/50RN15U9kBPW1u/NSS9f2ekmTeEqX07oEjgiT
+	 o9qFAb6Fe4YWg==
+Date: Thu, 9 Jul 2026 10:50:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?R3LDqWdvaXJl?= Layet <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
+	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
+	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/7] dt-bindings: serial: 8250: aspeed: add compatible
+ string for ast2600
+Message-ID: <20260709-convivial-classy-mouse-db0b2d@quoll>
+References: <cover.1783524645.git.gregoire.layet@9elements.com>
+ <cbe59dfba231dcd55fa86233dc076b017d67463a.1783524645.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_014645_808889_4CAF5B64 
-X-CRM114-Status: GOOD (  19.12  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <cbe59dfba231dcd55fa86233dc076b017d67463a.1783524645.git.gregoire.layet@9elements.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,133 +75,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Should probe fail for HW_VOTER type power domains, this driver was
-unconditionally trying to perform cleanup for DIRECT_CTL domains,
-but only after checking if the target domain is powered on... with
-the DIRECT_CTL scpsys_domain_is_on() code again.
+On Wed, Jul 08, 2026 at 03:35:53PM +0000, Gr=C3=A9goire Layet wrote:
+> The ast2600 was using the ast2500 vuart compatible string.
+> Make it possible to have ast2600-specific properties.
 
-And there's more: the scpsys_domain_is_on() function is also being
-unconditionally used in the probe path, for any power domain that
-has flag MTK_SCPD_KEEP_DEFAULT_OFF!
+Then add these properties here as well. Adding a new device is one
+commit: its compatible and its properties.
 
-This bug was never experienced by anyone because the HWV domains
-never failed probe, and because none of those is declared with the
-aforementioned flag - but it's still something critical.
+>=20
+> Signed-off-by: Gr=C3=A9goire Layet <gregoire.layet@9elements.com>
+> ---
+>  .../devicetree/bindings/serial/8250.yaml      | 24 ++++++++++++-------
+>  1 file changed, 16 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documen=
+tation/devicetree/bindings/serial/8250.yaml
+> index bb7b9c87a807..8f22121381fc 100644
+> --- a/Documentation/devicetree/bindings/serial/8250.yaml
+> +++ b/Documentation/devicetree/bindings/serial/8250.yaml
+> @@ -23,7 +23,10 @@ allOf:
+>      then:
+>        properties:
+>          compatible:
+> -          const: aspeed,ast2500-vuart
+> +          contains:
+> +            enum:
+> +              - aspeed,ast2500-vuart
+> +              - aspeed,ast2600-vuart
+>    - if:
+>        properties:
+>          compatible:
+> @@ -106,6 +109,9 @@ properties:
+>        - const: ns16850
+>        - const: aspeed,ast2400-vuart
+>        - const: aspeed,ast2500-vuart
+> +      - items:
+> +          - const: aspeed,ast2600-vuart
+> +          - const: aspeed,ast2500-vuart
+>        - const: intel,xscale-uart
+>        - const: mrvl,pxa-uart
+>        - const: nuvoton,wpcm450-uart
+> @@ -287,17 +293,19 @@ properties:
+>    aspeed,sirq-polarity-sense:
+>      $ref: /schemas/types.yaml#/definitions/phandle-array
+>      description: |
+> -      Phandle to aspeed,ast2500-scu compatible syscon alongside register
+> -      offset and bit number to identify how the SIRQ polarity should be
+> -      configured. One possible data source is the LPC/eSPI mode bit. Only
+> -      applicable to aspeed,ast2500-vuart.
+> +      Phandle to aspeed,ast2500-scu or aspeed,ast2600-scu compatible sys=
+con
 
-In order to fix this, add a check for MTCMOS Type and, based on
-that, call the correct functions for an "is on" check, and also
-do the same for the cleanup path, calling the correct functions
-for the "power off" action.
+This is a deprecated property, so it cannot apply to a new device -
+aspeed,ast2600-vuart. You cannot use deprecated code for new bindings or
+device support.
 
-For the latter, since there's a call to pm_genpd_remove() right
-before calling power_off, be cautious and add a variation of the
-power off functions (with a _internal suffix) for those to get a
-pointer to scpsys_domain instead of one to generic_pm_domain as,
-even if that's still working, this is way too much fragile and
-would break at some point.
 
-Fixes: 88914db077b6 ("pmdomain: mediatek: Add support for Hardware Voter power domains")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 40 ++++++++++++++++++----
- 1 file changed, 33 insertions(+), 7 deletions(-)
+> +      alongside register offset and bit number to identify how the SIRQ
+> +      polarity should be configured. One possible data source is the LPC=
+/eSPI
+> +      mode bit. Only applicable to aspeed,ast2500-vuart and
+> +      aspeed,ast2600-vuart.
+>      deprecated: true
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index e1cfd4223473..f0a6339affd7 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -393,9 +393,8 @@ static int scpsys_hwv_power_on(struct generic_pm_domain *genpd)
- 	return ret;
- };
- 
--static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
-+static int scpsys_hwv_power_off_internal(struct scpsys_domain *pd)
- {
--	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
- 	const struct scpsys_hwv_domain_data *hwv = pd->hwv_data;
- 	struct scpsys *scpsys = pd->scpsys;
- 	u32 val;
-@@ -464,6 +463,13 @@ static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
- 	return ret;
- };
- 
-+static int scpsys_hwv_power_off(struct generic_pm_domain *genpd)
-+{
-+	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
-+
-+	return scpsys_hwv_power_off_internal(pd);
-+}
-+
- static int scpsys_ctl_pwrseq_on(struct scpsys_domain *pd)
- {
- 	struct scpsys *scpsys = pd->scpsys;
-@@ -694,9 +700,8 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
- 	return ret;
- }
- 
--static int scpsys_power_off(struct generic_pm_domain *genpd)
-+static int scpsys_power_off_internal(struct scpsys_domain *pd)
- {
--	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
- 	struct scpsys *scpsys = pd->scpsys;
- 	bool tmp;
- 	int ret;
-@@ -737,6 +742,13 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
- 	return 0;
- }
- 
-+static int scpsys_power_off(struct generic_pm_domain *genpd)
-+{
-+	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
-+
-+	return scpsys_power_off_internal(pd);
-+}
-+
- static struct
- generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_node *node)
- {
-@@ -884,7 +896,14 @@ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_no
- 	 * late_init time.
- 	 */
- 	if (MTK_SCPD_CAPS(pd, MTK_SCPD_KEEP_DEFAULT_OFF)) {
--		if (scpsys_domain_is_on(pd))
-+		bool domain_is_on;
-+
-+		if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER)
-+			domain_is_on = scpsys_hwv_domain_is_enable_done(pd);
-+		else
-+			domain_is_on = scpsys_domain_is_on(pd);
-+
-+		if (domain_is_on)
- 			dev_warn(scpsys->dev,
- 				 "%pOF: A default off power domain has been ON\n", node);
- 	} else {
-@@ -973,6 +992,7 @@ static int scpsys_add_subdomain(struct scpsys *scpsys, struct device_node *paren
- 
- static void scpsys_remove_one_domain(struct scpsys_domain *pd)
- {
-+	struct scpsys *scpsys = pd->scpsys;
- 	int ret;
- 
- 	/*
-@@ -984,8 +1004,14 @@ static void scpsys_remove_one_domain(struct scpsys_domain *pd)
- 		dev_err(pd->scpsys->dev,
- 			"failed to remove domain '%s' : %d - state may be inconsistent\n",
- 			pd->genpd.name, ret);
--	if (scpsys_domain_is_on(pd))
--		scpsys_power_off(&pd->genpd);
-+
-+	if (scpsys->soc_data->type == SCPSYS_MTCMOS_TYPE_HW_VOTER) {
-+		if (scpsys_hwv_domain_is_enable_done(pd))
-+			scpsys_hwv_power_off_internal(pd);
-+	} else {
-+		if (scpsys_domain_is_on(pd))
-+			scpsys_power_off_internal(pd);
-+	}
- 
- 	clk_bulk_put(pd->num_clks, pd->clks);
- 	clk_bulk_put(pd->num_subsys_clks, pd->subsys_clks);
--- 
-2.54.0
+Best regards,
+Krzysztof
 
 
