@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45989C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD581C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TE/86mbnkjdeQ/eUjLcxECV2tO9a4hCqlVOp6ra577s=; b=zOXWWN0vXowMbVqo2fVBBWDBuh
-	rzXYhuEeaVza9eF1IC/ZOx51VxXDta/cBcAAcWVEI+tyoNA4kVavssnHYpKgMVgagaPue8gVoeILm
-	TwaAI2eZ374+6d9Wn1NqLrEmsFozOlvB2vxI8tqj3IQBdgnvCmf7MKBi8XdgeOJguizSdChEbLFER
-	LVat6UPc0aTEgJnW803EBRaRsi1E5GeV2FNJvcx2TC/m8TmSySGLuN4JJOwyGxeLt70B31ws/9x3E
-	ku7dUqjjrvrtTc5IMJXJW7VtbF3t7txbFcU/ppVUFPa3B6CKuJAZlo4z8eNrl+j9jwupJu+lZ4MxJ
-	mpHQVwZA==;
+	bh=damSg+KRPsx8cUGtM6YEq9+rU5hH+rbnhhK5WWTTkmU=; b=z/P+GfvtrRy4W5sCbBSKBGPyPv
+	4rejvOZk+lVhHNiameW+z2zU4wDj8/kVA8blh/p1CMY1i3032DfJclqAJEPUngEOJ3qzH4N84Tw7c
+	6jvjYpZA9ezTs4DuvtwTzga/RMAj0GDFS0NS6IRm6x5RDeL9NikM650qdVhtoJ9Xrz3DYZJzjx+up
+	aunA+zqhxqnRKxhezu7yQnSMaKAn220ViC7MIMcdA9oCUQwMUpzobwCD9iIiVjv7y32cMgxlWqYwb
+	lN793U0A+nsu0dxBTr46NlskuPw7FW4eMyAnzpSF+1qyqwQwuxCmEf7YNDkaXsNgrlxPm4kKkJZXN
+	RXgXSkjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmnx-000000028aS-3yiQ;
-	Thu, 09 Jul 2026 11:20:33 +0000
-Received: from mail-wm1-f46.google.com ([209.85.128.46])
+	id 1whmny-000000028ak-0BwE;
+	Thu, 09 Jul 2026 11:20:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmnq-000000028Vd-2d7p
+	id 1whmnv-000000028ZH-3lTP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 09 Jul 2026 11:20:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=damSg+KRPsx8cUGtM6YEq9+rU5hH+rbnhhK5WWTTkmU=; b=nCBmiyj3gjGn5/pBrbpN5Mnak1
+	2Yhiz2LdX0kfTjvDcK6ZA3b8rc3cg9IQl2a+RBRuFodJzsvLbqc5n2SNwHvnrCeo5WZ3HXbP4c/UC
+	65sV+UbZltrhP42Fy5ARa6VWZWS2EMgpG/vg/aGmuD0s6qJyoFUsUNkP+odCAd/I70PejaquqAboJ
+	udjceymwbzRjdfaaUKRQ3bt5cUyWwAHEyBIkhsbSCzWpUDu87MUtf7sTXF8cCtTl8mKyUrFMka4WP
+	LPHP0I7zQCgPAiEQftsMp7g14MYDBFOSlBq7NPZQ2C+PY2++mhaWHqjpEJE5q4+c2Iy0bwb2yBrQB
+	YmzqhDzQ==;
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1whmnq-000000097mt-0VwG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 11:20:27 +0000
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-493b27c7451so10050295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 04:20:25 -0700 (PDT)
+	Thu, 09 Jul 2026 11:20:28 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-493bf73ec2aso10531675e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 04:20:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1783596024; x=1784200824; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1783596023; x=1784200823; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TE/86mbnkjdeQ/eUjLcxECV2tO9a4hCqlVOp6ra577s=;
-        b=LZQ2jhT86bLeEM6hO7wrWCJ2Y+16zaRboSPOWxrd+itbJfh1RjwLtqhyG8Eftj5XT4
-         xoMjM9TdjJDI8TagLwPuP8hzj4VN5neiqpddcEMFd+mBYlYf/bhizg4E4DoayxN0EfR0
-         jfG+A++pb7vL30uuz3MD0QABm8aRCUYIywC38Hs4iH/S3EngjZDWb8ZuyBwb3qqVyy1w
-         Uq/JgADdQ7JrMfqcEip1MtZ5eyKFMr0Ncv4Uo16L98WDgGjxaFAOtsFCV/uVjoMH/1w8
-         VX9I3UJ5+zVpSQ3b+aaggvxwoW9PMFXdbp97W4GYh646+SnmiyKP1Ftn9KuUwp31E8pf
-         if6w==
+        bh=damSg+KRPsx8cUGtM6YEq9+rU5hH+rbnhhK5WWTTkmU=;
+        b=fRCFS7WD+XBBBNn4FY9SJfAEEB88YhGI9UEkiME+B/hLLUPMiiFu7jbKmiahxTTQgY
+         goUgoLJQue94O6KGilqtTkrOhcinHb+D4BReIxssfhp1tqkfwNDYiqrbZ0W5xMuvDPmk
+         2mMXZBVQykQSuR/dJ/AhpN/y2JjcyKXFdFMJ3C7muqXwJ3vt1n39HZli8ELD87oDC3JI
+         h9eyiFmerGg7ftdCDaQGaov8k5J2R+PuM+C8AMOmccjZwmEpdZYgPRvZ3pbNMQJYqOSm
+         UYX4leqpA4MR1105Ez8UZ1IPC83EWtn/ZLeNeM0F8Rq4qTysSXuYbjWaZMJdpfiEvDOO
+         lFWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783596024; x=1784200824;
+        d=1e100.net; s=20251104; t=1783596023; x=1784200823;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TE/86mbnkjdeQ/eUjLcxECV2tO9a4hCqlVOp6ra577s=;
-        b=I35O0jqjvYSbf+brx/xVpvGRNitNeocmBQ8wqUJYqryf0FryqFSbrMtK1FyvVqZmqy
-         MOAVQRKd3uGbtyeFxKTaCXXMlevTF4JIeC/ci0jphrKSkEaH5BbosDocE+VRdBmenprq
-         jaBKU6h+0r9B6dk9aVuWsB18RoL3yoK5h5HRfKXuNMAhJXAyNgZtXz6QD3m444sfyaRc
-         aNko/C470rm4J/2CggXNZP3bZXd65RrelcbY3Kr73luZAgR7V223gaz3dONj6n8/EQSi
-         8tAttot2avaRDc2gnrt0ZBY1K0/KcqjiFrwWcqQo0yV8lwYvj67KKOIG/q2iopfkzJ/W
-         w1EQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro38C6dhV574+Sr+jQiiYbuGqIZrQAbhVjpG1sy97iYU/8c3M94kD9+eS/819E/Vo0xp4tTlDuMzlpD+YHbkXRV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJTGhtDbsuIIP9VsJlt+9qdWz5I9gK4l+74b1OXDGA9e/QdtTX
-	pqwye00mMO3O3luyp1bCixtZgCF6h/JHAO7+HtBRRCmCGKIk4xGuUOvxYUE4Y+S5wq0=
-X-Gm-Gg: AfdE7cnnxQae3kr2SSc+xTqi1Ra73YgjFtYUyT5FpqvhIFgYzVBEotL/vsN29xqkxJR
-	sUldyEOOpXVszgSr3qcvqFCAULYDfsecSQUW6RCzHpHghYEMF/W1kDl1zAYWBD4K2idKECgdTfg
-	ZrRBYNwIvE1rwlGnVx5dUELhF4WywW+gap5Hf2s582/MvAeYnYRy3GXo6gkHP3WsIGOvHpIlxSw
-	xLXpWS/vui9r1z61aEBNljyIqrANNRMgBry1jmif59am0R7zaM7u+bcNADBJJTbvzRwOmBw/CHo
-	l5bauFvWq8tjA2WSefu3jFwmcz+OhYLx6Ly/9Db60iMozOsVKrhi5er33IUHbR+84HMhaiwU8L5
-	ak4G9AoMzedITYEtDFM7vnWYWF/z0mrpFy4RRcikxIqiun3rdbX1bgoccvAifwEmv62Ahzf8b8D
-	+DWKL/1lfC3bVZzCiis14yMbS4mpZns7RIp3Zij0hMVYX+FK4+yWxyxAb2HmpNPlCcuZjdO8WIo
-	ZzFGjNnFdbvZHs0wJubAeYYG1zJD/NNnuPQUq0jlBE=
-X-Received: by 2002:a05:600c:5303:b0:493:e41a:9b23 with SMTP id 5b1f17b1804b1-493ec561411mr24840465e9.1.1783596024101;
-        Thu, 09 Jul 2026 04:20:24 -0700 (PDT)
+        bh=damSg+KRPsx8cUGtM6YEq9+rU5hH+rbnhhK5WWTTkmU=;
+        b=Z2Mwe97TG1hloe9z8trBewCg1m9MbrFPYuRqRmustRt+/e93MrZOEBeFCvQWwsPNGj
+         OS0wOsf9HRGQWMi7YOL7t5/qFstT4Hy8rGEL8gvjgROuX/v3P6clNOgeH0AzRGeY19nY
+         MXQnTTorCDVfnJVhy+mO476+z0KcDhpEn/xlsycPbzCEFXfLJxh22lJboP+GV39tbBAL
+         Ts4cua7e2ojFdSrcS1+91P6PuxLrNKACxS1zQNsMmKx8K8ExMJTd3DComFuLpROeiWwM
+         hIY84DfqiQ+ZiHAkz+8NZ2sx90svyZGYYOjCjvDsfV9v/Mg7WrAoMlycwQ15uAL/dl3B
+         b6hg==
+X-Forwarded-Encrypted: i=1; AHgh+RoIREJ5rKjXHQ/B5uQDLirtHbntvRu4l6fI4F+tUm7rTgbdlYTorPPkADYrp6fdx4HsT+U3Q2HmjrEsJAvCmnhU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQw2/wSieL59vrLFdAU8nW48ZDg2Qy/ER/9qWZTrthokitGSKT
+	1sj1S49TJ0VXXPQCBYoACD+oKR7ErUFNX+dRzyYmksIJw0pnJn8KKsH8oshwZFk1jyA=
+X-Gm-Gg: AfdE7clWkGmKkivEFoN8rPl24Yh1id3rIS3U6LLykxBARSVB4zILFoJsH6hw+hSxv4L
+	wpglG7x7RKS8zJAFg/3B4uHrILauR326d+G8jbGQtMvkO9NWv0rMW2p6MN6AaJBmxCxu4cPMyj1
+	PEtxx2bvdYeCZXIDiW14bYM4JXx3hopQHH+xoC0ZCm7T51h9qENUtbd4OEE2flzWrUY+VFiy9+1
+	JW7jNGErOWI8BYYY3zRonKJ4M2DtIdJ8dg66uHCSEsDBRu0t1XtC+FtV9gKzWvk59XoyU1ntPHe
+	Cgl/Xotp92/cJPWeSESdf4M2BniwSH4CRzhuJIp+zdA0RJzwxQgOaYi6naVkaTkv3Lal8a2bv6U
+	IY0+pg9J7m+VOEZvx5L439AN3KWfE32I7O3TCUaDZWhncnzsQvOZTaoop7pR9v43k8M1VyBh7Q1
+	MSE4+/orrp3bLED4lm9xIbt8EgHAJYXbSOwaCSSLQlSpdiTjq/3rn0/aLfdfNEhMo8ysAFLxIMa
+	NBX+EE/mb3J7xKCyVQFjLUImlboG1u8b+o0QKAThTI=
+X-Received: by 2002:a05:600c:6286:b0:493:cc25:85cb with SMTP id 5b1f17b1804b1-493e6892d8bmr65828845e9.8.1783596022660;
+        Thu, 09 Jul 2026 04:20:22 -0700 (PDT)
 Received: from threadripper-fedora-workstation (dh207-15-57.xnet.hr. [88.207.15.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6f3c42sm53910475e9.1.2026.07.09.04.20.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6f3c42sm53910475e9.1.2026.07.09.04.20.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 04:20:23 -0700 (PDT)
+        Thu, 09 Jul 2026 04:20:22 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: broonie@kernel.org,
 	robh@kernel.org,
@@ -86,17 +101,17 @@ To: broonie@kernel.org,
 	daniel.machon@microchip.com
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v2 5/5] arm64: dts: microchip: lan969x: add QSPI nodes
-Date: Thu,  9 Jul 2026 13:19:11 +0200
-Message-ID: <20260709112006.390742-6-robert.marko@sartura.hr>
+Subject: [PATCH v2 4/5] spi: atmel-quadspi: add LAN969x QSPI support
+Date: Thu,  9 Jul 2026 13:19:10 +0200
+Message-ID: <20260709112006.390742-5-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260709112006.390742-1-robert.marko@sartura.hr>
 References: <20260709112006.390742-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_042026_683709_B8B1D05E 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260709_122026_491714_BD7F524E 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,60 +126,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the required DT nodes for both QSPI controllers.
+Microchip LAN969x has two QSPI controllers based on SAMA7G5 QSPI.
+
+It requires pad calibration, supports DMA, and supports 100 MHz operation.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
-Changes in v2:
-* Make it apply on top of next-20260708, as SDMMC is not yet upstream
+ drivers/spi/Kconfig         |  2 +-
+ drivers/spi/atmel-quadspi.c | 66 ++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 66 insertions(+), 2 deletions(-)
 
- arch/arm64/boot/dts/microchip/lan9691.dtsi | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/microchip/lan9691.dtsi b/arch/arm64/boot/dts/microchip/lan9691.dtsi
-index ed997d87dd09..a8541c6a098d 100644
---- a/arch/arm64/boot/dts/microchip/lan9691.dtsi
-+++ b/arch/arm64/boot/dts/microchip/lan9691.dtsi
-@@ -396,6 +396,39 @@ clks: clock-controller@e00c00b4 {
- 			clock-names = "cpu", "ddr", "sys";
- 		};
+diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+index 8782514bb89b..bb3773f99ad9 100644
+--- a/drivers/spi/Kconfig
++++ b/drivers/spi/Kconfig
+@@ -189,7 +189,7 @@ config SPI_AT91_USART
  
-+		qspi0: spi@e0804000 {
-+			compatible = "microchip,lan9691-qspi";
-+			reg = <0xe0804000 0x00000100>,
-+			      <0x20000000 0x08000000>;
-+			reg-names = "qspi_base", "qspi_mmap";
-+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&fabric_clk>, <&clks GCK_ID_QSPI0>;
-+			clock-names = "pclk", "gclk";
-+			assigned-clocks = <&clks GCK_ID_QSPI0>;
-+			assigned-clock-rates = <100000000>;
-+			dmas = <&dma AT91_XDMAC_DT_PERID(1)>,
-+			       <&dma AT91_XDMAC_DT_PERID(0)>;
-+			dma-names = "tx", "rx";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
+ config SPI_ATMEL_QUADSPI
+ 	tristate "Atmel Quad SPI Controller"
+-	depends on ARCH_AT91 || COMPILE_TEST
++	depends on ARCH_MICROCHIP || COMPILE_TEST
+ 	depends on OF && HAS_IOMEM
+ 	help
+ 	  This enables support for the Quad SPI controller in master mode.
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index d1aec14e3978..f05e2617fa89 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1152,6 +1152,58 @@ static int atmel_qspi_sama7g5_init(struct atmel_qspi *aq)
+ 	return ret;
+ }
+ 
++static int atmel_qspi_lan969x_init(struct atmel_qspi *aq)
++{
++	u32 val;
++	int ret;
 +
-+		qspi2: spi@e0834000 {
-+			compatible = "microchip,lan9691-qspi";
-+			reg = <0xe0834000 0x00000100>,
-+			      <0x30000000 0x04000000>;
-+			reg-names = "qspi_base", "qspi_mmap";
-+			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&fabric_clk>, <&clks GCK_ID_QSPI2>;
-+			clock-names = "pclk", "gclk";
-+			assigned-clocks = <&clks GCK_ID_QSPI2>;
-+			assigned-clock-rates = <100000000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++	atmel_qspi_write(QSPI_CR_DLLOFF, aq, QSPI_CR);
++	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
++				 !(val & QSPI_SR2_DLOCK), 40,
++				 ATMEL_QSPI_TIMEOUT);
++	if (ret)
++		return ret;
 +
- 		reset: reset-controller@e201000c {
- 			compatible = "microchip,lan9691-switch-reset",
- 				     "microchip,lan966x-switch-reset";
++	ret = atmel_qspi_set_gclk(aq);
++	if (ret)
++		return ret;
++
++	/* Start the DLL before resetting the controller. */
++	atmel_qspi_write(QSPI_CR_DLLON | QSPI_CR_STPCAL, aq, QSPI_CR);
++	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
++				 (val & QSPI_SR2_DLOCK) &&
++				 !(val & QSPI_SR2_CALBSY), 40,
++				 ATMEL_QSPI_TIMEOUT);
++	if (ret)
++		return ret;
++
++	atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
++	ret = atmel_qspi_reg_sync(aq);
++	if (ret)
++		return ret;
++
++	atmel_qspi_write(QSPI_CR_SWRST, aq, QSPI_CR);
++	ret = atmel_qspi_reg_sync(aq);
++	if (ret)
++		return ret;
++
++	ret = atmel_qspi_set_pad_calibration(aq);
++	if (ret)
++		return ret;
++
++	aq->mr = 0;
++	aq->scr = 0;
++
++	ret = atmel_qspi_set_serial_memory_mode(aq);
++	if (ret)
++		return ret;
++
++	atmel_qspi_write(QSPI_CR_QSPIEN, aq, QSPI_CR);
++	return readl_poll_timeout(aq->regs + QSPI_SR2, val,
++				  (val & QSPI_SR2_QSPIENS), 40,
++				  ATMEL_QSPI_TIMEOUT);
++}
++
+ static int atmel_qspi_sama7g5_setup(struct spi_device *spi)
+ {
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(spi->controller);
+@@ -1679,6 +1731,15 @@ static const struct atmel_qspi_caps atmel_sama7g5_qspi_caps = {
+ 	.has_dllon = true,
+ };
+ 
++static const struct atmel_qspi_caps atmel_lan969x_qspi_caps = {
++	.max_speed_hz = SAM9X7_QSPI_MAX_SPEED_HZ,
++	.init = atmel_qspi_lan969x_init,
++	.has_gclk = true,
++	.has_dma = true,
++	.has_padcalib = true,
++	.has_dllon = true,
++};
++
+ static const struct of_device_id atmel_qspi_dt_ids[] = {
+ 	{
+ 		.compatible = "atmel,sama5d2-qspi",
+@@ -1708,7 +1769,10 @@ static const struct of_device_id atmel_qspi_dt_ids[] = {
+ 		.compatible = "microchip,sama7d65-qspi",
+ 		.data = &atmel_sama7d65_qspi_caps,
+ 	},
+-
++	{
++		.compatible = "microchip,lan9691-qspi",
++		.data = &atmel_lan969x_qspi_caps,
++	},
+ 
+ 	{ /* sentinel */ }
+ };
 -- 
 2.55.0
 
