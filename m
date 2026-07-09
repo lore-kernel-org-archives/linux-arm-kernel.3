@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB44FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E18C44509
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YpLUPnKiNYLZ1Rvgv6QsYiukIRk96d61Cb2QUEQAbK0=; b=GtUieQxf/wtLCK1kEkaLOyBWm4
-	zUq2V3LluzX91YSq22SQQhqnnDPS9vgZXtcy0bpeh9SsPDlsnLZ9zuy5vXYWzGSoMYx4kdkIk+B0C
-	Pn4R5lrar2e8Be1nobleoQs62Uw85ibl6KTki8bKyWJ3bQvMdJrUHE+xj4bFhQQagVoksPA5PlHJ9
-	TSUCkg4yuD8nly9kr94zj78BpohnWMxjQBfa9gSL71uZPB87SkliQIxGSCtCPajCee959LDzWAWn4
-	4wUsLL/NRWlOW9j0STMykuynodbK9qQdyAG3fm7fUfSpf8eHBEjniaV1zjiNXPHBdjWif8dv2jL1b
-	vhH8oJIQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D8058C/A9/JiNPInm3u81Nx1KBGBbwUCxPwhHLO5A9w=; b=xhNLDIzVIq3R4ZOjgVaRKLaKuv
+	3eM00dxO4hBIOctFytuIDjuayDA4jc48TYaLnlej6+qoHajld67DO88Q12PTa7EdzUSWEFGUbeKRl
+	J+lQJKFXUa0Z82PYH4xghwJkQfYXRpjMDtrxjGFyKRgwbteh08SWDtHeXqIdesLf/gOzJSN86Nloj
+	H+P7H9tHbnhOpso1YPX8W7wdMNSKnrkRVOgBVRxFJmTnYUGP49a9UwUVbpksXr6cPfUUW5TFeaQhi
+	pFgOEboNfQfNFKwgYL0va8KE/h6ZzDSLXYU/evW2GHerW8Ow7sXkde0qcXg/vX2nKsAfCr6J/S7Vr
+	5i/hS1QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whleL-00000001s23-0h4r;
-	Thu, 09 Jul 2026 10:06:33 +0000
+	id 1whleQ-00000001s6x-1VS2;
+	Thu, 09 Jul 2026 10:06:38 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whleF-00000001rxO-30Bn;
-	Thu, 09 Jul 2026 10:06:29 +0000
+	id 1whleH-00000001rxi-1PHP;
+	Thu, 09 Jul 2026 10:06:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783591581;
-	bh=1otDgvY7i8uKJGdVJXGeWZacEAhNqHGnr9b13jU33xk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=a9vzMPoL7NNxYdcyAellRVvPv0FDhGDFWFrhOFmcDzHcaehiSVu7QHnmtLI544EM1
-	 YVvdYH0gWohbjz12srNzw06DlTP7hkKTZRT0ajA/uCEJhAw9eVltK90PVhRIubzX8j
-	 4rDm0/YYz73Ok7SEcDZBRH001jBNCt1cc1hW/ksLqqVppaAd69Itfsk6u/6UtU4pOU
-	 q16zVRtv01rL8gf0jTFNRFDCgxHjejQMwoyhXhzSBQyYfpONr6hocXYKQODP665KyN
-	 z9+vZUBnvAF0BDwKyg6ajHGcP/o+mjIwXbYu9O1xspB1Ri0FCsYm9hwUL9C7o03fqf
-	 nAKaYEbimf6sA==
+	s=mail; t=1783591586;
+	bh=CkYqfV3Z8+Hsqh9DjysAZsxWDq7JbUXYo6REfRoh9BA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hDHMnaBREX6TonYVXJu+CXze57EBvAWsbGKAsspDNMW3UbUY2mqqwFZSA07uv2RW0
+	 Nq/qmkNBghiW5Bjm7sjbE5g4Jw7tZQElV/o2Uuqt0Be6GZEHkTmF1gIVfH0YZBqpiI
+	 0R60sZjgxzfaWea8O1kKJIVZ3IwYs0iB9eRltAcjN6L22J3TG2vZJg/wrLrz3E12NV
+	 KYjx8/Qs946xR+aVeXyUSYuHsCGKQwkDpxBsfBEklVJYr2QuFVQT2l2ZGbtgm4PaCV
+	 6Oq4LLPOU4wxQVNvIQxvhO1pnoLmcPuAuilBW6W6bwKFoWTsYE2jz4P/OrLDMS/0Y/
+	 FRG157DXJ9tyw==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D59FF17E05D3;
-	Thu, 09 Jul 2026 12:06:20 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3462D17E0D56;
+	Thu, 09 Jul 2026 12:06:25 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -70,15 +70,18 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v2 00/11] drm: MediaTek DisplayPort cleanups and MT8196 eDP
-Date: Thu,  9 Jul 2026 12:06:06 +0200
-Message-ID: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 04/11] drm/mediatek: mtk_dp: Clarify SMC eDP/DP video unmute commands
+Date: Thu,  9 Jul 2026 12:06:10 +0200
+Message-ID: <20260709100617.42583-5-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
+References: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_030628_517399_DA4FA9AF 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260709_030629_878343_AE4978CA 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +96,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v2:
- - Fixed all audio_pdev unregister issues (wrong pointer and double
-   free in case of error)
- - Fixed double free of phy_dev in case of devm_add_action_or_reset()
-   error in legacy probe path
- - Fixed legacy phy registers erroneously offset by legacy_regoff
- - Added abstraction of AUX interrupts to legacy transmitter ones
-   for hotplug detection
- - Fixed forgotten addition of SDP_DP13_EN_DP_ENC1_P0 in mask
- - Fixed new register mask for interrupt debounce threshold time
+The eDP/DP video unmute commands are not expressed as bits:
+instead, in the firmware, those are defined as incremental
+unsigned integer numbers: use the correct representation of
+those to improve readability.
 
-This series performs some very much needed cleanups to the MediaTek
-DisplayPort driver, including a fix for the audio codec and PHY driver
-unregistration, a refactor to finally correctly use the PHY (!) and
-introduces support for the Embedded DisplayPort (eDP) IP in MT8196.
+This commit brings no functional changes.
 
-Note that this deprecates the nvmem related properties in this driver
-because those are NOT related to the DisplayPort IP, but rather to the
-DisplayPort PHY, and were therefore transferred there instead (code in
-a different series, updating the PHY driver).
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On legacy devices, this driver was carefully tested with both NEW and
-OLD devicetrees, so both with the new, proper PHY usage, and with the
-old platform device registration strategy and eFuse retrieval from DP
-instead of PHY driver.
-
-This was also successfully (manually) tested in a kernel that misses
-the PHY driver updates on devices using old devicetrees (mt8195/88)
-and no regressions were experienced.
-
-AngeloGioacchino Del Regno (11):
-  dt-bindings: display: mediatek: dp: Deprecate nvmem efuse data
-  dt-bindings: display: mediatek: dp: Add compatible for MT8196 eDP
-  drm/mediatek: mtk_dp: Fix hdmi codec and phy driver unregistration
-  drm/mediatek: mtk_dp: Clarify SMC eDP/DP video unmute commands
-  drm/mediatek: mtk_dp: Rework register offsets for proper PHY usage
-  drm/mediatek: mtk_dp: Use PHY API for PHY power sequences
-  drm/mediatek: mtk_dp: Add support for PHY from devicetree
-  drm/mediatek: mtk_dp: Move max link rate to SoC specific data
-  drm/mediatek: mtk_dp: Add support for HotPlug Detection in DP AUX
-  drm/mediatek: mtk_dp: Add support for eDP1.5 IPs and MT8196 SoC
-  drm/mediatek: mtk_dp: Clarify XTAL freq and Debounce registers
-
- .../display/mediatek/mediatek,dp.yaml         |   5 +-
- drivers/gpu/drm/mediatek/mtk_dp.c             | 623 +++++++++++++++---
- drivers/gpu/drm/mediatek/mtk_dp_reg.h         | 328 +++++----
- 3 files changed, 713 insertions(+), 243 deletions(-)
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 1abe3c83772a..df5dcef91666 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -36,8 +36,8 @@
+ #include "mtk_dp_reg.h"
+ 
+ #define MTK_DP_SIP_CONTROL_AARCH32	MTK_SIP_SMC_CMD(0x523)
+-#define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	(BIT(0) | BIT(5))
+-#define MTK_DP_SIP_ATF_VIDEO_UNMUTE	BIT(5)
++#define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	33
++#define MTK_DP_SIP_ATF_VIDEO_UNMUTE	32
+ 
+ #define MTK_DP_THREAD_CABLE_STATE_CHG	BIT(0)
+ #define MTK_DP_THREAD_HPD_EVENT		BIT(1)
 -- 
 2.54.0
 
