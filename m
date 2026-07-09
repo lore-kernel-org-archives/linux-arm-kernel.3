@@ -4,58 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315C8C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84450C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pdSw+G21z2NrE5iHKTKAJzseZhloGwIrHZmDJjo4p4c=; b=hCBTiE3tSPnNZIzv8FCsSVNXf0
-	jaRf2I8cwsaMi0O86brLtR68fBR1o4oXbPiapIl1rJhnZDD3piL2KsMjs9BTzLzXq+IW/egO9dY1x
-	qfDxOhLXfPSO6ovQdxYHH6eIl8ivNzFM+7YY6usVckR2WZKJypwaa+voM2bEIblwAvLTJdN5C3JN0
-	ETV/w2ew7SSK9KdME/Hn76RhVdLr6EF3fcck1TY7ugvknrDL4ZOfFPFtC++htUx5eK5sLzNmacNfA
-	U8WCc7OwMvkHR+VpBnsCiQjpp/e76WC+kRrP9EKmuWI6J7YwHnt2O0U9GQToOMzjn9qEiHqfOQAQi
-	NRI0G80w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMMlPYy7nnXpVB6FvIeH87WDzCUQamWqEFmFsgEttos=; b=bNuTcFmPwG4eRfbgHPRGO7nNLy
+	XtJjWxrHW/MIO5JDFbwmubx2gKMhW6XwffvrmrKta1I2hC+Dogz1DVqdXHl8PU0glpdnuysWL9R9l
+	gIs5AEqyl3t/xuMiB9MGhv0kuUCU0cEOg9t86EA/xK7OEZcZQ+/RNx2gATvG2CfXZaDp3uxw7NjCH
+	SAMMEKSTn238tnqPDuPrEDWoH3Yf1feXGNIDvj/A79dKSk+9QPIrD6lf05U9MQr6iGe5NWdnJ/7GH
+	fiODkglyd8lQ6FbUb3vx4m+X34UX2Br1hOUTxdlqAQ6Rlpc399lgL2rewCQdqB454Q28V/zmvU4l/
+	5bYgOVfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whirD-00000001Eki-3JaN;
-	Thu, 09 Jul 2026 07:07:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1whiwJ-00000001FQO-3dv4;
+	Thu, 09 Jul 2026 07:12:55 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whirB-00000001Ejd-3ICN;
-	Thu, 09 Jul 2026 07:07:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=pdSw+G21z2NrE5iHKTKAJzseZhloGwIrHZmDJjo4p4c=; b=wzpkFYTSB2o038W334C7hu8s9v
-	7+L3+hqneJ1n9ursKNn/qF9aAa80jolpgMvJtb93jbbHpRHdG7+hl4Hfgwotw3LsMcvvE7NGnbpHi
-	9bFxj2FYvyUZbgVxteLRtrPMAZUOt0YENy0Hg9DFimz1NYygsj0BXE2v77IoA+8H4/3fPk0tX6Qai
-	9MNf5M9KYENWFUWpkudTS1bInIn8spWFtpDgqpeTmTaYvRRZrzRS3ULHq7/RMFB+tahmMaQ2B0uXo
-	l5z9MVr1Xc+4GJPPZKcA1sh1Xo4ASqn09/xQX2HsOyMt+jqVybBUP0gYe8w8Vm4iOpudzcyPjxnsF
-	08GKkryQ==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Dawid Olesinski <dawidro@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
- "David S . Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Corentin Labbe <clabbe@baylibre.com>, linux-crypto@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] arm64: dts: rockchip: Add crypto node to rk356x-base
-Date: Thu, 09 Jul 2026 09:07:23 +0200
-Message-ID: <4011768.FjKLVJYuhi@diego>
-In-Reply-To: <ak7jEYTAGgeDdi1W@venus>
-References: <20260708175837.1718437-1-dawidro@gmail.com>
- <20260708175837.1718437-4-dawidro@gmail.com> <ak7jEYTAGgeDdi1W@venus>
+	id 1whiwG-00000001FOx-3UfM;
+	Thu, 09 Jul 2026 07:12:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1783581131;
+	bh=wMMlPYy7nnXpVB6FvIeH87WDzCUQamWqEFmFsgEttos=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=jnWY5PvmrwVmHvDAq8v5sZp58U1L+Uo3Z0cNQWdTxisgiPq4khRVj/P1pohQyAf5p
+	 gqpwjcEt7OBYa7ChLMxNdp+WZWFjMCYgdEodNY2O0Zn6UHDQlkD6yIIF9JMc4qN8K2
+	 qxc1d1OVQ7sqTZsaVJUyYw1mgE6EPTLrWrq2BP1I=
+X-QQ-mid: zesmtpgz6t1783581129t6844ee2f
+X-QQ-Originating-IP: z+G+QLWqjlW2I2IbBBHbbVGoiBJyh6Msi3DKDcj+EiM=
+Received: from [127.0.0.1] ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 09 Jul 2026 15:12:06 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2660938683507216801
+Message-ID: <C19180EE3CEA14F2+991fd802-3b76-4805-8c2d-a15cd8417a13@airkyi.com>
+Date: Thu, 9 Jul 2026 15:12:04 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] DSI Controller improvements for Rockchip platforms
+To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Guochun Huang <hero.huang@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+References: <20260603033532.164-1-kernel@airkyi.com>
+Content-Language: en-US
+From: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20260603033532.164-1-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NjuDfT6zrIZc7HGFn6Y4r6ydJY+KSXEurk7aJJvtRix+Q3pcOm2UdHcP
+	oJWmXeJj8KvYPiL+jlbohMkm691cKOXrBTJVKxwyHYZqjwpCHUvsTrpfFWNFpE754ZkDPFv
+	ZkTpzRnwgnWU6aYHRkvJP7IsJtFQRRBBePd4eryY/KwoYcySgqfnIYLpo/SsRXuKGoouufR
+	Ib2UZbbBmKyulpUHgkZcdP8fDBr8N/Ep1my1LoiNS7re15+QXYreKxQFOaMq499bEdFCNdq
+	vFXA6L1no9CLSJjyvS1Bg4RM3b34WY67dlWVrhQiNid9LzD6Z/Kh3XTJyC4S7NoLelGjORV
+	YlZ1n5BzpXZs9I+L3tvJMFSU9E36bij2T7hRcO9vDj9QluYZKEHgZlYtKq0Bo+uTe6ZnBKx
+	QUp8cVZNgbFIctG2FQTk3GcsmfalC/b1vrDB5f2Dry2yryD5esBxTnSq2Nodgu0y49cJcA3
+	zKkGKOJkkn8Urnvgrj11T3aP5jWRYO8P/9/aKpjPebPgNffRAA3CHLB7tVnLYN5peMNDEBy
+	oER//DlRnO2sGq8CP6/p4yWi3AqoxPMx9gm8fvdbe182+egVk1O1aF5JvNHNdTKNxCxr03Q
+	jsJrVJRTJ8NAm4YuVncihV6BhKdzVVNUjNNQ4hQcdJJ3y0NrRWT2GPDXiWO/UgnBlY6/Rwp
+	/RC/Y82Q/26PpD5S7WnaKlvPgYyc6UK3Zmmy7XDWk7+hgZNsVhjZFSKUhmg+imjs2+2ske/
+	TTwxEF6+SaNlg8O2XON0smH8sl3otpSZYzj7xpUWQ1csB0Cha+Z9hKgHc6uFnROx3OK2eTo
+	gaMpD73qacWlPPjWgqnDJ1oNezoea4w/mL8TLOBNrChWg3MxL/HmnwNyk4SplMHf3IN1Wr7
+	uvHA1j02dBYf/4ytyF/v7sk5SN6WQa1iR0A3KfNpc7/gQ1tVWjrGFe/mushoqt1dGjPv6+R
+	JcavSKZ7HQloZYSk8LcuRZMU0VOVSBjH2OCHmo0H329t80VgjMKxQJHDPDiwAfgUFImDHDj
+	pCGK4z7QV5YXZoSTgorDJDwDJBask=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_000737_876965_36B4978F 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20260709_001253_177782_0FD3A28C 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 9. Juli 2026, 01:56:10 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Sebastian Reichel:
-> Hi,
->=20
-> On Wed, Jul 08, 2026 at 06:58:24PM +0100, Dawid Olesinski wrote:
-> > Add the device tree node for the V2 cryptographic hardware accelerator
-> > on RK356x SoCs (RK3566, RK3568).
-> >=20
-> > The IP block sits in the non-secure peripheral domain. Its three clocks
-> > (core, aclk, hclk) and reset line are accessible directly through the
-> > main non-secure CRU, so no firmware intermediary is required.
-> >=20
-> > The node is disabled by default; board files that wish to use hardware
-> > crypto offload must enable it.
->=20
-> Why is it disabled by default? It doesn't seem to be board specific
-> at all to me (the same question applies to the RK3588 DT).
+Hi all,
 
-You're definitly right about that ... there are no board specific resources
-needed, so Dawid please drop the status from both nodes.
+Gentle ping for this series, thanks.
 
+On 6/3/2026 11:35 AM, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> This series is dedicated to enhancing the DSI controller and PHY timing
+> interaction, refining the lane rate calculation, and addressing the
+> associated hardware limitations.
+> 
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/all/20260324085838.90-1-kernel@airkyi.com/
+> - Fix the unit conversion for max_mbps.
+> - Split the lane rate calculation into a separate patch.
+> - Add more comment about timing config.
+> 
+> Chaoyi Chen (3):
+>   drm/rockchip: dsi: Add maximum per lane bit rate calculation
+>   drm/rockchip: dsi: Add dphy_get_timing support for multiple PHY types
+>   drm/rockchip: dsi: Relax the lane rate margin requirements
+> 
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 66 +++++++++++++++++--
+>  1 file changed, 60 insertions(+), 6 deletions(-)
+> 
 
-Heiko
-
-> >=20
-> > Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64=
-/boot/dts/rockchip/rk356x-base.dtsi
-> > index a5832895bd39..9de7e7487ca1 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> > @@ -1112,6 +1112,18 @@ sdhci: mmc@fe310000 {
-> >  		status =3D "disabled";
-> >  	};
-> > =20
-> > +	crypto: crypto@fe380000 {
-> > +		compatible =3D "rockchip,rk3568-crypto";
-> > +		reg =3D <0x0 0xfe380000 0x0 0x2000>;
-> > +		interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-> > +		clocks =3D <&cru CLK_CRYPTO_NS_CORE>, <&cru ACLK_CRYPTO_NS>,
-> > +			 <&cru HCLK_CRYPTO_NS>;
-> > +		clock-names =3D "core", "aclk", "hclk";
-> > +		resets =3D <&cru SRST_CRYPTO_NS_CORE>;
-> > +		reset-names =3D "core";
-> > +		status =3D "disabled";
-> > +	};
-> > +
-> >  	/*
-> >  	 * Testing showed that the HWRNG found in RK3566 produces unacceptably
-> >  	 * low quality of random data, so the HWRNG isn't enabled for all RK3=
-56x
->=20
-
-
+-- 
+Best, 
+Chaoyi
 
 
 
