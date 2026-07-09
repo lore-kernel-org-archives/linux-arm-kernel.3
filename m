@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14535C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61671C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UXqUN5fCLyZCbN7uBG3JtTUMvasjG9uxSeitMnaL8+k=; b=XNIcnJARV4gBcUD1YuA42jb+IA
-	Zy98T6ArbUBSteO0/2cY+1DHT0YcHfC7uFoWBMsPXWqFIZmsdxDH/SfCmEAtI2KUeMtENT5VHOMd+
-	pAVWegxqzaZnZo/GWcwpcZj5eQzUrlFAeWurD6Sy2lyKqODV2p11O9koxKvpq9xR0tZ0p9A4zgWHR
-	wrdZo9jyZpf6xpVY1rQ+XSQ8EPZ2Xo6jUAPPCfJO9QfdmE65erpuaGE0BR2NNL2c2bwgnRkeexC3m
-	H86GL8IVYy3rAGWqXyng7tOddE5/gsaCU4KtAkZnayC3r/ZhTTm90gIn78yNjAB0EHCGXb5o/A14h
-	fa4jwz+g==;
+	bh=+MlbD+ftOwKt4BByEZtFD+Ks2aukeevZw3PKFlwFAqo=; b=XmqJbHIF43dcIRN1IyViMT5Fof
+	bZO3+XZegeKAMaG1qwP4npkVeC71dwDv+4rxJgKA6cbPBzhLQQnwsLIFwR73Z79OPq/DLM1VR4sND
+	9vU+I3TFXAaRPLCI8WlxUqJwkrC4soFcrtGoE7D9SWDV5qEsLQFJGASi/vidh5Xiqkx8HWXlVpGQq
+	2cLWNkCaVyH6+wmPH2tuE7FLWSuYNxgARsXNHOv/VpFO0Nq/CuNYyH/aRZRH5Iygv77+aWwPbamH9
+	adE9VtQSpNi977ZMCF4iiOb8r6E57w9lNWOJCEPMVUhQ2blqfBO2UGD+Wjj3gxrA8dulkf2Dk9Qgs
+	Noo4Igvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjsG-00000001O5Y-27DW;
-	Thu, 09 Jul 2026 08:12:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjsF-00000001O5O-0BJU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:12:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74AA26001A;
-	Thu,  9 Jul 2026 08:12:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A6B1F00ACA;
-	Thu,  9 Jul 2026 08:12:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783584766;
-	bh=UXqUN5fCLyZCbN7uBG3JtTUMvasjG9uxSeitMnaL8+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hrD8WIf3qzu0F+NJBla2ORd0jSfnJE21w4csBd2BoRKkRnlvPYCzn382brDiLHOj6
-	 87oqQ616n/DJfrnhSBmlb3oG60ugLTh5j1mzNkHmhY6Z8YJpIQASmRLUWTF7A/IodW
-	 8nFE30Vmw2Cvzzswm97tz4XI45zKyEi7OXV1OM/bE5sxo33NSZDycJ2dVfiClRdRAX
-	 wUQOovmWzLjGgAMNypKyzT6h0W0oBzDFNcjm6xfSbmI40CLXFMgLPj6X3jo8KsO+vW
-	 B4wYjrBOf90XL69uOA4QkbnSax4KvdQ1OWVqiyWUMtlH7+Ah+1F2j0EAHYY3lFIYXc
-	 B5PWKjlbCSvtw==
-Date: Thu, 9 Jul 2026 09:12:37 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v8 1/6] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <20260708-precise-prudent-firefly-17c1ce@sudeepholla>
-References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
- <20260707081351.1680209-2-aneesh.kumar@kernel.org>
+	id 1whjtJ-00000001OEY-3FpS;
+	Thu, 09 Jul 2026 08:13:53 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whjtE-00000001ODW-34Jt;
+	Thu, 09 Jul 2026 08:13:52 +0000
+Received: from 8bytes.org (p200300f6af4fc500c39e96c98da8598f.dip0.t-ipconnect.de [IPv6:2003:f6:af4f:c500:c39e:96c9:8da8:598f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 1AAEA203552;
+	Thu,  9 Jul 2026 10:13:46 +0200 (CEST)
+Date: Thu, 9 Jul 2026 10:13:44 +0200
+From: "Joerg Roedel (AMD)" <joro@8bytes.org>
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
+Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Miles Chen <miles.chen@mediatek.com>, 
+	Joerg Roedel <jroedel@suse.de>, "open list:MEDIATEK IOMMU DRIVER" <iommu@lists.linux.dev>, 
+	"moderated list:MEDIATEK IOMMU DRIVER" <linux-mediatek@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] iommu/mediatek-v1: Fix off-by-one in MT2701_LARB_NR_MAX
+Message-ID: <ak9YKsvML_WIXNhY@8bytes.org>
+References: <20260629145946.312819-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260707081351.1680209-2-aneesh.kumar@kernel.org>
+In-Reply-To: <20260629145946.312819-1-akkun11.open@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_011350_849507_284164E7 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +67,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 01:43:45PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> SMCCC-discovered firmware services are currently represented by separate
-> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
-> represent independent DT/ACPI-described platform resources; they are
-> features of the SMCCC firmware interface.
-> 
-> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
-> interface. The bus provides SMCCC device and driver registration helpers,
-> name-based matching, modalias generation, and a sysfs modalias attribute so
-> SMCCC service drivers can bind to discovered firmware services and autoload
-> as modules.
-> 
-> Follow-up changes can then register SMCCC firmware services as arm-smccc
-> devices instead of creating independent per-feature platform devices.
-> 
-> Based on arm_ffa code
->
+On Mon, Jun 29, 2026 at 11:59:44PM +0900, Akari Tsuyukusa wrote:
+>  drivers/iommu/mtk_iommu_v1.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-
--- 
-Regards,
-Sudeep
+Applied, thanks.
 
