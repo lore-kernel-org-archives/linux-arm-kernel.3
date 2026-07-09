@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8F4C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3FFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/pnBaYCpoYlWh4QL74OJY/E90fMJ+KmnAOHnQeWuVfI=; b=y35maGAG41TSQYOhI6CaykTyho
-	oGUyg6kl2wTkmG8m0dyKXyoGAn9EJXbN7VAhw3lpdz49+8ApPqhh1L7cRsRjqwUKJvCupe/tidVRk
-	/qhgnAcbBz8GxyireUs1Ac4NgJjfrSjpLKjDXcAPjo093y0ANzVBqiB2CK16zj6B7zvaP9MhTAGXx
-	3H3L+KB8LzD/OYgEGjY13KuKspC3QMIvs63M9RPZ9VXDvTWRhf+lbg3FQtCdK3OvNB1a+IZ+mwMt1
-	/bK9bGTPwerhs8ksCaQiN7LGFKaLEQUfoMma+L3ysGVxvLyCwrVsX8v3yw+I9eKMjl/G6m5v0t47h
-	Kq622/vw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c+MIjavpe8iXfTV74/Ca4gAbW4qOYaXRBTHv/Bp4yhk=; b=EJIo9+ytwf6kfHwMKBpfQR+13B
+	kVXxPUux+DpzHRMSYl/P5eVTIUa6sd1Rjl+x5h/GNla9xfoUspMQ0W/xfeqKngFiyvXXk2tOQvn2i
+	1O8l7pJ7BiPXD+d5GYVCR1fb5unRv4X/ejtxnkz3yUIWEMEIP8CqkmOM0eFlwEBJcv31pGTU3uJD3
+	O+Nc2ZwT00hIAYRcAELYCyP3vlnIQnf0EYua4U4dvHuvOheLeEf7f7GIvisdVNFDYrrCSJp2I0rDn
+	ghxuNp8DB2eUYf5sclvJQBNO+2msfHiVI1bwKAX4lWqlOA3Td87HYzxN7A6yBM4qV4kZllNi3GibL
+	42n6jmhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhZb-0000000154c-1K8G;
+	id 1whhZb-0000000154g-1fgP;
 	Thu, 09 Jul 2026 05:45:23 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhZa-00000001547-2P1x
+	id 1whhZa-0000000154B-2P0b
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 09 Jul 2026 05:45:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8EA86001A;
+	by tor.source.kernel.org (Postfix) with ESMTP id D464261372;
 	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 64C1DC2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7E419C2BCC7;
 	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783575921;
-	bh=WbMChnrVJ5hLjteSDIcwpCRJ7d6FUBqAjyKBvueOBbk=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=G06ykPQdF2bEvLEaIZfns4aNwe6V/hyy8+VmBsch3GqLiu/JulFxmJUdEJXiqAyd5
-	 HgL9kb2KGpblOajJbw8GHyoArzbvhpR07xHe7MIQhtDSl8HQkURWqgtDjrVuhevwq8
-	 7jGesErIpVSTlsjNUvMhagjDhzorLe+XsGF914Q7K4L3OabyAUhO6zfJcSzS8fvM7g
-	 HBTDbTr9wTNSnwAeFxZjwDTlNWU/VwN13UAw1hdlx09nYSN+sWBRpQzG5D5qe5qJS3
-	 vpkMPy3bPA9xWijItik8DDQLThgim3ISbpg83gDIQEjvkziVStBOgtbrvvOYTihx0x
-	 SSa8iAId4r0oQ==
+	bh=BlK16le6Cp2NTnCdU23f8blrlV0BToAQJB3XAvAIf7s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FSxznQPoRjMb7ncZJQloYByhtutupAp2kgaqQTDfpLuhTZ0x3X3Mt0SSSw0dG/DwO
+	 Zxtm6M+SRJ+cBYjI+42J/eHbUh0oU/zQi39+suvkB3rFcg6vwU3JCvs/ejFzBCj9gi
+	 JGb4NSoeowAqa/DOi82Y0kYrLyBgslIM2zpd+Q7Tab/9anJcUv+Mbo2bnURGPpEO7H
+	 RuxAMosJKcGud4ugdmRRlL/cYvbe+TCk2nG6SxgHKHh99mhJ7ZE5kq45W5bbDIQAuN
+	 Com2lE00cdLOkw7WKYtDNtBmwXgfl45SlPlpNXrMzizZpbFM94/P4TKncHUfdQzZYx
+	 EcA+sqKsOwQbQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40D3BC43458;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EF95C44501;
 	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
 From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Subject: [PATCH 0/2] thermal: imx: Add calibration offset support
-Date: Thu, 09 Jul 2026 13:43:26 +0800
-Message-Id: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com>
+Date: Thu, 09 Jul 2026 13:43:28 +0800
+Subject: [PATCH 2/2] thermal/drivers/imx: Add calibration offset support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAP40T2oC/yXNQQ7CIBCF4as0s3YSIIRSr2JcQDtajLSEAVPT9
- O6ibl7ybd6/A1MOxHDudsj0ChzWpUGeOhhnt9wJw9QMSigjejGg18jv6BanJEqp2oa4YZkpR/d
- ErimtuWBNXDK5iAalRSesHqyeyPcG2nPKdAvbr3q5/s3VP2gs3xQcxweapxislwAAAA==
-X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-2-00f88f42930b@cn.bosch.com>
+References: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com>
+In-Reply-To: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
  Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
@@ -68,11 +66,11 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783575916; l=1237;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783575916; l=2381;
  i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=WbMChnrVJ5hLjteSDIcwpCRJ7d6FUBqAjyKBvueOBbk=;
- b=WqH42b8JtaKetUkHD06W8GNAZAw0KozZWsslG7Ipqvnb+EYgHYP8NqvJfBOBEGbSM6bSooo1o
- nWVtP19QWlOAX+w3nngyrP1CIkHZCbSldQtk5eiLEPKYL8xtICKNCmS
+ bh=qR9Z8v169awj6AlJQm9fFIYVqyTJvgxKRAwxDjCuvuM=;
+ b=x0jK/SKaYc25IfFG+Jl46iyk32PvludzunbAtiX/CpT60YAd10Cngs5iIM3GFJcb8mGahWr9r
+ 0fdc8lZy9aVCi7ry5l/Rhx/AkpkMfVylPNZ6wobx4gdbQLP1m64ChV0
 X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
  pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
 X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
@@ -93,35 +91,74 @@ Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some i.MX boards need a small per-design correction to align the
-reported CPU temperature with board-level measurements. This series
-adds an optional DT property to specify such a calibration offset
-and implements the corresponding support in the imx_thermal driver.
+From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 
-Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
-property in the i.MX thermal DT binding.
+Some boards need a small per-design correction to align the reported CPU
+temperature with board-level measurements.
 
-Patch 2 reads this property in the imx_thermal driver and applies
-the offset to the i.MX6/6SX/7D calibration formulas. When the
-property is absent, the default offset remains 0, preserving the
+Read the optional fsl,temp-calibration-offset-millicelsius property from
+DT and apply it to the i.MX6/6SX/7D calibration formulas. When the
+property is not present, the default offset remains 0, preserving the
 current behaviour.
 
-Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+Signed-off-by: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 ---
-HaoNing Cheng (2):
-      dt-bindings: thermal: imx: Document calibration offset property
-      thermal/drivers/imx: Add calibration offset support
+ drivers/thermal/imx_thermal.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
- Documentation/devicetree/bindings/thermal/imx-thermal.yaml |  8 ++++++++
- drivers/thermal/imx_thermal.c                              | 11 ++++++++---
- 2 files changed, 16 insertions(+), 3 deletions(-)
----
-base-commit: c50a940dcde35c647e097e89a9150003abd48329
-change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb3..c65400b51ed8 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -207,6 +207,7 @@ struct imx_thermal_data {
+ 	struct regmap *tempmon;
+ 	u32 c1, c2; /* See formula in imx_init_calib() */
+ 	int temp_max;
++	s32 calibration_offset;
+ 	int alarm_temp;
+ 	int last_temp;
+ 	bool irq_enabled;
+@@ -241,7 +242,7 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+ 	data->alarm_temp = alarm_temp;
+ 
+ 	if (data->socdata->version == TEMPMON_IMX7D)
+-		alarm_value = alarm_temp / 1000 + data->c1 - 25;
++		alarm_value = (alarm_temp - data->calibration_offset) / 1000 + data->c1 - 25;
+ 	else
+ 		alarm_value = (data->c2 - alarm_temp) / data->c1;
+ 
+@@ -274,7 +275,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
+ 
+ 	/* See imx_init_calib() for formula derivation */
+ 	if (data->socdata->version == TEMPMON_IMX7D)
+-		*temp = (n_meas - data->c1 + 25) * 1000;
++		*temp = (n_meas - data->c1 + 25) * 1000 + data->calibration_offset;
+ 	else
+ 		*temp = data->c2 - n_meas * data->c1;
+ 
+@@ -413,7 +414,7 @@ static int imx_init_calib(struct platform_device *pdev, u32 ocotp_ana1)
+ 	temp64 *= 1000; /* to get result in °mC */
+ 	do_div(temp64, 15423 * n1 - 4148468);
+ 	data->c1 = temp64;
+-	data->c2 = n1 * data->c1 + 28581;
++	data->c2 = n1 * data->c1 + 28581 + data->calibration_offset;
+ 
+ 	return 0;
+ }
+@@ -629,6 +630,10 @@ static int imx_thermal_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, data);
+ 
++	of_property_read_s32(dev->of_node,
++			     "fsl,temp-calibration-offset-millicelsius",
++			     &data->calibration_offset);
++
+ 	if (of_property_present(dev->of_node, "nvmem-cells")) {
+ 		ret = imx_init_from_nvmem_cells(pdev);
+ 		if (ret)
 
-Best regards,
---  
-Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+-- 
+2.43.0
 
 
 
