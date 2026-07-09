@@ -4,80 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9C1C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16407C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 13:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hgWbehDnZ4BZlMvp/+7ekCJ1HVU2ZKCHsi1MB7Jvfk=; b=x+EN26Xny2wX77
-	SsXLFbl03rYZplBXaib+iBTjewRTQMlipa1dhlYBC0gFS8JshdFX+kxzxhlrwQkUwEuuO9blN41IV
-	OxXAEygZRq7qRNRTupX4PDW9p4sZzWIDqJAr+TWbZqNWKMF8iNKa6+W+eL/riWcKUh2lW2JdMOuw5
-	WIp5oJ+vD+p0zjeGbOj1v5CxGPQvyrYJX/Xqww1jCnZSkCwfqF6raPitJjXY/NVMCD5WODmgPPzU1
-	84hFxIApYH/4GA5eGQXkn/SfHGmMdTTRyRLt5Xyqz1Jw1GpnDUyN8E0ekoOef6EJMuWt1Pq5j2SsM
-	JiMILBYBpFcSB6Gkgf2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U7Kmv08cr/vXN/lQoowvHwCG19gM8kPqiBIx7P0p2BM=; b=AIjy5iOWQyqoTwv+zmn2tLz4eU
+	icSlqM4P7PVyrWmFUrlPszaXdkUPaOsknFnQTVdI8yqBSU542pW+NGJjMe3UfAKD9Y7Dg/o1yOS7o
+	MVBfnlpxe/LXr+7qllYPURuIOxZbgVRJfpy4xYflPuc5BBqnNr3TyXrmBDcxEUJVrwdRpZ55rlNlH
+	cPESOZNZtgj16Tpv2cJLT/sLYKHdmeK2wP7bAvIRybdcyQYudWiGn8dG8vAS1W19sgDZ5TMB+vZhj
+	ULB7o9x2U0cBTJJzJDzYqW/UjL2H6UppHcAA1+e3Dz/INtEyCm0s6IfJnjlaWbBLSX11H3H36LxJh
+	P5wbZSFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoTZ-00000002VGe-2wjW;
-	Thu, 09 Jul 2026 13:07:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whoWn-00000002VeH-0QYE;
+	Thu, 09 Jul 2026 13:10:57 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whoTY-00000002VFr-2CJo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Jul 2026 13:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4hgWbehDnZ4BZlMvp/+7ekCJ1HVU2ZKCHsi1MB7Jvfk=; b=eL5InxNR8qyEh7rMGLSEuq9jDO
-	i2F5gGzcvTrrdrmHg9xYTlfi9atehmVI5pMOyN6zwS2PEvZlSqIil7hrUCGXHQ2nP1pTy8Nv7ikiJ
-	plbhN3/6tCiaPcMZGppzL0GxLk0FQBdDAaj9HbRTbNnoUjWgU4dhZDhAzRX3eXZcWDpjX6Ab6xsTq
-	4ICLtZMpo6HxeKGSDLHII1pLhRVkY81Fy2XMJzptvtfXZOZpPfIQue/5e7PTSNJXL//q8T30CnkN2
-	W7FVY4PAwXbkjlqfs8CNuKKo65HPVVqFhSMP57SmFtT063/HkZIkPBle9/4er3kvyRR0eQsN0+iip
-	dqD7o65A==;
-Received: from [113.46.200.223] (helo=canpmsgout08.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whoTU-00000009ESd-0s9j
+	id 1whoWk-00000002Vda-3H7x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 13:07:34 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=4hgWbehDnZ4BZlMvp/+7ekCJ1HVU2ZKCHsi1MB7Jvfk=;
-	b=1byi5wm+a0Dm3FVa7kazeTEwp/J46B3GjwaxHMnLCqeSdq5UbpPCkDmjW1wRgm3MW3SMCmumv
-	yI68OyUHn0i8sZr7aDmZiAk1qHNHO/3ICGuUDpnn7QTmssXP/QiG2f+h7sKYAhLcEB5ZsSw8jyd
-	PDzFOkMEjIzIItN/QDY0GEw=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gww3m3zf7zmVZw;
-	Thu,  9 Jul 2026 20:57:40 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7C2474055B;
-	Thu,  9 Jul 2026 21:06:55 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 9 Jul 2026 21:06:54 +0800
-Message-ID: <1a476e7b-be94-49a3-805a-8935f9f086de@huawei.com>
-Date: Thu, 9 Jul 2026 21:06:53 +0800
+	Thu, 09 Jul 2026 13:10:55 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-69532288224so1713751a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 06:10:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783602652; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HdHO+RGikP27WZr7AFqEdTGxzrh/i1991ZuM3tm1bv//WfkqtMHLtD57uZaFfEEe3+
+         GDppY1w78xX2/wEg2bPv98HvClU9Qu8iIbPnvMwigOiTnWwBQqOHvOO8+zKDwJQ0AR43
+         IKAuqEBjtWTJSLsTSrn4hu1K01bUDsFTz7SFAoHcxKsMXzQEoFkzDS8IkGobh7HlaCl4
+         aw0GdF3XFGZstf3xVWcFO3ZyPH4/Ei8diPsqwdFjXyvZCLVD/cQ8K4C2jDYjCgDYXsAH
+         duzHXl6e0uQ3wxAeDWSQHK3WqCK4N7oZFRmo/FEmgfEEETASuTGU5uEPfvIKIiRVLZOu
+         HuKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=U7Kmv08cr/vXN/lQoowvHwCG19gM8kPqiBIx7P0p2BM=;
+        fh=ZDK5p65z51oHB8piqjPv4unwuqXHS33L6ZGpcA+kOdA=;
+        b=AvQgAApS3uDkcRVckIZl7238We7Mo33igRf8LgZMaMz2BaMlYQHFUn/KKOk+jIJtUJ
+         H1MSTBEL5gDN+g/RwQlQEQMYnzh34dTnjDOQTrUHFr/LrCtVn1ZXkV559TKEDT9Asxeg
+         qsbpGwH/Z6C7hM4hxFC9rA7rgf/lg1qzsKETM5T4UCy+hhonG/JoZ6NHtVnr41xiOcIF
+         cuwphOmG+/wYL8nLKYyCAy2W+R7E5P4NMN5LuEe7y8YQBXof6nCXLE1/LFzTVFXfJgal
+         JbikxL1JsH7CD8iX67v5NrAQdvk1Bkq8rfX9ZPeW/RWaNZzSAP0A6uA6jhuE5RRw2erB
+         n2+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1783602652; x=1784207452; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=U7Kmv08cr/vXN/lQoowvHwCG19gM8kPqiBIx7P0p2BM=;
+        b=YDwqJAAHC3lDTEV4ZigDYxek4/WxoAies6gLqsRzUaRKRcuLd/bNACAAkqNm3fzeGo
+         KwXeLQoEfpf8QytZaMeufQgclCoRfjyntDXT5bXYOrsnc6lbdI8UhhNBhz+2I5NBtFy3
+         qL0wTjtCJFSD2ofqjQ/axI+LAV56ZQFjmwNpJoeOPG93+UV68ySdNsWs1Ks8sZq7f3QI
+         e46CFf92MLheilgSiYL563JEgosVsfcYRkUVFyYuGIwDaGj+TIORCtEo2Jo2wEv3sD0b
+         ajXKRcuTgVrowwH+m2LOBGiXhHq6LIxYX+wRYXbzBDyebvf73i2H/d/JYfC2f+Jyk4TQ
+         v1tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783602652; x=1784207452;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=U7Kmv08cr/vXN/lQoowvHwCG19gM8kPqiBIx7P0p2BM=;
+        b=MqNF/1DnDkapLXtz/yFdO7lQmQHMnYiOke8604br5UN+E5uaKhgd744k3sGMomeizL
+         lX4YAXmjShfQBLDaA3eVuuG5iU9Yjrg+yibnLUp46Hv/LyW3WhT/BwFjXVm6VVo76Skn
+         DTXls+T/qtl4/q97GlNU+Jy5U/aR7UccHB4IcVOEGXDZcy5Xg2u4pdtc9CRqE6xrGaRC
+         owZSKtzzwOCsIVxuVAQUvVsCcbKTfqR2BgovVQkve+L0TRykEguR63IT9678Y0kjRYPk
+         d3y6I4QeTi+wsyGny69NJ+g99jbFLGZs7Ibs/WfMCQvO0WTlm60yUX/5z/ioiCACtk4S
+         92uA==
+X-Forwarded-Encrypted: i=1; AHgh+RoVPAYAJ3GcuOmzET4a7eLFyr0lB7w6YsUyJHVEFO0hJWexF5AEj01rfIAy8B6YDjaHbbcuCNx1xpEkpiBbfrCb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7gmlRf43jg7sKUYbbMTtutzwvjOFGMbjtbglB/YLCehKpIcjd
+	JN5o+0rqaAkMl3zZ0VsD0r5a4xYIAAOd5Rlya2O8XQzZdEGwiFD02iRfVP5MBXNo8DjRqR1CjhP
+	pKG5K9jTp1dA7zaQLe9P08T5KDattDFTSv2hRtIGV7MBppIVF433VP/o3ww==
+X-Gm-Gg: AfdE7cnqDPDmOHsNcAFyq1yHWoIQJ+3Bym738EhStY8e+RFJLLAJXt+BqtODuVBYvEZ
+	M5MXK5r8G1A0LxhqLqB3d9KLmFxVec1pLkZGQsCOWztul4IjT5LYZd1fyK0LoIZZnA7KrhODo9H
+	DMJ9RtV/dCxOuN+kwDGvTde5z9f7Km49mVtMzXjUn725IW+6U0LZItPqRigjzFoWqUC1yYVQzdO
+	QwWoL0xcYKYHN1wzeOG21qqWLWY3NOcHJVfAIm+dJhe4VhDEHbk/VjmoKpy+2CnN+Q01ucuytuH
+	SQIOUGoU1yXvpUtklGBl41Lt8G8TBRQ=
+X-Received: by 2002:a05:6402:3595:b0:69a:a9c1:c33b with SMTP id
+ 4fb4d7f45d1cf-69ab44aacddmr3005773a12.31.1783602651660; Thu, 09 Jul 2026
+ 06:10:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 02/36] arm64: debug: don't mask DAIF for mdscr_write()
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-3-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-3-vladimir.murzin@arm.com>
+References: <20260701105731.196618-3-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260701105731.196618-3-krzysztof.kozlowski@oss.qualcomm.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 9 Jul 2026 14:10:40 +0100
+X-Gm-Features: AUfX_myQ0gFl-ytrmuBc8dxFLfDYOP7Y9AYpNDt10PW8eTtKc3T-jFh5D_m4h-M
+Message-ID: <CADrjBPqGMUOWtm8nGHpkQTRkAHtxtpNi6SuTdE0x61zO0eG3Kg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: samsung: exynos-pmu: Restrict children
+ with unevaluatedProperties
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_140732_873936_E404F04C 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20260709_061054_853468_B0CEE8E6 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,81 +115,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/9/2026 8:12 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> Masking DAIF around the write to MDSCR_EL1 doesn't do anything: we can
-> write to sysregs with interrupts unmasked, and writing to PSTATE is
-> not a context synchronization event so it does not synchronize it.
-> 
-> This is done in the context of a general interrupt handling cleanup,
-> so it does not address the missing context synchronization for the
-> MDSCR_EL1 write, staying consistent with the current state.  This
-> should be addressed in a future patch.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+On Wed, 1 Jul 2026 at 11:57, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+>
+> Each schema for a child node should end with either additionalProperties
+> or unevaluatedProperties, so add missing one making the schema tighter.
+> Defining 'type: object' is on the other hand not necessary when other
+> schema is referenced.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > ---
->  arch/arm64/kernel/debug-monitors.c | 3 ---
->  1 file changed, 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 29307642f4c9..e271fbac5f82 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -40,10 +40,7 @@ u8 debug_monitors_arch(void)
->   */
->  static void mdscr_write(u64 mdscr)
->  {
-> -	unsigned long flags;
-> -	flags = local_daif_save();
->  	write_sysreg(mdscr, mdscr_el1);
-> -	local_daif_restore(flags);
 
-commit 478fcb2cdb23 ("arm64: Debugging support") used the
-local_dbg_save() to set the DAIF.D bit.
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-In my opinion, this was originally intended to avoid the debug exception
-being triggered immediately when the single-step mode is enabled during
-the write of MDSCR_EL1.SS?
-
-
-+ * MDSCR access routines.
-+ */
-+static void mdscr_write(u32 mdscr)
-+{
-+       unsigned long flags;
-+       local_dbg_save(flags);
-+       asm volatile("msr mdscr_el1, %0" :: "r" (mdscr));
-+       local_dbg_restore(flags);
-+}
-
-
-+#define local_dbg_save(flags)
-       \
-+       do {
-       \
-+               typecheck(unsigned long, flags);
-       \
-+               asm volatile(
-       \
-+               "mrs    %0, daif                        //
-local_dbg_save\n"    \
-+               "msr    daifset, #8"
-       \
-+               : "=r" (flags) : : "memory");
-       \
-+       } while (0)
-
-
->  }
->  NOKPROBE_SYMBOL(mdscr_write);
->  
-
+>  .../devicetree/bindings/soc/samsung/exynos-pmu.yaml         | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> index 76ce7e98c10f..d124f3ae9fbd 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> @@ -94,19 +94,19 @@ properties:
+>
+>    reboot-mode:
+>      $ref: /schemas/power/reset/syscon-reboot-mode.yaml
+> -    type: object
+> +    unevaluatedProperties: false
+>      description:
+>        Reboot mode to alter bootloader behavior for the next boot
+>
+>    syscon-poweroff:
+>      $ref: /schemas/power/reset/syscon-poweroff.yaml#
+> -    type: object
+> +    unevaluatedProperties: false
+>      description:
+>        Node for power off method
+>
+>    syscon-reboot:
+>      $ref: /schemas/power/reset/syscon-reboot.yaml#
+> -    type: object
+> +    unevaluatedProperties: false
+>      description:
+>        Node for reboot method
+>
+> --
+> 2.53.0
+>
 
