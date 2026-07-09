@@ -4,116 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BA9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D87C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=wyq2CNp61tp1BI+lx+ZYIiwLuO
-	m6Zpb4WQgT6I5zRWXheAsi4t9+cN+go5OWInWSlWdrlefrerRkZVh2i+iaZrDQ+MIJE1d8kVPV+9c
-	yjhZNr/SVwilEbKrr5o3Syr+yyHQwPqmbyDDwLdIcagFCOAPLOc3FgG8ID3ZdoF8fdBhufMCSa6zV
-	1jawXVq7aDbN5XHVF60GDdHUy8QCPD94wgkrsi5T2TU7nfd30CB00JxXVEgBN4gmzQ0weHy1nmMRT
-	j9VrgjBSOsTGZmfhiE3Oj1Xj+KcrmhQS6YjSA0N5NVv7MiNrC41kByzGIc6D6f/IeDT76yyYo5h20
-	l3I1Gvvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oNVUQ92jBwwxywegXzI0TWPMEPlj68rviJkG3eLuETg=; b=KYMh70DeVm2vIzso3n6uTLGK/2
+	REKsk6VT1aOHLA/KHERiYjMMCNfmXrRvmK3RaQDnFLjKfQZBRbtTJFX9S2X1sMkHQVbrNjAp1s9yo
+	YHHSnDiLWedmVA7fbCC7EA+1btSDnHrzoVPQ3sUk6QFof7Ta9NT+hqZYbpigQUq2plgJ0RZ3koSKC
+	bBS7Uoue4cee0vmpEut1q5dwC9QMaJCeGD7SVG4v4Ss29r2lCGxiCh1QEaElzPOzssmbGyF7fEJda
+	R1gwZ7iNkgBopBtSF8BXO16B4Wg70JILHiWlbRb0kIIaqNbYAcBwGrZWMBrxqiBZ7OEwyQPN9LTZP
+	+pl1cegw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEh-00000001I12-1QYd;
+	id 1whjEh-00000001I1g-2PmS;
 	Thu, 09 Jul 2026 07:31:55 +0000
-Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjER-00000001Hq5-3PSF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:31:43 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.phl.internal (Postfix) with ESMTP id BE16E1380149;
-	Thu,  9 Jul 2026 03:31:33 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 09 Jul 2026 03:31:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582293;
-	 x=1783589493; bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=
-	NcjXP36jr3upWS9hN+FAjMOkg9AJoqH2V1/XdxVXx2FPQytKW5D3LEdp5rrLr0vz
-	HRMvhIrdQIHfK/4E5WxY8MqJsfaIccn483PTiP6SjKEcqiiSnuhMnnP6fYo6LP/t
-	wJgvblgDbNy3uKytHHw9IQpJVtHXDaG3wVb4N+8tqcGIvPRu1n9CD594Qx/3iMoL
-	VsVjnqNnH8cuX/Eazj0B8ml2F0eKXa1Xox6VRx6JLeAlGlc/d0yFqOWu8ePjyrqT
-	51XuIuvTNLN7K0+YCabxcDylDRr2TE6vqivL0D5yop+VclYMXa9O7GlbQ6pgBnqA
-	/3nbJWQFrmOcg0sqTozPxA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582293; x=
-	1783589493; bh=t2jWJuLgHrPs7M9dO8QM30Eyc5bIJ/1eecsMwS669Og=; b=E
-	fOYLRLABOf1jQaS0RUJ1Tra54OMvskUxlTA9lIszIsRAprkn6dG/ZIXmkFrC1cUz
-	MyzhHM4oVNbVwHFakRFz1uoREeU4zwSWYUsJvA3fjmMc1LsciP2lSG2aZWk2MkJZ
-	Vzu1kbTYZHC86R6JhglcIA9BnJtg/TXheP3PEkiwl2sTOqlGtD1bOvp7v8Jbi2aY
-	xh9wBc74wbvIGIGpcbTrMqNeE62MiNYtpCsLenTw45m9B6hgVq3L3/z2VO7wKtfx
-	gfn5n2nCGavuxuLRkJUr6p7IMtSpD7S60NyT4cqqTHdfSJmX+10Xxx4A1ypFcMUb
-	F1OPVLawmrMANTjOElnhg==
-X-ME-Sender: <xms:VU5PaqiPjSioJ9Cshf_s5uppcfWRYnQt9sqpF1oRTq0f3aXUFzH50w>
-    <xme:VU5Pav4NiJQ0LnOc2Fz2Z7TNbdCUQpA8OGtR-qQpQHxdHldVXUt1cI9QaO-N-zzos
-    yZgMc44twHPiIci0tDNYhxQVAtH0ytSjKhriBW8q1QQzhQBA5ENyV8>
-X-ME-Received: <xmr:VU5Pavo51PzPcIYOVzxHcuSsO5CdJu_ZZEjmXrLA03k6cw2axAMn4jp8IjVov1qhzLYKn-tB1XheEOzPTRWJHnajhFSSsLijWu8>
-X-ME-Proxy-Cause: dmFkZTGTDz8RTLhItPbFFd+gcnt5D2cnrDrA9F0Bu4iuiJUOABQ/t6OEIghgd/I7rUj0fu
-    DyRTW0vng3TTYmRifDkSqezpta5UmBqSTxduanIbo/irNS/7zSwkm3liyg6HqibupBIxF4
-    qaBZR4W3LUq0RAzlY7KFquqnRzToKaRax/SSlc/VeNsQ8Ii2ifFnWadAhB/GXoVH5qtbmM
-    7/xAVskeXjkTi/OSNh3fcUFwygXTI3pwsAhkGvaFtWofwSFRarcsFBxFMXD/PBZqIdLBgS
-    sA8WGpz+BiJMX3wwD4hYH+vVlcJ5WzOfGtR1yboz7lR9X0/+HB2hbuocXq1tPn379K9mSh
-    Uvs+ZwJTatqycpHD9Gv0grUb7P5xPTWsWCSaxCTBMdDcrUxI1N8iW5piy/eutEFJFNddXU
-    u447zJvK9glK0RWRRoVpl84pUfBruFhm1k3sDVG0Vf/CaW0cdqGrIBN0jUXhYTS/VuXU4O
-    qIBAruU1FEjSc8tFf1W3MW7Prq84veqXedQovzbqIdf7hjcebbFakK1hj+VuCFCqT7Hh+7
-    KoQlb+3lg3it5XU/8Lx1Zs/v6zKUiM2zrfrv7VmlkkyeW+BMzLmWYzqowr0Vd9l0I5bez0
-    V1qQQUAR+L8/CoKj3u93ey8OuhcA+Q5D6ap4NGocXVcL+F30S/2zDAOnLVZw
-X-ME-Proxy: <xmx:VU5PalUbjp0wqBR5BVwEKBpG9dLZXA3QTbWvYjy6f0DqnCo_tq23Ow>
-    <xmx:VU5Pam5atEa3IxCCMz6i_Vcg7mTDT-X_SytnPOwrJhY1g930ypEOTA>
-    <xmx:VU5Paj2cm7MTacsk62FqTZPz2WG4WDd-a1gTVcW_aDizZcjZOlqcuA>
-    <xmx:VU5Pat-TmX6-3VMQwNZiSyyVgpD8auGfzayfM6V9OaLFMlEcYy3uxQ>
-    <xmx:VU5PagT_NqOhuhEyOEFhF_WQBfXhgj-sAN_scZwnD4BCuW8kW5BBaLlU>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Jul 2026 03:31:33 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 09 Jul 2026 09:30:55 +0200
-Subject: [PATCH 09/11] dt-bindings: pwm: apple,s5l-fpwm: Add t6030 and
- t6031 compatibles
+	id 1whjEO-00000001Hp0-38QV;
+	Thu, 09 Jul 2026 07:31:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783582297; x=1815118297;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=cjMXLnfC6g6dIxN+DHVrz3kfjIpPNwD3v2Vrk7OqkFQ=;
+  b=g5lqCq7Ljeir41gx6VQzpxMMbY1ezF0HO3Ui/mz6T7oZicTtEzAdT/iB
+   MyG9YXIg8mMeN1YqIntg+W7RUbBKkqpznHYSqB+uPkrkDFQ8qhr1q7ZPx
+   nRQkpOlrkskWo4Lbp4M/SXvZ90XV4dC/i9hJqdFTUEzqVMr3IMdrAxVqq
+   6XV6kKr8d5EQOHAGRAqtWbyZwtpDFEhzbVaiNlROU6E7tjSdOFRp3BilI
+   eM01jT+TVo8JrPqXr2160r8fjahnF+E03A4QH9VVchlictvSXfGYxyL5z
+   ejnsmbPNt8AhKeWoSvE8lF2frPQD7x+PurQ59TH2dLXRZYPJI8MlmPh+S
+   Q==;
+X-CSE-ConnectionGUID: 75E3ZfYbStCP1Br88j5Wgw==
+X-CSE-MsgGUID: bjgr0IllRWae6glTLd1sAQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84356462"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84356462"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 00:31:18 -0700
+X-CSE-ConnectionGUID: l77jRguWS0KUZDhOEz0AwA==
+X-CSE-MsgGUID: c8A8Itj8SOiqwX6JveJBLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="277729305"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 00:31:10 -0700
+Date: Thu, 9 Jul 2026 10:31:08 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Praveen Talari <praveen.talari@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Peter Korsgaard <jacmet@sunsite.dk>,
+	Michal Simek <michal.simek@amd.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	bjorn.andersson@oss.qualcomm.com,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-omap@vger.kernel.org, linux-mips@vger.kernel.org,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	aniket.randive@oss.qualcomm.com,
+	chandana.chiluveru@oss.qualcomm.com
+Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
+ callback
+Message-ID: <ak9OPNcVAhkfxHvZ@ashevche-desk.local>
+References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-apple-t603x-initial-devices-v1-9-55b305833123@jannau.net>
-References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
-In-Reply-To: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
- Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Sasha Finkelstein <k@chaosmail.tech>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=915; i=j@jannau.net;
- h=from:subject:message-id; bh=Ppfdy02YJ5CZLZtqqh7kewhrMf6+EmjK3Cy3GA55q3o=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/P3sT456O+JXSP42lPPimx0hkya04HcQW/7p1TZLf/
- 8VNBZkdE1kYxLgYLMUUWZK0X3YwrK5RjKl9EAYzh5UJZIi0SAMDELAw8OUm5pUa6RjpmWob6hka
- 6RjrGDFwcQrAVEdGM/z3Nlx2P3HB7lueyoLqU1daf/OaIWVf7qZ5Nk1qjgBb/VxzRoa/OwRfTir
- vCjnqpG38xMnyQXvu4xUXXnUuD5Vmjcw5Op0JAA==
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003139_949961_959E964A 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_003136_888911_15CE3BB9 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +120,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PWM controller on Apple silicon M3 Pro, Max and Ultra SoCs is
-compatible with the t8103 (M1) one. Add "apple,t6030-pinctrl" for M3 Pro
-and "apple,t6031-pinctrl" for M3 Max and Ultra as per-SoC compatibles.
+On Thu, Jul 09, 2026 at 11:55:12AM +0530, Praveen Talari wrote:
+> The uart_ops.pm callback has been declared void since its introduction,
+> which means any error from a driver's power management implementation is
+> silently discarded by uart_change_pm(). Beyond losing the error
+> information, uart_change_pm() unconditionally updates state->pm_state
+> even when the underlying hardware transition failed. This causes the
+> serial core to track a power state that does not reflect reality:
+> subsequent calls to uart_change_pm() see the stale cached state as
+> matching the requested state and skip the callback entirely, leaving the
+> hardware permanently stuck with no further recovery attempt.
+> 
+> On modern platforms where the .pm callback performs real work —
+> enabling clock trees, interacting with runtime PM, asserting voltage
+> regulators — this is a correctness gap. Failures are invisible to the
+> PM framework, the port proceeds to call ops->startup() on potentially
+> unpowered hardware, and suspend/resume errors are hidden from the core
+> that needs to handle them.
+> 
+> This series fixes the problem in four steps:
+> 
+>   Patch 1 changes the uart_ops.pm callback signature from void to int,
+>   updates uart_change_pm() to propagate errors and only commit
+>   state->pm_state on success, and handles the return value at every
+>   call site in serial_core.c with appropriate policy per context
+>   (propagate, log, or skip-on-failure).
+> 
+>   Patch 2 updates the 8250 driver family: serial8250_do_pm() and
+>   serial8250_pm() are updated to return int (with the exported symbol
+>   declaration updated in serial_8250.h), and the 8250 sub-driver
+>   pm callbacks are updated to return 0.
+> 
+>   Patch 3 updates the remaining non-8250 serial drivers. All .pm
+>   implementations are updated to return 0. The sh-sci forward
+>   declaration shared with rsci is also updated.
+> 
+>   Patch 4 updates arch-level implementations: SA1100 (assabet, h3xxx),
+>   OMAP1/ams-delta (modem_pm, now propagates regulator errors), and
+>   MIPS/Alchemy (alchemy_8250_pm).
+> 
+> All existing .pm implementations return 0, so there is no functional
+> change for any current driver. The series purely adds the infrastructure
+> for drivers to report errors going forward, with the serial core ready
+> to handle them correctly.
 
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Just no, please just properly implement runtime PM. The .pm() must die completely.
+I used to have the PoC for that long time ago [1], but due to lack of time and
+other priorities it went abandoned. Also Atlassian made a brain damages move to
+limit repository to 1Gb, so I haven't able to update it for a few years.
 
-diff --git a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-index 25ef04b60ca1..dd95037ea5ee 100644
---- a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-@@ -21,6 +21,8 @@ properties:
-           - apple,t8122-fpwm
-           - apple,t6000-fpwm
-           - apple,t6020-fpwm
-+          - apple,t6030-fpwm
-+          - apple,t6031-fpwm
-       - const: apple,s5l-fpwm
- 
-   reg:
+Note, that Tony (you have him in the Cc list) did a lot for some corner cases
+with that and we still have them IIRC. Tony, do you know what is the state of
+affairs with runtime PM for UART?
+
+[1]: https://bitbucket.org/andy-shev/linux/branch/topic/uart/rpm-plus
 
 -- 
-2.54.0
+With Best Regards,
+Andy Shevchenko
+
 
 
