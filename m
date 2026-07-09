@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC207C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45945C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fzVKBqOy2snTHSXzj4nsxZIeZp6bFOxLjFewY63u1b4=; b=kH8A6R/sN49dbr
-	1g+t3Mv/nZMgWObtrq3Y3Xipz140n5UpmtSKKOOfua7l6LiRB2HNo6hdWQhg9muB5IlAwxKIOdX2y
-	nTTXKxvawetvkup86vG5DRyxaFCvsWUJ8c/fDuhCESQZVD8ax+oXU99Pae94sXuODxB9vG7KD8XB8
-	HdssUDWYuJfYxuTLCph1GWf1cJG/0QHvPFkhFY8+Z7+rYcfKbYZjuQ8C4YZQ6FSy6sf1obliFZ3h8
-	+2752wEsjJjj2PF1A7QXqM7O62x/slkZSy7XkCBQSH1MZspddygXAfsNisxdPzwILqd++KZBLfZ7t
-	vpq3Gtbr0MWQuSr1lUvA==;
+	List-Owner; bh=PcEitUQ7aBgp23U4uLLQhI5MWC7RTaqbg7d+dJwBmfA=; b=EK+09cAU1Col51
+	Ah8HG2/aCa3pF3mZqg1QzSkxikEHg+NLhtbKzqKuVACgyblH7vh6G3Pftulcx2qWwDfaLGdX42Qw7
+	EaIxr7rkKy8A0BI6TCgaOlnN+MP8Ysh3zSoavlusfPTferCP0/c31yaK9qgACUCj98o1wFF/q11yL
+	+Gkn/BarJ4UFB2gHprP3xkNKFgI5XjOSwqzF3gk22x0yDJYPpq+9S5+GhPH2WSjBy6JmBFv/zhVhv
+	dpnrIeA9Wuv9HsYOMCdJ9WC5lNEsz90AEJNWYfPqHpUbDTRFlZwYI1hrd0xgNEtP82gIOula/cWWq
+	IVtLArfVhmFhidaK9vUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whneP-00000002LPW-1fPa;
+	id 1whneP-00000002LQ7-41d6;
 	Thu, 09 Jul 2026 12:14:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whne9-00000002Kan-0fiz
+	id 1whneB-00000002L2t-0r1E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:14:30 +0000
+	Thu, 09 Jul 2026 12:14:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7498A3569;
-	Thu,  9 Jul 2026 05:14:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D0ED1476;
+	Thu,  9 Jul 2026 05:14:26 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 790AB3F66F;
-	Thu,  9 Jul 2026 05:14:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 198473F66F;
+	Thu,  9 Jul 2026 05:14:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783599268; bh=QnT2TWIvJ9VKFvNsrm+OPKX4qt1Uku2gKIWzUfXxsTI=;
+	t=1783599270; bh=PfMzUp8Ln9LlpEiUiLTk6yFc58iA5EoxyYS31nwn9Z8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QEmPJVV3dnBCadzAQLbRwnpyp5f646ARbj2sOOc5HAnLkdID+11OYQveLrlHbdkJT
-	 z4gERZSRWYDgJRIvDTDxcvOe+QFvHf+l5NxB5+vdJY8ZlvnY0FwPYMXjkba7xYKD35
-	 UZeB5mvxrYb9SJd+W+772Q8qFBp5QkI1fHTls2XE=
+	b=mF9d61aULYPfStKUkCdzKcY+Dp88fXlHMIzxJYjMPPQwQBFlTYvqkVpHRPv5gIfu8
+	 5no8W/AoaIbo2DBzDhzhnA9maoFxolmqp6dVlHZrMaMib7VrdKFfWvo8WIFcvfTUnV
+	 8QqD6COUAJ6xMhBtqoJGWHL1Ea10e5DFS4PkneQ4=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 24/36] arm64: booting: Document boot requirements for FEAT_NMI
-Date: Thu,  9 Jul 2026 13:13:21 +0100
-Message-Id: <20260709121333.23507-25-vladimir.murzin@arm.com>
+Subject: [RFC PATCH 25/36] arm64: sysreg: Add definitions for immediate versions of MSR ALLINT
+Date: Thu,  9 Jul 2026 13:13:22 +0100
+Message-Id: <20260709121333.23507-26-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260709121333.23507-1-vladimir.murzin@arm.com>
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_051429_311664_C82E665C 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20260709_051431_293657_4855BF24 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,33 +70,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mark Brown <broonie@kernel.org>
 
-In order to use FEAT_NMI we must be able to use ALLINT, require that
-it behave as though not trapped when it is present.
+Encodings are provided for ALLINT which allow setting of ALLINT.ALLINT
+using an immediate rather than requiring that a register be loaded with
+the value to write. Since these don't currently fit within the scheme we
+have for sysreg generation add manual encodings like we currently do for
+other similar registers such as SVCR.
+
+Since it is required that these immediate versions be encoded with xzr
+as the source register, provide asm wrappers which ensure this is the
+case.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 ---
- Documentation/arch/arm64/booting.rst | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/include/asm/interrupts/common_flags.h | 16 ++++++++++++++++
+ arch/arm64/include/asm/sysreg.h                  |  2 ++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index 13ef311dace8..3170b26ae981 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -568,6 +568,12 @@ Before jumping into the kernel, the following conditions must be met:
+diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+index 6ce60d1519e8..72ed6e75d146 100644
+--- a/arch/arm64/include/asm/interrupts/common_flags.h
++++ b/arch/arm64/include/asm/interrupts/common_flags.h
+@@ -44,6 +44,22 @@ typedef enum arm64_exc_context {
+ 	CRITICAL_CONTEXT,
+ } arm64_exc_context_t;
  
-     - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
- 
-+  For CPUs with support for Non-maskable Interrupts (FEAT_NMI):
 +
-+  - If the kernel is entered at EL1 and EL2 is present:
++#ifdef CONFIG_ARM64_NMI
++static __always_inline void _allint_clear(void)
++{
++	asm volatile(__msr_s(SYS_ALLINT_CLR, "xzr"));
++}
 +
-+    - HCRX_EL2.TALLINT (bit 6) must be initialised to 0b0.
++static __always_inline void _allint_set(void)
++{
++	asm volatile(__msr_s(SYS_ALLINT_SET, "xzr"));
++}
++#else
++static __always_inline void _allint_clear(void) {}
++static __always_inline void _allint_set(void) {}
++#endif /* CONFIG_ARM64_NMI */
 +
- The requirements described above for CPU mode, caches, MMUs, architected
- timers, coherency and system registers apply to all CPUs.  All CPUs must
- enter the kernel in the same exception level.  Where the values documented
+ static __always_inline
+ arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+ {
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..6d2c6bc1b985 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -179,6 +179,8 @@
+  * System registers, organised loosely by encoding but grouped together
+  * where the architected name contains an index. e.g. ID_MMFR<n>_EL1.
+  */
++#define SYS_ALLINT_CLR			sys_reg(0, 1, 4, 0, 0)
++#define SYS_ALLINT_SET			sys_reg(0, 1, 4, 1, 0)
+ #define SYS_SVCR_SMSTOP_SM_EL0		sys_reg(0, 3, 4, 2, 3)
+ #define SYS_SVCR_SMSTART_SM_EL0		sys_reg(0, 3, 4, 3, 3)
+ #define SYS_SVCR_SMSTOP_SMZA_EL0	sys_reg(0, 3, 4, 6, 3)
 -- 
 2.34.1
 
