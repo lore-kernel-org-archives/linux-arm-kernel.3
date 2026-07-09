@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6CDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 18:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FFF9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 18:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=; b=1hlzO1wOhbMar55+ctgYCymKwG
-	KSxdvWBs9aP8IhacvkHwGYTGrnmgETn/7+R88Ls3DAIJUJYmwEBPAfGVebsTUEy3+eMf5VzudlvyF
-	orHypUJiKzeuhuHDmsnFtjPVCoyX2dHD8ies4vOEibGRvkunOS2avuMLvii7uqMs1EG+T1+myV44d
-	LJOvMvHs3JJDk+cG6mokmBEFpk0Gu6SjfpATbRd/XvR+BFgPXD5fbfTLeVt72X3wg/nFQf6w2iwse
-	Y7Sm22aAZ6C6Dw09rI2uoPWuMd5Xvym9Ussg22apyU4zI1Ne8yxhc7NC9X2hd+UwMU0u7WW8pmf+i
-	YUwcgALw==;
+	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=; b=oZVYKZwEujYx4QtWL3W0V6Rkgs
+	rnaE2Iuq2Jn6CKMrJVulzoHKK1+m0Q1MW8zYctSQkF+PFAOasOcUObbaM1BfTpRVbR5zjJNFv4Y8I
+	pmRYJdBxuED4BoIt0THdpVa/yGpWA0syiF3be1tjd7wzgc9T23vMWQ3jEDq//umt3XId8CWzzYvTQ
+	cJDICXSrCby2jXXaSxlbnbnjgZRjqHTDGk+sDU0P2hkJiKc25B3XdoJkOVk4CsAsRP5nsQr5Xe7GH
+	b77+oDK/0SNLD8mYGL8hWx2MVfFAQJ1SOSyXWh49nccGCbkgZ2S583GPBcDoZTvejhVIDHLhl8t/9
+	8M+qLqow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whtfn-00000003F9K-30al;
-	Thu, 09 Jul 2026 18:40:35 +0000
+	id 1whtfr-00000003FDz-3ZOG;
+	Thu, 09 Jul 2026 18:40:39 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whtfl-00000003F7T-3dwC
+	id 1whtfq-00000003FCR-1XBC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 18:40:33 +0000
+	Thu, 09 Jul 2026 18:40:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9433C401C0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2406840354;
+	Thu,  9 Jul 2026 18:40:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E148C1F000E9;
 	Thu,  9 Jul 2026 18:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CCEA1F00A3D;
-	Thu,  9 Jul 2026 18:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783622433;
-	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=;
+	s=k20260515; t=1783622438;
+	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KQ/2IKPr5Ob10pw45hFyJrXrCQ3tsZfCUKD597YWJtKp6BIbsH2QLOn0Y9KkIwpq0
-	 uh5YNf0Lrkv9XV40Y3w3tfFAETYr6GlSZVmMGs9WsrSHKHxr9MhUODWRI/gAidFoTP
-	 t6IaoMqw1IBeHG1vIIFwW6hsSWVAyjCzSikrU7MCMQFalxqosJvAU5R41TLHZt3Y8c
-	 wDXIkbanAipQFa4TU6AUx9I2G670zlECubGsDm1sSFEecD08LR8Ogs7yMN0fXp7CIz
-	 Z3JlwTDCjJ/f6YFcPeBpk4Bm5gWTVSX5weyCRfosCn0giPuSMe/qztNB0BCvHhUV3Y
-	 010xA51u6w7KQ==
+	b=ihfTHfp87MdYBmJMxHtgFose6qvgob6opLw+t2eNcVMQ9aukbr9PFuT5zLFRDQxon
+	 MFWoLUz8TKmgMge4d8xs95RbZp9tEzTKgW2ZrRJvMNI3i0E/e9gemLP9MYZv7ugXBJ
+	 LdqPl0ZcmpRGJtnNtu8MuEZ5JXLRncGkwxb1RLVG60fJrfvBZba8s1LcTALMqOh1Zk
+	 +mRGAIpe/4LltijI6QYtw8M9PYOTaC+D47L+YPmZnmHZ8evM84t8C4VNR49P78lAoA
+	 OlWQ8KZqTzugKwBx6hlzuXtFnRUxnR1p7DQdTl9jzE/Y5fdlW5qBZjQtV1OdSOsOD9
+	 zhYQe9qdDojeg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 09 Jul 2026 19:27:27 +0100
-Subject: [PATCH v12 06/29] KVM: arm64: Handle FEAT_IDST for guest accesses
- to hidden registers
+Date: Thu, 09 Jul 2026 19:27:28 +0100
+Subject: [PATCH v12 07/29] KVM: arm64: Pull ctxt_has_ helpers to start of
+ sysreg-sr.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-kvm-arm64-sme-v12-6-d0301d79ef58@kernel.org>
+Message-Id: <20260709-kvm-arm64-sme-v12-7-d0301d79ef58@kernel.org>
 References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
 In-Reply-To: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3302; i=broonie@kernel.org;
- h=from:subject:message-id; bh=u65dLobDDTfZ3Plqj3qN97beHdtUOk+/y5QgneNdn5w=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqT+ruW1dvvywWlnLeB5lO5vk3pCtv7FrJpOmzr
- fdiOqL5v/iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak/q7gAKCRAk1otyXVSH
- 0H53B/9DjwGh+7WiEKyEqNd1YLbu7bg1QDZDEYJU9yigMgacG2JCDcRupJ0/CDTO9//oGae1kb3
- Aqq57j42vZ+Y6YtVlhqeVPGE0eM6QpgHZ8DHvwDkiuSFzZZLGS7GxGrpBi62W5yDqv6tndCHUS8
- 7OsspcZetqd6n0z7DHP4E3cT4dN7X/3JxC1DYGMsGB1QSv+LurK+NhpNwXjKVlCdKAXPYgMuxaY
- lBxoM14Mj3P/rLj+3qbEOvj6angfHtvEVGwjl9zJPHwSt5AG54zXGWPCGzdhhCFIAn/LnR4tNHf
- PD4N+MnHGPHiP+Jy13/Tj6mEsHCiagFj60ekOVm0WZjE1t0G
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4004; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=1qAIu+pXeO/t0Rjmal4q8j7FSwr2awFBos2cAAJK0lg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqT+rv0CVZZwhvdmr4w8M1D6/eLk7nCAkotHen7
+ paipmGSVSaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak/q7wAKCRAk1otyXVSH
+ 0NOlB/9h/rb4vEOB1waSDv3vQ16SkU7O4lt+3wSt0PSB3b66FkebY62Q86k3v7tvxzuhfJzqwVj
+ +wPYMe9WHg6A6qxbw7izS/lGW1s5LIg9xXZJis3QoJDFqdiZh6gNkNByHw4Sw/hmSB2YG9NAziP
+ J46MN1Wo2hXY3vIBZjgOnSyjnGxeLPU14J4g7S6bTKSoAlMHf7rHl7bHBXqAjaC2rHb+EFG85cb
+ jDuRspccrjL/qiJksEQzZaJTQN5WpT+Jtgj6qMS/q6I4u+eubQ7Ad7Ly8GJIslX/jNtYXqHgrvS
+ r7uoHw+XEfoFCgDc5r9xYl/zjIdqV71ujCFEykpP/Xh1/ML1
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,91 +91,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for SMIDR_EL1 which is only available in
-systems with SME factor out the FEAT_IDST injection from emulate-nested.c
-into a helper and use it when handling hidden ID registers, ensuring that
-we provide FEAT_IDST behaviour for them.
+Rather than add earlier prototypes of specific ctxt_has_ helpers let's just
+pull all their definitions to the top of sysreg-sr.h so they're all
+available to all the individual save/restore functions.
 
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Reviewed-by: Jean-Philippe Brucker <jpb@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/emulate-nested.c      |  6 +-----
- arch/arm64/kvm/inject_fault.c        | 15 +++++++++++++++
- arch/arm64/kvm/sys_regs.c            |  6 +++++-
- 4 files changed, 22 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 84 +++++++++++++++---------------
+ 1 file changed, 41 insertions(+), 43 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c..994afbf479fc 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+index a17cbe7582de..5624fd705ae3 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
++++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+@@ -16,8 +16,6 @@
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
  
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-+void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu);
- void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index e688bc5139c1..f49b7b311d09 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2669,11 +2669,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
- 		 * helper for the purpose of dealing with FEAT_IDST.
- 		 */
- 		if (in_feat_id_space(&params)) {
--			if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
--				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
--			else
--				kvm_inject_undefined(vcpu);
+-static inline bool ctxt_has_s1poe(struct kvm_cpu_context *ctxt);
 -
-+			kvm_inject_undefined_idreg(vcpu);
- 			return true;
- 		}
- 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index 89982bd3345f..e2f519ca3045 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -331,6 +331,21 @@ void kvm_inject_undefined(struct kvm_vcpu *vcpu)
- 		inject_undef64(vcpu);
+ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
+ {
+ 	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
+@@ -28,47 +26,6 @@ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
+ 	return vcpu;
  }
  
-+/**
-+ * kvm_inject_undefined_idreg - emulate UnimplementedIDRegister() pseudocode
-+ * @vcpu: The vCPU in which to inject the exception
-+ *
-+ * It is assumed that this code is called from the VCPU thread and that the
-+ * VCPU therefore is not currently executing guest code.
-+ */
-+void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu)
+-static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
+-{
+-	return host_data_ptr(host_ctxt) != ctxt;
+-}
+-
+-static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
+-{
+-	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+-
+-	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
+-		return &vcpu->arch.external_mdscr_el1;
+-
+-	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
+-}
+-
+-static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
+-{
+-	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
+-
+-	if (!(ctxt_is_guest(ctxt) &&
+-	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
+-		return read_cpuid_id();
+-
+-	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
+-}
+-
+-static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
+-{
+-	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
+-
+-	// POR_EL0 can affect uaccess, so must be saved/restored early.
+-	if (ctxt_has_s1poe(ctxt))
+-		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
+-}
+-
+-static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+-{
+-	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
+-	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
+-}
+-
+ static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
+ {
+ 	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+@@ -131,6 +88,47 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
+ 	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
+ }
+ 
++static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
 +{
-+	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
-+		kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-+	else
-+		kvm_inject_undefined(vcpu);
++	return host_data_ptr(host_ctxt) != ctxt;
 +}
 +
- static bool serror_is_masked(struct kvm_vcpu *vcpu)
++static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
++{
++	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
++
++	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
++		return &vcpu->arch.external_mdscr_el1;
++
++	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
++}
++
++static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
++{
++	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
++
++	if (!(ctxt_is_guest(ctxt) &&
++	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
++		return read_cpuid_id();
++
++	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
++}
++
++static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
++{
++	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
++
++	// POR_EL0 can affect uaccess, so must be saved/restored early.
++	if (ctxt_has_s1poe(ctxt))
++		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
++}
++
++static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
++{
++	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
++	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
++}
++
+ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
  {
- 	return (*vcpu_cpsr(vcpu) & PSR_A_BIT) && !effective_sctlr2_nmea(vcpu);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 5d5c579d4579..b352cd323e30 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -4759,7 +4759,11 @@ static void perform_access(struct kvm_vcpu *vcpu,
- 
- 	/* Check for regs disabled by runtime config */
- 	if (sysreg_hidden(vcpu, r)) {
--		kvm_inject_undefined(vcpu);
-+		if (in_feat_id_space(params)) {
-+			kvm_inject_undefined_idreg(vcpu);
-+		} else {
-+			kvm_inject_undefined(vcpu);
-+		}
- 		return;
- 	}
- 
+ 	ctxt_sys_reg(ctxt, SCTLR_EL1)	= read_sysreg_el1(SYS_SCTLR);
 
 -- 
 2.47.3
