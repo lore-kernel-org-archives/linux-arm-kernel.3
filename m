@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F06C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8F4C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 05:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVOQQ1gm3MZyZojREIn2l7JKx5S7mcFVw/rTEMaa2fY=; b=24qSePeGpyG3Q0apoZEDPs4suL
-	yfNn4ajaom3zlW5hKl0ZX5xcKVrxJeVoSKOILVjoYC7m4yZnUD2rlCBc2u3qtPfg5eOEA2pTtaype
-	03eQlf7v9T505e3hYAXoxvJUOzQAex0TroE0i56xSQiHxQXAG3xb8U0MfhnaRUKNjILDjbJXtJ3Tk
-	ja7l/mmexXhw6cJAkNDTbhwF5xFncq7h/TBC/H3RpZzTdOHNcRRjUAy/KoD0a8a0VHqp3j92uTNO0
-	TXVaTx5goVJiT3iF1BpzjKpAal2bG6UEMlMi7npQMkZovv+ndkTqXaMC5lYLEEPnU9jCZQdMR9bfT
-	LjJn9LdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/pnBaYCpoYlWh4QL74OJY/E90fMJ+KmnAOHnQeWuVfI=; b=y35maGAG41TSQYOhI6CaykTyho
+	oGUyg6kl2wTkmG8m0dyKXyoGAn9EJXbN7VAhw3lpdz49+8ApPqhh1L7cRsRjqwUKJvCupe/tidVRk
+	/qhgnAcbBz8GxyireUs1Ac4NgJjfrSjpLKjDXcAPjo093y0ANzVBqiB2CK16zj6B7zvaP9MhTAGXx
+	3H3L+KB8LzD/OYgEGjY13KuKspC3QMIvs63M9RPZ9VXDvTWRhf+lbg3FQtCdK3OvNB1a+IZ+mwMt1
+	/bK9bGTPwerhs8ksCaQiN7LGFKaLEQUfoMma+L3ysGVxvLyCwrVsX8v3yw+I9eKMjl/G6m5v0t47h
+	Kq622/vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhIB-000000013c4-1S9O;
-	Thu, 09 Jul 2026 05:27:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whhZb-0000000154c-1K8G;
+	Thu, 09 Jul 2026 05:45:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhIA-000000013bu-0luj
+	id 1whhZa-00000001547-2P1x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 05:27:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 547096001A;
-	Thu,  9 Jul 2026 05:27:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F0AF1F000E9;
-	Thu,  9 Jul 2026 05:27:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783574841;
-	bh=tVOQQ1gm3MZyZojREIn2l7JKx5S7mcFVw/rTEMaa2fY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=OhNnI6XRrEpf3ZwrCwpNHNFOrPAjL2ojo6iw0FWwEY/4x/EewKG6iCK5K9gQxmzYN
-	 WVbGhd5MXQYUVzGH8Uua+VoFc7ycTHtS1S4+zAEvIEPs2rHcIbzfJsARayquQ43TqY
-	 0IDe8hCWW2fReqILaKxHXGwfUfb5/RL/04EOWm64sYnpZ6/EK7WVtCRZGLzcv/r8MR
-	 AE3LVZkV00Ggbv2I3kSeRt5RuthiMfDiQfgIdeAdvu2y22wt2WcVkuOkFSsQrUZ9bo
-	 gZxMFbSM/ErhsYtj5wrg5BmlXkRKhmWR5F8muKLos4YYZRMVMnb+YideQLXU9KDAHg
-	 mPfYzxyKKYFGg==
-Message-ID: <eaef5bcc-99df-4549-8d37-fb3d127c414e@kernel.org>
-Date: Thu, 9 Jul 2026 07:27:15 +0200
+	Thu, 09 Jul 2026 05:45:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B8EA86001A;
+	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 64C1DC2BCC6;
+	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783575921;
+	bh=WbMChnrVJ5hLjteSDIcwpCRJ7d6FUBqAjyKBvueOBbk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=G06ykPQdF2bEvLEaIZfns4aNwe6V/hyy8+VmBsch3GqLiu/JulFxmJUdEJXiqAyd5
+	 HgL9kb2KGpblOajJbw8GHyoArzbvhpR07xHe7MIQhtDSl8HQkURWqgtDjrVuhevwq8
+	 7jGesErIpVSTlsjNUvMhagjDhzorLe+XsGF914Q7K4L3OabyAUhO6zfJcSzS8fvM7g
+	 HBTDbTr9wTNSnwAeFxZjwDTlNWU/VwN13UAw1hdlx09nYSN+sWBRpQzG5D5qe5qJS3
+	 vpkMPy3bPA9xWijItik8DDQLThgim3ISbpg83gDIQEjvkziVStBOgtbrvvOYTihx0x
+	 SSa8iAId4r0oQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 40D3BC43458;
+	Thu,  9 Jul 2026 05:45:21 +0000 (UTC)
+From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
+Subject: [PATCH 0/2] thermal: imx: Add calibration offset support
+Date: Thu, 09 Jul 2026 13:43:26 +0800
+Message-Id: <20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] soc: aspeed: add host-side PCIe BMC device driver
-To: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>,
- joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
- devicetree@vger.kernel.org, gregkh@linuxfoundation.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: andrew@lunn.ch, jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com,
- ninad@linux.ibm.com, anirudhsriniv@gmail.com, linux-serial@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1783524645.git.gregoire.layet@9elements.com>
- <51e455417bdcfe608270c6cb2806b1fd971fb998.1783524645.git.gregoire.layet@9elements.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <51e455417bdcfe608270c6cb2806b1fd971fb998.1783524645.git.gregoire.layet@9elements.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAP40T2oC/yXNQQ7CIBCF4as0s3YSIIRSr2JcQDtajLSEAVPT9
+ O6ibl7ybd6/A1MOxHDudsj0ChzWpUGeOhhnt9wJw9QMSigjejGg18jv6BanJEqp2oa4YZkpR/d
+ ErimtuWBNXDK5iAalRSesHqyeyPcG2nPKdAvbr3q5/s3VP2gs3xQcxweapxislwAAAA==
+X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783575916; l=1237;
+ i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
+ bh=WbMChnrVJ5hLjteSDIcwpCRJ7d6FUBqAjyKBvueOBbk=;
+ b=WqH42b8JtaKetUkHD06W8GNAZAw0KozZWsslG7Ipqvnb+EYgHYP8NqvJfBOBEGbSM6bSooo1o
+ nWVtP19QWlOAX+w3nngyrP1CIkHZCbSldQtk5eiLEPKYL8xtICKNCmS
+X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
+ pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
+X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
+ with auth_id=860
+X-Original-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,124 +89,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08. 07. 26, 17:35, Grégoire Layet wrote:
-> Add support for VUART over PCIe between BMC and host.
-> Add the host side driver.
-> Support only the AST2600.
-> 
-> Taken from ASPEED 6.18 Kernel SDK and trimmed down.
-...
-> --- /dev/null
-> +++ b/drivers/soc/aspeed/aspeed-host-bmc-dev.c
-> @@ -0,0 +1,174 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +// Copyright (C) ASPEED Technology Inc.
-> +
-> +#include <linux/init.h>
-> +#include <linux/module.h>
-> +#include <linux/kernel.h>
-> +#include <linux/errno.h>
-> +#include <linux/pci.h>
-> +#include <linux/serial_core.h>
-> +#include <linux/serial_8250.h>
-> +
-> +#define BMC_MULTI_MSI	32
-> +#define PCI_BMC_DEVICE_ID 0x2402
-> +
-> +#define DRIVER_NAME "aspeed-host-bmc-dev"
-> +
-> +enum aspeed_platform_id {
-> +	ASPEED,
+Some i.MX boards need a small per-design correction to align the
+reported CPU temperature with board-level measurements. This series
+adds an optional DT property to specify such a calibration offset
+and implements the corresponding support in the imx_thermal driver.
 
-What is this good for?
+Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
+property in the i.MX thermal DT binding.
 
-> +};
-> +
-> +static const int vuart_msi_index[2] = { 16, 17 };
-> +static const int vuart_port_addr[2] = {0x3f8, 0x2f8};
+Patch 2 reads this property in the imx_thermal driver and applies
+the offset to the i.MX6/6SX/7D calibration formulas. When the
+property is absent, the default offset remains 0, preserving the
+current behaviour.
 
-Sort of inconsistent spaces. Both arrays should be unsigned anyway. And 
-for the latter, u16 should be enough.
+Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+---
+HaoNing Cheng (2):
+      dt-bindings: thermal: imx: Document calibration offset property
+      thermal/drivers/imx: Add calibration offset support
 
-> +struct aspeed_pci_bmc_dev {
-> +	unsigned long message_bar_base;
-> +
-> +	struct uart_8250_port uart[2];
-> +	int uart_line[2];
-> +};
-> +
-> +static int aspeed_pci_bmc_device_setup_vuart(struct pci_dev *pdev, int idx)
-> +{
-> +	struct aspeed_pci_bmc_dev *pci_bmc_dev = pci_get_drvdata(pdev);
-> +	struct device *dev = &pdev->dev;
-> +	struct uart_8250_port *uart = &pci_bmc_dev->uart[idx];
-> +	u16 vuart_ioport;
-> +	int ret;
-> +
-> +	/* Assign the line to non-exist device before everything is setup */
-> +	pci_bmc_dev->uart_line[idx] = -ENOENT;
-> +
-> +	vuart_ioport = vuart_port_addr[idx];
-> +	/* ASPEED BMC device shift addresses by 2 to the left */
-> +	vuart_ioport = vuart_ioport << 2;
+ Documentation/devicetree/bindings/thermal/imx-thermal.yaml |  8 ++++++++
+ drivers/thermal/imx_thermal.c                              | 11 ++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)
+---
+base-commit: c50a940dcde35c647e097e89a9150003abd48329
+change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
 
-Simply:
-vuart_ioport <<= 2;
-? Or join the two lines?
+Best regards,
+--  
+Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 
-> +	uart->port.flags = UPF_SKIP_TEST | UPF_BOOT_AUTOCONF | UPF_SHARE_IRQ;
-> +	uart->port.uartclk = 115200 * 16;
-> +	uart->port.irq = pci_irq_vector(pdev, vuart_msi_index[idx]);
-> +	uart->port.dev = dev;
-> +	uart->port.iotype = UPIO_MEM32;
-> +	uart->port.iobase = 0;
-> +	uart->port.mapbase = pci_bmc_dev->message_bar_base + vuart_ioport;
-> +	uart->port.membase = 0;
-> +	uart->port.type = PORT_16550A;
-> +	uart->port.flags |= (UPF_IOREMAP | UPF_FIXED_PORT | UPF_FIXED_TYPE);
-> +	uart->port.regshift = 2;
-> +
-> +	ret = serial8250_register_8250_port(&pci_bmc_dev->uart[idx]);
-> +	if (ret < 0) {
-> +		dev_err_probe(dev, ret, "Can't setup PCIe VUART%d\n", idx);
-> +		return ret;
-> +	}
-> +
-> +	pci_bmc_dev->uart_line[idx] = ret;
-> +
-> +	return 0;
-> +}
-...
-> +static struct pci_device_id aspeed_host_bmc_dev_pci_ids[] = {
-> +	{ PCI_DEVICE(PCI_VENDOR_ID_ASPEED, PCI_BMC_DEVICE_ID),
-> +		.class = 0xFF0000, .class_mask = 0xFFFF00,
 
-PCI_CLASS_OTHERS << 16
-
-> +		.driver_data = ASPEED },
-> +	{ 0 }
-> +};
-> +
-> +MODULE_DEVICE_TABLE(pci, aspeed_host_bmc_dev_pci_ids);
-> +
-> +static struct pci_driver aspeed_host_bmc_dev_driver = {
-> +	.name		= DRIVER_NAME,
-> +	.id_table	= aspeed_host_bmc_dev_pci_ids,
-> +	.probe		= aspeed_pci_host_bmc_device_probe,
-> +	.remove		= aspeed_pci_host_bmc_device_remove,
-> +};
-> +
-> +module_driver(aspeed_host_bmc_dev_driver, pci_register_driver, pci_unregister_driver);
-> +
-> +MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
-> +MODULE_DESCRIPTION("ASPEED Host BMC DEVICE Driver");
-> +MODULE_LICENSE("GPL");
-
-thanks,
--- 
-js
-suse labs
 
