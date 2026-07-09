@@ -4,65 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6C5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E84EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 18:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LRJ1/OPtx1Iim/kW87V48kJYVXQps8lsYFvlD6icIBk=; b=TT0jybE+eGY7X6QIMP0AXw4OKr
-	K9VebulG0/hRccsZRckdXdGGEztYBqck5qlzl64t5n6519eCqi2NhmbQYS2ozjE+MM6jElJ18bbjj
-	ZjztZrjg5TC89n8DAuvQPK/zlthWfZUX3fWkqSM51dANNpSl6laBXJaaGDm1LhDuENItXjQOb62um
-	GZ7Qo5EISrdom80DpoFdlNAxHFWMoEz/KpuVCNb5nPSeEHtvZurT1QU0AzWuthBP/VwlJecuMQWxF
-	Bcgs+xETOMaD+qd4BKw/5Qqn63GDN06J+y5/1AhSp5xhVhde8REXnCCaGb1/gDS+/EgysYcfFZWJT
-	Jbg387Tw==;
+	bh=zLBIDdgp21CA6tyOS8pa4Vcch/zpzqNCPhjDMKvoA64=; b=UTMk7moR7DNVNureHDDy5knQjb
+	GsHb9vLiiB/EnFSn+Tfbx2MGNgyW33XOw/Q2TgQBMmmTgXcgoQ3bHxu9IN/Mf17bLg9dboEh60Rgf
+	swsgiWayiMT8GZXGrv0cuRV0KjrrdpMTiDcwebuefFAf0tGPkRjkC1nMDZCIlcAyPiK+fW/slBjXI
+	JIFpy0RuBzS4IXBqjCI25Q8tKfp7joPTQb3yjL7WiBYdaZ6fQOQldXcAXagbGU9B0cRAfJRKMD8oQ
+	/40Z+IawHw2Vza8in/fVDdRd0S+tG7F5bJ1KogYMtsnQcy6ZGTt+KwvRvjoOU1lLtgFUXt8LmH8F7
+	mjJvnOgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wht0g-00000003BLs-0fBg;
-	Thu, 09 Jul 2026 17:58:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wht7c-00000003BsL-3mCy;
+	Thu, 09 Jul 2026 18:05:16 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wht0f-00000003BLR-0lAL;
-	Thu, 09 Jul 2026 17:58:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67C666137D;
-	Thu,  9 Jul 2026 17:58:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AC81F000E9;
-	Thu,  9 Jul 2026 17:58:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783619884;
-	bh=LRJ1/OPtx1Iim/kW87V48kJYVXQps8lsYFvlD6icIBk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n5I29HUiseWe37yvndAIEuS+lV5BsGhqvU4NXd/jsX4v+r7Ie4rxuX3TpupyHDj9W
-	 sO04Mvgsk4+I0mSKt1FUxmbhmTIVqiYF2YuAbrRVUbnkGuh318xOJ6VgGlrXBXJlKl
-	 mvb3uq4IdESiEZFShCt+6VGLmPb3IHD3rDIqUPOprQ1XcjptaeQFINqAE/SXvmm57R
-	 98mark9lO/9yMWXUQETpA1Ty5RNwQhLJpCoCSrgP3WqqspWlcLBXvvgY0UtzA90Sq+
-	 vANLKuP/VbEPkgC2MfgJx1nx1hvaxGtUyPjN6YdNw/MKdZWZM8iJimjAsqQa7+ELU1
-	 C181nltTPgCuQ==
-Date: Thu, 9 Jul 2026 18:57:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jianhua Lin <jianhua.lin@mediatek.com>
-Cc: nicolas@ndufresne.ca, mchehab@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
-	jh.hsu@mediatek.com
-Subject: Re: [PATCH v9 1/3] dt-bindings: media: mediatek-jpeg-decoder: add
- MT8189 compatible string
-Message-ID: <20260709-octane-refold-37324d9f2aad@spud>
-References: <20260709032657.25730-1-jianhua.lin@mediatek.com>
- <20260709032657.25730-2-jianhua.lin@mediatek.com>
+	id 1wht7Z-00000003Brq-0tgU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 18:05:14 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id A722813801E6;
+	Thu,  9 Jul 2026 14:05:11 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 09 Jul 2026 14:05:11 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1783620311; x=1783627511; bh=zLBIDdgp21
+	CA6tyOS8pa4Vcch/zpzqNCPhjDMKvoA64=; b=qzwJu7DB9JJZElTNFp5TPvC/++
+	rynA1aIFA9q5ayidl9MyZDH9ofdhA5rnSIPKPkvIGWMz8v/Ht3Xxa6W2EuymfNMK
+	aOU1AVEmjXgMmtg2WVOwcqeoE4QquvzA4kZoczjCbfyFrzXUwJoXHrsyav4dZ8hm
+	/XaILJb1V9sTG/yvzQoHw5acDu1hK8ZdGpFeVei2tZI3cwt925TmDl1fvSafqVBn
+	70wXV6jJhid55buIOKpPTe0X4PUjjiHmLuaOBmNtXmt1PMFua5BwJ+SEeeDzIh6d
+	N+rTI4vhtiYSGNH4Hv/Op31sg3H+qYkJM/Iren1KNrrICgia1Mn1Vg00hpKA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1783620311; x=1783627511; bh=zLBIDdgp21CA6tyOS8pa4Vcch/zpzqNCPhj
+	DMKvoA64=; b=IGOtA0Dci4mdhoeln1IJGLMitqFEihNxkdU90vLVjcM9LHY3EXU
+	AksllROpBSlsrEjZdYdOZ0gS0PFq+GfmlReirytYxCNLUWxOSph3tk+t4cRRD31t
+	utS3Dw5K9JF3hZ+flYnmARHKvzcxINYIVCgxIRIOF47oEJVPfIpNaZCpcuZLsIfx
+	yRpWURHvWJFCCOtmtf4pmhwTgbyXyHwXg5e5ztb00lJHYs6Q/2Izt9np1tgfBWDp
+	rNcKAxhIifyImEYESAIjeK2FDR2xJvgL471UHqYtk79MDq5tqdvV0mevIVgYB+oH
+	bzEnqXMX+hheJMgqjIymN+kwH1RvZvFxkHA==
+X-ME-Sender: <xms:1uJPaqXTJpyaqyYOfeVvjMXoG_Z8JvqcbQy599_ZakFYB-ERLfgXYQ>
+    <xme:1uJPardOG5Me_aRUArgznZqdIfzEyAJ8MQUgGhbppc36iMphnbRGFw9EEiqVoNu4i
+    5vibMftK3daLCBoOnsk0HNnfdyV81N7smM9e7dtVn3ejyOZrViG9FE>
+X-ME-Received: <xmr:1uJPar_-OMZXN_efuC0Aa0L6bfR4TTtJcLKPVQ_5f6eL4PXTFlQFO5zeVXAnXVD2X_xcXuAKVtS6VNh4mKASNk1ImcEkTwUHbsY>
+X-ME-Proxy-Cause: dmFkZTGG4NIPPZO3zNACYWoFBeZMjipowLkaVFS6w00rSUNcpMTlTv0UEDx1iKBB59vNxU
+    eDUqCv6fMm5ST+f8AVDNSwXnSkiRkTOxJlvRqXoyx6tSxGtpA7xQ/nDmCFYUvlL7/fWph3
+    a7SpIUDvibHYvCngc7umdumQDXo/auJw847PqxegzFZ6YZrWF9iOlb95ZbIt05beo7Ef2g
+    RpDqSvSd1n1+ksU1BZKQ0zb/0wyhMxzOHiwAnCjXYvvK/efT3HetwAWLCiQt0y5vz/KGCH
+    7qAn1jJlPCkEC4qFTNtsbRN6AekNUJkH3SJBZxlwwfCPgNozkACOcdx3foTDRQHRz0SEpb
+    ii6NTL8uJY6TLoNWRCtBIeUNK8BGICIfMJfYalOeUCoyUetDRLJPxfSpY+faiLfsk2pbnO
+    3PzP0tAU/kHzmZ3q/epgnhfjP1ciWOLb7rU/4hcNzszZwYW56VD2scbpDF22YHyWPh0+Ox
+    VuPqX6/JVsGJO8DVV3aSBRMtvtnbtGf3idhWxJ1QFKvYyQ8M4FPk6LSs1B0XTOsNlZNwJY
+    EuqG+64gVRiS+bhaNxCxyAUM+M4xo2fh90DoUbYWgH3ZDrVk7JDl1H5lLKtVwJllM1Q/7n
+    ucJ4BkRf1CW7VLVBg5tIt7gxSAJF/gSqT5jNuWfOFtBmFI3cE5C0NfyaMmqQ
+X-ME-Proxy: <xmx:1uJPajbh2iHlWLbX_fCr40ZWWPGq6dHrXKtVff2wPkglyRn2csgvdw>
+    <xmx:1uJPajvBmB5d73u7twbjfGXENXIfljtlc1Bf7JvAPQRdV_dGjfNs0w>
+    <xmx:1uJPaoaPM19OqrOrkBvcNfpTe0YMUW9fLMusi0yYDljMmmO-LXwWXg>
+    <xmx:1uJPavS_K6hsTdI1bxu3YBKk9-OT_LUKMGjulVfxHfM5Dnvn8oCWpg>
+    <xmx:1-JPahNJC3_2Q28LHOSPearUEuFIKUe0x2HIXKkc3D7REDCg7tF_AkVe>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 9 Jul 2026 14:05:07 -0400 (EDT)
+Date: Thu, 9 Jul 2026 20:05:04 +0200
+From: Janne Grunau <j@jannau.net>
+To: Conor Dooley <conor@kernel.org>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Linus Walleij <linusw@kernel.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Sasha Finkelstein <k@chaosmail.tech>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 01/11] dt-bindings: arm: apple: Add M3 Pro/Max/Ultra
+ devices (T603x)
+Message-ID: <20260709180504.GB1985988@robin.jannau.net>
+References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
+ <20260709-apple-t603x-initial-devices-v1-1-55b305833123@jannau.net>
+ <20260709-impeding-tingling-c5858eb0191d@spud>
+ <20260709-unflawed-humorist-918325879ab6@spud>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="APjTtQgaMDz/nB9h"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260709032657.25730-2-jianhua.lin@mediatek.com>
+In-Reply-To: <20260709-unflawed-humorist-918325879ab6@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_110513_592154_7EA12FE7 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,139 +124,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---APjTtQgaMDz/nB9h
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Jul 09, 2026 at 06:50:11PM +0100, Conor Dooley wrote:
+> On Thu, Jul 09, 2026 at 06:47:40PM +0100, Conor Dooley wrote:
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > pw-bot: not-applicable
+> 
+> 
+> Actually, sashiko complaint looks valid here?
 
-On Thu, Jul 09, 2026 at 11:26:54AM +0800, Jianhua Lin wrote:
-> Add the compatible string for the JPEG decoder block found in the
-> MediaTek MT8189 SoC.
->=20
-> Compared to previous generation ICs, the MT8189 JPEG decoder requires
-> 34-bit IOVA address space support and only needs a single clock
-> ("jpgdec") instead of two. Therefore, it is added as a standalone
-> compatible string without falling back to older SoCs.
->=20
-> Update the binding schema to include the new compatible string and add
-> an `allOf` block with conditional checks. This enforces the single clock
-> requirement for MT8189 while preserving the two-clock requirement
-> ("jpgdec-smi", "jpgdec") for older SoCs.
->=20
-> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
-> ---
->  .../bindings/media/mediatek-jpeg-decoder.yaml | 49 ++++++++++++++++---
->  1 file changed, 41 insertions(+), 8 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decode=
-r.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> index a4aacd3eb189..13fb4fb61f2b 100644
-> --- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> +++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> @@ -15,10 +15,10 @@ description: |-
->  properties:
->    compatible:
->      oneOf:
-> -      - items:
-> -          - enum:
-> -              - mediatek,mt8173-jpgdec
-> -              - mediatek,mt2701-jpgdec
-> +      - enum:
-> +          - mediatek,mt2701-jpgdec
-> +          - mediatek,mt8173-jpgdec
-> +          - mediatek,mt8189-jpgdec
->        - items:
->            - enum:
->                - mediatek,mt7623-jpgdec
-> @@ -32,13 +32,16 @@ properties:
->      maxItems: 1
-> =20
->    clocks:
-> +    minItems: 1
->      maxItems: 2
-> -    minItems: 2
-> =20
->    clock-names:
-> -    items:
-> -      - const: jpgdec-smi
-> -      - const: jpgdec
-> +    oneOf:
-> +      - items:
-> +          - const: jpgdec
-> +      - items:
-> +          - const: jpgdec-smi
-> +          - const: jpgdec
-> =20
->    power-domains:
->      maxItems: 1
-> @@ -51,6 +54,15 @@ properties:
->        Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for de=
-tails.
->        Ports are according to the HW.
-> =20
-> +  mediatek,larb:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      A phandle to the local arbiter (SMI LARB) node. This explicitly
-> +      describes the hardware topology where the JPEG block is connected
-> +      to a dedicated SMI LARB for memory bandwidth arbitration. It is
-> +      required to accurately represent the hardware connection independe=
-ntly
-> +      of the IOMMU.
-> +
->  required:
->    - compatible
->    - reg
-> @@ -60,6 +72,27 @@ required:
->    - power-domains
->    - iommus
-> =20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt8189-jpgdec
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +        clock-names:
-> +          maxItems: 1
-> +      required:
-> +        - mediatek,larb
-> +    else:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +        clock-names:
-> +          minItems: 2
+yamllint errors are already fixed locally as reported in my reply to
+the cover letter. I'll send a v2.
 
-Please add a mediatek,larb: false here too.
+dt_binding_check did not fail though. Not sure if if there's an issue in
+my local setup.
 
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
-> +
->  additionalProperties: false
-> =20
->  examples:
-> --=20
-> 2.45.2
->=20
-
---APjTtQgaMDz/nB9h
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCak/hJgAKCRB4tDGHoIJi
-0sywAP4/3MErasyHV912BqopkkvO7NXQwYknCYOiZVu8kxtNtwD+Kqr61fQW/M2k
-AvZSQrEqRK2jJ144zH8+IVUJ/w6DxQc=
-=STFS
------END PGP SIGNATURE-----
-
---APjTtQgaMDz/nB9h--
+Janne
 
