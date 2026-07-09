@@ -4,79 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7C0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0977C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=; b=vVhtkBNvfiWgf3cGhl9g4ISx2Q
-	7cx6q0/AmKoU/EuKqjwWEPVgE8CiSO40ohL7tI7Jtd++D20bpQr/N1CZ8o/bSCRyvLEWvD8vTfOaC
-	zJn8NEE8HHiX/Ul++ktroX8e6WpFqLwjpDh3gucAXxdggPwgjvc/yFa27HlC2OO2t9eCy3sCpWSZ6
-	cHXdpPFhP3+4OGJo+qWMntEHNB6Ya/oIVt/kLdUFAwrbUuPOjfPYgyaD1k31AycKAwWlPc1Ewq6Sb
-	nnBq4D3bu4s9/b0enrK8HQx0TJR0vBrfVFy7w8rtrMy7m+pkEYFv3pJCu//uNMAA1/y/jTpjw7MvL
-	admI6log==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=; b=fqTr5B+5kNt1WrRBTsY2NlTOvE
+	4Uoz9tTJOFIXs8yh+zDwETFVVnJEBIAJOlaKeC47M93G9GwLKNkDqem7gjM+k2C+jKNmrANbsrCXI
+	Qbkal8rmRVFticR6GSEj/ekrk/fXDjMFI4eZCUXWjXYiiwHmvN/vEXzj8MlW+i8V+EUyiY4nEWTNh
+	20Mm6lHCGAQ8k+AFj0CYTDinY0UvUZ3Q8lUx963IfH0jHkVfJlM5Loc3am3vDId7QYsTnHdR0FRXC
+	2qHwL329SrfRb4HDC2hDDeOo1Cd+zgMV8GALRY67gglspXIjp2bKBH9yKnqFoxACvv+AnYlXq0DDX
+	yLBeTwjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0k-00000000gTK-17Q0;
-	Thu, 09 Jul 2026 00:53:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whd0n-00000000gWO-1auf;
+	Thu, 09 Jul 2026 00:53:09 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0i-00000000gRS-34dx
+	id 1whd0i-00000000gLQ-0smI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 00:53:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 311BC6111A;
-	Thu,  9 Jul 2026 00:53:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07AF1F00A3A;
-	Thu,  9 Jul 2026 00:52:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783558383;
-	bh=Ng0eoSfPdDRfiXjYHgTRJSjiJJN1g/dJiDj1pJZB0R0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hLZDHwtdVJfYkin1OmHE6LlmALn3shzuRWiYf/tMXs8/rZ57O6nBuKJPc2Rlpsq8E
-	 LkVyfKMOFzKmAIMet8THqq+uB1o0aFJLRHW06XYfD9OBobviJeyQbyUDLsdnSIGTrH
-	 brIZYghv98Zx6btea/AE/x2F/dJvaoS9U/x++BwtMQyPEt5K87CRkZaacSAgXhpvu5
-	 Lovq8CacoHfLEzUCt5EuqVY9rgDtIdes6Kjdou8PyfCuRsg3rzIKOqf7i7a8M50a90
-	 U1bIWgyXqblRY3XDR06h2LAl/LM2luUf3jKsHaiclwuGRT7+9t8Y80BwmZF+ne4SzB
-	 RFJw2aUHh7Gmg==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 09 Jul 2026 01:51:43 +0100
-Subject: [PATCH v11 06/29] KVM: arm64: Handle FEAT_IDST for guest accesses
- to hidden registers
+	Thu, 09 Jul 2026 00:53:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XVY8aLMB16/JUcBSQTceHj7xlgrdME7CqOYPZX03YiuC7Ty5skXLfaXCqNWz/QqQvI4Q9IlAStZJXHDv0lDhqSIwWdVcdRpyzmgXhqH+/RVdG3wI0EHU2vzz7T/j1D8KrVWbKUp4vyw/DyKCktYMhrhZDSBy2rmn3wPdMiCDPazALe88Y/FTgl4PRBFNMt7V6bRNC71i87ddsbGFOuW8KbiDF3nhVpzS7Ksu9IkWJTHk/PClrUF2QE/5l2qIFR/FgYr6PUxuPqCChw7tqbMdjXkJxYs/i0BKiplX81d+ZuGG2M4AYwDeT6+k9vsa9VhRRAXRigQsSEtvfnMbgLseXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=;
+ b=SvsZi1L8u5VJL3dDOyoi89Mfm6QyevzWZ4W+1YRngHIgQGBSyK96n2P5WQlRCkWURZxv6Wd48SY9Ngf1zsM8T4FWVZbAORqwS6UjWA1NPnoGhbQFg5jWoN+6erDetJkOwxY4/BiXPwsiD1bkTNVNcRJCUHrV4idMbnFaxMZWITwN3D3RDHyVRxmcjBBORg3FlmC6hsFZKpMvAaplQUlep3lJz11DU4qLxJ3EUtg+XUwtEXgLQNWDFGOUe1u74kcASKQtv4+naYAWTILL8MEmoj9ssmnzOJhd5kgDQGrWjXsGZdBDhva0dS2PFl2mKY5uaQpJ6VIsE1J5WZnfTrUFmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=;
+ b=RlgZcXGHwjm/nC5//GF0WzGR2eGXPO801PCfFRLLqgSDRlWipZcST6ItOXCfv3MjeAARWjrCbgflqg2FYtJt8GBe+lg+etDM6J3vWWsDldHo7ez6M48PbYknc7IqB7dzOdUM5Q+duR8R2XDkaJOkq4XDgniCr0Nqye4f92XAlYk2POUxianoFx9tZLnFfBuZ/Y4gRiFhGe4qpHyDYYvRQ3D082uVvNnAfVBDJr60pMdnYlD97+DtlZl1fE18jTrWt/TAh3oRlXWXQADgsFGHo3M+zrRFBBiAlcfSYwLeRtZofvO1kCjn/FqdEGv4RcnPPp1XrR6drFGiOkCU24rNsw==
+Received: from SN7PR04CA0167.namprd04.prod.outlook.com (2603:10b6:806:125::22)
+ by IA1PR12MB8520.namprd12.prod.outlook.com (2603:10b6:208:44d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 9 Jul
+ 2026 00:52:47 +0000
+Received: from SN1PEPF000252A2.namprd05.prod.outlook.com
+ (2603:10b6:806:125:cafe::43) by SN7PR04CA0167.outlook.office365.com
+ (2603:10b6:806:125::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Thu, 9
+ Jul 2026 00:52:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SN1PEPF000252A2.mail.protection.outlook.com (10.167.242.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 00:52:47 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 8 Jul
+ 2026 17:52:31 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 8 Jul 2026 17:52:31 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 8 Jul 2026 17:52:30 -0700
+Date: Wed, 8 Jul 2026 17:52:31 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Ashish Mhetre <amhetre@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v4 2/3] iommu/arm-smmu-v3: Detect Tegra264 erratum
+Message-ID: <ak7wz6Tz0scMmyyM@nvidia.com>
+References: <20260609073204.1760077-1-amhetre@nvidia.com>
+ <20260609073204.1760077-3-amhetre@nvidia.com>
+ <ak2K2vhIQSTNAPto@Asurada-Nvidia>
+ <d4307831-7634-4b43-a909-1f7e8664e852@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-kvm-arm64-sme-v11-6-32799f66db9d@kernel.org>
-References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
-In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- Jean-Philippe Brucker <jpb@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3302; i=broonie@kernel.org;
- h=from:subject:message-id; bh=u65dLobDDTfZ3Plqj3qN97beHdtUOk+/y5QgneNdn5w=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvC+1G/gf0rWduU6sz1wJdtXAqe0wQDYqusg4
- fmly9Rc9AuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wvgAKCRAk1otyXVSH
- 0G9+B/9g94EnScnAkSL17GenLDRRxzTbkQnlGqYDeJc+8jMDbf7W19NfvM7PcBwUypMA9ihN4DS
- JIndEGPpdA/GeyET80BFF9lXBBVltr86cqtTRhHf7JzMB6aIwVOmg8PAcpl/kscxY/3DrkO1FTH
- xf6VRUmZHeZrrBCYC0CBYMNlQyamAYeSv4wSkgQivQ8dL20cRuslL2V1FdMmn9Y+iIzeoaX8zp0
- 0xxLYJUIvO1FGGfqnSSZfRDYLTNrySc19+RrNW8GOFQYaKpnDnlscUTSKilz87nsGqSL11Xf5M9
- qvCDWjpBSA5ve2MIefsQFLi7YX4XyXxwqpFOJS65H/WxAvQx
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <d4307831-7634-4b43-a909-1f7e8664e852@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A2:EE_|IA1PR12MB8520:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1740cdf6-5cc4-472b-fc08-08dedd546501
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|18002099003|4143699003|11063799006|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: yn3w7wJBxuBmMeqNTFdSyeEADWIq/0CaI8AKgqDjAkjq+6BB3BYCtioL08KaLszWuIQzM2WGekZc8U1pbjkvF8lBJNXa2cmAUE7jPRzAMbVhUa1OLbcPF/Cyewa4/1nkwiEzK8Zzekj1wkcVH842UixyV1jJ9w8W/0XudWLqfgGz0SIwHB6fkCgArJgi63aV6qmLJclwi/V7HDwLaoN70Hy+SI+7Pjc8oVE89r/dQUk4DF+4EWfnyfD0V9/HT3quWx128IGYToVKqyHGa4gjnzosfo475abc8F9okAXAJCRavm3b5evq4sObmivMSHv/8UgTkgoMwBIpCB1dRTihLuj76qkeGYqgmML0Cr+aEBoeq5DlKqOWRRnQ5UHancxfHQVEZpd7a3OuVox/P+ZagwgktZmq/FSbPyW7zPx8NY9Ffl1QpxZ8iUDhJ8hSANDk0Z3p4fk7Uz+lUS+JRWaZm5gqtIgGCGSM3JmIHENC5Bb6bZc4Dgjrid4NUD7NftJkYJ/y9tBjS75kLg/Ajf7LJRcoOu+m3JOrisGmVTR9B5MZuj46dO3wRDtWG8SLBLd9rGIjnv8S5/fcPlgv33rpq/zZUMfSOUca3NpFXqWny8oOgjk/fvp3dd9/I2ilnibqM4Jh1w0Xn8PLLH9AhRlC2kQ0MCP0ZK7/IjvPecg7laxbsSYa8OcohwShYGeCUf5W
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(18002099003)(4143699003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: g/IBHxFFiSqW6enAFJrOKFeXZyOSjGYpxXtg7vdaPZX/4h5U7ZhcmGEGrU3i/4ZosIaSyhrJKmV06YpvJPtY4OwddDZgml0mmJKhN2MebgL/bnobreq+TmAZEdREFX8gflSL5JDu8AAHHlZbHRlQXRZh7ISDCZu0+bsWeqojRFwdxi48m80zn08ku0WMbcXSDcSvJDSh+nffxcykfWTFqdZjnrxzgC5BBcFPHzynng+rC0kY7W1SFT/fZggjPnzN9mdQ8WQsWtItsDOGY7JPc0LVBwfDgP9MX242AOvbxXwqJx8r/cjaCewIhYXWyoHoqCG+ATiFMFBVTzSZxHF4qQ8Y1uNQHpJAu10g6AGDkdzqVCPpN4ekabU4JTeyNvQ6PbYKBhmpwguFRjYVzfnNHH8hrmqBOxLtcyHgxyguSrxP/bj4I0xjcwG5r4OKO4Ar
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 00:52:47.3436
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1740cdf6-5cc4-472b-fc08-08dedd546501
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8520
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_175304_250120_846CCE36 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,93 +131,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for SMIDR_EL1 which is only available in
-systems with SME factor out the FEAT_IDST injection from emulate-nested.c
-into a helper and use it when handling hidden ID registers, ensuring that
-we provide FEAT_IDST behaviour for them.
+On Wed, Jul 08, 2026 at 07:42:21PM +0530, Ashish Mhetre wrote:
+> On 7/8/2026 4:55 AM, Nicolin Chen wrote:
+> > On Tue, Jun 09, 2026 at 07:32:03AM +0000, Ashish Mhetre wrote:
+> > > +arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_device *smmu,
+> > > +				     struct arm_smmu_cmd *cmd)
+> > > +{
+> > [...]
+> > > +	if (!static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
+> > > +		return false;
+> > > +	if (!(smmu->options & ARM_SMMU_OPT_REPEAT_TLBI_CFGI))
+> > > +		return false;
+> > Are they redundant?
+> 
+> Yes, both are set together in exactly one place, arm_smmu_device_dt_probe(),
+> guarded by the same "nvidia,tegra264-smmu" compatible check.
+> If we want to go with static key, then that makes option bit completely
+> useless.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/emulate-nested.c      |  6 +-----
- arch/arm64/kvm/inject_fault.c        | 15 +++++++++++++++
- arch/arm64/kvm/sys_regs.c            |  6 +++++-
- 4 files changed, 22 insertions(+), 6 deletions(-)
+Drop the deadcode then.
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c..994afbf479fc 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
- 
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-+void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu);
- void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index e688bc5139c1..f49b7b311d09 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2669,11 +2669,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
- 		 * helper for the purpose of dealing with FEAT_IDST.
- 		 */
- 		if (in_feat_id_space(&params)) {
--			if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
--				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
--			else
--				kvm_inject_undefined(vcpu);
--
-+			kvm_inject_undefined_idreg(vcpu);
- 			return true;
- 		}
- 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index 89982bd3345f..e2f519ca3045 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -331,6 +331,21 @@ void kvm_inject_undefined(struct kvm_vcpu *vcpu)
- 		inject_undef64(vcpu);
- }
- 
-+/**
-+ * kvm_inject_undefined_idreg - emulate UnimplementedIDRegister() pseudocode
-+ * @vcpu: The vCPU in which to inject the exception
-+ *
-+ * It is assumed that this code is called from the VCPU thread and that the
-+ * VCPU therefore is not currently executing guest code.
-+ */
-+void kvm_inject_undefined_idreg(struct kvm_vcpu *vcpu)
-+{
-+	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
-+		kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-+	else
-+		kvm_inject_undefined(vcpu);
-+}
-+
- static bool serror_is_masked(struct kvm_vcpu *vcpu)
- {
- 	return (*vcpu_cpsr(vcpu) & PSR_A_BIT) && !effective_sctlr2_nmea(vcpu);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 5d5c579d4579..b352cd323e30 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -4759,7 +4759,11 @@ static void perform_access(struct kvm_vcpu *vcpu,
- 
- 	/* Check for regs disabled by runtime config */
- 	if (sysreg_hidden(vcpu, r)) {
--		kvm_inject_undefined(vcpu);
-+		if (in_feat_id_space(params)) {
-+			kvm_inject_undefined_idreg(vcpu);
-+		} else {
-+			kvm_inject_undefined(vcpu);
-+		}
- 		return;
- 	}
- 
-
--- 
-2.47.3
-
+Nicolin
 
