@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5FAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4071C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZz5dHOpX+Erat31ZHODxdGoH83h4CoVFtEy/HlH4rY=; b=KoW0SI9pDoDaWZFxnZepNTgd8N
-	t9AsNED05ISWCTyV+l9QXY8PxAwC8osKla5qXsUGi2OCYHJAumWl7XP8SHBZRjgv8Ui1toN/E5hGR
-	yx6peARHs0y2t37vkDISsfFeEOqQOLWUXmaA2jSxGuhkDNU1FDDklHZkbs5Ay/E22hDmLgSa6i34y
-	ncYPD8pxqaNJl8sMCSPFcMboU5RFPETpuakxDkD9FlowXOj6k36dB+mhLiT8uAXxl0cpgYGw78uP2
-	rxjw1XnAtrymX2UdJKGnIz8KW9OFfVstbr50fzWVivChgYIafYKg+mwO8KOtIlb9elaX5LUA9slqC
-	rQRM04XQ==;
+	bh=Zr96JgiP4egzaGIJKICX4lchZUuxQ9WiGvVqK3+0YdM=; b=iiow9qk5XQ/TN7RIZ/fhD7ROue
+	zb/MFnhphASZ8UZXxYxHzEfUAIricOjCLdV9/gDTYAss4KP6//W7pp1rD9kwp6bsU0pFNdHCBGSFj
+	J4t0tADQj9cSDtMrbwe4KakpK1su0KE/NdSAVnIFbmdxLwKBcwbUK+HsfNInKkOupn2eHjkuqlUYp
+	gF5N+pqJsgWxFjJM9ykT8mZ7LqKxD5lPaIdl/WrxxSYthO6Kzz5j3iQ40CCTUB6Nb7LP5m0sbDRfe
+	KY6+dVxVQ2pQUam+zg/kkTJki3ca4Ot312uHFocyFYDcmIPHqiRkkpgpou9tYurItsHpk0UJfqy9q
+	vtcctCkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whs6c-000000034tn-38Ng;
-	Thu, 09 Jul 2026 17:00:10 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1whs6g-000000034xH-49TQ;
+	Thu, 09 Jul 2026 17:00:14 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whs6W-000000034pn-1vbb
+	id 1whs6b-000000034rX-0kpo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 17:00:05 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so365325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 10:00:03 -0700 (PDT)
+	Thu, 09 Jul 2026 17:00:10 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-470174001a0so102852f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 10:00:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783616402; x=1784221202; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1783616407; x=1784221207; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=kZz5dHOpX+Erat31ZHODxdGoH83h4CoVFtEy/HlH4rY=;
-        b=e/pleJtpXRBbHSs0Pv1djVDCCsShIgDucaZRON4xBkiUyz5orb9XRWssNA1YyCaPYj
-         Ww9ETQJsGXl4JPomCkC9hgpZ0685Y5iu1UtT0bQtAHQY0K6fD1N2mqrQmrVwcE8z+NfD
-         D3ZuMRgPTl9bkZMlXnapog3kK+V6ysFMWS97d8zy1ol+1u7y5uzU4GtA0hwe+EZCTPM6
-         SKNDCfzlwVhZI5vuIb1zkzjYJKq+8YerVPGSkeAupHe2ym1BjhG7vSEeY8MYsrFM0xIj
-         jVnxUrdpJOHJT6Fg7asfZSDMkK/yLMGq1IrbqUww8242Mxtm2e/SLidQJa2rrmXozkwD
-         ExOQ==
+        bh=Zr96JgiP4egzaGIJKICX4lchZUuxQ9WiGvVqK3+0YdM=;
+        b=hg/UwgmzJVSXa9vTSWEODmqUxs+of83EXqRRkwY6/+IRRp7ZqNi3SDea4CWT+q8+/8
+         XWIDYZbVqgROCfJ3u0+AT4hEgQ6cYFd6mPOb1qmrYGEcU4tpNibxnVmBdE2VYpP6phwW
+         anhWFDqDSvuqOvIlkHsA7CFTcbPgrjjkj7gCgK61f8tgcd3YUc19syiplOUMuOWidbPn
+         z7V7nu6NbbFZA7HMyvZjJx1dK1kYK1RE/ifzhvhwaO6OLMv10XImJJxFujICKZyrMI88
+         nYrWdYFqLyERDR07GjukZQKqcFiPHTo/dD/A986EJnusDlDo7m/Cm0BB7y7bFfTnPsoF
+         UZEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783616402; x=1784221202;
+        d=1e100.net; s=20251104; t=1783616407; x=1784221207;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kZz5dHOpX+Erat31ZHODxdGoH83h4CoVFtEy/HlH4rY=;
-        b=NPfomQP/uqQEkNIQZVXgku2X5lPl6JtbqTZufYSmFcscxImRPMV3A/FZvT/M2eR4GH
-         7x2S4mrCTEuGwLdO9jG0fouTwhxc9VLo5cKZzMZkQ8gGxb+U7hw6fPYNyELec3Jg/kxB
-         WuPK2L5Ad2qeU/+Apl7vUI4QQAQhIlwsVUjVNpazD+sZ3wZsyAhe+v1BcUlCB7xJMGj4
-         jYrwnLzZ2mw9jc20KOZ3BXWXSzJfbW3FxdZyBbfHBk0cXfEjdiUTQC5LpNkPuhCGZhjV
-         ozz1FD6dLHt4ysqtBnLxtJprXaruCJwqKyo0GEpTdGsQDFiA8otyX/wYv/XoLyaJxOC8
-         5gng==
-X-Forwarded-Encrypted: i=1; AHgh+RoEJzUQC+2qyzIkbzTaGKhO3kX5Be0wbhnOo/UCdMcI9AZjCQHaXT09s4wrM0hU3IF2TYTP16/p/IJDIECC5cDo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLYBMmkKHu2vJrHn+UIOGqqd1eAn6OTCPnaF+TX5s8ptU9TGvU
-	B0PtFhDjnK+R6pI807Z8j2t8ftKb0VcGYoFLfgGInBSEV5FZ+SzsCcD/u5f2diAVDEI=
-X-Gm-Gg: AfdE7cl9L8nU/yC5y4W6Ah7eQdtfL5cWtnf+bz9QIwFWZRXxceTfHZZe7r6qqcmUpoL
-	CEjoZtMFUjVkRpiMqY4RVkClANODVZ48cs0VG/r4wUABz7ocxTH0WP3P1Ut75Ki8GvpfRjD6IsS
-	xXHxXYmYxcpnn/tavzIt2UZnGzvMp+URrQhHNNUDXJKzXy1ua71R1zaclOC9mmF2UTu3kTMwZnb
-	70gLnOd4GrnuXrCT1fBnaZIxzH2eCIj/tQHceYeLxAW6edL2vdrUzaHIg0sTuSc+1elHWqEls8P
-	DjWV/mUWtG2Vlr9ZQXvP7OjCmwfJ0i4Z/l7EtvBliI9InVoXtQuMSic8HMKTJKFzHi2VjOI9ZL8
-	IEBGwNwTdphfZgn/XLfb3iUo/BgIINu+8A5GWSnAnLx9O17WFvklo3OW2LRSPIDeDI1NZcuBgKj
-	8HsQgQdAVu8VgjXhj/HKWO2/hj92v03lEi+mZeKgBU5sbvpjVD61sZeq1gC/fk4YZHvma2Xh+gF
-	3lp
-X-Received: by 2002:a05:600c:4ece:b0:493:e81c:fc9 with SMTP id 5b1f17b1804b1-493e81c1017mr66554695e9.15.1783616402515;
-        Thu, 09 Jul 2026 10:00:02 -0700 (PDT)
+        bh=Zr96JgiP4egzaGIJKICX4lchZUuxQ9WiGvVqK3+0YdM=;
+        b=rOu+ZeV1wqNhGqziIO7g8upAVfkLgMH1aUDtMMlheE4wXLdwC4OEbu1qvoxnoJTsT/
+         dyruV2CQexNsNkl0kg9ztiiLlVvycqdMkITUrMX/iZ1/xnr4hzXewUq0YfRCJUFQgYtO
+         mMGC3PmR6g2m/c4nWQqvGp/rcQdu1yDfA2faftAi9oSvROSucbMCS61fYWaITzvcUy8J
+         OlHBn7BfY7LYHAB46Xjcwf66hCUhvS4FidF7KMOfI7i20Zdx7M3UFAjWLhQTxLJv3P1x
+         BYG20z9cIJw8iKaoUllxuaqQlHDo9m3HgfkEHqoG9vxQHc2azam0gAgGTVFwE7zTLw7g
+         izCg==
+X-Forwarded-Encrypted: i=1; AHgh+RoIkgyQ+8DNUg/RJ2qafiWf8knr17KuNQ/vlW3HC5XQ4ddN/GDYbvgKQfZB4mBHqe+D6HB63MEr2shOdhyWL9LJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRTHyHg1TDC6pi8TyrFqbRNzPKAli8F5cOnpIV3Cqk4lupeB7r
+	2HqoC8YgdJ7Ubsfa/S/RLWAsSLLDhTGhCtY7zdYfpFmXxHLUyeYU2xyDJEaDGdzh5uI=
+X-Gm-Gg: AfdE7cmWjx6hDcEEKF0c+kG/fXQsNK7KVzVE4g52i1Etf+43AdocYpif9FP5th6rZGD
+	e2yhqAK4dJ9Qpr5ROC3UyRetMRR5EI7vyThXmHTFsfDgYtQUI460RtXPDBy3IhiAFFcUOb6dKZL
+	B6NgZkoqTei4upmO5blTJw2wx6BycC4RvPQ8DmSFGfrCug8LPWsu1Dn4R1DeQe/OFcBn3eBshxA
+	8XumtQE5ayg3osuMIKPd4j4+VD/u2FWvm2c9jKRdlE4pimlveEuqSJW3i0vbegBJBDKhyftFImu
+	dHOcg+zDaVeW8o1n+ZGervD+Mbj0iLFZxG9BxS+38WnQnpbkJNSdGmTqUny+Fkr2/HUGPBTt4yi
+	8HdhKDW4pbwp7PStl4OHAWeJVekYxixUooX7o94QnxRLdZXdFYBIawdiCmC+OHs/02NpQfHQZSA
+	5YO/xvm0iVf4d/1QiHeTqZusxjYgoYmSYI5s/IteXYolzXk1hhnF0aooSAkRcYUdY6XSd7fXIuQ
+	H+6
+X-Received: by 2002:a05:6000:2f81:b0:475:f0f0:9ed0 with SMTP id ffacd0b85a97d-47df081bb63mr8593347f8f.59.1783616407119;
+        Thu, 09 Jul 2026 10:00:07 -0700 (PDT)
 Received: from localhost (p200300f65f47db043de98c19b374aa68.dip0.t-ipconnect.de. [2003:f6:5f47:db04:3de9:8c19:b374:aa68])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493eb6e0e5asm77915675e9.9.2026.07.09.10.00.01
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47a9de1d8f1sm53469385f8f.3.2026.07.09.10.00.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 10:00:02 -0700 (PDT)
+        Thu, 09 Jul 2026 10:00:06 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
 To: Lee Jones <lee@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	mfd@lists.linux.dev,
-	linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 02/23] mfd: bcm2835-pm: Drop unused header
-Date: Thu,  9 Jul 2026 18:58:21 +0200
-Message-ID: <5d3ff1a1732708946761d3356eac278b1d8e82c9.1783615311.git.u.kleine-koenig@baylibre.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 05/23] mfd: mt6360: Drop irrelevant __maybe_unused
+Date: Thu,  9 Jul 2026 18:58:24 +0200
+Message-ID: <bd2ff9c736d422e2e93c5d2f07d570d3488799d7.1783615311.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
 In-Reply-To: <cover.1783615311.git.u.kleine-koenig@baylibre.com>
 References: <cover.1783615311.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=830; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=duMJOMhRMJ7vzwyjzXHRpzbNOKXgwFM5i7qlyVVPaOw=; b=owGbwMvMwMXY3/A7olbonx/jabUkhiz/y6bzc6MD9XYtivBeXD3/6d3MOE75jA0rDhyJdTneG cL//K1BJ6MxCwMjF4OsmCKLfeOaTKsqucjOtf8uwwxiZQKZwsDFKQAT2fuP/Z+yUCbnxxq2dG4u jzuh7nE+KW++Xa4J/taUvErt44tO+RNJrgcEdj7g2mKb93GC5Nky4+Y0m83bmzLK7zJLzb3NzrA 3fofsdNMt3+oCMw6ZzdWs68pK+Mfic/J3r5e20ys+i/Oz9Hk5VK59uiSVbKXVZi8qf3h/7dNjLz X2Jf3+fiP56Zm9yq2Hmabf7/diZY0LWN1z+snSPw1bHhq+avzmJyP5LT+q4lXL8m95ghbSx2LOe Dw3zF2TdHGGxwPeR64bfNYc1BOc0VEjPP3VHv6nzGZGoa91sl8qJHSvNDS57VEiLJ3u/aXUadkc /XW/zViiyjOUK86qnxQssVk8X9L57LW2FuMit/rua59kAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=992; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=RMStdZg/15uHp9XX3CRWrZzbzmqyNCoBwi5HiHoruCA=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqT9M8JlySz7FGFfwSGIY044anhaWqL/9WnrZx1 qOveDYaMkCJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCak/TPAAKCRCPgPtYfRL+ TvQNB/4q2FKUoVolCJF7p3hPnCwnzgNfIwJLyGp0BQt+1XtRgmPT0eZuO0XuJCzHM5w7dR1dPX3 pOfWT/lqjZAn6Hs5OLuUtrim+2RiflnV4MHzbDQTLmB0tXfkdZ7ore0haDWYdzXTCLjaAPMbeu+ 1fb7iyZAoO2QLpTfVRYchd7ahUItAR2/xAlCAli4YDyNUYLz7/6pS5X4EDokt0vyL179m/AWEUx AL6j/fLuLhLpUQfdCeYZHlBpjbDrVLmLcfgySNY8MmYu7x09aXaYX1zOrq2LeED6FPx+Ll+rt9O rCEetzIJbkffTs7pDO1oHSkMt8xcVTQoMb5Krc/cEiNM6ETd
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_100004_513786_6423B3FC 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260709_100009_237518_C788C12F 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-<linux/mfd/bcm2835-pm.h> doesn't use any symbols provided by
-<linux/regmap.h>, and neither does any of its users (i.e.
-drivers/mfd/bcm2835-pm.c, drivers/pmdomain/bcm/bcm2835-power.c,
-drivers/watchdog/bcm2835_wdt.c).
-
-So the header is unused and can be dropped.
+Since commit 5ab23c7923a1 ("modpost: Create modalias for builtin
+modules") MODULE_DEVICE_TABLE() is enough to reference a device id array
+even if the driver is built-in. So mt6360_of_id[] is always used and the
+__maybe_unused marker serves no purpose and can be dropped.
 
 Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 ---
- include/linux/mfd/bcm2835-pm.h | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/mfd/mt6360-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/mfd/bcm2835-pm.h b/include/linux/mfd/bcm2835-pm.h
-index f70a810c55f7..12bb6bc2c07f 100644
---- a/include/linux/mfd/bcm2835-pm.h
-+++ b/include/linux/mfd/bcm2835-pm.h
-@@ -3,8 +3,6 @@
- #ifndef BCM2835_MFD_PM_H
- #define BCM2835_MFD_PM_H
+diff --git a/drivers/mfd/mt6360-core.c b/drivers/mfd/mt6360-core.c
+index b9b1036c8ff4..254b00c905b7 100644
+--- a/drivers/mfd/mt6360-core.c
++++ b/drivers/mfd/mt6360-core.c
+@@ -606,7 +606,7 @@ static int __maybe_unused mt6360_resume(struct device *dev)
  
--#include <linux/regmap.h>
--
- struct bcm2835_pm {
- 	struct device *dev;
- 	void __iomem *base;
+ static SIMPLE_DEV_PM_OPS(mt6360_pm_ops, mt6360_suspend, mt6360_resume);
+ 
+-static const struct of_device_id __maybe_unused mt6360_of_id[] = {
++static const struct of_device_id mt6360_of_id[] = {
+ 	{ .compatible = "mediatek,mt6360", },
+ 	{},
+ };
 -- 
 2.55.0.11.g153666a7d9bb
 
