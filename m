@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C22BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 16:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6129C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 17:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6zfm76fEAbtqbPgr8gSWD50RFqbsGXOG5Wy3pfyM+U=; b=DLYNUuYebrCXwR/FbM8qAyBlVM
-	Y7NATGyB8VKYlJUrEspIhmtM644ANIVYkCvFWv+565glPPEX4Ybh1oSBn3pM0hF2bJqQhT4mzP1ZJ
-	ba8ROs00C23Hxe7/v/TaI+cTdu+P7OU2V/1R1UdcgtdfUtWwB+AmPzG3Rf1oFlUXfalEogzDZE7Y3
-	eUm6jyBOYc0Gq3kZtAusw50DaDOREvKcvFxg+QfnJtBDjyipU2BHeM/awVMhiyvBukktW0oHgi1rk
-	H2114AGK06q9OHCnW2dKHWvsvIhQczSD41fBmR+Oe3tW0vI8teIPPrzDgnhxZeLT+bfwuPXm1Lu/b
-	yfl8CCfA==;
+	bh=V7xpiSqeInQmCCpQ2ynBS61txQNcQjjgq6PfjhT54YQ=; b=3QGjs8A3Ejqx4IbtUzJ10UdTBQ
+	ktQ/6otiZVE+UFpU17pm70d/CaEfGaB0s3yutGjLsflRWstVaIdtDnlBAyG/0gQHFzZ5UvV+uwu5e
+	kBAzw2OFppmGopseSbsQTILYiWsiRVSyaonA05EkRNAmbVgOKFn3pbu+aEg/punSZVh19IHaRsSnl
+	l88bPxyCYSKfhv2gM2UkW/aH0wGwukDWxEY417tAuIdoadQ1gqUY5H7MXl0X7DorHKGANfcGPDi6x
+	FDao94fuI2C8H5HUIU18kuQ3Y9QO3IXLl9yHemkmHrqCyFaBHbrLEjAKfVdYpqQlYv11fxlP9oDO+
+	1FjkkfLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whru5-000000033yX-3Pms;
-	Thu, 09 Jul 2026 16:47:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whs6Y-000000034qu-2OW3;
+	Thu, 09 Jul 2026 17:00:06 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whru5-000000033yM-0ZOE
+	id 1whs6V-000000034ox-01ob
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 16:47:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 730C4404C3;
-	Thu,  9 Jul 2026 16:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A1F1F000E9;
-	Thu,  9 Jul 2026 16:47:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783615632;
-	bh=f6zfm76fEAbtqbPgr8gSWD50RFqbsGXOG5Wy3pfyM+U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b4moN+SscOMvp/fQApGNRYxiRUl57GNzScV0hh8gIEFcgYPJxGAVowYd5GiQSYpkK
-	 1qAFqokbo1YQ3RjBWoDdJM/p5x3QuSRp3HVpcra58EYEiCo5Jp5aqhOZ9qOzfUCaSi
-	 XXSiRnGo2rWNynWHTnmIcs1yBa9YaiB7WRf/8CgxgzOLbiCJLMJFNjRLMfMtmhQSjg
-	 mgAUE4cUofFTzJgnNCe5hleRlYX0mqrXRSCLRMLAoiZfs6+AA38tlOjeGPFj5L7kXm
-	 opPHgG0T5fi8n2S7eofIokNYK74VAct58PK8eE7Ps8xW6XBwpZ4RuLmHUjnZ0b+/ec
-	 c9yaTDBg+Ms9g==
-Message-ID: <40c82e88-2f3e-4651-b063-08754af73cf4@kernel.org>
-Date: Thu, 9 Jul 2026 18:47:06 +0200
+	Thu, 09 Jul 2026 17:00:04 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47c6e9a694bso59571f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 10:00:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783616401; x=1784221201; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=V7xpiSqeInQmCCpQ2ynBS61txQNcQjjgq6PfjhT54YQ=;
+        b=JaSj+yQOs5Xzmr4V8uwbN/u5Lgir38LT9xciDmSbjJJNo5E5FwiQq9zNHa6CbwoWbC
+         Pie1ADdbkw4rK26RmDsT2EGhoxl/g0c29I3tttIN89CwJmjMQhKCznCqPXT/5CbmEYyA
+         w2tDpfNE1iNYgIlt56dj3FBS7mcX9OFnOaBUFUgr2IfBYwbRQxLXCid4Amt6TYDcb0H0
+         8+dQTQp1UbTawjW2FOCELH8Sz7lj7yPtMKjYlUQF3GFzfzjjg2t8jXH9ucEc2m0qP1aQ
+         QucsdOC9Rmrt8ciaFMrXVwrUKdcbe2N9g7WS/deM9TzD2BcVECG+UZe9RZWR8/iXs6nP
+         yuHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783616401; x=1784221201;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=V7xpiSqeInQmCCpQ2ynBS61txQNcQjjgq6PfjhT54YQ=;
+        b=E69PLo+QXT3moxkQ5Ql4mhucznwl2NWScfFOgVeaqoFo2l8kt4dVbO8FK5HnorSJd9
+         jNspUHcJFT8nuyweHmOlNjkvYBGnIKg40vXw8spnVPHfvSfMaslJHi61ZJM69G+IeCgb
+         vuxI7hVbGvQgnpBZmo/Df81Xk2MM9cS04l3N07Q/FX+GTOe4OqQGhhgMTjrnm8G7KLQC
+         JNobABRWmKhiKffkzftB2AECmfjhQh02Zh6tcdtBkr3mZJI2yU/c/cN+quqgJqfY4e/X
+         G1pWIzWQv5vf+4FDZVlowTI+7hH2O3JUj0QgA+c993rhyuLBi7CbkxwY9Fmp9++zZShj
+         aYhw==
+X-Forwarded-Encrypted: i=1; AHgh+RpECw7RYaB27SqGpNQQI8E246wBInfllYNABnc4QGLP9RmQcBXFbFLnrPdGCu5U3yevemRCJX4q24bUeDKn6jy8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzU68WRMO9D3GsIKjFfFNLW2GHgrN1lfDS+Ap3Imvszbvnkw36
+	/0/fZ4qLwLVAwQlIJQUXwMjrYhkqqOIMxhcBXe0ELNJNRm2Pl2Jlzvvn+4o6dPcnbsU=
+X-Gm-Gg: AfdE7cmx0GtRheukb8u01V+3Yo/LMVdtK74XGmCEd9mrUSpvPrmbEAxn8z8VRshbOxq
+	GS0rE752iFtcbQMxx/64LpZXu4OmllIWYxCyVgveYcpBZ5Z7HSi8nD5payLOdicz9dH7zOHP0G3
+	AOBfK6xDAnxPkGN+Cq8KjAy8Vach2cS97iymOiD4akCY0+JtNUdEDtMHmfO/YuJhtMrmggINSA2
+	gYgHir2AwD5tQpj07Y8LDCN3BlnQMpCzmizlx+qIosDbO6pF1DPxzcxRqPll9i5jEXF5fG51Yfm
+	UF4ovYFaRXvEZofIW3EdQmvj7YI3AJSfko1sIqqdT9ZDFYaeFuTPmBE+oSBAb728ibI81+eaEa3
+	004V9vmykJFJXYcJUlF31jBHHmz1+rZ8N3vyGioWav7Th5pCQtpbEEKwg96+4qW1S2xpyOBn+9k
+	7J34kV8gYXgAmYG2jpVlOX0D3TGbkD11/BFRTMPxdftfcQEYJNmr0CmZvoXtxcrIecw7YdVONfA
+	pCK
+X-Received: by 2002:a05:6000:2909:b0:476:504f:7a8 with SMTP id ffacd0b85a97d-47df081e2c4mr8751545f8f.55.1783616400988;
+        Thu, 09 Jul 2026 10:00:00 -0700 (PDT)
+Received: from localhost (p200300f65f47db043de98c19b374aa68.dip0.t-ipconnect.de. [2003:f6:5f47:db04:3de9:8c19:b374:aa68])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47a9e4d780csm53200632f8f.11.2026.07.09.10.00.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jul 2026 10:00:00 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	mfd@lists.linux.dev,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 01/23] mfd: bcm2835-pm: Remove member of struct bcm2835_pm that is only used locally
+Date: Thu,  9 Jul 2026 18:58:20 +0200
+Message-ID: <5fdf1d0cc5a00e4a9aa68322bd2fca323b418dee.1783615311.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
+In-Reply-To: <cover.1783615311.git.u.kleine-koenig@baylibre.com>
+References: <cover.1783615311.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/10] soc: fsl: qe: QE PIC improvement and add support
- of IRQs to QUICC ENGINE GPIOs
-To: Paul Louvel <paul.louvel@bootlin.com>, Qiang Zhao <qiang.zhao@nxp.com>,
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, Herve Codina <herve.codina@bootlin.com>,
- stable@kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260708-qe-pic-gpios-v2-0-1972044cfbd1@bootlin.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260708-qe-pic-gpios-v2-0-1972044cfbd1@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2363; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=1xIJ7j6GCqXs3V5UyxCknvTsa2XEwpXsBfO8oqhftBs=; b=owGbwMvMwMXY3/A7olbonx/jabUkhiz/y0Zd0x5Ha5ybNiGfffOCbO6Tn2cvqXVeymujVd4W3 OSwSiesk9GYhYGRi0FWTJHFvnFNplWVXGTn2n+XYQaxMoFMYeDiFICJTPNg/19+K53lc2fqJpse V4Mg0/Boqe+O520iROe/q0g2dlcqFQm6kM9tcF1kJU+d/HGT0LW5Xf5dk94s8f+hG3bkjJ5KRkx A9qNnwaEHn6xgW515nnHzxGfBK6ZvDooRvFzQFrpR+NF2hx8u0+u6s1Pn3GX9XLzqpHX13bj48/ 3GLzX7xPewsPVcXvq/M8ZQ+bjX5L8NK/6JPJ33X7V3amvkhwuazjMVcvbkyIYE7+U1zHB6fe5nu cRnsWYbl4fSxuu0unbMme2xtFf6a7CX6+o0hnM6G4/knjnFd/hftX1uRKgxd7KK9w2Zoqiscy9W p7nv8zty/mNPkN0R94aEhrvvPl1kPPypuKxh7rdDOlqFAA==
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_100003_061006_E88AC550 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,117 +109,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+struct bcm2835_pm::soc is only used in bcm2835_pm_probe() and thus can be
+replaced by a local variable.
 
+With that change enum bcm2835_soc is only used in the mfd core driver and
+so the definition can move there.
 
-Le 08/07/2026 à 12:15, Paul Louvel a écrit :
-> This series modernizes the QUICC Engine Port Interrupt Controller (QE
-> PIC) driver and adds the ability for QE GPIO pins to generate interrupts
-> through the QE PIC, completing Christophe Leroy's prior work [1].
-> 
-> Christophe's series was partially merged; patches 4, 6 and 7 did not
-> make it to mainline.
-> 
-> The series is organized in three parts:
-> 
-> 1) Add missing chained_irq_{enter,exit}() calls
-> 
->     - In a chained handler, the parent controller need to mask and ack
->       the interrupt source.
-> 
-> 2) DT binding updates
-> 
->     - Update #interrupt-cells from 1 to 2 in the QE PIC binding so
->       consumers can encode the interrupt type (falling-edge or
->       both-edges).
-> 
->     - Convert the QE GPIO binding from freeform text to DT schema.
-> 
->     - Extend the QE GPIO binding with an interrupt-map (nexus node) that
->       maps GPIO lines to parent QE PIC interrupts.  This approach was
->       suggested by Rob Herring [2] as an alternative to using compatible
->       strings and driver data to specify which pins support interrupts in
->       a given bank.
-> 
-> 3) QE PIC driver refactoring
-> 
->     - The QE PIC is a perfect fit to use the generic irq framework
->       instead. Perform the necessary changes to the driver to convert it.
-> 
->     - Minor cleanups.
-> 
-> 4) QE GPIO interrupt support
-> 
->     - Add a to_irq() method to the QE GPIO driver that perform the
->       mapping of the GPIO pin to the parent interrupt domain, allowing
->       GPIO pins to be used as interrupt sources through the QE PIC via
->       gpio_to_irq().
-> 
-> [1] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2Fcover.1758212309.git.christophe.leroy%40csgroup.eu%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561275310%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=SgmsHETiol22Fip%2FU04XAAKihuQ4UtGfIqUU8t%2FMTpI%3D&reserved=0
-> [2] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2F20250919152414.GB852815-robh%40kernel.org%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561303589%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=t%2B83hXaaY147CW1fvLA7ATUHJXDkfq6jLv5OWRr9ABI%3D&reserved=0
-> 
-> Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+---
+ drivers/mfd/bcm2835-pm.c       | 11 +++++++++--
+ include/linux/mfd/bcm2835-pm.h |  7 -------
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 
-
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-
-
-> 
-> ---
-> Changes in v2:
-> - Applied Christophe two patches before this series [3] [4].
-> - Fix a miscalculation in patch 6 when iterating over bits set in
->    CEPIER. Old ffs() is 1-indexed, but for_each_set_bit() is 0-indexed.
-> - Add in patch 3 commit message more info about the changes introduced
->    by the conversion to DT schema.
-> - In patch 4, keep the existing example without any IRQ supports, and
->    add only one new example. Also fix the DTS coding style that was wrong.
-> - Add raw spinlock guard to mask and unmasking hook since multiple CPUs
->    can modify different IRQs concurrently. Also add it to set_type hook.
-> - Drop usage of register offset in irq_chip_type. It requires additional
->    load instruction with no real benefit since irq_gc_* functions are not
->    used.
-> - A race condition can occurs if an interrupt fires immediately after
->    the domain is initialised, because gc is NULL.
->    Instead, do not carry gc in the struct qepic_data. Add the domain in
->    the handler data, and retrieve gc with irq_data_get_irq_chip_data() in
->    hook functions.
->    Because of this modification, patch 10 and 11 are dropped.
-> - Link to v1: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpatch.msgid.link%2F20260703-qe-pic-gpios-v1-0-6c3e706e27dc%40bootlin.com&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561327333%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=fSy9tyhbYvMFKNFQsqGikR3llkOgaLXFMv6sGt4UPXg%3D&reserved=0
-> 
-> [3] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2Fb08f76c1d8ff864774246f1e2c2158c223c001be.1783435914.git.chleroy%40kernel.org%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561348477%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=JDjk7SvhF1cJGAI8xnVtECrKn1m6ZhmHeNO860rQhwo%3D&reserved=0
-> [4] https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fall%2Fcd46aec4b325745d38ac7992e4d3d5b4f4c4e95f.1783435914.git.chleroy%40kernel.org%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561367590%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=sYCT9QzjBWVowv%2BEgbvSiYe0qVdWGZV4vGwgIGAwQhg%3D&reserved=0
-> 
-> ---
-> Christophe Leroy (1):
->        dt-bindings: soc: fsl: qe: Convert QE GPIO to DT schema
-> 
-> Paul Louvel (9):
->        soc: fsl: qe: Add chained_irq_{enter,exit}() calls in cascade handler
->        dt-bindings: soc: fsl: qe: Set #interrupt-cells to 2 to support interrupt type encoding
->        dt-bindings: soc: fsl: qe: Add support of IRQ in QE GPIO
->        soc: fsl: qe: Use generic_handle_domain_irq()
->        soc: fsl: qe: Iterate over all pending interrupts in cascade handler
->        soc: fsl: qe: Handle spurious interrupts
->        soc: fsl: qe: Convert to generic IRQ chip
->        soc: fsl: qe: Rename irq variable to parent_irq
->        soc: fsl: qe: Add support of IRQs in QE GPIO
-> 
->   .../bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml   |  84 ++++++++++++
->   .../interrupt-controller/fsl,qe-ports-ic.yaml      |   4 +-
->   .../bindings/soc/fsl/cpm_qe/qe/par_io.txt          |  26 +---
->   drivers/soc/fsl/qe/Kconfig                         |   1 +
->   drivers/soc/fsl/qe/gpio.c                          |  28 +++-
->   drivers/soc/fsl/qe/qe_ports_ic.c                   | 145 +++++++++++++--------
->   6 files changed, 208 insertions(+), 80 deletions(-)
-> ---
-> base-commit: c34b47a17bc566c7113679e6ae095d5510b4f1c6
-> change-id: 20260513-qe-pic-gpios-073e284615a3
-> 
-> Best regards,
-> --
-> Paul Louvel, Bootlin
-> Embedded Linux and Kernel engineering
-> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbootlin.com%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C1e59449bc6904ae4c2a808dedcd9e3e4%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639191025561386837%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EMKgQXFWGtGS8OwHXgqIB7IH3cWQVA0ZJA%2B2emFlI1E%3D&reserved=0
-> 
+diff --git a/drivers/mfd/bcm2835-pm.c b/drivers/mfd/bcm2835-pm.c
+index 9e8e3dcf4bce..87de35075419 100644
+--- a/drivers/mfd/bcm2835-pm.c
++++ b/drivers/mfd/bcm2835-pm.c
+@@ -69,10 +69,17 @@ static int bcm2835_pm_get_pdata(struct platform_device *pdev,
+ 	return 0;
+ }
+ 
++enum bcm2835_soc {
++	BCM2835_PM_SOC_BCM2835,
++	BCM2835_PM_SOC_BCM2711,
++	BCM2835_PM_SOC_BCM2712,
++};
++
+ static int bcm2835_pm_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct bcm2835_pm *pm;
++	enum bcm2835_soc soc;
+ 	int ret;
+ 
+ 	pm = devm_kzalloc(dev, sizeof(*pm), GFP_KERNEL);
+@@ -81,7 +88,7 @@ static int bcm2835_pm_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, pm);
+ 
+ 	pm->dev = dev;
+-	pm->soc = (uintptr_t)device_get_match_data(dev);
++	soc = (uintptr_t)device_get_match_data(dev);
+ 
+ 	ret = bcm2835_pm_get_pdata(pdev, pm);
+ 	if (ret)
+@@ -98,7 +105,7 @@ static int bcm2835_pm_probe(struct platform_device *pdev)
+ 	 * bcm2835-pm binding as the key for whether we can reference
+ 	 * the full PM register range and support power domains.
+ 	 */
+-	if (pm->asb || pm->soc == BCM2835_PM_SOC_BCM2712)
++	if (pm->asb || soc == BCM2835_PM_SOC_BCM2712)
+ 		return devm_mfd_add_devices(dev, -1, bcm2835_power_devs,
+ 					    ARRAY_SIZE(bcm2835_power_devs),
+ 					    NULL, 0, NULL);
+diff --git a/include/linux/mfd/bcm2835-pm.h b/include/linux/mfd/bcm2835-pm.h
+index d2e17ab1dbfc..f70a810c55f7 100644
+--- a/include/linux/mfd/bcm2835-pm.h
++++ b/include/linux/mfd/bcm2835-pm.h
+@@ -5,18 +5,11 @@
+ 
+ #include <linux/regmap.h>
+ 
+-enum bcm2835_soc {
+-	BCM2835_PM_SOC_BCM2835,
+-	BCM2835_PM_SOC_BCM2711,
+-	BCM2835_PM_SOC_BCM2712,
+-};
+-
+ struct bcm2835_pm {
+ 	struct device *dev;
+ 	void __iomem *base;
+ 	void __iomem *asb;
+ 	void __iomem *rpivid_asb;
+-	enum bcm2835_soc soc;
+ };
+ 
+ #endif /* BCM2835_MFD_PM_H */
+-- 
+2.55.0.11.g153666a7d9bb
 
 
