@@ -4,61 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FEDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 21:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E52C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 21:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7gv7DO3sRanhSag9LvnX9LZtxm45e9XO0imyrqaXXo=; b=rJs97sDltZWQXhBcJdLd6L322T
-	UnAtqH9DC5GV+N6ztUMu5gMbqouelwc5sIqQGQFGgUukS5BBR2wmzKOO2/Was5LTNmj0kVK+Zj3ne
-	P0qsUT/QGKAKm1N5RSI8/DyZ+rA7IjSURr3f2kV3LQn1rypqSNCGmUJixum8QcinrDFzLlMw+ailA
-	vgMtiGft4si36iJF2l8JjwSn/V2b3jOfJwQnSxe7uAHwToPYylDGio/Su9cEHo0WpHWUYI1kIgOyT
-	1KOJpDKrK6jHKlZqhrMbdFhaovl/YftZLNWiIBmBlfWIElShFrNKKc7aKvC1U9Dv0tXt4Pk9n/g4W
-	efaY0CTA==;
+	bh=2c+lUhPPYLxaQiIs4EyExmWvTn9RRCfjWpLbE0SmDW4=; b=oyDGyJ5vr8qyn8gN3Y00/mLR9Q
+	8CA6prJR87yLioJpDBe/d0520fa2oSpknV+NkDpcc8oRzs3y2M67gF5XrH95sz/IUkLVrSFah+oBm
+	PuzPp+cOc8+uxmO65q8qfK+AAUiQKB3fc1ioepVK/gCJWiGwYGKa3GlHph/B0H0RF+XYoTd/5B56C
+	D+T7EJmAXbgD1zaSgcKK5OPZZxFkeBjOd5LL+e8ZnFTal3X5TeQFsRAl/9dL1hsO9azizIPgkXYP6
+	1bfKlFZLP2iDqRDg1C25kd8xZ/y2qJLJjfOF0+LwfERohvmEWJZgbamuL6r19qGbi6/uZvxi0JQrM
+	K9/H/Zzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whwHd-00000003hBm-3dGP;
-	Thu, 09 Jul 2026 21:27:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whwMe-00000003hnl-25jw;
+	Thu, 09 Jul 2026 21:33:00 +0000
+Received: from mail-westus2azon11012071.outbound.protection.outlook.com ([52.101.48.71] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whwHc-00000003hBd-1qr5;
-	Thu, 09 Jul 2026 21:27:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9B2D43C37;
-	Thu,  9 Jul 2026 21:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CC11F000E9;
-	Thu,  9 Jul 2026 21:27:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783632467;
-	bh=K7gv7DO3sRanhSag9LvnX9LZtxm45e9XO0imyrqaXXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BvuWBuDz7IFj4YppCCGpHWM4n2RrTqqSFf9MnF4JteCmXladxy8roihQmpUhe3zW2
-	 3kU8DWcbn/KDobOugs7FtOq/4oq5zPpy/f7UQZXXrC1+XYC+1jHng8QLyqLj7Y7DHq
-	 taA14sTXy0s365x58bM8TLUdKUQqelteSYdhO54s9DYANJMZtw8j6OdxxyW0BH4/V5
-	 EEYaEI4nMb9BU2GqTL9+jRdM+sTja/Olu+4ViQpxNzf8zRwx3B+P2/d0XuUqO1IRNa
-	 wenYWNjnmR6XS4ww6wCOKazCY5Uc5dndlQdotWYqSkbVfg2HFhK7+GfpO3cC6r164u
-	 I8FGpqDu+VonQ==
-Date: Thu, 9 Jul 2026 16:27:44 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: Stephan Gerhold <stephan.gerhold@linaro.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] remoteproc: abort subdev stop sequence on first
- failure
-Message-ID: <alAN2t2C5twxuIjd@baldur>
-References: <20260611094851.dkg63rqztsv2pre7@hu-mojha-hyd.qualcomm.com>
- <aiqF5mh1PvWpH3L5@linaro.org>
- <20260611105506.llvya5tda4xsd2lo@hu-mojha-hyd.qualcomm.com>
+	id 1whwMb-00000003hnK-34il
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 21:32:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PMxepAryp6azLNKZE1lg8iR/1jAZoicIcEYe7DH7/pmsZXA6VtdIjGvnsH4gLfVM4azB3mRuSeuse0yfAeEBUSZYdFqb2u/XwSG0DvsPUPdkYTp+lqPK4afxo0jQ2oROUJSxNhFX+D6s7QQcr3F0FSYqi5Bquf9CHJ3pMAF6jHMMEYTqZ/lqAcRoVOwYzEFnvHyE+EYlx1ZDi4UAROpCbzqFmmC0O9jrxasz1N2Fpu/ZF8cJ2qk6rARWFZ9JyrZt9a9t4OGCwLANVZ6vstgoghF8Rg6fgAxiaOkopek0/29P02gEzGWDNIMl2FfSiFDPGBPWGiRFVYrUjDVNoqtULg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2c+lUhPPYLxaQiIs4EyExmWvTn9RRCfjWpLbE0SmDW4=;
+ b=Hog6U5SLZvQAG2rBNSE6kmt/0sUI3LLBjqnrVdzvWltVaD+TVlll7HrB1cepceikbdj6OljjlkcxAL32KNLg5oMDfv/xM+p0JjSXE+nN6MsxD7vODtNtnZJcFdJBFmAwNmhWwVT6IdNdF0qj0kPmX7YRJJb8VyJXbRLfxkj/XskOFsaERDkLOwjoy0rwPSJqe3m8WrrzZvoOKBLzHXM7gOxKaHeytrVBF/qd4lSEmO+9ziFaivpJ5kPsgI8A111weMOyLYSPC07OT7Nrzh6yEMp/N7ljn7wGUFbFgKbGAORzxWKDITx1CAVuKb64zgqLDoTDnVM1TIteGmo9hPIFDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2c+lUhPPYLxaQiIs4EyExmWvTn9RRCfjWpLbE0SmDW4=;
+ b=QOp2LOcHD9jRt1b/AaVoNgZSe74nvePB3STg2VVsSfxkIjulsxbMxIzg9nd3enS7yASHMhZLB6FzG3RnGFTd2Sz89xxqfIZJZk9MgGZ4cP3qPhwWeenvv8lNHeaCCAera3Mo5SCTjb+8ZVKoxuTnyEjxvg600e1kpxBTKGjcgIUhydyAnNgdhPzuNeVwApfOeuOhECgtaAUCT7k1TdKW2uOFlMwJ9eb4SBwWlOBkXA7nkqmU/9GTMg08XHUFfz02NZoQmMi/cRjaXEm9Z0iuj+clHfSdxJsxc6bg61N/UHRWGvfH+PsDJ6rQtB5uj1a6SBX1i68PVxiydCuh3TvQEg==
+Received: from PH3PEPF000040A1.namprd05.prod.outlook.com (2603:10b6:518:1::52)
+ by SN7PR12MB6931.namprd12.prod.outlook.com (2603:10b6:806:261::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Thu, 9 Jul
+ 2026 21:32:43 +0000
+Received: from CY4PEPF0000FCC0.namprd03.prod.outlook.com
+ (2a01:111:f403:f910::1) by PH3PEPF000040A1.outlook.office365.com
+ (2603:1036:903:49::3) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.3 via Frontend Transport; Thu, 9
+ Jul 2026 21:32:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CY4PEPF0000FCC0.mail.protection.outlook.com (10.167.242.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 21:32:42 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 9 Jul
+ 2026 14:32:22 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 9 Jul 2026 14:32:22 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 9 Jul 2026 14:32:21 -0700
+Date: Thu, 9 Jul 2026 14:32:19 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
+ Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 7/8] iommu/arm-smmu-v3: Change how the tlbi describes
+ the invalidation
+Message-ID: <alATY+9nhJlEN9xf@nvidia.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <7-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <ak3gPqsdg94TTDLJ@Asurada-Nvidia>
+ <20260709182559.GH422027@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260611105506.llvya5tda4xsd2lo@hu-mojha-hyd.qualcomm.com>
+In-Reply-To: <20260709182559.GH422027@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|SN7PR12MB6931:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ad62401-16f3-4e55-454b-08dede019c21
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700016|23010399003|11063799006|4143699003|22082099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: DnQjXUItLGJ9PpRFPPRwKLVXnwMmj3rrg7d4SP5vFxOsEU5v6/y/vcp93DR2GxZTD3JMwozqrgNTJZgEsUoyEPa6AxBf+n+glvDXErYM8nj89KWiSYzXx1BikiqXkL8sOISTqHbduQ8QfkNLQWL9tZi4N/8ZnFTEbEyIKkp3vqN58tI6401EoZbG0V8skYXFb8CSch4ioEhPwowRroSq5fd1rykSTAUfIORNH7iSP2Ykp1NwSc/Sb4hnzDP4iZw7LeZSgOtDOetlNRQI+XPHXOizCWPDXATFD9d6mzg7VNhiHEYh6SnRRKKrP9fNUDRGR/4b0fcrN1Igkx9gfT/Lked7qKPcv+4AeEzESnPBgXZh84rmu9a4ifuHr/bxIZmSSHfklHWB1JyHvhfgg3O2vqsxUa/mL6agGgVKVQOFlSSJxDqxFzYyXnUj8syyezq32yeB/U/PYXiSCjtWD/8j4UdLRvMkQecmAWoxx/uLW6wWdb4tOQ5gJjDVwrWHMgPmBmL7ohgaPgex53Jgv1w9qbzlcdU5pe/WhZeAxpv1QH01F4tklD8Sh7CBnNLQEcXQBOG1nH4x0LKGapSQnkzqvgviW8jCfo8g4C8UxL3q3LUat8RAkmqgb9KtRxbyAPbhptS0l2ZPbAdlfSiThPDKr6j3vPUsqK06VKpPiw8c5paFoPmR6+nvR2e+w8vEIJMpmGTM/vNjy05YaGniMJ0j8w==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700016)(23010399003)(11063799006)(4143699003)(22082099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: YRJO9Wc+1/T7F3yFGWiUGWufyFJ4BLzfL0AsQWhve/y+9AVa3TG1n6qTdPCDgsR4CVMxMOFmv39F+TBQ3TQYntdeIjnerJt5q0i60bgDrcJTeJGgkD2cSCT/M2NbbwZt9r17ES3If7H3ysEQiSbs9COMVUBoM70MaRIt13C85ejH3tNjpj993ht24CRcDm/uGk8Qe5HuihBUgFjmQ4g0/mb2sfsLTYlee6fTPjFpIOCIs1pAMD9yD24nfjX9dv/OcS/5/upYcSQHiuLBG7s1MJuzCFkgNJz4fAqggRFWc3B37dQemlfI1Q4hhurlTLxrVL62c41UKlBXLYdwQwUaePPckQaZqbhoN2XKeYh6+Lltgv1dIZfoYDcPCDEUnl5IaykY3duwb3L1ETHDf9O+IG9A2uesYmingTSfc8+TiIORrlpJtxL+ZFhq1SgxxRY0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 21:32:42.7592
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ad62401-16f3-4e55-454b-08dede019c21
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6931
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_143257_772019_B32D1666 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +135,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 04:25:06PM +0530, Mukesh Ojha wrote:
-> On Thu, Jun 11, 2026 at 11:54:46AM +0200, Stephan Gerhold wrote:
-> > On Thu, Jun 11, 2026 at 03:18:51PM +0530, Mukesh Ojha wrote:
-> > > On Tue, Jun 09, 2026 at 01:43:17PM +0200, Stephan Gerhold wrote:
-> > > > On Tue, Jun 09, 2026 at 03:52:52PM +0530, Mukesh Ojha wrote:
-> > > > > If a subdevice fails to stop, it indicates broken communication with the
-> > > > > DSP. Continuing to stop further subdevices against an unresponsive
-> > > > > remote processor could close rpmsg devices that could remove the memory
-> > > > > mapping from HLOS and in case if remote processor touches those memory
-> > > > > can result in SMMU fault.
-> > > > > 
-> > > > > Change rproc_stop_subdevices() to return int and abort on the first
-> > > > > failing subdev. Propagate the error through rproc_stop() and
-> > > > > __rproc_detach() so callers are aware the teardown did not complete
-> > > > > cleanly.
-> > > > > 
-> > > > > Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> > > > 
-> > > > But what would callers do about this? If you abort the teardown sequence
-> > > > half-way through you now have an inconsistent half-stopped state that
-> > > > neither a new call to stop() nor a new call to start() could recover
-> > > > from. That doesn't sound much better than the SMMU fault. Or am I
-> > > > missing something here?
-> > > 
-> > > SMMU fault result in device crash while other is non-functional remote
-> > > processor. From Linux side, we do not know the state of remote processor
-> > > when the timeout happens..cleaning the subdevices can result in the
-> > > debug data being lost for hung remote processor.
-> > > 
+On Thu, Jul 09, 2026 at 03:25:59PM -0300, Jason Gunthorpe wrote:
+> I wonder if this Claude was thinking about a kernel before
+> 84b2baf427968c1 where this flow would have been as-described?
+
+You are right! I applied the patches on 7.2-rc1, but somehow AI was
+still relying on the old code. I had a some hard time to fully get
+it..
+
+> With the kernel today the arm_smmu_tlb_inv_walk() is supposed to clear
+> out the walk cache before freeing the table entry and the gather is
+> supposed to clear out the leaf entries themselves. 84b2baf427968c1
+> changed things so we always have a second leaf-only gather that covers
+> the entire unmap range, which also introduced the double invalidation.
+
+IIUIC, for the "double invalidation", the driver currently flushes:
+ 1. tlb_flush_walk(iova, size=2M, granule=4K, leaf-only=false)
+      // flush both walk cache and leaf entries
+ 2.iommu_iotlb_sync((iova, size=2M, granule=2M, leaf-only=true)
+      // flush the 1st leaf entry only
+
+> What I missed is that because of that commit gather->pgsize is no
+> longer correct, it will be 2M even if __arm_lpae_free_pgtable()
+> unmapped 4k leaves. So we will still miss leaf invalidation :\
+
+This also makes sense to me.
+
+> > > +	 * If leaf_levels_bitmap is 0 then this is a walk cache only
+> > > +	 * invalidation.
+> > [...]
+> > > +	u8 leaf_levels_bitmap;
 > > 
-> > Ok, but how do we go from here? Do we expect that the system would have
-> > some userspace monitoring daemon that would collect the debug data and
-> > then reboot the device to make the remoteproc work again?
+> > Or is that only to implement a walkcache-only invalidation, such
+> > that the leaf entries will have separate invalidation call(s)?
 > 
-> I would expect the manually collected crash dump in this state to find
-> out the exact reason for remoteproc being stuck instead of ignoring it
-> and claiming a graceful shutdown.
-> 
+> That was the plan
 
-We need to consider the scenario where there are other users running
-this code than you, and as Stephan suggest, they probably expect the
-system to recover (by some means). Few people would be expected to pull
-out their JTAG hardware and start hacking away...
+I see the full picture now.
 
-> Whatever we do here, the remote may be dysfunctional without a reboot,
-> but cleaning the rpmsg device will clean all the required debug data, or
-> at least if possible, tell the rpmsg driver with the rproc state that
-> shutdown was tried but was not graceful.
-> 
-
-That's certainly something we need to take into account, but does the
-use of "may be" leave room for the possibility that we have a
-recoverable error?
-
-Also remember that the user might be in the middle of an important video
-conference when the CDSP hits this error, so we don't necessarily want
-to reboot the system just because we enter such state - there's user
-policy involved here.
-
-Regards,
-Bjorn
-
-> > 
-> > With these changes, I don't see how you would start the remoteproc again
-> > without fully rebooting the board. Calling start()/stop() on the
-> > subdevices again would lead to crashes because some of them are in
-> > started state and some of them are in stopped state and we don't even
-> > know which one is in which state.
-> > 
-> > Thanks,
-> > Stephan
-> 
-> -- 
-> -Mukesh Ojha
+Thanks
+Nicolin
 
