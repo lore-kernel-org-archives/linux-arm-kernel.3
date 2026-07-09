@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25697C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA57C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCkYIoh99j9QSJsZKH/gxtvsOoqy4xG+UTQcTHEmvbc=; b=kAskaWj+sMp+mnz1Nt6Q1Mui/2
-	sX7pcwizas53C5imMHj7FBbqjiFXD+Xwh9NLaEn01PXPWFnuHabl3SVvZLYzQwHYDtL5a7s+Wfe5Y
-	MzWOtNkbaOUZ1PnfkLcPUjGu7a/dZGDcuKUxFfOZKkCH+iVETEMpNYEeeurzVwWttUTG3skuVzZKn
-	Rs/x5xwljeN5mKByzRAbRtckc6PqymmxLHNzhsLpsFKNvDJ1jOCeyq7L9LEA8YWTYI2dKDwXSBczS
-	oeh66Dtoa0qHzF5W7EKg7kyEyby9HgC0EGO/c88CdiK5CRfZ62aKp5akuhy8s3Us+y2YxaOh3/Iku
-	ukuNmWxw==;
+	bh=LIokI2pa1AcM6PxvAETcFVc4Fio6uc/VkJsrcD6qFu0=; b=JSjoi/ho8vk3q7OEsTnoW8U+bP
+	Uvwf6ZZuuBo8DxwyC//cfEWeDbGViS5kuzM1xSBJHdsYL769cSwr6Bagu/kiTEJ1n81b4V1HirPLX
+	lNak2G4na0THuLoxXhCcb7YVy9j++y+xUfZsoiyxJRJEJiUMRrDtxVDyenZrVpaPLuxdSC3W7jzOC
+	F2ACY4C2d44aFxVcq1oVtyd2W2PX5rJJy+sdzPs2pOX4A1Qayky7NEf9RVP/0jQcNW5JFYPGbebyZ
+	0a9BPdQffi/nio0FYla0EWqkd0gFBBHzT1eP1zkEJSmip7FS9hzTeM7uH0vu+BzCxJU4OMLNEnQ/A
+	fEpmklYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmRv-000000023RK-2JQM;
-	Thu, 09 Jul 2026 10:57:47 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1whmS4-000000023Wa-08Jf;
+	Thu, 09 Jul 2026 10:57:56 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmRs-000000023OD-38JK
+	id 1whmRu-000000023P1-0kYz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 10:57:45 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-493c733f15aso7677525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 03:57:44 -0700 (PDT)
+	Thu, 09 Jul 2026 10:57:47 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47c2b362ee2so1504173f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 03:57:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1783594663; x=1784199463; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1783594664; x=1784199464; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HCkYIoh99j9QSJsZKH/gxtvsOoqy4xG+UTQcTHEmvbc=;
-        b=Hks4alv4dU0SWqZPXfeRnbbIFZjSVyATgnxSAE+nyHjjdYFdElkGBy5IjxVJWqykkX
-         u74rzt1u+C0gfY+hR45z601CP9ZlcSQmSS42uzm+RNk/D3zO8ZcGDL8RK8b7s629y/s4
-         +bjXuuTBgQfoDdB4d7P67PKAN2+AQcGLZLfu1EbEl/m4bN2H4vxVhSQvEno/jJPLIxTM
-         sp7eIZUyk5QaLXyFtCb4Ogt3YBYv/zCQz0IgtN1Advxa0gastDDwoePCfDsa5wRQeyA9
-         EL+WzkKvLuenJfUVBvkE0GmeXdD1PFxi9xPscHIZvoKv7fCDcZYerpWr3/6GGjwEhEmZ
-         xKFQ==
+        bh=LIokI2pa1AcM6PxvAETcFVc4Fio6uc/VkJsrcD6qFu0=;
+        b=WR5a7Urm/MvnyyXvVb1mL39VBObUlfMSw6NXS1jiFoWAIeYM7VMR65/wsdBJQZIKqB
+         LFm9a3HML0rff8t/OO5YWFtCXmslK5uVr9uaKzCty+8I9JfHjlm5/hdF905g8NrF6KeM
+         mawUPDhPzlc2ePdcgFs2Sfm2fUMPVuOu1Z+TtvNVWI0Kxbw6d+VIk8luJ6YbXl4A0akg
+         b9GlYeGjaergYxa0XL+a2goCwV9pfYwOMAESLO8iHbMys0SPgfjLAAV/GECxO1CceJQs
+         vobkJNNTy6invdEqtWNp53kJqO3+Sl5sx276b9oPUrU2I5k/dClIivSQy3TmAbq+114n
+         eyRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783594663; x=1784199463;
+        d=1e100.net; s=20251104; t=1783594664; x=1784199464;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HCkYIoh99j9QSJsZKH/gxtvsOoqy4xG+UTQcTHEmvbc=;
-        b=RA1IfSJJrfHQvEcExyLyBosG/3CrNiyAXg9Qk8CyF6Xfh0cFsO5w/9MmtlnoqrlD4T
-         3y85JfvLEM6lV8eX+6xXAcGty6QmIa08KOLkNZ7ahTjUdVT/hajFLsJ9EFmnjwB6LD0f
-         PnZjcZehvLXvvAT3MDTwv59tOGUsI8KAqGMVG6dbT3sNYlid1EDmUGenZQqopGt05Jrn
-         mJVXR4GlKgONP4H/mGJNee2J8T/THNO8TecW84oFcBTBTd4G1MUC3gWo80kM17gaUkPG
-         /cSTsYjY6i1rTgiLIoEErxnc2dQEt7CIidbxUywm4NBZUho/oNvcHdRJvJTYdNqfmRGX
-         GrEA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr7uctpJTvd4oQDHbhrTD5EpGAKQ4cowbz5EiOQGK02OLS+6opS0nfAFJdoTl4rRPQPC0kzH1zqbHFcxuRebuYl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJY+fp5RMll85GDAvSiJHIqmpVZVEKpy+cq8W5rjs6EOc0lUMO
-	Pf04FXXXQHbE1JXrF7fgLEYK4249/lGoNfPme+CB7YRNPSlghY1Y4GMTdsEePXOcIHM=
-X-Gm-Gg: AfdE7cm9uyAkhM882nOAEDvuZEf5+FIcuHcoF5JwZJygaYPadioZkCh3UScOPv7CndM
-	YeR5ADvsurQfEXhQuCwWmL9t8XO6yoCGAPDOn19BEX48q1BIwjFP0AIfiLVhWOTcYSGFC0L7cy6
-	SSGSoWdf028olqbySwckIvk4D3TaaEBtfCOorP5jJd+lDS69Kz0dvfezMO/zcFGKAjeaSBxxIiw
-	6Z78442UP6xMSieF4zrDfCeDZjmoKGxOD5T+NC7yqd2PjqpoHmp0lCT7FgLtD0BdtxndM87eqox
-	3eamopYP/yhc7GwcKNX66N2eGe0y+aaPs2H9kChUJi0BdpQN67DcEBhR2b/YTwMPHCabFMmv1Nj
-	t8nyCakSyMv2FSVRb9f/mbWmeHoBp6EQNj8594Ija2uloK3xnlo9bnOU1U6MDUjt+NSt5OumNz5
-	tMV1txxKcYpD8OnWAgJnu5A1Bk0qn0LkjZ
-X-Received: by 2002:a05:600c:8b05:b0:493:aaa2:f034 with SMTP id 5b1f17b1804b1-493e68cf39amr64454755e9.26.1783594662856;
-        Thu, 09 Jul 2026 03:57:42 -0700 (PDT)
+        bh=LIokI2pa1AcM6PxvAETcFVc4Fio6uc/VkJsrcD6qFu0=;
+        b=cd5O8+9bwNQ6GahOqEdQRNtkVZZWw/6490fU/3rvOIjkj0nqg/8Zq7rzNhdxq4WCG6
+         dHfqFoyuC/qWCeno43+0GXSbedkFXejkoyWbanqPYCkNWseYV1L2Vc9sr1tyBRhI8Y9p
+         cZpr3Z80lVNuURnu2Kw5zwo3OpnyIRnZ35WHFxd/oGGc8QQgu+NNSP/NUsB14r4ZcXnT
+         MwbrxDhdEKkEsNVcb0I6gBrkyIcDbZw4iKiBjX2etjvH+g+8ZwgHGsBwxCbE9BJIobJ4
+         xEqDO20aqExsHoYKzjuhLROIy5Da8OBBc9uDTLJWes74hHN3C0dUV3AP8/Va4QiJ6R/c
+         vRdg==
+X-Forwarded-Encrypted: i=1; AHgh+Rpv7BprlaLaLDQuPqT1XP2EmaRppvR2CeS+p2QBcPNzwekKkIBah9nUDasUvjElgHlaaaRaFlZNUApHgIVMxmIV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy3tRquRET18QBMLKm1aSGManuSQlwlOWNsdiT3qqjdMsa2Y0w
+	iX8pbEIEQWc1OUFcE+JFKLeyyDHZYbyGsVR/m8kybdIWccAiX3xkbWoCKHbTm+m8TlU=
+X-Gm-Gg: AfdE7cmVmJdQR7aHJyP6CdiRB/vMEtJiEyfUHYlfQ80biUUJJhkRHHeR0vZmVFdn5jb
+	NI48BYq6amFU2WPodepiXPkZI0qZAFSYw8Ef0uFxEAXghiBH/SJfLsgO8rVFz6LRTMT/D1CLXLc
+	nqu5ulBez8mvkzJt6EWw3HNSrwEjfraqkiObNtBEL9cHF617jlYpCLWrzpTgcJFOZk7BCbyQ7Vq
+	PG+nQhaQBBkbYpLF9CApQ/u4Fl6v9Z0Am6U8WJCkyNsTT1z+Gc2FcFh+qL6nZPJv4ndMqj7BLHS
+	MQCwKsnSF3GOMQYHGX+AD66NoTqDOcD1SVA2TxF2HATvedxT/F/Sqw+MyOv/+HqCvzhjg2jTDjJ
+	OyaCn8HxVxXY9xfMXbFf0WobIaamVJzYSa39lHAGlVUlD4jmHp1UMBQ2Snnp4gAgSX2/jWKjOO8
+	nXdUMrXGWwZz3SL6AfEeTqbg==
+X-Received: by 2002:a05:6000:29c2:b0:47d:f620:557a with SMTP id ffacd0b85a97d-47df6205603mr2183463f8f.6.1783594664327;
+        Thu, 09 Jul 2026 03:57:44 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9b4d850dsm51927408f8f.0.2026.07.09.03.57.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9b4d850dsm51927408f8f.0.2026.07.09.03.57.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 03:57:42 -0700 (PDT)
+        Thu, 09 Jul 2026 03:57:43 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 09 Jul 2026 11:57:25 +0100
-Subject: [PATCH 3/4] coresight: etb10: Prevent per-thread events from
- sharing a sink
+Date: Thu, 09 Jul 2026 11:57:26 +0100
+Subject: [PATCH 4/4] coresight: ultrasoc-smb: Prevent per-thread events
+ from sharing a sink
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-james-cs-multiple-per-threads-v1-3-d384e6d477ac@linaro.org>
+Message-Id: <20260709-james-cs-multiple-per-threads-v1-4-d384e6d477ac@linaro.org>
 References: <20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org>
 In-Reply-To: <20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -90,8 +90,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_035744_818650_10BFCE32 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20260709_035746_259046_15102339 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,113 +106,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like the previous commit to ETR, ETB10 sinks shouldn't share per-thread
+Like the previous commit to ETR, SMB sinks shouldn't share per-thread
 events. Fix it by returning -EBUSY if a second per-thread event tries to
 use the same sink.
 
-Fixes: 75d7dbd38824 ("coresight: etb10: Add support for CPU-wide trace scenarios")
+Fixes: 06f5c2926aaa ("drivers/coresight: Add UltraSoc System Memory Buffer driver")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etb10.c | 30 +++++++--------------------
- 1 file changed, 8 insertions(+), 22 deletions(-)
+ drivers/hwtracing/coresight/coresight-priv.h |  2 --
+ drivers/hwtracing/coresight/ultrasoc-smb.c   | 22 ++++++----------------
+ drivers/hwtracing/coresight/ultrasoc-smb.h   |  5 ++---
+ 3 files changed, 8 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index a827f76b8144..6b5caad330d9 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -71,8 +71,7 @@
-  * @miscdev:	specifics to handle "/dev/xyz.etb" entry.
-  * @spinlock:	only one at a time pls.
-  * @reading:	synchronise user space access to etb buffer.
-- * @pid:	Process ID of the process being monitored by the session
-- *		that is using this component.
-+ * @event:	Perf event using this sink if in Perf mode.
-  * @buf:	area of memory where ETB buffer content gets sent.
-  * @buffer_depth: size of @buf.
-  * @trigger_cntr: amount of words to store after a trigger.
-@@ -84,7 +83,7 @@ struct etb_drvdata {
- 	struct miscdevice	miscdev;
- 	raw_spinlock_t		spinlock;
- 	atomic_t		reading;
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index dddac946659f..492f050eb698 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -94,7 +94,6 @@ enum etm_addr_type {
+  * struct cs_buffer - keep track of a recording session' specifics
+  * @cur:	index of the current buffer
+  * @nr_pages:	max number of pages granted to us
+- * @pid:	PID this cs_buffer belongs to
+  * @offset:	offset within the current buffer
+  * @data_size:	how much we collected in this run
+  * @snapshot:	is this run in snapshot mode
+@@ -103,7 +102,6 @@ enum etm_addr_type {
+ struct cs_buffers {
+ 	unsigned int		cur;
+ 	unsigned int		nr_pages;
 -	pid_t			pid;
-+	struct perf_event	*event;
- 	u8			*buf;
- 	u32			buffer_depth;
- 	u32			trigger_cntr;
-@@ -168,11 +167,9 @@ static int etb_enable_sysfs(struct coresight_device *csdev)
- static int etb_enable_perf(struct coresight_device *csdev, struct coresight_path *path)
+ 	unsigned long		offset;
+ 	local_t			data_size;
+ 	bool			snapshot;
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+index 20a950b9dd4f..12d2f855de25 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.c
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+@@ -216,22 +216,15 @@ static int smb_enable_perf(struct coresight_device *csdev,
  {
- 	int ret = 0;
--	pid_t pid;
- 	unsigned long flags;
- 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
  	struct perf_output_handle *handle = path->handle;
 -	struct cs_buffers *buf = etm_perf_sink_config(handle);
+-	pid_t pid;
  
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
-@@ -182,19 +179,14 @@ static int etb_enable_perf(struct coresight_device *csdev, struct coresight_path
- 		goto out;
- 	}
- 
--	/* Get a handle on the pid of the process to monitor */
+-	if (!buf)
+-		return -EINVAL;
+-
+-	/* Get a handle on the pid of the target process */
 -	pid = buf->pid;
 -
--	if (drvdata->pid != -1 && drvdata->pid != pid) {
+-	/* Device is already in used by other session */
+-	if (drvdata->pid != -1 && drvdata->pid != pid)
++	/* Do not proceed if this device is associated with another session */
 +	if (drvdata->event &&
-+	    !coresight_sink_can_share(drvdata->event, handle->event)) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
++	    !coresight_sink_can_share(drvdata->event, handle->event))
+ 		return -EBUSY;
  
--	/*
--	 * No HW configuration is needed if the sink is already in
--	 * use for this session.
--	 */
--	if (drvdata->pid == pid) {
-+	/*  No HW configuration is needed if the sink is already in use. */
-+	if (csdev->refcnt) {
- 		csdev->refcnt++;
- 		goto out;
- 	}
-@@ -210,8 +202,7 @@ static int etb_enable_perf(struct coresight_device *csdev, struct coresight_path
- 
- 	ret = etb_enable_hw(drvdata);
- 	if (!ret) {
--		/* Associate with monitored process. */
+-	if (drvdata->pid == -1) {
++	if (!drvdata->event) {
+ 		smb_enable_hw(drvdata);
 -		drvdata->pid = pid;
 +		drvdata->event = handle->event;
- 		coresight_set_mode(drvdata->csdev, CS_MODE_PERF);
- 		csdev->refcnt++;
+ 		coresight_set_mode(csdev, CS_MODE_PERF);
  	}
-@@ -361,8 +352,7 @@ static int etb_disable(struct coresight_device *csdev)
- 	/* Complain if we (somehow) got out of sync */
- 	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
- 	etb_disable_hw(drvdata);
--	/* Dissociate from monitored process. */
+ 
+@@ -293,8 +286,7 @@ static int smb_disable(struct coresight_device *csdev)
+ 
+ 	smb_disable_hw(drvdata);
+ 
+-	/* Dissociate from the target process. */
 -	drvdata->pid = -1;
 +	drvdata->event = NULL;
  	coresight_set_mode(csdev, CS_MODE_DISABLED);
- 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	dev_dbg(&csdev->dev, "Ultrasoc SMB disabled\n");
  
-@@ -383,7 +373,6 @@ static void *etb_alloc_buffer(struct coresight_device *csdev,
- 	if (!buf)
- 		return NULL;
- 
--	buf->pid = task_pid_nr(event->owner);
+@@ -316,7 +308,6 @@ static void *smb_alloc_buffer(struct coresight_device *csdev,
  	buf->snapshot = overwrite;
  	buf->nr_pages = nr_pages;
  	buf->data_pages = pages;
-@@ -754,9 +743,6 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (!drvdata->buf)
- 		return -ENOMEM;
+-	buf->pid = task_pid_nr(event->owner);
  
--	/* This device is not associated with a session */
+ 	return buf;
+ }
+@@ -564,7 +555,6 @@ static int smb_probe(struct platform_device *pdev)
+ 	smb_reset_buffer(drvdata);
+ 	platform_set_drvdata(pdev, drvdata);
+ 	raw_spin_lock_init(&drvdata->spinlock);
 -	drvdata->pid = -1;
--
- 	pdata = coresight_get_platform_data(dev);
- 	if (IS_ERR(pdata))
- 		return PTR_ERR(pdata);
+ 
+ 	ret = smb_register_sink(pdev, drvdata);
+ 	if (ret) {
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
+index 323f0ccb6878..5129afa1dfc8 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.h
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
+@@ -108,8 +108,7 @@ struct smb_data_buffer {
+  * @miscdev:	Specifics to handle "/dev/xyz.smb" entry.
+  * @spinlock:	Control data access to one at a time.
+  * @reading:	Synchronise user space access to SMB buffer.
+- * @pid:	Process ID of the process being monitored by the
+- *		session that is using this component.
++ * @event:	Perf event using this sink if in Perf mode.
+  */
+ struct smb_drv_data {
+ 	void __iomem *base;
+@@ -118,7 +117,7 @@ struct smb_drv_data {
+ 	struct miscdevice miscdev;
+ 	raw_spinlock_t spinlock;
+ 	bool reading;
+-	pid_t pid;
++	struct perf_event *event;
+ };
+ 
+ #endif
 
 -- 
 2.34.1
