@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A4EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFE1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ikwj1YfonT1BHbm/zGoCqyXejMkxOLuKJteJkle9lEw=; b=WCCKuteja/QGGPAjIftb1mseyg
-	7ArN5l9Y0wALSylgAnySbHTFCUKoaicHR/4BHs/dQI0EtLSfiNsKaGTQanqAboWjUeFj9IpJkb5hl
-	hu/uk2KNQFzk/Kokcmw7SQQJ/Ea1mqmEl0GB+rtXJffvfDNjziyaDicKhlsT+Kjk0Byk7Jxb0NuIV
-	Qnmg6GmXsZOSH7TUwVIZnP3gaa/NDDAZqTUUsvv+aRf47Ffn/1VmzsPBuZhuHEaYiPfqky5jvSyPe
-	oKoYEGBHW+fH5lHbCJ6pJE/ClbDlBR9onK4/6PWjb79QYm94oWrg5aL8jhbn6nv2rOeuCgTPQHMIN
-	q4sMZTng==;
+	bh=c1KoFQZlVh0TW1NBILxP1YmKzlfNH0nOR4JY+OmiGCQ=; b=b2jEJ+ggrmajqV5J9TtN/uxtT6
+	JnXRnBwsG65oP5x87H3l9XV+az2E4wPyARhDQinX67sZaBM6i8XZ8QaAAIH0I2NTRxMEBK+okGR1q
+	QJAp8U+35PTaLsqoNkt08pdV3ckao02oX+D/r1hv4NlyyRcWoVxqmJXlIaqn8TBNjdEkev/KPQ7ad
+	KabA57k7stB6n4IkmTvBKlNr87pyMDVwnEUcCZ8+EwPVIZx1uS5YGErOLtUMWk64fS+ruXx//bRad
+	nUl50VO0YpVCaYe/kLrQh5e4qKfXx16uPioG9PmyCf1JCfgunX2jg5dKdALmsnRDYGt94psJwOMlR
+	U/J70HGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpK8-00000002gi2-009A;
-	Thu, 09 Jul 2026 14:01:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1whpKB-00000002glx-2wuz;
+	Thu, 09 Jul 2026 14:01:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpK3-00000002geA-0lS2;
-	Thu, 09 Jul 2026 14:01:52 +0000
+	id 1whpK5-00000002gfJ-3ZBD;
+	Thu, 09 Jul 2026 14:01:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783605708;
-	bh=bTAQUL6Sz2StfMPjLEbTGPEW7jNnBg8BscHUDvxQ2Mo=;
+	s=mail; t=1783605710;
+	bh=8SkAR/Ab8XsPGdgW8BYCG02vOqkW8k+veVBNwe9Ul5c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oDCz25HspjPFTUPqt6RTLtFKqujzSvoowoOarSysRd6Dsd+sflH8XHQ83kx7Qhoxo
-	 gS63sKeujE2TjRKoKusyOm4tVw3WwR5k/3xmsgDvxrOrIwREUlK5ZyQT7/voKANhr1
-	 jpw8lcuBGb7ISHo6vHBZCYAOSGDX5jU80wd5MF/Kaf25j2M9IvYWgXRAJbnKJ9bsB4
-	 zMMjY0JykG915nqU+/1WO9C/PqUsJf4lTnb5no773V5YZF0p9EKz6Fk2z/L0XUuLRa
-	 cY3fBWMQpiCKd4KKbWFAviAtmEm/o3g8STtCwP+cYuH2c26xWtL9nUq95yTqo5J+U2
-	 nVjXv/7ifljnA==
+	b=eZ+WEEEtNdm44adPY3hOzL/+043uJYdbKHMRPcOv/18YBSEdZMoRnvyyqIL8/9Zt5
+	 8fs7GrdxwcKJgwbDNyUcMYbBkx+ZhCs0ij/p1PX0UeHb8IPLBcNL8lTEr7vLCq+DVO
+	 TTRNPt+MsiNJ6E+tfrSZPcAh9pn8TGJqfm1uiz71RYzV9ajbnG8D7furdXlRu9ovaX
+	 clxJ/Z1QYFaE+9JVTpbx7GrjX1Vp74T6aexce8p5OinZoYqF/3i8vRFiSP4gvaj+T7
+	 EzW3N7xkMs+JUCu6VOneil+AMeXom/GfEu89VRtlJGLFu0YRKjHX/WqNgzYiJ7TqEO
+	 A3O8/cowCQsNw==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E2D1717E0D53;
-	Thu, 09 Jul 2026 16:01:47 +0200 (CEST)
-Message-ID: <ff0f6f05-8445-459e-9c21-13f3dd57c4c4@collabora.com>
-Date: Thu, 9 Jul 2026 16:01:47 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7569317E0D56;
+	Thu, 09 Jul 2026 16:01:49 +0200 (CEST)
+Message-ID: <fe7dee8d-afe9-441e-898b-695aacf1aa04@collabora.com>
+Date: Thu, 9 Jul 2026 16:01:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/18] dt-bindings: clock: mediatek: Make
- '#clock-cells' required for MT8192
+Subject: Re: [PATCH v2 01/18] dt-bindings: clock: mediatek: Make
+ '#clock-cells' required for MT8186
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
@@ -63,15 +63,15 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  netdev@vger.kernel.org
 References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
- <20260709-mt8189-clocks-system-base-v2-2-2926da3db6cf@collabora.com>
+ <20260709-mt8189-clocks-system-base-v2-1-2926da3db6cf@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260709-mt8189-clocks-system-base-v2-2-2926da3db6cf@collabora.com>
+In-Reply-To: <20260709-mt8189-clocks-system-base-v2-1-2926da3db6cf@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_070151_370426_3BD6C7C3 
-X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-CacheID: sfid-20260709_070154_902591_61EEF4BB 
+X-CRM114-Status: UNSURE (   7.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,13 +88,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/9/26 15:42, Louis-Alexis Eyraud wrote:
-> Both MT8192 clock controllers dt-bindings (clock and sys-clock)
+> Both MT8186 clock controllers dt-bindings (clock and sys-clock)
 > document the '#clock-cells' property but do not enforce it as required
 > property.
 > As clock provider nodes should define this property in devicetrees, add
 > it to the required property list in both its dt-bindings files.
 > 
 > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
+Though you could've done that in one commit, or just skipped the additions in all
+of mt8186/92/95 and went directly for the new one... IMO, it's ok as you're showing
+that there was an actual mistake on the bindings for clock controllers.
+
+Same comment applies for patch 2 and 3, btw.
+
+Anyway:
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
