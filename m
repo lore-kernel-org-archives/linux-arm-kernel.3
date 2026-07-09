@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC615C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4449BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ukFASTVcwJCA9KHs65XStV/NanPY9+t/aJWekQ6IKw=; b=0Y0bKrrdk7DP4vnP93MPtqhkmf
-	/TwNl+IS/OK0CdCEbvLbhf3OZ8Pvj/pbQdirG9jsbtbzVQTwN/SHwC1/9MM2Cu+f/inas5oiUN7S0
-	/DCMfmMN6CsGeHU1DBJlld9XYF8DYwN/0yGpQWYvjLh92KJHwE8RYObQXhcyplbHFIj/B5AZdxNPA
-	uboxnyAHo1JamfGOaZhsvtL8iXVZAqvIojfFPuKKoG3SkBuuQGeGyIQGT1UOnqkvNEHQDiZ0cGZov
-	1RgTSAz2RVoVf9Y0BaR/gTvHvlD5JXMN1DLnwkMykWuWAWs9JZ4RE/5gjlPHlQ7XAG4R5nQBDOS+w
-	rVynOvog==;
+	bh=9meEpFul2zTVt7w1Px+sUe1v1uUmskX3j+X0HA3AglU=; b=mu0TVfZ3TOnM7tMD75w1pgq4GR
+	FE6xjBK6T5VdvKoQV5LiEU98uC44c8ELdO0MnYhk9G8MYb0Gz9hJ10NXQuct6Gyv2m7/cgXDVKtRm
+	5HyVKEUq41ihkNlqQNe7Mz/bDh+bhGyF4ec1HIPpjsnWWRMj9k38pX1KPnhSTdjlZ6DHsc+FcF7EX
+	8jAwNRWhNR+b7+5dqDn4jqWEBh7uIgn1ZKfKA18Fl8kDnUavwBfrMp3UnJAW3GPkK0VTcjwngbr5E
+	HMwm0DOfPypV/jdKfGaQ8u+PvFXL5+qm1z2W7k4Ryonnh49md9uiqeC+XZk0/SMtSKOYoiKGmnTxJ
+	QV1oqcFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whn0A-00000002CW9-1lA1;
-	Thu, 09 Jul 2026 11:33:10 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1whn0r-00000002DIT-0SUu;
+	Thu, 09 Jul 2026 11:33:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmzp-00000002Bqu-2e4i;
-	Thu, 09 Jul 2026 11:32:52 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783596761;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3ukFASTVcwJCA9KHs65XStV/NanPY9+t/aJWekQ6IKw=;
-	b=xLBBBBbh4/VWO9XnxdBWWEUvqzn9mmxKtghNmN65V+Cf4har8MzUX9hyoH+gOUFNJ0QDZH
-	mhrQzKul8EzypjUmmlpwnx86X/j6mp+M74+44prDPC5Lb8pQqlkpFANr1hPoiweBhjIMvL
-	IJQ6MiL3Yuyh11sCsUB/qGlCV3fC2EXReRUTsEgy1o+ZC4hqFkeSEsi0TIZ4voWO+rfnY1
-	Dv8Px5LpQHM/R1zjHRBtez08FAjNDJgYULJlhWKa/IrL6yP6/p/2kOaw2JHAzOmlqglsU6
-	/03UR9MkVzy/rbOrYQVZ342ujoRW8Tk7nPvjQmW03SqWiWzVIxa6VuNOlviODw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783596761;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3ukFASTVcwJCA9KHs65XStV/NanPY9+t/aJWekQ6IKw=;
-	b=OgMhKys2yLyiiIrzt/ebS8mgwv4WAKvLSUlGBZDOz+da0ok2x1dai57gPiCFIfoQeTZIiC
-	uHk5AT5qmEA4l1Dg==
-Date: Thu, 09 Jul 2026 13:32:41 +0200
-Subject: [PATCH 5/7] clocksource/drivers/arm_arch_timer: Replace
- CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
+	id 1whn0o-00000002DGr-2BCu;
+	Thu, 09 Jul 2026 11:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783596827;
+	bh=2thS+JuQWS1aHyOnhwwCjgcgqnGH2cFOBsnA4gBpAxI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FQpMwqAdRIn3M0kP6/OlbiLzjT0si4zJbqCPojCKm6ZSeftfVNy88DMWBPStVuMf1
+	 G53rubUvC78GfVJTwajO0SwFxVeyHIZtXWJwd170pPBi6oPvfRRFF0u3NsXOq/6roy
+	 KwUfmbktZibJ0la8/V2E1ev0x0R8h4oMmDoRVHiXtwzDLYIgecsHWMSupBpNVZ3975
+	 145ng3SJPo4HJPXr2PoyPVykbDENKpUHmX5bSAZDChYW05n9xZySGrvPv8Caq5YAuP
+	 u8kXXOwhgRou0GjEup1OXYtpARqme7HT3H8i8YxOfWUK7C1tYpKa6TYzvoCqVU/WIm
+	 jZulT9VDU7KKg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ED4F717E079B;
+	Thu, 09 Jul 2026 13:33:46 +0200 (CEST)
+Message-ID: <f2d5801c-1d12-4a61-ac23-aa24dfd0ee5c@collabora.com>
+Date: Thu, 9 Jul 2026 13:33:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260709-vdso-arch-clockmodes-v1-5-3fd780bbf851@linutronix.de>
-References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
-In-Reply-To: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783596759; l=1366;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=HBDbLxQ/mmLThuSCavhDFNuAv2+3px29VTHQ8QYWw1w=;
- b=/EvHsm6ydzGcPsxrNvqkQUB75XQjGIMB3dJQHMvHaYcR1e6vOjowSLWMYmBC9iC39j5MyPR+r
- GKnBIHG7yBIC0ZzIDI8rObHsO7fQLB+a+bRP7h1extXlNquFlV9wR/m
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/4] AUXADC driver for the MediaTek mt6323 PMIC
+To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Lee Jones <lee@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+References: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_043249_828764_03BA937E 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20260709_043350_714675_B9EBC429 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,35 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that there is a dummy declaration of VDSO_CLOCKMODE_ARCHTIMER,
-even if no vDSO is built, the ugly ifdeffery can be replaced with
-a cleaner IS_ENABLED() check.
+On 7/9/26 12:52, Roman Vivchar via B4 Relay wrote:
+> This series adds support for the 15-bit AUXADC hardware block found on
+> the MediaTek mt6323 PMIC.
+> 
+> The previous version of the series for all AUXADC, EFUSE and thermal
+> drivers was split after Krzysztof's comment [1].
+> 
+> Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
+> mt6323.
+> 
+> [1]: https://lore.kernel.org/linux-mediatek/20260504-mt6323-v1-0-799b58b355ff@protonmail.com/T/#med30fad67a090be35f549231336b2dec295233f6
+> 
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- drivers/clocksource/arm_arch_timer.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+Whole series is
 
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 4adf756423de..d67125a8730a 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -56,11 +56,8 @@ static struct clock_event_device __percpu *arch_timer_evt;
- static enum arch_timer_ppi_nr arch_timer_uses_ppi __ro_after_init = ARCH_TIMER_VIRT_PPI;
- static bool arch_timer_c3stop __ro_after_init;
- static bool arch_counter_suspend_stop __ro_after_init;
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
--static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_ARCHTIMER;
--#else
--static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_NONE;
--#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
-+static enum vdso_clock_mode vdso_default = IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY) ?
-+	VDSO_CLOCKMODE_ARCHTIMER : VDSO_CLOCKMODE_NONE;
- 
- static cpumask_t evtstrm_available = CPU_MASK_NONE;
- static bool evtstrm_enable __ro_after_init = IS_ENABLED(CONFIG_ARM_ARCH_TIMER_EVTSTREAM);
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
--- 
-2.55.0
-
+Cheers,
+Angelo
 
