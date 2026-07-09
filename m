@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B643C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6E4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=; b=16q6TluoQsm4/S6UwlvRKTNWtP
-	McClwJgb0aXPtndafps7z5B7cuk8RvjfSL5/AUqfkn+JHze6f+ODVuwO+Yd0qfjcK58aZWesSn7zE
-	WHRwOLYyyWFlj1w6zvyrXoh6uDP3uY9JXTrJOzc4cYazvpO7NOZdR54mrh0P/Min/y1clET2j6kZ7
-	nxvKVK10k52wBaE8WBtiyd9Vso+0URf7atq/5ABYXTziay98cvsVM/R1D4/CzTm8rX7TrryI2Z78M
-	8BhBfLxvfTjfvEAG/hUv9R5lnEnW35KkJp2q6SIRDjeMpl3L3k1xcPYGVl3B6cKl/lksGpiLeDjxu
-	zPtcNFYA==;
+	bh=ma6hRKfHVcSKvMZ+W9JmQfxRE3jzj/ex/cWYq7xYV30=; b=zaBTizwIWiQCD2Qe1OE0jmxzDS
+	1SLPXfTiqYa2XOiYKrbNYnDsz08vw+/F19jcS7mIXZa5Y3H7fV9SDHzj3Y7Q5oIM+Pv/WHKcwPb1E
+	J1bzXn2brWSMXtQgky5NGE09cR1WtBpNVBnckpm/FQfnkeARPOzQhT/HTyZs4mVzVI/QgyYnzkH8k
+	DzIknh3N8gaeg7A2GQHKALWG5mv8g9jdOJU76i5lpkY9s0bf+sH8lAScTsyaG9RTMBUYyTYqdn5/T
+	nGnRGKKUTMxpT3hb83zYEwcGmZFNgRzLN26IQuuWBquxqaIuSnqNfNC5JmACYGzFEw45GWJcVqTR7
+	LbX33pHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk3I-00000001PKE-2W3N;
-	Thu, 09 Jul 2026 08:24:12 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	id 1whk5s-00000001PfG-0Oqd;
+	Thu, 09 Jul 2026 08:26:52 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk3F-00000001PJO-2VLH
+	id 1whk5p-00000001Pda-137O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:24:10 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-667b76205f1so431072d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:24:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783585448; cv=none;
+	Thu, 09 Jul 2026 08:26:50 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6676fc59e59so2054801d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:26:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783585608; cv=none;
         d=google.com; s=arc-20260327;
-        b=HOmrK0j1aEQDCLcalpvLsRSwxOlHcs56PDQd+Q+WCeq4KEW00Beoxhy+AJJxM1XpOz
-         00bo/TjAPoeJ/9Y92j08dsjtwm9vaM9NdRY3pxQtlIA01KI9Ce3shGHBp4PJU4l6Atcn
-         RXYc1aM1fVS3oEt6nL1IvQEhVsdvpxUcZV7aCbo1rmo4/H3sKKXssTeef7lpVpyuq0KI
-         u1qwB3o7kbbDVAqFP3VM7xamIFVEO3S8rhjYT0TOZk1k3xQ4g4om6tH57yb67rXOLC2l
-         G6Xc5ZKntQBbNhld6VgQl0HCRUNp38i3gF/b/MXA+VJV4s4K8mismK9hixU8cCT1knDM
-         NC/Q==
+        b=ex8yv6gMt2GJaCodEo8jfvtTFs1DhJa9aLcWJWnCv8+V+I8GWgugMIziMoqAQKPvDu
+         jEUm6wcAdxtXI9sAuCyrC9Vr2kg7C5PIIyiKz/z0+sOAbXuyxZCLmg+4OpoaKIIVsd88
+         0MyL2mtbmT/l21dZjsMpbaQN9TFfMzQhQQ919gvaia6TfoUfv13ilyWuFeZEVEuz3F1N
+         Izbu6lI3zd83uh621BMXPJ93XnE++EHmLLZP1byKz14ChX1RVy17w5JzlAqAeT/ftEEc
+         pKiaeClrqKothlGN2E1XIGb9T2SGMGg0kfbmaifoUt3F/w3xKa0cT2Lpz9SMfks+2qoK
+         2qfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
-        fh=vbPOY4V522v/z/gpV584UQxYFMzYQTHWYwhBeAVvk7I=;
-        b=ZIJfXEfBBX5nI3aH5sInLRq+5uW1sbo6MoaLVowLMAeJxQiHXhcjut6KULE8u0GaZL
-         B3hxv2pnr7nQEH0PsaGdH9stTYuNlZZA8B4xLeA8G5AH5EhqU9l3wawlcVJwh6sGodC3
-         auswqhgtFEZu0eEXJiZqOPrVFLWiTljGDjEkzSW8Bu2qCv9qU86+srNQKWbBzJ+7KhGs
-         +BzqGHNS1GNiG8ZJL4Xd1un/11QjT4aaHYEIwLTVPYNfYlG+jsOg2UTetff24/sQNJEZ
-         /KZf/SWrCIUchHQaWlm4XQOrxm32SKqISMoSQkqLXsx+bHHGfE27Api7NAv0JVzHAo3v
-         4mOQ==;
+        bh=ma6hRKfHVcSKvMZ+W9JmQfxRE3jzj/ex/cWYq7xYV30=;
+        fh=GADl/izokGjyfq2K3V/up5LyA1byyOIu8+VkaezNc/w=;
+        b=Y607TPdkv7gynuB+PVk6fFYGXV9QZX9RYOW8/j4Q8UBZrDWfvlsxYFzkcvP8H3CLBg
+         Fu/ii/dl3X1eYrElYbyMB+sdrWf/VIEfERiFloxq7SCUzKVEf3UQemi3mATDMfPLCNx+
+         LV6s8qenAKMftuzva2zQDXXe8vb5CEO97w3P0KMSJGJJ8hAhThKLmzMsPUl+3Ux2aPhB
+         sRUIVOLc5yp3aTEsf/p3JDYMkWkytpN4+mCAdgJEb204EA0l/HnQaKv+Ob4S3BE9QTke
+         xrcOfafBVT4tGGLJBfcfvjdqZ8zN1lE7zFjtUUn1klrHlnWkbTT9DsZvuuTUc3DfupX3
+         KDTA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783585448; x=1784190248; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1783585608; x=1784190408; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
-        b=RTS6ZzcNr/uvhWP8Nsu8NhC4kmfEC3XkAOYFZRyrRpE3zTIVM2lzmDXhxe097nQ7rU
-         xUVS8LTOgHcx84Txp32gP5POIGmWgnr2leNudlVIn1Kb7sE/4pIUjRyLnnwm6/eRatMU
-         ScQlo/2B52MPZhmcBtoW2IHPuMYYilOuSmi2c=
+        bh=ma6hRKfHVcSKvMZ+W9JmQfxRE3jzj/ex/cWYq7xYV30=;
+        b=QbhGtt4FZzXgmXIoN4REyHSnskNaZFFblPeb8adsVft/BUIX+6c+qKkFMcztPfLlvH
+         3sjkbXoj4v1hFXAktrf7uYXrHaiWtUTAJ5iFEgQPeWbVjsN0HRuwF9gzZ7PaOHmGFmc/
+         1VcJgqunSdeecLOtMA6PkptLFLXy2DYQMjsVE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783585448; x=1784190248;
+        d=1e100.net; s=20251104; t=1783585608; x=1784190408;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
-        b=A1dZSvlh+d+nrcZOwRM3Fvso1CzWXBz69NqN26Iq4UCNeHqdxSf8yxgOsCukI9Z+jw
-         B2JOnv1hkjhutQwPJrSYeKdnoULYYkNP78vr7ZjVphSIOv2wmw9j7SfX4lXfiSKKpnKk
-         fbeqB+s+Qd6QbC2Ds5RZwXK3pXxvoUpTzkLry0caggOF+WihDGr8nsprC1f/mCIMPQ2J
-         xlOwHwfQf5ApLzPgT1H52EIgiz25RSN9D4HjIneSkPe+xkEnzO/HaYncgL4X/SmU5VZx
-         OuGF7jHpZMsU3u/IQuBXx9jm7R44aJI0YyfUo5g5idtLned5QlPTvrEKouyGqxXwph04
-         RhHg==
-X-Forwarded-Encrypted: i=1; AHgh+RqJxXXOedNFwGQfShvCmzvgv/6AjvW3z+/pQYa1US5h95iVi48uiOrqj5GM8iOZaTZzcobcqQChlZvxdHfqV6CN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwKOg48rs28kuPVGqUmgZG9UX68JvvOCS+seEZ0N9Y4+/Kc+kf
-	2r0u2tuFJTvwWeTGf4mDwpmL5RUDz/4pboePpUVPDbjvhQWT1KK8xx2jWQ9lezPSmu4jrGtCD6j
-	KrtXNqv4SxJkMQbidgU8Oj5PKZstvbqPTHEiPfcNW
-X-Gm-Gg: AfdE7cl7RgEI1AXGKIzUqCGDibsVvHFBMi+gHzIC4oI4Ba5RCH+Ekqj3lUKrnqhD2fz
-	V2Ur6+z4gbH0OfJp4DdHHqZUIjoZVi5Oo8kbImCZ7WRTvlEBQ+9OtWF+rhuQXpoeoPLHzbKM3+k
-	PhE2sMDJgjtUCaAi2lVZlIR0DyICBGN2xXDuDcHeHrzJ9JMcAXfFzZKGYus321Of0ftgJTvziIM
-	E93FflBjtft4T6hXOJbcgbyKIiBTsEf2/r4lBe5dW33RCS1aMp9/e1yT/6TEUT8ShH/zGcgVuS4
-	1XdPLbuXmeS9rU5eRTbQn3Gq+V8=
-X-Received: by 2002:a05:690e:1488:b0:667:b0e0:8291 with SMTP id
- 956f58d0204a3-667b0e08d1cmr3225605d50.76.1783585448536; Thu, 09 Jul 2026
- 01:24:08 -0700 (PDT)
+        bh=ma6hRKfHVcSKvMZ+W9JmQfxRE3jzj/ex/cWYq7xYV30=;
+        b=iUFbxxaKnjfmu4yLtXlAPdfVTGczlVuWn+UMQRxNh0eTlBpSEWsNRCTGE3RmBbVlym
+         drDPC36B/iAlk/WAAvQy8s8du2+lGoOtkLeHTBTvcnn0yR16UYbM5RjkqcOyhGcI3nvq
+         o+XGufuAyiNY0b5SHE53+i6RXr+yIQZUHpSt5K6mv1habmhpmRbR621LJ699Ho8IRBQ3
+         Xz2UpgU7C35oi+KOKcuiYquSI9a05P4Fg8w9lzfLck+RtBVPpBSL3rD1o4KWND6+VylC
+         JNtaADcjqFB38yIW/WRg/7szZTafUPqTPy2/8gYDUiBYZre1I25bnA6nVrgDd7OxFRPE
+         sVrw==
+X-Forwarded-Encrypted: i=1; AHgh+RrMg5N0clvd3LWVI7T+jfK6RFXl0mwpeD5U1q1flF3u6O07oipJZuRsKs/v4AGovXXQWCgATUAZOqHyHSAFcJ4V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzxlrij1/SMnh10b2ZatDZpkPWruRSYAPistnR5khNonZr4fYQX
+	wfk9eJIt+hwIrO/yIqWk2jxYrVW/zA/MMyhilJ/yrFe7XA9/MggASYMPQjiv+zCcP3DAs5OwEMF
+	CHSuvdnu/n/HQ1h0s3trJ9RJpzO6FfzScq6uaJSM2
+X-Gm-Gg: AfdE7cmjt6+mSYUujTrtI4GH8mS2t2xvGujg1ws8qLotDpxBtTXknqRHBSMZyYvUDeV
+	Tie/2ofton8eGyJMAhED4XM5GeyLKM7oBkhwhDU7SZA9u4r9IVeeon/ZfXYJg2/BRvr0ejnmgKz
+	gKFw9gldxDPhkrRbht4SJf4zzd9qSvnsilw9XMTJ3PZRB/eJliizsriOxAviiy0f78mOqIsxtP9
+	lO7UbhZv+bBchbHiodhb1qvRnC+TpOAovgdbQVSPspoC7uFlMrCW+5NTlneeADKA7mIZuSZi++J
+	1Jig5K6oINxZidVj6J1VnJBVzKg=
+X-Received: by 2002:a05:690e:4382:b0:667:8b91:240f with SMTP id
+ 956f58d0204a3-6679f1f6a3cmr3478844d50.86.1783585607965; Thu, 09 Jul 2026
+ 01:26:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260709063450.1615041-1-justin.yeh@mediatek.com> <20260709063450.1615041-3-justin.yeh@mediatek.com>
-In-Reply-To: <20260709063450.1615041-3-justin.yeh@mediatek.com>
+References: <20260709063450.1615041-1-justin.yeh@mediatek.com> <20260709063450.1615041-2-justin.yeh@mediatek.com>
+In-Reply-To: <20260709063450.1615041-2-justin.yeh@mediatek.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 9 Jul 2026 16:23:57 +0800
-X-Gm-Features: AVVi8CeFISWopYSxs7SQ18PIDav4QpRQGIlGdzLDlOUjsSH_QaMt2NFEbeix8RQ
-Message-ID: <CAGXv+5GOgtOGrnpZkJTeLPwW1t3hop6tXirGmV6thqP1q9REUA@mail.gmail.com>
-Subject: Re: [PATCH v5 2/4] pinctrl: mediatek: allow common drivers to be
- built as modules
+Date: Thu, 9 Jul 2026 16:26:36 +0800
+X-Gm-Features: AUfX_mz-SC1jbPIc5jRR2EosAZtRTmwf_K_gSweOzyKAAmx00VXSsHTmWBxIzq0
+Message-ID: <CAGXv+5HQLzZeoHue=uziuijpu6OiLHXnW8NiwY8j7aggGKt2Yw@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] pinctrl: mediatek: use devm_gpiochip_add_data()
+ for GPIO chip
 To: Justin Yeh <justin.yeh@mediatek.com>
 Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
 	Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -103,8 +103,8 @@ Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_012409_671556_EA9A7B56 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20260709_012649_292273_CF7350E1 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,170 +122,124 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Jul 9, 2026 at 2:35=E2=80=AFPM Justin Yeh <justin.yeh@mediatek.com>=
  wrote:
 >
-> The MediaTek SoC pinctrl drivers link against the shared implementations
-> in pinctrl-mtk-common.c (v1), pinctrl-moore.c and pinctrl-mtmips.c. These
-> were built-in only: their Kconfig symbols were bool, they did not export
-> their entry points and they carried no MODULE_LICENSE().
+> The gpio_chip is allocated with device-managed memory but registered with
+> the non-managed gpiochip_add_data(). This was harmless while the drivers
+> were built-in, but once they can be built as modules and unbound/rmmod'd,
+> devm frees the gpio_chip's memory while it is still registered, causing a
+> use-after-free.
 >
-> To let the individual SoC drivers be built as loadable modules (required
-> for Android GKI + vendor_dlkm, where vendor drivers must live outside the
-> GKI vmlinux), the shared code they depend on has to be modular too.
-> Otherwise selecting a SoC driver as =3Dm forces the common symbol to =3Dy=
- and
-> the resulting module fails to link against the unexported common entry
-> points.
+> Register it with devm_gpiochip_add_data() so it shares the same
+> device-managed lifecycle, which also lets the manual gpiochip_remove()
+> error paths go away.
 >
-> Convert PINCTRL_MTK, PINCTRL_MTK_MOORE and PINCTRL_MTK_MTMIPS to
-> tristate, export the entry points used by the SoC drivers, and add
-> MODULE_DESCRIPTION()/MODULE_LICENSE() to the three common files.
->
-> The v2 common code (PINCTRL_MTK_V2) is already modular, but mtk_rmw() was
-> never exported. It is called directly by SoC drivers such as mt7623, so
-> export it as well to keep those drivers linking once they are modular.
->
+> Fixes: a6df410d420a ("pinctrl: mediatek: Add Pinctrl/GPIO driver for mt81=
+35.")
+> Fixes: 805250982bb5 ("pinctrl: mediatek: add pinctrl-paris that implement=
+s the vendor dt-bindings")
+> Fixes: e78d57b2f87c ("pinctrl: mediatek: add pinctrl-moore that implement=
+s the generic pinctrl dt-bindings")
 > Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
+But see below.
+
 > ---
->  drivers/pinctrl/mediatek/Kconfig                 | 6 +++---
->  drivers/pinctrl/mediatek/pinctrl-moore.c         | 5 +++++
->  drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c | 1 +
->  drivers/pinctrl/mediatek/pinctrl-mtk-common.c    | 8 ++++++++
->  drivers/pinctrl/mediatek/pinctrl-mtmips.c        | 4 ++++
->  5 files changed, 21 insertions(+), 3 deletions(-)
+>  drivers/pinctrl/mediatek/pinctrl-moore.c      |  6 ++----
+>  drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 14 ++++----------
+>  drivers/pinctrl/mediatek/pinctrl-paris.c      |  2 +-
+>  3 files changed, 7 insertions(+), 15 deletions(-)
 >
-> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/=
-Kconfig
-> index 97980cc28b9c..864e7ffc6044 100644
-> --- a/drivers/pinctrl/mediatek/Kconfig
-> +++ b/drivers/pinctrl/mediatek/Kconfig
-> @@ -11,7 +11,7 @@ config EINT_MTK
->         default PINCTRL_MTK_PARIS
->
->  config PINCTRL_MTK
-> -       bool
-> +       tristate
->         depends on OF
->         select PINMUX
->         select GENERIC_PINCONF
-> @@ -22,13 +22,13 @@ config PINCTRL_MTK_V2
->         tristate
->
->  config PINCTRL_MTK_MTMIPS
-> -       bool
-> +       tristate
->         depends on RALINK
->         select PINMUX
->         select GENERIC_PINCONF
->
->  config PINCTRL_MTK_MOORE
-> -       bool
-> +       tristate
->         depends on OF
->         select GENERIC_PINCONF
->         select GENERIC_PINCTRL_GROUPS
 > diff --git a/drivers/pinctrl/mediatek/pinctrl-moore.c b/drivers/pinctrl/m=
 ediatek/pinctrl-moore.c
-> index 38f15dbe9a28..3247622911cd 100644
+> index 17e30f83dc19..38f15dbe9a28 100644
 > --- a/drivers/pinctrl/mediatek/pinctrl-moore.c
 > +++ b/drivers/pinctrl/mediatek/pinctrl-moore.c
-> @@ -10,6 +10,7 @@
+> @@ -594,7 +594,7 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
+>         chip->base              =3D -1;
+>         chip->ngpio             =3D hw->soc->npins;
 >
->  #include <dt-bindings/pinctrl/mt65xx.h>
->  #include <linux/gpio/driver.h>
-> +#include <linux/module.h>
+> -       ret =3D gpiochip_add_data(chip, hw);
+> +       ret =3D devm_gpiochip_add_data(hw->dev, chip, hw);
+>         if (ret < 0)
+>                 return ret;
 >
->  #include <linux/pinctrl/consumer.h>
->
-> @@ -743,3 +744,7 @@ int mtk_moore_pinctrl_probe(struct platform_device *p=
-dev,
+> @@ -608,10 +608,8 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw=
+)
+>         if (!of_property_present(hw->dev->of_node, "gpio-ranges")) {
+>                 ret =3D gpiochip_add_pin_range(chip, dev_name(hw->dev), 0=
+, 0,
+>                                              chip->ngpio);
+> -               if (ret < 0) {
+> -                       gpiochip_remove(chip);
+> +               if (ret < 0)
+>                         return ret;
+> -               }
+>         }
 >
 >         return 0;
->  }
-> +EXPORT_SYMBOL_GPL(mtk_moore_pinctrl_probe);
-
-Maybe use a separate namespace, like "MTK_PINCTRL"? (Use EXPORT_SYMBOL_NS()=
-)
-
-Otherwise seems correct.
-
-> +
-> +MODULE_DESCRIPTION("MediaTek Pinctrl Common Driver V2 Moore");
-> +MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c b/drivers/p=
-inctrl/mediatek/pinctrl-mtk-common-v2.c
-> index 4918d38abfc2..3813dfb0fa7d 100644
-> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
-> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
-> @@ -69,6 +69,7 @@ void mtk_rmw(struct mtk_pinctrl *pctl, u8 i, u32 reg, u=
-32 mask, u32 set)
->
->         spin_unlock_irqrestore(&pctl->lock, flags);
->  }
-> +EXPORT_SYMBOL_GPL(mtk_rmw);
->
->  static int mtk_hw_pin_field_lookup(struct mtk_pinctrl *hw,
->                                    const struct mtk_pin_desc *desc,
 > diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinc=
 trl/mediatek/pinctrl-mtk-common.c
-> index 791eddd7a2c6..a58015b508af 100644
+> index dd2c8aa03938..791eddd7a2c6 100644
 > --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
 > +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> @@ -7,6 +7,7 @@
+> @@ -1130,30 +1130,24 @@ int mtk_pctrl_init(struct platform_device *pdev,
+>         pctl->chip->parent =3D &pdev->dev;
+>         pctl->chip->base =3D -1;
 >
->  #include <linux/io.h>
->  #include <linux/gpio/driver.h>
-> +#include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_irq.h>
->  #include <linux/pinctrl/consumer.h>
-> @@ -190,6 +191,7 @@ int mtk_pconf_spec_set_ies_smt_range(struct regmap *r=
-egmap,
->         regmap_write(regmap, reg_addr, bit);
+> -       ret =3D gpiochip_add_data(pctl->chip, pctl);
+> +       ret =3D devm_gpiochip_add_data(&pdev->dev, pctl->chip, pctl);
+>         if (ret)
+>                 return -EINVAL;
+>
+>         /* Register the GPIO to pin mappings. */
+>         ret =3D gpiochip_add_pin_range(pctl->chip, dev_name(&pdev->dev),
+>                         0, 0, pctl->devdata->npins);
+> -       if (ret) {
+> -               ret =3D -EINVAL;
+> -               goto chip_error;
+> -       }
+> +       if (ret)
+> +               return -EINVAL;
+>
+>         /* Only initialize EINT if we have EINT pins */
+>         if (data->eint_hw.ap_num > 0) {
+>                 ret =3D mtk_eint_init(pctl, pdev);
+
+I think you would also need some matching cleanup function for mtk_eint_ini=
+t()
+or you end up with a dangling IRQ domain and mappings that are active but
+have invalid chain handlers.
+
+This would probably be a separate patch.
+
+>                 if (ret)
+> -                       goto chip_error;
+> +                       return ret;
+>         }
+>
 >         return 0;
+> -
+> -chip_error:
+> -       gpiochip_remove(pctl->chip);
+> -       return ret;
 >  }
-> +EXPORT_SYMBOL_GPL(mtk_pconf_spec_set_ies_smt_range);
->
->  static const struct mtk_pin_drv_grp *mtk_find_pin_drv_grp_by_pin(
->                 struct mtk_pinctrl *pctl,  unsigned long pin) {
-> @@ -297,6 +299,7 @@ int mtk_pctrl_spec_pull_set_samereg(struct regmap *re=
-gmap,
->
->         return 0;
->  }
-> +EXPORT_SYMBOL_GPL(mtk_pctrl_spec_pull_set_samereg);
->
->  static int mtk_pconf_set_pull_select(struct mtk_pinctrl *pctl,
->                 unsigned int pin, bool enable, bool isup, unsigned int ar=
-g)
-> @@ -1149,6 +1152,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
->
->         return 0;
->  }
-> +EXPORT_SYMBOL_GPL(mtk_pctrl_init);
 >
 >  int mtk_pctrl_common_probe(struct platform_device *pdev)
->  {
-> @@ -1160,3 +1164,7 @@ int mtk_pctrl_common_probe(struct platform_device *=
-pdev)
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/m=
+ediatek/pinctrl-paris.c
+> index 23f04b24fd65..09098b68f725 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-paris.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
+> @@ -957,7 +957,7 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
+>         chip->base              =3D -1;
+>         chip->ngpio             =3D hw->soc->npins;
 >
->         return mtk_pctrl_init(pdev, data, NULL);
->  }
-> +EXPORT_SYMBOL_GPL(mtk_pctrl_common_probe);
-> +
-> +MODULE_DESCRIPTION("MediaTek Pinctrl Common Driver");
-> +MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtmips.c b/drivers/pinctrl/=
-mediatek/pinctrl-mtmips.c
-> index efd77b6c56a1..c9d9de68e282 100644
-> --- a/drivers/pinctrl/mediatek/pinctrl-mtmips.c
-> +++ b/drivers/pinctrl/mediatek/pinctrl-mtmips.c
-> @@ -349,3 +349,7 @@ int mtmips_pinctrl_init(struct platform_device *pdev,
+> -       ret =3D gpiochip_add_data(chip, hw);
+> +       ret =3D devm_gpiochip_add_data(hw->dev, chip, hw);
+>         if (ret < 0)
+>                 return ret;
 >
->         return PTR_ERR_OR_ZERO(dev);
->  }
-> +EXPORT_SYMBOL_GPL(mtmips_pinctrl_init);
-> +
-> +MODULE_DESCRIPTION("MediaTek MIPS Pinctrl Common Driver");
-> +MODULE_LICENSE("GPL v2");
 > --
 > 2.45.2
 >
