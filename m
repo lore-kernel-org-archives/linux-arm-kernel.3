@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7A3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hF1OuSvsIS+NC39otbFE0b920oBAHgX+1bUMiTukbmE=; b=ySlBkSEZC2WjrC3GGaG1tG4OaD
-	bpGs7umvShoWbA6rWdI52tPn4j+bqkqyx50mzp/LEEt4jEsvUweqNi04PBqfqTtWx7P4QRtNxGdOH
-	9VTvsEfKMf8njRP4xzavhx4HmO8cAKdv3Y4hPHRp2crTLgJUL3PUHIPRY+8KKUnjfcWsFuhJZcM6Q
-	kxyYamuiMaTx1XzTz5Q8bRLta+QsKl+1X1KZVDLk/cOilDULQOOBAA2pO6B4v+x/AmI42ePI9Jkjt
-	FbHZfmzUocm5uJHiC0LRb4r0iIXw6nt/pg+jurJGFowXtcjdSkLLsZQso9K+fwz89u7f8h8mXnRiw
-	V9XLezcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/g9IC9odOOKLSJ5X43cGRnLu4qzcG9RWG3RGR7ofEM=; b=LzXWzqymKBjtbqaXsA5syzUFJ1
+	/6fkRcYTQAjAENCMP+5S0icW8FscTeGwB/sRoWq6R8eR9zpANNtSlYt5l4f9nF4QJIDYNG4qAF+9N
+	aqPuObKEiL3fOkUzxKy6nwUtxWRD0p0Lq2nuytKuQ3tKzEssX8jjjQB1bQLg8KbuWrRnfqHcEReJa
+	BKkzLQSsCFFtrPhBum6Jss446n/ZYp+LnESmR0fnMkjbgGW1wADlKT1UciYveeSJdBU4UuhR8o9TA
+	74DMddcNKoOm2IgjQzEaw8uvIx4e3D7NRpiJ6IiEbJ0oMa84RpJkyh6FfqX1i50i2olI/uTJoBaMN
+	oibTyxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whl17-00000001lBa-1JdV;
-	Thu, 09 Jul 2026 09:26:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whl15-00000001lB7-0hFF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:26:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E42F9357B;
-	Thu,  9 Jul 2026 02:25:53 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57F2A3F66F;
-	Thu,  9 Jul 2026 02:25:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783589158; bh=r1QShwB/9V/I0bdqwOV4mWuyphrL3DCBdCUyGIHA03s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=soghxfurEEX84ljf4uRd93H+Thd3S0QZKTyNgrf/Ga7kG0mU7NGwTqf5c5fm7BGmg
-	 ssRgcMOUX3GkElbF48HVNBWA7lbZD2IhMGp/DpGGXtU+Uq57HwQr8MPEgUzoiNJLu7
-	 fDDtZKikUufCT/CUuIZD8Kr9mEAwoj3rR4YNMHKM=
-Message-ID: <0aa3bbbc-c0f0-404c-b03b-9113a1e91ce5@arm.com>
-Date: Thu, 9 Jul 2026 10:25:54 +0100
+	id 1whlnq-00000001v3L-2quk;
+	Thu, 09 Jul 2026 10:16:22 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whlnn-00000001v2H-2Z4t;
+	Thu, 09 Jul 2026 10:16:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783592179; x=1815128179;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vUyuVhXb5XWOW1lu5ae8NpgTwEcJHaHweC6f6X1cbX8=;
+  b=C4i9qXl1Ld6pqkydgykC0omuvagIBNuni3XtdxISCTTS7BwvmQw9md6N
+   GcJDWbq5YfC6IjDvr1QfUAGI1xGDoy9w6RgbRCeX8ycx0AD7e4qZzjbY5
+   im6gW9bYlZ1hEBP6P4dhW0Kxo2PSpfTNb+TcQenVtx1isTFt5HAAKKQPN
+   RYCC4jx1eUYquOw6bdw/3csIKEsiT+lAuxGfvOHbKo7ScDps2od9JClBq
+   sjaQw0dN3AYMkcJXxvp8hmmWRIBiflsiXRNyPgs93Yc+AL2x+TtQjT+8v
+   O4vmtghCivb8rOHfUkQRPS9/0yBVRwjGIGxfKu6YbwHBo5PmxoAnOmIFU
+   g==;
+X-CSE-ConnectionGUID: gL6nZzpKQpKmHc80q1A4GA==
+X-CSE-MsgGUID: 4bZ5H3TvSu6FLEsVTC5DKA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="94916086"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="94916086"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:16:19 -0700
+X-CSE-ConnectionGUID: nZeE0HBNTiyYL9uGZR4QmA==
+X-CSE-MsgGUID: 88JSxELiQ7WNKT7Oj54cVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="254058060"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:16:11 -0700
+Date: Thu, 9 Jul 2026 13:16:08 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Praveen Talari <praveen.talari@oss.qualcomm.com>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Peter Korsgaard <jacmet@sunsite.dk>,
+	Michal Simek <michal.simek@amd.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	bjorn.andersson@oss.qualcomm.com,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-omap@vger.kernel.org, linux-mips@vger.kernel.org,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	aniket.randive@oss.qualcomm.com,
+	chandana.chiluveru@oss.qualcomm.com
+Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
+ callback
+Message-ID: <ak906CqHYDooQTVu@ashevche-desk.local>
+References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
+ <9320a573-ebf8-459b-a313-3a8b73a6180b@kernel.org>
+ <5eecf3a0-b608-4057-b400-236f6952b380@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v4 2/3] arm_mpam: resctrl: Add pass-through
- resctrl_arch_preconvert_bw()
-To: Reinette Chatre <reinette.chatre@intel.com>
-Cc: james.morse@arm.com, fenghuay@nvidia.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, corbet@lwn.net,
- x86@kernel.org, linux-doc@vger.kernel.org, dave.martin@arm.com
-References: <20260706160639.2136674-1-ben.horgan@arm.com>
- <20260706160639.2136674-3-ben.horgan@arm.com>
- <4c520a28-9a72-4abd-8e5b-654a312c92fd@intel.com>
- <e9185282-94b9-4de4-89db-f9451e47b506@arm.com>
- <8d5d9c98-54df-44fe-8795-189554ea2399@intel.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <8d5d9c98-54df-44fe-8795-189554ea2399@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5eecf3a0-b608-4057-b400-236f6952b380@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_022559_259429_F3539EE9 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260709_031619_685622_3938C227 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Reinette,
+On Thu, Jul 09, 2026 at 02:22:17PM +0530, Praveen Talari wrote:
+> On 09-07-2026 12:23, Jiri Slaby wrote:
+> > On 09. 07. 26, 8:25, Praveen Talari wrote:
 
-On 7/7/26 15:51, Reinette Chatre wrote:
-> Hi Ben,
-> 
-> On 7/7/26 1:35 AM, Ben Horgan wrote:
->> Hi Reinette,
->>
->> On 7/6/26 22:33, Reinette Chatre wrote:
->>> Hi Ben,
->>>
->>> On 7/6/26 9:06 AM, Ben Horgan wrote:
->>>> resctrl rounds up the percentage value of the MBA based on the bw_gran. As
->>>> MPAM uses a binary fixed point fraction format for MBA rather than a
->>>> decimal percentage, this introduces rounding errors.
->>>>
->>>> Without this additional rounding, if the user reads the value in an MB
->>>> schema and then writes it back to the schema, the value in hardware won't
->>>> change. However, with this additional rounding, this guarantee is broken
->>>> for systems with mbw_wd < 7.
->>>>
->>>> resctrl is introducing resctrl_arch_preconvert_bw() to allow the arch code
->>>> to specify the conversion resctrl does to the user-provided bandwidth
->>>> value. Add the MPAM version of resctrl_arch_preconvert_bw(). This does no
->>>> conversion.
->>>>
->>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>>> Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
->>>>
->>>
->>> Unfortunately the "---" separator is missing here.
->>
->> Another silly mistake.. sorry about that. I've corrected locally and
->> will send a respin in a day or two.
-> No problem. 
-> 
-> When you respin, could you please add a snippet to the cover about expectations
-> how this series should be merged? This will be the first piece of work that
-> touches the x86 and Arm driver as well as resctrl fs code. So far I assumed it
-> will go in via tip but I think it will help to state this from Arm side.
+...
 
-Yes, I was assuming that too. I'll make it explicit in the cover letter.
+> > OK, now I miss the rationale behind the patchset. Neither there is a
+> > possible code path to actually test this?
+> The rationale is that qcom_geni_serial_pm() calls
+> pm_runtime_resume_and_get() which can fail, but its return value is
+> currently discarded because the callback is void. 
 
-> We still need a plan for if/when the Arm side touches the same code though. Thankfully
-> this work is small.
+So, you take the solution from a wrong end. Just get rid of .pm() in your driver.
+With that, problem solved. Really, this series is a road to even more broken
+PM solutions.
 
-I'm open to whatever works best for you and the others involved.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Thanks,
-
-Ben
-
-> 
-> Reinette
 
 
