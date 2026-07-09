@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2442BC44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFAA8C44507
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=; b=1W7EXfbszQb9tSgbey4fPTAn9R
-	RqzH54qFvOaRnJnB5n2k9wr++2//W4NVDMeK5KHf6isdE2ChRNKrQpqX5Z4rKqlvwBHTPtiDK7is4
-	Jd7KJMwtdj5ZVw/iWL/jlRmr6Jygj2/kpLk49IHCm6TQUw5CNcC7ndWvm+Qlz7yNFrvZ+LA+fFAI0
-	QJrGVkvKNh2hI83nqeVcUsoXoSs0ZTu4IfmLj48e3fyOJqgsglGXxOpBTjpf1CYRiM8WQljF/Bv3S
-	PLj+Jahzmk+p3pgoPjgnR+JITuBr+pM9s0aKf15r2vQuI58ZjNNKju2b6LAfnEnqNvMox6euxt5zb
-	BZKnc/dw==;
+	bh=+5IlXOtfTicka82JGiLg5LihKqhXjATY/PJMfD4c3eM=; b=ynnd8CPmuJb87a1p6D6KUdguqg
+	X7w6qO8UdIzaDEau4D+2M6Emz1rtS2wvROkx8AWJbzSICdS06wyvNdVxTDrKd98oqhJJqnYf1BlcY
+	Jw+9XpBqyhTDZXtoOFE+rRTAjia/wzNrczNlEW5Qqjj46Et5cEyj2n4mDPwquhhZIWiqA5USgJ6fj
+	d+EmmPp5yPLH/UT16tipxSLTmdYL9swGAKDg256FbVzh+mePCp2FYuU7PNx37mVVdMc4Vqx17M/+Q
+	km/3dWFD25HVJtwImyBbHugKJlAnWVmNGyMORrDFf5k1FIBksNQ6AqUomQXoORoK/tUhAwVPQsU6d
+	XT7Nzrgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmRv-000000023R2-1ou3;
+	id 1whmRv-000000023Qu-1QSG;
 	Thu, 09 Jul 2026 10:57:47 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmRr-000000023Nf-1m4g
+	id 1whmRq-000000023N7-0gby
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 10:57:44 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-470174001a0so981315f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 03:57:42 -0700 (PDT)
+	Thu, 09 Jul 2026 10:57:43 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493bb510ce4so6158945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 03:57:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1783594661; x=1784199461; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1783594660; x=1784199460; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=;
-        b=SbFB92cLBXPsVY6niqNqsxfXJYE4Nt01e4SfKIgk/8NNwklzeFmjzbyDlG6tRO+lJX
-         U5g3dTzcGAbnkKWbBXCEhhcObpYO/7rR7JPnapnhX2EJytffeA94Lo/Jl52KUxgkahoj
-         HvikxmUeqHPfRMQLI1qf1/fM+O9TRIpHhRZ4RakxYvse5kqpn5h1rf8FnTMn+1ecp7Hr
-         IWW7rLpYJIvOHkieWkkTsHsMsUT/mx6+6tcc08lfqRcNUq3fmj2D/+Xml2M1fWw8ZuGI
-         gkHrue+xBVnwVuiFGOy1Bd7FYDjf+oiKb6VbhahJfedubDH7OdECyUwxkgGViVGaj2o0
-         /eTA==
+        bh=+5IlXOtfTicka82JGiLg5LihKqhXjATY/PJMfD4c3eM=;
+        b=QhpM8kdPIha5EKlhDN3DQlM6MIx4sF6N9E6uhJ+ekLS32m/+hTCdh7E8tafS4MSIBV
+         NsVHlA89aFgDlGs+JIL094gwmy3XE6RImmHwJpPXqUY6fXDwW4Ji2OOV+K6j464LOxWh
+         tUAQPvUkV0XiPYvvXj1hFd1N5rTd9guh2EhZZAZcUrwzGcZR557szmAT0PsnZkSMWw3v
+         4ZcxWZNDAeOWI9D9a2rhltKWdjR5Xcr2yFTUAJW7Ax+YkTgSRoAl86NkirDHr7Y1KVDy
+         tMn6oziSAL67/P8F1e9NDSXITb9ZeRAY1YUHwBQDHn8KzjIxfQKVTQSiWCRHY5q2hqi6
+         Rj5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783594661; x=1784199461;
+        d=1e100.net; s=20251104; t=1783594660; x=1784199460;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=19hQZt1oscfsX0v/FVihRWpox5A079jThjyKRh+QFR4=;
-        b=TeCbCSUgRVksrA+/LiDytqmsD4d+cTqnza6OMiDdmyxVmpAfIIstB8x3Vyd9I1X7YW
-         Spa+4FkWmH967p3ZPOXTzeTjyQC/AxOBHzihOl82T6V32KcuF0MSADSgJHY5lcYot2sW
-         RbuR+YVXDXCJETJgLIHWrjfkYOELU94a8CtQR0lHMZ9hD1SBg6MqDGJE3MXK6vSRSbAn
-         97LYKII+n5l6oP/sBVzVW4ak08c7JvhaW31fWAwbm/9xSBFB2rIyIB0sHT1Zvsm+ZVem
-         UjvUG10m5drfCtlxrFsghEsCLt3WiwykD8S0NEk6DeuCzzl0Kgr4c+f1aNQjyQQ4dBOL
-         CJdA==
-X-Forwarded-Encrypted: i=1; AHgh+RroSOfwYEOJHIQK3yPoZlelL/vB5bWsc56S9LojdPtl5jM4OaBTLGNN1ed5sOl5dT1gI51Wg/3u/99r6NdS3/nD@lists.infradead.org
-X-Gm-Message-State: AOJu0YysGc9E+aODCUSjOB5kl/Izx36KHy/9eyrS+WkQQnYvxFF7tZIu
-	YW5xh3c7UZYpxkbItHreUuUuusv7LtcLwiFAqpQxflPgCmHjgb+dZNpYJx6uvVG5O8s=
-X-Gm-Gg: AfdE7cmQ91QCBvMTPQDDAeQ1Tpp8ZP5wHwstIxu3byukw3wCuMsW1j2dpoNmijP0M7Q
-	RyQK3Mas8/Lm04x3JH1Fbx6oO/IzpvBqXkJ3CTtc3RDN3bxhqz1r2MfZE3VZqM9IiOQ/XEXyAPu
-	RSfYLEqjoBnxBbyZoYMncmUAVWkRSJ7qhDSexQfPwm35jYWlzy3XsrOonDxCDYeZbFfy1kOuvWs
-	/szRQJ8srVyA5CT4T74lbtc/5zqyeMm/jeWjxxO7vaF4/w/d3GtNlWg4srIEu/KrinrPoqwZ+NA
-	VkTqD3ISLHK37jQGIy7inxfS/Q975berzghvVAwBgq/TLmH1cR5uyqvgfKe+4u1RhRhqqVEms3c
-	yV/G8UMSD8iTRgYGgLdgqWHI4f+t48Dx0FDR0xkRWEPRi3JVUU/rblCUx9RnO3MvhfRjN+3NNbT
-	Fx2FxWTY22i4YO38rlz1YDNTiSMDb/vGOl
-X-Received: by 2002:a5d:59a5:0:b0:475:f0f0:9eca with SMTP id ffacd0b85a97d-47df08147e4mr6730385f8f.53.1783594661501;
-        Thu, 09 Jul 2026 03:57:41 -0700 (PDT)
+        bh=+5IlXOtfTicka82JGiLg5LihKqhXjATY/PJMfD4c3eM=;
+        b=Xu+t1JmZAlGZTIErYsnEM76+nf0Ef4Lz3mJhiVghtpE/ZL0vaZBpebmNwaD9XPKB+Z
+         nfPfyWJUSt7Z0+v5kJZrb3bwl9NLlntI9v3mjUUKh/YZqvokWylFiZo6gvdQhRFmA1bI
+         NSRypviEqKSWT2Y3xxpv1q5URt6Pr6DlkiAbE1HRI/mZOg/v34GwWWYATOJluxueNtpS
+         VLCoIJ/d60BtkHjC4Vi8nQ8DoWC0cJKSCgKAxtCtRdwM5WVblWUbJ3btetXgG0CaJcnv
+         70mF4Dk0cM++0GY+yycLQr2O9O1hRpCFcXzmLHmriPLCybccsGMul+84NA0Kmerb52PY
+         Fvlw==
+X-Forwarded-Encrypted: i=1; AHgh+RqjnczyTWh6P307Uc21qsEOtupFBi40CWgectaVYNw9BAXKfST6f5wAD52B4T02BOnTKnCnTSELiwfFR30nvADg@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpvi6GaFNuM7lC1XFybKAWt1raH9jdtUA1XIPD5EvDlZ/o0QbR
+	R7AYuKh6c/y9/A9q8fsU8jUUP+43rEILuh02OBqxSxk8oyUzvXE+dmd59a38GsoGOEQ=
+X-Gm-Gg: AfdE7clDTdDnn0b4jHZfwc8WJNtwg2g8BVNoXlcZGmIbMg38UOzsa+72DwpK60no4QF
+	qNcFU8uss0DfuyxRyZEuemuQWwr1tipByrF2L1Zle51uoF5YEgCXHz6i8MufnV2ph/RMjtDJ/m9
+	zXV7N7Kn7/P70Hj42rF1GdoB2EveSX5v8G7Aykcq30fj0X7L3PhXcWcxD+XQmPD9EbwV/ih/LmD
+	TQ2t7tiGF79QJqDWfm05Lq2KAqsJR2c9JMj7qSB84Xg2tb5h/aBNF42q6KDiIdp276Y/fOfQGwh
+	8lX6Eyk4t7nU5slyh6zM+EpZbC1FiLtRkxMSzqHVeF9y6FojJk3KGoZMzgoBROI5G4DbdQkmJhC
+	RdLVCyZ8gvhJFsaoSVq6/Dtw4p/8b8bTP4MwaYZ0OOkKsc+rh0NleZ9oyWsjVNnGI6QHF0o+8WS
+	N2maVl4SdFkuc636DFmtkPsw==
+X-Received: by 2002:a05:600c:4754:b0:493:c8f7:3631 with SMTP id 5b1f17b1804b1-493e68df99fmr61780305e9.22.1783594660330;
+        Thu, 09 Jul 2026 03:57:40 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9b4d850dsm51927408f8f.0.2026.07.09.03.57.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9b4d850dsm51927408f8f.0.2026.07.09.03.57.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 03:57:41 -0700 (PDT)
+        Thu, 09 Jul 2026 03:57:39 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 09 Jul 2026 11:57:24 +0100
-Subject: [PATCH 2/4] coresight: tmc-etf: Prevent per-thread events from
+Date: Thu, 09 Jul 2026 11:57:23 +0100
+Subject: [PATCH 1/4] coresight: tmc-etr: Prevent per-thread events from
  sharing a sink
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-james-cs-multiple-per-threads-v1-2-d384e6d477ac@linaro.org>
+Message-Id: <20260709-james-cs-multiple-per-threads-v1-1-d384e6d477ac@linaro.org>
 References: <20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org>
 In-Reply-To: <20260709-james-cs-multiple-per-threads-v1-0-d384e6d477ac@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -90,8 +90,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_035743_512177_9AE4761F 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260709_035742_243919_899049A3 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,115 +106,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like the previous commit to ETR, ETF sinks shouldn't share per-thread
-events. Fix it by returning -EBUSY if a second per-thread event tries to
-use the same sink.
+Sinks are potentially shared between multiple ETMs, and even with
+Coresight being an exclusive PMU, multiple per-thread events in parallel
+are supported. If both of the events are owned by the same PID then the
+sink becomes shared resulting in trace from the wrong thread appearing
+in a per-thread buffer and WARNs in the driver being hit:
 
-Fixes: 880af782c6e8 ("coresight: tmc-etf: Add support for CPU-wide trace scenarios")
+  $ perf test -w named_threads 2 10 &
+  $ perf record -e cs_etm//u --per-thread --pid 984
+
+  WARNING: drivers/hwtracing/coresight/coresight-tmc-etr.c:1654 at tmc_update_etr_buffer+0x328/0x348 [coresight_tmc], CPU#1: perf/686
+  [...]
+  Call trace:
+   tmc_update_etr_buffer+0x328/0x348 [coresight_tmc] (P)
+   etm_event_stop+0x1c8/0x260 [coresight]
+   etm_event_del+0x20/0x38 [coresight]
+   event_sched_out+0xc4/0x1c8
+   group_sched_out+0x5c/0x170
+   __pmu_ctx_sched_out+0xe8/0x148
+   ctx_sched_out+0x12c/0x178
+   perf_event_exit_task_context+0xb0/0x3a8
+   perf_event_exit_task+0xa4/0x138
+   do_exit+0x1cc/0x808
+   do_group_exit+0x7c/0xb0
+   get_signal+0x628/0x678
+   arch_do_signal_or_restart+0x98/0x1b28
+   exit_to_user_mode_loop+0x90/0x188
+   el0_svc+0x1cc/0x260
+   el0t_64_sync_handler+0x78/0x130
+   el0t_64_sync+0x198/0x1a0
+
+Fix it by returning -EBUSY if a second per-thread event tries to use the
+same sink. Users will only be able to use per-thread mode reliably with
+multiple threads on a system that has a dedicated sink per ETM. This
+limitation hasn't changed since this fix, it just makes the behavior
+more consistent.
+
+Fixes: 8d03cfd16a72 ("coresight: tmc-etr: Add support for CPU-wide trace scenarios")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-tmc-core.c |  2 --
- drivers/hwtracing/coresight/coresight-tmc-etf.c  | 23 +++++++----------------
- drivers/hwtracing/coresight/coresight-tmc.h      |  1 -
- 3 files changed, 7 insertions(+), 19 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c    | 24 ++++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tmc-etr.c | 20 ++++++--------------
+ drivers/hwtracing/coresight/coresight-tmc.h     |  1 +
+ include/linux/coresight.h                       |  3 +++
+ 4 files changed, 34 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index c89fe996af23..77bdf8892617 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -801,8 +801,6 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
- 	drvdata->config_type = BMVAL(devid, 6, 7);
- 	drvdata->memwidth = tmc_get_memwidth(devid);
--	/* This device is not associated with a session */
--	drvdata->pid = -1;
- 	drvdata->etr_mode = ETR_MODE_AUTO;
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index f7b1308a759c..d38db0c8f6ce 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -2246,6 +2246,30 @@ int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
+ }
+ EXPORT_SYMBOL_GPL(coresight_get_enable_clocks);
  
- 	if (drvdata->config_type == TMC_CONFIG_TYPE_ETR) {
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index 8882b1c4cdc0..4ed83f07eec8 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -250,11 +250,9 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
++/*
++ * Returns true if a sink that's potentially connected to multiple ETMs can be
++ * used in parallel with another event.
++ */
++bool coresight_sink_can_share(struct perf_event *existing,
++			      struct perf_event *new)
++{
++	/*
++	 * In per-thread mode only one event can use a sink, otherwise a sink
++	 * shared by multiple ETMs could have trace from two different threads
++	 * in it from two different events.
++	 */
++	if (existing->cpu == -1)
++		return existing == new;
++
++	/*
++	 * In per-CPU mode allow the sink to be shared across events, userspace
++	 * expects data from multiple CPUs in a shared sink. The only
++	 * restriction is the events must have the same owner.
++	 */
++	return existing->owner == new->owner;
++}
++EXPORT_SYMBOL_GPL(coresight_sink_can_share);
++
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Pratik Patel <pratikp@codeaurora.org>");
+ MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index 361a433e6f0c..ea05fa3e7902 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1736,7 +1736,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
  				    struct coresight_path *path)
  {
- 	int ret = 0;
+ 	int rc = 0;
 -	pid_t pid;
  	unsigned long flags;
  	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
  	struct perf_output_handle *handle = path->handle;
--	struct cs_buffers *buf = etm_perf_sink_config(handle);
+@@ -1754,30 +1753,24 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+ 		goto unlock_out;
+ 	}
  
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	do {
-@@ -270,10 +268,9 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
- 			break;
- 		}
- 
--		/* Get a handle on the pid of the process to monitor */
--		pid = buf->pid;
+-	/* Get a handle on the pid of the session owner */
+-	pid = etr_perf->pid;
 -
--		if (drvdata->pid != -1 && drvdata->pid != pid) {
-+		if (drvdata->event &&
-+		    !coresight_sink_can_share(drvdata->event,
-+					      handle->event)) {
- 			ret = -EBUSY;
- 			break;
- 		}
-@@ -282,19 +279,15 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
- 		if (ret)
- 			break;
+ 	/* Do not proceed if this device is associated with another session */
+-	if (drvdata->pid != -1 && drvdata->pid != pid) {
++	if (drvdata->event &&
++	    !coresight_sink_can_share(drvdata->event, handle->event)) {
+ 		rc = -EBUSY;
+ 		goto unlock_out;
+ 	}
  
--		/*
--		 * No HW configuration is needed if the sink is already in
--		 * use for this session.
--		 */
--		if (drvdata->pid == pid) {
-+		/*  No HW configuration is needed if the sink is already in use. */
-+		if (csdev->refcnt) {
- 			csdev->refcnt++;
- 			break;
- 		}
+-	/*
+-	 * No HW configuration is needed if the sink is already in
+-	 * use for this session.
+-	 */
+-	if (drvdata->pid == pid) {
++	/*  No HW configuration is needed if the sink is already in use. */
++	if (csdev->refcnt) {
+ 		csdev->refcnt++;
+ 		goto unlock_out;
+ 	}
  
- 		ret  = tmc_etb_enable_hw(drvdata);
- 		if (!ret) {
--			/* Associate with monitored process. */
--			drvdata->pid = pid;
-+			drvdata->event = handle->event;
- 			coresight_set_mode(csdev, CS_MODE_PERF);
- 			csdev->refcnt++;
- 		}
-@@ -351,9 +344,8 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
+ 	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
+ 	if (!rc) {
+-		/* Associate with monitored process. */
+-		drvdata->pid = pid;
+ 		coresight_set_mode(csdev, CS_MODE_PERF);
+ 		drvdata->perf_buf = etr_perf->etr_buf;
++		drvdata->event = handle->event;
+ 		csdev->refcnt++;
+ 	}
+ 
+@@ -1821,11 +1814,10 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
  	/* Complain if we (somehow) got out of sync */
  	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
- 	tmc_etb_disable_hw(drvdata);
+ 	tmc_etr_disable_hw(drvdata);
 -	/* Dissociate from monitored process. */
 -	drvdata->pid = -1;
  	coresight_set_mode(csdev, CS_MODE_DISABLED);
+ 	/* Reset perf specific data */
+ 	drvdata->perf_buf = NULL;
 +	drvdata->event = NULL;
  
  	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
-@@ -432,7 +424,6 @@ static void *tmc_alloc_etf_buffer(struct coresight_device *csdev,
- 	if (!buf)
- 		return NULL;
- 
--	buf->pid = task_pid_nr(event->owner);
- 	buf->snapshot = overwrite;
- 	buf->nr_pages = nr_pages;
- 	buf->data_pages = pages;
 diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index 220fe45fca83..595d6a3b0767 100644
+index 319a354ede9f..220fe45fca83 100644
 --- a/drivers/hwtracing/coresight/coresight-tmc.h
 +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -254,7 +254,6 @@ struct tmc_drvdata {
- 	struct miscdevice	miscdev;
- 	struct miscdevice	crashdev;
- 	raw_spinlock_t		spinlock;
--	pid_t			pid;
- 	bool			reading;
- 	bool			stop_on_flush;
- 	union {
+@@ -275,6 +275,7 @@ struct tmc_drvdata {
+ 	struct etr_buf		*perf_buf;
+ 	struct tmc_resrv_buf	resrv_buf;
+ 	struct tmc_resrv_buf	crash_mdata;
++	struct perf_event	*event;
+ };
+ 
+ struct etr_buf_operations {
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index add0579cad88..916ea657a194 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -715,4 +715,7 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+ 			       struct coresight_device *sink);
+ int coresight_get_enable_clocks(struct device *dev, struct clk **pclk,
+ 				struct clk **atclk);
++bool coresight_sink_can_share(struct perf_event *existing,
++			      struct perf_event *new);
++
+ #endif		/* _LINUX_COREISGHT_H */
 
 -- 
 2.34.1
