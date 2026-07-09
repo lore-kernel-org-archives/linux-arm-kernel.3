@@ -4,98 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249A1C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C12C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sbhm2y91wOEPq0FWBEAzboduk4MNUncXQAPdVuYnt3s=; b=n25ucP4EwA+hdg4vTQYq6K6pZR
-	SU4527/41a7GIGMkaGdKxS4jtWqmgL2dWwVALevnttd7rLsVRvTzrdhLBzX9nqp3ZQi69OOzf76tO
-	fvBIfmcTLuMy22E6n3uD6rCfNcmpC3z8nRqzeOiGOt7hpoY5a+c7FsHR4T4lMYj40pOYvPvMpsCgZ
-	880IzgByCKHJDXJCEAWJdPaKbUudUSRDDmnMc1QiKvEX+4P+1dk054LMBotOa/A3moZ7PCDu1Kbhd
-	tUCe5IXIkEkWNpSvPLC0KxNyvBGreWOXIc0FjhiTPxD27KO/MWgSUs4CorohJT93EoT6mm8va6qJ8
-	dEZ4+mKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MYS2uTBqKgSrer77DXZbILY3qQ1j4rYV+efL09YAvE4=; b=Ycg7LOUROr9TotuyI/6LN7jcEc
+	IXyLGYJ64TGf0nzUXg5MeCh5/xmwasvvte8kS56UO12hAmyLVaNonr+8jh6l2U/hlbsEx7FVdGglq
+	ONkeg9ma6stJ5/MDO538UFgF6nzsFiEaMbnFReELtNdZKUv+sIQdwCbj9sYnN6d4LUPHlRWldZ/DU
+	G06REynS9RX+QAFl0DTkjI0DpRuKsLetU8jJYtk8YTSQk/y0TwlxFqVtvbqGcOssYytY5aLkeKqfm
+	9PHWF05HN0fQ7W2Nf6FkKJHxXU170UgrY4QFHqVSStMxsWgmCKWr40Of//w9QRmwtWNZLaB8CwpB2
+	piYv2G5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whq0Y-00000002osw-3LlT;
-	Thu, 09 Jul 2026 14:45:46 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1whq3o-00000002pNP-1DDj;
+	Thu, 09 Jul 2026 14:49:08 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whq0V-00000002oqX-1L1X
+	id 1whq3l-00000002pML-45Rw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:45:44 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-475cb71a4ebso1834876f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:45:42 -0700 (PDT)
+	Thu, 09 Jul 2026 14:49:07 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-6a190528769so309530eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:49:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783608545; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XY0F2rDyCwMKy3rcKg9YfwMe/6c4YU2pelYO3YeDrrB7XF6gMsVStLXBMv9VD5NuPH
+         6Uebsd9YnYxyq6AwZ4r54Anx/QzMbAGqqsIWbKo9n+WuAhqpz3Jr+leSA+PGir/DTZ6Q
+         LqWKxHrgijHYWHUvO+TCoCS7YEHFmhWwF2Lf6DNOh9xZBGahOP9PJoyx1hlHn1kZFeTI
+         f5S2doIdpW8F6Rvxac4MG6o+SDioCA1FTQZ41VtRtpwS9LRrKattxNP9qq8ATF8+1P9X
+         5mQ02zdzTcEpOJa4y4wm4g3bJr7lLed4Fpvs42e9Sb3ZdH46v9gRPUjOmQ8JQ0ULp5e9
+         0eyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MYS2uTBqKgSrer77DXZbILY3qQ1j4rYV+efL09YAvE4=;
+        fh=EHMByh0JW4ZX5x+dfKj/56PU5Lu/IMSDaUGXZR89V1M=;
+        b=fy6No0b1JTW/1+DArHtqRXSvo8lyZk5QwOhnbLWo2ZrntzmgRCHhNxaifDB/HUQUfz
+         GzB91Xvm/CbB431uqt/PIK+18AVjya5nsGdydd2xpGPZg/7F29maLG3jzHFF9TZExG2V
+         CHnSE7P8be2wNpie/tsjOEtB5wxB1sha2J99mwwVI9M3wWgEB+jqOZxrKvxICBHCo8GS
+         CPxmQNPVcfQ9XjW33HZbQre109Ojpj/dmlRwkpRN2A4gAYck/C7jHL/TiLcHQcSqujt+
+         JpAEMWrqRcln2epHFWdGeRDmB8NzxUdE+sVbyMJmik/z6Ke4Sr4Jk34PqRti7vAC7Tq7
+         sFNQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1783608341; x=1784213141; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Sbhm2y91wOEPq0FWBEAzboduk4MNUncXQAPdVuYnt3s=;
-        b=c+BwUxe7ZKENA94b13mtR86+w9Ak+d4Ynh5H1vQ2a2txFCoL/96lp3EZUNCh0oRGgu
-         T8bnVB/WIWpE+Ao6ozdH5yENP4nNFQ/tRJTHwFvhKNLsgdzmKQfzAQTSXFiLTbkWwB5W
-         0bNoGMjjdmRm03NoaPoepjRM9lstv+UpUMaj35PoUJ43FsehR1ExTCOOd1cdflvV05cQ
-         2LBZFSwWZahmBHGsG/3DCeSxHI/Diz1+XpNeLeYchooHCc+PwBdFGONwr2G7udpsUmsD
-         GFUcbnQ++y93a2MBtQVnJvJjx2V8ixoZeQiCWIRXdpJwkINCeCTgHYxDTlo/gNLhxR0L
-         69VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783608341; x=1784213141;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783608545; x=1784213345; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Sbhm2y91wOEPq0FWBEAzboduk4MNUncXQAPdVuYnt3s=;
-        b=XJoEp2nv3GqD8btgxvwijDcT+z98jVmvC6lmQ/fYwhzm7nEvVA/vAUzV8FaK+yLNA4
-         jcoStZ4GiyE4S5aD1Qd/DLJrUAncWvXtN5GfEDdpFQjgvSY7LAEeXoyC73cV4bwGBVnX
-         ARCUfSazaH9kkbfNHb3Y8SzhLg1Seyi1aau5fI6+kwZmt6Q/G4hV1qy0tYZjGkqhjZ7l
-         oP8AjveHhfWWmCjJrcjksR2Pttpk3Y2ICQqIB1yGhqI0TI7FyH+A/ycU/ewgKlOnE1qn
-         XXMij+7JicbGb4hRaqLs5y9cIIZ5/VLmodH8UXeuKE2JahPVHIM9pdHlVByVKkRlK2GT
-         Zx9w==
-X-Forwarded-Encrypted: i=1; AHgh+RoNkNMssC5BWbhxvPn8UFqGkZnWjWCKf7Mt1tLoS+C+qxaxBrh1AWKT2BaliKoq83JORJM5aXWwASvIrJlakrZS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBQ5zYS6x50i7EQQLNSMWqhLqAulmNZB6ttzhiyCoA83fftqvA
-	Q9Tm4RVsJf9ERBwycAliZnZr284Cu1PGbBpSi42rT5EzMUbOp2SQFRxTZ1plDHS5AmY=
-X-Gm-Gg: AfdE7ckmke+aC4F7g01b0xp5BVwv5pHrBTlWgX5b/7k6HN/SB2VuRfrFIY+7IFDuuhZ
-	lYAUSS0WtYLY1bTA1QI47fD0GivH7IJqfw/vai32vDbUIKg5w6W/FABspuZCdCpOVsOpomfoClk
-	oP1Y0KZpBFC+/+sbHKbDcF91mHWy/2npShfzaDXtMnBdZNlm5OXZZLLSTaj28NGAUig7DW+PPpu
-	4rajGZ9cvLFamFAz4A8Cbh9pZnFUTVo/RDBltp43au3Hu8bBC+h4QOg/qO4tFPDQSPuSRxtAsRC
-	YxYW0l+Mkpxi4qXf80bG7aLY2nu66RWqzZAw5EIx+Z63qarL6Oe/3BByQrCyMwKqUAq3OWEWEJt
-	HBP2stx/AZOHyC5qWIRjLQ/sWTlTb+PuW/UDRQ4EWCGwR74S/Lexl6XpmsCjtDMavIFbXr0clX6
-	YbAU5LywuLzio7Y1TDuAqVbm5awgc5/AqebaMw/l1ISDYr0maUyYE/7clSMtrMUJPd5Gu1UMJAZ
-	PbP
-X-Received: by 2002:a05:6000:41f7:b0:472:79bc:3919 with SMTP id ffacd0b85a97d-47df079051fmr8084209f8f.39.1783608341484;
-        Thu, 09 Jul 2026 07:45:41 -0700 (PDT)
-Received: from [127.0.1.1] ([2.122.8.179])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0960b06sm50995732f8f.28.2026.07.09.07.45.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 07:45:40 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 09 Jul 2026 15:45:37 +0100
-Subject: [PATCH v4 2/2] mailbox: exynos: Add support for Exynos850 mailbox
+        bh=MYS2uTBqKgSrer77DXZbILY3qQ1j4rYV+efL09YAvE4=;
+        b=dRIyewoyrJ/4EfS0UAVh5weXJcEDsbFKNaQ+3o0xYxVnGSIwaF6mCtyzZ1dJbXXeCp
+         m7k2Dhl73bXLPA/PE3kzq8fFr8ExDdYZaiqeb15IBmIUXQudAgJ98OyxhQuDRKaPr53u
+         KlvELnI7zMXwxsSlbSm1etpVuNvXLoEzclIfuHr9N+B/2qheUYybOVpouUZCqbQEt4CG
+         nAEUSFTZcTJukWGZSmtD9t3H5j1p0mnpmF9DemP2+OY4Inz9XLyHZtMLaKvuVfwlAWOL
+         9Rz+EuETlSpQf8cfzoO5O3rvZ105LXZ62ZJWelY/LnHnlwdAxUyR0y0l+wtoDeKYeuUz
+         xTvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783608545; x=1784213345;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MYS2uTBqKgSrer77DXZbILY3qQ1j4rYV+efL09YAvE4=;
+        b=MIkrFc3q83rPkxDOmI1VheVa56ItWfsUXAUZIse1hAhtDSfziTxJfEOXYXCR26maf/
+         3pNJ2FzdBKlBNQCBX9FsFEHFL7l4Ad796zaUgjyZq/sNpRT1dwkEY5OK1TyBjIyuDSsM
+         KbOuFBjgG/x2gE7Yz8Vz+xTqRhxexOpXccZHSZ8OfismFGm/frkTZqXjCOEVJwLeQQAd
+         zbI4w+c/v1+cYXwf1+Bx1QQXjte5W6Fvo3g9+f+8HtrgN4+sMs+DSdftS5xaAUzp8K3+
+         bKPyk7/sxkGSL6emNxqxA2FOhhBdsfw1wUgwGO1p1g8VZwnyRbSysz18glG2s4UDr4kp
+         L7kg==
+X-Forwarded-Encrypted: i=1; AFNElJ8aMOLUU9ivdows31BeRYFG8IgsrNhwFgtvhb3nuOBYtchN2XLT4t9E7N60TwqBUU5FkGZcJhCSppSLIDM6yCar@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYPQlWa8YIVyBw/U8Lk5nHFe1py+rHpM1wV+25KhEDDMZWAcqd
+	KZeB6iUFkthGvzPw6ofWn8gMAYDDHTOyg8suXa+8v1imsToAZgo9eXBrmOmqFRtQCXWq0p14P3l
+	LLXUoZVqVLZcTkJY1HHYYv8vvspsFGN1hLyL9ae6a0w==
+X-Gm-Gg: AfdE7ck4Ynvm7kR6E8gAEyi5TBDHbXo7etcbreBkRP3nFBFw0LctZBMvoT56SKlBofQ
+	lV9tBTUd0e5xPTABaw2AoRa46MvqBrNyKIedMCPIANXlRMAiQWrj+eLBkzyx8gbolC7M6Inc7Rl
+	tw7DcL2TICdNJRqEdPXp6Iufd7ALPnoH4bnvN4yefJ38O77+XdWqF+YiwOlHgY5B/OgpETLdAyQ
+	ARGaRWIQ0wjnxvqmaJwnRkOtO3AqCjA7N+7xNjmtz7Gz4/gylr470Zuh7JTGb78UYh3OvHaZXJX
+	MAZQpWFPcw93dXbUBs2NC+NDy+SazVGbedXiM5mvF5+IWv7NZ5JRprYorP7EG3dnRImtKwWMIVZ
+	GCqNIFyaNhxBUSPfCWDGty+fFOfc/
+X-Received: by 2002:a05:6820:4b91:b0:6a1:87d1:402a with SMTP id
+ 006d021491bc7-6a36d8db604mr5711492eaf.20.1783608544960; Thu, 09 Jul 2026
+ 07:49:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-exynos850-ap2apm-mailbox-v4-2-caf2fe9a237d@linaro.org>
-References: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
-In-Reply-To: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Jassi Brar <jassisinghbrar@gmail.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-2-f9883d36aa4b@thegoodpenguin.co.uk>
+ <ak5mPxUdp2pzCMt5@pathway.suse.cz> <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
+ <ak-vqrSr7NLCkGQw@pathway.suse.cz>
+In-Reply-To: <ak-vqrSr7NLCkGQw@pathway.suse.cz>
+From: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Date: Thu, 9 Jul 2026 15:48:53 +0100
+X-Gm-Features: AUfX_mwJgx6F5Vn2HOCATKNy1ql8ixFyCz9Yy1yVyKHgtQVtX5Yb7ZaDGdYvvFI
+Message-ID: <CALqELGyd0UQu2T=odSG6eavnzZ6bmJVd4VKo3oAVTyRpkkSRQA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] printk: deprecate boot_delay in favour of printk_delay
+To: Petr Mladek <pmladek@suse.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_074543_394627_3C708EF0 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20260709_074906_022061_7E1FEF7C 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,161 +128,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos850-based platforms support ACPM and has similar workflow
-of communicating with ACPM via mailbox, however mailbox controller
-registers are located at different offsets and writes/reads could be
-different. To distinguish between such different behaviours,
-the registers offsets for Exynos850 and the platform-specific data
-structs are introduced and configuration is described in such structs
-for gs101 and exynos850 based SoCs. Probe routine now selects the
-corresponding platform-specific data via device_get_match_data().
+Hi Petr,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- drivers/mailbox/exynos-mailbox.c | 72 ++++++++++++++++++++++++++++++++++++----
- 1 file changed, 66 insertions(+), 6 deletions(-)
+>
+> I would change this to sizeof(unsigned int) as well.
+>
+> >                 .mode           = 0644,
+> > -               .proc_handler   = proc_dointvec_minmax,
+> > +               .proc_handler   = proc_douintvec_minmax,
+> >                 .extra1         = SYSCTL_ZERO,
+> >                 .extra2         = (void *)&ten_thousand,
+> >         },
 
-diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
-index fa02f18948cf..ff75c1c7633c 100644
---- a/drivers/mailbox/exynos-mailbox.c
-+++ b/drivers/mailbox/exynos-mailbox.c
-@@ -24,14 +24,60 @@
- 
- #define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
- 
-+#define EXYNOS850_MBOX_INTGR0		0x8	/* Interrupt Generation Register 0	*/
-+#define EXYNOS850_MBOX_INTMR1		0x24	/* Interrupt Mask Register 1		*/
-+
-+#define EXYNOS850_MBOX_INTMR1_MASK	GENMASK(15, 0)
-+#define EXYNOS850_MBOX_INTGR0_MASK	GENMASK(31, 16)
-+
-+#define EXYNOS850_MBOX_CHAN_COUNT	HWEIGHT32(EXYNOS850_MBOX_INTGR0_MASK)
-+
-+/**
-+ * struct exynos_mbox_driver_data - platform-specific mailbox configuration.
-+ * @intgr:		offset to the IRQ generation register, doorbell
-+ *			to APM co-processor.
-+ * @intgr_shift:	shift to apply to the value written to IRQ generation
-+ *			register.
-+ * @intmr:		offset to the IRQ mask register.
-+ * @intmr_mask:		value to write to the mask register to mask out all
-+ *			interrupts.
-+ * @num_chans:		number of channels the mailbox can support (hardware
-+ *			capability).
-+ */
-+struct exynos_mbox_driver_data {
-+	u32 intgr;
-+	u32 intgr_shift;
-+	u32 intmr;
-+	u32 intmr_mask;
-+	int num_chans;
-+};
-+
- /**
-  * struct exynos_mbox - driver's private data.
-  * @regs:	mailbox registers base address.
-  * @mbox:	pointer to the mailbox controller.
-+ * @data:	pointer to driver platform-specific data.
-  */
- struct exynos_mbox {
- 	void __iomem *regs;
- 	struct mbox_controller *mbox;
-+	const struct exynos_mbox_driver_data *data;
-+};
-+
-+static const struct exynos_mbox_driver_data exynos850_mbox_data = {
-+	.intgr = EXYNOS850_MBOX_INTGR0,
-+	.intgr_shift = 16,
-+	.intmr = EXYNOS850_MBOX_INTMR1,
-+	.intmr_mask = EXYNOS850_MBOX_INTMR1_MASK,
-+	.num_chans = EXYNOS850_MBOX_CHAN_COUNT,
-+};
-+
-+static const struct exynos_mbox_driver_data exynos_gs101_mbox_data = {
-+	.intgr = EXYNOS_MBOX_INTGR1,
-+	.intgr_shift = 0,
-+	.intmr = EXYNOS_MBOX_INTMR0,
-+	.intmr_mask = EXYNOS_MBOX_INTMR0_MASK,
-+	.num_chans = EXYNOS_MBOX_CHAN_COUNT,
- };
- 
- static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
-@@ -50,7 +96,9 @@ static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
- 		return -EINVAL;
- 	}
- 
--	writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
-+	/* Ring the doorbell */
-+	writel(BIT(msg->chan_id) << exynos_mbox->data->intgr_shift,
-+	       exynos_mbox->regs + exynos_mbox->data->intgr);
- 
- 	return 0;
- }
-@@ -80,19 +128,31 @@ static struct mbox_chan *exynos_mbox_of_xlate(struct mbox_controller *mbox,
- }
- 
- static const struct of_device_id exynos_mbox_match[] = {
--	{ .compatible = "google,gs101-mbox" },
-+	{
-+		.compatible = "google,gs101-mbox",
-+		.data = &exynos_gs101_mbox_data
-+	},
-+	{
-+		.compatible = "samsung,exynos850-mbox",
-+		.data = &exynos850_mbox_data
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, exynos_mbox_match);
- 
- static int exynos_mbox_probe(struct platform_device *pdev)
- {
-+	const struct exynos_mbox_driver_data *data;
- 	struct device *dev = &pdev->dev;
- 	struct exynos_mbox *exynos_mbox;
- 	struct mbox_controller *mbox;
- 	struct mbox_chan *chans;
- 	struct clk *pclk;
- 
-+	data = device_get_match_data(&pdev->dev);
-+	if (!data)
-+		return -ENODEV;
-+
- 	exynos_mbox = devm_kzalloc(dev, sizeof(*exynos_mbox), GFP_KERNEL);
- 	if (!exynos_mbox)
- 		return -ENOMEM;
-@@ -101,8 +161,7 @@ static int exynos_mbox_probe(struct platform_device *pdev)
- 	if (!mbox)
- 		return -ENOMEM;
- 
--	chans = devm_kcalloc(dev, EXYNOS_MBOX_CHAN_COUNT, sizeof(*chans),
--			     GFP_KERNEL);
-+	chans = devm_kcalloc(dev, data->num_chans, sizeof(*chans), GFP_KERNEL);
- 	if (!chans)
- 		return -ENOMEM;
- 
-@@ -115,7 +174,8 @@ static int exynos_mbox_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(pclk),
- 				     "Failed to enable clock.\n");
- 
--	mbox->num_chans = EXYNOS_MBOX_CHAN_COUNT;
-+	exynos_mbox->data = data;
-+	mbox->num_chans = data->num_chans;
- 	mbox->chans = chans;
- 	mbox->dev = dev;
- 	mbox->ops = &exynos_mbox_chan_ops;
-@@ -126,7 +186,7 @@ static int exynos_mbox_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, exynos_mbox);
- 
- 	/* Mask out all interrupts. We support just polling channels for now. */
--	writel(EXYNOS_MBOX_INTMR0_MASK, exynos_mbox->regs + EXYNOS_MBOX_INTMR0);
-+	writel(data->intmr_mask, exynos_mbox->regs + data->intmr);
- 
- 	return devm_mbox_controller_register(dev, mbox);
- }
+OK.
 
--- 
-2.51.0
 
+>
+> Otherwise, it looks good to me.
+>
+> > This makes the cast explict, verifies the range before casting
+>
+> Yup.
+>
+> > (I guess a range of negative values could result in a postive value
+> > within the 10,000 range) and also uses the correct proc_handler.
+>
+> IMHO, this should not happen. I have never seen int smaller than 4
+> bytes. If I count it correctly, positive numbers should be up to 32767.
+>
+>
+> > This has the side effect of not showing the following pr_debug for the
+> > lpj calculation when a delay is not set. Though loops_per_msec is only
+> > used during boot, so I don't think there is any loss here.
+>
+> I agree that it should not harm. But please mention this in
+> the commit message.
+
+Yes, sure.
+
+
+>
+> >         pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
+> >                 "HZ: %d, loops_per_msec: %llu\n",
+> >                 printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
+> >
+> > Can I keep your Reviewed-By with these changes?
+>
+> Feel free to keep it. That said, please put at least the change
+> of the ctl_table into a separate patch. I would rather put both new
+> changes into separate file. It is never a good idea to hide
+> such changes in a complex patch which mostly reshuffles an existing
+> code.
+
+Yes, that's a fair point.
+
+Thanks,
+
+Andrew Murray
+
+
+>
+> Best Regards,
+> Petr
 
