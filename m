@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFE1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67408C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1KoFQZlVh0TW1NBILxP1YmKzlfNH0nOR4JY+OmiGCQ=; b=b2jEJ+ggrmajqV5J9TtN/uxtT6
-	JnXRnBwsG65oP5x87H3l9XV+az2E4wPyARhDQinX67sZaBM6i8XZ8QaAAIH0I2NTRxMEBK+okGR1q
-	QJAp8U+35PTaLsqoNkt08pdV3ckao02oX+D/r1hv4NlyyRcWoVxqmJXlIaqn8TBNjdEkev/KPQ7ad
-	KabA57k7stB6n4IkmTvBKlNr87pyMDVwnEUcCZ8+EwPVIZx1uS5YGErOLtUMWk64fS+ruXx//bRad
-	nUl50VO0YpVCaYe/kLrQh5e4qKfXx16uPioG9PmyCf1JCfgunX2jg5dKdALmsnRDYGt94psJwOMlR
-	U/J70HGw==;
+	bh=Cx1W/uYoTm0BdkabVOlbrhGJirehMcNk67FagdK4oOw=; b=vgNkVfdbmIi+5uEyjDW7fA1TC9
+	y1ooskuhFuIclxYA/UyvGbnGWuMmPF8NfVhixw5W3hp3oUZk63raZTjoLaehYAXFCLytIdhewASKE
+	DW0eWMb6azTSrH07PAzh6xY+0QfpyI6WF6luxOGIHexCg6+VTkEMpqORdGlAJ6QL1a1gvBdVJhe0a
+	All9lkvryNksU69GB0TpdlwCjCN2Eit8a30zRtYxu3fil7OVfVnsnn9PnHpNlZPiwAtZBuDswe2Tj
+	Us4ArogZBLbTPlPsQjMM82r3DjFo6ZdubniUDII8muwSIFgsTFQQlC3F1Ft4J5GOR81x5vD6Q58E0
+	1wSyqEug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpKB-00000002glx-2wuz;
-	Thu, 09 Jul 2026 14:01:59 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whpLh-00000002hJV-0TOc;
+	Thu, 09 Jul 2026 14:03:33 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpK5-00000002gfJ-3ZBD;
-	Thu, 09 Jul 2026 14:01:58 +0000
+	id 1whpLd-00000002hID-21sM;
+	Thu, 09 Jul 2026 14:03:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783605710;
-	bh=8SkAR/Ab8XsPGdgW8BYCG02vOqkW8k+veVBNwe9Ul5c=;
+	s=mail; t=1783605807;
+	bh=ebi8GJI9/lZKf3AA3RpD8Pnml58iLOulJKMht+JSC6o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eZ+WEEEtNdm44adPY3hOzL/+043uJYdbKHMRPcOv/18YBSEdZMoRnvyyqIL8/9Zt5
-	 8fs7GrdxwcKJgwbDNyUcMYbBkx+ZhCs0ij/p1PX0UeHb8IPLBcNL8lTEr7vLCq+DVO
-	 TTRNPt+MsiNJ6E+tfrSZPcAh9pn8TGJqfm1uiz71RYzV9ajbnG8D7furdXlRu9ovaX
-	 clxJ/Z1QYFaE+9JVTpbx7GrjX1Vp74T6aexce8p5OinZoYqF/3i8vRFiSP4gvaj+T7
-	 EzW3N7xkMs+JUCu6VOneil+AMeXom/GfEu89VRtlJGLFu0YRKjHX/WqNgzYiJ7TqEO
-	 A3O8/cowCQsNw==
+	b=TUtZHbt72S8Pig54Zw6VmDB/bcbKwANwpSrXjwPLGtvugVeQA8Z00o4QYTSB4fe10
+	 YVXVfj4ZjvSAGpjvgkqV79NLff1EpHORUAwu9wLsiRQt57TQJE4xXsuZb718T57SK8
+	 8Iy4JhaW4ONJi+vACxxPfsOrTQoJ8itTMFLUFGEeE6mrrQT/YPd6ssDjuMBXVNBgNt
+	 4daC286mTjy0rJsNp+SGWgKpNSWZwPo5CQtXaH/w2A2qLfNyNlebTQyqKR+Ix7d/2w
+	 7xG8U0tjmptEFWaPRx3YBg4UrWT4n+ngkodFq16qAWmN+FbCmrcewWV/v9jtJT+6NE
+	 9b4AtLgaD+x/A==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7569317E0D56;
-	Thu, 09 Jul 2026 16:01:49 +0200 (CEST)
-Message-ID: <fe7dee8d-afe9-441e-898b-695aacf1aa04@collabora.com>
-Date: Thu, 9 Jul 2026 16:01:49 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE68617E071A;
+	Thu, 09 Jul 2026 16:03:26 +0200 (CEST)
+Message-ID: <7366c2b4-cd69-44ec-96c2-541c61a2708f@collabora.com>
+Date: Thu, 9 Jul 2026 16:03:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/18] dt-bindings: clock: mediatek: Make
- '#clock-cells' required for MT8186
+Subject: Re: [PATCH v2 05/18] dt-bindings: clock: mediatek: regroup MT8188
+ dt-bindings into MT8186
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
@@ -63,16 +63,15 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  netdev@vger.kernel.org
 References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
- <20260709-mt8189-clocks-system-base-v2-1-2926da3db6cf@collabora.com>
+ <20260709-mt8189-clocks-system-base-v2-5-2926da3db6cf@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260709-mt8189-clocks-system-base-v2-1-2926da3db6cf@collabora.com>
+In-Reply-To: <20260709-mt8189-clocks-system-base-v2-5-2926da3db6cf@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_070154_902591_61EEF4BB 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_070329_671654_9E2C6482 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,22 +87,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/9/26 15:42, Louis-Alexis Eyraud wrote:
-> Both MT8186 clock controllers dt-bindings (clock and sys-clock)
-> document the '#clock-cells' property but do not enforce it as required
-> property.
-> As clock provider nodes should define this property in devicetrees, add
-> it to the required property list in both its dt-bindings files.
+> Regroup the MT8188 clock and system clock dt-bindings into MT8186 ones
+> to ease maintainability and have common files for several currently
+> supported SoC or new future ones, that have the same kind of clock
+> controller design.
 > 
 > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>   .../bindings/clock/mediatek,mt8186-clock.yaml      | 50 +++++++++++-
+>   .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |  6 +-
+>   .../bindings/clock/mediatek,mt8188-clock.yaml      | 93 ----------------------
+>   .../bindings/clock/mediatek,mt8188-sys-clock.yaml  | 58 --------------
+>   4 files changed, 54 insertions(+), 153 deletions(-)
+> 
 
-Though you could've done that in one commit, or just skipped the additions in all
-of mt8186/92/95 and went directly for the new one... IMO, it's ok as you're showing
-that there was an actual mistake on the bindings for clock controllers.
+..snip..
 
-Same comment applies for patch 2 and 3, btw.
+> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+> index 6733dafbde16..199eac2034f2 100644
+> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+> @@ -4,7 +4,7 @@
+>   $id: http://devicetree.org/schemas/clock/mediatek,mt8186-sys-clock.yaml#
+>   $schema: http://devicetree.org/meta-schemas/core.yaml#
+>   
+> -title: MediaTek System Clock Controller for MT8186
+> +title: MediaTek System Clock Controller for  Mediatek SoCs
 
-Anyway:
+"for<space><space>MediaTek SoCs"
+
+You should really fix the double space, or if that can be fixed while applying,
+that's also fine for me.
+
+So, with that fixed, either by you or while applying...
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
 
