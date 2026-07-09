@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033B1C44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6966EC44507
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2bLsme7OM6rpWLWd7leWw9Vc5lyXOMiSWvBkTBVUIUc=; b=3bbmeJgG22OEsm
-	xE+lNDXnkpeSvZdbcQvOFaXa9Vplh+hT0Z/DOMuFrzMtbriYvDPFUvPZ9aWVIWVsnpf3z/e9Nn26D
-	8RXr8LcCRlUzzZpF9rH4/pN3zl52e+jhPDAWGezFSCHfh6oxx7v0esE8aRy1o8BacWBEn/nTVtQS+
-	KJmMLhMyy7E49tmCd+Q8zhCXQy2uvteCCBtH8sQxCPLdLoit2nWT/Yid3xdFN6t1UvR3mbvvHcso1
-	gCH1BryPFsHYTXIA4qsCJ4kCQ4O5YC17cSH+iaIETAyhcxxktAWJ5wEPS1nn7q3zls5cjWOmcJkMZ
-	npNvHUmQEMdRkE2/rOWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qdp//1e9Iy4wAq5+210miQNkEWlNveFTFW87G09ua08=; b=RXFi32ZN/slmGz0tc+AWO019Ye
+	P7R6Znz4MoSHKeyCVqG/sPBG8EHS2p5jesG7EYdURAGLPvqmTo6+eNDTSsBB2BI9g5q5uut3N7B4/
+	fkRsRWmId6PJXYbdQ9ug2odFvq21PqjXQjsn4g8BGRe2NfTyY+G7+CYLuQqk/EkxGgyhklKmOa2k7
+	0NYFCa3Pjt+q7bptjVYe44vdEnv21Ok0a6YgM9MJyrEsdA2te3Y7ZlMEogEWwxIATfB6zHEhAFgeJ
+	d/3IEv1nXCn6TYP3RSMAto8GuhfeiUmmwbz9NqKE4gNfKbWsb4b7SX+Y/1S+kW9F7A7X+iMysNT6o
+	48iaZlzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnf7-00000002MfD-1o0n;
+	id 1whnf7-00000002MgF-3KTn;
 	Thu, 09 Jul 2026 12:15:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whneO-00000002LLP-41pl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Jul 2026 12:14:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2bLsme7OM6rpWLWd7leWw9Vc5lyXOMiSWvBkTBVUIUc=; b=jewqM5KG+9+BcJLUd6W8ekUp1S
-	MaAWehLC6Po+jprIJvUPLk7NLyt2Xkm0OsES/vM9fF3ewSfjr7IAg/m8fP3EMZBRGub92vghGuSZH
-	q79HIVnvEZlv0tgh4zY3zLHomp99sX0p9+FS8JVyJg8KTollzN4yE6RFhGgOb7hoeWmyKYrYocWlZ
-	k66FE2EYlDY6P2AltFgPxLSLqsZidYiABgOEVXvCzDilL9DSzbNU/4IPj7mJ6x84Ls7pWpqKb0WDP
-	nGkEhiiQehtfmlRZQOh+22DPcFTB7MDK3GPual7iulK34VCLu4gooeqe9VnHoyxA4PRqxX8le5l9s
-	0phGUkuQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whneK-00000009Bnp-3Job
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whneO-00000002L6S-0waw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:14:42 +0000
+	Thu, 09 Jul 2026 12:14:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E72D3569;
-	Thu,  9 Jul 2026 05:14:35 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CC663569;
+	Thu,  9 Jul 2026 05:14:39 -0700 (PDT)
 Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7B5313F66F;
-	Thu,  9 Jul 2026 05:14:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B754A3F7B4;
+	Thu,  9 Jul 2026 05:14:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783599279; bh=mVJYjbKCqn9UMxfR8P1gTVJYeZVCo8cpl+HEwiM0zB8=;
+	t=1783599283; bh=n3hrOfPHC0XzLILE26mS38U5iY3Ld8yHlVHKUa57SvE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=THLDf/yYUdikcRyAcMGbwQCUKQTCCvlQmnhO9N8dn7MTTU0E/HiOdcEMLpDS6pHS9
-	 JbQofEHCCMBbnNfrrzDe9vNopTRgbe/j24IRuT4UYIZ14Qm8MB2Z3oX4DQCsYy2FlK
-	 pnBvVxf/MFbNEceD1AwmawaVwK5ASuq4DGUseQRo=
+	b=VZiWuSHyqJZ3xRAJ7a8TYwgJpWnQBdDJ+ZAgXkqGGbhEyuyq6s+c81KTJEKDEVNTQ
+	 tIRdYSby7RJdGI1sM7xknzoIPRpBdv9KuZLomJ8k/rIrUX0+B8cVVbFexpeKrf4EUe
+	 6JLDRGJpx7X4YdWG2TCHHhwaMbsODvLOcpmtLC4A=
 From: Vladimir Murzin <vladimir.murzin@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 31/36] arm64: nmi: Add handling of superpriority interrupts as NMIs
-Date: Thu,  9 Jul 2026 13:13:28 +0100
-Message-Id: <20260709121333.23507-32-vladimir.murzin@arm.com>
+Cc: mark.rutland@arm.com,
+	maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	ruanjinjie@huawei.com
+Subject: [RFC PATCH 34/36] arm64: kprobes: Disable NMIs
+Date: Thu,  9 Jul 2026 13:13:31 +0100
+Message-Id: <20260709121333.23507-35-vladimir.murzin@arm.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20260709121333.23507-1-vladimir.murzin@arm.com>
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_131441_306646_4FFEDCB8 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260709_051444_358020_C7C9F72D 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,164 +69,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, ruanjinjie@huawei.com, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Brown <broonie@kernel.org>
+Kprobes masks all DAIF exceptions to keep things simple and avoid
+nested exceptions. With FEAT_NMI, that is no longer enough. Mask
+ALLINT as well to ensure things stay simple.
 
-Our goal with superpriority interrupts is to use them as NMIs, taking
-advantage of the much smaller regions where they are masked to allow
-prompt handling of the most time-critical interrupts.
-
-When an interrupt is configured with superpriority, we enter EL1 as we
-do for any other interrupt. The presence of a superpriority interrupt
-is indicated by a status bit in ISR_EL1. We check this bit before
-unmasking interrupts in elX_interrupt(), and if a superpriority
-interrupt is pending, we handle it as an NMI. Otherwise, normal
-interrupts are handled as usual.
-
-Since superpriority interrupts are always handled as NMIs, the
-interrupt controller can rely on in_nmi() to distinguish them from
-ordinary interrupts.
-
-Enable IPIs to use superpriority interrupts as NMIs, matching the
-existing pseudo-NMI behaviour.
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 ---
- arch/arm64/include/asm/entry-common.h |  7 ++++
- arch/arm64/kernel/entry-common.c      | 59 ++++++++++++++++++---------
- arch/arm64/kernel/smp.c               |  2 +-
- 3 files changed, 48 insertions(+), 20 deletions(-)
+ arch/arm64/kernel/probes/kprobes.c | 22 ++++++++++++++++------
+ 1 file changed, 16 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-index 73d82a8d8e95..0681ba91ac3b 100644
---- a/arch/arm64/include/asm/entry-common.h
-+++ b/arch/arm64/include/asm/entry-common.h
-@@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
- 	if (system_uses_irq_prio_masking() && read_sysreg(daif))
- 		return false;
- 
-+	/*
-+	 * If AllInt is set then we must have handled an NMI, so skip
-+	 * preemption
-+	 */
-+	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
-+		return false;
+diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+index d9d25d184309..defbe6061546 100644
+--- a/arch/arm64/kernel/probes/kprobes.c
++++ b/arch/arm64/kernel/probes/kprobes.c
+@@ -193,17 +193,27 @@ static void __kprobes set_current_kprobe(struct kprobe *p)
+  * the kprobe state is per-CPU and doesn't get migrated.
+  */
+ static void __kprobes kprobes_save_local_irqflag(struct kprobe_ctlblk *kcb,
+-						struct pt_regs *regs)
++						 struct pt_regs *regs)
+ {
+-	kcb->saved_irqflag = regs->pstate & DAIF_MASK;
+-	regs->pstate |= DAIF_MASK;
++	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
 +
- 	/*
- 	 * Preempting a task from an IRQ means we leave copies of PSTATE
- 	 * on the stack. cpufeature's enable calls may modify PSTATE, but
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index a13653b228b7..de71d5a3a6a1 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -525,8 +525,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- 	arm64_debug_exc_context(CRITICAL_CONTEXT);
++	kcb->saved_irqflag = arm64_inherit_exc_hwstate(regs).flags;
++
++	regs->pstate &= ~(DAIF_MASK | PSR_ALLINT_BIT);
++
++	regs->pstate |= next.daif;
++	regs->pstate |= next.allint;
  }
  
--static __always_inline void __el1_pnmi(struct pt_regs *regs,
--				       void (*handler)(struct pt_regs *))
-+static __always_inline void __el1_nmi(struct pt_regs *regs,
-+				      void (*handler)(struct pt_regs *))
+ static void __kprobes kprobes_restore_local_irqflag(struct kprobe_ctlblk *kcb,
+-						struct pt_regs *regs)
++						    struct pt_regs *regs)
  {
- 	arm64_exc_hwstate_t hwstate;
- 	irqentry_state_t state;
-@@ -545,7 +545,10 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
- 
- 	state = arm64_enter_from_kernel_mode(regs);
- 
--	arm64_unmask_exc_context(NONMI_CONTEXT);
-+	if (system_uses_nmi())
-+		arm64_unmask_exc_context(NOIRQ_CONTEXT);
-+	else
-+		arm64_unmask_exc_context(NONMI_CONTEXT);
- 
- 	irq_enter_rcu();
- 	do_interrupt_handler(regs, handler);
-@@ -565,8 +568,11 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
- static void noinstr el1_interrupt(struct pt_regs *regs,
- 				  void (*handler)(struct pt_regs *))
- {
--	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
--		__el1_pnmi(regs, handler);
-+	/* Is there a NMI to handle? */
-+	if (regs_irqs_disabled(regs))
-+		__el1_nmi(regs, handler);
-+	else if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS)))
-+		__el1_nmi(regs, handler);
- 	else
- 		__el1_irq(regs, handler);
- 
-@@ -906,24 +912,39 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
- static void noinstr el0_interrupt(struct pt_regs *regs,
- 				  void (*handler)(struct pt_regs *))
- {
--	arm64_enter_from_user_mode(regs);
--
--	arm64_unmask_exc_context(NONMI_CONTEXT);
--
- 	if (regs->pc & BIT(55))
- 		arm64_apply_bp_hardening();
- 
--	irq_enter_rcu();
--	do_interrupt_handler(regs, handler);
--	irq_exit_rcu();
-+	/* Is there a NMI to handle? */
-+	if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS))) {
-+		irqentry_state_t state;
-+		arm64_exc_hwstate_t hwstate;
+-	regs->pstate &= ~DAIF_MASK;
+-	regs->pstate |= kcb->saved_irqflag;
++	arm64_exc_hwstate_t prev = {.flags = kcb->saved_irqflag};
 +
-+		state = irqentry_nmi_enter(regs);
-+		hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
-+		do_interrupt_handler(regs, handler);
-+		arm64_mask_exc_context(hwstate);
-+		irqentry_nmi_exit(regs, state);
-+	} else {
-+		arm64_enter_from_user_mode(regs);
++	regs->pstate &= ~(DAIF_MASK | PSR_ALLINT_BIT);
 +
-+		if (system_uses_nmi())
-+			arm64_unmask_exc_context(NOIRQ_CONTEXT);
-+		else
-+			arm64_unmask_exc_context(NONMI_CONTEXT);
-+
-+		irq_enter_rcu();
-+		do_interrupt_handler(regs, handler);
-+		irq_exit_rcu();
-+		/*
-+		 * For the same reason as in el1_irq() we effectivly
-+		 * have NOIRQ_CONTEXT on return from handler - keep
-+		 * track of it
-+		 */
-+		arm64_debug_exc_context(NOIRQ_CONTEXT);
-+		arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-+	}
- 
--	/*
--	 * For the same reason as in el1_irq() we effectivly
--	 * have NOIRQ_CONTEXT on return from handler - keep
--	 * track of it
--	 */
--	arm64_debug_exc_context(NOIRQ_CONTEXT);
--	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
- 	arm64_debug_exc_context(CRITICAL_CONTEXT);
++	regs->pstate |= prev.daif;
++	regs->pstate |= prev.allint;
  }
  
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 257d50529d14..80e35a8e5c8f 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
- 
- static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
- {
--	if (!system_uses_irq_prio_masking())
-+	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
- 		return false;
- 
- 	switch (ipi) {
+ static void __kprobes setup_singlestep(struct kprobe *p,
 -- 
 2.34.1
 
