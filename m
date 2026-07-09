@@ -4,108 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108F9C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B76C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=; b=Bkim5WDln019arLMZjHizWfdaj
-	BGDb4FVJ2zOTHlwSp2XJuBeY53jjA201A5mEz2QD5Kt9iZdme64VX0UkUWzz3XRHlUafdzNrafKp4
-	9wRWzvIVYHo/Gn0x+EztTqG2OuAQvJLQEzp9MrTSj3gekFTxtSS49w/uyOSBE+0+VbAMC2VUEtcXx
-	Qa/tukT6TkuRRuxXOrKHLh5Oy1+YjuFR2oNvg/ZOBRKt2V3kjqLNoOV+hDwJE0HuL2SfN/p7bTgyf
-	xSoiUk0Pqz2BsYEEXvhqLCIwmF/D7K2eOYlesHDlm4fgwTxSvn7XgBBo5MfuNpCoypYuKQzeysm9C
-	WaSNz38g==;
+	bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=; b=phFtxVN81nGUCkykdSBPAC1bci
+	HYd/fOzMBdialeAAUD6zr2opr9lnrMihaKjC8MrLvfLkl6Jk7QAvXhIJNAROddC5JaChw8MEVGlkE
+	K6WL7f5Xd83rHEyx5RNrOVK+P2Tt++zksnut9GRmGQTDVNi8NaogEvXZY8lUvtO3P5cNuDMeElpj8
+	rLYjQg+Gu8Eyz3hi+0wPKmDeHD/YtU5gVpZ7uXqui6RPQFLRamK7+uNYLzdtRgHPyAK54iqvVXURt
+	nCrNmesxI9L4qQi+A4DOLJk5EGkkwBFlPOrwIdp8UraeW053EdmmO6GlXiV0SbgcTwJKsasZAGX7Y
+	DFqpUmiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpiM-00000002km3-07BM;
-	Thu, 09 Jul 2026 14:26:58 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1whpjP-00000002l0b-1aGF;
+	Thu, 09 Jul 2026 14:28:03 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpiJ-00000002kkX-26yc
+	id 1whpjM-00000002kzj-2Z9c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:26:57 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b77b150aso15698865e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:26:54 -0700 (PDT)
+	Thu, 09 Jul 2026 14:28:02 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6a198cdc4e4so731352eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:28:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783607279; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hNq2ATPQJ9KvYc5boJNS75iBBNXuipJwl9do8o0UMY49jq9Y7i8JFFnQYkE0gerwkw
+         ZzK8vUkMyKGalBnHQJsBSNFVr4UovpIuLftSxyKmIkzlE0p+u5PHjQTePLoBgUNYokWa
+         4l9cwx505TvTdl2WE2jL9JECCSsXX4DuTkg3SDZBUf6zUOTQIirIRsaNuWB1KJuASDWT
+         6Bm3XRkCzJN9E/DoMDIRP97gDdWBqJhy5kfjmL3wlK0u3LroC3XamPiLx2O16YpX+qhi
+         qxG6hpejRHrJUDhGvFA0F7B+65fgkPyLpnHxp+uQFtOM0SDCR1aAFG1rBsdY6JZOe1LD
+         uOQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
+        fh=vOo6TEL1n3QCAlzb314JnE5LjZKYwzG1ar9WdNbt5u0=;
+        b=gqDsxzGYBeYtszM+2lZe4xPBRBx02Mw8WV44QUtxy0g5GyljojjZQJyAMMCE3+dGd9
+         Z/f46KQS6ZvuBrt5x8+qxjC3wyOkrYMHubZEhSFI2+N5VXXba7ao7E/66TFkgJp0xxIO
+         ZZHjaNRj7EUhbqiMh9vFe4JZ+VUVtAIpHyLPrVFu7xufhvv3zt3m/qnj5BRriYkYwHU1
+         wVEG6R3rW8UvFUcZU6s9V4THdWXOQoGk8CS0ql42L+5s2fQJk6Mb0+rUbOXksZJHVXlk
+         zj9dnurrDcN/G7T61Bt33j8Z319AmbfHMnW80NA7AAfVNR88ermnaZVby8uUkuXmpCTE
+         UCRg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1783607213; x=1784212013; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=;
-        b=YJ9cpOSCuAl/jUpxzSPN5YLNndLOdLIRUDiRZ+r5SDAUjstRfKswNc+4u0PWfZYdab
-         8Bb5fEK8by0Rqt1WsaEcJIC+eCLZt3aIM1tK5BC210nI8F/aev+4bD1pDC2mW/lBPx7r
-         IMZhLRrSyr7a8URaxHWcHjEH7WZGf6A4h2PneQT7T5nhHgWxXct/aqAQI47mpDkf65RU
-         /FogtKqCPSkxeFjEU8sL/4HgDX6qXT/gVXGzQXvX9tGKsploWm8V2a4wk4B7QkFtItHe
-         hJ1M6HsOWwonk8H4p3BiPKkpOTjdB3aKo/bNsVngfpiWABaLzSrG9CSUf2bzOrLifIuf
-         RgQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783607213; x=1784212013;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783607279; x=1784212079; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=;
-        b=XXpSgp8p2Yc/Sf2drChgILmODmkcuvwRF2a0hrusVhNpYa/tHdZ5tZ0Co9SB4mx0F3
-         mSnqowgPtpznz2JIE1olx2h5/Uf74gaZfofGCak4SQSHd6GmGOmftJcQ+JWgYF3SDIy0
-         4+mKx+IcV/G5szwBXjziP0hHHbCp3ZjOK1nCN4OSIo70LM1xVGIcvhCYG+x8v8E1ZuCM
-         LOngPxCXE+NpLRmjFomuOf9P3o65g25vUm3mwlL+NNdoFKupzMDdGUoU93rN+5yzrPeq
-         Ms94ipHVahrrmh5bcAJhrHFeZKuO2BhfggQr/Dxc0FmCu2Zke3mqC6WEsgdL2WS+0IfM
-         L85g==
-X-Forwarded-Encrypted: i=1; AHgh+RqtJzp6FOH2Ms2+TXPknlZINtilxczCqP3/xpXTfc9hNLfd0Yv5S7QSJ15Gv67CmB2nXk1Kh7wNaCAkHfGE8bkE@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpua9680pIC2roiVkrtKMLwcKpaVih2IbU+kpZpYFDA9VpJEgU
-	3kEIVDhYljkooygSvvz7VYHJiDkt0rrdgc+BIJvK4S/HxKMqgHqWxvLa1LVf4du/zB0=
-X-Gm-Gg: AfdE7ckhEQh2nBfxTe4bCUQM1dqEk4p7BhL9S+lMvwpzKf/ppYhAMeIDOy9d+Wdkdvd
-	nqmhyjG+Vguu84d/exGXmq0baOrEQVU5RoWzrs4TibgCC4XcZ85zJbkF0IVOxDxGewViRm1CTdY
-	TPlub1WY3I95Usm6puTGyT4kKq+pNNhEcFSJtexdBICpNlr6JpBn1JOCJRoMGDqnGX+Q787/dVH
-	pkNBYXDsL3eN1tDj+QeUyLo7X+xMpbQa02dleujRaZ+F6lI2MN27x91KV8ankrqURfoL+MvFWze
-	pTDIVSxmCGEgAmNNcSzIjpWt5i2ReR5WBw5MJlvJXyiMBWWgOblcrxkF8IQJ+J7o7lFLdN5fQd0
-	mB88jHphbed7L484G5Cywj5INycw3zqKraiyqMNqpBpylvHCJ/KF2d8vqx9txnTMm8X07P0U0Ds
-	/pr4zaG2ELis/O9JE=
-X-Received: by 2002:a05:600c:34c3:b0:493:bb29:af40 with SMTP id 5b1f17b1804b1-493e689b37amr85711945e9.14.1783607213522;
-        Thu, 09 Jul 2026 07:26:53 -0700 (PDT)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb74835esm72452175e9.14.2026.07.09.07.26.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 07:26:53 -0700 (PDT)
-Date: Thu, 9 Jul 2026 16:26:50 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 2/4] printk: deprecate boot_delay in favour of
- printk_delay
-Message-ID: <ak-vqrSr7NLCkGQw@pathway.suse.cz>
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-2-f9883d36aa4b@thegoodpenguin.co.uk>
- <ak5mPxUdp2pzCMt5@pathway.suse.cz>
- <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
+        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
+        b=gF5Ft7xW4SgxEpnch7UwPbcm77YHLhYzx6CUXwOIOb/v7rjXRpTJyI7c3LrMQ3HNpt
+         qNBI94IYKbW2IUsjEqASXMlBHL5uS5VNxgbo9Y0cvSeWQWdqvhubvbGsfvRJUePX775B
+         YsQjzLcIw+0+O5Qj6i/UmcnRILxypLjz99S+c4pV2//PQg1jtaW52KNUO7b2C55DdUXq
+         uzW0/SIJBMUbpBcXFAX64ByztK+EV7a043bi0syNFIUj+tWi3Z4dk7jxpxs/7YjVq+87
+         cdMT4ebvHXl7gc3SQgPtjSXpe/e7fcYIGJnDmsblXORUG286SJUKyKO+ytiWso5KyRiw
+         zmgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783607279; x=1784212079;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=o/Aj/fQ0/cX0gUBelTJEVsUYvKgREoT3ILbqcgtsbZk=;
+        b=ClBFkKbNrvA8tq+KtLMbN2obZGKP2VPRN8jNQzFxnmCkGLNemf6SFXT/ijc87fNor5
+         ms5H/0ObR1lFbkhNcp8XcYu+qcRlQsXVpph+VI0znL4OraD3ul/6TYjzKTvDVTGDedJc
+         Wcnmp+AKWTxBEnolZFYXWfj9dDEBfRuBsfRfp/cAoR5GDajxyqExbXXiM5pFazPVTrVJ
+         +7kvzbNtDwzfeCXk0iOb9PDESVPYFDdEpN4G+JTDgL6ct8MFEdQq137SxtWsnDjpK75j
+         o8uQ0KXTFFUlhP2OmlqEU9XymeT/sB8lSq1aKHOs1yk4uik6nNYbIk8e091jFQECXx/H
+         AMCA==
+X-Forwarded-Encrypted: i=1; AFNElJ8ofW2hTSIaIE0mEAwOrAhu56ccDnzdyALHGbfE4GxrfiC+7BFNVBeAOvO1t3rS2rpr6Wp6tpsQSGPKRLDqmEO9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdOnyXX8xY+n7LIM9f9WlZ6AuqQDY0rC9+x98kRFy5oULuG8I1
+	WlueVMWgXAmhLJytlCgpP3Jhmig5qvl0isIZu/wmwsgirH+q/u0/SshYMC6coDd8/PIKLxhZijR
+	k1Sj31b0dfNDCXsbpAEhxwK3tnipC2myGIuWzjvxr4Q==
+X-Gm-Gg: AfdE7cnmN6n/YnY7iCVPdx1XJ4iewV6iUf3WOi6OQCThxEJ8nHxAv8iF2fmxj4my+Bi
+	c5VnZ+4dgHdqLN9T187u+VVYODIHtoxcotT0zVXDbUYyvIG+AHLlzJr/7Ck7qaew8kYtpO6XVUQ
+	X52M1vl7c0eaY1cINt6i5x8UQWXA+vrTbIGMGm0EMFYjDwz2QIpTJ0Fs9D3F1N8i/0JpuXVLxfV
+	BiQMA6iixAOLH+H+ugKup3nkZWEJ9/v2iNRMi0cVM5TMe0JTCgQxYUcYIC8HoldL8vuxFzWoNQ+
+	2UvaepK6de5Nvx0eEm+n4jdJjUWIiNVR/3GroeZK8acvKSEv5rdho1OjMSy/87fvxOK2AAiJIF4
+	GLZkD/t3R/51zseH7IVpn06biNvDV
+X-Received: by 2002:a05:6820:210d:b0:6a1:87cb:c34e with SMTP id
+ 006d021491bc7-6a36da8c20amr5154700eaf.72.1783607279485; Thu, 09 Jul 2026
+ 07:27:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260703165654.71be8707@mitra> <CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
+ <20260707145411.53a10893@mitra> <ak0VguIf-PxmbUOS@pathway.suse.cz> <87qzldvqpm.fsf@jogness.linutronix.de>
+In-Reply-To: <87qzldvqpm.fsf@jogness.linutronix.de>
+From: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Date: Thu, 9 Jul 2026 15:27:47 +0100
+X-Gm-Features: AUfX_mz4PcZ8QKTOvulicXteeeMZuJNGsMqSn_rhQXpmhC8-QWtUxRPj3PV0YiM
+Message-ID: <CALqELGx+7RSKL0+kdOxu0TpXaOifYkzxmOTv+4gTSHqrbLEJ5Q@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
+ emiting code
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Petr Mladek <pmladek@suse.com>, Benedikt Spranger <b.spranger@linutronix.de>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_072655_573752_D8E9CE15 
-X-CRM114-Status: GOOD (  45.36  )
+X-CRM114-CacheID: sfid-20260709_072800_915392_5EEDD3ED 
+X-CRM114-Status: GOOD (  38.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,129 +129,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu 2026-07-09 13:32:10, Andrew Murray wrote:
-> Hi Petr,
-> 
-> On Wed, 8 Jul 2026 at 16:01, Petr Mladek <pmladek@suse.com> wrote:
+Hi John,
+
+On Wed, 8 Jul 2026 at 09:19, John Ogness <john.ogness@linutronix.de> wrote:
+>
+> On 2026-07-07, Petr Mladek <pmladek@suse.com> wrote:
+> > To summarize this discussion:
 > >
-> > On Tue 2026-06-30 17:35:58, Andrew Murray wrote:
-> > > The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
-> > > are two distinct mechanisms for providing similar functionality which add a
-> > > delay prior to each printed printk message.
-> > >
-> > > boot_delay provides a kernel parameter for delaying printk output from
-> > > kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
-> > > configurable only via sysctl and thus is only used post boot.
-> > >
-> > > Let's deprecate the boot_delay feature in favour of printk_delay. In order
-> > > to preserve functionality, we'll also extend printk_delay such that it can
-> > > additionally configured via an early kernel parameter.
-> > >
-> > > Behavior change:
-> > >
-> > > The delay enabled by both "boot_delay" and "printk_delay" continues
-> > > working even in SYSTEM_RUNNING state. It must be explicitly stopped
-> > > by setting printk_delay=0 via sysctl.
-> > >
-> > > The delay is skipped when the message is suppressed in all system
-> > > states. It used to skipped only for the boot_delay.
-> > >
-> > > Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
+> >   + Benedikt would prefer to add the synchronous mode before
+> >     moving the delay from the printk() caller to the console emit
+> >     code path.
 > >
-> > Looks good to me:
+> >   + The delay in the printk() caller code path did not guarantee
+> >     the output but it increased the chance to see it.
 > >
-> > Reviewed-by: Petr Mladek <pmladek@suse.com>
+> >   + The synchronous mode will be even more reliable than the delay
+> >     in printk() caller path.
 > >
-> > Note that Sashiko AI warns about possible problems with negative
-> > printk_delay values, see
-> > https://sashiko.dev/#/patchset/20260630-deprecate_boot_delay-v2-0-f9883d36aa4b%40thegoodpenguin.co.uk
+> > Please, let me know if I did not get it right,
 > >
-> > But they should be handled in both the early parameter
-> > and sysctl interface by the "10 * 1000" and "&ten_thousand"
-> > limits.
-> 
-> Yes, that was my also view.
-> 
-> 
+> > John, did you have any plan how to add the synchronous mode, please?
+> > Does it look complicated?
 > >
-> > The only potential problem might be a warning about possible
-> > "sign" mismatch from the compiler. But I do not see any
-> > even with make W=2.
-> 
-> I suspect this will come up everytime a change is made in this area,
-> or perhaps some W=2 errors will pop up via kernelci or similar. I
-> propose updating the patch as follows:
-> 
+> > I guess that we would somehow need to "mis-use" the emergency
+> > priority and force it everywhere by some global system setting.
+>
+> The synchronous mode would rely on the driver being nbcon. I envision
+> something like this:
+
+Is it possible to apply synchronous mode for both nbcon and legacy
+consoles? For the debugging case Benedikt suggested (is this the main
+use case for this feature?), it would be helpful if a developer could
+indicate a preference for synchronous mode without first determining
+the console type. Though I'm not sure what means you propose to
+indicate such a preference.
+
+
+>
+> ---- BEGIN SYNC IDEA ----
 > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> index 5278d9cb19e4..fbb67f10c21e 100644
+> index 2fe9a963c823a..beb5bb3c037b5 100644
 > --- a/kernel/printk/printk.c
 > +++ b/kernel/printk/printk.c
-> @@ -1338,10 +1338,13 @@ static inline void early_boot_delay_msec(void)
-> 
->  static int __init printk_delay_setup(char *str)
+> @@ -2456,6 +2456,8 @@ asmlinkage int vprintk_emit(int facility, int level,
+>
+>         if (ft.nbcon_atomic)
+>                 nbcon_atomic_flush_pending();
+> +       else if (have_nbcon_console_sync)
+> +               nbcon_atomic_flush_sync_pending();
+>
+>         if (ft.nbcon_offload)
+>                 nbcon_kthreads_wake();
+
+My interest in misusing (not proposing that as a solution) the
+emergency mode, is that the flush mode is nicely abstracted by
+printk_get_console_flush_type. Depending on how you trigger the sync
+mode, could printk_get_console_flush_type be expanded to look at a
+flag and return ft.legacy_direct, ft.legacy_offload or
+ft.nbcon_atomic_sync ? I.e. if a sync flag isn't set then
+printk_get_console_flush_type returns based on NBCON_PRIO_type but if
+it is, then it shortcuts to ft.legacy_direct, ft.legacy_offload or
+ft.nbcon_atomic_sync?
+
+I'm not familiar with this area of printk, so please forgive any
+obvious issues with this. But as someone that happily uses printk to
+debug the kernel, it would be nice to have an easy way to do this
+without the friction of figuring out what console I have.
+
+
+> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+> index 4b03b019cd5ee..8f8f29f757614 100644
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1200,7 +1200,7 @@ static bool nbcon_kthread_should_wakeup(struct console *con, struct nbcon_contex
+>         cookie = console_srcu_read_lock();
+>
+>         flags = console_srcu_read_flags(con);
+> -       if (console_is_usable(con, flags, false)) {
+> +       if (!(flags & CON_SYNC) &&  console_is_usable(con, flags, false)) {
+>                 /* Bring the sequence in @ctxt up to date */
+>                 ctxt->seq = nbcon_seq_read(con);
+>
+> @@ -1654,7 +1654,7 @@ static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>   *                                     write_atomic() callback
+>   * @stop_seq:                  Flush up until this record
+>   */
+> -static void __nbcon_atomic_flush_pending(u64 stop_seq)
+> +static void __nbcon_atomic_flush_pending(u64 stop_seq, bool sync_only)
 >  {
-> -       get_option(&str, &printk_delay_msec);
-> -       if (printk_delay_msec > 10 * 1000)
-> -               printk_delay_msec = 0;
-> +       int printk_delay_val = 0;
-> 
-> +       get_option(&str, &printk_delay_val);
-> +       if (printk_delay_val < 0 || printk_delay_val > 10 * 1000)
-> +               return 0;
+>         struct console *con;
+>         int cookie;
+> @@ -1666,6 +1666,9 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
+>                 if (!(flags & CON_NBCON))
+>                         continue;
+>
+> +               if (sync_only && !(flags & CON_SYNC))
+> +                       continue;
 > +
-> +       printk_delay_msec = (unsigned int)printk_delay_val;
->         printk_delay_calculate();
-> 
->         return 0;
-> diff --git a/kernel/printk/sysctl.c b/kernel/printk/sysctl.c
-> index f15732e93c2e..f256fc05faaf 100644
-> --- a/kernel/printk/sysctl.c
-> +++ b/kernel/printk/sysctl.c
-> @@ -46,7 +46,7 @@ static const struct ctl_table printk_sysctls[] = {
->                 .data           = &printk_delay_msec,
->                 .maxlen         = sizeof(int),
+>                 if (!console_is_usable(con, flags, true))
+>                         continue;
+>
+> @@ -1688,7 +1691,12 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
+>   */
+>  void nbcon_atomic_flush_pending(void)
+>  {
+> -       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
+> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), false);
+> +}
+> +
+> +void nbcon_atomic_flush_sync_pending(void)
+> +{
+> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), true);
+>  }
+>
+>  /**
+> @@ -1701,7 +1709,7 @@ void nbcon_atomic_flush_pending(void)
+>  void nbcon_atomic_flush_unsafe(void)
+>  {
+>         panic_nbcon_allow_unsafe_takeover = true;
+> -       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
+> +       __nbcon_atomic_flush_pending(prb_next_reserve_seq(prb), false);
+>         panic_nbcon_allow_unsafe_takeover = false;
+>  }
+>
+> ---- END SYNC IDEA ----
+>
+> BTW: The sync mode is the final piece so that PeterZ can start using
+> mainline code for debugging by serial instead of his own workaround [0].
+>
+> John
 
-I would change this to sizeof(unsigned int) as well.
+Thanks,
 
->                 .mode           = 0644,
-> -               .proc_handler   = proc_dointvec_minmax,
-> +               .proc_handler   = proc_douintvec_minmax,
->                 .extra1         = SYSCTL_ZERO,
->                 .extra2         = (void *)&ten_thousand,
->         },
+Andrew Murray
 
-Otherwise, it looks good to me.
-
-> This makes the cast explict, verifies the range before casting
-
-Yup.
-
-> (I guess a range of negative values could result in a postive value
-> within the 10,000 range) and also uses the correct proc_handler.
-
-IMHO, this should not happen. I have never seen int smaller than 4
-bytes. If I count it correctly, positive numbers should be up to 32767.
-
-
-> This has the side effect of not showing the following pr_debug for the
-> lpj calculation when a delay is not set. Though loops_per_msec is only
-> used during boot, so I don't think there is any loss here.
-
-I agree that it should not harm. But please mention this in
-the commit message.
-
->         pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
->                 "HZ: %d, loops_per_msec: %llu\n",
->                 printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
-> 
-> Can I keep your Reviewed-By with these changes?
-
-Feel free to keep it. That said, please put at least the change
-of the ctl_table into a separate patch. I would rather put both new
-changes into separate file. It is never a good idea to hide
-such changes in a complex patch which mostly reshuffles an existing
-code.
-
-Best Regards,
-Petr
+>
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/log/?h=debug/experimental
 
