@@ -4,108 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77C9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E75C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=; b=gQrPDatC2dw6VgtZ9oT92A2JOv
-	EHitx6JHAgni70hQlO0HRNHx0HgA/8EjffD652ZT0Jzzk/6q/NwX56+lYNR/tJV/E4vetA85BqHKs
-	adbg+Auy7DBsTqVs2oKDm9rAeVM1+6GlPKRXZFpotx/xmnGHlIz1A+Vt9QLEriSwEZcqUe38bW0kK
-	PPJsKoIy5PXr+3m21Aaie+DOOo5EyvB9z4Br7WCvJlUEcSH7ld3tSc2QLX0PUONgKZ+mhJLC5OnkI
-	3fjXV/X4Bupavnw7qUQXxI7sO/fVvzR81/Xo27sZ7nRZWRr+VofYPPo9BOOxOa/5ZiEwaAsNgInu0
-	weN9BpYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LuOciaS8DK8jmb2CFQM4/jZaaLCATTx50eQ2Thwjxio=; b=X51uevHQ7+icVLLL+lbGqLF0DA
+	HVP4YMXQzMdrI6wiuEkvTTUzdfmsEeMX21Mr2XYuOZ2zo859NvlqOWte8ZWNx39AwASflhYmlaOn3
+	XkBPuJs1soD5DE8AFaPd5hxqSKTI37Eid/C9dat2CtUkRD71/J4zedaCnxRM3HGgrgqaT984ivjxw
+	OoMzhjH+rvLPLjrIhcY4+EgoX/QDxdo/DMfWx2ysccSmO+gwQWiPLN0vLkXZ2ZAdWK/1YpqMShNb7
+	kbmwokukqmYyOUj8t/Agiw2BB71+WDjd3qHHTHbnG/M0BoDGVq44QegP0WKdV/Xs9vBijIpsN1FuD
+	gJ3QYNZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnJk-00000002H0o-3ts1;
-	Thu, 09 Jul 2026 11:53:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1whnlH-00000002OUf-2ZJ0;
+	Thu, 09 Jul 2026 12:21:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnJk-00000002H0h-017y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Jul 2026 11:53:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=; b=q26fTAkJHuDt7Jj/y2b6u8ATfT
-	0U5HauF9k4HPMDV1FiucCCs1qmeFKWjQwRva3OwdJaSjOmyMCz8gJMJkIRRSRvULE7uOQJO+8/3H2
-	5peKyOeoNFmUvOGXRjqK0botUOrgvdktAsVrsqwzHKQx/v3lrc2JU2+GXrUYtj3kdTblrbn9jMIg4
-	iSTWKegQsHvb+dVOmftjP2ZyHmebQq3s76hgSNkZCgZnynvlPAVx7QfKBIu7NdAwFpFU7Yu0hpf5g
-	YQrVXGbEQ30AEdvvTdq7fldTSaVjbQZ7BklPWiXPLHZpwRvKQUevMSQyhQFoR60ay0wbhEU13KQbU
-	Yads5FhA==;
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whnJg-00000009AfB-1ySl
+	id 1whnlG-00000002OUR-3Shb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 11:53:22 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gwtdM40ZMzKw0Q;
-	Thu, 09 Jul 2026 13:53:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783597991;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=;
-	b=qwUaHM6Eg3Ou3Bb0vunTLAoXs61dFPHLMhhiF803+/Jk7tGXPQHdkPqRqdFwX327XNZbfY
-	AGx84tbDctqfUeDtdV7muYc5c9MTJ6/5bQe5aJSl0RJvyfnAG7zBXzAbS1WGBy/8VXozCw
-	lgwaXl1i84PU/h99cC0CnWhxCMZqZP8dXB6kYcB/65GtrGQ+qBVfnNZl19aKurE/EJAbN5
-	ZAHhFia89/apdfMAKjk3ueNTBX5ajX3OO5ybC5755NvmlBRD91slVDshtWHy8eEViT3UEG
-	GphaTDKfONhxR9prkcBdrsKt3dVXvfCQTWcpcyChtwOh0iR+ehCiV24h5OQnPg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DOOtB6P8;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <c0c8f839-d3e7-4253-9d95-85bf425c88ff@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783597989;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=;
-	b=DOOtB6P8+pOLeA4ezin/VGU3dZ/2eAbqKz0Rm/2pZxSeukm/lorAVbfc68T7EQvZan9PiD
-	8eDFhl+etBS6dr/LrnEEjo69DVUUmoEZdX6SNeqf7K8Yik2bmxPr6YxfW1L4h/x1+bUXtX
-	HDRgOmafzDfBZi7gbMAg+aF6QCjVj3cToFLLZc6/wiSkBpOdRxbSdL0ifwWbAALBQ9K8n2
-	m8WXdXok25uC1/CO2Nr9s8IKLPOE/DMZ0BW5IGjBGxFxCoa4eJAsNW6JSlYqYxCxlkKFzd
-	5/JZvXB/pBcgJB5UB4iLO4yCnSkyoBGVuoGytn9nOlj3P5EhqR9q45BejKkYIQ==
-Date: Thu, 9 Jul 2026 13:24:00 +0200
+	Thu, 09 Jul 2026 12:21:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 466046001A;
+	Thu,  9 Jul 2026 12:21:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 197831F000E9;
+	Thu,  9 Jul 2026 12:21:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783599710;
+	bh=LuOciaS8DK8jmb2CFQM4/jZaaLCATTx50eQ2Thwjxio=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ejE2Et99WozJ1ypz+xTfglTg5W4D821r3YBkSWZ69VfT/DXUVQDgsyOw2BKsE5Rus
+	 n5UQr2tQffCuQ+eTIMbnAhij7IZKyiJDuQ3EjdGG1tJVzTdwUqLrELSFHkS8pQqxsA
+	 hlEspvq+80/eU+Gj45dsw0kymVVmclO6yyDyVAdylITZ6ebavOl8agRveBg1in94XG
+	 Us/hNWSBeZUmgejcm52jNyPqjdI2sacuRoPucQqiAAeFH820A8aiLPNxMeIvRI0m57
+	 TumZ6eFD9Ldh/KW5/ZRTF6fxvikmcBe9pvzdWBw7P4MW1GRSGQcmLSCYYjKPEHwWym
+	 qupaWM2bLQdzQ==
+Date: Thu, 9 Jul 2026 13:21:43 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v11 00/29] KVM: arm64: Implement support for SME
+Message-ID: <ac8c0aa6-d84d-4fd4-9059-ea79adc337a1@sirena.org.uk>
+References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 6/6] arm64: dts: renesas: r8a78000: Add MDLC nodes
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1783505142.git.geert+renesas@glider.be>
- <dca2c4940ba38b897f04b6fb67591de9835900e1.1783505142.git.geert+renesas@glider.be>
- <59725f93-5269-4b0e-8633-48821219877f@mailbox.org>
- <CAMuHMdXCooODm3YuE1JjZJAc2BeQuD==kWbA+ZzpXRA3fqa0Vg@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdXCooODm3YuE1JjZJAc2BeQuD==kWbA+ZzpXRA3fqa0Vg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 3um84g88ek55xnbu4c56jy8ahwccrd9w
-X-MBO-RS-ID: 50f867c705c83dacbe1
-X-Rspamd-Queue-Id: 4gwtdM40ZMzKw0Q
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_125320_745388_E0E51EDA 
-X-CRM114-Status: GOOD (  10.47  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lvkuTVR/BvRRX0hU"
+Content-Disposition: inline
+In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
+X-Cookie: MS-DOS must die!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,37 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/9/26 12:24 PM, Geert Uytterhoeven wrote:
 
-Hello Geert,
+--lvkuTVR/BvRRX0hU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->>> +             mdlc_ddr7: system-controller@e8380000 {
->>> +                     compatible = "renesas,r8a78000-mdlc";
->>> +                     reg = <0 0xe8380000 0 0x1000>;
->>> +                     #power-domain-cells = <2>;
->>> +                     #reset-cells = <1>;
->>> +                     bootph-all;
->>> +             };
->>> +
->>> +             mdlc_hscn: system-controller@c9c90000 {
->>> +                     compatible = "renesas,r8a78000-mdlc";
->>> +                     reg = <0 0xc9c90000 0 0x1000>;
->>> +                     #power-domain-cells = <2>;
->>> +                     #reset-cells = <1>;
->>> +                     bootph-all;
->>> +             };
->>> +
->>> +             mdlc_rt: system-controller@19440000 {
->>
->> Please keep the list sorted (0x19440000 should be before 0xc9c90000).
-> 
-> These are sorted by instance (Module Number), as per Table 18.1
-> ("Target Module hierarchy of Module Power Gating and Module Standby")
-> in the documentation.  This order is indeed a bit odd, as it differs
-> from both alphabetical label order (unlike e.g. hscifN), and numerical
-> unit address order...
-> 
-> Any guidance?
-Do you think those MDLC instances might be on different sub-busses and 
-we might need to model those busses using simple-bus in DT ?
+On Thu, Jul 09, 2026 at 01:51:37AM +0100, Mark Brown wrote:
+> [ Note: I've spoken with both Mark Rutland and James Morse both of whom
+>   might potentially have some overlapping changes, they've both agreed
+>   that they'll deal with any rebasing if it's a question of this getting
+>   in or something else. ]
+
+Main testing for this was, in addition to a lot of not particularly
+relevant coverage, running the KVM and arm64 selftests and KVM unit
+tests.  I also ran the arm64 selftests (particularly fp-stress) in
+guests while running fp-stress in continuous mode on the host.  Testing
+was done for each of nVHE, VHE, protected mode and nested mode.
+
+--lvkuTVR/BvRRX0hU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpPklYACgkQJNaLcl1U
+h9B0qAf+LBdXTQ7AYWPPO2VCenkHI7Mk3Ar2J3NEDvdagbuxAigD9tRaRejVQbv6
+X+hE5pP2Ij0vPRnhodiUla8xiKplqUKX9qF8UKOi3K1USJMLnOC4FKyukI4seelo
+/OMB3xjuTCcOhkffh0zUSv+6ssNVUQa9F0eGoXaDCBB0Z+Y5ut+96O3TB6o9CY2P
+PYeZeycw0bLZvYzuOYXwRej52aiR/J4asZV5i8OOWTTEMEJIXB2PaVWTBnhMiEDR
+VEGyfz/uIdg1RJv5lcChLnlP38Ai0leGL9Gh+bSo672GA8KEUdycqNrTpQuCV2j8
+MSqXDTT5NYsRGwpA29E9JKTBqQ+46w==
+=Cpl8
+-----END PGP SIGNATURE-----
+
+--lvkuTVR/BvRRX0hU--
 
