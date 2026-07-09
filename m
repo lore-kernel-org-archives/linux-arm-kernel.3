@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A23C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7B0C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 11:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3h/womV9Fbhg3p/L/491wrRWOveYAatastwr60h0rPA=; b=Z9JHYudxYOLZG1
-	3Y93MnV7YZXcXbRYz37AtpoztDS8i6iPnUWZkO9dlXcJrwhCEU/y7CqFpDXNZdjyhHySiPE9VVIwt
-	KJydvtDXvj4STmjMF3kRX0homEEt3u++Ipiynu+/xX2D7jRS9JRcY2ksP8aPa7TpNAuEXF9Fm1tDh
-	Mu+MvQWUIZNTlI3KuRdXNOy+9OC/rvXnKKbcpzMooXgyueswcb8J35MD/3wGcNM0hs9YiAs50q9wu
-	eVUYGDBWwbJo7yNn3UZfqFaVCiyhjLL2ya5NdpkGflVYnRGsAERQyIM0l1nTdnwyfbFF7AOYGr6dS
-	g/8FF7WqSGH5/7IACVpA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zk86msNEN/gnWpX9C3rxNSV4hOokUpTWZRuN8F96/Nc=; b=Tdtn8y6uIUO8bZ+KuMyOMXa2jg
+	+CpDoWFjtpwCfB7ImT64WJXOqf4MlTNyfn+jhs8DuclrWykVqCXw+X4C2vTZxx5DaGpdIeFOrm5XC
+	+XucSQaGMUFtDA99h1VIVlhXwbCJlodtUx0KqeBUZUq2vEfaG7yfgbh8BdmOBze3J5hPIdZScs9GD
+	4sNmv0l/A7OsHUYz6cnAbMJpjDhnXlt/BzeXeaV/CVbGtV4OmmRYPgh8i4A6y52A12aXuV4OYBz/g
+	dp2Y2xAFR0qe/VdDykMQDM4f/woCFJESB0i/u16UKE8WPyJl+cP+khEQpxmxNUESZnGfk/Imo0Hh0
+	yL5dDatw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmzp-00000002Bv0-0sIE;
-	Thu, 09 Jul 2026 11:32:49 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1whmzr-00000002BzG-3Tgh;
+	Thu, 09 Jul 2026 11:32:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whmzi-00000002Bjx-2hTz;
-	Thu, 09 Jul 2026 11:32:45 +0000
+	id 1whmzo-00000002Bsd-3FHl;
+	Thu, 09 Jul 2026 11:32:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=zk86msNEN/gnWpX9C3rxNSV4hOokUpTWZRuN8F96/Nc=; b=RvklxzABcTebWV+rW/sabww0jk
+	2mNvBlwySshumIDeBCqyfti7pJzkgCT2YSmJz3h8KracR/gJJcdQW5ZDjiyk1VZJGx86Z2tyITDqv
+	n9NM/Nf9rzpiyNb7rI059kAxc1CxEOpGm1+KEvoQpA9bWy8KdS55J/pD/HH4x/xooBqdAUDUGeO1d
+	khS37B1ufC0cCm9hWQiaQY3mQ8rA29mxchY6LGmLX0Ko5NKTulzIfAAm3wItwxAKkntQINtiM0ZJf
+	GekSZlHP1sNrOuGW2TnSsw/H2wHjKPlUxsPyzfl37Dp0sdCMSw3lJOfjNKm7c1Kfu2+6rwl/4DGM3
+	FglBecMg==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1whmzk-000000098xW-1l9A;
+	Thu, 09 Jul 2026 11:32:46 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783596759;
+	s=2020; t=1783596760;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3h/womV9Fbhg3p/L/491wrRWOveYAatastwr60h0rPA=;
-	b=giBxjz3T0P2S6MQBaE7q0V1Y+P8GtU/83OH5yvA/IJYRF6rEaZNH72uhWRmoHYQPBvSeaM
-	aYnR4r1jdyxlKCtHofIYIu21ZYJGKVw0zu+eZEOXrVSQ4jqcThtvVq/2UTbCrBN/YEV7Tq
-	5tFNpsN0J1iSkT07jP/gg2PBJPINWCi3E3tnw+Fa9V9beR+M/vw5jMh1JmIJ1HAhyEjrfH
-	hpRUEFeMrvg4MVEEMmBLkDNRDEghr9gcOcOvOWEXIrt33Fhbgz7NP8tocFyKQBWNFVbmLa
-	pbX1QoRmmZ62rssps6gM9ElrjWLJL8LCmFPjAHg1v8EZF9vB/RLuN7DuE5bxiA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zk86msNEN/gnWpX9C3rxNSV4hOokUpTWZRuN8F96/Nc=;
+	b=3Tlr8lwjEQMKUWzx2INzXGyqzMn7U7cffmZUVyqa4EabPGgOlth6pNXkh69SdZD9IyTuva
+	P6LcVPAyvPH3BR3XWD80JId7SB7vxgjFqLOoFYZ96eBUfQJ+7qbelhC2Unbdz/e9/LRmRS
+	h3tZILA4lKwjjPrtBBwTmXGFxOb/6mO5Ofba3hxsKasNgfNb4LCABYp2ii3FDuD2zF/BY0
+	8L8WSMyub4zU02TewatPe06w2I5TmQ7U4+JVhko2v2LVy6s7TOTsc7gkdIYwZnPzIMcrB7
+	77BbGmtoZSIrFl5xdnSY3IvvMH6O5q2zThMK3fn7WxLCpVpOu8Xa1fJtP2NnVA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783596759;
+	s=2020e; t=1783596760;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3h/womV9Fbhg3p/L/491wrRWOveYAatastwr60h0rPA=;
-	b=dhUA7ErG68WNBRzhRd+NtTZFYpT3et+sDudNK/W2f5/GDKNvhVYhhGh6UArQIQUKejGRLk
-	3THQK4lIsGB1LlCg==
-Subject: [PATCH 0/7] vDSO: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
- with IS_ENABLED()
-Date: Thu, 09 Jul 2026 13:32:36 +0200
-Message-Id: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zk86msNEN/gnWpX9C3rxNSV4hOokUpTWZRuN8F96/Nc=;
+	b=1odo7jSNfz5NW/HvHzWtgVuuOaD6TIOwysekv2u0iL+FsKAjM1a56kySZs9tXkR5a3FEY/
+	9DyNKWP5h645jWDg==
+Date: Thu, 09 Jul 2026 13:32:38 +0200
+Subject: [PATCH 2/7] vDSO: Make clockmode constants available without
+ CONFIG_GENERIC_GETTIMEOFDAY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAxA0atI1gZqUVGvMrioaarBGTs0UATx7
- haXb/H/BcpJWGGqLkicRSUeBU1dAW3uWBnFF4M1tje96TB7jegSbUjfSPsvelZcArkwOktDO0B
- J/4mDnO/2M9/3Ayijr3NmAAAA
-X-Change-ID: 20260605-vdso-arch-clockmodes-bfcaf9a2c848
+Message-Id: <20260709-vdso-arch-clockmodes-v1-2-3fd780bbf851@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+In-Reply-To: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
 To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
  Thomas Gleixner <tglx@kernel.org>, 
  Vincenzo Frascino <vincenzo.frascino@arm.com>, 
@@ -72,17 +86,16 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  loongarch@lists.linux.dev, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783596759; l=1590;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783596759; l=1850;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=bd62m/ysnHtkfVSUaGn+V8oLxmFUlxg59T9FJQBkVtY=;
- b=v0PUn23gIRlT3wMLw6uvxNhG8MDsFLklGKvI5FMtQ09FTJRHMHBj0/elS9bs0Z3CEgLqrSM8/
- LBkRruGlMC/DM32fLjupE7GsD6pdIWQ+TzzZgMOdIZkoEhk+dyQS3TE
+ bh=Xax8qgR+SGGeOkJrm9ZK8P3x7lKX/ptqrxvCpMAlK6g=;
+ b=46BCx+9PphfTRayVEAxbIQeVvMzW/0LWqNLBEcXQOqP9X9mObQV+e21QCB2KfVXaitBboNNYq
+ iSHkBBI2pMPDE6SOc1YgmV5vYEtwJ8WyMhnDMk7paHoHTHPKge8t1Pz
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_043242_837735_C56B67D4 
-X-CRM114-Status: UNSURE (   4.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_123244_702744_CF8041C5 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide dummy declarations of the VDSO_CLOCKMODE_* constants and use
-those to replace some ugly ifdeffery with cleaner IS_ENABLED() checks.
+Some code, for example clocksource drivers, may want to use the vDSO
+clockmode constants even when CONFIG_GENERIC_GETTIMEOFDAY=n.
+But the symbols are completely hidden in that case, making ugly
+ifdeffery necessary.
+
+Provide unlinkable dummy definitions. These can be used with
+IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY).
+
+As not all architectures provide asm/vdso/clocksource.h,
+provide an empty stub in asm-generic for it.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Thomas Weißschuh (7):
-      kbuild: support generated asm-headers in subdirectories
-      vDSO: Make clockmode constants available without CONFIG_GENERIC_GETTIMEOFDAY
-      MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
-      clocksource/drivers/mips-gic-timer: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
-      clocksource/drivers/arm_arch_timer: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
-      clocksource/drivers/timer-riscv: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
-      LoongArch: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
+ include/asm-generic/Kbuild             | 1 +
+ include/asm-generic/vdso/clocksource.h | 0
+ include/vdso/clocksource.h             | 7 +++++--
+ 3 files changed, 6 insertions(+), 2 deletions(-)
 
- arch/loongarch/kernel/time.c           |  5 ++---
- arch/mips/kernel/csrc-r4k.c            |  4 +---
- drivers/clocksource/arm_arch_timer.c   |  7 ++-----
- drivers/clocksource/mips-gic-timer.c   |  5 ++---
- drivers/clocksource/timer-riscv.c      |  7 ++-----
- include/asm-generic/Kbuild             |  1 +
- include/asm-generic/vdso/clocksource.h |  0
- include/vdso/clocksource.h             |  7 +++++--
- scripts/Makefile.asm-headers           | 11 +++++------
- 9 files changed, 20 insertions(+), 27 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260605-vdso-arch-clockmodes-bfcaf9a2c848
+diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+index 15df9dcb42a5..2bc00c67dc54 100644
+--- a/include/asm-generic/Kbuild
++++ b/include/asm-generic/Kbuild
+@@ -62,6 +62,7 @@ mandatory-y += topology.h
+ mandatory-y += trace_clock.h
+ mandatory-y += uaccess.h
+ mandatory-y += unwind_user.h
++mandatory-y += vdso/clocksource.h
+ mandatory-y += vermagic.h
+ mandatory-y += vga.h
+ mandatory-y += video.h
+diff --git a/include/asm-generic/vdso/clocksource.h b/include/asm-generic/vdso/clocksource.h
+new file mode 100644
+index 000000000000..e69de29bb2d1
+diff --git a/include/vdso/clocksource.h b/include/vdso/clocksource.h
+index c682e7c60273..63ee8c4ea15c 100644
+--- a/include/vdso/clocksource.h
++++ b/include/vdso/clocksource.h
+@@ -4,9 +4,12 @@
+ 
+ #include <vdso/limits.h>
+ 
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ #include <asm/vdso/clocksource.h>
+-#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
++
++#if !IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY) && defined(VDSO_ARCH_CLOCKMODES)
++/* Unlinkable dummy stubs */
++extern int VDSO_ARCH_CLOCKMODES;
++#endif
+ 
+ enum vdso_clock_mode {
+ 	VDSO_CLOCKMODE_NONE,
 
-Best regards,
---  
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+-- 
+2.55.0
 
 
