@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23300C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926E6C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3j1/5iqjr/RGywJZu38YF3LoGUD7Xwgn18+HpJbhRhg=; b=DOpErySBxsO1xLqblVWzCPxQdL
-	4QBb5J4LXMxlMb5NflqD5r4A1TDCMmsbUxDS7LVVhQBa02Gkmc0KtXnXxszGXKoQMNhm3UZvcOlgM
-	QINslyK9AOO3yatOcxHDzGbUlA0qW5SpyHpOg1YpOUIQ74kVKH7TmzLLYLsItnqgV3SiRq8iLtJgv
-	OIQO2KUVJYiJ/tbSoS8iykqyPJpl4Xehfbso9YNEpWhoEj6J3zxK8Qw87pU/aQflkTMsb37xPZYHY
-	b73OjdZQuavq17EUKZz876wIrxJLLL147WBT2Z++GNEn+7WUe+MnENNTuNz3YlQ8y51GSOFD5A9g5
-	8h3xjYsw==;
+	bh=eUa4DCeBsT3foJjCJG2XE9YpJSrIz+JoZRgA3Lr+fis=; b=Ihmrlj9uYX7XEI4Uj2sJbuAtgF
+	/Y12cLi9HntXtVBvJMY8iDnrkxX6nPt0iV/Y8n6dwN8oXZ7ENKIazWr1x19GHspW4DmiHUzLf/tk0
+	kBH44Q4NRRHT+tsecSPcacY8izLYioy/f8iqTX53VEm4S5gHCdeTFaIkcuc0MfzC06Er616y/kIg2
+	HlKiqpQGmpdeCFZxWP8YQGz83bukLMgI0u/enOyW7TMiNdcr9ioGuRTKubDAiOp1vASj/bVaBHGnV
+	phMCSvCAFAnQS6epuU9/A9SWWK7YDSzzpm8FI44Ys/yOToUuOYMv81OOajWXhH3ihVzpSp/EdvRTo
+	JhL+2JjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpNk-00000002htC-49YD;
-	Thu, 09 Jul 2026 14:05:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpNi-00000002hsO-0u6s;
-	Thu, 09 Jul 2026 14:05:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783605936;
-	bh=22XW+V5XF0iLnR9+YP/enVD7BjheUREeDzPkDNifOPI=;
+	id 1whpP9-00000002iBV-1aAh;
+	Thu, 09 Jul 2026 14:07:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whpP6-00000002iA8-1ZfD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 14:07:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99DCC3592;
+	Thu,  9 Jul 2026 07:06:54 -0700 (PDT)
+Received: from [10.164.19.51] (unknown [10.164.19.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48AC13F66F;
+	Thu,  9 Jul 2026 07:06:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783606018; bh=pViZnXqb0KK79+fc1RT7BtJbAnFIoRae4s0WiebrD2M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E2gh5g0kBLcL0tlvGP5nqHnNOU9SxBdqIErJCJ08vhsQe96SukRtXPz0bsZ31RePJ
-	 heP8e84zIwb2JQlb79rVImPzBDdiu6WMid3f1JVswovoT0UVHBJsLz5cKuu2mPR3J8
-	 vdQ//iJB/Ewhm7tFUxQTIUHJt1y8BCctSOj+xi6+swIyxdqNOj5iVKDsfE0E7WA4ih
-	 6xXs5SJkWULzDLLjdRtyMDq1reTPelSSTxCaqElhEmaT0j6DOLIfH1caWtr6/yBa65
-	 cqEAblwdhI6KY9XPbbO+UhVkiQTtltwIxsSxaX9BOxMkILfdmYaOolzgtpgKutMal6
-	 R0XunXKcYLiSQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 84B4D17E01AC;
-	Thu, 09 Jul 2026 16:05:35 +0200 (CEST)
-Message-ID: <39ba7e37-bdd7-41ab-b72d-fed0bdbfc3b6@collabora.com>
-Date: Thu, 9 Jul 2026 16:05:35 +0200
+	b=uTLDDJyTau3bLABjLLUAsXZO0NoEZRNeb++v4NI9cdsz68VOrDAXfXOCvz0JxeJP5
+	 TdKkVpVoyWtqcO22Fa0UYGdig7M0ZBrMq8ZkE9GEj1QP9QqyUPY2QkekeaLbjGN1dc
+	 xmIxx9Au4olfGye1Kv3FMM04Q01FEXdKVODZmmEc=
+Message-ID: <9ec6f07f-6019-493b-9781-5a743b820062@arm.com>
+Date: Thu, 9 Jul 2026 19:36:52 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/18] dt-bindings: clock: mediatek: Add MT8189 clocks
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Chun-Jie Chen <chun-jie.chen@mediatek.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Edward-JW Yang <edward-jw.yang@mediatek.com>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>
-References: <20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com>
- <20260709-mt8189-clocks-system-base-v2-8-2926da3db6cf@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is
+ cacheable
+To: Marc Zyngier <maz@kernel.org>
+Cc: Bradley Morgan <include@grrlz.net>, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260701192428.17430-1-include@grrlz.net>
+ <a3b2423e-d8bc-4713-90ef-5bfac7079834@arm.com> <87echh6xuh.wl-maz@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20260709-mt8189-clocks-system-base-v2-8-2926da3db6cf@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <87echh6xuh.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_070538_406065_32670E46 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_070704_461165_37EA882C 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/9/26 15:42, Louis-Alexis Eyraud wrote:
-> Add dt schema and IDs for the clocks of MediaTek MT8189 SoC.
-> The MT8189 clock IP provide clock control for main system
-> (apmixedsys, topcksys and vlpcksys) and subsys (eg. peri, scp,
-> ufs...).
+
+
+On 06/07/26 12:57 am, Marc Zyngier wrote:
+> On Sun, 05 Jul 2026 15:08:58 +0100,
+> Dev Jain <dev.jain@arm.com> wrote:
+>>
+>>
+>>
+>> On 02/07/26 12:54 am, Bradley Morgan wrote:
+>>> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+>>> uses that list directly, so it lost the PTE attribute check done by the
+>>> generic stage 2 walker.
+>>>
+>>> Record whether a mapping is cacheable and skip cache maintenance for
+>>> mappings that are not cacheable.
+>>>
+>>> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+>>
+>> Is Fixes tag required? If I am reading correctly, Arm ARM says this:
+>>
+>> "For VA-based cache maintenance instructions, the instruction operates on the
+>> caches regardless of the memory type and cacheability attributes marked for
+>> the memory address in the VMSA translation table entries. This means that
+>> the effects of the cache maintenance instructions can apply regardless of:
+>>   Whether the address accessed:
+>>     Is Normal memory or Device memory.
+>>     Has the Cacheable attribute or the Non-cacheable attribute."
+>>
+>> So nothing goes wrong if we do dcache clean for non-cacheable
+>> memory.
 > 
-> Also, add compatible for frequency hopping and spread spectrum clock
-> functionality and reset controller header file for MT8189 UFS reset
-> controller support.
+> Two things:
 > 
-> Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-
-Both the commit description and title are misleading, as in, you're not adding
-MT8189 clocks, but *both* clocks *and* resets.
-
-Fix it please.
-
-After which:
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-> ---
->   .../bindings/clock/mediatek,mt8186-clock.yaml      |  15 +
->   .../bindings/clock/mediatek,mt8186-fhctl.yaml      |   1 +
->   .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |   5 +
->   include/dt-bindings/clock/mediatek,mt8189-clk.h    | 433 +++++++++++++++++++++
->   include/dt-bindings/reset/mediatek,mt8189-resets.h |  17 +
->   5 files changed, 471 insertions(+)
+> - having to perform CMOs for something that is not *expected* to be
+>   cacheable is both pointless and a contradiction of the intent
 > 
+> - what you quote is about the nature of the *mapping*, and not the
+>   memory that is being mapped. Cleaning a dirty cache line on an
+>   unsuspecting MMIO endpoint is never going to end nicely. Just have a
+>   try.
+> 
+> My reading of all this is that a fix indeed is required, and therefore
+> a Fixes tag *must* be present.
 
+Thanks for explaining.
+
+
+> 
+> 	M.
+> 
 
 
