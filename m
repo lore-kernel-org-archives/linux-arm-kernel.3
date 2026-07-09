@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50395C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B643C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cTOPP+o88VWkb8bpp8Y96c4/97TqS6hM51V5JviFgiY=; b=4ncQyPFvqcDVlM7HCGZoEPSjAj
-	K/DdO3klHnpbQ8I+XCAFlkk2EpKPKadu/bU6eOtWEYdT+nM7hntJ5FZD0P/LP7xoAbXQniTVXNcc1
-	OGVT8wFbsJPaiBaNsHfRtucczeurHL7e5GRIla4bX6sdXdj2H5KeI6e1UPo+hxefQ0bMDjUoFDHq0
-	8Zjp36oW1A9p02kT6lM9c5khKHAya1UYN2nLFlUe1L0RWI8lgAfXfuolNvRZDR5lonoM+jVGAGp5r
-	B4MvHWgBj0DMr8eZZR66smpdJ/kIgPjJWDvbqqNoiZp9vgwiwuCJ5tsAq6uQci4bthNi1dm83X/gA
-	ZRnO+Obg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=; b=16q6TluoQsm4/S6UwlvRKTNWtP
+	McClwJgb0aXPtndafps7z5B7cuk8RvjfSL5/AUqfkn+JHze6f+ODVuwO+Yd0qfjcK58aZWesSn7zE
+	WHRwOLYyyWFlj1w6zvyrXoh6uDP3uY9JXTrJOzc4cYazvpO7NOZdR54mrh0P/Min/y1clET2j6kZ7
+	nxvKVK10k52wBaE8WBtiyd9Vso+0URf7atq/5ABYXTziay98cvsVM/R1D4/CzTm8rX7TrryI2Z78M
+	8BhBfLxvfTjfvEAG/hUv9R5lnEnW35KkJp2q6SIRDjeMpl3L3k1xcPYGVl3B6cKl/lksGpiLeDjxu
+	zPtcNFYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjyt-00000001Oup-47qz;
-	Thu, 09 Jul 2026 08:19:39 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1whk3I-00000001PKE-2W3N;
+	Thu, 09 Jul 2026 08:24:12 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjyq-00000001Otb-0sK7
+	id 1whk3F-00000001PJO-2VLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:19:38 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8486672f03cso25792b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:19:35 -0700 (PDT)
+	Thu, 09 Jul 2026 08:24:10 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-667b76205f1so431072d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:24:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783585448; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HOmrK0j1aEQDCLcalpvLsRSwxOlHcs56PDQd+Q+WCeq4KEW00Beoxhy+AJJxM1XpOz
+         00bo/TjAPoeJ/9Y92j08dsjtwm9vaM9NdRY3pxQtlIA01KI9Ce3shGHBp4PJU4l6Atcn
+         RXYc1aM1fVS3oEt6nL1IvQEhVsdvpxUcZV7aCbo1rmo4/H3sKKXssTeef7lpVpyuq0KI
+         u1qwB3o7kbbDVAqFP3VM7xamIFVEO3S8rhjYT0TOZk1k3xQ4g4om6tH57yb67rXOLC2l
+         G6Xc5ZKntQBbNhld6VgQl0HCRUNp38i3gF/b/MXA+VJV4s4K8mismK9hixU8cCT1knDM
+         NC/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
+        fh=vbPOY4V522v/z/gpV584UQxYFMzYQTHWYwhBeAVvk7I=;
+        b=ZIJfXEfBBX5nI3aH5sInLRq+5uW1sbo6MoaLVowLMAeJxQiHXhcjut6KULE8u0GaZL
+         B3hxv2pnr7nQEH0PsaGdH9stTYuNlZZA8B4xLeA8G5AH5EhqU9l3wawlcVJwh6sGodC3
+         auswqhgtFEZu0eEXJiZqOPrVFLWiTljGDjEkzSW8Bu2qCv9qU86+srNQKWbBzJ+7KhGs
+         +BzqGHNS1GNiG8ZJL4Xd1un/11QjT4aaHYEIwLTVPYNfYlG+jsOg2UTetff24/sQNJEZ
+         /KZf/SWrCIUchHQaWlm4XQOrxm32SKqISMoSQkqLXsx+bHHGfE27Api7NAv0JVzHAo3v
+         4mOQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783585175; x=1784189975; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cTOPP+o88VWkb8bpp8Y96c4/97TqS6hM51V5JviFgiY=;
-        b=YJ43AJG7sziSGRQEXnU8n0FapmVKdSEwq6vKU63BwjZlDFmBRV6bDE8LOY0uOPQy2V
-         FgAgwWmQKRX5QvlgTtQxd/xFBnZUiLlp3/osrQJWV591BhdKgFLyj713vTmdFUrzepJp
-         rhjNx3URZM1hp/CLNzKDY6A0j4Jy5E3cs6h8M=
+        d=chromium.org; s=google; t=1783585448; x=1784190248; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
+        b=RTS6ZzcNr/uvhWP8Nsu8NhC4kmfEC3XkAOYFZRyrRpE3zTIVM2lzmDXhxe097nQ7rU
+         xUVS8LTOgHcx84Txp32gP5POIGmWgnr2leNudlVIn1Kb7sE/4pIUjRyLnnwm6/eRatMU
+         ScQlo/2B52MPZhmcBtoW2IHPuMYYilOuSmi2c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783585175; x=1784189975;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cTOPP+o88VWkb8bpp8Y96c4/97TqS6hM51V5JviFgiY=;
-        b=VEKuWiBkA1CqXpWnRXzhsigYRn7bmigmbXqLmxxTPt8KqnSdLkBvTb9k51hbT201tE
-         h3UXer5sc3InNNva2csXMtYnWZzvgtkyLaa/rYQqe0csuUQ3MdzOT4tVXw+DsQIxjrfd
-         dQbkykY3tgo3F8tOyK3ks80Rsg6+xyfkSTDAsu6DbPjGdVDiwUdcM8d7ENX6QgtHM69N
-         HR2EeUh1anjoKZKGGLdxDY4TWNz8yV7talDXdOchslwf24BcraNLw8BV1tvOF4MF819b
-         OrACDK5KKmUlfACLPN1LEsXsFgBTH3U/xU2dpclMY4DWnuUyCOd0fh8cnABrwU7uV7TK
-         adxw==
-X-Forwarded-Encrypted: i=1; AHgh+RrcOjzCGtmPN6TKrB6ERvsoFJjePweEvh14kM+w0kZwG2YLaQ7i6Bmse5ZYPmV2rxSMRbpdlaY7KLfmyZfOoSKN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSyQn8/xeBok6p9iyLQmHC8iF00Ug6iJW/kQJBLx3vSojBCnUD
-	5WfYlFVdzwLYr8Xz3RRC3FPMjeY3ffamz4sb4p+do4vjqKSbaO4TumAHrIyNpZo/rg==
-X-Gm-Gg: AfdE7cn0J6OPHQnFEzcd1BPpKj0mopxaLYjGegAp9XItm89lRGcZWTV7owHvsa4q174
-	OC3Dy1wd7mMMM1Wyh9GSP60LQIblxIKb51CWSg+5WN9fZE3Acmi6/SzQ6BPKhq6ZzaqAWq8f2OO
-	FOfohMkpia6sCxNleeWzstH6kK1nz5Mbx8iPzADWy5YiVmoTEIlqf0mpF6nfsRWd11cZ3jyLrmt
-	MFzhJK8MUKTL9vhyRyGqQaJum0UCFpR5ltB84g6HIXZ1X58QzrbrboocEApYpsTrU2qFzxr0hq9
-	d92JWjdenHWihfYJPLownoQPCEjdvrrlrIC5v8hAD6VLhsEbgWWi9GBVaqZTfAwmu8ExpghQlN+
-	KL3pQmYEEb+K8A7tFacFhJsEpXYsPaRFkelCls89u1OKPZ39Yo3TR2SjxW51SuaYeqftjq+TYwu
-	87uixouhsfWDdy+X5qfQ4KmhtBG3dhPtFzweWCIhBWiBKxuuZJxdwvSKcoSmiCf7cM8Rvfeg==
-X-Received: by 2002:a05:6a00:2450:b0:848:2b8f:c9d7 with SMTP id d2e1a72fcca58-84843027f6emr5831170b3a.18.1783585175251;
-        Thu, 09 Jul 2026 01:19:35 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:bd09:6ddb:180a:69c5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6dbdc8dsm8211863b3a.55.2026.07.09.01.19.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 01:19:34 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: mediatek: mt8188-geralt: Add MT6319 PMIC
-Date: Thu,  9 Jul 2026 16:19:27 +0800
-Message-ID: <20260709081928.612294-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.795.g602f6c329a-goog
+        d=1e100.net; s=20251104; t=1783585448; x=1784190248;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qGKXad+qaD2BA/lKmpU05ZIRYpZt1CvqKR8CHqzJNMU=;
+        b=A1dZSvlh+d+nrcZOwRM3Fvso1CzWXBz69NqN26Iq4UCNeHqdxSf8yxgOsCukI9Z+jw
+         B2JOnv1hkjhutQwPJrSYeKdnoULYYkNP78vr7ZjVphSIOv2wmw9j7SfX4lXfiSKKpnKk
+         fbeqB+s+Qd6QbC2Ds5RZwXK3pXxvoUpTzkLry0caggOF+WihDGr8nsprC1f/mCIMPQ2J
+         xlOwHwfQf5ApLzPgT1H52EIgiz25RSN9D4HjIneSkPe+xkEnzO/HaYncgL4X/SmU5VZx
+         OuGF7jHpZMsU3u/IQuBXx9jm7R44aJI0YyfUo5g5idtLned5QlPTvrEKouyGqxXwph04
+         RhHg==
+X-Forwarded-Encrypted: i=1; AHgh+RqJxXXOedNFwGQfShvCmzvgv/6AjvW3z+/pQYa1US5h95iVi48uiOrqj5GM8iOZaTZzcobcqQChlZvxdHfqV6CN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwKOg48rs28kuPVGqUmgZG9UX68JvvOCS+seEZ0N9Y4+/Kc+kf
+	2r0u2tuFJTvwWeTGf4mDwpmL5RUDz/4pboePpUVPDbjvhQWT1KK8xx2jWQ9lezPSmu4jrGtCD6j
+	KrtXNqv4SxJkMQbidgU8Oj5PKZstvbqPTHEiPfcNW
+X-Gm-Gg: AfdE7cl7RgEI1AXGKIzUqCGDibsVvHFBMi+gHzIC4oI4Ba5RCH+Ekqj3lUKrnqhD2fz
+	V2Ur6+z4gbH0OfJp4DdHHqZUIjoZVi5Oo8kbImCZ7WRTvlEBQ+9OtWF+rhuQXpoeoPLHzbKM3+k
+	PhE2sMDJgjtUCaAi2lVZlIR0DyICBGN2xXDuDcHeHrzJ9JMcAXfFzZKGYus321Of0ftgJTvziIM
+	E93FflBjtft4T6hXOJbcgbyKIiBTsEf2/r4lBe5dW33RCS1aMp9/e1yT/6TEUT8ShH/zGcgVuS4
+	1XdPLbuXmeS9rU5eRTbQn3Gq+V8=
+X-Received: by 2002:a05:690e:1488:b0:667:b0e0:8291 with SMTP id
+ 956f58d0204a3-667b0e08d1cmr3225605d50.76.1783585448536; Thu, 09 Jul 2026
+ 01:24:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260709063450.1615041-1-justin.yeh@mediatek.com> <20260709063450.1615041-3-justin.yeh@mediatek.com>
+In-Reply-To: <20260709063450.1615041-3-justin.yeh@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 9 Jul 2026 16:23:57 +0800
+X-Gm-Features: AVVi8CeFISWopYSxs7SQ18PIDav4QpRQGIlGdzLDlOUjsSH_QaMt2NFEbeix8RQ
+Message-ID: <CAGXv+5GOgtOGrnpZkJTeLPwW1t3hop6tXirGmV6thqP1q9REUA@mail.gmail.com>
+Subject: Re: [PATCH v5 2/4] pinctrl: mediatek: allow common drivers to be
+ built as modules
+To: Justin Yeh <justin.yeh@mediatek.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_011936_281343_0679C87C 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260709_012409_671556_EA9A7B56 
+X-CRM114-Status: GOOD (  26.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,128 +119,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Geralt design uses a MT6319 PMIC to power the big cores and LPDDR4X
-DRAM.
+On Thu, Jul 9, 2026 at 2:35=E2=80=AFPM Justin Yeh <justin.yeh@mediatek.com>=
+ wrote:
+>
+> The MediaTek SoC pinctrl drivers link against the shared implementations
+> in pinctrl-mtk-common.c (v1), pinctrl-moore.c and pinctrl-mtmips.c. These
+> were built-in only: their Kconfig symbols were bool, they did not export
+> their entry points and they carried no MODULE_LICENSE().
+>
+> To let the individual SoC drivers be built as loadable modules (required
+> for Android GKI + vendor_dlkm, where vendor drivers must live outside the
+> GKI vmlinux), the shared code they depend on has to be modular too.
+> Otherwise selecting a SoC driver as =3Dm forces the common symbol to =3Dy=
+ and
+> the resulting module fails to link against the unexported common entry
+> points.
+>
+> Convert PINCTRL_MTK, PINCTRL_MTK_MOORE and PINCTRL_MTK_MTMIPS to
+> tristate, export the entry points used by the SoC drivers, and add
+> MODULE_DESCRIPTION()/MODULE_LICENSE() to the three common files.
+>
+> The v2 common code (PINCTRL_MTK_V2) is already modular, but mtk_rmw() was
+> never exported. It is called directly by SoC drivers such as mt7623, so
+> export it as well to keep those drivers linking once they are modular.
+>
+> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+> ---
+>  drivers/pinctrl/mediatek/Kconfig                 | 6 +++---
+>  drivers/pinctrl/mediatek/pinctrl-moore.c         | 5 +++++
+>  drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c | 1 +
+>  drivers/pinctrl/mediatek/pinctrl-mtk-common.c    | 8 ++++++++
+>  drivers/pinctrl/mediatek/pinctrl-mtmips.c        | 4 ++++
+>  5 files changed, 21 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/=
+Kconfig
+> index 97980cc28b9c..864e7ffc6044 100644
+> --- a/drivers/pinctrl/mediatek/Kconfig
+> +++ b/drivers/pinctrl/mediatek/Kconfig
+> @@ -11,7 +11,7 @@ config EINT_MTK
+>         default PINCTRL_MTK_PARIS
+>
+>  config PINCTRL_MTK
+> -       bool
+> +       tristate
+>         depends on OF
+>         select PINMUX
+>         select GENERIC_PINCONF
+> @@ -22,13 +22,13 @@ config PINCTRL_MTK_V2
+>         tristate
+>
+>  config PINCTRL_MTK_MTMIPS
+> -       bool
+> +       tristate
+>         depends on RALINK
+>         select PINMUX
+>         select GENERIC_PINCONF
+>
+>  config PINCTRL_MTK_MOORE
+> -       bool
+> +       tristate
+>         depends on OF
+>         select GENERIC_PINCONF
+>         select GENERIC_PINCTRL_GROUPS
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-moore.c b/drivers/pinctrl/m=
+ediatek/pinctrl-moore.c
+> index 38f15dbe9a28..3247622911cd 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-moore.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-moore.c
+> @@ -10,6 +10,7 @@
+>
+>  #include <dt-bindings/pinctrl/mt65xx.h>
+>  #include <linux/gpio/driver.h>
+> +#include <linux/module.h>
+>
+>  #include <linux/pinctrl/consumer.h>
+>
+> @@ -743,3 +744,7 @@ int mtk_moore_pinctrl_probe(struct platform_device *p=
+dev,
+>
+>         return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_moore_pinctrl_probe);
 
-Add a device node for it and hook up all the supplies. However do not
-add cpu-supply properties for the big cores. Adding them without the
-firmware fix mentioned below will likely cause CPU DVFS to stop working.
+Maybe use a separate namespace, like "MTK_PINCTRL"? (Use EXPORT_SYMBOL_NS()=
+)
 
-This change requires a firmware fix for the SPMI bus to read back
-correctly. The required firmware version is 15842.175.0. This is
-included in ChromeOS releases R150-16700.22.0 (available in Beta
-channel as of writing or stable channel in mid-July) or
-R151-16721.0.0 and later.
+Otherwise seems correct.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v1:
-- Dropped cpu-supply on CPU6 and CPU7
-- Added comment about broken firmware and upgrade versions
----
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 74 +++++++++++++++++++
- 1 file changed, 74 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index f382f90c48f5..dee946309121 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -4,6 +4,8 @@
-  */
- /dts-v1/;
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/spmi/spmi.h>
-+
- #include "mt8188.dtsi"
- #include "mt6359.dtsi"
- 
-@@ -1156,6 +1158,14 @@ pins-bus {
- 		};
- 	};
- 
-+	spmi_pins: spmi-pins {
-+		pins-bus {
-+			pinmux = <PINMUX_GPIO175__FUNC_B0_SPMI_M_SCL>,
-+				 <PINMUX_GPIO176__FUNC_B0_SPMI_M_SDA>;
-+			bias-disable;
-+		};
-+	};
-+
- 	uart0_pins: uart0-pins {
- 		pins-bus {
- 			pinmux = <PINMUX_GPIO31__FUNC_O_UTXD0>,
-@@ -1267,6 +1277,70 @@ &spi2 {
- 	status = "okay";
- };
- 
-+&spmi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spmi_pins>;
-+	#address-cells = <2>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	pmic@6 {
-+		compatible = "mediatek,mt6319-regulator", "mediatek,mt6315-regulator";
-+		reg = <0x6 SPMI_USID>;
-+		pvdd1-supply = <&pp4200_s5>;
-+		pvdd2-supply = <&pp4200_s5>;
-+		pvdd3-supply = <&pp4200_s5>;
-+		pvdd4-supply = <&pp4200_s5>;
-+
-+		regulators {
-+			/*
-+			 * vbuck1 is the cpu-supply for CPU6 and CPU7.
-+			 *
-+			 * However, this device originally shipped with a broken
-+			 * firmware that causes register reads over SPMI fail.
-+			 * This is fixed in firmware version 15842.175.0, which
-+			 * is included in ChromeOS releases R150-16700.22.0 or
-+			 * R151-16721.0.0 and later.
-+			 *
-+			 * Assigning the cpu-supply properties for CPU6 and CPU7
-+			 * without the fix will likely cause CPU DVFS to stop
-+			 * working. Hence the assignment is left out to avoid a
-+			 * regression of the function. If the user is confident
-+			 * that their system has the fix, they can added the
-+			 * property themselves.
-+			 */
-+			mt6319_buck1: vbuck1 {
-+					regulator-name = "ppvar_dvdd_proc_bc";
-+					regulator-min-microvolt = <520000>;
-+					regulator-max-microvolt = <1155000>;
-+					regulator-enable-ramp-delay = <256>;
-+					regulator-allowed-modes = <0 1 2>;
-+					regulator-always-on;
-+			};
-+
-+			/* vbuck2 is ganged with vbuck1 */
-+
-+			mt6319_buck3: vbuck3 {
-+					regulator-name = "pp1125_emi_vdd2";
-+					regulator-min-microvolt = <1060000>;
-+					regulator-max-microvolt = <1170000>;
-+					regulator-enable-ramp-delay = <256>;
-+					regulator-allowed-modes = <0 1 2>;
-+					regulator-always-on;
-+			};
-+
-+			mt6319_buck4: vbuck4 {
-+					regulator-name = "pp0600_emi_vddq";
-+					regulator-min-microvolt = <570000>;
-+					regulator-max-microvolt = <650000>;
-+					regulator-enable-ramp-delay = <256>;
-+					regulator-allowed-modes = <0 1 2>;
-+					regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pins>;
--- 
-2.55.0.795.g602f6c329a-goog
-
+> +
+> +MODULE_DESCRIPTION("MediaTek Pinctrl Common Driver V2 Moore");
+> +MODULE_LICENSE("GPL v2");
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c b/drivers/p=
+inctrl/mediatek/pinctrl-mtk-common-v2.c
+> index 4918d38abfc2..3813dfb0fa7d 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c
+> @@ -69,6 +69,7 @@ void mtk_rmw(struct mtk_pinctrl *pctl, u8 i, u32 reg, u=
+32 mask, u32 set)
+>
+>         spin_unlock_irqrestore(&pctl->lock, flags);
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_rmw);
+>
+>  static int mtk_hw_pin_field_lookup(struct mtk_pinctrl *hw,
+>                                    const struct mtk_pin_desc *desc,
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinc=
+trl/mediatek/pinctrl-mtk-common.c
+> index 791eddd7a2c6..a58015b508af 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+> @@ -7,6 +7,7 @@
+>
+>  #include <linux/io.h>
+>  #include <linux/gpio/driver.h>
+> +#include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/pinctrl/consumer.h>
+> @@ -190,6 +191,7 @@ int mtk_pconf_spec_set_ies_smt_range(struct regmap *r=
+egmap,
+>         regmap_write(regmap, reg_addr, bit);
+>         return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_pconf_spec_set_ies_smt_range);
+>
+>  static const struct mtk_pin_drv_grp *mtk_find_pin_drv_grp_by_pin(
+>                 struct mtk_pinctrl *pctl,  unsigned long pin) {
+> @@ -297,6 +299,7 @@ int mtk_pctrl_spec_pull_set_samereg(struct regmap *re=
+gmap,
+>
+>         return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_pctrl_spec_pull_set_samereg);
+>
+>  static int mtk_pconf_set_pull_select(struct mtk_pinctrl *pctl,
+>                 unsigned int pin, bool enable, bool isup, unsigned int ar=
+g)
+> @@ -1149,6 +1152,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
+>
+>         return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_pctrl_init);
+>
+>  int mtk_pctrl_common_probe(struct platform_device *pdev)
+>  {
+> @@ -1160,3 +1164,7 @@ int mtk_pctrl_common_probe(struct platform_device *=
+pdev)
+>
+>         return mtk_pctrl_init(pdev, data, NULL);
+>  }
+> +EXPORT_SYMBOL_GPL(mtk_pctrl_common_probe);
+> +
+> +MODULE_DESCRIPTION("MediaTek Pinctrl Common Driver");
+> +MODULE_LICENSE("GPL v2");
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtmips.c b/drivers/pinctrl/=
+mediatek/pinctrl-mtmips.c
+> index efd77b6c56a1..c9d9de68e282 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-mtmips.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-mtmips.c
+> @@ -349,3 +349,7 @@ int mtmips_pinctrl_init(struct platform_device *pdev,
+>
+>         return PTR_ERR_OR_ZERO(dev);
+>  }
+> +EXPORT_SYMBOL_GPL(mtmips_pinctrl_init);
+> +
+> +MODULE_DESCRIPTION("MediaTek MIPS Pinctrl Common Driver");
+> +MODULE_LICENSE("GPL v2");
+> --
+> 2.45.2
+>
+>
 
