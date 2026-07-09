@@ -4,114 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE2FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D433C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6uaaRn1apsA/2p+t1DBPwc+zrUv3t/8R7VmEga46LQ=; b=rn2kiA5bzOkCehc3O/O4YT3CQ2
-	Ec4iNtVqq7MW+bMw3n0j1B9txXGL7wubNrw9ha7S0F1hglaCPM0QPLzmLoj+r8ZsxwdVXatCPaPjO
-	KV5RNICa9PZs0NWuvlREAi+mYVDt6k+In8ENtOrCGchHs0yJD9gAD4yhQtQq31rhTrrzsaTuy16+o
-	v5LrrfdjnK+cX2gUzgOZyJhZrhFTTu/krnX8n9mnxk3OzOQIU2fYGLZKw/T3OoK72CKsnFK4K0Hd8
-	dDs2SUL4qD2UONPJzy0sNYps6ReELqMzv4bmt31WAjZXAh/BNLm2P2dYNeh/8GgBK7prqcv5bI1WK
-	4Rc+IM5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bTRYbwF/XxEjYYFob5S+WLNVX0HYy0ckmE1WUa6o3cY=; b=RsQ5esLWiUbX21CrE5ZkfUxExP
+	toAiD+jCeQlT6JRB34kcnejgRSJ75sCQQkw050hb2+ygG7m5dff/Xq+3gYu58umDY5eG8FbAAYqBh
+	rvud9CNZ0GrLlLd3VxhS53gHXhn9PPHzfp3mo73OpOE3EZK9DN3Bt9oWZdn6G6fIAhKPIEXjToI/3
+	RmIQUkW66t4P1erSY5mDAlswfi7jK85YhByv8ZkVxV/WxTT2veIYPApf0kzbIa7ncyIQcos6hJCCN
+	gvQS2Q6emR/241mpJT9tKk4Qf4lbB9FhbU3D6YKXkOOXBKuhRmxrMxiARUIkbZ7qBFRYrylk+87yC
+	h8VOibRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnvX-00000002Q5W-2pJt;
-	Thu, 09 Jul 2026 12:32:27 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1whnwd-00000002QIC-0Iu2;
+	Thu, 09 Jul 2026 12:33:35 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnvT-00000002Q4I-2xQj
+	id 1whnwa-00000002QGg-2SUw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:32:25 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7ea9c6ea7deso1086738a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 05:32:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783600342; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nPxI2cU2zuk0ZNqJ4RwATCZ9JH9ElbBq7Oqw0j7eK5/yhcOSvrI+njjVSLVsFURK9Q
-         0MtCxJ6oXHJ76JC8ZJWeyzfciP2uuemTYp/X3a21eYkGOLdepKf+Ju20bl273QeYnXwq
-         3Bqv0w3iQImu8uqJfo5QB55Xy1N1dIHaSuWARv+WJLcOkwxxSZnE+nulTg7tRa5oJovR
-         II/pIheIFEUhsehN41dqG95XdGjuQs64lHC6VeMft4Cinfsx+M1G2oXTfm79iLxZhMPh
-         z93YKms2NCeYIDKgrIeOqB3EKh8ALxLLi4PKuQ2eRvTiEEPzAvx9oav7Fn8OWXLC7vmV
-         UFkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Q6uaaRn1apsA/2p+t1DBPwc+zrUv3t/8R7VmEga46LQ=;
-        fh=BSjuOx6EYlDQDzZhN7zZ4/fQe02OKy2hd5/63Sfvx+0=;
-        b=OzNNmO/PeDNxlZnV23o/y02aCi80yslg045o7TgoNh7fZpd2sYgwgJqiSpbdVmS8JV
-         VvStRK5GslzZy4cDGCpF4+AJgMgdwNbIbQ2UVBUY/dbsyhh8ystnOtDO1YvcP4k3e2Wv
-         CYwLc6xpwGrPGrzmfYBj7m6Rm/5/c6kRQNZQqQmGos69xv+gTrgTvo5ykla/+M1k/7AU
-         AyXgeGqOEAa8Civ8ip5b5wWru6iqr7JlSz3CJms+InmeUbEg8+M27vANANbBT8qW8HE4
-         UZNbXjo0LIXlGz36RroBYCJwCaV7nuJQFjyXbFeqFovbEVfx+kPqxQ/yGjur28PrlJWE
-         UBVQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783600342; x=1784205142; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q6uaaRn1apsA/2p+t1DBPwc+zrUv3t/8R7VmEga46LQ=;
-        b=YI8d51r8dEEGtSRQwDgAf+Lby63HbCt7ezPG7NNdfNd8x9Aorm8Dw2H+NVALdd5FyT
-         mcvLzPIafF3Y8rBPsvek+liL5tYdLs20KM+SWsIbfLIVTef/Smks4ZKPqouvucYXD8qw
-         uwcjRu1oPVMxY31gOZGAIvNk0mYnlx1tGp/qId7tMe+r5lF0gBWdj6AcNsOfU+/yMFpz
-         nA6eehdKTJhvuTFWgpWxnHAnV1bIwM1nKnBnx2BpWaScDDtLpw0uAD1sqTrUUo1FwDiE
-         QDwfoOJVHryzNpSPmN7b/CShgnf7d4oD0j+y7Epda8lMceKwc7FrFNRl1fEBrjyHmHLY
-         5rOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783600342; x=1784205142;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Q6uaaRn1apsA/2p+t1DBPwc+zrUv3t/8R7VmEga46LQ=;
-        b=CZJdbnRacG7rJURmYxJj4vmII/DIPOvN7Jz5Lk2CJ9M8bL+FGBzl1myUPcce6Xtmxd
-         LDuSkrIk62WJEfZItJkOGypV5a1VLjuWCS3E13p+bvDCQqu2NoFvCBWBWbhUwvMmBeUx
-         FatHSqtweSuH7WuutuFjAIsQfkYo6czKMRvGv9e8oGHKMPs5f2MQ6d0vO6z2GoE7malO
-         ZXtYCS4odiN9JI9XQ8BUYM//wuvc3a7HkhfjCBgf+BCDLmDTf4benclyUyJeSZlUwK0O
-         RIzFqm1NWqp7dwIkrg+okxaW/gfxR4jzOupou+StwdBfRG6ji3NWjsvltRIk+MFfnbYR
-         6viQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Fv4pzghF7pGJ0R2qV/WC7sxZW/a0rhIeisZ8X5LNpDz8YOXDcooQFQZmMwK+NKno3DbUSjIIdxVVQkjLMrBOP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE3DjjQ468tGnAVZdRMmsXU3Nb5zIC5BtBxWpxZ7mAHuI+UZhN
-	6hbJkAXP8l82Fz/lN/hmjwSsdCAs7PsresN8/OJiN9wWhYMfqrL6AV2v7G1rsdUGu//qNG+y9z8
-	+lqx3cv4O7SCBgOt8OVtC06c4b89TU5tYYOBGBvwCPg==
-X-Gm-Gg: AfdE7ckVEW434s+s7PMNhxP6JjpFWTVXStePniBhWSUZnFrnnJlG6x08wddXX2N3ftc
-	445fx+t1JFZrx4Xcg6VCSWek7mO4KHfgm+xbgSdiC7jGXt1c/KXaSQJ9PqUBs2xb/7RtfRM6I81
-	PJ3AyVEX3kOHaghJnCa2pr3F2d9vT4VpKKRlwFHMFPWoE2Je7LGFDA8XUVhu66nBm33e3uzpbIr
-	lCijv3boGBlgvzq8IUBadvGK6fUfEXYVIa12f91R8NdQzO+XWe//h6MrdyCA0FCcUmvX2CHlupv
-	MvBJFqWKLClLZyg+Rc1USYh492nHG5qmWx6bqxlEwsj5WtXySiA/7qBx6vMpmsB+JMDhj1z2NJ1
-	8Lq32XRg6RbbMqZK64rrPGObHVEYyZR347ehRqVU=
-X-Received: by 2002:a05:6820:1628:b0:6a1:18fc:519f with SMTP id
- 006d021491bc7-6a36d6d6ec2mr5214376eaf.0.1783600342380; Thu, 09 Jul 2026
- 05:32:22 -0700 (PDT)
+	Thu, 09 Jul 2026 12:33:34 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gwvWr1BmTzMlHC;
+	Thu, 09 Jul 2026 14:33:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783600408;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bTRYbwF/XxEjYYFob5S+WLNVX0HYy0ckmE1WUa6o3cY=;
+	b=tyMdvF2xv5nIaXfmCYxbD6fRdAiNP55s0Xay6tcyDLZrqQOMXLTJyKpAAw0Axl9uJsn9H/
+	p8JvUbMcfGOoTIZRbQddoYA0iZ7D5dLVGObch3s0ZKgetZBbBOuGBJHV3zuvlpjIjec333
+	maPFXff9ntUELPQ7/XzebTVp/tx9R/9W2i+mzO9lF9F82FWnTE/+jTH05RsMS1XGZOS7nu
+	zSibBMFF8pCrKFwSRGQfvwvyVTLwG83C9AF0CW0YzlkPEd/nTsLetHNaY1d2vL2XZWF3SK
+	262lnO+lrhsIe+m5MAM8+pTj4smXWeFKJM2iZC7KXGU/1xScS8lLbZhzoKdiWg==
+Message-ID: <c12941e4-3715-404e-b674-090c62b868b8@mailbox.org>
+Date: Thu, 9 Jul 2026 14:33:22 +0200
 MIME-Version: 1.0
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
- <20260630-deprecate_boot_delay-v2-2-f9883d36aa4b@thegoodpenguin.co.uk> <ak5mPxUdp2pzCMt5@pathway.suse.cz>
-In-Reply-To: <ak5mPxUdp2pzCMt5@pathway.suse.cz>
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Thu, 9 Jul 2026 13:32:10 +0100
-X-Gm-Features: AUfX_myRkAQr3RlL8KDtHhqAkW7mutgbWnQw5V1Od8NNNQcLPSvfj_bgH0j4NKw
-Message-ID: <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] printk: deprecate boot_delay in favour of printk_delay
-To: Petr Mladek <pmladek@suse.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Russell King <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v4 0/5] PCI: rcar-gen4: irqchip/gic-v3: Handle GIC ITS
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-pci@vger.kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260707203743.88299-1-marek.vasut+renesas@mailbox.org>
+ <ybnitlgx3dcqsesubz6jz7pn6snseuxhtz564tinbtvukianaq@33ubmcynyqmt>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <ybnitlgx3dcqsesubz6jz7pn6snseuxhtz564tinbtvukianaq@33ubmcynyqmt>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: a566168d3a29b829815
+X-MBO-RS-META: r9xtkd8txggmkzk54mcmgk1r644y6icg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_053223_912602_9F668E8C 
-X-CRM114-Status: GOOD (  34.02  )
+X-CRM114-CacheID: sfid-20260709_053333_161933_5E2397BF 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,112 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Petr,
+On 7/9/26 2:19 PM, Manivannan Sadhasivam wrote:
+> On Tue, Jul 07, 2026 at 10:35:38PM +0200, Marek Vasut wrote:
+>> Configure all R-Car Gen4 PCIe controller MSI registers fully, both in
+>> case MSI are enabled and disabled.
+>>
+>> Patch GIC ITS driver and add quirks for R-Car Gen4 GIC ITS, which is
+>> configured to 32-bit address width for AXI or APB interface.
+>>
+>> Switch R-Car V4H to use GIC ITS in its DT and describe the GIC ITS
+>> implementation cacheable and shareable limitations.
+>>
+>> Marek Vasut (5):
+>>    PCI: dwc: Determine whether iMSI is used before calling .init
+>>    PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
+>>    irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
+>>    irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+> 
+> Is there a functional dependency between irqchip and PCI patches? Since the
+> irqchip patches touch ARM64 Kconfig etc... I'm wondering if it still need to go
+> through PCI tree.
+I do not believe there is.
 
-On Wed, 8 Jul 2026 at 16:01, Petr Mladek <pmladek@suse.com> wrote:
->
-> On Tue 2026-06-30 17:35:58, Andrew Murray wrote:
-> > The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
-> > are two distinct mechanisms for providing similar functionality which add a
-> > delay prior to each printed printk message.
-> >
-> > boot_delay provides a kernel parameter for delaying printk output from
-> > kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
-> > configurable only via sysctl and thus is only used post boot.
-> >
-> > Let's deprecate the boot_delay feature in favour of printk_delay. In order
-> > to preserve functionality, we'll also extend printk_delay such that it can
-> > additionally configured via an early kernel parameter.
-> >
-> > Behavior change:
-> >
-> > The delay enabled by both "boot_delay" and "printk_delay" continues
-> > working even in SYSTEM_RUNNING state. It must be explicitly stopped
-> > by setting printk_delay=0 via sysctl.
-> >
-> > The delay is skipped when the message is suppressed in all system
-> > states. It used to skipped only for the boot_delay.
-> >
-> > Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
->
-> Looks good to me:
->
-> Reviewed-by: Petr Mladek <pmladek@suse.com>
->
-> Note that Sashiko AI warns about possible problems with negative
-> printk_delay values, see
-> https://sashiko.dev/#/patchset/20260630-deprecate_boot_delay-v2-0-f9883d36aa4b%40thegoodpenguin.co.uk
->
-> But they should be handled in both the early parameter
-> and sysctl interface by the "10 * 1000" and "&ten_thousand"
-> limits.
+These two configure the PCIe controller hardware:
+   PCI: dwc: Determine whether iMSI is used before calling .init
+   PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
 
-Yes, that was my also view.
+These two fill in GIC ITS quirks:
+   irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
+   irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
 
+This one does yes depend on the two and two patches above, and can only 
+be applied once all four aforementioned patches land, otherwise things 
+really yes will break:
+   arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
 
->
-> The only potential problem might be a warning about possible
-> "sign" mismatch from the compiler. But I do not see any
-> even with make W=2.
-
-I suspect this will come up everytime a change is made in this area,
-or perhaps some W=2 errors will pop up via kernelci or similar. I
-propose updating the patch as follows:
-
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 5278d9cb19e4..fbb67f10c21e 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -1338,10 +1338,13 @@ static inline void early_boot_delay_msec(void)
-
- static int __init printk_delay_setup(char *str)
- {
--       get_option(&str, &printk_delay_msec);
--       if (printk_delay_msec > 10 * 1000)
--               printk_delay_msec = 0;
-+       int printk_delay_val = 0;
-
-+       get_option(&str, &printk_delay_val);
-+       if (printk_delay_val < 0 || printk_delay_val > 10 * 1000)
-+               return 0;
-+
-+       printk_delay_msec = (unsigned int)printk_delay_val;
-        printk_delay_calculate();
-
-        return 0;
-diff --git a/kernel/printk/sysctl.c b/kernel/printk/sysctl.c
-index f15732e93c2e..f256fc05faaf 100644
---- a/kernel/printk/sysctl.c
-+++ b/kernel/printk/sysctl.c
-@@ -46,7 +46,7 @@ static const struct ctl_table printk_sysctls[] = {
-                .data           = &printk_delay_msec,
-                .maxlen         = sizeof(int),
-                .mode           = 0644,
--               .proc_handler   = proc_dointvec_minmax,
-+               .proc_handler   = proc_douintvec_minmax,
-                .extra1         = SYSCTL_ZERO,
-                .extra2         = (void *)&ten_thousand,
-        },
-
-This makes the cast explict, verifies the range before casting (I
-guess a range of negative values could result in a postive value
-within the 10,000 range) and also uses the correct proc_handler.
-
-This has the side effect of not showing the following pr_debug for the
-lpj calculation when a delay is not set. Though loops_per_msec is only
-used during boot, so I don't think there is any loss here.
-
-        pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
-                "HZ: %d, loops_per_msec: %llu\n",
-                printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
-
-Can I keep your Reviewed-By with these changes?
-
-Thanks,
-
-Andrew Murray
-
->
-> Best Regards,
-> Petr
+Would you like me to split the series up , or can you and Marc (?) pick 
+the relevant parts via matching trees ?
 
