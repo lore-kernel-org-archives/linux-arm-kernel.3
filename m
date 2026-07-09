@@ -4,119 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0977C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC116C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=; b=fqTr5B+5kNt1WrRBTsY2NlTOvE
-	4Uoz9tTJOFIXs8yh+zDwETFVVnJEBIAJOlaKeC47M93G9GwLKNkDqem7gjM+k2C+jKNmrANbsrCXI
-	Qbkal8rmRVFticR6GSEj/ekrk/fXDjMFI4eZCUXWjXYiiwHmvN/vEXzj8MlW+i8V+EUyiY4nEWTNh
-	20Mm6lHCGAQ8k+AFj0CYTDinY0UvUZ3Q8lUx963IfH0jHkVfJlM5Loc3am3vDId7QYsTnHdR0FRXC
-	2qHwL329SrfRb4HDC2hDDeOo1Cd+zgMV8GALRY67gglspXIjp2bKBH9yKnqFoxACvv+AnYlXq0DDX
-	yLBeTwjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=; b=Z0CChzZUUl69x5vPOpx328zQxM
+	uw2vKEpOaVEYNvC1wPgqBNB0V5t0JWUlDaRwhV7ofdvXzI9so+numEkKbffC0rn1Mzcpu3PQTYSVW
+	DYsi/BB/tNP7iHiy2bPTNGiay8X0qgFg4n/owMdaGgoQMTRh0Q2OQ/bCSqIm/QlT2QXfRFoXiKsd7
+	DEwu5/LC5HQv2xcSybXkItgMtbSDfmad80a1AM0am/CBE6tFpxXus7JB0YqS9736wQZeZS7w2L8my
+	WyKOOVOtNvT2xM8zCh2ytjMb8ozJr/ghTQT5zZdVTKzgeWNleDytIpRUpJvpXYob4fY+kKjI4HeI8
+	Xr1mBT6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0n-00000000gWO-1auf;
-	Thu, 09 Jul 2026 00:53:09 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1whd0q-00000000gZm-2t3M;
+	Thu, 09 Jul 2026 00:53:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd0i-00000000gLQ-0smI
+	id 1whd0n-00000000gVn-0QQE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 00:53:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XVY8aLMB16/JUcBSQTceHj7xlgrdME7CqOYPZX03YiuC7Ty5skXLfaXCqNWz/QqQvI4Q9IlAStZJXHDv0lDhqSIwWdVcdRpyzmgXhqH+/RVdG3wI0EHU2vzz7T/j1D8KrVWbKUp4vyw/DyKCktYMhrhZDSBy2rmn3wPdMiCDPazALe88Y/FTgl4PRBFNMt7V6bRNC71i87ddsbGFOuW8KbiDF3nhVpzS7Ksu9IkWJTHk/PClrUF2QE/5l2qIFR/FgYr6PUxuPqCChw7tqbMdjXkJxYs/i0BKiplX81d+ZuGG2M4AYwDeT6+k9vsa9VhRRAXRigQsSEtvfnMbgLseXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=;
- b=SvsZi1L8u5VJL3dDOyoi89Mfm6QyevzWZ4W+1YRngHIgQGBSyK96n2P5WQlRCkWURZxv6Wd48SY9Ngf1zsM8T4FWVZbAORqwS6UjWA1NPnoGhbQFg5jWoN+6erDetJkOwxY4/BiXPwsiD1bkTNVNcRJCUHrV4idMbnFaxMZWITwN3D3RDHyVRxmcjBBORg3FlmC6hsFZKpMvAaplQUlep3lJz11DU4qLxJ3EUtg+XUwtEXgLQNWDFGOUe1u74kcASKQtv4+naYAWTILL8MEmoj9ssmnzOJhd5kgDQGrWjXsGZdBDhva0dS2PFl2mKY5uaQpJ6VIsE1J5WZnfTrUFmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NCX2KR6LwUkbMsdcKKT59YYecvKI/mYnFmFGLjtOYVI=;
- b=RlgZcXGHwjm/nC5//GF0WzGR2eGXPO801PCfFRLLqgSDRlWipZcST6ItOXCfv3MjeAARWjrCbgflqg2FYtJt8GBe+lg+etDM6J3vWWsDldHo7ez6M48PbYknc7IqB7dzOdUM5Q+duR8R2XDkaJOkq4XDgniCr0Nqye4f92XAlYk2POUxianoFx9tZLnFfBuZ/Y4gRiFhGe4qpHyDYYvRQ3D082uVvNnAfVBDJr60pMdnYlD97+DtlZl1fE18jTrWt/TAh3oRlXWXQADgsFGHo3M+zrRFBBiAlcfSYwLeRtZofvO1kCjn/FqdEGv4RcnPPp1XrR6drFGiOkCU24rNsw==
-Received: from SN7PR04CA0167.namprd04.prod.outlook.com (2603:10b6:806:125::22)
- by IA1PR12MB8520.namprd12.prod.outlook.com (2603:10b6:208:44d::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 9 Jul
- 2026 00:52:47 +0000
-Received: from SN1PEPF000252A2.namprd05.prod.outlook.com
- (2603:10b6:806:125:cafe::43) by SN7PR04CA0167.outlook.office365.com
- (2603:10b6:806:125::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.10 via Frontend Transport; Thu, 9
- Jul 2026 00:52:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF000252A2.mail.protection.outlook.com (10.167.242.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 00:52:47 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 8 Jul
- 2026 17:52:31 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 8 Jul 2026 17:52:31 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 8 Jul 2026 17:52:30 -0700
-Date: Wed, 8 Jul 2026 17:52:31 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Ashish Mhetre <amhetre@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v4 2/3] iommu/arm-smmu-v3: Detect Tegra264 erratum
-Message-ID: <ak7wz6Tz0scMmyyM@nvidia.com>
-References: <20260609073204.1760077-1-amhetre@nvidia.com>
- <20260609073204.1760077-3-amhetre@nvidia.com>
- <ak2K2vhIQSTNAPto@Asurada-Nvidia>
- <d4307831-7634-4b43-a909-1f7e8664e852@nvidia.com>
+	Thu, 09 Jul 2026 00:53:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A1B96136D;
+	Thu,  9 Jul 2026 00:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F5B11F000E9;
+	Thu,  9 Jul 2026 00:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783558388;
+	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=nNRzYYMEZn52hH9Xx2CnZZ/wSiqUKtqLGEdBbNMQ+chOcRqz5xpt3ury2eTeQFOaP
+	 N5L2JrF96CCaaDKkNtoB2vtN8kAw9EmmSjNeNOYa6NHL8fgaUZ+/0skfvxfdwimyx7
+	 tn3HHzCePlgJie0IdP/RliW7g8iMlLr4Qe+Pty9nAfhDvP4H/sR56b/0QxgoanhAWS
+	 VKJSHpZqxDEAzlScjsHqL7/G26G0kgeecT+MwPK0lnyTJlU8Ft+V30vkfN6YaWB5z9
+	 EjtD42q0jhh5Fzspul3a7hn1zmUtThGuOSPaR1vNcjBO0Ja12UI6MeM+49JuAC6DZ2
+	 IIJdnjbGQjmfQ==
+From: Mark Brown <broonie@kernel.org>
+Date: Thu, 09 Jul 2026 01:51:44 +0100
+Subject: [PATCH v11 07/29] KVM: arm64: Pull ctxt_has_ helpers to start of
+ sysreg-sr.h
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <d4307831-7634-4b43-a909-1f7e8664e852@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000252A2:EE_|IA1PR12MB8520:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1740cdf6-5cc4-472b-fc08-08dedd546501
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|18002099003|4143699003|11063799006|56012099006|22082099003;
-X-Microsoft-Antispam-Message-Info: yn3w7wJBxuBmMeqNTFdSyeEADWIq/0CaI8AKgqDjAkjq+6BB3BYCtioL08KaLszWuIQzM2WGekZc8U1pbjkvF8lBJNXa2cmAUE7jPRzAMbVhUa1OLbcPF/Cyewa4/1nkwiEzK8Zzekj1wkcVH842UixyV1jJ9w8W/0XudWLqfgGz0SIwHB6fkCgArJgi63aV6qmLJclwi/V7HDwLaoN70Hy+SI+7Pjc8oVE89r/dQUk4DF+4EWfnyfD0V9/HT3quWx128IGYToVKqyHGa4gjnzosfo475abc8F9okAXAJCRavm3b5evq4sObmivMSHv/8UgTkgoMwBIpCB1dRTihLuj76qkeGYqgmML0Cr+aEBoeq5DlKqOWRRnQ5UHancxfHQVEZpd7a3OuVox/P+ZagwgktZmq/FSbPyW7zPx8NY9Ffl1QpxZ8iUDhJ8hSANDk0Z3p4fk7Uz+lUS+JRWaZm5gqtIgGCGSM3JmIHENC5Bb6bZc4Dgjrid4NUD7NftJkYJ/y9tBjS75kLg/Ajf7LJRcoOu+m3JOrisGmVTR9B5MZuj46dO3wRDtWG8SLBLd9rGIjnv8S5/fcPlgv33rpq/zZUMfSOUca3NpFXqWny8oOgjk/fvp3dd9/I2ilnibqM4Jh1w0Xn8PLLH9AhRlC2kQ0MCP0ZK7/IjvPecg7laxbsSYa8OcohwShYGeCUf5W
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(18002099003)(4143699003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: g/IBHxFFiSqW6enAFJrOKFeXZyOSjGYpxXtg7vdaPZX/4h5U7ZhcmGEGrU3i/4ZosIaSyhrJKmV06YpvJPtY4OwddDZgml0mmJKhN2MebgL/bnobreq+TmAZEdREFX8gflSL5JDu8AAHHlZbHRlQXRZh7ISDCZu0+bsWeqojRFwdxi48m80zn08ku0WMbcXSDcSvJDSh+nffxcykfWTFqdZjnrxzgC5BBcFPHzynng+rC0kY7W1SFT/fZggjPnzN9mdQ8WQsWtItsDOGY7JPc0LVBwfDgP9MX242AOvbxXwqJx8r/cjaCewIhYXWyoHoqCG+ATiFMFBVTzSZxHF4qQ8Y1uNQHpJAu10g6AGDkdzqVCPpN4ekabU4JTeyNvQ6PbYKBhmpwguFRjYVzfnNHH8hrmqBOxLtcyHgxyguSrxP/bj4I0xjcwG5r4OKO4Ar
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 00:52:47.3436
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1740cdf6-5cc4-472b-fc08-08dedd546501
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A2.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8520
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_175304_250120_846CCE36 
-X-CRM114-Status: GOOD (  12.58  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-kvm-arm64-sme-v11-7-32799f66db9d@kernel.org>
+References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
+In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+ Jean-Philippe Brucker <jpb@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Peter Maydell <peter.maydell@linaro.org>, 
+ Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4004; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=1qAIu+pXeO/t0Rjmal4q8j7FSwr2awFBos2cAAJK0lg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvC/DYA4NDZA08/mW0ojQGff5RocuO7uwF9NC
+ nr1uJ0sgqCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wvwAKCRAk1otyXVSH
+ 0CafB/9c4Avz/Hcl39eFOTlDsPisUW0nBgyzcu5y8YsjfpqVQHzPMxmqI7RPX/1FinOkGeo6bo/
+ nYv11RDNAwVUUbLiih3juJcfv4Ic5FRzPPzYOfAP2PoT8JZ9qf9tRZm8K2Qki7yiRS1AZ6G0TAW
+ PzFwkw1ooeI7SOIV7YaFORW70GBT1j3lqoVh+9Ba0UleFNLAHI/LYtoBf9zo8T0/9frdRX4vbGJ
+ 17Sv9gW2PMEpRLNdP6lFPFNDArLTk33AHwlLce9jyvfpKsbsEMwrIfRWzZCpHg0dKZf6GlJ8eW7
+ vFvwMfgFKLgzU4wwJ24Y4yxUl6yt76tai9FcJUF+TACF+Be7
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,25 +91,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 07:42:21PM +0530, Ashish Mhetre wrote:
-> On 7/8/2026 4:55 AM, Nicolin Chen wrote:
-> > On Tue, Jun 09, 2026 at 07:32:03AM +0000, Ashish Mhetre wrote:
-> > > +arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_device *smmu,
-> > > +				     struct arm_smmu_cmd *cmd)
-> > > +{
-> > [...]
-> > > +	if (!static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
-> > > +		return false;
-> > > +	if (!(smmu->options & ARM_SMMU_OPT_REPEAT_TLBI_CFGI))
-> > > +		return false;
-> > Are they redundant?
-> 
-> Yes, both are set together in exactly one place, arm_smmu_device_dt_probe(),
-> guarded by the same "nvidia,tegra264-smmu" compatible check.
-> If we want to go with static key, then that makes option bit completely
-> useless.
+Rather than add earlier prototypes of specific ctxt_has_ helpers let's just
+pull all their definitions to the top of sysreg-sr.h so they're all
+available to all the individual save/restore functions.
 
-Drop the deadcode then.
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Reviewed-by: Jean-Philippe Brucker <jpb@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 84 +++++++++++++++---------------
+ 1 file changed, 41 insertions(+), 43 deletions(-)
 
-Nicolin
+diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+index a17cbe7582de..5624fd705ae3 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
++++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+@@ -16,8 +16,6 @@
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+ 
+-static inline bool ctxt_has_s1poe(struct kvm_cpu_context *ctxt);
+-
+ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
+ {
+ 	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
+@@ -28,47 +26,6 @@ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
+ 	return vcpu;
+ }
+ 
+-static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
+-{
+-	return host_data_ptr(host_ctxt) != ctxt;
+-}
+-
+-static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
+-{
+-	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+-
+-	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
+-		return &vcpu->arch.external_mdscr_el1;
+-
+-	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
+-}
+-
+-static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
+-{
+-	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
+-
+-	if (!(ctxt_is_guest(ctxt) &&
+-	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
+-		return read_cpuid_id();
+-
+-	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
+-}
+-
+-static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
+-{
+-	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
+-
+-	// POR_EL0 can affect uaccess, so must be saved/restored early.
+-	if (ctxt_has_s1poe(ctxt))
+-		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
+-}
+-
+-static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+-{
+-	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
+-	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
+-}
+-
+ static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
+ {
+ 	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+@@ -131,6 +88,47 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
+ 	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
+ }
+ 
++static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
++{
++	return host_data_ptr(host_ctxt) != ctxt;
++}
++
++static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
++{
++	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
++
++	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
++		return &vcpu->arch.external_mdscr_el1;
++
++	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
++}
++
++static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
++{
++	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
++
++	if (!(ctxt_is_guest(ctxt) &&
++	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
++		return read_cpuid_id();
++
++	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
++}
++
++static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
++{
++	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
++
++	// POR_EL0 can affect uaccess, so must be saved/restored early.
++	if (ctxt_has_s1poe(ctxt))
++		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
++}
++
++static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
++{
++	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
++	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
++}
++
+ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+ {
+ 	ctxt_sys_reg(ctxt, SCTLR_EL1)	= read_sysreg_el1(SYS_SCTLR);
+
+-- 
+2.47.3
+
 
