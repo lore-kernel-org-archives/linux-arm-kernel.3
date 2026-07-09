@@ -4,108 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FCDC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B121C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F424nrgsh0asWYfbRO7MY9PITUgXXZMIoEaGoaElsRw=; b=Zc6mq9r00YkGWEcrcSVyzw+qj0
-	wcCPJIDYASp3Oi0GG9vsLCh24CNigpja+iwTuJVNpU0QKubjK9QqHXKwLKF0LiEKL/dZKI7s/d2vM
-	7zVhNr1uK3sG3q5H3Vq26jFmIgS8hu9nyGraluhY5DKI6RF06wEbmpxuZH2TpTCPA388RaTYNNpLW
-	vU4RJrLqldyKYp3IEfjJ6zmy6sfco2JpltV0yQUxnc/NKBwXu3WT5bAQDREOEqEdQrtBMEtz9zJLu
-	b1gSe2xAqiPdNX9QT7QOUXuSQzXDcTB8MAmmtUXRu0ezOmtUQVbwhA2bs/1qp3V9S7jEIyCQjs9FO
-	HlTROCSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMlnZiyXf+hyN61e0c4PtxjdZzI77LLHOZVZ/XjZp40=; b=nK+NsRHc1yO9Vvk2D6y+EZY4c8
+	QDbKX+b7XSPWRYTys1zl3zGJaEFc/iYMkTI4jtvqM3vxwIj3ltfC6LZCXzVoXnShAgBlG0Dto5D/t
+	MUVs+O+vYRfFqdNyFyY7g7RfHdlEtQZVWKlT06qijSNr09BZWSS7rB4MDxY6r8pDOmGUo19P043Xi
+	rLS1HbBr5P171ep/beezb12Fqc6cFhfzosElFfIXfW6A0fj3Jgl3/GKlXiifb+6JuLKpt3fA0uSUI
+	Sp+bVQORCec/zZTc9SANSWPapHgXkLiSOEQFonU5yb9OfZqdRZXTxhmrw2F5d4L6O6IPmEC7lyDL3
+	RO2UAiKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnS1-00000002IOH-3JEI;
-	Thu, 09 Jul 2026 12:01:57 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1whnTJ-00000002ItH-0EVX;
+	Thu, 09 Jul 2026 12:03:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whnRx-00000002IKy-2Hd5
+	id 1whnTH-00000002Ist-3c9D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 12:01:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M6C90qjMaPv0YfXID8NFnO/yXntknpbS6eYTGwFuHT8r6UEnN+GQCxRt1+jXZtdcXnIfyvvLx2pUXFAPGZfCAzxviBHZzK8PB6gxq93SjNsblq4/Xz55mRCItAQysy4DpfI4pdm7SfINns/C2UYGDUmIjkhCYEImh2YJonA1dFPgNieO6P1jQf09uH1SEOxbZOl+VwE5EZPQYiStDI5V6Qb71h7dBOHoZuTW+06M82+yQpmwLSua0cP8AcbSmSdxl5BEgOx20XuOV+NIDWXxyyEmY8bYrfcTaRq1bwLpPFZmfki8oDGi0S6w+x2llLe1wmGcyo7SHSfwnwjO5OhHJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F424nrgsh0asWYfbRO7MY9PITUgXXZMIoEaGoaElsRw=;
- b=rHavlSICuZyJIaEIs6KzawWFHD/VowuT5CgdYcMbEnpGmdTzFmhe2TXzL4+msfAq00l+MQ87FoViEAR0MYlZUIMgfOCi/1tVCjv00hH4GzAvvSQhUVRN7JoI0/qiCkmSON4Mkq1WRk8gwHmyf6Xk56Ut+m4onqiJj4bdVGRaOlDtF5Fo75HSy5LdPPMm+l1xY0dpMasM+gAik2IXE10ME9T6tGpqG+CLXUbXVfg2GX/5thpARgueNAy66esfLVn5+j0P/xRKtJF6BMY18NU+Nd2fXBNr2Kr3IrZfXxrxqo7AXF9/wpX8pL5PVzMuL7z4gd1XMBfzRMSctxd5BvTv1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR01CA0042.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::23) by JH0PR06MB7106.apcprd06.prod.outlook.com
- (2603:1096:990:9c::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Thu, 9 Jul
- 2026 12:01:31 +0000
-Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
- (2603:1096:4:193:cafe::49) by SI2PR01CA0042.outlook.office365.com
- (2603:1096:4:193::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.11 via Frontend Transport; Thu, 9
- Jul 2026 12:01:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 9 Jul 2026 12:01:30 +0000
-Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id D9A494351F32;
-	Thu,  9 Jul 2026 20:01:28 +0800 (CST)
-From: joakim.zhang@cixtech.com
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	bmasney@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de
-Cc: cix-kernel-upstream@cixtech.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Thu, 09 Jul 2026 12:03:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D7FD66001A;
+	Thu,  9 Jul 2026 12:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0981F000E9;
+	Thu,  9 Jul 2026 12:03:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783598594;
+	bh=VMlnZiyXf+hyN61e0c4PtxjdZzI77LLHOZVZ/XjZp40=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=f+liHW8aDX0KQdMRnDgSQj1kAwV8lEW36EU0LZZg0VtqK3EW9gd1Gf9ZvU16qS1Mr
+	 xXpsxAbMb/hRwuegurS4uaLVEbn2fVRfS/I0jL//1RZBJulpGxvLOzcvweBrkpxfZW
+	 lvh4h87QsVsSGMypeX/ii9BIxgVb7NmoPQviRJ9jmy1e5Xws62/ECrpzdwoBhL3VOf
+	 7zIjPP2P4jn35jtn+W1cmrN1TP61MWZaEqE4mm8RQ2spg1qw630hlXch/an4KM0Kui
+	 2R1XcrABmJSgJn7qt8D4UMBhpoBww3tErHutFVW0foB5S7lp2XP91b0t3Naaqr8lQQ
+	 AIh0B+lW6PsAA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1whnTD-00000003Fqc-3vVi;
+	Thu, 09 Jul 2026 12:03:12 +0000
+Date: Thu, 09 Jul 2026 13:04:58 +0100
+Message-ID: <87wlv45pxx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v9 0/4] Add Cix Sky1 AUDSS clock and reset support
-Date: Thu,  9 Jul 2026 20:01:21 +0800
-Message-ID: <20260709120125.3997078-1-joakim.zhang@cixtech.com>
-X-Mailer: git-send-email 2.50.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|JH0PR06MB7106:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 79ca0054-8ee1-40f7-40ea-08deddb1d008
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|23010399003|82310400026|18002099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: HpD7sJLPkQjYKqLtWqn4wbysYceN2E+xBuNCR+OXZAP9SH3pv8ifNcihSFeQvlKAqp7JC8+g9W//K8N+eCgmcsPoH/eBh2z5AndMuTc1ABFHnmRWdbBlZpBggpW66gGJww4xN2dQ9x1Vs/8rTQycYLr7aphW2fhXoWHokIwA8fG6B1pwuCvNRtlyJ82eOtTSm0qKgVUswYDV95V5gegsx8zXJyVtd30OHqtuHvJ/ME3SopvRBcYUu7/y2dkVStPIdYVQRto8R+wxZggHNSSw79Guddo95tpkW36z9Rz2FqnluebEkcdfTZVjaC2rYlSmT2ANlNgik8M6qFV/UJbUwvaXst/kTv9LLJcwXQfAabXLEFzZjZgHueoF/NLw1EehtRxBu2oVPgRO6NSAqqGPk79Nx5FluQEmskVYryH6sWIpysJEBj57cxkCFWkjF+719vwuVyNQA64DIwL8MBBUFBGLnDR0ROoAUh/Q2mgnBM5DAIQbGHEBV1HMCsmbLmlEwkGFPfuPcAojWmpewvZ/6gzLigBCQijC47WQwixnDWZIgvX4rXCihsxRr55QJ/Vm9EM3VYia94pVkM+3czKERjMOMGBpCQnMiW4NvNQoB0KJ4/cy1J49YTLSSNrZpL9bqcQtfjAIFpTQWtemfBZJT3Rw2O5LPrlqbBGWfNKPxaWsMWGEp7qaLOM+tlVqrY++0T7Ml/SukWC224at+LqC9A==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(23010399003)(82310400026)(18002099003)(3023799007)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Rlld1WtyzDAa0Pk8sV1WGmWVQrmT81yKtyxOQ8hQD7oxuRmVPu+gioBSo+JWav74jXx/nXT9n61aDONAxZRJA496DcVfNYS+LWV1zaqWb1EtAIce8Ngtv1f2OF359yuUYIiXBYpXUVf244kY0aF6CQPgq7uoKMBzBJffJ8TED4blKHDTYP2qh8NZp29XGRwmGDp/PvrXQrugNjTOywSWKPqTH+MwJVYK7rY4vGLK0NCIbcwUiDzMUZg0PtiDLdrD/BRqbdQho16P1CdB0hHHZuGu5dcUmUZ17LNsXFxgE2OphB6VW6YYtRnxKYgSSTSTKBXd2o8KS5LUawgRFijWPUS8iYUgPklImCV9w1qgR8rMcdLcPn3vH7w3TVK80nDWOi4mOxZ71GdTUbTpMYvkJQy0/wu7ORl8vfBxhZ6empUNrwhJ6HFKBq1o+vrLcfZP
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 12:01:30.0322
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79ca0054-8ee1-40f7-40ea-08deddb1d008
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C9.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB7106
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_050153_593940_D39E65F1 
-X-CRM114-Status: GOOD (  14.09  )
+	kvm@vger.kernel.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 19/28] KVM: arm64: Make HCR_EL2 a non-VNCR register
+In-Reply-To: <20260708111832.GA99849@e124191.cambridge.arm.com>
+References: <20260702160248.1377250-1-maz@kernel.org>
+	<20260702160248.1377250-20-maz@kernel.org>
+	<20260708111832.GA99849@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,122 +87,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joakim Zhang <joakim.zhang@cixtech.com>
+On Wed, 08 Jul 2026 12:18:32 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> On Thu, Jul 02, 2026 at 05:02:39PM +0100, Marc Zyngier wrote:
+> > FEAT_NV3 makes a fundamental change to the architecture, by moving
+> > guest-initiated HCR_EL2 accesses to the NVHCR_EL2 register. As the
+> > names suggests, this is HCR_EL2 for a NV guest.
+> > 
+> > But where do NVHCR_EL2 accesses from a guest go? The are redirected
+> > to the VNCR page, right where HCR_EL2 is stored in the NV2 case.
+> > Does it hurt? Good. There's more coming.
+> > 
+> > The challenge here is to make KVM work seamlessly, without rewriting
+> > everything. Which implies that things such as __vcpu_sys_reg(HCR_EL2)
+> > must work, no matter the underlying NV implementation.
+> > 
+> > A simple way to deal with it is to move HCR_EL2's canonical storage
+> > outside of VNCR for the vast majority of the KVM code, and only have
+> > a copy at entry/exit times. Given that we don't really support NV3
+> > yet, this is pretty simple.
+> > 
+> > In the process, advertise NVHCR_EL2 as the register that now holds
+> > offset 0x78 in the VNCR page.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> 
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h     | 3 ++-
+> >  arch/arm64/include/asm/vncr_mapping.h | 2 +-
+> >  arch/arm64/kvm/hyp/vhe/switch.c       | 9 +++++++++
+> >  3 files changed, 12 insertions(+), 2 deletions(-)
+> >
 
-The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related blocks such as
-HDA, I2S, DSP, DMA, mailboxes, watchdog and timer behind one Clock and
-Reset Unit (CRU). The CRU is a single MMIO register block that provides
-clock muxing, gating and block-level software reset lines for those
-peripherals.
+[...]
 
-Clock and reset support are submitted in one series because they belong
-to the same hardware block and share one devicetree node
-(cix,sky1-audss-cru). The binding, clock indices and reset indices are
-defined together; the clock driver maps the CRU and instantiates the
-reset controller as an auxiliary driver on that node. Splitting clk and
-reset across separate series would leave neither side self-contained: the
-DTS node needs both providers, and the reset driver has no standalone
-probe path without the clock driver.
+> > @@ -559,6 +563,11 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
+> >  
+> >  		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
+> >  		*vcpu_cpsr(vcpu) |= mode;
+> > +
+> > +		/* Publish the latest HCR_EL2 to the emulation */
+> > +		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
+> 
+> My alarm bells went off reading this, because the context (in-memory) seemed
+> wrong, but I see that patch 23 further modifies this for NV3!
 
----
-ChangeLogs:
-v8->v9:
-  * Reverse Christmas tree order 
-  * use devm_clk_hw_register_composite_pdata() 
-  * assert reset if clks enabled failed
-  * add pm_ptr
+Yeah, this patch is strictly about moving HCR_EL2 out of VNCR before
+any NV3 shenanigans. The guest state is still in the same VNCR
+location when we're running NV2, only duplicated for the benefit of
+the rest of the KVM emulation.
 
-v7->v8:
-  * reset Kconfig: drop select REGMAP_MMIO
+Thanks,
 
-v6->v7:
-  * reset driver:
-    * propagate regmap errors in assert/deassert ops
-    * drop .reset and .status ops (no consumer uses them)
-    * remove regmap fallback path; use parent regmap only
-    * use dev->of_node for rcdev.of_node
-    * drop of_reset_n_cells and dev_set_drvdata()
-  * dt-binding:
-    * Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-v5->v6:
-  * rename dt-bindings headers to cix,sky1-audss-cru.h to match compatible
-  * drop status = "okay" from audss_cru node in sky1.dtsi
-
-v4->v5:
-  * refactor the driver, using platform_driver for clk and auxiliary_driver
-    for reset.
-
-v3->v4:
-  * move both power domain and resets into parset node (audss_cru)
-  * remove "simple-mfd", and change to populate the child node
-  * cix,sky1-audss.h -> cix,sky1-audss-clock.h
-
-v2->v3:
-  * clk part:
-    * devm_reset_control_get()->devm_reset_control_get_exclusive()
-    * assert noc reset from suspend
-    * clock parents changes from 6 to 4, and rename the clock names,
-      explain more about this: confirm with our designer, In fact,
-      there are 6 clock sources going into the audio subsystem. audio_clk1
-      and audio_clk3 are redundant in design and are not actually needed
-      in practice, so they are not shown here.
-    * refine clocks and clock-names property
-    * add detailed description of clocks
-    * drop parent node from clk binding
-    * drop define AUDSS_MAX_CLKS
-  * reset part:
-    * rename reset signal macro, remove _N
-    * drop SKY1_AUDSS_SW_RESET_NUM
-    * switching to compatible-style of defining subnodes in parent schema
-
-v1->v2:
-  * remove audss_rst device node since it doesn't has resource, and
-    move to reset-sky1.c driver.
-  * remove hda related which would be sent after this patch set accepted
-  * soc componnet is okay by default from dtsi
-  * fix for audss clk driver:
-    * remove "comment "Clock options for Cixtech audss:""
-    * add select MFD_SYSCON
-    * move lock and clk_data into struct sky1_audss_clks_priv
-    * const char *name -> const char * const * name
-    * remove CLK_GET_RATE_NOCACHE
-    * divicer -> divider
-    * Reverse Christmas tree order
-    * return reg ? 1 : 0; -> return !!reg;
-    * return ERR_CAST(hw); -> return hw;
-    * of_device_get_match_data(dev) -> device_get_match_data()
-    * add lock from runtime_suspend/resume
-  * loop to more mailing lists
-
-Joakim Zhang (4):
-  dt-bindings: soc: cix: add sky1 audss cru controller
-  clk: cix: add sky1 audss clock controller
-  reset: cix: add sky1 audss auxiliary reset driver
-  arm64: dts: cix: sky1: add audss cru
-
- .../bindings/soc/cix/cix,sky1-audss-cru.yaml  |   92 ++
- arch/arm64/boot/dts/cix/sky1.dtsi             |   18 +
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/cix/Kconfig                       |   16 +
- drivers/clk/cix/Makefile                      |    3 +
- drivers/clk/cix/clk-sky1-audss.c              | 1205 +++++++++++++++++
- drivers/reset/Kconfig                         |   13 +
- drivers/reset/Makefile                        |    1 +
- drivers/reset/reset-sky1-audss.c              |  137 ++
- .../dt-bindings/clock/cix,sky1-audss-cru.h    |   60 +
- .../dt-bindings/reset/cix,sky1-audss-cru.h    |   25 +
- 12 files changed, 1572 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml
- create mode 100644 drivers/clk/cix/Kconfig
- create mode 100644 drivers/clk/cix/Makefile
- create mode 100644 drivers/clk/cix/clk-sky1-audss.c
- create mode 100644 drivers/reset/reset-sky1-audss.c
- create mode 100644 include/dt-bindings/clock/cix,sky1-audss-cru.h
- create mode 100644 include/dt-bindings/reset/cix,sky1-audss-cru.h
+	M.
 
 -- 
-2.50.1
-
+Jazz isn't dead. It just smells funny.
 
