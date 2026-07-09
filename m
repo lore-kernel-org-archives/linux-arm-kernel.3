@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66422C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3BCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8RLhhGW3sN2X1G7MiWX/+WzP7e7Dm5U8Ht8FceQ5jrM=; b=i6fpPX/Bd/6IoSXpq8RP9llV2J
-	DfIqqCjYKsT6+yb79NWKg+iB/3dWrp8wih5djEBIfAGMPVODz+GB7JVtoiJrlJi9Gld0wtGEK1HUi
-	fPqCUoZnn7R28r73QvVZxrzREFMXPP29NBXnKNtanujuc+a1t3nAB6sXfCq1LCVsq5/TRAoMEiV19
-	tpIPxWTr9C4mr0WC82cw/tuE/ITXHsD6SN8mRuR2YX/F/+lmCZYtEWfFVB7bCx2uFwTWsv5WmFk9i
-	sEzvFO53JTETpdnNwPHqHr5VJ7J3WPWl6IhNvunMw08lZ9Zj6C3O+7rwBeEncA1tmyi3B41RxXMaU
-	yVzulQYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6XwrLi6Y4IOFMOm9cNo6rhDN/s137jdU3eu/sEBPdb4=; b=D0iba6jz09LTN0ERPwF9j19Kp2
+	8K3AewryKIkCWRNSsVFGgFJYS+Cqmu1lDZ9PbgSNKI0BOT26TixZwPwqtJSdnWVmYMX/j7G8Kkvim
+	POhO9COakXywQ11jjEltvaReb1YAhpNDH6mYNCA/FWBl8DfXpfdz6ldWlqLjCSfWg6hEIlssqC0Et
+	SckPsgIOYPnYmSEo67TNylLh/EWIKhrtGKisZOUmveflCFZgAR2I0yCxakh7XwsiyKbTh7Ox08/ZW
+	AWjeHdIqY8QI7LTUbsozMMLNa9mmuE/aA9lHTb4IG5cZsOZ0vP+PVcIRW+/Il9Z19M97BwZh9k7nl
+	P55iWWuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjHh-00000001JHD-2FU2;
-	Thu, 09 Jul 2026 07:35:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjHe-00000001JG8-0C8Q
+	id 1whjHp-00000001JK1-3ATx;
+	Thu, 09 Jul 2026 07:35:09 +0000
+Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whjHm-00000001JHw-1aPN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 07:35:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92EF715A1;
-	Thu,  9 Jul 2026 00:34:52 -0700 (PDT)
-Received: from [10.41.150.148] (e142021.arm.com [10.41.150.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A8363F66F;
-	Thu,  9 Jul 2026 00:34:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783582496; bh=66zG2d9zsYOd+DElbNs9ua75fdJfZCXLCzoMIQb2+JQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d1pTRXZ6UVsx1u0U2+SyDD2mwhSrCjkE9GB6a3oOdcneINwF0C7nGmUVCMs8YTDAL
-	 0iMMDOoK9gbB0vSgR+3aXn+LC/CEFfJI/Cnrww1hnT8vMprDaAL9BLgJvk0Im9l8o7
-	 ZQdGhk1QFxEKunC9W1uf9CK9wDfuV/WOSYySn1TM=
-Message-ID: <4d1f25a3-d1a3-4521-ae49-d41fd1367a58@arm.com>
-Date: Thu, 9 Jul 2026 09:34:50 +0200
+	Thu, 09 Jul 2026 07:35:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1783582506; x=1815118506;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=E4bCVlb46K+E7Etx51AHeLIHo1jVe+mkYB5G49FAWJw=;
+  b=RmR2jzRCWFRnYQG3wT4eGF3UMxFh4vL4zzhwXscUuup6qteaR/XO4BUI
+   6KZPKLQtbDB4yAPmHYnVx6OM7biNCyzanuo66+AMtUi13GpjM9f02ZLIu
+   ZhoSTwXXyj4jEzq6SNrsjcjts3Gs/MckzLiQKO4ICFH4xQrq3dQ2szhti
+   TneMsSkLJjfd+PXha6nQMF8OfaaioM9Cc0Z4sKEfLY75xt7hrPmj43Pog
+   MLX8gifb+qKoDTIgzpPRsp6oNO9BLPB9jwK515uUDYRqQtkklvhLIt/Hk
+   gqSMWXQO4qfZg4pIM7mdKrz++zhPnCaNMNRj6ZZUHymPkamZ66gBfYfgA
+   g==;
+X-CSE-ConnectionGUID: 2LDGxL5aShGCWdaYYIDEug==
+X-CSE-MsgGUID: hfsBTA5hQnCiW/o9cya/AA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="244957981"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779116400"; 
+   d="scan'208";a="244957981"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 16:35:00 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 3356B3D1B
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 07:35:00 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id DA6501C2FB9D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 07:34:59 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 3A9AC1406396;
+	Thu,  9 Jul 2026 07:34:55 +0000 (UTC)
+Date: Thu, 9 Jul 2026 16:34:52 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 0/6] KVM: arm64: ptdump: Shadow ptdump fixes
+Message-ID: <ak9PHJJzjliTeiFB@sm-arm-grace07>
+References: <20260630121005.1130996-1-weilin.chang@arm.com>
+ <akYLdEuPXEGIZx3E@sm-arm-grace07>
+ <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
+ <akbuIDmd_zH9_m6K@sm-arm-grace07>
+ <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/15] arm_mpam: propagate MSC read errors for wrapper
- functions
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-3-andre.przywara@arm.com>
- <029910c3-e90f-4a35-8b01-4d3ff548deea@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <029910c3-e90f-4a35-8b01-4d3ff548deea@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003458_260056_F7702D42 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20260709_003507_188841_7C5ABBF9 
+X-CRM114-Status: GOOD (  42.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,144 +106,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 7/1/26 21:56, Ben Horgan wrote:
-> Hi Andre,
+On Fri, Jul 03, 2026 at 11:24:53AM +0100, Wei-Lin Chang wrote:
+> On Fri, Jul 03, 2026 at 08:02:56AM +0900, Itaru Kitayama wrote:
+> > On Thu, Jul 02, 2026 at 08:41:43AM +0100, Wei-Lin Chang wrote:
+> > > On Thu, Jul 02, 2026 at 03:55:48PM +0900, Itaru Kitayama wrote:
+> > > > Hi Wei-Lin,
+> > > > On Tue, Jun 30, 2026 at 01:09:59PM +0100, Wei-Lin Chang wrote:
+> > > > > Hi,
+> > > > > 
+> > > > > This is v2 of fixing shadow ptdump debugfs files. Unfortunately I couldn't make
+> > > > > per mmu ptdump files work after all, mainly because there isn't a clean way to
+> > > > > locate the specific nested mmu for each ptdump file as the nested mmus could be
+> > > > > freed when the file gets opened. Therefore in this series a single file
+> > > > > "shadow_page_tables" is created that dumps all valid mmus' page table
+> > > > > information.
+> > > > > 
+> > > > > An advantage of this is that this new ptdump file have a lifetime identical to
+> > > > > other ptdump files i.e. stage2_page_tables, ipa_range, etc., hence avoiding the
+> > > > > dentry UAF found last time [1].
+> > > > > 
+> > > > > With this all ptdump files are only removed when the last kvm reference gets
+> > > > > dropped and kvm_destroy_vm_debugfs() is called, in their open(), show()
+> > > > > functions the nested mmu array and mmu->pgt are checked with mmu_lock held to
+> > > > > prevent UAF.
+> > > > > 
+> > > > > Patch 1-2: Undo previous shadow ptdump implementation.
+> > > > > Patch 3:   Fix a mmu->pgt UAF that happens when ptdump files are read after
+> > > > >            mmu->pgt is freed.
+> > > > > Patch 4-5: Preparation for the shadow page table dump file.
+> > > > > Patch 6:   Implementation of the shadow page table dump file.
+> > > > > 
+> > > > > The fixes are tested with CONFIG_PROVE_LOCKING,
+> > > > > CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
+> > > > > 
+> > > > > Thanks!
+> > > > 
+> > > > Running your shadow stage 2 kselftest with bpftrace shows me that __kvm_pgtable_stage2_init()
+> > > > for shadow stage 2 translation tables are built with ia_bits = 52 and
+> > > > start_level = 0, but the debugfs entry for the active shadow stage 2 tables prints
+> > > > out that's 3 levels. Is this fully expected?
+> > > 
+> > > Where is this level information you are seeing from? If it is
+> > > "stage2_level", that only reports the number of levels for the canonical
+> > > stage-2 (non nested). For nested mmus only the page tables are dumped in
+> > > nested/shadow_page_tables.
+> > 
+> > Yes I know. The initial stage 2 translation table structure information is obtained by 
+> > instrumenting the kernel using eBPF fexit to __kvm_pgtable_stage2_init().
+> > 
+> > Since you're correctly loopin over nested_mmus array, and the output is
+> > correctly shown using the kvm_pgtable information via the kvm_s2_mmu for
+> > them, I am confused at this moment.
 > 
-> On 7/2/26 17:22, Andre Przywara wrote:
->> Allow the wrapper functions for IDR and ESR accesses to return an
->> error, and propagate read errors from the lower level up.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/mpam_devices.c | 51 +++++++++++++++++++++++-----------
->>   1 file changed, 35 insertions(+), 16 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index df14b4513382..ce8738adb6ff 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -247,27 +247,34 @@ static bool mpam_msc_check_aidr(struct mpam_msc *msc)
->>   	return true;
->>   }
->>   
->> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
->> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
->>   {
->>   	u32 idr_high = 0, idr_low;
->> +	int ret;
->>   
->>   	lockdep_assert_held(&msc->part_sel_lock);
->>   
->> -	mpam_read_partsel_reg(msc, IDR, &idr_low);
->> -	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
->> -		mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
->> +	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
->> +	if (!ret && FIELD_GET(MPAMF_IDR_EXT, idr_low))
->> +		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
->>   
->> -	return ((u64)idr_high << 32) | idr_low;
->> +	if (!ret)
->> +		*res = ((u64)idr_high << 32) | idr_low;
->> +
->> +	return ret;
->>   }
+> Two things here:
 > 
-> Why does the pattern here, use of !ret rather than early return, differ
-> from the one you've used in mpam_msc_read_esr()?
+> Firstly ia_bits being 52 is not expected to me, as I didn't change the
+> VM's IPA size via KVM_VM_TYPE_ARM_IPA_SIZE in the selftest, to me I
+> would expect ia_bits to be 40 (the default). Start level being 0 looks
+> normal.
 
-No particular reason, I think I switched patterns, for instance 
-depending on whether a lock was held or not, or when there are some side 
-effect of that function, so probably just repeated the last exercise.
+Instrumenting the ptdump code you're proposing I see the shadow stage 2
+translation tables are constructed with the max 52-bit IPA; irrespective
+of the IPA bits set in the init_s2_mmu() helper for the guest hypervisor
+setup in the selftest, I am guessing here to me fixed? 52-bit IPA size 
+because it's awkward if nestd guest's IPA size is larger than the shadow 
+stage 2's IPA size.
 
-I changed it to return early here.
+I confirmed using the __vm_create() helper with various guest modes
+supported that canonical stage 2's "ipa_range" changes according to the 
+guest (L1) PA size so I wonder if it is a good idea to create something like
+shadow_ipa_range and shadow_stage2_levels files under nested directoy.
 
-Cheers,
-Andre
+Thanks,
+Itaru.
 
 > 
->>   
->> -static void mpam_msc_clear_esr(struct mpam_msc *msc)
->> +static int mpam_msc_clear_esr(struct mpam_msc *msc)
->>   {
->>   	u32 esr_low;
->> +	int ret;
->>   
->> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
->> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
->> +	if (ret)
->> +		return ret;
->>   
->>   	if (!esr_low)
->> -		return;
->> +		return 0;
->>   
->>   	/*
->>   	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
->> @@ -277,18 +284,30 @@ static void mpam_msc_clear_esr(struct mpam_msc *msc)
->>   	 */
->>   	if (msc->has_extd_esr)
->>   		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
->> +
->>   	__mpam_write_reg(msc, MPAMF_ESR, 0);
->> +
->> +	return 0;
->>   }
->>   
->> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
->> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
->>   {
->>   	u32 esr_high = 0, esr_low;
->> +	int ret;
->>   
->> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
->> -	if (msc->has_extd_esr)
->> -		__mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
->> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (msc->has_extd_esr) {
->> +		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
->> +		if (ret)
->> +			return ret;
->> +	}
->>   
->> -	return ((u64)esr_high << 32) | esr_low;
->> +	*res = ((u64)esr_high << 32) | esr_low;
->> +
->> +	return 0;
->>   }
->>   
->>   static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
->> @@ -993,7 +1012,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>   
->>   	/* Grab an IDR value to find out how many RIS there are */
->>   	mutex_lock(&msc->part_sel_lock);
->> -	idr = mpam_msc_read_idr(msc);
->> +	mpam_msc_read_idr(msc, &idr);
->>   	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
->>   
->>   	mutex_unlock(&msc->part_sel_lock);
->> @@ -1009,7 +1028,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>   	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
->>   		mutex_lock(&msc->part_sel_lock);
->>   		__mpam_part_sel(ris_idx, 0, msc);
->> -		idr = mpam_msc_read_idr(msc);
->> +		mpam_msc_read_idr(msc, &idr);
->>   		mutex_unlock(&msc->part_sel_lock);
->>   
->>   		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
->> @@ -2492,7 +2511,7 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   					   &msc->accessibility)))
->>   		return IRQ_NONE;
->>   
->> -	reg = mpam_msc_read_esr(msc);
->> +	mpam_msc_read_esr(msc, &reg);
->>   
->>   	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->>   	if (!errcode)
+> Second thing is I still can't get what you are confused about, if it's
+> not about the first point. Note that the "3" in ptdump means it is a
+> level 3 mapping, not saying the page tables are using 3 levels.
 > 
-
+> Happy to discuss more if you clarify. I'll also check the ia_bits when I
+> get to it.
+> 
+> Thanks,
+> Wei-Lin Chang
+> 
+> > 
+> > Thanks,
+> > Itaru.
+> > 
+> > > 
+> > > Thanks,
+> > > Wei-Lin Chang
+> > > 
+> > > > 
+> > > > Thanks,
+> > > > Itaru.
+> > > > 
+> > > > > 
+> > > > > * Changes from v1 ([2]):
+> > > > > 
+> > > > >   - Move from per mmu ptdump files to one file that will dump all shadow page
+> > > > >     tables.
+> > > > > 
+> > > > > [1]: https://lore.kernel.org/kvmarm/ajty6I7ZqodP4ous@sm-arm-grace07/
+> > > > > [2]: https://lore.kernel.org/kvmarm/20260623142443.648972-1-weilin.chang@arm.com/
+> > > > > 
+> > > > > Wei-Lin Chang (6):
+> > > > >   KVM: arm64: ptdump: Remove shadow ptdump files
+> > > > >   KVM: arm64: ptdump: Undo making the ptdump code mmu aware
+> > > > >   KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
+> > > > >   KVM: arm64: ptdump: Factor out initialization of
+> > > > >     kvm_ptdump_guest_state
+> > > > >   KVM: arm64: ptdump: Extract kvm_ptdump_guest_open() from canonical
+> > > > >     ptdump path
+> > > > >   KVM: arm64: ptdump: Introduce the shadow ptdump file
+> > > > > 
+> > > > >  arch/arm64/include/asm/kvm_host.h |   5 +-
+> > > > >  arch/arm64/include/asm/kvm_mmu.h  |   4 -
+> > > > >  arch/arm64/kvm/nested.c           |  18 +--
+> > > > >  arch/arm64/kvm/ptdump.c           | 185 ++++++++++++++++++++----------
+> > > > >  4 files changed, 135 insertions(+), 77 deletions(-)
+> > > > > 
+> > > > > -- 
+> > > > > 2.43.0
+> > > > > 
 
