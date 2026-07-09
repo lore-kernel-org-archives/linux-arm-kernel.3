@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC468C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD711C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jKSBYecH+EyGOAeyvpg14uE+/2aOtGsY3OZpO4ezjEQ=; b=gdrRwBtrwCMxVxLp4HO6fdjSe5
-	kvfmDIzPwh5tubmSTBCtd8NHrl1iLM4sDZY/ZOybowaWFf9fHFhfWXl/NTXhhiLZsK0Ih0gj99lXQ
-	2ddjSw2a2JCiB1sI1f982pkdcuNVp1CZnZNxNa5ta75eadbUpBJh48k/6kUMJ/DDKe/ZncBd6Y4s1
-	uIVCKulZR9I4xS8Lx0zG76YdrFDAvvfwndIkEhvYUIm0j/hLT0ykQxvacsJKlumSoPUcJyQGs+kQh
-	nvIC6kiV0Mvm2iM6kyf2gBTvx51k+jPTMHi4DzsMJk9pFqgIhBAv/JPmnEjUEf/9mEuK4EJqrVNIw
-	6+sY0vQQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mOGzjDjSGv2rOBgOAR8vSGhS0pwmQcF+24mcL4l+cCU=; b=Pg47CK1fZ/kMoaqbdYWFKhbVqj
+	dbaI4NDDzpnhBVOJi/cOrFKweFq9K34QS2H+Yx79o7xhXuNn73rvjLXQrK7mog7JVibUvTtJstt3F
+	8XFDR5zXxbbkIGZs4qmN2wZTgAOozYeSHTj2zlE2RUDy8xBU8Bz7Ja8q2a0thLOwC0wPHilLnruim
+	CioPI33vn835ZaDIU+8MA575aarYr98FfomXpk00oRa+Z19QtL7ZEfvZVrxCmtL5whU2mTW+yZMl4
+	uvwfs82fsI8oRYDv7ukUOU+3LO4852GVRPygngsBsBpRY7boHthPTLceLNyKcbIDcokQ6XqPe+qHw
+	uCDlFFZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpv6-00000002nkA-2s8Q;
-	Thu, 09 Jul 2026 14:40:08 +0000
+	id 1whpv9-00000002nly-3PYx;
+	Thu, 09 Jul 2026 14:40:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpv4-00000002njX-1MgI
+	id 1whpv7-00000002nkV-2N5k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:40:07 +0000
+	Thu, 09 Jul 2026 14:40:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E39C5152B;
-	Thu,  9 Jul 2026 07:39:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AD56152B;
+	Thu,  9 Jul 2026 07:40:04 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E73A83F66F;
-	Thu,  9 Jul 2026 07:40:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 47FC43F66F;
+	Thu,  9 Jul 2026 07:40:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783608003; bh=52TghAuaTr4O+tB+lgjiiJERJST0JojMUFPR+rQdHNE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=JAg+IqJMSp0tqZbFfrthAWNrr5+D7zhml+CAzJPxWNRk8gzS1KegMJg5VAf+sJyAA
-	 +AEU+J75b3zzIgSBHVbA5eG8YPO+hxCN8Zgl7MKZfuEvEa/zQZ6pC7dJg0KHdN6CiJ
-	 zS/tNSOPG/01k1oJozBmhMdI9xWX2y5K1ufU31is=
+	t=1783608008; bh=6tXjr5QO/6YpXAvLeEr0jkgC5AsB7mddypUG7wFuDXI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NI6w7jDQxpdSmGIVoj1i5//Y0khHktxUQkccnY6MwIR5wPUQOSz303ROQdY8GLuzg
+	 FHfN4uazbZXOMbTCY8H/1R9SYC26BKRW3cZnVXlSGXIDemLkmdaoIyKGqATXutcD+Z
+	 l7C6Rw36CM2h2m49Pr871KAufRsX/FNEfbmkFnro=
 From: Robin Murphy <robin.murphy@arm.com>
 To: will@kernel.org,
 	mark.rutland@arm.com,
@@ -47,17 +47,21 @@ Cc: ilkka@os.amperecomputing.com,
 	bwicaksono@nvidia.com,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: [PATCH 0/4] perf/arm_cspmu: Miscellaneous improvements
-Date: Thu,  9 Jul 2026 15:39:52 +0100
-Message-ID: <cover.1783605641.git.robin.murphy@arm.com>
+	linux-perf-users@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH 1/4] ACPI/APMT: Use stable device ID
+Date: Thu,  9 Jul 2026 15:39:53 +0100
+Message-ID: <c113eff51124250fc5798589ce905052046b43b3.1783605641.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.54.0.dirty
+In-Reply-To: <cover.1783605641.git.robin.murphy@arm.com>
+References: <cover.1783605641.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_074006_489862_BF32B034 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_074009_653877_146CB951 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,27 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The APMT node format includes a unique identifier, so we can use this as
+the platform device ID to give userspace stable and identifiable device
+names, rather than auto numbering dependent on how the table is parsed.
 
-These are a few quality-of-life improvements for CoreSight PMU that
-I've accumulated based on things which have come up in practical usage.
-There's no real dependency between any of the individual patches, it
-just felt right to send them as a series.
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Hanjun Guo <guohanjun@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/acpi/arm64/apmt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Robin.
-
-
-Robin Murphy (4):
-  ACPI/APMT: Use stable device ID
-  perf/arm_cspmu: Improve APMT-based PMU naming
-  perf/arm_cspmu: Improve sub-module error reporting
-  perf/arm_cspmu: Make IRQ more optional
-
- drivers/acpi/arm64/apmt.c          |  2 +-
- drivers/perf/arm_cspmu/arm_cspmu.c | 49 ++++++++++++++++++------------
- 2 files changed, 31 insertions(+), 20 deletions(-)
-
+diff --git a/drivers/acpi/arm64/apmt.c b/drivers/acpi/arm64/apmt.c
+index bb010f6164e5..ba48fcb26d52 100644
+--- a/drivers/acpi/arm64/apmt.c
++++ b/drivers/acpi/arm64/apmt.c
+@@ -79,7 +79,7 @@ static int __init apmt_add_platform_device(struct acpi_apmt_node *node,
+ 	int ret, count;
+ 	struct resource res[DEV_MAX_RESOURCE_COUNT];
+ 
+-	pdev = platform_device_alloc(DEV_NAME, PLATFORM_DEVID_AUTO);
++	pdev = platform_device_alloc(DEV_NAME, node->id);
+ 	if (!pdev)
+ 		return -ENOMEM;
+ 
 -- 
 2.54.0.dirty
 
