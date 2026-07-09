@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC33C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF2C6C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuYv96UQ0eLooIb+Z4uofPGyThS3w4yBK5HBQsW7Jcg=; b=Rn17jUr5E3DTvd9U4RhFT0qqEg
-	HEJBtJPenh06cR6DidGo4w6VfZNDkzDIQBO6QjmJmVfIzXTuur0tsK6w8QFA1c/fYNH6bGmBS6DLB
-	us92v/U/hAB3lYJih4QOxACojYmjUeIG4XhUOT7Utct7UM9Ul0zPGkdPZvZ752C2Y7OLebF7xmKJS
-	OnubnnWa1iopXUkIQZGl0564pFzfEZFnpeYcH5hWwAN0Gx+eQZojTvCKkQ26f3LaAvucvmvwVEfk+
-	vTKSZtQn7dL5lqISz1EtOeOFRyvxiRjTf4wsz/Ta49MgBgH/dAVpqZbb2cfjLD1nC+5JTZVJuwtO2
-	F7O3O5Gw==;
+	bh=R8zjTOHNpwzGVNZDRwZL7MAqab3tUCsaQDziHRh3BFk=; b=2O5U7A/kE55E2+qSpof054xZZm
+	8lc8WDeatlhnNv2r/AVullDt1f4aCDvs2xc/g15bFmK1kPJnnwLHGq613YnpFX5NHunrNGe1vAo9R
+	IH/z1UHJVJBy0lKWxtpfX/JPR9sjAKQsm93EyhXndA8EG6HGDNhpzyyTXMtoLNIIlMocIHyhFh1V8
+	2odxcTHzYqDfcVOOKZxgOom/I2CgQfNo9cKMT7Dn/VD/OEGlT0e06IprvFzxTKRgjzP5xajsErSD3
+	xyL33GrE6oafYO7T0YJO5GSfFQxoNP1eVo1bMBnDo6UCA1MZEvgAvsU0Fj010kzR3RZv/McGYaSRG
+	3TNNq2uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whl6R-00000001lkM-0Gd0;
-	Thu, 09 Jul 2026 09:31:31 +0000
+	id 1whl6V-00000001lms-1CZq;
+	Thu, 09 Jul 2026 09:31:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whl6N-00000001liA-3vA8
+	id 1whl6Q-00000001ljx-2wQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 09:31:30 +0000
+	Thu, 09 Jul 2026 09:31:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD847357C;
-	Thu,  9 Jul 2026 02:31:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76C1B357B;
+	Thu,  9 Jul 2026 02:31:25 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EC6A63F915;
-	Thu,  9 Jul 2026 02:31:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 62C1D3F66F;
+	Thu,  9 Jul 2026 02:31:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783589487; bh=cpp/A+DZWQ2h7wV3fHsPCvRwuYk8Gl08eO0UIRdy47Y=;
+	t=1783589489; bh=t5sgyOS/YMPlSIGlIhTDAXNQwL+40MNkrGLuFRaobww=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HxtoqgcfjnoiHTJcU9STSOTUu5d/hcsh4441q8eajVC89Y2DRmSJrXGQCqYrToY2O
-	 ATu9lbfpBgIVF04HDx2DHvIYFMGdXdmKHldUNKVgMyIdtX8KZ56SqKMpMVlq8duv2+
-	 qve4UEsKBk05NVa5DltD9rrGAIzhwRVwjl9APO8E=
+	b=siCOPqfqR9IziKWBfmYeyUA+/SEsDILD/Z4jLSope+1LLCZPrSkoEK6th0TPqnipJ
+	 CkFuclhzb0pVXHvtVkKd2xP6bC3Uty48y2lbqFaOrJoIpLW+Qw6mQEolUHbUZeo6fd
+	 RW0JmOEjThSMKFv+hezh4Ag2JDhwGl1DxozgJ/zI=
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: james.morse@arm.com,
@@ -54,19 +54,20 @@ Cc: james.morse@arm.com,
 	corbet@lwn.net,
 	x86@kernel.org,
 	linux-doc@vger.kernel.org,
-	dave.martin@arm.com
-Subject: [PATCH v5 2/3] arm_mpam: resctrl: Add pass-through resctrl_arch_preconvert_bw()
-Date: Thu,  9 Jul 2026 10:31:10 +0100
-Message-ID: <20260709093111.367851-3-ben.horgan@arm.com>
+	dave.martin@arm.com,
+	Dave Martin <Dave.Martin@arm.com>,
+	Ben Horgan <Ben.Horgan@arm.com>
+Subject: [PATCH v5 3/3] fs/resctrl: Factor MBA parse-time conversion to be per-arch
+Date: Thu,  9 Jul 2026 10:31:11 +0100
+Message-ID: <20260709093111.367851-4-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260709093111.367851-1-ben.horgan@arm.com>
 References: <20260709093111.367851-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_023128_028245_3FD89A3F 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_023130_821881_D7F8E0D6 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +82,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-resctrl rounds up the percentage value of the MBA based on the bw_gran. As
-MPAM uses a binary fixed point fraction format for MBA rather than a
-decimal percentage, this introduces rounding errors.
+From: Dave Martin <dave.martin@arm.com>
 
-Without this additional rounding, if the user reads the value in an MB
-schema and then writes it back to the schema, the value in hardware won't
-change. However, with this additional rounding, this guarantee is broken
-for systems with mbw_wd < 7.
+The control value parser for the MB resource currently coerces the memory
+bandwidth percentage value from userspace to be an exact multiple of the
+rdt_resource::resctrl_membw::bw_gran parameter.
 
-resctrl is introducing resctrl_arch_preconvert_bw() to allow the arch code
-to specify the conversion resctrl does to the user-provided bandwidth
-value. Add the MPAM version of resctrl_arch_preconvert_bw(). This does no
-conversion.
+On MPAM systems, this results in somewhat worse-than-worst-case rounding, since
+the bandwidth granularity advertised to resctrl by the MPAM driver is in general
+only an approximation to the actual hardware granularity on these systems, and
+the hardware bandwidth allocation control value is not natively a percentage --
+necessitating a further conversion in the resctrl_arch_update_domains() path,
+regardless of the conversion done at parse time.
 
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+For MPAM and x86 use their custom pre-prepared parse-time conversion,
+resctrl_arch_preconvert_bw(). This will avoid accumulated error from rounding
+the value twice on MPAM systems. For x86 systems there is no functional change.
+
+Clarify the documentation, but avoid overly exact promises.
+
+Clamping to bw_min and bw_max still feels generic: leave it in the core code,
+for now.
+
+[ BH: Split out x86 specific changes ]
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+Signed-off-by: Ben Horgan <Ben.Horgan@arm.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
 ---
 Changes since v3:
-Parameter order switch (Reinette)
+Parameter order swap (Reinette)
+Reflow commit message to use 80 characters (Reinette)
+Adjust comment line length (Reinette)
 Add Reinette's R-b
 
 Changes since v4:
-Add missing tearoff divider, ---
+Make Dave the author as he wrote the patch
 ---
- drivers/resctrl/mpam_resctrl.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ Documentation/filesystems/resctrl.rst | 17 +++++++++--------
+ fs/resctrl/ctrlmondata.c              |  6 +++---
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 226ff6f532fa..e9dea8c40265 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -167,6 +167,11 @@ bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
- 	return mpam_resctrl_controls[rid].cdp_enabled;
+diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
+index e4b66af55ffb..e4448c20c72e 100644
+--- a/Documentation/filesystems/resctrl.rst
++++ b/Documentation/filesystems/resctrl.rst
+@@ -236,12 +236,11 @@ with respect to allocation:
+ 		user can request.
+ 
+ "bandwidth_gran":
+-		The granularity in which the memory bandwidth
+-		percentage is allocated. The allocated
+-		b/w percentage is rounded off to the next
+-		control step available on the hardware. The
+-		available bandwidth control steps are:
+-		min_bandwidth + N * bandwidth_gran.
++		The approximate granularity in which the memory bandwidth
++		percentage is allocated. The allocated bandwidth percentage
++		is rounded up to the next control step available on the
++		hardware. The available hardware steps are no larger than
++		this value.
+ 
+ "delay_linear":
+ 		Indicates if the delay scale is linear or
+@@ -881,8 +880,10 @@ The minimum bandwidth percentage value for each cpu model is predefined
+ and can be looked up through "info/MB/min_bandwidth". The bandwidth
+ granularity that is allocated is also dependent on the cpu model and can
+ be looked up at "info/MB/bandwidth_gran". The available bandwidth
+-control steps are: min_bw + N * bw_gran. Intermediate values are rounded
+-to the next control step available on the hardware.
++control steps are, approximately, min_bw + N * bw_gran.  The steps may
++appear irregular due to rounding to an exact percentage: bw_gran is the
++maximum interval between the percentage values corresponding to any two
++adjacent steps in the hardware.
+ 
+ The bandwidth throttling is a core specific mechanism on some of Intel
+ SKUs. Using a high bandwidth and a low bandwidth setting on two threads
+diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
+index 9a7dfc48cb2e..62c9c6b24d54 100644
+--- a/fs/resctrl/ctrlmondata.c
++++ b/fs/resctrl/ctrlmondata.c
+@@ -37,8 +37,8 @@ typedef int (ctrlval_parser_t)(struct rdt_parse_data *data,
+ /*
+  * Check whether MBA bandwidth percentage value is correct. The value is
+  * checked against the minimum and max bandwidth values specified by the
+- * hardware. The allocated bandwidth percentage is rounded to the next
+- * control step available on the hardware.
++ * hardware. The allocated bandwidth percentage is converted as appropriate
++ * for consumption by the specific hardware driver.
+  */
+ static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
+ {
+@@ -71,7 +71,7 @@ static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
+ 		return false;
+ 	}
+ 
+-	*data = roundup(bw, (unsigned long)r->membw.bw_gran);
++	*data = resctrl_arch_preconvert_bw(r, bw);
+ 	return true;
  }
  
-+u32 resctrl_arch_preconvert_bw(const struct rdt_resource *r, u32 val)
-+{
-+	return val;
-+}
-+
- /**
-  * resctrl_reset_task_closids() - Reset the PARTID/PMG values for all tasks.
-  *
 -- 
 2.43.0
 
