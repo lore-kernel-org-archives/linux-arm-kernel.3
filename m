@@ -4,67 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAC5C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 06:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A19C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 06:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9K8UoPjxhDwKy1Cihj192TQjfLirc++Fc10GnOhJ7UE=; b=gUGwGp//Jf4eNhkVhSJrfXFmtk
-	jsintid+1kb3WfEapidr1zQodaU2vz1TbtD25AMiX6Kfb6pwoxULuDDPGDyCuOyCM0/+GDVOU7HXM
-	3olsaOvk3sl2QFd+Lvfz+8KLT66eotMwY8Jmr7cKtfDNZ+M/YVdm/AzBwhKTv47VrwQraGOxat4K4
-	RsJVdPD3vfrzXHK51Emsk+xNrPJczroplc/TL/jqe6indBYm4owm2bZ5fp6J/cYEqiv6If9PEFElo
-	0GI7xKq+LerqY2aQK9D0BDo+b+5J1V6ujBQxDOkSjkrsHvKoq0WOYRsvdcFqB+owXeVkT8CgjoYUK
-	8H95Mj+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uJ/4SwjyEF8KLZFqi+iXiWhnwewHu2Asrz8+c84E6/Q=; b=SGWKFc3s7OCYFNED91TyxUPsPb
+	QrldwXKwyyVuaEmevfmpibr8jAFQksyzjg0iCoDAJbeVDeKkWu2sPUfcmPJtrFhBCmGA3j8uWzy09
+	s2GwZT6RlALswzHchhHY0+VqUR7mksqbONuMZqxLjEPx0yRES5OU/ymR0dz6MUFlgC1NPmMHgTSWZ
+	7vmu2EKjcbdD76WRte2tr73kzbWwxMrIEtiGCTiEQvMGIpQxwYJJHn0JdVK/9ikE+zy7Md6EDK9oZ
+	oAQLH3/JL2K/k+9LggMkemeQMnd1LM9BBjqoA/DQnNBDI5ffizoBLq/bzqNNfxP273+sA4LYqVwUh
+	97s+HdFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhyj-000000017Lr-0Bu4;
-	Thu, 09 Jul 2026 06:11:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whhyf-000000017L0-44Co
+	id 1whi06-000000017do-22f2;
+	Thu, 09 Jul 2026 06:12:46 +0000
+Received: from mail-japaneastazon11023142.outbound.protection.outlook.com ([52.101.127.142] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whi03-000000017ci-3Xiv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 06:11:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E8E524C0;
-	Wed,  8 Jul 2026 23:11:12 -0700 (PDT)
-Received: from [192.168.20.93] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E23D3F7B4;
-	Wed,  8 Jul 2026 23:11:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783577476; bh=itxWaBlqVRCmP2fYWMzcg4qz2935JTm2SC8Oi54uD1Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=icQinZeRKNzsPzk3/sSNE8qPqW9LFBFGtTPSElV0lnunbteAnCiDydJ4UBcBmtFa7
-	 MSXv/CAhmLYPPJRAjRnQGessemvefVbaO8LLLV72R+KTDg/YQIIoU6o+IaQORCdmXy
-	 JNuFaxk4S6O1hX6P+uR2HMPCD8fmbOi9gA6fFSbM=
-Message-ID: <fcf60ce5-7e8c-431d-aea9-218da5445fb5@arm.com>
-Date: Thu, 9 Jul 2026 01:11:13 -0500
+	Thu, 09 Jul 2026 06:12:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZjwVJIFcpCnyMMHT/zIVnRU9nnMbuZh+E0pITgEYpUHoVzLdSC2jPc4px7AO1CMaMubYTgA3iyqSmtWds4M5nMXNrxWIdft9oDSv0dEcgUTsQ0w8nfdDOVF2vMDt6ZktNGC8+37Flwswhwns6lWqIQadNzNRS/qNUAANfG9oyliQp1OaXBluXc0pqUphYto/4k1goTjOjnImn2vrF9WqQuSspDUu+vGcsYe5BPTWmS+HkVkf35Zt/oB3ThE+VclBWS3PNPkzyDeHUechrhvNXu+pYRWTKnmXITJUv1PclTsDk48siNk3gOdhaXvDhk6NIRQMYahvf5/TYURyE518Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uJ/4SwjyEF8KLZFqi+iXiWhnwewHu2Asrz8+c84E6/Q=;
+ b=Vygcfq2f9GpQER9DPahf00EMgN2MXy+vfDaP3Mt0vjjN7uAnuGAQC8conZ1W52sUzNPpTEUoHCzL4MJKqw9EBWR1flavYtK4W9fYTqf+y/hZRh7uO+guzVwH07N4q8IhjfthEqqGg+rgsPCra3B/jx5siHB1c9QMOdSaKXpcgNNnFBcIAQqU14BgLq3FnxaQ96QfW7D0BpYsyBgK4qXq9ehRcClalnnYlkVazk1Q9d9c42+lNWlM6rvXadTOEqsbHwkgpxgLkh+viErMBLTEVV9iL+c8McI/tWHQApo9Gn4ld/NPzfW/NTWzI5aKqxr2M5KDVAMYRk3hEJu796lWyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uJ/4SwjyEF8KLZFqi+iXiWhnwewHu2Asrz8+c84E6/Q=;
+ b=MmtQO+Y97euMICNC6RHWyyAGB9SqastUZobSnPCTKwParmscmPzOu9EKyFZllYmGjlkdlTteC0E/OWUEFNaItNRQaGuqEfIuLLe66rkAwbGMUjcWsU1iXN2Xu5AKWah0aOXiTJ8QviwtNd8CVhlicxZenmBW7yBHTxNhNIeXO4vqZrppr0hnrgaCJA9lrGXnHYvdf10HLXVL03L34nfRfKRXGvRXNLM6F9B5a8Qc8g0VRqUMt/gg5qIcGh/NRZ9YVXHsZlDca/wlIt3XK0f2OG4N69xfmGd8BCuW4UW22550V/bXnzhla8kk4oJ9HRJo0cz7KcQtImhwyT+Zjb2M7A==
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
+ by SE3PR06MB8199.apcprd06.prod.outlook.com (2603:1096:101:2f0::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Thu, 9 Jul
+ 2026 06:12:29 +0000
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::43a0:9857:dd1e:76d2]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::43a0:9857:dd1e:76d2%4]) with mapi id 15.21.0181.012; Thu, 9 Jul 2026
+ 06:12:29 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-usb@vger.kernel.org"
+	<linux-usb@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] dt-bindings: usb: Add Aspeed AST2700 DWC3 controller
+Thread-Topic: [PATCH] dt-bindings: usb: Add Aspeed AST2700 DWC3 controller
+Thread-Index: AQHdDdeNMVjAGOY5AUKDgoVpX0D44rZjcs0AgAFEywA=
+Date: Thu, 9 Jul 2026 06:12:29 +0000
+Message-ID: <TY2PPF5CB9A1BE6F1C0A7943B0A20EF8D34F2FE2@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260707-xhci-v1-1-b202b9b3274e@aspeedtech.com>
+ <20260708-crafty-copperhead-of-whirlwind-1d89e9@quoll>
+In-Reply-To: <20260708-crafty-copperhead-of-whirlwind-1d89e9@quoll>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SE3PR06MB8199:EE_
+x-ms-office365-filtering-correlation-id: 41ab73d8-02dc-4b5e-4fe6-08dedd810e35
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|56012099006|4143699003|18002099003|22082099003|3023799007|38070700021;
+x-microsoft-antispam-message-info: X+9Dzn4yvKs0p8kQMV78ju3MMqJOYAPnyW3qDyRVkuEgVk9uXMp91N75Fjad7QdiSbi25j0z/9EeG/0cTmUbY9bMXf2Z9l9jbPqoqY6KW8r962J4V3iZIuu98Pi4aSj/C+tXck8qPgPS3bUS6RYUE3rrBwgXu9HIxqWlH4PIC69+aKIQWPqzA8PNYI0/O0yX8s/+199eXhUPSNn5AZLFzaXksVbN/HEhGkFzBCjFC1sKtqeLSOHFvsImT833b9r8bJ+/3mFH27pb1GyWpe6e8mweFZKgyLIX+f5bePoSHo8xSdIT8daliQRuMNoB1JgPd7AGxho4gUP/lR4PjF0QKO7RFJbhbUbi9AiqUxL5n0AusyMPLysJ1u5mrzn94WzqBhrawR8eaoQ5P8yU1BSe4sqW2iBmIwlBZ5zhgj2jMesKbxU+5Hdu64sV/UeXmA/y57yjZ4E/+jZ3uem9AhbZneSHWEPiw/CQh54IKt7Cj9VDERc71h5sx4oRuFhzgJ4+TmvPnGL1yhBf7aQ+CtMXHog0REwtuSwMmgxno1X8S160Vx1u9LDPV21kYW2BQMFaRW7N46Jc8eF9dmUJ7CaoAGErCkGh4Ecmj2KxJpmvsagH92CkKrBE2rnCmKKyn0djfwn9BrhBPq/a4YyeyYfjrHX3XPqFG2MLJcmTCPNPm1y4zQLWCQ5yYmdsgsMt/HRPvmrLnTd4zpxxg4ruFg/HxQ==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(56012099006)(4143699003)(18002099003)(22082099003)(3023799007)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MjRlZUkwSUFqZ3E5NnhvbmFjeWs5TWJvOGNobTBIekl2ZjNJYkdoSHNscFJD?=
+ =?utf-8?B?ZG1GQU5ORFdRVDI5M21jTGwxUU5qOVJFaXg5WTMxUzR4b2J0RlpOOXVtaitT?=
+ =?utf-8?B?eVBnRDF0QXNhRHdvNmlLRHNBNkpEM1pTSkdhSEwyZVdQTnZQWUU3YzJKVUcy?=
+ =?utf-8?B?aER0Tm5XU2Y3bS9jVFZWeDg4WDc5VG55VFZDL1QzWlE4OWtRNEgyaXFwRXdP?=
+ =?utf-8?B?cW1HeVdnZjJwQ0M3bGtWdExCMDkwOXlEdUtRdDJXVmhZalBiWmVwWGRGbldI?=
+ =?utf-8?B?SG5LRjRpbW12dGZpUDdqQW4xdXlIU0hoZlRCRUxkdjN5ZnFwS3BYUTBvTlUw?=
+ =?utf-8?B?NVFXOG1GRk12OE95MTBheW5vbkw5OFVWb2lVUlpQdmFBV3FDY0pUamZVWWZX?=
+ =?utf-8?B?STl5V2VVWnAxempnWWhHZDVwblVaK0ZiV3RYK0RWbDBvT2FDUEwvdGNaQTEy?=
+ =?utf-8?B?RFVqc1FSc1R0S252aEZyTzR5b1pIcU02b3BQcUVLNXJpMlJlL01wN3AzN2wv?=
+ =?utf-8?B?S0FxUGVFOURrYXZjcFdhM29valdIbm94N0IxbnpXaXVPbWpLRHFaajlzNHl4?=
+ =?utf-8?B?VTlhNVVPNGM5RGpCRGlnZXd0NXZGZXY1VHdnYnBIblZ6Y0ZKZ0JyRVlPWVY4?=
+ =?utf-8?B?c01ka2VDVkVnek5oOE1TbE9jTEZOamh3QkJaQUltRlphb0QyTlR5aSt5Ukx2?=
+ =?utf-8?B?cVVMTEN0cXNtQjhvbWViTkpBWE11UVF4OHJoZnV4cHR1RW5OaEJvODBKVVd4?=
+ =?utf-8?B?L1BYNy93Q3g5cFZBeU14Z1haU1BVUDlobVpjd25tazlNU1JmaEprcGgvQlZP?=
+ =?utf-8?B?cEFIQmRBRkYxTWlHZWdxRW1PN29HZ0laNUhzM3N1Uk4wSTF0ZWtJdjFTblZY?=
+ =?utf-8?B?TUdHWUZJQk1sNEpyaHB1WVg2OEcxOWVtcW5LUU9UaEZIWVlLSVZ4MEw5dXo5?=
+ =?utf-8?B?RkRrZ2tVOTV4YUh1dzFBTGFOK0YyTGV1R3ZVRHRoeTNFb2p0bkllcFU5T2Uz?=
+ =?utf-8?B?UThRaGVsWHVya1FJVUF0RVVoSHN1bkplSHpUSTFuUERKTGVzcVpqU1R5NDRL?=
+ =?utf-8?B?Q0FWSnR0cnlna1U3VlkwVnV5bWpUSzdNUjBHNU9WbWxNWm1tQm5iaUdRU3Fi?=
+ =?utf-8?B?Q1JpM3ltekJ4c09va3c2T0JSNjM1aWxIdzlmRjQ5eFJUR1QxNWdVOUl5a2RW?=
+ =?utf-8?B?MjM3UUhtaTVXTlhoL3RaVGhrcEc2ZUVKVnR0MUI2aXI1SkJsR1o1SHVDb1Q2?=
+ =?utf-8?B?TUFLYTVuOHlmVnFxUmc3S3JlRlBkemRjWjl4bTI1QXFRRFlSZkdjTCsrSnI3?=
+ =?utf-8?B?MG1CUVBweElHbzBkU2xQSzRidk9uVGY4b2FhL0k3RzZ6WEMwVkwwcHBFRmNT?=
+ =?utf-8?B?RDNpcUxkNmkyN2F0bk5nQ3NIQ2dPcUUzcDk4YzZsWFJXeDlsRnNRZ3NiWmxx?=
+ =?utf-8?B?VlhsTksvall5U3ZaY2dSSTZvakUrZjZGS1RCM1JMMC9qWjdWWjR2WnRRdDFH?=
+ =?utf-8?B?amVXY2VWQmErMXV2Z3BqVDh6VDB2SWM1dGpLS1k0dGhDZzZ0MzRONWlHZmNv?=
+ =?utf-8?B?WWlKMHRxQzYxQzlVMVFUWTdtWTFNSzJIV082U093UnVGRkNYZlZiWlB6K2x3?=
+ =?utf-8?B?dnJEL0Y1N0NzeEhjRHJ6aEVkbGpjQ0VrdW5oR0dUN1pxWFM1ZDF5blJldmJI?=
+ =?utf-8?B?aFlmNXMxMHRSYVp0RnRiOFhkTm5FNnRZWUYrVjBlWGNSMEdPc1huWm11eUg1?=
+ =?utf-8?B?ZTJxcEJDdDdFMndXcGowaXkzNCtxNGpUQm5NcWErRURqdC9SaGtxRFVIMlNn?=
+ =?utf-8?B?RHZJRWFaS01iYm1wUHIwbGpMaHhJWjVXYUV2bmVmVG85QVllZHRNVGRIR0Q2?=
+ =?utf-8?B?UXpKZnhBeDlNay9BdDlsZENPN2gyK08wQUppLzhJN05ZOW5vQ3dqYWZHSTZW?=
+ =?utf-8?B?aHgxYzBNbmlQVW54U2NtQ0NVd2lkZTMxam5yc0owTjE1NnVuZkZFb1hhY1BH?=
+ =?utf-8?B?T1IrbDdoVEdsN0JRdVdNVkU3ekFPdmRwU2ZwNE0wM3ZsN2NSRzB2THpEYXRK?=
+ =?utf-8?B?QlY1UEttOWVSVTdKM0lvRnQzdGNXdEljUUxzRFZhNXN2TE1ycnhlZmZ6RTBQ?=
+ =?utf-8?B?M2ZBTmlsSUh3ZW1kNTA0K3gxQnU1UWZWUTRXZlpzSXJDamtEUGZGREVyaitC?=
+ =?utf-8?B?QmlQU3dwM0VKNDc1d2xiUWFkK1FsM0VvLzdDTGhkeTNqdmdrVWU3cW1HcVRu?=
+ =?utf-8?B?b0QzcHQ5NktTSis2UVU5OVdUajBiRS8yK1BET2VyZFVsZmgvQ0NzNFpYZEI5?=
+ =?utf-8?B?MmIrUWxpOGdLMkZGWVh4U1h5ZXJFdTh6Uk13Y2Z6eGRZeTFpWHFDQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: topology: read CPPC FFH feedback counters
- in one operation
-To: Pengjie Zhang <zhangpengjie2@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, lenb@kernel.org, saket.dumbre@intel.com,
- beata.michalska@arm.com, zhenglifeng1@huawei.com, sumitg@nvidia.com,
- zhanjie9@hisilicon.com, geert+renesas@glider.be, cuiyunhui@bytedance.com,
- vanshikonda@os.amperecomputing.com, ionela.voinescu@arm.com,
- viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- acpica-devel@lists.linux.dev, linuxarm@huawei.com
-Cc: prime.zeng@hisilicon.com, wanghuiqiang@huawei.com, xuwei5@huawei.com,
- lihuisong@huawei.com, yubowen8@huawei.com, wangzhi12@huawei.com
-References: <20260708082818.808041-1-zhangpengjie2@huawei.com>
- <20260708082818.808041-3-zhangpengjie2@huawei.com>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20260708082818.808041-3-zhangpengjie2@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 41ab73d8-02dc-4b5e-4fe6-08dedd810e35
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jul 2026 06:12:29.1223
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: nGwTeDAVosuXd5rFxAvhFWP4byVkWxwfeWP0rjl8T9w9GUY5VegyPKu87IT+OV5Lnje6kP+gJRCYZeCKm4EfGJ9QVo6JqP11Pl6am4qvPNo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8199
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_231118_105150_E02CD85F 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20260708_231244_184219_87E2A79F 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,167 +156,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 7/8/26 3:28 AM, Pengjie Zhang wrote:
-> arm64 implements CPPC FFH feedback-counter reads using AMU counters.
-> Because those counters must be sampled on the target CPU, reading the
-> delivered and reference counters separately widens the observation window
-> between them.
-> 
-> Implement the paired FFH feedback-counter read hook on arm64 and sample
-> both AMU counters together before decoding the requested CPC register
-> values.
-> 
-> Also factor the FFH bitfield extraction logic into a helper and reuse
-> it from the existing single-counter FFH read path.
-> 
-> Tested-by: Sumit Gupta <sumitg@nvidia.com>
-> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
-> Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-> Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
-> ---
->   arch/arm64/kernel/topology.c | 92 ++++++++++++++++++++++++++++++++----
->   1 file changed, 84 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index b32f13358fbb..d28438f8b83f 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -373,6 +373,16 @@ core_initcall(init_amu_fie);
->   #ifdef CONFIG_ACPI_CPPC_LIB
->   #include <acpi/cppc_acpi.h>
->   
-> +struct amu_ffh_ctrs {
-> +	u64 corecnt;
-> +	u64 constcnt;
-> +};
-> +
-> +enum cpc_ffh_ctr_id {
-> +	CPC_FFH_CTR_CORE  = 0x0,
-> +	CPC_FFH_CTR_CONST = 0x1,
-> +};
-> +
->   static void cpu_read_corecnt(void *val)
->   {
->   	/*
-> @@ -397,7 +407,7 @@ static void cpu_read_constcnt(void *val)
->   }
->   
->   static inline
-> -int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
-> +int counters_read_on_cpu(int cpu, smp_call_func_t func, void *val)
->   {
->   	/*
->   	 * Abort call on counterless CPU.
-> @@ -447,24 +457,90 @@ bool cpc_ffh_supported(void)
->   	return true;
->   }
->   
-> +static void amu_read_core_const_ctrs(void *val)
-> +{
-> +	struct amu_ffh_ctrs *ctrs = val;
-> +
-> +	/*
-> +	 * cpu_read_constcnt() incurs slight latency due to the
-> +	 * ARM64_WORKAROUND_2457168 check. Read it first to minimize
-> +	 * the sampling skew between the const and core counters.
-> +	 */
-> +	cpu_read_constcnt(&ctrs->constcnt);
-> +	cpu_read_corecnt(&ctrs->corecnt);
-> +}
-> +
-> +static u64 cpc_ffh_extract_bits(const struct cpc_reg *reg, u64 val)
-> +{
-> +	val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
-> +			   reg->bit_offset);
-> +	val >>= reg->bit_offset;
-> +
-> +	return val;
-> +}
-> +
-> +static void cpc_ffh_ctr_value(const struct cpc_reg *reg,
-> +			      const struct amu_ffh_ctrs *ctrs, u64 *val)
-> +{
-> +	switch ((u64)reg->address) {
-> +	case CPC_FFH_CTR_CORE:
-> +		*val = ctrs->corecnt;
-> +		break;
-> +	case CPC_FFH_CTR_CONST:
-> +		*val = ctrs->constcnt;
-> +		break;
-> +	}
-> +
-> +	*val = cpc_ffh_extract_bits(reg, *val);
-> +}
-> +
-> +static bool is_amu_ctr_reg(const struct cpc_reg *reg)
-> +{
-> +	return reg->address == CPC_FFH_CTR_CORE ||
-> +		reg->address == CPC_FFH_CTR_CONST;
-> +}
-> +
-> +int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
-> +			 struct cpc_reg *reg2, u64 *val2)
-> +{
-> +	struct amu_ffh_ctrs ctrs;
-> +	int ret;
-> +
-> +	if (!is_amu_ctr_reg(reg1) || !is_amu_ctr_reg(reg2))
-> +		return -EINVAL;
-> +
-> +	ret = counters_read_on_cpu(cpu, amu_read_core_const_ctrs, &ctrs);
-> +	if (ret) {
-> +		/*
-> +		 * If AMU is unsupported (-EOPNOTSUPP), translate the error
-> +		 * to -ENODEV. This explicitly tells the generic CPPC layer
-> +		 * to abort immediately and avoid falling back to pointless
-> +		 * single-counter reads.
-> +		 */
-> +		return ret == -EOPNOTSUPP ? -ENODEV : ret;
-> +	}
-> +
-> +	cpc_ffh_ctr_value(reg1, &ctrs, val1);
-> +	cpc_ffh_ctr_value(reg2, &ctrs, val2);
-> +
-> +	return 0;
-> +}
-> +
->   int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
->   {
->   	int ret = -EOPNOTSUPP;
->   
->   	switch ((u64)reg->address) {
-> -	case 0x0:
-> +	case CPC_FFH_CTR_CORE:
->   		ret = counters_read_on_cpu(cpu, cpu_read_corecnt, val);
->   		break;
-> -	case 0x1:
-> +	case CPC_FFH_CTR_CONST:
->   		ret = counters_read_on_cpu(cpu, cpu_read_constcnt, val);
->   		break;
->   	}
->   
-> -	if (!ret) {
-> -		*val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
-> -				    reg->bit_offset);
-> -		*val >>= reg->bit_offset;
-> -	}
-> +	if (!ret)
-> +		*val = cpc_ffh_extract_bits(reg, *val);
->   
->   	return ret;
->   }
-
-
-So, more a nitpik that only applies if this set gets respun, but:
-
-I don't think this FFH counter logic belongs in the arm64 topology.c 
-file, its not really topology related.
-
-
-
-
-
+PiBTdWJqZWN0OiBSZTogW1BBVENIXSBkdC1iaW5kaW5nczogdXNiOiBBZGQgQXNwZWVkIEFTVDI3
+MDAgRFdDMyBjb250cm9sbGVyDQo+IA0KPiBPbiBUdWUsIEp1bCAwNywgMjAyNiBhdCAwMjoxMjow
+NFBNICswODAwLCBSeWFuIENoZW4gd3JvdGU6DQo+ID4gVGhlIEFzcGVlZCBBU1QyNzAwIFNvQyBp
+bnRlZ3JhdGVzIHRoZSBTeW5vcHN5cyBEZXNpZ25XYXJlIFVTQjMgY29yZQ0KPiA+IHdpdGggbm8g
+dmVuZG9yIGdsdWUgbG9naWM6IGl0IGlzIGZ1bmN0aW9uYWxseSBjb21wYXRpYmxlIHdpdGgNCj4g
+PiBzbnBzLGR3YzMsIHVzZXMgdGhlIHN0YW5kYXJkIERXQzMgY2xvY2tzLCBhbmQgdGhlIG9ubHkg
+U29DLXNwZWNpZmljDQo+ID4gcGFydCBpcyBhIFVTQjMgUEhZIHRoYXQgaXMgaGFuZGxlZCBieSBh
+IHNlcGFyYXRlIGRyaXZlci4NCj4gPg0KPiA+IEFkZCBhIGRlZGljYXRlZCBiaW5kaW5nIGRvY3Vt
+ZW50IHJhdGhlciB0aGFuIGFkZGluZyB0aGUgY29tcGF0aWJsZSBhbmQNCj4gPiBhIGNvbmRpdGlv
+bmFsIHRvIHNucHMsZHdjMy55YW1sLiBUaGlzIGZvbGxvd3MgdGhlIGVzdGFibGlzaGVkDQo+ID4g
+cGVyLXZlbmRvciBEV0MzIGNvbnZlbnRpb24gKGFwcGxlLGR3YzMueWFtbCwNCj4gPiBzb2Npb25l
+eHQsdW5pcGhpZXItZHdjMy55YW1sLCAuLi4pIGFuZCBrZWVwcyB0aGUgQVNUMjcwMC1zcGVjaWZp
+Yw0KPiA+IGNvbnN0cmFpbnRzIC0gbm90YWJseSB0aGUgbWFuZGF0b3J5IFVTQjMgUEhZIC0gb3V0
+IG9mIHRoZSBnZW5lcmljIHNjaGVtYS4NCj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IFJ5YW4gQ2hl
+biA8cnlhbl9jaGVuQGFzcGVlZHRlY2guY29tPg0KPiA+IC0tLQ0KPiANCj4gV2h5IGFyZSBjbG9j
+a3MgdW5jb25zdHJhaW5lZD8NCj4gDQpUaGV5IHNob3VsZG4ndCBiZSAtIEknbGwgYWRkIHRoZSBj
+b25zdHJhaW50cyBpbiB0aGlzIHNjaGVtYToNCg0KICBjbG9ja3M6DQogICAgaXRlbXM6DQogICAg
+ICAtIGRlc2NyaXB0aW9uOiBDb250cm9sbGVyIGJ1cyBlYXJseSBjbG9jaw0KICAgICAgLSBkZXNj
+cmlwdGlvbjogUEhZIHJlZmVyZW5jZSBjbG9jaw0KICAgICAgLSBkZXNjcmlwdGlvbjogQ29udHJv
+bGxlciBzdXNwZW5kIGNsb2NrDQoNCiAgY2xvY2stbmFtZXM6DQogICAgaXRlbXM6DQogICAgICAt
+IGNvbnN0OiBidXNfZWFybHkNCiAgICAgIC0gY29uc3Q6IHJlZg0KICAgICAgLSBjb25zdDogc3Vz
+cGVuZA0K
 
