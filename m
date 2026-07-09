@@ -4,78 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B912C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 01:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A59C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ihwsC2Ib54+BEpZEK+sFICsRB63uVdA/3FQor2YMybk=; b=3fPOsIzzrggNoVKW8XjLpUUOKx
-	bPDDrMRlNoFQH4vCU5lD6ZzbRSXefte1AJkiMJBHZuuLyAQTnLVCw5JEislH8UBOsegZItzUCPosT
-	LvhdBDYNqJRCu5T1+rgQsezOAZ+dyRm47BtpB0Y6wnIjalKzbVx/uZf2J0opmCISgjzf1V7cfWYCb
-	WcXHZs/+pOCGZtjyHv7ZYblJyL0QDvMV44tGw09TREbnlC+kldaK4sTzG85/OjazxZi8skmDcQk7W
-	/WqQt9eRStI5bSm/Npv0uo0YHET3GqTPL3sDrtPSx+Sa72ET6UdKiZ70e5BQo6EXwgsm9LWWxLwHT
-	nONavTsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D/LiVCckba+tuo9wErnXL0a33uBkLlm1UoxO7RUSCSc=; b=lbAtbXlgZ4LO5CkFzAbIoWdGaU
+	cv0zRRXL0YRspt72060RvQnqOjWlsTXkCigI9U3YPkX0VXLNqXSSb1i8sZX3pPYZDIbc1+Ikf0CVz
+	Rn0HNWC2ZIOhdLDI9P5cPCYR0vMbPJZ6EZRY6VJoDgqgGshoRZacO6tAWtmU5QqtsVuKzfJukSjlx
+	D6JUqXxeS+9QQ25Alugr8diuqg0pZmYyCCn5VTjH2ZTC07R31AoVvBKsATjsh1PRBgpsG8bPkY9j6
+	o1JI+eY3v5MV5QaPi6QXktUVpLiavE5Z4VII0u6AQmmlNtVmbChGGhmP69wenxFcjPWQMXaIKz58G
+	e2/S51Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whdrF-00000000lvo-1QmR;
-	Thu, 09 Jul 2026 01:47:21 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1whe6q-00000000myu-2qRF;
+	Thu, 09 Jul 2026 02:03:28 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whdrD-00000000luy-0J7H;
-	Thu, 09 Jul 2026 01:47:20 +0000
-X-UUID: 1940e7e07b3811f1afed4741b24580c9-20260708
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=ihwsC2Ib54+BEpZEK+sFICsRB63uVdA/3FQor2YMybk=;
-	b=fUlSK3AY3FjLZCFGduuaEc1JYPjXTVVFNg7tDDGc0pMZBEqGt7GPbaIsBj3faegNS/VOUdaeDQ96QzE4+pNZn34ZwUn3oS+Mq8KYPhzbR2zHPlu4HNpwwrgFpPlTaTtDPVvuKPNgQ5oOxDVJXqtJDeXBwBt1fO8JkxgNbd3Alr4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:45a65347-4b10-4a8e-b96b-80e52df2d448,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:700be618-ab14-4403-9336-76696324c5a8,B
-	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
-	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1940e7e07b3811f1afed4741b24580c9-20260708
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <shiming.cheng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 299882480; Wed, 08 Jul 2026 18:47:09 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 9 Jul 2026 09:47:07 +0800
-Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 9 Jul 2026 09:47:05 +0800
-From: Shiming Cheng <shiming.cheng@mediatek.com>
-To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
-	<daniel.zahka@gmail.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
-	<eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <nbd@nbd.name>,
-	<dsahern@kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: <stable@vger.kernel.org>, <steffen.klassert@secunet.com>,
-	<lena.wang@mediatek.com>, <shiming.cheng@mediatek.com>
-Subject: [PATCH v7] net: gro: fix double aggregation of flush-marked skbs
-Date: Thu, 9 Jul 2026 09:46:39 +0800
-Message-ID: <20260709014704.3625-1-shiming.cheng@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
+	id 1whe6n-00000000myF-2eOu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 02:03:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D3C6UBAjGvsdrDpzCEtH+885Ye+QphMtNO+OY5nWtRu8DOAXgYX6beLpQC2vdAjibOwr7GwfPlUI3GvAixGAV4K8MWP555m4s8TqNNp4m62ZINQxkhkZk50hLTQszPdBbAGp7rVxXa+/yWgmuepYbtyDYFjGyM8uuNWotpVWltkJBogKNZzBrnyqabH+jlMQSjJnWEB68nSCtHpITGSJY9rZH5aQg1qPHLYtob9yenOFmEtPjk7YaAWMM6ZC1oSj5NMljIOkDK3Aj/b1+Y56v1GNVDyNHT/4WIHbdFdI4ec/pc0eBldPpBb3sPdAD+jmhNtnSwgVpXI18R5N+g0rSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D/LiVCckba+tuo9wErnXL0a33uBkLlm1UoxO7RUSCSc=;
+ b=Lu0nMux7HTE2PzBucef8jfw518nW7/vt8zAmUNFRLq9uC4Oru1n+5CMRxVonPzIyWTKEhRVVfCNUTt2Qx1GARfxS4U7XCX5b5YLI6UUZUe/NCU6x68JFGsg+ES2sgp1yH6b9U0YwyusBqMl4OwNCWmfaqVOGmXFqitsa7eZtvxqwsFVlHoH+v6HkkdfyF9jkX3hQlHRTnmvOlnWFH6aqZOemI1HVBn+9LxPZuxN9MkXOsDcZhb6HpsdNEbR8I+6bTDvRnXwTMOb2jmK6GRuv4ZJbNT87bZnDogSpN1y/18PTKXVxsDx8gShjGj6DJkFBP55x2PB1DdkBG3UVFiK5Ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D/LiVCckba+tuo9wErnXL0a33uBkLlm1UoxO7RUSCSc=;
+ b=BA4vgtNwJ31MhYvALzdAJnBvs+ihKaWi8ODP1ZtRpFfYV1aVUocYgqk7O4LMeZxpcfOk3bU2DjbOx/W9t8isXZ3EKb7gq0bukmT8tr9w5drVQz6agkDrftfr0G6Eefj5g9lGjEOFejC9MUkeIAXVO6icGphQKM+I/HveAKj+RJzEZA+4Bo9tiAXdoWjygmFgnQvVR3CWLsVOifkp2iUFjx0zEp0ONzXAoaPDIyEzHIKVzz2McNTxWRMMXWlthgb7WhoEbxm6ZteLHU6xfzffL8TGOS8OO5UcEtKxsKwxChdSR8Az5/IxBN3A88CdcjUrPIgQOjsJLkMe5uTIvhZcjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
+ by DS4PR12MB9818.namprd12.prod.outlook.com (2603:10b6:8:2a9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 9 Jul
+ 2026 02:03:16 +0000
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0181.014; Thu, 9 Jul 2026
+ 02:03:16 +0000
+From: Yury Norov <ynorov@nvidia.com>
+To: Russell King <linux@armlinux.org.uk>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	John Allen <john.allen@amd.com>,
+	Kees Cook <kees@kernel.org>,
+	Leon Romanovsky <leon@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org
+Cc: Yury Norov <ynorov@nvidia.com>,
+	sunyi <279644543@qq.com>
+Subject: [PATCH 0/5] bitmap: align bitmap_find_next_zero_area_off() output with the rest of the API
+Date: Wed,  8 Jul 2026 22:03:06 -0400
+Message-ID: <20260709020312.133977-1-ynorov@nvidia.com>
+X-Mailer: git-send-email 2.53.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-MTK: N
+X-ClientProxiedBy: BY3PR03CA0007.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::12) To LV3PR12MB9356.namprd12.prod.outlook.com
+ (2603:10b6:408:20c::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|DS4PR12MB9818:EE_
+X-MS-Office365-Filtering-Correlation-Id: b92c3024-f948-40fa-43cb-08dedd5e3d93
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|921020|18002099003|6133799003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: ZaPqwJCDqAoZ3fiBPNoiXSl6zYbpfQsTmMl3tgfCmhs8jjTASqVESS5rARQ67T875Bl2PRDGQPe482zRhh7iq3/pSRtm5P+6bRlfPbZYqo+JyogxtBnvi8U2nAsMpsK0KPAVs+5uHDIvlbsACwrx/aaik2+6KtOYs+vjjsZCJW483pG2GOsSZra5kbNH0bnq3SPsO79GnxTGTxtqcKVSGpLpbLXw6MMOSrmZZFlKB0uwc+VLnppmHvEZwQjyrc+BZCJpWV3Ce1F+Rd4bsPFdyaTywyl/VkVFiwXmLqAQnes7pc42zzfqh6h7u/b2eChNGP0B/SPdnwWbWUnVHbiyV5cH3Zj+VDABJkshgX52MN3fGCBYoEfKTzTWGXLgZK4PcIu092gL1FxEKTfqoC4Jbge47jxBjq+Er1TnvcpZqIXLmUhdZJCcmMeAyl6HuCjlvgWDpeyqjFDmk8dAo9RunKu/TFsEtJThmml3+ScPlw/YTqRDcjMsasRWweb/y9WLC1N5J0Dko80qK2lDYhl9UekUyenIpyNCZWQa523O7P9JMPVetE8MJcviPuGteMRsHhvyx8kA6Al63ANVE5HF8dmgKR++TlzmkTzkcs13e7LnN2rk6qgZsGBD0+L59RLZP9x3W+NU3w+bA6Qg7tRFvYMxbxxHqT1OY3Df7FHMgqORsTvUdUAaWgdJj+26+Wa5nrHGfJa8u67CAtd/dRg+7w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(921020)(18002099003)(6133799003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XZFPS/GtgCRcdwEdoIHvySuBetanCUwTqqON3Xs4ctiLiiGfeKJ+IHwk0PGi?=
+ =?us-ascii?Q?1QGySD958FomaHYlfBcA/GFonNwNxOvAHHq525bepkGMuY3CLnpbvNCLQGWb?=
+ =?us-ascii?Q?p6Ojh8/x1vBc1GgaYlsVJLz6qQT0ZfOnGcMU29tsjWiyGsdtG0kmX+aIzV1M?=
+ =?us-ascii?Q?TS8BseODZfEuyhqztTXs908HLknkTsYyL9jKGYQY68vDFNaJKoVyw8dGK1Q1?=
+ =?us-ascii?Q?AkiM0QMgsdMduaJZBYIGyilDKYOaUDqUbvF7S1m2yVLcaPR2wUoU9GtLXQSM?=
+ =?us-ascii?Q?ly9ujYcCFTxKEs6mKSPZ1RyxvSY/S/tzPbjXqGY2LIXg0ORvJvEdTEGhxqWy?=
+ =?us-ascii?Q?r807yk3/YI198VRd/4kFk46C0PJpNP0uvRe3GHrNAwjw1K/EwLQ6S4Mw3rDs?=
+ =?us-ascii?Q?vh9AAKx272WwqjS71NJJO6/Iv5SOr9x+EcvfysqYSbUm2lnhfWe9x8Os88lt?=
+ =?us-ascii?Q?5t1liGQdyVIRTUPsszIfc3wGqZ5kjVfOvCRNB+UqkGEEXq87/rNbgiICITcu?=
+ =?us-ascii?Q?C47isUg9QCmGxyRgxYumJsdYCtabyg9i9WsFUSg8Ca+UVIXlWLfO3Ztw8Cz5?=
+ =?us-ascii?Q?wvx88H6wVE00eqlvKHxkYJFLkNarW5BU+HZDJdswBJ2FvgLQvViFqVT6J90d?=
+ =?us-ascii?Q?7t3c8hh8z/9Z35FQJX1ilCs/CJBMEJKiVdVcp1OY3qO0E1Uumezks/XB8e0j?=
+ =?us-ascii?Q?k0aDov+VryTMv29ooSGgGuoDTFU/DX09Z6F3SjIz9r/0B4GSeEEKcBtntYJE?=
+ =?us-ascii?Q?iNprtz51W6t/EQdOivV0otFCZpMDpl7xhmcSKSpmKLuO+nC8yyI0QjgOVu9q?=
+ =?us-ascii?Q?FWkcZZb3uR4C3Vee2CD9LBtxcXIZnnycrfjTm0XbDBYWFUzb4qabQ0xOyQDD?=
+ =?us-ascii?Q?LWKeavdLaPecqFNIMaNyKrfjHKXULXh7a42B5ZymAMyzQHeLNAy/dbpOjEQ2?=
+ =?us-ascii?Q?mOfluAtcnAs8PtsvQdPcZYz9OUD/mWLU1GlR2dExrJumyPSUGJk+DvLoq6rk?=
+ =?us-ascii?Q?aYxev4SnUfDw7ZymqFXcuXYIFapyXCa9blOvV47hYNRSWH9ZWM3O6P1dCcV7?=
+ =?us-ascii?Q?li/5bgAe9bJwKCD+g+9jE6LW9pv062eQOjlXSSuHtUmtHKDUVUoAPiYuWgeF?=
+ =?us-ascii?Q?0IIrWxa7wIHI5FgiAL3bpSWeJkQDGIF+ZI3xUBK5XauGUlfp3wVQxp9/qB30?=
+ =?us-ascii?Q?/r0QNvr/60Zj4UHABG/ObWA7wUKm8qxfJF7OpER8Xbvkw339UbmnKuX5IBTh?=
+ =?us-ascii?Q?S3WIaPtKNpfptFXVbNEHGgCVE0em/ynzSitwE8G1ehIxMRNXZ6fmKKmjiLYq?=
+ =?us-ascii?Q?6zFxK+LQXnNx3ZFegvnXfdxbWcvGqbALspEISu/FCcbbveOYk3gVXmlxwwtL?=
+ =?us-ascii?Q?PnB+4widUxJlUIq+SRdmy4OFWoLGrA4qVL7GHRqgjKqKRb4oKmrtgVn0hyko?=
+ =?us-ascii?Q?mU6oAmqsH9CW1OUI2OvO89jz1TMBriEs5CcU5IY0o5drCVJMJCAn5GdOou9v?=
+ =?us-ascii?Q?fSjKpzVWcQWQd2EFjXKStQxcFBGKtBq5DdZ/N0GXKCS0OjtB/6kaLcR6/0M8?=
+ =?us-ascii?Q?WxjT5MBD6dO6sKUrkLVdI3kVMWnSWe+oc0tZBtgrQg/4sTGw/ZTLk/b8YFhw?=
+ =?us-ascii?Q?caxV4a+JSJeobb/pddeSA9bDajvha+7T/Vbea+yxwEIi3y9ZLO2sru9cENAL?=
+ =?us-ascii?Q?Z+G3njFROCCQhQanZl0emHiYAsSJ6OzXlJplO63/9jRH+HU2CqQ6ItBG0rBw?=
+ =?us-ascii?Q?kkJLTvgPWg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b92c3024-f948-40fa-43cb-08dedd5e3d93
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 02:03:16.4497
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eJrAnOLxCpc2iE4Io5yFxIY80n3frGMC3PBMWTBbRLVoR5wTtwaMlWl0Vj0i+/kC+FrfARaIGSXdTo8poWKV4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_184719_126788_2D4AFB33 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20260708_190325_673607_048FC9D1 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +159,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 0ab03f353d36 ("net-gro: Fix GRO flush when receiving a GSO
-packet.") added a flush check to skb_gro_receive(), but
-skb_gro_receive_list() lacks the same validation.
+Bitmap search functions return a value greater than or equal to nbits when
+no suitable bits are found. bitmap_find_next_zero_area_off() is an
+exception: it returns a value greater than nbits.
 
-As a result, packets marked with NAPI_GRO_CB(skb)->flush may still be
-re-aggregated.
+Align the function with the rest of the API and adjust the affected callers
+accordingly.
 
-This allows already-GRO'd packets with existing frag_list to be
-re-aggregated into a new GRO session, corrupting the frag_list chain
-structure. When skb_segment() attempts to unpack these malformed packets,
-it encounters invalid state and triggers a kernel panic.
+Patches 1-4 are sent only to their respective maintainers and mailing
+lists. Patch 5 and the cover letter are sent to all recipients.
 
-Scenario (Tethering/Device forwarding):
-  1. Driver: Generated aggregated packet P1 via LRO with frag_list
-  2. Dev A: Receives aggregated fraglist packet and flush flag set
-  3. Dev A: Re-enters GRO, skb_gro_receive_list() is called
-  4. Missing flush check allows re-aggregation despite flush flag
-  5. Frag_list chain becomes corrupted (loops or dangling refs)
-  6. Dev B: TX path calls skb_segment(), crashes on corrupted frag_list
+On top of -next. I plan to carry the series with bitmap-for-next.
 
-Root cause in skb_segment():
-  The check at line ~4891:
-    if (hsize <= 0 && i >= nfrags && skb_headlen(list_skb) &&
-        (skb_headlen(list_skb) == len || sg)) {
+Yury Norov (5):
+  ARM: dma-mapping: Treat bitmap size as allocation failure
+  powerpc/msi: Treat bitmap size as allocation failure
+  crypto: ccp: Treat bitmap size as allocation failure
+  media: s5p-mfc: Treat bitmap size as allocation failure
+  bitmap: Return size when no zero area is found
 
-  When frag_list is corrupted by double aggregation, when list_skb is
-  a NULL pointer from skb->next, skb_headlen(list_skb) dereference
-  NULL/corrupted pointers occurs.
+ arch/arm/mm/dma-mapping.c                            |  4 ++--
+ arch/powerpc/sysdev/msi_bitmap.c                     |  2 +-
+ drivers/crypto/ccp/ccp-dev-v3.c                      |  2 +-
+ drivers/crypto/ccp/ccp-dev-v5.c                      |  6 +++---
+ drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr.c |  2 +-
+ include/linux/bitmap.h                               |  3 +++
+ lib/bitmap.c                                         | 10 ++++------
+ 7 files changed, 15 insertions(+), 14 deletions(-)
 
-Call Trace:
- skb_headlen(NULL skb)
- skb_segment
- tcp_gso_segment
- tcp4_gso_segment
- inet_gso_segment
- skb_mac_gso_segment
- __skb_gso_segment
- skb_gso_segment
- validate_xmit_skb
- validate_xmit_skb_list
- sch_direct_xmit
- qdisc_restart
- __qdisc_run
- qdisc_run
- net_tx_action
-
-Fix: Add NAPI_GRO_CB(skb)->flush validation to the early-return check in
-skb_gro_receive_list(), matching the defensive programming pattern of
-skb_gro_receive().
-
-Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
----
- net/core/gro.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/net/core/gro.c b/net/core/gro.c
-index 35f2f708f010..b413f4a6462b 100644
---- a/net/core/gro.c
-+++ b/net/core/gro.c
-@@ -229,7 +229,9 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
- 
- int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
- {
--	if (unlikely(p->len + skb->len >= 65536))
-+	/* make sure to check flush flag and to not merge */
-+	if (unlikely(p->len + skb->len >= 65536 ||
-+		     NAPI_GRO_CB(skb)->flush))
- 		return -E2BIG;
- 
- 	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
 -- 
-2.45.2
-
+2.53.0
 
