@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 975EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C99C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gu0GUxpV7nOsch+VDKwa3xBQtusgDwHQ1ZQTI5mxyQc=; b=bCjc8wcCe9OcQBYcIIDTI5yqT1
-	WiIjgHmdL2uttZjDwPRYn0HnaMkrrFj93LcTP6a+hOiXSKMJKXbWI4jZepU3mHUXBRrZkAWKZUlKj
-	sO5SMojAthLHHwm1Rd7mjlKESlX6DuUSU7/CijT//7kMcQ0MweoqSrCWYs/GwV6YmbCEEHc6evWz0
-	nvp74lnW+zvwZ6tnIP9SKFeT6Bjb/ul1q/q9X2V+ixgGosLbNmlbl3HKiTz1QwqEtRK/rjGNkpWKi
-	Di09PTNmkp1JCC2cpS50vIlWXsTSOuaoGI0JWQy7mFDwWZfzXzTS+n5pD3r+YYrlIPzO1DiDt8ptr
-	JAUrDQJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TPRtn6A80Mn/spKxDN6QBMjTm4oZsTH6ypctlg8LR78=; b=WxzJPZCYK3eqviwIg87UG9XctQ
+	tPJpNDwmvI7x9yI0j9rSE7ArXlyHjtv6QOERaVBH+F4btMJGD4VEDXBRZN2dPSEpCdCUSXKYWKaCG
+	n6CDHxHN3AL1TY1w+k95xnIa6p6EY6dExlISouKo1l0bZcyJlm6N+DGl1P84ab8cgqbEP3X778JjR
+	MWYqXfAYbJoMUOdoQOLZWknSWyipmr6EMF6WxQgn9yiEIU2eol/5oekeXDZLBtfJMYfw/SH10Lm9J
+	lDlnjKNH+stYXZy4BMtEpMVnAcCGmjlst0SXupy+HoNdvMIjxc1SUbGdX1dJWlYBVORb24bCiEYYG
+	pDGItl/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk5w-00000001Pji-0GZy;
-	Thu, 09 Jul 2026 08:26:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whkCk-00000001Qws-1xvs;
+	Thu, 09 Jul 2026 08:33:58 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whk5t-00000001Pfs-1oiF;
-	Thu, 09 Jul 2026 08:26:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D782E43CF8;
-	Thu,  9 Jul 2026 08:26:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B4F06C2BCF5;
-	Thu,  9 Jul 2026 08:26:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783585612;
-	bh=eBqEwWptRB5D1aHQyQ6zvOSf4RV2yIW8VvrJ71dttsE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bX89EdpcJPXhv9k23Acp1hJoLhNW8rdhpj0sRQbvO3cd67NXz0q+lXOp6ChXk+LX+
-	 qBLFXF/v7/9L0gm35HdmfZ+gCOLEk1+r/2nlZUKZfSngQHdM7cAsVf4ZaXAxr5cTAh
-	 gRFi3FULduW3mL5/3SPBIZ0PBPGaw6eRTiQ+pIyn0uiwTEVwjIuVHNEZiXX3bT1t3J
-	 iNpLvPU87LNM//HlrBtIiMMh5p5UHZ/Sif22+stDvSB9tdDEDSND3E18LS5IJ0IccO
-	 Tetjc6vrdq+Lx8E3cKC5DjMvAguwUc6mnkM2gDBk6cUybVbtG8989u8KRdo4ENR/qs
-	 PCd8zZJWz5jpw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 991E0C44506;
-	Thu,  9 Jul 2026 08:26:52 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 09 Jul 2026 08:26:50 +0000
-Subject: [PATCH 3/3] arm64: dts: amlogic: a9: Add reset controller support
+	id 1whkCf-00000001QwJ-49lO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 08:33:57 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5aec201b582so1858424e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:33:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783586032; x=1784190832; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TPRtn6A80Mn/spKxDN6QBMjTm4oZsTH6ypctlg8LR78=;
+        b=NkJRSX829IT9AnRjgRHx2COkvr/GPG1XeFg8cX2xYn4Re3Iludf7KeW7w2CqlKgIe1
+         CjNXNvdcJIqVD74cxRJXd8unyLMULKjYbN1fZWKFy43Y7bLWT7gle6LxcfOX1eWiHcfK
+         0hrHe3QTPn/vnbYVSKMS+MQcYo7MT3OwKtQBti0Fo7QXAbBzZyHOaR3i6ApvYujTIXYp
+         mFyRomJjS3Vt2kX3khJU5X4GFP/k+jiZMDyCajiy/8YQcyepTEML1S4MgfMpBQzH7uwV
+         mbwx248sRjMsI2mYB4Y2lmXbzgL8CJANqQfyn3JabuloOINWNp6oyfsmQ75/zPiRe3+E
+         LIhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783586032; x=1784190832;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=TPRtn6A80Mn/spKxDN6QBMjTm4oZsTH6ypctlg8LR78=;
+        b=BytKb3VljKdN3FkuoYMYJWlNykbQhVW0T4bLdolFt/K+4ZJR6BwI8sbmsQqGIJ5oew
+         /B25i54J+RdV7NM5Ee4DQd9ipVKS5v8g+BwqLqX8S6hPtlrKP1z+Mj0ayZ7q2IIGwY2C
+         Ey7KzCCB3VZFE2UTQ7iT8xV1AtUsSuMNbtnmldOZV9LymWmiobESSYN+qUYc2OYS3lIc
+         2EKUTBjZRsLDjjDQJcL+EZ2T2hbl4Ki2v59bQsrRWSyszvoFASOy50Vy8zIHosMODJqS
+         jQN8WXKX6H4/iA1yLWm63/G79Rt76SzTIkn1AonDnFJfLxV10m1zaIT1KEjcTRf1raNZ
+         lOLA==
+X-Forwarded-Encrypted: i=1; AHgh+RpZAgMm/7CK82+7R1gnbC0pNiKusMq1JOVyLME8AbeIG4+YdyGvr5bN5p/83eBv25T2dJ0wrE31SnGwBOoD/Msm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrM7cFc3T/yzFuvK7daz5dmAV7sMHaXeB1yDmVjiZYvQDVTeHw
+	Tt0nS7Go/5kYsVLVsJUmp9WjHY37KShfaUYYZlInjSQk1CUO9hosvnQz
+X-Gm-Gg: AfdE7cnZflod/nibvwvIQXAdsbeHqAmSPoA1G/VV0Ertb5nlnLHwDQCWTFKVlbcmIY/
+	76I/7a0O0tmra0Cymydw8ykeMnfEFJrtDGPu5UagDNHHJNggDz2UeEEvUTw6gsDlQdt4YzAadIc
+	smKjLQmRoR8mkfZoRHbi1JTMOlAuupNs7UDQWxdDUpALz3c3P4JnlIY2ciqgdjn88fx2jSdhDLu
+	Zu0U4lKXHta/34RGio9AJi/r4koYDZ1ioiyWoNELMSN8CRwtJzo7POupWslEzv8at1qSvNERSL0
+	a4ueOZKM5lX7msoyoQ43GCG1TGN5JkiLBESFpe1e7frGr6hC90/Eqg4GGgPHngZWxmuSvbOcqcz
+	VKAlfkKodb8l6xUSbUfOSRdQSkgQEJDuLgPRGkw2lPN6uXXalsjAjPxiVYSNCCz8yqayzlZ4+dH
+	630t9W6mP6lzzA8K6DSyCw2/jirSJEp+PGP8RpkvTY9zf2tcWTVA==
+X-Received: by 2002:a05:6512:3af:b0:5ae:bcf8:e7d0 with SMTP id 2adb3069b0e04-5b011477c08mr1015479e87.55.1783586031526;
+        Thu, 09 Jul 2026 01:33:51 -0700 (PDT)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39c84b13542sm2253471fa.11.2026.07.09.01.33.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jul 2026 01:33:49 -0700 (PDT)
+Date: Thu, 9 Jul 2026 10:33:46 +0200
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v10 0/7] I2C Mux per channel bus speed
+Message-ID: <ak9c6nGBsgMTP099@gmail.com>
+References: <20260708-i2c-mux-v10-0-09dca03c8a15@gmail.com>
+ <ak6m6srzX8dd6_nT@ashevche-desk.local>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-a9-reset-v1-3-fd7cf039b853@amlogic.com>
-References: <20260709-a9-reset-v1-0-fd7cf039b853@amlogic.com>
-In-Reply-To: <20260709-a9-reset-v1-0-fd7cf039b853@amlogic.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783585609; l=9268;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=oODyjrjEWR0VVNYxuXsuxzIRBRji+50KsZ/k5IisG0Q=;
- b=CehsLOVEvre4Q6qOZtCLa7rTarT8SIYiHPOqG4BKqjpchcaxqt8b5s6/CiC+74cJ1Z/+yaWYj
- lrXCKy4dt+1AhV7vQm5Uvwi9NBlhMjdYhY0z37UnGdGtiT9EC+8yC3/
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ak6m6srzX8dd6_nT@ashevche-desk.local>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_013354_071611_264EAA66 
+X-CRM114-Status: GOOD (  37.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,316 +103,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Hi Andy,
 
-Add reset controller descriptions for the Amlogic A9 SoC and include the
-corresponding reset IDs header.
+On Wed, Jul 08, 2026 at 10:37:14PM +0300, Andy Shevchenko wrote:
+> On Wed, Jul 08, 2026 at 02:16:12PM +0200, Marcus Folkesson wrote:
+> > This was a RFC on how to implement a feature to have different bus
+> > speeds on different channels with an I2C multiplexer/switch.
+> > As no major complaints on the design came up during the review, I
+> > decided to submit the series without the RFC tag.
+> >=20
+> > The benefit with this feature is that you may group devices after
+> > the fastest bus speed they can handle.
+> > A real-world example is that you could have e.g. a display running @400=
+kHz
+> > and a smart battery running @100kHz using the same I2C controller.
+> >=20
+> > There are many corner cases where this may cause a problem for some
+> > hardware topologies. I've tried to describe those I could think of
+> > in the documentation, see Patch #5.
+> >=20
+> > E.g. one risk is that if the mux driver does not disconnect channels
+> > when Idle, this may cause a higher frequency to "leak" through to
+> > devices that are supposed to run at lower bus speed.
+> > This is not only a "problem" for changing bus speed but could also be
+> > an issue for potential address conflicts.
+> >=20
+> > This patchset has been used and tested heavily the last months
+> > on a custom board based on a da850 (DaVinci) platform.
+>=20
+> ...
+>=20
+> > Changes in v10:
+> >=20
+> > - Fix gramatics in documentation
+> > - Move {__,}i2c_adapter_set_clk_freq() to i2c-mux.c
+>=20
+> Can you point to the discussion where it was suggested, please?
+> It was like ages ago (too many patches to review) and I probably
+> missed and/or forgot the rationale for that. Also if we move
+> to i2c-mux, why do we leave it in the adapter namespace?
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h | 247 +++++++++++++++++++++++++
- arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi    |  14 ++
- 2 files changed, 261 insertions(+)
+Hrm, it seems like the mailing list wasn't CC:ed for that comment.
+It was suggested by Peter and the rationale to remove it was:
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h b/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h
-new file mode 100644
-index 000000000000..55fcaa54cd56
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h
-@@ -0,0 +1,247 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+/*
-+ * Copyright (c) 2026 Amlogic, Inc. All rights reserved.
-+ * Author: Zelong Dong <zelong.dong@amlogic.com>
-+ *
-+ */
-+
-+#ifndef _DT_BINDINGS_AMLOGIC_MESON_A9_RESET_H
-+#define _DT_BINDINGS_AMLOGIC_MESON_A9_RESET_H
-+
-+/* AO RESET0 */
-+#define AO_RESET_APB				0
-+#define AO_RESET_RTC				1
-+#define AO_RESET_BRG_NIC_RTC			2
-+#define AO_RESET_AO2EE				3
-+#define AO_RESET_BRG_NIC_EE			4
-+#define AO_RESET_WATCHDOG			5
-+#define AO_RESET_I3C				6
-+#define AO_RESET_PWR				7
-+#define AO_RESET_PWM_A				8
-+#define AO_RESET_PWM_B				9
-+#define AO_RESET_PWM_C				10
-+#define AO_RESET_PWM_D				11
-+#define AO_RESET_PWM_E				12
-+#define AO_RESET_PWM_F				13
-+#define AO_RESET_PWM_G				14
-+#define AO_RESET_I2C_M_A			15
-+#define AO_RESET_I2C_M_B			16
-+#define AO_RESET_I2C_M_C			17
-+#define AO_RESET_I2C_M_D			18
-+#define AO_RESET_IR				19
-+#define AO_RESET_UART_B				20
-+#define AO_RESET_UART_C				21
-+#define AO_RESET_UART_D				22
-+#define AO_RESET_SPISG				23
-+#define AO_RESET_SED				24
-+#define AO_RESET_CEC				25
-+#define AO_RESET_AOCPU				26
-+#define AO_RESET_AOCPU_POR			27
-+#define AO_RESET_AOCPU_CORE			28
-+#define AO_RESET_SRAM				29
-+#define AO_RESET_CAPU				30
-+#define AO_RESET_UART_E				31
-+
-+/* RESET0 */
-+#define RESET_ETH_1G				0
-+#define RESET_ISP				1
-+#define RESET_U3DRD_USB3PHY_APB			2
-+#define RESET_U3DRD_USB3PHY			3
-+#define RESET_U3DRD_USB2PHY			4
-+#define RESET_U3DRD				5
-+#define RESET_U3DRD_COMB			6
-+#define RESET_U3DRD_USB2PHY_APB			7
-+#define RESET_DP_PHY_APB			8
-+#define RESET_DP_PHY				9
-+#define RESET_DPTX_1P4				10
-+#define RESET_DPTX_1P4_APB			11
-+#define RESET_EDPTX_1P4				12
-+#define RESET_USB2DRD_PHY_APB			13
-+#define RESET_U2DRD_COMB			14
-+#define RESET_U2DRD				15
-+#define RESET_HDMI20_AES			16
-+#define RESET_HDMITX_CBUS_APB			17
-+#define RESET_BRG_VCBUS_DEC			18
-+#define RESET_VCBUS				19
-+#define RESET_VID_PLL_DIV			20
-+#define RESET_VDI6				21
-+#define RESET_HDMITXPHY				22
-+#define RESET_VID_LOCK				23
-+#define RESET_VENC_2				24
-+#define RESET_VDAC				25
-+#define RESET_VENC_1				26
-+#define RESET_VENC_0				27
-+#define RESET_RDMA				28
-+#define RESET_HDMITX				29
-+#define RESET_VIU				30
-+#define RESET_VENC				31
-+
-+/* RESET1 */
-+#define RESET_AUDIO				32
-+#define RESET_MALI_CBUS_APB			33
-+#define RESET_MALI				34
-+#define RESET_PCIE_B_PHY			35
-+#define RESET_PCIE_B_POR			36
-+#define RESET_DOS_CBUS_APB			37
-+#define RESET_DOS				38
-+#define RESET_MALI_SYS				39
-+#define RESET_CC				40
-+#define RESET_DSP_A_DEBUG			41
-+#define RESET_PCIE_A_PHY_APB			42
-+#define RESET_PCIE_A_PIPE			43
-+#define RESET_PCIE_A_POR			44
-+#define RESET_PCIE_A_PHY			45
-+#define RESET_PCIE_A_MAC_APB			46
-+#define RESET_AMFC_APB				47
-+#define RESET_ETH				48
-+/*						49 */
-+#define RESET_MALI_MBIST			50
-+#define RESET_ETH_1G_AXI			51
-+#define RESET_VICP				52
-+#define RESET_DEWARP				53
-+#define RESET_GE2D				54
-+#define RESET_VGE				55
-+#define RESET_PCIE_A_0				56
-+#define RESET_PCIE_A_1				57
-+#define RESET_PCIE_A_2				58
-+#define RESET_PCIE_A_3				59
-+#define RESET_PCIE_A_4				60
-+#define RESET_PCIE_A_5				61
-+#define RESET_PCIE_A_6				62
-+#define RESET_PCIE_A_7				63
-+
-+/* RESET2 */
-+#define RESET_AM2AXI				64
-+#define RESET_DSP_A				65
-+#define RESET_MIPI_DSI_PHY			66
-+#define RESET_TS_PLL				67
-+#define RESET_TS_A55				68
-+#define RESET_ETH_AXI				69
-+#define RESET_TS_CORE				70
-+#define RESET_MIPI_DSI1_PHY			71
-+#define RESET_SMART_CARD			72
-+#define RESET_SPISG				73
-+#define RESET_TS_DOS				74
-+#define RESET_U2DRD_USB2PHY			75
-+#define RESET_PIO				76
-+#define RESET_U2H_COMB				77
-+#define RESET_U2H				78
-+#define RESET_USB2H_PHY_APB			79
-+#define RESET_MSR_CLK				80
-+/*						81 */
-+#define RESET_AUX_DIG				82
-+/*						83 */
-+#define RESET_U2H_USB2PHY			84
-+#define RESET_U3HSG_PCIE_PIPE			85
-+#define RESET_AMFC				86
-+#define RESET_U3HSG_PCIE_PHY_APB		87
-+#define RESET_U3HSG_PCIE_PHY			88
-+#define RESET_PP_DMA				89
-+#define RESET_I3C				90
-+#define RESET_WATCHDOG				91
-+#define RESET_PP_WRAPPER			92
-+#define RESET_MIPI_DSI_HOST			93
-+#define RESET_DSI_PLL_DIV			94
-+#define RESET_MIPI_DSI_B_HOST			95
-+
-+/* RESET3 */
-+/*						96 */
-+#define RESET_HDMIRX_WRAP_APB			97
-+#define RESET_HDMIRX				98
-+#define RESET_PCIE_B_0				99
-+#define RESET_PCIE_B_1				100
-+#define RESET_PCIE_B_2				101
-+#define RESET_PCIE_B_3				102
-+#define RESET_PCIE_B_4				103
-+#define RESET_PCIE_B_5				104
-+#define RESET_PCIE_B_6				105
-+#define RESET_PCIE_B_7				106
-+#define RESET_PCIE_B_PIPE			107
-+#define RESET_PCIE_B_MAC_APB			108
-+#define RESET_NNA_TO_VGA_PIPE			109
-+#define RESET_CVE				110
-+#define RESET_GLOBAL_TIMER			111
-+#define RESET_COMBO_DPHY_PCLK			112
-+#define RESET_COMBO_DPHY			113
-+/*						114 - 118 */
-+#define RESET_U3PHY30_APB			119
-+#define RESET_U3PHY30				120
-+#define RESET_HSG				121
-+#define RESET_U3HSG_HSG				122
-+#define RESET_U3DRDB				123
-+#define RESET_U3DRDB_APB			124
-+#define RESET_U3PHY20_APB			125
-+#define RESET_U3PHY20				126
-+#define RESET_A55_ACE				127
-+
-+/* RESET4 */
-+#define RESET_CAN_0				128
-+#define RESET_CAN_1				129
-+#define RESET_TAHOE_CORE			130
-+#define RESET_TAHOE				131
-+#define RESET_TAHOE_APB				132
-+#define RESET_TAHOE_SYS				133
-+/*						134 - 135 */
-+#define RESET_PWM_I				136
-+#define RESET_PWM_J				137
-+#define RESET_UART_A				138
-+/*						139 - 143 */
-+#define RESET_MALI_AVBCD			144
-+#define RESET_MALI_AVBCD_APB			145
-+#define RESET_MALI_MCR_TOP			146
-+#define RESET_I2C_M_E				147
-+#define RESET_I2C_M_F				148
-+#define RESET_I2C_M_G				149
-+#define RESET_I2C_M_H				150
-+#define RESET_I2C_M_I				151
-+#define RESET_SD_EMMC_A				152
-+#define RESET_SD_EMMC_B				153
-+#define RESET_SD_EMMC_C				154
-+#define RESET_UART_F				155
-+#define RESET_PWM_N				156
-+#define RESET_PWM_M				157
-+#define RESET_PWM_L				158
-+#define RESET_PWM_K				159
-+
-+/* RESET5 */
-+#define RESET_BRG_ISP_PIPE			160
-+#define RESET_BRG_HEVCF_DMC_PIPE		161
-+#define RESET_BRG_HEVCB_PIPE			162
-+#define RESET_BRG_EMMC_PIPE			163
-+#define RESET_BRG_VGE_PIPE			164
-+#define RESET_BRG_DMC_VPU1_PIPE			165
-+#define RESET_BRG_DMC_VPU0_PIPE			166
-+#define RESET_BRG_NNA_PIPE			167
-+#define RESET_BRG_NNA_SRAM_PIPE			168
-+#define RESET_BRG_U2DRDA_PIPE			169
-+#define RESET_BRG_U3DRDA_PIPE			170
-+/*						171 - 173 */
-+#define RESET_BRG_NIC_AOSYS			174
-+#define RESET_BRG_NIC_AMFC			175
-+#define RESET_BRG_NIC_GIC			176
-+#define RESET_BRG_SRAM_NIC_NNA			177
-+#define RESET_BRG_SRAM_NIC_MAIN			178
-+#define RESET_BRG_SRAM_NIC_ALL			179
-+#define RESET_BRG_NIC_SOC_BRG			180
-+#define RESET_BRG_NIC_GPV			181
-+#define RESET_BRG_NIC_AO			182
-+#define RESET_BRG_NIC_EMMC			183
-+#define RESET_BRG_NIC_DSP_A			184
-+#define RESET_BRG_NIC_SDIO_B			185
-+#define RESET_BRG_NIC_SDIO_A			186
-+#define RESET_BRG_NIC_VAP_B			187
-+#define RESET_BRG_NIC_DSU			188
-+#define RESET_BRG_NIC_CLK81			189
-+#define RESET_BRG_NIC_MAIN			190
-+#define RESET_BRG_NIC_ALL			191
-+
-+/* RESET6 */
-+/*						192 - 216 */
-+#define RESET_BRG_PP_CLK			217
-+#define RESET_BRG_PP_NIC_CLK81			218
-+/*						219 - 220 */
-+#define RESET_BRG_PERIPH_APB_SYNC		221
-+#define RESET_BRG_VPU_APB_SYNC			222
-+#define RESET_BRG_DSP_A_PIPE			223
-+
-+#endif
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-index b0e0fadeed82..546820b4598b 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-@@ -7,6 +7,7 @@
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
-+#include "amlogic-a9-reset.h"
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -105,6 +106,13 @@ apb: bus@fe000000 {
- 			#size-cells = <2>;
- 			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
- 
-+			reset: reset-controller@2000 {
-+				compatible = "amlogic,a9-reset",
-+					     "amlogic,t7-reset";
-+				reg = <0x0 0x2000 0x0 0x98>;
-+				#reset-cells = <1>;
-+			};
-+
- 			periphs_pinctrl: pinctrl@4000 {
- 				compatible = "amlogic,pinctrl-a9";
- 				#address-cells = <2>;
-@@ -204,6 +212,12 @@ aobus: bus@ffa00000 {
- 			#size-cells = <2>;
- 			ranges = <0x0 0x0 0x0 0xffa00000 0x0 0x100000>;
- 
-+			ao_reset: ao-reset-controller@2000 {
-+				compatible = "amlogic,a9-ao-reset";
-+				reg = <0x0 0x2000 0x0 0xc>;
-+				#reset-cells = <1>;
-+			};
-+
- 			aobus_pinctrl: pinctrl@4000 {
- 				compatible = "amlogic,pinctrl-a9";
- 				#address-cells = <2>;
+"
+I'not sure it's a good idea to expose {__,}i2c_adapter_set_clk_freq().
 
--- 
-2.52.0
+Do we really want to make it so simple for random (non-mux) I2C drivers
+to muck about with the bus speed? Any bus speed changes not coordinated
+with mux-locked bus speed changes are going to be problematic. This is
+shown by the discussion about D2 for the multi-level mux-locked example
+(patch 5/5) -> it is problematic even when the bus speed is changed by
+the mux code itself.
 
+I think these helpers should be moved from i2c.h to i2c-mux.c.
+"
 
+>=20
+> > - Make set_clk_freq() return actual frequency
+> > - Reimplement idle_state (from earlier version)
+> > - Implement example on idle_state for ltc4306
+> > - Link to v9: https://lore.kernel.org/r/20260324-i2c-mux-v9-0-5292b0608=
+243@gmail.com
+>=20
+> FWIW, I briefly read the v9 discussion and haven't got the above move,
+> seems wasn't discussed there?
+>=20
+> --=20
+> With Best Regards,
+> Andy Shevchenko
+>=20
+>=20
+
+Best regards,
+Marcus Folkesson
 
