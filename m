@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B04C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222D0C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 00:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lXCEStw7jpxbfMPkl2Z/72HpjmmD/RSWBvdz3qpCcgU=; b=4rArpKuZs55GTeDHM5gqpAley1
-	5dE9crJxb9e5POsSK3bXdjkhriXSVZeqsO1sbIMYa3PGMMMMrL8vQUNJElFNSjiVdFY0K30YFp/O3
-	Xkgy/Lq4VLttvAE/C/pX/A6R0CPbalI/j5Qf09aZlbkr603Voh/C9s3j9BodzQBX9zLirQYobrHcs
-	zH+bj8VGKsBpE09drKpvsPXGVkesD3yVfEdyGGqRHthkTOS653XmVvFGqT6p8TRJ2Ws0RGN0S1l9T
-	Pjc5CPMWONgP5V0/dzSBtkGIfFCtI/BkAq2rTMkgQVDfgXRgs409Nf0mYDHg+vXUj7Z4MiDHeG1IC
-	7tjABk3A==;
+	bh=/bSVn4A7P2buqPsSBN19q3GFhevpNvbqSjxF/MHUfow=; b=EieZUcNHHWE9NajAW6INWfbh53
+	Z7J1dFGhrDUglboHSs5oyaPqpoW4vYPwAIotxKpA+e1Xs6yQOL7wR53a68TpBZYT6SKm4QslsjaOW
+	ZUIV+vRF3GsHSSBV+Zwg/t00V1DrfPW8N0A+Qy6KPhls6xaf9bwi9vM2UOt48i0mPR02tEGP/JCWi
+	NHYHBicQp+jVx+p+QIUFtFS+leGfTBc7Ue+kUPH3THL6I5P0gsh9TelAzmfKNYChFbRkgH8VFMX9p
+	vaGG5csAjHVw3SNaDzQF/1VWf166uXVYi6n60NRI94joH4RMLhPiA4aiD2nRZ8avrvzs29LbKbUHm
+	3wr7pvvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd1w-00000000i0s-2hyZ;
-	Thu, 09 Jul 2026 00:54:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1whd1z-00000000i4e-3KYs;
+	Thu, 09 Jul 2026 00:54:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whd1u-00000000hyC-2oyi
+	id 1whd1y-00000000i2z-2BX8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 00:54:18 +0000
+	Thu, 09 Jul 2026 00:54:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 212006136B;
+	by sea.source.kernel.org (Postfix) with ESMTP id 46E35403BD;
+	Thu,  9 Jul 2026 00:54:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB441F00A3D;
 	Thu,  9 Jul 2026 00:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E06631F00A3E;
-	Thu,  9 Jul 2026 00:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783558457;
-	bh=lXCEStw7jpxbfMPkl2Z/72HpjmmD/RSWBvdz3qpCcgU=;
+	s=k20260515; t=1783558462;
+	bh=/bSVn4A7P2buqPsSBN19q3GFhevpNvbqSjxF/MHUfow=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=afeQiBRXGddVjy8gvP7OiMKnoQKJcGoxKsGCxDgJNznS4OIy6Lm90hybTHJmBAHih
-	 rbktnj9lG+9j/7krHmSdnUc4WCGv5+MLxVDI9a8foWsloGDFe0vPi5vr6kbElLRikD
-	 RvXF+AW4rp+bswJ/Na84hOoE12rJGp9Rzx+b7PIqDG6rB+6Uh7Zvqm/4GeURz4WJi+
-	 pJ88kLf3gRha+Is3iA8ZPrxrtohNHwrALFMLXk12OGFtNDMkBx5lLWo2aTX800GhEV
-	 9sNveJFYEwddcBZ9puVZHmkoXmWW3Xp7aCXVwwYRKGWGxveLyvZRLWWx8v22yxGz8j
-	 APIYvl/xx98ZA==
+	b=ISkTgtQdHCY3Kl6PyNrcXVINDT1nJ2/I55vKrqhSbY5sBIdkNcFg9QPT3DuRZ6/zu
+	 xPcRHtCijzrJm5BsWhzTaWODWPuwlfrCiEYe4xCSXjs/ZTlBFnr3kf+pHA7eGGMyHO
+	 QhPJ/XNDU2pe1woOo4J4JI2KcsFplW6BjLrKsKHfdnjP3BUmoenJyTZaY+uihDq1UY
+	 M0CPYhKktKeYnjjwDbwNeEmv0HFnyV+p+gNQFD6jTxEwmakHXok+lwPfvqJnCn1rXd
+	 F95cRh8/1ZrKedwdwN+Ujdyclyl7cEwLe4KTHi1Nhe14vYpGOZE/xeon0v5hbTra6A
+	 LAZSCEC8c5tSQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 09 Jul 2026 01:52:00 +0100
-Subject: [PATCH v11 23/29] KVM: arm64: Handle SME exceptions
+Date: Thu, 09 Jul 2026 01:52:01 +0100
+Subject: [PATCH v11 24/29] KVM: arm64: Expose SME to nested guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-kvm-arm64-sme-v11-23-32799f66db9d@kernel.org>
+Message-Id: <20260709-kvm-arm64-sme-v11-24-32799f66db9d@kernel.org>
 References: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 In-Reply-To: <20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -65,15 +65,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6115; i=broonie@kernel.org;
- h=from:subject:message-id; bh=x/XFPzNN5/J6G5E0oqhJf08B8/sFJa7dJ49zCMEJE/4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvDLZPAVV2ufhgX7AgqCRpjG9WFr5V8JPGPY+
- EpN4g5jZUWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wywAKCRAk1otyXVSH
- 0GLMB/4pvW+iBFXiKGVzPy+LdW6AM9BRsDEubgWHKFCoTXX7bc1Kabae0HCCfgJGx9+me6of5JQ
- cgdMVdX04mY9cXEiP5BDKMaWqSfmqVIC7NOrt0yyIsvZfaqFKBV5PkE+NnEDqRnNlvZ5HKsN6cU
- brEr0qw2DmP+PrFZqFxkbvQUjIb6JV5VpYzWqNYdgiFVWbujP9T2uY3MpZlU4bBClFTocCE8XDw
- r7/pHa/aNALsdPg0U2LzC35A/t0oka3Vn4fQUy+Qknex5qdGel/kvndWi6FJvTvulMv4/WYiLQV
- IQeKWy3LtTLCQxvCYqx64P3sMxoLrZQxOeumFJP2oT5m30Jv
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2042; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=tZf10BakJWINVrDfcuSYxIcK5/guAElrikKeFmB4JK0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqTvDMcl7J3RgZf+7SCMTnD9CB6c9Ps/Vlln5v+
+ mRgG0QzeC6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCak7wzAAKCRAk1otyXVSH
+ 0CnqB/9YB/pEKAZDDChEBjui3D02Mo6xRPbmaFeQ4t4L21k3mpxLMVnyGuZjjnI6WlK66jQd77E
+ 4rmyQA5DyVOAPdHKPxIr6QDA1x2Lh8VC6yvcL+aqn3tndobvvuPXzMVIzXLx2Tc6VGyRZJUcJgj
+ cvE/jCRegPcBMovfhp9P4sjH7t8YfgxotzsV4uwY5AucVGOlIXqS3FczPWk3WY28V6NlFa2aKx0
+ TzIrXrgPugHIqnyuLy19iTJtvL1JXsd5cKRoyjAJkuAKlsigS3uPSVSYYAPRbHncGvybO/emGfm
+ V119rZIGQf8ZUAyNyJIpTPMqiGw8qCMQeAFmpxb2TAjoxCf7
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,163 +90,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The access control for SME follows the same structure as for the base FP
-and SVE extensions, with control being via CPACR_ELx.SMEN and CPTR_EL2.TSM
-mirroring the equivalent FPSIMD and SVE controls in those registers. Add
-handling for these controls and exceptions mirroring the existing handling
-for FPSIMD and SVE.
+With support for context switching SME state in place allow access to SME
+in nested guests.
+
+The SME floating point state is handled along with all the other floating
+point state, SME specific floating point exceptions are directed into the
+same handlers as other floating point exceptions with NV specific handling
+for the vector lengths already in place.
+
+TPIDR2_EL0 is context switched along with the other TPIDRs as part of the
+main guest register context switch.
+
+SME priority support is currently masked from all guests including nested
+ones.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/handle_exit.c            | 14 ++++++++++++++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 11 ++++++-----
- arch/arm64/kvm/hyp/nvhe/switch.c        |  2 ++
- arch/arm64/kvm/hyp/vhe/switch.c         | 17 ++++++++++++-----
- 4 files changed, 34 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h | 2 ++
+ arch/arm64/kvm/nested.c             | 3 +--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index 54aedf93c78b..e69bdb87f19d 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -237,6 +237,19 @@ static int handle_sve(struct kvm_vcpu *vcpu)
- 	return 1;
- }
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index cdf3e8422ea1..9df3cea39b09 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -42,6 +42,8 @@ static inline u64 translate_cptr_el2_to_cpacr_el1(u64 cptr_el2)
+ 		cpacr_el1 |= CPACR_EL1_FPEN;
+ 	if (!(cptr_el2 & CPTR_EL2_TZ))
+ 		cpacr_el1 |= CPACR_EL1_ZEN;
++	if (!(cptr_el2 & CPTR_EL2_TSM))
++		cpacr_el1 |= CPACR_EL1_SMEN;
  
-+/*
-+ * Guest access to SME registers should be routed to this handler only
-+ * when the system doesn't support SME.
-+ */
-+static int handle_sme(struct kvm_vcpu *vcpu)
-+{
-+	if (guest_hyp_sme_traps_enabled(vcpu))
-+		return kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-+
-+	kvm_inject_undefined(vcpu);
-+	return 1;
-+}
-+
- /*
-  * Two possibilities to handle a trapping ptrauth instruction:
-  *
-@@ -390,6 +403,7 @@ static exit_handle_fn arm_exit_handlers[] = {
- 	[ESR_ELx_EC_SVC64]	= handle_svc,
- 	[ESR_ELx_EC_SYS64]	= kvm_handle_sys_reg,
- 	[ESR_ELx_EC_SVE]	= handle_sve,
-+	[ESR_ELx_EC_SME]	= handle_sme,
- 	[ESR_ELx_EC_ERET]	= kvm_handle_eret,
- 	[ESR_ELx_EC_IABT_LOW]	= kvm_handle_guest_abort,
- 	[ESR_ELx_EC_DABT_LOW]	= kvm_handle_guest_abort,
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 7c913da9babb..47f523a37cbe 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -67,11 +67,8 @@ static inline void __activate_cptr_traps_nvhe(struct kvm_vcpu *vcpu)
- {
- 	u64 val = CPTR_NVHE_EL2_RES1 | CPTR_EL2_TAM | CPTR_EL2_TTA;
+ 	cpacr_el1 |= cptr_el2 & (CPTR_EL2_TCPAC | CPTR_EL2_TAM);
  
--	/*
--	 * Always trap SME since it's not supported in KVM.
--	 * TSM is RES1 if SME isn't implemented.
--	 */
--	val |= CPTR_EL2_TSM;
-+	if (!vcpu_has_sme(vcpu) || !guest_owns_fp_regs())
-+		val |= CPTR_EL2_TSM;
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 50e25ab9b604..fb6087426f95 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1630,14 +1630,13 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		break;
  
- 	if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
- 		val |= CPTR_EL2_TZ;
-@@ -99,6 +96,8 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
- 		val |= CPACR_EL1_FPEN;
- 		if (vcpu_has_sve(vcpu))
- 			val |= CPACR_EL1_ZEN;
-+		if (vcpu_has_sme(vcpu))
-+			val |= CPACR_EL1_SMEN;
- 	}
- 
- 	if (!vcpu_has_nv(vcpu))
-@@ -140,6 +139,8 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
- 		val &= ~CPACR_EL1_FPEN;
- 	if (!(SYS_FIELD_GET(CPACR_EL1, ZEN, cptr) & BIT(0)))
- 		val &= ~CPACR_EL1_ZEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, SMEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_SMEN;
- 
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, S1POE, IMP))
- 		val |= cptr & CPACR_EL1_E0POE;
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 7318e3e6a5f3..2d5029dbfb00 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -196,6 +196,7 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
- 	[ESR_ELx_EC_SYS64]		= kvm_hyp_handle_sysreg,
- 	[ESR_ELx_EC_SVE]		= kvm_hyp_handle_fpsimd,
-+	[ESR_ELx_EC_SME]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_FP_ASIMD]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_IABT_LOW]		= kvm_hyp_handle_iabt_low,
- 	[ESR_ELx_EC_DABT_LOW]		= kvm_hyp_handle_dabt_low,
-@@ -208,6 +209,7 @@ static const exit_handler_fn pvm_exit_handlers[] = {
- 	[ESR_ELx_EC_HVC64]		= kvm_handle_pvm_hvc64,
- 	[ESR_ELx_EC_SYS64]		= kvm_handle_pvm_sys64,
- 	[ESR_ELx_EC_SVE]		= kvm_handle_pvm_restricted,
-+	[ESR_ELx_EC_SME]		= kvm_handle_pvm_restricted,
- 	[ESR_ELx_EC_FP_ASIMD]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_IABT_LOW]		= kvm_hyp_handle_iabt_low,
- 	[ESR_ELx_EC_DABT_LOW]		= kvm_hyp_handle_dabt_low,
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index bbe9cebd3d9d..5fc677afcaf9 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -458,22 +458,28 @@ static bool kvm_hyp_handle_cpacr_el1(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	return true;
- }
- 
--static bool kvm_hyp_handle_zcr_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static bool kvm_hyp_handle_vec_cr_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	u32 sysreg = esr_sys64_to_sysreg(kvm_vcpu_get_esr(vcpu));
- 
- 	if (!vcpu_has_nv(vcpu))
- 		return false;
- 
--	if (sysreg != SYS_ZCR_EL2)
-+	switch (sysreg) {
-+	case SYS_ZCR_EL2:
-+	case SYS_SMCR_EL2:
-+		break;
-+	default:
- 		return false;
-+	}
- 
- 	if (guest_owns_fp_regs())
- 		return false;
- 
- 	/*
--	 * ZCR_EL2 traps are handled in the slow path, with the expectation
--	 * that the guest's FP context has already been loaded onto the CPU.
-+	 * ZCR_EL2 and SMCR_EL2 traps are handled in the slow path,
-+	 * with the expectation that the guest's FP context has
-+	 * already been loaded onto the CPU.
- 	 *
- 	 * Load the guest's FP context and unconditionally forward to the
- 	 * slow path for handling (i.e. return false).
-@@ -493,7 +499,7 @@ static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	if (kvm_hyp_handle_cpacr_el1(vcpu, exit_code))
- 		return true;
- 
--	if (kvm_hyp_handle_zcr_el2(vcpu, exit_code))
-+	if (kvm_hyp_handle_vec_cr_el2(vcpu, exit_code))
- 		return true;
- 
- 	return kvm_hyp_handle_sysreg(vcpu, exit_code);
-@@ -522,6 +528,7 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 	[0 ... ESR_ELx_EC_MAX]		= NULL,
- 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
- 	[ESR_ELx_EC_SYS64]		= kvm_hyp_handle_sysreg_vhe,
-+	[ESR_ELx_EC_SME]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_SVE]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_FP_ASIMD]		= kvm_hyp_handle_fpsimd,
- 	[ESR_ELx_EC_IABT_LOW]		= kvm_hyp_handle_iabt_low,
+ 	case SYS_ID_AA64PFR1_EL1:
+-		/* Only support BTI, SSBS, CSV2_frac */
++		/* Only support BTI, SME, SSBS, CSV2_frac */
+ 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
+ 			 ID_AA64PFR1_EL1_MTEX		|
+ 			 ID_AA64PFR1_EL1_THE		|
+ 			 ID_AA64PFR1_EL1_GCS		|
+ 			 ID_AA64PFR1_EL1_MTE_frac	|
+ 			 ID_AA64PFR1_EL1_NMI		|
+-			 ID_AA64PFR1_EL1_SME		|
+ 			 ID_AA64PFR1_EL1_RES0		|
+ 			 ID_AA64PFR1_EL1_MPAM_frac	|
+ 			 ID_AA64PFR1_EL1_MTE);
 
 -- 
 2.47.3
