@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97450C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 02:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vbv3tP+npgSg/Xbj8qGq20Y7fKajQ7fLEGhH+bY+H4w=; b=h8FPu+sj1SbifrLGn58XrCP+rS
-	r1n0d2m43Pd+0z3fm2dq5x0uA8fgSe2pOH/8ST7rIohZ7qtRI8J+1lbYjAn+xj76UU2PFw4IiwJRx
-	pxAYnMESOWyI+RDQmobgib06b/4DESSF2Z8mpLBOhBQbnpm0S4I+QIsLVMkIDMOPus2bOGyApH9eS
-	bcEErWwNn8zGUMmQItFOGxb5YYdTugXhPY/bjwnIHsFkd7YE83GfiT3DAG/VuYvK8JpCMy3byIqfU
-	Q5mFuy9v0nZMyO4xtH6izBtPd6BQWwCvoV+BUcm9U58BxkqvTeF4DE1O/bsOADCVenqc9z6AvciVd
-	gUHgxYJA==;
+	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zPzUjVYeTGVy0p5nTu0E1LwAP36Ua88/dAXmfMtmXgg=; b=OTnrbGYb6oHb1pIzlhPOI4/2pv
+	McAEN3utdvFlwdy7YXRjgG6+L6NID5Y6GHS13XtOuARs/K2OJDq3A9s9T+Uu87kTxEy5wAbkcot5P
+	/rMgSjPWf8SvpAxsTcMG+NGKDxva6EGKmYcdSJ41hB3XXAJcY7HK9PpsyrygYYiBTj9i88BQ8ubJz
+	VxHkm0dBrXO4KZp1L8liRp5bOMEz3TvtRFISnpLJV8wQ2ZHkiA9xnnwgOcgsOWCfsOq1JVCxtBJEC
+	93u+E4UxKlFewoyjReh/0n1zN5nx78DsWT0AG02tKQPLSzrkoHoWMXNz/ptY3xrJlAUczDf7fK3D0
+	5QokTkvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whefs-00000000r1l-0ciu;
-	Thu, 09 Jul 2026 02:39:40 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1whegc-00000000rD7-19F5;
+	Thu, 09 Jul 2026 02:40:26 +0000
+Received: from m16.mail.126.com ([220.197.31.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whefp-00000000qxe-1nE4
+	id 1whegZ-00000000rB0-0GBI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 02:39:39 +0000
-X-UUID: 66cfd7bc7b3f11f1aa26b74ffac11d73-20260709
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:1a00e568-ab91-4baa-9e11-cd10ab01f59a,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:1916384cc01ba5efa0dbd20f345f8e72,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 66cfd7bc7b3f11f1aa26b74ffac11d73-20260709
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1805109752; Thu, 09 Jul 2026 10:39:26 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: ludovic.desroches@microchip.com,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	tudor.ambarus@linaro.org,
-	nicolas.ferre@microchip.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	sashiko-bot@kernel.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v6] dma: at_hdmac: Fix use-after-free by proper tasklet  cleanup
-Date: Thu,  9 Jul 2026 10:39:22 +0800
-Message-Id: <20260709023922.645413-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 09 Jul 2026 02:40:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:From:MIME-Version:To:Subject:
+	Content-Type; bh=zPzUjVYeTGVy0p5nTu0E1LwAP36Ua88/dAXmfMtmXgg=;
+	b=W04D3AYDk7sFoPiHa+PV8e+zfacdmjnjWg/9sWyINApP/QihEQVfqN8dojbKek
+	YDuJ9uy9B3Mt+g4MGrNgcyTQDEcx+uyE6Jcs3ocbpYsNao+Hy7UAVxbD2gXs2vaw
+	w4SpFujtnuCBegGhgXSEC5kWCm+oL5aUTgXbaUkZ+fl3k=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDnL0z5CU9qxiduDA--.8579S2;
+	Thu, 09 Jul 2026 10:39:54 +0800 (CST)
+Message-ID: <6A4F09E8.8040807@126.com>
+Date: Thu, 09 Jul 2026 10:39:36 +0800
+From: Hongling Zeng <zhongling0719@126.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Thunderbird/31.2.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+To: Frank Li <Frank.li@oss.nxp.com>, 
+ Hongling Zeng <zenghongling@kylinos.cn>
+CC: ludovic.desroches@microchip.com, vkoul@kernel.org, 
+ Frank.Li@kernel.org, tudor.ambarus@linaro.org, 
+ nicolas.ferre@microchip.com, linux-arm-kernel@lists.infradead.org, 
+ dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ sashiko-bot@kernel.org
+Subject: Re: [PATCH v4] dma: at_hdmac: Fix use-after-free by proper tasklet
+ cleanup
+References: <20260708025959.40283-1-zenghongling@kylinos.cn> <ak7B5gxc9LrMmxO4@SMW015318>
+In-Reply-To: <ak7B5gxc9LrMmxO4@SMW015318>
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnL0z5CU9qxiduDA--.8579S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuF47ZFy3KrWUJF13ur4fAFb_yoWrZr4fpr
+	WUJFWYkrW0qrn09Fnruw4kua4Fva1Sqw4SgrW7Kw13A34YvrnYyFW8Cw1UWFZxAFykXr1S
+	gFZ8tFyrur1rJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j4Hq7UUUUU=
+X-Originating-IP: [112.64.161.44]
+X-CM-SenderInfo: x2kr0wpolqwiqxrzqiyswou0bp/xtbBrhruv2pPCfq6pQAA3s
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260708_193937_762351_444BBFA4 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260708_194023_568002_AE064AB8 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,95 +78,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current cleanup paths have a use-after-free vulnerability:
-- vchan_init() creates tasklets that access at_dma_chan memory
-- free_irq() only waits for IRQ handler, NOT tasklets
-- atdma is devm-managed and freed after probe/remove
-- Running tasklets accessing freed memory → Use-After-Free!
 
-The fix requires careful ordering:
-- free_irq() FIRST to synchronize with running IRQ handlers and prevent
-  them from scheduling new tasklets
-- Then kill tasklets to wait for already-scheduled ones to complete
-- Only then free other resources
+在 2026年07月09日 05:32, Frank Li 写道:
+> On Wed, Jul 08, 2026 at 10:59:59AM +0800, Hongling Zeng wrote:
+>> Current cleanup paths have a use-after-free vulnerability:
+>> - vchan_init() creates tasklets that access at_dma_chan memory
+>> - free_irq() only waits for IRQ handler, NOT tasklets
+>> - atdma is devm-managed and freed after probe/remove
+>> - Running tasklets accessing freed memory → Use-After-Free!
+>>
+>> The fix requires careful ordering:
+>> - free_irq() FIRST to synchronize with running IRQ handlers and prevent
+>>    them from scheduling new tasklets
+>> - Then kill tasklets to wait for already-scheduled ones to complete
+>> - Only then free other resources
+>>
+>> Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
+>> Reported-by: sashiko-bot@kernel.org
+>> Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
+>> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+>>
+>> ---
+>> Change in v4:
+>>    - Fix error path fallthrough causing double-free_irq()
+>>    - Use channel iteration index (chan_id not initialized before registration)
+>>    - Remove unnecessary defensive checks
+>> ---
+>>   drivers/dma/at_hdmac.c | 31 ++++++++++++++++++++++---------
+>>   1 file changed, 22 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+>> index e5b30a57c477..044a0fb38b7a 100644
+>> --- a/drivers/dma/at_hdmac.c
+>> +++ b/drivers/dma/at_hdmac.c
+>> @@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
+>>   		cpu_relax();
+>>   }
+>>
+>> +static void at_dma_cleanup_channels(struct at_dma *atdma)
+>> +{
+>> +	struct dma_chan *chan, *_chan;
+>> +	int i = 0;
+>> +
+>> +	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+>> +			device_node) {
+>> +		/* Disable interrupts */
+>> +		atc_disable_chan_irq(atdma, i++);
+>> +		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
+>> +		list_del(&chan->device_node);
+>> +	}
+>> +}
+>> +
+>>   static int __init at_dma_probe(struct platform_device *pdev)
+>>   {
+>>   	struct at_dma		*atdma;
+>> @@ -2105,12 +2119,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>>   err_of_dma_controller_register:
+>>   	dma_async_device_unregister(&atdma->dma_device);
+>>   err_dma_async_device_register:
+>> +	free_irq(platform_get_irq(pdev, 0), atdma);
+>> +	at_dma_cleanup_channels(atdma);
+>>   	dma_pool_destroy(atdma->memset_pool);
+>> +	dma_pool_destroy(atdma->lli_pool);
+>> +	goto err_clk;
+> I forget the reason why need goto here. Can you call disable_irq() or
+> disable hardware irq and call synchronize_irq() at free_irq() place. then
+> goto can fallback to below clean up code
+>
+> Frank
+   Thank you for the suggestion. I've updated to v6 following your advice:
+   - Replaced free_irq() with disable_irq() to allow fallthrough without 
+goto
+   - free_irq() is now called only once at err_desc_pool_create label
+   The new approach ensures IRQ handler cannot schedule tasklets before 
+tasklet_kill(), then free_irq() handles the actual release.
 
-Fixes: ac803b56860f ("dmaengine: at_hdmac: Convert driver to use virt-dma")
-Reported-by: sashiko-bot@kernel.org
-Closes: https://lore.kernel.org/all/20260604073945.54B311F00898@smtp.kernel.org/
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-Suggested-by: Frank Li <Frank.Li@nxp.com>
+    Please help to review again.
+Thanks!
 
----
- Change in v6:
-  - Replace free_irq() in error path with disable_irq()to allow natural
-    fall-through without goto, per Frank's suggestion
-  - free_irq() now called only once, in err_desc_pool_create label
----
- drivers/dma/at_hdmac.c | 28 +++++++++++++++++++---------
- 1 file changed, 19 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-index e5b30a57c477..09b1aedefb45 100644
---- a/drivers/dma/at_hdmac.c
-+++ b/drivers/dma/at_hdmac.c
-@@ -1940,6 +1940,20 @@ static void at_dma_off(struct at_dma *atdma)
- 		cpu_relax();
- }
- 
-+static void at_dma_cleanup_channels(struct at_dma *atdma)
-+{
-+	struct dma_chan *chan, *_chan;
-+	int i = 0;
-+
-+	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
-+			device_node) {
-+		/* Disable interrupts */
-+		atc_disable_chan_irq(atdma, i++);
-+		tasklet_kill(&to_at_dma_chan(chan)->vc.task);
-+		list_del(&chan->device_node);
-+	}
-+}
-+
- static int __init at_dma_probe(struct platform_device *pdev)
- {
- 	struct at_dma		*atdma;
-@@ -2105,6 +2119,8 @@ static int __init at_dma_probe(struct platform_device *pdev)
- err_of_dma_controller_register:
- 	dma_async_device_unregister(&atdma->dma_device);
- err_dma_async_device_register:
-+	disable_irq(platform_get_irq(pdev, 0));
-+	at_dma_cleanup_channels(atdma);
- 	dma_pool_destroy(atdma->memset_pool);
- err_memset_pool_create:
- 	dma_pool_destroy(atdma->lli_pool);
-@@ -2118,23 +2134,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
- static void at_dma_remove(struct platform_device *pdev)
- {
- 	struct at_dma		*atdma = platform_get_drvdata(pdev);
--	struct dma_chan		*chan, *_chan;
- 
- 	at_dma_off(atdma);
- 	if (pdev->dev.of_node)
- 		of_dma_controller_free(pdev->dev.of_node);
- 	dma_async_device_unregister(&atdma->dma_device);
- 
--	dma_pool_destroy(atdma->memset_pool);
--	dma_pool_destroy(atdma->lli_pool);
- 	free_irq(platform_get_irq(pdev, 0), atdma);
- 
--	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
--			device_node) {
--		/* Disable interrupts */
--		atc_disable_chan_irq(atdma, chan->chan_id);
--		list_del(&chan->device_node);
--	}
-+	at_dma_cleanup_channels(atdma);
-+	dma_pool_destroy(atdma->memset_pool);
-+	dma_pool_destroy(atdma->lli_pool);
- 
- 	clk_disable_unprepare(atdma->clk);
- }
--- 
-2.25.1
+>
+>>   err_memset_pool_create:
+>>   	dma_pool_destroy(atdma->lli_pool);
+>>   err_desc_pool_create:
+>>   	free_irq(platform_get_irq(pdev, 0), atdma);
+>>   err_irq:
+>> +err_clk:
+>>   	clk_disable_unprepare(atdma->clk);
+>>   	return err;
+>>   }
+>> @@ -2118,23 +2137,17 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>>   static void at_dma_remove(struct platform_device *pdev)
+>>   {
+>>   	struct at_dma		*atdma = platform_get_drvdata(pdev);
+>> -	struct dma_chan		*chan, *_chan;
+>>
+>>   	at_dma_off(atdma);
+>>   	if (pdev->dev.of_node)
+>>   		of_dma_controller_free(pdev->dev.of_node);
+>>   	dma_async_device_unregister(&atdma->dma_device);
+>>
+>> -	dma_pool_destroy(atdma->memset_pool);
+>> -	dma_pool_destroy(atdma->lli_pool);
+>>   	free_irq(platform_get_irq(pdev, 0), atdma);
+>>
+>> -	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+>> -			device_node) {
+>> -		/* Disable interrupts */
+>> -		atc_disable_chan_irq(atdma, chan->chan_id);
+>> -		list_del(&chan->device_node);
+>> -	}
+>> +	at_dma_cleanup_channels(atdma);
+>> +	dma_pool_destroy(atdma->memset_pool);
+>> +	dma_pool_destroy(atdma->lli_pool);
+>>
+>>   	clk_disable_unprepare(atdma->clk);
+>>   }
+>> --
+>> 2.25.1
+>>
 
 
