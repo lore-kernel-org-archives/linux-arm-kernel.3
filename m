@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7A3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF41AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/g9IC9odOOKLSJ5X43cGRnLu4qzcG9RWG3RGR7ofEM=; b=LzXWzqymKBjtbqaXsA5syzUFJ1
-	/6fkRcYTQAjAENCMP+5S0icW8FscTeGwB/sRoWq6R8eR9zpANNtSlYt5l4f9nF4QJIDYNG4qAF+9N
-	aqPuObKEiL3fOkUzxKy6nwUtxWRD0p0Lq2nuytKuQ3tKzEssX8jjjQB1bQLg8KbuWrRnfqHcEReJa
-	BKkzLQSsCFFtrPhBum6Jss446n/ZYp+LnESmR0fnMkjbgGW1wADlKT1UciYveeSJdBU4UuhR8o9TA
-	74DMddcNKoOm2IgjQzEaw8uvIx4e3D7NRpiJ6IiEbJ0oMa84RpJkyh6FfqX1i50i2olI/uTJoBaMN
-	oibTyxJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o0KUgrZrwNsznMUGnZBbqU+2N7o3A/Kb+YL9jJ1QWWo=; b=vyfX3T72q4hV170VZe251JsA+4
+	aDw74/zbZPpAxC5/VNIHrxljuWBuLfk3uPNcDBCtH6RqY5AEqYf2b/RPqdJZJ1Vsm/sC3kSKgEpKA
+	5nnsPHOabSIKegGVqTJ8cRcvNCMIqZRYRsAlKxLiguKqDbwIib9qvp4FXYlSbEraZSAkRAVyvyfG7
+	1sYSDHyXo3paKxTmAQnaQ1ybI+dJqFu8hlAINDnDOEABREvpODKyOE5kZSeZzGX+sUmyBplcXDXgg
+	57An2eHcH1G1XWAz3AkmFdM4KO/KVYwkP14KjYFWdOaWomaGSxzMvS2Zby+p0os3cq7TF7wGkBI+z
+	b2SE/xNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlnq-00000001v3L-2quk;
-	Thu, 09 Jul 2026 10:16:22 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1whleY-00000001sJX-1TZC;
+	Thu, 09 Jul 2026 10:06:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whlnn-00000001v2H-2Z4t;
-	Thu, 09 Jul 2026 10:16:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783592179; x=1815128179;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vUyuVhXb5XWOW1lu5ae8NpgTwEcJHaHweC6f6X1cbX8=;
-  b=C4i9qXl1Ld6pqkydgykC0omuvagIBNuni3XtdxISCTTS7BwvmQw9md6N
-   GcJDWbq5YfC6IjDvr1QfUAGI1xGDoy9w6RgbRCeX8ycx0AD7e4qZzjbY5
-   im6gW9bYlZ1hEBP6P4dhW0Kxo2PSpfTNb+TcQenVtx1isTFt5HAAKKQPN
-   RYCC4jx1eUYquOw6bdw/3csIKEsiT+lAuxGfvOHbKo7ScDps2od9JClBq
-   sjaQw0dN3AYMkcJXxvp8hmmWRIBiflsiXRNyPgs93Yc+AL2x+TtQjT+8v
-   O4vmtghCivb8rOHfUkQRPS9/0yBVRwjGIGxfKu6YbwHBo5PmxoAnOmIFU
-   g==;
-X-CSE-ConnectionGUID: gL6nZzpKQpKmHc80q1A4GA==
-X-CSE-MsgGUID: 4bZ5H3TvSu6FLEsVTC5DKA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="94916086"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="94916086"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:16:19 -0700
-X-CSE-ConnectionGUID: nZeE0HBNTiyYL9uGZR4QmA==
-X-CSE-MsgGUID: 88JSxELiQ7WNKT7Oj54cVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="254058060"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 03:16:11 -0700
-Date: Thu, 9 Jul 2026 13:16:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Peter Korsgaard <jacmet@sunsite.dk>,
-	Michal Simek <michal.simek@amd.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	bjorn.andersson@oss.qualcomm.com,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	id 1whleR-00000001s65-14kv;
+	Thu, 09 Jul 2026 10:06:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783591596;
+	bh=vIeXSGmYnuqXbWuVwNEh8u50bCXMZ/MRUIXV/uBPzrM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qR4Ep6U0r+Al+Okqw+8+c/zp89A+avon0r7EEV7BHsPM+0AfuPUKm64CVkyWXNrZt
+	 N+JYOEUZeNOTNj+RfNlSlynj0FerJj2s8da0PIiJMVfgPk20p1EAim8SqlPIMdmVxX
+	 CssHOnpitGT6o04RDTyNWqcr4BSssNK4SiuJxKBzQlCPWhkdBWb6GFVF/f620f2b+T
+	 Xni9tNYQ3REb9+bUbVisyM7Ckb/ERdI3HPFxs6P5tDzEVt/O015R2oFdf8fD/YovFu
+	 eVQZPAztJvp3yJ2XPU8cNZ7t9/OxxhAkZSBBAzwlEZ+LbBZLUbveIH2Yy9QbO4Nk73
+	 9Lj7mvKsHDFrg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0041017E0DFB;
+	Thu, 09 Jul 2026 12:06:34 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	granquet@baylibre.com,
+	rex-bc.chen@mediatek.com,
+	dmitry.osipenko@collabora.com,
+	ck.hu@mediatek.com,
+	amergnat@baylibre.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-omap@vger.kernel.org, linux-mips@vger.kernel.org,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	aniket.randive@oss.qualcomm.com,
-	chandana.chiluveru@oss.qualcomm.com
-Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
- callback
-Message-ID: <ak906CqHYDooQTVu@ashevche-desk.local>
-References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
- <9320a573-ebf8-459b-a313-3a8b73a6180b@kernel.org>
- <5eecf3a0-b608-4057-b400-236f6952b380@oss.qualcomm.com>
+	kernel@collabora.com
+Subject: [PATCH v2 11/11] drm/mediatek: mtk_dp: Clarify XTAL freq and Debounce registers
+Date: Thu,  9 Jul 2026 12:06:17 +0200
+Message-ID: <20260709100617.42583-12-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
+References: <20260709100617.42583-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5eecf3a0-b608-4057-b400-236f6952b380@oss.qualcomm.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_031619_685622_3938C227 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260709_030639_561596_1E572E59 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +95,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 02:22:17PM +0530, Praveen Talari wrote:
-> On 09-07-2026 12:23, Jiri Slaby wrote:
-> > On 09. 07. 26, 8:25, Praveen Talari wrote:
+Clarify the meaning of the sub-fields in the crystal frequency and
+transmitter interrupt debounce registers, with the only purpose of
+increasing human readability.
 
-...
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c     | 35 ++++++++++++++++-----------
+ drivers/gpu/drm/mediatek/mtk_dp_reg.h |  6 +++--
+ 2 files changed, 25 insertions(+), 16 deletions(-)
 
-> > OK, now I miss the rationale behind the patchset. Neither there is a
-> > possible code path to actually test this?
-> The rationale is that qcom_geni_serial_pm() calls
-> pm_runtime_resume_and_get() which can fail, but its return value is
-> currently discarded because the callback is void. 
-
-So, you take the solution from a wrong end. Just get rid of .pm() in your driver.
-With that, problem solved. Really, this series is a road to even more broken
-PM solutions.
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 7151421984ca..3790675d9dc4 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -1216,9 +1216,15 @@ static void mtk_dp_initialize_settings_v2p1(struct mtk_dp *mtk_dp)
+ 
+ static void mtk_dp_initialize_settings(struct mtk_dp *mtk_dp)
+ {
++	/*
++	 * Set DP XTAL freq to 26MHz and accumulator to 1.
++	 * Valid values for XTAL freq are 12 and 26.
++	 */
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_342C,
+-			   XTAL_FREQ_DP_TRANS_P0_DEFAULT,
+-			   XTAL_FREQ_DP_TRANS_P0_MASK);
++			   FIELD_PREP_CONST(XTAL_FREQ_DP_ACCUM_NUM_MASK, 1) |
++			   FIELD_PREP_CONST(XTAL_FREQ_DP_CLOCK_MHZ_MASK, 26),
++			   XTAL_FREQ_DP_ACCUM_NUM_MASK | XTAL_FREQ_DP_CLOCK_MHZ_MASK);
++
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3540,
+ 			   FEC_CLOCK_EN_MODE_DP_TRANS_P0,
+ 			   FEC_CLOCK_EN_MODE_DP_TRANS_P0);
+@@ -1260,28 +1266,29 @@ static void mtk_dp_initialize_aux_hpd_detect_settings(struct mtk_dp *mtk_dp)
+ 
+ static void mtk_dp_initialize_hpd_detect_settings(struct mtk_dp *mtk_dp)
+ {
+-	u32 val;
+-
+ 	/* Mask AUX TOP interrupt, as this uses transmitter for HPD */
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_IRQ_MASK,
+ 			   AUX_TOP_IRQ_MSK, AUX_TOP_IRQ_MSK);
+ 
+-	/* Debounce threshold */
++	/* Set Hotplug debounce threshold time: xtal_period * deb_thd */
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
+ 			   8, HPD_DEB_THD_DP_TRANS_P0_MASK);
+ 
+-	val = (HPD_INT_THD_DP_TRANS_P0_LOWER_500US |
+-	       HPD_INT_THD_DP_TRANS_P0_UPPER_1100US) << 4;
+-	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
+-			   val, HPD_INT_THD_DP_TRANS_P0_MASK);
+-
+ 	/*
+-	 * Connect threshold 1.5ms + 5 x 0.1ms = 2ms
+-	 * Disconnect threshold 1.5ms + 5 x 0.1ms = 2ms
++	 * Set interrupt debounce threshold time
++	 * VAL  |  0     1     2     3  INT_THD
++	 * Low  | 100   300   500   700 uS
++	 * High | 700   900  1100  1300 uS
+ 	 */
+-	val = (5 << 8) | (5 << 12);
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
+-			   val,
++			   FIELD_PREP_CONST(HPD_INT_LOW_THD_DP_TRANS_P0_MASK, 2) |
++			   FIELD_PREP_CONST(HPD_INT_HIGH_THD_DP_TRANS_P0_MASK, 2),
++			   HPD_INT_THD_DP_TRANS_P0_MASK);
++
++	/* Connection and Disconnection thresholds: 1.5ms + (5 x 0.1) ms = 2ms */
++	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
++			   FIELD_PREP_CONST(HPD_DISC_THD_DP_TRANS_P0_MASK, 5) |
++			   FIELD_PREP_CONST(HPD_CONN_THD_DP_TRANS_P0_MASK, 5),
+ 			   HPD_DISC_THD_DP_TRANS_P0_MASK |
+ 			   HPD_CONN_THD_DP_TRANS_P0_MASK);
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3430,
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+index 9caf743f4fe6..ce47b99dddc4 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
++++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+@@ -253,6 +253,8 @@
+ #define MTK_DP_TRANS_P0_3410				0x1410
+ #define HPD_DEB_THD_DP_TRANS_P0_MASK				GENMASK(3, 0)
+ #define HPD_INT_THD_DP_TRANS_P0_MASK				GENMASK(7, 4)
++#define HPD_INT_HIGH_THD_DP_TRANS_P0_MASK			GENMASK(7, 6)
++#define HPD_INT_LOW_THD_DP_TRANS_P0_MASK			GENMASK(5, 4)
+ #define HPD_INT_THD_DP_TRANS_P0_LOWER_500US			(2 << 4)
+ #define HPD_INT_THD_DP_TRANS_P0_UPPER_1100US			(2 << 6)
+ #define HPD_DISC_THD_DP_TRANS_P0_MASK				GENMASK(11, 8)
+@@ -267,8 +269,8 @@
+ #define IRQ_MASK_DP_TRANS_P0_INT_IRQ				(BIT(3) << 4)
+ #define IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 12)
+ #define MTK_DP_TRANS_P0_342C				0x142c
+-#define XTAL_FREQ_DP_TRANS_P0_DEFAULT				(BIT(0) | BIT(3) | BIT(5) | BIT(6))
+-#define XTAL_FREQ_DP_TRANS_P0_MASK				GENMASK(7, 0)
++#define XTAL_FREQ_DP_ACCUM_NUM_MASK				GENMASK(1, 0)
++#define XTAL_FREQ_DP_CLOCK_MHZ_MASK				GENMASK(7, 2)
+ #define MTK_DP_TRANS_P0_3430				0x1430
+ #define HPD_INT_THD_ECO_DP_TRANS_P0_MASK			GENMASK(1, 0)
+ #define HPD_INT_THD_ECO_DP_TRANS_P0_HIGH_BOUND_EXT		BIT(1)
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.54.0
 
 
