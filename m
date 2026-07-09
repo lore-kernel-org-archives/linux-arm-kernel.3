@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E84C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14535C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 08:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEahzOA/KTRGTvkyoCk8o8fpVF85458RzotimJ/M6YA=; b=4hmFIaBAG61+MW1BLXTpvKWnfM
-	U6944SoWL1oIUXfFA8Y7skuD+VpMCtezZO4WKp7WTH63eBcVPlGICiYsShLGzy7qU33fhN3/2/Rb9
-	jSLdpsRbFtBolLCtWDj/20xZMYPWVcE5b1Xx6lalR5pIe6rU9gGsHRqfB9g9jo76vTW/SyVBSHIYf
-	zCeApSngAfj/A4t2dSXvAFHBTrmuv5qoXN++4Xg1y3g3OrEq18fClHKg0eXnrWX/dxgcItmfSio9s
-	P+EfxNadZzdgocdkABw/LFSF+kOqiNReUsYJVZmSt0Q/WrxRlgyyY2Fj7M3NRTy4Hf7E6XvByCar9
-	tVUEoKPQ==;
+	bh=UXqUN5fCLyZCbN7uBG3JtTUMvasjG9uxSeitMnaL8+k=; b=XNIcnJARV4gBcUD1YuA42jb+IA
+	Zy98T6ArbUBSteO0/2cY+1DHT0YcHfC7uFoWBMsPXWqFIZmsdxDH/SfCmEAtI2KUeMtENT5VHOMd+
+	pAVWegxqzaZnZo/GWcwpcZj5eQzUrlFAeWurD6Sy2lyKqODV2p11O9koxKvpq9xR0tZ0p9A4zgWHR
+	wrdZo9jyZpf6xpVY1rQ+XSQ8EPZ2Xo6jUAPPCfJO9QfdmE65erpuaGE0BR2NNL2c2bwgnRkeexC3m
+	H86GL8IVYy3rAGWqXyng7tOddE5/gsaCU4KtAkZnayC3r/ZhTTm90gIn78yNjAB0EHCGXb5o/A14h
+	fa4jwz+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjqB-00000001Nas-0Bhj;
-	Thu, 09 Jul 2026 08:10:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1whjsG-00000001O5Y-27DW;
+	Thu, 09 Jul 2026 08:12:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjq6-00000001NYO-2Jbj
+	id 1whjsF-00000001O5O-0BJU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:10:34 +0000
+	Thu, 09 Jul 2026 08:12:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4FF36111A
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 08:10:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8D11F01558
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Jul 2026 08:10:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 74AA26001A;
+	Thu,  9 Jul 2026 08:12:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A6B1F00ACA;
+	Thu,  9 Jul 2026 08:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783584633;
-	bh=OEahzOA/KTRGTvkyoCk8o8fpVF85458RzotimJ/M6YA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=WTBH081nAVdwug7LFzIXFDgrbegoCxoadFT6WO6Frj2908/6QzMGpqt+CfrEXJqRU
-	 rcgGiDX4HCNTU8FqoW1govO01jdvhuzUXNNJ0tTwJ/a75ha6cknVn+4Ri9j8V9UT6j
-	 FEDw2qbGgQMoPPJBJI33u2xbH/NNR/2Po70XNcNawxYMXR37COZ6bP05UqWxnXPglt
-	 +/3qvpADr+xjrw+F8R/KNXi2aw9RGkyyEgsPKWJU1EspALz+kc34kr4mUtD5XemHJd
-	 k7mj/FGZm/6JeoPOKEQouTiImik/jECjqVZ4/3PN4IM+ItDJKnXZfeOx0R9CmyjUkp
-	 t8QVaWsR+PBRg==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aeb77b3afbso1566356e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 01:10:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rqsgm8ObjFjy1eMBB0Lp655CVeydW0p9vqpb2NOSGytg3YwIvZmZpkdxAtb8vC/YouyWwGKVFT5TD+N7SCa4Ek0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPsUz10OBGIdtIHISktfaSuh3Qtpw5rcB6zy4q/vyfCYQIWpnJ
-	/pc6jyh9rkvBdh6kTlQhHrmOvmMLbTcTROqU+BZNWsOnl5i1gwS3Fpfy/I7A6OHn/Dr7LFBb1QO
-	uaGdjFB6+XIH+dPrM9riKgALMO72paHgErnlLv4eWBg==
-X-Received: by 2002:ac2:57cb:0:b0:5ae:b75a:7176 with SMTP id
- 2adb3069b0e04-5b0115b31cbmr957946e87.65.1783584632201; Thu, 09 Jul 2026
- 01:10:32 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 9 Jul 2026 01:10:30 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 9 Jul 2026 01:10:30 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
+	s=k20260515; t=1783584766;
+	bh=UXqUN5fCLyZCbN7uBG3JtTUMvasjG9uxSeitMnaL8+k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hrD8WIf3qzu0F+NJBla2ORd0jSfnJE21w4csBd2BoRKkRnlvPYCzn382brDiLHOj6
+	 87oqQ616n/DJfrnhSBmlb3oG60ugLTh5j1mzNkHmhY6Z8YJpIQASmRLUWTF7A/IodW
+	 8nFE30Vmw2Cvzzswm97tz4XI45zKyEi7OXV1OM/bE5sxo33NSZDycJ2dVfiClRdRAX
+	 wUQOovmWzLjGgAMNypKyzT6h0W0oBzDFNcjm6xfSbmI40CLXFMgLPj6X3jo8KsO+vW
+	 B4wYjrBOf90XL69uOA4QkbnSax4KvdQ1OWVqiyWUMtlH7+Ah+1F2j0EAHYY3lFIYXc
+	 B5PWKjlbCSvtw==
+Date: Thu, 9 Jul 2026 09:12:37 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v8 1/6] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260708-precise-prudent-firefly-17c1ce@sudeepholla>
+References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
+ <20260707081351.1680209-2-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-References: <20260708-samsung-kp-v2-0-3c6ed4c9b3b6@gmail.com>
-Date: Thu, 9 Jul 2026 01:10:30 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfJQm8RqhiLbRA1x7skt=jW8vvTD-1VCDcw-dO_VjisZQ@mail.gmail.com>
-X-Gm-Features: AVVi8CddxA9iUF7IgAB_SRFc1uKWkA3NnqyOXCt0i1LuR82tf86E-F3pS5f_rfg
-Message-ID: <CAMRc=MfJQm8RqhiLbRA1x7skt=jW8vvTD-1VCDcw-dO_VjisZQ@mail.gmail.com>
-Subject: Re: [PATCH v2 00/11] Remove support for platform data from samsung keypad
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-input@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	patches@opensource.cirrus.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Russell King <linux@armlinux.org.uk>, Mark Brown <broonie@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260707081351.1680209-2-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Jul 2026 06:52:58 +0200, Dmitry Torokhov
-<dmitry.torokhov@gmail.com> said:
-> Hi,
->
-> This is a reworked and extended version of the series previously posted
-> to convert the Samsung keypad driver and Cragganmore 6410 board to
-> generic device properties. The first 8 patches of the original series
-> (general cleanups) have been merged into mainline, and this version
-> focuses on the remaining keypad rework and extends the board conversion.
->
-> Specifically, we rework the Samsung keypad driver to stop using platform
-> data and instead rely on generic device properties, and convert the
-> Cragganmore board to use software nodes for all its peripherals, removing
-> legacy GPIO lookup tables.
->
-> We start by introducing a compact matrix keypad binding and implementing
-> it in the driver. To support referencing Samsung GPIO chips in board
-> properties, we add infrastructure to register and attach software nodes
-> to Samsung gpio_chips. We then switch the Cragganmore keypad to use
-> software properties and drop platform data support from the driver.
->
-> To convert the PMIC DVS regulator on Cragganmore, we add software node
-> support to the wm831x regulator driver, allowing DVS configuration via
-> device properties. Once the board is converted, we clean up the driver
-> by removing legacy DVS platform data fields.
->
-> Finally, we convert the remaining peripherals on Cragganmore (GPIO keys,
-> PMIC, WM1250, SPI0, basic-mmio-gpio, and LEDs) to software properties.
-> This allows us to eliminate all legacy GPIO lookup tables, which also
-> fixes incorrect GPIO chip names ("GPIO<N>" vs "GP<N>") from previous
-> descriptor conversions.
->
-> Mark, it would be great if you could give this a spin on Cragganmore.
->
-> Thanks!
+On Tue, Jul 07, 2026 at 01:43:45PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> SMCCC-discovered firmware services are currently represented by separate
+> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
+> represent independent DT/ACPI-described platform resources; they are
+> features of the SMCCC firmware interface.
+> 
+> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
+> interface. The bus provides SMCCC device and driver registration helpers,
+> name-based matching, modalias generation, and a sysfs modalias attribute so
+> SMCCC service drivers can bind to discovered firmware services and autoload
+> as modules.
+> 
+> Follow-up changes can then register SMCCC firmware services as arm-smccc
+> devices instead of creating independent per-feature platform devices.
+> 
+> Based on arm_ffa code
 >
 
-I admit I haven't looked at the series in great detail but it looks sane and
-you've been doing these conversions before so I trust your judgment.
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-
-Thanks,
-Bartosz
+-- 
+Regards,
+Sudeep
 
