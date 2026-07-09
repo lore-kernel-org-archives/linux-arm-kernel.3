@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7FBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108F9C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o+TWdfE7vQbBtfCXlgBR/+CI10JbrdreOt38tbnVwCk=; b=hEulEEvg25xnm3Goxi9Z6oaEbL
-	GKZDh4XN+gFxi4kuhi68DR7Dp6bw0tFto3xihB/gM9kqNZDRTvCeN92kDOvy+okI8MIqP8Q9Fn7b4
-	MWje6NTgWr2JIJddCv3HJrEoivBlEnh+aroHQbJ+oqntAdfcHZO9pJ8cX00Jm2MGKGA/o1W0Jr79G
-	ygdjRu68a/voJrPFWwrfMYnoQ876Z+/ZHSOouatYrDklvi2ExZfOaRy8zm67eHvSYSillYA37U1/q
-	1YJdrKrOrtucqqUA67b2IrLl3in3pgkBHoQ0fg+yidHcZ+GBm1Jn8sewryBBIAA6OkTDUQwl/ha0i
-	QCVv324A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=; b=Bkim5WDln019arLMZjHizWfdaj
+	BGDb4FVJ2zOTHlwSp2XJuBeY53jjA201A5mEz2QD5Kt9iZdme64VX0UkUWzz3XRHlUafdzNrafKp4
+	9wRWzvIVYHo/Gn0x+EztTqG2OuAQvJLQEzp9MrTSj3gekFTxtSS49w/uyOSBE+0+VbAMC2VUEtcXx
+	Qa/tukT6TkuRRuxXOrKHLh5Oy1+YjuFR2oNvg/ZOBRKt2V3kjqLNoOV+hDwJE0HuL2SfN/p7bTgyf
+	xSoiUk0Pqz2BsYEEXvhqLCIwmF/D7K2eOYlesHDlm4fgwTxSvn7XgBBo5MfuNpCoypYuKQzeysm9C
+	WaSNz38g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whphT-00000002kWn-28Sw;
-	Thu, 09 Jul 2026 14:26:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whphR-00000002kWQ-2jDX
+	id 1whpiM-00000002km3-07BM;
+	Thu, 09 Jul 2026 14:26:58 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1whpiJ-00000002kkX-26yc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:26:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21BD93592;
-	Thu,  9 Jul 2026 07:25:54 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1921A3F66F;
-	Thu,  9 Jul 2026 07:25:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783607158; bh=t/1cky5+DUWV8jkfkoFfgRk8CUIz4wRifGyX1Xturgs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qv1sm20O4agpiSaHGYhF4Zsn9DHymqjG1zUy5AHJp6N4evImUKxglQTrdvsU3/f5v
-	 N8Zc5MfnyeEt2eDsbOzLhY1QwR+AGSWIwwnKqhJx0PjUFnEvHk9p99m+CRRbIewDzL
-	 3UBBdsNGqXFstDAwSb+kzm/VcCdfNOU+F//H3GG0=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
+	Thu, 09 Jul 2026 14:26:57 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b77b150aso15698865e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 07:26:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1783607213; x=1784212013; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=;
+        b=YJ9cpOSCuAl/jUpxzSPN5YLNndLOdLIRUDiRZ+r5SDAUjstRfKswNc+4u0PWfZYdab
+         8Bb5fEK8by0Rqt1WsaEcJIC+eCLZt3aIM1tK5BC210nI8F/aev+4bD1pDC2mW/lBPx7r
+         IMZhLRrSyr7a8URaxHWcHjEH7WZGf6A4h2PneQT7T5nhHgWxXct/aqAQI47mpDkf65RU
+         /FogtKqCPSkxeFjEU8sL/4HgDX6qXT/gVXGzQXvX9tGKsploWm8V2a4wk4B7QkFtItHe
+         hJ1M6HsOWwonk8H4p3BiPKkpOTjdB3aKo/bNsVngfpiWABaLzSrG9CSUf2bzOrLifIuf
+         RgQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783607213; x=1784212013;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pgKeluas+jUY/8yJAiAEBG5t4/+qnuDSzD0+HGXJqIM=;
+        b=XXpSgp8p2Yc/Sf2drChgILmODmkcuvwRF2a0hrusVhNpYa/tHdZ5tZ0Co9SB4mx0F3
+         mSnqowgPtpznz2JIE1olx2h5/Uf74gaZfofGCak4SQSHd6GmGOmftJcQ+JWgYF3SDIy0
+         4+mKx+IcV/G5szwBXjziP0hHHbCp3ZjOK1nCN4OSIo70LM1xVGIcvhCYG+x8v8E1ZuCM
+         LOngPxCXE+NpLRmjFomuOf9P3o65g25vUm3mwlL+NNdoFKupzMDdGUoU93rN+5yzrPeq
+         Ms94ipHVahrrmh5bcAJhrHFeZKuO2BhfggQr/Dxc0FmCu2Zke3mqC6WEsgdL2WS+0IfM
+         L85g==
+X-Forwarded-Encrypted: i=1; AHgh+RqtJzp6FOH2Ms2+TXPknlZINtilxczCqP3/xpXTfc9hNLfd0Yv5S7QSJ15Gv67CmB2nXk1Kh7wNaCAkHfGE8bkE@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpua9680pIC2roiVkrtKMLwcKpaVih2IbU+kpZpYFDA9VpJEgU
+	3kEIVDhYljkooygSvvz7VYHJiDkt0rrdgc+BIJvK4S/HxKMqgHqWxvLa1LVf4du/zB0=
+X-Gm-Gg: AfdE7ckhEQh2nBfxTe4bCUQM1dqEk4p7BhL9S+lMvwpzKf/ppYhAMeIDOy9d+Wdkdvd
+	nqmhyjG+Vguu84d/exGXmq0baOrEQVU5RoWzrs4TibgCC4XcZ85zJbkF0IVOxDxGewViRm1CTdY
+	TPlub1WY3I95Usm6puTGyT4kKq+pNNhEcFSJtexdBICpNlr6JpBn1JOCJRoMGDqnGX+Q787/dVH
+	pkNBYXDsL3eN1tDj+QeUyLo7X+xMpbQa02dleujRaZ+F6lI2MN27x91KV8ankrqURfoL+MvFWze
+	pTDIVSxmCGEgAmNNcSzIjpWt5i2ReR5WBw5MJlvJXyiMBWWgOblcrxkF8IQJ+J7o7lFLdN5fQd0
+	mB88jHphbed7L484G5Cywj5INycw3zqKraiyqMNqpBpylvHCJ/KF2d8vqx9txnTMm8X07P0U0Ds
+	/pr4zaG2ELis/O9JE=
+X-Received: by 2002:a05:600c:34c3:b0:493:bb29:af40 with SMTP id 5b1f17b1804b1-493e689b37amr85711945e9.14.1783607213522;
+        Thu, 09 Jul 2026 07:26:53 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb74835esm72452175e9.14.2026.07.09.07.26.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Jul 2026 07:26:53 -0700 (PDT)
+Date: Thu, 9 Jul 2026 16:26:50 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
-Date: Thu,  9 Jul 2026 15:25:50 +0100
-Message-ID: <ak-vblq_CMADABBi@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <871pdd764g.wl-maz@kernel.org>
-References: <20260708134101.2514759-1-leo.bras@arm.com> <20260708134101.2514759-3-leo.bras@arm.com> <871pdd764g.wl-maz@kernel.org>
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v2 2/4] printk: deprecate boot_delay in favour of
+ printk_delay
+Message-ID: <ak-vqrSr7NLCkGQw@pathway.suse.cz>
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-2-f9883d36aa4b@thegoodpenguin.co.uk>
+ <ak5mPxUdp2pzCMt5@pathway.suse.cz>
+ <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <CALqELGxjTZAXEp1C1CNO2tLbUpUChZW3DHcNgyhEu4Ma-ct2ow@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_072601_811535_A61EC8EE 
-X-CRM114-Status: GOOD (  47.73  )
+X-CRM114-CacheID: sfid-20260709_072655_573752_D8E9CE15 
+X-CRM114-Status: GOOD (  45.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,248 +120,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 06:17:51PM +0100, Marc Zyngier wrote:
-> On Wed, 08 Jul 2026 14:40:58 +0100,
-> Leonardo Bras <leo.bras@arm.com> wrote:
-> > 
-> > Add the new walking flags that tell kvm_pgtable_walk() to skip lower levels
-> > when walking the pagetables.
+On Thu 2026-07-09 13:32:10, Andrew Murray wrote:
+> Hi Petr,
 > 
-> I don't understand what 'lower' means here. There is also no
-> description of what this patch is trying to do, or why it is trying to
-> do it. All I see is a wall of code with no rationale, no explanation.
-
-Indeed, the description is very poor. Sorry about that.
-
-For next version, what about something like that:
-
-Add new walking flags KVM_PGTABLE_WALK_SKIP_LEVEL{0-3}.
-When used, they make the kvm_pgtable_walk() skip the given level, as well 
-as levels higher than that. 
-
-
+> On Wed, 8 Jul 2026 at 16:01, Petr Mladek <pmladek@suse.com> wrote:
+> >
+> > On Tue 2026-06-30 17:35:58, Andrew Murray wrote:
+> > > The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
+> > > are two distinct mechanisms for providing similar functionality which add a
+> > > delay prior to each printed printk message.
+> > >
+> > > boot_delay provides a kernel parameter for delaying printk output from
+> > > kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
+> > > configurable only via sysctl and thus is only used post boot.
+> > >
+> > > Let's deprecate the boot_delay feature in favour of printk_delay. In order
+> > > to preserve functionality, we'll also extend printk_delay such that it can
+> > > additionally configured via an early kernel parameter.
+> > >
+> > > Behavior change:
+> > >
+> > > The delay enabled by both "boot_delay" and "printk_delay" continues
+> > > working even in SYSTEM_RUNNING state. It must be explicitly stopped
+> > > by setting printk_delay=0 via sysctl.
+> > >
+> > > The delay is skipped when the message is suppressed in all system
+> > > states. It used to skipped only for the boot_delay.
+> > >
+> > > Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
+> >
+> > Looks good to me:
+> >
+> > Reviewed-by: Petr Mladek <pmladek@suse.com>
+> >
+> > Note that Sashiko AI warns about possible problems with negative
+> > printk_delay values, see
+> > https://sashiko.dev/#/patchset/20260630-deprecate_boot_delay-v2-0-f9883d36aa4b%40thegoodpenguin.co.uk
+> >
+> > But they should be handled in both the early parameter
+> > and sysctl interface by the "10 * 1000" and "&ten_thousand"
+> > limits.
+> 
+> Yes, that was my also view.
+> 
 > 
 > >
-> > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
-> >  arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++++++---
-> >  2 files changed, 29 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > index 41a8687938eb..20c7c12e0e76 100644
-> > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > @@ -311,31 +311,44 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
-> >   * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
-> >   *					with other software walkers.
-> >   * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
-> >   *					the walker returns -EAGAIN.
-> >   * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
-> >   *					without Break-before-make's
-> >   *					TLB invalidation.
-> >   * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
-> >   *					without Cache maintenance
-> >   *					operations required.
-> > + * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
-> > + * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
-> > + * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
-> > + * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
+> > The only potential problem might be a warning about possible
+> > "sign" mismatch from the compiler. But I do not see any
+> > even with make W=2.
 > 
-> Skip under which conditions? Always?
-
-Yes, if passed they will skip visiting those levels.
-
-The only current issue with this patchset is that the root of the subtree 
-passed is always visited. But I should be able to fix that for next 
-version.
-
+> I suspect this will come up everytime a change is made in this area,
+> or perhaps some W=2 errors will pop up via kernelci or similar. I
+> propose updating the patch as follows:
 > 
-> >   */
-> >  enum kvm_pgtable_walk_flags {
-> >  	KVM_PGTABLE_WALK_LEAF			= BIT(0),
-> >  	KVM_PGTABLE_WALK_TABLE_PRE		= BIT(1),
-> >  	KVM_PGTABLE_WALK_TABLE_POST		= BIT(2),
-> >  	KVM_PGTABLE_WALK_SHARED			= BIT(3),
-> >  	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
-> >  	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
-> >  	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
-> > +	KVM_PGTABLE_WALK_SKIP_LEVEL0		= BIT(7),
-> > +	KVM_PGTABLE_WALK_SKIP_LEVEL1		= BIT(8),
-> > +	KVM_PGTABLE_WALK_SKIP_LEVEL2		= BIT(9),
-> > +	KVM_PGTABLE_WALK_SKIP_LEVEL3		= BIT(10),
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index 5278d9cb19e4..fbb67f10c21e 100644
+> --- a/kernel/printk/printk.c
+> +++ b/kernel/printk/printk.c
+> @@ -1338,10 +1338,13 @@ static inline void early_boot_delay_msec(void)
 > 
-> There is a strong assumption that these bits must be contiguous. 
-
-Correct. They can be shifted in the flags variable, but not reordered nor 
-split.
-
-> And
-> yet that's not captured anywhere. Want to bet what is going to happen
-> next?
-
-I assumed that once the flags get defined, they are not usually changed or 
-reordered, I only prepared for a day where we need skipping level -1 
-as well, as it can be added below. 
-
-But I think I get your point. Should have added a commend saying that the 
-SKIP_LEVEL* flags should not be reordered nor split. 
-
-Is that it? or you suggest doing something else?
-
+>  static int __init printk_delay_setup(char *str)
+>  {
+> -       get_option(&str, &printk_delay_msec);
+> -       if (printk_delay_msec > 10 * 1000)
+> -               printk_delay_msec = 0;
+> +       int printk_delay_val = 0;
 > 
-> >  };
-> >  
-> > +#define KVM_PGTABLE_WALK_SKIP_LEVELS 	(KVM_PGTABLE_WALK_SKIP_LEVEL0 | \
-> > +					 KVM_PGTABLE_WALK_SKIP_LEVEL1 | \
-> > +					 KVM_PGTABLE_WALK_SKIP_LEVEL2 | \
-> > +					 KVM_PGTABLE_WALK_SKIP_LEVEL3 )
-> > +
-> >  struct kvm_pgtable_visit_ctx {
-> >  	kvm_pte_t				*ptep;
-> >  	kvm_pte_t				old;
-> >  	void					*arg;
-> >  	struct kvm_pgtable_mm_ops		*mm_ops;
-> >  	u64					start;
-> >  	u64					addr;
-> >  	u64					end;
-> >  	s8					level;
-> >  	enum kvm_pgtable_walk_flags		flags;
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index 4be1d51a6ac5..b9a2078efc51 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -137,20 +137,33 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
-> >  	 * Ignore the return code altogether for walkers outside a fault handler
-> >  	 * (e.g. write protecting a range of memory) and chug along with the
-> >  	 * page table walk.
-> >  	 */
-> >  	if (r == -EAGAIN)
-> >  		return walker->flags & KVM_PGTABLE_WALK_IGNORE_EAGAIN;
-> >  
-> >  	return !r;
-> >  }
-> >  
-> > +static __always_inline bool kvm_pgtable_skip_level(s8 level, enum kvm_pgtable_walk_flags flags)
+> +       get_option(&str, &printk_delay_val);
+> +       if (printk_delay_val < 0 || printk_delay_val > 10 * 1000)
+> +               return 0;
+> +
+> +       printk_delay_msec = (unsigned int)printk_delay_val;
+>         printk_delay_calculate();
 > 
-> Why __always_inline? I'm sure the compiler can decide for itself.
+>         return 0;
+> diff --git a/kernel/printk/sysctl.c b/kernel/printk/sysctl.c
+> index f15732e93c2e..f256fc05faaf 100644
+> --- a/kernel/printk/sysctl.c
+> +++ b/kernel/printk/sysctl.c
+> @@ -46,7 +46,7 @@ static const struct ctl_table printk_sysctls[] = {
+>                 .data           = &printk_delay_msec,
+>                 .maxlen         = sizeof(int),
+
+I would change this to sizeof(unsigned int) as well.
+
+>                 .mode           = 0644,
+> -               .proc_handler   = proc_dointvec_minmax,
+> +               .proc_handler   = proc_douintvec_minmax,
+>                 .extra1         = SYSCTL_ZERO,
+>                 .extra2         = (void *)&ten_thousand,
+>         },
+
+Otherwise, it looks good to me.
+
+> This makes the cast explict, verifies the range before casting
+
+Yup.
+
+> (I guess a range of negative values could result in a postive value
+> within the 10,000 range) and also uses the correct proc_handler.
+
+IMHO, this should not happen. I have never seen int smaller than 4
+bytes. If I count it correctly, positive numbers should be up to 32767.
+
+
+> This has the side effect of not showing the following pr_debug for the
+> lpj calculation when a delay is not set. Though loops_per_msec is only
+> used during boot, so I don't think there is any loss here.
+
+I agree that it should not harm. But please mention this in
+the commit message.
+
+>         pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
+>                 "HZ: %d, loops_per_msec: %llu\n",
+>                 printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
 > 
+> Can I keep your Reviewed-By with these changes?
 
-Right, will change that in next version.
+Feel free to keep it. That said, please put at least the change
+of the ctl_table into a separate patch. I would rather put both new
+changes into separate file. It is never a good idea to hide
+such changes in a complex patch which mostly reshuffles an existing
+code.
 
-> > +{
-> > +	flags &= KVM_PGTABLE_WALK_SKIP_LEVELS;
-> > +
-> > +	if (likely(!flags))
-> > +		return false;
-> > +
-> > +	if (level >= (ffs(flags) - ffs(KVM_PGTABLE_WALK_SKIP_LEVELS)))
-> > +		return true;
-> 
-> This looks awfully complex for something this trivial:
-> 
-> 	u32 skip = FIELD_GET(KVM_PGTABLE_WALK_SKIP_LEVELS, flags);
-> 
-> 	return skip && level >= ffs(skip);
-> 
-
-My rationale was that in the regular case we would not have those flags 
-set, so I tried to minimize any code that would be happening for that case.
-So I used only a 'bitwise and' to check the flags, then returned if not 
-used.
-
-If one of those flags were set, then find the lowest level set, and check 
-against the current level for skipping.
-
-But looking into the ARM instructions, my rationale would be pointless, as 
-there are instructions that AND+SHIFT at once, and your version with 
-FIELD_GET() should be better.
-
-
-> But also, you seem to assume that there cannot be more than one such
-> flag set. I have no idea of the outcome in this situation, and the
-> whole thing is completely undocumented anyway...
-> 
-
-ffs(flags) is meant to find the first set bit in the flags, which is, after 
-the masking, the lowest level to skip. If you are skipping a level, it's 
-supposed to skip all levels higher than that, as per the flag 
-documentation:
-
-+ * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
-+ * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
-+ * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
-+ * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
-  */ 
-
-The + above means any level above that as well.
-
-> > +
-> > +	return false;
-> > +}
-> > +
-> >  static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
-> >  			      struct kvm_pgtable_mm_ops *mm_ops, kvm_pteref_t pgtable, s8 level);
-> >  
-> >  static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
-> >  				      struct kvm_pgtable_mm_ops *mm_ops,
-> >  				      kvm_pteref_t pteref, s8 level)
-> >  {
-> >  	enum kvm_pgtable_walk_flags flags = data->walker->flags;
-> >  	kvm_pte_t *ptep = kvm_dereference_pteref(data->walker, pteref);
-> >  	struct kvm_pgtable_visit_ctx ctx = {
-> > @@ -185,35 +198,35 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
-> >  	 * into a newly installed or replaced table.
-> >  	 */
-> >  	if (reload) {
-> >  		ctx.old = READ_ONCE(*ptep);
-> >  		table = kvm_pte_table(ctx.old, level);
-> >  	}
-> >  
-> >  	if (!kvm_pgtable_walk_continue(data->walker, ret))
-> >  		return ret;
-> >  
-> > -	if (!table) {
-> > +	if (!table || kvm_pgtable_skip_level(level + 1, ctx.flags)) {
-> >  		data->addr = ALIGN_DOWN(data->addr, kvm_granule_size(level));
-> >  		data->addr += kvm_granule_size(level);
-> >  		goto out;
-> >  	}
-> >  
-> >  	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
-> >  	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
-> >  	if (!kvm_pgtable_walk_continue(data->walker, ret))
-> >  		return ret;
-> >  
-> > -	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
-> > +out:
-> > +	if (table && ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
-> 
-> I don't understand this change. Care to explain?
-
-Sure!
-Before this change, there was no need to test if the entry was 
-a table before visiting it on WALK_TABLE_POST, as that if clause would 
-only be reached by table entries.
- 
-(Since the 'out:' label was below it, and above there was an if (!table) 
-that would always goto it, it was always skipped by !table entries)
-
-With the moving of 'out:' label to above this clause, we need to check if 
-the entry is actually a table before visiting with a WALK_TABLE_POST flag.
- 
-Now, the reason why I moved that label up is that the if(!table) clause 
-received the '|| skip_level' check, and now we can have this scenario:
-- table entry visited in WALK_TABLE_PRE,
-- table got its children skipped due to skip_level, 
-- need to visit it due to the WALK_TABLE_POST.
-
-And that was the least intrusive way of doing it :)
-
-Please let me know if I can make something else more clear!
-
-Thanks!
-Leo
-
- 
+Best Regards,
+Petr
 
