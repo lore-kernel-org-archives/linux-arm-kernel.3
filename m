@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006C7C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 19:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBB5C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 19:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2cMG/Za3lwjM0vfcOFEoqLjnMwmjeuIJwgCFydcn7HM=; b=AWwpwa+/RYyqkE3MMsxNbX+CyY
-	HlqNr+QHQDEPuOCTYSBHYj1N51taOV76oPvXwzGXBZzty/dCQIs1XOckf0DOAOR56fRuLURPtFiy2
-	5aBo+EezVtVsg2e6Vz3a9/ne6frfuiLeBDIIqt8hm7u56H5O92tiwoVFrn3M+ZhvXkpawtWQoSvZi
-	oZLh1XHa26QGpuYZbFx7iO9GPIIsXgLsivJWVSDV5i8Q6GX77ahaRC740c5lbg+G5tN58LWnrfeX0
-	5yu0iLzhCNGg7A1go9Nw7ECjZdS/lMwT+ipoC3GW6QQozQvUnqi8UPyPlg75BYEPUwTbVci9nyX90
-	eVaTJC1w==;
+	bh=eVgmQSfiTNCAYyP7ye01EriVgYVavUafydfCp+fvLCM=; b=p4fq+1uccahQfAK62haviO1l/R
+	YypmJ1ES9Yzkyp/zttD/aVA55Yl0WPNv6iUfdbD+cWXgISRM4uUCuoEXmJeNzQGXHQUXu5W+lsFG/
+	vKguxPvmYnT3zHyqngQQgdS6hwYZ5yPO06w51g/LyjmL0yLgNK9p69y6ZUIYL7wRqZ53fcsFQzgQ8
+	BOoQsFJHL7C1swv+Z//n9S7/XOIQ2OFV3eno8E14QynzXZqkepQnPN57yDgHgWOE6wE1xfs+GFvpf
+	9xrYMCv6GZOtA0Nk2NULMlEawQrIy7gGmP1kYD+/Jy4rNCWF6JSBETkWKnyoh1wg5na1aEaYXXcN0
+	7EPPhdeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whu1c-00000003MTD-159X;
+	id 1whu1c-00000003MV6-2wAI;
 	Thu, 09 Jul 2026 19:03:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whu1D-00000003LTX-399X;
-	Thu, 09 Jul 2026 19:02:43 +0000
+	id 1whu1E-00000003LUD-0DTy;
+	Thu, 09 Jul 2026 19:02:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2cMG/Za3lwjM0vfcOFEoqLjnMwmjeuIJwgCFydcn7HM=; b=iAzGZEZk333x3bp1raUsCps1Ki
-	B2FPHfd7SCbagOc8Ey81EtoYpkIDA3bDvQI0t1EIavfT+Ku5MRUobSmTSD6B5YlfUYRIH7wr0WCc+
-	gMyyCdC9tCL2d3FAsk1mUIgPsdBJf3Shvhok8fcAUGFBCA1yEzY/fYrWwr0jhR3Xy5p99xaVWQRsY
-	DPfGR9vM/lj08r++GElhMP3EVQie7PVMnGry2zF9L9r7H3NZg0CsSqPiUXwxDYhvXba4uGilqbVyL
-	OCCtfzSmJ/oT3klOTPycXxbZj8Dfb9fXOZIVbHFNh3pHegDvy3CTDRQn3TucyLHO2J4fIwKhaWmhy
-	1XJ7cY+Q==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	bh=eVgmQSfiTNCAYyP7ye01EriVgYVavUafydfCp+fvLCM=; b=CA2w3kdhRqC+1BEi4OvggaXydj
+	qkrbSeSIpXQ4BMIAIwwp+RV+0O+8rqnHyYQczaAWPewUhNq5w1uqcDZyBCOPd0CaD6tgvbbNsVVzx
+	jNzRLC+hs0Uv1R5835g705//FqyqpAzFBSgOc3sCbqHdfVL5e9ablRFPhA+vnhRo/6SRBEb05yhPB
+	0T9Cal/cmqOMa5/pNEfePns7w4ynOVEfKhzAVIeSl51raTvaypyJw9syrm0zgMc2FhvB5kGeL8EHK
+	2o0YcnMXXqoa8eCaHeLwfg1Zr5OWztXpYdBOnmw5TDy/LVx4Gr1PeN6m7wEPU43JrHNqVmdJyVEjS
+	6iwCsoMg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1whu18-00000009TL9-2omH;
+	id 1whu1A-00000009TLu-0EAN;
 	Thu, 09 Jul 2026 19:02:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1783623750;
-	bh=M0nFL5Ec9a+nAx7KM5MPvRfwUmrPlBv56rRN9JqMFu4=;
+	bh=WvI4CpW9M8TpkyLpkp+OrGOQyMjechaxNGHQNV0SpgY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XixhM+XHRDc0e4w2zsAzf875ynEfN8QbvbsJN7ckZYW8UczIBpafvDF9d4Zkf/EfD
-	 OhlwdC1DrSqlzhgu3V5H5Amwvqn75Ovo29jFOHbgOq2Z92UTJecISVTEvdtJB5BV9M
-	 eHUV1I3NoGHMF+npXHNrCYNmvmXmbqKYuD5MFl2lsiM2T/nDdBhnYw1wI1vM24Mp/c
-	 baE9LiyRTLXAOTg8MkkuHTonAMnCW+ed3HxV2tun9fQeSik5SLXUlbZORC4sqRsVWx
-	 6T/7QB/tNxC0gGWG68MumqMqQYWScAXXuQDne+B8yjVhMHaWKiDAKgYHfJmGjc0Srz
-	 NXLp/ERcysc1Q==
+	b=Bie24rAdJBsgWKDGx0J1dLYQL1q2IKdi/EUmwUeiQMy/gylbgEsKyXikNbe3Tvh10
+	 uzS6cxDJmUx/6tctB4Gf381ELZA5PviUGnDGKZT8LM7H7CW4jWC93KbCwWnMjn8Yyi
+	 NeNv+/6kJ+JmFCVlSL4g1r8EJBhsHnhwn65+H8KmUGDiMT+OLmvi56rgb11DtXfhR8
+	 yGiXsrh+22irgVUm+PjfsJqCVXGnFEzYxnaInhlYXGkXw8Tbu2s1V5zwJBThpl+qeJ
+	 2lb5KfVFK6VxFZSkRudbMn3hD+1hMMmmQ8w76D+EpGrOzHBENmMzm/+KAqHvsnrsFa
+	 O6duCzqip8pBw==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 98F7717E0FD2;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B8E2A17E1029;
 	Thu, 09 Jul 2026 21:02:30 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id B87B9480055; Thu, 09 Jul 2026 21:02:29 +0200 (CEST)
+	id C0299480066; Thu, 09 Jul 2026 21:02:29 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 09 Jul 2026 21:02:38 +0200
-Subject: [PATCH v11 15/36] phy: rockchip: usbdp: Cleanup DP lane selection
- function
+Date: Thu, 09 Jul 2026 21:02:43 +0200
+Subject: [PATCH v11 20/36] phy: rockchip: usbdp: Factor out lane_mux_sel
+ setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-rockchip-usbdp-cleanup-v11-15-a149ac60f76c@collabora.com>
+Message-Id: <20260709-rockchip-usbdp-cleanup-v11-20-a149ac60f76c@collabora.com>
 References: <20260709-rockchip-usbdp-cleanup-v11-0-a149ac60f76c@collabora.com>
 In-Reply-To: <20260709-rockchip-usbdp-cleanup-v11-0-a149ac60f76c@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -85,27 +85,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1889;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4580;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=M0nFL5Ec9a+nAx7KM5MPvRfwUmrPlBv56rRN9JqMFu4=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpP8ESHRCQsSX3f6zD3X2vAjNZudnT95Vi42
- RHhD011IULwK4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqT/BEAAoJENju1/PI
- O/qaOVMP/jEhZwEaWFtqsUnLeusRb2/Kk/6e34tX50KaoE0VX2oIHYOdsZ+SmkWxmrXkOcVYaCz
- Icqt7wtranNGEj8n8Pvh1hAFYyJbF2mh9SqZGD6FJRrlcFuB05HZYCgd7fGqXkkr009vM7BwKP/
- vDLcSqt/FAQ/lrSNkI/zv39p5aHvpBKr5oub8St6nF8cAenmUUkci1iVQOQW9Kmn4bJqS8zPY4r
- vS8tekmI/cmkFoFhtNoGziy+hpXJb6wk7p/LegqZUjGtNdUuYHEvyjtFxPwiHUNBrSB9qAvSGus
- OCCqraoYP54+k+T0kb4k7b+ENsr7Sxic/xhorHLapaTOQcFuQpTDN27Z+BluD5eb9TPFPZ0ebcI
- yTpldu6j6Q91J1FyyLo74jNoseOXfcT8KOdNjtkIOQB3kPfv+WkOv8Iiab85tao1Gqyz/q6nrFQ
- yjYYc8jEBR618NG8JDlwFZLnlH4VvdvXYtNqgCm6Ky3sz0QJu03+VrB62PCCybx3MPxKoXBhv0S
- QwXgg4ma6EeoHJOjrRHrMaXVVVvL1jOkSjKeAghGpENyCFoWT0IA9ZXlu595+xWmVLTMyRvAT2L
- fPBtVby+IIaWdSPHjmwcx5Do2OtGoD9gXngfLyryzlZ8Pne+ABHVLCfRq83sYIuuQDH84ZE/tlj
- 7GBYhhMvHHVG4oWuniwsuOw==
+ bh=WvI4CpW9M8TpkyLpkp+OrGOQyMjechaxNGHQNV0SpgY=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpP8ERTZIBzKie5Q6pnkEXhwlzy7drsYlHEG
+ SANDjtyttKRD4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqT/BEAAoJENju1/PI
+ O/qa4bwQAIpPU7dKzmMnGo134M71CcA2YXJuarlLt7PT+t91uhSEI44QmU1pqYuGKhtZlKHzI89
+ YQji5Cju/9V1QCQRJ0yRyJLvGIe/WOsiyQAWrGmGaj7n/+tyNsFbhKI3sqJ33ha2uGzWAMQS2hR
+ H7upokuWmh49aKS4JLcjWskNQNbEKV6cZRFUgeBj8pWpaYD3Va3/yhUafqZDaEVaCmkWmfbDb+C
+ JwU4v5kxIS9mar9P/uv9Wmqg51NSPuc2k9N0/qarFLLZcmBpOtGnsdXnlHbNiom3tyl1EMzh4JK
+ 7sQCfbdXo0WHER+ct9WeG6AYwYyWJliSCYHjSbGczOJ4TqUTAWy3QCUPQWLrb0S+ZWTrAfE8rXJ
+ mA1ANb1xk5DLk1g/ja1R2jBLDIm/UQOg05W3Idg4QzECjpLDNIHyhttAlp9Wil1y7Ial2zuSq5z
+ N6ogYCBbDon1H9fBRmYWeWcl7gvW17IsKryIaOMXmWPn5O6Ln3GalPLYf8DfJoz11oJ2jMjXggD
+ BNjnfQb+xOizYBt45dfancpET3+QVckMkKr3rNSTia0I2LR15l/0W+t5asso0nNdKkxikdqU5Ab
+ Vxr16HpheVcW1Xkxdxntlb3E0f9eVN+lTuc9Pvc1Qf6UMTcx5T/gYd6GvDbhktoy8T9VYzqCUic
+ dTcRvsANeI/7cMyg1eqYtoA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_200239_291513_ED954093 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_200240_428226_D5CF355A 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +119,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use FIELD_PREP_WM16() helpers to simplify the DP lane selection
-logic.
+Avoid describing the USB+DP lane_mux_sel logic twice by introducing
+a helper function to reduce code duplication.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 28 +++++++---------------------
- 1 file changed, 7 insertions(+), 21 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 81 +++++++++++++++----------------
+ 1 file changed, 40 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 05593e98c16d..eda3f7a1e267 100644
+index 4b454798c4ed..4e54020d1755 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -548,30 +548,16 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)
- static void rk_udphy_dp_lane_select(struct rk_udphy *udphy)
- {
- 	const struct rk_udphy_cfg *cfg = udphy->cfgs;
--	u32 value = 0;
--
--	switch (udphy->dp_lanes) {
--	case 4:
--		value |= 3 << udphy->dp_lane_sel[3] * 2;
--		value |= 2 << udphy->dp_lane_sel[2] * 2;
--		fallthrough;
--
--	case 2:
--		value |= 1 << udphy->dp_lane_sel[1] * 2;
--		fallthrough;
-+	u32 value = FIELD_PREP_WM16(DP_LANE_SEL_ALL, 0);
-+	int i;
- 
--	case 1:
--		value |= 0 << udphy->dp_lane_sel[0] * 2;
--		break;
-+	for (i = 0; i < udphy->dp_lanes; i++)
-+		value |= field_prep(DP_LANE_SEL_N(udphy->dp_lane_sel[i]), i);
- 
--	default:
--		break;
--	}
-+	value |= FIELD_PREP_WM16(DP_AUX_DIN_SEL, udphy->dp_aux_din_sel);
-+	value |= FIELD_PREP_WM16(DP_AUX_DOUT_SEL, udphy->dp_aux_dout_sel);
- 
--	regmap_write(udphy->vogrf, cfg->vogrfcfg[udphy->id].dp_lane_reg,
--		     ((DP_AUX_DIN_SEL | DP_AUX_DOUT_SEL | DP_LANE_SEL_ALL) << 16) |
--		     FIELD_PREP(DP_AUX_DIN_SEL, udphy->dp_aux_din_sel) |
--		     FIELD_PREP(DP_AUX_DOUT_SEL, udphy->dp_aux_dout_sel) | value);
-+	regmap_write(udphy->vogrf, cfg->vogrfcfg[udphy->id].dp_lane_reg, value);
+@@ -582,6 +582,42 @@ static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
+ 	udphy->mode = mode;
  }
  
- static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
++static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
++{
++	u8 mode;
++
++	switch (state) {
++	case TYPEC_DP_STATE_C:
++	case TYPEC_DP_STATE_E:
++		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
++		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
++		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
++		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
++		mode = UDPHY_MODE_DP;
++		udphy->dp_lanes = 4;
++		break;
++
++	case TYPEC_DP_STATE_D:
++	default:
++		if (udphy->flip) {
++			udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
++			udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
++			udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
++			udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
++		} else {
++			udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
++			udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
++			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
++			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
++		}
++		mode = UDPHY_MODE_DP_USB;
++		udphy->dp_lanes = 2;
++		break;
++	}
++
++	rk_udphy_mode_set(udphy, mode);
++}
++
+ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ {
+ 	if (udphy->flip) {
+@@ -589,10 +625,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ 		udphy->dp_lane_sel[1] = 1;
+ 		udphy->dp_lane_sel[2] = 3;
+ 		udphy->dp_lane_sel[3] = 2;
+-		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
+-		udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
+ 		udphy->dp_aux_dout_sel = PHY_AUX_DP_DATA_POL_INVERT;
+ 		udphy->dp_aux_din_sel = PHY_AUX_DP_DATA_POL_INVERT;
+ 		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
+@@ -602,18 +634,14 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ 		udphy->dp_lane_sel[1] = 3;
+ 		udphy->dp_lane_sel[2] = 1;
+ 		udphy->dp_lane_sel[3] = 0;
+-		udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
+-		udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
+-		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+ 		udphy->dp_aux_dout_sel = PHY_AUX_DP_DATA_POL_NORMAL;
+ 		udphy->dp_aux_din_sel = PHY_AUX_DP_DATA_POL_NORMAL;
+ 		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+ 		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
+ 	}
+ 
+-	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
+-	udphy->dp_lanes = 2;
++	/* default to USB3 + DP as 4 lane USB is not supported */
++	rk_udphy_set_typec_state(udphy, TYPEC_DP_STATE_D);
+ }
+ 
+ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+@@ -1269,7 +1297,6 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 				  struct typec_mux_state *state)
+ {
+ 	struct rk_udphy *udphy = typec_mux_get_drvdata(mux);
+-	u8 mode;
+ 
+ 	/*
+ 	 * Ignore mux events not involving DP AltMode, because
+@@ -1281,38 +1308,10 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 
+ 	mutex_lock(&udphy->mutex);
+ 
+-	switch (state->mode) {
+-	case TYPEC_DP_STATE_C:
+-	case TYPEC_DP_STATE_E:
+-		udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+-		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+-		mode = UDPHY_MODE_DP;
+-		udphy->dp_lanes = 4;
+-		break;
+-
+-	case TYPEC_DP_STATE_D:
+-	default:
+-		if (udphy->flip) {
+-			udphy->lane_mux_sel[0] = PHY_LANE_MUX_DP;
+-			udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
+-			udphy->lane_mux_sel[2] = PHY_LANE_MUX_USB;
+-			udphy->lane_mux_sel[3] = PHY_LANE_MUX_USB;
+-		} else {
+-			udphy->lane_mux_sel[0] = PHY_LANE_MUX_USB;
+-			udphy->lane_mux_sel[1] = PHY_LANE_MUX_USB;
+-			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+-			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+-		}
+-		mode = UDPHY_MODE_DP_USB;
+-		udphy->dp_lanes = 2;
+-		break;
+-	}
+-
+-	rk_udphy_mode_set(udphy, mode);
++	rk_udphy_set_typec_state(udphy, state->mode);
+ 
+ 	mutex_unlock(&udphy->mutex);
++
+ 	return 0;
+ }
+ 
 
 -- 
 2.53.0
