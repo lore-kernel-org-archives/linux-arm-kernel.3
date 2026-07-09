@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4FBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810ABC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 14:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzz8rWL0mdW9lQvi1HZxDJvbw+htYzyRplE+7oDEJDA=; b=0HhwY5pTOpeQW18+6LxVXShRcO
-	QYNfZd0C88hN1UUZPJFvaqbZDS//xDuZEZO4R2IYMopWS7VrFAfG5E8g4tocUuhOSlaWFf7KAEJ0N
-	Bx8PCdLtECNBJwtj0l2D9JlIv1ttWj7HH4wsNd9akEPWWcAu2zSW+BHadmIx6HxiiYVv1ogWTY7UZ
-	xv4RNIfxqZgk1sWPDMsvtulI5iWr7bnMfAGPEYwGjuT6KoZyOTgn+TgXZLfVXUwMhOe9V6SyAdZki
-	p9gjiLPAWQiYXT6OZMGXy0wAjfX2Lh4jJYHFYHJsbLwt5CajUUypWk6WmWO0JupaWRPnQi+sEaCvB
-	OBiAd2FA==;
+	bh=Ahq+Em5VvpHKduZs+ErvBvfi+Vz3ksF9THllhSwJjq0=; b=hFFDIu8ub0+eAr1+BeRwHCQvGk
+	WM3U4T7zfycy++gRpBrQWaMA0JyDelVDKogovXvUMiKSwiiNdtwPxBzhjhvYvc+E9JLnwJ+7AoR0W
+	QI6+3Geewv+yotsacZTHeFOO7AQVxs1iWXxVvQL8OYP21a9P6rgwgq/6OuvUe2vMH/9odw9QG+ZTZ
+	0MSLeWSne8MgwHFjhNURPlkiYhWJhVAWe6aB/dU5NXEv/lsloOKoe6gYQPB5keTPV+ytqhN3U5aNV
+	OoMNpTpjJJBL9+b/PBhKkh/YovFgBCcgHEzdwwxqkhlRmBFMPBdBktEl92LJmK9UwMtCzR9OzQJnt
+	4arbQPRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpvD-00000002nny-06RW;
-	Thu, 09 Jul 2026 14:40:15 +0000
+	id 1whpvG-00000002npt-0ddU;
+	Thu, 09 Jul 2026 14:40:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whpv9-00000002nlX-2K7D
+	id 1whpvB-00000002nmm-0bkl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 14:40:12 +0000
+	Thu, 09 Jul 2026 14:40:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FCB13592;
-	Thu,  9 Jul 2026 07:40:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD1433593;
+	Thu,  9 Jul 2026 07:40:07 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 41ABB3F66F;
-	Thu,  9 Jul 2026 07:40:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CB6D13F66F;
+	Thu,  9 Jul 2026 07:40:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783608010; bh=V3sMm0L+kYA0kO/W8HpyQQpXVAmZaSSe6vOOLFZ3WjA=;
+	t=1783608012; bh=dTWZAhXUg/zIANpVE145MggYBDQAbM1dZ1/YXMvvVOc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SJ5ecuaD0n7lD1pEavMpxpoIWP25Ltb0ZgXAPOiTXKW+sb7KJ5EH3ZYNuu3nWmo82
-	 yNQ0jlWKyppXanCexjcz1ipc44FfnjFVsySCqM4jnriiV3EzmdhglDwF4+pE1DMBwP
-	 cyFji2GD0TC3ttqVD3V1CxX/lBkWHkJVeCt6e0EM=
+	b=b2gLKjz3lHVUVmjhx6a7QM3yzxS7NX/9h9oX8hx/y4KIsHg86VbbkfpRW7xbKJQkG
+	 dTLmP7Q3tgsFtMOmaxDae0OeHhBg+88hTTFRc01SJYGEQf73jJ+xjwlv47lOceV9yQ
+	 nP61o3K89S2tygk9//p5Uh0lgaSrtTzFrK4jH79E=
 From: Robin Murphy <robin.murphy@arm.com>
 To: will@kernel.org,
 	mark.rutland@arm.com,
@@ -48,17 +48,17 @@ Cc: ilkka@os.amperecomputing.com,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH 2/4] perf/arm_cspmu: Improve APMT-based PMU naming
-Date: Thu,  9 Jul 2026 15:39:54 +0100
-Message-ID: <74b46977582689be3ec7ba456809db89aad92bfe.1783605641.git.robin.murphy@arm.com>
+Subject: [PATCH 3/4] perf/arm_cspmu: Improve sub-module error reporting
+Date: Thu,  9 Jul 2026 15:39:55 +0100
+Message-ID: <f8bdaf6c3f0ec2be905e43766410177d3c409690.1783605641.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.54.0.dirty
 In-Reply-To: <cover.1783605641.git.robin.murphy@arm.com>
 References: <cover.1783605641.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_074011_718171_AFB17593 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260709_074013_269903_8BEC0065 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,90 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ACPI systems, it has not actually been possible for userspace to
-reliably tell which PMU corresponds to which APMT entry for types
-other than "ACPI device" - the evidence trail only leads from the
-arbitrarily-numbered PMU device to its arbitrarily-numbered parent
-platform device that has no distinguishing features either.
+When waiting for a sub-module to register, we return a bare
+-EPROBE_DEFER that ends up showing the end user:
 
-While we've now improved the platform device creation to associate the
-actual APMT unique ID, we may as well also tweak the PMU devices to
-substitute the arbitrary number with a different arbitrary number that
-might be more directly meaningful based on the APMT definitions.
+  platform arm-cs-arch-pmu.1: deferred probe pending (no reason)
 
-We don't have an equivalent for Devicetree, but in that case the
-platform devices are at least identifiable via their sysfs-visible
-of_node.
+wherein it's not necessarily clear that they might need to take some
+action to ensure the appropriate module is available to load. Let's use
+dev_err_probe() here so we can show exactly what we're waiting for.
+
+Similarly, in the case where something's gone horribly wrong with an
+already-registered module, we can use dev_WARN() to standardise the
+device/driver attribution rather than just open-coding "arm_cspmu".
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/perf/arm_cspmu/arm_cspmu.c | 36 +++++++++++++++++-------------
- 1 file changed, 21 insertions(+), 15 deletions(-)
+ drivers/perf/arm_cspmu/arm_cspmu.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index 80fb314d5135..0570be74d11f 100644
+index 0570be74d11f..0b26a1588eba 100644
 --- a/drivers/perf/arm_cspmu/arm_cspmu.c
 +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -250,38 +250,44 @@ static const char *arm_cspmu_get_name(const struct arm_cspmu *cspmu)
- 	struct device *dev;
- 	struct acpi_apmt_node *apmt_node;
- 	u8 pmu_type;
--	char *name;
- 	char acpi_hid_string[ACPI_ID_LEN] = { 0 };
--	static atomic_t pmu_idx[ACPI_APMT_NODE_TYPE_COUNT] = { 0 };
-+	static atomic_t pmu_idx;
-+	u32 id;
+@@ -438,13 +438,15 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
+ 				if (ret)
+ 					module_put(match->module);
+ 			} else {
+-				WARN(1, "arm_cspmu failed to get module: %s\n",
++				dev_WARN(cspmu->dev, "Failed to get module: %s\n",
+ 					match->module_name);
+ 				ret = -EINVAL;
+ 			}
+ 		} else {
+ 			request_module_nowait(match->module_name);
+-			ret = -EPROBE_DEFER;
++			ret = dev_err_probe(cspmu->dev, -EPROBE_DEFER,
++					    "Waiting for module %s to load\n",
++					    match->module_name);
+ 		}
  
- 	dev = cspmu->dev;
- 	apmt_node = arm_cspmu_apmt_node(dev);
- 	if (!apmt_node)
- 		return devm_kasprintf(dev, GFP_KERNEL, PMUNAME "_%u",
--				      atomic_fetch_inc(&pmu_idx[0]));
-+				      atomic_fetch_inc(&pmu_idx));
- 
- 	pmu_type = apmt_node->type;
--
--	if (pmu_type >= ACPI_APMT_NODE_TYPE_COUNT) {
-+	switch (pmu_type) {
-+	default:
- 		dev_err(dev, "unsupported PMU type-%u\n", pmu_type);
- 		return NULL;
--	}
--
--	if (pmu_type == ACPI_APMT_NODE_TYPE_ACPI) {
-+	case ACPI_APMT_NODE_TYPE_ACPI:
- 		memcpy(acpi_hid_string,
- 			&apmt_node->inst_primary,
- 			sizeof(apmt_node->inst_primary));
--		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
-+		return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
- 				      arm_cspmu_type_str[pmu_type],
- 				      acpi_hid_string,
- 				      apmt_node->inst_secondary);
--	} else {
--		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%d", PMUNAME,
--				      arm_cspmu_type_str[pmu_type],
--				      atomic_fetch_inc(&pmu_idx[pmu_type]));
--	}
-+	case ACPI_APMT_NODE_TYPE_MC:
-+		id = apmt_node->id;
-+		break;
-+	case ACPI_APMT_NODE_TYPE_SMMU:
-+	case ACPI_APMT_NODE_TYPE_PCIE_ROOT:
-+		id = apmt_node->inst_primary;
-+		break;
-+	case ACPI_APMT_NODE_TYPE_CACHE:
-+		id = apmt_node->inst_secondary;
-+		break;
-+	};
- 
--	return name;
-+	return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%u", PMUNAME,
-+			      arm_cspmu_type_str[pmu_type],
-+			      apmt_node->id);
- }
- 
- static ssize_t arm_cspmu_cpumask_show(struct device *dev,
+ 		mutex_unlock(&arm_cspmu_lock);
 -- 
 2.54.0.dirty
 
