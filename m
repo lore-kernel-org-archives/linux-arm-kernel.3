@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4485EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77C9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 12:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoVRF44ArsE9CH9uDPlpGSrKRtCQyoVzHHwz+mFjoRo=; b=rXVjZh/P9f4uYjwt9lwQfE92xL
-	G4svurkUYZYA1RbhfQFwlfKnztjYcFyqQIs60zdEbs4ircv9R4BSOMVlY/dLsHGPUxczUW692VOB+
-	pBDzMt1rki9IhwNuGNRZ428wK0iG3PsNOCiUg31mdTAnkSruuXrjAvqAA8tPE0KqgXk2nimikzZE1
-	QG8l/2YrA8zFU37T3FXwovTs2WbLks5KGpyDl/YEsm9vY6DPxV/pLh7UGZe7uqJCt69ZUHrfQiSlt
-	VhMEWaJfArqSoA3RvcnDmzqU9q/TKR0aSJBMzywRrb+zjUqOAPQ1G8R0+quczAtmbQSAWA4p/6PHF
-	xm8UmH+g==;
+	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=; b=gQrPDatC2dw6VgtZ9oT92A2JOv
+	EHitx6JHAgni70hQlO0HRNHx0HgA/8EjffD652ZT0Jzzk/6q/NwX56+lYNR/tJV/E4vetA85BqHKs
+	adbg+Auy7DBsTqVs2oKDm9rAeVM1+6GlPKRXZFpotx/xmnGHlIz1A+Vt9QLEriSwEZcqUe38bW0kK
+	PPJsKoIy5PXr+3m21Aaie+DOOo5EyvB9z4Br7WCvJlUEcSH7ld3tSc2QLX0PUONgKZ+mhJLC5OnkI
+	3fjXV/X4Bupavnw7qUQXxI7sO/fVvzR81/Xo27sZ7nRZWRr+VofYPPo9BOOxOa/5ZiEwaAsNgInu0
+	weN9BpYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whm5k-00000001xjn-3NtK;
-	Thu, 09 Jul 2026 10:34:52 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whnJk-00000002H0o-3ts1;
+	Thu, 09 Jul 2026 11:53:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whm5e-00000001xUA-2mOq;
-	Thu, 09 Jul 2026 10:34:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783593283;
-	bh=h3lpz4bJd56r5DV0Q1lq80Z+80QK9a5R4P7aaY8+iEc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C0PCpg79rcxzJPUktPxRJh7ALHjxJf+7SHjKp6k9OqebIVbrrELaaJzghBwQMxo4w
-	 Tzn9s14hDLiD4APTDlcJxi8cTTaEUOzsPqaPaEHhMTq5pDPld5qGDIxDYsrCh+WaM2
-	 8M8cM3IRjLDzwefz1xxrzR8XVbgn+jSIw49nV/QX1X1HsoC2rDkai09mN3VWTrKMKl
-	 gayhe2LI/39V+RMHoCueP0C2MjYOnK0ca5BtwcXdNiKc7TrOEMeoUtgKtqYcZmpXCE
-	 Q2I/LQOnvHALx37dmSN3JyQjQ0CtpZhf1Rdj4soAZtCNL+/Ckjs6+oRcSr9ehnC/Jq
-	 4brlATmfY0R9w==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	id 1whnJk-00000002H0h-017y
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 09 Jul 2026 11:53:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=; b=q26fTAkJHuDt7Jj/y2b6u8ATfT
+	0U5HauF9k4HPMDV1FiucCCs1qmeFKWjQwRva3OwdJaSjOmyMCz8gJMJkIRRSRvULE7uOQJO+8/3H2
+	5peKyOeoNFmUvOGXRjqK0botUOrgvdktAsVrsqwzHKQx/v3lrc2JU2+GXrUYtj3kdTblrbn9jMIg4
+	iSTWKegQsHvb+dVOmftjP2ZyHmebQq3s76hgSNkZCgZnynvlPAVx7QfKBIu7NdAwFpFU7Yu0hpf5g
+	YQrVXGbEQ30AEdvvTdq7fldTSaVjbQZ7BklPWiXPLHZpwRvKQUevMSQyhQFoR60ay0wbhEU13KQbU
+	Yads5FhA==;
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1whnJg-00000009AfB-1ySl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 11:53:22 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 35DEC17E0D53;
-	Thu, 09 Jul 2026 12:34:42 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	granquet@baylibre.com,
-	rex-bc.chen@mediatek.com,
-	dmitry.osipenko@collabora.com,
-	ck.hu@mediatek.com,
-	amergnat@baylibre.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v3 07/11] drm/mediatek: mtk_dp: Add support for PHY from devicetree
-Date: Thu,  9 Jul 2026 12:34:27 +0200
-Message-ID: <20260709103431.46616-8-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260709103431.46616-1-angelogioacchino.delregno@collabora.com>
-References: <20260709103431.46616-1-angelogioacchino.delregno@collabora.com>
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gwtdM40ZMzKw0Q;
+	Thu, 09 Jul 2026 13:53:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783597991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=;
+	b=qwUaHM6Eg3Ou3Bb0vunTLAoXs61dFPHLMhhiF803+/Jk7tGXPQHdkPqRqdFwX327XNZbfY
+	AGx84tbDctqfUeDtdV7muYc5c9MTJ6/5bQe5aJSl0RJvyfnAG7zBXzAbS1WGBy/8VXozCw
+	lgwaXl1i84PU/h99cC0CnWhxCMZqZP8dXB6kYcB/65GtrGQ+qBVfnNZl19aKurE/EJAbN5
+	ZAHhFia89/apdfMAKjk3ueNTBX5ajX3OO5ybC5755NvmlBRD91slVDshtWHy8eEViT3UEG
+	GphaTDKfONhxR9prkcBdrsKt3dVXvfCQTWcpcyChtwOh0iR+ehCiV24h5OQnPg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DOOtB6P8;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <c0c8f839-d3e7-4253-9d95-85bf425c88ff@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1783597989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cfmRBwpMkOAL1gdqiVsz8y3IJffq2RYA84kWTiYDvV8=;
+	b=DOOtB6P8+pOLeA4ezin/VGU3dZ/2eAbqKz0Rm/2pZxSeukm/lorAVbfc68T7EQvZan9PiD
+	8eDFhl+etBS6dr/LrnEEjo69DVUUmoEZdX6SNeqf7K8Yik2bmxPr6YxfW1L4h/x1+bUXtX
+	HDRgOmafzDfBZi7gbMAg+aF6QCjVj3cToFLLZc6/wiSkBpOdRxbSdL0ifwWbAALBQ9K8n2
+	m8WXdXok25uC1/CO2Nr9s8IKLPOE/DMZ0BW5IGjBGxFxCoa4eJAsNW6JSlYqYxCxlkKFzd
+	5/JZvXB/pBcgJB5UB4iLO4yCnSkyoBGVuoGytn9nOlj3P5EhqR9q45BejKkYIQ==
+Date: Thu, 9 Jul 2026 13:24:00 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 6/6] arm64: dts: renesas: r8a78000: Add MDLC nodes
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1783505142.git.geert+renesas@glider.be>
+ <dca2c4940ba38b897f04b6fb67591de9835900e1.1783505142.git.geert+renesas@glider.be>
+ <59725f93-5269-4b0e-8633-48821219877f@mailbox.org>
+ <CAMuHMdXCooODm3YuE1JjZJAc2BeQuD==kWbA+ZzpXRA3fqa0Vg@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdXCooODm3YuE1JjZJAc2BeQuD==kWbA+ZzpXRA3fqa0Vg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 3um84g88ek55xnbu4c56jy8ahwccrd9w
+X-MBO-RS-ID: 50f867c705c83dacbe1
+X-Rspamd-Queue-Id: 4gwtdM40ZMzKw0Q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_033448_075124_DDC78349 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20260709_125320_745388_E0E51EDA 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,124 +120,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for specifying `phys` in devicetree to pass handle
-to the DisplayPort PHY.
+On 7/9/26 12:24 PM, Geert Uytterhoeven wrote:
 
-In order to retain compatibility with older devicetrees, check if
-`phys` was specified: if not, initialize the regmap_mmio with the
-legacy configuration and register the mediatek-dp-phy platform
-device from this driver, and get the PHY calibration data.
+Hello Geert,
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 50 ++++++++++++++++++++++++++-----
- 1 file changed, 43 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 9c28616c6ada..34a72e0a5f1e 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -426,6 +426,15 @@ static const struct regmap_config mtk_dp_regmap_legacy_config = {
- 	.name = "mtk-dp-registers",
- };
- 
-+static const struct regmap_config mtk_dp_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.max_register = SEC_OFFSET + 0x90,
-+	.name = "mtk-dp-registers",
-+};
-+
-+
- static struct mtk_dp *mtk_dp_from_bridge(struct drm_bridge *b)
- {
- 	return container_of(b, struct mtk_dp, bridge);
-@@ -1287,7 +1296,13 @@ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
- 	if (ret)
- 		return ret;
- 
--	mtk_dp_set_calibration_data(mtk_dp);
-+	/*
-+	 * For legacy, deprecated strategy, set partial PHY calibration here.
-+	 * New-style will set all PHY calibrations with phy ops instead.
-+	 */
-+	if (mtk_dp->phy_dev)
-+		mtk_dp_set_calibration_data(mtk_dp);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
- 			   DP_PWR_STATE_BANDGAP_TPLL_LANE, DP_PWR_STATE_MASK);
- 
-@@ -2120,8 +2135,9 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
- static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
- 			   struct platform_device *pdev)
- {
--	struct device_node *endpoint;
-+	const struct regmap_config *regmap_cfg;
- 	struct device *dev = &pdev->dev;
-+	struct device_node *endpoint;
- 	int ret;
- 	void __iomem *base;
- 	u32 linkrate;
-@@ -2131,7 +2147,12 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	mtk_dp->regs = devm_regmap_init_mmio(dev, base, &mtk_dp_regmap_legacy_config);
-+	if (!mtk_dp->legacy_regoff)
-+		regmap_cfg = &mtk_dp_regmap_config;
-+	else
-+		regmap_cfg = &mtk_dp_regmap_legacy_config;
-+
-+	mtk_dp->regs = devm_regmap_init_mmio(dev, base, regmap_cfg);
- 	if (IS_ERR(mtk_dp->regs))
- 		return PTR_ERR(mtk_dp->regs);
- 
-@@ -2754,6 +2775,7 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- 		return dev_err_probe(dev, ret,
- 				     "Failed to add phy unregister devm action");
- 
-+	/* PHY calibration data is in mtk_dp only for legacy devicetree */
- 	mtk_dp_get_calibration_data(mtk_dp);
- 
- 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
-@@ -2806,7 +2828,12 @@ static int mtk_dp_probe(struct platform_device *pdev)
- 
- 	mtk_dp->dev = dev;
- 	mtk_dp->data = (struct mtk_dp_data *)of_device_get_match_data(dev);
--	mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
-+
-+	/* Prefer PHY from devicetree - if not found, this is legacy */
-+	if (of_property_present(dev->of_node, "phys"))
-+		mtk_dp->legacy_regoff = 0;
-+	else
-+		mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
- 
- 	ret = mtk_dp_dt_parse(mtk_dp, pdev);
- 	if (ret)
-@@ -2857,9 +2884,18 @@ static int mtk_dp_probe(struct platform_device *pdev)
- 					     "Failed to register audio driver\n");
- 	}
- 
--	ret = mtk_dp_register_phy(mtk_dp);
--	if (ret)
--		return ret;
-+	if (!mtk_dp->legacy_regoff) {
-+		mtk_dp->phy = devm_phy_get(dev, NULL);
-+		if (IS_ERR(mtk_dp->phy))
-+			return dev_err_probe(dev, PTR_ERR(mtk_dp->phy),
-+					     "Failed to get phy\n");
-+
-+		mtk_dp->phy_dev = NULL;
-+	} else {
-+		ret = mtk_dp_register_phy(mtk_dp);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	mtk_dp->bridge.of_node = dev->of_node;
- 	mtk_dp->bridge.type = mtk_dp->data->bridge_type;
--- 
-2.54.0
-
+>>> +             mdlc_ddr7: system-controller@e8380000 {
+>>> +                     compatible = "renesas,r8a78000-mdlc";
+>>> +                     reg = <0 0xe8380000 0 0x1000>;
+>>> +                     #power-domain-cells = <2>;
+>>> +                     #reset-cells = <1>;
+>>> +                     bootph-all;
+>>> +             };
+>>> +
+>>> +             mdlc_hscn: system-controller@c9c90000 {
+>>> +                     compatible = "renesas,r8a78000-mdlc";
+>>> +                     reg = <0 0xc9c90000 0 0x1000>;
+>>> +                     #power-domain-cells = <2>;
+>>> +                     #reset-cells = <1>;
+>>> +                     bootph-all;
+>>> +             };
+>>> +
+>>> +             mdlc_rt: system-controller@19440000 {
+>>
+>> Please keep the list sorted (0x19440000 should be before 0xc9c90000).
+> 
+> These are sorted by instance (Module Number), as per Table 18.1
+> ("Target Module hierarchy of Module Power Gating and Module Standby")
+> in the documentation.  This order is indeed a bit odd, as it differs
+> from both alphabetical label order (unlike e.g. hscifN), and numerical
+> unit address order...
+> 
+> Any guidance?
+Do you think those MDLC instances might be on different sub-busses and 
+we might need to model those busses using simple-bus in DT ?
 
