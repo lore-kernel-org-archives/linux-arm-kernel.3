@@ -4,57 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BF3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EB3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 09:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j63KEgZfmI5uVi9AQ1/7Za7dPCkD9AQZOarKSl1v0vE=; b=vTt03AxAeya7J/oRPtYhSx9DL6
-	q4huU5QI+ZvzPFsC1qD6uKHif2+xw/Kel5E6s3uGA7L2og3R77SlxXaEvuHogszxUciRmX6AJ27jU
-	QV27M3UfelMy8jdOB2Ei8I6tL1ybJs6vTi13VRdM9a20DTJ0mBLOWi0jEjbJWEcJNXBVACruZAsD/
-	3lalM5XSUxW/Qwe8HQ453vsnas3Wi5thpZd/VmtIFhshmmZaGhERIYbsoD7oFC6RB+oWhwtZ8yPEs
-	mRu2hz+z0zZ0ZatftCv5xNrqeL3u39xewnS5k4hjm8MPrCX17Hx+++DYe/N3pL/+EB7I4X/4YzZcy
-	faChOTFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JBx1Lwl28bs84XHLARf2PZgvr/qdRO+0Qc3qcd6uTMQ=; b=V+g/wjhO5jl91VWljlF6joubo1
+	P3uSno7I0HkJtC8pVtjk86sWpGuJRpLDrZWEROx4L3Xd+L60wNppd3Wb9tRclLC9v0epZkgg5ZzET
+	LMsTcyxMYeu39XSH9JEjJ6iJyq4EY6Gjr+jzo3jM8eWaOON71JvL/IewY6RiOSS9WyTfkZlmA3OP+
+	Ughpd39RXQ5UdQy0amyM8iz3yafC5e0Fjh008fdwvUidfWTh8Kg4Ub/OI2yI0GZc8Rf7hJDnL4MdY
+	fzhVtpRX8dChm2Cf2yy4w3TFvONSi+zaJ6IBNYEPhNePHphmdNx9h0TJ2d9Z0FwGT8PLt/S7N/wny
+	2s88JWag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkX3-00000001ez4-0Fom;
-	Thu, 09 Jul 2026 08:54:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1whlOH-00000001ncQ-0ezt;
+	Thu, 09 Jul 2026 09:49:57 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whkVJ-00000001aYa-0E4u
+	id 1whlOE-00000001nbx-2EsD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Jul 2026 08:53:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD31240F87;
-	Thu,  9 Jul 2026 08:53:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1B71F00A3A;
-	Thu,  9 Jul 2026 08:53:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783587188;
-	bh=j63KEgZfmI5uVi9AQ1/7Za7dPCkD9AQZOarKSl1v0vE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fnL3Yi/V+/eiWkzL6UguMGw4d7szBIeMxk7TUI3VpssM4M6QBfR43xdPvFVkGHjyw
-	 Jq9N6x+cqN53jmMwYP/XPgUIqye3NvPhkx+cVAIc4qkDoKz+HDqjMksVs95ngwPPAO
-	 HBInmNrjgC9ciVLAzNPy93KzLK74w4t19Oab/HtkxdBet/Ts8GcurgyjHOujMuOsiH
-	 NxMUiKrrgl7+YTagUGKLL5rZly9P3cEjhABzKVIwkApKu7j0yKwO75axxQUuPCCW9b
-	 UH1iPQZPrSYrF7qT9NSN8w+rQDBPvSMmD5f7vl2gkvxUFTOlEGVpc305cBVVsZ73Kf
-	 QwU3TOcz1lNow==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 09 Jul 2026 09:52:34 +0100
-Subject: [PATCH v5 10/16] firmware: arm_scmi: Drop handle on protocol bind
- failures
+	Thu, 09 Jul 2026 09:49:55 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-969524c1aefso424275241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:49:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783590593; x=1784195393;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JBx1Lwl28bs84XHLARf2PZgvr/qdRO+0Qc3qcd6uTMQ=;
+        b=knEh5q19+505Vrytn1vus/52SL3YpVj4Pgv394bPmmnyRDPyjDtICInwBeYoKQEWQX
+         t0tuPqxs38iEufnLf5o14bSG8eVnBbZpUA0GSjIc8o2J0/aSoevQxq97lTri3wAeiTyb
+         2DZ5tiBc8BYshUuuJbfkP71c4rVRp5DTadiAYO9xopntxuFPnOIILkNJeK3ffnKqHeD5
+         MHkodLn49ImrPKs89HufbT4wp4Bgz/7ixthia/LR+fm0ZuFSGBZZt6uLo2hfZIiIkEBQ
+         SXwjHWm682MQwv01tzocakS5tRBuOkSHxNwm6EMu6oKW1wXI38RNFSFn8xL1/tMaon7u
+         xQfQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoW/pu4uhX+iYBKBmb5EGs3gMG0OrZ1fLZKT4f//0bNdNrdnwFEf1LgTPzgKt619M42+tORHrIxnEs2cd+sNTZy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZMPOHbh54qE01dcazIMUKHjlIzb2XOwSzfXfZGTCv1iWyrPMQ
+	Y8UwLSQKTEEhKm5PQSY2HY/nfQRE4/LR6oF8mQTepcTgobVbYaZVexIAC8R7LjvQ+Zk=
+X-Gm-Gg: AfdE7ckrvA+hA7GVv+AJdBEx1HMeAzenEW+BofyIh4acXyrLX0DcKfNMLKbmDdhNm9u
+	2rzcZB/2iDeHquQNCSiVipQjr7kXYt2S9Fo5ukWUQMnokSTV7CpJng5yt1kSLdv+1aBArRySL2O
+	QzfoyaS8wG1+9y5KLr6uG0wsAhpzwG/npofdZl9uoPAuiV3MM54M0w2bjym1gEHCjAzlLSEDM7n
+	yHXy2bEn4SPbRogr8yldRIn/fzPinRmRU9WkZpyhZg24BzgiLUjy02hTrxi06i/sHuRA5g1tn0U
+	fhOJX//xWMkqfaT/FdQV6cvg7DMmckHyv1j2Sm5Oet/YUnFaTfsGZhrPIyfaSdEfrEsfC6T5iUV
+	PLgat7Xh1wRKxu+Hf+V+BukM0wHMaBVGEtmlQe8yqAsXQSIRH8KdHArKzSuU681M+uGy1TVB5gf
+	1qBy0Gos/t3aOaXED3vK9j0hDm3awkNk4NpGC9ivI5pUIo9QVNqw==
+X-Received: by 2002:a05:6102:6a85:b0:6cb:d562:b96a with SMTP id ada2fe7eead31-744e0091b12mr3500028137.14.1783590593143;
+        Thu, 09 Jul 2026 02:49:53 -0700 (PDT)
+Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com. [209.85.222.52])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ed663ded3sm2851894241.12.2026.07.09.02.49.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jul 2026 02:49:52 -0700 (PDT)
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-9666739d3bcso566209241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 02:49:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqh9/ggrQ/I5gl4jSZEpeXyzWwO04QFNuBs00EF4xmpD9NGkmVPoC/kvhqZ3FKZqXp5hbCw04ZBmSanTPqMU7xp@lists.infradead.org
+X-Received: by 2002:a05:6102:c54:b0:740:22ba:8a4e with SMTP id
+ ada2fe7eead31-744dfed12b0mr3967593137.6.1783590592726; Thu, 09 Jul 2026
+ 02:49:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-scmi_core_fixes-v5-10-bea6a3024f05@kernel.org>
-References: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-In-Reply-To: <20260709-scmi_core_fixes-v5-0-bea6a3024f05@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
+References: <cover.1783505142.git.geert+renesas@glider.be> <50f5804f00c55cd60604d00da1bf1f1dc912ba8d.1783505142.git.geert+renesas@glider.be>
+ <80a31a21-9876-48a7-a9ed-baac4f87bc11@mailbox.org>
+In-Reply-To: <80a31a21-9876-48a7-a9ed-baac4f87bc11@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 9 Jul 2026 11:49:40 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV+nHe9kWbBv1k=b-6iixBBJbqeNY-Vq+qbT+wD2g6jUQ@mail.gmail.com>
+X-Gm-Features: AUfX_mz8czD0BjSvqmftRZ_pTGys7GO-j5nSESdQS6eSA4Z7r12bLxvVFtqIaAw
+Message-ID: <CAMuHMdV+nHe9kWbBv1k=b-6iixBBJbqeNY-Vq+qbT+wD2g6jUQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/6] clk: renesas: Add R-Car X5H CPG driver
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260709_024954_575620_586DBC99 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,113 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI bus notifier acquires an SCMI handle when the driver core emits
-BUS_NOTIFY_BIND_DRIVER, before invoking the protocol driver probe
-callback. The protocol probe path only checks whether sdev->handle is
-set.
+Hi Marek,
 
-If device_link_add() fails after the handle has been acquired, the
-protocol device can still bind with a valid handle but without the
-dependency link to the SCMI parent. A concurrent parent unbind can then
-miss the child and tear down the SCMI instance while the child still
-holds a handle into it.
+On Wed, 8 Jul 2026 at 23:55, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 7/8/26 12:15 PM, Geert Uytterhoeven wrote:
+> > +static int register_fixed_clks(struct r8a78000_cpg_priv *priv)
+> > +{
+> > +     struct device *dev = priv->dev;
+> > +     unsigned long rate;
+> > +     struct clk_hw *hw;
+> > +     const char *name;
+> > +
+> > +     for (unsigned int i = 0; i < ARRAY_SIZE(fixed_clk_rates); i++) {
+> > +             rate = fixed_clk_rates[i];
+> > +             name = devm_kasprintf(dev, GFP_KERNEL, "cpg-%lu", rate);
+> > +             if (!name)
+> > +                     return -ENOMEM;
+> > +
+> > +             hw = clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+>
+> Would it be viable to use devm_clk_hw_register_fixed_rate() here ?
 
-If the protocol driver probe later fails, for example with
--EPROBE_DEFER, the driver core emits BUS_NOTIFY_DRIVER_NOT_BOUND rather
-than BUS_NOTIFY_UNBOUND_DRIVER. The SCMI notifier only released the
-handle on BUS_NOTIFY_UNBOUND_DRIVER, so each failed protocol-device bind
-leaked the SCMI instance users refcount and left sdev->handle set after
-the failed probe.
+Yes, I think so; thanks!
 
-Make the link helper report failure and drop the acquired handle if the
-link cannot be created. Also handle BUS_NOTIFY_DRIVER_NOT_BOUND in the
-same cleanup path used for unbind so failed probes balance the earlier
-BUS_NOTIFY_BIND_DRIVER acquisition.
+> > +             if (IS_ERR(hw)) {
+> > +                     while (i-- > 0)
+> > +                             clk_hw_unregister_fixed_rate(priv->fixed_hws[i]);
+> > +                     return PTR_ERR(hw);
+> > +             }
+> > +
+> > +             priv->fixed_hws[i] = hw;
+> > +     }
+> > +
+> > +     return devm_add_action_or_reset(dev, unregister_fixed_clks, priv);
 
-Fixes: 971fc0665f13 ("firmware: arm_scmi: Move handle get/set helpers")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 31 +++++++++++++++++++++++--------
- 1 file changed, 23 insertions(+), 8 deletions(-)
+And then this, and unregister_fixed_clks() can go, and
+r8a78000_cpg_priv.fixed_hws[] is no longer needed after probe.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index a2871dca24dc..84d1294f269c 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2629,21 +2629,31 @@ static int scmi_handle_put(const struct scmi_handle *handle)
- 	return 0;
- }
- 
--static void scmi_device_link_add(struct device *consumer,
-+static bool scmi_device_link_add(struct device *consumer,
- 				 struct device *supplier)
- {
- 	struct device_link *link;
- 
- 	link = device_link_add(consumer, supplier, DL_FLAG_AUTOREMOVE_CONSUMER);
- 
--	WARN_ON(!link);
-+	return !WARN_ON(!link);
-+}
-+
-+static void scmi_clear_handle(struct scmi_device *scmi_dev)
-+{
-+	if (!scmi_dev->handle)
-+		return;
-+
-+	scmi_handle_put(scmi_dev->handle);
-+	scmi_dev->handle = NULL;
- }
- 
- static void scmi_set_handle(struct scmi_device *scmi_dev)
- {
- 	scmi_dev->handle = scmi_handle_get(&scmi_dev->dev);
--	if (scmi_dev->handle)
--		scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev);
-+	if (scmi_dev->handle &&
-+	    !scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev))
-+		scmi_clear_handle(scmi_dev);
- }
- 
- static int __scmi_xfer_info_init(struct scmi_info *sinfo,
-@@ -2927,6 +2937,7 @@ static int scmi_bus_notifier(struct notifier_block *nb,
- {
- 	struct scmi_info *info = bus_nb_to_scmi_info(nb);
- 	struct scmi_device *sdev = to_scmi_dev(data);
-+	const char *status;
- 
- 	/* Skip devices of different SCMI instances */
- 	if (sdev->dev.parent != info->dev)
-@@ -2936,18 +2947,22 @@ static int scmi_bus_notifier(struct notifier_block *nb,
- 	case BUS_NOTIFY_BIND_DRIVER:
- 		/* setup handle now as the transport is ready */
- 		scmi_set_handle(sdev);
-+		status = "about to be BOUND.";
-+		break;
-+	case BUS_NOTIFY_DRIVER_NOT_BOUND:
-+		scmi_clear_handle(sdev);
-+		status = "NOT BOUND.";
- 		break;
- 	case BUS_NOTIFY_UNBOUND_DRIVER:
--		scmi_handle_put(sdev->handle);
--		sdev->handle = NULL;
-+		scmi_clear_handle(sdev);
-+		status = "UNBOUND.";
- 		break;
- 	default:
- 		return NOTIFY_DONE;
- 	}
- 
- 	dev_dbg(info->dev, "Device %s (%s) is now %s\n", dev_name(&sdev->dev),
--		sdev->name, action == BUS_NOTIFY_BIND_DRIVER ?
--		"about to be BOUND." : "UNBOUND.");
-+		sdev->name, status);
- 
- 	return NOTIFY_OK;
- }
+> > +}
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
