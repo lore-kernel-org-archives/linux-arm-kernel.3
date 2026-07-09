@@ -4,108 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D87C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E91C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 07:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNVUQ92jBwwxywegXzI0TWPMEPlj68rviJkG3eLuETg=; b=KYMh70DeVm2vIzso3n6uTLGK/2
-	REKsk6VT1aOHLA/KHERiYjMMCNfmXrRvmK3RaQDnFLjKfQZBRbtTJFX9S2X1sMkHQVbrNjAp1s9yo
-	YHHSnDiLWedmVA7fbCC7EA+1btSDnHrzoVPQ3sUk6QFof7Ta9NT+hqZYbpigQUq2plgJ0RZ3koSKC
-	bBS7Uoue4cee0vmpEut1q5dwC9QMaJCeGD7SVG4v4Ss29r2lCGxiCh1QEaElzPOzssmbGyF7fEJda
-	R1gwZ7iNkgBopBtSF8BXO16B4Wg70JILHiWlbRb0kIIaqNbYAcBwGrZWMBrxqiBZ7OEwyQPN9LTZP
-	+pl1cegw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AA0qddm+MaWJtjYda/gIc5MYiZRprfSMbgOiV0KxcgA=; b=zQhpvae1M9IOnBPCE5pT2b8Q9c
+	Pfj/iIlOihPqT7u9pRwqbK7WpTOtXxWpnpZ3dOQOpObAFlEk8OsTq0PTShM/8Fz4MEkW86wFaaqqm
+	anE98YV7x8JFlV4/snGjzw7QM34VFK9mDzcVtMWaaOwxj/nTEeLzZP4p8W8vmGJ94yKbLxMCgvDQc
+	WBIdM80yI9+jRccblabJgL3SkJ03UQv6HGw00gnlDncXgWaKYz52hwcdVQ2cowzoRCM8kb2e8rGEN
+	x/G/T7iEchvwEzPCaFuDoPR+YYpzcEhXNHHBNfsYxqWyk/sHQd4xqy0ifKDyAdQLdDbsqrMA7hnvb
+	R0XCsVoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEh-00000001I1g-2PmS;
+	id 1whjEh-00000001I2F-3Lwc;
 	Thu, 09 Jul 2026 07:31:55 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whjEO-00000001Hp0-38QV;
-	Thu, 09 Jul 2026 07:31:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783582297; x=1815118297;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=cjMXLnfC6g6dIxN+DHVrz3kfjIpPNwD3v2Vrk7OqkFQ=;
-  b=g5lqCq7Ljeir41gx6VQzpxMMbY1ezF0HO3Ui/mz6T7oZicTtEzAdT/iB
-   MyG9YXIg8mMeN1YqIntg+W7RUbBKkqpznHYSqB+uPkrkDFQ8qhr1q7ZPx
-   nRQkpOlrkskWo4Lbp4M/SXvZ90XV4dC/i9hJqdFTUEzqVMr3IMdrAxVqq
-   6XV6kKr8d5EQOHAGRAqtWbyZwtpDFEhzbVaiNlROU6E7tjSdOFRp3BilI
-   eM01jT+TVo8JrPqXr2160r8fjahnF+E03A4QH9VVchlictvSXfGYxyL5z
-   ejnsmbPNt8AhKeWoSvE8lF2frPQD7x+PurQ59TH2dLXRZYPJI8MlmPh+S
-   Q==;
-X-CSE-ConnectionGUID: 75E3ZfYbStCP1Br88j5Wgw==
-X-CSE-MsgGUID: bjgr0IllRWae6glTLd1sAQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84356462"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="84356462"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 00:31:18 -0700
-X-CSE-ConnectionGUID: l77jRguWS0KUZDhOEz0AwA==
-X-CSE-MsgGUID: c8A8Itj8SOiqwX6JveJBLA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="277729305"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jul 2026 00:31:10 -0700
-Date: Thu, 9 Jul 2026 10:31:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Peter Korsgaard <jacmet@sunsite.dk>,
-	Michal Simek <michal.simek@amd.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	bjorn.andersson@oss.qualcomm.com,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-omap@vger.kernel.org, linux-mips@vger.kernel.org,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	aniket.randive@oss.qualcomm.com,
-	chandana.chiluveru@oss.qualcomm.com
-Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
- callback
-Message-ID: <ak9OPNcVAhkfxHvZ@ashevche-desk.local>
-References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
+	id 1whjEP-00000001HpP-3tnX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Jul 2026 07:31:45 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailflow.phl.internal (Postfix) with ESMTP id 86E1B1380145;
+	Thu,  9 Jul 2026 03:31:29 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Thu, 09 Jul 2026 03:31:29 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1783582289;
+	 x=1783589489; bh=AA0qddm+MaWJtjYda/gIc5MYiZRprfSMbgOiV0KxcgA=; b=
+	A/R4Uv+K2xFZiWOd4ku15YVG7nMiA+OyG4MFDkBwKC51a828xIu5/9/MlSN81aOv
+	fQsWLhphrx0Hgk8zYENaGD1R5ZLPXIMZqkb63sTqYd/LdRrG6hO9aN63WmkH0WjP
+	L+wVnKXoexxsHYwA4IaGSDz8Ulklrii3mmhpLd1FJCThnDwZmc5Lnuq9rcQO/8bz
+	VlhKW7B6YxkxlpC0rGisrR6Vj7NXMj9E2aj92ZL5xjLtIga/4W3so0CKSg77QjLH
+	Qlsmf4bN6Y7Nyq7xkA810dznmTO3Sw+bRvaucbCR5qPCXm9yfyMEQNsRbcbGsiN+
+	2meaN/V53R4f+KzjsM7APg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783582289; x=
+	1783589489; bh=AA0qddm+MaWJtjYda/gIc5MYiZRprfSMbgOiV0KxcgA=; b=j
+	9ae5eb75NmLwJjFnX7CHc9wtH//xiVbJEtZZ/9YZjKrCkrh9DjFg4dL3wUkoh+6S
+	MDNUbGkYv8Q92PtTIUBQm3TDqLUDiiMjUSwC13SM4yU03T8gLiu72nwMOTxojaBb
+	aVVfezwxYCP6KaUOAj8KJRtMd90K9GLZb42VTAiY/q/hTW7l5rSRszMkBAjTeZvI
+	+6Yeo9D+819vhnxnfNpPLZMfKZmkDOGf+6xpH5FgQh7uufQLbbg4dbyxjRTbMY3+
+	BqPeQSNAVuO2I34Z8xFrOzWW6RYPsWlR5wrs8q4ruso6o4Cinti6Gc9l6x7HiWhU
+	dDbnyh7+gUibBRqEZNrnw==
+X-ME-Sender: <xms:UU5PahKXpfyKRg9WBTJj5XEdwgBvB80pvkH0QVkSlxJcrEVIMfD84w>
+    <xme:UU5PaiByJDtTLBVwElqQq3rLwV3uNYKmqDWy_fZRuIywUAqn2_wSMFlDv7yrdi5aj
+    nSlbLpR4c38RgOvIDVMmqv3zw3mxw_bHfGJ9dXwNjhTQspsHhqmE0w>
+X-ME-Received: <xmr:UU5PanRouTpoh-ISO42eo2_NDnPYzVQVHz6wjuTLGmmLQklyvRgziwnUaqZ9Ma6yfgbN2Q3rkg9Cjgxss54UdXBb0zqpyL2CIh0>
+X-ME-Proxy-Cause: dmFkZTGYKeAHgJKVIjqCymJpihoZrEqDQaRIPCKXxcc6uiPXzJNTDc4H4LzsUaMF9MJqYB
+    2rpTe0oGhrtQRwfHcGfbJPzdaNrx81amtkEDFVv/fGamGt7vZBPR3jcucmA5JRiTwERHZr
+    8zGRG/w0d07G5jQ4PlCj5gdYeuagoIAoYXQ4A9l2tOaakbVPoRmPGeCRSKDT6z7tQH03AB
+    WTVwikV9P4YqczS+ivH9R0MDJM1iJWbkLmAFvo0DWmHZGz3C5uxbmrt35Eg98JoTPuzJKd
+    X/sNvlqMxvVsFiGXNnL3d3+h2N4QVm3ifsTcrDacstkEioZW9DpvzWMrk8s16EPWaQL8b4
+    DAaBpqNmb/K+Ifmwnj6cKEMQKCUZv4Dh9LWWSCDorp5xjWc48kYarUE3lNtIxGpkR/+4yj
+    s41jsrBVvL3X9T2jxKgNDD5iHaEVCNiOxnKuEE77OJjqA4SO//WQQkWuvY42BnENc5Pce2
+    x3dRl+RJnz/7eol5SwGeyOp5NGwKNYkU8RA4T01IlMwFhRYD4m0huR7IErDBbvf6ql7tCK
+    1FYZyq+ENOkVGpmtkGfISxvETVzFUYYlSxFFtiMozqwBR1zSVD6disJFC0eDq/8+lZJPZ2
+    LYeKu3zv3ybJ9vBy4oX1aKbEth5EyjZnCPITXjvy96KE3dtzz1dfTleDSQjA
+X-ME-Proxy: <xmx:UU5PakeBXISGWB1km5OXTFUBDfCtN1ThwoOucovxgQdNMgc-7grecw>
+    <xmx:UU5PanguRdNZHunruD_FW8WJCZa_1JPkM75KTc-_U1ObT1hcyClbbQ>
+    <xmx:UU5Pan_g_tAHWFNZ3YfHHDonvSs2l0yAKcNEErVHqg6HXU6PPRwP2A>
+    <xmx:UU5PavnvCFoxPKYxqstB2a2qzzQBlcx-gjAX0BkjYs9OORiXdTVIeg>
+    <xmx:UU5PamZpsTZlFPiTPv1-fDm7B4KJ71dH5uFp2GT_mxUtWatZqqTySpKU>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 9 Jul 2026 03:31:28 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Date: Thu, 09 Jul 2026 09:30:53 +0200
+Subject: [PATCH 07/11] dt-bindings: pinctrl: apple,pinctrl: Add t6030 and
+ t6031 compatibles
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260709-apple-t603x-initial-devices-v1-7-55b305833123@jannau.net>
+References: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
+In-Reply-To: <20260709-apple-t603x-initial-devices-v1-0-55b305833123@jannau.net>
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
+ Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=978; i=j@jannau.net;
+ h=from:subject:message-id; bh=5HbBo+rfts5jo1g51QS60vh/NG8SZueQVhNVd+PKRqk=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhix/PzvRxv2lTQvW36vqve+zfvH0pUsmxtz+7D2R+VWDt
+ TXvMquTHRNZGMS4GCzFFFmStF92MKyuUYypfRAGM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
+ GukY6xgxcHEKwFTXrmP4Z6LC8q/+U/Xe1JhjRjlbyk75f2D3OMZzovtQd/FLpT119xj+O8395fB
+ MNlx5vrQP3ywWl9hGk1czrrA92bLz2YO6W9MMWAA=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_003136_888911_15CE3BB9 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20260709_003138_212144_B3872C7F 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,64 +128,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 11:55:12AM +0530, Praveen Talari wrote:
-> The uart_ops.pm callback has been declared void since its introduction,
-> which means any error from a driver's power management implementation is
-> silently discarded by uart_change_pm(). Beyond losing the error
-> information, uart_change_pm() unconditionally updates state->pm_state
-> even when the underlying hardware transition failed. This causes the
-> serial core to track a power state that does not reflect reality:
-> subsequent calls to uart_change_pm() see the stale cached state as
-> matching the requested state and skip the callback entirely, leaving the
-> hardware permanently stuck with no further recovery attempt.
-> 
-> On modern platforms where the .pm callback performs real work —
-> enabling clock trees, interacting with runtime PM, asserting voltage
-> regulators — this is a correctness gap. Failures are invisible to the
-> PM framework, the port proceeds to call ops->startup() on potentially
-> unpowered hardware, and suspend/resume errors are hidden from the core
-> that needs to handle them.
-> 
-> This series fixes the problem in four steps:
-> 
->   Patch 1 changes the uart_ops.pm callback signature from void to int,
->   updates uart_change_pm() to propagate errors and only commit
->   state->pm_state on success, and handles the return value at every
->   call site in serial_core.c with appropriate policy per context
->   (propagate, log, or skip-on-failure).
-> 
->   Patch 2 updates the 8250 driver family: serial8250_do_pm() and
->   serial8250_pm() are updated to return int (with the exported symbol
->   declaration updated in serial_8250.h), and the 8250 sub-driver
->   pm callbacks are updated to return 0.
-> 
->   Patch 3 updates the remaining non-8250 serial drivers. All .pm
->   implementations are updated to return 0. The sh-sci forward
->   declaration shared with rsci is also updated.
-> 
->   Patch 4 updates arch-level implementations: SA1100 (assabet, h3xxx),
->   OMAP1/ams-delta (modem_pm, now propagates regulator errors), and
->   MIPS/Alchemy (alchemy_8250_pm).
-> 
-> All existing .pm implementations return 0, so there is no functional
-> change for any current driver. The series purely adds the infrastructure
-> for drivers to report errors going forward, with the serial core ready
-> to handle them correctly.
+The pin controller on Apple silicon M3 Pro, Max and Ultra SoCs is
+compatible with the t8103 (M1) one. Add "apple,t6030-pinctrl" for M3 Pro
+and "apple,t6031-pinctrl" for M3 Max and Ultra as per-SoC compatibles.
 
-Just no, please just properly implement runtime PM. The .pm() must die completely.
-I used to have the PoC for that long time ago [1], but due to lack of time and
-other priorities it went abandoned. Also Atlassian made a brain damages move to
-limit repository to 1Gb, so I haven't able to update it for a few years.
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Note, that Tony (you have him in the Cc list) did a lot for some corner cases
-with that and we still have them IIRC. Tony, do you know what is the state of
-affairs with runtime PM for UART?
-
-[1]: https://bitbucket.org/andy-shev/linux/branch/topic/uart/rpm-plus
+diff --git a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+index 41073176bc69..f08d2c4f5784 100644
+--- a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+@@ -20,6 +20,8 @@ properties:
+       - items:
+           - enum:
+               - apple,t6020-pinctrl
++              - apple,t6030-pinctrl
++              - apple,t6031-pinctrl
+               - apple,t8122-pinctrl
+           - const: apple,t8103-pinctrl
+       - items:
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.54.0
 
 
