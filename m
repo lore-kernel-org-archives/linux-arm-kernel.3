@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B8CC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40A4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 10:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMmNe0dKr7RMhmu0mRiYIlhAEUanBlzkEGfTE6SK+p8=; b=U46Yarpti81XGhzJk/VWJzPgMR
-	u/uR3GijiBAu23w21Ioznu9CjC5gfnJZHskLTY3F8UGVEbSiPPMmeqZqd14nmVSo79R6uTScgKdbk
-	PuxbAHtUXdM1+h4iZuU1vsFQmFClYNoycP40en+/mWcoWc5WIv/upZPsKFCZS7/RBPPxpENL2bA+X
-	TPsRwGvYtFmGr3OQsfOnDVWM6PCYtyP6nYJ6Hp3OGCjRrqsBgr8VG2ZOlD/dSC7lflVyNrvjwCeOL
-	EZpyxKvRRo+CUzoPjxO0UUaXmFPXvGNv0eLjZQYMR6tFbJLIRuArTULGS0HQYa/CpSdiFgZ+IXJum
-	E2AZhu0Q==;
+	bh=jDAStyMFJqLNzZl853Ee71MMHi9r2qNNP4Y9wjXOGtc=; b=XpElq61HKMjnPsM66z9kIrLbiY
+	u9FQBFKpj6qTJkrt5iVbXzdyZEDUC5MaTV9ozs8Hql8FPVZrG7MOw8hq7CTW6arF8Pf6TmIZgndwy
+	S7EvTLgGIoaeP3jORu5kqtgiVgcR1Rmscg0xmezlqxJkXifrj9F90Hj/LYTKfCv+MUMaDUVGWMXZY
+	Mu0lE9GUAi9X5Ks2PeDXjU01XX+vpwB1Oaebu2LZKnjhxnhmavDjMXf36pHMOls1klMTrz2AmRQe7
+	5JjkGQp+oQaSZ6g5BHiXkCXTlsna1DVyqWwylvEqNfgV0dW80IlKCbH+gNvDOA18zGAS+jgIm6zgH
+	vTrCmOvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whm5x-00000001y0x-1n1k;
-	Thu, 09 Jul 2026 10:35:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1whm5y-00000001y3J-3FWe;
+	Thu, 09 Jul 2026 10:35:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whm5h-00000001xax-3otN;
-	Thu, 09 Jul 2026 10:34:54 +0000
+	id 1whm5l-00000001xik-41XN;
+	Thu, 09 Jul 2026 10:34:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=jDAStyMFJqLNzZl853Ee71MMHi9r2qNNP4Y9wjXOGtc=; b=EmVzh1vTzyZDFpFU61b9rlqQdv
+	GvLCpEnsNXwlf0zmrBqpRdP7MeLrnK1a4+my0IAKcQREGy5KTmhCQayTsUerl5rwhZLCgh8LhKZyu
+	gYKhqtxcHS6a6QiNHqzxASgSmyosuHPuN8+V1ZLUgBl4gOc4mgSkCx0vgXFvJWB1Vp2igkP49whFB
+	yWRTaOxhg6DOyMt94I0jPLFlx4IAs1UeX+Hg94V5lY6N38xkMRa2oi9z/7khvK5VaQqrK33Xqm8wM
+	tLqMhXlUPROYMJZKbC7xi2ZOeBO35At+r/zA3wURhtAWEoSm3Pdl12w7AxsQAb/d8Avcf0OohBcyl
+	hzCdIwGA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1whm5e-0000000945W-2Ure;
+	Thu, 09 Jul 2026 10:34:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783593287;
-	bh=7q8EnhGmsoAFCp+4VfVWqcCDqlLoHMP8+Dfcul2M+MI=;
+	s=mail; t=1783593281;
+	bh=fu15GdJMXgR8f4rm0RHiy6KSrD8LgWI1dp0skrMmLrw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UJKrFtAXLwcn0AfLVlPCLmyXyXzsHLFM5fETGcpJ1FIcNw+W8yq7JmrPviCthhSFz
-	 DQg0buDGkTNbziYpxusp0IxpzNRsL/dAd3olkWTT4SOY2llwHBla1GrgcmQpP2cdJg
-	 F7iSqVv1ZQheLQjrSmeR1i0a43CM46X/t8KELdKzVyn97ZlfQBLuyomKLEGby89gVn
-	 MdKufjBTqZYxGGGhII4ZQRyNOiNOzXiPuqEUgGQ9p7t2WR7jJqEnSoK5Zw14F3GN60
-	 jslX6DpNoFylSdc0l/bnWL2jGeEjG1156NK0VAOz/sZz6M/sQhZjy72tzASqtmpj6Y
-	 tLnFjs2fdHY9w==
+	b=VRZgLAy5y/GF2i/i/bAS2oCZeu3XQfDNhBO46uho0ugnfHY6bNMiTiTqfYb8hG0M6
+	 ug2jiGZ6cNejh4lLcHkDeJOED+GulJHCP973PnJ0f+qRFYof3BqSlgZgoAo5VNYddA
+	 W8AzM/MCory9uSuwMuteEnAAA/pKRPaRoONo93+64aP0IqwJsspZrhxKukbGnTRZJ9
+	 Ihzei9r6vs3oxl6hRoZZF2LAxwA3f1Y5+yCiFmH9LDPANjry36NJ+vW69g02tJC5Pf
+	 PXL+ys9YCgBhW4qG00rr8ddwkCMoWmtReA9d33CPq2C/3rLe66jkur3y8h9mO++7Rn
+	 s1P4ZB71shG6w==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B98A017E05D3;
-	Thu, 09 Jul 2026 12:34:45 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3AEC917E0D56;
+	Thu, 09 Jul 2026 12:34:39 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -70,17 +84,17 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v3 10/11] drm/mediatek: mtk_dp: Add support for eDP1.5 IPs and MT8196 SoC
-Date: Thu,  9 Jul 2026 12:34:30 +0200
-Message-ID: <20260709103431.46616-11-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 05/11] drm/mediatek: mtk_dp: Rework register offsets for proper PHY usage
+Date: Thu,  9 Jul 2026 12:34:25 +0200
+Message-ID: <20260709103431.46616-6-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260709103431.46616-1-angelogioacchino.delregno@collabora.com>
 References: <20260709103431.46616-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_033450_866898_9701C1C5 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20260709_113449_483974_76D571FA 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,624 +109,704 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MediaTek's Embedded DisplayPort (eDP) v1.5 IP as
-found in the MT8196 SoC and other variants, and enclose some of
-the new register writes in specific platform data booleans, as:
- - SDP on Encoder1 can be supported by both old and new IPs
-   but it was chosen to use Encoder0 for SDP in the new ones
-   in order to decrease the load on the secondary encoder;
- - PSR can be supported by older IPs as well, but was not tested
-   on those yet (requires a display with PSR support connected
-   to a device with older SoC, and I don't have it right now);
- - Power State forcing may not be needed on newer revisions of
-   the eDP/DP IP (in SoCs newer than MT8196/MT6991).
+Rework all of the register offsets to subtract the DP PHY register
+range from the MediaTek DisplayPort IP register range which starts
+from TOP_OFFSET instead.
 
-As a note, even if this effectively adds some partial support for
-the DisplayPort 1.4 IP from the same SoC (because the DP1.4 and
-eDP1.5 IPs in this SoC have some little common parts in common),
-there is still a long road ahead to actually enable support for
-the DP1.4 IP itself.
+This is done in preparation for adding support for registering the
+PHY from devicetree, and also for properly handling PHY registers
+in the PHY driver (instead of half and half...), which is also one
+prerogative to add support for new IP versions in the future.
+
+Note that the current regmap_config was renamed to make sure that
+it being legacy is mentioned, as a new config will be required in
+future changes.
+
+Of course, with the TOP offset being related to hardware registers
+this will never change for the currently supported SoCs, hence for
+simplifying code, the MTK_DP_TOP_OFFSET_LEGACY is added statically
+to the legacy regmap configuration while, on the other hand, it is
+added dynamically to the mtk_dp structure, as the latter is used
+to add an offset to every register write in the mtk_dp driver.
+
+The regmap_config provided reg_base (which does exactly the same)
+cannot be used here, because the PHY driver is using the very same
+regmap pointer, and the offset shall not be taken into account in
+writes performed by the PHY driver (only ones performed by mtk_dp!).
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c     | 288 +++++++++++++++++++++++---
- drivers/gpu/drm/mediatek/mtk_dp_reg.h |  61 +++++-
- 2 files changed, 314 insertions(+), 35 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dp.c     | 101 +++++-----
+ drivers/gpu/drm/mediatek/mtk_dp_reg.h | 255 ++++++++++++--------------
+ 2 files changed, 179 insertions(+), 177 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index a8bf12f8d264..7151421984ca 100644
+index a1a258ac997c..ed56b342dfb8 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dp.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2,6 +2,8 @@
+@@ -35,6 +35,27 @@
+ 
+ #include "mtk_dp_reg.h"
+ 
++/* PHY Registers - for legacy only */
++#define DP_PHY_GLB_BIAS_GEN_00		0x0
++#  define RG_XTP_GLB_BIAS_INTR_CTRL	GENMASK(20, 16)
++#define DP_PHY_GLB_DPAUX_TX		0x8
++#  define RG_CKM_PT0_CKTX_IMPSEL	GENMASK(23, 20)
++#define MTK_DP_0034			0x34
++#  define DA_CKM_CKTX0_EN_FORCE_EN	BIT(10)
++#define DP_PHY_LANE_TX_0		0x104
++#define DP_PHY_LANE_TX_1		0x204
++#define DP_PHY_LANE_TX_2		0x304
++#define DP_PHY_LANE_TX_3		0x404
++#  define RG_XTP_LNx_TX_IMPSEL_PMOS	GENMASK(15, 12)
++#  define RG_XTP_LNx_TX_IMPSEL_NMOS	GENMASK(19, 16)
++#define DP_PHY_AUX_RX_CTL		0x1040
++#  define RG_DPAUX_RX_VALID_DEGLITCH_EN	BIT(2)
++#  define RG_XTP_GLB_CKDET_EN		BIT(1)
++#  define RG_DPAUX_RX_EN		BIT(0)
++
++/* TOP Register offset - for legacy only */
++#define MTK_DP_TOP_OFFSET_LEGACY	0x2000
++
+ #define MTK_DP_SIP_CONTROL_AARCH32	MTK_SIP_SMC_CMD(0x523)
+ #define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	33
+ #define MTK_DP_SIP_ATF_VIDEO_UNMUTE	32
+@@ -126,6 +147,9 @@ struct mtk_dp {
+ 	struct regmap *regs;
+ 	struct timer_list debounce_timer;
+ 
++	/* For legacy devicetree compatibility */
++	u16 legacy_regoff;
++
+ 	/* For audio */
+ 	bool audio_enable;
+ 	hdmi_codec_plugged_cb plugged_cb;
+@@ -394,11 +418,11 @@ static const struct mtk_dp_efuse_fmt mt8195_dp_efuse_fmt[MTK_DP_CAL_MAX] = {
+ 	},
+ };
+ 
+-static const struct regmap_config mtk_dp_regmap_config = {
++static const struct regmap_config mtk_dp_regmap_legacy_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+-	.max_register = SEC_OFFSET + 0x90,
++	.max_register = MTK_DP_TOP_OFFSET_LEGACY + SEC_OFFSET + 0x90,
+ 	.name = "mtk-dp-registers",
+ };
+ 
+@@ -412,7 +436,7 @@ static u32 mtk_dp_read(struct mtk_dp *mtk_dp, u32 offset)
+ 	u32 read_val;
+ 	int ret;
+ 
+-	ret = regmap_read(mtk_dp->regs, offset, &read_val);
++	ret = regmap_read(mtk_dp->regs, offset + mtk_dp->legacy_regoff, &read_val);
+ 	if (ret) {
+ 		dev_err(mtk_dp->dev, "Failed to read register 0x%x: %d\n",
+ 			offset, ret);
+@@ -424,7 +448,7 @@ static u32 mtk_dp_read(struct mtk_dp *mtk_dp, u32 offset)
+ 
+ static int mtk_dp_write(struct mtk_dp *mtk_dp, u32 offset, u32 val)
+ {
+-	int ret = regmap_write(mtk_dp->regs, offset, val);
++	int ret = regmap_write(mtk_dp->regs, offset + mtk_dp->legacy_regoff, val);
+ 
+ 	if (ret)
+ 		dev_err(mtk_dp->dev,
+@@ -436,7 +460,7 @@ static int mtk_dp_write(struct mtk_dp *mtk_dp, u32 offset, u32 val)
+ static int mtk_dp_update_bits(struct mtk_dp *mtk_dp, u32 offset,
+ 			      u32 val, u32 mask)
+ {
+-	int ret = regmap_update_bits(mtk_dp->regs, offset, mask, val);
++	int ret = regmap_update_bits(mtk_dp->regs, offset + mtk_dp->legacy_regoff, mask, val);
+ 
+ 	if (ret)
+ 		dev_err(mtk_dp->dev,
+@@ -566,7 +590,8 @@ static int mtk_dp_set_color_format(struct mtk_dp *mtk_dp,
+ 			   DP_TEST_COLOR_FORMAT_MASK);
+ 
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_303C,
+-			   val, PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK);
++			   FIELD_PREP(PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK, val),
++			   PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK);
+ 	return 0;
+ }
+ 
+@@ -1219,38 +1244,26 @@ static void mtk_dp_get_calibration_data(struct mtk_dp *mtk_dp)
+ 
+ static void mtk_dp_set_calibration_data(struct mtk_dp *mtk_dp)
+ {
++	const u32 impsel_mask = RG_XTP_LNx_TX_IMPSEL_PMOS | RG_XTP_LNx_TX_IMPSEL_NMOS;
+ 	u32 *cal_data = mtk_dp->cal_data;
+ 
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_GLB_DPAUX_TX,
+-			   cal_data[MTK_DP_CAL_CLKTX_IMPSE] << 20,
+-			   RG_CKM_PT0_CKTX_IMPSEL);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_GLB_BIAS_GEN_00,
+-			   cal_data[MTK_DP_CAL_GLB_BIAS_TRIM] << 16,
+-			   RG_XTP_GLB_BIAS_INTR_CTRL);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_0,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_0] << 12,
+-			   RG_XTP_LN0_TX_IMPSEL_PMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_0,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_0] << 16,
+-			   RG_XTP_LN0_TX_IMPSEL_NMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_1,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_1] << 12,
+-			   RG_XTP_LN1_TX_IMPSEL_PMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_1,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_1] << 16,
+-			   RG_XTP_LN1_TX_IMPSEL_NMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_2,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_2] << 12,
+-			   RG_XTP_LN2_TX_IMPSEL_PMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_2,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_2] << 16,
+-			   RG_XTP_LN2_TX_IMPSEL_NMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_3,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_3] << 12,
+-			   RG_XTP_LN3_TX_IMPSEL_PMOS);
+-	mtk_dp_update_bits(mtk_dp, DP_PHY_LANE_TX_3,
+-			   cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_3] << 16,
+-			   RG_XTP_LN3_TX_IMPSEL_NMOS);
++	/* This avoids using mtk_dp_update_bits so that legacy_regoff is not added */
++	regmap_update_bits(mtk_dp->regs, DP_PHY_GLB_DPAUX_TX, RG_CKM_PT0_CKTX_IMPSEL,
++			   cal_data[MTK_DP_CAL_CLKTX_IMPSE] << 20);
++	regmap_update_bits(mtk_dp->regs, DP_PHY_GLB_BIAS_GEN_00, RG_XTP_GLB_BIAS_INTR_CTRL,
++			   cal_data[MTK_DP_CAL_GLB_BIAS_TRIM] << 16);
++	regmap_update_bits(mtk_dp->regs, DP_PHY_LANE_TX_0, impsel_mask,
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_0] << 12) |
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_0] << 16));
++	regmap_update_bits(mtk_dp->regs, DP_PHY_LANE_TX_1, impsel_mask,
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_1] << 12) |
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_1] << 16));
++	regmap_update_bits(mtk_dp->regs, DP_PHY_LANE_TX_2, impsel_mask,
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_2] << 12) |
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_2] << 16));
++	regmap_update_bits(mtk_dp->regs, DP_PHY_LANE_TX_3, impsel_mask,
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_PMOS_3] << 12) |
++			   (cal_data[MTK_DP_CAL_LN_TX_IMPSEL_NMOS_3] << 16));
+ }
+ 
+ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
+@@ -1401,21 +1414,21 @@ static void mtk_dp_power_enable(struct mtk_dp *mtk_dp)
+ 			   SW_RST_B_PHYD, SW_RST_B_PHYD);
+ 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
+ 			   DP_PWR_STATE_BANDGAP_TPLL, DP_PWR_STATE_MASK);
+-	mtk_dp_write(mtk_dp, MTK_DP_1040,
++	regmap_write(mtk_dp->regs, DP_PHY_AUX_RX_CTL,
+ 		     RG_DPAUX_RX_VALID_DEGLITCH_EN | RG_XTP_GLB_CKDET_EN |
+ 		     RG_DPAUX_RX_EN);
+-	mtk_dp_update_bits(mtk_dp, MTK_DP_0034, 0, DA_CKM_CKTX0_EN_FORCE_EN);
++	regmap_clear_bits(mtk_dp->regs, MTK_DP_0034, DA_CKM_CKTX0_EN_FORCE_EN);
+ }
+ 
+ static void mtk_dp_power_disable(struct mtk_dp *mtk_dp)
+ {
+ 	mtk_dp_write(mtk_dp, MTK_DP_TOP_PWR_STATE, 0);
+ 
+-	mtk_dp_update_bits(mtk_dp, MTK_DP_0034,
+-			   DA_CKM_CKTX0_EN_FORCE_EN, DA_CKM_CKTX0_EN_FORCE_EN);
++	regmap_set_bits(mtk_dp->regs, MTK_DP_0034, DA_CKM_CKTX0_EN_FORCE_EN);
+ 
+ 	/* Disable RX */
+-	mtk_dp_write(mtk_dp, MTK_DP_1040, 0);
++	regmap_write(mtk_dp->regs, DP_PHY_AUX_RX_CTL, 0);
++
+ 	mtk_dp_write(mtk_dp, MTK_DP_TOP_MEM_PD,
+ 		     0x550 | FUSE_SEL | MEM_ISO_EN);
+ }
+@@ -2067,7 +2080,8 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
+ 	u32 val;
+ 	int ret;
+ 
+-	ret = regmap_read_poll_timeout(mtk_dp->regs, MTK_DP_TRANS_P0_3414,
++	ret = regmap_read_poll_timeout(mtk_dp->regs,
++				       MTK_DP_TRANS_P0_3414 + mtk_dp->legacy_regoff,
+ 				       val, !!(val & HPD_DB_DP_TRANS_P0_MASK),
+ 				       wait_us / 100, wait_us);
+ 	if (ret) {
+@@ -2100,7 +2114,7 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	mtk_dp->regs = devm_regmap_init_mmio(dev, base, &mtk_dp_regmap_config);
++	mtk_dp->regs = devm_regmap_init_mmio(dev, base, &mtk_dp_regmap_legacy_config);
+ 	if (IS_ERR(mtk_dp->regs))
+ 		return PTR_ERR(mtk_dp->regs);
+ 
+@@ -2775,6 +2789,7 @@ static int mtk_dp_probe(struct platform_device *pdev)
+ 
+ 	mtk_dp->dev = dev;
+ 	mtk_dp->data = (struct mtk_dp_data *)of_device_get_match_data(dev);
++	mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
+ 
+ 	ret = mtk_dp_dt_parse(mtk_dp, pdev);
+ 	if (ret)
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+index 8ad7a9cc259e..616ea6440b08 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
++++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+@@ -2,62 +2,22 @@
  /*
   * Copyright (c) 2019-2022 MediaTek Inc.
   * Copyright (c) 2022 BayLibre
-+ * Copyright (c) 2026 Collabora Ltd
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ * Copyright (c) 2026 Collabora Ltd.
   */
+ #ifndef _MTK_DP_REG_H_
+ #define _MTK_DP_REG_H_
  
- #include <drm/display/drm_dp_aux_bus.h>
-@@ -57,6 +59,8 @@
- #define MTK_DP_TOP_OFFSET_LEGACY	0x2000
+-#define SEC_OFFSET	0x4000
+-
+ #define MTK_DP_HPD_DISCONNECT		BIT(1)
+ #define MTK_DP_HPD_CONNECT		BIT(2)
+ #define MTK_DP_HPD_INTERRUPT		BIT(3)
  
- #define MTK_DP_SIP_CONTROL_AARCH32	MTK_SIP_SMC_CMD(0x523)
-+#define MTK_DP_SIP_ATF_EDP_SET_VID_MUTE	34
-+#  define MTK_DP_SIP_REQ_VIDEO_UNMUTE	0xfefd
- #define MTK_DP_SIP_ATF_EDP_VIDEO_UNMUTE	33
- #define MTK_DP_SIP_ATF_VIDEO_UNMUTE	32
- 
-@@ -168,7 +172,11 @@ struct mtk_dp_data {
- 	bool audio_pkt_in_hblank_area;
- 	u16 audio_m_div2_bit;
- 	u8 hw_max_link_rate;
-+	bool hwip_v1p4;
- 	bool aux_hpd_supported;
-+	bool sdp_encoder1_enable;
-+	bool force_pwr_states;
-+	bool psr_supported;
- };
- 
- static const struct mtk_dp_efuse_fmt mt8188_dp_efuse_fmt[MTK_DP_CAL_MAX] = {
-@@ -507,6 +515,7 @@ static void mtk_dp_msa_bypass_enable(struct mtk_dp *mtk_dp, bool enable)
- 
- static void mtk_dp_set_msa(struct mtk_dp *mtk_dp)
- {
-+	u32 fde_start_val;
- 	struct drm_display_mode mode;
- 	struct videomode *vm = &mtk_dp->info.vm;
- 
-@@ -549,9 +558,14 @@ static void mtk_dp_set_msa(struct mtk_dp *mtk_dp)
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_315C,
- 			   vm->hsync_len,
- 			   PGEN_HSYNC_PULSE_WIDTH_DP_ENC0_P0_MASK);
-+
-+	fde_start_val = vm->hback_porch + vm->hsync_len;
-+	if (mtk_dp->data->psr_supported)
-+		fde_start_val += vm->hfront_porch;
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3160,
--			   vm->hback_porch + vm->hsync_len,
--			   PGEN_HFDE_START_DP_ENC0_P0_MASK);
-+			   fde_start_val, PGEN_HFDE_START_DP_ENC0_P0_MASK);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3164,
- 			   vm->hactive,
- 			   PGEN_HFDE_ACTIVE_WIDTH_DP_ENC0_P0_MASK);
-@@ -566,9 +580,14 @@ static void mtk_dp_set_msa(struct mtk_dp *mtk_dp)
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3170,
- 			   vm->vsync_len,
- 			   PGEN_VSYNC_PULSE_WIDTH_DP_ENC0_P0_MASK);
-+
-+	fde_start_val = vm->vback_porch + vm->vsync_len;
-+	if (mtk_dp->data->psr_supported)
-+		fde_start_val += vm->vfront_porch;
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3174,
--			   vm->vback_porch + vm->vsync_len,
--			   PGEN_VFDE_START_DP_ENC0_P0_MASK);
-+			   fde_start_val, PGEN_VFDE_START_DP_ENC0_P0_MASK);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3178,
- 			   vm->vactive,
- 			   PGEN_VFDE_ACTIVE_WIDTH_DP_ENC0_P0_MASK);
-@@ -633,6 +652,8 @@ static void mtk_dp_set_sram_read_start(struct mtk_dp *mtk_dp, u32 val)
- 
- static void mtk_dp_setup_encoder(struct mtk_dp *mtk_dp)
- {
-+	u32 val, mask;
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_303C,
- 			   VIDEO_MN_GEN_EN_DP_ENC0_P0,
- 			   VIDEO_MN_GEN_EN_DP_ENC0_P0);
-@@ -648,7 +669,18 @@ static void mtk_dp_setup_encoder(struct mtk_dp *mtk_dp)
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC1_P0_3364,
- 			   FIFO_READ_START_POINT_DP_ENC1_P0_VAL << 12,
- 			   FIFO_READ_START_POINT_DP_ENC1_P0_MASK);
--	mtk_dp_write(mtk_dp, MTK_DP_ENC1_P0_3368, DP_ENC1_P0_3368_VAL);
-+
-+	mask = VIDEO_SRAM_FIFO_CNT_RESET_SEL_DP_ENC1_P0 | VIDEO_STABLE_CNT_THRD_DP_ENC1_P0;
-+	mask |= BS2BS_MODE_DP_ENC1_P0;
-+
-+	val = mask;
-+
-+	mask |= SDP_DP13_EN_DP_ENC1_P0;
-+
-+	if (mtk_dp->data->sdp_encoder1_enable)
-+		val |= SDP_DP13_EN_DP_ENC1_P0;
-+
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC1_P0_3368, val, mask);
- }
- 
- static void mtk_dp_pg_enable(struct mtk_dp *mtk_dp, bool enable)
-@@ -1116,6 +1148,72 @@ static void mtk_dp_hwirq_enable(struct mtk_dp *mtk_dp, bool enable)
- 			   IRQ_MASK_DP_TRANS_P0_MASK);
- }
- 
-+static void mtk_dp_encoder_force_bias_power_on(struct mtk_dp *mtk_dp)
-+{
-+	/* Force MCU to enable BIAS */
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   ENC_PHY_PWR_OVERWRITE_EN, ENC_PHY_PWR_OVERWRITE_EN);
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   FIELD_PREP_CONST(ENC_PHY_PWR_STATE_OVERWRITE_MASK,
-+					    ENC_PHY_BIAS_PWR_ON),
-+			   ENC_PHY_PWR_STATE_OVERWRITE_MASK);
-+
-+	/* Wait for the MCU to get LDO ready in PHYD */
-+	msleep(50);
-+
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   0, ENC_PHY_PWR_OVERWRITE_EN);
-+}
-+
-+static void mtk_dp_encoder_force_bias_power_off(struct mtk_dp *mtk_dp)
-+{
-+	/* Force MCU to disable power */
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   ENC_PHY_PWR_OVERWRITE_EN, ENC_PHY_PWR_OVERWRITE_EN);
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   FIELD_PREP_CONST(ENC_PHY_PWR_STATE_OVERWRITE_MASK,
-+					    ENC_PHY_ALL_PWR_OFF),
-+			   ENC_PHY_PWR_STATE_OVERWRITE_MASK);
-+	mtk_dp_update_bits(mtk_dp, REG_3F44_DP_ENC_P0_3,
-+			   0, ENC_PHY_PWR_OVERWRITE_EN);
-+}
-+
-+static void mtk_dp_initialize_psr_settings(struct mtk_dp *mtk_dp)
-+{
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_PSR_FRAME_START_MARKER_0, 0,
-+			   DP_ENC_P0_3_FRAME_MARKER_MASK);
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_PSR_FRAME_END_MARKER_0, 1,
-+			   DP_ENC_P0_3_FRAME_MARKER_MASK);
-+
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_PSR_FRAME_START_MARKER_1, 8,
-+			   DP_ENC_P0_3_FRAME_MARKER_MASK);
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_PSR_FRAME_END_MARKER_1, 9,
-+			   DP_ENC_P0_3_FRAME_MARKER_MASK);
-+
-+	mtk_dp_update_bits(mtk_dp, REG_33C0_DP_ENCODER1_P0, 0,
-+			   SDP_TESTBUS_SEL_DP_ENC_MASK);
-+	mtk_dp_update_bits(mtk_dp, REG_33C4_DP_ENCODER1_P0,
-+			   DP_TX_ENCODER_TESTBUS_SEL_DP_ENC,
-+			   DP_TX_ENCODER_TESTBUS_SEL_DP_ENC_MASK);
-+	mtk_dp_update_bits(mtk_dp, REG_3F28_DP_ENC_P0_3,
-+			   DP_TX_SDP_PSR_AS_TESTBUS << 2,
-+			   DP_TX_SDP_PSR_AS_TESTBUS_MASK);
-+}
-+
-+static void mtk_dp_initialize_settings_v2p1(struct mtk_dp *mtk_dp)
-+{
-+	/* For DP2.1 and eDP1.5 IPs, reset all and enable probing */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_RESET_AND_PROBE,
-+			   RG_SW_RST_ALL, RG_SW_RST_ALL);
-+
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_RESET_AND_PROBE,
-+			   FIELD_PREP_CONST(RG_PROBE_LOW_SEL_MASK, RG_PROBE_ENCODER0),
-+			   RG_PROBE_LOW_SEL_MASK);
-+
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_RESET_AND_PROBE,
-+			   RG_PROBE_LOW_HIGH_SWAP, RG_PROBE_LOW_HIGH_SWAP);
-+}
-+
- static void mtk_dp_initialize_settings(struct mtk_dp *mtk_dp)
- {
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_342C,
-@@ -1129,12 +1227,15 @@ static void mtk_dp_initialize_settings(struct mtk_dp *mtk_dp)
- 			   AUDIO_CH_SRC_SEL_DP_ENC0_P0);
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_304C,
- 			   0, SDP_VSYNC_RISING_MASK_DP_ENC0_P0_MASK);
--	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_IRQ_MASK,
--			   IRQ_MASK_AUX_TOP_IRQ, IRQ_MASK_AUX_TOP_IRQ);
- }
- 
- static void mtk_dp_initialize_aux_hpd_detect_settings(struct mtk_dp *mtk_dp)
- {
-+	/* Mask Encoder and Transmitter interrupts, unmask AUX TOP */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_IRQ_MASK,
-+			   ENCODER0_IRQ_MSK | TRANS_IRQ_MSK,
-+			   ENCODER0_IRQ_MSK | TRANS_IRQ_MSK | AUX_TOP_IRQ_MSK);
-+
- 	/* Set interrupt debounce threshold time */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_AUX_P0_364C,
- 			   FIELD_PREP_CONST(HPD_INT_LOW_TIME_THD, 2) |
-@@ -1161,6 +1262,10 @@ static void mtk_dp_initialize_hpd_detect_settings(struct mtk_dp *mtk_dp)
- {
- 	u32 val;
- 
-+	/* Mask AUX TOP interrupt, as this uses transmitter for HPD */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_IRQ_MASK,
-+			   AUX_TOP_IRQ_MSK, AUX_TOP_IRQ_MSK);
-+
- 	/* Debounce threshold */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
- 			   8, HPD_DEB_THD_DP_TRANS_P0_MASK);
-@@ -1210,24 +1315,87 @@ static void mtk_dp_initialize_aux_settings(struct mtk_dp *mtk_dp)
- 			   RX_REPLY_COMPLETE_MODE_AUX_TX_P0);
- }
- 
--static void mtk_dp_initialize_digital_settings(struct mtk_dp *mtk_dp)
-+static void mtk_dp_initialize_common_digital_settings(struct mtk_dp *mtk_dp)
- {
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_304C,
- 			   0, VBID_VIDEO_MUTE_DP_ENC0_P0_MASK);
- 
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC1_P0_3368,
--			   BS2BS_MODE_DP_ENC1_P0_VAL << 12,
--			   BS2BS_MODE_DP_ENC1_P0_MASK);
-+			   BS2BS_MODE_DP_ENC1_P0, BS2BS_MODE_DP_ENC1_P0_MASK);
-+}
-+
-+static void mtk_dp_initialize_digital_settings_v2p1(struct mtk_dp *mtk_dp)
-+{
-+	/* Set XTAL frequency for Panel Self Refresh (PSR) */
-+	if (mtk_dp->data->psr_supported)
-+		mtk_dp_update_bits(mtk_dp, REG_3FF8_DP_ENC_P0_3,
-+				   FIELD_PREP(DP_ENCODER_PSR_XTAL_FREQ_MHZ_MASK, 25),
-+				   DP_ENCODER_PSR_XTAL_FREQ_MHZ_MASK);
- 
-+	/* Enable I-Mode */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3000,
-+			   DP_I_MODE_ENABLE, DP_I_MODE_ENABLE);
-+
-+	/* Reset Video SRAM and Symbol count */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3000,
-+			   REG_BS_SYMBOL_CNT_RESET, REG_BS_SYMBOL_CNT_RESET);
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC1_P0_3368,
-+			   VIDEO_SRAM_FIFO_CNT_RESET_SEL_DP_ENC1_P0,
-+			   VIDEO_SRAM_FIFO_CNT_RESET_SEL_MASK);
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC1_P0_3368,
-+			   BS_FOLLOW_SEL_DP_ENC0_P0, BS_FOLLOW_SEL_DP_ENC0_P0);
-+
-+	/* [5:0] Video SRAM start address */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_303C,
-+			   0x8, SRAM_START_READ_THRD_DP_ENC0_P0_MASK);
-+
-+	/* Disable Pattern Generator in Panel Self Refresh mode */
-+	if (mtk_dp->data->psr_supported)
-+		mtk_dp_update_bits(mtk_dp, REG_3F80_DP_ENC_P0_3,
-+				   0, PSR_PATGEN_AVT_EN_FLDMASK);
-+
-+	/* Force MCU to enable BIAS and PLL */
-+	mtk_dp_encoder_force_bias_power_on(mtk_dp);
-+
-+	mtk_dp_update_bits(mtk_dp, REG_3FF8_DP_ENC_P0_3,
-+			   PHY_STATE_W_1_DP_ENC_P0_3, PHY_STATE_W_1_DP_ENC_P0_3);
-+
-+	/* Force enable Digital Video Output */
-+	mtk_dp_update_bits(mtk_dp, REG_3FF8_DP_ENC_P0_3,
-+			   DP_ENCODER_DVO_ON_W_1, DP_ENCODER_DVO_ON_W_1);
-+}
-+
-+static void mtk_dp_encoder_reset(struct mtk_dp *mtk_dp)
-+{
- 	/* dp tx encoder reset all sw */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3004,
- 			   DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0,
- 			   DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0);
- 
-+	if (mtk_dp->data->hwip_v1p4) {
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3004, 0,
-+				   DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0);
-+		mtk_dp_update_bits(mtk_dp, REG_3FF8_DP_ENC_P0_3,
-+				   ENC_PHY_STATE_RESET_ALL_MASK,
-+				   ENC_PHY_STATE_RESET_ALL_MASK);
-+	}
-+
- 	/* Wait for sw reset to complete */
- 	usleep_range(1000, 5000);
--	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3004,
--			   0, DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0);
-+
-+	if (!mtk_dp->data->hwip_v1p4)
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3004,
-+				   0, DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0);
-+}
-+
-+static void mtk_dp_initialize_digital_settings(struct mtk_dp *mtk_dp)
-+{
-+	mtk_dp_initialize_common_digital_settings(mtk_dp);
-+
-+	if (mtk_dp->data->hwip_v1p4)
-+		mtk_dp_initialize_digital_settings_v2p1(mtk_dp);
-+
-+	mtk_dp_encoder_reset(mtk_dp);
- }
- 
- static void mtk_dp_digital_sw_reset(struct mtk_dp *mtk_dp)
-@@ -1240,6 +1408,26 @@ static void mtk_dp_digital_sw_reset(struct mtk_dp *mtk_dp)
- 	usleep_range(1000, 5000);
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_340C,
- 			   0, DP_TX_TRANSMITTER_4P_RESET_SW_DP_TRANS_P0);
-+
-+	/* Only for the new eDP 1.5 IP, set the internal clock generators */
-+	if (mtk_dp->data->hwip_v1p4 &&
-+	    mtk_dp->data->bridge_type == DRM_MODE_CONNECTOR_eDP) {
-+		u32 val;
-+
-+		/* Enable internal clock outputs for AUX TOP, DATA and MUX */
-+		val = EDP_TX_TOP_CLKGEN_AUX_P0_EN | EDP_TX_TOP_CLKGEN_AUX_MUX_DATA_EN |
-+		      EDP_TX_TOP_CLKGEN_AUX_MUX_VALID_EN;
-+
-+		/* Enable XTAL output */
-+		val |= EDP_TX_TOP_CLKGEN_XTAL_P0_EN;
-+
-+		/* VSC and Encoders */
-+		val |= EDP_TX_TOP_CLKGEN_LS_VSC_W_0_EN;
-+		val |= EDP_TX_TOP_CLKGEN_LS_ENCODER_L0_EN | EDP_TX_TOP_CLKGEN_LS_ENCODER_L1_EN;
-+		val |= EDP_TX_TOP_CLKGEN_LS_ENCODER_L2_EN | EDP_TX_TOP_CLKGEN_LS_ENCODER_L3_EN;
-+
-+		mtk_dp_update_bits(mtk_dp, EDP_TX_TOP_CLKGEN_0, val, val);
-+	}
- }
- 
- static void mtk_dp_sdp_path_reset(struct mtk_dp *mtk_dp)
-@@ -1256,6 +1444,9 @@ static void mtk_dp_sdp_path_reset(struct mtk_dp *mtk_dp)
- 
- static void mtk_dp_set_lanes(struct mtk_dp *mtk_dp, int lanes)
- {
-+	if (mtk_dp->data->force_pwr_states)
-+		mtk_dp_encoder_force_bias_power_on(mtk_dp);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35F0,
- 			   lanes == 0 ? 0 : DP_TRANS_DUMMY_RW_0,
- 			   DP_TRANS_DUMMY_RW_0_MASK);
-@@ -1359,8 +1550,10 @@ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
- 		}
- 	};
- 
--	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE, DP_PWR_STATE_BANDGAP,
--			   DP_PWR_STATE_MASK);
-+	/* Set power state requests only if power states are not forced */
-+	if (!mtk_dp->data->force_pwr_states)
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE, DP_PWR_STATE_BANDGAP,
-+				   DP_PWR_STATE_MASK);
- 
- 	ret = phy_configure(mtk_dp->phy, &phy_opts);
- 	if (ret)
-@@ -1373,6 +1566,11 @@ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
- 	if (mtk_dp->phy_dev)
- 		mtk_dp_set_calibration_data(mtk_dp);
- 
-+	if (mtk_dp->data->force_pwr_states)
-+		mtk_dp_update_bits(mtk_dp, REG_3FF8_DP_ENC_P0_3,
-+				   PHY_STATE_W_1_DP_ENC_P0_3,
-+				   PHY_STATE_W_1_DP_ENC_P0_3);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
- 			   DP_PWR_STATE_BANDGAP_TPLL_LANE, DP_PWR_STATE_MASK);
- 
-@@ -1422,17 +1620,24 @@ static void mtk_dp_training_set_scramble(struct mtk_dp *mtk_dp, bool enable)
- static void mtk_dp_video_mute(struct mtk_dp *mtk_dp, bool enable)
- {
- 	struct arm_smccc_res res;
--	u32 val = VIDEO_MUTE_SEL_DP_ENC0_P0 |
--		  (enable ? VIDEO_MUTE_SW_DP_ENC0_P0 : 0);
-+	const u32 mask = VIDEO_MUTE_SEL_DP_ENC0_P0 | VIDEO_MUTE_SW_DP_ENC0_P0;
-+	u32 val = VIDEO_MUTE_SEL_DP_ENC0_P0 | (enable ? VIDEO_MUTE_SW_DP_ENC0_P0 : 0);
-+	u32 smc_para, smc_val;
- 
--	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3000,
--			   val,
--			   VIDEO_MUTE_SEL_DP_ENC0_P0 |
--			   VIDEO_MUTE_SW_DP_ENC0_P0);
-+	/* Set VIDEO_MUTE in unsecured world... */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3000, val, mask);
-+
-+	/* ...and do the same in ATF as well */
-+	if (mtk_dp->data->hwip_v1p4) {
-+		smc_para = (mtk_dp->data->smc_cmd << 16) | enable;
-+		smc_val = MTK_DP_SIP_REQ_VIDEO_UNMUTE;
-+	} else {
-+		smc_para = 0;
-+		smc_val = 0;
-+	}
- 
--	arm_smccc_smc(MTK_DP_SIP_CONTROL_AARCH32,
--		      mtk_dp->data->smc_cmd, enable,
--		      0, 0, 0, 0, 0, &res);
-+	arm_smccc_smc(MTK_DP_SIP_CONTROL_AARCH32, mtk_dp->data->smc_cmd, enable,
-+		      smc_para, smc_val, 0, 0, 0, &res);
- 
- 	dev_dbg(mtk_dp->dev, "smc cmd: 0x%x, p1: %s, ret: 0x%lx-0x%lx\n",
- 		mtk_dp->data->smc_cmd, enable ? "enable" : "disable", res.a0, res.a1);
-@@ -1520,6 +1725,9 @@ static void mtk_dp_power_disable(struct mtk_dp *mtk_dp)
- 
- 	mtk_dp_write(mtk_dp, MTK_DP_TOP_PWR_STATE, 0);
- 
-+	if (mtk_dp->data->force_pwr_states)
-+		mtk_dp_encoder_force_bias_power_off(mtk_dp);
-+
- 	if (unlikely(mtk_dp->phy_dev)) {
- 		regmap_set_bits(mtk_dp->regs, MTK_DP_0034, DA_CKM_CKTX0_EN_FORCE_EN);
- 
-@@ -2078,7 +2286,14 @@ static void mtk_dp_init_port(struct mtk_dp *mtk_dp)
- 	mtk_dp_set_idle_pattern(mtk_dp, true);
- 	mtk_dp_initialize_priv_data(mtk_dp);
- 
--	mtk_dp_initialize_settings(mtk_dp);
-+	if (mtk_dp->data->psr_supported)
-+		mtk_dp_initialize_psr_settings(mtk_dp);
-+
-+	if (mtk_dp->data->hwip_v1p4)
-+		mtk_dp_initialize_settings_v2p1(mtk_dp);
-+	else
-+		mtk_dp_initialize_settings(mtk_dp);
-+
- 	mtk_dp_initialize_aux_settings(mtk_dp);
- 	mtk_dp_initialize_digital_settings(mtk_dp);
- 
-@@ -2580,6 +2795,9 @@ static void mtk_dp_bridge_atomic_disable(struct drm_bridge *bridge,
- 	/* SDP path reset sw*/
- 	mtk_dp_sdp_path_reset(mtk_dp);
- 
-+	if (mtk_dp->data->force_pwr_states)
-+		mtk_dp_encoder_force_bias_power_on(mtk_dp);
-+
- 	/* Ensure the sink is muted */
- 	msleep(20);
- }
-@@ -2860,7 +3078,8 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- 				     "Failed to add phy unregister devm action");
- 
- 	/* PHY calibration data is in mtk_dp only for legacy devicetree */
--	mtk_dp_get_calibration_data(mtk_dp);
-+	if (mtk_dp->data->efuse_fmt)
-+		mtk_dp_get_calibration_data(mtk_dp);
- 
- 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
- 	if (IS_ERR(mtk_dp->phy)) {
-@@ -3083,6 +3302,7 @@ static const struct mtk_dp_data mt8188_dp_data = {
- 	.audio_pkt_in_hblank_area = true,
- 	.audio_m_div2_bit = MT8188_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_2,
- 	.hw_max_link_rate = DP_LINK_BW_5_4,
-+	.sdp_encoder1_enable = true,
- };
- 
- static const struct mtk_dp_data mt8195_edp_data = {
-@@ -3092,6 +3312,7 @@ static const struct mtk_dp_data mt8195_edp_data = {
- 	.audio_supported = false,
- 	.audio_m_div2_bit = MT8195_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_2,
- 	.hw_max_link_rate = DP_LINK_BW_5_4,
-+	.sdp_encoder1_enable = true,
- };
- 
- static const struct mtk_dp_data mt8195_dp_data = {
-@@ -3101,6 +3322,19 @@ static const struct mtk_dp_data mt8195_dp_data = {
- 	.audio_supported = true,
- 	.audio_m_div2_bit = MT8195_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_2,
- 	.hw_max_link_rate = DP_LINK_BW_5_4,
-+	.sdp_encoder1_enable = true,
-+};
-+
-+static const struct mtk_dp_data mt8196_edp_data = {
-+	.bridge_type = DRM_MODE_CONNECTOR_eDP,
-+	.smc_cmd = MTK_DP_SIP_ATF_EDP_SET_VID_MUTE,
-+	.audio_supported = false,
-+	.audio_m_div2_bit = MT8195_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_2,
-+	.hw_max_link_rate = DP_LINK_BW_8_1,
-+	.hwip_v1p4 = true,
-+	.aux_hpd_supported = true,
-+	.force_pwr_states = true,
-+	.psr_supported = true,
- };
- 
- static const struct of_device_id mtk_dp_of_match[] = {
-@@ -3120,6 +3354,10 @@ static const struct of_device_id mtk_dp_of_match[] = {
- 		.compatible = "mediatek,mt8195-dp-tx",
- 		.data = &mt8195_dp_data,
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-edp-tx",
-+		.data = &mt8196_edp_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_dp_of_match);
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-index 5a3b3e2b4f49..9caf743f4fe6 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-+++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-@@ -31,25 +31,38 @@
+-/* offset: 0x0 */
+-#define DP_PHY_GLB_BIAS_GEN_00		0x0
+-#define RG_XTP_GLB_BIAS_INTR_CTRL		GENMASK(20, 16)
+-#define DP_PHY_GLB_DPAUX_TX		0x8
+-#define RG_CKM_PT0_CKTX_IMPSEL			GENMASK(23, 20)
+-#define MTK_DP_0034			0x34
+-#define DA_XTP_GLB_CKDET_EN_FORCE_VAL		BIT(15)
+-#define DA_XTP_GLB_CKDET_EN_FORCE_EN		BIT(14)
+-#define DA_CKM_INTCKTX_EN_FORCE_VAL		BIT(13)
+-#define DA_CKM_INTCKTX_EN_FORCE_EN		BIT(12)
+-#define DA_CKM_CKTX0_EN_FORCE_VAL		BIT(11)
+-#define DA_CKM_CKTX0_EN_FORCE_EN		BIT(10)
+-#define DA_CKM_XTAL_CK_FORCE_VAL		BIT(9)
+-#define DA_CKM_XTAL_CK_FORCE_EN			BIT(8)
+-#define DA_CKM_BIAS_LPF_EN_FORCE_VAL		BIT(7)
+-#define DA_CKM_BIAS_LPF_EN_FORCE_EN		BIT(6)
+-#define DA_CKM_BIAS_EN_FORCE_VAL		BIT(5)
+-#define DA_CKM_BIAS_EN_FORCE_EN			BIT(4)
+-#define DA_XTP_GLB_AVD10_ON_FORCE_VAL		BIT(3)
+-#define DA_XTP_GLB_AVD10_ON_FORCE		BIT(2)
+-#define DA_XTP_GLB_LDO_EN_FORCE_VAL		BIT(1)
+-#define DA_XTP_GLB_LDO_EN_FORCE_EN		BIT(0)
+-#define DP_PHY_LANE_TX_0		0x104
+-#define RG_XTP_LN0_TX_IMPSEL_PMOS		GENMASK(15, 12)
+-#define RG_XTP_LN0_TX_IMPSEL_NMOS		GENMASK(19, 16)
+-#define DP_PHY_LANE_TX_1		0x204
+-#define RG_XTP_LN1_TX_IMPSEL_PMOS		GENMASK(15, 12)
+-#define RG_XTP_LN1_TX_IMPSEL_NMOS		GENMASK(19, 16)
+-#define DP_PHY_LANE_TX_2		0x304
+-#define RG_XTP_LN2_TX_IMPSEL_PMOS		GENMASK(15, 12)
+-#define RG_XTP_LN2_TX_IMPSEL_NMOS		GENMASK(19, 16)
+-#define DP_PHY_LANE_TX_3		0x404
+-#define RG_XTP_LN3_TX_IMPSEL_PMOS		GENMASK(15, 12)
+-#define RG_XTP_LN3_TX_IMPSEL_NMOS		GENMASK(19, 16)
+-#define MTK_DP_1040			0x1040
+-#define RG_DPAUX_RX_VALID_DEGLITCH_EN		BIT(2)
+-#define RG_XTP_GLB_CKDET_EN			BIT(1)
+-#define RG_DPAUX_RX_EN				BIT(0)
+-
+-/* offset: TOP_OFFSET (0x2000) */
+-#define MTK_DP_TOP_PWR_STATE		0x2000
++/* offset: TOP_OFFSET (0x0) */
++#define MTK_DP_TOP_PWR_STATE		0x0
+ #define DP_PWR_STATE_MASK			GENMASK(1, 0)
+ #define DP_PWR_STATE_BANDGAP			BIT(0)
+ #define DP_PWR_STATE_BANDGAP_TPLL		BIT(1)
+ #define DP_PWR_STATE_BANDGAP_TPLL_LANE		GENMASK(1, 0)
+-#define MTK_DP_TOP_SWING_EMP		0x2004
++#define MTK_DP_TOP_SWING_EMP		0x4
+ #define DP_TX0_VOLT_SWING_MASK			GENMASK(1, 0)
+ #define DP_TX0_VOLT_SWING_SHIFT			0
+ #define DP_TX0_PRE_EMPH_MASK			GENMASK(3, 2)
+@@ -69,43 +29,59 @@
+ #define DP_TX2_PRE_EMPH_MASK			GENMASK(19, 18)
+ #define DP_TX3_VOLT_SWING_MASK			GENMASK(25, 24)
  #define DP_TX3_PRE_EMPH_MASK			GENMASK(27, 26)
- #define MTK_DP_TOP_RESET_AND_PROBE	0x20
+-#define MTK_DP_TOP_RESET_AND_PROBE	0x2020
++#define MTK_DP_TOP_RESET_AND_PROBE	0x20
  #define SW_RST_B_PHYD				BIT(4)
--#define RG_SW_RST_MASK				GENMASK(7, 0)
--#define RG_SW_RST				0xff
-+#define RG_SW_RST_ALL				GENMASK(7, 0)
- #define RG_PROBE_LOW_SEL_MASK			GENMASK(18, 16)
-+#  define RG_PROBE_SW				0
-+#  define RG_PROBE_ENCODER0			1
-+#  define RG_PROBE_TRANSMITTER			2
-+#  define RG_PROBE_AUX_TOP			3
-+#  define RG_PROBE_PHY				4
-+#  define RG_PROBE_MST14			5
-+#  define RG_PROBE_ENCODER1			6
- #define RG_PROBE_LOW_SEL			BIT(16)
--#define RG_PROBE_LOW_HIGH_SWAP_MASK		BIT(23)
- #define RG_PROBE_LOW_HIGH_SWAP			BIT(23)
- 
- #define MTK_DP_TOP_IRQ_MASK		0x2c
--#define ENCODER_IRQ_MSK				BIT(0)
-+#define ENCODER0_IRQ_MSK			BIT(0)
- #define TRANS_IRQ_MSK				BIT(1)
--#define IRQ_MASK_AUX_TOP_IRQ			BIT(2)
-+#define AUX_TOP_IRQ_MSK				BIT(2)
-+#define ENCODER1_IRQ_MSK			BIT(3)
- 
- #define MTK_DP_TOP_MEM_PD		0x38
+-#define MTK_DP_TOP_IRQ_MASK		0x202c
++#define RG_SW_RST_MASK				GENMASK(7, 0)
++#define RG_SW_RST				0xff
++#define RG_PROBE_LOW_SEL_MASK			GENMASK(18, 16)
++#define RG_PROBE_LOW_SEL			BIT(16)
++#define RG_PROBE_LOW_HIGH_SWAP_MASK		BIT(23)
++#define RG_PROBE_LOW_HIGH_SWAP			BIT(23)
++
++#define MTK_DP_TOP_IRQ_MASK		0x2c
++#define ENCODER_IRQ_MSK				BIT(0)
++#define TRANS_IRQ_MSK				BIT(1)
+ #define IRQ_MASK_AUX_TOP_IRQ			BIT(2)
+-#define MTK_DP_TOP_MEM_PD		0x2038
++
++#define MTK_DP_TOP_MEM_PD		0x38
  #define MEM_ISO_EN				BIT(0)
  #define FUSE_SEL				BIT(2)
  
- #define EDP_TX_TOP_CLKGEN_0		0x74
--#define EDP_TX_TOP_CLKGEN_REST_MASK		0xf
--#define EDP_TX_TOP_CLKGEN_REST_VALUE		0xf
-+#define EDP_TX_TOP_CLKGEN_AUX_P0_EN		BIT(0)
-+#define EDP_TX_TOP_CLKGEN_AUX_MUX_DATA_EN	BIT(1)
-+#define EDP_TX_TOP_CLKGEN_AUX_MUX_VALID_EN	BIT(2)
-+#define EDP_TX_TOP_CLKGEN_XTAL_P0_EN		BIT(3)
-+#define EDP_TX_TOP_CLKGEN_LS_VSC_W_0_EN		BIT(4)
-+#define EDP_TX_TOP_CLKGEN_LS_ENCODER_L0_EN	BIT(5)
-+#define EDP_TX_TOP_CLKGEN_LS_ENCODER_L1_EN	BIT(6)
-+#define EDP_TX_TOP_CLKGEN_LS_ENCODER_L2_EN	BIT(7)
-+#define EDP_TX_TOP_CLKGEN_LS_ENCODER_L3_EN	BIT(8)
+-/* offset: ENC0_OFFSET (0x3000) */
+-#define MTK_DP_ENC0_P0_3000			0x3000
++#define EDP_TX_TOP_CLKGEN_0		0x74
++#define EDP_TX_TOP_CLKGEN_REST_MASK		0xf
++#define EDP_TX_TOP_CLKGEN_REST_VALUE		0xf
++
++/* offset: ENC0_OFFSET (0x1000) */
++#define MTK_DP_ENC0_P0_3000			0x1000
+ #define LANE_NUM_DP_ENC0_P0_MASK			GENMASK(1, 0)
+ #define VIDEO_MUTE_SW_DP_ENC0_P0			BIT(2)
+ #define VIDEO_MUTE_SEL_DP_ENC0_P0			BIT(3)
+ #define ENHANCED_FRAME_EN_DP_ENC0_P0			BIT(4)
+-#define MTK_DP_ENC0_P0_3004			0x3004
++#define DP_I_MODE_ENABLE				BIT(6)
++#define REG_BS_SYMBOL_CNT_RESET				BIT(7)
++#define MTK_DP_ENC0_P0_3004			0x1004
+ #define VIDEO_M_CODE_SEL_DP_ENC0_P0_MASK		BIT(8)
+ #define DP_TX_ENCODER_4P_RESET_SW_DP_ENC0_P0		BIT(9)
+ #define SDP_RESET_SW_DP_ENC0_P0				BIT(13)
+-#define MTK_DP_ENC0_P0_3010			0x3010
++#define MTK_DP_ENC0_P0_3010			0x1010
+ #define HTOTAL_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3014			0x3014
++#define MTK_DP_ENC0_P0_3014			0x1014
+ #define VTOTAL_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3018			0x3018
++#define MTK_DP_ENC0_P0_3018			0x1018
+ #define HSTART_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_301C			0x301c
++#define MTK_DP_ENC0_P0_301C			0x101c
+ #define VSTART_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3020			0x3020
++#define MTK_DP_ENC0_P0_3020			0x1020
+ #define HWIDTH_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3024			0x3024
++#define MTK_DP_ENC0_P0_3024			0x1024
+ #define VHEIGHT_SW_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3028			0x3028
++#define MTK_DP_ENC0_P0_3028			0x1028
+ #define HSW_SW_DP_ENC0_P0_MASK				GENMASK(14, 0)
+ #define HSP_SW_DP_ENC0_P0_MASK				BIT(15)
+-#define MTK_DP_ENC0_P0_302C			0x302c
++#define MTK_DP_ENC0_P0_302C			0x102c
+ #define VSW_SW_DP_ENC0_P0_MASK				GENMASK(14, 0)
+ #define VSP_SW_DP_ENC0_P0_MASK				BIT(15)
+-#define MTK_DP_ENC0_P0_3030			0x3030
++#define MTK_DP_ENC0_P0_3030			0x1030
+ #define HTOTAL_SEL_DP_ENC0_P0				BIT(0)
+ #define VTOTAL_SEL_DP_ENC0_P0				BIT(1)
+ #define HSTART_SEL_DP_ENC0_P0				BIT(2)
+@@ -118,10 +94,10 @@
+ #define VSW_SEL_DP_ENC0_P0				BIT(9)
+ #define VBID_AUDIO_MUTE_FLAG_SW_DP_ENC0_P0		BIT(11)
+ #define VBID_AUDIO_MUTE_FLAG_SEL_DP_ENC0_P0		BIT(12)
+-#define MTK_DP_ENC0_P0_3034			0x3034
+-#define MTK_DP_ENC0_P0_3038			0x3038
++#define MTK_DP_ENC0_P0_3034			0x1034
++#define MTK_DP_ENC0_P0_3038			0x1038
+ #define VIDEO_SOURCE_SEL_DP_ENC0_P0_MASK		BIT(11)
+-#define MTK_DP_ENC0_P0_303C			0x303c
++#define MTK_DP_ENC0_P0_303C			0x103c
+ #define SRAM_START_READ_THRD_DP_ENC0_P0_MASK		GENMASK(5, 0)
+ #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_MASK		GENMASK(10, 8)
+ #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_16BIT		(0 << 8)
+@@ -130,34 +106,36 @@
+ #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_8BIT		(3 << 8)
+ #define VIDEO_COLOR_DEPTH_DP_ENC0_P0_6BIT		(4 << 8)
+ #define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK		GENMASK(14, 12)
+-#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RGB		(0 << 12)
+-#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR422		(1 << 12)
+-#define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR420		(2 << 12)
++#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RGB		0
++#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR422	1
++#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR420	2
++#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YONLY		3
++#  define PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RAW		4
+ #define VIDEO_MN_GEN_EN_DP_ENC0_P0			BIT(15)
+-#define MTK_DP_ENC0_P0_3040			0x3040
++#define MTK_DP_ENC0_P0_3040			0x1040
+ #define SDP_DOWN_CNT_DP_ENC0_P0_VAL			0x20
+ #define SDP_DOWN_CNT_INIT_DP_ENC0_P0_MASK		GENMASK(11, 0)
+-#define MTK_DP_ENC0_P0_304C			0x304c
++#define MTK_DP_ENC0_P0_304C			0x104c
+ #define VBID_VIDEO_MUTE_DP_ENC0_P0_MASK			BIT(2)
+ #define SDP_VSYNC_RISING_MASK_DP_ENC0_P0_MASK		BIT(8)
+-#define MTK_DP_ENC0_P0_3064			0x3064
++#define MTK_DP_ENC0_P0_3064			0x1064
+ #define HDE_NUM_LAST_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3088			0x3088
++#define MTK_DP_ENC0_P0_3088			0x1088
+ #define AU_EN_DP_ENC0_P0				BIT(6)
+ #define AUDIO_8CH_EN_DP_ENC0_P0_MASK			BIT(7)
+ #define AUDIO_8CH_SEL_DP_ENC0_P0_MASK			BIT(8)
+ #define AUDIO_2CH_EN_DP_ENC0_P0_MASK			BIT(14)
+ #define AUDIO_2CH_SEL_DP_ENC0_P0_MASK			BIT(15)
+-#define MTK_DP_ENC0_P0_308C			0x308c
++#define MTK_DP_ENC0_P0_308C			0x108c
+ #define CH_STATUS_0_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3090			0x3090
++#define MTK_DP_ENC0_P0_3090			0x1090
+ #define CH_STATUS_1_DP_ENC0_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_ENC0_P0_3094			0x3094
++#define MTK_DP_ENC0_P0_3094			0x1094
+ #define CH_STATUS_2_DP_ENC0_P0_MASK			GENMASK(7, 0)
+-#define MTK_DP_ENC0_P0_30A4			0x30a4
++#define MTK_DP_ENC0_P0_30A4			0x10a4
+ #define AU_TS_CFG_DP_ENC0_P0_MASK			GENMASK(7, 0)
+-#define MTK_DP_ENC0_P0_30A8			0x30a8
+-#define MTK_DP_ENC0_P0_30BC			0x30bc
++#define MTK_DP_ENC0_P0_30A8			0x10a8
++#define MTK_DP_ENC0_P0_30BC			0x10bc
+ #define ISRC_CONT_DP_ENC0_P0				BIT(0)
+ #define AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_MASK	GENMASK(10, 8)
+ #define MT8195_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_MUL_2	(1 << 8)
+@@ -172,63 +150,65 @@
+ #define MT8188_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_2	(4 << 8)
+ #define MT8188_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_4	(5 << 8)
+ #define MT8188_AUDIO_M_CODE_MULT_DIV_SEL_DP_ENC0_P0_DIV_8	(7 << 8)
+-#define MTK_DP_ENC0_P0_30D8			0x30d8
+-#define MTK_DP_ENC0_P0_312C			0x312c
++#define MTK_DP_ENC0_P0_30D8			0x10d8
++#define MTK_DP_ENC0_P0_312C			0x112c
+ #define ASP_HB2_DP_ENC0_P0_MASK				GENMASK(7, 0)
+ #define ASP_HB3_DP_ENC0_P0_MASK				GENMASK(15, 8)
+-#define MTK_DP_ENC0_P0_3154			0x3154
++#define MTK_DP_ENC0_P0_3154			0x1154
+ #define PGEN_HTOTAL_DP_ENC0_P0_MASK			GENMASK(13, 0)
+-#define MTK_DP_ENC0_P0_3158			0x3158
++#define MTK_DP_ENC0_P0_3158			0x1158
+ #define PGEN_HSYNC_RISING_DP_ENC0_P0_MASK		GENMASK(13, 0)
+-#define MTK_DP_ENC0_P0_315C			0x315c
++#define MTK_DP_ENC0_P0_315C			0x115c
+ #define PGEN_HSYNC_PULSE_WIDTH_DP_ENC0_P0_MASK		GENMASK(13, 0)
+-#define MTK_DP_ENC0_P0_3160			0x3160
++#define MTK_DP_ENC0_P0_3160			0x1160
+ #define PGEN_HFDE_START_DP_ENC0_P0_MASK			GENMASK(13, 0)
+-#define MTK_DP_ENC0_P0_3164			0x3164
++#define MTK_DP_ENC0_P0_3164			0x1164
+ #define PGEN_HFDE_ACTIVE_WIDTH_DP_ENC0_P0_MASK		GENMASK(13, 0)
+-#define MTK_DP_ENC0_P0_3168			0x3168
++#define MTK_DP_ENC0_P0_3168			0x1168
+ #define PGEN_VTOTAL_DP_ENC0_P0_MASK			GENMASK(12, 0)
+-#define MTK_DP_ENC0_P0_316C			0x316c
++#define MTK_DP_ENC0_P0_316C			0x116c
+ #define PGEN_VSYNC_RISING_DP_ENC0_P0_MASK		GENMASK(12, 0)
+-#define MTK_DP_ENC0_P0_3170			0x3170
++#define MTK_DP_ENC0_P0_3170			0x1170
+ #define PGEN_VSYNC_PULSE_WIDTH_DP_ENC0_P0_MASK		GENMASK(12, 0)
+-#define MTK_DP_ENC0_P0_3174			0x3174
++#define MTK_DP_ENC0_P0_3174			0x1174
+ #define PGEN_VFDE_START_DP_ENC0_P0_MASK			GENMASK(12, 0)
+-#define MTK_DP_ENC0_P0_3178			0x3178
++#define MTK_DP_ENC0_P0_3178			0x1178
+ #define PGEN_VFDE_ACTIVE_WIDTH_DP_ENC0_P0_MASK		GENMASK(12, 0)
+-#define MTK_DP_ENC0_P0_31B0			0x31b0
++#define MTK_DP_ENC0_P0_31B0			0x11b0
+ #define PGEN_PATTERN_SEL_VAL				4
+ #define PGEN_PATTERN_SEL_MASK				GENMASK(6, 4)
+-#define MTK_DP_ENC0_P0_31EC			0x31ec
++#define MTK_DP_ENC0_P0_31EC			0x11ec
+ #define AUDIO_CH_SRC_SEL_DP_ENC0_P0			BIT(4)
+ #define ISRC1_HB3_DP_ENC0_P0_MASK			GENMASK(15, 8)
  
- /* offset: ENC0_OFFSET (0x1000) */
- #define MTK_DP_ENC0_P0_3000			0x1000
-@@ -210,16 +223,19 @@
+-/* offset: ENC1_OFFSET (0x3200) */
+-#define MTK_DP_ENC1_P0_3200			0x3200
+-#define MTK_DP_ENC1_P0_3280			0x3280
++/* offset: ENC1_OFFSET (0x1200) */
++#define MTK_DP_ENC1_P0_3200			0x1200
++#define MTK_DP_ENC1_P0_3280			0x1280
+ #define SDP_PACKET_TYPE_DP_ENC1_P0_MASK			GENMASK(4, 0)
+ #define SDP_PACKET_W_DP_ENC1_P0				BIT(5)
+ #define SDP_PACKET_W_DP_ENC1_P0_MASK			BIT(5)
+-#define MTK_DP_ENC1_P0_3300			0x3300
++#define MTK_DP_ENC1_P0_3300			0x1300
+ #define VIDEO_AFIFO_RDY_SEL_DP_ENC1_P0_VAL		2
+ #define VIDEO_AFIFO_RDY_SEL_DP_ENC1_P0_MASK		GENMASK(9, 8)
+-#define MTK_DP_ENC1_P0_3304			0x3304
++#define MTK_DP_ENC1_P0_3304			0x1304
+ #define AU_PRTY_REGEN_DP_ENC1_P0_MASK			BIT(8)
+ #define AU_CH_STS_REGEN_DP_ENC1_P0_MASK			BIT(9)
+ #define AUDIO_SAMPLE_PRSENT_REGEN_DP_ENC1_P0_MASK	BIT(12)
+-#define MTK_DP_ENC1_P0_3324			0x3324
++#define MTK_DP_ENC1_P0_3324			0x1324
+ #define AUDIO_SOURCE_MUX_DP_ENC1_P0_MASK		GENMASK(9, 8)
+ #define AUDIO_SOURCE_MUX_DP_ENC1_P0_DPRX		0
+-#define MTK_DP_ENC1_P0_3364			0x3364
++#define MTK_DP_ENC1_P0_3364			0x1364
+ #define SDP_DOWN_CNT_IN_HBLANK_DP_ENC1_P0_VAL		0x20
+ #define SDP_DOWN_CNT_INIT_IN_HBLANK_DP_ENC1_P0_MASK	GENMASK(11, 0)
+ #define FIFO_READ_START_POINT_DP_ENC1_P0_VAL		4
+ #define FIFO_READ_START_POINT_DP_ENC1_P0_MASK		GENMASK(15, 12)
+-#define MTK_DP_ENC1_P0_3368			0x3368
++#define MTK_DP_ENC1_P0_3368			0x1368
+ #define VIDEO_SRAM_FIFO_CNT_RESET_SEL_DP_ENC1_P0	BIT(0)
++#define VIDEO_SRAM_FIFO_CNT_RESET_SEL_MASK		GENMASK(1, 0)
+ #define VIDEO_STABLE_CNT_THRD_DP_ENC1_P0		BIT(4)
+ #define SDP_DP13_EN_DP_ENC1_P0				BIT(8)
  #define BS2BS_MODE_DP_ENC1_P0				BIT(12)
- #define BS_FOLLOW_SEL_DP_ENC0_P0			BIT(15)
++#define BS_FOLLOW_SEL_DP_ENC0_P0			BIT(15)
  #define BS2BS_MODE_DP_ENC1_P0_MASK			GENMASK(13, 12)
--#define BS2BS_MODE_DP_ENC1_P0_VAL			1
+ #define BS2BS_MODE_DP_ENC1_P0_VAL			1
  #define DP_ENC1_P0_3368_VAL				(VIDEO_SRAM_FIFO_CNT_RESET_SEL_DP_ENC1_P0 | \
- 							 VIDEO_STABLE_CNT_THRD_DP_ENC1_P0 | \
+@@ -236,94 +216,94 @@
  							 SDP_DP13_EN_DP_ENC1_P0 | \
  							 BS2BS_MODE_DP_ENC1_P0)
--
- #define MTK_DP_ENC1_P0_3374			0x1374
+ 
+-#define MTK_DP_ENC1_P0_3374			0x3374
++#define MTK_DP_ENC1_P0_3374			0x1374
  #define SDP_ASP_INSERT_IN_HBLANK_DP_ENC1_P0_MASK	BIT(12)
  #define SDP_DOWN_ASP_CNT_INIT_DP_ENC1_P0_MASK		GENMASK(11, 0)
--
-+#define REG_33C0_DP_ENCODER1_P0			0x13c0
-+#define SDP_TESTBUS_SEL_DP_ENC_MASK			GENMASK(15, 12)
-+#define SDP_TESTBUS_SEL_BIT_DP_ENC			BIT(7)
-+#define REG_33C4_DP_ENCODER1_P0			0x13c4
-+#define DP_TX_ENCODER_TESTBUS_SEL_DP_ENC_MASK		GENMASK(6, 5)
-+#define DP_TX_ENCODER_TESTBUS_SEL_DP_ENC		BIT(5)
- #define MTK_DP_ENC1_P0_33F4			0x13f4
+ 
+-#define MTK_DP_ENC1_P0_33F4			0x33f4
++#define MTK_DP_ENC1_P0_33F4			0x13f4
  #define DP_ENC_DUMMY_RW_1_AUDIO_RST_EN			BIT(0)
  #define DP_ENC_DUMMY_RW_1				BIT(9)
-@@ -361,6 +377,31 @@
- #define MTK_DP_AUX_P0_37C8			0x17c8
+ 
+-/* offset: TRANS_OFFSET (0x3400) */
+-#define MTK_DP_TRANS_P0_3400				0x3400
++/* offset: TRANS_OFFSET (0x1400) */
++#define MTK_DP_TRANS_P0_3400				0x1400
+ #define PATTERN1_EN_DP_TRANS_P0_MASK				BIT(12)
+ #define PATTERN2_EN_DP_TRANS_P0_MASK				BIT(13)
+ #define PATTERN3_EN_DP_TRANS_P0_MASK				BIT(14)
+ #define PATTERN4_EN_DP_TRANS_P0_MASK				BIT(15)
+-#define MTK_DP_TRANS_P0_3404				0x3404
++#define MTK_DP_TRANS_P0_3404				0x1404
+ #define DP_SCR_EN_DP_TRANS_P0_MASK				BIT(0)
+-#define MTK_DP_TRANS_P0_340C				0x340c
++#define MTK_DP_TRANS_P0_340C				0x140c
+ #define DP_TX_TRANSMITTER_4P_RESET_SW_DP_TRANS_P0		BIT(13)
+-#define MTK_DP_TRANS_P0_3410				0x3410
++#define MTK_DP_TRANS_P0_3410				0x1410
+ #define HPD_DEB_THD_DP_TRANS_P0_MASK				GENMASK(3, 0)
+ #define HPD_INT_THD_DP_TRANS_P0_MASK				GENMASK(7, 4)
+ #define HPD_INT_THD_DP_TRANS_P0_LOWER_500US			(2 << 4)
+ #define HPD_INT_THD_DP_TRANS_P0_UPPER_1100US			(2 << 6)
+ #define HPD_DISC_THD_DP_TRANS_P0_MASK				GENMASK(11, 8)
+ #define HPD_CONN_THD_DP_TRANS_P0_MASK				GENMASK(15, 12)
+-#define MTK_DP_TRANS_P0_3414				0x3414
++#define MTK_DP_TRANS_P0_3414				0x1414
+ #define HPD_DB_DP_TRANS_P0_MASK					BIT(2)
+-#define MTK_DP_TRANS_P0_3418				0x3418
++#define MTK_DP_TRANS_P0_3418				0x1418
+ #define IRQ_CLR_DP_TRANS_P0_MASK				GENMASK(3, 0)
+ #define IRQ_MASK_DP_TRANS_P0_MASK				GENMASK(7, 4)
+ #define IRQ_MASK_DP_TRANS_P0_DISC_IRQ				(BIT(1) << 4)
+ #define IRQ_MASK_DP_TRANS_P0_CONN_IRQ				(BIT(2) << 4)
+ #define IRQ_MASK_DP_TRANS_P0_INT_IRQ				(BIT(3) << 4)
+ #define IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 12)
+-#define MTK_DP_TRANS_P0_342C				0x342c
++#define MTK_DP_TRANS_P0_342C				0x142c
+ #define XTAL_FREQ_DP_TRANS_P0_DEFAULT				(BIT(0) | BIT(3) | BIT(5) | BIT(6))
+ #define XTAL_FREQ_DP_TRANS_P0_MASK				GENMASK(7, 0)
+-#define MTK_DP_TRANS_P0_3430				0x3430
++#define MTK_DP_TRANS_P0_3430				0x1430
+ #define HPD_INT_THD_ECO_DP_TRANS_P0_MASK			GENMASK(1, 0)
+ #define HPD_INT_THD_ECO_DP_TRANS_P0_HIGH_BOUND_EXT		BIT(1)
+-#define MTK_DP_TRANS_P0_34A4				0x34a4
++#define MTK_DP_TRANS_P0_34A4				0x14a4
+ #define LANE_NUM_DP_TRANS_P0_MASK				GENMASK(3, 2)
+-#define MTK_DP_TRANS_P0_3540				0x3540
++#define MTK_DP_TRANS_P0_3540				0x1540
+ #define FEC_EN_DP_TRANS_P0_MASK					BIT(0)
+ #define FEC_CLOCK_EN_MODE_DP_TRANS_P0				BIT(3)
+-#define MTK_DP_TRANS_P0_3580				0x3580
++#define MTK_DP_TRANS_P0_3580				0x1580
+ #define POST_MISC_DATA_LANE0_OV_DP_TRANS_P0_MASK		BIT(8)
+ #define POST_MISC_DATA_LANE1_OV_DP_TRANS_P0_MASK		BIT(9)
+ #define POST_MISC_DATA_LANE2_OV_DP_TRANS_P0_MASK		BIT(10)
+ #define POST_MISC_DATA_LANE3_OV_DP_TRANS_P0_MASK		BIT(11)
+-#define MTK_DP_TRANS_P0_35C8				0x35c8
++#define MTK_DP_TRANS_P0_35C8				0x15c8
+ #define SW_IRQ_CLR_DP_TRANS_P0_MASK				GENMASK(15, 0)
+ #define SW_IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 0)
+-#define MTK_DP_TRANS_P0_35D0				0x35d0
++#define MTK_DP_TRANS_P0_35D0				0x15d0
+ #define SW_IRQ_FINAL_STATUS_DP_TRANS_P0_MASK			GENMASK(15, 0)
+-#define MTK_DP_TRANS_P0_35F0				0x35f0
++#define MTK_DP_TRANS_P0_35F0				0x15f0
+ #define DP_TRANS_DUMMY_RW_0					BIT(3)
+ #define DP_TRANS_DUMMY_RW_0_MASK				GENMASK(3, 2)
+ 
+-/* offset: AUX_OFFSET (0x3600) */
+-#define MTK_DP_AUX_P0_360C			0x360c
++/* offset: AUX_OFFSET (0x1600) */
++#define MTK_DP_AUX_P0_360C			0x160c
+ #define AUX_TIMEOUT_THR_AUX_TX_P0_MASK			GENMASK(12, 0)
+ #define AUX_TIMEOUT_THR_AUX_TX_P0_VAL			0x1595
+-#define MTK_DP_AUX_P0_3614			0x3614
++#define MTK_DP_AUX_P0_3614			0x1614
+ #define AUX_RX_UI_CNT_THR_AUX_TX_P0_MASK		GENMASK(6, 0)
+ #define AUX_RX_UI_CNT_THR_AUX_FOR_26M			13
+-#define MTK_DP_AUX_P0_3618			0x3618
++#define MTK_DP_AUX_P0_3618			0x1618
+ #define AUX_RX_FIFO_FULL_AUX_TX_P0_MASK			BIT(9)
+ #define AUX_RX_FIFO_WRITE_POINTER_AUX_TX_P0_MASK	GENMASK(3, 0)
+-#define MTK_DP_AUX_P0_3620			0x3620
++#define MTK_DP_AUX_P0_3620			0x1620
+ #define AUX_RD_MODE_AUX_TX_P0_MASK			BIT(9)
+ #define AUX_RX_FIFO_READ_PULSE_TX_P0			BIT(8)
+ #define AUX_RX_FIFO_READ_DATA_AUX_TX_P0_MASK		GENMASK(7, 0)
+-#define MTK_DP_AUX_P0_3624			0x3624
++#define MTK_DP_AUX_P0_3624			0x1624
+ #define AUX_RX_REPLY_COMMAND_AUX_TX_P0_MASK		GENMASK(3, 0)
+-#define MTK_DP_AUX_P0_3628			0x3628
++#define MTK_DP_AUX_P0_3628			0x1628
+ #define AUX_RX_PHY_STATE_AUX_TX_P0_MASK			GENMASK(9, 0)
+ #define AUX_RX_PHY_STATE_AUX_TX_P0_RX_IDLE		BIT(0)
+-#define MTK_DP_AUX_P0_362C			0x362c
++#define MTK_DP_AUX_P0_362C			0x162c
+ #define AUX_NO_LENGTH_AUX_TX_P0				BIT(0)
+ #define AUX_TX_AUXTX_OV_EN_AUX_TX_P0_MASK		BIT(1)
+ #define AUX_RESERVED_RW_0_AUX_TX_P0_MASK		GENMASK(15, 2)
+-#define MTK_DP_AUX_P0_3630			0x3630
++#define MTK_DP_AUX_P0_3630			0x1630
+ #define AUX_TX_REQUEST_READY_AUX_TX_P0			BIT(3)
+-#define MTK_DP_AUX_P0_3634			0x3634
++#define MTK_DP_AUX_P0_3634			0x1634
+ #define AUX_TX_OVER_SAMPLE_RATE_AUX_TX_P0_MASK		GENMASK(15, 8)
+ #define AUX_TX_OVER_SAMPLE_RATE_FOR_26M			25
+-#define MTK_DP_AUX_P0_3640			0x3640
++#define MTK_DP_AUX_P0_3640			0x1640
+ #define AUX_RX_AUX_RECV_COMPLETE_IRQ_AUX_TX_P0		BIT(6)
+ #define AUX_RX_EDID_RECV_COMPLETE_IRQ_AUX_TX_P0		BIT(5)
+ #define AUX_RX_MCCS_RECV_COMPLETE_IRQ_AUX_TX_P0		BIT(4)
+@@ -338,25 +318,32 @@
+ 							 AUX_RX_MCCS_RECV_COMPLETE_IRQ_AUX_TX_P0 | \
+ 							 AUX_RX_EDID_RECV_COMPLETE_IRQ_AUX_TX_P0 | \
+ 							 AUX_RX_AUX_RECV_COMPLETE_IRQ_AUX_TX_P0)
+-#define MTK_DP_AUX_P0_3644			0x3644
++#define MTK_DP_AUX_P0_3644			0x1644
+ #define MCU_REQUEST_COMMAND_AUX_TX_P0_MASK		GENMASK(3, 0)
+-#define MTK_DP_AUX_P0_3648			0x3648
++#define MTK_DP_AUX_P0_3648			0x1648
+ #define MCU_REQUEST_ADDRESS_LSB_AUX_TX_P0_MASK		GENMASK(15, 0)
+-#define MTK_DP_AUX_P0_364C			0x364c
++#define MTK_DP_AUX_P0_364C			0x164c
+ #define MCU_REQUEST_ADDRESS_MSB_AUX_TX_P0_MASK		GENMASK(3, 0)
+-#define MTK_DP_AUX_P0_3650			0x3650
++#define MTK_DP_AUX_P0_3650			0x1650
+ #define MCU_REQ_DATA_NUM_AUX_TX_P0_MASK			GENMASK(15, 12)
+ #define PHY_FIFO_RST_AUX_TX_P0_MASK			BIT(9)
+ #define MCU_ACK_TRAN_COMPLETE_AUX_TX_P0			BIT(8)
+-#define MTK_DP_AUX_P0_3658			0x3658
++#define MTK_DP_AUX_P0_3658			0x1658
+ #define AUX_TX_OV_EN_AUX_TX_P0_MASK			BIT(0)
+-#define MTK_DP_AUX_P0_3690			0x3690
++#define MTK_DP_AUX_P0_3690			0x1690
+ #define RX_REPLY_COMPLETE_MODE_AUX_TX_P0		BIT(8)
+-#define MTK_DP_AUX_P0_3704			0x3704
++
++#define REG_36A0_AUX_TX_P0			0x16a0
++#define DP_TX_INIT_MASK_15_TO_2				GENMASK(15, 2)
++
++#define MTK_DP_AUX_P0_3704			0x1704
+ #define AUX_TX_FIFO_WDATA_NEW_MODE_T_AUX_TX_P0_MASK	BIT(1)
+ #define AUX_TX_FIFO_NEW_MODE_EN_AUX_TX_P0		BIT(2)
+-#define MTK_DP_AUX_P0_3708			0x3708
+-#define MTK_DP_AUX_P0_37C8			0x37c8
++#define MTK_DP_AUX_P0_3708			0x1708
++#define MTK_DP_AUX_P0_37C8			0x17c8
  #define MTK_ATOP_EN_AUX_TX_P0				BIT(0)
  
-+/* offset info queue */
-+#define MTK_DP_PSR_FRAME_START_MARKER_0			0x1f04
-+#define MTK_DP_PSR_FRAME_START_MARKER_1			0x1f08
-+#define MTK_DP_PSR_FRAME_END_MARKER_0			0x1f0c
-+#define MTK_DP_PSR_FRAME_END_MARKER_1			0x1f10
-+#define DP_ENC_P0_3_FRAME_MARKER_MASK			GENMASK(15, 0)
-+#define REG_3F28_DP_ENC_P0_3			0x1f28
-+#define DP_TX_SDP_PSR_AS_TESTBUS_MASK			GENMASK(5, 2)
-+#define DP_TX_SDP_PSR_AS_TESTBUS			10
-+#define REG_3F40_DP_ENC_P0_3			0x1f40
-+#define REG_3F44_DP_ENC_P0_3			0x1f44
-+#define ENC_PHY_PWR_STATE_OVERWRITE_MASK		GENMASK(4, 3)
-+#define ENC_PHY_ALL_PWR_OFF				0
-+#define ENC_PHY_BIAS_PWR_ON				1
-+#define ENC_PHY_BIAS_PLL_PWR_ON				2
-+#define ENC_PHY_ALL_PWR_ON				3
-+#define ENC_PHY_PWR_OVERWRITE_EN			BIT(2)
-+#define REG_3F80_DP_ENC_P0_3			0x1f80
-+#define PSR_PATGEN_AVT_EN_FLDMASK			0x20
-+#define REG_3FF8_DP_ENC_P0_3			0x1ff8
-+#define ENC_PHY_STATE_RESET_ALL_MASK			GENMASK(7, 0)
-+#define PHY_STATE_W_1_DP_ENC_P0_3			BIT(6)
-+#define DP_ENCODER_DVO_ON_W_1				BIT(5)
-+#define DP_ENCODER_PSR_XTAL_FREQ_MHZ_MASK		GENMASK(13, 9)
++/* offset: SEC_OFFSET (0x2000) */
++#define SEC_OFFSET	0x2000
 +
- /* offset: SEC_OFFSET (0x2000) */
- #define SEC_OFFSET	0x2000
- 
+ #endif /*_MTK_DP_REG_H_*/
 -- 
 2.54.0
 
