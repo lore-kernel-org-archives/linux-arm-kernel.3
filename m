@@ -4,75 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6FFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 03:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EE6C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Jul 2026 03:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yonl3ENKSgte5Nwj0BKHhqfaUkH4F872Lq1R+UyzkDg=; b=DPF/lE38OeDnANl+sMi+1s6Qt1
-	+CDCceBHgmnM1SkdcF8o23YmLiv6SgelhQ0jxb6s6n1uNKHt2vouDw5xyoXqWIk3MoefAnngeyVsU
-	x22tqDiuROfhv8aAfhBjpaF8zVoT8WHHMECaJKz2juI+ZkgZ5d+2vi1HlPcAjI8GPrBOoi1a4Nso0
-	nFzgkKesHKcKz+oJtD+/Gwt18RQPGmx4F3kMrCUVkC413fPwT4qwnRufGQwYwikG7B9d/doJDcXJe
-	/GxNcelx8vseycb+evzqAmii2X01Wfa0LiCDZsBDFe/ZTLgXofRujMvUtjNFUFsGvou5NE4b/PGdB
-	UtyiVkmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m7JAm6c5QpWscHDUz2WKVnHugJ6te115xZNRdOcGfts=; b=roCmwBZyX/XlyfwKP987xHIiJY
+	mfyJqfioBF3W8egvPLnrAc4Ti1yKq0SSsFMwH824BMWTnbbj5GlLsBPlVlxzuJZnC+kYcMxpA3/Oc
+	u488b3U2wjEHiDRO2I3Dcrnu3r+mcef3yslVSg8wN3ghdx83/OP9gfyC5F9o6TJlAzR2w6IzpDhbx
+	p+W5r4UGZ8o1JyKfMmbHHAhOWEWLvMeAfOIJBcBOKvT/IvcmV2Pq/MdF4nNG2yo1NhkJzsSopUqoi
+	mdnW8bUB5NN/H7a6CYVANRloQIl51XgEoMftGp5naQOhrVOlrB/n88VxQnBTj8qEur0I3NTErCvae
+	d0k89bjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whfTW-00000000uC9-1Svd;
-	Thu, 09 Jul 2026 03:30:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1whfXU-00000000uwc-0MjC;
+	Thu, 09 Jul 2026 03:35:04 +0000
+Received: from mail-koreacentralazon11013017.outbound.protection.outlook.com ([40.107.44.17] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whfTU-00000000uBK-3hM4;
-	Thu, 09 Jul 2026 03:30:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52E8543DB4;
-	Thu,  9 Jul 2026 03:30:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 24259C2BCB9;
-	Thu,  9 Jul 2026 03:30:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783567855;
-	bh=vebU/IOSL4arCI7BNVBZ9A6pu8AqsIlGnYCcT/LYqyw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FNih6mKOnim7IzfeF9w40FWC2YVy7YFGbqdwFNaB89oTloaCZv176GZ2oMSDZ7HgR
-	 iOld8xZpY7mldKeMCSPszmSylJo43ViIX3KqoBixhbzxTBoSpr0AXucqw4ICK3hndq
-	 Br3AKj+pEtcpCYk3TKaBsMxOz6UP1TOfQ3ne5/PPNfXB01gVid/tnqoT7B3uRKSvxB
-	 6joXb2aPi4TxzSazc5FhAODmBlZx4Kkp5bB5nxgSHb/iVPx3Xf5DFTYsV6YwZQw56R
-	 LNDmNd93+OimwxedSS3rgH5vZoCAfbwbcfKwXs4YBPQyZATBxvW1VpxvQx1eE1+YSQ
-	 5jECuMexr6d2Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 079F5C44506;
-	Thu,  9 Jul 2026 03:30:55 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 09 Jul 2026 03:30:52 +0000
-Subject: [PATCH v2 2/2] arm64: dts: amlogic: a9: Add IR controller support
+	id 1whfXR-00000000uvU-0urS;
+	Thu, 09 Jul 2026 03:35:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z54+tPnbz0UYYpSHMNHndnOS2Glq9YQIJrz4SOJ5vJHuRdQRv0KuhKocSJSXeLij7m6khOs8yUG0y9HE+RwOrXfpyA0XZJH7Dh62cCZcBaVQFy3jGGJtuYDuHl+uK1lah0Ea6pICJBk5ByOj9SM6EzC90TDxNueiVFHNYbFIZYVW72+IKXs/soPoipQ5lmZD8GWQEppa/wwxQwUZDmiR9sorAVA0KYx6qCqLlZpeISWuZlUstJ4zewZt4cGAmkkYsZYF0B4VbWoL9pcB2ZPEIFeagfBRYExn7hlX08d+XcBFxxQO/44ZlDRcqGs7OYqSnhphZ4VPCstq6S4vtwLwWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m7JAm6c5QpWscHDUz2WKVnHugJ6te115xZNRdOcGfts=;
+ b=c/DHEjK/sqWW3eQVC7t31SEohMwEzqRV31SCpo10mb97+fy7LoJBzCMR5bO2NeC4R5xF9LXD8WsvUO93mx+FF3CPN67NEE6a0me3Y+7rRwjuTVt7dzJbiG7wntAdWITtdgFb6Gnv5wnr3fkc363DowNwd/jKS8MELsuxTD2FVnDAlB22KCm6TrjCgGwnxNP01kDeofjlYk+wAJg4+GE5c2sZJmUwE2KYQ4JVyWH/SzvUfbQGxA3T20o33Ma2rPu60JQMpDx7Wy46MB3r3Bnt2cwHc7SRq/VkhbqTDaAJMC2s727sjWqfTw4R/afRtkbZg8cLWym7gYnkW4bQ6Ejmvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m7JAm6c5QpWscHDUz2WKVnHugJ6te115xZNRdOcGfts=;
+ b=NutE10FzDHfNJpMrKlBLPBYaVA75/dwliVb7gjlaVv/8DIOLvUSkR5gXgabMpII98TH1rC+MqYsUy9q1SnLqAc55uXA/moe7k0G3MSqwJ57SOO9TImRKL229Q2W5PECxxKjqWuqUlKJB+RP4Jbu8SF9xpJM0+Nzkt42i3a0ENDzU6RyRmnxasWftG5UHptrgSeermQNPLJv0vdsqd8jk61nRuXvUH5ht2HZ7HoThNrELMmLDoDvIWKWb1o9euYSWcAKo6AQ7p3Md9BakAX+y7Qe+CzDC00r+/j7tk2a9sWihaK32VSJ/ewCXHNvqbSvIvAqxoOHy+735jvVRla4TLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by SEYPR06MB6360.apcprd06.prod.outlook.com (2603:1096:101:13f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Thu, 9 Jul
+ 2026 03:34:50 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0181.014; Thu, 9 Jul 2026
+ 03:34:50 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Sebastian Reichel <sre@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Saravanan Sekar <sravanhome@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Samuel Kayode <samkay014@gmail.com>,
+	Casey Connolly <casey.connolly@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	linux-pm@vger.kernel.org (open list:SYSTEM RESET/SHUTDOWN DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	imx@lists.linux.dev (open list:NXP PF1550 PMIC MFD DRIVER),
+	linux-arm-msm@vger.kernel.org (open list:ARM/QUALCOMM MAILING LIST)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH 00/43] power: Remove redundant error messages on IRQ request failure
+Date: Thu,  9 Jul 2026 11:33:39 +0800
+Message-Id: <20260709033428.362970-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TPYP295CA0017.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::9)
+ To SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260709-a9-ir-v2-2-42c21d7a6ffc@amlogic.com>
-References: <20260709-a9-ir-v2-0-42c21d7a6ffc@amlogic.com>
-In-Reply-To: <20260709-a9-ir-v2-0-42c21d7a6ffc@amlogic.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783567853; l=2027;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=33MzL3Cv7uhjfti4gs/DqpQ4WXJtnpUBkHN5kst4OOM=;
- b=8SnUZjwxz3vAI+j4FX/PVcpN9cL+yAwjXwLL0gpEZn0ZorSBb+bG2CooNlUssjFmYrLhfscJx
- AEqPwtaNpmrAD2TsJBGMMgTWEItCxlcP6aIuRyMiUIGo1OVCVERRVWe
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SEYPR06MB6360:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2303c2f-d8ba-435a-dc1d-08dedd6b07cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|52116014|11063799006|56012099006|18002099003|6133799003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: P0c5wX6Zdb0agOCKZa0qbc0jN69beP1K8FHaERdiu6e56Gf/yLNpXvxXHoMPlOKLVSGeYQf7cQ6wAmReAARiy1MQLI8HUVsd38saL77lgr6j2WjTup3u6fHv4zHPYk5Bvq3pV3vnir1QdSQZeeA1DhvPwJZDIq8iAiGLj8g2fh4/eN8KtTMme1IWN6Po9gyadHLjWQhX6wfczS8fK9wocZps2X7eGonBJ5WKeMuKadv190JODDoB1SSHi7X71O8anqq0dUKxVgRam4mq+wgA/YXLeZMj9T333paFWryw/c9XeLiXYdEV9rnf9HLH3OucCOoCiKJpKGc8ve+xC476uDt8q62smpg3X/VPXb7QBJ0tSl913krygohiupVImHSia2jNAq2VAIrS1OmTPL6OJsSvMxa7bNE0oZA4975Qd8Omka0XQkhCQ3UftYqgiElFVIfK/h48UajCBN2seAX7A0dHz65x2Ogpn2cX696v5NYuP6UTPaWshNDi7Mr9XbF2Tom6G5O6TqTT4w9XkAs+/RcjVmUvDNjAbcDzQ0ukG3M/8ey/+U+jYP68GMQm3fKjCjd307LMZxDV1IsHtPoKbjLOGe/grg279u96NhqWgv3cJPGcjmp3nEVlQ99LIsJ1UQUSbDTQuZhFqduUqtsFergZWluDQmoyZlF6l1atL14wcGr7A6qWR1vWwND4RXQm06uin61hKcJ2roevFYDXMTTlD0r2aMYb2UAf5TvTMMt1h2wklPCunOYtnhneEzNy
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(52116014)(11063799006)(56012099006)(18002099003)(6133799003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Gm++FXjTYhidG/YOq9mDMeP/GsaWmq78sj8PLiBG+pGVYK7CultcMM31rXRU?=
+ =?us-ascii?Q?oDgPZizZyPPqjbJxlqJdj6/mnLPmnQuiv4guPL9dnToe8ufRQbGqO02GwODR?=
+ =?us-ascii?Q?+vuWO1JxmvbtXhM9afGoyVZKMuZQ1NnThwanWKYb9lDQsgOuJrgwa42DK47P?=
+ =?us-ascii?Q?0pXmqTnAgn+t6QS9jBk9qa/q4CZpQ/3xxjy7uqSgYN3jlbf3hMZ76CwcX04Y?=
+ =?us-ascii?Q?tWKZ6HVyPHYSbD1kf3I8rJbxzigWZJBpKt2D1auoMX/wmesFGcZLRliKp93n?=
+ =?us-ascii?Q?ga9R5LG3KdWvW9vy45mV2sAuQczZpAH0oSX/CtlwZb/bDV3hBtLEUPLB0y1g?=
+ =?us-ascii?Q?34HMlcMxL7ZcGtfkllzohooyTWVi924oWN2vYOn6n0+cJYXtdvlIppNbjOiP?=
+ =?us-ascii?Q?73Yid07/KF9pBt1n0chkOYmuBHcx70AEaojcjf/AVGGjbUHUhggOrwzxBw8B?=
+ =?us-ascii?Q?4SJeLDjgUT8joF5hzUKC/ddwdvf7iaTy4l7bVE7PwvZznbbYiBwVoASkKZlH?=
+ =?us-ascii?Q?xrhwbJIzsGjbHLCWa6OsXtFs3Kv3TDNFNHkcQ2Vh6BWpAPOVAEJj1MgW+029?=
+ =?us-ascii?Q?+naz+RgoJG9DLFC8K59PePvZ92DfinPGTWS2weVXrzjCqocn3He+o2qaBebE?=
+ =?us-ascii?Q?wvhrq9UL5nxl79HAfMJDhzq068gZ6DJNXOqpp7HvS4NHtgNKm9LR6OnFDgbp?=
+ =?us-ascii?Q?AS+40G4curgPbMRh/kSacHPIoJamN5AYVXdzCkFJ74QFaQ6Hh4WAMQrQ+rUc?=
+ =?us-ascii?Q?r6gpDsRvqH/BH+xZS29GCoACMap7M5dcxSQYhrUCuPIAXDEaPVhbNsE9+AUu?=
+ =?us-ascii?Q?pb8TSxwh4vqR1QnYNpiS/3Hd7OALUHTnniZTdqT9q6h9YPhd6B4bR/+gZhKa?=
+ =?us-ascii?Q?JDocYS7NUfc/D6NSCfmVcnyY0MXOIlTFsINwBDfMNL8ejX7Pk6XtUPzQfIqi?=
+ =?us-ascii?Q?J4mx3PZBKWcQBZjVQm/Yp5vmOhv0jJdA+SNKPf/eMSOTLuc0b+/jvlKZQCX+?=
+ =?us-ascii?Q?TTyCA6DYdz76bJvm3oNdCkbLV5IMT7W2f+m+xoJvtZubERY+mU65bm5n1WLH?=
+ =?us-ascii?Q?OrHvZCCvgMDIToqcl7L1JC4W5b3kTPyHloMFJT0b7T976BQkocPnMh7y+W+6?=
+ =?us-ascii?Q?KpE6/0qzigzp6fJTTdLPVcbYB59PFV3B0FCBJ2vlj01RBG9PWb8SryktFY+T?=
+ =?us-ascii?Q?1V5D5jAY2WT4aq360BnXOv3npX9RPoJtDqiLxKBUNklW1gvtFq8kDOml+92a?=
+ =?us-ascii?Q?BBKcRtTmEx88CxRuI9x57Lx5+kNrWJsUmXKCIYX8h8QmiyXsmPV1Fn0mkWuA?=
+ =?us-ascii?Q?ou3UQDB+DqGTY21esEO7P25EsJygET9mKnkJ9d6C+kYvd2peh9vMsAPkONDf?=
+ =?us-ascii?Q?w66X33gl5nvcP2Cr07U0y50jmXBmKIoWWRm2fLe07qyjbwTTO7bDHowt4lPQ?=
+ =?us-ascii?Q?XfPhDYNTZUhGQ+yblQ5b4mWfxjliLb7H6Ht7Fc+7lpJ2qYIWOitOZpSlbr5f?=
+ =?us-ascii?Q?etXpt0iSzph70OqooPEhNKsTzcEt3+lZrxrTd6hQlayRy0yBmNqvE4nyJpZs?=
+ =?us-ascii?Q?UnmmxLNNXnFU8Tq1i8bzFawN8gRNwZu0TDiYTkcUDj8oAve93HvRFmatG/+9?=
+ =?us-ascii?Q?PHcpYMz19CkVmoYTcOVl/D+ynAT+9ArcKJ673iBnV0n4d4Ph2xvpliaHBolG?=
+ =?us-ascii?Q?+w2S23Mmi+9oj1uRyvY8Yi5H+fS7oVP2T/fM7xTLB6x22FlqeXfbCDrNHC8W?=
+ =?us-ascii?Q?0L4sN5FX1w=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2303c2f-d8ba-435a-dc1d-08dedd6b07cc
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jul 2026 03:34:49.7346
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WhJoL70c7Z48w8Et6VIKeRc3R+ZzNUJdv2Ale4Ygp3C6mEr87vMLZ9leLvs2/2LlHbvQxSqDyChlw2xakVfeqw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6360
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260708_203501_543087_585D5F21 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +147,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Commit 55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10 ("genirq/devres: Add
+error handling in devm_request_*_irq()") added automatic error logging
+to devm_request_threaded_irq() and devm_request_any_context_irq() via
+the new devm_request_result() helper. The helper prints device name,
+IRQ number, handler functions, and error code on failure.
 
-Add the IR controller node for the Amlogic A9 SoC and describe the
-corresponding remote input pin configuration.
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this automatic
+logging.
 
-Enable the IR controller on the Amlogic A9 A311Y3 BY401 board with the
-proper pinctrl setting.
+This series removes the now-redundant dev_err() and dev_err_probe() calls
+in power drivers that follow these devm_request_*_irq() functions, as the
+core now provides more detailed diagnostic information on failure.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts |  6 ++++++
- arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi             | 14 ++++++++++++++
- 2 files changed, 20 insertions(+)
+Pan Chuang (43):
+  power: reset: pwr-mlxbf: Remove redundant dev_err()/dev_err_probe()
+  power: supply: 88pm860x_battery: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: 88pm860x_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: ab8500_btemp: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: ab8500_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: ab8500_fg: Remove redundant dev_err()/dev_err_probe()
+  power: supply: act8945a_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: axp20x_ac_power: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: axp20x_usb_power: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: axp288_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: axp288_fuel_gauge: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: bq24190_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: bq24257_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: bq24735-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: bq256xx_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: bq257xx_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: cpcap-battery: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: cpcap-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: da9150-fg: Remove redundant dev_err()/dev_err_probe()
+  power: supply: generic-adc-battery: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: max14656_charger_detector: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: max77759_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: max8903_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: max8971_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: mp2629_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: mt6360_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: mt6370-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: pf1550-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: qcom_smbb: Remove redundant dev_err()/dev_err_probe()
+  power: supply: qcom_smbx: Remove redundant dev_err()/dev_err_probe()
+  power: supply: rk817_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: rn5t618_power: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: rt9455_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: rt9467-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: rt9471: Remove redundant dev_err()/dev_err_probe()
+  power: supply: sbs-charger: Remove redundant dev_err()/dev_err_probe()
+  power: supply: sc27xx_fuel_gauge: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: surface-rt-ec: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: tps65090-charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: tps65217_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: twl4030_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: twl6030_charger: Remove redundant
+    dev_err()/dev_err_probe()
+  power: supply: ucs1002_power: Remove redundant
+    dev_err()/dev_err_probe()
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-index a6b380ca47a5..389c9de3dc3c 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-@@ -38,3 +38,9 @@ secmon_reserved: secmon@5000000 {
- &uart_b {
- 	status = "okay";
- };
-+
-+&ir {
-+	status = "okay";
-+	pinctrl-0 = <&remote_input_ao_pins>;
-+	pinctrl-names = "default";
-+};
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-index b0e0fadeed82..aa89b31bfe30 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-@@ -241,6 +241,13 @@ test_n: gpio@c0 {
- 					#gpio-cells = <2>;
- 					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
- 				};
-+
-+				func-ir-in {
-+						remote_input_ao_pins: group-remote-input-ao-pins {
-+						pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 5, 1)>;
-+						bias-disable;
-+					};
-+				};
- 			};
- 
- 			gpio_ao_intc: interrupt-controller@4080 {
-@@ -254,6 +261,13 @@ gpio_ao_intc: interrupt-controller@4080 {
- 					394 395 396 397 398 399 400 401 402 403>;
- 			};
- 
-+			ir: ir@14080 {
-+				compatible = "amlogic,a9-ir", "amlogic,meson-s4-ir";
-+				reg = <0x0 0x14080 0x0 0x30>;
-+				interrupts = <GIC_SPI 413 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
- 			uart_b: serial@1e000 {
- 				compatible = "amlogic,a9-uart",
- 					     "amlogic,meson-s4-uart";
+ drivers/power/reset/pwr-mlxbf.c                  |  2 --
+ drivers/power/supply/88pm860x_battery.c          | 10 ++--------
+ drivers/power/supply/88pm860x_charger.c          |  5 +----
+ drivers/power/supply/ab8500_btemp.c              |  5 +----
+ drivers/power/supply/ab8500_charger.c            |  5 +----
+ drivers/power/supply/ab8500_fg.c                 |  2 --
+ drivers/power/supply/act8945a_charger.c          |  4 +---
+ drivers/power/supply/axp20x_ac_power.c           |  5 +----
+ drivers/power/supply/axp20x_usb_power.c          |  5 +----
+ drivers/power/supply/axp288_charger.c            |  3 +--
+ drivers/power/supply/axp288_fuel_gauge.c         |  2 +-
+ drivers/power/supply/bq24190_charger.c           |  4 +---
+ drivers/power/supply/bq24257_charger.c           |  4 +---
+ drivers/power/supply/bq24735-charger.c           |  6 +-----
+ drivers/power/supply/bq256xx_charger.c           |  4 +---
+ drivers/power/supply/bq257xx_charger.c           |  2 --
+ drivers/power/supply/cpcap-battery.c             |  6 +-----
+ drivers/power/supply/cpcap-charger.c             |  6 +-----
+ drivers/power/supply/da9150-fg.c                 |  4 +---
+ drivers/power/supply/generic-adc-battery.c       |  2 +-
+ drivers/power/supply/max14656_charger_detector.c |  4 +---
+ drivers/power/supply/max77759_charger.c          |  4 +---
+ drivers/power/supply/max8903_charger.c           | 15 +++------------
+ drivers/power/supply/max8971_charger.c           |  2 +-
+ drivers/power/supply/mp2629_charger.c            |  4 +---
+ drivers/power/supply/mt6360_charger.c            |  3 +--
+ drivers/power/supply/mt6370-charger.c            |  4 +---
+ drivers/power/supply/pf1550-charger.c            |  3 +--
+ drivers/power/supply/qcom_smbb.c                 |  5 +----
+ drivers/power/supply/qcom_smbx.c                 |  3 +--
+ drivers/power/supply/rk817_charger.c             | 12 ++++--------
+ drivers/power/supply/rn5t618_power.c             |  5 +----
+ drivers/power/supply/rt9455_charger.c            |  4 +---
+ drivers/power/supply/rt9467-charger.c            |  3 +--
+ drivers/power/supply/rt9471.c                    |  3 +--
+ drivers/power/supply/sbs-charger.c               |  2 +-
+ drivers/power/supply/sc27xx_fuel_gauge.c         |  8 ++------
+ drivers/power/supply/surface-rt-ec.c             |  2 +-
+ drivers/power/supply/tps65090-charger.c          |  6 +-----
+ drivers/power/supply/tps65217_charger.c          |  6 +-----
+ drivers/power/supply/twl4030_charger.c           | 10 ++--------
+ drivers/power/supply/twl6030_charger.c           |  4 +---
+ drivers/power/supply/ucs1002_power.c             | 10 ++--------
+ 43 files changed, 49 insertions(+), 159 deletions(-)
 
 -- 
-2.52.0
-
+2.34.1
 
 
