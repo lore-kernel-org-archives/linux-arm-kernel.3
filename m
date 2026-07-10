@@ -4,61 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F45EC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA188C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VJCgMwyNW3Knp0YEQPSo3ityJH+Z3AnQS9vFuyu2tc=; b=GG0BTjsb5jmHUC3iwxOXAPbfXH
-	L0WoCDVHgavW4dDtdf9VJqC/XN80WK7FhfaWmVdTdooE3ubUfGqlueHr4hw57AGDaU5HTYZtNm4aD
-	cvZWEYD/ypcPBp1FOx5alcNIsQ6RObqyBVf36j2aPULG1ls+aoCk3b2eQ5JG9U1z4y8hW87xQ46K/
-	T2SDxSuawGd1zXW9/UdBhYRG+wC323ne+37d3Hg3l4CMwJusX/YamdOPg5hPSroJqnx7bVu1kQpgO
-	k7fwwEaNeEBOKdtMwXU/clhoA7FLrP8vZmRyAqxIWNiTzeemtvBYr5/7lCtFLdvJ5DOaw7Hc7whJ7
-	Ybr3UJOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9fsiWcwBToyW3gsri5KuLfQd15xA3yQ0e3RQdD/aBtg=; b=MrQePpJ1sxf/1rLlA7Bl9A3DQh
+	wk+mIp1U7ogl5BSV2LXLY1Y2BrjMfG/MTQoib4E7eOlH9XXvpR4rCRlSfH3JMueR+ZaB9AdZfRaoB
+	NAzJSx7IxVrsAJBm3XCgeHFdghzJY+A5cmdeCkK7Iiy/lU+QApBKqu/bJVqEskrTAcRuvCZBRq5A7
+	81mtzSdKpCaDtgw41GQk3YumsDkETzl7qhPCxwfRbs3EqSdNYsdkrndnIXebHwsL4sKNhJ+28d3tB
+	aRbvAokQoTOoNt+4mmlkJz0qYUfF7OZC4TEMOpjLdvVJY8ZCkCr4eG7v50/zh0cdtwCq9ulgFXlI5
+	9F0/L/jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9q8-00000004s0Z-2Nxy;
-	Fri, 10 Jul 2026 11:56:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9q2-00000004rus-0M5p
+	id 1wi9qs-00000004sgg-04RW;
+	Fri, 10 Jul 2026 11:57:06 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi9qk-00000004scm-44rd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:56:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 576A81E7D;
-	Fri, 10 Jul 2026 04:56:09 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5CEBA3F85F;
-	Fri, 10 Jul 2026 04:56:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783684573; bh=aDNC81Q5P6V6soD3KMNRVbYyVWehpRsMTUtQd8Rvi28=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OhVa8Nk9V1vPmQhXHtPBP7OzyhMugXg3NCHv6ERNSa9aQD/EeNW0LIO3S9fkJge9A
-	 MRpPCiCWlLEjcFjQ2V1xfL0hkcxqvNIVMCsU2YSupuzo5l09kNhS4zHrXIz9VVZyYB
-	 HaE3f6zfuYI87acleQ8J2DGHPki2OZ8J/hTNzx18=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: james.morse@arm.com,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dave.martin@arm.com,
-	andre.przywara@arm.com
-Subject: [PATCH v1 11/11] arm_mpam: Switch to kvzmalloc_objs() for allocation of component cfg
-Date: Fri, 10 Jul 2026 12:55:45 +0100
-Message-ID: <20260710115546.29644-12-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260710115546.29644-1-ben.horgan@arm.com>
-References: <20260710115546.29644-1-ben.horgan@arm.com>
+	Fri, 10 Jul 2026 11:57:04 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AAmt1d1391207;
+	Fri, 10 Jul 2026 11:56:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=9fsiWcwBToyW3gsri5KuLfQd15xA3y
+	Q0e3RQdD/aBtg=; b=W0sQt6cUZP/EUAfkWxrsYO13TAF6nT5ZJUfCagHiCHMiux
+	T/uWkUm374ULa/kJx5kh20hNOWqEFtu+oYAuwYxt03nqSS03lgdyMRfaiEpjFspO
+	H7Cdz9W7BqyPgSG6IJApCNw/2WmfmWLwFgc+WdKdgZYlu5HNbmskuLT+bZI+dsxk
+	+XJZCiGFmOOLCwhEEkmH/frrY5aO4Xc3NscL6mKi954xnHgfilPgRRmxCkVcpQmt
+	qdGAujdF1VsFjJuntdrl+OOcMOxdnBahDmCYOQZ7LKQCKrpIR2tuL9qTto6Sc2Ss
+	6ku20EwL2q8f8IPZ7gHXutUmDUYcDCY9QR2IihSQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur69kc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 11:56:48 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66ABnnZg007753;
+	Fri, 10 Jul 2026 11:56:47 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7cvwj22t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 11:56:47 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66ABueRs27263266
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Jul 2026 11:56:40 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2A20A20049;
+	Fri, 10 Jul 2026 11:56:40 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4555020040;
+	Fri, 10 Jul 2026 11:56:39 +0000 (GMT)
+Received: from osiris (unknown [9.87.147.219])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 10 Jul 2026 11:56:39 +0000 (GMT)
+Date: Fri, 10 Jul 2026 13:56:37 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 09/27] KVM: arm64: Access elements of vcpu_gp_regs
+ individually
+Message-ID: <20260710115637.984749-H-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-10-seiden@linux.ibm.com>
+ <86cxx0ovx5.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86cxx0ovx5.wl-maz@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDExNyBTYWx0ZWRfX4LaHG2cbEDg/
+ BIx2/t04jsyLY1n5DJ221VRhumIJmabCnU6WnnKyJ5GXvzBUIiZJZa3dEW8eOzlRLd4INYjc4w+
+ N6BWUeIewSS3WCtE/vsmr9nC3Px2pZI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDExNyBTYWx0ZWRfX1OLJhk/mxwBH
+ m39hdBM2yJSRl0y7hd/yKzK0tF2OMP5DXdaqyNy9WKoR82s3cZenNU/8ZFwACcRwX48fHLl9y3z
+ 6LAejCZoFk5FvG5Af2IeeaZboaJLpPLAgf+5cP/CyJwN/e0c/gse+Q0CrBQ1Z/Y1mkb8zID+a6H
+ lG+5iUslSBeSjhVVwRCtXPB0ESCug1qFiQhiTu4+v2i9nbRmBCPHiZ+ahx7VP1bZrFxnAOm5EAl
+ e9LphNcN26rTn7wRXUqOtBiB2WGurxm836iStnp0awRqfG2mr3pFr5jLkBZY0rXWwYGL4nZFTr8
+ CmAPvJB1QqJDMTADPPxKktZIZfdTN+Z4IdDlIiY7v+TmvwE+n0A9/wsmaEbcTfQoVgL8XJ5loQ+
+ Zvp10MJ6bMfsijkalBSBN2mWCWT8G/NuciGeU3KY9h9xHEkG9+5mW2fBS9pZgxLvrPxZShSXY9G
+ 5Yyr+TGleopO9hI6b7g==
+X-Proofpoint-GUID: QewiZpKBES5sTR1z0ckpN5bbItnepDFb
+X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50de01 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=JvUMi_Ukf_9PVyXn5B4A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: QewiZpKBES5sTR1z0ckpN5bbItnepDFb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-10_03,2026-07-09_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100117
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_045614_163387_D95EA3F5 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260710_045659_063270_C212FAAE 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +143,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each component cfg is sized by the size of a per-PARTID multiplied by the
-number of PARTIDs. On a platform sized to push the limits of the
-specification, the allocation using kzalloc_objs() will consistently
-fail. Change to use kvzmalloc_objs() so that large allocations fall back to
-vmalloc() based allocations.
+On Mon, Jul 06, 2026 at 06:44:06PM +0100, Marc Zyngier wrote:
+> On Mon, 06 Jul 2026 09:52:09 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > 
+> > While for arm64 the members of vcpu_gp_regs are allocated continuous
+> > this is not necessarily true for other architectures implementing ARM.
+> > 
+> > Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
+> > the vcpu context but the address of the gp-register array field in the
+> > user_pt_reg struct.
+> 
+> That's an interesting change of semantics, because this excludes PC
+> from the GPRs. This is valid on AArch64, but wrong for AArch32 (PC
+> really is R15, and is just another GPR).
+>
 
-Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- drivers/resctrl/mpam_devices.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I never looked into AArch32 thanks for pointing this out.
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 9412ffde1cf1..9a7954b7a2af 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -157,7 +157,7 @@ static void mpam_free_garbage(void)
- 		if (iter->pdev)
- 			devm_kfree(&iter->pdev->dev, iter->to_free);
- 		else
--			kfree(iter->to_free);
-+			kvfree(iter->to_free);
- 	}
- }
- 
-@@ -2667,7 +2667,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
- 	if (comp->cfg)
- 		return 0;
- 
--	comp->cfg = kzalloc_objs(*comp->cfg, mpam_partid_max + 1);
-+	comp->cfg = kvzalloc_objs(*comp->cfg, mpam_partid_max + 1);
- 	if (!comp->cfg)
- 		return -ENOMEM;
- 
--- 
-2.43.0
+> It isn't a huge deal, and nothing breaks, but that's something that
+> you may want to capture.
+> 
+
+Shall I add a comment into the commit message that this splits pc from
+the gprs for arm32?
+
+
+
+...
+
+> >  
+> > +#define kvm_vcpu_get_sp_el1(__vcpu) (__ctxt_sys_reg(&(__vcpu)->arch.ctxt, SP_EL1))
+> > +#define kvm_vcpu_get_vreg(__vcpu, _n) (&(__vcpu)->arch.ctxt.fp_regs.vregs[_n])
+> > +#define kvm_vcpu_get_vregs(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.vregs)
+> > +#define kvm_vcpu_get_fpsr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpsr)
+> > +#define kvm_vcpu_get_fpcr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpcr)
+> > +
+> >  u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+> >  
+> >  #define __vcpu_assign_sys_reg(v, r, val)				\
+> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> > index 5a202cfd27bc..5e1e1faa98c2 100644
+> > --- a/arch/arm64/kvm/guest.c
+> > +++ b/arch/arm64/kvm/guest.c
+> > @@ -62,6 +62,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+> >  		       sizeof(kvm_vcpu_stats_desc),
+> >  };
+> >  
+> > +#ifdef ARM64_S390_COMMON
+> 
+> I really think this patch (and a few others) needs splitting. What I'd
+> like to see is a prefix to this series adding the required arm64
+> rework, and only in a subsequent patch add the "make this shared"
+> attributes.
+
+Ok, makes sense. I'll do the refactroings first and then add these
+markers.
+
+> 
+> Also, quite a lot of this patch is about using the existing accessors
+> instead of an open-coded version. These changes should be standalone.
+
+Ok I'llsplit this up:
+
+1. vcpu_gp_regs change
+2. accessor use
+
+> 
+> >  static bool core_reg_offset_is_vreg(u64 off)
+> >  {
+> >  	return off >= KVM_REG_ARM_CORE_REG(fp_regs.vregs) &&
+> > @@ -134,19 +135,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+> >  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+> >  		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
+> >  		off /= 2;
+> > -		return &vcpu->arch.ctxt.regs.regs[off];
+> > +		return &vcpu_gp_regs(vcpu)[off];
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(regs.sp):
+> > -		return &vcpu->arch.ctxt.regs.sp;
+> > +		return vcpu_sp_el0(vcpu);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(regs.pc):
+> > -		return &vcpu->arch.ctxt.regs.pc;
+> > +		return vcpu_pc(vcpu);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(regs.pstate):
+> > -		return &vcpu->arch.ctxt.regs.pstate;
+> > +		return vcpu_cpsr(vcpu);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(sp_el1):
+> > -		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
+> > +		return  kvm_vcpu_get_sp_el1(vcpu);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(elr_el1):
+> >  		return __ctxt_sys_reg(&vcpu->arch.ctxt, ELR_EL1);
+> > @@ -170,13 +171,13 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+> >  	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
+> >  		off -= KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]);
+> >  		off /= 4;
+> > -		return &vcpu->arch.ctxt.fp_regs.vregs[off];
+> > +		return kvm_vcpu_get_vreg(vcpu, off);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
+> > -		return &vcpu->arch.ctxt.fp_regs.fpsr;
+> > +		return  kvm_vcpu_get_fpsr(vcpu);
+> >  
+> >  	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
+> > -		return &vcpu->arch.ctxt.fp_regs.fpcr;
+> > +		return  kvm_vcpu_get_fpcr(vcpu);
+> 
+> Odd additional spaces (3 instances).
+
+thanks.
+
+> 
+> >  
+> >  	default:
+> >  		return NULL;
+> > @@ -306,6 +307,8 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+> >  	return err;
+> >  }
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> >  #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
+> >  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
+> >  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
+> > diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> > index bef40ddb16db..82611442a2d1 100644
+> > --- a/arch/arm64/kvm/hyp/exception.c
+> > +++ b/arch/arm64/kvm/hyp/exception.c
+> > @@ -277,6 +277,9 @@ static const u8 return_offsets[8][2] = {
+> >  	[7] = { 4, 4 },		/* FIQ, unused */
+> >  };
+> >  
+> > +#define OFFSETOF_PT_REG(__r) offsetof(struct user_pt_regs, __r)
+> > +#define COMPAT_IDX(__c) ((OFFSETOF_PT_REG(__c) - OFFSETOF_PT_REG(regs[0])) / sizeof(u64))
+> > +
+> 
+> Oh $gawd, this is... awful.
+> 
+> >  static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+> >  {
+> >  	unsigned long spsr = *vcpu_cpsr(vcpu);
+> > @@ -292,12 +295,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+> >  	switch(mode) {
+> >  	case PSR_AA32_MODE_ABT:
+> >  		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
+> > -		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
+> > +		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_abt)] = return_address;
+> >  		break;
+> 
+> Stupid idea: why don't you simply have new #defines that make the
+> register number standalone, and make ptrace.h use that? Something line
+> this (which can obviously be extended to all the compat registers):
+> 
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index 39582511ad72f..2d3d324d2598e 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -104,6 +104,10 @@
+>  #define COMPAT_USER_SZ	296
+>  
+>  /* Architecturally defined mapping between AArch32 and AArch64 registers */
+> +enum aarch32_reg_mapping {
+> +	__compat_lr_und = 22,
+> +};
+> +
+>  #define compat_usr(x)	regs[(x)]
+>  #define compat_fp	regs[11]
+>  #define compat_sp	regs[13]
+> @@ -115,7 +119,7 @@
+>  #define compat_sp_svc	regs[19]
+>  #define compat_lr_abt	regs[20]
+>  #define compat_sp_abt	regs[21]
+> -#define compat_lr_und	regs[22]
+> +#define compat_lr_und	regs[__compat_lr_und]
+>  #define compat_sp_und	regs[23]
+>  #define compat_r8_fiq	regs[24]
+>  #define compat_r9_fiq	regs[25]
+> 
+> and then your #defines from hell can go?
+
+Great suggestion I do not like this macro hell myself. I'll implement it
+that way. Should I convert all compat_* regs to this concept or just the
+ones I need?
+
+	Steffen
 
 
