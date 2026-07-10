@@ -4,154 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31EDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522F9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLjfNKn8LnSz2XFrVVI8/j3tvyUWqMbqdwNr8lAk6oE=; b=h9xIj9eBRuZbXHbnkUppdebBzY
-	UbKWjaGeragpCWTruFoNOShFuB2VzD5USxplHUjsPyeK3vRtj/7VDurKLcouVngDySCoF7gIakIwP
-	0Hu3VmQR1eOp19jJCqIqr6fg81kFxeP62cTN5kh7BaeFgIlspA913qDUEe5EHZaIfZ0l5hGQEte8A
-	X+F7imeI+G14lsX9N/je6+PzBfE21wW1p8ng13gd+xR3fwsX0wrfCJ72m9h/tlOBVmANpXWFNnFvC
-	nF7ODkOoHzijYCw28E1CH0yx3MZrIr96qsNhTRjUxsQA1QP0TooFcPdBD5yFvZYuET/U0eXNQ9IHk
-	mPZ0zLRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vw3LDl3Cthd/R/noN4kr8e2c2V+ExiANntAoAxdwi00=; b=CM/TFEbw1Ylv4VE6QmusDBb6ZW
+	can+Cg6J+ewEhmvCskJe05PpI3N9L6h41m8L5NIooj0XH28vO+FJ4cKoKhiV4+zUEpao5NAnICvpM
+	M0rPlFka4gFMLjbtw2htUbIXivcb7xUp3Q9hQzxSCXO4nv75aGaooQik/+T82KCRUxoOoHYaiGlyR
+	QZM7FjpNwl9xWkD5LzT9kqmsCiEUO37RdMzUf+bU64hajYPCnerSExBRfvp94Tsh1hYG+TQ/FRY/f
+	0qz4T9TKS0PJTL751Y4N2oK4f2DE3Z8NqJgzBjOteC4hgHPBjWAgvZ4CUsY8KcCK/VWrFudphOQrw
+	I4lbOfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7s7-00000004dOJ-1wng;
-	Fri, 10 Jul 2026 09:50:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wi7wZ-00000004dnN-4C8y;
+	Fri, 10 Jul 2026 09:54:52 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7s5-00000004dNI-2Uke
+	id 1wi7wW-00000004dmn-0NON
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:50:14 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66A7dLMA172311
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 09:50:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yLjfNKn8LnSz2XFrVVI8/j3tvyUWqMbqdwNr8lAk6oE=; b=TCjeYyxt2uUJ2vtw
-	/UbmyqltkiGL0af9Zu9Gy6NDi2J8vmczKisc4AlHagWo7sIUOB+wwEu536JCwyGy
-	LrQ/fFVJ3zj0XCvYkkFxvkMOwQMQyR50Lx5JZF+kJJvw8yEuB++TxqAvWDNaszJa
-	Bh9Z7+8DQdSQX3UZ3Z8jU15d3RFkJWp99Cy84Qq8/9hLDWJaHhyiS6wo1G+AgdC0
-	F/mCRQfN2Y1iu2m+5H5mU3INESUf7p4cMR6io2edev+3qc7N/9GKROOEVIfObAJZ
-	M9Mv2JhXitdeNmyrPzKK11X307epV6K7F9HhoLG6b+qzk6AYYXuo2U8rEB19McZk
-	rCoeQA==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fanwe9wck-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 09:50:13 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8fd356ee3a4so2322046d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 02:50:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783677012; x=1784281812; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yLjfNKn8LnSz2XFrVVI8/j3tvyUWqMbqdwNr8lAk6oE=;
-        b=g0Hwg2FP8Derk3IFZbSQ31xH5uVKBGIbQPZubhQGpODJU4YE1P1vMfT6C5C0JvlR2Z
-         TmVXi2ouE0GbZEp/tYOsM6Rn20fe1MM5+QF64XqA4CMcBU3mM9gqhq7pYoHXO5GOIwq1
-         i1CWreYjaz7KHGLDmOrJ5Gz6gNCR24gLEkYc6XD6KTTvUCiaKz/G5om8L7uMFliCB4c6
-         k96md9IryJIO6ANkeizAjlEc0+TKAdvo1p9MKcn92MH4B6Z0bW1TXyRxXUEF20ViTDBH
-         c+TrbJYDG2iuK8VLkR5QdFHFBRpGdy+e/JCME7DvQ6WVc4xH5JeiZZoCNUJYb54mdPCJ
-         GiiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783677012; x=1784281812;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yLjfNKn8LnSz2XFrVVI8/j3tvyUWqMbqdwNr8lAk6oE=;
-        b=p9135Uqk186vBXtj6S+AQACKtIoYZS4E6X7R30ZMmiIkGw0tKSGkxDj81DY4+Xzolp
-         zwPrqOIGoM1hIHLUi/j12/PRlqHhzk07yYStdmsSVC7BLN/WcWlmWEVi5Vl4s6AWl/22
-         bC87FE+lNdwqE3juSwO5+pLJLYvTlwrax99E1A4J5rw4ahXEreDBkvfAWLslkOxfa+p+
-         iSV0Wt3r62VBYoaB++GPMvVxWSqMMdF/+6vqg59gzWKplVeNZp4DoVO1UfwJBkQX4KUV
-         lskCpcSrcTYOdiTRgBS/mGJtqi/xth2WkWlEzrAo6tWqkW4FTjhYEbvfa+f6EzBRmFNO
-         T0Rg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr/0i/YuJexhIuVVejE4BJNrc+mY62oHrTJEPsgTKrCIlhRqozj51+rlaDZ7JcRJNQ5Mg6T7pXamFQRs2QDHR4Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM0lZFYxt8LQkGqw7JJuxmiI1wmQtvb2EWtnam/A75H0dE0IfL
-	KhkxtrVGTVumWhmYQI31n2Mzmuxo4Z0fqui6goBwTAtyMlZN1VPAciQ9j9LwUre6MxmuQIGznLa
-	ZIxDI8whXjjKKZZYhyW/E0OJHZInSUbF+LNF7R4ImOE4XRILsROq5QtWwTuM4/1QSGx4AnBkHy4
-	wxeA==
-X-Gm-Gg: AfdE7cntFvvavL1ukgIfxsDo+SkBP3LA/OX1/qwtqDQLj/98UeJ0huNcOsx/NfYWj7h
-	OuWpciICJlP6PCCJckwdAit3hJzL5UStGcrYOhTETK9VUmvrkff/alIBQTScGQJYmsxdGZxrdFn
-	Yl38GWK0D2saNbqfX+6lQ9jjArqjFZAuoxS8NuNWE7Wi8XCDYQWmfd2a/4qXMtgaCEDmU2TRxxI
-	eKen4oBvBnzxmTFVAyBfprsX4tW/WYsBDXUx0QnkC1NvGZ8A6BkIAi//0HZ9ywsHn3asHCfoNd5
-	AJ6YLorGhDd68oUfeFYDpDTbTEfnZwyGzGLm4eK+3hm8qQleNsqBHAGARPK5/NEgHHLSM8SgiZq
-	B8iElDbmTb8gjldlR7MIYRBjRT4IHFtiHbEs=
-X-Received: by 2002:a05:6214:40e:b0:8cb:e65c:e527 with SMTP id 6a1803df08f44-8fec5b45e37mr97535956d6.1.1783677012146;
-        Fri, 10 Jul 2026 02:50:12 -0700 (PDT)
-X-Received: by 2002:a05:6214:40e:b0:8cb:e65c:e527 with SMTP id 6a1803df08f44-8fec5b45e37mr97535656d6.1.1783677011733;
-        Fri, 10 Jul 2026 02:50:11 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19ce4b4fsm10518512a12.10.2026.07.10.02.50.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2026 02:50:10 -0700 (PDT)
-Message-ID: <31905a48-54eb-4693-8725-71f065a8bc92@oss.qualcomm.com>
-Date: Fri, 10 Jul 2026 11:50:08 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/5] arm64: dts: qcom: glymur: use Aggregator TNOC
- compatible
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-        Bjorn Andersson
- <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Fri, 10 Jul 2026 09:54:49 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66A7ma1W605539;
+	Fri, 10 Jul 2026 09:54:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=Vw3LDl3Cthd/R/noN4kr8e2c2V+Exi
+	ANntAoAxdwi00=; b=hxS4Kj/0SG6WM+5KQWVR/LHVJ0lwXW1KBknI8OvSNVD85l
+	nnyGz9ITzuNVtyPqulBOaRSLEKcXGolQ1+GDNbeqkMf3RR03Ac5M5LyzwkZ+hu93
+	mKbaPiCY8shQpSxO5/773b86Av8zfSiBKcIRozXSGg4Fsz0dIu7o5hSBboB3UHNt
+	8p9gz9jC0M14qmT93ngAAq1oCFwydUkRiDl6LYVbffJG29jGVCTP5MPz1uEuRSv6
+	DynE/eJI0YFsS5VRNpjWJ/zb801ChX4D8gcOEymDjMCeUu4oXJXeeRP5w8IRlWdP
+	seKaKUNxCARIoKfp1CiOagy6hpW4EFORjqBYvtcw==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qknwe3n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 09:54:35 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66A9nfUN004961;
+	Fri, 10 Jul 2026 09:54:35 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7e0hsadk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 09:54:35 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66A9sSHd40042902
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Jul 2026 09:54:28 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6CA6A2004B;
+	Fri, 10 Jul 2026 09:54:28 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 89FAD20043;
+	Fri, 10 Jul 2026 09:54:27 +0000 (GMT)
+Received: from osiris (unknown [9.87.147.219])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 10 Jul 2026 09:54:27 +0000 (GMT)
+Date: Fri, 10 Jul 2026 11:54:26 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
         Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260710-fix-tracenoc-probe-issue-v6-0-41eb36fef8d9@oss.qualcomm.com>
- <20260710-fix-tracenoc-probe-issue-v6-5-41eb36fef8d9@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260710-fix-tracenoc-probe-issue-v6-5-41eb36fef8d9@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=LbIMLDfi c=1 sm=1 tr=0 ts=6a50c055 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=HHMlELgPwHXHAMwrrFEA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA5NiBTYWx0ZWRfX8+bQUKD8NsbF
- emOCGuNcE4ZMkXGTpNYtVHG2IEdqsg3xdMaTxaXM+RgFOBiJYAcdaQhP2N2hyoaaECaT6y5sSm/
- X5RuOoCnPZZx9ofMqZEt6s36iURjl/oochP/w0POl/wiQoNItnMalQrlCc7TcvInnTvpo2IvjIQ
- wiJSNMhIz4SOujwDWSd2AtTgHsD4nCdyMmExpl3LRR8Js7DeDoI6k/43MbCUbehPxNAEdir8XCs
- SsyuHCya7j3S7tx0iAwReYbU0xyGjcEPF/gAtw5r2rEibHCZrLStR01PuineW12AiWGf9PB35JB
- DV43cnrWUoWeQvjyytu5n5wyFf+PBANEo1yN+D6LiLPlCBt0V/aS7U3ooKo8njzdKHVukJzyR0c
- lRlBaDoJhOqxv6FKMH44ZDim6K60Yw9BFUPm2f88J1Yzps53TfjAOdYzFuxVOhPnr+F6rc1mggq
- E0b8OVhI3GgEBp4ljCQ==
-X-Proofpoint-ORIG-GUID: 2BEeRAV_nnVFBW5NAZR2e6UjhZuJYJjg
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA5NiBTYWx0ZWRfXx9peFY0mdPGQ
- phSFWRyMwNBc0OT7Q8IyLC1uZJ06FnjlMt1xqBeFnyXVNER6yaUmIKWEiHAOe07LbxXD7PyAHyP
- u153aSDnhBmIdplN3MuGkM8LbSe4ISA=
-X-Proofpoint-GUID: 2BEeRAV_nnVFBW5NAZR2e6UjhZuJYJjg
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 07/27] arm64: Prepare sharing arm64 headers with s390
+Message-ID: <20260710095426.984749-F-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-8-seiden@linux.ibm.com>
+ <878q7n7qzi.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <878q7n7qzi.wl-maz@kernel.org>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a50c15b cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=vsfpsYCfe5RcM17dGcoA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: MswuiDxkc9j4TY9wZyb_cxruE6NSFssh
+X-Proofpoint-ORIG-GUID: MswuiDxkc9j4TY9wZyb_cxruE6NSFssh
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA5NiBTYWx0ZWRfX0rZZO/S8kOE6
+ j+GbX4hjZ1VXbfZu1nUT8XGNkqe0q5MNVqqODGlbrXZ0kqJiQyZ8yZVkthB/iCMOcL0OWycuG5Q
+ IOKNUu7gQoTsqz78Y2u5nvpO1krzh6o=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA5NiBTYWx0ZWRfX5JgZQIA2d/yR
+ 8NqgVw/psDGwh6XaHto4aN7LEWFc6foVALdwGwq60h6vYwmMyGcbVSvZNava+Md0TuEsVXmHkOp
+ pKdOXQXsCgora9Fu4mTVCM516uLPXxL083gkQiyo7rMd0X3gVBCqGAdpZROHa47U25VkAYlcCTj
+ wi2tGjERCqNkNVuBEReuQ2v+3KH6CzIzBl1rDqsu430OZnrcd9vvQxKokow7KzNr77mTx1eLFiV
+ OxtYhgbieSKhlUI/+QBec8KMW6GB1OTghcRXAKoMHXyPlGvaMQC3AKb69Q7iil05FQcBACaAgbQ
+ MF70xPueF1Z0MqQxLWNFli7kDHwi2Y4/ui+k27cTF1YpV6JAtX6SZSgm9I8WOEuEpX8ZDrSub1p
+ CEPTKmj6OfabD3YRFxpWm8fDV0VHIIM0LlODAonTDSPuXBK5II3B3bcSVenDyz9diKwpN+4wi+Q
+ rSfWOKt1kNaMQ8cQ3VA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-10_02,2026-07-09_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
- clxscore=1015 impostorscore=0 priorityscore=1501 phishscore=0 adultscore=0
+ adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
+ bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_025013_650898_BA510811 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20260710_025448_279140_5852CFB5 
+X-CRM114-Status: GOOD (  40.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,29 +142,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 4:39 AM, Jie Gan wrote:
-> The traceNoC node is the system-level Aggregator TNOC, so it must own a
-> valid ATID that tags the whole aggregation path. It was marked compatible
-> with "qcom,coresight-itnoc", an Interconnect TNOC, which is never assigned
-> an ATID. As a result the aggregator had no trace ID and could not tag the
-> merged trace.
-> 
-> An Interconnect TNOC is a subsystem-level aggregator: it merges trace from
-> the ATB sources within its subsystem (TPDMs and other ATB masters) and
-> forwards the combined stream to the system-level Aggregator TNOC. It
-> carries no ATID of its own, because the Aggregator TNOC downstream in the
-> path already owns the ATID.
-> 
-> Switch the node to "qcom,coresight-tnoc" so it is described as the
-> Aggregator TNOC it is and is assigned a system trace ID. Rename the node
-> to "tn" and use the "apb_pclk" clock name as required by the Aggregator
-> TNOC binding.
-> 
-> Fixes: 1f7d0c42a08d ("arm64: dts: qcom: glymur: add coresight nodes")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
+On Mon, Jul 06, 2026 at 10:22:41PM +0100, Marc Zyngier wrote:
+> On Mon, 06 Jul 2026 09:52:07 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > 
+> > Prepare the sharing of arm64 headers with s390 by marking the shared
+> > regions or add a comment that the whole file is shared.
+> > The regions are marked with:
+> > 
+> >  #define ARM64_S390_COMMON
+> > 
+> >  /* insert shared definitions here */
+> > 
+> >  #endif /* ARM64_S390_COMMON */
+> > 
+> > The preprocessor symbol ARM64_S390_COMMON is always defined for arm64.
+> > Reduce the include scope where possible and beneficial for s390.
+> > No functional change.
+> > 
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >  arch/arm64/Makefile                  |  2 ++
+> >  arch/arm64/include/asm/brk-imm.h     |  1 +
+> >  arch/arm64/include/asm/esr.h         |  5 +++--
+> >  arch/arm64/include/asm/kvm_arm.h     |  6 ++++--
+> >  arch/arm64/include/asm/kvm_emulate.h | 19 ++++++++++++++++++
+> >  arch/arm64/include/asm/kvm_host.h    | 28 +++++++++++++++++++++++++++
+> >  arch/arm64/include/asm/kvm_mmu.h     |  6 ++++++
+> >  arch/arm64/include/asm/ptrace.h      |  9 +++++++++
+> >  arch/arm64/include/asm/sysreg.h      | 29 +++++++++++++++++++++++++---
+> >  9 files changed, 98 insertions(+), 7 deletions(-)
+> > 
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+...
 
-Konrad
+> >  		vcpu_set_flag((v), e);					\
+> >  	} while (0)
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> 
+> It'd be worth looking at an initial patch reorganising this file to
+> minimise the number of such markers. This is equally valid for other
+> files in this patch.
+> 
+> [...]
+> 
+
+So it is fine if I reorganize files a bit to reduce the number of
+markes?
+I feared it would not. I will reorganize the files a bit then if this
+reduces the number of sections. Also if some thiings are required in a
+later series I might alreaddy share the stuff if possible if that
+reduces the number of regions.
+
+
+> > diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> > index 6eae7e7e2a68..b782cae771fe 100644
+> > --- a/arch/arm64/include/asm/kvm_mmu.h
+> > +++ b/arch/arm64/include/asm/kvm_mmu.h
+> > @@ -142,12 +142,15 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
+> >  
+> >  extern u32 __hyp_va_bits;
+> >  
+> > +#ifdef ARM64_S390_COMMON
+> >  /*
+> >   * We currently support using a VM-specified IPA size. For backward
+> >   * compatibility, the default IPA size is fixed to 40bits.
+> >   */
+> >  #define KVM_PHYS_SHIFT	(40)
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> >  #define kvm_phys_shift(mmu)		VTCR_EL2_IPA((mmu)->vtcr)
+> >  #define kvm_phys_size(mmu)		(_AC(1, ULL) << kvm_phys_shift(mmu))
+> >  #define kvm_phys_mask(mmu)		(kvm_phys_size(mmu) - _AC(1, ULL))
+> > @@ -178,9 +181,12 @@ void stage2_unmap_vm(struct kvm *kvm);
+> >  int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
+> >  void kvm_uninit_stage2_mmu(struct kvm *kvm);
+> >  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
+> > +#ifdef ARM64_S390_COMMON
+> >  int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+> >  			  phys_addr_t pa, unsigned long size, bool writable);
+> 
+> This only serves a purpose for GICv2, and I really hope your HW will
+> not implement this. You should probably find a way to avoid dragging
+> stuff that doesn't make sense on s390.
+> 
+
+good catch, I added this as a mistake. It was a leftover from the early
+days.
+
+
+...
+
+> > +#ifdef ARM64_S390_COMMON
+> > +
+> >  /*
+> >   * Instructions for modifying PSTATE fields.
+> >   * As per Arm ARM for v8-A, Section "C.5.1.3 op0 == 0b00, architectural hints,
+> > @@ -91,8 +99,6 @@
+> >   */
+> >  #define pstate_field(op1, op2)		((op1) << Op1_shift | (op2) << Op2_shift)
+> >  #define PSTATE_Imm_shift		CRm_shift
+> > -#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
+> > -#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
+> >  
+> >  #define PSTATE_PAN			pstate_field(0, 4)
+> >  #define PSTATE_UAO			pstate_field(0, 3)
+> > @@ -100,6 +106,11 @@
+> >  #define PSTATE_DIT			pstate_field(3, 2)
+> >  #define PSTATE_TCO			pstate_field(3, 4)
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> > +#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
+> > +#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
+> > +
+> >  #define SET_PSTATE_PAN(x)		SET_PSTATE((x), PAN)
+> >  #define SET_PSTATE_UAO(x)		SET_PSTATE((x), UAO)
+> >  #define SET_PSTATE_SSBS(x)		SET_PSTATE((x), SSBS)
+> > @@ -123,6 +134,8 @@
+> >  #define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
+> >  #define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
+> 
+> What is the reason to avoid dragging these definitions? They seem
+> extremely similar to the rest.
+> 
+
+They emit arm64 instructions, dont they?
+
+> >
+> > +#ifdef ARM64_S390_COMMON
+> > +
+> >  /* Data cache zero operations */
+> >  #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+> >  #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
+> > @@ -835,6 +848,8 @@
+> >  #define SCTLR_ELx_A	 (BIT(1))
+> >  #define SCTLR_ELx_M	 (BIT(0))
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> >  #ifdef CONFIG_CPU_BIG_ENDIAN
+> >  #define ENDIAN_SET_EL2		SCTLR_ELx_EE
+> >  #else
+> > @@ -869,6 +884,8 @@
+> >  	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
+> >  	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
+> >  
+> > +#ifdef ARM64_S390_COMMON
+> > +
+> >  /* MAIR_ELx memory attributes (used by Linux) */
+> >  #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
+> >  #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
+> > @@ -1105,6 +1122,8 @@
+> >  #define GICV5_GICR_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
+> >  #define GICV5_GICR_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
+> >  
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> >  #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+> >  #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+> >  
+> > @@ -1254,6 +1273,8 @@
+> >  	par;								\
+> >  })
+> >  
+> > +#ifdef ARM64_S390_COMMON
+> > +
+> >  #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+> >  
+> >  #define SYS_FIELD_GET(reg, field, val)		\
+> > @@ -1266,6 +1287,8 @@
+> >  		 FIELD_PREP(reg##_##field##_MASK,	\
+> >  			    SYS_FIELD_VALUE(reg, field, val))
+> >  
+> > -#endif
+> > +#endif /* ARM64_S390_COMMON */
+> > +
+> > +#endif /* __ASSEMBLER__ */
+> >  
+> >  #endif	/* __ASM_SYSREG_H */
+> 
+> Overall, the fine-grained tagging is a bit hard to read, and there is
+> no obvious rationale on why some bits are needed, and not others are
+> not.
+>
+
+Sometimes the reason that it is not used is that they are not used yet
+but will in a later series. I defenitely can add a few more function
+that we need right now to reduce the scatter.
+
+> It definitely looks more manageable than the previous iteration, but
+> as I said above, it would benefit from a less scattergun approach.
+That is great to hear!
+
+I tried to move as little arm code as possible. This is probably the
+other extreme compared to the first attempts where I moved everything.
+I will try out moving a few functions/defenitions inside the
+headers/functions to resuce the scattering.
+
+	Steffen
+
 
