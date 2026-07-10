@@ -4,135 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEB4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 03:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10422C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 03:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tODgnhHMNdW2fkLoxV2zdmIMlaa/lqdZI0m9YScz2kM=; b=ORaW166C3NG37h69JzOcFMK6pu
-	Sr+h4985+5lpjfaTjcYk32uQWQRMVQ4cxQ5eTB34eTld7M/NM+JbkEaYOTtBeG8Wb26Mhca3gAYGq
-	EMMAN2py/geIn2wSSWgKoN9qNudKMwXZhEVQTYRoUUo6yAFhQH7i8zVowblM0IL/I9OlzWZVbdgvj
-	WOYvTxWXvNdNvF5tczMaLTHAPhlpcOzazWnqJ1gwVNCiqMIBckHdXjJVkbhmKHl0jppl5sn/KQiLf
-	BHOlAq4WGTo0iIoqAgvxghjvsi8XmGZhjR++1QcSjv7r01l/TscYL5L4z7Ruh7KAchPS9+L671ymV
-	+RQK5mgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Clqub7MS4QSOrj7APIrN69CxsgWwrVk7C6I2c5+9Umw=; b=MmhqLiBD8p/fJT
+	YvXOntJ1AoA8iFvITA7AIKo2bxKTSN0QsgoHkq+CkEC9Jm6YnNfVk94E9UJkOcWwG5WdlD+yvbdbK
+	VY3/7ogTScLcivjguonwo2OJxul+x66TuzJJ9WlM7L5V2PKYXTvnxtbKU9SvUKk6GpBZAWQwI7Ktv
+	67gxQ0Vu5p+RwT8HfJFoOZBioyUALAQt/R9aY+Kioki7t4bL/YkENOdtKeyYb3iwJa13w/DCpTQAL
+	DE/p8XooD1MauuszGNIIdfa6N2+Xl+BMuxlnRmayGKhPv1AnrG6zYEIcwDYVVAVme6EEQrW2Fros4
+	oq/n2d46KriGs/EuNptA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi1gU-000000041hA-0RYn;
-	Fri, 10 Jul 2026 03:13:50 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wi1v5-000000042Lf-1EFe;
+	Fri, 10 Jul 2026 03:28:55 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi1gQ-000000041gk-2Jxt
+	id 1wi1v2-000000042Kw-0iv1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 03:13:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WKTTwMbuqy8Ohk0A0qHRoi6EqRpafXZvWYHK5jaAirpgsDHt1WO1bwlx7hHUJK/4pHSRS/EzHBHHjw0w4CxPJJzF8lx5mbg/sJfrw99EH0b5+vLKDVK/lOqlEzWlyRxc13GChMipmg4NathyyG78F1PeZEG2evWeB4obhHMIh2+/Kidgs1jR+PlLbu6etOget0wxgA31YTGePcbu1aXwuD0V9lf3CKR8xc2xBtM7tnJ/0r5ngKegXEngAFZgMXtZqGTZChPDmU3CRu84vSEh5Hr4LGgzmfPrnzMqQLdEG7vFCW3W0WRUCTkKv3qEntcSASeM2RNokjbAbBN9bgFRbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tODgnhHMNdW2fkLoxV2zdmIMlaa/lqdZI0m9YScz2kM=;
- b=Sr5VaAUEWE8GJV+nkzNU1R8iQAxoDqSMc5Fs4GS8HQBL4LdyuqB1IGqxK8s8cAKpTEWhZUNREcm4pSxzINR2Pa4OxvAZdSfmCagzGcsIsJ/upoO7Gc/7UP8jO8TsdFp0CVtKRxKOAJhIpZobNq+T0E3euF7+zAxaOwDktf4C2jD4ZW1yaG5qEqQp1hYQi7QfMNP6tS0waorQqA5VqJnGQmiiyVqAba33jB2dHgYQ3sWojSb3uO3TQ//qAEmgzpOYvFGC6YxsFS9Z22B7iUERVbZXgh/ffOSCo6iCFLZaMo7rUeFz9Xv1v0d2u070fK+7FMcMFx2trUqSmIiGxgZ4YQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tODgnhHMNdW2fkLoxV2zdmIMlaa/lqdZI0m9YScz2kM=;
- b=PFacnxIfetRNr+jGUrIYZQN1KwRwlfHB/nUWgnTNRCjVboOTjcx1FZ/Ih1iI64kLIVIX5HZSgpgmDhHehYTCvkuDu9dZSwbQoof9Da42OHQOeQHqxFoqSzHULU1v1JU4qCzF3VQ6h/NC6Tyj28F+j+iT/EiK3te73AE1FkAHru2sDC1cpUgrtfyWl4u7MaemRmCb3F0IGlOvZVHRJjBtUuxnXnNxFHb4BpgN8US6Hd9WfiDpeLJMX6r2/kdwtHh+TYjSwiCLvYgCuCMz4kkmfDj7599aAO8wsE2Z4tuU6YPpI6WC86TvLsSv68ZziKajx2vJi0jP7QOhrU2ARR5CGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
- (2603:10a6:150:112::20) by VI0PR04MB10590.eurprd04.prod.outlook.com
- (2603:10a6:800:264::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
- 2026 03:13:40 +0000
-Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
- ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
- ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0181.014; Fri, 10 Jul 2026
- 03:13:40 +0000
-From: Chancel Liu <chancel.liu@oss.nxp.com>
-To: shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	Frank.Li@nxp.com
-Cc: kernel@pengutronix.de,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-sound@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] ASoC: fsl: imx-card: Skip sysclk reset for active DAIs in shutdown
-Date: Fri, 10 Jul 2026 12:13:33 +0900
-Message-ID: <20260710031333.3491445-1-chancel.liu@oss.nxp.com>
-X-Mailer: git-send-email 2.50.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SL2P216CA0090.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2::23) To GVXPR04MB10021.eurprd04.prod.outlook.com
- (2603:10a6:150:112::20)
+	Fri, 10 Jul 2026 03:28:54 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Clqub7MS4QSOrj7APIrN69CxsgWwrVk7C6I2c5+9Umw=;
+	b=wve/sneohSxMB1uG8VfXx8YNujyOoIH1r2aov8MA9uoTWUzD4UlQ1A4AobAw/1QicoMa3sNmy
+	UR+ILbmsxisoHGVSlrkDYqol5o0PzhZx6YEets6UqoCv2ZvcFxb1PbdMu+2kKHi+8u/shuYNS92
+	lTLPg6rEWGwnwnznXOaQ1RU=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gxH9z6mzRzRhQR;
+	Fri, 10 Jul 2026 11:19:19 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id C49F840538;
+	Fri, 10 Jul 2026 11:28:33 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 11:28:32 +0800
+Message-ID: <a88a1ce6-f2e0-44ff-9713-57a94c78c24e@huawei.com>
+Date: Fri, 10 Jul 2026 11:28:31 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|VI0PR04MB10590:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8657b439-0f9a-43e3-97be-08dede313d85
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|23010399003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: +pbm/mtU4qdEJ3wfdVzQHmM3bKw7YPqzhqv/QmyA4o0GfkyMLahGdySkWOTZVkNr5/Wrtfg5ZJsbO6ggQhXhZMy7GMJsQYknty7LGJ7FxmxN0CpCxC4B1KtCwA/iUsAUv7yLDiSU7QdKOjb2PYYigytnudZpuBcgVe4ZA3U84+hA6um8WnWJRVdbn/ZgRGKSKiPX94l14/F6KJMO8DGMvoptUrm79DsrHHXg6x22VVOCjDszd8J8+k1cVkqwIzlNCtinDYQWHnRdepS9vToPWG66oQf/cR3MJUah7S+7nm6O+EipohVz8LgmUYsS1irs2m3EAhDswA3RSK1gYf6u0ueBGyqHZlziCbrDS79mIyR2n16VH6ct6iDAtjogSG4QOz3RPXeJyYGOySPqkqIjsX+2zPbm165HFpW2QH510r9OoVustwUO6bj22Zw+5apxoIcIyHwxozLVisFsi3GrPGEMAdlNU7mkLeuq7Ik0fe7Iy2D5Y6HS2dQb57KQyn84QSSHsyqCVhyGlac9u/bfZGqNoa/NE72GjjwtO0QNfStl99XpsARROyhCPu7bbD+tRZyNFUsVphpGbxdEiiCCn0NGok+AI6fkXPzQJ4XrnSoqq8kzCrDzG5RKlXyuiOa8gkqBG6yKbilhAC1UWR/yQWlCs0Ma2PWUclDjnVNoXD8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(23010399003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IG1eHS1rZ2isoAqBbjSX3AifQEALi0hVKgkRiw6MYx8zkI88raGE0LGRO83u?=
- =?us-ascii?Q?obkPmAVA5GALsgjI0NFMc2Qd0WbfIySEOR7eO3HO573vOLw12DQsaDiddEfu?=
- =?us-ascii?Q?/jrBrAU01DQxAN5tTqOGQiy0xZtvFsx6QSPQl/NxltKppQkjvjdmiHDu8XUZ?=
- =?us-ascii?Q?bRQEwyFFE02gIHqwdel0QaXu5YJ2bJu+aWOJjvMYn4uflPIBiqa/OIskTeiq?=
- =?us-ascii?Q?0FwdMpsCe4FhV+BoHM19NLFo9KQBt8NJ71FRj55eJ3tKGeIhav/HfTUCVryz?=
- =?us-ascii?Q?sd00zMD738QI3x+jmIfjzcQsbKvOFXT89AxREdGp+iTkjpuzJ9VmVOO6BzoI?=
- =?us-ascii?Q?WVd+kflXgbVjs2K2+/WiR5cBKSOLbkqYKRyRBi4EO/ol8NAW1zv/2AsFiTli?=
- =?us-ascii?Q?owXg/wXHwpNNMZy6uJx4pMKLqTew81ZR/Q4VUXHWkzAmWkc1a5jDQhZQDvC7?=
- =?us-ascii?Q?6UJjs2k6Spf0pygSQvChlP3Z3utNq+5ZiQ2VU/ZFGTQjyjpqgHGiZyhQ8VMC?=
- =?us-ascii?Q?WSpLrHwf0bWlSOsmlqRRZm3Bf8wkatOIR/cvWH29W098teVLeDNE/8v5R1e6?=
- =?us-ascii?Q?0Rb9cGiLUxg26H+8mv0suDFgv2HbuL1xtBw5fHSeW6krasC2NylYgPwFvkbP?=
- =?us-ascii?Q?f3TjeU+Ea/+0eyA9HdTbOPkNmKtluoq5g8kwiZpyBH5ZjiXoIjMSPuppenXb?=
- =?us-ascii?Q?d0mORX2pbEQN0n/ijXJeBEjD+GLM0Y0c94eLsCOUMAtZPTH9ITesoeOxkMzG?=
- =?us-ascii?Q?DK7nLneJrfGkn8u3MMPz5PjwBjcQuPOBtoMbK3Bs9kE75pMEUhsUpUmY4n3P?=
- =?us-ascii?Q?xQG0VUlalL0IXphJG7u47mxcF/JfORXoqB4PxOi//jcqpU45YEZQsZxV63mp?=
- =?us-ascii?Q?fnPizVFy9LNxzLM9dckz78OBCLvyhBhdNT3qnlCnaJGcqvl5P3djqKivSPIb?=
- =?us-ascii?Q?5XVBRx4q3rJ/KPh9xU4K7iZOI7YVAPJ8avrCOx/tSX7INTMdzzyvRr27fdfA?=
- =?us-ascii?Q?xqC0FkpZfSB5dxjo1/2uORPx+P5KikKBqpB1kfyDWgsAUHptJrkuc9saORX8?=
- =?us-ascii?Q?r2B5DBjbEv7RHGmdNMd68pKnDdCG8UuvrUxWuwKJxlQBUxvvf4MkcxDXxAY9?=
- =?us-ascii?Q?C8mykhF6HwS68b53tVjy+gC/jh06Mly0J4OHv40pG6nS52UctK1RdFPOpOLo?=
- =?us-ascii?Q?sJHAACOi+gQGTXh/ntqn4dd5W6hEAd67JCBNoifc9n7+39s4lQIddc83M/jw?=
- =?us-ascii?Q?NgkGw84S60xosp4c0OS74AuDJv1vsVpInyPzmihgsiMata7YyBXyGEkhuAz+?=
- =?us-ascii?Q?hxWA8YtSiazreFi6fBosQTbb+7luOHPN4wL/fD93b5KWoXIU2Ia3TpvREluV?=
- =?us-ascii?Q?I+PkTTOXHQM8OuogK89/wOAEBHV8LARW0jTpZb7B759PMHVWHhnbAcfbuuK1?=
- =?us-ascii?Q?TwfhqjOPUdOuDr86JgtdOQrAgpHugENi/AZmmIqbLB4v7Jr/Roh/YVuGO0xC?=
- =?us-ascii?Q?YhLe4/xVen9D+6BVcDICoSlYKfC8/buncQ6tM+EJ6hdEbVgtZdJpjJsl0Koy?=
- =?us-ascii?Q?mJkRHvsxMMKSOsrqbDjt/zRh39EYe5s9uVDOYcHa6GTCgXUKoiMzqPAB9Wq5?=
- =?us-ascii?Q?okGWmU6yib5tAaso4Y7f0Guu1PLrglw71GT1on0OnU5ga98KIEVoQkrChTMN?=
- =?us-ascii?Q?jtz+ROv7KLDi7rcgeqtUhAr1fo1gqjHSnw3zNdQxa/D9/I07RdwY6dy/3iiJ?=
- =?us-ascii?Q?xEdfM0BiJxLBaF5iloJfm9kEawh4SwbZm++tSFyeLzl90XR7xsk+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8657b439-0f9a-43e3-97be-08dede313d85
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 03:13:40.2314
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uFquP6BjZuejn+wfDfh5TBYa1UWcmKqzlzhht/c3U8KJ7BIBssQNbtETBBtpfHP818uDBGKAGLt67syA5fmi1qropyXZ59Bs5X7apIKhxw85imIfj5xPwdHE68mVz2wx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10590
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 03/36] arm64: hibernate: mask DAIF before restoring
+ hibernated kernel
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-4-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-4-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_201347_037328_8A794C36 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260709_202852_848214_A04FACDE 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,52 +75,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chancel Liu <chancel.liu@nxp.com>
 
-In a full-duplex setup, when one direction (playback or capture) is
-closed while the other is still running, imx_aif_shutdown() was
-unconditionally calling snd_soc_dai_set_sysclk() with rate=0 for all
-cpu/codec DAIs, which would disable the clock still needed by the
-active stream.
 
-Add snd_soc_dai_active() checks before clearing sysclk so that only
-truly inactive DAIs have their clocks reset.
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> The arm64 hibernate code manages the exception masking in an unsound
+> way, leading to potential crashes and/or warnings during resume.
+> 
+> When a hibernation image is saved in `swsusp_arch_suspend()`, all DAIF
+> exceptions are masked (by virtue of `local_daif_save()`), and the
+> suspended image is saved assuming that all DAIF exceptions will remain
+> masked when the image is restored.
+> 
+> When a hibernation image is resumed by `swsusp_arch_resume()`, only
+> interrupts are masked (by virtue of `local_irq_save()` in
+> `resume_target_kernel()`). When pseudo-NMI is enabled the DAIF.IF bits
+> will be clear, and regardless of pseudo-NMI the DAIF.DA bits will be
+> clear.
+> 
+> This means that there are two problems:
+> 
+> (1) It is possible to take Debug, SError, or pseudo-NMI exceptions
+>     during the resume process. This is unsafe, as during the resume
+>     process both the old ane new kernels will tranisently be in an
+>     inconsistent state, and swsusp_arch_suspend_exit() won't retain
+>     an executable mapping of any exception vectors.
+> 
+>     Any exception taken here will be fatal and silent.
+> 
+> (2) When re-entering the resumed kernel, some DAIF bits will be clear
+>     unexpectedly. This permits Debug, SError, or pseudo-NMI exceptions
+>     to be taken for a short period while the resumed kernel is not yet
+>     in a consistent state.
+> 
+>     This is detected by CONFIG_ARM64_DEBUG_PRIORITY_MASKING.
+> 
+> Avoid these issues by masking all DAIF exceptions during resume.
+> 
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/kernel/hibernate.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+> index 9717568518ba..d0d9bd91e639 100644
+> --- a/arch/arm64/kernel/hibernate.c
+> +++ b/arch/arm64/kernel/hibernate.c
+> @@ -405,6 +405,7 @@ int swsusp_arch_suspend(void)
+>  int __nocfi swsusp_arch_resume(void)
+>  {
+>  	int rc;
+> +	unsigned long flags;
+>  	void *zero_page;
+>  	size_t exit_size;
+>  	pgd_t *tmp_pg_dir;
+> @@ -465,9 +466,21 @@ int __nocfi swsusp_arch_resume(void)
+>  	if (el2_reset_needed())
+>  		__hyp_set_vectors(el2_vectors);
+>  
+> +	/*
+> +	 * It is necessary to mask all DAIF exceptions here as:
+> +	 *
+> +	 * - The copy of swsusp_arch_suspend_exit() in the hibernation
+> +	 *   text cannot handle taking any exceptions.
+> +	 *
+> +	 * - The suspended kernel masked all DAIF exceptions in
+> +	 *   swsusp_arch_resume(), and expects to be re-entered in the
+> +	 *   same state : with all DAIF exceptions masked.
+> +	 */
+> +	flags = local_daif_save();
+>  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
+>  		       resume_hdr.reenter_kernel, restore_pblist,
+>  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
+> +	local_daif_restore(flags);
 
-Fixes: 2260bc6ea8bd ("ASoC: imx-card: Add WM8524 support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
- sound/soc/fsl/imx-card.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+I believe that the local_daif_save() here is also unnecessary because
+hibernate_exit() returns from the "return 0 branch" of
+__cpu_suspend_enter() in swsusp_arch_suspend(), and before that,
+local_daif_save() has already been called to mask all exceptions.
 
-diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-index a4518fefad69..43438af1e1c6 100644
---- a/sound/soc/fsl/imx-card.c
-+++ b/sound/soc/fsl/imx-card.c
-@@ -496,11 +496,15 @@ static void imx_aif_shutdown(struct snd_pcm_substream *substream)
- 	struct snd_soc_dai *codec_dai;
- 	int i;
- 
--	for_each_rtd_cpu_dais(rtd, i, cpu_dai)
--		snd_soc_dai_set_sysclk(cpu_dai, 0, 0, SND_SOC_CLOCK_OUT);
-+	for_each_rtd_cpu_dais(rtd, i, cpu_dai) {
-+		if (!snd_soc_dai_active(cpu_dai))
-+			snd_soc_dai_set_sysclk(cpu_dai, 0, 0, SND_SOC_CLOCK_OUT);
-+	}
- 
--	for_each_rtd_codec_dais(rtd, i, codec_dai)
--		snd_soc_dai_set_sysclk(codec_dai, 0, 0, SND_SOC_CLOCK_IN);
-+	for_each_rtd_codec_dais(rtd, i, codec_dai) {
-+		if (!snd_soc_dai_active(codec_dai))
-+			snd_soc_dai_set_sysclk(codec_dai, 0, 0, SND_SOC_CLOCK_IN);
-+	}
- }
- 
- static const struct snd_soc_ops imx_aif_ops = {
--- 
-2.50.1
+swsusp_arch_suspend(void)
+    -> flags = local_daif_save();
+    -> if (__cpu_suspend_enter(&state)) {
+           ...
+        } else {                // _cpu_resume <- hibernate_exit()
+
+           ...
+           in_suspend = 0;
+           ...
+        }
+     -> local_daif_restore(flags);
+
+>  
+>  	return 0;
+>  }
 
 
