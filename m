@@ -4,107 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE8DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=; b=B5J84lizRPBKx3lh+3GBqmRwd5
-	PE7Z0MXJzEIH9LAYp+SAEmKxG1N9qa1AelKCSQqrrVQxI8ZE00iXZnD345ukDp0K9YvbyOm62VCrd
-	jnMKGVP4HIcKV83gfNTU4EoVRNoZNBvdJkp7bWJJGmhuIibcUOdSW43MbbMR9+VrW3jdVrDhDoiQd
-	V3abIDwkKwZwP5TVZxJPoqDxKw6IngR7WeoEHLO1FlfdjziTlQEmV2BUKeKzc/fRjB6kJu4KsmS3i
-	OpMtvr5zLNmLKfbh+opD4l1ZIKLW4hMyIHbCbpA5+fDt268ToNB08FNw5CXFizCAib83yISaonD5Q
-	94C6mi7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wNhWASr7b/ZTOhcTDo/rAGZJQBNr7Kmww1CuII50ggg=; b=p2yQU5MsbqXYQwhzGQJiA7qKbo
+	Y8PE1jbfpt2So1wxtIjCdqi7hRiKbodevNpFIARiJqCXaGiTpk0okJV1iY/98VOptfpLMxLWEvKV+
+	DnKZQ8IrGy5ewfVm79sr9XAqXMIvtpWvvzxCWmKzf35Cy4by/GXB765OlW3VBNRZX4z3+TeBKI+Bo
+	HAG+x/0uL5UBYJC3pvMtaLXmSCODg7gGBZSeNxGqxDV7qbO6G5GjnexzQx4ndtE5QtF2kHhntnY9y
+	2EDTHrLGrcGLoOY7W4QiNGRjgUxI5yK1fW4lW7rzT2WAYol9ywU3elnTnp1ayurZDa7gzE/gHbvel
+	cSkaIVow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6R3-00000004RYo-0AIT;
-	Fri, 10 Jul 2026 08:18:13 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wi6Rj-00000004RnQ-1uZ5;
+	Fri, 10 Jul 2026 08:18:55 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6R0-00000004RXX-13ds
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:18:11 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-382ef647e20so798727a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 01:18:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783671489; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dzWj5FTaoqWnbU3ur3cDtVlwuQFt9t28cCxmy4RnbnEqKMzZwMXsBm94Q5/LPXLY8s
-         yGLc6f9HIsJ7kAxJAH6lwEUIibhPEmF5BBohUwE7RodSHesNbZoGFoX7MEnj0yrOK3SF
-         nB+dlzEunzzv/ApvLxoyrFZ1ipZS2pEidaZ50Ip8FK3uQM6kwV0c3O01D2GxWbvh0cng
-         kGlG2k7XbLHgn4DAzOFWsiihh14Tf4z7b50og1kbtWIz466YGscQtoBbHLhBlT5rV6qI
-         Tov7zsg0fSexCWOpvSzGZtiRiV+k0QeA5TweIAY+0W4bCG6U2lXQ3H5gLUYngwp2+gFb
-         717A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
-        fh=XaxOnbCznotuvWTUwJQBPNpAAYDiCDTKeYRX5Lm3wwE=;
-        b=JcW4piIMP6V4Q0R7ALzqbnKy7eTO3BAK7CB3MiLvvsNoISKvRYm3pw626cAGboOTny
-         MgXbXQkumZZqM370HkEDI2bLIPxhvRxnlszaPF4my7WtbsBTXn517gDbI9iWUE2Bafab
-         P7AzV+sbkmie8/xkDxh1zD5V8WED4xHhR9SlZ/QA5KdjJDn5DYWPLlyLK5YWpACcYx49
-         aNz120R38b9QL8MSQG8J6Ofar65Wx6wwSGlAiiXTtd8I8rpyKdtukiuOJaYohzCjPJEh
-         oemrbnvsyfY5P7qsurM9zTRzMZ8SgwfnYJObNLoLtDcyOQ+P0g5iynS0jskXusvb6njb
-         h9Tg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783671489; x=1784276289; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
-        b=TQvW+1klqTfTnLH2+dtS0jXq2a5Eby4Dya8IjpiwMW86vNK+rUoZujgUhJikWnbFBj
-         eByaIr38eC1IoNSn9vO7gvnwExzaKS9yFrGb6EWcAv9zy3s8ABHFMlo8otzYuSJ32bpX
-         S4XCW9gkNkFBhN5aztcYguS87P9RhcOUvn/+CfidPFvIGkniAc6BMUrvLpZ/a9G6ry/l
-         HtxY2CXVG8/tMqmmf8wYuDv12Av8isDa0g6r9O5BSM44rC+mDoS47Hu/I/juy1b9rlnr
-         7+14FicahWA2NAmjRJP/WCwknL9qui4eG6XJ4WTUAnx4865u7nnQDLefjMIvUL50XDKh
-         weRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783671489; x=1784276289;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
-        b=YIH66mLNqVyDkpsypymI6Kub8uvCZXVzU22+2m95IZmLrNdOFURuSYc3MDZFp1MtG0
-         CYUpfNkPof/zFXrZxlV3cUEUctSYlv8raHCPYO4TjYaQV6BDxjgjXwMImV6+DaaNNjQH
-         SLH9D51Pw1Njo7BKcaLKbimPbLWsHZHk2RZcxf64Wu3/BYjYKVEm8eJQS4KjzqEHN+Ro
-         UqcwTBN1vAnARztRbqHagWHJjkUHZGA1H5o8GPgl+oRnJHAnLuwWPwhG9K3bE5tl8BOC
-         Q+678nVUsYQLqrFHMyEjQzWrdy6IIE7btIfmw2dy1nCB5AhkSkpSw1PthVUO7Vi5j1/L
-         Xq3w==
-X-Forwarded-Encrypted: i=1; AHgh+RrASbChbI13Vrx16Ry8JkcdA0sE3+Xvu8hKgZKiVCqB6pf0Ls+imznIHk4Rl1sUl+PUAALAfu5+sgNiTpuZPmYs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVVB4nKJO2P3xdy/AcGIfq+3SVZISoH/ofVW+1CkxzLhdENSkz
-	K7qdvKXRJ2QpK3PwG6jkoJCrK7bzBWULwjOYWN4YFIW56azNa/Y48NOeMkdudQlOR7QE6WkEyes
-	fvvUEDfJJkdnxqypO7USDIWS97ud9ZVc=
-X-Gm-Gg: AfdE7cllHju0KvpnsfNgwH48ylGF/718p7xUvhyWWCyjENZ8QP1B32pD9UesXIj7a8I
-	j46DeozZxpoMuIlKxosYxM5HPTcB4CrIp8fhjpJ/X1LRplZFqh8ovzTxml918KGPW8gxi8LoR3n
-	lC15rZoLzXUfFLZ8PWIr12gMhWiAJRp4holQ6c9TuD1rnU+xxdWC0mzpWXvTfA1G+ZUAsX0vTJC
-	hzjB0AKjguSBUveShtiDZHNhEgAVaQFty5Toh5NQzOIAl6HFEbz0RPBqPqhQ1lJBsDGu4GqyMXc
-	xQsoDLpANIU2Z3ZiO6H4dGhE0O0=
-X-Received: by 2002:a17:90b:2f06:b0:37f:bfa2:1887 with SMTP id
- 98e67ed59e1d1-38941101e2emr10680019a91.8.1783671489057; Fri, 10 Jul 2026
- 01:18:09 -0700 (PDT)
+	id 1wi6Rh-00000004Rmp-3wRG;
+	Fri, 10 Jul 2026 08:18:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783671496; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=n1lilrOhB4g5YW6x6G9IiFkIE7cfPY646RXZhmeBeRU8vt/Xx9bipqzOH437Yw97SoOGWsi6diBYmTI0TYz7Spkgc8HTkBcyOyMzfh59yPBSw05OA6h2azT2bgsLebTK/kztYKqSVt1g4J+Lfr3EC3HBXmEksib7LE6CevODMbI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783671496; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wNhWASr7b/ZTOhcTDo/rAGZJQBNr7Kmww1CuII50ggg=; 
+	b=KzVJV3qeyarguw6hz9kE7z6vCLOBH41NDHxBP60XjAWbYdVyRx4BdzoxPYnBsKXqISCpPpiknHP/lbrKwWbfZSlZj8qPWnerYwHuVZfthM/RiwyHsk1sJsbpbDcruZtep4SIczOrhwHVxxhJF8ObBRv1kKP+7ED7nKrf1V47Ws0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783671496;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=wNhWASr7b/ZTOhcTDo/rAGZJQBNr7Kmww1CuII50ggg=;
+	b=FFnMn0CfDn5F3352XtaZr/QmRsRz8rLmzZocUKukr5Ojp1+hiTHPyc3rbW2Zy+S1
+	bOUZDwihK/kW3HXc+EyDdMZPXBcsEVnrUiNVKyPQWNQCSgGFPDMhHaTIewGDobgikZT
+	oCrvfmpvHCAuKEHCF4PM+K5AHYqHi8YICnThQ1PA=
+Received: by mx.zohomail.com with SMTPS id 1783671494588655.4558382967103;
+	Fri, 10 Jul 2026 01:18:14 -0700 (PDT)
+Message-ID: <66d4ed68-f8b1-4275-96de-83d1125d49c9@collabora.com>
+Date: Fri, 10 Jul 2026 10:18:05 +0200
 MIME-Version: 1.0
-References: <20260710050223.14266-1-phucduc.bui@gmail.com> <20260710050223.14266-3-phucduc.bui@gmail.com>
- <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com>
-In-Reply-To: <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 10 Jul 2026 15:17:57 +0700
-X-Gm-Features: AVVi8Cexjb8IlpQOnKY8Iz8sH6znwFCqGvvu16EY1ysnfcqVV4Wi_i8aRfmJTkA
-Message-ID: <CAABR9nFFMMk6i_sjKGjt4t-_QZF_hu2gBPRNK8c-GfhyKdVP8A@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and
- drop redundant error handling
-To: Michal Simek <michal.simek@amd.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/7] media: dt-bindings: video-interface-devices: add
+ video-interface-devices.h references
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>,
+ Matthias Fend <matthias.fend@emfend.at>,
+ Mikhail Rudenko <mike.rudenko@gmail.com>,
+ Daniel Scally <dan.scally@ideasonboard.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+ Sylvain Petinot <sylvain.petinot@foss.st.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Paul Elder <paul.elder@ideasonboard.com>,
+ Martin Kepplinger <martin.kepplinger@puri.sm>,
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+ Tommaso Merciai <tomm.merciai@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>,
+ Richard Acayan <mailingradian@gmail.com>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux@ew.tq-group.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+References: <20260628-kbingham-orientation-v3-0-4ed92968aff8@ideasonboard.com>
+ <20260628-kbingham-orientation-v3-2-4ed92968aff8@ideasonboard.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260628-kbingham-orientation-v3-2-4ed92968aff8@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_011810_292788_54FFB4D3 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20260710_011854_035799_BAD447C0 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,76 +109,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+Hi Kieran,
 
-Thank you for your review !
+On 6/28/26 12:22, Kieran Bingham wrote:
+> Expand the documentation of the video-interface-devices orientation to
+> reference the include/dt-bindings/media/video-interface-devices.h header
+> which provides human readable defines for the orientation enum, to help
+> avoid hardcoding values in dts.
+> 
+> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 
-> > +     if (IS_ERR(ctx->axi_clk))
-> > +             return dev_err_probe(dev, PTR_ERR(ctx->axi_clk), "failed to get s_axi_aclk\n");
->
-> This is pretty long line. Message should go on the next line.
->
+Acked-by: Michael Riesch <michael.riesch@collabora.com>
 
-The line is still within the 100-character limit.
-I'll split the message onto the next line in the next version.
+Thanks and best regards,
+Michael
 
-> > @@ -274,29 +270,23 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
-> >               ret = devm_request_irq(dev, ret,
-> >                                      xlnx_spdifrx_irq_handler,
-> >                                      0, "XLNX_SPDIF_RX", ctx);
-> > -             if (ret) {
-> > -                     dev_err(dev, "spdif rx irq request failed\n");
-> > -                     return -ENODEV;
-> > -             }
-> > +             if (ret)
-> > +                     return ret;
->
-> Here you are changing error value and commit message is not saying anything
-> about it.
->
+> ---
+>  .../bindings/media/video-interface-devices.yaml         | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> index a81d2a155fe6..c9c3f4f16719 100644
+> --- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> +++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> @@ -392,17 +392,22 @@ properties:
+>        The orientation of a device (typically an image sensor or a flash LED)
+>        describing its mounting position relative to the usage orientation of the
+>        system where the device is installed on.
+> +      See include/dt-bindings/media/video-interface-devices.h.
+> +
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      enum:
+> -        # Front. The device is mounted on the front facing side of the system. For
+> -        # mobile devices such as smartphones, tablets and laptops the front side
+> -        # is the user facing side.
+> +        # MEDIA_ORIENTATION_FRONT
+> +        # The device is mounted on the front facing side of the system. For
+> +        # mobile devices such as smartphones, tablets and laptops the front
+> +        # side is the user facing side.
+>        - 0
+> -        # Back. The device is mounted on the back side of the system, which is
+> +        # MEDIA_ORIENTATION_BACK
+> +        # The device is mounted on the back side of the system, which is
+>          # defined as the opposite side of the front facing one.
+>        - 1
+> -        # External. The device is not attached directly to the system but is
+> -        # attached in a way that allows it to move freely.
+> +        # MEDIA_ORIENTATION_EXTERNAL
+> +        # The device is not attached directly to the system but is attached in
+> +        # a way that allows it to move freely.
+>        - 2
+>  
+>  additionalProperties: true
+> 
 
-Oh, sorry. I should have explained this in the commit message.
-devm_request_irq() can return various error codes, such as -EINVAL, -ENOTCONN,
--ENOMEM, -ENOSYS, and -EBUSY. The existing code overwrites all of them with
--ENODEV, which does not reflect the actual failure.
-I'll update the commit message to explain this change, and add a
-Fixes: tag if appropriate.
-
-> >       ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
-> >                                             dai_drv, 1);
-> > -     if (ret) {
-> > -             dev_err(dev, "SPDIF component registration failed\n");
-> > +     if (ret)
-> >               return ret;
-> > -     }
->
-> And this is another case. Where origin code didn't return any error which was
-> wrong. That's also not described in commit message and likely this should have
-> Fixed tag.
->
-
-Sorry, I don't think I fully understand your point.
-The original code already returns the error from
-devm_snd_soc_register_component():
-
-ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
-                                                                    dai_drv, 1);
-if (ret) {
-dev_err(dev, "SPDIF component registration failed\n");
-return ret;
-}
-
-writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
-dev_info(dev, "%s DAI registered\n", dai_drv->name);
-
-return 0;
-
-As I understand it, this patch only removes the redundant dev_err()
-call and still returns
-the same error code.
-Could you please clarify what you mean by "the original code didn't
-return any error"?
-
-Best regards,
-Phuc
 
