@@ -4,97 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A7DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30A4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuUmGqSSA58rP0nRidv37IIoymAVqS6FDOb1XQHbyds=; b=SdTmA3K75gYKfGaN2kWmWxuFKw
-	lg+dPi00D7LMRPaNd44oQrP1gjobffxsHQ1LsXMfgs5kIyycXPL2u8yaeFbRNv6tHdv/15qkLo8pG
-	BSMFpKETj5OwLEy+A1RRdeV44DDpC1tPZNzb3HcTfxBz78p0xPR/GcB/tGKug5KLxoBnQdcjMbAss
-	9lWee2TXeGTV7wwdB2T6m8/BxxwRTPEg4gKFIiiim1EwYl4Gm2Xzt7sI6CV28nMlbKpdOqHty4R6j
-	V3qktEid/lowkA05pN0KGRZdoj9oTWXaPRU7ENiMK6WoL1YGF90JJQeBtgi896r5pRBDadjinvzJd
-	qtFM9PjQ==;
+	bh=Dajv8rRLLQqL/bHcBInspiOpIt5vQWx2zXLDiMTgElk=; b=1sWCYofZHLCbyS4GDzppd+8GXa
+	IO0pNYMrHOdnxdBWB/L9EADYCZ+C7TeFM7stZawAAv6z7sQHa++a0Wdpv9ZxbZHjxKPsLn/r2ivwi
+	y2A+KEuh25Udh+yHw7O4replPjqrGXevW99XJcFhPm2SIfqLWQ2YYCORPQi2d/ni16hgAAQU+Kkb1
+	5jzEkpcaQtFwoYpnaI1xYQsuLEWspP7+ZgdbmkKV9g0/CrkmRFEoSTDpc6sWdg0YnNfKhS0KrxVDi
+	goHzoBKTPaJJPB87YISxVFR5NCVmBjBN0zXSjmp6s1G4MQ2pSBGy3RZhOE1v2/JmlLk500dqZf4TN
+	S8YAB8bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi90S-00000004lqg-10OS;
-	Fri, 10 Jul 2026 11:02:56 +0000
-Received: from mail-ua1-f42.google.com ([209.85.222.42])
+	id 1wi90y-00000004m12-1WuL;
+	Fri, 10 Jul 2026 11:03:28 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi90Q-00000004lpb-23yY
+	id 1wi90w-00000004lzb-0CgA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:02:55 +0000
-Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-9690c99c917so242261241.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:02:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783681373; x=1784286173;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=MuUmGqSSA58rP0nRidv37IIoymAVqS6FDOb1XQHbyds=;
-        b=s+vAAfmUepk8R5Jam7YTf7ZGV5aH9RI1l4qEeTJTJ6UVKFTihsNHn9b78Xe8LTF13E
-         I2QrIDKeBvsDwc3/mCCW2BvVhxIo2FXVO2vqgVCv7vvEZJpP4w9BNUlf91vYLi9pJzE6
-         ubgKranpnZP5ZatBhDsLEbbfpNxN5cu1zsmjTq1uuneI+dWUkqXs9fGVKCuSt2E76EEk
-         G90NfSPBnS3ovnobv0Vxrcv6EK0xhEgpqgKG4ooRK80gNIdtRKsfYhI1I5Yj8Ue7X9pY
-         9ZnrkeAv3M8RKvDgy7GfV2wWNBli1ZzWsyudYsbvH6q2oYKszaXMWS0mtLuzn7d9Uqwk
-         wEYQ==
-X-Forwarded-Encrypted: i=1; AHgh+RovrFr+wKrZro+wovFib4u9GsKv1VTfS5M0Z2yZz3ONG8AUUuC7kX7UVkXBbZYLaPyzTRFdazTYxotFF5M4Pu3n@lists.infradead.org
-X-Gm-Message-State: AOJu0YygE67CuITCGmkmXPT/jruyQeKL9viBr88Z9Xi7M5wDHVBingOH
-	CNjCqdQdhCQ16YV3G6V0Om/bwyAFWkmwZlbW7THQjPlqCYKvxzbM1BX/CdYYRjcxb1Y=
-X-Gm-Gg: AfdE7cml2rcXRjX64M2+sQMUPvF4Wj0zHQCizeSE6d3GZXJPVHLK8Wk4mrJANIXIvQc
-	BK+ihHkOfMDV0ZLLx80oumdgsJMnE+EhewulIjXCbTbtptRnPjb7c9rYAu8PM1fyB1VGf3U2ecS
-	bQSgefPi3G/jqP0yHFbESrWr0smFkuzpxn7LL0OKSxHxmZs4CvthfG+hJEfDZexte7q0l0fY+NT
-	d8FkMiOGV8n6Ipx7V4oKIVEytYwi4JMivvije05jrpMzgXNAIgiARoISAo7BzUwhPc0qLykmrRr
-	VpqqejYDUcKv0OMFTAny1BjU/nEcGw7UemHl1av+6Mu/BNO2XkRhyJ/C6kKmJ2k0KguUAlW5No7
-	hVLN97YpiZog9ij+CfiPXHL0FLMYiL3UfKyuzSrAp39KDfyUVQC+XYQ75HCMQ+77oUwUBYDSfUR
-	z4D9p8xa+cZinplZvstRiEK0H6M17PRwf6gsOyimTJ0aVT+IbApg==
-X-Received: by 2002:a05:6122:885:b0:5bf:ab99:ea89 with SMTP id 71dfb90a1353d-5bfab99ecbcmr1013262e0c.12.1783681372974;
-        Fri, 10 Jul 2026 04:02:52 -0700 (PDT)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bf6f66eb74sm4853887e0c.7.2026.07.10.04.02.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2026 04:02:51 -0700 (PDT)
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-9696319e14dso303529241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:02:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoHg17SbgoFsHeSLv9DHMN4i3QzNiC+yubesmEJGPRQT+B3OqKPQk0oGj61gwv1g9xZn+NSq3f34D5KxUgbSAgg@lists.infradead.org
-X-Received: by 2002:a05:6102:5789:b0:73e:9fae:5844 with SMTP id
- ada2fe7eead31-744e0426fd6mr5821388137.27.1783681371174; Fri, 10 Jul 2026
- 04:02:51 -0700 (PDT)
+	Fri, 10 Jul 2026 11:03:27 +0000
+Date: Fri, 10 Jul 2026 19:03:07 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783681401;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Dajv8rRLLQqL/bHcBInspiOpIt5vQWx2zXLDiMTgElk=;
+	b=dwqNili5ix7ZeKTpYl9LMHTAH/HpedCS1XU7PRBhkr+YckQWobYMV0lDq0M7vigSGzGmtP
+	8oE1zk1v0HMDOHmuNXFiY9SE0CTVtEmn+1v0Q+3ybmj/4Otu9dN0YE55TB35Rw3htM03ax
+	KCWV20IHbRMa+JFFP5IWPiK7C35cyLw=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Baoquan He <baoquan.he@linux.dev>
+To: Breno Leitao <leitao@debian.org>
+Cc: Baoquan He <bhe@redhat.com>, akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	dyoung@redhat.com, tony.luck@intel.com, xueshuai@linux.alibaba.com,
+	vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com,
+	kernel-team@meta.com
+Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
+ statistics via sysfs
+Message-ID: <alDRawveM-auCHwB@MiWiFi-R3L-srv>
+References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+ <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+ <aYvi4Y_HNqk_u1-v@fedora>
+ <ak0JSScR3EYgLEf9@gmail.com>
 MIME-Version: 1.0
-References: <cover.1783505329.git.geert+renesas@glider.be> <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
- <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
-In-Reply-To: <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 10 Jul 2026 13:02:39 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
-X-Gm-Features: AUfX_mypDnJ4qFpPLK-a5R1Mbwkbc6yQr178xDsRkCp5yARGuoX_7FuK_KFx-r8
-Message-ID: <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
-Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
- firmware property
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak0JSScR3EYgLEf9@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_040254_541486_38AABE25 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20260710_040326_235567_7DC49345 
+X-CRM114-Status: GOOD (  29.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +75,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 07/07/26 at 07:13am, Breno Leitao wrote:
+> Hello Baoquan,
+> 
+> On Wed, Feb 11, 2026 at 10:01:05AM +0800, Baoquan He wrote:
+> > On 02/02/26 at 06:27am, Breno Leitao wrote:
+> > > Add a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to expose
+> > > hardware error recovery statistics that are already tracked by the
+> > > kernel. This allows userspace monitoring tools to track recovered
+> > > hardware errors without requiring kernel crashes.
+> > > 
+> > > This is useful to track recoverable hardware errors in a time series,
+> > > even if the host doesn't crash.
+> > > 
+> > > The sysfs directory contains one file per error subsystem:
+> > > 
+> > >   /sys/kernel/hwerr_recovery_stats/cpu     - CPU-related errors (MCE, ARM errors)
+> > >   /sys/kernel/hwerr_recovery_stats/memory  - Memory-related errors
+> > >   /sys/kernel/hwerr_recovery_stats/pci     - PCI/PCIe AER non-fatal errors
+> > >   /sys/kernel/hwerr_recovery_stats/cxl     - CXL errors
+> > >   /sys/kernel/hwerr_recovery_stats/others  - Other hardware errors
+> > > 
+> > > Each file contains a single integer representing the count of recovered
+> > > errors for that subsystem.
+> > > 
+> > > These statistics provide visibility into the health of the system's
+> > > hardware and can be used by system administrators to proactively detect
+> > > failing components before they cause system crashes.
+> > > 
+> > > Signed-off-by: Breno Leitao <leitao@debian.org>
+> > > ---
+> > >  kernel/vmcore_info.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 55 insertions(+)
+> > > 
+> > > diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
+> > > index e2784038bbed7..b7fcd21be7c59 100644
+> > > --- a/kernel/vmcore_info.c
+> > > +++ b/kernel/vmcore_info.c
+> > 
+> > Since we agreed hwerr_recovery_stats has nothing to do with vmcore, it
+> > seems inappropriate to put its sysfs handling code in
+> > kernel/vmcore_info.c. File kernel/vmcore_info.c is only used to build
+> > vmcore info for later vmcore dumping. And hwerr_log_error_type() should
+> > not be put in kernel/vmcore_info.c. either. I didn't check this
+> > carefully before, sorry. Please reconsider if these can be handled better.
+> 
+> I've sent an RFC to move it to RAS code, which I think it belongs
+> better. Does it make more sense?
+> 
+> https://lore.kernel.org/all/20260707-hwerr-ras-v1-1-4aea4a79d085@debian.org/
 
-On Fri, 10 Jul 2026 at 12:21, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> On Wed, Jul 08, 2026 at 12:16:23PM +0200, Geert Uytterhoeven wrote:
-> > Add a firmware property, for systems where SCMI must be used instead of
-> > direct hardware access.
-> >
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > v2:
-> >   - Spin off from "dt-bindings: clock: Document Renesas R-Car X5H Clock
-> >     Pulse Generator".
-> > ---
-> >  .../devicetree/bindings/clock/renesas,r8a78000-cpg.yaml    | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-> > index 4e23bba334382346..fc499e7cf52e4f0c 100644
-> > --- a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-> > +++ b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
-> > @@ -35,6 +35,12 @@ properties:
-> >        <dt-bindings/clock/renesas,r8a78000-cpg.h>.
-> >      const: 1
-> >
-> > +  firmware:
->
-> RPi is doing similar, but I have doubts. It looks way too close to
-> generic "syscon" which is disallowed.
->
-> I think this should be vendor+purpose specific, e.g.:
-> "renesas,scmi-transport" or "renesas,scmi-firmware"
+Dude, you pinged me but didn't add me in patch posting thread. It at
+least should be CC-ed to kexec mailing list since there's code change in
+kernel/vmcoreinfo.c.
 
-The disadvantage of a vendor-specific property is that there are more
-cases to handle for fw_devlink, cfr. "[PATCH v2 02/10] of: property:
-fw_devlink: Add support for firmware"[1].
+Anyway, I am glad to see it's been taken out of vmcoreinfo.c,
+which is going in the right way from kdump side. For its migrating
+into driver folder, leave it to the relevant reviewer to review and
+decide.
 
-> Also we have "firmware" nodes, so this might cause conflicts in dtschema
-> validation.  Anyway, the phandle itself is fine for me, just the naming.
->
-> I'll ping also Rob to chime in.
+For kdump part,
 
-Thanks!
+Acked-by: Baoquan He <baoquan.he@linux.dev>
 
-[1] https://lore.kernel.org/de34ac0c52695d92c67cf950b3d8e9b30095d305.1783505329.git.geert+renesas@glider.be
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks
+Baoquan
 
