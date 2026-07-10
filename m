@@ -4,65 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42C0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D578AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U0BglJRIUKke/mUFf5yBgv26eeETD5Y0hMHqC2biMt0=; b=gmnXCQdDb0Uakh
-	UzLJaRlqAts8Tf4cfusULdADE02WtvZ5j2nJ48w0Fk+pEVjk/XHeA+pz+fiOvWyYOeTE1wyaVXHey
-	XK8bIEvA9MD5htqRaTKTbiaflaQSBIiUgTIRgXxK5Td8XJOXUxxg5+NLy81ZHEOmt2Vuw/HT7AFzf
-	sO/hP7sFgWJ34ZGuKYEU+e8OgzMQSPpuRUQe0sAWw4tHVG3cXX8Yk6kD9jedb4M98obuxwl8fsvmp
-	OGpbN0dcgDHEXyhjoH1urgsqoNlDluRiMlWQYnojG2Toph6ggSTkK+hqvdgZ6FEs0d3/ca1JfE0ml
-	f0UlLCJ2QKvZnBLIXF5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iNFtXuIXRR4jJgRfcWtCo9cK6D1rb9YN9sRJJL6dlRQ=; b=tertKxwL6VI8zl4rr2K6t3LTJm
+	Bw8S77G+vEVykSmHcCgsN/Be1cZMbcMad21bJ2J74OlX9nuyHPiR2POVaME5Q1MFgGq2hpNQhdKAt
+	tGw3tK9tZBIMy6WF/3QxwBONP//TKpMDfe2hJ5XEb4aNNUY7GzJ9FWOIFGxI9XW3dzoofT4Lh3Ksq
+	+LCgnknATe6rhnb3VAG+hyyk9ApG2nzre6TJpaLxVGzm4sOLSOgM4JvU2/3Ew9MahCMo5VGNtV9PV
+	cWiK4rA2dZk/MlZCkCR0npVEHcXJOwoNCtvj6YmBLD3tDXMes1qRduz4KWdzdw0pR5J5xqNI1JkUR
+	kUNLzQIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6tp-00000004UUG-2VRT;
-	Fri, 10 Jul 2026 08:47:57 +0000
-Received: from [113.46.200.218] (helo=canpmsgout03.his.huawei.com)
+	id 1wi6ui-00000004Ubz-3TcA;
+	Fri, 10 Jul 2026 08:48:52 +0000
+Received: from mail-centralusazon11011027.outbound.protection.outlook.com ([52.101.62.27] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6tm-00000004UT9-3kzB
+	id 1wi6ug-00000004UbT-1pfF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:47:56 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=U0BglJRIUKke/mUFf5yBgv26eeETD5Y0hMHqC2biMt0=;
-	b=uGuGCO6tGRZQlwZ8I5pTug89ExxelpW7YrAIzg46Bac7QuKT4y2t8t54SmSd3XOdghyLxEkU5
-	/cjBYqqQb5PFevVv73MhUrcpR8tL10ertuzNtCGoMSUX5plR8h+84Zm69DQO5UlvYqto582NQkk
-	35FhZa29tpWe1koynrcbvxc=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gxQGX3lcYzpSvB;
-	Fri, 10 Jul 2026 16:38:44 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 380B340579;
-	Fri, 10 Jul 2026 16:47:28 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 16:47:27 +0800
-Message-ID: <00f0b907-bab7-4f18-970f-25e2e7071b0a@huawei.com>
-Date: Fri, 10 Jul 2026 16:47:26 +0800
-MIME-Version: 1.0
+	Fri, 10 Jul 2026 08:48:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fHOvoGEV+NvSbVt+1l3XPu5hxkedMZ5Sf2rasOeyh3W4Dwuz8gwW/bo/Lwaa5n1p27DJopILhVZNXn1/QlldiWSdRMWeFHS6cSCXRXimpS1uNUKizIedmdGmJ0rcLo6a2FAPhSfPEnSlWutouVRrKANHtaovCDXoB8kN+6n3mRn6vn6fFkJbwOgC5LpexPWQ46SAlynTPbObJDYCOKPvb7euupsiRJ46JLvGreQIHTgjyyKqIZT1oz0dECiZ0XSxZ1rPKH7lAjtfwNZR5XhlveBwuJRKe+H+qA9G3HvDmUbDYX96K9z6R2YUEwv67BpsJBNgDstXuxwaMxitfVktEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iNFtXuIXRR4jJgRfcWtCo9cK6D1rb9YN9sRJJL6dlRQ=;
+ b=hwNaQH11iUHEqfGDQcoi0xKkVB5QrAwLgrDlf12ADxr8nTZnOSDJ1A4k00GwEC0yuRFHYaOXoDmPfAHkiq15k8XTHRneboXd5bqhEswxloVz/VRYSrMeu9+cmtffIV/HgMIED6eVgazevSYdDycz9mboY0ZKMKQnAS6dsQ80cuP5Yqz7mSCrjr1rVB9GZN72OfSCTSi7T9Q8XygBpSYatUh2rdT5VBsJKGwd2SxUbmw+/D0dc+pN7OTYt+9FPdE0x3FIxV7D3waJ7doIzVd6+YRJq+DJ+7/vdxvDT0QL7lJjNOMdcItXbgU34z2+6nQgtzI1vsYNmxI13poqSyKCoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iNFtXuIXRR4jJgRfcWtCo9cK6D1rb9YN9sRJJL6dlRQ=;
+ b=UBwcPYik4cK3y8GI4syCBmXqEXZ3p6Z2g3lCqj/EQBehsXEu0qSqMBlj/6z3y/O2wmjAMm11FJ8Q0wbD9rWXsXrgMpSv0grtePG/oGhnNbB4cNyTKdXWt5uJT2qOkBMX3J4RRwQxr3eir/ByJ3ynZjco68hJbL3qnE2gHqrhJzw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by IA1PR12MB6409.namprd12.prod.outlook.com (2603:10b6:208:38b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 10 Jul
+ 2026 08:48:44 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
+ 08:48:44 +0000
+Message-ID: <da6e74cd-05d7-4ba8-aa75-e186ed8a49cf@amd.com>
+Date: Fri, 10 Jul 2026 10:48:38 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-11-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-11-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and
+ drop redundant error handling
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260710050223.14266-1-phucduc.bui@gmail.com>
+ <20260710050223.14266-3-phucduc.bui@gmail.com>
+ <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com>
+ <CAABR9nFFMMk6i_sjKGjt4t-_QZF_hu2gBPRNK8c-GfhyKdVP8A@mail.gmail.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <CAABR9nFFMMk6i_sjKGjt4t-_QZF_hu2gBPRNK8c-GfhyKdVP8A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-ClientProxiedBy: SJ0PR13CA0013.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::18) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|IA1PR12MB6409:EE_
+X-MS-Office365-Filtering-Correlation-Id: 05cc558c-db15-4e88-1fae-08dede600cb7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|56012099006|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: T8uVjiLl4DWzxkqYzf4DG/k1M0myIqfTDDDSyAA3GAN3+T1mw5M99AHYg36pEkBomGbID+rBm9SvznirHHdnfv0wNtndPpqRJBYWU8zZKtUzgv4IjP1rqzd7ibG+zjnIQTzUQr98betodRyzXtYH0prQCEd86rl+uc4lB9vPIhMaNzixMYAGna2Clkh/y+QlCazS9ZY80bkoyrgRBfShhRRWoGZEF3tXTxsjswv5k+TFxLBKCndg+o5vRANlT5Fuj722luLPwH46Mf3d9wXTYm5aoAUvU1Ol7BHeQVbdnH1RVM7ndRoe0QnKksCoZdVDH07Bqn60yFLGAxbBqbl3wRpJL52eowYxE1IWnudx9mCsPdFlzJa6OvbOXTXebQ6v9GW+xEYle7PHbPkLUxPyvnTahswwazGWl0X6JRWdqvyqgELyXI2aflPsDKcINREOSYYZnQ0HvBt8D1jMVfgEccgK2vA09TtiXdFtytmRTCVsvt5f8OXxa6LZT7NiDepnSFP/c1KVnH6mIEFLsSl7Xu3SQg1g6fNhvzMSWG1kYl4j+Srz8Sllz8h50qV7+ac5hifHD91cQedE/GCKoCecyE+u/brB9h8s66YcVaPYO8LWYxblHQklU+YGP4cKLVuF+626ipbNZn1zU4HbcCCyXN4EqqVhFCEPWh7mQHctrsA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?em4rOGlXeGtHeUlMeXBDWTdKaTNPeUduTVYwblh3WVNxa0RmUk1YRWl1TjZJ?=
+ =?utf-8?B?UVFGVU1xbEIwNmpjT05ERUtvTG5EZU1kc2hIcU5jVHc5MGMxMkRxVzhQckVl?=
+ =?utf-8?B?SlU2M0RySTdxVWltVzNVb2NPWis4TldIcVV2OW5YbE5iR1BPbFplb1RQR0JI?=
+ =?utf-8?B?bEUxZkZZYjIwYWVDOVE0RWpTZHBpNFJFR2hudndEZlVGQmJabzdnTGNOaGlp?=
+ =?utf-8?B?YTVYSXo0UE5HRVM1ZVNrT0hBRmpiTXI2ZEZ6SkJKcVkwb09QdUhMK1JTcG5j?=
+ =?utf-8?B?RlhOYjAyR0tueUtBbDIzUWhqLzQ2bHBxdEFIZ0tTYWt3cjBLMHNZandSRTRj?=
+ =?utf-8?B?SE5WVmRmOWFYa002dWNBbFpVK3JmcWxPTnRyazRzQzNkbjBISXBBdExtcFJl?=
+ =?utf-8?B?bTIwM2V3S1BKMDFuM28za2V6eXZIbG9rK05IcHM1NGJFWmluc1JMSjRmMm1y?=
+ =?utf-8?B?Q2xTbFhSWGtpMEFNUG5tdWpYZG9URjZ6T0wwZzV4clZnbTVvQzk4anI4QS9l?=
+ =?utf-8?B?eUNXNHJ2cVBEK0E3WWllR29EazFKVkc3NVoyMzJxeFFzUzAzSWZFTE9SY2lV?=
+ =?utf-8?B?bGNINmc4RDdyYUhuUWpyN2NOWkh1a0lzYmlLNUpZVG9DRDJ2VUhHQVhnQVZh?=
+ =?utf-8?B?aG9EcVMrbzZWUWF3VUdCNHFtaWp5aHM3Qzk3T3c4UnIrQ2U4VG1qOGFVY1dK?=
+ =?utf-8?B?S1QrbkVQdlBwTlNPWkdrdTFhTnNoaUl6SVROUnU0T1B4MXFmaEFVRXQ2SVhy?=
+ =?utf-8?B?TjEySHlGNlJsUHI5UUpPZGFveHRYOEU2TWgrdUlCY0dMbTE4V2NzaFFoQjZn?=
+ =?utf-8?B?Snlnd3pBMUxiL2UwMGpCUC9EemdEUmlCQlFsWUs5M3ZsTVRYYWZhamZCdjlH?=
+ =?utf-8?B?OVQwRlpBcGZrekl3OCtnMTNFMHNWdVFJeDJsZzFqQi9NdnB5dTNvU0YzUzc5?=
+ =?utf-8?B?YitUUW9aTHVuZURTenlHdEs0dDE0VjZnUGh2YWllaEtKQTR1WEhWOFl4M2pB?=
+ =?utf-8?B?UHU1dWdMMVZyMDlrZHVLZ2hyMjNWOVFrcjlPZ000a0prZlVDcFBhOG5ZazA3?=
+ =?utf-8?B?OE1wMDZYWDhiWlN2bTZMTVp6cThNc1hoaEVLMm9Ubyt0WmppRVQwcHhKU1J2?=
+ =?utf-8?B?bXl5NTQ2OXJRM2NnQmZQdjhuU0xlWVU0NGY1dUFnU0dtZVR1ZFd0dldJT2kx?=
+ =?utf-8?B?UXlWZmxrempwaGJ3N1hXc3RRMldBTkdjbTZ1ZDVyL3Fub0ZvRHJHTENMZkw1?=
+ =?utf-8?B?blNLVDREVlVDTUUvekk1eHltNHlCcGtacFpYQnFiTFZKc3Z0RTZNYzdyVmda?=
+ =?utf-8?B?K1ZvcnhkWUhIM0lqSnFOOEtSbVc1WDg1Q3l2Z2RMaGFMckhPRDdqb2U1YW5x?=
+ =?utf-8?B?Q2FSUFRsVkpUT1RhRTBRUWg5cjhKUTBRbUgweEVPZHpaNGFucVVTL0JMUXhw?=
+ =?utf-8?B?dyswMzhTdlhZWml3OEt6clBrSnU5bUVLYlJUT3BKeUNqZ1hOaDJjWXhDTitm?=
+ =?utf-8?B?NThGaVhLMjdVRjhOQW9lcWh5ckh0bUd2RVJkTkF3SUQvTGNIa2NMaTUwS3Yw?=
+ =?utf-8?B?N2tVZDd4OVZrYTJPaG1wRVBQNnRBaHhQbzlmT1ZWdDhJTzJFdzcyTENpK3Jn?=
+ =?utf-8?B?NnlWeXVaR1pUNnJBTEY4TDgwR1diQVIvbWRRdFhwL1ZLV3A0aFV6MDg0WkJH?=
+ =?utf-8?B?OXZGYXliSi92VmhzZ1lzS2ZPd1pNWkxMc3ljZnBmZHpmS0crWTFMWUtiK201?=
+ =?utf-8?B?MGZWNFFRa0JrOTFwbmtwNXViakRZZHNsWnI0MW1tTk43UGN0Qm1mZVVaSWtZ?=
+ =?utf-8?B?YUxuTW95enYwdFhKS3RwKzVXenpDdVNCeG1IQjlJQjRzSUd6WVVPMURXd2FG?=
+ =?utf-8?B?S01SMDhmaS9OYTlZTnpiajE3eU4wYkRpVEYrTjRtaFdTSURoa3pkKzFJQVVL?=
+ =?utf-8?B?aVFZZG5XN1BXM21oeEFaSy85NTZHK2xQNWVHSzZTazNoSldtY05mTzc2SVoy?=
+ =?utf-8?B?MHJIK1BIdUJDN0NiVW1uNzNwZ1FpeDhtTmk2ZGVmOGhEZGl0bG5VeDBGak41?=
+ =?utf-8?B?TEFvSDErWTQ3eGdwNVRLeXpzdVZmQ0FSZVBDSG9ZUVM5MndlbVRUMmNuOHc1?=
+ =?utf-8?B?QUo1YVJLeVlwQVZxUERyajBBcjIyYkdiR25ObDdwMkt2dHo5eXhrSFNJViti?=
+ =?utf-8?B?dG1aazYvU1dBUzBKRE9PcTFzU2N0RGZBQmsxczZpckszdUIyTHlKcmN1Z0VU?=
+ =?utf-8?B?Q2FxK0hsVkYxV01yL0licXFTZ3YxbWJIQkJIb1dQNzNBRStYcnBpNEFUbmxi?=
+ =?utf-8?B?cWRhMkJDeFJnQ0dldVZqSDl4YzNramR2R0swNWZUTGF6TTFPbEM4dz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 05cc558c-db15-4e88-1fae-08dede600cb7
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 08:48:44.5936
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: daB/o90p9JpQZuPZ5Z2r4m3ZmnetPVzviypm9AZFi+1g+ibSngewCTjN1KXRzFvf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6409
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_014755_305185_1A373ADF 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20260710_014850_485359_D83F9414 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,213 +193,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On 7/10/26 10:17, Bui Duc Phuc wrote:
+> Hi Michal,
 > 
-> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
-> Now that we have a type which can track both of them at the same time,
-> update our irqflags implementation to use it.
+> Thank you for your review !
 > 
-> Save DAIF flags in all cases, as they can be manipulated directly by other
-> code, and the PMR if it is in use.
+>>> +     if (IS_ERR(ctx->axi_clk))
+>>> +             return dev_err_probe(dev, PTR_ERR(ctx->axi_clk), "failed to get s_axi_aclk\n");
+>>
+>> This is pretty long line. Message should go on the next line.
+>>
 > 
-> When checking if IRQs are disabled, now that we always save DAIF we can
-> check that the I flag is set and bypass checking the PMR if it is.
-> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
-> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
-> the PMR to know if DAIF is already masking interrupts.
-> Update `irqs_priority_unmasked()` to align with this change.
+> The line is still within the 100-character limit.
+> I'll split the message onto the next line in the next version.
 > 
-> This allows us to remove the `__daif_...` and `__pmr_...` versions
-> of the save and check functions, as they are now unified.
+>>> @@ -274,29 +270,23 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+>>>                ret = devm_request_irq(dev, ret,
+>>>                                       xlnx_spdifrx_irq_handler,
+>>>                                       0, "XLNX_SPDIF_RX", ctx);
+>>> -             if (ret) {
+>>> -                     dev_err(dev, "spdif rx irq request failed\n");
+>>> -                     return -ENODEV;
+>>> -             }
+>>> +             if (ret)
+>>> +                     return ret;
+>>
+>> Here you are changing error value and commit message is not saying anything
+>> about it.
+>>
 > 
-> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
-> in the main one, as the DAIF and PMR values are properly split now.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/irqflags.h | 110 ++++++------------------------
->  arch/arm64/include/asm/ptrace.h   |   2 +-
->  2 files changed, 23 insertions(+), 89 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-> index 7775904ba6a9..62f047702493 100644
-> --- a/arch/arm64/include/asm/irqflags.h
-> +++ b/arch/arm64/include/asm/irqflags.h
-> @@ -95,117 +95,48 @@ static __always_inline void arch_local_irq_disable(void)
->  	}
->  }
->  
-> -static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
-> -{
-> -	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
-> -}
-> -
-> -static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
-> -{
-> -	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
-> -}
-> -
->  /*
->   * Save the current interrupt enable state.
->   */
->  static __always_inline unsigned long arch_local_save_flags(void)
->  {
-> -	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_local_save_flags().flags;
-> -	} else {
-> -		return __daif_local_save_flags().flags;
-> -	}
-> -}
-> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
->  
-> -static __always_inline
-> -bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
-> -{
-> -	return hwstate.daif & PSR_I_BIT;
-> -}
-> +	if (system_uses_irq_prio_masking())
-> +		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
->  
-> -static __always_inline
-> -bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
-> -{
-> -	return hwstate.pmr != GIC_PRIO_IRQON;
-> +	return hwstate.flags;
->  }
->  
->  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
->  {
->  	arm64_exc_hwstate_t hwstate = { .flags = flags };
->  
-> -	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_irqs_disabled_flags(hwstate);
-> -	} else {
-> -		return __daif_irqs_disabled_flags(hwstate);
-> -	}
-> -}
-> +	/* If I is set, the PMR doesn't matter: interrupts will not be taken. */
-> +	if (hwstate.daif & PSR_I_BIT)
-> +		return true;
->  
-> -static __always_inline bool __daif_irqs_disabled(void)
-> -{
-> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
-> -}
-> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+> Oh, sorry. I should have explained this in the commit message.
+> devm_request_irq() can return various error codes, such as -EINVAL, -ENOTCONN,
+> -ENOMEM, -ENOSYS, and -EBUSY. The existing code overwrites all of them with
+> -ENODEV, which does not reflect the actual failure.
+> I'll update the commit message to explain this change, and add a
+> Fixes: tag if appropriate.
 
-This concept of being less than or greater than is not easy to understand.
+I am not saying it is wrong. I am just saying that it should be likely handled 
+as separate change/patch to address this issue.
 
-> +		return true;
->  
-> -static __always_inline bool __pmr_irqs_disabled(void)
-> -{
-> -	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
-> +	return false;
->  }
->  
->  static __always_inline bool arch_irqs_disabled(void)
->  {
-> -	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_irqs_disabled();
-> -	} else {
-> -		return __daif_irqs_disabled();
-> -	}
-> -}
-> -
-> -static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
-> -{
-> -	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
-> -
-> -	__daif_local_irq_disable();
-> -
-> -	return hwstate;
-> -}
-> -
-> -static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
-> -{
-> -	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
-> -
-> -	/*
-> -	 * There are too many states with IRQs disabled, just keep the current
-> -	 * state if interrupts are already disabled/masked.
-> -	 */
-> -	if (!__pmr_irqs_disabled_flags(hwstate))
-> -		__pmr_local_irq_disable();
-> -
-> -	return hwstate;
-> +	return arch_irqs_disabled_flags(arch_local_save_flags());
->  }
->  
->  static __always_inline unsigned long arch_local_irq_save(void)
->  {
-> -	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_local_irq_save().flags;
-> -	} else {
-> -		return __daif_local_irq_save().flags;
-> -	}
-> -}
-> +	unsigned long flags = arch_local_save_flags();
->  
-> -static __always_inline
-> -void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
-> -{
-> -	barrier();
-> -	write_sysreg(hwstate.daif, daif);
-> -	barrier();
-> -}
-> +	if (system_uses_irq_prio_masking())
-> +		__pmr_local_irq_disable();
-> +	else
-> +		__daif_local_irq_disable();
->  
-> -static __always_inline
-> -void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
-> -{
-> -	barrier();
-> -	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> -	pmr_sync();
-> -	barrier();
-> +	return flags;
->  }
->  
->  /*
-> @@ -215,11 +146,14 @@ static __always_inline void arch_local_irq_restore(unsigned long flags)
->  {
->  	arm64_exc_hwstate_t hwstate = { .flags = flags };
->  
-> +	barrier();
->  	if (system_uses_irq_prio_masking()) {
-> -		__pmr_local_irq_restore(hwstate);
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
->  	} else {
-> -		__daif_local_irq_restore(hwstate);
-> +		write_sysreg(hwstate.daif, daif);
->  	}
-> +	barrier();
->  }
->  
->  #endif /* __ASM_IRQFLAGS_H */
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index f7dc5fb9427d..192eb97cd50b 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
->  
->  #define irqs_priority_unmasked(regs)					\
->  	(system_uses_irq_prio_masking() ?				\
-> -		(regs)->pmr == GIC_PRIO_IRQON :				\
-> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
->  		true)
->  
->  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+> 
+>>>        ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
+>>>                                              dai_drv, 1);
+>>> -     if (ret) {
+>>> -             dev_err(dev, "SPDIF component registration failed\n");
+>>> +     if (ret)
+>>>                return ret;
+>>> -     }
+>>
+>> And this is another case. Where origin code didn't return any error which was
+>> wrong. That's also not described in commit message and likely this should have
+>> Fixed tag.
+>>
+> 
+> Sorry, I don't think I fully understand your point.
+> The original code already returns the error from
+> devm_snd_soc_register_component():
+> 
+> ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
+>                                                                      dai_drv, 1);
+> if (ret) {
+> dev_err(dev, "SPDIF component registration failed\n");
+> return ret;
+> }
+> 
+> writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
+> dev_info(dev, "%s DAI registered\n", dai_drv->name);
+> 
+> return 0;
+> 
+> As I understand it, this patch only removes the redundant dev_err()
+> call and still returns
+> the same error code.
+> Could you please clarify what you mean by "the original code didn't
+> return any error"?
 
+Sorry I misread this part. Please ignore my comment.
+
+M
 
