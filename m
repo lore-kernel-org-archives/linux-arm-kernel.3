@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DC0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D9CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdmbeR+nXP2QOTmJSL448JaWOhpFdJafXIzincBL+Qk=; b=YtZGWTHYAtWEBCjIaRG+MiafTY
-	XV5DhEFloTUkI3rgf2JEul1NNFm7+q69sgGTFHZdeorjVlHrAPxzvD1GUlZrllE7tr5pSRAyIyQe/
-	rUZOVdr60Xw1e38BBaXNvmYyOI/T/xuzJbnN8FQF0xUEAfkYiu6uvp7X3kBRqzJRXH0VbbEGbJRpw
-	6Mh00B0F01jrV4rorJDziwIGhk79IrRne92opY8wmCElYCLfo1Iv567YzNF1vhc19TfaKnDUo1/59
-	rz3Xg4nLBxsubGYO/CywDpIJI8AhxunmOwmT0ijs02JB6w5zaqlCzSeWzj2sAHUHs4j+Jc+dPGNyU
-	1b64qmcA==;
+	bh=7MUfl+qwpC1o7BVjkJfwBEdwVKVSN/Dl3tD+mqKLJFw=; b=ripQA7CIgrwKY9XPn/AnI+8+sK
+	k8ZKB6/2CJoIa/K88bZvCDLh9pRIhNufZ1tLSTGT3z0jUQak9KvOsfzW5FsCLyIQk3zJJ9LQwFxGC
+	FtDL/5uDzaE8D4w9RjGh5gKj+MUzTXJ+/m60Z4rBlZ3Gi4n/kahBkFiG/2Gw+RAAipnuANLN6Fik7
+	qJhU4LKOmOMeeZrgkgk51wJppDixfXHwlls0nz8kEyYjb8IB7ceiUL1D+Gd9TvtG4n6CjKns4xP6p
+	kHYMpOHm07LOivbfzonQnnx6BBh009sBHcj89n8SyTXG0fwOlcsTOgAXVUUrtB3wWFNs/Ju+53/ze
+	jFtGXlGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8Sx-00000004hwG-0AaT;
-	Fri, 10 Jul 2026 10:28:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wi8TM-00000004i4V-0eF0;
+	Fri, 10 Jul 2026 10:28:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8Sv-00000004hvm-1xdG
+	id 1wi8TK-00000004i3N-1AzD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:28:17 +0000
+	Fri, 10 Jul 2026 10:28:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1AC58601D9;
-	Fri, 10 Jul 2026 10:28:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9C41F000E9;
-	Fri, 10 Jul 2026 10:28:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79403601D9;
+	Fri, 10 Jul 2026 10:28:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 670D81F000E9;
+	Fri, 10 Jul 2026 10:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783679295;
-	bh=BdmbeR+nXP2QOTmJSL448JaWOhpFdJafXIzincBL+Qk=;
+	s=k20260515; t=1783679321;
+	bh=7MUfl+qwpC1o7BVjkJfwBEdwVKVSN/Dl3tD+mqKLJFw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E59VEGjD2WXB4bUGmJBQC7A1D/xBU5RjYM4hv1oGNHf73wKSUSUgQhTy1N4nDaoBX
-	 BddUzBpETIjpA6lNNhR1qJN1AEWf2QBTyl4kyFEFrT9EO3NW7H+0TM2dTgp93U13nO
-	 DNkMYFMJPkLBG1ezmd+ZFJ38c8HW/ylby25KSP9sMsmyc55zW8REh5t09dmnX3nDYU
-	 2Giy5jGDIYrcBOCVI60C8CwuEttGo5D3aYIQiDgezd2qe9AygAwPJILlBaCVklIz90
-	 23DTG35DsRTwPBotQQv5ENuLuq5JAN5jfOpdcdWGos9UMrdQIEcVm1w3D5y+nAEf1m
-	 /CD0IiuhXfvEw==
-Date: Fri, 10 Jul 2026 12:28:11 +0200
+	b=FPUq2UNYbkh7tvmcQ2svWUONIrBGEKCCzMCYNSDjhxFO0BtceBRYDuFQL/okwRfIn
+	 7OdwRxfzEu/SweNWxSmYDocZDwNJzxgk50ivjVWoU6bgty6yqcJT6gY+kQMy9M60c0
+	 ks9scJ+DDJtOvbDxW7r9s4kZpJr4+l6A2/50KPRJtac9VFcAoyYvuOESeR1uYNJIXN
+	 HO6U1H6IMJ6jrgd7/Vd0XAPWgdjwKI4PIYFXZZA8833xGFlCKy4i78s8+ctYGAevHk
+	 WVQ2tp6jMY9eKdBt96hZtQ5edJyOPjXw4l2yu6h6oFONU70wqRwI0uQqNv2nuBzI+v
+	 jmQIGugLOB4VA==
+Date: Fri, 10 Jul 2026 12:28:37 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Paul Louvel <paul.louvel@bootlin.com>
 Cc: Qiang Zhao <qiang.zhao@nxp.com>, 
@@ -53,15 +53,15 @@ Cc: Qiang Zhao <qiang.zhao@nxp.com>,
 	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-gpio@vger.kernel.org, Herve Codina <herve.codina@bootlin.com>
-Subject: Re: [PATCH v2 03/10] dt-bindings: soc: fsl: qe: Convert QE GPIO to
- DT schema
-Message-ID: <20260710-portable-thoughtful-uakari-4db7be@quoll>
+Subject: Re: [PATCH v2 04/10] dt-bindings: soc: fsl: qe: Add support of IRQ
+ in QE GPIO
+Message-ID: <20260710-accurate-cherry-toad-5d20c3@quoll>
 References: <20260708-qe-pic-gpios-v2-0-1972044cfbd1@bootlin.com>
- <20260708-qe-pic-gpios-v2-3-1972044cfbd1@bootlin.com>
+ <20260708-qe-pic-gpios-v2-4-1972044cfbd1@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260708-qe-pic-gpios-v2-3-1972044cfbd1@bootlin.com>
+In-Reply-To: <20260708-qe-pic-gpios-v2-4-1972044cfbd1@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 12:15:16PM +0200, Paul Louvel wrote:
-> From: Christophe Leroy <christophe.leroy@csgroup.eu>
+On Wed, Jul 08, 2026 at 12:15:17PM +0200, Paul Louvel wrote:
+> Some QE GPIO pins have an associated interrupt line in the QE PIC to
+> signal state changes on the pin.  Add the corresponding
+> interrupt-controller / nexus properties to the QE GPIO binding.
 > 
-> Convert QE GPIO devicetree binding to DT schema. The old binding uses
-> fsl,<chip>-qe-pario-bank because multiple MCP83XX SoC has support for
-> these GPIO banks. The best practice is to list out every <chip> instead.
+> Because the GPIO controller does not perform any interrupt handling
+> itself, a nexus node (interrupt-map) is used to map each GPIO line
+> supporting IRQ to the parent QE PIC interrupt domain.
 > 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> As the QE PIC can be configured to generate an interrupt on either a
+> high-to-low transition or any change in signal state, three
+> interrupt-map entries are needed per GPIO pin that can yield an
+> interrupt (falling, both, and the "none" case which defaults to both in
+> QE PIC).  This overhead is necessary because the interrupt-map-pass-thru
+> property is not part of the DT specification.
+> 
+> The interrupt-map property is optional: it is not required for GPIO
+> banks that have no interrupt capable GPIO line (e.g. port D on MPC8323),
+> or when interrupt functionality is not used.
+> 
+> Update the example to show a scenario where each bank supports a
+> different numbers of IRQs, or no IRQs at all.
+> 
 > Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
 > ---
->  .../bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml   | 45 ++++++++++++++++++++++
->  .../bindings/soc/fsl/cpm_qe/qe/par_io.txt          | 26 +------------
->  2 files changed, 46 insertions(+), 25 deletions(-)
+>  .../bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml   | 39 ++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
