@@ -4,131 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA188C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B164C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fsiWcwBToyW3gsri5KuLfQd15xA3yQ0e3RQdD/aBtg=; b=MrQePpJ1sxf/1rLlA7Bl9A3DQh
-	wk+mIp1U7ogl5BSV2LXLY1Y2BrjMfG/MTQoib4E7eOlH9XXvpR4rCRlSfH3JMueR+ZaB9AdZfRaoB
-	NAzJSx7IxVrsAJBm3XCgeHFdghzJY+A5cmdeCkK7Iiy/lU+QApBKqu/bJVqEskrTAcRuvCZBRq5A7
-	81mtzSdKpCaDtgw41GQk3YumsDkETzl7qhPCxwfRbs3EqSdNYsdkrndnIXebHwsL4sKNhJ+28d3tB
-	aRbvAokQoTOoNt+4mmlkJz0qYUfF7OZC4TEMOpjLdvVJY8ZCkCr4eG7v50/zh0cdtwCq9ulgFXlI5
-	9F0/L/jQ==;
+	bh=kDw4uHkrjrH2i/wDdxHnoRQvhH62dpRg5r0nrYMHl8k=; b=0BkyttsYxemWk7cSKisw2taHIH
+	9N9aL8o5gT/UKmsPZoPZLRN61KM1w+FV00eb4RJg7skUNIMhGi5JEEY1oa+VhzgHOPze/6i49qPu1
+	3/NF2JSRXbjm+3YdHBMM0IoHQlIXSKpUCA9UTI/oM6w5YGP6nK+3HawfSi5nXH2SvKIPsnJubmv3j
+	0juuOcvL9zlJVKa7vxyGxBcoc9bfU0j7hvIu4TgnEYLfkmDUQN8La8APnC8MwWoZ1DqMWHsAQ8b8M
+	uIcEgItSxXsMwU1wE8lETM3owjPyCUcDtKPJFGfrbkc4lRlcVHVlQf6+KBRwkqa1Izlme4xVl+xLU
+	3x+3I4bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9qs-00000004sgg-04RW;
-	Fri, 10 Jul 2026 11:57:06 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wi9rw-00000004srm-0uXD;
+	Fri, 10 Jul 2026 11:58:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9qk-00000004scm-44rd
+	id 1wi9ru-00000004srg-4Aoh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:57:04 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AAmt1d1391207;
-	Fri, 10 Jul 2026 11:56:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=9fsiWcwBToyW3gsri5KuLfQd15xA3y
-	Q0e3RQdD/aBtg=; b=W0sQt6cUZP/EUAfkWxrsYO13TAF6nT5ZJUfCagHiCHMiux
-	T/uWkUm374ULa/kJx5kh20hNOWqEFtu+oYAuwYxt03nqSS03lgdyMRfaiEpjFspO
-	H7Cdz9W7BqyPgSG6IJApCNw/2WmfmWLwFgc+WdKdgZYlu5HNbmskuLT+bZI+dsxk
-	+XJZCiGFmOOLCwhEEkmH/frrY5aO4Xc3NscL6mKi954xnHgfilPgRRmxCkVcpQmt
-	qdGAujdF1VsFjJuntdrl+OOcMOxdnBahDmCYOQZ7LKQCKrpIR2tuL9qTto6Sc2Ss
-	6ku20EwL2q8f8IPZ7gHXutUmDUYcDCY9QR2IihSQ==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur69kc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 11:56:48 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66ABnnZg007753;
-	Fri, 10 Jul 2026 11:56:47 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7cvwj22t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 11:56:47 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66ABueRs27263266
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jul 2026 11:56:40 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2A20A20049;
-	Fri, 10 Jul 2026 11:56:40 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4555020040;
-	Fri, 10 Jul 2026 11:56:39 +0000 (GMT)
-Received: from osiris (unknown [9.87.147.219])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jul 2026 11:56:39 +0000 (GMT)
-Date: Fri, 10 Jul 2026 13:56:37 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 09/27] KVM: arm64: Access elements of vcpu_gp_regs
- individually
-Message-ID: <20260710115637.984749-H-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-10-seiden@linux.ibm.com>
- <86cxx0ovx5.wl-maz@kernel.org>
+	Fri, 10 Jul 2026 11:58:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 415BC43BDC;
+	Fri, 10 Jul 2026 11:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF991F000E9;
+	Fri, 10 Jul 2026 11:58:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783684690;
+	bh=kDw4uHkrjrH2i/wDdxHnoRQvhH62dpRg5r0nrYMHl8k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dAkxgwXT/R1DI7L+qLyNgdOAeakrAm08Pe6X6aqix0XakuDCSCOZnAqHQ2gRE0t9F
+	 h3ZdKHfNDjgo97EBH/Aqec4PzZNwGJAd3zSq1wv6qKfoBcrGvys9ohsuamv/yuQqtL
+	 IHh+n7NktbReynKyVPSjKL7zpmcAmDyw3Vf6MtiYXyeievv5tNFZ1ESTOMO9THH8mq
+	 bs9g9tjQUWl554Yh5sw1nzgLe/RZ8R/BLPik3sr+gTdFfU/iUatq8IkUVk6xz7c95S
+	 U7/08M6TK1ft8TrJ3DhiH4nyvc/SsXkVo/NzMdILO0bGEILpZKpcB4RJSfIJZox+Co
+	 auVbqGEDaiSRw==
+Date: Fri, 10 Jul 2026 12:57:56 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: David CARLIER <devnexen@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH 0/2] mm: fix UAF caused by race between ptdump and vmap
+ pgtable freeing
+Message-ID: <alDeMJZdhbKfS023@lucifer>
+References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
+ <CA+XhMqwpDGYSQvDKrFz9XuQFiaz8_rgW0LupEzFhehSrFvUZaw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86cxx0ovx5.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDExNyBTYWx0ZWRfX4LaHG2cbEDg/
- BIx2/t04jsyLY1n5DJ221VRhumIJmabCnU6WnnKyJ5GXvzBUIiZJZa3dEW8eOzlRLd4INYjc4w+
- N6BWUeIewSS3WCtE/vsmr9nC3Px2pZI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDExNyBTYWx0ZWRfX1OLJhk/mxwBH
- m39hdBM2yJSRl0y7hd/yKzK0tF2OMP5DXdaqyNy9WKoR82s3cZenNU/8ZFwACcRwX48fHLl9y3z
- 6LAejCZoFk5FvG5Af2IeeaZboaJLpPLAgf+5cP/CyJwN/e0c/gse+Q0CrBQ1Z/Y1mkb8zID+a6H
- lG+5iUslSBeSjhVVwRCtXPB0ESCug1qFiQhiTu4+v2i9nbRmBCPHiZ+ahx7VP1bZrFxnAOm5EAl
- e9LphNcN26rTn7wRXUqOtBiB2WGurxm836iStnp0awRqfG2mr3pFr5jLkBZY0rXWwYGL4nZFTr8
- CmAPvJB1QqJDMTADPPxKktZIZfdTN+Z4IdDlIiY7v+TmvwE+n0A9/wsmaEbcTfQoVgL8XJ5loQ+
- Zvp10MJ6bMfsijkalBSBN2mWCWT8G/NuciGeU3KY9h9xHEkG9+5mW2fBS9pZgxLvrPxZShSXY9G
- 5Yyr+TGleopO9hI6b7g==
-X-Proofpoint-GUID: QewiZpKBES5sTR1z0ckpN5bbItnepDFb
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50de01 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=JvUMi_Ukf_9PVyXn5B4A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: QewiZpKBES5sTR1z0ckpN5bbItnepDFb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_03,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100117
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_045659_063270_C212FAAE 
-X-CRM114-Status: GOOD (  35.86  )
+In-Reply-To: <CA+XhMqwpDGYSQvDKrFz9XuQFiaz8_rgW0LupEzFhehSrFvUZaw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,193 +77,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 06:44:06PM +0100, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 09:52:09 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > While for arm64 the members of vcpu_gp_regs are allocated continuous
-> > this is not necessarily true for other architectures implementing ARM.
-> > 
-> > Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
-> > the vcpu context but the address of the gp-register array field in the
-> > user_pt_reg struct.
-> 
-> That's an interesting change of semantics, because this excludes PC
-> from the GPRs. This is valid on AArch64, but wrong for AArch32 (PC
-> really is R15, and is just another GPR).
+On Fri, Jul 10, 2026 at 12:44:20PM +0100, David CARLIER wrote:
+> Hi Lorenzo,
 >
+> On Fri, 10 Jul 2026 at 11:50, Lorenzo Stoakes <ljs@kernel.org> wrote:
+> >
+> > Kernel page table walkers fall into two broad categories - those ranges
+> > where no exclusion is required via walk_kernel_page_table_range_lockless()
+> > and those where exclusion is required via walk_kernel_page_table_range()
+> > or walk_page_range_debug().
+> >
+> > The former category is used only by arm64 arch code operating on ranges it
+> > both wholly owns and does not concurrently write.
+> >
+> > The latter category consists of kernel page table walkers operating on
+> > ranges that are wholly owned (but which need exclusion against concurrent
+> > writers).
+> >
+> > The lock used for exclusion is the mmap lock, and for kernel ranges this
+> > the mmap lock on init_mm.
+> >
+> > ptdump is a special case being both the only user of
+> > walk_page_range_debug(), and the only case in which it walks ranges it does
+> > not own.
+> >
+> > This presents a problem, as page tables may be freed under ptdump. And
+> > indeed there is a use-after-free bug in the kernel as a result, which this
+> > series addresses.
+> >
+> > vmap promotes page tables to huge leaf entries where possible, freeing the
+> > lower leaf page table when it does. It does this with no meaningful locks
+> > held against concurrent ptdump walks.
+> >
+> > As a result, use-after-free can currently occur. This series addresses the
+> > issue by having the vmap huge promotion logic acquire the mmap read lock
+> > while both setting the huge page table entry and freeing the prior leaf
+> > page table.
+> >
+> > The ptdump code already acquires the mmap write lock, so by doing so we
+> > ensure that the ptdump walker only ever observes either the huge page table
+> > entry or the existing page table entry, and nothing is freed underneath it.
+> >
+> > A mitigation for this issue was already applied for arm64 in commit
+> > a93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), which this series
+>
+> seems it should be fa93b45fd397.
 
-I never looked into AArch32 thanks for pointing this out.
+Yeah oops, I typo'd that.
 
-> It isn't a huge deal, and nothing breaks, but that's something that
-> you may want to capture.
-> 
+Andrew - could you fix that up for me? Thanks!
 
-Shall I add a comment into the commit message that this splits pc from
-the gprs for arm32?
-
-
-
-...
-
-> >  
-> > +#define kvm_vcpu_get_sp_el1(__vcpu) (__ctxt_sys_reg(&(__vcpu)->arch.ctxt, SP_EL1))
-> > +#define kvm_vcpu_get_vreg(__vcpu, _n) (&(__vcpu)->arch.ctxt.fp_regs.vregs[_n])
-> > +#define kvm_vcpu_get_vregs(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.vregs)
-> > +#define kvm_vcpu_get_fpsr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpsr)
-> > +#define kvm_vcpu_get_fpcr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpcr)
-> > +
-> >  u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
-> >  
-> >  #define __vcpu_assign_sys_reg(v, r, val)				\
-> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> > index 5a202cfd27bc..5e1e1faa98c2 100644
-> > --- a/arch/arm64/kvm/guest.c
-> > +++ b/arch/arm64/kvm/guest.c
-> > @@ -62,6 +62,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
-> >  		       sizeof(kvm_vcpu_stats_desc),
-> >  };
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> 
-> I really think this patch (and a few others) needs splitting. What I'd
-> like to see is a prefix to this series adding the required arm64
-> rework, and only in a subsequent patch add the "make this shared"
-> attributes.
-
-Ok, makes sense. I'll do the refactroings first and then add these
-markers.
-
-> 
-> Also, quite a lot of this patch is about using the existing accessors
-> instead of an open-coded version. These changes should be standalone.
-
-Ok I'llsplit this up:
-
-1. vcpu_gp_regs change
-2. accessor use
-
-> 
-> >  static bool core_reg_offset_is_vreg(u64 off)
-> >  {
-> >  	return off >= KVM_REG_ARM_CORE_REG(fp_regs.vregs) &&
-> > @@ -134,19 +135,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> >  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
-> >  		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
-> >  		off /= 2;
-> > -		return &vcpu->arch.ctxt.regs.regs[off];
-> > +		return &vcpu_gp_regs(vcpu)[off];
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(regs.sp):
-> > -		return &vcpu->arch.ctxt.regs.sp;
-> > +		return vcpu_sp_el0(vcpu);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(regs.pc):
-> > -		return &vcpu->arch.ctxt.regs.pc;
-> > +		return vcpu_pc(vcpu);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(regs.pstate):
-> > -		return &vcpu->arch.ctxt.regs.pstate;
-> > +		return vcpu_cpsr(vcpu);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(sp_el1):
-> > -		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
-> > +		return  kvm_vcpu_get_sp_el1(vcpu);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(elr_el1):
-> >  		return __ctxt_sys_reg(&vcpu->arch.ctxt, ELR_EL1);
-> > @@ -170,13 +171,13 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> >  	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
-> >  		off -= KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]);
-> >  		off /= 4;
-> > -		return &vcpu->arch.ctxt.fp_regs.vregs[off];
-> > +		return kvm_vcpu_get_vreg(vcpu, off);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
-> > -		return &vcpu->arch.ctxt.fp_regs.fpsr;
-> > +		return  kvm_vcpu_get_fpsr(vcpu);
-> >  
-> >  	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
-> > -		return &vcpu->arch.ctxt.fp_regs.fpcr;
-> > +		return  kvm_vcpu_get_fpcr(vcpu);
-> 
-> Odd additional spaces (3 instances).
-
-thanks.
-
-> 
-> >  
-> >  	default:
-> >  		return NULL;
-> > @@ -306,6 +307,8 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> >  	return err;
-> >  }
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
-> >  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
-> >  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
-> > diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-> > index bef40ddb16db..82611442a2d1 100644
-> > --- a/arch/arm64/kvm/hyp/exception.c
-> > +++ b/arch/arm64/kvm/hyp/exception.c
-> > @@ -277,6 +277,9 @@ static const u8 return_offsets[8][2] = {
-> >  	[7] = { 4, 4 },		/* FIQ, unused */
-> >  };
-> >  
-> > +#define OFFSETOF_PT_REG(__r) offsetof(struct user_pt_regs, __r)
-> > +#define COMPAT_IDX(__c) ((OFFSETOF_PT_REG(__c) - OFFSETOF_PT_REG(regs[0])) / sizeof(u64))
-> > +
-> 
-> Oh $gawd, this is... awful.
-> 
-> >  static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
-> >  {
-> >  	unsigned long spsr = *vcpu_cpsr(vcpu);
-> > @@ -292,12 +295,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
-> >  	switch(mode) {
-> >  	case PSR_AA32_MODE_ABT:
-> >  		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
-> > -		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
-> > +		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_abt)] = return_address;
-> >  		break;
-> 
-> Stupid idea: why don't you simply have new #defines that make the
-> register number standalone, and make ptrace.h use that? Something line
-> this (which can obviously be extended to all the compat registers):
-> 
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index 39582511ad72f..2d3d324d2598e 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -104,6 +104,10 @@
->  #define COMPAT_USER_SZ	296
->  
->  /* Architecturally defined mapping between AArch32 and AArch64 registers */
-> +enum aarch32_reg_mapping {
-> +	__compat_lr_und = 22,
-> +};
-> +
->  #define compat_usr(x)	regs[(x)]
->  #define compat_fp	regs[11]
->  #define compat_sp	regs[13]
-> @@ -115,7 +119,7 @@
->  #define compat_sp_svc	regs[19]
->  #define compat_lr_abt	regs[20]
->  #define compat_sp_abt	regs[21]
-> -#define compat_lr_und	regs[22]
-> +#define compat_lr_und	regs[__compat_lr_und]
->  #define compat_sp_und	regs[23]
->  #define compat_r8_fiq	regs[24]
->  #define compat_r9_fiq	regs[25]
-> 
-> and then your #defines from hell can go?
-
-Great suggestion I do not like this macro hell myself. I'll implement it
-that way. Should I convert all compat_* regs to this concept or just the
-ones I need?
-
-	Steffen
-
+>
+> Cheers.
+> > has to deal with carefully.
+> >
+> > This mitigation resolves the issue by acquiring the mmap read lock on
+> > init_mm on vmap page table free if a ptdump is in progress.
+> >
+> > However the fix in this series would cause a deadlock if we were to simply
+> > apply it for arm64 without also reverting the change.
+> >
+> > This is because vmap may acquire the read lock before ptdump attempts to
+> > acquire the write lock, which then gets queued, and rwsem starvation rules
+> > mean that the (unacknowledged) nested mmap read lock in the arm64 code
+> > would also block, meaning the original read lock is never released and thus
+> > deadlock.
+> >
+> > This series works around this by #ifndef CONFIG_ARM64'ing the mmap read
+> > lock in vmap logic, then partially reverting commit
+> > a93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), keeping the
+> > enablement of huge vmap support, and removing the ifdeffery with the
+> > partial revert patch.
+> >
+> > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
+> > ---
+> > Lorenzo Stoakes (2):
+> >       mm/vmalloc: acquire init_mm read lock on huge vmap promotion
+> >       Revert "arm64: Enable vmalloc-huge with ptdump"
+> >
+> >  arch/arm64/include/asm/ptdump.h |  2 --
+> >  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
+> >  arch/arm64/mm/ptdump.c          | 11 ++---------
+> >  include/linux/mmap_lock.h       |  1 +
+> >  mm/pagewalk.c                   | 22 +++++++++++----------
+> >  mm/vmalloc.c                    | 41 ++++++++++++++++++++++++++++++---------
+> >  6 files changed, 51 insertions(+), 69 deletions(-)
+> > ---
+> > base-commit: a635d6748234582ea287c5ffeae28b9b23f91c7e
+> > change-id: 20260710-series-vmap-race-fix-2a4cac988938
+> >
+> > Cheers,
+> > --
+> > Lorenzo Stoakes <ljs@kernel.org>
+> >
 
