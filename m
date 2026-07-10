@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4D3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AD3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rfdZi5IAsAh/nmQjoUYUGkCmzMNnX1yQRLMIvJ0sJmw=; b=kmMIAuHVwleMGFjOtXpZk8Drdh
-	FOA6a+sy+SLJMPEHqQnIXEVd8Q3lmuRGBddR+J8yg7o9iy1JwirG3Fm+qz16ioUAUVMmVsfoj1glx
-	Th1NiNegMvcLAj4JMBnpVXQp55g1py1FeVcq8Q91JVvMmEh8Ijv8sIpkLlmWNlrAjeWJ+7J6VyG6D
-	YlLeyE9bKDltF0qbAG8L2ufcOxjF3ajU6pU/L4qUQZoleCqYyFlvS8MqJ1B5cCdt+uJgp6pX62FI/
-	3aLtFBmlvNqwqwgxWDRIXfch2iU/sj7UTBMqAeXgIUzgEGJ6yDfui6wchz3o9PSYiQBvJob3Fb4BT
-	NQ2AHYIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/cv5zL8q9I8XGUe1JeeOiZdE0X4FjNVtQU1SoorZXxo=; b=RSV9iRWU+jMS4KunV3R5QJMVPd
+	no9YzPxx/cHUVrMF7Mnjo+xJ6n/KZCrPMO5c1LGwWrFDowLMJZ03E/OZsC104CaJnssnwxiFLgUGf
+	UR5Mh00a/APFUubbvd/+EIANBM/UTpgV9RFOLIjGF9w7rUTLSSrSZ9BrpsqZLZVAH6n+71DLYLmHJ
+	yMf7nzzpwqdgTioXcdEnP2AooqtmvVQ93+CpLMKhEMcBIHWAKvGabtEo4wiXonxemIv/o3v0K7tYR
+	FQ+EVCUkbeXqFYFhX9ov1ukWAzw4pBkq2q3CNhcan6qFqCEaHIq8jrAkYZVDZ8/EQLGYQup4J74Dy
+	SiE6Ud3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiDZj-00000005E5m-3bjs;
-	Fri, 10 Jul 2026 15:55:39 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiDZc-00000005Dyt-0SKS
+	id 1wiDea-00000005El7-0AOW;
+	Fri, 10 Jul 2026 16:00:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiDeX-00000005Ekd-1Jz0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 15:55:38 +0000
-Received: from omf16.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id EB2BE1C3C34;
-	Fri, 10 Jul 2026 15:55:25 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf16.hostedemail.com (Postfix) with ESMTPA id F41F62000E;
-	Fri, 10 Jul 2026 15:55:21 +0000 (UTC)
-Date: Fri, 10 Jul 2026 11:55:31 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Puranjay Mohan
- <puranjay@kernel.org>, Clayton Craft <clayton@craftyguy.net>, Xu Kuohai
- <xukuohai@huaweicloud.com>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- llvm@lists.linux.dev, bpf@vger.kernel.org, Florent Revest
- <revest@chromium.org>, Xu Kuohai <xukuohai@huawei.com>, Ben Cressey
- <ben@cressey.dev>
-Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without
- CALL_OPS
-Message-ID: <20260710115531.626f1e09@gandalf.local.home>
-In-Reply-To: <alD7Rr659mGVznQp@linux.dev>
-References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
-	<alD7Rr659mGVznQp@linux.dev>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Fri, 10 Jul 2026 16:00:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E64616F2;
+	Fri, 10 Jul 2026 09:00:31 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DA3B3F85F;
+	Fri, 10 Jul 2026 09:00:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783699235; bh=z0yCpQeDkX3hG7AALYr5bGD5kaYabUwozDcrHEvAB9E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MdvwnxnDq+EXMZgYxSPv4y84UQx4PfbyDCvOfCwGc0/62I5GOr/gfaQkzGY8y2rv2
+	 l6CmBjL8eQ5rjj2I5z5LtQl54VF7qWC1htGKYh4bpQJzjkya3JcxhwTG1T6GeXbdB/
+	 VYDecpGQlIMPAnOdA1rebX2oSbdBoDk0cznnMvI4=
+Date: Fri, 10 Jul 2026 17:00:26 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Jack Thomson <jackabt.amazon@gmail.com>
+Cc: maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com,
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	shuah@kernel.org, corbet@lwn.net, vladimir.murzin@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	isaku.yamahata@intel.com, Jack Thomson <jackabt@amazon.com>
+Subject: Re: [PATCH v5 2/5] KVM: arm64: Add pre_fault_memory implementation
+Message-ID: <alEXGmKiXgWPPdhF@raptor>
+References: <20260612162354.73378-1-jackabt.amazon@gmail.com>
+ <20260612162354.73378-3-jackabt.amazon@gmail.com>
+ <ak5sAxb3G6hhFmBF@raptor>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 1b516kuk3c4c1rip1isp7pq1m9efroyd
-X-Rspamd-Server: rspamout08
-X-Rspamd-Queue-Id: F41F62000E
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18VXkSf3RGQ5/OWlm4BQJh8NrDk/AyK9ZA=
-X-HE-Tag: 1783698921-218184
-X-HE-Meta: U2FsdGVkX1/ARi1Y+mMDcyLyMrsGbKd8T7pdCf3U5E+/bEmvRcWpNpXMmXFAgmgQMwx0coL3oTGo4ESx3LzWsN1pJmM3FEVw1cXW/ZqiiFvJm6lNo4WwQBEjcMMBNGYhriRw/3qCHxJrXwO57UxmANF2ZDarJOslhYoxzt+nKE+Egpr8HTSxXDGHCy6fYPwOT6MLrGRO6VDzD9hgX0Exofx8itHAHSGHRhc9oL/9FOeNb4otrGD6dqzaYuIeMhNuoIMGctXbBVpWkX/CEtLSyx35MgrrZpd3sC/vh8JCgQ7Ar6kabtuYyRvO16SvoSWN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak5sAxb3G6hhFmBF@raptor>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_085532_208662_460D5938 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260710_090037_453681_B7F77D3A 
+X-CRM114-Status: GOOD (  59.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +76,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jul 2026 14:07:01 +0000
-"Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev> wrote:
+Hi,
 
-> Hi all,
+On Wed, Jul 08, 2026 at 04:25:55PM +0100, Alexandru Elisei wrote:
+> Hi Jack,
 > 
-> Just a gentle ping on this series. It has Reviewed-by from Puranjay
-> Mohan, Acked-by from Xu Kuohai on both patches, and Tested-by from
-> Clayton Craft and Nathan Chancellor, with no outstanding comments since
-> Jun 11.
+> I've been trying to review the patch, until I realised that I don't
+> understand what KVM_PRE_FAULT_MEMORY is supposed to do.
 > 
-> Could you please consider picking this up for the next cycle?
-> 
+> Does it guarantee that, after it completes and returns to userspace, the
+> address range [gpa, gpa + size] is mapped in the VM's stage 2 tables? Or
+> does it guarantee that the address range was mapped at stage 2 at some
+> point during the ioctl's execution, but parts, or all of it, might not be
+> mapped after the ioctl completes and returns to userspace?
 
-As this is arm64 specific, the decision lies with the arm64 maintainers.
+Nevermind, spend some time thinking about it and it turns out it's
+impossible for KVM to guarantee that the memory is still mapped after the
+ioctls returns.  So I answered my own question, thanks.
 
--- Steve
+Alex
+
+> 
+> Thanks,
+> Alex
+> 
+> On Fri, Jun 12, 2026 at 05:23:50PM +0100, Jack Thomson wrote:
+> > From: Jack Thomson <jackabt@amazon.com>
+> > 
+> > Add arm64 support for KVM_PRE_FAULT_MEMORY by synthesizing a read data
+> > abort and routing it through the existing stage-2 fault handlers. Treat
+> > the requested GPA as an IPA in the userspace-owned VM's memslot space
+> > and always target the canonical stage-2, even if the vCPU last ran with
+> > a nested/shadow MMU selected.
+> > 
+> > If the vCPU last ran in a nested context, switch to the canonical
+> > stage-2 with the vCPU put/load helpers so VMID, VNCR and shadow-MMU
+> > refcount state stay consistent. Leave the switch in place for the ioctl;
+> > vcpu_put() at ioctl exit drops the hw_mmu and the next vcpu_load()
+> > reselects the correct MMU from vCPU state.
+> > 
+> > Check existing mappings with a shared page-table walk under the MMU read
+> > lock, and use the resulting walk level when constructing the synthetic
+> > fault. Report poisoned pages through the ioctl return path with
+> > -EHWPOISON instead of also queueing SIGBUS, and use the installed
+> > mapping size to advance the prefault range.
+> > 
+> > Advertise KVM_CAP_PRE_FAULT_MEMORY on arm64. Protected VMs remain
+> > unsupported: pKVM filters the capability, and the ioctl returns
+> > -EOPNOTSUPP if invoked anyway.
+> > 
+> > Signed-off-by: Jack Thomson <jackabt@amazon.com>
+> > ---
+> >  Documentation/virt/kvm/api.rst |  18 +++-
+> >  arch/arm64/kvm/Kconfig         |   1 +
+> >  arch/arm64/kvm/arm.c           |   1 +
+> >  arch/arm64/kvm/mmu.c           | 162 +++++++++++++++++++++++++++++++++
+> >  4 files changed, 178 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> > index 52bbbb553ce1..657e05656fa6 100644
+> > --- a/Documentation/virt/kvm/api.rst
+> > +++ b/Documentation/virt/kvm/api.rst
+> > @@ -6462,7 +6462,7 @@ See KVM_SET_USER_MEMORY_REGION2 for additional details.
+> >  ---------------------------
+> >  
+> >  :Capability: KVM_CAP_PRE_FAULT_MEMORY
+> > -:Architectures: none
+> > +:Architectures: x86, arm64
+> >  :Type: vcpu ioctl
+> >  :Parameters: struct kvm_pre_fault_memory (in/out)
+> >  :Returns: 0 if at least one page is processed, < 0 on error
+> > @@ -6470,11 +6470,14 @@ See KVM_SET_USER_MEMORY_REGION2 for additional details.
+> >  Errors:
+> >  
+> >    ========== ===============================================================
+> > +  EAGAIN     A memslot update raced with the ioctl before any page was
+> > +             processed.
+> >    EINVAL     The specified `gpa` and `size` were invalid (e.g. not
+> >               page aligned, causes an overflow, or size is zero).
+> >    ENOENT     The specified `gpa` is outside defined memslots.
+> >    EINTR      An unmasked signal is pending and no page was processed.
+> >    EFAULT     The parameter address was invalid.
+> > +  EHWPOISON  A poisoned host page was encountered.
+> >    EOPNOTSUPP Mapping memory for a GPA is unsupported by the
+> >               hypervisor, and/or for the current vCPU state/mode.
+> >    EIO        unexpected error conditions (also causes a WARN)
+> > @@ -6494,7 +6497,14 @@ Errors:
+> >  KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
+> >  for the current vCPU state.  KVM maps memory as if the vCPU generated a
+> >  stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
+> > -CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
+> > +CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
+> > +Accessed.  On arm64, newly created stage-2 PTEs are marked Accessed.
+> > +
+> > +On arm64, `gpa` is interpreted as an IPA in the userspace-owned VM's
+> > +memslot address space.  If the vCPU most recently ran a nested guest, KVM
+> > +still targets the VM's canonical stage-2, and does not interpret `gpa` as
+> > +a nested guest IPA or target the nested/shadow stage-2 selected by the
+> > +vCPU's last run state.
+> >  
+> >  In the case of confidential VM types where there is an initial set up of
+> >  private guest memory before the guest is 'finalized'/measured, this ioctl
+> > @@ -6507,9 +6517,9 @@ case, the ioctl can be called in parallel.
+> >  
+> >  When the ioctl returns, the input values are updated to point to the
+> >  remaining range.  If `size` > 0 on return, the caller can just issue
+> > -the ioctl again with the same `struct kvm_map_memory` argument.
+> > +the ioctl again with the same `struct kvm_pre_fault_memory` argument.
+> >  
+> > -Shadow page tables cannot support this ioctl because they
+> > +On x86, shadow page tables cannot support this ioctl because they
+> >  are indexed by virtual address or nested guest physical address.
+> >  Calling this ioctl when the guest is using shadow page tables (for
+> >  example because it is running a nested guest with nested page tables)
+> > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> > index 449154f9a485..6b89262e8ba7 100644
+> > --- a/arch/arm64/kvm/Kconfig
+> > +++ b/arch/arm64/kvm/Kconfig
+> > @@ -24,6 +24,7 @@ menuconfig KVM
+> >  	select HAVE_KVM_CPU_RELAX_INTERCEPT
+> >  	select KVM_MMIO
+> >  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+> > +	select KVM_GENERIC_PRE_FAULT_MEMORY
+> >  	select VIRT_XFER_TO_GUEST_WORK
+> >  	select KVM_VFIO
+> >  	select HAVE_KVM_DIRTY_RING_ACQ_REL
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 9453321ef8c6..dcb92bee13af 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -392,6 +392,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+> >  	case KVM_CAP_COUNTER_OFFSET:
+> >  	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
+> >  	case KVM_CAP_ARM_SEA_TO_USER:
+> > +	case KVM_CAP_PRE_FAULT_MEMORY:
+> >  		r = 1;
+> >  		break;
+> >  	case KVM_CAP_SET_GUEST_DEBUG2:
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index c720f07cb82e..4bf048bbcf8b 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1571,6 +1571,8 @@ struct kvm_s2_fault_desc {
+> >  	struct kvm_s2_trans	*nested;
+> >  	struct kvm_memory_slot	*memslot;
+> >  	unsigned long		hva;
+> > +	unsigned long		*page_size;
+> > +	bool			prefault;
+> >  };
+> >  
+> >  static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> > @@ -1882,6 +1884,13 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+> >  				      &s2vi->map_writable, &s2vi->page);
+> >  	if (unlikely(is_error_noslot_pfn(s2vi->pfn))) {
+> >  		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON) {
+> > +			/*
+> > +			 * When prefaulting, report the poison via -EHWPOISON
+> > +			 * only; don't also queue a SIGBUS as the run path
+> > +			 * does for the faulting vCPU thread.
+> > +			 */
+> > +			if (s2fd->prefault)
+> > +				return -EHWPOISON;
+> >  			kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
+> >  			return 0;
+> >  		}
+> > @@ -2053,6 +2062,9 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+> >  	kvm_release_faultin_page(kvm, s2vi->page, !!ret, writable);
+> >  	kvm_fault_unlock(kvm);
+> >  
+> > +	if (s2fd->page_size && !ret)
+> > +		*s2fd->page_size = mapping_size;
+> > +
+> >  	/*
+> >  	 * Mark the page dirty only if the fault is handled successfully,
+> >  	 * making sure we adjust the canonical IPA if the mapping size has
+> > @@ -2757,3 +2769,153 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+> >  
+> >  	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
+> >  }
+> > +
+> > +/*
+> > + * Prefaulting always targets the canonical stage-2.  If the vCPU last ran
+> > + * in a nested context, swap in the canonical MMU via the vCPU put/load
+> > + * helpers so that preemption, VMID, VNCR fixmap and shadow-MMU refcount
+> > + * state stay consistent.
+> > + *
+> > + * The swap is deliberately not undone: nothing runs in between the
+> > + * per-page invocations of kvm_arch_vcpu_pre_fault_memory() except the
+> > + * generic prefault loop, and the vcpu_put() at ioctl exit discards
+> > + * vcpu->arch.hw_mmu anyway (see kvm_vcpu_put_hw_mmu()), so the next
+> > + * vcpu_load() re-derives the correct MMU from the vCPU's context.  If the
+> > + * prefault task is preempted in the meantime, kvm_vcpu_put_hw_mmu()
+> > + * keeps the canonical MMU in place for the reload.  Leaving the swap in
+> > + * place also bounds the cost to at most one put/load pair per ioctl,
+> > + * rather than two pairs per prefaulted page.
+> > + */
+> > +static void kvm_pre_fault_load_canonical_mmu(struct kvm_vcpu *vcpu)
+> > +{
+> > +	if (!vcpu_has_nv(vcpu) || vcpu->arch.hw_mmu == &vcpu->kvm->arch.mmu)
+> > +		return;
+> > +
+> > +	preempt_disable();
+> > +	kvm_arch_vcpu_put(vcpu);
+> > +	vcpu->arch.hw_mmu = &vcpu->kvm->arch.mmu;
+> > +	kvm_arch_vcpu_load(vcpu, smp_processor_id());
+> > +	preempt_enable();
+> > +}
+> > +
+> > +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+> > +				    struct kvm_pre_fault_memory *range)
+> > +{
+> > +	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
+> > +	struct kvm_vcpu_fault_info fault_backup = *fault_info;
+> > +	s8 walk_level = KVM_PGTABLE_LAST_LEVEL;
+> > +	unsigned long page_size = PAGE_SIZE;
+> > +	struct kvm_memory_slot *memslot;
+> > +	phys_addr_t gpa = range->gpa;
+> > +	struct kvm_pgtable *pgt;
+> > +	phys_addr_t end;
+> > +	kvm_pte_t pte;
+> > +	hva_t hva;
+> > +	gfn_t gfn;
+> > +	long ret;
+> > +
+> > +	if (vcpu_is_protected(vcpu))
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	/*
+> > +	 * Interpret range->gpa in the userspace-owned VM's IPA space, not in
+> > +	 * any nested guest IPA space that may have been active on the vCPU's
+> > +	 * last run.  Always target the canonical stage-2.
+> > +	 */
+> > +	kvm_pre_fault_load_canonical_mmu(vcpu);
+> > +
+> > +	if (gpa >= kvm_phys_size(vcpu->arch.hw_mmu)) {
+> > +		ret = -ENOENT;
+> > +		goto out;
+> > +	}
+> > +
+> > +	gfn = gpa_to_gfn(gpa);
+> > +	memslot = gfn_to_memslot(vcpu->kvm, gfn);
+> > +	if (!memslot) {
+> > +		ret = -ENOENT;
+> > +		goto out;
+> > +	}
+> > +
+> > +	/*
+> > +	 * A racing memslot deletion or move installs an invalid slot before
+> > +	 * zapping stage-2.  Ask userspace to retry once the update settles.
+> > +	 */
+> > +	if (memslot->flags & KVM_MEMSLOT_INVALID) {
+> > +		ret = -EAGAIN;
+> > +		goto out;
+> > +	}
+> > +
+> > +	/*
+> > +	 * pKVM stage-2 mappings aren't directly walkable from the host; let
+> > +	 * the fault path handle both new and existing mappings.
+> > +	 */
+> > +	if (!is_protected_kvm_enabled()) {
+> > +		pgt = vcpu->arch.hw_mmu->pgt;
+> > +		scoped_guard(read_lock, &vcpu->kvm->mmu_lock) {
+> > +			ret = kvm_pgtable_get_leaf(pgt, gpa, &pte, &walk_level,
+> > +						   KVM_PGTABLE_WALK_SHARED);
+> > +		}
+> > +		if (ret)
+> > +			goto out;
+> > +
+> > +		if (kvm_pte_valid(pte)) {
+> > +			page_size = kvm_granule_size(walk_level);
+> > +			if (!(pte & KVM_PTE_LEAF_ATTR_LO_S2_AF))
+> > +				handle_access_fault(vcpu, gpa);
+> > +			goto out_success;
+> > +		}
+> > +	}
+> > +
+> > +	/*
+> > +	 * Synthesize a read translation fault for the canonical IPA, at the
+> > +	 * level where the stage-2 walk currently ends (the last level under
+> > +	 * pKVM, where stage-2 isn't walkable from the host).
+> > +	 */
+> > +	fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
+> > +		ESR_ELx_IL | ESR_ELx_FSC_FAULT_L(walk_level);
+> > +	fault_info->hpfar_el2 = HPFAR_EL2_NS |
+> > +		FIELD_PREP(HPFAR_EL2_FIPA, gpa >> 12);
+> > +
+> > +	struct kvm_s2_fault_desc s2fd = {
+> > +		.vcpu		= vcpu,
+> > +		.fault_ipa	= gpa,
+> > +		.nested		= NULL,
+> > +		.memslot	= memslot,
+> > +		.page_size	= &page_size,
+> > +		.prefault	= true,
+> > +	};
+> > +
+> > +	/*
+> > +	 * As in the run path, -EAGAIN from the abort handlers is treated as
+> > +	 * progress: either a parallel fault installed the mapping, or a racing
+> > +	 * invalidation is in flight and the next access will refault.
+> > +	 */
+> > +	if (kvm_slot_has_gmem(memslot)) {
+> > +		ret = gmem_abort(&s2fd);
+> > +	} else {
+> > +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
+> > +		if (kvm_is_error_hva(hva)) {
+> > +			ret = -EFAULT;
+> > +			goto out;
+> > +		}
+> > +
+> > +		s2fd.hva = hva;
+> > +		ret = user_mem_abort(&s2fd);
+> > +	}
+> > +
+> > +	if (ret < 0)
+> > +		goto out;
+> > +
+> > +out_success:
+> > +	end = ALIGN_DOWN(gpa, page_size) + page_size;
+> > +	ret = min_t(u64, range->size, end - gpa);
+> > +out:
+> > +	/*
+> > +	 * Restore the synthetic fault state so a subsequent KVM_RUN does not
+> > +	 * observe it. kvm_handle_mmio_return() runs before guest entry can
+> > +	 * refresh fault.esr_el2 from hardware, so leaving the synthetic ESR
+> > +	 * in place would corrupt the completion of a pending MMIO exit.
+> > +	 */
+> > +	*fault_info = fault_backup;
+> > +	return ret;
+> > +}
+> > -- 
+> > 2.43.0
+> > 
+> > 
+> 
 
