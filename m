@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD68C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 17:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3207C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 17:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M0XHen8IR69lr0Mvi6TF7SKZT2IXesgxyeuXi2HTHdY=; b=ypG19wBX+uvXplgG8xPDR1f0Fr
-	B6x9PdI4eKg7V6i58sI3Qpus/tyg0WdPzpBf83fTqbxCgq7UfHlgGtQTLmxeO2H5F9ptgbt7/s/6T
-	F5wtHQtWbIyuZvgcj9COlA553gviptT+AeaqkCFd5YdRD1M0pQQ0rbk8RYgCCSi/BjoxPVw6nBIin
-	iJlwCzQXGohC5SbJKt8KWhq5RrzBBqDXIqIu4AsYAm1Rn5ShGUcoV6fEoaAmFYRRB/+5p42FuqIIU
-	EFy5hqTXVV0Nyodm8HapciwtMtQBDv9tlYZ65+yV203r0VADj2/BQBZLY7LeoMsK3Kiuo6Aj6oTfn
-	QqAYlnBQ==;
+	bh=GUQ9uQxNJv6bvHotzClFBzlYXm1KPz+ueAGwDjw8Sww=; b=WwFmUW/x87zTGp60QQ477MZJC3
+	R9Oh72FLqCluJ3dRUHyNRaCH3gk9zBn7zXnqGpgW5ItfJ8+6meTdUZpW5+4vV1YN+N6uP1xi+SSDt
+	Wm22PQhhCiiXX035so3Qygj7zlzjm865Kh4LvSqoAaOeLENx3Mu3DVfBJ2EjB7ndj8DeDssjAU2d/
+	1AHG78IB2FhIpV3xHjxeghxJbYQllHctidQZmnhuiMNB1QiGeYtw5NCe55JciLzQnuFwVujwSk9yy
+	rTyosAncNpemuPmn5BhwLe9csWcnnAVXfQxJy9z1jOtoRch7QxtkLeXu4CJze3FDigX/LH1ELNoql
+	iLnZGB3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiFG4-00000005SQi-1GsK;
+	id 1wiFG4-00000005SQQ-0mkK;
 	Fri, 10 Jul 2026 17:43:28 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiFG0-00000005SNW-0ZjC
+	id 1wiFFz-00000005SN4-0G2Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 17:43:25 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-472326ca506so957612f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 10:43:23 -0700 (PDT)
+	Fri, 10 Jul 2026 17:43:24 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493f60208a5so6998875e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 10:43:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783705402; x=1784310202; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783705401; x=1784310201; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M0XHen8IR69lr0Mvi6TF7SKZT2IXesgxyeuXi2HTHdY=;
-        b=FLUKZesLfJwA86k5X3sEFEUQ5FK+BsF9PCTh1MgfJMVjXyvL8lyDSrN3qf/nyrZ2DQ
-         gvwlOfYlYBwSnlkZYKp75dihY999jX+8MX3YB3yOJqQPIvSdW8Jc0r4V+afDkmeAzBhW
-         T7E6OI/j0IwTCNKAvHA6sFe7qUeiCRDB0Dv1Rx/ypKiUd+hCRSMIuTSOwm0ISWSU2wqE
-         KzdhDP33uMmsDYlc2hWu8l0YsW/QRX6BmhEQ2ijNPyT7LAq8CKsrQlvOTzZRNNptTtcu
-         vQW8Yo4U8squQktxfSDETYr+46jUd1mYlEPLR0AiO2AgIMIkCjjC1o+ZeS57q4mXqigl
-         gX7w==
+        bh=GUQ9uQxNJv6bvHotzClFBzlYXm1KPz+ueAGwDjw8Sww=;
+        b=MflwX4JrenaXOnFZ931uEKe/6/P+ar/ac5pxapXEBZLaP1vpE/4REV4o+hoF0VKWHa
+         TPy3AJN7DCxF+J9uD8da+TZzImexnvh/jfvdz1cCadY+Mugb44LbzRLKwZ7kPbYlnaXc
+         TojXJt5J3pF0K6PZiXqcPPN+In4pJVM4PpXeI6nA4+fMDs+ehEVjCGEPQ+7AnMnor+QY
+         kMJsfNgA0/8cgLvtaIoS8BgPyo0TXazr+wpCyDUKxCOe7+qdIA7BYeU22fB8zfGLUvgo
+         i5UfKmrl3rjLuEaHKJZ97yRm+aaI1Ss7NmYjb5aVdbgbX6nrjvunSxrOnZVcxGggHGBU
+         jWEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783705402; x=1784310202;
+        d=1e100.net; s=20251104; t=1783705401; x=1784310201;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M0XHen8IR69lr0Mvi6TF7SKZT2IXesgxyeuXi2HTHdY=;
-        b=NMkYlm3cNeNXkCip4l/2AtoH1uCXahfaQF98pKjEulW+OWV4qXqVyps/+E3TIahdD4
-         3iUNtSYwsaPx5Mv9wexTblWfW3p+aQePpUWLTZEjJdlvcDEdM5UWIKO+4/cSJrA74Gq7
-         ZGnG5XhWf+xReK2Hf+/QJzxnejuAGVTKpNectdpKzC+zZuXZr9HFEgBKSS3EQnNjIfWH
-         Yho7BUvw67ZFexsmpn3h1ykVjTuQ3YZOKv0wa7z+yPy2iW4dz5M4JVcOn1nH6TM874tS
-         Kk9C5ohxUNGY595ixv4FR64rF4W8atbQNFPov0UoT30g+0Hj8tAYpEXkpDHWFKLZp1Pe
-         Bgmg==
-X-Forwarded-Encrypted: i=1; AHgh+Rqpp6Ys1ZhGTj3v1uxq/VyzrCXpQVadyM29dxT1dcOffFCRkp3vZlVIiNRwwi6zZKoGDcgY/iZ2MFz0OfF51c+9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHhXsHn3wmN7RUyaAl08lse4LjrgkUSDWWSOzRyCnOg1QHazr9
-	J9O+euxdWpJeA+BRllyZaZHz2rIFXOZWM+MVqOHyx2SYlt6ORRLt2Ikg
-X-Gm-Gg: AfdE7cnhQt73NH9e8PZa46gKqQ4ODEnQgYCg8hAaLVA3aNtBj1EfKT+uZHlDsoMcjTp
-	SACmE0iXMJs+fu15RrEFxbvnrWcZThYku8ZFuGspRigN4smXeW2LYGrDnIIogVr7Oz1F3TjWvSE
-	ddZbYhDBXmnEuD8ZoSboldSH+cHBRZVUt+FWKTWINLeSIYA0FLzEqRPfTkbAucYWJ+xG3ODA8PO
-	1Zgmv/h3sghYWOddtMQgCXkGFHfk4FeqgQ5gt6mx85ntICiqbUU5O9RNRqyTALYT9tWDH3BO1aF
-	IMso3qM+eYO/zDPK+m8YvReG3rAuxeHSFB3gilLcN1fPCzOEPj4RlllI/i5pCglKJPoYHxSqc4C
-	ie6BEivtwWaBz11xo9J+gXYV8wx9fK7J9cYqwVJ8C/nnoi+nL+t+H2gdh2PG/K/aCWzC6nz1grH
-	Blrijv54vmg+S4e4zWXVQLAiA3P9OSHVE0fSsQf7uI9WSR86HIjRLi
-X-Received: by 2002:a05:6000:26d3:b0:474:3b3b:5e5f with SMTP id ffacd0b85a97d-47df072b06bmr13539693f8f.16.1783705401985;
-        Fri, 10 Jul 2026 10:43:21 -0700 (PDT)
+        bh=GUQ9uQxNJv6bvHotzClFBzlYXm1KPz+ueAGwDjw8Sww=;
+        b=igkloG4EEITvGFylk8RMiEVdAemeG6DOmsQP2/JtzT5BSqiEclGphZRMF4SaoUPXzD
+         jxP2oczae4wpVBEdUQLkptrPrC68pRMPvPLWwdlOWYpmL0n1ZLjsZbHjXQkSC3kbJb1S
+         wxxaTDmpN56f+VZiux8oeK76Rxi3sXeivsRfxOoMJnZrT1BYuVRvl0k11sMzK+hNXSPl
+         oiQWK1od++tjHO35XJ2VBf86zOFRN0Ljl/1KFDKVz1nGLGZgl2BGBNUQ5kQswvZCcBV8
+         EdSU/9YD108NNIBVqjNusoI00XseFXMVs671dWX99HZHw5Bm8vaU8lnXfju9o0Ru+TVf
+         LX6g==
+X-Forwarded-Encrypted: i=1; AHgh+RoiQmDrjZaF//hmUmN50VR5zBqYgFHypJAPGiY+vip/s8JJrCj/1d8nOi+VUlG23skF57IkWYAfGow+I7uhpCzf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuwP3F5Y8vAE15v/uXP4UgQWgStCh9KXLJYywzkTfz8WKrEPbl
+	tctj+ygP7CaKczZxpCyFbH1UGX8uRrQ9grMVR5o+73kDhr9f3jzRnaGJ
+X-Gm-Gg: AfdE7cnLlltzJvRBTrPAUAlcx5UYx2AibClJW4em5S6R1bE7jBnLqj4LQ3VphLxdMvk
+	BIJj1SjDitXt+/ETm0d0xW59XQGFba1PnyfpCUQ6jy+bEEaR+WhcRZ6xgC8PvB8CuNf6jG9mpOO
+	iiqsgTTrUzGKWZSCxJD6/v+pjV0fMRKzChNBfHIOnuCpnW+6tZpndosS4RMXrSk0G8eBnfJDzPp
+	ukzGclGSoRjTrNM1MeMoc0/lGv3V2FkNPiB8Cu4giQqwAno2p0n9ZYHQmHRlGVdzmT1/CgQtAMr
+	q+Z6jt6tS10vuMjhnuHPQ9vXPNKpugx2nL+/ABEqpL/vnNumAd6DXjjw1tprZPDxcLmEgCGSGlM
+	hFgFXn+q6KxhGjjn3t+LbQTF8oEbN7EC4rm4bQM9hW47UdAs/4ry6BVIbviJEIQsOsJUUJiR4/k
+	WV3OjHllOoOQ+6trUCnUBhDaEH2nr15HJd4lbvaitDeVXPgQtunAOLQMm7XiiJM1Q=
+X-Received: by 2002:a05:600c:8b05:b0:492:41c9:886b with SMTP id 5b1f17b1804b1-493e68a0db4mr129704065e9.14.1783705400402;
+        Fri, 10 Jul 2026 10:43:20 -0700 (PDT)
 Received: from GLaDOS.station ([185.81.127.246])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d91bsm67170201f8f.4.2026.07.10.10.43.20
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d91bsm67170201f8f.4.2026.07.10.10.43.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 10:43:21 -0700 (PDT)
+        Fri, 10 Jul 2026 10:43:19 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -86,17 +86,17 @@ Cc: pierluigi.p@variscite.com,
 	Kees Cook <kees@kernel.org>,
 	Tony Luck <tony.luck@intel.com>,
 	"Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Subject: [PATCH v3 3/3] arm64: dts: ti: var-som-am62: Add support for Variscite Symphony Board
-Date: Fri, 10 Jul 2026 19:43:09 +0200
-Message-ID: <3f58a10e07d9a353c7c18f7d3ec8ea1f4c08f4f0.1783689915.git.stefano.r@variscite.com>
+Subject: [PATCH v3 2/3] arm64: dts: ti: Add support for Variscite VAR-SOM-AM62
+Date: Fri, 10 Jul 2026 19:43:08 +0200
+Message-ID: <ed1d477de1855fa8de3d88a491aa489a3bdbb7f7.1783689915.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1783689915.git.stefano.r@variscite.com>
 References: <cover.1783689915.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_104324_324269_D991973E 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260710_104323_246088_433B9605 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,58 +113,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Add device tree support for the Variscite Symphony carrier board with
-the VAR-SOM-AM62 system on module.
+Add device tree support for the Variscite VAR-SOM-AM62 system on module.
+This SOM is designed to be used with various carrier boards.
 
-The Symphony board includes
-- uSD Card support
-- USB ports and OTG
-- Additional Gigabit Ethernet interface
-- Uart interfaces
-- OV5640 Camera support
-- GPIO Expander and TPM
-- CAN, I2C and general purpose interfaces
-- Capacitive touch controller
+The module includes:
+- AM62x Sitara MPU processor
+- Up to 4GB of DDR4-3733 memory
+- Up to 128GB eMMC storage memory
+- Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices
+- Audio codec wm8904
+- Resistive touch panel interface controller
+- I2C, UART and SPI interfaces
+- Bluetooth 5.2 + WiFi single or dual band
 
-Link: https://www.variscite.it/product/single-board-computers/symphony-board/
+Only SOM-specific peripherals are enabled by default. Carrier board
+specific interfaces are left disabled to be enabled in the respective
+carrier board device trees.
+
+Link: https://variscite.com/system-on-module-som/ti-sitara-am62x/var-som-am62/
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v2->v3:
- - Fix reg_sdhc1_vmmc regulator
- - Add missing properties on pca9534 node
+ - Add audio_refclk1 clock
+ - Removed pinctrl_vdd_mmc2
 
 v1->v2:
- - Fix reg_sdhc1_vmmc pinctrl
- - Add reg_ov5640_buf_en pinctrl
+ - Fix AM62X_MCU_IOPAD macro
+ - Fix OPP table comment
+ - Remove reg_vdd_mmc2 regulator
 
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../boot/dts/ti/k3-am625-var-som-symphony.dts | 555 ++++++++++++++++++
- 2 files changed, 556 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
+ arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi | 483 +++++++++++++++++++
+ 1 file changed, 483 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 371f9a043fe5..e33c4d0363a9 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -29,6 +29,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am625-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-can.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-nau8822-btl.dtbo
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi
 new file mode 100644
-index 000000000000..e2fba95d9b94
+index 000000000000..c2daa56c35e1
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-var-som-symphony.dts
-@@ -0,0 +1,555 @@
++++ b/arch/arm64/boot/dts/ti/k3-am625-var-som.dtsi
+@@ -0,0 +1,483 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Variscite Symphony carrier board for VAR-SOM-AM62
++ * Common dtsi for Variscite VAR-SOM-AM62
 + *
-+ * Link: https://www.variscite.it/product/single-board-computers/symphony-board/
++ * Link: https://variscite.com/system-on-module-som/ti-sitara-am62x/var-som-am62/
 + *
 + * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
 + * Copyright (C) 2026 Stefano Radaelli <stefano.r@variscite.com>
@@ -173,184 +165,158 @@ index 000000000000..e2fba95d9b94
 +
 +/dts-v1/;
 +
-+#include "k3-am625-var-som.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pwm/pwm.h>
++#include "k3-am625.dtsi"
 +
 +/ {
-+	model = "Variscite VAR-SOM-AM62 on Symphony-Board";
-+	compatible = "variscite,var-som-am62-symphony", "variscite,var-som-am62", "ti,am625";
++	compatible = "variscite,var-som-am62", "ti,am625";
 +
-+	aliases {
-+		ethernet0 = &cpsw_port1;
-+		ethernet1 = &cpsw_port2;
-+		mmc0 = &sdhci0;
-+		mmc1 = &sdhci1;
-+		mmc2 = &sdhci2;
-+		serial0 = &main_uart0;
-+		serial2 = &main_uart2;
-+		serial5 = &main_uart5;
-+		serial6 = &main_uart6;
-+		spi5 = &main_spi2;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
++	memory@80000000 {
++		/* 2G RAM */
++		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
++		device_type = "memory";
++		bootph-pre-ram;
 +	};
 +
-+	chosen {
-+		stdout-path = "serial0:115200n8";
++	mmc_pwrseq: mmc-pwrseq {
++		compatible = "mmc-pwrseq-emmc";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_mmc_pwrseq>;
++		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
 +	};
 +
-+	clk_ov5640_fixed: clock-24000000 {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-back {
-+			label = "Back";
-+			linux,code = <KEY_BACK>;
-+			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-home {
-+			label = "Home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-menu {
-+			label = "Menu";
-+			linux,code = <KEY_MENU>;
-+			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
++	opp-table {
++		/* Add 1.4GHz OPP. Requires VDD_CORE to be at 0.85V */
++		opp-1400000000 {
++			opp-hz = /bits/ 64 <1400000000>;
++			opp-supported-hw = <0x01 0x0004>;
++			clock-latency-ns = <6000000>;
 +		};
 +	};
 +
-+	gpio-leds {
-+		compatible = "gpio-leds";
++	reserved_memory: reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
 +
-+		led-heartbeat {
-+			label = "Heartbeat";
-+			linux,default-trigger = "heartbeat";
-+			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
++		ramoops@9ca00000 {
++			compatible = "ramoops";
++			reg = <0x00 0x9ca00000 0x00 0x00100000>;
++			record-size = <0x8000>;
++			console-size = <0x8000>;
++			ftrace-size = <0x00>;
++			pmsg-size = <0x8000>;
++		};
++
++		/* global cma region */
++		linux,cma {
++			compatible = "shared-dma-pool";
++			reusable;
++			size = <0x00 0x8000000>;
++			linux,cma-default;
++		};
++
++		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9b500000 0x00 0x00300000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9da00000 0x00 0x100000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_memory_region: memory@9db00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9db00000 0x00 0xc00000>;
++			no-map;
++		};
++
++		secure_tfa_ddr: tfa@9e780000 {
++			reg = <0x00 0x9e780000 0x00 0x80000>;
++			alignment = <0x1000>;
++			no-map;
++		};
++
++		secure_ddr: optee@9e800000 {
++			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
++			alignment = <0x1000>;
++			no-map;
 +		};
 +	};
 +
-+	reg_2p8v: regulator-2p8v {
++	reg_1v8: regulator-1v8 {
 +		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
++		regulator-name = "On-module +V1.8";
 +		regulator-min-microvolt = <1800000>;
 +		regulator-max-microvolt = <1800000>;
 +		vin-supply = <&reg_3v3>;
 +		regulator-always-on;
++		regulator-boot-on;
 +	};
 +
-+	reg_1p5v: regulator-1p5v {
++	reg_3v3: regulator-3v3 {
 +		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_sdhc1_vmmc: regulator-sdhc1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vmmc>;
++		regulator-name = "On-module +V3.3";
 +		regulator-min-microvolt = <3300000>;
 +		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpios = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
-+		compatible = "regulator-gpio";
-+		regulator-name = "+V3.3_SD_VQMMC";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	reg_ov5640_buf_en: regulator-camera-buf-en {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640_buf_en";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_ov5640_buf>;
-+		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
 +		regulator-always-on;
 +		regulator-boot-on;
 +	};
 +
-+	transceiver1: can-phy {
-+		compatible = "ti,tcan1042";
-+		#phy-cells = <0>;
-+		max-bitrate = <5000000>;
++	reg_3v3_phy: regulator-3v3-phy {
++		compatible = "regulator-fixed";
++		regulator-name = "On-module +V3.3_PHY";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_eth_phy>;
++		gpios = <&main_gpio0 45 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-always-on;
 +	};
 +
-+	connector {
-+		compatible = "gpio-usb-b-connector", "usb-b-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_extcon>;
-+		label = "USB-C";
-+		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
-+		status = "okay";
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&codec_dai>;
++		simple-audio-card,format = "dsp_b";
++		simple-audio-card,frame-master = <&codec_dai>;
++		simple-audio-card,name = "wm8904-audio";
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,routing =
++			"Headphone Jack", "HPOUTL",
++			"Headphone Jack", "HPOUTR",
++			"IN2L", "Line In Jack",
++			"IN2R", "Line In Jack",
++			"IN1L", "Microphone Jack",
++			"IN1R", "Microphone Jack";
++		simple-audio-card,widgets =
++			"Microphone", "Microphone Jack",
++			"Headphone", "Headphone Jack",
++			"Line", "Line In Jack";
 +
-+		port {
-+			usb_con_hs: endpoint {
-+				remote-endpoint = <&typec_hs>;
-+			};
++		codec_dai: simple-audio-card,codec {
++			sound-dai = <&wm8904>;
++		};
++
++		simple-audio-card,cpu {
++			sound-dai = <&mcasp1>;
 +		};
 +	};
 +};
 +
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY. */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
++&audio_refclk1 {
++	assigned-clock-rates = <12000000>;
 +};
 +
 +&cpsw3g {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>,
-+		    <&pinctrl_rgmii2>;
++	pinctrl-0 = <&pinctrl_rgmii1>;
 +	status = "okay";
-+
-+	cpts@3d000 {
-+		/* MAP HW3_TS_PUSH to GENF1 */
-+		ti,pps = <2 1>;
-+	};
 +};
 +
 +&cpsw3g_mdio {
@@ -358,363 +324,317 @@ index 000000000000..e2fba95d9b94
 +	pinctrl-0 = <&pinctrl_mdio1>;
 +	status = "okay";
 +
-+	cpsw3g_phy1: ethernet-phy@5 {
++	cpsw3g_phy0: ethernet-phy@4 {
 +		compatible = "ethernet-phy-id0283.bc30";
-+		reg = <5>;
-+		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
++		reg = <4>;
++		bootph-all;
++		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
 +		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
++		reset-deassert-us = <20000>;
 +	};
 +};
 +
-+&cpsw_port2 {
++&cpsw_port1 {
 +	/*
 +	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the Symphony PCB.
++	 * in hardware via passive delay elements on the SOM PCB.
 +	 * No delay configuration is needed in software via PHY driver.
 +	 */
 +	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy1>;
++	phy-handle = <&cpsw3g_phy0>;
 +	status = "okay";
 +};
 +
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&epwm1 {
-+	status = "okay";
++&main_i2c2 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_epwm1>;
-+};
-+
-+&main_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0>;
++	pinctrl-0 = <&pinctrl_i2c2>;
 +	clock-frequency = <400000>;
 +	status = "okay";
 +
-+	/* GPIO expander */
-+	pca9534: gpio@20 {
-+		compatible = "nxp,pca9534";
-+		reg = <0x20>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pca9534>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-+
-+		usb3-sel-hog {
-+			gpio-hog;
-+			gpios = <4 0>;
-+			output-low;
-+			line-name = "usb3_sel";
-+		};
-+
-+		eth-som-vselect-hog {
-+			gpio-hog;
-+			gpios = <6 0>;
-+			output-low;
-+			line-name = "eth-vselect";
-+		};
-+
-+		eth-mdio-enable-hog {
-+			gpio-hog;
-+			gpios = <7 0>;
-+			output-high;
-+			line-name = "eth-mdio-enable";
-+		};
-+	};
-+
-+	ov5640: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_ov5640_fixed>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_2p8v>;
-+		DOVDD-supply = <&reg_1p8v>;
-+		DVDD-supply = <&reg_1p5v>;
-+		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_ov5640>;
-+
-+		port {
-+			csi2_cam0: endpoint {
-+				remote-endpoint = <&csi2rx0_in_sensor>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
++	wm8904: audio-codec@1a {
++		compatible = "wlf,wm8904";
++		reg = <0x1a>;
++		#sound-dai-cells = <0>;
++		clocks = <&audio_refclk1>;
++		clock-names = "mclk";
++		AVDD-supply = <&reg_1v8>;
++		CPVDD-supply = <&reg_1v8>;
++		DBVDD-supply = <&reg_3v3>;
++		DCVDD-supply = <&reg_1v8>;
++		MICVDD-supply = <&reg_1v8>;
++		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
++				    "soft", "music";
++		/*
++		 * Config registers per name, respectively:
++		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
++		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
++		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
++		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
++		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
++		 */
++		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
++				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
++				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
++		/* GPIO1 = DMIC_CLK, don't touch others */
++		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
 +	};
 +};
 +
-+&main_i2c1 {
++&main_i2c3 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
++	pinctrl-0 = <&pinctrl_i2c3>;
 +	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	pcal6408: gpio@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		/* RGB_SEL */
-+		lvds-brg-enable-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_HIGH>;
-+			output-low;
-+			line-name = "lvds_brg_en";
-+		};
-+	};
-+
-+	st33ktpm2xi2c: tpm@2e {
-+		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
-+		label = "tpm";
-+		reg = <0x2e>;
-+		reset-gpios = <&pcal6408 4 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	/* Capacitive touch controller */
-+	ft5x06_ts: touchscreen@38 {
-+		compatible = "edt,edt-ft5206";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_captouch_pins>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
-+		touchscreen-size-x = <800>;
-+		touchscreen-size-y = <480>;
-+		touchscreen-inverted-x;
-+		touchscreen-inverted-y;
-+		wakeup-source;
-+	};
-+
-+	rtc@68 {
-+		compatible = "dallas,ds1337";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&main_mcan0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mcan0>;
-+	phys = <&transceiver1>;
 +	status = "okay";
 +};
 +
 +&main_pmx0 {
-+	pinctrl_captouch_pins: main-captouch-default-pins {
++	pinctrl_i2c2: main-i2c2-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01b8, PIN_INPUT, 7) /* (C13) SPI0_CS1.GPIO1_16 */
++			AM62X_IOPAD(0x0b0, PIN_INPUT_PULLUP, 1) /* (K22) GPMC0_CSn2.I2C2_SCL */
++			AM62X_IOPAD(0x0b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
 +		>;
 +	};
 +
-+	pinctrl_epwm1: main-epwm1-default-pins {
++	pinctrl_i2c3: main-i2c3-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x019c, PIN_OUTPUT, 6) /* (B18) MCASP0_AXR1.EHRPWM1_A */
++			AM62X_IOPAD(0x01d0, PIN_INPUT, 2) /* (A15) UART0_CTSn.I2C3_SCL */
++			AM62X_IOPAD(0x01d4, PIN_INPUT, 2) /* (B15) UART0_RTSn.I2C3_SDA */
 +		>;
 +	};
 +
-+	pinctrl_extcon: main-extcon-default-pins {
++	pinctrl_mcasp1: main-mcasp1-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01a8, PIN_INPUT, 7) /* (D20) MCASP0_AFSX.GPIO1_12 */
++			AM62X_IOPAD(0x0090, PIN_INPUT, 2) /* (M24) GPMC0_BE0N_CLE.MCASP1_ACLKX */
++			AM62X_IOPAD(0x0098, PIN_INPUT, 2) /* (U23) GPMC0_WAIT0.MCASP1_AFSX */
++			AM62X_IOPAD(0x008c, PIN_OUTPUT, 2) /* (L25) GPMC0_WEN.MCASP1_AXR0 */
++			AM62X_IOPAD(0x0084, PIN_INPUT, 2) /* (L23) GPMC0_ADVN_ALE.MCASP1_AXR2 */
++			AM62X_IOPAD(0x00a0, PIN_OUTPUT, 1) /* (K25) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
 +		>;
 +	};
 +
-+	pinctrl_i2c0: main-i2c0-default-pins {
++	pinctrl_mdio1: main-mdio1-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
-+			AM62X_IOPAD(0x1e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
++			AM62X_IOPAD(0x160, PIN_INPUT, 0) /* (AD24) MDIO0_MDC */
++			AM62X_IOPAD(0x15c, PIN_INPUT, 0) /* (AB22) MDIO0_MDIO */
 +		>;
 +	};
 +
-+	pinctrl_i2c1: main-i2c1-default-pins {
++	pinctrl_mmc_pwrseq: pinmux-mmc-pwrseq-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (Y25) VOUT0_DATA4.GPIO0_49 */
++		>;
++	};
++
++	pinctrl_mmc0: main-mmc0-default-pins {
 +		bootph-all;
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1e8, PIN_INPUT_PULLUP, 0) /* (B17) I2C1_SCL */
-+			AM62X_IOPAD(0x1ec, PIN_INPUT_PULLUP, 0) /* (A17) I2C1_SDA */
++			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
++			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
++			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
++			AM62X_IOPAD(0x210, PIN_INPUT, 0) /* (AA1) MMC0_DAT1 */
++			AM62X_IOPAD(0x20c, PIN_INPUT, 0) /* (AA3) MMC0_DAT2 */
++			AM62X_IOPAD(0x208, PIN_INPUT, 0) /* (Y4) MMC0_DAT3 */
++			AM62X_IOPAD(0x204, PIN_INPUT, 0) /* (AB2) MMC0_DAT4 */
++			AM62X_IOPAD(0x200, PIN_INPUT, 0) /* (AC1) MMC0_DAT5 */
++			AM62X_IOPAD(0x1fc, PIN_INPUT, 0) /* (AD2) MMC0_DAT6 */
++			AM62X_IOPAD(0x1f8, PIN_INPUT, 0) /* (AC2) MMC0_DAT7 */
 +		>;
 +	};
 +
-+	pinctrl_mcan0: main-mcan0-default-pins {
++	pinctrl_mmc2: main-mmc2-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1dc, PIN_INPUT, 0) /* (E15) MCAN0_RX */
-+			AM62X_IOPAD(0x1d8, PIN_OUTPUT, 0) /* (C15) MCAN0_TX */
++			AM62X_IOPAD(0x120, PIN_INPUT_PULLUP, 0) /* (C24) MMC2_CMD */
++			AM62X_IOPAD(0x118, PIN_INPUT_PULLDOWN, 0) /* (D25) MMC2_CLK */
++			AM62X_IOPAD(0x114, PIN_INPUT_PULLUP, 0) /* (B24) MMC2_DAT0 */
++			AM62X_IOPAD(0x110, PIN_INPUT_PULLUP, 0) /* (C25) MMC2_DAT1 */
++			AM62X_IOPAD(0x10c, PIN_INPUT_PULLUP, 0) /* (E23) MMC2_DAT2 */
++			AM62X_IOPAD(0x108, PIN_INPUT_PULLUP, 0) /* (D24) MMC2_DAT3 */
++			AM62X_IOPAD(0x11c, PIN_INPUT_PULLUP, 0) /* (#N/A) MMC2_CLKB */
 +		>;
 +	};
 +
-+	pinctrl_mmc1: main-mmc1-default-pins {
++	pinctrl_restouch: main-restouch-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x00c4, PIN_INPUT_PULLUP, 7) /* (W24) VOUT0_DATA3.GPIO0_48 */
++		>;
++	};
++
++	pinctrl_rgmii1: main-rgmii1-default-pins {
 +		bootph-all;
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x23c, PIN_INPUT, 0) /* (A21) MMC1_CMD */
-+			AM62X_IOPAD(0x234, PIN_INPUT, 0) /* (B22) MMC1_CLK */
-+			AM62X_IOPAD(0x230, PIN_INPUT, 0) /* (A22) MMC1_DAT0 */
-+			AM62X_IOPAD(0x22c, PIN_INPUT, 0) /* (B21) MMC1_DAT1 */
-+			AM62X_IOPAD(0x228, PIN_INPUT, 0) /* (C21) MMC1_DAT2 */
-+			AM62X_IOPAD(0x224, PIN_INPUT, 0) /* (D22) MMC1_DAT3 */
-+			AM62X_IOPAD(0x240, PIN_INPUT, 0) /* (D17) MMC1_SDCD */
++			AM62X_IOPAD(0x14c, PIN_INPUT, 0) /* (AB17) RGMII1_RD0 */
++			AM62X_IOPAD(0x150, PIN_INPUT, 0) /* (AC17) RGMII1_RD1 */
++			AM62X_IOPAD(0x154, PIN_INPUT, 0) /* (AB16) RGMII1_RD2 */
++			AM62X_IOPAD(0x158, PIN_INPUT, 0) /* (AA15) RGMII1_RD3 */
++			AM62X_IOPAD(0x148, PIN_INPUT, 0) /* (AD17) RGMII1_RXC */
++			AM62X_IOPAD(0x144, PIN_INPUT, 0) /* (AE17) RGMII1_RX_CTL */
++			AM62X_IOPAD(0x134, PIN_INPUT, 0) /* (AE20) RGMII1_TD0 */
++			AM62X_IOPAD(0x138, PIN_INPUT, 0) /* (AD20) RGMII1_TD1 */
++			AM62X_IOPAD(0x13c, PIN_INPUT, 0) /* (AE18) RGMII1_TD2 */
++			AM62X_IOPAD(0x140, PIN_INPUT, 0) /* (AD18) RGMII1_TD3 */
++			AM62X_IOPAD(0x130, PIN_INPUT, 0) /* (AE19) RGMII1_TXC */
++			AM62X_IOPAD(0x12c, PIN_INPUT, 0) /* (AD19) RGMII1_TX_CTL */
++			AM62X_IOPAD(0x00bc, PIN_INPUT, 7) /* (V24) VOUT0_DATA1.GPIO0_46 */
 +		>;
 +	};
 +
-+	pinctrl_ov5640: main-ov5640-default-pins {
++	pinctrl_eth_phy: main-eth-phy-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0028, PIN_OUTPUT, 7) /* (J22) OSPI0_D7.GPIO0_10 */
-+			AM62X_IOPAD(0x0058, PIN_OUTPUT, 7) /* (R23) GPMC0_AD7.GPIO0_22 */
++			AM62X_IOPAD(0x00b8, PIN_INPUT, 7) /* (U22) VOUT0_DATA0.GPIO0_45 */
 +		>;
 +	};
 +
-+	pinctrl_ov5640_buf: main-ov5640-buf-default-pins {
++	pinctrl_spi0: main-spi0-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0054, PIN_OUTPUT, 7) /* (P21) GPMC0_AD6.GPIO0_21 */
++			AM62X_IOPAD(0x01bc, PIN_OUTPUT, 0) /* (A14) SPI0_CLK */
++			AM62X_IOPAD(0x01b4, PIN_OUTPUT, 0) /* (A13) SPI0_CS0 */
++			AM62X_IOPAD(0x01c0, PIN_OUTPUT, 0) /* (B13) SPI0_D0 */
++			AM62X_IOPAD(0x01c4, PIN_INPUT, 0) /* (B14) SPI0_D1 */
 +		>;
 +	};
 +
-+	pinctrl_pca9534: main-pca9534-default-pins {
++	pinctrl_uart5: main-uart5-default-pins {
 +		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01f0, PIN_INPUT, 7) /* (A18) EXT_REFCLK1.GPIO1_30 */
-+		>;
-+	};
-+
-+	pinctrl_rgmii2: main-rgmii2-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x184, PIN_INPUT, 0) /* (AE23) RGMII2_RD0 */
-+			AM62X_IOPAD(0x188, PIN_INPUT, 0) /* (AB20) RGMII2_RD1 */
-+			AM62X_IOPAD(0x18c, PIN_INPUT, 0) /* (AC21) RGMII2_RD2 */
-+			AM62X_IOPAD(0x190, PIN_INPUT, 0) /* (AE22) RGMII2_RD3 */
-+			AM62X_IOPAD(0x180, PIN_INPUT, 0) /* (AD23) RGMII2_RXC */
-+			AM62X_IOPAD(0x17c, PIN_INPUT, 0) /* (AD22) RGMII2_RX_CTL */
-+			AM62X_IOPAD(0x16c, PIN_INPUT, 0) /* (Y18) RGMII2_TD0 */
-+			AM62X_IOPAD(0x170, PIN_INPUT, 0) /* (AA18) RGMII2_TD1 */
-+			AM62X_IOPAD(0x174, PIN_INPUT, 0) /* (AD21) RGMII2_TD2 */
-+			AM62X_IOPAD(0x178, PIN_INPUT, 0) /* (AC20) RGMII2_TD3 */
-+			AM62X_IOPAD(0x168, PIN_INPUT_PULLDOWN, 0) /* (AE21) RGMII2_TXC */
-+			AM62X_IOPAD(0x164, PIN_INPUT, 0) /* (AA19) RGMII2_TX_CTL */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vmmc: main-sd1-vmmc-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0078, PIN_OUTPUT, 7) /* (U24) GPMC0_AD15.GPIO0_30 */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vqmmc: main-sd1-vqmmc-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
-+		>;
-+	};
-+
-+	pinctrl_spi2: main_spi2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01b0, PIN_INPUT, 1) /* (A20) MCASP0_ACLKR.SPI2_CLK */
-+			AM62X_IOPAD(0x0194, PIN_OUTPUT, 1) /* (B19) MCASP0_AXR3.SPI2_D0 */
-+			AM62X_IOPAD(0x0198, PIN_INPUT, 1) /* (A19) MCASP0_AXR2.SPI2_D1 */
-+			AM62X_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (E19) MCASP0_AFSR.GPIO1_13 */
-+		>;
-+	};
-+
-+	pinctrl_uart0: main-uart0-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14) UART0_RXD, change muxmode from 0 to 7 to deactivate Debug UART RXD */
-+			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14) UART0_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart2: main-uart2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (R24) GPMC0_AD8.UART2_RXD */
-+			AM62X_IOPAD(0x0060, PIN_OUTPUT, 2) /* (R25) GPMC0_AD9.UART2_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart6: main-uart6-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x009c, PIN_INPUT, 3) /* (V25) GPMC0_WAIT1.UART6_RXD */
-+			AM62X_IOPAD(0x0244, PIN_OUTPUT, 1) /* (C17) MMC1_SDWP.UART6_TXD */
-+		>;
-+	};
-+
-+	pinctrl_usb1: main-usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18) USB1_DRVVBUS */
++			AM62X_IOPAD(0x00ec, PIN_INPUT, 4) /* (AA24) VOUT0_DATA13.UART5_CTSn */
++			AM62X_IOPAD(0x00e8, PIN_OUTPUT, 4) /* (AB25) VOUT0_DATA12.UART5_RTSn */
++			AM62X_IOPAD(0x00d0, PIN_INPUT, 4) /* (Y23) VOUT0_DATA6.UART5_RXD */
++			AM62X_IOPAD(0x00d4, PIN_OUTPUT, 4) /* (AA25) VOUT0_DATA7.UART5_TXD */
 +		>;
 +	};
 +};
 +
-+&main_spi2 {
++&mcu_pmx0 {
++	pinctrl_wkup_clkout0: wkup-clkout0-default-pins {
++		pinctrl-single,pins = <
++			AM62X_MCU_IOPAD(0x0084, PIN_OUTPUT, 0) /* (F13) WKUP_CLKOUT0 */
++		>;
++	};
++};
++
++&main_spi0 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2>;
++	pinctrl-0 = <&pinctrl_spi0>;
 +	ti,pindir-d0-out-d1-in;
-+	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart0>;
-+	status = "okay";
-+};
-+
-+&main_uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&main_uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	/* SD Card */
-+	vmmc-supply = <&reg_sdhc1_vmmc>;
-+	vqmmc-supply = <&reg_sdhc1_vqmmc>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc1>;
-+	disable-wp;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	usb-role-switch;
 +	status = "okay";
 +
-+	port {
-+		typec_hs: endpoint {
-+			remote-endpoint = <&usb_con_hs>;
-+		};
++	/* Resistive touch controller */
++	ads7846: touchscreen@0 {
++		compatible = "ti,ads7846";
++		reg = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_restouch>;
++		interrupt-parent = <&main_gpio0>;
++		interrupts = <48 IRQ_TYPE_EDGE_FALLING>;
++		spi-max-frequency = <1500000>;
++		pendown-gpio = <&main_gpio0 48 GPIO_ACTIVE_LOW>;
++		ti,x-min = /bits/ 16 <125>;
++		ti,x-max = /bits/ 16 <4008>;
++		ti,y-min = /bits/ 16 <282>;
++		ti,y-max = /bits/ 16 <3864>;
++		ti,x-plate-ohms = /bits/ 16 <180>;
++		ti,pressure-max = /bits/ 16 <255>;
++		ti,debounce-max = /bits/ 16 <10>;
++		ti,debounce-tol = /bits/ 16 <3>;
++		ti,debounce-rep = /bits/ 16 <1>;
++		ti,settle-delay-usec = /bits/ 16 <150>;
++		ti,keep-vref-on;
++		wakeup-source;
 +	};
 +};
 +
-+&usb1 {
-+	dr_mode = "host";
++/* On-module Bluetooth */
++&main_uart5 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usb1>;
++	pinctrl-0 = <&pinctrl_uart5>;
++	uart-has-rtscts;
 +	status = "okay";
++};
++
++&mcasp1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mcasp1>;
++	op-mode = <0>;  /* MCASP_IIS_MODE */
++	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
++		1 0 2 0
++		0 0 0 0
++		0 0 0 0
++		0 0 0 0
++	>;
++	tdm-slots = <2>;
++	#sound-dai-cells = <0>;
++	status = "okay";
++};
++
++/* On-module eMMC */
++&sdhci0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mmc0>;
++	bootph-all;
++	disable-wp;
++	mmc-pwrseq = <&mmc_pwrseq>;
++	non-removable;
++	status="okay";
++};
++
++/* On-module Wi-Fi */
++&sdhci2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_mmc2>, <&pinctrl_wkup_clkout0>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	assigned-clocks = <&k3_clks 157 158>; /* wkup_clkout_sel_out0 */
++	assigned-clock-parents = <&k3_clks 157 164>; /* clk_32k_rc_sel_out0 */
++	bus-width = <4>;
++	disable-wp;
++	non-removable;
++	cap-power-off-card;
++	status = "okay";
++
++	brcmf: wifi@1 {
++		compatible = "brcm,bcm4329-fmac";
++		reg = <1>;
++	};
 +};
 +
 +&usbss0 {
-+	status = "okay";
++	ti,vbus-divider;
 +};
 +
 +&usbss1 {
-+	status = "okay";
++	ti,vbus-divider;
 +};
++
++/* mcu_gpio0 and mcu_gpio_intr are reserved for mcu firmware usage */
++&mcu_gpio0 {
++	status = "reserved";
++};
++
++&mcu_gpio_intr {
++	status = "reserved";
++};
++
++&wkup_rtc0 {
++	status = "disabled";
++};
++
++&wkup_rti0 {
++	/* WKUP RTI0 is used by DM firmware */
++	status = "reserved";
++};
++
++&wkup_uart0 {
++	/* WKUP UART0 is used by DM firmware */
++	status = "reserved";
++};
++
++&main_uart1 {
++	/* Main UART1 is used by TIFS firmware */
++	status = "reserved";
++};
++
++#include "k3-am62-ti-ipc-firmware.dtsi"
 -- 
 2.47.3
 
