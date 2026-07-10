@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C51DC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC48EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dwGiJcX5Q9n0mzQCquwEv91287srodjDPF2c59V0lmM=; b=g9eptr3KYxQRb9Xy6h3P43vdAU
-	+Pxs76RyWZZ6I1aI6xwh5Wos9hmGxhTvyNzyhgDeNp/XpPmP3gBiDIz3GregGGxflsZrY1simx2xR
-	YZIQDjU6F4doMJISxfqzPaLz1fFeX71/kIHZq1CkI4fa7OTdYgSW8rizyzqw2DIJjhQRCNmzxSaDk
-	vaYJppd8TSVjlZfzcJQUpnTfRCKMJWiDPmdfthbtolwOPpPADfWCRu+2fyhv9sfy/QxUNmnpfInkp
-	9247ZuD2ti5urwdf4JbttNT6YdG820vUlj17Bis/iT/mfLxSiDieNx8JragTsNljkqk2xy3XThwWx
-	kgCMV8kQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8krPoULTruwY70IV8mkb0o2YltWVPqZHO9RRUo3F2tE=; b=fThwjrJmGB0wvUGmjgNaC2MsPC
+	lxW60YPHgzcsbcF2a17Vs+mcfN1jpGKwQYQksdWNpKlSMCb8UZkJf0/nJiCLitcBiOvqgk/zX0Yr3
+	cj8opitGrF/3fFK3VA2aF9mkuvX7zSK+WLVj2R5Bf5aJYSu8JHahOWAhcsbai9ihZ//UELbS0XxJm
+	xs4jBBn/llXiY32/11CHeORTbP6J9PCOb3x7K7sqeU0e/BUMDLrIxuQ8wU1Fkpaf5AdJSawHOewOy
+	GCixn+NSUjayRkeeCqC/eMbzycv+WB0eoy+R/sV0ubreYtvyp90JRGkdXLF/MVt+b8qrd+cwwSVPE
+	vrn5lUPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9DK-00000004niv-02cS;
-	Fri, 10 Jul 2026 11:16:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wi9De-00000004o5v-3VAE;
+	Fri, 10 Jul 2026 11:16:34 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9DA-00000004nbK-3HzA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jul 2026 11:16:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=dwGiJcX5Q9n0mzQCquwEv91287srodjDPF2c59V0lmM=; b=cIySQ0MQNMGx/NbRvXCy41FJes
-	3I8uWGIoNllSf1SaZgcRTt69KAq5arnRZdUO7cznxb96Kek14wOVsYkyFqys5FbjFeZub+W6wp82x
-	cAKwYnCOlFVu2YaIKBylc+frE/P5jQD5mJm5RbSWHkOiCATHvABmAHVShS43nyniWjaSK9BG/m7C5
-	YR8E56m0hn77f6ZstE3A2eNdhIE+xoe/gpMU08zJWtwbRFRqxAv6C3TvzOSBIN6oc66yT+xGJiFJB
-	z6sJfJlYTh6+E34BRsBU/XVuQQXu9kKsvBOJRY5MSfv3q3QMqBdiDJ3D1xwgcKQzHv7QeC3cokR++
-	1momESAw==;
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wi9D6-00000009xgM-3ZsT
+	id 1wi9DX-00000004nx8-02jO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:16:03 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66ABEvsP024946
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 10 Jul 2026 20:15:12 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=dwGiJcX5Q9n0mzQCquwEv91287srodjDPF2c59V0lmM=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1783682112; v=1;
-        b=CvwKh4IpQbrpPyfAuedNUh2tKNxgSsDSHwuoJsqK7O7VNeQ3cyUXifdWoDnD+Vzr
-         /16+6ZYDloY/nWd+xn50uswovRJy/CIjQRL4UBVb+y8S1kjCMl7bB+J+RLTUWd1x
-         7idXjRYkvYyCn/Z6fkCUKN942AWUvU/8f+y05DjgwSyvl1Ho5m7RNWaV8fp5DTGr
-         QaRrrqrIcTCkmu0csUMS/Ub+BjXk5ACfyepG8E9ty+D7gvkbkuXD2X0LFKai1U+8
-         vQXxhRMnkGAZFxcp1GJLDF3v0LrUmFMRMOUqLcSlguQncgaZX+xPI0GsbjhWiHta
-         8+3qzNI9aAatxgea1YeZWQ==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Fri, 10 Jul 2026 20:15:05 +0900
-Subject: [PATCH v8 11/11] KVM: arm64: selftests: Test
- PMU_V3_FIXED_COUNTERS_ONLY
+	Fri, 10 Jul 2026 11:16:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pmQVt8A27zfv4pxBJT4wCCdbuQaM7QTPaVPCb2GGlQg4fv4CbatAR+kFL2f6Vf8tCzJ4sc35raWXj7PWPk9XaCFdfy8EUsILXkV+ue4bR/QafPhuFEXBgRYlYGQtWHm6EnDp/1GDzyOeITO6bErLhjx+sCMV4XCWc95ORxWmPOYZuo2y7qS5bbM6zVtoxeTbOPOf1WTDtatZ3lwnC0TN1nt4+zxVI+/Xipu0RXGePf6/7eHFTHrpRdC4KB7slnhUcVQatdu1TbS8spKg7FvthaRugsPmAu9Ty+y7WEUInWZm/0d1K8t92ua/XlcCdSjYW+n30tYBSq/h6EqfGAkBjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8krPoULTruwY70IV8mkb0o2YltWVPqZHO9RRUo3F2tE=;
+ b=Bt8A22n+Um0yOZxBEmm/8EGXvI596bjgQpUqtiUr0k8RV6dD+qrjTI7I5HNjnoKMZAEiFZS6XFCspvB1BXAP27BnBG/6EsXZBb4KGNmoKMnSKg4mim8fOLObDkQpTR6S/gRof3e1dANKkeWwICf0exy9DBTecqs1NdbJqOU9eCjTB0syYObdGORYDzE7/s7o46KAdUQCNdFQe0AtqXjv2ZKAOg5fOV7/3Vg3ddIdPKA0ZlHiYlBnCwtfieeWJIgMhrEDMm0cr2Qol38WuTLDIuGyXRu1dftqRow/ZBW4+51KuAydxb9+sIvdU1ghSZNhGoFMVxlscBdK5OTgH7EHbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8krPoULTruwY70IV8mkb0o2YltWVPqZHO9RRUo3F2tE=;
+ b=T/Vu+rnsNfveFq2WgG60piaQNsXS88doI6gd7c7+aJjOBr9FhDlwA6Vmj6B8QYi1vqQcuQ03oc0fpnJcGsigfn9RLqbnAbTs6JtksEpsj22OPH6SoulCcvgsUi/DscPgE2EBm/tqGBfPF8E4SaeKP28ez8QBUuqoKlmyy0v2ycOfIeIm3P4sJwFL0hXmmXIKnjUhLAgBmkjD1CWzGlOgpeo7eZD6YrREaSIej2sCsrTwv2cSTQbD9XjYAOWpgrCBgMwCWK1gaF+O8d8aIhWe0YU8rPBCAKjeLNe4tMcIm7SqScabtEXBiFCsppwpxZ0Fz414Oh68bN+GA+nbtDqIuA==
+Received: from CH0PR03CA0290.namprd03.prod.outlook.com (2603:10b6:610:e6::25)
+ by LV0PR12MB999094.namprd12.prod.outlook.com (2603:10b6:408:32e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Fri, 10 Jul
+ 2026 11:16:14 +0000
+Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
+ (2603:10b6:610:e6:cafe::5a) by CH0PR03CA0290.outlook.office365.com
+ (2603:10b6:610:e6::25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.13 via Frontend
+ Transport; Fri, 10 Jul 2026 11:16:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 10 Jul 2026 11:16:14 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Jul
+ 2026 04:16:01 -0700
+Received: from 82875d6-lcedt.nvidia.com (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 10 Jul 2026 04:16:00 -0700
+From: Nirmoy Das <nirmoyd@nvidia.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v3 4/8] firmware: smccc: lfa: Register ACPI notification
+Date: Fri, 10 Jul 2026 04:04:41 -0700
+Message-ID: <20260710111545.439956-1-nirmoyd@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260706134455.132091-5-andre.przywara@arm.com>
+References: <20260706134455.132091-1-andre.przywara@arm.com> <20260706134455.132091-5-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-hybrid-v8-11-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.16-dev-925f5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9452;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=ClenLVo1HfC3c2qutSiJAiIJgDmv0pNMBjk1Ifz9Yn4=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bAFZtvgn3qtQFmaWENiX6qyR9jX++dVTDv0omClk9xl
- qUBX152lLIwiHExyIopsqQU7ebWiK79VJgQ3wIzh5UJZAgDF6cATGTrcoZ/ag8M+Fxi2Vf+u3Ai
- 9FcI8+IZnHl3xJ7pnfqxyHmvEvP0Woa/svd1q4/8KWgTbSy4YJof+t0qaM1R022901iVNHqMBHb
- zAAA=
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|LV0PR12MB999094:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77fbb1c0-d444-4cfa-ee2f-08dede74a78d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|22082099003|18002099003|56012099006|11063799006|4143699003|6133799003|5023799004;
+X-Microsoft-Antispam-Message-Info: 2ylGVUo6yJ1Tt/CaE3A5GSxVZPDA6gv8nrt6qGIQHlUH0qPkx3VygTxuT/VmrPPQbNfx/KJ9nTibj06q0GAIZyg39naWEHl8282IC8t7FWWUtb4XqtL1piE+EbGW/rjB9uJVEqDHKEgfAsIcMfnbyxiXwmaJF3Uu3QLNQqAlxIjlCuaSy/WvrVgotYPhJcci3xgJT9aWb7PqNU7li0LdKxt/4V5Ayi7a3ILVH/REki2WxUzTVHeOI2BKiiE9NSCVU3eS6ZMMgo0NrM0QEwF2bKIBpv3zF/AtbVfkCKHEAh8mhb2iTYkrk9/eQeo/5CQwIb9VqgKn7WUh0KPoqztsTB3vSpRhgCnHf2ThTahxODUGBWBitVF71mhubGx/e9fSzL4vDyLxShEYfhHUO5PE/R7Xo7BkdnhIt4WSfm8Z3YKmqsL+kZMuVl7KpkhL7CJ324goeqCP5EoD/Fa0LrL2g6187CP22Z/HdGZFDe8SgvgJpA8dWPeKq2TG8wwsGuDjKNXrQFtp4DwakYRE7Q0YCH22t99w0ZLuaQ0D8uQetLKf3ub4u3INcdCsz53COWYSDVewtm7GUhzI3F2EaKRVy/P2AS7pQoU+eF+yPsM3cpO098QRgE9uNgTTib4G1WhhlHd0MPtJrrzL15GQxVfiJ3v2S+VnKbCkdgM2sPHa37HjDVCxXUCjep2gedWRQU1flTyxkwJPJ5Q7cAQFKkrNoA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(6133799003)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: q8/3LWCKI2bwdp8RWZRPR5Mtxq1pY5wypP5lwyE7GcFBldoH/Bz7tQsZvKVZM6yDr4SZJ4X5ZgtAt8K16GsXmhx67Al7phAZP8jYn65xonzsSmWeUyhn1Uda3g8WY8V2zfkj/0OJxhD7sQTMUSf6OaMwD8UjXT837A6uIA+OEkzKc+6O5A4hXY0QaBlgF6XZKErMcTcQQMFdpR9PaWoyuLJHUjuq0uGEKaBlj7LvCdlEv6qEfI9VweTLycYvDI2eM7SW4yobr1n8Y9CEeOsAVnea5o7Ov220xswQa4AL0Cjkl24ak8cuHewRfE2RUYRdmCihuT/n88X6RUg4FqoRrJ2MZylBcRNuxSPj4Ga9ztaT1edZMCkv5AQEqdftSAmqKpGcLl0jwWzIAfXh1QUxch6j39vhPvIjiWjaR2tt8XMv/crac+Kb9F4vpjYFuiv6
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 11:16:14.0313
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77fbb1c0-d444-4cfa-ee2f-08dede74a78d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB999094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_121601_606052_0DD6D637 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260710_041627_060839_92320F02 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,284 +120,224 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Assert the following:
-- FIXED_COUNTERS_ONLY is unset at initialization.
-- FIXED_COUNTERS_ONLY can be set.
-- Setting an event filter when FIXED_COUNTERS_ONLY has already been set
-  results in EBUSY.
-- Setting FIXED_COUNTERS_ONLY when an event filter has already been set
-  results in EBUSY.
-- Setting FIXED_COUNTERS_ONLY when a VCPU has already run results in
-  EBUSY.
-
-Assisted-by: Codex:gpt-5.5
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
----
- .../selftests/kvm/arm64/vpmu_counter_access.c      | 161 +++++++++++++++++----
- 1 file changed, 131 insertions(+), 30 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 25203ea117b0..67f66a4f041b 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -411,12 +411,7 @@ static void create_vpmu_vm(void *guest_code)
- {
- 	struct kvm_vcpu_init init;
- 	u8 pmuver, ec;
--	u64 dfr0, irq = 23;
--	struct kvm_device_attr irq_attr = {
--		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
--		.attr = KVM_ARM_VCPU_PMU_V3_IRQ,
--		.addr = (u64)&irq,
--	};
-+	u64 dfr0;
- 
- 	/* The test creates the vpmu_vm multiple times. Ensure a clean state */
- 	memset(&vpmu_vm, 0, sizeof(vpmu_vm));
-@@ -442,8 +437,6 @@ static void create_vpmu_vm(void *guest_code)
- 	TEST_ASSERT(pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF &&
- 		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
- 		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
--
--	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &irq_attr);
- }
- 
- static void destroy_vpmu_vm(void)
-@@ -469,15 +462,30 @@ static void run_vcpu(struct kvm_vcpu *vcpu, u64 pmcr_n)
- 	}
- }
- 
--static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool expect_fail)
-+static void guest_code_done(void)
-+{
-+	GUEST_DONE();
-+}
-+
-+static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters,
-+						 bool fixed_counters_only,
-+						 bool expect_fail)
- {
- 	struct kvm_vcpu *vcpu;
- 	unsigned int prev;
- 	int ret;
-+	u64 irq = 23;
- 
- 	create_vpmu_vm(guest_code);
- 	vcpu = vpmu_vm.vcpu;
- 
-+	if (fixed_counters_only)
-+		vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+
-+	vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
-+
- 	prev = get_pmcr_n(vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0)));
- 
- 	ret = __vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-@@ -497,15 +505,15 @@ static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool
-  * Create a guest with one vCPU, set the PMCR_EL0.N for the vCPU to @pmcr_n,
-  * and run the test.
-  */
--static void run_access_test(u64 pmcr_n)
-+static void run_access_test(u64 pmcr_n, bool fixed_counters_only)
- {
- 	u64 sp;
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vcpu_init init;
- 
--	pr_debug("Test with pmcr_n %lu\n", pmcr_n);
-+	pr_debug("Test with pmcr_n %lu, fixed_counters_only %d\n", pmcr_n, fixed_counters_only);
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	/* Save the initial sp to restore them later to run the guest again */
-@@ -539,14 +547,14 @@ static struct pmreg_sets validity_check_reg_sets[] = {
-  * Create a VM, and check if KVM handles the userspace accesses of
-  * the PMU register sets in @validity_check_reg_sets[] correctly.
-  */
--static void run_pmregs_validity_test(u64 pmcr_n)
-+static void run_pmregs_validity_test(u64 pmcr_n, bool fixed_counters_only)
- {
- 	int i;
- 	struct kvm_vcpu *vcpu;
- 	u64 set_reg_id, clr_reg_id, reg_val;
- 	u64 valid_counters_mask, max_counters_mask;
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	valid_counters_mask = get_counters_mask(pmcr_n);
-@@ -591,16 +599,17 @@ static void run_pmregs_validity_test(u64 pmcr_n)
- 	destroy_vpmu_vm();
- }
- 
--static void run_mdcr_el2_validity_test(u64 pmcr_n)
-+static void run_mdcr_el2_validity_test(u64 pmcr_n, bool fixed_counters_only)
- {
- 	struct kvm_vcpu_init init;
- 	struct kvm_vcpu *vcpu;
- 	u64 mdcr, old_mdcr;
- 	int ret;
- 
--	pr_debug("MDCR_EL2 test with pmcr_n %lu\n", pmcr_n);
-+	pr_debug("MDCR_EL2 test with pmcr_n %lu, fixed_counters_only %d\n",
-+		 pmcr_n, fixed_counters_only);
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, false);
- 	if (!vm_supports_el2(vpmu_vm.vm)) {
- 		destroy_vpmu_vm();
- 		return;
-@@ -663,11 +672,11 @@ static void run_mdcr_el2_validity_test(u64 pmcr_n)
-  * the vCPU to @pmcr_n, which is larger than the host value.
-  * The attempt should fail as @pmcr_n is too big to set for the vCPU.
-  */
--static void run_error_test(u64 pmcr_n)
-+static void run_error_test(u64 pmcr_n, bool fixed_counters_only)
- {
- 	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_nr_counters(pmcr_n, true);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, fixed_counters_only, true);
- 	destroy_vpmu_vm();
- }
- 
-@@ -697,23 +706,115 @@ static bool kvm_supports_nr_counters_attr(void)
- 	return supported;
- }
- 
--int main(void)
-+static void test_config(u64 pmcr_n, bool fixed_counters_only)
- {
--	u64 i, pmcr_n;
--
--	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
--	TEST_REQUIRE(kvm_supports_vgic_v3());
--	TEST_REQUIRE(kvm_supports_nr_counters_attr());
-+	u64 i;
- 
--	pmcr_n = get_pmcr_n_limit();
- 	for (i = 0; i <= pmcr_n; i++) {
--		run_access_test(i);
--		run_pmregs_validity_test(i);
--		run_mdcr_el2_validity_test(i);
-+		run_access_test(i, fixed_counters_only);
-+		run_pmregs_validity_test(i, fixed_counters_only);
-+		run_mdcr_el2_validity_test(i, fixed_counters_only);
- 	}
- 
- 	for (i = pmcr_n + 1; i < ARMV8_PMU_MAX_COUNTERS; i++)
--		run_error_test(i);
-+		run_error_test(i, fixed_counters_only);
-+}
-+
-+static void test_fixed_counters_only(void)
-+{
-+	struct kvm_pmu_event_filter filter = { .nevents = 0 };
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *running_vcpu;
-+	struct kvm_vcpu *stopped_vcpu;
-+	struct kvm_vcpu_init init;
-+	int ret;
-+	u64 irq = 23;
-+
-+	create_vpmu_vm(guest_code);
-+	ret = __vcpu_has_device_attr(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY);
-+	if (ret) {
-+		TEST_ASSERT(ret == -1 && errno == ENXIO,
-+			    KVM_IOCTL_ERROR(KVM_HAS_DEVICE_ATTR, ret));
-+		destroy_vpmu_vm();
-+		return;
-+	}
-+
-+	/* Assert that FIXED_COUNTERS_ONLY is unset at initialization. */
-+	ret = __vcpu_device_attr_get(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+	TEST_ASSERT(ret == -1 && errno == ENXIO,
-+		    KVM_IOCTL_ERROR(KVM_GET_DEVICE_ATTR, ret));
-+
-+	/* Assert that setting FIXED_COUNTERS_ONLY succeeds. */
-+	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+
-+	/* Assert that FIXED_COUNTERS_ONLY is set. */
-+	vcpu_device_attr_get(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+
-+	/*
-+	 * Setting an event filter when FIXED_COUNTERS_ONLY has already been set
-+	 * results in EBUSY.
-+	 */
-+	ret = __vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FILTER, &filter);
-+	TEST_ASSERT(ret == -1 && errno == EBUSY,
-+		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-+
-+	destroy_vpmu_vm();
-+
-+	create_vpmu_vm(guest_code);
-+
-+	/*
-+	 * Assert that setting FIXED_COUNTERS_ONLY when an event filter has
-+	 * already been set results in EBUSY.
-+	 */
-+	vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_FILTER, &filter);
-+
-+	ret = __vcpu_device_attr_set(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+	TEST_ASSERT(ret == -1 && errno == EBUSY,
-+		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-+
-+	destroy_vpmu_vm();
-+
-+	/*
-+	 * Assert that setting FIXED_COUNTERS_ONLY when a VCPU has already run
-+	 * results in EBUSY.
-+	 */
-+	vm = vm_create(2);
-+	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
-+	running_vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code_done);
-+	stopped_vcpu = aarch64_vcpu_add(vm, 1, &init, guest_code_done);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
-+	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_INIT, NULL);
-+	vcpu_run(running_vcpu);
-+
-+	ret = __vcpu_device_attr_set(stopped_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY, NULL);
-+	TEST_ASSERT(ret == -1 && errno == EBUSY,
-+		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-+
-+	kvm_vm_free(vm);
-+
-+	test_config(0, true);
-+}
-+
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
-+	TEST_REQUIRE(kvm_supports_vgic_v3());
-+	TEST_REQUIRE(kvm_supports_nr_counters_attr());
-+
-+	test_config(get_pmcr_n_limit(), false);
-+	test_fixed_counters_only();
- 
- 	return 0;
- }
-
--- 
-2.55.0
-
+On Mon, 6 Jul 2026 15:44:44 +0200, Andre Przywara wrote:=0D
+=0D
+Hi,=0D
+=0D
+> From: Vedashree Vidwans <vvidwans@nvidia.com>=0D
+>=0D
+> The Arm LFA spec describes an ACPI notification mechanism, where the=0D
+> platform (firmware) can notify an LFA client about newly available=0D
+> firmware imag updates ("pending images" in LFA terms).=0D
+>=0D
+> Add a faux device after discovering the existence of an LFA agent via=0D
+> the SMCCC discovery mechnism, and use that device to check for the ACPI=0D
+> notification description. Register this when one is provided.=0D
+>=0D
+> The notification just conveys the fact that at least one firmware image=0D
+> has now a pending update, it doesn't say which, also there could be more=
+=0D
+> than one pending. Loop through all images to find every which needs to=0D
+> be activated, and trigger the activation. We need to do this is a loop,=0D
+> since an activation might change the number and the status of available=0D
+> images.=0D
+>=0D
+> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>=0D
+> [Andre: convert from platform driver to smccc bus]=0D
+> Signed-off-by: Andre Przywara <andre.przywar@arm.com>=0D
+> ---=0D
+>  drivers/firmware/smccc/lfa_fw.c | 123 +++++++++++++++++++++++++++++++-=0D
+>  1 file changed, 122 insertions(+), 1 deletion(-)=0D
+>=0D
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa=
+_fw.c=0D
+> index 357e41f95206..5b7f9b07f6c8 100644=0D
+> --- a/drivers/firmware/smccc/lfa_fw.c=0D
+> +++ b/drivers/firmware/smccc/lfa_fw.c=0D
+> @@ -3,12 +3,14 @@=0D
+>   * Copyright (C) 2025 Arm Limited=0D
+>   */=0D
+>  =0D
+> +#include <linux/acpi.h>=0D
+>  #include <linux/arm-smccc.h>=0D
+>  #include <linux/arm-smccc-bus.h>=0D
+>  #include <linux/array_size.h>=0D
+>  #include <linux/delay.h>=0D
+>  #include <linux/fs.h>=0D
+>  #include <linux/init.h>=0D
+> +#include <linux/kernel.h>=0D
+>  #include <linux/kobject.h>=0D
+>  #include <linux/ktime.h>=0D
+>  #include <linux/list.h>=0D
+> @@ -18,11 +20,13 @@=0D
+>  #include <linux/stop_machine.h>=0D
+>  #include <linux/string.h>=0D
+>  #include <linux/sysfs.h>=0D
+> +#include <linux/types.h>=0D
+>  #include <linux/uuid.h>=0D
+>  #include <linux/workqueue.h>=0D
+>  =0D
+>  #include <uapi/linux/psci.h>=0D
+>  =0D
+> +#define DRIVER_NAME	"ARM_LFA"=0D
+>  #undef pr_fmt=0D
+>  #define pr_fmt(fmt) "Arm LFA: " fmt=0D
+>  =0D
+> @@ -694,6 +698,112 @@ static int update_fw_images_tree(void)=0D
+>  	return 0;=0D
+>  }=0D
+>  =0D
+> +/*=0D
+> + * Go through all FW images in a loop and trigger activation=0D
+> + * of all activatible and pending images.=0D
+> + * We have to restart enumeration after every triggered activation,=0D
+> + * since the firmware images might have changed during the activation.=0D
+> + */=0D
+> +static int activate_pending_image(void)=0D
+> +{=0D
+> +	struct kobject *kobj;=0D
+> +	bool found_pending =3D false;=0D
+> +	struct fw_image *image;=0D
+> +	int ret;=0D
+> +=0D
+> +	spin_lock(&lfa_kset->list_lock);=0D
+> +	list_for_each_entry(kobj, &lfa_kset->list, entry) {=0D
+> +		image =3D kobj_to_fw_image(kobj);=0D
+> +=0D
+> +		if (image->fw_seq_id =3D=3D -1)=0D
+> +			continue; /* Invalid FW component */=0D
+> +=0D
+> +		update_fw_image_pending(image);=0D
+> +		if (image->activation_capable && image->activation_pending) {=0D
+> +			found_pending =3D true;=0D
+> +			break;=0D
+> +		}=0D
+> +	}=0D
+> +	spin_unlock(&lfa_kset->list_lock);=0D
+> +=0D
+> +	if (!found_pending)=0D
+> +		return -ENOENT;=0D
+> +=0D
+> +	ret =3D prime_fw_image(image);=0D
+> +	if (ret)=0D
+> +		return ret;=0D
+=0D
+I think this can end up using "image" after it is freed. We drop the=0D
+list lock here without taking a kobject reference.=0D
+=0D
+> +=0D
+> +	ret =3D activate_fw_image(image);=0D
+> +	if (ret)=0D
+> +		return ret;=0D
+> +=0D
+> +	pr_info("%s: automatic activation succeeded\n", get_image_name(image));=
+=0D
+> +=0D
+> +	return 0;=0D
+> +}=0D
+> +=0D
+> +#ifdef CONFIG_ACPI=0D
+> +static void lfa_acpi_notify_handler(acpi_handle handle, u32 event, void =
+*data)=0D
+> +{=0D
+> +	int ret;=0D
+> +=0D
+> +	while (!(ret =3D activate_pending_image()))=0D
+> +		;=0D
+> +=0D
+> +	if (ret !=3D -ENOENT)=0D
+> +		pr_warn("notified image activation failed: %d\n", ret);=0D
+> +}=0D
+> +=0D
+> +static int lfa_register_acpi(struct device *dev)=0D
+> +{=0D
+> +	struct acpi_device *acpi_dev;=0D
+> +	acpi_handle handle;=0D
+> +	acpi_status status;=0D
+> +=0D
+> +	acpi_dev =3D acpi_dev_get_first_match_dev("ARML0003", NULL, -1);=0D
+> +	if (!acpi_dev)=0D
+> +		return -ENODEV;=0D
+> +	handle =3D acpi_device_handle(acpi_dev);=0D
+> +	if (!handle) {=0D
+> +		acpi_dev_put(acpi_dev);=0D
+> +		return -ENODEV;=0D
+> +	}=0D
+> +=0D
+> +	/* Register notify handler that indicates LFA updates are available */=
+=0D
+> +	status =3D acpi_install_notify_handler(handle, ACPI_DEVICE_NOTIFY,=0D
+> +					     lfa_acpi_notify_handler, NULL);=0D
+> +	if (ACPI_FAILURE(status)) {=0D
+> +		acpi_dev_put(acpi_dev);=0D
+> +		return -EIO;=0D
+> +	}=0D
+> +=0D
+> +	ACPI_COMPANION_SET(dev, acpi_dev);=0D
+> +=0D
+> +	return 0;=0D
+> +}=0D
+> +=0D
+> +static void lfa_remove_acpi(struct device *dev)=0D
+> +{=0D
+> +	struct acpi_device *acpi_dev =3D ACPI_COMPANION(dev);=0D
+> +	acpi_handle handle =3D acpi_device_handle(acpi_dev);=0D
+> +=0D
+> +	if (handle)=0D
+> +		acpi_remove_notify_handler(handle,=0D
+> +					   ACPI_DEVICE_NOTIFY,=0D
+> +					   lfa_acpi_notify_handler);=0D
+> +	acpi_dev_put(acpi_dev);=0D
+> +}=0D
+> +#else	/* !CONFIG_ACPI */=0D
+> +static int lfa_register_acpi(struct device *dev)=0D
+> +{=0D
+> +	return -ENODEV;=0D
+> +}=0D
+> +=0D
+> +static void lfa_remove_acpi(struct device *dev)=0D
+> +{=0D
+> +}=0D
+> +#endif=0D
+> +=0D
+>  static int lfa_smccc_probe(struct arm_smccc_device *sdev)=0D
+>  {=0D
+>  	struct arm_smccc_1_2_regs reg =3D { 0 };=0D
+> @@ -730,11 +840,22 @@ static int lfa_smccc_probe(struct arm_smccc_device =
+*sdev)=0D
+>  		destroy_workqueue(fw_images_update_wq);=0D
+>  	}=0D
+>  =0D
+> -	return err;=0D
+=0D
+Should check the err value and return early.=0D
+=0D
+> +	if (!acpi_disabled) {=0D
+> +		err =3D lfa_register_acpi(&sdev->dev);=0D
+> +		if (err !=3D -ENODEV) {=0D
+> +			if (!err)=0D
+> +				pr_info("registered LFA ACPI notification\n");=0D
+> +			return err;=0D
+> +		}=0D
+> +	}=0D
+> +=0D
+> +	return 0;=0D
+>  }=0D
+>  =0D
+>  static void lfa_smccc_remove(struct arm_smccc_device *sdev)=0D
+>  {=0D
+> +	if (!acpi_disabled)=0D
+> +		lfa_remove_acpi(&sdev->dev);=0D
+>  	flush_workqueue(fw_images_update_wq);=0D
+>  	destroy_workqueue(fw_images_update_wq);=0D
+>  	clean_fw_images_tree();=0D
+> -- =0D
+> 2.43.0=0D
+=0D
+Regards,=0D
+Nirmoy=0D
 
