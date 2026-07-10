@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773A1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65FAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H1Xtk/Laxv043X/NEr5K+gIEpoXwwhPTLlaiLOk/BNg=; b=KGrYghSLQr+X6x
-	0DHjF2ITQNhpHqF/LU+NgCAGf0CaHqhTFtpA7ue6KSGaLE5O1UJym8YPRUJaUaDB9XEfzMCsffC/l
-	qhvZgOxJf9Vj18TwL/e2XSDn8TLOVv+fctT43lFVnXBmZ2iwBuxIx+3Q9dXYX0931fqHnammtL/OY
-	36V7I8XsrsIcsLssx+sAvqnDsEMuEhHCAA8vYoVXTVc/E+sdQalN0f3quBT6zW/rE9sJljpcpRT3R
-	PHvfnfbx5vXHQgVlO6+ZB9uOdQzU0IXkjXrsuHjWTkpGM5XVHpLVOYnz3fwbmgFTYhEhquAIf/OxF
-	HdCpbbAsmP7Pm+Sabt/g==;
+	List-Owner; bh=gvoCPCpPheqfMjWZbe9VtZyXE5Rr3aMqRgBAnuF6GrA=; b=1Xrr4CG8hacKcn
+	lW7k7eZlAtqr2sh/wZS0T1npcDDrmDxf7Log9bBUE4MfkmJBg73jLdJtyx42mpLL+YzWBjFrn/Sij
+	UekKOHcoV81jo5hd0w7tyyK66FH7+7E1PIF+urnjg85ih+yGHjtPOYuxmFm2aNN45QCRo8w9yrb4M
+	VB1ULJ96jlhAnCaSOmbR5dLMjlYMpZq8q+h1I/DwClV1ZAZaVizCd6AO3Nc2P4MGq10RRjn08P7Ml
+	US6JcV+rPA9r9mWtTM9Kzui3gjJ/fjB48JT7CidAN/kCOVQQa8De+LQAvmyr3ghQBcrF2X4NZLlnA
+	VpW0Uq8wr40QrLtImk7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7hw-00000004byN-2pMR;
-	Fri, 10 Jul 2026 09:39:44 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wi7mx-00000004cei-22Rl;
+	Fri, 10 Jul 2026 09:44:55 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7hq-00000004bvD-18cX
+	id 1wi7mt-00000004cdD-3UpU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:39:39 +0000
+	Fri, 10 Jul 2026 09:44:53 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=H1Xtk/Laxv043X/NEr5K+gIEpoXwwhPTLlaiLOk/BNg=;
-	b=RAlqIpXsaNPLVoGwwcpRQw6+eMoj+gGCzACZRlUgLroUlXzgoT5wgidtmY5q3n/aFNP0FyJgb
-	9M0AeJAML8eHDLwm1DMnrbsAviF6mi6mx+EG2zSD7lMqHkyHO6giZ32sR3fUi90u/Bshb4yGMYL
-	xC7iS9Kke+HoPtK9sQgeTDY=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gxRPz4yBYzmV8X;
-	Fri, 10 Jul 2026 17:30:15 +0800 (CST)
+	bh=gvoCPCpPheqfMjWZbe9VtZyXE5Rr3aMqRgBAnuF6GrA=;
+	b=PKjIjbvcPhyLT1EwvWQdeOl8p1Mj3CJIf4bheaebY0l063A1pJK537bL8kmfBytuRjSUblNyu
+	uDvW+xmZrYmyhwdosIU8852Opc3JdRQk84gDvOUitymbIqa0YLRtx4Poeq6UZLakNiZCR1k+IQy
+	GPcZWfsP7KQhx3gjPMeVQLw=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gxRWx2GvTz1prNF;
+	Fri, 10 Jul 2026 17:35:25 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2AFC84055B;
-	Fri, 10 Jul 2026 17:39:31 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 950C54057F;
+	Fri, 10 Jul 2026 17:44:42 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 17:39:30 +0800
-Message-ID: <6374def7-d2fd-4e34-9fc3-465e479ab681@huawei.com>
-Date: Fri, 10 Jul 2026 17:39:29 +0800
+ 15.2.1544.11; Fri, 10 Jul 2026 17:44:41 +0800
+Message-ID: <797df793-51c3-4311-8c0a-98c1642e1035@huawei.com>
+Date: Fri, 10 Jul 2026 17:44:40 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
@@ -62,8 +62,8 @@ X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_023938_667161_40494FAF 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20260710_024452_214160_D5B0D2B4 
+X-CRM114-Status: GOOD (  30.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -329,11 +329,14 @@ On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
 > +	    hwstate.pmr == GIC_PRIO_IRQON) {
 > +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
 > +		pmr_sync();
-> +	}
-The default behavior of both local_daif_restore() and
-local_daif_inherit() is to first restore the PMR register and then
-restore DAIF. It appears that there has been a functional change here.
 
+In the original local_daif_restore, pmr_sync is only required when
+interrupts are enabled. Is there any performance issue?
+
+If all are using pmr_sync, why not merge it with the previous pmr
+operations?
+
+> +	}
 > +}
 > +
 > +static __always_inline
