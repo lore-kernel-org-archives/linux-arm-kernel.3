@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400CCC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB74C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KyTrdU9HmcQb5NC0B5vuRBCCEn7dxaItsZiYGQoGCjU=; b=NYiuJFOfaJxoyec4r5tKEmCwje
-	MmYdIBOtjZj5RUfMe+cA06n0kEe2y2VuOWhCv/Nb0j7HmZwVbAy8m8GNcF1cBIvN94gzTUuk04aRw
-	b/MKEBilYG5PvKzDG+JN6gmV6X6qblFtuWbgc0wJHukGioTIxScRjnSVDVJ9Wa1NMt/7Qv4L9KMNd
-	V9SMamdIVdr7fHbcFUgFr2nvIK/YpgDLRSd1n24aWavPBDnN5vVMLTCoEIbewlQwO1CgAhDh8/cGp
-	JTjW3BxCTUlVt6yb0gzAaFB3JuZvDc213mA8YOF/5vbI5J0B2Hx58WlOt6uOw3FeIeguUmT7IJBrC
-	TdBuUFIg==;
+	bh=noT/QqAliZBhFyawFYslzQgo6v2k6ipjVMsOMMsynIw=; b=Z8UDLM7GTVx4GBqJ7mCoT6rVvz
+	ZvM7BiRjeOeBJZ1tFqjNHTsf323hqPMG0PRG4OzI0h8c+XdNZ8dAeXowdfXs4899tAVcewK2C7MvT
+	3bCxf3lT8yZ885vZ0TuV+/ptwIrO2kpV7Xum9JnonCzKMYsK65vDJDCOz2A7pYfWABevLCJpbytmX
+	vti3khDzjPWiHCnvLgSRboyIK1qZqe+qKyQvMGtA1DQ9cAPNv+KTYce5jXD7AVorHOOCqUxT35D9w
+	4UlplWMfSSLnedkvm7AVVQmVxMxsWJkonf7fJImwuIcCkkwadLqUyfBcM0Bb4tHB2h4b7RtAgxAel
+	MwsQKl4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9DA-00000004nbc-3fQm;
-	Fri, 10 Jul 2026 11:16:04 +0000
+	id 1wi9DB-00000004ncd-0Z8Y;
+	Fri, 10 Jul 2026 11:16:05 +0000
 Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9Cy-00000004nT6-1p4k
+	id 1wi9D8-00000004naK-2gX5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:15:56 +0000
+	Fri, 10 Jul 2026 11:16:03 +0000
 Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
 	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66ABEvsG024946
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66ABEvsN024946
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 10 Jul 2026 20:15:09 +0900 (JST)
+	Fri, 10 Jul 2026 20:15:12 +0900 (JST)
 	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=KyTrdU9HmcQb5NC0B5vuRBCCEn7dxaItsZiYGQoGCjU=;
+DKIM-Signature: a=rsa-sha256; bh=noT/QqAliZBhFyawFYslzQgo6v2k6ipjVMsOMMsynIw=;
         c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
         h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1783682109; v=1;
-        b=OFMBIb8JieI4oSuqrXGBiBpeYAfFy4MIJ23xe91w02PKiYP6kJ/R8ZXZPXrPrCCn
-         /JCos9aey4/4zJPJnAB9PAJBuUnR12NHylTtpMvyi40D2FGt/Ev2ryYVpRnCFPSl
-         +UJi87NFaQH0n9kDseaLvlQXYJJ2JmAYrgHiqqBsRZlq14dgx4CNL6ip7PJoKZd3
-         kW4sHliYUYjSaRKrtjhxNkUriGUO8zwNUgk10F9d8LGKvKnCV2WoQ41RxUZV+ONj
-         NHxUdq1AEKvWZfO21DQ0DgPIZfSPhUZiHpXubNT5qomfW2paQkOn42M1v6zCO4c6
-         p3TbP+Fo9w/7o+D4Ks9+1Q==
+        s=rs20250326; t=1783682112; v=1;
+        b=s8KhwOEQ0TjZ0sa5iX9TriaWVWFZ7j48jRfLsphEyI5FuZn9G+Fldfwg/DG9H0vd
+         prIJOloH+Qfq9puU6SYOdH/SOcCwfKwQOLL7FQvRm+zTh2Jc9f+UoOavoEBh6+s7
+         Siu3ll6DOafoctznF7SlNHORlqwKImPeRcUhudMQlokhomGW0nAdGljxvfCz8Ph0
+         fH9ct3+NFK0nyJM4NO/m4rA0Ccn7qibUFreMKG3Mv2OzYSxyXGA7X6mNez6T9pHl
+         5YxoTRNXNA9oIVD98uj/afd9c1QFbDDEBosrMMf2JJTNE8AWc4crPY6qbTVaSv37
+         BMd+OKYIDaFgYLLL3DDMGA==
 From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Fri, 10 Jul 2026 20:14:56 +0900
-Subject: [PATCH v8 02/11] tools headers: Sync bitfield.h with the kernel
+Date: Fri, 10 Jul 2026 20:15:03 +0900
+Subject: [PATCH v8 09/11] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-hybrid-v8-2-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+Message-Id: <20260710-hybrid-v8-9-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
 References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
 In-Reply-To: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -69,18 +70,18 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         linux-kselftest@vger.kernel.org,
         Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 X-Mailer: b4 0.16-dev-925f5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13915;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8614;
  i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=9j2sLIskvz0/of69Ci4UihDwqz/h43AbZmJiJF/tu+M=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bAFZO2nIio678bqiZkfs7a3H1ZTtpwt9z7lVc/bLCrW
- ra9V621o5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCIX8hn+KR/puBv5e23OQ6sd
- vL/KmHWDD3cvW33s4K6fct6z1U/eZGX4n1C4qLn5k2/oRP2DiYoXLh+bGJu171Jl/paL2YmFHsU
- XOAE=
+ bh=1xofsopO2LYUhV98oaA7uLf7eeShoy+dvPyeps8ZL/w=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bAFSuvbQqHmZNzbGWmNpRlqCx59PJh3etFfyrm6cV2b
+ ZOMFF7bUcrCIMbFICumyJJStJtbI7r2U2FCfAvMHFYmkCEMXJwCMJHmHQz/YyoO3md3ejGF/c7p
+ uVb+ikqnDq17esvb6ExJpZnZzXcv+Rh+s9yN1Ty+zW76jr97oou1dzutvyxxyJ7/w911D2p418+
+ 1ZgMA
 X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
  fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_041552_838748_6184D14F 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20260710_041602_909117_6A8B8B76 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,388 +96,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sync tools/include/linux/bitfield.h with include/linux/bitfield.h
-changes since commit 590b949597b1 ("tools: Copy bitfield.h from the kernel
-sources"). Preserve the tools-only linux/kernel.h include for endian
-helpers; a follow-up selftest uses u64_replace_bits() from the
-refreshed header.
+Add internal state for PMUv3 emulation without programmable event
+counters. When fixed-counters-only mode is active, KVM reports no
+programmable counters and hides PMCEID, avoiding event-counter state
+whose behavior can depend on the selected hardware PMU.
 
-Keep the synced native u*_..._bits() helpers on tools-local u* types,
-while leaving endian helpers on __le* and __be*. This preserves the
-tools convention that u64 is uint64_t and avoids printf format warnings
-in selftests.
+The cycle counter still uses a host perf event. Unlike the normal PMU
+path, fixed-counters-only mode may create that event from the hardware
+PMU attached to the VCPU's current pCPU. If the VCPU later loads on a
+pCPU that is not covered by the existing event's PMU, request a PMU
+reload so the cycle counter can be recreated against the new pCPU's PMU.
+Keep this affinity check limited to fixed-counters-only VMs; the normal
+programmable-counter mode continues to use the VM-wide PMU and does not
+need per-load reload decisions.
 
-Add the supporting tools-side pieces required by the newer header:
+Add a separate internal flag for explicit userspace PMU selection. The
+UAPI wiring added later will use it to keep explicit PMU selection and
+fixed-counters-only mode mutually exclusive while still allowing
+fixed-counters-only mode to replace the default PMU selected during
+KVM_ARM_VCPU_INIT.
 
-  - tools/include/linux/typecheck.h for typecheck_pointer();
-  - the auto compatibility macro in tools/compiler_types.h, guarded
-    with !defined(__STDC_VERSION__) for pre-C99 tools builds and kept
-    C-only so perf C++ sources keep the C++ auto keyword;
-  - __ffs64() in tools/include/linux/bitops.h for non-constant-mask
-    field helpers.
+The UAPI wiring that sets the fixed-counters-only flag and records
+explicit PMU selection is added later in the series.
 
 Assisted-by: Codex:gpt-5.5
 Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 ---
- tools/include/linux/bitfield.h       | 175 ++++++++++++++++++++++++++++++-----
- tools/include/linux/bitops.h         |  19 ++++
- tools/include/linux/compiler_types.h |  13 +++
- tools/include/linux/typecheck.h      |  34 +++++++
- 4 files changed, 217 insertions(+), 24 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  4 +++
+ arch/arm64/kvm/arm.c              |  2 ++
+ arch/arm64/kvm/pmu-emul.c         | 69 ++++++++++++++++++++++++++++++++++-----
+ include/kvm/arm_pmu.h             |  2 ++
+ 4 files changed, 69 insertions(+), 8 deletions(-)
 
-diff --git a/tools/include/linux/bitfield.h b/tools/include/linux/bitfield.h
-index ddf81f24956b..b9a634b18881 100644
---- a/tools/include/linux/bitfield.h
-+++ b/tools/include/linux/bitfield.h
-@@ -8,7 +8,9 @@
- #define _LINUX_BITFIELD_H
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 0c39d9db7d57..aa07b05b8231 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -353,6 +353,10 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+ 	/* Unhandled SEAs are taken to userspace */
+ #define KVM_ARCH_FLAG_EXIT_SEA				11
++	/* PMUv3 is emulated with an explicitly specified hardware PMU */
++#define KVM_ARCH_FLAG_PMU_V3_EXPLICIT			12
++	/* PMUv3 is emulated without progammable event counters */
++#define KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY	13
+ 	unsigned long flags;
  
- #include <linux/build_bug.h>
-+#include <linux/compiler.h>
- #include <linux/kernel.h>
-+#include <linux/typecheck.h>
- #include <asm/byteorder.h>
+ 	/* VM-wide vCPU feature set */
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 58d0783f254d..b21bd8cf13c9 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -638,6 +638,7 @@ static bool kvm_vcpu_should_clear_twe(struct kvm_vcpu *vcpu)
+ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ {
+ 	struct kvm_s2_mmu *mmu;
++	int last_cpu = vcpu->cpu;
+ 	int *last_ran;
  
- /*
-@@ -17,9 +19,13 @@
-  * FIELD_{GET,PREP} macros take as first parameter shifted mask
-  * from which they extract the base mask and shift amount.
-  * Mask must be a compilation time constant.
-+ * field_{get,prep} are variants that take a non-const mask.
-  *
-  * Example:
-  *
-+ *  #include <linux/bitfield.h>
-+ *  #include <linux/bits.h>
-+ *
-  *  #define REG_FIELD_A  GENMASK(6, 0)
-  *  #define REG_FIELD_B  BIT(7)
-  *  #define REG_FIELD_C  GENMASK(15, 8)
-@@ -36,8 +42,7 @@
-  *	  FIELD_PREP(REG_FIELD_D, 0x40);
-  *
-  * Modify:
-- *  reg &= ~REG_FIELD_C;
-- *  reg |= FIELD_PREP(REG_FIELD_C, c);
-+ *  FIELD_MODIFY(REG_FIELD_C, &reg, c);
-  */
- 
- #define __bf_shf(x) (__builtin_ffsll(x) - 1)
-@@ -58,21 +63,42 @@
- 
- #define __bf_cast_unsigned(type, x)	((__unsigned_scalar_typeof(type))(x))
- 
--#define __BF_FIELD_CHECK(_mask, _reg, _val, _pfx)			\
-+#define __BF_FIELD_CHECK_MASK(_mask, _val, _pfx)			\
- 	({								\
- 		BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask),		\
- 				 _pfx "mask is not constant");		\
- 		BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");	\
- 		BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?		\
--				 ~((_mask) >> __bf_shf(_mask)) & (_val) : 0, \
-+				 ~((_mask) >> __bf_shf(_mask)) &	\
-+					(0 + (_val)) : 0,		\
- 				 _pfx "value too large for the field"); \
--		BUILD_BUG_ON_MSG(__bf_cast_unsigned(_mask, _mask) >	\
--				 __bf_cast_unsigned(_reg, ~0ull),	\
--				 _pfx "type of reg too small for mask"); \
- 		__BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +			\
- 					      (1ULL << __bf_shf(_mask))); \
- 	})
- 
-+#define __BF_FIELD_CHECK_REG(mask, reg, pfx)				\
-+	BUILD_BUG_ON_MSG(__bf_cast_unsigned(mask, mask) >		\
-+			 __bf_cast_unsigned(reg, ~0ull),		\
-+			 pfx "type of reg too small for mask")
-+
-+#define __BF_FIELD_CHECK(mask, reg, val, pfx)				\
-+	({								\
-+		__BF_FIELD_CHECK_MASK(mask, val, pfx);			\
-+		__BF_FIELD_CHECK_REG(mask, reg, pfx);			\
-+	})
-+
-+#define __FIELD_PREP(mask, val, pfx)					\
-+	({								\
-+		__BF_FIELD_CHECK_MASK(mask, val, pfx);			\
-+		((typeof(mask))(val) << __bf_shf(mask)) & (mask);	\
-+	})
-+
-+#define __FIELD_GET(mask, reg, pfx)					\
-+	({								\
-+		__BF_FIELD_CHECK_MASK(mask, 0U, pfx);			\
-+		(typeof(mask))(((reg) & (mask)) >> __bf_shf(mask));	\
-+	})
-+
- /**
-  * FIELD_MAX() - produce the maximum value representable by a field
-  * @_mask: shifted mask defining the field's length and position
-@@ -109,10 +135,36 @@
-  */
- #define FIELD_PREP(_mask, _val)						\
- 	({								\
--		__BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");	\
--		((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask);	\
-+		__BF_FIELD_CHECK_REG(_mask, 0ULL, "FIELD_PREP: ");	\
-+		__FIELD_PREP(_mask, _val, "FIELD_PREP: ");		\
- 	})
- 
-+#define __BF_CHECK_POW2(n)	BUILD_BUG_ON_ZERO(((n) & ((n) - 1)) != 0)
-+
-+/**
-+ * FIELD_PREP_CONST() - prepare a constant bitfield element
-+ * @_mask: shifted mask defining the field's length and position
-+ * @_val:  value to put in the field
-+ *
-+ * FIELD_PREP_CONST() masks and shifts up the value.  The result should
-+ * be combined with other fields of the bitfield using logical OR.
-+ *
-+ * Unlike FIELD_PREP() this is a constant expression and can therefore
-+ * be used in initializers. Error checking is less comfortable for this
-+ * version, and non-constant masks cannot be used.
-+ */
-+#define FIELD_PREP_CONST(_mask, _val)					\
-+	(								\
-+		/* mask must be non-zero */				\
-+		BUILD_BUG_ON_ZERO((_mask) == 0) +			\
-+		/* check if value fits */				\
-+		BUILD_BUG_ON_ZERO(~((_mask) >> __bf_shf(_mask)) & (_val)) + \
-+		/* check if mask is contiguous */			\
-+		__BF_CHECK_POW2((_mask) + (1ULL << __bf_shf(_mask))) +	\
-+		/* and create the value */				\
-+		(((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask))	\
-+	)
-+
- /**
-  * FIELD_GET() - extract a bitfield element
-  * @_mask: shifted mask defining the field's length and position
-@@ -123,8 +175,25 @@
-  */
- #define FIELD_GET(_mask, _reg)						\
- 	({								\
--		__BF_FIELD_CHECK(_mask, _reg, 0U, "FIELD_GET: ");	\
--		(typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask));	\
-+		__BF_FIELD_CHECK_REG(_mask, _reg, "FIELD_GET: ");	\
-+		__FIELD_GET(_mask, _reg, "FIELD_GET: ");		\
-+	})
-+
-+/**
-+ * FIELD_MODIFY() - modify a bitfield element
-+ * @_mask: shifted mask defining the field's length and position
-+ * @_reg_p: pointer to the memory that should be updated
-+ * @_val: value to store in the bitfield
-+ *
-+ * FIELD_MODIFY() modifies the set of bits in @_reg_p specified by @_mask,
-+ * by replacing them with the bitfield value passed in as @_val.
-+ */
-+#define FIELD_MODIFY(_mask, _reg_p, _val)						\
-+	({										\
-+		typecheck_pointer(_reg_p);						\
-+		__BF_FIELD_CHECK(_mask, *(_reg_p), _val, "FIELD_MODIFY: ");		\
-+		*(_reg_p) &= ~(_mask);							\
-+		*(_reg_p) |= (((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask));	\
- 	})
- 
- extern void __compiletime_error("value doesn't fit into mask")
-@@ -142,36 +211,94 @@ static __always_inline u64 field_mask(u64 field)
- 	return field / field_multiplier(field);
- }
- #define field_max(field)	((typeof(field))field_mask(field))
--#define ____MAKE_OP(type,base,to,from)					\
--static __always_inline __##type type##_encode_bits(base v, base field)	\
-+#define ____MAKE_OP(name,type,base,to,from)				\
-+static __always_inline type __must_check name##_encode_bits(base v, base field)	\
- {									\
- 	if (__builtin_constant_p(v) && (v & ~field_mask(field)))	\
- 		__field_overflow();					\
- 	return to((v & field_mask(field)) * field_multiplier(field));	\
- }									\
--static __always_inline __##type type##_replace_bits(__##type old,	\
--					base val, base field)		\
-+static __always_inline type __must_check name##_replace_bits(type old,	\
-+							base val, base field)	\
- {									\
--	return (old & ~to(field)) | type##_encode_bits(val, field);	\
-+	return (old & ~to(field)) | name##_encode_bits(val, field);	\
- }									\
--static __always_inline void type##p_replace_bits(__##type *p,		\
-+static __always_inline void name##p_replace_bits(type *p,		\
- 					base val, base field)		\
- {									\
--	*p = (*p & ~to(field)) | type##_encode_bits(val, field);	\
-+	*p = (*p & ~to(field)) | name##_encode_bits(val, field);	\
- }									\
--static __always_inline base type##_get_bits(__##type v, base field)	\
-+static __always_inline base __must_check name##_get_bits(type v, base field)	\
- {									\
- 	return (from(v) & field)/field_multiplier(field);		\
- }
--#define __MAKE_OP(size)							\
--	____MAKE_OP(le##size,u##size,cpu_to_le##size,le##size##_to_cpu)	\
--	____MAKE_OP(be##size,u##size,cpu_to_be##size,be##size##_to_cpu)	\
--	____MAKE_OP(u##size,u##size,,)
--____MAKE_OP(u8,u8,,)
-+#define __MAKE_OP(size)									\
-+	____MAKE_OP(le##size,__le##size,u##size,cpu_to_le##size,le##size##_to_cpu)	\
-+	____MAKE_OP(be##size,__be##size,u##size,cpu_to_be##size,be##size##_to_cpu)	\
-+	____MAKE_OP(u##size,u##size,u##size,,)
-+____MAKE_OP(u8,u8,u8,,)
- __MAKE_OP(16)
- __MAKE_OP(32)
- __MAKE_OP(64)
- #undef __MAKE_OP
- #undef ____MAKE_OP
- 
-+#define __field_prep(mask, val)						\
-+	({								\
-+		auto __mask = (mask);					\
-+		typeof(__mask) __val = (val);				\
-+		unsigned int __shift = BITS_PER_TYPE(__mask) <= 32 ?	\
-+				       __ffs(__mask) : __ffs64(__mask);	\
-+		(__val << __shift) & __mask;				\
-+	})
-+
-+#define __field_get(mask, reg)						\
-+	({								\
-+		auto __mask = (mask);					\
-+		typeof(__mask) __reg =  (reg);				\
-+		unsigned int __shift = BITS_PER_TYPE(__mask) <= 32 ?	\
-+				       __ffs(__mask) : __ffs64(__mask);	\
-+		(__reg & __mask) >> __shift;				\
-+	})
-+
-+/**
-+ * field_prep() - prepare a bitfield element
-+ * @mask: shifted mask defining the field's length and position, must be
-+ *        non-zero
-+ * @val:  value to put in the field
-+ *
-+ * Return: field value masked and shifted to its final destination
-+ *
-+ * field_prep() masks and shifts up the value.  The result should be
-+ * combined with other fields of the bitfield using logical OR.
-+ * Unlike FIELD_PREP(), @mask is not limited to a compile-time constant.
-+ * Typical usage patterns are a value stored in a table, or calculated by
-+ * shifting a constant by a variable number of bits.
-+ * If you want to ensure that @mask is a compile-time constant, please use
-+ * FIELD_PREP() directly instead.
-+ */
-+#define field_prep(mask, val)						\
-+	(__builtin_constant_p(mask) ? __FIELD_PREP(mask, val, "field_prep: ") \
-+				    : __field_prep(mask, val))
-+
-+/**
-+ * field_get() - extract a bitfield element
-+ * @mask: shifted mask defining the field's length and position, must be
-+ *        non-zero
-+ * @reg:  value of entire bitfield
-+ *
-+ * Return: extracted field value
-+ *
-+ * field_get() extracts the field specified by @mask from the
-+ * bitfield passed in as @reg by masking and shifting it down.
-+ * Unlike FIELD_GET(), @mask is not limited to a compile-time constant.
-+ * Typical usage patterns are a value stored in a table, or calculated by
-+ * shifting a constant by a variable number of bits.
-+ * If you want to ensure that @mask is a compile-time constant, please use
-+ * FIELD_GET() directly instead.
-+ */
-+#define field_get(mask, reg)						\
-+	(__builtin_constant_p(mask) ? __FIELD_GET(mask, reg, "field_get: ") \
-+				    : __field_get(mask, reg))
-+
- #endif
-diff --git a/tools/include/linux/bitops.h b/tools/include/linux/bitops.h
-index b4e4cd071f8c..0dfd61a7a35d 100644
---- a/tools/include/linux/bitops.h
-+++ b/tools/include/linux/bitops.h
-@@ -100,4 +100,23 @@ static __always_inline __s64 sign_extend64(__u64 value, int index)
- 	return (__s64)(value << shift) >> shift;
+ 	if (is_protected_kvm_enabled())
+@@ -687,6 +688,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
+ 	kvm_arch_vcpu_load_fp(vcpu);
++	kvm_vcpu_load_pmu(vcpu, last_cpu);
+ 	kvm_vcpu_pmu_restore_guest(vcpu);
+ 	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+ 		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 1dd8aa6a027d..1aa115aee781 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -83,6 +83,11 @@ u64 kvm_pmu_evtyper_mask(struct kvm *kvm)
+ 	return mask;
  }
  
-+/**
-+ * __ffs64 - find first set bit in a 64 bit word
-+ * @word: The 64 bit word
-+ *
-+ * On 64 bit arches this is a synonym for __ffs
-+ * The result is not defined if no bits are set, so check that @word
-+ * is non-zero before calling this.
-+ */
-+static inline __attribute_const__ unsigned int __ffs64(u64 word)
++static bool kvm_pmu_fixed_counters_only(struct kvm *kvm)
 +{
-+#if BITS_PER_LONG == 32
-+	if (((u32)word) == 0UL)
-+		return __ffs((u32)(word >> 32)) + 32;
-+#elif BITS_PER_LONG != 64
-+#error BITS_PER_LONG not 32 or 64
-+#endif
-+	return __ffs((unsigned long)word);
++	return test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
 +}
 +
- #endif
-diff --git a/tools/include/linux/compiler_types.h b/tools/include/linux/compiler_types.h
-index b3adbf5682f0..287a1a26cb05 100644
---- a/tools/include/linux/compiler_types.h
-+++ b/tools/include/linux/compiler_types.h
-@@ -13,6 +13,19 @@
- #define __has_builtin(x) (0)
- #endif
+ /**
+  * kvm_pmc_is_64bit - determine if counter is 64bit
+  * @pmc: counter context
+@@ -330,7 +335,12 @@ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
  
-+/*
-+ * C23 introduces "auto" as a standard way to define type-inferred
-+ * variables, but "auto" has been a (useless) keyword even since K&R C,
-+ * so it has always been "namespace reserved."
-+ *
-+ * Until at some future time we require C23 support, we need the gcc
-+ * extension __auto_type, but there is no reason to put that elsewhere
-+ * in the source code.
-+ */
-+#if !defined(__cplusplus) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L)
-+# define auto __auto_type
-+#endif
+ static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
+ {
+-	if (!pmc->perf_event) {
++	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
 +
- #include <linux/compiler-context-analysis.h>
++	if (!pmc->perf_event ||
++	    (kvm_pmu_fixed_counters_only(vcpu->kvm) &&
++	     !cpumask_test_cpu(READ_ONCE(vcpu->cpu),
++			       &to_arm_pmu(pmc->perf_event->pmu)->supported_cpus))) {
+ 		kvm_pmu_create_perf_event(pmc);
+ 		return;
+ 	}
+@@ -694,14 +704,10 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
+ 	return NULL;
+ }
  
- /* Compiler specific macros. */
-diff --git a/tools/include/linux/typecheck.h b/tools/include/linux/typecheck.h
-new file mode 100644
-index 000000000000..46b15e2aaefb
---- /dev/null
-+++ b/tools/include/linux/typecheck.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef TYPECHECK_H_INCLUDED
-+#define TYPECHECK_H_INCLUDED
-+
-+/*
-+ * Check at compile time that something is of a particular type.
-+ * Always evaluates to 1 so you may use it easily in comparisons.
+-/**
+- * kvm_pmu_create_perf_event - create a perf event for a counter
+- * @pmc: Counter context
+- */
+-static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
++static void kvm_pmu_create_perf_event_with_pmu(struct kvm_pmc *pmc,
++					       struct arm_pmu *arm_pmu)
+ {
+ 	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+-	struct arm_pmu *arm_pmu = vcpu->kvm->arch.arm_pmu;
+ 	struct perf_event *event;
+ 	struct perf_event_attr attr;
+ 	int eventsel;
+@@ -735,7 +741,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	 * Don't create an event if we're running on hardware that requires
+ 	 * PMUv3 event translation and we couldn't find a valid mapping.
+ 	 */
+-	eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
++	eventsel = kvm_map_pmu_event(arm_pmu, eventsel);
+ 	if (eventsel < 0)
+ 		return;
+ 
+@@ -780,6 +786,29 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	pmc->perf_event = event;
+ }
+ 
++/**
++ * kvm_pmu_create_perf_event - create a perf event for a counter
++ * @pmc: Counter context
 + */
-+#define typecheck(type,x) \
-+({	type __dummy; \
-+	typeof(x) __dummy2; \
-+	(void)(&__dummy == &__dummy2); \
-+	1; \
-+})
++static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
++{
++	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
++	struct arm_pmu *arm_pmu = vcpu->kvm->arch.arm_pmu;
 +
-+/*
-+ * Check at compile time that 'function' is a certain type, or is a pointer
-+ * to that type (needs to use typedef for the function type.)
-+ */
-+#define typecheck_fn(type,function) \
-+({	typeof(type) __tmp = function; \
-+	(void)__tmp; \
-+})
++	if (kvm_pmu_fixed_counters_only(vcpu->kvm)) {
++		do {
++			arm_pmu = kvm_pmu_probe_armpmu(READ_ONCE(vcpu->cpu));
 +
-+/*
-+ * Check at compile time that something is a pointer type.
-+ */
-+#define typecheck_pointer(x) \
-+({	typeof(x) __dummy; \
-+	(void)sizeof(*__dummy); \
-+	1; \
-+})
++			if (WARN_ON_ONCE(!arm_pmu))
++				return;
 +
-+#endif		/* TYPECHECK_H_INCLUDED */
++			kvm_pmu_create_perf_event_with_pmu(pmc, arm_pmu);
++		} while (!cpumask_test_cpu(READ_ONCE(vcpu->cpu), &arm_pmu->supported_cpus));
++	} else {
++		kvm_pmu_create_perf_event_with_pmu(pmc, arm_pmu);
++	}
++}
++
+ /**
+  * kvm_pmu_set_counter_event_type - set selected counter to monitor some event
+  * @vcpu: The vcpu pointer
+@@ -813,6 +842,15 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+ 	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
+ 		return;
+ 
++	/*
++	 * IMPDEF PMUv3 traps are non-architectural, and KVM cannot assume a
++	 * uniform PMUv3-compatible arm_pmu is available on all CPUs.
++	 */
++	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS)) {
++		kvm_info("Non-architectural PMU, tainting kernel\n");
++		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
++	}
++
+ 	guard(mutex)(&arm_pmus_lock);
+ 
+ 	entry = kmalloc_obj(*entry);
+@@ -865,6 +903,9 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ 	u64 val, mask = 0;
+ 	int base, i, nr_events;
+ 
++	if (kvm_pmu_fixed_counters_only(vcpu->kvm))
++		return 0;
++
+ 	if (!pmceid1) {
+ 		val = compute_pmceid0(cpu_pmu);
+ 		base = 0;
+@@ -892,6 +933,15 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ 	return val & mask;
+ }
+ 
++void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
++{
++	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu || last_cpu == -1)
++		return;
++
++	if (kvm_pmu_probe_armpmu(vcpu->cpu) != kvm_pmu_probe_armpmu(last_cpu))
++		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
++}
++
+ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
+ {
+ 	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+@@ -1003,6 +1053,9 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+ {
+ 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+ 
++	if (kvm_pmu_fixed_counters_only(kvm))
++		return 0;
++
+ 	/*
+ 	 * PMUv3 requires that all event counters are capable of counting any
+ 	 * event, though the same may not be true of non-PMUv3 hardware.
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 0a36a3d5c894..9720fbd0eeb4 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -59,6 +59,7 @@ void kvm_pmu_software_increment(struct kvm_vcpu *vcpu, u64 val);
+ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val);
+ void kvm_pmu_set_counter_event_type(struct kvm_vcpu *vcpu, u64 data,
+ 				    u64 select_idx);
++void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu);
+ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu);
+ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu,
+ 			    struct kvm_device_attr *attr);
+@@ -164,6 +165,7 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+ static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu) {}
++static inline void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu) {}
+ static inline void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu) {}
+ static inline u8 kvm_arm_pmu_get_pmuver_limit(void)
+ {
 
 -- 
 2.55.0
