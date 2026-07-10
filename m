@@ -4,138 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441E0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D4DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7eY8IwiZj0Gw+LHhFSUKuOzf25S+swrhHLMzVCCdMmA=; b=EQtlDf3fKGOCGFXvxro4qdN2zP
-	drhcKDeDQHkA51OOXLdqeJwnCBgZLGkvLmF/T0FzO5/KvTH82GtoaMTc64O0EruDe16siJpA8F3Nq
-	XQqBabVXLHEteNf2ybT3dadj8/0TuQdpoTXzomozbJK3FpY4X1JEwiOFB1sA06QMhWzcMdijYuhQN
-	JRj0GmtvULljXDFDlK4ptCxdv2CeYsR9PVfjn+yecMGDSc/+vx0EqgrNXy5AUTW7OVkVEiQebDkc8
-	ehf5LPeRhsgk0famLgBx5FVDtrG33Orf7e/sL5aav4EtqnulOCPx3EO2DLXCxixn3KJX+73e35dMx
-	40RaxXNQ==;
+	bh=FbXNlJgJQzs0N0juAvPCRWpCJrrEOPgd6cgVH8qHIV0=; b=RVsBGAsSMyNUG65sIycSNwvJpy
+	lurNJ5MlqGC7koZJw5SmcZcsmOJ539cVE/HYJsLik8g83A79bNGG1znlR13zpQ0HunpdPPKi8RV00
+	rb+IwifJhHr/uYDRgm6eDNew1N4xiAymh52QxRNXVIOc5+7EbogoEeyOYSnHZl7wFr0p3yxnT/JPo
+	iSTmK3lWX4MVCX2NnNUqN67b09ES4jYPmFVfbRSocdsJXLLztsj51wE3HbuIl7iQvVdanY2aevimr
+	lZn+qRG3xO/DTaceRIg3RLk0r9R5g6hcT0NUalVR3AHTudujdCtnB88kTLuhNKAs8ijj9tVrCXbzh
+	3MnPudcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4tQ-00000004HNA-1VxY;
-	Fri, 10 Jul 2026 06:39:24 +0000
-Received: from mail-eastus2azon11011012.outbound.protection.outlook.com ([52.101.57.12] helo=BN8PR05CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4tN-00000004HMj-1kKz
+	id 1wi4y2-00000004I4I-3tLr;
+	Fri, 10 Jul 2026 06:44:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi4y0-00000004I3d-1iGG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 06:39:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t027QiN/HYB3Bg9hmNWCFJ9u4xcIS/C+dRY9J07fm2Kb7Nr4oP03QoPzvmk7YcQaKwMaUsIVCYskmNLbYePcJiNHZPsqlrgE4H12fnYcHVBv9Ckyht+C72Xb1yliVSY3quzJhhFUedoEcpkqbOZ05rGAIyASCl0lkQa/RtYO0acNqqJIg93AnQFNhyi+pgpfC6oOkVuqPK93eHNJu9KLchQ+GPQ3AcD4kTDSjaQ1y7R36A2BRCByLM53D9ihgdgp7dWJzMXsRyOD830eN/sVqLOXQamkKYkhLGXTOc2vSmUIbrwysS1bCcmYTT50I9iAA0xV3VUTxThQbjPAf7B9sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7eY8IwiZj0Gw+LHhFSUKuOzf25S+swrhHLMzVCCdMmA=;
- b=alyGHT3vK+G6Sakv6jGwv5f3lwEDQCgXv0IbYSEMXnT4vOeqEQBqmtR62Eagv6WITvBkNLRyoIG3/0+Y60g9gZobsJOwV6dqVLTASTB9VrAP1DMxlW+t07xewwhs8oMZ242G3B1sadJyS8ok6zIO+OqStwz1dwPyh3QJIQw7Pd26qXoXaP7meHykmLToOSU/RgV+9JM+Jo14GXR2rDIb0W0J7R6XFUgl/EhLswRsqmXufzj+cwUkEF7xqEzcrtMLyqZHQjnm/32JmkMgKRqZXAlNgCvvz1/H9yzzbhiL0zKrm+iHwiUtMP3kSjLIe8uWxE8OGJkicQofVO7RAqkfkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7eY8IwiZj0Gw+LHhFSUKuOzf25S+swrhHLMzVCCdMmA=;
- b=HeXGJ3lWUO/Knj6vH8RASGZnMlGyHMNTOfzrz4h5evbr3InhOSX6hirZIT25IfSkaY1kKmClMRZxsBPid4/NLG05AXNg9uTSuzBiv6MS/ejxqU0/JIQC2lDd6ZUcrKCRySmnVo0k9HdSfcjzs+id6uTzqrJG/RfPG1BdbBLICnAoXSG8KOU+yvWTDCs9KRuVueR5DZBMYKsjV6wxMjqvnG68/tHxkNF5ZDdXKF09kGefpcGX1FzVWRohzSZCioxzPu5Gl6Pjaf6NjIP9/Eu7fjkbj/5pi3LLyZBVse0vZzHFXbv+qnmAeEaEu2M9VVVmE3w7ps+xAE6A5/AuCjwFiQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by SA1PR12MB7344.namprd12.prod.outlook.com (2603:10b6:806:2b7::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
- 2026 06:39:14 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.21.0181.009; Fri, 10 Jul 2026
- 06:39:14 +0000
-Message-ID: <014ae844-e7ca-4829-95f6-31de979db140@nvidia.com>
-Date: Fri, 10 Jul 2026 12:09:08 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] iommu/arm-smmu-v3: Factor out CMDQ batch
- force-sync conditions
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-tegra@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260709095613.831769-1-amhetre@nvidia.com>
- <alB0/RXGUtoyXggd@nvidia.com>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <alB0/RXGUtoyXggd@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0041.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59e::13) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
+	Fri, 10 Jul 2026 06:44:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29E7F1682;
+	Thu,  9 Jul 2026 23:44:00 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 106A63F66F;
+	Thu,  9 Jul 2026 23:43:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783665844; bh=RUI0hFPWUQ+wlVC5kBXZqbX6ZHXl7Xsre0FPPOU8rDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ogrNzINHFx6blHrS6Ebu3TmeUPsyjjsrDcKrTLlp0jBwt2T37Hi5yQ/RWOTV5+ZrV
+	 k+Sp8OBLmV3UkoqV/7q/jsi4hjzzZ6E0YJVeF2ehOwr5On3wCr/yEj7/fSEEA+eO+2
+	 uOOXPF3Bqcy6s98ieI23nyfB66pqAstTkyq2vBU8=
+Date: Fri, 10 Jul 2026 07:43:46 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 0/6] KVM: arm64: ptdump: Shadow ptdump fixes
+Message-ID: <m637wmil3r2bnhlw2mbj5xy5ahucbykk7b4uc6yfcz3c3dfkkj@z4hkns5sieds>
+References: <20260630121005.1130996-1-weilin.chang@arm.com>
+ <akYLdEuPXEGIZx3E@sm-arm-grace07>
+ <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
+ <akbuIDmd_zH9_m6K@sm-arm-grace07>
+ <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
+ <ak9PHJJzjliTeiFB@sm-arm-grace07>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|SA1PR12MB7344:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a19ac7f-8fbc-44d9-9281-08dede4df565
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: qoH1wije1R2OOlIVZoywuFKv4//V8RxT6bATxBYI5ak4LMMoeD5dUK3Gl/hXDaj7r8tb6ifmUrrM74oCnQJTwsISrpvdxLYDIL51dM9S+g7NyHm4pnND8R5ZAjFvPP3Nbkpa3Mmk3/Zi9p14pO/oGWzPewW5V95pGpiQ/I6UVwHRHoqJBQqUhZuM2LRatCZm6zz5ffSpc7P7xaCPaA83IpLAscyb/fgdEil6ipOAOV4KUl5BWCs15wA8PFNGRHmSJ5tGQiBeurqhpXkfzvSypZbCsn9b2V+/AK7ga640Dn12wIbxvV7GiAFrRx8RdL8y7IMsUQCnUIV6IKJA5XVGSmCF3G69v584dqSKX9jhkrm44tOvRbiC4qCZcKOQZ6aj1Pk9hkqi+IBdKMlphUi/uto+D9p9eZwKqe0yrYBq7sjh78lAJGLdJctbsacf2XhaQA97flITch/4//hDLqIAh/vFjmKSG9SHWMXd9XWbKwX74VuFTwQv3PYpP5f1mBUULd84T+/7SLBqtRKlQ1liJ2eKY0HxJEaEWMHf6jlaibJcUwaiFhN42Z7j5P5Nqa9/DAYYfcC/ysJWNouFlinN9L1L8HzGhk5Mz96aZW1C6FQXlbQdN04oElv4Iz4vKmNp/l7ONIu9MlRybtuUY9A7VFVn0eVzoH4tKjKPBTA3eds=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFBhUE4zdHFuTFV0WUdWSVVzYWo5cHRVMCtrV0VFN2FhblBsRDVFY2hNUFNY?=
- =?utf-8?B?SE55VThpK3I4bzVCekJBcDFUaUZNaVdWbUxoaFpLWFZ6cFNidkZtYnBORmlB?=
- =?utf-8?B?OVZwUldWcTBSZ21TNENENHpLWGpkZ1ViUExlRGVhNElQWllGMXNrbWc1anBY?=
- =?utf-8?B?eGRUVkJFWWExZk1mRDBtcWxad0EzUFBxT2p5MHBCUDk1aVRuRkYvSXBWalZk?=
- =?utf-8?B?aVZBT3NIN0g2OXAzN1pyQUlVUHJuUlBPVzhpMHRrSy80WE5CNDUrN2FiT0Jt?=
- =?utf-8?B?WFR6QytKSmNnR20xRXFOZWZiSlJBUSt5enh2WTJMWVRKallWTjV3NDM0SW9Q?=
- =?utf-8?B?TGtaTHltWkpuWEVtU2h5VHNrcWdVaEsyblk2Y2lRa0J3TGJNOEQ3KzJwYm42?=
- =?utf-8?B?ejNhc3VTbFlseTBSSUhnNmtkTkwxR1JrMmlyYkErUlYrSVRDK2haYVZONW0x?=
- =?utf-8?B?M3lyZ05JSW1tWm1IcUhNcHVjeERKQzYyMk9qTDVJUUdpUDdQdjQ1cXMvVEJj?=
- =?utf-8?B?aldRd0R0Q3k3K21YV0NDNHMxR2Q0TlRmWUJ6Z04zZEw5R0Nmb3YxWEhQMngw?=
- =?utf-8?B?MzQ0dGdENzhqbEdHUXFNN1VXeHJ5YmZZQUJ5VTFubEtVQzR5WVZkMExzTUdh?=
- =?utf-8?B?My8zRE0wTUVOTmZaeFA0YmNCR2Y4ZlBJdGxyYUk0ZlRVSlFsSkFwSWJ3S1Z5?=
- =?utf-8?B?UTlZRFRJOHJSTmhEc20zUkJCWWIxRXNabEFhcEhESitJTndVLzhMYXBUTnZn?=
- =?utf-8?B?VTNzek1yWUZqMTRIbGFxUlc5VmJoZG10UG5LdWMzYTNvcnJmYVgzWDZlczM3?=
- =?utf-8?B?Kyt5eW1NTXljSXp4VHQvTzRUMW93NmlUY3dLWFlvQ1hHWDF4YjdNNnVjWFpX?=
- =?utf-8?B?Q0R4YmdpUFlKZ3J1Mjg0RVdDakFRa25DREJRbGpJMTdFbG55MGNiWWNTcjVm?=
- =?utf-8?B?SGEya2JUTStyWWhJWW1iK0pKM0FKenl2L3ZQRnQrUE05UGxCdlJ3aExQQUEy?=
- =?utf-8?B?czV5dWlxVHZOTk1ORnhHVC9BRTBwaGswdDV4eCtXeksyMndReTZNWGNJMHpV?=
- =?utf-8?B?TnhaeTl2S2kwU1RXL2ttTEFMaGd3L0grbExOQlhBOGJPTGdtWGZBdmRuNVNM?=
- =?utf-8?B?VFBVK0xrekh1c1p1ZFZFcTFrNVNUQjIwNVFuL294eUk3Z205K0pUVFV0MUJO?=
- =?utf-8?B?TUw4OG13RW1CSDdoRTVqQ3ZyZEdXQW5RZytHY2oxQkNGWUpaL2g1RkQraE1R?=
- =?utf-8?B?RDlFYzUzazZXK1ZBYzRERVhDMlROaDhzcnZzaW02UWJid2FYS3FidE1seGVH?=
- =?utf-8?B?VjAvWFRxQ2twOEVMTmNxMC9UNFVsaGZYVVVkQjA0Z1VqdS85aVc5R2hkaTVL?=
- =?utf-8?B?TjNHTU1tdzdDYnVWSHUzb1U2OFN1dHJGRjRPRnB6NWFlUTlVYmNyOWZkb0gr?=
- =?utf-8?B?VjNRZ21IU2pHaDZodWNvd0l4dE1QTm40dEkrWXl4QW9uMHBjTGpKNE1HTk1w?=
- =?utf-8?B?VjZiNHVCMFVzUjBYM0ZFNE5TVCtrdWJHZEl1Q2Vld0prSkFKTEtJZ3BZSkZJ?=
- =?utf-8?B?dDQ3TGZRYnRZdmVVczBhZFMrbitiU1dNOC9qTXdHSE9FeEJPdk5aWlE4bE9J?=
- =?utf-8?B?QzFrcVEzZ3hFVERGd1ZzVTdjWHR1cUxFUlJlbjFOdXRrZ2ZQeWEwdU5TOE1x?=
- =?utf-8?B?UnF2bXNrZ21uaHpBNzZNbEp3aEQvYjU0N2ZLeTltOG1kaWw5M1YxbjNvNm5E?=
- =?utf-8?B?bTdsaXc0eGFvQUd4RlRDejBUS2xiSnNFUmxyUndibG85cWlzZEk4VFo2djZj?=
- =?utf-8?B?ME9uSDhNUHJlZTlIU2xkUCtEL2wzbFRhdUxaRGpwWG9jTmUxc0dkbUZ1Ukcx?=
- =?utf-8?B?Kzd0eWN1YldxSFB3a0tiajJNN1gzRWpoZTFHS1FXd0ZPb0wvWlptUmlUZDFr?=
- =?utf-8?B?TEpUWW9yTmthTVhvbFFKQWg2ak53TUlwdkx2ZVB4ZGF6Q21JcngxK3E4WVhW?=
- =?utf-8?B?NmZCYzl6OWVQcG9aRkcyVGNzSlhkQW1aazlkQlluTWU5NkZTemNRMEpzZmIr?=
- =?utf-8?B?VUhCVGp2RzlRY1Y3MUpWY283SE15U1d6WjEvY2c0dGNsSDRnQ2hkRGZkL3hB?=
- =?utf-8?B?SUtFUjEwTWhSWXdYZ0tvOVFGZ3dIQ1R0aktaVnN1Qi83cEdkaWQ4TVhJV0Ev?=
- =?utf-8?B?V2l6dWw4SzAydTh3ZHNtMTlPb0VCek9rYlUrSWtMM0Y5ci9HaTk4OUdnTlFB?=
- =?utf-8?B?aXl3TkFxM1l0UTVmUDR6bWJZTTJrUzNTM0VCMHNYNXdIWDk5UGEyazgzZjFo?=
- =?utf-8?B?czEvakV3aEdHSVpRamwxckRWTk5JcTg5WWJ2UlE5cXowaEhSZVNvQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a19ac7f-8fbc-44d9-9281-08dede4df565
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 06:39:14.5622
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pL6YpsoDP5HPa+THrW2yC8tCXsYKmzOw3y/6D/TCoQOvN+zJM7gYkYkbIQtdsYJxMFIDaLWjNgj0YkyT3Dbj2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7344
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak9PHJJzjliTeiFB@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_233921_484320_EAF1F9BC 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260709_234408_537867_6B5A489B 
+X-CRM114-Status: GOOD (  44.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,34 +77,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 09, 2026 at 04:34:52PM +0900, Itaru Kitayama wrote:
+> On Fri, Jul 03, 2026 at 11:24:53AM +0100, Wei-Lin Chang wrote:
+> > On Fri, Jul 03, 2026 at 08:02:56AM +0900, Itaru Kitayama wrote:
+> > > On Thu, Jul 02, 2026 at 08:41:43AM +0100, Wei-Lin Chang wrote:
+> > > > On Thu, Jul 02, 2026 at 03:55:48PM +0900, Itaru Kitayama wrote:
+> > > > > Hi Wei-Lin,
+> > > > > On Tue, Jun 30, 2026 at 01:09:59PM +0100, Wei-Lin Chang wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > This is v2 of fixing shadow ptdump debugfs files. Unfortunately I couldn't make
+> > > > > > per mmu ptdump files work after all, mainly because there isn't a clean way to
+> > > > > > locate the specific nested mmu for each ptdump file as the nested mmus could be
+> > > > > > freed when the file gets opened. Therefore in this series a single file
+> > > > > > "shadow_page_tables" is created that dumps all valid mmus' page table
+> > > > > > information.
+> > > > > > 
+> > > > > > An advantage of this is that this new ptdump file have a lifetime identical to
+> > > > > > other ptdump files i.e. stage2_page_tables, ipa_range, etc., hence avoiding the
+> > > > > > dentry UAF found last time [1].
+> > > > > > 
+> > > > > > With this all ptdump files are only removed when the last kvm reference gets
+> > > > > > dropped and kvm_destroy_vm_debugfs() is called, in their open(), show()
+> > > > > > functions the nested mmu array and mmu->pgt are checked with mmu_lock held to
+> > > > > > prevent UAF.
+> > > > > > 
+> > > > > > Patch 1-2: Undo previous shadow ptdump implementation.
+> > > > > > Patch 3:   Fix a mmu->pgt UAF that happens when ptdump files are read after
+> > > > > >            mmu->pgt is freed.
+> > > > > > Patch 4-5: Preparation for the shadow page table dump file.
+> > > > > > Patch 6:   Implementation of the shadow page table dump file.
+> > > > > > 
+> > > > > > The fixes are tested with CONFIG_PROVE_LOCKING,
+> > > > > > CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
+> > > > > > 
+> > > > > > Thanks!
+> > > > > 
+> > > > > Running your shadow stage 2 kselftest with bpftrace shows me that __kvm_pgtable_stage2_init()
+> > > > > for shadow stage 2 translation tables are built with ia_bits = 52 and
+> > > > > start_level = 0, but the debugfs entry for the active shadow stage 2 tables prints
+> > > > > out that's 3 levels. Is this fully expected?
+> > > > 
+> > > > Where is this level information you are seeing from? If it is
+> > > > "stage2_level", that only reports the number of levels for the canonical
+> > > > stage-2 (non nested). For nested mmus only the page tables are dumped in
+> > > > nested/shadow_page_tables.
+> > > 
+> > > Yes I know. The initial stage 2 translation table structure information is obtained by 
+> > > instrumenting the kernel using eBPF fexit to __kvm_pgtable_stage2_init().
+> > > 
+> > > Since you're correctly loopin over nested_mmus array, and the output is
+> > > correctly shown using the kvm_pgtable information via the kvm_s2_mmu for
+> > > them, I am confused at this moment.
+> > 
+> > Two things here:
+> > 
+> > Firstly ia_bits being 52 is not expected to me, as I didn't change the
+> > VM's IPA size via KVM_VM_TYPE_ARM_IPA_SIZE in the selftest, to me I
+> > would expect ia_bits to be 40 (the default). Start level being 0 looks
+> > normal.
+> 
+> Instrumenting the ptdump code you're proposing I see the shadow stage 2
+> translation tables are constructed with the max 52-bit IPA; irrespective
+> of the IPA bits set in the init_s2_mmu() helper for the guest hypervisor
+> setup in the selftest, I am guessing here to me fixed? 52-bit IPA size 
+> because it's awkward if nestd guest's IPA size is larger than the shadow 
+> stage 2's IPA size.
 
+Sorry, I got it wrong. It is correct that shadow stage-2 translation
+tables are constructed with 52-bit IPA, irrespective of what L1 sets in
+init_s2_mmu(). This is because L1 is free to decide what memory map it
+exposes to its guest, so we only constrain it with the PARange exposed
+to the guest. Please see the comments in init_nested_s2_mmu().
 
-On 7/10/2026 9:58 AM, Nicolin Chen wrote:
-> On Thu, Jul 09, 2026 at 09:56:07AM +0000, Ashish Mhetre wrote:
->> From: Nicolin Chen <nicolinc@nvidia.com>
->>
->> arm_smmu_cmdq_batch_add_cmd_p() carries two distinct reasons for
->> flushing the current batch with a CMD_SYNC before appending the
->> new command:
->>
->>    - The batch's pre-assigned cmdq does not support the new command.
->>    - The Arm erratum 2812531 workaround (ARM_SMMU_OPT_CMDQ_FORCE_SYNC)
->>      forces a SYNC at one entry before the batch is full.
->>
->> Lift those checks into a new arm_smmu_cmdq_batch_force_sync() helper
->> so that adding another force-sync condition becomes a one-line
->> addition. No functional change.
-> Patch is fine, but you're missing the cover-letter and changelogs.
->
-> Nicolin
+> 
+> I confirmed using the __vm_create() helper with various guest modes
+> supported that canonical stage 2's "ipa_range" changes according to the 
+> guest (L1) PA size so I wonder if it is a good idea to create something like
+> shadow_ipa_range and shadow_stage2_levels files under nested directoy.
 
-I had sent out the cover-letter along with change logs.
-The sequence got messed up while sending. Here's the cover letter.
-https://lore.kernel.org/linux-tegra/20260709095613.831769-4-amhetre@nvidia.com/T/#u 
-
-
-I will fix this in next version.
+I guess shadow_ipa_range and shadow_stage2_levels can be added if there
+are explicit demand for it. Although right now they aren't too difficult
+to infer from the PARange exposed to the guest.
 
 Thanks,
-Ashish Mhetre
+Wei-Lin Chang
+
+> 
+> Thanks,
+> Itaru.
+> 
+> > 
+> > Second thing is I still can't get what you are confused about, if it's
+> > not about the first point. Note that the "3" in ptdump means it is a
+> > level 3 mapping, not saying the page tables are using 3 levels.
+> > 
+> > Happy to discuss more if you clarify. I'll also check the ia_bits when I
+> > get to it.
+> > 
+> > Thanks,
+> > Wei-Lin Chang
+> > 
+> > > 
+> > > Thanks,
+> > > Itaru.
+> > > 
+> > > > 
+> > > > Thanks,
+> > > > Wei-Lin Chang
+> > > > 
+> > > > > 
+> > > > > Thanks,
+> > > > > Itaru.
+> > > > > 
+> > > > > > 
+> > > > > > * Changes from v1 ([2]):
+> > > > > > 
+> > > > > >   - Move from per mmu ptdump files to one file that will dump all shadow page
+> > > > > >     tables.
+> > > > > > 
+> > > > > > [1]: https://lore.kernel.org/kvmarm/ajty6I7ZqodP4ous@sm-arm-grace07/
+> > > > > > [2]: https://lore.kernel.org/kvmarm/20260623142443.648972-1-weilin.chang@arm.com/
+> > > > > > 
+> > > > > > Wei-Lin Chang (6):
+> > > > > >   KVM: arm64: ptdump: Remove shadow ptdump files
+> > > > > >   KVM: arm64: ptdump: Undo making the ptdump code mmu aware
+> > > > > >   KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
+> > > > > >   KVM: arm64: ptdump: Factor out initialization of
+> > > > > >     kvm_ptdump_guest_state
+> > > > > >   KVM: arm64: ptdump: Extract kvm_ptdump_guest_open() from canonical
+> > > > > >     ptdump path
+> > > > > >   KVM: arm64: ptdump: Introduce the shadow ptdump file
+> > > > > > 
+> > > > > >  arch/arm64/include/asm/kvm_host.h |   5 +-
+> > > > > >  arch/arm64/include/asm/kvm_mmu.h  |   4 -
+> > > > > >  arch/arm64/kvm/nested.c           |  18 +--
+> > > > > >  arch/arm64/kvm/ptdump.c           | 185 ++++++++++++++++++++----------
+> > > > > >  4 files changed, 135 insertions(+), 77 deletions(-)
+> > > > > > 
+> > > > > > -- 
+> > > > > > 2.43.0
+> > > > > > 
 
