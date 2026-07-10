@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9FDC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C383C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zJU4rLfB7AKGCfzlYREDI8QDO3dBR7s5B32E3f1O/04=; b=akK3cNPuIb6lY2
-	PVFp0FPMM4Tr2/DQgMLi0vsbzSUuvE0BkEBHPK3tpWMcFNImwUGWqtLolcX43zl37/yQH77kCDcT9
-	o6cFb+87LG6HAo7lxocWBGrC7yABw2UOgilAhM/GCfk7ZigFMR8d0NFJ6BcdVSJD5kGTJk5AbSBxX
-	FzYMgBNPB43xVkYYrBuaVFoOnKmjbvY136O9Q+uo2A2/tta3wfYycHFWsffilFxSuxjQ4TxqrX+NK
-	G5oVR81qV8jzSfIte27T3OKpXN4JiS9HOD0U4LeNJDpSqgLclpkswHPiIxtgvWR0lXpVQCpGO0woI
-	vpK3f1xL2ydxMn99szUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=siduqZ2wtPSfCiwUG4eYK+3EbnxMFmH0JOEC1+cp3Go=; b=0fS7DYLcrkmLMEF0Ba9XrNjn0b
+	1vmt2/ldLMtIAGk9ZzLT1eghkM3QqTDlddd0pGpOQgOv5gd/77Dn+brzLZ4etpb2eK3DH/T7d9bxq
+	5UGSFnruVMh7oBEOuCkgk9prVhlJJnWXKhuI9r0bDv6nxnAc+RSiSxipURA1hb2kaDP6xanBBA9qi
+	2SyERshUgZwyPJSYbi39qlQgFjVAOzOWgZWHu12be+YrLRNuoXka66+Ky1pHkuOq6vZOuqVcSTDJU
+	nKiPoHXVCt6H0Q21sg+vyasLEBnNP550OoZTeIsNwW6bJMQrCnpTk6ek9sBJu29uu8DMH5pslACca
+	TN+es8mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6nA-00000004Tmh-1Mbi;
-	Fri, 10 Jul 2026 08:41:04 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wi6q5-00000004U3u-3dbC;
+	Fri, 10 Jul 2026 08:44:05 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6n6-00000004TlJ-0Upr
+	id 1wi6q2-00000004U2t-2iCY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:41:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=zJU4rLfB7AKGCfzlYREDI8QDO3dBR7s5B32E3f1O/04=;
-	b=OcqkXoXhDUfznoNw1dkVWBZbCwPjI4WzygWya6ioiIqBwudgp+XFOMUy+4IQC3sc97oGRBRyA
-	3m1gZUx0KqXE0lDyIDb4TURoeYk6Fsf0UoavcRmkheIT7G0geDqyEpPs8hXbJJQ2XTf2Ooxw69m
-	SuQ4t1F2rpHwmHpVop9p8CA=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gxQ650zt0zKmb1;
-	Fri, 10 Jul 2026 16:31:25 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DD2914057A;
-	Fri, 10 Jul 2026 16:40:42 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 16:40:42 +0800
-Message-ID: <cb05707e-f623-4058-8c28-031b77f4454e@huawei.com>
-Date: Fri, 10 Jul 2026 16:40:41 +0800
+	Fri, 10 Jul 2026 08:44:04 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RqJ7+/XehtzauyxjlDRGd8n3tbZ/vstB+EUY4hfl3IcLRir2y48TqcgSkpJMtA4NgrQfLStzPkRTPRQW/GfaEbW@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783673039;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=siduqZ2wtPSfCiwUG4eYK+3EbnxMFmH0JOEC1+cp3Go=;
+	b=IVrLQq/MYYZRMw27PyHScXd04kBjscpRnUq0Iw5EEOOeUZJKcIhfz/J1Ufm6cekAR3yhp8
+	uh2o3pSFQvSFwBiiMVgHpFW4HMRAYmK9lRRLKgcxkWrrmFWKyXojEW71ksoxzH+PhhAhAR
+	HPte/k7g6lWT7AwuOt41XCEMDudN+8A=
+X-Gm-Message-State: AOJu0Yx5qA7IkV9Ss7wgkiwycOzJNZTPo7wCGW239Ciy2qMJafEdpRmJ
+	NHfF+GX7BUE3ur0cwcn0dwDAX3W4A7v/Nu0xIBIzkXDKxOR/+WDhD9AshpTSD4A1nCMwY+DbeV3
+	4y3Ofp2nsmhXlw/u9rsDWrXdX8yVvCSH+75UA2ke+
+X-Received: by 2002:a05:622a:5908:b0:517:5e32:2d14 with SMTP id
+ d75a77b69052e-51caa298ab4mr8006471cf.10.1783673035194; Fri, 10 Jul 2026
+ 01:43:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 09/36] arm64: irqflags: introduce arm64-specific
- irqflags type
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-10-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-10-vladimir.murzin@arm.com>
+References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
+In-Reply-To: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 10 Jul 2026 09:43:17 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzgFA0_Pu5FkSAx46Ax9hdGS0QYCVAf+UcFvjgWWgAfZw@mail.gmail.com>
+X-Gm-Features: AUfX_mxrvzBv6NCMbjRMoOO6a2K0vxT04s13QWsrnVddbkkVnfBSRhldHB06vuw
+Message-ID: <CA+EHjTzgFA0_Pu5FkSAx46Ax9hdGS0QYCVAf+UcFvjgWWgAfZw@mail.gmail.com>
+Subject: Re: [PATCH v12 00/29] KVM: arm64: Implement support for SME
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	Jean-Philippe Brucker <jpb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	Peter Maydell <peter.maydell@linaro.org>, Eric Auger <eric.auger@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_014100_791873_EA587C67 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20260710_014403_089630_16D25107 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,342 +79,193 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
+
+[snip]
+
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+
+Gave this a spin on top of v7.2-rc2, applied cleanly and built fine.
+
+Booted a host+guest with the host in VHE and in nVHE mode, and booted
+both a normal guest and a protected guest under pKVM. All came up
+cleanly. Note that a protected guest doesn't get SME, but it boots
+fine without it.
+
+Ran set_id_regs against a guest in all three host configurations (VHE,
+nVHE, and protected/pKVM); all passed, with the new SME ID-register
+checks actually executing rather than skipping, since QEMU's max CPU
+exposes SME2.
+
+Also ran get-reg-list, since patch 28 adds the SME registers to the
+expected reg list, so it's the regression guard confirming the
+guest-visible register set matches what the series intends to expose.
+It passed too.
+
+Will start reviewing soon. For now:
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
 
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> With pseudo-NMIs enabled, we have two mechanisms that control
-> interrupt masking in parallel :
-> - The DAIF flags, masking at the CPU
-> - The GIC PMR, masking before the CPU
-> 
-> However, our irqflags implementation currently assumes that only one
-> of the two is used at a time, so both DAIF and PMR masking use the same
-> `unsigned long flags` in their own way.
-> This is incorrect, as some parts of the kernel will mask interrupts
-> with DAIF directly or bypass the local_irq masking via the PMR,
-> and makes tracking the state and changes of both in parallel impossible.
-> 
-> The irqflags API expects `unsigned long`s to be passed around, but
-> they should not be manipulated outside of the arch-specific code.
-> So, we can encode the information we need however we want as long as
-> we return and accept `unsigned long`s.
-> 
-> Introduce a union type for arm64 irqflags whose first member is
-> a struct allowing us to track DAIF and PMR in parallel, and the second
-> is the `unsigned long` expected by the irqflags API.
-> 
-> DAIF is a two byte value, to maintain compatibility with existing defines.
-> PMR is a one byte value, which is the maximum amount of priority bits
-> allowed by the GICv3 architecture.
-> 
-> Update the internal irqflags functions to use this new union and convert
-> back and forth with the irqflags unsigned long.
-> There should be no functional changes.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 > ---
->  arch/arm64/include/asm/irqflags.h | 80 ++++++++++++++++++++-----------
->  1 file changed, 53 insertions(+), 27 deletions(-)
-
-I believe that using the newly introduced arm64_exc_hwstate_t only at
-the lowest level results in the least changes and is the most readable.
-
-otherwise, LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-arch/arm64/include/asm/irqflags.h | 42
-++++++++++++++++++++++++++++++++++++------
- 1 file changed, 36 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/include/asm/irqflags.h
-b/arch/arm64/include/asm/irqflags.h
-index a8cb5a5c93b7..4b4521007183 100644
---- a/arch/arm64/include/asm/irqflags.h
-+++ b/arch/arm64/include/asm/irqflags.h
-@@ -9,6 +9,8 @@
- #include <asm/ptrace.h>
- #include <asm/sysreg.h>
-
-+#include <linux/compiler.h>
-+
- /*
-  * Aarch64 has flags for masking: Debug, Asynchronous (serror),
-Interrupts and
-  * FIQ exceptions, in the 'daif' register. We mask and unmask them in
-'daif'
-@@ -20,6 +22,22 @@
-  * exceptions should be unmasked.
-  */
-
-+ /*
-+  * Internally, we want to independently manipulate and track the different
-+  * interrupt masking mechanisms.
-+  * Externally, the generic irqflags API expects unsgined longs to
-represent
-+  * the state of interrupts, which are treated as obscure arch-specific
-data.
-+  */
-+typedef union arm64_exc_hwstate {
-+       struct {
-+               u16 daif;
-+               u8 pmr;
-+       };
-+       unsigned long flags;
-+} arm64_exc_hwstate_t;
-+
-+static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
-+
- static __always_inline void __daif_local_irq_enable(void)
- {
-        barrier();
-@@ -79,12 +97,16 @@ static __always_inline void arch_local_irq_disable(void)
-
- static __always_inline unsigned long __daif_local_save_flags(void)
- {
--       return read_sysreg(daif);
-+       arm64_exc_hwstate_t state = { .daif = read_sysreg(daif) };
-+
-+       return state.flags;
- }
-
- static __always_inline unsigned long __pmr_local_save_flags(void)
- {
--       return read_sysreg_s(SYS_ICC_PMR_EL1);
-+       arm64_exc_hwstate_t state = { .pmr =
-read_sysreg_s(SYS_ICC_PMR_EL1) };
-+
-+       return state.flags;
- }
-
- /*
-@@ -101,12 +123,16 @@ static __always_inline unsigned long
-arch_local_save_flags(void)
-
- static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
- {
--       return flags & PSR_I_BIT;
-+       arm64_exc_hwstate_t hwstate = { .flags = flags };
-+
-+       return hwstate.daif & PSR_I_BIT;
- }
-
- static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
- {
--       return flags != GIC_PRIO_IRQON;
-+       arm64_exc_hwstate_t hwstate = { .flags = flags };
-+
-+       return hwstate.pmr != GIC_PRIO_IRQON;
- }
-
- static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
-@@ -171,15 +197,19 @@ static __always_inline unsigned long
-arch_local_irq_save(void)
-
- static __always_inline void __daif_local_irq_restore(unsigned long flags)
- {
-+       arm64_exc_hwstate_t hwstate = { .flags = flags };
-+
-        barrier();
--       write_sysreg(flags, daif);
-+       write_sysreg(hwstate.daif, daif);
-        barrier();
- }
-
- static __always_inline void __pmr_local_irq_restore(unsigned long flags)
- {
-+       arm64_exc_hwstate_t hwstate = { .flags = flags };
-+
-        barrier();
--       write_sysreg_s(flags, SYS_ICC_PMR_EL1);
-+       write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-        pmr_sync();
-        barrier();
- }
-
-
-> 
-> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
-> index a8cb5a5c93b7..7775904ba6a9 100644
-> --- a/arch/arm64/include/asm/irqflags.h
-> +++ b/arch/arm64/include/asm/irqflags.h
-> @@ -9,6 +9,8 @@
->  #include <asm/ptrace.h>
->  #include <asm/sysreg.h>
->  
-> +#include <linux/compiler.h>
-> +
->  /*
->   * Aarch64 has flags for masking: Debug, Asynchronous (serror), Interrupts and
->   * FIQ exceptions, in the 'daif' register. We mask and unmask them in 'daif'
-> @@ -20,6 +22,22 @@
->   * exceptions should be unmasked.
->   */
->  
-> + /*
-> +  * Internally, we want to independently manipulate and track the different
-> +  * interrupt masking mechanisms.
-> +  * Externally, the generic irqflags API expects unsgined longs to represent
-> +  * the state of interrupts, which are treated as obscure arch-specific data.
-> +  */
-> +typedef union arm64_exc_hwstate {
-> +	struct {
-> +		u16 daif;
-> +		u8 pmr;
-> +	};
-> +	unsigned long flags;
-> +} arm64_exc_hwstate_t;
-> +
-> +static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
-> +
->  static __always_inline void __daif_local_irq_enable(void)
->  {
->  	barrier();
-> @@ -77,14 +95,14 @@ static __always_inline void arch_local_irq_disable(void)
->  	}
->  }
->  
-> -static __always_inline unsigned long __daif_local_save_flags(void)
-> +static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
->  {
-> -	return read_sysreg(daif);
-> +	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
->  }
->  
-> -static __always_inline unsigned long __pmr_local_save_flags(void)
-> +static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
->  {
-> -	return read_sysreg_s(SYS_ICC_PMR_EL1);
-> +	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
->  }
->  
->  /*
-> @@ -93,28 +111,32 @@ static __always_inline unsigned long __pmr_local_save_flags(void)
->  static __always_inline unsigned long arch_local_save_flags(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_local_save_flags();
-> +		return __pmr_local_save_flags().flags;
->  	} else {
-> -		return __daif_local_save_flags();
-> +		return __daif_local_save_flags().flags;
->  	}
->  }
->  
-> -static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
-> +static __always_inline
-> +bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
->  {
-> -	return flags & PSR_I_BIT;
-> +	return hwstate.daif & PSR_I_BIT;
->  }
->  
-> -static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
-> +static __always_inline
-> +bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
->  {
-> -	return flags != GIC_PRIO_IRQON;
-> +	return hwstate.pmr != GIC_PRIO_IRQON;
->  }
->  
->  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
->  {
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
->  	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_irqs_disabled_flags(flags);
-> +		return __pmr_irqs_disabled_flags(hwstate);
->  	} else {
-> -		return __daif_irqs_disabled_flags(flags);
-> +		return __daif_irqs_disabled_flags(hwstate);
->  	}
->  }
->  
-> @@ -137,49 +159,51 @@ static __always_inline bool arch_irqs_disabled(void)
->  	}
->  }
->  
-> -static __always_inline unsigned long __daif_local_irq_save(void)
-> +static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
->  {
-> -	unsigned long flags = __daif_local_save_flags();
-> +	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
->  
->  	__daif_local_irq_disable();
->  
-> -	return flags;
-> +	return hwstate;
->  }
->  
-> -static __always_inline unsigned long __pmr_local_irq_save(void)
-> +static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
->  {
-> -	unsigned long flags = __pmr_local_save_flags();
-> +	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
->  
->  	/*
->  	 * There are too many states with IRQs disabled, just keep the current
->  	 * state if interrupts are already disabled/masked.
->  	 */
-> -	if (!__pmr_irqs_disabled_flags(flags))
-> +	if (!__pmr_irqs_disabled_flags(hwstate))
->  		__pmr_local_irq_disable();
->  
-> -	return flags;
-> +	return hwstate;
->  }
->  
->  static __always_inline unsigned long arch_local_irq_save(void)
->  {
->  	if (system_uses_irq_prio_masking()) {
-> -		return __pmr_local_irq_save();
-> +		return __pmr_local_irq_save().flags;
->  	} else {
-> -		return __daif_local_irq_save();
-> +		return __daif_local_irq_save().flags;
->  	}
->  }
->  
-> -static __always_inline void __daif_local_irq_restore(unsigned long flags)
-> +static __always_inline
-> +void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
->  {
->  	barrier();
-> -	write_sysreg(flags, daif);
-> +	write_sysreg(hwstate.daif, daif);
->  	barrier();
->  }
->  
-> -static __always_inline void __pmr_local_irq_restore(unsigned long flags)
-> +static __always_inline
-> +void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
->  {
->  	barrier();
-> -	write_sysreg_s(flags, SYS_ICC_PMR_EL1);
-> +	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->  	pmr_sync();
->  	barrier();
->  }
-> @@ -189,10 +213,12 @@ static __always_inline void __pmr_local_irq_restore(unsigned long flags)
->   */
->  static __always_inline void arch_local_irq_restore(unsigned long flags)
->  {
-> +	arm64_exc_hwstate_t hwstate = { .flags = flags };
-> +
->  	if (system_uses_irq_prio_masking()) {
-> -		__pmr_local_irq_restore(flags);
-> +		__pmr_local_irq_restore(hwstate);
->  	} else {
-> -		__daif_local_irq_restore(flags);
-> +		__daif_local_irq_restore(hwstate);
->  	}
->  }
->  
-
+> Changes in v12:
+> - Resend with commit rather than tag object specified as the base.
+> - Link to v11: https://patch.msgid.link/20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org
+>
+> Changes in v11:
+> - Rebase onto v7.2-rc2.
+> - Rework VL enumeration.
+> - Refactor ZCR and SMCR value generation for the host into helper
+>   functions.
+> - Add handling of FEAT_IDST for hidden system registers.
+> - Ensure we manage traps correctly for emulated EL2.
+> - Always allocate space for ZT0 if the hardware supports it.
+> - Tighten the register enumeration ABI to reflect current VM state.
+> - Sanitise SMIDR_EL1.
+> - Fix generation of invalid values in set_id_regs.
+> - Various smaller fixups, including from Jean-Phillipe's review.
+> - Link to v10: https://patch.msgid.link/20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org
+>
+> Changes in v10:
+> - Define and use a SME_VQ_INVALID for the case where there is no
+>   virtuablisable SME VL.
+> - Fix handling of SMCR_EL2 accesses.
+> - Correct VNCR constant for SMPRI_EL2.
+> - Correct trapping for SMPRI_EL1.
+> - Reject userspace access to FFR when in streaming mode without FA64.
+> - Constrain the VL set by sme_cond_update_smcr() to fit within LEN.
+> - Reject userspace access to ZA and ZT0 when SVCR.SM is 0.
+> - Use -EACCESS for inaccessible SME registers.
+> - Remove some unused functions.
+> - Further bugfixes from review.
+> - Commit log typo fixes.
+>
+> - Link to v9: https://patch.msgid.link/20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org
+>
+> Changes in v9:
+> - Rebase onto v6.19-rc1.
+> - ABI document clarifications.
+> - Add changes dropping asserts on single bit wide bitfields in set_id_regs.
+> - Link to v8: https://lore.kernel.org/r/20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org
+>
+> Changes in v8:
+> - Small fixes in ABI documentation.
+> - Link to v7: https://lore.kernel.org/r/20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org
+>
+> Changes in v7:
+> - Rebase onto v6.17-rc1.
+> - Handle SMIDR_EL1 as a VM wide ID register and use this in feat_sme_smps().
+> - Expose affinity fields in SMIDR_EL1.
+> - Remove SMPRI_EL1 from vcpu_sysreg, the value is always 0 currently.
+> - Prevent userspace writes to SMPRIMAP_EL2.
+> - Link to v6: https://lore.kernel.org/r/20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org
+>
+> Changes in v6:
+> - Rebase onto v6.16-rc3.
+> - Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org
+>
+> Changes in v5:
+> - Rebase onto v6.15-rc2.
+> - Add pKVM guest support.
+> - Always restore SVCR.
+> - Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org
+>
+> Changes in v4:
+> - Rebase onto v6.14-rc2 and Mark Rutland's fixes.
+> - Expose SME to nested guests.
+> - Additional cleanups and test fixes following on from the rebase.
+> - Flush register state on VMM PSTATE.{SM,ZA}.
+> - Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org
+>
+> Changes in v3:
+> - Rebase onto v6.12-rc2.
+> - Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226cb180bb@kernel.org
+>
+> Changes in v2:
+> - Rebase onto v6.7-rc3.
+> - Configure subfeatures based on host system only.
+> - Complete nVHE support.
+> - There was some snafu with sending v1 out, it didn't make it to the
+>   lists but in case it hit people's inboxes I'm sending as v2.
+>
+> ---
+> Mark Brown (29):
+>       arm64/sysreg: Define full value read/modify/write helpers
+>       arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
+>       arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
+>       arm64/sve: Factor virtualizable VL discovery out of SVE specific code
+>       arm64/fpsimd: Determine maximum virtualisable SME vector length
+>       KVM: arm64: Handle FEAT_IDST for guest accesses to hidden registers
+>       KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
+>       KVM: arm64: Rename SVE finalization constants to be more general
+>       KVM: arm64: Define internal features for SME
+>       KVM: arm64: Rename sve_state_reg_region
+>       KVM: arm64: Store vector lengths in an array
+>       KVM: arm64: Factor SVE code out of fpsimd_lazy_switch_to_host()
+>       KVM: arm64: Document the KVM ABI for SME
+>       KVM: arm64: Implement SME vector length configuration
+>       KVM: arm64: Support SME control registers
+>       KVM: arm64: Support TPIDR2_EL0
+>       KVM: arm64: Support SME identification registers for guests
+>       KVM: arm64: Support SME priority registers
+>       KVM: arm64: Support userspace access to streaming mode Z and P registers
+>       KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
+>       KVM: arm64: Expose SME specific state to userspace
+>       KVM: arm64: Context switch SME state for guests
+>       KVM: arm64: Handle SME exceptions
+>       KVM: arm64: Expose SME to nested guests
+>       KVM: arm64: Provide interface for configuring and enabling SME for guests
+>       KVM: arm64: selftests: Remove spurious check for single bit safe values
+>       KVM: arm64: selftests: Skip impossible invalid value tests
+>       KVM: arm64: selftests: Add SME system registers to get-reg-list
+>       KVM: arm64: selftests: Add SME to set_id_regs test
+>
+>  Documentation/virt/kvm/api.rst                   | 124 +++++---
+>  arch/arm64/include/asm/fpsimd.h                  |  17 +-
+>  arch/arm64/include/asm/kvm_emulate.h             |  16 +
+>  arch/arm64/include/asm/kvm_host.h                | 113 ++++++-
+>  arch/arm64/include/asm/kvm_hyp.h                 |   2 +-
+>  arch/arm64/include/asm/kvm_nested.h              |   2 +
+>  arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
+>  arch/arm64/include/asm/sysreg.h                  |   8 +
+>  arch/arm64/include/asm/vncr_mapping.h            |   2 +
+>  arch/arm64/include/uapi/asm/kvm.h                |  34 +++
+>  arch/arm64/kernel/cpufeature.c                   |   2 -
+>  arch/arm64/kernel/fpsimd.c                       | 134 ++++----
+>  arch/arm64/kvm/arm.c                             |  10 +
+>  arch/arm64/kvm/config.c                          |  12 +-
+>  arch/arm64/kvm/emulate-nested.c                  |   6 +-
+>  arch/arm64/kvm/fpsimd.c                          |  27 +-
+>  arch/arm64/kvm/guest.c                           | 369 ++++++++++++++++++++---
+>  arch/arm64/kvm/handle_exit.c                     |  14 +
+>  arch/arm64/kvm/hyp/include/hyp/switch.h          | 234 +++++++++++---
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       |  96 +++---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c               | 129 ++++++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  90 ++++--
+>  arch/arm64/kvm/hyp/nvhe/switch.c                 |   2 +
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
+>  arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c               |   7 +
+>  arch/arm64/kvm/inject_fault.c                    |  15 +
+>  arch/arm64/kvm/nested.c                          |   8 +-
+>  arch/arm64/kvm/reset.c                           | 159 +++++++---
+>  arch/arm64/kvm/sys_regs.c                        | 152 +++++++++-
+>  include/uapi/linux/kvm.h                         |   1 +
+>  tools/testing/selftests/kvm/arm64/get-reg-list.c |  15 +-
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c  |  96 +++++-
+>  33 files changed, 1554 insertions(+), 367 deletions(-)
+> ---
+> base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
+> change-id: 20230301-kvm-arm64-sme-06a1246d3636
+>
+> Best regards,
+> --
+> Mark Brown <broonie@kernel.org>
+>
 
