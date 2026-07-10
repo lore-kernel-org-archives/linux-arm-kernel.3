@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881B7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3892EC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AjjxI9FLTDh0hcZV/8jaLFol26sz2jvRRKSz+sxvK+c=; b=x+uLd9kd2oJNnjqaIJorx1lsii
-	RFk5ydu6Q/gwMcyWaL6oNhWoUMPfB8ofyc980baAIPJKZJd1uGrYt6AoGQc2tepVCZuGeD1kba+7M
-	z0T/ZgMrZx6gTG4IkAHfEUpxskBXcBlgWMui22R15pWMi9HURQ3IaaIqYX6WUpe1VJGFtJiHloUBP
-	cUu0j2JACW8bJ7ZuwUWf+d20tvueCT0Bs1tm2HmMHccBHCMwrc2KTAejjxuNVJvWaWsnrKHQIGYpn
-	k6pQFtzGqh/Gv/27pQXfYICRNZmNsnIyVn/7L2yGbi1k3DWcTWMU5e76lEyLnjA+c7GA9Ax1thAYL
-	iYUWV/3w==;
+	bh=v6jXmQlYKLG6/+b28m7jod1WCtSytnvjTVSDOiebZDU=; b=YBFaC++ITwzWzd03alWLPFf37t
+	Gz2dA6vTrKZIbx2528JpG5jlBCCcQWV5Ra3XWz2cgI/rDwLUIrJ65XIQOy8Dv13GlnYKifCrUgzWk
+	nWNaRoc9wtJuzStIBhMKoR4IRVvkiXqQU6kQ9PFpo2H3egA8hFtvTTCY21i3HA1XtMqd3nIGvxbfT
+	hc2EIDG59RMYfClwLt0pmNpwJ3wNPXPhtuDXq/NR8VxX/nZxS34vkOJr/gDTceJ9Z7zs1hGCth6tb
+	SmYUABonFZTNATH0hkMsunBspYPS3O+Je7w87PelW1lOpp2wPqm0kBUJPZSO2nUz9yukObpxmhEaM
+	2F12uD/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiENA-00000005Jf0-3wCG;
+	id 1wiENA-00000005Jet-3Dw0;
 	Fri, 10 Jul 2026 16:46:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiEMr-00000005J9B-0xCy;
+	id 1wiEMr-00000005J97-0KBn;
 	Fri, 10 Jul 2026 16:46:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1783701978;
-	bh=MGpikBa/aaqvkv65oP/N23ryrQe5o83Pvtc6osrktIs=;
+	bh=gjt94yB7OMQ1kbenpTWsg4rbaygeNwSXNZrsMwALuYQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SIhMqYXZ8YsbXNvoWhppTMN8LetxDBdfEUHKxq4Ff3ZcvH92nWj60bryBPVZjM4ed
-	 nmbLHR6tCnFiZMYTvogVVnHxP0N0i8Yxn6MxNquiXjQ0yMPHGjdqYG8UN2RRkcHvIf
-	 QKHUDQQ1JSVAJs9MLqyXOJAoHrYsO0laElOsp+3abnEf9FhG8dQX2JGVQmvHNn7OlU
-	 mTdQP1sW4LFmd/wvlH9xBiNTduRUh1RI4qEFblgbmgBjNgXRPOTKegGZ5303gpzREC
-	 AzJHvXKNNhvZkcdexbyWMfJh1KraYvsm4Wk30dwwOx+JzEbVbfET+P4IYPVYYDaboR
-	 R+zZEGjYmwI/w==
+	b=JqyTaoFd+mlc/cn9VMI9Wttow2ObHIHPukiUrsNhkj+BFjFAN5tHj+LjuPhk5m4Va
+	 h9JJ+btty6yT8rS2rDkTOcSd4gdVPoty4tAUeWPYSMkUKiZ4Gp5XZa9ozBVsaQfW9r
+	 h1vQmEScJdh0m9l0D/qsx0cXRMlHRz9CcCw3kq06I6QPhSheOknZVD5q0M+TGFUV5S
+	 1/fg6hvrjRnCYX57vjgQDh3FUeYCKDgVyxdTfgPcjQaU9aZ6xHHseaM2Vv/H/4mQkk
+	 YTRlayEBeE82XldkwOsNVzBM8i+ralbYxd2fH3CgU4Q3G0RJS3JSF2tmrQh8Eode5h
+	 N0kU+5TBbX47A==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8C3D617E0FAB;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 798C517E0EF3;
 	Fri, 10 Jul 2026 18:46:18 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id E8FEB48003D; Fri, 10 Jul 2026 18:46:17 +0200 (CEST)
+	id E2748480031; Fri, 10 Jul 2026 18:46:17 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 10 Jul 2026 18:44:47 +0200
-Subject: [PATCH v12 09/36] phy: rockchip: usbdp: Fix LFPS detect threshold
- control
+Date: Fri, 10 Jul 2026 18:44:43 +0200
+Subject: [PATCH v12 05/36] phy: rockchip: usbdp: Handle missing clock-names
+ DT property gracefully
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-rockchip-usbdp-cleanup-v12-9-8b41a9a9bef0@collabora.com>
+Message-Id: <20260710-rockchip-usbdp-cleanup-v12-5-8b41a9a9bef0@collabora.com>
 References: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
 In-Reply-To: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -70,28 +70,28 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
- William Wu <william.wu@rock-chips.com>
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1521;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1302;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=6XR1qE8oQQO8DmAkgt9+gIoazIh1eRLq97pcAr0j0tg=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdhWwk5OJcA4RK90Qpw6OH8LM9Pamhn5k
- Xgw9rZzdHn4yokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHYAAoJENju1/PI
- O/qaaDQP/jCE30hKyl24CTozz6YQn/I7OJIROc3lxxM63PjydjYowzgToobXlEBLn8ShbDXvT7D
- aCAzmBz/e/UfoFYQUXKhEIUhZWTYViaITPvt3E0+7xgWwRtSpUywNbrmgT6GB9ivdxl80vjdFZY
- UoVXwRKTqPJjvMPJhFCiBWm+XPNyGw6coShJK2R9LTNy9NCZXJiJP5FqhSvQLulcP++rjHXCXrH
- CAOTW6k7DuAA6LB1dUo3cBH9sqILgT8z/qBryWHrV2vV9BvZo8MLR6jDGaTysxFEGYAJU5HwoYF
- QJDsJfhKkg4DMDmx6YgjlWDBKzi5SK4bncSNVL+8StF9TzDYVV5ioEqfhyqctgdf4VE64Ar+Hk6
- tO2Sm1+ZjzmPM++iTo2WFTgQI45NgpigArKdWlSEQ/WuKh8Q9XgW0BmJlS9kZgVx4S7slgyKWWE
- jM9gwiEH9sZuRk/DatHhWIV2Pqkb6I/QvmXzXhR10uEnyA0zPiy07GOuVVm70bRcdtAMhovave2
- IcoxoHOm/35LUWRdDR6EhRS0Dmej0BfSaAH6s6vub/+ayx1GSzfzUTGOA/Uit9RI8zHAdBVgnLR
- 3+NqdaUlX46ldkNKP0kyKPPlg5lSq2yX1wjvsmjjaOL9ziy2lquPmcxXxYT+boFSP9qKKNjpsS4
- hevpqWeQlU1jz5aTRKConxw==
+ bh=gjt94yB7OMQ1kbenpTWsg4rbaygeNwSXNZrsMwALuYQ=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdjsPCaJlc+z5dSBjtjq7bN6bho0S+VeM
+ DXYsyxGqpNcB4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHYAAoJENju1/PI
+ O/qaEL4P/3dJv/u35phqgsrJeDDE84FYklkPbBWSOAcYSYLvpfO1AMCs1vLnM3l88r8o2dVsbif
+ 3008tKUuq3uSr25g2d4Des2XD7n5wuS6LO6rgvE4AtxxK2WoaT/GExr32F1lUtvwMQqXSzUlnvZ
+ hJGm7szS5+T7qr9LKBD8a00hLKZRJLapomIqCuGJON95u8b9lkgQQP35ONXT2dxYYALDOsA8Lht
+ 0rip85XoYCu8E/0cQO/8wwVVoEZxMl71uVC8z+/v2eUNaAOSmjljdoAKUcolYfO3ku0H+cAbnml
+ 8Bvy/TiS+jAGa/VMLGUD1ftrWynmRGhDLqcJH8lTOtWga71rRtgYqsv3sjoJviZlHKrY3wNTqhq
+ ZtmBPzjqUtKnB2n3xWBEqk5TH7QVBW7PduYhvuYA4qB0TfPNBfavkqrtHPTocClvVTAMxcLAPb2
+ HZKiHja8CWeS9kAki68hWJU5jZFI2kvCoEhIl9dGD6gBhl0xi/OTTD2UljZcme0ejamC2E3VNqr
+ dYY5C+be5HbV2CeZj4Z45jiMgvFIy2WSIVWeQgjWW01rjuS5rRdelWhUMswFwOeOMyHj0YilScC
+ UIfzt8XnHTU6PLfOD3figYo8ZVgoXv5j4PW+jSdxhlLAuP250LENsWFrYubPSM9jWCWr7xVOV25
+ J2DD4iGTNEXpQ5F5tNMkvbg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_094625_503215_5F6CCECE 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20260710_094625_284305_FA02F4F0 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: William Wu <william.wu@rock-chips.com>
+The rk_udphy_clk_init() function would currently try to do a strncmp for
+a NULL pointer, if DT specifies 'clocks' property, but no 'clock-names'
+property. Fix this by making sure the clock has an id string set.
 
-According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],
-the device under test(DUT) must not respond if LFPS below the
-minimum LFPS Rx Detect Threshold 100mV. Test fail on Rockchip
-platforms, because the default LFPS detect threshold is set to
-65mV.
+Note that DT binding requires setting clock-names, so this is only a
+problem when booting a non-compliant device tree.
 
-The USBDP PHY LFPS detect threshold voltage could be set to
-30mV ~ 140mV, and since there could be 10-20% PVT variation,
-we set LFPS detect threshold voltage to 110mV.
-
-[1] https://compliance.usb.org/resources/LFPS_Rx_Tx_Low_Power_Compliance_Update_Rev5.pdf
-
-Signed-off-by: William Wu <william.wu@rock-chips.com>
-[Taken over from rockchip's kernel tree; the registers are not described
-in the TRM]
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/message/20260619154349.071321F000E9%40smtp.kernel.org
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index cb6acadfbccf..982315535caf 100644
+index 2845a012eafc..3fc8222fcaec 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -413,7 +413,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
- 	{0x0070, 0x7d}, {0x0074, 0x68},
- 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
- 	{0x0440, 0x3f}, {0x10d4, 0x08},
--	{0x20d4, 0x08}, {0x0024, 0x6e}
-+	{0x20d4, 0x08}, {0x0024, 0x6e},
-+	{0x09c0, 0x0a}, {0x19c0, 0x0a}
- };
+@@ -432,6 +432,9 @@ static int rk_udphy_clk_init(struct rk_udphy *udphy, struct device *dev)
  
- static inline int rk_udphy_grfreg_write(struct regmap *base,
+ 	/* used for configure phy reference clock frequency */
+ 	for (i = 0; i < udphy->num_clks; i++) {
++		if (!udphy->clks[i].id)
++			continue;
++
+ 		if (!strncmp(udphy->clks[i].id, "refclk", 6)) {
+ 			udphy->refclk = udphy->clks[i].clk;
+ 			break;
 
 -- 
 2.53.0
