@@ -4,70 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C383C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5318AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siduqZ2wtPSfCiwUG4eYK+3EbnxMFmH0JOEC1+cp3Go=; b=0fS7DYLcrkmLMEF0Ba9XrNjn0b
-	1vmt2/ldLMtIAGk9ZzLT1eghkM3QqTDlddd0pGpOQgOv5gd/77Dn+brzLZ4etpb2eK3DH/T7d9bxq
-	5UGSFnruVMh7oBEOuCkgk9prVhlJJnWXKhuI9r0bDv6nxnAc+RSiSxipURA1hb2kaDP6xanBBA9qi
-	2SyERshUgZwyPJSYbi39qlQgFjVAOzOWgZWHu12be+YrLRNuoXka66+Ky1pHkuOq6vZOuqVcSTDJU
-	nKiPoHXVCt6H0Q21sg+vyasLEBnNP550OoZTeIsNwW6bJMQrCnpTk6ek9sBJu29uu8DMH5pslACca
-	TN+es8mg==;
+	bh=7fKu+X1fTrpgNOLO84FmZ4J2opQPJQjnoEzMkEITUNU=; b=M3/oq4ibhI4rdMFkrIfkVBH7R8
+	FxDyy64ECfTfqTuK1f3WslqofQ6Tw/UU2tcUX/9k37dzn/CEmD4kBgXp/tP4V2+d6OYBShEcXCo1y
+	QPLYd4aN1l5MyHt7bwl++StRVE6S0B2x6+7fvfdCZxbyenomWs67LcoYBrnI6ghsRfS7xylij7bPA
+	X1+q6CeHlxoVUTnf8zSoPsORMokacORq8KHyJI5Rod2KnSD9Qa6wD9lPf4MmGpji00mjNsMuflPsJ
+	vXeu+6mMmtINdeTdlKCLyoxhs0JZA9EzXyXJePfPtaMONkg/fM64Tl6sW43vjPECUqc9HGYeCL0UZ
+	WhhEkSDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6q5-00000004U3u-3dbC;
-	Fri, 10 Jul 2026 08:44:05 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1wi6sf-00000004ULi-1ixr;
+	Fri, 10 Jul 2026 08:46:45 +0000
+Received: from mail-eastusazon11012048.outbound.protection.outlook.com ([52.101.53.48] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6q2-00000004U2t-2iCY
+	id 1wi6sd-00000004ULA-07km
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:44:04 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqJ7+/XehtzauyxjlDRGd8n3tbZ/vstB+EUY4hfl3IcLRir2y48TqcgSkpJMtA4NgrQfLStzPkRTPRQW/GfaEbW@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783673039;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=siduqZ2wtPSfCiwUG4eYK+3EbnxMFmH0JOEC1+cp3Go=;
-	b=IVrLQq/MYYZRMw27PyHScXd04kBjscpRnUq0Iw5EEOOeUZJKcIhfz/J1Ufm6cekAR3yhp8
-	uh2o3pSFQvSFwBiiMVgHpFW4HMRAYmK9lRRLKgcxkWrrmFWKyXojEW71ksoxzH+PhhAhAR
-	HPte/k7g6lWT7AwuOt41XCEMDudN+8A=
-X-Gm-Message-State: AOJu0Yx5qA7IkV9Ss7wgkiwycOzJNZTPo7wCGW239Ciy2qMJafEdpRmJ
-	NHfF+GX7BUE3ur0cwcn0dwDAX3W4A7v/Nu0xIBIzkXDKxOR/+WDhD9AshpTSD4A1nCMwY+DbeV3
-	4y3Ofp2nsmhXlw/u9rsDWrXdX8yVvCSH+75UA2ke+
-X-Received: by 2002:a05:622a:5908:b0:517:5e32:2d14 with SMTP id
- d75a77b69052e-51caa298ab4mr8006471cf.10.1783673035194; Fri, 10 Jul 2026
- 01:43:55 -0700 (PDT)
+	Fri, 10 Jul 2026 08:46:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fe7DDWXW1CwXIovzhZKtUcUa/Jufv/4nbFPmZ6GPjZznYNJG34lLADwU/Zri1s8LNTTZWBR+Ck7Arcn5yeaaffEp1/QlcEeXNbZYv8b3Vu3V7GB86NGzgI+h4g63msNark2NggGnu3Z4DtvP6UcmGNkuk1ylL+e1VZB2qkhTy9HfpDKlz2Escf1YWVmwpxd9ES3Dv6pTOM98P1V0xT4VUXoqfRjKvkW5+/9j/qRh56FNCDr/VnHl3dmP03zN3mS5qe+VfZrWZe96GIjmDZ7PZeJ1CY+6ZiU7ib6XCTIFwyGk9LhYeYLhLDndf8NDzJKvbgGaKLjPYZr4hX6lWNDStw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7fKu+X1fTrpgNOLO84FmZ4J2opQPJQjnoEzMkEITUNU=;
+ b=CzJK3kQc8zEjKTo9qIv9xbqX0Tez/CHUcPfUqTB5bztPjM6cGBTPW1FBj+8wrXL10QrL6wvIO7c5t9g/YI/71jRPF43jlAZs1XLd6oDeZU3RXzYGbQ1K73vYSWWCldlIN1URfev8lqM+aVINeD7QiAmNrnYfv6Bm72dnioBH95dMq1r9TAR/2Sw2LfvrHFFLUfVicWmWYcyqROx6k1QZLJKkrIQCUTsLbCnhGO/ZE7iPnYaa6De+IG0u/G+oVZzzcH6QjVaA2w587KteBuizkZ2ocbkGX25Mk9gDRivItOdhfvJ+7lbtInHzdV+EWwjj9TEmPS4WCtyXkwIlFhtiOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7fKu+X1fTrpgNOLO84FmZ4J2opQPJQjnoEzMkEITUNU=;
+ b=m3hEs/ZxDD8QGogziD3rtlwV+iydNpR/zqjJ5Usq6Rmf6YVP4R4Hv1USbvdzpReesGeLc6i/Dk2dXait8IqbMI7AH6unXFfYOSvOPX38TZykJrBjfkmRi+HmBP6+XRDV03Fn1ifHR69AcJ/ccVp3Kuv+La/eKjG/Jpad/6weZos=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by IA1PR12MB6409.namprd12.prod.outlook.com (2603:10b6:208:38b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 10 Jul
+ 2026 08:46:30 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
+ 08:46:30 +0000
+Message-ID: <6f823bad-014c-4ac3-9e75-9edcdf28f7b8@amd.com>
+Date: Fri, 10 Jul 2026 10:46:15 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] firmware: scmi: Make SCMI arch independent
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+ linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
+ vincent.guittot@linaro.org, Souvik.Chakravarty@arm.com,
+ Alex Shi <alexs@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ David Lechner <dlechner@baylibre.com>, Dongliang Mu <dzm91@hust.edu.cn>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Guenter Roeck <linux@roeck-us.net>, Jonathan Cameron <jic23@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>, Mark Brown <broonie@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Pavel Machek <pavel@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Philipp Zabel <p.zabel@pengutronix.de>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
+ <skhan@linuxfoundation.org>, Stephen Boyd <sboyd@kernel.org>,
+ Ulf Hansson <ulfh@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Yanteng Si <si.yanteng@linux.dev>, arm-scmi@vger.kernel.org,
+ "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+ linux-arm-kernel@lists.infradead.org,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "open list:HARDWARE MONITORING" <linux-hwmon@vger.kernel.org>,
+ "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
+ "open list:ENERGY MODEL" <linux-pm@vger.kernel.org>
+References: <d7f7e8c9589d937b60e43168845ab4fda15037a3.1783603600.git.michal.simek@amd.com>
+ <ak_Eu_eQKalPMwo-@pluto> <77110e77-941d-4173-b2f5-6f3cf4858339@amd.com>
+ <20260710-lemon-pogona-of-wind-b3a003@sudeepholla>
+ <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
+ <20260710-macho-pristine-tanuki-b0d3ce@sudeepholla>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20260710-macho-pristine-tanuki-b0d3ce@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0133.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::18) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 MIME-Version: 1.0
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
-In-Reply-To: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 10 Jul 2026 09:43:17 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzgFA0_Pu5FkSAx46Ax9hdGS0QYCVAf+UcFvjgWWgAfZw@mail.gmail.com>
-X-Gm-Features: AUfX_mxrvzBv6NCMbjRMoOO6a2K0vxT04s13QWsrnVddbkkVnfBSRhldHB06vuw
-Message-ID: <CA+EHjTzgFA0_Pu5FkSAx46Ax9hdGS0QYCVAf+UcFvjgWWgAfZw@mail.gmail.com>
-Subject: Re: [PATCH v12 00/29] KVM: arm64: Implement support for SME
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Peter Maydell <peter.maydell@linaro.org>, Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|IA1PR12MB6409:EE_
+X-MS-Office365-Filtering-Correlation-Id: c38c7d54-ac41-4636-e332-08dede5fbcc4
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|56012099006|3023799007|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aMIwQ3tXhck8Rr8e17yu1C5kqkZMKApg7XLSCi76tzQfEuPc1FZhEhM94owWGu6uXgcn1d6HVh40bFxtyd26vHHllb9A+RfMNiD5NSybjnPkNMBUEZBSAeRStGD/i3KFhUPOCv5EnAwPwY14L5nmfU/63Tz3yFnL5HVNkRMBHlKfKqx8OIxipVzVOtYm51RvXYwDqCDblFDT8Z2+YkcD3KtQduxIE9ZOwqJR2xpKxvrHMK/rX6aybA5MKUT8xyQa7TrOnTdxygVwcLkSYD3brOxPPVLYUdruSoRjP2h9uHnam/0qO5BcYSL41gCLw5A3lX90sSBhXsXPNsg81HO92YmKqGD0TZtPGD5TwSL3+bTBQpVZSHjKd0xsqHMwitjhytM/GMBEmx7fjJK+wVsrmvfbbaLSDKVQ+a5EXh/hI2+5yfbtWuDGsn3AEQMlvGulrzbwDwhfjku7Do8JOwWR2WD4Uzlj3LjH4uFq6Kt7BpAIb7soXw7BJRqdnXmlOI19xbv4CiTyqv+rFsppsRmdnP+nAhnPDV7I+yzRcxGzurtfoJGwmzsdwDQG29zrwJpdKKugyLdL3X0+ALRuYcEzFFeEd8w+2ck65WUb5Oy4Fdihxz3mchBDKQi74RjcTUuS4V4VSMWzCLwzu4+LuRWpuLJ2i1ipxCoOV5vPpl6qhJY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(56012099006)(3023799007)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cUkyUlNvcWNibDRDT1dyWHNDVC9jYkVGV283bXMzSVpzakRtSkk4T2ErWkww?=
+ =?utf-8?B?K3p5bVZjcWtKeExvTnNVR05xamhPMFVjWnIvL3VTeEpPVXBPVCs0eTQyTWtG?=
+ =?utf-8?B?RkhGcHJVenE4UTJqMVFHV1N2ZG53ZFFIRWRXSTUxSkxIc2R4d2trU0lGWTVS?=
+ =?utf-8?B?WWtzWndLWGU0UmFsTEYrc1lXcmJCOGFQT1BjT1o4NWNBWDN2VXhraE1SZ21m?=
+ =?utf-8?B?cHFDVGd6WldCRVRpcFdUdzVCVXc3Yk9ZM2ozaHhYRXRWZmdyU0Y2Y2phOW0z?=
+ =?utf-8?B?Z0VrcHFmd2tnQS9ZTXJ1aXhtc3ZrZGJZZXhBTHVFYTNHVlZObzlVdFpUSE9Y?=
+ =?utf-8?B?dmFibzllcWhva05RQmZVbHNhSW5JSlpwRXRwc3lIbzNUanJGWTlVK0NCMDNx?=
+ =?utf-8?B?Zk5ZdCtoVElLNDRMM0cwdDk2c0FUQWFYRkhLa1NTTXozWUJXZExtNzRER29L?=
+ =?utf-8?B?R21tdzhBdWtTVlQrb3Q0azhGZE5mN1FpTUt2cXlKY096VlphSkpRMnkyZzQ1?=
+ =?utf-8?B?SHZhV1JHV1MwVDRNQjRHSk5hZlFWakdFNFRDS1NVWTkrRUZDOGtyQkF1M3I1?=
+ =?utf-8?B?YXlsY2NVU2RIend0bk03ekd4Z1RzckZOckpCTjl6OEJJWVZSUjkyTnVWdE0y?=
+ =?utf-8?B?NnFtSUI4L2xzR3hsaVd4em52VW5TUjhkYktDUWpvb2tOb3dGR2VLL1UrWTY1?=
+ =?utf-8?B?TXNEdU9MMnNiUHpBTkdHZHpIVTdFVFdTSDJHK0FTbEdPeGhySC9qN0txRmFR?=
+ =?utf-8?B?SXE3QlBXRklKQVg1bUR2alltSDJPdURSaGlodHlNc0R0ekxkQTZLejdyQS95?=
+ =?utf-8?B?eVA2UGhRTjRxbkdkSFY5bWJ3SzFtSTZrZ0NTYUlEaVBWNGlsdUVRVlZEWWhm?=
+ =?utf-8?B?MmtNUzc5UlQ2RVg1dHFwTnU3VEYxNmViMDB6RHFZSmNzV1M2Vmo4NmRNWk1R?=
+ =?utf-8?B?SS95aE1VWnBjSzNaRWNEc3pVUURVUnhZQUppSEtmMVIxZyt4TmU4SFF5WWtZ?=
+ =?utf-8?B?UVd4bGRMMThnUFozNXRReTJzRnVtNjYwR0tBVXhsamF4SmVrMEFkQlZIRXVx?=
+ =?utf-8?B?Y0p4NFJPZzdJZHJhMElkNXRnKzdaNUEydHJLZDY1NzlmM0NQNDd5bDVOeENs?=
+ =?utf-8?B?WUpyZjVRb3RyeDJaRWVQR0RxSVBTYTJYcE8ySTg2Rjk2V0p2N3ZtblBybzNa?=
+ =?utf-8?B?a0ZIM3EwYkNGSmJaNDhGYVA2SVB0Y2JOU2pHM28vV1JEK0FtV1krVUVnR1Jt?=
+ =?utf-8?B?d29WYWxRVzFyWUlmZmRRMHNZeHIxV0RTK2YzYVUyTDNwbEpTK1ErTkp4NjRZ?=
+ =?utf-8?B?TlVSSnpNYmtuSHlUb2o0aHhpdzEyTXZSb2p3Nk9jc0lUOUprT1RzUlF6SGgw?=
+ =?utf-8?B?T1c5RFVSS0gvZW5uZE0zWEh6NHZjTmNmUFNwYVJ6aUdvWU10R3BDVndNS04w?=
+ =?utf-8?B?UkNaZzBHWm5sRUNhZGQ3K3BqSm96ZTQwdE5aam94VzdNakhUejA2VXdjdmlQ?=
+ =?utf-8?B?M1Q3bUUrQllyVHZ4RU9ab2FLNHpFSEI3ZEtwQkIyOStuSFF1TlJZWmJpK3RC?=
+ =?utf-8?B?amVqZlhSL1hQcnNUN0F4bkNMdk9VMzlReFZadVBSVGpEYzVZY1Z0ZG5tbU9T?=
+ =?utf-8?B?Y2pJNDU0L2g1NDkvTTkxdTloejZab2dIb2hsTXhpY2hxcG9xTDVEMWdDTUVo?=
+ =?utf-8?B?WDU3VHMxS3BzVmNSSkQxWGNiM0phNGpod1N4ejR4KzlJcEtBMlBtSXJjYXhr?=
+ =?utf-8?B?M3pyRWhuTEgzREoxQ2xuZnhlOVFGdCtncGlwZ3ByY0VzdVkwK3NDNmU1Yngx?=
+ =?utf-8?B?dmgwY3ZmTDB6aXY1VUJSZld1TjEvVDNBTlM1bkx2cDZsMllQN0d2SGJGcFFD?=
+ =?utf-8?B?bjNJc1dIbGxicTVFS1pEenZjckFKZEZUUEVUT3grOWE3SUVJdUFOdkpyblVK?=
+ =?utf-8?B?d3o1dENDeW9nWHZEUmNPZ1R1Y2gyK1NpRUFzazF5SlkxZHZnYXVQcWJtTlhD?=
+ =?utf-8?B?V0d0L3VycmlIS3RlMXhoR3VHWXFwSzVONmNTZUNwZTR6bDE4L0syK01PY1Nx?=
+ =?utf-8?B?YXkyY0ZmTjl2NUNkZkxLRmlvRzlWYzZDd2IrWjloMkgxdGp0MklEb1VXV0NM?=
+ =?utf-8?B?S1RHcUFWMGZQOGUrbmFFVjhVMlE4eXc4R2JzOSsyV0dsNFowTk5PTmJlVFpo?=
+ =?utf-8?B?WVdRSFh1MTNRMXVsU09MdG5yVHIzb0pIM2ZPWmFiRVZ1STlidnBZbE01U1pa?=
+ =?utf-8?B?Y1BkcTl0aW1wNkw4MjJWdjlhbHltdW1VVy82UE4rUW1DU0FmQnVlclVnNFJk?=
+ =?utf-8?B?OXo0bitjU1g2Rml5U1pVNk5WV0ZkRFdNK1lMUTJmRGdCUDA3ZW5qdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c38c7d54-ac41-4636-e332-08dede5fbcc4
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 08:46:30.6272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QL9CCApVlJ6c1SPG4rWbgPjWdItz4Kg+5BxBSonElNnuJ1MJV1JwHDM0ZkfzpwE0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6409
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_014403_089630_16D25107 
-X-CRM114-Status: GOOD (  29.87  )
+X-CRM114-CacheID: sfid-20260710_014643_157414_38BFA61A 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,190 +220,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
-
-[snip]
-
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-
-Gave this a spin on top of v7.2-rc2, applied cleanly and built fine.
-
-Booted a host+guest with the host in VHE and in nVHE mode, and booted
-both a normal guest and a protected guest under pKVM. All came up
-cleanly. Note that a protected guest doesn't get SME, but it boots
-fine without it.
-
-Ran set_id_regs against a guest in all three host configurations (VHE,
-nVHE, and protected/pKVM); all passed, with the new SME ID-register
-checks actually executing rather than skipping, since QEMU's max CPU
-exposes SME2.
-
-Also ran get-reg-list, since patch 28 adds the SME registers to the
-expected reg list, so it's the regression guard confirming the
-guest-visible register set matches what the series intends to expose.
-It passed too.
-
-Will start reviewing soon. For now:
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
 
 
-> ---
-> Changes in v12:
-> - Resend with commit rather than tag object specified as the base.
-> - Link to v11: https://patch.msgid.link/20260709-kvm-arm64-sme-v11-0-32799f66db9d@kernel.org
->
-> Changes in v11:
-> - Rebase onto v7.2-rc2.
-> - Rework VL enumeration.
-> - Refactor ZCR and SMCR value generation for the host into helper
->   functions.
-> - Add handling of FEAT_IDST for hidden system registers.
-> - Ensure we manage traps correctly for emulated EL2.
-> - Always allocate space for ZT0 if the hardware supports it.
-> - Tighten the register enumeration ABI to reflect current VM state.
-> - Sanitise SMIDR_EL1.
-> - Fix generation of invalid values in set_id_regs.
-> - Various smaller fixups, including from Jean-Phillipe's review.
-> - Link to v10: https://patch.msgid.link/20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org
->
-> Changes in v10:
-> - Define and use a SME_VQ_INVALID for the case where there is no
->   virtuablisable SME VL.
-> - Fix handling of SMCR_EL2 accesses.
-> - Correct VNCR constant for SMPRI_EL2.
-> - Correct trapping for SMPRI_EL1.
-> - Reject userspace access to FFR when in streaming mode without FA64.
-> - Constrain the VL set by sme_cond_update_smcr() to fit within LEN.
-> - Reject userspace access to ZA and ZT0 when SVCR.SM is 0.
-> - Use -EACCESS for inaccessible SME registers.
-> - Remove some unused functions.
-> - Further bugfixes from review.
-> - Commit log typo fixes.
->
-> - Link to v9: https://patch.msgid.link/20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org
->
-> Changes in v9:
-> - Rebase onto v6.19-rc1.
-> - ABI document clarifications.
-> - Add changes dropping asserts on single bit wide bitfields in set_id_regs.
-> - Link to v8: https://lore.kernel.org/r/20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org
->
-> Changes in v8:
-> - Small fixes in ABI documentation.
-> - Link to v7: https://lore.kernel.org/r/20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org
->
-> Changes in v7:
-> - Rebase onto v6.17-rc1.
-> - Handle SMIDR_EL1 as a VM wide ID register and use this in feat_sme_smps().
-> - Expose affinity fields in SMIDR_EL1.
-> - Remove SMPRI_EL1 from vcpu_sysreg, the value is always 0 currently.
-> - Prevent userspace writes to SMPRIMAP_EL2.
-> - Link to v6: https://lore.kernel.org/r/20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org
->
-> Changes in v6:
-> - Rebase onto v6.16-rc3.
-> - Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org
->
-> Changes in v5:
-> - Rebase onto v6.15-rc2.
-> - Add pKVM guest support.
-> - Always restore SVCR.
-> - Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org
->
-> Changes in v4:
-> - Rebase onto v6.14-rc2 and Mark Rutland's fixes.
-> - Expose SME to nested guests.
-> - Additional cleanups and test fixes following on from the rebase.
-> - Flush register state on VMM PSTATE.{SM,ZA}.
-> - Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org
->
-> Changes in v3:
-> - Rebase onto v6.12-rc2.
-> - Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226cb180bb@kernel.org
->
-> Changes in v2:
-> - Rebase onto v6.7-rc3.
-> - Configure subfeatures based on host system only.
-> - Complete nVHE support.
-> - There was some snafu with sending v1 out, it didn't make it to the
->   lists but in case it hit people's inboxes I'm sending as v2.
->
-> ---
-> Mark Brown (29):
->       arm64/sysreg: Define full value read/modify/write helpers
->       arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
->       arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
->       arm64/sve: Factor virtualizable VL discovery out of SVE specific code
->       arm64/fpsimd: Determine maximum virtualisable SME vector length
->       KVM: arm64: Handle FEAT_IDST for guest accesses to hidden registers
->       KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
->       KVM: arm64: Rename SVE finalization constants to be more general
->       KVM: arm64: Define internal features for SME
->       KVM: arm64: Rename sve_state_reg_region
->       KVM: arm64: Store vector lengths in an array
->       KVM: arm64: Factor SVE code out of fpsimd_lazy_switch_to_host()
->       KVM: arm64: Document the KVM ABI for SME
->       KVM: arm64: Implement SME vector length configuration
->       KVM: arm64: Support SME control registers
->       KVM: arm64: Support TPIDR2_EL0
->       KVM: arm64: Support SME identification registers for guests
->       KVM: arm64: Support SME priority registers
->       KVM: arm64: Support userspace access to streaming mode Z and P registers
->       KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
->       KVM: arm64: Expose SME specific state to userspace
->       KVM: arm64: Context switch SME state for guests
->       KVM: arm64: Handle SME exceptions
->       KVM: arm64: Expose SME to nested guests
->       KVM: arm64: Provide interface for configuring and enabling SME for guests
->       KVM: arm64: selftests: Remove spurious check for single bit safe values
->       KVM: arm64: selftests: Skip impossible invalid value tests
->       KVM: arm64: selftests: Add SME system registers to get-reg-list
->       KVM: arm64: selftests: Add SME to set_id_regs test
->
->  Documentation/virt/kvm/api.rst                   | 124 +++++---
->  arch/arm64/include/asm/fpsimd.h                  |  17 +-
->  arch/arm64/include/asm/kvm_emulate.h             |  16 +
->  arch/arm64/include/asm/kvm_host.h                | 113 ++++++-
->  arch/arm64/include/asm/kvm_hyp.h                 |   2 +-
->  arch/arm64/include/asm/kvm_nested.h              |   2 +
->  arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
->  arch/arm64/include/asm/sysreg.h                  |   8 +
->  arch/arm64/include/asm/vncr_mapping.h            |   2 +
->  arch/arm64/include/uapi/asm/kvm.h                |  34 +++
->  arch/arm64/kernel/cpufeature.c                   |   2 -
->  arch/arm64/kernel/fpsimd.c                       | 134 ++++----
->  arch/arm64/kvm/arm.c                             |  10 +
->  arch/arm64/kvm/config.c                          |  12 +-
->  arch/arm64/kvm/emulate-nested.c                  |   6 +-
->  arch/arm64/kvm/fpsimd.c                          |  27 +-
->  arch/arm64/kvm/guest.c                           | 369 ++++++++++++++++++++---
->  arch/arm64/kvm/handle_exit.c                     |  14 +
->  arch/arm64/kvm/hyp/include/hyp/switch.h          | 234 +++++++++++---
->  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       |  96 +++---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c               | 129 ++++++--
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  90 ++++--
->  arch/arm64/kvm/hyp/nvhe/switch.c                 |   2 +
->  arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
->  arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
->  arch/arm64/kvm/hyp/vhe/sysreg-sr.c               |   7 +
->  arch/arm64/kvm/inject_fault.c                    |  15 +
->  arch/arm64/kvm/nested.c                          |   8 +-
->  arch/arm64/kvm/reset.c                           | 159 +++++++---
->  arch/arm64/kvm/sys_regs.c                        | 152 +++++++++-
->  include/uapi/linux/kvm.h                         |   1 +
->  tools/testing/selftests/kvm/arm64/get-reg-list.c |  15 +-
->  tools/testing/selftests/kvm/arm64/set_id_regs.c  |  96 +++++-
->  33 files changed, 1554 insertions(+), 367 deletions(-)
-> ---
-> base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
-> change-id: 20230301-kvm-arm64-sme-06a1246d3636
->
-> Best regards,
-> --
-> Mark Brown <broonie@kernel.org>
->
+On 7/10/26 10:38, Sudeep Holla wrote:
+> On Fri, Jul 10, 2026 at 09:42:09AM +0200, Michal Simek wrote:
+>>
+>>
+>> On 7/10/26 09:35, Sudeep Holla wrote:
+>>> On Fri, Jul 10, 2026 at 09:03:32AM +0200, Michal Simek wrote:
+>>>>
+>>>>
+>>>> On 7/9/26 17:56, Cristian Marussi wrote:
+>>>>> On Thu, Jul 09, 2026 at 03:27:00PM +0200, Michal Simek wrote:
+>>>>>> On heterogenious systems like AMD/Xilinx FPGA there is a need to talk to
+>>>>>> SCMI server from different architectures than ARM that's why remove
+>>>>>> ARM/ARM64 Kconfig dependency with also remove ARM from description and
+>>>>>> rename folder to reflect it.
+>>>>>
+>>>>> While I understand dropping the dependency on ARM (I always wanted to do
+>>>>> that and test if it worked at all on some otehr archs with QEMU), I am
+>>>>> not sure about the whole renaming party ? why is needed just for
+>>>>> cosmetic reasons ? it is at the end an arm originated protocol so I dont
+>>>>> see it as a being wrong to be named as such even though used by other
+>>>>> archs...I have not really strong opinion on this...
+>>>>
+>>>> I have been in CC on U-Boot RPMI patches which got to my attention because
+>>>> I don't want to have another interface for MB-V(riscv-) running in
+>>>> programmable logic and have another server in the system doing the same
+>>>> thing.
+>>>>
+>>>
+>>> Ah that's interesting. I wasn't aware of that. I still agree with the move
+>>> in principle, but how does that align with these:
+>>>
+>>> drivers/clk/clk-rpmi.c
+>>> drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+>>> include/linux/mailbox/riscv-rpmi-message.h
+>>> drivers/mailbox/riscv-sbi-mpxy-mbox.c(Should be fine as it is just transport)
+>>
+>> I am having separate discussion on u-boot mailing list about RPMI and it's
+>> usage on non riscv architectures because one raised argument was that it is
+>> community driver spec compare to SCMI which is owned by ARM. But IMHO only
+>> for riscv.
+>>
+> 
+> IIRC in LPC 2024, we did discuss opening up SCMI so that RISCV could use it as
+> is instead of copying quite a lot from SCMI for RPMI in some closed groups.
+> 
+> Here is the summary we got from couple of RISC-V vendors at the time:
+> "
+> RPMI is comparable to Arm SCMI, but it includes RISC-V-specific services such
+> as HART State Management, CPPC, Management Mode, and RAS Agent. The SBI MPXY
+> extension enables secure and non-secure system partitions to exchange RPMI
+> messages, allows an M-mode RPMI transport to be shared with S-mode, and lets
+> hypervisors virtualize RPMI for guests or VMs.
+> 
+> RPMI development is already well advanced, with much of the client-driver work
+> implemented in OpenSBI. Supervisor software can access selected RPMI services
+> through SBI MPXY. A permissively licensed reference implementation, librpmi,
+> is also available for platform vendors.
+> 
+> RPMI was created after evaluating Arm SCMI, mainly to support RISC-V-specific
+> requirements.
+> "
+> 
+> I didn't pursue it any further following some of these followup discussions
+> post LPC 2024.
+
+interesting. It looks like that they even didn't try to ARM about it.
+
+> 
+>>>
+>>> Now I feel we need some alignment before making $subject move.
+>>>
+>>>> Based on that we had discussed about it with Vincent and Souvik (we missed
+>>>> you there) about using SCMI on non ARM platform and both of them didn't see
+>>>> the concern to be marked as ARM only protocol.
+>>>> Truth is that some of protocols have ARM in description, file names, etc but
+>>>> some of them not. That's why I think it is good time to sync it up and
+>>>> enable
+>>>> running this protocol on other SOCs.
+>>>>
+>>>>> ... my concern really is ... wont this full scale rename simply generate
+>>>>> a lot of un-needed churn for future fixes and/or backporting ?
+>>>> I don't think it is going to be a big problem because it is just git mv
+>>>> which git is able to gracefully handle.
+>>>>
+>>>
+>>> Otherwise it may end up being unnecessary churn though I completely agree
+>>> with the git/backporting aspects. Just don't want to churn things up until
+>>> we have some plan and further changes/users of this move.
+>>
+>> As I wrote above AMD/Xilinx platform with SCMI server where ARM RPU/APUs
+>> (with multiple VMs) and Microblaze-V in programmable logic acting as
+>> separate agents is going to be the first user. And for being able to run
+>> SCMI on Linux running on Microblaze-V I need enable SCMI on non ARM
+>> architecture.
+>>
+> 
+> Ah OK, if the plan is to just use SCMI as is and having "ARM/arm" name is
+> a blocker, then sure we can get that done. Hope you are aware of and already
+> considered some of the RISC-V specifics listed above and ruled out any of
+> those as concerns to use SCMI on RISC-V platforms.
+
+I know that we can't maintain SCMI and RPMI servers running on the same chip 
+doing the same things. We don't have space for it and make no sense to duplicate 
+testing on it too.
+
+Thanks,
+Michal
+
+
+
 
