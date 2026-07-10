@@ -4,108 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A094AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38BAC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TVT9N7Zf4tzdtEz92uIESo3Z8ztU5bsCLtI2pOZcHKU=; b=Ja+7EL5dK1EA3U8esSncKiw7Ld
-	TIz82WeBKngqvokuRDvBen1YUDsULxn5TEluA/14q2NGCx4oemU41zmwXCtyKIyvQRzJvuijLNDcR
-	ToWG41cwsNgGn4ZJAEpuUKU/E5utRdmpiNGZuL7Pp6ndxVA/LHSrOndFUlVc1JoXJWr4VSFC6BG78
-	KhCtcaX3XPWWR9gR2jNcexONVDpEu1OtprKtbrq+WnA6D9gyLiZfUJRBaOSWyKTRF+u+SoT/h04aX
-	Hs0FZDJ5RUu4sNOlWRRd/+YxAsd8ApcKubFjSSDDoTwM296c3aBSRSdLNmbjynlJc6gFYne/bokum
-	uSULaH6Q==;
+	bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=; b=dGpMOZ/VfgrsUUaEqr0cYACq02
+	HL3eqh/Ni0eC6bDPqDx1Pi3ehCwnwmaetd+FylUrBcnrZzLYU6hqPClRogxWvJpOTKZBQ3DrBeuAX
+	UNIYN82KWZKMC+m+vciMzJdTu1LazCIacy8dtfj42yo+ta9azQD3P+FfhK5+E89B79Ze4InFlLxAg
+	mqOC2sUDqfPLPJ3zxCUQ9Zg3zStKf48MX8Nk1Q8OPAYZajDVgKnTnJXLQyEMIyJWJ38hr3rbfJ33f
+	Q5KUrj6k54IkfS63jXBRJzteXw+V04g41qOUKgNdaqn9jpOVPkdoD+JQHVmJEdZhtBSxeBHwDJ8GG
+	V6SZlCsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIQe-00000005lOr-14Zs;
-	Fri, 10 Jul 2026 21:06:36 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1wiITV-00000005lgz-3hpZ;
+	Fri, 10 Jul 2026 21:09:33 +0000
+Received: from mail-francecentralazon11013009.outbound.protection.outlook.com ([40.107.162.9] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIQb-00000005lNv-31rF
+	id 1wiITT-00000005lge-0N7E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:06:35 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8f0e5e36912so10021086d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:06:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1783717592; x=1784322392; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TVT9N7Zf4tzdtEz92uIESo3Z8ztU5bsCLtI2pOZcHKU=;
-        b=bNuEFn18EE79RGLbgRW+5hR7/cOZggyXrJbig0GE31qVgkEsLKYJnss3l1YYYxP7MR
-         tuOMEqsSat623zd7gFnI11p5rlxP/gj8VRROKadnJkZYonqsDllvhTR7u9IkhfU0JOT4
-         kBQMpzMqCv2JBXdFl5Y0X3y5JU4LrSWAV+Vi01fzLksNrtYuhqRL5t2Vk7ZdPivI80KA
-         oxQdDUpP1Ocju5fEC/s7YPwzkHul+Mls5FMPatRpXgZjrvQzKkDevhD22FzLRoBwPEyK
-         08xooS47Co2qG41sVSu6DiWcWQ61Xgd4V4oD9uVisOskNFEC8MRqYQ2yvbbsGzxdZJs0
-         +MAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783717592; x=1784322392;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TVT9N7Zf4tzdtEz92uIESo3Z8ztU5bsCLtI2pOZcHKU=;
-        b=fnvBZfjhxh/YLIdLihGJcrg6XFXat1kFpBiFI6HxmhzFTF73erjJzLjp3t1fp3YQGl
-         dJk6LQgU9tesVighv9ljzvcJhUPrDUHh4dnPgQmHoXCfy3ymYZt9PniMVP7ScliPzMhp
-         /HDQdqpyP/HgB12XhUXVFwsnujJU1Pq8jp0LLWv5OsLMSfyh98acH1Pn0Lw4GpTHSPyT
-         gj7Fdo3py0wAoKSIR/e/uBkaeNC9FeCEzp4De6eZszAFh+2DFlf4jCUvI+yg8Lt5fHN+
-         /XojxgNG2VuEuntZmV0t8Yu0cnPt0EZGFMxefKbuE7D6NQB8jgx1K2DJmk+zkNhAiWCA
-         y/Dw==
-X-Forwarded-Encrypted: i=1; AHgh+RqOP72dbhsBu4JsMXpchrrEE6hY69jxwqvdA7WF8he/DsE7yJ77xbcHUumh2VlGzAL6fTmBpvx+S40kHlDXIGzr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3j2I8BQ0KeXBxaLfyqZl+hLs5Rb5EODRXgbWmoZJN2+/yMbdx
-	tgh/paLJBtwnbDEsO2yPGhbzqkV/52++QqSowNU+ZdE0QtwlvxAVCATxdcxcIxaI9ck=
-X-Gm-Gg: AfdE7clBGWPBtLZKJg3gSjvFMrQZ3iZdUwV2spuIXL0G9C/2DOhBcDtOEKEc3VVNySs
-	kFMi/XAoXioUX4Bs1OLzMAwHbaucrhS7AkkZQ6iq6tHBrDOuIyUghSwQ6umkM4Y62l77PRsjSeX
-	Ixk4/nQg7eFnem8dO9KOEu6mkRfVH+ZQM8dMQVDSsDkGLJqpHXOQhvbJ+4Ho6aOxibZD1ovkdIc
-	vY56ftGDTXiF2w+O7FvdR1QPYUHKSz1HV/+hbEPs5k/uJG6wNrgbj9m65DHzlL2guopGarmj0wK
-	lWiKakk7JyW+LL/a3tf50RCKfWseluuM+W5vG6KE7IZOmUTl8HGAemFLhgIHNdXfJy37JC0Un59
-	omnMRUSYwEnr7itCeevuXBo5PjvRw+5yW4T218hFzsszkh6aL6WwAc7P+qOAF8nWEQOkm9UO/Oj
-	u7gMQyGXNW/iySNyMP0RIV14i3WNsa
-X-Received: by 2002:a05:6214:3b81:b0:8f1:581c:4b40 with SMTP id 6a1803df08f44-90400f9540emr8519656d6.7.1783717591801;
-        Fri, 10 Jul 2026 14:06:31 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd87c9500sm50123616d6.46.2026.07.10.14.06.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 14:06:31 -0700 (PDT)
-Message-ID: <1e7a3efb76d84730748b9c47c03a90b51b2d2d20.camel@ndufresne.ca>
-Subject: Re: [PATCH 13/17] media: rockchip: rga: bind all cores to the master
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>
-Date: Fri, 10 Jul 2026 17:06:30 -0400
-In-Reply-To: <20260606-spu-rga3multicore-v1-13-3ec2b15675f7@pengutronix.de>
-References: <20260606-spu-rga3multicore-v1-0-3ec2b15675f7@pengutronix.de>
-	 <20260606-spu-rga3multicore-v1-13-3ec2b15675f7@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-TbhSyHxkx/Z3fez9TIdu"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	Fri, 10 Jul 2026 21:09:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mcusBZqd9sHVe8dwEN/CctMepvfS8yNhfkI0S0aaXraCwsBVRqQI//nW1UwLnjNNTFu6TNkn3KJeP7asCVgR27VVv3VHRcU7+4hLkH0eghePDT79IZavY4QFzxW1fIN1sex1bp7K9F0OC6qEHVjL0/uFQhTpOw3udkVRx17B5cepWmIhVFAp5qrti7f69NStpVS8ztkvm5BSnHYL9K3q7Vu9MiPxJzUpd/KpTeqkSiOrmeKqaLIkLRw1zDZwaWS8IF8DJCd0SCQ4SAIwIkuDz+/QsC8Y1uOmBJeTOjV26IJVYx1KNn6pjf8o+FzeLVOOUS6fVzeFl1+IRvQXcAW/pA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=;
+ b=DQ0WUO6T5YmGn58RmuePx8+SCPQ00zQMBXWkRX7GvkN41jyyJCdOMXi3AA3QqgLrGaJhjPZSdEaC5ob+U3kRXanjbYM76lKkp1Nq3BiAieR0IpC7kcnn5lsR0hT1wssaMlhSvi5HuTDYfpf56aCk+thzru3ROkfam52mk2iv7+m58jCDlROuayT/9wl9LDMsgw0xmA5lQBZwFkMANYbNBImXJ50i+WSAP3E9Wmg66j/BcE8p7lXYACkckfOwtHWkUHyR7puRN5fORkb5cifvN0CqtysRIkSc3YCHKrcLRt2Ucgn2EyOAi4gtFQN6cFQGqhARiOqJzuOy0h3rybDFsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=;
+ b=CRxRQaHSUPoMi+Xsb8p1VAwKrv1pn6Fn6/rlFKecpgJk5yxD+C8COhXdkPdmvPD2COSuR1kTCqGxQZaSv2py+K1GrRbVsRzgaMxZhNxDVa5gOELvATtUIjmvaLZtkrE2LTJlqyV4F/jcEyQJqVJ4SMkyc64qKboilX/9rht4riEQ+cwcsS91yL2CgMu1oxEqMzxIwYIaiwx2jAzEOzZmEVufq9S6lKcx2J/wPSJVT0DBEK5+yBQODEg44Fzo+UlMDuTptayn+k8mfADJQha/6JOFDgb28aGkhRSrNUoTdKKSYBYqRk0Md2N2qqIbOO7DnIx0AjSld1ID0Fc60h0RIA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB9375.eurprd04.prod.outlook.com (2603:10a6:102:2b3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
+ 2026 21:09:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Fri, 10 Jul 2026
+ 21:09:24 +0000
+Date: Fri, 10 Jul 2026 16:09:12 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, openbmc@lists.ozlabs.org,
+	Tom Rini <trini@konsulko.com>,
+	Peter Robinson <pbrobinson@gmail.com>
+Subject: Re: [PATCH 1/5] arm64: dts: freescale: Import optee node from u-boot
+ device trees
+Message-ID: <alFfeOFz2UA7hAbK@SMW015318>
+References: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com>
+ <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com>
+X-ClientProxiedBy: PH7PR02CA0007.namprd02.prod.outlook.com
+ (2603:10b6:510:33d::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9375:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7992953-0b39-4c42-b3fa-08dedec784a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|366016|1800799024|19092799006|11063799006|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: DgleR1dEoffZGnYGWvLtsb6e8+KF1k+76IfXsvYpYCUBvoA+/gNU4bEKeqiXC/AF3uO9Mh7/57FFGl5V2GyrQFp8S0XJn/lLfJ0BSBbvUUcDN+WYGNO/v3JfUL31ah0D7LEJ4iaGu/H4THIts8WbhYxHNKYjbLRIAVjUbyGHSOWJjgz+Lxm56NhaYFLPwWtLXT+cyUtpc6iC5TDoVJyPm+Lyd2WHRPWlm8rNuxbqTcqYo9FM9H6CgnKeNpn5ajTyrVXe9DOdKO1lBAqQ7FjjznuWtLAdVWF9ccdSnueFh59iJOe4fMyVLluBBFhY9fGARjTn8ysXrqyW5QSB3N92Kp6yGkaOF+u7NfDW9eNn6sbw9SpzsfS338OuFhObJb6bfWGXL2MMvGrp9MJKxBAVXJTap5Hv281SNWbVfkSbbtTcMgOU3EKtJL0Nq6JYKWU4QIv1rYQa0Ouayp/kTdLTfPFtSjpmdWZ1MR0GUnX7aoZ7eV/roznOBmxMAqJpnBwr4rB258UyswfFfTvCT7m0uf52ZRgGWTipBjUSkxTz/Ihbc8FKWE/mT36btlYWFzXaVYt53orhLoczxElO7NulumqQ9eLIfBjqDOiEEQ1dly+DbMEHbySHVgASnpWsYeaf3XD62lw80YeHCzr8TUjVKpFOVOSMSZMdou+qYQzZVMg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(366016)(1800799024)(19092799006)(11063799006)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vMkMvUjV78IT0PTEmqPWxmEQIshwD9C4CY2ORd+IMhPlVpMD0ter0ylG9Pca?=
+ =?us-ascii?Q?j6/pBzgXzEZNpdjfWhWgbSbcdNx9DeOFc7rsjAt1+4BPySSFaZmysHWC/tuW?=
+ =?us-ascii?Q?mDXmtX2Zu7+mGBuJI+k6VRUTV5J1jCKMc6qUTzflTRXBiL/yOT2xniR3U9Ng?=
+ =?us-ascii?Q?VKeJZzAD3EQuJOxorKKAnv7t9VyfXJgK2hm0UABbgRegjKX9ZPvMks6yfM56?=
+ =?us-ascii?Q?SrtncF7uSn1p6AbQQs8Fd07yZ09NRck9FcxCUs/rNfuWsu1Y8jcnCCk+X6Hy?=
+ =?us-ascii?Q?7SekQihb2/4zMnjri+kiweQsj2lVXNBI/YxcdZoxPOLuBtwtwShJUZVlV60a?=
+ =?us-ascii?Q?kF3ncj+UBiQLkFZ3Q0fyZExoRIJGHcYjzGuf4PY1qr5xOZu28BmAbmixUzk4?=
+ =?us-ascii?Q?mvewnLgCyfW2ft6GtzJah1ONI3SQIQcFXUssx7rG9S02otm9W61fiCMxgLAJ?=
+ =?us-ascii?Q?UmJlfEluoQyBi3MKImzZapQtfjTlN+B01iJljh+9DKKdwn6JHfbSE9aYvrRX?=
+ =?us-ascii?Q?SFPXePAT+xpRV1Nqf/mfwvlKUtn5+04hIx6+khBmbZKVB0MbHUDrBW0xZmwz?=
+ =?us-ascii?Q?QrP+VHG439dHkwlG3GGKeVn9/XnmXHQkp0thQbYXFFT4uhSzvNNLBgPxYpKE?=
+ =?us-ascii?Q?c7uPYUXqxTJugZ6HEEFLlmf+GRzaSxxcK7LyMieEaQptyqTnG9lvaJPdzBvW?=
+ =?us-ascii?Q?9ZHSaAZXxsWIF1WPAkqrEPrlqQ/9dRWg4G1mfrvc1yipeUwqo8JINlNHtkbn?=
+ =?us-ascii?Q?VPbUlEqzZvvx/+U289+kmY1WS6cDTayX5gGZ8bdkXxH5gsnGPjxO3dc/JG2/?=
+ =?us-ascii?Q?hgmSR1aRCjkDYYoZXMuqEGOPMfPl2Df+JnHzl+g6IKwOEjXSyAm3odZEcolP?=
+ =?us-ascii?Q?JTT1l7ikQhfzyJfBk3suuuqFeP8JoXYLUi8ccjOjYPa9kfyRNl9CCOv9qxqR?=
+ =?us-ascii?Q?2XMyF5uyBi2r7xhMjCLpkFox8ue0/hblgB7KabOSwE5N8WvRDDUCRUUJrXu7?=
+ =?us-ascii?Q?Fx0MTqoXjIB3rALSRpD6XfuLX+08O/jBDr2C1E/u6vZ+ZLhwRTIl+n1JnV5g?=
+ =?us-ascii?Q?qY/Fo0AUyfl+znEx4pFN67by1wGiQURrWW+5AT00XwNnS1oaFAkCM+EBbUND?=
+ =?us-ascii?Q?0wNo2VaqmapxDBmYicgSIn3zxoGZXmyNptf9uVyCN2k/5CcTyqbERjXLdefK?=
+ =?us-ascii?Q?Jk8g6uNKOY89u3kQLb2YJy9atmDpYA1OQ6R409MMeHdfrE7dhAo+SPkB0eg4?=
+ =?us-ascii?Q?tqQxNa//M0F3VVFaj0gi2EjGk9AQYJ4hivP94AHDk/Ou26hVY5ra/gNoUt09?=
+ =?us-ascii?Q?Ygjwi2XPxXDD9WSrI1X28m9D/1LeUCQhocnnK1g7br6jhBfDTLxe6FDtsiYe?=
+ =?us-ascii?Q?AHIa7b9ysYxL6ZrIUhXdZYrB9e6F+DRJd631O9fQ6FfwEo4ZFm4PJ+hegJhI?=
+ =?us-ascii?Q?fA9iT1FuefRiDPwJQLCP8LsdT97vuDvMU1zvmJqvLzdziTvgMZmpU1ryf2rZ?=
+ =?us-ascii?Q?/ebVhtD5XoMplCQ+YeC/g0azN+hlNTGdh1P/A9H8vXKHCT4GiTkTI1HpkSBK?=
+ =?us-ascii?Q?+9iU/j5XXip36PSuM0NSViYxdKif9IpqZoGBze7gaI8LhCCkWcb+W9k9RsLc?=
+ =?us-ascii?Q?qwYq3DTfhmrw53hzj6MuBcYHQrhVOq19F5pzU6LbhDsx9ueL/7gMqmETiBsA?=
+ =?us-ascii?Q?sANCdAM7r1bRknkh7Lc++IxfqVr1RkjK1UHZ5ibPUo0uRpSlUaeJkQomXjbL?=
+ =?us-ascii?Q?Qpn4+bRfhlxd5ZVPRMwTGxYGeA4TDBdaxKwkkYvzgoG60grAK4Jb?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7992953-0b39-4c42-b3fa-08dedec784a5
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 21:09:24.2587
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d0Txg4TyT0RmUNZQ112XyRZ5xCmdv0SsL1prYLz3/gPRDzo+QgjHcCJLLjssJWODYYepVWMigK9CEWXJJp6lQ3Pm2iMi5Kv88dkXGWftvvafjk0dtddnTA0ARRu35lBJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9375
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_140634_031189_35998D4E 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260710_140931_312528_879A4321 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,121 +155,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-TbhSyHxkx/Z3fez9TIdu
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le samedi 06 juin 2026 =C3=A0 00:06 +0200, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> Bind all core components to the master component. Previously only the
-> first core has been added to the master device to avoid creating
-> multiple video devices. As the video device creation has been moved to
-> the master component, it allows us to bind all cores without creating
-> additional video devices.
->=20
-> We expect that all cores to report the same version number, as we only
-> add cores with the same compatible value. This is important, as=C2=A0 we
-> setup the command buffer before actually scheduling the work to a
-> specific core. Therefore adjusting command buffers depending on the
-> version register only works when all cores have the same value.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+On Fri, Jul 10, 2026 at 05:31:34PM +0200, Mathieu Dubois-Briand wrote:
+> [You don't often get email from mathieu.dubois-briand@bootlin.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> U-Boot is importing kernel device trees for these platforms, but adding
+> a firmware node to enable communication with OP-TEE. Importing
+> changes here will allow to remove these additions in U-Boot.
+>
+> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
 > ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c | 22 +++++++++++---------=
---
-> =C2=A0drivers/media/platform/rockchip/rga/rga.h |=C2=A0 1 +
-> =C2=A02 files changed, 12 insertions(+), 11 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index 0413b8518dfc8..6add6c510c127 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -742,6 +742,7 @@ static int rga_core_bind(struct device *dev, struct d=
-evice *master, void *data)
-> =C2=A0{
-> =C2=A0	struct rockchip_rga *rga =3D data;
-> =C2=A0	struct rga_core *core =3D dev_get_drvdata(dev);
-> +	struct rockchip_rga_version version;
-> =C2=A0	int ret =3D 0;
-> =C2=A0
-> =C2=A0	core->rga =3D rga;
-> @@ -750,14 +751,21 @@ static int rga_core_bind(struct device *dev, struct=
- device *master, void *data)
-> =C2=A0	if (ret < 0)
-> =C2=A0		return ret;
-> =C2=A0
-> -	rga->version =3D rga->hw->get_version(core);
-> +	version =3D rga->hw->get_version(core);
-> =C2=A0
-> =C2=A0	v4l2_info(&rga->v4l2_dev, "HW Version: 0x%02x.%02x\n",
-> -		=C2=A0 rga->version.major, rga->version.minor);
-> +		=C2=A0 version.major, version.minor);
+>  arch/arm64/boot/dts/freescale/imx8mm.dtsi                | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx8mn.dtsi                | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi                | 7 +++++++
+
+Please split soc dts change to new patch.
+
+Frank
+
+>  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts        | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts       | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts   | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts        | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts          | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts   | 7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts | 7 +++++++
+>  11 files changed, 77 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+> index 5cf2998d396d..4a55464e8a6f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
+> @@ -233,6 +233,13 @@ timer {
+>                 arm,no-tick-in-suspend;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
 > +
-> +	if (rga->num_cores) {
-> +		/* we are not the first core, expect that we have the same version */
-> +		if (rga->version.major !=3D version.major || rga->version.minor !=3D v=
-ersion.minor)
-> +			v4l2_warn(&rga->v4l2_dev, "Detected multi-core setup with different c=
-ore versions!\n");
-
-We should fail, and not just warn.
-
-Nicolas
-
-> +	} else
-> +		rga->version =3D version;
-> =C2=A0
-> =C2=A0	pm_runtime_put(core->dev);
-> =C2=A0
-> -	rga->cores[0] =3D core;
-> +	rga->cores[rga->num_cores++] =3D core;
-> =C2=A0
-> =C2=A0	return 0;
-> =C2=A0}
-> @@ -983,14 +991,6 @@ static int rga_probe(struct platform_device *pdev)
-> =C2=A0		component_match_add_release(dev, &match, component_release_of,
-> =C2=A0					=C2=A0=C2=A0=C2=A0 component_compare_of, core_node);
-> =C2=A0		num_cores++;
-> -
-> -		/*
-> -		 * As multi core is not implemented yet,
-> -		 * break out of the loop to only have one core per rockchip_rga struct=
-.
-> -		 * Also put the node, which otherwise would've been done by the loop i=
-teration.
-> -		 */
-> -		of_node_put(core_node);
-> -		break;
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	if (!match)
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
-atform/rockchip/rga/rga.h
-> index fcf1ef7d2029f..6237436b984eb 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -88,6 +88,7 @@ struct rockchip_rga {
-> =C2=A0
-> =C2=A0	const struct rga_hw *hw;
-> =C2=A0
-> +	u8 num_cores;
-> =C2=A0	struct rga_core *cores[];
-> =C2=A0};
-> =C2=A0
-
---=-TbhSyHxkx/Z3fez9TIdu
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalFe1gAKCRDZQZRRKWBy
-9GClAP9CEDkckOHaaBs3JSr4kR2glZ91T2+Em462BGZsPI608QEAkZF6ihkk7v4x
-pzNO4wHmiemguZjKW2cONNbyb6HNbwQ=
-=KoiK
------END PGP SIGNATURE-----
-
---=-TbhSyHxkx/Z3fez9TIdu--
+>         thermal_zones: thermal-zones {
+>                 cpu-thermal {
+>                         polling-delay-passive = <250>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+> index 79b169b07c4f..c3b4560ec9b4 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+> @@ -265,6 +265,13 @@ timer {
+>                 arm,no-tick-in-suspend;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         soc: soc@0 {
+>                 compatible = "fsl,imx8mn-soc", "simple-bus";
+>                 #address-cells = <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> index 5ce2825182fd..285b98384255 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -404,6 +404,13 @@ timer {
+>                 arm,no-tick-in-suspend;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         soc: soc@0 {
+>                 compatible = "fsl,imx8mp-soc", "simple-bus";
+>                 #address-cells = <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+> index 5716febb5a50..c7050bafacae 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+> @@ -110,6 +110,13 @@ linux,cma {
+>                 };
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         sound-wm8962 {
+>                 compatible = "fsl,imx-audio-wm8962";
+>                 model = "wm8962-audio";
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+> index c25561574d3f..c0156921414f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
+> @@ -152,6 +152,13 @@ linux,cma {
+>                 };
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         soc@0 {
+>                 bootph-all;
+>                 bootph-pre-ram;
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+> index 022e9c6841ef..62b6eff013f1 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+> @@ -35,6 +35,13 @@ chosen {
+>                 stdout-path = &lpuart1;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         flexcan1_tc: can-phy0 {
+>                 /* TI SN65HVD234D CAN-CC 1MBit/s */
+>                 compatible = "ti,tcan1043";
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
+> index c6db9c85f2ac..0bea169d7029 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
+> @@ -42,6 +42,13 @@ reg_usdhc3_vmmc: regulator-usdhc3 {
+>                 enable-active-high;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         usdhc3_pwrseq: usdhc3_pwrseq {
+>                 compatible = "mmc-pwrseq-simple";
+>                 reset-gpios = <&pcal6524 12 GPIO_ACTIVE_LOW>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> index 01c11c517986..6b99c0594125 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> @@ -147,6 +147,13 @@ reg_usdhc3_vmmc: regulator-usdhc3 {
+>                 enable-active-high;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         sound-bt-sco {
+>                 compatible = "simple-audio-card";
+>                 simple-audio-card,name = "bt-sco-audio";
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
+> index 4620c070f4d7..b8fa0cda33b2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
+> @@ -62,6 +62,13 @@ reg_vcc_panel: regulator-vcc-panel {
+>                 regulator-min-microvolt = <3300000>;
+>                 regulator-name = "VCC_PANEL";
+>         };
+> +
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+>  };
+>
+>  &eqos { /* Second ethernet (OSM-S ETH_B) */
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> index d929aa9ff255..e96b8437f922 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> @@ -36,6 +36,13 @@ chosen {
+>                 stdout-path = &lpuart1;
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         flexcan1_tc: can-phy0 {
+>                 compatible = "ti,tcan1043";
+>                 #phy-cells = <0>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
+> index 409c7e74ffe3..20eaabc23b49 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
+> @@ -125,6 +125,13 @@ ele_reserved: ele-reserved@87de0000 {
+>                 };
+>         };
+>
+> +       firmware {
+> +               optee: optee {
+> +                       compatible = "linaro,optee-tz";
+> +                       method = "smc";
+> +               };
+> +       };
+> +
+>         gpio-keys {
+>                 compatible = "gpio-keys";
+>
+>
+> --
+> 2.47.3
+>
+>
 
