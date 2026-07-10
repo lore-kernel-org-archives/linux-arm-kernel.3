@@ -4,104 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDE8C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A29C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=; b=qpfJrphDopsBg7
-	Dojz1NHgXHVmsj8kmJ6r1ICNM3c/WaSn/26Pv4BEXXZGgWmZAJXaRvZdmp6Y3xqXK0mWVglRgAklF
-	WZO8M6KYKkvM0egecwf4qoCj5wvKisjT2xpgvDbTdAXZ9/7xMjbp6xYohCDbyTCEOQvkvYQhUjJXc
-	BKyW4e1/EdtGkbAcT/tlUY2TlAxSCNCkeRmrmcnxSmrb8nFQgX/X7xNFlprIO0N5VeEl1qbqzskWj
-	if9nE8TVp6AJAjsNWbNl8WSGTlpXQl/0yDrY7tc9uZGrv0/iTmJHXR2mCGG4XHFVf0yrOzp4OYUoZ
-	zn/U+K2Wfg2xaUXmd8Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=64t7FYB+aOc4n1B7jdfC1HLjfGo79OokY8KIFToWw7M=; b=I94cjIeP5Fgb2tDq1KaR87cHtz
+	Mbi2Er4zUsy5LAV7zXL/pZKvxgsqdbCA5lhF+wX3GLMvixrfxtxuc0k1liDYaOrXvNgKMLUBEwEOo
+	Acyfg4nsw2UpUELcElfe/qzwhlE1t+J8M22EtkBeOxtWMYg8bFmamvnCqXwCKvMlHsZsuU4AbxxJi
+	89qpxP+MfEjiVcoiD0nsbviO7ucnMFymZVqD7+8yvwSau6i5F+VDIW649dUyfjlizLW4LY8FjOsrf
+	wtCPxjn0IERP4ls+7dvrc4Pf9AdD51Tz0BLYpEs/D94yAgz2t30F+ohjZGnGSWa7Cmp5Vg2i5Rpv/
+	eNtebiGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiITs-00000005lls-4BAr;
-	Fri, 10 Jul 2026 21:09:56 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wiIVB-00000005mIq-0TwM;
+	Fri, 10 Jul 2026 21:11:17 +0000
+Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiITp-00000005ljh-33xi
+	id 1wiIV8-00000005mHq-3Gyo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:09:55 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4758bd3731bso953136f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:09:53 -0700 (PDT)
+	Fri, 10 Jul 2026 21:11:16 +0000
+Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2ccbff2e6a7so8657475ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:11:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783717792; x=1784322592; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=;
-        b=DmlbPW7cL6YPdL0A9xtRjPe1APg09OyEGM7StKP9xd7QnDeO0hzga/139QkncgKgct
-         gHOMxVBAsu+GhIDysoawDGB+m0auxzNFxZTNVSObPM+asPyWhf/bl4KFojmJKZrLnXrh
-         CIhAao1FhD7VBfBooQyYOkdDMiru136wdg4MZTsU3LaIafhXkLpqfjbWsanG8glVb4T2
-         gqvVBclB3Mfrp4SS6b2DpkLENbeSrotNItc5ZIsYm40z+y88lmXvbh2W841PfmZJID8D
-         auK06AnQU0l5hAqLlykFLudLuGcz5XeCjuxc1PA09unmKsUPaYiKObG7wrMOEvO6psOH
-         MzJg==
+        d=gmail.com; s=20251104; t=1783717874; x=1784322674; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=64t7FYB+aOc4n1B7jdfC1HLjfGo79OokY8KIFToWw7M=;
+        b=Mk0SAZ0mLspEz6z5SBtui4QgSB5ykHglgWLwNw8FdAlVAZ0EhlanxmeVX2fLMJS79L
+         JgIrnY4rwcJupla2y0FojNzTX2YtwnGzJ3RQMVs2sHVlfrxqkeIvITjEB01NArbRmaxM
+         bcIdKnLJ8cdyBxgp/2RLmKtIv8Wy6Ch2UsirfrLluwgb9bkLTu45X8nE6vBs/8Tjz6Pu
+         9wilfpmlI9UzqkaxOkZYLUcjFihB/9ha5I2HUbDLPPGpWg05TrshgFbyzrOggSRwj5p3
+         doYoCTjnCDx9PvQAhJtw1KOI0/kdu3UZjZI0QX3IYPahHFMtcZazWQ6tATQK12aiyrI3
+         gJLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783717792; x=1784322592;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=;
-        b=VeRpnP/MiGz5IFkf8PgGffTXfxR/5pbb9NKTbm8hDiPOB5cBo8DXziB8ZITyGD/Iqc
-         5a2cLXCluqamp3aIzbkZVrLh1pXny98uPcOSg0W8/gRCrWJTVIS1i9uhnOaWDvw2P1EL
-         naYVD7nN7X5Gxcyb6+MtZRHrI4/h01MDfyGxhR+2WTTa1JnPrLZ/iWeTBNA3I4FR/h/C
-         KrrVz0OdLej/XgbWzDnQTNmWVSJknPJrOsVz5j1fckZpIOArKVKferaoH+ianrW2T0kM
-         hfS04PZGatsKOtZZ9x/m00tYUmzb3b0yjFkcvul1HdEueNZGwo3gi6sA6dkxHqJ94Knq
-         QHeA==
-X-Forwarded-Encrypted: i=1; AHgh+RoW1oWCAHmlmx8ZbPo9aZNAeJJQUJG+QkuKHk1m9Jzz0KbOYQG/enhhY4ldNuDe89sw0eSJeCW4rRMpPhYM15KH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyyzz3rJA4W7M36h03N/bTcoYBgxsUGw3yS0EjiRaDR5lPqvnAk
-	iV3gq44ZFf5lEL3TtWxPkf2DZGdsF2U1aNe95ejXCOClTUz+ncDX4hq+dJtq93VInx8=
-X-Gm-Gg: AfdE7cmunLiuIeNWbFqrxFxyyEyHYCzBo1apR/TcMLZrpv1DZe5tJj83CoI7hto/6QY
-	+3kZQE5hx6hremp92RdJGROfhNpm49BGCayfbkOecoAG5+5z0tfedCtM9oR669ZY4CYRHlyMWHh
-	h5PYRYxi7liWueCOlo9KjDxE67PWRvONuEGFDnDRQYxThprLgFOCBgKClzPTFZN8uzZyz0Eq9AU
-	UjnKMjgJ2l499spHhWPz0yvjpU834C9u+g1lRzRTqZHBPXqI9u76tQVIFeqCkclBhftRNfbJBf5
-	IcCDH/0KRjwODCKagoK/RutHzEFawykZnrE75B0gkIVNTsjLPPCKfJKADs4uQ8VgeNc5YS26j8z
-	1hnkxVGV+ozKAaWKKTmiCtcw1N+nrWGseAvv5KgEw2H3Y9ysf/we69/E4V9SzlG3nIir50Ye+jE
-	EEk9oZNGf5vQ==
-X-Received: by 2002:a05:6000:4b07:b0:460:d18:865c with SMTP id ffacd0b85a97d-47eee0f3afcmr5999929f8f.1.1783717791925;
-        Fri, 10 Jul 2026 14:09:51 -0700 (PDT)
-Received: from [127.0.1.1] ([151.41.178.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039b0cesm64274135f8f.22.2026.07.10.14.09.50
+        d=1e100.net; s=20251104; t=1783717874; x=1784322674;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=64t7FYB+aOc4n1B7jdfC1HLjfGo79OokY8KIFToWw7M=;
+        b=izRs8bS3knZxqZFHZcuzCzw4Cy9e5xNvnM1N0dpm5Qt9r7mvzhwP7AXk//VsZp9qUL
+         C3Yt//amoRWU0qh/1ozKUD1tAxenB5+4lImdmJzRmFyS48vEY2IPc+OWckLm9KrCU0L+
+         joL/47Mk0OlU5j0O/JKXl0y1QtbC7M7kD7sRrxJVpTVQqGxks4FOlc/D4IkPzlNPOURM
+         BS9aygEOgYnQ1NUnK/+gS2EYdhrUx4iFVrR+7xlMbN+k4pRFwhdyZxX5b2cBtVa4/KKW
+         AURFGW4AgS3O57n8W4N2k/VEb8uNMpBE3iOaJfBHyp3ujqMSVt7QVbgbgjxqj/pgBaR9
+         Y7tA==
+X-Forwarded-Encrypted: i=1; AHgh+RqeDIJtmAJUdjoEjpGlr9gSJ/Fec9MVdrY7NzeqlDfzbuq4ZXd6jz7j1w8UNLXGeO+WBxFayYZcUb4nQ00fFg8M@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLzQ2D3L5CxSXJKnpdgeiOvnrXehHQ2hNhV3DdzkkgFMiPHyKy
+	8kL6lodq9Malih7CKC05w1MLGlI3J4/C5djAgFR4YiQYbF4gjd6wUwVq5HdJXyqC3OKq1w==
+X-Gm-Gg: AfdE7ckMp5ad32PWWv8OMIIZH/gdpOSAKpr2Jo/bUHqeS7guBrGt5nM0fAOWeZtDz3s
+	IJBS/jnIUfzxdjie/c+/WHHImAtvWtcx7OyIE5Ga77gvmZPKc969zxLLuOlZczWUuxs53gEPjxV
+	0xWKZ5hQ4oyjKoE5FAbKsk5DzGP022ZalEVBEQ+8WuvwxsfqTGe3Azr1+cg5CXOtdkK7mTd2Ppm
+	OF8bLJiuVR5aDrJyEYdX6/YdfE85zVsXuMtldD9tzy4A3DPF7QktOorPL7Z5hv2+Uco6ZXpWGsG
+	//QD5MIvATMGEvHVzlyFhVw7XTk6bOsp7kp9zoB7dg2PKn5QPlyMvz2TrCiFz39Y6UU+balzOe+
+	t6FvOtTe2gfb+fzLlaBNqC4xVIdagXEdL/6Fw8ktnWy+yrJur/p0tj2QrXFzoYpuUyKCIMoqkLM
+	HjJicTHWkNMpzDkjnD+XQ1ZFDsLrMyYsbjxsFhFKJlhUmWS65MT4RenwZPHNIVhCpcevG9O+I=
+X-Received: by 2002:a17:903:458f:b0:2cb:3f5b:6663 with SMTP id d9443c01a7336-2ce9e9b4534mr6597835ad.11.1783717873913;
+        Fri, 10 Jul 2026 14:11:13 -0700 (PDT)
+Received: from ubuntu-gnu-linux-24-04-3.hub ([2407:7000:af23:3e00:f127:785b:6e87:f831])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccdf808379sm52881965ad.48.2026.07.10.14.11.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 14:09:51 -0700 (PDT)
-From: Valerio Setti <vsetti@baylibre.com>
-Subject: [PATCH 0/3] ASoC: meson: aiu-encoder-i2s: improve hw constraints
- checks
-Date: Fri, 10 Jul 2026 23:09:48 +0200
-Message-Id: <20260710-aiu-improve-quirk-check-v1-0-2fdd1b6f8896@baylibre.com>
+        Fri, 10 Jul 2026 14:11:13 -0700 (PDT)
+From: Jiaxing Hu <huhuvmb88@gmail.com>
+To: =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>
+Cc: Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	iommu@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/rockchip: implement .flush_iotlb_all
+Date: Sat, 11 Jul 2026 09:11:05 +1200
+Message-ID: <20260710211105.9782-1-huhuvmb88@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260710111508.917486-1-huhuvmb88@gmail.com>
+References: <20260710060513.863714-1-huhuvmb88@gmail.com> <20260710111508.917486-1-huhuvmb88@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJxfUWoC/yXMSw6DMAwA0asgr2spDj+1V6m6gNSAQQXqEISEu
- DtpWb7FzA6eVdjDI9lBeRUv0xhBtwRcV40to7yjwRpbmNKUWElA+cw6rYzfIDqg69gNaOvc5ER
- 0TzOCWM/KjWz/8/N12Ye6Z7f8dnAcJzF29Z17AAAA
-X-Change-ID: 20260707-aiu-improve-quirk-check-2b5051119341
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jerome Brunet <jbrunet@baylibre.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Valerio Setti <vsetti@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2602; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=su4eVRqd91qk7OtvutfH5sLq2VmfyLE2Qn1mHmMHJ5I=;
- b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFmB8fP4MtYdNvoupb1/37q7FVWTNUtuvc1sWdbh16XZt
- mDBvEm1HaUsDGJcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZjIsd0M/2OC/0y6sVxkc+vd
- Tf++PWQ7ZnlqwsSCwAVrlfmkKwR3L+li+CvTk3Hs550sb63/X53iXv6etJ31nVriRLbIM03az/5
- snM8IAA==
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_140953_796478_9B374E61 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260710_141114_821514_58433D83 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,60 +105,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a follow-up to the recently merged series reshaping the AIU
-driver following the same design as AXG [1]. During the review,
-Jerome pointed out that failing in hw_params() when two streams have
-incompatible requirements is too late from userspace's point of view [2].
+On Fri, 10 Jul 2026, Heiko Stübner wrote:
+> accel/rocket is in mainline, so I guess the interesting question is, why
+> are you expecting your changes to be (stay?) out of tree?
 
-This series addresses that comment:
+Thanks. I had been treating it as exploratory: single-layer inference runs
+on the open stack (rocket + Teflon) on RK3576, but chained inference does
+not, and I narrowed the failure to below the software surface
+(fixed-function hardware I cannot reach from an open board), so it felt too
+unfinished to send.
 
-- Patch 1 fixes the existing bclk quirk check first: it only rejected
-  one direction of the mismatch, and its interface-wide flag was
-  cleared too late, making a legal reconfiguration of a single stream
-  fail. This is a standalone fix and it's preparing for patch 2.
+But you are right that an RFC is the better way to handle it. I will clean
+up the RK3576 bring-up (power domains, clocks, IOMMU, DPU/RDMA, DTS) into
+an RFC against current mainline and post it, with the chained-task
+limitation described honestly. If you can point me at who else is working
+on the RK3576 NPU, I would be glad to compare notes.
 
-- Patch 2 is the actual answer to the review comment: the quirk
-  incompatibility is expressed as hw rules on channels and sample
-  bits, refined against the committed configuration of the opposite
-  stream, so it becomes visible during parameter refinement. The
-  hw_params() check is kept as the last backstop in case of concurrent
-  refinement.
-
-- Patch 3 applies the same philosophy to the interface-wide rate
-  symmetry. Instead of manually reimplementing the check, take advantage of
-  the core's 'symmetric_rate' handling.
-
-Jerome's comment also mentioned the error returned when 'bs' is not a
-multiple of 2. That one intentionally remains a hw_params() time
-error: bs depends on the mclk rate, which the DAI only learns via
-set_sysclk() from the machine driver's hw_params(), after parameter
-refinement has already run. I don't think that can easily be expressed as
-a constraint.
-
-Final note. [1] has not been mainlined yet and it's only present in
-'broonie/sound.git#for-7.3'. Therefore this series depends on commit
-c7852d2dcf66 ("ASoC: meson: aiu: align I2S design to the AXG one").
-
-[1] https://lore.kernel.org/linux-sound/20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com/
-[2] https://lore.kernel.org/linux-sound/1jik7pebk7.fsf@starbuckisacylon.baylibre.com/
-
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
----
-Valerio Setti (3):
-      ASoC: meson: aiu-encoder-i2s: fix bs quirk incompatibility check
-      ASoC: meson: aiu-encoder-i2s: reflect bs quirk in hw constraints
-      ASoC: meson: aiu-encoder-i2s: use the core symmetric_rate handling
-
- sound/soc/meson/aiu-encoder-i2s.c | 154 +++++++++++++++++++++++++++-----------
- sound/soc/meson/aiu.c             |   1 +
- sound/soc/meson/gx-interface.h    |   6 --
- 3 files changed, 113 insertions(+), 48 deletions(-)
----
-base-commit: 8e5a6599a38e5515cd2b5f34fe8a8ac476f8b127
-change-id: 20260707-aiu-improve-quirk-check-2b5051119341
-
-Best regards,
---  
-Valerio Setti <vsetti@baylibre.com>
-
+Thanks,
+Jiaxing
 
