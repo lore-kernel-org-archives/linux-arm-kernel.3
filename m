@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7213AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9534C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tijUZy13OY+lpBLDlS9vMkTfAAXJmYkbRtFLhtiaaxU=; b=dFVexNBbvMMJf7X/8cU6J83iLV
-	c9fSO/WRAFf3hnjlomyoz/DTJZI6OCCa52LefT/JsusZu+0vQne7W0jyZe1VVh/h430PfDSEqWe8r
-	s6TWFRR3gVL20oSpDLHfFb0PPV0GG90KC1JgRoKQgCeyac6FyZfb1viVBNQ+Tdds1NqfDl9Y5o+LK
-	9DlmLCkJ4xwPOaqXjDDtdfEDSnVkusFvN70XpGGpb+ThYPulFIwAyeHz3dk6mucnTRstT719drHhY
-	hL6TXYxWRyhJ0Sh1iNc6B+wE62y+X2peigWOesbTf76gEh7rO2qld69LjI5i7SRVYuCTQ+FK3QXjx
-	uEvqlBFw==;
+	bh=vqW9/RH3UDRT9Qj8/JqT5f9mnBCAvdontHcYO/WHgd0=; b=RaN7UOYQ+ZPXEwJmT9JjPxk9/G
+	qGaVOrQFfV+soZikFAEBXZcLp6Q5PE22lHE3MxWSCKD6wz3Rt0bSmZ2EpD8pk0yYrM18ESQRhw0Ab
+	rwos3/9m4h7GYf1RJrvglbFccN4EUrbCOOjLQkxmdOM1KctFJ8Q3iiL3kb1TIRPu7WIK6XN6m304/
+	Yvymma93Z2A5HjziY89c84D72N2ZBC+39xmntcBcJDG6eZYZ1bXiJ84hgwa7mJeNm4gEB8Xq0SHia
+	qYTm+PeFE3CXlD+OTpm6BHcuXDxg05wwI589uQGd0mwbqbfYaiJpdzoX/zNEuZv9I7Pb0y1jdQ/Z+
+	uO+YE+GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiDD5-00000005Bkt-24Bh;
-	Fri, 10 Jul 2026 15:32:15 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wiDDB-00000005Bo1-39m2;
+	Fri, 10 Jul 2026 15:32:21 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiDD1-00000005BkZ-2kr8
+	id 1wiDD8-00000005BlE-2sEk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 15:32:13 +0000
+	Fri, 10 Jul 2026 15:32:20 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AA1651A0F45;
-	Fri, 10 Jul 2026 15:32:07 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C52B8C2C64D;
+	Fri, 10 Jul 2026 15:32:29 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7AED560346;
-	Fri, 10 Jul 2026 15:32:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D4AF511BD1C34;
-	Fri, 10 Jul 2026 17:32:02 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 360AF60342;
+	Fri, 10 Jul 2026 15:32:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 757B411BD1C39;
+	Fri, 10 Jul 2026 17:32:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783697525; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1783697532; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=tijUZy13OY+lpBLDlS9vMkTfAAXJmYkbRtFLhtiaaxU=;
-	b=hwAgVCePQDdOl38e0eOljEd89vJodZTSjMwAfyub0tBhi8wgL60YINarvPdFNifjqc4Hay
-	ceTIpKzHnDfeMeR7wY9RSh8WhGXVm7XIz58C6OL4aDAUCnFSyU48ccp9aha3S0r+NnqWaq
-	XJmICvJiAZMcNDUtr7YVoDyC3LMFY3C4C7YnI2erAPvvoc3KC6iL7m/PEgS2Op5y9JKkBH
-	2TBm2+HY35tPscFdW+23yUxaS+9c994VCDlpJ1fZx7Z0RaVHIB7nslZMbxewNvHmI6G+yq
-	n6baH/qqOlkmwRsFVE91KvPmjOUAwyIVzwY8OHwLM6TN99Eb/DTOV7CpVuFXEA==
+	bh=vqW9/RH3UDRT9Qj8/JqT5f9mnBCAvdontHcYO/WHgd0=;
+	b=KQ7TB6i6xoEyqyf8PatcXCiYct4jjrpYwKZjqvtUmp49z3BDY+YgsogTLYjCYQD2nzV6Cp
+	jzA62MZcQtwyMXcq/JgDW8xvjmDJZr+Jyvp/4BAVR57gJcE8rUNKQ20QTSwl9rcdT9qqZj
+	18NbSmGo0CO70zoqJ1lsz/SOKSLbOiMi2JDKV16qWSDkT9yifaDrOegRslu0oFesFMGGE9
+	dfnjNcr8/aofwu4uJPk/M81a6HX1UNnVuaQO9YPJGM0BaQQPLfmt8Zkh6MSLenljl6Vwbh
+	litX4zOu6p9ZsZwJtZnu5JrapXohtrwPCGWNU7pjGoeQmgF/GMS9mMVaEe6l1g==
 From: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-Date: Fri, 10 Jul 2026 17:31:35 +0200
-Subject: [PATCH 2/5] arm: dts: st: Import optee node from u-boot device
- trees
+Date: Fri, 10 Jul 2026 17:31:37 +0200
+Subject: [PATCH 4/5] arm64: dts: nuvoton: npcm845-evb: Import optee node
+ from u-boot device tree
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-mathieu-uboot-dts-import-v1-2-ffe0210e50c9@bootlin.com>
+Message-Id: <20260710-mathieu-uboot-dts-import-v1-4-ffe0210e50c9@bootlin.com>
 References: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com>
 In-Reply-To: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -72,17 +72,17 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Tom Rini <trini@konsulko.com>, Peter Robinson <pbrobinson@gmail.com>, 
  Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783697511; l=1640;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783697511; l=914;
  i=mathieu.dubois-briand@bootlin.com; s=20241219; h=from:subject:message-id;
- bh=BiSi1t1NUOIhyg6vwnL1alqPw0iJySL8ICnheLp+aN0=;
- b=B4vFTHfXQRbCBa4gp7JA6+tDIx0+dgYq3zVpsg/Yp9hnGhSOdseawTAnqzSZuqSmUUGkfkp9Z
- RLTUNtyzpweBZkiGIDn9hSzDhROdWHjROLOt7/ttWZPDtmoqRT6FT7y
+ bh=IHC3taB/c1hjjbHV78+MpFaKPexGySK661G3gH5QQQ8=;
+ b=YskH4XXITgrh4BDy7rh0C6CaVOqf90OiQ1uWiaAX0EZCYFl1sya1haf7eiT+PGVrxz6VH/5dW
+ a7FkqvpzAQNBiehXRDDXPhkjxZYE5L5SFgYVNqmshnsrG0QXePXT5YN
 X-Developer-Key: i=mathieu.dubois-briand@bootlin.com; a=ed25519;
  pk=1PVTmzPXfKvDwcPUzG0aqdGoKZJA3b9s+3DqRlm0Lww=
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_083212_086623_87EF6114 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20260710_083218_913889_F72F7484 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,36 +98,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-U-Boot is importing kernel device trees for these platforms, but adding
-a firmware node to enable communication with OP-TEE. Importing
-changes here will allow to remove these additions in U-Boot.
-
-Also import the corresponding reserved-memory region.
+U-Boot is defining its own device tree for this platform. Among all
+differences, a firmware node to enable communication with OP-TEE is
+added. Importing this node here will reduce these differences.
 
 Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
 ---
- arch/arm/boot/dts/st/stm32mp157a-dk1.dts | 17 +++++++++++++++++
- arch/arm/boot/dts/st/stm32mp157c-ed1.dts | 12 ++++++++++++
- 2 files changed, 29 insertions(+)
+ arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157a-dk1.dts b/arch/arm/boot/dts/st/stm32mp157a-dk1.dts
-index 0da3667ab1e0..236da589eb90 100644
---- a/arch/arm/boot/dts/st/stm32mp157a-dk1.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157a-dk1.dts
-@@ -22,4 +22,21 @@ aliases {
- 	chosen {
- 		stdout-path = "serial0:115200n8";
+diff --git a/arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts b/arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts
+index 5edf5d13342d..6be771e581df 100644
+--- a/arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts
++++ b/arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts
+@@ -26,6 +26,13 @@ refclk: refclk-25mhz {
+ 		clock-frequency = <25000000>;
+ 		#clock-cells = <0>;
  	};
-+
-+	reserved-memory {
-+		bootph-pre-ram;
-+
-+		optee@de000000 {
-+			reg = <0xde000000 0x02000000>;
-+			no-map;
-+			bootph-pre-ram;
-+		};
-+	};
 +
 +	firmware {
 +		optee: optee {
@@ -136,29 +123,8 @@ index 0da3667ab1e0..236da589eb90 100644
 +		};
 +	};
  };
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-index 49dd555cc228..7da726035086 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-@@ -70,6 +70,18 @@ retram: retram@38000000 {
- 			reg = <0x38000000 0x10000>;
- 			no-map;
- 		};
-+
-+		optee@fe000000 {
-+			reg = <0xfe000000 0x02000000>;
-+			no-map;
-+		};
-+	};
-+
-+	firmware {
-+		optee: optee {
-+			compatible = "linaro,optee-tz";
-+			method = "smc";
-+		};
- 	};
  
- 	led {
+ &serial0 {
 
 -- 
 2.47.3
