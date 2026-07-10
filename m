@@ -4,206 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35280C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 07:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC7CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 07:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhFI37C3T/6HM9KOHIzXrWH317mKq34+wLHxKdP3upY=; b=tiLXUDPQYMhYr89/ya+wit6kbH
-	silPm7XEFLglcxjDlpX/kEAqyghC31yfy1cWa7o3fL9y04E5VnexK4O4lRUIhEvEw27qspkQZIBoQ
-	JfOiHsvh29r9Trz8cR0n5YQ72EqG91pR78OhsH77Ft4XX9KI5k3g7CUUB5E9wqfdbF5ywCoxPFicT
-	RB2P6hiNQi9LsceSFo7S/qVNoDc2j2tRoJqo6eeLt7YUpTe7PgNtaRkWSHsxbDUR+PHzmtb3z8MLM
-	hI4IV3W5xOu+9T8U9WkaP16ZEZcZVoX7YCvRiG1f/kPxxXchyHpWKaOO6w3MjMsFrAE7vJwQIILeV
-	F7TG8hOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c3e6oZbc6F773Qir26Sc0QNFGUCJZN+wEbH26HH5gZw=; b=OZ/4L1dOmznlnPlQtqt3v+EEWJ
+	IVofokKF+7BfbceD0IjwKDEtLEAG9YryLZPZ3HeqiuBxCO9xkT98cq7oXLYusaoi5RIXWFJNNLmC2
+	IIkpcW4P1XkHc8VVS1EUnFLpCqQwTrYLNy6dt2hJL+jGIb3bhkRi66A58rxM9gr5UtJFT8LzGADN2
+	0Het0I78yUqavuNc9HA6xinsJLPGFvZ2gVR3FkrWC/eDxFk8Ejt1y8l09KH/CjXb9y37PgLPoFUWq
+	1Z1nEG/oIBq+VyZZeNUhjX0cPNOm/TGIBK/xEuFYWKqSqNQhnKk2Za2RrzNfdv1NI6rHvoMtgWqmQ
+	M3/rxFSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi5sX-00000004Mbh-1XDW;
-	Fri, 10 Jul 2026 07:42:33 +0000
-Received: from mail-eastus2azon11011016.outbound.protection.outlook.com ([52.101.57.16] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wi5su-00000004MgM-2C4D;
+	Fri, 10 Jul 2026 07:42:56 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi5sU-00000004Mb4-32eJ
+	id 1wi5sq-00000004Meh-2rqe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 07:42:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dn6COs9b7of7hbGi1DLSJkfRAPl3dS5nzJpb1b6TQv4w34dnJhR4NBrUJZXRZkAy2uokr4ZdI2/z/zCIM6WbCpHgw7KjYv4xi9ugW11632NqIkOJT7AIkm2JJlKdKW1NRLutzjzrGu+EMZTpMOa7CR+4jDF/RLmim7l3cb6JbTxSM30PFIPLjUw8mmyJqd9tuM6lv35FrhA2AHDx/7iAH5kFnaSE/Pe1jpNgRObHSIFfIv2TYODhjTg+u6Ygry1+bWmmJMx+yEuD5jxC4c+GewJzqQPj+Adyj4IsABEFlLJgkjMV4Dzdmardb0NU2V2upbHCgp8oUsJWVekztbtrKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AhFI37C3T/6HM9KOHIzXrWH317mKq34+wLHxKdP3upY=;
- b=iBMCRXpfEuXEajP7oEfILyXxBoEAlqaqpa5uxFKEQT4UyiA4u1uuPhs5ZdXYGsRJ43MF3GkRRTXUcMIXIXXkGcxseIPJuk2JSN1VIQt5xGS7ZlJEzWmW5iqD5v1rf9Zdd5qlsxIByjWTnFohUPhjt8ZS3HfrbO4Uewd5t/qKpkpckEWuCkhtvkQDeVRIGWbnsISZNGF6d7IPda70iqt4ZCWkcCdebJdUsshtJl01iHjQiVW/uw838c8CkbLt0bH8+DQWhLhxMCxyBmCy3UoOqT3JYRAkoC5BQ0DLegpisiAp/kqOhKln5RKfW0UnuJmBTU/fsPhRrHF17HIw195iWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AhFI37C3T/6HM9KOHIzXrWH317mKq34+wLHxKdP3upY=;
- b=u7QnlMr6QnyzE7BbwhORz3CvJOugNut1nRtCjt2Dw8GkPDhC06E/kBS77qEss24l3vq0CtqbuFS3VetqShDKnC6o8BO5j+gWBL9BfgBFjGQDRhZydyQcW6qTbFgjrp8ZsurCarE6oFqvPS6S+28fx/L+KGnNivbEAD2UP7ihLPU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by MN2PR12MB4158.namprd12.prod.outlook.com (2603:10b6:208:15f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
- 2026 07:42:24 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
- 07:42:23 +0000
-Message-ID: <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
-Date: Fri, 10 Jul 2026 09:42:09 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] firmware: scmi: Make SCMI arch independent
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
- linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
- vincent.guittot@linaro.org, Souvik.Chakravarty@arm.com,
- Alex Shi <alexs@kernel.org>, Andy Shevchenko <andy@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Brian Masney <bmasney@redhat.com>,
- David Lechner <dlechner@baylibre.com>, Dongliang Mu <dzm91@hust.edu.cn>,
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Guenter Roeck <linux@roeck-us.net>, Jonathan Cameron <jic23@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Lukasz Luba <lukasz.luba@arm.com>, Mark Brown <broonie@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Pavel Machek <pavel@kernel.org>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Philipp Zabel <p.zabel@pengutronix.de>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan
- <skhan@linuxfoundation.org>, Stephen Boyd <sboyd@kernel.org>,
- Ulf Hansson <ulfh@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Yanteng Si <si.yanteng@linux.dev>, arm-scmi@vger.kernel.org,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- linux-arm-kernel@lists.infradead.org,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "open list:HARDWARE MONITORING" <linux-hwmon@vger.kernel.org>,
- "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
- "open list:ENERGY MODEL" <linux-pm@vger.kernel.org>
-References: <d7f7e8c9589d937b60e43168845ab4fda15037a3.1783603600.git.michal.simek@amd.com>
- <ak_Eu_eQKalPMwo-@pluto> <77110e77-941d-4173-b2f5-6f3cf4858339@amd.com>
- <20260710-lemon-pogona-of-wind-b3a003@sudeepholla>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20260710-lemon-pogona-of-wind-b3a003@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0089.namprd03.prod.outlook.com
- (2603:10b6:a03:331::34) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Fri, 10 Jul 2026 07:42:54 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783669367;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=c3e6oZbc6F773Qir26Sc0QNFGUCJZN+wEbH26HH5gZw=;
+	b=Gr7NmQjxqvseruVX3aV9qclTAMbBP4n2z/NSk2XHQZGBb5Ud20Qfj7hXtsYTDys9kspgUM
+	AXJzAUVXQ8d0e2XfOpf4aCCS4Z2rR5+LWBYpXGNn2Yhg09B3R4z29UCeooKrLPo+n68NN3
+	YziHs9gwWqJ4ejxXKbh8QctRVVNSGCY=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Corentin Labbe <clabbe@baylibre.com>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: sl3516 - drop invalid sg_dma_len checks before DMA mapping
+Date: Fri, 10 Jul 2026 09:42:17 +0200
+Message-ID: <20260710074216.734849-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|MN2PR12MB4158:EE_
-X-MS-Office365-Filtering-Correlation-Id: ebb0b412-1ee1-4220-48ab-08dede56c7e4
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|3023799007|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: hpsZDuM3wVLbZBVJcueud2/kQmWFmyrD9wUS7EvV0i0kJfVIftKGTYt73juaK5J5RhtceUXrvP5A6VGB078ohKTcbJbnxDzZidZZRVf0Oiy5EKSzf7kGpJCbsyyxSfSxbwO3wf4TOZYS6IDITYOyjqUXVq28Z1mbOaQwTQx2lsynRQ3BluOJSIfqgCS7xs4o7vbjBSUGq+LrS19goRsC59Kn/9m3pGLnvA+WHZQSdRazGRo6YDGW2vyQ05By4CRVghj7KWED/LXaszRMBaUkq/0Zfk22TYxu/XQcBVkGCoo0cMgDD76BIWAgPg8JcHwxuhB/KQXSjT+JeI9AyBhux3/zhFBaAyJyHiIxHHUiqADp8De3TAV7L8ym3bHURRwWXmZqb78C8kGyhzHOE69ILFN0gTTbDtrPS7QtfLDX4k+z4T69iAClS9sq74etqYyd3skz6eEGDLrhzSBFKJq6LsxOCS0Av33GOldLhBEIKAK2a0TQVi0cqoxBDVvUWP5QOxcNSWuo35yPuWuN4k4FyhzrLzs+cXEssCglmexYn1Dykmnuf/R8fxXbMInwGdekH10gQIovPOJ8iH7AMVCQ2d6AYoX4tSd76ZV8KpP7a+yPMgQdJGUIau4NM1w8cKSWzotCtLQs14T0pJ0k5KGFV2/aLA20YKXh6pQitvGkutY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(3023799007)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eEMyR0xmZFdXdUxNYm5uSTY4djV6dzNVWjJXK3VVU3liYXBwejFPWU82VjV6?=
- =?utf-8?B?UHQySE51ejY0SmYrT25lK05rdFJjM3FLdjZ4Q1RIdmVvWk1hajhjTVB4dmdI?=
- =?utf-8?B?aE1zeEE1MlJqVUdsa2hhS2kvMGZxMHo4dDBZaFliakYvZUs5a2QzUkpIRHpt?=
- =?utf-8?B?M1FiMnZzQjlDKzJNTW9FRkNCdFhGSHBRMkptZWczUDdwWTR5TlJScUJOZitV?=
- =?utf-8?B?bW9odklWcDBrRXVXVkxISE1tbnlLWXBWbXNhb2V1b0tod1lBM3I0R1ZKd0R3?=
- =?utf-8?B?UitvcEpsRWtBckJWOUw1WngyelduVEkwMWowQm55L29vT2VYcWdMM1FNMXN2?=
- =?utf-8?B?cUF6TWNrbVArdW9NQlBQU0o3eEdibXRIOXkyWkRCSW9Ra1NjbThzcFdoclRK?=
- =?utf-8?B?OG5FV241K2k2NlFQc1doMFlWUWlYNE5uMHdpZllFK2E0VnArLy9uajUybDQx?=
- =?utf-8?B?NXNYMGt5QWRyRmlPbzFPaDNqV2tHVU1ZNW9aUGVNVlFrbVV1WHpBRnM5MDc2?=
- =?utf-8?B?TVkzQWp5d2MxNkFPMlVrdE00QXZzTjd3RWkwVUFodUlKVjEwSUVCTHBPOW1r?=
- =?utf-8?B?OWpEb1NjdkdzZG9zdFNsWFZ3bUJyYzVFRytqdFI0TmlyWDFQVUIxN3NVUG0v?=
- =?utf-8?B?SURXUHZ5ZWRscDhaYXZGbXVORWFubzJ0SVdNZm1YeEMwOG1ZRitwYStuNlRh?=
- =?utf-8?B?Sm5acmVRVnhoYTVqOEJnUEpqalRBUElUNk5oc2EvQWUydmFhWkhTSUZOclJt?=
- =?utf-8?B?VnYwa2ZOQWRUTStnK0JiN1ppMEM0MUlIbXFIdElSbWNZNlA3Mmw1d2ZSZWJG?=
- =?utf-8?B?YWVHWGp1WStFalNTRklKRXJ3Q2dnU3lVaVovWTVXdUtkdGdxWmRwc2l4eGpa?=
- =?utf-8?B?cFhvUmY2NWtlM0MrMkFINXVpdmNlVDZUVWliREV1L3oxSFRqb3ZITUMxbDIx?=
- =?utf-8?B?ZVpJNVNyMmZiTjh4R1VUUDBiUzd2UkUrVGZ1Sy9sUFpSUy9lcHUwVHo2VlBa?=
- =?utf-8?B?N3hZaWFFNllSRHdMRXFzbVZVcndhRTZ3V09IZXVkWTlZeHBkMVU1MlhxTkpk?=
- =?utf-8?B?UHZsbTFZWjM2Ykx4RTNNSUVrUDZlNUU5ZitUc1RGV1lqUy9waURRa0hvRTJX?=
- =?utf-8?B?TDhXRlQrNG9sWHZZTGliZTBjQ2YxQXpDMW8wamk3eVo4NWJxWU0xeE1NYVRi?=
- =?utf-8?B?QkNURTRMSWNFMHlMNWZFUkh5WGRMbVJXMXVCZmJsQzlNMWlMNS91LzN6OXNK?=
- =?utf-8?B?RlFuRkJhbEplMEVJbzc1YjF5VUNseXRraXpoQWU4N1BHeEpKS1ZMMGdwK1cz?=
- =?utf-8?B?NTNISnJoSzNOb21yRGxQNk0wSzJOVnFlUlNFMVJkd0lWN3ROUktKUlVBRzEr?=
- =?utf-8?B?SDBNNU9yVEE4eElsNlNhZjEvNXZLa1IrZXZwbVlNTml4TEJ3UEx4WHUyb2ZX?=
- =?utf-8?B?RlM0NklpOE5jOXpqak1VZUlvcTlicXRrdFNjZUdJMXgxRUJJSUlRd1Vxdm5k?=
- =?utf-8?B?WWJ2cnlpVTJiaTZTeitubE8rK01WV0IwNmpYNTF2VTZGY005UUYrZGNaZFVF?=
- =?utf-8?B?VjM4YjRWNHE4YlVHc3UrTWtrdlQ0UEZaeW0yS3VMVUpicFJpb3NNZFhVU2xL?=
- =?utf-8?B?c2VwbzlQTkV0aFNORVFydWdYN2xqdlc2MWJLWkFvOHJhY3hoK0ErK0g1bHNz?=
- =?utf-8?B?b3lkYjM3M1VyMXJxd3Mxc0xoejR2SnNkaGRmdWxuZDZWTVc5ckN2RFo3Z1Zt?=
- =?utf-8?B?S09Mbnd3eVF6UVZxNFNlWnhILzhMbWJTWFRSQUFWMWFURi9tQkxsQ01nenNm?=
- =?utf-8?B?cGNoU2RxQ3RXU0U5ZmREMUtKamRxb0VhSDM5S2xpS0dtQTRIRGh2QUh5ZytQ?=
- =?utf-8?B?UFpTdWgrcFk4UkpOeU1lcERybjRIbXN1bTVuWmxvYzBsa2l6RWkyeVEyWHg3?=
- =?utf-8?B?ZU1JUFpsb0tmc2NUVTNjOC9DZFl0WWNaRzhOeThIbUtqc0FUQ2ttWTdvaHRw?=
- =?utf-8?B?WDQzd3BSclBaT1JvUHkydjR2RC9UdnJLVVVzQlpWYnBNSnN3bjRKWkFqYkNN?=
- =?utf-8?B?SWp1VGF2V2poaXZybysybXRDSldQZDM3cXowVG5nR0QvYm15MHBaOGlTdExu?=
- =?utf-8?B?WitGNjJ4Z0Ywa0NzNGIxZ3dNaVk4UXROd2xyVmtxTm8xeW92Y0I1ZUFGRjVM?=
- =?utf-8?B?TDArTDV0cm8wRm8xekthQjVjU2tJcnhCV0NWL0sxN1RISC9JdHBUd0RPVjFm?=
- =?utf-8?B?UzRQcGVlQk1jamlObFBReE9HUHl1ZlpvRUFrWW96Qk8wK3J2M3lOOFdUbHlw?=
- =?utf-8?B?bUF6eVBsSENRaHB4VzJFNU14VC9nTWRIMHpMbFYyN05hcHkzRCtUZz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ebb0b412-1ee1-4220-48ab-08dede56c7e4
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 07:42:23.7427
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I+A6QGwOZpQEOYfOPNWntgCYRW/dUjXtu6Rn+i5cxVqQ0ceNKl00513SaNZ2CeQG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4158
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1485; i=thorsten.blum@linux.dev; h=from:subject; bh=Qih+LP3/egjYrLR7EBVMJajAdXN04WaqHWQ9otOcoB8=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFkBiyJkW1f1nI9hfXkntCj45V7BbTE/ct01506vOe05+ /lWa8/LHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRFcmMDMu2+/sYnuP9PtXk I/eUsoZ5Ulf69llNOFbQ8WHOi1m7PwkwMrR1snAkGslWvxGeVsP88dahm3+X3llfF7ouR9ph+ps /0xkB
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_004230_845239_BBE132FF 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20260710_004252_873533_CCD2ACC8 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,71 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+sg_dma_len() is only valid after mapping the scatterlist with
+dma_map_sg(). However, sl3516_ce_need_fallback() checks it before the
+source and destination scatterlists are mapped. Thus, a stale DMA length
+that is not a multiple of 16 could incorrectly force a software fallback
+when CONFIG_NEED_SG_DMA_LENGTH=y.
 
+Remove the invalid checks; the existing scatterlist length checks are
+sufficient.
 
-On 7/10/26 09:35, Sudeep Holla wrote:
-> On Fri, Jul 10, 2026 at 09:03:32AM +0200, Michal Simek wrote:
->>
->>
->> On 7/9/26 17:56, Cristian Marussi wrote:
->>> On Thu, Jul 09, 2026 at 03:27:00PM +0200, Michal Simek wrote:
->>>> On heterogenious systems like AMD/Xilinx FPGA there is a need to talk to
->>>> SCMI server from different architectures than ARM that's why remove
->>>> ARM/ARM64 Kconfig dependency with also remove ARM from description and
->>>> rename folder to reflect it.
->>>
->>> While I understand dropping the dependency on ARM (I always wanted to do
->>> that and test if it worked at all on some otehr archs with QEMU), I am
->>> not sure about the whole renaming party ? why is needed just for
->>> cosmetic reasons ? it is at the end an arm originated protocol so I dont
->>> see it as a being wrong to be named as such even though used by other
->>> archs...I have not really strong opinion on this...
->>
->> I have been in CC on U-Boot RPMI patches which got to my attention because
->> I don't want to have another interface for MB-V(riscv-) running in
->> programmable logic and have another server in the system doing the same
->> thing.
->>
-> 
-> Ah that's interesting. I wasn't aware of that. I still agree with the move
-> in principle, but how does that align with these:
-> 
-> drivers/clk/clk-rpmi.c
-> drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-> include/linux/mailbox/riscv-rpmi-message.h
-> drivers/mailbox/riscv-sbi-mpxy-mbox.c(Should be fine as it is just transport)
+Fixes: 46c5338db7bd ("crypto: sl3516 - Add sl3516 crypto engine")
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/crypto/gemini/sl3516-ce-cipher.c | 8 --------
+ 1 file changed, 8 deletions(-)
 
-I am having separate discussion on u-boot mailing list about RPMI and it's usage 
-on non riscv architectures because one raised argument was that it is community 
-driver spec compare to SCMI which is owned by ARM. But IMHO only for riscv.
-
-> 
-> Now I feel we need some alignment before making $subject move.
-> 
->> Based on that we had discussed about it with Vincent and Souvik (we missed
->> you there) about using SCMI on non ARM platform and both of them didn't see
->> the concern to be marked as ARM only protocol.
->> Truth is that some of protocols have ARM in description, file names, etc but
->> some of them not. That's why I think it is good time to sync it up and
->> enable
->> running this protocol on other SOCs.
->>
->>> ... my concern really is ... wont this full scale rename simply generate
->>> a lot of un-needed churn for future fixes and/or backporting ?
->> I don't think it is going to be a big problem because it is just git mv
->> which git is able to gracefully handle.
->>
-> 
-> Otherwise it may end up being unnecessary churn though I completely agree
-> with the git/backporting aspects. Just don't want to churn things up until
-> we have some plan and further changes/users of this move.
-
-As I wrote above AMD/Xilinx platform with SCMI server where ARM RPU/APUs (with 
-multiple VMs) and Microblaze-V in programmable logic acting as separate agents 
-is going to be the first user. And for being able to run SCMI on Linux running 
-on Microblaze-V I need enable SCMI on non ARM architecture.
-
-Thanks,
-Michal
-
+diff --git a/drivers/crypto/gemini/sl3516-ce-cipher.c b/drivers/crypto/gemini/sl3516-ce-cipher.c
+index 583010b2d007..02ec4282333b 100644
+--- a/drivers/crypto/gemini/sl3516-ce-cipher.c
++++ b/drivers/crypto/gemini/sl3516-ce-cipher.c
+@@ -56,10 +56,6 @@ static bool sl3516_ce_need_fallback(struct skcipher_request *areq)
+ 			ce->fallback_mod16++;
+ 			return true;
+ 		}
+-		if ((sg_dma_len(sg) % 16) != 0) {
+-			ce->fallback_mod16++;
+-			return true;
+-		}
+ 		if (!IS_ALIGNED(sg->offset, 16)) {
+ 			ce->fallback_align16++;
+ 			return true;
+@@ -72,10 +68,6 @@ static bool sl3516_ce_need_fallback(struct skcipher_request *areq)
+ 			ce->fallback_mod16++;
+ 			return true;
+ 		}
+-		if ((sg_dma_len(sg) % 16) != 0) {
+-			ce->fallback_mod16++;
+-			return true;
+-		}
+ 		if (!IS_ALIGNED(sg->offset, 16)) {
+ 			ce->fallback_align16++;
+ 			return true;
 
