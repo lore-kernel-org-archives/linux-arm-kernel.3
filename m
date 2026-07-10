@@ -4,93 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06726C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C556C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oh5hIJ+7O2JY7qrrtymOMkiruUIettb3qb3leyRUg7M=; b=lvElS/BjFKYX2J3kgLeEk285Eo
-	lplCJ484nVLGLvcZSVcC+D+ZCZQ9EpmlGzmZ2efZUv7nbYw40BLroxKccAa/rUVH3Y5rnKLNRK/wu
-	WmjqItzu+ovPcDstbvH41QoVETKe63iF+IWzQmkiBSO2cyOg3xh7Qc8serdECK+ozoot+4zLHG81T
-	Gs4XuxK42ctLj+n5svNW6XWZKTNUzqHjREdwwU6I7P7EZI3sWpKS9uIg1U/KJJ0dGcsST7bg8kJe3
-	dZvGt4Gte5nwcMiMathuJ94h3B+GDO9H5kk88z9zwDL1zLWgabEOahvR14BNLdo7Bfg8fAEOe3Wft
-	gix8xJsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ar+E9TphXLfCc54JgPtzwmObuwnsgnd4eZLoC7Tbt0I=; b=C51wrpJHvMyPrpk35JXd0cjks6
+	YdIX2R++Jb8ipwIyfoXpSeq6+EDfI0FaAB9YRxtFxu+GxPgpFD7PrGR/Id20z7DPaA6DdSP9QTCFQ
+	Ki3UWE6vGOre85XwGPKAH0NYaRcnrP4WGapQ2phDFpAHQpM6LZzaVV4FgtXxvEviHGAKTqy/ofDxB
+	uMRc2YOwWrmmvSWU7ews45CbtHfXiReH0MIZBuSEf1S8JmzT7WzNLWd8QSnAF4Obfb0CRozNKa87e
+	/HWEfjj76/RsyL1GjjutNC/GJpG4SXTkJf9C23ccNsqgVo5836nniWNHwaTQJOHz9V/TgiSSW6b/J
+	H5l2ZRNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8N3-00000004h2s-2t8T;
-	Fri, 10 Jul 2026 10:22:13 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8N0-00000004h0w-2iKW
+	id 1wi8RN-00000004hZw-1Rhq;
+	Fri, 10 Jul 2026 10:26:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi8RK-00000004hZK-2w6J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:22:11 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-385ea3ce80dso957976a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:22:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783678930; x=1784283730; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Oh5hIJ+7O2JY7qrrtymOMkiruUIettb3qb3leyRUg7M=;
-        b=sVuKAkay87ZL8Lm6FxQxrb2Hh0RTkxxz2CgIw4vzG7ey6GI6MbiFWf5JKMv3LkKAzE
-         g2UhtGQlIL7H4FxI7KcMMOrEuNHnT06VgNgll+xiY8RFy7vXigGTxazxapUCcoZlhjrn
-         D9XvikhgpwW/xaqA1tFF41UcwVzLwjlldH/Btz+LfultT0hXmi8rHRb7DwY1jWz4HLYo
-         IxrRq0pW/eNvte1tpJzIyXk/PT1Rn3HGme6brpJmDSiyCu7/zbsJh5R+OmvK+W8P6nbj
-         eRhqZNLnv0sg1EKaNCj84lGLuAhxo6EykJGbPDA4Mq1ddX1qCGqe4Q1XSrqDZx8RUAuD
-         B6YQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783678930; x=1784283730;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Oh5hIJ+7O2JY7qrrtymOMkiruUIettb3qb3leyRUg7M=;
-        b=gSZ+IGKhTTnzufxfA2KKM3xPAjVdShoQi1EYIamkqA7S5cEdsNr7D4pOQCBcJhDAnq
-         Jv8+mub4xLZ9A39+x2Egc59dBgYwV1hyDiNfEpG+REfeFSSeI/M7ddZTc8ZfYU7Uondo
-         ltj3pB2GeoxQBvoIqWUP5+uefA//6dtWXnxIdPXn6T5NoiwQ6XIb5YYGGrmcALMeT00P
-         AKcdkbvC9kSOy9JX3RvdTgCODLsjE11UvySHWwgmaaRqHl/XNflPQ5XVHMUWbjrTXm6T
-         lAOH0MPr+qHlVEn1LAbSH1kM2wyWW8S0iXGzROA1jUN31edIfA16vvtX6J3B//dUaYPH
-         +NpQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoMwd0n+Z3BUJKcqVsTSSbqKKAEjhCZLUEnSRk5EU4M0AsGCBVuCqwB1yGdD7Chf9zynJnplWg3jzN5be+5IBr5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIn8Ghq/kIMDvy31tvrfyLF5bi/nK5QJk4tG0eGiFLIBHpoSrN
-	t5X8D2kwFH/91JqsPRAAZEzyu0lYEO402HHjgi3nhpAkVhDyAaC6tYkM
-X-Gm-Gg: AfdE7cn95WD0SWXLHQy2UJRhMiGYAa9Hv1YSFGf3se67BGazng0tYdF0577vK4P7tvX
-	QSbdtuZUBYXJXElqY/ZSAYE+TaDKTHLMHuaR/YVmUJrcQIX3oiK37n+ixWSuTEJLVoeFXO57Gcw
-	hZ7e6gLeqGW9ehB7tw9YztqSFBF3kFjtcke9GzDpP9HJU4Lr+UOV8MX1P4vsbRCbtg2n6mc8tcm
-	rIWZjCnEer1G8UUaDniRj4zks4UH3yEwSYyGIWz05+R7PMdLH5yd/DPMnzTsLyE4uO6laGV9sEl
-	JZ77rIFDczONzuJnvTvbx01AqabaMUXVBmYYtCkGrw1zCAj2lBq1nS9tTowIN+PBaZiReiytHW0
-	uMJeJeshXZewmRl7gFHK/n/xPUt9uWkRh3bcXgcafgGSqRpNKx1XDgRDbeKHN3VMwe00krmnX22
-	y4/Omv2JyL1XXfkFGN/GyM0Z+g25uyhr0fuRK87CsfFW9BJeg=
-X-Received: by 2002:a17:90b:3b45:b0:380:71eb:4014 with SMTP id 98e67ed59e1d1-38940731d1bmr11115641a91.15.1783678929613;
-        Fri, 10 Jul 2026 03:22:09 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38a5516abffsm2490240a91.4.2026.07.10.03.22.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 03:22:09 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 3/3] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and drop redundant error handling
-Date: Fri, 10 Jul 2026 17:21:38 +0700
-Message-ID: <20260710102138.29347-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260710102138.29347-1-phucduc.bui@gmail.com>
-References: <20260710102138.29347-1-phucduc.bui@gmail.com>
+	Fri, 10 Jul 2026 10:26:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3224C1D15;
+	Fri, 10 Jul 2026 03:26:33 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1B2A3F66F;
+	Fri, 10 Jul 2026 03:26:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783679197; bh=Y2Q0Wnp+woBWIJ3LMki04DMU5S2ZDmbmlghNOolDQGw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f5JBwnvkMbfBzfJGuvFh8C1CFlY1Uf9qXvwM+YjG5+xhOFF/mJ+sAQjCNdC5ajd4n
+	 oxbOeTDhE7HkAhwCJ7kazZBMSTyEmhtrIdsP7QN81SJ1RVAWhtB5+o4cfYMYh8RgbH
+	 m31spkmTMgkXf5OVddLVf3wA3SKDV7hTUkI/dIKc=
+Date: Fri, 10 Jul 2026 11:26:29 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>, pbonzini@redhat.com,
+	kvm@vger.kernel.org, david.hildenbrand@arm.com, maz@kernel.org,
+	oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	fuad.tabba@linux.dev
+Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
+ memslots
+Message-ID: <alDI1b8fC99SG4_a@J2N7QTR9R3>
+References: <20260702142912.6395-1-alexandru.elisei@arm.com>
+ <akxOrMnlNga-vtQv@google.com>
+ <ak0wSQ1133O7B96D@raptor>
+ <ak0ziUcCXUlDdcla@google.com>
+ <ak-EKSslAz1uqEtv@J2N7QTR9R3>
+ <ak_wC4Q-mQe14DI8@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ak_wC4Q-mQe14DI8@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_032210_694061_91A70585 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260710_032638_832712_FA70D933 
+X-CRM114-Status: GOOD (  41.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,80 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Hi Sean,
 
-Use dev_err_probe() for probe error handling where appropriate to
-simplify the code and properly handle deferred probe.
-Also remove redundant error messages when the called helper already
-reports failures, returning the error directly to avoid duplicate
-logging.
+On Thu, Jul 09, 2026 at 12:01:31PM -0700, Sean Christopherson wrote:
+> On Thu, Jul 09, 2026, Mark Rutland wrote:
+> The key thing for SPE is that any pages that the SPE HW is using must
+> > have a valid writeable end-to-end (VA to real PA) mapping at all times
+> > while the guest is running (and while the host drains buffers). If that
+> > requirement is violated, even transiently, then data is lost and the
+> > guest will see an unexpected fault reported by SPE.
+> 
+> Well, at least it doesn't crash the host :-D
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+Indeed! :)
 
-Changes in v2:
- - Adjust line wrapping.
+> > If there's any reason we might (transiently) unmap a leaf entry (or
+> > entire sub-tree) from the stage-2 tables, or might (transiently) remove
+> > write permission, then we can't guarantee SPE will work correctly from
+> > the guest's PoV.
+> > 
+> > Obviously we can't guarantee that for regular memslots backed by
+> > userspace memory, hence we were hoping we could rely on guest_memfd.
+> > 
+> > Am I right to understand that we expect (in future) to do things with
+> > guest_memfd that could violate that? If so (and if we're not happy to
+> > have some options to say "always keep this pinned end-to-end no matter
+> > what"), 
+> 
+> Yes?  Page migration is the main one that I think will be problematic for arm64,
+> *unless* CPUs that support SPE don't require break-before-make (no idea if there
+> are even plans to ever drop the BBM rules).  Because with page migration, unless
+> KVM temporarily jails all vCPUs in the host while swizzling stage-2 PTEs, there
+> will be a small window of time where the memory isn't mapped.
 
+At a high level, if page migration (or any other changes to live stage-2
+table entries) will be a thing for guest_memfd, then us Arm folk have to
+go and work through the implications of that.
 
- sound/soc/xilinx/xlnx_spdif.c | 25 +++++++++----------------
- 1 file changed, 9 insertions(+), 16 deletions(-)
+For contemporary HW with SPE, break-before-make will be required in at
+least some cases. So unless we have some way to suppress migration, then
+SPE virtualization on contemporary hardware is largely dead.
 
-diff --git a/sound/soc/xilinx/xlnx_spdif.c b/sound/soc/xilinx/xlnx_spdif.c
-index deb7225c1b4b..ae05818ba064 100644
---- a/sound/soc/xilinx/xlnx_spdif.c
-+++ b/sound/soc/xilinx/xlnx_spdif.c
-@@ -249,21 +249,18 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	ctx->axi_clk = devm_clk_get_enabled(dev, "s_axi_aclk");
--	if (IS_ERR(ctx->axi_clk)) {
--		ret = PTR_ERR(ctx->axi_clk);
--		dev_err(dev, "failed to get s_axi_aclk(%d)\n", ret);
--		return ret;
--	}
-+	if (IS_ERR(ctx->axi_clk))
-+		return dev_err_probe(dev, PTR_ERR(ctx->axi_clk),
-+				     "failed to get s_axi_aclk\n");
- 
- 	ctx->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ctx->base))
- 		return PTR_ERR(ctx->base);
- 
- 	ret = of_property_read_u32(node, "xlnx,spdif-mode", &ctx->mode);
--	if (ret < 0) {
--		dev_err(dev, "cannot get SPDIF mode\n");
--		return ret;
--	}
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "cannot get SPDIF mode\n");
-+
- 	if (ctx->mode) {
- 		dai_drv = &xlnx_spdif_tx_dai;
- 	} else {
-@@ -282,19 +279,15 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
- 	}
- 
- 	ret = of_property_read_u32(node, "xlnx,aud_clk_i", &ctx->aclk);
--	if (ret < 0) {
--		dev_err(dev, "cannot get aud_clk_i value\n");
--		return ret;
--	}
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "cannot get aud_clk_i value\n");
- 
- 	dev_set_drvdata(dev, ctx);
- 
- 	ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
- 					      dai_drv, 1);
--	if (ret) {
--		dev_err(dev, "SPDIF component registration failed\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
- 	dev_info(dev, "%s DAI registered\n", dai_drv->name);
--- 
-2.43.0
+Going forwards, I believe that the intent is that future CPUs will
+require BBM in fewer cases, but I suspect it won't disapear entirely.
 
+> I mention page migration because I expect swap/reclaim to be fully userspace
+> driven, i.e. if userspace crashes/corrupts the guest, the answer will be "well
+> don't do that". 
+
+Ah. I had assumed that if we'd consider kernel-driver migration of
+guest_memfd memory, we'd also consider kernel-driven swapping of
+guest_memfd memory.
+
+I'm happy in principle with userspace being responsible for avoiding
+anything problematic that is userspace-driven.
+
+> But (at least some forms of) page migration will likely be
+> kernel-driven, e.g. to compact movable memory for THP.  And I really don't want
+> to give arch code the ability to hard-pin specific ranges of memory.
+> 
+> That said, odds are good that we'll end up with per-gmem flags to communicate to
+> guest_memfd whether or not the gmem instance supports page migration (x86's TDX
+> and SNP in particular require extra consideration).  So if the anticipated use
+> cases are fine with all-or-nothing "pinning", or with juggling guest_memfd files
+> in userspace if a more dynamic setup is desired, then you should be ok?
+>
+> E.g. if the anticipated use cases are all slice-of-hardware style setups where
+> the VM will be statically assigned a chunk of memory, then for the most part this
+> will all Just Work.
+
+Yeah. I agree (with the caveats you mention). Arm folk need to go figure
+out if it's worthwhile to support with all those caveats.
+
+> > then I think that means that in practice we cannot virtualize
+> > SPE correctly, and Alexandru and I need to go back to our architects.
+> > 
+> > > And at some point guest_memfd may support userspace-driven swap, but I
+> > > suppose we can cross that bridge when we come to it.
+> > 
+> > Unfortunately, I think we need to figure out now whether it would be
+> > acceptable to suppress that (or making it mutually exclusive with SPE),
+> > if only to decide whether or not we continue trying to virtualize SPE.
+> 
+> Eh, as above, if userspace pulls a stupid and kills the guest, that's their
+> problem.  Just make sure the host isn't at risk :-)
+
+:)
+
+FWIW, I agree from the host kernel side!
+
+My concern is that if userspace VMM folk don't want to enforce that (or
+want to but find it hard to handle correctly), then practically speaking
+we're back to "SPE doesn't work", and from the guest kernel side there's
+nothing we can do. As one of the SPE driver maintainers, I don't want to
+be in a position where folk will shout at me because some VMM made a
+mistake, and where I can't do anything to remedy the situation.
+
+Hence, even if it's userspace's responsibility, we *might* want some way
+for userspace to tell the kernel "please don't let me mess up this
+specific requirement".
+
+Thanks,
+Mark.
 
