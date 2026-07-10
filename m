@@ -4,66 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651FDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5D1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ii1vU+qSFHh7ttInOH6qCrJKaT0+gf5Rev7aVyOSuI8=; b=IF/LEOTe+GT9+u
-	9M+wcTmQh41YsAvWAIe2TU8WPaPr0qfmyzNragQSpuw+MGehw/kK1DhM7Lo+6WBpujhiVlnH/luJD
-	gMneLKB23lCCggc4PjFyUYYqFrWPBGF31Jf/HGGrVR1wUTUlpphu6ilaaPoxt+fOQ3RPql0NnUkpP
-	sB+0XDITQEPAj6GyoQ7HvNiw5/2zDHisRwri+EMzn0Iqh36Ct8S7MYD0wN6n7GbVD3biHzT27yelV
-	Iz4av8r6Oghiy7MVoum/ieNXQvqK8ePa5P1PkcMegBGAx/j6YbQkIgvKHMVHTAXgwHbT1K1OmJuCH
-	X4ZPodVk96gHZFrwndnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=887ros/S9hMoJFvMg14+NEGM7fiCxEdEXnvNBCKYcEE=; b=H8Cqu3gEBr/leOarGUQUscEk66
+	8il9Oaml+MMW06MZzOBqrUlGIbsf5FnAP5bR2kGgIpaPupFDWyZrGcuNa/YUmMX2rT6eljVKC2VPt
+	/DWhqw6fiieXHZhkfMSLzhEHpXCNPFSJBMVmOBx1RfF+MuRdaL6lXJ/zyvGToHkmmas8BGZRTVFMG
+	SC00VOIz7UIxTTybgBlWMITmEsSfLigw7cSe+r1HdF227VIfF4yHxWl5nmYcBVxehWK3QniDsaWiy
+	Yw43wtHq04LtgzlNmxbqJ3ZAiDG48yGK4HcU+U1AP2RxQ/YMXGEthZAerPS9zPxOYlubZMt4ZxtmE
+	SL2t1zFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2fG-000000045IA-1r7i;
-	Fri, 10 Jul 2026 04:16:38 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wi2ja-000000045Z4-3fx7;
+	Fri, 10 Jul 2026 04:21:06 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2fD-000000045Hi-1EMQ
+	id 1wi2jZ-000000045Ye-0kdu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 04:16:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Ii1vU+qSFHh7ttInOH6qCrJKaT0+gf5Rev7aVyOSuI8=;
-	b=gjPLHDcZOxRZeyK1F/tVQl5wYZ6dkquk2KCseZu/WI7otlnEkAkK+KzvJpuIxaa+t9Fxng9XP
-	ww6ych6xSikl4mBLcw9bSlXH2PCkxTbgcpRbwJx+896Ib4zrCVvRlcdv55w7awj6rgEn7x59Mpy
-	kgVLzC/3GkqNjAUk0PPnnks=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gxJDf2tdxznTVZ;
-	Fri, 10 Jul 2026 12:06:42 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8D38940586;
-	Fri, 10 Jul 2026 12:16:20 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 12:16:19 +0800
-Message-ID: <62c8be8d-224f-4db9-a91d-09f45ebe048e@huawei.com>
-Date: Fri, 10 Jul 2026 12:16:18 +0800
+	Fri, 10 Jul 2026 04:21:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gGayrL7ch+Sb4JdYHbMTj5r4O1AzkIJ7kQh20LL2q59x3VA5xSuQFsBC1f7L8EFwEguTQEt9b3qpZRy6msNutt2hhyXL08OWCyw3ouXhVBCjllKH96QuMOJFNpaeEvsTbwq1ATPtB51otkiJCinlQWPV9woLtJRJeC6yDTUOG16gLfC60LGiBbm6EKSXJMvK9VAEtmjLB7BcgtGtbp37c++/Fn4AEXTq91PLza0H3noT51LzGhj/AQKmse1xjyKUKjK10oy9m/+xMZFpacOrP1TFTeqXjUgIzq+TS9V+gj7BzTGDWypa5r5FfxsxM8W6mzFFBJdf6yiBX6VbwnRP7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=887ros/S9hMoJFvMg14+NEGM7fiCxEdEXnvNBCKYcEE=;
+ b=Xn7by+zVlMoX/DJn4LGhxKUj3+CRMCxmhCbnnYuUFkL1qkr6U6EuJF0rQecUROG0tTPEKNKjq2g0RZo/FHk1umULeP60x3oGYbKqcE3I4+bAQg2ukJiWHc5DW2W3vXQ6F4LaWbQ9U0Pkjx6Wlc022LeoJ2ikT3TWhuapJ15whKtWfBfVTxo9Xy/Io3fHklzSzYKSiO+uwd1UATRgOVQQKP19iq3g1XczDvtpO45lvXWkAfmb8XKWAzzq8t50bbG2bo53ul8Y/RJAP2BHXbnTPg0HPCBXC/+xPEnWLOOWwNbguoxnvRjX1zZBSXyf2OsnkEMjfTtKlBcFPE3t/78JJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=887ros/S9hMoJFvMg14+NEGM7fiCxEdEXnvNBCKYcEE=;
+ b=e8pIYjyq8dRWBeUG1moXSN6w8R4d2qSNCPz/zX7BkmRKG9j/JvIAyi2TbMbWFl/ik2+Ax4yWXV0pUlKQjPogHNCE+dxSyexeu6KoXbpLRGFWNTd8jEhTz9XJ0nJeE5stlrRqpP8g+aT5fDgBDh/Jhc58nK5r4zpE7/cjH7dF/LF1NPcOrK9tsGScH8eXQKwpnVDZPJ1jB12JMDW7f5nYNVIewIYN8Lhg7DxfH9gPUVkvPdzp70iFxdlRfVzk0T/mAjOpkQD7SVFjus73ZXO1I6tV5AgAn6B/ITlyLZOVVM3svLSYxpD2i0vdqhitMe65K3es3amToHALZpIc+LGcsQ==
+Received: from BN9PR03CA0885.namprd03.prod.outlook.com (2603:10b6:408:13c::20)
+ by PHXPR12MB999258.namprd12.prod.outlook.com (2603:10b6:510:3ca::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
+ 2026 04:20:58 +0000
+Received: from BN1PEPF00004681.namprd03.prod.outlook.com
+ (2603:10b6:408:13c:cafe::57) by BN9PR03CA0885.outlook.office365.com
+ (2603:10b6:408:13c::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.11 via Frontend Transport; Fri,
+ 10 Jul 2026 04:20:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN1PEPF00004681.mail.protection.outlook.com (10.167.243.87) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 10 Jul 2026 04:20:57 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Jul
+ 2026 21:20:35 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Jul
+ 2026 21:20:35 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 9 Jul 2026 21:20:34 -0700
+Date: Thu, 9 Jul 2026 21:20:32 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Ashish Mhetre <amhetre@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, <linux-tegra@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/3] iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat
+ workaround infrastructure
+Message-ID: <alBzEGd3a2MQTpt5@nvidia.com>
+References: <20260709095613.831769-1-amhetre@nvidia.com>
+ <20260709095613.831769-2-amhetre@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
- initialization
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-7-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-7-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260709095613.831769-2-amhetre@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004681:EE_|PHXPR12MB999258:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8661b920-8cbd-4647-015a-08dede3aa419
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|376014|3023799007|4143699003|18002099003|22082099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: xbYLKaNPYXaoavu+rejnBb+ng+9g1F0cT+ZP7r4+CVxeKNG2eKUPQdxkZv3cho60Svq/t0yWUA0pb5xlgy+bGSd4QQRNhI+46LtPiNsrnQ+HPNYXRyiDgBZH+ZnUBiQQODeQv42xHf0e2d8asnD6XzsMIhxdNVGTOKrgtg8mkBAwn13smr8pjHs0tLV55rKm/Nm2ZEAwTW57IljvUR4gBoxkfJ8vtmahoUhTNCaYa7eZalZBSwjlzJk1gs2kD8sASFvoRqwngBQP8kn5kHe+wCeWSVxkKI8nlI/dxgnBzCLIEvEHJyN3KLvNwMrIOrNn1KCYwiiW+Ah/qu/nr/bNiNvKCSgP8D1TYXFIN2xpHPCqv2lwgVNdKiWniyVhkZJq+jwcWL+DCUymR3SMj8YdQHIVKSBg+S7E2UK45hR9NYxBlGBSJpigatuF4uwqRKLcxPLxewqoe3TBlK212hTcB8Km31ug9N+oVcklExl1zcALtYUCR6NTt/DoYzCXYTm2YUN3BwLzf5Dxl6jT04bycF54Jwp0tq51XFs3W8x6EuJijAszf0ezEx8k40cCA3cLFtWDsspqp1BJrGyASfckPef00ahCS0mEUmnJb3fmGffZKQHFoR4zMrw8CQTf77jO+TKC1ULCTcLZhfXkrSk/57kj182US8Ih0UudN9XL1IWF9Xv15swwcqKDfl7hF3CgR5kMhIKonSXAdCX0o/8EmQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(376014)(3023799007)(4143699003)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /PM0aNX0o7sctiefxVJvqbkJYRsOnNuyR23vsyR0C87vOejSOFzxyk+jO9WJ7VbfvGr/8wNQuZoeFVbjeLJlhu5iF5IUkkxTu557NbhuvXxd35j5lOtPzr9p7QIk41m6s2ti9WwYmuTb/Qs5dYSI9lnsC2zPu11dwkfQONyAEfem85cMsHgSDUDlKMZS427z9nFSZdio1uxn6f0vE7vXyViFFEEA/LH0rFHFknJMTv/sP1CyXhi7e88w6UAhmZfu6MKA1t91++MNACmxkOYvBTB3hoNe7+k3+XvnPWG+8j5VEYtW2yE7+QMcD1cQTRQclAKJpzinMdxxMfhWRjWhK3w0466PlURAbcOiZM/5ktCyoXDICBOqPlMIG9hXsp1p5LK5VOhFGcqVI7Iua9o961JakmaSa2Kj5TEW71732sQy+0uVtEnT11WIgQdslwsm
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 04:20:57.3894
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8661b920-8cbd-4647-015a-08dede3aa419
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004681.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PHXPR12MB999258
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_211635_686233_4463262D 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20260709_212105_234814_2992B50F 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +127,115 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 09, 2026 at 09:56:08AM +0000, Ashish Mhetre wrote:
+> No callers enable the static key yet, so this patch introduces no
+> functional change. A subsequent change hooks the DT probe to enable
+> the key on affected instances.
 
+Nit: once a patch is merged, it's no longer a "patch" but "commit".
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
-> interrupt masking via DAIF and switch to masking via PMR.  This
-> depends on a very specific behaviour of `local_daif_restore()` which
-> will clear DAIF if masking interrupts via PMR, which will get removed
-> in the future.
-> 
-> As `setup_arch()` cleared DA only earlier, introduce a dedicated
+Instead,
 
-Did you mean local_daif_restore(DAIF_PROCCTX_NOIRQ) in setup_arch()?
+No callers enable the static key yet, so there is no functional change. A
+subsequent change will enable the key on affected instances.
 
-> helper that explicitly initializes the PMR to mask interrupts and
-> clears DAIF, switching to IRQ priority masking.
-> 
-> Given it is a dedicated helper, add a lockdep assertion as
-> `setup_arch()` should always have called `trace_hardirqs_off()` when
-> clearing DA, otherwise something bad happened.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/daifflags.h | 15 +++++++++++++++
->  arch/arm64/kernel/irq.c            |  7 +++----
->  2 files changed, 18 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-> index 795b35128467..56341578e7e3 100644
-> --- a/arch/arm64/include/asm/daifflags.h
-> +++ b/arch/arm64/include/asm/daifflags.h
-> @@ -141,4 +141,19 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
->  	 */
->  	write_sysreg(flags, daif);
->  }
-> +
-> +/*
-> + * During early boot, we unmask PSR.DA before the GIC has been set up.
-> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
-> + * after the GIC is enabled : sync them up.
-> + */
-> +static inline void local_interrupt_priority_init(void)
+> Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 76efe479e80f..15b9d0170520 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -41,6 +41,7 @@ MODULE_PARM_DESC(disable_msipolling,
+>  
+>  static const struct iommu_ops arm_smmu_ops;
+>  static struct iommu_dirty_ops arm_smmu_dirty_ops;
+> +DEFINE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
+
+It's an erratum; it should have an inline description, like the
+one you had at ARM_SMMU_OPT_TLBI_TWICE previously.
+
+> +int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+> +				struct arm_smmu_cmdq *cmdq,
+> +				struct arm_smmu_cmd *cmds, int n,
+> +				bool sync)
 > +{
-> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> +	lockdep_assert_irqs_disabled();
+> +	int ret = __arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmds, n, sync);
 > +
-> +	gic_write_pmr(GIC_PRIO_IRQOFF);
-> +	write_sysreg(DAIF_PROCCTX, daif);
+> +	/*
+> +	 * arm_smmu_cmdq_batch_add_cmd_p() can flush its current batch
+> +	 * with sync=true and n=0 (bare SYNC) when the next command is
+> +	 * not supported by the batch's pre-selected cmdq, so the
+
+After a second thought, this "supported" case is not reachable.
+
+When a batch is init-ed, it's given an opcode (same as cmd[0]'s).
+
+If an opcode is not supported, it's init-ed with smmu->cmdq that
+must support all commands.
+
+So, adding the !n is more like a defensive play. But the comments
+here would be misleading.
+
+> +	 * repeat path must not inspect cmds[0].
+> +	 */
+> +	if (!n || ret || !sync)
+> +		return ret;
+> +
+> +	if (arm_smmu_erratum_cmd_needs_repeating(smmu, &cmds[0]))
+> +		ret = __arm_smmu_cmdq_issue_cmdlist(smmu, cmdq, cmds, n, sync);
+> +
+> +	return ret;
 > +}
 > +
->  #endif
-> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-> index 9fafd826002b..c73faa30268d 100644
-> --- a/arch/arm64/kernel/irq.c
-> +++ b/arch/arm64/kernel/irq.c
-> @@ -126,10 +126,9 @@ void __init init_IRQ(void)
+>  static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
+>  				     struct arm_smmu_cmd *cmd, bool sync)
+>  {
+> @@ -860,6 +883,11 @@ static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
+>  	    (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC))
+>  		return true;
 >  
->  	if (system_uses_irq_prio_masking()) {
->  		/*
-> -		 * Now that we have a stack for our IRQ handler, set
-> -		 * the PMR/PSR pair to a consistent state.
-> +		 * Now that we have a stack for our IRQ handler,
-> +		 * let's mask interrupts via the PMR.
->  		 */
-> -		WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> -		local_daif_restore(DAIF_PROCCTX_NOIRQ);
-> +		local_interrupt_priority_init();
->  	}
->  }
+> +	/* See arm_smmu_erratum_cmd_needs_repeating() */
+> +	if (cmds->num == CMDQ_BATCH_ENTRIES &&
+> +	    arm_smmu_erratum_cmd_needs_repeating(smmu, &cmds->cmds[0]))
 
+The comment above is useless; arm_smmu_erratum_cmd_needs_repeating
+doesn't give any useful explanation either.
+
+Like I suggested, add the missing piece of war description to the
+arm_smmu_erratum_repeat_tlbi_cfgi_key at the top. Then,
+
+	/* See the description at arm_smmu_erratum_repeat_tlbi_cfgi_key */
+
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -1211,6 +1212,20 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+>  				struct arm_smmu_cmdq *cmdq,
+>  				struct arm_smmu_cmd *cmds, int n,
+>  				bool sync);
+> +DECLARE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
+> +
+> +static inline bool
+> +arm_smmu_erratum_cmd_needs_repeating(struct arm_smmu_device *smmu,
+> +				     struct arm_smmu_cmd *cmd)
+
+smmu is unused.
+
+> +{
+> +	u8 opcode;
+> +
+> +	if (!static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
+> +		return false;
+> +
+> +	opcode = FIELD_GET(CMDQ_0_OP, cmd->data[0]);
+> +	return opcode >= CMDQ_OP_CFGI_STE && opcode < CMDQ_OP_ATC_INV;
+> +}
+
+Maybe move this to the first caller in arm-smmu-v3.c? Instead, add
+its stub here, so we can drop that DECLARE_STATIC_KEY_FALSE. Then,
+DEFINE_STATIC_KEY_FALSE will need a "static".
+
+Nicolin
 
