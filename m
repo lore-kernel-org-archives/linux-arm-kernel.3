@@ -4,149 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9779C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1106C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=; b=2vnzV8G7AvnX4hC6AXlFGd9i/z
-	SUmoOFiqc+VM3agLk76OAtbC20C15lBh9SrvuYcfKOy7YfugmFJjSMRz/JQXrJCjMdMtlLP9eiZIM
-	CQwdQaP62vuS+h1Gu68XWySzwL7FS1YssadhuukZ//1HZCkyQzYWyWEJtwuzba7OfVwR0/nMST8cX
-	J5zKPnqu5lacwpXupEoO8uDTymwF15LxYidoOIlp8DwmFta+7RG/FHzC35oMqAauTGaHfJCYqXTQY
-	eDj9M6RvuhMnIDSpwOmgHkDjcJR3LuOUcnVlhisULdbxWst+uNQU3zn8BXgDxDCVF5DY3aWM1JUm/
-	kXl1IbCA==;
+	bh=/FLJAhf+HrQPx1nb1Lq2j916SVxv3SASnYd4Z4gcWXQ=; b=A5kehDJVb/oKpdekEez11OHJaZ
+	3717co2lJd7eosepUOWBtxCxtSJkm/g507GcibmFr4+sitGDuUIY0gPqse9UU/TPEqO+4GJ1AubCp
+	XRkz11+4Jt4tKVuGhsQZAlgf5xY/d+x/JwM6codid1bcIMSKf6epVoPUlkIWtt1HaInoQcRpHqpzl
+	tzCu9urQ7Ws2dvdoId4ZcXDKyVBVWKmrk1Mn/5ndo16QU6wT7XU0QDjBTYNutKpibu6wMSRRbjl05
+	We/VL+q8DPju7ulUXAsBGdlOYPpSn4tMYYehNfqcchbmM67jMJ6ib1KEMy1+R2xjVeDTG21/QZ5Hv
+	Iz0ELfLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIhg-00000005p4M-01Zi;
-	Fri, 10 Jul 2026 21:24:12 +0000
-Received: from mail-northeuropeazon11010045.outbound.protection.outlook.com ([52.101.84.45] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wiIle-00000005qFK-0jsY;
+	Fri, 10 Jul 2026 21:28:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIhd-00000005p3Z-1iWs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:24:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jpVTRIaIUuFyQ1NwDTUigHi6ay2jfYAwOP7yAE2uBtOrxEmfdhbt4x8s9eyCq8XUD2vgEFborQDxb9+eYRLIWAtxRbbf6hd6fG8AVTZEOMPA0n/7px1w26B8kqfYxEMcVoCmb+chp/yVqpXRpQTSH9prLt0c0HGvRBcrL2R/JM7PM7IXhDXkpbqLzzpdFUbI9nB2xrcVCE0j5QfXQY0kpP9nU1f6bcwl/zsI41J/UmdEyV3Wy8ws2zAbNFukpKPKF5b1uVxpjb6SzinQ3ly09MIFScXiVpCk0n+JgoPun2RIpk4MnHCwvXof9N5c2Ww8juULzeL1Wtwz/hWdzl12aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=;
- b=baPoa88XtwYM3YPxXk4TATyhdkyZhyKXy0IIWiyR2qs17OEVnaqJHFVNO0EG2dM2+ztqcfCeeCfpPbpnEozC0MNfmwfgT+SglpTKwJrf35To3u2akTBoXssrYH9udbxAE5OjD+WDdHfn6uzhghR6DIMtmONHvghFO7DYV6rv8ZSBe7WvrDmsCHJ+0wxnVoCK/2Q2UDm1f4TLUQAnrTBYajYIWM4Hii//OvkD6z8TEGpRPgJFDJg0EzzSM9oxQgkn1c/Z53itSvfms474TadNh2Xbm23aj/fjMmWiWpFFHBZrC0x9G3P0lvEwllVpfRK5JScaT9/yBmkTk9Hnf+XSEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=;
- b=PxSc0uUXmZ3qYeYNgJhMQ/M3rCR0Dh+0MKvH+yJ5kODA0FDpdvu+r0u/qniXzoRvyMplz6KcnJQptRbAd9G2WZ1btRsZV9K/t1rNS3P8I/Hj3p05ZSnUOH81yMwzL7FYQPR5jjCa/fO0CW702P+BCVY9THAWFbwYSptM8Z1OJ8N/ex0FkrXWgtQ2oYO1E/byinYHNx2jtwuALtwObBnzsSx+aW3FSCPxM3pqn6e/xgny/MMzQstuFldRDSNNo+Gy3xsAJmdVaalrLz7qj+SaSF19mBeIyzt+Ium99+4CTkxRycpoh6xn9B8nd6YSZFZFZ+tKf4D2EEgHiz1fx7Bv5g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB6997.eurprd04.prod.outlook.com (2603:10a6:20b:10d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.18; Fri, 10 Jul
- 2026 21:24:05 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Fri, 10 Jul 2026
- 21:24:05 +0000
-Date: Fri, 10 Jul 2026 16:23:55 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
-	Neeraj Sanjay Kale <neeraj.sanjaykale@nxp.com>,
-	"marcel@holtmann.org" <marcel@holtmann.org>,
-	"luiz.dentz@gmail.com" <luiz.dentz@gmail.com>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"brgl@kernel.org" <brgl@kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>
-Subject: Re: [PATCH V5 2/4] PCI: imx6: Add skip_pwrctrl_off flag support
-Message-ID: <alFi63W80HiYfDfC@SMW015318>
-References: <20260709101555.3034853-1-sherry.sun@oss.nxp.com>
- <20260709101555.3034853-3-sherry.sun@oss.nxp.com>
- <ak-2BQEUMg8Ewjz9@SMW015318>
- <VI0PR04MB12114FB4F1C79ADFA5F3F215092FD2@VI0PR04MB12114.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <VI0PR04MB12114FB4F1C79ADFA5F3F215092FD2@VI0PR04MB12114.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: SA9P223CA0007.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:806:26::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wiIlb-00000005qDv-1qme;
+	Fri, 10 Jul 2026 21:28:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783718893;
+	bh=/FLJAhf+HrQPx1nb1Lq2j916SVxv3SASnYd4Z4gcWXQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=IlRps4195ioPuhR77He7Agm5J2N8mUoRfqy3CKrjQ/SPvZAm0BFKk7ynTzMekg9RB
+	 y4/l+uUm/vsSAoEIx0sBmU7RsGuaQzg+UMSi2WMLM7glUU7i3uFzCMpghPZC5grOSW
+	 SlmQ4hnbLd1BXXQr6Te/xmt+7kiEtMZaeR2x67gkOMoUXe/t3Nrvceh8XRKYG3rBYf
+	 xYweIL8xRJjpIKIY116SkqXE90cIbxVjESQlpOd+1n47WRxEJ2wl6Uy5X4kdmUnzNO
+	 Rrq6mSe2KPkWy66YPKLZW4zdrwkYMzAzHxZilxeiegwFf79W+L7IPjJg2GtqRlmmC+
+	 ubsVW08qV+jRQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 67A0F17E07A2;
+	Fri, 10 Jul 2026 23:28:11 +0200 (CEST)
+Message-ID: <8eed484696b34d828d7df92557c30ae5a6343e80.camel@collabora.com>
+Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Michael Riesch <michael.riesch@collabora.com>, Paul Elder	
+ <paul.elder@ideasonboard.com>, Kieran Bingham
+ <kieran.bingham@ideasonboard.com>, 	laurent.pinchart@ideasonboard.com
+Cc: xuhf@rock-chips.com, stefan.klug@ideasonboard.com, 
+	dan.scally@ideasonboard.com, jacopo.mondi@ideasonboard.com, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	hverkuil+cisco@kernel.org, ribalda@chromium.org,
+ sakari.ailus@linux.intel.com
+Date: Fri, 10 Jul 2026 17:28:10 -0400
+In-Reply-To: <a6a32617-f3c9-4cf2-b020-daecf7ec18f1@collabora.com>
+References: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
+	 <20260619052637.1110672-2-paul.elder@ideasonboard.com>
+	 <178229758404.3075020.12553514371020830845@ping.linuxembedded.co.uk>
+	 <178237578321.292172.5229006087283359591@neptunite.rasen.tech>
+	 <a6a32617-f3c9-4cf2-b020-daecf7ec18f1@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-gw40z93wvCRsLGCi92mT"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6997:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c425c46-0a74-4960-65fc-08dedec991da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|4143699003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 9n5wKRjOeQTr3Jn/mJMmarfc806vFgxs2I9u0Ywh/demo94IIRdaYkMs/SL72vLBjJwXxfD0O7YEHqWdNge5jBwHy3IhVgXREZlIN0yTvoax8B2bLl9+A5/4W2kgIJQ+pr9Yb+tDW5p7W+kbxiKCqigZ+kYdATYnCTenq4z4A/gaCZGDSotK1QxhQt86mP3RvPBhExbXyKNyvICdTFjOnftqzSLBGKcc09/wRtEHvPbmGuagvchE0WNbmnc4g9VlWNdEVNPafTvRpLyw4TTspKhuoqHx5xjYeku9I4flUP7nPS5+oLEZzS1uM7UpyGd0p9J2rfaiKFmb9gFlAeBdrGIcJL7xSYRrdbPxANq1pMcBVR5ziybFBdkas7iy619jmbsbVUu/Rq4tiadKRgeL6kVxeJKoIRNvkgT38oTLD/cwB4oH94dhF+e1G2ElIjR7ajmeagaY0y/wa2mJllKj+vJFAD6tH0bzmtLr/xRjgFbc2QuUvBUxKb+nj8M0xkioiW5TVJs9ayAwz64W/Om/yubLCq/avVH1X5tUZsoivCeL4pBxl9fSZBJr0A4RVkMe2tOve7DfOqRqkvJcSvxB+i44JmOir2ozLI2KmVp1fDTLqM38GjXREFq0IspXe2/Kwz/qf/r4y9d5KKlMLRM5ggzBoIFSMZxMiKcyMwJEXpY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fQB9KoXla8nd/oTq50dgvUzKpFGLQp8F3KmNvueoJ1RtymstOTgkEeDN+Ngu?=
- =?us-ascii?Q?IW7jZN15aULNhzgL1AFqeDQ+N+DaeNHHlNouxGERxxCu1WLHQmidy3TtMI6q?=
- =?us-ascii?Q?vy2vvwooT2OileB7BHCLCoDFlafm3zw06MTebUuiLMB5pDVwgO8+rK/93/35?=
- =?us-ascii?Q?mOpOH0uKo9OwwEThEbWqxIldfTl5ksLaMHfPIcVG3hI23xgShAp/59vmmJwc?=
- =?us-ascii?Q?Z2+1RXw6a7Fw45+vVu0dsx+CpOKXpzRaShSzIAV9HzVj0vVB2vJns1/o1LmZ?=
- =?us-ascii?Q?H953j/hGS9SqZ2O6typAXAkcG06hTj1fmRcHxENZekM+8W0TaWZHFOtLatJM?=
- =?us-ascii?Q?ecuAVc4btGtExfKAeBhpGdAZMtnuYYQQniD9tAm2KrWl47EAnWt/OOB0p9nm?=
- =?us-ascii?Q?6jFQOj+9nM8J8vc5RIMMtyFGJ/CLZNFkvVIDsSX2MFWIFxeFYiB3MH/Od0XK?=
- =?us-ascii?Q?FdY/lbHlfEfXYQT9MByhjyN09qe6HwnelRrjuG5Ac2O4VmZ0QrYYprgCzlJb?=
- =?us-ascii?Q?Ia9mNzoPHNK+eN0Le8W1BljORJLTelYcLuInEceXuRpF7URxpDP4bv6GW/jL?=
- =?us-ascii?Q?OV25JEVON7X1E+fSR3DIvXwRV+E6wTcaEYBk9UBe07ON3+KpnphYSrljjm1I?=
- =?us-ascii?Q?XhyJEg7iyiwaVRap6Fnu1Z/hCS9mC/Xc3UHME9C5dGLkBu6ppDxdwd9Asmeb?=
- =?us-ascii?Q?heCffx6dnfGwQTfa6zx6wospdvHK125HmMnlA4Pa/EkEkA0z85uXOj95KWZl?=
- =?us-ascii?Q?qi3P7clfse3FxBhClO1WiBJIC2JTe/sSf66oeFpjZNWwkoJLdA8BRnoTF5LX?=
- =?us-ascii?Q?9Tsq+E95PpjZbg2f5ddQH2qIDaWYUnshnb745WBXrGGC0UEnBo3Iw4PyFvGL?=
- =?us-ascii?Q?cjvI8CxYh+V7PNopy/TTrqHiE5kGFswqbD+6CgvjjpVcTKEJXe0E+NzwLnRn?=
- =?us-ascii?Q?DTTMqkHnZi8Qt7M6OSwYEZGCmfFvn+Om3/mnLHYC47ezfqsMbqjDU5IEpmEx?=
- =?us-ascii?Q?dhI+MZ5lK72kZFeh26WJuQj/NVRQT59p9oNc7b5uAskm0Qs2OVz7LAgzWkWx?=
- =?us-ascii?Q?c53YyNE6M+icMmUbr6de3gK+FoylrUXFn7NSDTh+pf7nt40x/e5UsbbUwnQY?=
- =?us-ascii?Q?I5JDADHpMLfEtWNXPt3XV8/w8fCz4ziTR8y0fvB+d4sNemC8IV4uUXq7eQRH?=
- =?us-ascii?Q?0ueMPNz9l92ksZflfTuZq3LdtGXyQvDmAPNcFX5IxiHlgFK2Q0NxVZE9XCRF?=
- =?us-ascii?Q?DlZJuydpTEso1CGvDWt+08ZdIyi6mm589qICcPvFN3Ghy3eX2Cd3kKv3xOKc?=
- =?us-ascii?Q?2OZiML2hwGVmnaPQ0ROao0DI5k6gDiwmQS5oqZFVTKD9zqnYS/hbfYYcehPe?=
- =?us-ascii?Q?TVNcnZ/SgZuYczoHW3HZe+qyK8AdfBmBaPnOpBuJlQr03vb+H3yEKbr32azS?=
- =?us-ascii?Q?CwWwk7p4x0sNwVItEm39vyCG4qs0sZHM7l6vTQEv/wwPWe5tQwTVKQHr4pS6?=
- =?us-ascii?Q?FW3zaWAOIAhO0LI+HD3+FarnNh1tsNy3pQlsmFKtQMLmubulRCqtgD7OD+jJ?=
- =?us-ascii?Q?DMT8nL/lk82sqQysGPhPBnsKnWP7LJLI4yIJ1PNAr08daJ3vZAAxdpo48H/M?=
- =?us-ascii?Q?YkH1WrWA/bVQ3YgFNTEbGOC5AdAHy2B3u6cnc8fE7ag2kYiU+dbrCV+fygfl?=
- =?us-ascii?Q?cOAU8waQluVaXH3UCzsTxvGznQ7N7LETuesos3oSLUoInqDuk4owKmyXc/Gp?=
- =?us-ascii?Q?P0x4liE67r/hLzlGc9lBuhaEhk34HxoJXEOng+9Tz6Gr55oORwYx?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c425c46-0a74-4960-65fc-08dedec991da
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 21:24:05.3670
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KJP40vf728jW82pX92ppteU48cG0Ccb3fDCHcL3X3FV5kzwaIMj33b6BgD3qqF5giMJGBgFkcpyTKx6XPQGrWhdbyOAxkdPhuEd+M/zAq7YMGz8hRIqbICJZO2oQJf5J
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6997
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_142409_448949_8C3AB471 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20260710_142815_657550_25A9A39B 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,100 +97,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 02:16:35AM +0000, Sherry Sun wrote:
-> > Subject: Re: [PATCH V5 2/4] PCI: imx6: Add skip_pwrctrl_off flag support
-> >
-> > On Thu, Jul 09, 2026 at 06:15:53PM +0800, Sherry Sun (OSS) wrote:
-> > > From: Sherry Sun <sherry.sun@nxp.com>
-> > >
-> > > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices during
-> > > suspend to preserve wakeup capability of the devices and also not to
-> > > power on the devices in the init path.
-> > >
-> > > This allows controller power-off to be skipped when some devices (e.g.
-> > > M.2 Key E cards without auxiliary power) need to support PCIe L2 link
-> > > state and wake-up mechanisms.
-> > >
-> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pci-imx6.c | 16 ++++++++++------
-> > >  1 file changed, 10 insertions(+), 6 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > index 92f8e4a299e8..afcf3b6bf3cd 100644
-> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > @@ -1382,10 +1382,12 @@ static int imx_pcie_host_init(struct dw_pcie_rp
-> > *pp)
-> > >  		}
-> > >  	}
-> > >
-> > > -	ret = pci_pwrctrl_power_on_devices(dev);
-> > > -	if (ret) {
-> > > -		dev_err(dev, "failed to power on pwrctrl devices\n");
-> > > -		goto err_reg_disable;
-> > > +	if (!pp->skip_pwrctrl_off) {
-> >
-> > if pci_pwrctrl_power_on_devices is true, where call
-> > pci_pwrctrl_power_on_devices()
->
-> Hi Frank,
-> The skip_pwrctrl_off flag defaults to false during the pcie bus probing phase,
-> so the pci_pwrctrl_power_on_devices() is called at least once to ensure all
-> regulators are enabled.
-> The value of skip_pwrctrl_off is only changed in dw_pcie_suspend_noirq(),
-> and is refreshed by calling the pci_host_common_d3cold_possible() each
-> time a suspend occurs.
-> This is why we use this flag at runtime to avoid powering off devices during
-> suspend to preserve wakeup capability of the devices.
 
-Okay, It would be better this part code can move into common dwc later.
-this is not specific for imx.
+--=-gw40z93wvCRsLGCi92mT
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Le vendredi 10 juillet 2026 =C3=A0 22:42 +0200, Michael Riesch a =C3=A9crit=
+=C2=A0:
+> Hi Paul,
+>=20
+> On 6/25/26 10:23, Paul Elder wrote:
+> > [...]
+> > > > +// TODO figure out locking for when multiple drivers touch the med=
+ia graph;
+> > > > +// maybe macros for shared versions?
+> > >=20
+> > > Do you mean for when drivers are trying to change link state directly=
+?
+> >=20
+> > I meant for all the operations that act on media device. I'm not sure w=
+hat
+> > there is because I didn't really find anything significant, and I found=
+ some
+> > action point from some meeting notes somewhere that said "deprecate med=
+ia_ops"
+> > (not assigned to me) so...
+>=20
+> Oh yes, for some reason this ball ended up in our side of the field. But
+> actually I think the media_ops are not much of an issue, as you don't
+> set them when you create the shared media device. Problem solved, right?
 
-Frank
+If we effectively don't need them in any drivers using shared context, let'=
+s
+find a place to add a BUG_ON.
 
->
-> >
-> > > +		ret = pci_pwrctrl_power_on_devices(dev);
-> > > +		if (ret) {
-> > > +			dev_err(dev, "failed to power on pwrctrl devices\n");
-> > > +			goto err_reg_disable;
-> > > +		}
-> > >  	}
-> > >
-> > >  	ret = imx_pcie_clk_enable(imx_pcie); @@ -1454,7 +1456,8 @@ static
-> > > int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > >  err_clk_disable:
-> > >  	imx_pcie_clk_disable(imx_pcie);
-> > >  err_pwrctrl_power_off:
-> > > -	pci_pwrctrl_power_off_devices(dev);
-> > > +	if (!pp->skip_pwrctrl_off)
-> > > +		pci_pwrctrl_power_off_devices(dev);
-> > >  err_reg_disable:
-> > >  	if (imx_pcie->vpcie)
-> > >  		regulator_disable(imx_pcie->vpcie);
-> > > @@ -1473,7 +1476,8 @@ static void imx_pcie_host_exit(struct dw_pcie_rp
-> > *pp)
-> > >  	}
-> > >  	imx_pcie_clk_disable(imx_pcie);
-> > >
-> > > -	pci_pwrctrl_power_off_devices(pci->dev);
-> > > +	if (!pci->pp.skip_pwrctrl_off)
-> > > +		pci_pwrctrl_power_off_devices(pci->dev);
-> >
-> > Not sure if there are counter in side power_(on|off) function, if not, just skip
-> > power_off is enough.
->
-> It depends on the pwrctrl drivers implementation, for the generic pwrctrl, it will
-> call regulator_bulk_enable/disable() to handle this, so has enable/use counter.
->
-> As mentioned above, the value of skip_pwrctrl_off is refreshed in
-> dw_pcie_suspend_noirq() for each suspend/resume, so we need this runtime
-> check to avoid powering off some specific devices during suspend.
->
-> Best Regards
-> Sherry
+Nicolas
+
+>=20
+> > If there aren't any then it's a non-issue, but if there are then I was
+> > wondering if we need to return the shared media device to the driver (a=
+s
+> > opposed to a non-shared regular media device) and use shared versions o=
+f media
+> > device functions that have locking.
+>=20
+> +1
+> I would recommend that just to be on the safe side. And I think I would
+> make the shared media device an opaque pointer to make sure that there
+> won't be any monkey business.
+>=20
+> Thanks and best regards,
+> Michael
+>=20
+> >=20
+> > >=20
+> > > > +struct media_device_shared {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct media_device mdev;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct list_head members;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct list_head links;
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct list_head list;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct kref refcount;
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct device *removed_device=
+;
+> > > > +};
+> > > > +[...]
+
+--=-gw40z93wvCRsLGCi92mT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalFj6gAKCRDZQZRRKWBy
+9JLiAP0UOyPyCM16q6zkWSDCSo9l3pmjTa8NL/r1+uhhmnE//gD/ak5D1OcaSFHo
+5DM87seeiJSgCkDLAviyDaSDng88TQk=
+=n4/E
+-----END PGP SIGNATURE-----
+
+--=-gw40z93wvCRsLGCi92mT--
 
