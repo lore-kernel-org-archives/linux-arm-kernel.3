@@ -4,130 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30DAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 12:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D678C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 12:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRq5FiKmtof79rOTnqeYURDNi5IpfkcrSYA8lFnk7Co=; b=uiWzm7txz8vLtl4PaVnXAME3Gx
-	ayXkWu31GH7aLoJp9ELeocIC5I86p+PY7x2rk6GCB9tEoUd7Lf1z867nNmubOcDD186FQLvTEuETp
-	mh/sgYgwTs7Oq52HHUCpsRm6D0lS5tYtYqdPpx7H6cRgzvEC8B3svFde7lu3rpZ29YIOdYGbQTrIk
-	Qe9G4aWHYnkFQy/GsjhJsPrakgQMN470S1xdh2KAZBRGMEIZ/BGfMw/RAU3ww48cYVv3Bry5BqJ+U
-	1h5WSDhHbVJNMfgzXDLfFtZjToYLmuKNMYUpD/OeoROtUo/EbOFIjO0vFxhjETcHMh9f4PFEmQIOj
-	D/28B2vA==;
+	bh=b130bPAJHPNf/pKE6j8b+YefwbbZ9vGIzK3XSyiPhaw=; b=VlfeZHXJvUKh4IH2XKax/j1oQI
+	3LIgdulvtho+ySGs6OxPY1IbcmQUGvQEXkv2dp40Aa2txG7ynfw9d3jjRthIxkp76HgVrI8gM0QpQ
+	MHtfqGx8b5QpP3WjiwQ0lNtW2ZUrrmXUSunvvfR2BwzQ1iVonIi0INyPxbuf730yBxKpEbbcuROBd
+	WGE84iOe9iRWU+9uzb/+zwWahE9JUXJ1jQgx3sTSYDW+AXTa8ZtjGt6PzltTkM+V49eko3Eby8cYE
+	ZYU4N6lWMmu9JRwVfDbYf9qdoicLiukIeu51oCaswf6y5O3cJ3pfkiPFCwModwUeNqPrBH7VPkDpf
+	0D+EKuGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiAMy-00000004v2a-3GsF;
-	Fri, 10 Jul 2026 12:30:16 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wiAQH-00000004vNG-22RW;
+	Fri, 10 Jul 2026 12:33:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiAMv-00000004v2C-3FgA
+	id 1wiAQG-00000004vN4-0D00
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 12:30:14 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AAmbw51390328;
-	Fri, 10 Jul 2026 12:29:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=ZRq5FiKmtof79rOTnqeYURDNi5Ipfk
-	crSYA8lFnk7Co=; b=hBVVi5lspoV25JGFxf7RAN36P/ezaNfopHsvQ1Mmlj5q4x
-	WEdA0RH6BORMvK9KeFOCled90OqtgnhWUBv3atvndAPrI5D1gXjS7H4U8V35c/PZ
-	zWqNt8duWDxr9WtWMxzi+/FOhr7xxgLRLufHPIsxDrgtVkNqIDrDYvwLB1Lno2SS
-	JNq5AKs9L1oGph2s3dSAu+1ukmSe+n3zVsz2cZtInJLKdDDQyjUJPTjz1mA5zXfi
-	yesCPP6a9qlsbO70hTZ1lLzEnjiIglbnE/40l/fHEMMQwn4cmFgW0PtiDxAM4172
-	P8qzc+SJK6Btv+0aLcgNi51Z+ihNs6tBaF96Qf3g==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur6e7m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 12:29:58 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66ACJcNR032025;
-	Fri, 10 Jul 2026 12:29:57 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7e0hsv3q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 12:29:57 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66ACToeK30999012
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jul 2026 12:29:50 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4307120040;
-	Fri, 10 Jul 2026 12:29:50 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 693C020043;
-	Fri, 10 Jul 2026 12:29:49 +0000 (GMT)
-Received: from osiris (unknown [9.87.147.219])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jul 2026 12:29:49 +0000 (GMT)
-Date: Fri, 10 Jul 2026 14:29:48 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 15/27] KVM: S390: Prepare gmap for a second KVM
- implementation
-Message-ID: <20260710122948.984749-I-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-16-seiden@linux.ibm.com>
- <363e1fc0-e816-4fc3-8bdd-e42c7ba17c71@linux.ibm.com>
+	Fri, 10 Jul 2026 12:33:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5573A40B53;
+	Fri, 10 Jul 2026 12:33:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8271F000E9;
+	Fri, 10 Jul 2026 12:33:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1783686819;
+	bh=b130bPAJHPNf/pKE6j8b+YefwbbZ9vGIzK3XSyiPhaw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nSi6wN5mBUuDgAFXA5HTlCsy00feN6LpmFRylXWtoPjHKTzqWNVFnhVM2UZ8eiwVM
+	 G6Ir838afNlquhcnb13tMc8l7k/5u/YthY+CiPZnWYCmsF7MSDkuwfohMUNsE4BysB
+	 WtSUyQWFHeCuhfhFERZD/g4VJyDJ+FZRy1UZmv8A=
+Date: Fri, 10 Jul 2026 14:33:35 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-serial@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCHv3 0/6] serial: mxs-auart: devm conversion, clock rework,
+ and IRQ ordering fixes
+Message-ID: <2026071011-geiger-smugly-4069@gregkh>
+References: <20260611033856.6476-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <363e1fc0-e816-4fc3-8bdd-e42c7ba17c71@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEyMiBTYWx0ZWRfX7WS8eNGobFcg
- p76ityUvWlUX/FP+onJKVqMwQL5PVdcbvEmQcz91+n6KaGuiyUj1MlZm1e9aUc+Ic+ZpsSWPhBF
- +RTs17HRHutmXQllqpCpLv8tJGJL6a0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEyMiBTYWx0ZWRfX498DWpDFLDkd
- BNbezHuUL1Dhf/NN6+mZ+oaH2ZvPbJUSIYDlMWczbqGNvrBY5YaXNIhx8ZZfgNLLTzq0rayIECT
- 0TZ+o0g4tWTomI1DXMm9EsH4sQIqi8/b/h3Mq2kRGnTp//BNU36hZ4HwZ36FbVdO2HlXy4B/JA+
- Jr5TBYux9FIVeKcLYx+Hl1/hRGxkGVjzPKE3kQS0mMbi2GnQ5r0fy55jSuG5iF43Egwp6U3dsHv
- 5jkkpjIFbIdsuWExTrGCBkzH/pzIjVV7q2PPlbs1RAakU16ES1F6ZrxKtM0bWHXxYUXlEUhpq6w
- 8VAF3Cm2nr0pow66ze6zGiRCGxDty1Ab688Jlr7OQQu4bynluMHxfCJtVwjFP7Mngi4X1rpnmot
- 1QE8i8nGH2y7pXKF5VS1bODL/J38u6GjWWUT6T/TKZwj/+bs5CCh//abQffPgxVEkctQJpmrXIv
- F/53u1sTG7LG4Vueqjg==
-X-Proofpoint-GUID: f438JKkFMXBaTFK33hUMooQphFcuOKdz
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50e5c6 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=Ly9xp4i0NRlZACsuZJYA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: f438JKkFMXBaTFK33hUMooQphFcuOKdz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_03,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_053013_824297_C51C769F 
-X-CRM114-Status: GOOD (  18.42  )
+In-Reply-To: <20260611033856.6476-1-rosenp@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,45 +71,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:29:39AM +0200, Christian Borntraeger wrote:
+On Wed, Jun 10, 2026 at 08:38:50PM -0700, Rosen Penev wrote:
+> This series cleans up the mxs-auart driver by converting to devm-managed
+> resources, fixing clock prepare/enable ordering, and addressing IRQ
+> registration races.
 > 
+> Patch 1 fixes compilation on 64-bit build with W=1
 > 
-> Am 06.07.26 um 10:52 schrieb Steffen Eiden:
-> [...]
+> Patch 2 reworks the clock handling to use devm_clk_get_enabled and
+> reorders clk_prepare_enable after clk_set_rate to avoid
+> CLK_SET_RATE_GATE failures.
 > 
-> > --- a/arch/s390/include/asm/kvm_host.h
-> > +++ b/arch/s390/include/asm/kvm_host.h
-> > @@ -5,4 +5,13 @@
-> >   #include <asm/kvm_host_s390.h>
-> > +#define PGM_PROTECTION			0x04
-> > +#define PGM_ADDRESSING			0x05
-> > +#define PGM_SEGMENT_TRANSLATION		0x10
-> > +#define PGM_PAGE_TRANSLATION		0x11
-> > +#define PGM_ASCE_TYPE			0x38
-> > +#define PGM_REGION_FIRST_TRANS		0x39
-> > +#define PGM_REGION_SECOND_TRANS		0x3a
-> > +#define PGM_REGION_THIRD_TRANS		0x3b
-> > +
-> >   #endif /* ASM_KVM_HOST_H */
-> > diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-> > index 5293b0067422..7b7aa166cff7 100644
-> > --- a/arch/s390/include/asm/kvm_host_s390.h
-> > +++ b/arch/s390/include/asm/kvm_host_s390.h
-> > @@ -153,8 +153,7 @@ struct kvm_vcpu_stat {
-> >   #define PGM_OPERATION			0x01
-> >   #define PGM_PRIVILEGED_OP		0x02
-> >   #define PGM_EXECUTE			0x03
-> > -#define PGM_PROTECTION			0x04
-> > -#define PGM_ADDRESSING			0x05
-> > +/* 0x04 & 0x05 defined in kvm_host.h */
+> Patch 3 converts iomem mapping and GPIO IRQ requests to devm,
+> removing the manual cleanup paths.
 > 
-> I think I would move ALL PGM defines into kvm_host.h. Those are certainly valid from a host
-> point of view, even for the arm64 kvm module. Yes, its unused but it will be much cleaner
-> than having everything in one place and doing these cross-reference comments.
-> 
-> [...]
+> Patch 4 moves the main UART IRQ registration after uart_add_one_port
+> so the port state is initialized before the handler can run, and
+> manages the module clock for console vs non-console ports correctly.
 
-Malkes sense. I'll move all.
+Do you have this hardware to test this with?  If not, I would just leave
+this alone as devm_* conversions are tricky and prone to bugs.
 
-	Steffen
+thanks,
+
+greg k-h
 
