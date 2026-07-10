@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F77C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 22:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2BDC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 22:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y13Gehi8umh4PHyEmo502LtZjo2zQhK05OVc/G3eXeE=; b=sZuQYHu4nFOcP/+TXn2bhOtuT+
-	g/+eKWoV3Rbrtp+qNQgAwxeoo8dbmOGjBVpBMsB3eBHARD6NnzXDsbmeIFrYAluMToZXLA1jgQkm7
-	7saEJFR7Fpk+kC6LHYgr25jpMEdyE1UeRuNlhpNLb9O6M0kKWlCAh3aE6hB/SulBK0DgzYshhsfeI
-	M+1nEq11DKHUD687JpJgxGJjvPet/X/b7gaaeTegmviy2oN1fJZZw/mgMYutZz5rHKiAJ0xF5jM9G
-	wGD5A6zGANMEiLKFtR31y/QFA9APyz1qsFOjdsqbA06hKF+hiuRmGJArlfYMrCQLWVJpa/7nMqpyX
-	HUOB0MsQ==;
+	bh=bsVUbpJO2GFnjLVxq6bdSXKF7uiJuKIV5jBAXZe+u2k=; b=ClHkbEfrnJajf+nyx8bSJdQnSj
+	Gdy+y+bGuerCf4/l++RKnWa5ZJUR5y/h149UWP/dd9z8GDcU1YECoGp+2q4kAPQF3yj6WXDVggxRa
+	Zck/tttB/EwO3pocIFtDyVplHGZJIGWagyZVqYr9gbArcAzqVXuzZNxH6j734aK17TCe/azSy3AZY
+	3lvypzzQJIckL+oBg/QHQrD1XzgcgAqKASklokPRuGq0cY+7MLCsZ4LqZ3e07DElbcNO8IMgcdy/4
+	tQwUOECS7jZO5R0/rvyAU9dOOyfzTSo3oLzvM60GtXcoi8gOEJBRHChkbsqSP7HrSBF340a+hqyH3
+	//DUYDhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJSn-00000005vF2-3j5a;
-	Fri, 10 Jul 2026 22:12:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wiJb7-00000005wQv-0r3M;
+	Fri, 10 Jul 2026 22:21:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJS9-00000005uEW-3FOk;
-	Fri, 10 Jul 2026 22:12:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C674440B2;
-	Fri, 10 Jul 2026 22:12:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0DD94C2BCF6;
-	Fri, 10 Jul 2026 22:12:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783721533;
-	bh=lxpxVtUUk5/Z6abOaVTv+uKVutggkJaqE3D0rpWLKaA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Agyz5O8cw98iDvPWfiNL0XI4g80qlIyGY4dG1zJnC1VJjCggwHyxzjgIODLgLljVh
-	 ZQV8GmjFwxMljgUVdDFe9GY0RZ0AyUMji9cbdxs3SiVyCoM7TrU6iEcNbwnvYYweNc
-	 Uj4U4pqJcvQdyAgvWVnNHwP+mRHtqtsWj/V53EM2Hih02blGbMa5RU8Mi/2xx/DHEA
-	 G0Z4Ry9v8w2bhRGC1cctik5XVPZbliw4UuOE7WlVY7ZexK8s0D5Gzn16GB2YlfLQQn
-	 rCDWc+J5nOtGDBy3CCqS5tKCPuv8kCHPdJ/8rsQ8m3w5HhI43snGG6gcj+GVTTtLqX
-	 qa2+mQimlzd1A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F15A6C44507;
-	Fri, 10 Jul 2026 22:12:12 +0000 (UTC)
-From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Sat, 11 Jul 2026 00:12:01 +0200
-Subject: [PATCH v2 12/12] arm64: dts: rockchip: add support for NanoPi M6
- board
+	id 1wiJb5-00000005wQb-0GNN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 22:21:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B83C6136B;
+	Fri, 10 Jul 2026 22:21:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FC2C1F000E9;
+	Fri, 10 Jul 2026 22:21:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783722085;
+	bh=bsVUbpJO2GFnjLVxq6bdSXKF7uiJuKIV5jBAXZe+u2k=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=I4s2fJi7qhvlGsvBAf3XjVxcYGb9AiJxj2G8j/l13qEY4DZICNpD8JgFDOtNsa4P3
+	 kNbqOH/YUhN94yE+ybaiNL+1YaIEOWiN6SvETavk4hwmutVU5X2wwhymkgM2cHrR58
+	 5agbG6LIJemPfWx/EV+9juutpbtUnM6e32WN6VuUdBr9Nn2Y/Nf+8T7dWiGyJ2HfEw
+	 ir6y53gd735640VoBlCrm2+bn2x5fudgKAlmzyKr0dBVVn/wyykoxdKMlQ9Gd4+NF8
+	 x/S1gro8xYErqjvPhqn4gPp4QFIlotJ4Lz72m0k5SA686vO/4Ly4hTz9j7i/7lLQBh
+	 xzzWvYHbwVIPA==
+From: Mark Brown <broonie@kernel.org>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+ phucduc.bui@gmail.com
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260710102138.29347-1-phucduc.bui@gmail.com>
+References: <20260710102138.29347-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v2 0/3] ASoC: xilinx: xlnx_i2s: Use dev_err_probe() and
+ drop redundant error handling
+Message-Id: <178368691519.82617.18085220364374590223.b4-ty@b4>
+Date: Fri, 10 Jul 2026 13:35:15 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260711-nanopi-m6-v2-12-422675a65402@gmail.com>
-References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
-In-Reply-To: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
- Joachim Eastwood <joachim.eastwood@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783721530; l=6496;
- i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=VyHZ5M9KJgCMIp8Yy1GnWb80s7viz264y7Bs3Bn/5qg=;
- b=jlFfBuAnDM6e1EDTgLR1+ZhwugejFQDeEkMde1Ynebkm2N4e6El3e8xo8Puun7H9lU26qGHnn
- 1J3nE90rZ8CBJEseGQ9H+o0Z97XzxCGgaFtys2JNs87PhRK1pMpaEDq
-X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
- pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
-X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
- with auth_id=846
-X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1926; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=8WPKijw5P5rOmVDuGRGeuRihM/Gq9MhSIkY1jPCQESE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqUXBi1pQnJeRqGUG9U2bjBGsCIqN/W2cjapQf0
+ Iq/H10XKXWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalFwYgAKCRAk1otyXVSH
+ 0GaNB/0VbsIgnHzVMpBnU7rbdbpr0rXWANUWa0LQ4gHwWtFRX+nbZ9zOW8oGRQyoj0u/JE8GJFM
+ C/0s6Ii14rpLABtspabMJa3c86zLq9T7n+T+3HADTj+LNLNRw64Moa1h9iWT/gJb4jqrcnb2FMb
+ aeOH8Zj+1nw8mdpD3fm6FMMtEpLbGNYQv1T9ftfRNBsaCDUWqX3nJYMIku+KwuYBoPb3TDekNDg
+ AA53FHDHometPOE6BucnblRuE97biKAoE13VtJraBpf9VfyJnFXr4SXRkWG8249RimPXWA0Xy3S
+ 51XwYkp7w3/BT1dsSNotqez7r/dYSsQSwXaY5Iw4shZF2JXq
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,263 +81,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+On Fri, 10 Jul 2026 17:21:35 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: xilinx: xlnx_i2s: Use dev_err_probe() and drop redundant error handling
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series cleans up error handling in the Xilinx ASoC drivers.
+> It replaces dev_err() followed by return with dev_err_probe() where
+> appropriate in probe paths, allowing deferred probe to be handled
+> correctly while simplifying the code.
+> It also removes redundant dev_err() calls after helper functions that
+> already report failures, avoiding duplicate error messages.
+> 
+> [...]
 
-The NanoPi M6 board shares most of the features of the R6 boards.
+Applied to
 
-Main differences:
-* M.2 M-key slot with PCIe (Also present on R6C)
-* M.2 E-key slot with PCIe and USB (from hub)
-* 1 additional USB 2.0 port from an on-board USB hub
-* RT5616 audio CODEC
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
-Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi | 142 +++++++++++++++++++++
- .../boot/dts/rockchip/rk3588s-nanopi-m6v1.dts      |  67 ++++++++++
- 3 files changed, 210 insertions(+)
+Thanks!
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 761d82b4f4f2..55a1ec8309df 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -218,6 +218,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-gameforce-ace.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-indiedroid-nova.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-khadas-edge2.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-m6v1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi
-new file mode 100644
-index 000000000000..bb2ef1f66d2a
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi
-@@ -0,0 +1,142 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include "rk3588s-nanopi.dtsi"
-+
-+/ {
-+	adc-keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "Recovery";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1800>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		sys_led: led-0 {
-+			label = "sys_led";
-+			gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&sys_led_pin>;
-+		};
-+
-+		user_led: led-1 {
-+			label = "user_led";
-+			gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&user_led_pin>;
-+		};
-+	};
-+
-+	vcc_3v3_pcie: regulator-vcc-3v3-pcie {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pcie2_2_pwren>;
-+		regulator-name = "vcc_3v3_pcie";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&typec5v_pwren>;
-+		regulator-name = "vcc5v0_usb_otg0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_mpcie_3v3: regulator-vdd-mpcie-3v3 {
-+		compatible = "regulator-fixed";
-+		/* Controlled by EXT_EN on RK806 */
-+		regulator-name = "vdd_mpcie_3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&i2c7 {
-+	clock-frequency = <200000>;
-+	status = "okay";
-+};
-+
-+&i2s0_8ch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2s0_lrck
-+		     &i2s0_mclk
-+		     &i2s0_sclk
-+		     &i2s0_sdi0
-+		     &i2s0_sdo0>;
-+	status = "okay";
-+};
-+
-+&pcie2x1l1 { /* M.2 E-key 2230 */
-+	vpcie3v3-supply = <&vdd_mpcie_3v3>;
-+};
-+
-+&pcie2x1l2 { /* M.2 M-key 2280 */
-+	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>, <&pcie20x1m0_waken>;
-+	vpcie3v3-supply = <&vcc_3v3_pcie>;
-+};
-+
-+&pinctrl {
-+	gpio-leds {
-+		sys_led_pin: sys-led-pin {
-+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		user_led_pin: user-led-pin {
-+			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	headphone {
-+		hp_det: hp-det {
-+			rockchip,pins = <1 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie2_2_pwren: pcie2-2-pwren {
-+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		typec5v_pwren: typec5v-pwren {
-+			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&u2phy3 {
-+	status = "okay";
-+};
-+
-+&u2phy3_host {
-+	phy-supply = <&vcc5v0_host_20>;
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts
-new file mode 100644
-index 000000000000..f981973c96ac
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-nanopi-m6.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPi M6";
-+	compatible = "friendlyarm,nanopi-m6", "rockchip,rk3588s";
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_det>;
-+
-+		simple-audio-card,name = "realtek,rt5616-codec";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,hp-det-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_LOW>;
-+
-+		simple-audio-card,widgets =
-+			"Headphone", "Headphones",
-+			"Microphone", "Microphone Jack";
-+		simple-audio-card,routing =
-+			"Headphones", "HPOL",
-+			"Headphones", "HPOR",
-+			"MIC1", "Microphone Jack",
-+			"Microphone Jack", "micbias1";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s0_8ch>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&rt5616>;
-+		};
-+	};
-+};
-+
-+&i2c7 {
-+	rt5616: codec@1b {
-+		compatible = "realtek,rt5616";
-+		reg = <0x1b>;
-+		clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+		assigned-clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		assigned-clock-rates = <12288000>;
-+
-+		port {
-+			rt5616_p0: endpoint {
-+				remote-endpoint = <&i2s0_8ch_p0>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	port {
-+		i2s0_8ch_p0: endpoint {
-+			dai-format = "i2s";
-+			mclk-fs = <256>;
-+			remote-endpoint = <&rt5616_p0>;
-+		};
-+	};
-+};
+[1/3] ASoC: xilinx: xlnx_i2s: Use dev_err_probe() and drop redundant error handling
+      https://git.kernel.org/broonie/sound/c/14b68141bcff
+[2/3] ASoC: xilinx: xlnx_spdif: Preserve devm_request_irq() error codes
+      https://git.kernel.org/broonie/sound/c/cb32e3acb103
+[3/3] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and drop redundant error handling
+      https://git.kernel.org/broonie/sound/c/f9620327ba7e
 
--- 
-2.55.0
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
