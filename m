@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E13C44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5684C43458
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tXY6SQ0Q+anDRvuxV3EfhQNKyQXwe1OYCTxx7Z/YiAY=; b=fc66oW0TjbB9TpAt2q40vgVSCn
-	8SqTe92UO3TA1q+2fuPY3UGMgsav7ZcR7Ac+CA1l7emTcL5C1k90aM4w+67Elvtdu4zSA9kB7z2Pd
-	P0HPfQ33LbVyNdmJqxYFqDcxXCDU01PS3fAKHtqLmJnHmdUwaM2itvDmU4CPAzKOAqt15de0FOWf1
-	9UevR4wvmoVjIkIUKoyH44ns+tIkCnKaM0C4Qtben4fm0f8UqjpAe6iGXog27KL/49nIHyWip+yf1
-	j+YDlXon5mkVYN8Ft0R1CAWPM2fsQsb2WaKUOI89wWX83V5o8OEfpj+Yw6HuUIZYgZ4mME29AliyT
-	WP1NGnAA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dhu/wa9/53J5My72TqIAFYi9b6UcVUBqq24dYlO5bCA=; b=HCqRBLFL4V6Gg5/t8S6H4ojS4q
+	oOmkUKZxHOaGEzANLPXRINpWG8Z5H+LzN11N5c2OLmJfDrtAUBZdXC9yKurkycwJbniWtMn9uYPF3
+	f7jlGmkFjUjllVoy3IOMgaHAsjncCie+Fju3VyPO1+qMZMpFnnSwdHhgPIBktW1eoSk2fm1Xxz65T
+	g9DNbl3Zun4oIwY0JZ4U9hqcdiFkyzlPRa6lVYCWj3e0LlJoD5gRAuPENhBF7wxU293Rnsltvc5SL
+	eGOz9Dxk1uXNMzcnpdFXyWGzwBUgM1sP08+all5mp7k63QEHPcwBRaQSggv43Eu5J8QGuCZ4jIXyE
+	AywJPRGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCjm-00000005940-0dVQ;
-	Fri, 10 Jul 2026 15:01:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wiCjp-0000000596o-25oV;
+	Fri, 10 Jul 2026 15:02:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCjk-0000000593G-1eKR;
+	id 1wiCjk-0000000593I-2Hay;
 	Fri, 10 Jul 2026 15:01:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66550601D9;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7493F6132C;
 	Fri, 10 Jul 2026 15:01:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 10DD2C2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1D573C2BCB8;
 	Fri, 10 Jul 2026 15:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783695715;
-	bh=Zq0NKaJlpzYFMBprR7tFkC2cwEQusS6IE/2q5o6meCc=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=mFABD7o86SbEULBKr9B++FLg5pgHcX/CuVDH4A7u+/zHkXI/uPfPtz9YTb/UHBTN4
-	 BfL0WKU3oJaokyPRaKi6cVJD+K8QH5t0cLFj8DH5ntFrf09vdOdYS/gQmHpQF/rgZA
-	 84/Wj12+du90BNPyEEqFRQND3EMZBLnOzKEgX4CYxWFVNrXCmsF+hAEvX8MTGh7UkL
-	 IRt9zghavxQOYcnKK4oRFrs0ZP3PKcEZAX90Cj6Y4DHJY1qDCuLFLnlV1uQp7qRu8G
-	 rPek0zi6i0oPAmp5ElFzwiYsq+eSnNEl7nanz9QdscwEbECI2yBl/dX176CfCYzLdU
-	 ejwsuvC5DqvxQ==
+	bh=fEgklhfhmHG7bwMmCsB0xVCcnH1pZ9hR34yuztE2xUo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=YOiMqXonQx7l0LYs+m1a4I5YTkgs7JGLb8Aiy/FEHWfHq+nDMK6WFmK0DN052AEfY
+	 KcKvS6WjzC8jGDmAeXpOd1+LZ1EGwZCknh7gblLvtsq/Tq/ZebH/WLixiu7HAQR1aH
+	 ZjDB10moWoXJp8eCS4HEE4NIvhxi5sMoZzdA2G9cKIBrm+PA+OOUbOVYMdnkMy+OVW
+	 krejke8TlNY/vrdJ2GuPN1uHk4Anssa6aHBevF/QvIXoelshsK4+sVshHYfwatjEzW
+	 fWiDJXr1SwrZzu+ZHT/vZHp0t+rL+U1woOXBCw8z7dtPrUt6esTQ16iGWEZjKYBB0f
+	 mkLrNYoPQL7Aw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E054AC43458;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2C1FC44506;
 	Fri, 10 Jul 2026 15:01:54 +0000 (UTC)
 From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
-Subject: [PATCH 0/3] pinctrl: mediatek: Add MT6858 support
-Date: Fri, 10 Jul 2026 18:00:22 +0300
-Message-Id: <20260710-mt6858-pinctrl-v1-0-f75ab558f0df@jolla.com>
+Date: Fri, 10 Jul 2026 18:00:23 +0300
+Subject: [PATCH 1/3] dt-bindings: pinctrl: mediatek: Add MT6858
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAYJUWoC/yXMQQqDMBBA0avIrBsYI5rEqxQXGqd1RKMkUQTx7
- sZ2+Rb/nxDIMwWosxM87Rx4cQn5KwM7tO5LgvtkkCgrVKjFHCtdarGys9FPwuSq7Q0ahbKAFK2
- ePnz8hu/m77B1I9n4XOC6blrsz45yAAAA
-X-Change-ID: 20260708-mt6858-pinctrl-917ad9097023
+Message-Id: <20260710-mt6858-pinctrl-v1-1-f75ab558f0df@jolla.com>
+References: <20260710-mt6858-pinctrl-v1-0-f75ab558f0df@jolla.com>
+In-Reply-To: <20260710-mt6858-pinctrl-v1-0-f75ab558f0df@jolla.com>
 To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -66,11 +64,11 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, Nikolai Burov <nikolai.burov@jolla.com>, 
  Nikolai Burov <nikolai.burov+review@abscue.de>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783695712; l=964;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783695712; l=6222;
  i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
- bh=Zq0NKaJlpzYFMBprR7tFkC2cwEQusS6IE/2q5o6meCc=;
- b=dyxBquZP+GmdIg3f4UUg/xOOgljWgtNmiAwORqIKBamjDtTKI7DnD9sXCD3aVIz6d22P2zk0z
- EG7H7U+F8BLDZvN+uULFm22Jix5qv8l4sW25Lyq79NqY6FOX7UTUuvL
+ bh=U7dRrQcnHMvcUYGQp4E4aCTMv/3kcFO5A3mfR3b5VKA=;
+ b=HnotYZqqNjHTI6n5qlMRKSVHw1W9kEEfyE9QXNGgwP1ATHxQ6tj83dkPGYQtzxEk8kGcJLy37
+ lvuLV55ZwQJBz82+nH896hN2cMrwqh2so7FTxOJpob0uCdU4c7g1YO/
 X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
  pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
 X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
@@ -91,30 +89,215 @@ Reply-To: nikolai.burov@jolla.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for GPIO and pin configuration on the MT6858 (MediaTek
-Dimensity 7100) SoC.
+From: Nikolai Burov <nikolai.burov@jolla.com>
+
+Add new DT bindings for the pin controller found in the MT6858
+(MediaTek Dimensity 7100) SoC.
 
 Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
 ---
-Nikolai Burov (3):
-      dt-bindings: pinctrl: mediatek: Add MT6858
-      pinctrl: mediatek: Add driver for MT6858
-      arm64: dts: mediatek: mt6858: Add pinmux macro header file
+ .../bindings/pinctrl/mediatek,mt6858-pinctrl.yaml  | 190 +++++++++++++++++++++
+ 1 file changed, 190 insertions(+)
 
- .../bindings/pinctrl/mediatek,mt6858-pinctrl.yaml  |  190 ++
- arch/arm64/boot/dts/mediatek/mt6858-pinfunc.h      | 1335 ++++++++++++
- drivers/pinctrl/mediatek/Kconfig                   |   10 +
- drivers/pinctrl/mediatek/Makefile                  |    1 +
- drivers/pinctrl/mediatek/pinctrl-mt6858.c          | 1408 ++++++++++++
- drivers/pinctrl/mediatek/pinctrl-mtk-mt6858.h      | 2301 ++++++++++++++++++++
- 6 files changed, 5245 insertions(+)
----
-base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
-change-id: 20260708-mt6858-pinctrl-917ad9097023
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6858-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6858-pinctrl.yaml
+new file mode 100644
+index 000000000000..263830a6e9db
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6858-pinctrl.yaml
+@@ -0,0 +1,190 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/mediatek,mt6858-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6858 Pin Controller
++
++maintainers:
++  - Nikolai Burov <nikolai.burov@jolla.com>
++
++description:
++  The MediaTek's MT6858 Pin controller is used to control SoC pins.
++
++properties:
++  compatible:
++    const: mediatek,mt6858-pinctrl
++
++  reg:
++    items:
++      - description: gpio base
++      - description: lm group IO
++      - description: rb group IO
++      - description: bm2 group IO
++      - description: bm group IO
++      - description: bm1 group IO
++      - description: lt group IO
++      - description: lt1 group IO
++      - description: rt group IO
++      - description: rt1 group IO
++      - description: eint-s group IO
++      - description: eint-w group IO
++      - description: eint-e group IO
++      - description: eint-c group IO
++
++  reg-names:
++    items:
++      - const: base
++      - const: lm
++      - const: rb
++      - const: bm2
++      - const: bm
++      - const: bm1
++      - const: lt
++      - const: lt1
++      - const: rt
++      - const: rt1
++      - const: eint-s
++      - const: eint-w
++      - const: eint-e
++      - const: eint-c
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names: true
++
++# PIN CONFIGURATION NODES
++patternProperties:
++  '-pins$':
++    type: object
++    additionalProperties: false
++
++    patternProperties:
++      '^pins':
++        type: object
++        $ref: /schemas/pinctrl/pincfg-node.yaml
++        additionalProperties: false
++        description:
++          A pinctrl node should contain at least one subnodes representing the
++          pinctrl groups available on the machine. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to muxer
++          configuration, pullups, drive strength, input enable/disable and input
++          schmitt.
++
++        properties:
++          pinmux:
++            description:
++              Integer array, represents gpio pin number and mux setting.
++              Supported pin number and mux varies for different SoCs, and are
++              defined as macros in arch/arm64/boot/dts/mediatek/mt6858-pinfunc.h
++              for this SoC.
++
++          drive-strength:
++            enum: [2, 4, 6, 8, 10, 12, 14, 16]
++
++          bias-pull-down:
++            oneOf:
++              - type: boolean
++                description: normal pull down.
++              - enum: [100, 101, 102, 103]
++                description: PUPD/R1/R0 pull down type. See MTK_PUPD_SET_R1R0_
++                  defines in dt-bindings/pinctrl/mt65xx.h.
++              - enum: [200, 201, 202, 203]
++                description: RSEL pull down type. See MTK_PULL_SET_RSEL_ defines
++                  in dt-bindings/pinctrl/mt65xx.h.
++
++          bias-pull-up:
++            oneOf:
++              - type: boolean
++                description: normal pull up.
++              - enum: [100, 101, 102, 103]
++                description: PUPD/R1/R0 pull up type. See MTK_PUPD_SET_R1R0_
++                  defines in dt-bindings/pinctrl/mt65xx.h.
++              - enum: [200, 201, 202, 203]
++                description: RSEL pull up type. See MTK_PULL_SET_RSEL_ defines
++                  in dt-bindings/pinctrl/mt65xx.h.
++
++          bias-disable: true
++
++          output-high: true
++
++          output-low: true
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++        required:
++          - pinmux
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++  - gpio-controller
++  - '#gpio-cells'
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/pinctrl/mt65xx.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #define PINMUX_GPIO149__FUNC_SCL5 (MTK_PIN_NO(149) | 1)
++    #define PINMUX_GPIO150__FUNC_SDA5 (MTK_PIN_NO(150) | 1)
++
++    pio: pinctrl@10005000 {
++        compatible = "mediatek,mt6858-pinctrl";
++        reg = <0x10005000 0x1000>,
++              <0x11b20000 0x1000>,
++              <0x11c10000 0x1000>,
++              <0x11d10000 0x1000>,
++              <0x11d30000 0x1000>,
++              <0x11d40000 0x1000>,
++              <0x11e20000 0x1000>,
++              <0x11e30000 0x1000>,
++              <0x11ed0000 0x1000>,
++              <0x11ee0000 0x1000>,
++              <0x11b00000 0x1000>,
++              <0x11e60000 0x1000>,
++              <0x11e80000 0x1000>,
++              <0x1c01e000 0x1000>;
++        reg-names = "base", "lm", "rb", "bm2", "bm", "bm1", "lt", "lt1",
++                    "rt", "rt1", "eint-s", "eint-w", "eint-e", "eint-c";
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-ranges = <&pio 0 0 197>;
++        interrupt-controller;
++        interrupts = <GIC_SPI 239 IRQ_TYPE_LEVEL_HIGH 0>;
++        #interrupt-cells = <2>;
++
++        i2c5-pins {
++            pins {
++                pinmux = <PINMUX_GPIO149__FUNC_SCL5>,
++                         <PINMUX_GPIO150__FUNC_SDA5>;
++                bias-disable;
++            };
++        };
++    };
 
-Best regards,
---  
-Nikolai Burov <nikolai.burov@jolla.com>
+-- 
+2.54.0
 
 
 
