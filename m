@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B14C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6668AC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=; b=Hg6LaNMUXEBCjbyOU9FlFDiDrJ
-	sp0OVaJmps+Xkio73DuH9n9sYO+xiNzN1K4D3yBcRcxVONEuY/2GrF6DF0H9/tUEqsVSmBbQcQ3/M
-	SeVUJx79voCUb7lPHT/91lUYD9pMjMybm7BUcgbAt7AtZFASdsqZ/nExEqG7plwHOU0sOIEVmhATt
-	fTXUceDwQjUoRgjSkpQ42wMHIPtFeiIaAKVvIQdvDYLMkXC8Z1C/Svp7o5jMjoRvH6ij5CWp73nL3
-	TOmlcTdfc5KxtjhK+abZm6z4T6VniOjbhgwrPc4Aia12LKGdeGqRQ8O3+aCP9+l1+uNDTMu/obF/F
-	3Yg4lIXA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9M4o3iN5nWztVryd5NG1m3lFycIITbNkOd3Ijgz0aSY=; b=U6K/3Qn5Esao2MW/zop1PfXbAC
+	r1+DmHlS9hAuPpOB3D3H7QS1kKKlXa6rQSD1R0rBlI9X00jQI45niQYphembg+Kqw48JBoH2Il3pO
+	gOUX1sJgwM+9QgbE7x0bhHVTuz9GQ/1CvHu4ruhuI0V6GNLaTm5+khIkucA/ZLyYKa9kT9tif9JE5
+	D3+UbGOXwuH/xKq+CcwMJpIGIORabrg2N+NbtwbiQwO5R9vUOn0NwOq+AGWhAAnaoZu4B1ZTxlPCp
+	zLUvK7y9QwCPR5cK/daC2TRBuZtl9qPljyNjoOatakpBe4Kv6Qu0SxNULlocZUkAvXr0+q9kLPebs
+	NX27CFWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8sW-00000004kkp-2YaW;
-	Fri, 10 Jul 2026 10:54:44 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wi8sf-00000004kqw-3hLp;
+	Fri, 10 Jul 2026 10:54:54 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8sT-00000004kjm-2oAO
+	id 1wi8sd-00000004kov-1xOp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:54:42 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c95d0a54ea5so599444a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+	Fri, 10 Jul 2026 10:54:52 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c96b08cdd1cso530738a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:54:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783680880; x=1784285680; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=;
-        b=OukROMNl6G9+0Sz51b/qskbPekfnanlrOuJ+ATJgee5VTl5xaeSNiUP03RDdCmPxFs
-         ifbcERBHmLezhx7MPh9WK7yUzoGcm4kkaquS5Nt0+lxcpDJH5qOa2fJNVSwotY/zV6Hn
-         O+n0v6SkthbzKBKWs2eVHnFPuJQfN0TWKPR0bxKBqxteJ7JuddrLrvyd4aBBgRRK1Q/Q
-         YTS3J6XbnE/M4oOF8WwUeNvP5JXnYRDMvpiDitWPIKmI725ce1ap7kJsxtJAQFf9aLEW
-         Km50fYwYntxyKMiDAz8Qb725j+CoegDXJK3U/joTCqUPLGg2h6PIubh4r86LSuF8t1uo
-         K4zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783680880; x=1784285680;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1783680891; x=1784285691; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=;
-        b=FpcmF4AnWlD5FOMUMqP98y26Us2Zd1Ea/jRWG2/I6tfJGrQ6nPJzuVnfVuAbi26wLX
-         4PRnOeCWRohL7Yb0qF8T41fOvovlzyh2GTYYvSey1u454hLCTRl2HNZbEHxG/QARmqL/
-         vkwQ+3kLTpSy5E1j4a83kHbEUPkt6l0y/+ZYHT7mLZ5u2olCi+nrPmwIbgQ+v4Hh+v9z
-         YRPkKgeXTaZozYW6HSGCoYYX9a87maTvu+h1bTR/xoc59QTm2eOLoDrsy3JzUQekDDaC
-         F1UXybZu1okwDehGtOdY3Rn/JlzqQHnSerHkX9zVpoMtWlxXWTBZ9kf/Al+J+lcMx9M2
-         2gLQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr77JC4Qjf8c13tyLc0atn/dLGE1z66UjHc8lEmXPfWz0DvFgjm3oNsbclc46gQHiOJ4C1CuZPUAGYe7ttfeUlx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdsbXpJNSlOw3nhurCiv+1HD++WHGorR7bLeioRAakS8Nx2htz
-	BcTuaxDKCF4U78li9rL3O3Q6EPO2rX1uZmz5pkGewJpmEw8Yyz4ig8VO
-X-Gm-Gg: AfdE7ckYJw0vPH9EkH1CrDeJuP17+xh1ACDfjh2ndzd3i33ztPcU+y8AEFv3Pn1LVa6
-	Dzv/v2s5hPqtG64FdAVBMFG4IBe1YIiecZJ0Wal0hT1hG3hMZ95pho3Vx+8Nz0ET0gUkPw7ZYdP
-	tn1QN4Ci4xpyoTYd/FL78O3JXuZmYZuvcl1d/9O8N2V6N1/0bS6w3KeYFWed4/MkieAp3mB2wtH
-	+F3kDZoZDamBN0OAKoL+Qqzx96hcGo33Xws0QxzLUS/gmCkJjveFYbRIMVg8l0YSBxKNY85uL9C
-	rgwVDh8rWSHq+nxMq9dCBBaomPrY9F3VXsgOICKnOfgPH9pHTZLUCGQV0LDa5gTVUn7ka9Gwzyq
-	+4KaiQBDGIPTKSxDONVJZB2Ezv2dEAp0CFLBUK89e8hePcL1gXaQZfxj50B56kCA8FgpMvxOqBR
-	76LUOsE/rvd/TMAuY2Sofp
-X-Received: by 2002:a05:6a20:3d0c:b0:3c0:9c1a:8936 with SMTP id adf61e73a8af0-3c0bcc4068emr13266820637.62.1783680880360;
-        Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+        bh=9M4o3iN5nWztVryd5NG1m3lFycIITbNkOd3Ijgz0aSY=;
+        b=Am8KP+p9VL/4xR6/z/y+c/BFdweV6B7jvdfK1MZ+dHkgmDMD37CFXakMBqJ/x98qd3
+         lK0StZo3VzNu9B5rAewyt1CwlydlahbGpsT9w+hWxOcL/MJxsCHjCT/geGN6OravyyiG
+         sbeX8kxiHNa9W1dcUyEMr5OzlGQkK4eIhidYb88MeF4uuRsLTsX1eEmBJrxiGqaZlAX8
+         2NY1Iw7RjxyE+OnWEWyfRbDH70DuiwPxmYbkPF8uUpuFAp6Yy5EDiXPTWr7QsPLe9MKz
+         YmKP0qM0RHbuPpfObS/F8LtVVNKiwiz+wErw3go3jwJJcyQqMyMafuKzS0HE95zCQYkj
+         ZMEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783680891; x=1784285691;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9M4o3iN5nWztVryd5NG1m3lFycIITbNkOd3Ijgz0aSY=;
+        b=QoO1L4G9yqQ87iERAbFz0hES4GsQirgmCJDBL6pEheUcso3wltIeKbYSOjWk9LiayO
+         hbgesKdq8W6JA3uYMZ6aGrZHrGJnNA19eZjOxJLEwhvp5iIonM4KNV12HlJgqGPs8VU1
+         VFteU3l2KgTJUc1XrdZKzoAWV9LA3Xq/iW9ltLbNrGo4sz6o5SlFarw1k6bL1jUnN0c+
+         puDTEMc5mzp0oRBqDU7V7ctbWMHha413iV+fJ2kFBoC8wuZ6ifib//U6kWDor0EFY8WT
+         lOqEA8xPadRH5LiDulP6gKc3gCD6peUl3EnET49a3yHrjZH6fW6fkoBSuG/5Aqim9RsX
+         PCmg==
+X-Forwarded-Encrypted: i=1; AHgh+RoBcdq7CnGU4vADaFUsEnLfITndYfURmKTEnc6FmfnCmBTQmi7TP2kqaYH3DkMajWDB9kgyG7eVBMJxBCbjIjtV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtOQ/3bWcM9qX013M2zFl1rxOTeiexHCDDHciaku27RTHxCMPw
+	NbYO4EI/wmADi4HhjDH6+zlq78p65Zm8hw1iYJS932lWoRyHhX1RKla0
+X-Gm-Gg: AfdE7ckqCA0/jRTEj6u15wpjk0ahjCdKlrH+t7c6h20mb4qw3auY9MI2rcKhuMAc8tE
+	k34fg3n/LkzgQUwBVqaoVVbvVv2lcUsPU6FL+RUDlD5EFISSrYbyQAlS8uvtePpMESGTyegwvWV
+	uhp1x0QoedzFiDcg8ycfogYU/WlKviEf2vlPBDX45bNIQ0ds/xjJOddeUdTVDKlNRKjUdQNfqRX
+	lb0v1GZQQpKOzd+VwNIF7B8TbMzi2aoO4smtx/efaYGmETTspuPFjtz+ATg2YHULLQRr/NNRzt5
+	avCnM6HifcLFllYVK6FjQJftCG6sO7bTpit3tHYRtVgNoWRTndTYcbMGe0puk+X5zfkhlZzOeA3
+	H7CpwDWV3L+Iib0guLYknAbnen7jh9EcMFUzSlhut2IvdYJdtdMNhXObeJfQHxQNBE2q8S1RBXE
+	+c3ITtlqhtCuAKPLWiTDQ2
+X-Received: by 2002:a05:6a20:4304:b0:3bf:e24e:3afe with SMTP id adf61e73a8af0-3c0bd206c10mr13691119637.43.1783680890615;
+        Fri, 10 Jul 2026 03:54:50 -0700 (PDT)
 Received: from DESKTOP-TIT0J8O.dm.ae ([49.47.198.15])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659c8572sm40752937c88.9.2026.07.10.03.54.33
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659c8572sm40752937c88.9.2026.07.10.03.54.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+        Fri, 10 Jul 2026 03:54:50 -0700 (PDT)
 From: Ahmed Naseef <naseefkm@gmail.com>
 To: netdev@vger.kernel.org
 Cc: =?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
@@ -93,15 +94,17 @@ Cc: =?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
 	linux-kernel@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	Ahmed Naseef <naseefkm@gmail.com>
-Subject: [PATCH net-next 0/2] net: dsa: mt7530: add EcoNet EN7528 built-in switch support
-Date: Fri, 10 Jul 2026 14:54:22 +0400
-Message-Id: <cover.1783680864.git.naseefkm@gmail.com>
+Subject: [PATCH net-next 1/2] dt-bindings: net: dsa: mediatek,mt7530: add econet,en7528-switch
+Date: Fri, 10 Jul 2026 14:54:23 +0400
+Message-Id: <68e85666b6dfedab719aaa388450eb86312eccd0.1783680864.git.naseefkm@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1783680864.git.naseefkm@gmail.com>
+References: <cover.1783680864.git.naseefkm@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_035441_707623_119A7596 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260710_035451_511893_82FBD37E 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,26 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EcoNet EN7528 is a MIPS SoC whose platform support is already
-upstream. It integrates an MT7530 switch, memory-mapped like the built-in
-switches of the MediaTek MT7988 and Airoha EN7581/AN7583 SoCs, but with a
-true MT7530 core, four Gigabit PHYs on ports 1-4 and a CPU port at a fixed
-1000 Mbps full duplex link.
+The EcoNet EN7528 MIPS SoC integrates an MT7530 Gigabit switch,
+memory-mapped in the SoC register space like the built-in switches of
+the MediaTek MT7988 and Airoha EN7581/AN7583 SoCs. Its four user ports
+are connected to integrated Gigabit PHYs and its CPU port is connected
+internally to the SoC Ethernet MAC.
 
-Patch 1 documents the compatible, patch 2 adds the driver support.
+Add the econet,en7528-switch compatible, with the same constraints as
+the other built-in switches.
 
-Ahmed Naseef (2):
-  dt-bindings: net: dsa: mediatek,mt7530: add econet,en7528-switch
-  net: dsa: mt7530: add EN7528 support
+Signed-off-by: Ahmed Naseef <naseefkm@gmail.com>
+---
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml         | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- .../bindings/net/dsa/mediatek,mt7530.yaml     |  5 ++
- drivers/net/dsa/mt7530-mmio.c                 |  1 +
- drivers/net/dsa/mt7530.c                      | 56 ++++++++++++++++++-
- drivers/net/dsa/mt7530.h                      |  1 +
- 4 files changed, 62 insertions(+), 1 deletion(-)
-
-
-base-commit: fe3e786ef4eb6e47d2901f568a27bd920477bbe9
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index 815a90808901..90b3582b7619 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -100,6 +100,10 @@ properties:
+           Built-in switch of the Airoha AN7583 SoC
+         const: airoha,an7583-switch
+ 
++      - description:
++          Built-in switch of the EcoNet EN7528 SoC
++        const: econet,en7528-switch
++
+   reg:
+     maxItems: 1
+ 
+@@ -318,6 +322,7 @@ allOf:
+             - mediatek,mt7988-switch
+             - airoha,en7581-switch
+             - airoha,an7583-switch
++            - econet,en7528-switch
+     then:
+       $ref: "#/$defs/builtin-dsa-port"
+       properties:
 -- 
 2.34.1
 
