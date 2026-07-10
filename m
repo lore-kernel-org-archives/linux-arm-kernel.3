@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13372C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 18:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4DCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 18:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mS485fOgIvhcuepZ3Oku5/wDYi5YVAtYod06IGUO/W8=; b=qyhYiUy6z/OEoCjv0uTNv5QQ+6
-	5M7j7I1NyMtDvDogbrsanSCRDj/QpcsBDD8B9IsurNJrOCSgxhrjtNqXVulKIycG8v3RePDfbEziL
-	vcLV3WwdXuQ+yAupNe8U91pz/6x7bCs7Hs1bL57kqHzzkob0qBxRXVs/TpvysyNaoZvlrzRO5c/0R
-	vD0G19y8d/5QlIIglDzAT3apVlm/K1qkoSxIMMe2rpanrBRg8zo+SvUlsCwHi8Fn0GcLn3Tbv1s4u
-	PjtM0vli3HJhdygi8CWd02G3M8KCrc+bh41J1t+jFWpXbiJYWearM74OKCgNcc1utC/I1hNtEgGGV
-	/2UnWbnw==;
+	bh=ouBlTpHGnmyUfrXsmo1Bq7O40Y624bpYwfRwC5r1Lzc=; b=bZwyO77xxxs0/YqPq5q9qmtoaz
+	Jth1BjNJISiESDU0C2lCWkN99+rW/FlMti075tMLPQ0GNRh7uI0NxQnkiHBR4kmGO1ReN6guwgUbd
+	vT0nt8PPr3vCydxTvHfIhtqA/n08k5EwjLL1EaitX05ux8ARyseXFTV5FHPjh+FlClFE8gMEHt2/Q
+	hfs0w5+vCEowym+ToCdiNWd0VLvXG6qLD6MlyRVE6hoXVI8zL8V2HppJ9LjPnRm2G/nfmzL4uaWc6
+	UC32mgkRu8fSGifEoFHwtbq5TxRWzArZWeG8ZELwbfGk1XsfeQCj5r2CA/DPCuScOwBcHnJ0EmHlI
+	hPzS/L5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiGLp-00000005YPx-3omn;
-	Fri, 10 Jul 2026 18:53:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wiGMi-00000005YVu-0CGc;
+	Fri, 10 Jul 2026 18:54:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiGLp-00000005YPp-2FHm
+	id 1wiGMh-00000005YVl-1Z0w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 18:53:29 +0000
+	Fri, 10 Jul 2026 18:54:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7D7F60051
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:53:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 712241F00A3E
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:53:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1054943D50
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:54:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E90E01F00AC4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783709608;
-	bh=mS485fOgIvhcuepZ3Oku5/wDYi5YVAtYod06IGUO/W8=;
+	s=k20260515; t=1783709661;
+	bh=ouBlTpHGnmyUfrXsmo1Bq7O40Y624bpYwfRwC5r1Lzc=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=nC1gZkZGUu1c+ijRrCKUlcDODg0wDdbTfE/l8HAx67EYodxhv5NUpCETx43W1TTkU
-	 6bDmYUu3pjoHfW8d2SifUOq7ef+JQ2k7es4ev27hYVTTZKTUID62MenQ2qHU9p6Q/I
-	 zshxisfohZVOFnwJOtkapzZXGeHFRn0EW8McOD4z/5N0bWb83eNFd5SGxk7fyh7Rmu
-	 MSWB4cyXgFLPcAbRCO4i/8frv/c0YYd5dRipH5fhIQDqUj0UqnPhcSi5hhsj+qBk2Q
-	 R2kNF9ITFd5pqJ6qFZwzWBY8QqJQNQpRjmrA68EfbzPlDGKbgw78ngCZ7RxgkGmbx3
-	 qwqeIi/pPifQg==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aeae771c49so1360646e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 11:53:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqhtzNO/NtEgLjY8Vbi4+JcHdAU8tqZ+1VZ3RAjmQ2PNS83IC/+9UZssWuNEQEZy5YYdeUEd0wjOcfrr6uZJMtJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfi+viucgp9NArUdwt+PjoW1H+gLx3+h8OHZYB2pouXHq9e/2R
-	alEFj+qwXbRAR0L+Gl5HK1z25NqD5ZZi7eQd/v/COc0OWGUDeCLteIxQlTNYymfh8/K+k7jb159
-	INUKkRubIJIDtbGceVAWQM6iG7kjMAJA=
-X-Received: by 2002:a05:6512:6699:20b0:5ae:b629:4517 with SMTP id
- 2adb3069b0e04-5b0236de948mr44182e87.63.1783709607271; Fri, 10 Jul 2026
- 11:53:27 -0700 (PDT)
+	b=njlNg6ftu1pr5TlPVDwX5iYcyzqbkWZjhazrr5pZxCuSLX4SS4vRCyPH/3Krq/JKR
+	 2qVVUZWPTgLmxYxYxlKOZefx8K3az8Cm991C6PSaghBVPz4x3qjpZJji1f84w19KTv
+	 N+EIVk5FrLC8rA/qN4i6WKFcWmFGbqUxEgMMxQE6qhUzsS162mRMAMSc1aGkFD8Pjo
+	 wBprcfpqR37kWJJKptREZel4YnXs1YnkL4jmUS4kc58cjcJpj17sjp5kiL95SipdiW
+	 iPhR1kKFCgJFwx6T5YrAVxMJgUuJFObpzapqamBWiZ1BnxkagBQ0cTALJo3Q45YioC
+	 0GBdXgSJ4SxCg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39c953950dfso9415261fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 11:54:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp+5Ag20eLU2UzhrbOvMFJdstroPzYkBkm3bALhsgDyaYURSYQNLR5UzbBmeE7iWALO6kVii/Y112onvc/mvO2V@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHjpjDafVWDQuOpYGW3pm4rNX+BLpjwXpsCD5i/5uybxMc7kgs
+	/qnWN1m/fwicrxh3W3Xd57RuiXmLL1aZ/C7eFi0ojsGeXPLzlX/gMKYJ56PH3Z9qW/dm4inx+UL
+	kPMLBgOUZuGp6O8luj2PYeSxWNLNROQE=
+X-Received: by 2002:a05:6512:33d1:b0:5ae:bd53:70f8 with SMTP id
+ 2adb3069b0e04-5b0236a3403mr65056e87.47.1783709660727; Fri, 10 Jul 2026
+ 11:54:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com> <20260706101823.341230-4-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260706101823.341230-4-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260706101823.341230-4-krzysztof.kozlowski@oss.qualcomm.com> <CAD++jLkQPHfq=_D_TPMbmmA4JFwbhhtTC+3Dj+uD2P6LFNtfUg@mail.gmail.com>
+In-Reply-To: <CAD++jLkQPHfq=_D_TPMbmmA4JFwbhhtTC+3Dj+uD2P6LFNtfUg@mail.gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 10 Jul 2026 20:53:15 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkQPHfq=_D_TPMbmmA4JFwbhhtTC+3Dj+uD2P6LFNtfUg@mail.gmail.com>
-X-Gm-Features: AUfX_myNLzbgrTSqqqiX6xG1do6m36L6LA1SqCR-RLu3gRQM6LPnA90pLzI98Wc
-Message-ID: <CAD++jLkQPHfq=_D_TPMbmmA4JFwbhhtTC+3Dj+uD2P6LFNtfUg@mail.gmail.com>
+Date: Fri, 10 Jul 2026 20:54:06 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmk7c-836VWFkZTKtgFgvR-4uizQShiUuyQ7jL-iAJP_w@mail.gmail.com>
+X-Gm-Features: AUfX_mx-aW0xSlv_lXB_IgSnV0_rVkl-4iwi5PwHYhMokOtVpZa9KEbz-fl7ZxA
+Message-ID: <CAD++jLmk7c-836VWFkZTKtgFgvR-4uizQShiUuyQ7jL-iAJP_w@mail.gmail.com>
 Subject: Re: [PATCH 2/2] ARM: dts: st: ste: Correct indentation
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: Viresh Kumar <vireshk@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -81,15 +82,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 6, 2026 at 12:18=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
-
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-> No functional impact (same DTB).
+On Fri, Jul 10, 2026 at 8:53=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
+rote:
+> On Mon, Jul 6, 2026 at 12:18=E2=80=AFPM Krzysztof Kozlowski
+> <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 >
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> > Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> > No functional impact (same DTB).
+> >
+> > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.co=
+m>
+>
+> This patch 2/2 applied to my ux500 tree, thanks!
 
-This patch 2/2 applied to my ux500 tree, thanks!
+Oh nevermind they are already in the SoC tree, even better.
 
 Yours,
 Linus Walleij
