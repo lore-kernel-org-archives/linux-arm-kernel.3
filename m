@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCF1C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE44C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjx1ETi0pE66yaW23Sda3TmvYDKWG3Oq92tmDl3ve2Q=; b=2SWk3oSXj6CNle+ZTgf0BSZLCC
-	jbjZbHOFeNKkZie2LxHPqF/eubZzM5wlHVw6A/fI4lLAm/NAb7bxRmqY3rJcP4nm8fCr69HPTuhaH
-	9koNjGMQ7tuBKn/2gstcbMtbyDYklr83zHLjkQKGmVIPrK4j2yRrhMwbKRhiZ7kCPykB6xJuRGa9l
-	eUTSA5ggp76uiOLZuH+7TIB2MOG29l9ODiWqYbNXYNc2/3RblNwNCURxIKwqGDEmf7caPXpxwWI16
-	21B6WRhPHMWr1fjEuN53j3QtaK70z2N1fEj9kQYV1hOI5GG8UX2lWvFLeRvu2NSwiZXKZ3E1x80t+
-	UGsNsJww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5TdwDc0XAcOK/OY25Nms9uokbZmoqDxyoN0F8mjR1M0=; b=yHLyLByp9BcTIIQZVc+1/GMkd7
+	Y6h/Alw9Y/7Dmk3yaE2s3Q0761DdBRA++i8s3xjRa97s4DWWNroxd/qsHloeXPfiyzILb0iIyaDkN
+	all8UbaUlZDClopjmT11CtOD66V5aDNotX5zcjvzBgprFsU1HNourqsUyXfnvn1uqK792oeqCl65C
+	Vxpq65sGjwXvapC4udmCfpw3+A6yV+RKTuHEQrmpgIb0Jk2RWMPCHHjMLj+lV3GX/I/V2Zh6y+PXn
+	JJ2dk5jtgZMJIFWjmJoyEuBCSbjMRhmmiGD2qmUWEx9Pjc36miFCNSbzqIug/sj48XobA6AbCTdR5
+	x2mMUz2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7xC-00000004dtQ-0ur8;
-	Fri, 10 Jul 2026 09:55:30 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1wi81q-00000004eIa-37sq;
+	Fri, 10 Jul 2026 10:00:18 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7xA-00000004dst-0v9v
+	id 1wi81n-00000004eI6-2muJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:55:29 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5bdbd631a6aso564120e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 02:55:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783677326; x=1784282126;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xjx1ETi0pE66yaW23Sda3TmvYDKWG3Oq92tmDl3ve2Q=;
-        b=mYYEN7brola8lGNwx2SfLoN/SaIpocJf0JNmkKZJ54PTp+26Bmq0Gm0xHa5il4IrhV
-         SDcz4XfTUKhIPiRwr+uWjr6MH4DwEKj1XeqjsiZ8uHYL8d9fzHYMlJ4FTUVjBv6e9Ab2
-         ni/on0Pby4qNpZmTSly9NxYv8w8S0PEFRvl/qhM4NWoA0D1/TU+W5TOB3LAXBzkhuU/R
-         cfjjUaQAwZ6UBDMBPx1/XejplWQu/JhI89Qbkgz2rXkOM0IbUuO4P4AQlpAbosnOiKMv
-         ZJ8u+hofpz2ZyBm7+YAn1kYbthjK1qTG4Ueh4mdHLaeSf2ozJXEUBHV8qJjZmFRu/kJs
-         Lr4Q==
-X-Gm-Message-State: AOJu0Yx1DB9loPUcz5m+olXxu3IC1FjMLYfevOTqUNPFvpB5aIfnEUYW
-	cm4UgVlJscGF7L7VeusMEx1HuUkyYpVxA1k/yvd/mAA1JM7K2mQVqZkNk6qt/kBKMbk=
-X-Gm-Gg: AfdE7ckSVTjsy8TmJJpqpuKntl/rXedid5v3y3NspkKVJts9A/5Kys2xh6H+OJBmkJS
-	zRPqW8aKiKNS+shZ5+1i6+j78BRBGhd7AcRr8x6Odz1x61/VLtM2sfbuQX0iCpsIM55Oag1Y5AQ
-	0TkAS04slv46DFEVNSmMGA/RjIQPO3WDyC1cdV/4JInk/L+ntLVpqo/vTVDZhk9fUTEBw5uMHkj
-	uexj1SFPTWx8NO3BSjdmoa44vfvxn+1+pZd2opQXKLsAcnihKtPcIjMSnx7UImN1kBsd8GGS8JA
-	WHGMhimc2r30Ha3KxGiFwRR4Lf2I90+oR5ZoOkaF5cLgnell/ZvfBcZs7O4OLzBGb3rnoTHP+jk
-	v8/eregSfjaQFLNRVCdhoeguQaoyfnk2Wj+K/KlHabyaPupPwvtjH4ZUfy7KEZEf7Qh6myMvqvH
-	yGo7pEW6pTvX2rvm8ZvEh5Tw5neLuiud4cQLl2UxPNgr60uXgETg==
-X-Received: by 2002:a05:6122:6598:b0:56f:696a:4fec with SMTP id 71dfb90a1353d-5bfa54bca17mr1502215e0c.5.1783677326291;
-        Fri, 10 Jul 2026 02:55:26 -0700 (PDT)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bf8bc8e082sm2328543e0c.1.2026.07.10.02.55.25
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2026 02:55:25 -0700 (PDT)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-7370ea43b9cso1052265137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 02:55:25 -0700 (PDT)
-X-Received: by 2002:a05:6102:40cb:20b0:744:f2bf:44d2 with SMTP id
- ada2fe7eead31-7450c6bee09mr1250670137.3.1783677325709; Fri, 10 Jul 2026
- 02:55:25 -0700 (PDT)
+	Fri, 10 Jul 2026 10:00:17 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5TdwDc0XAcOK/OY25Nms9uokbZmoqDxyoN0F8mjR1M0=;
+	b=vJhvUe2uO3h8h5qTuDZTEe6Yi6AwDZPf5dGQuS5c0hQoF+f8cqWSmA4ahvCSHcEOvvJ6YV/+T
+	LPav2v3goh+inZN1Z7zOIsOqVcMWYLKLJbZAoYvinT8TWl08Vfg/1+ApQKlnkhUqWKvv4fFe+68
+	ock4AJ61PE5Y9KofusR9pE4=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gxRtR6py7z12Ldk;
+	Fri, 10 Jul 2026 17:51:27 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 08F4540575;
+	Fri, 10 Jul 2026 18:00:06 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 18:00:05 +0800
+Message-ID: <656764bf-f62f-4380-a8dc-96055d4972f5@huawei.com>
+Date: Fri, 10 Jul 2026 18:00:04 +0800
 MIME-Version: 1.0
-References: <20260709221245.146406-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260709221245.146406-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 10 Jul 2026 11:55:13 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVBJuN6ZJzTMU_Ww7ZUm2Apmp_AaubAE-My6DK334pLPQ@mail.gmail.com>
-X-Gm-Features: AUfX_mwl89Zp9wNyF-c_GbFzjrveXMEBWiOpAsRGPClNvXP8eS2mrd7PvQf895c
-Message-ID: <CAMuHMdVBJuN6ZJzTMU_Ww7ZUm2Apmp_AaubAE-My6DK334pLPQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: ironhide: Describe inline ECC carveouts
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 13/36] arm64: process: Use helper to check exception
+ state
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-14-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-14-vladimir.murzin@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_025528_269010_568A515A 
-X-CRM114-Status: GOOD (  27.95  )
+X-CRM114-CacheID: sfid-20260710_030016_187719_2C217AA2 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
-
-On Fri, 10 Jul 2026 at 00:12, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The DBSC5 DRAM controller protects DRAM content using inline ECC.
-> The inline ECC utilizes areas of DRAM for its operation, which are
-> in the DRAM address range, but must not be accessed or modified.
-> Describe the inline ECC carveout areas used by the DBSC5 controller
-> on this hardware as reserved-memory, which must not be accessed.
->
-> In case of high DRAM utilization, unless the inline ECC carveouts
-> are properly reserved, Linux may use and corrupt the memory used
-> by the DBSC5 DRAM controller for inline ECC, which would lead to
-> the system becoming unstable.
->
-> Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-Thanks for your patch!
-
-> --- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-> +++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-> @@ -107,6 +107,47 @@ tee@8c400000 {
->                         reg = <0x0 0x8c400000 0x0 0x02000000>;
->                         no-map;
->                 };
-> +
-> +               /* DRAM controller inline ECC areas */
-> +               ecc@10cccd0000 {
-> +                       reg = <0x10 0xcccd0000 0x0 0x33330000>;
-
-I think you do want to include the 64 KiB block of unprotected RAM in
-each region, e.g.
-
-    reg = <0x10 0xcccc0000 0x0 0x33340000>;
-
-While that block is usable, it is not protected by ECC, and thus can
-be subject to unnoticed corruption.
-
-Alternatively, you could put these in separate reserved regions, to
-make it easier for users to re-enable them if they don't care. But
-those users might want to disable ECC completely (is that possible?),
-again suggesting to keep them together.
-
-> +                       no-map;
-> +               };
-
-The rest LGTM.
-
-Gr{oetje,eeting}s,
-
-                        Geert
 
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> debug_switch_state() explicitly checks the hardware exception state
+> for both the pseudo-NMI and non-NMI paths. The expected state matches
+> the NOIRQ_CONTEXT exception context introduced alongside the exception
+> masking helpers and state checkers.
+> 
+> Use the helper instead of open-coding these checks.
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/kernel/process.c | 21 ++-------------------
+>  1 file changed, 2 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index 033643cd4e5e..ddda8d7aee24 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -51,6 +51,7 @@
+>  #include <asm/exec.h>
+>  #include <asm/fpsimd.h>
+>  #include <asm/gcs.h>
+> +#include <asm/interrupts/common_flags.h>
+>  #include <asm/mmu_context.h>
+>  #include <asm/mpam.h>
+>  #include <asm/mte.h>
+> @@ -738,25 +739,7 @@ void update_sctlr_el1(u64 sctlr)
+>  
+>  static inline void debug_switch_state(void)
+>  {
+> -	if (system_uses_irq_prio_masking()) {
+> -		unsigned long daif_expected = 0;
+> -		unsigned long daif_actual = read_sysreg(daif);
+> -		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
+> -		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
+> -
+> -		WARN_ONCE(daif_actual != daif_expected ||
+> -			  pmr_actual != pmr_expected,
+> -			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
+> -			  daif_actual, pmr_actual,
+> -			  daif_expected, pmr_expected);
+> -	} else {
+> -		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
+> -		unsigned long daif_actual = read_sysreg(daif);
+> -
+> -		WARN_ONCE(daif_actual != daif_expected,
+> -			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
+> -			  daif_actual, daif_expected);
+> -	}
+> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+With CONFIG_DEBUG_IRQFLAGS，we can avoid the overhead of this check.
+
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+>  }
+>  
+>  /*
+
 
