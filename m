@@ -4,143 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38BAC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDE8C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=; b=dGpMOZ/VfgrsUUaEqr0cYACq02
-	HL3eqh/Ni0eC6bDPqDx1Pi3ehCwnwmaetd+FylUrBcnrZzLYU6hqPClRogxWvJpOTKZBQ3DrBeuAX
-	UNIYN82KWZKMC+m+vciMzJdTu1LazCIacy8dtfj42yo+ta9azQD3P+FfhK5+E89B79Ze4InFlLxAg
-	mqOC2sUDqfPLPJ3zxCUQ9Zg3zStKf48MX8Nk1Q8OPAYZajDVgKnTnJXLQyEMIyJWJ38hr3rbfJ33f
-	Q5KUrj6k54IkfS63jXBRJzteXw+V04g41qOUKgNdaqn9jpOVPkdoD+JQHVmJEdZhtBSxeBHwDJ8GG
-	V6SZlCsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=; b=qpfJrphDopsBg7
+	Dojz1NHgXHVmsj8kmJ6r1ICNM3c/WaSn/26Pv4BEXXZGgWmZAJXaRvZdmp6Y3xqXK0mWVglRgAklF
+	WZO8M6KYKkvM0egecwf4qoCj5wvKisjT2xpgvDbTdAXZ9/7xMjbp6xYohCDbyTCEOQvkvYQhUjJXc
+	BKyW4e1/EdtGkbAcT/tlUY2TlAxSCNCkeRmrmcnxSmrb8nFQgX/X7xNFlprIO0N5VeEl1qbqzskWj
+	if9nE8TVp6AJAjsNWbNl8WSGTlpXQl/0yDrY7tc9uZGrv0/iTmJHXR2mCGG4XHFVf0yrOzp4OYUoZ
+	zn/U+K2Wfg2xaUXmd8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiITV-00000005lgz-3hpZ;
-	Fri, 10 Jul 2026 21:09:33 +0000
-Received: from mail-francecentralazon11013009.outbound.protection.outlook.com ([40.107.162.9] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wiITs-00000005lls-4BAr;
+	Fri, 10 Jul 2026 21:09:56 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiITT-00000005lge-0N7E
+	id 1wiITp-00000005ljh-33xi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:09:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mcusBZqd9sHVe8dwEN/CctMepvfS8yNhfkI0S0aaXraCwsBVRqQI//nW1UwLnjNNTFu6TNkn3KJeP7asCVgR27VVv3VHRcU7+4hLkH0eghePDT79IZavY4QFzxW1fIN1sex1bp7K9F0OC6qEHVjL0/uFQhTpOw3udkVRx17B5cepWmIhVFAp5qrti7f69NStpVS8ztkvm5BSnHYL9K3q7Vu9MiPxJzUpd/KpTeqkSiOrmeKqaLIkLRw1zDZwaWS8IF8DJCd0SCQ4SAIwIkuDz+/QsC8Y1uOmBJeTOjV26IJVYx1KNn6pjf8o+FzeLVOOUS6fVzeFl1+IRvQXcAW/pA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=;
- b=DQ0WUO6T5YmGn58RmuePx8+SCPQ00zQMBXWkRX7GvkN41jyyJCdOMXi3AA3QqgLrGaJhjPZSdEaC5ob+U3kRXanjbYM76lKkp1Nq3BiAieR0IpC7kcnn5lsR0hT1wssaMlhSvi5HuTDYfpf56aCk+thzru3ROkfam52mk2iv7+m58jCDlROuayT/9wl9LDMsgw0xmA5lQBZwFkMANYbNBImXJ50i+WSAP3E9Wmg66j/BcE8p7lXYACkckfOwtHWkUHyR7puRN5fORkb5cifvN0CqtysRIkSc3YCHKrcLRt2Ucgn2EyOAi4gtFQN6cFQGqhARiOqJzuOy0h3rybDFsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UQ6iqvoMgSKA8njIldwfk5dhfCpW1ru5Wmn6M0680rY=;
- b=CRxRQaHSUPoMi+Xsb8p1VAwKrv1pn6Fn6/rlFKecpgJk5yxD+C8COhXdkPdmvPD2COSuR1kTCqGxQZaSv2py+K1GrRbVsRzgaMxZhNxDVa5gOELvATtUIjmvaLZtkrE2LTJlqyV4F/jcEyQJqVJ4SMkyc64qKboilX/9rht4riEQ+cwcsS91yL2CgMu1oxEqMzxIwYIaiwx2jAzEOzZmEVufq9S6lKcx2J/wPSJVT0DBEK5+yBQODEg44Fzo+UlMDuTptayn+k8mfADJQha/6JOFDgb28aGkhRSrNUoTdKKSYBYqRk0Md2N2qqIbOO7DnIx0AjSld1ID0Fc60h0RIA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB9375.eurprd04.prod.outlook.com (2603:10a6:102:2b3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
- 2026 21:09:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Fri, 10 Jul 2026
- 21:09:24 +0000
-Date: Fri, 10 Jul 2026 16:09:12 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, openbmc@lists.ozlabs.org,
-	Tom Rini <trini@konsulko.com>,
-	Peter Robinson <pbrobinson@gmail.com>
-Subject: Re: [PATCH 1/5] arm64: dts: freescale: Import optee node from u-boot
- device trees
-Message-ID: <alFfeOFz2UA7hAbK@SMW015318>
-References: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com>
- <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com>
-X-ClientProxiedBy: PH7PR02CA0007.namprd02.prod.outlook.com
- (2603:10b6:510:33d::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 10 Jul 2026 21:09:55 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4758bd3731bso953136f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:09:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783717792; x=1784322592; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=;
+        b=DmlbPW7cL6YPdL0A9xtRjPe1APg09OyEGM7StKP9xd7QnDeO0hzga/139QkncgKgct
+         gHOMxVBAsu+GhIDysoawDGB+m0auxzNFxZTNVSObPM+asPyWhf/bl4KFojmJKZrLnXrh
+         CIhAao1FhD7VBfBooQyYOkdDMiru136wdg4MZTsU3LaIafhXkLpqfjbWsanG8glVb4T2
+         gqvVBclB3Mfrp4SS6b2DpkLENbeSrotNItc5ZIsYm40z+y88lmXvbh2W841PfmZJID8D
+         auK06AnQU0l5hAqLlykFLudLuGcz5XeCjuxc1PA09unmKsUPaYiKObG7wrMOEvO6psOH
+         MzJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783717792; x=1784322592;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZM1sYc8Mcx33JxG91xPslSMUoyWjkZwKm16jd+wS4wg=;
+        b=VeRpnP/MiGz5IFkf8PgGffTXfxR/5pbb9NKTbm8hDiPOB5cBo8DXziB8ZITyGD/Iqc
+         5a2cLXCluqamp3aIzbkZVrLh1pXny98uPcOSg0W8/gRCrWJTVIS1i9uhnOaWDvw2P1EL
+         naYVD7nN7X5Gxcyb6+MtZRHrI4/h01MDfyGxhR+2WTTa1JnPrLZ/iWeTBNA3I4FR/h/C
+         KrrVz0OdLej/XgbWzDnQTNmWVSJknPJrOsVz5j1fckZpIOArKVKferaoH+ianrW2T0kM
+         hfS04PZGatsKOtZZ9x/m00tYUmzb3b0yjFkcvul1HdEueNZGwo3gi6sA6dkxHqJ94Knq
+         QHeA==
+X-Forwarded-Encrypted: i=1; AHgh+RoW1oWCAHmlmx8ZbPo9aZNAeJJQUJG+QkuKHk1m9Jzz0KbOYQG/enhhY4ldNuDe89sw0eSJeCW4rRMpPhYM15KH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyyzz3rJA4W7M36h03N/bTcoYBgxsUGw3yS0EjiRaDR5lPqvnAk
+	iV3gq44ZFf5lEL3TtWxPkf2DZGdsF2U1aNe95ejXCOClTUz+ncDX4hq+dJtq93VInx8=
+X-Gm-Gg: AfdE7cmunLiuIeNWbFqrxFxyyEyHYCzBo1apR/TcMLZrpv1DZe5tJj83CoI7hto/6QY
+	+3kZQE5hx6hremp92RdJGROfhNpm49BGCayfbkOecoAG5+5z0tfedCtM9oR669ZY4CYRHlyMWHh
+	h5PYRYxi7liWueCOlo9KjDxE67PWRvONuEGFDnDRQYxThprLgFOCBgKClzPTFZN8uzZyz0Eq9AU
+	UjnKMjgJ2l499spHhWPz0yvjpU834C9u+g1lRzRTqZHBPXqI9u76tQVIFeqCkclBhftRNfbJBf5
+	IcCDH/0KRjwODCKagoK/RutHzEFawykZnrE75B0gkIVNTsjLPPCKfJKADs4uQ8VgeNc5YS26j8z
+	1hnkxVGV+ozKAaWKKTmiCtcw1N+nrWGseAvv5KgEw2H3Y9ysf/we69/E4V9SzlG3nIir50Ye+jE
+	EEk9oZNGf5vQ==
+X-Received: by 2002:a05:6000:4b07:b0:460:d18:865c with SMTP id ffacd0b85a97d-47eee0f3afcmr5999929f8f.1.1783717791925;
+        Fri, 10 Jul 2026 14:09:51 -0700 (PDT)
+Received: from [127.0.1.1] ([151.41.178.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039b0cesm64274135f8f.22.2026.07.10.14.09.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jul 2026 14:09:51 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Subject: [PATCH 0/3] ASoC: meson: aiu-encoder-i2s: improve hw constraints
+ checks
+Date: Fri, 10 Jul 2026 23:09:48 +0200
+Message-Id: <20260710-aiu-improve-quirk-check-v1-0-2fdd1b6f8896@baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9375:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7992953-0b39-4c42-b3fa-08dedec784a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|366016|1800799024|19092799006|11063799006|56012099006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: DgleR1dEoffZGnYGWvLtsb6e8+KF1k+76IfXsvYpYCUBvoA+/gNU4bEKeqiXC/AF3uO9Mh7/57FFGl5V2GyrQFp8S0XJn/lLfJ0BSBbvUUcDN+WYGNO/v3JfUL31ah0D7LEJ4iaGu/H4THIts8WbhYxHNKYjbLRIAVjUbyGHSOWJjgz+Lxm56NhaYFLPwWtLXT+cyUtpc6iC5TDoVJyPm+Lyd2WHRPWlm8rNuxbqTcqYo9FM9H6CgnKeNpn5ajTyrVXe9DOdKO1lBAqQ7FjjznuWtLAdVWF9ccdSnueFh59iJOe4fMyVLluBBFhY9fGARjTn8ysXrqyW5QSB3N92Kp6yGkaOF+u7NfDW9eNn6sbw9SpzsfS338OuFhObJb6bfWGXL2MMvGrp9MJKxBAVXJTap5Hv281SNWbVfkSbbtTcMgOU3EKtJL0Nq6JYKWU4QIv1rYQa0Ouayp/kTdLTfPFtSjpmdWZ1MR0GUnX7aoZ7eV/roznOBmxMAqJpnBwr4rB258UyswfFfTvCT7m0uf52ZRgGWTipBjUSkxTz/Ihbc8FKWE/mT36btlYWFzXaVYt53orhLoczxElO7NulumqQ9eLIfBjqDOiEEQ1dly+DbMEHbySHVgASnpWsYeaf3XD62lw80YeHCzr8TUjVKpFOVOSMSZMdou+qYQzZVMg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(366016)(1800799024)(19092799006)(11063799006)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vMkMvUjV78IT0PTEmqPWxmEQIshwD9C4CY2ORd+IMhPlVpMD0ter0ylG9Pca?=
- =?us-ascii?Q?j6/pBzgXzEZNpdjfWhWgbSbcdNx9DeOFc7rsjAt1+4BPySSFaZmysHWC/tuW?=
- =?us-ascii?Q?mDXmtX2Zu7+mGBuJI+k6VRUTV5J1jCKMc6qUTzflTRXBiL/yOT2xniR3U9Ng?=
- =?us-ascii?Q?VKeJZzAD3EQuJOxorKKAnv7t9VyfXJgK2hm0UABbgRegjKX9ZPvMks6yfM56?=
- =?us-ascii?Q?SrtncF7uSn1p6AbQQs8Fd07yZ09NRck9FcxCUs/rNfuWsu1Y8jcnCCk+X6Hy?=
- =?us-ascii?Q?7SekQihb2/4zMnjri+kiweQsj2lVXNBI/YxcdZoxPOLuBtwtwShJUZVlV60a?=
- =?us-ascii?Q?kF3ncj+UBiQLkFZ3Q0fyZExoRIJGHcYjzGuf4PY1qr5xOZu28BmAbmixUzk4?=
- =?us-ascii?Q?mvewnLgCyfW2ft6GtzJah1ONI3SQIQcFXUssx7rG9S02otm9W61fiCMxgLAJ?=
- =?us-ascii?Q?UmJlfEluoQyBi3MKImzZapQtfjTlN+B01iJljh+9DKKdwn6JHfbSE9aYvrRX?=
- =?us-ascii?Q?SFPXePAT+xpRV1Nqf/mfwvlKUtn5+04hIx6+khBmbZKVB0MbHUDrBW0xZmwz?=
- =?us-ascii?Q?QrP+VHG439dHkwlG3GGKeVn9/XnmXHQkp0thQbYXFFT4uhSzvNNLBgPxYpKE?=
- =?us-ascii?Q?c7uPYUXqxTJugZ6HEEFLlmf+GRzaSxxcK7LyMieEaQptyqTnG9lvaJPdzBvW?=
- =?us-ascii?Q?9ZHSaAZXxsWIF1WPAkqrEPrlqQ/9dRWg4G1mfrvc1yipeUwqo8JINlNHtkbn?=
- =?us-ascii?Q?VPbUlEqzZvvx/+U289+kmY1WS6cDTayX5gGZ8bdkXxH5gsnGPjxO3dc/JG2/?=
- =?us-ascii?Q?hgmSR1aRCjkDYYoZXMuqEGOPMfPl2Df+JnHzl+g6IKwOEjXSyAm3odZEcolP?=
- =?us-ascii?Q?JTT1l7ikQhfzyJfBk3suuuqFeP8JoXYLUi8ccjOjYPa9kfyRNl9CCOv9qxqR?=
- =?us-ascii?Q?2XMyF5uyBi2r7xhMjCLpkFox8ue0/hblgB7KabOSwE5N8WvRDDUCRUUJrXu7?=
- =?us-ascii?Q?Fx0MTqoXjIB3rALSRpD6XfuLX+08O/jBDr2C1E/u6vZ+ZLhwRTIl+n1JnV5g?=
- =?us-ascii?Q?qY/Fo0AUyfl+znEx4pFN67by1wGiQURrWW+5AT00XwNnS1oaFAkCM+EBbUND?=
- =?us-ascii?Q?0wNo2VaqmapxDBmYicgSIn3zxoGZXmyNptf9uVyCN2k/5CcTyqbERjXLdefK?=
- =?us-ascii?Q?Jk8g6uNKOY89u3kQLb2YJy9atmDpYA1OQ6R409MMeHdfrE7dhAo+SPkB0eg4?=
- =?us-ascii?Q?tqQxNa//M0F3VVFaj0gi2EjGk9AQYJ4hivP94AHDk/Ou26hVY5ra/gNoUt09?=
- =?us-ascii?Q?Ygjwi2XPxXDD9WSrI1X28m9D/1LeUCQhocnnK1g7br6jhBfDTLxe6FDtsiYe?=
- =?us-ascii?Q?AHIa7b9ysYxL6ZrIUhXdZYrB9e6F+DRJd631O9fQ6FfwEo4ZFm4PJ+hegJhI?=
- =?us-ascii?Q?fA9iT1FuefRiDPwJQLCP8LsdT97vuDvMU1zvmJqvLzdziTvgMZmpU1ryf2rZ?=
- =?us-ascii?Q?/ebVhtD5XoMplCQ+YeC/g0azN+hlNTGdh1P/A9H8vXKHCT4GiTkTI1HpkSBK?=
- =?us-ascii?Q?+9iU/j5XXip36PSuM0NSViYxdKif9IpqZoGBze7gaI8LhCCkWcb+W9k9RsLc?=
- =?us-ascii?Q?qwYq3DTfhmrw53hzj6MuBcYHQrhVOq19F5pzU6LbhDsx9ueL/7gMqmETiBsA?=
- =?us-ascii?Q?sANCdAM7r1bRknkh7Lc++IxfqVr1RkjK1UHZ5ibPUo0uRpSlUaeJkQomXjbL?=
- =?us-ascii?Q?Qpn4+bRfhlxd5ZVPRMwTGxYGeA4TDBdaxKwkkYvzgoG60grAK4Jb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7992953-0b39-4c42-b3fa-08dedec784a5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 21:09:24.2587
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d0Txg4TyT0RmUNZQ112XyRZ5xCmdv0SsL1prYLz3/gPRDzo+QgjHcCJLLjssJWODYYepVWMigK9CEWXJJp6lQ3Pm2iMi5Kv88dkXGWftvvafjk0dtddnTA0ARRu35lBJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9375
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJxfUWoC/yXMSw6DMAwA0asgr2spDj+1V6m6gNSAQQXqEISEu
+ DtpWb7FzA6eVdjDI9lBeRUv0xhBtwRcV40to7yjwRpbmNKUWElA+cw6rYzfIDqg69gNaOvc5ER
+ 0TzOCWM/KjWz/8/N12Ye6Z7f8dnAcJzF29Z17AAAA
+X-Change-ID: 20260707-aiu-improve-quirk-check-2b5051119341
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2602; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=su4eVRqd91qk7OtvutfH5sLq2VmfyLE2Qn1mHmMHJ5I=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFmB8fP4MtYdNvoupb1/37q7FVWTNUtuvc1sWdbh16XZt
+ mDBvEm1HaUsDGJcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZjIsd0M/2OC/0y6sVxkc+vd
+ Tf++PWQ7ZnlqwsSCwAVrlfmkKwR3L+li+CvTk3Hs550sb63/X53iXv6etJ31nVriRLbIM03az/5
+ snM8IAA==
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_140931_312528_879A4321 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260710_140953_796478_9B374E61 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,234 +116,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 05:31:34PM +0200, Mathieu Dubois-Briand wrote:
-> [You don't often get email from mathieu.dubois-briand@bootlin.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> U-Boot is importing kernel device trees for these platforms, but adding
-> a firmware node to enable communication with OP-TEE. Importing
-> changes here will allow to remove these additions in U-Boot.
->
-> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mm.dtsi                | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx8mn.dtsi                | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi                | 7 +++++++
+This is a follow-up to the recently merged series reshaping the AIU
+driver following the same design as AXG [1]. During the review,
+Jerome pointed out that failing in hw_params() when two streams have
+incompatible requirements is too late from userspace's point of view [2].
 
-Please split soc dts change to new patch.
+This series addresses that comment:
 
-Frank
+- Patch 1 fixes the existing bclk quirk check first: it only rejected
+  one direction of the mismatch, and its interface-wide flag was
+  cleared too late, making a legal reconfiguration of a single stream
+  fail. This is a standalone fix and it's preparing for patch 2.
 
->  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts        | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts       | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts   | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts        | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts          | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts   | 7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts | 7 +++++++
->  11 files changed, 77 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-> index 5cf2998d396d..4a55464e8a6f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-> @@ -233,6 +233,13 @@ timer {
->                 arm,no-tick-in-suspend;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         thermal_zones: thermal-zones {
->                 cpu-thermal {
->                         polling-delay-passive = <250>;
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-> index 79b169b07c4f..c3b4560ec9b4 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-> @@ -265,6 +265,13 @@ timer {
->                 arm,no-tick-in-suspend;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         soc: soc@0 {
->                 compatible = "fsl,imx8mn-soc", "simple-bus";
->                 #address-cells = <1>;
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> index 5ce2825182fd..285b98384255 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -404,6 +404,13 @@ timer {
->                 arm,no-tick-in-suspend;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         soc: soc@0 {
->                 compatible = "fsl,imx8mp-soc", "simple-bus";
->                 #address-cells = <1>;
-> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> index 5716febb5a50..c7050bafacae 100644
-> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> @@ -110,6 +110,13 @@ linux,cma {
->                 };
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         sound-wm8962 {
->                 compatible = "fsl,imx-audio-wm8962";
->                 model = "wm8962-audio";
-> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-> index c25561574d3f..c0156921414f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts
-> @@ -152,6 +152,13 @@ linux,cma {
->                 };
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         soc@0 {
->                 bootph-all;
->                 bootph-pre-ram;
-> diff --git a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
-> index 022e9c6841ef..62b6eff013f1 100644
-> --- a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
-> @@ -35,6 +35,13 @@ chosen {
->                 stdout-path = &lpuart1;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         flexcan1_tc: can-phy0 {
->                 /* TI SN65HVD234D CAN-CC 1MBit/s */
->                 compatible = "ti,tcan1043";
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> index c6db9c85f2ac..0bea169d7029 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> @@ -42,6 +42,13 @@ reg_usdhc3_vmmc: regulator-usdhc3 {
->                 enable-active-high;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         usdhc3_pwrseq: usdhc3_pwrseq {
->                 compatible = "mmc-pwrseq-simple";
->                 reset-gpios = <&pcal6524 12 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> index 01c11c517986..6b99c0594125 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> @@ -147,6 +147,13 @@ reg_usdhc3_vmmc: regulator-usdhc3 {
->                 enable-active-high;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         sound-bt-sco {
->                 compatible = "simple-audio-card";
->                 simple-audio-card,name = "bt-sco-audio";
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-> index 4620c070f4d7..b8fa0cda33b2 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-> @@ -62,6 +62,13 @@ reg_vcc_panel: regulator-vcc-panel {
->                 regulator-min-microvolt = <3300000>;
->                 regulator-name = "VCC_PANEL";
->         };
-> +
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
->  };
->
->  &eqos { /* Second ethernet (OSM-S ETH_B) */
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> index d929aa9ff255..e96b8437f922 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> @@ -36,6 +36,13 @@ chosen {
->                 stdout-path = &lpuart1;
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         flexcan1_tc: can-phy0 {
->                 compatible = "ti,tcan1043";
->                 #phy-cells = <0>;
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-> index 409c7e74ffe3..20eaabc23b49 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-> @@ -125,6 +125,13 @@ ele_reserved: ele-reserved@87de0000 {
->                 };
->         };
->
-> +       firmware {
-> +               optee: optee {
-> +                       compatible = "linaro,optee-tz";
-> +                       method = "smc";
-> +               };
-> +       };
-> +
->         gpio-keys {
->                 compatible = "gpio-keys";
->
->
-> --
-> 2.47.3
->
->
+- Patch 2 is the actual answer to the review comment: the quirk
+  incompatibility is expressed as hw rules on channels and sample
+  bits, refined against the committed configuration of the opposite
+  stream, so it becomes visible during parameter refinement. The
+  hw_params() check is kept as the last backstop in case of concurrent
+  refinement.
+
+- Patch 3 applies the same philosophy to the interface-wide rate
+  symmetry. Instead of manually reimplementing the check, take advantage of
+  the core's 'symmetric_rate' handling.
+
+Jerome's comment also mentioned the error returned when 'bs' is not a
+multiple of 2. That one intentionally remains a hw_params() time
+error: bs depends on the mclk rate, which the DAI only learns via
+set_sysclk() from the machine driver's hw_params(), after parameter
+refinement has already run. I don't think that can easily be expressed as
+a constraint.
+
+Final note. [1] has not been mainlined yet and it's only present in
+'broonie/sound.git#for-7.3'. Therefore this series depends on commit
+c7852d2dcf66 ("ASoC: meson: aiu: align I2S design to the AXG one").
+
+[1] https://lore.kernel.org/linux-sound/20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com/
+[2] https://lore.kernel.org/linux-sound/1jik7pebk7.fsf@starbuckisacylon.baylibre.com/
+
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+Valerio Setti (3):
+      ASoC: meson: aiu-encoder-i2s: fix bs quirk incompatibility check
+      ASoC: meson: aiu-encoder-i2s: reflect bs quirk in hw constraints
+      ASoC: meson: aiu-encoder-i2s: use the core symmetric_rate handling
+
+ sound/soc/meson/aiu-encoder-i2s.c | 154 +++++++++++++++++++++++++++-----------
+ sound/soc/meson/aiu.c             |   1 +
+ sound/soc/meson/gx-interface.h    |   6 --
+ 3 files changed, 113 insertions(+), 48 deletions(-)
+---
+base-commit: 8e5a6599a38e5515cd2b5f34fe8a8ac476f8b127
+change-id: 20260707-aiu-improve-quirk-check-2b5051119341
+
+Best regards,
+--  
+Valerio Setti <vsetti@baylibre.com>
+
 
