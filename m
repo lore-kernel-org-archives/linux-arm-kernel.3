@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0042BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 22:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE55AC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 22:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rqZJPkrdLYhNi9RVztXsXiCAhUfQzBe3lcC9pyvgpk8=; b=hY7692H+ZExttVqwisi+Tqn88Y
-	s3L9ndjHInIcc3A+e9xlrknJQkRL+oj3kykxZcXhBNkuUTcP0U6KT8ns8l3u8gzoTWYoObhQtGo29
-	6/mHJHsExOVIXEGdmzXJozafagSjqgCGd4AZXHy6WpeewzVuga5GGm6xmwGs1U1X6dvgWF9gdseSg
-	nKATnuu72FowcW22b6Hnhlz2bAWWL9DPrwgrNLsoKC+bNOFn8/7UsTckp2/G+4yB6DNuHcViuFZNs
-	6jYxGh/y/NKop3duCcfWBP/UxwdCF0xzgPQDju3/ft4/8TqLJWxfnTsryJsMCM8NU3noWlfNoeuq6
-	xvebOcBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XpuKVe+lRKqwz8I4sCCCvGl1yuQhnT9Cj45Lwwhxfj8=; b=qKvldDsIRnPQ5vsnfAjWefSdvB
+	Viw4rJm/acbAS5RK5VerhEqHH7ZHadZeLDifnAFNhZpKG/XE+8QxFB9/DXcCz+mgNq2smplA/n2Lf
+	3Yc6Q+/AbbpybOuLWpHmhB5qXvH1F5iYrXFPc7AK3OhSNTjn8gJhGSxmKpLXrsZnVyeZl0HkDQmO0
+	XzHy1C4koLv/xAXgdBMnEFCQaAlGVLB9izFw4mfxBJWGvztTgnikZw61exrP9r0Xsh6OnPpiWLf2y
+	15TR0k2hiSjDwwRJJ3rO+WQcBprVTHJsndTTvg5Rp9UwPFqCGHkXLI0jb4FdOjkkucG7X9VTuhSlm
+	okWWwWgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJIM-00000005tdI-3A3Z;
-	Fri, 10 Jul 2026 22:02:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wiJSB-00000005uHb-2PvR;
+	Fri, 10 Jul 2026 22:12:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiJIK-00000005tcq-0zxr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 22:02:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783720922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=rqZJPkrdLYhNi9RVztXsXiCAhUfQzBe3lcC9pyvgpk8=;
-	b=gnrZMi2Af8iQSDkxUsBBAedUqNpNl1O33ck3B21rcXdZFaSyLs/8R+n6QMVTkiMnH/V1ew
-	ck5VK71ibwkH9wXATvufKp/FdusjnwdE6bRozA1xY9edKHCSzfjQ2vtktjTVRubZj6WX++
-	P8ToTm7VbXHTSEQPKc91T+NwrTJIMQk=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-263-dY53x4g4NnaGmXj1PtdzFg-1; Fri, 10 Jul 2026 18:00:26 -0400
-X-MC-Unique: dY53x4g4NnaGmXj1PtdzFg-1
-X-Mimecast-MFC-AGG-ID: dY53x4g4NnaGmXj1PtdzFg_1783720826
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8eeba1d9e47so16747256d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 15:00:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783720826; x=1784325626;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rqZJPkrdLYhNi9RVztXsXiCAhUfQzBe3lcC9pyvgpk8=;
-        b=Kl35eKs8xeZ9d0RL6wt3dS6m0osYgdMfdZiU7ZdOtN3YYdDvYwQdBAt7wvC1JjWoG8
-         yr8NK2T35HnMNxWxWyWyTffG7Gzf20tpFvRcVteMeDiGjo3t/8Tr25ug2iZdMf+zUo/k
-         y3iO0LshTvsdIE/zM4Wd4oh0f1EtZATVnbwg1Uh0XMcu0+6vAk3kq3H165C0TR9cpYnY
-         SQGe5N3i+jEfZhcJRXV6RqJOiXEGoNlkOy8zqZ6nlCG+Byqf5E4hY5clpSJKbEdwvVvh
-         mn01dXfWb5i4Gzc1mT7mqRPurdEINkJ1GTs9wzKyOSqrfZtHJ8f/5TPpMeW6241cUHS7
-         GyDQ==
-X-Gm-Message-State: AOJu0YyolJrbizuqfVPJz850jQsjG6aZZ1Vt3p/Noq1VVD2RuV5hupbL
-	eYuFYXx0y/sp3IeziZx7XO13EEReS1N9w+5VD/03El7+/pHiPmqrsozYn9nNotVcGwXUJdpFeTQ
-	OFfQiSRxO4gCuanywkhhiis8VstSTYKgGdWgBL5biGVA+8cbewR9inBMlauRo+mq9s8RMy60mDN
-	9mph6pulg1K/5JJMtjNL69HzkKyZr5z5i2M42Ix1mezL6gZtmsUKPRPHiCGb6x
-X-Gm-Gg: AfdE7cmVzXY4aIU7TkghpF/9rGrF+jPVs6oHZ2OslGM4q+Gbw34fsuXnDDXoZWvzMXd
-	uMVK/fQHLDmgSMODA4Yl5o3vH946TKb+coOBKF4dWxjkpoa283BlWyx456lcieV932Jm2uyk6I7
-	Zlws1ztVTvxHgGWIHcpzxquREs052UYShk7EBjri6lpIM+ZfiQ8EKNR/oIJdf9RFGIzAbBPAiKQ
-	SNJ09TuJ9lX/2YH9lNP3l5PwoG7TCMjrUNsJbEBDf08fmnv3v9w7tB1e9sA81kPTdeoZmhShpVq
-	6cN0jc18wkEVALxBkf3QOjVc6RXXYAIK2DxU7hU9a1enfdMMEhv9MLeISLXfgO1AatBt7wb+4dy
-	vphKfFC4Y/1Hk7XOJuKtW1mUgjZID0f0PT5Du
-X-Received: by 2002:a05:622a:34a:b0:51c:7bd:2c6f with SMTP id d75a77b69052e-51cbf046dbcmr8384881cf.8.1783720825501;
-        Fri, 10 Jul 2026 15:00:25 -0700 (PDT)
-X-Received: by 2002:a05:622a:34a:b0:51c:7bd:2c6f with SMTP id d75a77b69052e-51cbf046dbcmr8384051cf.8.1783720824805;
-        Fri, 10 Jul 2026 15:00:24 -0700 (PDT)
-Received: from sbertram-thinkpadp1gen5.bos.com ([67.189.222.97])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd5bbac2asm51922246d6.21.2026.07.10.15.00.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 15:00:24 -0700 (PDT)
-From: Stephen Bertram <sbertram@redhat.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Stephen Bertram <sbertram@redhat.com>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH] kselftest/arm64/pauth: Scale exec_changed_keys on KSFT_MACHINE_SLOW
-Date: Fri, 10 Jul 2026 17:59:59 -0400
-Message-ID: <20260710220018.719573-1-sbertram@redhat.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wiJS9-00000005uEI-2dyS;
+	Fri, 10 Jul 2026 22:12:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D723E43FB2;
+	Fri, 10 Jul 2026 22:12:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B6A43C4AF0D;
+	Fri, 10 Jul 2026 22:12:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783721532;
+	bh=TKxN6qyOBwLKlwESXEsYSM7OBYEKgIX1X5/4DfGa//0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=dcY/TsRthAEtPcMh9hrpJW4cKNS+VGaLyW6D3Tyy0B40SCCRPLlgIAjZEceZ/lsJy
+	 VQOSy9ZHRjl/z8UR35HBbI5B0zym1G26TZCb6cP3VxEt5mhNOLTHsO+JSO61f1KJ+n
+	 GBZL+XGl/qSRknTrxqkEsRgyablizAWY8x1h5iFSseDgDrSSYy0cPDwqB6qD5vQ4iA
+	 ne6ZG4HFb8EBq50YGSPuMP+RIOrf/Uz90T+uE72yaalsoKxleKQvYUGQlBh8o4EHr2
+	 +vNfiN0uLoyuVWwvXUSkUJjlq7vYfj/wtEDGawXghgX92V4vvIFXMDs9hjy3mHDzSV
+	 +UrLp+RJ3PIXA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3E0BC43458;
+	Fri, 10 Jul 2026 22:12:12 +0000 (UTC)
+From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
+Date: Sat, 11 Jul 2026 00:11:55 +0200
+Subject: [PATCH v2 06/12] arm64: dts: rockchip: rk3588s-nanopi: add missing
+ pcie rst pinctrl
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9rcBQHKdhXF7DJzzi7TCvEQ9Qea3kOu_YbSRWg6S9nY_1783720826
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_150204_388197_A093B46A 
-X-CRM114-Status: GOOD (  13.80  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260711-nanopi-m6-v2-6-422675a65402@gmail.com>
+References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
+In-Reply-To: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
+ Joachim Eastwood <joachim.eastwood@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783721530; l=1356;
+ i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
+ bh=Qf2hXVsAwP7OhpMLxy0ZtYTeVQxe69crFritq8w97Ws=;
+ b=BJhot+K/NCrmr9WyaGRgVDkpXpulj6wLq7khsZF1oFnHNK0ugUye//oS3bZGM4KsGM9XDUXZ0
+ D/3EAoMnYn9Ct9wKfkhXxpDhQas+ZnHIlDBTJD5rrce+6I3gW8+N8uq
+X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
+ pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
+X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
+ with auth_id=846
+X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,69 +81,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-exec_changed_keys performs a fork+exec per PAC_COLLISION_ATTEMPTS
-iteration. After raising the default to 1000, the test exceeds the
-30s kselftest harness timeout on debug kernels. Use a reduced
-iteration count when KSFT_MACHINE_SLOW=yes, consistent with other
-kselftests slow-machine handling.
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-Signed-off-by: Stephen Bertram <sbertram@redhat.com>
+The pins are used as reset-gpios but not reserved through pinctrl.
+
+Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- tools/testing/selftests/arm64/pauth/pac.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/pauth/pac.c b/tools/testing/selftests/arm64/pauth/pac.c
-index f4b859c75a5a..fb9a1e9f8491 100644
---- a/tools/testing/selftests/arm64/pauth/pac.c
-+++ b/tools/testing/selftests/arm64/pauth/pac.c
-@@ -14,6 +14,8 @@
- #include "helper.h"
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+index f3a240b48a2a..361682c18e69 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+@@ -303,12 +303,16 @@ rgmii_phy1: ethernet-phy@1 {
+ };
  
- #define PAC_COLLISION_ATTEMPTS 1000
-+/* exec_changed_keys is fork+exec heavy; scale down on slow machines. */
-+#define PAC_SLOW_MACHINE_COLLISION_ATTEMPTS 250
- /*
-  * The kernel sets TBID by default. So bits 55 and above should remain
-  * untouched no matter what.
-@@ -36,6 +38,16 @@ do { \
- 		SKIP(return, "Generic PAUTH not enabled");	\
- } while (0)
+ &pcie2x1l1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie2_1_rst>;
+ 	reset-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
+ 	status = "okay";
+ };
  
-+static inline int pac_collision_attempts(void)
-+{
-+	const char *slow = getenv("KSFT_MACHINE_SLOW");
+ &pcie2x1l2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie2_2_rst>;
+ 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
+ 	status = "okay";
+@@ -335,6 +339,16 @@ rtc_int: rtc-int {
+ 		};
+ 	};
+ 
++	pcie {
++		pcie2_1_rst: pcie2-1-rst {
++			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
 +
-+	if (slow && !strcmp(slow, "yes"))
-+		return PAC_SLOW_MACHINE_COLLISION_ATTEMPTS;
++		pcie2_2_rst: pcie2-2-rst {
++			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
 +
-+	return PAC_COLLISION_ATTEMPTS;
-+}
-+
- void sign_specific(struct signatures *sign, size_t val)
- {
- 	sign->keyia = keyia_sign(val);
-@@ -301,6 +313,7 @@ TEST(exec_changed_keys)
- 	int ret;
- 	int same = 10;
- 	int nkeys = NKEYS;
-+	int attempts = pac_collision_attempts();
- 	unsigned long hwcaps = getauxval(AT_HWCAP);
- 
- 	/* generic and data key instructions are not in NOP space. This prevents a SIGILL */
-@@ -309,8 +322,7 @@ TEST(exec_changed_keys)
- 		TH_LOG("WARNING: Generic PAUTH not enabled. Skipping generic key checks");
- 		nkeys = NKEYS - 1;
- 	}
--
--	for (int i = 0; i < PAC_COLLISION_ATTEMPTS; i++) {
-+	for (int i = 0; i < attempts; i++) {
- 		ret = exec_sign_all(&new_keys, i);
- 		ASSERT_EQ(0, ret) TH_LOG("failed to run worker");
- 
+ 	sdmmc {
+ 		sdmmc_det_pin: sdmmc-det-pin {
+ 			rockchip,pins = <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+
 -- 
-2.54.0
+2.55.0
+
 
 
