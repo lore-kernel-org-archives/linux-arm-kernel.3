@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE2DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF47C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yMRr1YnRufFQyRdhQsyWFfFy6KrEdPv4Kd5cbN2l9AM=; b=B1tUZuGoAwabI9Eg5/vVlQTB9m
-	DrpXNNL4BGCz6qABLF8DL93r3EEPW6XcslgIeUDou3Q0PLdRaw+wyBmWpgvTJvOmixXXh3tSxyMmP
-	ZPN+AoJpj8MvGNasRgWX9Dx+ZOrzg0UsF1KQSyeG4UyX5c5pHhd1jfjLiVlW4UjiUC/E0mxgapF3R
-	r+52ZMnZYZZmTCXQuPoTt4DMjEgT4vnXITdxZz+R8uZu43V800eRDk9oaltyPYzciSkP55u8PWI43
-	0J2nCnxyF4y6FpCRpBUtLJJqZ8LRDo4Vdr2yZd0lqwhXAhkgG+yiCW2RcBEcaEc+c45CCXgJK220N
-	FJP2tUkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h7nDO43+tKnnu6CxuyKnxlviLmUXS03CPGd8nFXhdng=; b=HBMZQ5B2RCazf854y9JHyKNdib
+	c1YIa66n2OcwxAYklb1ItYXuhuKgwkBX3+z34hFywK3h2nWnIcOa7jCjL0ndKLdEgJy+Wjtm3IWKY
+	Hf3aTV1dcO3jabK4oOLc2KToxybQTiBYGP6HTTfaJAS49yg65ab29oxHZfJWPzF/crAmg3iq+fXs3
+	lpWfLkKVdkES9WvqddfBMAQp6HJ+i4STedosaAgyuaUISNOOeb/SVPsCLijruLbVf1CtLOe2WuWPX
+	yvHVAghN9+NeZo7/cdH5R5fAvVAmClluSgfaBhlmea6l+jy0HHtbnqLFOk6190wWL3h9R7t7l5SSp
+	Y5M8oiuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6HY-00000004QNL-2d8l;
-	Fri, 10 Jul 2026 08:08:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wi6LG-00000004Qt9-2glT;
+	Fri, 10 Jul 2026 08:12:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6HX-00000004QMS-3KSc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:08:23 +0000
+	id 1wi6LG-00000004Qss-0j1g;
+	Fri, 10 Jul 2026 08:12:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0059600C3;
-	Fri, 10 Jul 2026 08:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E831F000E9;
-	Fri, 10 Jul 2026 08:08:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F30641634;
+	Fri, 10 Jul 2026 08:12:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D23D1F000E9;
+	Fri, 10 Jul 2026 08:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783670902;
-	bh=yMRr1YnRufFQyRdhQsyWFfFy6KrEdPv4Kd5cbN2l9AM=;
-	h=From:To:Cc:Subject:Date;
-	b=F74lVtJn8yP11LSnX5DZVSgoTqViU/1Dd4PHw4l1+l25unBJUhQd/JbHzqhXS/O7A
-	 59KdLma9Bxa2FguYjjfzLOvpZBJJF+feyyHv0AAztcW6th2S/5nYuse7FFoRpAofNq
-	 CvT3nvYvBQHOPh6HQMFrzDRhdn2t4E9/tHf1wqbl8xKh2666BC5QBi8WQCAe/yvjcb
-	 ON40hV3aFdw50HW1gYJ7BP9WH/YaBYZB2Kpa5cfLpVD7ulmr68C2n9RP8uPH5qkG84
-	 isl9on0Tazw3X1VQsHcrqnOzeopF0RGVWgNW6lCJVDLXKFWQvELn0TlCKYQe9Y80+J
-	 3Lq6w1simx6Mg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.client.m3-hotspots.de)
+	s=k20260515; t=1783671133;
+	bh=h7nDO43+tKnnu6CxuyKnxlviLmUXS03CPGd8nFXhdng=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=BP4bd7W6zNBoI3b8Ib5OZzb2TuuQl527kyh0lxT5H1eBurLMsZ17mx8X+/cD2lq/d
+	 D0PxqKmKSLjAiJTw5dBDbP4hjTSfU96lNIKZsD8HrgnmKxutHHtVASVcAQ/vUpEK6M
+	 cmDIFWwvV90wXoP9v3rQtXBuiXDWk3InlVaJGYuJBXgSykJS4V2gcx3kN8320jPG3Q
+	 yA5nWSurT6o/nvIIUXnqKo1+Yh0UXlO9kqujC5ap1uXeZHKpEQSqhyFyPuCzXPfgLt
+	 GJBWWFxIalOsLx8gE31Eww9QE8SP2mQDXOR2SfTleQNXdLSqNNxAjodwDJOfrpDK6b
+	 BFgkuoDzxpxVQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wi6HU-00000003acG-0TOe;
-	Fri, 10 Jul 2026 08:08:20 +0000
+	id 1wi6LD-00000003aiN-2BIe;
+	Fri, 10 Jul 2026 08:12:11 +0000
+Date: Fri, 10 Jul 2026 09:14:00 +0100
+Message-ID: <87tsq75kjb.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: John <therealgraysky@proton.me>,
-	Daniel Drake <dan@reactivated.net>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712 broken EL2 virtual timer
-Date: Fri, 10 Jul 2026 09:09:58 +0100
-Message-ID: <20260710080958.491620-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+To: John <therealgraysky@proton.me>
+Cc: Mark Rutland <mark.rutland@arm.com>,	Daniel Lezcano
+ <daniel.lezcano@kernel.org>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
+ <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,	"Ivan T. Ivanov"
+ <iivanov@suse.de>,	Stefan Wahren <wahrenst@gmx.net>,	Andrea della Porta
+ <andrea.porta@suse.com>,	Peter Robinson <pbrobinson@gmail.com>,	Stanimir
+ Varbanov <svarbanov@suse.de>,	=?UTF-8?B?TWHDrXJh?= Canal
+ <mcanal@igalia.com>,	Gregor Herburger <gregor.herburger@linutronix.de>,
+	"linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,	"linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>,	"devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>,	"linux-rpi-kernel@lists.infradead.org"
+ <linux-rpi-kernel@lists.infradead.org>
+Subject: Re: [REGRESSION] Raspberry Pi 5 (BCM2712) hangs at boot since d87773de9efe  (arm_arch_timer: default to EL2 virtual timer under VHE)
+In-Reply-To: <vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
+References: <oTZ1wsFlcf4l8zMuD8DYCCvff35nVbFn7gTb5_vrUPSJtjVBSTmGti8S3KnbVdVWJEzP1QRbWma6UYYXyi6v2J0fl61khniPROEhsdxMIz8=@proton.me>
+	<86h5mcp4em.wl-maz@kernel.org>
+	<vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, therealgraysky@proton.me, dan@reactivated.net, m.szyprowski@samsung.com, florian.fainelli@broadcom.com, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com
+X-SA-Exim-Rcpt-To: therealgraysky@proton.me, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, iivanov@suse.de, wahrenst@gmx.net, andrea.porta@suse.com, pbrobinson@gmail.com, svarbanov@suse.de, mcanal@igalia.com, gregor.herburger@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,74 +94,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It appears that the bcm2712 SoC found in the relatively popular
-RPi5 has a broken EL2 virtual timer.
+On Mon, 06 Jul 2026 16:20:13 +0100,
+John <therealgraysky@proton.me> wrote:
+> 
+> On Monday, July 6th, 2026 at 10:40 AM, Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > On Mon, 06 Jul 2026 15:13:27 +0100,
+> > John <therealgraysky@proton.me> wrote:
+> > >
+> > > Since commit d87773de9efe ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE"), the Raspberry Pi 5 (BCM2712, arm64) hangs during boot on v7.2-rc1 and later. Reverting that commit on top of v7.2-rc2 boots reliably. Found by bisection.
+> > >
+> > > Environment: - Raspberry Pi 5 Model B, arm64, device-tree boot (no ACPI) - CPUs start at EL2 with VHE - Mainline v7.2-rc1 and v7.2-rc2
+> > >
+> > > Symptom: - Silent hang early in driver probe; no panic or oops. Boot banner shows
+> > >   "arch_timer: cp15 timer running at 54.00MHz (hyp-virt)". The first blocking, timer-backed wait during probe never returns because the EL2 virtual timer's interrupt is not delivered on this SoC, so clockevents are dead. The softlockup/hung-task detectors can't fire either, since they depend on the same dead timer.
+> > >
+> > 
+> > Is that a guess? Or do you know something we don't? Or worse, is this
+> > report entirely AI generated?
+> 
+> Hi Marc - I'm not a programmer, but I can use git. I performed the bisect, and verification steps by hand. I am convinced the bisect is correct based on the restoration of booting.
+> 
+> My RPi5B freezes when booting into d87773de9e and reverting it gives a clean boot.
+> 
+> I used Opus to analyze the result of the bisect in concert with the logs I captured from the serial console. I also used it to summarize everything into a concise bug report. I can't vouch for the accuracy of the interpretation, but I can confirm the problematic commit and restoration of function.
+> 
+> 
+> > Again, how do you know it isn't functional? Could it be, for example,
+> > that the firmware has not configured the interrupt correctly?
+> 
+> I cannot. In the future, when I use these tools, I will scope the ask to just factual content, rather than allowing them to speculate.
+> 
+> > A proposed fix has been posted at [1]. Until we hear from the
+> > implementer about the state of the HW, it is difficult to do anything.
+> > 
+> > 	M.
+> > 
+> > [1] https://lore.kernel.org/all/878q898ulx.wl-maz@kernel.org/
+> 
+> Thank you for linking that! I applied it on top of 7.2-rc2 (with d87773de9efe intact) and got a clean boot.
 
-We do not know the reason why the timer isn't working (the timer
-is ticking, but the interrupt never fires), and the SoC vendor
-doesn't communicate on the reason why this isn't working, leaving
-users and maintainers in the dark.
+FWIW, and in the absence of any feedback from the SoC manufacturer,
+I've posted this patch[2]. There isn't much else I can do for this
+stuff.
 
-Paper over the issue by detecting the broken HW, falling back to
-the physical timer instead, and let the user know about it.
-Also taint the kernel as the machine is definitely not compliant
-with the spec, and we don't know what else is wrong with it.
+	M.
 
-Reported-by: John <therealgraysky@proton.me>
-Reported-by: Daniel Drake <dan@reactivated.net>
-Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Mark Rutland <mark.rutland@arm.com>
----
- drivers/clocksource/arm_arch_timer.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+[2] https://lore.kernel.org/all/20260710080958.491620-1-maz@kernel.org/
 
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 4adf756423de9..7b4a98df6962b 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -1090,6 +1090,27 @@ static int __init arch_timer_common_init(void)
- 	return arch_timer_arch_init();
- }
- 
-+static bool __init has_broken_el2_vtimer(void)
-+{
-+	/*
-+	 * SoCs described here have been found to be broken, though no
-+	 * explanation has been volunteered by the vendor. Let the user know
-+	 * we're papering over the vendor's lack of communication.
-+	 */
-+	static const char * const broken_el2_vtimer[] __initconst = {
-+		"brcm,bcm2712",
-+		NULL
-+	};
-+
-+	if (of_machine_compatible_match(broken_el2_vtimer)) {
-+		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
-+		pr_warn_once(HW_ERR "Known broken EL2 virtual timer, ignoring it\n");
-+		return true;
-+	}
-+
-+	return false;
-+}
-+
- /**
-  * arch_timer_select_ppi() - Select suitable PPI for the current system.
-  *
-@@ -1115,7 +1136,8 @@ static int __init arch_timer_common_init(void)
- static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
- {
- 	if (is_kernel_in_hyp_mode()) {
--		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
-+		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI] &&
-+		    !has_broken_el2_vtimer())
- 			return ARCH_TIMER_HYP_VIRT_PPI;
- 
- 		pr_warn_once(FW_BUG "VHE-capable CPU without EL2 virtual timer interrupt\n");
 -- 
-2.47.3
-
+Jazz isn't dead. It just smells funny.
 
