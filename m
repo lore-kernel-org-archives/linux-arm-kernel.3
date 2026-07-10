@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59919C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881B7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur6qA6hAP712lEuWCnSpdVtJp7T98n6tWpR4IdaSLTQ=; b=Nd+lqDZyY7pvJMWh5kEH5dYT9c
-	hIspXSa3rJXCH5xVOAJppRw61j15OIVnQ8puiTSQfCBOhj2Mun8MN0QP9OoOGFuvxLC7JToCNC47R
-	+39/9gAfdqN2nB0Xp/R7XEZR3zNv1wZ7ilZm1WeHj83P9IXpF0hkGda9uV3gCtigpsUVmz1tRJ3bf
-	6JlufpSzZIM77jHjFMhHVpV2UxCBCdsxq9Asa0VKaqNqIUWZbjgRpjmSTAHFceODsC/xFsrmIvCHj
-	SZgDnGpZRIUrIlWeKE7O0Cc8eLDOX68QfhsmkPJYjDPF97cYnVgT5tJIHCFEQ0K9tvdwUIoJD5ELL
-	Hmbj8YoQ==;
+	bh=AjjxI9FLTDh0hcZV/8jaLFol26sz2jvRRKSz+sxvK+c=; b=x+uLd9kd2oJNnjqaIJorx1lsii
+	RFk5ydu6Q/gwMcyWaL6oNhWoUMPfB8ofyc980baAIPJKZJd1uGrYt6AoGQc2tepVCZuGeD1kba+7M
+	z0T/ZgMrZx6gTG4IkAHfEUpxskBXcBlgWMui22R15pWMi9HURQ3IaaIqYX6WUpe1VJGFtJiHloUBP
+	cUu0j2JACW8bJ7ZuwUWf+d20tvueCT0Bs1tm2HmMHccBHCMwrc2KTAejjxuNVJvWaWsnrKHQIGYpn
+	k6pQFtzGqh/Gv/27pQXfYICRNZmNsnIyVn/7L2yGbi1k3DWcTWMU5e76lEyLnjA+c7GA9Ax1thAYL
+	iYUWV/3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiEN5-00000005JYI-3fVl;
-	Fri, 10 Jul 2026 16:46:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wiENA-00000005Jf0-3wCG;
+	Fri, 10 Jul 2026 16:46:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiEMn-00000005J6y-3I3g;
-	Fri, 10 Jul 2026 16:46:25 +0000
+	id 1wiEMr-00000005J9B-0xCy;
+	Fri, 10 Jul 2026 16:46:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1783701978;
-	bh=1p3WFYm3nPwFyjx+ldeJOnj6dqBA+X1XeNTC11p7Zk4=;
+	bh=MGpikBa/aaqvkv65oP/N23ryrQe5o83Pvtc6osrktIs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GnnrQmNNtpLfPDSbDLFp86lmomePlzslk24rh1EhfKH3HXh+zGyLqC/sL0uCpUrg6
-	 qwr6gU4sEG/GMcC6uNvkwNsc7NdcrhdSDEvYofw/aGCR4fh5l062mmnFWceJ7pxepU
-	 es0p9wd9v98/KqffXfA3sCJJQE6fv90AY+pBvH9maVjn5mmY6yHkVD/fKs5ybG4etK
-	 BzdU1yJcD9n4743zhgw41XKa3t1CkB1rC2QMSITRHIzhN558Mx7vkeooEH1yGAxMK+
-	 MczedeXnKZ5dxwhKREMUMomw2HastSAagtBWahIb3IW6I6a2pRYgjl3uWb9UMkS+Ro
-	 nlRvnFBPKaD6g==
+	b=SIhMqYXZ8YsbXNvoWhppTMN8LetxDBdfEUHKxq4Ff3ZcvH92nWj60bryBPVZjM4ed
+	 nmbLHR6tCnFiZMYTvogVVnHxP0N0i8Yxn6MxNquiXjQ0yMPHGjdqYG8UN2RRkcHvIf
+	 QKHUDQQ1JSVAJs9MLqyXOJAoHrYsO0laElOsp+3abnEf9FhG8dQX2JGVQmvHNn7OlU
+	 mTdQP1sW4LFmd/wvlH9xBiNTduRUh1RI4qEFblgbmgBjNgXRPOTKegGZ5303gpzREC
+	 AzJHvXKNNhvZkcdexbyWMfJh1KraYvsm4Wk30dwwOx+JzEbVbfET+P4IYPVYYDaboR
+	 R+zZEGjYmwI/w==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2BE0F17E0EE1;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8C3D617E0FAB;
 	Fri, 10 Jul 2026 18:46:18 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id E103E480030; Fri, 10 Jul 2026 18:46:17 +0200 (CEST)
+	id E8FEB48003D; Fri, 10 Jul 2026 18:46:17 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 10 Jul 2026 18:44:42 +0200
-Subject: [PATCH v12 04/36] phy: rockchip: usbdp: Fix devm_clk_bulk_get_all
- check
+Date: Fri, 10 Jul 2026 18:44:47 +0200
+Subject: [PATCH v12 09/36] phy: rockchip: usbdp: Fix LFPS detect threshold
+ control
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-rockchip-usbdp-cleanup-v12-4-8b41a9a9bef0@collabora.com>
+Message-Id: <20260710-rockchip-usbdp-cleanup-v12-9-8b41a9a9bef0@collabora.com>
 References: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
 In-Reply-To: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -70,28 +70,28 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
+ William Wu <william.wu@rock-chips.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1653;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1521;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=1p3WFYm3nPwFyjx+ldeJOnj6dqBA+X1XeNTC11p7Zk4=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdj3skmdAY9hE0EmEFn+NxysIoCgoP338
- VpOktKxZXbqjYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHYAAoJENju1/PI
- O/qaokgP/juanZbEDJC2iZ4nbjI3JQgW1oeWtsvCgVVYI4cYtBnMDk7E6F6dN/MFIa/g54Qfh4P
- 1AYhw39hCP2B6Y4BGj4HCPz3d3fCofjH9FQAo9CEik9owywuXZCKh3G9+83/c4D73TVuqaFhWqo
- rdZdSkr9a2wFSMT7+fzx+iuoz2MXpkLI6BVkKGNGRZj/rmynTU5flBs8ibPeIUje5zsvVTQ3ADQ
- va/KYY7SLAUlFlfWukN952cYl8CNok0nSPxRuqX2HgRV8B6P6+MubEno2NMl1Z8+dtAHBEWWGFl
- 3ly0fYHJlhSptGiaOH2hHlp3r5VWUxkMui9HLpQ6L7DrdY8/ET75WFhiQMeW97FpX0nbF+owfh1
- Vw3y2rOcUYpuYaLcPLbCtZ4FhR9eKw5KlIa+m5MgfbLiAAGD38BbTD1Yi90EzPNJoSnJTDy4XvN
- qaU7XqHqcFXtSArxbYxQpcnMyuZOAPT6jOZ/mK+5SWmXNMIlRXe3iAXO55YwL9I4buRLgQkYdk/
- LDhFPgEmyVysL4YwdlkX1lmGakSSRmdoTtSM3uGnMHlSs6EO3td0YcxYSK4Zf+p3euspFUdtd+L
- bZFlm8f8wHh3FTHLOcNN3x/nNdFUG8CwzdDFntJUhDqfj7fZtwWyQUKpRp9n2PQ221cxaXhj23G
- 3o30UzzA27KWieQc34ZculQ==
+ bh=6XR1qE8oQQO8DmAkgt9+gIoazIh1eRLq97pcAr0j0tg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdhWwk5OJcA4RK90Qpw6OH8LM9Pamhn5k
+ Xgw9rZzdHn4yokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHYAAoJENju1/PI
+ O/qaaDQP/jCE30hKyl24CTozz6YQn/I7OJIROc3lxxM63PjydjYowzgToobXlEBLn8ShbDXvT7D
+ aCAzmBz/e/UfoFYQUXKhEIUhZWTYViaITPvt3E0+7xgWwRtSpUywNbrmgT6GB9ivdxl80vjdFZY
+ UoVXwRKTqPJjvMPJhFCiBWm+XPNyGw6coShJK2R9LTNy9NCZXJiJP5FqhSvQLulcP++rjHXCXrH
+ CAOTW6k7DuAA6LB1dUo3cBH9sqILgT8z/qBryWHrV2vV9BvZo8MLR6jDGaTysxFEGYAJU5HwoYF
+ QJDsJfhKkg4DMDmx6YgjlWDBKzi5SK4bncSNVL+8StF9TzDYVV5ioEqfhyqctgdf4VE64Ar+Hk6
+ tO2Sm1+ZjzmPM++iTo2WFTgQI45NgpigArKdWlSEQ/WuKh8Q9XgW0BmJlS9kZgVx4S7slgyKWWE
+ jM9gwiEH9sZuRk/DatHhWIV2Pqkb6I/QvmXzXhR10uEnyA0zPiy07GOuVVm70bRcdtAMhovave2
+ IcoxoHOm/35LUWRdDR6EhRS0Dmej0BfSaAH6s6vub/+ayx1GSzfzUTGOA/Uit9RI8zHAdBVgnLR
+ 3+NqdaUlX46ldkNKP0kyKPPlg5lSq2yX1wjvsmjjaOL9ziy2lquPmcxXxYT+boFSP9qKKNjpsS4
+ hevpqWeQlU1jz5aTRKConxw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_094621_972218_AA6CA882 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260710_094625_503215_5F6CCECE 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,42 +106,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If devm_clk_bulk_get_all() returns -EPROBE_DEFER, it is replaced with
--ENODEV, permanently failing the driver probe instead of allowing it to
-defer. Avoid masking the error code to fix the issue.
+From: William Wu <william.wu@rock-chips.com>
 
-This effectively drops returning -ENODEV in case no clocks are being
-described in DT. This special case will now be handled by the follow-up
-check searching for "refclk" and exit with -EINVAL.
+According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],
+the device under test(DUT) must not respond if LFPS below the
+minimum LFPS Rx Detect Threshold 100mV. Test fail on Rockchip
+platforms, because the default LFPS detect threshold is set to
+65mV.
 
-None of this will be hit in practice, since the driver is only used by
-RK3588 and RK3576 - on these platforms the DT is validated to contain
-the clocks and the clock driver is force probed early. Thus there is
-no need to backport this.
+The USBDP PHY LFPS detect threshold voltage could be set to
+30mV ~ 140mV, and since there could be 10-20% PVT variation,
+we set LFPS detect threshold voltage to 110mV.
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-phy/20260612164107.C7DB21F000E9@smtp.kernel.org/
+[1] https://compliance.usb.org/resources/LFPS_Rx_Tx_Low_Power_Compliance_Update_Rev5.pdf
+
+Signed-off-by: William Wu <william.wu@rock-chips.com>
+[Taken over from rockchip's kernel tree; the registers are not described
+in the TRM]
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 12dfdd470a78..2845a012eafc 100644
+index cb6acadfbccf..982315535caf 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -427,8 +427,8 @@ static int rk_udphy_clk_init(struct rk_udphy *udphy, struct device *dev)
- 	int i;
+@@ -413,7 +413,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
+ 	{0x0070, 0x7d}, {0x0074, 0x68},
+ 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
+ 	{0x0440, 0x3f}, {0x10d4, 0x08},
+-	{0x20d4, 0x08}, {0x0024, 0x6e}
++	{0x20d4, 0x08}, {0x0024, 0x6e},
++	{0x09c0, 0x0a}, {0x19c0, 0x0a}
+ };
  
- 	udphy->num_clks = devm_clk_bulk_get_all(dev, &udphy->clks);
--	if (udphy->num_clks < 1)
--		return -ENODEV;
-+	if (udphy->num_clks < 0)
-+		return udphy->num_clks;
- 
- 	/* used for configure phy reference clock frequency */
- 	for (i = 0; i < udphy->num_clks; i++) {
+ static inline int rk_udphy_grfreg_write(struct regmap *base,
 
 -- 
 2.53.0
