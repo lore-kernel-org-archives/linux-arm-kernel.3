@@ -4,108 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222BEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0835AC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MWbCokPTStTF6K3o/n9mLY1swhOIwy1qGT/piGGytA=; b=aFfsjsT6beSJZaTcBjCOg59xzb
-	gl3Bn9FkEV/VfIfKxPt9KfiqlDVH/DtjCQc0N9HfXuzWZ737TUNR+0eb7JQMIIlS8lhJ9f0mfG82n
-	qAYDY+Gu3mGPcJEJMYqd15S3PJnsA4FeZvjk3Im56oCd14UQPrEvVjDyTgyJcxRFUywO2DqFpOw9T
-	k7MNFcEqeYiRkbhT4J4K0Z9wzhvv9plFWGRNw6vd0L2h1b6qAPEQDfw2Kyx13jTVI3R/ercxroHZT
-	Dlqq6fECVlqDsIBi0MmL7Tvh86n+AM7Kzy/H0gvhRMNXOJqgi1dXT3J7n23KcgE/4dC1Q1VAzlx+9
-	e8PpnsGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SoePf6i82i5CK+o92jYqWlVeOhijMPoeBJoNmzsWIYM=; b=S0be13F+PA8a1783AIDwU1CE/3
+	Cs7fl+KYt6tZaoCZng8XdKFTxwQiRWyiXR4T7bb9y5WW7yiLQVNBKGXnTP3OBZQ6NmcIjwizEVC/Z
+	oaj+A7pQgfreEAfWfnSJNV+1aC5b8c1hZTi+gwXfOmPpRYxYZpShTGS4NQm4skNwONmQWZmP/rO4s
+	szAdFs88qlcwEAUTSSAB6UYzUMYO7uIJB3XUnUoClSP6xD9pK/TW+PoWyFR/Wu2+RnePy3hX5bikU
+	WqCbrpr/6jXATyN4jOprxtZUp63IKVxSa6yj+RISfLJW/46s5xfZBkD2uQfaOud2aPoM77uqrF5dA
+	iQCS/zuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8LX-00000004gd9-2bGr;
-	Fri, 10 Jul 2026 10:20:39 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wi8Lm-00000004ggQ-31ec;
+	Fri, 10 Jul 2026 10:20:54 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8LV-00000004gcn-0N9j
+	id 1wi8Lj-00000004gf1-3Mom
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:20:38 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cad4170e8eso8057805ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:20:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783678836; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KBUv5abPF1IdhrYFTdZX5IpEGlTdZS6RpJjrS1wJcJklnoieCr0NUKW3KZ0ow8YkwL
-         UUZAHwREll4M769E59lEBfiVazRIYS7jpC28mupkBySkJpg9YFuhVYJzgLH3s9zXnHKB
-         IAm7aQj5imTs/GaqhGZWh6Z3MTG1t7uLD7RlfTLIjJfaGP03oIpq7HaM0OYR/ImWxbH7
-         lyULbYM87JwUSmEM69QYURmvim4EwDDBvyuCwU95l3CJibBbKPIekRSiJ6Y4jTxWydEt
-         jYB8AIXNsupxpSWxHiHWHgalOC4/Jmsjl0WDJuR/Up669BFTnWr+a0Lmet2BsjoEOuMS
-         CPPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+MWbCokPTStTF6K3o/n9mLY1swhOIwy1qGT/piGGytA=;
-        fh=e6rXi0l+WFnW9g+KZpAX+T51xrUchWm7CDWu7v6i3uM=;
-        b=UWSPROeWaAEb9WNI+r+iEOf53YdL7VvTk3GJpLC3rLCEIaJfuMOEHksa+VHUeL0vu0
-         1NhEmCdKMXBrRob8wYirujPuDfwlTD/+FEa5ZXTfna54JLavuSi4+9pY378VexhgfHea
-         sAXJljUfsy1s48XeW1lvuNZC9eAhVBFJlYQqDPI6YWla9CSjj3/a4h4tkxSBtCWub/sn
-         4nYmwD0Eqg+0ODq5qvB5DQsK3ISMxtpLxj1L0sWCucBboPiwzwvVPP2WVB97bfO9uxvI
-         FRohlEDi5KoOQ2RcikPOoCCrN+kEr4TXzMN4CvBJoYrE058F9NncIAjkK6thcdxCKCfF
-         Fxsg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783678836; x=1784283636; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+MWbCokPTStTF6K3o/n9mLY1swhOIwy1qGT/piGGytA=;
-        b=Suk8leY5H2m3UXCvuc7cqaGelgekrz+qC18bR2Cl145kuYJmnj1onBfnmM5ZW30Tqu
-         zK7F37bJjtSDkkSnlXSu6bU8B8mOdQhFcP+seCQOVdzM2dI/qa0iaOnx0HqOcbVmF8rz
-         i3LTP5vNU5jPi6LrZeeN7/m52VB9JU8/v3+OF2Fqy3wEx1PMysXTVhlds7FtzUOfthtd
-         yY4kO2rUTjlEvPf5T8PhtGDcYBnDyg2PyjZvpl2l7HixkHu0jx1NI9YAtNsfHfOgn5/Z
-         7yNbFhgpS0tbG7mQw/ZweH2/M5BjuvRoZkcYRaKmj+QLr3on5C5JPXfZJkTKawEvHOEm
-         cA0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783678836; x=1784283636;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+MWbCokPTStTF6K3o/n9mLY1swhOIwy1qGT/piGGytA=;
-        b=W+oyhFIuuNe2lcyPh8XkEMCP7RfoG08GpU+9MWwEmIYnQqsVSKd01Wt50VsDDWajZm
-         N9odcKuEWWbbvYCyxZZ6Q1q6a+BTLVUEQuqyfvr6LwBaTUld0sWhbbRkLYYX17ux7EOO
-         gvhIjo9rot6EvHHIzrcBe/sXHGox64dn9GAVjHuhiz8Kbylj7Emo5JsF1IVWHlZyOsLE
-         J3h0aqylR9eu7NeBbRL4OuLC1czhJY3+5xxpi8KnjpjMBUBklaz2oD6hGqQho6x9I5Kj
-         isMbqXFlsWm3J2JZ0+U8deMO96x6KlskoqiSe9NU5zzovhthgFcCHmMN7tPUMmmcZIky
-         emYw==
-X-Forwarded-Encrypted: i=1; AHgh+RqC3116rDIJ/xXLqxtpIO5fuqsJB7KZZnJBl47f673/HQswl8TybIvfUFxXHpFT38TsWK5bQKBCKyDrg70Y021k@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPJGqjyx3lpWMTl6urkzH4H7VWnmJE36CGMJyjbL15kHkP57d4
-	sVLOMa8wEy6awOWO+8OGkLf50pHGJrD09yHXDSYYIp3Fv9XNtK42XU9L1gZbWlCJ/YCOEZONY7z
-	MIMuW4JYZvLl4JrKrqmM28fg2hCjsBMI=
-X-Gm-Gg: AfdE7cm8Z000dOd+RK/lIHmaj353lXUHsG/LvCGhGkisA3py+uOAoN7DqzxSZb/7Wdm
-	w854/Ow0PwPkMsQSsqFQ4fuTBeISxEdWHsBLdDdP6PY8CcP0ZjxTlKlAtlvuior4WyVKf8OBu4l
-	M79O1V9Ty5fvQYT+Wk0z3nqRZEr0LgjeGxvdC4fj/Iy6IxXFIgYyZEGbNGvhyRGqndaRK7kPW56
-	hO7lGKRyK0e7quaxb22/vXkJi21KSmyM6tHOUKs+5T04WlLLCCzKinPCMEWY5P2aNirMTCLFQWj
-	MEm0kDxH7ba6HnQQIH1+iAWyHqQ=
-X-Received: by 2002:a17:902:d2c9:b0:2ca:bba:b35c with SMTP id
- d9443c01a7336-2ccea464ea7mr120043665ad.31.1783678836086; Fri, 10 Jul 2026
- 03:20:36 -0700 (PDT)
+	Fri, 10 Jul 2026 10:20:53 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 6547776439;
+	Fri, 10 Jul 2026 10:20:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783678848; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SoePf6i82i5CK+o92jYqWlVeOhijMPoeBJoNmzsWIYM=;
+	b=rl/tCaHg1x6s6jROQccRtQ25WrRz5H1cr1m7d+JjKeWwwz06oqbidwX0Ep9hyXdi7i9fGN
+	gjScl40nSDVXXktpczkjKTvSSVJ3CE9sIytgfvbscmciI147Ls+VClZVNU0CsP1vN4Zx1T
+	t+VCVlmuYDFkfPnfjc6zTg9yPunErHU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783678848;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SoePf6i82i5CK+o92jYqWlVeOhijMPoeBJoNmzsWIYM=;
+	b=Tf8m7PxaDtk0SjR8L1MuMJt2NMQf+A2iMCV273HWdV1PglCaGbMqdAf/6QWCsDoxsKot/R
+	RBvr46WI880jW5DQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="rl/tCaHg";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Tf8m7Pxa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783678848; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SoePf6i82i5CK+o92jYqWlVeOhijMPoeBJoNmzsWIYM=;
+	b=rl/tCaHg1x6s6jROQccRtQ25WrRz5H1cr1m7d+JjKeWwwz06oqbidwX0Ep9hyXdi7i9fGN
+	gjScl40nSDVXXktpczkjKTvSSVJ3CE9sIytgfvbscmciI147Ls+VClZVNU0CsP1vN4Zx1T
+	t+VCVlmuYDFkfPnfjc6zTg9yPunErHU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783678848;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SoePf6i82i5CK+o92jYqWlVeOhijMPoeBJoNmzsWIYM=;
+	b=Tf8m7PxaDtk0SjR8L1MuMJt2NMQf+A2iMCV273HWdV1PglCaGbMqdAf/6QWCsDoxsKot/R
+	RBvr46WI880jW5DQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EDB20779BD;
+	Fri, 10 Jul 2026 10:20:47 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id AzzNN3/HUGpNUAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 10 Jul 2026 10:20:47 +0000
+Message-ID: <b3d228fd-6138-4195-b63c-65b28691e18b@suse.de>
+Date: Fri, 10 Jul 2026 13:20:43 +0300
 MIME-Version: 1.0
-References: <20260710050223.14266-1-phucduc.bui@gmail.com> <20260710050223.14266-3-phucduc.bui@gmail.com>
- <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com> <CAABR9nFFMMk6i_sjKGjt4t-_QZF_hu2gBPRNK8c-GfhyKdVP8A@mail.gmail.com>
- <da6e74cd-05d7-4ba8-aa75-e186ed8a49cf@amd.com>
-In-Reply-To: <da6e74cd-05d7-4ba8-aa75-e186ed8a49cf@amd.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 10 Jul 2026 17:20:24 +0700
-X-Gm-Features: AVVi8CdxCM56PJDr2W__GlgaLeg2BqVlA5pLfATLqiG_GVjxauf9_BTAOmIf3Us
-Message-ID: <CAABR9nFjjen2KaxnC7tt+Ud4O1_gm6WUSEj-=aQzS3KHPVaDyQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and
- drop redundant error handling
-To: Michal Simek <michal.simek@amd.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/23] mfd: bcm2835-pm: Remove member of struct
+ bcm2835_pm that is only used locally
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+ <u.kleine-koenig@baylibre.com>, Lee Jones <lee@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, mfd@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1783507945.git.u.kleine-koenig@baylibre.com>
+ <d80395cc8008817427e63417b97bc8631236c72a.1783507945.git.u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <d80395cc8008817427e63417b97bc8631236c72a.1783507945.git.u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 6547776439
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_032037_131803_65A2A3EA 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260710_032051_992773_9558DC25 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,17 +147,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+Hi Uwe,
 
-Thanks for the clarification.
+On 7/8/26 2:15 PM, Uwe Kleine-KÃ¶nig (The Capable Hub) wrote:
+> struct bcm2835_pm::soc is only used in bcm2835_pm_probe() and thus can be
+> replaced by a local variable.
+> 
+> With that change enum bcm2835_soc is only used in the mfd core driver and
+> so the definition can move there.
 
->
-> I am not saying it is wrong. I am just saying that it should be likely handled
-> as separate change/patch to address this issue.
->
+The original idea was to re-use bcm2835_pm::soc field in bcm2835-power.c
+pmdomain driver where we implicitly decide which DOMAIN_GRAFX_V3D
+register to use (see commit d4aa5960025a "pmdomain: bcm: bcm2835-power:
+Prepare to support BCM2712"). So, instead of !power->asb the intention
+is to use bcm2835_pm::soc == BCM2835_PM_SOC_BCM2712.
 
-I'll split it into a separate patch and send a v2 shortly.
+Please drop this patch from the series. I'll post a patch soon.
 
-Best regards,
-Phuc
+regards,
+~Stan
+
+
 
