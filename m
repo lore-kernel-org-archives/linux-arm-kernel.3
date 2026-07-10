@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA76C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1DAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u40ibdkUYN+U6n9R/KBpgSODzVBSAX9/5q+nVYgY/Ao=; b=HbwZfmN+jUChfd/Z0ORO7/VXfW
-	plM2ayuHvBdi+NLHjeyS0gl4tT+60aX9XTpnw2AFQXRfJtubfJ1UAAW+3W/An0dOekxELPrF8v0kd
-	zEwi76u+A5b/1/kkYST8MR4qI7KrO+VKcKizLh7XHzLkHYkQZ+DLucuVFUtjSylzIty9KIeQt12V7
-	8RZZiE6KCw27FZcKA9uqBnvoaCLYxok7z2GGpmQqT3JbLRLGHZXeQHFFhqPrH/fDKSW0RG1FYvym6
-	RyxctKul2C0Oc7ndBE1YqiVXIe3gT5HoqwrtrYHiac2O1HYwxBHquxcOLAQjFXjULO0KfvRGIeOCz
-	EUCGcFBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=36enZYWLovn6xxxucuXkWrjbHOchAqHocpv1aH0cZOk=; b=j18aNEUJJiPuZm
+	nmbUU5Yjk2tGeIEPSbs71CF5KqaHuepvjFbEia/Hk9xNiN4I7pBEnm1oCc60v8IVeTnnJigEXlyuP
+	M5gb3j7wtn4d6R+Bc0P15eTwdzQZ4Q6clI4i9m5CVKV37NgZFRSTIVHi3zk48ygU8t9zk7PFOnLf0
+	rrEp6bWIh+BiMa8j5eHlTOhiHkd5GQwblMP/+6k3KH1Iy+hbS1q7BE7xJZyrmkoVkDNgf40kkXNqA
+	/fWwu2bC4lrBBovlFJWxw3mGVb0YTzvkXEf5gQvZNMp6NM9Tfze64wRH7UfuV1U9nMfk804khlTVk
+	7zWzj4DOi/6N/brvTobA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6fJ-00000004Szk-1f6D;
-	Fri, 10 Jul 2026 08:32:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6fG-00000004SzF-2jqA
+	id 1wi5vA-00000004MwD-3hgi;
+	Fri, 10 Jul 2026 07:45:16 +0000
+Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi5v6-00000004Mum-2G4I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:32:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 544991D70;
-	Fri, 10 Jul 2026 01:32:48 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB2EF3F85F;
-	Fri, 10 Jul 2026 01:32:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783672372; bh=SG0XBAioEjYZTBGt6P9ErBDYFiptTZabvqCNq2HPf+I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rw4VOWqWQa+ucn+WdZ7T2TnEl+xGjwULwE7Sq4d+MyAV65zjq+cFshHhdUAtW3QXs
-	 IJjzWrEFGQnEZmhuTGWoSrupicN4GI7lNYbwcoFrLh8U2v1wlz4CAtTtCN6GBjkIev
-	 N3F/Eib1vG/7fbUJ8Y2QaXyBxQ+zl7lYNTlvpdcY=
-Date: Fri, 10 Jul 2026 09:32:38 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Subrahmanya Lingappa <subrahmanya.lingappa@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
-	jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, brauner@kernel.org, david@kernel.org,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v5 00/23] Introduce SCMI Telemetry support
-Message-ID: <alCuJsOgh1ioFHAL@pluto>
-References: <20260703123601.381275-1-cristian.marussi@arm.com>
- <20260707063137.3222972-1-subrahmanya.lingappa@oss.qualcomm.com>
+	Fri, 10 Jul 2026 07:45:14 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=36enZYWLovn6xxxucuXkWrjbHOchAqHocpv1aH0cZOk=;
+	b=i2g5G+epqUDU/r7w4LB+azlrqs2YyGO5GEC7NMhIl2e0s/zG6EZxMdwHktNoBmLGboIvbhjt8
+	F8hQAwZjybqiHffwwekPqSJ2EkraidI7UeF4bIwgN8ZTu9QkTXeyp3yKaPprBSR+CQxsPgb9ot0
+	vX9i6t0ZxgfuIbGwUhKVYho=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gxNsh0yxpzRhRn;
+	Fri, 10 Jul 2026 15:35:36 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 16FD540575;
+	Fri, 10 Jul 2026 15:44:50 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 15:44:49 +0800
+Message-ID: <994f9866-b7f9-408f-8aaf-3591882b5c7f@huawei.com>
+Date: Fri, 10 Jul 2026 15:44:48 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260707063137.3222972-1-subrahmanya.lingappa@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
+ initialization
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-7-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-7-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_013254_773038_7E4C3173 
-X-CRM114-Status: GOOD (  52.27  )
+X-CRM114-CacheID: sfid-20260710_004513_227197_11AEDE0C 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,261 +75,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 12:01:37PM +0530, Subrahmanya Lingappa wrote:
-> Hi Cristian,
 
-Hi,
 
-I will add a few considerations here aside the main points highlighed
-already by David in this thread.
- 
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> Thanks for posting this. I think the direction of not forcing these
-> Telemetry Data Events into hwmon/IIO/perf prematurely is the right one.
-> The cover letter explains the core problem well: most DE IDs are
-> platform-defined, and without external metadata the kernel cannot reliably
-> know whether a DE is a thermal sensor, a performance counter, a power value,
-> or something entirely platform-specific.
+> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
+> interrupt masking via DAIF and switch to masking via PMR.  This
+> depends on a very specific behaviour of `local_daif_restore()` which
+> will clear DAIF if masking interrupts via PMR, which will get removed
+> in the future.
 > 
-> That said, I think the current layering is still too SCMI-shaped for the
-> ABI it is trying to introduce.
+> As `setup_arch()` cleared DA only earlier, introduce a dedicated
+> helper that explicitly initializes the PMR to mask interrupts and
+> clears DAIF, switching to IRQ priority masking.
 > 
-
-well... "Introduce SCMI Telemetry" seems a pretty much telling $SUBJECT :P
-
-> The thing being exposed here is not only "SCMI Telemetry"; it is a more
-> general kernel concept of telemetry:
+> Given it is a dedicated helper, add a lockdep assertion as
+> `setup_arch()` should always have called `trace_hardirqs_off()` when
+> clearing DA, otherwise something bad happened.
 > 
->   - enumerate provider-specific data/event descriptors
->   - expose capabilities, units, data format and topology/grouping metadata
->   - configure collection rate and collection mode where supported
->   - collect samples with timestamp/freshness/validity information
->   - track generation/state changes
->   - optionally expose provider-private raw backing storage for debugging
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/daifflags.h | 15 +++++++++++++++
+>  arch/arm64/kernel/irq.c            |  7 +++----
+>  2 files changed, 18 insertions(+), 4 deletions(-)
 > 
-> SCMI is one provider of that model. It happens to transport the data through
-> SCMI v4.0 concepts such as DEs, groups, SHMTIs and TDCF. But another firmware
-> or control-plane specification could show up later with the same broad
-> telemetry model and a different wire format. Call it XXMI or YYMI: the
-> protocol mechanics would differ, but the kernel consumers should not have to
-> learn a new in-kernel and userspace ABI for each one.
-> 
+> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+> index 795b35128467..56341578e7e3 100644
+> --- a/arch/arm64/include/asm/daifflags.h
+> +++ b/arch/arm64/include/asm/daifflags.h
+> @@ -141,4 +141,19 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+>  	 */
+>  	write_sysreg(flags, daif);
+>  }
+> +
+> +/*
+> + * During early boot, we unmask PSR.DA before the GIC has been set up.
+> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
+> + * after the GIC is enabled : sync them up.
+> + */
+> +static inline void local_interrupt_priority_init(void)
 
-So, in the early episodes of this Telemetry 'saga' when it still was an
-RFC [1] in which I was exploring/experimenting/evaluating different approaches
-I DID mention that one possible evolutions of whatever interface would have been
-used (SysFS vs chardev vs FileSystem) could have been:
+Maybe switch_to_pmr_masking()?
 
-"D. generalize enough one of the above choices to make it abstract enough        
-   that other non-SCMI based telemetry can plug into some sort of geenric       
-   Telemetry subsystem"
+> +{
+> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+> +	lockdep_assert_irqs_disabled();
+> +
+> +	gic_write_pmr(GIC_PRIO_IRQOFF);
+> +	write_sysreg(DAIF_PROCCTX, daif);
 
-...BUT the reality check that immediately stopped this possibility onto
-his tracks for me was the fact that at that time, like now, there was/is
-ONLY the SCMI protocol acting as a possible Telemetry provider so that would
-have meant:
+otherwise LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
- 1. limited real use case examples to use to build a common Telemetry abstraction
-    resulting most probably in a 'generic' common framework heavily
-    biased toward SCMI mechanisms...for the simple fact that only SCMI really
-    existed that provided such broad range of generic telemetry data....
-
- 2. sure rejection from upstream, having created a supposedly generic common
-    framework, sadly used by....just ONLY one user
-
-These concerns came on top of the basic main fact that, as David pointed out,
-a fully generic and common abstraction of Telemetry concepts is hard...
-
-...it definitely seems easy at first by looking at some basic simple
-common ideas, but it quickly becomes very challenging to represent in a
-common way very speficic bits like, as an example, topology, grouping
-etc etc ...and again especially when you have ONLY one user of this new
-abstraction to look at for inspiration ...
-
-> The common ABI should therefore avoid treating the DE numeric namespace or
-> the wire/storage format as the abstraction. The useful common contract is
-> closer to:
-> 
->   - what is being measured: component/type/instance/name;
->   - how to interpret it: unit, exponent/rate unit, data width and signedness;
->   - how it behaves: instantaneous, accumulating, average, state/counter, etc.;
->   - how it is controlled: individual event vs group-wide collection;
->   - how fresh it is: timestamp, sequence/generation and validity/error flags.
-> 
-> So I would strongly consider inserting a generic telemetry layer above SCMI,
-> with SCMI registering as a telemetry provider rather than owning the stable
-> userspace ABI directly.
-> 
-> Roughly:
-> 
->   drivers/telemetry/
->       provider registration
->       descriptor/sample/config abstractions
->       generation tracking and poll support
->       common userspace ABI
-> 
->   drivers/firmware/arm_scmi/telemetry.c
->       SCMI protocol implementation
->       TDCF/SHMTI/notification parsing
->       translation into generic telemetry descriptors/samples
-> 
->   optional provider-private raw/debug path
->       SCMI SHMTI mmap or dumps, if kept, behind explicit privilege/debug
->       policy rather than as the baseline telemetry ABI
-> 
-> With that shape, future in-kernel consumers could bind to generic telemetry
-> objects and capabilities instead of SCMI internals. Architected/well-known
-> DEs could later grow adapters into hwmon/IIO/perf where the semantics are
-> clear, while platform-specific DEs remain available through the generic
-> telemetry interface plus userspace metadata.
-> 
-> This would also help avoid making the SCMI protocol's internal resource
-> storage part of the ABI. Right now the public protocol header exposes
-> structures such as scmi_telemetry_res_info, scmi_telemetry_group and
-
-Well here you are mentioning the SCMI internal API as exposed by the SCMI
-core in include/linux/scmi_protocol.h and used by SCMI drivers to build
-on top of the common protocol layer...of course it is SCMI specific,
-always will be, even when/if a common Telemetry framework would exist.
-
-> scmi_telemetry_de, and the chardev indexes those objects directly. That feels
-> too tightly coupled for something that may need more consumers later. I would
-> prefer copy-out or iterator-style provider ops instead, for example:
-> 
->   info_get()
->   de_count_get()
->   de_info_get()
->   group_info_get()
->   intervals_get()
->   collection_set()
->   collection_get()
->   sample_read()
->   reset()
-> 
-> where the backing arrays, xarrays, lazy enumeration, SHMTI mappings and TDCF
-> parsing remain private to the SCMI provider.
-
-I could agree on this...IF any of this would have a chance to exist now
-with the current existing Telemetry providers...thing that seems not
-plausible for the reasons above....
-
-> 
-> The sample side probably needs an explicit common result contract too. A
-> sample is not only an integer value: it may have optional timestamping,
-> provider data width, stale/not-yet-valid state, partial collection failures,
-> hardware-fault indications, and a sequence/generation value that lets
-> userspace detect races against reconfiguration or shared-memory updates. Those
-> details can still be backed by SCMI-specific status codes and TDCF parsing
-> internally, but I think the stable ABI should expose them in provider-neutral
-> terms.
-
-Yes some of these are theoretically possible, but NOT really in the only 
-example we have so far that is SCMI....
-
-> 
-> I would also be careful about freezing the raw SHMTI mmap part as a baseline
-> ABI. It is useful for bring-up and high-performance tooling, but it exposes
-> firmware-owned shared memory layout and TDCF parsing rules directly to
-> userspace. If this stays, I think it should be clearly separated as a
-> privileged/debug/raw provider facility, with a precise mmap contract:
-> 
->   - required mmap length
->   - vm_pgoff semantics
->   - page alignment
->   - VMA flags
->   - cache/coherency expectations
->   - lifetime across reset/remove/reprobe
->   - required capability, if any
-
-I would also prefer to expose only kernel mediated Telemetry data to
-avoid fragmentation (even within the same protocol when implemented by
-different vendors...), BUT RAW access I am afraid is inevitable to be
-able to write high-perf tools, and those will have necessarily to be
-protocol/backend specific...
-
-...which leads straight to the other point raised by David...
-
-...Is really a common Telemetry UAPI needed ?
-
-...if anyway multiple protocols would dictate multiple custom tools
-probably not...
-
-> Even outside the raw mmap case, telemetry can be a sensitive high-rate view
-> of system behavior. The ABI should make access policy explicit: who can
-> enumerate, who can read, who can change collection state, and whether
-> production systems can restrict sampling granularity or intervals
-> independently of what firmware advertises.
->
-
-Yes this has defintely to be documented better...but..
-
-..this is something again very much protocol specific, that evidentiates
-once more that a common ABI to rule them all is not probably the way...
-
-...in SCMI the platform firmware is the ultimate arbiter, it is in charge
-of any kind of policying...it can cope even with the most unreasonable
-asks coming from the agents, even come from root privileged users...
-
-...simply because those requests will get denied OR silently ignored...
-
-...in the case of SCMI Telemetry, as an example, it is up to the server expose
-to the Linux Agent ONLY what it deems to be safe enough to be shared with normal
-world entities without the risk of enabling side channel attacks...
-
-IOW, in the SCMI world, in any protocol, the agents see and live in an
-illusion that is created and enforced by the SCMI server, if you are
-switching your point of view and start considering how to enforce policies
-around SCMI resources at the agent level ("...only root will be able to do
-that"), you are already doing it wrong...
-
-Can this view of the platform be absracted, Telemetry-wise, in a common
-interface across any other protocol and any other arch ?
-
-It seems to me, again, very unlikely...
-
-> For the stable telemetry ABI, I would start smaller: descriptor enumeration,
-> sample reads with validity metadata, optional group-aware configuration, and a
-> generation counter/poll mechanism so userspace can detect reconfiguration or
-> partial re-enumeration races.
-> 
-> One other point related to this layering: configuration appears to be global
-> to the SCMI instance. Any process opening /dev/scmi/tlm_N can change
-> collection mode, sampling interval, DE enablement and timestamp state for
-> other users. That may be OK, but it should be an explicit policy decision.
-
-Based on the SCMI architecture and the SCMI implementation in Linux, the
-only boundary that you can use to identify a 'user' is am SCMI instance
-(i.e. one /dev/scmi/tlm_<N>) because that is what the server(s) on the other
-side can identify as a distinct agent and that it can fed with a well defined
-set of resources at enumeration time...especially in the case of Telemetry
-it seems dificult to be able to partition resources at the agent side...
-
-As it was with the defunct Filesyste approach, I would NOT in general
-enfore any policy on configuration...last config request will win PLUS
-a generation counter to spot unexpected reconfig happening in background...
-
-If you are using 2 tools or daemons to configure telemetry on the same
-system in a conflicting way, it is NONE of kernel businness, you have a
-misconfigured platform..
-
-Last but NOT least, I think that maybe a Telemetry framework subsystem
-could be instead useful for future possible in-kernel users of Telemetry
-(you may have mentioned that too..) ... should someone decide to use this
-type of data in-kernel, it would certainly be useful to a have common
-in-kernel API to consume these data no matter which is the provider from
-which that data is collected...
-
-...BUT, again, in this case we do NOT even have a single user as of now
-to model this intefrcae against, since we are currently NOT using SCMI
-Telemetry for that...so it is seems even more a remote/impossible thing
-to get something like this upstream for now...
-
-Thanks,
-Cristian
-
-[1]: https://lore.kernel.org/arm-scmi/20250620192813.2463367-1-cristian.marussi@arm.com/
+> +}
+> +
+>  #endif
+> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> index 9fafd826002b..c73faa30268d 100644
+> --- a/arch/arm64/kernel/irq.c
+> +++ b/arch/arm64/kernel/irq.c
+> @@ -126,10 +126,9 @@ void __init init_IRQ(void)
+>  
+>  	if (system_uses_irq_prio_masking()) {
+>  		/*
+> -		 * Now that we have a stack for our IRQ handler, set
+> -		 * the PMR/PSR pair to a consistent state.
+> +		 * Now that we have a stack for our IRQ handler,
+> +		 * let's mask interrupts via the PMR.
+>  		 */
+> -		WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+> -		local_daif_restore(DAIF_PROCCTX_NOIRQ);
+> +		local_interrupt_priority_init();
+>  	}
+>  }
 
 
