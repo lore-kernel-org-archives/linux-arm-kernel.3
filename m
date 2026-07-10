@@ -4,148 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6262CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B45C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L4KWrzr+YWD0/ZwxErTj48n5Bz6Sdq2e6ah0W6DJcDQ=; b=wD6MTAWKOGuTn/SIeJIvWzYeyY
-	ohkJO2qszOZ4FhqVoMGFQ/gHq5cVrfUh0YTwMJvmhqgZhAAcDZ0m2BvLjs01W+AuB24UQFAeXl4Q3
-	c8IR/njvUJ3rDpc6C0Ar4Vk3HGmc5rh+YZuRJSJ7/ss2bIPEVbBhJjAqd3DNiji4HEM3NMdiUjr2n
-	yifhq6PgcQr3VlqJabvkIC6afbnrQ6cyVGQBob0sBYahcM3ak0C/vYohRqs2IXsnqwc2tWpVu8gJ4
-	j+XtT85QG3EhQIOEB5kYzhvnkWGb6ktZeicNlpHfFeKGJJEA5wEruEY96TMF96knC47UTMSIES8eg
-	tVVSZ2gQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+jsbPKMdNnoFxhSW5P6uPe+xiHXUVyxcatxCMKwZNGQ=; b=vDRAHefK3fAXY4
+	yEX6eR2WC9ctSbyAen9Bs1CTWZ4Sd9y5vWSdIAkJsNApCayF6z/tdhKbYXZrsuAoobhy359dSY8pI
+	i1nwFFzqUZjObJ2awG5YGEVFGL4oCL+SofKfSn7Ag83u+r2TO0GxnH6GLiipIvkmP2rxQ03cvw8jO
+	gA0qlorF0euJnqvdSBw+cAJNo0j7q/aWoQbMIUHhIX8PKk3IrzIQoJZQIkdYy4t/c4y6f5nZjQg/H
+	3fZW7rZ2il93lAn12bg+SwtcOv0vGlA2FCqkvDPPxkpPuazazYqU0AsCgd/42t5pEwik/djHxbmto
+	pHu+XBVfJIwFu4qjts2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8AL-00000004fGA-3hPB;
-	Fri, 10 Jul 2026 10:09:05 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wi8AV-00000004fJF-0gVV;
+	Fri, 10 Jul 2026 10:09:15 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8AJ-00000004fEy-1iTT
+	id 1wi8AR-00000004fHO-1qX8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:09:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UWhkjwDbiAVYr12bBtlJCDcdVW/bkzANIixkZSxrYmMVPKZIK6ULqb7Ht3KHFVvoFoCuXOV0RkbZ/xmuWTgJkGc+cbHva7byl7jX2kyeu9HStYQi3eLuBRJxtiIm8crRcPwoceb1w/0BuVVoTT1XGVQdk8dcAVcJHhyAHfJOfp4i0Gm37t3gdKyn/UBWcVWf8p5JTjORTNDQkImW9ythjP8v6UguUD4bndDTJ1LpGliS+Ke49szIfEu9gd6PAbi4FhsjP1ikg8qanJCh3BnASABLxX1pe3PInfg/Kt4lbKtUCwz0eSFNkYOmoGSWYU7MovGc+TiNU9AaWVnzsuhyFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L4KWrzr+YWD0/ZwxErTj48n5Bz6Sdq2e6ah0W6DJcDQ=;
- b=lmwb0yZ/IZWqCMcvR09iyQQg44ZeSlu/2wY6lxNjeUW5XqhNh4JxyqZ1w6tIkZJuzugJIXy3r7Xbg2DR0kpRAIzBxluphK0KPKHylAImLco9Pa9BlOS3ZCEF2fMe8P86ooru9akXYgZHp5uaPthS8sWES/BuT9N33U1RV+WG/G/VqMFUurXzjJ9JqkQAXZrZVV7UcDvhMy9ydTquFSAbkMse2xvhb30HyJFfvSc+6DVlX8fbG605H/opgqSWKuEyz8ZjqZdlqqaPBOt7Vpq6UyvqakPf5nP/3F8Zyf0mN5rCs6rFoyaXlwQOvErnHofUlSE4b21P2MpWlppvNfCeew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L4KWrzr+YWD0/ZwxErTj48n5Bz6Sdq2e6ah0W6DJcDQ=;
- b=QbTsKMwf+smf+IDDSoTT2E4NLBnJImyXLGz5dRGNQeFtcBubxjjw0uBsjQN2ss2SutzwC1Tnj81ZGaYHbNgF66CsGkFlEF3TlnyGPQyJw7cx1kFEAo3UTdYmSPKVyiERBedAEbYGBfAnNumqJTgM2bCvoKf0JAL4QvwBMiegkcKG0os6nrXQBX4AAFstXYdyB/IK7nDZ9q7uOg2VVtkTduHvLmwePzaSuN1vU0e+uzt7bAN9645E4jPX1g6DIm2vrx2zI+7Z6bqFBAjy18Ploy3bzztEp5f862i0T2ORtVQU8j74G9kZ1CkEBmSuQ0ZlAnpkVo0D0YQygXQZJdI7Jg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22) by AM0PR04MB6913.eurprd04.prod.outlook.com
- (2603:10a6:208:184::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
- 2026 10:08:57 +0000
-Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
- ([fe80::a4b:fa4e:7fe7:e6a2%5]) with mapi id 15.21.0181.014; Fri, 10 Jul 2026
- 10:08:57 +0000
-From: haibo.chen@oss.nxp.com
-Date: Fri, 10 Jul 2026 18:12:20 +0800
-Subject: [PATCH] arm64: dts: imx91-9x9-qsb: add CAN support overlay file
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-dts-imx91-can1-v1-1-c78c9c378e8d@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAIPFUGoC/x3MQQqAIBBA0avErBtwBJO6SrQonWoWWWhEIN49a
- fkW/2dIHIUTDE2GyI8kOUMFtQ24fQ4bo/hq0Ep3ypJCfyeU4+0J3RwIF2vM6h2RZ4IaXZFXef/
- hOJXyAZ1Twj9gAAAA
-X-Change-ID: 20260710-dts-imx91-can1-b755fdc11de1
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Haibo Chen <haibo.chen@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783678347; l=3012;
- i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
- bh=r4IWS/ej2uTzP7UmQATCdKNsUV3K63QpDrRvgdypHkE=;
- b=0kFOhTLrdmZ1fz8CfAR3kFS1ZIscCvgwRlepWJuLempnuNclB6xvORdpP68A5tcQ+fQao1Y/l
- OIiQgHvwGQpCr5/nvAwpczhiTo9PV9ejB8e3HCbSZUp8qPLju/y8DU9
-X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
- pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
-X-ClientProxiedBy: MA5PR01CA0108.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1d1::18) To PA6PR04MB11909.eurprd04.prod.outlook.com
- (2603:10a6:102:51c::22)
+	Fri, 10 Jul 2026 10:09:13 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+jsbPKMdNnoFxhSW5P6uPe+xiHXUVyxcatxCMKwZNGQ=;
+	b=VSvxAUL0odm3o1ql2YZkVawDkxa0x5t1UtNpOKCRPBoekGFsHy9cbF3FUqMTMlhjP08z8KK3U
+	dnR4vQt2CtOcQxwBQrIDn2PI+dbffc7sKcjH1NHeGYcXhwHGTOD+qBojStJY7b0SueQneQ9AmX/
+	asofdTcpNLMM03CudtQIy+c=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gxS3m3PRszmVZ4;
+	Fri, 10 Jul 2026 17:59:32 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id E8FB44056C;
+	Fri, 10 Jul 2026 18:08:47 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 18:08:41 +0800
+Message-ID: <ecc5e80c-89c3-4a62-87e5-cc09c04bc2c6@huawei.com>
+Date: Fri, 10 Jul 2026 18:08:40 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|AM0PR04MB6913:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0c438d0-876d-4e8e-c718-08dede6b4125
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|23010399003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: I5n3K+nKDOfnwxHuY7uU1mRNRaadJJo1/HP138+YnWXeJLyVzWE6SjexCpu3mmSmvM9M3TAUYvtxor96P3KGGqDBpv+MzLhZQzWeOdf/b3Y/n6QviB5sh9yE2Xudp7EYwys5l6zQhrTvJkO13IqwDgNuKOpl7Q5s+48H85okTjjpV0+qIE0XHueE6HPzLKlVEX7DmK3AQ17ySitmI1pnj69dt14C0A2p1gtKCCclWaXjFriY2vFzl4RQOvvkVjcVZcl8KD2S7qjBsX6OtIYrPCjaV7Skw+uWryKiKIhlsT2BoFIUdY0OypcZ8EsJrLyNEttnjFNJF6/KDlnuUupkWcFsMPTllNw5l9kIW8BFdNZYszOyqSTN8e7VtLOAHsJP2aiCif2dlzsK934jI+CoRWF8Y51bBFGuoR1+FXR3kQ+sQisnmwJPydc+P0M37ZD5gCdrTfYYSQMKkhgVo7V7TahJx9jeca6EjPbckmUNX1ZPCNeiX9dJIoXZoJWxiYFiw269RXyUrWLyvGZip/dbpoYN9a7xnUCUsujH3YBwR30JK9hhakZUARjL+T8aprNt3H/JZ62KyXewG4pEyBFga2qEtXjP2ShifNAafCqPpBpJmZ4D/xP0pDy0/Hd9U8p/
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(23010399003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ekJxM3ZpbXlkWFp3SlluMUNNdCt5ZnRzWFhVV1JSaThSd0plR0JXZkFwdTlp?=
- =?utf-8?B?OWZqTWE1cTMrR2M0UDZad1o3V3M2Y0E4azBnVFZHNTlKcGZWS2ozM0hENlB3?=
- =?utf-8?B?TUdnOWhCMjlaN1ZNTmVrQTdXR3hBa1owV2Q4QVV0dEJPakFhWGlJeWxlRFdo?=
- =?utf-8?B?QUhjUjdkdVBLYzJrMU9hcUhMbFdTVXh3Y3JNN0dzd3gzS1E0WkZneDV0MHNE?=
- =?utf-8?B?bUhnd2g3aDYxaUp1WW9CbjBLY1hRSEpuVXZWZllmNld2Z2MrQVhrSG1mcTdm?=
- =?utf-8?B?a3ZLMlZxNVVHNlY1MGUzYUMxNVVMTUdFRU8vMzNqQzFEU2NYZGtPMWJLMk91?=
- =?utf-8?B?aUhTYUw3bHh3Y1dYSk1pN1YxTUpWbXhDYk1NOWwwSkJnQ05WdzRDTXRDKytU?=
- =?utf-8?B?aUlLMDVwQkpCekRmakNzd0FmQWlHWitnS1VmNkhSeFRDeEhHbFRmWXdyTEFM?=
- =?utf-8?B?WDc0eTU0d01WL2lCTU5lMlFIZGM3azRKVTRPMm9rSFNGbnlHRlp5R2xHd21U?=
- =?utf-8?B?R09SYXdVcUVwOGNhaEh1NTNKNmNXTWJXS2NFRUdlSFBQNElrU1NXTDgzV3lS?=
- =?utf-8?B?c1FvVGR5TDNaeGpua0JZMVZNeHpHdjBQMUpZenkxTS8wZTgvUzFjSTIrZ1dQ?=
- =?utf-8?B?RE4wcWxWenUxeXlERW8wSmJ5TlpCMHdxUUdVOHdsQ09QbTZ1THlxZlp1M2do?=
- =?utf-8?B?TDFlUmRCUUVvUjZwV013dmt2S1ZQVFo5d1llK2JiQmYvc2UzL2RsMmNFRWlx?=
- =?utf-8?B?WG15b2w1VXBtU016bSt4ckRDQ01xRW9DY2F0VnUrSzgxZjZBN2pmNWMyOUdH?=
- =?utf-8?B?TUp0SWdnR2hETVVIMzBidHI2Z0FzQ2h5eU12Q3NnRFlOWVhaeDRoS3d5QUFP?=
- =?utf-8?B?ZnB5d1poY3AvSWd4VlZtMjlGNjl0a3Z3TFBlSHNUK0dGTnFyQnhOb3NDVWxD?=
- =?utf-8?B?Z0s0MGd1Nk5aUVJXbzhmbWgwRVlOYmdkVEtTWnBSMW0zWHdFOWkreXlYVHJM?=
- =?utf-8?B?WmhjS1pnZXlZSHV4QzJ5MDFlWUZMSnU1TFhxZlA5SmovdG1od0w0UVJmd2tC?=
- =?utf-8?B?ZlhNZXRoMStWdGhNY1BzeFlFRE90QTJMNFJVcFZQZWhDb1VkZ0VZZEJPOGxy?=
- =?utf-8?B?RTBjYThQOVRkdXFBYi9PNzVFY2srSjc5UkhKYjlxOStUTTVyNjkxUGxZTXpi?=
- =?utf-8?B?TXJnVUNPMCtKUUhVTGZKWkRhcFVHSzdReWtuNWhaeHVHQ29kQStFMzJyZXJX?=
- =?utf-8?B?ZFpwbzRKWW1EMnlVa0ZQL0dpa1VNOTFRbG85dE1Va3JkeSs2OElCbC9JN2Nr?=
- =?utf-8?B?OFltb1dnSDBsUk9RM2ZjeXppZDlxVDdmTkFvN1BhVWV5ZEZ6dzRIZXF4M1JF?=
- =?utf-8?B?b0Rsa1dYYnJRNHhrNkNGK3hjS3NWRWRFWHhja2UwaHE1ZTFpa2RsZWZicDNU?=
- =?utf-8?B?UGxKMk4wUUNWQUlBU3RpWG8vdTJqK3J0NjEvMFQraDIwNjcyZHd1NjRtZGdY?=
- =?utf-8?B?bEJxSU14QTRBbFp1U2ZIdDFpc2c1MTE5MEIvalN6SWVEUUdWRGpNY04ybW9T?=
- =?utf-8?B?UmxIbCtnYWlNajl5Z0ZDYW1FOHd3bjJZd0NZTUwvbGcvRC8xV3cyUGlGZzMw?=
- =?utf-8?B?RkVLVUJVRmFrVUJ6bFJpcXVsNHdNNTJhZE0zUEZwUlIvZklsOUg0a3ZOREtK?=
- =?utf-8?B?aElmVUJOdmxacCtXODEwcjR5Y2oreXI1cUx2VGR5QzV1cXFEREFXYVJUTSt1?=
- =?utf-8?B?SVQ0Vy95Z09ETnNBWHpVbElkc1JwNEJ2dXB1Q1BVRmdMR1NReVFhb1QrZFJY?=
- =?utf-8?B?aWZXazNZcnNYWGh4eFcvdldhYVlzR1Y3ZTJ0T2hnaDc5VDJvRmtpZzU2dVVM?=
- =?utf-8?B?RG5RQ0hrMTNGK3lMT3FldXNQbHBpVkxIaUZPZzJiNHNjejJnYi80Rm5zaHhG?=
- =?utf-8?B?THpDbDdRNUo3VnRZQjdoTW91TmZWMWMvWjlBTXpUODJIaXJCTDJDVzBUbmQx?=
- =?utf-8?B?SWEwUVV2bDVmVWNad3NNUy9ueDZRY1BJVmx5WnhQZjRFNXhKYlZEdDF1UFN5?=
- =?utf-8?B?TS81SWlVenNTbUxiTDNNWUFla2pJakJ2RDJ0NTVEenVCWHBLTnEvelVWc3dp?=
- =?utf-8?B?aUhJeHg1UUdwTEJTckJZVUg0bld6VWxDTU1lZTBhYnhvNnRIcHFKNkt1dXhP?=
- =?utf-8?B?eDZ0NVV5VGxZYS95c1p1ajlvM0hVOTc2WjV3VE81ZlBENnkyK0ZEc2pGZzFm?=
- =?utf-8?B?cndxWUZUL3JiNEgrTGx6MHJ4end0aDNmTkNYMmtVRzZaZmg3YmpLUEpLRUdG?=
- =?utf-8?B?TWhVcGJIOUF5QnEyNDU2cFYvSXduYnpSMXcyamJia3A1ZmR5aUNieDFSQjZL?=
- =?utf-8?Q?f5kEExHFxuQUpo0gskmtQiduZzTazFim2w3bC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0c438d0-876d-4e8e-c718-08dede6b4125
-X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 10:08:57.2664
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 53e6WWC2KwT2z2ouqf9ExojEVYDULzDTo7xfZ0YMySrndBx3tjawLpD75xa6ir5RRIk9gcMZFsq+2yNXBC5hX2f1dlFsFGgiSSHmeZgdXb8Oycn/DRJUr7rW7yZFGb9C
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6913
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 29/36] arm64: nmi: Manage masking for superpriority
+ interrupts
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-30-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-30-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_030903_467699_D4B7B711 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260710_030911_814263_34E12337 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,104 +75,459 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haibo Chen <haibo.chen@nxp.com>
 
-On the i.MX91 9x9 QSB, CAN1 and MICFIL share pins. A TMUX1574RSVR
-analog mux controls the routing: when SEL is driven high, CAN1 is
-selected; when SEL is driven low, MICFIL is selected. By default,
-SEL is kept low.
 
-To enable CAN1, SEL must be driven high. This is done via the can_fun
-function defined in the pinctrl-gpiomux node. CAN1 uses the
-TJA1057GT/3 PHY.
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> Extend logic to handle and debug exception context/state with knowlage
+> of FEAT_NMI.
+> 
+> Take care to order writes to ALLINT relative to DAIF, as clearing
+> ALLINT before DAIF could result in taking an NMI while DAIF is fully
+> masked, as could setting it after DAIF.
+> 
+> Since superpriority interrupts are not masked through DAIF like pseduo
+> NMIs are, we also need to modify the assembler macros for managing
+> DAIF to ensure that the masking is done in the assembly code.
+> 
+> Note that save_and_disable_irq/restore_irq and
+> save_and_disable_daif/restore_irq pairs are used in distinct
+> contextes:
+> 
+> - former is used in context of SW PAN to quickly disable/enable
+>   preemption
+> 
+> - latter is used to completely mask all exceptions.
+> 
+> For that reason split save_and_disable_daif/restore_irq into more
+> generic exception save restore pair and plumb with FEAT_NMI logic.
+> 
+> Co-developed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/assembler.h            | 20 ++++++++-
+>  .../include/asm/interrupts/common_flags.h     | 41 +++++++++++++++++--
+>  arch/arm64/include/asm/interrupts/entry.h     | 18 +++++---
+>  arch/arm64/include/asm/interrupts/masking.h   | 25 ++++++-----
+>  arch/arm64/include/asm/irqflags.h             |  1 +
+>  arch/arm64/kernel/entry.S                     | 12 +++---
+>  6 files changed, 89 insertions(+), 28 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index 0b58b550e8dc..bcdbc308afba 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -37,11 +37,27 @@
+>  /*
+>   * Save/restore interrupts.
+>   */
+> -	.macro save_and_disable_daif, flags
+> -	mrs	\flags, daif
+> +	.macro save_and_disable_exceptions, flags, tmp
+> +	mrs     \flags, daif		// updates flags[9:6] with DAIF
+> +#ifdef CONFIG_ARM64_NMI
+> +alternative_if ARM64_NMI
+> +	mrs_s	\tmp, SYS_ALLINT	// updates tmp[13] with AllInt
+> +	msr_s	SYS_ALLINT_SET, xzr
+> +	orr	\flags, \flags, \tmp	// now flags[13,9:6] carry pair of AllInt,DAIF
+> +alternative_else_nop_endif
+> +#endif
+>  	msr	daifset, #0xf
+>  	.endm
+>  
+> +	.macro  restore_exceptions, flags
+> +	msr     daif, \flags		// bits other than flags[9:6] are ignored
+> +#ifdef CONFIG_ARM64_NMI
+> +alternative_if ARM64_NMI
+> +	msr_s	SYS_ALLINT, \flags	// bits other than flags[13] are ignored
+> +alternative_else_nop_endif
+> +#endif
+> +	.endm
+> +
+>  	.macro	save_and_disable_irq, flags
+>  	mrs	\flags, daif
+>  	msr	daifset, #3
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> index 72ed6e75d146..315aaec3ea34 100644
+> --- a/arch/arm64/include/asm/interrupts/common_flags.h
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -20,6 +20,14 @@
+>  /*
+>   * Exception context mapping
+>   *
+> + * FEAT_NMI
+> + *
+> + * CRITICAL -> DAIF + AllInt (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF + AllInt
+> + * NONMI    ->   IF + AllInt
+> + * NOIRQ    ->   IF
+> + * PROCESS  ->    0
+> + *
+>   * pseudo-NMI
+>   *
+>   * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+> @@ -76,6 +84,7 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+>  
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +
+>  }
+>  
+>  static __always_inline
+> @@ -84,6 +93,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+>  
+> +	if (system_uses_nmi())
+> +               return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
 
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
-This patch is based on the following patch set:
-https://lore.kernel.org/imx/20260710024204.3462444-1-chancel.liu@oss.nxp.com/T/#t
----
- arch/arm64/boot/dts/freescale/Makefile             |  2 +
- .../boot/dts/freescale/imx91-9x9-qsb-can1.dtso     | 48 ++++++++++++++++++++++
- 2 files changed, 50 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 01d4ddfde0989a2f1ae0ac33d236fe1e2b1c970d..37d158c2de88572e2753ccf9ec518d27cbe8d492 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -577,7 +577,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-frdm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin.dtb
- 
-+imx91-9x9-qsb-can1-dtbs += imx91-9x9-qsb.dtb imx91-9x9-qsb-can1.dtbo
- imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-segin-peb-av-18.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx91-9x9-qsb-can1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx91-9x9-qsb-can1.dtso b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb-can1.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..b8343d653e511244c838a2a7add8a8d74398f8a2
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-9x9-qsb-can1.dtso
-@@ -0,0 +1,48 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "imx91-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	flexcan_phy: can-phy {
-+		compatible = "nxp,tja1057";
-+		#phy-cells = <0>;
-+		max-bitrate = <5000000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_flexcan_phy>;
-+		silent-gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&flexcan1 {
-+	phys = <&flexcan_phy>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan1>, <&can_fun>;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_flexcan_phy: flexcanphygrp {
-+		fsl,pins = <
-+			MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x31e
-+		>;
-+	};
-+
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins = <
-+			MX91_PAD_PDM_CLK__CAN1_TX		0x139e
-+			MX91_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
-+		>;
-+	};
-+};
-+
-+/* micfil uses PDM port A pins, conflicts with can1 */
-+&micfil {
-+	status = "disabled";
-+};
+DAIF_PROCCTX_NOIRQ is universal; can it be initialized with a loal
+varible and set at the beginning?
 
----
-base-commit: b9fff21cbd480f47f04debbce6c14f48dd715f0a
-change-id: 20260710-dts-imx91-can1-b755fdc11de1
+90 static __always_inline
+ 91 arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+ 92 {
+ 93 >-------arm64_exc_hwstate_t state = { .daif=DAIF_PROCCTX_NOIRQ };
+ 94
+ 95 >-------if (system_uses_irq_prio_masking())
+ 96 >------->-------state.pmr = GIC_PRIO_IRQON;
+ 97
+ 98 >-------if (system_uses_nmi())
+ 99 >------->-------state.allint = ALLINT_ALLINT;
+100
+101 >-------return state;
+102 }
 
-Best regards,
--- 
-Haibo Chen <haibo.chen@nxp.com>
+>  }
+>  
+> @@ -93,6 +105,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+>  
+> +	if (system_uses_nmi())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+>  }
+>  
+> @@ -102,6 +117,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+>  
+> +	if (system_uses_nmi())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+>  }
+>  
+> @@ -131,6 +149,9 @@ arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+>  	if (system_uses_irq_prio_masking())
+>  		state.pmr = regs->pmr;
+>  
+> +	if (system_uses_nmi())
+> +		state.allint = regs->pstate & PSR_ALLINT_BIT;
+> +
+>  	return state;
+>  }
+>  
+> @@ -150,6 +171,9 @@ void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+>  	if (system_uses_irq_prio_masking()) {
+>  		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+>  			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+> +	} else if (system_uses_nmi()) {
+> +		WARN_ONCE(1, "Unexpected DAIF+ALLINT: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+> +			  actual.daif, actual.allint, expected.daif, expected.allint);
+>  	} else {
+>  		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+>  			  actual.daif, expected.daif);
+> @@ -165,7 +189,7 @@ void arm64_debug_exc_context(arm64_exc_context_t context)
+>  }
+>  
+>  static __always_inline
+> -void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr, bool update_allint)
+>  {
+>  	if (system_uses_irq_prio_masking() &&
+>  	    update_pmr &&
+> @@ -193,8 +217,19 @@ void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+>  		pmr_sync();
+>  	}
+>  
+> +	/*
+> +	 * Try to order ALLINT writes to be consistent with the DAIF state :
+> +	 * we don't want to take an NMI with DAIF masked or when it should
+> +	 * be masked but isn't yet.
+> +	 */
+> +	if (system_uses_nmi() && update_allint && hwstate.allint)
+> +		_allint_set();
+> +
+>  	write_sysreg(hwstate.daif, daif);
+>  
+> +	if (system_uses_nmi() && update_allint && !hwstate.allint)
+> +		_allint_clear();
+> +
+>  	if (system_uses_irq_prio_masking() &&
+>  	    update_pmr &&
+>  	    hwstate.pmr == GIC_PRIO_IRQON) {
+> @@ -204,10 +239,10 @@ void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+>  }
+>  
+>  static __always_inline
+> -void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
+> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr,  bool update_allint)
+>  {
+>  	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+>  
+> -	arm64_update_exc_hwstate(hwstate, update_pmr);
+> +	arm64_update_exc_hwstate(hwstate, update_pmr, update_allint);
+>  }
+>  #endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
+> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+> index 3034c490ed66..986536ecd058 100644
+> --- a/arch/arm64/include/asm/interrupts/entry.h
+> +++ b/arch/arm64/include/asm/interrupts/entry.h
+> @@ -10,12 +10,12 @@
+>  #include <asm/cpufeature.h>
+>  #include <asm/interrupts/common_flags.h>
+>  
+> -
+>  static __always_inline
+>  arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>  						  arm64_exc_hwstate_t next)
+>  {
+>  	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+> +	bool update_allint = system_uses_nmi() && prev.allint != next.allint;
+>  
+>  	arm64_debug_exc_hwstate(prev);
+>  
+> @@ -25,7 +25,7 @@ arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>  	if (!arch_irqs_disabled_flags(next.flags))
+>  		trace_hardirqs_on();
+>  
+> -	arm64_update_exc_hwstate(next, update_pmr);
+> +	arm64_update_exc_hwstate(next, update_pmr, update_allint);
+>  
+>  	if (arch_irqs_disabled_flags(next.flags))
+>  		trace_hardirqs_off();
+> @@ -49,15 +49,18 @@ arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>  
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
+>  
+>  		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+>  			     prev.daif == DAIF_ERRCTX);
+>  
+>  		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+> -			     prev.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT) ||
+> +			      (!nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+>  
+>  		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+> -			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT)));
+>  
+>  		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+>  			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+> @@ -74,6 +77,7 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>  
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
+>  
+>  		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+>  			     prev.daif == DAIF_MASK);
+> @@ -82,11 +86,13 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>  			     prev.daif == DAIF_ERRCTX);
+>  
+>  		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+> -			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((pnmi && prev.daif == DAIF_PROCCTX_NOIRQ) ||
+> +			      (nmi &&  prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT)));
+>  
+>  		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+>  			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> -			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+> +			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT) ||
+> +			      (!pnmi && !nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+>  	}
+>  
+>  	return __arm64_switch_exc_hwstate_to(prev, next);
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> index 9dc37a571094..178e915f43b9 100644
+> --- a/arch/arm64/include/asm/interrupts/masking.h
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -30,6 +30,7 @@ arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+>  
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
+>  
+>  		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
+>  			     actual.daif == DAIF_MASK);
+> @@ -38,14 +39,16 @@ arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+>  			     actual.daif == DAIF_ERRCTX);
+>  
+>  		WARN_ON_ONCE(new < NONMI_CONTEXT &&
+> -			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((pnmi && actual.daif == DAIF_PROCCTX_NOIRQ) ||
+> +			      (nmi &&  actual.daif == DAIF_PROCCTX_NOIRQ && actual.allint == ALLINT_ALLINT)));
+>  
+>  		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
+>  			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
+> -			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+> +			      (nmi && actual.daif == DAIF_PROCCTX_NOIRQ && actual.allint != ALLINT_ALLINT) ||
+> +			      (!pnmi && !nmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+>  	}
+>  
+> -	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
+> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr, actual.allint != state.allint);
+>  
+>  	if (!arch_irqs_disabled_flags(actual.flags))
+>  		trace_hardirqs_off();
+> @@ -60,7 +63,7 @@ static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
+>  	if (!arch_irqs_disabled_flags(states.saved.flags))
+>  		trace_hardirqs_on();
+>  
+> -	arm64_update_exc_hwstate(states.saved, true);
+> +	arm64_update_exc_hwstate(states.saved, true, true);
+>  }
+>  
+>  #ifdef CONFIG_DEBUG_IRQFLAGS
+> @@ -70,7 +73,7 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
+>  	if (context == PROCESS_CONTEXT)
+>  		trace_hardirqs_on();
+> -	arm64_update_exc_context(context, true);
+> +	arm64_update_exc_context(context, true, true);
+>  	__this_cpu_write(irqs_masks_cpu_init_done, true);
+>  	__this_cpu_write(irqs_masks_cpu_final_done, false);
+>  }
+> @@ -78,7 +81,7 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  static inline void local_all_irqs_final_mask(void)
+>  {
+>  	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
+> -	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true, true);
+>  	trace_hardirqs_off();
+>  	__this_cpu_write(irqs_masks_cpu_final_done, true);
+>  	__this_cpu_write(irqs_masks_cpu_init_done, false);
+> @@ -89,12 +92,12 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  {
+>  	if (context == PROCESS_CONTEXT)
+>  		trace_hardirqs_on();
+> -	arm64_update_exc_context(context, true);
+> +	arm64_update_exc_context(context, true, true);
+>  }
+>  
+>  static inline void local_all_irqs_final_mask(void)
+>  {
+> -	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true, true);
+>  	trace_hardirqs_off();
+>  }
+>  #endif /* CONFIG_DEBUG_IRQFLAGS */
+> @@ -130,7 +133,7 @@ static inline arm64_exc_hwstates_t local_all_irqs_force_daif_save(void)
+>  		states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
+>  		states.expected.pmr = GIC_PRIO_IRQON;
+>  
+> -		arm64_update_exc_hwstate(states.expected, true);
+> +		arm64_update_exc_hwstate(states.expected, true, false);
+>  	}
+>  
+>  	return states;
+> @@ -153,7 +156,7 @@ void local_all_irqs_force_daif_restore(arm64_exc_hwstates_t states)
+>  
+>  	if (system_uses_irq_prio_masking()) {
+>  		arm64_debug_exc_hwstate(states.expected);
+> -		arm64_update_exc_hwstate(states.saved, true);
+> +		arm64_update_exc_hwstate(states.saved, true, false);
+>  	}
+>  }
+>  
+> @@ -167,7 +170,7 @@ static inline void local_interrupt_priority_init(void)
+>  	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>  	lockdep_assert_irqs_disabled();
+>  
+> -	arm64_update_exc_context(NOIRQ_CONTEXT, true);
+> +	arm64_update_exc_context(NOIRQ_CONTEXT, true, true);
+>  }
+>  
+>  #endif /* __ASM_INTERRUPTS_MASKING_H */
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index 585d3ce15d80..b571d34bf11d 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -31,6 +31,7 @@
+>  typedef union arm64_exc_hwstate {
+>  	struct {
+>  		u16 daif;
+> +		u16 allint;
+>  		u8 pmr;
+>  	};
+>  	unsigned long flags;
+> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+> index cb3be770f2d0..39ea3fdeb03a 100644
+> --- a/arch/arm64/kernel/entry.S
+> +++ b/arch/arm64/kernel/entry.S
+> @@ -815,7 +815,7 @@ SYM_CODE_END(__bp_harden_el1_vectors)
+>   *
+>   */
+>  SYM_FUNC_START(cpu_switch_to)
+> -	save_and_disable_daif x11
+> +	save_and_disable_exceptions x11, x12
+>  	mov	x10, #THREAD_CPU_CONTEXT
+>  	add	x8, x0, x10
+>  	mov	x9, sp
+> @@ -839,7 +839,7 @@ SYM_FUNC_START(cpu_switch_to)
+>  	ptrauth_keys_install_kernel x1, x8, x9, x10
+>  	scs_save x0
+>  	scs_load_current
+> -	restore_irq x11
+> +	restore_exceptions x11
+>  	ret
+>  SYM_FUNC_END(cpu_switch_to)
+>  NOKPROBE(cpu_switch_to)
+> @@ -866,7 +866,7 @@ NOKPROBE(ret_from_fork)
+>   * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+>   */
+>  SYM_FUNC_START(call_on_irq_stack)
+> -	save_and_disable_daif x9
+> +	save_and_disable_exceptions x9, x10
+>  #ifdef CONFIG_SHADOW_CALL_STACK
+>  	get_current_task x16
+>  	scs_save x16
+> @@ -881,10 +881,10 @@ SYM_FUNC_START(call_on_irq_stack)
+>  
+>  	/* Move to the new stack and call the function there */
+>  	add	sp, x16, #IRQ_STACK_SIZE
+> -	restore_irq x9
+> +	restore_exceptions x9
+>  	blr	x1
+>  
+> -	save_and_disable_daif x9
+> +	save_and_disable_exceptions x9, x10
+>  	/*
+>  	 * Restore the SP from the FP, and restore the FP and LR from the frame
+>  	 * record.
+> @@ -892,7 +892,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	mov	sp, x29
+>  	ldp	x29, x30, [sp], #16
+>  	scs_load_current
+> -	restore_irq x9
+> +	restore_exceptions x9
+>  	ret
+>  SYM_FUNC_END(call_on_irq_stack)
+>  NOKPROBE(call_on_irq_stack)
 
 
