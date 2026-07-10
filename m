@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF29C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD663C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5wdSin+vp3AHo1kagh6xorR1bLSyQ86chFp/LPXx24=; b=0jZufAmd4VZ317xIDSmbQ3efdh
-	KmPpaxXOXPH/5mnpQSxP6Oho0Jb/cDfYNCFWclLfVxbQxwRoOC7G5SIPRk9JnqbRjAVDaulCNQaVt
-	XCQeJCv1/6XM7kgdi5MVQ2mzt4+yQb5uOqMq2b9WF+KOIyfcZixlQAFeMomyxRje3kMr67X9NMjXv
-	1mvBVRAWbc9kWf+JwF3fp0OlsiC9DjAMU+NzcbX2KrDK0pWzFl01opqg8JDPySQP3e4G09O3r+YdA
-	0iBQblr9R/aRtxpONtwNHC6NAoE9g3a8RojZvplqwktvl0IJc5QEbFpeq2gyXuTul6Ue4nIw+5bhu
-	v9Vf63EQ==;
+	bh=tjWnuC9QgiWHvSuM9zErwgPnubNLWbuXu8mN5WW6YCo=; b=1iN7jFUO2c/Y3NNAtz1LirdZ+Q
+	WsRXZHD3TwCHX76BYG53dDYdmPdEr8Unwl6u2D4kI2kbJWWmppdUGyHI2IVduQbPzpzayccQPtiPR
+	903UpxHl0ItCCShMKZJr94xeP+dsTm93Hw5iABQtZrEZy+MW+YZjJzSi8tI/erEneY285lGLPA7rR
+	UN1zucWbKI/plph03GExzt5FqHITEbCGdlFgXC2/yk6WC1kEZZLhyxm3uK+c1P+09o12udQrwxz1v
+	DCDtK7JBxzR2ffWE7kIQJeYeLHmrer72P4BtqzdFuiZw8QthD6FbrKXmZO7i2T4KAqAzkHHEPo6X6
+	ie6T3YmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCXc-000000057xt-2Muu;
-	Fri, 10 Jul 2026 14:49:24 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCXY-000000057xF-3iD5
+	id 1wiCex-000000058SP-3IMi;
+	Fri, 10 Jul 2026 14:56:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiCev-000000058RR-3Icn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 14:49:22 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 372F9200687;
-	Fri, 10 Jul 2026 16:49:16 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wiCXU-00162F-0R;
-	Fri, 10 Jul 2026 16:49:16 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wiCXU-00000000EZW-04xu;
-	Fri, 10 Jul 2026 16:49:16 +0200
-Message-ID: <6fd99dbdf7930a98d3dbbd44c0b39658c1d5efd4.camel@pengutronix.de>
-Subject: Re: [PATCH v2 04/10] reset: Add reset_controller_get_provider()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Sudeep Holla	
- <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>, Ulf
- Hansson	 <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Michael Turquette	 <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney	 <bmasney@redhat.com>, Bartosz Golaszewski
- <bartosz.golaszewski@oss.qualcomm.com>,  Vinod Koul <vkoul@kernel.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman	
- <khilman@baylibre.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>, Marek Vasut
- <marek.vasut+renesas@mailbox.org>, Kuninori Morimoto
- <kuninori.morimoto.gx@renesas.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-clk@vger.kernel.org, 	linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 10 Jul 2026 16:49:15 +0200
-In-Reply-To: <c415dc5f468e62cd0e2a6b9639abb92a82c01324.1783505329.git.geert+renesas@glider.be>
-References: <cover.1783505329.git.geert+renesas@glider.be>
-	 <c415dc5f468e62cd0e2a6b9639abb92a82c01324.1783505329.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 10 Jul 2026 14:56:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21D5E1E7D;
+	Fri, 10 Jul 2026 07:56:52 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.2.213.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AE473F7B4;
+	Fri, 10 Jul 2026 07:56:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783695416; bh=kWZ/q/+p3VrAnnSCKo1mZVef53IyupoK4tnQ+cyjDQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PmuI9JkU97IwkYAtcl75Uz7ASKcEhVqmMSImuRNbC900dXx8548yfKX3v5WovGGgC
+	 E/w6F2D3quuCi+/J+zttBFKVERBkdkznkOf6G0NfkJ9XYZZ5G7enWc3ZHaM0iucmYK
+	 2nQXCAVw04K4fphEB9M2WQSNTw1DDDHrHp3ejydA=
+Date: Fri, 10 Jul 2026 15:56:52 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 14/28] arm64: sysreg: Add HCRX_EL2 bits related to
+ FEAT_NV3
+Message-ID: <20260710145652.GD12293@e124191.cambridge.arm.com>
+References: <20260702160248.1377250-1-maz@kernel.org>
+ <20260702160248.1377250-15-maz@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702160248.1377250-15-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_074921_105233_63703D4D 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260710_075657_896852_6A95B34C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +72,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-07-08 at 12:16 +0200, Geert Uytterhoeven wrote:
-> The reset subsystem differs from the clock subsystem in multiple ways:
->   1. It does not provide a public way to lookup resets from a reset
->      provider (clock has of_clk_get_from_provider()),
->   2. The xlate callback does not return a reset object, but merely an
->      index, which is converted to a reset object by the reset core.
->=20
-> Hence add a public helper reset_controller_get_provider(), which just
-> returns the provider, and will be used by the R-Car X5H Module
-> Controller driver.
->=20
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+On Thu, Jul 02, 2026 at 05:02:34PM +0100, Marc Zyngier wrote:
+> FEAT_NV3 introduces 4 new HCRX_EL2 control bits. Describe them
+> in the sysreg file.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Please don't. Only the owning reset controller driver and the reset
-core should interact with struct reset_controller_dev internals.
+Checked against the spec.
 
-I'd be very uncomfortable with a driver reaching directly into another
-drivers reset_control_ops, bypassing the core entirely.
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-I think it would be better to let reset-scmi export a specialized
-scmi_reset_assert/deassert/reset(id) API, and add a possibility to
-suppress registering the reset-scmi reset controller, so that there
-aren't two conflicting paths into scmi_reset_proto_ops.
-
-If you want to stack two reset controllers, the upper one should go
-through the proper channels: request exclusive reset controls and use
-them via the reset_control_*() APIs from the ops.
-
-
-regards
-Philipp
+> ---
+>  arch/arm64/tools/sysreg | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 31e4ea455a9ce..afe9337851a2e 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -4548,7 +4548,12 @@ Fields	ZCR_ELx
+>  EndSysreg
+>  
+>  Sysreg	HCRX_EL2	3	4	1	2	2
+> -Res0	63:27
+> +Res0	63:35
+> +Field	34	NVnTTLBOS
+> +Field	33	NVnTTLBIS
+> +Field	32	NVnTTLB
+> +Res0	31:28
+> +Field	27	NVTGE
+>  Field	26	SRMASKEn
+>  Res0	25
+>  Field	24	PACMEn
+> -- 
+> 2.47.3
+> 
 
