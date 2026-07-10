@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 05:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D944C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 05:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FKz6zL2lYGruFgrXSmVh8CpNcaMm/DKeCPXfcKM2u4=; b=j/rnXnFYQPSfjZmDBN/hRdPY8/
-	Xm6AdHR/r87EZ3CcvUdOJXi4o8C2sSEfe7HMWo5NZ1Aw9fem4m0UDH+f2K0tdk20j/W2Yihb9hxKG
-	pnmn/buxUE+Xz9cTWktr/6YTURqHTJk2ra7FnnooDIc4HEc2Q8gNT96H1MaaSC8nYdMNGPGSgSVzI
-	5m9WGo+aIzoSbnGKBeNZVPm+9x1nodxrNPhmd58rbyceLXM7wFeJmDP/Avkt926meXtP2zUYZvE75
-	H6mRwlVLLIZJwRrnl/4F1vHauTEbLs/YSByfvlwmoyxvWFFIN5DjvD7u4QIiVMAzjxeVo6slQJ6gy
-	4AFFDLvw==;
+	bh=glNXCWo3feUPJNoiqEbeBkuoiMlb+JtOjIAbpp+cCDQ=; b=Tydd2KbTlAXwiirOlwnkPMFK2H
+	yR82IKglA2UnksP2k+R9lG6EKdgTuJb0v9qsja4QLaaz1pa31pbfa06ap7wqbRFrN2/pjqXlg9uNL
+	iucBcqTvSEj1MAwlmhrt0AnJaiRiBaKW4keUEzv3+Nm2J8reFCgEyGjlsR6diGX8T1+fUMF4xHH23
+	ztuNatgVUCjijhMb37eukdP8gkCd+XN3w8rKqmDtDHJE3oxN671Lrq9vt4Q5NMO2rKEGvCCd9YzQI
+	7iPBmQ3hNLkFGZj3dW8PGyln8In+WLarxBWuwSF69ff/l/yCrrWncSBdca0JIjL/o+bSvjN5sHSX5
+	Y9kqVOkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi3Qb-000000047mj-1cPk;
-	Fri, 10 Jul 2026 05:05:33 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wi3Ql-000000047qr-2K6d;
+	Fri, 10 Jul 2026 05:05:43 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi3QY-000000047lw-2OML
+	id 1wi3Qi-000000047pW-14xC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 05:05:31 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8484f229529so345691b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 22:05:30 -0700 (PDT)
+	Fri, 10 Jul 2026 05:05:42 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84862b0d5aeso466436b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 22:05:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783659930; x=1784264730; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783659939; x=1784264739; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8FKz6zL2lYGruFgrXSmVh8CpNcaMm/DKeCPXfcKM2u4=;
-        b=cZAnfJtNkd2giWgKZjMZ0yTuVGAnUST+8WhVs2ZFs7ft9ZQJXKmjYd7RJKhaou7akK
-         PyrF9wLRsRSQZHw6YXmSJALQc4ebWJQzDAROVhMRJ2xIMtNbfpY5H6QoP4IVU/uQtFvU
-         XfPoF/sDnU2yetolDCae7M0zZxwSplv60M8DqxgPTJhwk2Y/pg/AOqZ83a1icxqYz+cm
-         42XBjjBEJUtX8fRgB1cksjawM5DUrRDzL1ANzWbEAesFcQYugrwsh7iSvUBOru/V2hV6
-         Oj6ZcbgsniDQswD/Y6Fph6XNALfNFLEl9ZeIzYqGqV0efEDRXpjI82kv9P80V+6NvQpd
-         tdug==
+        bh=glNXCWo3feUPJNoiqEbeBkuoiMlb+JtOjIAbpp+cCDQ=;
+        b=kQEM42ipcLjELKH5QoMpZi53EXYRVzSaJoW63ubMUo1RAuSHGsrdTlgp1IlTTwpyj5
+         TdDCVtwveKj3ScG9on4TM6FdBCe8mhklNymNgCfHAQ4yvt/aXmcRzYrN0njiiZGXQATa
+         e+qo7e9ppsBrZ4K+GQPpcky0r5oVcS8VvOLG/fCM1S7LWsymJR/MinULbfDx2OOsI8Sv
+         aODzcjXCuCRbh4A20QOOSwnpWoN+sSZ5R5o41rePptNiDwVtuGL2teCwzivpyu6hxExK
+         nRRImXPrCURdilv0YDaHAFocBN2bw3RMDLn28ZwBk/lOqsb2hhP1mSVdOY+lyUkZvJKO
+         Kw0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783659930; x=1784264730;
+        d=1e100.net; s=20251104; t=1783659939; x=1784264739;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8FKz6zL2lYGruFgrXSmVh8CpNcaMm/DKeCPXfcKM2u4=;
-        b=i/jQlN9CNr2FeQoV13BxYeRsRtdLZmiEMD/MRsmCv6byojV0sDtpMl23pscoP+/UAu
-         va2LNKsvtXyVWkwDa7fWf+ZGosf0auvwD8VdGg+vJWPji9UI6dh/loQ7C4xpVvxAI1Xl
-         mtPw9KueQe12U6XidmqJ8s/9Ewn+AHg7uDEisxvnreoiSh+mHCOdCt9UF0pUJUSzt/zY
-         McsMZd82K9sFMI+qSLAaJFiD+ITUyMQiEp/ddSF0he9cfj/wkUfbnSZiZKycZIyOIIqF
-         DrQ7b2+/cejC88vhNEvNFGWN50BZJPwmLPPQ88TfTBTU3d/0yy+teD54GHbHFt/yNQVM
-         /2CA==
-X-Forwarded-Encrypted: i=1; AHgh+RrPsjhQ5B70DZvsCQVOPsX71qpbOXM22yYIYgE2DuA4mqBRV278Iwrd5yKCyR3UN4Yslxw2JvHtunQp6h7Y45R+@lists.infradead.org
-X-Gm-Message-State: AOJu0YycPr4Ge16MuLHRgrWlVWWs22D63WjyNw/7O1J3dsdTdU1G/0Ya
-	ZmK8ZLWpOu69O8zjnE4H6L20HoVXkpQA2eYefT5gXMy/kugsr51msl57
-X-Gm-Gg: AfdE7ck2zY4BSDHz+IHquMVEATvp39kjMdjld/T4dMIN/w/KB440rDpAtElFCUz3jX4
-	u5hjxBnfWvdkg1z3m1lCYli6UioC3jLHnyc4xWwZAP75rwXzRUj6po/3E+SuMGqBfcny67n8/TZ
-	A6+jBoJq9nk2q60dxna+db1gEcSJRFed+GQU+TSbsmiXuDXpnmgQu0jOu4V/tkdgqJrpswdcmXR
-	AWHgCRRvlcB6qzXz3JWFVvMNm6CuW+jh26/Md82yDv3A+fs5yCMxn0d2ng0iPepD/MztP2nI4hN
-	v4AW/R7QeL7wfhzzwgIQ2uf9dyh+y9mdd0We2Pf4xb3U1edvYyJsgqICerrOZ1oLRLfwiKzdl1/
-	rsXqTFPVWvxoXq0ODY4fTEPA//oXiPjrx3Si6tAfykCpKjGnT8z6o4MJetxRFN1vy8rQ5IAAzqO
-	EGnGJG5ij8M5MZNlaMLHomxgxaXeqUi77h5CiIeV2PnLb64cmR1rd+FXLRiA==
-X-Received: by 2002:a05:6a00:400d:b0:848:6447:e09c with SMTP id d2e1a72fcca58-8486447e365mr3946827b3a.39.1783659929668;
-        Thu, 09 Jul 2026 22:05:29 -0700 (PDT)
+        bh=glNXCWo3feUPJNoiqEbeBkuoiMlb+JtOjIAbpp+cCDQ=;
+        b=AosMVIbnhGKb4z1U3tSvap+VDlwOQfWvWKC+Pcg/NSSSgtLHjq8I0MrU+gEVGQmNzG
+         yhAOoIm7GOxaie0LzElEMp2w1Mlv3DIYV/nrKI/wmQNpRoWtxddfwJH4v5tZsUPy5H14
+         jtRzvVtil2cKt62kVhT8j3vGCe0xaGQn3Q13AfhyLHL6CdLYunoXOirpHrbrwpLatTx5
+         rUk9FNoMIBSzBfZ7Dj2QjDANom63l/hFhzO6QOkF5PJWOnWuzsH/Az/FuMjPCBWNVYpJ
+         Bxyv1tKcGgC9spPQrYsyI6ac7tCxst6lO0DeUk5hPbSCV7SNBkubQygIJx6taL0l4cdk
+         MEXg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq940GSSVzZ2MRBPe9/ty5KH8UahRtwvHTVue2GG3dPSPBvr8rbpguWsIC8y59tie3FTrrI0XtcRZoQdL3Ae7oO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY5tpylyvh6LAHnlD+VDPv8WWpmWLewvGhJ+PoBwP9OMA0y3lF
+	LQygWVX9kGxRTKUsS+FtHX9UzBZ2GiZxVqwBMpBY+2jtEoFU80PqzfpF
+X-Gm-Gg: AfdE7cky/gvQQNiaaFLOTSwYS8W52uwQC9UZ4YtV6Q+3EcKSLYqQbrGbbCbI7AfBR/6
+	AlwLiP8+kBApSUe4+sneFQmE9+nESRMbfcbSAn9apJFauaLRba7om/E/2yf5HJrpUCIe3VbEmh2
+	bk136hZLzLe69FsV15fXIiG1vKp/GOrAgF5f0XlCT5RDmfKFxTuSEihEzpUPif4ri6Ri36h8bcw
+	TK/Pw7bZKeuPTp8CtlTMe1wTgtGDQuXwT0HYz5YNX+wLGSovOlbsUrcHSFJFYEKp4sAt+D1iJMR
+	9Z+sWs5KOnELy2FNoyVpYnNnIdOjl0sXEJuOPMemM9nBjXUfuK145gDAyEV1s3R+65YO5x+CElO
+	tV+HOR2C79LkEDxXtj1gWPHlL3yJEoxU2N3/YvWXXConT3PsaaAoWtzol4H7k4YZ7iMnBGC98wg
+	f8aq685j7njrv0EkRi9lEGoT6LHdyYCTwGhNeIRRPIC6rDwovXTEVbNLIjLA==
+X-Received: by 2002:a05:6a00:2d9d:b0:848:67ca:bfd with SMTP id d2e1a72fcca58-84867ca1b16mr4077056b3a.16.1783659939223;
+        Thu, 09 Jul 2026 22:05:39 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84847275fa0sm3400499b3a.22.2026.07.09.22.05.21
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84847275fa0sm3400499b3a.22.2026.07.09.22.05.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jul 2026 22:05:29 -0700 (PDT)
+        Thu, 09 Jul 2026 22:05:38 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Takashi Iwai <tiwai@suse.com>,
@@ -103,17 +103,18 @@ Cc: Support Opensource <support.opensource@diasemi.com>,
 	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v3 03/27] ASoC: codecs: es8316: Use guard() for mutex locks
-Date: Fri, 10 Jul 2026 12:04:47 +0700
-Message-ID: <20260710050511.14439-1-phucduc.bui@gmail.com>
+Subject: [PATCH v3 04/27] ASoC: codecs: es8326: Use guard() for mutex locks
+Date: Fri, 10 Jul 2026 12:04:48 +0700
+Message-ID: <20260710050511.14439-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260709045902.498848-1-phucduc.bui@gmail.com>
+In-Reply-To: <20260710050511.14439-1-phucduc.bui@gmail.com>
 References: <20260709045902.498848-1-phucduc.bui@gmail.com>
+ <20260710050511.14439-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_220530_615367_44F96EDC 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260709_220540_297376_DB94252D 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,94 +136,118 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/es8316.c | 31 +++++++++++++------------------
- 1 file changed, 13 insertions(+), 18 deletions(-)
+ sound/soc/codecs/es8326.c | 30 +++++++++++++-----------------
+ 1 file changed, 13 insertions(+), 17 deletions(-)
 
-diff --git a/sound/soc/codecs/es8316.c b/sound/soc/codecs/es8316.c
-index 3abe77423f29..87f331868dc7 100644
---- a/sound/soc/codecs/es8316.c
-+++ b/sound/soc/codecs/es8316.c
-@@ -9,6 +9,7 @@
+diff --git a/sound/soc/codecs/es8326.c b/sound/soc/codecs/es8326.c
+index a79b2da35099..c5460589a88b 100644
+--- a/sound/soc/codecs/es8326.c
++++ b/sound/soc/codecs/es8326.c
+@@ -6,6 +6,7 @@
+ // Authors: David Yang <yangxiaohua@everest-semi.com>
+ //
  
- #include <linux/module.h>
- #include <linux/acpi.h>
 +#include <linux/cleanup.h>
  #include <linux/clk.h>
- #include <linux/delay.h>
  #include <linux/i2c.h>
-@@ -620,15 +621,15 @@ static irqreturn_t es8316_irq(int irq, void *data)
- 	struct snd_soc_component *comp = es8316->component;
- 	unsigned int flags;
+ #include <linux/interrupt.h>
+@@ -790,7 +791,7 @@ static void es8326_jack_button_handler(struct work_struct *work)
+ 	if (!(es8326->jack->status & SND_JACK_HEADSET)) /* Jack unplugged */
+ 		return;
  
--	mutex_lock(&es8316->lock);
-+	guard(mutex)(&es8316->lock);
+-	mutex_lock(&es8326->lock);
++	guard(mutex)(&es8326->lock);
+ 	iface = snd_soc_component_read(comp, ES8326_HPDET_STA);
+ 	switch (iface) {
+ 	case 0x93:
+@@ -845,7 +846,6 @@ static void es8326_jack_button_handler(struct work_struct *work)
+ 		}
+ 		es8326_disable_micbias(es8326->component);
+ 	}
+-	mutex_unlock(&es8326->lock);
+ }
  
- 	regmap_read(es8316->regmap, ES8316_GPIO_FLAG, &flags);
- 	if (flags == 0x00)
--		goto out; /* Powered-down / reset */
-+		return IRQ_HANDLED; /* Powered-down / reset */
+ static void es8326_jack_detect_handler(struct work_struct *work)
+@@ -855,7 +855,7 @@ static void es8326_jack_detect_handler(struct work_struct *work)
+ 	struct snd_soc_component *comp = es8326->component;
+ 	unsigned int iface;
  
- 	/* Catch spurious IRQ before set_jack is called */
- 	if (!es8316->jack)
--		goto out;
-+		return IRQ_HANDLED;
+-	mutex_lock(&es8326->lock);
++	guard(mutex)(&es8326->lock);
+ 	iface = snd_soc_component_read(comp, ES8326_HPDET_STA);
+ 	dev_dbg(comp->dev, "gpio flag %#04x", iface);
  
- 	if (es8316->jd_inverted)
- 		flags ^= ES8316_GPIO_FLAG_HP_NOT_INSERTED;
-@@ -681,8 +682,6 @@ static irqreturn_t es8316_irq(int irq, void *data)
+@@ -873,7 +873,7 @@ static void es8326_jack_detect_handler(struct work_struct *work)
+ 		regmap_update_bits(es8326->regmap, ES8326_HPDET_TYPE,
+ 					ES8326_HP_DET_JACK_POL, (es8326->jd_inverted ?
+ 					~es8326->jack_pol : es8326->jack_pol));
+-		goto exit;
++		return;
+ 	}
+ 
+ 	if ((iface & ES8326_HPINSERT_FLAG) == 0) {
+@@ -930,7 +930,7 @@ static void es8326_jack_detect_handler(struct work_struct *work)
+ 			queue_delayed_work(system_dfl_wq, &es8326->jack_detect_work,
+ 					msecs_to_jiffies(400));
+ 			es8326->hp = 1;
+-			goto exit;
++			return;
+ 		}
+ 		if (es8326->jack->status & SND_JACK_HEADSET) {
+ 			/* detect button */
+@@ -939,7 +939,7 @@ static void es8326_jack_detect_handler(struct work_struct *work)
+ 					(ES8326_INT_SRC_PIN9 | ES8326_INT_SRC_BUTTON));
+ 			es8326_enable_micbias(es8326->component);
+ 			queue_delayed_work(system_dfl_wq, &es8326->button_press_work, 10);
+-			goto exit;
++			return;
+ 		}
+ 		if ((iface & ES8326_HPBUTTON_FLAG) == 0x01) {
+ 			dev_dbg(comp->dev, "Headphone detected\n");
+@@ -958,8 +958,6 @@ static void es8326_jack_detect_handler(struct work_struct *work)
+ 			usleep_range(10000, 15000);
  		}
  	}
- 
--out:
--	mutex_unlock(&es8316->lock);
- 	return IRQ_HANDLED;
+-exit:
+-	mutex_unlock(&es8326->lock);
  }
  
-@@ -699,18 +698,16 @@ static void es8316_enable_jack_detect(struct snd_soc_component *component,
- 	es8316->jd_inverted = device_property_read_bool(component->dev,
- 							"everest,jack-detect-inverted");
+ static irqreturn_t es8326_irq(int irq, void *dev_id)
+@@ -1200,13 +1198,12 @@ static void es8326_enable_jack_detect(struct snd_soc_component *component,
+ {
+ 	struct es8326_priv *es8326 = snd_soc_component_get_drvdata(component);
  
--	mutex_lock(&es8316->lock);
-+	scoped_guard(mutex, &es8316->lock) {
-+		es8316->jack = jack;
- 
--	es8316->jack = jack;
+-	mutex_lock(&es8326->lock);
+-	if (es8326->jd_inverted)
+-		snd_soc_component_update_bits(component, ES8326_HPDET_TYPE,
+-					      ES8326_HP_DET_JACK_POL, ~es8326->jack_pol);
+-	es8326->jack = jack;
 -
--	if (es8316->jack->status & SND_JACK_MICROPHONE)
--		es8316_enable_micbias_for_mic_gnd_short_detect(component);
--
--	snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
--				      ES8316_GPIO_ENABLE_INTERRUPT,
--				      ES8316_GPIO_ENABLE_INTERRUPT);
-+		if (es8316->jack->status & SND_JACK_MICROPHONE)
-+			es8316_enable_micbias_for_mic_gnd_short_detect(component);
- 
--	mutex_unlock(&es8316->lock);
-+		snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
-+					      ES8316_GPIO_ENABLE_INTERRUPT,
-+					      ES8316_GPIO_ENABLE_INTERRUPT);
+-	mutex_unlock(&es8326->lock);
++	scoped_guard(mutex, &es8326->lock) {
++		if (es8326->jd_inverted)
++			snd_soc_component_update_bits(component, ES8326_HPDET_TYPE,
++						      ES8326_HP_DET_JACK_POL, ~es8326->jack_pol);
++		es8326->jack = jack;
 +	}
- 
- 	/* Enable irq and sync initial jack state */
- 	enable_irq(es8316->irq);
-@@ -726,7 +723,7 @@ static void es8316_disable_jack_detect(struct snd_soc_component *component)
- 
- 	disable_irq(es8316->irq);
- 
--	mutex_lock(&es8316->lock);
-+	guard(mutex)(&es8316->lock);
- 
- 	snd_soc_component_update_bits(component, ES8316_GPIO_DEBOUNCE,
- 				      ES8316_GPIO_ENABLE_INTERRUPT, 0);
-@@ -737,8 +734,6 @@ static void es8316_disable_jack_detect(struct snd_soc_component *component)
- 	}
- 
- 	es8316->jack = NULL;
--
--	mutex_unlock(&es8316->lock);
+ 	es8326_irq(es8326->irq, es8326);
  }
  
- static int es8316_set_jack(struct snd_soc_component *component,
+@@ -1219,13 +1216,12 @@ static void es8326_disable_jack_detect(struct snd_soc_component *component)
+ 		return; /* Already disabled (or never enabled) */
+ 	cancel_delayed_work_sync(&es8326->jack_detect_work);
+ 
+-	mutex_lock(&es8326->lock);
++	guard(mutex)(&es8326->lock);
+ 	if (es8326->jack->status & SND_JACK_MICROPHONE) {
+ 		es8326_disable_micbias(component);
+ 		snd_soc_jack_report(es8326->jack, 0, SND_JACK_HEADSET);
+ 	}
+ 	es8326->jack = NULL;
+-	mutex_unlock(&es8326->lock);
+ }
+ 
+ static int es8326_set_jack(struct snd_soc_component *component,
 -- 
 2.43.0
 
