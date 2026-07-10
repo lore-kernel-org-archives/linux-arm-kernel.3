@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C556C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E1FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ar+E9TphXLfCc54JgPtzwmObuwnsgnd4eZLoC7Tbt0I=; b=C51wrpJHvMyPrpk35JXd0cjks6
-	YdIX2R++Jb8ipwIyfoXpSeq6+EDfI0FaAB9YRxtFxu+GxPgpFD7PrGR/Id20z7DPaA6DdSP9QTCFQ
-	Ki3UWE6vGOre85XwGPKAH0NYaRcnrP4WGapQ2phDFpAHQpM6LZzaVV4FgtXxvEviHGAKTqy/ofDxB
-	uMRc2YOwWrmmvSWU7ews45CbtHfXiReH0MIZBuSEf1S8JmzT7WzNLWd8QSnAF4Obfb0CRozNKa87e
-	/HWEfjj76/RsyL1GjjutNC/GJpG4SXTkJf9C23ccNsqgVo5836nniWNHwaTQJOHz9V/TgiSSW6b/J
-	H5l2ZRNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dkENy/GMce78v/A2wAntulUVAMWZnU5hDBTkr1EY9bw=; b=XZ8rT7f3zrGaafeoCJMfqFgQ2t
+	bCct6H64dFfqNKH/jh+qgV7T3wBcClYPmve0KFUvcH5o+GBJPZ6voBS1UxSmnUYq1sbWk9tGOnkIa
+	NRgPA+avqsKEzlgCk4c+AD5S8a9bUpqoNbAr9YROuOkj7xRieI222ugAsUtnFKvF2a4/8pnW5Jwp6
+	NHs80A62RK0SieaMoNzmCF+WRYv2dqZ6pVKd9uTWMFNN0/7sBd+LS329BcEhWlcutUg7kdiqsKyY/
+	8y1tq8+THoXPePxHkrvCSxWtQ5A02hGMpFygk+fL+QmeKeqrMTDDyQ+FWjw/RWPshpAx030KHVSET
+	pSntPG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8RN-00000004hZw-1Rhq;
-	Fri, 10 Jul 2026 10:26:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8RK-00000004hZK-2w6J
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:26:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3224C1D15;
-	Fri, 10 Jul 2026 03:26:33 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1B2A3F66F;
-	Fri, 10 Jul 2026 03:26:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783679197; bh=Y2Q0Wnp+woBWIJ3LMki04DMU5S2ZDmbmlghNOolDQGw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f5JBwnvkMbfBzfJGuvFh8C1CFlY1Uf9qXvwM+YjG5+xhOFF/mJ+sAQjCNdC5ajd4n
-	 oxbOeTDhE7HkAhwCJ7kazZBMSTyEmhtrIdsP7QN81SJ1RVAWhtB5+o4cfYMYh8RgbH
-	 m31spkmTMgkXf5OVddLVf3wA3SKDV7hTUkI/dIKc=
-Date: Fri, 10 Jul 2026 11:26:29 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>, pbonzini@redhat.com,
-	kvm@vger.kernel.org, david.hildenbrand@arm.com, maz@kernel.org,
-	oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	fuad.tabba@linux.dev
-Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
- memslots
-Message-ID: <alDI1b8fC99SG4_a@J2N7QTR9R3>
-References: <20260702142912.6395-1-alexandru.elisei@arm.com>
- <akxOrMnlNga-vtQv@google.com>
- <ak0wSQ1133O7B96D@raptor>
- <ak0ziUcCXUlDdcla@google.com>
- <ak-EKSslAz1uqEtv@J2N7QTR9R3>
- <ak_wC4Q-mQe14DI8@google.com>
+	id 1wi8SN-00000004hmA-2WrR;
+	Fri, 10 Jul 2026 10:27:43 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi8SL-00000004hlG-1LOY;
+	Fri, 10 Jul 2026 10:27:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783679258;
+	bh=yHLjnBOoquQdk7CsdztGeS/V0NeOl8IEGM3tNRxcDqk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=OQeZeNX7EO1dO7EHtdrUvhPks02OtJmkZUbn1ZIIOC3CpUO2Hm7UcxZGMzJm1Z+WW
+	 tzYKcd4wd2JRsk7lFkCKgO3reyqnfooKtxUHsfc/MSlNV0GUMNIPnioyGPULstMTpP
+	 j5sJd6u7AUWzK2LGazh26A9jc8Uw8l9TVCoyfAuQbZdqUQzPJnZ/VN14h53sxmGLOd
+	 9KekxC60m5IHzceN6jsvD0bHDQB6ompGLW4DpsmrjuYnJXYRhkrD0FyYnOVQBqHJol
+	 HZYGsMhVZwbS3wgXyiwVr2LQjE2n/8u79nJTBEZaF+9zSnwTn/GqxaMv3W4xtoBuj/
+	 jPiUGAW4hgOqQ==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E1CE117E019E;
+	Fri, 10 Jul 2026 12:27:37 +0200 (CEST)
+Message-ID: <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
+Date: Fri, 10 Jul 2026 13:27:37 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ak_wC4Q-mQe14DI8@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+ <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+ <20260707-illegal-tuna-of-force-1c06e3@houat>
+ <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+Content-Language: en-US
+In-Reply-To: <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_032638_832712_FA70D933 
-X-CRM114-Status: GOOD (  41.45  )
+X-CRM114-CacheID: sfid-20260710_032741_560180_3AE685E9 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +94,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
-
-On Thu, Jul 09, 2026 at 12:01:31PM -0700, Sean Christopherson wrote:
-> On Thu, Jul 09, 2026, Mark Rutland wrote:
-> The key thing for SPE is that any pages that the SPE HW is using must
-> > have a valid writeable end-to-end (VA to real PA) mapping at all times
-> > while the guest is running (and while the host drains buffers). If that
-> > requirement is violated, even transiently, then data is lost and the
-> > guest will see an unexpected fault reported by SPE.
+On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
+> Hi Maxime,
 > 
-> Well, at least it doesn't crash the host :-D
-
-Indeed! :)
-
-> > If there's any reason we might (transiently) unmap a leaf entry (or
-> > entire sub-tree) from the stage-2 tables, or might (transiently) remove
-> > write permission, then we can't guarantee SPE will work correctly from
-> > the guest's PoV.
-> > 
-> > Obviously we can't guarantee that for regular memslots backed by
-> > userspace memory, hence we were hoping we could rely on guest_memfd.
-> > 
-> > Am I right to understand that we expect (in future) to do things with
-> > guest_memfd that could violate that? If so (and if we're not happy to
-> > have some options to say "always keep this pinned end-to-end no matter
-> > what"), 
+> On 7/7/26 7:10 PM, Maxime Ripard wrote:
+>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+>>> Hi Dmitry,
+>>>
+>>> Thanks for your quick review!
+>>>
+>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>>>>> helper.
+>>>>>
+>>>>> The existing drmm_connector_hdmi_init() helper currently takes
+>>>>> individual capability arguments such as supported_formats and max_bpc.
+>>>>> Adding more HDMI-specific arguments to that function would not scale
+>>>>> well, so move those values into a dedicated capabilities structure and
+>>>>> implement the existing helper as a wrapper around the new caps-based
+>>>>> interface.
+>>>>
+>>>> I think, it was an intention of Maxime: make sure that every driver is
+>>>> forced to provide some values here. With the struct-based init it is
+>>>> easy to overlook or to ommit a value.
+>>>
+>>> Agreed that the struct-based init loses the compile-time guarantee that every
+>>> argument is explicitly provided - that's a real downside.  
+>>>
+>>> I'd argue it's recoverable, though: the init helper validates the mandatory
+>>> fields, so a driver that omits a required value gets rejected at init time
+>>> rather than silently misconfigured.  The "you must provide sane values" property
+>>> is expected to be preserved, just enforced at runtime instead of by the
+>>> compiler. 
+>>
+>> Yeah, I don't think we can win with C here. Rust might, but we're
+>> probably a long way from that.
+>>
+>>> The main motivation for the struct is scalability/maintainability as we add HDMI
+>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
+>>> argument list, so existing callers don't need churny signature updates on every
+>>> extension.
+>>>
+>>> FWIW, in the previous revision we discussed addressing the concern with a
+>>> callback instead.  Sadly, I had to discard that approach, as it proved not
+>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+>>> would have required either stateful callbacks, or storing redundant/temporary
+>>> cap data in driver-private structures just to satisfy the callback.
+>>
+>> I just realized something reviewing your patch: we don't necessarily
+>> need an extra argument or a callback, we can just put these fields into
+>> drm_hdmi_connector_funcs directly, and then validate them in init.
 > 
-> Yes?  Page migration is the main one that I think will be problematic for arm64,
-> *unless* CPUs that support SPE don't require break-before-make (no idea if there
-> are even plans to ever drop the BBM rules).  Because with page migration, unless
-> KVM temporarily jails all vCPUs in the host while swizzling stage-2 PTEs, there
-> will be a small window of time where the memory isn't mapped.
-
-At a high level, if page migration (or any other changes to live stage-2
-table entries) will be a thing for guest_memfd, then us Arm folk have to
-go and work through the implications of that.
-
-For contemporary HW with SPE, break-before-make will be required in at
-least some cases. So unless we have some way to suppress migration, then
-SPE virtualization on contemporary hardware is largely dead.
-
-Going forwards, I believe that the intent is that future CPUs will
-require BBM in fewer cases, but I suspect it won't disapear entirely.
-
-> I mention page migration because I expect swap/reclaim to be fully userspace
-> driven, i.e. if userspace crashes/corrupts the guest, the answer will be "well
-> don't do that". 
-
-Ah. I had assumed that if we'd consider kernel-driver migration of
-guest_memfd memory, we'd also consider kernel-driven swapping of
-guest_memfd memory.
-
-I'm happy in principle with userspace being responsible for avoiding
-anything problematic that is userspace-driven.
-
-> But (at least some forms of) page migration will likely be
-> kernel-driven, e.g. to compact movable memory for THP.  And I really don't want
-> to give arch code the ability to hard-pin specific ranges of memory.
+> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
+> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
 > 
-> That said, odds are good that we'll end up with per-gmem flags to communicate to
-> guest_memfd whether or not the gmem instance supports page migration (x86's TDX
-> and SNP in particular require extra consideration).  So if the anticipated use
-> cases are fine with all-or-nothing "pinning", or with juggling guest_memfd files
-> in userspace if a more dynamic setup is desired, then you should be ok?
->
-> E.g. if the anticipated use cases are all slice-of-hardware style setups where
-> the VM will be statically assigned a chunk of memory, then for the most part this
-> will all Just Work.
+> In that case, how should we proceed with drmm_connector_hdmi_init()? 
 
-Yeah. I agree (with the caveats you mention). Arm folk need to go figure
-out if it's worthwhile to support with all those caveats.
+Actually, this brings us to the callback issue: we cannot compute caps
+dynamically, as it only works with static data, since funcs is supposed to be
+immutable.
 
-> > then I think that means that in practice we cannot virtualize
-> > SPE correctly, and Alexandru and I need to go back to our architects.
-> > 
-> > > And at some point guest_memfd may support userspace-driven swap, but I
-> > > suppose we can cross that bridge when we come to it.
-> > 
-> > Unfortunately, I think we need to figure out now whether it would be
-> > acceptable to suppress that (or making it mutually exclusive with SPE),
-> > if only to decide whether or not we continue trying to virtualize SPE.
+Moreover, we would end up with some redundancy, as most of these input fields,
+after validation, would be stored (altered or not) directly in
+drm_connector/drm_connector_hdmi structs.
+
+Hence, I think we are still better off sticking with
+drmm_connector_hdmi_init_with_caps() for now.
+
+> I see the
+> following options:
 > 
-> Eh, as above, if userspace pulls a stupid and kills the guest, that's their
-> problem.  Just make sure the host isn't at risk :-)
-
-:)
-
-FWIW, I agree from the host kernel side!
-
-My concern is that if userspace VMM folk don't want to enforce that (or
-want to but find it hard to handle correctly), then practically speaking
-we're back to "SPE doesn't work", and from the guest kernel side there's
-nothing we can do. As one of the SPE driver maintainers, I don't want to
-be in a position where folk will shout at me because some VMM made a
-mistake, and where I can't do anything to remedy the situation.
-
-Hence, even if it's userspace's responsibility, we *might* want some way
-for userspace to tell the kernel "please don't let me mess up this
-specific requirement".
-
-Thanks,
-Mark.
+> 1. Continue with drmm_connector_hdmi_init_with_caps() after removing the caps
+>    parameter, and then drop drmm_connector_hdmi_init() after the migration.
+> 
+> 2. Keep the existing (unaltered) drmm_connector_hdmi_init(), which would be
+>    slightly inconsistent: supported_formats and max_bpc would still be passed 
+>    as arguments, while the rest would go through drm_hdmi_connector_funcs.
+> 
+> 3. A variation of option 1: additionally rename
+>    drmm_connector_hdmi_init_with_caps() to drmm_connector_hdmi_init() after the
+>    migration.
+> 
+> Thanks,
+> Cristian
 
