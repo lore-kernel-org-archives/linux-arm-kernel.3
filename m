@@ -4,110 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD4BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC814C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ne9mmmnso31HUDrewqJxkxCVMCk7imP2313orFRMFIk=; b=zUjWMEag5kYuEI1tndajhEgx6V
-	72NA/vXRtBnRlyzWdrogXPKtoRGeuSv+Uqk2rlkvuOqYrZSTV2C9D/XI3JccJKrt0TNMw0jc8Rig6
-	8QPfEZYDdNZ4wiDA0SUBLChuIbUrUtLkumvl3jidNXjNKz55ZZ4I3ugm01+5hNIuy48EyfpFrZdpg
-	Kuz2ttS61/h0siRiBiZslsMNil1w63Zm2abT0DnpLYmAdd5z4O0Oil2YarmcoMzm/Y2spqM26GaCC
-	rzryeaDlsRycRkSQ9kxYKzJXLw7Z/x/PTsnXIoWla+eMcS1BHQyZ/KOh+eQrV/afuWRFN2eXe7MdR
-	hnDFX20A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+44eqqKft3VD53G/1SvMud8uiJM6et7ZC2iWZt2Lnx4=; b=5GcpuLMPmCi1Q5
+	1nFY//wgsP2XMSjjMkvJPulrZK5cNWviFyb7NmKby9NaeEoQUNe2zFSB+E7dvg3BqnelkUbwEES0H
+	Iw2deZDnHMDoDDJkjije3iJsYdQvWesJGzLFMUGl9JwlLW/XIJ40slHkwW6amhiPjZtkX32zup6cA
+	r6dWkQCr3qeU1GCaPq/I7ub0awm2Lv+GoxXsUzqEY2rbX2XZ5vRBYIgLMOBBYH3TQjNZk4eRphoD0
+	maIugcJtdFtdTDd5lC6C2RN1s/F00lF3fPEeMp/NGK+1UcdaKaXMyBSXq7NwWyerPGSR3iHSmPy6y
+	ShALJndhI1sSWgJ1vcVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2VX-000000044e1-0YzE;
-	Fri, 10 Jul 2026 04:06:35 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1wi2W7-000000044k1-15mC;
+	Fri, 10 Jul 2026 04:07:11 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2VU-000000044dN-3z5Y
+	id 1wi2W4-000000044j2-04Yh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 04:06:34 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-51c10e86e52so117661cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Jul 2026 21:06:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783656390; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SDdrUX+M7iAgbzhkZmyTftrrFbSLmA9wLtzexlooac9JyleM8JNnMT+YiXeOdUDddu
-         fc1oDh4Kh+vwefYAmZur0N9PPWgFlZ0E0RGQCt8fDwb9OhfR0pjfQjPB4tPywzT/qHM0
-         4bcg4L230CjSEYyGO3gZ3LlSH2b4C/cGVF3KNfpYDpovb0lKkV31XwZMZ3CJo4DcksHi
-         z22YlWIsZ0Mt5pg4P7006ALX/lBza/ExmP5cT/FY5PoC5wIfUtPBELOElrpy3GuqFd5r
-         BQjN13hGjpJ87600Ik9Rf7e39iGUMgfZ2lluvShfevgmxy2vs0uqJqLAKigpWfY5g/wi
-         EfHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ne9mmmnso31HUDrewqJxkxCVMCk7imP2313orFRMFIk=;
-        fh=H44eGhnmCuLMmdEtfydlK+qBmzLwBnyHZKCAxEbZiP4=;
-        b=NpR3rGiIHqyb7iaBWvY4ktM9inQsoApT5pwFaYBoljyupD6Tii71yh1YiK5Vtu2xN4
-         c6HnZVTmrgGuSTZK01ob4JYHicU4WL/za92JXYZZJDOpBq++VXTjtp9m4WqjG2nk//LX
-         tcMv9/o6R1qjL7ytfQz/OxIMnligEteU5XxiXyeb5j1PVDghb4yuxCBTSL2KCN5mu3EL
-         nYJy1lfSGvTw5Sfc/chU5IzVnWO+JGziT1+jT7HYySbZCXwV/kqZpbjaidwhbGKu8EBi
-         I0TSgLpU1Sf1v72qpN4HEMRZ6Kf7LdNbHFoLXcT4kFFEGPcQCSXTyv+d+dJh0LijPcwp
-         EE+Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783656390; x=1784261190; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ne9mmmnso31HUDrewqJxkxCVMCk7imP2313orFRMFIk=;
-        b=nzer+v9wWYiZgelcvewkimI1r2A4T1d6HHX94ntoMiMkb5/Bj57qqOcJn2JjOQyWBR
-         Mg/ZkoMwxXnDa4CHNzMjxx/fztDGYN2lFZsFn50Y2JSwxkmYI5dd2G79aXT5EEW4d6R2
-         /YYN+VnDxaeAN+AEfw+hG/g1sKZi8fY1e543nunNmz4klrCoNopc5W0u4AYHdx+UUNUY
-         44BdQTML66u9bQLEdkPWz5fMTsAFHcYLnT0y/WDXj1mgM+B+HaMONAYtGC65amwbDY4Y
-         x3SFsSt2Tacw3bEXAK/3hRNIrklJKRz2boA+iWLuPfoAcZ46kWzJNkT3k6cQY+bg/lIw
-         3uyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783656390; x=1784261190;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ne9mmmnso31HUDrewqJxkxCVMCk7imP2313orFRMFIk=;
-        b=KQqknoJHHCi6V13ck0qzlO8bQDlCM/D9tcXcF+O07Fya270H7DPHAThAyEVrrwxbEI
-         6pzpQpUdH1s3gz4qAxOLMaodyXOGfmuycgi4VWNsby++USyLcSBT/jw6xYi/FQM7BwEA
-         rJViw19g6tTHyUFYFgTSmjTI8XnrrHPz3UHHHDgn4lG5RkCnXPitSTxIXMTA11gvue7V
-         dynaeCXff/+BjHAwu2PCBS7fCVXPxXlYCXQszIlSgdtMZbjQ8TXMfgvN5KKpnZshY3Rb
-         UvEycDQmyMk5Xs8nxZ5TWeEnTXVKoIFdjGhhpyeGf0CQ++D+YnAPVQB5cht3iO1AZneg
-         bMRg==
-X-Forwarded-Encrypted: i=1; AHgh+RrQ9h8PUQjOPZzLh6hZE++1JiQl5ti2gv+kIlvQih/eINylJLerAWlF2cYJbkw1FeChW4iPj/HzrrtrgJJQvSS5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUNeQEE7nrj1r8Mf1ZdDRkGC0rKTt9yLHBpRZTeyGk+NpqHAim
-	J5+ssv7XHVN0F8LW8EgtAGEEENju/FQiXa1DQPCUFIA48qF/f6aFCQAC7cddwlejoPb9QRyhLic
-	K5IqQCqaWaQWiO97WTBSRVQnwro6rit0OH8M/Wdui
-X-Gm-Gg: AfdE7cmOcMsuJYZQ6XLURifNFFusBCwXIyuHb0FwZJWpcAmPl1MruqXtUSw9zsxa27y
-	014R5953hd1UhqCQMZHqvqlJ62LqiVG0ceXcn0lh3udMSPmAicOIUNAR5oeb/ahyZ2KvdoAtPSc
-	r0KTiuOpE/pR9osOUjEg4hZp7BgZ7WfdMgzo8bV9nueedZucnv3EEA84nWY+BQ9/JtxwJWsh+4a
-	MzfQPy8SKnAcUPA8otoAGohoZj2wHAv8CSvMym7tHv0PxYQnEWFvl1U8wA4j3eoVZt/ieVYn9f9
-	DSts
-X-Received: by 2002:a05:622a:1e91:b0:516:ccc0:ee38 with SMTP id
- d75a77b69052e-51cac51dacemr3969541cf.9.1783656389860; Thu, 09 Jul 2026
- 21:06:29 -0700 (PDT)
+	Fri, 10 Jul 2026 04:07:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+44eqqKft3VD53G/1SvMud8uiJM6et7ZC2iWZt2Lnx4=;
+	b=ZKKIf1Wi1eT1xQGDcIfHLIkEqYK7X8RIT7DgXKTMhD5tzM8bpdfLCsovPhVcH6orzRQaMxcE+
+	xUmmKVGb84CcaBsVTvkk8GJAlRgyta151nr5/lpACvPiUVDBaQuVWgzqbkS+g1cXypaec6OkTru
+	AUfmtxOiEFCXV5wyeTbLVNs=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gxJ2M2MMDz1K96S;
+	Fri, 10 Jul 2026 11:57:47 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3C57240586;
+	Fri, 10 Jul 2026 12:07:01 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 12:07:00 +0800
+Message-ID: <4e5e1586-2862-4e30-ac5d-84f1e0fb0010@huawei.com>
+Date: Fri, 10 Jul 2026 12:06:59 +0800
 MIME-Version: 1.0
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com> <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-In-Reply-To: <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Thu, 9 Jul 2026 21:06:18 -0700
-X-Gm-Features: AUfX_myK7XQF1CZJv4vRx8UhENoIWryYI2BA_R5s-T_CavtrIu_usQmLmDIBaUg
-Message-ID: <CAE2F3rCh8U-gULjvS_8xsVo7YWN0=K2d8DC0eHwDOfgwB7bvCA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
-	David Matlack <dmatlack@google.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev, 
-	Pranjal Shrivastava <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 04/36] arm64: suspend: rely on daif helpers to handle
+ PMR
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-5-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-5-vladimir.murzin@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_210633_045799_EC3226DD 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260709_210708_661713_BEE87B6D 
+X-CRM114-Status: GOOD (  24.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,17 +75,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 6, 2026 at 9:29=E2=80=AFAM Jason Gunthorpe <jgg@nvidia.com> wro=
-te:
->
-> pgsize is a constant property of the domain, it is the base translation
-> granule of the page table (4k, 16k, 64k) in log2.
 
-> +       u8                              tgsz_lg2;
 
-In struct pt_iommu_armv8_cfg, this is called granule_lg2sz. Should we
-align on a common name?
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> Commit 77345ef70445 ("arm64: suspend: Use cpuidle context helpers
+> in cpu_suspend()") added cpuidle helpers to handle PMR manipulation
+> and restoration to ensure that the CPU receives interrupts when suspended
+> and pseudo-NMIs are enabled.
+> 
+> However, those helpers are called in between a pair of `local_daif_save()`
+> and `local_daif_restore()`, which already configure the PMR as expected.
+> Effectively, `arm_cpuidle_save_irq_context()` is a no-op here,
+> even when using pseudo-NMIs, and `arm_cpuidle_restore_irq_context()`
+> would not restore proper interrupt masking configuration early enough
+> if there were unexpected changes during suspend or resume.
+> (This can be observed with Trusted Firmware A (TF-A) at EL3 handling
+> suspend through PSCI. Even though it should not be the case, TF-A can
+> reset `ICC_PMR_EL1` during CPU_SUSPEND, thus resuming the kernel
+> with an inconsistent priority mask value on hardware implementing
+> more than the minimum number of priority levels, such as Morello.)
+> 
+> Thus : remove the cpuidle context helpers as they do not do anything,
+> but keep the comment mentioning the need for interrupts to reach the CPU
+> if we are using pseudo-NMIs.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/kernel/suspend.c | 12 +++---------
+>  1 file changed, 3 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
+> index eaaff94329cd..c41724a40b75 100644
+> --- a/arch/arm64/kernel/suspend.c
+> +++ b/arch/arm64/kernel/suspend.c
+> @@ -99,7 +99,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>  	int ret = 0;
+>  	unsigned long flags;
+>  	struct sleep_stack_data state;
+> -	struct arm_cpuidle_irq_context context;
+>  
+>  	/*
+>  	 * Some portions of CPU state (e.g. PSTATE.{PAN,DIT}) are initialized
+> @@ -121,6 +120,9 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>  	 * Strictly speaking the trace_hardirqs_off() here is superfluous,
+>  	 * hardirqs should be firmly off by now. This really ought to use
+>  	 * something like raw_local_daif_save().
+> +	 *
+> +	 * This also unmasks interrupts in PMR in order to reliably
+> +	 * resume if we're using pseudo-NMIs.
+>  	 */
+>  	flags = local_daif_save();
+>  
+> @@ -131,12 +133,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>  	 */
+>  	pause_graph_tracing();
+>  
+> -	/*
+> -	 * Switch to using DAIF.IF instead of PMR in order to reliably
+> -	 * resume if we're using pseudo-NMIs.
+> -	 */
+> -	arm_cpuidle_save_irq_context(&context);
+> -
+>  	ct_cpuidle_enter();
+>  
+>  	if (__cpu_suspend_enter(&state)) {
+> @@ -159,8 +155,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+>  		__cpu_suspend_exit();
+>  	}
+>  
+> -	arm_cpuidle_restore_irq_context(&context);
+
+If we use pseudo-NMIs only, the behavior after simplification is also
+consistent.
+
+- initial PMR is GIC_PRIO_IRQOFF
+- initial DAIF is 0
+
+Then the original flow:
+
+1、local_daif_save()：
+   1)、As pmr != GIC_PRIO_IRQON, saved flags = “PSR_I_BIT | PSR_F_BIT”
+   2)、set all DAIF bit and set PMR "GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
+
+2、arm_cpuidle_save_irq_context()
+   1)、save daif( all set) and pmr (GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET)
+   2)、set daif to DAIF.IF set (daif all set) and pmr to "GIC_PRIO_IRQON
+| GIC_PRIO_PSR_I_SET"  -> duplicate code
+
+3、arm_cpuidle_restore_irq_context()
+   1)、restore PMR to “GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
+   2)、restore DAIF to all set.
+
+4、local_daif_restore() restore saved flags(“PSR_I_BIT | PSR_F_BIT”)
+   1)、set pmr to GIC_PRIO_IRQOFF
+   2)、set daif to 0
+
+After remove
+arm_cpuidle_save_irq_context()/arm_cpuidle_restore_irq_context():
+
+1、local_daif_save()：
+   1)、As pmr != GIC_PRIO_IRQON, saved flags = “PSR_I_BIT | PSR_F_BIT”
+   2)、set all DAIF bit and set PMR "GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
+
+2、local_daif_restore() restore saved flags(“PSR_I_BIT | PSR_F_BIT”)
+   1)、set pmr to GIC_PRIO_IRQOFF
+   2）、set daif to 0
+
+> -
+>  	unpause_graph_tracing();
+>  
+>  	/*
+
 
