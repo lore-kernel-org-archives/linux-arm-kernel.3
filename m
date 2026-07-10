@@ -4,160 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36256C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA4DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYana5gcemuDvpyp9NIAbnx2PeGEB3xQn2SDg+e4dzQ=; b=Y9OdUa2BDIIOTwws3Yg8FlMLgi
-	GpW4S0duBXSSYLLVf0zg64ntbMx2WY3cDfVZJPTWq0serLKvgPY81i9U4Rf6zv+CtsLUVWgJfzQHr
-	Pk0eyCQ58LCntGQlsASIiaBczUQR5nK5D39NRmKi242tR64V50Mb28cQSyG8AbEQlKjexEK9MQLwe
-	voEUerSf0n35zwNB4v6TPMEdfG5zAnD8Vy8KAAtbafpT29kxTd3isbL8UFw5vIK/cNbv/O/MFdGP6
-	sp6GbD4TnUuplMkrJRN/Bd5gLrk2qZy3V4WJ+JPwL8OKEklc172NWExtRni1GtCpy4OR+VlYXlTgc
-	cUgWpY+w==;
+	bh=vDMV3NCLS4yPupVuDWJQ9qYR1mtzraYNK0kN/fZUZws=; b=AbRu2MEjkuxrjFA//u3xmfE+vs
+	egfifMUkD9UwQj+ibGtytVu23Mm/79W/G7p6zMC2oZruFX3CVhezNzZHmkwCYcuKigSJzfOGDrwwe
+	VlTwW63VpJ0C+w/1csHP+ma6tzyp0IoayilNrvqlwB9s1vJ+/Edw4nChRcUmlus+wtvMh3lHFoBhv
+	LmwSF5XCFFkyofS6q/5neSbD6QJsnyabfaUc7jnZxcJK2m0naOJ0yYDgRnbNBrZBVJr4lZA5DQ9Dw
+	9/0oZUwjQwaReXiI2pl690PbzL/TWon+sakU3B9WkhXMT1ufKVeuDpcRRljhXLj7k5ZTr600SpGs0
+	O/YAquGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Ew-00000004X7U-0RGh;
-	Fri, 10 Jul 2026 09:09:46 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Et-00000004X70-2Ir9
+	id 1wi7Fu-00000004XHf-1VNG;
+	Fri, 10 Jul 2026 09:10:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi7Fr-00000004XGY-2iRj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:09:45 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id ACC1076709;
-	Fri, 10 Jul 2026 09:09:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783674579; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WYana5gcemuDvpyp9NIAbnx2PeGEB3xQn2SDg+e4dzQ=;
-	b=k+QJoD0uzbelEsf++/2y4ND5oJjvieTzrZpGMXWCRRfUXGx2fLqKKwtRnDBmVJ/jGW1osR
-	hlgubkxEHUEPqz+AfK1Qps9dCT7D/75iaZrYsmT8tjZ6ATt16FDXVrrEttTRpwgfF5xCNL
-	vAnAqzrZYfeHfE/UYALEsYGi0PI529c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783674579;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WYana5gcemuDvpyp9NIAbnx2PeGEB3xQn2SDg+e4dzQ=;
-	b=/4ehUeG0YJTYcU44d+BOlXTzRC2uecfBMBB/SaVQ3viFmonS6/GNVlZbppLbE1TnpwpB5V
-	lXW5gABB7Mz1QDAg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783674578; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WYana5gcemuDvpyp9NIAbnx2PeGEB3xQn2SDg+e4dzQ=;
-	b=tdA8pSdzfeXEKy7XND4BnIXo5St5lY0gIhoL7qSpcO/bthuvk33yRYAZNpOPn+HJc0pFxI
-	w1NHHP93n7QrQX2tdckcRPtoBEWzOCEA9ARHCYPYnjkajPYa51UGoj6lZF06ViKqQ3YRmb
-	vk7PbAICwF/5jD0ws6FZZzNwKLY79x4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783674578;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WYana5gcemuDvpyp9NIAbnx2PeGEB3xQn2SDg+e4dzQ=;
-	b=wxAgPYyMx2NxMJ213r8fL6XLneJbj6RlnBSqsYKUeEYgpkR5SmTFVVlqMiX17q112i7/nF
-	3kPPnn6rnKVefFAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 28604779BD;
-	Fri, 10 Jul 2026 09:09:38 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id LQdoCNK2UGouCgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 10 Jul 2026 09:09:38 +0000
-Message-ID: <e69b3cf5-9a9f-46ca-abc8-68c1375ef6ca@suse.de>
-Date: Fri, 10 Jul 2026 11:09:37 +0200
+	Fri, 10 Jul 2026 09:10:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A8F01BC0;
+	Fri, 10 Jul 2026 02:10:36 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.84.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B77213FD88;
+	Fri, 10 Jul 2026 02:10:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783674640; bh=tuoLyvlOHXB9mesLRzz5sRHL2smGtaXCkV71zVJ9dBs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XjTzAOUbMfeN0UXcbLPR+UnqBN+Kf6/XIaYbVAzDCu6yN4qQXGGG+MnUILLTDwkEV
+	 N7TwoaU7599w+czNNl22psp4BkAFPGgk+JOAOsRBNDsxm5YGDOjcfN9Xi5mS/CWjbU
+	 yfy+Uzz0yarQgqPCvDmgGdnU0EYDYsk/o3oUqDT0=
+Message-ID: <d8425af0-130e-4a27-8a56-b25a5c6e1d5c@arm.com>
+Date: Fri, 10 Jul 2026 10:10:24 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/9] drm/gm12u320: replace struct drm_simple_display_pipe
- with regular atomic helpers
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
- <20260705-drm-simple-kms-removal-v1-6-b4e1ca053623@oss.qualcomm.com>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 14/15] arm_mpam: prevent MPAM-Fb accesses inside IRQ
+ handler
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-15-andre.przywara@arm.com>
+ <f418f531-bc0b-4bff-a96f-121034c6c693@arm.com>
+ <00e8ba98-735d-4c78-9056-3032036183e7@arm.com>
+ <7f929d11-d9ee-4a30-a3ea-7a535111b35e@arm.com>
+ <4af7ba69-96b6-4847-80d0-ed8c91ec55b8@arm.com>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260705-drm-simple-kms-removal-v1-6-b4e1ca053623@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <4af7ba69-96b6-4847-80d0-ed8c91ec55b8@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.997];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,qualcomm.com:email,suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_020943_893728_DF8797D9 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260710_021043_764026_51C4D578 
+X-CRM114-Status: GOOD (  35.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,230 +86,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi Andre,
 
-Am 04.07.26 um 20:31 schrieb Ze Huang:
-> Convert gm12u320 to direct primary plane, CRTC and encoder setup.
->
-> Keep shadow-plane helper state, framebuffer access helpers and
-> no-scaling plane-state check from simple-KMS path.
->
-> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+On 7/10/26 08:31, Andre Przywara wrote:
+> Hi,
+> 
+> On 7/9/26 15:27, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 7/9/26 13:06, Andre Przywara wrote:
+>>> Hi,
+>>>
+>>> On 7/3/26 12:54, Ben Horgan wrote:
+>>>> Hi Andre,
+>>>>
+>>>> On 7/2/26 17:22, Andre Przywara wrote:
+>>>>> When an MPAM MSC gets into an error condition, it can trigger an error
+>>>>> IRQ. We cannot really do much about those errors, but we at least
+>>>>> query
+>>>>> and log the error, then disable MPAM functionality.
+>>>>>
+>>>>> This error report relies on reading the MSC's error status register
+>>>>> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
+>>>>> MSC accesses, since they involve mailbox routines that might sleep.
+>>>>> The same is true for clearing the interrupt at the source, which
+>>>>> requires MSC access.
+>>>>>
+>>>>> For simplicity just skip the ESR read when the MSC is not using direct
+>>>>> MMIO accesses, and just ignore the pending interrupts. We will wrap up
+>>>>> MPAM functionality regardless, knowing the exact error value will not
+>>>>> change that.
+>>>>>
+>>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>>> ---
+>>>>>    drivers/resctrl/mpam_devices.c | 35 ++++++++++++++++++
+>>>>> +---------------
+>>>>>    1 file changed, 20 insertions(+), 15 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
+>>>>> mpam_devices.c
+>>>>> index b858ff389bff..4a088e6cd235 100644
+>>>>> --- a/drivers/resctrl/mpam_devices.c
+>>>>> +++ b/drivers/resctrl/mpam_devices.c
+>>>>> @@ -2639,7 +2639,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+>>>>>      static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc
+>>>>> *msc)
+>>>>>    {
+>>>>> -    u64 reg;
+>>>>> +    u64 reg = 0;
+>>>>>        u16 partid;
+>>>>>        u8 errcode, pmg, ris;
+>>>>>    @@ -2648,25 +2648,30 @@ static irqreturn_t __mpam_irq_handler(int
+>>>>> irq, struct mpam_msc *msc)
+>>>>>                           &msc->accessibility)))
+>>>>>            return IRQ_NONE;
+>>>>>    -    mpam_msc_read_esr(msc, &reg);
+>>>>> +    /* MPAM-Fb MSC accesses cannot be done in atomic context. */
+>>>>> +    if (msc->iface == MPAM_IFACE_MMIO) {
+>>>>> +        mpam_msc_read_esr(msc, &reg);
+>>>>>    -    errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+>>>>> -    if (!errcode)
+>>>>> -        return IRQ_NONE;
+>>>>> +        errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+>>>>> +        if (!errcode)
+>>>>> +            return IRQ_NONE;
+>>>>>    -    /* Clear level triggered irq */
+>>>>> -    mpam_msc_clear_esr(msc);
+>>>>> +        /* Clear level triggered irq */
+>>>>> +        mpam_msc_clear_esr(msc);
+>>>>>    -    partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+>>>>> -    pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+>>>>> -    ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+>>>>> +        partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+>>>>> +        pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+>>>>> +        ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+>>>>>    -    pr_err_ratelimited("error irq from msc:%u '%s', partid:%u,
+>>>>> pmg: %u, ris: %u\n",
+>>>>> -               msc->id, mpam_errcode_names[errcode], partid, pmg,
+>>>>> -               ris);
+>>>>> +        pr_err_ratelimited("error irq from msc:%u '%s', partid:%u,
+>>>>> pmg: %u, ris: %u\n",
+>>>>> +                   msc->id, mpam_errcode_names[errcode], partid,
+>>>>> +                   pmg, ris);
+>>>>>    -    /* Disable this interrupt. */
+>>>>> -    mpam_disable_msc_ecr(msc);
+>>>>> +        /* Disable this interrupt. */
+>>>>> +        mpam_disable_msc_ecr(msc);
+>>>>
+>>>> As an error interrupt is final can we just disable the IRQ?
+>>>
+>>> Doing that should be covered by mpam_unregister_irqs() as part of the
+>>> mpam_broken_work, shouldn't it? Or do you want to do it earlier?
+>>
+>>
+>> I think leaving it to mpam_broken_work risks having the hard irq handler
+>> run again and again once we get an error interrupt. I'm just looking at
+>> the code today but I think this is analogous to using IRQF_ONESHOT to
+>> mask the interrupt until the threaded handler is finished.
+> 
+> Maybe, but masking and disabling are not the same thing, and ONESHOT
+> most probably takes care of any imbalances. Whereas when we just disable
+> the IRQ here on some occasions, without telling anyone, it may leave it
+> in a weird state?
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Ok, that could be problematic.
 
-And I also have this device. Works nicely with the patch
+> 
+>>
+>>>
+>>>> Is it
+>>>> useful? I see there is a function disable_irq_no_sync().
+>>>
+>>> If we want to do it earlier, the _nosync variant sounds promising,
+>>> although the comment talks about it being nested, so I guess it would
+>>> need to be balanced? Which might be tricky here, since I guess the IRQ
+>>> would be disabled again in mpam_unregister_irqs()?
+>>
+>> mpam_unregister_irqs() disables the interrupt by clearing the msc enable
+>> in mpam_disable_msc_ecr() rather than disabling by irq. I don't see how
+>> this would cause a problem. Or does free_percpu_irq() or devm_free_irq()
+>> do something incompatible?
+> 
+> According to the description of free_irq(), it does disable the IRQ when
+> no user is left. I'd assume it does this via the same mechanism we are
+> trying to use, which would cause an imbalance?
 
-Tested-by: Thomas Zimmermann <tzimmermann@suse.de>
+Can we get around this by using a ONESHOT threaded interrupt and just
+using the threaded part to do mpam_disable_msc_ecr() and queue the
+mpam_broken_work?
 
-> ---
->   drivers/gpu/drm/tiny/gm12u320.c | 128 ++++++++++++++++++++++++++++++++--------
->   1 file changed, 104 insertions(+), 24 deletions(-)
->
-> diff --git a/drivers/gpu/drm/tiny/gm12u320.c b/drivers/gpu/drm/tiny/gm12u320.c
-> index d73dfebb4353..992160ea794d 100644
-> --- a/drivers/gpu/drm/tiny/gm12u320.c
-> +++ b/drivers/gpu/drm/tiny/gm12u320.c
-> @@ -8,6 +8,7 @@
->   #include <linux/usb.h>
->   
->   #include <drm/clients/drm_client_setup.h>
-> +#include <drm/drm_atomic.h>
->   #include <drm/drm_atomic_helper.h>
->   #include <drm/drm_atomic_state_helper.h>
->   #include <drm/drm_connector.h>
-> @@ -27,7 +28,6 @@
->   #include <drm/drm_modeset_helper_vtables.h>
->   #include <drm/drm_print.h>
->   #include <drm/drm_probe_helper.h>
-> -#include <drm/drm_simple_kms_helper.h>
->   
->   static bool eco_mode;
->   module_param(eco_mode, bool, 0644);
-> @@ -87,7 +87,9 @@ MODULE_PARM_DESC(eco_mode, "Turn on Eco mode (less bright, more silent)");
->   
->   struct gm12u320_device {
->   	struct drm_device	         dev;
-> -	struct drm_simple_display_pipe   pipe;
-> +	struct drm_plane	         plane;
-> +	struct drm_crtc		         crtc;
-> +	struct drm_encoder	         encoder;
->   	struct drm_connector	         conn;
->   	unsigned char                   *cmd_buf;
->   	unsigned char                   *data_buf[GM12U320_BLOCK_COUNT];
-> @@ -554,31 +556,33 @@ static int gm12u320_conn_init(struct gm12u320_device *gm12u320)
->   }
->   
->   /* ------------------------------------------------------------------ */
-> -/* gm12u320 (simple) display pipe				      */
-> +/* gm12u320 display pipe						      */
->   
-> -static void gm12u320_pipe_enable(struct drm_simple_display_pipe *pipe,
-> -				 struct drm_crtc_state *crtc_state,
-> -				 struct drm_plane_state *plane_state)
-> +static void gm12u320_crtc_helper_atomic_enable(struct drm_crtc *crtc,
-> +					       struct drm_atomic_commit *commit)
->   {
->   	struct drm_rect rect = { 0, 0, GM12U320_USER_WIDTH, GM12U320_HEIGHT };
-> -	struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
-> +	struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
-> +	struct drm_plane_state *plane_state = crtc->primary->state;
->   	struct drm_shadow_plane_state *shadow_plane_state = to_drm_shadow_plane_state(plane_state);
->   
->   	gm12u320->fb_update.draw_status_timeout = FIRST_FRAME_TIMEOUT;
->   	gm12u320_fb_mark_dirty(plane_state->fb, &shadow_plane_state->data[0], &rect);
->   }
->   
-> -static void gm12u320_pipe_disable(struct drm_simple_display_pipe *pipe)
-> +static void gm12u320_crtc_helper_atomic_disable(struct drm_crtc *crtc,
-> +						struct drm_atomic_commit *commit)
->   {
-> -	struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
-> +	struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
->   
->   	gm12u320_stop_fb_update(gm12u320);
->   }
->   
-> -static void gm12u320_pipe_update(struct drm_simple_display_pipe *pipe,
-> -				 struct drm_plane_state *old_state)
-> +static void gm12u320_plane_helper_atomic_update(struct drm_plane *plane,
-> +						struct drm_atomic_commit *commit)
->   {
-> -	struct drm_plane_state *state = pipe->plane.state;
-> +	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(commit, plane);
-> +	struct drm_plane_state *state = plane->state;
->   	struct drm_shadow_plane_state *shadow_plane_state = to_drm_shadow_plane_state(state);
->   	struct drm_rect rect;
->   
-> @@ -586,11 +590,71 @@ static void gm12u320_pipe_update(struct drm_simple_display_pipe *pipe,
->   		gm12u320_fb_mark_dirty(state->fb, &shadow_plane_state->data[0], &rect);
->   }
->   
-> -static const struct drm_simple_display_pipe_funcs gm12u320_pipe_funcs = {
-> -	.enable	    = gm12u320_pipe_enable,
-> -	.disable    = gm12u320_pipe_disable,
-> -	.update	    = gm12u320_pipe_update,
-> -	DRM_GEM_SIMPLE_DISPLAY_PIPE_SHADOW_PLANE_FUNCS,
-> +static const struct drm_plane_funcs gm12u320_plane_funcs = {
-> +	.update_plane	= drm_atomic_helper_update_plane,
-> +	.disable_plane	= drm_atomic_helper_disable_plane,
-> +	.destroy	= drm_plane_cleanup,
-> +	DRM_GEM_SHADOW_PLANE_FUNCS,
-> +};
-> +
-> +static int gm12u320_plane_helper_atomic_check(struct drm_plane *plane,
-> +					      struct drm_atomic_commit *state)
-> +{
-> +	struct drm_plane_state *plane_state = drm_atomic_get_new_plane_state(state, plane);
-> +	struct drm_crtc *crtc = plane_state->crtc;
-> +	struct drm_crtc_state *crtc_state = NULL;
-> +	int ret;
-> +
-> +	if (crtc)
-> +		crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-> +
-> +	ret = drm_atomic_helper_check_plane_state(plane_state, crtc_state,
-> +						  DRM_PLANE_NO_SCALING,
-> +						  DRM_PLANE_NO_SCALING,
-> +						  false, false);
-> +	return ret;
+Thanks,
 
-Interestingly, this patch handled _check_plane_state() correctly.
+Ben
 
-Best regards
-Thomas
-
-> +}
-> +
-> +static const struct drm_plane_helper_funcs gm12u320_plane_helper_funcs = {
-> +	DRM_GEM_SHADOW_PLANE_HELPER_FUNCS,
-> +	.atomic_check	= gm12u320_plane_helper_atomic_check,
-> +	.atomic_update	= gm12u320_plane_helper_atomic_update,
-> +};
-> +
-> +static int gm12u320_crtc_helper_atomic_check(struct drm_crtc *crtc,
-> +					     struct drm_atomic_commit *state)
-> +{
-> +	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-> +	int ret;
-> +
-> +	if (!crtc_state->enable)
-> +		goto out;
-> +
-> +	ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
-> +	if (ret)
-> +		return ret;
-> +
-> +out:
-> +	return drm_atomic_add_affected_planes(state, crtc);
-> +}
-> +
-> +static const struct drm_crtc_helper_funcs gm12u320_crtc_helper_funcs = {
-> +	.atomic_check	= gm12u320_crtc_helper_atomic_check,
-> +	.atomic_enable	= gm12u320_crtc_helper_atomic_enable,
-> +	.atomic_disable	= gm12u320_crtc_helper_atomic_disable,
-> +};
-> +
-> +static const struct drm_crtc_funcs gm12u320_crtc_funcs = {
-> +	.set_config		= drm_atomic_helper_set_config,
-> +	.page_flip		= drm_atomic_helper_page_flip,
-> +	.reset			= drm_atomic_helper_crtc_reset,
-> +	.destroy		= drm_crtc_cleanup,
-> +	.atomic_duplicate_state	= drm_atomic_helper_crtc_duplicate_state,
-> +	.atomic_destroy_state	= drm_atomic_helper_crtc_destroy_state,
-> +};
-> +
-> +static const struct drm_encoder_funcs gm12u320_encoder_funcs = {
-> +	.destroy = drm_encoder_cleanup,
->   };
->   
->   static const uint32_t gm12u320_pipe_formats[] = {
-> @@ -677,13 +741,29 @@ static int gm12u320_usb_probe(struct usb_interface *interface,
->   	if (ret)
->   		return ret;
->   
-> -	ret = drm_simple_display_pipe_init(&gm12u320->dev,
-> -					   &gm12u320->pipe,
-> -					   &gm12u320_pipe_funcs,
-> -					   gm12u320_pipe_formats,
-> -					   ARRAY_SIZE(gm12u320_pipe_formats),
-> -					   gm12u320_pipe_modifiers,
-> -					   &gm12u320->conn);
-> +	ret = drm_universal_plane_init(dev, &gm12u320->plane, 0,
-> +				       &gm12u320_plane_funcs,
-> +				       gm12u320_pipe_formats,
-> +				       ARRAY_SIZE(gm12u320_pipe_formats),
-> +				       gm12u320_pipe_modifiers,
-> +				       DRM_PLANE_TYPE_PRIMARY, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_plane_helper_add(&gm12u320->plane, &gm12u320_plane_helper_funcs);
-> +
-> +	ret = drm_crtc_init_with_planes(dev, &gm12u320->crtc, &gm12u320->plane, NULL,
-> +					&gm12u320_crtc_funcs, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_crtc_helper_add(&gm12u320->crtc, &gm12u320_crtc_helper_funcs);
-> +
-> +	ret = drm_encoder_init(dev, &gm12u320->encoder, &gm12u320_encoder_funcs,
-> +			       DRM_MODE_ENCODER_NONE, NULL);
-> +	if (ret)
-> +		return ret;
-> +	gm12u320->encoder.possible_crtcs = drm_crtc_mask(&gm12u320->crtc);
-> +
-> +	ret = drm_connector_attach_encoder(&gm12u320->conn, &gm12u320->encoder);
->   	if (ret)
->   		return ret;
->   
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
+> 
+> Cheers,
+> Andre
+> 
+>>>
+>>>>> +    } else {
+>>>>> +        pr_err_ratelimited("unknown error irq from msc:%u\n", msc-
+>>>>> >id);
+>>>>
+>>>> Should we report by irq number?
+>>>> As MSC may share interrupts we don't know which MSC caused the error
+>>>> irq
+>>>> at this point. On MMIO platforms we read the ESR to establish this.
+>>>
+>>> I see what you mean, though I am not sure if the user would be able to
+>>> make sense of any interrupt number? I would put it in anyway, more
+>>> information doesn't hurt.
+>>>
+>>> Cheers,
+>>> Andre
+>>>
+>>>> Thanks,
+>>>>
+>>>> Ben
+>>>>
+>>>>> +    }
+>>>>>          /* Are we racing with the thread disabling MPAM? */
+>>>>>        if (!mpam_is_enabled())
+>>>>
+>>>
+>>
+> 
 
 
