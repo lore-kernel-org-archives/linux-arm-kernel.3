@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EDFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01DA1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bxEC8S+4wPaf6YNA7I4YHpQhkjSKPcljYjeafE5m3P0=; b=w9VhYMD7h1oF2MP9NvtWCZVzEr
-	CHwHOixd+C8wH4UKZpKt/uV5e6SAIbqd8EHBmyD0DFgGcE9UAmzOCdMKsFqqI4PU7kkIQ9B/18rpF
-	Fv75C9f84l6ctiJxejJ9ynIKfS5NvdO5VfxiwnXn3kAjvPkVXxNLfDb4DCZbHNvAhpofTt8ei13zF
-	QbMVuCTGlk1Ky2rz22NC0i4N0RQrHaAQnAxgPD26pKoFTDCjFRXTMqR3sWCyaaNB9/ee2Y+MCQ3tA
-	CkhS6n3on6LH4y4bvmZwZUZI7YBjBQoT1FsPbQmNpaWariGs7w96uPw/xemFH7nCURNG1+lnS50Vi
-	2Rjsco5A==;
+	bh=QMK3eVT0/oAQlr0eGKAyS3VOV21a/B1AmoQDrAJ9a3s=; b=T9lH/9dgZYdQUT+N5Q9AxjYgEu
+	eS/3VGWyJJAUjy0Qocct3QwGqoTlhRo4gM4GIJe/eQtjE+jcgfN6jh43LcDCSNhaEjz7K2CuFs8Rx
+	wXdu/MFajeh1bHJmXVa2Klwo84cu8pmBxfbSec8ySfxo8YLekgJDRm5UpFVokX1zkoIbmzVFsmiqR
+	fqvFmEjrV+A5Xy7LAwWQSiG4583kvM/CfmFJ89O/j65LRusJNBk/xpma2DIPccAEn9g6wkkmbgQBX
+	YZjlpW01/lFalJxHQIRF+pnV+M7w1RjoTggl37HjCp9IDs0mVwd/BIrST0Zpw+nsJXvKbpmc5uH3c
+	P89QFwWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi93Y-00000004mFZ-3GPs;
-	Fri, 10 Jul 2026 11:06:08 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1wi955-00000004mNi-1I2F;
+	Fri, 10 Jul 2026 11:07:43 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi93W-00000004mFC-2yfq
+	id 1wi952-00000004mN1-1tQM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:06:07 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c88a4d79ba5so565261a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:06:06 -0700 (PDT)
+	Fri, 10 Jul 2026 11:07:41 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-381018b9375so1024522a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:07:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783681566; x=1784286366; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783681659; x=1784286459; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bxEC8S+4wPaf6YNA7I4YHpQhkjSKPcljYjeafE5m3P0=;
-        b=SJKj4d5aawSAEjipGD0MxA1PepYhDV/M5qeLRytgEmxI0EW5jZFZJ6h1sFUUPvqfli
-         Zu0/jkY9aWKyEcz+8MeLYDTgrW7sEcHGNFMhVgE6homm5xyJsVlisOYg1r7aF8gE3UGZ
-         CT837LKahzC7igtW6tCP4tlzGEphYLwS0q/9FiYrd33d6xVJvIW4jD90D5BJYyplkEeQ
-         Jop8TeL5IqAd7cVLSexNC/NjS4mGHWgvTdIqV0xqOUuoCi33rBZcmmxKawN5PzGWLW7h
-         F8oCsw5LcLvsnQEZpLjGPvQRz1CijQ6A9LmnzB2FQeRoGy3C9GN54Xxyc7S+M9Jt1KlC
-         V3Mg==
+        bh=QMK3eVT0/oAQlr0eGKAyS3VOV21a/B1AmoQDrAJ9a3s=;
+        b=eOu8ev/ETtOu5UlacOpn0e9jJ4SuK412L2NUtgkcuDcV1SZb3D+db8YrmszZ6sFkOd
+         UmYz2jFb0LvLGY9vjTSa+i7QIwx0Bw4Go5m8hisD8qxshj9aTvlzLws+XMQZUgwSuuML
+         oj9FBW0BaLTGx/js5Gm5KzSR4/9yGNvHSRTSAMxkY45tyJ1z39RDDwjvcuyFOZuMzjtS
+         j/RMUEtU62fCYkfQHXwSHN35lna6RsCcKSr9ep5HLEBFFPCfwmW6p02KypgpWiZ0Qn6C
+         GtDNN3ehP7JlvdacX6rzmmqkwhzH/Ft/RoDpIr4gKI70eLvaYZspNTgLb/OpPB4bzYok
+         J70A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783681566; x=1784286366;
+        d=1e100.net; s=20251104; t=1783681659; x=1784286459;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bxEC8S+4wPaf6YNA7I4YHpQhkjSKPcljYjeafE5m3P0=;
-        b=Btdz45IoqkLs+wfryjVTGpi/3N378U6mzJfZLEjJ2WI5aK7Z7x15awZRGQYSRV4JIn
-         +7EtQKYfVloFQuXnJko4uFxzeOImJQIaFQZ2+Lpk93FVIUVEKxIsQetnB+vP1wH0kgBh
-         X8ZtH39ZnOjPwFdIZ2pg2gIC8INzzC/AIwWfueZ0GssGwQJXerFVeCbiaknj7j26cqlO
-         zbNd1Bu/bBOVLUVhE21UtrnaPNA89FjXlvSoMkBC80gvm3SazGvnHp082HDtnnJPiRfD
-         cozXzfNfr4sil9rWS1YsiCwvJKoMXSrN1x5CK249F5plAbEsSpp0Je+DBM3/5xX31jYU
-         iHWQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpS9h3mxDiKvFxtyhbfQ1YVbRdtitkVmIe3J7/VDCh+lwxQpd614fM2AkUWU3dJzPnlPtWTbwaKgl2aHbCmUbRm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA0jBylH+yshA595Cf4Jmr17OuQlco2cuCMNTZb1BHPOWnjaHY
-	/LsZ6ovZAeX3rP8xzZdd9JAd+xYvorhNMDrMWxS/lu/q6JADBWh3E0kO
-X-Gm-Gg: AfdE7cm/V7L2r8BKDGK25hWqVD2Sef1Kyj8kaH4X3MSWnkTLxmCt0mrCYKipjc91uh/
-	5d8K7OuKw9+kvMo+c9juNyxCREDHaDy1rARkb7L+OngSGsUuc8LQ/5UEgpM251RgvINUvPlJUWX
-	bqh3T2uS7kr2d84S12OUEdd/b6sNLvoUnaX8eyyvsVkiO+nd0weddZJhbKQtJT/ozTVJqhAw6Lo
-	3f7U16JZlSESrXxq+6lJlgMneMvqvpnnrRDsA+mgeLpRJuM96MnP/3mn/Z94SRFJejgHWcoFEuC
-	cDkP6/Da2lNcQcCvXL+eXlQFzSToZ0QnbHT3a/p15LpPKv09G9LnFVD1oAJICp7FnVuv9nneYIC
-	GDh5BjQNg3XjcjCWVQMfLPHW9q12gvqNgnJgOK6HPeGufgwAwKHTNqCrcJlfRl3gs5ZXsvuei+v
-	Is+tB0Kyrr/FyvVsC3xmYSPM7S60J37WQTfl6zzpyX9F5cXFwiMU/3mVU3OA==
-X-Received: by 2002:a05:6a20:d493:b0:3bf:7110:9949 with SMTP id adf61e73a8af0-3c0bcbe9106mr13761714637.6.1783681565625;
-        Fri, 10 Jul 2026 04:06:05 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ca5afeb060bsm4960310a12.14.2026.07.10.04.06.02
+        bh=QMK3eVT0/oAQlr0eGKAyS3VOV21a/B1AmoQDrAJ9a3s=;
+        b=jWERdfU82sOtaPT7NR5dWTWtdyUOsBbW+y0Cv6K2e/mJcuvnTfkAiam2fn6wDPa1d/
+         6r6CNp4P/atoQYrJ6he3ILxtEB3lNlgAGBV2F2RgwQUcl7g/j7H8QPOYoEqLBKei7hQa
+         KNRkIzWW+aByxtTGaYbP7VZs7Jo/5DSEKJANBi8jQPj6JC/mA6GrzJgz30nO358ZV8nn
+         7BODaMkWnRnWe3ZBxkLwd6OwGuc/a2VKLBZKNFynStj6XJAFlvB53+yiyp88cTNFf9QE
+         YOnm/OmWOqiifSBNscQ9NsdjTXeku0e+VigAq/O6KIlcqFQ9WofeXFTjUMqro3sjGNB6
+         TSDg==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0vOI6g2CkfiOFnyEKovmMWq4AAKRubG3EcdMHNq1CC6zoa9i9oQE3GLVU8R9Qg5AdHv0bGPfNhWdG1BzWBS5n@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpcYELFLW4T6AwH/ZWLdmczRRM8Xl2/eg33LuFlzZOkcZgGD1T
+	p0Jkvca/hVkX9cFcuNa+kMoBppJTglo2Xfz+LJwdEQPd9AKoSTYYXCzo
+X-Gm-Gg: AfdE7cmoZxcrwqIWnH7/svEaesfo3IXIMR1BC58JDJDIluIh57XJMx2kFHeHAyk0Y5A
+	UqlxskvZ725nYq/bgv/TwOgwg9lcUrhHF3N4ATInPI1j+W/SYEqgrBZO3ZzVhaOD36jfBmCmhRk
+	rO3BJ2eyksPyuu3BNolnMsts7XJyYsYmtl45kMRCk+5im9QFzEf4apvffqPHkoTR8yg2Sg6szw6
+	sZ0PQzCMncohvrj41rZiblP0sx/CERryeUvJFe9uG/+ocUv4dK+hpK1D62swnbejvJPod5fRyxL
+	v4WtdqDDUOv7lS6v0qjPlbaJOzjwv2CzV/YPFfvCZ1iO+goMX8Bmij973ZSRIVZWcwzDzxGNPF1
+	KScRj/GoM+ie+bSdRq6Fxfy/H5Chd0lPYVwOqXjpT1aOVhpck4saZAGJ6NjagFamfC2kMyG4sDR
+	L2xZiLI3rzJ7v/2N0bXE/3Ei1brmQ=
+X-Received: by 2002:a17:90b:564f:b0:37f:d6d5:8e8c with SMTP id 98e67ed59e1d1-3893d91fed4mr10524502a91.0.1783681659012;
+        Fri, 10 Jul 2026 04:07:39 -0700 (PDT)
+Received: from ahmi-PC.. ([2401:4900:88f4:a225:f83:5ab4:33ab:8313])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311838c9235sm35061109eec.21.2026.07.10.04.07.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 04:06:05 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+        Fri, 10 Jul 2026 04:07:38 -0700 (PDT)
+From: Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>
+Cc: Neal Liu <neal_liu@aspeedtech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	YueHaibing <yuehaibing@huawei.com>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] ASoC: uniphier: Drop redundant error messages in probe
-Date: Fri, 10 Jul 2026 18:02:49 +0700
-Message-ID: <20260710110249.31830-1-phucduc.bui@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
+Subject: [PATCH] crypto: aspeed: Propagate platform_get_irq() errors
+Date: Fri, 10 Jul 2026 16:37:29 +0530
+Message-ID: <20260710110729.224090-1-ahmisaranrao@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_040606_755719_902F5FEA 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260710_040740_489127_229B9BA9 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+platform_get_irq() returns a positive IRQ number on success and a negative
+error code on failure. aspeed_acry_probe() and aspeed_hace_probe()
+already detect negative returns, but both convert every failure to -ENXIO.
 
-Return the error directly when the helper already reports the failure,
-avoiding duplicate log messages.
+Return the original error code so callers can handle errors such as
+-EPROBE_DEFER correctly.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Fixes: 2f1cf4e50c95 ("crypto: aspeed - Add ACRY RSA driver")
+Fixes: 70513e1d6559 ("crypto: aspeed - Fix check for platform_get_irq() errors")
+Signed-off-by: Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
 ---
- sound/soc/uniphier/aio-cpu.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ drivers/crypto/aspeed/aspeed-acry.c | 2 +-
+ drivers/crypto/aspeed/aspeed-hace.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/sound/soc/uniphier/aio-cpu.c b/sound/soc/uniphier/aio-cpu.c
-index d3dba21b2d04..78c82bf42a8f 100644
---- a/sound/soc/uniphier/aio-cpu.c
-+++ b/sound/soc/uniphier/aio-cpu.c
-@@ -795,16 +795,12 @@ int uniphier_aio_probe(struct platform_device *pdev)
- 	ret = devm_snd_soc_register_component(dev, &uniphier_aio_component,
- 					      chip->chip_spec->dais,
- 					      chip->chip_spec->num_dais);
--	if (ret) {
--		dev_err(dev, "Register component failed.\n");
-+	if (ret)
- 		goto err_out_reset;
--	}
+diff --git a/drivers/crypto/aspeed/aspeed-acry.c b/drivers/crypto/aspeed/aspeed-acry.c
+index 5993bcba9716..301612556a76 100644
+--- a/drivers/crypto/aspeed/aspeed-acry.c
++++ b/drivers/crypto/aspeed/aspeed-acry.c
+@@ -728,7 +728,7 @@ static int aspeed_acry_probe(struct platform_device *pdev)
+ 	/* Get irq number and register it */
+ 	acry_dev->irq = platform_get_irq(pdev, 0);
+ 	if (acry_dev->irq < 0)
+-		return -ENXIO;
++		return acry_dev->irq;
  
- 	ret = uniphier_aiodma_soc_register_platform(pdev);
--	if (ret) {
--		dev_err(dev, "Register platform failed.\n");
-+	if (ret)
- 		goto err_out_reset;
--	}
+ 	rc = devm_request_irq(dev, acry_dev->irq, aspeed_acry_irq, 0,
+ 			      dev_name(dev), acry_dev);
+diff --git a/drivers/crypto/aspeed/aspeed-hace.c b/drivers/crypto/aspeed/aspeed-hace.c
+index 3fe644bfe037..1f9afa002ae8 100644
+--- a/drivers/crypto/aspeed/aspeed-hace.c
++++ b/drivers/crypto/aspeed/aspeed-hace.c
+@@ -127,7 +127,7 @@ static int aspeed_hace_probe(struct platform_device *pdev)
+ 	/* Get irq number and register it */
+ 	hace_dev->irq = platform_get_irq(pdev, 0);
+ 	if (hace_dev->irq < 0)
+-		return -ENXIO;
++		return hace_dev->irq;
  
- 	return 0;
- 
+ 	rc = devm_request_irq(&pdev->dev, hace_dev->irq, aspeed_hace_irq, 0,
+ 			      dev_name(&pdev->dev), hace_dev);
 -- 
 2.43.0
 
