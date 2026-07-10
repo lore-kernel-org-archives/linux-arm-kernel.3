@@ -4,132 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D0CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B25C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYAveeyxQbUv1RStadSBoJ5xcH5GLnRkbKWfVO59o64=; b=O0JolbllOsY6XhHhmkD/pWZAA9
-	x9NklYBVx0+sBys5lgREYTBPmshKjOsCCa90bVKEdvHw9tjLfyr9pVjbsxS03gdis+KSeD1httEsd
-	O8/3cga61F+1cd+jUsrk/an2KLsvM1Ch81vg5rs2UlthJjrHRNWNwkcfR1V9wLb26h0HULL2s4wqn
-	zHBLWiNuF4jYp0ak564iFQ924eq+bacvb6vIS2w0FmcnInpN0JJcnkBTEukjZaCM4+h5TonO46EMV
-	oLLpRjO9yw37R54wNB1Sng6MKUxqZnV/BHTjRRsBxTvPaui5RlGesvGJTSm3JMxXuiW/G9VT4UjMV
-	etp1oZsg==;
+	bh=N+bo73FsDgYGeRUjJ/0NdTtaHebHYRzVCqW9peXF2KU=; b=rsP/1aIWYUdwn2EFkEz1XzJVBT
+	8dSe1eGc4BT3UVyRKXRYhSI+ycO8R5RVLFNcmX8UTu9FgSLVsE3YzNTHZMmTclxNjASbjpGOFPVXJ
+	IBVOUhZpzHXURaYLmk+iAscpWiJFq8WRtfd8ae+Rz4ASWFK7MkWD9EXZ9dsy8TR8EW0nfhFxp2BC3
+	xpVsKOJspYB7ho3GMlG7jcTS3SPvXmh8y3TWzo1DDRPV7UYPoaVtRNAG2WjPVIUQ+LmbgegFPzt1Y
+	RSMp8C7qIbundCRBjw5tZKw2X5JDBoPrso3IvQ6XW1aBrpuT9OSR05uLvskB8TNvxV8IeuaYWSD/h
+	r0cKjmmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCr2-000000059px-3wNK;
-	Fri, 10 Jul 2026 15:09:28 +0000
-Received: from mail-northeuropeazon11012005.outbound.protection.outlook.com ([52.101.66.5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wiCsk-00000005A0g-10J0;
+	Fri, 10 Jul 2026 15:11:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCr0-000000059pL-2LZq
+	id 1wiCsj-00000005A0Y-1Tet
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 15:09:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uKKh5ynsj1AH7MOusCzLfREp1SD0ZrEyNkQuv1YLht4zIaUFUTDd2PKCHALUZcPDc7Imn4HWAyCesUodbZ9VyZQcGgiBnNqSF9/U6gDera7jq9hUWsJGsYCqp2CwwRRLTAv/Fx6xmlXLtYrNiFm5rxHdwo0NL3J4f4m3H6u363Q5Betc/7rzoDJWRrSs0vbqsilRXNcx64xmveuAgic51gKwIFTfr2Unbrl+N/qaT5CttODTRWZfnnUn3LqAiY0FNOhcqE6BrgVU2/0Ic3IIG5stVQ2Hix0W3TNSbeyUTiEHWC5u3Bk5qEwYPmsqkKPMjPhWHFF59Y3cs5nTlXoizg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oYAveeyxQbUv1RStadSBoJ5xcH5GLnRkbKWfVO59o64=;
- b=v7icK/eKde4EmF2hF1Dr5VdvYS9IAyoNDDYRHMRPBgNYdCj49C81oT+cNChtbIZBe8owk3oBgad9nOQdqg8Hzw1zGgZ3O0DbaMKsgYTMHr5H4xYMEUrxJrUtqtg+hTfdOHDFoD86Brru5yYQAywikqvSkoQih0BU13uUy4KDzmjw1V/cmtxVI/XQTWyvRqpX1DBXLYqVMSCr1nol4pCotCgNRyJV0jUgreIMceiiFCMClmA++cObjRuQ06tX9LXiGeWwuA21N03xwaOu5EOJoX03DjP6pygazvez3A0aGRp3/tMCg97NOL1WLZBFeSSSwLB7ZW6XI5hDj+1Urbzt1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oYAveeyxQbUv1RStadSBoJ5xcH5GLnRkbKWfVO59o64=;
- b=UyZN8GfNx2k8Un94sknidqmTpkbOKbF6LptB0lovrOwifiy63waAPL+S8Gz6cxdvOF1UbyxyL5g+5J4OTK+0q5FB/cpcJOVvh1t3XNLniOF+PSymSFF+jaxyq0bueR2Ehq58jINKiMv4T8C2TmjDnj5Z6+0qxrerM3TxaToCS9hOlJ1izf5+9Sw8jZBKPQ8KSDNoS5H/VMQN1ofku4da9NKaQ9Q12Bo2P10sze2M0jB0tc2wpIm6kd/Uen9EnAWI1xjI3zk9BFpn05CvmvS3D/GxJ4KGN7O3qIoCPEMegu6zWgYklUt+sghZiquHdAZ5l/1w6Uuwjg3btKzsLm+f4w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VE1PR04MB7294.eurprd04.prod.outlook.com (2603:10a6:800:1a3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
- 2026 15:09:21 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Fri, 10 Jul 2026
- 15:09:21 +0000
-Date: Fri, 10 Jul 2026 10:09:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-serial@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TTY LAYER AND SERIAL DRIVERS" <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCHv3 3/6] serial: mxs-auart: use devm resources for iomem
- and GPIO IRQs
-Message-ID: <alELF7h54nY8Kycz@SMW015318>
-References: <20260611033856.6476-1-rosenp@gmail.com>
- <20260611033856.6476-4-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260611033856.6476-4-rosenp@gmail.com>
-X-ClientProxiedBy: PH8PR05CA0005.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 10 Jul 2026 15:11:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 05AD241502;
+	Fri, 10 Jul 2026 15:11:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E77371F000E9;
+	Fri, 10 Jul 2026 15:11:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783696272;
+	bh=N+bo73FsDgYGeRUjJ/0NdTtaHebHYRzVCqW9peXF2KU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DQnE0rcDKiBX4PGfTTTLtfYgsIfg95iCzdLHLqGrpDOWPummpQWg/K1OKPhK6rF5m
+	 3CVJU7nMXufN5GkbySHqozVddegwSpJQtBfqBFOhj1BNk/apnaLcS8kk3Om7zVYtNF
+	 pYbsPtVOZ1jhLUj/H0E63Dr1Rn0jNcQfNSdVtWZDc8cG/2g5r/lNViPXL8K4rSO5Pb
+	 ssDP4UtyVo9s1xRzytuOiSOb9Gqj9vm0lrBMINOzBLd2rbFAYdsORR1LxZlFQnjvsr
+	 p+WcsJmzmhj5NWXoiDMXMPcUwn0tqHh35o0Czu6X2rOTKwyEYElVYVjQJyjllHHCmB
+	 iQbwgJ+KUaXjQ==
+Date: Fri, 10 Jul 2026 16:11:07 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	matthias.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add bindings for Variscite
+ VAR-SOM-AM62
+Message-ID: <20260710-rewash-dripping-a2fe778e75ac@spud>
+References: <cover.1783687321.git.stefano.r@variscite.com>
+ <10775b12b801255546c9cdefdb153e421aedf910.1783687321.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VE1PR04MB7294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b9cafaa-6289-49ff-d3cf-08dede953840
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|23010399003|7416014|376014|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: mTNnKBDNAI+P2C/vDR60VEfUEMo2rckNYn3yP0OCc1+vRqO933Oz1P/9+g1bsoKVjXtB0iK/wh+vzxGuY3J+moX+zqYnRuNu0RcEm9Bq4652KjTN6as+M7AgI2ZeKPOQbv+K2Rm53G1VVD9ASJ10SLj0FtfkPXQVddv78rAR9oL7qbrtanCo5Jp9NU69aijGF7imISQ+hHwDQ3rIcu18O3oKges89MBy1QaRt7/tFs19rW3+AOoGGUhM67iuAEMXCyO5TEh0/m/j0hPt3rsd5snnv1tuifYs2GBqQ0H21/k4FmLIZ4hlEMB63meO0oNG4cA30UoTu3hYQdQ3+PYwsZMrkItnqSi4nXfCNxcYdi6yckpEgyWSivyBXPV2q9Sb0ffNUWirk4wE+9OqW2HMtSkL8n7/zAsMUMNBxQ0qdqrbHu3pTgqxjBZ9hfZDIPoYyD2+nmsMGi+NYb2vMXJNDHaRRkxq9pFcymFtur6nhUlsiZoob5l6NNYab5/vt8WRR6MOerDTKCqi4+9t+Jnoci7zNSk2aOc2mVG11438wdWsNUhjCbUWA4EiYCOdn3hw41zLErhrk9hbU949JkGfA7vhBFlQdBH52oWeBmNE33oSLJH+xAbcIFRaBmkEFfRgOilygQJrq+Tn0+sJKlo3YJUltql2u826f8ukVDhWECc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(23010399003)(7416014)(376014)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7gbDdygwjbCUWxmi19L/AWdUODTzbyLKVfxu0GeHJDEf8gqzVqG2UabL0zOf?=
- =?us-ascii?Q?L2RG2BZ5ZWGxPcLxMyS0xGm0O3oeZL2/zKMdiBUWkmTTCCN+8/5V2uQVmoMh?=
- =?us-ascii?Q?2qWG9ouwIgMQOL3lvH+a6p0DEr4AfHzPp+KJyQI8SoQlf9ock9WXJ20zW2lh?=
- =?us-ascii?Q?zALh7GiN6UOZuyJSVs+3fds7XOz2Sy6P6DKk2VQW+Z0JbVVUtJkjSmBv4mz7?=
- =?us-ascii?Q?tA98weiOyrcoKlkluh6vR/xiXMV+hA8uoBtT1AslE/2wnqKgCKntxDOzdW0R?=
- =?us-ascii?Q?7RQj7uB8rSnHQKGMKuDnKeI6BWOhc2SYkMoi/8b46Z4mc5Zn0deePHJasTId?=
- =?us-ascii?Q?Doa3KPFYq7KrOI5/1F/+lof+3cpnAyj0yu55S/azM4ckGzE2WV2YOA5AI4ih?=
- =?us-ascii?Q?I8/6rUw71yrfNmtvRXUa/hwNppTsB2LKCZ2DFPD0DPHIPUlK+yF121Sdnc7I?=
- =?us-ascii?Q?V1+sLyIfXZhNjQy0gj6QRqBcAgdNcMzgXccbpRFT+1yzZcxsVUjLQ5vVEn8a?=
- =?us-ascii?Q?DTv6MAgndRuNJfh+RF8gRQABhV+vEXJ2HAjjIXdW+ZbbxVOdCVaLnf8y1gSp?=
- =?us-ascii?Q?525j69niRjAjNAlhWxOW+8nItVBV8CqnH5FBlKmRqoKuErmD18gGtmxV7VYH?=
- =?us-ascii?Q?Rk+9jj7bNzZ/58DyeQgSHTOlJtfM/24eoq9PoOvyW/b27AHuoQ4+7USqf5bM?=
- =?us-ascii?Q?ILl2Z+ALMaRyiaIKN/UafgYY0XqcEq9gyAoOvnGyRUfoYgXZr5gNrVC1DwMF?=
- =?us-ascii?Q?JtNCbqBT7IKKnZKTRnt8CX82XSWY7KV6jhzYNrcbEBPdkbhhz3ia1gA5V6Cv?=
- =?us-ascii?Q?gldSDCupXW1uH3wQduD5DPDnF4jEMXJrv0CUDnHj/WRL6g4BhnugFGsLkOgB?=
- =?us-ascii?Q?W4lEV8K/InOY/yfyXtiZJCl8bJ8vfkIf0R54XoS392/WMGv0v2ny/xEPFkvQ?=
- =?us-ascii?Q?NdyjwN1f7/zi1XM5AkHP1mG42FsJ5hTP6kxysW5hFoj4cNAAaZ/lfz/ZrOhp?=
- =?us-ascii?Q?b2qcysv+QSBl3+VHQ2748Iwy9c+wpAp2C+4kuGYk+9VKGLhQtHS8MzgrvLje?=
- =?us-ascii?Q?6qfb/Si+1ZJwapjdKWtf4y8So9iPbg6l4DyJP0whxmw51tGnDb9sQpvTehIE?=
- =?us-ascii?Q?p9W6GPnw9P8qDQgrwXgE0scn7NpmsMzb/jZfQMvtBq/A/YiiIWnTfDazyxhg?=
- =?us-ascii?Q?HvFpulsL1R695Aek+OelGB/eXJq6f1DrS4FD9m08X1s0B+o4vgwgj0FmxBmg?=
- =?us-ascii?Q?IXX9vRn1rNDqTe/9V6mRqeUFZsGVsWQ2OZ82iEmfhy2kFqh+snB/HO7cRRcP?=
- =?us-ascii?Q?3ntPx0FxIvijPqV7iPbrKBAjDPHe5BqqIMJ56sR2Aa1USl7c9yXWo0B1RMCI?=
- =?us-ascii?Q?6pPUCZq2OGgNct62mhml3gQ7O6QJUNK2T8nKams6cB+U4tyO7tQzWwjYobfa?=
- =?us-ascii?Q?NeyefgeFM5yk97NkLiGfDZeBhY6BujNVh3u5lPq6hqhq8RK/Nff5cWrJzVGE?=
- =?us-ascii?Q?N85BSk5VVIZifu1JyiOqGv39+ao50/26nJo/wVIdlAvWYADkA9+LOLsdlO1G?=
- =?us-ascii?Q?1HKk+cX7aJWQ0zTnUM71Evvsj5+MukEgrp73k1GpGAPgKQCGrCVh+5mcltt0?=
- =?us-ascii?Q?en/vLGeuLpnhVA6UvM76L0fStay9IcsTwzlOIvzawA1NHsDLMdkR1HGcztSE?=
- =?us-ascii?Q?2B11EG9fvaUkqQke5DIfTT7KPwAgzWu17A2yNHe/pkbO2BwtdZ41GeKvBsMv?=
- =?us-ascii?Q?QxTWFCGfkj+WLJ5QeYzGMbIKRz/dnz3oDuGQQ8QWOwUXmHfqBFjZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b9cafaa-6289-49ff-d3cf-08dede953840
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 15:09:21.1908
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O12oHuZ/0K0JZEtcb7MgAWI2P0sdNY0YJDMibdluSR3Bu7k464pxUr17E7ttss/F57NnZ5HBLEMbTR8FwHMENXCa1cKiN/nOoVE+jLf6KoCE85z7lahWPIOaa6UjCiJg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7294
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_080926_610258_629A13EB 
-X-CRM114-Status: GOOD (  24.67  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Hva4XXWYreE104rb"
+Content-Disposition: inline
+In-Reply-To: <10775b12b801255546c9cdefdb153e421aedf910.1783687321.git.stefano.r@variscite.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,153 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 08:38:53PM -0700, Rosen Penev wrote:
-> Replace platform_get_resource + ioremap with
-> devm_platform_get_and_ioremap_resource and convert GPIO IRQ
-> request_irq/free_irq to devm_request_irq. This eliminates the
-> mxs_auart_free_gpio_irq function and its call sites, and the
-> out_iounmap error label. Simplify the remove function accordingly.
->
+--Hva4XXWYreE104rb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Please use two patches to do it, one for platform_get_resource(), one for
-irq part
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Frank
+--Hva4XXWYreE104rb
+Content-Type: application/pgp-signature; name=signature.asc
 
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/tty/serial/mxs-auart.c | 53 +++++++---------------------------
->  1 file changed, 11 insertions(+), 42 deletions(-)
->
-> diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-> index aa59a48bfad7..4499e3206e85 100644
-> --- a/drivers/tty/serial/mxs-auart.c
-> +++ b/drivers/tty/serial/mxs-auart.c
-> @@ -1517,15 +1517,6 @@ static int mxs_auart_init_gpios(struct mxs_auart_port *s, struct device *dev)
->  	return 0;
->  }
->
-> -static void mxs_auart_free_gpio_irq(struct mxs_auart_port *s)
-> -{
-> -	enum mctrl_gpio_idx i;
-> -
-> -	for (i = 0; i < UART_GPIO_MAX; i++)
-> -		if (s->gpio_irq[i] >= 0)
-> -			free_irq(s->gpio_irq[i], s);
-> -}
-> -
->  static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
->  {
->  	int *irq = s->gpio_irq;
-> @@ -1537,21 +1528,13 @@ static int mxs_auart_request_gpio_irq(struct mxs_auart_port *s)
->  			continue;
->
->  		irq_set_status_flags(irq[i], IRQ_NOAUTOEN);
-> -		err = request_irq(irq[i], mxs_auart_irq_handle,
-> -				IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
-> +		err = devm_request_irq(s->dev, irq[i], mxs_auart_irq_handle,
-> +				       IRQ_TYPE_EDGE_BOTH, dev_name(s->dev), s);
->  		if (err)
->  			dev_err(s->dev, "%s - Can't get %d irq\n",
->  				__func__, irq[i]);
->  	}
->
-> -	/*
-> -	 * If something went wrong, rollback.
-> -	 * Be careful: i may be unsigned.
-> -	 */
-> -	while (err && (i-- > 0))
-> -		if (irq[i] >= 0)
-> -			free_irq(irq[i], s);
-> -
->  	return err;
->  }
->
-> @@ -1596,18 +1579,12 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> -	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> -	if (!r) {
-> -		ret = -ENXIO;
-> +	s->port.membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r);
-> +	if (IS_ERR(s->port.membase)) {
-> +		ret = PTR_ERR(s->port.membase);
->  		goto out_disable_clk;
->  	}
-> -
->  	s->port.mapbase = r->start;
-> -	s->port.membase = ioremap(r->start, resource_size(r));
-> -	if (!s->port.membase) {
-> -		ret = -ENOMEM;
-> -		goto out_disable_clk;
-> -	}
->  	s->port.ops = &mxs_auart_ops;
->  	s->port.iotype = UPIO_MEM;
->  	s->port.fifosize = MXS_AUART_FIFO_SIZE;
-> @@ -1622,21 +1599,21 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	irq = platform_get_irq(pdev, 0);
->  	if (irq < 0) {
->  		ret = irq;
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->  	}
->
->  	s->port.irq = irq;
->  	ret = devm_request_irq(&pdev->dev, irq, mxs_auart_irq_handle, 0,
->  			       dev_name(&pdev->dev), s);
->  	if (ret)
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->
->  	platform_set_drvdata(pdev, s);
->
->  	ret = mxs_auart_init_gpios(s, &pdev->dev);
->  	if (ret) {
->  		dev_err(&pdev->dev, "Failed to initialize GPIOs.\n");
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->  	}
->
->  	/*
-> @@ -1644,7 +1621,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	 */
->  	ret = mxs_auart_request_gpio_irq(s);
->  	if (ret)
-> -		goto out_iounmap;
-> +		goto out_disable_clk;
->
->  	auart_port[s->port.line] = s;
->
-> @@ -1667,11 +1644,7 @@ static int mxs_auart_probe(struct platform_device *pdev)
->  	return 0;
->
->  out_free_qpio_irq:
-> -	mxs_auart_free_gpio_irq(s);
-> -	auart_port[pdev->id] = NULL;
-> -
-> -out_iounmap:
-> -	iounmap(s->port.membase);
-> +	auart_port[s->port.line] = NULL;
->
->  out_disable_clk:
->  	clk_disable_unprepare(s->clk);
-> @@ -1683,11 +1656,7 @@ static void mxs_auart_remove(struct platform_device *pdev)
->  	struct mxs_auart_port *s = platform_get_drvdata(pdev);
->
->  	uart_remove_one_port(&auart_driver, &s->port);
-> -	auart_port[pdev->id] = NULL;
-> -	mxs_auart_free_gpio_irq(s);
-> -	iounmap(s->port.membase);
-> -	if (is_asm9260_auart(s))
-> -		clk_disable_unprepare(s->clk);
-> +	auart_port[s->port.line] = NULL;
->  }
->
->  static struct platform_driver mxs_auart_driver = {
-> --
-> 2.54.0
->
->
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCalELiwAKCRB4tDGHoIJi
+0mi3AP9e7YZotIexjzXQFo+xO4mLAfJgv6LSzjoZE0fCdgVqyQD+Nbe99SRnIk+3
+iJOnnR480ww9jQD2dmn/FPMmVvG6qgc=
+=vrLM
+-----END PGP SIGNATURE-----
+
+--Hva4XXWYreE104rb--
 
