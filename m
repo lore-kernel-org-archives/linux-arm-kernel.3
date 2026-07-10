@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD663C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E13C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 15:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjWnuC9QgiWHvSuM9zErwgPnubNLWbuXu8mN5WW6YCo=; b=1iN7jFUO2c/Y3NNAtz1LirdZ+Q
-	WsRXZHD3TwCHX76BYG53dDYdmPdEr8Unwl6u2D4kI2kbJWWmppdUGyHI2IVduQbPzpzayccQPtiPR
-	903UpxHl0ItCCShMKZJr94xeP+dsTm93Hw5iABQtZrEZy+MW+YZjJzSi8tI/erEneY285lGLPA7rR
-	UN1zucWbKI/plph03GExzt5FqHITEbCGdlFgXC2/yk6WC1kEZZLhyxm3uK+c1P+09o12udQrwxz1v
-	DCDtK7JBxzR2ffWE7kIQJeYeLHmrer72P4BtqzdFuiZw8QthD6FbrKXmZO7i2T4KAqAzkHHEPo6X6
-	ie6T3YmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tXY6SQ0Q+anDRvuxV3EfhQNKyQXwe1OYCTxx7Z/YiAY=; b=fc66oW0TjbB9TpAt2q40vgVSCn
+	8SqTe92UO3TA1q+2fuPY3UGMgsav7ZcR7Ac+CA1l7emTcL5C1k90aM4w+67Elvtdu4zSA9kB7z2Pd
+	P0HPfQ33LbVyNdmJqxYFqDcxXCDU01PS3fAKHtqLmJnHmdUwaM2itvDmU4CPAzKOAqt15de0FOWf1
+	9UevR4wvmoVjIkIUKoyH44ns+tIkCnKaM0C4Qtben4fm0f8UqjpAe6iGXog27KL/49nIHyWip+yf1
+	j+YDlXon5mkVYN8Ft0R1CAWPM2fsQsb2WaKUOI89wWX83V5o8OEfpj+Yw6HuUIZYgZ4mME29AliyT
+	WP1NGnAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCex-000000058SP-3IMi;
-	Fri, 10 Jul 2026 14:56:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCev-000000058RR-3Icn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 14:56:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21D5E1E7D;
-	Fri, 10 Jul 2026 07:56:52 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.2.213.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AE473F7B4;
-	Fri, 10 Jul 2026 07:56:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783695416; bh=kWZ/q/+p3VrAnnSCKo1mZVef53IyupoK4tnQ+cyjDQI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PmuI9JkU97IwkYAtcl75Uz7ASKcEhVqmMSImuRNbC900dXx8548yfKX3v5WovGGgC
-	 E/w6F2D3quuCi+/J+zttBFKVERBkdkznkOf6G0NfkJ9XYZZ5G7enWc3ZHaM0iucmYK
-	 2nQXCAVw04K4fphEB9M2WQSNTw1DDDHrHp3ejydA=
-Date: Fri, 10 Jul 2026 15:56:52 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 14/28] arm64: sysreg: Add HCRX_EL2 bits related to
- FEAT_NV3
-Message-ID: <20260710145652.GD12293@e124191.cambridge.arm.com>
-References: <20260702160248.1377250-1-maz@kernel.org>
- <20260702160248.1377250-15-maz@kernel.org>
+	id 1wiCjm-00000005940-0dVQ;
+	Fri, 10 Jul 2026 15:01:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiCjk-0000000593G-1eKR;
+	Fri, 10 Jul 2026 15:01:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 66550601D9;
+	Fri, 10 Jul 2026 15:01:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 10DD2C2BCC6;
+	Fri, 10 Jul 2026 15:01:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783695715;
+	bh=Zq0NKaJlpzYFMBprR7tFkC2cwEQusS6IE/2q5o6meCc=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=mFABD7o86SbEULBKr9B++FLg5pgHcX/CuVDH4A7u+/zHkXI/uPfPtz9YTb/UHBTN4
+	 BfL0WKU3oJaokyPRaKi6cVJD+K8QH5t0cLFj8DH5ntFrf09vdOdYS/gQmHpQF/rgZA
+	 84/Wj12+du90BNPyEEqFRQND3EMZBLnOzKEgX4CYxWFVNrXCmsF+hAEvX8MTGh7UkL
+	 IRt9zghavxQOYcnKK4oRFrs0ZP3PKcEZAX90Cj6Y4DHJY1qDCuLFLnlV1uQp7qRu8G
+	 rPek0zi6i0oPAmp5ElFzwiYsq+eSnNEl7nanz9QdscwEbECI2yBl/dX176CfCYzLdU
+	 ejwsuvC5DqvxQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E054AC43458;
+	Fri, 10 Jul 2026 15:01:54 +0000 (UTC)
+From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
+Subject: [PATCH 0/3] pinctrl: mediatek: Add MT6858 support
+Date: Fri, 10 Jul 2026 18:00:22 +0300
+Message-Id: <20260710-mt6858-pinctrl-v1-0-f75ab558f0df@jolla.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260702160248.1377250-15-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_075657_896852_6A95B34C 
-X-CRM114-Status: GOOD (  13.35  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAYJUWoC/yXMQQqDMBBA0avIrBsYI5rEqxQXGqd1RKMkUQTx7
+ sZ2+Rb/nxDIMwWosxM87Rx4cQn5KwM7tO5LgvtkkCgrVKjFHCtdarGys9FPwuSq7Q0ahbKAFK2
+ ePnz8hu/m77B1I9n4XOC6blrsz45yAAAA
+X-Change-ID: 20260708-mt6858-pinctrl-917ad9097023
+To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Nikolai Burov <nikolai.burov@jolla.com>, 
+ Nikolai Burov <nikolai.burov+review@abscue.de>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783695712; l=964;
+ i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
+ bh=Zq0NKaJlpzYFMBprR7tFkC2cwEQusS6IE/2q5o6meCc=;
+ b=dyxBquZP+GmdIg3f4UUg/xOOgljWgtNmiAwORqIKBamjDtTKI7DnD9sXCD3aVIz6d22P2zk0z
+ EG7H7U+F8BLDZvN+uULFm22Jix5qv8l4sW25Lyq79NqY6FOX7UTUuvL
+X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
+ pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
+X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
+ auth_id=859
+X-Original-From: Nikolai Burov <nikolai.burov@jolla.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,42 +87,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: nikolai.burov@jolla.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 05:02:34PM +0100, Marc Zyngier wrote:
-> FEAT_NV3 introduces 4 new HCRX_EL2 control bits. Describe them
-> in the sysreg file.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Add support for GPIO and pin configuration on the MT6858 (MediaTek
+Dimensity 7100) SoC.
 
-Checked against the spec.
+Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
+---
+Nikolai Burov (3):
+      dt-bindings: pinctrl: mediatek: Add MT6858
+      pinctrl: mediatek: Add driver for MT6858
+      arm64: dts: mediatek: mt6858: Add pinmux macro header file
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+ .../bindings/pinctrl/mediatek,mt6858-pinctrl.yaml  |  190 ++
+ arch/arm64/boot/dts/mediatek/mt6858-pinfunc.h      | 1335 ++++++++++++
+ drivers/pinctrl/mediatek/Kconfig                   |   10 +
+ drivers/pinctrl/mediatek/Makefile                  |    1 +
+ drivers/pinctrl/mediatek/pinctrl-mt6858.c          | 1408 ++++++++++++
+ drivers/pinctrl/mediatek/pinctrl-mtk-mt6858.h      | 2301 ++++++++++++++++++++
+ 6 files changed, 5245 insertions(+)
+---
+base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
+change-id: 20260708-mt6858-pinctrl-917ad9097023
 
-> ---
->  arch/arm64/tools/sysreg | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 31e4ea455a9ce..afe9337851a2e 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -4548,7 +4548,12 @@ Fields	ZCR_ELx
->  EndSysreg
->  
->  Sysreg	HCRX_EL2	3	4	1	2	2
-> -Res0	63:27
-> +Res0	63:35
-> +Field	34	NVnTTLBOS
-> +Field	33	NVnTTLBIS
-> +Field	32	NVnTTLB
-> +Res0	31:28
-> +Field	27	NVTGE
->  Field	26	SRMASKEn
->  Res0	25
->  Field	24	PACMEn
-> -- 
-> 2.47.3
-> 
+Best regards,
+--  
+Nikolai Burov <nikolai.burov@jolla.com>
+
+
 
