@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0431CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B065C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUb2JzOzL0ZF1/vJ5Tbm1EbBkS6w1QvqsQ4rogE+byQ=; b=F3WIu5XaPI0fSXZpvWSGrX2qN+
-	4iNwVTOpQNSFxG8n7iHBk1+UX2irJKn/9X9oW7UaOgpBgSjZ/+hzRASc/6dVi+fb65p3fOiVmMG7z
-	YXlsELDMKpJktL/QtnJfYMM2Rp3RmuQid1I1a5k5Cssxt9MOVCbM1gF2oVdkoLsPPRZp3xZejMgPk
-	+IhMvC7BC2FcJI13rQWhKt7jrUVv4r7219FpxCRC/lDtJK+s8dtwDhoQFd7+qRYhhHpsV8vXoFjQ5
-	KqWlBgAvA7N0COKLLwPB90c3JPChgkBrFfbPDy+fDP+7BAv4RcfaM8B3gLwntH+ZopCw2s4y7nR5z
-	SMLSjC6Q==;
+	bh=IxDQXUffjDPiX8s75V9lUlztwYc8UXv2+mVoAik2+IY=; b=1lLQImCVJk4ImCVS6DthrGJSZF
+	V8pWhFbgHSIfYQ6nVsv6LdmQtFSB/T6XpDntYqz4rdz4p6NX7sT2iairmDe1wCAfGhDSB1IdlkTn0
+	nDfquBdaSoTDihhV7bLZmORo4XVQ817oSR/QQbnTfI6Edf99QF6DxYw9YeRGW4ltjCzmWNNcG0dF2
+	MQKJa4rHBB8zF4Dz3lpXOnIJxp9A04BR+Eq8EO0QFfgxY8Lv5jMoVVLLbaQdfRYPIboK1IOYBvvjO
+	i5iF7DNlaipiKJeZc3mYD/dwvWC/xpXcGOLPCoLfSol5egUjkPDMgP57qEoVQf0FY6TclxYbvk1D7
+	0iJmMS8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIH0-00000005kIy-2CqW;
-	Fri, 10 Jul 2026 20:56:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wiINd-00000005l0e-28Pt;
+	Fri, 10 Jul 2026 21:03:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIGg-00000005jw9-3gc8;
-	Fri, 10 Jul 2026 20:56:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783716973;
-	bh=7NtyUqb33FG+jkcWAqQCofPeXAbNDYLMWt9ICp4xwmw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YThiVFIyt0IgNFvU0IQr41k9Gg/WLRP8RV2Z14q6voul1y4OA2aplhommirHeN3jB
-	 0oFurEkKUcsfWlnOsu4Kt9fnG+DFPKEKGwF02xERzTtVeU6nfRc7wqNsyTMyYDftMk
-	 3Vl2C9tx8pP3585eaAZRX1rrTBhmlTw5c75DWveb79CQRQff0n9Ce7lMbohDRQckMD
-	 ZxOQitQBhAwb9GckW+P0jUksvBRFK7qzNXqXy8I4PXaK6sNziFxL0DTwZG1o2/dGtm
-	 AM0a1JXkpMI9ZkGQJdRtDSg42QJlHo7j8OfQ04Tr4s1z7UXnuBa8D2Voi5gp5q4hgu
-	 pSgYTf3gKwReA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6865D17E0EFE;
-	Fri, 10 Jul 2026 22:56:13 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 11EAE48006F; Fri, 10 Jul 2026 18:46:18 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 10 Jul 2026 18:45:06 +0200
-Subject: [PATCH v12 28/36] phy: rockchip: usbdp: Only enable USB3 when not
- in high-speed mode
+	id 1wiINc-00000005l0Y-2W98
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 21:03:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 67A8140A90;
+	Fri, 10 Jul 2026 21:03:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863E11F00A3D;
+	Fri, 10 Jul 2026 21:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783717407;
+	bh=IxDQXUffjDPiX8s75V9lUlztwYc8UXv2+mVoAik2+IY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=PJIxyA9T9LcedZvZtKzFpv4Nv71M/63UFU1MMhcIJ/witPYFfZxgHfa0l5l3+46kt
+	 S8jHOqiu9gYMsbCrNw8vyi2rh+mFTGaA5y/q1GxqAMAnyAY2FjVXpfiNIP5qD+lnOd
+	 x+gHiqPkYwzJehN+CZ4ENbbhyy4g1NbaMx1nbQ6/l3nfpJC5uiIDnEmI/fdpb7/bxC
+	 GS5jVf3EzR2VfcWfBU4XHLnmu429oiVjVzhjB6HOviZFMLcFnUW8YOTwmIaggNUGcB
+	 /s/3BXiB253AW0lhVTgW8GBFyc8MrHQQ8oBNocaMftBoE9IqqOuX743M8LC6js1hC9
+	 WpYSuyKI5vHig==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: Sasha Levin <sashal@kernel.org>,
+	oliver.upton@linux.dev,
+	gregkh@linuxfoundation.org,
+	mizhang@google.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	james.morse@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	ahmed.genidi@arm.com,
+	leo.yan@arm.com,
+	miguel.luis@oracle.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Colton Lewis <coltonlewis@google.com>
+Subject: Re: [PATCH 6.6 v3 0/6] arm64: KVM: Backport VHE-only boot fixes
+Date: Fri, 10 Jul 2026 17:03:00 -0400
+Message-ID: <20260710163023.agent5-0004@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260709223604.12934-1-coltonlewis@google.com>
+References: <20260709223604.12934-1-coltonlewis@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-rockchip-usbdp-cleanup-v12-28-8b41a9a9bef0@collabora.com>
-References: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
-In-Reply-To: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@flipper.net>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1088;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=7NtyUqb33FG+jkcWAqQCofPeXAbNDYLMWt9ICp4xwmw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdlbn+M9eq5d3Pp3V5venzSpbHpzXmNha
- 4MXNngift5ED4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHZAAoJENju1/PI
- O/qanOsP/j4S/f4b1JA34NmA00oNvDQA5E96BpL83ATgbDY7iHcHLxWlaXDm5FuHAiIqkqKrlF+
- NYTV20CXb3HuLS4VjAbYetXdTtuoqCpGJkxFLcjN6f9QQBD2B+bzI3+qfVZVdkXIWAuDkc3RCqR
- J6eUj4IZU4J+bqU09nKFLRjjGUmBr5SGVLod2i4GDLpVZS7it2ahBarLCZYBFNDY5eJp+pX72Zp
- X49y2caBlRd3PDeBzX5ib1Xag1KUBTlJpCGxE9T0icTv6PfQp9csFU2SkBGA7Lp9bjXTqrDXhoo
- gvIRTXp5dkpQjCgZuwdVG5Irq/tTiQyJaolle4cnu3pPRTeeVDE1EhRB7B7WvxtfBnZkxnMrE1T
- fznnlQrST5q0A4fb8irDSWhdmxgkBu8veQXYkY5H8fSm70DTJ9UXuEYqqtULSOXZ5kH8/VK/mgo
- DjxBYtvqB/8Ir8iaTJtV091urQmwiRUFKRAhXMqrCtElkYqSWIZ3dh+BYUSzi5jy5aP3wH8zJWb
- VPfTFoSttYgn1NSc4GVy57O2HZAbOYVpvfsV4OY+Tgff0qLhAjuCSyiJ3kYr64XhLnTGZdBjQQ+
- RiapJtku00T5xyFuzqH4b/IpbDtcV9EktVRy9Axd9Zk9zMYb7jutXRlt5TriMQr9I1mc0m5R0Aa
- 2sK1nWSer/WpDFG47muchpQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_135619_068551_805257D9 
-X-CRM114-Status: GOOD (  11.81  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure that USB3 mode is not accidently enabled during PHY re-init
-for systems that are configured as high-speed only via DT.
+On Thu, Jul 09, 2026 at 10:35:57PM +0000, Colton Lewis wrote:
+> Architectural updates retroactively made FEAT_E2H0 optional, meaning
+> hardware can implement FEAT_VHE without FEAT_E2H0. On such CPUs,
+> HCR_EL2.E2H can reset to an unknown state and must be initialized early
+> so later code can reliably detect whether E2H mode is active.
+>
+> Without these fixes, booting 6.6.y as a guest under KVM nested
+> virtualization will hang at boot.
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/message/20260626212424.C215E1F000E9%40smtp.kernel.org
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 2099ae2e51d1..af915cc37727 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1009,7 +1009,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 		if (ret)
- 			return ret;
- 
--		if (udphy->mode & UDPHY_MODE_USB)
-+		if (!udphy->hs && udphy->mode & UDPHY_MODE_USB)
- 			rk_udphy_u3_port_disable(udphy, false);
- 		udphy->phy_needs_reinit = false;
- 	} else if (udphy->phy_needs_reinit) {
+Queued the series for 6.6, thanks. I also picked up the follow-up
+"arm64: sysreg: Correct sign definitions for EIESB and DoubleLock"
+on top.
 
 -- 
-2.53.0
-
+Thanks,
+Sasha
 
