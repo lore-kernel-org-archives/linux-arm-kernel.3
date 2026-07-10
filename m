@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC814C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD98EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 04:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+44eqqKft3VD53G/1SvMud8uiJM6et7ZC2iWZt2Lnx4=; b=5GcpuLMPmCi1Q5
-	1nFY//wgsP2XMSjjMkvJPulrZK5cNWviFyb7NmKby9NaeEoQUNe2zFSB+E7dvg3BqnelkUbwEES0H
-	Iw2deZDnHMDoDDJkjije3iJsYdQvWesJGzLFMUGl9JwlLW/XIJ40slHkwW6amhiPjZtkX32zup6cA
-	r6dWkQCr3qeU1GCaPq/I7ub0awm2Lv+GoxXsUzqEY2rbX2XZ5vRBYIgLMOBBYH3TQjNZk4eRphoD0
-	maIugcJtdFtdTDd5lC6C2RN1s/F00lF3fPEeMp/NGK+1UcdaKaXMyBSXq7NwWyerPGSR3iHSmPy6y
-	ShALJndhI1sSWgJ1vcVw==;
+	List-Owner; bh=pmXLyjVG3dnNcl3iG/4pgk01dI7PC3rxgc/2lNvuJy0=; b=G7oHqDSkPHW5dO
+	gWftxSvQ/WhKhS69NcmQgV8YHMX41lnb3bltd9gHCER8aGPM6o39QeHM8+LJUyq1693RpcC2sh/88
+	qcR+4yvmFUm35OjRl26e1xsYmY9VUR1toYa17bUXJmkekD+cUQKge8Yz0jN6sshFWmWuEXSSh/Gnv
+	gzWrvsCTAM20CnsykYOGLJdOh0ZwBMpawNTsKVTipdSNpVSi65lKLVrY0sP2LKTSGpjH7hMM2yZsf
+	7jrruY3fNC9uHdZpeKdYQ9E4NigWBDWOcsSPTpiAPrFXLdq4ebSuLBZc64b80d1EOE5L69AywRDpG
+	H89kU3+dllTn+L3XAIjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2W7-000000044k1-15mC;
-	Fri, 10 Jul 2026 04:07:11 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wi2Zj-0000000450E-3Uel;
+	Fri, 10 Jul 2026 04:10:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi2W4-000000044j2-04Yh
+	id 1wi2Zi-00000004504-2LUT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 04:07:10 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=+44eqqKft3VD53G/1SvMud8uiJM6et7ZC2iWZt2Lnx4=;
-	b=ZKKIf1Wi1eT1xQGDcIfHLIkEqYK7X8RIT7DgXKTMhD5tzM8bpdfLCsovPhVcH6orzRQaMxcE+
-	xUmmKVGb84CcaBsVTvkk8GJAlRgyta151nr5/lpACvPiUVDBaQuVWgzqbkS+g1cXypaec6OkTru
-	AUfmtxOiEFCXV5wyeTbLVNs=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gxJ2M2MMDz1K96S;
-	Fri, 10 Jul 2026 11:57:47 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3C57240586;
-	Fri, 10 Jul 2026 12:07:01 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 12:07:00 +0800
-Message-ID: <4e5e1586-2862-4e30-ac5d-84f1e0fb0010@huawei.com>
-Date: Fri, 10 Jul 2026 12:06:59 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 04/36] arm64: suspend: rely on daif helpers to handle
- PMR
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-5-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-5-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_210708_661713_BEE87B6D 
-X-CRM114-Status: GOOD (  24.55  )
+	Fri, 10 Jul 2026 04:10:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C778600C3;
+	Fri, 10 Jul 2026 04:10:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 199881F000E9;
+	Fri, 10 Jul 2026 04:10:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783656653;
+	bh=pmXLyjVG3dnNcl3iG/4pgk01dI7PC3rxgc/2lNvuJy0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=neIgnZ0GrbGdzMUj0Zrc73GFKtLNF6NerYcoxBtvLv2NzUnOnb0eZ6c+Tit+4nO3+
+	 p7u0OYj4MSR02R54GzBTso2H4FwhfV/zi4tpCqzTbGd0TsSeEnerKW6Fk+Z3+bwaMr
+	 dmhkMrAaKX2CYdXelf0b2tgKegXLHg/PuR4g8xsppAniGZlojJGQPMRQUROxegrcz1
+	 me3MtMyPDg4MmGXKfbN6sKdH2OYnyPiJJCtJr1B7WJXPZwKSekqc6JC2T6EPSDPUST
+	 eVuKS+pvzjWtpeVV5YiFsgjwEyuljbs4pcM8mGSSOgSX0/8QKP6jkXs/SSqjKARu/3
+	 o+dHHopmhLHPQ==
+Date: Fri, 10 Jul 2026 13:10:47 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Pu Hu <hupu@transsion.com>
+Subject: Re: [RFC v2 1/3] arm64: kprobes: Only handle faults originating
+ from XOL slot
+Message-Id: <20260710131047.1806f8477422f9c1703471eb@kernel.org>
+In-Reply-To: <20260709142215.226872-2-hupu@transsion.com>
+References: <20260709142215.226872-1-hupu@transsion.com>
+	<20260709142215.226872-2-hupu@transsion.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,122 +66,93 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
+Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 9 Jul 2026 14:22:23 +0000
+Pu Hu <hupu@transsion.com> wrote:
 
+> From: Pu Hu <hupu@transsion.com>
+> 
+> kprobe_fault_handler() currently treats any page fault taken while in
+> KPROBE_HIT_SS or KPROBE_REENTER state as a kprobe single-step fault. This
+> assumption does not hold: perf or tracing code may run from the debug
+> exception path during the single-step window and take its own page fault.
+> 
+> When the fault is handled as a kprobe fault, the PC is rewritten to the
+> probe address, corrupting the exception recovery context for the real
+> fault. A typical reproducer is running perf with preemptirq tracepoints
+> and dwarf callchains while a kprobe is installed on a frequently
+> executed function.
+> 
+> Fix this in two layers:
+> 
+> 1. At function entry, bail out immediately for simulated kprobes
+>    (ainsn.xol_insn == NULL), since they have no XOL slot and any fault
+>    taken during their execution cannot be a single-step fault.
+> 
+> 2. For kprobes with an XOL slot, only handle the fault when the
+>    faulting PC matches the XOL instruction address. Faults from any
+>    other PC are left to the normal page fault handler.
+> 
+> This follows the same principle as the x86 fix in commit 6381c24cd6d5
+> ("kprobes/x86: Fix page-fault handling logic").
+> 
+> Signed-off-by: Pu Hu <hupu@transsion.com>
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> Commit 77345ef70445 ("arm64: suspend: Use cpuidle context helpers
-> in cpu_suspend()") added cpuidle helpers to handle PMR manipulation
-> and restoration to ensure that the CPU receives interrupts when suspended
-> and pseudo-NMIs are enabled.
-> 
-> However, those helpers are called in between a pair of `local_daif_save()`
-> and `local_daif_restore()`, which already configure the PMR as expected.
-> Effectively, `arm_cpuidle_save_irq_context()` is a no-op here,
-> even when using pseudo-NMIs, and `arm_cpuidle_restore_irq_context()`
-> would not restore proper interrupt masking configuration early enough
-> if there were unexpected changes during suspend or resume.
-> (This can be observed with Trusted Firmware A (TF-A) at EL3 handling
-> suspend through PSCI. Even though it should not be the case, TF-A can
-> reset `ICC_PMR_EL1` during CPU_SUSPEND, thus resuming the kernel
-> with an inconsistent priority mask value on hardware implementing
-> more than the minimum number of priority levels, such as Morello.)
-> 
-> Thus : remove the cpuidle context helpers as they do not do anything,
-> but keep the comment mentioning the need for interrupts to reach the CPU
-> if we are using pseudo-NMIs.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+This looks good to me.
+
+Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+Thanks,
+
 > ---
->  arch/arm64/kernel/suspend.c | 12 +++---------
->  1 file changed, 3 insertions(+), 9 deletions(-)
+>  arch/arm64/kernel/probes/kprobes.c | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
-> index eaaff94329cd..c41724a40b75 100644
-> --- a/arch/arm64/kernel/suspend.c
-> +++ b/arch/arm64/kernel/suspend.c
-> @@ -99,7 +99,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  	int ret = 0;
->  	unsigned long flags;
->  	struct sleep_stack_data state;
-> -	struct arm_cpuidle_irq_context context;
+> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+> index 43a0361a8bf0..798e4b091d1a 100644
+> --- a/arch/arm64/kernel/probes/kprobes.c
+> +++ b/arch/arm64/kernel/probes/kprobes.c
+> @@ -282,9 +282,31 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+>  	struct kprobe *cur = kprobe_running();
+>  	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
 >  
->  	/*
->  	 * Some portions of CPU state (e.g. PSTATE.{PAN,DIT}) are initialized
-> @@ -121,6 +120,9 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  	 * Strictly speaking the trace_hardirqs_off() here is superfluous,
->  	 * hardirqs should be firmly off by now. This really ought to use
->  	 * something like raw_local_daif_save().
-> +	 *
-> +	 * This also unmasks interrupts in PMR in order to reliably
-> +	 * resume if we're using pseudo-NMIs.
->  	 */
->  	flags = local_daif_save();
->  
-> @@ -131,12 +133,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  	 */
->  	pause_graph_tracing();
->  
-> -	/*
-> -	 * Switch to using DAIF.IF instead of PMR in order to reliably
-> -	 * resume if we're using pseudo-NMIs.
-> -	 */
-> -	arm_cpuidle_save_irq_context(&context);
-> -
->  	ct_cpuidle_enter();
->  
->  	if (__cpu_suspend_enter(&state)) {
-> @@ -159,8 +155,6 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  		__cpu_suspend_exit();
->  	}
->  
-> -	arm_cpuidle_restore_irq_context(&context);
+> +	/*
+> +	 * Simulated kprobes execute in the debug trap context and have no
+> +	 * XOL slot. Any page fault taken while a simulated kprobe is in
+> +	 * progress cannot have been caused by kprobe single-stepping and
+> +	 * must be left alone for the normal page fault handler, including
+> +	 * fixup_exception.
+> +	 */
+> +	if (cur && !cur->ainsn.xol_insn)
+> +		return 0;
+> +
+>  	switch (kcb->kprobe_status) {
+>  	case KPROBE_HIT_SS:
+>  	case KPROBE_REENTER:
+> +		/*
+> +		 * A page fault taken while in KPROBE_HIT_SS or
+> +		 * KPROBE_REENTER state is only attributable to kprobe
+> +		 * single-stepping if the faulting PC points to the
+> +		 * current kprobe's XOL instruction. If the fault occurred
+> +		 * elsewhere (e.g. in perf or tracing code invoked from the
+> +		 * debug exception path), leave it for the normal page fault
+> +		 * handler to process.
+> +		 */
+> +		if (instruction_pointer(regs) != (unsigned long)cur->ainsn.xol_insn)
+> +			break;
+> +
+>  		/*
+>  		 * We are here because the instruction being single
+>  		 * stepped caused a page fault. We reset the current
+> -- 
+> 2.43.0
+> 
 
-If we use pseudo-NMIs only, the behavior after simplification is also
-consistent.
 
-- initial PMR is GIC_PRIO_IRQOFF
-- initial DAIF is 0
-
-Then the original flow:
-
-1、local_daif_save()：
-   1)、As pmr != GIC_PRIO_IRQON, saved flags = “PSR_I_BIT | PSR_F_BIT”
-   2)、set all DAIF bit and set PMR "GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
-
-2、arm_cpuidle_save_irq_context()
-   1)、save daif( all set) and pmr (GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET)
-   2)、set daif to DAIF.IF set (daif all set) and pmr to "GIC_PRIO_IRQON
-| GIC_PRIO_PSR_I_SET"  -> duplicate code
-
-3、arm_cpuidle_restore_irq_context()
-   1)、restore PMR to “GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
-   2)、restore DAIF to all set.
-
-4、local_daif_restore() restore saved flags(“PSR_I_BIT | PSR_F_BIT”)
-   1)、set pmr to GIC_PRIO_IRQOFF
-   2)、set daif to 0
-
-After remove
-arm_cpuidle_save_irq_context()/arm_cpuidle_restore_irq_context():
-
-1、local_daif_save()：
-   1)、As pmr != GIC_PRIO_IRQON, saved flags = “PSR_I_BIT | PSR_F_BIT”
-   2)、set all DAIF bit and set PMR "GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET"
-
-2、local_daif_restore() restore saved flags(“PSR_I_BIT | PSR_F_BIT”)
-   1)、set pmr to GIC_PRIO_IRQOFF
-   2）、set daif to 0
-
-> -
->  	unpause_graph_tracing();
->  
->  	/*
-
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
