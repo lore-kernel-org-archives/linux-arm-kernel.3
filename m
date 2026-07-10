@@ -4,139 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A6EC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B14C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=acT5XmYocSZ19UIykLwYP24NTpZzoE7fRl0T7yJJVm4=; b=3gqHcqq5cXpCGEu3SR/FvJsgG6
-	6n6k36YYq/g6l7kmjylmN/oFSQJTKF9fo2pmnK/ogXD2MqeB38/Nif7aPGuwyQBb/YLsjEDMu4Z2H
-	M2E5+0g+kHUQiimonMnFTLAG9jPkeAZRqPv9pHdmy6NazVKEc9ben7NzZu+fi4bDkpyOd7/sGRG4H
-	PjNhHr9fZDfGw1kL+IboL0Y9vWPHOo43kQCRfqMqwT1BgVO9pGkbCznBIKczPqvfu0Kx3VgXe3WlC
-	pS8iIAty4MzwaDBN4Hz6qAZmlSyk6xBCnrglNm+B5x531BuRfeopXVfkNw7J2yAGW8CrqhEvf4vfN
-	Y7tXUS0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=; b=Hg6LaNMUXEBCjbyOU9FlFDiDrJ
+	sp0OVaJmps+Xkio73DuH9n9sYO+xiNzN1K4D3yBcRcxVONEuY/2GrF6DF0H9/tUEqsVSmBbQcQ3/M
+	SeVUJx79voCUb7lPHT/91lUYD9pMjMybm7BUcgbAt7AtZFASdsqZ/nExEqG7plwHOU0sOIEVmhATt
+	fTXUceDwQjUoRgjSkpQ42wMHIPtFeiIaAKVvIQdvDYLMkXC8Z1C/Svp7o5jMjoRvH6ij5CWp73nL3
+	TOmlcTdfc5KxtjhK+abZm6z4T6VniOjbhgwrPc4Aia12LKGdeGqRQ8O3+aCP9+l1+uNDTMu/obF/F
+	3Yg4lIXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8sC-00000004kfs-24oX;
-	Fri, 10 Jul 2026 10:54:24 +0000
-Received: from mail-japanwestazon11012071.outbound.protection.outlook.com ([40.107.75.71] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wi8sW-00000004kkp-2YaW;
+	Fri, 10 Jul 2026 10:54:44 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8s9-00000004kf1-2f09
+	id 1wi8sT-00000004kjm-2oAO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:54:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RoZL5Z9ToRx/f8kviD9CyKaiC5FVV0S6HJv5HVsNVGS9SMyS/LqnFdICPsZHpud+BEMkGJPBlOfdi1I0+dHxI/ZGaUrJbBn0zCEs0j4qTZ5DzfmbDjyqJeApTwBXk76N9O7gD2spw+iLfW1h4zuNRQXTTOrdNqyAAsi7euudiLzmFquyU/BIAlde+Qahg0NlvZ95PbtffbPJYwcEqpwhU/kBKPRAyOj/GoLfTth01XQK4qgNjL+9WIua8og2EbDnmeDiavLDfyBWeHgzdrDxL1i2jMI9CnK2xe4u50afLBKJQ/h/qvEvkyB69NTNqrLEJENTXxGjKFAM7rNB1rm44g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=acT5XmYocSZ19UIykLwYP24NTpZzoE7fRl0T7yJJVm4=;
- b=AmFZMjPP8uzbxoOzupTD/1c7sg+ORQow7dxpseCc9zjGw+cuiNxvPkAUtyY4ldHlmfCehVGeAad77tYzYK5rfqf2xO2o+PZtlohbFoyIZPRD7CM6tpmj9BQh4wikkMFZHY0gs47kToN8zYT//s3lJAHu0XAxFL5FCGFaFHvTL1WdKUJmWek81CgEkZYa2yHgFm79jIo08TsZf5JqasEyksC1RXoj5lOHZT0LJ+zx86dCm3cl5Is2DNqVnhLEj1DTDeZTwdUIs6xXxTzK23FyFoHSd+b8ywLFNPniW8JJW03ZJiRgBrmRX2yfnGd26eosw6pInK3R56+fWb4z81aoGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=acT5XmYocSZ19UIykLwYP24NTpZzoE7fRl0T7yJJVm4=;
- b=LI6Zi3xho7J7F1PXdKE1Lp4HEIJtsm2Xpb86kNmUG29lNvrEOAsccEnnDtAQgjwDS05lkyCHdohKe2jKVp6J5Gxtjgzj80cRyBlZBJkpOkfOEQAgX+rdMHo01gGnxztOc+yKApTr55I3FziEKqOK8LZCJ+5l/o3f0IvP73yKTAJAyS0jqRseXP6/nTPpj9iXPVq1L8MpGuNgKbiroitYdpYCD2NUNc2Kcs87wJZDMD3uYXGrf+GU+P2luLBRtm/kLVHiDfQxxc8rcK9kN/IvHBDEOLK5pEG8rkZoDKaln1ibbSYoha6lgMA7igcQmjrjKNJhl7fiTIYUNXgKWWIjwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by KU4PR06MB8388.apcprd06.prod.outlook.com (2603:1096:d10:7b::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
- 2026 10:53:55 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
- 10:53:54 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Hadar Gat <hadar.gat@arm.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jia Jie Ho <jiajie.ho@starfivetech.com>,
-	Deepak Saxena <dsaxena@plexity.net>,
-	Pan Chuang <panchuang@vivo.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Aleksander Jan Bajkowski <olek2@wp.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	linux-crypto@vger.kernel.org (open list:HARDWARE RANDOM NUMBER GENERATOR CORE),
-	linux-kernel@vger.kernel.org (open list),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
-Subject: [PATCH 1/3] hwrng: drivers - Remove redundant dev_err()/dev_err_probe()
-Date: Fri, 10 Jul 2026 18:53:06 +0800
-Message-Id: <20260710105318.376496-2-panchuang@vivo.com>
+	Fri, 10 Jul 2026 10:54:42 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c95d0a54ea5so599444a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783680880; x=1784285680; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=;
+        b=OukROMNl6G9+0Sz51b/qskbPekfnanlrOuJ+ATJgee5VTl5xaeSNiUP03RDdCmPxFs
+         ifbcERBHmLezhx7MPh9WK7yUzoGcm4kkaquS5Nt0+lxcpDJH5qOa2fJNVSwotY/zV6Hn
+         O+n0v6SkthbzKBKWs2eVHnFPuJQfN0TWKPR0bxKBqxteJ7JuddrLrvyd4aBBgRRK1Q/Q
+         YTS3J6XbnE/M4oOF8WwUeNvP5JXnYRDMvpiDitWPIKmI725ce1ap7kJsxtJAQFf9aLEW
+         Km50fYwYntxyKMiDAz8Qb725j+CoegDXJK3U/joTCqUPLGg2h6PIubh4r86LSuF8t1uo
+         K4zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783680880; x=1784285680;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=j4ZVGeRqKMU3nyf6nzNvRFsoeF/EGxON3z9J6rKtVAk=;
+        b=FpcmF4AnWlD5FOMUMqP98y26Us2Zd1Ea/jRWG2/I6tfJGrQ6nPJzuVnfVuAbi26wLX
+         4PRnOeCWRohL7Yb0qF8T41fOvovlzyh2GTYYvSey1u454hLCTRl2HNZbEHxG/QARmqL/
+         vkwQ+3kLTpSy5E1j4a83kHbEUPkt6l0y/+ZYHT7mLZ5u2olCi+nrPmwIbgQ+v4Hh+v9z
+         YRPkKgeXTaZozYW6HSGCoYYX9a87maTvu+h1bTR/xoc59QTm2eOLoDrsy3JzUQekDDaC
+         F1UXybZu1okwDehGtOdY3Rn/JlzqQHnSerHkX9zVpoMtWlxXWTBZ9kf/Al+J+lcMx9M2
+         2gLQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr77JC4Qjf8c13tyLc0atn/dLGE1z66UjHc8lEmXPfWz0DvFgjm3oNsbclc46gQHiOJ4C1CuZPUAGYe7ttfeUlx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdsbXpJNSlOw3nhurCiv+1HD++WHGorR7bLeioRAakS8Nx2htz
+	BcTuaxDKCF4U78li9rL3O3Q6EPO2rX1uZmz5pkGewJpmEw8Yyz4ig8VO
+X-Gm-Gg: AfdE7ckYJw0vPH9EkH1CrDeJuP17+xh1ACDfjh2ndzd3i33ztPcU+y8AEFv3Pn1LVa6
+	Dzv/v2s5hPqtG64FdAVBMFG4IBe1YIiecZJ0Wal0hT1hG3hMZ95pho3Vx+8Nz0ET0gUkPw7ZYdP
+	tn1QN4Ci4xpyoTYd/FL78O3JXuZmYZuvcl1d/9O8N2V6N1/0bS6w3KeYFWed4/MkieAp3mB2wtH
+	+F3kDZoZDamBN0OAKoL+Qqzx96hcGo33Xws0QxzLUS/gmCkJjveFYbRIMVg8l0YSBxKNY85uL9C
+	rgwVDh8rWSHq+nxMq9dCBBaomPrY9F3VXsgOICKnOfgPH9pHTZLUCGQV0LDa5gTVUn7ka9Gwzyq
+	+4KaiQBDGIPTKSxDONVJZB2Ezv2dEAp0CFLBUK89e8hePcL1gXaQZfxj50B56kCA8FgpMvxOqBR
+	76LUOsE/rvd/TMAuY2Sofp
+X-Received: by 2002:a05:6a20:3d0c:b0:3c0:9c1a:8936 with SMTP id adf61e73a8af0-3c0bcc4068emr13266820637.62.1783680880360;
+        Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+Received: from DESKTOP-TIT0J8O.dm.ae ([49.47.198.15])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659c8572sm40752937c88.9.2026.07.10.03.54.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jul 2026 03:54:40 -0700 (PDT)
+From: Ahmed Naseef <naseefkm@gmail.com>
+To: netdev@vger.kernel.org
+Cc: =?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Ahmed Naseef <naseefkm@gmail.com>
+Subject: [PATCH net-next 0/2] net: dsa: mt7530: add EcoNet EN7528 built-in switch support
+Date: Fri, 10 Jul 2026 14:54:22 +0400
+Message-Id: <cover.1783680864.git.naseefkm@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260710105318.376496-1-panchuang@vivo.com>
-References: <20260710105318.376496-1-panchuang@vivo.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TP0P295CA0021.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:5::12) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KU4PR06MB8388:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18eb0684-099b-485e-7771-08dede71892e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|52116014|1800799024|366016|38350700014|921020|11063799006|56012099006|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: d1tBzrkNJ45/yKtXut+HoMebFWBA6BxkyK2/WfD2bXFlizGM8HssHs4WRsyBdaeFvqJXybEYTQvr1ihfFf58zURQhJ1WEtZ0XL0KoQcs2EnYR6YadwVf/YufTV0d5aYaSNfx+WijwGBMaDFXuv+h5Wo5x4N+Xa/UkgBdLXMNlTpGxWaLSQ1xieWDkIpsOacE5p3aXUnbVYvNujjjLcxDrSLlsEqHHL3Digib0llFxRjQZpPvLc4uKJE8uSmvov3MBPQCemS0WnDX3ts6zG56yCnUpbsIsec/nRjJV0tLoFEwMnXAur4qK3ZenzpiCtrzJSRn2elA+D+fa4JFgC93m62/zFBNFw0vBaLRRsB5hVbPDdF2JpllA3ceaIi3E8q2NbObaTMcphEgDl10G/hJXNy4sfBlE1tozhPkWtoxPCzftxlF6PuIBwGAORdp3TwcnKhvUhYJnyNi7JwnlNXJAoORiizbxgCpmaV1g5td1ebI/rDJNv7BdKAlaQkTAfFcvP65DgY7Mij6NDiQ99Piz/vdWuL6pT5hV4j66GvoA3+k/HrNLQ6U1iCdsWsEQbRfPUnuftKMv5PD9xy9N+zSKm6c/Wb7o7KmtlLV48Ys3UsnUDZr4tH5M4OMIKaIABXsbsDFv+uWByDWyg5vEGrb7F5VWN3ZnK/sEGJPs2DmmBc0d9KAiy1uTVcKRRylxDH0dS4A+/3agyFB1EeCfgc59YUQWAyzfopS2nf7pJ6cuxGsAWnwH7BO8BAy6V+5UOAx
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(52116014)(1800799024)(366016)(38350700014)(921020)(11063799006)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DtZ46Kgo9hv0SEQ4OwcIJ52Uc4p4icVuU1Wl2IdjsmkHPvBtUdGaK964LCnC?=
- =?us-ascii?Q?xLAhpy8+3tGE3dAXUHLuPcX7z1/KRSWu0jLfHUsQIBnFkIEEKsbmkIoa6B17?=
- =?us-ascii?Q?jmwLs+ZTa4koR4je4E7+V3b99gK1e7quFqFfozDiglRv5x2io9riztmC+Tpm?=
- =?us-ascii?Q?JlOuokEtxj37xhPTd2C3odZmXxsBmB7kXyLC5LraX3d+lpx8rDPz/048ykxM?=
- =?us-ascii?Q?AEnSRptIBQttlFP11GWiaBfMfxSDa3WpNIBuY3ST5gY+G2Fp9rGLPtHx8PLh?=
- =?us-ascii?Q?69gO54EgoYjCl9/iQA0q1DFIZYi6qhSlzd26fp1Zl9/ZpcCP90f0rw+GFh19?=
- =?us-ascii?Q?iLEhsWMb4M0c+abGNAldbZsU20jv6eiciew2P3TuELm/en5xAv+v+Bjb6LSB?=
- =?us-ascii?Q?Lm0qjKsGqA0W0bmggYCjcHkwFsvY51NAVSHmnwtIa1nhF3pVVZjBuQZqrQSu?=
- =?us-ascii?Q?4ZJAXDov5qevbjLPZ/kVt2PUfMUSaHEBsLX4EarQrzH8ULXuNUymFbD+dlkC?=
- =?us-ascii?Q?RYl05BjGwrUtVEoKvpL/vTbGduWItrfZxJ5QhSEDQ9/ezNKOKGuVQbXMCrsj?=
- =?us-ascii?Q?YKnJY0rqG9Tshoi8vHra4Z8Q/DrzRBZ07xhlBUGJGrxBJY5tYcCgPCU7sw1U?=
- =?us-ascii?Q?xE5aX+XIzcP3Yvflt7AQOLXvaaFUHL0c5wzCriA9tLdhTvmLHR+eQ4tLOq4C?=
- =?us-ascii?Q?aBNnXLxL/IX3NcF9WHIte8UyrFbZ12S2AgcEWXgSvixq7sZzPDNm8AzlhrqM?=
- =?us-ascii?Q?8pGg3kESVaYxImxzodgrwmH9EL98Lok/35qdgUvt8CsIp+HsqElGNcirUG1t?=
- =?us-ascii?Q?FMvFPEMTkpP0SyzXoktMMOxja02T76sP7zICN5zGcN46pAG3aoJRovV3kux8?=
- =?us-ascii?Q?F6qrEORu/4HkT99AbOKPhcgYA94OaS0fW+5bu+cQZs0ybgYZ+7NofnwJHv6W?=
- =?us-ascii?Q?xyD1JqE8SK/1/MWGYiRjIZl6Kdq5F0Z7E23mpz7Y/H8t8Waq/DbkCLPsjup+?=
- =?us-ascii?Q?rUJ9xzNCXxjHFpCQ+DIkxugsjNqwIe8dR0iVt4itNt0+8P4Ty3mTskoMQLCq?=
- =?us-ascii?Q?ZZQBKndk8YVI9onhoqJRoPKPsr+WTjS6UciwFWIQiwbQbyDnXgx3gbNtX4At?=
- =?us-ascii?Q?IGuzX8M/Lp0Q8X6YsOL6sKm4gwfZTFiv+gF4MpamMpUgYQAjzn+41Q/djWTz?=
- =?us-ascii?Q?NXeoQwQ2rqq9LWNlN6nOBVJXjk6lxv4+cdIV6zgK6LWYiia7ZxCWuF76QP6Q?=
- =?us-ascii?Q?qS1dQHrjXhECLFrbB2s+1MXF3kEglj82iH45e1/wgCslQ7X/KcAPzcYd9ob/?=
- =?us-ascii?Q?plCa0x9lRnQzPiqKzi/27r+6nBIpKZhvZaBlbafhhKZa7LFi/w62nW2/+l7K?=
- =?us-ascii?Q?AXXfPUOFP/oD64kq+tDhpIYFEhBQ6146czwJ6G13vABsxKODzaaj1jMAmhqr?=
- =?us-ascii?Q?gcE/C/AiTsEYfexkbg3COqTB8LviL5z1JFl+9Z5Q1qn2hgV2BAeoRoVE1IZr?=
- =?us-ascii?Q?9xkoXAmBoVTHcg9Oapda5nfp+V4LrH2d6VfwLPxg4g/68ggwc/PclD9AWmiv?=
- =?us-ascii?Q?N0GwotO/lmXl4miQG7p8G2zAAIvrWaUFyv6ahRdNOgu20j6TagKXoO/ysWvV?=
- =?us-ascii?Q?LWtLtXB1a03/ARBDRXpceMDNlOBcIvp7U9+GKteDlNHFaMUzyR1jVzdDf5eI?=
- =?us-ascii?Q?wu+CEBa7eqrMhbhECnStZdWoGdpSqCB2D355CIMirRZWnO8Uik3Ag/HcL4pB?=
- =?us-ascii?Q?8kwPIYkkKA=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18eb0684-099b-485e-7771-08dede71892e
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 10:53:54.9027
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PYAF9rw1aranB6LDSTlIeX0ASHZBG3a8QHepiwSef7H09Viz6taMW/5FnwCyAewgU9XbQoNFP1Q4JbfOn/EZCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU4PR06MB8388
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_035421_682396_4E3F7E51 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260710_035441_707623_119A7596 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,107 +116,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() automatically logs
-detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() and dev_err_probe() calls.
+The EcoNet EN7528 is a MIPS SoC whose platform support is already
+upstream. It integrates an MT7530 switch, memory-mapped like the built-in
+switches of the MediaTek MT7988 and Airoha EN7581/AN7583 SoCs, but with a
+true MT7530 core, four Gigabit PHYs on ports 1-4 and a CPU port at a fixed
+1000 Mbps full duplex link.
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
----
- drivers/char/hw_random/airoha-trng.c | 4 +---
- drivers/char/hw_random/cctrng.c      | 2 +-
- drivers/char/hw_random/imx-rngc.c    | 2 +-
- drivers/char/hw_random/jh7110-trng.c | 3 +--
- drivers/char/hw_random/omap-rng.c    | 5 +----
- drivers/char/hw_random/xgene-rng.c   | 2 +-
- 6 files changed, 6 insertions(+), 12 deletions(-)
+Patch 1 documents the compatible, patch 2 adds the driver support.
 
-diff --git a/drivers/char/hw_random/airoha-trng.c b/drivers/char/hw_random/airoha-trng.c
-index 076519a2f100..98c131ee9891 100644
---- a/drivers/char/hw_random/airoha-trng.c
-+++ b/drivers/char/hw_random/airoha-trng.c
-@@ -186,10 +186,8 @@ static int airoha_trng_probe(struct platform_device *pdev)
- 	airoha_trng_irq_mask(trng);
- 	ret = devm_request_irq(&pdev->dev, irq, airoha_trng_irq, 0,
- 			       pdev->name, (void *)trng);
--	if (ret) {
--		dev_err(dev, "Can't get interrupt working.\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	init_completion(&trng->rng_op_done);
- 
-diff --git a/drivers/char/hw_random/cctrng.c b/drivers/char/hw_random/cctrng.c
-index a5be9258037f..a6925211c3b5 100644
---- a/drivers/char/hw_random/cctrng.c
-+++ b/drivers/char/hw_random/cctrng.c
-@@ -509,7 +509,7 @@ static int cctrng_probe(struct platform_device *pdev)
- 	/* register the driver isr function */
- 	rc = devm_request_irq(dev, irq, cc_isr, IRQF_SHARED, "cctrng", drvdata);
- 	if (rc)
--		return dev_err_probe(dev, rc, "Could not register to interrupt %d\n", irq);
-+		return rc;
- 	dev_dbg(dev, "Registered to IRQ: %d\n", irq);
- 
- 	/* Clear all pending interrupts */
-diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
-index 28c56c2d1bf6..bae8cdca13fe 100644
---- a/drivers/char/hw_random/imx-rngc.c
-+++ b/drivers/char/hw_random/imx-rngc.c
-@@ -296,7 +296,7 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
- 			irq, imx_rngc_irq, 0, pdev->name, (void *)rngc);
- 	if (ret) {
- 		clk_disable_unprepare(rngc->clk);
--		return dev_err_probe(&pdev->dev, ret, "Can't get interrupt working.\n");
-+		return ret;
- 	}
- 
- 	if (self_test) {
-diff --git a/drivers/char/hw_random/jh7110-trng.c b/drivers/char/hw_random/jh7110-trng.c
-index 4712c3c530e4..aee12caab578 100644
---- a/drivers/char/hw_random/jh7110-trng.c
-+++ b/drivers/char/hw_random/jh7110-trng.c
-@@ -303,8 +303,7 @@ static int starfive_trng_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(&pdev->dev, irq, starfive_trng_irq, 0, pdev->name,
- 			       (void *)trng);
- 	if (ret)
--		return dev_err_probe(&pdev->dev, ret,
--				     "Failed to register interrupt handler\n");
-+		return ret;
- 
- 	trng->hclk = devm_clk_get(&pdev->dev, "hclk");
- 	if (IS_ERR(trng->hclk))
-diff --git a/drivers/char/hw_random/omap-rng.c b/drivers/char/hw_random/omap-rng.c
-index 5e8b50f15db7..327643ba971c 100644
---- a/drivers/char/hw_random/omap-rng.c
-+++ b/drivers/char/hw_random/omap-rng.c
-@@ -391,11 +391,8 @@ static int of_get_omap_rng_device_details(struct omap_rng_dev *priv,
- 
- 		err = devm_request_irq(dev, irq, omap4_rng_irq,
- 				       IRQF_TRIGGER_NONE, dev_name(dev), priv);
--		if (err) {
--			dev_err(dev, "unable to request irq %d, err = %d\n",
--				irq, err);
-+		if (err)
- 			return err;
--		}
- 
- 		/*
- 		 * On OMAP4, enabling the shutdown_oflo interrupt is
-diff --git a/drivers/char/hw_random/xgene-rng.c b/drivers/char/hw_random/xgene-rng.c
-index 1f4b95341c2e..629dc85c3741 100644
---- a/drivers/char/hw_random/xgene-rng.c
-+++ b/drivers/char/hw_random/xgene-rng.c
-@@ -336,7 +336,7 @@ static int xgene_rng_probe(struct platform_device *pdev)
- 	rc = devm_request_irq(&pdev->dev, ctx->irq, xgene_rng_irq_handler, 0,
- 				dev_name(&pdev->dev), ctx);
- 	if (rc)
--		return dev_err_probe(&pdev->dev, rc, "Could not request RNG alarm IRQ\n");
-+		return rc;
- 
- 	/* Enable IP clock */
- 	clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
+Ahmed Naseef (2):
+  dt-bindings: net: dsa: mediatek,mt7530: add econet,en7528-switch
+  net: dsa: mt7530: add EN7528 support
+
+ .../bindings/net/dsa/mediatek,mt7530.yaml     |  5 ++
+ drivers/net/dsa/mt7530-mmio.c                 |  1 +
+ drivers/net/dsa/mt7530.c                      | 56 ++++++++++++++++++-
+ drivers/net/dsa/mt7530.h                      |  1 +
+ 4 files changed, 62 insertions(+), 1 deletion(-)
+
+
+base-commit: fe3e786ef4eb6e47d2901f568a27bd920477bbe9
 -- 
 2.34.1
 
