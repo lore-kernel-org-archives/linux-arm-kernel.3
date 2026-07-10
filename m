@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989A6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E7BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TM+nxZld2Hns5mSjiSG+hFIbK+AXxcbV4j0W5iXh5EA=; b=yuzE4HncWAeBgpa3dKljO7uHB3
-	tDfzjuMqOJPTb8c7PQg31khXyPJExl6SO8gkHpGP0yuiVT0bNRT3nytmwya9vF6vdcMyFVxAd3olC
-	xBShWzbrIbXA9pO7P/fe9cLnefuF/qif+tEzBVE7Bvi5rlyIfO9280FaUOack4OPfCjSh0KvS0tAj
-	CW/d8IjbfNhnc0cBuh42Bhbp7HGRkUSucOE2NRj3CnaOam4v9iBcKLeRrcVkCXybj6C4f9ina95MR
-	q717XFfWKaXmPH/M56X0KCn9P+AqD8zvhb35nT6jtoBMRIeB8yW9Qbbnvc2SHKa0u78P5rkYQt+ZJ
-	Var1OHDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DGMtC8nmbGLzOG9MxmHCiYK40TQT/yqlu9YKCtzbCe8=; b=ISqcmhQw0ightghH1Nz0/Ki8gd
+	S37LdfAxkNp/zAIGbYlZ72wcM3vxIMRBc1CIv8FskDinpfuSh0iUXeo0kgTBXbTNRSnGA3GWiTAXs
+	Cj5YevyvhQ12t8tVUtg+/OP/XxizV+LcBrLwgxWlFRlyz4qWzCm0iC7PbLdEF+vo/X2gMVoO7lgWu
+	TJECfrTIruuwBaT2bKd34ancGUmUc/AHpfBxyNZ89S6hqujjcaVqTjflr2qUlvyNZOdYvz4lgVMTy
+	O3OYibQx7QVWKOyomK8meEeTO759lejcrRIs7eLrjGg5/lmkzeXPGBJQk/dwSTKkoJUyAucCS05K2
+	XSAEe8XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4zY-00000004IFz-0XdJ;
-	Fri, 10 Jul 2026 06:45:44 +0000
-Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4zU-00000004IFf-3ndq
+	id 1wi50r-00000004IOL-1wFM;
+	Fri, 10 Jul 2026 06:47:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi50p-00000004INs-1nyx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 06:45:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1783665940; x=1815201940;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=TM+nxZld2Hns5mSjiSG+hFIbK+AXxcbV4j0W5iXh5EA=;
-  b=X4v6c1cRc2ojQZPdFFsuDgqmKUmIsvV1VUlxl30x4okiJ7znVJMzUqzL
-   vXeq0Yj0eGrsvQqFhey55mNwCykRSBc661Ve/tmOa0LSaSiAI/NxgNGxM
-   dEE+zxnvUTXZXO/aRo3rN+gPIdqjjEIUbbDJTskXZ1kf2KU9WPLiwb9nD
-   jssdDAiMNp3tH0hpDTrZCsYpG9yUaZzSIyo47ccYssK2peSkU1QvnCyXU
-   8hF+VyM7RoylbnZNF0gjuKDGCB3yLedhHHLa1HxyUWsB8Rgk84b4uYcYr
-   sClY370iueqWuuwPeTleMHpz9CIvsqWH8lt4X8GxoAnbxVlePIlab4Gdk
-   w==;
-X-CSE-ConnectionGUID: WTV9SxdtQxWNd7Mz5WIYrw==
-X-CSE-MsgGUID: guInl4CxQD+7l2f3tVBPQQ==
-X-IronPort-AV: E=Sophos;i="6.25,154,1779148800"; 
-   d="scan'208";a="23439201"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2026 06:45:37 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:1470]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.47.135:2525] with esmtp (Farcaster)
- id d8dcac52-0378-4be4-aa72-d99b8a0a3801; Fri, 10 Jul 2026 06:45:36 +0000 (UTC)
-X-Farcaster-Flow-ID: d8dcac52-0378-4be4-aa72-d99b8a0a3801
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Fri, 10 Jul 2026 06:45:36 +0000
-Received: from dev-dsk-congkai-2a-df9e8fab.us-west-2.amazon.com
- (172.23.251.204) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43; Fri, 10 Jul 2026
- 06:45:36 +0000
-From: Congkai Tan <congkai@amazon.com>
-To: <oupton@kernel.org>
-CC: <blakgeof@amazon.com>, <catalin.marinas@arm.com>, <congkai@amazon.com>,
-	<corbet@lwn.net>, <harisokn@amazon.com>, <joey.gouly@arm.com>,
-	<kvm@vger.kernel.org>, <kvmarm@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<maz@kernel.org>, <pbonzini@redhat.com>, <stanspas@amazon.de>,
-	<suzuki.poulose@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 0/3] KVM: arm64: Expose PMMIR_EL1.SLOTS to guests
-Date: Fri, 10 Jul 2026 06:44:23 +0000
-Message-ID: <20260710064423.2667799-1-congkai@amazon.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <ak19mPPWcupFwfuE@kernel.org>
-References: <ak19mPPWcupFwfuE@kernel.org>
+	Fri, 10 Jul 2026 06:47:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09B1A1692;
+	Thu,  9 Jul 2026 23:46:58 -0700 (PDT)
+Received: from [10.174.42.251] (unknown [10.174.42.251])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98E6C3F66F;
+	Thu,  9 Jul 2026 23:46:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783666022; bh=Yr7V7BVtXSXre/dYciCuyyXWJrBWa/DmbARL/gn5+tI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=q53QyGr6bnNR8g78ahzl0MqsnPPsjyamPNTEryES9q3Y7CyEiEPIfa4KmOxdeEXGL
+	 SYuLxEAXWN2UyBwIaqvW94cQ9tLEaQ1IYU07TVGPYDRQexSU/EdAVgOyy+eGLldgvu
+	 5dsnBjLonzruQlcSZWT8REUFHHfXvHsGRMSJBJ+U=
+Message-ID: <07c755f7-7b1f-4423-a92b-aa9ff75202b8@arm.com>
+Date: Fri, 10 Jul 2026 12:16:56 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.23.251.204]
-X-ClientProxiedBy: EX19D038UWC004.ant.amazon.com (10.13.139.229) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/6] arm64: sysreg: Add BBM_3
+To: Linu Cherian <linu.cherian@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260708144331.679816-1-linu.cherian@arm.com>
+ <20260708144331.679816-5-linu.cherian@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260708144331.679816-5-linu.cherian@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_234541_241053_48BCEAF2 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20260709_234703_511032_FD1482F5 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,453 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 03:28:40PM -0700, Oliver Upton wrote:
-> I've addressed all of this locally and pushed to my tree [*]. Untested,
-> as always :) Would you be able to give it a spin?
 
-Thank you so much for the review and code suggestions! I integrated
-them and created v3 (with one extra change of wiring
-KVM_CAP_ARM_PMU_V3_STRICT into kvm_vm_ioctl_check_extension() so
-userspace can detect it). I tested the patches with kernel 7.2 and
-patched QEMU 9.2.3, and the behaviors were as expected.
 
-I'll send out the v3 patches shortly.
+On 08/07/26 8:13 PM, Linu Cherian wrote:
+> Add BBM_3 definition for ID_AA64MMFR1_EL1 register.
 
-> Also, do you have VMM patches for using the new feature flag?
+ID_AA64MMFR2_EL1 register has BBM field.
+> 
+> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> ---
+>  arch/arm64/tools/sysreg | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index bc1788b1662b..082256ec3bf9 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2259,6 +2259,7 @@ UnsignedEnum	55:52	BBM
+>  	0b0000	0
+>  	0b0001	1
+>  	0b0010	2
+> +	0b0011	3
+>  EndEnum
+>  UnsignedEnum	51:48	TTL
+>  	0b0000	NI
 
-Below is the patch against QEMU 9.2.3 that I used for testing. The tests
-were performed using different combinations of the four flags (host
-PMMIR_EL1.SLOTS = 0xa):
-
-- pmu-strict=on,pmu-set=on,pmmir-force=off,pmcr-n-force=off:
-    new happy path where guest read the correct SLOTS (0xa).
-
-- pmu-strict=off,pmu-set=off,pmmir-force=off,pmcr-n-force=off:
-    old happy path where guest read SLOTS as 0x0.
-
-- pmu-strict=off,pmu-set=on,pmmir-force=off,pmcr-n-force=off:
-    non-strict with a PMU set, guest read SLOTS as 0x0 (SLOTS stays
-    gated on the flag).
-
-- pmu-strict=on,pmu-set=off,pmmir-force=off,pmcr-n-force=off:
-    strict with no PMU, so KVM_ARM_VCPU_PMU_V3_INIT failed with -ENXIO
-    and the guest did not boot.
-
-- pmu-strict=on,pmu-set=on,pmmir-force=0,pmcr-n-force=off:
-    strict with PMMIR forced to 0 (backward compatibility), where the
-    KVM_SET_ONE_REG succeeded and guest read SLOTS as 0x0.
-
-- pmu-strict=on,pmu-set=on,pmmir-force=7,pmcr-n-force=off:
-    strict with PMMIR forced to a mismatching value, so KVM_SET_ONE_REG
-    rejected with -EINVAL and guest still read SLOTS as 0xa.
-
-- pmu-strict=off,pmu-set=on,pmmir-force=0,pmcr-n-force=off:
-    non-strict with PMMIR forced to 0, KVM_SET_ONE_REG returned no error
-    and guest read SLOTS as 0x0.
-
-- pmu-strict=off,pmu-set=off,pmmir-force=10,pmcr-n-force=off:
-    non-strict with PMMIR forced to a non-zero value, KVM_SET_ONE_REG
-    rejected with -EINVAL and guest read SLOTS as 0x0.
-
-- pmu-strict=off,pmu-set=off,pmmir-force=off,pmcr-n-force=3:
-    non-strict with a PMCR_EL0.N write (original behavior), so the write
-    was honored and N read back as 3.
-
-- pmu-strict=on,pmu-set=on,pmmir-force=off,pmcr-n-force=3:
-    strict with a PMCR_EL0.N write, so the write was ignored and N read
-    back 6 (the PMU maximum).
-
----
-Local test patch for the kernel "strict PMUv3 UAPI / PMMIR_EL1.SLOTS"
-series.
-
-Adds four 'virt' machine properties (all default off):
-
-  pmu-strict=on   request KVM_ARM_VCPU_PMU_V3_STRICT at VCPU_INIT
-  pmu-set=off     skip KVM_ARM_VCPU_PMU_V3_SET_PMU (exercise the no-PMU path)
-  pmmir-force=N   write PMMIR_EL1=N via KVM_SET_ONE_REG (0 = set_pmmir reset)
-  pmcr-n-force=N  write then read PMCR_EL0.N; strict ignores the write
-
-SET_PMU is issued before PMU_V3_INIT (the kernel rejects it afterwards) and
-is followed by a cpreg-cache refresh so the stale PMMIR_EL1=0 cached at init
-is not written back.
-
-Signed-off-by: Congkai Tan <congkai@amazon.com>
----
---- a/target/arm/kvm.c	2025-03-26 19:37:01.000000000 +0000
-+++ b/target/arm/kvm.c	2026-07-10 04:05:16.082093995 +0000
-@@ -18,11 +18,16 @@
- #include "qemu/timer.h"
- #include "qemu/error-report.h"
- #include "qemu/main-loop.h"
-+#include "qemu/cutils.h"
- #include "qom/object.h"
- #include "qapi/error.h"
- #include "sysemu/sysemu.h"
- #include "sysemu/runstate.h"
- #include "sysemu/kvm.h"
-+
-+#ifndef KVM_ARM_VCPU_PMU_V3_STRICT
-+#define KVM_ARM_VCPU_PMU_V3_STRICT 9
-+#endif
- #include "sysemu/kvm_int.h"
- #include "kvm_arm.h"
- #include "cpu.h"
-@@ -1728,6 +1733,82 @@
-     }
- }
- 
-+/* Test knob: 'pmu-strict' machine property (request KVM_ARM_VCPU_PMU_V3_STRICT). */
-+bool kvm_arm_pmu_strict_enabled(void)
-+{
-+    Object *m = qdev_get_machine();
-+
-+    if (m && object_property_find(m, "pmu-strict")) {
-+        return object_property_get_bool(m, "pmu-strict", NULL);
-+    }
-+    return false;
-+}
-+
-+/* Test knob: 'pmu-set' machine property (issue SET_PMU; off = no-PMU path). */
-+static bool kvm_arm_pmu_set_enabled(void)
-+{
-+    Object *m = qdev_get_machine();
-+
-+    if (m && object_property_find(m, "pmu-set")) {
-+        return object_property_get_bool(m, "pmu-set", NULL);
-+    }
-+    return false;
-+}
-+
-+/* Read the host PMUv3 perf "type" id from sysfs; -1 on failure. */
-+static int kvm_arm_pmu_read_host_pmu_type(void)
-+{
-+    const char *path = "/sys/bus/event_source/devices/armv8_pmuv3_0/type";
-+    g_autofree char *contents = NULL;
-+    const char *ep;
-+    gsize len;
-+    int type;
-+
-+    if (!g_file_get_contents(path, &contents, &len, NULL)) {
-+        return -1;
-+    }
-+    if (qemu_strtoi(contents, &ep, 10, &type) < 0 || (*ep && *ep != '\n')) {
-+        return -1;
-+    }
-+    return type;
-+}
-+
-+/*
-+ * Select the host PMU (SET_PMU). Under the strict UAPI this is mandatory and
-+ * makes the kernel snapshot PMMIR_EL1.SLOTS. Call after INIT, before PMU_V3_INIT.
-+ */
-+void kvm_arm_pmu_set_pmu(ARMCPU *cpu)
-+{
-+    int pmu_type;
-+    struct kvm_device_attr attr = {
-+        .group = KVM_ARM_VCPU_PMU_V3_CTRL,
-+        .attr = KVM_ARM_VCPU_PMU_V3_SET_PMU,
-+    };
-+
-+    if (!cpu->has_pmu || !kvm_arm_pmu_set_enabled()) {
-+        return;
-+    }
-+
-+    pmu_type = kvm_arm_pmu_read_host_pmu_type();
-+    if (pmu_type < 0) {
-+        warn_report("PMU: could not read host PMU type; "
-+                    "PMMIR_EL1.SLOTS will read 0 in the guest");
-+        return;
-+    }
-+    attr.addr = (intptr_t)&pmu_type;
-+
-+    if (!kvm_arm_set_device_attr(cpu, &attr, "PMU SET_PMU")) {
-+        warn_report("PMU: KVM_ARM_VCPU_PMU_V3_SET_PMU unsupported or failed; "
-+                    "PMMIR_EL1.SLOTS will read 0 in the guest");
-+        return;
-+    }
-+
-+    /* Refresh the cpreg cache so the stale PMMIR_EL1=0 isn't written back. */
-+    if (!write_kvmstate_to_list(cpu)) {
-+        warn_report("PMU: failed to refresh cpreg cache after SET_PMU");
-+    }
-+}
-+
- void kvm_arm_pmu_set_irq(ARMCPU *cpu, int irq)
- {
-     struct kvm_device_attr attr = {
-@@ -1904,6 +1985,10 @@
-     }
-     if (cpu->has_pmu) {
-         cpu->kvm_init_features[0] |= 1 << KVM_ARM_VCPU_PMU_V3;
-+        /* Test knob: opt in to the strict PMUv3 UAPI. */
-+        if (kvm_arm_pmu_strict_enabled()) {
-+            cpu->kvm_init_features[0] |= 1 << KVM_ARM_VCPU_PMU_V3_STRICT;
-+        }
-     }
-     if (cpu_isar_feature(aa64_sve, cpu)) {
-         assert(kvm_arm_sve_supported());
---- a/target/arm/kvm_arm.h	2025-03-26 19:37:01.000000000 +0000
-+++ b/target/arm/kvm_arm.h	2026-07-10 04:05:25.331964805 +0000
-@@ -207,6 +207,10 @@
- 
- void kvm_arm_pmu_init(ARMCPU *cpu);
- void kvm_arm_pmu_set_irq(ARMCPU *cpu, int irq);
-+/* Test knob: select the host PMU (SET_PMU). Call after INIT, before PMU_V3_INIT. */
-+void kvm_arm_pmu_set_pmu(ARMCPU *cpu);
-+/* Test knob: true if the 'pmu-strict' machine property is set. */
-+bool kvm_arm_pmu_strict_enabled(void);
- 
- /**
-  * kvm_arm_pvtime_init:
-@@ -280,6 +284,16 @@
-     g_assert_not_reached();
- }
- 
-+static inline void kvm_arm_pmu_set_pmu(ARMCPU *cpu)
-+{
-+    g_assert_not_reached();
-+}
-+
-+static inline bool kvm_arm_pmu_strict_enabled(void)
-+{
-+    return false;
-+}
-+
- static inline void kvm_arm_pvtime_init(ARMCPU *cpu, uint64_t ipa)
- {
-     g_assert_not_reached();
---- a/hw/arm/virt.c	2025-03-26 19:37:00.000000000 +0000
-+++ b/hw/arm/virt.c	2026-07-10 04:05:51.051606007 +0000
-@@ -53,6 +53,7 @@
- #include "hw/loader.h"
- #include "qapi/error.h"
- #include "qemu/bitops.h"
-+#include "qemu/cutils.h"
- #include "qemu/error-report.h"
- #include "qemu/module.h"
- #include "hw/pci-host/gpex.h"
-@@ -2070,7 +2071,64 @@
-                 if (kvm_irqchip_in_kernel()) {
-                     kvm_arm_pmu_set_irq(ARM_CPU(cpu), VIRTUAL_PMU_IRQ);
-                 }
-+                /* Test knob: SET_PMU before PMU_V3_INIT (see kvm_arm_pmu_set_pmu). */
-+                kvm_arm_pmu_set_pmu(ARM_CPU(cpu));
-                 kvm_arm_pmu_init(ARM_CPU(cpu));
-+                /* Test knob: force PMMIR_EL1 (0 = set_pmmir() back-compat reset). */
-+                if (vms->pmmir_force >= 0) {
-+                    uint64_t v = vms->pmmir_force;
-+                    int r = kvm_set_one_reg(cpu, ARM64_SYS_REG(3, 0, 9, 14, 6),
-+                                            &v);
-+                    if (r) {
-+                        warn_report("pmmir-force: KVM_SET_ONE_REG(PMMIR_EL1) "
-+                                    "returned %d", r);
-+                    }
-+                    /* Refresh the cpreg cache so the forced value sticks. */
-+                    if (!write_kvmstate_to_list(ARM_CPU(cpu))) {
-+                        warn_report("pmmir-force: failed to refresh cpreg "
-+                                    "cache after KVM_SET_ONE_REG");
-+                    }
-+                }
-+                /*
-+                 * Test knob: SET then GET PMCR_EL0.N. strict=on -> write ignored
-+                 * (N stays at max); strict=off -> read-back matches the write.
-+                 */
-+                if (vms->pmcr_n_force >= 0) {
-+                    uint64_t pmcr = 0;
-+                    int r = kvm_get_one_reg(cpu, ARM64_SYS_REG(3, 3, 9, 12, 0),
-+                                            &pmcr);
-+                    if (r) {
-+                        warn_report("pmcr-n-force: KVM_GET_ONE_REG(PMCR_EL0) "
-+                                    "returned %d", r);
-+                    } else {
-+                        uint64_t n = vms->pmcr_n_force;
-+
-+                        pmcr &= ~(uint64_t)PMCRN_MASK;
-+                        pmcr |= (n << PMCRN_SHIFT) & PMCRN_MASK;
-+                        r = kvm_set_one_reg(cpu,
-+                                            ARM64_SYS_REG(3, 3, 9, 12, 0),
-+                                            &pmcr);
-+                        if (r) {
-+                            warn_report("pmcr-n-force: KVM_SET_ONE_REG("
-+                                        "PMCR_EL0) returned %d", r);
-+                        }
-+                        if (!kvm_get_one_reg(cpu,
-+                                             ARM64_SYS_REG(3, 3, 9, 12, 0),
-+                                             &pmcr)) {
-+                            uint64_t got = (pmcr & PMCRN_MASK)
-+                                           >> PMCRN_SHIFT;
-+                            info_report("pmcr-n-force: wrote N=%" PRIu64
-+                                        ", read back N=%" PRIu64 " (strict=%s)",
-+                                        n, got,
-+                                        vms->pmu_strict ? "on" : "off");
-+                        }
-+                        /* Keep QEMU's cpreg cache consistent with the kernel. */
-+                        if (!write_kvmstate_to_list(ARM_CPU(cpu))) {
-+                            warn_report("pmcr-n-force: failed to refresh cpreg "
-+                                        "cache after KVM_SET_ONE_REG");
-+                        }
-+                    }
-+                }
-             }
-             if (steal_time) {
-                 kvm_arm_pvtime_init(ARM_CPU(cpu), pvtime_reg_base
-@@ -2676,6 +2734,88 @@
-     vms->mte = value;
- }
- 
-+static bool virt_get_pmu_strict(Object *obj, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    return vms->pmu_strict;
-+}
-+
-+static void virt_set_pmu_strict(Object *obj, bool value, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    vms->pmu_strict = value;
-+}
-+
-+static bool virt_get_pmu_set(Object *obj, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    return vms->pmu_set;
-+}
-+
-+static void virt_set_pmu_set(Object *obj, bool value, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    vms->pmu_set = value;
-+}
-+
-+static char *virt_get_pmmir_force(Object *obj, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    if (vms->pmmir_force < 0) {
-+        return g_strdup("off");
-+    }
-+    return g_strdup_printf("%" PRId64, vms->pmmir_force);
-+}
-+
-+static void virt_set_pmmir_force(Object *obj, const char *value, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+    uint64_t v;
-+
-+    if (!strcmp(value, "off")) {
-+        vms->pmmir_force = -1;
-+        return;
-+    }
-+    if (qemu_strtou64(value, NULL, 0, &v) < 0) {
-+        error_setg(errp, "Invalid pmmir-force value '%s' "
-+                   "(expected 'off' or an integer)", value);
-+        return;
-+    }
-+    vms->pmmir_force = (int64_t)v;
-+}
-+
-+static char *virt_get_pmcr_n_force(Object *obj, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+
-+    if (vms->pmcr_n_force < 0) {
-+        return g_strdup("off");
-+    }
-+    return g_strdup_printf("%" PRId64, vms->pmcr_n_force);
-+}
-+
-+static void virt_set_pmcr_n_force(Object *obj, const char *value, Error **errp)
-+{
-+    VirtMachineState *vms = VIRT_MACHINE(obj);
-+    uint64_t v;
-+
-+    if (!strcmp(value, "off")) {
-+        vms->pmcr_n_force = -1;
-+        return;
-+    }
-+    if (qemu_strtou64(value, NULL, 0, &v) < 0) {
-+        error_setg(errp, "Invalid pmcr-n-force value '%s' "
-+                   "(expected 'off' or an integer)", value);
-+        return;
-+    }
-+    vms->pmcr_n_force = (int64_t)v;
-+}
-+
- static char *virt_get_gic_version(Object *obj, Error **errp)
- {
-     VirtMachineState *vms = VIRT_MACHINE(obj);
-@@ -3233,6 +3373,41 @@
-                                           "to a KVM guest using ACPI and guest external abort exceptions");
- 
-     object_class_property_add_bool(oc, "mte", virt_get_mte, virt_set_mte);
-+
-+    object_class_property_add_bool(oc, "pmu-strict", virt_get_pmu_strict,
-+                                   virt_set_pmu_strict);
-+    object_class_property_set_description(oc, "pmu-strict",
-+                                          "Test knob: request the strict "
-+                                          "PMUv3 UAPI (KVM_ARM_VCPU_PMU_V3_"
-+                                          "STRICT) for each vCPU");
-+
-+    object_class_property_add_bool(oc, "pmu-set", virt_get_pmu_set,
-+                                   virt_set_pmu_set);
-+    object_class_property_set_description(oc, "pmu-set",
-+                                          "Test knob: issue "
-+                                          "KVM_ARM_VCPU_PMU_V3_SET_PMU "
-+                                          "(default on); off exercises the "
-+                                          "strict no-PMU path");
-+
-+    object_class_property_add_str(oc, "pmmir-force", virt_get_pmmir_force,
-+                                  virt_set_pmmir_force);
-+    object_class_property_set_description(oc, "pmmir-force",
-+                                          "Test knob: force PMMIR_EL1 to this "
-+                                          "value via KVM_SET_ONE_REG after the "
-+                                          "PMU is selected. 'off' (default) "
-+                                          "leaves the kernel snapshot intact; "
-+                                          "0 exercises the set_pmmir() "
-+                                          "back-compat reset");
-+
-+    object_class_property_add_str(oc, "pmcr-n-force", virt_get_pmcr_n_force,
-+                                  virt_set_pmcr_n_force);
-+    object_class_property_set_description(oc, "pmcr-n-force",
-+                                          "Test knob: write PMCR_EL0.N with "
-+                                          "this value via KVM_SET_ONE_REG, then "
-+                                          "read it back and log the result. "
-+                                          "Under pmu-strict=on the kernel "
-+                                          "ignores the write (N stays at max); "
-+                                          "off (default) disables the knob");
-     object_class_property_set_description(oc, "mte",
-                                           "Set on/off to enable/disable emulating a "
-                                           "guest CPU which implements the ARM "
-@@ -3290,6 +3465,12 @@
-     /* EL2 is also disabled by default, for similar reasons */
-     vms->virt = false;
- 
-+    /* Test knobs default: select a PMU, no strict flag, no pmmir override */
-+    vms->pmu_strict = false;
-+    vms->pmu_set = true;
-+    vms->pmmir_force = -1;
-+    vms->pmcr_n_force = -1;
-+
-     /* High memory is enabled by default */
-     vms->highmem = true;
-     vms->highmem_compact = !vmc->no_highmem_compact;
---- a/include/hw/arm/virt.h	2025-03-26 19:37:00.000000000 +0000
-+++ b/include/hw/arm/virt.h	2026-07-10 04:06:12.091312904 +0000
-@@ -180,6 +180,11 @@
-     char *oem_id;
-     char *oem_table_id;
-     bool ns_el2_virt_timer_irq;
-+    /* Test knobs for the strict PMUv3 series (-1 / false = off). */
-+    bool pmu_strict;      /* request KVM_ARM_VCPU_PMU_V3_STRICT */
-+    bool pmu_set;         /* issue SET_PMU (default on) */
-+    int64_t pmmir_force;  /* force PMMIR_EL1 via KVM_SET_ONE_REG */
-+    int64_t pmcr_n_force; /* write+read PMCR_EL0.N via KVM_SET_ONE_REG */
- };
- 
- #define VIRT_ECAM_ID(high) (high ? VIRT_HIGH_PCIE_ECAM : VIRT_PCIE_ECAM)
 
