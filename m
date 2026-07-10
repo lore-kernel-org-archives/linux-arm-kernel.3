@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F9BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 03:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801BDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 03:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEq/6I+xYgvq+nqy8BBw2dOuA4jxXcFF9hFTiWpOyU0=; b=EW6bh42Gj4nCgLcA4ztOQD7lTf
-	o3lzBZAaMyarmPxTtIvv2NZc3dHO5sOI/lSBEmJh79eJJYna0O7kxl0hDDn06bP19UTVrw7IHatE3
-	XYF4ZTFjAxusiwW/+s5Pyg5k/icdEDEI6TEEgR3DkSghLg0ZlKfVsnvZstYtDPTpqMIiIZlwxyc13
-	oXUeaQfKPp/nS4o0H0laQWvZ5HTQHD1nX+p9+l/kLVuXjLHXzWJxa/63ikUksoibQwcuwInimFfwd
-	i1qmW6SxS6Zg21lz6QFlTSCFwV8hLKH0Vn1wsKUTG+wu7SiYBswtM8eLiMEWx1HE8bl6xxvfyeJDY
-	ELFZJ5tA==;
+	bh=IcmF8Egqc5+nTxN0P5fzHkCVpU6of7QL5hLJubaQl5Y=; b=cdCWGFHGsdHlReJvYqX/4tCol1
+	/PS9Q288Lam2uGrLh0IP0klvRlgYtBGcd0YK09I3S2Mof/zJNcjdbTsllyzNVFwAOK4bU5eVEC8Dy
+	LpZOm2kWj1TP/vaSDPSoRUWMjyx8oTXsUG6syiZ4GM17bKfSa++b/lG1ZQMFGQrS6rYqZHI2xHRoD
+	jXs+sPYN12wIp/1Hj6LSpvxM1MXoAkprrzg3e+cOu62fgJfC/9X3RQIbAYHL/hX5fYXE7wGYa6gYm
+	tJB8JkqxEsMncNdwQeTT7TFSkfvHuUW6qDBHXiSWssyBlUgC/LnQBvGiDuPvSJ1S5ofLgudswdyiS
+	MOhgJTJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi1Wk-000000040w8-3P31;
-	Fri, 10 Jul 2026 03:03:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wi1Wq-000000040xz-0REK;
+	Fri, 10 Jul 2026 03:03:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi1Wk-000000040vu-0Umv
+	id 1wi1Wk-000000040w5-3jV0
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 10 Jul 2026 03:03:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BD28601D9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8213D414D3;
 	Fri, 10 Jul 2026 03:03:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 323C3C2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 40B5FC2BCC7;
 	Fri, 10 Jul 2026 03:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783652624;
-	bh=6affpFqvBOofjMEf10HVi7Yae4GpotoCzw2sYvxUCXE=;
+	bh=TpGJ0HgZLVDPaYc57SOUoH7whSlNEtTx1wMSxT+hVHk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=guuDVMBtR79Q5esTBHVfj1k0DMDJYPms2wdN/4ZFD4k7PmllXRQYfkO6xECWCFCNA
-	 9uR3W2lPkjmPbaP/XoqeNtheXnAhjFM4ykLS9WZhjqN0Wxad/0PnkVy0bRFNQZFW7U
-	 D94yTbPReOeA1W2E95ksyZHIN4mypoQ3dFpgX7+Ap+uj3ANI+MkDLiTnM/e6akPTpS
-	 oCP2YroCrQcIOKQg7D/B0KULgPfDv1ukFk9+3wU7pxWSNG95RemtrsPyVeVejocAsp
-	 lIpp8veal2NOurvItEKD/QFG5IfWcbVLDL/FLuYVgBrGeWOlafaCMde8tvaNixaFFi
-	 bhjQjeuk5zXMg==
+	b=WXJSAp8Ohh7cbJUrQnseFHuKhefI3wiUU4hXuEWF81PuMbMLbynE3868gWfoWIHEe
+	 z13aQcyo4blUWdnsm4FLXTpF5pACjjlJYASzXZROD1BXTzBnAvhc1p5rXNCEN+mgTV
+	 lq6Qn8X3r5vj15YT2x73IXgRb+RH+HkCx5PFecCoDXVqnFJqV+BzVKQJjx1oKFGRaG
+	 vUttO+ZLdLVDhLOSQjBdBjW+WtkJ6AROGLU/cX2UV00ndREUOToJ8fUQgX0qiIOS4+
+	 dwx4mtMPfjWkmiGRssUWfHmIWAy+PVjx2YbBxYtIpYqo3ehdz2Zjjc0QhcXbNK9qYP
+	 18a694OGdEd1A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 142ABC44506;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22CCBC44501;
 	Fri, 10 Jul 2026 03:03:44 +0000 (UTC)
 From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Date: Fri, 10 Jul 2026 11:03:36 +0800
-Subject: [PATCH v4 1/2] dt-bindings: thermal: imx: Document calibration
- offset property
+Date: Fri, 10 Jul 2026 11:03:37 +0800
+Subject: [PATCH v4 2/2] thermal/drivers/imx: Add calibration offset support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-1-1fef97d1c750@cn.bosch.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-2-1fef97d1c750@cn.bosch.com>
 References: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-0-1fef97d1c750@cn.bosch.com>
 In-Reply-To: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-0-1fef97d1c750@cn.bosch.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -67,11 +66,11 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783652619; l=1680;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783652619; l=2625;
  i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=no3c9/RAYmA7IHQlD5VdRWEadY5z+AzLg4/XdlxjFiY=;
- b=Qlj5ctN0QxfDIe27Zxs2YnRlhA05aquZhbwuwEOEVYV8U06Y28X+sNOBnx3rnTSy0eaepDfC7
- oJh3ffBKitCB3W3+O/nQiB4blT9a1TrWPVi+nmQPlsqxTLzM0be0qTz
+ bh=MRMJXW3PasN1+vP3XrwOg3tSDMAKHZqZCG42ukJ5xEc=;
+ b=t0rvPqYwHNNOuxzizKCabuptAVW2KUNbtlwhNM03dGoVD2UPZwtO61HhTY5qdN5L1TnA0eg7I
+ Svmq6726CnTBKnAjo0d8NkljNLEdE9lrZSVBj2jd5uKDeINgxa0GDBo
 X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
  pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
 X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
@@ -97,45 +96,74 @@ From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 Some boards need a small per-design correction to align the reported CPU
 temperature with board-level measurements.
 
-Document the optional fsl,temp-calibration-offset-millicelsius property,
-a signed offset in millicelsius that is added to the calculated sensor
-temperature. The property is optional and the existing behaviour is kept
-when it is omitted.
-
-Update the binding example to show its usage.
+Read the optional fsl,temp-calibration-offset-millicelsius property from
+DT and apply it to the i.MX6/6SX/7D calibration formulas. When the
+property is not present, the default offset remains 0, preserving the
+current behaviour.
 
 Signed-off-by: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
 ---
- Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/thermal/imx_thermal.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-index 949b154856c5..b9afffd98f84 100644
---- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-@@ -59,6 +59,14 @@ properties:
-   clocks:
-     maxItems: 1
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb3..8062d34ffed8 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -207,6 +207,7 @@ struct imx_thermal_data {
+ 	struct regmap *tempmon;
+ 	u32 c1, c2; /* See formula in imx_init_calib() */
+ 	int temp_max;
++	s32 calibration_offset;
+ 	int alarm_temp;
+ 	int last_temp;
+ 	bool irq_enabled;
+@@ -240,10 +241,13 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
  
-+  fsl,temp-calibration-offset-millicelsius:
-+    minimum: -28580
-+    maximum: 28580
-+    description:
-+      A signed calibration offset, in millicelsius, added to the calculated
-+      sensor temperature to compensate for board-level measurement
-+      differences. When absent, no offset is applied.
+ 	data->alarm_temp = alarm_temp;
+ 
+-	if (data->socdata->version == TEMPMON_IMX7D)
+-		alarm_value = alarm_temp / 1000 + data->c1 - 25;
+-	else
++	if (data->socdata->version == TEMPMON_IMX7D) {
++		alarm_value = DIV_ROUND_UP(alarm_temp - data->calibration_offset,
++					   1000) + data->c1 - 25;
++		alarm_value = clamp(alarm_value, 0, 0x1ff);
++	} else {
+ 		alarm_value = (data->c2 - alarm_temp) / data->c1;
++	}
+ 
+ 	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
+ 		     soc_data->high_alarm_mask);
+@@ -274,7 +278,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
+ 
+ 	/* See imx_init_calib() for formula derivation */
+ 	if (data->socdata->version == TEMPMON_IMX7D)
+-		*temp = (n_meas - data->c1 + 25) * 1000;
++		*temp = (n_meas - data->c1 + 25) * 1000 + data->calibration_offset;
+ 	else
+ 		*temp = data->c2 - n_meas * data->c1;
+ 
+@@ -413,7 +417,7 @@ static int imx_init_calib(struct platform_device *pdev, u32 ocotp_ana1)
+ 	temp64 *= 1000; /* to get result in °mC */
+ 	do_div(temp64, 15423 * n1 - 4148468);
+ 	data->c1 = temp64;
+-	data->c2 = n1 * data->c1 + 28581;
++	data->c2 = n1 * data->c1 + 28581 + data->calibration_offset;
+ 
+ 	return 0;
+ }
+@@ -629,6 +633,10 @@ static int imx_thermal_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, data);
+ 
++	of_property_read_s32(dev->of_node,
++			     "fsl,temp-calibration-offset-millicelsius",
++			     &data->calibration_offset);
 +
-   "#thermal-sensor-cells":
-     const: 0
- 
-@@ -109,6 +117,7 @@ examples:
-             nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
-             nvmem-cell-names = "calib", "temp_grade";
-             clocks = <&clks IMX6SX_CLK_PLL3_USB_OTG>;
-+            fsl,temp-calibration-offset-millicelsius = <(-6400)>;
-             #thermal-sensor-cells = <0>;
-         };
-     };
+ 	if (of_property_present(dev->of_node, "nvmem-cells")) {
+ 		ret = imx_init_from_nvmem_cells(pdev);
+ 		if (ret)
 
 -- 
 2.43.0
