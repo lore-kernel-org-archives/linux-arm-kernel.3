@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA4DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE1BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vDMV3NCLS4yPupVuDWJQ9qYR1mtzraYNK0kN/fZUZws=; b=AbRu2MEjkuxrjFA//u3xmfE+vs
-	egfifMUkD9UwQj+ibGtytVu23Mm/79W/G7p6zMC2oZruFX3CVhezNzZHmkwCYcuKigSJzfOGDrwwe
-	VlTwW63VpJ0C+w/1csHP+ma6tzyp0IoayilNrvqlwB9s1vJ+/Edw4nChRcUmlus+wtvMh3lHFoBhv
-	LmwSF5XCFFkyofS6q/5neSbD6QJsnyabfaUc7jnZxcJK2m0naOJ0yYDgRnbNBrZBVJr4lZA5DQ9Dw
-	9/0oZUwjQwaReXiI2pl690PbzL/TWon+sakU3B9WkhXMT1ufKVeuDpcRRljhXLj7k5ZTr600SpGs0
-	O/YAquGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n19MFjtTN+U7Ytjb0Wh/hWnKcTUytSNUeiC26qye3pE=; b=gcpVBoJdTeJ2Fi
+	PZZ7a+Yk4cBYYUpiBeJczRYm12AjFt5ZLm8tQ1DjiHYoGs0VU7Imxj5gOh9r2tc+SsLIxA910xAk+
+	1pK3HPE6XbdXbeImuaUPgjlpUkIAyYvqEfejnGPs/fwc+hK6PlB5tQxc3BAS6feWM4nhTFDSDlbpx
+	XAWlza9lJd+Xu0/fRvP+l9t24/q5J0tz8Ug5YvKmCcoChJzeVEBEyqJejRIgk3l4OYaVvKLFsrLdA
+	k7mUT1SGgzTt0/INqotuQCAHIlijwFLrKikGDpJnpQZhRAdki3m6DmuEZ2PCCqJ4Kn+O0skt2K7kc
+	aMdKgOn6PLHsXkJ2ASpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Fu-00000004XHf-1VNG;
-	Fri, 10 Jul 2026 09:10:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Fr-00000004XGY-2iRj
+	id 1wi7OK-00000004YIc-1xvZ;
+	Fri, 10 Jul 2026 09:19:28 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi7OG-00000004YHC-2sCK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:10:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A8F01BC0;
-	Fri, 10 Jul 2026 02:10:36 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.84.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B77213FD88;
-	Fri, 10 Jul 2026 02:10:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783674640; bh=tuoLyvlOHXB9mesLRzz5sRHL2smGtaXCkV71zVJ9dBs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XjTzAOUbMfeN0UXcbLPR+UnqBN+Kf6/XIaYbVAzDCu6yN4qQXGGG+MnUILLTDwkEV
-	 N7TwoaU7599w+czNNl22psp4BkAFPGgk+JOAOsRBNDsxm5YGDOjcfN9Xi5mS/CWjbU
-	 yfy+Uzz0yarQgqPCvDmgGdnU0EYDYsk/o3oUqDT0=
-Message-ID: <d8425af0-130e-4a27-8a56-b25a5c6e1d5c@arm.com>
-Date: Fri, 10 Jul 2026 10:10:24 +0100
+	Fri, 10 Jul 2026 09:19:27 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=n19MFjtTN+U7Ytjb0Wh/hWnKcTUytSNUeiC26qye3pE=;
+	b=EK5nEYEwhfGaIlUW8BapWTLj2O/Pnk9mH791W9K0MRnk/kqzt0qesrJdplub2a19GLRlzXFbD
+	P/l3FvoJ9q7iavkU37qgOxfpCpM6PlgqIwiyx2ac0ucXT8B9JOmV9+6DDGMpPMi5t/F0XtmuIAx
+	bDGYSAmqqqSFXHEyJa9kCBY=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gxQzH37Ggz12LFK;
+	Fri, 10 Jul 2026 17:10:35 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7998640575;
+	Fri, 10 Jul 2026 17:19:13 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 17:19:12 +0800
+Message-ID: <06c7765e-221f-42be-a26b-c3a4298a6bdb@huawei.com>
+Date: Fri, 10 Jul 2026 17:19:11 +0800
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v2 14/15] arm_mpam: prevent MPAM-Fb accesses inside IRQ
- handler
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-15-andre.przywara@arm.com>
- <f418f531-bc0b-4bff-a96f-121034c6c693@arm.com>
- <00e8ba98-735d-4c78-9056-3032036183e7@arm.com>
- <7f929d11-d9ee-4a30-a3ea-7a535111b35e@arm.com>
- <4af7ba69-96b6-4847-80d0-ed8c91ec55b8@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <4af7ba69-96b6-4847-80d0-ed8c91ec55b8@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
+ helpers for entry code
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-12-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-12-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_021043_764026_51C4D578 
-X-CRM114-Status: GOOD (  35.15  )
+X-CRM114-CacheID: sfid-20260710_021925_397350_E255E93C 
+X-CRM114-Status: GOOD (  29.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,173 +75,399 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
 
-On 7/10/26 08:31, Andre Przywara wrote:
-> Hi,
-> 
-> On 7/9/26 15:27, Ben Horgan wrote:
->> Hi Andre,
->>
->> On 7/9/26 13:06, Andre Przywara wrote:
->>> Hi,
->>>
->>> On 7/3/26 12:54, Ben Horgan wrote:
->>>> Hi Andre,
->>>>
->>>> On 7/2/26 17:22, Andre Przywara wrote:
->>>>> When an MPAM MSC gets into an error condition, it can trigger an error
->>>>> IRQ. We cannot really do much about those errors, but we at least
->>>>> query
->>>>> and log the error, then disable MPAM functionality.
->>>>>
->>>>> This error report relies on reading the MSC's error status register
->>>>> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
->>>>> MSC accesses, since they involve mailbox routines that might sleep.
->>>>> The same is true for clearing the interrupt at the source, which
->>>>> requires MSC access.
->>>>>
->>>>> For simplicity just skip the ESR read when the MSC is not using direct
->>>>> MMIO accesses, and just ignore the pending interrupts. We will wrap up
->>>>> MPAM functionality regardless, knowing the exact error value will not
->>>>> change that.
->>>>>
->>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>>>> ---
->>>>>    drivers/resctrl/mpam_devices.c | 35 ++++++++++++++++++
->>>>> +---------------
->>>>>    1 file changed, 20 insertions(+), 15 deletions(-)
->>>>>
->>>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/
->>>>> mpam_devices.c
->>>>> index b858ff389bff..4a088e6cd235 100644
->>>>> --- a/drivers/resctrl/mpam_devices.c
->>>>> +++ b/drivers/resctrl/mpam_devices.c
->>>>> @@ -2639,7 +2639,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->>>>>      static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc
->>>>> *msc)
->>>>>    {
->>>>> -    u64 reg;
->>>>> +    u64 reg = 0;
->>>>>        u16 partid;
->>>>>        u8 errcode, pmg, ris;
->>>>>    @@ -2648,25 +2648,30 @@ static irqreturn_t __mpam_irq_handler(int
->>>>> irq, struct mpam_msc *msc)
->>>>>                           &msc->accessibility)))
->>>>>            return IRQ_NONE;
->>>>>    -    mpam_msc_read_esr(msc, &reg);
->>>>> +    /* MPAM-Fb MSC accesses cannot be done in atomic context. */
->>>>> +    if (msc->iface == MPAM_IFACE_MMIO) {
->>>>> +        mpam_msc_read_esr(msc, &reg);
->>>>>    -    errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->>>>> -    if (!errcode)
->>>>> -        return IRQ_NONE;
->>>>> +        errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->>>>> +        if (!errcode)
->>>>> +            return IRQ_NONE;
->>>>>    -    /* Clear level triggered irq */
->>>>> -    mpam_msc_clear_esr(msc);
->>>>> +        /* Clear level triggered irq */
->>>>> +        mpam_msc_clear_esr(msc);
->>>>>    -    partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
->>>>> -    pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
->>>>> -    ris = FIELD_GET(MPAMF_ESR_RIS, reg);
->>>>> +        partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
->>>>> +        pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
->>>>> +        ris = FIELD_GET(MPAMF_ESR_RIS, reg);
->>>>>    -    pr_err_ratelimited("error irq from msc:%u '%s', partid:%u,
->>>>> pmg: %u, ris: %u\n",
->>>>> -               msc->id, mpam_errcode_names[errcode], partid, pmg,
->>>>> -               ris);
->>>>> +        pr_err_ratelimited("error irq from msc:%u '%s', partid:%u,
->>>>> pmg: %u, ris: %u\n",
->>>>> +                   msc->id, mpam_errcode_names[errcode], partid,
->>>>> +                   pmg, ris);
->>>>>    -    /* Disable this interrupt. */
->>>>> -    mpam_disable_msc_ecr(msc);
->>>>> +        /* Disable this interrupt. */
->>>>> +        mpam_disable_msc_ecr(msc);
->>>>
->>>> As an error interrupt is final can we just disable the IRQ?
->>>
->>> Doing that should be covered by mpam_unregister_irqs() as part of the
->>> mpam_broken_work, shouldn't it? Or do you want to do it earlier?
->>
->>
->> I think leaving it to mpam_broken_work risks having the hard irq handler
->> run again and again once we get an error interrupt. I'm just looking at
->> the code today but I think this is analogous to using IRQF_ONESHOT to
->> mask the interrupt until the threaded handler is finished.
-> 
-> Maybe, but masking and disabling are not the same thing, and ONESHOT
-> most probably takes care of any imbalances. Whereas when we just disable
-> the IRQ here on some occasions, without telling anyone, it may leave it
-> in a weird state?
 
-Ok, that could be problematic.
-
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
->>
->>>
->>>> Is it
->>>> useful? I see there is a function disable_irq_no_sync().
->>>
->>> If we want to do it earlier, the _nosync variant sounds promising,
->>> although the comment talks about it being nested, so I guess it would
->>> need to be balanced? Which might be tricky here, since I guess the IRQ
->>> would be disabled again in mpam_unregister_irqs()?
->>
->> mpam_unregister_irqs() disables the interrupt by clearing the msc enable
->> in mpam_disable_msc_ecr() rather than disabling by irq. I don't see how
->> this would cause a problem. Or does free_percpu_irq() or devm_free_irq()
->> do something incompatible?
+> The entry code handles interrupt masking differently from the rest of
+> the kernel. Exception handlers enter and exit with all exceptions
+> masked, but they must temporarily unmask the appropriate set of
+> exceptions so that the rest of the handler executes with the expected
+> exception state.
 > 
-> According to the description of free_irq(), it does disable the IRQ when
-> no user is left. I'd assume it does this via the same mechanism we are
-> trying to use, which would cause an imbalance?
-
-Can we get around this by using a ONESHOT threaded interrupt and just
-using the threaded part to do mpam_disable_msc_ecr() and queue the
-mpam_broken_work?
-
-Thanks,
-
-Ben
-
+> For EL0 handlers, this means dropping to masking context appropriate
+> for the work to be performed. For EL1 handlers, this means restoring
+> the masking context of the interrupted task. In both cases, all
+> exceptions must be masked again before returning from the exception
+> handler.
 > 
-> Cheers,
-> Andre
+> The rest of the kernel typically follows the opposite pattern: it
+> raises the masking context to protect a critical section and later
+> restores the previous context.
 > 
->>>
->>>>> +    } else {
->>>>> +        pr_err_ratelimited("unknown error irq from msc:%u\n", msc-
->>>>> >id);
->>>>
->>>> Should we report by irq number?
->>>> As MSC may share interrupts we don't know which MSC caused the error
->>>> irq
->>>> at this point. On MMIO platforms we read the ESR to establish this.
->>>
->>> I see what you mean, though I am not sure if the user would be able to
->>> make sense of any interrupt number? I would put it in anyway, more
->>> information doesn't hurt.
->>>
->>> Cheers,
->>> Andre
->>>
->>>> Thanks,
->>>>
->>>> Ben
->>>>
->>>>> +    }
->>>>>          /* Are we racing with the thread disabling MPAM? */
->>>>>        if (!mpam_is_enabled())
->>>>
->>>
->>
+> Given these different usage patterns, introduce a dedicated set of
+> exception masking helpers for the entry code. Keeping these helpers
+> separate from the generic interrupt masking APIs makes the intended
+> usage explicit and helps avoid mixing the two masking models.
 > 
+> To make the masking logic easier to reason about, introduce exception
+> contexts that map directly to the corresponding hardware exception
+> state. Along with these contexts, provide helpers to:
+> 
+> - translate an exception context into the corresponding hardware
+>   state,
+> 
+> - verify that the current hardware exception state matches the
+>   expected exception context,
+> 
+> - raise or lower the current exception context, and
+> 
+> - perform the common mask/unmask operations when the starting or
+>   target exception context is already known.
+> 
+> Tracking the current exception context also provides two additional
+> benefits:
+> 
+> - improved debugging by verifying that the hardware exception state
+>   matches the expected exception context, and
+> 
+> - avoiding unnecessary writes to the hardware exception state.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  .../include/asm/interrupts/common_flags.h     | 197 ++++++++++++++++++
+>  arch/arm64/include/asm/interrupts/entry.h     | 110 ++++++++++
+>  2 files changed, 307 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> new file mode 100644
+> index 000000000000..6ce60d1519e8
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -0,0 +1,197 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
+> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/ptrace.h>
+> +#include <asm/sysreg.h>
+> +#include <asm/irqflags.h>
+> +
+> +#define DAIF_PROCCTX		0
+> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +
+> +/*
+> + * Exception context mapping
+> + *
+> + * pseudo-NMI
+> + *
+> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF + IRQON
+> + * NONMI    ->   IF + IRQON
+> + * NOIRQ    ->    0 + IRQOFF
+> + * PROCESS  ->    0 + IRQON
+> + *
+> + * Otherwise
+> + *
+> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF
+> + * NONMI    ->   IF
+> + * NOIRQ    ->   IF
+> + * PROCESS  ->    0
+
+without the allint of FEAT_NMI, the NONMI here is meaningless.
+
+With allint, maybe:
+
++ * CRITICAL -> ALLINT + DAIF           (corresponds to the state on
+exception entry)
++ * ERROR    ->  ALLINT + AIF
++ * NONMI    ->  ALLINT + IF
++ * NOIRQ    ->   IF
++ * PROCESS  ->    0
+
+
+> + */
+> +typedef enum arm64_exc_context {
+> +	PROCESS_CONTEXT,
+> +	NOIRQ_CONTEXT,
+> +	NONMI_CONTEXT,
+> +	ERROR_CONTEXT,
+> +	CRITICAL_CONTEXT,
+> +} arm64_exc_context_t;
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
+> +	switch (context) {
+> +	case PROCESS_CONTEXT:
+> +		return __arm64_exc_hwstate_of_process_context();
+> +	case NOIRQ_CONTEXT:
+> +		return __arm64_exc_hwstate_of_noirq_context();
+> +	case NONMI_CONTEXT:
+> +		return __arm64_exc_hwstate_of_nonmi_context();
+> +	case ERROR_CONTEXT:
+> +		return __arm64_exc_hwstate_of_error_context();
+> +	case CRITICAL_CONTEXT:
+> +		return __arm64_exc_hwstate_of_critical_context();
+> +	default:
+> +		BUG();
+> +	}
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
+> +
+> +	if (system_uses_irq_prio_masking())
+> +		state.pmr = regs->pmr;
+> +
+> +	return state;
+> +}
+> +
+> +static __always_inline
+> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+> +{
+> +	arm64_exc_hwstate_t actual;
+> +
+> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
+> +		return;
+> +
+> +	actual.flags = arch_local_save_flags();
+> +
+> +	if (expected.flags == actual.flags)
+> +		return;
+> +
+> +	if (system_uses_irq_prio_masking()) {
+> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+> +	} else {
+> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+> +			  actual.daif, expected.daif);
+> +	}
+> +}
+> +
+> +static __always_inline
+> +void arm64_debug_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
+> +
+> +	arm64_debug_exc_hwstate(expected);
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+> +{
+> +	if (system_uses_irq_prio_masking() &&
+> +	    update_pmr &&
+> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
+> +		/*
+> +		 * There has been concern that the write to daif
+> +		 * might be reordered before this write to PMR.
+> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
+> +		 * "Accessing PSTATE fields":
+> +		 *   Writes to the PSTATE fields have side-effects on
+> +		 *   various aspects of the PE operation. All of these
+> +		 *   side-effects are guaranteed:
+> +		 *     - Not to be visible to earlier instructions in
+> +		 *       the execution stream.
+> +		 *     - To be visible to later instructions in the
+> +		 *       execution stream
+> +		 *
+> +		 * Also, writes to PMR are self-synchronizing, so no
+> +		 * interrupts with a lower priority than PMR is signaled
+> +		 * to the PE after the write.
+> +		 *
+> +		 * So we don't need additional synchronization here.
+> +		 */
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+> +	}
+> +
+> +	write_sysreg(hwstate.daif, daif);
+> +
+> +	if (system_uses_irq_prio_masking() &&
+> +	    update_pmr &&
+> +	    hwstate.pmr == GIC_PRIO_IRQON) {
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+> +	}
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
+> +{
+> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+> +
+> +	arm64_update_exc_hwstate(hwstate, update_pmr);
+> +}
+> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
+> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+> new file mode 100644
+> index 000000000000..3034c490ed66
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/entry.h
+> @@ -0,0 +1,110 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+> +#define __ASM_INTERRUPTS_ENTRY_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+> +						  arm64_exc_hwstate_t next)
+> +{
+> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+> +
+> +	arm64_debug_exc_hwstate(prev);
+> +
+> +	if (prev.flags == next.flags)
+> +		return next;
+> +
+> +	if (!arch_irqs_disabled_flags(next.flags))
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_hwstate(next, update_pmr);
+> +
+> +	if (arch_irqs_disabled_flags(next.flags))
+> +		trace_hardirqs_off();
+> +
+> +	return next;
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+> +			     prev.daif == DAIF_ERRCTX);
+> +
+> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+> +
+> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+> +			     prev.daif == DAIF_MASK);
+> +
+> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
+> +			     prev.daif == DAIF_ERRCTX);
+> +
+> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +
+> +	return arm64_drop_exc_context(prev, context);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
+> +{
+> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
+> +}
+> +
+> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
 
 
