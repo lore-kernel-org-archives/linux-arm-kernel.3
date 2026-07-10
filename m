@@ -4,66 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65FAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FE1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gvoCPCpPheqfMjWZbe9VtZyXE5Rr3aMqRgBAnuF6GrA=; b=1Xrr4CG8hacKcn
-	lW7k7eZlAtqr2sh/wZS0T1npcDDrmDxf7Log9bBUE4MfkmJBg73jLdJtyx42mpLL+YzWBjFrn/Sij
-	UekKOHcoV81jo5hd0w7tyyK66FH7+7E1PIF+urnjg85ih+yGHjtPOYuxmFm2aNN45QCRo8w9yrb4M
-	VB1ULJ96jlhAnCaSOmbR5dLMjlYMpZq8q+h1I/DwClV1ZAZaVizCd6AO3Nc2P4MGq10RRjn08P7Ml
-	US6JcV+rPA9r9mWtTM9Kzui3gjJ/fjB48JT7CidAN/kCOVQQa8De+LQAvmyr3ghQBcrF2X4NZLlnA
-	VpW0Uq8wr40QrLtImk7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3bl/9htZJ1EbkmZW8aGRvNq6/zFejH8nQ4yfOPrunsw=; b=x1OQK6lg+Yr/+P4hOevkeJROc9
+	tIXn+lsa+3eZANW8GGAos11apiQstbhp9qIIFSjuF/xBqRaMzhEjgBiQ6Vg08wDoO4R1EhdKlqKWG
+	U6NifX0DnseUtb5MVtlp1pKXYAV6TZtIo8VHvJjMLnP49qmFXIoBVGkyHGN446SraxV4wSOlvNwK9
+	ZxYVyQ9M9IN5LmYQM6cnQug/wC4Cx1kXVA6pckp8AKZ/z+smdKZtw2crV+eW1Ju4gXNlykM6wjzC1
+	g4ggJQAE8198mWIbSa/4ZDJBfpr1SkZrbtUdVZzR19MZCWkKLKZfe/+xpy3sGQCAblq1xmOixIaIi
+	t0047M3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7mx-00000004cei-22Rl;
-	Fri, 10 Jul 2026 09:44:55 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wi7ov-00000004cxU-2Dx0;
+	Fri, 10 Jul 2026 09:46:57 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7mt-00000004cdD-3UpU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:44:53 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=gvoCPCpPheqfMjWZbe9VtZyXE5Rr3aMqRgBAnuF6GrA=;
-	b=PKjIjbvcPhyLT1EwvWQdeOl8p1Mj3CJIf4bheaebY0l063A1pJK537bL8kmfBytuRjSUblNyu
-	uDvW+xmZrYmyhwdosIU8852Opc3JdRQk84gDvOUitymbIqa0YLRtx4Poeq6UZLakNiZCR1k+IQy
-	GPcZWfsP7KQhx3gjPMeVQLw=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gxRWx2GvTz1prNF;
-	Fri, 10 Jul 2026 17:35:25 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 950C54057F;
-	Fri, 10 Jul 2026 17:44:42 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 17:44:41 +0800
-Message-ID: <797df793-51c3-4311-8c0a-98c1642e1035@huawei.com>
-Date: Fri, 10 Jul 2026 17:44:40 +0800
+	id 1wi7os-00000004cwp-2fsI;
+	Fri, 10 Jul 2026 09:46:55 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66A83wwM2275718;
+	Fri, 10 Jul 2026 04:46:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=3bl/9htZJ1EbkmZW8aGRvNq6/zFejH8nQ4yfOPrun
+	sw=; b=MNpgCAXXNKW5iuh0GYkc68cGnMm/AIVw5VvH5GNUrnNGUPRUbPMTOr31S
+	vG36401pIcwEBoWhmGfAR3yncB6sXdpBGgsYjNiZxjofF9vXMgwFu6Tynns4WgTk
+	m9is0sMuqsL39nPTSdR5JZlBZJ5URdeBtBBTdulcUGj1EiEVx4hMc3u6m0tCoZVq
+	344nKIcYftIbi38nnSv5fXvFhjfj9vysUuO9/b/xEFvd7bCgo7Vx/AniKn0Pu1F0
+	D1rfmeowvXDjolZ+K4qiftsbGY8eiDx8jgY0IiIQ+BV9jlwOWma9XYwahHKrJwz0
+	sV1NprM7NemMVcAAPkVajwFMGa1zA==
+Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012012.outbound.protection.outlook.com [40.107.209.12])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4fadx0nmp6-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 04:46:50 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gBwbsCdM3XpfQOfhK8h2bTFs6M8viVE2grvFlbA0/Zs0P8rAe4xPhzqHiRS55iG80XmyUkwFIwyNadcvmwHXizLXHcYM3/rEKA8Oz+2OpkwEhS7EkfQpZRkBzWnvEE36mtAbpwMAqLgfpGBmqyk5oVTfN5cnW3wlwTcfWczwFLcWEArUt5K4xFZzyTneT4T3y1SIR5y1oel5IChisrB9tf1EHblvyRCG1SudBZr/AI1Ae+iQw28GP+/k1XcMCW1HvDrYqrPMeZsjHyReCrffSJHhQ7RhEU7x9MKFfRz8YKqRsWdzcr36g8sDxBH7sU//mh6VE2eetKfvwqOhzgoatQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3bl/9htZJ1EbkmZW8aGRvNq6/zFejH8nQ4yfOPrunsw=;
+ b=rr0uEOLqmezPRQgI7GGLhsbOuLbnBdAZjxKmgWvphSGKyZTeYNer7UnhBPPTUZX3v3Q0qxJhf9aOBS1xLYiPnJ15WC5XztlWtrhelJ5Zt8hS0hESq8Gh2OQbm4RDr2911DvTiejwtS2vxWs8ogMMXytvZZEHdgYYLeHZgDNHyhqqc6xL3N/8ud5Ohw0VKN5KntiXpB7H1KBR52MJFtui2JXixXUYAz090QtAjb088LxLiIFikZaOkgE2X/bWoqWa73Puh98f28FEnxn8uTleD4MKJimF/D+TK0rKEthopdDeFl3mKOiTybDMqVIlr9B/l5OtCu5UT1R+05YdYgvbqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=cadence.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3bl/9htZJ1EbkmZW8aGRvNq6/zFejH8nQ4yfOPrunsw=;
+ b=bCc+vtVbyoASdATisMdyc/2EFifEMuTobA42avJZrHttFlK5kJkX3kSn7bBtAg4ltfMhGfjvdUQounPvdbhv0hAjPvIw2e7AJp6lmxioqZCHdrHWcFRN8nA7HW2dnbnZ8XQz9+u1G5G7WHXu/jNCVuYBAGHms/MAU+x/AQMk+NE=
+Received: from MN0P220CA0003.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:52e::32)
+ by CH2PR10MB4344.namprd10.prod.outlook.com (2603:10b6:610:af::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
+ 2026 09:46:45 +0000
+Received: from BL02EPF00021F6A.namprd02.prod.outlook.com
+ (2603:10b6:208:52e:cafe::6d) by MN0P220CA0003.outlook.office365.com
+ (2603:10b6:208:52e::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.13 via Frontend Transport; Fri,
+ 10 Jul 2026 09:46:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL02EPF00021F6A.mail.protection.outlook.com (10.167.249.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 10 Jul 2026 09:46:44 +0000
+Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 10 Jul
+ 2026 04:46:43 -0500
+Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 10 Jul
+ 2026 04:46:43 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 10 Jul 2026 04:46:43 -0500
+Received: from [10.24.50.145] (a0507176-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.50.145])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66A9kc0m3402433;
+	Fri, 10 Jul 2026 04:46:38 -0500
+Message-ID: <7a129061-2df6-4297-a312-4f079f7dbd3d@ti.com>
+Date: Fri, 10 Jul 2026 15:16:37 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
- helpers for entry code
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-12-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-12-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v5 net-next 1/2] dt-bindings: phy: cadence-torrent: Update
+ property values to support multilink SERDES configuration
+To: Conor Dooley <conor@kernel.org>
+CC: <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, <krzk+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <neil.armstrong@linaro.org>,
+        <nm@ti.com>, <robh@kernel.org>, <sjakhade@cadence.com>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <vkoul@kernel.org>,
+        <yamonkar@cadence.com>, Gokul Praveen
+	<g-praveen@ti.com>
+References: <20260708083725.66777-1-g-praveen@ti.com>
+ <20260708083725.66777-2-g-praveen@ti.com>
+ <20260708-purifier-subside-667f32244c09@spud>
+ <18b1c832-d0ba-4465-90c8-09e7c48becde@ti.com>
+ <20260709-unvalued-washtub-d024d21f5624@spud>
+Content-Language: en-US
+From: Gokul Praveen <g-praveen@ti.com>
+In-Reply-To: <20260709-unvalued-washtub-d024d21f5624@spud>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6A:EE_|CH2PR10MB4344:EE_
+X-MS-Office365-Filtering-Correlation-Id: b2dc1533-4122-4370-6307-08dede6826c3
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|23010399003|1800799024|6133799003|56012099006|4143699003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: yBCLQp2nxW1dY7tc9Mz87ytvXpIIQEA8diZ7ViEAIH0Dd/0Nl79Cz8DVOAAI7s6T+SaShSFArbsF8oaPKJHmIB31ps2rAq/6FBysdF9LT6jBEeXtB/ZZb+KCWJmCRxGdQH1wBCIAIgeUa7cfkBPyUs0IdpaWKoiDxI1lHAobIAIUJV1kT/t6DT3nJBhMfQdr/CdDrMpkuCnz2RJZMb3sCvfL4q8zl6xOoPQkPzJ3fAht02n2uoHT0o1b+6xOxu4M9y4+gUgYC2DOMUF7mCTgyXQnf+PmpzLijamyFrBUBIH8dMtWE0zvOtW63M7Plil7+4bm8FdsdMDkwsuA+kyBnDfSsPSt2nDhu3DbFT9n2bHNd9MfGEQBwpZW7tpiWleYPavMvOtlyI0zWEaQLnW0wQ/BBCfZjzlZ5aPMUNo1TD+74DwHVMS5H1M3g7z8CQHwb08IV8hLgqTpzKjQGFyDJKR4NtEzxGzkm6oEKoQkPF8YXidVnegyLj/qhTvQYzh+wBLRkdv+hTtOIq1qr8tpp1cgt3tDtqQdtO3BaGDS0FypczhUKf9kVFnDEQ5lw4MHgtqTA6V+MTrygkXla1C0x3Sq0G3wek8GtWZNWU1Mh5rth55WF/dYkeRodLqSnJyixGcdKOTI5/QK9LAEIzuEsqmwv+jxZ5kXBINCsUprklSnNUy4upQwkmHbEb1vgBy1IIBXS1i5JIHbUv3Y4IohTA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(23010399003)(1800799024)(6133799003)(56012099006)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: IqhvCYuTNlCf6/etfoGRbkD+R6iSmFJ327SDBi0zX5/pgd871ZNhQH6YmAg74Fdsje9CNbrCU+9SOwp+JfQ0LzwwrwM8aqHeE9uce9NJFbVmv1fJglaWL7FRAMyhQIy3155jyeizY5U+E5pv5GQm4Wk2NClmjpsyLM1fh8phdqk9+VSkH3tclpRSPp2FMTKx6Iye3obAd7yPXPxAxaBQ5AfpM0C+WSvZGgAVZx/0iujz3ebnIlcieVYcDcM4Qt4kfQUwJXwCrkK6SDuC4aZUxz/rEGBQ0UCVRLzWlidgLT/4ADAWDvYG9zX0dYw5NpFAN9MsR+Y1cF0a8VfSeoWvrsxC98qodWoNdIK0QES0JnCFnGLBurHENSFWly69DiYFd4SUgdoePOs3j+FqqkGFDDw+VP+iZGDhWWV1nOmjscFbRDqKrqFiWq99pgufCme0
+X-Exchange-RoutingPolicyChecked: IBEZHE1n/BX6bZEnrbC/fo8/XHmfC6vMWdIY0tREJRC9wq259aQT4wqHQDSq/bUJcxn4iwczlRsIezadwi9+7322rSib3wpfxEFZ70kn41eB0Nw+EG3pwt+xnv9AoicGQFOpDbLHgZmwWaKT7dWr3u5AY1vKNH8z0E6WTynRItHPD5X5n1RmSq+5tvVjqzfbL5XuppTMHwxMUeqJfUn4ubw3tAZNb79AHUCLkB2JcQNZOqOs1ivQAGaGEnkYblImfnUzKQdwZ2+D6g7ySYjIpgNdabLSJQpr4o6CkYpBFRSPT5yyoy7FrYWnDmCLtgfAbqJSQD6OBvttOr8TButX5Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 09:46:44.0266
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2dc1533-4122-4370-6307-08dede6826c3
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR10MB4344
+X-Proofpoint-GUID: RimCi4CYVIGXXwwxxGmHY23EqkdGJbnC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA5NCBTYWx0ZWRfX3TGp6WskOeSe
+ 6qlgyRIoQ8vRfgoWvi9D4w7kFPoGBftRu9TrEu13AmMC9Qqd7wXIziblpX/8P/lcecktRaPgzpn
+ oVDa4XKAMITKK4dydrs+tEXaqdiY4VigKxVpovPn77DHZN3vbK1oYFDGdo/E/qAtqSdIJwzNZHm
+ aqPiawHgjvmA2oQMjZkmo+5YCEhts0bhzMFQNojy+JKlRT74SxOb4fF4bU7sJ0XYfREISFtrb0o
+ oKVdIBZv8aLzgcMFFVqO+dk9vGbQ9AXJ+mMseOaaEqQb/Na9V2YkFeMK/w0910bp8A+DuK9pBSl
+ uv0Py9cO/J1fUwDOnEn8qj2b7ndUJ6tyyfmUxRQVLPAYWWWbEW19lBIq5IKX8tvZvAc6bz7lcQL
+ 38z+h4OmM69/3T5KiNSG4NELWmtqg+ELqKEuqsPDtwwe78eA/Td8kCHs8qDou1v+VlerbGjKSet
+ ZfGnTLCryRC7/m28x9A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA5NCBTYWx0ZWRfXwKILMlKJAUTj
+ 56231+SnLLDu+l8AhxOzgyOESREwtVgD+k6/qzQf/jtI7I3plSVdgrwLreeFq+svbgqJYZ7lEQe
+ Vgl14eRDZ8TfQ4YKNq+qp2IokJ2V7iY=
+X-Proofpoint-ORIG-GUID: RimCi4CYVIGXXwwxxGmHY23EqkdGJbnC
+X-Authority-Analysis: v=2.4 cv=A+pc+aWG c=1 sm=1 tr=0 ts=6a50bf8a cx=c_pps
+ a=ul7AMzggcqKAecwK2qVOCw==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=-TvEWuknRv-ZBbInuocA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-10_02,2026-07-09_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 priorityscore=1501 bulkscore=0 clxscore=1015
+ spamscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_024452_214160_D5B0D2B4 
-X-CRM114-Status: GOOD (  30.98  )
+X-CRM114-CacheID: sfid-20260710_024654_688773_5866A98E 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,393 +182,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Conor,
 
+On 09/07/26 21:21, Conor Dooley wrote:
+> On Thu, Jul 09, 2026 at 03:37:15PM +0530, Praveen, Gokul wrote:
+>> Hi Conor,
+>>
+>> On 08-07-2026 22:09, Conor Dooley wrote:
+>>> On Wed, Jul 08, 2026 at 02:07:24PM +0530, Gokul Praveen wrote:
+>>>> Update the maxItems value of clocks parameter as 3 clocks
+>>>> (refclk,pll1_refclk,phy_en_refclk) are supported.
+>>>>
+>>>> Update the clock-names parameter to support mutilink SERDES configuration
+>>>> as the existing enum configuration of the clock-names parameter does not
+>>>> allow both pll1_refclk and phy_en_refclk to be used at the same time,
+>>>> hence preventing the support for the configuration  (refclk,pll1_refclk,
+>>>> phy_en_refclk), which is neeed for multilink SERDES usecases.
+>>>>
+>>>> For multilink SERDES configurations where the links require different
+>>>> clock speeds, all 3 clocks(refclk, pll1_refclk and phy_en_refclk)
+>>>> are needed.
+>>>>
+>>>> For example,considering the USXGMII+SGMII multilink SERDES configuration
+>>>> usecase, having only 1 reference clock(refclk) fails because USXGMII
+>>>> requires a clock speed of 156.25 Mhz and SGMII protocol requires an
+>>>> clock speed of 100 Mhz.
+>>>>
+>>>> Since one reference clock(refclk) alone cannot cater to the 2
+>>>> different clock speed requirements of these protocols, the second
+>>>> input reference clock(pll1_refclk) along with phy_en_refclk
+>>>> is also needed.
+>>> This binding supports 2 devices and the generic compatible. Do all these
+>>> devices have the new refclk?
+>> Not all of these devices have the new refclk(pll1_refclk), Conor, which is
+>> is why the enum was kept as it is and in these devices multilink serdes
+>> configuration will not be possible due to the limitation of not having the
+>> new refclk(pll1_refclk).
+> In that case, please restrict 3 clocks to only the devices which have
+> them.
+>
+> pw-bot: changes-requested
+>
+> Thanks,
+> Conor.
+>
+Apologies for my earlier message.
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> The entry code handles interrupt masking differently from the rest of
-> the kernel. Exception handlers enter and exit with all exceptions
-> masked, but they must temporarily unmask the appropriate set of
-> exceptions so that the rest of the handler executes with the expected
-> exception state.
-> 
-> For EL0 handlers, this means dropping to masking context appropriate
-> for the work to be performed. For EL1 handlers, this means restoring
-> the masking context of the interrupted task. In both cases, all
-> exceptions must be masked again before returning from the exception
-> handler.
-> 
-> The rest of the kernel typically follows the opposite pattern: it
-> raises the masking context to protect a critical section and later
-> restores the previous context.
-> 
-> Given these different usage patterns, introduce a dedicated set of
-> exception masking helpers for the entry code. Keeping these helpers
-> separate from the generic interrupt masking APIs makes the intended
-> usage explicit and helps avoid mixing the two masking models.
-> 
-> To make the masking logic easier to reason about, introduce exception
-> contexts that map directly to the corresponding hardware exception
-> state. Along with these contexts, provide helpers to:
-> 
-> - translate an exception context into the corresponding hardware
->   state,
-> 
-> - verify that the current hardware exception state matches the
->   expected exception context,
-> 
-> - raise or lower the current exception context, and
-> 
-> - perform the common mask/unmask operations when the starting or
->   target exception context is already known.
-> 
-> Tracking the current exception context also provides two additional
-> benefits:
-> 
-> - improved debugging by verifying that the hardware exception state
->   matches the expected exception context, and
-> 
-> - avoiding unnecessary writes to the hardware exception state.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  .../include/asm/interrupts/common_flags.h     | 197 ++++++++++++++++++
->  arch/arm64/include/asm/interrupts/entry.h     | 110 ++++++++++
->  2 files changed, 307 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
->  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
-> 
-> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-> new file mode 100644
-> index 000000000000..6ce60d1519e8
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
-> @@ -0,0 +1,197 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/ptrace.h>
-> +#include <asm/sysreg.h>
-> +#include <asm/irqflags.h>
-> +
-> +#define DAIF_PROCCTX		0
-> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +
-> +/*
-> + * Exception context mapping
-> + *
-> + * pseudo-NMI
-> + *
-> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF + IRQON
-> + * NONMI    ->   IF + IRQON
-> + * NOIRQ    ->    0 + IRQOFF
-> + * PROCESS  ->    0 + IRQON
-> + *
-> + * Otherwise
-> + *
-> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF
-> + * NONMI    ->   IF
-> + * NOIRQ    ->   IF
-> + * PROCESS  ->    0
-> + */
-> +typedef enum arm64_exc_context {
-> +	PROCESS_CONTEXT,
-> +	NOIRQ_CONTEXT,
-> +	NONMI_CONTEXT,
-> +	ERROR_CONTEXT,
-> +	CRITICAL_CONTEXT,
-> +} arm64_exc_context_t;
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
-> +	switch (context) {
-> +	case PROCESS_CONTEXT:
-> +		return __arm64_exc_hwstate_of_process_context();
-> +	case NOIRQ_CONTEXT:
-> +		return __arm64_exc_hwstate_of_noirq_context();
-> +	case NONMI_CONTEXT:
-> +		return __arm64_exc_hwstate_of_nonmi_context();
-> +	case ERROR_CONTEXT:
-> +		return __arm64_exc_hwstate_of_error_context();
-> +	case CRITICAL_CONTEXT:
-> +		return __arm64_exc_hwstate_of_critical_context();
-> +	default:
-> +		BUG();
-> +	}
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
-> +
-> +	if (system_uses_irq_prio_masking())
-> +		state.pmr = regs->pmr;
-> +
-> +	return state;
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
-> +{
-> +	arm64_exc_hwstate_t actual;
-> +
-> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
-> +		return;
-> +
-> +	actual.flags = arch_local_save_flags();
-> +
-> +	if (expected.flags == actual.flags)
-> +		return;
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
-> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
-> +	} else {
-> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
-> +			  actual.daif, expected.daif);
-> +	}
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_debug_exc_hwstate(expected);
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
-> +{
-> +	if (system_uses_irq_prio_masking() &&
-> +	    update_pmr &&
-> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
-> +		/*
-> +		 * There has been concern that the write to daif
-> +		 * might be reordered before this write to PMR.
-> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
-> +		 * "Accessing PSTATE fields":
-> +		 *   Writes to the PSTATE fields have side-effects on
-> +		 *   various aspects of the PE operation. All of these
-> +		 *   side-effects are guaranteed:
-> +		 *     - Not to be visible to earlier instructions in
-> +		 *       the execution stream.
-> +		 *     - To be visible to later instructions in the
-> +		 *       execution stream
-> +		 *
-> +		 * Also, writes to PMR are self-synchronizing, so no
-> +		 * interrupts with a lower priority than PMR is signaled
-> +		 * to the PE after the write.
-> +		 *
-> +		 * So we don't need additional synchronization here.
-> +		 */
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
-> +	}
-> +
-> +	write_sysreg(hwstate.daif, daif);
-> +
-> +	if (system_uses_irq_prio_masking() &&
-> +	    update_pmr &&
-> +	    hwstate.pmr == GIC_PRIO_IRQON) {
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
+I confirmed that all of these devices(ie:2 devices and the generic 
+compatible) support the 3 clocks.
 
-In the original local_daif_restore, pmr_sync is only required when
-interrupts are enabled. Is there any performance issue?
+It was a misinformation earlier from my side.Apologies for that.
 
-If all are using pmr_sync, why not merge it with the previous pmr
-operations?
+Thanking you
 
-> +	}
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
-> +{
-> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_update_exc_hwstate(hwstate, update_pmr);
-> +}
-> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
-> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
-> new file mode 100644
-> index 000000000000..3034c490ed66
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/entry.h
-> @@ -0,0 +1,110 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_ENTRY_H
-> +#define __ASM_INTERRUPTS_ENTRY_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/interrupts/common_flags.h>
-> +
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
-> +						  arm64_exc_hwstate_t next)
-> +{
-> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
-> +
-> +	arm64_debug_exc_hwstate(prev);
-> +
-> +	if (prev.flags == next.flags)
-> +		return next;
-> +
-> +	if (!arch_irqs_disabled_flags(next.flags))
-> +		trace_hardirqs_on();
-> +
-> +	arm64_update_exc_hwstate(next, update_pmr);
-> +
-> +	if (arch_irqs_disabled_flags(next.flags))
-> +		trace_hardirqs_off();
-> +
-> +	return next;
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
-> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
-> +			     prev.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
-> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
-> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
-> +
-> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
-> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
-> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
-> +	}
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
-> +			     prev.daif == DAIF_MASK);
-> +
-> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
-> +			     prev.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
-> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
-> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
-> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
-> +	}
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
-> +
-> +	return arm64_drop_exc_context(prev, context);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
-> +{
-> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
-> +}
-> +
-> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
+Yours respectfully
 
+Gokul Praveen
+
+>> However, The intent of this patch is to add multilink serdes support for the
+>> devices which have the new refclk because the
+>>
+>> earlier clock-names configuration could not support having all the 3
+>> clocks(refclk, pll1_refclk, phy_en_refclk) in the clock-names, which is
+>> needed for mutlilink serdes configuration configuration.
+>>
+>> Also, Please feel free to ask if you have any other queries, Conor and thank
+>> you for this query .
+>>
+>> Thanks and Best Regards
+>>
+>> Gokul Praveen
+>>
+>>> Thanks,
+>>> Conor.
+>>>
+>>>> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+>>>> ---
+>>>>    Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml | 3 ++-
+>>>>    1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>>>> index 9af39b33646a..ac0f625cd76d 100644
+>>>> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>>>> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>>>> @@ -34,7 +34,7 @@ properties:
+>>>>      clocks:
+>>>>        minItems: 1
+>>>> -    maxItems: 2
+>>>> +    maxItems: 3
+>>>>        description:
+>>>>          PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
+>>>>          pll1_refclk is optional and used for multi-protocol configurations requiring
+>>>> @@ -48,6 +48,7 @@ properties:
+>>>>        items:
+>>>>          - const: refclk
+>>>>          - enum: [ pll1_refclk, phy_en_refclk ]
+>>>> +      - const: phy_en_refclk
+>>>>      reg:
+>>>>        minItems: 1
+>>>> -- 
+>>>> 2.34.1
+>>>>
 
