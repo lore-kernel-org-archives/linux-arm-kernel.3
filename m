@@ -4,130 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37390C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A19FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOt9UTfd15E1bmXXOo8yVb8JvjAgMSQeHBt96w88/lg=; b=YnuC46p+JYT6z6MmgEIDoTUSfS
-	VPt3C3eTdwmcfNEJvmpS0iUwJRCTHLL++RAKwAPBSt4R75KKsgdCQCb8jlWCMyHGF7Umw5f8Ngp4y
-	HLeXWN09lGHqtcTUFhRX1ZKi+/dnfM7rT25vEh42Ycxa/YdjaY0iFuI9Cpm8vcRExWrg0A+zYReBZ
-	wLUWTsNLQw29TB82cqV7PlyGBIzyMQE9hc2vNb6btfyJ2Oo8zio5u4n9Ii5alfEIJZYR4VJtsW8Lt
-	upDVUi5Cd2R8GUGB7SE9s96C01Zz2uA5VpuBOwknFt3bxOdHWO7ZpgRCYa3TGAxKLZla6ei49Ro6J
-	4mUU40sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mtUIIIkUEO0/7dcww6thEuMNyIG/zSJjR9J9+Tn2ARY=; b=efWOPWUKXY1Uk4tSYKIg4xHffR
+	YGnUqLRY33q3G1qWOtXS3WQLe/nOaZtu2S87gkutq8eu7hQXocyWsKrhEfOZiSGswhBtYsz82SW2E
+	YBCXDXtfY83L/g0p/Yne2a2XAduJpv8wKqxqX/PofLShuBp+12Jrl2S/X4yEksTwfqdWXlZnUKHl0
+	/AVHtTV2yF2SllFEtt7msaabkKF3yS5bUz1OUvXWNYZw7UxDKxGEOdofpXlzlSbzCbLGV9h2qGVbG
+	ocoFCEIdcsjCjmHl4c3HHFYMkNJ78yITMeJlFa08H/JbXrnyWy9B/tlDKasZXBowB22dh24hO4OFs
+	asknM1zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8pm-00000004kJz-3p7m;
-	Fri, 10 Jul 2026 10:51:54 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wi8rm-00000004kas-1R0I;
+	Fri, 10 Jul 2026 10:53:58 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8pk-00000004kJV-2eDk
+	id 1wi8rj-00000004kaO-2Mbc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:51:53 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AAmijR1390824;
-	Fri, 10 Jul 2026 10:51:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=GOt9UTfd15E1bmXXOo8yVb8JvjAgMS
-	QeHBt96w88/lg=; b=VGgz5mhB7pvtkSg86KDe+v1YOa3KoxHi3E/EGNpgCrOWnv
-	J78KChO+feSW4mi7bI1gzXyww3UyP7xmvvnXuEgqMT/2BZfWuQowdtqFrZ9rFNq9
-	GgmbrROYOIBGs/DxNWAh38gJph/GSawOJRqVprobnf+Vg04sPvs8eSwJ5bAXHnNf
-	S/ybdW090VTMFsQZuXwgCdpKRgMM/qVVH7oC11aBrm7Zz6++ktN+RP9EW1YmwZtq
-	jvAugQTosYYTMwwVWveA1KnlYX7CwN/7a/6qaZJlyP7tG+RpwQaNunVZvCnu99KA
-	KXYJqMFaeSDYvFw5ispNdfTVpsir20v6brQ3Uyew==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur60nx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 10:51:43 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66AAo3xj021453;
-	Fri, 10 Jul 2026 10:51:42 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6yh8vu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 10:51:42 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66AApZCs42860824
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jul 2026 10:51:35 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7F31D2004D;
-	Fri, 10 Jul 2026 10:51:35 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A65D320043;
-	Fri, 10 Jul 2026 10:51:34 +0000 (GMT)
-Received: from osiris (unknown [9.87.147.219])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jul 2026 10:51:34 +0000 (GMT)
-Date: Fri, 10 Jul 2026 12:51:33 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 13/27] KVM: s390: Prepare KVM/s390 for a second KVM
- module
-Message-ID: <20260710105133.984749-G-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-14-seiden@linux.ibm.com>
- <857debcd-3e44-4844-8abc-b26b892d3d7c@linux.ibm.com>
+	Fri, 10 Jul 2026 10:53:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RUyOlhSuFJNDyGGt070vfDY+iD6cmVfqa5Oz2RlaSJ1fXmQS6Ylkd3Oi7E4XDeb1W7Yf4h6HqKRVgx4s8P/IqxWSSHeKiCYiSofkYxbRMtwv3a8crkX7Vlwm5E+Ai59p20DKW+GzUYCS9MsEBH+iDNE5yPn3k1QXpuvhbDH6O4KAJNp1nHFOPtN36YvX/1Z5WIcYYjnGJltNXWlLjFYejIMImf7nB2QnzLOx/k5TpTc9MB/cpELyT5soxM44iouZFgL02yk61L33R1V0LKV5aTKqSquBzDEc8hAc3sJNYtqr45xmVht8VfwPDC/ODYr/VflKNYR+QU1v40P8U+AY9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mtUIIIkUEO0/7dcww6thEuMNyIG/zSJjR9J9+Tn2ARY=;
+ b=uU2z2OkKHdTfm3zlMGH0Ax+bLA7zkx3NTcPQyMDgmcv9DK0aI02MOquJw1mvLYD27P3AhszP7lGY7jivbgkY6IOh7ugz+bsf8cZehTRzYIF0E9cZGz5+Jp691kfkVF1Zuaz9AsI+KZzFMXxzCmLW0AU5V/uzAtJfmJ+bBZKSfJxQ/c68RFK441EJb3p8+rzoak/dexEjq1wJ/Vrsgn2o4DEL/mGw8QIRvOlCUkEL3YAXTDMWJMtdlWEZtpM+uAXwiDL91/8WWjVSOMnds2HqJdseU9qPYN6yMJFrsRs5/PaiICvCJwJS9X0prdZTKnYb3SatHV6qJHUJHKYA5PXOGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mtUIIIkUEO0/7dcww6thEuMNyIG/zSJjR9J9+Tn2ARY=;
+ b=nFrqmHsY7W1d2qa3s2z8tBfqHeyhxkuyD4uNAgM2EZK6TRFD6hVnDn6yAD8NFguLGMrLKGM9NLlYNmOGtR5yxaziR/EEAT2t9AqFX6tXRRV8Gd3lHS55CMwe65gSn3ecUtrCQ8ORn4UMdNat2k5XF/0i5evtmdYdmdATqP09boAcCJ9O6dnIfkcGIUOU9itKfTrlggPvxEgZ+GoJfIWMCkxc6rGDGJQzjdicK9OdNEbIsVT2vb6ZtmVcrBrBzU37a5Uvw7X2GM1ZGtOt3PBzJLwawnmx38Z6pQcydVTeRCgfriO26GBLbkT0o79lb/FJHjNWDORg455NKx3suxtTXg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by SG2PR06MB5264.apcprd06.prod.outlook.com (2603:1096:4:1dc::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Fri, 10 Jul
+ 2026 10:53:45 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
+ 10:53:45 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Hadar Gat <hadar.gat@arm.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jia Jie Ho <jiajie.ho@starfivetech.com>,
+	Deepak Saxena <dsaxena@plexity.net>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Eli Billauer <eli.billauer@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Aleksander Jan Bajkowski <olek2@wp.pl>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Pan Chuang <panchuang@vivo.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Alper Ak <alperyasinak1@gmail.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	linux-crypto@vger.kernel.org (open list:HARDWARE RANDOM NUMBER GENERATOR CORE),
+	linux-kernel@vger.kernel.org (open list),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-integrity@vger.kernel.org (open list:TPM DEVICE DRIVER)
+Subject: [PATCH 0/3] char: Remove redundant error messages on IRQ request failure
+Date: Fri, 10 Jul 2026 18:53:05 +0800
+Message-Id: <20260710105318.376496-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TP0P295CA0021.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:5::12) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <857debcd-3e44-4844-8abc-b26b892d3d7c@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEwNyBTYWx0ZWRfX4zdIBNagPqa0
- gow44HyeI+ZE8COEI5Df/iYOXHuCJZHcb65sFe2LS1k9gKhL162cEPMJaDdCVChbjTNslF2mUq6
- 1NmQG6QREOoqR4oJD+e9jaLSpJgxkKQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEwNyBTYWx0ZWRfX/p7pRWT1fj/s
- ClwVNWbmThtrMJBs0xfC/3ZFJuLnVNHceKRH3C1gkMY7TiGhfi2I/QF4NcAaC7wLTpyDClyoH9N
- qtUkqRRpjrsUZZMlojOR5abFGV0XPs+GLXgw7Aso/biq2WVee6IevLjacQ0EDIEG+MUXMR6t434
- JbJbPHViwnhLYH5VLjsXR+XmwCRYB16J0Fmly4+kvMuPBNaDP2/IHggRKSiRfAZuH9U7xOrVY3I
- dilbbccVv7VU3lx2FjJV/EWStypteNLmI4/kjlR0v348gIoyxSYh/U0Hqyq2gXsNe/fyBCS5IzD
- v5wqoql9nZTVu0lD3u6pjwflNCfMgN2lwLvTFpeGvZAELe0scRyGKdcNYWB+jEWE95jTB3iQiiF
- DuD7Sc09/A9B7nl7jKHFfwv9U619+ci94kxyLi4LWllHr44zEQBvIlIZ50AHSsFOE9SF4dcUQsX
- 6KBTc5p/RjvU85QinUg==
-X-Proofpoint-GUID: vSk_p_zZRro3pgiNR5436sG61bZennMI
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50cebf cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=YB9r6mRHUy78XhmW5L8A:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: vSk_p_zZRro3pgiNR5436sG61bZennMI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_03,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100107
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SG2PR06MB5264:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3452e3ee-cc03-4b57-ebe6-08dede718329
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|52116014|1800799024|7416014|376014|921020|38350700014|11063799006|56012099006|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: BDvtLmdyweEICNaNtp/VZt931HWUHSSw+omgv8/tlFmGosQM6puiloiCKzUC0jd64nxortTEFk5sDXX7m1LB6L1oIeC69RF3MqapesnMHrNXqU0sAzCgnaakPQ1N7OubgRVQaN2I1nYol15wl180b4cns6Dwr1zx45Tvt1/0LVjILdY/zRrVbQKElTihK75fvCF0TisDfYAT9FC2M98XIYzv2yEAcCL9bFbvdVSXZ/fzbp6Mvt7oHzQXgIU9wbX6qKTnVsaYRN/uADHgXwLpG7yusYyLSdIgntsMLcH3Khfp8QLEbTTQEZFVfn7YjKpruZG8NYg0mFjXctmq18xsSZdsjPTLTy8xnd/V2L230TEjWZ+9keY2F+h8BPzIAv2LqDV0XHDKAz/qo9V9XMETvahh6LayWze/HRtMAfk7/74mSOjAgXdkymVN0F3nOW2zKTwXJUbvJzG7vbTpojBjFUIq50CcOMnRnOCrAxSMsg82Nel3YXVZAZbdafIBqc918To87pjsN2FKsxsdcVKz31IxtMczLLZlan0azDYdC9o8ulh75w7lfJIK861u8q1ZGzPReqOaX1p8jzMz0VOLmG4GckCxgLBPJhGE9eMYBTq0CUsVyk3xD78aJDzEgBaCuceuPYXKbFcjFXFZ4e7wqKOYm0+F5nbZ3T0iHy8AiuFXHaAitoAdPD6tB1/IxOlfaiUHSeKvqgLBtTn6gElhPt1WF0BSGzcQIIS+MiPXRedsu6gWm2RqPi8MnIM5RyoL
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(52116014)(1800799024)(7416014)(376014)(921020)(38350700014)(11063799006)(56012099006)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FmPnunQaMiOvoX40x7ILvl+sH7VNlu7Ud0uihMPliw0dBakxlKKzf4b2lUBM?=
+ =?us-ascii?Q?tkcHsBZlEIPrMD75pksuQnUUwXkRSS8mQ6FyOFxIg20yqE28FwytzGRL3dmt?=
+ =?us-ascii?Q?jKVVO/Kev3FfCOoCe4vFSTOKkLyiuCWreu3I1NZr1xMOcD5vw/kfKUh6xulU?=
+ =?us-ascii?Q?cchrJqKC/0IVLx1CdM60sW+uUDHTGdHapgBTWNqBtBwaM716ozeQxdeOk9F+?=
+ =?us-ascii?Q?4eDxYTM2Xy+HC27TSx+86s4Pivh227FJ5IuFfHWrcU2iuIjYaDtLzpHTKokq?=
+ =?us-ascii?Q?s3acUUgOBq/dFCIwLBVwOxQYvcIVsEvEkDyXCLKsUtAnEUAeq7IoGCvuVAeA?=
+ =?us-ascii?Q?CDWAVoiQxVCoxJFKuepsG+LPCBaVazD7nM5a5FXpG/BmX+F6yoyF3nw9Ntfl?=
+ =?us-ascii?Q?uN2/CSMpnBZYm188yKMjSmReLnXu4yzsX7Vch6+XsIT+5HUTehzhHb9Bxq8c?=
+ =?us-ascii?Q?U5oNTpczGEV0bNnL2IyH8chX5PvrC+cvUAMfLB8lXhnJP29/sNwU/30le3Gr?=
+ =?us-ascii?Q?GaTfAgrPfDbVwOgarmG8B7ysuF+1CGauTSsQsI3bKPY79Ayc22MSWsoDR0KS?=
+ =?us-ascii?Q?H3pW6NqVgZUIpxxtSL0fOLLDqKACshqTmopI1AMp0k4RZhYcSH4oxf2WLeuq?=
+ =?us-ascii?Q?sqR4egf078XvE6I1Ibctb084R4Y9tX8O/m/4TnPHgqmDMw6Q4/OKUCmtsHli?=
+ =?us-ascii?Q?O8WKsB936ufmYc2ExfTuoSb2lm7BvnrNLNfjrJbmDdQksdoKVMsGRPphatd/?=
+ =?us-ascii?Q?mYrnJPbhMjMzpUMhnGO3iETUFBWDPiEe3she2Ufu19ecA59x0sVeBOdBPBxw?=
+ =?us-ascii?Q?lBrsjVPFbYi/EsCeKKJMvurJ/dAk32ov+YQ+18U7UEvVMXv4vCjOwkh6SyYq?=
+ =?us-ascii?Q?9xUc1uk7+S5ngRXoKFqqwKA688jHiIuHKiytzAM6NzVy63Uh5Z/j5h6zKkF7?=
+ =?us-ascii?Q?eFi8rgFz+xtz99OqghDwVifUdVxp6staXIvfNm7s+wZeX6DaTbJ/ZGY+NKyf?=
+ =?us-ascii?Q?gsTn8usukYIf1YWbXdUCUd3RPdyY1zi07VPkO82S6pDAh2Bf77/NchFJg5Sx?=
+ =?us-ascii?Q?oH+EORbbbra4zOnF2jNH5b2QUN+anxtp8gX1LYy8Fpe02tEeZL2T6qrqikDY?=
+ =?us-ascii?Q?bSXbUosFTiJlssLjPYbJU4Jn9je0V2Bc12b8+dLI1677fzSo/+mkZY1xggX4?=
+ =?us-ascii?Q?c/kfdKYVt12ffathaW28sZSqrCjRq2ihkfXgi6gtkFn5iU9h47UzoC/KNvIV?=
+ =?us-ascii?Q?RPFM4KdAx+IqRbhR8s1Lf4e7r3Hni6/9PRC5r4LJb+rrGABFrYzXCh0ERcSr?=
+ =?us-ascii?Q?V8tP9YSCfzlZnHN6G6LQUOPZ71EFXP/S7iFWfoiBJrkV+B5evArnDZn+Hwvk?=
+ =?us-ascii?Q?0uJxT+0HKtOVcbWF1Vp6nRDsN407pZILk4grNHTL2ruu9wUOwQq0JWwaA4Cj?=
+ =?us-ascii?Q?efunN5nl1OHpC+NX5zq303dcPzD67uElewNjDt1aAiVV6ZacIQ0+fCR0H0PM?=
+ =?us-ascii?Q?ATh6OqkBgeJHnwpbsDsEzNlLksNflMlmbLb5Z5NKneAzyTPSMTaSPPZUeKHm?=
+ =?us-ascii?Q?PN4ZdABiI8j7CxsM8ZCQCqqOluj6F3pjtQGoAEkeUpm9K6kxzAAVUNp6nT5T?=
+ =?us-ascii?Q?2e07YYmpsQfAiNp3116TdQEMskH0CJ1KQ7pEmrh3QUWXcCm/j85UTojkjYiN?=
+ =?us-ascii?Q?hGlkeM9l78EjA8/CMBPtGPmxuJNl62TknXYWOCGjDQfFOnvLlQEORvgeGP65?=
+ =?us-ascii?Q?VabZxQq5pg=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3452e3ee-cc03-4b57-ebe6-08dede718329
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 10:53:44.9211
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N/2Df5X4Glvj08aPNPQvpJe/yXe3nbAZuR9+rkTkaSrP1N1Aaxs+6SGvJk1q/BdJmHnEQrrAl8eKUf/GLILBqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_035152_678686_8A821694 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20260710_035355_740632_BCF662E2 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,57 +159,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:22:29AM +0200, Christian Borntraeger wrote:
-> 
-> 
-> Am 06.07.26 um 10:52 schrieb Steffen Eiden:
-> > Lay the groundwork for a second KVM module. Guard KVM/s390 behind the
-> > KVM_S390 config and turn CONFIG_KVM on if selected. Move all the
-> > kvm_host definitions to _s390 postfixed headers. Prepare local header
-> > include guards for a new location. Move gamp related tracing into a
-> > separate file. While at it, rename the main KVM/s390 files from
-> > s390-kvm.{c,h} to just s390.{c,h} to match the naming scheme of other
-> > architectures.
-> > 
-> > No functional change.
-> 
-> [...]
-> >   arch/s390/include/asm/kvm_host.h              | 774 +-----------------
-> >   .../asm/{kvm_host.h => kvm_host_s390.h}       |   6 +-
-> >   arch/s390/include/asm/kvm_host_types.h        | 347 +-------
-> [...]
-> >   copy arch/s390/include/asm/{kvm_host.h => kvm_host_s390.h} (99%)
-> >   copy arch/s390/include/asm/{kvm_host_types.h => kvm_host_s390_types.h} (98%)
-> This is just an "almost" rename only in the end. Maybe we can convince git to show a better diffstat to reflect that?
-> 
+Commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+devm_request_*_irq()") added automatic error logging to
+devm_request_threaded_irq() and devm_request_any_context_irq()
+via the new devm_request_result() helper, which prints device
+name, IRQ number, handler functions, and error code on failure.
 
-The rename only part worked quite well (6 lined diff). I used
---find-copies / --break-rewrites with format-patch when creating this
-patchfile to reduce the diff. Otherwhise we get a diff like: 
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this
+automatic logging.
 
-...
- arch/s390/include/asm/kvm_host.h            | 774 +------------------
- arch/s390/include/asm/kvm_host_s390.h       | 778 ++++++++++++++++++++
- arch/s390/include/asm/kvm_host_s390_types.h | 347 +++++++++
- arch/s390/include/asm/kvm_host_types.h      | 347 +--------
-...
+Remove the now-redundant dev_err() and dev_err_probe() calls
+in char drivers that follow these devm_request_*_irq()
+functions, as the core now provides more detailed diagnostic
+information on failure.
 
-Which I think is more confusing and bloats the diff unessecary.
+Pan Chuang (3):
+  hwrng: drivers - Remove redundant dev_err()/dev_err_probe()
+  tpm: Remove redundant dev_err()
+  char: xillybus: Remove redundant dev_err()
 
-But I cannot find an option to convince git that kvm_host.h should be
-treated as a new file. This problem seems to be out of scope for gits
-heuristics.
+ drivers/char/hw_random/airoha-trng.c  | 4 +---
+ drivers/char/hw_random/cctrng.c       | 2 +-
+ drivers/char/hw_random/imx-rngc.c     | 2 +-
+ drivers/char/hw_random/jh7110-trng.c  | 3 +--
+ drivers/char/hw_random/omap-rng.c     | 5 +----
+ drivers/char/hw_random/xgene-rng.c    | 2 +-
+ drivers/char/tpm/st33zp24/st33zp24.c  | 5 +----
+ drivers/char/tpm/tpm_i2c_nuvoton.c    | 2 --
+ drivers/char/tpm/tpm_tis_i2c_cr50.c   | 4 +---
+ drivers/char/xillybus/xillybus_of.c   | 5 +----
+ drivers/char/xillybus/xillybus_pcie.c | 5 +----
+ 11 files changed, 10 insertions(+), 29 deletions(-)
 
-The only way to get this smaller is to split up the patch but then the
-first of the two patches will not compile.
+-- 
+2.34.1
 
-> In any case, I guess we can handle patch 13 and patch 14 pretty soon upfront so that the patch series gets smaller and is easier to review.
-
-yes +1.
-I would argue that the gmap refactorings (PATCH 15-17) can get handled upfront as
-well. They also have no functional changes as well.
-
-FYI: I made some smaller cleanups on those refactrrings since monday.
-
-	Steffen
 
