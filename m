@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC765C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B22BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K3Tmq1m0/VpLbVxQwHnhSg1P4sueEusoJ24AznkMEN0=; b=j023YGOslYdpDwii/Jy0UfdJzg
-	yysAOnnqoVKFwAreauVS17fPuiS4k66MIki0YkxGP4AupgAowzRnwclDHJ9itNW9a+yOZpzwejzpX
-	EyWaJiVCV9KYlL59Af8w3B4x7LRGTNNNAoKUN1cLw4TPCLhf44K4WAO12SaeD7oHeVAC4p97je6So
-	V6/7S7xMIr9T6eVoAQwBitwA2mrG0vq45FD5rKC4jXfOCt0GItJJ902hHasHP67skhJWE+uMQPWm+
-	8D41Ym9KPiKRDh1clwmjejTvlSgNucnUOVXhiiqFY70rLYV0Ms9Kwr15RQT/TuIro6K7Qzhjyowbt
-	GrlEJQEA==;
+	bh=hpptjqM3N9DhZsv6fKKL0i5oAA4t1NoOHDU37oSr8Lc=; b=lqpAfiQQGtzZ1WzThM+mARalBl
+	0Sd4yIw5V8eNHaHREi9ogqpX+nG/QmjuwNYia04mV+s9puAu2Mu0ZHgMM19+nkyJcwNrWpD7G48u1
+	JkiwA+PJklpN/stJ45c4Ki7YGlFryJEaBo4bvRkE/hqf7VGkJTo4uRyjtmkyPlztktOtR0I/3HDtg
+	RSsJTOZr2OEEs3wPlm+jU8okqQ0KKApSn++0FN+VanNJ24FqNKWWqB/3dI9+rvhLwlWKK8ycSMv3I
+	Sc2KkbpuixApaZgAvwYIwStk4xo13gwKqnxJWB9wxqZaDMEZCwYtNs17M53IFbzN5uPEYZCFQVk74
+	7BZVqmog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCU6-000000056iE-3PjM;
-	Fri, 10 Jul 2026 14:45:46 +0000
+	id 1wiCUB-000000056l2-3rR2;
+	Fri, 10 Jul 2026 14:45:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCU4-000000056gy-1tEv
+	id 1wiCU8-000000056jW-3EeX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 14:45:45 +0000
+	Fri, 10 Jul 2026 14:45:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F41E41BC0;
-	Fri, 10 Jul 2026 07:45:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50BD7176A;
+	Fri, 10 Jul 2026 07:45:43 -0700 (PDT)
 Received: from e142021.munich.arm.com (e142021.arm.com [10.41.150.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54FCE3F7B4;
-	Fri, 10 Jul 2026 07:45:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A916B3F7B4;
+	Fri, 10 Jul 2026 07:45:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783694743; bh=6OlvW+eQ2GaznRaP8rXR5TDcvHWDz1dS7H74bnFx2nQ=;
+	t=1783694747; bh=A0Ru/2N7sEwl2kjzGbay+ACwN2GYOjiwicjcdxvroYU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p1EdBmwKIzR9Aqe49t7set5L0KE+U/nIc2FBlEzULKQLlFoAbWQcOCDALqhJtfZZY
-	 FtO/b8sGj45lK2kRifdhFifBwLG85Lc+d4BbVRz2eYAhHpapCKZ58Ij92laZxOzrfw
-	 5sAsSqWEjHiyLUbYA2A5owhrUyIxSvcM8eByQn0k=
+	b=lYeH8lkC38rrivzwvgAAyLkAed/DP2usQZyo9E6HMW4gXychIo87JR7nDxG4IVCbJ
+	 7ziPBCSbJ+UGlQ0q66nYBRBJrMcjl3hBD6kmvLMwF+D27X18amhnLZNgGAXIkVcQvL
+	 CkmUUYpkeJpwwQMSmLMdfc5VJDKbcloWqYA3bGu0=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -60,17 +60,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 03/16] arm_mpam: propagate MSC read errors for hw_probe functions
-Date: Fri, 10 Jul 2026 16:45:07 +0200
-Message-ID: <20260710144520.917375-4-andre.przywara@arm.com>
+Subject: [PATCH v3 04/16] arm_mpam: propagate MSC read errors for mpam_msc_read_mbwu_l()
+Date: Fri, 10 Jul 2026 16:45:08 +0200
+Message-ID: <20260710144520.917375-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260710144520.917375-1-andre.przywara@arm.com>
 References: <20260710144520.917375-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_074544_573303_F71C6456 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260710_074548_903224_A75DCC72 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,201 +85,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the functions probing for MSC hardware and features to return an
-error, and propagate read errors from the lower level up.
+Allow the mpam_msc_read_mbwu_l() function to return an error, and
+propagate read errors from the lower level up.
+So far we were using a special value to indicate the "unstable read"
+condition, replace that with the actual Linux error code, since it's now
+easy to do.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 70 ++++++++++++++++++++++++----------
- 1 file changed, 50 insertions(+), 20 deletions(-)
+ drivers/resctrl/mpam_devices.c | 54 +++++++++++++++++++++++++---------
+ 1 file changed, 40 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 8fd2c38c821c..b1bd047da203 100644
+index b1bd047da203..3b6f9e552a9f 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -785,7 +785,7 @@ static void mpam_enable_quirks(struct mpam_msc *msc)
- static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+@@ -1112,8 +1112,9 @@ static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+ 		mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
+ }
+ 
+-static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
++static int mpam_msc_read_mbwu_l(struct mpam_msc *msc, u64 *res)
  {
- 	u32 now, mon_sel, ctl_val;
--	bool can_set, can_clear;
-+	bool can_set, can_clear, ret = false;
- 	struct mpam_msc *msc = ris->vmsc->msc;
++	int ret;
+ 	int retry = 3;
+ 	u32 mbwu_l_low;
+ 	u32 mbwu_l_high1, mbwu_l_high2;
+@@ -1123,20 +1124,30 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+ 	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+ 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
  
- 	if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-@@ -804,20 +804,26 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
- 	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
- 
- 	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
--	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-+	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
-+		goto out_unlock;
- 	can_set = now & MSMON___NRDY;
- 
- 	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
- 	/* Configuration change to try and coax hardware into setting nrdy */
- 	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
--	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-+	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
-+		goto out_unlock;
- 	can_clear = !(now & MSMON___NRDY);
+-	__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
++	ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
++	if (ret)
++		return ret;
 +
-+	ret = !can_set || !can_clear;
-+
-+out_unlock:
- 	mpam_mon_sel_unlock(msc);
+ 	do {
+ 		mbwu_l_high1 = mbwu_l_high2;
+-		__mpam_read_reg(msc, MSMON_MBWU_L, &mbwu_l_low);
+-		__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
++		ret = __mpam_read_reg(msc, MSMON_MBWU_L, &mbwu_l_low);
++		if (ret)
++			return ret;
++		ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
++		if (ret)
++			return ret;
  
--	return (!can_set || !can_clear);
+ 		retry--;
+ 	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
+ 
+-	if (mbwu_l_high1 == mbwu_l_high2)
+-		return ((u64)mbwu_l_high1 << 32) | mbwu_l_low;
++	if (mbwu_l_high1 == mbwu_l_high2) {
++		*res = ((u64)mbwu_l_high1 << 32) | mbwu_l_low;
++	} else {
++		pr_warn("Failed to read a stable value\n");
++		ret = -EBUSY;
++	}
+ 
+-	pr_warn("Failed to read a stable value\n");
+-	return MSMON___L_NRDY;
 +	return ret;
  }
  
--static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
-+static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+@@ -1283,6 +1294,7 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
+ static void __ris_msmon_read(void *arg)
  {
- 	int err;
- 	struct mpam_msc *msc = ris->vmsc->msc;
-@@ -832,7 +838,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
- 		u32 ccap_features;
+ 	u64 now;
++	int ret;
+ 	u32 now32;
+ 	bool nrdy = false;
+ 	bool config_mismatch;
+@@ -1358,8 +1370,9 @@ static void __ris_msmon_read(void *arg)
+ 	case mpam_feat_msmon_mbwu_44counter:
+ 	case mpam_feat_msmon_mbwu_63counter:
+ 		if (m->type != mpam_feat_msmon_mbwu_31counter) {
+-			now = mpam_msc_read_mbwu_l(msc);
+-			nrdy = now & MSMON___L_NRDY;
++			ret = mpam_msc_read_mbwu_l(msc, &now);
++			if (ret)
++				goto out_unlock;
  
--		mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
-+		err = mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
-+		if (err)
-+			return err;
+ 			if (m->type == mpam_feat_msmon_mbwu_63counter)
+ 				now = FIELD_GET(MSMON___LWD_VALUE, now);
+@@ -1397,10 +1410,15 @@ static void __ris_msmon_read(void *arg)
+ 	if (nrdy)
+ 		m->err = -EBUSY;
  
- 		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
- 		if (props->cmax_wd &&
-@@ -857,7 +865,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
- 		u32 cpor_features;
- 
--		mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
-+		err = mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
-+		if (err)
-+			return err;
- 
- 		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
- 		if (props->cpbm_wd)
-@@ -867,8 +877,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	/* Memory bandwidth partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
- 		u32 mbw_features;
--
--		mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
-+		err = mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
-+		if (err)
-+			return err;
- 
- 		/* portion bitmap resolution */
- 		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-@@ -897,8 +908,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	/* Priority partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
- 		u32 pri_features;
--
--		mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
-+		err = mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
-+		if (err)
-+			return err;
- 
- 		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
- 		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
-@@ -919,7 +931,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
- 		u32 msmon_features;
- 
--		mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
-+		err = mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
-+		if (err)
-+			return err;
- 
- 		/*
- 		 * If the firmware max-nrdy-us property is missing, the
-@@ -932,7 +946,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
- 			u32 csumonidr;
- 
--			mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
-+			err = mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
-+			if (err)
-+				return err;
- 
- 			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
- 			if (props->num_csu_mon) {
-@@ -958,7 +974,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 			bool has_long;
- 			u32 mbwumon_idr;
- 
--			mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
-+			err = mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
-+			if (err)
-+				return err;
- 
- 			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
- 			if (props->num_mbwu_mon) {
-@@ -991,16 +1009,22 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		u16 partid_max;
- 		u32 nrwidr;
- 
--		mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
-+		err = mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
-+		if (err)
-+			return err;
+-	if (m->err)
+-		return;
++	if (!m->err)
++		*m->val += now;
 +
- 		partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
- 
- 		mpam_set_feature(mpam_feat_partid_nrw, props);
- 		msc->partid_max = min(msc->partid_max, partid_max);
- 	}
++	return;
 +
-+	return 0;
++out_unlock:
++	mpam_mon_sel_unlock(msc);
+ 
+-	*m->val += now;
++	m->err = ret;
  }
  
- static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+@@ -1747,6 +1765,7 @@ static int mpam_save_mbwu_state(void *arg)
  {
-+	int ret;
- 	u64 idr;
- 	u16 partid_max;
- 	u8 ris_idx, pmg_max;
-@@ -1016,10 +1040,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 	int i;
+ 	u64 val;
++	int ret = 0;
+ 	struct mon_cfg *cfg;
+ 	u32 cur_flt, cur_ctl, mon_sel;
+ 	struct mpam_msc_ris *ris = arg;
+@@ -1768,7 +1787,9 @@ static int mpam_save_mbwu_state(void *arg)
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
  
- 	/* Grab an IDR value to find out how many RIS there are */
- 	mutex_lock(&msc->part_sel_lock);
--	mpam_msc_read_idr(msc, &idr);
--	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
--
-+	ret = mpam_msc_read_idr(msc, &idr);
-+	if (!ret)
-+		ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
- 	mutex_unlock(&msc->part_sel_lock);
-+	if (ret)
-+		return ret;
- 
- 	mpam_enable_quirks(msc);
- 
-@@ -1032,8 +1058,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
- 		mutex_lock(&msc->part_sel_lock);
- 		__mpam_part_sel(ris_idx, 0, msc);
--		mpam_msc_read_idr(msc, &idr);
-+		ret = mpam_msc_read_idr(msc, &idr);
- 		mutex_unlock(&msc->part_sel_lock);
-+		if (ret)
-+			return ret;
- 
- 		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
- 		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
-@@ -1050,8 +1078,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 		mutex_lock(&msc->part_sel_lock);
- 		__mpam_part_sel(ris_idx, 0, msc);
--		mpam_ris_hw_probe(ris);
-+		ret = mpam_ris_hw_probe(ris);
- 		mutex_unlock(&msc->part_sel_lock);
-+		if (ret)
-+			return ret;
+ 		if (mpam_ris_has_mbwu_long_counter(ris)) {
+-			val = mpam_msc_read_mbwu_l(msc);
++			ret = mpam_msc_read_mbwu_l(msc, &val);
++			if (ret)
++				goto out_unlock;
+ 			mpam_msc_zero_mbwu_l(msc);
+ 		} else {
+ 			u32 val32;
+@@ -1788,6 +1809,11 @@ static int mpam_save_mbwu_state(void *arg)
  	}
  
- 	/* Clear any stale errors */
+ 	return 0;
++
++out_unlock:
++	mpam_mon_sel_unlock(msc);
++
++	return ret;
+ }
+ 
+ /*
 -- 
 2.43.0
 
