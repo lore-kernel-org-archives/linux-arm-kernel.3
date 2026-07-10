@@ -4,134 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FC8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE22C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpQyt/ioFF8izlDeV1i5cYki+TjVmMgcphsaZLLkrzk=; b=OOWimhj3l5ZIPz0YBBtUaWcG9U
-	OGz+yW8PJ5QqK1axOkS7QBaOAeJiMHKgKA9czcC+kTxt09SM+HJsqzZvtlHT7+X+IUOJ6grgRDUTi
-	E33WQ+swF1iadzyos4NoSpqiNgrxxAvaP6OdBtR8IkRdvfxBkvm6jppiOoOAOdTqxp47eROx8gYWX
-	44+CGxdz0xHSwbp9rNf5E0O6++BjRxSao8lOtzw8u5gO0vYb3B+7DUEhwprK+N8JDVjw4FRnfzm6i
-	VkDipwHm2k40pltdlVYwac3m4aK0POW9qapu8Av4l9fTyKVwKU2DE7fLC1Gk6pCpaEocwBfnCbylO
-	t9o94QpQ==;
+	bh=6hb5I4/2IdOfdGyllTI2W7LkWVdlsgKxVqV5mnOeQwE=; b=yWFtgwkHrYoTAcPhDfpEjypXfq
+	OSTVJfB05nZX8N1Uvw4crf0ca2yLbvzwCRWlUxumsS6XWZJ7NexbgvPQbf8tq01Uwo/NQ4vy9rHF+
+	uVPeNbhsls9Hvvye+Eu3QTLM4pXopte6kIN8ujxM+WebUHCQ2rFpAnX0xI7bbZzcZiuh5X4ZEafE5
+	WhradDySAANmhZdZMfMIn2xaswA6Y5C0Q3txt3+bkWV5eibW31LnLnKDlJ8ihvvrnHxkW+NYQkc2o
+	rSIVFY8f+Rq3tPD2IFw7QE+I8wO8HVzEZz+7SKhxyTFXxtRD8Ibcf+UydnSOXHNxgR2tvEWKkJt/a
+	CodSu7iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7YY-00000004ZyH-0zHe;
-	Fri, 10 Jul 2026 09:30:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wi7Yp-00000004a4A-1hhD;
+	Fri, 10 Jul 2026 09:30:19 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7YV-00000004Zx9-2z4O
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:30:00 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66A7mfaH966548;
-	Fri, 10 Jul 2026 09:29:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=VpQyt/
-	ioFF8izlDeV1i5cYki+TjVmMgcphsaZLLkrzk=; b=M8LzFAk00yu1oS0f9AiaSt
-	QrNrrofEHFHdc3aLFBpAHm1Q2f2/9g0QkBwITiUceWjlxPawwXO/j7dtXwJ3FuC8
-	2u4viusICijgg3Vkr3FNTknWQc79at3boN3B5PXPapBRYIKBW2Tu+4gi/gf04fF1
-	9GrEF/YEq7e+oqZBe9tAUW/nAo9Ua/UH7gfrHKiSOMi4JOXdn+IFpVz5/cTm66yZ
-	c/vHZIRFXhmnwf8QfalYPReBqUUXEsEd/5mMtkghsBhjFwrX6Z7FHpB2qLp68JuU
-	s1CVYqRTh+qKAi6XuBrqi42j/iJTN7XGbyFnz2mD0YDnQBbnLWkaGydtnQ2LGmgQ
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur5qff-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 09:29:47 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66A9Jjja025850;
-	Fri, 10 Jul 2026 09:29:46 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7cgqhhq1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 09:29:46 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66A9Te8w8192426
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jul 2026 09:29:40 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6B68020043;
-	Fri, 10 Jul 2026 09:29:40 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 04F9520040;
-	Fri, 10 Jul 2026 09:29:40 +0000 (GMT)
-Received: from [9.224.77.173] (unknown [9.224.77.173])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 10 Jul 2026 09:29:39 +0000 (GMT)
-Message-ID: <363e1fc0-e816-4fc3-8bdd-e42c7ba17c71@linux.ibm.com>
-Date: Fri, 10 Jul 2026 11:29:39 +0200
+	id 1wi7Ym-00000004a2L-3v55;
+	Fri, 10 Jul 2026 09:30:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783675811; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=D9kUGQ255xhzZeQWelttSRUJxIH/MpLmXjGqKcC6Ovl5oHOIB2geAYmrjpj9UODZLafz4XVfbUeRE1Oypw5yU9N+nYLT56+FZfmaeOzags7Di/XoaJM0L/hm/W/ubEK5cBgbDB9zI5CZ7YstNJ8sBc4k2LqZJizEYptjkzSNv+A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783675811; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6hb5I4/2IdOfdGyllTI2W7LkWVdlsgKxVqV5mnOeQwE=; 
+	b=SipXuD268ETrbmfsS5UXTmwpCTtgiwtUMgd+N5QdDCyhiYrxDBvGBdNJ2ZWLyz3jcoFlmmvcOMltXsGSicK6O+6BzHUtiZDaYlL4olwEopIYO+QvWHuBRx+qZl1vrqNWG4G18hmEsLAdsJyx8utWvgHCfQH7A2fJtfgkX1j4T0I=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783675811;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=6hb5I4/2IdOfdGyllTI2W7LkWVdlsgKxVqV5mnOeQwE=;
+	b=T5Q6KMbp3jUFiOxL9g1l69BSL9Db9tKLBcOrZtqzbd4ZnRJNwGMuaaipJirsB4Ih
+	zxU0w3wJS8vGnNlSW1La9QlxUU70ihBJwwGfOdmnAh+HG/srEQ4u6/gBZbxxDcU/tZ3
+	Mw+TY97hFcHSK778cbqEaK1AL8z7goCZD22kuaOQ=
+Received: by mx.zohomail.com with SMTPS id 1783675810094635.854368220136;
+	Fri, 10 Jul 2026 02:30:10 -0700 (PDT)
+Message-ID: <04e9a542-a05d-4608-ac00-d40da4763f45@collabora.com>
+Date: Fri, 10 Jul 2026 11:30:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/27] KVM: S390: Prepare gmap for a second KVM
- implementation
-To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-16-seiden@linux.ibm.com>
+Subject: Re: [PATCH v3 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rockchip,clk-lane-phase property
+To: Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260630-feature-mipi-csi-dphy-4k60-v3-0-176792ab71fa@wolfvision.net>
+ <20260630-feature-mipi-csi-dphy-4k60-v3-2-176792ab71fa@wolfvision.net>
 Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20260706085229.979525-16-seiden@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA5MSBTYWx0ZWRfX2VHv4X4FUhIq
- VDo/KfWUHFBWn0FlGGy1vzHRpdiMJAzGRrd6e7RK6beTstHnn7j265YEW+xB4HtF3iXPcsddUOE
- 9QNapz9GRr44rgLSzbhVQzAOBsJl/ds=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA5MSBTYWx0ZWRfX/TvJkmZ0V4Y8
- WqSUIvghe9jyZOv71ylUOXWuxLii9zS6bnLDgKeWWh6N8XGxuiDWDOXTQopBS0bbS6euPL4ySQl
- sHu2+AwETExG/uxP/7LN8Au6uilKYfxnIM1ygbe6g414wlqcStJpOxT0fK6+AiDxLK5WW4kknGg
- hVAukojNpT0/1ZSelUkxw5b4e6ATYHhrIzITHzCFxGRY2nTOfKTjSWEKusVEQHX7CaWp7V72Jjn
- 7rqTj7ShU1iN3KCsQyGJy7GAn1Ca9PfiailBaK/RXbX0GSqntX/Zfa8aacJJ2s3C77pJUVeO5hB
- 467xCPqnxCAN5/8UgTcSe3SBmgdMMRbDwrbQGPM2LW0JJysEELGm1Zd/Z/MKUPcMVIPeJGjp5K5
- rdBurPKueP87BOClMfrKbEFtXC/9REvsYxbSv/lPAlXax1YV0G+bIm/mHmE8u+vrtT/OgBQDx/A
- 5sSfVmf+aidBwgUma0Q==
-X-Proofpoint-GUID: 1W4Ei7EJiJdcySjk5xom8oxAZ3U17INo
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50bb8b cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=HhLQQuxqeRpKPWH3EMQA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 1W4Ei7EJiJdcySjk5xom8oxAZ3U17INo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_02,2026-07-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100091
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260630-feature-mipi-csi-dphy-4k60-v3-2-176792ab71fa@wolfvision.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_022959_761546_AD1862DE 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260710_023017_019750_F9DF2F60 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,42 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Gerald,
 
+On 6/30/26 09:48, Gerald Loacker wrote:
+> Add support for the optional rockchip,clk-lane-phase device tree property
+> to allow board-specific tuning of the clock lane sampling phase for
+> improved signal integrity across supported data rates.
+> 
+> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
 
-Am 06.07.26 um 10:52 schrieb Steffen Eiden:
-[...]
+Acked-by: Michael Riesch <michael.riesch@collabora.com>
 
-> --- a/arch/s390/include/asm/kvm_host.h
-> +++ b/arch/s390/include/asm/kvm_host.h
-> @@ -5,4 +5,13 @@
->   
->   #include <asm/kvm_host_s390.h>
->   
-> +#define PGM_PROTECTION			0x04
-> +#define PGM_ADDRESSING			0x05
-> +#define PGM_SEGMENT_TRANSLATION		0x10
-> +#define PGM_PAGE_TRANSLATION		0x11
-> +#define PGM_ASCE_TYPE			0x38
-> +#define PGM_REGION_FIRST_TRANS		0x39
-> +#define PGM_REGION_SECOND_TRANS		0x3a
-> +#define PGM_REGION_THIRD_TRANS		0x3b
+Thanks and best regards,
+Michael
+
+> ---
+>  .../devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml        | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> index 03950b3cad08c..913aa688c0ae9 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> @@ -56,6 +56,16 @@ properties:
+>      description:
+>        Some additional phy settings are access through GRF regs.
+>  
+> +  rockchip,clk-lane-phase:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 7
+> +    default: 3
+> +    description:
+> +      Clock lane sampling phase selection (hardware tap index 0–7). Each step
+> +      corresponds to an approximately 40 ps delay as described in the hardware
+> +      specification.
 > +
->   #endif /* ASM_KVM_HOST_H */
-> diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-> index 5293b0067422..7b7aa166cff7 100644
-> --- a/arch/s390/include/asm/kvm_host_s390.h
-> +++ b/arch/s390/include/asm/kvm_host_s390.h
-> @@ -153,8 +153,7 @@ struct kvm_vcpu_stat {
->   #define PGM_OPERATION			0x01
->   #define PGM_PRIVILEGED_OP		0x02
->   #define PGM_EXECUTE			0x03
-> -#define PGM_PROTECTION			0x04
-> -#define PGM_ADDRESSING			0x05
-> +/* 0x04 & 0x05 defined in kvm_host.h */
+>  required:
+>    - compatible
+>    - reg
+> 
 
-I think I would move ALL PGM defines into kvm_host.h. Those are certainly valid from a host
-point of view, even for the arm64 kvm module. Yes, its unused but it will be much cleaner
-than having everything in one place and doing these cross-reference comments.
-
-[...]
 
