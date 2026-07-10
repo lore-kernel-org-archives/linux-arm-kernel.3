@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF47C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F17C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7nDO43+tKnnu6CxuyKnxlviLmUXS03CPGd8nFXhdng=; b=HBMZQ5B2RCazf854y9JHyKNdib
-	c1YIa66n2OcwxAYklb1ItYXuhuKgwkBX3+z34hFywK3h2nWnIcOa7jCjL0ndKLdEgJy+Wjtm3IWKY
-	Hf3aTV1dcO3jabK4oOLc2KToxybQTiBYGP6HTTfaJAS49yg65ab29oxHZfJWPzF/crAmg3iq+fXs3
-	lpWfLkKVdkES9WvqddfBMAQp6HJ+i4STedosaAgyuaUISNOOeb/SVPsCLijruLbVf1CtLOe2WuWPX
-	yvHVAghN9+NeZo7/cdH5R5fAvVAmClluSgfaBhlmea6l+jy0HHtbnqLFOk6190wWL3h9R7t7l5SSp
-	Y5M8oiuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=izm/PA2LJS/cSMZ4wDZhX4RxCOhx7n8P49h9gjtrMK8=; b=a0dSfS8l2UpI7sIyIyeNH9KN4u
+	GTaoYEPd83uFlv87OG1Wlv0peRIWY9KopcVy3gWSxJd1Yaa+i7JrZ4kpcoyrzxoLWQAxAxUpQs2gO
+	JaXjQSlwPLGciJd/3lMDti+L1yc3VbV5Bg188iD7queHwf/Yd8ov7xAODHKSlzHpluF9iBLBHVzsE
+	RFZFF1jwlyyPCQdYiKWEEbTO/3gMg/hLpA5kLRblKX/55dz6ACzposgbThespfGdHFV6NRhS0td71
+	3DGRN+4nOSgl8W9zVcFRJaR+TQROnf6wRcx1AOS8+Ouu9/o1azijBRq1eup85Oxzx+ygdqsEWTaev
+	91Z3GthA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6LG-00000004Qt9-2glT;
-	Fri, 10 Jul 2026 08:12:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wi6Lj-00000004QyX-3Obp;
+	Fri, 10 Jul 2026 08:12:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6LG-00000004Qss-0j1g;
-	Fri, 10 Jul 2026 08:12:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F30641634;
-	Fri, 10 Jul 2026 08:12:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D23D1F000E9;
-	Fri, 10 Jul 2026 08:12:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783671133;
-	bh=h7nDO43+tKnnu6CxuyKnxlviLmUXS03CPGd8nFXhdng=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=BP4bd7W6zNBoI3b8Ib5OZzb2TuuQl527kyh0lxT5H1eBurLMsZ17mx8X+/cD2lq/d
-	 D0PxqKmKSLjAiJTw5dBDbP4hjTSfU96lNIKZsD8HrgnmKxutHHtVASVcAQ/vUpEK6M
-	 cmDIFWwvV90wXoP9v3rQtXBuiXDWk3InlVaJGYuJBXgSykJS4V2gcx3kN8320jPG3Q
-	 yA5nWSurT6o/nvIIUXnqKo1+Yh0UXlO9kqujC5ap1uXeZHKpEQSqhyFyPuCzXPfgLt
-	 GJBWWFxIalOsLx8gE31Eww9QE8SP2mQDXOR2SfTleQNXdLSqNNxAjodwDJOfrpDK6b
-	 BFgkuoDzxpxVQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wi6LD-00000003aiN-2BIe;
-	Fri, 10 Jul 2026 08:12:11 +0000
-Date: Fri, 10 Jul 2026 09:14:00 +0100
-Message-ID: <87tsq75kjb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: John <therealgraysky@proton.me>
-Cc: Mark Rutland <mark.rutland@arm.com>,	Daniel Lezcano
- <daniel.lezcano@kernel.org>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
- <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,	"Ivan T. Ivanov"
- <iivanov@suse.de>,	Stefan Wahren <wahrenst@gmx.net>,	Andrea della Porta
- <andrea.porta@suse.com>,	Peter Robinson <pbrobinson@gmail.com>,	Stanimir
- Varbanov <svarbanov@suse.de>,	=?UTF-8?B?TWHDrXJh?= Canal
- <mcanal@igalia.com>,	Gregor Herburger <gregor.herburger@linutronix.de>,
-	"linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,	"linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>,	"devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>,	"linux-rpi-kernel@lists.infradead.org"
- <linux-rpi-kernel@lists.infradead.org>
-Subject: Re: [REGRESSION] Raspberry Pi 5 (BCM2712) hangs at boot since d87773de9efe  (arm_arch_timer: default to EL2 virtual timer under VHE)
-In-Reply-To: <vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
-References: <oTZ1wsFlcf4l8zMuD8DYCCvff35nVbFn7gTb5_vrUPSJtjVBSTmGti8S3KnbVdVWJEzP1QRbWma6UYYXyi6v2J0fl61khniPROEhsdxMIz8=@proton.me>
-	<86h5mcp4em.wl-maz@kernel.org>
-	<vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: therealgraysky@proton.me, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, iivanov@suse.de, wahrenst@gmx.net, andrea.porta@suse.com, pbrobinson@gmail.com, svarbanov@suse.de, mcanal@igalia.com, gregor.herburger@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wi6Li-00000004QyJ-0Ogo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 10 Jul 2026 08:12:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=izm/PA2LJS/cSMZ4wDZhX4RxCOhx7n8P49h9gjtrMK8=; b=A4Q1aE7rlIWblV2R6YFWM9jt8d
+	vHrlOFUNlfAFbAk/7otRGomr12jAnNVcdgR8BplI2KDPcVRM9vK+BnbFRWiTP8LVgK51RYEujTWSk
+	55VjfMw3+2Uc1Ek3JPf8Uz/eQAn9Jm6SAkiEpNOHQgsHBRFRuCfTDwX6zDhQhjicp7CWY9ZBdxpCi
+	1ZdUaeKJH8HrXQPlHbKD14a4Z5chd1SntvsVTbfo4sg4JgrJ8JpCZ64xVpynXZfp1J5+gPNYqKZHO
+	3pn1WndzwbIMkazAA1ZCSJqEq0uHGTJVTpiNem44si73G8c2waylI77iw5lJPkTjUyfTJGejrWCKD
+	JSllp2oA==;
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wi6Ld-00000009pGo-2b5z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 08:12:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=izm/PA2LJS/cSMZ4wDZhX4RxCOhx7n8P49h9gjtrMK8=;
+	b=AMKuoZxNMRVej9VMsVnJZS5Q7wo3fY58ZgOUrG8cMy1QKdk2uxmu7sNIWs0gcLycxQx443vG0
+	tfAMF++BOwB+MepK0YXlKswHAFZxXiTLl6TgWziJfoCgBTEK2RM7IbNKQXkO9haqhYNkDhAvFym
+	sL4b+FC2cHCx8QiwvhxxzC8=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gxPT424GXz1T4KW;
+	Fri, 10 Jul 2026 16:02:48 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id BEACA40537;
+	Fri, 10 Jul 2026 16:11:51 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 16:11:51 +0800
+Message-ID: <7a4e09a4-18e9-49a6-9a17-cad552e39076@huawei.com>
+Date: Fri, 10 Jul 2026 16:11:50 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
+To: "Liao, Chang" <liaochang1@huawei.com>, Vladimir Murzin
+	<vladimir.murzin@arm.com>, <linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-11-vladimir.murzin@arm.com>
+ <73bfbebb-e8fd-4b6c-b0e4-8f7d5b09b6af@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <73bfbebb-e8fd-4b6c-b0e4-8f7d5b09b6af@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_091239_318867_0AB86CA5 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +95,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 16:20:13 +0100,
-John <therealgraysky@proton.me> wrote:
-> 
-> On Monday, July 6th, 2026 at 10:40 AM, Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > On Mon, 06 Jul 2026 15:13:27 +0100,
-> > John <therealgraysky@proton.me> wrote:
-> > >
-> > > Since commit d87773de9efe ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE"), the Raspberry Pi 5 (BCM2712, arm64) hangs during boot on v7.2-rc1 and later. Reverting that commit on top of v7.2-rc2 boots reliably. Found by bisection.
-> > >
-> > > Environment: - Raspberry Pi 5 Model B, arm64, device-tree boot (no ACPI) - CPUs start at EL2 with VHE - Mainline v7.2-rc1 and v7.2-rc2
-> > >
-> > > Symptom: - Silent hang early in driver probe; no panic or oops. Boot banner shows
-> > >   "arch_timer: cp15 timer running at 54.00MHz (hyp-virt)". The first blocking, timer-backed wait during probe never returns because the EL2 virtual timer's interrupt is not delivered on this SoC, so clockevents are dead. The softlockup/hung-task detectors can't fire either, since they depend on the same dead timer.
-> > >
-> > 
-> > Is that a guess? Or do you know something we don't? Or worse, is this
-> > report entirely AI generated?
-> 
-> Hi Marc - I'm not a programmer, but I can use git. I performed the bisect, and verification steps by hand. I am convinced the bisect is correct based on the restoration of booting.
-> 
-> My RPi5B freezes when booting into d87773de9e and reverting it gives a clean boot.
-> 
-> I used Opus to analyze the result of the bisect in concert with the logs I captured from the serial console. I also used it to summarize everything into a concise bug report. I can't vouch for the accuracy of the interpretation, but I can confirm the problematic commit and restoration of function.
-> 
-> 
-> > Again, how do you know it isn't functional? Could it be, for example,
-> > that the firmware has not configured the interrupt correctly?
-> 
-> I cannot. In the future, when I use these tools, I will scope the ask to just factual content, rather than allowing them to speculate.
-> 
-> > A proposed fix has been posted at [1]. Until we hear from the
-> > implementer about the state of the HW, it is difficult to do anything.
-> > 
-> > 	M.
-> > 
-> > [1] https://lore.kernel.org/all/878q898ulx.wl-maz@kernel.org/
-> 
-> Thank you for linking that! I applied it on top of 7.2-rc2 (with d87773de9efe intact) and got a clean boot.
 
-FWIW, and in the absence of any feedback from the SoC manufacturer,
-I've posted this patch[2]. There isn't much else I can do for this
-stuff.
 
-	M.
+On 7/10/2026 11:53 AM, Liao, Chang wrote:
+> 在 2026/7/9 20:13, Vladimir Murzin 写道:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
+>> Now that we have a type which can track both of them at the same time,
+>> update our irqflags implementation to use it.
+>>
+>> Save DAIF flags in all cases, as they can be manipulated directly by other
+>> code, and the PMR if it is in use.
+>>
+>> When checking if IRQs are disabled, now that we always save DAIF we can
+>> check that the I flag is set and bypass checking the PMR if it is.
+>> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
+>> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
+>> the PMR to know if DAIF is already masking interrupts.
+>> Update `irqs_priority_unmasked()` to align with this change.
+>>
+>> This allows us to remove the `__daif_...` and `__pmr_...` versions
+>> of the save and check functions, as they are now unified.
+>>
+>> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
+>> in the main one, as the DAIF and PMR values are properly split now.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/irqflags.h | 110 ++++++------------------------
+>>  arch/arm64/include/asm/ptrace.h   |   2 +-
+>>  2 files changed, 23 insertions(+), 89 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+>> index 7775904ba6a9..62f047702493 100644
+>> --- a/arch/arm64/include/asm/irqflags.h
+>> +++ b/arch/arm64/include/asm/irqflags.h
+>> @@ -95,117 +95,48 @@ static __always_inline void arch_local_irq_disable(void)
+>>  	}
+>>  }
+>>  
+>> -static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
+>> -{
+>> -	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
+>> -{
+>> -	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
+>> -}
+>> -
+>>  /*
+>>   * Save the current interrupt enable state.
+>>   */
+>>  static __always_inline unsigned long arch_local_save_flags(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_local_save_flags().flags;
+>> -	} else {
+>> -		return __daif_local_save_flags().flags;
+>> -	}
+>> -}
+>> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>>  
+>> -static __always_inline
+>> -bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	return hwstate.daif & PSR_I_BIT;
+>> -}
+>> +	if (system_uses_irq_prio_masking())
+>> +		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>>  
+>> -static __always_inline
+>> -bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	return hwstate.pmr != GIC_PRIO_IRQON;
+>> +	return hwstate.flags;
+>>  }
+>>  
+>>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>>  {
+>>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>>  
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_irqs_disabled_flags(hwstate);
+>> -	} else {
+>> -		return __daif_irqs_disabled_flags(hwstate);
+>> -	}
+>> -}
+>> +	/* If I is set, the PMR doesn't matter: interrupts will not be taken. */
+>> +	if (hwstate.daif & PSR_I_BIT)
+>> +		return true;
+>>  
+>> -static __always_inline bool __daif_irqs_disabled(void)
+>> -{
+>> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
+>> -}
+>> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+>> +		return true;
+>>  
+>> -static __always_inline bool __pmr_irqs_disabled(void)
+>> -{
+>> -	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
+>> +	return false;
+>>  }
+>>  
+>>  static __always_inline bool arch_irqs_disabled(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_irqs_disabled();
+>> -	} else {
+>> -		return __daif_irqs_disabled();
+>> -	}
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
+>> -{
+>> -	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
+>> -
+>> -	__daif_local_irq_disable();
+>> -
+>> -	return hwstate;
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
+>> -{
+>> -	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
+>> -
+>> -	/*
+>> -	 * There are too many states with IRQs disabled, just keep the current
+>> -	 * state if interrupts are already disabled/masked.
+>> -	 */
+>> -	if (!__pmr_irqs_disabled_flags(hwstate))
+>> -		__pmr_local_irq_disable();
+>> -
+>> -	return hwstate;
+>> +	return arch_irqs_disabled_flags(arch_local_save_flags());
+>>  }
+>>  
+>>  static __always_inline unsigned long arch_local_irq_save(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_local_irq_save().flags;
+>> -	} else {
+>> -		return __daif_local_irq_save().flags;
+>> -	}
+>> -}
+>> +	unsigned long flags = arch_local_save_flags();
+>>  
+>> -static __always_inline
+>> -void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	barrier();
+>> -	write_sysreg(hwstate.daif, daif);
+>> -	barrier();
+>> -}
+>> +	if (system_uses_irq_prio_masking())
+>> +		__pmr_local_irq_disable();
+>> +	else
+>> +		__daif_local_irq_disable();
+>>  
+>> -static __always_inline
+>> -void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	barrier();
+>> -	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> -	pmr_sync();
+>> -	barrier();
+>> +	return flags;
+>>  }
+>>  
+>>  /*
+>> @@ -215,11 +146,14 @@ static __always_inline void arch_local_irq_restore(unsigned long flags)
+>>  {
+>>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>>  
+>> +	barrier();
+>>  	if (system_uses_irq_prio_masking()) {
+>> -		__pmr_local_irq_restore(hwstate);
+>> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> +		pmr_sync();
+>>  	} else {
+>> -		__daif_local_irq_restore(hwstate);
+>> +		write_sysreg(hwstate.daif, daif);
+>>  	}
+>> +	barrier();
+>>  }
+>>  
+>>  #endif /* __ASM_IRQFLAGS_H */
+>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+>> index f7dc5fb9427d..192eb97cd50b 100644
+>> --- a/arch/arm64/include/asm/ptrace.h
+>> +++ b/arch/arm64/include/asm/ptrace.h
+>> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
+>>  
+>>  #define irqs_priority_unmasked(regs)					\
+>>  	(system_uses_irq_prio_masking() ?				\
+>> -		(regs)->pmr == GIC_PRIO_IRQON :				\
+>> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
+>>  		true)
+>>  
+>>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+> 
+> Is there any reason to keep interrupt_enabled()? It appears to be rarely used
+> across interrupt and exception code. So far, i've only found a single use in
+> gic_handle_irq(), corret me if i'm wrong. So using regs_irqs_disable() directly
+> might reduce the number of small helper that people need to remember.
 
-[2] https://lore.kernel.org/all/20260710080958.491620-1-maz@kernel.org/
+For arm32.
 
--- 
-Jazz isn't dead. It just smells funny.
+> 
+
 
