@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B61C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A7DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVRsx3hBBJH/Va+OHfcN9cN1H7LyCaNlLfEaKAQnK3s=; b=xPc2zV6svvWfia1hM1MF4+rWBi
-	4booJ9KsnVqXDD2N0KtuLrvBGGkBaXWc4ycXvsVMrmEFxx9Z9ZlhmIn7mpi5IHUhicZz6B0Re3Fon
-	+nSRvGZl7rFk8mqLLntmQ8Y2Fkns890Jn/2Q+8VdRq6RHXUhazuceEZ1YlBHEY4fZTcOGa28fA51a
-	o8QE9XDKhls8+Cd0UQZIKn2YjifzMg0vkE61ApgAMRdYY86FzYRVOGuEUQ+pMTxmFFuwhza1MVYAJ
-	PLudB9yAwx5YUsqQ91tEhzIRGUD9DOEAwv4yEA4yFXIchkFi51VChSOVO5Q5LWtMlWHlKO1mr4/YS
-	Q6Acf54A==;
+	bh=MuUmGqSSA58rP0nRidv37IIoymAVqS6FDOb1XQHbyds=; b=SdTmA3K75gYKfGaN2kWmWxuFKw
+	lg+dPi00D7LMRPaNd44oQrP1gjobffxsHQ1LsXMfgs5kIyycXPL2u8yaeFbRNv6tHdv/15qkLo8pG
+	BSMFpKETj5OwLEy+A1RRdeV44DDpC1tPZNzb3HcTfxBz78p0xPR/GcB/tGKug5KLxoBnQdcjMbAss
+	9lWee2TXeGTV7wwdB2T6m8/BxxwRTPEg4gKFIiiim1EwYl4Gm2Xzt7sI6CV28nMlbKpdOqHty4R6j
+	V3qktEid/lowkA05pN0KGRZdoj9oTWXaPRU7ENiMK6WoL1YGF90JJQeBtgi896r5pRBDadjinvzJd
+	qtFM9PjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi90L-00000004lnj-445n;
-	Fri, 10 Jul 2026 11:02:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wi90S-00000004lqg-10OS;
+	Fri, 10 Jul 2026 11:02:56 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi90K-00000004lnY-2D43;
-	Fri, 10 Jul 2026 11:02:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id DF4A1600C3;
-	Fri, 10 Jul 2026 11:02:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 15F381F000E9;
-	Fri, 10 Jul 2026 11:02:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783681367;
-	bh=eVRsx3hBBJH/Va+OHfcN9cN1H7LyCaNlLfEaKAQnK3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=f+4Sy4F9sL0hz+yEPS8HqKB/0afaTNBkCgQrHHJAEd1j27jzS3D8zxzNZpxU2Tai2
-	 2r442TR4HOvLL+s00Yu9iAkKHO9skq4AGRDFO3Zm8KrYHCHVLoA7Il67yfSJ6vE7d2
-	 3FK3ivhh/XEg/yzY5RV++aZWJj4YKI5WzUc0PocQLLejibOcPWSifNn8KfD9n0r/ZA
-	 VcEm/lIj7jUZDP/wZYVhLslbau+0gq0BboStJVvBr2Q/T70moKwENeOBrM9atTJPEv
-	 9lLgBWRvb2rc9R0B2E8nhA1N5DpqDfNkaaZlZqc3kBve9XFtwk0Wds/m6JfzoOhB+c
-	 MifZ0UOzJHd/A==
-Date: Fri, 10 Jul 2026 13:02:45 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, 
-	William Breathitt Gray <wbg@kernel.org>, Damon Ding <damon.ding@rock-chips.com>, kernel@collabora.com, 
-	Jonas Karlman <jonas@kwiboo.se>, Alexey Charkov <alchark@gmail.com>, 
-	linux-rockchip@lists.infradead.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
-Message-ID: <alDK7JahbqYpwQmZ@monoceros>
-References: <20260420-rk3576-pwm-v5-0-ae7cfbbe5427@collabora.com>
- <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+	id 1wi90Q-00000004lpb-23yY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 11:02:55 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-9690c99c917so242261241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:02:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783681373; x=1784286173;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MuUmGqSSA58rP0nRidv37IIoymAVqS6FDOb1XQHbyds=;
+        b=s+vAAfmUepk8R5Jam7YTf7ZGV5aH9RI1l4qEeTJTJ6UVKFTihsNHn9b78Xe8LTF13E
+         I2QrIDKeBvsDwc3/mCCW2BvVhxIo2FXVO2vqgVCv7vvEZJpP4w9BNUlf91vYLi9pJzE6
+         ubgKranpnZP5ZatBhDsLEbbfpNxN5cu1zsmjTq1uuneI+dWUkqXs9fGVKCuSt2E76EEk
+         G90NfSPBnS3ovnobv0Vxrcv6EK0xhEgpqgKG4ooRK80gNIdtRKsfYhI1I5Yj8Ue7X9pY
+         9ZnrkeAv3M8RKvDgy7GfV2wWNBli1ZzWsyudYsbvH6q2oYKszaXMWS0mtLuzn7d9Uqwk
+         wEYQ==
+X-Forwarded-Encrypted: i=1; AHgh+RovrFr+wKrZro+wovFib4u9GsKv1VTfS5M0Z2yZz3ONG8AUUuC7kX7UVkXBbZYLaPyzTRFdazTYxotFF5M4Pu3n@lists.infradead.org
+X-Gm-Message-State: AOJu0YygE67CuITCGmkmXPT/jruyQeKL9viBr88Z9Xi7M5wDHVBingOH
+	CNjCqdQdhCQ16YV3G6V0Om/bwyAFWkmwZlbW7THQjPlqCYKvxzbM1BX/CdYYRjcxb1Y=
+X-Gm-Gg: AfdE7cml2rcXRjX64M2+sQMUPvF4Wj0zHQCizeSE6d3GZXJPVHLK8Wk4mrJANIXIvQc
+	BK+ihHkOfMDV0ZLLx80oumdgsJMnE+EhewulIjXCbTbtptRnPjb7c9rYAu8PM1fyB1VGf3U2ecS
+	bQSgefPi3G/jqP0yHFbESrWr0smFkuzpxn7LL0OKSxHxmZs4CvthfG+hJEfDZexte7q0l0fY+NT
+	d8FkMiOGV8n6Ipx7V4oKIVEytYwi4JMivvije05jrpMzgXNAIgiARoISAo7BzUwhPc0qLykmrRr
+	VpqqejYDUcKv0OMFTAny1BjU/nEcGw7UemHl1av+6Mu/BNO2XkRhyJ/C6kKmJ2k0KguUAlW5No7
+	hVLN97YpiZog9ij+CfiPXHL0FLMYiL3UfKyuzSrAp39KDfyUVQC+XYQ75HCMQ+77oUwUBYDSfUR
+	z4D9p8xa+cZinplZvstRiEK0H6M17PRwf6gsOyimTJ0aVT+IbApg==
+X-Received: by 2002:a05:6122:885:b0:5bf:ab99:ea89 with SMTP id 71dfb90a1353d-5bfab99ecbcmr1013262e0c.12.1783681372974;
+        Fri, 10 Jul 2026 04:02:52 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bf6f66eb74sm4853887e0c.7.2026.07.10.04.02.51
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Jul 2026 04:02:51 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-9696319e14dso303529241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:02:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoHg17SbgoFsHeSLv9DHMN4i3QzNiC+yubesmEJGPRQT+B3OqKPQk0oGj61gwv1g9xZn+NSq3f34D5KxUgbSAgg@lists.infradead.org
+X-Received: by 2002:a05:6102:5789:b0:73e:9fae:5844 with SMTP id
+ ada2fe7eead31-744e0426fd6mr5821388137.27.1783681371174; Fri, 10 Jul 2026
+ 04:02:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zmapr4d5j6nd5icv"
-Content-Disposition: inline
-In-Reply-To: <20260420-rk3576-pwm-v5-3-ae7cfbbe5427@collabora.com>
+References: <cover.1783505329.git.geert+renesas@glider.be> <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
+ <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
+In-Reply-To: <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 10 Jul 2026 13:02:39 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
+X-Gm-Features: AUfX_mypDnJ4qFpPLK-a5R1Mbwkbc6yQr178xDsRkCp5yARGuoX_7FuK_KFx-r8
+Message-ID: <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
+Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
+ firmware property
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_040254_541486_38AABE25 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,265 +109,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
---zmapr4d5j6nd5icv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v5 3/6] pwm: Add rockchip PWMv4 driver
-MIME-Version: 1.0
+On Fri, 10 Jul 2026 at 12:21, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On Wed, Jul 08, 2026 at 12:16:23PM +0200, Geert Uytterhoeven wrote:
+> > Add a firmware property, for systems where SCMI must be used instead of
+> > direct hardware access.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > v2:
+> >   - Spin off from "dt-bindings: clock: Document Renesas R-Car X5H Clock
+> >     Pulse Generator".
+> > ---
+> >  .../devicetree/bindings/clock/renesas,r8a78000-cpg.yaml    | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > index 4e23bba334382346..fc499e7cf52e4f0c 100644
+> > --- a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > @@ -35,6 +35,12 @@ properties:
+> >        <dt-bindings/clock/renesas,r8a78000-cpg.h>.
+> >      const: 1
+> >
+> > +  firmware:
+>
+> RPi is doing similar, but I have doubts. It looks way too close to
+> generic "syscon" which is disallowed.
+>
+> I think this should be vendor+purpose specific, e.g.:
+> "renesas,scmi-transport" or "renesas,scmi-firmware"
 
-Hello Nicolas,
+The disadvantage of a vendor-specific property is that there are more
+cases to handle for fw_devlink, cfr. "[PATCH v2 02/10] of: property:
+fw_devlink: Add support for firmware"[1].
 
-On Mon, Apr 20, 2026 at 03:52:40PM +0200, Nicolas Frattaroli wrote:
-> [...]
-> +/**
-> + * rockchip_pwm_v4_round_single - convert a PWM parameter to hardware
-> + * @rate: clock rate of the PWM clock, as per clk_get_rate
-> + *        Assumed to be <= 1GHz for overflow considerations
-> + * @in_val: parameter in nanoseconds to convert
-> + *
-> + * Returns the rounded value, saturating at U32_MAX if too large
-> + */
-> +static u32 rockchip_pwm_v4_round_single(unsigned long rate, u64 in_val)
+> Also we have "firmware" nodes, so this might cause conflicts in dtschema
+> validation.  Anyway, the phandle itself is fine for me, just the naming.
+>
+> I'll ping also Rob to chime in.
 
-very picky: if you name this function rockchip_pwm_v4_ns_to_ticks it
-becomes clearer what the purpose is.
+Thanks!
 
-> +{
-> +	u64 tmp;
-> +
-> +	tmp = mul_u64_u64_div_u64(rate, in_val, NSEC_PER_SEC);
-> +	if (tmp > U32_MAX)
-> +		tmp = U32_MAX;
-> +
-> +	return tmp;
-> +}
-> +
-> +/**
-> + * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
-> + * @rate: PWM clock rate to do the calculations at
-> + * @wf: pointer to the generic &struct pwm_waveform input parameters
-> + * @wfhw: pointer to the hardware-specific &struct rockchip_pwm_v4_wf output
-> + *        parameters that the results will be stored in
-> + *
-> + * Convert nanosecond-based duty/period/offset parameters to the PWM hardware's
-> + * native rounded representation in number of cycles at clock rate @rate. Should
-> + * any of the input parameters be out of range for the hardware, the
-> + * corresponding output parameter is the maximum permissible value for said
-> + * parameter with considerations to the others.
-> + */
-> +static void rockchip_pwm_v4_round_params(unsigned long rate,
-> +					 const struct pwm_waveform *wf,
-> +					 struct rockchip_pwm_v4_wf *wfhw)
-> +{
-> +	wfhw->period = rockchip_pwm_v4_round_single(rate, wf->period_length_ns);
-> +
-> +	wfhw->duty = rockchip_pwm_v4_round_single(rate, wf->duty_length_ns);
-> +
-> +	/* As per TRM, PWM_OFFSET: "The value ranges from 0 to (period-duty)" */
+[1] https://lore.kernel.org/de34ac0c52695d92c67cf950b3d8e9b30095d305.1783505329.git.geert+renesas@glider.be
 
-Have you tried what happens if you break this rule? That seems like a
-very arbitrary restriction that might just originate from the
-documentation author.
+Gr{oetje,eeting}s,
 
-> +	wfhw->offset = rockchip_pwm_v4_round_single(rate, wf->duty_offset_ns);
-> +	if (!wfhw->period) /* Don't underflow when pwm disabled */
-> +		wfhw->offset = 0;
-> +	else if (wfhw->offset > wfhw->period - wfhw->duty)
-> +		wfhw->offset = wfhw->period - wfhw->duty;
+                        Geert
 
-You don't enforce wfhw->period >= wfhw->duty, which however seems like a
-reasonable restriction. When knowing that you can drop the explicit
-check for !wfhw->period and just keep the else-if branch.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-> +}
-> [...]
-> +static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct pwm_device *pwm,
-> +				    const void *_wfhw)
-> +{
-> +	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-> +	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-> +	bool was_enabled;
-> +	int ret;
-> +
-> +	ret = mfpwm_acquire(pc->pwmf);
-> +	if (ret)
-> +		return ret;
-> +
-> +	was_enabled = rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
-> +								PWMV4_REG_ENABLE));
-> +
-> +	/*
-> +	 * "But Nicolas", you ask with valid concerns, "why would you enable the
-> +	 * PWM before setting all the parameter registers?"
-> +	 *
-> +	 * Excellent question, Mr. Reader M. Strawman! The RK3576 TRM Part 1
-> +	 * Section 34.6.3 specifies that this is the intended order of writes.
-> +	 * Doing the PWM_EN and PWM_CLK_EN writes after the params but before
-> +	 * the CTRL_UPDATE_EN, or even after the CTRL_UPDATE_EN, results in
-> +	 * erratic behaviour where repeated turning on and off of the PWM may
-> +	 * not turn it off under all circumstances. This is also why we don't
-> +	 * use relaxed writes; it's not worth the footgun.
-
-I wonder if it's worth however to delay setting PWMV4_CTRL_UPDATE_EN
-until after the clkrate is handled to (maybe) prevent glitches?
-
-> +	 */
-> +	if (wfhw->rate)
-> +		mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> +				FIELD_PREP_WM16(PWMV4_EN_BOTH_MASK,
-> +						PWMV4_EN_BOTH_MASK));
-> +	else
-> +		mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> +				FIELD_PREP_WM16(PWMV4_EN_BOTH_MASK, 0));
-> +
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_PERIOD, wfhw->period);
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_DUTY, wfhw->duty);
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_OFFSET, wfhw->offset);
-> +
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL, PWMV4_CTRL_CONT_FLAGS);
-> +
-> +	/* Commit new configuration to hardware output. */
-> +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> +			PWMV4_CTRL_UPDATE_EN);
-> +
-> +	if (wfhw->rate) {
-> +		if (!was_enabled) {
-> +			dev_dbg(&chip->dev, "Enabling PWM output\n");
-> +			ret = clk_enable(pc->pwmf->core);
-> +			if (ret)
-> +				goto err_mfpwm_release;
-> +			ret = clk_set_rate_exclusive(pc->pwmf->core, wfhw->rate);
-> +			if (ret) {
-> +				clk_disable(pc->pwmf->core);
-> +				goto err_mfpwm_release;
-> +			}
-> +
-> +			/*
-> +			 * Output should be on now, acquire device to guarantee
-> +			 * exclusion with other device functions while it's on.
-> +			 *
-> +			 * It's highly unlikely that this fails, as mfpwm has
-> +			 * already been acquired before, and this is just a
-> +			 * usage counter increase. Not worth the added
-> +			 * complexity of clearing the PWMV4_REG_ENABLE again,
-> +			 * especially considering the CTRL_UPDATE_EN behaviour.
-> +			 */
-> +			ret = mfpwm_acquire(pc->pwmf);
-> +			if (ret) {
-> +				clk_rate_exclusive_put(pc->pwmf->core);
-> +				clk_disable(pc->pwmf->core);
-> +				goto err_mfpwm_release;
-> +			}
-> +		}
-
-Can it happen that we have
-
-	wfhw->rate && was_enabled && wfhw->rate != clk_get_rate()
-
-?
-
-> +	} else if (was_enabled) {
-> +		dev_dbg(&chip->dev, "Disabling PWM output\n");
-> +		clk_rate_exclusive_put(pc->pwmf->core);
-> +		clk_disable(pc->pwmf->core);
-> +		/* Output is off now, extra release to balance extra acquire */
-> +		mfpwm_release(pc->pwmf);
-> +	}
-> +
-> +err_mfpwm_release:
-> +	mfpwm_release(pc->pwmf);
-> +
-> +	return ret;
-> +}
-> [...]
-> +static int rockchip_pwm_v4_probe(struct platform_device *pdev)
-> +{
-> +	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
-> +	struct rockchip_pwm_v4 *pc;
-> +	struct pwm_chip *chip;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	/*
-> +	 * For referencing the PWM in the DT to work, we need the parent MFD
-> +	 * device's OF node.
-> +	 */
-> +	dev->of_node_reused = true;
-> +	device_set_node(dev, of_fwnode_handle(dev->parent->of_node));
-> +
-> +	chip = devm_pwmchip_alloc(dev, 1, sizeof(*pc));
-> +	if (IS_ERR(chip))
-> +		return PTR_ERR(chip);
-> +
-> +	pc = to_rockchip_pwm_v4(chip);
-> +	pc->pwmf = pwmf;
-> +
-> +	ret = mfpwm_acquire(pwmf);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Couldn't acquire mfpwm in probe\n");
-> +
-> +	if (!rockchip_pwm_v4_on_and_continuous(pc))
-> +		mfpwm_release(pwmf);
-> +	else {
-> +		dev_dbg(dev, "PWM was already on at probe time\n");
-> +		ret = clk_enable(pwmf->core);
-> +		if (ret) {
-> +			dev_err_probe(dev, ret, "Enabling pwm clock failed\n");
-> +			goto err_mfpwm_release;
-> +		}
-> +		ret = clk_rate_exclusive_get(pc->pwmf->core);
-> +		if (ret) {
-> +			dev_err_probe(dev, ret, "Protecting pwm clock failed\n");
-> +			goto err_clk_disable;
-> +		}
-> +	}
-> +
-> +	platform_set_drvdata(pdev, chip);
-
-This is unused.
-
-> +
-> +	chip->ops = &rockchip_pwm_v4_ops;
-> +
-> +	ret = devm_pwmchip_add(dev, chip);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
-> +		if (rockchip_pwm_v4_on_and_continuous(pc))
-> +			goto err_rate_put;
-> +
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_rate_put:
-> +	clk_rate_exclusive_put(pwmf->core);
-> +err_clk_disable:
-> +	clk_disable(pwmf->core);
-> +err_mfpwm_release:
-> +	mfpwm_release(pwmf);
-> +
-> +	return ret;
-> +}
-
-Best regards
-Uwe
-
---zmapr4d5j6nd5icv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpQ0VMACgkQj4D7WH0S
-/k69Qwf6AyqNQlbHdAGwyu6A+raBNgAyVC7XDQIzx5BWj1Cd8NCNT88Bij7SPu2Z
-nOf7fFzlSl4mnbEW76bJxTM4/eowUyhnsL5Ml4Vqdu2qmUeuCeDsFfFiOvbSbERk
-O1fFf+xb8aVtNPwSmDBa+E4FW23I7n6+odYUZ2ooWBaARv0r6HF5f2CazdfVP5qL
-eDSV1+ezGU3h90Ocs4uYBZtkhlBMO4Ucz4ypbk5/DWkhH+Pp25GLZkdzkrPyfuOO
-ulkdT76++QD3uu+AelwsF23yW8KH3NMWkomaed/N+iWFC4R4RJqLbSWcxSJxfPl9
-twerZ2j85gHUQGzI8QOIgsxIhfzq+Q==
-=WOc0
------END PGP SIGNATURE-----
-
---zmapr4d5j6nd5icv--
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
