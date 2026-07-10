@@ -4,130 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47539C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 13:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F338C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 13:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N9LSC889O68KIxMLOEUoke37oASt8NT31vCJEcDdTOg=; b=jBOy+2G9RERxhSTYuhjlrSf9lD
-	PUaeaT39jnJwdeOd87tFg3Jj9n1NPYv7lvNtO2rqNPFtZimC8oqZyiZ3k8ZU2aALAwo9346egWEtW
-	9h0l5LRMC3KZk3kYRhWZpvJkKtMiW9usnkwWxztyJEr9jCzZIWwOMNLLykA7OhI5mcqkkBgGt+H3F
-	GF6b8UHZywcHZCOmYglAU+UZGoCL30lRRCsVFcNgiZbTXzUO2GjEz8JqEAWZkZsH0Q1aElJ0X8ssb
-	PunAQo4IqWwu/3625uB5fpQIZ8KLTSP4l/qHDyDMuf5F4HZ6MDPzbuD1hQf+xHFb4aP8FlMWcu/6e
-	O5Ir3t3w==;
+	bh=IXnIGLYED0lRTGgw7Kc2r0uu2hx4oWdN8gn4Dvo9uWU=; b=Sifzrhp10Zh8CbdG/gzdvpOWa/
+	yPdriTlE/T701x4WYch+gNVYtltu9xYQ8rI4H99Fp16iKPHEWcCOzQSp+Oc9ld/g5RGeAlGAVpEd9
+	Nbjouwgl3GPnhuIWcKn1srFlcXFMJ0sJifm0RbpCDt89HpKo4mUSdTdV7jb9ruwBu/0Ot4F/USnPg
+	OAm4DhOGp7UHxOiGJ2BDMVjKnO6xKhZ1XcRDjyaUJKt9AKiy1kDsHkqsn1tct2ON4VqMRpr+1Ik/5
+	AqxWOm330AFqrGIDD4ptfYjFp1MqSqtpdrzk70RL0IhE85vC3dadEMF957PXwcj6TjqKRoA0ej1B7
+	mFzpBXwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiBTf-000000051vQ-3Cfd;
-	Fri, 10 Jul 2026 13:41:15 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiBTc-000000051uk-3IuF
+	id 1wiBUc-0000000527f-0I6D;
+	Fri, 10 Jul 2026 13:42:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiBUa-0000000527H-1FNt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 13:41:13 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66ADIDXJ1713075;
-	Fri, 10 Jul 2026 13:41:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=N9LSC889O68KIxMLOEUoke37oASt8N
-	T31vCJEcDdTOg=; b=i3rziSTpsz+IImWsw7MCjmADLQnmzEZtJSJSofxHoc8UlP
-	OcKkIh/S1Zi84nC9S+iOsUeEHitZyqqlNhtvvD6dx1l7Fbi4dOSFxji4F4YYXdl8
-	OlFLjnzqCt5xUuy3BuOfZ4cIjWc23VwAcNNB9bxgztxeDxq7iudAbz8hLL+TEHOz
-	qUBVCrec9UtPMWbFbEdp+G5HUkmPiW/sRGZ6oa/+NuidZ95sCC2XUEfw3XACVJFn
-	LeWl4ieDZXIKEXPkyt+PLJYhM+bk7dFEJgcRIQXXIyco06VOLo4LPGNnKve7CtHY
-	k+hf857iZGVgsqccjDg3PBqAXL+PFerQ5CiIzwKg==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur6qy6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 13:41:00 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66ADYjGu003964;
-	Fri, 10 Jul 2026 13:40:59 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7cgqjebj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jul 2026 13:40:59 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66ADepJ029360624
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jul 2026 13:40:51 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 931192004D;
-	Fri, 10 Jul 2026 13:40:51 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B5CEA20040;
-	Fri, 10 Jul 2026 13:40:50 +0000 (GMT)
-Received: from osiris (unknown [9.87.147.219])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jul 2026 13:40:50 +0000 (GMT)
-Date: Fri, 10 Jul 2026 15:40:49 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 23/27] KVM: s390: arm64: Implement required functions
-Message-ID: <20260710134049.984749-J-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-24-seiden@linux.ibm.com>
- <87bjcj7t5h.wl-maz@kernel.org>
+	Fri, 10 Jul 2026 13:42:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B59A4176A;
+	Fri, 10 Jul 2026 06:42:06 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EFC83F66F;
+	Fri, 10 Jul 2026 06:42:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783690931; bh=8H5ByFfTRvXUXT/9aX7bZ3Ahq+SupbteOjZbiE/Kh7s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FWxckjJqRXLQXo0phZBNuTL410ZFitFuyUj3LjvnhNru64zxYeVLL+J3W+BqcCRVY
+	 ioIZP7EfXsnUd4EYMDQBIQmkeKt7KfHjxumv910CfTIeyX3koMEHr/OQ5L6kuC4Tia
+	 FmQtNyVkB9BiUiAXHUooSTey4QCTW8Hwd+xyRk44=
+Date: Fri, 10 Jul 2026 15:42:01 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Pengjie Zhang <zhangpengjie2@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
+	lenb@kernel.org, saket.dumbre@intel.com, zhenglifeng1@huawei.com,
+	sumitg@nvidia.com, zhanjie9@hisilicon.com, geert+renesas@glider.be,
+	cuiyunhui@bytedance.com, vanshikonda@os.amperecomputing.com,
+	ionela.voinescu@arm.com, jeremy.linton@arm.com,
+	viresh.kumar@linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev, linuxarm@huawei.com,
+	prime.zeng@hisilicon.com, wanghuiqiang@huawei.com,
+	xuwei5@huawei.com, lihuisong@huawei.com, yubowen8@huawei.com,
+	wangzhi12@huawei.com
+Subject: Re: [PATCH v2 0/2] CPPC: reduce FFH feedback-counter sampling skew
+ on arm64
+Message-ID: <alD2qU4FNoGvP7SN@arm.com>
+References: <20260708082818.808041-1-zhangpengjie2@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87bjcj7t5h.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEzMiBTYWx0ZWRfX3ROGKCS0YtfH
- QFpX266GmP1th1voyuu9ytstSczZDgwjBOmRrvn6c9sgbI0q8aeEo0cWUFMAGE3HKZY/ZrzDJFK
- KIkuuPqoSHNWtvcWI10i7kdjs863gPI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEzMiBTYWx0ZWRfX9sgiu26vVoXN
- gdez2/XVYkga5ITBLcWUbbTgmVuMFQ7cJWmwuRknWjQ6MDdwulbkITzSDOsMtEoX21jeYelo2he
- Bi9KI3h5SIKMPd13gqFG+Ox3gnoa9zT6r8QUkSa/oEdgvGGZ6PIDWdVKYxUPV9oJPk7Y85AVmuR
- vAWE4POrfzZTXoULkStEatexfPO1O/WY77rRD4gP6AS3cPPnpI0L7MrCPTSSPyRCRqkVzDIyqQM
- rIbMW8phIC1emakSE/CCF98Rju/vWGskunxZ+0tQ6qzHRFOfrBqjvynC5QBQqJTEsCCiVc8+5fD
- 5KeUKIdXCHwjof8NI4/kdH6cc4m6A+fhFpZ2Ftyth27v6yhLlGniWWrLdMToM/9f39jtImpd+6O
- +uZO33TequZ1ic2fvZ9QdGs7ekNtRr+h87ry1rZtPNtSo4hbGBqI2QX0h+Mgn0OA/hQtXiJcnLy
- B6Cyo/X6UGU4gtA03Qw==
-X-Proofpoint-GUID: 9G33u2V4ajpbDsBj3uLwc9D7zJAckEKf
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50f66c cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=RsO_Ah-4iS8lBfzd37cA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: 9G33u2V4ajpbDsBj3uLwc9D7zJAckEKf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_03,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100132
+In-Reply-To: <20260708082818.808041-1-zhangpengjie2@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_064112_832311_6E7891D7 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20260710_064212_426679_963D6EBC 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,75 +78,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 09:35:54PM +0100, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 09:52:23 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > Implement the mostly trivial functions that the shared arm64 (kvm)
-> > code & headers oblige s390 to implement.
-> > 
-> > Implement a very basic smccc handler that (non-compliantly) is just able
-> > to stop a vcpu.
-> > 
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >  arch/s390/include/arm64/kvm_emulate.h | 135 ++++++++++++++++++++++++++
-> >  arch/s390/include/arm64/kvm_nested.h  |  11 +++
-> >  arch/s390/kvm/arm64/handle_exit.c     | 110 +++++++++++++++++++++
-> >  arch/s390/kvm/arm64/inject_fault.c    |  21 ++++
-> >  4 files changed, 277 insertions(+)
-> >  create mode 100644 arch/s390/include/arm64/kvm_emulate.h
-> >  create mode 100644 arch/s390/include/arm64/kvm_nested.h
-> >  create mode 100644 arch/s390/kvm/arm64/handle_exit.c
-> >  create mode 100644 arch/s390/kvm/arm64/inject_fault.c
+Looks good to me, though I guess you might need an ack from Rafael (?)
 
-...
+Thank you for the patches.
 
-> > +
-> > +#define SPSR_SS BIT(21)
+---
+BR
+Beata
+On Wed, Jul 08, 2026 at 04:28:16PM +0800, Pengjie Zhang wrote:
+> The legacy CPPC feedback-counter path reads the delivered and reference
+> performance counters separately.
 > 
-> We may be better off defining SPSR_ELx in the sysreg file and use that
-> all over the place.
+> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
+> served through a cross-CPU counter read helper. Reading the counters
+> separately therefore widens the sampling window between them and can
+> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
+> load, the skew is observable as transient values that may exceed the
+> platform maximum, as discussed in [1] and [2].
 > 
-
-make sense. I'll create a patch for this.
-
-...
-
-> > +
-> > +#define __INCL_GEN_ARM_FILE
-> > +#include "generated/handle_exit.inc"
-> > +#undef __INCL_GEN_ARM_FILE
-> > +
-> > +#define PSCI_0_2_FN_SYSTEM_OFF		0x84000008
-> > +#define PSCI_RET_NOT_SUPPORTED		-1
-> > +#define PSCI_RET_INTERNAL_FAILURE	-6
+> This series adds a small generic hook for architectures that can obtain
+> both FFH feedback counters in one operation, while preserving the
+> existing per-register read path as the fallback.
 > 
-> All of this exists in include/uapi/linux/psci.h.
-
-Yes. We'll use them in a later series as well.
-this is just a placeholder implememtation so guests do not have to run
-idefenitely. 
-
-
-...
-
-> > +	[ESR_ELx_EC_SOFTSTP_CUR]	= "Software Step (current EL)",
-> > +	[ESR_ELx_EC_WATCHPT_LOW]	= "Watchpoint (lower EL)",
-> > +	[ESR_ELx_EC_WATCHPT_CUR]	= "Watchpoint (current EL)",
-> > +	[ESR_ELx_EC_BKPT32]		= "BKPT (AArch32)",
-> > +	[ESR_ELx_EC_VECTOR32]		= "Vector catch (AArch32)",
-> > +	[ESR_ELx_EC_BRK64]		= "BRK (AArch64)",
-> > +};
+> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
+> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
+> single operation on the target CPU.
 > 
-> There are a lot of AArch32-specific ECs here that you may not need.
-
-you are absolutely right. This was just a blind 1to1 copy. IMO they do
-not hurt but I can reduce 32 specific ones.
-
-FYI
-The code is not shared as I would have to spin up a whole sharing
-infrastructure to share this one defenition from arm kernel code.
-
-	Steffen
+> For detailed test results and data demonstrating the observable skew and
+> the improvements brought by this series, please refer to [3] and [4].
+> 
+> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
+> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
+> [3] https://lore.kernel.org/all/443104e2-ba6e-454e-8469-909f35817a99@huawei.com/
+> [4] https://lore.kernel.org/all/317d33d5-8279-4aa8-84b7-6ae1976636ac@huawei.com/
+> 
+> Tested-by: Sumit Gupta <sumitg@nvidia.com>
+> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+> Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+> Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+> ---
+> Changes in v2:
+> - Simplified the CPPC generic layer fallback logic to prevent pointless single-read retries.
+> - Added upfront register validation in the arm64 hook to avoid unnecessary IPI overhead.
+> - Explicitly flipped the -EOPNOTSUPP error to -ENODEV in the arm64 hook when AMU is unsupported, cleanly bypassing redundant CPPC generic fallbacks.
+> - Addressed other kernel-doc and naming feedbacks from Beata.
+> - Added Reviewed-by and Tested-by tags from Vanshidhar and Sumit
+> - Link to v1: https://lore.kernel.org/all/20260410094145.4132082-1-zhangpengjie2@huawei.com/
+> 
+> Pengjie Zhang (2):
+>   ACPI: CPPC: add paired FFH feedback-counter read hook
+>   arm64: topology: read CPPC FFH feedback counters in one operation
+> 
+>  arch/arm64/kernel/topology.c | 92 ++++++++++++++++++++++++++++++++----
+>  drivers/acpi/cppc_acpi.c     | 50 ++++++++++++++++++--
+>  include/acpi/cppc_acpi.h     |  7 +++
+>  3 files changed, 136 insertions(+), 13 deletions(-)
+> 
+> -- 
+> 2.33.0
+> 
 
