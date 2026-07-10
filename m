@@ -4,66 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE1BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EA3C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n19MFjtTN+U7Ytjb0Wh/hWnKcTUytSNUeiC26qye3pE=; b=gcpVBoJdTeJ2Fi
-	PZZ7a+Yk4cBYYUpiBeJczRYm12AjFt5ZLm8tQ1DjiHYoGs0VU7Imxj5gOh9r2tc+SsLIxA910xAk+
-	1pK3HPE6XbdXbeImuaUPgjlpUkIAyYvqEfejnGPs/fwc+hK6PlB5tQxc3BAS6feWM4nhTFDSDlbpx
-	XAWlza9lJd+Xu0/fRvP+l9t24/q5J0tz8Ug5YvKmCcoChJzeVEBEyqJejRIgk3l4OYaVvKLFsrLdA
-	k7mUT1SGgzTt0/INqotuQCAHIlijwFLrKikGDpJnpQZhRAdki3m6DmuEZ2PCCqJ4Kn+O0skt2K7kc
-	aMdKgOn6PLHsXkJ2ASpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=; b=4XexRnYPyWIgOPfeeqLnR9RQee
+	6fGWy5IvUx6ynTQysQIuSm3ezxX9l5b0iTDFzuIOOlu4iA/dmmlylPoxtj87RR7uOnLHToRndUaU/
+	67rrv9gqUE2Ij1kBP/XebVjUHDXOoRqvH7dryn6fQvQVycMr2MQItoeFk2KOrG95VH05l8X8UD69G
+	1wrGKj+49YsTjD3ZsaGmWSP8nyMUBH3chvDe/qozwWD+IZ+Bo+qL+2ImGpSFESx4BVvVY0WVq6uo+
+	d0eg6J+yAdjPSGy7n8R+EXMH18/SgAVS09MKbh3RHYmIb6J4Wt2szJ840iSkUUW/8ab+o9rg1DPVt
+	izdaOFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7OK-00000004YIc-1xvZ;
-	Fri, 10 Jul 2026 09:19:28 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wi7Q0-00000004YUF-3H3N;
+	Fri, 10 Jul 2026 09:21:12 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7OG-00000004YHC-2sCK
+	id 1wi7Px-00000004YT6-2w4d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:19:27 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=n19MFjtTN+U7Ytjb0Wh/hWnKcTUytSNUeiC26qye3pE=;
-	b=EK5nEYEwhfGaIlUW8BapWTLj2O/Pnk9mH791W9K0MRnk/kqzt0qesrJdplub2a19GLRlzXFbD
-	P/l3FvoJ9q7iavkU37qgOxfpCpM6PlgqIwiyx2ac0ucXT8B9JOmV9+6DDGMpPMi5t/F0XtmuIAx
-	bDGYSAmqqqSFXHEyJa9kCBY=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gxQzH37Ggz12LFK;
-	Fri, 10 Jul 2026 17:10:35 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7998640575;
-	Fri, 10 Jul 2026 17:19:13 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 17:19:12 +0800
-Message-ID: <06c7765e-221f-42be-a26b-c3a4298a6bdb@huawei.com>
-Date: Fri, 10 Jul 2026 17:19:11 +0800
+	Fri, 10 Jul 2026 09:21:11 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id D50E6766B2;
+	Fri, 10 Jul 2026 09:21:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783675267; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
+	b=dILxM/grMnkzT//PGjQgvRPzbTCyIqvBUwpem+/INy1OyOSXlBIsz9gqcx8MxRJrJ6EpZX
+	Cpig7crCihNg5sGQ7MQqhcSHYm1taht0DXodMMnHJ4Mb+/tkfV7+s15uwBCTIpFPuCs4Km
+	/5539L0LnwIhNbmOea8tBUeTeEyZvHk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783675267;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
+	b=87sBJDQkU9r1dB9EiaLLEplnR13DEPh/Y9k4Hfy/3NsxtVESK1Yh4eBVWlPV4NslXUHVcs
+	iY9Tim/GeeXLNdBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="dILxM/gr";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=87sBJDQk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783675267; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
+	b=dILxM/grMnkzT//PGjQgvRPzbTCyIqvBUwpem+/INy1OyOSXlBIsz9gqcx8MxRJrJ6EpZX
+	Cpig7crCihNg5sGQ7MQqhcSHYm1taht0DXodMMnHJ4Mb+/tkfV7+s15uwBCTIpFPuCs4Km
+	/5539L0LnwIhNbmOea8tBUeTeEyZvHk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783675267;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
+	b=87sBJDQkU9r1dB9EiaLLEplnR13DEPh/Y9k4Hfy/3NsxtVESK1Yh4eBVWlPV4NslXUHVcs
+	iY9Tim/GeeXLNdBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4649C779BD;
+	Fri, 10 Jul 2026 09:21:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id SMP0D4O5UGpRFQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 10 Jul 2026 09:21:07 +0000
+Message-ID: <54ca357b-6069-4c04-b0c2-f1aca96dbd79@suse.de>
+Date: Fri, 10 Jul 2026 11:21:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
- helpers for entry code
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-12-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-12-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH 6/9] drm/gm12u320: replace struct drm_simple_display_pipe
+ with regular atomic helpers
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: Ze Huang <ze.huang@oss.qualcomm.com>,
+ Alexey Brodkin <abrodkin@synopsys.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, xen-devel@lists.xenproject.org
+References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+ <20260705-drm-simple-kms-removal-v1-6-b4e1ca053623@oss.qualcomm.com>
+ <e69b3cf5-9a9f-46ca-abc8-68c1375ef6ca@suse.de>
+Content-Language: en-US
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <e69b3cf5-9a9f-46ca-abc8-68c1375ef6ca@suse.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: D50E6766B2
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	TO_DN_SOME(0.00)[]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_021925_397350_E255E93C 
-X-CRM114-Status: GOOD (  29.87  )
+X-CRM114-CacheID: sfid-20260710_022110_048591_7EB6CC42 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,399 +179,253 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> The entry code handles interrupt masking differently from the rest of
-> the kernel. Exception handlers enter and exit with all exceptions
-> masked, but they must temporarily unmask the appropriate set of
-> exceptions so that the rest of the handler executes with the expected
-> exception state.
-> 
-> For EL0 handlers, this means dropping to masking context appropriate
-> for the work to be performed. For EL1 handlers, this means restoring
-> the masking context of the interrupted task. In both cases, all
-> exceptions must be masked again before returning from the exception
-> handler.
-> 
-> The rest of the kernel typically follows the opposite pattern: it
-> raises the masking context to protect a critical section and later
-> restores the previous context.
-> 
-> Given these different usage patterns, introduce a dedicated set of
-> exception masking helpers for the entry code. Keeping these helpers
-> separate from the generic interrupt masking APIs makes the intended
-> usage explicit and helps avoid mixing the two masking models.
-> 
-> To make the masking logic easier to reason about, introduce exception
-> contexts that map directly to the corresponding hardware exception
-> state. Along with these contexts, provide helpers to:
-> 
-> - translate an exception context into the corresponding hardware
->   state,
-> 
-> - verify that the current hardware exception state matches the
->   expected exception context,
-> 
-> - raise or lower the current exception context, and
-> 
-> - perform the common mask/unmask operations when the starting or
->   target exception context is already known.
-> 
-> Tracking the current exception context also provides two additional
-> benefits:
-> 
-> - improved debugging by verifying that the hardware exception state
->   matches the expected exception context, and
-> 
-> - avoiding unnecessary writes to the hardware exception state.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  .../include/asm/interrupts/common_flags.h     | 197 ++++++++++++++++++
->  arch/arm64/include/asm/interrupts/entry.h     | 110 ++++++++++
->  2 files changed, 307 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
->  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
-> 
-> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
-> new file mode 100644
-> index 000000000000..6ce60d1519e8
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
-> @@ -0,0 +1,197 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/ptrace.h>
-> +#include <asm/sysreg.h>
-> +#include <asm/irqflags.h>
-> +
-> +#define DAIF_PROCCTX		0
-> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> +
-> +/*
-> + * Exception context mapping
-> + *
-> + * pseudo-NMI
-> + *
-> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF + IRQON
-> + * NONMI    ->   IF + IRQON
-> + * NOIRQ    ->    0 + IRQOFF
-> + * PROCESS  ->    0 + IRQON
-> + *
-> + * Otherwise
-> + *
-> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
-> + * ERROR    ->  AIF
-> + * NONMI    ->   IF
-> + * NOIRQ    ->   IF
-> + * PROCESS  ->    0
+Am 10.07.26 um 11:09 schrieb Thomas Zimmermann:
+> Hi
+>
+> Am 04.07.26 um 20:31 schrieb Ze Huang:
+>> Convert gm12u320 to direct primary plane, CRTC and encoder setup.
+>>
+>> Keep shadow-plane helper state, framebuffer access helpers and
+>> no-scaling plane-state check from simple-KMS path.
+>>
+>> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+>
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+>
+> And I also have this device. Works nicely with the patch
+>
+> Tested-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-without the allint of FEAT_NMI, the NONMI here is meaningless.
+Well, see my reply to the Sashiko bot for possible problems.
 
-With allint, maybe:
+>
+>> ---
+>>   drivers/gpu/drm/tiny/gm12u320.c | 128 
+>> ++++++++++++++++++++++++++++++++--------
+>>   1 file changed, 104 insertions(+), 24 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/tiny/gm12u320.c 
+>> b/drivers/gpu/drm/tiny/gm12u320.c
+>> index d73dfebb4353..992160ea794d 100644
+>> --- a/drivers/gpu/drm/tiny/gm12u320.c
+>> +++ b/drivers/gpu/drm/tiny/gm12u320.c
+>> @@ -8,6 +8,7 @@
+>>   #include <linux/usb.h>
+>>     #include <drm/clients/drm_client_setup.h>
+>> +#include <drm/drm_atomic.h>
+>>   #include <drm/drm_atomic_helper.h>
+>>   #include <drm/drm_atomic_state_helper.h>
+>>   #include <drm/drm_connector.h>
+>> @@ -27,7 +28,6 @@
+>>   #include <drm/drm_modeset_helper_vtables.h>
+>>   #include <drm/drm_print.h>
+>>   #include <drm/drm_probe_helper.h>
+>> -#include <drm/drm_simple_kms_helper.h>
+>>     static bool eco_mode;
+>>   module_param(eco_mode, bool, 0644);
+>> @@ -87,7 +87,9 @@ MODULE_PARM_DESC(eco_mode, "Turn on Eco mode (less 
+>> bright, more silent)");
+>>     struct gm12u320_device {
+>>       struct drm_device             dev;
+>> -    struct drm_simple_display_pipe   pipe;
+>> +    struct drm_plane             plane;
+>> +    struct drm_crtc                 crtc;
+>> +    struct drm_encoder             encoder;
+>>       struct drm_connector             conn;
+>>       unsigned char                   *cmd_buf;
+>>       unsigned char *data_buf[GM12U320_BLOCK_COUNT];
+>> @@ -554,31 +556,33 @@ static int gm12u320_conn_init(struct 
+>> gm12u320_device *gm12u320)
+>>   }
+>>     /* 
+>> ------------------------------------------------------------------ */
+>> -/* gm12u320 (simple) display pipe                      */
+>> +/* gm12u320 display pipe                              */
+>>   -static void gm12u320_pipe_enable(struct drm_simple_display_pipe 
+>> *pipe,
+>> -                 struct drm_crtc_state *crtc_state,
+>> -                 struct drm_plane_state *plane_state)
+>> +static void gm12u320_crtc_helper_atomic_enable(struct drm_crtc *crtc,
+>> +                           struct drm_atomic_commit *commit)
+>>   {
+>>       struct drm_rect rect = { 0, 0, GM12U320_USER_WIDTH, 
+>> GM12U320_HEIGHT };
+>> -    struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
+>> +    struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
+>> +    struct drm_plane_state *plane_state = crtc->primary->state;
+>>       struct drm_shadow_plane_state *shadow_plane_state = 
+>> to_drm_shadow_plane_state(plane_state);
+>>         gm12u320->fb_update.draw_status_timeout = FIRST_FRAME_TIMEOUT;
+>>       gm12u320_fb_mark_dirty(plane_state->fb, 
+>> &shadow_plane_state->data[0], &rect);
+>>   }
+>>   -static void gm12u320_pipe_disable(struct drm_simple_display_pipe 
+>> *pipe)
+>> +static void gm12u320_crtc_helper_atomic_disable(struct drm_crtc *crtc,
+>> +                        struct drm_atomic_commit *commit)
+>>   {
+>> -    struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
+>> +    struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
+>>         gm12u320_stop_fb_update(gm12u320);
+>>   }
+>>   -static void gm12u320_pipe_update(struct drm_simple_display_pipe 
+>> *pipe,
+>> -                 struct drm_plane_state *old_state)
+>> +static void gm12u320_plane_helper_atomic_update(struct drm_plane 
+>> *plane,
+>> +                        struct drm_atomic_commit *commit)
+>>   {
+>> -    struct drm_plane_state *state = pipe->plane.state;
+>> +    struct drm_plane_state *old_state = 
+>> drm_atomic_get_old_plane_state(commit, plane);
+>> +    struct drm_plane_state *state = plane->state;
+>>       struct drm_shadow_plane_state *shadow_plane_state = 
+>> to_drm_shadow_plane_state(state);
+>>       struct drm_rect rect;
+>>   @@ -586,11 +590,71 @@ static void gm12u320_pipe_update(struct 
+>> drm_simple_display_pipe *pipe,
+>>           gm12u320_fb_mark_dirty(state->fb, 
+>> &shadow_plane_state->data[0], &rect);
+>>   }
+>>   -static const struct drm_simple_display_pipe_funcs 
+>> gm12u320_pipe_funcs = {
+>> -    .enable        = gm12u320_pipe_enable,
+>> -    .disable    = gm12u320_pipe_disable,
+>> -    .update        = gm12u320_pipe_update,
+>> -    DRM_GEM_SIMPLE_DISPLAY_PIPE_SHADOW_PLANE_FUNCS,
+>> +static const struct drm_plane_funcs gm12u320_plane_funcs = {
+>> +    .update_plane    = drm_atomic_helper_update_plane,
+>> +    .disable_plane    = drm_atomic_helper_disable_plane,
+>> +    .destroy    = drm_plane_cleanup,
+>> +    DRM_GEM_SHADOW_PLANE_FUNCS,
+>> +};
+>> +
+>> +static int gm12u320_plane_helper_atomic_check(struct drm_plane *plane,
+>> +                          struct drm_atomic_commit *state)
+>> +{
+>> +    struct drm_plane_state *plane_state = 
+>> drm_atomic_get_new_plane_state(state, plane);
+>> +    struct drm_crtc *crtc = plane_state->crtc;
+>> +    struct drm_crtc_state *crtc_state = NULL;
+>> +    int ret;
+>> +
+>> +    if (crtc)
+>> +        crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
+>> +
+>> +    ret = drm_atomic_helper_check_plane_state(plane_state, crtc_state,
+>> +                          DRM_PLANE_NO_SCALING,
+>> +                          DRM_PLANE_NO_SCALING,
+>> +                          false, false);
+>> +    return ret;
+>
+> Interestingly, this patch handled _check_plane_state() correctly.
+>
+> Best regards
+> Thomas
+>
+>> +}
+>> +
+>> +static const struct drm_plane_helper_funcs 
+>> gm12u320_plane_helper_funcs = {
+>> +    DRM_GEM_SHADOW_PLANE_HELPER_FUNCS,
+>> +    .atomic_check    = gm12u320_plane_helper_atomic_check,
+>> +    .atomic_update    = gm12u320_plane_helper_atomic_update,
+>> +};
+>> +
+>> +static int gm12u320_crtc_helper_atomic_check(struct drm_crtc *crtc,
+>> +                         struct drm_atomic_commit *state)
+>> +{
+>> +    struct drm_crtc_state *crtc_state = 
+>> drm_atomic_get_new_crtc_state(state, crtc);
+>> +    int ret;
+>> +
+>> +    if (!crtc_state->enable)
+>> +        goto out;
+>> +
+>> +    ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +out:
+>> +    return drm_atomic_add_affected_planes(state, crtc);
+>> +}
+>> +
+>> +static const struct drm_crtc_helper_funcs gm12u320_crtc_helper_funcs 
+>> = {
+>> +    .atomic_check    = gm12u320_crtc_helper_atomic_check,
+>> +    .atomic_enable    = gm12u320_crtc_helper_atomic_enable,
+>> +    .atomic_disable    = gm12u320_crtc_helper_atomic_disable,
+>> +};
+>> +
+>> +static const struct drm_crtc_funcs gm12u320_crtc_funcs = {
+>> +    .set_config        = drm_atomic_helper_set_config,
+>> +    .page_flip        = drm_atomic_helper_page_flip,
+>> +    .reset            = drm_atomic_helper_crtc_reset,
+>> +    .destroy        = drm_crtc_cleanup,
+>> +    .atomic_duplicate_state    = 
+>> drm_atomic_helper_crtc_duplicate_state,
+>> +    .atomic_destroy_state    = drm_atomic_helper_crtc_destroy_state,
+>> +};
+>> +
+>> +static const struct drm_encoder_funcs gm12u320_encoder_funcs = {
+>> +    .destroy = drm_encoder_cleanup,
+>>   };
+>>     static const uint32_t gm12u320_pipe_formats[] = {
+>> @@ -677,13 +741,29 @@ static int gm12u320_usb_probe(struct 
+>> usb_interface *interface,
+>>       if (ret)
+>>           return ret;
+>>   -    ret = drm_simple_display_pipe_init(&gm12u320->dev,
+>> -                       &gm12u320->pipe,
+>> -                       &gm12u320_pipe_funcs,
+>> -                       gm12u320_pipe_formats,
+>> -                       ARRAY_SIZE(gm12u320_pipe_formats),
+>> -                       gm12u320_pipe_modifiers,
+>> -                       &gm12u320->conn);
+>> +    ret = drm_universal_plane_init(dev, &gm12u320->plane, 0,
+>> +                       &gm12u320_plane_funcs,
+>> +                       gm12u320_pipe_formats,
+>> +                       ARRAY_SIZE(gm12u320_pipe_formats),
+>> +                       gm12u320_pipe_modifiers,
+>> +                       DRM_PLANE_TYPE_PRIMARY, NULL);
+>> +    if (ret)
+>> +        return ret;
+>> +    drm_plane_helper_add(&gm12u320->plane, 
+>> &gm12u320_plane_helper_funcs);
+>> +
+>> +    ret = drm_crtc_init_with_planes(dev, &gm12u320->crtc, 
+>> &gm12u320->plane, NULL,
+>> +                    &gm12u320_crtc_funcs, NULL);
+>> +    if (ret)
+>> +        return ret;
+>> +    drm_crtc_helper_add(&gm12u320->crtc, &gm12u320_crtc_helper_funcs);
+>> +
+>> +    ret = drm_encoder_init(dev, &gm12u320->encoder, 
+>> &gm12u320_encoder_funcs,
+>> +                   DRM_MODE_ENCODER_NONE, NULL);
+>> +    if (ret)
+>> +        return ret;
+>> +    gm12u320->encoder.possible_crtcs = drm_crtc_mask(&gm12u320->crtc);
+>> +
+>> +    ret = drm_connector_attach_encoder(&gm12u320->conn, 
+>> &gm12u320->encoder);
+>>       if (ret)
+>>           return ret;
+>>
+>
 
-+ * CRITICAL -> ALLINT + DAIF           (corresponds to the state on
-exception entry)
-+ * ERROR    ->  ALLINT + AIF
-+ * NONMI    ->  ALLINT + IF
-+ * NOIRQ    ->   IF
-+ * PROCESS  ->    0
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
 
-
-> + */
-> +typedef enum arm64_exc_context {
-> +	PROCESS_CONTEXT,
-> +	NOIRQ_CONTEXT,
-> +	NONMI_CONTEXT,
-> +	ERROR_CONTEXT,
-> +	CRITICAL_CONTEXT,
-> +} arm64_exc_context_t;
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
-> +{
-> +	if (system_uses_irq_prio_masking())
-> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
-> +
-> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
-> +	switch (context) {
-> +	case PROCESS_CONTEXT:
-> +		return __arm64_exc_hwstate_of_process_context();
-> +	case NOIRQ_CONTEXT:
-> +		return __arm64_exc_hwstate_of_noirq_context();
-> +	case NONMI_CONTEXT:
-> +		return __arm64_exc_hwstate_of_nonmi_context();
-> +	case ERROR_CONTEXT:
-> +		return __arm64_exc_hwstate_of_error_context();
-> +	case CRITICAL_CONTEXT:
-> +		return __arm64_exc_hwstate_of_critical_context();
-> +	default:
-> +		BUG();
-> +	}
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
-> +
-> +	if (system_uses_irq_prio_masking())
-> +		state.pmr = regs->pmr;
-> +
-> +	return state;
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
-> +{
-> +	arm64_exc_hwstate_t actual;
-> +
-> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
-> +		return;
-> +
-> +	actual.flags = arch_local_save_flags();
-> +
-> +	if (expected.flags == actual.flags)
-> +		return;
-> +
-> +	if (system_uses_irq_prio_masking()) {
-> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
-> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
-> +	} else {
-> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
-> +			  actual.daif, expected.daif);
-> +	}
-> +}
-> +
-> +static __always_inline
-> +void arm64_debug_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_debug_exc_hwstate(expected);
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
-> +{
-> +	if (system_uses_irq_prio_masking() &&
-> +	    update_pmr &&
-> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
-> +		/*
-> +		 * There has been concern that the write to daif
-> +		 * might be reordered before this write to PMR.
-> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
-> +		 * "Accessing PSTATE fields":
-> +		 *   Writes to the PSTATE fields have side-effects on
-> +		 *   various aspects of the PE operation. All of these
-> +		 *   side-effects are guaranteed:
-> +		 *     - Not to be visible to earlier instructions in
-> +		 *       the execution stream.
-> +		 *     - To be visible to later instructions in the
-> +		 *       execution stream
-> +		 *
-> +		 * Also, writes to PMR are self-synchronizing, so no
-> +		 * interrupts with a lower priority than PMR is signaled
-> +		 * to the PE after the write.
-> +		 *
-> +		 * So we don't need additional synchronization here.
-> +		 */
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
-> +	}
-> +
-> +	write_sysreg(hwstate.daif, daif);
-> +
-> +	if (system_uses_irq_prio_masking() &&
-> +	    update_pmr &&
-> +	    hwstate.pmr == GIC_PRIO_IRQON) {
-> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
-> +		pmr_sync();
-> +	}
-> +}
-> +
-> +static __always_inline
-> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
-> +{
-> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
-> +
-> +	arm64_update_exc_hwstate(hwstate, update_pmr);
-> +}
-> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
-> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
-> new file mode 100644
-> index 000000000000..3034c490ed66
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/entry.h
-> @@ -0,0 +1,110 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_ENTRY_H
-> +#define __ASM_INTERRUPTS_ENTRY_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/interrupts/common_flags.h>
-> +
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
-> +						  arm64_exc_hwstate_t next)
-> +{
-> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
-> +
-> +	arm64_debug_exc_hwstate(prev);
-> +
-> +	if (prev.flags == next.flags)
-> +		return next;
-> +
-> +	if (!arch_irqs_disabled_flags(next.flags))
-> +		trace_hardirqs_on();
-> +
-> +	arm64_update_exc_hwstate(next, update_pmr);
-> +
-> +	if (arch_irqs_disabled_flags(next.flags))
-> +		trace_hardirqs_off();
-> +
-> +	return next;
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
-> +{
-> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
-> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
-> +			     prev.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
-> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
-> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
-> +
-> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
-> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
-> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
-> +	}
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
-> +			     prev.daif == DAIF_MASK);
-> +
-> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
-> +			     prev.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
-> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
-> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
-> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
-> +	}
-> +
-> +	return __arm64_switch_exc_hwstate_to(prev, next);
-> +}
-> +
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
-> +{
-> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
-> +
-> +	return arm64_drop_exc_context(prev, context);
-> +}
-> +
-> +static __always_inline
-> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
-> +{
-> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
-> +}
-> +
-> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
 
 
