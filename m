@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C85C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 19:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D137C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 19:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HbI/3Z6Uv0qa6+qosAFvTVjIg/YJF+zx3k1VAkMd4hg=; b=Q5wwEETRo3NRWQ6HCwVPovZ3XU
-	PyffOyz65qMMWWWYNyy8q+sU5KPuuMC7fPByBDCL9fwjWsBhRPd5yvqzRNU7AGl3MqnCnqdWIuUM+
-	lJ9FS0c1nKRl0nDLRqtOhCpS8VUnAnhsWBfi7SO6ZQY9qdccbqvnPxrj0yUda99XRI6oukiyJQEBg
-	SFj8dKIB6X+8s0fiYlNctLBG+VixCSpF+ZuRTShBOMTeCh1AVgA9T0ONg3REFI05RxE1lhlPtBVwH
-	j3sS0ykymW/pSbsoP89Ez2apRyG8pi9O5V9FKs6M1eoA6gBMfIpva/wHeNIr25ExHnmDaufmtQ/XG
-	cI8QRAgQ==;
+	bh=xsh2UtAwZF8dVDdfcIpXUpF41HpbSyTO2Zf5uTTvtjA=; b=LBxXxTr9NUGCOXg9lynGONkM4y
+	rxSM3bz7rNuwUHry8kXARRdyVeMr82bfGkcdyUhgVKctyZTnE54LeZkvQNNew6Ook09Fa/aMsSAbN
+	GuN3sATFHdVtkKlrwbh6Be6tGbn7VuSh0zwwVonXwa/dh88H/KEtgXunbxF9Y8sl7TrthmktuoAOh
+	Hyaq7B5WNSU98rYlJXN11M1lEIi+33rs2AZyFmBz108FocNm8T5MZTImjgwAp2+B4H3ujgpkDBArs
+	kwntV+5HtIICVdpWXx6vThq6yRIY3t4zTJLXkzP3C0VYN+XgWD+d/ZB0hdwEAfcD0Q8ZiWVErxQ/f
+	oecao9+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiGUr-00000005ZZL-2Kth;
-	Fri, 10 Jul 2026 19:02:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wiGWg-00000005Zjh-3y5Q;
+	Fri, 10 Jul 2026 19:04:42 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiGUp-00000005ZYw-2WQw
+	id 1wiGWe-00000005ZjJ-2bjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 19:02:48 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AH5OJK1407742
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 19:02:46 GMT
+	Fri, 10 Jul 2026 19:04:41 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AH4IwF1234481
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 19:04:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HbI/3Z6Uv0qa6+qosAFvTVjIg/YJF+zx3k1VAkMd4hg=; b=Q8n8HNXAtl5a0NYs
-	2v4L3coJYaWCmb3rNaffYnsPrg8b5U6HwUG5pUPuGcB1SSNPhjXCJWCa+R4/tFCO
-	MTsAX2/z5YD4rp9dy83CApG+ynJsS+i/g6h73mSeJqnt0u3CLq5TESPQ0BxLcCt+
-	QtKdnKuUZ7DieQORjRT7B2v1b/eH3RlgClJQD4kDLY7PcMnT+aZFtY+vA0aSLxVL
-	BIQ6nlWCSTdWKn1/9x2tvttdvlVhvZUiqNDLXJhKAkXboNN8u5FeSM/K+Vs9n2xd
-	+SrzadYrMMJroREaEELQsse17gT27CtHmbak6hSMuq2GApcwflptMPdy/5wldEY+
-	/PCXLw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fax5fa3ph-1
+	xsh2UtAwZF8dVDdfcIpXUpF41HpbSyTO2Zf5uTTvtjA=; b=VSIgiN/OdJOxAwl0
+	rGMUILflqtHg7sE5TIOmgkyaT4iunv3HsULs67fyGANv2W4uLvkwDGVehdfaeFUu
+	GB/XVqIeBuvS4rjFfiJTXu8XKepgOaPBjOGGHHgXp1rrYdI8RsLhOJXVrxAhB8MC
+	P4fF6yen/EYDO+Ui/aSBWyRaNmsnWr3tMRr9Q2PuNdPQWai9MhcGEY17ZTpe2CbJ
+	O0opAwJRxaq5hzV0A+6ePYLIOIX7t1swBpyKC02t2xYjKj4ZpxvLy4lnMgLjArp0
+	PJicsMkb9bc9q1iR84jq/uoo6iXoLDlTF3R/VCpqk8H2kvjjQ8LjRd8wORA6uWeG
+	MWRhSg==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fb4rm8e74-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 19:02:46 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c8952346bb9so894416a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 12:02:45 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 19:04:40 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cce870a060so21096835ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 12:04:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783710164; x=1784314964; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1783710279; x=1784315079; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=HbI/3Z6Uv0qa6+qosAFvTVjIg/YJF+zx3k1VAkMd4hg=;
-        b=UwdTNdGUfShPqhd8lDYav1HFN4QQhjWbW4vF69Zrl6iw70q/3UbkHihn5nX1LK4okk
-         1fpGMyXKA85r+fu4MKvJdbMEdwj2m7GZoUP0XKzKErFWKNCpZc5qBHe5uY+fB9MNUrbr
-         QuanE3ZTSIt7L9OXPSchtzfn6MJzKCpN92DP3yM3JW2EjHcF+gCHgMqUKkjoDCqlvW/Q
-         Gn0G6zeJM4VdXZcqaifIwi93m+hcaSs6TGoVbG8potSKB/G7dVWJtnXp/DA2wyfipKqR
-         sF+ND6HTA9d+RqqmEHsddkqBREx3791PPcpCfI+eB5zIoNq3dV8895OSWtqyreYgCepi
-         HSdg==
+        bh=xsh2UtAwZF8dVDdfcIpXUpF41HpbSyTO2Zf5uTTvtjA=;
+        b=Q40OVRexy+h5Tt2pabMng2mX2Ida6WRcUwV3mVqMdsZT0Awr3kT6Y3rORc2oWYzrQc
+         HmN/EC3K+XnyrEV1ZT71s+oSr5CjvlLioKmuQSEsu5cui2GtwJWFh+qF8OBntSCxke1S
+         llcHgXs2NLoiK3C9+PbBWh1OrQQ8aFKp31O1yVOTDPuSH+XvEL61zTdeMwlf+tClc57o
+         UO9wSCy98qh7AzwWZrF5zEeVzl4P6zl4creTBXhYdXEMWhkYa7+3ah7v8JitYWebCZvP
+         WQh0GljXJim13aK06wOpW+Sp4aJ4Nqp89wj0TycpI9p8jmlZV7NQp5MLhZf/Sa3rEzhC
+         E7KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783710164; x=1784314964;
+        d=1e100.net; s=20251104; t=1783710279; x=1784315079;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HbI/3Z6Uv0qa6+qosAFvTVjIg/YJF+zx3k1VAkMd4hg=;
-        b=Pf1gkiL3EPfa70MaAFD37AVf50WoFcy9IqAv6a2ty180zy8Pa4fQQH80sNKKtebmLU
-         OCrKLi98PM79e9P5ybnSMQ7RSgvHKX+LHwqo4PFT9wrClV4YAzQTduhEgJaAdF7vslr4
-         0pPR8U3na78FFEsU2+SICuBS8oaBdxnTUMH86CF1aCxbTFwDRBiHJTMuBpVQda2S4wJY
-         LL8Cq07h4pKC5baffgWvpTk4Xdkrk37wFzb2Fh44ST3JcPPK1biBDq6JlvAf488FTwpj
-         fx4CaSnVcDl8aF/sobAksfpX0ce3LCtqzjQon1wJjdtjL6WkIVS6Pvw6uLvyqXXVYsJY
-         yF0w==
-X-Forwarded-Encrypted: i=1; AHgh+RoLMf7Xc36rHSgk9qWgGFCUsOgxN6vRZJrkUJXx1Mat9Q16p7VHXBFI2yO/AHywuqWqlQD9z5nncy9f+L1yWju8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzELTgdXRoQQn+y17P8HTiObgOotlbta1z+S5dZEK9eprfKwz9p
-	07F1vmpngXHBbvUi4MOypX96Y6NyySZpc89I4Gr0xGZhjSZ/mAMFFJ8/eZoxKGT1nthS8Cez2XS
-	gcySvRB+Yb2Yr+3e9EJyxz+CqSBf3i+enrgnrrAVfjatPwVLI+U1L7xV07e/4TNAxd8B6UJ1yU9
-	0j2A==
-X-Gm-Gg: AfdE7cm3LcZej3O5Hln+5SUc95fAOTbGUTuAoFlwX/F+qCC6h5AcsQn0oqkGQhXh/sy
-	6b0B2DSolygaxfeeLiROTVXYiAvnBVlTJLSFJqYlN3xYTgcFO2Ztj8Mr3/105uzCpigyj7E6plD
-	WBXTLXQT97Zs313HrHCeNNjPsvuM6nCXmEPGqb1q0IGBZctM1VN/jj0W2HUc0RbIBQm/arYCy9e
-	vi3964Iijp1dNqN1l0cp3Mw9wXv2pdsp0GQH98wusCLlmZRMJXhVglpSHyBu0TX3c0pwuCC22nH
-	DTLrK+bsZwSCfbxI/U32jbesOY5Bqj2UJdHXrL20CQss8JiuHI4jUk4cGtvED5z+XJjl5cgRDeV
-	9lHbDiNdXpaSkwl9rn5bc9A6HIRB4SIADwJaq
-X-Received: by 2002:a05:6a20:9f8c:b0:3c0:9c19:659c with SMTP id adf61e73a8af0-3c110b7ba39mr273339637.68.1783710164234;
-        Fri, 10 Jul 2026 12:02:44 -0700 (PDT)
-X-Received: by 2002:a05:6a20:9f8c:b0:3c0:9c19:659c with SMTP id adf61e73a8af0-3c110b7ba39mr273287637.68.1783710163656;
-        Fri, 10 Jul 2026 12:02:43 -0700 (PDT)
+        bh=xsh2UtAwZF8dVDdfcIpXUpF41HpbSyTO2Zf5uTTvtjA=;
+        b=Cui8HZfl/CvA3ybrr1T4E0MMscHpenZNq498IHEMiZxHF2Z/oLtay3nWPSievLT2RL
+         fkdgmK5zh9/A1vZWeMsWUPwUitRUcHBNXWPg1QZ6nrQ7uIEBkky/0R8lhOXlxAhtvz8V
+         g16qv3dUFAYKFgyryw3r2SuLCX2kPAcoQaWAvS9I/7ElxygRpzp7vZ+8eGnLFtnNGGfW
+         RBSyVI/ZAsWlakDPWaqKHOvs/8VoGOxD0KnMLNy0CBRJ5XL55Xx2CisUAbmDheQ/J7TG
+         g++HXEg6rFSB88AHkDVHXfhS3rLhIXv1WhfO8fXHuthvaQ16HfTBOaNNve+ZscnFMq+D
+         nFbg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqsh90Mf+yNC2jvj7uhaxis2k5B/CnELcYHgXZS1USoyTQh/uKrUWqiz739IF6WHzC6mTDrcnBfHoQtg3oVcy5x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKKEHS1OkwbnnHb9Blv0FWy48Jpc1aFDCCiXO84/3jt6DaeWia
+	V1JT8blNb0ipzYgq53rjleISZf4xc5rjjbItfe4/3BJuZvhkNk74p3mThnkIIISx+8eHSyIAWwR
+	qFRstXAlhfV8sqmfV7dWHzwpZ1YFQ04FwRY4+CXPb/fYNugWMqNKYMOjwDFKPjpEKVZcXXze9To
+	b6ew==
+X-Gm-Gg: AfdE7cnxI7O04Ga/HqE2Wi7wFbDqPFAg8ACsCJyZcc2ichMio20lHkMxK23xscmoi3i
+	G0iyoD3HTaaJA3QMlQVtRFM5XRJXzlw1dyx5nDLjNkTc5sVp74auOTHy8SnX1Qxg6hM3x58dATu
+	N2G2dAUeSNWlGoaeTkYmca4z6lNNxOds27qBnh6GNtEBZogFJL1oFioVLGTB75PBYXd2HGlytQy
+	jWkhPuWWcH+ayKsbEVDsTulsm+WDKfyXvCoofTpT/HW0hhHI+OIjsj0SWHKVb0hRzdvZ7UM0Aic
+	RaDYxlqzsR9l8IrO5o5ynoWoBnBsmlLtY7M500789gHBTEaI1wg8ao2Cb+B7a6GY9jJ84bJGnhE
+	7tniLexHTCAzHfvQ/UyVyqgmXvYbSzv6321uO
+X-Received: by 2002:a17:90b:510b:b0:387:e0bb:57f5 with SMTP id 98e67ed59e1d1-38dc7798fdcmr201821a91.38.1783710279339;
+        Fri, 10 Jul 2026 12:04:39 -0700 (PDT)
+X-Received: by 2002:a17:90b:510b:b0:387:e0bb:57f5 with SMTP id 98e67ed59e1d1-38dc7798fdcmr201779a91.38.1783710278860;
+        Fri, 10 Jul 2026 12:04:38 -0700 (PDT)
 Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659d8da9sm78063641c88.14.2026.07.10.12.02.41
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f5975sm40533217eec.4.2026.07.10.12.04.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 12:02:43 -0700 (PDT)
-Date: Fri, 10 Jul 2026 12:02:39 -0700
+        Fri, 10 Jul 2026 12:04:38 -0700 (PDT)
+Date: Fri, 10 Jul 2026 12:04:34 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -117,48 +117,48 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
         Niyas Sait
  <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 09/16] arm_mpam: let low level MSC write accessors
- return an error
-Message-ID: <20260710120239.00002f99@oss.qualcomm.com>
-In-Reply-To: <20260710144520.917375-10-andre.przywara@arm.com>
+Subject: Re: [PATCH v3 11/16] arm_mpam: propagate MSC write errors for
+ hardware probe functions
+Message-ID: <20260710120434.000011a9@oss.qualcomm.com>
+In-Reply-To: <20260710144520.917375-12-andre.przywara@arm.com>
 References: <20260710144520.917375-1-andre.przywara@arm.com>
-	<20260710144520.917375-10-andre.przywara@arm.com>
+	<20260710144520.917375-12-andre.przywara@arm.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Ab2B2XXG c=1 sm=1 tr=0 ts=6a5141d6 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+X-Proofpoint-ORIG-GUID: PhohOZIvV3FpliQzx4d-F3juEtyvonCF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDE5MSBTYWx0ZWRfX50jQDNUPYZ0j
+ 7m57v7NqVr8krMG3H3HsV97hoOfsZuLioGkooENa+D/ybYmsqeLLS/BR0myUXQQUF8Kt5olqymR
+ BWfiOF9PrHZoiiP/AqplCsKi38XMlBVWxO4gq57QvI9hFEY55meJq2UwcNhX0FFnv+ecKUPlKY7
+ tbL7mJDQ2FwZd4v16OXWIXIVdVOSJ6d4NfAGCccQ/+0jXPkb+7KSNUu1WH0KEUz425uB+yfR9xz
+ xqV0S7AHs0HIChoSLztO/ug+vJnq5dwhXqTPoZoUtt56L1h1Dq4LmMe3uqYizqg0NH5FUop1A7+
+ Em2rdCImeOyjP0nJA0CVaNeY7YU45lYMsE5Wh6E7ZejYCTuAii00bbv6SrGwZN5yqrKcb9lSDb+
+ aysBnzG2zPjIz1nfEoo5Rz9IbrlJABLdui2FyZar0xCfapo7wSmQ6sNP04YWlf2auseItpKLxtB
+ WB/imwwizV+9CeDpQ0g==
+X-Authority-Analysis: v=2.4 cv=JIYLdcKb c=1 sm=1 tr=0 ts=6a514248 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
  a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=7CQSdrXTAAAA:8 a=LvQbmhgH5lkxUdBqBIQA:9 a=CjuIK1q_8ugA:10
- a=3WC7DwWrALyhR5TkjVHa:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: IfyY1hVZmwInJI0w-r3kTSBr2RPrR8o7
-X-Proofpoint-GUID: IfyY1hVZmwInJI0w-r3kTSBr2RPrR8o7
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDE5MCBTYWx0ZWRfX8Td3SxLX+yOC
- DGcPcy7MOXUI9zfrn46o4LC3Tj5rsNffOOUWJNwRc+Z3oSaTMgr3wqZq/wd8bzjPnAD7Vox44S4
- V2i0C7sJAcRuNhrJKqxF/fuKsSO9VDI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDE5MCBTYWx0ZWRfXzkc9YYMpFQC6
- zMvd6cMqS1T7OVKFgakjxnwFKNCTmxZD09xHf5pUv+BF0vy18ef/9k6UDZSRtn3U7DNDNO9cEdG
- VSnMOOjmG5HqYo1oMdwZ0p0SpGBtceJSnDS0sItAp1pbEc2BJUgdxWsx4R9WA95C1oTTFdCqTTS
- iJ4pofNKNY2C4IUdpesAi8gFS7a89t5vOtvCYsXFwVbAE9PoCwtOuHxbgj/iNMDJ4L4ZCb1IVZ9
- le1yKsnIghkPhsachgVl7SxrVJFuMiJjTjZ8qT4ljmY0H9hukt8l7R7PGVh7Y9iA3w4aseEvmln
- CT86btjsQJnct3b6bKTcQZmGB6S+dUn/dpi/op6MZnPWWt7d6SyU2VqDnEsN2z66dSWkSNh39RP
- pfF4jQMfqoMCCbzQgTSkXrtqV78nimsKlk4U1RW+NMmUV0AG6OAQ/A5d9+jDdtKE5NcLuWwJv7b
- NEiMMgOHmUlOzMrQOLA==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=7CQSdrXTAAAA:8 a=00dG4hwU-RTZ5c020ZwA:9 a=CjuIK1q_8ugA:10
+ a=GvdueXVYPmCkWapjIL-Q:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: PhohOZIvV3FpliQzx4d-F3juEtyvonCF
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDE5MSBTYWx0ZWRfX6M3CKsLwyz2d
+ oVPbCMEbUIiZluY8lt1KEyKrA2QD87Fr9zKotnQEyBErweu6l+8oPbx1tFMGz8xbkEOYTpW0hhl
+ Cy+piqmVpPHDNuJ9SW4wMbXH3sN2fAg=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-10_05,2026-07-10_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 malwarescore=0 phishscore=0 bulkscore=0
- suspectscore=0 impostorscore=0 lowpriorityscore=0 priorityscore=1501
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607100190
+ priorityscore=1501 adultscore=0 impostorscore=0 lowpriorityscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 suspectscore=0 clxscore=1015
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607100191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_120247_761489_B9AB4E0A 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20260710_120440_673336_5EEAD19D 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,76 +173,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jul 2026 16:45:13 +0200
+On Fri, 10 Jul 2026 16:45:15 +0200
 Andre Przywara <andre.przywara@arm.com> wrote:
 
-> The upcoming MPAM-Fb support does not use MMIO primitives to access an
-> MSC, but employs a shared-memory/doorbell based firmware protocol.
-> Its complexity means that is must be able to handle errors, whereas we
-> always assume an MSC access succeeds today.
-> 
-> Change the __mpam_write_reg() low level accessor function to return an
-> error code. At the moment this is always 0, but this will change with
-> alternative MSC access methods.
-> 
-> Also change some low level wrappers to propagate the error.
+> Allow the MSC write accesses in the hardware probe functions to return an
+> error, and propagate write errors from the lower level up.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-I mentioned earlier that to me a split of read vs write into different
-series of patches is making things more complex than they might be.
-They are same 'sort' of change so I'd do them together.
+> @@ -1080,9 +1087,11 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  		ris->idr = idr;
+>  
+>  		mutex_lock(&msc->part_sel_lock);
+> -		__mpam_part_sel(ris_idx, 0, msc);
+> -		ret = mpam_ris_hw_probe(ris);
+> +		ret = __mpam_part_sel(ris_idx, 0, msc);
+> +		if (!ret)
+> +			ret = mpam_ris_hw_probe(ris);
+>  		mutex_unlock(&msc->part_sel_lock);
+> +
+Similar to before, scoped_guard() and burn a few lines to get
+simpler code flow.
 
-Then a reviewer can quickly see if all new sources of error are
-covered.
-
-Thanks (and sorry I didn't look at v2!)
+Various other comments from earlier patches apply in this one
+as well, I'm just assuming you'll make similar changes (if
+you adopt them based on earlier comments)
 
 Jonathan
 
-> ---
->  drivers/resctrl/mpam_devices.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index b2ecaba29fcc..f1e40ce24f5a 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -195,18 +195,20 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
->  
->  #define mpam_read_partsel_reg(msc, reg, res) _mpam_read_partsel_reg(msc, MPAMF_##reg, res)
->  
-> -static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
-> +static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
->  {
->  	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->  	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->  
->  	writel_relaxed(val, msc->mapped_hwpage + reg);
-> +
-> +	return 0;
->  }
->  
-> -static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-> +static inline int _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
->  {
->  	lockdep_assert_held_once(&msc->part_sel_lock);
-> -	__mpam_write_reg(msc, reg, val);
-> +	return __mpam_write_reg(msc, reg, val);
->  }
->  
->  #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
-> @@ -220,10 +222,10 @@ static inline int _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg,
->  
->  #define mpam_read_monsel_reg(msc, reg, res) _mpam_read_monsel_reg(msc, MSMON_##reg, res)
->  
-> -static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-> +static inline int _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
->  {
->  	mpam_mon_sel_lock_held(msc);
-> -	__mpam_write_reg(msc, reg, val);
-> +	return __mpam_write_reg(msc, reg, val);
->  }
->  
->  #define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
+>  		if (ret)
+>  			return ret;
+>  	}
 
 
