@@ -4,73 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D27C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37390C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGqyGr0qnRTIfiiGAnTHRi5kH6FwiwHXP6bOvfynGCo=; b=DRUSnGGai/c/S7rnuoI4pq4LhY
-	etLZjhEThuGWiYJ5aW33WYlsKHaGsWEygYdqqcLI+o0+Oeh/nQVPQlo3KDV6bV+xaF+odWYHN0E5d
-	RLn+qsVN2+Co4ImqaW3FOFWiahzHYLk86OWHZoFjp7JIRtx9A36vSTCABo2J//5iBXIeeckwCe/6Y
-	NeP4D/X69HToyzjzkK1chRyorcr0G7eyDjVmFBBsuFMyYJxodO6QdJfOCZVsOJtOq9xzr3CubLhEd
-	qfbv9B8+rpvdBox7Ca5iRcr3PsoRlwbz/MdrdOQBnHXXKfbx2IlQ+/PFmXHyPHWl3+9ae0U9DA1fb
-	QeHiDNdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GOt9UTfd15E1bmXXOo8yVb8JvjAgMSQeHBt96w88/lg=; b=YnuC46p+JYT6z6MmgEIDoTUSfS
+	VPt3C3eTdwmcfNEJvmpS0iUwJRCTHLL++RAKwAPBSt4R75KKsgdCQCb8jlWCMyHGF7Umw5f8Ngp4y
+	HLeXWN09lGHqtcTUFhRX1ZKi+/dnfM7rT25vEh42Ycxa/YdjaY0iFuI9Cpm8vcRExWrg0A+zYReBZ
+	wLUWTsNLQw29TB82cqV7PlyGBIzyMQE9hc2vNb6btfyJ2Oo8zio5u4n9Ii5alfEIJZYR4VJtsW8Lt
+	upDVUi5Cd2R8GUGB7SE9s96C01Zz2uA5VpuBOwknFt3bxOdHWO7ZpgRCYa3TGAxKLZla6ei49Ro6J
+	4mUU40sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8oY-00000004k0f-31Hv;
-	Fri, 10 Jul 2026 10:50:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wi8pm-00000004kJz-3p7m;
+	Fri, 10 Jul 2026 10:51:54 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8oW-00000004jz7-2V4J
+	id 1wi8pk-00000004kJV-2eDk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:50:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58BEE43A68;
-	Fri, 10 Jul 2026 10:50:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B9211F00A3E;
-	Fri, 10 Jul 2026 10:50:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783680636;
-	bh=RGqyGr0qnRTIfiiGAnTHRi5kH6FwiwHXP6bOvfynGCo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JmZNNSbH/uAipSKatNpg4FnEQbUwcHdCZSv701esMqRR3r8BM+UhuuuWLJuEAWjdk
-	 72he/8SBrZgAkncvyWiOyZ6S6o2zfQoe6YMJielBWMPC6MJMEaUPq9cq++2oMTzOTh
-	 /uBhg20EHpETD8G6t/QE+62EVjU4iG6ocqI4EEfuBgZqc4P+7BiPIkPv4FbmAnmFQZ
-	 Uyq6spnfkbpD62VLoOeieQ53HxX1Kfvkadpi1i0Qzt/lRxKTYd5CnS/RlVStiTrZIv
-	 Z6T9z+01QAo/tfg46P158UenzJmqlbKD5VozoUGVPFPeq0z3X2qST/X2cz8A99xi6p
-	 zsu3tF8GYWpxw==
-From: Lorenzo Stoakes <ljs@kernel.org>
-Date: Fri, 10 Jul 2026 11:49:19 +0100
-Subject: [PATCH 2/2] Revert "arm64: Enable vmalloc-huge with ptdump"
+	Fri, 10 Jul 2026 10:51:53 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AAmijR1390824;
+	Fri, 10 Jul 2026 10:51:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=GOt9UTfd15E1bmXXOo8yVb8JvjAgMS
+	QeHBt96w88/lg=; b=VGgz5mhB7pvtkSg86KDe+v1YOa3KoxHi3E/EGNpgCrOWnv
+	J78KChO+feSW4mi7bI1gzXyww3UyP7xmvvnXuEgqMT/2BZfWuQowdtqFrZ9rFNq9
+	GgmbrROYOIBGs/DxNWAh38gJph/GSawOJRqVprobnf+Vg04sPvs8eSwJ5bAXHnNf
+	S/ybdW090VTMFsQZuXwgCdpKRgMM/qVVH7oC11aBrm7Zz6++ktN+RP9EW1YmwZtq
+	jvAugQTosYYTMwwVWveA1KnlYX7CwN/7a/6qaZJlyP7tG+RpwQaNunVZvCnu99KA
+	KXYJqMFaeSDYvFw5ispNdfTVpsir20v6brQ3Uyew==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sur60nx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 10:51:43 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66AAo3xj021453;
+	Fri, 10 Jul 2026 10:51:42 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6yh8vu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 10:51:42 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66AApZCs42860824
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Jul 2026 10:51:35 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7F31D2004D;
+	Fri, 10 Jul 2026 10:51:35 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A65D320043;
+	Fri, 10 Jul 2026 10:51:34 +0000 (GMT)
+Received: from osiris (unknown [9.87.147.219])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 10 Jul 2026 10:51:34 +0000 (GMT)
+Date: Fri, 10 Jul 2026 12:51:33 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Christian Borntraeger <borntraeger@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 13/27] KVM: s390: Prepare KVM/s390 for a second KVM
+ module
+Message-ID: <20260710105133.984749-G-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-14-seiden@linux.ibm.com>
+ <857debcd-3e44-4844-8abc-b26b892d3d7c@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-series-vmap-race-fix-v1-2-5b3794c113fe@kernel.org>
-References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
-In-Reply-To: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: David Carlier <devnexen@gmail.com>, Dev Jain <dev.jain@arm.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Lorenzo Stoakes <ljs@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6588; i=ljs@kernel.org;
- h=from:subject:message-id; bh=KKdm5bAQRJs2wjkGqqkWHkasEM5SGHceCFsCIrr8Hcg=;
- b=kA0DAAoWz53NioHifxQByyZiAGpQzmeg1CaSle+pPvfiKTwM/FWk0TrLLYlVO+z7s1Tq/yiEW
- oh1BAAWCgAdFiEE5/QXv1IUVp6J0E9Gz53NioHifxQFAmpQzmcACgkQz53NioHifxRtygD8DDHr
- qmflY8u1wL4+uyFP5fvhkVw7x4O8NIfxOS7QtO8BANpixWKzzYzSoiOqNyTQDyQhFPD7JVB4JZk
- rV+AmjL0P
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <857debcd-3e44-4844-8abc-b26b892d3d7c@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEwNyBTYWx0ZWRfX4zdIBNagPqa0
+ gow44HyeI+ZE8COEI5Df/iYOXHuCJZHcb65sFe2LS1k9gKhL162cEPMJaDdCVChbjTNslF2mUq6
+ 1NmQG6QREOoqR4oJD+e9jaLSpJgxkKQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEwNyBTYWx0ZWRfX/p7pRWT1fj/s
+ ClwVNWbmThtrMJBs0xfC/3ZFJuLnVNHceKRH3C1gkMY7TiGhfi2I/QF4NcAaC7wLTpyDClyoH9N
+ qtUkqRRpjrsUZZMlojOR5abFGV0XPs+GLXgw7Aso/biq2WVee6IevLjacQ0EDIEG+MUXMR6t434
+ JbJbPHViwnhLYH5VLjsXR+XmwCRYB16J0Fmly4+kvMuPBNaDP2/IHggRKSiRfAZuH9U7xOrVY3I
+ dilbbccVv7VU3lx2FjJV/EWStypteNLmI4/kjlR0v348gIoyxSYh/U0Hqyq2gXsNe/fyBCS5IzD
+ v5wqoql9nZTVu0lD3u6pjwflNCfMgN2lwLvTFpeGvZAELe0scRyGKdcNYWB+jEWE95jTB3iQiiF
+ DuD7Sc09/A9B7nl7jKHFfwv9U619+ci94kxyLi4LWllHr44zEQBvIlIZ50AHSsFOE9SF4dcUQsX
+ 6KBTc5p/RjvU85QinUg==
+X-Proofpoint-GUID: vSk_p_zZRro3pgiNR5436sG61bZennMI
+X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a50cebf cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=YB9r6mRHUy78XhmW5L8A:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: vSk_p_zZRro3pgiNR5436sG61bZennMI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-10_03,2026-07-09_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100107
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_035152_678686_8A821694 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,202 +142,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-with ptdump"), retaining vmalloc-huge support but eliminating the now
-redundant mitigation against a race between huge vmap page table freeing
-and ptdump, as this issue has now been fixed at core.
+On Fri, Jul 10, 2026 at 11:22:29AM +0200, Christian Borntraeger wrote:
+> 
+> 
+> Am 06.07.26 um 10:52 schrieb Steffen Eiden:
+> > Lay the groundwork for a second KVM module. Guard KVM/s390 behind the
+> > KVM_S390 config and turn CONFIG_KVM on if selected. Move all the
+> > kvm_host definitions to _s390 postfixed headers. Prepare local header
+> > include guards for a new location. Move gamp related tracing into a
+> > separate file. While at it, rename the main KVM/s390 files from
+> > s390-kvm.{c,h} to just s390.{c,h} to match the naming scheme of other
+> > architectures.
+> > 
+> > No functional change.
+> 
+> [...]
+> >   arch/s390/include/asm/kvm_host.h              | 774 +-----------------
+> >   .../asm/{kvm_host.h => kvm_host_s390.h}       |   6 +-
+> >   arch/s390/include/asm/kvm_host_types.h        | 347 +-------
+> [...]
+> >   copy arch/s390/include/asm/{kvm_host.h => kvm_host_s390.h} (99%)
+> >   copy arch/s390/include/asm/{kvm_host_types.h => kvm_host_s390_types.h} (98%)
+> This is just an "almost" rename only in the end. Maybe we can convince git to show a better diffstat to reflect that?
+> 
 
-We also simultaneously remove the arm64 ifdeffery when acquiring the mmap
-read lock upon vmap huge page table promotion as it is no longer required.
+The rename only part worked quite well (6 lined diff). I used
+--find-copies / --break-rewrites with format-patch when creating this
+patchfile to reduce the diff. Otherwhise we get a diff like: 
 
-Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
----
- arch/arm64/include/asm/ptdump.h |  2 --
- arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
- arch/arm64/mm/ptdump.c          | 11 ++---------
- mm/vmalloc.c                    | 15 +++-----------
- 4 files changed, 9 insertions(+), 62 deletions(-)
+...
+ arch/s390/include/asm/kvm_host.h            | 774 +------------------
+ arch/s390/include/asm/kvm_host_s390.h       | 778 ++++++++++++++++++++
+ arch/s390/include/asm/kvm_host_s390_types.h | 347 +++++++++
+ arch/s390/include/asm/kvm_host_types.h      | 347 +--------
+...
 
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 5b374a6ab34a..50a195eda8ed 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -7,8 +7,6 @@
- 
- #include <linux/ptdump.h>
- 
--DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- #ifdef CONFIG_PTDUMP
- 
- #include <linux/mm_types.h>
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index f2be501468ce..f723bcf68174 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -49,8 +49,6 @@
- #define NO_CONT_MAPPINGS	BIT(1)
- #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
- 
--DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- u64 kimage_voffset __ro_after_init;
- EXPORT_SYMBOL(kimage_voffset);
- 
-@@ -1857,8 +1855,7 @@ int pmd_clear_huge(pmd_t *pmdp)
- 	return 1;
- }
- 
--static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
--			       bool acquire_mmap_lock)
-+int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
- {
- 	pte_t *table;
- 	pmd_t pmd;
-@@ -1870,25 +1867,13 @@ static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
- 		return 1;
- 	}
- 
--	/* See comment in pud_free_pmd_page for static key logic */
- 	table = pte_offset_kernel(pmdp, addr);
- 	pmd_clear(pmdp);
- 	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key) && acquire_mmap_lock) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pte_free_kernel(NULL, table);
- 	return 1;
- }
- 
--int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
--{
--	/* If ptdump is walking the pagetables, acquire init_mm.mmap_lock */
--	return __pmd_free_pte_page(pmdp, addr, /* acquire_mmap_lock = */ true);
--}
--
- int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- {
- 	pmd_t *table;
-@@ -1904,36 +1889,16 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- 	}
- 
- 	table = pmd_offset(pudp, addr);
--
--	/*
--	 * Our objective is to prevent ptdump from reading a PMD table which has
--	 * been freed. In this race, if pud_free_pmd_page observes the key on
--	 * (which got flipped by ptdump) then the mmap lock sequence here will,
--	 * as a result of the mmap write lock/unlock sequence in ptdump, give
--	 * us the correct synchronization. If not, this means that ptdump has
--	 * yet not started walking the pagetables - the sequence of barriers
--	 * issued by __flush_tlb_kernel_pgtable() guarantees that ptdump will
--	 * observe an empty PUD.
--	 */
--	pud_clear(pudp);
--	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pmdp = table;
- 	next = addr;
- 	end = addr + PUD_SIZE;
- 	do {
- 		if (pmd_present(pmdp_get(pmdp)))
--			/*
--			 * PMD has been isolated, so ptdump won't see it. No
--			 * need to acquire init_mm.mmap_lock.
--			 */
--			__pmd_free_pte_page(pmdp, next, /* acquire_mmap_lock = */ false);
-+			pmd_free_pte_page(pmdp, next);
- 	} while (pmdp++, next += PMD_SIZE, next != end);
- 
-+	pud_clear(pudp);
-+	__flush_tlb_kernel_pgtable(addr);
- 	pmd_free(NULL, table);
- 	return 1;
- }
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 1c20144700d7..5a76c59b5ada 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -283,13 +283,6 @@ void note_page_flush(struct ptdump_state *pt_st)
- 	note_page(pt_st, 0, -1, pte_val(pte_zero));
- }
- 
--static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
--{
--	static_branch_inc(&arm64_ptdump_lock_key);
--	ptdump_walk_pgd(st, mm, NULL);
--	static_branch_dec(&arm64_ptdump_lock_key);
--}
--
- void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- {
- 	unsigned long end = ~0UL;
-@@ -318,7 +311,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
-+	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
- }
- 
- static void __init ptdump_initialize(void)
-@@ -360,7 +353,7 @@ bool ptdump_check_wx(void)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
-+	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
- 
- 	if (st.wx_pages || st.uxn_pages) {
- 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 9d0f1fdd6af3..537ff7b3c412 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -170,10 +170,7 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	 * Therefore, acquire the mmap read lock to prevent use-after-free when
- 	 * freeing page tables.
- 	 */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pmd_free_pte_page(pmd, addr))
- 			return 0;
- 		return pmd_set_huge(pmd, phys_addr, prot);
-@@ -230,10 +227,7 @@ static int vmap_try_huge_pud(pud_t *pud, unsigned long addr, unsigned long end,
- 		return pud_set_huge(pud, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pud_free_pmd_page(pud, addr))
- 			return 0;
- 		return pud_set_huge(pud, phys_addr, prot);
-@@ -290,10 +284,7 @@ static int vmap_try_huge_p4d(p4d_t *p4d, unsigned long addr, unsigned long end,
- 		return p4d_set_huge(p4d, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!p4d_free_pud_page(p4d, addr))
- 			return 0;
- 		return p4d_set_huge(p4d, phys_addr, prot);
+Which I think is more confusing and bloats the diff unessecary.
 
--- 
-2.55.0
+But I cannot find an option to convince git that kvm_host.h should be
+treated as a new file. This problem seems to be out of scope for gits
+heuristics.
 
+The only way to get this smaller is to split up the patch but then the
+first of the two patches will not compile.
+
+> In any case, I guess we can handle patch 13 and patch 14 pretty soon upfront so that the patch series gets smaller and is easier to review.
+
+yes +1.
+I would argue that the gmap refactorings (PATCH 15-17) can get handled upfront as
+well. They also have no functional changes as well.
+
+FYI: I made some smaller cleanups on those refactrrings since monday.
+
+	Steffen
 
