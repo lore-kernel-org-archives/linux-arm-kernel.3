@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38855C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3AEDC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMApwtVfAiHTe4uNdsg1pmRa4ajqzJGEhdVZ2CWz9x4=; b=Tuwj6ONf7ZGdNNnMg9AnTfGRvr
-	Br1fOiyidEql7OPDzntuQDHJ7GxwffP54WpB/5tuR72e6zH2mZvKgEdnRbia+49desDTXM8cICkG2
-	MkFCxrY8GDMwxGN+kDiARoNEPBcn8jNFsCDSXueztwDGs7Os9ljkRGRUD/qj/9DeqBOCZRzmZwzT3
-	tnzrONp4AKgSpFq2PGxGFkrn/pCxKzEX6KE7HoqBig6HaSWMnXLVwIcze4Y6oHmxlLhMKKj3vuyhu
-	lEfhTjOBAcSOTEcYDa+ij/uYkaGJ3xlwRDPu8ZDLuM5itauEzqpJD2BTcr7kKJ466ywX8aByG6CY6
-	Mn4YtpVQ==;
+	bh=JuirHxy2JdcdOWMIyjetVaMm5INIuwHNGdnNKrdLT4k=; b=W8ntLAEiqnIMrduo9g+tH7cBV3
+	gYu5ie1tJJDFXNR2XWZAUhzQJi5XKz9xI7MsExaWS9qInmt7xDOzDm0/BxYXiY23YRnANlYwG4pAu
+	t0dCh0REeDH5vrm9wFRRPUoEOPSLwMWD8LiTUpiZe0H9b4fEEd+qtxyQS/Yo2iYSNF8QBNeqVeNR+
+	XxC+JM8cM6+lfz10pS4CYyxppgfulF5OPmdMSRvpvEIm+FFXiQG0uUVo4Vx6RLF5RbRdrFIZIN4jG
+	YA/rsB1FTY07MXYjpcpAykoR6qrKQK5sAdCz4MQrrIL7BvXP8m60LGYG14o1sgXiw//iZcqcul2P8
+	b3OZTTPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9CT-00000004nKd-1f1D;
-	Fri, 10 Jul 2026 11:15:21 +0000
-Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
+	id 1wi9D2-00000004nWV-2kRr;
+	Fri, 10 Jul 2026 11:15:56 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9CQ-00000004nJt-1OMF
+	id 1wi9Cy-00000004nSy-1pbm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:15:19 +0000
-Received: by mail-pj2-x04.google.com with SMTP id 98e67ed59e1d1-381191ea2adso510422a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 04:15:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783682118; x=1784286918; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iMApwtVfAiHTe4uNdsg1pmRa4ajqzJGEhdVZ2CWz9x4=;
-        b=OYjT4OqjVBKpIhppeaWhhtzUr+gs6OVdgb7EhOjaqKkGEAiVViSVvmNl5guc10WDE2
-         8Wxk6kVv47e15VRztp+219CSJHuWz3Q/8ejTEEkwkEw5X8nBDkcNptka9Tr9Wv6CTcin
-         deCnLVi4N3ioy+MtZZyqYp/QVxKksI/bP3oD8aPSmAM1mqxzg0TaW1PFPJI0pK5qi37/
-         pgJWhjLZN554DDbKQjsL18z1cpaMaCDezPKw0zD3N9zdRFab+pf2V6rmypcUzMo63yR3
-         NP42EEiQBL8RGN1yiisHOYo7LcuhwefnYngTcqn47cAn07o+id/dA9HKD6lzCFBFhnwr
-         6thg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783682118; x=1784286918;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iMApwtVfAiHTe4uNdsg1pmRa4ajqzJGEhdVZ2CWz9x4=;
-        b=D3L+92nxY91goASddwDzOTrgnTARbyTVFX+QBj75ngxHwi+ScwM03JHvF7VP9n/XtU
-         VacO7HKpbCqE7o6qhFPUB/tRTkSCnzazwO4FOXTY7ycVJuL9UPIDL2NyixYYc4BBryR+
-         QR3SkzHbOYk8t3WOtadYOd/t1lzACOHu42411GOdtrGeuMRbW1YEegotUWBawmBiyx8C
-         O/9ip/nWrv2lN681Qerw+v6JRCfSI0IBy35RhkyfWyLP3/Km412MAVAle7C+FVuVuFk7
-         NaP82jMNTKIutANx9DHNg9V+o9tnNBPkpyRkDZUnirkpAhqkUTVqsEi1iJnkfHKmzeuK
-         Ephw==
-X-Forwarded-Encrypted: i=1; AHgh+RrB/sXJB1rs8CCmTJHZJnuE2ISaqsyJSUuECwoTXqDEmTWZ2ktojYbBhOoCsLC7bqokoJH6Jedb4u3/zpHdsntk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2MDa/pkyU2QqSQdTslL3Vt99i4lU0uI+6iU9ZDHGw1PgPcNU+
-	2D1FOi7IVa2fLqto1sIsgbcAYu/xVLX5QB4/CZ+n0uNE4GwdmhXzhF8j
-X-Gm-Gg: AfdE7cnbFo4Nf5FWLhMGqyWpiAneMy6u/5LRPB4YHaiWLjke0gbHzgu2MhsQpVSeCR9
-	wpsROT72YfZ0hlyD230/C+jsit1WAU9Fv4UYfxVQHNxWKf0EnpIcNhQwd8ykFUiXiv3SmLO1VeX
-	VDumpalhcbZ44k+dFPAvyh2UOWP1qT154K3ZGey8bkqnFazs1xkQtR50P1nrWFyNwOUj15AZecz
-	BWfdj7r3r/6fiPQUj3kIqJIATuhAHUJ5+DSYG9d/FEPP4R5k5f6dX/0jeBhDXW/nOFbg2mkJtuq
-	jVElw0qSAChqzLiKntxDcTlmODt9UizW2ZngEmW1pUOUwuOP2zVhN+oP3Hvq2ih/EJfBj50fzn5
-	TO43USJ5fqellCFpdnhDWmsvJ0RJwiPhgdLHlNDrUooYQQuSVi9UZiccKP68tyJh3EdUvfgXJbZ
-	2subjLrX7I/oHTloy6fFFQZRJNtpU+xdm15MgBbTsprrnrNqFn5pDQijBPRVlhP7WA+YAdW88=
-X-Received: by 2002:a17:90b:37cc:b0:387:e0cb:7f5 with SMTP id 98e67ed59e1d1-3894298482bmr11227568a91.41.1783682117496;
-        Fri, 10 Jul 2026 04:15:17 -0700 (PDT)
-Received: from ubuntu-gnu-linux-24-04-3.hub ([2407:7000:af23:3e00:eb86:437c:263f:195f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38a5622ae99sm2576177a91.14.2026.07.10.04.15.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 04:15:16 -0700 (PDT)
-From: Jiaxing Hu <huhuvmb88@gmail.com>
-To: Will Deacon <will@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	iommu@lists.linux.dev,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/rockchip: implement .flush_iotlb_all
-Date: Fri, 10 Jul 2026 23:15:08 +1200
-Message-ID: <20260710111508.917486-1-huhuvmb88@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260710060513.863714-1-huhuvmb88@gmail.com>
-References: <20260710060513.863714-1-huhuvmb88@gmail.com>
+	Fri, 10 Jul 2026 11:15:56 +0000
+Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66ABEvsJ024946
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Fri, 10 Jul 2026 20:15:10 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=JuirHxy2JdcdOWMIyjetVaMm5INIuwHNGdnNKrdLT4k=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1783682110; v=1;
+        b=YF7wA/hxobu26go9W+0X6qeajGIxufeutjM/XKC6Fj0OKeRZ++6yfnLkbNwTQwoa
+         TN0hXICa8KtUg+Rt0WDP8V3bxT3Dx48bu/ub3HpwNbYyVJpUc8JtPwVlQXcIBESs
+         PrhqKjJtF/i5YucfX0XiE6ZujYXfJapozDYv27dWOUSirL+nGwmIjmAvLdJV8fbr
+         RamAqUWIMVHZV5oTvvvlLMpByr07Y/0Ai5xfehpIpoAJ4NGPDfoOfKNn1+rgNByx
+         /kgoQps9mlV7RSwDV3Nza+r1c3LmVxAkhs0/mzDSYtHdZCMgIxqbaiUFw2db0HC7
+         mX6Q5vU1UW0MXnD7PZwbtw==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Fri, 10 Jul 2026 20:14:59 +0900
+Subject: [PATCH v8 05/11] KVM: arm64: Don't clear vcpu->cpu in
+ kvm_arch_vcpu_put()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260710-hybrid-v8-5-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+X-Mailer: b4 0.16-dev-925f5
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2455;
+ i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
+ bh=M8lM3x/ufgUWZRiJ1lSqB1wM8VCxi9Kmy0/qLfUXi4A=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bAFfOf/WuY+N2dX9fcMMm29rz3OP/4/YST0Smnf3wOt
+ VxnXHyno5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCIzVzL8T8nW5bLyupylpbby
+ ac1Fn9tPvv1LWOazrfqBw/ISkYhgZkaG56dXXj+w5WKCr3Qfc+DyzsP/JR8t7chP4d/ocfOHzoq
+ jDAA=
+X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
+ fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_041518_369646_2519F536 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260710_041552_719649_42298B96 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +96,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jul 2026, Will Deacon wrote:
-> So I think this is the wrong direction. We should try harder to remove
-> the function rather than add new implementations of it. I'm assuming
-> you're only adding it for some out-of-tree code that calls it?
+From: Oliver Upton <oupton@kernel.org>
 
-Yes, that's right. The only caller is the out-of-tree RK3576 NPU
-(accel/rocket) bring-up I mentioned in the commit message. There's no
-in-tree rk_iommu user, since the in-tree consumers all invalidate through
-.unmap and none of them call iommu_flush_iotlb_all().
+commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
+reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
+running at the time of access. The VGIC has gone through an entire
+rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
+vgic-new: Add userland access to VGIC dist registers") the user
+accessors just grab all vCPU mutexes instead.
 
-So if the plan is to remove the function rather than add new
-implementations of it, then I've got this backwards. Please drop the
-patch. If the NPU driver ever goes upstream I'll make it stop relying on
-iommu_flush_iotlb_all() rather than bring this one back.
+Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
+detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
+much more pedantic check that the provided vCPU is actually what's
+running on the present CPU.
 
-Thanks for taking a look, and for the pointers to those two commits.
+Signed-off-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+---
+ arch/arm64/kvm/arm.c   |  1 -
+ arch/arm64/kvm/reset.c | 16 +++++++++++-----
+ 2 files changed, 11 insertions(+), 6 deletions(-)
 
-Jiaxing
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 29f48f2c63ec..58d0783f254d 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -734,7 +734,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_arm_vmid_clear_active();
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
+ }
+ 
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index b963fd975aac..6bfb21f00444 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -190,7 +190,8 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ {
+ 	struct vcpu_reset_state reset_state;
+-	bool loaded;
++	struct kvm_vcpu *running;
++	bool loaded = false;
+ 	u32 pstate;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+@@ -198,10 +199,16 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.reset_state.reset = false;
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ 
+-	preempt_disable();
+-	loaded = (vcpu->cpu != -1);
+-	if (loaded)
++	guard(preempt)();
++
++	running = kvm_get_running_vcpu();
++	if (running) {
++		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
++			return;
++
++		loaded = true;
+ 		kvm_arch_vcpu_put(vcpu);
++	}
+ 
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
+ 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
+@@ -269,7 +276,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 
+ 	if (loaded)
+ 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
+-	preempt_enable();
+ }
+ 
+ u32 kvm_get_pa_bits(struct kvm *kvm)
+
+-- 
+2.55.0
+
 
