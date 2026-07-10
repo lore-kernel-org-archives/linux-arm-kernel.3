@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E9CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519E7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DnVokXZyq6CcxYycOZdA3NEVXIYhxoLpML5+qWvUVso=; b=ag/p9BlB+sZ9aK
-	Pn99/Bk7wibim0/En8A2hhOHhCX3EwJH/yC+LwUCh0TSMRTNS7HsZSBLqkJkD+XkxPnVnHUn5svV5
-	DqfknceM7sQp+FXwweYs7I9Clxdi0GGQP+/nbpCkwzEAYg8WX79xpp6pjXxUYXsPs6iqJFGl+pLD5
-	uU0ZOwzk5KPO6mheDxHhDulf/qeoqVDXuXQ53/zVYGkIgADhB6G9Hr2EvA+T7w4AKsdin/9nRbggf
-	h63Ic9d+qHGXa8DQF4Vr/TlGBsakfZchUVdPuLrVPM+XI1hHhvCCA/qfNzYhrzK3S9efZWTfZggzq
-	peHNOQJBYfH+mRRdv44A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y9qWk9cJLZQicI63fmh7280tbO5NRBzwGQME6T3CAn0=; b=nIWw3dfg4yuQdjCKgKlTaZNlBe
+	QmL6t9ZEpzlskP0jE0RL1fY593PUTELDsd7KR2ds0W9wR3u0P1r41clxyo3Gb1zs0osWCvR1KF9jW
+	dlsomTyVUByQaDGR2qIh2GDAQFf+J3phUIqhw/faB4384fxUXAaRuL2fuZ7tSSdvvnk+cFh7XYGLx
+	wq0TODNc4gCP8VcO7HmTItf+lEs+qbpbGS751a/LJ9l8BKEclNN4rWj9sPZ0duldYL8/j9E5NR0MK
+	RuzlMYRfTSHQcWCij8Dx2Ilv1Z2SCJmmjqCX2p8ew7U3jvpHZSvd1mfnE0Byg0xPDTL9CuLqHintG
+	xEYr15KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8EK-00000004g2Y-0kJ2;
-	Fri, 10 Jul 2026 10:13:12 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wi8Io-00000004gPi-1B2D;
+	Fri, 10 Jul 2026 10:17:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi8EG-00000004g1V-2bnk
+	id 1wi8Im-00000004gPb-44iz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:13:10 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=DnVokXZyq6CcxYycOZdA3NEVXIYhxoLpML5+qWvUVso=;
-	b=OWXOuFTqG/GyKGI1Hi+JTQGxTVrUyz8BQML5h0MjASTqs7HNBAntO82gnlbw5GKUu+rDUbfwK
-	RgJNkRMGhksZf0TXr5jr6gPIZIi2OZJrGrUQU+bCXYxeBjmqlwdkTNcqJA8Amdun4olJB5xXW/x
-	rYgnCp9e2NFDkEW+25VC09U=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gxS8g6y0hzKm5j;
-	Fri, 10 Jul 2026 18:03:47 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id C02634056C;
-	Fri, 10 Jul 2026 18:13:05 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 18:13:04 +0800
-Message-ID: <88a31062-f898-474f-b3a6-1a0b8586d5e3@huawei.com>
-Date: Fri, 10 Jul 2026 18:13:03 +0800
+	Fri, 10 Jul 2026 10:17:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5814460051
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 10:17:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1274E1F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 10:17:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783678668;
+	bh=y9qWk9cJLZQicI63fmh7280tbO5NRBzwGQME6T3CAn0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FhM5sijXvczeoHmlKhz/HsYE6VmxCT9Vtcgly8UR+p/QL7SufvSABA7TtWsTAuvpB
+	 meJeg8zwicPNnpM+QEmvnX8Gk7pzUaAqeiH7uDTut9qyy8HsFu7wHRjks2dxCvj6hI
+	 o4Go12W+aUBCVSjIsURPD5Mz19mxmAdceT52cgd3w/mds8SYdy7zYwH3d2JcpudS4i
+	 nxkLzDY57I7ti04FcqfEdYv+Smo/Mn3Pm7MLUt4RKTQbJ/ihHuNVyy+QKbwB7jAR+N
+	 i++tUcQ0UZcYbNaWNoJyNTEz25UxkDB8EIExBKrynaXNuDVlvKUW2m0qnAc1oKLsHy
+	 5xIm45QJo/kdA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3997a448ecbso7747941fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 03:17:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpSk7jFsE06PRFCM8W2bA+CG0dWXey/+dPDqUvp/Te9zRFTopdRo8WyeDOf2VlF/JeX9ZUlfmDu0XDswNwSm0EN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRZLu9ISdtY28HzBCRbSzNw+OsOpLavYZ//ESvY99Jhbtl8NrS
+	ztjElnept3rRESNU97I8QHD7K6llVPWA8yc/wTgR6W0OT/Aat0liGIzRcJe57riFEKteBEGDliL
+	QNBGI0E4uTJO/9j5J/XW5UPpDiqNHjbw=
+X-Received: by 2002:a05:6512:2305:b0:5ae:bd53:70f6 with SMTP id
+ 2adb3069b0e04-5b011463cf2mr2828605e87.4.1783678666894; Fri, 10 Jul 2026
+ 03:17:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 31/36] arm64: nmi: Add handling of superpriority
- interrupts as NMIs
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-32-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-32-vladimir.murzin@arm.com>
+References: <20260710074216.734849-2-thorsten.blum@linux.dev>
+In-Reply-To: <20260710074216.734849-2-thorsten.blum@linux.dev>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 10 Jul 2026 12:17:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmWvxiKX6=3-U0nxLYnm2uWkUrd1ac7P1LK9xn6-93aFw@mail.gmail.com>
+X-Gm-Features: AUfX_mxDcKSIV5VeiNMT3WnVlpI0alYwosA8IttxVMHe_RGcKbAuZnkNYzHD6zQ
+Message-ID: <CAD++jLmWvxiKX6=3-U0nxLYnm2uWkUrd1ac7P1LK9xn6-93aFw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: sl3516 - drop invalid sg_dma_len checks before
+ DMA mapping
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Corentin Labbe <clabbe@baylibre.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_031309_334948_A2DA6F63 
-X-CRM114-Status: GOOD (  27.09  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,170 +79,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 10, 2026 at 9:42=E2=80=AFAM Thorsten Blum <thorsten.blum@linux.=
+dev> wrote:
 
+> sg_dma_len() is only valid after mapping the scatterlist with
+> dma_map_sg(). However, sl3516_ce_need_fallback() checks it before the
+> source and destination scatterlists are mapped. Thus, a stale DMA length
+> that is not a multiple of 16 could incorrectly force a software fallback
+> when CONFIG_NEED_SG_DMA_LENGTH=3Dy.
+>
+> Remove the invalid checks; the existing scatterlist length checks are
+> sufficient.
+>
+> Fixes: 46c5338db7bd ("crypto: sl3516 - Add sl3516 crypto engine")
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Mark Brown <broonie@kernel.org>
-> 
-> Our goal with superpriority interrupts is to use them as NMIs, taking
-> advantage of the much smaller regions where they are masked to allow
-> prompt handling of the most time-critical interrupts.
-> 
-> When an interrupt is configured with superpriority, we enter EL1 as we
-> do for any other interrupt. The presence of a superpriority interrupt
-> is indicated by a status bit in ISR_EL1. We check this bit before
-> unmasking interrupts in elX_interrupt(), and if a superpriority
-> interrupt is pending, we handle it as an NMI. Otherwise, normal
-> interrupts are handled as usual.
-> 
-> Since superpriority interrupts are always handled as NMIs, the
-> interrupt controller can rely on in_nmi() to distinguish them from
-> ordinary interrupts.
-> 
-> Enable IPIs to use superpriority interrupts as NMIs, matching the
-> existing pseudo-NMI behaviour.
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/entry-common.h |  7 ++++
->  arch/arm64/kernel/entry-common.c      | 59 ++++++++++++++++++---------
->  arch/arm64/kernel/smp.c               |  2 +-
->  3 files changed, 48 insertions(+), 20 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-> index 73d82a8d8e95..0681ba91ac3b 100644
-> --- a/arch/arm64/include/asm/entry-common.h
-> +++ b/arch/arm64/include/asm/entry-common.h
-> @@ -37,6 +37,13 @@ static inline bool arch_irqentry_exit_need_resched(void)
->  	if (system_uses_irq_prio_masking() && read_sysreg(daif))
->  		return false;
->  
-> +	/*
-> +	 * If AllInt is set then we must have handled an NMI, so skip
-> +	 * preemption
-> +	 */
-> +	if (system_uses_nmi() && read_sysreg_s(SYS_ALLINT))
-> +		return false;
-> +
->  	/*
->  	 * Preempting a task from an IRQ means we leave copies of PSTATE
->  	 * on the stack. cpufeature's enable calls may modify PSTATE, but
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index a13653b228b7..de71d5a3a6a1 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -525,8 +525,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->  	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
-> -static __always_inline void __el1_pnmi(struct pt_regs *regs,
-> -				       void (*handler)(struct pt_regs *))
-> +static __always_inline void __el1_nmi(struct pt_regs *regs,
-> +				      void (*handler)(struct pt_regs *))
->  {
->  	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
-> @@ -545,7 +545,10 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->  
->  	state = arm64_enter_from_kernel_mode(regs);
->  
-> -	arm64_unmask_exc_context(NONMI_CONTEXT);
-> +	if (system_uses_nmi())
-> +		arm64_unmask_exc_context(NOIRQ_CONTEXT);
-> +	else
-> +		arm64_unmask_exc_context(NONMI_CONTEXT);
+Looks right to me.
+Acked-by: Linus Walleij <linusw@kernel.org>
 
-This looks strange; whether it's a pseudo NMI or FEAT_NMI, the behavior
-should be consistent.
-
->  
->  	irq_enter_rcu();
->  	do_interrupt_handler(regs, handler);
-> @@ -565,8 +568,11 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->  static void noinstr el1_interrupt(struct pt_regs *regs,
->  				  void (*handler)(struct pt_regs *))
->  {
-> -	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
-> -		__el1_pnmi(regs, handler);
-> +	/* Is there a NMI to handle? */
-> +	if (regs_irqs_disabled(regs))
-> +		__el1_nmi(regs, handler);
-> +	else if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS)))
-> +		__el1_nmi(regs, handler);
->  	else
->  		__el1_irq(regs, handler);
->  
-> @@ -906,24 +912,39 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->  static void noinstr el0_interrupt(struct pt_regs *regs,
->  				  void (*handler)(struct pt_regs *))
->  {
-> -	arm64_enter_from_user_mode(regs);
-> -
-> -	arm64_unmask_exc_context(NONMI_CONTEXT);
-> -
->  	if (regs->pc & BIT(55))
->  		arm64_apply_bp_hardening();
->  
-> -	irq_enter_rcu();
-> -	do_interrupt_handler(regs, handler);
-> -	irq_exit_rcu();
-> +	/* Is there a NMI to handle? */
-> +	if (system_uses_nmi() && (read_sysreg(isr_el1) & (ISR_EL1_IS | ISR_EL1_FS))) {
-> +		irqentry_state_t state;
-> +		arm64_exc_hwstate_t hwstate;
-> +
-> +		state = irqentry_nmi_enter(regs);
-> +		hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
-> +		do_interrupt_handler(regs, handler);
-> +		arm64_mask_exc_context(hwstate);
-> +		irqentry_nmi_exit(regs, state);
-> +	} else {
-> +		arm64_enter_from_user_mode(regs);
-> +
-> +		if (system_uses_nmi())
-> +			arm64_unmask_exc_context(NOIRQ_CONTEXT);
-> +		else
-> +			arm64_unmask_exc_context(NONMI_CONTEXT);
-> +
-> +		irq_enter_rcu();
-> +		do_interrupt_handler(regs, handler);
-> +		irq_exit_rcu();
-> +		/*
-> +		 * For the same reason as in el1_irq() we effectivly
-> +		 * have NOIRQ_CONTEXT on return from handler - keep
-> +		 * track of it
-> +		 */
-> +		arm64_debug_exc_context(NOIRQ_CONTEXT);
-> +		arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-> +	}
->  
-> -	/*
-> -	 * For the same reason as in el1_irq() we effectivly
-> -	 * have NOIRQ_CONTEXT on return from handler - keep
-> -	 * track of it
-> -	 */
-> -	arm64_debug_exc_context(NOIRQ_CONTEXT);
-> -	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
->  	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 257d50529d14..80e35a8e5c8f 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
->  
->  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->  {
-> -	if (!system_uses_irq_prio_masking())
-> +	if (!system_uses_nmi() && !system_uses_irq_prio_masking())
->  		return false;
->  
->  	switch (ipi) {
-
+Yours,
+Linus Walleij
 
