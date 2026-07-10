@@ -4,170 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EA3C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDBCC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 09:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=; b=4XexRnYPyWIgOPfeeqLnR9RQee
-	6fGWy5IvUx6ynTQysQIuSm3ezxX9l5b0iTDFzuIOOlu4iA/dmmlylPoxtj87RR7uOnLHToRndUaU/
-	67rrv9gqUE2Ij1kBP/XebVjUHDXOoRqvH7dryn6fQvQVycMr2MQItoeFk2KOrG95VH05l8X8UD69G
-	1wrGKj+49YsTjD3ZsaGmWSP8nyMUBH3chvDe/qozwWD+IZ+Bo+qL+2ImGpSFESx4BVvVY0WVq6uo+
-	d0eg6J+yAdjPSGy7n8R+EXMH18/SgAVS09MKbh3RHYmIb6J4Wt2szJ840iSkUUW/8ab+o9rg1DPVt
-	izdaOFPQ==;
+	bh=FXRozEPyRdFmB/eFiZ72fgSP/FDKUih11M+CkhAYU/k=; b=we66syDR3Qhbjs9+lK4mk5hSvR
+	Wxek71EsbNWI6eA2xZNDQVEuDLRrPTHvMRlxSNiDpy34DQfbEymtqmtJR88WEBjFT+dppPbbYNWwY
+	rdbHCOzVDUfoYkOfUQCj9ROvHFAVaDowCrGXMIa2Nv5/AIXy1s+SaTGeqEaMn8hs+SpFcTUhdra4p
+	/JWH/9nty6qjPejoobrHfx0E6B3TQWwzcXXIf02yeGYvrRx8LiodvLJLW/jD3Bhkmw4CpNaKCdeIG
+	XOdRyQxGqbO2P7LSi0cur6swDFRaZaeJo9CJVPmKEwwvOoZCapFZWkMqhIcHoHQOG4vbE5atDwLuK
+	EalokcFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Q0-00000004YUF-3H3N;
-	Fri, 10 Jul 2026 09:21:12 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wi7Rd-00000004Ymr-0qax;
+	Fri, 10 Jul 2026 09:22:53 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi7Px-00000004YT6-2w4d
+	id 1wi7Ra-00000004YmD-3RZK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 09:21:11 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D50E6766B2;
-	Fri, 10 Jul 2026 09:21:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783675267; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
-	b=dILxM/grMnkzT//PGjQgvRPzbTCyIqvBUwpem+/INy1OyOSXlBIsz9gqcx8MxRJrJ6EpZX
-	Cpig7crCihNg5sGQ7MQqhcSHYm1taht0DXodMMnHJ4Mb+/tkfV7+s15uwBCTIpFPuCs4Km
-	/5539L0LnwIhNbmOea8tBUeTeEyZvHk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783675267;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
-	b=87sBJDQkU9r1dB9EiaLLEplnR13DEPh/Y9k4Hfy/3NsxtVESK1Yh4eBVWlPV4NslXUHVcs
-	iY9Tim/GeeXLNdBA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="dILxM/gr";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=87sBJDQk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783675267; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
-	b=dILxM/grMnkzT//PGjQgvRPzbTCyIqvBUwpem+/INy1OyOSXlBIsz9gqcx8MxRJrJ6EpZX
-	Cpig7crCihNg5sGQ7MQqhcSHYm1taht0DXodMMnHJ4Mb+/tkfV7+s15uwBCTIpFPuCs4Km
-	/5539L0LnwIhNbmOea8tBUeTeEyZvHk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783675267;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8qm83c1l0o6q3XoAGYoMaLAsZhnmYdvopXg5ZHUKvsU=;
-	b=87sBJDQkU9r1dB9EiaLLEplnR13DEPh/Y9k4Hfy/3NsxtVESK1Yh4eBVWlPV4NslXUHVcs
-	iY9Tim/GeeXLNdBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4649C779BD;
-	Fri, 10 Jul 2026 09:21:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SMP0D4O5UGpRFQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 10 Jul 2026 09:21:07 +0000
-Message-ID: <54ca357b-6069-4c04-b0c2-f1aca96dbd79@suse.de>
-Date: Fri, 10 Jul 2026 11:21:06 +0200
+	Fri, 10 Jul 2026 09:22:52 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66A7mm8w606167;
+	Fri, 10 Jul 2026 09:22:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=FXRozE
+	PyRdFmB/eFiZ72fgSP/FDKUih11M+CkhAYU/k=; b=oaqXSSYsaFqf+O5qsWdd58
+	SL/+3fQ4F7lJ9kEtq7G8rkeSeaZN7vs1Q/Z188unlRXOWgEI1S010R8/HMstq8XG
+	FLxUdjn+K9MwN+t55WNjt+BScO9bfAPjiyiGo6DRdOv1SIExOadOes4m5vu5u27S
+	CooNR/CHgHSG2fs93ZA/IKj1pP1XYVCj8J8plVGAy8I1XJL9cGtlw2QTGWhiGzhE
+	Jn6hvplzVUrJybCE+dEYDi4bft07fz4RE88pmI8MJQz0jSN805x3QoLRDjIKdIKB
+	GutQYC+RA8yYBWCc1lC/EBuNqtiBfg6yEqPloIIcazgomwEJdXl/Om/BWvb6uBOw
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qknwacf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 09:22:36 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66A9JdkT005563;
+	Fri, 10 Jul 2026 09:22:36 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7e0hs6ya-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Jul 2026 09:22:35 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66A9MUPH52953514
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Jul 2026 09:22:30 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1D5572004B;
+	Fri, 10 Jul 2026 09:22:30 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id ADA4020040;
+	Fri, 10 Jul 2026 09:22:29 +0000 (GMT)
+Received: from [9.224.77.173] (unknown [9.224.77.173])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 10 Jul 2026 09:22:29 +0000 (GMT)
+Message-ID: <857debcd-3e44-4844-8abc-b26b892d3d7c@linux.ibm.com>
+Date: Fri, 10 Jul 2026 11:22:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/9] drm/gm12u320: replace struct drm_simple_display_pipe
- with regular atomic helpers
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
- <20260705-drm-simple-kms-removal-v1-6-b4e1ca053623@oss.qualcomm.com>
- <e69b3cf5-9a9f-46ca-abc8-68c1375ef6ca@suse.de>
+Subject: Re: [PATCH v4 13/27] KVM: s390: Prepare KVM/s390 for a second KVM
+ module
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-14-seiden@linux.ibm.com>
 Content-Language: en-US
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <e69b3cf5-9a9f-46ca-abc8-68c1375ef6ca@suse.de>
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260706085229.979525-14-seiden@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: D50E6766B2
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	TO_DN_SOME(0.00)[]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a50b9dc cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=4ICgCYz_5eq5xHeZtxMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: -o4KQjMcDjW9IuVLEIRKcNyJghPFvYRL
+X-Proofpoint-ORIG-GUID: -o4KQjMcDjW9IuVLEIRKcNyJghPFvYRL
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDA5MSBTYWx0ZWRfX2ecZOaa89DVV
+ gssTNZtsp6kCWQh3BZpnJBCXe2DvQYdq75vW9N5pArjyKm8u48rPcWepb+44q9RQXKSEN5TRyEh
+ xRiW/37z37sshT/ABKTWAwi0OYKN3hY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDA5MSBTYWx0ZWRfX/l5xUK8u3CMN
+ qUhQPgpmqH+LJR1SEuw6Fcxo+bGOzFeRYoNrT3dh6Lj7egsG5Ion6v85xELlib2BSDRlyae36Zt
+ laK7fIsIJmNv1g7iL4rdH8SxCyYhn/sico5xnGsuHdfuGeZITWl+XzWCNPUszap18Mm2d4ITyA4
+ ncrycSr/SlFUlH8fkMJVk8MfySO4fFRfTqMDU+eKGx4KhssgiIcJFkWkcbN/Ep5djq2q87WZnBk
+ 9uy1obn6eG7fAmNDe73hMH6VoFnixXal8GvpwRBDOj0ITgST3pYeeKXnuQySlBkuc0cyGS93iUR
+ n3t2vodJZNBpzsTlwKunDIWfTLpFYEDvys3BjhVoMXNInUZqh31qRJrVnMHOl/NQwBgZw6xARQj
+ JcIFdrch2H5TnWvuBdXuZuo37tV1QRl75Vc6ejJhJSITvcn06loCIEX7I4dMnrx5Q945Fid/Z2+
+ pOE/sXfNswEOVDTdskA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-10_02,2026-07-09_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
+ bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_022110_048591_7EB6CC42 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260710_022250_989842_214EC604 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,248 +148,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Am 10.07.26 um 11:09 schrieb Thomas Zimmermann:
-> Hi
->
-> Am 04.07.26 um 20:31 schrieb Ze Huang:
->> Convert gm12u320 to direct primary plane, CRTC and encoder setup.
->>
->> Keep shadow-plane helper state, framebuffer access helpers and
->> no-scaling plane-state check from simple-KMS path.
->>
->> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
->
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
->
-> And I also have this device. Works nicely with the patch
->
-> Tested-by: Thomas Zimmermann <tzimmermann@suse.de>
+Am 06.07.26 um 10:52 schrieb Steffen Eiden:
+> Lay the groundwork for a second KVM module. Guard KVM/s390 behind the
+> KVM_S390 config and turn CONFIG_KVM on if selected. Move all the
+> kvm_host definitions to _s390 postfixed headers. Prepare local header
+> include guards for a new location. Move gamp related tracing into a
+> separate file. While at it, rename the main KVM/s390 files from
+> s390-kvm.{c,h} to just s390.{c,h} to match the naming scheme of other
+> architectures.
+> 
+> No functional change.
 
-Well, see my reply to the Sashiko bot for possible problems.
+[...]
+>   arch/s390/include/asm/kvm_host.h              | 774 +-----------------
+>   .../asm/{kvm_host.h => kvm_host_s390.h}       |   6 +-
+>   arch/s390/include/asm/kvm_host_types.h        | 347 +-------
+[...]
+>   copy arch/s390/include/asm/{kvm_host.h => kvm_host_s390.h} (99%)
+>   copy arch/s390/include/asm/{kvm_host_types.h => kvm_host_s390_types.h} (98%)
+This is just an "almost" rename only in the end. Maybe we can convince git to show a better diffstat to reflect that?
 
->
->> ---
->>   drivers/gpu/drm/tiny/gm12u320.c | 128 
->> ++++++++++++++++++++++++++++++++--------
->>   1 file changed, 104 insertions(+), 24 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/tiny/gm12u320.c 
->> b/drivers/gpu/drm/tiny/gm12u320.c
->> index d73dfebb4353..992160ea794d 100644
->> --- a/drivers/gpu/drm/tiny/gm12u320.c
->> +++ b/drivers/gpu/drm/tiny/gm12u320.c
->> @@ -8,6 +8,7 @@
->>   #include <linux/usb.h>
->>     #include <drm/clients/drm_client_setup.h>
->> +#include <drm/drm_atomic.h>
->>   #include <drm/drm_atomic_helper.h>
->>   #include <drm/drm_atomic_state_helper.h>
->>   #include <drm/drm_connector.h>
->> @@ -27,7 +28,6 @@
->>   #include <drm/drm_modeset_helper_vtables.h>
->>   #include <drm/drm_print.h>
->>   #include <drm/drm_probe_helper.h>
->> -#include <drm/drm_simple_kms_helper.h>
->>     static bool eco_mode;
->>   module_param(eco_mode, bool, 0644);
->> @@ -87,7 +87,9 @@ MODULE_PARM_DESC(eco_mode, "Turn on Eco mode (less 
->> bright, more silent)");
->>     struct gm12u320_device {
->>       struct drm_device             dev;
->> -    struct drm_simple_display_pipe   pipe;
->> +    struct drm_plane             plane;
->> +    struct drm_crtc                 crtc;
->> +    struct drm_encoder             encoder;
->>       struct drm_connector             conn;
->>       unsigned char                   *cmd_buf;
->>       unsigned char *data_buf[GM12U320_BLOCK_COUNT];
->> @@ -554,31 +556,33 @@ static int gm12u320_conn_init(struct 
->> gm12u320_device *gm12u320)
->>   }
->>     /* 
->> ------------------------------------------------------------------ */
->> -/* gm12u320 (simple) display pipe                      */
->> +/* gm12u320 display pipe                              */
->>   -static void gm12u320_pipe_enable(struct drm_simple_display_pipe 
->> *pipe,
->> -                 struct drm_crtc_state *crtc_state,
->> -                 struct drm_plane_state *plane_state)
->> +static void gm12u320_crtc_helper_atomic_enable(struct drm_crtc *crtc,
->> +                           struct drm_atomic_commit *commit)
->>   {
->>       struct drm_rect rect = { 0, 0, GM12U320_USER_WIDTH, 
->> GM12U320_HEIGHT };
->> -    struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
->> +    struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
->> +    struct drm_plane_state *plane_state = crtc->primary->state;
->>       struct drm_shadow_plane_state *shadow_plane_state = 
->> to_drm_shadow_plane_state(plane_state);
->>         gm12u320->fb_update.draw_status_timeout = FIRST_FRAME_TIMEOUT;
->>       gm12u320_fb_mark_dirty(plane_state->fb, 
->> &shadow_plane_state->data[0], &rect);
->>   }
->>   -static void gm12u320_pipe_disable(struct drm_simple_display_pipe 
->> *pipe)
->> +static void gm12u320_crtc_helper_atomic_disable(struct drm_crtc *crtc,
->> +                        struct drm_atomic_commit *commit)
->>   {
->> -    struct gm12u320_device *gm12u320 = to_gm12u320(pipe->crtc.dev);
->> +    struct gm12u320_device *gm12u320 = to_gm12u320(crtc->dev);
->>         gm12u320_stop_fb_update(gm12u320);
->>   }
->>   -static void gm12u320_pipe_update(struct drm_simple_display_pipe 
->> *pipe,
->> -                 struct drm_plane_state *old_state)
->> +static void gm12u320_plane_helper_atomic_update(struct drm_plane 
->> *plane,
->> +                        struct drm_atomic_commit *commit)
->>   {
->> -    struct drm_plane_state *state = pipe->plane.state;
->> +    struct drm_plane_state *old_state = 
->> drm_atomic_get_old_plane_state(commit, plane);
->> +    struct drm_plane_state *state = plane->state;
->>       struct drm_shadow_plane_state *shadow_plane_state = 
->> to_drm_shadow_plane_state(state);
->>       struct drm_rect rect;
->>   @@ -586,11 +590,71 @@ static void gm12u320_pipe_update(struct 
->> drm_simple_display_pipe *pipe,
->>           gm12u320_fb_mark_dirty(state->fb, 
->> &shadow_plane_state->data[0], &rect);
->>   }
->>   -static const struct drm_simple_display_pipe_funcs 
->> gm12u320_pipe_funcs = {
->> -    .enable        = gm12u320_pipe_enable,
->> -    .disable    = gm12u320_pipe_disable,
->> -    .update        = gm12u320_pipe_update,
->> -    DRM_GEM_SIMPLE_DISPLAY_PIPE_SHADOW_PLANE_FUNCS,
->> +static const struct drm_plane_funcs gm12u320_plane_funcs = {
->> +    .update_plane    = drm_atomic_helper_update_plane,
->> +    .disable_plane    = drm_atomic_helper_disable_plane,
->> +    .destroy    = drm_plane_cleanup,
->> +    DRM_GEM_SHADOW_PLANE_FUNCS,
->> +};
->> +
->> +static int gm12u320_plane_helper_atomic_check(struct drm_plane *plane,
->> +                          struct drm_atomic_commit *state)
->> +{
->> +    struct drm_plane_state *plane_state = 
->> drm_atomic_get_new_plane_state(state, plane);
->> +    struct drm_crtc *crtc = plane_state->crtc;
->> +    struct drm_crtc_state *crtc_state = NULL;
->> +    int ret;
->> +
->> +    if (crtc)
->> +        crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
->> +
->> +    ret = drm_atomic_helper_check_plane_state(plane_state, crtc_state,
->> +                          DRM_PLANE_NO_SCALING,
->> +                          DRM_PLANE_NO_SCALING,
->> +                          false, false);
->> +    return ret;
->
-> Interestingly, this patch handled _check_plane_state() correctly.
->
-> Best regards
-> Thomas
->
->> +}
->> +
->> +static const struct drm_plane_helper_funcs 
->> gm12u320_plane_helper_funcs = {
->> +    DRM_GEM_SHADOW_PLANE_HELPER_FUNCS,
->> +    .atomic_check    = gm12u320_plane_helper_atomic_check,
->> +    .atomic_update    = gm12u320_plane_helper_atomic_update,
->> +};
->> +
->> +static int gm12u320_crtc_helper_atomic_check(struct drm_crtc *crtc,
->> +                         struct drm_atomic_commit *state)
->> +{
->> +    struct drm_crtc_state *crtc_state = 
->> drm_atomic_get_new_crtc_state(state, crtc);
->> +    int ret;
->> +
->> +    if (!crtc_state->enable)
->> +        goto out;
->> +
->> +    ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
->> +    if (ret)
->> +        return ret;
->> +
->> +out:
->> +    return drm_atomic_add_affected_planes(state, crtc);
->> +}
->> +
->> +static const struct drm_crtc_helper_funcs gm12u320_crtc_helper_funcs 
->> = {
->> +    .atomic_check    = gm12u320_crtc_helper_atomic_check,
->> +    .atomic_enable    = gm12u320_crtc_helper_atomic_enable,
->> +    .atomic_disable    = gm12u320_crtc_helper_atomic_disable,
->> +};
->> +
->> +static const struct drm_crtc_funcs gm12u320_crtc_funcs = {
->> +    .set_config        = drm_atomic_helper_set_config,
->> +    .page_flip        = drm_atomic_helper_page_flip,
->> +    .reset            = drm_atomic_helper_crtc_reset,
->> +    .destroy        = drm_crtc_cleanup,
->> +    .atomic_duplicate_state    = 
->> drm_atomic_helper_crtc_duplicate_state,
->> +    .atomic_destroy_state    = drm_atomic_helper_crtc_destroy_state,
->> +};
->> +
->> +static const struct drm_encoder_funcs gm12u320_encoder_funcs = {
->> +    .destroy = drm_encoder_cleanup,
->>   };
->>     static const uint32_t gm12u320_pipe_formats[] = {
->> @@ -677,13 +741,29 @@ static int gm12u320_usb_probe(struct 
->> usb_interface *interface,
->>       if (ret)
->>           return ret;
->>   -    ret = drm_simple_display_pipe_init(&gm12u320->dev,
->> -                       &gm12u320->pipe,
->> -                       &gm12u320_pipe_funcs,
->> -                       gm12u320_pipe_formats,
->> -                       ARRAY_SIZE(gm12u320_pipe_formats),
->> -                       gm12u320_pipe_modifiers,
->> -                       &gm12u320->conn);
->> +    ret = drm_universal_plane_init(dev, &gm12u320->plane, 0,
->> +                       &gm12u320_plane_funcs,
->> +                       gm12u320_pipe_formats,
->> +                       ARRAY_SIZE(gm12u320_pipe_formats),
->> +                       gm12u320_pipe_modifiers,
->> +                       DRM_PLANE_TYPE_PRIMARY, NULL);
->> +    if (ret)
->> +        return ret;
->> +    drm_plane_helper_add(&gm12u320->plane, 
->> &gm12u320_plane_helper_funcs);
->> +
->> +    ret = drm_crtc_init_with_planes(dev, &gm12u320->crtc, 
->> &gm12u320->plane, NULL,
->> +                    &gm12u320_crtc_funcs, NULL);
->> +    if (ret)
->> +        return ret;
->> +    drm_crtc_helper_add(&gm12u320->crtc, &gm12u320_crtc_helper_funcs);
->> +
->> +    ret = drm_encoder_init(dev, &gm12u320->encoder, 
->> &gm12u320_encoder_funcs,
->> +                   DRM_MODE_ENCODER_NONE, NULL);
->> +    if (ret)
->> +        return ret;
->> +    gm12u320->encoder.possible_crtcs = drm_crtc_mask(&gm12u320->crtc);
->> +
->> +    ret = drm_connector_attach_encoder(&gm12u320->conn, 
->> &gm12u320->encoder);
->>       if (ret)
->>           return ret;
->>
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
-
+In any case, I guess we can handle patch 13 and patch 14 pretty soon upfront so that the patch series gets smaller and is easier to review.
 
