@@ -4,134 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B052C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D78B7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j8VNDpb1bJMZLFW82qLI/e4xSQf3HKQRtP70vunhlNI=; b=FBH1pAaXxXPeZOvjALZGu3m2ij
-	CPi5LuqONR/7KOsLlgKM0LJv7clx4Hm0Mt7iA5DEfRZTivOSBqhkk+5VJi1c8x1M2by4HKvzv4M0/
-	Ya5o9LbtTFW4skpomSqlgT1TwBIIlze0sFzZX9viyi3/00nynYRLMHv5cEU/BJRUXScRtIzorMQ52
-	Oo+OCadBzHR/RpMjxsgYBMkaBN47PMDLSp7tn65IFHoq1EYWC/a06yeI8rjsP6XtG34H0fITJlyvi
-	nJ6A16PDgxC7QdzQsiXig1DdICba/znrD4jmEUKK1KBqQ71C4Xj7iiW7rHgaSDRljf8aTQSkXuC5u
-	QAXNhJ+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5rM5i69OmbRE0VBFYqnP7QagSMyMP9rPVK7lS65VX9Y=; b=EHfyqFQVWugCjvseXU/XaPN5T1
+	4ulWWoOWf2eVP44l7+ZD6G366mg/lF5FhsXCYH/RbYiq5Gbs1EBu0A3ju9Ix0N+s2lVUFrlExnYhH
+	nQjPjm+AKkP5jdQRDnbZ0FzvAvGMNzJ46W5eOvwCgtjc5MqOCfD2XVihoG1jzKxKx/EcYooft9n7C
+	HVRVwYOF8yH8w6ByWdLv1d5tldJetmSgahW7JlhWvcQ3SLi6Lk+38acXUSL5TAfA5stAAt33Zg06Z
+	UXGdfTvdM9cZLhGNkzemwbzBvogqHtkds2b/qnS/y9xccpclteIwFhOQoTjlSDWsmqZFJHHmy4w1O
+	/uNCx3sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIrN-00000005rEX-0xp5;
-	Fri, 10 Jul 2026 21:34:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wiITw-00000005loR-1OES;
+	Fri, 10 Jul 2026 21:10:00 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIrL-00000005rE9-34fZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Jul 2026 21:34:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=j8VNDpb1bJMZLFW82qLI/e4xSQf3HKQRtP70vunhlNI=; b=TNtBMYVagOvK8ZXdJPyqXmM2oD
-	WmvAteYY8t2HruFR0pBBZMvQ2a/Fl0XboQ5VmlzzDCqN1cOrwakn6QUz31VWx2uj8eRR4QCsXcCv3
-	WtC43cMmv81LCGvhDuhD6IV5BNSEu/AkR19OsUY+4vLJk6g4AUMsjpA6wz+l7Au3G+CZh2Fv5sWur
-	hZRAsSCPwJw1ZJMH7WbmkyJXz44RT3pU3k39zSo9tkfWBjDyFpIRHrboa7IsFQwe7n+pW5h3y9EbK
-	OZsaqcN+qgr25NxxckkDtm7hHvcGB4e+KKN0GxGJGTMqulewY8YtL3YQYR5+ufptWR2TMFX71ZEJh
-	zO/hk2Fw==;
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wiIrG-0000000ALnV-0Kh0
+	id 1wiITq-00000005ljt-3pR8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:34:10 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 953441D000C0;
-	Fri, 10 Jul 2026 17:34:02 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 10 Jul 2026 17:34:03 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1783719242; x=1783805642; bh=j8
-	VNDpb1bJMZLFW82qLI/e4xSQf3HKQRtP70vunhlNI=; b=QPS/Nz5y4mx01TFFxy
-	fP63BlXkXVHP9VvqgUy3V4/p+t/9adxU1G7zhefoWtHvfPhTNkm6BVNmfrKZV5/K
-	odbq4K+3QTN9L0LBhIwMzvN3kQgdFCQyUcZyggSUgJn6f0Y+zU2M5adyANtB7pgn
-	PpcVmyvgPyLUeJK9ep7t31JtHMKiFLX+AtHbogWgf4Ap8sRalSQWFQeLY9/LUcvX
-	nQWtXaANuDrnG180QV0yqaOAMTlW/kpJ6JjvLyJZVz1ZAT4zaI39oFEueHzZYlHV
-	dqfYjhSlBh0+JDbigZqrWQiEOYF3gtyaEELW4ZTJg7QeB1L8hzbBPhqDYWGXGsdv
-	bBKA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1783719242; x=1783805642; bh=j8VNDpb1bJMZLFW82qLI/e4xSQf3
-	HKQRtP70vunhlNI=; b=dLfVojXrqg3M09eNUUnd29e5SDSEWv0lHU7/43QiXDmv
-	TrG4BxPfBz10kX+XlnlvSMFHR6alZGE7ZrO2kj+/yVeGBSt0DVaeT0JuDhqjIQHd
-	C3FKszmMRMUjC+0nCpLtEWp+I1/QPJ8+hN9dTvSQ02V3smB075B8wQCpSQISaIz1
-	OFHDjp8Bug8mRNpMQHl4eTvOGYA39e7e5UawHytd/XhGr9cgj4N3vmm2/jHYcY4D
-	GAIx1THNetGHMqXAx+bmOKQyZAjy+AubLpRgBaB8a3dcb3fQrpsPj+wrPCaWmrJ+
-	QYQPOJKDviie/E/ve2CMMDv95K23+CP3xTwu84ewjQ==
-X-ME-Sender: <xms:SGVRamd5fboQAUrBeKtuQW0QdqVrR-0lvcSKIzZyam-hE7VPwDPhOQ>
-    <xme:SGVRarAOAjuY3n1fRosUNLkR1hPhj3rH9yt8tr8L2gMk5FObyieYgZ3FaL9UVBJAt
-    l7bZ488uhhHiwK9W0uOGEjOWAb4yhztP4eyGCJuRrB1AcvLARxsDGv6>
-X-ME-Proxy-Cause: dmFkZTEwV5K604c0nz6qlDzmIx+dxC8k7DkU1ALEyj1myIvPuPUcD1yqypWYSbF3z8aroh
-    59ac9KxQIxFwN1taF4bOwuk3akOARh3W26AcjWenhbEIeELPLzK6HqINGGtMU32oYkjk8N
-    3E7CzDqoEJuDJv3oSDFveYAla17nR5NPUDcjXpRHBWsYVXlQMpjmj065eTXfW6f2qhe+sJ
-    YvaBEWIAjBKNeJkFHeEZTdAC24vUW/tMSSqJzCaFhTFki45sliOJcNiUWjnDewdKDdqIYy
-    8HCUx/tJK1Gf+t1AFwRFwS6qvk9Er5sKDsY2woRcO9d6HYAh8SoZtdLoaD668Th6olpdsG
-    aSOSZXAcCsv884opgypGg4z+HDworoOoXDeznCxrIZyzdHF1Cb09MMqc55clBDqa+fClCi
-    ab+k4J5weDkHRwiJe60F+6bRFqMspcKP1+fSNxLYJgxCFlTstduccdXWQ3YAZHrKxFIQ5I
-    jBXmi6OXq91Wig4J5Oph1sBwBJoC/5+kfSJV2jFDyqaVVu0DMvdkIBVUOkCpfm8f23N2ul
-    SCPhiHQT1xizlpMPv00ysJbwSwHbID3A9XiaszeCVU/l079+kyWthYWCq7XgmrGh9jQI7O
-    dfG1AUtMta0u52tXOmc8HrSr8M+WlR0qziqrg0HOGiJat8C2g/HRG/SAqAvQ
-X-ME-Proxy: <xmx:SGVRagoo7g1ySKKk_rE9wQbHYHO9SOLQZaAR4Gy3P0r_mweLwtJkew>
-    <xmx:SGVRatdtuB9sxOgqW8mqmMX1V251IhEndVmQpPKd-XirzfED2vyFxw>
-    <xmx:SGVRauKE98ULyvJORCXgVTU35oxYJiyU435cYTemC95r9gQ0qSWH_Q>
-    <xmx:SGVRaqtrIEAQfgxBfFl95zwJvAdraEJGLivCKzuof9V4r8eLXiL6Qw>
-    <xmx:SmVRagb8vUY4y9k8BHzqvDtWlP6WS5bTMYiKjIxWFq4PD3IC7x1wqZWx>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4F1281820082; Fri, 10 Jul 2026 17:34:00 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 10 Jul 2026 21:09:57 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-4703bc0a99aso788720f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:09:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783717793; x=1784322593; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5rM5i69OmbRE0VBFYqnP7QagSMyMP9rPVK7lS65VX9Y=;
+        b=d+vf7o8KBdYunkh0uHpsUGAvEx9JpFD7RpxgGib+oC9+myx6dOAHTVEVIDJMOBzk7n
+         8vEBwfMxad/b/z6FyIrDS3DnOmZn+m5hoXTXX7wH/EExecnbCQZNIqdZjnKon8LrboLs
+         le0G6Q6f/ZMBSuBsHlswXd2j20eJX40m0OXX/zmPs3RGLFs7CvPRu+2zNP/uHEOldz32
+         nevVrWqsVpIjES6SUDQ1av2fql3tkXl4z3uyKpMQc/g68iuThm1t5H5ka/OGAkbG7cl/
+         qS2ZsYJIf0hn4Z0EuQ3i5bo8bvgV9GXBo2MsbxjRsC4U7umq9FjM5DEg8KmWyg3CwuFG
+         P0sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783717793; x=1784322593;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5rM5i69OmbRE0VBFYqnP7QagSMyMP9rPVK7lS65VX9Y=;
+        b=eF+pagTjZhtrdAtH6hJvYIKvUHNMMReXsolLrgcWvpwmMyHlZo7P2jsM8l5sdE84HY
+         FhDBrbzff7nbVUXFLBd3iTumhmGlkW96lIBeW3qXD1yXMsboYKRAKuyBGRVD2uWBzHtN
+         xrrQM1lCRVsVuRMyQAz79kZ0n8FH005mUik66d/LrlkH1V9BXWD3SoSW4r2ZP/6/fLUy
+         TKAWvxVMTajwz1niWvdRoW6dAIMbjnDVH9dr5/VyIqAFWtZvy4B0DUsYqTBdvu6VUrQ9
+         2EjbHVlEDb5o0LJRyt+qATS1b6elO8FzDXqY+4sqrZd4kkKHg5vYs8x+guJjxuvWdtrJ
+         GgOg==
+X-Forwarded-Encrypted: i=1; AHgh+RoTKh4OPrc8yRBmahntuLmUnVhgTvc3csmmypO50xVkxTb/ryw6wlRoKKwRAxMmvxgzlrnp7ViMqpE/LhjlMP2t@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBy5PUltjzgny7p1WG29lV1GmParNqOnL+JDEihxa9WiTWiJmb
+	hz9uJiUPeRaydywIToAJc1ePe71yz9r1ArugGjqXEM9xrijS6+Z6VcpjTNoXmljvFTg=
+X-Gm-Gg: AfdE7cmtxvSdrIozs7jSRNBWZiDq4zKEMLyWMBYO9i9fNvS42ecnnfe9Yk9+po1s0ch
+	UleRPn/p34+owU0Sfyh+ynDeFTwS2m+0CrdilhNZhVxJbbU50WGJLffjy7XfB82Nn6E9Bdg8y/A
+	+pEDiD5PC+e6BGtKPP7prGPsL56zqJ7gcCdE8YFYHx6P9qaGmgnwSWrIuYiWYLDsNzCADpTmtLO
+	mPFZ4/VPjuqSg9c6D/y45IzKKa3NnPGkRHX1QnSQscAwVRIhDT7pMcEPogybbN72VeZPUiZ7Pur
+	CMoBNYo+Q4oiLB04W61b4sokYprFUPiKOp+lI3DW7+/8xYY8NEGbW1nUISWoJv1HTOPhW2jrmN3
+	nwfL1QY+x2d5CeIDmXhess6oqQFosfQ522hLHK8jkVUjzUPTn3oxKClbqUUVCr85HX0MsWt6GQY
+	0xJiiSwu4f5Q==
+X-Received: by 2002:a05:6000:288c:b0:473:53b7:e390 with SMTP id ffacd0b85a97d-47f2dcac225mr411001f8f.11.1783717793050;
+        Fri, 10 Jul 2026 14:09:53 -0700 (PDT)
+Received: from [127.0.1.1] ([151.41.178.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039b0cesm64274135f8f.22.2026.07.10.14.09.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jul 2026 14:09:52 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Date: Fri, 10 Jul 2026 23:09:49 +0200
+Subject: [PATCH 1/3] ASoC: meson: aiu-encoder-i2s: fix bs quirk
+ incompatibility check
 MIME-Version: 1.0
-X-ThreadId: AAVDWq93qhKc
-Date: Fri, 10 Jul 2026 23:33:39 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: soc@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, "Arnd Bergmann" <arnd@arndb.de>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Alexander Sverdlin" <alexander.sverdlin@siemens.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Andrew Lunn" <andrew@lunn.ch>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Daniel Mack" <daniel@zonque.org>,
- "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
- "Frank Li" <Frank.Li@nxp.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Haojian Zhuang" <haojian.zhuang@gmail.com>,
- "Jeremy J. Peper" <jeremy@jeremypeper.com>,
- "Kristoffer Ericson" <kristoffer.ericson@gmail.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Linus Walleij" <linusw@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Marc Zyngier" <maz@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Patrice Chotard" <patrice.chotard@foss.st.com>,
- "Ralph Siemsen" <ralph.siemsen@linaro.org>,
- "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Russell King" <linux@armlinux.org.uk>,
- "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- "Stefan Agner" <stefan@agner.ch>,
- "Stefan Wiehler" <stefan.wiehler@nokia.com>,
- "Tony Lindgren" <tony@atomide.com>, "Vladimir Zapolskiy" <vz@mleia.com>,
- "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Message-Id: <a45f46bd-047f-4ca4-820e-fa92678bbf3f@app.fastmail.com>
-Subject: [GIT PULL] ARM: platform and feature deprecation for 7.3
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260710-aiu-improve-quirk-check-v1-1-2fdd1b6f8896@baylibre.com>
+References: <20260710-aiu-improve-quirk-check-v1-0-2fdd1b6f8896@baylibre.com>
+In-Reply-To: <20260710-aiu-improve-quirk-check-v1-0-2fdd1b6f8896@baylibre.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Valerio Setti <vsetti@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6429; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=KeFdEWnIy0h8OsuDM6nXoQiK/x/W2mOvEHTnodUTR0c=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFmB8fN2th759Djs0mG3ipCVesvS+pLCPwg3Hr+VGf2/R
+ KJ9lfGyjlIWBjEuBlkxRRaW6fd+F5SqPTROOFkAM4eVCWQIAxenAEzk5jmG/+ncWsvX27E90JbW
+ upE2dYcgV+1yEcfHj+/HnGEQ/9i+8S3DPy1DZiHu+QwLVlW41GZmG7g9yu48NuGd5vKXJ9qP3/f
+ 6wg4A
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_223407_787441_DE7E328F 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260710_140955_002029_C57B2F75 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,161 +115,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+The bs-quirk incompatibility check has two flaws:
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+- It only rejects one direction of the mismatch. A stream that does
+  not require the quirk is rejected while a quirked stream is active,
+  but the opposite is not true: a stream requiring the quirk passes
+  the check while a non-quirked stream is active, silently
+  reprogramming the shared mclk/bclk divider with the 50% increase
+  and corrupting the output of the running stream.
 
-are available in the Git repository at:
+- 'bs_quirk' is only cleared in hw_free() when the last substream
+  closes, but userspace may legally stop/reconfigure/start the stream
+  without an intervening hw_free. Reconfiguring a single stream
+  from the quirked configuration (8ch/16-bit) to one that does not
+  need the quirk therefore fails with -EINVAL due to the stale flag.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/arm-feature-deprecation-for-7.3
+Drop the interface-wide flag and instead compare the quirk
+requirement of the incoming parameters against the committed
+configuration of the opposite stream at hw_params() time. The
+committed channels/width are cleared in hw_free() so that a released
+stream no longer constrains the other one.
 
-for you to fetch changes up to 6cb7a10ef7488720f4379e27575d723a85790b30:
+Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+---
+ sound/soc/meson/aiu-encoder-i2s.c | 66 +++++++++++++++++++++++++--------------
+ sound/soc/meson/gx-interface.h    |  3 --
+ 2 files changed, 43 insertions(+), 26 deletions(-)
 
-  ARM: mark mv78xx0 support as deprecated (2026-07-10 23:22:10 +0200)
+diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
+index 83b579e98f1c..c2a280bfdfe2 100644
+--- a/sound/soc/meson/aiu-encoder-i2s.c
++++ b/sound/soc/meson/aiu-encoder-i2s.c
+@@ -62,13 +62,36 @@ static int aiu_encoder_i2s_set_legacy_div(struct snd_soc_component *component,
+ 	return 0;
+ }
+ 
++/*
++ * Return true if the given combination of channels and sample width requires
++ * the bs quirk. Return false otherwise.
++ */
++static bool aiu_encoder_is_bs_quirk(unsigned int channels, int width)
++{
++	return (channels == 8) && (width == 16);
++}
++
++static int aiu_encoder_check_bs_quirk(struct snd_pcm_substream *substream,
++				      struct snd_pcm_hw_params *params,
++				      struct snd_soc_dai *dai)
++{
++	struct gx_stream *other_stream = snd_soc_dai_dma_data_get(dai, !substream->stream);
++
++	/* Nothing to do if the other stream doesn't exist or it's not configured yet. */
++	if (!other_stream || !other_stream->channels)
++		return 0;
++
++	if (aiu_encoder_is_bs_quirk(other_stream->channels, other_stream->width) !=
++	    aiu_encoder_is_bs_quirk(params_channels(params), params_width(params)))
++		return -EINVAL;
++
++	return 0;
++}
++
+ static int aiu_encoder_i2s_set_more_div(struct snd_soc_component *component,
+ 					struct snd_pcm_hw_params *params,
+ 					unsigned int bs)
+ {
+-	struct aiu *aiu = snd_soc_component_get_drvdata(component);
+-	struct gx_iface *iface = &aiu->i2s.iface;
+-
+ 	/*
+ 	 * NOTE: this HW is odd.
+ 	 * In most configuration, the i2s divider is 'mclk / blck'.
+@@ -76,25 +99,13 @@ static int aiu_encoder_i2s_set_more_div(struct snd_soc_component *component,
+ 	 * increased by 50% to get the correct output rate.
+ 	 * No idea why !
+ 	 */
+-	if (params_width(params) == 16 && params_channels(params) == 8) {
++	if (aiu_encoder_is_bs_quirk(params_channels(params), params_width(params))) {
+ 		if (bs % 2) {
+ 			dev_err(component->dev,
+ 				"Cannot increase i2s divider by 50%%\n");
+ 			return -EINVAL;
+ 		}
+ 		bs += bs / 2;
+-		iface->bs_quirk = true;
+-	} else {
+-		/*
+-		 * If the bs quirk is currently applied for one stream and another
+-		 * ones tries to setup a configuration for which the quirk is
+-		 * not required, then fail.
+-		 */
+-		if (iface->bs_quirk) {
+-			dev_err(component->dev,
+-				"bclk requirements are incompatible with active stream\n");
+-			return -EINVAL;
+-		}
+ 	}
+ 
+ 	/* Use CLK_MORE for mclk to bclk divider */
+@@ -110,9 +121,11 @@ static int aiu_encoder_i2s_set_more_div(struct snd_soc_component *component,
+ 	return 0;
+ }
+ 
+-static int aiu_encoder_i2s_set_clocks(struct snd_soc_component *component,
+-				      struct snd_pcm_hw_params *params)
++static int aiu_encoder_i2s_set_clocks(struct snd_pcm_substream *substream,
++				      struct snd_pcm_hw_params *params,
++				      struct snd_soc_dai *dai)
+ {
++	struct snd_soc_component *component = dai->component;
+ 	struct aiu *aiu = snd_soc_component_get_drvdata(component);
+ 	struct gx_iface *iface = &aiu->i2s.iface;
+ 	unsigned int srate = params_rate(params);
+@@ -133,10 +146,15 @@ static int aiu_encoder_i2s_set_clocks(struct snd_soc_component *component,
+ 
+ 	bs = fs / 64;
+ 
+-	if (aiu->platform->has_clk_ctrl_more_i2s_div)
++	if (aiu->platform->has_clk_ctrl_more_i2s_div) {
++		if (aiu_encoder_check_bs_quirk(substream, params, dai)) {
++			dev_err(dai->dev, "bclk requirements incompatible with other stream\n");
++			return -EINVAL;
++		}
+ 		ret = aiu_encoder_i2s_set_more_div(component, params, bs);
+-	else
++	} else {
+ 		ret = aiu_encoder_i2s_set_legacy_div(component, params, bs);
++	}
+ 
+ 	if (ret)
+ 		return ret;
+@@ -155,7 +173,6 @@ static int aiu_encoder_i2s_hw_params(struct snd_pcm_substream *substream,
+ {
+ 	struct gx_stream *ts = snd_soc_dai_get_dma_data(dai, substream);
+ 	struct gx_iface *iface = ts->iface;
+-	struct snd_soc_component *component = dai->component;
+ 	int ret;
+ 
+ 	/*
+@@ -170,7 +187,7 @@ static int aiu_encoder_i2s_hw_params(struct snd_pcm_substream *substream,
+ 		}
+ 	}
+ 
+-	ret = aiu_encoder_i2s_set_clocks(component, params);
++	ret = aiu_encoder_i2s_set_clocks(substream, params, dai);
+ 	if (ret) {
+ 		dev_err(dai->dev, "setting i2s clocks failed: %d\n", ret);
+ 		return ret;
+@@ -219,7 +236,6 @@ static int aiu_encoder_i2s_hw_free(struct snd_pcm_substream *substream,
+ 	if (snd_soc_dai_active(dai) <= 1) {
+ 		aiu_encoder_i2s_divider_enable(component, 0);
+ 		iface->rate = 0;
+-		iface->bs_quirk = false;
+ 	}
+ 
+ 	if (ts->clk_enabled) {
+@@ -227,6 +243,10 @@ static int aiu_encoder_i2s_hw_free(struct snd_pcm_substream *substream,
+ 		ts->clk_enabled = false;
+ 	}
+ 
++	ts->channels = 0;
++	ts->width = 0;
++	ts->physical_width = 0;
++
+ 	return 0;
+ }
+ 
+diff --git a/sound/soc/meson/gx-interface.h b/sound/soc/meson/gx-interface.h
+index 65c46dcce32a..d9ab894589fa 100644
+--- a/sound/soc/meson/gx-interface.h
++++ b/sound/soc/meson/gx-interface.h
+@@ -22,9 +22,6 @@ struct gx_iface {
+ 
+ 	/* For component wide symmetry */
+ 	int rate;
+-
+-	/* Only for GX platform */
+-	int bs_quirk;
+ };
+ 
+ struct gx_stream {
 
-----------------------------------------------------------------
-ARM: platform and feature deprecation for 7.3
+-- 
+2.47.3
 
-This is attempt to bring the source code to the state that we discussed
-back in 2024, regarding a timeline for deprecating and removing features,
-in particular platforms and ABIs that are basically unused and are
-also getting in the way of maintenance.
-
-The earlier consensus was to remove these features in 2025 or 2026
-after the corresponding LTS kernel release. I would suggest pushing
-these to early 2027 now, see the patch description for details on
-each one:
-
- - all board files that are still not converted to DT
-   (except for OMAP1 and S3C)
-
- - iWMMXt FPU support
-
- - ARMv6/ARM1136r0 (not ARMv6K/ARM1136r1/ARM1176) along with the
-   OMAP24xx and i.MX31 SoCs using it
-
- - Cortex-M3/M4/M7 based microcontroller support
-   (stm32, imxrt, lpc18xx, samv7)
-
- - LSI Axxia platform
-
- - OABI, OABI-compat and NWFPE are confined to StrongARM based
-   builds and scheduled for removal once StrongARM is gone.
-
- - DEPRECATED_PARAM_STRUCT, which was originally scheduled for
-   removal in 2006 (!)
-
-The ARCH_S3C64XX platform was scheduled for removal in 2024, but is
-still actively used and will get removed once Mark Brown stops using
-it. The OMAP1 platform has some remaining boardfiles and is expected to
-get converted to DT.
-
-Big-endian ARMv7 CPU support is not scheduled for removal but marked
-as broken the same way as ARM64 has, to reduce the need for testing
-unused configurations. This may be removed in the future if arm64 does
-it as well. Note that big-endian ARMv5 support is can still be
-enabled since the patches to revive little-endianm mode are still
-fresh.
-
-Regarding actually removing the code, I would suggest linux-7.4 (January
-2027), removing both the board files and any drivers that have either
-become newly unused or were missed in a previous machine removal series,
-followed by removing support for then unused CPUs a release later.
-
-Links to previous discussion:
-
-  https://lore.kernel.org/linux-arm-kernel/20210109174357.GB1551@shell.armlinux.org.uk/
-  https://lore.kernel.org/linux-arm-kernel/2831c5a6-cfbf-4fe0-b51c-0396e5b0aeb7@app.fastmail.com/
-  https://lore.kernel.org/all/20241204102904.1863796-1-arnd@kernel.org/
-  https://lore.kernel.org/all/20260701212353.2196041-1-arnd@kernel.org/
-
-----------------------------------------------------------------
-Arnd Bergmann (19):
-      ARM: use CONFIG_AEABI by default everywhere
-      ARM: limit OABI support to StrongARM CPUs
-      ARM: rework ARM11 CPU selection logic
-      ARM: deprecate support for ARM1136r0
-      ARM: turn CONFIG_ATAGS off by default
-      ARM: mark CPU_ENDIAN_BE8 as deprecated
-      ARM: update DEPRECATED_PARAM_STRUCT removal timeline
-      ARM: s3c64xx: extend deprecation schedule
-      ARM: update FPE_NWFPE help text
-      ARM: mark IWMMXT as deprecated
-      ARM: mark ARCH_DOVE as deprecated
-      ARM: PXA: mark remaining board files as deprecated
-      ARM: orion5x: mark all board files as deprecated
-      ARM: mark mach-sa1100 as deprecated
-      ARM: mark RiscPC as deprecated
-      ARM: mark footbridge as deprecated
-      ARM: mark Cortex-M3/M4/M7 based boards as deprecated
-      ARM: mark axxia platform as deprecated
-      ARM: mark mv78xx0 support as deprecated
-
- arch/arm/Kconfig                        | 80 +++++++++++++++++++--------------
- arch/arm/Kconfig.platforms              |  2 +-
- arch/arm/configs/am200epdkit_defconfig  |  3 +-
- arch/arm/configs/aspeed_g4_defconfig    |  2 -
- arch/arm/configs/aspeed_g5_defconfig    |  1 -
- arch/arm/configs/assabet_defconfig      |  3 ++
- arch/arm/configs/at91_dt_defconfig      |  2 -
- arch/arm/configs/axm55xx_defconfig      |  2 -
- arch/arm/configs/bcm2835_defconfig      |  1 -
- arch/arm/configs/clps711x_defconfig     |  1 -
- arch/arm/configs/collie_defconfig       |  2 +-
- arch/arm/configs/davinci_all_defconfig  |  1 -
- arch/arm/configs/dove_defconfig         |  2 +-
- arch/arm/configs/ep93xx_defconfig       |  1 -
- arch/arm/configs/footbridge_defconfig   |  2 +
- arch/arm/configs/gemini_defconfig       |  1 -
- arch/arm/configs/h3600_defconfig        |  3 +-
- arch/arm/configs/hisi_defconfig         |  1 -
- arch/arm/configs/imx_v4_v5_defconfig    |  1 -
- arch/arm/configs/integrator_defconfig   |  2 -
- arch/arm/configs/ixp4xx_defconfig       |  1 -
- arch/arm/configs/jornada720_defconfig   |  3 +-
- arch/arm/configs/keystone_defconfig     |  1 -
- arch/arm/configs/lpc32xx_defconfig      |  1 -
- arch/arm/configs/mmp2_defconfig         |  1 -
- arch/arm/configs/moxart_defconfig       |  2 -
- arch/arm/configs/mps2_defconfig         |  1 -
- arch/arm/configs/multi_v4t_defconfig    |  2 -
- arch/arm/configs/multi_v5_defconfig     | 10 -----
- arch/arm/configs/mv78xx0_defconfig      |  3 +-
- arch/arm/configs/mvebu_v5_defconfig     | 10 -----
- arch/arm/configs/mxs_defconfig          |  1 -
- arch/arm/configs/neponset_defconfig     |  3 ++
- arch/arm/configs/netwinder_defconfig    |  3 ++
- arch/arm/configs/nhk8815_defconfig      |  1 -
- arch/arm/configs/omap1_defconfig        |  3 +-
- arch/arm/configs/orion5x_defconfig      | 11 -----
- arch/arm/configs/pxa168_defconfig       |  2 -
- arch/arm/configs/pxa3xx_defconfig       |  2 -
- arch/arm/configs/pxa910_defconfig       |  2 -
- arch/arm/configs/pxa_defconfig          |  5 ---
- arch/arm/configs/rpc_defconfig          |  3 ++
- arch/arm/configs/s3c6400_defconfig      |  2 +
- arch/arm/configs/sama5_defconfig        |  1 -
- arch/arm/configs/sama7_defconfig        |  1 -
- arch/arm/configs/spear13xx_defconfig    |  1 -
- arch/arm/configs/spitz_defconfig        |  2 +-
- arch/arm/configs/stm32_defconfig        |  1 -
- arch/arm/configs/versatile_defconfig    |  2 -
- arch/arm/configs/vt8500_v6_v7_defconfig |  1 -
- arch/arm/configs/wpcm450_defconfig      |  2 -
- arch/arm/mach-at91/Kconfig              |  4 +-
- arch/arm/mach-axxia/Kconfig             |  4 +-
- arch/arm/mach-dove/Kconfig              |  8 +++-
- arch/arm/mach-footbridge/Kconfig        |  7 ++-
- arch/arm/mach-imx/Kconfig               | 13 ++++--
- arch/arm/mach-mv78xx0/Kconfig           |  4 +-
- arch/arm/mach-omap2/Kconfig             | 18 ++++++--
- arch/arm/mach-orion5x/Kconfig           | 47 ++++++++++++++-----
- arch/arm/mach-pxa/Kconfig               | 10 ++++-
- arch/arm/mach-rpc/Kconfig               |  5 ++-
- arch/arm/mach-s3c/Kconfig.s3c64xx       | 15 +++++--
- arch/arm/mach-sa1100/Kconfig            |  5 ++-
- arch/arm/mach-stm32/Kconfig             | 14 +++---
- arch/arm/mach-versatile/Kconfig         | 15 ++++---
- arch/arm/mm/Kconfig                     | 29 +++++++++++-
- 66 files changed, 225 insertions(+), 170 deletions(-)
 
