@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683A7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 12:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842F6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 12:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKXVaY4pvzXF0DTi5PsRgZDNYnOewnDAIVksiSk+weg=; b=QXQv+kQon8gqVu27F15uAc/EMm
-	06x0s3GvAQTqb2d08Vt7yudMWMD7GJ5Z5SvxwA7JzMPtIMWHdGahqixrECMkXRsZcJ1GkOFYpL5F7
-	YSxB/ClxygpgciRhtzOK79dRRV/GCAz1uLP8rwmwEKy2sr9OOG3gvalTI5PjGoQIa262amelTaJYB
-	EAHGML36zugyEQ/aV5tEg5ckUWVQC9vbbtcUxSJhIRHNuIf7PuB+/qxv2XgkmYybFG12dPb8fxVBO
-	XjZoECivy1EqFSAIwIhTwoIUK5YFxo2K9ROqdaQDvAEtU/R4xJxRUq7j7do8nbvtEqoqpWqd+DsVl
-	q4NCng8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HEE4NJS8wvTdtmRLZBWw21+O+2hmHyqWWDCI6XsBwKE=; b=Mlxn/lAzTNC+WXNutBhA1lh1Tl
+	4Ov1MnWDFCCcD42xJTgVeoi3gTcnaT0Xl5c+1hibWdZWP3IqE1ioROSXYTw8QQgjRolAtGLx35wk0
+	QvaMl6eg/xm0rNt/Jgi9MDwE+W8J3sTNsLSxhiHTO+IJmOF1Pfo1sNE39bp1w+CjV78us8VXAMfva
+	T3waOpWNTuIGCI3h9vsz8gYRdk2KJPe4XsMuDxFtowubu46SlBHQLyT7NENjwiJeQk7Z05jE6hLSa
+	JFtgKSQaD7AfHkBI4y9lMf5z0SO249+mCzZu6V3oVRXY505gPBD9viX5yMR8NFvBcPn/9/YHcvSTw
+	pzh9RYvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiA2E-00000004tY1-3GY9;
-	Fri, 10 Jul 2026 12:08:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiA2E-00000004tXo-0TGX;
-	Fri, 10 Jul 2026 12:08:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEAC260051;
-	Fri, 10 Jul 2026 12:08:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B5D1F000E9;
-	Fri, 10 Jul 2026 12:08:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1783685327;
-	bh=hKXVaY4pvzXF0DTi5PsRgZDNYnOewnDAIVksiSk+weg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Vo0O6UI6tlXkw70wVEdUQEWW//hMh6zTJywnktib0C5FMEMvvxkfZFTr73frfzKvp
-	 al80t2ZNngkuBry7bMS9zNzmmXYC969dWSUdj5McEqcglWY4l689gjtJk07VlzhQIz
-	 VGXg9askrhybgI4+MBAARgkRyuYG7LEPZRVzTY3s=
-Date: Fri, 10 Jul 2026 14:08:43 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 05/14] usb: hub: Associate port@ fwnode with USB port
- device
-Message-ID: <2026071025-diffused-jersey-0d94@gregkh>
-References: <20260709095726.704448-1-wenst@chromium.org>
- <20260709095726.704448-6-wenst@chromium.org>
+	id 1wiA56-00000004trC-11yt;
+	Fri, 10 Jul 2026 12:11:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiA53-00000004tqV-0noa;
+	Fri, 10 Jul 2026 12:11:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AFAF1E7D;
+	Fri, 10 Jul 2026 05:11:40 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 12DFD3F85F;
+	Fri, 10 Jul 2026 05:11:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783685504; bh=Q2see9+GI8xU//+CtviZOZx19CnBHqZmF8tVQaULcbE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D5p3BRWSyMoNDxD/QaUv5QMjXLFZnnn18JTuKVPlAZXBN450QHvPpSetMzN/GZ3zj
+	 W2IiiMPdZtGLD+M+Anx7Qy1UV4t86jKoZu1P3IZDMTQyiPguDn8CfF299YNnaznMWE
+	 KZwYaOSphRKwtuby8ouXyFEY7FmW5cqo+6Mbxy0k=
+Message-ID: <15bbada2-3214-45dc-8934-a6dbe207c887@arm.com>
+Date: Fri, 10 Jul 2026 13:11:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260709095726.704448-6-wenst@chromium.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: implement .flush_iotlb_all
+To: Will Deacon <will@kernel.org>, Jiaxing Hu <huhuvmb88@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Joerg Roedel <joro@8bytes.org>,
+ iommu@lists.linux.dev, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ jgg@ziepe.ca
+References: <20260710060513.863714-1-huhuvmb88@gmail.com>
+ <alDQevX58XvdRcWc@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <alDQevX58XvdRcWc@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_051145_278698_C67FCA57 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +72,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 05:57:10PM +0800, Chen-Yu Tsai wrote:
-> When a USB hub port is connected to a connector in a firmware node
-> graph, the port itself has a node in the graph.
+On 10/07/2026 11:59 am, Will Deacon wrote:
+> On Fri, Jul 10, 2026 at 06:05:13PM +1200, Jiaxing Hu wrote:
+>> rk_iommu invalidates the IOTLB synchronously in .unmap (via
+>> rk_iommu_zap_iova), so it stays consistent without a deferred .iotlb_sync
+>> and does not advertise IOMMU_CAP_DEFERRED_FLUSH.
+>>
+>> It never implemented the optional .flush_iotlb_all op, though, and
+>> iommu_flush_iotlb_all() is a no-op when that op is absent -- so on Rockchip
+>> a driver that owns an rk_iommu domain and calls it to flush the whole
+>> domain's TLB (e.g. before reusing a mapping, without unmapping it) gets
+>> nothing, even though the hardware can do it: rk_iommu already issues
+>> ZAP_CACHE for range shootdowns.
+>>
+>> Implement it with that same primitive: ZAP_CACHE every bank of every IOMMU
+>> on the domain, under the runtime-PM + clk guard already used by
+>> rk_iommu_zap_iova().
+>>
+>> Found while bringing up an out-of-tree RK3576 NPU (accel/rocket) driver
+>> that flushes before each submit; on Rockchip that flush did nothing.
+>>
+>> Signed-off-by: Jiaxing Hu <huhuvmb88@gmail.com>
+>> ---
 > 
-> Associate the port's firmware node with the USB port's device,
-> usb_port::dev. This is used in later changes for the M.2 slot power
-> sequencing provider to match against the requesting port.
-> 
-> To avoid potential conflicts with ACPI firmware nodes and then causing
-> power management issues, only assign the firmware node if the hub's
-> firmware node is not an ACPI firmware node.
-> 
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> Changes since v3:
-> - Added missing fwnode_handle_put()
-> 
-> Changes since v2:
-> - Skip assignment if hub firmware node is ACPI node
-> ---
->  drivers/usb/core/port.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/drivers/usb/core/port.c b/drivers/usb/core/port.c
-> index b1364f0c384c..e8fb2acd77be 100644
-> --- a/drivers/usb/core/port.c
-> +++ b/drivers/usb/core/port.c
-> @@ -7,6 +7,7 @@
->   * Author: Lan Tianyu <tianyu.lan@intel.com>
->   */
->  
-> +#include <linux/acpi.h>
->  #include <linux/kstrtox.h>
->  #include <linux/slab.h>
->  #include <linux/string_choices.h>
-> @@ -358,6 +359,11 @@ static void usb_port_device_release(struct device *dev)
->  {
->  	struct usb_port *port_dev = to_usb_port(dev);
->  
-> +	/*
-> +	 * At this point ACPI nodes and swnodes have been removed by
-> +	 * device_platform_notify_remove() in device_del().
-> +	 */
-> +	fwnode_handle_put(dev_fwnode(dev));
->  	kfree(port_dev->req);
->  	kfree(port_dev);
->  }
-> @@ -780,6 +786,13 @@ int usb_hub_create_port_device(struct usb_hub *hub, int port1)
->  	port_dev->dev.driver = &usb_port_driver;
->  	dev_set_name(&port_dev->dev, "%s-port%d", dev_name(&hub->hdev->dev),
->  			port1);
-> +	/*
-> +	 * ACPI FW nodes are associated later when device_register() happens.
-> +	 * Skip assigning one here to avoid potential conflicts.
-> +	 */
-> +	if (!is_acpi_node(dev_fwnode(&hdev->dev)))
-> +		device_set_node(&port_dev->dev,
-> +				fwnode_graph_get_port_by_id(dev_fwnode(&hdev->dev), port1));
->  	mutex_init(&port_dev->status_lock);
->  	retval = device_register(&port_dev->dev);
->  	if (retval) {
-> @@ -852,6 +865,7 @@ int usb_hub_create_port_device(struct usb_hub *hub, int port1)
->  
->  void usb_hub_remove_port_device(struct usb_hub *hub, int port1)
->  {
-> +	struct usb_device *hdev = hub->hdev;
->  	struct usb_port *port_dev = hub->ports[port1 - 1];
->  	struct usb_port *peer;
+> We tried to get rid of iommu_flush_iotlb_all() in 69e5a17511f6
+> ("iommu: Remove useless flush from iommu_create_device_direct_mappings()")
+> but we had to revert that in a33bf8d8ce7e ("iommu: Restore
+> iommu_flush_iotlb_all()") because of a user in the MSM driver.
 
-Is this last variable addition not needed here?  It's not used.
+We wanted rid of the public API (indeed partly due to the prospect of 
+client drivers abusing it), but the actual ->flush_tlb_all driver op 
+remains crucial to the flush queue mechanism, so there's no harm in 
+drivers implementing it *if* they also implement the relevant 
+optimisations to avoid synchronous flushing in unmap_pages to make 
+CAP_DEFERRED_FLUSH worthwhile.
 
-thanks,
+Thanks,
+Robin.
 
-greg k-h
+> So I think this is the wrong direction. We should try harder to remove
+> the function rather than add new implementations of it. I'm assuming
+> you're only adding it for some out-of-tree code that calls it?
+> 
+> Will
+
 
