@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA25C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234CCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 16:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lpwXLkbuiMp+a8i3U7vB0DwpQBlY3yNigXzhiJlNds=; b=k18yqLeBk3PYAinTLMrOt0uZ//
-	ew+44CwLMW4xHAEfjcIynBW1QwzpTKJZoh+rkKG73v2oMb8e9PAF9QXvbz6Y1ufr+Axv1ktUtbS5I
-	lxwEEEm57Bq+LrcIujlKU1vRKG5EAngAwMBYNvnDtXqSYpnSBMRbQwUb603/PWBaOxfCdkz+/lqdq
-	RqpY4a7VmKFE4h5O2DxvlSZsxo2TSRY/NHyeTNoGy8auq2P2Edk545QPJW3kVTjcN0CxWZMEQpZyi
-	aZjovtyWqdrhnAES8UZ7HvVnsc7kyM+nI7529nQVO8I8Jj33HXNGOqvWs0YtdOycF2Gu5dJwDxI7N
-	q/rAqiEg==;
+	bh=LO42XwNP83w3z5CFc+s0wvS8JJ79+rDi2PXVCc38KOM=; b=LU39NLSs1P/bOi9bPk4HMQzNlT
+	uRKrnneD60OvyXaKMfbb0TzQ+2KZWGR+nTbJ8c2pciHQdNAsI+4v7FFfsDiHyV/BbiATEyDWfLXe5
+	G69kq36ixapTR1rW5kXy3pX9cfT+LadohPu6rAokCIfLsJ6WUBq24g6NYyyYeCjlV0UU13ti7OBTd
+	WQaa6EktHup7oC/EcP/0SO7+qEJWFZlfzhM+46kY9Mvu0Kl7XP//1dp9st3kMwLwP94tzEGUvVdSX
+	6T+NiB44M/rU7oaTjZ9R9fxBeVNQafYARdtdRmHo7zIuFwUnCw9zgm6G0UN/pLMX1BN7HQeZ1yy8s
+	p+E1dVTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiEAH-00000005I31-01SC;
-	Fri, 10 Jul 2026 16:33:25 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wiEKK-00000005IoH-0PZW;
+	Fri, 10 Jul 2026 16:43:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiEAE-00000005I2e-2fKn
+	id 1wiEKI-00000005Iny-22HK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 16:33:23 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-471eeac43bfso1162558f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 09:33:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783701201; x=1784306001; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3lpwXLkbuiMp+a8i3U7vB0DwpQBlY3yNigXzhiJlNds=;
-        b=IDR/Taj343eY2iAKo0arhJ5nH/htkIHjrayt+HfvdEvbQgxPJWFtNv1omyK4/LDfmP
-         Z2mjpBzEoh4zNVLaIYnDCfz0Em/eOolgITNlC75oSMDmLcsYc6ZykufdPhnvUKkg6hfW
-         178SmuD7/rQ4xWWRdLLPlhMbpsEkOv6DY47O9nxtU2t23/xi6Xad0IdqTUGWA4UwVZI3
-         vl+hxaRx2H3gTnSN+nBrJqNJCZGUkVec83dsQ4btfQmZInm4IkKmMIJuiOVKPAHQjvLT
-         oFmGfPt9VzZJxVL4/lqm+qSNUfXPG5EUBc+2ngZ4gOn1TmpGfxLrpD+zIG/lLI625FUY
-         RxlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783701201; x=1784306001;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3lpwXLkbuiMp+a8i3U7vB0DwpQBlY3yNigXzhiJlNds=;
-        b=rOxZRdYqXUBwP6XOpL2NkF9PW4U4FEe1nOEBzq50j5o1dhGE/ni1QPCUZ3Yx3aqSKy
-         s6aadjPu1McwElyIP7bMQm6d1I9mCJKR9ARF92UP74zWwRjqSq8I9CnpIATyE/f+Odpf
-         I3Jwg8j0qvqcmSOS9uDFbPdHNKfNgf2ex5yg6daeyvjTWaAELvJaT1p3uEuTohq3rSLf
-         90/vbpzLBCRIxMTOUk1x4qniEHF/i2Vhiwvf7si+QZtqL/4BdPgfIBD/2gF3yYB6wLji
-         E4etj7QPGuIuSJ3cko/C3f4CKjIPMVTApmEc1qGym8235j/fXIPWDy1iAXhRLsEmienA
-         QT8w==
-X-Gm-Message-State: AOJu0YxCcD/IbVo2MIC2PfATBTjRFQu2n9hW+0u2y6opsLP1BFVpDQUW
-	o+N51kgwovDF4fllgbmFNqHmhMTi0ytnjs+Qz4enxlc0ejxn0y5jsc1he7z5PGXNmg==
-X-Gm-Gg: AfdE7clgaSW8YI8xUQvCd5m1herOiqwhhq4VHq6Mak49FgJs5AqU9xH3v8SfCLFd2MG
-	z3K1EoBNWtxJC2WOUtuF8l7BtGmM9oKkbDcXe1EvYwK5A13dBnYs2W1R3PVWILKPZIjBcUdgx+m
-	akCcGHv2SScMGz/itFPmub3rvgQqJUjeo70if000tXw5xkOmsNE6qmObWejvJX8zI3rxYzDfJpX
-	IXS4jcK2NedhNVW+jeQd5U8sIXB52adHBUaaZnh2Wz8LMmUIPx5Zjgn2tIf/Pg4gutzc3UV+OjZ
-	ugH8CNhP1U0Dzqg/bSInOc1yn7xscxacDsAgX5JB09WxPT5HD16cWHGgALqfi50uNH9pw/+3GkX
-	izBGOxO2vhnmtTWALUgbPG9nF/d2xfSP8/r85HpSY7bqHLhmqMXG1WFpTqHjEWoU2mZsOB9hGE/
-	Dl+AS7PEPH8hKvHo9067uST2AUmRrvEDABw7BdsXiR4jwXCJaDkpU=
-X-Received: by 2002:a5d:59a6:0:b0:477:f5c:9bf2 with SMTP id ffacd0b85a97d-47df07a4bccmr13686294f8f.51.1783701200181;
-        Fri, 10 Jul 2026 09:33:20 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47df6a31dd5sm15735579f8f.16.2026.07.10.09.33.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 09:33:19 -0700 (PDT)
-Date: Fri, 10 Jul 2026 17:33:14 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
-	tabba@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 09/25] KVM: arm64: iommu: Add memory pool
-Message-ID: <alEeyoXnMC0J4zFQ@google.com>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-10-smostafa@google.com>
+	Fri, 10 Jul 2026 16:43:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2609418CE;
+	Fri, 10 Jul 2026 16:43:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A902D1F000E9;
+	Fri, 10 Jul 2026 16:43:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783701825;
+	bh=LO42XwNP83w3z5CFc+s0wvS8JJ79+rDi2PXVCc38KOM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SJaBmO7tVG7y2hCdLEUg7YkQ2jQBkq+GVDN8ZQwA14XKU17rc/JYBGmTsLG5IL9D8
+	 VZpyTOUzDzqfHR3nS5KE0cdIFlYKIXHjg5i+XA7zEOkYiclD5c83ByteDqLWXpRgs8
+	 fovLd01f78SO/8ray2y7oRQdXMPVWDsXDPeTtvEi3i/Fl34hhPk2C/YgOE6WCi76Gi
+	 Vox3g/oLJNF1t3H+oubRINiCCqp66X4g0Yh64jsa0zOBSdTCePlEOyjqemc4HNNcJo
+	 +nAMNas8rTshaxKl+aK+iclCjFEEUfZav18ukel5e314LaMITfxCZW02mf8O+k0W3g
+	 u+CN08jyxL7Mw==
+Date: Fri, 10 Jul 2026 17:43:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Haoning.CHENG@cn.bosch.com
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: thermal: imx: Document calibration
+ offset property
+Message-ID: <20260710-diocese-gentleman-ec8fcff76398@spud>
+References: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-0-db9fc2947c55@cn.bosch.com>
+ <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-1-db9fc2947c55@cn.bosch.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="YxTcWEGVuS17YjL2"
 Content-Disposition: inline
-In-Reply-To: <20260501111928.259252-10-smostafa@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_093322_724121_F08A2A34 
-X-CRM114-Status: GOOD (  43.16  )
+In-Reply-To: <20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-1-db9fc2947c55@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,263 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:19:11AM +0000, Mostafa Saleh wrote:
-> IOMMU drivers would require to allocate memory for the shadow page
-> table. Similar to the host stage-2 CPU page table, the IOMMU pool
-> is allocated early from the carveout and it's memory is added in
-> a pool which the IOMMU driver can allocate from and reclaim at
-> run time.
-> 
-> As this is too early for drivers to use init calls, set the number of
-> page allocated from the kernel command line "kvm-arm.hyp_iommu_pages".
-> 
-> Later when the driver registers, it will pass how many pages it
-> needs, and if it was less than what was allocated, it will fail
-> to register.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+--YxTcWEGVuS17YjL2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jul 10, 2026 at 10:50:40AM +0800, HaoNing Cheng via B4 Relay wrote:
+> From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+>=20
+> Some boards need a small per-design correction to align the reported CPU
+> temperature with board-level measurements.
+>=20
+> Document the optional fsl,temp-calibration-offset-millicelsius property,
+> a signed offset in millicelsius that is added to the calculated sensor
+> temperature. The property is optional and the existing behaviour is kept
+> when it is omitted.
+>=20
+> Update the binding example to show its usage.
+>=20
+> Signed-off-by: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
 > ---
->  .../admin-guide/kernel-parameters.txt         |  4 +++
->  arch/arm64/include/asm/kvm_host.h             |  3 +-
->  arch/arm64/kvm/hyp/include/nvhe/iommu.h       |  7 +++-
->  arch/arm64/kvm/hyp/nvhe/iommu/iommu.c         | 21 +++++++++++-
->  arch/arm64/kvm/hyp/nvhe/setup.c               | 12 ++++++-
->  arch/arm64/kvm/iommu.c                        | 33 ++++++++++++++++++-
->  arch/arm64/kvm/pkvm.c                         |  1 +
->  7 files changed, 76 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index cf3807641d89..5e49946ff7ed 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -3283,6 +3283,10 @@ Kernel parameters
->  			trap: set WFI instruction trap
->  
->  			notrap: clear WFI instruction trap
-> +	kvm-arm.hyp_iommu_pages=
-> +			[KVM, ARM, EARLY]
-> +			Number of pages allocated for the IOMMU pool from the
-> +			KVM carveout when running in protected mode.
->  
->  	kvm_cma_resv_ratio=n [PPC,EARLY]
->  			Reserves given percentage from system memory area for
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 52898d2a3ec6..17f4cce86ec3 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1735,7 +1735,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext);
->  
->  #ifndef __KVM_NVHE_HYPERVISOR__
->  struct kvm_iommu_ops;
-> -int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops);
-> +int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops, unsigned int pool_pages);
-> +unsigned int kvm_iommu_pages(void);
->  #endif
->  
->  #endif /* __ARM64_KVM_HOST_H__ */
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> index 6277d845cdcf..eba94b4f6050 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> @@ -10,8 +10,13 @@ struct kvm_iommu_ops {
->  	int (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
->  };
->  
-> -int kvm_iommu_init(void);
-> +int kvm_iommu_init(void *pool_base, unsigned int nr_pages);
->  
->  int kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
->  				enum kvm_pgtable_prot prot);
+>  Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 10 ++++++++=
+++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b=
+/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> index 949b154856c5..704bf2fa48cf 100644
+> --- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
+> @@ -59,6 +59,15 @@ properties:
+>    clocks:
+>      maxItems: 1
+> =20
+> +  fsl,temp-calibration-offset-millicelsius:
+> +    maxItems: 1
+> +    description:
+> +      A signed calibration offset, in millicelsius, added to the calcula=
+ted
+> +      sensor temperature to compensate for board-level measurement
+> +      differences. When absent, no offset is applied.
+> +    minimum: -28580
+> +    maximum: 28580
 > +
-> +/* Returns zeroed memory. */
+>    "#thermal-sensor-cells":
+>      const: 0
+> =20
+> @@ -109,6 +118,7 @@ examples:
+>              nvmem-cells =3D <&tempmon_calib>, <&tempmon_temp_grade>;
+>              nvmem-cell-names =3D "calib", "temp_grade";
+>              clocks =3D <&clks IMX6SX_CLK_PLL3_USB_OTG>;
+> +            fsl,temp-calibration-offset-millicelsius =3D <(-6400)>;
+>              #thermal-sensor-cells =3D <0>;
+>          };
+>      };
+>=20
+> --=20
+> 2.43.0
+>=20
+>=20
 
-If we expect drivers to use that perhaps we should document a bit better (same
-for kvm_iommu_reclaim_pages()
+--YxTcWEGVuS17YjL2
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +void *kvm_iommu_donate_pages(u8 order);
-> +void kvm_iommu_reclaim_pages(void *ptr);
-> +
->  #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-> index 1db52bd87c38..53cb5e4b0aac 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+-----BEGIN PGP SIGNATURE-----
 
-Do we really need that subfolder iommu/ ?
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCalEhPAAKCRB4tDGHoIJi
+0uLeAQDJi0oIsUXiFpOhsENkrPOBOVbkTK9/+jwt4V/Avu8pfgEAlx56YdWYvhF3
+9fxQ5FOYGhVzjS0m80NhMCm/S1Z06Ak=
+=pItJ
+-----END PGP SIGNATURE-----
 
-> @@ -15,6 +15,7 @@ struct kvm_iommu_ops *kvm_iommu_ops;
->  
->  /* Protected by host_mmu.lock */
->  static bool kvm_idmap_initialized;
-> +static struct hyp_pool iommu_pages_pool;
->  
->  static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
->  {
-> @@ -95,7 +96,7 @@ static int kvm_iommu_snapshot_host_stage2(void)
->  	return ret;
->  }
->  
-> -int kvm_iommu_init(void)
-> +int kvm_iommu_init(void *pool_base, unsigned int nr_pages)
->  {
->  	int ret;
->  
-> @@ -103,6 +104,14 @@ int kvm_iommu_init(void)
->  	    !kvm_iommu_ops->host_stage2_idmap)
->  		return 0;
->  
-> +	if (!nr_pages)
-> +		return -ENOMEM;
-> +
-> +	ret = hyp_pool_init(&iommu_pages_pool, hyp_virt_to_pfn(pool_base),
-> +			    nr_pages, 0);
-> +	if (ret)
-> +		return ret;
-> +
->  	ret = kvm_iommu_ops->init();
->  	if (ret)
->  		return ret;
-> @@ -120,3 +129,13 @@ int kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
->  
->  	return kvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
->  }
-> +
-> +void *kvm_iommu_donate_pages(u8 order)
-> +{
-> +	return hyp_alloc_pages(&iommu_pages_pool, order);
-> +}
-> +
-> +void kvm_iommu_reclaim_pages(void *ptr)
-> +{
-> +	hyp_put_page(&iommu_pages_pool, ptr);
-> +}
-> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-> index 1f6b221db9a0..215014e42c27 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-> @@ -23,6 +23,9 @@
->  
->  unsigned long hyp_nr_cpus;
->  
-> +/* See kvm_iommu_pages() */
-> +unsigned int hyp_kvm_iommu_pages;
-
-nit: we tend to use everywhere unsigned long or u64 for nr_pages.
-
-> +
->  #define hyp_percpu_size ((unsigned long)__per_cpu_end - \
->  			 (unsigned long)__per_cpu_start)
->  
-> @@ -34,6 +37,7 @@ static void *selftest_base;
->  static void *ffa_proxy_pages;
->  static struct kvm_pgtable_mm_ops pkvm_pgtable_mm_ops;
->  static struct hyp_pool hpool;
-> +static void *iommu_base;
->  
->  static int divide_memory_pool(void *virt, unsigned long size)
->  {
-> @@ -71,6 +75,12 @@ static int divide_memory_pool(void *virt, unsigned long size)
->  	if (!ffa_proxy_pages)
->  		return -ENOMEM;
->  
-> +	if (hyp_kvm_iommu_pages) {
-> +		iommu_base = hyp_early_alloc_contig(hyp_kvm_iommu_pages);
-> +		if (!iommu_base)
-> +			return -ENOMEM;
-> +	}
-> +
->  	return 0;
->  }
->  
-> @@ -330,7 +340,7 @@ void __noreturn __pkvm_init_finalise(void)
->  	if (ret)
->  		goto out;
->  
-> -	ret = kvm_iommu_init();
-> +	ret = kvm_iommu_init(iommu_base, hyp_kvm_iommu_pages);
->  	if (ret)
->  		goto out;
->  
-> diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-> index f247384fa193..213429ceb549 100644
-> --- a/arch/arm64/kvm/iommu.c
-> +++ b/arch/arm64/kvm/iommu.c
-> @@ -7,10 +7,11 @@
->  #include <linux/kvm_host.h>
->  
->  extern struct kvm_iommu_ops *kvm_nvhe_sym(kvm_iommu_ops);
-> +extern unsigned int kvm_nvhe_sym(hyp_kvm_iommu_pages);
->  
->  static DEFINE_MUTEX(kvm_iommu_reg_lock);
->  
-> -int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
-> +int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops, unsigned int pool_pages)
-
-nit: kvm_iommu_init uses nr_pages. 
-
->  {
->  	guard(mutex)(&kvm_iommu_reg_lock);
->  
-> @@ -21,6 +22,36 @@ int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
->  	if (kvm_nvhe_sym(kvm_iommu_ops))
->  		return -EBUSY;
->  
-> +	/* See kvm_iommu_pages() */
-> +	if (pool_pages > kvm_nvhe_sym(hyp_kvm_iommu_pages)) {
-> +		kvm_err("Not enough memory for the IOMMU pool, need 0x%x pages, check kvm-arm.hyp_iommu_pages",
-> +			pool_pages);
-> +		return -ENOMEM;
-> +	}
-> +
->  	kvm_nvhe_sym(kvm_iommu_ops) = hyp_ops;
->  	return 0;
->  }
-> +
-> +unsigned int kvm_iommu_pages(void)
-> +{
-> +	/*
-> +	 * This is used very early during setup_arch() before any initcalls
-> +	 * or any drivers are registered.
-> +	 * This value is set by a command line option.
-> +	 * Later, when the driver is registered, it will pass the number
-> +	 * pages needed for it's page tables, if it was less that what
-> +	 * the system has already allocated, the registration will fail.
-> +	 */
-> +	return kvm_nvhe_sym(hyp_kvm_iommu_pages);
-> +}
-
-Could we actually estimate the memory needed, based on the allocation for the
-host stage-2 and an estimation of MMIO coverage? This would allow the whole
-thing to run without setting this value as a best effort and to make it
-optional, which is surely more user-friendly?
-
-> +
-> +/* Number of pages to reserve for iommu pool*/
-> +static int __init early_hyp_iommu_pages(char *arg)
-> +{
-> +	if (!arg)
-> +		return -EINVAL;
-> +
-> +	return kstrtouint(arg, 0, &kvm_nvhe_sym(hyp_kvm_iommu_pages));
-
-How about using a memory size here with memparse()? This would be more
-transparent for the commandline which can work on different page-size systems.
-
-> +}
-> +early_param("kvm-arm.hyp_iommu_pages", early_hyp_iommu_pages);
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 053e4f733e4b..79dd14db4919 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -63,6 +63,7 @@ void __init kvm_hyp_reserve(void)
->  	hyp_mem_pages += hyp_vmemmap_pages(STRUCT_HYP_PAGE_SIZE);
->  	hyp_mem_pages += pkvm_selftest_pages();
->  	hyp_mem_pages += hyp_ffa_proxy_pages();
-> +	hyp_mem_pages += kvm_iommu_pages();
->  
->  	/*
->  	 * Try to allocate a PMD-aligned region to reduce TLB pressure once
-> -- 
-> 2.54.0.545.g6539524ca2-goog
-> 
+--YxTcWEGVuS17YjL2--
 
