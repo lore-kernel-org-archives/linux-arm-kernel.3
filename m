@@ -4,119 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1667CC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3DCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXOHSZK3138l5feHcf8tQrpnH6XzX3HFkUrrAbxwBf4=; b=317Kw3fSFINGD6MCGU9EG9Ad1U
-	YagRgVhoxI83ES3/DUMjRGxI/TvXS0CE+WiTBz6JAuPuCxnr80fVZ/aNnwhYpg1IWZc64eiJGBxQU
-	4+jBq3RZjTmW4qWeDbLOOywG/3WhNKL/TIueFWtbOgOzr3Q7EUcFkJcit14a2jfzxbOON7inBJDHa
-	c5oQrDz0IQ76gguxjjNjKA0YMoJEx98FVPLVY/5pwyqXZ5VTj/EJ/+lNvCdX6eVDv7y1lqmXRZFjL
-	bjn9GsjJOdAaeic5lbSiupbURBpvaHy1JOdmHLXfbusFMKr5CzNy3lR2oNC2b9NWgQawJXQ5axeRi
-	B34AuSxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=; b=B5J84lizRPBKx3lh+3GBqmRwd5
+	PE7Z0MXJzEIH9LAYp+SAEmKxG1N9qa1AelKCSQqrrVQxI8ZE00iXZnD345ukDp0K9YvbyOm62VCrd
+	jnMKGVP4HIcKV83gfNTU4EoVRNoZNBvdJkp7bWJJGmhuIibcUOdSW43MbbMR9+VrW3jdVrDhDoiQd
+	V3abIDwkKwZwP5TVZxJPoqDxKw6IngR7WeoEHLO1FlfdjziTlQEmV2BUKeKzc/fRjB6kJu4KsmS3i
+	OpMtvr5zLNmLKfbh+opD4l1ZIKLW4hMyIHbCbpA5+fDt268ToNB08FNw5CXFizCAib83yISaonD5Q
+	94C6mi7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6QK-00000004RKx-2Hpy;
-	Fri, 10 Jul 2026 08:17:28 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wi6R3-00000004RYo-0AIT;
+	Fri, 10 Jul 2026 08:18:13 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6QH-00000004RK7-0uRN;
-	Fri, 10 Jul 2026 08:17:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bADy4MyDlRtFS7Ey6zhS7/3ranOwzmkHDZMwLNpDFivy6cDI9k9xI/onzlKl/pyYyeGzvLfqH3F/x8BvfbXeCWdUHnTY3P9hHMGf83AhcP7CLXI2DU5wUsUkmyGIDmiP89GuTVXPcilsXYVlQs4JhSTJvtiaSH27bQDDfW2f6P3ngyb8GUShv3zgvmpJCbjYLhsmMuiD1mh4ohL1f4mMFMWuYaMpPaPBVagF+ZcTzXF10T5Kr+vkVnvw+RfVuASVa+ItRcdqmDCpTmiP/rmgy+Hnf/zkCzUFfGQQ0mkCPmgAnD+vmVofOwIgPuowgIxd/6uglDcptZKCL9DVNyprrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OXOHSZK3138l5feHcf8tQrpnH6XzX3HFkUrrAbxwBf4=;
- b=SJKWY4xnsFFZrSrQRbWoL2ejWmjW2wn/fDKWSywaEly38uKoxdP76qcGjG3r1rm6HBLIv6tN8kZsA+lCvrzVzNbkGS15bQr2WsGbor3/jcThJzc8h5jOOptT87mUviiw7ZFoppRh0HDZuHDIa4/ScsC0OT2vlvhxkorcJVWAHWiYd+TeCIZ0PzVrAoqHXTZzoDkxlspnDqAGr6UWMiJOGH7ak9STCV7Chgg+NxgQacgSdqiPffFcElJdtcBWzafvFUG7Y5YbQGz3r02732mC7iFdKd/xnrXERI0XhSSzEuyg/bbxT59UO64CX9w4Px1IYHp/amqJWni1fimSJW0Bgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OXOHSZK3138l5feHcf8tQrpnH6XzX3HFkUrrAbxwBf4=;
- b=2CsJejtt2+4ndMVIgzhYdgnZ5q2vSQz52BTNmZD8cUh/wm23YNtEB34cZHChS1Aq+y2vXV08M3tgqOBVm4bbcVrOLVpSk/bTMSPw4iG87Dejfafit0I8PK9S+Ueq5JM0JDray3ApZ2Jo+A92G5phRQQY+VJC+c6TiIGbPxHB8tM=
-Received: from MN0P223CA0017.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::8)
- by CH8PR12MB9816.namprd12.prod.outlook.com (2603:10b6:610:262::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
- 2026 08:17:17 +0000
-Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
- (2603:10b6:208:52b:cafe::8a) by MN0P223CA0017.outlook.office365.com
- (2603:10b6:208:52b::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.13 via Frontend Transport; Fri,
- 10 Jul 2026 08:17:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.0 via Frontend Transport; Fri, 10 Jul 2026 08:17:16 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 10 Jul
- 2026 03:17:16 -0500
-Received: from [10.136.35.241] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 10 Jul 2026 03:17:11 -0500
-Message-ID: <650c7050-2a77-4415-b597-3bb39ccfb1e8@amd.com>
-Date: Fri, 10 Jul 2026 13:47:10 +0530
+	id 1wi6R0-00000004RXX-13ds
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 08:18:11 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-382ef647e20so798727a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 01:18:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783671489; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dzWj5FTaoqWnbU3ur3cDtVlwuQFt9t28cCxmy4RnbnEqKMzZwMXsBm94Q5/LPXLY8s
+         yGLc6f9HIsJ7kAxJAH6lwEUIibhPEmF5BBohUwE7RodSHesNbZoGFoX7MEnj0yrOK3SF
+         nB+dlzEunzzv/ApvLxoyrFZ1ipZS2pEidaZ50Ip8FK3uQM6kwV0c3O01D2GxWbvh0cng
+         kGlG2k7XbLHgn4DAzOFWsiihh14Tf4z7b50og1kbtWIz466YGscQtoBbHLhBlT5rV6qI
+         Tov7zsg0fSexCWOpvSzGZtiRiV+k0QeA5TweIAY+0W4bCG6U2lXQ3H5gLUYngwp2+gFb
+         717A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
+        fh=XaxOnbCznotuvWTUwJQBPNpAAYDiCDTKeYRX5Lm3wwE=;
+        b=JcW4piIMP6V4Q0R7ALzqbnKy7eTO3BAK7CB3MiLvvsNoISKvRYm3pw626cAGboOTny
+         MgXbXQkumZZqM370HkEDI2bLIPxhvRxnlszaPF4my7WtbsBTXn517gDbI9iWUE2Bafab
+         P7AzV+sbkmie8/xkDxh1zD5V8WED4xHhR9SlZ/QA5KdjJDn5DYWPLlyLK5YWpACcYx49
+         aNz120R38b9QL8MSQG8J6Ofar65Wx6wwSGlAiiXTtd8I8rpyKdtukiuOJaYohzCjPJEh
+         oemrbnvsyfY5P7qsurM9zTRzMZ8SgwfnYJObNLoLtDcyOQ+P0g5iynS0jskXusvb6njb
+         h9Tg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783671489; x=1784276289; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
+        b=TQvW+1klqTfTnLH2+dtS0jXq2a5Eby4Dya8IjpiwMW86vNK+rUoZujgUhJikWnbFBj
+         eByaIr38eC1IoNSn9vO7gvnwExzaKS9yFrGb6EWcAv9zy3s8ABHFMlo8otzYuSJ32bpX
+         S4XCW9gkNkFBhN5aztcYguS87P9RhcOUvn/+CfidPFvIGkniAc6BMUrvLpZ/a9G6ry/l
+         HtxY2CXVG8/tMqmmf8wYuDv12Av8isDa0g6r9O5BSM44rC+mDoS47Hu/I/juy1b9rlnr
+         7+14FicahWA2NAmjRJP/WCwknL9qui4eG6XJ4WTUAnx4865u7nnQDLefjMIvUL50XDKh
+         weRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783671489; x=1784276289;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9Xm+71vhVvB2sUAuzgpV4v4ZXbW+TKZaCwA7h4T8wfQ=;
+        b=YIH66mLNqVyDkpsypymI6Kub8uvCZXVzU22+2m95IZmLrNdOFURuSYc3MDZFp1MtG0
+         CYUpfNkPof/zFXrZxlV3cUEUctSYlv8raHCPYO4TjYaQV6BDxjgjXwMImV6+DaaNNjQH
+         SLH9D51Pw1Njo7BKcaLKbimPbLWsHZHk2RZcxf64Wu3/BYjYKVEm8eJQS4KjzqEHN+Ro
+         UqcwTBN1vAnARztRbqHagWHJjkUHZGA1H5o8GPgl+oRnJHAnLuwWPwhG9K3bE5tl8BOC
+         Q+678nVUsYQLqrFHMyEjQzWrdy6IIE7btIfmw2dy1nCB5AhkSkpSw1PthVUO7Vi5j1/L
+         Xq3w==
+X-Forwarded-Encrypted: i=1; AHgh+RrASbChbI13Vrx16Ry8JkcdA0sE3+Xvu8hKgZKiVCqB6pf0Ls+imznIHk4Rl1sUl+PUAALAfu5+sgNiTpuZPmYs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVVB4nKJO2P3xdy/AcGIfq+3SVZISoH/ofVW+1CkxzLhdENSkz
+	K7qdvKXRJ2QpK3PwG6jkoJCrK7bzBWULwjOYWN4YFIW56azNa/Y48NOeMkdudQlOR7QE6WkEyes
+	fvvUEDfJJkdnxqypO7USDIWS97ud9ZVc=
+X-Gm-Gg: AfdE7cllHju0KvpnsfNgwH48ylGF/718p7xUvhyWWCyjENZ8QP1B32pD9UesXIj7a8I
+	j46DeozZxpoMuIlKxosYxM5HPTcB4CrIp8fhjpJ/X1LRplZFqh8ovzTxml918KGPW8gxi8LoR3n
+	lC15rZoLzXUfFLZ8PWIr12gMhWiAJRp4holQ6c9TuD1rnU+xxdWC0mzpWXvTfA1G+ZUAsX0vTJC
+	hzjB0AKjguSBUveShtiDZHNhEgAVaQFty5Toh5NQzOIAl6HFEbz0RPBqPqhQ1lJBsDGu4GqyMXc
+	xQsoDLpANIU2Z3ZiO6H4dGhE0O0=
+X-Received: by 2002:a17:90b:2f06:b0:37f:bfa2:1887 with SMTP id
+ 98e67ed59e1d1-38941101e2emr10680019a91.8.1783671489057; Fri, 10 Jul 2026
+ 01:18:09 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/8] riscv/runtime-const: Introduce
- runtime_const_mask_32()
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>
-CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Sebastian
- Andrzej Siewior <bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Alexandre
- Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-6-kprateek.nayak@amd.com>
- <178366995930.1208691.2993932866462893112.b4-review@b4>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <178366995930.1208691.2993932866462893112.b4-review@b4>
+References: <20260710050223.14266-1-phucduc.bui@gmail.com> <20260710050223.14266-3-phucduc.bui@gmail.com>
+ <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com>
+In-Reply-To: <a84c3eb1-7ac5-44a8-95cb-e33175e78ee9@amd.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 10 Jul 2026 15:17:57 +0700
+X-Gm-Features: AVVi8Cexjb8IlpQOnKY8Iz8sH6znwFCqGvvu16EY1ysnfcqVV4Wi_i8aRfmJTkA
+Message-ID: <CAABR9nFFMMk6i_sjKGjt4t-_QZF_hu2gBPRNK8c-GfhyKdVP8A@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_spdif: Use dev_err_probe() and
+ drop redundant error handling
+To: Michal Simek <michal.simek@amd.com>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B371:EE_|CH8PR12MB9816:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32fd8548-7dad-4237-4418-08dede5ba7b3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700016|23010399003|11063799006|4143699003|5023799004|22082099003|56012099006|18002099003|3023799007|13003099007;
-X-Microsoft-Antispam-Message-Info: Q/9ktpJsUqU9YY6zkbyoOn1QUlbJ+/6RwN3a5/mkWn6etdYrVp1Xwp+3HQeSVP3DwNzktZfDBLO59E+NnE9xir8SKzrRrkqaq34aOKn0YbrYj2t+FcXATn/c2vJ2+LeB+zOtDHC/z9fMRd+ZDBBkNzALUKLzmooT71j7MLUzpwWWKQ4O/SJ/0PqAGPNUswbvpGh1IumXJXP/VXccbUbPHbN+NQf9h8pyrzNIcV/IRKCuEdbYtSTslgL6IciYD+u/JINXvijcgkznQx8qXYh3Vh5IYaU++GjQlpRYN5gJ1ogHi8c10wREkHZWmWkwA7q+slgQasvsYY/paW5q56Islubv3jw85tN5itm3F1/Va5tK89TfrN/hLJoqACcREaefetPxLXPb86eiD/XRgvs3jX/Qh2W8k92EvbkmFRK6XHQnxGadMATBABsx9rSAlHCTsn5z0E2clqlXbbBL9ztqinVoB7/tTA2cDQHCf3xNABV1OrXxZY6GniPl4WheQ8qIpeZ+iGbDbe3CZdS7r9kHlczkUX74c5/zsdwHk/rjBDX0eVwxfsamiJQ+3cyd3InsZ8IyjjPw0wCt71gK4Q607/PBiiHf0cGpiBWwfsgs8X/I81mo3uSsmeXOl9Jj1V4tLnPP7w15N1lkmsaEFG0g8xxtWPS7St2nqYdyf/JoM5MtYriGBwiSL4EvrN8NR/qv3MjZb3libzkv9wImUFVMeQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700016)(23010399003)(11063799006)(4143699003)(5023799004)(22082099003)(56012099006)(18002099003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 60pdV8geNf2LGy6amrH9UHz4HB+liaHa8OSGHsqTNViw7oXQ249X9/AxDXEBPT7AnEg8ZdRXgUBHxlYACOmZQGYW87ZjV6+TxVG2cyOG9c6BLMYOjzC1nP5NQn4+PaREJZUZvfXdr4LeQyTIGNWLIB0s1nzxYg+tFD2DgvDdG/QwyaWMRLRdmp/g8tHkI78gp1Wv5qk45RzbrqP6uvgGImmtG7kRzs3ss/ovE+nC5lWeewQ3jD5vK//MvYhWHJDhi/Wjss3OJgLPR9ENljPxVLxOxqIqWT/pG2P07+arTG+p/07FfAyTOeuH4/eZ/Ze+VQtAWfXsRNAuX9b8wBnN+RpKYQs28YmfhsMpQsShvtAfykKsjTiQna8TYWCjVeYU6RJDQgpOZNJxgyf4yas6IuPaWqlJziwI9WM1hTrkuZGFRWs9pbuthM4acsYljNrq
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 08:17:16.9680
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32fd8548-7dad-4237-4418-08dede5ba7b3
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B371.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9816
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_011725_267877_0C020C74 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20260710_011810_292788_54FFB4D3 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,146 +119,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Charlie,
+Hi Michal,
 
-On 7/10/2026 1:22 PM, Charlie Jenkins wrote:
-> [You don't often get email from thecharlesjenkins@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> On Tue, 30 Jun 2026 04:55:28 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
->> Futex hash computation requires a mask operation with read-only after
->> init data that will be converted to a runtime constant in the subsequent
->> commit.
->>
->> Introduce runtime_const_mask_32 to further optimize the mask operation
->> in the futex hash computation hot path. Since all the current use-cases
->> are of the form GENMASK(n, 0), with n > 0, following sequence:
-> 
-> I really appreciate you spending the time to do this, thank you!
+Thank you for your review !
 
-My pleasure! And I really appreciate you taking time to review and test
-this series. Thanks a ton for that!
+> > +     if (IS_ERR(ctx->axi_clk))
+> > +             return dev_err_probe(dev, PTR_ERR(ctx->axi_clk), "failed to get s_axi_aclk\n");
+>
+> This is pretty long line. Message should go on the next line.
+>
 
-> 
->>
->>
->> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
->> index 1ce02605d2e4..dbf96c937dbb 100644
->> --- a/arch/riscv/include/asm/runtime-const.h
->> +++ b/arch/riscv/include/asm/runtime-const.h
->> @@ -262,6 +279,33 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
->> [ ... skip 24 lines ... ]
->> +     BUG_ON(!val || width > 31 || (GENMASK(width - 1, 0) != val));
->> +
->> +     __runtime_fixup_shift(where, 32 - width);
->> +     __runtime_fixup_shift(where + 4, 32 - width);
->> +}
->> +
-> 
-> It would be "optimal" to use an andi when the mask is <=11 bits since
-> andi can fit an 11 bit mask. What you have is good enough but I'll leave
-> my stab at doing the andi patching here in case you want to apply it.
-> 
-> From 9e5527aaddd464783af795aacdb6d094e11cc31e Mon Sep 17 00:00:00 2001
-> From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Date: Thu, 9 Jul 2026 23:18:09 -0700
-> Subject: [PATCH] riscv: Optimize __runtime_fixup_mask for masks with <= 11
->  bits
+The line is still within the 100-character limit.
+I'll split the message onto the next line in the next version.
 
-Peter seems to have merged the v5 series in his tree but If you could give
-your S-o-b, I can throw in a commit log, some testing along with a few
-cosmetic modifications, and send it for official review on top of
-queue:locking/core ;-)
+> > @@ -274,29 +270,23 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+> >               ret = devm_request_irq(dev, ret,
+> >                                      xlnx_spdifrx_irq_handler,
+> >                                      0, "XLNX_SPDIF_RX", ctx);
+> > -             if (ret) {
+> > -                     dev_err(dev, "spdif rx irq request failed\n");
+> > -                     return -ENODEV;
+> > -             }
+> > +             if (ret)
+> > +                     return ret;
+>
+> Here you are changing error value and commit message is not saying anything
+> about it.
+>
 
-> 
-> ---
->  arch/riscv/include/asm/insn.h          |  2 ++
->  arch/riscv/include/asm/runtime-const.h | 29 ++++++++++++++++++++++++--
->  2 files changed, 29 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-> index c3005573e8c9..0a34cd7305d0 100644
-> --- a/arch/riscv/include/asm/insn.h
-> +++ b/arch/riscv/include/asm/insn.h
-> @@ -141,6 +141,7 @@
->  #define RVG_OPCODE_JALR                0x67
->  #define RVG_OPCODE_JAL         0x6f
->  #define RVG_OPCODE_SYSTEM      0x73
-> +#define RVG_OPCODE_ANDI                0x13
->  #define RVG_SYSTEM_CSR_OFF     20
->  #define RVG_SYSTEM_CSR_MASK    GENMASK(12, 0)
-> 
-> @@ -175,6 +176,7 @@
->  #define RVG_FUNCT3_BGE         0x5
->  #define RVG_FUNCT3_BLTU                0x6
->  #define RVG_FUNCT3_BGEU                0x7
-> +#define RVG_FUNCT3_ANDI                0x7
-> 
->  /* parts of funct3 code for C extension*/
->  #define RVC_FUNCT3_C_BEQZ      0x6
-> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
-> index dbf96c937dbb..24a9b13081f7 100644
-> --- a/arch/riscv/include/asm/runtime-const.h
-> +++ b/arch/riscv/include/asm/runtime-const.h
-> @@ -9,6 +9,7 @@
->  #include <asm/asm.h>
->  #include <asm/alternative.h>
->  #include <asm/cacheflush.h>
-> +#include <asm/insn.h>
->  #include <asm/insn-def.h>
->  #include <linux/memory.h>
->  #include <asm/text-patching.h>
-> @@ -302,8 +303,32 @@ static inline void __runtime_fixup_mask(void *where, unsigned long val)
->          */
->         BUG_ON(!val || width > 31 || (GENMASK(width - 1, 0) != val));
-> 
-> -       __runtime_fixup_shift(where, 32 - width);
-> -       __runtime_fixup_shift(where + 4, 32 - width);
-> +       /*
-> +        * A riscv 'andi' instruction can fit an 11 bit immediate, so the mask
-> +        * can be directly applied. Otherwise fall back to SRLI + SLLI.
-> +        */
-> +       if (width < 11) {
-> +               __le16 *parcel = where;
-> +               u32 insn;
-> +               __le32 res, nop;
-> +
-> +               insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
-> +
-> +               /* Replace the slli/slliw with an andi */
-> +               insn &= 0x000fcf80;
-> +               insn |= val << 20 | RV_ENCODE_FUNCT3(ANDI) | RVG_OPCODE_ANDI;
-> +
-> +               res = cpu_to_le32(insn);
-> +               /* Replace the srli/srliw with a nop */
-> +               nop = cpu_to_le32(RISCV_INSN_NOP4);
-> +               mutex_lock(&text_mutex);
-> +               patch_text_nosync(where, &res, sizeof(insn));
-> +               patch_text_nosync(where + 4, &nop, sizeof(insn));
-> +               mutex_unlock(&text_mutex);
-> +       } else {
-> +               __runtime_fixup_shift(where, 32 - width);
-> +               __runtime_fixup_shift(where + 4, 32 - width);
-> +       }
->  }
-> 
->  static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
-> --
-> 2.54.0
-> 
-> 
-> I would prefer including this, but I am happy to approve this
-> regardless.
+Oh, sorry. I should have explained this in the commit message.
+devm_request_irq() can return various error codes, such as -EINVAL, -ENOTCONN,
+-ENOMEM, -ENOSYS, and -EBUSY. The existing code overwrites all of them with
+-ENODEV, which does not reflect the actual failure.
+I'll update the commit message to explain this change, and add a
+Fixes: tag if appropriate.
 
-Ack! I'll keep it as an optimization on top to retain your attribution.
+> >       ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
+> >                                             dai_drv, 1);
+> > -     if (ret) {
+> > -             dev_err(dev, "SPDIF component registration failed\n");
+> > +     if (ret)
+> >               return ret;
+> > -     }
+>
+> And this is another case. Where origin code didn't return any error which was
+> wrong. That's also not described in commit message and likely this should have
+> Fixed tag.
+>
 
-> 
-> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Sorry, I don't think I fully understand your point.
+The original code already returns the error from
+devm_snd_soc_register_component():
 
-Thank you again!
+ret = devm_snd_soc_register_component(dev, &xlnx_spdif_component,
+                                                                    dai_drv, 1);
+if (ret) {
+dev_err(dev, "SPDIF component registration failed\n");
+return ret;
+}
 
--- 
-Thanks and Regards,
-Prateek
+writel(XSPDIF_SOFT_RESET_VALUE, ctx->base + XSPDIF_SOFT_RESET_REG);
+dev_info(dev, "%s DAI registered\n", dai_drv->name);
 
+return 0;
+
+As I understand it, this patch only removes the redundant dev_err()
+call and still returns
+the same error code.
+Could you please clarify what you mean by "the original code didn't
+return any error"?
+
+Best regards,
+Phuc
 
