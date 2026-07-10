@@ -4,153 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1420C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 13:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FC4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 13:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+IKDvfDzFGbwqSYx2nsASuQ+2zeb1K3v/PA/7fdhfbg=; b=YPTbdYc6f1ULFNhueOkO4YYLWV
-	EB8RigwCVvMK6Y0EZftjuYTVH7lcJk6eSBtNh9nP85aAzDnZtndIqsGlpVrJbOmhkO1uClDC6yYyg
-	/kdFua9d62DR3pXLAy2jk/fkoIjgwwaeTBs/Ch0cfyZ7+yQZqUaroEr+ktVwx3qwQNXu9BWtoxj77
-	Ue0y9NNqSpn5wG++4zSwLZeNFdY3tbOEfRiTux0EOLM9+vM+Jn1Qzfha+dlWdptGCScx6dU1/7qUg
-	RD6TTD9nI4hv80PASlCBpaTttFFTVludSm9fee+yJw7bMkhYusHgZcRWpqTlos4n7wlLWQpxy4R7G
-	4MA4Uw4A==;
+	bh=SXG7S3p3xLtYKwJ43eakLYqv4N13Bj7bELOQ9MVpdnE=; b=0qtQTlY+84tF0MjAPF3xczgQrI
+	4XRx44s28OquxCpEPaWz6dCvdHGfuNKRlx4P+P4hoKwfqoqV0t6fuGrbqVV9GEt3DG7P+buU+e7g7
+	ow9c6A7wJXIXVRNItSUnxw/LYD/ngfuLnpbtaFnkG2EMjIWNMdcbdYjZI3zmHjkd7DpocXkjfUdq0
+	/IFJf1TaQ3THo8KUaAxiYoU78d2CGy3zuO5cJJHGU8uveiXxVLsiz2l/aKSlODH1LclJbULI/f55v
+	L2jjV//4t88NOiW0aUrY4RqW7EIYkbQFdHByWZtwZXmE9ZhETz0XogXSRIG5iFoIi+a1NCsebMNXn
+	dRM+i7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiB9G-00000004zac-2gx3;
-	Fri, 10 Jul 2026 13:20:10 +0000
+	id 1wiBBE-00000004zqQ-0MAO;
+	Fri, 10 Jul 2026 13:22:12 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiB9E-00000004za8-0SHf
+	id 1wiBBB-00000004zpL-15wQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 13:20:09 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AD6YDw730199
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 13:20:07 GMT
+	Fri, 10 Jul 2026 13:22:11 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AD6bti823295
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 13:22:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+IKDvfDzFGbwqSYx2nsASuQ+2zeb1K3v/PA/7fdhfbg=; b=FuN5/hxmAGVOeKhz
-	TBXLUDz7Km+ZWilvTYvYtq3PFQOnOSWFHA9opAz/gllgit5tdnJLEJoQDle68SNV
-	pL7XLqwHz+8JmHFQz633EBnbhjNVFtvXiT/nHHc2OaWH9eGzMf8r0XR3baY7F79U
-	3c7cgG2tN54fgBFVhUMmCUf2TKm/5JzINDRGTYay3B15v1bou64+t5n1DeV6tgmO
-	H47tazfJIhW0OLhyODJadCuDBCnO2NQaN5gYP8YLWR85cvFVMWa+LNh/d78N3e7U
-	uAiPlZkQqYmN5LTQQpcP05te26eHk+Qz7DPUrRcN0aeTjD+h9pRBW1UlA3AOlqG/
-	emJzgA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4faf24vctt-1
+	SXG7S3p3xLtYKwJ43eakLYqv4N13Bj7bELOQ9MVpdnE=; b=AXt0FCIk3DGKI/Nf
+	pBp5yCPv6UEDsmhYLoWUYxfExoDKdSex+bAkYEDQtib/RTLJMBNYLluw59O+WHLC
+	vI/00XWT7TMDcDQeBJswrEXoYtCFKxoLOecFNi6J0l9j1JfKUfibky7pgMm3CtK+
+	X4gElHkuw4loNDmcjzmQCrApudoXCsKa69wvqBc5PMc68BwgWgLpKF5AcO4n1CCi
+	+qtIE8LwMX8RwiXmNcHB5C7kBFI/8m+a6JGoh3Qq0I3W5MZ1ioiH1UHx1HMnZfw3
+	D5INMvKJtgt2A3csGxHhlwcgkrfszkPh6dolM+adj5ldp9WDJg7JTfoAWLIdJtJ4
+	xZW0UQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fadvjctxt-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 13:20:06 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e63df032bso199796685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 06:20:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783689606; cv=none;
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 13:22:08 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-90284139cceso9965416d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 06:22:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783689728; cv=none;
         d=google.com; s=arc-20260327;
-        b=QbLVBsGGzRfGv9E7f0nLsShVAzVxt5IpV378bMcZf5DfT1hecq5DTBidDvgPBljJU0
-         skn7egavpD3vo6NrU32aGdkhYXDIGXmKSCDIOlBhALlmVDFPBRQHWEhywfHRdBbTw/N7
-         eH5azrbfwVB3jeTTZB/BHKMFiwVYn7+tkoVR1lSo7xCiDns/pDR8SiFUuu2RvSao43XK
-         MyI0Z194d1K3FG6wDwGPislxpjmIZaZmjBBVQMe0+V2PG3Osdft3iCg6ipWKMXwC9Vcb
-         Ff40LgZ4wzuqnh7Yzyy8mvHf/PrlkG44SznhrX+5/zCDPEQNPNXcVI3n6sXEPl+DfQzr
-         16rg==
+        b=aPSF32ogwUi53lyMnGBb6P4NbVqAo2zgrJkBBb2EAmDXg4OXc5oYtxjZIpIzUJeg68
+         dKvRbq5MsDbEPyqChdgFdGuUnzf3sAO2OnWkR8KOTI96j4RL+9JIN3JgN/ohUdbU3yWj
+         i2ZtnFVe5FlPydVP73MGLerHa12XU99d2EMUrvOdwp9c3j1awI8YCgBSiu9pWiveHwyh
+         +y6q66umZqQ+AEzeeuzwIbzOg4pwcztOyJBghE4CztkWqMWmBEJ6/idHUgVXcaHluMrl
+         Bt3SoFwP3aTktg1b49ePvoOPyhnCuYsiDSpsU1oMhw8dTWPGWnzqUOSrWjpvd5dZyjQ4
+         b0fA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=+IKDvfDzFGbwqSYx2nsASuQ+2zeb1K3v/PA/7fdhfbg=;
-        fh=HrbVsoSgDV4by/0xC1D5YV7Bu+NQJ9QFlFBN8JcpxeI=;
-        b=DcCiqvT/t/u4/ZcZ/7eGIm+VaAfIuiZjYnegCCulXiBCErIKCOb6ko/inQo6p2/93s
-         G7tEOYgKphnR96D08lW+DenVbDN9zgbvuvb2eC0Ded9qMzIvWz4Kx8oUqwKa1qSVzGpE
-         xVfH5aWM8LHmIKvBaIwIr0xEQLbeSf08FFWroY6SUKkkdN07HIDxj2DTzDNRylZ9Pep7
-         W7ml5h2/fggI9KEMwMcBstF0csaDbXWNA3cWiVB1DEvH44tREgKeFC2cGOuz6NofrzNl
-         tUTXtgPies7ff/TPahtl+f3PSE18Q5gAOFh6/lt+S3EiE8O0jDNVwbhAdA7uCkbNRRkO
-         7GBw==;
+        bh=SXG7S3p3xLtYKwJ43eakLYqv4N13Bj7bELOQ9MVpdnE=;
+        fh=LFZM0yT3zeamFCsMQdmhqUUhBlK6vdF2cCI6XwVdN5I=;
+        b=kI2ckGeU2r84PMx0sjbEsziHRY4qwMHsmo7K4RWYRkprCQhBhBkjHxHzNRZ9DoOtoq
+         IkYcQrjOgKprZr3g7ADT/DvE1I0YOUJLzBPzGOcJsuvgaUMvsJhamTGZAyuzHGf32gJL
+         ihL6KhxDDEKV/1mg3HStXK6+1UD0P+PC5/4VPlYY8elfLqfmkhCMvaxlmfEAzgsXVhmK
+         lXvX7CM0YR+nx49yUaYkcryABXW65WHOvoKu0qzT3gBUSngJ4q1v4fE9k8hZre95oLeB
+         RJSPYJMvrrGUYzJCzk6HWMRgUvfrDsC1LMP9jiIpQrofqFNelyb9WQvEtDRAig0U/8pd
+         +w6Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783689606; x=1784294406; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1783689728; x=1784294528; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=+IKDvfDzFGbwqSYx2nsASuQ+2zeb1K3v/PA/7fdhfbg=;
-        b=TAucBqs2uqELPbaU/6HUCEiLeXpweFNUwqCl4VY3Fo5g1fTO2Thp6Sjic2WlHSeVEd
-         jKx5Dgvmvkh1vwj0r0KFYJZ4zqo/EcU66UiYrmUzT+8AY/7MXRqiRjjCwUxw+m4izH3y
-         qQdZ72/xY9wgAkgL8Y4k80yQQcwijdnl7mo+R8k6Eiq06U9U2sfjdkVEYpp2pCRgXOBK
-         kOeAsPw6+p6gK4QQI1aUoLgb0ksJbgMmUPuTo8DXLabxxIOp4c4ccaTtMNiU7RdgxtFk
-         B2XIoP1NSp5LP2h9PL34T+bLfXVSbnksKkv+jTWnTrEcUyWZll2jrk2h+QMyIWneBaDW
-         AErw==
+        bh=SXG7S3p3xLtYKwJ43eakLYqv4N13Bj7bELOQ9MVpdnE=;
+        b=ZR/izoN9O35PiaaeF6vrnINz0i3q2Xt2oRrfJ7uaHvee5mFv5nJB92g0VCPS5SKaqr
+         bvcqVsLu8sLrW4yLxGWFrKDnEDPrzMYDMSICdfvT52Vrix8mtpLstEBoO4w8hzrSVUzS
+         Q1TX4JWyL/+vARvahBdwGy/GZ3t2QMQz1eq2EZz6y7j2t8yYvcIx06MXvMmvrAiSU0Rh
+         LcPBLKEhkRPoDaD52lMjUX9uoT8UJkwO28gJ4yrDIo9MRXh+xUOMrsW13iHPGHwsF9wJ
+         8r+rIkJOceInkk2j/D0SgbqiQfa5d1H9kDumBWPyLb5q0P5lYiVKYOL3ANyIQw8MCDl/
+         Il2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783689606; x=1784294406;
+        d=1e100.net; s=20251104; t=1783689728; x=1784294528;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+IKDvfDzFGbwqSYx2nsASuQ+2zeb1K3v/PA/7fdhfbg=;
-        b=aCZdtIdsh75x639HJYxhVXTAj89qdmFjMcgFBJssetYTuE8koItpAcDFQgUxjIT2kg
-         wwkYscQ76scG55BqFI+1jfgv/ISkfD9s8zGx4iePE0ldEE6DY8VDSRGenP14uzs2hM5o
-         eurHfsZaKgKXiRsfUl69SYvTHuh3qtbqACmT/1ecLcCG0FSv5ipRf19RKePSJE1G8pLV
-         S721x7BzabY+Qe0pLA08y7o7B3MuJpzc9ieDl0WlpVH8T358j8peml/35tLQPZzrXcKC
-         mbtIWwSXMhVRXOvZOCbVp42exj13Yxn6ing1bT0xtih+GfrvPyvuvfqwzNIm7JAgKc8p
-         2jzg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq9pN3lUXb5JhKEM77ozHCCiGv94YRaMHrtlUBrYKRwHVZEUVkddXH80K0WV0XbW1dIqW7qXUW2ydAux6H9+lSN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yywi8uktaepJ+b9CtTGyEfZ9azRqzFk94FAO14UzJzcyhRVwXNU
-	GdXS4GtPzZV3SnWUVKdvFtBEKHdp1A23ude1IzVRQaiXFcvVobtSm3O01aiWE5LC9s/6FCxORBZ
-	hAXMoTXSjK/fp+An+nhuByE8jn5JRBnsIQntdTjydKmlUpW8Q0+D0LAQplozu3Gy9MGUk4nDT6r
-	hl4HA0+6I0B6YK8jdW/bgZyIhfuTwT9+G0HT3t6PGFmb/3/wFMy225
-X-Gm-Gg: AfdE7clJqiJ3lmFwRb2WNMUtp1lmTacypVUhIYkcHNO2U/FKQ8b9qexjFFpAX/yMioR
-	nTJXE8fUCrlNdLS74lNFBBIwO9YOoZQs+dMnK4FwJQcyOO4DbpH/lj9dkZWkP6hxm4XATnq5bee
-	YeJu6Ldw9sfekBiFMFGzpqy3tAl0t8zd72tMmoVSN+XGP0OJEUmFB0m2Pzzz7bsjBBeOlC
-X-Received: by 2002:a05:620a:3703:b0:92e:5949:3567 with SMTP id af79cd13be357-92ee4b9c9c0mr378847985a.14.1783689605921;
-        Fri, 10 Jul 2026 06:20:05 -0700 (PDT)
-X-Received: by 2002:a05:620a:3703:b0:92e:5949:3567 with SMTP id
- af79cd13be357-92ee4b9c9c0mr378840285a.14.1783689605263; Fri, 10 Jul 2026
- 06:20:05 -0700 (PDT)
+        bh=SXG7S3p3xLtYKwJ43eakLYqv4N13Bj7bELOQ9MVpdnE=;
+        b=Uk6+H04W+De1Kh9l0kNBSVf80BhIdinVFMMpK9Kj35bUTfXK1iSvrG9Hgts98OfjL1
+         ngvllzPylP/9Hz6VW0N/YW0peJc9i44tZRvp5+8KJUEd2uvACtBzDC6wa0cHavNzfkde
+         Ax1mj3m6OE8LQOPAAShE9TXn7lXSYPj9c4eo2yszo8jukYreaxbyLsVkmKwid8wOGsah
+         vh1R0LzAdE32hFKQlMJYmHnOMriReKf/2uHXKniMJmc4O/tUxq35/IFIGIM4UmrXngt7
+         e/iInBI/79VwDune3IMdazUzIDO2H1t4ijbSPBNMPQJtw6qbkUOuvyV5D4LldM5ZuNd4
+         s2Cw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqh8r84mnmpbi828FUrE8yFNjlMFN4otx9+03qnhn6NnU/Y5pQdeKOOZuuWocEqrIVD+oWtUxFzZtVgDTtsvIzL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU0n/bEeUWjPaDf31tFX17rQz4ZgKr3DFIUAM6SuhMh2KpfPqN
+	ILzEeDp7oABDjFYV98vkCyAJF/WPFcNLtBTOZibdkVXY1YABe8ClyUcoqEWG7wvpaMz9MnX9MlG
+	ESspMBQA8VXQ4MdFYRKjytHTdj4HDGddCBk0WuJRSV2/Q4njCgahRiLnmfihQgKEyQFCXhTe026
+	7BN+AZTibzrm2tYabQFpNedvmKHeWHMa/lctprG/Ox2Bi8j9sWQkmV
+X-Gm-Gg: AfdE7cmeEh8beaL4hVzhksgiR5T2HMvTNIqqhlw7/ciG6pCVvjoNVzWnb4grwkFUTD5
+	e0vfE3WHtvy2z+bhm+lpOMFFltXmeZ7AIl2GMgF9/wByh0SoJEsecRu2TpH14JodN/KO1ibdE3H
+	IlWOtf4vuit+HaVYvDJYmp4h/PmrMZ+9vAfJ1ZMqhPNSDKSqWB8yh+bSsli+7nM2Rq0LWQ
+X-Received: by 2002:a05:622a:4d8e:b0:51b:fcc1:a0b7 with SMTP id d75a77b69052e-51caa02bee5mr34237441cf.8.1783689727481;
+        Fri, 10 Jul 2026 06:22:07 -0700 (PDT)
+X-Received: by 2002:a05:622a:4d8e:b0:51b:fcc1:a0b7 with SMTP id
+ d75a77b69052e-51caa02bee5mr34236931cf.8.1783689726914; Fri, 10 Jul 2026
+ 06:22:06 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260707110303.3779799-1-ziniu.wang_1@oss.nxp.com>
-In-Reply-To: <20260707110303.3779799-1-ziniu.wang_1@oss.nxp.com>
+References: <20260706195818.3906949-1-sjg@chromium.org> <20260706195818.3906949-8-sjg@chromium.org>
+In-Reply-To: <20260706195818.3906949-8-sjg@chromium.org>
 From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Fri, 10 Jul 2026 15:19:51 +0200
-X-Gm-Features: AUfX_myX85sm0CK23HsaVBWLtyuOsQFVaWPiXZvcMl9d2lwceyk99PJTRc2r1Fo
-Message-ID: <CAPx+jO9PrycaUM2j+BS=pa994DzWqYN_yQQk7=pwkq+ik-xeFg@mail.gmail.com>
-Subject: Re: [PATCH v5 0/8] mmc: sdhci-esdhc-imx: fix SDIO suspend/resume issues
-To: ziniu.wang_1@oss.nxp.com
-Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
-        Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-        festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
-        s32@nxp.com, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
+Date: Fri, 10 Jul 2026 15:21:56 +0200
+X-Gm-Features: AUfX_mzmOYvznpst6Fhzo_RRhZo2t92NP1TaOref0jVQgAZ-t89JABzPIjGVV8E
+Message-ID: <CAPx+jO8t8JoTJJCCMU_yz0yyGQCSA4cKsmpSeX_=jEMUwuYsuQ@mail.gmail.com>
+Subject: Re: [PATCH 07/12] dt-bindings: mmc: rockchip-dw-mshc: Add RV1106 compatible
+To: Simon Glass <sjg@chromium.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
+        devicetree@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>,
+        linux-arm-kernel@lists.infradead.org,
+        Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: mL3nuQuoS8fw8LPsWTdAcnz9kCCn-7ms
-X-Proofpoint-ORIG-GUID: mL3nuQuoS8fw8LPsWTdAcnz9kCCn-7ms
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEzMSBTYWx0ZWRfXxeQtPYx079be
- jxLapkV1J+u+jAdv2/4RKTdcP4ypTWPRIr2bQvhRoCqSu+nDCq28j3oJ8sZmOnLfTF2TS8lsDAc
- g8+gQ/Z522D2blnqGItj7u+OQh5jjEg=
-X-Authority-Analysis: v=2.4 cv=daKwG3Xe c=1 sm=1 tr=0 ts=6a50f186 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEzMSBTYWx0ZWRfX4hIK8WQVzQrl
+ fl7qNwzi7sPpTzELVinNz6kl+WdAh3eLwZqBkJgUiBqGdgc4wSq0MUZGaCMRYgPRQsyCqWjZkVS
+ HYxFAhZ5hRfZ7gnGFz33GLNQb7dFGuMWBvCCRl+dRyj1z1p5qrakt0EjNv2arWZdvQTNMncLhqM
+ to2l3hEBfDIrbCS4ZD3klfKJxvpLR+Nvvvev1eOIBXXBh2CGF+n68rE9GhL8NrKhQry7z4zg3Cg
+ jiUPSqxI0N7/YjaEr8qX2avBzrt7ZHqbkwDy7LF9avkbCnPKbnm6luNA5hRidA+P+/e+3Db4/BM
+ 8ELpLjH21aorRrJjSiOE/fl9KcOzG4FMGKWgfH5uMnG2a3rWigSe5CPf2zNmeTQ9pYEBTjvsvAN
+ lmOo2dNJIu1sj513ph+JcpvAlXb8ofyW1I2rV9Zr5ALpCgEJIJHcvUUB6/axszwHfqtC57Qb2NP
+ lA7UMMhzl5VAPxSKv/Q==
+X-Authority-Analysis: v=2.4 cv=WpIb99fv c=1 sm=1 tr=0 ts=6a50f200 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yx91gb_oNiZeI1HMLzn7:22 a=8AirrxEcAAAA:8 a=j4ls_bG9junj-QLuZ2QA:9
- a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
- a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDEzMSBTYWx0ZWRfXwJpdpgzouQCy
- 6zk2cT0fA2YT9PFY1cDJdDaFvFC0yotiV0qUPNs638MUuxnA8mExbJThdaNu3LicgE6y9BEmJ6p
- fVx6SDh3xFBRzVuz0ZNGRetyEqGvs08BzHUzh8fqcmspttKaYv7WO9pWNIbsWxsjxHV5jxaz/So
- QbO3kX0ZssvUDqw8yaVRYqT11hwe9CLSL8RVTn/b+0vuTpqXjtPZXCe6y+CahBDHn+4mIPMc8ut
- xHwR/OUP+tTZYkThZuJSgmkeTg5vRZY7nD3YIeBYlOtHKD5MoQ4yAbT17gKB5bm1vc08pJQPYpv
- 8acibGhkD8xLw7qkujBhxOghq1ITvKK4+ILJ2uAU5xwR2YkvY+Yg0Zc25lJdY4ElgAtQuL3yIpk
- 3q/KR3nkmkDA+fCMm8Gyif2RdByFpa/IoqxVC4mYa35kto6vKJT2yUWToP4x1ZGEAhhxNMX4T2P
- eNqFjJky3/E8VrfHNww==
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=cm27Pg_UAAAA:8 a=-hWoO2I3uisOaqaBfXAA:9
+ a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-GUID: Iam_Z8MQT2dIRLlJTH_6sN0QZcwLKon5
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDEzMSBTYWx0ZWRfXxMeN91bo2OYp
+ rFDPZ7rpUc+BGIDzFZbo/QHUNx5KEJ8zThHBe9k13WO/OcXARGkuC2G/Fsfhv/KcJY8T87t7RBk
+ cGBaYsrgP9+iXtzEaQDV7XQiuLIW7/E=
+X-Proofpoint-ORIG-GUID: Iam_Z8MQT2dIRLlJTH_6sN0QZcwLKon5
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-10_03,2026-07-10_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 adultscore=0 suspectscore=0 lowpriorityscore=0
- clxscore=1015 malwarescore=0 priorityscore=1501 bulkscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100131
+ priorityscore=1501 impostorscore=0 adultscore=0 lowpriorityscore=0
+ clxscore=1015 malwarescore=0 phishscore=0 spamscore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607100131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_062008_263635_E1DF2014 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20260710_062209_407264_5311C33B 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,82 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026 at 1:00=E2=80=AFPM <ziniu.wang_1@oss.nxp.com> wrote:
+On Mon, Jul 6, 2026 at 9:59=E2=80=AFPM Simon Glass <sjg@chromium.org> wrote=
+:
 >
-> From: Luke Wang <ziniu.wang_1@nxp.com>
+> Add the compatible for the MMC controllers of the Rockchip RV1106,
+> which are compatible with the RK3288 variant.
 >
-> This series fixes several suspend/resume issues in the sdhci-esdhc-imx
-> driver, primarily affecting SDIO devices (e.g., WiFi).
+> Unlike the newer controller in the RV1103B, which uses the RK3576
+> fallback, the RV1106 controller is the older IP whose drive and sample
+> phases are set through clocks provided by the GRF, so the RK3288
+> fallback is the correct one here.
 >
-> Issues fixed:
-> - Tuning delay values not saved/restored for out-of-band wakeup devices
-> - DLL override lost after resume for DDR modes
-> - Pinctrl not restored before DDR_EN is set, causing CRC errors
-> - Unhandled interrupt during resume causing "nobody cared" warning
-> - Various error handling issues in suspend/resume paths
->
-> Changes since v4:
-> - New patch 3: Fix esdhc_change_pinstate() to move IS_ERR checks for
->   pins_100mhz/pins_200mhz into their respective switch cases, so that
->   legacy timing modes can still reach pinctrl_select_default_state().
->   This avoids log spam on resume for devices without UHS pin states (Sash=
-iko)
->
-> Changes since v3:
-> - Patch 2: Remove unused 'boarddata' variable in esdhc_set_uhs_signaling(=
-)
-> - Patch 7: Expand commit message to document intentional skip of enable_i=
-rq()
->   and sdhci_disable_irq_wakeups() on early return, and explain why the
->   PM runtime usage counter leak is acceptable (Sashiko)
->
-> Changes since v2:
-> - Patch 3: Updated commit message to explain the SoC IP integration
->   detail about internal loopback path change when switching pinctrl
->   from GPIO to USDHC function (per Bough Chen suggestion)
-> - Patch 5 (v2): Split into three separate patches (5/6/7) so each
->   patch fixes one problem (per Frank Li suggestion)
->
-> Changes since v1:
-> - Added patch 5 to fix error handling issues identified during review
-> - Use pm_runtime_resume_and_get() instead of pm_runtime_get_sync()
-> - Make pinctrl and cd-wake failures non-fatal (dev_warn only)
-> - Use esdhc_change_pinstate() instead of pinctrl_pm_select_default_state(=
-)
->   in resume to restore correct pin state based on timing mode
-> - Skip pinctrl restore for wakeup devices to avoid SD bus glitch
-> - Check pm_runtime_force_resume() return value in resume
->
-> Luke Wang (8):
->   mmc: sdhci-esdhc-imx: remove unnecessary mmc_card_wake_sdio_irq check
->     for tuning save/restore
->   mmc: sdhci-esdhc-imx: restore DLL override for DDR modes on resume
->   mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate() to allow default
->     state restore
->   mmc: sdhci-esdhc-imx: restore pinctrl before restoring ios timing on
->     resume
->   mmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled
->     interrupt
->   mmc: sdhci-esdhc-imx: use pm_runtime_resume_and_get() in suspend
->   mmc: sdhci-esdhc-imx: make non-fatal errors non-blocking in suspend
->   mmc: sdhci-esdhc-imx: fix resume error handling
->
->  drivers/mmc/host/sdhci-esdhc-imx.c | 84 ++++++++++++++++++++----------
->  1 file changed, 57 insertions(+), 27 deletions(-)
->
-> --
-> 2.34.1
->
+> Signed-off-by: Simon Glass <sjg@chromium.org>
 
-Looks like this entire series may be material for stable kernels, but
-perhaps it's easier to manage that through manual backports to do the
-quite extensive changes? I can certainly tag the patches for stable,
-but in that case we should have a fixes tag or specific kernel version
-for all patches in the series, can you please help with that.
-
-I am leaving a few more days for reviews before I queue this up for
-next to get it tested.
+Applied for next, thanks!
 
 Kind regards
 Uffe
+
+
+> ---
+>
+>  Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml =
+b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> index 4965bb518c54..21ecfaa454f4 100644
+> --- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> @@ -43,6 +43,7 @@ properties:
+>                - rockchip,rk3562-dw-mshc
+>                - rockchip,rk3568-dw-mshc
+>                - rockchip,rk3588-dw-mshc
+> +              - rockchip,rv1106-dw-mshc
+>                - rockchip,rv1108-dw-mshc
+>                - rockchip,rv1126-dw-mshc
+>            - const: rockchip,rk3288-dw-mshc
+> --
+> 2.43.0
+>
 
