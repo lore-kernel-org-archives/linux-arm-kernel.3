@@ -4,146 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EC1C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42C0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ps2pIAtsOlZ15mUfBLrNW3OT8Vmhj5ogRt2NgPNrbys=; b=uQvkyDnhxH5Mi/nwzDxyvnLiVB
-	E7YLRZDU2gV802if90lij3tBwqBTsS9ZdJdHdET/pWHckuhgZh6FBwyw70fslvVAbxB0rJBEDWz/X
-	h00YC0C75x1nLemsygBJEKuYAOfwFZPKVEA5yU+ugCIzCHuLOKIXorBlZ8Atz3Ks8mJj99PjKsZuB
-	036lTb43oIF0ZXXa890GfJWGM7r7JFvUMLIIhVwUDnbQDCX91UEJWPbCV8MeELf3+i4Wy3w/9Rdy2
-	06NvHO0U9ppQCZGF4ajxCLWUw5PhXF05017YZLJaPrjBIeki51knjHl8ZptXxSm0cix3cghM1JbNX
-	EXWx2IPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U0BglJRIUKke/mUFf5yBgv26eeETD5Y0hMHqC2biMt0=; b=gmnXCQdDb0Uakh
+	UzLJaRlqAts8Tf4cfusULdADE02WtvZ5j2nJ48w0Fk+pEVjk/XHeA+pz+fiOvWyYOeTE1wyaVXHey
+	XK8bIEvA9MD5htqRaTKTbiaflaQSBIiUgTIRgXxK5Td8XJOXUxxg5+NLy81ZHEOmt2Vuw/HT7AFzf
+	sO/hP7sFgWJ34ZGuKYEU+e8OgzMQSPpuRUQe0sAWw4tHVG3cXX8Yk6kD9jedb4M98obuxwl8fsvmp
+	OGpbN0dcgDHEXyhjoH1urgsqoNlDluRiMlWQYnojG2Toph6ggSTkK+hqvdgZ6FEs0d3/ca1JfE0ml
+	f0UlLCJ2QKvZnBLIXF5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6ZS-00000004SR0-1BcO;
-	Fri, 10 Jul 2026 08:26:54 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wi6tp-00000004UUG-2VRT;
+	Fri, 10 Jul 2026 08:47:57 +0000
+Received: from [113.46.200.218] (helo=canpmsgout03.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6ZO-00000004SPL-2nrs
+	id 1wi6tm-00000004UT9-3kzB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:26:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iBPvrTs0xRRUW1T2lfQYlMnUA+7yxE+gpcDq55dXBsMpQCZOOx5U54KVus+0/JUW+RhcLnagsCusztATTLmGaDe5uOQNHfvu50VXRTw3kx66khsd95mKJAoHeYbhGCQnh7nb9JZZTcxI/kbpGXtsufMlKS6wQc4GIMZCe/QKGJkIAj+QpEhUVBH38v4U+AnZU+AUV/gvRnA0VyvVHDujyGuCi/oCJCLvkmk9QBRV5iW3Pnf7R4A3B2O7GtA8ol0gK1eIgpW+Vc4MBtLGqa/N3UIXj5xR/1zzNNT7FYRD6PQjzKCMQrNEbEbRjfo61i5ijBxp359m7r29IvF74whdjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ps2pIAtsOlZ15mUfBLrNW3OT8Vmhj5ogRt2NgPNrbys=;
- b=Aa2Y6SLIFia8MlAgc/r7oTQs+Bx5ZZ1eRMusQ7rpNsqME0BDNCQldDhi8hglG3sbzdkAz7CK6cKolHw4FetbLN+RRkHAg+w0soBKAHHFoZ+NiQYlzR/Ff+3jPQIUsfTuPSr8Ot/980jXAW7iaIHX9iFHZDgSjGB7kQ3DvjuqQ3b+2V8kFGOo0jlIvuQ1ax3pvwWketCsrNKfgYb3o0mTyZfSl2Jp5IBhx3ROolBfDaXVT3n1Yvsj52+iVX2HMYTbwESxOo+d7iHIi2ocz4XpJ0o81k23Dhmag9/jQdIHPohRZ9fYCOFL1a9RI7cDKbakwQIGx9ddBRHcQjF3H7So6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
- header.d=mt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ps2pIAtsOlZ15mUfBLrNW3OT8Vmhj5ogRt2NgPNrbys=;
- b=FW6COT+0OZEIaCfDDnUndiOZkOjvgZg0KeuD/UCYc44lUr+kfsykhAzGdQPtnNqL1C3Bvv1Mn/lZ3ykE/gW/OQGOTGQePWimhS10KXkNWMap19HM2mZSXFvv2ES+WIFVU3Fd6P+tq4yNiWJEzjAMnKuypJOIY3sq7q2ebZGy/TagR2jbkBDX6lX+aMDSNKwTrNNxWrFSHJqNmvSfrjBDHfSHw3FSJLNU1o/6FLEaEqwIeD5MQm6eboOjukNM8DyRm77f+HScft05wjKtO3p9sno9ma5FuBajSlw0qNIDa4yDZXan8P558yeCcSWD8pf6gllHG5MlzER8Rm43l5h3ew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mt.com;
-Received: from DB9PR03MB7180.eurprd03.prod.outlook.com (2603:10a6:10:22d::13)
- by DU0PR03MB9731.eurprd03.prod.outlook.com (2603:10a6:10:44d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
- 2026 08:26:44 +0000
-Received: from DB9PR03MB7180.eurprd03.prod.outlook.com
- ([fe80::6fd2:12a9:4423:8ddc]) by DB9PR03MB7180.eurprd03.prod.outlook.com
- ([fe80::6fd2:12a9:4423:8ddc%6]) with mapi id 15.21.0181.016; Fri, 10 Jul 2026
- 08:26:44 +0000
-From: Wojciech Dubowik <wojciech.dubowik@mt.com>
-To: linux-kernel@vger.kernel.org
-Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Marek Vasut <marex@denx.de>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 1/2] drm/bridge: ti-sn65dsi83: Add reversed lvds lanes support
-Date: Fri, 10 Jul 2026 10:26:28 +0200
-Message-ID: <20260710082630.394040-3-wojciech.dubowik@mt.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260710082630.394040-1-wojciech.dubowik@mt.com>
-References: <20260710082630.394040-1-wojciech.dubowik@mt.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: ZR0P278CA0028.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:1c::15) To DB9PR03MB7180.eurprd03.prod.outlook.com
- (2603:10a6:10:22d::13)
+	Fri, 10 Jul 2026 08:47:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=U0BglJRIUKke/mUFf5yBgv26eeETD5Y0hMHqC2biMt0=;
+	b=uGuGCO6tGRZQlwZ8I5pTug89ExxelpW7YrAIzg46Bac7QuKT4y2t8t54SmSd3XOdghyLxEkU5
+	/cjBYqqQb5PFevVv73MhUrcpR8tL10ertuzNtCGoMSUX5plR8h+84Zm69DQO5UlvYqto582NQkk
+	35FhZa29tpWe1koynrcbvxc=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gxQGX3lcYzpSvB;
+	Fri, 10 Jul 2026 16:38:44 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 380B340579;
+	Fri, 10 Jul 2026 16:47:28 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 10 Jul 2026 16:47:27 +0800
+Message-ID: <00f0b907-bab7-4f18-970f-25e2e7071b0a@huawei.com>
+Date: Fri, 10 Jul 2026 16:47:26 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR03MB7180:EE_|DU0PR03MB9731:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10efb1de-672b-4228-b4c6-08dede5cf9dc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|19092799006|1800799024|56012099006|3023799007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EmB8l5ndddyRgL9jau3xOoGKcLYbhnHci3kIPmX87xIRDpSl6CjXy6XJCU5YcRN6gxZ/liwCkvxtfMUy9adPLIRiKYwZdulrMqlic+QkwQUncI+3gBu96Kf+oY4GDjlEkC8u3G7en2Ak/+5AaTIrGPJoK4SotIPdNQjVSWeIUudM0z5UiS7GzJiNH8LdRqA1IUhAOl/A1W2cn1kzIc59Mp6F0VNmmNuME9RmmViBdrl2x8fjr97A4A7st8RAoEFjpHSMTSg7RM9/fFN7+nwoqMt7M2qZNHmvIEwKVIBUUjSFlImnmIMYt+J1iZUCQZFdGocD9SAlKj0+2tYQ5rWSg/OgmJSyQC7CYNMpjXpQKFhhLKxyhT3qV9psIxY5wOmaK3h8wrlFkJwZ0uj3CVkdoQEPNwm+MDn4JvSdVfgVwRm/THPM0b8ZCXwV8Cb5n3lpOte4UFDbo8AMVyend90L7JgIzq65YTRxQ6HDa13UBcuo+8+/aIDrr3iwWiGe033sF5imFcaakhclqb8M9iYKsLtrJDpBVybCSjG+9grBQ9XR0PbFJCPVu+ArG1zdV2oUxwH3v8BuxQFqOpgz3eS6FFuFgF5mhsa2Qho5t5PjCVaPEHVy1bCQl2b8jaQVdsX4P7QwQUNABwcnY7fEMo+XwxadWbE6TtdnG5GaqOEmPds=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR03MB7180.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(19092799006)(1800799024)(56012099006)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eKmxi943B8wiDHbAUIgCn+Z8TVU/CCBvXAThen71nx9W7JJ6K+QS/LiMgXgP?=
- =?us-ascii?Q?uLN3bgY03JukM+NHmtTyF0bd2lzK4ytny3E7IBxl/9G5jOTRctZGVPIfX2BP?=
- =?us-ascii?Q?DtV6ihqC2dDX/ABo9eyN0Dcvhm1fNoETS6Z9yZnsafKxXTzwRXZaQBNNh79z?=
- =?us-ascii?Q?z8JCPr52JhIR9WxHd9ta38vkGnWAJAipkigH/3Xy8OboXF7p0OC/bBmhUPL3?=
- =?us-ascii?Q?Pb4QBb51ew/AP5xPGHIQV9y5yvIvQTsxkYiGPn47DbYetIjaJ4i/WlEd/nvL?=
- =?us-ascii?Q?pmQH8EVoF3T3C6pD4XVP0pC9quV7MILhg1HARtcObZLXVaLyeKTBjvvJkWPf?=
- =?us-ascii?Q?oPaFYWcqV5JFa214ptsMPCu/pLUEbIN8kK3tpmU6R1Vh7xVPTxd440NwshHP?=
- =?us-ascii?Q?FfYiL01xuuAOiX+fp+LQUhVEo7/QpvLzXcAUNqM4KJpwe6afHYbOXqiZNiZu?=
- =?us-ascii?Q?qlZxNUmpj/O9NxnOGRVSnDvHdMyxmJ4WH1Grgi0gsTAcBBhrWEqV5dAMzDMn?=
- =?us-ascii?Q?VYYSwQ/qmAW7miyD1AMfxEPvvqKD+Ypz+CiOCkM7Pr6ogLIo65kGImBS55Y6?=
- =?us-ascii?Q?pBMPBEzilmuT++d4lQhc+WUgXp4qmJjqTJbmB1COqHXAZ0xSGPnRMXM6v+eV?=
- =?us-ascii?Q?u6VtlMMbvEO8dwIfTiGNi3DTwCyKhxbFqqCvQfr9skRIB9i0ng+LS9QKJuEw?=
- =?us-ascii?Q?AVTJ1nqXM647LAUSuDHN8XXjjSSuRF/XC5Q7uWQDc42epl7SQcs+c3tQuY14?=
- =?us-ascii?Q?1IYYvhiiTIrxFcYkwsxiI5oMPwXDXZzpTx7D+O5v0KWIrOkhxQDDjWmXqX4e?=
- =?us-ascii?Q?k+7mqaJgef23McieQAadfxq2OH7p05knvo8PdLhF1vuT2NXT89PBAXDt3V7C?=
- =?us-ascii?Q?NirS86kp66y5zT+QTydDsv5VLh3REW294ev4JvqSV8qm2SBok+QvEDKXfMzW?=
- =?us-ascii?Q?crDWFF39kyjXndQr137SLNI5lR8lJ7hLS8556OQ8cA+AwCwboP/AzD0MWBEt?=
- =?us-ascii?Q?xcg/ZoDLsiJ4QxnSNefXiFhD88BPFO2f9QM9rw7Ax+EyFs3PbB4aTKF6loZP?=
- =?us-ascii?Q?30NIHevo9iVTc7ltots/gdXnKyDOERRy87r3SWb/uoNYdlTBUXST9BVuS76+?=
- =?us-ascii?Q?gEqfSU4CbLEgZ2HKXpEPugnwkH9OErI11Sp0aUs+iKQRI0/VymiYhdnNP24n?=
- =?us-ascii?Q?qpWI4nCmpRbY/hv7Ilo7oL3BMT3GORl/GH/03PDsgEUSeq79CLGtbr94hp9k?=
- =?us-ascii?Q?8SGpYjxRvAc8YDObSR397hsEx6jKOPvMLKWjNbIRStsNgj52LwFWAqA16MiH?=
- =?us-ascii?Q?7ADXQA+dk5LVr1F0Okr9K/vpKt/N7mzjJOPNYeUexfhZ6DO+TSlZpefc+02Q?=
- =?us-ascii?Q?oi3mHWJ1vE107/b9QZxqB2JVdARWP75RFH7NtGfHPwRnxuZU7duHys7eK0DI?=
- =?us-ascii?Q?rwQW5FrLEjekFPrraCavgRhNgwkOeb2uTxLDOAOBTYzVWh4L4IlKCDvDUVgz?=
- =?us-ascii?Q?2HBvi5LIxnLeyXoDvt8/R8uQKLQuoYYzx6I8pEd5Ip2O6jQxR/E9RkwwyXgl?=
- =?us-ascii?Q?NckIQmu2U5tdN6ylrWKf0dCoeIPilfIS5iBLKZNbhNG8xVUQwCLXrpFgTO8X?=
- =?us-ascii?Q?c3ImSBVJK4bndJpw7iliIgJ3CvHktMZaex3MpD4DuPROFDXPfEaS2d9I/+8a?=
- =?us-ascii?Q?CaS11pH9p+Uok0EyZIiJA259kl7mgmvWboQnP0WamZXcU1N1qOKSp5dMeqSp?=
- =?us-ascii?Q?NM/OuTNP7Q=3D=3D?=
-X-OriginatorOrg: mt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10efb1de-672b-4228-b4c6-08dede5cf9dc
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR03MB7180.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 08:26:44.4292
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HlMv4ACzYUTf+Yr6JH0P5pOsjGQvYMHBSKa9tECuM0Yt18c+uN5+iB0kVRh5KB1hgXdtTJWxd0DTJkxIfb86yg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR03MB9731
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-11-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-11-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_012650_714238_066B790F 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20260710_014755_305185_1A373ADF 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,114 +74,213 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
 
-The chip supports output lvds lanes in two orders, default <1 2 3 4>
-and <4 3 2 1>. Add parsing of an optional output lvds data-lanes
-property so we can inform chip that the lanes have been reversed.
 
-Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
----
- drivers/gpu/drm/bridge/ti-sn65dsi83.c | 50 +++++++++++++++++++++++++++
- 1 file changed, 50 insertions(+)
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
+> Now that we have a type which can track both of them at the same time,
+> update our irqflags implementation to use it.
+> 
+> Save DAIF flags in all cases, as they can be manipulated directly by other
+> code, and the PMR if it is in use.
+> 
+> When checking if IRQs are disabled, now that we always save DAIF we can
+> check that the I flag is set and bypass checking the PMR if it is.
+> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
+> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
+> the PMR to know if DAIF is already masking interrupts.
+> Update `irqs_priority_unmasked()` to align with this change.
+> 
+> This allows us to remove the `__daif_...` and `__pmr_...` versions
+> of the save and check functions, as they are now unified.
+> 
+> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
+> in the main one, as the DAIF and PMR values are properly split now.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/irqflags.h | 110 ++++++------------------------
+>  arch/arm64/include/asm/ptrace.h   |   2 +-
+>  2 files changed, 23 insertions(+), 89 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index 7775904ba6a9..62f047702493 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -95,117 +95,48 @@ static __always_inline void arch_local_irq_disable(void)
+>  	}
+>  }
+>  
+> -static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
+> -{
+> -	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
+> -}
+> -
+> -static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
+> -{
+> -	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
+> -}
+> -
+>  /*
+>   * Save the current interrupt enable state.
+>   */
+>  static __always_inline unsigned long arch_local_save_flags(void)
+>  {
+> -	if (system_uses_irq_prio_masking()) {
+> -		return __pmr_local_save_flags().flags;
+> -	} else {
+> -		return __daif_local_save_flags().flags;
+> -	}
+> -}
+> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>  
+> -static __always_inline
+> -bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+> -{
+> -	return hwstate.daif & PSR_I_BIT;
+> -}
+> +	if (system_uses_irq_prio_masking())
+> +		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>  
+> -static __always_inline
+> -bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+> -{
+> -	return hwstate.pmr != GIC_PRIO_IRQON;
+> +	return hwstate.flags;
+>  }
+>  
+>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>  {
+>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>  
+> -	if (system_uses_irq_prio_masking()) {
+> -		return __pmr_irqs_disabled_flags(hwstate);
+> -	} else {
+> -		return __daif_irqs_disabled_flags(hwstate);
+> -	}
+> -}
+> +	/* If I is set, the PMR doesn't matter: interrupts will not be taken. */
+> +	if (hwstate.daif & PSR_I_BIT)
+> +		return true;
+>  
+> -static __always_inline bool __daif_irqs_disabled(void)
+> -{
+> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
+> -}
+> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
 
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-index 42b451432bbb..4945d4c960c4 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-@@ -148,6 +148,18 @@ enum sn65dsi83_lvds_term {
- 	OHM_200
- };
- 
-+enum {
-+	NORMAL_LANE_MAPPING,
-+	REVERSE_LANE_MAPPING,
-+};
-+
-+#define DATA_LANES_COUNT	4
-+
-+static const int supported_data_lane_mapping[][DATA_LANES_COUNT] = {
-+	[NORMAL_LANE_MAPPING] = { 1, 2, 3, 4 },
-+	[REVERSE_LANE_MAPPING] = { 4, 3, 2, 1},
-+};
-+
- enum sn65dsi83_model {
- 	MODEL_SN65DSI83,
- 	MODEL_SN65DSI84,
-@@ -163,6 +175,7 @@ struct sn65dsi83 {
- 	struct regulator		*vcc;
- 	bool				lvds_dual_link;
- 	bool				lvds_dual_link_even_odd_swap;
-+	bool				lvds_reverse_lanes_conf[2];
- 	int				lvds_vod_swing_conf[2];
- 	int				lvds_term_conf[2];
- 	int				irq;
-@@ -644,6 +657,10 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
- 	regmap_write(ctx->regmap, REG_LVDS_LANE,
- 		     (ctx->lvds_dual_link_even_odd_swap ?
- 		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
-+		     (ctx->lvds_reverse_lanes_conf[CHANNEL_A] ?
-+		      REG_LVDS_LANE_CHA_REVERSE_LVDS : 0) |
-+		     (ctx->lvds_reverse_lanes_conf[CHANNEL_B] ?
-+		      REG_LVDS_LANE_CHB_REVERSE_LVDS : 0) |
- 		     (ctx->lvds_term_conf[CHANNEL_A] ?
- 			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
- 		     (ctx->lvds_term_conf[CHANNEL_B] ?
-@@ -832,10 +849,12 @@ static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
- 	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
- 	/* Set default near end terminataion to 200 Ohm */
- 	u32 lvds_term = 200;
-+	u32 data_lanes[DATA_LANES_COUNT];
- 	int lvds_vod_swing_conf;
- 	int ret = 0;
- 	int ret_data;
- 	int ret_clock;
-+	int i, j;
- 
- 	if (channel == CHANNEL_A)
- 		endpoint_reg = 2;
-@@ -854,6 +873,37 @@ static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
- 		goto exit;
- 	}
- 
-+	ret_data = of_property_read_u32_array(endpoint, "data-lanes", data_lanes,
-+			ARRAY_SIZE(data_lanes));
-+	if (ret_data != 0 && ret_data != -EINVAL) {
-+		ret = ret_data;
-+		goto exit;
-+	}
-+
-+	if (!ret_data) {
-+		for (i = 0; i < ARRAY_SIZE(supported_data_lane_mapping); i++) {
-+			for (j = 0; j < DATA_LANES_COUNT; j++) {
-+				if (data_lanes[j] != supported_data_lane_mapping[i][j])
-+					break;
-+			}
-+
-+			if (j == DATA_LANES_COUNT)
-+				break;
-+		}
-+
-+		switch (i) {
-+		case NORMAL_LANE_MAPPING:
-+			break;
-+		case REVERSE_LANE_MAPPING:
-+			ctx->lvds_reverse_lanes_conf[channel] = true;
-+			break;
-+		default:
-+			dev_err(dev, "invalid data lanes mapping\n");
-+			ret = -EINVAL;
-+			goto exit;
-+		}
-+	}
-+
- 	ret_data = of_property_read_u32_array(endpoint, "ti,lvds-vod-swing-data-microvolt",
- 					lvds_vod_swing_data, ARRAY_SIZE(lvds_vod_swing_data));
- 	if (ret_data != 0 && ret_data != -EINVAL) {
--- 
-2.47.3
+This concept of being less than or greater than is not easy to understand.
+
+> +		return true;
+>  
+> -static __always_inline bool __pmr_irqs_disabled(void)
+> -{
+> -	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
+> +	return false;
+>  }
+>  
+>  static __always_inline bool arch_irqs_disabled(void)
+>  {
+> -	if (system_uses_irq_prio_masking()) {
+> -		return __pmr_irqs_disabled();
+> -	} else {
+> -		return __daif_irqs_disabled();
+> -	}
+> -}
+> -
+> -static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
+> -{
+> -	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
+> -
+> -	__daif_local_irq_disable();
+> -
+> -	return hwstate;
+> -}
+> -
+> -static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
+> -{
+> -	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
+> -
+> -	/*
+> -	 * There are too many states with IRQs disabled, just keep the current
+> -	 * state if interrupts are already disabled/masked.
+> -	 */
+> -	if (!__pmr_irqs_disabled_flags(hwstate))
+> -		__pmr_local_irq_disable();
+> -
+> -	return hwstate;
+> +	return arch_irqs_disabled_flags(arch_local_save_flags());
+>  }
+>  
+>  static __always_inline unsigned long arch_local_irq_save(void)
+>  {
+> -	if (system_uses_irq_prio_masking()) {
+> -		return __pmr_local_irq_save().flags;
+> -	} else {
+> -		return __daif_local_irq_save().flags;
+> -	}
+> -}
+> +	unsigned long flags = arch_local_save_flags();
+>  
+> -static __always_inline
+> -void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
+> -{
+> -	barrier();
+> -	write_sysreg(hwstate.daif, daif);
+> -	barrier();
+> -}
+> +	if (system_uses_irq_prio_masking())
+> +		__pmr_local_irq_disable();
+> +	else
+> +		__daif_local_irq_disable();
+>  
+> -static __always_inline
+> -void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
+> -{
+> -	barrier();
+> -	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> -	pmr_sync();
+> -	barrier();
+> +	return flags;
+>  }
+>  
+>  /*
+> @@ -215,11 +146,14 @@ static __always_inline void arch_local_irq_restore(unsigned long flags)
+>  {
+>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>  
+> +	barrier();
+>  	if (system_uses_irq_prio_masking()) {
+> -		__pmr_local_irq_restore(hwstate);
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+>  	} else {
+> -		__daif_local_irq_restore(hwstate);
+> +		write_sysreg(hwstate.daif, daif);
+>  	}
+> +	barrier();
+>  }
+>  
+>  #endif /* __ASM_IRQFLAGS_H */
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index f7dc5fb9427d..192eb97cd50b 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
+>  
+>  #define irqs_priority_unmasked(regs)					\
+>  	(system_uses_irq_prio_masking() ?				\
+> -		(regs)->pmr == GIC_PRIO_IRQON :				\
+> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
+>  		true)
+>  
+>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
 
 
