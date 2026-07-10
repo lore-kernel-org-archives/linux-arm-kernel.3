@@ -4,92 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F7CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9779C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXLOLr+OICkYPnxLiSyxM595gWsgKFLmoYsaM3It1+g=; b=lC77m7n4M/+9DtvugJFxvw0GQx
-	jL2GUjp8IjUQmb0RjwLOBT53Z6FWY4Nbob0YUplVmwWKSGYFBOn8AzPmKjJ7Q+SypLmGvGBgtkZdF
-	2BMpkbQmbLfgQCRPqG7TgRAedEU6i69g51zpUdt+5Y8emCI9YoJsGpSKGqKmIYLIr2uI5HRftHPfk
-	e1ZU7yQrDKxdTmmD8909CYIwKDlIdnM0GRb4TDMC5IsUDblaA/AuA8Ad8AeG0iIMmkJMbd9FsfVUv
-	S71gxWk8MvLlkmd3fxCfTzg6XYut3Hehdcv/WWj2+1X/qOIKAlB2l9MWO/3WUKr98hOWgQkwqyMuH
-	Xmvq3msw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=; b=2vnzV8G7AvnX4hC6AXlFGd9i/z
+	SUmoOFiqc+VM3agLk76OAtbC20C15lBh9SrvuYcfKOy7YfugmFJjSMRz/JQXrJCjMdMtlLP9eiZIM
+	CQwdQaP62vuS+h1Gu68XWySzwL7FS1YssadhuukZ//1HZCkyQzYWyWEJtwuzba7OfVwR0/nMST8cX
+	J5zKPnqu5lacwpXupEoO8uDTymwF15LxYidoOIlp8DwmFta+7RG/FHzC35oMqAauTGaHfJCYqXTQY
+	eDj9M6RvuhMnIDSpwOmgHkDjcJR3LuOUcnVlhisULdbxWst+uNQU3zn8BXgDxDCVF5DY3aWM1JUm/
+	kXl1IbCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIgk-00000005ou2-3YlF;
-	Fri, 10 Jul 2026 21:23:14 +0000
-Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
+	id 1wiIhg-00000005p4M-01Zi;
+	Fri, 10 Jul 2026 21:24:12 +0000
+Received: from mail-northeuropeazon11010045.outbound.protection.outlook.com ([52.101.84.45] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIgi-00000005ot1-3snK
+	id 1wiIhd-00000005p3Z-1iWs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 21:23:14 +0000
-Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2cabe9335f1so7795255ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 14:23:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783718592; x=1784323392; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dXLOLr+OICkYPnxLiSyxM595gWsgKFLmoYsaM3It1+g=;
-        b=Xidv2dsJU7kiwTwG9VxSrvDCAxxTYMrPzuVsx7sCjczRIxAmNpL0sAWzC+nGE1y18E
-         9V4tp896AAEZWVWgFt1D9e4hAYdgaJtS1DY4M+fQlJdorLKqsFlTiWWUZqU3GEwM77ET
-         a9rN0pIUscluG72Dqu9EKX1YyUc6OyY9W8ePnQ7JUoPCCd4YqRrpgOoGudyli/2puT4a
-         LkAJTWByCWms5Qzx2Kp4+dfbWQjqDlNAGxC/WYsS0ReX92/qfHeyjJauFuTSKbT/yPuU
-         srXsViHBNC2MuDECFmnUQLhIODjJFVuDbiykwn/6qw0FzCTn1Unle4zq2uLcACznN+T5
-         Ne0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783718592; x=1784323392;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dXLOLr+OICkYPnxLiSyxM595gWsgKFLmoYsaM3It1+g=;
-        b=J0ROlj6KTXcpF3zWRCL/U7pZJvFjS39kaAvB5QS5pE7tYDpfEGE9A1lMBG7qPttcVe
-         oOCShTwNA8ihCzpg5qk5lDs1oy7HBlx8o/QxokT9iJP5z5yC19z8R6vmVpO4qX+Z2geU
-         /7y7Vd4SVC3BVd1VuA4yKVHY9pX3wH51EHcrng5sVdHat/udYkBTFsv3o0QALceNrLsa
-         KXYjxz7rk0SlAvKd0Dxp2zyZpaNHel0mg0A/1GVzGJa09I7sCyeLJ6Mmua8cKGyNj9ak
-         Y8smttORdNGk7kq1Ad5NRukORy2eqO4wfF9baOpwTHAUMJaMU5KPED0r6yAzHGISqpDm
-         yFTQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpOJ77R6c6zc/oAhsZgf7evoJQ5/XAD6OinPb2qluRgREKlUs80EPZ1JdwIoDOznVvLyGLMKYoxUPptTvTyPI4l@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkptuP84vzHig4FU46VSqZUZhmQOfrhnvJfsXgq8wb1vXke8yQ
-	OGLNphE2PXDxW0ZxYTAl2WMaFyQMUTvi86z1wuolB6TMPx7y60bf25yp
-X-Gm-Gg: AfdE7ckBtWIqSXEqV4rLAnciNNyk6FWSC9b1jBOE49K1MXUqcK7A7Y4qo9C41wKv73o
-	lZvs6RzmjtShG4bV69Jnzr59SvgwBu1P/XINanKnCAw90NSoRcDCTBlP5po/tglcpdz42dkG2T8
-	3DwXRYUGmqIi5FaxzUMdnB3hKXSAZ3IDtYjsslILmyticZDzltR4CwMagNhC+wX1W9AnkcmOjkH
-	v6ZqS1koNQFjXsCOITmo2JkHTdLGmPRjpjnSB0HOm5hBItTaqsZ1gJe9vNj3e8cTLb7qhxsf/S8
-	GMGB9ZlOkV0zFhnEvD8gOIUO/sEHnik/MzRJaIGaSTXH2JDVfWXZAx3SPpkYYuuISqZOhCfQGb7
-	unWHssv7rLmA/Gnc87X6cgLmTAscPluLuvThkiZ3agbUa2bl7EZh4nk1NYU7j/03kzyd6yU1lKW
-	mfckx33fj5TSYmHUsemYvGLfdd8ZeFU1gmSLYOdphBqOO+sQ5YxYn+cAz3E2nWZ3pCDSTXOV8=
-X-Received: by 2002:a17:902:e844:b0:2b7:975c:dacc with SMTP id d9443c01a7336-2ce9e795bfemr7461565ad.1.1783718592223;
-        Fri, 10 Jul 2026 14:23:12 -0700 (PDT)
-Received: from ubuntu-gnu-linux-24-04-3.hub ([2407:7000:af23:3e00:f127:785b:6e87:f831])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3d2efsm65044975ad.64.2026.07.10.14.23.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2026 14:23:11 -0700 (PDT)
-From: Jiaxing Hu <huhuvmb88@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Joerg Roedel <joro@8bytes.org>,
-	iommu@lists.linux.dev,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/rockchip: implement .flush_iotlb_all
-Date: Sat, 11 Jul 2026 09:23:04 +1200
-Message-ID: <20260710212304.11958-1-huhuvmb88@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260710060513.863714-1-huhuvmb88@gmail.com>
-References: <20260710060513.863714-1-huhuvmb88@gmail.com>
+	Fri, 10 Jul 2026 21:24:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jpVTRIaIUuFyQ1NwDTUigHi6ay2jfYAwOP7yAE2uBtOrxEmfdhbt4x8s9eyCq8XUD2vgEFborQDxb9+eYRLIWAtxRbbf6hd6fG8AVTZEOMPA0n/7px1w26B8kqfYxEMcVoCmb+chp/yVqpXRpQTSH9prLt0c0HGvRBcrL2R/JM7PM7IXhDXkpbqLzzpdFUbI9nB2xrcVCE0j5QfXQY0kpP9nU1f6bcwl/zsI41J/UmdEyV3Wy8ws2zAbNFukpKPKF5b1uVxpjb6SzinQ3ly09MIFScXiVpCk0n+JgoPun2RIpk4MnHCwvXof9N5c2Ww8juULzeL1Wtwz/hWdzl12aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=;
+ b=baPoa88XtwYM3YPxXk4TATyhdkyZhyKXy0IIWiyR2qs17OEVnaqJHFVNO0EG2dM2+ztqcfCeeCfpPbpnEozC0MNfmwfgT+SglpTKwJrf35To3u2akTBoXssrYH9udbxAE5OjD+WDdHfn6uzhghR6DIMtmONHvghFO7DYV6rv8ZSBe7WvrDmsCHJ+0wxnVoCK/2Q2UDm1f4TLUQAnrTBYajYIWM4Hii//OvkD6z8TEGpRPgJFDJg0EzzSM9oxQgkn1c/Z53itSvfms474TadNh2Xbm23aj/fjMmWiWpFFHBZrC0x9G3P0lvEwllVpfRK5JScaT9/yBmkTk9Hnf+XSEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8/l8vy5zZkoDag1MWepxwlUdBv52+qXKsGL67itiZIE=;
+ b=PxSc0uUXmZ3qYeYNgJhMQ/M3rCR0Dh+0MKvH+yJ5kODA0FDpdvu+r0u/qniXzoRvyMplz6KcnJQptRbAd9G2WZ1btRsZV9K/t1rNS3P8I/Hj3p05ZSnUOH81yMwzL7FYQPR5jjCa/fO0CW702P+BCVY9THAWFbwYSptM8Z1OJ8N/ex0FkrXWgtQ2oYO1E/byinYHNx2jtwuALtwObBnzsSx+aW3FSCPxM3pqn6e/xgny/MMzQstuFldRDSNNo+Gy3xsAJmdVaalrLz7qj+SaSF19mBeIyzt+Ium99+4CTkxRycpoh6xn9B8nd6YSZFZFZ+tKf4D2EEgHiz1fx7Bv5g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB6997.eurprd04.prod.outlook.com (2603:10a6:20b:10d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.18; Fri, 10 Jul
+ 2026 21:24:05 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Fri, 10 Jul 2026
+ 21:24:05 +0000
+Date: Fri, 10 Jul 2026 16:23:55 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+	Neeraj Sanjay Kale <neeraj.sanjaykale@nxp.com>,
+	"marcel@holtmann.org" <marcel@holtmann.org>,
+	"luiz.dentz@gmail.com" <luiz.dentz@gmail.com>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"brgl@kernel.org" <brgl@kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>
+Subject: Re: [PATCH V5 2/4] PCI: imx6: Add skip_pwrctrl_off flag support
+Message-ID: <alFi63W80HiYfDfC@SMW015318>
+References: <20260709101555.3034853-1-sherry.sun@oss.nxp.com>
+ <20260709101555.3034853-3-sherry.sun@oss.nxp.com>
+ <ak-2BQEUMg8Ewjz9@SMW015318>
+ <VI0PR04MB12114FB4F1C79ADFA5F3F215092FD2@VI0PR04MB12114.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <VI0PR04MB12114FB4F1C79ADFA5F3F215092FD2@VI0PR04MB12114.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: SA9P223CA0007.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:806:26::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6997:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4c425c46-0a74-4960-65fc-08dedec991da
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|4143699003|18002099003|22082099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 9n5wKRjOeQTr3Jn/mJMmarfc806vFgxs2I9u0Ywh/demo94IIRdaYkMs/SL72vLBjJwXxfD0O7YEHqWdNge5jBwHy3IhVgXREZlIN0yTvoax8B2bLl9+A5/4W2kgIJQ+pr9Yb+tDW5p7W+kbxiKCqigZ+kYdATYnCTenq4z4A/gaCZGDSotK1QxhQt86mP3RvPBhExbXyKNyvICdTFjOnftqzSLBGKcc09/wRtEHvPbmGuagvchE0WNbmnc4g9VlWNdEVNPafTvRpLyw4TTspKhuoqHx5xjYeku9I4flUP7nPS5+oLEZzS1uM7UpyGd0p9J2rfaiKFmb9gFlAeBdrGIcJL7xSYRrdbPxANq1pMcBVR5ziybFBdkas7iy619jmbsbVUu/Rq4tiadKRgeL6kVxeJKoIRNvkgT38oTLD/cwB4oH94dhF+e1G2ElIjR7ajmeagaY0y/wa2mJllKj+vJFAD6tH0bzmtLr/xRjgFbc2QuUvBUxKb+nj8M0xkioiW5TVJs9ayAwz64W/Om/yubLCq/avVH1X5tUZsoivCeL4pBxl9fSZBJr0A4RVkMe2tOve7DfOqRqkvJcSvxB+i44JmOir2ozLI2KmVp1fDTLqM38GjXREFq0IspXe2/Kwz/qf/r4y9d5KKlMLRM5ggzBoIFSMZxMiKcyMwJEXpY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(4143699003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fQB9KoXla8nd/oTq50dgvUzKpFGLQp8F3KmNvueoJ1RtymstOTgkEeDN+Ngu?=
+ =?us-ascii?Q?IW7jZN15aULNhzgL1AFqeDQ+N+DaeNHHlNouxGERxxCu1WLHQmidy3TtMI6q?=
+ =?us-ascii?Q?vy2vvwooT2OileB7BHCLCoDFlafm3zw06MTebUuiLMB5pDVwgO8+rK/93/35?=
+ =?us-ascii?Q?mOpOH0uKo9OwwEThEbWqxIldfTl5ksLaMHfPIcVG3hI23xgShAp/59vmmJwc?=
+ =?us-ascii?Q?Z2+1RXw6a7Fw45+vVu0dsx+CpOKXpzRaShSzIAV9HzVj0vVB2vJns1/o1LmZ?=
+ =?us-ascii?Q?H953j/hGS9SqZ2O6typAXAkcG06hTj1fmRcHxENZekM+8W0TaWZHFOtLatJM?=
+ =?us-ascii?Q?ecuAVc4btGtExfKAeBhpGdAZMtnuYYQQniD9tAm2KrWl47EAnWt/OOB0p9nm?=
+ =?us-ascii?Q?6jFQOj+9nM8J8vc5RIMMtyFGJ/CLZNFkvVIDsSX2MFWIFxeFYiB3MH/Od0XK?=
+ =?us-ascii?Q?FdY/lbHlfEfXYQT9MByhjyN09qe6HwnelRrjuG5Ac2O4VmZ0QrYYprgCzlJb?=
+ =?us-ascii?Q?Ia9mNzoPHNK+eN0Le8W1BljORJLTelYcLuInEceXuRpF7URxpDP4bv6GW/jL?=
+ =?us-ascii?Q?OV25JEVON7X1E+fSR3DIvXwRV+E6wTcaEYBk9UBe07ON3+KpnphYSrljjm1I?=
+ =?us-ascii?Q?XhyJEg7iyiwaVRap6Fnu1Z/hCS9mC/Xc3UHME9C5dGLkBu6ppDxdwd9Asmeb?=
+ =?us-ascii?Q?heCffx6dnfGwQTfa6zx6wospdvHK125HmMnlA4Pa/EkEkA0z85uXOj95KWZl?=
+ =?us-ascii?Q?qi3P7clfse3FxBhClO1WiBJIC2JTe/sSf66oeFpjZNWwkoJLdA8BRnoTF5LX?=
+ =?us-ascii?Q?9Tsq+E95PpjZbg2f5ddQH2qIDaWYUnshnb745WBXrGGC0UEnBo3Iw4PyFvGL?=
+ =?us-ascii?Q?cjvI8CxYh+V7PNopy/TTrqHiE5kGFswqbD+6CgvjjpVcTKEJXe0E+NzwLnRn?=
+ =?us-ascii?Q?DTTMqkHnZi8Qt7M6OSwYEZGCmfFvn+Om3/mnLHYC47ezfqsMbqjDU5IEpmEx?=
+ =?us-ascii?Q?dhI+MZ5lK72kZFeh26WJuQj/NVRQT59p9oNc7b5uAskm0Qs2OVz7LAgzWkWx?=
+ =?us-ascii?Q?c53YyNE6M+icMmUbr6de3gK+FoylrUXFn7NSDTh+pf7nt40x/e5UsbbUwnQY?=
+ =?us-ascii?Q?I5JDADHpMLfEtWNXPt3XV8/w8fCz4ziTR8y0fvB+d4sNemC8IV4uUXq7eQRH?=
+ =?us-ascii?Q?0ueMPNz9l92ksZflfTuZq3LdtGXyQvDmAPNcFX5IxiHlgFK2Q0NxVZE9XCRF?=
+ =?us-ascii?Q?DlZJuydpTEso1CGvDWt+08ZdIyi6mm589qICcPvFN3Ghy3eX2Cd3kKv3xOKc?=
+ =?us-ascii?Q?2OZiML2hwGVmnaPQ0ROao0DI5k6gDiwmQS5oqZFVTKD9zqnYS/hbfYYcehPe?=
+ =?us-ascii?Q?TVNcnZ/SgZuYczoHW3HZe+qyK8AdfBmBaPnOpBuJlQr03vb+H3yEKbr32azS?=
+ =?us-ascii?Q?CwWwk7p4x0sNwVItEm39vyCG4qs0sZHM7l6vTQEv/wwPWe5tQwTVKQHr4pS6?=
+ =?us-ascii?Q?FW3zaWAOIAhO0LI+HD3+FarnNh1tsNy3pQlsmFKtQMLmubulRCqtgD7OD+jJ?=
+ =?us-ascii?Q?DMT8nL/lk82sqQysGPhPBnsKnWP7LJLI4yIJ1PNAr08daJ3vZAAxdpo48H/M?=
+ =?us-ascii?Q?YkH1WrWA/bVQ3YgFNTEbGOC5AdAHy2B3u6cnc8fE7ag2kYiU+dbrCV+fygfl?=
+ =?us-ascii?Q?cOAU8waQluVaXH3UCzsTxvGznQ7N7LETuesos3oSLUoInqDuk4owKmyXc/Gp?=
+ =?us-ascii?Q?P0x4liE67r/hLzlGc9lBuhaEhk34HxoJXEOng+9Tz6Gr55oORwYx?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4c425c46-0a74-4960-65fc-08dedec991da
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 21:24:05.3670
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KJP40vf728jW82pX92ppteU48cG0Ccb3fDCHcL3X3FV5kzwaIMj33b6BgD3qqF5giMJGBgFkcpyTKx6XPQGrWhdbyOAxkdPhuEd+M/zAq7YMGz8hRIqbICJZO2oQJf5J
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6997
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_142312_966431_272F5584 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260710_142409_448949_8C3AB471 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,16 +161,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026, Robin Murphy wrote:
-> there's no harm in drivers implementing it *if* they also implement the
-> relevant optimisations to avoid synchronous flushing in unmap_pages to
-> make CAP_DEFERRED_FLUSH worthwhile.
+On Fri, Jul 10, 2026 at 02:16:35AM +0000, Sherry Sun wrote:
+> > Subject: Re: [PATCH V5 2/4] PCI: imx6: Add skip_pwrctrl_off flag support
+> >
+> > On Thu, Jul 09, 2026 at 06:15:53PM +0800, Sherry Sun (OSS) wrote:
+> > > From: Sherry Sun <sherry.sun@nxp.com>
+> > >
+> > > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices during
+> > > suspend to preserve wakeup capability of the devices and also not to
+> > > power on the devices in the init path.
+> > >
+> > > This allows controller power-off to be skipped when some devices (e.g.
+> > > M.2 Key E cards without auxiliary power) need to support PCIe L2 link
+> > > state and wake-up mechanisms.
+> > >
+> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > > ---
+> > >  drivers/pci/controller/dwc/pci-imx6.c | 16 ++++++++++------
+> > >  1 file changed, 10 insertions(+), 6 deletions(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > > b/drivers/pci/controller/dwc/pci-imx6.c
+> > > index 92f8e4a299e8..afcf3b6bf3cd 100644
+> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > @@ -1382,10 +1382,12 @@ static int imx_pcie_host_init(struct dw_pcie_rp
+> > *pp)
+> > >  		}
+> > >  	}
+> > >
+> > > -	ret = pci_pwrctrl_power_on_devices(dev);
+> > > -	if (ret) {
+> > > -		dev_err(dev, "failed to power on pwrctrl devices\n");
+> > > -		goto err_reg_disable;
+> > > +	if (!pp->skip_pwrctrl_off) {
+> >
+> > if pci_pwrctrl_power_on_devices is true, where call
+> > pci_pwrctrl_power_on_devices()
+>
+> Hi Frank,
+> The skip_pwrctrl_off flag defaults to false during the pcie bus probing phase,
+> so the pci_pwrctrl_power_on_devices() is called at least once to ensure all
+> regulators are enabled.
+> The value of skip_pwrctrl_off is only changed in dw_pcie_suspend_noirq(),
+> and is refreshed by calling the pci_host_common_d3cold_possible() each
+> time a suspend occurs.
+> This is why we use this flag at runtime to avoid powering off devices during
+> suspend to preserve wakeup capability of the devices.
 
-Understood, thanks. I will drop the standalone patch. If I come back to
-rk_iommu it will be the full version: move invalidation out of unmap_pages
-into an iotlb_sync/gather path and advertise CAP_DEFERRED_FLUSH with
-numbers, rather than flush_iotlb_all on its own.
+Okay, It would be better this part code can move into common dwc later.
+this is not specific for imx.
 
-Thanks,
-Jiaxing
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+Frank
+
+>
+> >
+> > > +		ret = pci_pwrctrl_power_on_devices(dev);
+> > > +		if (ret) {
+> > > +			dev_err(dev, "failed to power on pwrctrl devices\n");
+> > > +			goto err_reg_disable;
+> > > +		}
+> > >  	}
+> > >
+> > >  	ret = imx_pcie_clk_enable(imx_pcie); @@ -1454,7 +1456,8 @@ static
+> > > int imx_pcie_host_init(struct dw_pcie_rp *pp)
+> > >  err_clk_disable:
+> > >  	imx_pcie_clk_disable(imx_pcie);
+> > >  err_pwrctrl_power_off:
+> > > -	pci_pwrctrl_power_off_devices(dev);
+> > > +	if (!pp->skip_pwrctrl_off)
+> > > +		pci_pwrctrl_power_off_devices(dev);
+> > >  err_reg_disable:
+> > >  	if (imx_pcie->vpcie)
+> > >  		regulator_disable(imx_pcie->vpcie);
+> > > @@ -1473,7 +1476,8 @@ static void imx_pcie_host_exit(struct dw_pcie_rp
+> > *pp)
+> > >  	}
+> > >  	imx_pcie_clk_disable(imx_pcie);
+> > >
+> > > -	pci_pwrctrl_power_off_devices(pci->dev);
+> > > +	if (!pci->pp.skip_pwrctrl_off)
+> > > +		pci_pwrctrl_power_off_devices(pci->dev);
+> >
+> > Not sure if there are counter in side power_(on|off) function, if not, just skip
+> > power_off is enough.
+>
+> It depends on the pwrctrl drivers implementation, for the generic pwrctrl, it will
+> call regulator_bulk_enable/disable() to handle this, so has enable/use counter.
+>
+> As mentioned above, the value of skip_pwrctrl_off is refreshed in
+> dw_pcie_suspend_noirq() for each suspend/resume, so we need this runtime
+> check to avoid powering off some specific devices during suspend.
+>
+> Best Regards
+> Sherry
 
