@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BF0C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F1AC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cpvrx4tFOz3jWh0MkNiBbPUfVVjjeSGFY+Zp/pTTVUw=; b=ec1+aAwsRVSP9hw8IVDhZT4yFP
-	zv4+h20g8mUYU1cbJmGPATi9n8EHS2CO5nA3j7kn5LjIff+O/QlvyF34/Web22oW0A/Oyg5fCmSCQ
-	zxVnVoa4dszuAuNErZjMG736QXv8bohBpAZu2vXN9bGHrcHzoxcssyAhDt43XOSMhxhbsgmfXV6g4
-	1sg7XbYCD5j2lcpMfcn4Y1u77aq7UXcLRskVYQy+j2787MUjsJ/rOJ5Ij3MeVuK+VyKrMQBy3rVTd
-	0lOb4aJ0rrqJpjEdu09jRA8JiJRkt061+q+LRxXvPOP+/p0NOdfjZgnWaPv4iZGdFanS4/mqT/sD2
-	WuoSKDow==;
+	bh=AQmIsxeFEkSdP7cV18xIm97UzDqoTEAEGcDHNI/1RsU=; b=x31/gAZYvROIoeHLheIRyDQwHP
+	ap/7NPZbTMy93lseoZjzlJq9Co2jdN/pqorSjXxkoZs4t2HR+5SWwGDfPtH+XGSoB7QykEGmPJWx3
+	d1tKtf8irRRoh5glC0CaL0ubzo2y67xcDoOIR2X2UhetjzaLx7dzLA3aA+Ni4iI6xGqjLbvfIQhUW
+	uRKxHeQQOYo+NnWPsMZaT1jztp1EfvsqXhI56D14QizQSduBCCq5HyRvMqrZPe4czu5gbU2AYk7lf
+	k1WWgGtXgNDQiWKkRp0xjiNdmaAJxkVavOCj3sv7KYzNqZJbB+3H+3NgchgI2eaVgbJHsgN3wZuML
+	8DjNrAng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6l3-00000004TUD-46Ej;
-	Fri, 10 Jul 2026 08:38:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6l2-00000004TU6-3kyT
+	id 1wi6mL-00000004Tec-0iJC;
+	Fri, 10 Jul 2026 08:40:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi6mJ-00000004Tdo-0Tru
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 08:38:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E7290400CF;
-	Fri, 10 Jul 2026 08:38:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F4D1F000E9;
-	Fri, 10 Jul 2026 08:38:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783672731;
-	bh=cpvrx4tFOz3jWh0MkNiBbPUfVVjjeSGFY+Zp/pTTVUw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UGTXI5E0OAwaaQJCF0aPJW3LSQciLWBMT1hlLz4UjY6vUJ3iWTK+g41f4nC6SrddV
-	 gjr6K7JaOo7kYVk+JENRovfqVzPbVpSrnfDQki/0kAwOTjykHBVPshX+PYXd5XKFeI
-	 E0aD+GWzVE1bwI3NYVtApDZq/RKARMYGU1eVOCAoH0fNbm8H8LPOdbDpUec7XYRiwV
-	 9rJAcS1oc/Wmx6mcBCRWRdfiCtnI1N45rrWyL7CGfLOKoz/3x4WijBfiJ34I5Qra5X
-	 67IvjkU9rZBwuaHQSqwM1WiaCt3bg9z7ph/Ni88xR1IAnhFyXorIwAooJBWdW9Y8zG
-	 ycWxnwBPneVPQ==
-Date: Fri, 10 Jul 2026 09:38:42 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
-	vincent.guittot@linaro.org, Souvik.Chakravarty@arm.com,
-	Alex Shi <alexs@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Dongliang Mu <dzm91@hust.edu.cn>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>, Mark Brown <broonie@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Pavel Machek <pavel@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Yanteng Si <si.yanteng@linux.dev>, arm-scmi@vger.kernel.org,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
-	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
-	"open list:HARDWARE MONITORING" <linux-hwmon@vger.kernel.org>,
-	"open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
-	"open list:ENERGY MODEL" <linux-pm@vger.kernel.org>
-Subject: Re: [RFC PATCH] firmware: scmi: Make SCMI arch independent
-Message-ID: <20260710-macho-pristine-tanuki-b0d3ce@sudeepholla>
-References: <d7f7e8c9589d937b60e43168845ab4fda15037a3.1783603600.git.michal.simek@amd.com>
- <ak_Eu_eQKalPMwo-@pluto>
- <77110e77-941d-4173-b2f5-6f3cf4858339@amd.com>
- <20260710-lemon-pogona-of-wind-b3a003@sudeepholla>
- <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
+	Fri, 10 Jul 2026 08:40:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E3A7C1D70;
+	Fri, 10 Jul 2026 01:40:04 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBF053F85F;
+	Fri, 10 Jul 2026 01:40:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783672809; bh=Vrfha6a/wvRPJaZ4UkRBNv5gq9QhvAOUqgTI4ipo0mU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cg5JU9TKlCx8XNZ5bsggIPdE/EgxVBGKfQccZvkihY79vxpPQzPnW2Q9GzQC98UG5
+	 m2O4kpoPfuJ1ZENVI3QVr5zpxVpelMiqemv9ma8XeM7+e+riIKno33WFmtxpi9EaFH
+	 1W0fJ1si5wvzE5nuOuFH0JbYG7I9LmJ4S5JT8jsw=
+Date: Fri, 10 Jul 2026 09:40:07 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/5] coresight: tnoc: Bind Aggregator TNOC on the
+ platform bus
+Message-ID: <20260710084007.GI1024232@e132581.arm.com>
+References: <20260710-fix-tracenoc-probe-issue-v6-0-41eb36fef8d9@oss.qualcomm.com>
+ <20260710-fix-tracenoc-probe-issue-v6-2-41eb36fef8d9@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
+In-Reply-To: <20260710-fix-tracenoc-probe-issue-v6-2-41eb36fef8d9@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_014011_194284_CF89B848 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,104 +87,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 09:42:09AM +0200, Michal Simek wrote:
+On Fri, Jul 10, 2026 at 10:39:01AM +0800, Jie Gan wrote:
+
+[...]
+
+> The ATID-unsupported handling keyed off dev_is_amba(), which disabled ATID
+> allocation for every platform-bus device. With the Aggregator TNOC now on
+> the platform bus, that check would wrongly disable its ATID, even though
+> the Aggregator TNOC owns the ATID that tags the whole aggregation path.
+> The Interconnect TNOC aggregates trace within its subsystem but carries no
+> ATID of its own, because the downstream Aggregator TNOC already owns the
+> ATID for the path. So base the check on the "qcom,coresight-itnoc"
+> compatible and let every other form allocate a trace ID.
 > 
-> 
-> On 7/10/26 09:35, Sudeep Holla wrote:
-> > On Fri, Jul 10, 2026 at 09:03:32AM +0200, Michal Simek wrote:
-> > > 
-> > > 
-> > > On 7/9/26 17:56, Cristian Marussi wrote:
-> > > > On Thu, Jul 09, 2026 at 03:27:00PM +0200, Michal Simek wrote:
-> > > > > On heterogenious systems like AMD/Xilinx FPGA there is a need to talk to
-> > > > > SCMI server from different architectures than ARM that's why remove
-> > > > > ARM/ARM64 Kconfig dependency with also remove ARM from description and
-> > > > > rename folder to reflect it.
-> > > > 
-> > > > While I understand dropping the dependency on ARM (I always wanted to do
-> > > > that and test if it worked at all on some otehr archs with QEMU), I am
-> > > > not sure about the whole renaming party ? why is needed just for
-> > > > cosmetic reasons ? it is at the end an arm originated protocol so I dont
-> > > > see it as a being wrong to be named as such even though used by other
-> > > > archs...I have not really strong opinion on this...
-> > > 
-> > > I have been in CC on U-Boot RPMI patches which got to my attention because
-> > > I don't want to have another interface for MB-V(riscv-) running in
-> > > programmable logic and have another server in the system doing the same
-> > > thing.
-> > > 
-> > 
-> > Ah that's interesting. I wasn't aware of that. I still agree with the move
-> > in principle, but how does that align with these:
-> > 
-> > drivers/clk/clk-rpmi.c
-> > drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-> > include/linux/mailbox/riscv-rpmi-message.h
-> > drivers/mailbox/riscv-sbi-mpxy-mbox.c(Should be fine as it is just transport)
-> 
-> I am having separate discussion on u-boot mailing list about RPMI and it's
-> usage on non riscv architectures because one raised argument was that it is
-> community driver spec compare to SCMI which is owned by ARM. But IMHO only
-> for riscv.
-> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 
-IIRC in LPC 2024, we did discuss opening up SCMI so that RISCV could use it as
-is instead of copying quite a lot from SCMI for RPMI in some closed groups.
-
-Here is the summary we got from couple of RISC-V vendors at the time:
-"
-RPMI is comparable to Arm SCMI, but it includes RISC-V-specific services such
-as HART State Management, CPPC, Management Mode, and RAS Agent. The SBI MPXY
-extension enables secure and non-secure system partitions to exchange RPMI
-messages, allows an M-mode RPMI transport to be shared with S-mode, and lets
-hypervisors virtualize RPMI for guests or VMs.
-
-RPMI development is already well advanced, with much of the client-driver work
-implemented in OpenSBI. Supervisor software can access selected RPMI services
-through SBI MPXY. A permissively licensed reference implementation, librpmi,
-is also available for platform vendors.
-
-RPMI was created after evaluating Arm SCMI, mainly to support RISC-V-specific
-requirements.
-"
-
-I didn't pursue it any further following some of these followup discussions
-post LPC 2024.
-
-> > 
-> > Now I feel we need some alignment before making $subject move.
-> > 
-> > > Based on that we had discussed about it with Vincent and Souvik (we missed
-> > > you there) about using SCMI on non ARM platform and both of them didn't see
-> > > the concern to be marked as ARM only protocol.
-> > > Truth is that some of protocols have ARM in description, file names, etc but
-> > > some of them not. That's why I think it is good time to sync it up and
-> > > enable
-> > > running this protocol on other SOCs.
-> > > 
-> > > > ... my concern really is ... wont this full scale rename simply generate
-> > > > a lot of un-needed churn for future fixes and/or backporting ?
-> > > I don't think it is going to be a big problem because it is just git mv
-> > > which git is able to gracefully handle.
-> > > 
-> > 
-> > Otherwise it may end up being unnecessary churn though I completely agree
-> > with the git/backporting aspects. Just don't want to churn things up until
-> > we have some plan and further changes/users of this move.
-> 
-> As I wrote above AMD/Xilinx platform with SCMI server where ARM RPU/APUs
-> (with multiple VMs) and Microblaze-V in programmable logic acting as
-> separate agents is going to be the first user. And for being able to run
-> SCMI on Linux running on Microblaze-V I need enable SCMI on non ARM
-> architecture.
-> 
-
-Ah OK, if the plan is to just use SCMI as is and having "ARM/arm" name is
-a blocker, then sure we can get that done. Hope you are aware of and already
-considered some of the RISC-V specifics listed above and ruled out any of
-those as concerns to use SCMI on RISC-V platforms.
-
--- 
-Regards,
-Sudeep
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
