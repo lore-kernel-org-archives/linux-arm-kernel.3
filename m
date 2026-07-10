@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1DAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BF0C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=36enZYWLovn6xxxucuXkWrjbHOchAqHocpv1aH0cZOk=; b=j18aNEUJJiPuZm
-	nmbUU5Yjk2tGeIEPSbs71CF5KqaHuepvjFbEia/Hk9xNiN4I7pBEnm1oCc60v8IVeTnnJigEXlyuP
-	M5gb3j7wtn4d6R+Bc0P15eTwdzQZ4Q6clI4i9m5CVKV37NgZFRSTIVHi3zk48ygU8t9zk7PFOnLf0
-	rrEp6bWIh+BiMa8j5eHlTOhiHkd5GQwblMP/+6k3KH1Iy+hbS1q7BE7xJZyrmkoVkDNgf40kkXNqA
-	/fWwu2bC4lrBBovlFJWxw3mGVb0YTzvkXEf5gQvZNMp6NM9Tfze64wRH7UfuV1U9nMfk804khlTVk
-	7zWzj4DOi/6N/brvTobA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cpvrx4tFOz3jWh0MkNiBbPUfVVjjeSGFY+Zp/pTTVUw=; b=ec1+aAwsRVSP9hw8IVDhZT4yFP
+	zv4+h20g8mUYU1cbJmGPATi9n8EHS2CO5nA3j7kn5LjIff+O/QlvyF34/Web22oW0A/Oyg5fCmSCQ
+	zxVnVoa4dszuAuNErZjMG736QXv8bohBpAZu2vXN9bGHrcHzoxcssyAhDt43XOSMhxhbsgmfXV6g4
+	1sg7XbYCD5j2lcpMfcn4Y1u77aq7UXcLRskVYQy+j2787MUjsJ/rOJ5Ij3MeVuK+VyKrMQBy3rVTd
+	0lOb4aJ0rrqJpjEdu09jRA8JiJRkt061+q+LRxXvPOP+/p0NOdfjZgnWaPv4iZGdFanS4/mqT/sD2
+	WuoSKDow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi5vA-00000004MwD-3hgi;
-	Fri, 10 Jul 2026 07:45:16 +0000
-Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
+	id 1wi6l3-00000004TUD-46Ej;
+	Fri, 10 Jul 2026 08:38:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi5v6-00000004Mum-2G4I
+	id 1wi6l2-00000004TU6-3kyT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 07:45:14 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=36enZYWLovn6xxxucuXkWrjbHOchAqHocpv1aH0cZOk=;
-	b=i2g5G+epqUDU/r7w4LB+azlrqs2YyGO5GEC7NMhIl2e0s/zG6EZxMdwHktNoBmLGboIvbhjt8
-	F8hQAwZjybqiHffwwekPqSJ2EkraidI7UeF4bIwgN8ZTu9QkTXeyp3yKaPprBSR+CQxsPgb9ot0
-	vX9i6t0ZxgfuIbGwUhKVYho=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gxNsh0yxpzRhRn;
-	Fri, 10 Jul 2026 15:35:36 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 16FD540575;
-	Fri, 10 Jul 2026 15:44:50 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 15:44:49 +0800
-Message-ID: <994f9866-b7f9-408f-8aaf-3591882b5c7f@huawei.com>
-Date: Fri, 10 Jul 2026 15:44:48 +0800
+	Fri, 10 Jul 2026 08:38:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7290400CF;
+	Fri, 10 Jul 2026 08:38:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F4D1F000E9;
+	Fri, 10 Jul 2026 08:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783672731;
+	bh=cpvrx4tFOz3jWh0MkNiBbPUfVVjjeSGFY+Zp/pTTVUw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UGTXI5E0OAwaaQJCF0aPJW3LSQciLWBMT1hlLz4UjY6vUJ3iWTK+g41f4nC6SrddV
+	 gjr6K7JaOo7kYVk+JENRovfqVzPbVpSrnfDQki/0kAwOTjykHBVPshX+PYXd5XKFeI
+	 E0aD+GWzVE1bwI3NYVtApDZq/RKARMYGU1eVOCAoH0fNbm8H8LPOdbDpUec7XYRiwV
+	 9rJAcS1oc/Wmx6mcBCRWRdfiCtnI1N45rrWyL7CGfLOKoz/3x4WijBfiJ34I5Qra5X
+	 67IvjkU9rZBwuaHQSqwM1WiaCt3bg9z7ph/Ni88xR1IAnhFyXorIwAooJBWdW9Y8zG
+	 ycWxnwBPneVPQ==
+Date: Fri, 10 Jul 2026 09:38:42 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
+	vincent.guittot@linaro.org, Souvik.Chakravarty@arm.com,
+	Alex Shi <alexs@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Dongliang Mu <dzm91@hust.edu.cn>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>, Mark Brown <broonie@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Pavel Machek <pavel@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Yanteng Si <si.yanteng@linux.dev>, arm-scmi@vger.kernel.org,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	"open list:HARDWARE MONITORING" <linux-hwmon@vger.kernel.org>,
+	"open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
+	"open list:ENERGY MODEL" <linux-pm@vger.kernel.org>
+Subject: Re: [RFC PATCH] firmware: scmi: Make SCMI arch independent
+Message-ID: <20260710-macho-pristine-tanuki-b0d3ce@sudeepholla>
+References: <d7f7e8c9589d937b60e43168845ab4fda15037a3.1783603600.git.michal.simek@amd.com>
+ <ak_Eu_eQKalPMwo-@pluto>
+ <77110e77-941d-4173-b2f5-6f3cf4858339@amd.com>
+ <20260710-lemon-pogona-of-wind-b3a003@sudeepholla>
+ <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
- initialization
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-7-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-7-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_004513_227197_11AEDE0C 
-X-CRM114-Status: GOOD (  21.23  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5f5e8341-dbcc-4467-976e-35d007ae148e@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +102,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On Fri, Jul 10, 2026 at 09:42:09AM +0200, Michal Simek wrote:
 > 
-> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
-> interrupt masking via DAIF and switch to masking via PMR.  This
-> depends on a very specific behaviour of `local_daif_restore()` which
-> will clear DAIF if masking interrupts via PMR, which will get removed
-> in the future.
 > 
-> As `setup_arch()` cleared DA only earlier, introduce a dedicated
-> helper that explicitly initializes the PMR to mask interrupts and
-> clears DAIF, switching to IRQ priority masking.
+> On 7/10/26 09:35, Sudeep Holla wrote:
+> > On Fri, Jul 10, 2026 at 09:03:32AM +0200, Michal Simek wrote:
+> > > 
+> > > 
+> > > On 7/9/26 17:56, Cristian Marussi wrote:
+> > > > On Thu, Jul 09, 2026 at 03:27:00PM +0200, Michal Simek wrote:
+> > > > > On heterogenious systems like AMD/Xilinx FPGA there is a need to talk to
+> > > > > SCMI server from different architectures than ARM that's why remove
+> > > > > ARM/ARM64 Kconfig dependency with also remove ARM from description and
+> > > > > rename folder to reflect it.
+> > > > 
+> > > > While I understand dropping the dependency on ARM (I always wanted to do
+> > > > that and test if it worked at all on some otehr archs with QEMU), I am
+> > > > not sure about the whole renaming party ? why is needed just for
+> > > > cosmetic reasons ? it is at the end an arm originated protocol so I dont
+> > > > see it as a being wrong to be named as such even though used by other
+> > > > archs...I have not really strong opinion on this...
+> > > 
+> > > I have been in CC on U-Boot RPMI patches which got to my attention because
+> > > I don't want to have another interface for MB-V(riscv-) running in
+> > > programmable logic and have another server in the system doing the same
+> > > thing.
+> > > 
+> > 
+> > Ah that's interesting. I wasn't aware of that. I still agree with the move
+> > in principle, but how does that align with these:
+> > 
+> > drivers/clk/clk-rpmi.c
+> > drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+> > include/linux/mailbox/riscv-rpmi-message.h
+> > drivers/mailbox/riscv-sbi-mpxy-mbox.c(Should be fine as it is just transport)
 > 
-> Given it is a dedicated helper, add a lockdep assertion as
-> `setup_arch()` should always have called `trace_hardirqs_off()` when
-> clearing DA, otherwise something bad happened.
+> I am having separate discussion on u-boot mailing list about RPMI and it's
+> usage on non riscv architectures because one raised argument was that it is
+> community driver spec compare to SCMI which is owned by ARM. But IMHO only
+> for riscv.
 > 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/daifflags.h | 15 +++++++++++++++
->  arch/arm64/kernel/irq.c            |  7 +++----
->  2 files changed, 18 insertions(+), 4 deletions(-)
+
+IIRC in LPC 2024, we did discuss opening up SCMI so that RISCV could use it as
+is instead of copying quite a lot from SCMI for RPMI in some closed groups.
+
+Here is the summary we got from couple of RISC-V vendors at the time:
+"
+RPMI is comparable to Arm SCMI, but it includes RISC-V-specific services such
+as HART State Management, CPPC, Management Mode, and RAS Agent. The SBI MPXY
+extension enables secure and non-secure system partitions to exchange RPMI
+messages, allows an M-mode RPMI transport to be shared with S-mode, and lets
+hypervisors virtualize RPMI for guests or VMs.
+
+RPMI development is already well advanced, with much of the client-driver work
+implemented in OpenSBI. Supervisor software can access selected RPMI services
+through SBI MPXY. A permissively licensed reference implementation, librpmi,
+is also available for platform vendors.
+
+RPMI was created after evaluating Arm SCMI, mainly to support RISC-V-specific
+requirements.
+"
+
+I didn't pursue it any further following some of these followup discussions
+post LPC 2024.
+
+> > 
+> > Now I feel we need some alignment before making $subject move.
+> > 
+> > > Based on that we had discussed about it with Vincent and Souvik (we missed
+> > > you there) about using SCMI on non ARM platform and both of them didn't see
+> > > the concern to be marked as ARM only protocol.
+> > > Truth is that some of protocols have ARM in description, file names, etc but
+> > > some of them not. That's why I think it is good time to sync it up and
+> > > enable
+> > > running this protocol on other SOCs.
+> > > 
+> > > > ... my concern really is ... wont this full scale rename simply generate
+> > > > a lot of un-needed churn for future fixes and/or backporting ?
+> > > I don't think it is going to be a big problem because it is just git mv
+> > > which git is able to gracefully handle.
+> > > 
+> > 
+> > Otherwise it may end up being unnecessary churn though I completely agree
+> > with the git/backporting aspects. Just don't want to churn things up until
+> > we have some plan and further changes/users of this move.
 > 
-> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-> index 795b35128467..56341578e7e3 100644
-> --- a/arch/arm64/include/asm/daifflags.h
-> +++ b/arch/arm64/include/asm/daifflags.h
-> @@ -141,4 +141,19 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
->  	 */
->  	write_sysreg(flags, daif);
->  }
-> +
-> +/*
-> + * During early boot, we unmask PSR.DA before the GIC has been set up.
-> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
-> + * after the GIC is enabled : sync them up.
-> + */
-> +static inline void local_interrupt_priority_init(void)
+> As I wrote above AMD/Xilinx platform with SCMI server where ARM RPU/APUs
+> (with multiple VMs) and Microblaze-V in programmable logic acting as
+> separate agents is going to be the first user. And for being able to run
+> SCMI on Linux running on Microblaze-V I need enable SCMI on non ARM
+> architecture.
+> 
 
-Maybe switch_to_pmr_masking()?
+Ah OK, if the plan is to just use SCMI as is and having "ARM/arm" name is
+a blocker, then sure we can get that done. Hope you are aware of and already
+considered some of the RISC-V specifics listed above and ruled out any of
+those as concerns to use SCMI on RISC-V platforms.
 
-> +{
-> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> +	lockdep_assert_irqs_disabled();
-> +
-> +	gic_write_pmr(GIC_PRIO_IRQOFF);
-> +	write_sysreg(DAIF_PROCCTX, daif);
-
-otherwise LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-> +}
-> +
->  #endif
-> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-> index 9fafd826002b..c73faa30268d 100644
-> --- a/arch/arm64/kernel/irq.c
-> +++ b/arch/arm64/kernel/irq.c
-> @@ -126,10 +126,9 @@ void __init init_IRQ(void)
->  
->  	if (system_uses_irq_prio_masking()) {
->  		/*
-> -		 * Now that we have a stack for our IRQ handler, set
-> -		 * the PMR/PSR pair to a consistent state.
-> +		 * Now that we have a stack for our IRQ handler,
-> +		 * let's mask interrupts via the PMR.
->  		 */
-> -		WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> -		local_daif_restore(DAIF_PROCCTX_NOIRQ);
-> +		local_interrupt_priority_init();
->  	}
->  }
-
+-- 
+Regards,
+Sudeep
 
