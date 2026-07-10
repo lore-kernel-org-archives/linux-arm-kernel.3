@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1C1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12E6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5df2dEGoVDrXi0MrbqhBR2r+mtCoif7G/5zEmqIUks=; b=kOdLh6ImXx85e/5nU3+LE4mw+P
-	JxltMHtnbAMkEOItlNrL5qPNrxWJGhd6Pk45C9YlIoVvHPj39D52yGwpjuXDkQMonES6OUfdYXwOJ
-	+OsUmb+Ute9s+a413vRg02VWY9g+s81+i5xiJ646EOYoTJkY7CR5f2i+VdbM3/xyaaGwlH2uOaJ37
-	1OaD5PGL6+Tn58NRAL8wMiFn+P4I3gajHPtAiTgdOEaNx9KtDLS45BySwspJVLRyr2/nEBLTl80Ul
-	rkIMyieGMg8uQfKx3tXGUYwedxa15rcJe/QCZCEWE/QnBpCSJMWlF7U/KtTDt+/q51zPVdYnNAGab
-	B4VMkq6w==;
+	bh=VpV42nhPDLLjIKTd09rqBsZ8QlSA/XLOo7fuRinuWc8=; b=mKRl4gnb+UfQipoYuJm+tizI2n
+	Sgax82NkvNVHJBs9eBp6gnZBE4DDvelNMyxvXtCpTH6MO5S8r7LwSqu1hnc1bSPgghjgxT/o9VGA6
+	ihhTADfrdGGwfF9/wMmYU78DTJUwwf2+IZm6yt5dJvjgH+g8AhoCedcrncFWXzYWMpWDVo9DbZoo3
+	PLycRnIeKqykBQWukESyPToEhK52aiFvAVHAqTdPsOwlYn75kcpW/knP44TOuE4veYpOaazSw0qhr
+	xgz/K4zAa1WOsnf5dzKwAEiIzFER+cFSnWAjLj40nnIWUxgSoWuejnTEAOtlHyJ2NvcpL+xAjywVB
+	tdJvfWnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCUb-0000000574y-2LQV;
-	Fri, 10 Jul 2026 14:46:17 +0000
+	id 1wiCUf-00000005796-2kSx;
+	Fri, 10 Jul 2026 14:46:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiCUY-0000000572a-1zjy
+	id 1wiCUc-0000000575y-2Fp1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 14:46:16 +0000
+	Fri, 10 Jul 2026 14:46:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AF671E7D;
-	Fri, 10 Jul 2026 07:46:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEFAE1E7D;
+	Fri, 10 Jul 2026 07:46:13 -0700 (PDT)
 Received: from e142021.munich.arm.com (e142021.arm.com [10.41.150.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B238D3F7B4;
-	Fri, 10 Jul 2026 07:46:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11FF53F7B4;
+	Fri, 10 Jul 2026 07:46:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783694773; bh=ogl0fMh5WU6VJSws2gIeOWaSXLclkidHw1Ey9bZ1MlI=;
+	t=1783694778; bh=2pHrFU7Umm9rnuCJmAgPuvEEJfJwWU858g8qZRQOwOA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m78dra9NtYDCz3Pc8dqfPXL1nq02ONMHAzrEYB0LhGwj7ofWsi8YUfWMj2nLyTFtL
-	 9GSYUo4qzJ3c/W/sqafPp7mgLoiRRqwIsicmbUl25fNZsttlHQlLoRI+IZtCGuWNyE
-	 AydYSQH+X3fD0iderBLIt/0ubxLkl1PV30X8EsLs=
+	b=aCjfS0rwh6IRGf8I0ZliHfcrLOJz066V3ot8I1UprKJXeEy4t3F4KnXlUnEBLw0QJ
+	 kdmy2Yj0ea5pJNOnD7Dnp3ReAaY6Pf9jaP52jeSzdHFJY+OpJ21rj6Ic2WaVlpsHsU
+	 KA7RL1gOjIhkwOyBpvcYug5a8QtAfTVtJeQbGiRs=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -60,17 +60,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 10/16] arm_mpam: propagate MSC write errors for ESR and part_sel wrappers
-Date: Fri, 10 Jul 2026 16:45:14 +0200
-Message-ID: <20260710144520.917375-11-andre.przywara@arm.com>
+Subject: [PATCH v3 11/16] arm_mpam: propagate MSC write errors for hardware probe functions
+Date: Fri, 10 Jul 2026 16:45:15 +0200
+Message-ID: <20260710144520.917375-12-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260710144520.917375-1-andre.przywara@arm.com>
 References: <20260710144520.917375-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_074614_606435_53DDA9A4 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20260710_074618_657530_9051CE3B 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +85,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the wrapper functions for part_sel and ESR accesses to return an
+Allow the MSC write accesses in the hardware probe functions to return an
 error, and propagate write errors from the lower level up.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 23 ++++++++++++-----------
- 1 file changed, 12 insertions(+), 11 deletions(-)
+ drivers/resctrl/mpam_devices.c | 29 +++++++++++++++++++----------
+ 1 file changed, 19 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index f1e40ce24f5a..5a9760372666 100644
+index 5a9760372666..222515a01b35 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -288,12 +288,13 @@ static int mpam_msc_clear_esr(struct mpam_msc *msc)
- 	 * lower half prevent hardware from updating either half of the
- 	 * register.
- 	 */
--	if (msc->has_extd_esr)
--		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
--
--	__mpam_write_reg(msc, MPAMF_ESR, 0);
-+	if (msc->has_extd_esr) {
-+		ret = __mpam_write_reg(msc, MPAMF_ESR + 4, 0);
-+		if (ret)
-+			return ret;
-+	}
+@@ -796,24 +796,30 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
  
--	return 0;
-+	return __mpam_write_reg(msc, MPAMF_ESR, 0);
- }
+ 	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
+ 		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+-	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
++	if (mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel))
++		goto out_unlock;
  
- static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
-@@ -316,28 +317,28 @@ static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
- 	return 0;
- }
+ 	/* Hardware might ignore nrdy if it's not enabled */
+ 	ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
+ 	ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+ 	ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+ 	ctl_val |= MSMON_CFG_x_CTL_EN;
+-	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0);
+-	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
++	if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0))
++		goto out_unlock;
++	if (mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val))
++		goto out_unlock;
  
--static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
-+static int __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
- {
- 	lockdep_assert_held(&msc->part_sel_lock);
+-	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
++	if (_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY))
++		goto out_unlock;
+ 	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+ 		goto out_unlock;
+ 	can_set = now & MSMON___NRDY;
  
--	mpam_write_partsel_reg(msc, PART_SEL, partsel);
-+	return mpam_write_partsel_reg(msc, PART_SEL, partsel);
- }
+-	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
++	if (_mpam_write_monsel_reg(msc, MSMON_CSU, 0))
++		goto out_unlock;
+ 	/* Configuration change to try and coax hardware into setting nrdy */
+-	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
++	if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1))
++		goto out_unlock;
+ 	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+ 		goto out_unlock;
+ 	can_clear = !(now & MSMON___NRDY);
+@@ -1060,8 +1066,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
  
--static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
-+static int __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
- {
- 	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
- 		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+ 	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+ 		mutex_lock(&msc->part_sel_lock);
+-		__mpam_part_sel(ris_idx, 0, msc);
+-		ret = mpam_msc_read_idr(msc, &idr);
++		ret = __mpam_part_sel(ris_idx, 0, msc);
++		if (!ret)
++			ret = mpam_msc_read_idr(msc, &idr);
+ 		mutex_unlock(&msc->part_sel_lock);
+ 		if (ret)
+ 			return ret;
+@@ -1080,9 +1087,11 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 		ris->idr = idr;
  
--	__mpam_part_sel_raw(partsel, msc);
-+	return __mpam_part_sel_raw(partsel, msc);
- }
- 
--static void __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
-+static int __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
- {
- 	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
- 		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, intpartid) |
- 		      MPAMCFG_PART_SEL_INTERNAL;
- 
--	__mpam_part_sel_raw(partsel, msc);
-+	return __mpam_part_sel_raw(partsel, msc);
- }
- 
- int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+ 		mutex_lock(&msc->part_sel_lock);
+-		__mpam_part_sel(ris_idx, 0, msc);
+-		ret = mpam_ris_hw_probe(ris);
++		ret = __mpam_part_sel(ris_idx, 0, msc);
++		if (!ret)
++			ret = mpam_ris_hw_probe(ris);
+ 		mutex_unlock(&msc->part_sel_lock);
++
+ 		if (ret)
+ 			return ret;
+ 	}
 -- 
 2.43.0
 
