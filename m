@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7450C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEECCC44509
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 08:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5whiZouPNkR2Hvpc1mZz6nC5ir46FUasDaZIrbl8OA=; b=th2HSKpy6C7YLCqS18fTkCAWzg
-	mm9ebc/bkezEPUvj66UkjpB8dKJvI2tr8lOLrv7yNiMgynbDXqyJ05vflniXyzurP/c8gG2gQHkee
-	xjvj64ZEgPH3n8fWG5yivmS238u5eaSbfe50LJYx6OucPXIj7k7oBccWyGQFSxF+ZzmoX9xSPCFj+
-	Hhu4QVAqmpz0i6SKoCEp9GvBS6fUXRN463V07rVpsos6tMBvbdzWB854Her7h4K2qNeMoGL8jl7DB
-	nTiWwtGBpG9KrpERsFGvxLh+hSvQAg7B9X6ybHwnKcttW7SyP4w6n0Ijf4wGOWBMzctewSYtdFQzb
-	5+OuB8LQ==;
+	bh=Mn4cC1hqXiGcDScmkUXYezdlXnG+b6xdlBAvd4W444U=; b=cyczXr4wr7cPIowX45dvBRQ91u
+	R7XKWuRW+G8EI74TgxN+irFcGd07r3GiqNlOjnNL5/2nt7cbDTE4KNtbXtsDoi8v+O78HjhC6eV7G
+	pPjcfNHzvwaG+DT0enaMhlHeaATbNCY7tqScB0mXW/20/WLvIZlF+frlZjLDBrnT6e8E/LdvxLgyu
+	D3VIrsfXvuSr+WqpWOpGaMwNCcTpamvupKfbYnigqpFDVB1ao7NBpjzSknMbyVa1FZbTE0UCCR6c+
+	3kcfkVZAyOGJk4jDM7l3Ynj0ELNMdojHO1VNxUBj/dmbWnxqL8vou7SgvTiKT5v3dwI8YezHkJH4a
+	eQ/9ox/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6zg-00000004Uzz-07Y7;
-	Fri, 10 Jul 2026 08:54:00 +0000
+	id 1wi6zf-00000004UzV-3RFJ;
+	Fri, 10 Jul 2026 08:53:59 +0000
 Received: from extorris.mess.org ([92.243.27.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi6zb-00000004Uxr-3Kr1;
+	id 1wi6zb-00000004Uxn-14NP;
 	Fri, 10 Jul 2026 08:53:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1783673632; bh=VTN1gzPokpMjTvGP+n6o0ob+YikmETxLkSiXZ9C7eUw=;
+	t=1783673632; bh=uxrv4RU4kx2kz4TN49RM0DA9U2uRkeYrAsniJlkVWGM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=phENkU7MPN1o4o4q+GhrR+sWTZHfaaG7rtEjrwtxXJEw6Xc0Z/jjmqfiCyfXszJH2
-	 ZHj5yv7eDOPW5NQ33A97lBTgqM4HjVEikHMWkcNgSDCor1JtjiSZ7OnJ9bWuiTDztH
-	 uhUphM1tVqWxqx8ObKAn+kt3xRo74inmuZdVfKgGKr7dY5OTvwXo5VvV8pGc00wTD4
-	 s00t86c0/hiySKLvLRkaDDfwY/lgsEEePTZk/9GPeljeQYAUJKUjorOmjgloWng9IG
-	 p2NSgdoVcr4b+Vvr41Ath8FkpZAUvtS7GIhG6zIPi4IqVIwW1clcuOFNlMfU7r8ZiB
-	 aJFHMrqeJA96A==
+	b=TxIk0f6XWy5cxyaguSGDZjjYRC7Y+Sfnm6Qf0KRRImcbmbB8txi5fCzwnEMwrAjRM
+	 gPRDFcKEiz7sZRk2v3j1iRNm0UguiBY2FyS2roSwQlQ8r8iZPkkVBPl7jvfjj1UFox
+	 0oBJJeJMUvxlZQQpKFQJhvr0ilFjb2/3gj0hQvKc3A+xYjO3WLCg26ttfPmLT3ln1D
+	 WD4BIscrD+UEps0Q5ivnWt3t/2oORyGYnLJ32azkTBO50jPdd89w297oJw/TI5l4P4
+	 4Ct4XVpNQr4a7qDsY4PtNnQHbBWjRy1I1tXOXpa+jcPkgXZ7MisVGT2G/y98xQg21d
+	 ds6LMXs3RfvjA==
 Received: by extorris.mess.org (Postfix, from userid 1004)
-	id B6CD740B5F; Fri, 10 Jul 2026 09:53:52 +0100 (BST)
+	id 3EC8E40B5A; Fri, 10 Jul 2026 09:53:52 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1783673631; bh=VTN1gzPokpMjTvGP+n6o0ob+YikmETxLkSiXZ9C7eUw=;
+	t=1783673630; bh=uxrv4RU4kx2kz4TN49RM0DA9U2uRkeYrAsniJlkVWGM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KoybHE3BX08uWg1kOaSiOcb06STgFgg/c6NzTKAEwAzutIhvnPJmOzJbreIlvCjXf
-	 xkPO37jyL/qWXvvDMRB49DtoIJX/0gpRdhtCDqdbIb54ZM8kqmHZCc4cjJlsmifIed
-	 tkaNav92YSa2RzIqKRXLqJ0f0jmfnRLCtZcC7Ip53sp3bu0KraEcAVD8dzbeOjgyYx
-	 fXuugaSVdsLsM3+AZZy81Y56PsYmrBd3eFjml0XxYQzGWJU3QmI2+SipUtATiKH1ay
-	 kYQJU68WN+h1Ms8Fd4y48xhMej/KpkiXyBGAz69i8T0UGpeD9fQkNSpHCUmUiBkvaT
-	 R0oo78uOqZrIw==
+	b=tZUyiT1pLkcDLBaxdGo1d2qyxadn8fyYS7IVBEz3BbahdiWSN+QUYHRtenYNP89I2
+	 KYgLloDRAKfgjEVslrcHUezE8WYuWY429IVf0CxTYxeYMzA0bWVKE1zsqdwkDmaff+
+	 eh4CHSN+Aug9p83+dc0A7H0VGvPi8CKu6DlyJoUzoGi7Pui0NjiFRPi3a9zsLYrdTh
+	 eagij+o0OBCwGW8ji6MO4I0hhib/bSJGy3zVXTai5PNQBDR+A2F+hMXURTPsQZs0OJ
+	 ClNKahqCN0MwhlfmHBOfuWVAfWWa4i9fNWmWfVzqXM4eoFZfoN/UJKkFyXTEOSztak
+	 3hali2luY2P2A==
 Received: from maru.local (unknown [62.232.99.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by extorris.mess.org (Postfix) with ESMTPSA id 1378B40AF1;
-	Fri, 10 Jul 2026 09:53:51 +0100 (BST)
+	by extorris.mess.org (Postfix) with ESMTPSA id 6E95140B29;
+	Fri, 10 Jul 2026 09:53:50 +0100 (BST)
 From: Sean Young <sean@mess.org>
 To: linux-media@vger.kernel.org,
 	Sean Young <sean@mess.org>,
@@ -60,22 +60,22 @@ To: linux-media@vger.kernel.org,
 	Kevin Hilman <khilman@baylibre.com>,
 	Jerome Brunet <jbrunet@baylibre.com>,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Viktor Prutyanov <viktor.prutyanov@phystech.edu>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/7] media: meson-ir-tx: Ensure rc_free_device() is called on unbind
-Date: Fri, 10 Jul 2026 09:53:34 +0100
-Message-ID: <a11dc2d089d4e288b63412a0d3029393c577ee80.1783673420.git.sean@mess.org>
+Subject: [PATCH 5/7] media: meson-ir-tx: Ensure clock is disabled on unbind
+Date: Fri, 10 Jul 2026 09:53:33 +0100
+Message-ID: <2d7772d678d1815276c2d409d68ae4f4673d09aa.1783673420.git.sean@mess.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1783673420.git.sean@mess.org>
 References: <cover.1783673420.git.sean@mess.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_015355_992083_45893234 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260710_015355_429911_77C45B7D 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make rc_dev devm managed.
+clk_prepare_enabled() needs a call to clk_disable_prepare() on
+driver unbind. Make it devm managed.
 
-Fixes: dccc0c3ddf8f ("media: rc: fix race between unregister and urb/irq callbacks")
+Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
 Signed-off-by: Sean Young <sean@mess.org>
 ---
- drivers/media/rc/meson-ir-tx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/media/rc/meson-ir-tx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/media/rc/meson-ir-tx.c b/drivers/media/rc/meson-ir-tx.c
-index e7bb107e6a84..abb107d19e8c 100644
+index fded2c256f2a..e7bb107e6a84 100644
 --- a/drivers/media/rc/meson-ir-tx.c
 +++ b/drivers/media/rc/meson-ir-tx.c
-@@ -345,7 +345,7 @@ static int meson_irtx_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "irq request failed\n");
+@@ -288,8 +288,8 @@ static int meson_irtx_mod_clock_probe(struct meson_irtx *ir,
+ 	if (!np)
+ 		return -ENODEV;
  
--	rc = rc_allocate_device(RC_DRIVER_IR_RAW_TX);
-+	rc = devm_rc_allocate_device(dev, RC_DRIVER_IR_RAW_TX);
- 	if (!rc)
- 		return -ENOMEM;
+-	clock = devm_clk_get(ir->dev, "xtal");
+-	if (IS_ERR(clock) || clk_prepare_enable(clock))
++	clock = devm_clk_get_enabled(ir->dev, "xtal");
++	if (IS_ERR(clock))
+ 		return -ENODEV;
  
-@@ -358,10 +358,8 @@ static int meson_irtx_probe(struct platform_device *pdev)
- 	rc->s_tx_duty_cycle = meson_irtx_set_duty_cycle;
- 
- 	ret = devm_rc_register_device(dev, rc);
--	if (ret < 0) {
--		rc_free_device(rc);
-+	if (ret < 0)
- 		return dev_err_probe(dev, ret, "rc_dev registration failed\n");
--	}
- 
- 	return 0;
- }
+ 	*clk_nr = IRB_MOD_XTAL3_CLK;
 -- 
 2.55.0
 
