@@ -4,99 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9192C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A661C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 14:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Pm6YjVPTn66E175rLBZQYOV6tuo0Tyec/7ISEHA5r0=; b=tLjrm+p/U1Uy6/TC0pXGtaHEhW
-	zY7Khbs5VS4pkf7pn12fLowb1wqg2Q27Lhno5MbPFMEMvTU9LEk+izqvjUJL6POYqvcISoBsXune+
-	gP9p086U1eZUsD2LqbhQK9QWJLNWAuvC/8juTJhsIjATBcUQ030RlNHlkKq9BgOhQGMlO5kc3fQCK
-	n07nwQ8kirUsmLMbjG3zJ/PvUjUQwsmtEQ8nrZZJcxw7zevwyIIL2OzeYNRCOaHwIeX/9vI7Ad0E7
-	05yT0Z4xUHA/iYyeHZCAqdphHQTu/HKUi+fTAGCCkTBa8ghbKSXBSPxZdsdinPP3+wdRFIYhSuZ2i
-	OCidfudw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ld/XzT4yLi3Bj0NOD+nEBxEpkiiGab87Y26X7/8DxIM=; b=cJV6ZOS5y3Om1KyxP9+Ap2MqZV
+	Ak27UA+CjzXexxjqprUR9ERL6vbs2vYKwPXlNsY5GyWX4ykWApzQh/6HjgQnlBILypcibzWEGSfoB
+	PKNfv5obkYwlC6ZITZrWwZGJcY3+Zh6CDEfr8B8OpByFmidq51xiwUmlGq1MDbkawaLXDt8MjQS3/
+	FZAKfelJMgqC7dr3r6JZ6Fj2N+LSrMnnXX3/3x/VgNFsQvj0yFwm4FgAJPOO6Ro9Kin/Ce2LULtCc
+	jfZj6TEMnBUFtDsaszs3SFgrpDT5Hz6EzQGAU0swSjn0TcoKcMfgRzpdf3HNSWheLfZVZT0kATouj
+	/GF89Aew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiC2c-000000054HG-2IPK;
-	Fri, 10 Jul 2026 14:17:22 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1wiC5D-000000054TD-3wux;
+	Fri, 10 Jul 2026 14:20:03 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiC2a-000000054GZ-03CO
+	id 1wiC5B-000000054SP-1GfM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 14:17:21 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id C0F5BEC01AE;
-	Fri, 10 Jul 2026 10:17:16 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 10 Jul 2026 10:17:16 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1783693036;
-	 x=1783779436; bh=/Pm6YjVPTn66E175rLBZQYOV6tuo0Tyec/7ISEHA5r0=; b=
-	ZGXnd8Pi59/LlTc2LG27zo/SicfS0oRRwDSZyIPFtp7dN6Q9U5zTEdJU4yxFJDF7
-	Ygl6dDAlye/yAMOSkV2cc18oGcfgsHz4g2ev/LjPNKwGtYHbpxRByVssBM1z7Xz8
-	ye+E03ywUv73k9viTgIbiB4+gb64r53+RYne1SpK+YbjuT+gflEfjBOeIklNRfDb
-	0ju+ulq0LzpdVGzCi3h4jDOVflhIbF9NKeLqaf8xOj/sZRXtudB3GF0fBqLz2fsU
-	LSNHaiycaPS0QgMdC/0BVAwSpge1JXCrwf0twMshFwPYhM4jaFUOPhfk++X9JZ4U
-	9wA1OXR4FYvmHhSKraQPYg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783693036; x=
-	1783779436; bh=/Pm6YjVPTn66E175rLBZQYOV6tuo0Tyec/7ISEHA5r0=; b=L
-	PfOkad6DKsgoqekGgh5N8vib0ODDalz/2FiPfQdkBOyWYns6AhM9BiqtWTXd9JzS
-	0J9ztURUmaLRHTAj9Zra+qq6yxkAjqehvX6kFsSRjh7BkxDkpTPpxuv2Q7c0QiXE
-	9worAagS5gDre1SL7zckgPd1qnK9gUg0RI+cIwE6NU2/9PZzJzNaUxoLUv9ci4jb
-	hNljeyWtG+jpgzj+fsaoGIW7zVxV8BbvliDAnzugDUXCVW3oWputWH87v5QddNfo
-	SD9w0x5u54dVugzc20v75jJI32SKHpT3UVT6pYrPKVJHeYk+jnA0y5S5Qfk02wLK
-	fylKd7qY+TwOCmR2UBfNw==
-X-ME-Sender: <xms:6_5Qar4QGDvj3vQzFs_WDJTKmQbqznB91egj8n6tMznBxpJALetoGw>
-    <xme:6_5QaruoANe28olDeO-rLPdBh5N7gVXube6tnPiF6NnBP3x-OdB80a8ZUnCuMs7Fn
-    y3regZxu8j5FUu49oTiDEa-DBaIQg2QDAlJqeCZBCr-72F7cWx4R4Q>
-X-ME-Proxy-Cause: dmFkZTEtICzMuIfiBuDNE7cd8mZ+0Rq9QDzaIvGcbw6GT5FEBB6x3ZrMUbqJCGQTT0mK9M
-    OGw1i2dN09a8qyFf7tgrfim9F+r99hNqMGCm/hNe52E+Ouidfu77eaHT74/+cyOMjZZxsS
-    UeXObk1CSaJEg8CnUGxh8aWtqoqMoJZSc40nW/l/Z8RGBYMDWe+azDRFCoq2TtlMYX/I+f
-    JdhL7gX+oD37ISvAWda2aKnXUAuyrer/H0v0dh7Di8E3/ZmIyEewctv6qJRny6nkb0PBb4
-    /rQzXilfz7bs2NPC8FHmlrUdV2Rjk7kzEN28Eyr8v4ciTOx4bzUcpJgo8Tn82DJ6QWVfoG
-    n/WvbYshFr9AN5V5rbfiIgFtXCFfV2d6vtjfVy9BdJRp4EzM1I8IFIAL7mj4b0iG5rL0mu
-    pjSC+CJbYBlH8Bg04UM3BAKQDh3RB0BTrweCkk8XwJ7DWOmNJ99mgeQXRfLUVQzNWE1K+s
-    0E506931Llr/MJBa5mBIHwwlWeJG337aBNyVpLmXyI/m8ZijyNBytQBEVyR5FFgMPomuZI
-    3sNtuu8mbZ80uMeYV5YPORgDSsJxmyl6zUoHEqWAlPmzuRO1h1FUTKaNhQxAE7Pfz3BHKm
-    UjG/S2veFn3D1qYWKuZS5GULleHsagQnmcQY/OBxHoeTAvUxFtN+W1oicZPg
-X-ME-Proxy: <xmx:6_5QaivKAzR7v5lsVARuzembA89SKAntJpZaB0-Y7nyFmOI7hSd-Qw>
-    <xmx:6_5QakICjkQ88MEOvR87A8TzQ01cWfJphkBb5E4U3P51kk5TYNUhEA>
-    <xmx:6_5QaholRJF7W8-3fS8DDAxOoIN88AZKg0l7yB-mr_AoiECY7H75HA>
-    <xmx:6_5QanUbF3HCrthZaVQG8JS3Rn2I-9YZD8yhMVCuaBOLp59Kpv-dXA>
-    <xmx:7P5Qai-HNID-NT-yBw_ZZYdUMyB1-OOpErNqL09Oh0gZHfHsyZYP4HsA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 8FFA91820082; Fri, 10 Jul 2026 10:17:15 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 10 Jul 2026 14:20:02 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4938d5f86f3so7178145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 07:19:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783693198; x=1784297998; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ld/XzT4yLi3Bj0NOD+nEBxEpkiiGab87Y26X7/8DxIM=;
+        b=Cu1Vbl8hE4byZDgc9lwd7ZQuYi6KVvjgZNkw9mZMRtCuRnyb2G2OElAihzPIZXnIJ4
+         B3GNEvR1TdBbEOb/xuy74wJ54v24vAfEUCAfLxw+hOSe6j8FZQVeeNMZCujaNWdJDOs8
+         RNCovZY4CCfr1CBvNoBkzdidbEL8/gTw64FG5QLBVpo58HoDWh7i4l5EgmmS4pisvtI9
+         Z57vTXvnUWqHNzUaOz/ITvOI5KTnROo8cPbr+cj9ZaVkGfzDg32mSAlWDu+gMwk2pk6t
+         CxZYgjCU9LOGKT9BIHsvRHwjxmGSEifrrAAaS1HgJlc+OKR2erkZauPHDIXR/+JY9NzK
+         zxxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783693198; x=1784297998;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ld/XzT4yLi3Bj0NOD+nEBxEpkiiGab87Y26X7/8DxIM=;
+        b=OA/Z5q0hnAVf0BpBUZ9FzR1Lk7WHC7dgbq25iyS+nI7HJpOTFt0R1TiPd/Phst76Tv
+         pnTAEZckmbIC2qk5mi5aQaOMThKJH8dcsaWmoyBLYaRBZ7AmRuszUjiYv+wSQmyPqeFF
+         lM+ke8vkZUwLbmx7uclZnuKUQpJ+wrGW/W+5y3qn2Wk47zXPVpIQ2ZBkHQmWMFkSwL11
+         pO+eUN2I3ZCrMsLmnA0Vo//MkeCJmbAXa+PH0jD1NJWtIOW6JgkwwdDVUR9FiNPM9XDB
+         oOoHBdKOgLQkzRbVGUlh3Itt6tpcFKVwEJL/WdD0f9MBf0o4ajyO0Ii4omNfPrlSo5D5
+         m06w==
+X-Gm-Message-State: AOJu0YwcZl8oPj+oWtf/pG6DTK9Yk0pviTdnT8NqiUpYhI4Jo5+55UGb
+	juvJl8IfQ0O11dUsa8FvEtET71VVBxhydE8eJQQ/343AUtUK5JY1PrxEdJeDC71Fr80UIwytNyO
+	6iQNwvg==
+X-Gm-Gg: AfdE7ckt63U0jYkKgUeh0A+KppLXObkG5Vg7t3GwMUGaySzR1z17mxintiPUAdTqlS+
+	Rqf4tq0lmh+cJj91t7ohAnOZVCUUWYfyevYyDf/ZynF62BXIrtMGY/vNazw1Bkug6Ps74ncDmGx
+	pDGvIOxjO6xWhxd+iZO9bvw4izrbyiHveTHuFNfeAdMNgP96mXHVLonLjRqoK+GAkiSE1PbO1F9
+	kKma65J1JGBUzRVCSJCdiUimCQ8um+MR4RiH8urO1JC9wIoQy4saciukdXI9lyWqqsp3obi/fK6
+	bar86mGRIeXMuJ1F979cAGIinKIA59eawJlp+WWN8k9Cc0Bn1ij/le2Eo1Rp2SO3AQ5Md6vaWWe
+	sab0DLxl/9CVj032V4XXRbSRg56UAAeKexieEGEpUxmotHa6T4WvL210NkrIOXb4mxgkeP9FojD
+	muJL8jL/4+8xU+2eDXVyx0oR0t8LYgJRq3c+0pnPE/EW+iX/kiNrY=
+X-Received: by 2002:a05:600c:8119:b0:493:ee34:d875 with SMTP id 5b1f17b1804b1-493f2b3369fmr37932565e9.10.1783693197951;
+        Fri, 10 Jul 2026 07:19:57 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6ccdbbsm147470855e9.3.2026.07.10.07.19.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jul 2026 07:19:55 -0700 (PDT)
+Date: Fri, 10 Jul 2026 15:19:51 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 01/25] KVM: arm64: Generalize trace clock
+Message-ID: <alD_hwRhUZ0IPTte@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-2-smostafa@google.com>
 MIME-Version: 1.0
-X-ThreadId: AdFLe7-IZaaF
-Date: Fri, 10 Jul 2026 16:16:35 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Zi-Yu Chen" <zychennvt@gmail.com>, "Olof Johansson" <olof@lixom.net>
-Cc: soc@lists.linux.dev, "Jacky Huang" <ychuang3@nuvoton.com>,
- schung@nuvoton.com, "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
- "Conor Dooley" <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Andrew Jeffery" <andrew@codeconstruct.com.au>
-Message-Id: <5f2954e4-2e0c-40d0-b67f-933446c83cc1@app.fastmail.com>
-In-Reply-To: <20260708082457.460710-1-zychennvt@gmail.com>
-References: <20260708082457.460710-1-zychennvt@gmail.com>
-Subject: Re: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260501111928.259252-2-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_071720_298940_525BE65A 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20260710_072001_411718_BD081D0C 
+X-CRM114-Status: GOOD (  40.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +105,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026, at 10:24, Zi-Yu Chen wrote:
-> Add controller nodes for the four Bosch M_CAN blocks found on the
-> Nuvoton MA35D1 SoC.
->
-> Additionally, configure pinctrl and enable CAN1 and CAN3 on the
-> MA35D1 SOM board. Also, update the APLL frequency to 200MHz to ensure
-> the CAN controllers receive the required input clock for 50MHz operation.
->
-> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+Hi Mostafa,
+
+Sorry I should have looked at this a while ago!
+
+On Fri, May 01, 2026 at 11:19:03AM +0000, Mostafa Saleh wrote:
+> IOMMU drivers need to track time, mainly for timeouts.
+> Generalize the tracing clock functions in the hypervsior, so they can
+> be used from IOMMU drivers.
+> 
+> 1) Make the compilation independent from tracing.
+> 
+> 2) As drivers might need to use that quite early, provide default
+>    values for the clock data based on cntfrq_el0, the driver can
+>    keep using these values without calling hyp_clock_update() as
+>    they don't need to sync with the host timers.
+> 
+> This is mainly used for timeouts, so a malicious host can DoS the
+> system or cause premature timeouts which likely end up in hyp panic,
+> that should be acceptable as neither of those would undermine the
+> security guarantees.
+
+This still sounds very risky if the usage shift, and as I explain later I don't
+believe this is completely OK as regard to mult/shift updates.
+
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > ---
-> Resend note:
->  - resend with the complete Cc list; no patch changes
+>  arch/arm64/kvm/hyp/include/nvhe/clock.h | 11 ++-----
+>  arch/arm64/kvm/hyp/nvhe/Makefile        |  4 +--
+>  arch/arm64/kvm/hyp/nvhe/clock.c         | 44 ++++++++++++++++++++++---
+>  arch/arm64/kvm/hyp/nvhe/setup.c         |  5 +++
+>  arch/arm64/kvm/hyp/nvhe/trace.c         |  4 +--
+>  5 files changed, 51 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> index 9f429f5c0664..e6a0e43af88d 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> @@ -5,12 +5,7 @@
+>  
+>  #include <asm/kvm_hyp.h>
+>  
+> -#ifdef CONFIG_NVHE_EL2_TRACING
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> -u64 trace_clock(void);
+> -#else
+> -static inline void
+> -trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
+> -static inline u64 trace_clock(void) { return 0; }
+> -#endif
+> +void hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> +u64 hyp_clock_ns(void);
+> +int hyp_clock_init(void);
+>  #endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> index 62cdfbff7562..89d0533921f9 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> @@ -26,10 +26,10 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
+>  	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
+>  	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+>  hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+> -	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
+> +	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o clock.o
+>  hyp-obj-y += ../../../kernel/smccc-call.o
+>  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+> -hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
+> +hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += trace.o events.o
+>  hyp-obj-y += $(lib-objs)
+>  
+>  # Path to simple_ring_buffer.c
+> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
+> index 32fc4313fe43..53d0bd55e866 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/clock.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
+> @@ -18,7 +18,41 @@ static struct clock_data {
+>  		u64 cyc_overflow64;
+>  	} data[2];
+>  	u64 cur;
+> -} trace_clock_data;
+> +} clock_data;
 
-Hi,
+I believe this should be separated. the trace_clock is "unsafe" but synchronised
+with the host. the clock you need must be "safe" but we don't really need to be
+synchronised. 
 
-I don't see anything wrong with the patch contents, but I think you still
-have the wrong Cc list. You have sent the patch Cc: soc@lists.linux.dev,
-which is where maintainers should send the patch when it is ready for
-inclusion in the SoC tree, and you have sent it To Olof and me.
-Olof retired as SoC tree maintainer a while ago, and I'm not going to
-apply this because it should go through the Nuvoton tree maintained
-by Jacky Huang and Shan-Chun Hung.
+So overall, I would keep all the trace_clock_* interface unchanged and introduce
+in the same file a hyp_clock, with its own hyp_clock_data.
 
-Please send future patches to the maintainers that are in charge of
-applying the patches, without adding soc@lists.linux.dev yourself.
-The maintainers will then forward it when they are happy with the
-changes.
+> +
+> +#define HYP_CLK_SEC_TO_NS 1000000000UL
 
-I just noticed that we have two conflicting maintainers entries
-for ma35:
+Not possible to use NSEC_PER_SEC?
 
- - Jacky and Shan-Chun are listed for the ma35 SoC, but have
-   not sent any updates after the initial merge in 2024 and
-   don't currently have a git tree in linux-next
+> +
+> +int hyp_clock_init(void)
+> +{
+> +	u32 timer_freq = read_sysreg(cntfrq_el0);
+> +	u32 shift = 32;
+> +	u64 mult;
+> +
+> +	/*
+> +	 * KVM will not initialize if FW didn't set cntfrq_el0, that is already
+> +	 * part of the boot protocol.
+> +	 */
+> +	if (!timer_freq)
+> +		return -ENODEV;
+> +
+> +	/* Timer freq can't be larger than 1Ghz by spec. */
+> +	if (timer_freq > HYP_CLK_SEC_TO_NS)
+> +		return -EINVAL;
+> +
+> +	/* Simplified logic from clocks_calc_mult_shift() */
+> +	do {
+> +		mult = (HYP_CLK_SEC_TO_NS << shift);
+> +		mult = div_u64(mult, timer_freq);
+> +		if (mult <= (~0U))
+> +			break;
+> +		shift--;
+> +	} while (shift > 0);
+> +
+> +	clock_data.data[0].shift = shift;
+> +	clock_data.data[0].mult = mult;
+> +	clock_data.data[0].cyc_overflow64 = ULONG_MAX / mult;
 
- - Andrew Jeffery and his team are listed for npcm with
-   arch/arm64/boot/dts/nuvoton/ listed as one of the file
-   locations, though that contains both ma35 and npcm.
-   Andrew has the bmc tree in linux-next and has recently
-   picked up patches for both npcm and ma35.
+I don't know if we want to update this from time to time, but we can't rely on
+host provided data. Perhaps the call to that clock could self-update?
 
-I see there is a lot of activity at the moment working on
-ma35 drivers, so it would be good if the maintainers could
-figure this out together and provide better guidance to
-individual developers. I don't mind pulling from one
-team or the other, but I would definitely prefer the MAINTAINERS
-file to reflect the actual state here.
+Worst case we fallback on 128-bits mult. but perhaps this isn't a problem for a
+wait loop()?
 
-If Jacky and Shan-Chun are planning to do the merges going
-forward, they should add their git tree to linux-next and
-update the MAINTAINERS file to list the git URL.
+And as this is wait loop, perhaps we could reduce the resolution quite heavily,
+so we reduce the risk of overflow?
 
-      Arnd
+> +	return 0;
+> +}
+>  
+>  static u64 __clock_mult_uint128(u64 cyc, u32 mult, u32 shift)
+>  {
+> @@ -30,9 +64,9 @@ static u64 __clock_mult_uint128(u64 cyc, u32 mult, u32 shift)
+>  }
+>  
+>  /* Does not guarantee no reader on the modified bank. */
+
+ ^
+And here's another reason why you should have another clock. It works because of
+tricks in the tracing interface.
+
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+> +void hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  {
+> -	struct clock_data *clock = &trace_clock_data;
+> +	struct clock_data *clock = &clock_data;
+>  	u64 bank = clock->cur ^ 1;
+>  
+>  	clock->data[bank].mult			= mult;
+> @@ -45,9 +79,9 @@ void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  }
+>  
+>  /* Use untrusted host data */
+> -u64 trace_clock(void)
+> +u64 hyp_clock_ns(void)
+>  {
+> -	struct clock_data *clock = &trace_clock_data;
+> +	struct clock_data *clock = &clock_data;
+>  	u64 bank = smp_load_acquire(&clock->cur);
+
+The whole bank system is not necessary if not updated by the host.
+
+>  	u64 cyc, ns;
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> index d8e5b563fd3d..8041f6e80cd1 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -10,6 +10,7 @@
+>  #include <asm/kvm_pgtable.h>
+>  #include <asm/kvm_pkvm.h>
+>  
+> +#include <nvhe/clock.h>
+>  #include <nvhe/early_alloc.h>
+>  #include <nvhe/ffa.h>
+>  #include <nvhe/gfp.h>
+> @@ -312,6 +313,10 @@ void __noreturn __pkvm_init_finalise(void)
+>  	};
+>  	pkvm_pgtable.mm_ops = &pkvm_pgtable_mm_ops;
+>  
+> +	ret = hyp_clock_init();
+> +	if (ret)
+> +		goto out;
+> +
+>  	ret = fix_host_ownership();
+>  	if (ret)
+>  		goto out;
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> index a6ca27b18e15..e30de840e6c2 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -35,7 +35,7 @@ static bool hyp_trace_buffer_loaded(struct hyp_trace_buffer *trace_buffer)
+>  void *tracing_reserve_entry(unsigned long length)
+>  {
+>  	return simple_ring_buffer_reserve(this_cpu_ptr(trace_buffer.simple_rbs), length,
+> -					  trace_clock());
+> +					  hyp_clock_ns());
+>  }
+>  
+>  void tracing_commit_entry(void)
+> @@ -285,7 +285,7 @@ void __tracing_update_clock(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  	}
+>  
+>  	/* ...we can now override the old one and swap. */
+> -	trace_clock_update(mult, shift, epoch_ns, epoch_cyc);
+> +	hyp_clock_update(mult, shift, epoch_ns, epoch_cyc);
+>  }
+>  
+>  int __tracing_reset(unsigned int cpu)
+> -- 
+> 2.54.0.545.g6539524ca2-goog
+> 
 
