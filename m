@@ -4,64 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9962C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 18:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F92C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 18:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTZsSNjxZR+a+6g7E908FfiySxOJ/3/Gglf+f0Vi9Uw=; b=qggpf32UdDhcakldNpLJ9fT0kg
-	CO1PsO0TUfsUltZbqvgjAzxrCXgdwcTRfK+T84XP358qrJIyeeEe7lbE9fm6DV467MqQOp77rUO++
-	PwE9sY7briHXlrAZzf+bbjVfiAKkYMyx85cWU2bj1EiHN0L8hq6LYvB5KB0UX7XtTy8ftGSOGBHiZ
-	TD6Dqng+RsE5TcNmr3nXpWdTKKFGboXxv8ea066NoWFsxte1V4WtnTsrSSj6AVpAsL5otqYJYt5yR
-	8DBF7UCe2a832hJ50mSAupSee56rbkSBm8gkb/yHaF6fh5kiGVNrdiSBmgQhXl8mVnlKVC8ojHreT
-	QopENWWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zp3AkSb7kz6GKD3cr/eSusRHkHnQftat49AwvvVk17c=; b=0JLjirW3bphpp2ViVmGd77gEHp
+	dGpvxIRkQxsH9aPs/y1sT9RrjbaTFVzI7w4Smd9yG2pcJxJAarEKlGU4FrczAMHi3BKMQt9MgzXdR
+	OgO4nOFWRbFZ1AgVq6f3L0Fv+VKApoSCRp4dG05FJujcvFgwhqK/IBqy7E7sNy1dHtk0CmM6kg9UI
+	+bB3jMxXaxKxeJC9j1LXcYow1yYU52o3FJrgMGq+nKOYebPVS7qpKYy/HEQC/CtezO4n03sTG/WmT
+	5PNKyQH4D+FpZ4TiKQrEsQMARDpE/Hw8r9+7zGIXWwFeIfKqppSdQMcVJk99OJxLDO7rxIvouAVNO
+	IXSgv8ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiFoQ-00000005UWK-1fcg;
-	Fri, 10 Jul 2026 18:18:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wiFrR-00000005UqU-3Ex6;
+	Fri, 10 Jul 2026 18:22:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiFoO-00000005UWE-0ehA
+	id 1wiFrQ-00000005Uq2-15cj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 18:18:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2596960051;
-	Fri, 10 Jul 2026 18:18:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5AB51F000E9;
-	Fri, 10 Jul 2026 18:18:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783707534;
-	bh=bTZsSNjxZR+a+6g7E908FfiySxOJ/3/Gglf+f0Vi9Uw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O+quyzZM3yXGc4LJ5bibSjKNR5AG0efU7AzbnQ+4dSPT9BA2n3fIln+lhLNwo/91W
-	 IHl16Bcs33VOncykgTll9M9s17ddVhx+zLjru+u8yz2pFPsQ2I3CoRKcAl982T1d/N
-	 L21JPiH0gBmykQIsMRXxDY5Zn+RBvMTNoJ0ykCQdzDIu0nRLcV5BTrTfjeEKNffJCD
-	 TGbwAHhZ03+NTMIIeZoIScpj82TADYR5L16NhrJzYsaXiMXcJ37wBRmSZ6b1E0P7GC
-	 TjTM5WzFy2UcGe/yn2WlMc54JQLTclCpjCmlmDsS/+zLrYr17c1ICpoebmx9G4qC4Q
-	 cyeBL+DWkhGZQ==
-Date: Fri, 10 Jul 2026 11:18:53 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Sean Christopherson <seanjc@google.com>, pbonzini@redhat.com,
-	kvm@vger.kernel.org, david.hildenbrand@arm.com, maz@kernel.org,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, fuad.tabba@linux.dev, mark.rutland@arm.com
-Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
- memslots
-Message-ID: <alE3jRLtYeq-WesA@kernel.org>
-References: <20260702142912.6395-1-alexandru.elisei@arm.com>
- <akxOrMnlNga-vtQv@google.com>
- <ak0wSQ1133O7B96D@raptor>
- <alAFmiAsNf6Xm49_@kernel.org>
- <alDM_yikef16lC5h@raptor>
+	Fri, 10 Jul 2026 18:22:05 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66AH3feY1443737
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:22:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Zp3AkSb7kz6GKD3cr/eSusRHkHnQftat49AwvvVk17c=; b=Jt9Car9ArCHFFtvH
+	+qZq2mY2PacEFBIKMPX5bjlqvFazBPjBEJVijdnnw+joPCLvckjVg0Cqghel9MH5
+	mvdjwHTbWV641nYGrkptZT50oU/tuOQa6xNJsD2e0IQXFFATD1h7+9HUgGEchgKv
+	9Idg+7LgHqyl/t2TiOZ39/So/ROZj0Bw8bXZY7+ibpwduQSL3dKfXh88zbH8y0Ut
+	hLwoF2MN3UvKr4btzt7b19NmEb00vVPHgdk6KLlgp1G3BHKAzcr+5GzSsGS03eQ/
+	IQBTnQnQ1pkC0hjHyJGrwTEE8XE//dV4c17JYcZM40Z1uvZbNehTc69QcOwQJjW/
+	ENSTgA==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fanwebu9s-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 18:22:03 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-381ed6616f7so1909121a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 11:22:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783707723; x=1784312523; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Zp3AkSb7kz6GKD3cr/eSusRHkHnQftat49AwvvVk17c=;
+        b=XV50/XSrlp3Z9KWZ1V0pMv8WkmQ3l7Chso/wNQjI08RoYkrK4LdZ9y5K6SZHz0y4y5
+         murXZtvSO+c7KJhyAUkC2QoZNwby5Ywzi7YwxWSC+g+JLz0+dDg8Jivl3IYyxlk0mCbw
+         bBhbXOarSA5wkr4z+65KSEObSVdyQCrx0wDh33xOk9E5HfLpl4eqqi0d3Zb9J8laGVKC
+         HYSTKB9HUNe444k+7jmhZx0Bohw4S+kFH/FgiQh3vKSEGGplh9NhxNutrAnN7gXnqHeu
+         TWd9WYPG688MHYfsxmCvh8uKrozhh3bZJusAVhIrwiRSQj3xFneAEDEkCjSr0WUeAYGJ
+         AY5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783707723; x=1784312523;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zp3AkSb7kz6GKD3cr/eSusRHkHnQftat49AwvvVk17c=;
+        b=ASUV/5W/dclGZdHKsC2CDL4vMYw6vX4GuFtfxrk3jPVNPaacLWscHF4M44RArwlRdV
+         W00GhlfeLFkOo7sCgDKokAfganBYzpEh7hx47lCMNAp9Imif+Psw7Pt2Ps1lC8MzphnI
+         nGu8JEiRW5dthltmFUwv3AAD05OE1gNz2usqatS9Etj/S/w67kyIXILO+IwjVKQuJZJ8
+         6gsJIPhGcHLcvsZnLumRQtOyJVa0vbX6ay4qUdUJ5sPSmMgjqlv1qbZ3EYW/bRIhcCbY
+         04fGNbrU3fUPCVhzO+H4uvquACTqM9pEqDg1UT7vzL+reGepN60Un70kA6C9B9/tOD7S
+         BAug==
+X-Forwarded-Encrypted: i=1; AHgh+RrCIgNmV0ipVSdEQqxqGGwpEdiBgJiZZViIyyz/OTwB7475EOOK68Ay81wgPkKFcbOg3e0f9SJjY7JdmqOz3Z0H@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyzm8GAbzX1dj+MOe2cFWmCEtvUK6FPENk6qTBHd/WbxT7hW3ab
+	w5nzb0IK8AH+9Pg2dXI2tzBKTZKaYprrKmbINy+8llfCBxtXmuBD8j2yfaStNNNvkWlllg5+mWL
+	N7Ay2wzwT+yi2UTq5FYvs7REsYYep1D8zhrZMDej21GUZCxHg9JuP3jWRkd7mG7PMNUfEVebVa2
+	hm2g==
+X-Gm-Gg: AfdE7cm2dDav+4WHs/3ppnn86RbmjikyCrsXYTd0OBofPhPnVijmCgnYI86KIvFuEL3
+	5bZwQHlG4Ocut3t0URKm1xBxa+Ihcre/UfVk7MlVTyDcCWoN296Xo8XNU87NB6R2Ce7GFfFKyc6
+	Glt1IECvNqo1xXf+HtMnnPQiAk6cSsQKQ+4ewnRonHCsahCd7glPz7PY/1xbRcPs+6s31fTGEcz
+	Gj/CIXB1Wb0D6iSLXKoTIUH5EpHqwGbyg9Nys6SPGU6/3XGvvNDjxd8+GcIqJgYiSyw5g+8auZt
+	sf/h5VofPRNE9T7tzkyhkXE+PXMQrXQA647mr7Zvz7/lq8EufKrWrBwJuTBdYso8F7x08y6hbtV
+	c/jbNRwu3cZAJ0wsTyqfV0IUk5Ev6iYKpYqGE
+X-Received: by 2002:a17:90b:4c8f:b0:36a:5d1f:7b6 with SMTP id 98e67ed59e1d1-38dc75d1ef9mr95655a91.2.1783707723048;
+        Fri, 10 Jul 2026 11:22:03 -0700 (PDT)
+X-Received: by 2002:a17:90b:4c8f:b0:36a:5d1f:7b6 with SMTP id 98e67ed59e1d1-38dc75d1ef9mr95627a91.2.1783707722569;
+        Fri, 10 Jul 2026 11:22:02 -0700 (PDT)
+Received: from localhost ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3117483dec6sm44025766eec.11.2026.07.10.11.22.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jul 2026 11:22:02 -0700 (PDT)
+Date: Fri, 10 Jul 2026 11:21:58 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Hanjun Guo
+ <guohanjun@huawei.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        "Rafael J
+ . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+        James Morse
+ <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+        Reinette Chatre
+ <reinette.chatre@intel.com>,
+        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
+ Cameron <jic23@kernel.org>,
+        Srivathsa L Rao
+ <srivathsa.rao@oss.qualcomm.com>,
+        Ganapatrao Kulkarni
+ <ganapatrao.kulkarni@oss.qualcomm.com>,
+        Trilok Soni <tsoni@quicinc.com>,
+        Srinivas Ramana <sramana@qti.qualcomm.com>,
+        Niyas Sait
+ <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 02/16] arm_mpam: propagate MSC read errors for
+ wrapper functions
+Message-ID: <20260710112158.0000490d@oss.qualcomm.com>
+In-Reply-To: <20260710144520.917375-3-andre.przywara@arm.com>
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+	<20260710144520.917375-3-andre.przywara@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alDM_yikef16lC5h@raptor>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=LbIMLDfi c=1 sm=1 tr=0 ts=6a51384b cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=7CQSdrXTAAAA:8 a=499MpapIjUE8vGAJtSoA:9 a=CjuIK1q_8ugA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEwMDE4NCBTYWx0ZWRfX5P9MmxAobbz8
+ aHIAz6M6tvFYXQ8uIFuJiZf/yeNmZLxYHeJrxdRgKTF6nLoRp4JgfnQlf2sRdYV8mJ0iX4wDdIv
+ pynatoGpxzPb2+TrfNcEhu4sNFoO6QweruGNDvQLd0ATeaO9p7OhoM6+eMAJmc8g7nGWo3olUlx
+ hzolxqJS75BU2BGgIdiygCwrL+RkTsYhC1DKDp3qfB9Mx6td9/J4Ifw13q4euS7PcYqyK74kD0i
+ NieJpb5ULrSLWFU+5UctGkfXJUOFHfV3Opoeur/GqMifSBZNQSftq8kWVSa1DcFecn1Go0Oz9XU
+ H1iVvDWdL9IBruf2E99QnD+I6SnxyzrDHmH1zsyftgN2QUW1+bqhmQvVJ70v8hSuIm2KYeHRoXf
+ fKJHXQ1Qt1vuFipUINwrJD2UOoAFQss98yozwGyFiwJiRmbkEMxCZPkcyamTkZrjpzMyE8hjHwv
+ wQ3IiyRxg95xrdfTQMQ==
+X-Proofpoint-ORIG-GUID: dPTkpw5VkNRd2foenvaCXn98Fu-6_qrk
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEwMDE4NCBTYWx0ZWRfX7ZJqZf2YzomA
+ SIG1csn8e/jh15RqrLzcNEVJLioBsPlW8yZ0bQTw4QjRwZnJcG2foBizD8Gzxr7QC9mkkWIUJpv
+ A633e1+JCdUdbqmR4YRucf0GbWtGmw0=
+X-Proofpoint-GUID: dPTkpw5VkNRd2foenvaCXn98Fu-6_qrk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-10_05,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ clxscore=1015 impostorscore=0 priorityscore=1501 phishscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607100184
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260710_112204_339033_F8DF8CE9 
+X-CRM114-Status: GOOD (  27.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,113 +172,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:44:15AM +0100, Alexandru Elisei wrote:
-> Hi Oliver,
-> 
-> On Thu, Jul 09, 2026 at 01:33:30PM -0700, Oliver Upton wrote:
-> > On Tue, Jul 07, 2026 at 05:58:49PM +0100, Alexandru Elisei wrote:
-> > > Hi Sean,
-> > > 
-> > > On Mon, Jul 06, 2026 at 05:56:12PM -0700, Sean Christopherson wrote:
-> > > > On Thu, Jul 02, 2026, Alexandru Elisei wrote:
-> > > > > The memory represented by guest_memfd-only memslots
-> > > > > (kvm_memslot_is_gmem_only() is true) is shared with userspace, which can
-> > > > > freely mmap it and access it. The only thing that is preventing dirty page
-> > > > > logging for such memslots is that KVM doesn't allow slots backed by
-> > > > > guest_memfd to have their flags changed; they can only be created and
-> > > > > deleted.
-> > > > 
-> > > > Please (publicly) document *why*  you want to add dirty-logging support.  It's
-> > > > all but impossible to review new uAPI without knowing the use case.
-> > > 
-> > > Of course, my mistake, I was so deep in this that I didn't realise that
-> > > there might be different perspectives.
-> > > 
-> > > My thinking was that since guest_memfd created with GUEST_MEMFD_FLAG_MMAP +
-> > > GUEST_MEMFD_FLAG_INIT_SHARED is extremely similar from a userspace point of
-> > > view to using an anonymous file (created with memfd_create()), that
-> > > supporting dirty page logging and migration would be a natural next step
-> > > and would expand the usefulness of guest_memfd. It has nothing to do with
-> > > confidential compute.
-> > > 
-> > > As to why I'm working on it now, it's because of an arm64 feature that
-> > > requires that memory remains mapped at stage 2, called Statistical
-> > > Profiling Extension (SPE), similar to Intel's PEBS or AMD's IBS. Exposing
-> > > the feature to a guest requires that memory remains mapped at stage 2
-> > > outside of userspace explicitely unmapping it, and guest_memfd, with the
-> > > patch to ignore the MMU notifiers [1], has this property.  I wanted to
-> > > expand the functionality of guest_memfd to support migration of virtual
-> > > machines when that arm64 feature is exposed to guests.
-> > 
-> > Can you please expand a bit on how you actually expect dirty tracking to
-> > work with SPE? Taking write permission faults seem to be at odds with
-> > "thou shalt not fault".
-> 
-> For the initial posting on the mailing list, my approach was to keep things
-> as simple as possible: allow memory to be made read-only and then have the
-> host map the memory as writable at stage 2 when SPE reports a permission
-> fault, if the buffer happens to be enabled while dirty page logging is also
-> enabled. Of course, that means that the quality of the profiling data might
-> be degraded. I was planning to point this out, to start a discussion about
-> it, but we can talk about it now.
+On Fri, 10 Jul 2026 16:45:06 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-Understanding how this is going to fit together end-to-end seems
-relevant since you're asking for UAPI guarantees to enable SPE.
+> Allow the wrapper functions for IDR and ESR accesses to return an
+> error, and propagate read errors from the lower level up.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Hi Andre,
 
-I agree that degrading the profile isn't that big of a deal but the buffer
-may not even be in a restartable state after taking a fault. Who (KVM /
-VMM) is going to handle rewinding PMBPTR in the case of an incomplete
-record? Blaming userspace is always a good start but at the same time the
-more rules/gotchas there are around the feature the less likely it seems a
-VMM will pick this up.
+Just a few superficial code style comments.
 
-Assuring that there are no KVM-initiated invalidations for guest_memfd
-doesn't seem unreasonable but we need to have an aligned view on how SPE
-will actually be enabled in KVM + VMM first.
+Thanks,
 
-> Another approach that builds on that, which I have prototyped locally, is
-> to have a VCPU exit to userspace when/if the buffer is enabled and there is
-> at least one memslot with dirty page logging enabled (with a specific
-> hardware_exit_reason) and then let userspace decide what to do: resume the
-> VCPU and live with the blackout window, or keep the VCPU stopped, and the
-> guest gets non-degraded profiling data as the expense of the VCPU making
-> progress.
+Jonathan
 
-My take is that there's no amount of idiot-proofing we can do in KVM to
-prevent the VMM from messing this up somehow. We can just document the
-limitations and let userspace decide to quiesce when dirty logging is
-enabled.
+> ---
+>  drivers/resctrl/mpam_devices.c | 53 ++++++++++++++++++++++++----------
+>  1 file changed, 38 insertions(+), 15 deletions(-)
+>=20
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_device=
+s.c
+> index df14b4513382..8fd2c38c821c 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -247,27 +247,38 @@ static bool mpam_msc_check_aidr(struct mpam_msc *ms=
+c)
+>  	return true;
+>  }
+> =20
+> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
+>  {
+>  	u32 idr_high =3D 0, idr_low;
+> +	int ret;
+> =20
+>  	lockdep_assert_held(&msc->part_sel_lock);
+> =20
+> -	mpam_read_partsel_reg(msc, IDR, &idr_low);
+> +	ret =3D mpam_read_partsel_reg(msc, IDR, &idr_low);
+> +	if (ret)
+> +		return ret;
+> +
+>  	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> -		mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+> +		ret =3D mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+> +	if (ret)
+> +		return ret;
 
-> My hope is that if migration is fast enough, the VCPU not running
-> for (possibly) the entire duration of the migration process won't be
-> noticeable, but I might be naive in thinking that.
+=46rom a readability point of view, I'd indent the if (ret) as well
+given that will then make it visually clear the check only applies
+when the if is taken.
 
-Err, for a live upgrade of the VMM or kernel, sure. But an actual copyful
-migration going over network could be O(minutes).
+	if (FIELD_GET()) {
+		ret =3D mpam_read_partsel_reg(msc, IDR + 4 &idr_high);
+		if (ret)
+			return ret;
+	}
 
-> According to the Neoverse v3 errata document (MP168), r0p0 is affected,
-> r0p1 is not affected. A quick google search revealed that Microsoft's
-> Cobalt 200 CPU is based on Neoverse v3, same for the Arm AGI CPU. Wikipedia
-> also says that Graviton 5 is based on Neoverse v3. Don't know the exact
-> revision though, for either of them.
-> 
-> I was planning to add a kernel parameter that permits SPE on the affected
-> parts, so people who trust their guests* can still use it from a VM. I
-> don't think migration would be possible in this case because SPE bypasses
-> the read-only permission at stage 2, and the host would not know to mark
-> that memory as dirty (for dirty page logging).
-> 
-> * Ignoring migration, guest_memfd is always mapped as writable at stage 2,
-> so a guest would have to point the buffer at memory that KVM represents
-> with a KVM_MEM_READONLY memslot, like the CFI flash device used by EDK2.
-> 
-> > 
-> > Fixing rotten architecture would be a more appropriate starting point :-/
-> 
-> I like to think that the architecture is constantly improving :)
+> +
+> +	*res =3D ((u64)idr_high << 32) | idr_low;
+> =20
+> -	return ((u64)idr_high << 32) | idr_low;
+> +	return 0;
+>  }
+> =20
+> -static void mpam_msc_clear_esr(struct mpam_msc *msc)
+> +static int mpam_msc_clear_esr(struct mpam_msc *msc)
+>  {
+>  	u32 esr_low;
+> +	int ret;
+> =20
+> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	ret =3D __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	if (ret)
+> +		return ret;
+> =20
+>  	if (!esr_low)
+> -		return;
+> +		return 0;
+> =20
+>  	/*
+>  	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
+> @@ -277,18 +288,30 @@ static void mpam_msc_clear_esr(struct mpam_msc *msc)
+>  	 */
+>  	if (msc->has_extd_esr)
+>  		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+> +
 
-I'd like to think that too...
+Might be valid, but to me that smells like an unrelated cleanup
+that shouldn't really be in a patch doing more meaningful work.  Perhaps
+makes sense when you circle back to do writes.  BTW, I'm not sure
+there is real benefit in separate patches doing reads from those doing writ=
+es!
+Mind you I haven't read all the way through yet, so maybe I'm missing some
+subtlety.
 
-Best,
-Oliver
+>  	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +
+> +	return 0;
+>  }
+> =20
+> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
+>  {
+>  	u32 esr_high =3D 0, esr_low;
+> +	int ret;
+> =20
+> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> -	if (msc->has_extd_esr)
+> -		__mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+> +	ret =3D __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (msc->has_extd_esr) {
+> +		ret =3D __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+> +		if (ret)
+> +			return ret;
+
+So this is the style I suggest above. Good, but check for consistency.
+It may feel like a really small thing (and it is :) but keeping code
+very consistent helps a surprising amount when it comes to readability.
+
+> +	}
+> +
+> +	*res =3D ((u64)esr_high << 32) | esr_low;
+> =20
+> -	return ((u64)esr_high << 32) | esr_low;
+> +	return 0;
+>  }
+
 
