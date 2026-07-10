@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35880C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0EFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTc8oT/JBEk60mfcn2YWFelkVLerjBNQr0lhJ1lLxyQ=; b=k6mC+vY0o4GwKNoj/8OhNsUCW9
-	aKOEEEjhIb0UFMQQAY0yIr1GcMjWKxbKgRwVFFZVx6oYkko7zwFVotojQIPA+Y74xiHO9wiI2aO63
-	bzRZ8fWsoWxAd9Z298Ay4c8fOxyYplsT1IBpBqzIKziTs0y6cBcsBzuNxVWp2xrV7HXxIsB5lHFEC
-	libJv9QwxePtXUdwDBhzXT22ORsjCLMCfZjRH7EViXEqmU+30j0czxPKE/bMh8+0EyRZJTx0fy4o5
-	CChYZV2toRKPDQS4sy4C1xEZ5zklLsj7IstVC7VvtmgLqQpJdVg/tSWEX+yfRjCypT1l7LOTVho1p
-	OT8dbzuA==;
+	bh=b/ZoD6iPlaAlq/Lq7g+FV6zRioZrimVW1M9DqeMIS2Q=; b=lKKkX/YAs6jJna2T3UxiTzVmnh
+	Ur83HbfYVsHKnqXSovunKUBZOBLR7oG37o+zwCikw5nUblrbybQWnxLaxTQPN0+sDXK1O4i/KK0k2
+	RPU8y+sjOuuQG1SFEVuJtfBgrFR0P8yhAIN/xPOPxmYdwXIK6rr587ogFOHgVm/ymGog+f5jhYqRA
+	9eZMnpKH7lFRvCEvBOS+uC52ImMPXjn49vhZ+e9nK3v6Fd6UcLLp4rZntyNcci7PbQyEnhLZSjXHb
+	vYX9KzbgrHH8R/e3+qq6ITVSTT8kGZgm3lKJmRmft9DoIzRjoaU4o8SePef3kKqQD318QFQUJYocq
+	giJT91gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9q8-00000004rzd-0iUk;
+	id 1wi9q8-00000004rzq-16rc;
 	Fri, 10 Jul 2026 11:56:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9pw-00000004rl4-0qXp
+	id 1wi9px-00000004rl4-2YJw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:56:09 +0000
+	Fri, 10 Jul 2026 11:56:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08ECE2328;
-	Fri, 10 Jul 2026 04:56:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 999691EA6;
+	Fri, 10 Jul 2026 04:56:04 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 148503F85F;
-	Fri, 10 Jul 2026 04:56:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9C22E3FD88;
+	Fri, 10 Jul 2026 04:56:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783684567; bh=IhqgtJ551+2AeSwFpzXLRHOVZq41eD4WsNI+b8vq1tw=;
+	t=1783684568; bh=z6Yw8rX9lhuvUYL7iVZ70LrMuiszLXXFpXGsedcDnR0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cDaJUQ8/PWoExErsDnu7+UF3RhX+jeze4GyzNpulPD67xdWd6Lf092pxuD+Qgki9K
-	 nrfbxEG5xy9IXuBgPL0kS+8l6jFEs+Ab3wQ1iva4GbTqsEHJlfD8/y2EuyfptdROHQ
-	 z4ElX+kFYDp+PczEeyNWEBi4FUOs+4A/gev+FqG0=
+	b=lhZR2iH00PsmgnjR/ZIgIHLdfYAnVujMShZGqrn9jW2TddzI8yWMaIPFdZEU++Rx/
+	 G26O5blQhXl9E0BKdjkF7cZj2MBNPg629ClIF42MP9ltsgfJI6yzk4pogqcyn/yJqx
+	 lzMjBxsbQY3l1HNSPfmZVu8xihfGXwD3zfDp7/lI=
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: james.morse@arm.com,
@@ -48,17 +48,17 @@ Cc: james.morse@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	dave.martin@arm.com,
 	andre.przywara@arm.com
-Subject: [PATCH v1 07/11] arm_mpam: Initialize all of struct mon_read in mpam_restore_mbwu_state()
-Date: Fri, 10 Jul 2026 12:55:41 +0100
-Message-ID: <20260710115546.29644-8-ben.horgan@arm.com>
+Subject: [PATCH v1 08/11] arm_mpam: resctrl: Correct check that existing class is L3
+Date: Fri, 10 Jul 2026 12:55:42 +0100
+Message-ID: <20260710115546.29644-9-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260710115546.29644-1-ben.horgan@arm.com>
 References: <20260710115546.29644-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_045608_282856_C5476801 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260710_045609_690611_A7F3A8A2 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +73,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-m->err may be read before initialization in __ris_msmon_read() when called
-from mpam_restore_mbwu_state().
+The class used to back mbm_total_bytes can be either at the L3 or the
+memory. If a platform had candidate classes at both the memory and the L3
+then, as the check for whether the existing class is L3 or not in
+counter_update_class() is broken, the class that will be chosen depends on
+which order the classes are considered and so the probe order.
 
-Initialize the whole struct mon_read in mpam_restore_mbwu_state() and fix
-the spelling of mbwu in the name.
+Fix the check.
 
-Fixes: 41e8a14950e1 ("arm_mpam: Track bandwidth counter state for power management")
+Fixes: 1458c4f05335 ("arm_mpam: resctrl: Add support for csu counters")
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index a49f426aefc0..c9adc450f087 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1640,7 +1640,6 @@ static int mpam_restore_mbwu_state(void *_ris)
- {
- 	int i;
- 	u64 val;
--	struct mon_read mwbu_arg;
- 	struct mpam_msc_ris *ris = _ris;
- 	struct msmon_mbwu_state *mbwu_state;
- 	struct mpam_msc *msc = ris->vmsc->msc;
-@@ -1653,16 +1652,18 @@ static int mpam_restore_mbwu_state(void *_ris)
- 			return -EIO;
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 226ff6f532fa..59dea750ff56 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -931,7 +931,7 @@ static void counter_update_class(enum resctrl_event_id evt_id,
+ 	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
  
- 		if (ris->mbwu_state[i].enabled) {
--			mwbu_arg.ris = ris;
--			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
--			mwbu_arg.type = mpam_msmon_choose_counter(class);
--			mwbu_arg.val = &val;
-+			struct mon_read mbwu_arg = {
-+				.ris = ris,
-+				.ctx = &ris->mbwu_state[i].cfg,
-+				.type = mpam_msmon_choose_counter(class),
-+				.val = &val
-+			};
- 
- 			mbwu_state->reset_on_next_read = true;
- 
- 			mpam_mon_sel_unlock(msc);
- 
--			__ris_msmon_read(&mwbu_arg);
-+			__ris_msmon_read(&mbwu_arg);
- 		} else {
- 			mpam_mon_sel_unlock(msc);
+ 	if (existing_class) {
+-		if (class->level == 3) {
++		if (existing_class->level == 3) {
+ 			pr_debug("Existing class is L3 - L3 wins\n");
+ 			return;
  		}
 -- 
 2.43.0
