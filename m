@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC16C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D7CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKM1+ABif5rO1Gu8On7VVFamS/ERgEgE9dnMh/k4QPE=; b=KCWSF0qpnQ1yxzgph7taOTC9xy
-	YpTgdz30n5lpIipNbd4mtJUHmi10AtwkMMdIX228f3Io0ODAlw3SLIs3NtGz7vcpZKQpM+g48L/1e
-	Gt8gMssRjxqZI+T6Q5CJNHD/KCMSuzcwiOp13Sg1BwM/+cAvGADKQ6G4V1NrCFjoMVTZTb5+DTfYo
-	1tUPH3XULJmo9uTLqyJexNGNoQRtU2jLf90uv7yebKRO1gSjFbufq7jfLExnQLJn6+ySMSyhJhSTs
-	KwOEbbs1NqNAimsZdOkCAcbicLZPnXQi2GNx+XUD5yO5PDbEvMj0GjXETo3KTzJSNPq8lQChdZCwH
-	UpSOobVA==;
+	bh=g1RZDUi7dmfHqz7HG7N5VHozu1EUFuTkNzT7Y8iTCjk=; b=oR1eJZptK63E8duLJmJYxOhaIc
+	qLByy+OYAfJ34JRYnhMwt+mWjbYWwzTHzS2b/RcKPbmHRnrIBukbU5HJlHFGJ7dfDX9nzhBCaaRM+
+	teaJsKm52z1wnhgK9cPe6vfBRg8+rhrmRmHilKPknF0g4J3uJsQnDYa0QSLcNvnoaCD/y6X/8y6sv
+	GTmuieubtRuASa0SuTdKv2hPrMzG1bWV58TjU+i+++J4frH5VMhfOpC3lXE4ll82FGI3nm2iWXOSk
+	kSSQ8SKvnQw/HMPWXrxaQBlI/EYYWKxjNIhPY8szMZ0nCyUoluu/gVQAEhr5lTNvlu3NQO2GUxKl1
+	rJp7gj2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiHlU-00000005gmX-37YJ;
-	Fri, 10 Jul 2026 20:24:04 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wiHrN-00000005i36-20BF;
+	Fri, 10 Jul 2026 20:30:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiHlS-00000005glj-0uuk;
-	Fri, 10 Jul 2026 20:24:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783715038; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jUjpdVZhPhzUXCFo7bCRxYua6FPMdA/xKfjDDX1rmlCTnIyDUkEGiT4qVkurhJk5xYgAfcqukISgO5fc49jPyV3WP0WVwpep5gvMI4oTUuWMZNrnecasrw/g2M2zn3lNkURVVAkFepzhPhaKZsguV/ZYfxGRTegmJGVwvvOKqSc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783715038; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=DKM1+ABif5rO1Gu8On7VVFamS/ERgEgE9dnMh/k4QPE=; 
-	b=LkD2pXfMuWyzocEAoeHUtxbdBbM18JjmC8fAHFt1NJz0vv/J36FsK/GYYnjPKTv9NcqKfdYdWcrcmtcDdUhjGCfzpPEnGCz9dJTO62laSKYICvvueqZmXP8FFykdH5wj5erAQz1Vj6VKV1pg8+ZTKf403oFbg/SIHP2saL4VJ6I=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783715038;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=DKM1+ABif5rO1Gu8On7VVFamS/ERgEgE9dnMh/k4QPE=;
-	b=jpNDpTqS87tT8bMsqL72Nfm8E3LrfIaxvX9SYnLqheusBrJmLrUosXrbJtckxD1h
-	/yBnjB/WuL1UNMDkftAGZNVJFTFLgIthI7PseagWSiQuAzHNX5xWheu7w/B1cw3yaCe
-	uCO/1jKQ0bPJWwKgU0Q5HfBsu1VHzi5bMuPbESL4=
-Received: by mx.zohomail.com with SMTPS id 1783715036140704.6625594278408;
-	Fri, 10 Jul 2026 13:23:56 -0700 (PDT)
-Message-ID: <e5f16200-3881-4f25-b67d-7053b3b8af19@collabora.com>
-Date: Fri, 10 Jul 2026 22:23:50 +0200
+	id 1wiHrM-00000005i2p-2vTo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 20:30:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 29F2F6136B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 20:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D24A61F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 20:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783715407;
+	bh=g1RZDUi7dmfHqz7HG7N5VHozu1EUFuTkNzT7Y8iTCjk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=gUBrtBlkVBehkmSrXfeUeRGqq84rmT48nO0J25GHh5VJZwzIxzZjNse13ScMGc+gJ
+	 m8qa4RITtEa/6PUV38mhmyauB8nPYsfzeT/Llqg1eoqLlLPyD+MORlaTlPgFJtXeHD
+	 3d0oG7nMw1mDRCBRJ+7L/mSU/5KgH9xob0BSugNBkj6B5DBx9aHRvL04FBukxvve93
+	 9HQfTBtOMD1VGNdP/9+BwOHDY7526Q1dnO2ph2XEuKqjKwpbwQWw3szHTSo5WBNKlp
+	 MlWPVMIY9R62tpeuPblEIlzGMQxZL6WZ1yZ7CuOGm9quRe+9HmduM/pYXPcsG6R7+W
+	 vXLgPTG9o4BkA==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aec201b582so1094400e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 13:30:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqSLL7oxKlPDLNyYXT97WaaEkIb/wf6I6ywgxfpLSoap0yW4plzo/nZyo0qRTfn4PsIW2BHH6aTsiA38blMnLNR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEOi+xgRTxDA07WQvg/TkqMvIlNnGvlh30cUUpPHg++KwhvBKU
+	EPoYWsRx8UygsSR4F3qbsDGva4CAOfUdYn742W8hiPwTMcQiQVb4bNcFSCAIF673v243czRkh+l
+	OjBGAZccLTxtNrlr4XRTxRVWaQpVpkIM=
+X-Received: by 2002:a05:6512:2529:b0:5b0:1b78:4962 with SMTP id
+ 2adb3069b0e04-5b0236bb5c4mr137507e87.50.1783715406670; Fri, 10 Jul 2026
+ 13:30:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
-To: Paul Elder <paul.elder@ideasonboard.com>,
- laurent.pinchart@ideasonboard.com
-Cc: xuhf@rock-chips.com, stefan.klug@ideasonboard.com,
- kieran.bingham@ideasonboard.com, dan.scally@ideasonboard.com,
- jacopo.mondi@ideasonboard.com, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org,
- nicolas.dufresne@collabora.com, ribalda@chromium.org,
- sakari.ailus@linux.intel.com
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
- <20260619052637.1110672-2-paul.elder@ideasonboard.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260619052637.1110672-2-paul.elder@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_132402_326652_3493196B 
-X-CRM114-Status: GOOD (  50.52  )
+References: <20260709063450.1615041-1-justin.yeh@mediatek.com>
+In-Reply-To: <20260709063450.1615041-1-justin.yeh@mediatek.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 10 Jul 2026 22:29:54 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn00-Qdy=uerGkBJUT5gsTjr685HYe9hcnc3ubxbcDgdQ@mail.gmail.com>
+X-Gm-Features: AUfX_myXqmF5Z9qSM89g-I7i4RZgYi-3UQwo4ZzGGQsHH7hMMjQ_teIFD1NMZKM
+Message-ID: <CAD++jLn00-Qdy=uerGkBJUT5gsTjr685HYe9hcnc3ubxbcDgdQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/4] pinctrl: mediatek: Enable module build support
+To: Justin Yeh <justin.yeh@mediatek.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,333 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+Hi Justin,
 
-Thanks for your work! And sorry for the long silence.
+thanks for your patches!
 
-On 6/19/26 07:26, Paul Elder wrote:
-> Currently, a media graph contains a main device whose driver is
-> responsible for creating the media device. We have however recently run
-> into devices that have multiple devices that can quality as a main
-> device. Examples are the RK3588 which has a VICAP and two ISP
-> instances, and another example is the i.MX8MP which has an ISI and two
-> ISP instances. As there is currently no way to reconcile who the main
-> device is in the media device, these setups simple cannot be used
-> simultaneously.
-> 
-> This patch extends the media controller API with a "shared media graph"
-> framework. This allows drivers to share a media device, thus enabling
-> the setups mentioned above. Instead of owning and creating a media
-> device, drivers can join-or-create a shared media device via the shared
-> media graph API. The matching is done automatically based on the
-> detected endpoints in the device tree.
-> 
-> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+On Thu, Jul 9, 2026 at 8:35=E2=80=AFAM Justin Yeh <justin.yeh@mediatek.com>=
+ wrote:
 
-Frenetically-cheered-by: Michael Riesch <michael.riesch@collabora.com>
+> This series lets the MediaTek pinctrl drivers be built as loadable
+> kernel modules. This is required for Android GKI + vendor_dlkm
+> deployments, where vendor-specific drivers must be kept separate from
+> the GKI vmlinux and loaded as modules from the vendor partition.
 
-OK, what follows is pretty much a rubberducking session in which I try
-to explain myself the concept you came up with. Possibly there are one
-or two thoughts and/or questions you can use to develop the concept further.
+Nice series, I see Chen-Yu has some more comments and a
+separare cleanup patch may be needed for mtk_eint IIUC,
+but definitely getting there!
 
-IIUC this is a new API with four calls. There is _join() and _leave()
-that more or less replace the creation and deletion of a media device in
-a V4L2 driver. And there is join_link_source() and join_link_sink() that
-are called for each cross-device connection on the source and sink side,
-respectively.
-
-There is one shared media device per disjoint graph in the device tree.
-If a new device calls _join(), the function iterates over all shared
-media devices, iterates over all DT endpoints of the new device, and
-iterates over all members of each shared media device. If the fwnode of
-the parent of the remote endpoint of a certain endpoint of the new
-device equals the fwnode of a certain member of a certain shared media
-device, we found a match. This certain shared media device is then used
-in the driver of the new device. Before that, a member for the new
-device is added to the shared media device.
-
-In case no shared media device is found, a new one is created and used.
-A member for the new device is added to the shared device in this case, too.
-
-The actual linking takes place in the _join_link_{sink,source}
-functions, which iterate over the links of the shared media device and
-check whether a link has a pointer to a source (or sink) respectively.
-If a source (or sink) is found, a link is created. Otherwise, a link (in
-the form of a newly introduced data structure, not a media_link) is
-added to the links of a shared media device. The latter somewhat
-corresponds to the v4l2 async notifier mechanism.
-
-So far, so good. Even if the genitive construction chain that describes
-the matching above is a bit daunting. All in all I think we are on a
-reasonable path here.
-
-> [...]
-> +// TODO figure out locking for when multiple drivers touch the media graph;
-> +// maybe macros for shared versions?
-> +struct media_device_shared {
-> +	struct media_device mdev;
-> +	struct list_head members;
-> +	struct list_head links;
-> +
-> +	struct list_head list;
-> +	struct kref refcount;
-> +
-> +	struct device *removed_device;
-> +};
-
-[discussed in other thread]
-
-> [...]
-> +/* Callers should hold media_device_shared_lock when calling this function */
-> +static bool __media_device_shared_find_match(struct media_device_shared *mds,
-> +					     struct fwnode_handle *fwnode)
-> +{
-> +	struct media_device_shared_member *member;
-> +	struct fwnode_handle *ep;
-> +	struct fwnode_handle *remote_ep;
-> +	bool match = false;
-> +
-> +	// TODO: parse the device tree endpoints graph instead of finding just the
-> +	// first-level neighbours
-> +	fwnode_graph_for_each_endpoint(fwnode, ep) {
-> +		list_for_each_entry(member, &mds->members, list) {
-> +			remote_ep = fwnode_graph_get_remote_port_parent(ep);
-> +			match = (member->fwnode == remote_ep);
-> +			fwnode_handle_put(remote_ep);
-> +
-> +			if (!match)
-> +				continue;
-> +
-> +			goto match_complete;
-> +		}
-> +	}
-> +
-> +match_complete:
-> +	fwnode_handle_put(ep);
-> +	return match;
-> +}
-
-<rubberducking>
-IIUC there could be devices A -> B -> C that share a DT graph (and thus
-should share a media device), but suppose the probe order is driver A,
-C, B then A would rightfully create a new shared media device, but C
-would not see it and create yet another shared media device. Thus, the
-the find_match() function needs to traverse C -> B -> A to find the
-correct shared media device.
-</rubberducking>
-
-Just saying that with one and only one media device to rule them all we
-wouldn't have to deal with this. Another option would be to assume that
-each driver knows to which shared media device it belongs. For example,
-the rkcif driver could be aware that it belongs to the
-    {
-        .id = MEDIA_SHARED_ROCKCHIP_CAMERA,
-        .name = "Rockchip Camera Subsystem",
-     }
-shared media device. This would reduce the magic above to a lookup
-operation. All that said, it should be feasible of course to traverse
-and find.
-
-> [...]
-> +/* Callers should hold media_device_shared_lock when calling this function */
-> +static struct media_device *__media_device_shared_create(struct device *dev)
-> +{
-> +	struct media_device_shared *mds;
-> +	struct media_device_shared_member *member;
-> +	struct fwnode_handle *fwnode = dev_fwnode(dev);
-> +	int ret;
-> +
-> +	mds = kzalloc_obj(*mds);
-> +	if (!mds)
-> +		return NULL;
-> +
-> +	member = kzalloc_obj(*member);
-> +	if (!member)
-> +		goto err_free_mds;
-> +
-> +	media_device_init(&mds->mdev);
-> +
-> +	ret = media_device_register(&mds->mdev);
-> +	if (ret)
-> +		goto err_free_member;
-> +
-> +	INIT_LIST_HEAD(&mds->members);
-> +	member->dev = dev;
-> +	member->fwnode = fwnode;
-> +	list_add_tail(&member->list, &mds->members);
-
-This can be refactored as this is carried out either way, right?
-
-> +
-> +	INIT_LIST_HEAD(&mds->links);
-> +
-> +	kref_init(&mds->refcount);
-> +	list_add_tail(&mds->list, &media_device_shared_list);
-> +
-> +	// TODO figure out how to reconcile this with multiple members
-> +	mds->mdev.dev = dev;
-> +
-> +	devv_dbg(dev, "%s: Allocated media device with %pfwf at %p\n",
-> +		 __func__, fwnode, &mds->mdev);
-> +	return &mds->mdev;
-> +
-> +err_free_member:
-> +	kfree(member);
-> +err_free_mds:
-> +	kfree(mds);
-> +	return NULL;
-> +}
-
-OK, what options do we have?!
-
-We could pick one device of many. But based on what criteria? If there
-was a good way to pick one, we could equally pick a driver that
-registers the media device and move on. We conclude that apparently
-that's not the case, otherwise we wouldn't be doing this exercise. Next.
-
-We could introduce a pseudo device that provides the umbrella. But
-again, that would be close to creating an umbrella driver that registers
-the media device. And at some point we decided not to do that. Next.
-
-We move from the notion of a media **device** to a media **graph**
-(which is in alignment with the subject of this mail). The media graph
-is something owned by the subsystem, not by any device/driver. The media
-entities therein, however, could be owned by devices/drivers. Maybe
-struct media_entity should feature a struct device *dev; member.
-
-I could imagine that the dev member is used mostly for
-dev_{info,err,...}, we would need to get rid of them. If there is
-actually something with devm_ then this requires more thought.
-
-IMHO the third option is the way to go.
-
-> +
-> +// TODO figure out how to resolve the identifiers (model, driver name, etc);
-> +// atm it's racy and whoever gets it last wins
-> +struct media_device *media_device_shared_join(struct device *dev)
-> +{
-> +	struct media_device *mdev;
-> +
-> +	mutex_lock(&media_device_shared_lock);
-> +
-> +	mdev = __media_device_shared_get(dev);
-> +	if (!!mdev) {
-> +		dev_dbg(dev, "%s: found media device for %pfwf", __func__, dev_fwnode(dev));
-> +		mutex_unlock(&media_device_shared_lock);
-> +		return mdev;
-> +	}
-> +
-> +	mdev = __media_device_shared_create(dev);
-> +	if (!mdev) {
-> +		dev_warn(dev, "%s: failed to create media device for %pfwf", __func__, dev_fwnode(dev));
-> +		mutex_unlock(&media_device_shared_lock);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	dev_dbg(dev, "%s: created media device for %pfwf", __func__, dev_fwnode(dev));
-> +	mutex_unlock(&media_device_shared_lock);
-> +	return mdev;
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_join);
-
-Similarly, we have to bid farewell to the notion of a media **device**.
-Can we agree on making
-    struct device *dev;
-    char driver_name[32];
-    char serial[40];
-    char bus_info[32];
-    u32 hw_revision;
-optional for shared media devices (or, better, graphs)?
-
-I could imagine, though, that we provide some minimally meaningful info
-in a struct
-    {
-        .id = MEDIA_SHARED_ROCKCHIP_CAMERA,
-        .name = "Rockchip Camera Subsystem",
-        .driver_name = "rkcss",
-        .hw_revision = 42,
-        ...
-     }
-and apply that info here.
-
-> [...]
-> +int media_device_shared_join_link_source(struct media_device *mdev,
-> +					 struct device *dev,
-> +					 struct media_entity *source,
-> +					 u16 source_pad, u32 flags)
-> +{
-> +	struct media_device_shared *mds = to_media_device_shared(mdev);
-> +	struct media_device_shared_link *link;
-> +	struct media_device_shared_link *link_tmp;
-> +	int ret = 0;
-> +
-> +	mutex_lock(&media_device_shared_lock);
-> +
-> +	/*
-> +	 * TODO Figure out flags. Should we use greatest common denominator? Or
-> +	 * prioritize sink? Or whoever wins the race? For now we just take the flags
-> +	 * from the sink.
-
-The phrase "whoever wins the race" is surely gold in the documentation
-;-) I guess it should be same as with any _notifier_bound setup, and
-IIUC it's typically the sink that passes some flags to
-v4l2_create_fwnode_links_to_pad. So prioritizing the sink seems reasonable.
-
-> +	 *
-> +	 * TODO Figure out how to actually do the matching. For now we just match
-> +	 * whoever comes in first. This works with the simple example we're running
-> +	 * with now (rkcif + one rkisp2) but with setups with multiple copies of
-> +	 * hardware this will cause problems, like with rkcif + two rkisp2 and
-> +	 * imx8-isi + two rkisp1.
-> +	 */
-
-In the end, shouldn't this follow whatever v4l2_async does? Not exactly
-sure, but I think storing a struct media_entity * and a struct
-fwnode_endpoint * for side A should do the trick. Side B would appear
-later with the second struct fwnode_endpoint. The check would then be if
-fwnode_graph_get_remote_endpoint(fwnode_A) == fwnode_B (+ maybe vice
-versa). The link would then be filled with media_entity_{A,B} and
-media_entity_{A,B}->ops.get_fwnode_pad(media_entity_{A,B},
-fwnode_{A,B}). Obviously we need some selector that tells us whether
-A=source and B=sink or vice versa for that.
-
-> +	list_for_each_entry_safe(link, link_tmp, &mds->links, list) {
-> +		if (link->sink) {
-> +			ret = media_create_pad_link(source, source_pad,
-> +						    link->sink, link->sink_pad,
-> +						    link->flags);
-> +			list_del(&link->list);
-> +			kfree(link);
-> +			goto exit_join_link_source;
-> +		}
-> +	}
-> +
-> +	link = kzalloc_obj(*link);
-> +	if (!link) {
-> +		ret = -ENOMEM;
-> +		goto exit_join_link_source;
-> +	}
-> +
-> +	link->source = source;
-> +	link->source_pad = source_pad;
-> +	link->flags = flags;
-> +	list_add_tail(&link->list, &mds->links);
-> +
-> +exit_join_link_source:
-> +	mutex_unlock(&media_device_shared_lock);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_join_link_source);
-> +
-> +// TODO deduplicate from above
-
-Should be possible to have some helper with (..., bool is_source) and
-then two nice functions that are exposed to the public.
-To start the bike shedding: Maybe
-media_device_shared_register_{source,sink}?
-
-> [...]
-
-Thanks and best regards,
-Michael
+Yours,
+Linus Walleij
 
