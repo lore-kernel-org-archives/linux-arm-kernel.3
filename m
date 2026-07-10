@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACC8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05860C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 10:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DOFAlbML8HpZQGn0jNo3uFt8Ka+5q/96dhy4jMqzUMg=; b=zPuWmprGhjoOtf
-	BNvYZuuKAB3/tSFl6tRPLqsidn8Hf9FkKgWJ4ZLpd/NW0oRkgnTxTHhQAJb1sfZy1x2JBCkLWZXKQ
-	D+qoqQB8KzoM4QVvSgnlIzFpT8uOyjeXvbyWMBMMNgK7T3qewZvNItvT2h3k3lbsRKyM/NqsFgy0e
-	1+KOMY7ROyx2sVOlKooDhBRWe68TYYANPWjpinD+gFZHA2QSE0h/EmFpBboKf1fuY7c8DE1TqyrLG
-	jgVSKkYpeeQbafDd395QAGLjRBdKbRbGn7zsCfQT8q43opvli037gaeMTcbgVog3AUtS40aC720I+
-	KKpezDRzTBMkA9wn8pMw==;
+	List-Owner; bh=D1/7wUFidwWOhcXAONeqTijtKC+Uc6cW0Kn6sh6St44=; b=Vw1yJOEhxCHWU6
+	EmrXOpeVThv9Fue8jTNnMqP8K2NduFMO+xV4w1qcUOoLB1QBabzjHK+GdU+wL0euXNVqjxTc6Id3l
+	kVL2uHOG+weJPWGHmaNadMawVM4pBX/7dLW0QEd+CH1KjVJz1rEvG/Zg+CdwP/w6MZbT4T6pTt1XS
+	3JaOTkpQTI+Gcb0N0ulzgrxKpFUACp5NQdPSexOR2pv5BExfrW540yWOwxmx8WlbS59/F9LUlA0yY
+	SNttb+SfeuAB8TM84eL85CGTnvOWCie6d1EXe6JuGyDVmgSTlZ5jtFKDeegoRPuN3iqodj6C+VZb3
+	1bXtrMZbqfdcB1bDcKZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi83Q-00000004eTC-0KxM;
-	Fri, 10 Jul 2026 10:01:56 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wi86f-00000004epY-0CIP;
+	Fri, 10 Jul 2026 10:05:17 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi83N-00000004eSn-1UHp
+	id 1wi86c-00000004eok-06ZH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 10:01:55 +0000
+	Fri, 10 Jul 2026 10:05:15 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=DOFAlbML8HpZQGn0jNo3uFt8Ka+5q/96dhy4jMqzUMg=;
-	b=MAhV5jqJo7qDE+5/naWXT4Y/ul2uYKCU2x4Wm2a0j7GFSSVX0xDBn2R1WA4+yyDR8jnamRvg/
-	JtSE6fhfuZJDClgsz2ODJzOSC54tVwKrsZelAf/2gn5mF1eoYipg29yPPUYnVgo7xiFq0aWRi67
-	rCaTypXL+QO2FAlhfC4q5vI=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gxRvF444XznTbd;
-	Fri, 10 Jul 2026 17:52:09 +0800 (CST)
+	bh=D1/7wUFidwWOhcXAONeqTijtKC+Uc6cW0Kn6sh6St44=;
+	b=TowOCsvcRFeTuWhU2W57/V7VSlfajII/YKRCbMpMS7FJBP5uVuGFmQLw8U/9iDxelNemCh35F
+	0XKAgQWkaN4dfH2JsxneTzPgwAMmHoWKh2eVmK5EVGjtA6R2hnsdYBUE1jTLtlxOAyNzmcZUOZE
+	def75IAHvRxBZ9g5mRDtJuc=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gxRzM5CtQzKm5j;
+	Fri, 10 Jul 2026 17:55:43 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 936184056C;
-	Fri, 10 Jul 2026 18:01:47 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 805E140565;
+	Fri, 10 Jul 2026 18:05:01 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 10 Jul 2026 18:01:46 +0800
-Message-ID: <42317a74-471e-4721-81e9-79e0d0a000fb@huawei.com>
-Date: Fri, 10 Jul 2026 18:01:46 +0800
+ 15.2.1544.11; Fri, 10 Jul 2026 18:05:00 +0800
+Message-ID: <3c470d16-e5e9-43e1-997c-3b05954e59cf@huawei.com>
+Date: Fri, 10 Jul 2026 18:04:59 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 12/36] arm64: entry: replace DAIF helpers with entry
- helpers
+Subject: Re: [RFC PATCH 29/36] arm64: nmi: Manage masking for superpriority
+ interrupts
 To: Vladimir Murzin <vladimir.murzin@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-13-vladimir.murzin@arm.com>
+ <20260709121333.23507-30-vladimir.murzin@arm.com>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-13-vladimir.murzin@arm.com>
+In-Reply-To: <20260709121333.23507-30-vladimir.murzin@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_030153_731375_E1104743 
-X-CRM114-Status: GOOD (  34.67  )
+X-CRM114-CacheID: sfid-20260710_030514_419434_E35BB38E 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,7 +75,7 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
@@ -84,768 +84,434 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
 > From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> Replace all uses of the `local_daif_...` helpers in `entry-common.c`
-> with the new entry-specific exception masking helpers.
+> Extend logic to handle and debug exception context/state with knowlage
+> of FEAT_NMI.
 > 
-> Also replace `local_irq_disable()` with a switch to NOIRQ context
-> using the new helpers. This provides:
+> Take care to order writes to ALLINT relative to DAIF, as clearing
+> ALLINT before DAIF could result in taking an NMI while DAIF is fully
+> masked, as could setting it after DAIF.
 > 
-> - consistency checks for hardware state
+> Since superpriority interrupts are not masked through DAIF like pseduo
+> NMIs are, we also need to modify the assembler macros for managing
+> DAIF to ensure that the masking is done in the assembly code.
 > 
-> - a unified style for managing exception context
+> Note that save_and_disable_irq/restore_irq and
+> save_and_disable_daif/restore_irq pairs are used in distinct
+> contextes:
 > 
-> Now that exception context is tracked explicitly, involuntary kernel
-> preemption can be optimized. We either preempt:
+> - former is used in context of SW PAN to quickly disable/enable
+>   preemption
 > 
-> - from PROCESS exception context, or
+> - latter is used to completely mask all exceptions.
 > 
-> - when returning from an interrupt handler, where the GIC code
->   switches from NONMI to NOIRQ exception context
+> For that reason split save_and_disable_daif/restore_irq into more
+> generic exception save restore pair and plumb with FEAT_NMI logic.
 > 
-> To support this split, divide `arm64_exit_to_kernel_mode()` into
-> preempt, non-preempt, and dispatch parts.
-> 
-> Remove `local_daif_inherit()`, since it is no longer used.
-> 
-> Now that both the irqflags API and entry code handle DAIF and PMR
-> correctly, remove `GIC_PRIO_PSR_I_SET` from the PMR value set by
-> `kernel_entry` in `entry.S` and by `init_gic_priority_masking()` in
-> `kernel/smp.c`.
-> 
-> The `local_daif_...` helpers and other specialized code still use
-> `GIC_PRIO_PSR_I_SET` for now; this commit does not change their
-> behavior.
-> 
+> Co-developed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
-
-I think this patch and the previous one have too many changes, making it
-difficult to review.
-
-Can it be broken down into smaller patches with modifications that
-include the original context? Otherwise, it will be hard to identify
-what changes have been made.
-
 > ---
->  arch/arm64/include/asm/daifflags.h |  22 ---
->  arch/arm64/kernel/entry-common.c   | 272 ++++++++++++++++++++---------
->  arch/arm64/kernel/entry.S          |   2 +-
->  arch/arm64/kernel/smp.c            |   2 +-
->  4 files changed, 190 insertions(+), 108 deletions(-)
+>  arch/arm64/include/asm/assembler.h            | 20 ++++++++-
+>  .../include/asm/interrupts/common_flags.h     | 41 +++++++++++++++++--
+>  arch/arm64/include/asm/interrupts/entry.h     | 18 +++++---
+>  arch/arm64/include/asm/interrupts/masking.h   | 25 ++++++-----
+>  arch/arm64/include/asm/irqflags.h             |  1 +
+>  arch/arm64/kernel/entry.S                     | 12 +++---
+>  6 files changed, 89 insertions(+), 28 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-> index 56341578e7e3..6b14ec4d4dbe 100644
-> --- a/arch/arm64/include/asm/daifflags.h
-> +++ b/arch/arm64/include/asm/daifflags.h
-> @@ -120,28 +120,6 @@ static __always_inline void local_daif_restore(unsigned long flags)
->  		trace_hardirqs_off();
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index 0b58b550e8dc..bcdbc308afba 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -37,11 +37,27 @@
+>  /*
+>   * Save/restore interrupts.
+>   */
+> -	.macro save_and_disable_daif, flags
+> -	mrs	\flags, daif
+> +	.macro save_and_disable_exceptions, flags, tmp
+> +	mrs     \flags, daif		// updates flags[9:6] with DAIF
+> +#ifdef CONFIG_ARM64_NMI
+> +alternative_if ARM64_NMI
+> +	mrs_s	\tmp, SYS_ALLINT	// updates tmp[13] with AllInt
+> +	msr_s	SYS_ALLINT_SET, xzr
+> +	orr	\flags, \flags, \tmp	// now flags[13,9:6] carry pair of AllInt,DAIF
+> +alternative_else_nop_endif
+> +#endif
+>  	msr	daifset, #0xf
+>  	.endm
+>  
+> +	.macro  restore_exceptions, flags
+> +	msr     daif, \flags		// bits other than flags[9:6] are ignored
+> +#ifdef CONFIG_ARM64_NMI
+> +alternative_if ARM64_NMI
+> +	msr_s	SYS_ALLINT, \flags	// bits other than flags[13] are ignored
+> +alternative_else_nop_endif
+> +#endif
+> +	.endm
+> +
+>  	.macro	save_and_disable_irq, flags
+>  	mrs	\flags, daif
+>  	msr	daifset, #3
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> index 72ed6e75d146..315aaec3ea34 100644
+> --- a/arch/arm64/include/asm/interrupts/common_flags.h
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -20,6 +20,14 @@
+>  /*
+>   * Exception context mapping
+>   *
+> + * FEAT_NMI
+> + *
+> + * CRITICAL -> DAIF + AllInt (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF + AllInt
+> + * NONMI    ->   IF + AllInt
+> + * NOIRQ    ->   IF
+> + * PROCESS  ->    0
+
+This is consistent with what I understand.
+
+> + *
+>   * pseudo-NMI
+>   *
+>   * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+> @@ -76,6 +84,7 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+>  
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +
 >  }
 >  
-> -/*
-> - * Called by synchronous exception handlers to restore the DAIF bits that were
-> - * modified by taking an exception.
-> - */
-> -static __always_inline void local_daif_inherit(struct pt_regs *regs)
-> -{
-> -	unsigned long flags = regs->pstate & DAIF_MASK;
-> -
-> -	if (!regs_irqs_disabled(regs))
-> -		trace_hardirqs_on();
-> -
-> -	if (system_uses_irq_prio_masking())
-> -		gic_write_pmr(regs->pmr);
-> -
-> -	/*
-> -	 * We can't use local_daif_restore(regs->pstate) here as
-> -	 * system_has_prio_mask_debugging() won't restore the I bit if it can
-> -	 * use the pmr instead.
-> -	 */
-> -	write_sysreg(flags, daif);
-> -}
-> -
->  /*
->   * During early boot, we unmask PSR.DA before the GIC has been set up.
->   * If we use IRQ priority masking, the PMR and PSR will be out of sync
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 2be42d7f4eaa..a13653b228b7 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -18,11 +18,11 @@
->  #include <linux/thread_info.h>
+>  static __always_inline
+> @@ -84,6 +93,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
 >  
+> +	if (system_uses_nmi())
+> +               return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+>  }
+>  
+> @@ -93,6 +105,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+>  
+> +	if (system_uses_nmi())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+>  }
+>  
+> @@ -102,6 +117,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+>  	if (system_uses_irq_prio_masking())
+>  		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+>  
+> +	if (system_uses_nmi())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .allint=ALLINT_ALLINT};
+> +
+>  	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+>  }
+>  
+> @@ -131,6 +149,9 @@ arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+>  	if (system_uses_irq_prio_masking())
+>  		state.pmr = regs->pmr;
+>  
+> +	if (system_uses_nmi())
+> +		state.allint = regs->pstate & PSR_ALLINT_BIT;
+> +
+>  	return state;
+>  }
+>  
+> @@ -150,6 +171,9 @@ void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+>  	if (system_uses_irq_prio_masking()) {
+>  		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+>  			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+> +	} else if (system_uses_nmi()) {
+> +		WARN_ONCE(1, "Unexpected DAIF+ALLINT: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+> +			  actual.daif, actual.allint, expected.daif, expected.allint);
+>  	} else {
+>  		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+>  			  actual.daif, expected.daif);
+> @@ -165,7 +189,7 @@ void arm64_debug_exc_context(arm64_exc_context_t context)
+>  }
+>  
+>  static __always_inline
+> -void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr, bool update_allint)
+>  {
+>  	if (system_uses_irq_prio_masking() &&
+>  	    update_pmr &&
+> @@ -193,8 +217,19 @@ void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+>  		pmr_sync();
+>  	}
+>  
+> +	/*
+> +	 * Try to order ALLINT writes to be consistent with the DAIF state :
+> +	 * we don't want to take an NMI with DAIF masked or when it should
+> +	 * be masked but isn't yet.
+> +	 */
+> +	if (system_uses_nmi() && update_allint && hwstate.allint)
+> +		_allint_set();
+> +
+>  	write_sysreg(hwstate.daif, daif);
+>  
+> +	if (system_uses_nmi() && update_allint && !hwstate.allint)
+> +		_allint_clear();
+> +
+>  	if (system_uses_irq_prio_masking() &&
+>  	    update_pmr &&
+>  	    hwstate.pmr == GIC_PRIO_IRQON) {
+> @@ -204,10 +239,10 @@ void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+>  }
+>  
+>  static __always_inline
+> -void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
+> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr,  bool update_allint)
+>  {
+>  	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+>  
+> -	arm64_update_exc_hwstate(hwstate, update_pmr);
+> +	arm64_update_exc_hwstate(hwstate, update_pmr, update_allint);
+>  }
+>  #endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
+> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+> index 3034c490ed66..986536ecd058 100644
+> --- a/arch/arm64/include/asm/interrupts/entry.h
+> +++ b/arch/arm64/include/asm/interrupts/entry.h
+> @@ -10,12 +10,12 @@
 >  #include <asm/cpufeature.h>
-> -#include <asm/daifflags.h>
->  #include <asm/esr.h>
->  #include <asm/exception.h>
->  #include <asm/fpsimd.h>
->  #include <asm/irq_regs.h>
-> +#include <asm/interrupts/entry.h>
->  #include <asm/kprobes.h>
->  #include <asm/mmu.h>
->  #include <asm/processor.h>
-> @@ -52,12 +52,11 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
->   * After this function returns it is not safe to call regular kernel code,
->   * instrumentable code, or any code which may trigger an exception.
->   */
-> -static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
-> -					      irqentry_state_t state)
-> +static void noinstr __arm64_exit_to_kernel_mode(struct pt_regs *regs,
-> +						irqentry_state_t state,
-> +						arm64_exc_hwstate_t hwstate)
->  {
-> -	local_irq_disable();
-> -	irqentry_exit_to_kernel_mode_preempt(regs, state);
-> -	local_daif_mask();
-> +	arm64_mask_exc_context(hwstate);
->  	mte_check_tfsr_exit();
->  	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
->  }
-> @@ -69,6 +68,30 @@ static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *r
->  	sme_enter_from_user_mode();
->  }
+>  #include <asm/interrupts/common_flags.h>
 >  
-> +/*
-> + * We are returning from the context which allows involuntary kernel preemption
-> + */
-> +static void noinstr arm64_exit_to_kernel_mode_preempt(struct pt_regs *regs,
-> +						      irqentry_state_t state,
-> +						      arm64_exc_hwstate_t hwstate)
-> +{
-> +	irqentry_exit_to_kernel_mode_preempt(regs, state);
-> +	__arm64_exit_to_kernel_mode(regs, state, hwstate);
-> +}
-> +
-> +static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
-> +					      irqentry_state_t state,
-> +					      arm64_exc_hwstate_t hwstate)
-> +{
-> +	if (!arch_irqs_disabled_flags(hwstate.flags)) {
-> +		hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
-> +		arm64_exit_to_kernel_mode_preempt(regs, state, hwstate);
-> +		return;
-> +	}
-> +
-> +	__arm64_exit_to_kernel_mode(regs, state, hwstate);
-> +}
-> +
->  /*
->   * Handle IRQ/context state management when entering from user mode.
->   * Before this function is called it is not safe to call regular kernel code,
-> @@ -82,11 +105,12 @@ static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
->  	sme_enter_from_user_mode();
->  }
->  
-> -static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs)
-> +static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs,
-> +							    arm64_exc_hwstate_t hwstate)
->  {
-> -	local_irq_disable();
-> +	hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
->  	syscall_exit_to_user_mode_prepare(regs);
-> -	local_daif_mask();
-> +	arm64_mask_exc_context(hwstate);
->  	sme_exit_to_user_mode();
->  	mte_check_tfsr_exit();
->  	exit_to_user_mode();
-> @@ -97,11 +121,12 @@ static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs
->   * After this function returns it is not safe to call regular kernel code,
->   * instrumentable code, or any code which may trigger an exception.
->   */
-> -static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
-> +static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs,
-> +						    arm64_exc_hwstate_t hwstate)
->  {
-> -	local_irq_disable();
-> +	hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
->  	irqentry_exit_to_user_mode_prepare(regs);
-> -	local_daif_mask();
-> +	arm64_mask_exc_context(hwstate);
->  	sme_exit_to_user_mode();
->  	mte_check_tfsr_exit();
->  	exit_to_user_mode();
-> @@ -109,7 +134,10 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
->  
->  asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
->  {
-> -	arm64_syscall_exit_to_user_mode(regs);
-> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(PROCESS_CONTEXT);
-> +
-> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
->  /*
-> @@ -315,63 +343,69 @@ UNHANDLED(el1t, 64, error)
->  static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_mem_abort(far, esr, regs);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_sp_pc_abort(far, esr, regs);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_el1_undef(regs, esr);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_el1_bti(regs, esr);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_el1_gcs(regs, esr);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_el1_mops(regs, esr);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
-> @@ -431,12 +465,13 @@ static void noinstr el1_brk64(struct pt_regs *regs, unsigned long esr)
->  
->  static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = arm64_enter_from_kernel_mode(regs);
-> -	local_daif_inherit(regs);
-> +	hwstate = arm64_inherit_exc_context(regs);
->  	do_el1_fpac(regs, esr);
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	arm64_exit_to_kernel_mode(regs, state, hwstate);
->  }
->  
->  asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
-> @@ -486,16 +521,20 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->  	default:
->  		__panic_unhandled(regs, "64-bit el1h sync", esr);
->  	}
-> +
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
->  static __always_inline void __el1_pnmi(struct pt_regs *regs,
->  				       void (*handler)(struct pt_regs *))
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	state = irqentry_nmi_enter(regs);
-> +	hwstate = arm64_unmask_exc_context(NONMI_CONTEXT);
->  	do_interrupt_handler(regs, handler);
-> -	local_daif_mask();
-> +	arm64_mask_exc_context(hwstate);
->  	irqentry_nmi_exit(regs, state);
->  }
->  
-> @@ -506,21 +545,32 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->  
->  	state = arm64_enter_from_kernel_mode(regs);
->  
-> +	arm64_unmask_exc_context(NONMI_CONTEXT);
-> +
->  	irq_enter_rcu();
->  	do_interrupt_handler(regs, handler);
->  	irq_exit_rcu();
->  
-> -	arm64_exit_to_kernel_mode(regs, state);
-> +	/*
-> +	 * If pseudo-NMIs are enabled and the interrupted context had
-> +	 * IRQs unmasked, the interrupt handler will have cleared DAIF
-> +	 * and switched to PMR masking in order to handle
-> +	 * NMIs. Otherwise it would keep IF.  In both cases on return
-> +	 * we effectivly have NOIRQ_CONTEXT - keep track of it
-> +	 */
-> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
-> +	arm64_exit_to_kernel_mode_preempt(regs, state, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
->  }
-> +
->  static void noinstr el1_interrupt(struct pt_regs *regs,
->  				  void (*handler)(struct pt_regs *))
->  {
-> -	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
 > -
->  	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
->  		__el1_pnmi(regs, handler);
->  	else
->  		__el1_irq(regs, handler);
-> +
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
->  asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
-> @@ -536,28 +586,31 @@ asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
->  asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
+>  static __always_inline
+>  arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>  						  arm64_exc_hwstate_t next)
 >  {
->  	unsigned long esr = read_sysreg(esr_el1);
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
+>  	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+> +	bool update_allint = system_uses_nmi() && prev.allint != next.allint;
 >  
-> -	local_daif_restore(DAIF_ERRCTX);
-> +	hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
->  	state = irqentry_nmi_enter(regs);
->  	do_serror(regs, esr);
-> -	local_daif_mask();
-> +	arm64_mask_exc_context(hwstate);
->  	irqentry_nmi_exit(regs, state);
->  }
+>  	arm64_debug_exc_hwstate(prev);
 >  
->  static void noinstr el0_da(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
+> @@ -25,7 +25,7 @@ arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>  	if (!arch_irqs_disabled_flags(next.flags))
+>  		trace_hardirqs_on();
 >  
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_mem_abort(far, esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+> -	arm64_update_exc_hwstate(next, update_pmr);
+> +	arm64_update_exc_hwstate(next, update_pmr, update_allint);
 >  
->  static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
+>  	if (arch_irqs_disabled_flags(next.flags))
+>  		trace_hardirqs_off();
+> @@ -49,15 +49,18 @@ arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
 >  
->  	/*
->  	 * We've taken an instruction abort from userspace and not yet
-> @@ -568,114 +621,139 @@ static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
->  		arm64_apply_bp_hardening();
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
 >  
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_mem_abort(far, esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+>  			     prev.daif == DAIF_ERRCTX);
 >  
->  static void noinstr el0_fpsimd_acc(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_fpsimd_acc(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+> -			     prev.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT) ||
+> +			      (!nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
 >  
->  static void noinstr el0_sve_acc(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_sve_acc(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+> -			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT)));
 >  
->  static void noinstr el0_sme_acc(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_sme_acc(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+>  			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+> @@ -74,6 +77,7 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
 >  
->  static void noinstr el0_fpsimd_exc(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_fpsimd_exc(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
 >  
->  static void noinstr el0_sys(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_sys(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
+>  		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+>  			     prev.daif == DAIF_MASK);
+> @@ -82,11 +86,13 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>  			     prev.daif == DAIF_ERRCTX);
 >  
->  static void noinstr el0_pc(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
+>  		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+> -			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((pnmi && prev.daif == DAIF_PROCCTX_NOIRQ) ||
+> +			      (nmi &&  prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint == ALLINT_ALLINT)));
 >  
->  	if (!is_ttbr0_addr(instruction_pointer(regs)))
->  		arm64_apply_bp_hardening();
->  
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_sp_pc_abort(far, esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_sp(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_sp_pc_abort(regs->sp, esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_undef(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_undef(regs, esr);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_bti(struct pt_regs *regs)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_bti(regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_mops(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_mops(regs, esr);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_gcs(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_gcs(regs, esr);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	bad_el0_sync(regs, 0, esr);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	if (!is_ttbr0_addr(regs->pc))
->  		arm64_apply_bp_hardening();
->  
-> @@ -683,12 +761,13 @@ static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->  	debug_exception_enter(regs);
->  	do_breakpoint(esr, regs);
->  	debug_exception_exit(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> -	arm64_exit_to_user_mode(regs);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	bool step_done;
->  
->  	if (!is_ttbr0_addr(regs->pc))
-> @@ -702,50 +781,56 @@ static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->  	 * the single-step is complete.
->  	 */
->  	step_done = try_step_suspended_breakpoints(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	if (!step_done)
->  		do_el0_softstep(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_watchpt(struct pt_regs *regs, unsigned long esr)
->  {
->  	/* Watchpoints are the only debug exception to write FAR_EL1 */
->  	unsigned long far = read_sysreg(far_el1);
-> +	arm64_exc_hwstate_t hwstate;
->  
->  	arm64_enter_from_user_mode(regs);
->  	debug_exception_enter(regs);
->  	do_watchpoint(far, esr, regs);
->  	debug_exception_exit(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> -	arm64_exit_to_user_mode(regs);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_brk64(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_svc(struct pt_regs *regs)
->  {
-> +	arm64_exc_hwstate_t hwstate;
->  	arm64_syscall_enter_from_user_mode(regs);
->  	cortex_a76_erratum_1463225_svc_handler();
->  	fpsimd_syscall_enter();
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_svc(regs);
-> -	arm64_syscall_exit_to_user_mode(regs);
-> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
->  	fpsimd_syscall_exit();
->  }
->  
->  static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_fpac(regs, esr);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
-> @@ -814,6 +899,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
->  	default:
->  		el0_inv(regs, esr);
+>  		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+>  			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> -			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+> +			      (nmi && prev.daif == DAIF_PROCCTX_NOIRQ && prev.allint != ALLINT_ALLINT) ||
+> +			      (!pnmi && !nmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
 >  	}
-> +
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
 >  
->  static void noinstr el0_interrupt(struct pt_regs *regs,
-> @@ -821,7 +908,7 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
->  {
->  	arm64_enter_from_user_mode(regs);
+>  	return __arm64_switch_exc_hwstate_to(prev, next);
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> index 9dc37a571094..178e915f43b9 100644
+> --- a/arch/arm64/include/asm/interrupts/masking.h
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -30,6 +30,7 @@ arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
 >  
-> -	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
-> +	arm64_unmask_exc_context(NONMI_CONTEXT);
+>  	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>  		bool pnmi = system_uses_irq_prio_masking();
+> +		bool nmi = system_uses_nmi();
 >  
->  	if (regs->pc & BIT(55))
->  		arm64_apply_bp_hardening();
-> @@ -830,7 +917,14 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
->  	do_interrupt_handler(regs, handler);
->  	irq_exit_rcu();
+>  		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
+>  			     actual.daif == DAIF_MASK);
+> @@ -38,14 +39,16 @@ arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+>  			     actual.daif == DAIF_ERRCTX);
 >  
-> -	arm64_exit_to_user_mode(regs);
-> +	/*
-> +	 * For the same reason as in el1_irq() we effectivly
-> +	 * have NOIRQ_CONTEXT on return from handler - keep
-> +	 * track of it
-> +	 */
-> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
-> +	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
+>  		WARN_ON_ONCE(new < NONMI_CONTEXT &&
+> -			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
+> +			     ((pnmi && actual.daif == DAIF_PROCCTX_NOIRQ) ||
+> +			      (nmi &&  actual.daif == DAIF_PROCCTX_NOIRQ && actual.allint == ALLINT_ALLINT)));
 >  
->  static void noinstr __el0_irq_handler_common(struct pt_regs *regs)
-> @@ -856,15 +950,17 @@ asmlinkage void noinstr el0t_64_fiq_handler(struct pt_regs *regs)
->  static void noinstr __el0_error_handler_common(struct pt_regs *regs)
->  {
->  	unsigned long esr = read_sysreg(esr_el1);
-> +	arm64_exc_hwstate_t hwstate;
->  	irqentry_state_t state;
->  
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_ERRCTX);
-> +	hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
->  	state = irqentry_nmi_enter(regs);
->  	do_serror(regs, esr);
->  	irqentry_nmi_exit(regs, state);
-> -	local_daif_restore(DAIF_PROCCTX);
-> -	arm64_exit_to_user_mode(regs);
-> +	hwstate = arm64_drop_exc_context(hwstate, PROCESS_CONTEXT);
-> +	arm64_exit_to_user_mode(regs, hwstate);
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
->  }
->  
->  asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
-> @@ -875,27 +971,33 @@ asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
->  #ifdef CONFIG_COMPAT
->  static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_cp15(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_svc_compat(struct pt_regs *regs)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_syscall_enter_from_user_mode(regs);
->  	cortex_a76_erratum_1463225_svc_handler();
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_el0_svc_compat(regs);
-> -	arm64_syscall_exit_to_user_mode(regs);
-> +	arm64_syscall_exit_to_user_mode(regs, hwstate);
->  }
->  
->  static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
->  {
-> +	arm64_exc_hwstate_t hwstate;
-> +
->  	arm64_enter_from_user_mode(regs);
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	hwstate = arm64_unmask_exc_context(PROCESS_CONTEXT);
->  	do_bkpt32(esr, regs);
-> -	arm64_exit_to_user_mode(regs);
-> +	arm64_exit_to_user_mode(regs, hwstate);
->  }
->  
->  asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
-> @@ -946,6 +1048,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
->  	default:
->  		el0_inv(regs, esr);
+>  		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
+>  			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
+> -			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+> +			      (nmi && actual.daif == DAIF_PROCCTX_NOIRQ && actual.allint != ALLINT_ALLINT) ||
+> +			      (!pnmi && !nmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
 >  	}
-> +
-> +	arm64_debug_exc_context(CRITICAL_CONTEXT);
+>  
+> -	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
+> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr, actual.allint != state.allint);
+>  
+>  	if (!arch_irqs_disabled_flags(actual.flags))
+>  		trace_hardirqs_off();
+> @@ -60,7 +63,7 @@ static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
+>  	if (!arch_irqs_disabled_flags(states.saved.flags))
+>  		trace_hardirqs_on();
+>  
+> -	arm64_update_exc_hwstate(states.saved, true);
+> +	arm64_update_exc_hwstate(states.saved, true, true);
 >  }
 >  
->  asmlinkage void noinstr el0t_32_irq_handler(struct pt_regs *regs)
+>  #ifdef CONFIG_DEBUG_IRQFLAGS
+> @@ -70,7 +73,7 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
+>  	if (context == PROCESS_CONTEXT)
+>  		trace_hardirqs_on();
+> -	arm64_update_exc_context(context, true);
+> +	arm64_update_exc_context(context, true, true);
+>  	__this_cpu_write(irqs_masks_cpu_init_done, true);
+>  	__this_cpu_write(irqs_masks_cpu_final_done, false);
+>  }
+> @@ -78,7 +81,7 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  static inline void local_all_irqs_final_mask(void)
+>  {
+>  	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
+> -	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true, true);
+>  	trace_hardirqs_off();
+>  	__this_cpu_write(irqs_masks_cpu_final_done, true);
+>  	__this_cpu_write(irqs_masks_cpu_init_done, false);
+> @@ -89,12 +92,12 @@ void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+>  {
+>  	if (context == PROCESS_CONTEXT)
+>  		trace_hardirqs_on();
+> -	arm64_update_exc_context(context, true);
+> +	arm64_update_exc_context(context, true, true);
+>  }
+>  
+>  static inline void local_all_irqs_final_mask(void)
+>  {
+> -	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true, true);
+>  	trace_hardirqs_off();
+>  }
+>  #endif /* CONFIG_DEBUG_IRQFLAGS */
+> @@ -130,7 +133,7 @@ static inline arm64_exc_hwstates_t local_all_irqs_force_daif_save(void)
+>  		states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
+>  		states.expected.pmr = GIC_PRIO_IRQON;
+>  
+> -		arm64_update_exc_hwstate(states.expected, true);
+> +		arm64_update_exc_hwstate(states.expected, true, false);
+>  	}
+>  
+>  	return states;
+> @@ -153,7 +156,7 @@ void local_all_irqs_force_daif_restore(arm64_exc_hwstates_t states)
+>  
+>  	if (system_uses_irq_prio_masking()) {
+>  		arm64_debug_exc_hwstate(states.expected);
+> -		arm64_update_exc_hwstate(states.saved, true);
+> +		arm64_update_exc_hwstate(states.saved, true, false);
+>  	}
+>  }
+>  
+> @@ -167,7 +170,7 @@ static inline void local_interrupt_priority_init(void)
+>  	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>  	lockdep_assert_irqs_disabled();
+>  
+> -	arm64_update_exc_context(NOIRQ_CONTEXT, true);
+> +	arm64_update_exc_context(NOIRQ_CONTEXT, true, true);
+>  }
+>  
+>  #endif /* __ASM_INTERRUPTS_MASKING_H */
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index 585d3ce15d80..b571d34bf11d 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -31,6 +31,7 @@
+>  typedef union arm64_exc_hwstate {
+>  	struct {
+>  		u16 daif;
+> +		u16 allint;
+>  		u8 pmr;
+>  	};
+>  	unsigned long flags;
 > diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-> index f63049ac32dc..cb3be770f2d0 100644
+> index cb3be770f2d0..39ea3fdeb03a 100644
 > --- a/arch/arm64/kernel/entry.S
 > +++ b/arch/arm64/kernel/entry.S
-> @@ -316,7 +316,7 @@ alternative_else_nop_endif
+> @@ -815,7 +815,7 @@ SYM_CODE_END(__bp_harden_el1_vectors)
+>   *
+>   */
+>  SYM_FUNC_START(cpu_switch_to)
+> -	save_and_disable_daif x11
+> +	save_and_disable_exceptions x11, x12
+>  	mov	x10, #THREAD_CPU_CONTEXT
+>  	add	x8, x0, x10
+>  	mov	x9, sp
+> @@ -839,7 +839,7 @@ SYM_FUNC_START(cpu_switch_to)
+>  	ptrauth_keys_install_kernel x1, x8, x9, x10
+>  	scs_save x0
+>  	scs_load_current
+> -	restore_irq x11
+> +	restore_exceptions x11
+>  	ret
+>  SYM_FUNC_END(cpu_switch_to)
+>  NOKPROBE(cpu_switch_to)
+> @@ -866,7 +866,7 @@ NOKPROBE(ret_from_fork)
+>   * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+>   */
+>  SYM_FUNC_START(call_on_irq_stack)
+> -	save_and_disable_daif x9
+> +	save_and_disable_exceptions x9, x10
+>  #ifdef CONFIG_SHADOW_CALL_STACK
+>  	get_current_task x16
+>  	scs_save x16
+> @@ -881,10 +881,10 @@ SYM_FUNC_START(call_on_irq_stack)
 >  
->  	mrs_s	x20, SYS_ICC_PMR_EL1
->  	str	w20, [sp, #S_PMR]
-> -	mov	x20, #GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET
-> +	mov	x20, #GIC_PRIO_IRQON
->  	msr_s	SYS_ICC_PMR_EL1, x20
+>  	/* Move to the new stack and call the function there */
+>  	add	sp, x16, #IRQ_STACK_SIZE
+> -	restore_irq x9
+> +	restore_exceptions x9
+>  	blr	x1
 >  
->  .Lskip_pmr_save\@:
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index d46022f72075..b91cf163aac7 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -185,7 +185,7 @@ static void init_gic_priority_masking(void)
->  	WARN_ON(!(cpuflags & PSR_I_BIT));
->  	WARN_ON(!(cpuflags & PSR_F_BIT));
->  
-> -	gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
-> +	gic_write_pmr(GIC_PRIO_IRQON);
->  }
->  
->  /*
+> -	save_and_disable_daif x9
+> +	save_and_disable_exceptions x9, x10
+>  	/*
+>  	 * Restore the SP from the FP, and restore the FP and LR from the frame
+>  	 * record.
+> @@ -892,7 +892,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>  	mov	sp, x29
+>  	ldp	x29, x30, [sp], #16
+>  	scs_load_current
+> -	restore_irq x9
+> +	restore_exceptions x9
+>  	ret
+>  SYM_FUNC_END(call_on_irq_stack)
+>  NOKPROBE(call_on_irq_stack)
 
 
