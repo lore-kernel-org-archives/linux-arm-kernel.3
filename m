@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F58DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C9DC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S9iZuOsVTTmx7uip+ThMYSjXsyrEAprg5eUG3s8LN+A=; b=Zrn/imCkNf5nvvHMVpHAnRwbZj
-	7ZoTe68o47A/xZPmeXkqZhm8sykSIQlZ7zFgvIgTc1uutRudXseFlYKAsZCrPWhKmmtTEtaQcCuCn
-	gkYsWQC6K9cbtuCDlmDtgtxOmjqXA7Rm3jq7hPZraS0rwCjHeMWjU7gR9Us0CCqY6gdCkgPrdPoBA
-	GCRHlJBx7jB5IWdm2cES7qMeY+CISOu61DcVX5wda3EqIGdg6xLx682NM1DQTB6Ui0TzmA5/pi+fX
-	iT8bIbMXSULpXzBE/hiuDNwFjadoyrZRYRYiw757MoM8sLhNUNI/pY5UKWIwd2Gy34hkLG7Tjx/QC
-	vj1qONOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AXqK/O/UiVmybBz8HyIXAgt9gyKd4C5jCg235iLDQxE=; b=PbhUcZbW9G7KYLQOW5aOs8ZbcH
+	18+EgUYDPFMaudIEduQceMyF8BFHl+1WJCgeaID/4Yfp/AHNN2KLkqhBXzg9FbhFgj1zOTl7mxH3G
+	QPnXCAL4+dR3caExQk3EUgKP1CxIL0gMTE+/vZ1QuRc6KBmL97tYcrXhRuyEYBDP1CfqjcuFJ2cAV
+	1vH74ZRnYqEU48wqHCZusNLIkGs8I4L52c/9VrD1OSgScrV9STuMsHVMeQVI9yuykwDVdsXyLcjiO
+	zv2XUMDtDrW2dj8lPHLXWjB+VefHxVskQBMlBc1U2YValJMqnWpleHhuG8J/38o7inuEanlGc7/nX
+	umAlXRjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiI5a-00000005jHv-1SrA;
-	Fri, 10 Jul 2026 20:44:50 +0000
+	id 1wiIGg-00000005jwN-07mv;
+	Fri, 10 Jul 2026 20:56:18 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiI5Y-00000005jHK-16ve
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 20:44:49 +0000
+	id 1wiIGd-00000005jue-2aLe;
+	Fri, 10 Jul 2026 20:56:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783716284;
-	bh=ltqMKCiaqQdjvTI+FF1Bbx8iaCWQ0kLFmcfGnyBTD70=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=CnVVOsUpmfXVpd5NASaGnZj2GulmbwGyMJKdSNXJPWhcrujOmjTkV+9t5n7689Nka
-	 8NUvv8FnT/G4c4p6720OQw0ksqjvI5Ey196DAZh7zw0wy87sYnBu+IoDNH0bIXEc+b
-	 l5etBxyFOZe3MEyw9Dp9N0GbUicFnd6UDjykD2a2qxpOeo0Pdbk2AMFCK5CL3O4+Al
-	 OkdfhZCO4CMeDHEQM1wew+ibxJRZIwHy0a72eK+k2Z5VXR9HBVh11SDBrvHohHr/5w
-	 gEkApOdH8jU0XlHa40XIHPWPz83KFrSZFXc+pYC0aTVC0oga/hXypRwe8GofYvErXd
-	 ZLrU4ofi8pQpQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
+	s=mail; t=1783716973;
+	bh=L86pedZA772Rnc2vX5oR3CIG9SixBxsK2CPI3FEKRLo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=SAPyRlTxzYcrsbTuVfA8mgnmTSzCqlt/+A4WBSfML4ZokHbpzj7bT6PnuHJFrvbHv
+	 jQulVGCjSgrqGG9tPoH2frxHnjAA/L+0wTD8i5DWJr+b0+8NZ/1LOeaxsOoHsUWQIc
+	 0yuSgmMWCYrOQKbE6N64qyVa0tqt56gvKrn+oZvM06kALFbb41/s8hMNncyyjUFX6x
+	 1o2ngwOOK16cENgxpDhFLIaLDfCFdahnfO+mKMX6sKYCCD+0ImdsLl8XBbCiZCTVhc
+	 hhSKDECh2Ihm3whySZk2BRoTi351YmsebHzTg9RW/sm9XJLZWOH2vW4KsYtcX5OrLG
+	 hOeVSSDwSzz2w==
+Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33BAE17E03CE;
-	Fri, 10 Jul 2026 22:44:43 +0200 (CEST)
-Message-ID: <88535b996b84fae201592da11847ce9f7735a7eb.camel@collabora.com>
-Subject: Re: [PATCH v2] media: cedrus: reject invalid active H.264 ref
- indices
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Maxime Ripard <mripard@kernel.org>
-Cc: Paul Kocialkowski <paulk@sys-base.io>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland	 <samuel@sholland.org>, linux-media@vger.kernel.org, 
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Fri, 10 Jul 2026 16:44:41 -0400
-In-Reply-To: <273883f0479afb1037d9b4b815937267b6bd658d.camel@collabora.com>
-References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
-		 <20260409223001.1-cedrus-h264-active-v2-pengpeng@iscas.ac.cn>
-	 <273883f0479afb1037d9b4b815937267b6bd658d.camel@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-o4MtyftxKrMMeCtHeUA0"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 154D817E07A2;
+	Fri, 10 Jul 2026 22:56:13 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 01076480062; Fri, 10 Jul 2026 18:46:18 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 10 Jul 2026 18:44:55 +0200
+Subject: [PATCH v12 17/36] phy: rockchip: usbdp: Drop DP HPD handling
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260710-rockchip-usbdp-cleanup-v12-17-8b41a9a9bef0@collabora.com>
+References: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
+In-Reply-To: <20260710-rockchip-usbdp-cleanup-v12-0-8b41a9a9bef0@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@flipper.net>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5857;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=L86pedZA772Rnc2vX5oR3CIG9SixBxsK2CPI3FEKRLo=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpRIdlFBqevDvuFOY4mViePwG3eJFBPnVKzH
+ TgY1nrwvDXX6okCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqUSHZAAoJENju1/PI
+ O/qay6EP/20efGoy8TjvlKzONcvvkqpU85JJHab4vFk+pBg1Ki+DPBuqsxSPrQSYcBLUGj5sprV
+ PBQzDSySBxH7usFlcKioIl8dIeS/PGhMJnJ7Nlav85JLjar4JKCS+aRDxN6cvOHfvgifWg0+MrC
+ g5I0Kohm8DQwyKQEV8cqLOEFEXnSLgB02O41Bpzft5cKXXPSs2jhNSPdcRW6Bz4ETtJYhfIVZt3
+ AEbEuGhRE6kaX+ihwQKGD7ilnCGc7RjL6s8KCRlYXzndoRvIKFeMSjuchhhw6c0aT/8benz1SAO
+ lUjVcjtnB/dp7Zk8GmJPy/4F3giOJSJ+YgXtJkKA09frL5/4jpf49cl7NcaZFua3z+pnQeaV0am
+ o48VHt01LlDCVCMmfIEVgsLRshw6TzqrxosBsx63Y0iEOm3/xX8gt+w1hGGYBDeL0h4Z/7eONfQ
+ NAW4iFUd5X+/2CB3WriLu7zYgoTF70IMDUHtCi/Sl/sYXMDYrXTNIHKrdgA01w4X/VUeyArHw/n
+ JAxFAnFmNGh0WrRe88Q8RoqNq+/aOzqNcCBn7i9Mr2HDD0CF5Mpa4MossfLZhOQbm1cT3/BQuzF
+ DsLZ2Y4mHSVmKiJ4jKWqW249N8iig3Rby/Dt8MN2b39mqlqMOruc+VcLeHltPm9tTUnQZQI6KaL
+ pyrZiD46H4taQ58axr88nRA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_134448_494637_72FC7A3A 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20260710_135615_821942_D290291A 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,230 +104,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Drop the HPD handling logic from the USBDP PHY. The registers involved
+require the display controller power domain being enabled and thus the
+HPD signal should be handled by the displayport controller itself.
+Apart from that the HPD handling as it is done here is incorrect and
+misses hotplug events happening after the USB-C connector (e.g. when
+a USB-C to HDMI adapter is involved and the HDMI cable is replugged).
 
---=-o4MtyftxKrMMeCtHeUA0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Proper USB-C DP HPD support requires some restructuring of the DP
+controller driver, which will happen independent of this patch. The
+mainline kernel does not yet support USB-C DP AltMode on RK3588 and
+RK3576, so it is fine to drop this code without adding the counterpart
+in the DRM in an atomic change.
 
-Le vendredi 10 juillet 2026 =C3=A0 16:34 -0400, Nicolas Dufresne a =C3=A9cr=
-it=C2=A0:
-> Le jeudi 09 avril 2026 =C3=A0 21:30 +0800, Pengpeng Hou a =C3=A9crit=C2=
-=A0:
-> > Cedrus consumes the active ref_pic_list0/ref_pic_list1 entries and uses
-> > their indices to look up decode->dpb[] in _cedrus_write_ref_list().
-> >=20
-> > Those active portions are the first
-> > num_ref_idx_l0_active_minus1 + 1 / num_ref_idx_l1_active_minus1 + 1
-> > entries in the two reference lists.
-> >=20
-> > An out-of-range index in that active portion can therefore read past th=
-e
-> > fixed V4L2_H264_NUM_DPB_ENTRIES array.
-> >=20
-> > Checking this in cedrus_try_ctrl() is awkward because the request-local
-> > DPB state may not have been applied yet. Instead, validate the active
-> > entries at the actual Cedrus use site and fail setup with -EINVAL if on=
-e
-> > points past decode->dpb[].
-> >=20
-> > Entries beyond the active reference counts remain ignored as before, so
-> > this does not change how Cedrus treats unused tail data in the
-> > reference-list controls.
-> >=20
-> > Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
-> > Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
->=20
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->=20
-> > ---
-> > Changes since v1:
-> > - reject invalid indices in the active reference list entries instead o=
-f
-> > =C2=A0 silently skipping them
-> > - keep the validation at the Cedrus use site, but propagate -EINVAL bac=
-k
-> > =C2=A0 through setup
-> >=20
-> > =C2=A0drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 32 +++++++++++=
-+++--
-> > =C2=A01 file changed, 29 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drivers=
-/staging/media/sunxi/cedrus/cedrus_h264.c
-> > index 3e2843ef6cce..58c411c580f3 100644
-> > --- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > @@ -186,10 +186,10 @@ static int cedrus_write_frame_list(struct cedrus_=
-ctx *ctx,
-> > =C2=A0
-> > =C2=A0#define CEDRUS_MAX_REF_IDX	32
-> > =C2=A0
-> > -static void _cedrus_write_ref_list(struct cedrus_ctx *ctx,
-> > -				=C2=A0=C2=A0 struct cedrus_run *run,
-> > -				=C2=A0=C2=A0 const struct v4l2_h264_reference *ref_list,
-> > -				=C2=A0=C2=A0 u8 num_ref, enum cedrus_h264_sram_off sram)
-> > +static int _cedrus_write_ref_list(struct cedrus_ctx *ctx,
-> > +				=C2=A0 struct cedrus_run *run,
-> > +				=C2=A0 const struct v4l2_h264_reference *ref_list,
-> > +				=C2=A0 u8 num_ref, enum cedrus_h264_sram_off sram)
-> > =C2=A0{
-> > =C2=A0	const struct v4l2_ctrl_h264_decode_params *decode =3D run->h264.=
-decode_params;
-> > =C2=A0	struct vb2_queue *cap_q;
-> > @@ -210,6 +210,9 @@ static void _cedrus_write_ref_list(struct cedrus_ct=
-x *ctx,
-> > =C2=A0		u8 dpb_idx;
-> > =C2=A0
-> > =C2=A0		dpb_idx =3D ref_list[i].index;
-> > +		if (dpb_idx >=3D V4L2_H264_NUM_DPB_ENTRIES)
-> > +			return -EINVAL;
-> > +
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 85 ++++---------------------------
+ 1 file changed, 9 insertions(+), 76 deletions(-)
 
-Ah, got confused in triaging, this one got actually replaced by what we alr=
-eady
-merged, which is just these two lines. Marking as obsolete, feel free to fo=
-llow-
-up.
-
-cheers,
-Nicolas
-
-> > =C2=A0		dpb =3D &decode->dpb[dpb_idx];
-> > =C2=A0
-> > =C2=A0		if (!(dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
-> > @@ -229,28 +232,30 @@ static void _cedrus_write_ref_list(struct cedrus_=
-ctx *ctx,
-> > =C2=A0
-> > =C2=A0	size =3D min_t(size_t, ALIGN(num_ref, 4), sizeof(sram_array));
-> > =C2=A0	cedrus_h264_write_sram(dev, sram, &sram_array, size);
-> > +
-> > +	return 0;
-> > =C2=A0}
-> > =C2=A0
-> > -static void cedrus_write_ref_list0(struct cedrus_ctx *ctx,
-> > -				=C2=A0=C2=A0 struct cedrus_run *run)
-> > +static int cedrus_write_ref_list0(struct cedrus_ctx *ctx,
-> > +				=C2=A0 struct cedrus_run *run)
-> > =C2=A0{
-> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
-ice_params;
-> > =C2=A0
-> > -	_cedrus_write_ref_list(ctx, run,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list0,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l0_active_m=
-inus1 + 1,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_0);
-> > +	return _cedrus_write_ref_list(ctx, run,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list0,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l0_active_minus1=
- + 1,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_0);
-> > =C2=A0}
-> > =C2=A0
-> > -static void cedrus_write_ref_list1(struct cedrus_ctx *ctx,
-> > -				=C2=A0=C2=A0 struct cedrus_run *run)
-> > +static int cedrus_write_ref_list1(struct cedrus_ctx *ctx,
-> > +				=C2=A0 struct cedrus_run *run)
-> > =C2=A0{
-> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
-ice_params;
-> > =C2=A0
-> > -	_cedrus_write_ref_list(ctx, run,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list1,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l1_active_m=
-inus1 + 1,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_1);
-> > +	return _cedrus_write_ref_list(ctx, run,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list1,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l1_active_minus1=
- + 1,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_1);
-> > =C2=A0}
-> > =C2=A0
-> > =C2=A0static void cedrus_write_scaling_lists(struct cedrus_ctx *ctx,
-> > @@ -338,8 +343,8 @@ static void cedrus_skip_bits(struct cedrus_dev *dev=
-, int num)
-> > =C2=A0	}
-> > =C2=A0}
-> > =C2=A0
-> > -static void cedrus_set_params(struct cedrus_ctx *ctx,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct cedrus_run *run)
-> > +static int cedrus_set_params(struct cedrus_ctx *ctx,
-> > +			=C2=A0=C2=A0=C2=A0=C2=A0 struct cedrus_run *run)
-> > =C2=A0{
-> > =C2=A0	const struct v4l2_ctrl_h264_decode_params *decode =3D run->h264.=
-decode_params;
-> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
-ice_params;
-> > @@ -351,6 +356,7 @@ static void cedrus_set_params(struct cedrus_ctx *ct=
-x,
-> > =C2=A0	size_t slice_bytes =3D vb2_get_plane_payload(src_buf, 0);
-> > =C2=A0	unsigned int pic_width_in_mbs;
-> > =C2=A0	bool mbaff_pic;
-> > +	int ret;
-> > =C2=A0	u32 reg;
-> > =C2=A0
-> > =C2=A0	cedrus_write(dev, VE_H264_VLD_LEN, slice_bytes * 8);
-> > @@ -393,11 +399,17 @@ static void cedrus_set_params(struct cedrus_ctx *=
-ctx,
-> > =C2=A0
-> > =C2=A0	if ((slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_P) ||
-> > =C2=A0	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYP=
-E_SP) ||
-> > -	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B))
-> > -		cedrus_write_ref_list0(ctx, run);
-> > +	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B))=
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 8ac6a83b0b2a..24108816e3b9 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -128,7 +128,6 @@ struct rk_udphy_grf_cfg {
+ 
+ struct rk_udphy_vogrf_cfg {
+ 	/* vo-grf */
+-	struct rk_udphy_grf_reg hpd_trigger;
+ 	u32 dp_lane_reg;
+ };
+ 
+@@ -186,14 +185,11 @@ struct rk_udphy {
+ 	u32 dp_lane_sel[4];
+ 	u32 dp_aux_dout_sel;
+ 	u32 dp_aux_din_sel;
+-	bool dp_sink_hpd_sel;
+-	bool dp_sink_hpd_cfg;
+ 	unsigned int link_rate;
+ 	unsigned int lanes;
+ 	u8 bw;
+ 	int id;
+ 
+-	bool dp_in_use;
+ 	int dp_lanes;
+ 
+ 	/* PHY const config */
+@@ -577,19 +573,6 @@ static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
+ 				   CMN_DP_CMN_RSTN, FIELD_PREP(CMN_DP_CMN_RSTN, 0x0));
+ }
+ 
+-static void rk_udphy_dp_hpd_event_trigger(struct rk_udphy *udphy, bool hpd)
+-{
+-	const struct rk_udphy_cfg *cfg = udphy->cfgs;
+-
+-	udphy->dp_sink_hpd_sel = true;
+-	udphy->dp_sink_hpd_cfg = hpd;
+-
+-	if (!udphy->dp_in_use)
+-		return;
+-
+-	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_trigger, hpd);
+-}
+-
+ static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
  {
-> > +		ret =3D cedrus_write_ref_list0(ctx, run);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > =C2=A0
-> > -	if (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B)
-> > -		cedrus_write_ref_list1(ctx, run);
-> > +	if (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B) {
-> > +		ret =3D cedrus_write_ref_list1(ctx, run);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > =C2=A0
-> > =C2=A0	// picture parameters
-> > =C2=A0	reg =3D 0;
-> > @@ -478,6 +490,8 @@ static void cedrus_set_params(struct cedrus_ctx *ct=
-x,
-> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_SLICE_DECODE_INT |
-> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_DECODE_ERR_INT |
-> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_VLD_DATA_REQ_INT);
-> > +
-> > +	return 0;
-> > =C2=A0}
-> > =C2=A0
-> > =C2=A0static enum cedrus_irq_status
-> > @@ -531,9 +545,7 @@ static int cedrus_h264_setup(struct cedrus_ctx *ctx=
-, struct cedrus_run *run)
-> > =C2=A0	if (ret)
-> > =C2=A0		return ret;
-> > =C2=A0
-> > -	cedrus_set_params(ctx, run);
-> > -
-> > -	return 0;
-> > +	return cedrus_set_params(ctx, run);
-> > =C2=A0}
-> > =C2=A0
-> > =C2=A0static int cedrus_h264_start(struct cedrus_ctx *ctx)
+ 	if (udphy->mode == mode)
+@@ -1000,29 +983,6 @@ static void rk_udphy_power_off(struct rk_udphy *udphy, u8 mode)
+ 		rk_udphy_disable(udphy);
+ }
+ 
+-static int rk_udphy_dp_phy_init(struct phy *phy)
+-{
+-	struct rk_udphy *udphy = phy_get_drvdata(phy);
+-
+-	mutex_lock(&udphy->mutex);
+-
+-	udphy->dp_in_use = true;
+-
+-	mutex_unlock(&udphy->mutex);
+-
+-	return 0;
+-}
+-
+-static int rk_udphy_dp_phy_exit(struct phy *phy)
+-{
+-	struct rk_udphy *udphy = phy_get_drvdata(phy);
+-
+-	mutex_lock(&udphy->mutex);
+-	udphy->dp_in_use = false;
+-	mutex_unlock(&udphy->mutex);
+-	return 0;
+-}
+-
+ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ {
+ 	struct rk_udphy *udphy = phy_get_drvdata(phy);
+@@ -1254,8 +1214,6 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,
+ }
+ 
+ static const struct phy_ops rk_udphy_dp_phy_ops = {
+-	.init		= rk_udphy_dp_phy_init,
+-	.exit		= rk_udphy_dp_phy_exit,
+ 	.power_on	= rk_udphy_dp_phy_power_on,
+ 	.power_off	= rk_udphy_dp_phy_power_off,
+ 	.configure	= rk_udphy_dp_phy_configure,
+@@ -1309,6 +1267,14 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 	struct rk_udphy *udphy = typec_mux_get_drvdata(mux);
+ 	u8 mode;
+ 
++	/*
++	 * Ignore mux events not involving DP AltMode, because
++	 * the mode field is being reused, e.g. state->mode == 4
++	 * could be either TYPEC_MODE_USB4 or TYPEC_DP_STATE_C.
++	 */
++	if (!state->alt || state->alt->svid != USB_TYPEC_DP_SID)
++		return 0;
++
+ 	mutex_lock(&udphy->mutex);
+ 
+ 	switch (state->mode) {
+@@ -1340,22 +1306,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 		break;
+ 	}
+ 
+-	if (state->alt && state->alt->svid == USB_TYPEC_DP_SID) {
+-		struct typec_displayport_data *data = state->data;
+-
+-		if (!data) {
+-			rk_udphy_dp_hpd_event_trigger(udphy, false);
+-		} else if (data->status & DP_STATUS_IRQ_HPD) {
+-			rk_udphy_dp_hpd_event_trigger(udphy, false);
+-			usleep_range(750, 800);
+-			rk_udphy_dp_hpd_event_trigger(udphy, true);
+-		} else if (data->status & DP_STATUS_HPD_STATE) {
+-			rk_udphy_mode_set(udphy, mode);
+-			rk_udphy_dp_hpd_event_trigger(udphy, true);
+-		} else {
+-			rk_udphy_dp_hpd_event_trigger(udphy, false);
+-		}
+-	}
++	rk_udphy_mode_set(udphy, mode);
+ 
+ 	mutex_unlock(&udphy->mutex);
+ 	return 0;
+@@ -1510,20 +1461,6 @@ static int rk_udphy_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-static int __maybe_unused rk_udphy_resume(struct device *dev)
+-{
+-	struct rk_udphy *udphy = dev_get_drvdata(dev);
+-
+-	if (udphy->dp_sink_hpd_sel)
+-		rk_udphy_dp_hpd_event_trigger(udphy, udphy->dp_sink_hpd_cfg);
+-
+-	return 0;
+-}
+-
+-static const struct dev_pm_ops rk_udphy_pm_ops = {
+-	SET_LATE_SYSTEM_SLEEP_PM_OPS(NULL, rk_udphy_resume)
+-};
+-
+ static const char * const rk_udphy_rst_list[] = {
+ 	"init", "cmn", "lane", "pcs_apb", "pma_apb"
+ };
+@@ -1547,7 +1484,6 @@ static const struct rk_udphy_cfg rk3576_udphy_cfgs = {
+ 	},
+ 	.vogrfcfg = {
+ 		{
+-			.hpd_trigger	= RK_UDPHY_GEN_GRF_REG(0x0000, 11, 10, 1, 3),
+ 			.dp_lane_reg    = 0x0000,
+ 		},
+ 	},
+@@ -1588,11 +1524,9 @@ static const struct rk_udphy_cfg rk3588_udphy_cfgs = {
+ 	},
+ 	.vogrfcfg = {
+ 		{
+-			.hpd_trigger	= RK_UDPHY_GEN_GRF_REG(0x0000, 11, 10, 1, 3),
+ 			.dp_lane_reg	= 0x0000,
+ 		},
+ 		{
+-			.hpd_trigger	= RK_UDPHY_GEN_GRF_REG(0x0008, 11, 10, 1, 3),
+ 			.dp_lane_reg	= 0x0008,
+ 		},
+ 	},
+@@ -1628,7 +1562,6 @@ static struct platform_driver rk_udphy_driver = {
+ 	.driver		= {
+ 		.name	= "rockchip-usbdp-phy",
+ 		.of_match_table = rk_udphy_dt_match,
+-		.pm = &rk_udphy_pm_ops,
+ 	},
+ };
+ module_platform_driver(rk_udphy_driver);
 
---=-o4MtyftxKrMMeCtHeUA0
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+-- 
+2.53.0
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalFZuQAKCRDZQZRRKWBy
-9E4gAP9IKReqizEjnQfn4ApLGat1bJ5U0qQKq3VhmdZ9lvsLyQEAlR9FERLUU97O
-YAYg5Flg0N0JR45jozsHFNE8RcF5JgE=
-=Ag+W
------END PGP SIGNATURE-----
-
---=-o4MtyftxKrMMeCtHeUA0--
 
