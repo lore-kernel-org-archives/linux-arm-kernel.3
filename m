@@ -4,64 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C105EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85ED3C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 06:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krdUrVIKIxasf2XNKDFWdtOjjmMNFWd/DZ1h/7TApMc=; b=vC7n4TH1Sx055ibingMOyXE2Tk
-	ScbfJfjOfcM6w0H28viu1SEbqBPUD/K7FQSMZNsEfXa4RkyO4q2d5CJijjiwpXGXW4q5KuylgY6TZ
-	fX0hOC9h4H/y6toF6VZgCH0enw22AvXeLRUkmqYV8hTMhuTToBSzmQxXri9mxUuVm7xCYSOyDqva7
-	4nmzbLNgyEvJoYdU9tRbMNqvkYUUpIlJ9WKuR8iQvBHz1SdUZZ/U4cBeRQVieqVUIK1tYBPJ0Ndt1
-	LiMg30BFpQwdO8A595WTL4KM/xowoC7tH8Mlwfj5ThrMkBohwkQNX4oC3fDiuzWqUwWNt3PMvjCYr
-	rbXv02fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fZRSrgy2U3e2BtO9OnEsB0U+yACKuWX0UJT31KF/Mro=; b=LiaobTP31FFL7cC/Y3foU3oVe1
+	obRaTpfXxaZeQrCIuDf3eUM6htagfU2CXmjEWrOT3BTS6JcAG3BsL8rc0S0mNR0ByE//2lLT1NC/B
+	2qyIPqenARXuVNssNsdy45TgYLfa8omfL+UUYqAo+zLi34xxOq2gO19O0JvjlquUdV773xSwoIC5F
+	qa//TfEe7Ln6MsHtFBJHUpEHMYYifnUz+eRTnv1JERz1e3SbxSdCB4r+01sf3NgWY8RpQ/Ahdza1f
+	2JovzJpo5DFGIElTXDOjksqwc1f6O9j2CiprRVhclRqvEMTOqGdh6ZOOXp5JqcAAezAqETdxadsYz
+	tZt+FR6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4f7-00000004Fyv-3QbM;
-	Fri, 10 Jul 2026 06:24:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi4f4-00000004Fxu-0b9y
+	id 1wi4Jf-00000004EiS-2vCk;
+	Fri, 10 Jul 2026 06:02:27 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wi4Jd-00000004Eha-0HZK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 06:24:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F32621684;
-	Thu,  9 Jul 2026 23:24:25 -0700 (PDT)
-Received: from [10.174.42.251] (unknown [10.174.42.251])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 790453F66F;
-	Thu,  9 Jul 2026 23:24:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783664670; bh=4g/2ofQNJW3nisoY9ATp9Y+hKY3z5NvZnpw6COVHkl4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MIHz4ZYtQjRT0S2VjBOcVjsH8pK0JvjY4+hj0w+KPTIEavzgyJ2pd1QRs9meIP7pz
-	 8gHMGGQqraK/YfVihyw+0okzs/RhHWdAsUnhGw+69XsiphjmiROpqG7tMVrHl7rVDl
-	 d1ORqkty+KW2ShYAMj2JErgl5mZ8XA/1KWfSGR2s=
-Message-ID: <b18b55e0-5e2e-48cd-a58e-e1359d980ffb@arm.com>
-Date: Fri, 10 Jul 2026 11:54:24 +0530
-MIME-Version: 1.0
+	Fri, 10 Jul 2026 06:02:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BqxTtjpSe3a+Uak15pIPXmT6ynpYVYVwLxRtr/iv+UsvY+8MeEZd4UQ18YMAbGKTS5x4uEl42IMHpVQCNaUqnQZKzOAiMUrwUmdCVx/Rr93Nla+YULPeSy+eK+ha6Hlt2+IL3ZsrFFCeajg4rEVixhKppEXjlMa47M/S5Lser2xusOhYMvvXdNZjctWOMLfDOKGH5/seZk2gBhM4+ZoW62uyb0AbU0o418jil2PxMt69uOdqEwYpu0QTFH3Ok+FKYvF0Wez+yFUTaja5g8/M1HlkM/Cc0Vr29q7y5cEnZeHy/r76cxSty1BOJqaoaqga95uo9qe7/1F+WfMP/a/xMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fZRSrgy2U3e2BtO9OnEsB0U+yACKuWX0UJT31KF/Mro=;
+ b=KHwprCIt9PTjn9mf+STLH5AmQxgpA57O5Ak+dVz41vgz4kIJMwUOfSTK2X2yARTEHVGKht65OHT5+BZNdyt+qxk9/jjvc6lq4aHyrzG52bVpAfFU3g1uEUX1XLtJ5/bCtVDFynhf8WLv0cxJNr9H1cviTPC71Ymg1+QIJR/2k2JtAzGx8vRW6c29Dr4z3ORYgybGILcNmt2UElMBDCFybUl8vW1GZ1vxJeQsjnIsaDi/Sv8ipYM8vTHtWhRqfFZfPCGUr5cgIIHihxwowtHnaEkcmFjnG3gZiw1nkSXpXb1HgdR/cZOLxg1aaNZ/IJtsJAAMwaTYvT8M+nz5qAKO4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fZRSrgy2U3e2BtO9OnEsB0U+yACKuWX0UJT31KF/Mro=;
+ b=DW/3j27OebktdJpg2S5NmAIdTCWQwzeDbWPtrBbi8LW74EpHujqJPtn1cvSsNv26LGunolBwRmFAOdP68pTWG4v99R1IIfFB6OU7kCUNGYms4em+WtHqz/jACCGWUZ9k4L8AZm1NeqE983ho5vK3VMsJF2YNS4r4uWJY7d2VxO8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA4PR12MB9788.namprd12.prod.outlook.com (2603:10b6:208:5d5::11)
+ by DS0PR12MB7629.namprd12.prod.outlook.com (2603:10b6:8:13e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Fri, 10 Jul
+ 2026 06:02:11 +0000
+Received: from IA4PR12MB9788.namprd12.prod.outlook.com
+ ([fe80::aac5:ae06:3bf1:36db]) by IA4PR12MB9788.namprd12.prod.outlook.com
+ ([fe80::aac5:ae06:3bf1:36db%5]) with mapi id 15.21.0181.014; Fri, 10 Jul 2026
+ 06:02:11 +0000
+Message-ID: <233a5acc-89e7-4ff0-a8c7-867dc1c176ff@amd.com>
+Date: Fri, 10 Jul 2026 08:01:56 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] arm64: cpufeature: Extend bbml2_noabort support
- list
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260708144331.679816-1-linu.cherian@arm.com>
- <20260708144331.679816-4-linu.cherian@arm.com>
- <eab6908e-d897-4fd0-9626-ef2e0b553cc2@arm.com>
+Subject: Re: [RFC PATCH] firmware: scmi: Make SCMI arch independent
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com,
+ vincent.guittot@linaro.org, Souvik.Chakravarty@arm.com,
+ Alex Shi <alexs@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ David Lechner <dlechner@baylibre.com>, Dongliang Mu <dzm91@hust.edu.cn>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Jonathan Cameron <jic23@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Len Brown <lenb@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Linus Walleij <linusw@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>,
+ Mark Brown <broonie@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Pavel Machek <pavel@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shuah Khan <skhan@linuxfoundation.org>, Stephen Boyd <sboyd@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Yanteng Si <si.yanteng@linux.dev>,
+ arm-scmi@vger.kernel.org,
+ "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+ linux-arm-kernel@lists.infradead.org,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "open list:HARDWARE MONITORING" <linux-hwmon@vger.kernel.org>,
+ "open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>,
+ "open list:ENERGY MODEL" <linux-pm@vger.kernel.org>
+References: <d7f7e8c9589d937b60e43168845ab4fda15037a3.1783603600.git.michal.simek@amd.com>
+ <6cc90547-a3d6-40b4-8914-a1ff60944cdf@roeck-us.net>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <eab6908e-d897-4fd0-9626-ef2e0b553cc2@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <6cc90547-a3d6-40b4-8914-a1ff60944cdf@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0210.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::35) To IA4PR12MB9788.namprd12.prod.outlook.com
+ (2603:10b6:208:5d5::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA4PR12MB9788:EE_|DS0PR12MB7629:EE_
+X-MS-Office365-Filtering-Correlation-Id: c640b4f2-9a5a-47b9-533f-08dede48c7f2
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|22082099003|18002099003|56012099006|3023799007|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: uZ+OG5xEiz/H7na2lUd6Kip0kUm1x0E64QeUbqJ7jN4dgvEeXH73wIu3suO6KiF407ifcKKbn5FzyecWyccjerDtz4w0xtF8/ghBisvgpd8nMQgZ3R00vq9VpPmilYTm3t+D1ndX0OacNLvOE7f6U5Sb1xjhjMDvV2+0WfEE5AQIP/PpnPFAuxmvvl/BW+vkpPxtS0bxG38/3fVrkg045KA7EboIMlbqUH41DFUBDJQx2rn1JmZzEAhlQrs3SpAnyL4fT7MTlXPb5IcFrhBZZtfbeXRR+8+xM3x2ZdLxi2dco1kJNJDeMJcPVsr5gmgSuy0LaNZhoS+utl1XD6eOWB6IWR+cC3wtq0OYNJLUnnZDNJjafgyzu4kVb/rqgGRrViZ8q6ZPTmnjtCuBwAKdt5LSQ0/3SLCezpDWTbSPt35My2DfqFL+hPDl9YPA6KDxFPIKqoKSSog1J/+WEEKF6dIpM7Rjh+FlDQUHRkA2BcnMyg25TYYxjiJJCJmug+878eP+gdByLUowRJqSk5TxhPZluhbVx7wDXsn4+7YeeKplwjub+HEK4jLIfnKPd3O6liz8Fe2X+9kk3o7+ru+ReDYef1OQ+xyTL2CbwXjn0XKv999rPk/C8Th8cI454ixqbWVIpnb3KwiIH+nraQ7h6cdV/6e1wsixRxzdB8oZq1Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB9788.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(18002099003)(56012099006)(3023799007)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Wkg4VDFnWVBpbEdhTVIrdUFpMkVJMThNT1NsamJLcHRXaDFSOW5NSHhHSmZV?=
+ =?utf-8?B?Sy9oWlRSckUrdUsvSFplRHJkVGo5cXQ1WklMMitQVUdIWmd6ZnFIUFJhVUFQ?=
+ =?utf-8?B?SHlvMVh4ZkpvZVJtWFdLRzU3djhDT2NGbkx1SWNpU1BHeDRyUTlXenNIajVz?=
+ =?utf-8?B?bnk4SDAxd0I3cjNhTTBCUS9MM3Uvd1VGcmpBdzJVWFowOEVrWmljSlRIM1My?=
+ =?utf-8?B?T3VGbHJtaFFZdXdVb2tXRGFYaURzTWRNTFVCdW55ZERUUjJydUxMcXlWUldZ?=
+ =?utf-8?B?TGZwVlo1Z2Y1bzQyOGRUQ2FNUUtPaXFsaktFL0hWaUxYOEVJU0tvRVgxNnZU?=
+ =?utf-8?B?d2JacUs1NFlUb3EwdUpSVld4ZGtlQlNoMnZlVHhqeEZIZ3ExeUMrVzlheGZp?=
+ =?utf-8?B?REhoQ05HNUJWc1hmQWJXTkpXUXVGTnJKOEhuVmlWbWNvNEtKa091UHpYME1p?=
+ =?utf-8?B?aERMeUdXVWdFSEhNVnBVQmUxTGFvMDlJQWJZbSsxSUZUdEtBWXQ2OU0xMWxB?=
+ =?utf-8?B?ZS9DdEtBSDdpeXhMa2xBUmgySUdTQmE2bkp5b1NRNTVJZk9Ic1pJUmJvdTVk?=
+ =?utf-8?B?S0xSTUozNFA0a21YcGpoOE5tRFMwbEZqWjcxOEljMmc4RlRPRkcwNkNzRXlF?=
+ =?utf-8?B?a0JDOGtsY3liQUZlZy9TVHN5dU44TmFjUCtoSGkzOUJOWjFUQy92TU9weExs?=
+ =?utf-8?B?cnh4eWFjakl1WWxjWld5TmZhL2pHRjNsRDJTYlJNcHBjYlRXc0MrY0ljY2hH?=
+ =?utf-8?B?Ry8wRkxqVGJUaXlPWG9GVGJMU29HUHVJOHRFTnk0ZEd0WTJpZExJRmYzVGFS?=
+ =?utf-8?B?eVFGWjNIVlRqU2xqbFpTTDY2YUdUS0JpZURyWmhReFpwRHJEMVk1N0cwc1l0?=
+ =?utf-8?B?N3I1Y2xaSE1NbElUM3U4eFkvTmFlSDN5SEV6dHNodG1YcUlITnJSWk9NUDRD?=
+ =?utf-8?B?MWFxRkhUZVVPMTM3YmlsUlNUNnVydnYzVVZhZ1JNRk1IMXBDNmJPanVzRnMy?=
+ =?utf-8?B?VXRueVZsMjB1QnVOY1JLNm1SbHFxQnNXSlFzem9sdGRjVkNSeE1mV3R6cGVp?=
+ =?utf-8?B?cm1IVkgzcEhSbGNlUGVuOTIxb2hKL2NGNUhKeVJiOGVyb0NEQit5LzhTRDRH?=
+ =?utf-8?B?UEwrUE1vOGxaRkJuWG9GSVpyQ1RINnI1NkZ2WjVETVpaRzBiSVhERFFhTmpV?=
+ =?utf-8?B?WWV0VmFrRUVKdG1wRTNablFlSURwdU0rejgwY3FDb2NvMG9sVXlNbU9TVTIr?=
+ =?utf-8?B?VFAyeTUrcTl4RmhoUERhYmVIbTdMVmhOM0YxUWJ1eVNBQW84Tkw2OWdVZ0Nh?=
+ =?utf-8?B?RjRSR0VnVURnYlBINVpYV3Jkazd6NW5meTlsWmJxQkZuSU00aGpXc2cvTkRK?=
+ =?utf-8?B?UW5KS1Y0aHVnMjh4WXplWjRUYUZsTW0vTnl2dWI1NGtjRWtaZXBIYXVrMlVS?=
+ =?utf-8?B?Nk5YM0habnE3Z054VEU3WUQ0U3g5WWlncmhna1IycG1WUlNLMXJHbjBpRjlU?=
+ =?utf-8?B?TGRWeUxSWWJad25JWGNObHVNTnNSSkZpS3MxUFFkd09QNk1JM0hQWGN5ZmxL?=
+ =?utf-8?B?QVlIUHRXeGhveU1uZllQYXBUb0g4aElLYXlBb3lFKzJaTkpIb0lETm5lWnRH?=
+ =?utf-8?B?dnJTNm5UUUtaaEFwU0pTWmVsbEpmUUNIK0ZyRFNla0dPcjVSeWZEZFNvMi8y?=
+ =?utf-8?B?K0NzU200V0trd1dFQTJTWmxPNTd6NGNpalJVOFFCOEc3VTI3WmxRNmFwYTl5?=
+ =?utf-8?B?UzJqYmdTNXExTnlHRVJmTytHMFZSRmltd0wxTUc5cmQwbjhtMEVEclRqV0c4?=
+ =?utf-8?B?YVYyWEZkUEhVRUE3djM1UHNWblRBTkdBbUpnR05yaFc0N1hnYWw1Rlc4dFBq?=
+ =?utf-8?B?dk1oaDBWdURZeGhMUm0xS0E2Z1JDaXQzWlhKOTIwcmUzR3BYNkpXQk5Db3lF?=
+ =?utf-8?B?ZTlGU0xVQ0s5MVRsZVF2TkxZVUpPV3RkSlJ2K0NRRWExK3puOFJFVGdVUm12?=
+ =?utf-8?B?citnS0p4S1dObUpWN2dwRDI2ZWFUR3NTaTlxaDltL0xuRU90WXAxaHg5eTlE?=
+ =?utf-8?B?VFBtNnJKeVh0bnB1aXJsTkk0ZjE1Um1GYUtEcEQwU0FhdjJBS0lhbVpXMldE?=
+ =?utf-8?B?TDc0bC9lQkJCZUIyY0VqUEU0eXViUkhwTG0zVStQbFFWbENhTXdWakw3QXBv?=
+ =?utf-8?B?T2dFblJQSm51V29BOXVIVG9YK2RQYzhZTFhkRk0xQzU5T0xRZFdtWmVuYkhP?=
+ =?utf-8?B?T1NKRUM1cXVaODNrTHNFdjVlcitDMzhESmlHS0ljckRLWk1hUkRqZnJ0c0Yw?=
+ =?utf-8?B?UVdqVE9xU1BJSW9VU3BxMmtYcjBmZkc1bUR3clNTUU55NFFhWmlsZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c640b4f2-9a5a-47b9-533f-08dede48c7f2
+X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB9788.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 06:02:10.9676
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0diETeLxWBzBXTpv9bccJCiNY8w7P3IId2uoHYh55HcE3seKbMYEZ/moe+RxyZPs
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260709_232434_217597_50C59EBD 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260709_230225_192384_644DF4C9 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,72 +219,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 08/07/26 8:23 PM, Suzuki K Poulose wrote:
-> On 08/07/2026 15:43, Linu Cherian wrote:
->> Add below cpus to the midr list, which supports
->> BBML2_NOABORT.
+On 7/9/26 18:07, Guenter Roeck wrote:
+> On Thu, Jul 09, 2026 at 03:27:00PM +0200, Michal Simek wrote:
+>> On heterogenious systems like AMD/Xilinx FPGA there is a need to talk to
+>> SCMI server from different architectures than ARM that's why remove
+>> ARM/ARM64 Kconfig dependency with also remove ARM from description and
+>> rename folder to reflect it.
+>>  From specification perspective only ARM specific transport layers should be
+>> available on ARM/ARM64 architectures.
 >>
->> Cortex A520(AE)
->> Cortex A715
->> Cortex A720(AE)
->> Cortex A725
->> Neoverse N3
->> C1-Nano
->> C1-Pro
->> C1-Ultra
->> C1-Premium
+>> That's why get rid of ARM prefix and description from documentation, file
+>> names, folder names, MODULE description, module names, Kconfig and
+>> comments.
+>> But keep origin Kconfig symbols not to break existing users.
 >>
->> C1-Ultra and C1-Premium both suffer from erratum 3683289,
->> where Break-Before-Make must be followed to avoid a livelock.
->> For both CPUs, the erratum is fixed from r1p1.
->> Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
-> 
-> Please could you also update the list of errata here :
-> 
-> Documentation/arch/arm64/silicon-errata.rst
-
-Agreed. There are existing errata entries for C1-Ultra
-and C1-Premimum although this errata will not have any
-corresponding ARM64_ERRATUM_ associated for now.
-> 
+>> Hwmon, pinctrl, powercap, regulator, reset, clk and cpufreq scmi drivers
+>> already miss arm prefix that's why synchronize all of them to be without
+>> arm prefix.
 >>
->> The relevant SDENs are:
->> * C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
->> * C1-Premium: https://developer.arm.com/documentation/111078/9-00/
->>
->> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+>> Signed-off-by: Michal Simek <michal.simek@amd.com>
 >> ---
->>   arch/arm64/kernel/cpufeature.c | 9 +++++++++
->>   1 file changed, 9 insertions(+)
 >>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 9a22df0c5120..adcabea80fcb 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2152,6 +2152,15 @@ bool cpu_supports_bbml2_noabort(void)
->>           MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
->>           MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->>           MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->> +        MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
->> +        MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
->> +        MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
->> +        MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
->> +        MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
->> +        MIDR_ALL_VERSIONS(MIDR_C1_NANO),
->> +        MIDR_ALL_VERSIONS(MIDR_C1_PRO),
+>> Likely I missed other locations but I wanted to send this RFC to have a
+>> discussion about it.
+>> ---
+> ...
+>>   drivers/hwmon/Kconfig                                 |  2 +-
+> ...
+>> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+>> index 2bfbcc033d59..cda0aedb36ca 100644
+>> --- a/drivers/hwmon/Kconfig
+>> +++ b/drivers/hwmon/Kconfig
+>> @@ -401,7 +401,7 @@ config SENSORS_ARCTIC_FAN_CONTROLLER
+>>   	  will be called arctic_fan_controller.
+>>   
+>>   config SENSORS_ARM_SCMI
+>> -	tristate "ARM SCMI Sensors"
+>> +	tristate "SCMI Sensors"
+>>   	depends on ARM_SCMI_PROTOCOL
+>>   	depends on THERMAL || !THERMAL_OF
+>>   	help
 > 
-> And mention it here, so that it is evident from the code alone ?
-> 
->> +        MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
->> +        MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
-> 
-> 
-> Suzuki
-> 
-> 
->>           {}
->>       };
->>   
-> 
+> I agree in principle, but I don't see why this would have to be done
+> in a single patch. Also, both the Kconfig file (SENSORS_ARM_SCMI,
+> ARM_SCMI_PROTOCOL) and the driver itself (""ARM SCMI HWMON interface
+> driver") still reference ARM.
 
+It should be split for sure. Just wanted to get initial feedback about this 
+change to show that it targets multiple locations.
+
+Thanks,
+Michal
 
