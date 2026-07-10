@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD4FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F58DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 20:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpn2IgbKGrTggO+5MYIlxTrWJGnctnmaJp03+CTcNbQ=; b=oKgB63pHTrkT0iwya1BKETogl/
-	HD4wuHHGRCXQQW9hpzbh5bdG8GfF/OChkvYr6jkP5n+6JuWgebdx5TA8fqVpLXZHncGD5r7tQmnW8
-	bRPUBoVu/HBqUWJc3KIEt8LdwylunrYFodWZjobjbLB/28OXFRZVFBc3wP6M6sfQ1FZZyHUoNSHzj
-	xGVcn8R04bGpK4QWoFlQdDo/CKx1kisAnl3YjHCFVnfD/9MapB+I2hEaUy6AudmD5/t8xLjxqx2te
-	QdPoytyt0C5UjnFmc/Fymmt2/V0V5UsQQKdK6Jn/HKl7FCkErrl7bcCH0XzCIl+Ix//jDeOMo+A7x
-	phrsYLYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9iZuOsVTTmx7uip+ThMYSjXsyrEAprg5eUG3s8LN+A=; b=Zrn/imCkNf5nvvHMVpHAnRwbZj
+	7ZoTe68o47A/xZPmeXkqZhm8sykSIQlZ7zFgvIgTc1uutRudXseFlYKAsZCrPWhKmmtTEtaQcCuCn
+	gkYsWQC6K9cbtuCDlmDtgtxOmjqXA7Rm3jq7hPZraS0rwCjHeMWjU7gR9Us0CCqY6gdCkgPrdPoBA
+	GCRHlJBx7jB5IWdm2cES7qMeY+CISOu61DcVX5wda3EqIGdg6xLx682NM1DQTB6Ui0TzmA5/pi+fX
+	iT8bIbMXSULpXzBE/hiuDNwFjadoyrZRYRYiw757MoM8sLhNUNI/pY5UKWIwd2Gy34hkLG7Tjx/QC
+	vj1qONOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiI3q-00000005j5m-0Lt0;
-	Fri, 10 Jul 2026 20:43:02 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wiI5a-00000005jHv-1SrA;
+	Fri, 10 Jul 2026 20:44:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiI3n-00000005j5M-3UAu;
-	Fri, 10 Jul 2026 20:43:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783716177; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZyUydZzLCJqQ8wHcsSMHJlKTS8z/av6o2hGJJdBy8M1k5t9U7f0WFGpaIroEhcsIePuq8C7FHzGNBL0Ii88bns9s9EdgQKTHBo8WE8Fr+eRTkbrZpytgsQ0JhMa9vnViAC85rpb1YaiazTbAJ95Jwm5daANU6YKk66qlpO/Mxek=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783716177; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=bpn2IgbKGrTggO+5MYIlxTrWJGnctnmaJp03+CTcNbQ=; 
-	b=MMCjpRRyJxtIpWTstuncaP6v+wBiS/7282bPwZu/2MP1cdBfLadH5jrWGthdUuQ9DuZrJLhrMmJiBio4lgrL6/w/hHAtTN7epLc4Qb5DJ9qem8mQ7D3VPoA9lNeKEtYkz9QIVEmsLfmalXAulHwQbgGaG3fjvTd0eiYlW+bKU7Q=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783716177;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=bpn2IgbKGrTggO+5MYIlxTrWJGnctnmaJp03+CTcNbQ=;
-	b=I9JNKRuXOnNk4XkmPx9tXSx/ngxfTyoLiiRCSqtZR2WaTQLmD/Wa6bXMuvL7Mrqs
-	i4KHNLDNZa30uB99Q1MFbaC882rFxFWJ0J9sObXLuMKm7vdpkPwTnZEOyK4xKnxSQdh
-	RSd9na5LYg7gknWD+0V5MoTYSIgwHruYTGzjp4UM=
-Received: by mx.zohomail.com with SMTPS id 1783716174951831.1292117639873;
-	Fri, 10 Jul 2026 13:42:54 -0700 (PDT)
-Message-ID: <a6a32617-f3c9-4cf2-b020-daecf7ec18f1@collabora.com>
-Date: Fri, 10 Jul 2026 22:42:50 +0200
+	id 1wiI5Y-00000005jHK-16ve
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Jul 2026 20:44:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783716284;
+	bh=ltqMKCiaqQdjvTI+FF1Bbx8iaCWQ0kLFmcfGnyBTD70=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=CnVVOsUpmfXVpd5NASaGnZj2GulmbwGyMJKdSNXJPWhcrujOmjTkV+9t5n7689Nka
+	 8NUvv8FnT/G4c4p6720OQw0ksqjvI5Ey196DAZh7zw0wy87sYnBu+IoDNH0bIXEc+b
+	 l5etBxyFOZe3MEyw9Dp9N0GbUicFnd6UDjykD2a2qxpOeo0Pdbk2AMFCK5CL3O4+Al
+	 OkdfhZCO4CMeDHEQM1wew+ibxJRZIwHy0a72eK+k2Z5VXR9HBVh11SDBrvHohHr/5w
+	 gEkApOdH8jU0XlHa40XIHPWPz83KFrSZFXc+pYC0aTVC0oga/hXypRwe8GofYvErXd
+	 ZLrU4ofi8pQpQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33BAE17E03CE;
+	Fri, 10 Jul 2026 22:44:43 +0200 (CEST)
+Message-ID: <88535b996b84fae201592da11847ce9f7735a7eb.camel@collabora.com>
+Subject: Re: [PATCH v2] media: cedrus: reject invalid active H.264 ref
+ indices
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Maxime Ripard <mripard@kernel.org>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland	 <samuel@sholland.org>, linux-media@vger.kernel.org, 
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Fri, 10 Jul 2026 16:44:41 -0400
+In-Reply-To: <273883f0479afb1037d9b4b815937267b6bd658d.camel@collabora.com>
+References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
+		 <20260409223001.1-cedrus-h264-active-v2-pengpeng@iscas.ac.cn>
+	 <273883f0479afb1037d9b4b815937267b6bd658d.camel@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-o4MtyftxKrMMeCtHeUA0"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
-To: Paul Elder <paul.elder@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- laurent.pinchart@ideasonboard.com
-Cc: xuhf@rock-chips.com, stefan.klug@ideasonboard.com,
- dan.scally@ideasonboard.com, jacopo.mondi@ideasonboard.com,
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- hverkuil+cisco@kernel.org, nicolas.dufresne@collabora.com,
- ribalda@chromium.org, sakari.ailus@linux.intel.com
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
- <20260619052637.1110672-2-paul.elder@ideasonboard.com>
- <178229758404.3075020.12553514371020830845@ping.linuxembedded.co.uk>
- <178237578321.292172.5229006087283359591@neptunite.rasen.tech>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <178237578321.292172.5229006087283359591@neptunite.rasen.tech>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_134259_953956_6E80B004 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20260710_134448_494637_72FC7A3A 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +95,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
 
-On 6/25/26 10:23, Paul Elder wrote:
-> [...]
->>> +// TODO figure out locking for when multiple drivers touch the media graph;
->>> +// maybe macros for shared versions?
->>
->> Do you mean for when drivers are trying to change link state directly?
-> 
-> I meant for all the operations that act on media device. I'm not sure what
-> there is because I didn't really find anything significant, and I found some
-> action point from some meeting notes somewhere that said "deprecate media_ops"
-> (not assigned to me) so...
+--=-o4MtyftxKrMMeCtHeUA0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Oh yes, for some reason this ball ended up in our side of the field. But
-actually I think the media_ops are not much of an issue, as you don't
-set them when you create the shared media device. Problem solved, right?
+Le vendredi 10 juillet 2026 =C3=A0 16:34 -0400, Nicolas Dufresne a =C3=A9cr=
+it=C2=A0:
+> Le jeudi 09 avril 2026 =C3=A0 21:30 +0800, Pengpeng Hou a =C3=A9crit=C2=
+=A0:
+> > Cedrus consumes the active ref_pic_list0/ref_pic_list1 entries and uses
+> > their indices to look up decode->dpb[] in _cedrus_write_ref_list().
+> >=20
+> > Those active portions are the first
+> > num_ref_idx_l0_active_minus1 + 1 / num_ref_idx_l1_active_minus1 + 1
+> > entries in the two reference lists.
+> >=20
+> > An out-of-range index in that active portion can therefore read past th=
+e
+> > fixed V4L2_H264_NUM_DPB_ENTRIES array.
+> >=20
+> > Checking this in cedrus_try_ctrl() is awkward because the request-local
+> > DPB state may not have been applied yet. Instead, validate the active
+> > entries at the actual Cedrus use site and fail setup with -EINVAL if on=
+e
+> > points past decode->dpb[].
+> >=20
+> > Entries beyond the active reference counts remain ignored as before, so
+> > this does not change how Cedrus treats unused tail data in the
+> > reference-list controls.
+> >=20
+> > Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
+> > Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+>=20
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>=20
+> > ---
+> > Changes since v1:
+> > - reject invalid indices in the active reference list entries instead o=
+f
+> > =C2=A0 silently skipping them
+> > - keep the validation at the Cedrus use site, but propagate -EINVAL bac=
+k
+> > =C2=A0 through setup
+> >=20
+> > =C2=A0drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 32 +++++++++++=
++++--
+> > =C2=A01 file changed, 29 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drivers=
+/staging/media/sunxi/cedrus/cedrus_h264.c
+> > index 3e2843ef6cce..58c411c580f3 100644
+> > --- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> > @@ -186,10 +186,10 @@ static int cedrus_write_frame_list(struct cedrus_=
+ctx *ctx,
+> > =C2=A0
+> > =C2=A0#define CEDRUS_MAX_REF_IDX	32
+> > =C2=A0
+> > -static void _cedrus_write_ref_list(struct cedrus_ctx *ctx,
+> > -				=C2=A0=C2=A0 struct cedrus_run *run,
+> > -				=C2=A0=C2=A0 const struct v4l2_h264_reference *ref_list,
+> > -				=C2=A0=C2=A0 u8 num_ref, enum cedrus_h264_sram_off sram)
+> > +static int _cedrus_write_ref_list(struct cedrus_ctx *ctx,
+> > +				=C2=A0 struct cedrus_run *run,
+> > +				=C2=A0 const struct v4l2_h264_reference *ref_list,
+> > +				=C2=A0 u8 num_ref, enum cedrus_h264_sram_off sram)
+> > =C2=A0{
+> > =C2=A0	const struct v4l2_ctrl_h264_decode_params *decode =3D run->h264.=
+decode_params;
+> > =C2=A0	struct vb2_queue *cap_q;
+> > @@ -210,6 +210,9 @@ static void _cedrus_write_ref_list(struct cedrus_ct=
+x *ctx,
+> > =C2=A0		u8 dpb_idx;
+> > =C2=A0
+> > =C2=A0		dpb_idx =3D ref_list[i].index;
+> > +		if (dpb_idx >=3D V4L2_H264_NUM_DPB_ENTRIES)
+> > +			return -EINVAL;
+> > +
 
-> If there aren't any then it's a non-issue, but if there are then I was
-> wondering if we need to return the shared media device to the driver (as
-> opposed to a non-shared regular media device) and use shared versions of media
-> device functions that have locking.
+Ah, got confused in triaging, this one got actually replaced by what we alr=
+eady
+merged, which is just these two lines. Marking as obsolete, feel free to fo=
+llow-
+up.
 
-+1
-I would recommend that just to be on the safe side. And I think I would
-make the shared media device an opaque pointer to make sure that there
-won't be any monkey business.
+cheers,
+Nicolas
 
-Thanks and best regards,
-Michael
+> > =C2=A0		dpb =3D &decode->dpb[dpb_idx];
+> > =C2=A0
+> > =C2=A0		if (!(dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+> > @@ -229,28 +232,30 @@ static void _cedrus_write_ref_list(struct cedrus_=
+ctx *ctx,
+> > =C2=A0
+> > =C2=A0	size =3D min_t(size_t, ALIGN(num_ref, 4), sizeof(sram_array));
+> > =C2=A0	cedrus_h264_write_sram(dev, sram, &sram_array, size);
+> > +
+> > +	return 0;
+> > =C2=A0}
+> > =C2=A0
+> > -static void cedrus_write_ref_list0(struct cedrus_ctx *ctx,
+> > -				=C2=A0=C2=A0 struct cedrus_run *run)
+> > +static int cedrus_write_ref_list0(struct cedrus_ctx *ctx,
+> > +				=C2=A0 struct cedrus_run *run)
+> > =C2=A0{
+> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
+ice_params;
+> > =C2=A0
+> > -	_cedrus_write_ref_list(ctx, run,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list0,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l0_active_m=
+inus1 + 1,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_0);
+> > +	return _cedrus_write_ref_list(ctx, run,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list0,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l0_active_minus1=
+ + 1,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_0);
+> > =C2=A0}
+> > =C2=A0
+> > -static void cedrus_write_ref_list1(struct cedrus_ctx *ctx,
+> > -				=C2=A0=C2=A0 struct cedrus_run *run)
+> > +static int cedrus_write_ref_list1(struct cedrus_ctx *ctx,
+> > +				=C2=A0 struct cedrus_run *run)
+> > =C2=A0{
+> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
+ice_params;
+> > =C2=A0
+> > -	_cedrus_write_ref_list(ctx, run,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list1,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l1_active_m=
+inus1 + 1,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_1);
+> > +	return _cedrus_write_ref_list(ctx, run,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->ref_pic_list1,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 slice->num_ref_idx_l1_active_minus1=
+ + 1,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CEDRUS_SRAM_H264_REF_LIST_1);
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0static void cedrus_write_scaling_lists(struct cedrus_ctx *ctx,
+> > @@ -338,8 +343,8 @@ static void cedrus_skip_bits(struct cedrus_dev *dev=
+, int num)
+> > =C2=A0	}
+> > =C2=A0}
+> > =C2=A0
+> > -static void cedrus_set_params(struct cedrus_ctx *ctx,
+> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct cedrus_run *run)
+> > +static int cedrus_set_params(struct cedrus_ctx *ctx,
+> > +			=C2=A0=C2=A0=C2=A0=C2=A0 struct cedrus_run *run)
+> > =C2=A0{
+> > =C2=A0	const struct v4l2_ctrl_h264_decode_params *decode =3D run->h264.=
+decode_params;
+> > =C2=A0	const struct v4l2_ctrl_h264_slice_params *slice =3D run->h264.sl=
+ice_params;
+> > @@ -351,6 +356,7 @@ static void cedrus_set_params(struct cedrus_ctx *ct=
+x,
+> > =C2=A0	size_t slice_bytes =3D vb2_get_plane_payload(src_buf, 0);
+> > =C2=A0	unsigned int pic_width_in_mbs;
+> > =C2=A0	bool mbaff_pic;
+> > +	int ret;
+> > =C2=A0	u32 reg;
+> > =C2=A0
+> > =C2=A0	cedrus_write(dev, VE_H264_VLD_LEN, slice_bytes * 8);
+> > @@ -393,11 +399,17 @@ static void cedrus_set_params(struct cedrus_ctx *=
+ctx,
+> > =C2=A0
+> > =C2=A0	if ((slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_P) ||
+> > =C2=A0	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYP=
+E_SP) ||
+> > -	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B))
+> > -		cedrus_write_ref_list0(ctx, run);
+> > +	=C2=A0=C2=A0=C2=A0 (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B))=
+ {
+> > +		ret =3D cedrus_write_ref_list0(ctx, run);
+> > +		if (ret)
+> > +			return ret;
+> > +	}
+> > =C2=A0
+> > -	if (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B)
+> > -		cedrus_write_ref_list1(ctx, run);
+> > +	if (slice->slice_type =3D=3D V4L2_H264_SLICE_TYPE_B) {
+> > +		ret =3D cedrus_write_ref_list1(ctx, run);
+> > +		if (ret)
+> > +			return ret;
+> > +	}
+> > =C2=A0
+> > =C2=A0	// picture parameters
+> > =C2=A0	reg =3D 0;
+> > @@ -478,6 +490,8 @@ static void cedrus_set_params(struct cedrus_ctx *ct=
+x,
+> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_SLICE_DECODE_INT |
+> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_DECODE_ERR_INT |
+> > =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 VE_H264_CTRL_VLD_DATA_REQ_INT);
+> > +
+> > +	return 0;
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0static enum cedrus_irq_status
+> > @@ -531,9 +545,7 @@ static int cedrus_h264_setup(struct cedrus_ctx *ctx=
+, struct cedrus_run *run)
+> > =C2=A0	if (ret)
+> > =C2=A0		return ret;
+> > =C2=A0
+> > -	cedrus_set_params(ctx, run);
+> > -
+> > -	return 0;
+> > +	return cedrus_set_params(ctx, run);
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0static int cedrus_h264_start(struct cedrus_ctx *ctx)
 
-> 
->>
->>> +struct media_device_shared {
->>> +       struct media_device mdev;
->>> +       struct list_head members;
->>> +       struct list_head links;
->>> +
->>> +       struct list_head list;
->>> +       struct kref refcount;
->>> +
->>> +       struct device *removed_device;
->>> +};
->>> +[...]
+--=-o4MtyftxKrMMeCtHeUA0
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalFZuQAKCRDZQZRRKWBy
+9E4gAP9IKReqizEjnQfn4ApLGat1bJ5U0qQKq3VhmdZ9lvsLyQEAlR9FERLUU97O
+YAYg5Flg0N0JR45jozsHFNE8RcF5JgE=
+=Ag+W
+-----END PGP SIGNATURE-----
+
+--=-o4MtyftxKrMMeCtHeUA0--
 
