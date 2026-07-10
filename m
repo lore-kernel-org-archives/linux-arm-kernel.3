@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A2FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75394C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 11:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/U1Gw8hevVKM95vpLUwyV9E1e21wXByHb45PT6PY3mg=; b=BOsYmT3/O7NmR+yvLKUMiD5hj1
-	ok72yRxZGI4UFghhwVG4DmoQBXmpP9G/UZlZtOzltyv7gM5EQ5eJPIy/PlijaMdnxYTOhCInxf5LG
-	NF9Wp60bdhwlqdxoHdziORgOZd7jcs/t11y0jqvK3dk+IyJLOc/L5zQ10sCYzkHjd1HRt0jWFXTrM
-	e0MWXnadkgmrPFkgvt+CDw1SHgOrGfUlOTO8HhKmEnHcJrdet7WxHhDrXTEuQ9d1SqROkyZcUim37
-	i+acfLMyUgDomEOoCVKzUHbus5v87J7gS224Paj46XaGtxxoXi/NyNvYWMy4ZHYYyaagyAITmkGel
-	suRd7Fyw==;
+	bh=bEH0bTONu1BxWO2vQOoJBgijmxRoZYTwkTORwvC2SaQ=; b=pKVSG6dohNTowgkROcFx1vkNaZ
+	U1Nr+SgKVhn0PKCI+nRbyAIQ6dB0HolAenol1Dppm3BtRRL45R/EhAJYHvtr5HeFH+/e5yI+nmwth
+	Rv4u+vdCLNDjDwIcNeR2qryw4XbbkL5nvKgjelfqGKGWkwBBFylvAxgSrffL5h/pAQVKewCbodX8H
+	zklkz7juYnNjhCqhG9Kw9xg0QylEcY7XxwU+IJ5+dRIiJY8r4KRKXQCNe9ErkEP++3XH1Hcp+3vr2
+	jHUAUduON+kCMtTZcpb/SnNYEogEifYKkNz+WyfKNgs8BveZeGPkZgMfW8xHfcnz+2g26Q7Oq48LY
+	4JkHDsbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9Hk-00000004oxH-3rCJ;
-	Fri, 10 Jul 2026 11:20:48 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wi9OG-00000004pW8-2zbr;
+	Fri, 10 Jul 2026 11:27:32 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wi9Hi-00000004owQ-1aAI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Jul 2026 11:20:47 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66ABEvsK024946
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 10 Jul 2026 20:15:10 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=/U1Gw8hevVKM95vpLUwyV9E1e21wXByHb45PT6PY3mg=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1783682111; v=1;
-        b=BmBSxaV5UzA5XSQgoXX+yskzpEDYEdnJVOJCUGr7Vj6yuiAVgqYdpfo4PGcmSeJU
-         36G+MlsCngo6FfOpQnygDfWtjBiFQRxVRAyjnNfJXWmhHhEe+fZIRwbEFcY44LtD
-         bBcWH+7Nn39MtS0L5FvOwjLd+oWCszp4GUOxnDFmFBFrBfS9NKkIBukTkwA54GMk
-         TjfJbkaDEPuJMcKuM/57MDenyvlV4rg1PX16Qtp36+5n1rU2sCtiLCO7kCKHQs4Q
-         gLLG23K3+h1lMGCy4LiESBHSlPEDn0WqM/RtKnKuDmJRlTo5o8GOMLKgxWWEW4xb
-         X978avdK1iVwN9AaLYjW9A==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Fri, 10 Jul 2026 20:15:00 +0900
-Subject: [PATCH v8 06/11] KVM: arm64: PMU: Protect the list of PMUs with
- RCU
+	id 1wi9OD-00000004pVh-3c3s;
+	Fri, 10 Jul 2026 11:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1783682828; x=1784287628; i=markus.elfring@web.de;
+	bh=bEH0bTONu1BxWO2vQOoJBgijmxRoZYTwkTORwvC2SaQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=mbFWesRaegpSYGsGZK7BoBp+PNOye0yqMPkFUdsVEuPsiJ72wQCw+PrNN8bB7zsC
+	 ckke+2WQiP+9lVFsMwRW7wNKNR5Nv49cPMdfutvTk+0mDEnkLDyjXK/oxZXJFgmvV
+	 xgt6L0ce5Ik3UcR27vcpQyAx02tGvqlzVdzUTbOGko5jNc9OIMHr1tS5xUJqhM1MC
+	 IFWvDMpVDscPS9eh98gOc8tfEl+Wo2WdrCX/Zmx7LUQN5TGcHLehTfh7reeTS7e46
+	 rLq2cKnTP1ylqmFSvVMiWR+pInU6On90Ip7+KdglOAiGoW2labr0fIHmjif3jBwQR
+	 7jbcNNYaXC6QOcGGyg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N2BMA-1xCEIX3rg6-01694H; Fri, 10
+ Jul 2026 13:27:07 +0200
+Message-ID: <76386ed2-b7dc-441a-b9ea-80ab26c54d52@web.de>
+Date: Fri, 10 Jul 2026 13:27:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260710-hybrid-v8-6-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.16-dev-925f5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2695;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=czv2g+GuK7rCFgQGkd6MIB0mjD9by6RlwHlZIF8LF0c=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bAFYvZE3/Fnj+xkjfxXb7y0uqEaZLfrmt5cTpYTGxcP
- 1X+m2FYRykLgxgXg6yYIktK0W5ujejaT4UJ8S0wc1iZQIYwcHEKwESe8zEybDC6URB7+35BYrHJ
- m0ajY/G+qf3NUxjMJVn2yt1h/Mazh+Gf6XuX1ReuTHULt99+79gevgXu+fev7wz+uTBJ+9cBhX4
- rBgA=
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+User-Agent: Mozilla Thunderbird
+To: Valerio Setti <vsetti@baylibre.com>,
+ Ethan Tidmore <ethantidmore06@gmail.com>, linux-sound@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Takashi Iwai <tiwai@suse.com>
+References: <b955120b-2c32-4b03-9e7f-f236692cfc7b@baylibre.com>
+Subject: Re: [PATCH] ASoC: meson: aiu: Fix resource leak
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <b955120b-2c32-4b03-9e7f-f236692cfc7b@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:ZdeQDG2m0MdsFVLdGtldEqS93FL+zTFMqxNSx6yQpU7JwnCUb1G
+ l8+yupHxG1RYG5csV5wnaqDHKtayvaqzFznBRAIil95nKEPqZDmmMSWzJnYBAnIe9yWmy6C
+ v0/fhu+jQU0ptDqh0czAgmh6MZ3pK1pfXtY7d2LV1CeBpuLp4GXnNGaeiIlep1AtrzMxO1K
+ CCqZ57PZ8RnQfElPUZx1g==
+UI-OutboundReport: notjunk:1;M01:P0:QR9rBkJ78GE=;nDrkwIBqUyqWJi9FkW1804U/EQ5 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 U7GZKg8nQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_042046_642043_C8A819D9 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260710_042730_285829_B9D5D922 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,98 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the list of PMUs to a RCU-protected list that has primitives to
-avoid read-side contention.
+=E2=80=A6
+> > +++ b/sound/soc/meson/aiu.c
+> > @@ -310,7 +310,7 @@ static int aiu_probe(struct platform_device *pdev)
+> >   					 ARRAY_SIZE(aiu_cpu_dai_drv));
+> >   	if (ret) {
+> >   		dev_err(dev, "Failed to register cpu component\n");
+> > -		return ret;
+> > +		goto err;
+> >   	}
+> >  =20
+> >   	/* Register the hdmi codec control component */
+>=20
+> Technically the fix is OK, =E2=80=A6
 
-Assisted-by: Codex:gpt-5.5
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
----
- arch/arm64/kvm/pmu-emul.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+I doubt it.
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index c816db5d6761..68fce960ba69 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -7,9 +7,9 @@
- #include <linux/cpu.h>
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
--#include <linux/list.h>
- #include <linux/perf_event.h>
- #include <linux/perf/arm_pmu.h>
-+#include <linux/rculist.h>
- #include <linux/uaccess.h>
- #include <asm/kvm_emulate.h>
- #include <kvm/arm_pmu.h>
-@@ -17,6 +17,10 @@
- 
- #define PERF_ATTR_CFG1_COUNTER_64BIT	BIT(0)
- 
-+/*
-+ * arm_pmus is append-only. kvm_supports_guest_pmuv3() feeds persistent
-+ * VM state, so a true result must remain valid after the check.
-+ */
- static LIST_HEAD(arm_pmus);
- static DEFINE_MUTEX(arm_pmus_lock);
- 
-@@ -26,7 +30,6 @@ static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
- 
- bool kvm_supports_guest_pmuv3(void)
- {
--	guard(mutex)(&arm_pmus_lock);
- 	return !list_empty(&arm_pmus);
- }
- 
-@@ -802,7 +805,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 		return;
- 
- 	entry->arm_pmu = pmu;
--	list_add_tail(&entry->entry, &arm_pmus);
-+	list_add_tail_rcu(&entry->entry, &arm_pmus);
- }
- 
- static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-@@ -811,7 +814,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	struct arm_pmu *pmu;
- 	int cpu;
- 
--	guard(mutex)(&arm_pmus_lock);
-+	guard(rcu)();
- 
- 	/*
- 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-@@ -831,7 +834,7 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	 * carried here.
- 	 */
- 	cpu = raw_smp_processor_id();
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		pmu = entry->arm_pmu;
- 
- 		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-@@ -1092,9 +1095,9 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 	int ret = -ENXIO;
- 
- 	lockdep_assert_held(&kvm->arch.config_lock);
--	mutex_lock(&arm_pmus_lock);
-+	guard(rcu)();
- 
--	list_for_each_entry(entry, &arm_pmus, entry) {
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
- 		arm_pmu = entry->arm_pmu;
- 		if (arm_pmu->pmu.type == pmu_id) {
- 			if (kvm_vm_has_ran_once(kvm) ||
-@@ -1110,7 +1113,6 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 		}
- 	}
- 
--	mutex_unlock(&arm_pmus_lock);
- 	return ret;
- }
- 
+How can a snd_soc_unregister_component(dev) call ever fit to a failed
+snd_soc_register_component() call (according to the presented suggestion)?
+https://elixir.bootlin.com/linux/v7.2-rc1/source/sound/soc/meson/aiu.c#L24=
+0-L315
 
--- 
-2.55.0
-
+Regards,
+Markus
 
