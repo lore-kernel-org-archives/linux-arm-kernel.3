@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 955C3C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D88C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Jul 2026 21:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46eUzVM3ncAmL/9d8cH77iPrk71pbyGmWfoXjh1L6RU=; b=DKvWEAhj8DWcvIKw8E4hBja7T8
-	fTwg3B46AHedE0xYUXlnpN55P+S7JIfd173ezpG7eu00Ahlu8BJuD0LUtiNpwXZg+jPB3dVKg9+xm
-	sfrkAJvY0HWQ9pY0jvS9Fwa/YpHh0+vor22BKZjgV1pFbhJayymRdiiAmnvUtpaVblXq/hB34oAlu
-	CON0CjPNuN4KPyJ2zTkzUYmGNLYzXzlVV7RxAxGnnAaWwZ+6tpuNUzWpB1TJ5j/9YIULXL5/NovL1
-	lQs7blOBrxUTkdZcFLL/WBwZMtq4HuVGNwRc/UY8cSYEJNd2+MKCBFGMkTSpDSmn6a+H84KqKt0ml
-	+/TE4sfA==;
+	bh=iHaxYR8uYLYMNA8T8Jycn/gvWhZHlEeoyZp5eI0Ar2I=; b=Pgip60OIojP+s0VTH7xIJX6zRc
+	GeHzoM54PhaTeJ8pDwMw2qOW9Upm+s4u+feHwrd1mvPVQGwUVrATEkmgmoZKRCoHQnAbJ1UFEe7e2
+	XjnsatCM8e+7Yv1Y9UMR8XBtGw2Zrpw71b9O2Lp3DXxcfj/KLJcAxJjg2YGQwnWIkWirGQK+YV1M6
+	/ET2LyjKsE/C1zV2tWig2ojaOE6NVyjHXEb9T6C7KuSq9JNQoSm3WH8QCKewEqwl6iJLu9JORP+wk
+	S3yKLAmosHiR7WmcAMZXdK8ryk++MEGFMwS9l4Y/FAnAsRHQctjy0NwO76Zzl+ucDD9WiTZnHtpLo
+	bKwhkeqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIe4-00000005ncB-3q8Y;
-	Fri, 10 Jul 2026 21:20:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wiIeA-00000005niW-1WOz;
+	Fri, 10 Jul 2026 21:20:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiIe3-00000005naN-1GRb;
-	Fri, 10 Jul 2026 21:20:27 +0000
+	id 1wiIe9-00000005nhA-0i2A;
+	Fri, 10 Jul 2026 21:20:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B6D6C600C3;
+	by sea.source.kernel.org (Postfix) with ESMTP id E480241613;
+	Fri, 10 Jul 2026 21:20:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF4C01F000E9;
 	Fri, 10 Jul 2026 21:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 844321F00A3A;
-	Fri, 10 Jul 2026 21:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783718426;
-	bh=46eUzVM3ncAmL/9d8cH77iPrk71pbyGmWfoXjh1L6RU=;
+	s=k20260515; t=1783718432;
+	bh=iHaxYR8uYLYMNA8T8Jycn/gvWhZHlEeoyZp5eI0Ar2I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LF44cjDyG2hqK00k2mfWkqXGbJF8blKUlTcFPOjLUfZ2ua4SP1IhMZVv94Mjwp7xo
-	 mfEDdZkIWq8GfMFuibDL0EegdsALrOlV636uEcI0FZbEffDmgaKKPPUmoEx1LmSX7C
-	 V3sQD0QRmU0kDQX5rvfmz96i2ajCJcfyB4T7ZweOqJZujZIQ9h21ESh6JmSTeTzlS7
-	 crjfQgLQBV7aUNGve/Jqu1SoFnPZfqVLjySWnOUgpPEVi67IIJ8y2inP0rsNPmEJU4
-	 roTMAnhXXyFsyMatMsv590fT+L0oG+lyT13kdP3JXHWA2LnwtOPElNhz48VlYb5yWW
-	 fa/D7KQDEHa4w==
+	b=lDOo6Jf82DGy8XB0G5ZO8iEgoubZqabz86Ifx3inaY/2S1Ivqr9xD7O/+1PtxS69I
+	 FfKwXL24AYnnQfRiLLMCqf0CUpexPdf9bCQZBqtc8+l4x61N68iFX8ABxGUGdBV5gX
+	 N2tyy5HdPQUtvg+uduqhX5PsJTVfPsKXtCCIu/FXtHh2i5zE+LVo7dWbrHIuIQkq8H
+	 91mzt33MUCHuEOUc/HdZU0W37l6VuE+AoX/uvIIVBIyj8APw9EA9dDUTCRLWHh8Z5o
+	 Ea5Hv5w+l5GSHQfIXLAg2bFWPtp/gxqLfIb3dlhZ5e1MlxIM1tGXbaJRhsryhAl/ls
+	 6dP3+asLYecdQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org,
 	Linus Walleij <linusw@kernel.org>,
@@ -73,9 +73,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-rockchip@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v2 03/10] mips: replace linux/gpio.h inclusions
-Date: Fri, 10 Jul 2026 23:19:48 +0200
-Message-Id: <20260710211954.1373336-4-arnd@kernel.org>
+Subject: [PATCH v2 04/10] sh: replace linux/gpio.h inclusions
+Date: Fri, 10 Jul 2026 23:19:49 +0200
+Message-Id: <20260710211954.1373336-5-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260710211954.1373336-1-arnd@kernel.org>
 References: <20260710211954.1373336-1-arnd@kernel.org>
@@ -98,124 +98,223 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Arnd Bergmann <arnd@arndb.de>
 
 linux/gpio.h should no longer be used, convert these instead to
-either linux/gpio/consumer.h or linux/gpio/legacy.h as needed.
+linux/gpio/legacy.h for the sh boards using the legacy interfaces,
+or remove it where it is not needed at all.
 
 Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/mips/alchemy/board-xxs1500.c                   | 2 +-
- arch/mips/alchemy/devboards/db1000.c                | 2 +-
- arch/mips/alchemy/devboards/db1200.c                | 2 +-
- arch/mips/alchemy/devboards/db1550.c                | 2 +-
- arch/mips/bcm47xx/workarounds.c                     | 2 +-
- arch/mips/bcm63xx/boards/board_bcm963xx.c           | 1 +
- arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h | 2 +-
- arch/mips/txx9/rbtx4927/setup.c                     | 2 +-
- 8 files changed, 8 insertions(+), 7 deletions(-)
+ arch/sh/boards/board-magicpanelr2.c             | 2 +-
+ arch/sh/boards/board-sh7757lcr.c                | 2 +-
+ arch/sh/boards/board-urquell.c                  | 2 +-
+ arch/sh/boards/mach-ap325rxa/setup.c            | 2 +-
+ arch/sh/boards/mach-ecovec24/setup.c            | 2 +-
+ arch/sh/boards/mach-highlander/pinmux-r7785rp.c | 2 +-
+ arch/sh/boards/mach-kfr2r09/lcd_wqvga.c         | 2 +-
+ arch/sh/boards/mach-kfr2r09/setup.c             | 2 +-
+ arch/sh/boards/mach-migor/lcd_qvga.c            | 2 +-
+ arch/sh/boards/mach-migor/setup.c               | 2 +-
+ arch/sh/boards/mach-rsk/devices-rsk7203.c       | 2 +-
+ arch/sh/boards/mach-rsk/devices-rsk7269.c       | 1 -
+ arch/sh/boards/mach-se/7724/setup.c             | 2 +-
+ arch/sh/include/mach-common/mach/magicpanelr2.h | 2 --
+ arch/sh/kernel/cpu/sh4a/setup-shx3.c            | 2 +-
+ 15 files changed, 13 insertions(+), 16 deletions(-)
 
-diff --git a/arch/mips/alchemy/board-xxs1500.c b/arch/mips/alchemy/board-xxs1500.c
-index f175bce2987f..a03762dde4e7 100644
---- a/arch/mips/alchemy/board-xxs1500.c
-+++ b/arch/mips/alchemy/board-xxs1500.c
-@@ -11,7 +11,7 @@
+diff --git a/arch/sh/boards/board-magicpanelr2.c b/arch/sh/boards/board-magicpanelr2.c
+index 75de893152af..3f14118a1015 100644
+--- a/arch/sh/boards/board-magicpanelr2.c
++++ b/arch/sh/boards/board-magicpanelr2.c
+@@ -10,7 +10,7 @@
+ #include <linux/irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/delay.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/regulator/fixed.h>
+ #include <linux/regulator/machine.h>
+ #include <linux/smsc911x.h>
+diff --git a/arch/sh/boards/board-sh7757lcr.c b/arch/sh/boards/board-sh7757lcr.c
+index bca54e489e11..6d18f59ef261 100644
+--- a/arch/sh/boards/board-sh7757lcr.c
++++ b/arch/sh/boards/board-sh7757lcr.c
+@@ -7,7 +7,7 @@
+ 
  #include <linux/init.h>
- #include <linux/interrupt.h>
  #include <linux/platform_device.h>
 -#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/irq.h>
+ #include <linux/regulator/fixed.h>
+ #include <linux/regulator/machine.h>
+diff --git a/arch/sh/boards/board-urquell.c b/arch/sh/boards/board-urquell.c
+index dad2b3b40735..1f73c04d341f 100644
+--- a/arch/sh/boards/board-urquell.c
++++ b/arch/sh/boards/board-urquell.c
+@@ -14,7 +14,7 @@
+ #include <linux/smc91x.h>
+ #include <linux/mtd/physmap.h>
  #include <linux/delay.h>
- #include <linux/pm.h>
- #include <asm/bootinfo.h>
-diff --git a/arch/mips/alchemy/devboards/db1000.c b/arch/mips/alchemy/devboards/db1000.c
-index 8fb24b220e3a..5eff34a8683b 100644
---- a/arch/mips/alchemy/devboards/db1000.c
-+++ b/arch/mips/alchemy/devboards/db1000.c
-@@ -8,7 +8,7 @@
- 
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/irq.h>
  #include <linux/clk.h>
- #include <linux/dma-mapping.h>
+ #include <linux/sh_intc.h>
+diff --git a/arch/sh/boards/mach-ap325rxa/setup.c b/arch/sh/boards/mach-ap325rxa/setup.c
+index bb5004a8ac02..17c3f568d92e 100644
+--- a/arch/sh/boards/mach-ap325rxa/setup.c
++++ b/arch/sh/boards/mach-ap325rxa/setup.c
+@@ -17,7 +17,7 @@
+ #include <linux/clkdev.h>
+ #include <linux/delay.h>
+ #include <linux/device.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/machine.h>
+ #include <linux/i2c.h>
+diff --git a/arch/sh/boards/mach-ecovec24/setup.c b/arch/sh/boards/mach-ecovec24/setup.c
+index a641e26f8fdf..ca4b4dd1ddef 100644
+--- a/arch/sh/boards/mach-ecovec24/setup.c
++++ b/arch/sh/boards/mach-ecovec24/setup.c
+@@ -20,7 +20,7 @@
+ #include <linux/mmc/host.h>
+ #include <linux/platform_data/sh_mmcif.h>
+ #include <linux/mtd/physmap.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/legacy.h>
  #include <linux/gpio/machine.h>
- #include <linux/gpio/property.h>
- #include <linux/init.h>
-diff --git a/arch/mips/alchemy/devboards/db1200.c b/arch/mips/alchemy/devboards/db1200.c
-index de2a9083ed9a..539b311fc8af 100644
---- a/arch/mips/alchemy/devboards/db1200.c
-+++ b/arch/mips/alchemy/devboards/db1200.c
-@@ -7,7 +7,7 @@
- 
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- #include <linux/i2c.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
-diff --git a/arch/mips/alchemy/devboards/db1550.c b/arch/mips/alchemy/devboards/db1550.c
-index b8295a5c2e9a..579fc8f1eaed 100644
---- a/arch/mips/alchemy/devboards/db1550.c
-+++ b/arch/mips/alchemy/devboards/db1550.c
-@@ -7,7 +7,7 @@
- 
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- #include <linux/i2c.h>
- #include <linux/init.h>
- #include <linux/io.h>
-diff --git a/arch/mips/bcm47xx/workarounds.c b/arch/mips/bcm47xx/workarounds.c
-index 745c6228eb2c..dc9e5483347d 100644
---- a/arch/mips/bcm47xx/workarounds.c
-+++ b/arch/mips/bcm47xx/workarounds.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "bcm47xx_private.h"
- 
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- #include <bcm47xx_board.h>
- #include <bcm47xx.h>
- 
-diff --git a/arch/mips/bcm63xx/boards/board_bcm963xx.c b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-index c5617b889b1c..71628dac6c26 100644
---- a/arch/mips/bcm63xx/boards/board_bcm963xx.c
-+++ b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-@@ -7,6 +7,7 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
- #include <linux/init.h>
-+#include <linux/gpio/legacy.h>
- #include <linux/kernel.h>
- #include <linux/string.h>
- #include <linux/platform_device.h>
-diff --git a/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h b/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
-index 830f53f28e3f..428cf4508f9a 100644
---- a/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
-+++ b/arch/mips/include/asm/mach-bcm63xx/board_bcm963xx.h
+ #include <linux/platform_data/gpio_backlight.h>
+ #include <linux/platform_data/tmio.h>
+diff --git a/arch/sh/boards/mach-highlander/pinmux-r7785rp.c b/arch/sh/boards/mach-highlander/pinmux-r7785rp.c
+index 689bd8732d9e..3a1057ee9ace 100644
+--- a/arch/sh/boards/mach-highlander/pinmux-r7785rp.c
++++ b/arch/sh/boards/mach-highlander/pinmux-r7785rp.c
 @@ -3,7 +3,7 @@
- #define BOARD_BCM963XX_H_
- 
- #include <linux/types.h>
+  * Copyright (C) 2008 Paul Mundt
+  */
+ #include <linux/init.h>
 -#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/leds.h>
- #include <bcm63xx_dev_enet.h>
- #include <bcm63xx_dev_usb_usbd.h>
-diff --git a/arch/mips/txx9/rbtx4927/setup.c b/arch/mips/txx9/rbtx4927/setup.c
-index 31955c1d5555..b4fbe6a2a73a 100644
---- a/arch/mips/txx9/rbtx4927/setup.c
-+++ b/arch/mips/txx9/rbtx4927/setup.c
-@@ -48,7 +48,7 @@
- #include <linux/ioport.h>
- #include <linux/platform_device.h>
++#include <linux/gpio/legacy.h>
+ #include <cpu/sh7785.h>
+ #include <mach/highlander.h>
+ 
+diff --git a/arch/sh/boards/mach-kfr2r09/lcd_wqvga.c b/arch/sh/boards/mach-kfr2r09/lcd_wqvga.c
+index f6bbac106d13..68716660de34 100644
+--- a/arch/sh/boards/mach-kfr2r09/lcd_wqvga.c
++++ b/arch/sh/boards/mach-kfr2r09/lcd_wqvga.c
+@@ -14,7 +14,7 @@
+ #include <linux/init.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <video/sh_mobile_lcdc.h>
+ #include <mach/kfr2r09.h>
+ #include <cpu/sh7724.h>
+diff --git a/arch/sh/boards/mach-kfr2r09/setup.c b/arch/sh/boards/mach-kfr2r09/setup.c
+index 70236859919d..30dd7dae7906 100644
+--- a/arch/sh/boards/mach-kfr2r09/setup.c
++++ b/arch/sh/boards/mach-kfr2r09/setup.c
+@@ -14,7 +14,7 @@
+ 
+ #include <linux/clkdev.h>
  #include <linux/delay.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/legacy.h>
+ #include <linux/gpio/machine.h>
+ #include <linux/i2c.h>
+ #include <linux/init.h>
+diff --git a/arch/sh/boards/mach-migor/lcd_qvga.c b/arch/sh/boards/mach-migor/lcd_qvga.c
+index 4ebf130510bc..f72934e370fd 100644
+--- a/arch/sh/boards/mach-migor/lcd_qvga.c
++++ b/arch/sh/boards/mach-migor/lcd_qvga.c
+@@ -14,7 +14,7 @@
+ #include <linux/init.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <video/sh_mobile_lcdc.h>
+ #include <cpu/sh7722.h>
+ #include <mach/migor.h>
+diff --git a/arch/sh/boards/mach-migor/setup.c b/arch/sh/boards/mach-migor/setup.c
+index 1853e6319a66..b0198e7cb9ab 100644
+--- a/arch/sh/boards/mach-migor/setup.c
++++ b/arch/sh/boards/mach-migor/setup.c
+@@ -22,7 +22,7 @@
+ #include <linux/smc91x.h>
+ #include <linux/delay.h>
+ #include <linux/clk.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/gpio/machine.h>
+ #include <linux/videodev2.h>
+ #include <linux/sh_intc.h>
+diff --git a/arch/sh/boards/mach-rsk/devices-rsk7203.c b/arch/sh/boards/mach-rsk/devices-rsk7203.c
+index e6b05d4588b7..eb56b57812bd 100644
+--- a/arch/sh/boards/mach-rsk/devices-rsk7203.c
++++ b/arch/sh/boards/mach-rsk/devices-rsk7203.c
+@@ -10,7 +10,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/smsc911x.h>
+ #include <linux/input.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/gpio_keys.h>
  #include <linux/leds.h>
+ #include <asm/machvec.h>
+diff --git a/arch/sh/boards/mach-rsk/devices-rsk7269.c b/arch/sh/boards/mach-rsk/devices-rsk7269.c
+index 4b1e386b51dd..54edd9958eca 100644
+--- a/arch/sh/boards/mach-rsk/devices-rsk7269.c
++++ b/arch/sh/boards/mach-rsk/devices-rsk7269.c
+@@ -11,7 +11,6 @@
+ #include <linux/interrupt.h>
+ #include <linux/input.h>
+ #include <linux/smsc911x.h>
+-#include <linux/gpio.h>
+ #include <asm/machvec.h>
  #include <asm/io.h>
- #include <asm/reboot.h>
+ 
+diff --git a/arch/sh/boards/mach-se/7724/setup.c b/arch/sh/boards/mach-se/7724/setup.c
+index e500feb91053..bed8f44fcecb 100644
+--- a/arch/sh/boards/mach-se/7724/setup.c
++++ b/arch/sh/boards/mach-se/7724/setup.c
+@@ -15,7 +15,7 @@
+ 
+ #include <linux/delay.h>
+ #include <linux/device.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/init.h>
+ #include <linux/input.h>
+ #include <linux/input/sh_keysc.h>
+diff --git a/arch/sh/include/mach-common/mach/magicpanelr2.h b/arch/sh/include/mach-common/mach/magicpanelr2.h
+index c2d218cea74b..29d86dd21b7b 100644
+--- a/arch/sh/include/mach-common/mach/magicpanelr2.h
++++ b/arch/sh/include/mach-common/mach/magicpanelr2.h
+@@ -10,8 +10,6 @@
+ #ifndef __ASM_SH_MAGICPANELR2_H
+ #define __ASM_SH_MAGICPANELR2_H
+ 
+-#include <linux/gpio.h>
+-
+ #define __IO_PREFIX mpr2
+ #include <asm/io_generic.h>
+ 
+diff --git a/arch/sh/kernel/cpu/sh4a/setup-shx3.c b/arch/sh/kernel/cpu/sh4a/setup-shx3.c
+index 7014d6d199b3..60be8dca54f6 100644
+--- a/arch/sh/kernel/cpu/sh4a/setup-shx3.c
++++ b/arch/sh/kernel/cpu/sh4a/setup-shx3.c
+@@ -9,7 +9,7 @@
+ #include <linux/serial.h>
+ #include <linux/serial_sci.h>
+ #include <linux/io.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ #include <linux/sh_timer.h>
+ #include <linux/sh_intc.h>
+ #include <cpu/shx3.h>
 -- 
 2.39.5
 
