@@ -4,131 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF75FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA253C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pA0TFC7UkEDXI5FUk59zdzYhP+mOINP0O+fHg17PO8=; b=49ogmwwd2FlieFF17Jx1fQ+dbv
-	qukCXl4mI4FE3ow6MwSgdTR9VWbo9SwdsB34BZlS0AwyKw80ERWwXqIWNEgkhgxjec2+e6J6JAozb
-	ZOoF/g9mEFRznwZT+GNF87+8uheWii6LT2gTKKRUbC9jiIVH/14WbyWXppjtcOZpNzNfuPkFZt0Kx
-	irEpWar43f0OgCbdjEKssBL9a+9dZXa4Y3fTNRlsQ9gPRMwcQGzl9PxVfvopcGOYCHdYRqtwxcLwq
-	ErCWrXTRWyU1w1OC9VuSC+L30EnWvWePivUo6yqmgseHtTigKZuXWouudLwhA9eIuQ+jKELGbq94x
-	+Gr8GNOQ==;
+	bh=jhPYci9Dt8OvtEtcy4b+McdMFRjiobjic+3G8cI6QZI=; b=qHzz3GDogQAupKTc4g/yu5oBgH
+	up1DLuYx1ZKaMqqX9U9ue6teCoEL2XIUDac8J1trD6lMfiay0tscGxwGwoVxSpRZLjfkCW8bvCM0F
+	DjLqpINlmN0dPmMjCIJ03PGM6/b6qkKmeBZSge8balMYq0YwYgdJ7Lzi5A84C0c3nSFBWTMormE8y
+	YgFIFCjrx7eU7F3L6X4BCDwmL7mcgGtp9oHPbMfEZHSwk7gX1/9INcXW3kDKCXsSmRkffzF8hQcsk
+	o+Kuy3sZh5IGojjZM9Z83BPfQsNSfG2CrDM06M//Y1QY66wgEszy5ZfZNJfOzE6ymzgNKI3YysN8M
+	z3K94L7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQna-00000006EpO-0QhN;
-	Sat, 11 Jul 2026 06:02:50 +0000
-Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.121])
+	id 1wiR3i-00000006GSo-1FlA;
+	Sat, 11 Jul 2026 06:19:30 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnR-00000006EgR-3s0W
+	id 1wiR3e-00000006GSS-43vW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:02:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783749746; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=g9M4gqJl1SHWv2ddnj27JmqGZPXr91e/K/2pnJNAEchnkCkPExHpVQbpPBr5hRQ3g8
-    qDuN4k5maOCku7toQYWBo2QVzxOA+YZfM72g+2P0xzZtUcvR3YUHFAXrVfUmc6JMRfG3
-    IuIM/Kehz89pN9CWDPSVVXQgxzS7m8dAPmawcyfonIwhV451+MtVxPLmtoHjFe01NwEs
-    qibE+4iPhbm0R4HVd4pCw5ccdtYqGo/f59KKFGPh65gpg1arm8BfHk3QPfH4/4HKGomF
-    JNz4hiKa9fUn5bQL8iQBbjN+iQEnIs4RMO9c+iiiU7e1joKaaSMrKBSiEhttavkXjUMh
-    CPQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749746;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=7pA0TFC7UkEDXI5FUk59zdzYhP+mOINP0O+fHg17PO8=;
-    b=FozWwp/sAiNBb0Vi3waIgup6pPUUKBANGqkq1yFyQATClVwnivdeT+iujS+w41DceP
-    KmcbvodJ8dz085DHhYjYmLFmEoPj0/H42iM1pHoNSPh1R8G7ZbZ+yRItLikSL2MfhGff
-    1Rhy8/5f3T1e5TxT1iuDyo9zQkm+KxA4nWqkPGiXeQd/P9QbOXCbO/pRBs/towBV62FH
-    d55CLgTFTB1JqL2NRuXJIApZX2F7dSRuU/jZG1RFTYPKU6Ua9VkCeyaA8NEU90du6kJc
-    nikb4byzkE2gxIG0DNwaEVpBfMczzxJIpg62ag8yBeWvPNGnAcdcwLv6hAlhatjtISa5
-    PmiQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo04
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749746;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=7pA0TFC7UkEDXI5FUk59zdzYhP+mOINP0O+fHg17PO8=;
-    b=H0E6fUOI+kXtvl2A2BrQrKmQMA7wJAlkBsexcdVWxwz2btf0WN9fY+v+U2YaSltr2W
-    XLMTszlt7IJ3CY4YmdBUAyrJI/zz18XDsb7IddVY6Kn3lHm9JnFsDj50UB982jC/7HAr
-    xCe2Wrp5bVtJD1BIn+z4wJLeQrBWihUu+p7LvCOUr2OlpBVZyr/VnacHDLUbkca7px/r
-    9sBZdwK/vaSRmNEQrbWzLgVW+AKObAWBooN5BaNpBZfLaJnQvPJBouuOV35cdp94iXuG
-    QaaqBiHzhakev6bvUronTMahQDRfBdXXMDfMCPY6MFEOIMIuWg1Ve45pbkAAdmqLQkD7
-    CWgw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749746;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=7pA0TFC7UkEDXI5FUk59zdzYhP+mOINP0O+fHg17PO8=;
-    b=o0YSAyo+ZlRrYAUyXkQ2aUg8Awuw7E4YNwmC7YQ62b8sLgqlZ/QhLRRf48RMtbtKsg
-    43T3NehK34SoQdLmktBg==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
-Received: from iMac.fritz.box
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426B62PGi1
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Sat, 11 Jul 2026 08:02:25 +0200 (CEST)
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-To: Grond <grond66@riseup.net>,
-	Stefan Leichter <sle85276@gmx.de>,
-	"H . Nikolaus Schaller" <hns@goldelico.com>,
-	Grazvydas Ignotas <notasas@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Jarkko Nikula <jarkko.nikula@bitmer.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Helge Deller <deller@gmx.de>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Sen Wang <sen@ti.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Niranjan H Y <niranjan.hy@ti.com>
-Cc: letux-kernel@openphoenux.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	kernel@pyra-handheld.com,
-	mfd@lists.linux.dev
-Subject: [PATCH 15/16] backlight: remove pandora_bl
-Date: Sat, 11 Jul 2026 08:02:02 +0200
-Message-ID: <f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
+	Sat, 11 Jul 2026 06:19:29 +0000
+Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66B6IoIf015927
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Sat, 11 Jul 2026 15:18:50 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=jhPYci9Dt8OvtEtcy4b+McdMFRjiobjic+3G8cI6QZI=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1783750731; v=1;
+        b=TIktfliCWLwpd/+swlM0LiA65CD4UnKwP+vi5ebo48IQszOhpbBoisXZWlKlE/dX
+         uAHImhHe1u8Zjp9F1SsNkKIkUb/AXZ9u8Z7NdTlKN2jqD5SOEswuQpbbITyDpknr
+         bQMy8wc6V8eb3bRh5OuNVsh/Fytdus3Lti0kugfIaALxVXZL20RQVbBjguL04sMs
+         aXEazALRVK84+npwac+koioVcBKj9dDnwEKFkIHUTtN1H8w/Ua72wDLMM7mvGBzF
+         WYg5KFzUg1+rIbfhz4gWL1L0e/OW6ioPVpTinpDdvu87eF5MyhfkfpurgzIcIBhd
+         q2uPRk28yyDaK3zl+/06dA==
+Message-ID: <0e5e64ea-2f3c-4ce6-88ac-08b66f13027c@rsg.ci.i.u-tokyo.ac.jp>
+Date: Sat, 11 Jul 2026 15:18:50 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/7] KVM: arm64: Disallow vPMU when pPMUs do not cover
+ all CPUs
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <20260706-hybrid-v8-1-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <akvgIWqBjAp_VA_A@kernel.org>
+ <e03f17b2-a765-4912-adf6-3da26e7eeecd@rsg.ci.i.u-tokyo.ac.jp>
+ <ak1DVUs0bgkpZh0N@kernel.org>
+ <7bf6c440-5f14-4326-9800-9821adc4e2e4@rsg.ci.i.u-tokyo.ac.jp>
+Content-Language: en-US
+In-Reply-To: <7bf6c440-5f14-4326-9800-9821adc4e2e4@rsg.ci.i.u-tokyo.ac.jp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_230242_258942_EB4F6DE9 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260710_231927_477970_BC828D5D 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,213 +91,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Retire the platform specific pandora backlight driver since
-it can now be replaced by twl_pm and device tree.
+On 2026/07/08 17:32, Akihiko Odaki wrote:
+> On 2026/07/08 3:20, Oliver Upton wrote:
+>> On Tue, Jul 07, 2026 at 08:08:03PM +0900, Akihiko Odaki wrote:
+>>> On 2026/07/07 2:04, Oliver Upton wrote:
+>>>> Hi,
+>>>>
+>>>> On Mon, Jul 06, 2026 at 07:03:24PM +0900, Akihiko Odaki wrote:
+>>>>> Commit ec3eb9ed6081 ("KVM: arm64: PMU: Disallow vPMU on non-uniform
+>>>>> PMUVer") made KVM reject vPMU unless the system-wide PMUVer is usable.
+>>>>> That covers systems where PMUv3 is absent or non-uniform, as well as
+>>>>> systems where IMPDEF PMUv3 sysreg traps are unavailable.
+>>>>>
+>>>>> However, KVM can still accept vPMU when all CPUs uniformly trap PMUv3
+>>>>> sysregs, but the pPMUs registered with KVM only cover a subset of
+>>>>> possible CPUs.
+>>>>>
+>>>>> Reject vPMU unless the registered pPMUs cover every possible CPU.
+>>>>> This avoids carrying support for partial pPMU coverage into the
+>>>>> fixed-counters-only UAPI introduced later in the series.
+>>>>
+>>>> Doesn't CPU hotplug screw this up? I could online a CPU that doesn't
+>>>> have a PMU after creating the VM.>
+>>>> I'd rather just change ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to become a
+>>>> system feature. That way any CPU which breaks the system-wide 
+>>>> assumption
+>>>> cannot be onlined.
+>>>
+>>> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS only says that IMPDEF PMUv3 
+>>> sysregs are
+>>> trapped. It does not say that KVM has a driver-backed PMU usable for 
+>>> PMUv3
+>>> emulation. This patch checks that extra requirement.
+>>>
+>>> I re-checked CPU hotplug. Onlining a CPU without a PMU later does not 
+>>> make
+>>> an accepted VM unsafe, since the check is against cpu_possible_mask.
+>>
+>> Sorry, I missed that this was against the possible mask.
+>>
+>>> The problem is the reverse case on ACPI: this check can disable vPMU 
+>>> when a
+>>> possible CPU is offline. DT populates supported_cpus at boot, while ACPI
+>>> initially populates it only from online CPUs and grows it as matching 
+>>> CPUs
+>>> come online.
+>>>
+>>> That makes this patch too conservative. In practice, I do not expect 
+>>> systems
+>>> to mix CPUs with and without a usable PMU. A better approach is 
+>>> probably to
+>>> treat such a host as out of spec and add TAINT_CPU_OUT_OF_SPEC. We 
+>>> already
+>>> do that for architectural PMUv3 by detecting mismatches in
+>>> ID_AA64DFR0_EL1.PMUVer; we can do the same for
+>>> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS with non-standard PMUs.
+>>
+>> The presence of the workaround is, by definition, out of spec. I just
+>> never bothered tainting the kernel because these machines are already
+>> TAINT_CPU_OUT_OF_SPEC by way of the broken VGIC.
+>>
+>> Ok, so how about you keep the check that you're doing here and promote
+>> IMPDEF_TRAPS to a system-wide feature? That would satisfy the two
+>> preconditions we have for PMU emulation, which is system register traps
+>> and a backing arm_pmu that understands PMUv3 events.
+> 
+> This check turned out to be faulty: it can disable PMU emulation on ACPI
+> systems when a possible CPU is offline, because ACPI grows
+> arm_pmu::supported_cpus as matching CPUs come online.
+> 
+> My current plan is:
+> 
+> - drop the possible-mask coverage check, to avoid breaking ACPI;
+> - promote ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to
+>    ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, so the system will have the
+>    feature only if all online CPUs implement it;
+> - explicitly taint hosts with ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
+>    matching what KVM already does for non-architectural VGICs. The
+>    comment will make it clear that this is out of spec because KVM cannot
+>    make the usual architectural assumptions about PMUv3 sysreg traps and
+>    uniform driver-backed PMU availability.
 
-Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
----
- drivers/video/backlight/Kconfig      |   7 --
- drivers/video/backlight/Makefile     |   1 -
- drivers/video/backlight/pandora_bl.c | 159 ---------------------------
- 3 files changed, 167 deletions(-)
- delete mode 100644 drivers/video/backlight/pandora_bl.c
+I sent a new revision implementing these changes, but due to a rebase
+mistake it was also sent as v8.
 
-diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
-index 7aa1c4b21111f..a250b3edc152c 100644
---- a/drivers/video/backlight/Kconfig
-+++ b/drivers/video/backlight/Kconfig
-@@ -451,13 +451,6 @@ config BACKLIGHT_MP3309C
- 	  To compile this driver as a module, choose M here: the module will
- 	  be called mp3309c.
- 
--config BACKLIGHT_PANDORA
--	tristate "Backlight driver for Pandora console"
--	depends on TWL4030_CORE
--	help
--	  If you have a Pandora console, say Y to enable the
--	  backlight driver.
--
- config BACKLIGHT_SKY81452
- 	tristate "Backlight driver for SKY81452"
- 	depends on MFD_SKY81452
-diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
-index 21c8313cfb121..f97ab8ba85807 100644
---- a/drivers/video/backlight/Makefile
-+++ b/drivers/video/backlight/Makefile
-@@ -52,7 +52,6 @@ obj-$(CONFIG_BACKLIGHT_MAX8925)		+= max8925_bl.o
- obj-$(CONFIG_BACKLIGHT_MP3309C)		+= mp3309c.o
- obj-$(CONFIG_BACKLIGHT_MT6370)		+= mt6370-backlight.o
- obj-$(CONFIG_BACKLIGHT_OMAP1)		+= omap1_bl.o
--obj-$(CONFIG_BACKLIGHT_PANDORA)		+= pandora_bl.o
- obj-$(CONFIG_BACKLIGHT_PWM)		+= pwm_bl.o
- obj-$(CONFIG_BACKLIGHT_QCOM_WLED)	+= qcom-wled.o
- obj-$(CONFIG_BACKLIGHT_RT4831)		+= rt4831-backlight.o
-diff --git a/drivers/video/backlight/pandora_bl.c b/drivers/video/backlight/pandora_bl.c
-deleted file mode 100644
-index 8a63ded0fa90f..0000000000000
---- a/drivers/video/backlight/pandora_bl.c
-+++ /dev/null
-@@ -1,159 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Backlight driver for Pandora handheld.
-- * Pandora uses TWL4030 PWM0 -> TPS61161 combo for control backlight.
-- * Based on pwm_bl.c
-- *
-- * Copyright 2009,2012 Gražvydas Ignotas <notasas@gmail.com>
-- */
--
--#include <linux/module.h>
--#include <linux/kernel.h>
--#include <linux/platform_device.h>
--#include <linux/delay.h>
--#include <linux/backlight.h>
--#include <linux/mfd/twl.h>
--#include <linux/err.h>
--
--#define TWL_PWM0_ON		0x00
--#define TWL_PWM0_OFF		0x01
--
--#define TWL_INTBR_GPBR1		0x0c
--#define TWL_INTBR_PMBR1		0x0d
--
--#define TWL_PMBR1_PWM0_MUXMASK	0x0c
--#define TWL_PMBR1_PWM0		0x04
--#define PWM0_CLK_ENABLE		BIT(0)
--#define PWM0_ENABLE		BIT(2)
--
--/* range accepted by hardware */
--#define MIN_VALUE 9
--#define MAX_VALUE 63
--#define MAX_USER_VALUE (MAX_VALUE - MIN_VALUE)
--
--struct pandora_private {
--	unsigned old_state;
--#define PANDORABL_WAS_OFF 1
--};
--
--static int pandora_backlight_update_status(struct backlight_device *bl)
--{
--	int brightness = bl->props.brightness;
--	struct pandora_private *priv = bl_get_data(bl);
--	u8 r;
--
--	if (bl->props.power != BACKLIGHT_POWER_ON)
--		brightness = 0;
--	if (bl->props.state & BL_CORE_FBBLANK)
--		brightness = 0;
--	if (bl->props.state & BL_CORE_SUSPENDED)
--		brightness = 0;
--
--	if ((unsigned int)brightness > MAX_USER_VALUE)
--		brightness = MAX_USER_VALUE;
--
--	if (brightness == 0) {
--		if (priv->old_state == PANDORABL_WAS_OFF)
--			goto done;
--
--		/* first disable PWM0 output, then clock */
--		twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
--		r &= ~PWM0_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--		r &= ~PWM0_CLK_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--
--		goto done;
--	}
--
--	if (priv->old_state == PANDORABL_WAS_OFF) {
--		/*
--		 * set PWM duty cycle to max. TPS61161 seems to use this
--		 * to calibrate it's PWM sensitivity when it starts.
--		 */
--		twl_i2c_write_u8(TWL_MODULE_PWM, MAX_VALUE, TWL_PWM0_OFF);
--
--		/* first enable clock, then PWM0 out */
--		twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
--		r &= ~PWM0_ENABLE;
--		r |= PWM0_CLK_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--		r |= PWM0_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--
--		/*
--		 * TI made it very easy to enable digital control, so easy that
--		 * it often triggers unintentionally and disabes PWM control,
--		 * so wait until 1 wire mode detection window ends.
--		 */
--		usleep_range(2000, 10000);
--	}
--
--	twl_i2c_write_u8(TWL_MODULE_PWM, MIN_VALUE + brightness, TWL_PWM0_OFF);
--
--done:
--	if (brightness != 0)
--		priv->old_state = 0;
--	else
--		priv->old_state = PANDORABL_WAS_OFF;
--
--	return 0;
--}
--
--static const struct backlight_ops pandora_backlight_ops = {
--	.options	= BL_CORE_SUSPENDRESUME,
--	.update_status	= pandora_backlight_update_status,
--};
--
--static int pandora_backlight_probe(struct platform_device *pdev)
--{
--	struct backlight_properties props;
--	struct backlight_device *bl;
--	struct pandora_private *priv;
--	u8 r;
--
--	priv = devm_kmalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
--	if (!priv)
--		return -ENOMEM;
--
--	memset(&props, 0, sizeof(props));
--	props.max_brightness = MAX_USER_VALUE;
--	props.type = BACKLIGHT_RAW;
--	bl = devm_backlight_device_register(&pdev->dev, pdev->name, &pdev->dev,
--					priv, &pandora_backlight_ops, &props);
--	if (IS_ERR(bl)) {
--		dev_err(&pdev->dev, "failed to register backlight\n");
--		return PTR_ERR(bl);
--	}
--
--	platform_set_drvdata(pdev, bl);
--
--	/* 64 cycle period, ON position 0 */
--	twl_i2c_write_u8(TWL_MODULE_PWM, 0x80, TWL_PWM0_ON);
--
--	priv->old_state = PANDORABL_WAS_OFF;
--	bl->props.brightness = MAX_USER_VALUE;
--	backlight_update_status(bl);
--
--	/* enable PWM function in pin mux */
--	twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_PMBR1);
--	r &= ~TWL_PMBR1_PWM0_MUXMASK;
--	r |= TWL_PMBR1_PWM0;
--	twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_PMBR1);
--
--	return 0;
--}
--
--static struct platform_driver pandora_backlight_driver = {
--	.driver		= {
--		.name	= "pandora-backlight",
--	},
--	.probe		= pandora_backlight_probe,
--};
--
--module_platform_driver(pandora_backlight_driver);
--
--MODULE_AUTHOR("Gražvydas Ignotas <notasas@gmail.com>");
--MODULE_DESCRIPTION("Pandora Backlight Driver");
--MODULE_LICENSE("GPL");
--MODULE_ALIAS("platform:pandora-backlight");
--- 
-2.50.1 (Apple Git-155)
+However, it still does not cover every case of non-uniform driver-backed
+PMU availability. With ACPI, if a CPU is brought online whose MIDR was
+not represented by any CPU online during PMU probing, the PMU code
+cannot associate it with an existing arm_pmu or register a new one.
+This can happen even when PMUVer is uniform across CPUs.
+
+I therefore plan to take a simpler approach: when KVM cannot find a
+registered pPMU for the vCPU's current CPU, emit a one-time warning and
+set TAINT_CPU_OUT_OF_SPEC, matching the treatment of mismatched CPU
+features.
+
+Regards,
+Akihiko Odaki
+
+> 
+> That lets the code keep assuming uniform PMU availability without adding 
+> an ACPI-hostile possible-CPU check, and makes that assumption explicit 
+> for humans like me and tools such as Sashiko [1].
+> 
+> [1] https://sashiko.dev/#/patchset/20260706-hybrid-v8-0- 
+> de459617b59d@rsg.ci.i.u-tokyo.ac.jp?part=6
+> 
+> Regards,
+> Akihiko Odaki
+> 
 
 
