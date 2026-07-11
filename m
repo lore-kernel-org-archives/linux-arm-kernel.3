@@ -4,165 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 003E4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 12:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB10C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 13:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyq4HGKyVzkOAZNP096slr8mvKGFS76zs3XVChvtyHw=; b=c1gYocoJoA4QA5AvsV6kEW5p6n
-	7X5n4zn2osopS3cN0xCPg6VzBMvAX5UZiOjzFJO2VH6Nw6JTrkc1Md2UBX8aqXQWDKwLbjW1hrs8+
-	WBQFSrpaGdBdMs32fXZpYn0S4w3YVkNhOzucF1nu8/31f6C3BJIdSJLHbgTkgfplLaqFdXefQylyC
-	BTAA0Ebc8rgxSWvKx0oC+HJPa37QJOUYagpBJRYdaYVX8omKTGdB7fzDvqUO36Q3EPtemQokQesF5
-	OVCVokCSuR+mO5NrJFMHwuYO5Dj4EdVEx8yeT+5BBgz8WrS5Vg/utVAwlUrM3LiFXeP29S45NL8pu
-	4zt+7V4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hEwUMLZxq0p2ok1ig4UlS+jtAFMxWsAuPxBBLyv10o4=; b=SYJqMMZBpMgM95RNDyL05YAu+i
+	Kfs9R9ttudSgDXijDtBu+LcB9MmegTPy1bZxQ15EQ45kadOyzEguUqiEqPVuBWWt1x9WUo6NZP4tW
+	igFntqjwsFRvVqUxFDeA1S+DkL3hmT5+TpZcAyoNYdhQIGxUS5vUi+sDFf/EA7Z28ZuVzXw06CktW
+	cqB1feIOY6jnygyFUOaS4e2FHL5qZoeNejWyHiTpx+SFRVEa6hMQGBcBlog+nDSQVO4D1svi/L6a2
+	872jrpySIFiNL1dsloDVp2xOZRphW8CmPmF7/qFKHD6Ci4vvnWm4Eiyr/8aWyZprY1xftUDb2siHu
+	8ohlgCaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiXHe-00000006YEO-2oo6;
-	Sat, 11 Jul 2026 12:58:18 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1wiWnU-00000006X1g-2asl;
+	Sat, 11 Jul 2026 12:27:08 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiXHc-00000006YDx-0mHR;
-	Sat, 11 Jul 2026 12:58:17 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66BCn95Z122595;
-	Sat, 11 Jul 2026 07:57:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=eyq4HGKyVzkOAZNP09
-	6slr8mvKGFS76zs3XVChvtyHw=; b=KsS8Y6JihtSG+pjT3GKvmMP93GLC/L+2Bd
-	RGzfKgLUeQMdVwfjuWS2F4elqUG0H0xgHr7YOqxDIKKjpkVPjNJor4jqR77cYlQb
-	AVGiW5NWkcXmkcZ+HBPhY8wjW9+sa+Oh4LiDrhTSK8nUB08FPwnAPJdXR88onkc8
-	QYYdzthPMy/dSdKH7U4t1VlYrv9QFE3HL7/FZrLJWv2kn800/EboiWoxduyZk5ix
-	6F8dgLyl0GPmaNo6naAO76XhKKfFXwScEyzokh5N5/hiDYfWzeEpz+oWfi6s06Nu
-	1ywz8SrRp+5UT13evU3HmHeu2TeeT8bLCeJhffswdNn/2HQfEJDg==
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11022137.outbound.protection.outlook.com [40.107.200.137])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4fbk7vr3ys-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 11 Jul 2026 07:57:47 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ynq9hmX6u3YTgbcEyDw7N+sNxp59v6dl3DNh0NZO8qWf2QlYeu8KobRbzPpwZ9+sFFwkLWUz6clCOauXgDE9ysrRq2sebY7Vi+IiLExXU8Uvsu2DzkRgDi/RXloQ58lYAdFaje0uOYwTOO8FO67lzBHISuUcXdhEbJXpLjTrkf2mnaRuR0FuaHEKpnVODhc3GsQUMyVinT4jhBvaWQPvRc0lnE2shtD8nG75M+3CJ3bnMwplrKAcVvZkZ4se0Z1cr7MMTyI0JQnJ8UNBDqRROw/RWvDY7XkKMj93uiq6Hnbr5hzqfK6UAeVvyyYYzksE+6/DaFLd+ljwDnR5n2etsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eyq4HGKyVzkOAZNP096slr8mvKGFS76zs3XVChvtyHw=;
- b=txn8gD3e5bdWwyS+RLeR0NMLjSiRwyCLdXPP9P3wiYLdaJFC2T7sgfYJTvZjEGjdTtfPvQyM8XTjj9vzEywnb1rcD/kb92QeGwkAIjH48orrPmHHxxpZ51M6qfInBy/9lOtLKv6l+JwLHAdT/EGgsDVtTFTmTsmeHNXHbU7QmzJ475HLmw8DLkMcrCxiaUILndb2PQhbqjiW6TqbvqQ4JexCdx9Dy1+mdm2UpfV9vddtVqUmwbVAn6Dm89Ld+AyPxGnBVLJ0nSezReF8G4/QwptsOnmrLRPgtTQ+OnE7fecPbFaTgMPB0PR1yAa5zPCaYn6MScSG1Vg3TLmbqaZBtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=alpha.franken.de
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
+	id 1wiWnQ-00000006X15-2V3I
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Jul 2026 12:27:06 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-4a25f986bffso1363812b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 05:27:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783772823; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GBGn++WGKnPbzYVJ2jSPvyXemRs2QgDMhTwwx9/g7fzXLqVGR69R+0/7vcfA3dxfzt
+         iq3wBbilHtPznI/+9ypSXw/etChRuARz6RL4RfoXyPVwWpdJhuvGc8ngTv5Qlp6RJf9l
+         hjOAd9C7Eop755YjLkOc1gSBCMBYEVQ481THZkRo6krzK5O/y2wGWykox5ElvWxeoidx
+         H2tMAZ+7v5/ipnlE2mNJ/d+65biKJVOZ8UA4l4p0CnYkg2fYHzvCWvvUcE2oOros42uJ
+         0zdfy+s7dpn8H4GryCZYexpKmmTu7EAqX1/ThrZY2Or94PbOg3aPRl0Py0Qw0oY0foJS
+         gJlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hEwUMLZxq0p2ok1ig4UlS+jtAFMxWsAuPxBBLyv10o4=;
+        fh=3n2tVgyTGAkLONgS4QObezPmvbUzrJGXq8l2D/wjvC0=;
+        b=fKpzxqYaIqddJGfo0hJdeQkOyPA/jR3Oeqn/DwOebs920Lxq3Ebq+DTTCJlP0QiJjx
+         w28xlBqSLAAe2ZUJZ2JSMNgzAUMFufOIaO+DdBHE8xtQw9m4edWvFGaC6+AqHpx1/OF/
+         uhJskVYm+QgRl+dJxcwJXkbLFc53308tKWsFMAH8Ptp6Cy4AX/vAWLq9992mEmtlfmQD
+         sodfXlGvIgiymDFn7HqYxoUf9tUq0jrXqrc//ZZUh0X4avbxRUgyTxWMtqNEVHgsoUde
+         lIdA7ERsjnBK/BfmhRvmGgOtTT2Ztsjmb+bCVkuvjxQ4EZq4wCYTTtXTgwn+8nmeQgS8
+         FD1A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eyq4HGKyVzkOAZNP096slr8mvKGFS76zs3XVChvtyHw=;
- b=Th6q99x8vjZzcQSCRs/7zBk8WwPdrdmBgoI9hzlbMBBq2P9Ya9unol21uGc0JEt36P+oLbKIeZnwkmre8+ULxSL4TN0+n23MsMmCSECN8xoZ1Gy0ZrbS67LgpuoqRL5/Rb/qr5uSM4Hy61F8PKQ1ULIv5jI0G/FkRKLQc4+LXCU=
-Received: from SJ0PR13CA0045.namprd13.prod.outlook.com (2603:10b6:a03:2c2::20)
- by PH8PR19MB6761.namprd19.prod.outlook.com (2603:10b6:510:1c8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Sat, 11 Jul
- 2026 12:57:43 +0000
-Received: from MWH0EPF000A6735.namprd04.prod.outlook.com
- (2603:10b6:a03:2c2:cafe::95) by SJ0PR13CA0045.outlook.office365.com
- (2603:10b6:a03:2c2::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.8 via Frontend Transport; Sat, 11
- Jul 2026 12:57:42 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- MWH0EPF000A6735.mail.protection.outlook.com (10.167.249.27) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Sat, 11 Jul 2026 12:57:41 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 3CCDE406541;
-	Sat, 11 Jul 2026 12:57:40 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 2BD8482025A;
-	Sat, 11 Jul 2026 12:57:40 +0000 (UTC)
-Date: Sat, 11 Jul 2026 13:57:39 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-gpio@vger.kernel.org, Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Frank Li <Frank.Li@nxp.com>, Robert Jarzmik <robert.jarzmik@free.fr>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Greg Ungerer <gerg@linux-m68k.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Hauke Mehrtens <hauke@hauke-m.de>,
-        =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-        Dominik Brodowski <linux@dominikbrodowski.net>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
-        linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 06/10] ASoC: replace linux/gpio.h inclusions
-Message-ID: <alI9w+eQD6USFOpx@opensource.cirrus.com>
-References: <20260710211954.1373336-1-arnd@kernel.org>
- <20260710211954.1373336-7-arnd@kernel.org>
+        d=gmail.com; s=20251104; t=1783772823; x=1784377623; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hEwUMLZxq0p2ok1ig4UlS+jtAFMxWsAuPxBBLyv10o4=;
+        b=RfcgDyUHteees1EciL4tpHzaV1arw17mkmpEsWU1i+bKbdWXspEEB3RRs8gPxwVeAl
+         9ZC48y3Bh65z9EF/g4JzRofPsek4byLNIcEYjPUG3r+kPBLHsmPUf0E5fq8U3dGrDCcu
+         v6gs3aEOqcPCtxdy5VeU6gjtILy/B+ipVGF24+E71eXUArzzwVSWO0J69Or9yDdW5i2D
+         zzWX7wqvLaN1V3bYI77bcVo95sKVbL0fitAaMC364XtSTRZ1UxQ4U9mT/sUwILJYyoRj
+         Rbmd/zK+0WqfyFWmv0wAcUrxX1YZY7ydfIYJKnovn6BolYayUTgkoVNrXd3kMFwDDX75
+         Errg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783772823; x=1784377623;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hEwUMLZxq0p2ok1ig4UlS+jtAFMxWsAuPxBBLyv10o4=;
+        b=BDzdp8F37j3KYAOS9ZbxcjzNh3k5GnRztNwRE/VhP76t15MkznYN8BHH6bLuyynYQ/
+         jAjon+STjPc4b7m6HYzdNivJ/U8w1g5S3K32vtpnv92NMM4kAl0tv3YQ4OZNyBUbGp7s
+         BQlqY6W1J1dhx2zw/IUWxUPbqZd3DJJwsc8ttECewtAfiqwsahMnneUoPqk83bFpH35P
+         nNqLfWe+cqGagRJgoHrblalWxTB77t2TgRtSQBTmGNYtWQldw+vlUYpTbmAD8qf11/+y
+         0qiKcYoN5osfThvFI9UYh7hh7KtgEWMagNdtLwAUWWX8nCA/v2L2CtdjuzBap/xwNury
+         HrYQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/akdjfSksLaaPlD8eZLux6iW8NnREVDiKUhjmQeQT+pHsTXutXiZShGfY9Mg9VNsdH0TrazA6WR+yUKCB4uFpG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6wsswreZOgZADXpclvTLvKb3mwHCB+R0YKUkWpFLps3uud2vi
+	R8lODnvTTzNhh4e7esovsfahjdr0ktWUle070YSpLomn1MacZ1XUNm3B+4ZaclnZYv0VrsZ7rf9
+	MQ6hhps4Sr5OHdMhbcIll+Q18OWpoQpU=
+X-Gm-Gg: AfdE7ck8MFIPO6FMmlHuoreXgrkA9fGmmuumhOvAqg6UGwyBcLAzaX6p8w2GGv5LknC
+	cENLzy319Y1KFNRY/3/DoGdpF6B8IDUghtiDZJV4K7W/CEzHftzgT1bxggPjaJYkGHYVVxJL31R
+	KLBdJJrCU+qI8ZkZYplKZCaNsfdtCUtZq1WZTyN4Kxh2d7HacyYFrjULy/KlWiw9Dhcm2W2Et6m
+	+x8dqYMMwuxfdDSC20r3BaR3kQ3cXKtXFyLIDeF2slJc49HjN4n+aMP2lpaeYZftLrmrXgwrXDx
+	eFh10ot87sqMk4Xmh/amtIwnrsi27nLybY7MM/yv6VHoG6GLx/NGn91ixw==
+X-Received: by 2002:a05:6808:4484:b0:4a3:5294:43d3 with SMTP id
+ 5614622812f47-4a42ac1c2e8mr1775095b6e.3.1783772823070; Sat, 11 Jul 2026
+ 05:27:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260710211954.1373336-7-arnd@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6735:EE_|PH8PR19MB6761:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0dd1a1f0-2160-49ac-0ed3-08dedf4bfe8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|61400799027|23010399003|376014|7416014|82310400026|56012099006|4143699003|11063799006|18002099003|16102099003|22082099003|41080700001;
-X-Microsoft-Antispam-Message-Info: nRFfUHnV96GXfilQTbrIwGA7qjnZFkukWdUFlWn+nKZ4VwK64o0UHpVi61bMkvlTbvBiox8xhJpl9xflUkQG/jSCci1pk8I+JDaHGqatGOOHoUHI87BhVfCIxThVXgLt31yWThleE5QxQcCjOOf2uvcofFxrj+fqSJfnpjHXc/rEXSEi54xSRM4I63MUclqRYkttCSjcn7goNdv7DHx9cwMTP2AZMJvbkWffUglTOfDp7KvPDmF/OTVihzEpl9syvRUScd+ggDeUReo4k09ofhW+KCKhuZd5gyPXQGli650EzcbBRCuCyQZ2SOGTtZ+hwJfEUbW3BVCyQ1SdIZSGWf5vwMXkgVORHLZTOMen9MBYBj8V42Tl6L8ukgNg6GBGTtQKe3aFNOGgFGoHAQMs2o0mZyW729JNqqYm0XCL2Ju3OYZ3WJpwFcoGgzieOPdVj/8mTQSoaHJGNYJiXEZZd5Eveqgz3pCcPHpnqGc9mOZXX/pTxffAgDdvNhss0fWGvz7kI7cK+vLrke4mhardtqWMl4JFzJ44VWY7oWJnDzN/x1RbUJLCnxrF5r7H7/zJsLhZqfXrlosbJ8FDeX0LKl0MWwGq0a7giD1iPKcvA/rkvR1owC3WtbH14uUtKdW/uyfQYzEqZTgxfy8UC0mxjgWJpCVg33CwsJzgZYfRI35U+/SiE8HCrK4d9/2UjnFqQjiHOaV37fM9gRWOZxYuWj4UGvoCvDHX+UjlDfAKPZ9W0R6f07u4l285t2AB8cYdbcDnrS4zepznEvffYpxYyQ==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(61400799027)(23010399003)(376014)(7416014)(82310400026)(56012099006)(4143699003)(11063799006)(18002099003)(16102099003)(22082099003)(41080700001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: w/MeyPfFrs+mkVWXOdwwZUFHnuShFa9MR4E3hF/R2oNWxJbVWYiwmLJvU+th2MI8LDTBzOlJLnAYFs1BSKC3PwkFefj7pScoeVwZemeklJU/hEhrJGA4yIngfHev/dMJbfmRrMLdmUWUjAjC0lHqYNLW3hLSJyt5Xhu/NHm0YFjJtXiAEMeqjF5Kg7Y+EIbWWx0e8MRngz40pIzFGXrLBF9LLy0B5NGzCYoZglaJC1JPl0zwOIlILZ4PwQhx/9oHhcHl3mNWXDzz2KHE5++Il+jV2MOYY86xyxDvN+OdziNdj+9sl15cS8JzJyOOaDvGGw7xTI9aFWVpCE7ZeeO6VV51AThGbYAyro0MiWirXoA7QISza6dEy5qnnB3EO+pFDRpKKM8N4CWhVBTfHNL2g8OoGiCGxuBKavh4i67e0UDRgTCUGCVjFzoiVifh3imw
-X-Exchange-RoutingPolicyChecked: Vg4Mo/749gH4hKT4Y7U5NbaaZ6D5ZIHAoKebVYfcDr4R1zmmG33fow04XidKM89z7NPHTUBvGxgVZRsZZEPEsemD3xtypAMzLd4wAlkvH8zsmWjqE257/64CwJNnErRyLcF0cjsRDQY1HzmX75EcrJyC/ChOs+TocVdpT4p5ZyAijttucunBM9H6wvSQniPZG0QIY5qzkmrLr586uUX1Shg9rm9soYbx69yZiuC/kW+zymcQTIg/+dVJP0nG58v/w6VeMEuGBxZfZLozYfbpHy/vEt3j6FNnWCXKoyAg1Uu72M+REJeb46pN5+fANeLBFgRLfFQuMvKTiK8Id0RM9A==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2026 12:57:41.6506
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0dd1a1f0-2160-49ac-0ed3-08dedf4bfe8e
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-MWH0EPF000A6735.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR19MB6761
-X-Authority-Analysis: v=2.4 cv=V71NF+ni c=1 sm=1 tr=0 ts=6a523dcb cx=c_pps
- a=fuE/7uQEd4exF76fV1vK5g==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=EUspDBNiAAAA:8 a=w1d2syhTAAAA:8 a=-pYe6oGQtZftezQT2YQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: IYiFekW1LKm5gjJi7Bz5cwdpZARxJ5o5
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzExMDEyNyBTYWx0ZWRfX40ymPtFTRV5f
- CF58Xl7w0pA880pmLNrkAoS+0w5oTNwAqmSFWDPo3zQVX8TAggr7ofpa0Mzp13dk5ihUUp943ay
- zw6+3wz5S+ZRsnoGbq575CJ1r/sJ/gc=
-X-Proofpoint-GUID: IYiFekW1LKm5gjJi7Bz5cwdpZARxJ5o5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzExMDEyNyBTYWx0ZWRfX0FOmAs/oMJxi
- mmcZyFWp32IzeZu4evq4RBgrvTAsOryid7pDrnyd5WqWy/KR7H+TBG0/cE+T9QcUpnVGwOiUZa/
- EFQTLx8di8OtTDay6n8XtV5KeH4TXQkVVwi+/ktxtVF1ObdIKSz9xbPMMGH3+GNVlBj3hpp8JdM
- u8PCOOgdDjnga1028F2gkk9PeS+6aNWhXFYvHSgBPyFQL99gVb2nz/V3GbeXLh2m+SEQImMkWL7
- pLVJZL7XzhGQgMDtX4/ipQbSXIqEs1bUAOKkj1ngaozvL+RUOk4TQUohCI26HE+hPoTU5r5uk13
- WKI9aMwxep3awd2spx4nqOh+mkBEei3cUMbRL7y9EEOwzNNMnNRsT6wkzMWgrHF7vshNlCbGeQB
- 33TAMWRyjroPgg6M2GmEF34YvQEG7F4wVTAn0NvIWyJybjHmaCdDI1AeZuBsfGDQA9WBvZrnhR0
- HSA2M7Bit+GXJArgxMw==
-X-Proofpoint-Spam-Reason: safe
+References: <20260527124552.33815-1-arash.golgol@gmail.com> <ahfxskMC340jUtbQ@shepard>
+In-Reply-To: <ahfxskMC340jUtbQ@shepard>
+From: arash golgol <arash.golgol@gmail.com>
+Date: Sat, 11 Jul 2026 15:56:51 +0330
+X-Gm-Features: AUfX_mxN86zZBxPKHCNMJW9RhtruJcbvwihBjdQU--ZAFLpMa1mHyqWXuxF1LQ0
+Message-ID: <CAMxPZkgtu1_H=UQ6pRg0mtj=O4bq7gpEuTg-wmEtVAOP12qUJg@mail.gmail.com>
+Subject: Re: [PATCH] media: sun6i-csi: bridge: Remove duplicate mbus format entries
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, yong.deng@magewell.com, mchehab@kernel.org, 
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
+	laurent.pinchart@ideasonboard.com, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_055816_247538_CD41E821 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260711_052704_695031_196FE1B1 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,18 +119,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 11:19:51PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> linux/gpio.h is going away,s o use linux/gpio/consumer.h instead.
-> 
-> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  sound/soc/codecs/cs42l84.c | 1 -
+Hi,
 
-Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+On Thu, May 28, 2026 at 11:11=E2=80=AFAM Paul Kocialkowski <paulk@sys-base.=
+io> wrote:
+>
+> Hi Arash,
+>
+> On Wed 27 May 26, 16:15, Arash Golgol wrote:
+> > The driver reports MEDIA_BUS_FMT_UYVY8_2X8 and
+> > MEDIA_BUS_FMT_UYVY8_1X16 twice when enumerating supported media bus
+> > codes.
+> >
+> > Remove the duplicated entries from sun6i_csi_bridge_formats[].
+>
+> Looks good to me, thanks for taking care of this!
+>
+> > Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
+>
+> Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
 
-Thanks,
-Charles
+I'd like to gently follow up on this patch.
+
+> All the best,
+>
+> Paul
+>
+> > ---
+> >  .../platform/sunxi/sun6i-csi/sun6i_csi_bridge.c      | 12 ------------
+> >  1 file changed, 12 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c =
+b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> > index d006d9dd0170..0bec0cd7620e 100644
+> > --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> > +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> > @@ -113,12 +113,6 @@ static const struct sun6i_csi_bridge_format sun6i_=
+csi_bridge_formats[] =3D {
+> >               .input_yuv_seq          =3D SUN6I_CSI_INPUT_YUV_SEQ_YVYU,
+> >               .input_yuv_seq_invert   =3D SUN6I_CSI_INPUT_YUV_SEQ_YUYV,
+> >       },
+> > -     {
+> > -             .mbus_code              =3D MEDIA_BUS_FMT_UYVY8_2X8,
+> > -             .input_format           =3D SUN6I_CSI_INPUT_FMT_YUV422,
+> > -             .input_yuv_seq          =3D SUN6I_CSI_INPUT_YUV_SEQ_UYVY,
+> > -             .input_yuv_seq_invert   =3D SUN6I_CSI_INPUT_YUV_SEQ_VYUY,
+> > -     },
+> >       {
+> >               .mbus_code              =3D MEDIA_BUS_FMT_VYUY8_2X8,
+> >               .input_format           =3D SUN6I_CSI_INPUT_FMT_YUV422,
+> > @@ -143,12 +137,6 @@ static const struct sun6i_csi_bridge_format sun6i_=
+csi_bridge_formats[] =3D {
+> >               .input_yuv_seq          =3D SUN6I_CSI_INPUT_YUV_SEQ_YVYU,
+> >               .input_yuv_seq_invert   =3D SUN6I_CSI_INPUT_YUV_SEQ_YUYV,
+> >       },
+> > -     {
+> > -             .mbus_code              =3D MEDIA_BUS_FMT_UYVY8_1X16,
+> > -             .input_format           =3D SUN6I_CSI_INPUT_FMT_YUV422,
+> > -             .input_yuv_seq          =3D SUN6I_CSI_INPUT_YUV_SEQ_UYVY,
+> > -             .input_yuv_seq_invert   =3D SUN6I_CSI_INPUT_YUV_SEQ_VYUY,
+> > -     },
+> >       {
+> >               .mbus_code              =3D MEDIA_BUS_FMT_VYUY8_1X16,
+> >               .input_format           =3D SUN6I_CSI_INPUT_FMT_YUV422,
+> > --
+> > 2.34.1
+> >
+>
+> --
+> Paul Kocialkowski,
+>
+> Independent contractor - sys-base - https://www.sys-base.io/
+> Free software developer - https://www.paulk.fr/
+>
+> Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--=20
+Regards,
+Arash Golgol
 
