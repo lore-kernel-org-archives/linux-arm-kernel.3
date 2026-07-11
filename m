@@ -4,131 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D76DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C55AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2DakEhHWnDx3DdMaI7lEbd6D5ZL7hHtybFNpEKNGEY=; b=ET/LYdkMnzvWWkWu5z1Eq8FLwh
-	p3hfrLckQwFyNBieuda1yI0HLRptGVN8wIIQbFbA8HICFpPS7nLZJpOT/XDf2IgZPKcRW0FdkK3rE
-	ecka/jfOfYnGiVpzuYIvmP3/0AwaqXcM8zhGrp4kxfABvL6SI1PBCBxRMqxVgxat6/dGMKRjsKO+G
-	VwBCagwwwG7bLnMJoeeOIdmzmTD8QgOxAlUcChB13JPrZZ2Ud3K6A0/sCRdfS2sXxcUNz14gCDMJV
-	yzCS/i6vTN/1inpOhmuXWOUonJzDtZxLEAO7M+GIiQ882rV5kNwWEVhGsamrd/ywYDmGMeNt39TQm
-	UgnkOriw==;
+	bh=+okklJ0QrWgWJmErfTb4uE/aColv2ZM7UG+sQVjv9/g=; b=WwScTh/6G5as53rF6X8pDLpRVx
+	cKGu7zBD9Nsupl1Kx4tYa4ycP9iuaqxJ2rwcQfqWd10p1V1CxqKJZ9eXz+sFNnovrlOo9RyR8dUbe
+	B/SAbA3wwReBQg8Im4caYnoerdn84cb31bQ3ayTHb3uOI9EeelvMi5tpfBqgG4H9rSiUa2KXax/tz
+	wwJixPCi5hvndpKPfF8LdtACe6HsN7X9tjPGUkBpvGb7Ny8CnmArEsQJqycAjq8AW5fTu4m16RN7J
+	DBqUcA7frfvaM07vRwJls1H38HULyWTC3MR+kMqVwj3XAiTQCWLRqQ3nYQXZIOSGbmkQ6YpxiQ4Sg
+	e5Gqhrtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQna-00000006Erv-488F;
-	Sat, 11 Jul 2026 06:02:50 +0000
-Received: from mo4-p04-ob.smtp.rzone.de ([81.169.146.177])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnT-00000006EgJ-0u5q
+	id 1wiQex-00000006EQx-3ZJ4;
+	Sat, 11 Jul 2026 05:53:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiQeu-00000006EQX-095d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:02:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783749737; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=iC0toLXH6Gq6Gbb1wbRJptb/CqlDMcjfKVE70kAJslXM0CYebLJGl+dmsWtcrUGBE9
-    yGiLYIxAm+wnQ4N3zLDHtcssisr/W2dyZAVagtr2wAeh8mDKJga74qoXHDd6HKSfzwAM
-    vdwBF2BXqgnsPjpFrSdKrKJHMIphQavB8W4WUwrkZ3bc4nkae5wOkUQzA1PQbF9RZ/UQ
-    ImVNOmv2Y14SoVExyHf9JzPGTZX9R2QAaF40v55023I8eMfa5Pg/ozqUI716SIezvsQf
-    d9xt+npKPRxPZdz02ZL7+c9vg9GwGSEICCJqDdXVFrAwJWr62kQ6yRzV4yARiQs+engn
-    sbew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749737;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=c2DakEhHWnDx3DdMaI7lEbd6D5ZL7hHtybFNpEKNGEY=;
-    b=p3xqTKNzxP2MJOusO2HDNwJQGi+JFybPWQ/Q8v+AEvtTQds6DtK0cWHu53f5LA2/8V
-    KEX/vmxJ1UQU0DeW+UMenWaDtKYkSEobm5J5SxIz+RgcsGdTxupDL/mxNKbDnB7DHpUa
-    5XOpvmonYsjgv+tD86sOkgzwZyuieAsufVkd+92MU7w1y8d4+jZP9g8MPuqcCMmkWzep
-    f0htsqJrbazcS6uK1F2aEjCQRyDr8Ay0oE8v91QDNJpY2qLpKo03NA9cFnR9dEFITTyd
-    3AL5IhlLtYUbVbZNd+GZWMrs/hoQrRbItQAZAaX86z06YZ/dSCsnWnxYAnkAd5boyCe4
-    Ijag==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo04
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749737;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=c2DakEhHWnDx3DdMaI7lEbd6D5ZL7hHtybFNpEKNGEY=;
-    b=AC5mqVJgoMmhA3Zb/MSpoOfeAR1ZVSKJIcEc3MCzA3Z142xI8pEe5Db6aR194cu0YG
-    dQg4sGBvsBLzcNVS30nO3nsg4A5aIkIWhaKY0cH5NPe426IyTy97+6PjNlMy2MAmThiE
-    oSkncAjB3E+cDANu0EbBiwfK4POGt/e3CrAED3dWbXLCb6n1wHd5xTXYiJeuS7seljip
-    a46TZb5pKbKx/saN9zIJABswzIAOD3hmh9QneQKXOUA+XHalTCN/Yqat2LLHnjaLhWLd
-    zQusI0eJNMQoSNAjwWLUYKcpPaIiv7GF2K0JSSgaVbamua77vJdorFfiZT0I1UAzFhSU
-    Psmw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749737;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=c2DakEhHWnDx3DdMaI7lEbd6D5ZL7hHtybFNpEKNGEY=;
-    b=+jn36CyMpIt/846xR0wkPkUKOdBAInJWGBq2O5KYF6pSDWRs3pT4NMJFVBeD+fyNBz
-    ekmrFK8i/KxIrSgszUAg==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
-Received: from iMac.fritz.box
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426B62GGht
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Sat, 11 Jul 2026 08:02:16 +0200 (CEST)
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-To: Grond <grond66@riseup.net>,
-	Stefan Leichter <sle85276@gmx.de>,
-	"H . Nikolaus Schaller" <hns@goldelico.com>,
-	Grazvydas Ignotas <notasas@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Jarkko Nikula <jarkko.nikula@bitmer.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Helge Deller <deller@gmx.de>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Sen Wang <sen@ti.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Niranjan H Y <niranjan.hy@ti.com>
-Cc: letux-kernel@openphoenux.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	kernel@pyra-handheld.com,
-	mfd@lists.linux.dev
-Subject: [PATCH 08/16] ASoC: pcm1773-codec: write a driver for the PCM1773 chip from TI
-Date: Sat, 11 Jul 2026 08:01:55 +0200
-Message-ID: <7d8989813cbd750259dfdde2e1187082493279a0.1783749722.git.hns@goldelico.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
+	Sat, 11 Jul 2026 05:53:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C0DD1477;
+	Fri, 10 Jul 2026 22:53:44 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 271293F85F;
+	Fri, 10 Jul 2026 22:53:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783749228; bh=/JDeLfUU8Vo4QZFaEJTH84CGrJxvZ/Cc/cC4kO3egWI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QAtqyYGas00tRpskypOB10t0acxLWkPMef2DsGevap0wyGrlH5n7obg52O6t9D3Oe
+	 iejfKw8G6Zo24BuK6ULpvhfpKoHhaKGmfMXULjWyTMWHu8yN3+YPm5z6R26omab/WY
+	 +yAZRnr0PoBrcJDP4J7wOl28np+mzfCsgaMgljQk=
+Date: Sat, 11 Jul 2026 06:53:28 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Leonardo Bras <leo.bras@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] KVM: arm64: Introduce
+ KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
+Message-ID: <jiy6rtx24nqnnduze3uuvc2ifqrjlskhefyctlwyh2jshdjrw2@a2wpodq6ife6>
+References: <20260708134101.2514759-1-leo.bras@arm.com>
+ <20260708134101.2514759-3-leo.bras@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708134101.2514759-3-leo.bras@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_230243_569756_0D02CE4E 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20260710_225352_356212_933B669B 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,197 +75,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Grond <grond66@riseup.net>
+Hi Leonardo,
 
-This chip is used in the OpenPandora.
+On Wed, Jul 08, 2026 at 02:40:58PM +0100, Leonardo Bras wrote:
+> Add the new walking flags that tell kvm_pgtable_walk() to skip lower levels
+> when walking the pagetables.
+> 
+> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
+>  arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++++++---
+>  2 files changed, 29 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 41a8687938eb..20c7c12e0e76 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -311,31 +311,44 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
+>   * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
+>   *					with other software walkers.
+>   * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
+>   *					the walker returns -EAGAIN.
+>   * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
+>   *					without Break-before-make's
+>   *					TLB invalidation.
+>   * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
+>   *					without Cache maintenance
+>   *					operations required.
+> + * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
+> + * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
+> + * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
+> + * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
 
-Signed-off-by: Grond <grond66@riseup.net>
-Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
----
- sound/soc/codecs/Kconfig   |   5 ++
- sound/soc/codecs/pcm1773.c | 149 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 154 insertions(+)
- create mode 100644 sound/soc/codecs/pcm1773.c
+Just a drive-by nit:
+Maybe avoid the level-$LEVEL terminology? Since as you said there is
+level -1 in the architecture, in that case you'd have to write
+"level--1" which is awkward :)
 
-diff --git a/sound/soc/codecs/Kconfig b/sound/soc/codecs/Kconfig
-index 252f683be3c18..3e186652fa06d 100644
---- a/sound/soc/codecs/Kconfig
-+++ b/sound/soc/codecs/Kconfig
-@@ -182,6 +182,7 @@ config SND_SOC_ALL_CODECS
- 	imply SND_SOC_HDMI_CODEC
- 	imply SND_SOC_PCM1681
- 	imply SND_SOC_PCM1754
-+	imply SND_SOC_PCM1773
- 	imply SND_SOC_PCM1789_I2C
- 	imply SND_SOC_PCM179X_I2C
- 	imply SND_SOC_PCM179X_SPI
-@@ -1541,6 +1542,10 @@ config SND_SOC_PCM1754
- 	tristate "Texas Instruments PCM1754 CODEC"
- 	depends on GPIOLIB
- 
-+config SND_SOC_PCM1773
-+	tristate "Texas Instruments PCM1773 CODEC"
-+	select GPIOLIB
-+
- config SND_SOC_PCM1789
- 	tristate
- 
-diff --git a/sound/soc/codecs/pcm1773.c b/sound/soc/codecs/pcm1773.c
-new file mode 100644
-index 0000000000000..75f9fe40a89d5
---- /dev/null
-+++ b/sound/soc/codecs/pcm1773.c
-@@ -0,0 +1,149 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * pcm1773.c -- codec for the simple PCM1773 output codec from TI
-+ *
-+ * Shamelessly cobbled together from sound/soc/ti/omap3pandora.c and a few
-+ * other codec drivers in sound/soc/codecs/
-+ *
-+ * Author: Grond <grond66@riseup.net>
-+ */
-+
-+#include <linux/gpio/consumer.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
-+#include <sound/soc.h>
-+
-+struct pcm1773 {
-+	struct regulator *regulator;
-+	struct gpio_desc *enable_gpio;
-+};
-+
-+static int pcm1773_dac_event(struct snd_soc_dapm_widget *w,
-+			     struct snd_kcontrol *k, int event)
-+{
-+	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
-+	struct pcm1773 *ctx = snd_soc_component_get_drvdata(component);
-+	struct device *dev = component->dev;
-+	int ret;
-+
-+	/*
-+	 * The PCM1773 DAC datasheet requires 1ms delay between switching
-+	 * VCC power on/off and /PD pin high/low
-+	 */
-+	if (SND_SOC_DAPM_EVENT_ON(event)) {
-+		if (ctx->regulator) {
-+			ret = regulator_enable(ctx->regulator);
-+			if (ret) {
-+				dev_err(dev, "Failed to power DAC: %d\n", ret);
-+				return ret;
-+			}
-+			mdelay(1);
-+		}
-+
-+		if (ctx->enable_gpio)
-+			gpiod_set_value_cansleep(ctx->enable_gpio, 1);
-+	} else {
-+		if (ctx->enable_gpio)
-+			gpiod_set_value_cansleep(ctx->enable_gpio, 0);
-+
-+		if (ctx->regulator) {
-+			mdelay(1);
-+			regulator_disable(ctx->regulator);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct snd_soc_dapm_widget pcm1773_dapm_widgets[] = {
-+	SND_SOC_DAPM_DAC_E("PCM1773 DAC", "HiFi Playback", SND_SOC_NOPM,
-+			   0, 0, pcm1773_dac_event,
-+			   SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD),
-+};
-+
-+static const struct snd_soc_dapm_route pcm1773_dapm_routes[] = {
-+	/* tell DAPM that the main stream flows to the PCM1773 */
-+	{"PCM1773 DAC", NULL, "PCM1773 IN"},
-+};
-+
-+static struct snd_soc_dai_driver pcm1773_dai = {
-+	.name = "pcm1773-hifi",
-+	.playback = {
-+		.stream_name = "PCM1773 IN",
-+		.channels_min = 2,
-+		.channels_max = 2,
-+		.rates = SNDRV_PCM_RATE_8000_48000,
-+		// [TODO] these really should be BE, per the data sheet but for
-+		// some reason the omap-mcbsp driver claims only to support LE.
-+		// investigate
-+		.formats = SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S24_LE,
-+	},
-+};
-+
-+static int pcm1773_probe(struct snd_soc_component *component)
-+{
-+	struct pcm1773 *ctx = NULL;
-+	struct device *dev = component->dev;
-+	int ret;
-+
-+	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		return -ENOMEM;
-+	snd_soc_component_set_drvdata(component, ctx);
-+
-+	ctx->enable_gpio = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_LOW);
-+	if (IS_ERR(ctx->enable_gpio)) {
-+		return dev_err_probe(dev, PTR_ERR(ctx->enable_gpio),
-+				     "invalid GPIO specification for enable");
-+	}
-+	if (ctx->enable_gpio)
-+		dev_dbg(dev, "got enable-gpio\n");
-+	else
-+		dev_warn(dev, "enable-gpio not specified\n");
-+
-+	ctx->regulator = devm_regulator_get(dev, "vcc");
-+	if (IS_ERR(ctx->regulator)) {
-+		dev_warn(dev, "cannot get regulator 'vcc'");
-+		ctx->regulator = NULL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct snd_soc_component_driver soc_component_dev_pcm1773 = {
-+	.probe = pcm1773_probe,
-+	.dapm_widgets = pcm1773_dapm_widgets,
-+	.num_dapm_widgets = ARRAY_SIZE(pcm1773_dapm_widgets),
-+	.dapm_routes = pcm1773_dapm_routes,
-+	.num_dapm_routes = ARRAY_SIZE(pcm1773_dapm_routes),
-+};
-+
-+static int pcm1773_codec_probe(struct platform_device *pdev)
-+{
-+	return devm_snd_soc_register_component(&pdev->dev,
-+		&soc_component_dev_pcm1773,
-+		&pcm1773_dai, 1);
-+}
-+
-+static const struct of_device_id pcm1773_of_match[] = {
-+	{
-+		.compatible = "ti,pcm1773",
-+	},
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, pcm1773_of_match);
-+
-+static struct platform_driver pcm1773_codec_driver = {
-+	.probe = pcm1773_codec_probe,
-+	.driver = {
-+		.name = "pcm1773-codec",
-+		.of_match_table = pcm1773_of_match,
-+	},
-+};
-+
-+module_platform_driver(pcm1773_codec_driver);
-+
-+MODULE_DESCRIPTION("ASoC codec driver PCM1773");
-+MODULE_AUTHOR("Grond");
-+MODULE_LICENSE("GPL");
--- 
-2.50.1 (Apple Git-155)
+Thanks,
+Wei-Lin Chang
 
+>   */
+>  enum kvm_pgtable_walk_flags {
+>  	KVM_PGTABLE_WALK_LEAF			= BIT(0),
+>  	KVM_PGTABLE_WALK_TABLE_PRE		= BIT(1),
+>  	KVM_PGTABLE_WALK_TABLE_POST		= BIT(2),
+>  	KVM_PGTABLE_WALK_SHARED			= BIT(3),
+>  	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
+>  	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
+>  	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
+> +	KVM_PGTABLE_WALK_SKIP_LEVEL0		= BIT(7),
+> +	KVM_PGTABLE_WALK_SKIP_LEVEL1		= BIT(8),
+> +	KVM_PGTABLE_WALK_SKIP_LEVEL2		= BIT(9),
+> +	KVM_PGTABLE_WALK_SKIP_LEVEL3		= BIT(10),
+>  };
+>  
+> +#define KVM_PGTABLE_WALK_SKIP_LEVELS 	(KVM_PGTABLE_WALK_SKIP_LEVEL0 | \
+> +					 KVM_PGTABLE_WALK_SKIP_LEVEL1 | \
+> +					 KVM_PGTABLE_WALK_SKIP_LEVEL2 | \
+> +					 KVM_PGTABLE_WALK_SKIP_LEVEL3 )
+> +
+>  struct kvm_pgtable_visit_ctx {
+>  	kvm_pte_t				*ptep;
+>  	kvm_pte_t				old;
+>  	void					*arg;
+>  	struct kvm_pgtable_mm_ops		*mm_ops;
+>  	u64					start;
+>  	u64					addr;
+>  	u64					end;
+>  	s8					level;
+>  	enum kvm_pgtable_walk_flags		flags;
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 4be1d51a6ac5..b9a2078efc51 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -137,20 +137,33 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+>  	 * Ignore the return code altogether for walkers outside a fault handler
+>  	 * (e.g. write protecting a range of memory) and chug along with the
+>  	 * page table walk.
+>  	 */
+>  	if (r == -EAGAIN)
+>  		return walker->flags & KVM_PGTABLE_WALK_IGNORE_EAGAIN;
+>  
+>  	return !r;
+>  }
+>  
+> +static __always_inline bool kvm_pgtable_skip_level(s8 level, enum kvm_pgtable_walk_flags flags)
+> +{
+> +	flags &= KVM_PGTABLE_WALK_SKIP_LEVELS;
+> +
+> +	if (likely(!flags))
+> +		return false;
+> +
+> +	if (level >= (ffs(flags) - ffs(KVM_PGTABLE_WALK_SKIP_LEVELS)))
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
+>  			      struct kvm_pgtable_mm_ops *mm_ops, kvm_pteref_t pgtable, s8 level);
+>  
+>  static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+>  				      struct kvm_pgtable_mm_ops *mm_ops,
+>  				      kvm_pteref_t pteref, s8 level)
+>  {
+>  	enum kvm_pgtable_walk_flags flags = data->walker->flags;
+>  	kvm_pte_t *ptep = kvm_dereference_pteref(data->walker, pteref);
+>  	struct kvm_pgtable_visit_ctx ctx = {
+> @@ -185,35 +198,35 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+>  	 * into a newly installed or replaced table.
+>  	 */
+>  	if (reload) {
+>  		ctx.old = READ_ONCE(*ptep);
+>  		table = kvm_pte_table(ctx.old, level);
+>  	}
+>  
+>  	if (!kvm_pgtable_walk_continue(data->walker, ret))
+>  		return ret;
+>  
+> -	if (!table) {
+> +	if (!table || kvm_pgtable_skip_level(level + 1, ctx.flags)) {
+>  		data->addr = ALIGN_DOWN(data->addr, kvm_granule_size(level));
+>  		data->addr += kvm_granule_size(level);
+>  		goto out;
+>  	}
+>  
+>  	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
+>  	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
+>  	if (!kvm_pgtable_walk_continue(data->walker, ret))
+>  		return ret;
+>  
+> -	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
+> +out:
+> +	if (table && ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
+>  		ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_TABLE_POST);
+>  
+> -out:
+>  	if (kvm_pgtable_walk_continue(data->walker, ret))
+>  		return 0;
+>  
+>  	return ret;
+>  }
+>  
+>  static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
+>  			      struct kvm_pgtable_mm_ops *mm_ops, kvm_pteref_t pgtable, s8 level)
+>  {
+>  	u32 idx;
+> -- 
+> 2.55.0
+> 
 
