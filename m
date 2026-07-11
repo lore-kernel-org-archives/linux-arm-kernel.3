@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104CCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 08:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E104C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 08:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=; b=hfa7YISy3nCNU103MMnGBccIRa
-	xuL11uHphyyss0MiEvKZv7+qR9jHaZN1KeKkqctqaHO6XJhA8QIbUF6OWdytTPyo/dXDNDuMYWlHK
-	pb6R37h+GdsOG39Aw3hZJ8mS1sDg3IhSHM87NLXKiUM4OFgz31vSMFkCSSZiKyazjl0AcObW93qmV
-	wJZc4GJ266Az2EYvNPTjaYn8VE3HYRr3WhwIOUQ6x2q6BUi+h2fLpvTn365v/J1RseVjgDjsOYjDx
-	E9T5gfZLMuEPiIt8ktWrHYzEH+9461xTGdUebanvX78pUjLUY8CoE3EMnoy9pXhIai3D4/kHSoATQ
-	QxLI1fYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RivUc5YUXnOdUgRz0a+Ib/89lZt+K/9x14yXx6ELMXI=; b=c5/dbBZCYbq1Tt/oOHpRdnLr7P
+	FIgluFzkz6C1kjmMm7/V+KhTExODa338SwGExnJKAhUee2FUL5AwBy3uCnI/cMPepzqPwPvrhDMzl
+	txZoAcd0NJVEjmzi1BdSVukqcdv+qFGDrfz1v+2IYWqr4EbV6N1LZ4OWqGrNyA8vm49pCsqthytKr
+	dAqtN/cGqQPkvAsg05T5RDC02OPDn3qoC+V5IcSKOFsy4mjSB+4/734T89Pu+/mZxlY5Fs73OYoMh
+	7DZU6bbcMioGSRTnQfKAC/G5MsXBUCAgADvU3P/cfPkNzPMHssm6oYGlV3MJ8MZOCOkCyymVB7vY8
+	TlP7fL0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSpz-00000006MwZ-1ajU;
-	Sat, 11 Jul 2026 08:13:27 +0000
+	id 1wiSq9-00000006N1i-26dQ;
+	Sat, 11 Jul 2026 08:13:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSpx-00000006Mun-3Kmj;
-	Sat, 11 Jul 2026 08:13:25 +0000
+	id 1wiSq8-00000006N0v-33uL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 11 Jul 2026 08:13:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=; b=c1GENjPY7UNmytdf99kLSD64Zl
-	HKS/oKYQS/ryem+aSC9l1bM9Qf+J5XVGVvIXqUATsT/1G63kzmnjyKnw6W0rkqQ7s9e2SkAKDYSkN
-	qvvqE2wybUKOaUSBtvcY1TsqokkmXionGpJlbBeWOQ+MB2cUbLaUSBTSqf9qEnkn0o11FiyKWZeYg
-	/Q5/S9W697lKZiqjvXDn5seF9vat3lWLkDYYaWt60lT5kWjmc2ZG2zXBjmzPYDTRiIZQmwcG1STMD
-	ZMrbIFBCfpvaSrEq6aRRZRaQIdtA/j11zREfh5hQMAsUqwdI23hWxXZ7sr4Nxi6PV72lINVILWcOd
-	A0t13YsA==;
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RivUc5YUXnOdUgRz0a+Ib/89lZt+K/9x14yXx6ELMXI=; b=c14DHHA1pt+yglxR7FSG0MDXRd
+	y2UkUPn/ESl9feDMRATSMW+8NFqTkPruE1ER+hTrGnG86YfrHnvN2ahvgy4/VWkv+4GrbNVFsECth
+	hkVCmJbvilVREMhtLGDinacOndmcU9DjD9ba15LV5b6u61MAP3NsiRLkhI7vyg1LGoJorOT8VXgQU
+	hwg5oRHJq9i7Px4dH/5YPwMdbnIoGRirn4SgjkLe6iV/ZhuI4tzTaZK2+cLPLJQu5+vliEq1NY7R+
+	gTbwiaqRWz6IJLI7m2rRdwHuK4CRopdLo59+43Ef3fGe0RutWqOl8EvJPYMDEqFunyNsQp5MHBIJ+
+	7ubbSaTg==;
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wiSpk-0000000AY0o-0FzW;
-	Sat, 11 Jul 2026 08:13:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783757574; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=B86tUVUVurn1RROWNOeRi7HDvHZ+NJPXU18H7kAni6XpkuIMPi7sfCj+suIFXBo7Z6DIZXffawpGkrwrLnu0mSoEviWZ9krlwW3CurYJYW6V7XOsScUSylzTpC08eo1XnJ9BVIzYi1xE5+OUFhkEEMWVdfr1bkL3B/kpcCN2duE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783757574; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=; 
-	b=Eg3Hr7LpcmlWcz1DAEd2GDnyi1R3b5xZzH6iZ85WDmpLmK4Sf3/+lQcoD+WfbHhYOa10O110Z8b0c4WSYyRs51TQ/LKtgsfJ6X+A7ZahSL6wuQ25gaoeM7BhZ/wSRnKhGX6XAnCsRFbVuQCieim3Ca69hLI5eNYGiCOY+Rzlk7w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783757574;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=WGl7teXPgThhyd7Mnm7ajod1+36ftebilIYFXIlgL0M=;
-	b=po3bRHUv6o0xx84bNe5QIus8JM8sM98N3FhxR24HZ2aaqDE2v728A+Om4IP5q+H+
-	pxSp4eSqPeGr5eybdYGnPMqpAoCtMouscJA0LNCeoTD1fyO5l/hhIPkR21B+oIXEGxc
-	w0T6nu4IpdiyOBppUdK3qpczDt9PjpRAetjWWNx0=
-Received: by mx.zohomail.com with SMTPS id 1783757571732200.7153726655515;
-	Sat, 11 Jul 2026 01:12:51 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sat, 11 Jul 2026 16:10:34 +0800
-Subject: [PATCH v2 8/8] clk: sunxi-ng: a733: Add reset lines
+	id 1wiSq4-0000000AY3G-3TVD
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Jul 2026 08:13:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=RivUc5YUXnOdUgRz0a+Ib/89lZt+K/9x14yXx6ELMXI=;
+	b=xw9nzOU534pfyhWOzj9pKap8q4607bkkToe3Ipnkb6QWR+MDZTi9e3O/H+gkxG0muwtB62cmy
+	590BeUAhjDQbde2s0E8aqoxW1fmQ4KWS6jkFNgDjFuif9yo4slxZHN8h5FhDdby0SSxkWEGjE0z
+	aOQke9SiLgZeI4qAHKPdblw=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gy1S444tjz1prLT;
+	Sat, 11 Jul 2026 16:04:04 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 647634057D;
+	Sat, 11 Jul 2026 16:13:22 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Sat, 11 Jul 2026 16:13:21 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <ljs@kernel.org>, <linux@armlinux.org.uk>
+CC: <akpm@linux-foundation.org>, <david@kernel.org>, <liam@infradead.org>,
+	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <mhocko@suse.com>, <rppt@kernel.org>,
+	<sunnanyong@huawei.com>, <surenb@google.com>, <vbabka@kernel.org>,
+	<wangkefeng.wang@huawei.com>, <xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
+Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault() under CONFIG_DEBUG_USER
+Date: Sat, 11 Jul 2026 16:13:03 +0800
+Message-ID: <20260711081303.5472-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <alH4-zEWkSDK5EvK@lucifer>
+References: <alH4-zEWkSDK5EvK@lucifer>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260711-a733-clk-v2-8-974d188cbe0c@pigmoral.tech>
-References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
-In-Reply-To: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783757449; l=6917;
- i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=2nbAp5wgLvB3GVbm/bh5SLh3tvImZ6mCw5JMPh8KgPQ=;
- b=hEKIEUQ7/k4zgY9aOi6OTBUpFGX7wJsm0EGyQFA9u7IbtBfkXDW5bXNeraYVJdCjsVLutevno
- ZWU7DKBnd1ZDHpJsZrNYTQVsK4+Fyr9uuWAWUw6QUiUEaC0PrIq7q9+
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_091319_421998_76E0AAA3 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260711_091333_508704_305BDEC3 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,170 +97,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
+On Sat, 11 Jul 2026 09:05:03 +0100, Lorenzo Stoakes wrote:
+> OK given arm32 can't do any of the stuff that makes kernel faults an issue, and
+> if it's certain you can't deadlock on mmap write lock for VMA or non-VMA ranges
+> on user fault, then no need for the mmap write trylock, and just take the mmap
+> write lock unconditionally for user faults, and no lock for kernel faults I
+> guess?
 
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
-
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index 48d7c0395ae8..ff64c35206d2 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -17,6 +17,7 @@
- #include "../clk.h"
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2156,11 +2157,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
- };
- 
-+static struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
- };
- 
- static const u32 pll_regs[] = {
-
--- 
-2.54.0
-
+Yes, that's exactly what I think. We are waiting for ARM's maintainer Russell King
+to confirm, and then we will send out the new patch. :)
 
