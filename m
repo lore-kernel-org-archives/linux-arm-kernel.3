@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8A8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4DAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pa6hwbA29wf7EPVdRkad1vMRwe+QiPcMMB3ckRWsao=; b=sgPaqY+/TyFdDwC2PQczqjO//Q
-	vQbr3QeCjeA5OeL/mD87EAvsKve3vNK4+JBl3MkKbr02gPmp54fYlwjCCyzDRtvFnZapmwc5TqBJP
-	nR8/RmaDO+Q6n0AioZpanDulCRaVm0EA0ak+zK8drvH81uORJCS2teZ1N9q6iX77xweaTsmcRPu7s
-	ApCcr0yi7//+WQF3U1LeU0BfAfMTmu4ZxVvAh0GtyJTs2YfiWINpr0GMecYNK5PcIkorIV3bEI0Qq
-	tMFH3oIhoS++i26lQjdAKs5xo0SxdsukNKkytETUr0KXEWZqYv7NHan8f1XYLbu6IniPCGin+zFfB
-	LeTFJ5tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BqTPpzuvZrixISR9QYSmrDSTNk2cgTef1nAy5K2DnE4=; b=iFFZZLXB5eQy7T/5VoWzqNkGI/
+	YFKwnbjPGCIq1yjcXSkrlKgVbuJeTfbp2oqDiYBGt2GYfAnCvHYns/ot/sHXp3WmWtvc7GmjqoGx7
+	aHGtz5bxVUfDdpuis2SrXlcg+Z/xh/7Rf+gzddLye4EbiGk/AiAM2zint1XxgloIbjJVEG5J55zoZ
+	br9EJAKwjPOJG6D8Evtjy15bUH8pZS8MAg98FLonMdBKcn/77WxWNeC0JnXItM2eKoVrbQ+TPNOZj
+	/byZsCiNSYvuIbP+6jNPYwK4IIWNi+etl7GU0yqNCKwlm53YdEWqpllBrQqE7gABSP3Q2FXLCh+fY
+	oK6rVEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wipYU-00000007GIJ-0Sji;
-	Sun, 12 Jul 2026 08:28:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wipbC-00000007GYP-2FuY;
+	Sun, 12 Jul 2026 08:31:42 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wipYS-00000007GI9-2rif
+	id 1wipb8-00000007GXJ-0wqY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 08:28:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 088774119E;
-	Sun, 12 Jul 2026 08:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2DE1F000E9;
-	Sun, 12 Jul 2026 08:28:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783844930;
-	bh=6pa6hwbA29wf7EPVdRkad1vMRwe+QiPcMMB3ckRWsao=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cBBX6CScu+D8CwN3HIRkedeEtQ4ReeqByes909YEyDbmV+Lp8LuEGZ0e9cWqAC2El
-	 1xXNLC4MphXiEcPCr5Ti0RULhizDXaqh3ZDFNpSA7hoX79352D1jO2DdcTvOqLrg7F
-	 YOhNcF8CQZvnnkC2vZDdc/CI09zev7bMaLo/GjUfHC7kHz6cpTxHnPtXCJto7LIzSi
-	 AamjDyBsHR9l9vfOblYTjN4eLR1HDgXJHWsPLKaEMVmo5+9tNfTzpQrJL7NAbwUyAm
-	 8q4+WjaBD2CnAD0N9T9Op/uOMPMQsm3IHtb90caefL2yPKObQe4BNCV84K6RrpHsxl
-	 xxrGRqtleW2yg==
-Date: Sun, 12 Jul 2026 09:28:36 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	David Carlier <devnexen@gmail.com>, Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] Revert "arm64: Enable vmalloc-huge with ptdump"
-Message-ID: <alNP9NGJzLunBq4_@lucifer>
-References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
- <20260710-series-vmap-race-fix-v1-2-5b3794c113fe@kernel.org>
- <daed9269-b397-4f6b-bfda-6d81e1be2f52@arm.com>
+	Sun, 12 Jul 2026 08:31:40 +0000
+Received: by chaosmail.tech (Postfix) id 2256B1C8673;
+	Sat, 11 Jul 2026 22:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1783810207;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BqTPpzuvZrixISR9QYSmrDSTNk2cgTef1nAy5K2DnE4=;
+	b=T3xlR0454W0UcaNa9HsYGVt63N1K7Vvfn2XsjjAWPW9fTA2Bz4vtxrWWCPBArqroirWByc
+	w6PDEYFcp4SMFyebriPEtY7G7y7NHwSqmIOWB/onHKNjWjcMVA/39mAbIBlCmID5QTZlbX
+	bC72qJ9MPc1pMJlmXyGANLEZeyMinaw=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Sun, 12 Jul 2026 00:48:56 +0200
+Subject: [PATCH v4] power: supply: macsmc: Support macOS 27 SMC firmware
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <daed9269-b397-4f6b-bfda-6d81e1be2f52@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260712-gate-power-v4-1-aa59c6583247@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23OOw7CMBAE0Ksg1xjFG+QPFfdAFP6sEyMgyA4BF
+ OXu2KEBkXKkfTM7koQxYCK71UgiDiGF7prDdr0ittXXBmlwOROogFecMdroHumte2Ck1jsB3Nn
+ KCU8yuEX04TmXHY6fnO7mhLYvDeWiDanv4mteG1i5WyweGGVUag4CWCW5Ffv8S5cuOpw3PdqWl
+ PYBvj38eMjeoeDWKGME+kVff3lQP74u+1uQ2qja11L9+Wma3teBhBI7AQAA
+X-Change-ID: 20260611-gate-power-cfd726dc0d7f
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Sebastian Reichel <sre@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Joshua Peisach <jpeisach@ubuntu.com>, stable@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783810207; l=6328;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=9hEttOjxUo4x8VZA0u6Zh8it9IZ1e1B/QRSppPFee94=;
+ b=7RHM7NDNYULbELZ142reJuoDQRRO402Ewn+zyEZnHcC7TyyVJz9M7AfU8S7PqkuPAeVuvmB+s
+ n9R19EQxBTyC/6f4EFmEQIRIqTJkdvjL0/9ivANdcprnByU9Kcme7hx
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260712_013138_732973_5CD58F0C 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,219 +80,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 01:16:17PM +0530, Dev Jain wrote:
->
->
-> On 10/07/26 4:19 pm, Lorenzo Stoakes wrote:
-> > This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-> > with ptdump"), retaining vmalloc-huge support but eliminating the now
-> > redundant mitigation against a race between huge vmap page table freeing
-> > and ptdump, as this issue has now been fixed at core.
-> >
-> > We also simultaneously remove the arm64 ifdeffery when acquiring the mmap
-> > read lock upon vmap huge page table promotion as it is no longer required.
-> >
-> > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> > ---
->
-> As pointed out by Mike, the subject line doesn't fit. Perhaps just start with
-> "Partially revert ..."
+The SMC firmware included in macOS 27 changed the size of BCF0 key from
+4 to 1 bytes. This key is used for indicating that battery state is
+critically low. In addition, B0RM key has changed endianness.
 
-Ack yeah will fix!
+Reviewed-by: Sven Peter <sven@kernel.org>
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Reviewed-by: Janne Grunau <j@jannau.net>
+Cc: stable@vger.kernel.org
+Fixes: 0ebf821cf6c7 ("power: supply: Add macsmc-power driver for Apple Silicon")
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+Changes in v4:
+- Also fix B0RM endianness
+- Link to v3: https://patch.msgid.link/20260629-gate-power-v3-1-8428ab93f389@chaosmail.tech
 
->
->
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
+Changes in v3:
+- Minor style fixes
+- R-b tags and Cc stable
+- Rebase on 7.2
+- Link to v2: https://patch.msgid.link/20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech
 
-Thanks!
+Changes in v2:
+- Addressing review feedback
+- Link to v1: https://patch.msgid.link/20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech
+---
+ drivers/power/supply/macsmc-power.c | 52 +++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 45 insertions(+), 7 deletions(-)
 
-Cheers, Lorenzo
+diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+index ced07f71e0a8..ef735f86394e 100644
+--- a/drivers/power/supply/macsmc-power.c
++++ b/drivers/power/supply/macsmc-power.c
+@@ -86,6 +86,11 @@ struct macsmc_power {
+ 	bool has_ch0i; /* Force discharge (Older firmware) */
+ 	bool has_ch0c; /* Inhibit charge (Older firmware) */
+ 	bool has_chte; /* Inhibit charge (Modern firmware) */
++	/*
++	 * Battery critical key is 1 byte and charge key is little endian
++	 * (Modern firmware)
++	 */
++	bool fw_ge_27;
+ 
+ 	u8 num_cells;
+ 	int nominal_voltage_mv;
+@@ -273,6 +278,20 @@ static int macsmc_battery_get_date(const char *s, int *out)
+ 	return 0;
+ }
+ 
++static int macsmc_battery_read_bcf0(struct macsmc_power *power, u32 *val)
++{
++	u8 tval = 0;
++	int ret;
++
++	if (power->fw_ge_27) {
++		ret = apple_smc_read_u8(power->smc, SMC_KEY(BCF0), &tval);
++		*val = tval;
++		return ret;
++	}
++
++	return apple_smc_read_u32(power->smc, SMC_KEY(BCF0), val);
++}
++
+ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ {
+ 	bool flag;
+@@ -280,7 +299,7 @@ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ 	int ret;
+ 
+ 	/* Check for emergency shutdown condition */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val) >= 0 && val)
++	if (macsmc_battery_read_bcf0(power, &val) >= 0 && val)
+ 		return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+ 
+ 	/* Check AC status for whether we could boot in this state */
+@@ -303,6 +322,12 @@ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ 		return POWER_SUPPLY_CAPACITY_LEVEL_NORMAL;
+ }
+ 
++static s16 macsmc_swap_b0rm(struct macsmc_power *power, s16 b0rm)
++{
++	/* B0RM was Big Endian, likely pass through from TI gas gauge */
++	return power->fw_ge_27 ? b0rm : (s16)swab16(b0rm);
++}
++
+ static int macsmc_battery_get_property(struct power_supply *psy,
+ 				       enum power_supply_property psp,
+ 				       union power_supply_propval *val)
+@@ -397,8 +422,7 @@ static int macsmc_battery_get_property(struct power_supply *psy,
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_NOW:
+ 		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RM), &vu16);
+-		/* B0RM is Big Endian, likely pass through from TI gas gauge */
+-		val->intval = (s16)swab16(vu16) * 1000;
++		val->intval = macsmc_swap_b0rm(power, vu16) * 1000;
+ 		break;
+ 	case POWER_SUPPLY_PROP_ENERGY_FULL_DESIGN:
+ 		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0DC), &vu16);
+@@ -410,8 +434,7 @@ static int macsmc_battery_get_property(struct power_supply *psy,
+ 		break;
+ 	case POWER_SUPPLY_PROP_ENERGY_NOW:
+ 		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RM), &vu16);
+-		/* B0RM is Big Endian, likely pass through from TI gas gauge */
+-		val->intval = (s16)swab16(vu16) * power->nominal_voltage_mv;
++		val->intval = macsmc_swap_b0rm(power, vu16) * power->nominal_voltage_mv;
+ 		break;
+ 	case POWER_SUPPLY_PROP_TEMP:
+ 		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0AT), &vu16);
+@@ -577,7 +600,7 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+ 	 * Check if SMC flagged the battery as empty.
+ 	 * We trigger a graceful shutdown to let the OS save data.
+ 	 */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &bcf0) == 0 && bcf0 != 0) {
++	if (macsmc_battery_read_bcf0(power, &bcf0) == 0 && bcf0 != 0) {
+ 		power->orderly_shutdown_triggered = true;
+ 		dev_crit(power->dev, "Battery critical (empty flag set). Triggering orderly shutdown.\n");
+ 		orderly_poweroff(true);
+@@ -616,6 +639,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+ 	struct power_supply_config psy_cfg = {};
++	struct apple_smc_key_info info;
+ 	struct macsmc_power *power;
+ 	bool has_battery = false;
+ 	bool has_ac_adapter = false;
+@@ -714,6 +738,20 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		if (apple_smc_key_exists(smc, SMC_KEY(CH0I)))
+ 			power->has_ch0i = true;
+ 
++		ret = apple_smc_get_key_info(power->smc, SMC_KEY(BCF0), &info);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to determine BCF0 key size\n");
++			return ret;
++		}
++		if (info.size == 1)
++			power->fw_ge_27 = true;
++		else if (info.size == 4)
++			power->fw_ge_27 = false;
++		else {
++			dev_err(&pdev->dev, "Unexpected BCF0 key size %d\n", info.size);
++			return -EIO;
++		}
++
+ 		/* Reset "Optimised Battery Charging" flags to default state */
+ 		if (power->has_chte)
+ 			apple_smc_write_u32(smc, SMC_KEY(CHTE), 0);
+@@ -766,7 +804,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		power->nominal_voltage_mv = MACSMC_NOMINAL_CELL_VOLTAGE_MV * power->num_cells;
+ 
+ 		/* Enable critical shutdown notifications by reading status once */
+-		apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val32);
++		macsmc_battery_read_bcf0(power, &val32);
+ 
+ 		psy_cfg.drv_data = power;
+ 		power->batt = devm_power_supply_register(dev, &power->batt_desc, &psy_cfg);
 
->
-> >  arch/arm64/include/asm/ptdump.h |  2 --
-> >  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
-> >  arch/arm64/mm/ptdump.c          | 11 ++---------
-> >  mm/vmalloc.c                    | 15 +++-----------
-> >  4 files changed, 9 insertions(+), 62 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-> > index 5b374a6ab34a..50a195eda8ed 100644
-> > --- a/arch/arm64/include/asm/ptdump.h
-> > +++ b/arch/arm64/include/asm/ptdump.h
-> > @@ -7,8 +7,6 @@
-> >
-> >  #include <linux/ptdump.h>
-> >
-> > -DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
-> > -
-> >  #ifdef CONFIG_PTDUMP
-> >
-> >  #include <linux/mm_types.h>
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index f2be501468ce..f723bcf68174 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -49,8 +49,6 @@
-> >  #define NO_CONT_MAPPINGS	BIT(1)
-> >  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
-> >
-> > -DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
-> > -
-> >  u64 kimage_voffset __ro_after_init;
-> >  EXPORT_SYMBOL(kimage_voffset);
-> >
-> > @@ -1857,8 +1855,7 @@ int pmd_clear_huge(pmd_t *pmdp)
-> >  	return 1;
-> >  }
-> >
-> > -static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
-> > -			       bool acquire_mmap_lock)
-> > +int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> >  {
-> >  	pte_t *table;
-> >  	pmd_t pmd;
-> > @@ -1870,25 +1867,13 @@ static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
-> >  		return 1;
-> >  	}
-> >
-> > -	/* See comment in pud_free_pmd_page for static key logic */
-> >  	table = pte_offset_kernel(pmdp, addr);
-> >  	pmd_clear(pmdp);
-> >  	__flush_tlb_kernel_pgtable(addr);
-> > -	if (static_branch_unlikely(&arm64_ptdump_lock_key) && acquire_mmap_lock) {
-> > -		mmap_read_lock(&init_mm);
-> > -		mmap_read_unlock(&init_mm);
-> > -	}
-> > -
-> >  	pte_free_kernel(NULL, table);
-> >  	return 1;
-> >  }
-> >
-> > -int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> > -{
-> > -	/* If ptdump is walking the pagetables, acquire init_mm.mmap_lock */
-> > -	return __pmd_free_pte_page(pmdp, addr, /* acquire_mmap_lock = */ true);
-> > -}
-> > -
-> >  int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
-> >  {
-> >  	pmd_t *table;
-> > @@ -1904,36 +1889,16 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
-> >  	}
-> >
-> >  	table = pmd_offset(pudp, addr);
-> > -
-> > -	/*
-> > -	 * Our objective is to prevent ptdump from reading a PMD table which has
-> > -	 * been freed. In this race, if pud_free_pmd_page observes the key on
-> > -	 * (which got flipped by ptdump) then the mmap lock sequence here will,
-> > -	 * as a result of the mmap write lock/unlock sequence in ptdump, give
-> > -	 * us the correct synchronization. If not, this means that ptdump has
-> > -	 * yet not started walking the pagetables - the sequence of barriers
-> > -	 * issued by __flush_tlb_kernel_pgtable() guarantees that ptdump will
-> > -	 * observe an empty PUD.
-> > -	 */
-> > -	pud_clear(pudp);
-> > -	__flush_tlb_kernel_pgtable(addr);
-> > -	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
-> > -		mmap_read_lock(&init_mm);
-> > -		mmap_read_unlock(&init_mm);
-> > -	}
-> > -
-> >  	pmdp = table;
-> >  	next = addr;
-> >  	end = addr + PUD_SIZE;
-> >  	do {
-> >  		if (pmd_present(pmdp_get(pmdp)))
-> > -			/*
-> > -			 * PMD has been isolated, so ptdump won't see it. No
-> > -			 * need to acquire init_mm.mmap_lock.
-> > -			 */
-> > -			__pmd_free_pte_page(pmdp, next, /* acquire_mmap_lock = */ false);
-> > +			pmd_free_pte_page(pmdp, next);
-> >  	} while (pmdp++, next += PMD_SIZE, next != end);
-> >
-> > +	pud_clear(pudp);
-> > +	__flush_tlb_kernel_pgtable(addr);
-> >  	pmd_free(NULL, table);
-> >  	return 1;
-> >  }
-> > diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> > index 1c20144700d7..5a76c59b5ada 100644
-> > --- a/arch/arm64/mm/ptdump.c
-> > +++ b/arch/arm64/mm/ptdump.c
-> > @@ -283,13 +283,6 @@ void note_page_flush(struct ptdump_state *pt_st)
-> >  	note_page(pt_st, 0, -1, pte_val(pte_zero));
-> >  }
-> >
-> > -static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
-> > -{
-> > -	static_branch_inc(&arm64_ptdump_lock_key);
-> > -	ptdump_walk_pgd(st, mm, NULL);
-> > -	static_branch_dec(&arm64_ptdump_lock_key);
-> > -}
-> > -
-> >  void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
-> >  {
-> >  	unsigned long end = ~0UL;
-> > @@ -318,7 +311,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
-> >  		}
-> >  	};
-> >
-> > -	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
-> > +	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
-> >  }
-> >
-> >  static void __init ptdump_initialize(void)
-> > @@ -360,7 +353,7 @@ bool ptdump_check_wx(void)
-> >  		}
-> >  	};
-> >
-> > -	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
-> > +	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-> >
-> >  	if (st.wx_pages || st.uxn_pages) {
-> >  		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
-> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > index 9d0f1fdd6af3..537ff7b3c412 100644
-> > --- a/mm/vmalloc.c
-> > +++ b/mm/vmalloc.c
-> > @@ -170,10 +170,7 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
-> >  	 * Therefore, acquire the mmap read lock to prevent use-after-free when
-> >  	 * freeing page tables.
-> >  	 */
-> > -#ifndef CONFIG_ARM64
-> > -	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
-> > -#endif
-> > -	{
-> > +	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
-> >  		if (!pmd_free_pte_page(pmd, addr))
-> >  			return 0;
-> >  		return pmd_set_huge(pmd, phys_addr, prot);
-> > @@ -230,10 +227,7 @@ static int vmap_try_huge_pud(pud_t *pud, unsigned long addr, unsigned long end,
-> >  		return pud_set_huge(pud, phys_addr, prot);
-> >
-> >  	/* See comment in vmap_try_huge_pmd(). */
-> > -#ifndef CONFIG_ARM64
-> > -	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
-> > -#endif
-> > -	{
-> > +	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
-> >  		if (!pud_free_pmd_page(pud, addr))
-> >  			return 0;
-> >  		return pud_set_huge(pud, phys_addr, prot);
-> > @@ -290,10 +284,7 @@ static int vmap_try_huge_p4d(p4d_t *p4d, unsigned long addr, unsigned long end,
-> >  		return p4d_set_huge(p4d, phys_addr, prot);
-> >
-> >  	/* See comment in vmap_try_huge_pmd(). */
-> > -#ifndef CONFIG_ARM64
-> > -	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
-> > -#endif
-> > -	{
-> > +	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
-> >  		if (!p4d_free_pud_page(p4d, addr))
-> >  			return 0;
-> >  		return p4d_set_huge(p4d, phys_addr, prot);
-> >
->
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260611-gate-power-cfd726dc0d7f
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
+
 
