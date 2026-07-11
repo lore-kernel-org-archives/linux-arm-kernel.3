@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6094C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 14:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB86EC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SbIZZcqbuDpJs1dbeAIlFgxWcMpMo2AYAWkhSGr2bz8=; b=BQajWrV+ZsrJPcm+19iPD3Ub3r
-	Wa8aM9+ANKZ70oZ1FPQXzdC23duLilfWTMNwFdVIZGKK59W5QrHZ9n4dFOvyAcOP1/+2b0Kd+7n9w
-	4nUvYbkNrkKg7GxJkt4lliWvv95Dc3RM8QQH9TDGtji9gc7KRV+mriHNIrIz9J/yIlqVGo+f5ze8M
-	lZP0iCceR7AvnlpD0wLD8HHEpJMl1948Zzb5YsLo9KMQhtB0jjIjy2gVYwr76u4FETGLBizEs2eQD
-	uj3wfNQtem+Bs4X3SJj3bDPIpVMu/1fWNKsaVXFmNPNlKXGDeJIGpClL/+Lzircmn2KDZg7k+vUOR
-	wAjepPvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m35O9uD/U+TaQ848Y04SAAFcQbtyJ5oGcy3AMnA+LCM=; b=KcP/jJ6A/d6jP+qxIIQlxdSEQd
+	n4IX++V2rJt445fDgyAW4XQFPza/RpzmriJNC+Zxma6Ejcr+LqQsR2sLCe4NmPysOssP/hofZG+Pt
+	ZTLNzHQMWJooQGK9GOvyS3laWvPO860Q+C1Dp177PGOOH3lvizsGzi3BY97Bhwcg+VyRuLHVqsyC7
+	mKKrZQrv+k2n+BIupLqdjTXCNj8n6L33iLWqF38mIyFT0GlXQ+GigHcxfRVBqWdQfEdGhW51K3cYM
+	gitmax9VPyuMJeJpSCig+I3Muc9tuXK4dYGqHDYxS5tUQKRkYv/Soip5K7NF3IuCg6D8GDceN1NS5
+	npYAcYaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiY8e-00000006aa3-0pov;
-	Sat, 11 Jul 2026 13:53:04 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wiZJO-00000006dK6-2lyN;
+	Sat, 11 Jul 2026 15:08:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiY8b-00000006aZP-2MF4
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 13:53:02 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783777964;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SbIZZcqbuDpJs1dbeAIlFgxWcMpMo2AYAWkhSGr2bz8=;
-	b=SPTFrVriF/OPBE0imuaYJvj/PL3GQ9MgWMPfdGv1sVZJCHRFoxt9LJHkKQ5lqSxwYNeyL8
-	K3XNukdpMQzqsxooyDvDI3OS6xI6ZokQPDkA3eVn2ra89/sU37Rm075NFOX1aY7u6799k0
-	mUcmNJUi5hzBGIFTjLsSNZjktBnhJLE=
-From: Zenghui Yu <zenghui.yu@linux.dev>
-To: linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: tglx@kernel.org,
-	peterz@infradead.org,
-	suzuki.poulose@arm.com,
-	mike.leach@arm.com,
-	james.clark@linaro.org,
-	leo.yan@arm.com,
-	Zenghui Yu <zenghui.yu@linux.dev>
-Subject: [PATCH] cpu/hotplug: Remove CPUHP_AP_ARM_CORESIGHT_CTI_STARTING
-Date: Sat, 11 Jul 2026 21:51:54 +0800
-Message-ID: <20260711135154.94276-1-zenghui.yu@linux.dev>
+	id 1wiZJO-00000006dJx-0MvN;
+	Sat, 11 Jul 2026 15:08:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D347660052;
+	Sat, 11 Jul 2026 15:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99C2F1F000E9;
+	Sat, 11 Jul 2026 15:08:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783782492;
+	bh=m35O9uD/U+TaQ848Y04SAAFcQbtyJ5oGcy3AMnA+LCM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RogktxIt1oUimSNaB2eJ/JBshJZ6HswdELFaAY6mRo5VtRBA/1zIn0NHfYbFlvIYU
+	 M4WsYVO+2jR8QPbpk8703X4cr8YImO3/UUWKPfjiPcd6rtyZDjlvcFxEg6hgJJVUlu
+	 vDJweMWJC007cT5r06hSgpIfYJpxhRk03UePx02tzusX9ZYcE0qCSS+CMtOCUYpDDA
+	 Bx27+bhosBrBkShgSzHTZiGwUaoljoN8R98iifTzUVpFVEJNyqQZa7QaNKIYKxgoCG
+	 TMD2sic22TDce/JT0kHNLi7Ni0XzQ+LyPGpfH/EwHn/R4xMW/kjDBJBsk1hEpzvhJP
+	 WuKkKlUTj5bIQ==
+Date: Sat, 11 Jul 2026 17:08:08 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, jitao.shi@mediatek.com, granquet@baylibre.com, 
+	rex-bc.chen@mediatek.com, dmitry.osipenko@collabora.com, ck.hu@mediatek.com, 
+	amergnat@baylibre.com, justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v4 01/12] dt-bindings: display: mediatek: dp: Deprecate
+ nvmem efuse data
+Message-ID: <20260711-heavy-neat-armadillo-c0f493@quoll>
+References: <20260709113148.49090-1-angelogioacchino.delregno@collabora.com>
+ <20260709113148.49090-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_065301_747192_2B85F7F2 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260709113148.49090-2-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cpuhp_state CPUHP_AP_ARM_CORESIGHT_CTI_STARTING has become unused since
-commit 59213b4be5c1 ("coresight: cti: Remove CPU power management code").
+On Thu, Jul 09, 2026 at 01:31:37PM +0200, AngeloGioacchino Del Regno wrote:
+> Deprecate nvmem-cells and nvmem-cell-names and clarify their
+> purpose, as those are for PHY calibration data, not for the DP
+> IP itself, and that data shall go in the PHY binding instead.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../devicetree/bindings/display/mediatek/mediatek,dp.yaml     | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
 
-Remove it.
+That phy binding should be posted somewhere and maybe even squashed
+here, so we do not end up with deprecated property alone.
 
-Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
----
- include/linux/cpuhotplug.h | 1 -
- 1 file changed, 1 deletion(-)
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 0fb3a2a62eb0..feb32949aeea 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -180,7 +180,6 @@ enum cpuhp_state {
- 	CPUHP_AP_DUMMY_TIMER_STARTING,
- 	CPUHP_AP_ARM_XEN_STARTING,
- 	CPUHP_AP_ARM_XEN_RUNSTATE_STARTING,
--	CPUHP_AP_ARM_CORESIGHT_CTI_STARTING,
- 	CPUHP_AP_ARM64_ISNDEP_STARTING,
- 	CPUHP_AP_SMPCFD_DYING,
- 	CPUHP_AP_HRTIMERS_DYING,
--- 
-2.53.0
+Best regards,
+Krzysztof
 
 
