@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C91C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 21:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B049C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 21:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t0igColYo8lf+okIQ7LIWkFdSL6QQu6yk+YXD+uc4qQ=; b=FcyJBlG9xP9oJH/iGJqIwW/AwE
-	/0gLesGHkrF5dN9HhejLRid8PklGqCdfcxclF1qcoKyLx/hswmDP55bRlZ8opGFr69JckFWhAlldE
-	ud/tcB7OSw5EzsLiZBPhweXBGgUGvC0wOM72jMh6XDcVw+qsk2iTyCR2EsRKklVyF8GNUaekXuvp1
-	+wcSYVHH5OeG2xoWkZKIfJ4zwSdia6u0mQH/deP53ecsObAuZ0OfrgrIewrgM+X8NjyIPx2q7HXVy
-	uyIpVY1yRs3p4lDdN4AZFqpA7KR65fgcOkLK4wISMCWfYpBH6SMBRFJCZLwFbtJAmur1Hy7qVh0S3
-	7U+gPj9g==;
+	bh=PxOheComZsT6yxnkUvSnvmdiUDv7GpiTTASR486Q+Ko=; b=EOEnyq4yHJedU148wNrJV18O/z
+	8RZaV3h20XfBNjDYbs1GjugWdoIL7G0lzQUvxnjZtpYOWFd1hbrnTIFtXole8wamD+am8GuY9AWua
+	4D/emHSX1pTRVlByiWzb106XjqPJ/gR8Oj5Pyv/6RHi4TXeSkTpOEwfwfNhPDxnsuY4GZllz/S5pc
+	s438Gc5tSkRNw1YGGz3G2Z6BLYORhkD+LelwVNxCbgzDBWpmmDis6dzyJAZ5uV+2oQLIx3bv9BjeX
+	oImC/ori5qKJ4nYgfn9OhpZniRtQitgu+wyJbL/LJJUxeoj3M7HiIv99t3xoixiEJGRv6y/LdqSL6
+	V4mZ1QLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiepo-00000006t5I-0UBl;
-	Sat, 11 Jul 2026 21:02:04 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wieph-00000006t0U-1yWn;
+	Sat, 11 Jul 2026 21:01:57 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wieph-00000006t0B-3E5W
+	id 1wiepe-00000006syp-2MWg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 21:01:59 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AD60C11984A;
-	Sat, 11 Jul 2026 23:01:51 +0200 (CEST)
+	Sat, 11 Jul 2026 21:01:56 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 17FF6119847;
+	Sat, 11 Jul 2026 23:01:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1783803712; h=from:subject:date:message-id:to:cc:mime-version:
+	s=dkim; t=1783803709; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=t0igColYo8lf+okIQ7LIWkFdSL6QQu6yk+YXD+uc4qQ=;
-	b=RdIv06CHjXkGHg4lVtdHGd5P8wnNDCQNQba4sFYO5e/XXVW8O90bcJup672QCDCHUf+okz
-	qULDII9zXOPSHtSr3wDsDqKeAyHTjHHQ5uzTmksq9KEOye3IujAebG0CRYj6Y1y+5Qx779
-	kv96adXO+pg1q1Ho4vLzRCmhGVHW2Hqo9zvuznTnhMoSzL+812Q8ndYsSqXHxPvwR16EXD
-	S6EzENnzBLiQSmc3gWVVYM6o00KzOFyr0EFWUoijAz2PFzgL9dlWQlH06s0xn2hqz/P+pq
-	CPzQNsDnAkzi7K3u318VAuXkLAgN9oTLM8lRy0EHxSFYAT0DNcUf2wyr/j3HPg==
+	bh=PxOheComZsT6yxnkUvSnvmdiUDv7GpiTTASR486Q+Ko=;
+	b=ZGujiJqR+iMIpvYV6aLG0wtsmR4mSSle4HsUHt63FFCrKFzLt6F8NQyRhWR9Ckx49tFkwZ
+	nQqWcr0HNqI/divQFP2crS9XkXAExBw18sYM6qRf9Ghne7fvcdLY3Yj2xmKsYg6g+TOVLi
+	VxXaxewRYVlDgf3a+V+3/f87sO0t0nnoYNfXX9tyGfAeKd35HaPkvuMHBJf5VGHUUMFo37
+	N2BNPIfbEjtN2Q3eMjSjhaYlYI+8Cl8oXcdyeCaW/1kfmFslzQXiFBiLk8JxmA7SLLl22g
+	Z0DmvBxmFpQehs4n0g9tnxRWUcMv8VQ8kCsimm20k/d/5FlJUY5cyT77g5fxFQ==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -52,9 +52,9 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 06/10] arm64: dts: st: Add SDMMC2 and SDMMC3 nodes on stm32mp251
-Date: Sat, 11 Jul 2026 22:59:35 +0200
-Message-ID: <20260711210131.236025-7-marex@nabladev.com>
+Subject: [PATCH 03/10] arm64: dts: st: Fix SDMMC1 indent on stm32mp231
+Date: Sat, 11 Jul 2026 22:59:32 +0200
+Message-ID: <20260711210131.236025-4-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260711210131.236025-1-marex@nabladev.com>
 References: <20260711210131.236025-1-marex@nabladev.com>
@@ -62,8 +62,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_140157_959313_A18391F9 
-X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-CacheID: sfid-20260711_140154_820864_69C00F61 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,7 +79,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT nodes for the remaining SDMMC controllers 2 and 3.
+Drop bogus space. No functional change.
 
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
@@ -96,50 +96,22 @@ Cc: linux-gpio@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-stm32@st-md-mailman.stormreply.com
 ---
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 30 ++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 66f3f83b8731f..6e985f115b195 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -1667,6 +1667,36 @@ sdmmc1: mmc@48220000 {
- 				status = "disabled";
- 			};
- 
-+			sdmmc2: mmc@48230000 {
-+				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
-+				arm,primecell-periphid = <0x00353180>;
-+				reg = <0x48230000 0x400>, <0x44230800 0x8>;
-+				interrupts = <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_SDMMC2>;
-+				clock-names = "apb_pclk";
-+				resets = <&rcc SDMMC2_R>;
-+				cap-sd-highspeed;
-+				cap-mmc-highspeed;
-+				max-frequency = <166000000>;
-+				access-controllers = <&rifsc 77>;
-+				status = "disabled";
-+			};
-+
-+			sdmmc3: mmc@48240000 {
-+				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
-+				arm,primecell-periphid = <0x00353180>;
-+				reg = <0x48240000 0x400>, <0x44230c00 0x8>;
-+				interrupts = <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_SDMMC3>;
-+				clock-names = "apb_pclk";
-+				resets = <&rcc SDMMC3_R>;
-+				cap-sd-highspeed;
-+				cap-mmc-highspeed;
-+				max-frequency = <166000000>;
-+				access-controllers = <&rifsc 78>;
-+				status = "disabled";
-+			};
-+
- 			ethernet1: ethernet@482c0000 {
- 				compatible = "st,stm32mp25-dwmac", "snps,dwmac-5.20";
- 				reg = <0x482c0000 0x4000>;
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index 9e1d240888ff2..a9de9fc5eb411 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -720,7 +720,7 @@ sdmmc1: mmc@48220000 {
+ 				reg = <0x48220000 0x400>, <0x44230400 0x8>;
+ 				arm,primecell-periphid = <0x00353180>;
+ 				interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+-				clocks = <&rcc CK_KER_SDMMC1 >;
++				clocks = <&rcc CK_KER_SDMMC1>;
+ 				clock-names = "apb_pclk";
+ 				resets = <&rcc SDMMC1_R>;
+ 				cap-sd-highspeed;
 -- 
 2.53.0
 
