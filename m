@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35201C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 16:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30187C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 16:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nXjUxHvh2AKmCSXEKPK0rOosDRgT/rdBSCg1T+PDfU=; b=xtbqIMHN0C9hcW+3Yddl9Tw3fQ
-	A0xypXs7StAinPO2K8LseCPJvd1Tln7keM/cjKtxdDKPRVkci7uE75CSUvj+RDkRnM/7RX6NNLA4A
-	5uOGn18xbj1t8Owzrt4FHcmcnpLFXxIyjVmIaOTyHus6gkCVDsuTFxlThoY4bFfJ2isE7y5sGSv8Y
-	/OCa0RMigFuX8Aala3Z7K0eMj63sd8rVK5E9mecndvZWxr40/9DJUCdznzE/hIk7ZyWUiw0YcvmSL
-	RNHh7aDBEBkX0Ywyru3y6Tla9fLtC99BQ+L97RlUA87ceEX7OeUdYD0BCNm199sbna7QsxRCfuAyP
-	6wfbhz4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4uc7rJd18EDppqVGAeMwc5Uq93urxmdlU917bXG2fWU=; b=ZRUV01NaMglKtu+pBFbwB0tDTW
+	7OkKwSbKvY9UUcP/h1dRi2PcApOoZ0Hm0zx3w34x5COyfIn7/923r51MO2Ge71PIBtYdqZC6h4Scc
+	OLibHWPVIuBvVR+adQiZIxt7TnctwY8k6N/5KRvaSJprhaX+Jr1r43B6oJmnEM83VT+U0dNhm+aid
+	3TXB0gDtsPvQUyA5s2nqShUQDQzCTLlau70v/c71dSldqfks9icWU6rMI50MfO/H5MNF9JieKW8xE
+	abMx6m4U0x3Kp84DTsPnWPBWG2BMYzWAClv8WsrgZTtvOuMnZizjrDLVg5vBUOaGfsrQM5l6QGXst
+	jbvGwpTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wial6-00000006hP2-0H0r;
-	Sat, 11 Jul 2026 16:40:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wias9-00000006hh9-1rKE;
+	Sat, 11 Jul 2026 16:48:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wial2-00000006hOF-3uv9
+	id 1wias7-00000006hgz-36CP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 16:40:52 +0000
+	Sat, 11 Jul 2026 16:48:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 630956132C;
-	Sat, 11 Jul 2026 16:40:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6081F00A3D;
-	Sat, 11 Jul 2026 16:40:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CABFE601D9;
+	Sat, 11 Jul 2026 16:48:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08AC1F000E9;
+	Sat, 11 Jul 2026 16:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783788052;
-	bh=/nXjUxHvh2AKmCSXEKPK0rOosDRgT/rdBSCg1T+PDfU=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=S2+CotMA0Bb7urH4A+ORnHE4LkYPwov2V6laV8UHYb1N9uNPxP7HdNXTM5aUVgY+d
-	 UtOra0XEKshGE5Ol0aQ9g1Fu/TxeWnSqN9n1er4w068ga+vif/ML3kgCP/CzO73Nhx
-	 le+LeefxYO1eUR0lZk/W8WRrI1pmW5W+HxiI6mgVLJkH03A87hxE20fDo6tqXwlqoT
-	 i7OH1wLFKnAyHciXkS1AX9P/H68CwpE4kc1UjHiSAolCqUjk1fu6RI1p0K6zEoLjoF
-	 tJypR6ICGXFdWE4nTFRYKeqm6L+dHoE9p3H1aq1aUXPidShRtsozvNLi8xsY/OWPWq
-	 V0h0Gt+vwTp8w==
+	s=k20260515; t=1783788490;
+	bh=4uc7rJd18EDppqVGAeMwc5Uq93urxmdlU917bXG2fWU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dpIYMSbYP6OhuuRrG/dJrwgysxLKciZh1wLRhYoxaTyrqDMeWSebky1ZYd+R2dlo/
+	 F7voVVpVgaMld05AFvo6uFwfuRhEGp+EvrXvcM38WoXTMFyLzs1XxXPAbZA/ei3P14
+	 rUL+OGYD33GwmLiZVMpNco74jRXSG+Z1em16DynzzYEp9as1YFeiNvjrA9hFmm6nrE
+	 8h8YW0AMSfH21Ybjd+SmlNTRGUAnTWW3N3ZgNNCSk3v84ClbBsw8bVsfH7+ZMqURBT
+	 mjzLaEQT69via6fIX+glg2Jx4TadOdYTywdcC6JZTSSvk/Hc8ajNezASyQj4ieOE+v
+	 fhrc81t3pjyvQ==
+Date: Sat, 11 Jul 2026 11:48:07 -0500
 From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Barnabas Czeman <barnabas.czeman@mainlining.org>,
-	Tomasz Figa <tomasz.figa@gmail.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2] dt-bindings: clock: Replace bouncing emails
-Date: Sat, 11 Jul 2026 11:40:38 -0500
-Message-ID: <178378800452.138068.4635491218835073358.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260623073050.36262-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260623073050.36262-2-krzysztof.kozlowski@oss.qualcomm.com>
+To: Konrad Dybcio <konradybcio@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Christian Loehle <christian.loehle@arm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v2 0/5] soc: qcom: Kconfig improvements
+Message-ID: <alJyHU1C-kHzuC_p@baldur>
+References: <20260711-qcom-soc-kconfig-v2-0-4a907e064281@oss.qualcomm.com>
+ <178378282267.119479.4576908957568734087.b4-ty@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178378282267.119479.4576908957568734087.b4-ty@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,23 +72,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 23 Jun 2026 09:30:51 +0200, Krzysztof Kozlowski wrote:
-> Replace permanently bouncing email addresses (550 5.1.1 Recipient address
-> rejected) of Adam Skladowski, Chanho Park, Anusha Rao and Sireesh
-> Kodali.  There are no new messages from them via other email addresses,
-> so drop them permanently.  Add Alim Akhtar to Samsung ExynosAutov9 SoC
-> clocks, because he looks at other Samsung clock hardware and drivers.
+On Sat, Jul 11, 2026 at 10:13:46AM -0500, Bjorn Andersson wrote:
 > 
+> On Sat, 11 Jul 2026 15:25:00 +0200, Krzysztof Kozlowski wrote:
+> > Merging
+> > =======
+> > Defconfig change (last commit) depends on earlier changes, thus that
+> > patch could wait a cycle.
+> > Alternatively, everything through Qualcomm SoC tree, but then please
+> > keep these on a dedicated branch in case defconfig has to be shared
+> > with soc tree to avoid conflicts.
+> > 
+> > [...]
 > 
-> [...]
+> Applied, thanks!
+> 
+> [5/5] ARM: defconfig: qcom: Drop Qualcomm SoC drivers with defaults
+>       commit: 86690b3fabd66970e43f1d1fd4a9ed641850b924
 
-Applied, thanks!
+Sorry, I tried to unmerge this again, to avoid ordering issues between
+Kconfig and defconfig, but failed. It's actually been backed out now.
 
-[1/1] dt-bindings: clock: Replace bouncing emails
-      commit: 1aa4e2ed7caafbbbedff89fb226a982413469baf
+Given other changes in drivers/soc/qcom/Kconfig, let's merge this last
+change at a later time. 
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+Regards,
+Bjorn
+
+> 
+> Best regards,
+> -- 
+> Bjorn Andersson <andersson@kernel.org>
 
