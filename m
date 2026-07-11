@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6243FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 20:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661F4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 20:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KW0mDYxxvCs+MdA9V1BDmlww/e9OaKOFuPRGtfySv8=; b=xI1Udg/w9J6utuNghD0hszqXQG
-	Tf5i3HrRambuvUIJfX0kG9Cequ02WEQgQ2oFo+OVJxq9zryL2eTywu5h3ij3ZF6JMCgo5mzbEEkHK
-	KePzJBHc64Nb27YbFigWDGhzEcUdMXyipBOH+6TaYvf67P/jWQYV9LaPlpRa8x7Nft+2N7fKB5UYU
-	0hmWRHJ68DW1ZNqlAvjtVSaH1wQLOPrXlbweqV34ESsvALjcWf3VJXYx0WDGMDMbyHK4FsHMictab
-	PSpVPd0oAUaaFmz372bXbKCoTgQxUeMfxZ2Vt1mwGQfNtrHjk8LvCorHnSUjSB26RGqwh3QcTTjRZ
-	r32kTA9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3/dT7fVjuGjsbWgOZgOtPP4PWvx3UD0bx0HBuFb9KY=; b=rDnTZve/0pmwFSb7gr2+rAsEWC
+	fk3P+IEfO/d4Vmg2yt6bwhxvjc2rGDl+qjDnFxIocgWWvnoAIEFHL/hVAPUldvW3X9hn0XS5CCrVx
+	LP7C7U79MHxf7JBeClhNwKYYxsdyMUFaHcgbHahmR8TgTzEl/DdsEB7chUVRU8ACUWoY71V6z/kt/
+	MX+turRmMnB0UOZ05v6EQY6qmuhpTS4SQUo1t7rY3fExYn1sQShEfNFnkdvj4i3+VWpnieHEus2ky
+	5Ct1gFHUin25aU/V2qexydzkBCmCOvpNdzDW/RtEGcedCGP2NishcRub1dC1IiNHwWKwGOeJCys3T
+	KcbQVovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1widi7-00000006pH0-0i7B;
-	Sat, 11 Jul 2026 19:50:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wieS7-00000006sMf-2Eyi;
+	Sat, 11 Jul 2026 20:37:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1widi5-00000006pGb-3rBF;
-	Sat, 11 Jul 2026 19:50:01 +0000
+	id 1wieS7-00000006sMX-053D
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Jul 2026 20:37:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4FCE61372;
-	Sat, 11 Jul 2026 19:50:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3985C1F00A3E;
-	Sat, 11 Jul 2026 19:49:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CA13B41918;
+	Sat, 11 Jul 2026 20:37:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 189341F000E9;
+	Sat, 11 Jul 2026 20:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783799400;
-	bh=4KW0mDYxxvCs+MdA9V1BDmlww/e9OaKOFuPRGtfySv8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CV9cizgUZHxiVfZXVePzS/iz1smxoeAzfg53JhpVEBDDs2dK+lKh4yPOFlQuvPZqT
-	 0CMXJRjGOWp0LELoIf27NMEyB3rQL16ZTiK6wmedmZwiDiUW2sQd5L603zYP6zYS5S
-	 +MFApwjk6Eo/G/nVi2hpt6/qjlzecRO7UCWU7ZeWNPneg1+MVCJZexWE/EFGGlePOF
-	 dj1Hy3hFGSwb+r/S38zRYqlR9XQ52LBwmRbr0YX22TLYVwg/AEX5izEp3g+rdvwRIL
-	 vTQnCZRxYFA5KhbHFySxlDjDhsA0spuS+VGh0pAapzjSDUUaXKxxqHLKMIafgHjjVF
-	 p5xy1mvG0I5aw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Esteban Urrutia <esteuwu@proton.me>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: Re: (subset) [PATCH 0/8] SM8450 QoL changes
-Date: Sat, 11 Jul 2026 14:49:40 -0500
-Message-ID: <178379938594.163099.2250376340461760537.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
-References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
+	s=k20260515; t=1783802252;
+	bh=h3/dT7fVjuGjsbWgOZgOtPP4PWvx3UD0bx0HBuFb9KY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=I61qDaH1wGQpS///KPcrExYUG0Ejv7PBV1iAfYBwBG3HG6tDnlDoHOPgUER76gsPy
+	 TLydrkw4vGJCHO849+xeFo5W6uVhcpYgNY16iPlgZFZ9V3P11/AuJ66bBgxIO2FxGr
+	 ZOHw0cXZxABA0o2vg+3m5yy1gFcgPEVDbsmIYN59cqPOvKPoLaiGmHM1Dci09goU3x
+	 uJoefZoQ8Zhgeuefp7RW63bn+qpxRDirfYwrJejk8sBScbOJBtXqLIkO8caxggrDiO
+	 MesSLW7hs3GHf7kbgPL0H1EpkcrgprEBbrcYvGxWH1qrDq1owAJzZb4d4IIS5pgU74
+	 ynXXvihXHss9Q==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Jinqian Yang <yangjinqian1@huawei.com>, lpieralisi@kernel.org,
+ maz@kernel.org, alex@shazbot.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ liuyonglong@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com,
+ Jinqian Yang <yangjinqian1@huawei.com>
+Subject: Re: [RFC PATCH v2] irqchip/gic-v3-its: enable dynamic MSI-X allocation
+In-Reply-To: <20260711022015.3049867-1-yangjinqian1@huawei.com>
+References: <20260711022015.3049867-1-yangjinqian1@huawei.com>
+Date: Sat, 11 Jul 2026 22:37:30 +0200
+Message-ID: <877bn1qn3p.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +69,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jul 11 2026 at 10:20, Jinqian Yang wrote:
+> On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
+> cannot dynamically allocate MSI-X vectors after MSI-X has been
+> enabled. When QEMU needs to extend the vector range, it must
+> disable MSI-X, free all interrupts, then re-enable with a larger
+> allocation. This creates an interrupt loss window for already-active
+> vectors.
+>
+> Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
+> ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
+> then RoCE (starting at base_vector = num_nic_msi). In VFIO
+> passthrough, loading hns_roce after hns3 forces QEMU to tear down
+> all interrupts before re-allocating the larger range. During this
+> process, NIC interrupts may be lost. Testing confirmed that this
+> occasionally occurs, causing the network port reset to fail. This
+> appears to be unavoidable, as it's a standard approach adopted by
+> all network card vendors.
+>
+> On Hisilicon HIP09 (ARM64, GICv3/GICv4.1) with latest upstream kernel
+> and QEMU 8.2. VFIO passthrough of HNS3 NIC to VM: load both hns3 and
+> hns_roce_hw_v2 drivers and trigger FLR, this bug will occur occasionally.
+> After enabling dynamic MSIX allocation, this bug no longer occurs.
+>
+> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+> ---
+> Changes in v2:
+>   - Updated the commit message to add test information.
 
-On Mon, 22 Jun 2026 20:54:21 -0400, Esteban Urrutia wrote:
-> I've been mainlining an SM8475 based device for quite some time now and
-> I feel now's the proper time to start submitting patches.
-> I'm starting with the smallest part which are mostly modifications
-> regarding the current support for the SM8450 SoC.
-> 
-> Regards,
-> Esteban
-> 
-> [...]
-
-Applied, thanks!
-
-[4/8] arm64: dts: qcom: sm8450: Add missing PCM_OUT port
-      commit: 9c510bde799765bf1d28004b0e6555e05565f464
-
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+Well, it contains test information, but it does not tell me _WHY_ this
+is safe to do, i.e. what makes gic-v3-its eligible to set this flag? 
 
