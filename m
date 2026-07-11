@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E82C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E42EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 08:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxQ1ovDyhvvGVyJA8vX4ADWtfoejcpKh9n/5W0S+X/0=; b=rUdQbY//mzIqRwwIxcwCHJR3tN
-	bqJfo7ykpbztuj3/GYpEzbuKohgL6R5VIjHaFCf8oG+vfyLra8+cCXvsYSlbwgLdlGNKL0bOGNRSM
-	VO9NXeExZfnghVLm+8v8p8R8gdxK2g51vLF9bdjueXeTTp2wlfzHnnLFJBLiAvmbqv2YAmNddiQUm
-	x7m3IqrUhmt1JRSVLD46Tja5F4WYDE/BWzI4vdMZtWSrRW1qfStxt2LlHrIKLjU+FFquX0wt6dbLl
-	B5ScAsH1UbqFEBfCVhN4kPHaEb4mHJFg+Tx/7ht0juxzJTrkNRDL6UNo5BgspARnFh05ltKXu5J1J
-	fEoz2dGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jyzBEPuIilIp5vlpq1+O3NegYQSfadwH2sc1+j1+Ngg=; b=vwfJs4lFCNJlKy
+	HGxY/MiprHAbm++doJ9URaZH+2Gj7wcJukjYwqowwo71M99ggvPUDU4kM8u3BHQRQFpBB+Rv5WWal
+	rp4n6xgRrOZ+T0Ez/V3v4GJ7dbP/+Ysvfp5aj8tN7NrZmadgbmC7/8e2Brw25v6tx/t7knEk+l7gi
+	+jFi4TRvO+zNUk2manah6k05fDiB9scHvTAY7rwt1jbvgy4iN6Izv7109IQxNDkE9HrgS6bZo1wFP
+	idUNkFkzLJiSmoX+OnkmFqh6OAsZnht9mhyFB2Db9D7iWTHoD+NUTgDXHXH0SSkhct+rJsLMhKNTR
+	NeMr6Lg8oPlgWyzmKKnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSbj-00000006LDl-48QX;
-	Sat, 11 Jul 2026 07:58:43 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wiSo6-00000006Lda-1Cdc;
+	Sat, 11 Jul 2026 08:11:30 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSbg-00000006LCg-1Qi6
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 07:58:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=pxQ1ovDyhvvGVyJA8vX4ADWtfoejcpKh9n/5W0S+X/0=;
-	b=LGE0hMkPdeowF8yD213VC9YiTyviyT/M2oD99py9EoMELuo+yzb2Xxzktwdl1yL2SwXYpkxDo
-	ZfyuWXDn3tnB2Uww9HSLUma2+9wm+SWtuOJrVOmJZOsit9u7nuBfzLvdMSRySwDTU5is/OS6IU5
-	CkHnKcQ0jpUQziohLwrrmRQ=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gy17J3HW1zpSvB;
-	Sat, 11 Jul 2026 15:49:32 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id D4A41203C1;
-	Sat, 11 Jul 2026 15:58:17 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Sat, 11 Jul 2026 15:58:16 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <ljs@kernel.org>, <linux@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>, <liam@infradead.org>,
-	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <mhocko@suse.com>, <rppt@kernel.org>,
-	<sunnanyong@huawei.com>, <surenb@google.com>, <vbabka@kernel.org>,
-	<wangkefeng.wang@huawei.com>, <xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault() under CONFIG_DEBUG_USER
-Date: Sat, 11 Jul 2026 15:56:51 +0800
-Message-ID: <20260711075651.3114-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <alHnqsIdcMghnUER@lucifer>
-References: <alHnqsIdcMghnUER@lucifer>
+	id 1wiSo1-00000006Ld1-1KTl;
+	Sat, 11 Jul 2026 08:11:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783757468; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Vp84AO56jRRT0ZQ9JWyaymHr1uGFyI/D7Vj31wvH1Rz+js/bE1WcoB5nBKEI4n+pFeJF0nH1LnenHxjHTymeBFUZLWEfyw6Pi4G0eKBnie7xojv4DPhhdPLqil9nwMIHMnI8vIdqhFcJTMfw4QsjpvMc7NFV3evVaJXdHMZ2sAQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1783757468; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jyzBEPuIilIp5vlpq1+O3NegYQSfadwH2sc1+j1+Ngg=; 
+	b=W4dbxzu89yigXajnMtawGCTizlPgz61Ew2O5Da/8k4UOES4wXsrhyiXa5lTmxfBVp3rXNKG5LrJUAd4E9Pa7fcvltGltzUGxD1eTqB06k+nLMj4ONuw56J98/F7iCbpRCU1yfwYMr4HEU9SyNTafDjA/oPY2aeL4R/dMo9vjZ8k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783757468;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=jyzBEPuIilIp5vlpq1+O3NegYQSfadwH2sc1+j1+Ngg=;
+	b=m8Y2rSDvrdU4Iw2dpCtIEo/BycS6EHwBz6R641v9p9WDf7GQZLMdNoGNAjbgB1gb
+	kzQNUAv39v4MWKyP6US2Ko8xxXSlH1GmlqM8DAc47FifSFLxivw1mWNtLVTDiIpZxQv
+	W0fvf5oSLX7Qz5GmJ7gFniaHZwTf2UzsMGPuIhP4=
+Received: by mx.zohomail.com with SMTPS id 1783757465990476.2860850817026;
+	Sat, 11 Jul 2026 01:11:05 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v2 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
+ and PRCM
+Date: Sat, 11 Jul 2026 16:10:26 +0800
+Message-Id: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0XMQQ6CMBCF4auQWVsztBWCK+9hWJQypRORkpYQD
+ eHuVly4meSfvHwbJIpMCa7FBpFWThymHPJUgPVmGkhwnxskygrzEaZWStjxIbDXziKaxjUW8ny
+ O5Ph1UPc2t+e0hPg+5LX8fn+IKvGPrKVAoapOU9NJrS/1bebhGaIZzwtZD+2+7x+tk2VtpAAAA
+ A==
+X-Change-ID: 20260202-a733-clk-0d4fc00a9f9c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783757449; l=3794;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=C4/qzNHgAQL8cgNF9m01gDg70Z4cEsgSM7Av3F+071A=;
+ b=owef9gnwxUPldZnALee1bOMiT2P4HbKPi5VdAYR4Oyw8i/dhVZVODKcuh/PWpayDV07gjftiU
+ LJ8e/kSmDDiDFHenfID0+du6wCn8UFbdBU7o1blvMUJiKKZ/vgB2yyA
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_005840_540515_201B60AE 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260711_011125_707474_50CF9AE3 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +99,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026 08:27:23 +0100, Lorenzo Stoakes wrote:
-> In general yeah but with mmap_write_trylock() after you add the attached
-> patch to a series (making sure to cc- the right people etc.)... but also,
-> wouldn't you just generally want this in show_pte()?
->
-> Seems to me best way is to put the existing show_pte() into a __show_pte()
-> and then do show_pte() like (untested top of my head thing):
->
-> void show_pte(const char *lvl, struct mm_struct *mm, unsigned long addr,
-> 	      bool is_user)
-> {
-> 	/* Write lock needed to account for concurrent downgraded munmap(). */
-> 	if (is_user && !mmap_write_trylock(mm)) {
-> 		printk("%s[%08lx] unable to acquire lock for PTE output\n",
-> 			lvl, addr);
-> 		return;
-> 	}
-> 	__show_pte(lvl, mm, addr);
-> 	if (is_user)
-> 		mmap_write_unlock(mm);
-> }
+Add support for the main CCU and the PRCM module (R-CCU) found in the
+Allwinner A733 SoC. The clock architecture of the A733 is an evolution
+of the previous A523 design but introduces several significant changes.
 
-For user faults, I think we don't need to worry about deadlock issues.
+One of the key changes is the introduction of a "pll-ref" clock that
+normalizes the physical oscillator frequency (which can be 19.2MHz,
+24MHz, or 26MHz) into a consistent 24MHz reference for the entire clock
+tree. Additionally, while the A733 inherits many module clock structures
+from the A523, the MCU_CCU has been removed, and the overall clock tree
+has been expanded to support more new functional units.
 
-As Russell King described, deadlock problems can only occur in kernel faults.
-On Tue, 7 Jul 2026 16:34:21 +0100, Russell King wrote:
-> Unconditionally taking the lock could lead to a deadlock. Consider
-> the case where the mmap lock is held, and we get an unrecognised
-> abort from the kernel.
+Also update the sunxi-ng SDM (Sigma-Delta Modulation) helper to support
+a new dual-pattern register design. On the A733, the SDM enable bit has
+been moved from the main PLL register to a second pattern register
+(PATTERN1). The driver is updated to handle this register layout to
+ensure accurate frequency synthesis for "pll-audio0".
 
-As we never return to user mode with mmap lock held, so for user faults,
-it is safe to acquire mmap lock. This is just the same with the syscall
-entry of `pkey_alloc`, we immediately acquire the mmap write lock:
-Link: https://elixir.bootlin.com/linux/v7.2-rc2/source/mm/mprotect.c#L1011
+The parent clocks for several instances in the main CCU are difficult
+to determine as the user manual provides limited information on their
+specific clock sources. In these cases, the implementation follows
+vendor practices and previous SoC designs, generally defaulting to
+"hosc" where documentation is lacking. The bus clock gates in the PRCM
+(R-CCU) are explicitly defined based on the Memory Map in the manual,
+which clearly associates each module with its respective bus.
 
-For the kernel, the user faults entry and the system call entry are not
-fundamentally different; they are both kernel entry points.
+---
+Changes in v2:
+- Rework the clocks property in DT bindings to source hosc directly from
+  the oscillator to adapt to the new RTC binding
+- Clean up the SDM dual-pattern helper macro and add the missing enable
+  parameter for pll-audio0
+- Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
+  DRAM0, NAND0, GPADC0, THS0, etc
+- Correct 8x PLL post-divider names to 12x for video and DE PLLs
+  (pll-videoX-12x, pll-de-12x)
+- Drop gic, cpu-peri, nsi clocks
+- Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
+  PWMCTRL -> PWM
+- Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
+  SPI NOR failures when unused clocks are disabled
+- Switch PRCM timer clocks to P-only helpers
+- Fix bus gate bit positions for UARTs and correct the sysdap register
+  address
+- Interleave bus clocks into function clocks
+- Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
+
+---
+Junhui Liu (8):
+      dt-bindings: clk: sun60i-a733-ccu: Add allwinner A733 support
+      clk: sunxi-ng: sdm: Add dual patterns support
+      clk: sunxi-ng: a733: Add PRCM CCU
+      clk: sunxi-ng: a733: Add PLL clocks support
+      clk: sunxi-ng: a733: Add bus clocks support
+      clk: sunxi-ng: a733: Add mod clocks support
+      clk: sunxi-ng: a733: Add bus clock gates
+      clk: sunxi-ng: a733: Add reset lines
+
+ .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
+ drivers/clk/sunxi-ng/Kconfig                       |   10 +
+ drivers/clk/sunxi-ng/Makefile                      |    4 +
+ drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2360 ++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_sdm.c                     |   51 +-
+ drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
+ include/dt-bindings/clock/sun60i-a733-ccu.h        |  290 +++
+ include/dt-bindings/clock/sun60i-a733-r-ccu.h      |   39 +
+ include/dt-bindings/reset/sun60i-a733-ccu.h        |  129 ++
+ include/dt-bindings/reset/sun60i-a733-r-ccu.h      |   23 +
+ 11 files changed, 3289 insertions(+), 26 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260202-a733-clk-0d4fc00a9f9c
+
+Best regards,
+--  
+Junhui Liu <junhui.liu@pigmoral.tech>
+
 
