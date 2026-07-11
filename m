@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BA8C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD29C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=55SlABL8sC4/v91Mc2l87z9dg40TyXcYAN1WaabwtgA=; b=3EBtov8xAH2pPcCnUZQ5IWJfAL
-	5jJNs7BP93O5JshnchHzYWIxs7PUW+61RUKBoMSU1Aq1oSZMjYqJDcRMOFK5TH1bmL75qSi1WxU1k
-	k66rlxLkg3y80K2f86UN+EDMizwbQUvcT0s1dg6DynfB+vz/5isdXk7kKoBw4HztZdvPG/snrTci7
-	o0E1TzqX952ldrBzzmfFAze6aR/64lFcFlXQ/3rvxAaJ/iITEnCLimY7zGPj2K2OJoo83Cn8Tpsoa
-	ZrFN95yOAlxw186rgaorL/w0jFMFykP8ul6vmoLsaMJwXJdr1z1cOLSsRvR6i5uCU0Nl+2NQl5MV5
-	0bvt4xAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=; b=B8ItUlx8PHwG/BN5KVKW8zeVVA
+	XhyfMLYrnpWGN+XzxXuXiaBjyZUuxB2nP462j/mIkAID7zzFu5U9bnIV19JzF+pK7zUZcDdwSY7Pv
+	4P7jqsh8cenTsj6EFuGo64G+Zh2LRE++9m+Kzdl72QivrJ0rwvhPRwZi3/xdP7HZ4scQ8CJhYI3xs
+	3k3WoBafDsmPhMpdpbhuJESg8TR+XY7reoyFfqDoTjGEMHsqD5C2c9un1LHEif0Tc8MHkfzqvp7S8
+	BJq7GeS5s4JbWL+4XdYRfLv7k09amQ2fecyR09VSGLZkNxLDXElqLhZwC9xTeUi9qtvMD4uIp3gFS
+	w4/glBcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnZ-00000006EnQ-0m4k;
+	id 1wiQnZ-00000006Eo5-2LrF;
 	Sat, 11 Jul 2026 06:02:49 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
+Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnP-00000006Eg9-44dF
+	id 1wiQnR-00000006EgE-2z7q
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:02:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783749726; cv=none;
+	Sat, 11 Jul 2026 06:02:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783749733; cv=none;
     d=strato.com; s=strato-dkim-0002;
-    b=R1xy+vjV5qGJrZp3bx10t+TOSl93Iw/vG76b8g20LekJuqGlCtnQVAs6vaKz1vBe9G
-    vs7zukbaccMv3BIwll4TDG6SEbJBmv1Shaz/Q1Y9jEgXbLMGeVCHhdPXRrHtlk3At0xR
-    D6hvmhEjziT3ND82R4Fr8Fyhrw66VHWAUXb+jiDdFVjcq0Mfcu/OL/O1jVW2uR8q8F29
-    cOEMBGHY4f0WQkTjfjlqsr5iNfuNJfK7gfCBJFcC2Wb4WgeLDZ9Wf1c39bT0XxtChp8u
-    hCM2brIcZyCdO2iyfc5kAr63e2/fhYHy4qKFbg2LDOq/LFh0L0xy8VWCnD2hCkf1pOt/
-    Bgtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749726;
+    b=UNAol3P+3NSnVFANpP0PNenPYX/++5XBKrsgPStGoWHK/tv07cmPa4CJzz82unyIHc
+    M8eZ9x6nBCb5bdWStJBwD+utDt8qbnwDhnjVL3zpTkhg2sm+HIz6WG/SQUNAkUBFoid4
+    vVL0EHxWyMT0qkCfYkFfMwAzowyj1Fnm6BOpTCDIfGTIYvf+II4xprpVX15aGFypsvRm
+    ABT8MKCOpLoEns9Qa5xUOAuoB9lU0hKeT9TqHkLv14sY99APWS9uZXQuo2oP9BONzh9w
+    XGSJgByKluI4o61R5m931VxbCJE/fye3v22HyqwTWN+OLTtfNBA7HJ8602Ufw4F3+IbQ
+    d2ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749733;
     s=strato-dkim-0002; d=strato.com;
-    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=55SlABL8sC4/v91Mc2l87z9dg40TyXcYAN1WaabwtgA=;
-    b=QoYeJb9+wBLMRfWj+jYkjq7jsoxyOht91kWkbtZKkPLRwYozYvc8mrS19LOxdMAGW6
-    6du5JmRGvMyrN6cPg+MvWC9o+c12+ie5ZyxfmUOdPosQimyGVV3+8AiI/+zI/l5pZ0JB
-    swZnhbntxVIqpF7wgKvIceCcuZzObRlPI8sNzb35mG7OhALO1bQAaqUK7hbrxohWeAZM
-    syWX/ry7fLJnE2tOoPPYHlHe58NwP0QkIrCmfhjiBtUqYuirx5kQJ9kn05mByJyA2/iE
-    42s8GFhSCGCg/dANzUnhz4kmVnDpfZ96aCTvrEqkbgFxndovBSXirQ3L63urQ9u0JBhi
-    +/FA==
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
+    b=ii2uSQlgcBgDWO0l1OXPUTf/cKHjzlvnCuzFMpdI+q+YLehm+8FfA6yGgBxcSi4/DM
+    UKKA1YNeyp0wxx2RXyYb7jn8DOvp0y4cE+q15n5KyFtB0qZGRvoP9yNOq1Q3uPONBP6B
+    uTA0z7y5VHOZSb5JgTFkyO9VRPrNAWonHD3Z3tDXBWeYBDfrmwb84KrhhTKLHb5vZ61J
+    KfuwZntjwOkOlgdABXYJiC7ZLIvdodcJMtkU2p+vdx5SRrJfIFX875Ogo9PPWJtttk2L
+    2IakW966dWigtYojCV6X5VToJX2tvPMT4VUmAi+oreQnrFYXYGN9O9sYTFOymipRTvO+
+    bIyg==
 ARC-Authentication-Results: i=1; strato.com;
     arc=none;
     dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749726;
+X-RZG-CLASS-ID: mo04
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749733;
     s=strato-dkim-0002; d=goldelico.com;
-    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=55SlABL8sC4/v91Mc2l87z9dg40TyXcYAN1WaabwtgA=;
-    b=Jv/FjH7QzkuyigtT8XXK2dwQ2vGQcHzBu9aWuIeAgyAcdv6gxMxDSqiY6pwaSNJSzw
-    wD2mal/H8htwmWvXrBI45troLrwAstuv3kZz1eJxIVeItPL+Vvm97abhVZm5INH+QShk
-    S0fUmJbprZy/3RkBB3MkiZRQ34wLkfGTrf8xfj7rXfWb43fT4pOIHl52srVxlFM8t34Q
-    VV/NNaa61kBSf932uC+GrazstytyFbgtDINJPqWbK34DWd6P48uJ545YS5eMNhFk/pfP
-    bTcZ7nqqj5AfKnM421S/6MOaLGGPxfuOEtxHmEG65+SquAM8oT8yTEJk1VmDvnKKmCwY
-    qBFg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749726;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
+    b=TmE6zxFjGDgs6NxLtFBYoH6EGjXG5RKaK8LImJxYODhQQx0QMlKfBTwwX27Fmhf95z
+    yaG+wFdkI908C3whCwXFEt9ZwEUxw/uL2GyzjFYKzzFb9KhA1SIbio8FbDj0l6aL6hf7
+    QQzSxcfchX0AuadBytx3x8E508pv5SHIXs7bEE1UsxD/JNhdxivN6tra0r3te6YksbVp
+    Xdp4884snRffHQldKJ+9Z0jMvvQmmPcsTZ52S6fPjOwWj4vKsrNcdMbkewjNse74ab5N
+    t9x8iAUIeWmtOD3aUcPi8D9sp1bpGYHXA1kun4xtcOKAy2MH8r0+09+/KyzFr2dEkG5m
+    Albw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749733;
     s=strato-dkim-0003; d=goldelico.com;
-    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
-    bh=55SlABL8sC4/v91Mc2l87z9dg40TyXcYAN1WaabwtgA=;
-    b=VQOxmGicLvbfDiAUwz97zqTfaoLdmVuKV/V2cinZ5idzgW5WRVnp5mS1n7P6/55AvT
-    Yge9NQzSyXvQXRFfSHDA==
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
+    b=LyjgpbMKh6H6ERpUAmFX42ygfbFz0rHJ1cHwrsF2a/wmKtnMvBsPB4UT/GVX7CtaN5
+    Nbkrryo0KmZRFkCZ03Dg==
 X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
 Received: from iMac.fritz.box
     by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426B624Ghk
+    with ESMTPSA id Q4b76426B62CGhq
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
 	(Client did not present a certificate);
-    Sat, 11 Jul 2026 08:02:04 +0200 (CEST)
+    Sat, 11 Jul 2026 08:02:12 +0200 (CEST)
 From: "H. Nikolaus Schaller" <hns@goldelico.com>
 To: Grond <grond66@riseup.net>,
 	Stefan Leichter <sle85276@gmx.de>,
@@ -114,16 +117,18 @@ Cc: letux-kernel@openphoenux.org,
 	linux-fbdev@vger.kernel.org,
 	kernel@pyra-handheld.com,
 	mfd@lists.linux.dev
-Subject: [PATCH 00/16] ARM: omap3: pandora: Modernize audio and backlight to Device Tree to finally remove pdata-quirks
-Date: Sat, 11 Jul 2026 08:01:47 +0200
-Message-ID: <cover.1783749722.git.hns@goldelico.com>
+Subject: [PATCH 05/16] arm: dts: omap3pandora: Don't use DMA channels for unused SPI masters
+Date: Sat, 11 Jul 2026 08:01:52 +0200
+Message-ID: <129b1ff8e73235c74ac66dab9041672190065785.1783749722.git.hns@goldelico.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_230240_300369_5A2DB114 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20260710_230241_911870_92A28EBF 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,117 +143,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PATCH V1 2026-07-11 08:02:02:
-This series modernizes the OpenPandora handheld support by converting the 
-sound subsystem and backlight control to proper platform drivers and Device 
-Tree definitions.
+From: Grond <grond66@riseup.net>
 
-The primary goal is the complete removal of omap3_pandora_legacy_init() 
-and the elimination of the last remaining user of machine_is_omap3_pandora().
+On the pandora, only McSPI1 (spi0) is actually used. Because the device
+tree defaults in arch/arm/boot/dts/omap3.dtsi leave all of the mcspi
+interfaces enabled, the DMA channels which the device tree assigns to them
+cannot be used for anything else. This is a problem because OMAP3's sDMA
+controller can only have 32 DMA channels configured at any one time.
 
-History and Context
-===================
-The necessity of this cleanup was highlighted in several recent discussions:
+So when we try to use (for example) the McBSP subsystem (which is required
+for sound) it doesn't work because we've already exhausted our available
+DMA channels.
 
-1. Tony Lindgren noted that machine_is_omap3_pandora() checks never succeed 
-   on Device Tree-booted machines, leaving the audio subsystem functionally 
-   broken since the DT conversion years ago:
-   https://marc.info/?l=alsa-devel&m=165632351319716&w=2
+Fix this by disabling mcspi[2-4] on the pandora device tree.
 
-2. Ethan Nelson-Moore submitted a patch to replace the macro with DT 
-   compatibility checks (accepted as commit 45efb8fbdae3 in v7.2-rc1):
-   https://marc.info/?l=linux-omap&m=177841578110704&w=2
+Signed-off-by: Grond <grond66@riseup.net>
+Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+---
+ .../boot/dts/ti/omap/omap3-pandora-common.dtsi  | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-3. Sascha Hauer pointed out that the entire omap3pandora driver fundamentally 
-   depended on this broken machine ID check:
-   https://marc.info/?l=linux-omap&m=178048982272252&w=2
-
-Design Choices and Implementation
-=================================
-Based on these discussions and a long-standing and working out-of-tree solution,
-we initially attempted a migration to generic frameworks like simple-audio-card 
-or audio-graph-card. However, the hardware routing peculiarities of the 
-OpenPandora introduced too many functional gaps. Replacing omap3pandora.c 
-entirely with pure DT definitions proved unfeasible. 
-
-Therefore, we opted to base a new proposal on the out-of-tree rewrite of
-the old-style sound board file kernel driver (sound/soc/ti/omap3pandora.c)
-into a proper platform driver that cleanly fetches its resources from the
-Device Tree, while adding specific handling for the twl4030-regen output
-and adapting the pandora device tree files.
-
-Series Structure
-================
-* Patches 01–06 (Preparation): Move highly specific legacy code to its proper 
-  infrastructure (TWL4030 regulator regeneration and codec handling).
-* Patch 07-08 (New Driver): Introduce a dedicated platform driver for the 
-  PCM1773 audio DAC.
-* Patches 09-14 (Audio Core): Rewrite the omap3pandora ASoC fabric driver 
-  and update the respective Device Tree nodes.
-* Patches 14–15 (Backlight): Remove the custom, legacy Pandora backlight driver,
-  convert it to generic Device Tree nodes
-* Patch 16: (Cleanup) safely delete the obsolete omap3_pandora_legacy_init().
-
-Notes & Testing
-===============
-* Testing: This series has been tested on real OpenPandora hardware.
-
-Credits
-=======
-This work is a collaborative effort by multiple authors over several years:
-* Grond <grond66@riseup.net>
-* Stefan Leichter <sle85276@gmx.de>
-* H. Nikolaus Schaller <hns@goldelico.com>
-
-
-Grond (8):
-  dt-bindings: twl-regulator: Add bindings for exposing ti,twl4030-regen
-  regulator: twl: Expose the TWL4030's REGEN signal as a regulator
-  arm: dts: twl4030: add twl4030-regen child
-  arm: dts: omap3pandora: Populate DT data for the TWL4030's REGEN
-    regulator
-  arm: dts: omap3pandora: Don't use DMA channels for unused SPI masters
-  ASoC: twl4030-codec: Allow setting APLL rate through the .set_sysclk()
-    interface
-  ASoC: pcm1773-codec: write a driver for the PCM1773 chip from TI
-  arm: dts: omap3pandora: Add device node for PCM1773 codec
-
-H. Nikolaus Schaller (5):
-  ASoC: dt-bindings: add TI PCM1773
-  ASoC: dt-bindings: add OpenPandora Sound Card
-  arm: dts: omap3-pandora-common: backlight: switch to twl4030 pwm and
-    pwm_bl
-  backlight: remove pandora_bl
-  arm: omap2: remove remaining pdata-quirks for pandora legacy devices
-
-Stefan Leichter (3):
-  ASoC: omap3pandora: Rewrite sound card driver as a platform driver
-    with DT
-  ARM: dts: omap3-pandora-common: Enable audio in/out (mcbsp4/2)
-  arm: dts: omap3pandora: create new DT node for the sound card
-
- .../devicetree/bindings/mfd/ti,twl.yaml       |   1 +
- .../sound/openpandora,omap3pandora-sound.yaml |  94 ++++
- .../devicetree/bindings/sound/pcm1773.yaml    |  32 ++
- .../dts/ti/omap/omap3-pandora-common.dtsi     |  84 ++++
- arch/arm/boot/dts/ti/omap/twl4030.dtsi        |  14 +
- arch/arm/mach-omap2/pdata-quirks.c            |  23 -
- drivers/regulator/twl-regulator.c             |  52 ++
- drivers/video/backlight/Kconfig               |   7 -
- drivers/video/backlight/Makefile              |   1 -
- drivers/video/backlight/pandora_bl.c          | 159 ------
- include/linux/mfd/twl.h                       |   3 +
- include/linux/mfd/twl4030-audio.h             |   3 +
- sound/soc/codecs/Kconfig                      |   5 +
- sound/soc/codecs/pcm1773.c                    | 149 ++++++
- sound/soc/codecs/twl4030.c                    | 140 ++++--
- sound/soc/ti/omap3pandora.c                   | 454 ++++++++++++------
- 16 files changed, 855 insertions(+), 366 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
- create mode 100644 Documentation/devicetree/bindings/sound/pcm1773.yaml
- delete mode 100644 drivers/video/backlight/pandora_bl.c
- create mode 100644 sound/soc/codecs/pcm1773.c
-
+diff --git a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
+index a0116823ffdef..b4acab1625212 100644
+--- a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
+@@ -693,6 +693,23 @@ lcd_in: endpoint {
+ 
+ };
+ 
++/*
++ * Only mcspi1 is used on the pandora, the others do not surface on the board
++ * due to pinmux configuration. disable the unused ones so that they do not
++ * consume DMA channels
++ */
++&mcspi2 {
++	status = "disabled";
++};
++
++&mcspi3 {
++	status = "disabled";
++};
++
++&mcspi4 {
++	status = "disabled";
++};
++
+ /* n/a - used as GPIOs */
+ &mcbsp1 {
+ };
 -- 
 2.50.1 (Apple Git-155)
 
