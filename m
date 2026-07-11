@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FE1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45EDAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+6p82jb2/aEkt1ZTkLsvP1xOUzDqGuBhaufElbiyiI=; b=dIhs5eVFVQMAnmva97WyN+iUEc
-	IEt424V/RnSHX22+Nsfpu1EXP++rWVrukosTTgyZgY0EU591Og6VCgFCzp5JEIhChCXrxyVmSAV8D
-	xdkl1eoujv3f2JNRBW0drX61QSj+igu4bGas949nMojvXFTmM1Z7fQO0AcxaGRoOkjHE01BFZHo2k
-	kxI3QXY8TjPIAbrh751ex51cs0sZK9o2+G3Yt6KxM3hd+lZwGb82RZwC59jw5XCRMnj2HQ4FYw2YA
-	X6uvK66yFKSJw3tXDppTSpjyG0dJVt19xmDDTK7fDgitUi+s9VHiRorjj861r4rr9FHB6TO2crbjF
-	Tr3JHNNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aBafLctpeA1AoyzErbEa9EGgxzwRbfKFWoPKc6c7bv4=; b=RARa72VrcytZHP5xvFjlYRgA2h
+	IHt/6tlw/6ZvyYZ1a2jMnSWTpUlg/ELcLcR9PlP/IxuGxU7zPNfA04pb8cDx7ABOz230SoZyjTcqU
+	pnHfWrDU9DJwN9bhq2ab4+saXhrW6PEbGQGNTK1CkZbdUBxXHKtaA5Dp0aFngK9r5BP5iOGlH8rFR
+	qSj3eFay1vwKpTnGa21m8HpUmY296oklMsBMhnz1kiHs9OGqRTKaEre/D7v8HhMUCVX+ZxVpHdUux
+	zzqpHeeMFGNgPQdTpRzxgPcnqwZDN4YKx4/OSav+W+i76EQlUi0V+Xi19B0gElnxG5zHbsTcg/zbl
+	bwvsEwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiS7f-00000006JSz-0wID;
-	Sat, 11 Jul 2026 07:27:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wiSEH-00000006JpL-3eZM;
+	Sat, 11 Jul 2026 07:34:29 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiS7d-00000006JSp-4128
+	id 1wiSEF-00000006JoN-3BwI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 07:27:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEE29600C3;
-	Sat, 11 Jul 2026 07:27:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F931F000E9;
-	Sat, 11 Jul 2026 07:27:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783754856;
-	bh=C+6p82jb2/aEkt1ZTkLsvP1xOUzDqGuBhaufElbiyiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iZM9j+K29RqsZs/pgnjVGv1y/g1WDedJzleE5hWTeFT1NHl/YR8r7Q5VoRC5PP/rG
-	 UMcyaaIxn0XOwNyxb49orLZnE6JHuDqKU7zXvxMYZTASOuFy3Rl0KF8G/aG1fQ2yFN
-	 NeEX2HmUW3yKRYYI2UfxY5yVZZIkwR66AzlyTlAmS+wXGo2P7gDhmlUV7+BliJLjMq
-	 swhey2eI29p+gioLYySaxV69zUnEQuZ1T4P0nDgROA2wq59QWV1QAZClGZrNYeluqm
-	 lohPBUPZyrwZx4ZBOCQPV3u/E3qyqm+H7Ivc7V4QITxG6YwHXBTs6H2Vpa4dBWSf5s
-	 uKpFuFsV+Xr3A==
-Date: Sat, 11 Jul 2026 08:27:23 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Qi Xi <xiqi2@huawei.com>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	Xie Yuanbin <xieyuanbin1@huawei.com>, akpm@linux-foundation.org, david@kernel.org, liam@infradead.org, 
-	liaohua4@huawei.com, lilinjie8@huawei.com, linusw@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	mhocko@suse.com, rppt@kernel.org, sunnanyong@huawei.com, surenb@google.com, 
-	vbabka@kernel.org, Kefeng Wang <wangkefeng.wang@huawei.com>
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault()
- under CONFIG_DEBUG_USER
-Message-ID: <alHnqsIdcMghnUER@lucifer>
-References: <akzpuerKqOY7qfFi@shell.armlinux.org.uk>
- <20260707131409.79043-1-xieyuanbin1@huawei.com>
- <akz8aZUW23rpyrLO@lucifer>
- <ak0cfZPZIWz4v95K@shell.armlinux.org.uk>
- <3fb3b11d-515b-400d-b1d2-5623dacb92cb@huawei.com>
+	Sat, 11 Jul 2026 07:34:28 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-39c9452243cso15134551fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 00:34:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783755265; x=1784360065; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aBafLctpeA1AoyzErbEa9EGgxzwRbfKFWoPKc6c7bv4=;
+        b=AKV2hVNJx40YInVxrPSOjsFiZJ60kAq4HIjdmsqBjnaTuHCeSSmLQskhqBH8aIJKvj
+         57E1OTI5ofmylhm+P3MnNQB10+ZS16wIu0392S3xn6iPJT6z+kHLAFk67S1lctpJTt5W
+         QQNAlCxyI25efJPFPOIBmNxySGXvI4u+dI5b3+zgUMZ5Di6yojc6HwP+5Z/Txi/7ncGX
+         G1qzJ8JCS5Vi3E2t/bT8xuJuUxXKWIF7489zIXw5EIUtQmMbSbpqLVvdcCv+SYV1tOdc
+         6WIi7Iicvf4NJ7yswUKdScZBt6MYoBM6Wngm9rO4cGwVciwaRIFxGE8lERHvIt5vtTy1
+         53Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783755265; x=1784360065;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aBafLctpeA1AoyzErbEa9EGgxzwRbfKFWoPKc6c7bv4=;
+        b=lmSlSmT9Lpmn7gi3IRmxz0IBr2O9zuZ9wDp8zGPjYtbrbadO3lHPkZUH9w3578jHfC
+         wSorqXIYCau9JP8RdLdJ9cpqsHi4DSVsTUsHVh293sJcbLYLHfCPvuimGC5phcVjV1fN
+         4wYnhuijtycoU3CCP0hAPQ9F1yTMGbyhzhyxqKlWTWvIDb3bSrZXMLyr5FoqMx1E8Twk
+         T0YJujJN/2Qj8jY5wYaBL4JRL+p3VGZ8HBYQa+4lOLnK7j9eDF+msUv8nRMRuIpkMdhN
+         4xJQmhEWaYzJ1Si7/noJ+gyO0a7dIsaF9YAVr1mzzmZbRhTx2zoN5o3Zxwx1tc+VRU46
+         FCXQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrgQHwulNjYnGBmHuSgGQXQ48POJkkjWAkfivmt969iPEWMI+nMY+T8YUwRsAWSU6tKIQnOh7qDRqhuGetT/yUD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdhKOLIi8PBGrFZbASJYZ5psdk53q5esgE9ihXidQS8nl1lRro
+	d4vk1eYr/w3/vDeLbphclz2WWzmsgIi9DWQdLMXA4FSi3Mr1QWp8DSqP
+X-Gm-Gg: AfdE7cnItgjA8pAPk1NXzZNYDg1VnlSgZhZZycuPQdO+tuSap6iAEPwLJBsDNUFefBf
+	oN3w5xgfYHOzpdmVt86+zsK7LIavIjTXJvjvdqAvZkgRFGqw8RqSXjuPbIdo45m6/kF4UomqPQ6
+	teyG5jNElcyolv7DacggQy8YoQhe5YJeWlRm+ZGZrC6EYocXOdYSy8MToFOtpTA8Dhq3dxq57f5
+	XCFcfp9Zc9P6WzXE5Ow0xBnFnpvGX/Bw5njUbQkT/DzWTsYeR4Vyi1Svl7PTUgK/5zrqKEGI41J
+	4wcpB/awcsl9fhmA8/vasswRpidN1vSnfPBa1pkdEg1s++0Fqbo6C+/dXIZq6UN6DkoDPRoRvS0
+	Yobwc+O4RBlX5GvbnR8jZvxku+E/sPHI2lUpmdrzkTLzzaV/A8GUUcOPyJ3NK4Io7riJVop2GJQ
+	Z4YTwsS1E3gg1saBCYvkvgRqhPJsb/G+ebWDu3xLCJgiMcvZhxot8H/a2DESo1TVj0WZZDIw==
+X-Received: by 2002:a05:6512:3f8:b0:5ae:bf45:e3be with SMTP id 2adb3069b0e04-5b0236689cdmr321070e87.21.1783755264967;
+        Sat, 11 Jul 2026 00:34:24 -0700 (PDT)
+Received: from ?IPV6:2a00:1fa0:4322:18e2:4e2b:60a6:4ce2:33fb? ([2a00:1fa0:4322:18e2:4e2b:60a6:4ce2:33fb])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b01ca9dd41sm1117527e87.48.2026.07.11.00.34.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 11 Jul 2026 00:34:23 -0700 (PDT)
+Message-ID: <de1d491e-159e-41c2-b145-4d09db091031@gmail.com>
+Date: Sat, 11 Jul 2026 10:34:19 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3fb3b11d-515b-400d-b1d2-5623dacb92cb@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/10] ASoC: replace linux/gpio.h inclusions
+To: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Gregory Clement <gregory.clement@bootlin.com>, Frank Li <Frank.Li@nxp.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Greg Ungerer <gerg@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <zajec5@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260710211954.1373336-1-arnd@kernel.org>
+ <20260710211954.1373336-7-arnd@kernel.org>
+Content-Language: en-US
+From: Sergey Shtylyov <sergei.shtylyov@gmail.com>
+In-Reply-To: <20260710211954.1373336-7-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_003427_820923_1D2656D4 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,165 +121,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 10:32:29AM +0800, Qi Xi wrote:
->
-> On 07/07/2026 23:34, Russell King wrote:
-> > On Tue, Jul 07, 2026 at 02:20:19PM +0100, Lorenzo Stoakes wrote:
-> > > On Tue, Jul 07, 2026 at 09:14:09PM +0800, Xie Yuanbin wrote:
-> > > > On Tue, 7 Jul 2026 12:57:45 +0100, Russell King wrote:
-> > > > > No. This information is useful debug for kernel oops.
-> > > > For kernel oops, I think it should be `!user_mode(regs)`, Qi Xi's reply:
-> > > >
-> > > > On Tue, 7 Jul 2026 19:48:12 +0800, Qi Xi wrote:
-> > > > > For do_DataAbort() fallback:
-> > > > >
-> > > > > 	if (user_mode(regs)) {
-> > > > > 		if (addr < TASK_SIZE) {
-> > > > > 			mmap_read_lock(current->mm);
-> > > > > 			show_pte(KERN_ALERT, current->mm, addr);
-> > > > > 			mmap_read_unlock(current->mm);
-> > > > > 		}
-> > > > > 	} else {
-> > > > > 		show_pte(KERN_ALERT, current->mm, addr);
-> > > > > 	}
-> > > > changes nothing to kernel oops. It only skip show_pte() for user-mode
-> > > > faults, and the fault addr is a kernel address, which means a user
-> > > > program is trying to access a kernel address.
-> > > > I think it is reasonable to skip show_pte() in this case?
-> > > Well the whole reason you're faulting here might be because a userland process
-> > > did that right? The page tables should tell you (presumably on ARM32 :)
-> > >
-> > > And I hate to repeat myself, maybe you didn't read the whole thread but... just
-> > > use mmap_write_lock(), this isn't necessary?
-> > >
-> > > What is this trying to achieve?
-> > >
-> > > You're not in a hotpath, why are you bothering to conditionally take/not take
-> > > the lock?
-> > Unconditionally taking the lock could lead to a deadlock. Consider
-> > the case where the mmap lock is held, and we get an unrecognised
-> > abort from the kernel.
-> >
-> > If we try to take the mmap lock again, we'll deadlock, which will
-> > result in very little debug information being output - and the
-> > system locks up. The only thing that would save such a case would
-> > be if the user had decided to use a hardware watchdog, or is
-> > physically present to press the reset button.
+On 7/11/26 12:19 AM, Arnd Bergmann wrote:
 
-Yeah right, ugh.
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> linux/gpio.h is going away,s o use linux/gpio/consumer.h instead.
 
-We don't currently have an mmap_write_trylock(), that was removed in commit
-cf95e337cb63 ("mm: delete mmap_write_trylock() and vma_try_start_write()")
-but I think it's legit to bring _only_ the mmap_write_trylock() back (not
-vma_try_start_write()), AND updated to account for how VMA locking works
-currently (we have to update a seqcount on mmap write lock acquisition).
+   s/s o/ so/?
 
-To make life easy - I've attached a patch that you can add as part of a
-series (please keep attribution etc. to me so I can be blamed/villified if
-this is insane :)
+> 
+> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>[...]
 
-That way we avoid the deadlock and also avoid concurrent downgraded
-munmap() oopsing in show_pte().
+MBR, Sergey
 
->
-> We are preparing a v4 and would like to confirm the approach for
-> the do_DataAbort() fallback path (__do_user_fault() is similar).
->
-> As Lorenzo noted, an mmap write lock is required here because
-> munmap() downgrades the write lock to a read lock before tearing
-> down page tables.
->
-> -	show_pte(KERN_ALERT, current->mm, addr);
-> +	if (user_mode(regs)) {
-> +		if (addr < TASK_SIZE) {
-> +			mmap_write_lock(current->mm);
-> +			show_pte(KERN_ALERT, current->mm, addr);
-> +			mmap_write_unlock(current->mm);
-> +		}
-> +	} else {
-> +		show_pte(KERN_ALERT, current->mm, addr);
-> +	}
->
-> The lock is taken only for user_mode(regs) + addr < TASK_SIZE, so
-> kernel aborts that may already hold the mmap lock are left unchanged.
-> For user-mode faults on kernel addresses (addr >= TASK_SIZE), as
-> Yuanbin noted, it is reasonable to skip show_pte().
->
-> Please let us know if you see any issues with this approach, or if you
-> would suggest a different way to handle it.
->
-
-In general yeah but with mmap_write_trylock() after you add the attached
-patch to a series (making sure to cc- the right people etc.)... but also,
-wouldn't you just generally want this in show_pte()?
-
-Seems to me best way is to put the existing show_pte() into a __show_pte()
-and then do show_pte() like (untested top of my head thing):
-
-void show_pte(const char *lvl, struct mm_struct *mm, unsigned long addr,
-	      bool is_user)
-{
-	/* Write lock needed to account for concurrent downgraded munmap(). */
-	if (is_user && !mmap_write_trylock(mm)) {
-		printk("%s[%08lx] unable to acquire lock for PTE output\n",
-			lvl, addr);
-		return;
-	}
-	__show_pte(lvl, mm, addr);
-	if (is_user)
-		mmap_write_unlock(mm);
-}
-
-Cheers, Lorenzo
-
-----8<----
-From 2d0906c9ca962361fcdf2a033deb2a37252c486a Mon Sep 17 00:00:00 2001
-From: Lorenzo Stoakes <ljs@kernel.org>
-Date: Sat, 11 Jul 2026 08:07:27 +0100
-Subject: [PATCH] mm: add mmap_write_trylock()
-
-Commit cf95e337cb63 ("mm: delete mmap_write_trylock() and
-vma_try_start_write()") removed mmap_write_trylock() as there were no
-users.
-
-Re-add this helper and update to have it update the mm's write lock
-sequence count number as per the current VMA lock implementation.
-
-The use cases for this function are very narrow - in the vast majority of
-cases an inability to acquire the write lock is terminal so you want either
-an unconditional or killable variant of the mmap write lock.
-
-However this is being added so a subsequent patch can safely dump PTE
-information when an unhandled fault arises in arm32.
-
-Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
----
- include/linux/mmap_lock.h | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
-index 04b8f61ece5d..fe14d4babae9 100644
---- a/include/linux/mmap_lock.h
-+++ b/include/linux/mmap_lock.h
-@@ -546,6 +546,18 @@ static inline void mmap_write_lock_nested(struct mm_struct *mm, int subclass)
- 	__mmap_lock_trace_acquire_returned(mm, true, true);
- }
-
-+static inline bool __must_check mmap_write_trylock(struct mm_struct *mm)
-+{
-+	bool ret;
-+
-+	__mmap_lock_trace_start_locking(mm, true);
-+	ret = down_write_trylock(&mm->mmap_lock) != 0;
-+	if (ret)
-+		mm_lock_seqcount_begin(mm);
-+	__mmap_lock_trace_acquire_returned(mm, true, ret);
-+	return ret;
-+}
-+
- static inline int __must_check mmap_write_lock_killable(struct mm_struct *mm)
- {
- 	int ret;
---
-2.55.0
 
