@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF32FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AE2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZB4drwZeCzFntaUbA8UcFyakx9+hGBaPBgbS+EjwmC4=; b=Sxfnduh4dCxtijCSFOcJm5E9Ci
-	zvFaq1ApZDJ4Q4C6bbHmxEA5LROhrOBVI7WijfNfQXtJpC06BCGSE5VmMwIBMvDf6/5PA3Rq1h4pj
-	4gK0na6CkQ1t48MzT0KOOEq09BFvmnEq599fUmwel/oXFPq39WkIeXgPZ+G1I12tI7URVupdAKxfX
-	MmBADNQ1aFNbRfHyQikY1bUTR9F+hLv2d0U8HQ+02XquNuyQ5gTqzMBSFEdGqwji1jiTsPzbdvxXH
-	8EPzZljuq2yAoEDDkqWfK3JlFIHamZNkTt7Yp+hMM1Fb+sN70BfP4HLSTI+Egqlcy5apJXypMyCmT
-	oOQyfysA==;
+	bh=HENgLEtB9pue7a+OzTC29B2VMtoMvD6SFjJxTuZhfas=; b=az2PXokxV3DPba/x48F2IPRacI
+	PZIHKWwdKI2KvvULzBHVAIWOzoW7PxLwihG6hPsmisENQYGb4bSv9dlQowMBFOIlabV3qfnu7aKwy
+	/ZOobAKyoe95eOXQZn3atsKt3hEUA4oh7/ERwtLg2mYK1dyUSYZb5VGRiYaRbu5I2/qiZFSeNb9jP
+	Ln+2wlYCluPBKBTPz2nZd7PZW5t0NTFjmimZAj4xf7rmmrMda8dhhMih5s4VaIaOmlXYx2KM/z8Dx
+	qdwZSxLI5CWRtrAQtsk6KZMB0adH8FkBYGpUIIclXkJbjF4lVt06Q/7IREo5O+e1wofI+c99GgJqT
+	8bQcUy2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnS-00000006EjF-32xI;
-	Sat, 11 Jul 2026 06:02:42 +0000
-Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.120])
+	id 1wiQna-00000006Ept-13cn;
+	Sat, 11 Jul 2026 06:02:50 +0000
+Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.121])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnP-00000006Eg6-2FEH
+	id 1wiQnS-00000006EgT-0U9S
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:02:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783749732; cv=none;
+	Sat, 11 Jul 2026 06:02:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783749741; cv=none;
     d=strato.com; s=strato-dkim-0002;
-    b=AxOWz8SVP1S6FOK1V10S8ZhkMMYVS2OCMbs43ygVVAZ8CKNTz01G+E3cIfvQLEayR6
-    jqyYAvoq2G+wAzR3Y9G2O6B3vpvqzN7aWO5PeobQF/x4Qg/4UqngcKGHDZz1iAUWQSZK
-    2FKFXSduwAjPkkH3efcWc3DC7W4DUiCw4vDoHTrplsQJQQ0s9hBhwZj5kD70BtXIx4yX
-    8LI631cCp4Y9We/AlbQATRmQJBg2lgpwj/v/ZfPUjiuKZzSJSZWkW+B7GHZXDD5jw2Od
-    IsV5QOIecP+lMoIdQQkgriOw7q9E/5T9Gn+VJnSwrq0RuTfzc4di9SiGICN0dz32q2z4
-    f55w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749732;
+    b=cbHhs1G/UB8S4rKpy+eTavrMAOsuDePdX6s96nPH2HHTTPdY0K5V7VMRv2YltrLVoN
+    sae4VTf9/3We3uaCL81xymPMAEy3gUDZaFhZZSxOCl0ZXWYSSoiSnDC9JxoeaD6rQFPS
+    enVYxcwemHQxj59LUXohlY3jaB+6R6B4SR96khHLocwZ3DEGG39mMI9Xpnm6Rg1pg50C
+    5mVjQH2pZGJ1Tf+yrOa2+H9GBN0yyFNci76bPcjsPt7aM4K9Da0nZfo7ZbTqRIjWGfio
+    cOd0+dfMUqdlNhyrxNirroMC2kEOPUPSyDQb6MwF5yYf0sUgm6CGOmwEDv5dgVmyFnnE
+    6GGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749741;
     s=strato-dkim-0002; d=strato.com;
     h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
     From:Subject:Sender;
-    bh=ZB4drwZeCzFntaUbA8UcFyakx9+hGBaPBgbS+EjwmC4=;
-    b=l4WFSASvq/2zX/sPgvqRYr3ZmbRO0tbYaWlwn3hAPdh5QAMzl5Bip0rZ6L/TFNBp0l
-    TaUCmVp7x5ZGPbWZ0rYDrNP15p8CE8CplFPplOb6GZ3UzvCAGit4ib3smILsxNtRdH6c
-    3vT/P2UFJqj3MjHisc/o3b1qmT+GjhTzHONnYELCNQrTh3Jh0d3UBM0wKFy7ZSYn5cdi
-    eY4b+2WFoYQDlV8ug/6EagyXBB5GbUET+T0lsB/3PluXtEYIfhu8ES1f7a5uRFq8JiW/
-    R+o2At4b65nilUOCHtC+NyPD5b3GmnbMtLPXMuGTyVIRU4xwb70gpa0i7Bc0Pjlyt4OI
-    ybzQ==
+    bh=HENgLEtB9pue7a+OzTC29B2VMtoMvD6SFjJxTuZhfas=;
+    b=p/pEPqImHou+Mlwh+eAFeS0DZK5pnqKcoNMimQVpJw3SvlVwT9jmZQcJ7AJs+ZJLnp
+    Vt6XHfDEREsyWvMIXCXD3cqUMgoLZAiWCPBy6K+zTIaKd7Hq8rI85JMA9uH/8ZrIaOW1
+    0KQOW3s099HgsShU8rlBTsNbHv+3FRXGzN/KHfxOchLJVCdmG+NVtzbu0tkHQfv0zHVi
+    rp0mmqUlack9CnXpOlja/VTAiYscGx71l2ne/YtYxikQUcxKVpX1BHzpOEZqNrgPdW8E
+    teS0p8NZH09q5XBrJPnKfuS/otgzI78ccJzsKBMt8Gui5Gm8IGMyEc4VMRIEdClEUHHf
+    yXWQ==
 ARC-Authentication-Results: i=1; strato.com;
     arc=none;
     dkim=none
 X-RZG-CLASS-ID: mo04
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749732;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749741;
     s=strato-dkim-0002; d=goldelico.com;
     h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
     From:Subject:Sender;
-    bh=ZB4drwZeCzFntaUbA8UcFyakx9+hGBaPBgbS+EjwmC4=;
-    b=ODAdJdCE+yCfnSBSmGovKKmGSNhHP8ROyYNBa7qHxAeLe4Ooqbr6zwQ7rK7ATdSRks
-    MWFBNA53+Jmcv190NNht1gEYaUcx1W95J3OKKfagSGVyu8bNwkgJLLLjNGEZxZWFB70g
-    Uo+GUi1We4MHyZB4s143zxxkm2bd7gtoMEdiqtVSpfRx8LIhKNrs3RUqdPJ4X5eUzRrR
-    65BeDX1BHjfgpPU3LXI8va8kFDUcSEMbKK3gp2PnhXTBvnDO34J8zDKqMSVu3WSrm66K
-    FNQRj9XTqM2cKPvZ/hNLKbCGTB16GfwLT8Vin6pbrGXxXRFy+jf3OjuLpKWsKkY1Czdy
-    JJ2Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749732;
+    bh=HENgLEtB9pue7a+OzTC29B2VMtoMvD6SFjJxTuZhfas=;
+    b=kCyPgNlEM4WxjjWOyGgAWA0z8pH8EXo4zD3PLR4gCoHpQUxskyHxbRfxwSnBZ5PfnN
+    i2EKNtSit5uobsCV2mOs3V+ZdkXkxaQqh5MZLMlSvaqqIBg/vqaPMLlYp/nk14eUOnhX
+    tKw3hrjG6ciaYgOwMpyMleFu2Pqd6y4jb9KjIoEkI0DvbqLqQ6H6PKhqgPxU7XHPjX6t
+    ci2HjVu9xo3nDuPzHhPfW45G1xTzgxZJ1JqiuYdXgeXJD0Tk4ECwVmQjo+LZIyeknYiE
+    orZG0RFseD3G5ZfzviqbdxLrF8BDy8a4ulOxScM2j3m2dN7/hYoqJ8B3oaxnGSndxma0
+    puqg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749741;
     s=strato-dkim-0003; d=goldelico.com;
     h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
     From:Subject:Sender;
-    bh=ZB4drwZeCzFntaUbA8UcFyakx9+hGBaPBgbS+EjwmC4=;
-    b=WlvwVONf4WYr92wgA8G3MKGSSueqLjRrbW6fKtwcUtkCLnHy0dflC3i5XWSwwIh9MT
-    onJo+t8VZVmM0oApg7Bw==
+    bh=HENgLEtB9pue7a+OzTC29B2VMtoMvD6SFjJxTuZhfas=;
+    b=iEfMC90x31GwXTvNm+0LH5NqByU4WTMnLsdbXDP+vKKABTETSi+XsdwbCwVM3GWC0d
+    FIlCftVoxFOwv2STJqDA==
 X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
 Received: from iMac.fritz.box
     by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426B62AGhp
+    with ESMTPSA id Q4b76426B62KGhw
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
 	(Client did not present a certificate);
-    Sat, 11 Jul 2026 08:02:10 +0200 (CEST)
+    Sat, 11 Jul 2026 08:02:20 +0200 (CEST)
 From: "H. Nikolaus Schaller" <hns@goldelico.com>
 To: Grond <grond66@riseup.net>,
 	Stefan Leichter <sle85276@gmx.de>,
@@ -117,9 +117,9 @@ Cc: letux-kernel@openphoenux.org,
 	linux-fbdev@vger.kernel.org,
 	kernel@pyra-handheld.com,
 	mfd@lists.linux.dev
-Subject: [PATCH 04/16] arm: dts: omap3pandora: Populate DT data for the TWL4030's REGEN regulator
-Date: Sat, 11 Jul 2026 08:01:51 +0200
-Message-ID: <d0b2a73c7c208f33784eae4219ff3981800ae6f9.1783749722.git.hns@goldelico.com>
+Subject: [PATCH 11/16] ARM: dts: omap3-pandora-common: Enable audio in/out (mcbsp4/2)
+Date: Sat, 11 Jul 2026 08:01:58 +0200
+Message-ID: <88d0a95b354b27aff5ba548d3829ae7c31838119.1783749722.git.hns@goldelico.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
 References: <cover.1783749722.git.hns@goldelico.com>
@@ -127,8 +127,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_230239_837294_F537B98E 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260710_230242_327922_1645154F 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,42 +143,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Grond <grond66@riseup.net>
+From: Stefan Leichter <sle85276@gmx.de>
 
-On the Pandora, REGEN is used to enable TPS61029DRC external regulator
-which runs a 5V power rail. The 5ms startup delay is taken from Pandora's
-3.2 kernel, where it is labeled as a "guess". So it may be possible to
-activate the regulator faster.
+enable mcbsp2 and mcbsp4.
 
-On Pandora CC units, this regulator is used as the input to the LCD power
-supply. Therefore, problems are likely to arise if the regulator is ever
-disabled, so we add the regulator-always-on property to compensate.
-
-Signed-off-by: Grond <grond66@riseup.net>
+Signed-off-by: Stefan Leichter <sle85276@gmx.de>
 Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 ---
- arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
-index 06c5b23589991..a0116823ffdef 100644
+index b4acab1625212..5907b2455f75b 100644
 --- a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
 +++ b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
-@@ -486,6 +486,14 @@ &vsim {
- 	regulator-always-on;
+@@ -716,6 +716,7 @@ &mcbsp1 {
+ 
+ /* audio DAC */
+ &mcbsp2 {
++	status = "okay";
  };
  
-+&regen {
-+	regulator-min-microvolt = <5000000>;
-+	regulator-max-microvolt = <5000000>;
-+	startup-delay-us = <5000>;
-+	regulator-always-on;
+ /* bluetooth */
+@@ -724,6 +725,7 @@ &mcbsp3 {
+ 
+ /* to twl4030*/
+ &mcbsp4 {
 +	status = "okay";
-+};
-+
- &i2c2 {
- 	clock-frequency = <100000>;
- 	/* no clients so we should disable clock */
+ };
+ 
+ &venc {
 -- 
 2.50.1 (Apple Git-155)
 
