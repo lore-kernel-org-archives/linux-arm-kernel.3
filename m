@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2C3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD08DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hHMuMSGcHj8MSVXJupK58876HkGZrvqVgI8Jh+FeUI=; b=do9oq25F//zBDN/5SsvvxN1ERJ
-	CwXKmSujXHcVYouzFFD1kSkrty/9VesPmKq8+wT9A8n/8YjZPT2HzqZOJymtCTWUMdEZd6bH11uwL
-	py5bIy3Ns5BntDVlYpbtbxmurLV/fjUfkbUq1wPequfZN6C4o7bRxQ8BDeo2HtLtFtL8vYDhrUGpq
-	6scDZRoOeSEkjwAFUd7FmpZnEgNCjFteejPoYIsdOEBU1ZaBcCn1gKnonq4XrIx4ktVlVkuLFpPx1
-	//BQi3MBzizTuPXp2xJ9rxhPjeIf6zUd1FPq7a85pWvyAgbo6pkOcW1z2AasFdShuJr+Yy3+eRq+j
-	XoKWnOoQ==;
+	bh=TYtjAVPyiyVCs7rEX4PjUS/qYasF91VWIyzMuMsClWc=; b=zmpIPKlsUYyU4gAjA9grmh75Eq
+	miI5Kyp+ouZMGug0G7cZ29IpjXgYo15xWEtnnQg9f8MYhQfUunREYgMnSSeKctiYQWgcicSSFBrvp
+	lOTfRtOR4obxudsd+nFoUKS0rmQq0WrkShnJZ5U7J4B0TIpGUfgQuqSczlHN5WDf6U2GgT4sBllnG
+	hD54BcpJrLZ8Q1+xG5bzD+BRxjtTEsPPpJUH9y/QEYA7jw4MPiVcylazBnOp/lf/EPN84yasgWwKa
+	asLcbfUjKwH0GGZgcv8SXlx3CmpCnaVcNWSVSp/32llk6FElqoJZwyMvDqv5C1+18NjUcNrGhuvBB
+	h4A55HdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSFs-00000006K3u-1swV;
-	Sat, 11 Jul 2026 07:36:08 +0000
+	id 1wiSJ2-00000006KCz-3IQa;
+	Sat, 11 Jul 2026 07:39:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSFq-00000006K3Y-3iwm
+	id 1wiSJ1-00000006KCn-28qC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 07:36:07 +0000
+	Sat, 11 Jul 2026 07:39:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD0BB600C3;
-	Sat, 11 Jul 2026 07:36:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640041F000E9;
-	Sat, 11 Jul 2026 07:36:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADCCB60051;
+	Sat, 11 Jul 2026 07:39:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308CA1F000E9;
+	Sat, 11 Jul 2026 07:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783755365;
-	bh=3hHMuMSGcHj8MSVXJupK58876HkGZrvqVgI8Jh+FeUI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EYw8Izdt+88Jo8Luqm/PUbhw/nFKqEoO1KgRabuVac8asFohgFafDSZcWHKxZ3Enp
-	 sEHsYR7qkJD7Tz6WKRmFfhQ6Lbajc5aU4QEK4vMh+aDIghQQqt38wYELyEM6dgVVkH
-	 woxK9cDVKVOpcXJWh2Qoq4nQrEpU8+cOa21rbt4Bn7nENMnZt2PpwGHi9klT0UOrYM
-	 JvDmAWwuSfI8up9cVooZDL0PwDbfbH48vVoi6SFO2/IXfA5VxFDvb5Yob9NGnEB+Dz
-	 gmrS5XqxWud0PZmIOvEtSYS7LeGbn7IZY23PZ71Gp+/5m7Pkr1mA4mTXzQHAqEugbV
-	 u5yBNFWTW8Z4w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wiSFm-00000003x2G-3G4i;
-	Sat, 11 Jul 2026 07:36:02 +0000
-Date: Sat, 11 Jul 2026 08:37:51 +0100
-Message-ID: <87mrvy5640.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: D Scott Phillips <scott@os.amperecomputing.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Lucas Wei <lucaswei@google.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH] arm64: errata: Mitigate AmpereOne erratum AC03_CPU_57 and AC04_CPU_29
-In-Reply-To: <20260710222128.416581-1-scott@os.amperecomputing.com>
-References: <20260710222128.416581-1-scott@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, zengheng4@huawei.com, xuwei5@hisilicon.com, vladimir.murzin@arm.com, lucaswei@google.com, kuninori.morimoto.gx@renesas.com, Sascha.Bischoff@arm.com, yangyicong@hisilicon.com, yeoreum.yun@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1783755562;
+	bh=TYtjAVPyiyVCs7rEX4PjUS/qYasF91VWIyzMuMsClWc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=mfw1unyuyde0ALrJe/zfiLZV52Hf0qQbPaw+v/si5t6SCNDG+XDDrpRyzh4VfeRR3
+	 PFkxRkHui1szF8apGh0eXyqKpWrtX/+h1xHkgpNha6Kqe7VfPJSgswBIGohK1t/Qy1
+	 XS56RLqs4XmG1GENPccTJVaXXqajFIYGcKDpoWsztu37CxAw5raopZPOBSKu62msBm
+	 J008e0O1weHW8gBfv8rQZGmkqETkt3qs9p6Zo7zgVwMnknuTCOgFM/6YIgHR4iIxBB
+	 gJyJBaIhWl0aipIst8kQhZGIP7a+JrSt7nLr2rGd4O9EEcOXj+DhDcBWZto7L/DHKg
+	 l9GYOiIPrY96w==
+Date: Sat, 11 Jul 2026 02:39:21 -0500
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-omap@vger.kernel.org, 
+ Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ Charles Keepax <ckeepax@opensource.cirrus.com>, kernel@pyra-handheld.com, 
+ Lee Jones <lee@kernel.org>, linux-fbdev@vger.kernel.org, 
+ Jaroslav Kysela <perex@perex.cz>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Stefan Leichter <sle85276@gmx.de>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ Takashi Iwai <tiwai@suse.com>, Niranjan H Y <niranjan.hy@ti.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Jarkko Nikula <jarkko.nikula@bitmer.com>, 
+ Grazvydas Ignotas <notasas@gmail.com>, 
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, 
+ linux-arm-kernel@lists.infradead.org, letux-kernel@openphoenux.org, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+ dri-devel@lists.freedesktop.org, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Sen Wang <sen@ti.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Helge Deller <deller@gmx.de>, 
+ Andreas Kemnade <andreas@kemnade.info>, 
+ Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, 
+ Grond <grond66@riseup.net>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, 
+ devicetree@vger.kernel.org, mfd@lists.linux.dev
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
+ <7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com>
+Message-Id: <178375556058.2516925.10169600172051423562.robh@kernel.org>
+Subject: Re: [PATCH 09/16] ASoC: dt-bindings: add OpenPandora Sound Card
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,225 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Scott,
 
-On Fri, 10 Jul 2026 23:21:28 +0100,
-D Scott Phillips <scott@os.amperecomputing.com> wrote:
+On Sat, 11 Jul 2026 08:01:56 +0200, H. Nikolaus Schaller wrote:
+> The OpenPandora audio subsystem describes the routing links between the
+> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio
+> codec, alongside amplifiers and power supplies.
 > 
-> On AmpereOne, deactivating a physical interrupt through ICC_DIR_EL1 or
-> ICC_EOIRx_EL1 (depending on EOImode) which is not active, but is the
-> highest priority pending interrupt causes the cpu to lose the interrupt
-> pending state and also prevents the delivery of future interrupts.
->
-> Work around this in the vgic, avoiding the cpu issue.
-
-Thanks for getting to the bottom of this.
-
-> 
-> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 > ---
+>  .../sound/openpandora,omap3pandora-sound.yaml | 94 +++++++++++++++++++
+>  1 file changed, 94 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
 > 
-> Hi Marc, we've tracked down the nested virt hang reported
-> previously[1] to a cpu erratum in AmpereOne[2].
-> 
-> Here I'm just sort of parroting the change you had posted for
-> debugging. I'm not familiar with the vgic logic well enough to know if
-> this change is sufficient and doesn't have some unintended
-> consequences. I guess read this more are as "I've tested this and I'm
-> not seeing it hang now."
->
-> Sorry for sending this half-baked, I didn't want to further delay the
-> errata details on my ongoing vgic education. I'm happy to take any
-> advice you can give, otherwise I'll continue familiarizing myself and
-> will hopefully later have a patch which I can actually claim I think is
-> correct.
 
-No worries.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-To be perfectly clear, what I posted at [1] *is* a bug-fix. A very
-minor one. Nothing wrong should come as a result, except when it does,
-such as in your case.
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml:10:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
+./Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml:13:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
+./Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml:18:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
+./Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml:56:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
+./Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml:62:2: [warning] wrong indentation: expected 2 but found 1 (indentation)
 
-The core reason why this happens is that the L2 will have EOI'd its
-timer, and that the HW bit set in the LR will have propagated the
-deactivation all the way to the HW redistributor. Then L1 takes over,
-and needs to reconcile the LR state with its own, namely its view of
-the active state.
+dtschema/dtc warnings/errors:
+Traceback (most recent call last):
+  File "/usr/local/bin/dt-doc-validate", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
+    ret |= check_doc(f)
+           ~~~~~~~~~^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 29, in check_doc
+    for error in sorted(dtsch.iter_errors(), key=lambda e: e.linecol):
+                 ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 167, in iter_errors
+    self.validator = self.DtValidator(registry.contents(meta_schema_id), registry=registry)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 488, in contents
+    return self[uri].contents
+           ~~~~^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 338, in __getitem__
+    raise exceptions.NoSuchResource(ref=uri) from None
+referencing.exceptions.NoSuchResource: 'http://devicetree.org'
+Lexical error: Documentation/devicetree/bindings/sound/pcm1773.example.dts:20.37-52 Unexpected 'GPIO_ACTIVE_LOW'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/sound/pcm1773.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1705: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-The issue here is that when dealing with a nested vgic (the state
-contained in the LRs is for L2, not L1), the deactivation process
-doesn't need to involve the HW again -- this has already be dealt
-with, and results in the double deactivation I mentioned in my email.
+doc reference errors (make refcheckdocs):
 
-> 
-> [1]: https://lore.kernel.org/linux-arm-kernel/87ecjybz30.wl-maz@kernel.org/
-> 
-> [2]: https://amperecomputing.com/products/developer-errata
-> 
-> The updates with AC03_CPU_57 and AC04_CPU_29 have not yet been
-> published at the time I'm writing this. They should be coming
-> soon. I've reproduced the full entries from those two coming documents
-> collapsed together below:
-> 
-> | {AC03_CPU_57, AC04_CPU_29}: Deactivation of the non-active, highest
-> | priority pending interrupt prevents further interrupt delivery.
-> |
-> | Functional Unit: CPU
-> |
-> | Category: 4
-> |
-> | Affected Version(s): AmpereOne AC03 A0, AmpereOne AC03 B0
-> | Affected Version(s): AmpereOne AC04 A0, AmpereOne AC04_1 A0
-> |
-> | Fixed Version(s): Open
-> |
-> | Overview:
-> |
-> | If software directly deactivates a physical interrupt which is not
-> | in the active state, and the interrupt is also currently the highest
-> | priority pending interrupt, then interrupt delivery will cease on
-> | that PE. Deactivation can happen either through ICC_EOIRx_EL1 if
-> | ICC_CTLR_EL1.EOIMode==0, or through ICC_DIR_EL1 if
-> | ICC_CTLR_EL1.EOIMode==1. Deactivation of virtual interrupts that are
-> | redirected through ICV_ registers will not cause this issue, even
-> | when the virtual interrupt deactivation triggers a physical
-> | interrupt deactivation through ICH_LR<n>_EL2.HW=1.
+See https://patchwork.kernel.org/project/devicetree/patch/7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com
 
-OK, that's pretty good news. Can I safely assume that your HW doesn't
-support VLPIs/VSGIs in any form (no GICv4+)?
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-> |
-> | This has been observed with Nested Virtualization starting with
-> | Linux-KVM v6.19.
-> |
-> | Impact:
-> |
-> | Physical interrupts will not be delivered after the deactivation of
-> | the non-active, highest priority pending interrupt. A core may
-> | appear to be hung.
-> |
-> | Workaround:
-> |
-> | Software must only deactivate interrupts which are currently active
-> 
-> 
->  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
->  arch/arm64/Kconfig                          | 17 +++++++++++++++++
->  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
->  arch/arm64/kvm/vgic/vgic-v3.c               |  4 +++-
->  arch/arm64/tools/cpucaps                    |  1 +
->  5 files changed, 40 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 014aa1c215a16..89130404ce572 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -55,10 +55,14 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Ampere         | AmpereOne       | AC03_CPU_38     | AMPERE_ERRATUM_AC03_CPU_38  |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| Ampere         | AmpereOne       | AC03_CPU_57     | AMPERE_ERRATUM_AC03_CPU_57  |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  | Ampere         | AmpereOne AC04  | AC04_CPU_10     | AMPERE_ERRATUM_AC03_CPU_38  |
->  +----------------+-----------------+-----------------+-----------------------------+
->  | Ampere         | AmpereOne AC04  | AC04_CPU_23     | AMPERE_ERRATUM_AC04_CPU_23  |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| Ampere         | AmpereOne AC04  | AC04_CPU_29     | AMPERE_ERRATUM_AC03_CPU_57  |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | Cortex-A510     | #2457168        | ARM64_ERRATUM_2457168       |
->  +----------------+-----------------+-----------------+-----------------------------+
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b3afe0688919b..ee5421283d8df 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -436,6 +436,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
->  
->  	  If unsure, say Y.
->  
-> +config AMPERE_ERRATUM_AC03_CPU_57
-> +	bool "AmpereOne: AC03_CPU_57: Deactivation of the non-active, highest priority pending interrupt prevents further interrupt delivery."
-> +	default y
-> +	help
-> +	  This option adds an alternative code sequence to work around Ampere
-> +	  errata AC03_CPU_57 and AC04_CPU_29 on AmpereOne.
-> +
-> +	  Deactivating a physical interrupt through ICC_DIR_EL1 or
-> +	  ICC_EOIR1_EL1 (depending on EOImode) which is not active, but is the
-> +	  highest priority pending interrupt causes the cpu to lose the
-> +	  interrupt pending state and also prevents the delivery of future
-> +	  interrupts.
-> +
-> +	  The workaround is for KVM to not deactivate interrupts for nested vgics.
-> +
-> +	  If unsure, say Y.
-> +
->  config AMPERE_ERRATUM_AC04_CPU_23
->          bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
->  	default y
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 1995e1198648e..9b03dccd55e09 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -631,6 +631,14 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
->  };
->  #endif
->  
-> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_57
-> +static const struct midr_range erratum_ac03_cpu_57_list[] = {
-> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> +	{},
-> +};
-> +#endif
-> +
->  #ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
->  static const struct midr_range erratum_ac04_cpu_23_list[] = {
->  	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> @@ -987,6 +995,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
->  	},
->  #endif
-> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_57
-> +	{
-> +		.desc = "AmpereOne erratum AC03_CPU_57",
-> +		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_57,
-> +		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_57_list),
-> +	},
-> +#endif
->  #ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
->  	{
->  		.desc = "AmpereOne erratum AC04_CPU_23",
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index 9e841e7afd4a7..8f1d10872360c 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -275,7 +275,9 @@ void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val)
->  		lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
->  	}
->  
-> -	if (lr & ICH_LR_HW)
-> +	if ((lr & ICH_LR_HW) &&
-> +	    !(cpus_have_final_cap(ARM64_WORKAROUND_AMPERE_AC03_CPU_57) &&
-> +	      vgic_state_is_nested(vcpu)))
->  		vgic_v3_deactivate_phys(FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-I think this is slightly overkill. The hack I posted should be enough,
-and we can replace all the capability business with a simple comment
-referencing the errata numbers and the entries in silicon-errata.rst.
+pip3 install dtschema --upgrade
 
-Use the information provided above to beef up the commit message and
-stick:
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-Cc: stable@vger.kernel.org
-Fixes: 6dd333c8942b2 ("KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive")
-
-so that we know how far this needs to be backported.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
