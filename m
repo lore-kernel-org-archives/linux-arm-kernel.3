@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751F1C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFE5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GzKdp7Hcvs6+zEuzXa7LVO8auZ6H7XjMLgYVqU0x/Zg=; b=lctcJae0WN7YUpsLQ7UWIx0FcH
-	8MnTL1fZGXfVcSDOqE+/o29uYoqbTQBcWuINyzQ6hJMghbDS5AKiYvS49QtD82GA1ABylgobUzQlE
-	AlDjBRxyKAIWOzavhrbxf6QA/5a8LPTelvJZ3C9mV84YvkSN8+rLJOkbTlTmreDqm/L7lQWA+gT4L
-	/IEsWS8e6SYIqTNqVT4WwAC1/9By3FZI4cvs00CUkuaKZ8wncwuuc02bUNvt25jSMA10I+kvEnVf9
-	3BqjZt2aY/IOxbvDstngT5j5RVB883bihK4Oe/tFuCLOt07t5XyzivQcTZob6lKpPZef1IEMsunYx
-	TpOvy3Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BScecOlitLDYz10/Pf4DyteBIAZlmTyE+E+GTseRLyI=; b=vMelmXZepQ1RuE6BYSFkSb+FAO
+	FAmWO9p7W8T33tMJY9caun/Amk0XKOtWWzLbjV5VnfgSE9MBvqsDp8EAjz9bngvuM0cFNgMiIDo8x
+	g/5umAV5bRa1IkNkOJYy9mfUKQA7PcHofY/CO8zmiWfu0c8BlpdPEnG6uwcKsx2y9l59LX9XFgHgg
+	aSJNAp+59FsLtxu6Qx41cjZJ0ib0ISqiZNj+bRecyc2JZhxlilY271Qq497U7JAZ0p9JuFuCITkgi
+	yN/86Z5Zw1H3aEnyGhKjGjMOQoIa3HFMmzFOCFEIZUboUzF4mCOqNxTjf8oiB3XUt7/8YyPXXPi/f
+	eXG4FTHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZeZ-00000006ee4-22ws;
-	Sat, 11 Jul 2026 15:30:07 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1wiZpR-00000006fFh-3dNl;
+	Sat, 11 Jul 2026 15:41:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZeV-00000006edN-3xYX
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 15:30:06 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1783783798;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GzKdp7Hcvs6+zEuzXa7LVO8auZ6H7XjMLgYVqU0x/Zg=;
-	b=IWykNoSpjn7zW6CuDj+8yy6zrE53QZYDQY2TzlqVtj1c/WCfWhVl5oUwsq3Pld2XnFxavJ
-	OKeLDcV/KyN5suJ2aH1WQVEyg4gcRMhLCpT1prSSIOYp38kOvKYEXQhEcNHQjx0afWN+VX
-	+EdqGbLAfKwg33sq0+4BBveY2JjDcKK5IuF+Ncs8koPzsyU2lRxld5eD18854judDqrTo8
-	8cK21M6hgoN4iBwdB2b+1ENYTUpLRy6GVzi3CaoZfcMXqv3Drl7huNW2ppa4bjtVF358fy
-	v6OXN6B8Y1h0B6i6I9mpOvyaFxAl0ZRbXRpZs4LlfUeZq6Grs/KqXaowmLqR7w==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 11 Jul 2026 17:29:52 +0200
-Message-Id: <DJVUKXFUVH2Z.2O9IM7YHJOKYT@cknow-tech.com>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Marcin Juszkiewicz"
- <marcin@juszkiewicz.com.pl>, <stable@vger.kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Fix USB hub phy-supply config
- for NanoPC-T6 LTS
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Diederik de Haas" <diederik@cknow-tech.com>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-References: <20260610081400.758687-1-diederik@cknow-tech.com>
- <20260610081400.758687-3-diederik@cknow-tech.com>
-In-Reply-To: <20260610081400.758687-3-diederik@cknow-tech.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_083004_602345_4B328359 
-X-CRM114-Status: GOOD (  13.52  )
+	id 1wiZpQ-00000006fFV-2xIz;
+	Sat, 11 Jul 2026 15:41:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DCC8140F89;
+	Sat, 11 Jul 2026 15:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05CD1F000E9;
+	Sat, 11 Jul 2026 15:41:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783784479;
+	bh=BScecOlitLDYz10/Pf4DyteBIAZlmTyE+E+GTseRLyI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JIIKj/4Z/c0vfipK5zYFpxj1IzCMO+3hbKqyDa5e+9Ge3sh08vK5zkM1n4Xx1fFB7
+	 r65JP9oAi+j6RLofHTRFShoffxbzRbQpUabAhtDsOZrm+YkECMPbSP7XRYDzehA+Si
+	 SsiRc7wajwOOgq4I6SpNaWZPm0U3mjabRPsrthqPjaWnf5v0O5gumzQr6KQ3445j8c
+	 jDQGKHYj3w4kwCabyRdwV4lbDUt1n3qcmIQgcpSpHQMzQ7i8vXHEa0RIEDgTMXLGga
+	 355wp/6EnWrJ0odjl89DWq4cSptNQ5m6uQLf3fqtf9hNC5eBG8pTaYNgs+b3ytQQzz
+	 zqDk0cNwM4xcg==
+Date: Sat, 11 Jul 2026 17:41:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	chunkuang.hu@kernel.org, p.zabel@pengutronix.de, justin.yeh@mediatek.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, kernel@collabora.com
+Subject: Re: [PATCH v3 01/12] dt-bindings: phy: Document MT8195 and MT8196
+ DisplayPort PHYs
+Message-ID: <20260711-spiritual-wildebeest-from-uranus-0fce41@quoll>
+References: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
+ <20260707154245.198361-2-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260707154245.198361-2-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 10, 2026 at 10:04 AM CEST, Diederik de Haas wrote:
-> The MTT USB 2.0 hub is connected to the SoC's USB20 HOST1, so the phy-sup=
-ply
-> belongs to u2phy3_host, not u2phy2_host as that is for USB20 HOST0.
->
-> Fixes: db1dcbe5f752 ("arm64: dts: rockchip: add NanoPC-T6 LTS")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
+On Tue, Jul 07, 2026 at 05:42:34PM +0200, AngeloGioacchino Del Regno wrote:
+> This adds bindings for the DisplayPort and Embedded DisplayPort
+
+"Add binding"
+
+
+> PHYs found in the MediaTek MT8195 SoC (and variants of) and for
+> the Embedded DisplayPort found in the MT8196 SoC (and variants).
+> 
+> This PHY supports varying impedance calibrations for the various
+> signals to reach an optimal EYE signal pattern for any specific
+> board(s), especially useful for very high bitrates such as HBR3
+> and higher, depending on board design.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts b/arch=
-/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
-> index 0ee67ee24f3c..0e15a2e1f2ff 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
-> @@ -38,6 +38,6 @@ usb20_host_pwren: usb20-host-pwren {
->  	};
->  };
-> =20
-> -&u2phy2_host {
-> +&u2phy3_host {
->  	phy-supply =3D <&vcc5v0_usb20_host>;
->  };
+>  .../bindings/phy/mediatek,mt8195-dp-phy.yaml  | 77 +++++++++++++++++++
 
-Please drop this patch.
-I was hoping to confirm this with an M.2 WiFi+BT card, but let's say the
-results were kinda disappointing (to put it mildly).
+I guess this answers my question about deprecated nvmem which I sent
+some minutes ago. I did not see any lore link in that cover letter,
+which would be nice in that case.
 
-Diederik
+Anyway,
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
 
