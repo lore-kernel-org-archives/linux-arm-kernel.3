@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE58C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 14:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6094C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 14:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4OuezE/moo5Tppqmye8t2PqCkPAk1kmw20Fa1p80Uak=; b=J5k4RfDChmMKVzakaV0TtxeZNE
-	kRhrS9l24TumnV7OJWjhXKpHgWFLrqkHRu7bQ3zfwJ2xzt3dsqBXC4c9xvpzsywnzGIy/Pu4Rl6RH
-	6MGbuIAtsatOLui6c5m1qLFn/H4+YV94+ZNglszxyJQluR4nhc0XvIXTf3VIdPNB6gQSvJ1kicRRW
-	Q1hD4WasxQ57vn+CR5sqhOIh/z37vdkDNopD5KYMPChwWpkKIxRB8bPoW8XN3amIn9xX687epGZTF
-	vruxdQhI9P0najlGSyTczUTxC3fFqnv5pHUBsQozv+rMCrH2EIJdYS2VrDNi1lVMOghaKQJAk4PaN
-	3yizUMRw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SbIZZcqbuDpJs1dbeAIlFgxWcMpMo2AYAWkhSGr2bz8=; b=BQajWrV+ZsrJPcm+19iPD3Ub3r
+	Wa8aM9+ANKZ70oZ1FPQXzdC23duLilfWTMNwFdVIZGKK59W5QrHZ9n4dFOvyAcOP1/+2b0Kd+7n9w
+	4nUvYbkNrkKg7GxJkt4lliWvv95Dc3RM8QQH9TDGtji9gc7KRV+mriHNIrIz9J/yIlqVGo+f5ze8M
+	lZP0iCceR7AvnlpD0wLD8HHEpJMl1948Zzb5YsLo9KMQhtB0jjIjy2gVYwr76u4FETGLBizEs2eQD
+	uj3wfNQtem+Bs4X3SJj3bDPIpVMu/1fWNKsaVXFmNPNlKXGDeJIGpClL/+Lzircmn2KDZg7k+vUOR
+	wAjepPvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiYFY-00000006al3-0PMW;
-	Sat, 11 Jul 2026 14:00:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wiY8e-00000006aa3-0pov;
+	Sat, 11 Jul 2026 13:53:04 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiYFW-00000006akB-0Svo
+	id 1wiY8b-00000006aZP-2MF4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 14:00:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87B55406B2;
-	Sat, 11 Jul 2026 14:00:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427D41F000E9;
-	Sat, 11 Jul 2026 14:00:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783778409;
-	bh=4OuezE/moo5Tppqmye8t2PqCkPAk1kmw20Fa1p80Uak=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VxoTKKnQlVJcRhtm2Y+EIAozs1G5BEK9wTFm6xPfRXoQ6y3tXHpdw1DTbn7UQANLH
-	 DnAOumu//hcPPhlJvcme/qgoh8yhuaPVRxc3lbm+EzAX129HxWPNtiqirqRVFQVLER
-	 56e/9iTBSS5cu0WIjKLCnxEj/ghe8NUN3mja882bBZeGt/Phv/gy1ORHnE5CjKJ+dF
-	 U+EMQyD7HbXFc3Aq2BcaLqi82cLx+zxxqXCLclDf8+IJeZk9dEMRwujbDzL4XSHxPQ
-	 sfWWw6Qspf0+34ZclkRaWc7eSiE03VknPmvSyKWlafemSMXOojLy08CO5cpHdSyp/z
-	 6QZMyNjfTYB6A==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 545C65FDF3; Sat, 11 Jul 2026 22:00:06 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH v2 2/7] dt-bindings: media: sun4i-a10-video-engine: Fix SRAM count for H6
-Date: Sat, 11 Jul 2026 21:59:53 +0800
-Message-ID: <20260711135959.3616919-3-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260711135959.3616919-1-wens@kernel.org>
-References: <20260711135959.3616919-1-wens@kernel.org>
+	Sat, 11 Jul 2026 13:53:02 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783777964;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=SbIZZcqbuDpJs1dbeAIlFgxWcMpMo2AYAWkhSGr2bz8=;
+	b=SPTFrVriF/OPBE0imuaYJvj/PL3GQ9MgWMPfdGv1sVZJCHRFoxt9LJHkKQ5lqSxwYNeyL8
+	K3XNukdpMQzqsxooyDvDI3OS6xI6ZokQPDkA3eVn2ra89/sU37Rm075NFOX1aY7u6799k0
+	mUcmNJUi5hzBGIFTjLsSNZjktBnhJLE=
+From: Zenghui Yu <zenghui.yu@linux.dev>
+To: linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: tglx@kernel.org,
+	peterz@infradead.org,
+	suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	Zenghui Yu <zenghui.yu@linux.dev>
+Subject: [PATCH] cpu/hotplug: Remove CPUHP_AP_ARM_CORESIGHT_CTI_STARTING
+Date: Sat, 11 Jul 2026 21:51:54 +0800
+Message-ID: <20260711135154.94276-1-zenghui.yu@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_065301_747192_2B85F7F2 
+X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +72,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the H6, the SRAM C region includes an alias of part of the VE SRAM
-used by the video engine. This region should also be claimed so that no
-access happens through the alias window.
+The cpuhp_state CPUHP_AP_ARM_CORESIGHT_CTI_STARTING has become unused since
+commit 59213b4be5c1 ("coresight: cti: Remove CPU power management code").
 
-Add a second SRAM region phandle to the video engine for the H6.
+Remove it.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
 ---
- .../allwinner,sun4i-a10-video-engine.yaml     | 21 ++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
+ include/linux/cpuhotplug.h | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-index 932043d7f0cc..818d815d4732 100644
---- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-+++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
-@@ -48,11 +48,15 @@ properties:
- 
-   allwinner,sram:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-+    minItems: 1
-     items:
-       - items:
-           - description: phandle to SRAM
-           - description: register value for device
--    description: Phandle to the device SRAM
-+      - items:
-+          - description: phandle to SRAM alias
-+          - description: register value for device
-+    description: Phandle to the device SRAM(s)
- 
-   iommus:
-     minItems: 1
-@@ -101,6 +105,21 @@ allOf:
-         iommus:
-           maxItems: 1
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun50i-h6-video-engine
-+    then:
-+      properties:
-+        allwinner,sram:
-+          minItems: 2
-+    else:
-+      properties:
-+        allwinner,sram:
-+          maxItems: 1
-+
- additionalProperties: false
- 
- examples:
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 0fb3a2a62eb0..feb32949aeea 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -180,7 +180,6 @@ enum cpuhp_state {
+ 	CPUHP_AP_DUMMY_TIMER_STARTING,
+ 	CPUHP_AP_ARM_XEN_STARTING,
+ 	CPUHP_AP_ARM_XEN_RUNSTATE_STARTING,
+-	CPUHP_AP_ARM_CORESIGHT_CTI_STARTING,
+ 	CPUHP_AP_ARM64_ISNDEP_STARTING,
+ 	CPUHP_AP_SMPCFD_DYING,
+ 	CPUHP_AP_HRTIMERS_DYING,
 -- 
-2.47.3
+2.53.0
 
 
