@@ -4,59 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EA3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2C3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qPHLQ2tCcNuSIH30h9+K88gtN9XOaokaNHFz9XFZTto=; b=cOuZSzxm3ojsdU4sexCBzMM/eY
-	wQILiNzUavi52f6Tl/mCmP3vhM7JvLo4kCvLz9WojQCoobFaVOdyTp40LBO8K12dAm9JbqRENIW78
-	8FjF82XrJw+yl8fIojHBC4dNoQwygYhTzVuTFlW2965TM954KeqTDUT6vczeocjzc+CTHAa5TV8Bh
-	HeQCtutGMB+DcygZUynXOEgezNljK2uSLRi1mgEBgV8jbiC0dx4aWbhklppMjeUJwbX6Nnuuv6Hi2
-	5QAlR0Sijz/SgRq/OfhyKT5yve1ebWE5nXpQx0wa1TJZBKn9EpoPIVbRn80PDI7XS9STqqNpKhc4N
-	VIf9X8rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hHMuMSGcHj8MSVXJupK58876HkGZrvqVgI8Jh+FeUI=; b=do9oq25F//zBDN/5SsvvxN1ERJ
+	CwXKmSujXHcVYouzFFD1kSkrty/9VesPmKq8+wT9A8n/8YjZPT2HzqZOJymtCTWUMdEZd6bH11uwL
+	py5bIy3Ns5BntDVlYpbtbxmurLV/fjUfkbUq1wPequfZN6C4o7bRxQ8BDeo2HtLtFtL8vYDhrUGpq
+	6scDZRoOeSEkjwAFUd7FmpZnEgNCjFteejPoYIsdOEBU1ZaBcCn1gKnonq4XrIx4ktVlVkuLFpPx1
+	//BQi3MBzizTuPXp2xJ9rxhPjeIf6zUd1FPq7a85pWvyAgbo6pkOcW1z2AasFdShuJr+Yy3+eRq+j
+	XoKWnOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSFT-00000006Jyv-0vL7;
-	Sat, 11 Jul 2026 07:35:43 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wiSFs-00000006K3u-1swV;
+	Sat, 11 Jul 2026 07:36:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiSFP-00000006JyU-3w7R
+	id 1wiSFq-00000006K3Y-3iwm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 07:35:41 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1783755334;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qPHLQ2tCcNuSIH30h9+K88gtN9XOaokaNHFz9XFZTto=;
-	b=o6ljqtQ5HtGtlykKMwNulgeGorEx6CZwu9TWfhSoWQSqTiMtsER7r9Rd0Lq+pVXrdT2GYk
-	ov5omYzakFWbDDXaoAfkNNRBPI+4uoBqHmy1ZR7Ddmr8zR+NfzCbOQVeFD7Cra7hrnO7WE
-	OwvkdAY9az4qccQtSWaah1iwPuuGg24=
-Date: Sat, 11 Jul 2026 09:35:25 +0200
-Subject: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
-X-B4-Tracking: v=1; b=H4sIADzyUWoC/32OQQ6CMBBFr0JmbU2phUZX3MOwKGUqNULJFBsJ6
- d0tuHf5Jn/e/xsEJIcBbsUGhNEF56cM4lSAGfT0QOb6zCC4qLniFdM01jIfX8hmTXpkRihrOCr
- UvIL8NhNa9zmU9/bH4d090Sy7Z08MLiye1qMzlnvujz6WrGRKVlLIq5XqYhuzdkh5nA/nHiO0K
- aUv3oz0J8cAAAA=
-X-Change-ID: 20260705-arm64-idle-param-c27fc0e7ea05
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Yureka Lilian <yureka@cyberchaos.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_003540_221600_0B2CB4D1 
-X-CRM114-Status: GOOD (  22.69  )
+	Sat, 11 Jul 2026 07:36:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CD0BB600C3;
+	Sat, 11 Jul 2026 07:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640041F000E9;
+	Sat, 11 Jul 2026 07:36:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783755365;
+	bh=3hHMuMSGcHj8MSVXJupK58876HkGZrvqVgI8Jh+FeUI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EYw8Izdt+88Jo8Luqm/PUbhw/nFKqEoO1KgRabuVac8asFohgFafDSZcWHKxZ3Enp
+	 sEHsYR7qkJD7Tz6WKRmFfhQ6Lbajc5aU4QEK4vMh+aDIghQQqt38wYELyEM6dgVVkH
+	 woxK9cDVKVOpcXJWh2Qoq4nQrEpU8+cOa21rbt4Bn7nENMnZt2PpwGHi9klT0UOrYM
+	 JvDmAWwuSfI8up9cVooZDL0PwDbfbH48vVoi6SFO2/IXfA5VxFDvb5Yob9NGnEB+Dz
+	 gmrS5XqxWud0PZmIOvEtSYS7LeGbn7IZY23PZ71Gp+/5m7Pkr1mA4mTXzQHAqEugbV
+	 u5yBNFWTW8Z4w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wiSFm-00000003x2G-3G4i;
+	Sat, 11 Jul 2026 07:36:02 +0000
+Date: Sat, 11 Jul 2026 08:37:51 +0100
+Message-ID: <87mrvy5640.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Lucas Wei <lucaswei@google.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] arm64: errata: Mitigate AmpereOne erratum AC03_CPU_57 and AC04_CPU_29
+In-Reply-To: <20260710222128.416581-1-scott@os.amperecomputing.com>
+References: <20260710222128.416581-1-scott@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, oupton@kernel.org, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, zengheng4@huawei.com, xuwei5@hisilicon.com, vladimir.murzin@arm.com, lucaswei@google.com, kuninori.morimoto.gx@renesas.com, Sascha.Bischoff@arm.com, yangyicong@hisilicon.com, yeoreum.yun@arm.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,165 +100,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Overriding the idle mechanism might be useful for debugging and performance
-testing. Add a cmdline parameter for it, similar to the existing idle=
-parameter already present for the x86 and ppc architectures.
+Hi Scott,
 
-It is also useful on platforms where the WFI instruction misbehaves,
-such as Apple Silicon SoCs. Generally, a misbehaving instruction should
-be treated as an erratum and patched using the alternatives framework.
-However, in the Apple Silicon case we need more flexibility because it is
-difficult to detect whether the erratum applies. For example, Linux VMs
-inside macOS have the same MIDR and may even seem like they're running
-in EL2 in the case of NV, but should continue using WFI (it's trapped and
-handled correctly by the hypervisor there). Thus, we prefer to
-let the m1n1 bootloader add the idle=nop parameter[1].
+On Fri, 10 Jul 2026 23:21:28 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
+> 
+> On AmpereOne, deactivating a physical interrupt through ICC_DIR_EL1 or
+> ICC_EOIRx_EL1 (depending on EOImode) which is not active, but is the
+> highest priority pending interrupt causes the cpu to lose the interrupt
+> pending state and also prevents the delivery of future interrupts.
+>
+> Work around this in the vgic, avoiding the cpu issue.
 
-Link[1]: https://lore.kernel.org/all/99b69262-e54b-424e-baa2-96ef7013b87a@kernel.org/
-Suggested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
-Changes in v2:
-- Applied suggestions by Anshuman Khandual (Thanks!)
-- Link to v1: https://patch.msgid.link/20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev
----
- Documentation/admin-guide/kernel-parameters.txt | 23 +++++++++++++++++++
- arch/arm64/kernel/idle.c                        | 30 +++++++++++++++++++++++--
- arch/arm64/kernel/idle.h                        | 13 +++++++++++
- arch/arm64/lib/delay.c                          |  5 ++++-
- 4 files changed, 68 insertions(+), 3 deletions(-)
+Thanks for getting to the bottom of this.
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b2d7d3540ded..d7f5471edf8f 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2239,6 +2239,29 @@ Kernel parameters
- 
- 			idle=nomwait: Disable mwait for CPU C-states
- 
-+			[ARM64,EARLY]
-+			Format: idle=wfi, idle=yield, idle=nop
-+
-+			idle=wfi: Use the WFI (Wait For Interrupt) hint
-+			instruction in the idle loop. This is the default and
-+			allows the CPU to enter a low-power state until an
-+			interrupt arrives.
-+
-+			idle=yield: Use the YIELD hint instruction instead of
-+			WFI. CPUs supporting simultaneous multi-threading (SMT),
-+			can continue executing another thread when the current
-+			thread reaches the idle loop. This will make the CPUs
-+			eat more power, but may be useful to get slightly better
-+			performance in some applications, since the CPUs will
-+			not enter a low-power state.
-+
-+			idle=nop: Do not execute any idle instruction in the
-+			idle loop. This is useful on platforms where WFI
-+			misbehaves, leading to system instability or loss of CPU
-+			state. This will make the CPUs eat more power, but may
-+			give slightly better performance in some applications,
-+			since the CPUs will not enter a low-power state.
-+
- 	idxd.sva=	[HW]
- 			Format: <bool>
- 			Allow force disabling of Shared Virtual Memory (SVA)
-diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
-index 05cfb347ec26..f161711a9954 100644
---- a/arch/arm64/kernel/idle.c
-+++ b/arch/arm64/kernel/idle.c
-@@ -11,6 +11,27 @@
- #include <asm/cpufeature.h>
- #include <asm/sysreg.h>
- 
-+#include "idle.h"
-+
-+enum arm64_idle_mode idle = ARM64_IDLE_WFI;
-+
-+static int __init setup_idle(char *arg)
-+{
-+	if (!arg)
-+		return -1;
-+	else if (!strcmp(arg, "wfi"))
-+		idle = ARM64_IDLE_WFI;
-+	else if (!strcmp(arg, "yield"))
-+		idle = ARM64_IDLE_YIELD;
-+	else if (!strcmp(arg, "nop"))
-+		idle = ARM64_IDLE_NOP;
-+	else
-+		return -1;
-+
-+	return 0;
-+}
-+early_param("idle", setup_idle);
-+
- /*
-  *	cpu_do_idle()
-  *
-@@ -26,8 +47,13 @@ void __cpuidle cpu_do_idle(void)
- 
- 	arm_cpuidle_save_irq_context(&context);
- 
--	dsb(sy);
--	wfi();
-+	if (likely(idle == ARM64_IDLE_WFI)) {
-+		dsb(sy);
-+		wfi();
-+	} else if (idle == ARM64_IDLE_YIELD) {
-+		dsb(sy);
-+		asm volatile("yield" ::: "memory");
-+	}
- 
- 	arm_cpuidle_restore_irq_context(&context);
- }
-diff --git a/arch/arm64/kernel/idle.h b/arch/arm64/kernel/idle.h
-new file mode 100644
-index 000000000000..693f981c9a91
---- /dev/null
-+++ b/arch/arm64/kernel/idle.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ARM64_KERNEL_IDLE_H
-+#define __ARM64_KERNEL_IDLE_H
-+
-+extern enum arm64_idle_mode idle;
-+
-+enum arm64_idle_mode {
-+	ARM64_IDLE_WFI,
-+	ARM64_IDLE_YIELD,
-+	ARM64_IDLE_NOP,
-+};
-+
-+#endif
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a..2452990ed37a 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -15,6 +15,8 @@
- 
- #include <clocksource/arm_arch_timer.h>
- 
-+#include "../kernel/idle.h"
-+
- #define USECS_TO_CYCLES(time_usecs)			\
- 	xloops_to_cycles((time_usecs) * 0x10C7UL)
- 
-@@ -49,7 +51,8 @@ void __delay(unsigned long cycles)
- 		 * Start with WFIT. If an interrupt makes us resume
- 		 * early, use a WFET loop to complete the delay.
- 		 */
--		wfit(end);
-+		if (likely(idle == ARM64_IDLE_WFI))
-+			wfit(end);
- 		while ((__delay_cycles() - start) < cycles)
- 			wfet(end);
- 	} else 	if (arch_timer_evtstrm_available()) {
+> 
+> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> ---
+> 
+> Hi Marc, we've tracked down the nested virt hang reported
+> previously[1] to a cpu erratum in AmpereOne[2].
+> 
+> Here I'm just sort of parroting the change you had posted for
+> debugging. I'm not familiar with the vgic logic well enough to know if
+> this change is sufficient and doesn't have some unintended
+> consequences. I guess read this more are as "I've tested this and I'm
+> not seeing it hang now."
+>
+> Sorry for sending this half-baked, I didn't want to further delay the
+> errata details on my ongoing vgic education. I'm happy to take any
+> advice you can give, otherwise I'll continue familiarizing myself and
+> will hopefully later have a patch which I can actually claim I think is
+> correct.
 
----
-base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
-change-id: 20260705-arm64-idle-param-c27fc0e7ea05
+No worries.
 
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
+To be perfectly clear, what I posted at [1] *is* a bug-fix. A very
+minor one. Nothing wrong should come as a result, except when it does,
+such as in your case.
 
+The core reason why this happens is that the L2 will have EOI'd its
+timer, and that the HW bit set in the LR will have propagated the
+deactivation all the way to the HW redistributor. Then L1 takes over,
+and needs to reconcile the LR state with its own, namely its view of
+the active state.
+
+The issue here is that when dealing with a nested vgic (the state
+contained in the LRs is for L2, not L1), the deactivation process
+doesn't need to involve the HW again -- this has already be dealt
+with, and results in the double deactivation I mentioned in my email.
+
+> 
+> [1]: https://lore.kernel.org/linux-arm-kernel/87ecjybz30.wl-maz@kernel.org/
+> 
+> [2]: https://amperecomputing.com/products/developer-errata
+> 
+> The updates with AC03_CPU_57 and AC04_CPU_29 have not yet been
+> published at the time I'm writing this. They should be coming
+> soon. I've reproduced the full entries from those two coming documents
+> collapsed together below:
+> 
+> | {AC03_CPU_57, AC04_CPU_29}: Deactivation of the non-active, highest
+> | priority pending interrupt prevents further interrupt delivery.
+> |
+> | Functional Unit: CPU
+> |
+> | Category: 4
+> |
+> | Affected Version(s): AmpereOne AC03 A0, AmpereOne AC03 B0
+> | Affected Version(s): AmpereOne AC04 A0, AmpereOne AC04_1 A0
+> |
+> | Fixed Version(s): Open
+> |
+> | Overview:
+> |
+> | If software directly deactivates a physical interrupt which is not
+> | in the active state, and the interrupt is also currently the highest
+> | priority pending interrupt, then interrupt delivery will cease on
+> | that PE. Deactivation can happen either through ICC_EOIRx_EL1 if
+> | ICC_CTLR_EL1.EOIMode==0, or through ICC_DIR_EL1 if
+> | ICC_CTLR_EL1.EOIMode==1. Deactivation of virtual interrupts that are
+> | redirected through ICV_ registers will not cause this issue, even
+> | when the virtual interrupt deactivation triggers a physical
+> | interrupt deactivation through ICH_LR<n>_EL2.HW=1.
+
+OK, that's pretty good news. Can I safely assume that your HW doesn't
+support VLPIs/VSGIs in any form (no GICv4+)?
+
+> |
+> | This has been observed with Nested Virtualization starting with
+> | Linux-KVM v6.19.
+> |
+> | Impact:
+> |
+> | Physical interrupts will not be delivered after the deactivation of
+> | the non-active, highest priority pending interrupt. A core may
+> | appear to be hung.
+> |
+> | Workaround:
+> |
+> | Software must only deactivate interrupts which are currently active
+> 
+> 
+>  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
+>  arch/arm64/Kconfig                          | 17 +++++++++++++++++
+>  arch/arm64/kernel/cpu_errata.c              | 15 +++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-v3.c               |  4 +++-
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  5 files changed, 40 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 014aa1c215a16..89130404ce572 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -55,10 +55,14 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne       | AC03_CPU_38     | AMPERE_ERRATUM_AC03_CPU_38  |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Ampere         | AmpereOne       | AC03_CPU_57     | AMPERE_ERRATUM_AC03_CPU_57  |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne AC04  | AC04_CPU_10     | AMPERE_ERRATUM_AC03_CPU_38  |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne AC04  | AC04_CPU_23     | AMPERE_ERRATUM_AC04_CPU_23  |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Ampere         | AmpereOne AC04  | AC04_CPU_29     | AMPERE_ERRATUM_AC03_CPU_57  |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Cortex-A510     | #2457168        | ARM64_ERRATUM_2457168       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b3afe0688919b..ee5421283d8df 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -436,6 +436,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
+>  
+>  	  If unsure, say Y.
+>  
+> +config AMPERE_ERRATUM_AC03_CPU_57
+> +	bool "AmpereOne: AC03_CPU_57: Deactivation of the non-active, highest priority pending interrupt prevents further interrupt delivery."
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around Ampere
+> +	  errata AC03_CPU_57 and AC04_CPU_29 on AmpereOne.
+> +
+> +	  Deactivating a physical interrupt through ICC_DIR_EL1 or
+> +	  ICC_EOIR1_EL1 (depending on EOImode) which is not active, but is the
+> +	  highest priority pending interrupt causes the cpu to lose the
+> +	  interrupt pending state and also prevents the delivery of future
+> +	  interrupts.
+> +
+> +	  The workaround is for KVM to not deactivate interrupts for nested vgics.
+> +
+> +	  If unsure, say Y.
+> +
+>  config AMPERE_ERRATUM_AC04_CPU_23
+>          bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
+>  	default y
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 1995e1198648e..9b03dccd55e09 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -631,6 +631,14 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_57
+> +static const struct midr_range erratum_ac03_cpu_57_list[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> +	{},
+> +};
+> +#endif
+> +
+>  #ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
+>  static const struct midr_range erratum_ac04_cpu_23_list[] = {
+>  	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> @@ -987,6 +995,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
+>  	},
+>  #endif
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_57
+> +	{
+> +		.desc = "AmpereOne erratum AC03_CPU_57",
+> +		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_57,
+> +		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_57_list),
+> +	},
+> +#endif
+>  #ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
+>  	{
+>  		.desc = "AmpereOne erratum AC04_CPU_23",
+> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> index 9e841e7afd4a7..8f1d10872360c 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> @@ -275,7 +275,9 @@ void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val)
+>  		lr = vgic_v3_compute_lr(vcpu, irq) & ~ICH_LR_ACTIVE_BIT;
+>  	}
+>  
+> -	if (lr & ICH_LR_HW)
+> +	if ((lr & ICH_LR_HW) &&
+> +	    !(cpus_have_final_cap(ARM64_WORKAROUND_AMPERE_AC03_CPU_57) &&
+> +	      vgic_state_is_nested(vcpu)))
+>  		vgic_v3_deactivate_phys(FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
+
+I think this is slightly overkill. The hack I posted should be enough,
+and we can replace all the capability business with a simple comment
+referencing the errata numbers and the entries in silicon-errata.rst.
+
+Use the information provided above to beef up the commit message and
+stick:
+
+Cc: stable@vger.kernel.org
+Fixes: 6dd333c8942b2 ("KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive")
+
+so that we know how far this needs to be backported.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
