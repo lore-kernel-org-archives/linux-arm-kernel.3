@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AC4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5600FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NPRc3pxS/F2qlIp2S0rI/vJl3kJSiHMCR2dukHW7yE=; b=SquobWNRK3wZ1B4ifFtvt+hTTl
-	K9QctSBAziNSsk7PNRGO9QSphpTWVWYWQTjvii6RjJP8qVXXNnfgk5Dq4WV1NDX8RcX1sHeKcokLK
-	IBV0qzheeXpnkEnoCDxU0iSFTY+yNnqXj4OAixVLJxlNkgpVaJYnsF5wfve66DmzsuRywQ8D5jVRB
-	6Umbbi8pQF5Y3EjmQBi+9AqGmVdbm0J1TuFvpVEf5z5If7sJBxCDx1sJcF8tygX+Ok4Kvb2Uzgd7/
-	F9+GflxjFu1TnFWYW5N1I2Sg6yndykh6u8aKiu6EdQieQgLOg3c+dgPkpXSBOhayixBxi9rhCii5X
-	ujkRCyzg==;
+	bh=JYTpe4x+dOHQj3AHgqKsfEUdPZqevLMqDGNIxz3LBqs=; b=E+N2C3268cNkfoVvzWRCf/+9xL
+	yu1LLdgoVvFFLER3ML7TO7IcpSLHY2cMTEGOVgRwwkRx+MZJHcv2zIhbi9fL9pufqeepWUytGJm/x
+	MECA5CRwsYRUDGARYEavDjyRlSfxvTMHoO0M7X0dwRGzHBhMPjK+ZPA7b0GVWcXZJWvYlAd2sFwyk
+	kIMcWk8PetpRYgQytJJsw5S1Gqpk5F4XKOcmu+uH/behQdgRwXZDt1CYrfxk8F4ASWEBmVgJof1ja
+	crgnaqB+8S7JR3ONhcFZg6bDom7IfzViXh3o2Kzq0lEieKfh0VNxmuzXGcozsgM31hzTUFAl+1Vl+
+	P34YYxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZOq-00000006dib-1yEH;
-	Sat, 11 Jul 2026 15:13:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZOp-00000006diV-1T6G
+	id 1wiZOw-00000006dkP-2hqd;
+	Sat, 11 Jul 2026 15:13:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiZOt-00000006diu-0Eo1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 15:13:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4FD6760052;
-	Sat, 11 Jul 2026 15:13:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A8E1F000E9;
-	Sat, 11 Jul 2026 15:13:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783782830;
-	bh=+NPRc3pxS/F2qlIp2S0rI/vJl3kJSiHMCR2dukHW7yE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=kmuXmTNOg6J8DA+cGQLawuhxBUNOPVqHL6KdB2BnjRNLvWsoc+nQcck7ZBbX7JP1g
-	 4VfIDEZ8uRY3AmC2p9JRiGDjFUm9b2OxaY9Tb9piqxplenYe2CAsTrm+GqDEemZzkz
-	 iGH+pSfan8RHjzty1+WENNPYyyTCKdhheDgFR6JrrnNm+4TUIomNlYwR5m0jONAbJF
-	 DSur1B9r1GVfWIuBuVmaEsXZrLTgcRlRdFK9NaglBzYOADw8UaoAhLLNcMo0qRKQqu
-	 rBrYJtF4YRgdroRVSFhcSGSeIUWHCE2dCwZg9eBDcSbiySg77deooRE+beuJpYw5Wn
-	 yGyXGW1NEFYMw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v2 0/5] soc: qcom: Kconfig improvements
-Date: Sat, 11 Jul 2026 10:13:46 -0500
-Message-ID: <178378282267.119479.4576908957568734087.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260711-qcom-soc-kconfig-v2-0-4a907e064281@oss.qualcomm.com>
-References: <20260711-qcom-soc-kconfig-v2-0-4a907e064281@oss.qualcomm.com>
+	Sat, 11 Jul 2026 15:13:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0B9A1477;
+	Sat, 11 Jul 2026 08:13:47 -0700 (PDT)
+Received: from [10.20.1.47] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A7053F85F;
+	Sat, 11 Jul 2026 08:13:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783782832; bh=sDXWQS6dOHId7445+Y/ZGN5y9lFGKjA7sUnzyFygZdE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FFX7kGTD7Dm5jT3f9oQBpF2GinvIozz2BLkJfOevHZOF93dKmhapKSP2oBd4ZVKKT
+	 ZNaed3qMVh0NXCsAclQ1gL3SyjgeomTEQYirlFPsIEb7dirRj2/bXiFYKpYPqkqTBU
+	 CBdySDNvnKzcgYTsdhpziU87bFo90FMy5BWgVBys=
+Message-ID: <da0f77df-80bc-4917-8892-e61da365454b@arm.com>
+Date: Sat, 11 Jul 2026 17:13:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/7] arm64: dts: allwinner: sun50i-h616: Add video
+ engine
+To: Chen-Yu Tsai <wens@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260711135959.3616919-1-wens@kernel.org>
+ <20260711135959.3616919-8-wens@kernel.org>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260711135959.3616919-8-wens@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_081355_227706_79F2469F 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +80,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Sat, 11 Jul 2026 15:25:00 +0200, Krzysztof Kozlowski wrote:
-> Merging
-> =======
-> Defconfig change (last commit) depends on earlier changes, thus that
-> patch could wait a cycle.
-> Alternatively, everything through Qualcomm SoC tree, but then please
-> keep these on a dedicated branch in case defconfig has to be shared
-> with soc tree to avoid conflicts.
+On 7/11/26 15:59, Chen-Yu Tsai wrote:
+> From: Jernej Skrabec <jernej.skrabec@gmail.com>
 > 
-> [...]
+> The H616 SoC has a video engine, and two SRAM regions needed by it.
+> 
+> Add the video engine to the dtsi file.
+> 
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> [wens@kernel.org: Add VE SRAM region and commit message]
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Applied, thanks!
+Checked against the binding and the manual: clocks, regs, interrupts and 
+reset matches. Also test-built the DTB: that worked fine, not sure what 
+Sashiko was complaining about.
 
-[5/5] ARM: defconfig: qcom: Drop Qualcomm SoC drivers with defaults
-      commit: 86690b3fabd66970e43f1d1fd4a9ed641850b924
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+Thanks,
+Andre
+
+> ---
+> Changes since v1:
+> - Corrected second IOMMU port
+> ---
+>   arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+> index 1598e86259ab..c6b3a3f8359a 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+> @@ -175,6 +175,18 @@ crypto: crypto@1904000 {
+>   			resets = <&ccu RST_BUS_CE>;
+>   		};
+>   
+> +		video-codec@1c0e000 {
+> +			compatible = "allwinner,sun50i-h616-video-engine";
+> +			reg = <0x01c0e000 0x2000>;
+> +			clocks = <&ccu CLK_BUS_VE>, <&ccu CLK_VE>,
+> +				 <&ccu CLK_MBUS_VE>;
+> +			clock-names = "ahb", "mod", "ram";
+> +			resets = <&ccu RST_BUS_VE>;
+> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
+> +			iommus = <&iommu 3>, <&iommu 2>;
+> +			allwinner,sram = <&ve_sram 1>, <&sram_c 1>;
+> +		};
+> +
+>   		syscon: syscon@3000000 {
+>   			compatible = "allwinner,sun50i-h616-system-control";
+>   			reg = <0x03000000 0x1000>;
+
 
