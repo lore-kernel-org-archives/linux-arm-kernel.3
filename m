@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD29C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB16C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 07:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=; b=B8ItUlx8PHwG/BN5KVKW8zeVVA
-	XhyfMLYrnpWGN+XzxXuXiaBjyZUuxB2nP462j/mIkAID7zzFu5U9bnIV19JzF+pK7zUZcDdwSY7Pv
-	4P7jqsh8cenTsj6EFuGo64G+Zh2LRE++9m+Kzdl72QivrJ0rwvhPRwZi3/xdP7HZ4scQ8CJhYI3xs
-	3k3WoBafDsmPhMpdpbhuJESg8TR+XY7reoyFfqDoTjGEMHsqD5C2c9un1LHEif0Tc8MHkfzqvp7S8
-	BJq7GeS5s4JbWL+4XdYRfLv7k09amQ2fecyR09VSGLZkNxLDXElqLhZwC9xTeUi9qtvMD4uIp3gFS
-	w4/glBcw==;
+	bh=iPBsIWUrBsXoeW5eL/O8oEjBIBAd/ymV6y7JDZrOoQQ=; b=cgguJHVPwTIVt0Bj+Jpz+VVbfn
+	TXvIQxxk0pVATIlt2FiU0iSHqh1w8PuCZRNMQo8S1sSek89ZFasicPXGKoEUo3YsO/jm2MBvtb4A0
+	wmFd+E15LRFHYWDPf1S6UfrSeaMsmfKFRTZCH1s8bsYMWziySBFfG5qHI9TOyysILjqIKRF/khx04
+	SXm7NJ/GdiFhW3zs6cScxh89G0esAfgVjSfb31QNJm6AB8kONVZXZChIHD7a2orGTizeK1knCKTc/
+	/rNPtnSR00llpYl6jYWFhCv5i6NcAwk/DWM6WhfdMRSxxYgfKtcljQ8lnAMnpZrMgyhRi9R9JX5Pa
+	SEMFwLbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnZ-00000006Eo5-2LrF;
-	Sat, 11 Jul 2026 06:02:49 +0000
-Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.124])
+	id 1wiRjK-00000006ILx-0b2C;
+	Sat, 11 Jul 2026 07:02:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiQnR-00000006EgE-2z7q
+	id 1wiRjJ-00000006ILo-0AXJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:02:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783749733; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=UNAol3P+3NSnVFANpP0PNenPYX/++5XBKrsgPStGoWHK/tv07cmPa4CJzz82unyIHc
-    M8eZ9x6nBCb5bdWStJBwD+utDt8qbnwDhnjVL3zpTkhg2sm+HIz6WG/SQUNAkUBFoid4
-    vVL0EHxWyMT0qkCfYkFfMwAzowyj1Fnm6BOpTCDIfGTIYvf+II4xprpVX15aGFypsvRm
-    ABT8MKCOpLoEns9Qa5xUOAuoB9lU0hKeT9TqHkLv14sY99APWS9uZXQuo2oP9BONzh9w
-    XGSJgByKluI4o61R5m931VxbCJE/fye3v22HyqwTWN+OLTtfNBA7HJ8602Ufw4F3+IbQ
-    d2ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749733;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
-    b=ii2uSQlgcBgDWO0l1OXPUTf/cKHjzlvnCuzFMpdI+q+YLehm+8FfA6yGgBxcSi4/DM
-    UKKA1YNeyp0wxx2RXyYb7jn8DOvp0y4cE+q15n5KyFtB0qZGRvoP9yNOq1Q3uPONBP6B
-    uTA0z7y5VHOZSb5JgTFkyO9VRPrNAWonHD3Z3tDXBWeYBDfrmwb84KrhhTKLHb5vZ61J
-    KfuwZntjwOkOlgdABXYJiC7ZLIvdodcJMtkU2p+vdx5SRrJfIFX875Ogo9PPWJtttk2L
-    2IakW966dWigtYojCV6X5VToJX2tvPMT4VUmAi+oreQnrFYXYGN9O9sYTFOymipRTvO+
-    bIyg==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo04
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749733;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
-    b=TmE6zxFjGDgs6NxLtFBYoH6EGjXG5RKaK8LImJxYODhQQx0QMlKfBTwwX27Fmhf95z
-    yaG+wFdkI908C3whCwXFEt9ZwEUxw/uL2GyzjFYKzzFb9KhA1SIbio8FbDj0l6aL6hf7
-    QQzSxcfchX0AuadBytx3x8E508pv5SHIXs7bEE1UsxD/JNhdxivN6tra0r3te6YksbVp
-    Xdp4884snRffHQldKJ+9Z0jMvvQmmPcsTZ52S6fPjOwWj4vKsrNcdMbkewjNse74ab5N
-    t9x8iAUIeWmtOD3aUcPi8D9sp1bpGYHXA1kun4xtcOKAy2MH8r0+09+/KyzFr2dEkG5m
-    Albw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749733;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=wV6iPQx9mr9GnWcgEuPgvu8N7t+FUMy7pZdOenitrKA=;
-    b=LyjgpbMKh6H6ERpUAmFX42ygfbFz0rHJ1cHwrsF2a/wmKtnMvBsPB4UT/GVX7CtaN5
-    Nbkrryo0KmZRFkCZ03Dg==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
-Received: from iMac.fritz.box
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426B62CGhq
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Sat, 11 Jul 2026 08:02:12 +0200 (CEST)
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-To: Grond <grond66@riseup.net>,
-	Stefan Leichter <sle85276@gmx.de>,
-	"H . Nikolaus Schaller" <hns@goldelico.com>,
-	Grazvydas Ignotas <notasas@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Jarkko Nikula <jarkko.nikula@bitmer.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Helge Deller <deller@gmx.de>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Sen Wang <sen@ti.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Niranjan H Y <niranjan.hy@ti.com>
-Cc: letux-kernel@openphoenux.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	kernel@pyra-handheld.com,
-	mfd@lists.linux.dev
-Subject: [PATCH 05/16] arm: dts: omap3pandora: Don't use DMA channels for unused SPI masters
-Date: Sat, 11 Jul 2026 08:01:52 +0200
-Message-ID: <129b1ff8e73235c74ac66dab9041672190065785.1783749722.git.hns@goldelico.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_230241_911870_92A28EBF 
-X-CRM114-Status: GOOD (  15.40  )
+	Sat, 11 Jul 2026 07:02:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B9AD760051;
+	Sat, 11 Jul 2026 07:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690E61F000E9;
+	Sat, 11 Jul 2026 07:02:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783753347;
+	bh=iPBsIWUrBsXoeW5eL/O8oEjBIBAd/ymV6y7JDZrOoQQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MBZdrBQxrWyMPgi6gK1WOaCBxfmz/FFO1SErr77QES9vSCeWDDodkOX9T2KsA8GOV
+	 LKHDnxcK8eGvsFczjG4e5x4x1arlh0TiXTt8DvY5SYJxtpGBo3cee+R9RZD7nQdZWj
+	 MMQ1PJw8O+QBqvzLnuQJhSooPjVixcjwfH3+ji/HLTI+6ERodANOvgUp0e4E5KKUT2
+	 S8NrufZ3wt6k7/IqolAAELyOf8l9Ml1n6/5EtxbknkXJZZ7zZJ+RnBWluRFdujuqXj
+	 LtIJt6A8luQzBCj0t2Ob0eKvYoCx5WvgSzzJNO3Rr7SSjGh3Ly9onRfLDrTu+4BShp
+	 LMEqAvSL48wCg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wiRjF-00000003wlm-0HsE;
+	Sat, 11 Jul 2026 07:02:25 +0000
+Date: Sat, 11 Jul 2026 08:04:13 +0100
+Message-ID: <87o6ge57o2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jinqian Yang <yangjinqian1@huawei.com>
+Cc: <lpieralisi@kernel.org>,
+	<tglx@kernel.org>,
+	<alex@shazbot.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<liuyonglong@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<linuxarm@huawei.com>
+Subject: Re: [RFC PATCH v2] irqchip/gic-v3-its: enable dynamic MSI-X allocation
+In-Reply-To: <20260711022015.3049867-1-yangjinqian1@huawei.com>
+References: <20260711022015.3049867-1-yangjinqian1@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yangjinqian1@huawei.com, lpieralisi@kernel.org, tglx@kernel.org, alex@shazbot.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, liuyonglong@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,55 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Grond <grond66@riseup.net>
+On Sat, 11 Jul 2026 03:20:15 +0100,
+Jinqian Yang <yangjinqian1@huawei.com> wrote:
+> 
+> On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
+> cannot dynamically allocate MSI-X vectors after MSI-X has been
+> enabled. When QEMU needs to extend the vector range, it must
+> disable MSI-X, free all interrupts, then re-enable with a larger
+> allocation. This creates an interrupt loss window for already-active
+> vectors.
+> 
+> Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
+> ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
+> then RoCE (starting at base_vector = num_nic_msi). In VFIO
+> passthrough, loading hns_roce after hns3 forces QEMU to tear down
+> all interrupts before re-allocating the larger range. During this
+> process, NIC interrupts may be lost. Testing confirmed that this
+> occasionally occurs, causing the network port reset to fail. This
+> appears to be unavoidable, as it's a standard approach adopted by
+> all network card vendors.
+> 
+> On Hisilicon HIP09 (ARM64, GICv3/GICv4.1) with latest upstream kernel
+> and QEMU 8.2. VFIO passthrough of HNS3 NIC to VM: load both hns3 and
+> hns_roce_hw_v2 drivers and trigger FLR, this bug will occur occasionally.
+> After enabling dynamic MSIX allocation, this bug no longer occurs.
+> 
+> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+> ---
+> Changes in v2:
+>   - Updated the commit message to add test information.
+> 
+> v1: https://lore.kernel.org/linux-arm-kernel/20260624025345.458387-1-yangjinqian1@huawei.com/
+> ---
+>  drivers/irqchip/irq-gic-its-msi-parent.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 
-On the pandora, only McSPI1 (spi0) is actually used. Because the device
-tree defaults in arch/arm/boot/dts/omap3.dtsi leave all of the mcspi
-interfaces enabled, the DMA channels which the device tree assigns to them
-cannot be used for anything else. This is a problem because OMAP3's sDMA
-controller can only have 32 DMA channels configured at any one time.
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-So when we try to use (for example) the McBSP subsystem (which is required
-for sound) it doesn't work because we've already exhausted our available
-DMA channels.
+	M.
 
-Fix this by disabling mcspi[2-4] on the pandora device tree.
-
-Signed-off-by: Grond <grond66@riseup.net>
-Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
----
- .../boot/dts/ti/omap/omap3-pandora-common.dtsi  | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
-index a0116823ffdef..b4acab1625212 100644
---- a/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap3-pandora-common.dtsi
-@@ -693,6 +693,23 @@ lcd_in: endpoint {
- 
- };
- 
-+/*
-+ * Only mcspi1 is used on the pandora, the others do not surface on the board
-+ * due to pinmux configuration. disable the unused ones so that they do not
-+ * consume DMA channels
-+ */
-+&mcspi2 {
-+	status = "disabled";
-+};
-+
-+&mcspi3 {
-+	status = "disabled";
-+};
-+
-+&mcspi4 {
-+	status = "disabled";
-+};
-+
- /* n/a - used as GPIOs */
- &mcbsp1 {
- };
 -- 
-2.50.1 (Apple Git-155)
-
+Jazz isn't dead. It just smells funny.
 
