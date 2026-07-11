@@ -4,95 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E2AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 12:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E870AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 12:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RsxVtJ3F9+zJOkJQ6Hk1HPdO5PzPQX9X5kHg2GQ5Qyw=; b=GtEApKyj6eU78Y4HoB1zfeEdKt
-	mbR8xI03/bPoRP7pMYJMktCJ5ZB2SiEQf+UGYcDx+IjKL+ZTQTiYwg6UZfficnSIo9ERQZ7M16/bf
-	NaeD9kDBauerWQ/tvdZA1orbl+WGaRrhP3uHY92z+LiZdLevAse7SYRriJ14NTT6pz9cRGCp5Ww70
-	bUehKRbH1+MBTit7Ls7mRw3j3gtgxOBKax9mPLChjhxX51UlfrbSBzbMgwNZi2sE75rxjQyAAwixD
-	6Ggk7K1iZVscmWIc+00CXmZygJS7lcGJps4mI05sWF2hVxwYHYXIW3ZdHvLByFPmJLHopqp7y359q
-	cBFCRSVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=49D6XNPAUi5Tqarvm9boPEWG3tQSYsy6F9sPaoWHaBc=; b=4CPNLMljNikyBzmWsejeeZOfew
+	G9o4Ivx3NULAmKJLIsR6qqrwRLNZMyBBmwT2Za8dRYfDDZWSYr6W65hW4e4oYZuPpAU2p0hIRyb0k
+	FH7dgdXEiEEuE6eD+5sHJazLBbLGQTn9cM02rPAXn9v4Ybd9SJLAXUxuVtCkdQ2eeNRbpONiTXI0z
+	CAHeyKRSqQKQ1z9af5CtHCD6qTA3y1l0m/sgs2rKRo8Hha5PqHTMZ/tiPuhcaBrutfwxkQRrxFcL+
+	nBSvBSJNKOIHF6klattPiB+7rt2od39GN0TBMa+E2bdY/VySkctbJvjEerEo6k2Tdgef4Avj55Q/C
+	WkkVWyXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiVmT-00000006ULS-0wnd;
-	Sat, 11 Jul 2026 11:22:01 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wiXH7-00000006Y7M-1b09;
+	Sat, 11 Jul 2026 12:57:45 +0000
+Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiVmQ-00000006UKm-1Ol9
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 11:21:59 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2c7c61b5292so31583365ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 04:21:57 -0700 (PDT)
+	id 1wiXH5-00000006Y6u-0rgl;
+	Sat, 11 Jul 2026 12:57:44 +0000
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66BCuMkd1377900;
+	Sat, 11 Jul 2026 07:57:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=49D6XNPAUi5Tqarvm9
+	boPEWG3tQSYsy6F9sPaoWHaBc=; b=pioVt5ZHtahlf0HDUsmmZrCWXIC1KbCPog
+	hipCE7n+us41lPDTZNTm3x0U7kJw+KPf81pzEyz53aJHMuYAWje7BJQ/bgqhMeNH
+	TTzyhNXvZzUX4JllKStPBYvwhkDb76aqeTNQ/qJ1fTeBEv2qmICT+GdyZ64Jt3JC
+	NKHx8UrUa6IwsNu3S6idSshOUXkvfjBh9tuV7wskuD+0YA20fJukTPUQ9XXHsTb4
+	O3FPvPKKR1BEF3Y6tj/iDdQ5RpewEDpzEo0Y+5uMzBesHdOIwpA6GEPUlyjgD1W3
+	c4YXX0oyIxfd2kwmj3sdrkWXelJoRMbHnrga8pyRHSHkNlDWCktA==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11022097.outbound.protection.outlook.com [40.93.195.97])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4fbj8fg5fk-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 11 Jul 2026 07:57:01 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BqwYqGSlbirdz8kxCwjLWp132TLQmcnzHXSC1UyufX4uxjuwWHOIaK7V1zw18bMZD0DL1ulLY4bmeeWBU7FsOUyVNEuYpEfGjHHaFRwwLYvjUQk+FD+fWlDPBFhL76Jsj3LsatR7b1hbOsQBn0f+XKfimWtgET/ACnkbyLub0xiQwN84/K/VWHbKLE/xXyTs2XgAfXuzvqBncRCH3EK0yzwKMcOnUgMBILp/diIF1cja4T7AyrnM9Ph7M8vy3TLa3q/leS7uU1REdRXxu8uOw1XOsRUjRS9sSfMxZllnArLDRLSjVuofbsKkWZEMClEge/GWfpEuhdLG9jSsW4mdIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=49D6XNPAUi5Tqarvm9boPEWG3tQSYsy6F9sPaoWHaBc=;
+ b=eUQAffbi9yzJZonjB83XJoZQ0fIcKub/M0bV4qWocpYW5K0A+vFAb2HADy0ujqXz3N6BKdZRAbQrI0i4OBR+JCHs1mOnTAVuUpI6/j/JYWirvQj3dd/fmvG7DFGkXYmwX87c1bHf/Q46Fg19KNKQNksBzWHF3RUfPIbcIOqivJwhl1+qq2HtoIfNnkigrTouJ2ns7qSFZ0wxs7ZJuDx9bwa92tYgmbysiGPKXGur+x06UcZ/AJz98fJ3wZ70KuzUzi1zUy0ThDd1sPUzbPV00ITBHEI5Tnj0cUEPvY6rYjMdMAh/TnDgW/6JkP6eOKRNdFAlwhjdlkt+FpzUiIZjYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=alpha.franken.de
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783768917; x=1784373717; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RsxVtJ3F9+zJOkJQ6Hk1HPdO5PzPQX9X5kHg2GQ5Qyw=;
-        b=JaneEOaZeMSOylWJhLI7Jzul5Bsa9zx3fGILmrVsdr0cukGfSgqYfnKV08HmXMoiHu
-         QJcfJzxJV46NWIt25GphcXJR7lPKRZjwHjTs3vptdZMieT3li7DqPbimDJ/2ffrnsKPs
-         64fgCmCfHCQMqmkBPjY9zyl/G055ypFoYjFQ2Fet/kcdTvJTgQLp4dTbG4gJmS+9OCFR
-         pDw/mCiAR2JLqkulLzmw//i2Wh0n15UAyycOfqFgQyIIAq36KgIZv/GBJetrLP1xEZ4M
-         1KundQ+h/TnQbUWourBHde2xSGxmMwsSOEPj2BTQL5Q4TTbDx05I57uKCgJBmMnmuXH9
-         yxJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783768917; x=1784373717;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RsxVtJ3F9+zJOkJQ6Hk1HPdO5PzPQX9X5kHg2GQ5Qyw=;
-        b=Rzs231zClA7Q8qMSG5uzu5+G3GAsvxjhcfs61X3VRaopvtXI5QRE3xFbEVmnx1OfV/
-         yM0AeWrkp1jppQLcONz3jXfoaS6rfZ+PFhX+AYczeNTmIRWnp/c5rFi+DGMYkNNLzn6U
-         IWQuGG9aWkG93K7Kbw2WNWwSGukzAIrweih5Y2u0nILFGez/ixWkDecZ/DGxB4dcrapd
-         xUqExZtdFa3aoKGsL764Fy85jvglPEeRXFj1hhQ6r2wQmPhCHGeBeZoR8U9StsMDdYuo
-         nJYiUxivNf5XSnuT2HzAXFFc0wDgOQvuiX4ZCEqWaAXNUkxVhK+9cuGUEGNPRWbfpHkr
-         rX7g==
-X-Forwarded-Encrypted: i=1; AHgh+RqMsVhmOx5V5JdYY5d0sTaOgEZ/D9zfZMwghM7qyjlrP8lS+xb0ZiRYZfpSTIP+j1tZXrwzMvrNxxmhRRe0muUi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTbZGhAa15yTgfeQovIs1SIVS5eVUfDn0rZ17BA7YhkLdO2f64
-	3lhdjo8nP1n6wMF8hiKel2iTVhVR5Pmj9gcZ4vfwffpfZu8LnFNp9ZitT/z9keDh
-X-Gm-Gg: AfdE7cnxqUU4QCboCTI799LWYOIikYGw2kpoMY3Sga62AJ5eWYY1EO2QGljx4yNPAPl
-	9Pkrpx4ZeJYsWU7vD4iA0r7cU+7PRA4HSEmZs1lxWukQamRnOQv1GKFTyKdXlDCNb1YIQRGPTrh
-	2xLQw/ik+9KkGOVdP1ufUdzO0rei3b2ZhitsV8d4mvqPdrF5AMhVbtIMYVTDXLy/uHc+hqYKTSG
-	cSOFsuJu5yIN5G1ihV1X6sszK1Yp0ed0v3TDbtF/92ShcB7dzPSrS8VR2KUh+5QlvdNe79XA/Cc
-	8aUzQJWc0qH7Cr4/HSfh8CHbI89A9Kg2unvTc5rBYwjvDq909KFkhI+3qunStbk8AYh+oBUeEjt
-	ubSKaJf7YPMubGk4/1KMnfipOmOF5VW7U9B1T3h/907zeptZlXX+Sgwkj9OVXlquc+Bha1SOiF+
-	yVOEf/FNPx0hwEG/S8RpcrKkx1s5fhVCBDKAJ7Gg2Qic4W5c1zJ+X2cw==
-X-Received: by 2002:a17:903:2f88:b0:2ca:b8fd:1a8f with SMTP id d9443c01a7336-2ce9f044760mr26086835ad.39.1783768916739;
-        Sat, 11 Jul 2026 04:21:56 -0700 (PDT)
-Received: from DESKTOP-VNSSJ2S.lan (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9c21429sm73254255ad.37.2026.07.11.04.21.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jul 2026 04:21:56 -0700 (PDT)
-From: Zhi-Jun You <hujy652@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sujuan Chen <sujuan.chen@mediatek.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Zhi-Jun You <hujy652@gmail.com>
-Subject: [PATCH net v2] net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
-Date: Sat, 11 Jul 2026 19:21:28 +0800
-Message-ID: <20260711112128.971-1-hujy652@gmail.com>
-X-Mailer: git-send-email 2.47.3
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=49D6XNPAUi5Tqarvm9boPEWG3tQSYsy6F9sPaoWHaBc=;
+ b=Q2yJK+WcRtHDN2eppQY215qsuadF31tTkmM4/C7pDbJGljDnDHNHAqXamJmxB62Cl+UzBG5zOULWUzrrsQKfSc+n/0ilBeLetpCU1epZxVMg8UNdtnQS3xZqmd+l3BGDbeivHLRmDn/eQqrSP7gqyHpBC0P3K6QBgr/z7sHihVk=
+Received: from PH8PR22CA0014.namprd22.prod.outlook.com (2603:10b6:510:2d1::29)
+ by IA1PR19MB6276.namprd19.prod.outlook.com (2603:10b6:208:3e8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Sat, 11 Jul
+ 2026 12:56:57 +0000
+Received: from SA2PEPF000015CA.namprd03.prod.outlook.com
+ (2603:10b6:510:2d1:cafe::a5) by PH8PR22CA0014.outlook.office365.com
+ (2603:10b6:510:2d1::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.16 via Frontend Transport; Sat,
+ 11 Jul 2026 12:56:56 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
+ smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ SA2PEPF000015CA.mail.protection.outlook.com (10.167.241.200) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Sat, 11 Jul 2026 12:56:55 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id E74C3406541;
+	Sat, 11 Jul 2026 12:56:53 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id C9EC582025A;
+	Sat, 11 Jul 2026 12:56:53 +0000 (UTC)
+Date: Sat, 11 Jul 2026 13:56:52 +0100
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Andrew Lunn <andrew@lunn.ch>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Gregory Clement <gregory.clement@bootlin.com>,
+        Frank Li <Frank.Li@nxp.com>, Robert Jarzmik <robert.jarzmik@free.fr>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Greg Ungerer <gerg@linux-m68k.org>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Hauke Mehrtens <hauke@hauke-m.de>,
+        =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Dominik Brodowski <linux@dominikbrodowski.net>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+        linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v2 05/10] mfd: replace linux/gpio.h inclusions
+Message-ID: <alI9lIsY8CBU7NDa@opensource.cirrus.com>
+References: <20260710211954.1373336-1-arnd@kernel.org>
+ <20260710211954.1373336-6-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260710211954.1373336-6-arnd@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CA:EE_|IA1PR19MB6276:EE_
+X-MS-Office365-Filtering-Correlation-Id: afc0fa70-b544-400f-fef6-08dedf4be304
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|61400799027|376014|7416014|82310400026|4143699003|11063799006|56012099006|18002099003|22082099003|16102099003|41080700001;
+X-Microsoft-Antispam-Message-Info: YX75cL18NrsLvwRysUJa/j2jwIwyq3twu0i4shtiUsTNo6sczvY7EVgvXV3zwTh30gMLUYKHS2D/OLJ0CDDhmkZWL6AnsJ/pYPKHKRFJ5Byr7LETJSI5tLKVJiklTc0CWEEiAkV3hM11QNStZV4HLcGpdXu4mobcTlbisCyfxkOhKLuo0m3Jcgj94ISC/8LU3dRkXqrUlfWKfeEmQ05cUFm1tO/pMncnSmssRMn2baLr5774IpBUPAWR9zx0P3zS+PvMKLJ3M2GbdhaFhrWVcdbJ5tPS0YW4xFO8JL1eGsATmTeHScS9+3lfDyj9skwTDMQZ/y5Ir6j0rgWo7KCc5Gr/uj53M1g3r5QzW2q0hHWzwCwapwnzpb9+42iuWSu1x5u8ejwd6bzxdpY52A7f+n8d0lWg2dLm00T26DONFGQxZi2kPu1OqRqmYL1nq0RUvd/EmHFI19HeZy9zxPzDDbRmJ6s2Nt8/XTaFCZBOgSdV4AdGIZSgfX6mRULBHjNpxyHKQbpF6RfoisipCCIJWdrlYwXQRfehLY5hiby8tLolqQ1RiS0ww13n75qpHrkyYgi3KLdXp2oP7hFQT/YGoVzrF0uXwJiG++Fwn1yEQSrAR4pWVdz0KkBf2W1RYlyoqQ0bM4XMy7bG+28z0PVI76fup+3o/PYvgc02sWnarGC56kPG0exzdfMRDWRyFIrSox+qewLxTqHikN/rT8VbKJ3X3ckb99flQIABAjIyp/yS7q5AFHRsb32eUtyQafmHFv824ZHKnGJ1TlShEPCLFg==
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(61400799027)(376014)(7416014)(82310400026)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003)(16102099003)(41080700001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GSbhbhBgGQTip0uehdE+T/m7anyrXDxtnSGV7Ug270AXzhHeI77xB7Ht0LIBAz8j+quI90gZQOlH4/Og4XQfUONkHuphFhgTg139V6DwD1kCHNq/h8UPLJrtu6OlxN//hAkEdmMVHVWYflp67fF1WmagMMsg46Xn2xJGdremfAsg9NQTzJHrvtlTqT6VylRqwSbyZQw5mNVtivXk1EQW82l+sDiVRaGCt5aNH0j/vFR3aE6yTJVX08xYPvUwERmx32SDMYyj/j3JyK9hS/5nC7vjKfYsV2ZsTu3r9CUI9JKQnwDBacQSRzNLL14zhNKV1+hr2GSYjH0/Zb/9aGeXgfs3G/1B5SRWgO3LbR79knlMvslDQE3mgpOLJBvcFCfyLvZPeBEUH9pHsgczYP+POpnMDtk/J/Tkvh/xIsj6L8GOThYI5ev0h8gMw+44GGJz
+X-Exchange-RoutingPolicyChecked: c3tA3MYaevRrWSk9oNR77dmI2yM4FrTtx3Mz2dtLQXGmv+H0KhZh/pyiggTW8MiXF212eAJ08kJzPqZHek+Y+CmyS1NMW+/8yLxkv/kgW4yWrDt9EJ5CATJPrb7Ta4JWgcKPYDzY+Xr69dGqpBXak7rEjAKbJq/N2mpZjAiNdeRF71Vk4hj6GCix2ZY2jK13N7YZ1PbwLRMyKzl3otqZ61flMCNCaEV9O7uu36HwyJga9+6XGJAOBtuIod2Zg7ycSLk8xKY6dsxwJWBOHDlQYyxLKvk7RniSdxNZ985GENb1dhq+lbI5huXnnS9sWyLAvRAosdjcXx1MtVhi1S5++Q==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2026 12:56:55.4997
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: afc0fa70-b544-400f-fef6-08dedf4be304
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SA2PEPF000015CA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR19MB6276
+X-Proofpoint-GUID: XiA6Qj1-ykwgcYYEFBK4Evn5KxVSWDGG
+X-Proofpoint-ORIG-GUID: XiA6Qj1-ykwgcYYEFBK4Evn5KxVSWDGG
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzExMDEyNyBTYWx0ZWRfX/8QGLWmSTrEt
+ IRMoV8JKEm0fL43FlWs16fzctSSEkmgG2uyH2aIGWyvZNHCXFFuNupIy5oh5l1JnvXHB+84pUFX
+ Ye3xr7/sorygpaKu9TdIaUb6xbdWMBI=
+X-Authority-Analysis: v=2.4 cv=M7597Sws c=1 sm=1 tr=0 ts=6a523d9d cx=c_pps
+ a=YnstAiVElcvMFu1aLrgWsw==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
+ a=EUspDBNiAAAA:8 a=w1d2syhTAAAA:8 a=HfRVZU4pgTnqLkcF7okA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzExMDEyNyBTYWx0ZWRfX4CGKaNCIdNl0
+ R7vdRWpV3066RQ7oS/n+DCAAaEIeQp/TukCxSefDsKft4rs7fSsqrACiWCnQdYO1HLBMDZq3gBY
+ bTATJAZLeX3uyKtQMp2bA8FEFiVdo/c96CrvzTbGEckPa1lauWsBPDZZiSZUStQ4lf0JdB/04Zr
+ GEl7B9SaeMQDFooA5HslBDweS3CjS2a+uyL7011s5ZoXrNwGlQKRHaz0sCn5SU2MTp2RDzVTCPQ
+ vv5gpvvYWqlPoFp9qptmqIcqZbACZ175eNxsql53HqMUWKOf5SK6cCDFToG7H2KGfHFx89jss0u
+ VoJpjIoXbSW87eBVlgGyWTH9eeaR3vmrZvvlW/TKsI5RYonIC7QwsNCRdfTGMaoeTUbDxmjcRWd
+ NJWSL8Qnm855evd5MiKGzwVfq7ME5puqQlNag/nvEVWr6X0BQoIOf9I09T+FdCY9tFlWpy7+kks
+ 2Io6Ia0fuAh3PG/gyRQ==
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_042158_380077_8E3C8F91 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260711_055743_408180_16CD8ED2 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +176,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-WDMA_RING_TX(0) is required to set MTK_WED_WDMA_RING_TX for WED RX
-but on a non-DBDC MT7986 it is never setup because idx is 1.
+On Fri, Jul 10, 2026 at 11:19:50PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> linux/gpio.h should no longer be used, convert these instead to
+> either linux/gpio/consumer.h or linux/gpio/legacy.h as needed.
+> 
+> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  drivers/mfd/arizona-irq.c         | 2 +-
+>  drivers/mfd/wm8994-irq.c          | 2 +-
 
-Setting MTK_WED_WDMA_RING_TX with WDMA_RING_TX(1) is not feasible because
-WED still tries to send through WDMA_RING_TX(0). This is verified with
-register dump.
+Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 
-Fix this by calling mtk_wed_wdma_tx_ring_setup if wed is v2 and
-rx_ring[0] is not allocated and reset tx_wdma[0] if it's already
-allocated.
-
-Fixes: 4c5de09eb0d0 ("net: ethernet: mtk_wed: add configure wed wo support")
-Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
----
-Changes in v2:
-- Address warm reset concern raised by AI review.
-- Return value concern is skipped until further comment from reviewers.
-- Added a comment to explain this special case.
-- Link to v1: https://lore.kernel.org/netdev/20260630144831.1109-1-hujy652@gmail.com/
----
- drivers/net/ethernet/mediatek/mtk_wed.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-index 10d9beaae372..3fd704cac02f 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-@@ -2334,6 +2334,13 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
- 		if (!dev->rx_wdma[i].desc)
- 			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
- 
-+	/*
-+	 * non-DBDC MT7986 allocates only rx_ring[1] and tx_wdma[1] during setup
-+	 * but tx_wdma[0] is also needed for WED to function.
-+	 */
-+	if (mtk_wed_is_v2(dev->hw) && !dev->rx_ring[0].desc)
-+		mtk_wed_wdma_tx_ring_setup(dev, 0, MTK_WED_WDMA_RING_SIZE, !!dev->tx_wdma[0].desc);
-+
- 	if (dev->wlan.hw_rro) {
- 		for (i = 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
- 			u32 addr = MTK_WED_RRO_MSDU_PG_CTRL0(i) +
--- 
-2.47.3
-
+Thanks,
+Charles
 
