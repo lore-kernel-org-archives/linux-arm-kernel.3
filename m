@@ -4,147 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6343C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 00:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C8EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 00:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNLAaq8lMnoNaNFRUGiCyDQLbXvyZcNLq3BCSpGo7dM=; b=CQFESKymREI2sSllywzHJAcfmF
-	sY3Mc+KFtfRtrm7ptpqV4Jzhyjf+9VSbuLRdGs3N1qRydcWMLNWbZaX50Bs797Y8RbK6XZPztktPB
-	E8Mad9MbHpIm2IIvvunoc8eVpW+fuJ6K79ljD2F6KjPmM0tysbP/ilomHdfpMgiSnKkneshw4cv7K
-	SgBbiU1HzdgP1pS8xZPJksbriS2pja2+KMfKGpehVPeBrffcYGa32vfonAJIn7+n/Kh+jr57aldZN
-	RwMuQY51bq9CClevjOAVkUyAu3YvH7ONRvGkda6F84bACbJ3ENh1Sh0Q0KyS3mvPEAl6sa8UlB/Jm
-	DUWcGTWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y3uqZAf7qxqdfpkgt8ilhQ9CoD/4sK7elysVgFiXLPI=; b=lhTI5lgN5Xy8Kjda5FeMMCB81F
+	E4Ln0MlRB+VIicz+SbMDvks0vHnegqjet4wiX9ND+JAzD0cAR5/0ynD1cj7AL7sWZMn0YkWk04Cql
+	PKOzHM0R8haJ/mrTDLq07xQRXg4YZx2XMaowPzaryElFQKuppf/vytQRxN0j+lxUPqwIe1Ci3e28Y
+	raRyuFydC1lgX2vJrm2rH7eXJkkpBSHS9VTzGSvDXBL1yANts01jRJwDCcw1WORj/zhCSjkYRNo/4
+	tjmrJABiNDaR4/YLcGbV/xwbp9CVFqJ0BhsCwwMRkftPG2LQgoK+4lvr4m0uvcAPzf+GVxQ9caz7H
+	V3k1Ugkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiLs2-000000063xH-0iex;
-	Sat, 11 Jul 2026 00:47:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wiLy6-000000064BJ-3Q97;
+	Sat, 11 Jul 2026 00:53:22 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiLry-000000063wk-3UTi
+	id 1wiLy3-0000000649n-0bdS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 00:47:04 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66ANIujS2203192
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 00:47:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BNLAaq8lMnoNaNFRUGiCyDQLbXvyZcNLq3BCSpGo7dM=; b=FZoeEOOmNynVMum+
-	nV4KrR2QfX2XayduYDoh4AhrWBCR1zJtO9RFpdaeSA7ME1r5dhzGLgyNRYe4RLxo
-	NCXhRF1Aq6WZnMkiJOHgJsVAnMqNxkAUlTjLlTp7e1tksejD6TI3q2zLcE2eGWQg
-	rOgYlG0Bmfr3bjCkGYtaMHiU7GH7koMu366I3QI0lz5WFKSDyGsqSZ7GHXFe3uZ/
-	cfwfj0A7/pFEioUo15A6BPPf3aN5LfJcVJiq+N+EaJngGHSd/0/Nr/qcg1rP6HX4
-	jBAZUoXgyrMqtG57GV7J4jjN0ZG3gtZ394lkDQR0Ku7sKOXpYZgB4vRYiui9QELT
-	9siV8A==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fax5faxfj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 00:47:00 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cce406883eso12237525ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Jul 2026 17:46:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783730819; x=1784335619; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BNLAaq8lMnoNaNFRUGiCyDQLbXvyZcNLq3BCSpGo7dM=;
-        b=C/YAr5HY8b69rbnEdzZ9iDG2+jBfNXJRQNseLuml8/u8ZaO5Mv7DDyaNt9r0gZijYF
-         Lg/bilBTWy5VhfcR6h6v70caFGtxqptyLsHuITIvWfc9TQ+puUhvciM3+lZIVJsOYw5g
-         rZ9Gzy3zElzXefdUK4aaRCetaDI8QpScVxdlFGENkIXn3PucpiJ0tAU0Iiz5Lk3PTrfc
-         oJnqeR1Kq3U5FTyV41OiOrSAKxPS5yyf9WrRja58RoPQeo3IBu22aUwYV6E1+jiHR0JB
-         SnsRG2d58DMSDCNcBEcJ+b0r/pD7f9bJ3w5fZMYde2uigCtdLBQbXuugJ2nKUuWyGrRO
-         DF8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783730819; x=1784335619;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BNLAaq8lMnoNaNFRUGiCyDQLbXvyZcNLq3BCSpGo7dM=;
-        b=oxVVUpT4rJDCI4ZF2/RXQVm8rY0QdAR1vD6FexwXich3hJW6OW8ggQJWU4PK4/V9VN
-         whuRHmBvShNs50KL5KQn4L3nUHgYdhlNKatu1jHLZR0k54/VCJZv7n0wCVENyKlaAETR
-         aXCgK5oX5dbn+PCdFRuamlPaWnbG00efOpXZxzq4lgvQG+q3MapBqTzGXnITjy5Ry2T4
-         EwrqSFUZ1XaemxojxmvhqR+tHdFeGhuD4L4+HECK7TDgStK6kSAMP+9jBaYXaj+MaBY3
-         8XkpSfoi0YUTrsuJIUUnDZSzYCyEJVyn6aRgQ7CHk82bPoQOFu60rwPfMHFDwOvXKRGU
-         JCWQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/94hrmw52GNLCUwgmUfeEAyOa6GJICtCoQPhCroN1nnddstDPb/QAo0NHSRLt377d1MXfHePRYTTtV4JqdJMU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh4ywcWYTwalu9EBhdqchaNfgW5xXEvcBYUR7oPOq4yXoptqfk
-	3tZwk54/Qk7jQjgQAGf7fwcUOkRT+CJB9E7vr46mRB6jnA0Um0fKlAtiPlHEKqLsNtOsl2cw7V1
-	TKoy7VHem2cdJd6yShiMYJpfL1yKUK7oeYvcI6xwm0fUx8Kwt7swH3B60b0XCE/HVPouyKbxHa9
-	E0fw==
-X-Gm-Gg: AfdE7clILB8PBc9wDh9pL3RjKGz835Z5gKnrB9RZcPsQfFvDMXc9LqS6thqGMF7UOTf
-	jvkIfUZrfA5oyAa6i0zlPdWXArlTwUeUO8GsyiXaBpgQ2lfBNTr0FE4aXRX/kMNxpJX+uW4HyHV
-	lcP23ZDzpJ1KZ/24u07sjUqmEJOYgzE7jJUqt2VBE7HzVkZmgMFA7VsTaoIVHcBg9uOIIBkERoa
-	B/QqKiVYSTqwkVAzMjbDHbdBurQzKqRiBGF2NeliB71A7+tiMM4kFv4q+BOW6qieoDPv5zsqluM
-	Ye4IK+hf5KSPty/D5SMKzY2uwB/euiLo8Dimv9fGp5UhshATJJcdO0HYY5MB15b9Lvi81qcNEc+
-	ROcCt1mhr5UagG5OujavLCgTTjtpGlR+yNqPNzqgE18NP/BZ9c8zIE0kTf0KHPvfOQkL0UPAn6k
-	Y5
-X-Received: by 2002:a17:902:ef07:b0:2c9:c952:6e9 with SMTP id d9443c01a7336-2ce9eae29e5mr14108395ad.2.1783730819009;
-        Fri, 10 Jul 2026 17:46:59 -0700 (PDT)
-X-Received: by 2002:a17:902:ef07:b0:2c9:c952:6e9 with SMTP id d9443c01a7336-2ce9eae29e5mr14107995ad.2.1783730818551;
-        Fri, 10 Jul 2026 17:46:58 -0700 (PDT)
-Received: from [10.133.33.249] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9bf92bfsm67000665ad.28.2026.07.10.17.46.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2026 17:46:58 -0700 (PDT)
-Message-ID: <a34905bf-7f93-46bc-a9b7-ec44f36aa0e6@oss.qualcomm.com>
-Date: Sat, 11 Jul 2026 08:46:52 +0800
+	Sat, 11 Jul 2026 00:53:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZikPOyLR0ldhJsJoyF3ZskgDSintBOiI36w8Q/B+Hb6gnifLLp0JvrAGxWfNHUDTWU5GmdXSxQuf8L2Y3kEQQGWdWigV1WIw5aJXVn7+UVa3rfA+8rL6lnlM3GPtXnlCNSHh2fkVikY3UBm3hDmL9hwUL5+9W4Jxg2zwWP3J9uJ8NYSahzqfPam1QAiJKmnbn7Wto5amzmlHUTcN8jHwaRKer7fK0l8xor1DJeWwKHlzkD0R4KsLp1sZVISFYIhnqr4VLSSkhptLd52HTWUvJ92MUkJHbDN5MMeoM+Ug7T10YTJqlPz7WpPEf9apcz/fv1p72+ZDBS29Tz21A71EpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y3uqZAf7qxqdfpkgt8ilhQ9CoD/4sK7elysVgFiXLPI=;
+ b=EAYVGt5pAudj6CLFxXUzojXTn5Lq13FFudJ6nmMTZhq7+pMFPgsUd/rAq+9of5DPgZmWWmBOa5XKQoxNjTiL/QwHnNxGthudUZBLAots0AezYvn6povlSWqOqTc34MaDvkYfAFebN+JVUSlC4Y7ixlSYhVo99XFDO3EwRWzpqZcGvBr4bbyc9ufqmCoZuSNCdCoUz/arKiweotKkqZ6VLhv2H8INTk7C4faEiDkeDgAEdx+A2kYpHyBUO+L3L9xs+Cu8R4nd1KNSq2cJaaMx7czRWtGmRveI8/pi1zJFttT3RX79pE4kLNEi8fhjxKgpV8Hhcl7JnzvaCWtCESd4oQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y3uqZAf7qxqdfpkgt8ilhQ9CoD/4sK7elysVgFiXLPI=;
+ b=dakR2vwxUwgZHVFSPMPPuC5FPFe2Dy5KBd0zkEyKNcfsVhR9RLZVqvQYrKpGyBmcg/RKHB8Yb1VZ+p1EsSmrrUmvJTIAMlGFdT9tXmxWLDBDVbWaxYnXeHEijJ9ExuOt3LlcAB/PsBbb+cfw/KGJqClwv/MjVKUelrBaY/WkHmIZuB2kAm184e94AiD9jsQuojbrjbx9jBC6d+0qTl8OU9Vvke+0H66uPS8DNbt7L2HaqmmrfQL4IQ298gWUCQfdSouyKWENwRIc1lLV5ykMznNfPDyN5P6J3dmY5r7c04r7aHhUGp7M1If5YnMJKXUGgtP2flDFnq7+eUL/XfI7fQ==
+Received: from SJ0PR13CA0078.namprd13.prod.outlook.com (2603:10b6:a03:2c4::23)
+ by SJ2PR12MB8955.namprd12.prod.outlook.com (2603:10b6:a03:542::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Sat, 11 Jul
+ 2026 00:53:11 +0000
+Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::1c) by SJ0PR13CA0078.outlook.office365.com
+ (2603:10b6:a03:2c4::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.6 via Frontend Transport; Sat, 11
+ Jul 2026 00:53:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Sat, 11 Jul 2026 00:53:08 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Jul
+ 2026 17:52:57 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Jul
+ 2026 17:52:57 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Fri, 10 Jul 2026 17:52:56 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
+CC: <joro@8bytes.org>, <praan@google.com>, <kevin.tian@intel.com>,
+	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <jamien@nvidia.com>
+Subject: [PATCH v8 2/9] iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in kdump kernel
+Date: Fri, 10 Jul 2026 17:52:43 -0700
+Message-ID: <327616f41b75c5b3d4bb0b4575627b86b6586887.1783729633.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1783729633.git.nicolinc@nvidia.com>
+References: <cover.1783729633.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: arm: qcom,coresight-tpdm: fix bracket
-To: Manuel Ebner <manuelebner@mailbox.org>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Tao Zhang <tao.zhang@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20260710080523.428548-2-manuelebner@mailbox.org>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260710080523.428548-2-manuelebner@mailbox.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Ab2B2XXG c=1 sm=1 tr=0 ts=6a519284 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=b3CbU_ItAAAA:8 a=EUspDBNiAAAA:8 a=tyIhYoOGzA4zFAWON2wA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=Rv2g8BkzVjQTVhhssdqe:22
-X-Proofpoint-ORIG-GUID: 4pvAf-Gfby1PK3et9cLhZyuhCjDi8kNl
-X-Proofpoint-GUID: 4pvAf-Gfby1PK3et9cLhZyuhCjDi8kNl
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzExMDAwNCBTYWx0ZWRfXxJ7vFhGAAkEw
- jVYYO8xRSUw/Z2D7OGzKduduTLAW5GYqtTFZWZHsKv4580CQ6iCVFUlDaHLoBSWUASyYtPUHrvZ
- +rifUpL/+Ci6Oc8JGOL9wHFNfpUzInY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzExMDAwNCBTYWx0ZWRfX2vDUbtZ0UMXz
- deZZl8fArV2bnt4CSv72MzS2Rz9Vqgd0xP/gXLCp5fQxkFq2vLJesxZ7v2qqk7q8Vpgux/EnBH0
- +xwdGueK3wlrpNF6GlFOjGvTatXFyqSDXS2aJzWE7ZGodjdl1A3uOxBaDwUgisDG9lx5w2zBXxd
- ymC/pVbNiL7hWDl/+8Wh/9Zmj0djUn3KJ+YkBrlRg+nJUCVMluMKptnOGle4Dphyd3qY6BT41Sm
- 5xIOVEziFv01jECtyq+J5OCGNk6PFoXjMsirUhMzSCULexxxj400w6eQ2h9qouqpLFJRiUyIsOH
- OELAEPa5dYRz08yje8VHdZ/IVUdxuMAHujFdEC7Z7EGuzjqduu8YK+t54FaGUQgBR32qZv/+qEm
- 9uwyq4UXM4HxfeMcP7NL4lLD97+U0DWJfk1W301tstyiUz7/5w1z1HOqBKvoOdXN1q6ujgL08jA
- M8lMav/Y7UQfhpvG03w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-10_07,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 malwarescore=0 phishscore=0 bulkscore=0
- suspectscore=0 impostorscore=0 lowpriorityscore=0 priorityscore=1501
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607110004
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|SJ2PR12MB8955:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6f3c391d-9fef-4ea2-3100-08dedee6c662
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|82310400026|11063799006|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: iIZJ4Ms2fAZWgpvBx0DU6yE401Eo8FqM/P2jZ58b2sEUs46G8pA2QCanoASm7bRlKxkEi4zbmcBVYY2F4iyvzfdOS9Z4Ag9TlxcAfCNktD+EXsmspVn63ewUPWtVy8g3fos2LP6/cxOSBG1W/JhZqaV+oDzKYLIaS6bTFxNPVahMlmH/x+bKTbnkkjFg8wzMcj+aIcM2RhubZcriWgzAnKI/oLs6EuME2G4n+lrFzZgdW1XwzdoY93zhaDOZEJCv2slpW/A4HveQO9pujBO5cy88eGHcyoPGXenoOxF7TkN18MT5wBpVKotVICmqIuqYjpxBweyh9mUKl+dYIeffxfPWFIhgbUJOp3Kdp1reXCDlJqXyj5BcH0HeT3VgWVLku4/SR/WO85cmWdkLqFmzh/Y290ceSA3vPKysAJ48rP5v8rGb6bsEEEkMvTjr+KEtLEcqmXtE2yi4fUMJ8TplfWGIb/5JDGxEicp+x6g9Hl7MFap9c87b3XfhhHQls/smAuvaAzH4W2dLeT/NbDP8J5jB4d+hLxjXb41X4C3VEYUd9ki1945jIuqby6rI8UzAV9HMwPTcn2K6V1N3dDw50uiBJMCAgzyQYAHon1oiPN4dXLaL05Wmh3rUanRUybSq48VVSEq1NtNSXBmduqhpipB96cie7GiElbidZfHk5EC4OasT+NGZrFs0Y5i0rixy1uVUDLIbsp8TlmXf86w8oA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: P+K5Qwd8/7Pnw3YEQZbhIJDxTKTidalLsW+Oiv6oDSx0SKwwGl5ne1ItbrMpMyRxp9LsoT1Uy2eGNZzKf/IyST5IoKSKjyBcdHWs7ys8SiO559NuLZYsJMKGKVgl6P3Op2PjJh4NimwvJEYbOMXMVCX3frBi1KVS2/ZDkC/ZBXbYYBgJ1RUo1KaKj6pvJ+I4S2ejTgBKEnpTpk+t7G/VJKgy5VjIK1GiblANOlHNuvy1Z5QHYw4CPzZDd2tAOxCs04JCtEolBtB5YJ1zOCm3gjQYb2Raqkr3vClKzrHwgG/eKZB9nQJmBroAnLea0rMYDy1YZwEpTSSGXIWOpCKr0V6kMJoSUPsWQnHB4SQzZ3zhza1bP3dP9haFtQ/ffFwduDFjqDH5EcryqMVmfbyp47FfsgYfwAX5DkTNt3Jjlu1s7q+ObcMpJdPiTBuwKBWb
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2026 00:53:08.5039
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f3c391d-9fef-4ea2-3100-08dedee6c662
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8955
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_174703_026645_9354005E 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260710_175319_221613_FD838234 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,34 +127,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In kdump cases, the crashed kernel's CDs and page tables can be corrupted,
+which could trigger event spamming. Also, we cannot serve page requests.
 
+Skip the EVTQ/PRIQ setup entirely rather than enabling then disabling them.
 
-On 7/10/2026 4:05 PM, Manuel Ebner wrote:
-> Remove needless '('.
-> 
-> Fixes: 6c781a35133d ("dt-bindings: arm: Add CoreSight TPDM hardware")
-> Signed-off-by: Manuel Ebner <manuelebner@mailbox.org>
+Keep the queue allocations themselves, as their Q_MAX_SZ_SHIFT-capped sizes
+are negligible against a crashkernel reservation.
 
-Thanks for fixing the typo.
+Also add some inline comments explaining that.
 
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Suggested-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 44 +++++++++++++--------
+ 1 file changed, 28 insertions(+), 16 deletions(-)
 
-> ---
->   Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-> index 152403f548c3..c7301f1b28c1 100644
-> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-> @@ -9,7 +9,7 @@ title: Trace, Profiling and Diagnostics Monitor - TPDM
->   
->   description: |
->     The TPDM or Monitor serves as data collection component for various dataset
-> -  types specified in the QPMDA spec. It covers Implementation defined ((ImplDef),
-> +  types specified in the QPMDA spec. It covers Implementation defined (ImplDef),
->     Basic Counts (BC), Tenure Counts (TC), Continuous Multi-Bit (CMB), and Discrete
->     Single Bit (DSB). It performs data collection in the data producing clock
->     domain and transfers it to the data collection time domain, generally ATB
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 404790d2c7210..175964b923716 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4821,21 +4821,36 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 	arm_smmu_cmdq_issue_cmd_with_sync(
+ 		smmu, arm_smmu_make_cmd_op(CMDQ_OP_TLBI_NSNH_ALL));
+ 
+-	/* Event queue */
+-	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
+-	writel_relaxed(smmu->evtq.q.llq.prod, smmu->page1 + ARM_SMMU_EVTQ_PROD);
+-	writel_relaxed(smmu->evtq.q.llq.cons, smmu->page1 + ARM_SMMU_EVTQ_CONS);
+-
+-	enables |= CR0_EVTQEN;
+-	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+-				      ARM_SMMU_CR0ACK);
+-	if (ret) {
+-		dev_err(smmu->dev, "failed to enable event queue\n");
+-		return ret;
++	/*
++	 * Event queue
++	 *
++	 * Do not enable in a kdump case, as the crashed kernel's CDs and page
++	 * tables might be corrupted, triggering event spamming. A disabled
++	 * queue simply discards new events, without raising any global error.
++	 */
++	if (!is_kdump_kernel()) {
++		writeq_relaxed(smmu->evtq.q.q_base,
++			       smmu->base + ARM_SMMU_EVTQ_BASE);
++		writel_relaxed(smmu->evtq.q.llq.prod,
++			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
++		writel_relaxed(smmu->evtq.q.llq.cons,
++			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
++
++		enables |= CR0_EVTQEN;
++		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
++					      ARM_SMMU_CR0ACK);
++		if (ret) {
++			dev_err(smmu->dev, "failed to enable event queue\n");
++			return ret;
++		}
+ 	}
+ 
+-	/* PRI queue */
+-	if (smmu->features & ARM_SMMU_FEAT_PRI) {
++	/*
++	 * PRI queue
++	 *
++	 * Do not enable in a kdump case, as we cannot serve page requests.
++	 */
++	if (!is_kdump_kernel() && (smmu->features & ARM_SMMU_FEAT_PRI)) {
+ 		writeq_relaxed(smmu->priq.q.q_base,
+ 			       smmu->base + ARM_SMMU_PRIQ_BASE);
+ 		writel_relaxed(smmu->priq.q.llq.prod,
+@@ -4868,9 +4883,6 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 		return ret;
+ 	}
+ 
+-	if (is_kdump_kernel())
+-		enables &= ~(CR0_EVTQEN | CR0_PRIQEN);
+-
+ 	/* Enable the SMMU interface */
+ 	enables |= CR0_SMMUEN;
+ 	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+-- 
+2.43.0
 
 
