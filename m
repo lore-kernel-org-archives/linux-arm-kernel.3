@@ -4,79 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA253C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF2BC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 06:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jhPYci9Dt8OvtEtcy4b+McdMFRjiobjic+3G8cI6QZI=; b=qHzz3GDogQAupKTc4g/yu5oBgH
-	up1DLuYx1ZKaMqqX9U9ue6teCoEL2XIUDac8J1trD6lMfiay0tscGxwGwoVxSpRZLjfkCW8bvCM0F
-	DjLqpINlmN0dPmMjCIJ03PGM6/b6qkKmeBZSge8balMYq0YwYgdJ7Lzi5A84C0c3nSFBWTMormE8y
-	YgFIFCjrx7eU7F3L6X4BCDwmL7mcgGtp9oHPbMfEZHSwk7gX1/9INcXW3kDKCXsSmRkffzF8hQcsk
-	o+Kuy3sZh5IGojjZM9Z83BPfQsNSfG2CrDM06M//Y1QY66wgEszy5ZfZNJfOzE6ymzgNKI3YysN8M
-	z3K94L7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPc+/CQe6kjMaEdJWNjK4a7APvXUbTuseVN/eSOqRFw=; b=kYNt9QTJWS9yjBsIihxHGQJ5+A
+	AICcbqvnnei70Hk80jsoKF1UIOulX2hIQ3XXC5kRSuPcv3g2cFEBiZOzGOZ0RhcIgvFxX8G4NvZYC
+	nZ34f/5tFs04XbWvUB4YNT146Zzs57aotPw/+2RqEECjeZd8oMb0F6X7r7keikMVJH9udS2jojJMx
+	oJcSAzyjauq+80o+EBiBvGoTK5BzIH3mJK0h07qAu0OpFgJRVvgxbBlSdPL6SJa7NqXf0He9iDhbI
+	OON1IfWuY9idSi7wziUGU7y4vNpJKu//Zw2EVDOqq9MXtCajIG0ctPVs2JrT4QUZgpbc2xRcuXbia
+	eNc/qmTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiR3i-00000006GSo-1FlA;
-	Sat, 11 Jul 2026 06:19:30 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wiQna-00000006Eqs-2U1a;
+	Sat, 11 Jul 2026 06:02:50 +0000
+Received: from mo4-p04-ob.smtp.rzone.de ([85.215.255.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiR3e-00000006GSS-43vW
+	id 1wiQnS-00000006EgU-15YP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 06:19:29 +0000
-Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66B6IoIf015927
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sat, 11 Jul 2026 15:18:50 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=jhPYci9Dt8OvtEtcy4b+McdMFRjiobjic+3G8cI6QZI=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1783750731; v=1;
-        b=TIktfliCWLwpd/+swlM0LiA65CD4UnKwP+vi5ebo48IQszOhpbBoisXZWlKlE/dX
-         uAHImhHe1u8Zjp9F1SsNkKIkUb/AXZ9u8Z7NdTlKN2jqD5SOEswuQpbbITyDpknr
-         bQMy8wc6V8eb3bRh5OuNVsh/Fytdus3Lti0kugfIaALxVXZL20RQVbBjguL04sMs
-         aXEazALRVK84+npwac+koioVcBKj9dDnwEKFkIHUTtN1H8w/Ua72wDLMM7mvGBzF
-         WYg5KFzUg1+rIbfhz4gWL1L0e/OW6ioPVpTinpDdvu87eF5MyhfkfpurgzIcIBhd
-         q2uPRk28yyDaK3zl+/06dA==
-Message-ID: <0e5e64ea-2f3c-4ce6-88ac-08b66f13027c@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sat, 11 Jul 2026 15:18:50 +0900
+	Sat, 11 Jul 2026 06:02:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783749748; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=TwQnfT3mm1kEvuObLqPH26UYG9JlnWXuJEm4kkLExiYeF2ITQRRyvAmjz+RFzYzbz8
+    oH7pXl9wIj6nyfDIWt3eZ2QFING/+AaK0StdVkNmVaK8U+cmolfy12LLsyVFXmi2zWEy
+    Sm+NE5bmhhExGCcEuv3tSK9L2okCTrAVccjj9PiwWI9mKP5EPW0E3m2jFo8yBmSb4TVB
+    HsqoS9B27maxZmSIxSRIxOw/q0tMEEJnt48uD3HiItjJQ9Do6sNXw52+jQkMDVAMIlho
+    IXJbOvmTVvEupOus0KUL0UfQQGuKYN2651qlUKTibpnBArkwXNEN85V4IgeLOVDPJnKy
+    hcpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749748;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=cPc+/CQe6kjMaEdJWNjK4a7APvXUbTuseVN/eSOqRFw=;
+    b=sAKoWEC1jnAcNNC298HRqiXR+voHv8x7alycw5gAyhMegt7Xt2kJfxJL5Lg8nzhq1L
+    ElvUJu031bdmnfcPnetnKM9ceKPC6zziCrB7ZYa0aWK6d9ylI8zGW563Mmm6Lw6BKA33
+    WxG9/yXUnWWQWcx+xY6lu0PLEYgVy7H/FnvumgKtvjtqXxe4nOqq751gJkTyySOxCMKC
+    h5Yb6wupre4S8JXFis+eeX9DhUEKvysdBKQMMoCIvwnyOHOmWQ9It5qk6TnfTOUJdEVv
+    6J+Rt0W0MjDbchKj5kj3Q4+cKZYBsqOowKXs0XrOdojj3POZruK1MLcdRynitqZX/aSm
+    qM+Q==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo04
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783749748;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=cPc+/CQe6kjMaEdJWNjK4a7APvXUbTuseVN/eSOqRFw=;
+    b=rz1xcUgXG3oRwXWGuBq9YszLtX8ZK6SlaG17IH5YGrw3A7mrDOpTZAdcMhUxTxwCvZ
+    WG24sV2w6GG8tUs96rLlTJfrmcyA0C2442CcDjyZktLAwPHJH1x+wKLxwSlx+KaUFfeb
+    x3g3P4XCuqDy1XuDP3zt/c0SWmxoEWs8KzDG+upus9n0ArC9U2XaRsvNtZY+bQx1StBd
+    sArlVmTF3cwaIvzb34IbieodXXRUo0W2iz0QW5I8RvLUw4uD/RUdY52Jntd187lkRE6i
+    NFiy+im6XC1ahh5DJAQDthZDJk7cHrI53Tn69al0UEzzoAhG688PZB1f/hQkzCGNSOQF
+    mmGw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783749748;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=cPc+/CQe6kjMaEdJWNjK4a7APvXUbTuseVN/eSOqRFw=;
+    b=8fCXSY9c1lXBeUHph8ovftMufel8JVUOdBANz0/iwCW3aXTxsZf4vEfOCYgOzusoqD
+    OHE3a0UTXw2vRS3huIAg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrT35oLmciNszeF4HOToVDOd6S1gdjuILE2MKVd"
+Received: from iMac.fritz.box
+    by smtp.strato.de (RZmta 55.5.6 AUTH)
+    with ESMTPSA id Q4b76426B62QGi2
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Sat, 11 Jul 2026 08:02:26 +0200 (CEST)
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+To: Grond <grond66@riseup.net>,
+	Stefan Leichter <sle85276@gmx.de>,
+	"H . Nikolaus Schaller" <hns@goldelico.com>,
+	Grazvydas Ignotas <notasas@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Jarkko Nikula <jarkko.nikula@bitmer.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Helge Deller <deller@gmx.de>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Sen Wang <sen@ti.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Niranjan H Y <niranjan.hy@ti.com>
+Cc: letux-kernel@openphoenux.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-fbdev@vger.kernel.org,
+	kernel@pyra-handheld.com,
+	mfd@lists.linux.dev
+Subject: [PATCH 16/16] arm: omap2: remove remaining pdata-quirks for pandora legacy devices
+Date: Sat, 11 Jul 2026 08:02:03 +0200
+Message-ID: <d380941287c655a3d205ee8b08516d364c0ddec9.1783749722.git.hns@goldelico.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <cover.1783749722.git.hns@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/7] KVM: arm64: Disallow vPMU when pPMUs do not cover
- all CPUs
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <20260706-hybrid-v8-1-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <akvgIWqBjAp_VA_A@kernel.org>
- <e03f17b2-a765-4912-adf6-3da26e7eeecd@rsg.ci.i.u-tokyo.ac.jp>
- <ak1DVUs0bgkpZh0N@kernel.org>
- <7bf6c440-5f14-4326-9800-9821adc4e2e4@rsg.ci.i.u-tokyo.ac.jp>
-Content-Language: en-US
-In-Reply-To: <7bf6c440-5f14-4326-9800-9821adc4e2e4@rsg.ci.i.u-tokyo.ac.jp>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260710_231927_477970_BC828D5D 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260710_230242_466060_189F11F5 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,114 +143,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/07/08 17:32, Akihiko Odaki wrote:
-> On 2026/07/08 3:20, Oliver Upton wrote:
->> On Tue, Jul 07, 2026 at 08:08:03PM +0900, Akihiko Odaki wrote:
->>> On 2026/07/07 2:04, Oliver Upton wrote:
->>>> Hi,
->>>>
->>>> On Mon, Jul 06, 2026 at 07:03:24PM +0900, Akihiko Odaki wrote:
->>>>> Commit ec3eb9ed6081 ("KVM: arm64: PMU: Disallow vPMU on non-uniform
->>>>> PMUVer") made KVM reject vPMU unless the system-wide PMUVer is usable.
->>>>> That covers systems where PMUv3 is absent or non-uniform, as well as
->>>>> systems where IMPDEF PMUv3 sysreg traps are unavailable.
->>>>>
->>>>> However, KVM can still accept vPMU when all CPUs uniformly trap PMUv3
->>>>> sysregs, but the pPMUs registered with KVM only cover a subset of
->>>>> possible CPUs.
->>>>>
->>>>> Reject vPMU unless the registered pPMUs cover every possible CPU.
->>>>> This avoids carrying support for partial pPMU coverage into the
->>>>> fixed-counters-only UAPI introduced later in the series.
->>>>
->>>> Doesn't CPU hotplug screw this up? I could online a CPU that doesn't
->>>> have a PMU after creating the VM.>
->>>> I'd rather just change ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to become a
->>>> system feature. That way any CPU which breaks the system-wide 
->>>> assumption
->>>> cannot be onlined.
->>>
->>> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS only says that IMPDEF PMUv3 
->>> sysregs are
->>> trapped. It does not say that KVM has a driver-backed PMU usable for 
->>> PMUv3
->>> emulation. This patch checks that extra requirement.
->>>
->>> I re-checked CPU hotplug. Onlining a CPU without a PMU later does not 
->>> make
->>> an accepted VM unsafe, since the check is against cpu_possible_mask.
->>
->> Sorry, I missed that this was against the possible mask.
->>
->>> The problem is the reverse case on ACPI: this check can disable vPMU 
->>> when a
->>> possible CPU is offline. DT populates supported_cpus at boot, while ACPI
->>> initially populates it only from online CPUs and grows it as matching 
->>> CPUs
->>> come online.
->>>
->>> That makes this patch too conservative. In practice, I do not expect 
->>> systems
->>> to mix CPUs with and without a usable PMU. A better approach is 
->>> probably to
->>> treat such a host as out of spec and add TAINT_CPU_OUT_OF_SPEC. We 
->>> already
->>> do that for architectural PMUv3 by detecting mismatches in
->>> ID_AA64DFR0_EL1.PMUVer; we can do the same for
->>> ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS with non-standard PMUs.
->>
->> The presence of the workaround is, by definition, out of spec. I just
->> never bothered tainting the kernel because these machines are already
->> TAINT_CPU_OUT_OF_SPEC by way of the broken VGIC.
->>
->> Ok, so how about you keep the check that you're doing here and promote
->> IMPDEF_TRAPS to a system-wide feature? That would satisfy the two
->> preconditions we have for PMU emulation, which is system register traps
->> and a backing arm_pmu that understands PMUv3 events.
-> 
-> This check turned out to be faulty: it can disable PMU emulation on ACPI
-> systems when a possible CPU is offline, because ACPI grows
-> arm_pmu::supported_cpus as matching CPUs come online.
-> 
-> My current plan is:
-> 
-> - drop the possible-mask coverage check, to avoid breaking ACPI;
-> - promote ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS to
->    ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, so the system will have the
->    feature only if all online CPUs implement it;
-> - explicitly taint hosts with ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
->    matching what KVM already does for non-architectural VGICs. The
->    comment will make it clear that this is out of spec because KVM cannot
->    make the usual architectural assumptions about PMUv3 sysreg traps and
->    uniform driver-backed PMU availability.
+After updating the pandora-backligt setup and removing the omap3pandora
+sound system and defining related gpios by device tree, we can remove
+omap3_pandora_legacy_init() and the related legacy devices completely.
 
-I sent a new revision implementing these changes, but due to a rebase
-mistake it was also sent as v8.
+Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+---
+ arch/arm/mach-omap2/pdata-quirks.c | 23 -----------------------
+ 1 file changed, 23 deletions(-)
 
-However, it still does not cover every case of non-uniform driver-backed
-PMU availability. With ACPI, if a CPU is brought online whose MIDR was
-not represented by any CPU online during PMU probing, the PMU code
-cannot associate it with an existing arm_pmu or register a new one.
-This can happen even when PMUVer is uniform across CPUs.
-
-I therefore plan to take a simpler approach: when KVM cannot find a
-registered pPMU for the vCPU's current CPU, emit a one-time warning and
-set TAINT_CPU_OUT_OF_SPEC, matching the treatment of mismatched CPU
-features.
-
-Regards,
-Akihiko Odaki
-
-> 
-> That lets the code keep assuming uniform PMU availability without adding 
-> an ACPI-hostile possible-CPU check, and makes that assumption explicit 
-> for humans like me and tools such as Sashiko [1].
-> 
-> [1] https://sashiko.dev/#/patchset/20260706-hybrid-v8-0- 
-> de459617b59d@rsg.ci.i.u-tokyo.ac.jp?part=6
-> 
-> Regards,
-> Akihiko Odaki
-> 
+diff --git a/arch/arm/mach-omap2/pdata-quirks.c b/arch/arm/mach-omap2/pdata-quirks.c
+index b947bacf23a37..aca7097a692ed 100644
+--- a/arch/arm/mach-omap2/pdata-quirks.c
++++ b/arch/arm/mach-omap2/pdata-quirks.c
+@@ -268,27 +268,6 @@ static void __init omap3_logicpd_torpedo_init(void)
+ 	omap3_gpio126_127_129();
+ }
+ 
+-/* omap3pandora legacy devices */
+-
+-static struct platform_device pandora_backlight = {
+-	.name	= "pandora-backlight",
+-	.id	= -1,
+-};
+-
+-static struct gpiod_lookup_table pandora_soc_audio_gpios = {
+-	.dev_id = "soc-audio",
+-	.table = {
+-		GPIO_LOOKUP("gpio-112-127", 6, "dac", GPIO_ACTIVE_HIGH),
+-		GPIO_LOOKUP("gpio-0-15", 14, "amp", GPIO_ACTIVE_HIGH),
+-		{ }
+-	},
+-};
+-
+-static void __init omap3_pandora_legacy_init(void)
+-{
+-	platform_device_register(&pandora_backlight);
+-	gpiod_add_lookup_table(&pandora_soc_audio_gpios);
+-}
+ #endif /* CONFIG_ARCH_OMAP3 */
+ 
+ #ifdef CONFIG_SOC_DRA7XX
+@@ -514,8 +493,6 @@ static struct pdata_init pdata_quirks[] __initdata = {
+ 	{ "ti,omap3-evm-37xx", omap3_evm_legacy_init, },
+ 	{ "ti,am3517-evm", am3517_evm_legacy_init, },
+ 	{ "technexion,omap3-tao3530", omap3_tao3530_legacy_init, },
+-	{ "openpandora,omap3-pandora-600mhz", omap3_pandora_legacy_init, },
+-	{ "openpandora,omap3-pandora-1ghz", omap3_pandora_legacy_init, },
+ #endif
+ 	{ /* sentinel */ },
+ };
+-- 
+2.50.1 (Apple Git-155)
 
 
