@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5600FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751F1C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 15:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYTpe4x+dOHQj3AHgqKsfEUdPZqevLMqDGNIxz3LBqs=; b=E+N2C3268cNkfoVvzWRCf/+9xL
-	yu1LLdgoVvFFLER3ML7TO7IcpSLHY2cMTEGOVgRwwkRx+MZJHcv2zIhbi9fL9pufqeepWUytGJm/x
-	MECA5CRwsYRUDGARYEavDjyRlSfxvTMHoO0M7X0dwRGzHBhMPjK+ZPA7b0GVWcXZJWvYlAd2sFwyk
-	kIMcWk8PetpRYgQytJJsw5S1Gqpk5F4XKOcmu+uH/behQdgRwXZDt1CYrfxk8F4ASWEBmVgJof1ja
-	crgnaqB+8S7JR3ONhcFZg6bDom7IfzViXh3o2Kzq0lEieKfh0VNxmuzXGcozsgM31hzTUFAl+1Vl+
-	P34YYxWg==;
+	bh=GzKdp7Hcvs6+zEuzXa7LVO8auZ6H7XjMLgYVqU0x/Zg=; b=lctcJae0WN7YUpsLQ7UWIx0FcH
+	8MnTL1fZGXfVcSDOqE+/o29uYoqbTQBcWuINyzQ6hJMghbDS5AKiYvS49QtD82GA1ABylgobUzQlE
+	AlDjBRxyKAIWOzavhrbxf6QA/5a8LPTelvJZ3C9mV84YvkSN8+rLJOkbTlTmreDqm/L7lQWA+gT4L
+	/IEsWS8e6SYIqTNqVT4WwAC1/9By3FZI4cvs00CUkuaKZ8wncwuuc02bUNvt25jSMA10I+kvEnVf9
+	3BqjZt2aY/IOxbvDstngT5j5RVB883bihK4Oe/tFuCLOt07t5XyzivQcTZob6lKpPZef1IEMsunYx
+	TpOvy3Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZOw-00000006dkP-2hqd;
-	Sat, 11 Jul 2026 15:13:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiZOt-00000006diu-0Eo1
+	id 1wiZeZ-00000006ee4-22ws;
+	Sat, 11 Jul 2026 15:30:07 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiZeV-00000006edN-3xYX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Jul 2026 15:13:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0B9A1477;
-	Sat, 11 Jul 2026 08:13:47 -0700 (PDT)
-Received: from [10.20.1.47] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A7053F85F;
-	Sat, 11 Jul 2026 08:13:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783782832; bh=sDXWQS6dOHId7445+Y/ZGN5y9lFGKjA7sUnzyFygZdE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FFX7kGTD7Dm5jT3f9oQBpF2GinvIozz2BLkJfOevHZOF93dKmhapKSP2oBd4ZVKKT
-	 ZNaed3qMVh0NXCsAclQ1gL3SyjgeomTEQYirlFPsIEb7dirRj2/bXiFYKpYPqkqTBU
-	 CBdySDNvnKzcgYTsdhpziU87bFo90FMy5BWgVBys=
-Message-ID: <da0f77df-80bc-4917-8892-e61da365454b@arm.com>
-Date: Sat, 11 Jul 2026 17:13:47 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/7] arm64: dts: allwinner: sun50i-h616: Add video
- engine
-To: Chen-Yu Tsai <wens@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260711135959.3616919-1-wens@kernel.org>
- <20260711135959.3616919-8-wens@kernel.org>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260711135959.3616919-8-wens@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Sat, 11 Jul 2026 15:30:06 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1783783798;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GzKdp7Hcvs6+zEuzXa7LVO8auZ6H7XjMLgYVqU0x/Zg=;
+	b=IWykNoSpjn7zW6CuDj+8yy6zrE53QZYDQY2TzlqVtj1c/WCfWhVl5oUwsq3Pld2XnFxavJ
+	OKeLDcV/KyN5suJ2aH1WQVEyg4gcRMhLCpT1prSSIOYp38kOvKYEXQhEcNHQjx0afWN+VX
+	+EdqGbLAfKwg33sq0+4BBveY2JjDcKK5IuF+Ncs8koPzsyU2lRxld5eD18854judDqrTo8
+	8cK21M6hgoN4iBwdB2b+1ENYTUpLRy6GVzi3CaoZfcMXqv3Drl7huNW2ppa4bjtVF358fy
+	v6OXN6B8Y1h0B6i6I9mpOvyaFxAl0ZRbXRpZs4LlfUeZq6Grs/KqXaowmLqR7w==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 11 Jul 2026 17:29:52 +0200
+Message-Id: <DJVUKXFUVH2Z.2O9IM7YHJOKYT@cknow-tech.com>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Marcin Juszkiewicz"
+ <marcin@juszkiewicz.com.pl>, <stable@vger.kernel.org>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Fix USB hub phy-supply config
+ for NanoPC-T6 LTS
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Diederik de Haas" <diederik@cknow-tech.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+References: <20260610081400.758687-1-diederik@cknow-tech.com>
+ <20260610081400.758687-3-diederik@cknow-tech.com>
+In-Reply-To: <20260610081400.758687-3-diederik@cknow-tech.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_081355_227706_79F2469F 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260711_083004_602345_4B328359 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 7/11/26 15:59, Chen-Yu Tsai wrote:
-> From: Jernej Skrabec <jernej.skrabec@gmail.com>
-> 
-> The H616 SoC has a video engine, and two SRAM regions needed by it.
-> 
-> Add the video engine to the dtsi file.
-> 
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> [wens@kernel.org: Add VE SRAM region and commit message]
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-
-Checked against the binding and the manual: clocks, regs, interrupts and 
-reset matches. Also test-built the DTB: that worked fine, not sure what 
-Sashiko was complaining about.
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Thanks,
-Andre
-
+On Wed Jun 10, 2026 at 10:04 AM CEST, Diederik de Haas wrote:
+> The MTT USB 2.0 hub is connected to the SoC's USB20 HOST1, so the phy-sup=
+ply
+> belongs to u2phy3_host, not u2phy2_host as that is for USB20 HOST0.
+>
+> Fixes: db1dcbe5f752 ("arm64: dts: rockchip: add NanoPC-T6 LTS")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
 > ---
-> Changes since v1:
-> - Corrected second IOMMU port
-> ---
->   arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-> index 1598e86259ab..c6b3a3f8359a 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-> @@ -175,6 +175,18 @@ crypto: crypto@1904000 {
->   			resets = <&ccu RST_BUS_CE>;
->   		};
->   
-> +		video-codec@1c0e000 {
-> +			compatible = "allwinner,sun50i-h616-video-engine";
-> +			reg = <0x01c0e000 0x2000>;
-> +			clocks = <&ccu CLK_BUS_VE>, <&ccu CLK_VE>,
-> +				 <&ccu CLK_MBUS_VE>;
-> +			clock-names = "ahb", "mod", "ram";
-> +			resets = <&ccu RST_BUS_VE>;
-> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
-> +			iommus = <&iommu 3>, <&iommu 2>;
-> +			allwinner,sram = <&ve_sram 1>, <&sram_c 1>;
-> +		};
-> +
->   		syscon: syscon@3000000 {
->   			compatible = "allwinner,sun50i-h616-system-control";
->   			reg = <0x03000000 0x1000>;
+>  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts b/arch=
+/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
+> index 0ee67ee24f3c..0e15a2e1f2ff 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dts
+> @@ -38,6 +38,6 @@ usb20_host_pwren: usb20-host-pwren {
+>  	};
+>  };
+> =20
+> -&u2phy2_host {
+> +&u2phy3_host {
+>  	phy-supply =3D <&vcc5v0_usb20_host>;
+>  };
 
+Please drop this patch.
+I was hoping to confirm this with an M.2 WiFi+BT card, but let's say the
+results were kinda disappointing (to put it mildly).
+
+Diederik
 
