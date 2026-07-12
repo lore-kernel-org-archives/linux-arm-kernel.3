@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B744C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 03:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF45AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 03:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tf6Cq6cPOgsZxdvzVE+An28hz2bl2bYPUa5Kw/cEUUs=; b=fSAGpjJN3HlvDfWfGR3bmj4Fcx
-	hzQArIkpw2R22aHKu+s57cNncRRdl81Qgj122/s5k3Jau3eKpXgfTGAHh3tD1JYbOM07yD/rrt7EI
-	Iq5GS2yHv56r4Sa9Oj/m3hg+UsBRVXGBcT+GFddidXTL5RrCY3PySVA9iCCVklduFSK8KsM7Ilzdq
-	E5PqTxTT1THXw0whGsedvGbLscJ538y4Q+sCHDMEGs+2GR7oQlc5HsHVFtuyWFU71Q0v0gdoPlNjU
-	xjabNNtPZAYSKQcX66YmIU0Iz7/iG2/cAt8XqMw3gIKscRHp12FT2DNynVQf9B86A8NAKsLyBkyoZ
-	T6xv5ErA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IeKrQCOQwCtSB3eQzRia+4BzTdZbJgllKrvOfao2+VE=; b=iCvZ6HIFEN56w9/02/m6D5PfSJ
+	FgbBq4yfB2Tl516zYDyNDdlc9zS1Ix59bhqGjMWuC9wHA4ZAtuO54BzsSZ2FaZb9mnEvsMmhEHYQy
+	85A92NSmUZw1PwP2hATNq55egZYxyt8pRlOailOssuhqtfCFge4wMo6A4Dy77YEixhi2YQfIGIrtH
+	U1Pa0GMSLxZPKMouBteRgEFDamW+Bq9LLkj26TbeGXihYHkVX+5VeTEUl8STo2S0/YYcnaH9IV+Yk
+	Dt7JJksC7uCLnu+N1ufNVRlVR+shHL7J8LMomzppkyWusbfLEAqjxNT4mwc5D0TM+N9OZeQIEXpfT
+	EVq/Y26g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wikdr-000000074Ll-3Z9q;
-	Sun, 12 Jul 2026 03:14:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wijh0-000000070Az-32wR;
+	Sun, 12 Jul 2026 02:13:18 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wikdp-000000074Lf-47Ql
+	id 1wijgy-0000000708p-1c8q
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 03:14:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB0EC419BB;
-	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9B945C2BCF4;
-	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783826045;
-	bh=mmOkhodHGtEQly1sJFXQCl0QkPRAuKzorAgvaUlQrpk=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=Nuav4sd1jzHBwS6lSQL5X95lx8S1SXKL2p2A9cyPJIyOVbXmUPjCmOnEQDI39iChb
-	 m7ROshMWdHvDfvHjDNXgi++ec7c96YHppV23Rdoaf9ezqSYajeVQ/X5V4LUDtUmDF6
-	 YOX63eNQYDOgHj+nj4EXqsVdqtBQkpfsTdsBvGULZTvIlcBwH+EDvildpXB+QshdGO
-	 i+108STxuKEwdMRK7/3taHwCrbgFpTk/mM4K8GXa/BIpRKRCdBSsaifJ17hZqxbldv
-	 pfj2aqzzOZKVbEze31SJyJBRQ5qPUpDdEK1OnoiLoa9Y2mBN9GP4vS0RZNAM3Ymi8a
-	 BtMc0yFY/fHWg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89A9BC43458;
-	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
-From: Esteban Urrutia via B4 Relay <devnull+esteuwu.proton.me@kernel.org>
-Date: Sat, 11 Jul 2026 23:14:01 -0400
-Subject: [PATCH v2] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
+	Sun, 12 Jul 2026 02:13:17 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso2470913a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 19:13:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783822395; x=1784427195; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IeKrQCOQwCtSB3eQzRia+4BzTdZbJgllKrvOfao2+VE=;
+        b=MrOtHaoquKnhtA4VJtgHwQiUvx4ImgqjPIEexUwQmUWc2KtTqmFrFyJAiGMO6vwbuy
+         N8Vgu1+URyIBGriPAxmz/JNUiOWBmKj+Lf0CNaMv3IrbQtoJ1N5Yrc1hlCDYqv0r1xe5
+         h8h2I0nzCwUJ7lteWiSqZL/FDe5BAhMLBHTzGeQ1jMnTGjv3/AGEN9ISL6Oo1nFUL2SQ
+         Cg/vhSb5+t357DPpsilEwSx9OFd4YEZqLlXtYckdI84/wg7xpyMLKAFfSmQuXgi7Cujx
+         IWecThBrwGKxUgN5b7EYj+RLobL8y86P598iiHaYKi+A75jA3IT16S+3NPu98Uvjs6Fz
+         uSSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783822395; x=1784427195;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IeKrQCOQwCtSB3eQzRia+4BzTdZbJgllKrvOfao2+VE=;
+        b=qtSfyu6/HwcHiSkoJBsWWr+Vyqk8fc/tSeBBJVNzMVwEKNWSvBPum4XCIIoSj8NYjl
+         GpzVFzae2Ay1FUON5dgi2Y8rSZh0wsUoSAdqp3yj/AMDWjQk0We6V1Kdf7YyL91syy0I
+         ImjvESGv9Vi/E+tAcd1S9gO93ZfIDLz8wovR9BdwVofcQyPyS2EORFmP+S6zK0QSFrlV
+         c4tBZwr0cdG7QyGQGXUgjrsKYwGhJmQEpE6vBNG4w8UWklY0N5Cml8lvBZoTu/ib/gji
+         qYAVuv6myAGQ/bEZ+1YcdcdObK5+cQtgdPvJch04tC0Vp7RF45WPA/UgLU9Bkuttq7cL
+         uqZw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr5mgC0CbcHwoQ8kRGApqCM3Z5XCSBb72s12wO/7bomkSWLtpixIaZq96loN7UGQagtJ3EBPLbtxmhQ7QGoSfQ1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjQBYAxBkb7zfKfZZNAJ8Yf8cbftKQVivrHy40PG6qrkqE2UFT
+	qsAPK9GjKFQ7MnMm2jB5gIsSciAvQ38o0x6dOYsS6kSxrilRbjIwWbwPT3zJrQ==
+X-Gm-Gg: AfdE7clPo6OmxAMk3P1AN2WS7QeuEeYDc3tbCPWyJV4ZUDnBLdWuxFVQ/2D+2RWHr2S
+	WxfOqwySu3lza9+EGhEOIg1Uh1Psvvf1sNDggT0GvFJ5jjATvK5tZnIjjQfJKMZraXqV+EzpCnI
+	7843kpqKyedL8vT9RRQPLpcPd0BrjQEa6kp3qBi/9zT19zKa0m5F2Netnufsy5yQKu7/Kemg+zH
+	U2+w5Z9A3il8/cMCCwTlqX/ShJdQi8WkFeuhLVOp8JMqoY5eL+8Kbm5HTzfygs9bHY2zDOgxM34
+	wEm3TpEd2I+uN74I9Qsj0zcix3N3NaemKkbEZILPvoosbj/I3Fn+1q5dT4XQl0mMZGqFsVOeqYQ
+	P51YN6zVgZUdWBNR//0ctX8QEwo68UYWlLLt7CTO15GC6w8W5NJO921u+CVtJQTkEMKlivU/LXK
+	owedMUiHIUtDu7Xpt3zz+7wy8luDMd43LclPYsw0p+s1yv7vwJsffWrajoqdHTZFRK2i1eLYZT5
+	Vw=
+X-Received: by 2002:a17:90b:3c4d:b0:37f:d70a:9605 with SMTP id 98e67ed59e1d1-38dc73bccedmr4361831a91.9.1783822395623;
+        Sat, 11 Jul 2026 19:13:15 -0700 (PDT)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:c63e:9756:a95c:c75])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3117d847e17sm54796692eec.18.2026.07.11.19.13.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 11 Jul 2026 19:13:14 -0700 (PDT)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Date: Sat, 11 Jul 2026 19:12:49 -0700
+Subject: [PATCH v3 08/10] ARM: s3c: crag6410: convert PMIC DVS GPIO to
+ software properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02NQQ6CMBREr0L+2pq2CAVW3sOwQPqRGqHYD42G9
- O4W2Libl8y8WYHQGSSokhUcekPGjhHkKYG2b8YHMqMjg+Qy50oIRkNxyTh721eMw8IyhboUqHl
- aKoiryWFnPrvxVh9My/2J7bxptkZvaLbuu196sfUOey7lv90LxlmqUCIWuit1c52cne14HhDqE
- MIPrXS1FbsAAAA=
-X-Change-ID: 20260711-sm8450-qol-smmu-57ed91ed0397
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- phone-devel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Esteban Urrutia <esteuwu@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783826044; l=1419;
- i=esteuwu@proton.me; s=20260622; h=from:subject:message-id;
- bh=IfJaejqIoPsz18N/gqtzvEjuLMyEPDB5DAuVkODkmwc=;
- b=UvSUTz/MEMZyJa7vizKpKWIYxkiZgRxVdBJ+9EKLTBhRtjyn7HLNnNYv7ncQG/5rvMzEMVbEi
- 1LpVyl+XTlpB1FA0BgmVY6yPnRyCCrkkSS8bu45gFrluIVoQYEDttnj
-X-Developer-Key: i=esteuwu@proton.me; a=ed25519;
- pk=wToFt4mOAWkzbqb15Ye1hrhevI13vK9BcMUFiQ/me1M=
-X-Endpoint-Received: by B4 Relay for esteuwu@proton.me/20260622 with
- auth_id=835
-X-Original-From: Esteban Urrutia <esteuwu@proton.me>
+Message-Id: <20260711-samsung-kp-v3-8-b2fcaba77aff@gmail.com>
+References: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
+In-Reply-To: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+ Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Charles Keepax <ckeepax@opensource.cirrus.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-input@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ patches@opensource.cirrus.com
+X-Mailer: b4 0.16-dev-b242f
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_191316_435044_F04D59EB 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +108,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: esteuwu@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Esteban Urrutia <esteuwu@proton.me>
+Convert the PMIC DVS GPIO configuration from a legacy lookup table to
+software properties. We use the new 'dcdc_swnodes' field in 'struct
+wm831x_pdata' to pass the software node to the regulator driver.
+We keep the DVS configuration parameters (control source, startup
+state) in the platform data.
 
-Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it can
-be properly configured by the IOMMU driver.
-
-Otherwise, there is an unhandled context fault, because the framebuffer is
-already configured in UEFI.
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
+Assisted-by: Antigravity:gemini-3.5-flash
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
-This patch allows the MDSS driver to properly function on SM8450 based
-devices.
----
-Changes in v2:
-- Split series in subseries (dispcc, dts, qmp, smmu)
-- Link to v1: https://patch.msgid.link/20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/mach-s3c/mach-crag6410.c | 34 +++++++++++++++-------------------
+ 1 file changed, 15 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index e2c914fccd6f..795e8ec7e8fa 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -425,6 +425,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- 	{ .compatible = "qcom,sm6375-mdss" },
- 	{ .compatible = "qcom,sm8150-mdss" },
- 	{ .compatible = "qcom,sm8250-mdss" },
-+	{ .compatible = "qcom,sm8450-mdss" },
- 	{ .compatible = "qcom,x1e80100-mdss" },
- 	{ }
+diff --git a/arch/arm/mach-s3c/mach-crag6410.c b/arch/arm/mach-s3c/mach-crag6410.c
+index 757c0f383ff1..1abf08fdb543 100644
+--- a/arch/arm/mach-s3c/mach-crag6410.c
++++ b/arch/arm/mach-s3c/mach-crag6410.c
+@@ -456,6 +456,17 @@ static struct pca953x_platform_data crag6410_pca_data = {
+ 	.irq_base	= -1,
  };
+ 
++static const struct property_entry crag_dcdc1_properties[] = {
++	PROPERTY_ENTRY_GPIO("dvs-gpios",
++			    SAMSUNG_GPIO_NODE('K'), 0, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node crag_dcdc1_swnode = {
++	.name = "wm831x-buckv-dcdc1",
++	.properties = crag_dcdc1_properties,
++};
++
+ /* VDDARM is controlled by DVS1 connected to GPK(0) */
+ static struct wm831x_buckv_pdata vddarm_pdata = {
+ 	.dvs_control_src = 1,
+@@ -633,6 +644,9 @@ static struct wm831x_pdata crag_pmic_pdata = {
+ 		&vddint,  /* DCDC2 */
+ 		&vddmem,  /* DCDC3 */
+ 	},
++	.dcdc_swnodes = {
++		&crag_dcdc1_swnode,
++	},
+ 
+ 	.ldo = {
+ 		&vddsys,   /* LDO1 */
+@@ -656,24 +670,6 @@ static struct wm831x_pdata crag_pmic_pdata = {
+ 	.touch = &touch_pdata,
+ };
+ 
+-/*
+- * VDDARM is eventually ending up as a regulator hanging on the MFD cell device
+- * "wm831x-buckv.1" spawn from drivers/mfd/wm831x-core.c.
+- *
+- * From the note on the platform data we can see that this is clearly DVS1
+- * and assigned as dcdc1 resource to the MFD core which sets .id of the cell
+- * spawning the DVS1 platform device to 1, then the cell platform device
+- * name is calculated from 10*instance + id resulting in the device name
+- * "wm831x-buckv.11"
+- */
+-static struct gpiod_lookup_table crag_pmic_gpiod_table = {
+-	.dev_id = "wm831x-buckv.11",
+-	.table = {
+-		GPIO_LOOKUP("GPIOK", 0, "dvs", GPIO_ACTIVE_HIGH),
+-		{ },
+-	},
+-};
+-
+ static struct i2c_board_info i2c_devs0[] = {
+ 	{ I2C_BOARD_INFO("24c08", 0x50), },
+ 	{ I2C_BOARD_INFO("tca6408", 0x20),
+@@ -931,7 +927,7 @@ static void __init crag6410_machine_init(void)
+ 	s3c_fb_set_platdata(&crag6410_lcd_pdata);
+ 	dwc2_hsotg_set_platdata(&crag6410_hsotg_pdata);
+ 
+-	gpiod_add_lookup_table(&crag_pmic_gpiod_table);
++	software_node_register(&crag_dcdc1_swnode);
+ 	i2c_register_board_info(0, i2c_devs0, ARRAY_SIZE(i2c_devs0));
+ 	gpiod_add_lookup_table(&crag_wm1250_ev1_gpiod_table);
+ 	i2c_register_board_info(1, i2c_devs1, ARRAY_SIZE(i2c_devs1));
 
----
-base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
-change-id: 20260711-sm8450-qol-smmu-57ed91ed0397
-
-Best regards,
---  
-Esteban Urrutia <esteuwu@proton.me>
-
+-- 
+2.55.0.795.g602f6c329a-goog
 
 
