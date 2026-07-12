@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435E6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 16:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D230C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 16:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k7WWDimv3b4NdwES6tpNCGufjtNL62BZYyk5PVukc5o=; b=Jqqh7WPOCzMJIOH0Mbtb7SKI+z
-	7UQPoDlJxW0xO/kA/lumMRH05n/fY/PWyA4CzZpcgdKlKf2iFSEGx8fswK6F3DYe8MchcPArQeqYX
-	FpWWcRwcoRKWqBh0DJdnckg5Cz9Yv3Xzfg9222sJJPG6zYwrlwk8VBjzlaf6sh1C9bp+LxuoXc0TQ
-	PrCmWg5uF/nSSiEvFuQQ5YEi8ymexBAZDSuAuIbpGfKF8sDD9FUDEIqY6+q6j/o3vw2GqER1AjFsS
-	924v5MqDsh4mjA8YjTCEZg5ixWWBhZFj0ZmkI8GscqKnnA2kdJwl4+7UFftdSus5HyA4qdu5Uf32t
-	/zPHQEtg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=janMU5MXezvmZmqnJkQjOF/ir5w8di28OoznHFU8LA0=; b=lst+w82t9Sj7aB4oWPZ0If4i67
+	JBSaAeQ7U6sYVKW+K5lBdhqufg/ZcVGDS1hXKdLzvrfB5/LoHE3bwAmUZOvacomP30yEFkcbUSDRP
+	iQNP958VIvurzc4XXaYutLZ7RtI0CqgdF5mJ7dwk4t2GdsoFAQnirk+WsY4I7inUrZQYDkXv8SkY6
+	RL+qXF0lnJC7HtA/K5NTVRH0dxTG4Qvgx+snXmEITq2FO99T9KZ2db/1/FnHoFaATvwLb23GP3CWD
+	fxgINhUgguS/vI2uBXxX+sahnsrM4qf3wH6S/c/BoobQPr4De1YVPgZYVgk1LvxxYxquwFROC70Nx
+	zt7deakw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiwfM-00000007bJU-0xrf;
-	Sun, 12 Jul 2026 16:04:28 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wiwuY-00000007btY-2Swd;
+	Sun, 12 Jul 2026 16:20:10 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiwfK-00000007bJ0-0IOe
+	id 1wiwuV-00000007bsv-1LCy
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 16:04:27 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-472326ca506so1844052f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 09:04:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783872264; x=1784477064; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k7WWDimv3b4NdwES6tpNCGufjtNL62BZYyk5PVukc5o=;
-        b=SKkW2A3wIxBLUrca2A8qghd0pvdsDeLeKpISbCSphyKwkkK+7l1PTrj1V2op342uqv
-         Pjo5XqPkRQ9zYm8Q25TmI7kKqt5RLgXbo4NoCNvpsq44E1RBzODeZqFnDdLHS2HVb5CU
-         g+nqXWhr2VeqoLn8AE+wI5XySsWgLb32GfQcZxutr0RWbwkKTru4ZvrVfGrH9z2YZ+0O
-         ujA6VLTcZ++N2jchEQxeaew8Uh08tFsrohcMyiGC+Xe+DYyaCUHAyw16Xq8zdb1/LQ66
-         nPHC7wp5SbgLf9zGw9BczU4Lc9Js4exj5hYDFUsMR7Zv6eL9Wp/Lcf9/SWv9QTk9vT8r
-         8HUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783872264; x=1784477064;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k7WWDimv3b4NdwES6tpNCGufjtNL62BZYyk5PVukc5o=;
-        b=DSRYRjudmx+jyC/76MByT5Mif8hfpkjlkoKa0xduYxp8YR2NYpZCgoVU/jOGiTM6I0
-         y+/Bhb1W0ZFKQ4NsrV1zAXh6HLk4u18cT3XtpswNs6v3nU0KwSjggPH/mySNNI15SVUw
-         ZjA0X4fqs1VFeq5Ut+yYAdcECGsBVhYgWjPtalkONPMPTcAHOC1x4lz12jgaoHHBySZI
-         tzkaHBqmr5v7G8dfx5oHiRbulb+JQI/l1Cr+SVqNbygWlURtNsM8Jo8JV+mZ8LU1xONQ
-         z1J8rwVj3YYqJUfyW6mf9g6exIqb087yvlzjtMwuHIHuhLrnL3aL0rqQ61m1rALJeqyv
-         65EQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq55hj8DrMgAWH5PBBh4D/S9ExOUYFOIjlUU4qlXbC7ZCCjayz2KcRU4jmT4U/tbSPtz8uNjoLYekocLklwaH0F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3N4u1r64a5/uRCALyrRzVDl6otTQOhN8mF8niHV0IwXZxMYCR
-	/9db9dJ4Hpz9B7Clj/Ll2kvvr5otGXxUf/ylBGOso8QJZMLVaF8q5AGe2j9Sq5hK
-X-Gm-Gg: AfdE7ckSm7GBf0alhYmDNM09doiSKmx/M193JudP4YyKfRS2fH6pf49aA1cA3NfEQtA
-	E2oBuyl0WWvDK/yL3uM2a68HQpfr6pxzhBUGTxSPPmwR7sROKjIC8yNqEBwosadFt1FV2LhiYGa
-	UdPFLxdI1TPuKmhyM305lgxDLhwVuBzT1KneoUJhJh5plqqB8O3q8JMGorJ6VaGU0uviLcMH0vM
-	N47FDpd5PuvgFdY00cBDy1RUHrEanYUdtf88DQFZOS6emXymmq5TxOvI2zZV4dZ1tqlL51KmxjG
-	puv1ymSerS3DiCpefAhuGjU3/tTLviXna12mKAb2WELLdaltnRJwOLzZo42mDr7+mzVpcps9cP9
-	S59aK/6G4claBw2vO3CMH/rHcbnpWcSZmQ00nwkK/FkzvXMLj6Rc2vYw5YwBCx65g7sXJ56jOHA
-	Sx9XdA6RvJZtzejKzaBpNv4iJoy2L2FJa6ip0YBKTxBc3guc41y7OrJehsYRJvV2wTFxJWXnLAp
-	KjwjYW4JuAyWomE6SDqcjaKPS5VXR3nFvpZSJC/+OPhdCQYvgOMPzXR
-X-Received: by 2002:a05:600c:5392:b0:493:b811:e549 with SMTP id 5b1f17b1804b1-493f8829963mr60790915e9.29.1783872263381;
-        Sun, 12 Jul 2026 09:04:23 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-095-117-112-249.95.117.pool.telefonica.de. [95.117.112.249])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493f2c8de2asm204774265e9.1.2026.07.12.09.04.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 12 Jul 2026 09:04:22 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Joel Stanley <joel@jms.id.au>,
-	Brian Masney <bmasney@redhat.com>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-clk@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH] clk: aspeed: ast2700: select AUXILIARY_BUS
-Date: Sun, 12 Jul 2026 18:03:01 +0200
-Message-Id: <20260712160301.98941-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Sun, 12 Jul 2026 16:20:08 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpYCf6T0du87h04NURgPHiNKmX7qicSFNjF4pPvT0+W4OMeJ110K39PQasu5MNcPlH2O2jpFogLU20wEw4M+Rc9@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783873203;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=janMU5MXezvmZmqnJkQjOF/ir5w8di28OoznHFU8LA0=;
+	b=heLyFBLFwXsQxblT4nN3SNfdXjm0nr9U2PRMv/NHuZ2Q/wEB1cSBNeosfzbInFi1cqBjMP
+	dngdU1ISsUbCEbRto2ngGhNY9jZw1vxAqWl/GLEnqs8KxK2Xu0mHCQlKvXMn4BNJ23XrEx
+	lCq07mH63DPz1HUfkNafxgL3rK53Ft8=
+X-Gm-Message-State: AOJu0Yz0f9W+cWBo0I5hUawCaR3D1ABoyBUME0fGy9PYD1FMlR7pvfEl
+	zmjbEobRTYEIJqJMSgipmtSqee+xZ6LMOVEeuWLV9a3e+uVBNiFyp58/4gYyT2QdMc5oI5EZlIs
+	lATFd7WKyS/DAKo96amLHCqsKgY+La1bK6xyMNP0s
+X-Received: by 2002:a05:622a:5805:b0:51c:ae6:a57 with SMTP id
+ d75a77b69052e-51cc08385e1mr10853171cf.11.1783873199708; Sun, 12 Jul 2026
+ 09:19:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260712153835.2264905-1-smostafa@google.com>
+In-Reply-To: <20260712153835.2264905-1-smostafa@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Sun, 12 Jul 2026 17:19:22 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxN1fcBVRi+yK18UgReGsX8Evu1GsijSQC61dY3XrjCtw@mail.gmail.com>
+X-Gm-Features: AUfX_mw9S0OZ_DagkNOYZ4ShM2Ytghc_E4HL25aTJrhUWph1A1thQJPgeFVqwv0
+Message-ID: <CA+EHjTxN1fcBVRi+yK18UgReGsX8Evu1GsijSQC61dY3XrjCtw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Avoid naming collision in tracing
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
+	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_090426_148250_FF8AEA4F 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260712_092007_663184_B34BC8D7 
+X-CRM114-Status: GOOD (  29.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +80,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 clock driver also exposes the SoC reset controller: it hands
-its register base to a reset auxiliary device via
-devm_auxiliary_device_create(), which the separate ASPEED reset driver
-(RESET_ASPEED) then binds to. That create call needs the auxiliary bus
-core (AUXILIARY_BUS), not the reset driver itself, but COMMON_CLK_AST2700
-does not select AUXILIARY_BUS.
+Hi Mostafa,
 
-It builds today only because RESET_ASPEED selects AUXILIARY_BUS and is
-normally enabled alongside the clock driver. On a randconfig with
-COMMON_CLK_AST2700=y and RESET_ASPEED=n, nothing pulls the auxiliary bus
-in and the kernel fails to link:
+On Sun, 12 Jul 2026 at 16:38, Mostafa Saleh <smostafa@google.com> wrote:
+>
+> When the hypervisor tracing (CONFIG_NVHE_EL2_TRACING) is disabled, it
+> defines a static inline stub for trace_clock().
+>
+> However, trace_clock() is already declared as an extern function in
+> linux/trace_clock.h which is pulled in EL2 compilation.
 
-  ld: drivers/clk/aspeed/clk-ast2700.o: in function `ast2700_soc_clk_probe':
-  clk-ast2700.c:(.text+0x147c): undefined reference to `__devm_auxiliary_device_create'
+The rename itself looks correct and complete: all three sites (the
+declarations and stubs in nvhe/clock.h, the definitions in clock.c,
+and the two callers in trace.c) are updated, and no other reference to
+the old names remains under arch/arm64/kvm.
 
-Select AUXILIARY_BUS directly, as other clock drivers that create
-auxiliary devices do, so it builds regardless of the reset driver.
+Two small things...
 
-Fixes: fdc1eb624ddc ("clk: aspeed: add AST2700 clock driver")
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- drivers/clk/aspeed/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+>
+> If the file <nvhe/clock.h> is included when CONFIG_NVHE_EL2_TRACING
+> is disabled (by including it manually in setup.c) it will cause:
+> In file included from arch/arm64/kvm/hyp/nvhe/setup.c:22:
+>
+> ./arch/arm64/kvm/hyp/include/nvhe/clock.h:14:19: error: static declaratio=
+n of =E2=80=98trace_clock=E2=80=99 follows non-static declaration
+>
+>    14 | static inline u64 trace_clock(void) { return 0; }
+>
+>       |                   ^~~~~~~~~~~
+>
+> on GCC and a linker error on LLVM (it seems to change the linkage to
+> global)
+>
+> Although that is not a problem at the moment, as no other files
+> include <nvhe/clock.h>. That does not seem to be the intent of
+> this code and that will cause issues with more users as the SMMUv3
+> driver.
+>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+>
+> --
 
-diff --git a/drivers/clk/aspeed/Kconfig b/drivers/clk/aspeed/Kconfig
-index ef50481c31ff..2f505eb3ca95 100644
---- a/drivers/clk/aspeed/Kconfig
-+++ b/drivers/clk/aspeed/Kconfig
-@@ -15,6 +15,7 @@ config COMMON_CLK_ASPEED
- config COMMON_CLK_AST2700
-         bool "Clock driver for AST2700 SoC"
-         depends on ARCH_ASPEED || COMPILE_TEST
-+        select AUXILIARY_BUS
-         help
-           This driver provides support for clock on AST2700 SoC.
-           The driver is responsible for managing the various clocks required
--- 
-2.39.5 (Apple Git-154)
+git am only treats a three-dash "---" line as the scissors; the "--"
+here is two dashes, so mailinfo keeps everything above the diffstat.
+Worth a "---" on the repost so the note stays out of the log.
 
+> I did not add Fixes tag as this is currently dormant and not breaking
+> anything.
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/clock.h | 8 ++++----
+>  arch/arm64/kvm/hyp/nvhe/clock.c         | 4 ++--
+>  arch/arm64/kvm/hyp/nvhe/trace.c         | 4 ++--
+>  3 files changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp=
+/include/nvhe/clock.h
+> index 9f429f5c0664..c2ccd0e8bf22 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> @@ -6,11 +6,11 @@
+>  #include <asm/kvm_hyp.h>
+>
+>  #ifdef CONFIG_NVHE_EL2_TRACING
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc=
+);
+> -u64 trace_clock(void);
+> +void hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch=
+_cyc);
+> +u64 hyp_trace_clock(void);
+
+hyp_trace_clock overlaps the host side: arch/arm64/kvm/hyp_trace.c
+already has a struct hyp_trace_clock and static helpers
+hyp_trace_clock_enable() / hyp_trace_clock_show() for the debugfs view
+of the same clock. No actual collision, so this is only a readability
+point, but a reader grepping hyp_trace_clock now gets two unrelated
+things. Maybe you'd want to consider a different name, but naming is
+hard :)
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+
+Test: builds fine with the different config enables.
+
+Cheers,
+/fuad
+
+
+>  #else
+>  static inline void
+> -trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
+> -static inline u64 trace_clock(void) { return 0; }
+> +hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)=
+ { }
+> +static inline u64 hyp_trace_clock(void) { return 0; }
+>  #endif
+>  #endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/cl=
+ock.c
+> index a7fc61976fd0..8adefb0b696c 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/clock.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
+> @@ -30,7 +30,7 @@ static u64 __clock_mult_uint128(u64 cyc, u32 mult, u32 =
+shift)
+>  }
+>
+>  /* Does not guarantee no reader on the modified bank. */
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc=
+)
+> +void hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch=
+_cyc)
+>  {
+>         struct clock_data *clock =3D &trace_clock_data;
+>         u64 bank =3D clock->cur ^ 1;
+> @@ -48,7 +48,7 @@ void trace_clock_update(u32 mult, u32 shift, u64 epoch_=
+ns, u64 epoch_cyc)
+>  }
+>
+>  /* Use untrusted host data */
+> -u64 trace_clock(void)
+> +u64 hyp_trace_clock(void)
+>  {
+>         struct clock_data *clock =3D &trace_clock_data;
+>         u64 bank =3D smp_load_acquire(&clock->cur);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/tr=
+ace.c
+> index e7e150ab265f..f2a32463c6c2 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -35,7 +35,7 @@ static bool hyp_trace_buffer_loaded(struct hyp_trace_bu=
+ffer *trace_buffer)
+>  void *tracing_reserve_entry(unsigned long length)
+>  {
+>         return simple_ring_buffer_reserve(this_cpu_ptr(trace_buffer.simpl=
+e_rbs), length,
+> -                                         trace_clock());
+> +                                         hyp_trace_clock());
+>  }
+>
+>  void tracing_commit_entry(void)
+> @@ -290,7 +290,7 @@ void __tracing_update_clock(u32 mult, u32 shift, u64 =
+epoch_ns, u64 epoch_cyc)
+>         }
+>
+>         /* ...we can now override the old one and swap. */
+> -       trace_clock_update(mult, shift, epoch_ns, epoch_cyc);
+> +       hyp_trace_clock_update(mult, shift, epoch_ns, epoch_cyc);
+>  }
+>
+>  int __tracing_reset(unsigned int cpu)
+> --
+> 2.55.0.795.g602f6c329a-goog
+>
 
