@@ -4,110 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43EC7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177D3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=; b=YkTDpus+WIZ11bYQHtGk1VeVme
-	/WfA5DNHKYj4hdNqyilG7Be+LG3Q2Vc4Vm+iR+vwZ24OxpAMvj0KNnwkcAiyN0UObHTN2+tEHVjjs
-	hAVbfTrnVeLoQgiIttCYhqwCpc0qcZ9TvTLgSqU0WJHMBNs9fUSUitoQB8CBboN55kwkrf96wAlO9
-	UKKq8/+MawhHlTehp1Pi+LGs7YjJXV7ka2DApRHtH9V17PwVcHITKSwdHA6zU7I4wMT07kekcnMAl
-	1Dr5zb/+ZT3YwD7vu52WVjpef0FfFPABdwpjwSWFjhaIOYtqwT7EQA/sG8mwn0R0sIjSJLhqJY7yf
-	5MRQF+qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=euGwPsPogDlniuV4FhHgWZRzxcZ+x1hQNJ5g0xOwNmM=; b=ZanlSQpVny6bQi8PxZYABt47Q1
+	T9U6GqIZQ25BWwHNvi7FnwDfuQujLIIXa6HDh+7mVpj84R3z22jUKiB1Ky9UenjAE607QFktEfFTY
+	4OxArCf24Wahdaol+WH9ZgiCJ5o4/Ot7ijfjJUeZwWkZ65jp9mS3/4Rr/crczk1z8OVy+gh9OSZih
+	nR0BZmabYLRFnXv4EKMLjwMgKDH+0y7jL9HlOJM6zqwVyU3bRsfBJK5Isedm7bQAAwEy1LJTZzNQh
+	YFXkeUosupXjWxS4DPMIffUWX/EpFfT1lAemPYn2jNa5ZvmbJgayqcZbsN1Q+sYFq+9VPCfyBFhMO
+	yC//+4pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirJ4-00000007LB9-3mNE;
-	Sun, 12 Jul 2026 10:21:06 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wirJx-00000007LhR-0FQw;
+	Sun, 12 Jul 2026 10:22:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirIu-00000007L42-2v9F
+	id 1wirJu-00000007Lfi-3fGM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 10:20:58 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4758b2a9e2aso1271605f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:20:56 -0700 (PDT)
+	Sun, 12 Jul 2026 10:21:59 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66C7S5bY1746430
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:21:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=euGwPsPogDlniuV4FhHgWZRz
+	xcZ+x1hQNJ5g0xOwNmM=; b=X58z8cRps5ywNgg0ZH5F6VnwwvBCFv6bDW4o4X2y
+	XjOa6whOhh2nd9VITGFOkzZ3HuhovVw37j4++/69sFS+3b0/ZhhA6hf+2iOH0PL4
+	1zVGdqE7c5lNXkXjWB+W8SHX0VtI2xZMvv/oP4uONKgKkY8YG74yoEAovI7xD5JN
+	DDIMddwjxtje+CrPvhk9Bf+LB9h5dagp947BdyIHCDnkDGfr5C5hdq2aCwPIZIaH
+	/aRpuIEXlnNDtoaV7FKGCuIpnBoPkUeXPWLwlX61UT+4UH0BAknhRBLXPCg7wUYj
+	40ios19eaDAiCyZYseDVxuPB4IqQsaByNOheIK3jg+4GGQ==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fbf0gjgmj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:21:58 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-96feaeeeb3bso149655241.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:21:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783851655; x=1784456455; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=;
-        b=g/qk2/CIl87BMyZ6oN7csKJUQ6E25e3uYcn+bYFVUee0y46y7Hdnk1Vl9W//5N4cz4
-         kjyW3HJVNmo8QAkG5tCAAdjyYSfOheHzyb0psg6ua98BsZYgS6wC8ESOxi53YFTADDTd
-         XiZQLghZtUaPaLMCxCEP6Xr9yBDxYqU9RnAkdX5LWR0hRY0iM5t74WV8lSKXoU1H3a/Z
-         +8e3No0ur78RIlU8vSK1g8uioEd+rVKKiiwi8wmsDPvnQHHHhbjRSOWMWlMJmy24OXI9
-         no2s4TTpaqjXPfyCDin4B/HtRzVxAk4iBbz9u8R8FWl3cnlxAc0UUjklqSVsVYZVgIl1
-         koOQ==
+        d=oss.qualcomm.com; s=google; t=1783851717; x=1784456517; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=euGwPsPogDlniuV4FhHgWZRzxcZ+x1hQNJ5g0xOwNmM=;
+        b=GQA5gzrZlSUwe8S0xMUT7TkRFK2dVr/yhjUT0OxQDvhttGewQFQSkV1RWwApTKD0rZ
+         hDMyagc/5YJiLct/kAeY0B3bpUXncubmnmRrLvnVL3mdgFooWq3+U1clzpv2/UjHw8ma
+         N+ORmHupb+Lhhp2843oQ3HYZP5/Boq6j6I/ESY7ShV9JclxyLCp7umCv25yvV61dvxli
+         zU+Ut6n7xPAU7N5v9lszoOkRQsccWSHNlqXkkSdpIKa3iSo5EUGbSRbZAdpR/QJdD2aJ
+         xaiH/YXvvjsJK29srHJs2jRal7bQGuIsv1ubn8k0iZkUty3PVEMqzsPN7NxgxNymse+2
+         cYMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783851655; x=1784456455;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20251104; t=1783851717; x=1784456517;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=;
-        b=c9NeRDZ4n3xmZXugBqKN27OvrZiQeigxpwPLTTJZhFeotnelDJKUWU+990+Sc+CCZ/
-         3mEFiz+mN3bTDMMXe+NGIldAuWWFoZErGZWWz8iIGOvF9J842XtZSHNF9CHtz3jT+yNV
-         L7yTUumYcZGEgRmCuVj1xSecGsU6BGMBzMP8+qM7aUVDqZy74JBF/P3PFSd/FAJhEmR6
-         rpJQJFzxmwlLvEX1L703P0rVUSxuxoF/ZT6nwRxEv3Vmk0E8xhKlU0mnEXHInUxJoj3H
-         cN10ZX8ycAwJZPL0ap+OuYm2/l2hiIxwk0ANdmANYbRRM4iGrdBhvE5/dZ0OneNl3sge
-         CXxg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp6EmsGhhogNeGjd99PVx/QLhByx90xn2jLehjx7zyGqbfZ7Y2ElHkqrgj5BbTyzXE/LKZZmVaCLFLHB61lLUk0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHoRtE3KFDZkoQsBFRmt+XPRbZWM+e1AfLY/qUFlraRaR1UZo5
-	ko8xuQlYyQajTazgBDRvNqbK+Q2/CkHIah9ReY5l7YfmslXn5jwQs1vTFJSG/ukQ7zI=
-X-Gm-Gg: AfdE7cn9gro5K3vYwZiPwKy68FfhWYJsgGeDXj2A9chYo245SHWoz4eRZ46fJR+44uH
-	8dp7zXJkSsdxxvRFpC6NHLSFR+Q6IE0VzS47DM+spqY6E2VxYamruKyB+G2x6ZnhEOQZFf643tg
-	Af2pCHjADsG2uWwDHVYHs0EOOqyvqNbrV9fUybmmoTQIzPnG6kSArjFNA7/dYhIYrTCxzZdpxAE
-	8KmYZV7KZPhM+GSo6yMIOYnLIJdoji+aGNUvpJRkHqkhhneRfv8pmscmv0TLIB9pDTrYWm4Dw+C
-	QWW4FNqyyHFx/to3tptHSPGa1jDMbHzvD076WwVF/e2fwcxAwB9MUK4D5xVYMAbE8+1hk3JhkvS
-	dWLqBPitQMIcAiCZOyWhheRoz7dgqmPIU2VYtK/WYUR1Oe8MPRDgNJ0Kdfm1Nw1nXP57IrdbBIx
-	6IfUDAKdTPAuRQIG5Yla6KxxxC+G0B5HORCVqguCPZC2cDuWYgbYZYOkwjGK+Xv6vgJZbfgz0SY
-	fiER0AI5P3TLi8WTYsFut6B5GzQ
-X-Received: by 2002:adf:f3c7:0:b0:47f:2de3:b34d with SMTP id ffacd0b85a97d-47f2de3b435mr3662291f8f.46.1783851654747;
-        Sun, 12 Jul 2026 03:20:54 -0700 (PDT)
-Received: from [127.0.1.1] ([2a00:23c5:7815:1301:f27:e3a8:2334:314d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ad21sm75005672f8f.20.2026.07.12.03.20.53
+        bh=euGwPsPogDlniuV4FhHgWZRzxcZ+x1hQNJ5g0xOwNmM=;
+        b=fIr2S7xRwoiWiR4KcSXkc40e2bK83IxPGyInW5kxnDD+Ark/SM9YTCS658dskqPOWZ
+         3hGe4YdYOyT63DsbI9n5zpSGMpO39TJS7KVvPuporL7BSucBA40WRAZCYqL8rNW7T6mf
+         FzSFbqB/SRLt7GhaaRaaBVrWv997KmX2mFpNVfVpngqV/mBoibK2G7WTmg/wayguLGoK
+         suaQvatS05dpvp5fvY3Nb9U4JwmYBFvi6FDD2SA5Txpq8GfKtDwd81gc7UEukVl8HdaT
+         eW4eFHq2Sk/cFg3k2j8LpEpsPQeFctfBwaPtgPirI46RrtoeaUB54rMrF0cJ0lwEwieH
+         YoWQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqlTXs8Iqv9KNKaeBrAd+GejNYfYrPB8iGBX9vyDNLhvZWwsBKsrNpvk+p+p9Wnp29hjGkw0+sBvRwZlUZhGfc7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr9Actqz0vt1K0cTcbDPfq1boogK1GKf6jsUZmk9ZmyoRgTeOr
+	nzlsW2H1aSrEJeFaPZ4ioEB44UdF0cpWy/Y57zLZfU1kmSkwBmdklfYsgrJzKQ9WZVMoRbIiwiS
+	FFrHnjgMvcLpvRs4wWM8KT0QmVC6UF8ZF0ui00TyUCCLROA4+WW2aQ668qmtFSdllQ+/J+cf0r1
+	EpOQ==
+X-Gm-Gg: AfdE7cmbC2l6YzxEwMpnNZPyLaiiBIcf/usopsHcI9RsTki/J4Et9acVTqoZdJiwF3w
+	2b/IY2AJpsM0jH28wTJ8kXgEPYG5qv0qmz8/wlTk9sY91mwicK/xpkfwuHZdhs/AQN/+VawRcky
+	/SKdJUz2vTrGkbXj5U6UDpQzj/7ZRCVNTalZ52c+aE1xNbAh41Q/CVwhlPXbzO+Uc9FEcU0kkQi
+	a1NpzEEaX33r1QlrefpA+nycDTl4XkZYaoHrWyp15ZVGmou8iFPu9ZwAap2E1NJk6gFshVRs+cs
+	KftY38PEFIE3P0QeTocmeDIBg9grxh5p3Oudw8AT9GNPYl6dlvyZtHSZ7Gktq9OyL10T2t+W4Z4
+	w//rQqqPqcnTofhAGSHaaayekeFSUpgQRxyqEH98fK2mzwiuDsYsy6rR0uEblOoFG37N9Idtxot
+	HTyyEXI6KpNU/olTNG7Yc1RxRY
+X-Received: by 2002:a05:6122:35ca:b0:5bf:d2c7:c481 with SMTP id 71dfb90a1353d-5bfd2c7c633mr1242369e0c.7.1783851717368;
+        Sun, 12 Jul 2026 03:21:57 -0700 (PDT)
+X-Received: by 2002:a05:6122:35ca:b0:5bf:d2c7:c481 with SMTP id 71dfb90a1353d-5bfd2c7c633mr1242356e0c.7.1783851716956;
+        Sun, 12 Jul 2026 03:21:56 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39c84bb39fesm21064931fa.42.2026.07.12.03.21.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 03:20:53 -0700 (PDT)
-From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Sun, 12 Jul 2026 11:20:35 +0100
-Subject: [PATCH v3 4/6] printk: deprecate boot_delay in favour of
- printk_delay
+        Sun, 12 Jul 2026 03:21:54 -0700 (PDT)
+Date: Sun, 12 Jul 2026 13:21:51 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org
+Subject: Re: [PATCH 1/5] drm/bridge: allow hpd_notify() to suppress connector
+ hotplug events
+Message-ID: <cgk2httvebzm2jnjnb437mutez66tfozzdk77mjwukfzngdioh@mu46u3pwlf2u>
+References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
+ <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-printkcleanup-v3-4-574547b8f71b@thegoodpenguin.co.uk>
-References: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
-In-Reply-To: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
-To: Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, 
- John Ogness <john.ogness@linutronix.de>, 
- Sergey Senozhatsky <senozhatsky@chromium.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
- linux-rt-devel@lists.linux.dev, 
- Andrew Murray <amurray@thegoodpenguin.co.uk>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783851647; l=4810;
- i=amurray@thegoodpenguin.co.uk; s=20250914; h=from:subject:message-id;
- bh=LbQuTQZ0Pr0m3R7vmjHIVUKClw/nFOcuwqEj3p3Hj4Y=;
- b=R41m4NO6PR52KYXcKNaMGQef3mF4qMXlCyOa+etGfe9PI3pHfH2n12uQ921q9TEyV5MQ7i1Ck
- /UOSQgcFAYlAbGVI6lYGPv+gPu/l+5sphbueqDTDmrG+ar9Raust9yH
-X-Developer-Key: i=amurray@thegoodpenguin.co.uk; a=ed25519;
- pk=0SU0Q8S/uEiCdbXbXS+PvJGUCaBG1nDszD+HPU3Js0Q=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=Nq3htcdJ c=1 sm=1 tr=0 ts=6a536ac6 cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
+ a=ROdofPDD1fpM39RL8CQA:9 a=CjuIK1q_8ugA:10 a=TD8TdBvy0hsOASGTdmB-:22
+X-Proofpoint-ORIG-GUID: -APFZrBvYbQ5wUG5mHm3JjDQmB0kC9jx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEyMDEwNyBTYWx0ZWRfXxHOzNgoFlRqg
+ JuNnNL5oagxONhDu7kRfr7M6JEUUtGDtYDRHuGwxbZUiKozNXDvrMb8kyv4fz90MdDhp52RXU/T
+ /2z2jY4zEoCDjrMQoudDmOJ3/pdGayJKVLY8Z3+FwcNeIe4SFzGrgWodFLn2jfFw82i2YJJebXh
+ 4U5jMhaCbxeCfRasEd5X9BZRwlDGNY6Pa+07TFxBj/P2tZf9NvIy4qjwfC57VSHvxkERZb4fVaA
+ d0dU0ndhdkQgzOw/GWGmKyjnn1On9jsVd2JjngiJQGHAiRcCg/a7RTd3pQxZbYUed87EnqCvlhv
+ 9Ege1YAky6s2LnEwB3jRMQxtHtJ9b3gm0uUDrR+g+F5+jY/XMTSIAzdWSdtR67wWZ8jiYD3MvQP
+ G1v6aE3KyDjyAIlHzgdp1uUjtZ8mRjSbPRjRokewFFnLxCfKhcskz0vfP4c4Ox8jb553HVih8RM
+ Fn+mTvnVZXRAsMMnVOg==
+X-Proofpoint-GUID: -APFZrBvYbQ5wUG5mHm3JjDQmB0kC9jx
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEyMDEwNyBTYWx0ZWRfX+EgxS3YMH11r
+ fALS7RAYDV3OdlTnfJrli5Urop56TDWIDImyq413Bsy/i5zpopLsF2BPSYej9nE8CJs2HgkazW1
+ A9QwDaVDDvpNx8Or9QLN44Sw0N20DlA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-12_03,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 adultscore=0 suspectscore=0 malwarescore=0
+ phishscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607120107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_032056_775624_048F7847 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20260712_032158_919513_71BBCC26 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,164 +172,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
-are two distinct mechanisms for providing similar functionality which add a
-delay prior to each printed printk message.
+On Mon, Jun 29, 2026 at 10:48:03PM +0800, Yongxing Mou wrote:
+> The bridge connector framework currently invokes all bridge
+> hpd_notify() callbacks and unconditionally emits a connector hotplug
+> event afterwards.
+> 
+> However, not every HPD notification requires a userspace hotplug event.
+> 
+> In particular, DP MST bridges may use hpd_notify() to propagate HPD and
+> IRQ notifications through the bridge chain while the actual hotplug
+> handling is performed by the DRM DP MST core. Connector creation,
+> removal and userspace hotplug events are already managed by the MST
+> topology framework.
+> 
+> Allow hpd_notify() implementations to suppress the bridge connector
+> hotplug event by introducing a bool *send_hotplug parameter. Drivers
+> can clear this flag when HPD processing should not result in a
+> connector hotplug notification.
 
-boot_delay provides a kernel parameter for delaying printk output from
-kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
-configurable only via sysctl and thus is only used post boot.
+Why? Worst case the kernel receives another hotplug notification which
+gets ignored by the driver.
 
-Let's deprecate the boot_delay feature in favour of printk_delay. In order
-to preserve functionality, we'll also extend printk_delay such that it can
-additionally configured via an early kernel parameter.
+> 
+> A NULL pointer indicates that hotplug suppression is not supported by
+> the caller, such as the connector detect polling path.
 
-Behavior change:
+And nothing in this patch makes any use of it. I'd say, it's
+questionable addition. Let me check other patches...
 
-The delay enabled by both "boot_delay" and "printk_delay" continues
-working even in SYSTEM_RUNNING state. It must be explicitly stopped
-by setting printk_delay=0 via sysctl.
-
-The delay is skipped when the message is suppressed in all system
-states. It used to skipped only for the boot_delay.
-
-Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
----
- kernel/printk/printk.c | 81 +++++++++++++++++++++++++++++++-------------------
- 1 file changed, 51 insertions(+), 30 deletions(-)
-
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 28e6dff2faa7d4294c1b2ebe2844ce5d4dc0e05a..4517266e9ca112e0dcb0163a99dd0e8d50931848 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -1291,43 +1291,28 @@ static bool suppress_message_printing(int level)
- 
- #ifdef CONFIG_GENERIC_CALIBRATE_DELAY
- 
--static unsigned int boot_delay; /* msecs delay after each printk during bootup */
- static unsigned long long loops_per_msec;	/* based on boot_delay */
- 
--static int __init boot_delay_setup(char *str)
-+static void __init printk_delay_calculate(void)
- {
- 	unsigned long lpj;
--	int boot_delay_val;
- 
- 	lpj = preset_lpj ? preset_lpj : 1000000;	/* some guess */
- 	loops_per_msec = (unsigned long long)lpj / 1000 * HZ;
- 
--	get_option(&str, &boot_delay_val);
--	if (boot_delay_val < 0 || boot_delay_val > 10 * 1000)
--		return 0;
--
--	boot_delay = (unsigned int)boot_delay_val;
--
--	pr_debug("boot_delay: %u, preset_lpj: %ld, lpj: %lu, "
-+	pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
- 		"HZ: %d, loops_per_msec: %llu\n",
--		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
--	return 0;
-+		printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
- }
--early_param("boot_delay", boot_delay_setup);
- 
--static void boot_delay_msec(int level)
-+static void early_boot_delay_msec(void)
- {
- 	unsigned long long k;
- 	unsigned long timeout;
--	bool suppress = !is_printk_force_console() &&
--			suppress_message_printing(level);
--
--	if ((boot_delay == 0 || system_state >= SYSTEM_RUNNING) || suppress)
--		return;
- 
--	k = (unsigned long long)loops_per_msec * boot_delay;
-+	k = (unsigned long long)loops_per_msec * printk_delay_msec;
- 
--	timeout = jiffies + msecs_to_jiffies(boot_delay);
-+	timeout = jiffies + msecs_to_jiffies(printk_delay_msec);
- 	while (k) {
- 		k--;
- 		cpu_relax();
-@@ -1342,11 +1327,37 @@ static void boot_delay_msec(int level)
- 	}
- }
- #else
--static inline void boot_delay_msec(int level)
-+static inline void __init printk_delay_calculate(void)
-+{
-+}
-+
-+static inline void early_boot_delay_msec(void)
- {
- }
- #endif
- 
-+static int __init printk_delay_setup(char *str)
-+{
-+	int printk_delay_val = 0;
-+
-+	get_option(&str, &printk_delay_val);
-+	if (printk_delay_val < 0 || printk_delay_val > 10 * 1000)
-+		return 0;
-+
-+	printk_delay_msec = (unsigned int)printk_delay_val;
-+	printk_delay_calculate();
-+
-+	return 0;
-+}
-+early_param("printk_delay", printk_delay_setup);
-+
-+static int __init boot_delay_setup(char *str)
-+{
-+	pr_warn("boot_delay will soon be deprecated, please use printk_delay instead\n");
-+	return printk_delay_setup(str);
-+}
-+early_param("boot_delay", boot_delay_setup);
-+
- static bool printk_time = IS_ENABLED(CONFIG_PRINTK_TIME);
- module_param_named(time, printk_time, bool, S_IRUGO | S_IWUSR);
- 
-@@ -2122,18 +2133,28 @@ static u8 *__printk_recursion_counter(void)
- 
- unsigned int printk_delay_msec __read_mostly;
- 
-+static inline void late_boot_delay_msec(void)
-+{
-+	unsigned int m = printk_delay_msec;
-+
-+	while (m--) {
-+		mdelay(1);
-+		touch_nmi_watchdog();
-+	}
-+}
-+
- static inline void printk_delay(int level)
- {
--	boot_delay_msec(level);
-+	bool suppress = !is_printk_force_console() &&
-+			suppress_message_printing(level);
- 
--	if (unlikely(printk_delay_msec)) {
--		unsigned int m = printk_delay_msec;
-+	if (likely(!printk_delay_msec) || suppress)
-+		return;
- 
--		while (m--) {
--			mdelay(1);
--			touch_nmi_watchdog();
--		}
--	}
-+	if (system_state < SYSTEM_RUNNING)
-+		early_boot_delay_msec();
-+	else
-+		late_boot_delay_msec();
- }
- 
- #define CALLER_ID_MASK 0x80000000
+> 
+> Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+> ---
+>  drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 ++-
+>  drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++------
+>  drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 ++-
+>  drivers/gpu/drm/msm/dp/dp_display.c            |  3 ++-
+>  drivers/gpu/drm/msm/dp/dp_drm.h                |  3 ++-
+>  drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 ++-
+>  include/drm/drm_bridge.h                       |  3 ++-
+>  7 files changed, 21 insertions(+), 12 deletions(-)
 
 -- 
-2.34.1
-
+With best wishes
+Dmitry
 
