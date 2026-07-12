@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611CFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 21:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0DD0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 22:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jkBwyRwcoYeHDdmTu0tMwH3IFEt5B2Ps0OkD++jydro=; b=TG7Y8T/MdDw7RrTGlWz7Gf0d/k
-	HXCD2iLqbeLTK6XihFMBwj0MVURD2BB47FBN8FMl3RD/fSTPAu3gdsjFDevswVQB6kdb61B+Xq7Wa
-	sWi1Uce4lUl6ThjqvllSy2kWrI+qZGCuMhTJOSv/AlJre3wqzFOJrXkGUFELAFKIleBGTjLLN7ZVm
-	Nahfx/88IbR9DyXt7rztWKWHGBZ5ICZ9dbArMjTXaywm6fUtvp/FtgDBmknKDkE724m8E9O2ESEmj
-	pbYTBqfFN7YYKB6RTkyBr1oBOU4/73E0XHUvGi+fc9rRjhSlNG+wbTzJTYCSY6awO8Ng6JMnI7gMT
-	psetz7ZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mw42W47cvCq48JjABnRIE5S9vXRaDxPhdeJG1XHceJQ=; b=jfqgV0wK2d/Vuc0dQ7PPA0O1xw
+	W/LhTcbSsTyLYzF0ZOi0Q6Cv8Y7ROfY6imqt23b/4vAQOBjVDE2b3+atWq/6rSNo9F/Wn26YCz28Z
+	0GrWkt7RdXkFMJvJtHLhgnroipCUc4qsjSLoHmeZM9RWjp79PUIDhJhKtKV41xsr6RDvXBZV+xrrA
+	FC0kNiuufLQVtobgUrd3T6H+lfEDeH6jqp/9bQoLwoPVfWxAkTSN1F1ULAPJKyvrtE6YIUA29cXtl
+	rVDlZMZT9ktG6LkRbOBzitTH3xIvDtMzLBNr3eO4E/d2oHXMzbGVC0pi8P6SPArqudPe0bqHtCWnl
+	E9UkQqdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1m1-00000007mn7-3lVS;
-	Sun, 12 Jul 2026 21:31:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wj2E1-00000007nLT-0w3y;
+	Sun, 12 Jul 2026 22:00:37 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1m1-00000007mmz-1oKj
+	id 1wj2Dx-00000007nKi-1iEn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 21:31:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B44CC40B7E;
-	Sun, 12 Jul 2026 21:31:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B65AC2BCB7;
-	Sun, 12 Jul 2026 21:31:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783891900;
-	bh=9FWW1i+hhUIvbjpIr65Q7V5Gh7SOFL1Xb3mRf1to5ic=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=o4e5iLPLr+RTBrvPQS3WfLSEuYC1/8bl736/tDYfTYXzKbwdYeHCBwtID1/hwEDpK
-	 YCkzIc1EcHLQwQq4PBFXlQbTgQLviLLAUsCJE5PqKMMNW2mFs7zzZmJGzk81TX3jot
-	 Ngs3OrqO5X/PQImyK5H1OuB/XqcRLKSMx7EtfOf8lKPrH4pJJ2+Zx6S+RY/tgmcUOU
-	 ulZLxyE8zUDz557f0qNOAxLD8eqIajUuvc39nilmAZTYIm+9PlrN9RGdkf3/tT2Fby
-	 m69LMK/Eb+KRtKmn4IMiP78+pX+R4LSVJ5fUdeolIjYHKxGjgdXOtsksmkL+ZP1XqG
-	 f1w+inbW1l/Vg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 695E4C43458;
-	Sun, 12 Jul 2026 21:31:40 +0000 (UTC)
-From: Demi Marie Obenour via B4 Relay <devnull+demiobenour.gmail.com@kernel.org>
-Date: Sun, 12 Jul 2026 17:31:31 -0400
-Subject: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
+	Sun, 12 Jul 2026 22:00:35 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-51c29b46382so15069961cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 15:00:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783893631; x=1784498431; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Mw42W47cvCq48JjABnRIE5S9vXRaDxPhdeJG1XHceJQ=;
+        b=T8hLfcnamW/moaJ8RbCchDRvPeC5tC+omAoYWmg36jwkPmvNU1WoyEjdDidQyX/fsG
+         8h5WvEaqZXsQLMltlV3dUZAHOo9Mag+qcAuMOOz8/4ja2qbAmq5IL/NPTkI555AF5t7T
+         rpPvA0/9YIlmCYiTLgLPKORDe3AAOWtOEsoVxWcKaecBUaxAWN4nNwQyrmQsovkNkEVO
+         ybwdQS+Mm/FRlY94RU/+tY2VtZy7v570cqqzk/iyz3wIrllGzcChneNB8sbuMNj4PW22
+         ZSmvA/L4WhUYJYoNmVPlxIiSsY9bXok80Tq+J6Arp6zSSXGg4DUPvlWMPSNrD5+NSE1O
+         othw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783893631; x=1784498431;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Mw42W47cvCq48JjABnRIE5S9vXRaDxPhdeJG1XHceJQ=;
+        b=m91RSHpMgIbCI4AUpcfMwe/jddSzz5nHfVj61tKDhAW/rFtzb+ryOKoxwYmxkSHyJ3
+         61iZv/3NnoO63tZMRnBpDYSeDYnE46/ii7YImihah+nIxXF9IqLgbozEiEi7Orawa1Yk
+         dwgX6cRn1N2gRQTWVCHZlUTs4IvY6rJDBQSlUhXWP+66smFOJ7RzmLI/UOJHOwhPx8zs
+         VJkmnVln4VDTANLd637jdS7+Rrxv+o9WIP3yowpc34iP0had0zsjSwDQy/ecqs1CbNwd
+         oUsg7tOoEi+gHVeoSsxpvDPnY86YADZlVB1acctvtBII0ySeRTpiMW47Ky66lrpnNGK4
+         GkpQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrzDdb2g2Pu5vMtiYAufHHaK37CbWNhr5tHC+0y6+qAONGpRt0ifNlRtvsK9G35Qzm53jsVhifS5iRoTkvVqZ8r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSFRwAdYMaG0EVBYli/glWSuBPdokYGh7C/fnlZagyPnucs+vt
+	TZsNq1bBjWfUbukieseOfhcE3jS2WHfR/s9I2gaCEGPrRQnEmu5NH0kk6mFYD5uali0=
+X-Gm-Gg: AfdE7cnZCFCJ86R6KfxVbCmhQHHZPcXNrcAvAA2m1pyICCz0dS4hFnh326M/h+yf4o3
+	0oZRl6JeaSloDrRuFbBaNHigjqcyUnrYEyblfRsEgoVJrdYbzrdKt6WRstYSLhgae7yaz1nEPKR
+	skENU2iaLi8z4tL7rb029aAk+JimAmQ+bVYaUCez03KoZ1jpD768dYAfNPUwpuAiYdjus2tLspX
+	RcXIkqrjqXW0rhjgFuKewH+/4gv2OLjB4EhZIvY9xavXxnBlzg6OwIap7Avy2tjb4KQ+wZE37Oj
+	3itBUEdzBwJKvmyJTh2XrCvkiQvPfqthZupwh9oTqGfm8xuTLEmc39j0W9tUIq6a2VPXeJM5kSh
+	Q76dXfLD9VQMqCAP3ax0IkDlsCgQDLVnU57kc2EOMK4c36XmajiVZTgJZI2O0
+X-Received: by 2002:a05:622a:ce:b0:51c:8fb:fa54 with SMTP id d75a77b69052e-51cbf1f5fa9mr66777941cf.57.1783893631369;
+        Sun, 12 Jul 2026 15:00:31 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51caae2068asm68895591cf.17.2026.07.12.15.00.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jul 2026 15:00:30 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wj2Dt-0000000BnC3-044j;
+	Sun, 12 Jul 2026 19:00:29 -0300
+Date: Sun, 12 Jul 2026 19:00:29 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Daniel Drake <dan@reactivated.net>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	nick.hollinghurst@raspberrypi.com
+Subject: Re: [PATCH 1/6] generic_pt: allow missing sw bit in DMA_INCOHERENT
+ case
+Message-ID: <20260712220029.GA1835788@ziepe.ca>
+References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
+ <20260712-bcm2712-iommu-submit-v1-1-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23MQQ6CMBCF4auQWTumU4QSV97DsIA6wESh2JpGQ
- 3p3K2uX/0vet0FgLxzgXGzgOUoQt+TQhwLs1C0jo9xyg1a6VoY0Pi1j792dF6xVWTV1aenUKci
- H1fMg7x27trknCS/nP7sd6bf+ZSIhYVOx7oeBTGPoMs6dPI7WzdCmlL4k4213pAAAAA==
-X-Change-ID: 20260712-qce-broken-6035863c14a0
-To: Russell King <linux@armlinux.org.uk>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>
-Cc: Eric Biggers <ebiggers@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-crypto@vger.kernel.org, stable@vger.kernel.org, 
- Demi Marie Obenour <demiobenour@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783891900; l=3669;
- i=demiobenour@gmail.com; s=20250731; h=from:subject:message-id;
- bh=0ILgQWt/4xfgFagXe7i7e2xC/Wm1GX2PHFzASrAHbAA=;
- b=Mp3fpdk7vu3JdbLmRrd/1oUzmDupyD0xlbfW4UJTanT9//APwjIrzaT4q5OB6aOQ/DTs7ipCB
- xN5u5LuXYA0An27pmX5VnKkcXYlZ9bmm/IcvSHMr6fR12NlkFMra50M
-X-Developer-Key: i=demiobenour@gmail.com; a=ed25519;
- pk=4iGY+ynEKxIfs+fIUK9EzsvZ44yGE0GvXLeLTPKKPhI=
-X-Endpoint-Received: by B4 Relay for demiobenour@gmail.com/20250731 with
- auth_id=473
-X-Original-From: Demi Marie Obenour <demiobenour@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260712-bcm2712-iommu-submit-v1-1-80e10cdde2ea@reactivated.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260712_150033_547502_2B5102F9 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,103 +109,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: demiobenour@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Demi Marie Obenour <demiobenour@gmail.com>
+On Sun, Jul 12, 2026 at 10:18:51PM +0100, Daniel Drake wrote:
+> When working with a iommu with PT_FEAT_DMA_INCOHERENT set, generic_pt
+> will attempt to use a spare "SW" bit in the hardware page tables to
+> denote when a thread has flushed the CPU cache after modifying an entry.
+> 
+> This means that other threads know that they are not working with
+> cached/unflushed data, if they come across the same entry.
+> 
+> In the case where no SW bit is available, two things happen:
+> 
+> 1. __map_range() defensively flushes every time it reads the PT.
+>    This ensures all data that may have just been manipulated by another
+>    thread gets flushed and made iommu-visible immediately.
+> 
+> 2. An undefined reference to __pt_no_sw_bit() is created, causing a
+>    linker error in order to alert the developer that they are going
+>    to suffer a performance penalty in the previous point.
 
-This driver is harmful:
+Ah, actually this is all setup like this because it doesn't have an
+implementation for supporting no-SW bit versions right now. That a
+mandatory flush happens is not something I thought about, my original
+plan was to put the SW bit into the struct page memory instead and
+have some extra barriers..
 
-- It is much slower than the CPU [1] [2].
-- It Has a history of bugs [2] [3].
-- It does not have exclusive access to the hardware [4], causing races
-  with the secure world.
-- It register its implementations with too low a cra_priority for them
-  to be actually used [5].
+It would be better to not call the SW bit code at all if
+PT_SW_BIT_NOT_PRESENT so we have a clear algorithm that explains how
+it is intended to work (ie mandatory flush) in this case instead of
+disabling the linker safety check of using SW bit without support
 
-Therefore, disable it to ensure that nobody builds it into kernels they
-intend to ship.
-
-In the future, the driver will be used for processing restricted media
-content.  However, the kernel does not currently support this.  Since
-the driver will have future uses, allow building it if COMPILE_TEST is
-enabled.
-
-[1]: https://lore.kernel.org/r/20250704070322.20692-1-ebiggers@kernel.org/
-[2]: https://lore.kernel.org/r/20250615031807.GA81869@sol/
-[3]: https://lore.kernel.org/r/20260706-qce-fix-self-tests-v5-0-86f461ff1829@oss.qualcomm.com/
-[4]: https://lore.kernel.org/r/20260629-qcom-qce-cmd-descr-v20-0-56f67da84c05@oss.qualcomm.com/
-[5]: https://lore.kernel.org/r/20260524204537.GB110177@quark/
-
-Fixes: ec8f5d8f6f76 ("crypto: qce - Qualcomm crypto engine driver")
-Signed-off-by: Demi Marie Obenour <demiobenour@gmail.com>
----
-Changes in v2:
-- Add Fixes: ec8f5d8f6f76 ("crypto: qce - Qualcomm crypto engine driver")
-- Add Cc: stable@vger.kernel.org
-- Link to v1: https://lore.kernel.org/r/20260712-qce-broken-v1-1-85e2bff17871@gmail.com
----
- arch/arm/configs/multi_v7_defconfig | 1 -
- arch/arm64/configs/defconfig        | 1 -
- drivers/crypto/Kconfig              | 6 +++++-
- 3 files changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 01e016752c4d425e59a1a499abb8df8845aa9833..13d85a0e8580000235b4dbf6d0911b4e09af199d 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1321,7 +1321,6 @@ CONFIG_CRYPTO_DEV_ATMEL_AES=m
- CONFIG_CRYPTO_DEV_ATMEL_TDES=m
- CONFIG_CRYPTO_DEV_ATMEL_SHA=m
- CONFIG_CRYPTO_DEV_MARVELL_CESA=m
--CONFIG_CRYPTO_DEV_QCE=m
- CONFIG_CRYPTO_DEV_ROCKCHIP=m
- CONFIG_CRYPTO_DEV_STM32_HASH=m
- CONFIG_CRYPTO_DEV_STM32_CRYP=m
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 76ce07a08d5ac45bc4a4890c3f1aa7391de346fd..c624cdd122d144ad7e052f965c20c9bdcb3bd2e1 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1940,7 +1940,6 @@ CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
- CONFIG_CRYPTO_DEV_SUN8I_CE=m
- CONFIG_CRYPTO_DEV_FSL_CAAM=m
- CONFIG_CRYPTO_DEV_FSL_DPAA2_CAAM=m
--CONFIG_CRYPTO_DEV_QCE=m
- CONFIG_CRYPTO_DEV_TEGRA=m
- CONFIG_CRYPTO_DEV_ZYNQMP_AES=m
- CONFIG_CRYPTO_DEV_ZYNQMP_SHA3=m
-diff --git a/drivers/crypto/Kconfig b/drivers/crypto/Kconfig
-index 03a8f7a1f75e878846dcf34da1265828949fbd9c..0189dfdcbbe11098ead0ea194293422a31d8fe65 100644
---- a/drivers/crypto/Kconfig
-+++ b/drivers/crypto/Kconfig
-@@ -528,13 +528,17 @@ source "drivers/crypto/intel/Kconfig"
- 
- config CRYPTO_DEV_QCE
- 	tristate "Qualcomm crypto engine accelerator"
--	depends on ARCH_QCOM || COMPILE_TEST
-+	depends on (BROKEN && ARCH_QCOM) || COMPILE_TEST
- 	depends on HAS_IOMEM
- 	help
- 	  This driver supports Qualcomm crypto engine accelerator
- 	  hardware. To compile this driver as a module, choose M here. The
- 	  module will be called qcrypto.
- 
-+	  This driver does not have exclusive access to the
-+	  hardware, causing races with the secure world.  It
-+	  is also slower than the CPU.
-+
- config CRYPTO_DEV_QCE_SKCIPHER
- 	bool
- 	depends on CRYPTO_DEV_QCE
-
----
-base-commit: e264401ce4776a288524e5b87593d4d864147115
-change-id: 20260712-qce-broken-6035863c14a0
-
-Best regards,
--- 
-Demi Marie Obenour <demiobenour@gmail.com>
-
-
+Jason
 
