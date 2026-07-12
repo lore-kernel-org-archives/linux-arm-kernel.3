@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CEDC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43EC7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4okvR3IhWuHkCCKPiXQFEOz843paGIoXKBrsbvfXgQ=; b=sqOP+U+HG+9ym2Vtzyzjx5Jb5y
-	o4Wf6cbiwQyLIH/NVXHG5F2qXGEw4b7/kzC0AVg2tZn8fBI2dsosiSTbXqqMt8M3OWmvozSfGlwTF
-	PYVpQenJwQ2GEnk9Jw2Qm2GnLI9kvHkc/KJ8dCZOT4dxnEXISZ0qRCA19KbMg6tUrZUNZx/eG7eeJ
-	yK4tXjyqFzUSyADuLNhWUnPb6ZjfmBw6voK7Y9sTl22HUhQGK3n9MGMRx40YJMa+slR0c9t865aya
-	B3v97PUxap4CiU4Zb/gdTELegQnr5y6lLQ8QF9jEc/ISarcqR+lh5L562NMLGl6lq70t/iZ1rAG0i
-	bSSpNEpQ==;
+	bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=; b=YkTDpus+WIZ11bYQHtGk1VeVme
+	/WfA5DNHKYj4hdNqyilG7Be+LG3Q2Vc4Vm+iR+vwZ24OxpAMvj0KNnwkcAiyN0UObHTN2+tEHVjjs
+	hAVbfTrnVeLoQgiIttCYhqwCpc0qcZ9TvTLgSqU0WJHMBNs9fUSUitoQB8CBboN55kwkrf96wAlO9
+	UKKq8/+MawhHlTehp1Pi+LGs7YjJXV7ka2DApRHtH9V17PwVcHITKSwdHA6zU7I4wMT07kekcnMAl
+	1Dr5zb/+ZT3YwD7vu52WVjpef0FfFPABdwpjwSWFjhaIOYtqwT7EQA/sG8mwn0R0sIjSJLhqJY7yf
+	5MRQF+qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirJ5-00000007LBN-02BS;
-	Sun, 12 Jul 2026 10:21:07 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wirJ4-00000007LB9-3mNE;
+	Sun, 12 Jul 2026 10:21:06 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirIw-00000007L4y-2OtA
+	id 1wirIu-00000007L42-2v9F
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 10:20:59 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-476d8e647e9so2371398f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:20:57 -0700 (PDT)
+	Sun, 12 Jul 2026 10:20:58 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4758b2a9e2aso1271605f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:20:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783851657; x=1784456457; darn=lists.infradead.org;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1783851655; x=1784456455; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=R4okvR3IhWuHkCCKPiXQFEOz843paGIoXKBrsbvfXgQ=;
-        b=IXSMoxLJTXr+lOPj1pg28qJD1TOCwK516xHprXN5p1qHCweHitoNW2pNu1ob4jaiH3
-         39jkmXRHKrbgite6XKplN8CjoofEXelqSgOujRDitS6HS397SxoK+wO05Vm9n1WIGR0z
-         biZmqm/KhJpkv/Mg+I0ptqJM+L7q/eukF0uZ+ruHlq9Z8UzrErzTTICSJsKyhAseH/Mq
-         pUiDtYlE2NfkOdJRHmdWlX24YGjBj8tV8mEdVYv3GLLRtQV/n7ndOxWiJZj0XqSmR9ZH
-         19amm90PtzhO5EhvC5oNMpbsch/odcRwA4qgDGcyIeHTbCytWKZr2LBpeAWQNgovcY0o
-         x/fQ==
+        bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=;
+        b=g/qk2/CIl87BMyZ6oN7csKJUQ6E25e3uYcn+bYFVUee0y46y7Hdnk1Vl9W//5N4cz4
+         kjyW3HJVNmo8QAkG5tCAAdjyYSfOheHzyb0psg6ua98BsZYgS6wC8ESOxi53YFTADDTd
+         XiZQLghZtUaPaLMCxCEP6Xr9yBDxYqU9RnAkdX5LWR0hRY0iM5t74WV8lSKXoU1H3a/Z
+         +8e3No0ur78RIlU8vSK1g8uioEd+rVKKiiwi8wmsDPvnQHHHhbjRSOWMWlMJmy24OXI9
+         no2s4TTpaqjXPfyCDin4B/HtRzVxAk4iBbz9u8R8FWl3cnlxAc0UUjklqSVsVYZVgIl1
+         koOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783851657; x=1784456457;
+        d=1e100.net; s=20251104; t=1783851655; x=1784456455;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R4okvR3IhWuHkCCKPiXQFEOz843paGIoXKBrsbvfXgQ=;
-        b=htkXimPsaGbUugEKg466DbaFC+cCIhboHwuPViSoZoRm/bRyDlFD6tmaLZbqHjZ/si
-         rdvHioHgRB+IfyuHyCGLX0aCOFXGdnkKPbOksgeS5Q/+faFlh4AbV7aTRUra2HE0omi+
-         bRk5rxplWjIrhAAmhFPZbLZDNVnqeDOzIJ2QzAGIF0P2TPyC/705nUTG1YY7SjFxSKiT
-         MQGpALNBA3n871cU49o3fXg1DH/ixbnvyJr9+RxTX1aZri0NUmROSefiShs6aydQZQdZ
-         twSVs5LnMaGycD1LdL3iYfCPIdcxKinApSH5uIohhGc8hIZYR922i4d5AvTBiSQCLR9e
-         pZ4A==
-X-Forwarded-Encrypted: i=1; AHgh+RrUS82x1d1M7TKBY2NOFOhm9rLgeZiH+zsmwBg+WLqPdZVa69C1HMHxh8LyCaxSLljP8PmHfqPTFcIqvaP3aY9s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0leR3Jno7WtnFl2u3RK20atx9XfZNUpeKLtQyMc9/g32VyvKN
-	XihYYZ9uCBai5bwfYws662TBn+7aZjgEqJLS0RAfsEWjSlxrpk0DtCg0EF76lApR0Y0=
-X-Gm-Gg: AfdE7cn6zA5PTWJS0uXf3QRZBWAt6ehS20IdU0RjrksNfq3xK+08fj4Sf48T59jF37v
-	6rovG2JhUJ4Sz2mdU11jrJGjlyBYqsCbcYPqUX6aYfTrOmPJMe5mXx4UvD6oFrn2d1ZJTy+7iKb
-	tgciRA5Wr2diYE1LB62aiYOdo1g8zzXyz4orh5/jucl4MvIqeCk7Ce7uOPnQk9JWTG1psKOQ2EK
-	xcks6v3bP5ooviLPhXDqyD4/74yxf76S2nCD68NSYuaCn05M0ZpCUpTA56yzgS2sJ/oS4Z4gVCC
-	oaeDs+IfdXCbXCDkH6sF2dLZIYquMrhegQxXIk9dDrNY//wB+0WVxLajItQnlw7s6N0s9ryGB6J
-	BC7yvqYUOIv5C9uWEQKzxwmvYGUtyT875LJMSJzkuq8bfRzJLanAVVu4ppkOvo7YzK3STPrerU5
-	dGbH5yl1XeugsQogybGIvOPgD7YDuYr0LunKXxOPa1a9UKT3EtLpPPHVKzuDBOsPZU5TuOCuQeT
-	Lig7cMIbdjFf/jiCcUK5flciZ+2
-X-Received: by 2002:a5d:5d0c:0:b0:47e:aa3f:2c48 with SMTP id ffacd0b85a97d-47f2dcee22amr5636508f8f.51.1783851656563;
-        Sun, 12 Jul 2026 03:20:56 -0700 (PDT)
+        bh=/g3zYl79jgjqjNI27fNzLhdq4bY9YgKy83ASVS+p8JI=;
+        b=c9NeRDZ4n3xmZXugBqKN27OvrZiQeigxpwPLTTJZhFeotnelDJKUWU+990+Sc+CCZ/
+         3mEFiz+mN3bTDMMXe+NGIldAuWWFoZErGZWWz8iIGOvF9J842XtZSHNF9CHtz3jT+yNV
+         L7yTUumYcZGEgRmCuVj1xSecGsU6BGMBzMP8+qM7aUVDqZy74JBF/P3PFSd/FAJhEmR6
+         rpJQJFzxmwlLvEX1L703P0rVUSxuxoF/ZT6nwRxEv3Vmk0E8xhKlU0mnEXHInUxJoj3H
+         cN10ZX8ycAwJZPL0ap+OuYm2/l2hiIxwk0ANdmANYbRRM4iGrdBhvE5/dZ0OneNl3sge
+         CXxg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp6EmsGhhogNeGjd99PVx/QLhByx90xn2jLehjx7zyGqbfZ7Y2ElHkqrgj5BbTyzXE/LKZZmVaCLFLHB61lLUk0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHoRtE3KFDZkoQsBFRmt+XPRbZWM+e1AfLY/qUFlraRaR1UZo5
+	ko8xuQlYyQajTazgBDRvNqbK+Q2/CkHIah9ReY5l7YfmslXn5jwQs1vTFJSG/ukQ7zI=
+X-Gm-Gg: AfdE7cn9gro5K3vYwZiPwKy68FfhWYJsgGeDXj2A9chYo245SHWoz4eRZ46fJR+44uH
+	8dp7zXJkSsdxxvRFpC6NHLSFR+Q6IE0VzS47DM+spqY6E2VxYamruKyB+G2x6ZnhEOQZFf643tg
+	Af2pCHjADsG2uWwDHVYHs0EOOqyvqNbrV9fUybmmoTQIzPnG6kSArjFNA7/dYhIYrTCxzZdpxAE
+	8KmYZV7KZPhM+GSo6yMIOYnLIJdoji+aGNUvpJRkHqkhhneRfv8pmscmv0TLIB9pDTrYWm4Dw+C
+	QWW4FNqyyHFx/to3tptHSPGa1jDMbHzvD076WwVF/e2fwcxAwB9MUK4D5xVYMAbE8+1hk3JhkvS
+	dWLqBPitQMIcAiCZOyWhheRoz7dgqmPIU2VYtK/WYUR1Oe8MPRDgNJ0Kdfm1Nw1nXP57IrdbBIx
+	6IfUDAKdTPAuRQIG5Yla6KxxxC+G0B5HORCVqguCPZC2cDuWYgbYZYOkwjGK+Xv6vgJZbfgz0SY
+	fiER0AI5P3TLi8WTYsFut6B5GzQ
+X-Received: by 2002:adf:f3c7:0:b0:47f:2de3:b34d with SMTP id ffacd0b85a97d-47f2de3b435mr3662291f8f.46.1783851654747;
+        Sun, 12 Jul 2026 03:20:54 -0700 (PDT)
 Received: from [127.0.1.1] ([2a00:23c5:7815:1301:f27:e3a8:2334:314d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ad21sm75005672f8f.20.2026.07.12.03.20.54
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ad21sm75005672f8f.20.2026.07.12.03.20.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 03:20:55 -0700 (PDT)
+        Sun, 12 Jul 2026 03:20:53 -0700 (PDT)
 From: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Date: Sun, 12 Jul 2026 11:20:36 +0100
-Subject: [PATCH v3 5/6] printk: nbcon: move printk_delay to console emiting
- code
+Date: Sun, 12 Jul 2026 11:20:35 +0100
+Subject: [PATCH v3 4/6] printk: deprecate boot_delay in favour of
+ printk_delay
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-printkcleanup-v3-5-574547b8f71b@thegoodpenguin.co.uk>
+Message-Id: <20260712-printkcleanup-v3-4-574547b8f71b@thegoodpenguin.co.uk>
 References: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
 In-Reply-To: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
 To: Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -98,16 +98,16 @@ Cc: linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  linux-rt-devel@lists.linux.dev, 
  Andrew Murray <amurray@thegoodpenguin.co.uk>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783851647; l=7650;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783851647; l=4810;
  i=amurray@thegoodpenguin.co.uk; s=20250914; h=from:subject:message-id;
- bh=xTPk7bMacGsIS4hNT11NNaci9eKHhXtcV+ZSTG0lKOA=;
- b=olCuUnSskP8UUcCkrJl0aZbQZPg6LbVsW50TcUx2lh6wX1N1jyRaLr9/xYisz5o4FFw3PNpfW
- Hk7uUNFriYoBwgXf+cRf1/nZo/sd0cjr4P9/6D1KCA4Rdx2Uyc4hZnB
+ bh=LbQuTQZ0Pr0m3R7vmjHIVUKClw/nFOcuwqEj3p3Hj4Y=;
+ b=R41m4NO6PR52KYXcKNaMGQef3mF4qMXlCyOa+etGfe9PI3pHfH2n12uQ921q9TEyV5MQ7i1Ck
+ /UOSQgcFAYlAbGVI6lYGPv+gPu/l+5sphbueqDTDmrG+ar9Raust9yH
 X-Developer-Key: i=amurray@thegoodpenguin.co.uk; a=ed25519;
  pk=0SU0Q8S/uEiCdbXbXS+PvJGUCaBG1nDszD+HPU3Js0Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_032058_682393_F939315D 
-X-CRM114-Status: GOOD (  26.83  )
+X-CRM114-CacheID: sfid-20260712_032056_775624_048F7847 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,233 +122,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The printk_delay and boot_delay features are helpful for debugging
-as kernel output can be slowed down during boot allowing messages to
-be seen before scrolling off the screen, or to correlate timing between
-some physical event and console output.
+The boot_delay (BOOT_PRINTK_DELAY) kernel parameter and printk_delay sysctl
+are two distinct mechanisms for providing similar functionality which add a
+delay prior to each printed printk message.
 
-However, since the introduction of nbcon and the legacy printer thread
-for PREEMPT_RT kernels, printk records are now emited to the console
-asynchronously to the caller of printk. Thus, any printk delay added by
-boot_delay/printk_delay continues to slow down the calling process but
-may not have any impact to the rate in which records are emited to the
-console.
+boot_delay provides a kernel parameter for delaying printk output from
+kernel start through to boot (SYSTEM_RUNNING), whereas printk_delay is
+configurable only via sysctl and thus is only used post boot.
 
-Let's address this by moving the printk delay from the calling code
-to the console emiting code instead. Whilst this ensures that delays
-are still observed (especially for slower consoles), it doesn't improve
-the use-case of using boot_delay/printk_delay to correlate timings
-between physical events and console output.
+Let's deprecate the boot_delay feature in favour of printk_delay. In order
+to preserve functionality, we'll also extend printk_delay such that it can
+additionally configured via an early kernel parameter.
 
 Behavior change:
 
-Please note that printk delays now occur after messages are emitted
-rather than before.
+The delay enabled by both "boot_delay" and "printk_delay" continues
+working even in SYSTEM_RUNNING state. It must be explicitly stopped
+by setting printk_delay=0 via sysctl.
 
-Please also note that the printk delays occur within the printk_safe
-(irqs off) context.
+The delay is skipped when the message is suppressed in all system
+states. It used to skipped only for the boot_delay.
 
 Signed-off-by: Andrew Murray <amurray@thegoodpenguin.co.uk>
 ---
- include/linux/console.h  |  5 ++++-
- include/linux/printk.h   |  1 -
- kernel/printk/internal.h |  6 ++++++
- kernel/printk/nbcon.c    | 13 +++++++++++++
- kernel/printk/printk.c   | 17 +++++++++--------
- 5 files changed, 32 insertions(+), 10 deletions(-)
+ kernel/printk/printk.c | 81 +++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 51 insertions(+), 30 deletions(-)
 
-diff --git a/include/linux/console.h b/include/linux/console.h
-index d624200cfc1708bf73925892a466efe0c95c5586..0f7a69bd1a42af38208fdb28971114f76f99a968 100644
---- a/include/linux/console.h
-+++ b/include/linux/console.h
-@@ -266,6 +266,8 @@ struct printk_buffers;
-  *				might cause a system freeze when the console
-  *				is used later.
-  * @backlog:			Ringbuffer has pending records
-+ * @emitted:			The context attempted to emit the message. Might
-+ *				be incomplete.
-  * @pbufs:			Pointer to the text buffer for this context
-  * @seq:			The sequence number to print for this context
-  */
-@@ -278,6 +280,7 @@ struct nbcon_context {
- 
- 	/* members set by emit */
- 	unsigned int		backlog			: 1;
-+	unsigned char		emitted			: 1;
- 
- 	/* members set by acquire */
- 	struct printk_buffers	*pbufs;
-@@ -298,7 +301,7 @@ struct nbcon_write_context {
- 	struct nbcon_context	__private ctxt;
- 	char			*outbuf;
- 	unsigned int		len;
--	bool			unsafe_takeover;
-+	unsigned char		unsafe_takeover : 1;
- #ifdef CONFIG_PRINTK_EXECUTION_CTX
- 	int			cpu;
- 	pid_t			pid;
-diff --git a/include/linux/printk.h b/include/linux/printk.h
-index ea52dc72b73b64898f82a0319b01c27323b18dee..8885e11367d50ea1cd7642249852d011e589adb4 100644
---- a/include/linux/printk.h
-+++ b/include/linux/printk.h
-@@ -188,7 +188,6 @@ extern int __printk_ratelimit(const char *func);
- extern bool printk_timed_ratelimit(unsigned long *caller_jiffies,
- 				   unsigned int interval_msec);
- 
--extern unsigned int printk_delay_msec;
- extern int dmesg_restrict;
- 
- extern void wake_up_klogd(void);
-diff --git a/kernel/printk/internal.h b/kernel/printk/internal.h
-index 85fbf1801cbe070ad96d253bccdf775a11bf945a..c3586f8b8360208902bbbd4607413997bcbd5fb9 100644
---- a/kernel/printk/internal.h
-+++ b/kernel/printk/internal.h
-@@ -33,6 +33,8 @@ int devkmsg_sysctl_set_loglvl(const struct ctl_table *table, int write,
- # define force_legacy_kthread()	(false)
- #endif
- 
-+extern unsigned int printk_delay_msec;
-+
- #ifdef CONFIG_PRINTK
- 
- #ifdef CONFIG_PRINTK_CALLER
-@@ -131,6 +133,8 @@ static inline void nbcon_kthread_wake(struct console *con)
- 	rcuwait_wake_up(&con->rcuwait); /* LMM(nbcon_kthread_wake:A) */
- }
- 
-+void printk_delay(bool use_atomic);
-+
- #else
- 
- #define PRINTK_PREFIX_MAX	0
-@@ -162,6 +166,8 @@ static inline bool nbcon_legacy_emit_next_record(struct console *con, bool *hand
- static inline void nbcon_kthread_wake(struct console *con) { }
- static inline void nbcon_kthreads_wake(void) { }
- 
-+static inline void printk_delay(bool use_atomic) { }
-+
- #endif /* CONFIG_PRINTK */
- 
- extern bool have_boot_console;
-diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-index 4b03b019cd5ee25d68e9ace84392045e91241a7f..c8427906b1c54fb00d005ef87f7280e89fae2579 100644
---- a/kernel/printk/nbcon.c
-+++ b/kernel/printk/nbcon.c
-@@ -1069,6 +1069,8 @@ static bool nbcon_emit_next_record(struct nbcon_write_context *wctxt, bool use_a
- 	else
- 		con->write_thread(con, wctxt);
- 
-+	ctxt->emitted = 1;
-+
- 	if (!wctxt->outbuf) {
- 		/*
- 		 * Ownership was lost and reacquired by the driver. Handle it
-@@ -1267,11 +1269,16 @@ static int nbcon_kthread_func(void *__console)
- 
- 		con_flags = console_srcu_read_flags(con);
- 
-+		ctxt->emitted = 0;
-+
- 		if (console_is_usable(con, con_flags, false))
- 			backlog = nbcon_emit_one(&wctxt, false);
- 
- 		console_srcu_read_unlock(cookie);
- 
-+		if (backlog && ctxt->emitted)
-+			printk_delay(false);
-+
- 		cond_resched();
- 
- 	} while (backlog);
-@@ -1525,6 +1532,8 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
- 	}
- 
- 	progress = nbcon_emit_one(&wctxt, use_atomic);
-+	if (progress && ctxt->emitted)
-+		printk_delay(use_atomic);
- 
- 	if (use_atomic) {
- 		start_critical_timings();
-@@ -1584,6 +1593,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
- 			if (!nbcon_context_try_acquire(ctxt, false))
- 				return -EPERM;
- 
-+			ctxt->emitted = 0;
-+
- 			/*
- 			 * nbcon_emit_next_record() returns false when
- 			 * the console was handed over or taken over.
-@@ -1600,6 +1611,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
- 			if (nbcon_seq_read(con) < stop_seq)
- 				err = -ENOENT;
- 			break;
-+		} else if (ctxt->emitted) {
-+			printk_delay(true);
- 		}
- 	}
- 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 4517266e9ca112e0dcb0163a99dd0e8d50931848..5df09e56cf8abc2d0555b6950eed4e483ba56d4b 100644
+index 28e6dff2faa7d4294c1b2ebe2844ce5d4dc0e05a..4517266e9ca112e0dcb0163a99dd0e8d50931848 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2143,18 +2143,17 @@ static inline void late_boot_delay_msec(void)
- 	}
- }
+@@ -1291,43 +1291,28 @@ static bool suppress_message_printing(int level)
  
--static inline void printk_delay(int level)
-+void printk_delay(bool use_atomic)
+ #ifdef CONFIG_GENERIC_CALIBRATE_DELAY
+ 
+-static unsigned int boot_delay; /* msecs delay after each printk during bootup */
+ static unsigned long long loops_per_msec;	/* based on boot_delay */
+ 
+-static int __init boot_delay_setup(char *str)
++static void __init printk_delay_calculate(void)
  {
+ 	unsigned long lpj;
+-	int boot_delay_val;
+ 
+ 	lpj = preset_lpj ? preset_lpj : 1000000;	/* some guess */
+ 	loops_per_msec = (unsigned long long)lpj / 1000 * HZ;
+ 
+-	get_option(&str, &boot_delay_val);
+-	if (boot_delay_val < 0 || boot_delay_val > 10 * 1000)
+-		return 0;
+-
+-	boot_delay = (unsigned int)boot_delay_val;
+-
+-	pr_debug("boot_delay: %u, preset_lpj: %ld, lpj: %lu, "
++	pr_debug("printk_delay: %u, preset_lpj: %ld, lpj: %lu, "
+ 		"HZ: %d, loops_per_msec: %llu\n",
+-		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
+-	return 0;
++		printk_delay_msec, preset_lpj, lpj, HZ, loops_per_msec);
+ }
+-early_param("boot_delay", boot_delay_setup);
+ 
+-static void boot_delay_msec(int level)
++static void early_boot_delay_msec(void)
+ {
+ 	unsigned long long k;
+ 	unsigned long timeout;
 -	bool suppress = !is_printk_force_console() &&
 -			suppress_message_printing(level);
 -
--	if (likely(!printk_delay_msec) || suppress)
-+	if (likely(!printk_delay_msec))
- 		return;
+-	if ((boot_delay == 0 || system_state >= SYSTEM_RUNNING) || suppress)
+-		return;
  
- 	if (system_state < SYSTEM_RUNNING)
- 		early_boot_delay_msec();
--	else
-+	else if (use_atomic)
- 		late_boot_delay_msec();
+-	k = (unsigned long long)loops_per_msec * boot_delay;
++	k = (unsigned long long)loops_per_msec * printk_delay_msec;
+ 
+-	timeout = jiffies + msecs_to_jiffies(boot_delay);
++	timeout = jiffies + msecs_to_jiffies(printk_delay_msec);
+ 	while (k) {
+ 		k--;
+ 		cpu_relax();
+@@ -1342,11 +1327,37 @@ static void boot_delay_msec(int level)
+ 	}
+ }
+ #else
+-static inline void boot_delay_msec(int level)
++static inline void __init printk_delay_calculate(void)
++{
++}
++
++static inline void early_boot_delay_msec(void)
+ {
+ }
+ #endif
+ 
++static int __init printk_delay_setup(char *str)
++{
++	int printk_delay_val = 0;
++
++	get_option(&str, &printk_delay_val);
++	if (printk_delay_val < 0 || printk_delay_val > 10 * 1000)
++		return 0;
++
++	printk_delay_msec = (unsigned int)printk_delay_val;
++	printk_delay_calculate();
++
++	return 0;
++}
++early_param("printk_delay", printk_delay_setup);
++
++static int __init boot_delay_setup(char *str)
++{
++	pr_warn("boot_delay will soon be deprecated, please use printk_delay instead\n");
++	return printk_delay_setup(str);
++}
++early_param("boot_delay", boot_delay_setup);
++
+ static bool printk_time = IS_ENABLED(CONFIG_PRINTK_TIME);
+ module_param_named(time, printk_time, bool, S_IRUGO | S_IWUSR);
+ 
+@@ -2122,18 +2133,28 @@ static u8 *__printk_recursion_counter(void)
+ 
+ unsigned int printk_delay_msec __read_mostly;
+ 
++static inline void late_boot_delay_msec(void)
++{
++	unsigned int m = printk_delay_msec;
++
++	while (m--) {
++		mdelay(1);
++		touch_nmi_watchdog();
++	}
++}
++
+ static inline void printk_delay(int level)
+ {
+-	boot_delay_msec(level);
++	bool suppress = !is_printk_force_console() &&
++			suppress_message_printing(level);
+ 
+-	if (unlikely(printk_delay_msec)) {
+-		unsigned int m = printk_delay_msec;
++	if (likely(!printk_delay_msec) || suppress)
++		return;
+ 
+-		while (m--) {
+-			mdelay(1);
+-			touch_nmi_watchdog();
+-		}
+-	}
++	if (system_state < SYSTEM_RUNNING)
++		early_boot_delay_msec();
 +	else
-+		msleep(printk_delay_msec);
++		late_boot_delay_msec();
  }
  
  #define CALLER_ID_MASK 0x80000000
-@@ -2474,8 +2473,6 @@ asmlinkage int vprintk_emit(int facility, int level,
- 		ft.legacy_direct = false;
- 	}
- 
--	printk_delay(level);
--
- 	printed_len = vprintk_store(facility, level, dev_info, fmt, args);
- 
- 	if (ft.nbcon_atomic)
-@@ -3185,6 +3182,8 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
- 		 */
- 
- 		con->write(con, outbuf, pmsg.outbuf_len);
-+		printk_delay(true);
-+
- 		con->seq = pmsg.seq + 1;
- 	} else {
- 		/*
-@@ -3206,6 +3205,7 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
- 		printk_legacy_allow_spinlock_enter();
- 		con->write(con, outbuf, pmsg.outbuf_len);
- 		printk_legacy_allow_spinlock_exit();
-+		printk_delay(true);
- 
- 		start_critical_timings();
- 
-@@ -3214,6 +3214,7 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
- 		*handover = console_lock_spinning_disable_and_check(cookie);
- 		printk_safe_exit_irqrestore(flags);
- 	}
-+
- skip:
- 	return true;
- }
 
 -- 
 2.34.1
