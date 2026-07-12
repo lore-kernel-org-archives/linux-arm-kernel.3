@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94201C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 14:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDD9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 14:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rgbu6YiDUX9kznSJSlo+OHz7QKMcuRkPsGR/yA4U/Cc=; b=YCLF5abtjbsr3WNHFrwiA0HFfy
-	R/oCLDVz9h65o5Kd9FoKkRCnBDsAU8XwiMT6Mv9EjKpdRQsr2Vo0bTd3WTdtUslQiX9izBeA+vfpy
-	i1Fp5hCAMs8A4Sr9BPY8fegbmix2e9Klv/sfx7qDedbuRkXqjb7TiHmvYopsPEKLOTZl3fGn+nu7P
-	J6x5bRzs5APRTUWJcxTNIm6flOkIkwt+Th7YTad/urGSKezIITX4bx3jugdiDb5G/5LqvAWO7b2JY
-	0evESznLpsp74k0pBVJLePP6h9uWIDnVsyzxJQ/XtCiHRejL+svkOcCSu3vGfFptntfs7ya/ZaYFN
-	ciZACZjA==;
+	bh=DzkKn52NQw3dKXJ3G4aXNwBtYSMRw1DGHnnEG75/75w=; b=TU0Dc+ms65gKkAjnKzfSLgu+sJ
+	sL2ctV5uwsBCGMyTvph8fjsHU7iQFqb3lO3YLGgraz2GiO5NLSo/riP8beyT6Bcw7VcTmDT7P1Whq
+	u7OaEPJm69yIk9YKq335h8ucXj4s2OhE27BbBlUloHbuKyqNzxLjFCVxXax6ERyO03yzQiG1/wPk4
+	GzHo1IJYi/TBLnvC5LJRx9DOqPPu5iYSoj/QjeML/iCftvHqlO2monNVlrmGgqBdsx7oS9U1X8vuf
+	QPILaiErM4OW5G6p3uWRcNG+ezOgEsUbbDDPObd2AFG8sX1iAu5ibBvYLo1m2bI16ZTeILSbK7z2T
+	af7QIExA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivVY-00000007XJ9-0dkg;
-	Sun, 12 Jul 2026 14:50:16 +0000
-Received: from freeshell.de ([116.202.128.144])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivVV-00000007XId-2KZA;
-	Sun, 12 Jul 2026 14:50:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1783867767;
-	bh=Rgbu6YiDUX9kznSJSlo+OHz7QKMcuRkPsGR/yA4U/Cc=;
+	id 1wivVx-00000007XOB-2b4k;
+	Sun, 12 Jul 2026 14:50:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wivVt-00000007XNB-46qX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jul 2026 14:50:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 500E71684;
+	Sun, 12 Jul 2026 07:50:31 -0700 (PDT)
+Received: from [10.163.128.224] (unknown [10.163.128.224])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E9B23F7B4;
+	Sun, 12 Jul 2026 07:50:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783867835; bh=O6mKBMmKqYsfl7n4c5R+GT1oCANMK99LD9U/tz2vSjw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e1f+qC+L/WnrDmmFa5VDmWfCQGJJmU9bOVHt5snbPF8fi/BKsz3/qb1GkPUE0p/3+
-	 M2KLArFP9AgM+wzed/pgadxFOk3u4quiCcXHV+X24rR6A9PwmtC3ieuuiW3K5gsMKj
-	 14cSfFjUJ9Q+9MPOpdj9frQWqoxI7TAs/e9hKriXEqerM733L5CwqAVqwBJ0kbBVM8
-	 P7/aowqXTgMMcCah3k1GJYwucCF4Ild3dlLv/bcCa24dRK9+bK4QJgmoAiKzut1sC9
-	 tZhstVazyV3ZN6Rtp7UT837VBE+896rjsA33YVVLfM6o0cNetHLRZuGPa8ueBTwJXy
-	 l7eKaYLWxXNkw==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 11F2EB2214E1;
-	Sun, 12 Jul 2026 16:49:23 +0200 (CEST)
-Message-ID: <203fffef-bef1-4d56-a6f0-a2fe482821db@freeshell.de>
-Date: Sun, 12 Jul 2026 07:49:15 -0700
+	b=D/jWB2/eTX0HY+XgoYivSzjTMakYQ0k7CVE0G5XpJ+MxvFhPF7nSiytewu45QmGOz
+	 360fT3M1HJrX0we4eSyeQTDq6NC88sSMQcuyqHhbFnS0qH2JZqmns5weuMHQgn0eDA
+	 B/vPu9fywGIpXIncX4dtKf2iNYtASgE5Dh6AXxyc=
+Message-ID: <3cb5f1d7-f1cb-44bc-925c-85b5b6909b64@arm.com>
+Date: Sun, 12 Jul 2026 20:20:28 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
-To: Andrew Lunn <andrew@lunn.ch>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yixun Lan <dlan@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Han Gao <gaohan@iscas.ac.cn>
-References: <20260712045233.800748-1-inochiama@gmail.com>
- <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
- <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
+Subject: Re: [PATCH v3 0/3] Optimize S2 page splitting
+To: Leonardo Bras <leo.bras@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
+ Raghavendra Rao Ananta <rananta@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260708134101.2514759-1-leo.bras@arm.com>
 Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260708134101.2514759-1-leo.bras@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_075014_056700_4A605920 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260712_075038_178741_AA0928C2 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +77,117 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 7/12/26 06:49, Andrew Lunn wrote:
->>> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
->>> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
->>> @@ -196,7 +196,8 @@ &eth0 {
->>>
->>>  	mdio {
->>>  		phy0: phy@1 {
->>> -			compatible = "ethernet-phy-ieee802.3-c22";
->>> +			compatible = "ethernet-phy-id001c.c916",
->>> +				     "ethernet-phy-ieee802.3-c22";
->>
->> Indeed that's merely a workaround :(
+
+On 08/07/26 7:10 pm, Leonardo Bras wrote:
+> While playing with dirty-bit tracking, I decided to take a look on how page
+> splitting works. Found out all entries are walked, even though we can infer,
+> for instance that:
+> - If a level-3 entry is walked, it means the parent level-2 entry is split
+> - If a split just succeeded in an table entry, it means all children nodes
+>   are already split
+
+That does not happen for force_pte = false right? Or is it guaranteed that
+in your case that force_pte = true always?
 > 
-> Despite is being a workaround, there has not been much progress on a
-> generic framework for dealing with clocks, resets, regulators etc,
-> before probing PHYs. So this is probably what you want to do.
+> This patches' idea is to introduce new walking flags to skip pagetable
+> levels 0-3.
 > 
->        Andrew
+> The idea of skipping child nodes was also tested, but it was marginally
+> slower than just skipping levels, so it was discarted.
+> 
+> Optimization measured on two scenarios involving eager-splitting on a
+> VM with 32 memslot of 2GB (total 64GB), and vcpu per slot:
+> - Scenario 1: No manual protect, whole memslot split at dirty-track enable
+>   (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
+>   - Split happens only once, whole region
+>   - Evalutes improved batch performance of splitting
+> - Scenario 2: Manual protect, split happens during every dirty-bit clean
+>   (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
+>   - Split called multiple times, for smaller 64-page sections.
+>   - Evaluate improved performance for multiple calls
+> 
+> Scenario 1, improvement on dirty-track enable ioctl for the memslot:
+> - Memory was already split (4k pages):  -43.18% runtime (stdev 3.87%)
+> - THP backed memory:                    -25.77% runtime (stdev 1.01%)
+> - 64x1GB hugetlb memory:                -25.62% runtime (stdev 1.09%)
+> 
+> Scenario 2, improvement on dirty-log clean ioctl for the memslot:
+> - Memory was already split (4k pages):  -39.88% runtime (stdev 2.71%)
+> - THP backed memory:                    -25.18% runtime (stdev 0.32%)
+> - 64x1GB hugetlb memory:                -49.17% runtime (stdev 1.86%)
+> 
+> For collecting above numbers, the following script was ran in both vanilla
+> and patched kernels, with kernel parameter 'default_hugepagesz=1G', on an
+> TX2 with 128GB RAM.
+> 
+> --- dirty_test.sh
+> #!/bin/bash
+> filename=$(uname -r |cut -d'-' -f 4-)
+> 
+> run_test(){
+>   base_test="./dirty_log_perf_test -b 2G -v 32 -m 6 -m 8"
+> 
+>   # Manual cleaning disable
+>   ${base_test} -g
+>   ${base_test} -g -s anonymous_thp
+>   echo 64 > /proc/sys/vm/nr_hugepages  
+>   ${base_test} -g -s shared_hugetlb
+>   echo 0 > /proc/sys/vm/nr_hugepages
+> 
+>   # Manual cleaning enable
+>   ${base_test}
+>   ${base_test} -s anonymous_thp
+>   echo 64 > /proc/sys/vm/nr_hugepages  
+>   ${base_test} -s shared_hugetlb
+>   echo 0 > /proc/sys/vm/nr_hugepages
+> }
+> 
+> run_test 2>&1 | tee ${filename}
+> ---
+> 
+> Above dirty_log_perf_test command is the standard kvm selftest found in the
+> kernel tree. It tested the following guest modes:
+> Testing guest mode: PA-bits:40,  VA-bits:48,  4K pages
+> Testing guest mode: PA-bits:40,  VA-bits:48, 64K pages
+> (Modes with PA-bits:36 were discarted in this version, given the amount
+> of RAM being used for testing, and the similarity of previous results)
+> 
+> Performance numbers from above modes were used to calculate average and
+> stdev showed in the optimization results.
+> 
+> Changes since v2:
+> - Rebased on top of v7.2-rc1
+> - Improved testing, added more memory, re-tested
+>   - Now: 32 vcpus @ total of 64G
+>   - Before: 1cpu @ 16G
+> 
+> Changes since v1:
+> - Fixed inverted flag verification priority (Sashiko)
+> - Fixed incorrectly skipping POST call if level was skipped (Sashiko), and to that
+> - New pre-patch that changes goto-out -> return to avoid re-testing walk_continue 
+> v1 Link: https://lore.kernel.org/lkml/20260610202112.2695205-2-leo.bras@arm.com/
+> 
+> Changes since RFC:
+> - Changed approach from return value to walk flags (Will Deacon)
+> - Discarted skip_child approach (Oliver Upton)
+> - Measured in real hardware, and from userspace perspective (Marc Zyngier)
+> - Better explanation of what and how numbers were collected
+> RFC Link: https://lore.kernel.org/all/20260515195904.2466381-1-leo.bras@arm.com/
+> 
+> Thanks!
+> Leo
+> 
+> 
+> Leonardo Bras (3):
+>   KVM: arm64: Avoid re-testing walk_continue
+>   KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
+>   KVM: arm64: Make stage2_split_walker() skip unnecessary walks
+> 
+>  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
+>  arch/arm64/kvm/hyp/pgtable.c         | 28 +++++++++++++++++++++-------
+>  2 files changed, 34 insertions(+), 7 deletions(-)
+> 
+> 
+> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
 
-Aside for my participation in reporting and testing here, I confirm that
-the above addition to 'compatible' node does not itself resolve what I
-observed to be a problem for debian-installer, however it does itself
-resolve the rmmod/modprobe cycling issue of the eventual installed
-Debian system as I described and what I am quoted as having reported
-from dmesg output.
-
-So the other report of increasing de-assert from 10ms to 50ms is needed
-for success of the debian-installer hwprobe detection, and this here
-issue of adding to the 'compatible' is needed for success of
-rmmod/modprobe cycling. In concert together both fixes resolve all of
-the trouble I observed and reported, tested and verified on Sipeed K3
-Pico ITX.
-
-Thanks for tracking this down it is very much appreciated :)
-
-With that,
-
-Tested-by: E Shattow <e@freeshell.de>
 
