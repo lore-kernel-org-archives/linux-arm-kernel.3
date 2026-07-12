@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F1EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F78C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGAlEpRQYRhrbsbyFqevUzGTrHwI86sKZ3VuDai3N60=; b=GYdq3chbtBh9cPiaAuzp8J/bVi
-	80lgdX+Er4e1luO1+3S02W38HP5XRnrmiNsJILEmQPEF2eBTLlpu2i/L1hmFAxQ58NOwDQ+bfVMG2
-	g3GCWM8kT1X0UBiLCXl9pkLGGCLe3PWogbHD+o4G9hVZ2lKGXksC1MRBncPoiwNHSyxe+R72eW+0D
-	5yPidFu0zyfzTmhgxfgB29XE1CJf99fJfRlrhCxdn8KdqcQxPM1mMJZbkI43oFbwcxMTCn1jarPol
-	Tz1iW3fZRjaSZpQBodxqG/yYYoFXcSTmJ4HsbEVWKi4nTgx3ycJKb++RjVSczCaqUlzo4t/Lwv0u7
-	ctSL5PzA==;
+	bh=nrk8vC+Ve+FQgyHSJEFAxaMx0g8ZadKX9MusPiIExkE=; b=0nb5f1L1peBoiGiD3rvWE72ba6
+	lw/tcPWQxpdOeOWr2dgxnOZNQa5wWg0izN/oEONl66IEencaFcInpMlzEMU09dm4/VhqKQ3wBRWnc
+	hGkAms+Sl6QH0NdfCe2wfNgWfvRvVVwwYlGBt9lCPuMgR+4jAbN/sy+QIn2Amh0QA1zz21e8ia1It
+	PwhQTUOsJ0BDfcmBNAG+BVSgf0/q4X7ZXcA8J+9zsO+smU3YQigo9mwJN6/VW++6f6zRtj6EWN550
+	kJ/Am4LRs/SFeO7a89e1yX3ytcMeQTyVeA9v8FS6d/a99HVS85o7RN67OXdoOrugau8P8LbFdyTHR
+	GU5QTMQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirfk-00000007NGX-1H1c;
-	Sun, 12 Jul 2026 10:44:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wirfq-00000007NJd-24xw;
+	Sun, 12 Jul 2026 10:44:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirfj-00000007NGB-0lra
+	id 1wirfp-00000007NIq-3UFf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 10:44:31 +0000
+	Sun, 12 Jul 2026 10:44:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F65F6004E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 47451600AA;
+	Sun, 12 Jul 2026 10:44:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F781F00A3A;
 	Sun, 12 Jul 2026 10:44:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7AF1F000E9;
-	Sun, 12 Jul 2026 10:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783853069;
-	bh=vGAlEpRQYRhrbsbyFqevUzGTrHwI86sKZ3VuDai3N60=;
+	s=k20260515; t=1783853077;
+	bh=nrk8vC+Ve+FQgyHSJEFAxaMx0g8ZadKX9MusPiIExkE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=OG39gJMG3+GR+z2BP91RhW1g0+wE49EpUq3bCYDPV/qd1d16HjQxfaa5OvRrLt4t1
-	 ScfsqVHBbYXGzWg1Ng0Uj61vjOdBG8skAeWgfl7mfu6l7WzjPmPBw5s3GsYjHbHBlI
-	 P/6KwDeXesk2Y9ik3ih48WxLLm6+kKD93yq/NveeZMCdB6kOcqbl2f9rI+pyDoYAwd
-	 CRwwmI70HYUvVJv4l3pVq9XKKrd27HOgHknKzrBrcIU2KRSA+jkHv+eoW++NJrOfuW
-	 3YfKKI6vu+vOm3Kuy+pv3wszW47DA7g5awhjYFtsysatnbJHTTMialqgKQOD3Jfw5R
-	 1t1JytAS9BmOg==
+	b=Omw7G4FgNZYcZEmrx511ChY6T9zMUkEWv+kAbym3JjUrya1Ou8V/rBt5Kef5Y7zYC
+	 53+LYE4FKKsaE+qXpZWHu9nunSk9FGUVcxUDkahaqAQEXZSPDVd98i7drMhzaHWP2a
+	 RPkASOS+rmfEXYteYtuCZMoA83Jqwo2NEGTNo2xnKmIALLwHG+Jbrg1e/MHlOnR/JC
+	 meTFrDK0xcA+0UC47jl+ixZ4bNZ3Uer2PUPO8gfA1enw0fTLJBnVbL+9aUNBKGqNei
+	 ZLlkOFBJs7UCBRnreuH5WVcET8q4FiCYohUpl9FUxY6V6Ejbfr+rQqt6KgIcjYj1fH
+	 rACwlkoNj+0Ig==
 From: Lorenzo Stoakes <ljs@kernel.org>
-Date: Sun, 12 Jul 2026 11:42:25 +0100
-Subject: [PATCH mm-hotfixes v2 2/4] x86/mm/pat: acquire mmap lock on page
- table free to avoid ptdump UAF
+Date: Sun, 12 Jul 2026 11:42:26 +0100
+Subject: [PATCH mm-hotfixes v2 3/4] mm/ptdump: always stabilise against
+ page table freeing using init_mm
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-series-vmap-race-fix-v2-2-ad134cc3a12a@kernel.org>
+Message-Id: <20260712-series-vmap-race-fix-v2-3-ad134cc3a12a@kernel.org>
 References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
 In-Reply-To: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, 
@@ -69,12 +69,12 @@ Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2980; i=ljs@kernel.org;
- h=from:subject:message-id; bh=sQJwBcRAluqgPNbXUgxA0+sFptVnbX0UWpL7em1s+OU=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKC8z/859bu7Nn3SrLd4LHMIr6D0jnXY99ZKqtbpX9kV
- OT/stito5SFQYyLQVZMkeX5F/H9QSJh8zov+LvBzGFlAhnCwMUpABM5/Ijhr6Dyad2m2Y0q1/o6
- 318LY3hTsNKyT3Nhxsk5k77/Ot/rfZnhv9vCUB9Bu4mFD7RKpLdoGlw2+/rkXRibwL4ZEbMTvv2
- yYAMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3713; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=wPiaIn6Wg5e3GQRwvp54WRABlKxC65yqG85hBilGX1E=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKC8z9MUr22dUnwgTM3Wrcan9b9lrw17t3yC79mtJow6
+ feuMeBU7ChlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBE+LgYGfpan6zcqfjrdp5G
+ fef1L7Mjl5o0GN48fZebk+PG7VNz9EUZGXayf+xZ9H+hSuQB0ZL2MPnuKyz3DYyPTH3w3i3KS++
+ iPQsA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,87 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-x86 implements page attribute modification using its Change Page
-Attributes (CPA) mechanism.
+x86 and arm64 invoke ptdump_walk_pgd() with non-init_mm mm whilst still
+walking kernel page table ranges.
 
-This tracks properties of ranges such as cache mode through x86 page
-attributes, and as part of that logic manipulates kernel page tables.
+For x86 this is done in ptdump_curknl_show() and ptdump_efi_show(), the
+first passing current->mm, and the second passing efi_mm (we reach kernel
+mappings that init_mm protects for current->mm due to x86 cloning shared
+kernel page tables for arbitrary mm's).
 
-Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-fragmentation") ranges of kernel page table entries can be collapsed into
-huge page table entries as part of this logic.
+arm64 does so via ptdump_debugfs_register(), configured by efi_ptdump_info
+for efi ranges against efi_mm.
 
-As part of this collapse, it frees the page tables which the collapsed
-entries previously pointed to, and it does so without any relevant locks
-being held to preclude concurrent kernel page table walkers.
+The init_mm mmap lock is used to stabilise page table freeing against
+ptdump, so take a nested lock on init_mm to ensure that we are correctly
+stabilised.
 
-The only way this code can be reached is if CPA_COLLAPSE is specified, and
-this is only set in set_memory_rox() via:
+We take this after mmap write locking the non-init_mm mm. Nothing acquires
+the init_mm lock first before locking an arbitrary mm, so no deadlock is
+possible.
 
-set_memory_rox()
--> change_page_attr_set_clr()
--> cpa_flush()
--> cpa_collapse_large_pages()
+The preceding patches in this series updated the two cases which can cause
+races with ptdump in init_mm ranges - vmap and x86 CPA huge page promotion.
 
-Notable users of this are execmem and bpf when manipulating executable
-mappings.
+For arm64, commit fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
+already provides exclusion against init_mm for the vmap case, which this
+patch also pairs with.
 
-However, this is problematic for ptdump, as it walks ranges it does not own
-and thus runs the risk of a use-after-free on page tables freed underneath
-it.
+The first point at which ptdump can race kernel page table freeing is
+commit b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page
+table"), so we target this in the Fixes tag.
 
-This patch resolves the issue by acquiring the mmap read lock on init_mm to
-provide mutual exclusion against ptdump, which acquires the init_mm write
-lock.
+Also update walk_page_range_debug() to assert that init_mm is write locked,
+add a comment explaining why and remove some redundant code.
 
-It is safe to acquire a sleeping lock as all the callers invoke
-set_memory_rox() from process context and in any case,
-change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
-mutex, disallowing atomic context here.
+We do not need to check for walk.mm being non-NULL, as the mmap lock
+asserts would NULL pointer deref if it was (and of course no callers do
+this).
 
-We also include cleanup.h in order to use a scoped_guard() to implement
-this cleanly.
+The rest of this code is exactly as it would be if invoking
+walk_kernel_page_table_range(), only now it's far clearer that that's the
+case.
 
-Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
 Cc: stable@vger.kernel.org
 Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ mm/pagewalk.c | 14 +++++++++-----
+ mm/ptdump.c   |  7 +++++++
+ 2 files changed, 16 insertions(+), 5 deletions(-)
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index d023a40a1e03..4c4b8244502f 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -22,6 +22,7 @@
- #include <linux/cc_platform.h>
- #include <linux/set_memory.h>
- #include <linux/memregion.h>
-+#include <linux/cleanup.h>
- 
- #include <asm/e820/api.h>
- #include <asm/processor.h>
-@@ -436,9 +437,16 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
- 
- 	flush_tlb_all();
- 
--	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
--		list_del(&ptdesc->pt_list);
--		pagetable_free(ptdesc);
+diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+index bbcfd68d0907..5d87c632a255 100644
+--- a/mm/pagewalk.c
++++ b/mm/pagewalk.c
+@@ -702,12 +702,16 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+ 	 * to account for page table freeing on vmap huge page mapping.
+ 	 */
+ 	mmap_assert_write_locked(mm);
 +	/*
-+	 * ptdump might read these page tables, so avoid a use-after-free by
-+	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
-+	 * write lock).
++	 * x86, arm64 ptdump allow walks of efi mm's and x86 ptdump allows walks
++	 * of arbitrary mm's.
++	 *
++	 * However, they both must also hold the init_mm lock to account for
++	 * concurrent kernel page table freeing.
 +	 */
-+	scoped_guard(mmap_read_lock, &init_mm) {
-+		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-+			list_del(&ptdesc->pt_list);
-+			pagetable_free(ptdesc);
-+		}
++	mmap_assert_write_locked(&init_mm);
+ 
+-	/* For convenience, we allow traversal of kernel mappings. */
+-	if (mm == &init_mm)
+-		return walk_kernel_page_table_range(start, end, ops,
+-						    pgd, private);
+-	if (start >= end || !walk.mm)
++	if (start >= end)
+ 		return -EINVAL;
+ 	if (!check_ops_safe(ops))
+ 		return -EINVAL;
+diff --git a/mm/ptdump.c b/mm/ptdump.c
+index 973020000096..5851096e6f65 100644
+--- a/mm/ptdump.c
++++ b/mm/ptdump.c
+@@ -178,11 +178,18 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+ 
+ 	get_online_mems();
+ 	mmap_write_lock(mm);
++	/* To stabilise kernel page tables we must hold the init_mm lock too. */
++	if (mm != &init_mm)
++		mmap_write_lock_nested(&init_mm, SINGLE_DEPTH_NESTING);
++
+ 	while (range->start != range->end) {
+ 		walk_page_range_debug(mm, range->start, range->end,
+ 				      &ptdump_ops, pgd, st);
+ 		range++;
  	}
- }
++
++	if (mm != &init_mm)
++		mmap_write_unlock(&init_mm);
+ 	mmap_write_unlock(mm);
+ 	put_online_mems();
  
 
 -- 
