@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBADC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 09:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B162C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 09:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsJU27Z561y3XTmKXQzrI5pSnWmaE5x+UzAWrjuTKgQ=; b=paEbcLBSiP28CpYU4KlHWnk71k
-	BRS6kvah/OzWvNPPlEl6DWTSWxQxGcsy2GUP4o4p6agen7P4Noysb6LgWBo9GgBy/KLuYVi8rQv2O
-	h7lc5As4ReMUyUWbFgTiS4/ExMHdmkqd1BZvmfDOzE7fMaknkhrs+uA6s1EyZRDRfG/5fV4IwGBPp
-	GXMtdJBTzyfh2y3sjR6rhxdBPmJbEitDuX5dYEaiDBlgbi66r9eeM1Q5mGlOyDOB9tR6+4LbG3Iy4
-	x40hDcabeky8g7xa+8AOBwP241xpxqYMAM6npG3lcLoRavs+qQjLuKomLP3eBsg83KuAazJ+RDoxp
-	lbmPdeaw==;
+	bh=52kZejFtRxHWJh8aWpxhVLVG7ppdIETUdLQgRUaIxpA=; b=021REUwE9Frk+csVAit6Q8obXf
+	k7SPF/D/Wzhq1eXygWVQQEuw8ygt2l6wbqruZ/MRy82ScRpfVqruDkSL/PuOJTwmyOtpA3LhwayIQ
+	3ThaVrKb4O/1JSzTdJG04/9QP1GWMoZ4TT2zLwxkWI9PtObmF94y87KPiZdl0rdFHKbyzE7kOJvgE
+	IAgUpN9wno1lsb75m3XcwEkCUHAmGSBLUmYXSfm6OdiFTloFYYCIXbQ4C/0t5Yx+GyUqO/0CV3GkJ
+	rwcksZIg445tIWl2w8WkZW3ZBpWQ4MXXFhPGrmqXJrLvkL26/zrx3rMnNOlcCL1uRHhv1RQHcKEv9
+	5i9oVqYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiqjo-00000007JMr-3wA4;
-	Sun, 12 Jul 2026 09:44:40 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1wiqju-00000007JR7-0BO9;
+	Sun, 12 Jul 2026 09:44:46 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiqjl-00000007JKG-2mAz
+	id 1wiqjp-00000007JO0-485e
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 09:44:39 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c9eefcf9175so1903119a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 02:44:37 -0700 (PDT)
+	Sun, 12 Jul 2026 09:44:43 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so2013856a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 02:44:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783849477; x=1784454277; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783849481; x=1784454281; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NsJU27Z561y3XTmKXQzrI5pSnWmaE5x+UzAWrjuTKgQ=;
-        b=Wg4AbUV03nDTZnycnbiFuiNkHeNkncilL47DQ9uN7T/kVgoC5htCZfl5TSFTJrl+Mp
-         tzpwrF7M0acZELJFFVHGI0qqNMaceVluydjynY0Anm9qR5uZ17zSpINtym1ecgXXjqzT
-         iUe3nErd9a8RzpjSJsm6Lu3XSJNqQzRlG7v1QyOvkWkOG8p18tRAQXSMqdWrGBuCp4bh
-         2K33IEPsy2BgxVsNeeNWwawkxAb3+q0O2uF95UcIPgePJxMPIElO5DjIjGvgTTPSo0m/
-         4hcnAtDtxUIwRXhaPoOSVGs7dna/J+gYm908LDpPZ5ZiJ9neID5arqiy48De/Xap34bp
-         klyw==
+        bh=52kZejFtRxHWJh8aWpxhVLVG7ppdIETUdLQgRUaIxpA=;
+        b=i/fwE7y565gUPN1tHw9xVEtDVf46LWmF7flP6IXrlg4Pr9K/WthAnwTnwFNuOgd14B
+         5/mFjmNDQVeyWEkA0Em+P07lFAkpuovhjJZN1wZlXl/+BHJ3KfRwmy8F8j75PsBnWx/m
+         bLDeKXC/+JTeNDhOVwZu8+sr70+pi5Qhr63P3KEiJbVvetDcSsKIGJGgQK9h5UjP4CIa
+         KLl4vQ3QAX22daAhqo5s2kkNuA3c3aoD0BCYy7O7RLFHJMr7TZzcjF/DFKP9KSOU9U/s
+         qnMfC2jhNCn6QKmLD7Nm/dUrDwItPpGdBELPnteZnbP2+onULuUShwQQIDUWcUQ4C0Nw
+         8NIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783849477; x=1784454277;
+        d=1e100.net; s=20251104; t=1783849481; x=1784454281;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NsJU27Z561y3XTmKXQzrI5pSnWmaE5x+UzAWrjuTKgQ=;
-        b=YG4CN8xC+yMkZZSXGh+O8CjRM2hIB6AQTqOlYaKygETM/XKwp3ERasjbak/bg1C+JR
-         S+Js+H9OY7HPjTaJhWcKBROo3JBhyE4b2n+LaMlJrC/oqlG6znwIvCJ9USztLbI3+zYW
-         pzpXj2ohnqakm1PJX5FB4ZZywMpfcKBFJ/Ym2SvXH61nTov+n+yHgGkSImBlmGoN5hh5
-         5fSFNlzWfQO71nIgaUB9JApP7nB9Ad0C76jhvcRKnN3s2xeW+WqEHUXOUXZU3IdAUNv5
-         amMAtjHXEpWgmnFWqC7UlTmIKdIIK+ckjVyHYq2Gpw2Q5KCwmmziwldOvbITHaqCXlUa
-         m79Q==
-X-Forwarded-Encrypted: i=1; AHgh+RoIUsaNGxsqMs1pz3Soyy+S4XtLJjbWEN5FfPEsx26Jp47h/kT7jgKwgJjch/WA64p80Wx8GXwSGLqmkpN1a6n0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/DciaGOF4H5dktc58lV3EM49WvIAv+wdIrJrSyAgU+zNhVn5J
-	1L+7TH2zcsJWWAUFaGDwuQzplI6PrnhXYE7OMC4pWrTRUy02MNUF63/B
-X-Gm-Gg: AfdE7cnXMqTupjRWhg76eIBWfDBdIhfcOebBIrzyIozVhQMngl0eavXwodaUKNzdBZZ
-	gWJJlcDK9LOTBGw56hYvLt0TMCzOwWqKrLyj4VTTCT8rQPSm/0Wx5leU1cu019pzyzvZVx4LSnP
-	LkTAEXBCZfK+SCq9MV+skxVSter/Ngmc7jsBa6gvJMaUy+R6ql2+QtPrRkeYqwVth+nqxiKr9CO
-	7YS9y6lni98GPBKSIkHpgpuTUgG90Ljwm9oIJg7F5GUtv1JQkGrf2suhcqiaV07GD+h71eIbX7Q
-	I3mZrCbcJqTqKghPac0eIS9CTzNoq4g4RlSr2o6l7xQrBtOq2DDOgN3fvwGfOBMW4ngKKdujYrM
-	YQLyrpEQ7bcT8GNfdUnk+zX3bs9LAKuYEDyXtcZHrwceIwzzPfgyVKjruMx0cSMSz08LZfL9SNy
-	uf8OHHR+q1wuWC/nSA8TWkCOdkbSvQWNQCy4nId2fgg8IoilKjZH3aEFCLKBvLXl4oThJ1oPxeD
-	h55iXYCSSKP8DCM20/K0wuj+lUTGSv/lsjlLgNz+fMyiWE0uoYjUb/5vWwJrMY6
-X-Received: by 2002:a05:6a21:3991:b0:3bf:6363:11ec with SMTP id adf61e73a8af0-3c1103cf75amr5286669637.34.1783849476910;
-        Sun, 12 Jul 2026 02:44:36 -0700 (PDT)
+        bh=52kZejFtRxHWJh8aWpxhVLVG7ppdIETUdLQgRUaIxpA=;
+        b=Zh+3U3EevELa+tLQeXIZqi3Rb7oMsAcJ25ApeJQU6/ekVt/FheWnTYoFql9Kt+82Kn
+         NUf2cGXZ7kHlD3o8lVL/Yxqp124QKkaWWlnMojdNt5V6jfNzLle7cTNZSd/EvupYVawy
+         qsJVeD+1Ly0wFoAwrWECWyPi9a8cYQlt50XIIedt34mSB6UNA1CP1Y+xR1mKaCU3NWhL
+         wekDK/GBfUZbsOmnjWk2eSN/8CjVYKHns9CHnhoywkO2kAJR3rbKYcMBTl6psRD60+bj
+         4JGQD6HcGaPSWTe9Vu88hCY0dRSUNGZWQ4ocm7md3R37RAzk1lp8mpdc0WPmC2PKj1aD
+         kcSw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrq+oSVsNFM94UtudmhZb9L8VQzIgK3h2e27hZ0zdpCeKGguKsfAop+SiXqEC4B1V4Ml30FCfoG6Mv4FQl6JFrz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE6ZH4+b5sdqnHJRY/wohbf0abdmK1zo0ViJHwhz3KopQlZrua
+	S29XZ0MwmiftQDg9h+jjMH3rpbTq5iJ6NTPlMx4p3MJRG/VHLBRscF/t
+X-Gm-Gg: AfdE7cmkv58wnQ+kK5PXiqS+wJcJJzCruL3MSyq5ItCzP7eyC4mnDDMxEqZAC20xMbU
+	+tCLrgZVBu23GZuUEz18EOqIrwd4MZGQTc4aF24IIKEQcAjQPnl+NkUZ+M6e8JB6ADJ+BcwZw5f
+	x3EC0ZhyJsgbkQ4zA5LxLT5T+8b/z57Jid1+gtMLaLPaQ8WOynFXYiIm9/gURJc0mDCjk9cYh7h
+	+MxRnjtUp3fQJGTBCHRP3tFK0aOSc/7TAU9OvmSJqbpseN8K+G2LpZ68e7tpHxJ8cuuwKgmbMfT
+	O3jC7QpzwE2Y4zZf7O1iDVV8n5zQsqnCxS79/ZYxYpG3c67ut7U3US/0GdQXbE7OEw6XUb1eTvE
+	Q8zaCbb88Hnc4jIe45jV4I95y/fR+8TZZkp3rJtfhp1tz9edfMnGosEGQiXQT+cDqV0kaOCDMZR
+	tQKo1fY2Ny2TPoxRjLHTZJpt7QX0eaXhU+38qSvd2kl9tF+6DIiq7DGrllUOksFF0dT1LMd7Ci6
+	8R+jLyEWp2WlYtFHVLYYVMBOm2j/5PXfqlmW70685ErJHziJ9Ybb6clV7vLhVnZyD+3Dz2rBtg=
+X-Received: by 2002:a17:90b:4c49:b0:36a:fcf5:64d2 with SMTP id 98e67ed59e1d1-38dc7746cc8mr4828993a91.16.1783849481403;
+        Sun, 12 Jul 2026 02:44:41 -0700 (PDT)
 Received: from [10.160.6.73] ([119.17.57.186])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-313c50c70c9sm15268919eec.29.2026.07.12.02.44.32
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-313c50c70c9sm15268919eec.29.2026.07.12.02.44.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 02:44:36 -0700 (PDT)
+        Sun, 12 Jul 2026 02:44:40 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 12 Jul 2026 19:43:25 +1000
-Subject: [PATCH 06/12] arm64: dts: apple: t8103: Add common SMC hwmon
+Date: Sun, 12 Jul 2026 19:43:26 +1000
+Subject: [PATCH 07/12] arm64: dts: apple: t8112: Add common SMC hwmon
  sensors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-smc-subdev-dt-v1-6-7763006d57c7@gmail.com>
+Message-Id: <20260712-smc-subdev-dt-v1-7-7763006d57c7@gmail.com>
 References: <20260712-smc-subdev-dt-v1-0-7763006d57c7@gmail.com>
 In-Reply-To: <20260712-smc-subdev-dt-v1-0-7763006d57c7@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -91,16 +91,16 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-Mailer: b4 0.15.2
 X-Developer-Signature: v=1; a=openpgp-sha256; l=535;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=7u1MxAF7Cm+8Fvpmgb0ZciAKGCBJ6Tnc1FxGjq6e2jU=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFnBiU9ucqn7PBXrmNx968SE4F87GWuiFKomiFjozJK/0
- nV/ZsPOjoksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
- GukY6xgxcHEKwFRHHWb4Kzfrg2/M32lJtzr3Scty7dX5f63uzFltiROa8y5u2Z5zXY3hn5lN3Z6
- vaX2H1wvwJX7p2tvj++X7loumW6u3nNrzXn3qNG4A
+ bh=uEOX/VWb2IzaqOqmoZJ5LrpiOfc1OnKwSpPs8c3o0oI=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFnBiU83XUyxXtrjffrOH4blFz3+dJ5itpSIbfHf774jK
+ N62Ib++YyILgxgXg6WYIsuGJiGP2UZsN/tFKvfCzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
+ RjrGOkYMXJwCMNUN2YwM16bLi4su1ty1Ni9+9pLDthrMhvNd9qctL29X2lXz6ofZNYb/odfNpv9
+ gnC2TskDzzcKgr5c1p+3ddSrM4g8r84KUne9vcwAA
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_024437_715171_BDB5A302 
-X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-CacheID: sfid-20260712_024442_049899_0F5CCEA5 
+X-CRM114-Status: UNSURE (   9.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,17 +120,17 @@ Add the SMC hwmon sensors common to all SoCs
 
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t8103.dtsi | 1 +
+ arch/arm64/boot/dts/apple/t8112.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 4d6a0411f086..5b68bf0df4e6 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -1250,3 +1250,4 @@ port02: pci@2,0 {
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index a3241c816c26..ec248ca052cb 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -1289,3 +1289,4 @@ port03: pci@3,0 {
  };
  
- #include "t8103-pmgr.dtsi"
+ #include "t8112-pmgr.dtsi"
 +#include "hwmon-common.dtsi"
 
 -- 
