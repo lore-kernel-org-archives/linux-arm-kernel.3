@@ -4,75 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD98C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 13:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F1FC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 13:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StB1vo6al/Tyq7TQoedlIw1VhPuTVWO8F8r6UHW+pPg=; b=jZQirKIf+5baM3QHtKbYaGiN1+
-	nDdYn3f1qck7hkLY3BHW2aQueUoKNmHVUEBZA73p/IDb0sRAf7bYXN3/JNiNxC/nsx3WBEP+RZlj/
-	g/S72FljFeIewW0bWBhfFV8OdCFOwBbC355L4V1Bm997DWUL+2rL2O538t2vt8F9aFSEOUIcQ0BdW
-	xAmaqaI1wRVq5TmWqE5cRmL9eLL1IEe0IMMZbS8j10wNV4brnG6lAx+vRNidFhCq79VMWChIKHfag
-	9c+U8yT2eIb0r7976H2UzY3opfvTERusjaexHbYin0LSvBImwUDE31ZZSobHGOJJoZNtH11Aqp4B4
-	d2PiWIIA==;
+	bh=lBMLQxEd7BYJd8Kkqj4N1dnnSWNKtFYutuFtvv5S2hc=; b=332+xUVfIr0F6W5Dg8UkNGBqcf
+	+PEGUeyqu8JoeKvup7qIdNES4KJ+ZLAPk/F8ox0VvLnbzPGcasaKxWIKz5f4xjzmBTuaYRNtqAQiM
+	Ooh7SoAeYNMGnhGcdO5+pLSXcpVnT9jAtrROE+kITluO2EmcXPC3HbWOaBrC3IikY7ksk5l8AcCkv
+	CeiLDVst9lFRRLj7GlJKZ/EqI5EKFZbcKi6R1osiPyn+ZW25rhsHwx4CmZaN7tWnN83mugpB5ZEHl
+	ozLmfeV5fdExs0tsA1jSfx1rjFLmKw3iQ/7NEqRlvmri67h0zA3+8kMbbST0XIvSm7K+DSxj5r3Rp
+	uYk4Q4oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiu3l-00000007Sv8-0RgC;
-	Sun, 12 Jul 2026 13:17:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiu3i-00000007Sun-02F6
+	id 1wiu9q-00000007TJy-3MkJ;
+	Sun, 12 Jul 2026 13:23:46 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wiu9n-00000007TJ6-18ra
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 13:17:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F7191684;
-	Sun, 12 Jul 2026 06:17:19 -0700 (PDT)
-Received: from [10.163.128.224] (unknown [10.163.128.224])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 296AC3F85F;
-	Sun, 12 Jul 2026 06:17:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783862243; bh=Hcs/GzepDdIetzHjiaaCoZ2JnUmYACvmukBnUhnWH7o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jhlBoNmp4V+xpb5NnhaUMiVCTOtAElGvdQk7fmpFrcS3v0g3VNy1OuWqR8pPZ36kN
-	 Xun5IY8YwezHpllvFoP1/LKdzEH5CvNT0edOT6q7i7+wR+IdF2iMKGDqrG9dMx+IDw
-	 FKr3DEZcQp7SsjUU3ircfCWMmXgwcGC/xv4PruhA=
-Message-ID: <72e034d9-adcd-4302-93eb-96326846199c@arm.com>
-Date: Sun, 12 Jul 2026 18:47:12 +0530
+	Sun, 12 Jul 2026 13:23:45 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ce7d2adef4so30894895ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 06:23:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783862622; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WTwE0woSNvScmgfW3jm0SJ4S+MSogCy6Tutfu3u8GAPTDNK4mIfCCpTR2aGtqsmAv2
+         B+qVsdVYeffchHlbbGujWNoFK5kUBEkk5BzKZRvCseaHgu3BPqCWL8aSLkfpS4wnvnNf
+         kz0P5kXdQ5OPqkHsU1huoAs+Buk8VxCQOBEvdyyiQO4z5LHSs9Naou2ludqJ4hupe/rA
+         4pP8q1KZ3mBsd1uEjAsWO/wztBQYjszl24t6atjDEuQoQ0f+BMHUCoj/qSczewEJ21bp
+         Rkud8qExrKQ6eVJbpfCyU618mBpcsLy/3YhF+PuSV1vTGmjj6DQSgb3Sx6f2WdAF9llY
+         EBVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=lBMLQxEd7BYJd8Kkqj4N1dnnSWNKtFYutuFtvv5S2hc=;
+        fh=nV6GRgjB3tGLIC+5ABvRqBnVJ3yCQf+2/WOq1njcBws=;
+        b=eob7OOFIvBn6SLM6HOOtZd8GCszYsDFe6r/hZDTnUwLJRVTPZZ/WUtv2jJORl8/y4d
+         tWUDdxF3+PMW1TkX9QEzhptfRignf8YtUnwqgMa3j94+NuHvDKgRs33kscpjaJrAmn1N
+         2gb8/plvqY0EuswfJOkDuaAn8Dw9oHhLnOQ4j9P1/h9aDD6S3hdRbFdhed22l4cS3QeF
+         0ZVkJjeUQzV9h0RcYXHSXboosL0aObfyS2If+C9Vh46Fr+TfX9ddM5d4nJ9hQY1iHRx+
+         U4g1w+HfV1YCdyMOBWnpNF4oednqMY442lR64IjtvFjRxbtvCfty1lbLL9dPNjxJ9JL0
+         h7hw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1783862622; x=1784467422; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lBMLQxEd7BYJd8Kkqj4N1dnnSWNKtFYutuFtvv5S2hc=;
+        b=XkAQTJv5GIfTZKYcJMSH52ORy9zSFm964qfcc4m9Gkfq2zqE1JotAipjvV3nBpZVlN
+         fw3YhV1ihuGrVDzVr1/LyBOK1fsRkBNS0LZrFOhrX/xDKto3V8JuSv1Qrc0FEItB/u3m
+         TpLp5w2uqttzBalFKa29DF5VMTmuMBSgQrlQcoziuo3PSf2wJ9F1H87ELTIUtIhgeFTg
+         /ryb5SSoZitT9D705OEvczysCJKqoi7/YRxsttObAWAF2fTHbbp/r/8A9msBW3Z3JEY8
+         YERQHVWjikS/CWCNyFPMdudJdb7M2PwW+bLTGGzH+BxkJcHPjcMnfthn2Qt+AT9IGcds
+         Kk1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783862622; x=1784467422;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lBMLQxEd7BYJd8Kkqj4N1dnnSWNKtFYutuFtvv5S2hc=;
+        b=I5L0lqNSG0jaRW3XYMAws+m/Y9FcSE1Jc3K/LmW1p47jWO5EPKqcMFKoXRBV2NpjiB
+         AuX4OiLsuXQZ7uO3/hAh9nqpusbdudqB24lyyzIrL3d6WjiJG7FvqIxYkPCd8bExlB1U
+         a3KekUDEj4wtzvfpVMUwCAM80yg1FZhRWLodCxXS7du6rU94AwEz1ICZx1N5DWNSpcGp
+         nWOm0sk7qvO8RWSEYuXo/8S9WaTAr0AYLNigzAXfnC8kJHVHm8DIbg0OeBV9gMihE0iA
+         bVop+OdEadFS1jnUbmb3KG9PokNFsEyIVQvgZMe6SLX6n/HNvTS15vX3hxJjI61iJLf2
+         Z+zg==
+X-Forwarded-Encrypted: i=1; AHgh+RrQR3EMbIPsMkKiGLnrj8His4uh27fic6x57wvIAtTq9hQb2ErkIWhAT8/pBbnB12AjRpxg22BQYv8aagB+tRoD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSvfG1EgyW7nwOBTWsAVQz2vNo7G20X2g+fuKUAKrh7WdOB4Ie
+	9W/9KGfbbzlfJKb+XUSQH9xC51B/eH1kamq6D7lSArnwB+bReUM2N+SA1w8BfQLc4g0xQNSQcGJ
+	ewhQZSc3iB8wK5SEnmrZZPnqEAJm6bK0=
+X-Gm-Gg: AfdE7clBl8HGG3WKk2emQEJlPV+Sg9y65uRAcTda4I2Apqpk+s07EtaogeY8+XQ0lCa
+	Iuv9lkvh2JNn/spytb/ICHwn7FrPb53kF8O83IROrlTXhE32BOErE74hw+h8EbHDwWjS7mtghNm
+	bnJDHqBB2KPlpjLj49acfcg3q5AXGlETKE+XPTd866VVNfKcpqGdd6HyYvivPEYoes7p3bLKuQW
+	+Xia+aXCgYrTLseta+Jvyo5BYZqXDqoooWvGlgJhXUJLlD2v4yp0Bggy47rstOAVsIegMC33+0F
+	ByA97ciKesTiMOpc94SvcUH4cdX+/g==
+X-Received: by 2002:a17:903:240c:b0:2c8:1c05:16bb with SMTP id
+ d9443c01a7336-2ce9ec0f108mr56548535ad.24.1783862621987; Sun, 12 Jul 2026
+ 06:23:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-hotfixes v2 1/4] mm/vmalloc: acquire init_mm lock on
- huge vmap to avoid ptdump UAF
-To: Lorenzo Stoakes <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski
- <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <cover.1783673420.git.sean@mess.org> <a11dc2d089d4e288b63412a0d3029393c577ee80.1783673420.git.sean@mess.org>
+In-Reply-To: <a11dc2d089d4e288b63412a0d3029393c577ee80.1783673420.git.sean@mess.org>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 12 Jul 2026 15:23:30 +0200
+X-Gm-Features: AUfX_mzypuSkZEBJ20fubf7QLH9Pq4J2Gq3FfCadOdbOn5XOHaqqRDGX3eTeNBA
+Message-ID: <CAFBinCAMtch=GJO8mba9zCj9KT77AuDSpybcuH9_1gu1i=Hr2A@mail.gmail.com>
+Subject: Re: [PATCH 6/7] media: meson-ir-tx: Ensure rc_free_device() is called
+ on unbind
+To: Sean Young <sean@mess.org>
+Cc: linux-media@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Hans Verkuil <hverkuil+cisco@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_061726_253565_059CE2F0 
-X-CRM114-Status: GOOD (  36.22  )
+X-CRM114-CacheID: sfid-20260712_062343_313968_763C8899 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,117 +122,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/07/26 4:12 pm, Lorenzo Stoakes wrote:
-> Currently there is a nasty race between ptdump and vmap when attempting to
-> map a huge P4D, PMD or PUD entry.
-> 
-> ptdump is invoked by arch code to walk kernel or EFI page tables, either to
-> output it for debugging purposes, or to assert that there are no
-> W+X (i.e. executable writable pages) exposed in these ranges.
-> 
-> The feature is enabled generally via CONFIG_PTDUMP (whose implementation is
-> in mm/ptdump.c), and expose a debugfs interface for it if
-> CONFIG_PTDUMP_DEBUGFS is defined.
-> 
-> If CONFIG_PTDUMP is enabled, then /sys/kernel/debug/check_wx_pages is
-> enabled which checks kernel ranges to perform the W+X check. If
-> CONFIG_DEBUG_WX is enabled, this is done on boot.
-> 
-> (Note that arm32 implements its own page table walker and uses
-> CONFIG_ARM_DEBUG_WX and CONFIG_ARM_PTDUMP_DEBUGFS for this.)
-> 
-> The EFI implementations vary by architecture, but are not relevant to the
-> bug, as the issue is when kernel page ranges are walked.
-> 
-> ptdump_walk_pgd() holds both the mem hotplug lock and the mmap write lock
-> before invoking walk_page_range_debug(), however this runs into an issue
-> with vmalloc ranges.
-> 
-> When vmap maps a P4D, PUD or a PMD sized range and encounters an existing
-> P4d/PUD/PMD entry pointing to a PUD/PMD/PTE page table, it invokes
-> vmap_try_huge_[p4d,pud,pmd]() to try to convert it to a huge page table
-> mapping if possible.
-> 
-> However, when it does this, it holds no meaningful locks against other
-> kernel page table walkers, invoking [p4d,pud,pmd]_free_[pud,pmd,pte]_page()
-> which calls pagetable_free() and pagetable_free_kernel() in
-> turn (pte_fragment_free() for powerpc).
-> 
-> This means that a use-after-free becomes possible if the ptdump page table
-> walker happens to be walking a PUD, PMD or PTE page table after it has been
-> freed.
-> 
-> Since commit 5ba2f0a15564 ("mm: introduce deferred freeing for kernel page
-> tables"), if CONFIG_ASYNC_KERNEL_PGTABLE_FREE is set,
-> pagetable_free_kernel() will batch the page table freeing operation,
-> otherwise it frees the page table directly.
-> 
-> While the KASAN report that syzbot highlighted indicated that the issue
-> arose in a workqueue introduced by this change, this is coincidental and
-> the commit did not alter the race which has existed for quite some time.
-> 
-> This patch resolves the issue by simply having
-> vmap_try_huge_[p4d,pud,pmd]() hold the mmap read lock on init_mm while
-> invoking [p4d,pud,pmd]_free_[pud,pmd,pte]_page() and
-> [p4d,pud,pmd]_set_huge().
-> 
-> This way, page table walkers either observe a newly promoted huge
-> P4D/PUD/PMD leaf entry or the prior PUD/PMD/PTE entry and never get passed
-> a dangling pointer, whether the page is freed asynchronously or not.
-> 
-> All other kernel page table walkers that touch vmalloc ranges either
-> exclusively own the memory walked or acquire the mmap lock, so this
-> correctly excludes those walkers.
-> 
-> We acquire the mmap read lock as a trylock, as this is an optimisation that
-> is permitted not to succeed, a race is very unlikely, and doing so
-> eliminates latency sleeping on the lock would have otherwise caused.
-> 
-> We also define a guard class for mmap_read_trylock() so we can use
-> cleanup.h to make the scope handling cleaner in the implementation.
-> 
-> One wrinkle here is commit fa93b45fd397 ("arm64: Enable vmalloc-huge with
-> ptdump"), which addresses the issue for arm64 only by explicitly acquiring
-> the mmap read lock on kernel page table freeing should a concurrent ptdump
-> be in progress.
-> 
-> This is problematic as vmap may acquire the mmap read lock prior to ptdump
-> attempting to acquire an mmap write lock, leading to a deadlock when the
-> mmap read lock is slept upon on page table freeing due to rwsem
-> anti-starvation.
-> 
-> We work around this by predicating the mmap lock being taken on
-> !CONFIG_ARM64 for the time being.
-> 
-> With this patch applied, a follow up will partially revert commit
-> fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump") and at that stage
-> remove the arm64 ifdeffery.
-> 
-> We also update walk_page_range_debug() to assert the mmap write lock
-> unconditionally and update the comment here to reflect this change.
-> 
-> The issue has existed as long as ptdump was available and vmap freed page
-> tables when promoting to a huge leaf entry, that is, since commit
-> b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table") for
-> huge ioremap, and commit 121e6f3258fe ("mm/vmalloc: hugepage vmalloc
-> mappings") for huge vmalloc.
-> 
-> Since the former is the earlier of the two we choose that for our Fixes
-> tag.
-> 
-> This patch is based on work by David Carlier (linked), with gratitude!
-> 
-> Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
-> Cc: stable@vger.kernel.org
-> Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-> Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
-> Link: https://lore.kernel.org/linux-mm/20260706203128.162335-1-devnexen@gmail.com/
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> ---
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-
-
+On Fri, Jul 10, 2026 at 10:53=E2=80=AFAM Sean Young <sean@mess.org> wrote:
+>
+> Make rc_dev devm managed.
+>
+> Fixes: dccc0c3ddf8f ("media: rc: fix race between unregister and urb/irq =
+callbacks")
+> Signed-off-by: Sean Young <sean@mess.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
