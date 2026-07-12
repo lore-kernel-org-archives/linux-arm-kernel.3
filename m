@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20BEC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 20:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA19C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 20:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RdRuHzdXq91B4Ck5zEM60mSrg0JXF70TNB6D0dYPrtY=; b=R1Is0qDTb3gG3fDPOF4rXqq/mH
-	0KI0dhnneCaANGn7e/SuM/yVV5pEr/HMsMqljlWYGnbsfqNp0/FkhtVUjerpdzE6SAgspPw1COv09
-	KqqDPdk2IcObT6q12+I474LKrmhxZ/bMDM21pzXjHXX5r1Ikez7BAJUk6GVPOfnz0LP0NUY4Yl5KH
-	lHYIsM/QZOtGrBLmGysK1TBP3k6HXYBZBpgV/qBTPVX2wg8tF/xrRocFGosCHb0zh8QPczgguO8uu
-	YUuY+WThR2X2WUjLEyEF1GBkRIa0OjSqGhC2X333uskrSMvqzEPuCtoC16r46+YuC7NKiqGNkhc1D
-	24+f4OzA==;
+	bh=Mv2WgGTz6WKIqtoJnLFA34PaD05R6doIbVvqCh8lFG4=; b=ex3IL7TfLy1sJUdgcYjnOxyEb2
+	2HiJVTIdMRfukc0f+BdUkZFTA2syALhSaVuDhadAcYaavrhTyR4zJdaySM1uJA3b6t9sgCOJpcudE
+	J5k/z3YJIoxZ6PKK8MwMjTcQUjYNp8r83Il0K8GVWlJDydX3HP6lyivl0PTxibK5QFvz4e1oxR9r1
+	HToULBVt/cXi88ywFwf3vte44R4OA2VeYNZst5gWjSONBA2WP7HkQEEbtcmFvr9qqCHclAOL9TAFq
+	kardW0VV0+IVt84ORPoOnIzrcvaKkf+Hqb2tcLrd/0r+fWzcrDhYcqCr/4LzDyBsLBRRoMz32X8MX
+	F2AUe1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj0t1-00000007jZQ-1Uyb;
-	Sun, 12 Jul 2026 20:34:51 +0000
+	id 1wj0t8-00000007jeF-3rhE;
+	Sun, 12 Jul 2026 20:34:58 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj0sp-00000007jQw-06bN;
-	Sun, 12 Jul 2026 20:34:40 +0000
+	id 1wj0t2-00000007jZP-1KC6;
+	Sun, 12 Jul 2026 20:34:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=RdRuHzdXq91B4Ck5zEM60mSrg0JXF70TNB6D0dYPrtY=; b=uewt+Db+AXf5pcMwAPqVJ1Fvep
-	9q6dbRiHNLbISblseRryVfgqRMoXiOH9YLvwrNMGvt/fjR2sAFOuzX82Rc0GJAsx2SiUiVQ4zm8em
-	o+FbSrAv5eSJl2cHYS5qWgPNj/MWnBCgezbkbg+5cT/ooUhBia2GV9s7kY9GhvbqNPKHLWd4LYLn/
-	xjPeJzhtdzlt3dxcwNhQiXzy7AvmqZVFjUMIVWLIbJUju2So+Rig3coEvKAWVCJHWv+0Nc9M7Hzu9
-	0SpW3Sx590zvUoyIeMxh3CRFNFnL+pbRutWBQaICE65/4aeqkKEnIxF4US3E+FsTeHQpuPB/7pfOx
-	8qRq77Ow==;
+	bh=Mv2WgGTz6WKIqtoJnLFA34PaD05R6doIbVvqCh8lFG4=; b=ctJpl8nTmjSPbLdy7AePVUSEcT
+	4SU8EprP9Zha+ttcLt3cuQ6gy3de/Nx2IcCVXn+Ur2u9z3rvkl0k85qyLgLVY3Isde/CeUCrsd4Ib
+	ZAGsRB5w4feaOa1KpOapEuzihotjFf4UAmebxw8jth2ErWFcLeLdICBSs/HxLxu2KT0bd2x1bhxgg
+	kpH4XNgIxuS3CrTuDcD+ixXLw0+mOhmX5xqlIHxbMm3SO6YH9aSsJWzGv0yIRh+LfTPiJOofmOqCZ
+	JkrEQUEinoNIaL5LVIdgrMSih1NbP47hsBTnsMKfF99I/HNZvJ/kFVEWuFx8sSe4knQanm+KgzRJ9
+	jwHO712Q==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Daniele Briguglio <hello@superkali.me>
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	David Wu <david.wu@rock-chips.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Frank <Frank.Sae@motor-comm.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Yanan He <grumpycat921013@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: yy3588: fix HDMI-RX signal detect GPIO
-Date: Sun, 12 Jul 2026 22:33:58 +0200
-Message-ID: <178388833969.1396294.14102109354699035035.b4-ty@sntech.de>
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: (subset) [PATCH v2 0/5] ARM: rockchip: rv1126: Add support for Alientek ATK-DLRV1126
+Date: Sun, 12 Jul 2026 22:33:57 +0200
+Message-ID: <178388833980.1396294.8103967667500299878.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260709-yy3588-hdmirx-d5-fix-v1-1-900a6790386c@superkali.me>
-References: <20260709-yy3588-hdmirx-d5-fix-v1-1-900a6790386c@superkali.me>
+In-Reply-To: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
+References: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_133439_077889_F23602A9 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260712_133453_133346_466E1D18 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +86,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 09 Jul 2026 08:58:38 +0200, Daniele Briguglio wrote:
-> The YY3588 declares the HDMI-RX signal detect on GPIO1_C6, but the
-> receiver never sees an attached source there and cannot capture any
-> input.
+On Mon, 06 Jul 2026 17:14:40 +0800, Yanan He wrote:
+> The ATK-DLRV1126 board consists of a CLRV1126F core module and a
+> DLRV1126 carrier board. The core module contains the Rockchip RV1126
+> SoC, eMMC and RK809 PMIC. The carrier board provides Gigabit Ethernet,
+> SD card, AP6212 WiFi and Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and
+> audio connectors.
 > 
-> That value was copied from the vendor device tree and is wrong. The
-> core-board schematics are not available and the SoM documentation does
-> not clearly show where this signal is routed, so the correct pin was
-> read from the device tree in the board's Android image: GPIO1_D5. With
-> GPIO1_D5 the receiver detects a connected source and locks, and v4l2
-> reports the input timing (1920x1080p60).
+> This series adds the Alientek vendor prefix and board compatible, updates
+> the Motorcomm PHY driver to consume an optional external PHY reference
+> clock, adds missing RV1126 SoC description pieces, and finally adds the
+> CLRV1126F core module and DLRV1126 carrier board device trees.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: yy3588: fix HDMI-RX signal detect GPIO
-      commit: 3cb7054789d1babe484dcd58a921609ee5a687a2
+[1/5] dt-bindings: vendor-prefixes: add alientek
+      commit: 068a6bd57167cb97058b08f22db0584fabdaab95
+[2/5] dt-bindings: arm: rockchip: Add Alientek DLRV1126
+      commit: f1522feb72aa5231532c9f69e7f5cc91972697e1
+[4/5] ARM: dts: rockchip: Add RV1126 I2C5
+      commit: 17bee9ee734e56d512ec7803eb7948adb56d1d9c
+[5/5] ARM: dts: rockchip: Add Alientek DLRV1126
+      commit: 44045aa7a9a9e6484617f44f77a3efb2d8e78565
+
+Please double-check the sorting on future patches :-) .
+The dtsi was perfect, but I did some re-sorting on the carrier-dts.
+
 
 Best regards,
 -- 
