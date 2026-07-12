@@ -4,56 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41E8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 17:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E63C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 17:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EYmNQeN1MMv3XCMLlgvSMjuvdlpxNtGkNTF/uC1tgH4=; b=BKdVEjOu0APvLfah7WRaSQPrPM
-	CUdS7APIMKNJsNMdEOjXc4pNR3uFk7+oWdljedYkWa5jnQsg/Ymd7GO65skHxHGqtrbwaLxums/F2
-	HSwKZK0xJfM88KPIcQ1JerFXRvt/nj99vgaO/H4qXH6yu+I162dOiOj+0B1vCqLozuNuIIWb6j5Sb
-	VgfCD8S5DEUM9xFRrpH08wUBjFeXNxiMYyyneMAhFMbioc+VeLn9y6RChbNtgOHONUGKAh1aWQ+jJ
-	ktJcTBGywWajBfSvwoXLAVrK0Ks/suECYUi12r6GtsIkAHfs9nNuutReFF2CHKROTYRXeMiHHpLBB
-	ynlFSjaQ==;
+	bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=; b=nYh5yliJc3A2eCGucl3KjXhUCH
+	V64eQfNR3BGp92r9hTmNvyWvIcFWbZwtnVDtzOKV5Ts5mksbPFdaFVV33uJf8zfBidFtwysxT4s0K
+	GO/yHf7LhvbrJQzwyZMNe9Vegz6yyMelwiQwVAxo5j55CcyN7hZNaeu57OZ1gWJdwcOM7lvCMv3eY
+	iQJYIuRnaS9qUxeDlShNRQOUp/RU8HvavYBs17hsqqNGXRdxCXTxPMo/9ZHP7OqCZlbxZkSV+ZvDq
+	7ErDbdFpYNCXp1/ijHiurKlWdk7Pm9+IGJY3uWeN52U8BsC4VFrwxCS6RFhyVbATbOgdcuzl94fky
+	L5YvDsDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wixXU-00000007dFU-1Buk;
-	Sun, 12 Jul 2026 17:00:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wiySt-00000007egb-3yoN;
+	Sun, 12 Jul 2026 17:59:43 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wixXR-00000007dEq-3Vft;
-	Sun, 12 Jul 2026 17:00:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=EYmNQeN1MMv3XCMLlgvSMjuvdlpxNtGkNTF/uC1tgH4=; b=Gt1Rprs4T9rS1j+zsV8bvuaMOJ
-	t7HxPBa1j1m0JItJ5WHAaWmlGPpF6gFPbEzako2YaWKDyPn6RpFFl4wPFmJ1G2cHh/cWOFXV0pDy+
-	7665P+rXo5HJU+a3PhPpKTFetM0t/Sa8R+4diZkHEP6hE1gveOaDX+bV/sKq6dazewNDTq8zDAvND
-	gUrbd7EdSaUWOX1CMI34fTuWJRq1ENfwlklPur7u/lGYipW6uo+xYUVCTbBt2dGwB7W1/6Y4yOUUX
-	m31AslFuztVTIFfri4hisKAwxoxiKZI/VKR9FTzI8FUf1R02FbZskhoHiVUbPb9ts/qLgc4If5Cif
-	I0jf13Ig==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Fabio Estevam <festevam@nabladev.com>, linux-arm-kernel@lists.infradead.org,
- Simon Glass <sjg@chromium.org>, Jeffy Chen <jeffy.chen@rock-chips.com>,
- Linus Walleij <linusw@kernel.org>, huang lin <hl@rock-chips.com>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 04/12] pinctrl: rockchip: Add RV1106 pinctrl support
-Date: Sun, 12 Jul 2026 19:00:13 +0200
-Message-ID: <13316226.iMDcRRXYNz@diego>
-In-Reply-To: <20260706195818.3906949-5-sjg@chromium.org>
-References: <20260706195818.3906949-1-sjg@chromium.org>
- <20260706195818.3906949-5-sjg@chromium.org>
+	id 1wiySr-00000007efo-05Vi
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jul 2026 17:59:42 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84867f07d63so2632888b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:59:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783879180; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mu0HuQ5LtPA6SdfwkHSSe1Bh0Ajt3ijY75lHDRKlz+73FFRN+y62NEoMaIufwXHDZt
+         RHSztWczYfkwebzrns9pM1y3iilwhwRz+mkivWN4kzYuZ+u4Jch2imFqCozpRupT0vf8
+         NJAc8LdMS+0kfZGW32t4cJy+pvkezeC4tdiA3R6pJVuU8VjPca02Ed1/i7afXiQml1Pa
+         pAQo5la19V7LHDHauTpUNsvKksG7TcAKt0bxh/Rfw3Xp3QOhOYW2xj2Jgw1qD03l5gpS
+         SZ5F3khSF2Pt1RzVxrFsxLN2EMzpdHgo6lrqoN2wlC3BKMpoK0rzacg9bzVBSIohszJv
+         qnPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
+        fh=RhHcF6+uHcTgFr1QFfaZ9xmOQ0e7k5x7TNnyK78P7Q0=;
+        b=Z3DMakNcgD7zZgEJnHe6AdXnIHhQdxCsl70bkr1JZ1nn9LJ9dTigWNciS9EcY0J/cE
+         JIZkx7pDa2Cxj/1hXOU7mJ6kYgtHPTjUIxqgJJGQnO29FOE7dXgLPZOVmHEhdVjA/O0a
+         s0j+E2KjqbvVsOMu7+uvS7B1v6aTb2eXxISEENROmnq2LjLLiSRbCOe+/y1By60hbHAB
+         arIJ1r/RinglNrqvd0BezQcmRI2RW9wSu4ciZiF7hrKirr00SJMa5opH/jRN8esMgqFE
+         zRgr8HE2PK64PefdjgDqR6S2SpisgHbHk+VD4uEIVSzJOGSxUaChMwTrkqCBXLM/fx+0
+         C9cA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783879180; x=1784483980; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
+        b=rrM1NRTmPM+Hd6wp9O0tK2mZpXnJeYDtHVzI1OzHkXWLPa6FuqPHyHbCJSty7Y/WHr
+         BiQzHGjVj96CwY0JWVETR64MT8dQG8WvHrzXx7UVfYa9bQaZXVyPJLUGSJ9Cjq0a24Xm
+         cCmqcUnsjpD+iZADWps1SGItIspyXZf2f9w9w8Ab5k88v0lxH1qdYZ8rUh6AN/i17/wX
+         xsQbB5Kt/BnedbdB82DT0h4cqQAwuXyb3qGm7RBkMz4HHkX7xuim1jE7h3oc7QD7N5pR
+         Pr5h9WZHrPWqp/vltltrbe2rn7hrw63cSIIdZRuxF68AuAtDHCBoIEj1V2GYY17c8oeF
+         crAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783879180; x=1784483980;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
+        b=KuEJeez/pm7yrTIRNj13cNpD1jjcfOmXKqpeQMCkbviCUB9vNDOi5qqvwZYYtvvyGE
+         oBZU+SvLu5XZqIPYt1TIt4qgpWGNu1+/g2THo2iH+HVQSpWqYNXIEqFwXfoJfEEnPta7
+         Fnh96cIRYbrM+PnNg6qzvPPMltmyYfDzybsdHgoraohYWN7uuv8iRp4Fu0e9InO7BNuJ
+         7dxwMB9jXRMEYMyeBqrpxpGh3rq/ZUUskzsGNDVu8U6ILb1nxt26s14xsVZ6NCx0L3tu
+         QX58DnX/Xqwaii4k/VlQtboanp28Be26/1iVG4PpYAUlcyFvXjeAeN6E2B2hqfru1Ku8
+         +KfA==
+X-Forwarded-Encrypted: i=1; AHgh+RpgGjdQk/A8lBCnkGypZ84dHSqPuK9MOLjshRGqJD0s+QZ+hrBnR1bKiwWyGAOdE1coqmNEnmpmg137zSjJ1kub@lists.infradead.org
+X-Gm-Message-State: AOJu0YywWqEau5eGoWNKsDEFzuiIv6ocF8HXebsGvB60eI4XdeImTatv
+	Ke1tyLeLZ8bPw1eqnKoY7GpiiYVVd75lydzWe1jkNuuw4MQS2vP0ImaTWlZWL4L7/D8eeabTF5I
+	DGUpoHxyyL98SgazbAFIxUgSQlPQunr0=
+X-Gm-Gg: AfdE7cnrtq7rSUkDve3Lrt0fY0ijv8lvtsJOIwVanAU9mv8UIE2H17xgEpv/2Qx3xgu
+	fy6eDZS5Q8RIDXs6l3KDKWTCFcbU9Ni3XF6wX42fClhMEODsvLlNbvnrtR0X7WrnH18TiDzt0rR
+	KcOL9Ax2PQSi2Bx0TLPXf+RYKLXhSXAV9k48nLqfyezuMbL6INsKPAUXUpVADWhQQ+e9ADVBoAa
+	DNNb2ajSvs4Rumlj8gorwpmzKLPJiV7k7SxX+5vyfR3yGSIvK1rHoXfP0TtyFRl5Z6qmISCigdO
+	nCH3SmmLxRUeO14HEgmB2uPJbMHmcgkklLeniHQGLUrHJjUiUJitYl3rT1s6IbOGJmIY5pVRzLz
+	foYyL4r7vBHBDFb+Mplpt
+X-Received: by 2002:a05:6a00:4486:b0:848:804d:9c5c with SMTP id
+ d2e1a72fcca58-848896dd3c0mr5554442b3a.38.1783879179743; Sun, 12 Jul 2026
+ 10:59:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
+ <20260711-nanopi-m6-v2-4-422675a65402@gmail.com> <84467f61-9902-4dea-abda-6e8cb31e0238@kwiboo.xyz>
+In-Reply-To: <84467f61-9902-4dea-abda-6e8cb31e0238@kwiboo.xyz>
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
+Date: Sun, 12 Jul 2026 19:59:28 +0200
+X-Gm-Features: AVVi8CdXhh6gKGuHTJ0a2hd15-RSpJMz5r5Gy7rN4XSVonKwOhD1LFSXZ8VR_Fc
+Message-ID: <CAPSPb=t33bHfuEAMLWPM5=2fSyJXv5vjYD=_pSNRq6GcUz-X_w@mail.gmail.com>
+Subject: Re: [PATCH v2 04/12] arm64: dts: rockchip: rk3588s-nanopi: add
+ missing sdmmc cd pinctrl
+To: Jonas Karlman <jonas@kwiboo.xyz>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	diederik@cknow-tech.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_100021_977971_3341566B 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20260712_105941_067564_228915EF 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,120 +120,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 6. Juli 2026, 21:58:00 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- Simon Glass:
-> Add pinctrl support for the Rockchip RV1106, taken from the vendor
-> kernel in the Luckfox Pico SDK [1] at commit 824b817f8 (a Linux
-> 5.10.160 kernel tree). The IOC registers are spread across several
-> blocks, addressed through per-bank offsets, with the GPIO0 block in the
-> PMU. The drive strength uses the RK3568-style exponential encoding.
->=20
-> The RV1103 is a package variant of the RV1106 with fewer pins and uses
-> the same pin controller.
->=20
-> [1] https://github.com/LuckfoxTECH/luckfox-pico
->=20
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> ---
->=20
->  drivers/pinctrl/pinctrl-rockchip.c | 208 +++++++++++++++++++++++++++++
->  drivers/pinctrl/pinctrl-rockchip.h |   1 +
->  2 files changed, 209 insertions(+)
->=20
-> diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl=
-=2Drockchip.c
-> index 7e0fcd45fd26..f9cbcb955853 100644
-> --- a/drivers/pinctrl/pinctrl-rockchip.c
-> +++ b/drivers/pinctrl/pinctrl-rockchip.c
+Hi Jonas,
 
-[...]
+On Sat, 11 Jul 2026 at 01:18, Jonas Karlman <jonas@kwiboo.xyz> wrote:
+>
+> Hi Joachim,
+>
+> On 7/11/2026 12:11 AM, Joachim Eastwood via B4 Relay wrote:
+> > From: Joachim Eastwood <joachim.eastwood@gmail.com>
+> >
+> > The cd (card detect) pin is used, but not reserved through pinctrl.
+>
+> Maybe this and some/most of the other DT changes that fixes some missing
+> bits should put first in this series and with Fixes tags?
 
-> @@ -3310,6 +3470,7 @@ static int rockchip_set_drive_perpin(struct rockchi=
-p_pin_bank *bank,
->  		ret =3D strength;
->  		goto config;
->  	} else if (ctrl->type =3D=3D RV1103B ||
-> +		   ctrl->type =3D=3D RV1106 ||
->  		   ctrl->type =3D=3D RK3506 ||
->  		   ctrl->type =3D=3D RK3528 ||
->  		   ctrl->type =3D=3D RK3562 ||
-> @@ -3482,6 +3643,7 @@ static int rockchip_get_pull(struct rockchip_pin_ba=
-nk *bank, int pin_num)
->  				: PIN_CONFIG_BIAS_DISABLE;
->  	case PX30:
->  	case RV1103B:
-> +	case RV1106:
->  	case RV1108:
->  	case RK3188:
->  	case RK3288:
-> @@ -3547,6 +3709,7 @@ static int rockchip_set_pull(struct rockchip_pin_ba=
-nk *bank,
->  		break;
->  	case PX30:
->  	case RV1103B:
-> +	case RV1106:
->  	case RV1108:
->  	case RV1126:
->  	case RK3188:
-> @@ -3843,6 +4006,7 @@ static bool rockchip_pinconf_pull_valid(struct rock=
-chip_pin_ctrl *ctrl,
->  		return pull ? false : true;
->  	case PX30:
->  	case RV1103B:
-> +	case RV1106:
->  	case RV1108:
->  	case RV1126:
->  	case RK3188:
-> @@ -4623,6 +4787,48 @@ static struct rockchip_pin_ctrl rv1103b_pin_ctrl _=
-_maybe_unused =3D {
->  	.schmitt_calc_reg	=3D rv1103b_calc_schmitt_reg_and_bit,
->  };
-> =20
-> +static struct rockchip_pin_bank rv1106_pin_banks[] =3D {
-> +	PIN_BANK_IOMUX_FLAGS(0, 32, "gpio0",
-> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
-> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
-> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
-> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU),
+I can of course put them first in the series. So we have the option to do so.
 
-sashiko is correct here,
-only pins 0-6 have drive-strength registers.
+But what is the policy regarding "fixes"?
+I don't think they fix any critical issues, but they do make the DT
+more correct.
+So do we want to backport these to stable?
 
-Some different setting starts at the 0x30 mark.
+Maybe the following changes qualify:
+arm64: dts: rockchip: rk3588s-nanopi: add missing pcie rst pinctrl
+arm64: dts: rockchip: rk3588s-nanopi: remove pull up on rtc int pin
+arm64: dts: rockchip: rk3588s-nanopi: add missing sdmmc cd pinctrl
 
-This should be easy to handle in rv1106_calc_drv_reg_and_bit()
+But I don't any others should be considered fixes.
 
 
-
-> +	PIN_BANK_IOMUX_FLAGS_OFFSET(1, 32, "gpio1",
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    0, 0x08, 0x10, 0x18),
-> +	PIN_BANK_IOMUX_FLAGS_OFFSET(2, 32, "gpio2",
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    IOMUX_WIDTH_4BIT,
-> +				    0x10020, 0x10028, 0, 0),
-
-in theory only the first offset should be necessary here - same for the
-other bank's offsets.
-
-=46or offset-values of 0, the driver will automatically create the right,
-offset increments. 8 for 4bit wide iomuxes.
-
-See
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
-vers/pinctrl/pinctrl-rockchip.c#n4344
-
-
-So with the drive-strength thing fixed
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
-Heiko
-
-
+best regards,
+Joachim Eastwood
 
