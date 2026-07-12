@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA19C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 20:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652E7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 20:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mv2WgGTz6WKIqtoJnLFA34PaD05R6doIbVvqCh8lFG4=; b=ex3IL7TfLy1sJUdgcYjnOxyEb2
-	2HiJVTIdMRfukc0f+BdUkZFTA2syALhSaVuDhadAcYaavrhTyR4zJdaySM1uJA3b6t9sgCOJpcudE
-	J5k/z3YJIoxZ6PKK8MwMjTcQUjYNp8r83Il0K8GVWlJDydX3HP6lyivl0PTxibK5QFvz4e1oxR9r1
-	HToULBVt/cXi88ywFwf3vte44R4OA2VeYNZst5gWjSONBA2WP7HkQEEbtcmFvr9qqCHclAOL9TAFq
-	kardW0VV0+IVt84ORPoOnIzrcvaKkf+Hqb2tcLrd/0r+fWzcrDhYcqCr/4LzDyBsLBRRoMz32X8MX
-	F2AUe1kg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M+Ey+YDRVZYAvBvERTk45tShixa+dIt05SCjUM3q1Qk=; b=eyLvpITOdg8or/9ksXsJNEZN+0
+	iv+zSlT/veIe9miK4Y285MXmzbdhuxxhNvTK0btUBytNUgpO1bw/0Er3WWdDTHS/EjKgRoyXX5244
+	TVP2igUU3d+PTLwZEa8B1Iz+ZEg0Jrboul1XaRfojE1fotU6gwzS1sIpyv8et/TitU3IOxh0RbmpO
+	vB+QxZbH4bbP4JT5DcdY3/QrmWlgVKwckWzSIC+dB6YjbWqCpIOHPPLnyIWIiI4rvuGIRsVXE2/EQ
+	RLE+y+8x9sstfwPT8PRKs8vY5I+4aAkosMUEYARlZXVRdG+LPo/pzLh7G5rVV1SB+a2W0o7U1Lkw5
+	o4QMncNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj0t8-00000007jeF-3rhE;
-	Sun, 12 Jul 2026 20:34:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wj1Dy-00000007kF3-2YAr;
+	Sun, 12 Jul 2026 20:56:30 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj0t2-00000007jZP-1KC6;
-	Sun, 12 Jul 2026 20:34:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Mv2WgGTz6WKIqtoJnLFA34PaD05R6doIbVvqCh8lFG4=; b=ctJpl8nTmjSPbLdy7AePVUSEcT
-	4SU8EprP9Zha+ttcLt3cuQ6gy3de/Nx2IcCVXn+Ur2u9z3rvkl0k85qyLgLVY3Isde/CeUCrsd4Ib
-	ZAGsRB5w4feaOa1KpOapEuzihotjFf4UAmebxw8jth2ErWFcLeLdICBSs/HxLxu2KT0bd2x1bhxgg
-	kpH4XNgIxuS3CrTuDcD+ixXLw0+mOhmX5xqlIHxbMm3SO6YH9aSsJWzGv0yIRh+LfTPiJOofmOqCZ
-	JkrEQUEinoNIaL5LVIdgrMSih1NbP47hsBTnsMKfF99I/HNZvJ/kFVEWuFx8sSe4knQanm+KgzRJ9
-	jwHO712Q==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	David Wu <david.wu@rock-chips.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Frank <Frank.Sae@motor-comm.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Yanan He <grumpycat921013@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wj1Dw-00000007kEg-1O7f
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jul 2026 20:56:29 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493ece78b0cso17839535e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 13:56:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783889786; x=1784494586; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M+Ey+YDRVZYAvBvERTk45tShixa+dIt05SCjUM3q1Qk=;
+        b=GPrT4UO33KKS5qKptXaegJKOPQf86ekF8u3POSDpTUhCu4XCWzEKF1AHrWItTzpGQJ
+         kvu9ZgJ7N4DaWKoEiPKHujwZC0isg1bbvq5TcBy5iO/nujG+Q6OpJ+rQhzcrhbf0DCu8
+         wlY3+VRHRpC60ibya0YL5gv3tI0gLh+gAGb+fJBG6cq9itKAZ/Y940DHiULz/DsfR9sl
+         LWDe21kX1UqJ2MdIEQkZf7kuVMFCtjCodAqt2f2mm9N0WuuiojxSzFzDmJl+gPNYU6YU
+         Cj9Tq+OM1oYlAqhKNMKCQzJf1JC3bvOnRrLlKdPpdZ1TLfvOG8vUmB42yZ0UrjBtZ+xx
+         PzxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783889786; x=1784494586;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M+Ey+YDRVZYAvBvERTk45tShixa+dIt05SCjUM3q1Qk=;
+        b=OH1lfjXYdhCx94mNdSzWtxRPHbY/Mrgi6IxlFWF0FrS0xoUNS2C6ZVmPpE8+1Lcn7V
+         VTgdfGZvcoaBAA+BlZ9AVUs/zJKT0CYWzCM04cm0I3W0LpRUvNTahm+C9P0wC/+tchR7
+         Z37Ai1GgR1IBx5kexzbeX1d6bkNMFE3TGrfci3+Ih/Dp55Z5+ntbwnY1BFO6s7jLb9TC
+         hlqu/UpXEFtqKZnJrbHmGyOVzD10RBQlPnUcFKyCtgy4ev0vKx2Yl07d6r8bqg0jVgn7
+         T783rTDZwgp5fZYOjyCd0s03i9Zoge7QXp6qnxc02ITVl+ZhltyPWlRuxP795T5oXdl0
+         zRwg==
+X-Forwarded-Encrypted: i=1; AHgh+RoX7T0fBOjAplhNQAREZxeEO8pTMBRq0YLDBrlRAjwWiavcga4PNo/mlI8mhRM8FJdJjjH63PES2aIeFWD10f8u@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHzqZr/XFeSJdrf5KXQB6TvkzP/HnpfYzOGIx+kMsHZ8cfoH0s
+	cGjuY8ZpQpxoROWcpVJNcPhr7c+5uWt0rMS2zjBzmAq0mAzhJJ+wN7ku/hRLbuQq
+X-Gm-Gg: AfdE7cl1iel1OONClvUGT0SgcypA5UcK/5A5qgP6l1q4pGSsuKOQe9SC2HvptgwExbs
+	jU0ok/ktwRR4IsJIj7faJk6YOIvzBig8UadEjTkL5x3jPAh/DMmbU0ZzVGtxIA0kRqVGHkP0dwM
+	0UON/ndqJCO1vqt9EXRHyLR+ygpMpw5j168l/4JAI6TcxadKRBC6jBuqn4hHdDrLH84SL4kK429
+	Gcw0IgzmTL1E637rzVQgUqdVUHe39VKMLWwlMREPRLyP/5Z1DaRbfc8rgGJ5e0BXeJNcXtzORZG
+	g5AfRjwrF5hwF+x/cX1tUTgjZ3ZXi2/CB91YGlbqutC1PtQwDzQTxG5X0+fQhevCdwCN0e2VbMA
+	UyOW2TQaTPucqdVZc/XXQeRoVJqgs0A5oKRzNQ6XV0O1ZOgiUuF/fZur/DdV1KfLbl5s8NaHXDN
+	ww1nGc8f9XpaF9ehe3qusKhJTXyhGJae1Xp8yYP+Ze3Fcbc/nQsRhlFdA1LmprNEu2F2j2lfx7/
+	Rw/1Lg0jAxljQJ42SIpK2TqAZqrRxKSXjQuodzqNgp5wmFJvM6x1oeR
+X-Received: by 2002:a05:600c:8b17:b0:493:f750:f7fc with SMTP id 5b1f17b1804b1-493f8837c34mr65544465e9.35.1783889785897;
+        Sun, 12 Jul 2026 13:56:25 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-095-117-112-249.95.117.pool.telefonica.de. [95.117.112.249])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6f373csm519430965e9.14.2026.07.12.13.56.24
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 12 Jul 2026 13:56:25 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: (subset) [PATCH v2 0/5] ARM: rockchip: rv1126: Add support for Alientek ATK-DLRV1126
-Date: Sun, 12 Jul 2026 22:33:57 +0200
-Message-ID: <178388833980.1396294.8103967667500299878.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
-References: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Karl Mehltretter <kmehltretter@gmail.com>
+Subject: [PATCH] ARM: lpc32xx: only run arch_initcalls on LPC32xx hardware
+Date: Sun, 12 Jul 2026 22:56:17 +0200
+Message-Id: <20260712205617.44944-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_133453_133346_466E1D18 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260712_135628_409963_73871E59 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +99,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
+LPC32xx-only registers (the CLKPWR unique-ID and the EMC control
+register). Since the multiplatform conversion they also run on other
+ARCH_MULTI_V5 boards, where the access faults, e.g. on versatile:
 
-On Mon, 06 Jul 2026 17:14:40 +0800, Yanan He wrote:
-> The ATK-DLRV1126 board consists of a CLRV1126F core module and a
-> DLRV1126 carrier board. The core module contains the Rockchip RV1126
-> SoC, eMMC and RK809 PMIC. The carrier board provides Gigabit Ethernet,
-> SD card, AP6212 WiFi and Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and
-> audio connectors.
-> 
-> This series adds the Alientek vendor prefix and board compatible, updates
-> the Motorcomm PHY driver to consume an optional external PHY reference
-> clock, adds missing RV1126 SoC description pieces, and finally adds the
-> CLRV1126F core module and DLRV1126 carrier board device trees.
-> 
-> [...]
+  Unable to handle kernel paging request at virtual address f4004130
+  PC is at lpc32xx_check_uid+0x2c/0x9c
 
-Applied, thanks!
+Bail out of both unless we are running on an LPC32xx SoC, reusing the
+machine's DT_MACHINE compatible list so the guard can't drift from it.
 
-[1/5] dt-bindings: vendor-prefixes: add alientek
-      commit: 068a6bd57167cb97058b08f22db0584fabdaab95
-[2/5] dt-bindings: arm: rockchip: Add Alientek DLRV1126
-      commit: f1522feb72aa5231532c9f69e7f5cc91972697e1
-[4/5] ARM: dts: rockchip: Add RV1126 I2C5
-      commit: 17bee9ee734e56d512ec7803eb7948adb56d1d9c
-[5/5] ARM: dts: rockchip: Add Alientek DLRV1126
-      commit: 44045aa7a9a9e6484617f44f77a3efb2d8e78565
+Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ arch/arm/mach-lpc32xx/common.c  | 10 ++++++++++
+ arch/arm/mach-lpc32xx/common.h  |  2 ++
+ arch/arm/mach-lpc32xx/phy3250.c |  2 +-
+ arch/arm/mach-lpc32xx/pm.c      |  3 +++
+ 4 files changed, 16 insertions(+), 1 deletion(-)
 
-Please double-check the sorting on future patches :-) .
-The dtsi was perfect, but I did some re-sorting on the carrier-dts.
-
-
-Best regards,
+diff --git a/arch/arm/mach-lpc32xx/common.c b/arch/arm/mach-lpc32xx/common.c
+index 304ea61a0716..50b91316d553 100644
+--- a/arch/arm/mach-lpc32xx/common.c
++++ b/arch/arm/mach-lpc32xx/common.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/init.h>
++#include <linux/of.h>
+ #include <linux/soc/nxp/lpc32xx-misc.h>
+ 
+ #include <asm/mach/map.h>
+@@ -106,10 +107,19 @@ void __init lpc32xx_map_io(void)
+ 	iotable_init(lpc32xx_io_desc, ARRAY_SIZE(lpc32xx_io_desc));
+ }
+ 
++/* The arch_initcalls below poke LPC32xx-only registers; skip other SoCs. */
++bool __init lpc32xx_is_present(void)
++{
++	return of_machine_compatible_match(lpc32xx_dt_compat);
++}
++
+ static int __init lpc32xx_check_uid(void)
+ {
+ 	u32 uid[4];
+ 
++	if (!lpc32xx_is_present())
++		return 0;
++
+ 	lpc32xx_get_uid(uid);
+ 
+ 	printk(KERN_INFO "LPC32XX unique ID: %08x%08x%08x%08x\n",
+diff --git a/arch/arm/mach-lpc32xx/common.h b/arch/arm/mach-lpc32xx/common.h
+index 32f0ad217807..d00b6761796d 100644
+--- a/arch/arm/mach-lpc32xx/common.h
++++ b/arch/arm/mach-lpc32xx/common.h
+@@ -17,6 +17,8 @@
+  */
+ extern void __init lpc32xx_map_io(void);
+ extern void __init lpc32xx_serial_init(void);
++extern bool __init lpc32xx_is_present(void);
++extern const char *const lpc32xx_dt_compat[];
+ 
+ /*
+  * Returns the LPC32xx unique 128-bit chip ID
+diff --git a/arch/arm/mach-lpc32xx/phy3250.c b/arch/arm/mach-lpc32xx/phy3250.c
+index 66701bf43248..b1ee31b9d2d2 100644
+--- a/arch/arm/mach-lpc32xx/phy3250.c
++++ b/arch/arm/mach-lpc32xx/phy3250.c
+@@ -76,7 +76,7 @@ static void __init lpc3250_machine_init(void)
+ 	of_platform_default_populate(NULL, lpc32xx_auxdata_lookup, NULL);
+ }
+ 
+-static const char *const lpc32xx_dt_compat[] __initconst = {
++const char *const lpc32xx_dt_compat[] __initconst = {
+ 	"nxp,lpc3220",
+ 	"nxp,lpc3230",
+ 	"nxp,lpc3240",
+diff --git a/arch/arm/mach-lpc32xx/pm.c b/arch/arm/mach-lpc32xx/pm.c
+index 2572bd89a5e8..2ad2b2d7cd72 100644
+--- a/arch/arm/mach-lpc32xx/pm.c
++++ b/arch/arm/mach-lpc32xx/pm.c
+@@ -122,6 +122,9 @@ static const struct platform_suspend_ops lpc32xx_pm_ops = {
+ #define EMC_CTRL_REG io_p2v(LPC32XX_EMC_BASE + EMC_DYN_MEM_CTRL_OFS)
+ static int __init lpc32xx_pm_init(void)
+ {
++	if (!lpc32xx_is_present())
++		return 0;
++
+ 	/*
+ 	 * Setup SDRAM self-refresh clock to automatically disable o
+ 	 * start of self-refresh. This only needs to be done once.
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.39.5 (Apple Git-154)
+
 
