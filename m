@@ -4,70 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA73C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 11:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C589BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 11:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDCSe4Ss39LQVe4+ibbsjVG0EUJbnO2iiUzXj+P+BRs=; b=32yr5k3rqA2oiunt/I8xB5ZjTR
-	8vBgfI9lHjsTEBi5yWsvh0p2S1DWftOdDoDC1QNa7J14T5RUibO/LQftII44RYa6uTAxhNkMXvqMU
-	m8F5zMsKg/CTQc5RHC5qiPLDIh4hka8zRcVuYZBiwD1Dtr38fGkDnmJkQIjWZMkBH7ORv4YMlW8cR
-	sBAxHAf/AsCmqYQtwYYB0jP9iTn5KAKkcyGzoqWlIkfxCWN6ipkg7HVqwnJ7hFfFnA34ltqlKk6Vl
-	mRsrMshgP79ZeWSsyOYy6kfXU36J8mIwQWn5GtEMoRnWyMSQbzGY0dyKk5U6zotan8dU/numZLrmn
-	a5bjgKTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sb4ApefZutryRdB75QWmCb7+x6M/kUCog+7gDuEDR90=; b=fBBKHRnDtbsgtyVoS3ucQgFcPB
+	cjnKYMZ5k69EzVHzM60BMOubHJxh/uLo5F9ug4LiAMKdfyx4W1Cf1nXn5nc5MeapJ1VXYWlE8KUai
+	4r7KsHLWf5Je7QYulDwLJ/W0MOP97asHr42PfjERLpXZSrviLcxJUzVkVn6xvXuaAIWjNqfM6nO6F
+	blMW/LLSsJwux+wHLqrk9XB66SdfKJEOvf6JwY3aGoXvJKTj/s3yD0+1ez9sMEJgaPiLyhQaggQ1H
+	cXof5cI2AO/u5SLR6Dkv/vFU0tilrvXPbrEo2ZhIYw9HeUnvFqvLl/jiRrZaxdPZZbxdrirnL5vwM
+	NC0ITcyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wisB0-00000007Opc-05PN;
-	Sun, 12 Jul 2026 11:16:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wisAx-00000007OpI-0xI6
+	id 1wirgB-00000007NVP-39A2;
+	Sun, 12 Jul 2026 10:44:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wirg9-00000007NTy-1N4f
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 11:16:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 132A81682;
-	Sun, 12 Jul 2026 04:16:41 -0700 (PDT)
-Received: from [10.163.128.224] (unknown [10.163.128.224])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9374E3F85F;
-	Sun, 12 Jul 2026 04:16:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783855005; bh=4w2FnFBScyw7YiWU7s5gk5e3O6Mlmlj6IlRNpHN4Kvs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aizDZIetRuhqDZIAblfUpSHmN60c1g6V9Mt4KSqHWNxS7o8f22B5iWg89O/gWEy3U
-	 xlLQsPTatoZxElpkRlPCFNKVpRZ66ca6G7+pNhtMcqsfcCRZ9dRqxOG9MiqH109zRo
-	 TZbIaVaOnhkMQGxIsvq0cW4Q0p459JDKSW3WI/lI=
-Message-ID: <28b7e7d2-62d8-4141-a6e9-7ab1cbb2baa4@arm.com>
-Date: Sun, 12 Jul 2026 16:46:36 +0530
+	Sun, 12 Jul 2026 10:44:58 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66CAcd692371492
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:44:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=Sb4ApefZutryRdB75QWmCb7+
+	x6M/kUCog+7gDuEDR90=; b=SHrCHjqs4df99NJG9bdHq119sHRuizAVPkyTBsbi
+	mP51su7CI5aprYTPnlfhgyhKnr/zIt6o7Z01lHjNMV95wVeOyfWqIG7WJOeQqTFV
+	w08ooD1SMRKwk0y3KWWKl/aO9UdzS/vjtU1NJwSCQzXEY7AD3Jf0GSyAyzKO1oZr
+	nrEQxsMlq7BKi9Sm9pjThbaKr5hDuSSrARY8SZHy6EGueoQuiD6xmPVoJSIMUnPv
+	keiJctLBV1zCeh2Yw/ZSgwgB6/cA1fyd8VoF8A7V60DZjcVl9z5UJ361uQsa4Oet
+	jDuWGQnsv1DPTrXlstLtpV1WASkoIhBCtH1KGa673UFq+Q==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fbebr2hn3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:44:56 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5bdc8169a8dso3178262e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:44:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783853096; x=1784457896; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Sb4ApefZutryRdB75QWmCb7+x6M/kUCog+7gDuEDR90=;
+        b=Jm3SZiJW4M1reZ4gmz6bG+JwyF+AETaz66hdYbnGrXyLrdpfAVCS+ZvKwob0LzTFi4
+         5YVFP+Lgc1T4+EAd25WyF2HAKnB8+8odK9c/2w1NphxwHTi29160UYfEQ3jh13HfvWFb
+         LDu/d/IGziyuj0k0T/jit5sz4+A10P2lcbzybqXZajChlU5IIEgo0Kvb+5UzVJMq0IHM
+         WXvHw+xT8ry4xtp/v7OUp07SzpqnXjjwbiHt5xDiNCyhqISmVXreWUvRtADnOY4a07jS
+         vWS3L18210Npo508WxnojeBJ7r4i5ae9A2QUw3jry3rFXaUwRoZAlAQL6/H37tx5kiA2
+         neww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783853096; x=1784457896;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Sb4ApefZutryRdB75QWmCb7+x6M/kUCog+7gDuEDR90=;
+        b=Eo7NjjQHaA9UrOIDU3zW/1uEZQH7zSKT/wzCn6sKgvPH36XFVXn+URmTqAoDC91Qih
+         nLutngq5okrQ6xoZEAcVezwlESX6e/WrSmMSpO+pvc2uho8StP1hAek5PF6yuVWg8YEb
+         WScoriXXeLBoAIGmYbiVGlSLEhWpXW/4843K5aSLHh8GG3cthh1gO3RxwScwhG8QlZTP
+         6OOIg0DLt0CZhX16hkDOnvi2aMgB080NUhgt9qUjgxWf7JE0VLljHegK9bKmbpg1NJzz
+         3IVPU131bKc6gzOL1u39XRrS68xMx7jZLGtCsNTBdhldqhZ4CavCM5cKPCMX0JZ0VLo/
+         YEww==
+X-Forwarded-Encrypted: i=1; AHgh+RrGuLDcczJ+ptNMZynxKqDWfLcTBf+JaLyu4vCxCFC4WOmZZCNpaZ8WDaZOCyPFFBk3/U3yls27SKV/Wo8RJD9l@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdCp1aInpv8F5fR34UQbKUcLkPXFUMS1AMK0JRscFp02AE6WcD
+	XqP44gdihZwUaIdqDUrv9wGy4QpSodCqIDV+wImYmFATSXlBmKNj6mQEtT2rqFABflvq0Kag4Bl
+	AdgR5ITSVXeH8cNlFRQYCt9wIG9KeqQ3GoX5XVu+J2ZmgZpvMvwXm1+Vq3Rs0Dv24CpPFYfDGKh
+	2oUNvyu/HwTQ==
+X-Gm-Gg: AfdE7cluCfyVYj6jH5tr/TCb15I7MAFj3Bx49y3x4fSnbN+v+TDDx1oG/ig8lgJ/8EA
+	+fRo1isIMsAcMLFv8Hqw5J0ewanhsBj6pHbhqZzw7bEHsg5ZCT0TkiTTrF46ewbkMhqeuahpr9m
+	ur4Rr0QX1dZdfeUGmD6Ub1+OIa33QmGYdF0DG/cGzIGjsv6VVJiCUv+/8ojgjylf+8+xatfbkle
+	CVDbFSYSqJwwAizh+NNwPsAkE3Bcj4BOkJrHPisEpI0RCkGg4R9jOAOfXT6lQX6xFHVtzzt4f9N
+	Y8zaxz/LkZ8dw07mBzn3EbIf0Gm33+sG/kYyegUF1Ls6q1knZ4MucubwDNixZPwM33WwZMAXXlU
+	lbro2iVybegIQR/0R8o4gBzp/rcHDIHIZ8Z+nH1MdsKm7T1lcQR4c4gSrASQHD6CL+VXohVe/Dv
+	M4izsblkjWvIivGjtfImfqN2cp
+X-Received: by 2002:a05:6122:d29:b0:5bf:bbe5:372 with SMTP id 71dfb90a1353d-5bfbf3b676dmr3706455e0c.12.1783853095633;
+        Sun, 12 Jul 2026 03:44:55 -0700 (PDT)
+X-Received: by 2002:a05:6122:d29:b0:5bf:bbe5:372 with SMTP id 71dfb90a1353d-5bfbf3b676dmr3706406e0c.12.1783853095217;
+        Sun, 12 Jul 2026 03:44:55 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39c84b854cesm19921011fa.27.2026.07.12.03.44.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jul 2026 03:44:52 -0700 (PDT)
+Date: Sun, 12 Jul 2026 13:44:49 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org
+Subject: Re: [PATCH 3/5] drm/msm/dp: suppress bridge hotplug events during
+ MST operation
+Message-ID: <fozk5fz6bgat55vmlgyvovnmfzabjprna46cmcaoh4jyrwmbtu@k2qtjgip5vg3>
+References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
+ <20260629-msm-dp-msttypec-v1-3-646a10256233@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] mm/vmalloc: acquire init_mm read lock on huge vmap
- promotion
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- David Carlier <devnexen@gmail.com>, Ryan Roberts <ryan.roberts@arm.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
- <20260710-series-vmap-race-fix-v1-1-5b3794c113fe@kernel.org>
- <d47ac961-4767-4ce4-9c75-f281beb24e42@arm.com> <alNM8tIxep2-PHAM@lucifer>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <alNM8tIxep2-PHAM@lucifer>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629-msm-dp-msttypec-v1-3-646a10256233@oss.qualcomm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEyMDExMiBTYWx0ZWRfX25vmwNbUD6ri
+ a0/EIPOqxOr0HQjdqYPGX9CR0eb7vLY60DMGd9EeUyP5Avn3oCpv5tNFilUX0TyGZ2AOtkBLCaK
+ MC5GkxUhUHCLNeG4orbNxcqPJ+8WTlA=
+X-Authority-Analysis: v=2.4 cv=OK8XGyaB c=1 sm=1 tr=0 ts=6a537028 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
+ a=dRlQVyWoEjKAXtvccWIA:9 a=CjuIK1q_8ugA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
+X-Proofpoint-GUID: tM8Ep9psXl2eN77TgmuOQbYE7pLXbTEP
+X-Proofpoint-ORIG-GUID: tM8Ep9psXl2eN77TgmuOQbYE7pLXbTEP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEyMDExMiBTYWx0ZWRfX1llh19wy32bh
+ /IW5cwTp+U+mDesDCnHpU5EucMUvS81eanIVZniYq+teLJvkFsI3nkRJZn68UIVI6UUUrygMwV3
+ N8RtBAgwEMyo1bmX4P6/JfEMF3eF/JSHQ2TP/wQZE4GR8PTXVZ6zhKbwvdbboMHBAfu57/7GOWb
+ ID+T8R+NHVA9K6DhoIzlSw4rv800oK5yTZmOpT7xMBgtbC7JSjJn+YajnkY4BRXnJhzF87Ux5Vm
+ fF98ouupiIWw0ggpAAKs+UN40fqIF9cAVP1abjqqgTwIzEF3lRGPvperosAjZWGcdL4LWER/GLq
+ U79PfRFQUWaWbMmSYgwh6CWE62/xxxyiRe2h90Wx7e3H4POTRwkODrpNuo7mAMTbxhGqiJ1TKXR
+ n1JkXlboN+f6WoQO5QPFJIadX+7MjzAuY6u+SVUprUcCkdXuE5eZTIR7yGW6xTz6WWlx4WqJzEM
+ zxUhj356iVUYZcwp4nA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-12_04,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 phishscore=0 spamscore=0 adultscore=0
+ clxscore=1015 impostorscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607120112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_041647_451452_6AE27CBF 
-X-CRM114-Status: GOOD (  33.24  )
+X-CRM114-CacheID: sfid-20260712_034457_381111_A07037BC 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,196 +171,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 29, 2026 at 10:48:05PM +0800, Yongxing Mou wrote:
+> The DP MST framework already generates the required hotplug events for
+> MST topology changes.
+> 
+> Suppress connector hotplug event generation from the bridge connector
+> path while MST is active, and continue propagating HPD notifications to
+> the DP driver.
+> 
+> Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+> ---
+>  drivers/gpu/drm/display/drm_bridge_connector.c | 6 ++++--
+>  drivers/gpu/drm/msm/dp/dp_display.c            | 9 ++++++++-
+
+No, it can't go as this. The drm_bridge_connector part should have been
+a part of the first patch.
+
+>  2 files changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+> index 7334d6677604..82ed0dc450ab 100644
+> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> @@ -162,6 +162,7 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
+>  {
+>  	struct drm_connector *connector = &drm_bridge_connector->base;
+>  	struct drm_device *dev = connector->dev;
+> +	bool send_hotplug = true;
+>  
+>  	/*
+>  	 * IRQ-only notification: extra_status carries the event but
+> @@ -179,9 +180,10 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
+>  	connector->status = status;
+>  	mutex_unlock(&dev->mode_config.mutex);
+>  
+> -	drm_bridge_connector_hpd_notify(connector, status, extra_status, NULL);
+> +	drm_bridge_connector_hpd_notify(connector, status, extra_status, &send_hotplug);
+>  
+> -	drm_kms_helper_connector_hotplug_event(connector);
+> +	if (send_hotplug)
+> +		drm_kms_helper_connector_hotplug_event(connector);
+
+But now I can also see that the idea seems to be incorrect. You are
+preventing the kernel from sending the events, but it doesn't really
+matter. If connection status oscillates, then other components might
+notice it even without the event being sent.
 
 
-On 12/07/26 1:52 pm, Lorenzo Stoakes wrote:
-> On Sun, Jul 12, 2026 at 01:13:12PM +0530, Dev Jain wrote:
->>
->>
->> [-----]
->>
->>> We also define a guard class for mmap_read_trylock() so we can use
->>> cleanup.h to make the scope handling cleaner in the implementation.
->>>
->>
->> Will this cause backport problems, I think this scoped guard thingy is
->> not that old?
-> 
-> I intentionally used it because it's the best way to solve this problem.
-> 
-> If there's any issue I'll fix them up in the stable backports myself.
-> 
-> I will likely resend this as a 4 patch series and just do the stable
-> backports manually anyway.
-> 
->>
->>
->>> One wrinkle here is commit fa93b45fd397 ("arm64: Enable vmalloc-huge with
->>> ptdump"), which addresses the issue for arm64 only by explicitly acquiring
->>> the mmap read lock on kernel page table freeing should a concurrent ptdump
->>> be in progress.
->>>
->>> This is problematic as vmap may acquire the mmap read lock prior to ptdump
->>> attempting to acquire an mmap write lock, leading to a deadlock when the
->>> mmap read lock is slept upon on page table freeing due to rwsem
->>> anti-starvation.
->>>
->>> We work around this by predicating the mmap lock being taken on
->>> !CONFIG_ARM64 for the time being.
->>>
->>> With this patch applied, a follow up will partially revert commit
->>> fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump") and at that stage
->>> remove the arm64 ifdeffery.
->>>
->>> We also update walk_page_range_debug() to assert the mmap write lock
->>> unconditionally and update the comment here to reflect this change.
->>>
->>> The issue has existed as long as ptdump was available and vmap freed page
->>> tables when promoting to a huge leaf entry, that is, since commit
->>> b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table") for
->>> huge ioremap, and commit 121e6f3258fe ("mm/vmalloc: hugepage vmalloc
->>> mappings") for huge vmalloc.
->>>
->>> Since the former is the earlier of the two we choose that for our Fixes
->>> tag.
->>>
->>> This patch is based on work by David Carlier (linked), with gratitude!
->>>
->>> Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
->>> Cc: <stable@vger.kernel.org>
->>> Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
->>> Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
->>> Link: https://lore.kernel.org/linux-mm/20260706203128.162335-1-devnexen@gmail.com/
->>> Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
->>> ---
->>>  include/linux/mmap_lock.h |  1 +
->>>  mm/pagewalk.c             | 22 +++++++++++----------
->>>  mm/vmalloc.c              | 50 ++++++++++++++++++++++++++++++++++++++---------
->>>  3 files changed, 54 insertions(+), 19 deletions(-)
->>>
->>> diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
->>> index 04b8f61ece5d..6b5c2390cc30 100644
->>> --- a/include/linux/mmap_lock.h
->>> +++ b/include/linux/mmap_lock.h
->>> @@ -621,6 +621,7 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
->>>
->>>  DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
->>>  	     mmap_read_lock(_T), mmap_read_unlock(_T))
->>> +DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
->>>
->>>  static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
->>>  {
->>> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
->>> index 3ae2586ff45b..bbcfd68d0907 100644
->>> --- a/mm/pagewalk.c
->>> +++ b/mm/pagewalk.c
->>> @@ -678,6 +678,8 @@ int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end
->>>   * will also not lock the PTEs for the pte_entry() callback.
->>>   *
->>>   * This is for debugging purposes ONLY.
->>> + *
->>> + * The mmap write lock must be held.
->>>   */
->>>  int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
->>>  			  unsigned long end, const struct mm_walk_ops *ops,
->>> @@ -691,6 +693,16 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
->>>  		.no_vma		= true
->>>  	};
->>>
->>> +	/*
->>> +	 * When walking userland page tables, an mmap write lock must be held to
->>> +	 * account for munmap() downgrading to an mmap read lock when tearing
->>> +	 * down page tables.
->>> +	 *
->>> +	 * When walking kernel page tables, an mmap write lock must also be held
->>> +	 * to account for page table freeing on vmap huge page mapping.
->>> +	 */
->>> +	mmap_assert_write_locked(mm);
->>> +
->>>  	/* For convenience, we allow traversal of kernel mappings. */
->>>  	if (mm == &init_mm)
->>>  		return walk_kernel_page_table_range(start, end, ops,
->>> @@ -700,16 +712,6 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
->>>  	if (!check_ops_safe(ops))
->>>  		return -EINVAL;
->>>
->>> -	/*
->>> -	 * The mmap lock protects the page walker from changes to the page
->>> -	 * tables during the walk.  However a read lock is insufficient to
->>> -	 * protect those areas which don't have a VMA as munmap() detaches
->>> -	 * the VMAs before downgrading to a read lock and actually tearing
->>> -	 * down PTEs/page tables. In which case, the mmap write lock should
->>> -	 * be held.
->>> -	 */
->>> -	mmap_assert_write_locked(mm);
->>> -
->>>  	return walk_pgd_range(start, end, &walk);
->>>  }
->>>
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index 1afca3568b9b..9d0f1fdd6af3 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -43,6 +43,7 @@
->>>  #include <asm/tlbflush.h>
->>>  #include <asm/shmparam.h>
->>>  #include <linux/page_owner.h>
->>> +#include <linux/cleanup.h>
->>>
->>>  #define CREATE_TRACE_POINTS
->>>  #include <trace/events/vmalloc.h>
->>> @@ -158,10 +159,25 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
->>>  	if (!IS_ALIGNED(phys_addr, PMD_SIZE))
->>>  		return 0;
->>>
->>> -	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
->>> -		return 0;
->>> +	if (!pmd_present(*pmd))
->>> +		return pmd_set_huge(pmd, phys_addr, prot);
->>>
->>> -	return pmd_set_huge(pmd, phys_addr, prot);
->>> +	/*
->>> +	 * Kernel page table walkers either walk ranges they own exclusively
->>> +	 * using the mmap lock for mutual exclusion, or hold the mmap write lock
->>> +	 * on init_mm (ptdump being the motivating case).
->>> +	 *
->>> +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
->>> +	 * freeing page tables.
->>> +	 */
->>> +#ifndef CONFIG_ARM64
->>> +	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
->>> +#endif
->>> +	{
->>> +		if (!pmd_free_pte_page(pmd, addr))
->>> +			return 0;
->>> +		return pmd_set_huge(pmd, phys_addr, prot);
->>> +	}
->>>  }
->>>
->> Note that we do not need to take the lock around pmd_set_huge - we don't
->> care if ptdump observes a temporarily cleared pmd entry. So how about keeping
->> this outside the guard block. Otherwise right now we have an inconsistency:
->> for !pmd_present() we do pmd_set_huge() without locking, but for pmd_present()
->> we do pmd_set_huge() with locking.
-> 
-> As I said in the commit message I'm intentionally taking the lock around all of
-> it so a concurrent ptdump sees either the leaf entry or the non-leaf entry.
-> 
-> By doing that we can easiliy avoid the situation where a ptdump gives you
-> inconsistent output and it makes more sense logically.
-> 
-> So this is the opposite of inconsistent - if !pmd_present() the ptdump may
-> observe the _genuine_ state of there not being an entry before. With
-> pmd_present() it either observes what was or what became, not something
-> inbetween :)
+>  }
+>  
+>  static void drm_bridge_connector_hpd_cb(void *cb_data,
+> diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+> index 6835c68fe510..bc93b566fbca 100644
+> --- a/drivers/gpu/drm/msm/dp/dp_display.c
+> +++ b/drivers/gpu/drm/msm/dp/dp_display.c
+> @@ -1790,10 +1790,17 @@ void msm_dp_bridge_hpd_notify(struct drm_bridge *bridge,
+>  			msm_dp_hpd_plug_handle(dp);
+>  		} else {
+>  			msm_dp_hpd_plug_handle(dp);
+> +			/* mst_active is set in plug_handle; suppress SST hotplug */
+> +			if (send_hotplug && msm_dp_display->mst_active)
+> +				*send_hotplug = false;
+>  		}
+>  	} else {
+> -		if (hpd_link_status == ISR_DISCONNECTED)
+> +		if (!msm_dp_display->mst_active) {
+>  			msm_dp_hpd_unplug_handle(dp);
+> +		} else if (send_hotplug) {
+> +			msm_dp_hpd_unplug_handle(dp);
+> +			*send_hotplug = false;
 
-Yeah okay fair enough.
+Why? Disconnected events definitely should be reported further.
 
-
+> +		}
+>  	}
+>  
+>  	pm_runtime_put_sync(&msm_dp_display->pdev->dev);
 > 
->>
->>
+> -- 
+> 2.43.0
 > 
-> Thanks, Lorenzo
 
+-- 
+With best wishes
+Dmitry
 
