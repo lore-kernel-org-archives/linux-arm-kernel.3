@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD099C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 14:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94201C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 14:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLS/kMhYXvqtbxCJZsqYcevLj6Cy5NnjgCrCPkzJMk8=; b=hAPvoJr+I8PQ7ZIc9sFaQLwWFn
-	kfgZQifEnuwPGs1vG5wxfFtvfHJsn9SFiyCZ7TaRzNqndDpnG4NI3cX3s7K6Sbv3vDe+KJEt7BOB/
-	YElV6QtOLpsJg64boSnRlLiEUCdZVZl1VnkZwxSzzMcKxglmoKZsTaV1O/JG5OOlP6TkZp+Nb9NOf
-	Y80WxAgLiaY6M8qTAyosdFw8HhLepoUgvSHqkc29XAlbDtY3R7Aml2v9nZFgfQKVWXNHSkCtECZpf
-	toab3NGAnr8kF1JHDxElafgy+KvNlj3IkcXuShbOtgiAiL3sbWO4Kg5cQy4eaivOJNtSXSiBgPCuz
-	NouEVbQA==;
+	bh=Rgbu6YiDUX9kznSJSlo+OHz7QKMcuRkPsGR/yA4U/Cc=; b=YCLF5abtjbsr3WNHFrwiA0HFfy
+	R/oCLDVz9h65o5Kd9FoKkRCnBDsAU8XwiMT6Mv9EjKpdRQsr2Vo0bTd3WTdtUslQiX9izBeA+vfpy
+	i1Fp5hCAMs8A4Sr9BPY8fegbmix2e9Klv/sfx7qDedbuRkXqjb7TiHmvYopsPEKLOTZl3fGn+nu7P
+	J6x5bRzs5APRTUWJcxTNIm6flOkIkwt+Th7YTad/urGSKezIITX4bx3jugdiDb5G/5LqvAWO7b2JY
+	0evESznLpsp74k0pBVJLePP6h9uWIDnVsyzxJQ/XtCiHRejL+svkOcCSu3vGfFptntfs7ya/ZaYFN
+	ciZACZjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivMu-00000007WiC-23G8;
-	Sun, 12 Jul 2026 14:41:20 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wivVY-00000007XJ9-0dkg;
+	Sun, 12 Jul 2026 14:50:16 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wivMr-00000007Who-3R9l;
-	Sun, 12 Jul 2026 14:41:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783867266; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Ua0hV+q9YwWdierF0d3tTHArRa58XYI355ifeJIbWW4LZtaawtl20H96TbVmRQjqbSO56vOFPYpJkcOKAnwZLk41DUgWI6NBLxOKHS150cqIcbguHE/i2Dzfl7xsESTR2Xl8qHs1jZdr2oxv9KJGh3bWnllNWCTo8cThhDSAgrA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783867266; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SLS/kMhYXvqtbxCJZsqYcevLj6Cy5NnjgCrCPkzJMk8=; 
-	b=aoh2WX9UcchPAoc6jZ2+7rUQ8S2O8lFa6QhYvdJ5DUkNr3W4qYNoX4JyGeP0uu6v9ZLglioPjgdNlVGRuy4VhhpqbgTU2hdFFv6MeypNTb7xTlgIQs5KDxKeFIUdmMH9uRKh6Vn6vNplJt9nOVb8yn+nBh+d0PJyEFPEXDJNDxI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783867266;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
-	bh=SLS/kMhYXvqtbxCJZsqYcevLj6Cy5NnjgCrCPkzJMk8=;
-	b=pzyy9pATPvLJ5OdbAKgQIexqjPkcTp36x4ezLL3ngOF7JnVnEZGnT1j/CZzlbiP2
-	WSEhCCeBy8H27PBqBkn7L4Eby5OjedwYGAs9h65RhVrIkJzg5gpa1jjN3r5EtAYLrbt
-	6LGBXRYBXx1IwS0pbyTPypDBB5SSeHGDPQNuQAuQ=
-Received: by mx.zohomail.com with SMTPS id 1783866353179481.00549749606785;
-	Sun, 12 Jul 2026 07:25:53 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1wivVV-00000007XId-2KZA;
+	Sun, 12 Jul 2026 14:50:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1783867767;
+	bh=Rgbu6YiDUX9kznSJSlo+OHz7QKMcuRkPsGR/yA4U/Cc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=e1f+qC+L/WnrDmmFa5VDmWfCQGJJmU9bOVHt5snbPF8fi/BKsz3/qb1GkPUE0p/3+
+	 M2KLArFP9AgM+wzed/pgadxFOk3u4quiCcXHV+X24rR6A9PwmtC3ieuuiW3K5gsMKj
+	 14cSfFjUJ9Q+9MPOpdj9frQWqoxI7TAs/e9hKriXEqerM733L5CwqAVqwBJ0kbBVM8
+	 P7/aowqXTgMMcCah3k1GJYwucCF4Ild3dlLv/bcCa24dRK9+bK4QJgmoAiKzut1sC9
+	 tZhstVazyV3ZN6Rtp7UT837VBE+896rjsA33YVVLfM6o0cNetHLRZuGPa8ueBTwJXy
+	 l7eKaYLWxXNkw==
+Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 11F2EB2214E1;
+	Sun, 12 Jul 2026 16:49:23 +0200 (CEST)
+Message-ID: <203fffef-bef1-4d56-a6f0-a2fe482821db@freeshell.de>
+Date: Sun, 12 Jul 2026 07:49:15 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
+To: Andrew Lunn <andrew@lunn.ch>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Han Gao <gaohan@iscas.ac.cn>
+References: <20260712045233.800748-1-inochiama@gmail.com>
+ <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
+ <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
 Content-Type: text/plain; charset=UTF-8
-Date: Sun, 12 Jul 2026 22:25:39 +0800
-Message-Id: <DJWNUAW00DTS.1L26UVJEYHZ0L@pigmoral.tech>
-Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <netdev@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>
-Subject: Re: [PATCH v2 6/8] clk: sunxi-ng: a733: Add mod clocks support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
- Masney" <bmasney@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>
-X-Mailer: aerc 0.21.0
-References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
- <20260711-a733-clk-v2-6-974d188cbe0c@pigmoral.tech>
-In-Reply-To: <20260711-a733-clk-v2-6-974d188cbe0c@pigmoral.tech>
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_074118_256675_D28F33BC 
-X-CRM114-Status: UNSURE (   5.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260712_075014_056700_4A605920 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Jul 11, 2026 at 4:10 PM CST, Junhui Liu wrote:
 
-[...]
+On 7/12/26 06:49, Andrew Lunn wrote:
+>>> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+>>> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+>>> @@ -196,7 +196,8 @@ &eth0 {
+>>>
+>>>  	mdio {
+>>>  		phy0: phy@1 {
+>>> -			compatible = "ethernet-phy-ieee802.3-c22";
+>>> +			compatible = "ethernet-phy-id001c.c916",
+>>> +				     "ethernet-phy-ieee802.3-c22";
+>>
+>> Indeed that's merely a workaround :(
+> 
+> Despite is being a workaround, there has not been much progress on a
+> generic framework for dealing with clocks, resets, regulators etc,
+> before probing PHYs. So this is probably what you want to do.
+> 
+>        Andrew
 
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer0_clk, "timer0", timer_paren=
-ts, 0x800,
+Aside for my participation in reporting and testing here, I confirm that
+the above addition to 'compatible' node does not itself resolve what I
+observed to be a problem for debian-installer, however it does itself
+resolve the rmmod/modprobe cycling issue of the eventual installed
+Debian system as I described and what I am quoted as having reported
+from dmesg output.
 
-I will update these to SUNXI_CCU_P_DATA_WITH_MUX_GATE in next version.
+So the other report of increasing de-assert from 10ms to 50ms is needed
+for success of the debian-installer hwprobe detection, and this here
+issue of adding to the 'compatible' is needed for success of
+rmmod/modprobe cycling. In concert together both fixes resolve all of
+the trouble I observed and reported, tested and verified on Sipeed K3
+Pico ITX.
 
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer1_clk, "timer1", timer_paren=
-ts, 0x804,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer2_clk, "timer2", timer_paren=
-ts, 0x808,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer3_clk, "timer3", timer_paren=
-ts, 0x80c,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer4_clk, "timer4", timer_paren=
-ts, 0x810,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer5_clk, "timer5", timer_paren=
-ts, 0x814,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer6_clk, "timer6", timer_paren=
-ts, 0x818,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer7_clk, "timer7", timer_paren=
-ts, 0x81c,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer8_clk, "timer8", timer_paren=
-ts, 0x820,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer9_clk, "timer9", timer_paren=
-ts, 0x824,
-> +				       0, 0,		/* no M */
-> +				       0, 3,		/* P */
-> +				       24, 3,		/* mux */
-> +				       BIT(31),		/* gate */
-> +				       0);
+Thanks for tracking this down it is very much appreciated :)
 
-[...]
+With that,
 
---=20
-Best regards,
-Junhui Liu
-
+Tested-by: E Shattow <e@freeshell.de>
 
