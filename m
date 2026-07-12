@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA05FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 05:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0ECC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 05:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rLTCb96hFjM2FfPbsAHnO1f3U06p3l/uWtkaSYyB/bQ=; b=0n1R/w7uJGRunn
-	iNqh8dxjcrHhwbFrfvjN4ZU1+uZXrJPjIRl89UUe5TY/2EPFpcmDvVWlZTguTLrdeyTqKcOfS8+kM
-	cDj8ocx3ooGjkMnEbe5h42ZD3VLCx1Cc1mCPu2Xhb23XtlP+ca3S/xu9Cu5mB6bFqIfXFZrnaCJ1q
-	u3o+n02l7p4M9tH7xNCkTcp/NuSLUU+l0DfHegvhwugzzwQ57M7IN2yzXFObeBGx86GJYfncuh0d3
-	TTxXtmhVtw88HxG46OCMSBBnZFWMDcPEWQP6XidGk/LhyDick2frjtEuY/MtL5Vu0z4S4TzCwpduq
-	nefl0xQzJJAqR7BU9pGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vtqux2brqZY3L9xWBvozGrzsW9R7W5/4mbtliRjhCrk=; b=OAp6jPQby9O+vxeJPIlQz4vdIc
+	PysHYP0CQZIlOqW+HlqJlzNmOqllR9uFHo1BcjEJ9/ugFsJozt/6E/7eHGm+9zTcDALGPvfS67jly
+	/5tz/Fk1uxZXv8GwX6ii6EgU98Jm3LCrUEcUK2/LBKipLs4y823fiFtwYPpP2dw9kC3aein8qQRd6
+	mtbGRWSa+6ChOGVwNNz0T0Y/2P6c6BQsvWa67qHAkga5L6vubXmD7m47L2fCfAWwmMAEs5+zkclHJ
+	H+HPlgmHmL2hvEn/dOyvXmmSLliFHhm0un2aeqVAax7unr9vSP5wH5b4HX5b/Xv2sZAs3gRu8BIQo
+	MFO40ABA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wimVB-00000007A6Z-41FI;
-	Sun, 12 Jul 2026 05:13:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wimBy-000000079Rq-0wkJ;
+	Sun, 12 Jul 2026 04:53:26 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wimV9-00000007A6R-3G6N
+	id 1wimBw-000000079R1-0uDH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 05:13:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 057C640F15
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 05:13:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C62A01F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 05:13:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783833194;
-	bh=rLTCb96hFjM2FfPbsAHnO1f3U06p3l/uWtkaSYyB/bQ=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=PD90buyWcLDuUV/b7DNrnqmFNFfpaxzYNFbWdbGWa/ycjBz2RGTqmzrB1kW4lnWKi
-	 vbvdrARrRZ5wvwGNqpQmCxI9lzaX3OTZCWtI4jjPKqJax9DvhhtlZLT+u8lXisDyRV
-	 r5UOn1D/5OKv2EF3l6eY8v55pkYnBO1pgrVuwMjdfQiH4QXQUx2dieJvruUHEkZAVz
-	 iasBuIp75IK10Y4ebhs/lczxIVDg/7LfIuDIfH3SDYJt6108U5rqUSruFp6JoiLVHB
-	 GsLEr2IzPUFfCLKAVYfRQQV0/j1ekc8Ay9vdT0xaR7YJbNbtf/i9u1pPioplysezC6
-	 mDxfrZeJyx4Qw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5b0117d49dcso1966820e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 22:13:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Ro0x2N/hOYsLCo0mnyedYuq9QDWEEj30Qfk3g1H/9JdZ5c8vLYPKRFigKpl4alfxRLxZzTseFZW0i2loe5/scBp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWxdL8jVAsIFlMttblEApn85rVhdZvLKZedU/44UcXVshvxRfu
-	hPakFogrAcuv8XONBTnSVOAW0tRurMMrE+DLQcIb3ZGrly1NEJKkFgW6TAG0Sk6N+Re5pqMnElP
-	4x4PqqBWSo20XQS3YoyANajkNjqHv/YM=
-X-Received: by 2002:ac2:5284:0:b0:5ae:c636:5c with SMTP id 2adb3069b0e04-5b0236de96dmr689800e87.47.1783833193266;
- Sat, 11 Jul 2026 22:13:13 -0700 (PDT)
+	Sun, 12 Jul 2026 04:53:25 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cea3004256so11847995ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 21:53:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783832003; x=1784436803; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Vtqux2brqZY3L9xWBvozGrzsW9R7W5/4mbtliRjhCrk=;
+        b=Lqy9pVNtZArdIQQ3F0FfFoNBlqPog5nEnby9F/ubySNUa1w4R+57w8RGvBExeHuPDD
+         5va1VpflmcEvUbvmAOMjmUQhLadr84jntiRieA5N88RPa+ClqDmpipsqvN4KSg+AINGt
+         nhkNXda6KCiygL7U60U+nUIATiJO17t1PmOLvEf87QZIo5J48/fKlGkgAguTnSUv/lwN
+         PLqXwZ6eMhG3nhQx0xmbRTCLySW2IfqDBQsx5VDqbgZztfkedLjioMu1XY+V6dMX1Gag
+         JpiOZWb4RX0CPVEPusMT+0ucK2CNS/rd5K9/J2QE/YAhNp21JOPlB8z8E/UnBb42s+uC
+         rOhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783832003; x=1784436803;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Vtqux2brqZY3L9xWBvozGrzsW9R7W5/4mbtliRjhCrk=;
+        b=aTUsDkXCDt4iD882M+yPOryXCuj2NuwsCqebP2ZaSVxuEV9HgEH+yRUI6W43BpJuVC
+         gLFACJl0M8lvNwxJThdshucOliEubyvIfke15HK8fUJuUDIYYaHH1vhy6KbMwX09CS/3
+         d2zpxlqEeK6VY16c1BX69389wWwsEXjmIerz36y1Pyb+ztlwJr4Dw6mD/lGhSw6HlLYC
+         TeGfvwzt/iY4H7DqJX1Wzd0rB6erQaMkbRhDAV4xjXh+m5ORPtU9/DXnu8mLfDnfhTxR
+         CGU2BvrqdyNmtyh2rOA8Kbm/ILHW5HMqBiMD7tGijF6g3B9snxqHk30/759LelCKbRGC
+         JzOQ==
+X-Forwarded-Encrypted: i=1; AHgh+RocpYNWAJp+rHYHX24esv+t5JmlzpyYkZfW1gl4U0vwKhzusKRM17kTAs7DZA80jTbzsZw/l14J8N4AgSX1qnOd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/tmZcL/urTxj4lHXnz3OgfqxPDUPyTuRFZcJR1gRxTzrvgYHc
+	zUI7/QA1IRT9NhTinsyoawWedXEU2ZyB+sQyNzRxIRmAX9OTlNo3Inr2
+X-Gm-Gg: AfdE7cnifIzn+4PGjJw8Zm+1zQbFtcg9cxmtRryxyKycBchHVvCFniBvZs6BF98sIO5
+	qfrnEhpmpGjphMP2myEOobPZ465cdQDGnXG/y38sI8VUykISMZ2+t+kOucAYbSb4pRjZjKWyNgY
+	4nYsxnzDPaTgWXaYN3yYZj6d7hfW/1tUlgV+qi0lqOVK/GiVl52spiznrbrKERVFP+SxQL5uerc
+	i8rTaUOtgC49C8WlemliioXUBbbAqciXW2GOWLlIYb6kn+nKldn7MHz8S+5sEFswNHU+uUppqBU
+	A3kd5zDm8Io0GraIKaMu1f7eGkcHqt3y9v44hK0CT1SN9j0pGCpXRKCpGEnts6JayAG7FHKYx54
+	vaO3fZs/w1f3lCa5D2wn5S7+VQOQDKRDbzuteLPvPg2pfuFtH+uMPL0d0LmGNjfRw+Zho/1+EdR
+	0=
+X-Received: by 2002:a17:902:f68b:b0:2ca:1eef:5096 with SMTP id d9443c01a7336-2ce9f15ccacmr45287845ad.36.1783832002767;
+        Sat, 11 Jul 2026 21:53:22 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d3da55sm81624355ad.71.2026.07.11.21.53.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 11 Jul 2026 21:53:22 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Yixun Lan <dlan@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	E Shattow <e@freeshell.de>,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
+Date: Sun, 12 Jul 2026 12:52:33 +0800
+Message-ID: <20260712045233.800748-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-References: <20260702214750.3428694-1-utilityemal77@gmail.com>
- <20260702214750.3428694-2-utilityemal77@gmail.com> <20260703-versed-locust-of-agility-d76fda@quoll>
- <akgR7N1LmqEmPSLy@suesslenovo>
-In-Reply-To: <akgR7N1LmqEmPSLy@suesslenovo>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sun, 12 Jul 2026 13:13:00 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64dEj_M+LvCok91EuH6uq3ivutMRqU8-XUno2_ag5p+tg@mail.gmail.com>
-X-Gm-Features: AUfX_mwTG0Ej3M8TCZ8CoQWahuofQ1shmnD3lKfX2hOd7HU_ITVHuXMr_RVFxTM
-Message-ID: <CAGb2v64dEj_M+LvCok91EuH6uq3ivutMRqU8-XUno2_ag5p+tg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
-To: Justin Suess <utilityemal77@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sean Young <sean@mess.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260711_215324_300223_340A52D9 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +106,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 4, 2026 at 3:50=E2=80=AFAM Justin Suess <utilityemal77@gmail.co=
-m> wrote:
->
-> On Fri, Jul 03, 2026 at 12:56:00PM +0200, Krzysztof Kozlowski wrote:
-> > On Thu, Jul 02, 2026 at 05:47:47PM -0400, Justin Suess wrote:
-> > > The A523 (sun55i) contains a newer revision of the sunxi CIR receiver=
-.
-> > > It is not backwards-compatible with the A31 programming model: the
-> > > control register has a pulse capture mode field (bits [7:6]) that
-> > > resets to a value which captures no pulses at all, and the sample
-> > > clock divider is now selectable via SPLCFG bits [1:0] instead of
-> > > being fixed at the old module clock / 64.
-> > >
-> > > Since a kernel driving it as an A31 CIR receives nothing, add the
-> > > compatible as a standalone entry rather than under the
-> > > allwinner,sun6i-a31-ir fallback.
-> > >
-> > > Signed-off-by: Justin Suess <utilityemal77@gmail.com>
-> > > ---
-> > >  .../devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml        | 1=
- +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-=
-a10-ir.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-i=
-r.yaml
-> > > index 42dfe22ad5f1..06656058ce91 100644
-> > > --- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.=
-yaml
-> > > +++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.=
-yaml
-> > > @@ -19,6 +19,7 @@ properties:
-> > >        - const: allwinner,sun4i-a10-ir
-> > >        - const: allwinner,sun5i-a13-ir
-> > >        - const: allwinner,sun6i-a31-ir
-> > > +      - const: allwinner,sun55i-a523-ir
-> >
-> > I assume you are adding it in expected order that Allwinner is
-> > following, not just randomly at the end of any list.
-> >
-> I did it in product generation order, is that what is expected?
-> I know that the a523 series succeeded a31, so that's what I put for
-> ordering.
+TL;DR:
 
-Yes it is.
+The DWMAC on Spacemit K3 is failled to register phy after the reload
+the driver module (rmmod then insmod). Because the reset-gpio is
+asserted while unloading the driver and is not desserted before reading
+the c22 id, which leads to a fault.
 
-> > Also, please change all above entries to one enum, can be the same
-> > commit.
-> >
-> No problem, I'll do that for v2.
-> >
-> > Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> >
-> > Best regards,
-> > Krzysztof
-> >
+Description
+
+In a few days ago, E Shattow reports he has sufferred the a weird issue,
+when unloading the spacemit-dwmac driver and then reloading it, he got
+the following error:
+
+[   60.713071] mdio_bus stmmac-0: MDIO device at address 1 is missing.
+
+This only occurs when reloading the driver but the first initialization
+successed. After some function tracking, I found it is failed at reading
+c22 id. The call graph is as the follows:
+
+stmmac_mdio_register
+	mdiobus_alloc
+	of_mdiobus_register
+		__of_mdiobus_register
+		__mdiobus_register
+		__of_mdiobus_parse_phys
+			of_mdiobus_child_is_phy
+			of_mdiobus_register_phy
+				fwnode_mdiobus_register_phy
+					get_phy_device
+						get_phy_c22_id
+
+By checking the difference between the initialization process and the
+reloading process, I found the reset gpio is asserted in the function
+mdiobus_unregister(). And there is no any function desserted this reset
+gpio in the loading stage. And in the initialization process, the reset
+goio is deasserted.
+
+This bug report is sent as I found it is hard to solve this problem
+and ask for help to fix this issue as it is related to the framework
+instead of a specific driver.
+
+The possible workaround I found is as the following, just use the phy
+id in the compatible string (Confirmed by dlan):
+---
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -196,7 +196,8 @@ &eth0 {
+
+ 	mdio {
+ 		phy0: phy@1 {
+-			compatible = "ethernet-phy-ieee802.3-c22";
++			compatible = "ethernet-phy-id001c.c916",
++				     "ethernet-phy-ieee802.3-c22";
+ 			reg = <1>;
+ 			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <10000>;
+---
+An interesting thing is, moving the reset-gpio to the MDIO bus level
+does not solve this problem. Only setting the right phy id can mitigate
+the problem.
+
+Regards,
+Inochi
 
