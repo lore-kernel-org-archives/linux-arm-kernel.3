@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09679C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 22:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 22:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8WRZxD4H8+tY9oaiz5xLvkGilYbPiA92y2Jesbmxnro=; b=TwaoXR8DJkeowgn60QBO1lQJKn
-	sFquqaXjPcVMiJaNgffB4l4G1y+NUyd/SO400iIn6zKOsKDGH5XFYZPivHSRFEMivhY5JL9O7gOyp
-	V4ALswAk/viw6lSDay4XKUeFuNPxJ831F5KalpfTxdQ530D3hUGTJNpCfzw8xd7U//EWKfQ5se5e5
-	9QQgAGPavd5+PX28Ql6wYenPampv0SXAmA9B/rqxtM+/1ZiXUnnyxLS/Ufqj19FWgIZYSvXb66Ifr
-	68kVFoVFicW+D16HTMRzXVqnNhgUFcUofkrDwzG1fPpOjaPR/sq58zdOZEdQq0IH1M7POllzJYDNe
-	wAxOluLg==;
+	bh=m0aMkvFlpD7qcpmPu98mFfzTGpFjwWgjgBJW3Blyf0I=; b=tsPI5sffpmPmMBH4TG4grzsZSh
+	9UppdMkdHmSTa59RiftXnOx6WaoOBi8BoPFTy3bYKggnWbpGn1OF96pdYEzXZFGVgzGA8cNV2d+VS
+	lm9MH1iwpY7UgVMOJdwdFZbR0Ay/4DM0+dwgJ1mytwSl2HfAJWJRpG4QBfaeUkXQjzZllDgDGDIYj
+	AiYKnDSjUicwH7tKdroM2HHM18IZlb8vkafn1SQfAWFS+VPvyyG2mi0yhuJ0K4v6FejGcM0Zx5x6O
+	MVDMxaC6NdASEdBDsVJlEer/JRWajxeZXCVMnXMTj2G4DnuCWuU/LjsYyNlN5cLzVuGUbAzJkUp/V
+	cEdyQ6kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj2Zh-00000007oVV-1teN;
-	Sun, 12 Jul 2026 22:23:01 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wj2hX-00000007os6-0y3S;
+	Sun, 12 Jul 2026 22:31:07 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj2Ze-00000007oV7-2s7R
+	id 1wj2hU-00000007orF-2Ium
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 22:23:00 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4798bea72f9so1281595f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 15:22:57 -0700 (PDT)
+	Sun, 12 Jul 2026 22:31:05 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84536ecfc5bso2768398b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 15:31:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783894977; x=1784499777; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783895464; x=1784500264; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=8WRZxD4H8+tY9oaiz5xLvkGilYbPiA92y2Jesbmxnro=;
-        b=VPlEAYSRtO2SHYOGXs2B5k5KBGxJCr8f15/hERZdjGabFfdYfQyDTZN23jOIkRJ01A
-         cj3GVQDxmtAnqOi8uxFsAFl8yYS3reyilRI/hE+0QtFitIHYJbEhGs2WjUGX36c4elU2
-         j6yn4/Vg0hhqMjGR+hgEmEaZdf0YSl1oyWoX4I7mB/YhXoq32iGq5fh74ObYSbrLSI94
-         KkJv0kn5DHXhsrfAvhHAJiBgNRacmcVpli/HzDkEVK12LpNlFmLx34nlWzcSe/U9HcNm
-         g6cPcE2Z/soliLHNdd92SF4Hy7ERIECRbxgSEIrc/mJz42+rCvnkQaqnzoXgSMhpqGzr
-         BQGg==
+        bh=m0aMkvFlpD7qcpmPu98mFfzTGpFjwWgjgBJW3Blyf0I=;
+        b=oEt4GWRWKmmuzjTpaXg38lTrD0rMeZUvDqM4FABTcUCP/yJdDYFLM5kvSSeOW3SI2k
+         tB/MO/Kq2iTe9CiaADK1z365Zstz6cbx55TRoK/kWfHU0ho/uj2STBz+K/eIMw2DMdzM
+         P9eB9kb/YCc4L8GK+3w7tmG/MgLwRhpCopjD8uR7iMhyISnKoHD7LjKRwT2+Kct6X8wW
+         VNWcI1E81tTma0Cacjp5C9RyiLBSSYfIv5MhpP5YbNGW98xVoAF54OHw8kbZTn7o2Mg6
+         F6MRjNtdqZb7w16UZIQLUI6Wt7V7MdKAstEfFe1naJ2KFPacggad/CKod2fwP65v3ykf
+         38Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783894977; x=1784499777;
+        d=1e100.net; s=20251104; t=1783895464; x=1784500264;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8WRZxD4H8+tY9oaiz5xLvkGilYbPiA92y2Jesbmxnro=;
-        b=hVBB0pVrPo1/45E+BKr9nyWsoZtgQ3JGgC81ePfePOAi6Y3nErlXPH8T1/5kue1qbS
-         ghPuOWAS2PqXB8opMjoq/F8QgICDz8Fs1UIDqkFEWPbg1z0RuSXmESx9Zx3rW8NiOcqR
-         BqFoUWHgX8L6EdyG3cL7P2MYm2DxLqv+xmi7BC4OuHLD5lyP5ubN2yUk3/eRlvMtz31y
-         vcPkRgE4KdkZvkZp6Budu1kmG/2sr539dWARRxtHA6TDM+tjVzL9Xqkwm86hWlGXz1P+
-         WJ7ZlWGSudIUDVwAqz8JzF8IoK8EEWLclv82yP8RYLFjFIFelrpTaAxxeXmyM1DbuIth
-         LjFg==
-X-Forwarded-Encrypted: i=1; AHgh+RqchdsF14Fe5OTBh90AMNt7IYrpaLsqxVkF22TMNfDG64wrxOmoMo0NayfA7Uno/lXiyWlfJ6KwrO4v0UINdk08@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxSk93GRgmTg4KZ+hJaGmSMQMOptEUH3rymaqYisEOzhmGvi4Y
-	lCbVFT5e+9QUDf+j91RASzZTenjsNSSGX7q01BHVZ60l5FAX5OfiyVXo1PFfT4fqNdo=
-X-Gm-Gg: AfdE7cmc7bwqj7UVFdp8EtQgEk/lSAKnUJTkN/QX5cf2fsygiIMAP9J5be0jbKUargq
-	Bcx0gm4shd/y5xOkX6TU5LF6pbWmRiwXf6Tu33FbDmuiBCRi9Eold8waJwaBep5ym7vBKqfeynh
-	XQms9SENOTLFAp8dr+P/0aO/lUKAdF9yxLHzMtqPoOxCX0Vwv7cY4Iwzs/ORLcy56FqEtmr45nR
-	fzlIu859EmDAkbV5S4y6cfeLMOWbnTou5jpC1RIbsjtdPvTtbiJttodbHdTmSh4xY2+eSLR0c2W
-	LxLKyg6JF6SQ/IrmObrVhw8mHNALjHQ65voGOE9fucDx8sID8k1iFBr9W9ouVksMMTqGjBdE/70
-	lUD1LQvmPnn6ELZWNqZsMTlqw6GroEV0hkCVPU83F3Rby8BA6gigfywsp4SxO8wo1s97wnX5hPV
-	h90hzrHwx25OOJP4sbeP62XmLsHqwk
-X-Received: by 2002:a5d:59a4:0:b0:472:9bf7:2f58 with SMTP id ffacd0b85a97d-47f2dcc69e2mr6731266f8f.36.1783894976653;
-        Sun, 12 Jul 2026 15:22:56 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47aa0f213e8sm78667437f8f.34.2026.07.12.15.22.55
+        bh=m0aMkvFlpD7qcpmPu98mFfzTGpFjwWgjgBJW3Blyf0I=;
+        b=d9EwrnmLlozzHA/aYEkYggp3c5xlronXBhvJgqml6koLVzs5Yvfyh9uCgjgDtTFMyN
+         0QgiYBe7oFG1BuT1/mSLF3l/6iOrHtqwCRz9U8ygoktFuXTfUxGFj7bz+6r8XUoNoZwl
+         1Y+hVLjgTQr88CGysCDQyfqOwEZ253EoLObweFtr/tI4Uas3Sp7SS8aBuMUDm/kB5sFz
+         HI+DolNvSFlLie4L6Tcu6BV9KfaJ/N1sHKwZi35MBDwUwb/WlYmucbyv8Pj9PrPve7Q/
+         KX71PM5R3pRPPR66iUEM+jDn+MnPhImObpClbAb7jSgl65mdavheGBDXGxtaXiUTyT5K
+         /czQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpNIZqqGEUmZ2/WCoAQ4XOWsrCcfsTE1oaZ4AR6GApQx+q/AZZyehAVBF7K7ETXgI6aFgwBJ6017ngYGA5sHypw@lists.infradead.org
+X-Gm-Message-State: AOJu0YysF3yUVmq9raWQx5uLvb7juV+kbTJGS4vraXWs2dyLbwgTX5X2
+	ApV+SWGEnTcR3avaxmX46u8/J8iiCWvBKUq/tEqt8bnZ1uLbf1SmYY4o
+X-Gm-Gg: AfdE7cnRv99TBzWKBINOnhrnKCjF9k4ZvAnon+0nO1N0wc8iReRrriWd3rSofoGI0cA
+	42gaEKSVPa8/G3nl+bxrCKJAsV5UpB5fQ0nVkZ8HIZxEmGEok8xtoAQvk3Bt8FKvRnGS1RugJW7
+	lyApigorn7Ex4HYfV+q82C12adUwzBbJYx3Xlb2EBz7+m46Nc4Zsoh061krGPxwfRYvgzpDG8nA
+	GZKfE6OeTPDIuIKht9KGpAMnsiJvI3a5P5TzGS9XNNL63AdXoOLBP7mlXzLwcNzWFttIke6Zw/U
+	40uA4LH/vFhDcjQQ9q+WxIaCNolnQxevcnmzL7qx2KRGi0tuo+Lv3scb8Oxgf72ps73Lckohmfd
+	e3B/3+E6jneX2uENm4brp63Hv3uivhDT5OEdBjcmCzZEMjr8k+rWw+BP3qSIR9Luk
+X-Received: by 2002:a05:6a00:3e24:b0:847:86b0:888c with SMTP id d2e1a72fcca58-8488971d94bmr6700212b3a.48.1783895463640;
+        Sun, 12 Jul 2026 15:31:03 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a3b8d3310sm345744b3a.40.2026.07.12.15.31.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 15:22:55 -0700 (PDT)
-Date: Mon, 13 Jul 2026 00:22:54 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/6] clk: renesas: Add R-Car X5H CPG driver
-Message-ID: <alQTnZwVRwpVTVUf@monoceros>
-References: <cover.1783505142.git.geert+renesas@glider.be>
- <50f5804f00c55cd60604d00da1bf1f1dc912ba8d.1783505142.git.geert+renesas@glider.be>
+        Sun, 12 Jul 2026 15:31:03 -0700 (PDT)
+Date: Mon, 13 Jul 2026 06:30:19 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Yixun Lan <dlan@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, E Shattow <e@freeshell.de>, Han Gao <gaohan@iscas.ac.cn>
+Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
+Message-ID: <alQVRx2vCWnqCDEs@inochi.infowork>
+References: <20260712045233.800748-1-inochiama@gmail.com>
+ <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
+ <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ak3qgcbynp5sb6ym"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <50f5804f00c55cd60604d00da1bf1f1dc912ba8d.1783505142.git.geert+renesas@glider.be>
+In-Reply-To: <8689bf7d-e00d-4097-bd3c-4d7d7844d1d2@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_152258_742249_050E20B0 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260712_153104_586834_44C60F5F 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jul 12, 2026 at 03:49:43PM +0200, Andrew Lunn wrote:
+> > > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > > @@ -196,7 +196,8 @@ &eth0 {
+> > > 
+> > >  	mdio {
+> > >  		phy0: phy@1 {
+> > > -			compatible = "ethernet-phy-ieee802.3-c22";
+> > > +			compatible = "ethernet-phy-id001c.c916",
+> > > +				     "ethernet-phy-ieee802.3-c22";
+> > 
+> > Indeed that's merely a workaround :(
+> 
+> Despite is being a workaround, there has not been much progress on a
+> generic framework for dealing with clocks, resets, regulators etc,
+> before probing PHYs. So this is probably what you want to do.
+> 
+>        Andrew
 
---ak3qgcbynp5sb6ym
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v2 3/6] clk: renesas: Add R-Car X5H CPG driver
-MIME-Version: 1.0
+OK, I think I should accept the fact and let this workaround
+solve the problem.
 
-Hello Geert,
-
-On Wed, Jul 08, 2026 at 12:15:08PM +0200, Geert Uytterhoeven wrote:
-> +#include <linux/mod_devicetable.h>
-
-Please don't add new users for this header file. Only use those
-<linux/device-id/*.h> that you actually need (if any).
-
-Ditto for patch 4.
-
-Thanks
-Uwe
-
---ak3qgcbynp5sb6ym
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpUE7sACgkQj4D7WH0S
-/k692Af/VsqjHq8LAyiXwd69+QSwZHSG0U4MEBmnqkTcJ6mPo3Q1tfbuac0TZGpR
-buYByMLca9o6W+7RHLvf+/Zr3Deak9AlTYe0KCuPpU7D8l92MkJ9qyU4qaQWyxrI
-Hv1YMMYA5G+C8pvTfUspprOv7ql6Xa7cYPsIo3jLpjbhJL3dg7EiCHHjEt/TyipW
-XDBbz9nhJzlzRZZzwDROzHctrH75sRADO/UfFjRhtDmkYC4qRs2tvJk7mEMQ9TG0
-ZBnRKl3liOyOP0apWQ9wSU/MuVwRJ+l7pTHIihy3BPhzxJM+7fQFIzy3bdjFMWZY
-qnwvvfAtAsXvn3SjgrZe5nuPmhpk5A==
-=z1Ow
------END PGP SIGNATURE-----
-
---ak3qgcbynp5sb6ym--
+Regards,
+Inochi
 
