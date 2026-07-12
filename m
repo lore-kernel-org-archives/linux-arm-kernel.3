@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C69C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA88C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grjb9ebFtPJOuGs5Ha/8LM7ishbheMMgbim5Gam+4Ow=; b=Zr4K+kC+Oazcwj/scXKp+L+rKV
-	2/kpBT8KuIaQqeXTjAz7uACokOF+08ISghh/wuL/NWDY+JuaidnFMTW1gnb37QcMX8ehhmYpVfdUp
-	Gw0AN4M/vYs6kVY1tOLKzF4CkONhDHVKOYhWuzZdMKqij0FlQjXY+OyW5iTD4b3oB3PofLhUOcQlU
-	k4R+QQlsPmU7Gnh67h00DIL0//gieYSq1N+GY8FomWUjq51GqsR3hdRpUqjaP8lZ2Zqrn9/khVSYF
-	iHcz2aHwgpEq6mOmY7TeK/AkpOTUpsOgPYZ2H+gDpn563sM6KENerOnoWv68XLGQh2ulO3ipWJ0bc
-	XmqzU+RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OLk/y8B3jkUZeJ2X+bXdA1Q0foPidFq8qmGJRfb7iKg=; b=bV6QYtBT3/PMvIyH11BVp0vChX
+	m9a9S3BqSrRfoSrTUSpygV6ENgt1fw1GqrfMmfhG9rxLT8CHB78bOAGsheHcz1V4zA7bfMM0Z6wfS
+	Rk7yWgn5vbCRe8uSXPflgLXaffx8S24wST2+ujqPysbP13YOh94RMx3UrE28F8R5qfdLgpeabbZDr
+	d68R/jYBuzvslEtIewVYnSVRh+qIJ1IMhRTjO7qVabXvES5F9KqB3Y3ScQMPK3EAdb+F3Hr0pbp75
+	8hVljphZHSN6+7aJAMVlXNLNbPqNSZyhpRKeArtaZBlMU7E3gaMP2Swd5glSE+OdRTICURBbv35eC
+	YtBjsumA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wioUD-00000007Dd5-1FgG;
-	Sun, 12 Jul 2026 07:20:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wioUA-00000007Dcc-01Xq
+	id 1wipSm-00000007FyN-1hps;
+	Sun, 12 Jul 2026 08:23:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wipSl-00000007FyH-150d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 07:20:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5DCEA1682;
-	Sun, 12 Jul 2026 00:20:14 -0700 (PDT)
-Received: from [10.163.129.143] (unknown [10.163.129.143])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2294D3F85F;
-	Sun, 12 Jul 2026 00:20:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783840818; bh=twWPQttIw1Mi3lb5FSJdbQL2/I7h0z8qEhsYTcqS75E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=P/xcvQTC5mAiu40BmBCx4/5Dhcbd3LRhwZFpTHyQVCTQt5F3q5YIB2yDBqhwKj1lh
-	 OXXHbT7wFB2+0H2Ar929JckO06lkGutqMiIu9b9Dox29S7k1YlCb/b/yCweINlvtNG
-	 FA1DabFpxNOcoSO5ARxfIYrDFPExBt7RjxmLOASU=
-Message-ID: <8e320b30-9658-4e9f-ac4c-f99dcf855944@arm.com>
-Date: Sun, 12 Jul 2026 12:50:08 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] mm: fix UAF caused by race between ptdump and vmap
- pgtable freeing
-To: Lorenzo Stoakes <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: David Carlier <devnexen@gmail.com>, Ryan Roberts <ryan.roberts@arm.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+	Sun, 12 Jul 2026 08:22:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B524740DC7;
+	Sun, 12 Jul 2026 08:22:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01DBF1F000E9;
+	Sun, 12 Jul 2026 08:22:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783844577;
+	bh=OLk/y8B3jkUZeJ2X+bXdA1Q0foPidFq8qmGJRfb7iKg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=V/6fldgyaCao4wFwvO4Zk3ZaURqqabllVwfzl6WAdo1GWpXOO3Elt2D91McU9TNJ/
+	 HpASwPOXLu2LhMp/Aodz/6nEjVKn+a6qVc1b2zqMrLNSx/cFZyBi8O0TgIbUWtiS2x
+	 tkHGmIzN2+1r4kSaXUnJc3f38PSUiUp7NvKNEhqGCmQwfvXHR9jDaSMzhD4ejP/MD2
+	 F0tedNd3mC3fz8QMOA4HzTYeDk1eeWNRosTq1v5E2ts7pCI3gPyHpq1X5jUwqcCozf
+	 P70Q0CuqEppPof5WQ+J0YgbB4iTVfZBvm2Xz8n8sM+6yAQYfSVyi5jY7eVWPBk6O7/
+	 cUkFoADJyXsYg==
+Date: Sun, 12 Jul 2026 09:22:42 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	David Carlier <devnexen@gmail.com>, Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH 1/2] mm/vmalloc: acquire init_mm read lock on huge vmap
+ promotion
+Message-ID: <alNM8tIxep2-PHAM@lucifer>
 References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_002022_227318_2FCFA975 
-X-CRM114-Status: GOOD (  31.66  )
+ <20260710-series-vmap-race-fix-v1-1-5b3794c113fe@kernel.org>
+ <d47ac961-4767-4ce4-9c75-f281beb24e42@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d47ac961-4767-4ce4-9c75-f281beb24e42@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +78,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jul 12, 2026 at 01:13:12PM +0530, Dev Jain wrote:
+>
+>
+> [-----]
+>
+> > We also define a guard class for mmap_read_trylock() so we can use
+> > cleanup.h to make the scope handling cleaner in the implementation.
+> >
+>
+> Will this cause backport problems, I think this scoped guard thingy is
+> not that old?
 
+I intentionally used it because it's the best way to solve this problem.
 
-On 10/07/26 4:19 pm, Lorenzo Stoakes wrote:
-> Kernel page table walkers fall into two broad categories - those ranges
-> where no exclusion is required via walk_kernel_page_table_range_lockless()
-> and those where exclusion is required via walk_kernel_page_table_range()
-> or walk_page_range_debug().
-> 
-> The former category is used only by arm64 arch code operating on ranges it
-> both wholly owns and does not concurrently write.
-> 
-> The latter category consists of kernel page table walkers operating on
-> ranges that are wholly owned (but which need exclusion against concurrent
-> writers).
-> 
-> The lock used for exclusion is the mmap lock, and for kernel ranges this
-> the mmap lock on init_mm.
-> 
-> ptdump is a special case being both the only user of
-> walk_page_range_debug(), and the only case in which it walks ranges it does
-> not own.
-> 
-> This presents a problem, as page tables may be freed under ptdump. And
-> indeed there is a use-after-free bug in the kernel as a result, which this
-> series addresses.
-> 
-> vmap promotes page tables to huge leaf entries where possible, freeing the
-> lower leaf page table when it does. It does this with no meaningful locks
-> held against concurrent ptdump walks.
-> 
-> As a result, use-after-free can currently occur. This series addresses the
-> issue by having the vmap huge promotion logic acquire the mmap read lock
-> while both setting the huge page table entry and freeing the prior leaf
-> page table.
-> 
-> The ptdump code already acquires the mmap write lock, so by doing so we
-> ensure that the ptdump walker only ever observes either the huge page table
-> entry or the existing page table entry, and nothing is freed underneath it.
-> 
-> A mitigation for this issue was already applied for arm64 in commit
-> a93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), which this series
-> has to deal with carefully.
-> 
-> This mitigation resolves the issue by acquiring the mmap read lock on
-> init_mm on vmap page table free if a ptdump is in progress.
-> 
-> However the fix in this series would cause a deadlock if we were to simply
-> apply it for arm64 without also reverting the change.
-> 
-> This is because vmap may acquire the read lock before ptdump attempts to
-> acquire the write lock, which then gets queued, and rwsem starvation rules
-> mean that the (unacknowledged) nested mmap read lock in the arm64 code
-> would also block, meaning the original read lock is never released and thus
-> deadlock.
-> 
-> This series works around this by #ifndef CONFIG_ARM64'ing the mmap read
-> lock in vmap logic, then partially reverting commit
-> a93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), keeping the
-> enablement of huge vmap support, and removing the ifdeffery with the
-> partial revert patch.
-> 
-> Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> ---
+If there's any issue I'll fix them up in the stable backports myself.
 
-Will Deacon had pushed back on a similar approach:
-https://lore.kernel.org/all/20250530123527.GA30463@willie-the-truck/
+I will likely resend this as a 4 patch series and just do the stable
+backports manually anyway.
 
-Although now when I read back that thread, it feels more so like my
-incompetency to convince :) because:
+>
+>
+> > One wrinkle here is commit fa93b45fd397 ("arm64: Enable vmalloc-huge with
+> > ptdump"), which addresses the issue for arm64 only by explicitly acquiring
+> > the mmap read lock on kernel page table freeing should a concurrent ptdump
+> > be in progress.
+> >
+> > This is problematic as vmap may acquire the mmap read lock prior to ptdump
+> > attempting to acquire an mmap write lock, leading to a deadlock when the
+> > mmap read lock is slept upon on page table freeing due to rwsem
+> > anti-starvation.
+> >
+> > We work around this by predicating the mmap lock being taken on
+> > !CONFIG_ARM64 for the time being.
+> >
+> > With this patch applied, a follow up will partially revert commit
+> > fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump") and at that stage
+> > remove the arm64 ifdeffery.
+> >
+> > We also update walk_page_range_debug() to assert the mmap write lock
+> > unconditionally and update the comment here to reflect this change.
+> >
+> > The issue has existed as long as ptdump was available and vmap freed page
+> > tables when promoting to a huge leaf entry, that is, since commit
+> > b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table") for
+> > huge ioremap, and commit 121e6f3258fe ("mm/vmalloc: hugepage vmalloc
+> > mappings") for huge vmalloc.
+> >
+> > Since the former is the earlier of the two we choose that for our Fixes
+> > tag.
+> >
+> > This patch is based on work by David Carlier (linked), with gratitude!
+> >
+> > Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
+> > Cc: <stable@vger.kernel.org>
+> > Reported-by: syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+> > Closes: https://lore.kernel.org/all/6a287988.39669fcc.33b062.00a0.GAE@google.com/T/
+> > Link: https://lore.kernel.org/linux-mm/20260706203128.162335-1-devnexen@gmail.com/
+> > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
+> > ---
+> >  include/linux/mmap_lock.h |  1 +
+> >  mm/pagewalk.c             | 22 +++++++++++----------
+> >  mm/vmalloc.c              | 50 ++++++++++++++++++++++++++++++++++++++---------
+> >  3 files changed, 54 insertions(+), 19 deletions(-)
+> >
+> > diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
+> > index 04b8f61ece5d..6b5c2390cc30 100644
+> > --- a/include/linux/mmap_lock.h
+> > +++ b/include/linux/mmap_lock.h
+> > @@ -621,6 +621,7 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
+> >
+> >  DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
+> >  	     mmap_read_lock(_T), mmap_read_unlock(_T))
+> > +DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
+> >
+> >  static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
+> >  {
+> > diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+> > index 3ae2586ff45b..bbcfd68d0907 100644
+> > --- a/mm/pagewalk.c
+> > +++ b/mm/pagewalk.c
+> > @@ -678,6 +678,8 @@ int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end
+> >   * will also not lock the PTEs for the pte_entry() callback.
+> >   *
+> >   * This is for debugging purposes ONLY.
+> > + *
+> > + * The mmap write lock must be held.
+> >   */
+> >  int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+> >  			  unsigned long end, const struct mm_walk_ops *ops,
+> > @@ -691,6 +693,16 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+> >  		.no_vma		= true
+> >  	};
+> >
+> > +	/*
+> > +	 * When walking userland page tables, an mmap write lock must be held to
+> > +	 * account for munmap() downgrading to an mmap read lock when tearing
+> > +	 * down page tables.
+> > +	 *
+> > +	 * When walking kernel page tables, an mmap write lock must also be held
+> > +	 * to account for page table freeing on vmap huge page mapping.
+> > +	 */
+> > +	mmap_assert_write_locked(mm);
+> > +
+> >  	/* For convenience, we allow traversal of kernel mappings. */
+> >  	if (mm == &init_mm)
+> >  		return walk_kernel_page_table_range(start, end, ops,
+> > @@ -700,16 +712,6 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
+> >  	if (!check_ops_safe(ops))
+> >  		return -EINVAL;
+> >
+> > -	/*
+> > -	 * The mmap lock protects the page walker from changes to the page
+> > -	 * tables during the walk.  However a read lock is insufficient to
+> > -	 * protect those areas which don't have a VMA as munmap() detaches
+> > -	 * the VMAs before downgrading to a read lock and actually tearing
+> > -	 * down PTEs/page tables. In which case, the mmap write lock should
+> > -	 * be held.
+> > -	 */
+> > -	mmap_assert_write_locked(mm);
+> > -
+> >  	return walk_pgd_range(start, end, &walk);
+> >  }
+> >
+> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> > index 1afca3568b9b..9d0f1fdd6af3 100644
+> > --- a/mm/vmalloc.c
+> > +++ b/mm/vmalloc.c
+> > @@ -43,6 +43,7 @@
+> >  #include <asm/tlbflush.h>
+> >  #include <asm/shmparam.h>
+> >  #include <linux/page_owner.h>
+> > +#include <linux/cleanup.h>
+> >
+> >  #define CREATE_TRACE_POINTS
+> >  #include <trace/events/vmalloc.h>
+> > @@ -158,10 +159,25 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
+> >  	if (!IS_ALIGNED(phys_addr, PMD_SIZE))
+> >  		return 0;
+> >
+> > -	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+> > -		return 0;
+> > +	if (!pmd_present(*pmd))
+> > +		return pmd_set_huge(pmd, phys_addr, prot);
+> >
+> > -	return pmd_set_huge(pmd, phys_addr, prot);
+> > +	/*
+> > +	 * Kernel page table walkers either walk ranges they own exclusively
+> > +	 * using the mmap lock for mutual exclusion, or hold the mmap write lock
+> > +	 * on init_mm (ptdump being the motivating case).
+> > +	 *
+> > +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+> > +	 * freeing page tables.
+> > +	 */
+> > +#ifndef CONFIG_ARM64
+> > +	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
+> > +#endif
+> > +	{
+> > +		if (!pmd_free_pte_page(pmd, addr))
+> > +			return 0;
+> > +		return pmd_set_huge(pmd, phys_addr, prot);
+> > +	}
+> >  }
+> >
+> Note that we do not need to take the lock around pmd_set_huge - we don't
+> care if ptdump observes a temporarily cleared pmd entry. So how about keeping
+> this outside the guard block. Otherwise right now we have an inconsistency:
+> for !pmd_present() we do pmd_set_huge() without locking, but for pmd_present()
+> we do pmd_set_huge() with locking.
 
-1. I don't think this pmd_free_pte_page() path is a hot path at all
+As I said in the commit message I'm intentionally taking the lock around all of
+it so a concurrent ptdump sees either the leaf entry or the non-leaf entry.
 
-2. We are doing a try lock which is almost guaranteed to succeed,
-   so it's not like we are losing out on block mappings
+By doing that we can easiliy avoid the situation where a ptdump gives you
+inconsistent output and it makes more sense logically.
 
-3. Any overhead from the try lock will get dominated by the pgtable
-   page free/TLB flush
+So this is the opposite of inconsistent - if !pmd_present() the ptdump may
+observe the _genuine_ state of there not being an entry before. With
+pmd_present() it either observes what was or what became, not something
+inbetween :)
 
-I guess you did not take the RCU approach because that would put code
-into the generic kernel pgtable freeing path.
+>
+>
 
-I liked the RCU approach because I hate the fact that ptdump takes
-an mmap_write_lock when it is literally only reading the pgtables.
-But your approach is simpler and fixes the problem at the particular spot
-and not hammers the fix into a generic path. So overall, ACK.
-
-
-> Lorenzo Stoakes (2):
->       mm/vmalloc: acquire init_mm read lock on huge vmap promotion
->       Revert "arm64: Enable vmalloc-huge with ptdump"
-> 
->  arch/arm64/include/asm/ptdump.h |  2 --
->  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
->  arch/arm64/mm/ptdump.c          | 11 ++---------
->  include/linux/mmap_lock.h       |  1 +
->  mm/pagewalk.c                   | 22 +++++++++++----------
->  mm/vmalloc.c                    | 41 ++++++++++++++++++++++++++++++---------
->  6 files changed, 51 insertions(+), 69 deletions(-)
-> ---
-> base-commit: a635d6748234582ea287c5ffeae28b9b23f91c7e
-> change-id: 20260710-series-vmap-race-fix-2a4cac988938
-> 
-> Cheers,
-
+Thanks, Lorenzo
 
