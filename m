@@ -4,99 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA12C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 03:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B744C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 03:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JKukckWpY+orPNsziCIsLI7E7zxitxT1NiWuLx/R2I4=; b=o8tum1yuUYlR4GYeOBfDhyb5RA
-	vGrcUTxAW1j1YLvwcUqzgv2PVyr/ED8ICH1wSaO/SBikVvvxHOJETENcdkU+qxazhtVpDkO75N0gx
-	5bTBQ3v34xuvJ+BECOuywd6/eNanzTMLG5W2tVu3Cgww9Dc6y1O2+zgd4Ht6ep0p7/yqhG+z08+iI
-	DX3I8Fefw/lmhqCMRPCqtF+ELC6adrw+KM8Ikfh9SDhCZYLxsP+KZ0xsXaBUF9mx9B8y/tK4LVCQS
-	6zs4MtK2bss6vuevoEOmw0AbLf9s0diZyhj/vF9/Qmc/c+n8F7zK667pgpaEYYwedwqh+Z3ufaG9B
-	T2+1DNfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tf6Cq6cPOgsZxdvzVE+An28hz2bl2bYPUa5Kw/cEUUs=; b=fSAGpjJN3HlvDfWfGR3bmj4Fcx
+	hzQArIkpw2R22aHKu+s57cNncRRdl81Qgj122/s5k3Jau3eKpXgfTGAHh3tD1JYbOM07yD/rrt7EI
+	Iq5GS2yHv56r4Sa9Oj/m3hg+UsBRVXGBcT+GFddidXTL5RrCY3PySVA9iCCVklduFSK8KsM7Ilzdq
+	E5PqTxTT1THXw0whGsedvGbLscJ538y4Q+sCHDMEGs+2GR7oQlc5HsHVFtuyWFU71Q0v0gdoPlNjU
+	xjabNNtPZAYSKQcX66YmIU0Iz7/iG2/cAt8XqMw3gIKscRHp12FT2DNynVQf9B86A8NAKsLyBkyoZ
+	T6xv5ErA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wijgo-0000000704P-2sj4;
-	Sun, 12 Jul 2026 02:13:06 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wikdr-000000074Ll-3Z9q;
+	Sun, 12 Jul 2026 03:14:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wijgl-0000000702z-3Ixd
+	id 1wikdp-000000074Lf-47Ql
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 02:13:04 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-37df72c9984so3671349a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Jul 2026 19:13:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783822383; x=1784427183; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JKukckWpY+orPNsziCIsLI7E7zxitxT1NiWuLx/R2I4=;
-        b=VPQAQcFc/69+6W3yQ0LPgqWVGNWldpMaPBK3oYaE4fJjcfGkDyBndSY+owxjE3ofov
-         Qk3kL4ynCbRa8Z4g8nwUoXTtqJStNPmI9BqfUl6AN1foGc/VN9Qxgws62YjsD1BP7Fix
-         Yv4VErdL8GHYN7lCqZ/DLa1JtH4+qtwOL/ZgY/9HvpZo/UnhthXA78qWMAPLg17+vRM8
-         WCAdRjaufqV7hd2y1zzK8OwAJETiimzYwo4520BjFEI2Wx2lhR3yLtxnk7Ke/cUkyL3A
-         IBxEpebxHmD1wL4wBiySyEMZVkqmdIhV7r4YBhPeuAEnTMit33LzgA1JMczp2ROn5PtM
-         wt6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783822383; x=1784427183;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JKukckWpY+orPNsziCIsLI7E7zxitxT1NiWuLx/R2I4=;
-        b=EUFKQtDN6Wbvbug1ts3+E1sUDvHo9u5sSrVLEFJPfAsjMhwSd8XpbDUGRbboRADZu5
-         HOlgxqTY61C6clqDvXnk7iSRsipdOTTZ0hh0zga/lukwaUmUaNQKQort8WnVph2JRLMh
-         imnx52lEQIPQ593NUqJqggbCYNkBq6C8p+7t4HMhx0kNEP5pgnpgTFr43XW51zTEuEMe
-         YI5wWORswogQKJZuQxSlQBxnlQdi3CjIpZx639xxWPl80+OTsr0S5Lzr8Vf/5qHDm6be
-         2+xwTSWQCOVIS69KS71x+HH/Tt/fgQKKJ9oWK2aWlQTxyYKHZLKA3tZXm9A6juia2Hqu
-         baQA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr08gDP/PVgVWjQ0GfPdUhKoM5njpwGOllQE9T9BgLvAEDortKP3OtJr8hL6f8LBQ5QK33shBeI3ockAlgodgl/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6r47TE6KZU/HkTEnke1kSK1Vi8FydXqceKbyB8j6NvOV+VxtJ
-	iDqbTOVeirqxRZSO7BUM3ZrG5I5mHSd3oZwqedljSaNBwk7MZ0MzpAQ2
-X-Gm-Gg: AfdE7clDIrsiVL4JEifxjT5c6SC+Z+kURF7TA7f8HvWUbfIImVCaNNSS3z15zbNXGnh
-	XXOQRdUkpQHdQZohIgWWI7wrpU4Kw5TxjsElXk/zNuV2rND2ADXunV5WAFJiXk/DcVRhFqb1Gvo
-	c5iu3/TFeHLZDMIEp1U9qlmcCrNXVk2b86cgU/YK9jPvLBkNttDbNYU6Q7nBFiKjs5K9XPG/P7l
-	37LVvmYYHVGHXH1qmDbUk5IudoYDHMJpwxEvf8ziVOmd3+4tvii1htHCTooab64sLglaIl05vmV
-	QU6gW3wMEf93F0skLS0+0cNO8ws5lAKx/2M238Eji0O+UnTfbGzz133KcBTrFhvkGU2it0W1Wgk
-	nbh9/T9K1C8DinaXpzrG1chlzRD+akUEt1tUwCLhLKeoaIGeXaciCHl0BBQgMhbb2+gKszH59up
-	bd9kiKnqv89SHQZUkHX7PazRTiQLE/9WHr8SaaH46A9SV6Y5wP/0j2y54KStk5DyPOrFWpkZf8n
-	l8=
-X-Received: by 2002:a17:90a:e7c9:b0:387:e0cb:7f7 with SMTP id 98e67ed59e1d1-38dc784ae88mr4308970a91.43.1783822382978;
-        Sat, 11 Jul 2026 19:13:02 -0700 (PDT)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:c63e:9756:a95c:c75])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3117d847e17sm54796692eec.18.2026.07.11.19.13.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Jul 2026 19:13:01 -0700 (PDT)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Sat, 11 Jul 2026 19:12:43 -0700
-Subject: [PATCH v3 02/10] Input: samsung-keypad - handle compact binding
+	Sun, 12 Jul 2026 03:14:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BB0EC419BB;
+	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9B945C2BCF4;
+	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783826045;
+	bh=mmOkhodHGtEQly1sJFXQCl0QkPRAuKzorAgvaUlQrpk=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=Nuav4sd1jzHBwS6lSQL5X95lx8S1SXKL2p2A9cyPJIyOVbXmUPjCmOnEQDI39iChb
+	 m7ROshMWdHvDfvHjDNXgi++ec7c96YHppV23Rdoaf9ezqSYajeVQ/X5V4LUDtUmDF6
+	 YOX63eNQYDOgHj+nj4EXqsVdqtBQkpfsTdsBvGULZTvIlcBwH+EDvildpXB+QshdGO
+	 i+108STxuKEwdMRK7/3taHwCrbgFpTk/mM4K8GXa/BIpRKRCdBSsaifJ17hZqxbldv
+	 pfj2aqzzOZKVbEze31SJyJBRQ5qPUpDdEK1OnoiLoa9Y2mBN9GP4vS0RZNAM3Ymi8a
+	 BtMc0yFY/fHWg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89A9BC43458;
+	Sun, 12 Jul 2026 03:14:05 +0000 (UTC)
+From: Esteban Urrutia via B4 Relay <devnull+esteuwu.proton.me@kernel.org>
+Date: Sat, 11 Jul 2026 23:14:01 -0400
+Subject: [PATCH v2] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260711-samsung-kp-v3-2-b2fcaba77aff@gmail.com>
-References: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
-In-Reply-To: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
- Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Sam Protsenko <semen.protsenko@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-input@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- patches@opensource.cirrus.com, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.16-dev-b242f
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_191303_863219_50B41216 
-X-CRM114-Status: GOOD (  20.61  )
+Message-Id: <20260711-sm8450-qol-smmu-v2-1-41a6fba41c3e@proton.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02NQQ6CMBREr0L+2pq2CAVW3sOwQPqRGqHYD42G9
+ O4W2Libl8y8WYHQGSSokhUcekPGjhHkKYG2b8YHMqMjg+Qy50oIRkNxyTh721eMw8IyhboUqHl
+ aKoiryWFnPrvxVh9My/2J7bxptkZvaLbuu196sfUOey7lv90LxlmqUCIWuit1c52cne14HhDqE
+ MIPrXS1FbsAAAA=
+X-Change-ID: 20260711-sm8450-qol-smmu-57ed91ed0397
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ phone-devel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Esteban Urrutia <esteuwu@proton.me>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783826044; l=1419;
+ i=esteuwu@proton.me; s=20260622; h=from:subject:message-id;
+ bh=IfJaejqIoPsz18N/gqtzvEjuLMyEPDB5DAuVkODkmwc=;
+ b=UvSUTz/MEMZyJa7vizKpKWIYxkiZgRxVdBJ+9EKLTBhRtjyn7HLNnNYv7ncQG/5rvMzEMVbEi
+ 1LpVyl+XTlpB1FA0BgmVY6yPnRyCCrkkSS8bu45gFrluIVoQYEDttnj
+X-Developer-Key: i=esteuwu@proton.me; a=ed25519;
+ pk=wToFt4mOAWkzbqb15Ye1hrhevI13vK9BcMUFiQ/me1M=
+X-Endpoint-Received: by B4 Relay for esteuwu@proton.me/20260622 with
+ auth_id=835
+X-Original-From: Esteban Urrutia <esteuwu@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,221 +85,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: esteuwu@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for standard matrix keymap binding (in addition to the
-existing verbose binding with a sub-node for each key). This will
-allow easier conversions from platform data to device properties when
-using static device properties.
+From: Esteban Urrutia <esteuwu@proton.me>
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Assisted-by: Antigravity:gemini-3.5-flash
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it can
+be properly configured by the IOMMU driver.
+
+Otherwise, there is an unhandled context fault, because the framebuffer is
+already configured in UEFI.
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
 ---
- drivers/input/keyboard/samsung-keypad.c | 134 +++++++++++++++++---------------
- 1 file changed, 71 insertions(+), 63 deletions(-)
+This patch allows the MDSS driver to properly function on SM8450 based
+devices.
+---
+Changes in v2:
+- Split series in subseries (dispcc, dts, qmp, smmu)
+- Link to v1: https://patch.msgid.link/20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/input/keyboard/samsung-keypad.c b/drivers/input/keyboard/samsung-keypad.c
-index 17127269e3f0..cc34f0146161 100644
---- a/drivers/input/keyboard/samsung-keypad.c
-+++ b/drivers/input/keyboard/samsung-keypad.c
-@@ -231,83 +231,89 @@ static void samsung_keypad_close(struct input_dev *input_dev)
- 	samsung_keypad_stop(keypad);
- }
- 
--#ifdef CONFIG_OF
--static struct samsung_keypad_platdata *
--samsung_keypad_parse_dt(struct device *dev)
-+static const struct matrix_keymap_data *
-+samsung_parse_verbose_keymap(struct device *dev)
- {
--	struct samsung_keypad_platdata *pdata;
- 	struct matrix_keymap_data *keymap_data;
--	uint32_t *keymap, num_rows = 0, num_cols = 0;
--	struct device_node *np = dev->of_node, *key_np;
-+	struct fwnode_handle *child;
-+	u32 *keymap;
- 	unsigned int key_count;
- 
--	if (!np) {
--		dev_err(dev, "missing device tree data\n");
--		return ERR_PTR(-EINVAL);
-+	keymap_data = devm_kzalloc(dev, sizeof(*keymap_data), GFP_KERNEL);
-+	if (!keymap_data)
-+		return ERR_PTR(-ENOMEM);
-+
-+	key_count = device_get_child_node_count(dev);
-+	keymap = devm_kcalloc(dev, key_count, sizeof(*keymap), GFP_KERNEL);
-+	if (!keymap)
-+		return ERR_PTR(-ENOMEM);
-+
-+	keymap_data->keymap_size = key_count;
-+	keymap_data->keymap = keymap;
-+
-+	device_for_each_child_node(dev, child) {
-+		u32 row, col, key_code;
-+
-+		fwnode_property_read_u32(child, "keypad,row", &row);
-+		fwnode_property_read_u32(child, "keypad,column", &col);
-+		fwnode_property_read_u32(child, "linux,code", &key_code);
-+
-+		*keymap++ = KEY(row, col, key_code);
- 	}
- 
-+	return keymap_data;
-+}
-+
-+static const struct samsung_keypad_platdata *
-+samsung_keypad_parse_properties(struct device *dev)
-+{
-+	const struct matrix_keymap_data *keymap_data;
-+	struct samsung_keypad_platdata *pdata;
-+	u32 num_rows = 0, num_cols = 0;
-+	int error;
-+
- 	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
--	if (!pdata) {
--		dev_err(dev, "could not allocate memory for platform data\n");
-+	if (!pdata)
- 		return ERR_PTR(-ENOMEM);
--	}
- 
--	of_property_read_u32(np, "samsung,keypad-num-rows", &num_rows);
--	of_property_read_u32(np, "samsung,keypad-num-columns", &num_cols);
--	if (!num_rows || !num_cols) {
--		dev_err(dev, "number of keypad rows/columns not specified\n");
--		return ERR_PTR(-EINVAL);
-+	if (device_property_present(dev, "linux,keymap")) {
-+		error = matrix_keypad_parse_properties(dev, &num_rows, &num_cols);
-+		if (error)
-+			return ERR_PTR(error);
-+	} else {
-+		device_property_read_u32(dev, "samsung,keypad-num-rows", &num_rows);
-+		device_property_read_u32(dev, "samsung,keypad-num-columns", &num_cols);
-+		if (!num_rows || !num_cols) {
-+			dev_err(dev, "number of keypad rows/columns not specified\n");
-+			return ERR_PTR(-EINVAL);
-+		}
- 	}
-+
- 	pdata->rows = num_rows;
- 	pdata->cols = num_cols;
- 
--	keymap_data = devm_kzalloc(dev, sizeof(*keymap_data), GFP_KERNEL);
--	if (!keymap_data) {
--		dev_err(dev, "could not allocate memory for keymap data\n");
--		return ERR_PTR(-ENOMEM);
--	}
--	pdata->keymap_data = keymap_data;
-+	if (!device_property_present(dev, "linux,keymap")) {
-+		keymap_data = samsung_parse_verbose_keymap(dev);
-+		if (IS_ERR(keymap_data))
-+			return ERR_CAST(keymap_data);
- 
--	key_count = of_get_child_count(np);
--	keymap_data->keymap_size = key_count;
--	keymap = devm_kcalloc(dev, key_count, sizeof(uint32_t), GFP_KERNEL);
--	if (!keymap) {
--		dev_err(dev, "could not allocate memory for keymap\n");
--		return ERR_PTR(-ENOMEM);
-+		pdata->keymap_data = keymap_data;
- 	}
--	keymap_data->keymap = keymap;
- 
--	for_each_child_of_node(np, key_np) {
--		u32 row, col, key_code;
--		of_property_read_u32(key_np, "keypad,row", &row);
--		of_property_read_u32(key_np, "keypad,column", &col);
--		of_property_read_u32(key_np, "linux,code", &key_code);
--		*keymap++ = KEY(row, col, key_code);
--	}
- 
--	pdata->no_autorepeat = of_property_read_bool(np, "linux,input-no-autorepeat");
-+	pdata->no_autorepeat =
-+		device_property_read_bool(dev, "linux,input-no-autorepeat");
- 
--	pdata->wakeup = of_property_read_bool(np, "wakeup-source") ||
-+	pdata->wakeup = device_property_read_bool(dev, "wakeup-source") ||
- 			/* legacy name */
--			of_property_read_bool(np, "linux,input-wakeup");
--
-+			device_property_read_bool(dev, "linux,input-wakeup");
- 
- 	return pdata;
- }
--#else
--static struct samsung_keypad_platdata *
--samsung_keypad_parse_dt(struct device *dev)
--{
--	dev_err(dev, "no platform data defined\n");
--
--	return ERR_PTR(-EINVAL);
--}
--#endif
- 
- static int samsung_keypad_probe(struct platform_device *pdev)
- {
- 	const struct samsung_keypad_platdata *pdata;
--	const struct matrix_keymap_data *keymap_data;
- 	const struct platform_device_id *id;
- 	struct samsung_keypad *keypad;
- 	struct resource *res;
-@@ -316,18 +322,17 @@ static int samsung_keypad_probe(struct platform_device *pdev)
- 	int error;
- 
- 	pdata = dev_get_platdata(&pdev->dev);
--	if (!pdata) {
--		pdata = samsung_keypad_parse_dt(&pdev->dev);
-+	if (pdata) {
-+		if (!pdata->keymap_data) {
-+			dev_err(&pdev->dev, "no keymap data defined\n");
-+			return -EINVAL;
-+		}
-+	} else {
-+		pdata = samsung_keypad_parse_properties(&pdev->dev);
- 		if (IS_ERR(pdata))
- 			return PTR_ERR(pdata);
- 	}
- 
--	keymap_data = pdata->keymap_data;
--	if (!keymap_data) {
--		dev_err(&pdev->dev, "no keymap data defined\n");
--		return -EINVAL;
--	}
--
- 	if (!pdata->rows || pdata->rows > SAMSUNG_MAX_ROWS)
- 		return -EINVAL;
- 
-@@ -391,7 +396,7 @@ static int samsung_keypad_probe(struct platform_device *pdev)
- 	input_dev->open = samsung_keypad_open;
- 	input_dev->close = samsung_keypad_close;
- 
--	error = matrix_keypad_build_keymap(keymap_data, NULL,
-+	error = matrix_keypad_build_keymap(pdata->keymap_data, NULL,
- 					   pdata->rows, pdata->cols,
- 					   keypad->keycodes, input_dev);
- 	if (error) {
-@@ -430,11 +435,14 @@ static int samsung_keypad_probe(struct platform_device *pdev)
- 	if (error)
- 		return error;
- 
--	if (pdev->dev.of_node) {
--		devm_kfree(&pdev->dev, (void *)pdata->keymap_data->keymap);
--		devm_kfree(&pdev->dev, (void *)pdata->keymap_data);
-+	if (!dev_get_platdata(&pdev->dev)) {
-+		if (pdata->keymap_data) {
-+			devm_kfree(&pdev->dev, (void *)pdata->keymap_data->keymap);
-+			devm_kfree(&pdev->dev, (void *)pdata->keymap_data);
-+		}
- 		devm_kfree(&pdev->dev, (void *)pdata);
- 	}
-+
- 	return 0;
- }
- 
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index e2c914fccd6f..795e8ec7e8fa 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -425,6 +425,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
+ 	{ .compatible = "qcom,sm6375-mdss" },
+ 	{ .compatible = "qcom,sm8150-mdss" },
+ 	{ .compatible = "qcom,sm8250-mdss" },
++	{ .compatible = "qcom,sm8450-mdss" },
+ 	{ .compatible = "qcom,x1e80100-mdss" },
+ 	{ }
+ };
 
--- 
-2.55.0.795.g602f6c329a-goog
+---
+base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
+change-id: 20260711-sm8450-qol-smmu-57ed91ed0397
+
+Best regards,
+--  
+Esteban Urrutia <esteuwu@proton.me>
+
 
 
