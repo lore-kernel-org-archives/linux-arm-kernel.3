@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3672C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 22:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5727BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 22:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kivqKCD/+dlHoNCjZOlMrMIExYZ3y1i62zZem0Ylilc=; b=R9Wdo6y8mH5W/4Q6gwiy2toMrI
-	oqBsmEgBoK9PypeFTBEcB7c4rSjfMNdZF53W0lSKNC8PcDCxnPQ+8OlJB5+ZWo3WhUimq+a2Xk6aa
-	QkdFzc0+NIa17WmdnLLaP9esmkwJHHd/SMuJWmpbOY7V2+Mcy5MJ1TrNzkKCi7njVDF0Rb3W0z6to
-	+xxEKwOlZjNsBqAjCkJEMTSwB1ufQBVAs4AD4Dq5c6IUpaYlFJWUW8ojK5AFx8PPowGTjYx7a/BPE
-	u5y706b/7cHxAITCAPijKFnv8i4G3WWmFJZyg4j3munNTDReBosVA0dKDmJipQn+eOtlCVP1vc+St
-	b5w1yHmQ==;
+	bh=egnmCxbrpH7UR+MZJeffNbFqc9tcIYQZ6W/rYZyeos8=; b=FoiOO4Myuh/ID45hSrHE1o41cB
+	I/jOz1sf62s4My4jvzGTikr6Iimyzan1l0MN3iaVcXmsEWNKd4trCEUdVzYtzC+IOzNOGUc3y4Wkk
+	L3yMADod/UcPUvIiRSbD/4XROysrEcYEf2rsVqYxEm+hVs5eMT5L1Egi1RVzPUFjoD9S/Cu37pgpo
+	OmndDvgMSp7bo63nRNmVL1fbHWFrHGfIMiRKP4qwT8GT/5mQpmnjPZhr3PdmQRiAksWTKe1avAUV1
+	PPXfntf55V//cMVYCcvI9+PmE8BJp1S0C6tALGywWLJf3JPBy4pjb/O84XMYxOMnKWptKNeGsJcFq
+	l9sQ0PNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj2JE-00000007ndC-0n1I;
-	Sun, 12 Jul 2026 22:06:01 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1wj2OY-00000007nq2-2AwE;
+	Sun, 12 Jul 2026 22:11:30 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj2JB-00000007ncS-0kYO
+	id 1wj2OW-00000007npH-0MTf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 22:05:58 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-920f33347f5so150800085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 15:05:56 -0700 (PDT)
+	Sun, 12 Jul 2026 22:11:29 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-8ff20870ac7so19322216d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 15:11:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783893955; x=1784498755; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1783894286; x=1784499086; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=kivqKCD/+dlHoNCjZOlMrMIExYZ3y1i62zZem0Ylilc=;
-        b=BsJh9hHJsSE7ml+R1gX3mfNW5MrEZpt1W4cQ4WhGiSkb+Uj6OQ5w4qypt9svOZHrep
-         6/H1NFjsRtM/Y3CGjuXbObNFEbwO4eBOWXY5I7ZS3LWO4q9kaEerXv0TgK9Ie0zBmIir
-         QH+o6LIWZrQtgPQ2gkGbTY5aOSSzyMmzilbfxNwS+IERX4YTJepJruLoqS+IzzhHQcVq
-         Ee5qHu2/tz1q485MB65GP/p5pcAQwDF+VhYJdfES5b/Y5LZaIfd6wx34RMNx8XhnMLpT
-         +qb67sX6omNgUkyV3Dt0lc+m21bYAqfFynG3torsVvDG2WnKKWWivHKIY9x6fCoPZGec
-         xqhA==
+        bh=egnmCxbrpH7UR+MZJeffNbFqc9tcIYQZ6W/rYZyeos8=;
+        b=GAMxdru/6hzeV4H0DzMV/D4BzxicttWkFiRtP705r9yablPxd294ThNVio5GtDZnp+
+         rHSlmpVdy7CrHt/Y43Pzga8E9n6Lz4dIdR6ucNdnrSIn9mayYENVTnbJTQ2/4krH8Ug7
+         /df88uFwEY1zQDxyLHocYzR3u70W2kAtRfrN2SmeLYeLY9+Y2m6qmcxbrE7ear3ZyXsg
+         L1JolIGoe1sFFZCua3eO8olOhiV7RMJflbqwzOj+kSBusO3LNCb41gJbjTK6ps0xWFq5
+         gSFd7eAUui3GQW+6FygGwxsFO7R8lDsWaPettAZVaOIT/8lydXzTlJsXIgEBldbqfL++
+         285w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783893955; x=1784498755;
+        d=1e100.net; s=20251104; t=1783894286; x=1784499086;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kivqKCD/+dlHoNCjZOlMrMIExYZ3y1i62zZem0Ylilc=;
-        b=rHyuo5uERb7/+kXS87hw7oyrqwFVMThjeg7cZwWHKXCrba7uJFzEIeMnQn9P42k463
-         SDZKyN0bEbjjg1+T+zswGirbZgexHQpaN57kNivgBjmj6G/iBPVkvnH+gqyODMU/1y4A
-         TJ+1tSCz3IhBRhpc+CmrrcshAWILkN5t/UX8BWkZEPbLipO8TkTFLcl9AMC13/eWhFAg
-         FBXa77rlnfz2bMTI/cXOK6eDPgp0eWuGwiiU8ljZADF9HLBn1Nf/2lG/ndpIDjXybsuF
-         +8nFbrNKoxQspXZp4nzd2L/W3/HMTF3jycSfC8lH4GS6O5pdPj8HsS/sWthC7jIWme5f
-         fggA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro9xwkmeINHsKw6xeBp/V2th6B5EjdG/Cu0I5xZtsfmoacdMKU+GY7EnIUCx2eFeeA5lBF+CajPZHN8th7NuK4y@lists.infradead.org
-X-Gm-Message-State: AOJu0YxByoQ2KW6oqFgH3f038ioWY9CSy9eBEwQ/rnwpNNvwL0yBiCLz
-	avD88fAYGp9Yu9Oj+73mJT2hD7qZShwa5v8NELyXkGqHFlnBZyru+rHiCk73KSIsxro=
-X-Gm-Gg: AfdE7cmn3PD4FrAUzbPs+QNWJx9TmiHp/+Hygsr3FzVP8VbrbVtptA5tG/4iVIr7IhH
-	USjDuA1AE/Lb6PcmYxgQ8xei1XCzaOFSpjIfr3oVOjnMgkHWY5LyKUJr4vitfkUMC4xVPjXbYgw
-	switFR+hAnOOYX0V9O5dfw7Qivuhe5S2S1lBdFO813K/b0l+ZmlAGGq8MeYXSdrn6rOpTutkQaD
-	zf3dmqGq55QGwB+vEf172+gynG30JgnUZfD2mBI8lnAGhCQHQ5GZHClyuo0bYTpkykbxmW9brfn
-	7iYP49rvECdBh4r262I1W/ud23MSYeuDW66towKxuAn+PYDpj8t1VxR/4w/SJT1SxCCMQSONoN9
-	BCql5mo+PWQ8/9Y7yZfK44JT5DA2sozOjWeBv9SXJo9kzhY8D+92m6a7EzEbG
-X-Received: by 2002:a05:620a:43a8:b0:92f:c78:559e with SMTP id af79cd13be357-92f0c785768mr97967985a.35.1783893955496;
-        Sun, 12 Jul 2026 15:05:55 -0700 (PDT)
+        bh=egnmCxbrpH7UR+MZJeffNbFqc9tcIYQZ6W/rYZyeos8=;
+        b=Rx5MAwl8nxAYWDBOFKV3UMBEjYB8fHxYNt3YmBjHzwbQsDjYZvOLXGuHmT8CNeL4v0
+         5nvgJFCrj4kZHa1GNuIXgZgc26DQylj2zFU3dtEfs2J/iffXGyVQm9aaxgxIEKfRszm3
+         OJwjvNERV7bzq+gWDzZwgCE0NVOWJoZnvNIMlpkFF4ibD7pDXT3Y2wdGCX81AHIEV4H+
+         3ouLK7v5olo4yto0ApShmSONjZGk53bFhwZTKYJYi4q+6N15JGOCI8DUVOKZ50fQ5tMi
+         l4w1nZfkpUxCUBfru+J+4OlIvI7/ck7TPIxWLXoOsEn81aMCsT7TW77oVhVOpkVVzJ98
+         JSVg==
+X-Forwarded-Encrypted: i=1; AHgh+Rry84+dD9588zXQzSvATEBzLqggqQL+Ql0FwehTgV2ZbAJDnlHThaYJ0CJCJCLJwCccd/hCnLIxAS1okxTXoqvn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyODAds35242Tq1XpAjq3sJlaRBOYrvrwhMss/ocLf3ruKPxj8C
+	313lgAYcWQdOwcnWuPpKxlkPCFJ8cg5tKgC1exXZ2/gvr1N8B0eaycCsYrp5KhX53ko=
+X-Gm-Gg: AfdE7cmidmZ2MEwLOACrv5IkAqyBxnKqX+tDpm7trp0uwPkpNsDG0NvVLVo76CdoTrG
+	RRxGjBFELqGh9oXlkQ9POya0cYpcJeWO/qdxkfKeR/exVEzDdmkMLyfj234Qu3pbYIGgl8xOrOn
+	CWblJW/A0lWOhZUtWyk/bn+zuCDIz+LfBQwj0Bo5R+sOy32Ln9ab4xPlHxbsZQKOYUm1vm1DWEf
+	IOdLvhg3Jq+BO/rJUEwafQGeGRCGe9KaSAeASmnk9XI/UKo/wWnjyA/XROVK8uxXVcZGAwu1H/k
+	TCKhM+Bq1WfybV3ye8WJKK6ok4Q1lVT1KAv7JwD+E8sRheo8PO37rxMDcR5epuMKdGFs2YDuJM1
+	oz1A4Z2z0t8MLmYVTU+GFovzIoFDBv2aSiE6vAshhg0C78z9+0MGCen+5x7h4
+X-Received: by 2002:ad4:5dc3:0:b0:8f1:440c:7f81 with SMTP id 6a1803df08f44-903fe450e71mr71838966d6.4.1783894286578;
+        Sun, 12 Jul 2026 15:11:26 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5baaab7sm953864085a.19.2026.07.12.15.05.54
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd50e10f4sm113814616d6.1.2026.07.12.15.11.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 15:05:55 -0700 (PDT)
+        Sun, 12 Jul 2026 15:11:26 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wj2J8-0000000BnY7-1ro6;
-	Sun, 12 Jul 2026 19:05:54 -0300
-Date: Sun, 12 Jul 2026 19:05:54 -0300
+	id 1wj2OT-0000000Bo42-2Ctj;
+	Sun, 12 Jul 2026 19:11:25 -0300
+Date: Sun, 12 Jul 2026 19:11:25 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Daniel Drake <dan@reactivated.net>
 Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
@@ -86,18 +86,17 @@ Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
 	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	nick.hollinghurst@raspberrypi.com
-Subject: Re: [PATCH 4/6] iommu/generic_pt: Add Broadcom BCM2712 page table
- format
-Message-ID: <20260712220554.GC1835788@ziepe.ca>
+Subject: Re: [PATCH 5/6] iommu: Add Broadcom BCM2712 IOMMU driver
+Message-ID: <20260712221125.GD1835788@ziepe.ca>
 References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
- <20260712-bcm2712-iommu-submit-v1-4-80e10cdde2ea@reactivated.net>
+ <20260712-bcm2712-iommu-submit-v1-5-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260712-bcm2712-iommu-submit-v1-4-80e10cdde2ea@reactivated.net>
+In-Reply-To: <20260712-bcm2712-iommu-submit-v1-5-80e10cdde2ea@reactivated.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_150557_247170_EA4112CB 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20260712_151128_246231_9FC0D4D7 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +111,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 10:18:54PM +0100, Daniel Drake wrote:
-> The BCM2712 IOMMU implements a 2-level page table format. It is relatively
-> simple, with one unusual aspect: leaf entries can only be installed at
-> Level 0.
-> 
-> Adapted from Raspberry Pi's downstream bcm2712-iommu driver (original
-> author Nick Hollinghurst).
-> 
-> Signed-off-by: Daniel Drake <dan@reactivated.net>
-> ---
->  drivers/iommu/generic_pt/.kunitconfig        |   1 +
->  drivers/iommu/generic_pt/Kconfig             |  10 ++
->  drivers/iommu/generic_pt/fmt/Makefile        |   2 +
->  drivers/iommu/generic_pt/fmt/bcm2712.h       | 259 +++++++++++++++++++++++++++
->  drivers/iommu/generic_pt/fmt/defs_bcm2712.h  |  18 ++
->  drivers/iommu/generic_pt/fmt/iommu_bcm2712.c |  10 ++
->  include/linux/generic_pt/common.h            |   7 +
->  include/linux/generic_pt/iommu.h             |  13 ++
->  8 files changed, 320 insertions(+)
+On Sun, Jul 12, 2026 at 10:18:55PM +0100, Daniel Drake wrote:
+> +static int bcm2712_iommu_of_xlate(struct device *dev,
+> +				  const struct of_phandle_args *args)
+> +{
+> +	struct platform_device *iommu_dev = of_find_device_by_node(args->np);
+> +	struct bcm2712_iommu *mmu = platform_get_drvdata(iommu_dev);
+> +
+> +	dev_iommu_priv_set(dev, mmu);
+> +	return 0;
+> +}
 
-Looks straightforward to me!
+Any chance this could work the way that smmuv3 does? I view it as the
+more modern example..
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> +static int bcm2712_iommu_map_pages(struct iommu_domain *domain,
+> +				   unsigned long iova, phys_addr_t paddr,
+> +				   size_t pgsize, size_t pgcount, int prot,
+> +				   gfp_t gfp, size_t *mapped)
+> +{
+> +	struct bcm2712_iommu_domain *mydomain = to_bcm2712_domain(domain);
+> +	struct pt_iommu *pt = &mydomain->pt.iommu;
+> +
+> +	return pt->ops->map_range(pt, bcm2712_iova_to_offset(mydomain, iova),
+> +				  paddr, pgsize * pgcount, prot, gfp, mapped);
+> +}
+
+These ops should not be present, the iommpt provides the ops directly
+through a macro;
+
+> +static const struct iommu_ops bcm2712_iommu_ops = {
+> +	.identity_domain = &bcm2712_identity_domain,
+> +	.domain_alloc_paging = bcm2712_iommu_domain_alloc,
+> +	.probe_device = bcm2712_iommu_probe_device,
+> +	.device_group = generic_single_device_group,
+> +	.of_xlate = bcm2712_iommu_of_xlate,
+> +	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.attach_dev	 = bcm2712_iommu_attach_dev,
+> +		.iotlb_sync      = bcm2712_iommu_sync,
+> +		.iotlb_sync_map  = bcm2712_iommu_sync_map,
+> +		.flush_iotlb_all = bcm2712_iommu_sync_all,
+> +		.free		 = bcm2712_iommu_domain_free,
+> +		.map_pages       = bcm2712_iommu_map_pages,
+> +		.unmap_pages     = bcm2712_iommu_unmap_pages,
+> +		.iova_to_phys    = bcm2712_iova_to_phys,
+> +	},
+
+"default_domain_ops" should ideally be split out to a "paging domain
+ops" static and set directly during alloc_paging. They are not really
+"default" anymore if the driver has unique ops for every domain type.
+
+Then use something like:
+
+		IOMMU_PT_DOMAIN_OPS(bcm2712),
+
+To define all the page table related ops automatically.
+
+Any chace the HW can do a blocking_domain, or is the only way to do
+that with an empty paging domain?
 
 Jason
 
