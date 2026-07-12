@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C88C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 21:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D7AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 21:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDNXuZBAqjn/E8x//VWR9RhMVgZnkLggONWA/HHqhig=; b=ZEExiq6s9AVbH5cvpQElY4AY8l
-	T8IV9AnKflizo4iwKhPzdol7rRTK941wjZJXRRKk9DPw6PrpOl+dssfujazXw/04JLK8yARRca19H
-	KO/vfbTyk5WiCK47mD9nk8ghKG0n/tqhKAgJkmuByCHsM9lgtAqCs4MzXGxIB/kB5TYj7K3+2gjrv
-	q1/2MmKw44cT3KsAKvfECnaq2V2mGHqQTiNJLQCC9rPtM6quF7iTmOs0WZ/tt1tSLeMTg+Mx8g8TZ
-	Cq7zdWR+kF7Phjq24tGoRaRfWCFVONtg55+iVJ4ZTdjCew9pFgKHNgDDaFOd5GMqVPG2n5hp00gq3
-	C1hrskgQ==;
+	bh=WU6K0l6pgqJ4tQYRgEPvrPUUwevNJ3/EYlqoRBVOvhA=; b=vEzDgee02aus0U3rRyQklL+2Ad
+	DwuQPo4+dYtJ0Utwd/skusF/ufIWIr6x/KqBGamLz5nvSqY+9vx18HHAPJQJWD/+quN+enCFvAsFJ
+	imrP4r0rCXRKN0GeAtrgIqXxAkfml7RwZ3xJtg+MNXJbvbzDuTDAMksAMWYY14dKiTecZIscLVpX3
+	CmQ+lFFyeHHvujWLzSxEVZb5aFZIOmsS4iHL7neoT0T8akWnRUTZ6+hs1ybz9oszawb+pDrZokkuT
+	B3c+psWoG2G5xrS4sNF/Z+XMymCr5kEnMz5Dg6Ob2dOGR+OOSDdqzTw5VvhacYX4z7gmZCXX6E9NN
+	Vi2HrXHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1aH-00000007lIe-0Iwc;
-	Sun, 12 Jul 2026 21:19:33 +0000
-Received: from out12-31.antispamcloud.com ([185.201.16.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1a8-00000007lFD-3Vm4;
+	id 1wj1aA-00000007lGS-3NJ6;
 	Sun, 12 Jul 2026 21:19:26 +0000
+Received: from out16-54.antispamcloud.com ([185.201.18.54])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wj1a7-00000007lFB-1Qky;
+	Sun, 12 Jul 2026 21:19:24 +0000
 Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
 	by mx195.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <dan@reactivated.net>)
-	id 1wj1Zt-00GoOi-3N; Sun, 12 Jul 2026 23:19:11 +0200
+	id 1wj1Zq-00GoMi-Bf; Sun, 12 Jul 2026 23:19:11 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=reactivated.net; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DDNXuZBAqjn/E8x//VWR9RhMVgZnkLggONWA/HHqhig=; b=gZ5xC8nTiujbtnalGoOBB6xjLB
-	Dfm8Lq/kZRnPstVeYqFgWGLMJi+AXdUxvKU3JaraQ8MmzEHc8ElMHRmsJ4OLgVDQi91L7uN160glM
-	bxxguiQEmUG5qEJW9NpY4tGHcDug5U375z9DixRzwzhNwbXg4kZWd/iSHsMZhZ0c1JmkGzZLTH/5E
-	ZN/bYnX05JlT8zMcW7XuD9RIiCS+9mg6dYSdFxKVgNzhJv891IqCB/shb6zdybw67WmGULXDoEHQP
-	KD+Wze9dWrVrMxqzdbdNLC0XzkXih1oDr1+M4wIkBAWYH6OYiYQ/dkdO5WfnvqBgqV4gcGmj/jor/
-	qmc+41QQ==;
+	bh=WU6K0l6pgqJ4tQYRgEPvrPUUwevNJ3/EYlqoRBVOvhA=; b=a/IB9eiafELEGAZvhAVH2Z43Ri
+	6d1y7ifmCm01i9RsPFL/zEqs3FbZrtPYI7m15C0vnLLc204hXxZkfKFdaWAy5G5PFoOp0N9oYdAuL
+	1mftaf5VAESsAtleI+bENErRf4UH4zrTZZ8pwvUzWeNY5aCkyBJ0cXf1kcKjSpVuBXwbA8xDO+4Kx
+	7GbLeaU6UXYN+33u4866qkQQ5Rvb4M1q/cCSzS0m4gxNOvjhae34UHwLixHHTHu34yj4JXEapqhBT
+	3ZzDZZrB4YT74ogD67BLAZ8Md1hCVHgvAgRJQ2ENb8SA15O0q09PPtSX6S8kwWXYy+lJ6LqSGYEJD
+	bUcCTlJg==;
 Received: from [188.251.249.2] (port=43526 helo=[192.168.1.123])
 	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.4)
 	(envelope-from <dan@reactivated.net>)
-	id 1wj1Zq-0000000D6jk-0raK;
-	Sun, 12 Jul 2026 21:19:06 +0000
+	id 1wj1Zm-0000000D6jk-1kWW;
+	Sun, 12 Jul 2026 21:19:02 +0000
 From: Daniel Drake <dan@reactivated.net>
-Date: Sun, 12 Jul 2026 22:18:52 +0100
-Subject: [PATCH 2/6] iommupt: allow full-table contiguous leaves in unit
- tests
+Date: Sun, 12 Jul 2026 22:18:51 +0100
+Subject: [PATCH 1/6] generic_pt: allow missing sw bit in DMA_INCOHERENT
+ case
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260712-bcm2712-iommu-submit-v1-2-80e10cdde2ea@reactivated.net>
+Message-Id: <20260712-bcm2712-iommu-submit-v1-1-80e10cdde2ea@reactivated.net>
 References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
 In-Reply-To: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
 To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -78,36 +78,36 @@ X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
 X-Spampanel-Username: 192.250.231.249
 Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
 X-Spampanel-Outgoing-Class: ham
-X-Spampanel-Outgoing-Evidence: Combined (0.01)
+X-Spampanel-Outgoing-Evidence: SB/global_tokens (0.00760531874771)
 X-Recommended-Action: accept
-X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVJ1hybdgXAyR4gyvwoLberAVSXKZ1AHPG6
- BTrVnKc75yu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
- M0i5ZAms0EHrvcCaVIMl6kNTi5f5Ljs8M8nl33UbGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVm61tCxVcDzOdvOz23cNvJYpZ17O5Cs1PC
+ LegHyxalOSu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVIPGvhmpFjxC7HO0xZ1sgnmgGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
  EetczWCulNo0fvnzmZPW3MC2/ZtQeB7itP8hgjDRserKv4bhb3RyZlCL9i3kc+ehInPHgYZWBb39
- uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKclZzoe+TZdeH39wA4E
- grA4pE2PuLHIFQdBY9qb1rRWgyz0f29FZkQs6Ir87R/YNAtVzCPMWB8YiCVMyNt8jc1XYCTwuapY
- HJC4Tg2AsI28yi/dAa2TOnnczQuRE5msdQvx7x6TyzQygoCqslGluZauEuYXMjE4hTY0I3yya8U2
- jiBi1+p615Zso12vM2KCXe+L+BWU3diRaOYz9oc1tEKKEEfmr+ndqHTRP8aRGVatgmq6HzuQCGnn
- Tr3mO80I+WGf3He7jw4SoVhmTJ/3eP9OK8gYxuf4cLtZNp2k2WPcLin5ZMVYU7yNzdI5xqOV/A3g
- I76KIb/qJBMhevARlsatJqEylk1bBhjIWUVQpiEaCSJav4VkFrk/gqlx5FextQtEBRpnK9diwaq6
- f6CydGvDt3K1cl7mca7sWC/TjRz/cJYxsQRt/d4lhqv4oGXrB8ohU2BXFG8+WkvtZVo+JtxTPVht
- kelGIuyBfLEgNwn2D8zbg4Paoa3pNVQ0zl7t/+UIhlD770gsG4NDLnuybwGB6H1bOhFowpwrz0y/
- WpAnxs5pZJhOUQY/VSc1PV9silww77YaJhiT+NFWJZPoD/NF86TgtruyOWQA4kTJivF4YMLqzhpS
- 0znDaGCPRF8atS6+/IVQTbUJupnRiHmHNLRPMKbVSbsDMLsDJjzehgqGk6S9HXdEGxiktrX59Amx
- O5gvPpyylyRksDtvh9EglVwlXarBbY/5t7CstIBQE8o/YSFDpQ3A7hHzYZTDTFQbY0uqoOhT9kj8
- 8PvWZJaonRQv++DuIQUs/5JJj4C/n4CILhif+3TxP9sd7y15THR2QZyGg3EQOEtB6O5zAxbwt8f8
- OMYGUgbNMUWTOHN+J/NrZnOVLbMF4pTjWB0otgBwB1GjG9/7eW4VzmKFOpkivUGpcgYFRrqmiqIy
- cv2/2+nkpYsEMysPur9wmiDBurOy6iR92AkV20DuvQ+xF0HoW5AQikKYGfM1Wxpi+aM7bRAnIOLo
- KQ0J9yQ0dfrf1qMUYpnxHriJz7Z9ZB5zQq6r8umW4yWfyKeLns0rLmGoFmUivONn/VZF/HyORicl
- 1WGsneIWpF1Xu3oZ/FZQiE2Ny7dG9R/2gMGq0KWAzmMf+ibVDnUBndNaXaq/kyxZOii4y6zwY127
- 8R9pzC31fkjBqL4nASEz1JNCESIPL2LJqBM7qaqIrXo0c6G6fvFF//i6zRUhEWyJzIkwSFAW0Pw8
- uiKeSByqtznmWyRPJzMvReGPtOJKZj6+qwdjWpxBAv2JzzLwY1278R9pzC31fkjBqL4n6ihrjW1z
- DU0jv8+sl3B5Xg==
+ uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKefuLbx+lGq0svfyhth
+ j0R6Iny++hg9dJLqN5zmWqF/oHgMZXS6X/fIHYslsKU0yPHM4JpSMI47HiFQBsGlm5AyPIv7c2tg
+ uiTnO7hoWdxS2Euf+eM3l5KPnbp/eQthjVPLCh11+xKgET3fXj754wkhoRweeXUyelEFumxqJC98
+ W2Chcvueb7X9IVOP0nXi5ScUGZbDvQNAWVsKTgEVkGFZkrTBb08hz2+hQWIE/jMJBRjlXAPIIi6r
+ dxgy5Mnu2cDsZps7XJtkUNhIi117bsGJ7ren9RtRNyYim5e3GD8LGd17Yt5uvWRLqYZ7YcWBwuaj
+ bB9FLgbTIobDkucCu6K1Qts6ESwZ+TRkjY5CmPXd4fzFwV5PA+Zo1HkEWshOrnfOczv/Rq1TfV/y
+ 9sPCUZ0yjBqTnQMt5W0GKvZ5TPS+0sUsSnvAz6a57TzpYAKZxAOMmYkwXP3g8rtJn6lRuSHjV8Jw
+ 2Fxq1Vd7xIu/TP3zxxtadaYgn3OIzsUC2wDRiPKWwieZyauFYqHkIbFa+ipFHuOywN1cBSoAw5Iq
+ u8uD6H9vRamlPbOxG7rXq5Czwgf6xGEuqjPYHqCiHsRpKiyawVZCoGB4EfDx2fRuW8Y0o7OCze69
+ 5wqpq4Ow1lDfcfvX9sw5VBsaDF9CxNBjABkH3hTMjGc3lQAtuckU+MNQlLpWhjjykqbde3UjWoF9
+ cBo9q3T2iWmfFRW/Psbz8QFVy0V5rN3M2TZ9grsaBV7hOgCSkfEzb1aIdlnbLZp4DCYOuNFQ+5eG
+ III/qgXB3gv2NI/ukWuQBNrXV+EmIqM8SxKOhcObZXWnkEw+6F9CGyYC9AhR1ZLKC40YaZQ+trtn
+ Eh9wUysc4uCrhmcWLql8TI/3DtpogqvULFO+LE7qqHyizxFc684o/A69h/CvHI/GeXW8oEyu47TQ
+ DqTi6GKwcIp24VOsP5eu885wo+t+ynT3Y80OmAux3oN13+ztUzneZGHdcUfaxYq0ZH+Cc9iqnocR
+ WxNUEo38DE53aa5lZFsy2onypIM6qetbKE/25wcB/G1/I6v3VuCfuuxebDW9m67rCRcaqNp40+Vg
+ uPVAld1r3Z1SFe+4OrB9Rro7EpOy1Um2iVRPSUxhtw3wz3yqYcOpyKA69LF1Ge2GaGfxmfp09oMS
+ l8c4ShQ//ve+MHzjs9MOb3HXByN6cty/LT6lgOv2AzRyYGlsi3xQeIJ6TM5o5F89lTjPCn99uwfA
+ g5wm8t3Xj/LzZ5s/OJg1L2asZ/4te3BTDYEBZZ1yPQnIH5IVn/pKnch3lmmwSrgldH+Ps9MOb3HX
+ ByN6cty/LT6lgO+c9AHZZ12442bv/l3jZJg=
 X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
 X-Complaints-To: abuse@master.antispamcloud.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_141925_163882_DB36EFBF 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260712_141923_389117_845FF874 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,107 +122,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic_pt tests currently assume that a format should never support
-a contiguous page size that spans the entire mapping range of the table
-it resides in.
+When working with a iommu with PT_FEAT_DMA_INCOHERENT set, generic_pt
+will attempt to use a spare "SW" bit in the hardware page tables to
+denote when a thread has flushed the CPU cache after modifying an entry.
 
-This assumption breaks for BCM2712, which has a 2-level page table.
-Level 1 entries cover 4MB of memory via their corresponding Level 0
-table pages. There is a concept of a 4MB largepage, but that is
-represented as a Level 1 entry pointing at a Level 0 table with the 1024
-usual PTEs with an additional largepage hint applied (for TLB
-optimization purposes). Unlike typical IOMMUs, it is not possible to have
-the Level 1 entry point directly at a 4MB chunk without the need for
-Level 0 mapping.
+This means that other threads know that they are not working with
+cached/unflushed data, if they come across the same entry.
 
-This BCM2712 format is well supported by generic_pt: SZ_4M can be
-advertised as a possible size at Level 0 (so that the iommu core feeds
-it 4MB-aligned mapping requests where possible), and drivers can also
-advertise that *all* leaf entries are installed at Level 0. This indicates
-that the tests are overly strict.
+In the case where no SW bit is available, two things happen:
 
-Transform the test to become a validation of the driver's routing intent:
-for every advertised page size, check that pt_pgsz_lg2_to_level() maps that
-size back to the table level under test. This is roughly what the original
-tests were doing, but also allows the BCM2712 case to pass.
+1. __map_range() defensively flushes every time it reads the PT.
+   This ensures all data that may have just been manipulated by another
+   thread gets flushed and made iommu-visible immediately.
+
+2. An undefined reference to __pt_no_sw_bit() is created, causing a
+   linker error in order to alert the developer that they are going
+   to suffer a performance penalty in the previous point.
+
+The BCM2712 IOMMU appears to be the first device supported by generic_pt
+that hits this case. The prod to check for sw bits is appreciated,
+but in this case there are no known bits that can be used, so we need
+to acknowledge and accept the performance penalty without a linker error.
+
+Adding an empty __pt_no_sw_bit() symbol to iommu_bcm2712 would be
+problematic because if a second IOMMU were to have the same constraint,
+this would result in a symbol clash in the global namespace. Also, the
+kunit build creates and builds a 2nd variant of the same code and hits
+this exact collision.
+
+Add an opt-in PT_SW_BIT_NOT_PRESENT flag to avoid this. This prevents
+the undefined reference from being created, allowing drivers like bcm2712
+to acknowledge the situation and accept the performance penalty of the
+defensive flushing.
 
 Signed-off-by: Daniel Drake <dan@reactivated.net>
 ---
- drivers/iommu/generic_pt/kunit_generic_pt.h | 39 +++++++++++------------------
- 1 file changed, 14 insertions(+), 25 deletions(-)
+ drivers/iommu/generic_pt/pt_fmt_defaults.h | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/iommu/generic_pt/kunit_generic_pt.h b/drivers/iommu/generic_pt/kunit_generic_pt.h
-index ef2c90b6d6af..7f4e172ef08b 100644
---- a/drivers/iommu/generic_pt/kunit_generic_pt.h
-+++ b/drivers/iommu/generic_pt/kunit_generic_pt.h
-@@ -419,40 +419,35 @@ static void test_table_radix(struct kunit *test)
- 	}
+diff --git a/drivers/iommu/generic_pt/pt_fmt_defaults.h b/drivers/iommu/generic_pt/pt_fmt_defaults.h
+index 69fb7c2314ca..cc57106c87d1 100644
+--- a/drivers/iommu/generic_pt/pt_fmt_defaults.h
++++ b/drivers/iommu/generic_pt/pt_fmt_defaults.h
+@@ -249,7 +249,20 @@ static inline unsigned int pt_max_sw_bit(struct pt_common *common)
+ 	return 0;
  }
  
--static unsigned int safe_pt_num_items_lg2(const struct pt_state *pts)
--{
--	struct pt_range top_range = pt_top_range(pts->range->common);
--	struct pt_state top_pts = pt_init_top(&top_range);
--
--	/*
--	 * Avoid calling pt_num_items_lg2() on the top, instead we can derive
--	 * the size of the top table from the top range.
--	 */
--	if (pts->level == top_range.top_level)
--		return ilog2(pt_range_to_end_index(&top_pts));
--	return pt_num_items_lg2(pts);
--}
--
- static void test_lvl_possible_sizes(struct kunit *test, struct pt_state *pts,
- 				    void *arg)
- {
--	unsigned int num_items_lg2 = safe_pt_num_items_lg2(pts);
- 	pt_vaddr_t pgsize_bitmap = pt_possible_sizes(pts);
- 	/* Matches get_info() */
- 	pt_vaddr_t limited_pgsize_bitmap =
- 		log2_mod(pgsize_bitmap, pts->range->common->max_vasz_lg2 - 1);
- 	unsigned int isz_lg2 = pt_table_item_lg2sz(pts);
-+	unsigned int sz_lg2;
- 
- 	if (!pt_can_have_leaf(pts)) {
- 		KUNIT_ASSERT_EQ(test, pgsize_bitmap, 0);
- 		return;
- 	}
- 
--	/* No bits for sizes that would be outside this table */
-+	/* A page size cannot be smaller than the span of a single entry. */
- 	KUNIT_ASSERT_EQ(test, log2_mod(pgsize_bitmap, isz_lg2), 0);
--	KUNIT_ASSERT_EQ(
--		test,
--		fvalog2_div(limited_pgsize_bitmap, num_items_lg2 + isz_lg2), 0);
++/*
++ * In the DMA_INCOHERENT case, if no SW bit has been defined, produce a linker
++ * error (undefined symbol __pt_no_sw_bit) to alert the developer that they
++ * will suffer a performance penalty due to defensive flushing. The driver
++ * can either implement pt_sw_bit (if supported by the hardware) for optimal
++ * performance, or otherwise set PT_SW_BIT_NOT_PRESENT to acknowledge the
++ * performance penalty.
++ */
++#ifdef PT_SW_BIT_NOT_PRESENT
++static inline void __pt_no_sw_bit(void) {}
++#else
+ extern void __pt_no_sw_bit(void);
++#endif
 +
-+	/*
-+	 * Ensure every page size claimed to be supported at this level
-+	 * actually routes back to this level
-+	 */
-+	for (sz_lg2 = 0; sz_lg2 < PT_VADDR_MAX_LG2; sz_lg2++) {
-+		if (limited_pgsize_bitmap & log2_to_int(sz_lg2)) {
-+			KUNIT_ASSERT_EQ(test,
-+				pt_pgsz_lg2_to_level(pts->range->common, sz_lg2),
-+				pts->level);
-+		}
-+	}
- 
- 	/*
- 	 * Non contiguous must be supported. AMDv1 has a HW bug where it does
-@@ -463,12 +458,6 @@ static void test_lvl_possible_sizes(struct kunit *test, struct pt_state *pts,
- 		KUNIT_ASSERT_TRUE(test, pgsize_bitmap & log2_to_int(isz_lg2));
- 	else
- 		KUNIT_ASSERT_NE(test, pgsize_bitmap, 0);
--
--	/* A contiguous entry should not span the whole table */
--	if (num_items_lg2 + isz_lg2 != PT_VADDR_MAX_LG2)
--		KUNIT_ASSERT_FALSE(
--			test, limited_pgsize_bitmap &
--					log2_to_int(num_items_lg2 + isz_lg2));
- }
- 
- static void test_entry_possible_sizes(struct kunit *test)
+ static inline bool pt_test_sw_bit_acquire(struct pt_state *pts,
+ 					  unsigned int bitnr)
+ {
 
 -- 
 2.55.0
