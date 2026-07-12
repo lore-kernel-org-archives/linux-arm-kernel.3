@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E82EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39002C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 10:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGH0CHldg4jiiPBZJVYaKTOv1+yLE6ScqD49SVU+0Wk=; b=PRkicljFQ+B8GeTUQGJSa8UEYd
-	JaaCgx3xTi23of0KwbH9AJJ64hTCGcFOyT879uzAVJfockCSTZpruDTDPN+GVur3G6mhZVyw50DAc
-	AMPOt/kdOmLKkfNRhWgpuHdT3AYl/1VaTSoHUGKM4NWFLkUw/w3NctUkd76eWnW2idRgucy97mG9O
-	NGXGnJ7C7N+LHewzap9sdL/WabYT+getc/mjM1tYU04NOqUUn97UZ2eohOXVcTLTTMT75jcqt2dkA
-	4BR7k5J+/RX4Zh9U15L0Wlcy+MjPOMUtF+pptpfLxQ72WRLaXtisBZIwd0TdFFdWftkfLQwSPFcYm
-	ZmkZKOUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=n5Y4kSef/beYZfYsug/ValOYyvl5bXs5MyYCHxnTyIU=; b=j6wZvSyUHvIO8F
+	USGnepq1lHjcQ+UZs+tmcGPCkNdHxdixvQ/DuHKJfpKIq7xEZwIdicXhQH9EfYmGWZgIj4wask5F/
+	YytD8m8b7RDjPLy1OjDPWDmUvgZXAngW611uYhnnVjXF0HOMShrZ5cNSUoUnQoawr3xi0/12rgGHF
+	3nhJeyn8MKcRoiEZAOWKvZg1WebBxX90gWCXTn16quampbDEonOK/zEvqH9e/pT9xvXLa8MKV/xB6
+	Rbz8zcjusveG8B4HkBXO/NXDmylV4eARQeR5dpj7G55IaKjAJIykOwKxZ0ZQea02FNbs5UnOfjxgC
+	5wB10FtQ3a1bJeMNzoOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirW9-00000007MwG-3syK;
-	Sun, 12 Jul 2026 10:34:37 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wirfV-00000007NDh-3sPn;
+	Sun, 12 Jul 2026 10:44:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wirW8-00000007MvW-0iWU
+	id 1wirfU-00000007NDZ-3VN8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 10:34:37 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-476d8e647e9so2376098f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 03:34:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783852474; x=1784457274; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cGH0CHldg4jiiPBZJVYaKTOv1+yLE6ScqD49SVU+0Wk=;
-        b=JST2Z7eRdsGbEI2/EQV/Y1lH1Us5Xaq9jRo8wa1W1bNEPHIQNIcRp6qcV+5x3Z9LnR
-         iJZh4GxqiYypXIC/rI/MHU+ETuosCNJbE0Z8khl9CxaZp7fQSq635RbCnRLp35GmdDeQ
-         Q3YfmElHvnzdvsYGrVun7nZ28jHAMzfV+6qvLAybTU//Se46F1NMiUJjhrJuqefC8ANo
-         HW5fWu8CehWRfihjP3cs6ERkOVczrgYQa7U1FrNqDUPnW/5QAwDrDzt/7PG3LtpNz75w
-         1CTmdFvhLBuwTEWTJ6bNCVO+6erwAvym7BVvoDFdstUV6PkSdF5pWTENn8zatX1ACfIc
-         YJ2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783852474; x=1784457274;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cGH0CHldg4jiiPBZJVYaKTOv1+yLE6ScqD49SVU+0Wk=;
-        b=Q8KVHHhHAS55uGdfyxqY8fbtWJbKy1Bz8XPC1NwwNivZ+UsBEdS7sRKMAfBiK/QkhR
-         YWUyJr3jq8QGlTm4BCn74QwXIhi4S2nhMJzHuQ36gIDM6A6rIThJPy8Xrh+qq+wo77zi
-         GkvJC2lK36b7X7COP1Zsn9g7McE2sFSYTESDcBelSFfp+DoHfT4Nc7mzl91Dz6ySp5pK
-         mtfctkT5D857ltTlltxgV1z4BaMNuPc044PC0KDsC0J+0bW7ep3OUYk2ihtlWsq7T4Y9
-         w+QP0QzKEpBH/3r7PPsfjbSSkJc8L6hPkgBQRLdkt7b/cKxbt/DlRAK99X9JnOBCDIxF
-         nd1A==
-X-Forwarded-Encrypted: i=1; AHgh+Rotj9z+wGT48LQ5OrVF9JjNHwrrpj1Z1O6PWy32FNoP53M1jXxYcpLXr3DJt/4SareaNyWX/froK2XbzzTguHbj@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywwg+tltomrAThZUrqO6ANzQL2PTHXGkDEx3XrQGq58Ue/oIvSX
-	tf3iIZZ1VMz2A8PE8F/wC91ALUzsm5AQZ/6pVg0yt3/QmNyTjW1AaRv0
-X-Gm-Gg: AfdE7clCw1Jcl29RbCTFlxfZb26SXiXiHSd0mGS9/+UwhF1P9PW8HyKEBO+I88nsTFW
-	cV8ppFMC4BqxDqnZuUR1NSrzDmBX3+O/9lEh44Nrd/e/mBdDudtnEYErrhrFxrbgYHVtxps7eWY
-	4dMu3DmLAVhf8qRecIEl502kNKIHz4BRFDRqXYf+WWpM/3h85tzkfU/dfZdzvmJXTrrBHvXv38u
-	JUSYfW1fN9Yl1x0hrvOsoXl3/A9prHUZQl6atwKEfEUdrvGziPtGFLBbJaDeoYlwvkRXRyOsGm+
-	Qj6UzchUT7pLjY/BtMkBScUGGySLRLc+XiDgn7HvQUZgE4/43cT+j1ve7nRzjlWxRHbcSh04a9B
-	yhz083IesXWJUa1O2Vcz9Zl79jXhRM8C6JDJN215TTH7JlK5zwlQioOVt1EDWFAvVdFOuddhGcu
-	Y3uyrqHW4ANZ+9ES6eOxHdchSiVbbe1k0TTm6hEPKafaytEVCy/IV78I/XH+sb2zG/Tr572FGNS
-	RydLVM9EKHit0S4R60rUeJwdKh5085kTdfY2/3kQ3FM72NrehS4rozMFLZtMF6CBRiqUOFC/WLg
-	3Iiyl3unEozyji41h225eZQR0XjwQdYmQwTEptiVez+a9tWuRw==
-X-Received: by 2002:a5d:64ce:0:b0:47d:fc33:df0d with SMTP id ffacd0b85a97d-47f2dcf78c3mr5789388f8f.58.1783852474054;
-        Sun, 12 Jul 2026 03:34:34 -0700 (PDT)
-Received: from systembl0wer ([2a02:8308:4092:11f0::f9f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039af67sm84880696f8f.17.2026.07.12.03.34.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 03:34:33 -0700 (PDT)
-Date: Sun, 12 Jul 2026 12:34:32 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Cc: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>, David
- Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Uwe =?UTF-8?B?S2xlaW5lLUvDtm5p?=
- =?UTF-8?B?Zw==?= <u.kleine-koenig@baylibre.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] iio: adc: mt6323: remove unused header
-Message-ID: <20260712123432.15e39bd9@systembl0wer>
-In-Reply-To: <20260712-mt6323-adc-rm-header-v1-1-d96395d1a323@protonmail.com>
-References: <20260712-mt6323-adc-rm-header-v1-1-d96395d1a323@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Sun, 12 Jul 2026 10:44:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA1D76004E;
+	Sun, 12 Jul 2026 10:44:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A801F000E9;
+	Sun, 12 Jul 2026 10:44:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783853055;
+	bh=n5Y4kSef/beYZfYsug/ValOYyvl5bXs5MyYCHxnTyIU=;
+	h=From:Subject:Date:To:Cc;
+	b=OaYc6nFAMKMaV/JnB4SRlLS0mhdgISliANj6s7xPbY7ZhsbNGp5lcfhnQknzmBdTP
+	 Pygl5zOgh+i/GhnXd3ObgnikSBdScNxBpePj4iR++ribG9Y2zFgdXwOu4pxoUKWo6M
+	 TZydcxNAiVOAWLDSDfqd7UN17lXm1fzBp59hne5n35B7K3IhmZpoTZFR4ghHsd/UN6
+	 eCVxW7GDo6XS/YrhsgRPAWmJcWT139kDgrl9trHrV1AxEwzqnM/8gURGoaZ6T3QaVB
+	 BXJZVZJXhQfiRbPEtyqTWN9W79YbOBJTGxlRUGmMcAziz6/xk6AChbIP0eSj/5EhOR
+	 nQYWUwcnrjNBg==
+From: Lorenzo Stoakes <ljs@kernel.org>
+Subject: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Date: Sun, 12 Jul 2026 11:42:23 +0100
+Message-Id: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_033436_216268_7436669E 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-B4-Tracking: v=1; b=H4sIAI9vU2oC/32OSw6CMBCGr0Jm7Zi2oIAr72FYlDpAVSiZYqMh3
+ N0Ce5ff/K+ZwRNb8nBJZmAK1ls3RFCHBEynh5bQ3iODEuoscilw92Po9YisDWFjP6h0ZrQpi6J
+ MC4jRkSmet9ob9D12btq52kX/rh9kprV4tXfWT46/2xNBbqH/e0GiwFOd5mVmpEwbuj6JB3odH
+ bdQLcvyA3plZjrYAAAA
+X-Change-ID: 20260710-series-vmap-race-fix-2a4cac988938
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7382; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=94ohPt19KBXdpXV0tk2uctqp6WqGAL7X+3ddUv8veLk=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKC8z9E9Gf/vGlxmXUOh99F3YI/Nd/4vrF0fX6eNe3o6
+ YWyP3YwdZSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAisRGMDHPcXlTGzHbscfwp
+ /lw4T/u9zfUXVw+6vTM+vM/37T/WO5wMf3ivLRX9oL1bYuM5KekAdoEPW95v/G/ScdypOiC1glu
+ EmQEA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +95,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 12 Jul 2026 09:26:36 +0300
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
+Kernel page table walkers fall into two broad categories - those ranges
+where no exclusion is required via walk_kernel_page_table_range_lockless()
+and those where exclusion is required via walk_kernel_page_table_range()
+or walk_page_range_debug().
 
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> Remove unused mod_devicetable.h header.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
+The former category is used only by arm64 arch code operating on ranges it
+both wholly owns and does not concurrently write.
 
-Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>
+The latter category consists of kernel page table walkers operating on
+ranges that are wholly owned (but which need exclusion against concurrent
+writers).
 
+The lock used for exclusion is the mmap lock, and for kernel ranges this
+the mmap lock on init_mm.
+
+ptdump is a special case being both the only user of
+walk_page_range_debug(), and the only case in which it walks ranges it does
+not own.
+
+This presents a problem, as page tables may be freed under ptdump. And
+indeed there is a use-after-free bug in the kernel as a result, which this
+series addresses.
+
+vmap promotes page tables to huge leaf entries where possible, freeing the
+lower page table when it does. It does this with no meaningful locks held
+against concurrent ptdump walks.
+
+As a result, use-after-free can currently occur. This series addresses the
+issue by having the vmap huge promotion logic acquire the mmap read lock
+while both setting the huge page table entry and freeing the prior leaf
+page table.
+
+The ptdump code already acquires the mmap write lock, so by doing so we
+ensure that the ptdump walker only ever observes either the huge page table
+entry or the existing page table entry, and nothing is freed underneath it.
+
+A mitigation for this issue was already applied for arm64 in commit
+fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), which this series
+has to deal with carefully.
+
+This mitigation resolves the issue by acquiring the mmap read lock on
+init_mm on vmap page table free if a ptdump is in progress.
+
+However the fix in this series would cause a deadlock if we were to simply
+apply it for arm64 without also reverting the change.
+
+This is because vmap may acquire the read lock before ptdump attempts to
+acquire the write lock, which then gets queued, and rwsem starvation rules
+mean that the (unacknowledged) nested mmap read lock in the arm64 code
+would also block, meaning the original read lock is never released and thus
+deadlock.
+
+This series works around this by #ifndef CONFIG_ARM64'ing the mmap read
+lock in vmap logic, then partially reverting commit fa93b45fd397 ("arm64:
+Enable vmalloc-huge with ptdump"), keeping the enablement of huge vmap
+support, and removing the ifdeffery with the partial revert patch.
+
+There are two related issues that we also address in this series:
+
+* x86 page attribute logic, specifically Change Page Attributes (CPA),
+  implements a feature whereby huge ranges can be collapsed into huge leaf
+  entries. This can similarly cause a UAF when done in parallel with a
+  ptdump walk, so similarly acquire the init_mm mmap lock to avoid this.
+
+* x86 and arm64 permit walks of non-kernel mm's (both allowing efi mm
+  walks, and in intel's case arbitrary mm's), so we ensure kernel mappings
+  remain stable by locking the init_mm as well as the mm being walked.
+
+The ordering of patches is established for both strict dependencies (the
+arm64 partial revert in particular has to be done after the vmap changes)
+and logical ones (the non-kernel mm fix only makes sense once the vmap/CPA
+fixes are in place).
+
+---
+v2:
+* Rebased on latest master of Linus's tree.
+* Accumulated tags, thanks everybody!
+* Fixed cover letter reference to arm64 partial revert as per David C.
+* Combined all patches into a 4 patch series for ease of tracking/review
+  and updated cover letter to reflect.
+* Reordered patches in series logically - fix vmap, fix CPA issue, handle
+  mm vs. init_mm then revert arm64 mitigation.
+* Reworded first patch to be consistent with x86 wording to clearly
+  indicate the intent of the fix is to fix ptdump UAF.
+* Reworded arm64 revert patch subject as per Mike, Dev to make clear this
+  is only reverting the ptdump mitigation not the vmap huge support.
+* Added Fixes: tag to arm64 revert patch so we backport this also for
+  neatness. Not strictly necessary, but is a better fix overall applied.
+* Added note about stable dependency to arm64 revert patch.
+* Updated walk_page_range_debug() to remove pointless !walk.mm check - if
+  NULL mm then the mmap lock asserts would NULL pointer deref, and of
+  course no caller does this anyway.
+* Updated walk_page_range_debug() to always assert init_mm mmap write lock
+  is held.
+* Updated walk_page_range_debug() to always check for start >= end and that
+  it has safe walk ops, and remove the unnecessary
+  walk_kernel_page_table_range() invocation which ultimately does the same
+  thing.
+* Typo fixups as per Mike.
+* Some small commit message/comment wording fixups.
+
+v1:
+* vmap/arm64 partial revert series:
+  https://patch.msgid.link/20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org
+* CPA patch:
+  https://patch.msgid.link/20260710-fix-cpa-ptdump-race-v1-1-d898699a7417@kernel.org
+* non-init_mm patch:
+  https://patch.msgid.link/20260710-b4-fix-non-init_mm-ptdump-v1-1-2d40982c98ec@kernel.org
+
+To: Andrew Morton <akpm@linux-foundation.org>
+To: Suren Baghdasaryan <surenb@google.com>
+To: "Liam R. Howlett" <liam@infradead.org>
+To: Vlastimil Babka <vbabka@kernel.org>
+To: Shakeel Butt <shakeel.butt@linux.dev>
+To: David Hildenbrand <david@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+To: Uladzislau Rezki <urezki@gmail.com>
+To: Toshi Kani <toshi.kani@hpe.com>
+To: Dave Hansen <dave.hansen@linux.intel.com>
+To: Andy Lutomirski <luto@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Ingo Molnar <mingo@redhat.com>
+To: Borislav Petkov <bp@alien8.de>
+To: x86@kernel.org
+To: "H. Peter Anvin" <hpa@zytor.com>
+To: Kiryl Shutsemau <kas@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>
+Cc: ljs@kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+Cc: bpf@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Lorenzo Stoakes (4):
+      mm/vmalloc: acquire init_mm lock on huge vmap to avoid ptdump UAF
+      x86/mm/pat: acquire mmap lock on page table free to avoid ptdump UAF
+      mm/ptdump: always stabilise against page table freeing using init_mm
+      arm64: remove redundant concurrent ptdump UAF mitigation
+
+ arch/arm64/include/asm/ptdump.h |  2 --
+ arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
+ arch/arm64/mm/ptdump.c          | 11 ++---------
+ arch/x86/mm/pat/set_memory.c    | 14 +++++++++++---
+ include/linux/mmap_lock.h       |  1 +
+ mm/pagewalk.c                   | 36 ++++++++++++++++++++--------------
+ mm/ptdump.c                     |  7 +++++++
+ mm/vmalloc.c                    | 41 ++++++++++++++++++++++++++++++---------
+ 8 files changed, 78 insertions(+), 77 deletions(-)
+---
+base-commit: 44696aa3a489d2baf58efa61b37833f100072bee
+change-id: 20260710-series-vmap-race-fix-2a4cac988938
+
+Cheers,
 -- 
-Kind regards
+Lorenzo Stoakes <ljs@kernel.org>
 
-CJD
 
