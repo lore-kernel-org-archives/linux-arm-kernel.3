@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B84C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Jul 2026 21:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EB8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 00:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7COH0HfGmcr8iU2Gk/Btx58QJz615VuS+nf2+Lx7ys=; b=z4vT4nraIrAPeF6AOLAH+H7UsL
-	UX2M0qK396My2MJ3d/UjpMBlwUVf+sxaM3b4D5TAzWfbIGKz6e9qFSlSnx73kdmHwgt1Oohe6Cgw6
-	pCb2v8eOflGFs5DB+0aLSTfm4Kafn2UdG/agUovA9Dcp+/mhJCKRv4NHWUqUIpwIeyLSQ7yhIXaSL
-	V/3C7CmCWIe1lODdim6sORBJVsRW0mv3N4yOiB36LgTXUzJPa1pixMZJ7H5E3rB61oIu4Lwxr4glr
-	xv0PbHmwp/vk8m7A7j2+C7azcvb3fF+nctbe3Hmk6aUqCsletiOoK2Pi+fXBI/JOi9cltSnRrZ32X
-	8GVdPGUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DRXxQU71GjxtUtXui4/aMZT/Kc5nsfByiPEG0QKbEME=; b=BqG56mDHesryTik4t7l6olFIFn
+	tww7ijAKJpvgFopx8IF7dj25JJ+STVXq6IIuFpduW3V6b+dKRvYmmk7qK4AuDRcVHMMMNSfSKntcn
+	QoWDSKza3tqeibBI4lsGLzn87tKKHNbtgkViYrAqh3P67bdORlEq25mEQgs8GubaMazxu50auUViV
+	99YrbpScQPR9rIz0HkGB2PmViQSRbFGkpZrynu0azcZEUAk6AzichiLmlS63juUhKbiDGz9Wp84vZ
+	CS4n+EPaJukPOmL8owhThAyqLFcMTs8e1vg0xE83du5s4GbLR3Mm/KXOtLkLCQEj6DdDAKVPk1XK+
+	rLdDn41g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wifTt-00000006vFs-01bB;
-	Sat, 11 Jul 2026 21:43:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wiiNR-00000006y6x-3dGY;
+	Sun, 12 Jul 2026 00:49:01 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wifTp-00000006vFN-1dI0;
-	Sat, 11 Jul 2026 21:43:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783806200;
-	bh=5iyh145oPbVi0/Y2eokUBvMwzT4NqhE95qIzSK3Ghxs=;
-	h=Subject:From:To:Date:In-Reply-To:References:From;
-	b=oLHqB8gTjFdC6EVn3NxVA+q6ljo4sR9yi82DgznHeWf9j8SzbVfu4kWfaSclB+y84
-	 DmEdssphelKp5fsUdXW5RXK6pxJXgVYt+L/qBs5NiOKR+z/+jAbNBwzoP2V17+b2hF
-	 k076x491QnSa/FX4bc6yL4sX5BhAMYGLqhwRMZAB226sr0txLCgJVAo3IKMKeL8ENg
-	 +YmihcA8k1NaErlLRW4/p7UHYkD1wkWGBI0U4vTQZqsS8BI/l+1GdO7PmN4iIr6G4w
-	 QbagbQ+VTKXOcz9OMTPTI7v8q5wCXo/6RWnlgOoGU4VlAVJ6LcK6vERnwBgvvGCZnE
-	 U+wMGUAV5zr/A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD82217E0076;
-	Sat, 11 Jul 2026 23:43:18 +0200 (CEST)
-Message-ID: <29b98aee357ea1ff49939c47eaca3cb4a01c8d72.camel@collabora.com>
-Subject: Re: [PATCH v15 01/12] media: mediatek: jpeg: fix jpeg cores'
- amounts setting
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Sat, 11 Jul 2026 17:43:16 -0400
-In-Reply-To: <20260702072614.10373-2-kyrie.wu@mediatek.com>
-References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
-	 <20260702072614.10373-2-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-SowlojmCUCUWFxgrmrfW"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
-MIME-Version: 1.0
+	id 1wiiNO-00000006y6c-1CAC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Jul 2026 00:49:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783817338; x=1815353338;
+  h=date:from:to:cc:subject:message-id;
+  bh=xvieQviNwsHqSn+m8YpAPHGCwryGi97/kvAZNQjUlj8=;
+  b=ImfC+irAz3XXChtyz+dFYDc1olLg+2UKiKygb78nWkwfjzd8PAfUpKhF
+   Nxz0yUBXEVSEFDYVOh6qcZlGIzx57q130HLGnKA0PZ2YPHRE4rJ1yFBWE
+   V9GStH3jgnHbaDG8LLD66uHi1GtUstJME/EOdmovXaE//piUNJPAa445E
+   JN6tA8XqsgSFY2PA3iA803tp6/N4FC0vTmiiZ0bKoRA3HyqP9cNu2IvJS
+   dQyPgsMHemUVIeg/yOLVxnVKf1RlB8eh9iMFtsZPEY/SNvwZV7tSa3VMe
+   zqfe8KEoe0CVorAFa7KZhtg0NUsKMbSDvYV5d1QzKmkEYZO+AxUANcor9
+   g==;
+X-CSE-ConnectionGUID: kWqnei6RRpCit8m4uqO/3g==
+X-CSE-MsgGUID: X9ZzqslVTx6yn6HDvRhg+g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84669344"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84669344"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2026 17:48:55 -0700
+X-CSE-ConnectionGUID: yg2xlKQXTFqZ0GTP3CColQ==
+X-CSE-MsgGUID: eOxYOoGnQ6aIw5ipdAAlyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="278459218"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by fmviesa002.fm.intel.com with ESMTP; 11 Jul 2026 17:48:53 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wiiNG-00000000KX0-33bu;
+	Sun, 12 Jul 2026 00:48:50 +0000
+Date: Sun, 12 Jul 2026 08:47:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 51fac054b3706eef8186c0861f8551247420911d
+Message-ID: <202607120835.uV7UubpZ-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260711_144325_595836_F15FD123 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260711_174858_576315_A7C73111 
+X-CRM114-Status: UNSURE (   5.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,146 +83,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 51fac054b3706eef8186c0861f8551247420911d  Merge branch 'arm/fixes' into for-next
 
---=-SowlojmCUCUWFxgrmrfW
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+elapsed time: 1123m
 
-Hi,
+configs tested: 328
+configs skipped: 25
 
-Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> Different ICs have different amounts of cores,
-> use a variable to set the cores' amounts.
->=20
-> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
-> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
-)
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> ---
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0 | =
-8 ++++----
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h=C2=A0=C2=A0 | =
-2 ++
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
-> =C2=A04 files changed, 8 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index d147ec483081..1e014fd698ae 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1462,7 +1462,7 @@ static int mtk_jpegenc_get_hw(struct mtk_jpeg_ctx *=
-ctx)
-> =C2=A0	int i;
-> =C2=A0
-> =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++) {
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> =C2=A0		comp_jpeg =3D jpeg->enc_hw_dev[i];
-> =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> =C2=A0			hw_id =3D i;
-> @@ -1509,7 +1509,7 @@ static int mtk_jpegdec_get_hw(struct mtk_jpeg_ctx *=
-ctx)
-> =C2=A0	int i;
-> =C2=A0
-> =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++) {
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> =C2=A0		comp_jpeg =3D jpeg->dec_hw_dev[i];
-> =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> =C2=A0			hw_id =3D i;
-> @@ -1592,7 +1592,7 @@ static void mtk_jpegenc_worker(struct work_struct *=
-work)
-> =C2=A0		jpeg_work);
-> =C2=A0	struct mtk_jpeg_dev *jpeg =3D ctx->jpeg;
-> =C2=A0
-> -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++)
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> =C2=A0		comp_jpeg[i] =3D jpeg->enc_hw_dev[i];
-> =C2=A0	i =3D 0;
-> =C2=A0
-> @@ -1687,7 +1687,7 @@ static void mtk_jpegdec_worker(struct work_struct *=
-work)
-> =C2=A0	struct mtk_jpeg_fb fb;
-> =C2=A0	unsigned long flags;
-> =C2=A0
-> -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++)
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> =C2=A0		comp_jpeg[i] =3D jpeg->dec_hw_dev[i];
-> =C2=A0	i =3D 0;
-> =C2=A0
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> index 02ed0ed5b736..6be5cf30dea1 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> @@ -212,6 +212,7 @@ struct mtk_jpegdec_comp_dev {
-> =C2=A0 * @reg_decbase:	jpg decode register base addr
-> =C2=A0 * @dec_hw_dev:	jpg decode hardware device
-> =C2=A0 * @hw_index:		jpg hw index
-> + * @max_hw_count:	jpeg hw-core count
-> =C2=A0 */
-> =C2=A0struct mtk_jpeg_dev {
-> =C2=A0	struct mutex		lock;
-> @@ -234,6 +235,7 @@ struct mtk_jpeg_dev {
-> =C2=A0	void __iomem *reg_decbase[MTK_JPEGDEC_HW_MAX];
-> =C2=A0	struct mtk_jpegdec_comp_dev *dec_hw_dev[MTK_JPEGDEC_HW_MAX];
-> =C2=A0	atomic_t hw_index;
-> +	u32 max_hw_count;
-> =C2=A0};
-> =C2=A0
-> =C2=A0/**
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/dri=
-vers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> index 32372781daf5..4534caeb104f 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> @@ -664,6 +664,7 @@ static int mtk_jpegdec_hw_probe(struct platform_devic=
-e *pdev)
-> =C2=A0	master_dev->dec_hw_dev[i] =3D dev;
-> =C2=A0	master_dev->reg_decbase[i] =3D dev->reg_base;
-> =C2=A0	dev->master_dev =3D master_dev;
-> +	master_dev->max_hw_count++;
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Just one question, can the mtk_jpegenc_worker() starts before all cores hav=
-e
-been probed ?
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+alpha                            allyesconfig    gcc-16.1.0
+alpha                               defconfig    gcc-16.1.0
+arc                              allmodconfig    clang-23
+arc                              allmodconfig    gcc-16.1.0
+arc                               allnoconfig    gcc-16.1.0
+arc                              allyesconfig    clang-23
+arc                              allyesconfig    gcc-16.1.0
+arc                                 defconfig    gcc-16.1.0
+arc                   randconfig-001-20260711    gcc-13.4.0
+arc                   randconfig-001-20260712    clang-18
+arc                   randconfig-002-20260711    gcc-13.4.0
+arc                   randconfig-002-20260712    clang-18
+arm                               allnoconfig    gcc-16.1.0
+arm                              allyesconfig    clang-23
+arm                              allyesconfig    gcc-16.1.0
+arm                                 defconfig    gcc-16.1.0
+arm                   randconfig-001-20260711    gcc-13.4.0
+arm                   randconfig-001-20260712    clang-18
+arm                   randconfig-002-20260711    gcc-13.4.0
+arm                   randconfig-002-20260712    clang-18
+arm                   randconfig-003-20260711    gcc-13.4.0
+arm                   randconfig-003-20260712    clang-18
+arm                   randconfig-004-20260711    gcc-13.4.0
+arm                   randconfig-004-20260712    clang-18
+arm                         wpcm450_defconfig    gcc-16.1.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-16.1.0
+arm64                               defconfig    gcc-16.1.0
+arm64                 randconfig-001-20260711    gcc-16.1.0
+arm64                 randconfig-001-20260712    gcc-16.1.0
+arm64                 randconfig-002-20260711    gcc-16.1.0
+arm64                 randconfig-002-20260712    gcc-16.1.0
+arm64                 randconfig-003-20260711    gcc-16.1.0
+arm64                 randconfig-003-20260712    gcc-16.1.0
+arm64                 randconfig-004-20260711    gcc-16.1.0
+arm64                 randconfig-004-20260712    gcc-16.1.0
+csky                             allmodconfig    gcc-16.1.0
+csky                              allnoconfig    gcc-16.1.0
+csky                                defconfig    gcc-16.1.0
+csky                  randconfig-001-20260711    gcc-16.1.0
+csky                  randconfig-001-20260712    gcc-16.1.0
+csky                  randconfig-002-20260711    gcc-16.1.0
+csky                  randconfig-002-20260712    gcc-16.1.0
+hexagon                          allmodconfig    gcc-16.1.0
+hexagon                           allnoconfig    gcc-16.1.0
+hexagon                             defconfig    gcc-16.1.0
+hexagon               randconfig-001-20260711    gcc-16.1.0
+hexagon               randconfig-001-20260712    clang-22
+hexagon                        randconfig-002    gcc-11.5.0
+hexagon               randconfig-002-20260711    gcc-11.5.0
+hexagon               randconfig-002-20260711    gcc-16.1.0
+hexagon               randconfig-002-20260712    clang-22
+i386                             allmodconfig    clang-22
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-16.1.0
+i386                             allyesconfig    clang-22
+i386                             allyesconfig    gcc-14
+i386                 buildonly-randconfig-001    gcc-14
+i386        buildonly-randconfig-001-20260711    gcc-14
+i386        buildonly-randconfig-001-20260712    clang-22
+i386                 buildonly-randconfig-002    gcc-14
+i386        buildonly-randconfig-002-20260711    gcc-14
+i386        buildonly-randconfig-002-20260712    clang-22
+i386                 buildonly-randconfig-003    gcc-14
+i386        buildonly-randconfig-003-20260711    gcc-14
+i386        buildonly-randconfig-003-20260712    clang-22
+i386                 buildonly-randconfig-004    gcc-14
+i386        buildonly-randconfig-004-20260711    gcc-14
+i386        buildonly-randconfig-004-20260712    clang-22
+i386                 buildonly-randconfig-005    gcc-14
+i386        buildonly-randconfig-005-20260711    gcc-14
+i386        buildonly-randconfig-005-20260712    clang-22
+i386                 buildonly-randconfig-006    gcc-14
+i386        buildonly-randconfig-006-20260711    gcc-14
+i386        buildonly-randconfig-006-20260712    clang-22
+i386                                defconfig    gcc-16.1.0
+i386                           randconfig-001    clang-22
+i386                  randconfig-001-20260711    clang-22
+i386                  randconfig-001-20260712    clang-22
+i386                           randconfig-002    clang-22
+i386                  randconfig-002-20260711    clang-22
+i386                  randconfig-002-20260712    clang-22
+i386                           randconfig-003    clang-22
+i386                  randconfig-003-20260711    clang-22
+i386                  randconfig-003-20260712    clang-22
+i386                           randconfig-004    clang-22
+i386                  randconfig-004-20260711    clang-22
+i386                  randconfig-004-20260712    clang-22
+i386                           randconfig-005    clang-22
+i386                  randconfig-005-20260711    clang-22
+i386                  randconfig-005-20260712    clang-22
+i386                           randconfig-006    clang-22
+i386                  randconfig-006-20260711    clang-22
+i386                  randconfig-006-20260712    clang-22
+i386                           randconfig-007    clang-22
+i386                  randconfig-007-20260711    clang-22
+i386                  randconfig-007-20260712    clang-22
+i386                  randconfig-011-20260711    gcc-13
+i386                  randconfig-011-20260712    gcc-14
+i386                  randconfig-012-20260711    gcc-13
+i386                  randconfig-012-20260712    gcc-14
+i386                  randconfig-013-20260711    gcc-13
+i386                  randconfig-013-20260712    gcc-14
+i386                  randconfig-014-20260711    gcc-13
+i386                  randconfig-014-20260712    gcc-14
+i386                  randconfig-015-20260711    gcc-13
+i386                  randconfig-015-20260712    gcc-14
+i386                  randconfig-016-20260711    gcc-13
+i386                  randconfig-016-20260712    gcc-14
+i386                  randconfig-017-20260711    gcc-13
+i386                  randconfig-017-20260712    gcc-14
+loongarch                        allmodconfig    clang-23
+loongarch                         allnoconfig    gcc-16.1.0
+loongarch                           defconfig    clang-23
+loongarch                      randconfig-001    gcc-11.5.0
+loongarch             randconfig-001-20260711    gcc-11.5.0
+loongarch             randconfig-001-20260711    gcc-16.1.0
+loongarch             randconfig-001-20260712    clang-22
+loongarch                      randconfig-002    gcc-11.5.0
+loongarch             randconfig-002-20260711    gcc-11.5.0
+loongarch             randconfig-002-20260711    gcc-16.1.0
+loongarch             randconfig-002-20260712    clang-22
+m68k                             allmodconfig    gcc-16.1.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    clang-23
+m68k                             allyesconfig    gcc-16.1.0
+m68k                                defconfig    clang-23
+m68k                          hp300_defconfig    gcc-16.1.0
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                       allyesconfig    gcc-16.1.0
+microblaze                          defconfig    clang-23
+mips                             allmodconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+mips                             allyesconfig    gcc-16.1.0
+nios2                            allmodconfig    clang-20
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    clang-23
+nios2                               defconfig    clang-23
+nios2                          randconfig-001    gcc-11.5.0
+nios2                 randconfig-001-20260711    gcc-11.5.0
+nios2                 randconfig-001-20260711    gcc-16.1.0
+nios2                 randconfig-001-20260712    clang-22
+nios2                          randconfig-002    gcc-11.5.0
+nios2                 randconfig-002-20260711    gcc-11.5.0
+nios2                 randconfig-002-20260711    gcc-16.1.0
+nios2                 randconfig-002-20260712    clang-22
+openrisc                         allmodconfig    clang-20
+openrisc                         allmodconfig    gcc-16.1.0
+openrisc                          allnoconfig    clang-23
+openrisc                            defconfig    gcc-16.1.0
+parisc                           allmodconfig    gcc-16.1.0
+parisc                            allnoconfig    clang-23
+parisc                           allyesconfig    clang-17
+parisc                              defconfig    gcc-16.1.0
+parisc                         randconfig-001    clang-17
+parisc                randconfig-001-20260711    clang-17
+parisc                randconfig-001-20260712    gcc-8.5.0
+parisc                         randconfig-002    clang-17
+parisc                randconfig-002-20260711    clang-17
+parisc                randconfig-002-20260712    gcc-8.5.0
+parisc64                            defconfig    clang-23
+powerpc                          allmodconfig    gcc-16.1.0
+powerpc                           allnoconfig    clang-23
+powerpc                     asp8347_defconfig    clang-23
+powerpc                 mpc836x_rdk_defconfig    clang-23
+powerpc                    mvme5100_defconfig    gcc-16.1.0
+powerpc                        randconfig-001    clang-17
+powerpc               randconfig-001-20260711    clang-17
+powerpc               randconfig-001-20260712    gcc-8.5.0
+powerpc                        randconfig-002    clang-17
+powerpc               randconfig-002-20260711    clang-17
+powerpc               randconfig-002-20260712    gcc-8.5.0
+powerpc64                      randconfig-001    clang-17
+powerpc64             randconfig-001-20260711    clang-17
+powerpc64             randconfig-001-20260712    gcc-8.5.0
+powerpc64                      randconfig-002    clang-17
+powerpc64             randconfig-002-20260711    clang-17
+powerpc64             randconfig-002-20260712    gcc-8.5.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    clang-23
+riscv                            allyesconfig    clang-23
+riscv                               defconfig    gcc-16.1.0
+riscv                          randconfig-001    gcc-8.5.0
+riscv                 randconfig-001-20260711    gcc-8.5.0
+riscv                 randconfig-001-20260712    clang-22
+riscv                          randconfig-002    gcc-8.5.0
+riscv                 randconfig-002-20260711    gcc-8.5.0
+riscv                 randconfig-002-20260712    clang-22
+s390                             allmodconfig    clang-17
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-16.1.0
+s390                                defconfig    gcc-16.1.0
+s390                           randconfig-001    gcc-8.5.0
+s390                  randconfig-001-20260711    gcc-8.5.0
+s390                  randconfig-001-20260712    clang-22
+s390                           randconfig-002    gcc-8.5.0
+s390                  randconfig-002-20260711    gcc-8.5.0
+s390                  randconfig-002-20260712    clang-22
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    clang-23
+sh                               allyesconfig    clang-17
+sh                                  defconfig    gcc-14
+sh                             randconfig-001    gcc-8.5.0
+sh                    randconfig-001-20260711    gcc-8.5.0
+sh                    randconfig-001-20260712    clang-22
+sh                             randconfig-002    gcc-8.5.0
+sh                    randconfig-002-20260711    gcc-8.5.0
+sh                    randconfig-002-20260712    clang-22
+sparc                             allnoconfig    clang-23
+sparc                               defconfig    gcc-16.1.0
+sparc                          randconfig-001    gcc-16.1.0
+sparc                 randconfig-001-20260711    gcc-16.1.0
+sparc                 randconfig-001-20260712    gcc-13.4.0
+sparc                          randconfig-002    gcc-16.1.0
+sparc                 randconfig-002-20260711    gcc-16.1.0
+sparc                 randconfig-002-20260712    gcc-13.4.0
+sparc64                          allmodconfig    clang-20
+sparc64                             defconfig    gcc-14
+sparc64                        randconfig-001    gcc-16.1.0
+sparc64               randconfig-001-20260711    gcc-16.1.0
+sparc64               randconfig-001-20260712    gcc-13.4.0
+sparc64                        randconfig-002    gcc-16.1.0
+sparc64               randconfig-002-20260711    gcc-16.1.0
+sparc64               randconfig-002-20260712    gcc-13.4.0
+um                               allmodconfig    clang-17
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-16.1.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                             randconfig-001    gcc-16.1.0
+um                    randconfig-001-20260711    gcc-16.1.0
+um                    randconfig-001-20260712    gcc-13.4.0
+um                             randconfig-002    gcc-16.1.0
+um                    randconfig-002-20260711    gcc-16.1.0
+um                    randconfig-002-20260712    gcc-13.4.0
+um                           x86_64_defconfig    gcc-14
+x86_64                           allmodconfig    clang-22
+x86_64                            allnoconfig    clang-23
+x86_64                           allyesconfig    clang-22
+x86_64      buildonly-randconfig-001-20260711    gcc-14
+x86_64      buildonly-randconfig-001-20260712    gcc-14
+x86_64      buildonly-randconfig-002-20260711    gcc-14
+x86_64      buildonly-randconfig-002-20260712    gcc-14
+x86_64      buildonly-randconfig-003-20260711    gcc-14
+x86_64      buildonly-randconfig-003-20260712    gcc-14
+x86_64      buildonly-randconfig-004-20260711    gcc-14
+x86_64      buildonly-randconfig-004-20260712    gcc-14
+x86_64      buildonly-randconfig-005-20260711    gcc-14
+x86_64      buildonly-randconfig-005-20260712    gcc-14
+x86_64      buildonly-randconfig-006-20260711    gcc-14
+x86_64      buildonly-randconfig-006-20260712    gcc-14
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-22
+x86_64                         randconfig-001    clang-22
+x86_64                randconfig-001-20260711    clang-22
+x86_64                randconfig-001-20260711    gcc-14
+x86_64                randconfig-001-20260712    gcc-14
+x86_64                         randconfig-002    clang-22
+x86_64                randconfig-002-20260711    clang-22
+x86_64                randconfig-002-20260711    gcc-14
+x86_64                randconfig-002-20260712    gcc-14
+x86_64                         randconfig-003    clang-22
+x86_64                randconfig-003-20260711    clang-22
+x86_64                randconfig-003-20260711    gcc-14
+x86_64                randconfig-003-20260712    gcc-14
+x86_64                         randconfig-004    clang-22
+x86_64                randconfig-004-20260711    clang-22
+x86_64                randconfig-004-20260711    gcc-14
+x86_64                randconfig-004-20260712    gcc-14
+x86_64                         randconfig-005    clang-22
+x86_64                randconfig-005-20260711    clang-22
+x86_64                randconfig-005-20260711    gcc-14
+x86_64                randconfig-005-20260712    gcc-14
+x86_64                         randconfig-006    clang-22
+x86_64                randconfig-006-20260711    clang-22
+x86_64                randconfig-006-20260711    gcc-14
+x86_64                randconfig-006-20260712    gcc-14
+x86_64                randconfig-011-20260711    gcc-14
+x86_64                randconfig-011-20260712    clang-22
+x86_64                randconfig-012-20260711    gcc-14
+x86_64                randconfig-012-20260712    clang-22
+x86_64                randconfig-013-20260711    gcc-14
+x86_64                randconfig-013-20260712    clang-22
+x86_64                randconfig-014-20260711    gcc-14
+x86_64                randconfig-014-20260712    clang-22
+x86_64                randconfig-015-20260711    gcc-14
+x86_64                randconfig-015-20260712    clang-22
+x86_64                randconfig-016-20260711    gcc-14
+x86_64                randconfig-016-20260712    clang-22
+x86_64                         randconfig-071    gcc-14
+x86_64                randconfig-071-20260711    gcc-14
+x86_64                randconfig-071-20260712    clang-22
+x86_64                         randconfig-072    gcc-14
+x86_64                randconfig-072-20260711    gcc-14
+x86_64                randconfig-072-20260712    clang-22
+x86_64                         randconfig-073    gcc-14
+x86_64                randconfig-073-20260711    gcc-14
+x86_64                randconfig-073-20260712    clang-22
+x86_64                         randconfig-074    gcc-14
+x86_64                randconfig-074-20260711    gcc-14
+x86_64                randconfig-074-20260712    clang-22
+x86_64                         randconfig-075    gcc-14
+x86_64                randconfig-075-20260711    gcc-14
+x86_64                randconfig-075-20260712    clang-22
+x86_64                         randconfig-076    gcc-14
+x86_64                randconfig-076-20260711    gcc-14
+x86_64                randconfig-076-20260712    clang-22
+x86_64                               rhel-9.4    clang-22
+x86_64                               rhel-9.4    gcc-14
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-22
+x86_64                          rhel-9.4-func    gcc-14
+x86_64                    rhel-9.4-kselftests    clang-22
+x86_64                    rhel-9.4-kselftests    gcc-14
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-22
+xtensa                           alldefconfig    gcc-16.1.0
+xtensa                            allnoconfig    clang-23
+xtensa                           allyesconfig    clang-20
+xtensa                           allyesconfig    gcc-16.1.0
+xtensa                         randconfig-001    gcc-16.1.0
+xtensa                randconfig-001-20260711    gcc-16.1.0
+xtensa                randconfig-001-20260712    gcc-13.4.0
+xtensa                         randconfig-002    gcc-16.1.0
+xtensa                randconfig-002-20260711    gcc-16.1.0
+xtensa                randconfig-002-20260712    gcc-13.4.0
 
-Nicolas
-
-> =C2=A0
-> =C2=A0	platform_set_drvdata(pdev, dev);
-> =C2=A0	pm_runtime_enable(&pdev->dev);
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/dri=
-vers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> index b6f5b2249f1f..2765dafab4ad 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> @@ -386,6 +386,7 @@ static int mtk_jpegenc_hw_probe(struct platform_devic=
-e *pdev)
-> =C2=A0	master_dev->enc_hw_dev[i] =3D dev;
-> =C2=A0	master_dev->reg_encbase[i] =3D dev->reg_base;
-> =C2=A0	dev->master_dev =3D master_dev;
-> +	master_dev->max_hw_count++;
-> =C2=A0
-> =C2=A0	platform_set_drvdata(pdev, dev);
-> =C2=A0	pm_runtime_enable(&pdev->dev);
-
---=-SowlojmCUCUWFxgrmrfW
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalK49AAKCRDZQZRRKWBy
-9HWWAQDDsuWnz7IVhMvOVrf9+q+gNoZaKZHoJS1aycgNmMVL6wEAnR9zNR4HqAgV
-y7qMxsxMRmPkPjtDJs09kLp3SKauxAY=
-=nWlY
------END PGP SIGNATURE-----
-
---=-SowlojmCUCUWFxgrmrfW--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
