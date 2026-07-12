@@ -4,97 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7F9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 21:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433B8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 21:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VNpaj/maNL0E1QeJjWf/EuHS6fHaisLyfyeXNe/3uV8=; b=qMA9ul8LzkebiSjD+pehyjfH4r
-	OrnVUVqLoeYzKL8yg2BV1AdmprpVL7xD20UHHeE5p7opTIkoZxxyL1bkDvaEOg4+3SuM97S7opF8a
-	lVde43JqgShVffQC71/g4MXZH5otjYjSN5qX8hk3CZ4gnAzxeEy+nxOz0dOTwyk+9pVFHGn0r9Qz6
-	54dXsTX2VDh4Ja6MxZg7N21oSMacVXF9pVyBF2iD60RgX6xhH7LCHGIecs7ko5TzhTO/x/qIM4TWd
-	lT6vFawtcYjkDfpiMYF9tbMKSXM/taYr+5vufpCdjsTSvZjtwOFtVIfoI6Q3prSROtGkq+6mngIdo
-	BqOiRuTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=c2LZCTFPqGTGuPKDo/ZNl32LqOczqdxWlzYpEghp2XU=; b=cn/iJEgnwaGIhk
+	HKulMLbuD7wv7sZCjMdhIRZMz1tVDpKPbmYoo12hogbBGM6MDk01hmmc3MxA2yjGwlTrXfyaU6Dl5
+	eLh5PtCL+pv8TmRg2fV8e7+FLXTzQyUb7bJ1hKhQ4E7AzvaVtqqsaiVBxShJGcxNRFxWrNdO6ZzqN
+	GKNulPbRW3DYtCEs0RmTfqQFBme/3c1lPhyQs8Tk053XJDPYsoP8CU6plDhbfsB3+H7UoMkK98iOP
+	TQtoXG98VByRuyvu2MkMSiWJFVtMq+q7flkzizwFXzkagKJYtk7G+Uj7YhV1X7G2idcBmNmsLTwu2
+	l3GM/uyRDr7jnZarvHEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1Nf-00000007keX-3I7W;
-	Sun, 12 Jul 2026 21:06:31 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1wj1aA-00000007lGW-3tlA;
+	Sun, 12 Jul 2026 21:19:26 +0000
+Received: from out12-31.antispamcloud.com ([185.201.16.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj1Nd-00000007ke9-1M76
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 21:06:31 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id ECC36EC01B7;
-	Sun, 12 Jul 2026 17:06:27 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Sun, 12 Jul 2026 17:06:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1783890387;
-	 x=1783976787; bh=VNpaj/maNL0E1QeJjWf/EuHS6fHaisLyfyeXNe/3uV8=; b=
-	mjbuPEmFXp+PnMONr5np7w6FgzP+0861ryq4KHUe7UQ3hDIoXgOm0LJ8V3Ae57X4
-	aaKTNkOc52d80K0I7567Xt34NkxG0cOooEol0QhmKHkKwqcxvUMOyFCahjfk9fVG
-	55WzycbEN7NsG9dlT6aEKPT4Vy9F476/e9wA2Vi4ov0rYXrm88Db4oxMQm4AyWM8
-	dOqEQiqHCkGi9t6WRZ5UEpPlm1ySSB2123TwCjOwj8VGFdyb907zKomDaJuxZcBw
-	8k1kfsXZy66BKulLp5sCyCG+hgFkWmrS69CP2kV5+kiBebHE0XDveFI8AI21nU35
-	Qzzb2Fde7mnkwzjN0nI52Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783890387; x=
-	1783976787; bh=VNpaj/maNL0E1QeJjWf/EuHS6fHaisLyfyeXNe/3uV8=; b=F
-	ZK0NTPQ1wP7kjVJp9KB2RimARZEK5uddEiSvUZOlVoMi52l0IT6XQW0/WH5DSbl9
-	/+U40U++6DEsOpfzyYc0N5SzlIb54gFT05xpTSpb3RPTW91/9++YT02Ql0MAsgTN
-	OEabBtx3hidImtB9m7N62mAdgNHGf6Knn9dPgz5jvcLOyVrXDwf90DMSlMS3270k
-	/5//fVh09J0c+JXpB4i3bO2SZw/m/mfkrkB7uTOjMgbJiqlwgjc9/L6ftvKlZFlu
-	uPESIOgqItb9o9OC8fauWffXtfWuzmawSlBvO5llZuK18cN/lAdUl6mFgM0nO2EW
-	6lX0DK1sLQU9aawcDPPzg==
-X-ME-Sender: <xms:0wFUarjzbeGzW0GgJmA0KjRd4CdrWdGAB8ZlXUt53p7gALKxXJMG7w>
-    <xme:0wFUai3p9t2_muWY5z8U2sp37k5BT0XjsfqUvghKWscYQ0SynrEmIrz1c9WsAagUH
-    lDDdN1dqF58kpP4Xr4PuBp4km2MrBGNdAk_xgyQhPgzP1WGtwEz6ChW>
-X-ME-Proxy-Cause: dmFkZTE9y5C/6RIdS+5QVbQ29xta7Gw2toEPS1iuIlAx8rzJVQT3j9cubDQryc46qus1Pu
-    Idr96Bwew5Kd7xVwCdS6Dt7pwXOD9wzscTOZHEu3dK6v5UVUp3HN7/J0twgmyCdONaGeBD
-    p7JDetbzGJSScU5K94RmmVmBPlDHD1iaHOL27wRFddbZ16KeVHH2ojlMM9qu+tUsH0OqiD
-    TO3vrmI10eW09YG0tGvuSQRg1TVpA+lDLK53n+RWOuYTumuYFCwJQZeL0VYdqB31AtrHOO
-    CEU4LAWotUtKo7xWR9G79aTMKHZSyGgMVA1KScmkAN1lg4Gm5b0yXIMi2u4ysjtV+ZG1Te
-    QR9MhTEg6n2ukUnTx1BLhhoY9RgqdEEEN2auejwik8VZegxzLGsXwNGRhT+izp1CxCNlud
-    3hP1MPK4cL6Ed4pRHUu8F4KjBCtfOFSrdYLVxEHuGV0XGjb6y7/ioC8E7cFadsNzxN+hn0
-    SVflZRr5xBYCoUmqjNlwdEPkgGkFQradPkNc2iFEichqWqxAgHyU/qEhgbpbYkede+sQGf
-    7W6rU0VWi2LaCzpy8Q5Q0IdGBjRq3zoHdHbQ3IlnZklu/xqkW9J+ZVONylWdLAt8/xFB10
-    VvMvJEcZkgtJQOm5tcX3omnc2pFTeAAZvI66nJ4EO7RUXs0fDfz3xVgYPbcw
-X-ME-Proxy: <xmx:0wFUaqvUOgfQOUerfQn1dEyJO_9OaiAU1rnBDI_D-RirTTDidrFjoA>
-    <xmx:0wFUaoaIvkpTfPHZUEpu7uH7a_1ra-Nrda-hNGWKuVNR4NO3TGWp-w>
-    <xmx:0wFUahXNiWd_6BO1LKVHgQEsNNIs3So335yhDKz_QX96KSxTlU50yg>
-    <xmx:0wFUalRxuiDNWCZ-CPBIQ_MR4-h0JXTBbhXmbXWXMyX69SewVhauqQ>
-    <xmx:0wFUaqz5vLbumBuplO5s-EdsEl19-X6fOIFn-bkNXCBtYScNDF1UX9tW>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id AD9B9182007E; Sun, 12 Jul 2026 17:06:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wj1a8-00000007lFC-2QKH;
+	Sun, 12 Jul 2026 21:19:25 +0000
+Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
+	by mx195.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <dan@reactivated.net>)
+	id 1wj1Zq-00GoJg-CM; Sun, 12 Jul 2026 23:19:11 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reactivated.net; s=default; h=Cc:To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=c2LZCTFPqGTGuPKDo/ZNl32LqOczqdxWlzYpEghp2XU=; b=jpq2/aFNzL3ShD0RFS09By1MZc
+	1nDhKHtJuUeW71oU6Z6/qx0/1SAZB4SMe3i0rmvDfkPsjzS1tRWmSlbUdI2RKeLlvrZBaDW+GLqQl
+	RUFlnhNZq4QjRzc6y51Y3kNrlY7xj38d45X+7oZfOCvlC5X14X3NXotWQ8wrYV09nk82PCtNZaHQI
+	WuHl15W5I0U/j5Cd8S/MAinsCxDO20qr+ao1ZDQnlioDZk9rTVgDHvthme8LBDRwXHHTjSKPKGZCl
+	eu1BKlbtPyUBAgbaxiFIjw8mX5SF9+Fb7nV8kPUJFgeDvcwgd6UnSZAeXSoSVl12twajXVbi8fGdd
+	+3whIefg==;
+Received: from [188.251.249.2] (port=43526 helo=[192.168.1.123])
+	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <dan@reactivated.net>)
+	id 1wj1Zi-0000000D6jk-0luD;
+	Sun, 12 Jul 2026 21:18:58 +0000
+From: Daniel Drake <dan@reactivated.net>
+Subject: [PATCH 0/6] Add support for Broadcom BCM2712 IOMMU driver
+ (Raspberry Pi 5)
+Date: Sun, 12 Jul 2026 22:18:50 +0100
+Message-Id: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
-X-ThreadId: AMjyoxKQRD77
-Date: Sun, 12 Jul 2026 23:04:51 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>,
- "Vladimir Zapolskiy" <vz@mleia.com>,
- "Piotr Wojtaszczyk" <piotr.wojtaszczyk@timesys.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <b0202a09-af6d-4dda-ad9f-64e727cd9df0@app.fastmail.com>
-In-Reply-To: <20260712205617.44944-1-kmehltretter@gmail.com>
-References: <20260712205617.44944-1-kmehltretter@gmail.com>
-Subject: Re: [PATCH] ARM: lpc32xx: only run arch_initcalls on LPC32xx hardware
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/1WMMQ6DMAwAv4I811JiUdr0KxVDkpriIaGKoaqE+
+ DuhG9PphrsVlIuwwqNZofBXVKZcxV4aiKPPb0Z5VQcy1JmbJQwx0UGZUlpQl5BkRmLj7s5xd40
+ t1PRTeJDff/vsqwevjKH4HMdjdmotbNsO2FD0rocAAAA=
+X-Change-ID: 20260712-bcm2712-iommu-submit-2e09899e65c4
+To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Daniel Drake <dan@reactivated.net>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, 
+ Jason Gunthorpe <jgg@ziepe.ca>
+X-Mailer: b4 0.14.3
+X-Get-Message-Sender-Via: s1041.use1.mysecurecloudhost.com: authenticated_id: dan@reactivated.net
+X-Authenticated-Sender: s1041.use1.mysecurecloudhost.com: dan@reactivated.net
+X-Originating-IP: 192.250.231.249
+X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
+X-Spampanel-Username: 192.250.231.249
+Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
+X-Spampanel-Outgoing-Class: ham
+X-Spampanel-Outgoing-Evidence: SB/global_tokens (0.0036886121706)
+X-Recommended-Action: accept
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVv5cfN8YhlyjwLMsQQzllMEv6lei9F9Dil
+ zrPpcCYURSu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVINZthhKjTv0yp3Sc+AC3FHpGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+ EetczWCulNo0fvnzmZPW3MC2/ZtQeB7itP8hgjDRserKv4bhb3RyZlCL9i3kc+ehInPHgYZWBb39
+ uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKefuLbx+lGq0svfyhth
+ j0R6Iny++hg9dJLqN5zmWqF/oHgMZXS6X/fIHYslsKU0yPHM4JpSMI47HiFQBsGlm5AyPIv7c2tg
+ uiTnO7hoWdxS2Euf+eM3l5KPnbp/eQthjVPLCh11+xKgET3fXj754wkhoRweeXUyelEFumxqJC98
+ W2Chcvueb7X9IVOP0nXi5ScUGZbDvQNAWVsKTgEVkGFZkrTBb08hz2+hQWIE/jMJBRjlXAPIIi6r
+ dxgy5Mnu2cDsZps7XJtkUNhIi117bsGJ7ren9RtRNyYim5e3GD8LGd17Yt5uvWRLqYZ7YcWBwuaj
+ bB9FLgbTIobDkucCu6K1Qts6ESwZ+TRkjY5CmPXd4fzFwV5PA+Zo1HkEWshOrnfOczv/Rq1TfV/y
+ 9sPCUZ0yjBqTnQMt5W0GKvZ5TPS+0sUsSnvAz6a57TzpYAKZxAOMmYkwXP3g8rtJn6lRuSHjV8Jw
+ 2Fxq1Vd7xIu/TP3zxxtadaYgn3OIzsUC2wDRiPKWwieZyauFYqHkIbFa+ipFHuOywN1cBSoAw5Iq
+ u8uD6H9vRamlPbOxG7rXq5Czwgf6xGEuqjPYHqCiHsRpKiyawVZCoGB4EfDx2fRuW8Y0o7OCze69
+ 5wqpq4Ow1lDfcfvX9sw5VBsaDF9CxNBjABkH3hTMjGc3lQAtuckU+MNQlLpWhjjykqbde3UjWoF9
+ cBo9q3T2iWmfFRW/Psbz8QFVy0V5rN3M2TZ9grsaBV7hOgCSkfEzb1aIdlnbLZp4DCYOuNFQ+5eG
+ III/qgXB3gv2NI/ukWuQBNrXV+EmIqM8SxKOhcObZXWnkEw+6F9CGyYC9AhR1ZLKC40YaZQ+trtn
+ Eh9wUysc4uCrhmcWLql8THOdSiHAgggGfXRKw3BTrmSizxFc684o/A69h/CvHI/GeXW8oEyu47TQ
+ DqTi6GKwcIp24VOsP5eu885wo+t+ynT3Y80OmAux3oN13+ztUzneZGHdcUfaxYq0ZH+Cc9iqnocR
+ WxNUEo38DE53aa5lZFsy2onypIM6qetbKE/25wcByQHccqPF2ZbyJan8j4Gywd51C0ZuDFMORrKj
+ fElM485r3Z1SFe+4OrB9Rro7EpOy1Um2iVRPSUxhtw3wz3yqYcOpyKA69LF1Ge2GaGfxmfp09oMS
+ l8c4ShQ//ve+MHzjs9MOb3HXByN6cty/LT6lgOv2AzRyYGlsi3xQeIJ6TM5o5F89lTjPCn99uwfA
+ g5wm8t3Xj/LzZ5s/OJg1L2asZ/4te3BTDYEBZZ1yPQnIH5IVn/pKnch3lmmwSrgldH+Ps9MOb3HX
+ ByN6cty/LT6lgO+c9AHZZ12442bv/l3jZJg=
+X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
+X-Complaints-To: abuse@master.antispamcloud.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_140629_804979_F69775F3 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260712_141924_627814_C9445DD1 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +124,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026, at 22:56, Karl Mehltretter wrote:
-> lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
-> LPC32xx-only registers (the CLKPWR unique-ID and the EMC control
-> register). Since the multiplatform conversion they also run on other
-> ARCH_MULTI_V5 boards, where the access faults, e.g. on versatile:
->
->   Unable to handle kernel paging request at virtual address f4004130
->   PC is at lpc32xx_check_uid+0x2c/0x9c
->
-> Bail out of both unless we are running on an LPC32xx SoC, reusing the
-> machine's DT_MACHINE compatible list so the guard can't drift from it.
->
-> Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Hi,
 
-Hi Karl,
+This series adds a driver for the Broadcom BCM2712 IOMMU found on
+Raspberry Pi 5, and hooks up the display controller IOMMU for efficient
+management of graphics memory. This is adapted from the downstream driver
+from Raspberry Pi (original author Nick Hollinghurst), with main changes:
+ - Implement the page table management using generic_pt
+ - Implement brcm,iova-window and brcm,iommu-cache as standards-compliant
+   DT property names, while maintaining compatibility with existing
+   shipped RPi firmware
+ - Drop the dma-iova-offset hack, used to work around some issue seen with
+   dma-ranges. This will need to be investigated separately and solved
+   properly. (It's not needed for display controller iommu support included
+   here.)
+ - Misc simplifications/standardisations/cleanups
+ 
+The IOMMU works strictly with 4KB pages. This means that unfortunately
+when the kernel is compiled with PAGE_SIZE=16KB (the Raspberry Pi 5
+kernel default), 12KB is wasted in each page that is allocated for page
+tables. I plan to address this in followup work.
 
-This fix looks correct to me, but I think it would be better
-to replace the arch_initcall() entries with a direct function
-call from lpc3250_machine_init(), which also runs at the
-arch_initcall level and is already guarded properly.
+It has been tested on Raspberry Pi 5 using a 3D-accelerated graphical
+environment which causes plenty of IOMMU maps & unmaps.
 
-The calls should be entered in link order, which would
-mean common.c, pm.c, phy3250.c.
+Feedback and testing welcome!
 
-      Arnd
+---
+Daniel Drake (6):
+      generic_pt: allow missing sw bit in DMA_INCOHERENT case
+      iommupt: allow full-table contiguous leaves in unit tests
+      dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
+      iommu/generic_pt: Add Broadcom BCM2712 page table format
+      iommu: Add Broadcom BCM2712 IOMMU driver
+      arm64: dts: broadcom: bcm2712: Add GPU IOMMU and IOMMU cache nodes
+
+ .../bindings/iommu/brcm,bcm2712-iommu.yaml         |  65 +++
+ .../bindings/iommu/brcm,bcm2712-iommuc.yaml        |  35 ++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  15 +
+ drivers/iommu/Kconfig                              |  15 +
+ drivers/iommu/Makefile                             |   1 +
+ drivers/iommu/bcm2712-iommu-cache.c                |  73 +++
+ drivers/iommu/bcm2712-iommu-cache.h                |   9 +
+ drivers/iommu/bcm2712-iommu.c                      | 587 +++++++++++++++++++++
+ drivers/iommu/generic_pt/.kunitconfig              |   1 +
+ drivers/iommu/generic_pt/Kconfig                   |  10 +
+ drivers/iommu/generic_pt/fmt/Makefile              |   2 +
+ drivers/iommu/generic_pt/fmt/bcm2712.h             | 259 +++++++++
+ drivers/iommu/generic_pt/fmt/defs_bcm2712.h        |  18 +
+ drivers/iommu/generic_pt/fmt/iommu_bcm2712.c       |  10 +
+ drivers/iommu/generic_pt/kunit_generic_pt.h        |  39 +-
+ drivers/iommu/generic_pt/pt_fmt_defaults.h         |  13 +
+ include/linux/generic_pt/common.h                  |   7 +
+ include/linux/generic_pt/iommu.h                   |  13 +
+ 18 files changed, 1147 insertions(+), 25 deletions(-)
+---
+base-commit: f4fb100039e96211609dfc44fb24b9e4a8a0f2f9
+change-id: 20260712-bcm2712-iommu-submit-2e09899e65c4
+
+Best regards,
+-- 
+Daniel Drake <dan@reactivated.net>
+
 
