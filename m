@@ -4,68 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C36C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 18:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE28C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 18:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cz4TC7FYuAA1MNLgolPmcFRysJt6pzD3nfMB9W3q7M=; b=fr6dw05zERbzNexhHY4WjrTbqt
-	4XFJkxzZAQqrQLCOklfrYN8CgvTZs/4AoSk8TwQCQG8gOW8ATla+LvILMqNRoKzeiH8/d4HMzc/01
-	ddLGTA4WAT91ou4YHeEjbnKWPhNBo7VwEge4kyw5hpaR5nTLBmN45abTe1sccmz0VbB1JuC86ekYD
-	d1r0IJWiFZB+M2sKxYLvC1SwlfDXDdIrnf3sI0Nxy5IOK26tIbVA2QhVygFCOt9H6WCkOKM5HE5c0
-	/fBE50i2G03wklYXGP8iXsgbY4Obdqhc4WOCyV2c4O7J9HNT8fgRD6TJzgLaLsX8HziQPIMU8RoBb
-	dQeBBkjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6YF9Ptz3U1E3BzqqGAaNIm/PU93N/xwLs3WvAhZwqc=; b=tsEOQIB2zhdsZ5PPx+NDpX8cY7
+	1O8Ri5M4vbahFmhXsjVUDOF3UHfCH5Vw5G7PNviimIX1d73TyeeK+IV7T1xlwG4YP50V7M3fpcmxu
+	w2QTnZy9+leEhR2fhZ7/BB0WDHkjE1VZmXV5PmwqTlsCvYygQtJlyxbQHNAyKDhtXVCyBLb/OuGqO
+	+6RbFYxXl98y/cuVw8/oRsFu/xSNnI+VX/tTc/dIGUwybEtkNWheKvnrC1muWeimEHXufLWcAHY+Z
+	U/9DR/+bOFPWoQ2OG4HaQBM0AN90zN3IYnPKu+V/P4eDtpjJuehnn3PNu+vThgyBfcvyQYtCKigPa
+	Fy9kgmwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiyOX-00000007eS0-1gfY;
-	Sun, 12 Jul 2026 17:55:13 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1wiyTX-00000007epF-2SMV;
+	Sun, 12 Jul 2026 18:00:23 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiyOS-00000007eQj-3Wjn
+	id 1wiyTT-00000007eny-3X5s
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 17:55:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1783878908;
- bh=+cz4TC7FYuAA1MNLgolPmcFRysJt6pzD3nfMB9W3q7M=;
- b=SZh4rKwCZFEyIjv2X7MQyA8qX8udUnSZSeLXkpUVdVyDwhcrCr64/nQt7LXtU4p6Ky+YcwiRC
- GCuz3DVwTxKuaik7TiUKm5eORZdmzz48vUV21JsgWw4Uo4NuHP2pH/ZTaRA8h3knSn+1Yvr9hGp
- 3zCv/mvqxJ3J1gM+l56KEH9qNGRBCIggggRM2NtkUcQqAVOL+7b8WIQgSjV1D0u5ton+Fk5ZgsE
- A/yH0xhp7bi360hGwhgemLTsCQLUDCjcnJkRADCwIJjPgPih5Ff5ljlPLv52XJTx28mIbCFfRb+
- EnHTRK4ItUPWdTfdQOG7O7tjAzt/BBfW2l4eKezkE7cQ==
-X-Forward-Email-ID: 6a53d4f81f631853be4f2d47
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.10.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <e2ed95ee-8044-4a44-9775-9f36b10e727f@kwiboo.se>
-Date: Sun, 12 Jul 2026 19:55:01 +0200
+	Sun, 12 Jul 2026 18:00:21 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84a2c90e383so316192b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 11:00:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783879219; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iZglgQ9404hjGFNlZs+66XZjT6dGosqm/zQGbYCqSfvooiKHiLlj11Pyf4MW2FI++H
+         VDQIHtR56kvNL/yJO3QFwLgjL2MT4tMcUOG0geMejIfX6BbGhu/+22BX0b3/NdFtIolG
+         33VTnWZ+N6+72XlGHAaHWPJLfs0O6QXvCnMwccoGp3emHO5khZVcpp0CjFlOMa4xzDTf
+         4BukA50ulcqG67DIKB0Uhy4J0YkCrmrF2UWKxmPcnEppEEM/R0Re8OHp7nxf9wmBWqsM
+         v0vPQc5/gwWFutfSIThOGV82CGbyJnMKJtvSppYmu4inYE2sIWWva0bqm1wffmNtOPwp
+         bofQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=z6YF9Ptz3U1E3BzqqGAaNIm/PU93N/xwLs3WvAhZwqc=;
+        fh=Bv09bkuKISTz575ckVTGXCk8iCNTFatoVnDW/P+iPe0=;
+        b=Yx9TXou8CHAiziV6yOXx52BlW+XmyTtkO570uEQRj3tuidixtJVm5L/xraTzYWMpJo
+         KxD9mW+FCeJNID57XE9oO+R6YmyzRDBBgoH+o21YPqilEldts+4t5nIQ9dce/19G7J5v
+         ZaBPS4cTo3uLyyDS0FRGjINAyETbMtsLFwTteTf1GzhZK0MuMYvwRkJ/Q7v7jGVQ5eGb
+         ZPJbNW8f8mOndJoiaXLwHe20tmlQUYk4oMxOBHSNOUGM2XdB6w6O9E17f+qOAyUqq13j
+         HbzTPYMCdjrUsVsftjxET7t2QSYz2bJr86iEQnUOZlGMqm2EMBlZUUwfQHO292L0uYZL
+         H2oQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783879219; x=1784484019; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z6YF9Ptz3U1E3BzqqGAaNIm/PU93N/xwLs3WvAhZwqc=;
+        b=q61bSXzrUXb8twKm60t3EMGmPF1W79I+QRwYz53s27CnzHauao2n8+fvihdkSkzTmC
+         +gVcloQfapJ7dXBNZ3nbYGXTRNzbY8g2X2T6ev4bHb8aHTfBWTgE60yqZgYk+Fpc643h
+         9s24wJNKg9z78LwwQVa8wnbRnh9+3yIX4QKsnY+uz3UfQgdWUllNl2Rw7TxcCJGCKBgM
+         BAxDw5RTKaVfb05m98sH8YXkG9PnIRzGiikkEtLXEnPww2GA05Qyx8OjgCPmre0L211e
+         rgEg/j1ouWyijS1Tw2pqK9K8zcpQ1kSe5+eSUDIA3eLWO1S3rEfY3Mf5tetJa1ICcGb1
+         XEmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783879219; x=1784484019;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=z6YF9Ptz3U1E3BzqqGAaNIm/PU93N/xwLs3WvAhZwqc=;
+        b=ETRWuxDaZgzwSx9sxLl42jJE6Cq8LPl7Qt2XZFQSQL9mb4FW6Xz1wv0xDeB2n1Kbq9
+         PleUrVbpKHezkW0mET4Md5f4/t0zqkgWfHAmLgev7M8gUD5u+RF5Rs3FHImnyJRw12v5
+         tYSYg22MkPRusdpN9XZlwACY3irsSoqDMgpq2SEPBQK5j65V5hxRtEPOFEzyNBvl0Lob
+         lMumrqN+uLKx6ovn4KCu1f77pZsQ2IpSlbfjfP+LXdbAsNndURV1GLvgdrdbuaaqpUC6
+         f1iUbGcyOSRcjaCfbXtFfcJ0qHQ1I8TL/hAf2k6vEuwttRnULJ7MwbvyVfHnl1j1O7vA
+         OgmA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3m1Z7qNKSi2oVgnYKqYu8MCo5ZdOyPzjgoOTOkAqyYgwusXZAdoC2UZa3fBb7V9H7BK/TqdF5h+EKT66O6XmS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKYFX9krZ4kb/IvX9PkOKuyEyG37152aaCD2TCONSkI4nC/wwh
+	CIefMb7l5H58hyXPE50D+8JBIc+ChpJBIqpSXST5Z7bQqo3x1JEQzJGrn11xSaG6jF8OBcGF/49
+	yUdGSf44kndkX/Wk4F32pImMJ0Oi0hLw=
+X-Gm-Gg: AfdE7cnQjNyCGNEzHrwuI1p/xQt13DtY2aa+rafVSd2DwWuSvI2ruBAQ+zM2Hygtp6+
+	0hxoT7qjhM5ae201WPo6riHJ/EuBWsg+Ui4iVaI+TtrVg/qmGD5Se/odJeRXURfl94b0DOGlYA2
+	wMfZvrEM9YBMla92FiLJeCaVJnXyKuHiiHu9ZhqNaPCRF5fyn1AIsCknXrRaSrsEJMbAGdxcFKe
+	FmkCAifDih/an52pWZ/ZDwe9deFL0f1U0zHuzHjUDEtbD5qAVKktb0qy4lZaoE9yve5+RjKI+NE
+	FQnEZR6jlz9aDoMO3rrCXqmc5E1Z05tFM0Ry1zFE7I1R5j3gknvDzJwZgQ+nt+Lq7pbUmmp8tnh
+	39n2OvTe1ng==
+X-Received: by 2002:a05:6a00:1f14:b0:848:2a69:97be with SMTP id
+ d2e1a72fcca58-8488ab8fc78mr4988265b3a.10.1783879218918; Sun, 12 Jul 2026
+ 11:00:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/12] pinctrl: rockchip: Add RV1106 pinctrl support
-To: Simon Glass <sjg@chromium.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Fabio Estevam <festevam@nabladev.com>, linux-arm-kernel@lists.infradead.org,
- Jeffy Chen <jeffy.chen@rock-chips.com>, Linus Walleij <linusw@kernel.org>,
- huang lin <hl@rock-chips.com>, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260706195818.3906949-1-sjg@chromium.org>
- <20260706195818.3906949-5-sjg@chromium.org>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260706195818.3906949-5-sjg@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
+ <20260711-nanopi-m6-v2-8-422675a65402@gmail.com> <b9a5beb6-b701-430c-b667-44780736dd89@kwiboo.xyz>
+In-Reply-To: <b9a5beb6-b701-430c-b667-44780736dd89@kwiboo.xyz>
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
+Date: Sun, 12 Jul 2026 20:00:07 +0200
+X-Gm-Features: AVVi8Ce_3L_f8KZWdaCv0iUnfK1E_2A_iQtzLV2gceK6YTWldORZsT30D6eKJVM
+Message-ID: <CAPSPb=t=jZke2pEinPvJ4mbxKMF3hSqMfx3GMjEUT6N2FEyygg@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] arm64: dts: rockchip: rk3588s-nanopi: remove
+ always-on from vdd_npu_s0 reg
+To: Jonas Karlman <jonas@kwiboo.xyz>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	diederik@cknow-tech.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_105509_198550_240F3535 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260712_110019_881432_21435697 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +120,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+Hi Jonas,
 
-On 7/6/2026 9:58 PM, Simon Glass wrote:
-> Add pinctrl support for the Rockchip RV1106, taken from the vendor
-> kernel in the Luckfox Pico SDK [1] at commit 824b817f8 (a Linux
-> 5.10.160 kernel tree). The IOC registers are spread across several
-> blocks, addressed through per-bank offsets, with the GPIO0 block in the
-> PMU. The drive strength uses the RK3568-style exponential encoding.
-> 
-> The RV1103 is a package variant of the RV1106 with fewer pins and uses
-> the same pin controller.
-> 
-> [1] https://github.com/LuckfoxTECH/luckfox-pico
-> 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> ---
-> 
->  drivers/pinctrl/pinctrl-rockchip.c | 208 +++++++++++++++++++++++++++++
->  drivers/pinctrl/pinctrl-rockchip.h |   1 +
->  2 files changed, 209 insertions(+)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-> index 7e0fcd45fd26..f9cbcb955853 100644
-> --- a/drivers/pinctrl/pinctrl-rockchip.c
-> +++ b/drivers/pinctrl/pinctrl-rockchip.c
-> @@ -1725,6 +1725,166 @@ static int rv1103b_calc_schmitt_reg_and_bit(struct rockchip_pin_bank *bank,
->  	return 0;
->  }
->  
-> +#define RV1106_DRV_BITS_PER_PIN		8
-> +#define RV1106_DRV_PINS_PER_REG		2
-> +#define RV1106_DRV_GPIO0_OFFSET		0x10
-> +#define RV1106_DRV_GPIO1_OFFSET		0x80
-> +#define RV1106_DRV_GPIO2_OFFSET		0x100C0
+On Sat, 11 Jul 2026 at 01:24, Jonas Karlman <jonas@kwiboo.xyz> wrote:
+>
+> Hi Joachim,
+>
+> On 7/11/2026 12:11 AM, Joachim Eastwood via B4 Relay wrote:
+> > From: Joachim Eastwood <joachim.eastwood@gmail.com>
+> >
+> > Since the NPU is hooked up on these the always-on isn't needed anymore.
+> >
+> > Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 1 -
+> >  1 file changed, 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> > index bcb2f5d63a61..463cfeddf270 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> > @@ -258,7 +258,6 @@ vdd_npu_s0: regulator@42 {
+> >               regulator-max-microvolt = <950000>;
+> >               regulator-ramp-delay = <2300>;
+> >               regulator-boot-on;
+>
+> Why is boot-on kept?, NPU is likely not needed until OS has started.
 
-This, and remaining offsets, should likely be from the related GPIOx IOC
-base and not from GPIO1 IOC base.
+I am not really sure.
+Looking at the other rk3588(s) boards, they also kept the boot-on parameter
+when the always-on was removed.
 
-The regmap_base should likely only cover GPIO1 IOC, else it would cross
-boundary into the GPIOx+1 controller regmap space.
+> With PD domain-supply the regulator should be enabled automatically, or
+> is there some other issue that requires boot firmware to enable this
+> regulator before OS is started?
 
-See my review comment on pinctrl dt-bindings, we likely need to define
-the IOC reg space for each GPIO controller for this SoC and adjust this
-driver accordingly.
+Maybe some Rockchip people can enlighten us?
 
-Possible something like following:
+I haven't had the time to actually test the NPU. I'll try to test it next week.
+So this patch is based on similar changes done to other RK3588 boards.
 
-  gpio2: gpio@ff540000 {
-	reg = <0xff540000 0x10c>, <0xff548000 0x8000>;
-	reg-names = "base", "ioc";
-  };
 
-or
-
-  gpio2: gpio@ff540000 {
-	reg = <0xff540000 0x10c>;
-	rockchip,grf = <&gpio2_ioc>;
-  };
-
-  gpio2_ioc: syscon@ff548000 {
-	reg = <0xff548000 0x8000>;
-  };
-
-Regards,
-Jonas
-
-> +#define RV1106_DRV_GPIO3_OFFSET		0x20100
-> +#define RV1106_DRV_GPIO4_OFFSET		0x30020
-
-[snip]
+best regards,
+Joachim Eastwood
 
