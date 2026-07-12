@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B8AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F5BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 08:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xhgW2AIxRAsyir1bZV0tkAOlDMwlxqZpeTuaF9TQERo=; b=n1Eaj6WSJEgzO8VlASO04XEpnx
-	y9yz/Py/JipawKaFZkTX/VXFqUTbiknbZIDu8yQo/SQHtyb3T1cvzrde+tdMKk4OUThlrJTh96NUj
-	eaZVsRwLEW3WBfKhXA2WBZAQhj2MoRDzNI+Np0d/SQIqIZ6Yi7XJCFr99rouGYKEBJQ4+xkUrOImr
-	yG7Y6Xmg8D4hh71CsVJKehDj2wfmBYIm1E98tyOco8axcR8lD6k1/FZktabeF1lcJRFXJk16XoxA3
-	WQAoVTvSR5zQmeS9eOEGyTKZ0XSJ/7lBIJ46k5oXRpy2zM8rgZdiR5rRaRoVd728Cy68jC42loUV0
-	1epukgXQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y7El/GvvQcgfO05yr3MPYiblRZfsw0etG5ZwJOy721U=; b=rNUBxgeidhPLJP2usj4w+kj28S
+	zYn4VXUlndtYKcb/naT/H/JhJEMYtq+axGWQOVfcF+Q+3jlLzLelom2SVshpKYNLfF8Qp1D9D6S9k
+	+56NYEFqQ8YP/IMeTkc68WShZklNKjML4uSGwKcxVZicCug4i2Tjyh3gJ5UMe3AHcCSz9UCMthSPO
+	StYI53AZcP5g/KiAxqp5FYhCUl5iMmaMTeQBTUDpvLGRS2rrvi1WLeUokKcqNZsTzgd4DNVAMhZlj
+	G3TSkgYT6idghnZiquRqtsvp+H0+d2qyuy/jtc125n7sz2pn6G5/7SLloC1JEWqL3KOpYnwOwofFa
+	DTZFL2oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiobI-00000007DyJ-0QVP;
-	Sun, 12 Jul 2026 07:27:44 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wipyt-00000007Hai-3Ksk;
+	Sun, 12 Jul 2026 08:56:11 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiobG-00000007Dxf-0iQy
+	id 1wipyq-00000007Ha2-1frs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 07:27:43 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-845b6d9bf39so1977231b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 00:27:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783841261; x=1784446061; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xhgW2AIxRAsyir1bZV0tkAOlDMwlxqZpeTuaF9TQERo=;
-        b=FtC3Srj6Di0TnT6v4YQPEF3g3udiBdk2qA74S1W+eKFaaON85F6errj9BeUPufWlue
-         BCAAIXvabbfhhnE0usKZEkI5F0ARcBhCR1br9pKZi9CI20d14wboFxCIVUCxuYT7+7Nh
-         2IO6Q9Ev4r6uZ9VQ4ZwNVP1faPkFlCDGUf/x2+zivQftx2yREL17R70adHBijqk2dB6a
-         Y2ho0Q1jSgtAqHMtoip5IVPDIh5IHGPG7kEL41lJ/O239fMwYTj3/gP1PXN+mu1puiJ6
-         lwO1oGZrP35fpyebcL8bJsaKXfL+wMm0fA9S7kPBJklR0WiFxESeqIvS6Y0sb14jAPJ5
-         ejwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783841261; x=1784446061;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xhgW2AIxRAsyir1bZV0tkAOlDMwlxqZpeTuaF9TQERo=;
-        b=jBM5RrStHVbTcBVqsebrw97OdZKMIGpAAzqKWc4wkSNT3raIyXZKkNkMJjh93fhape
-         9zxEHlB7y3VpmKw8YL2XBLEjOa79f+a6RveFGHl/MwGsRjWlCk4hdb4Vyt9x4jnd8F05
-         s4BtUjhxp86jW0rftXXbqrpoMLd3VMUiSFy5vWQhTqUB/bXPPIh3eLqrzl6K3l7DTr+o
-         ac57Lqi7e77xU/NqZf2PxTidHuImcyQ1amVfdEaAdQUES8yBByYqjbpsvgBOwyBvliw6
-         y7Ma+49opoDqE8XFGslAwItV1pQVBOfUj69YfzTOWv337ubc03P0o2SCp0Fa21kW8xNM
-         gKpQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr9gAXgfW9LFzK6ABPZkIQPUCmGMCg6dQMyp0W47h7HU1gDFDeyEaMmFd+a8rQdl0R0CbaquRAp4ZdAn9xNZ2lD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9UzazkEDWUViNGEy3kv+bZEyDTgE1pIXMbiRuWeOz5enUpEfg
-	0JdMj+dv9dVuOPqmJtP+TFcuLt4MfcMpQlcbg7E5XMG5cHcNu5WJ80yu
-X-Gm-Gg: AfdE7ckuxgM0fr4j0qDWKI3y0xs5xR3vWEff2Prei7V5O6TQj9CJcuXrHHYq8iYTshs
-	wUdxfjPEPNMHydR5I2P8N6Bh4Xvzx+xHMbtXRyB2CiEbDVOurlXH06dmv/FkR1oCxqs0rS1OUhL
-	aJlPg4sK+0QJh52j1E4bzlLrsGVo+xsz1jg0MUjCdp1JmFLXptt6uGEi+PrxIKSUsx+90E9tf8K
-	e9KIBSFbhPWKPXz+ZLjCvmmPCU4M+Vy9++4jU8piIaWqXSEvgAKT3PflRvcFVKRHapbMxdVKace
-	Pd8aB163rhYm+5PWJg1jlhTKYQ5+LSp1/xZ9b+/pG9WWk1RPhj0RtJUdGqJo8tijh3IV/LbsTRq
-	2EABbYf/7Tt6B1mBgzBmxfI+BALR2nECmQRzCYyzOTfHtDt/6WVlRjVSpQ0QB8CXSwCJ0LHBCD5
-	beopR0DoTjeozsKGAcaB/3YP+V6SLaugPGwCAUzg==
-X-Received: by 2002:a05:6a00:1d09:b0:848:2f58:e1ec with SMTP id d2e1a72fcca58-84870798902mr7166904b3a.39.1783841260602;
-        Sun, 12 Jul 2026 00:27:40 -0700 (PDT)
-Received: from kurosuda.i.sslab.ics.keio.ac.jp ([131.113.100.7])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ca5b3162d3csm6904706a12.18.2026.07.12.00.27.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Jul 2026 00:27:39 -0700 (PDT)
-From: Hiroki Nakajima <3na7nanana@gmail.com>
-To: detlev.casanova@collabora.com,
-	ezequiel@vanguardiasur.com.ar
-Cc: mchehab@kernel.org,
-	heiko@sntech.de,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Hiroki Nakajima <3na7nanana@gmail.com>
-Subject: [PATCH] media: rkvdec: use DIV_ROUND_UP() for CTB counts
-Date: Sun, 12 Jul 2026 16:26:52 +0900
-Message-Id: <20260712072652.2881919-1-3na7nanana@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sun, 12 Jul 2026 08:56:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1D4874E40D6A;
+	Sun, 12 Jul 2026 08:56:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DC3B560341;
+	Sun, 12 Jul 2026 08:56:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 743A811BD39CB;
+	Sun, 12 Jul 2026 10:55:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783846561; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Y7El/GvvQcgfO05yr3MPYiblRZfsw0etG5ZwJOy721U=;
+	b=eBTmwlyq5grs9SuLbAKD5Y75NROGxAC1QetQ5b7HUGAnFwTASj+WWM9Y2Iot07rey7XZXP
+	dJ0YFCv8Carw54kXlnGxJE/UfFRe1GE5u6FuZv37KeO3KFh7WR4Cf4O4tbdJcYj5mg6bz7
+	0Cjqq3AkI+EXauwXN+Fl+CLvRiO597RuxtO5GpSkyHIwkww0pu4ABAmGHXuH7iniyCLzWC
+	n2O7JocA0WdizEixyG5XtkjLeNAqVVNlcFbJwOzKWAy9/XtXLivw47muUa7buKjuXB15J8
+	R37JSbRS8ynuqRJaJJsnMzV+lKRWSBvpjNNQF+/zwqu25Hkx79lJHJ5MNvk+6A==
+Message-ID: <bc78469c-3f45-4234-88b0-49f050d651db@bootlin.com>
+Date: Sun, 12 Jul 2026 10:55:51 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: Failed to reinit phy of spacemit-dwmac when reset-gpio is present
+To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yixun Lan <dlan@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ E Shattow <e@freeshell.de>, Han Gao <gaohan@iscas.ac.cn>
+References: <20260712045233.800748-1-inochiama@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260712045233.800748-1-inochiama@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_002742_216274_B0AAE672 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260712_015608_573744_5B01C56C 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,89 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use DIV_ROUND_UP() when computing HEVC coding tree block counts
-instead of open-coding the same rounding expression. This keeps the
-rounding intent explicit without changing behavior.
+Hi Inochi,
 
-Found using a Coccinelle rule generated from the DIV_ROUND_UP() macro
-definition.
+On 7/12/26 06:52, Inochi Amaoto wrote:
+> TL;DR:
+> 
+> The DWMAC on Spacemit K3 is failled to register phy after the reload
+> the driver module (rmmod then insmod). Because the reset-gpio is
+> asserted while unloading the driver and is not desserted before reading
+> the c22 id, which leads to a fault.
 
-Signed-off-by: Hiroki Nakajima <3na7nanana@gmail.com>
----
- drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c      | 4 ++--
- .../media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c  | 8 ++++----
- .../media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c  | 8 ++++----
- 3 files changed, 10 insertions(+), 10 deletions(-)
+You're not the first one facing this type of issues, this is a long standing
+source of issues. The problem is partially hidden by the fact that often times
+the bootloader deals with the PHY reset (like the case you're facing)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index 87abf93dfd5e..ff3942f91c5d 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-@@ -258,9 +258,9 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 		for (i = 0; i <= pps->num_tile_rows_minus1; i++)
- 			WRITE_PPS(pps->row_height_minus1[i], ROW_HEIGHT(i));
- 	} else {
--		WRITE_PPS(((sps->pic_width_in_luma_samples + ctb_size_y - 1) / ctb_size_y) - 1,
-+		WRITE_PPS(DIV_ROUND_UP(sps->pic_width_in_luma_samples, ctb_size_y) - 1,
- 			  COLUMN_WIDTH(0));
--		WRITE_PPS(((sps->pic_height_in_luma_samples + ctb_size_y - 1) / ctb_size_y) - 1,
-+		WRITE_PPS(DIV_ROUND_UP(sps->pic_height_in_luma_samples, ctb_size_y) - 1,
- 			  ROW_HEIGHT(0));
- 	}
- 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-index fe6414a17551..d07c74679552 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-@@ -261,8 +261,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 	memset(row_height, 0, sizeof(row_height));
- 
- 	max_cu_width = 1 << (sps->log2_diff_max_min_luma_coding_block_size + log2_min_cb_size);
--	pic_in_cts_width = (width + max_cu_width - 1) / max_cu_width;
--	pic_in_cts_height = (height + max_cu_width - 1) / max_cu_width;
-+	pic_in_cts_width = DIV_ROUND_UP(width, max_cu_width);
-+	pic_in_cts_height = DIV_ROUND_UP(height, max_cu_width);
- 
- 	if (pps->flags & V4L2_HEVC_PPS_FLAG_TILES_ENABLED) {
- 		if (pps->flags & V4L2_HEVC_PPS_FLAG_UNIFORM_SPACING) {
-@@ -275,8 +275,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 						  column_width, row_height);
- 		}
- 	} else {
--		column_width[0] = (width + max_cu_width - 1) / max_cu_width;
--		row_height[0] = (height + max_cu_width - 1) / max_cu_width;
-+		column_width[0] = DIV_ROUND_UP(width, max_cu_width);
-+		row_height[0] = DIV_ROUND_UP(height, max_cu_width);
- 	}
- 
- 	for (i = 0; i < 20; i++) {
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-index 3575338a531a..3462d995d4cf 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-@@ -287,8 +287,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 	memset(row_height, 0, sizeof(row_height));
- 
- 	max_cu_width = 1 << (sps->log2_diff_max_min_luma_coding_block_size + log2_min_cb_size);
--	pic_in_cts_width = (width + max_cu_width - 1) / max_cu_width;
--	pic_in_cts_height = (height + max_cu_width - 1) / max_cu_width;
-+	pic_in_cts_width = DIV_ROUND_UP(width, max_cu_width);
-+	pic_in_cts_height = DIV_ROUND_UP(height, max_cu_width);
- 
- 	if (tiles_enabled) {
- 		if (pps->flags & V4L2_HEVC_PPS_FLAG_UNIFORM_SPACING) {
-@@ -301,8 +301,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 						  column_width, row_height);
- 		}
- 	} else {
--		column_width[0] = (width + max_cu_width - 1) / max_cu_width;
--		row_height[0] = (height + max_cu_width - 1) / max_cu_width;
-+		column_width[0] = DIV_ROUND_UP(width, max_cu_width);
-+		row_height[0] = DIV_ROUND_UP(height, max_cu_width);
- 	}
- 
- 	for (i = 0; i < 20; i++)
--- 
-2.34.1
+Take a look at these discussions :
 
+https://lore.kernel.org/netdev/cover.1761732347.git.buday.csaba@prolan.hu/
+
+and maybe more intersting, Russell suggested an approach on how we could potentially
+address this here :
+
+https://lore.kernel.org/all/aTBeVTlsElGXUCSN@shell.armlinux.org.uk/
+
+
+> ---
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -196,7 +196,8 @@ &eth0 {
+> 
+>  	mdio {
+>  		phy0: phy@1 {
+> -			compatible = "ethernet-phy-ieee802.3-c22";
+> +			compatible = "ethernet-phy-id001c.c916",
+> +				     "ethernet-phy-ieee802.3-c22";
+
+Indeed that's merely a workaround :(
+
+Maxime
 
