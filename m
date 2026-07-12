@@ -4,108 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E63C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 17:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F0FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 18:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=; b=nYh5yliJc3A2eCGucl3KjXhUCH
-	V64eQfNR3BGp92r9hTmNvyWvIcFWbZwtnVDtzOKV5Ts5mksbPFdaFVV33uJf8zfBidFtwysxT4s0K
-	GO/yHf7LhvbrJQzwyZMNe9Vegz6yyMelwiQwVAxo5j55CcyN7hZNaeu57OZ1gWJdwcOM7lvCMv3eY
-	iQJYIuRnaS9qUxeDlShNRQOUp/RU8HvavYBs17hsqqNGXRdxCXTxPMo/9ZHP7OqCZlbxZkSV+ZvDq
-	7ErDbdFpYNCXp1/ijHiurKlWdk7Pm9+IGJY3uWeN52U8BsC4VFrwxCS6RFhyVbATbOgdcuzl94fky
-	L5YvDsDw==;
+	bh=hOtx5Uo4a/i9Sp4XrnBY2y5AeFcy0ZPNgohX4nU/9DQ=; b=eWgVYMRw0xrJtELnCsJjYGLVzV
+	7TSLOIbynpVfbZ1UAJXzfW1yX8lhyEJlqd7d+2ozdBH5Skb5jXt1xEG5kAFkHjZrvJv6KTmChacXm
+	Q5UmePZNh+gtsiGJUPwgOWsEjt9F5r7qJ6d6vi+s53JSDTrBtVC0RzQV2CREX3dnbF4z9J1UcXQaU
+	lFn6gDP8jbQz28HyaetKDOw/vi0agqqqI0HaEGnxxS20tZ6s6sTAigxNX0hEY1ktOaBoNVFWfFBCX
+	0TV4+Eum9ZrfMproHVb+PLKcMSn3qENkrZqmw+M/eq9fHHTGMtIogn4cIuz84oGCon0RLc7NZ7tGv
+	JCEdLd2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiySt-00000007egb-3yoN;
-	Sun, 12 Jul 2026 17:59:43 +0000
+	id 1wiyTw-00000007ewH-30HL;
+	Sun, 12 Jul 2026 18:00:48 +0000
 Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiySr-00000007efo-05Vi
+	id 1wiyTt-00000007euV-2jME
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 17:59:42 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84867f07d63so2632888b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 10:59:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783879180; cv=none;
+	Sun, 12 Jul 2026 18:00:48 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8485b358552so2587991b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 11:00:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783879245; cv=none;
         d=google.com; s=arc-20260327;
-        b=mu0HuQ5LtPA6SdfwkHSSe1Bh0Ajt3ijY75lHDRKlz+73FFRN+y62NEoMaIufwXHDZt
-         RHSztWczYfkwebzrns9pM1y3iilwhwRz+mkivWN4kzYuZ+u4Jch2imFqCozpRupT0vf8
-         NJAc8LdMS+0kfZGW32t4cJy+pvkezeC4tdiA3R6pJVuU8VjPca02Ed1/i7afXiQml1Pa
-         pAQo5la19V7LHDHauTpUNsvKksG7TcAKt0bxh/Rfw3Xp3QOhOYW2xj2Jgw1qD03l5gpS
-         SZ5F3khSF2Pt1RzVxrFsxLN2EMzpdHgo6lrqoN2wlC3BKMpoK0rzacg9bzVBSIohszJv
-         qnPQ==
+        b=bX414dzP6DiQT6tz4knZVW58uGBPijDzHcWZQ/7HTUZBY7j7fqI2oNZ4+eEvB6KAoN
+         n+ZRAq/AfoUZuVd3KyH3gFL0ahoxYMvF3de/9x4mRQWt905bqCL7BgnUyy9k0Kp9ApGn
+         n37TCogA0chs+1F/xBO951OyJ+h7lMa6mt1ripwseM8Ci+fzh/ai+tYkq9pRgTHXioBq
+         l8aMfjY0Aq5VANz3sHNzr5qDY/2nkdfP8gH/Ql/pIDkj9qvTH3n5Tk2mbi1izu52dCFc
+         QHbCDNLKukiBS7P8RXwZFIy6GZJutLri4uf273x2XAOjvowAxx8DXv0r8RnlG+Rkioyz
+         jBEg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
-        fh=RhHcF6+uHcTgFr1QFfaZ9xmOQ0e7k5x7TNnyK78P7Q0=;
-        b=Z3DMakNcgD7zZgEJnHe6AdXnIHhQdxCsl70bkr1JZ1nn9LJ9dTigWNciS9EcY0J/cE
-         JIZkx7pDa2Cxj/1hXOU7mJ6kYgtHPTjUIxqgJJGQnO29FOE7dXgLPZOVmHEhdVjA/O0a
-         s0j+E2KjqbvVsOMu7+uvS7B1v6aTb2eXxISEENROmnq2LjLLiSRbCOe+/y1By60hbHAB
-         arIJ1r/RinglNrqvd0BezQcmRI2RW9wSu4ciZiF7hrKirr00SJMa5opH/jRN8esMgqFE
-         zRgr8HE2PK64PefdjgDqR6S2SpisgHbHk+VD4uEIVSzJOGSxUaChMwTrkqCBXLM/fx+0
-         C9cA==;
+        bh=hOtx5Uo4a/i9Sp4XrnBY2y5AeFcy0ZPNgohX4nU/9DQ=;
+        fh=9Zf3z75mNs//p/u9X3jiuEqjfdrbEwTPMQ7Cfn2cg/4=;
+        b=YSK2AcweEeSsvvU24aVq8awzA5C9kyysa7GZ8EoPd90gpVGRGmiTa4Sc+qXirjYDde
+         4+zoCWlzkAJh+7OBw8+A1x+f9n13Z6jMTcO3TOGMQ25xh0Uo/0oMRkH/kAkmvZPmITGi
+         rrv//4Gv3yNqaNPWPG+1uD04QezNaT2NHi7Td6TeUAG3FxDv3zB05S1XIjFme/58JNri
+         Nl4JdLOhpPesWvdtKQTWrBJc+S4BOwYQgvplT/S70ROVfoYx53wsyL3l5TYEKxKEmA8J
+         YBMep6xgLZ2RPHoxCPKfg/HgPHM0k5hxioNn3E2SHfA3sVgN7H2wnBFAuJ7zOOBUQmX1
+         kfeQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783879180; x=1784483980; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783879245; x=1784484045; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
-        b=rrM1NRTmPM+Hd6wp9O0tK2mZpXnJeYDtHVzI1OzHkXWLPa6FuqPHyHbCJSty7Y/WHr
-         BiQzHGjVj96CwY0JWVETR64MT8dQG8WvHrzXx7UVfYa9bQaZXVyPJLUGSJ9Cjq0a24Xm
-         cCmqcUnsjpD+iZADWps1SGItIspyXZf2f9w9w8Ab5k88v0lxH1qdYZ8rUh6AN/i17/wX
-         xsQbB5Kt/BnedbdB82DT0h4cqQAwuXyb3qGm7RBkMz4HHkX7xuim1jE7h3oc7QD7N5pR
-         Pr5h9WZHrPWqp/vltltrbe2rn7hrw63cSIIdZRuxF68AuAtDHCBoIEj1V2GYY17c8oeF
-         crAQ==
+        bh=hOtx5Uo4a/i9Sp4XrnBY2y5AeFcy0ZPNgohX4nU/9DQ=;
+        b=LBVZnBfAx5Byk58Nzo25cVQ6sZwbrMK1jPMADfhZEzLVDpVqQM9P/nxNWYQsOUpGcA
+         RCty9uzFQjtQLxoEzedVUH9yxTaMOmmcvgdpVL8Tfkl4YjlLaEqDcJETF767HbbHYodS
+         uNs4kB3EFgOX7QIWetF1XeH0AR3Z6nKBMd3DkMh0aDK9hpAUZhmDX5JBw0rCBV2SGqNd
+         Ne3UU6M299f0zhJc8hIQ+XWUaRTQ1wuTVtHkRReTaeRd0aSkvKAxmr7k+5gWH/m4S2qg
+         +RoajjrRqIe/HUrTj00pEUASSLUT2uK+Re1SgWCR2j1zj/n92kaSNcdfnesueJLpvB6+
+         ApNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783879180; x=1784483980;
+        d=1e100.net; s=20251104; t=1783879245; x=1784484045;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=0NoL6KL8oSMCqAbK70KGT1wmrl62Pu8TBmf12FJBq4s=;
-        b=KuEJeez/pm7yrTIRNj13cNpD1jjcfOmXKqpeQMCkbviCUB9vNDOi5qqvwZYYtvvyGE
-         oBZU+SvLu5XZqIPYt1TIt4qgpWGNu1+/g2THo2iH+HVQSpWqYNXIEqFwXfoJfEEnPta7
-         Fnh96cIRYbrM+PnNg6qzvPPMltmyYfDzybsdHgoraohYWN7uuv8iRp4Fu0e9InO7BNuJ
-         7dxwMB9jXRMEYMyeBqrpxpGh3rq/ZUUskzsGNDVu8U6ILb1nxt26s14xsVZ6NCx0L3tu
-         QX58DnX/Xqwaii4k/VlQtboanp28Be26/1iVG4PpYAUlcyFvXjeAeN6E2B2hqfru1Ku8
-         +KfA==
-X-Forwarded-Encrypted: i=1; AHgh+RpgGjdQk/A8lBCnkGypZ84dHSqPuK9MOLjshRGqJD0s+QZ+hrBnR1bKiwWyGAOdE1coqmNEnmpmg137zSjJ1kub@lists.infradead.org
-X-Gm-Message-State: AOJu0YywWqEau5eGoWNKsDEFzuiIv6ocF8HXebsGvB60eI4XdeImTatv
-	Ke1tyLeLZ8bPw1eqnKoY7GpiiYVVd75lydzWe1jkNuuw4MQS2vP0ImaTWlZWL4L7/D8eeabTF5I
-	DGUpoHxyyL98SgazbAFIxUgSQlPQunr0=
-X-Gm-Gg: AfdE7cnrtq7rSUkDve3Lrt0fY0ijv8lvtsJOIwVanAU9mv8UIE2H17xgEpv/2Qx3xgu
-	fy6eDZS5Q8RIDXs6l3KDKWTCFcbU9Ni3XF6wX42fClhMEODsvLlNbvnrtR0X7WrnH18TiDzt0rR
-	KcOL9Ax2PQSi2Bx0TLPXf+RYKLXhSXAV9k48nLqfyezuMbL6INsKPAUXUpVADWhQQ+e9ADVBoAa
-	DNNb2ajSvs4Rumlj8gorwpmzKLPJiV7k7SxX+5vyfR3yGSIvK1rHoXfP0TtyFRl5Z6qmISCigdO
-	nCH3SmmLxRUeO14HEgmB2uPJbMHmcgkklLeniHQGLUrHJjUiUJitYl3rT1s6IbOGJmIY5pVRzLz
-	foYyL4r7vBHBDFb+Mplpt
-X-Received: by 2002:a05:6a00:4486:b0:848:804d:9c5c with SMTP id
- d2e1a72fcca58-848896dd3c0mr5554442b3a.38.1783879179743; Sun, 12 Jul 2026
- 10:59:39 -0700 (PDT)
+        bh=hOtx5Uo4a/i9Sp4XrnBY2y5AeFcy0ZPNgohX4nU/9DQ=;
+        b=I9hBwea5Y/KxvcgjXivyLhvZko94TUSa0o/hc0rYVMiT1JDsCd9QKEJn7MVEgpxYEm
+         xYCTmNX+KcJ/E5ZHqGvYWDKlXxq8RlEanDeIWiYu/AntRSr+vhp+xbneGTEtdEzXjPNE
+         Ofa1G+rBYFZORw/GuVibjo+o/zyMCpWuYAu4yZl5TTXBW5LAeWDL3RhUqDKwBTcbAC3i
+         zhFc/P2s+izYz/IcB/jtfLdoK85fGRNy2oxvNlO/BB4vPtD/GP5ogK4SHp7HDe1IMx8n
+         1tGG1qyQ8Pb/lx9x9597Dpzj3JpahOtlPGNb/9sDSYYlxzxAtZQdewU9NQAfXTRnPvgA
+         YWQQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqCSEY8VL36UuOFJ5s3BTmN05QL8S9oOfun8G7NRVqWQHMCB4aUBnZkZpdGq+uqAvlHqQfeZRT2rJ7f5PhYaaTU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwnhKeZkOrnRInOgSPm8DNlG6gVTQp+BY/NiCANxM1VRzOqgeI
+	hJgV+J8br8p5qbmWua9Bs6lTnyQ0o+xFqxx5U456fuwXFV8eYXk7vJ/iWVNYuaePVWHAvLMNIhT
+	9xbp+5/Yyxr87j+BnABMuFiyE0eK3d8g=
+X-Gm-Gg: AfdE7ckkCxrevOJ4gaUVxbFS7gZ2MDDU+/2kbIuA2LS+JYpXQBQcCNDkG13oWBj2eXT
+	VR9FFmTOa2su3XOMaZPXsVpi+JGIxg1feVF3Lg32cvgYdtydd747Bw6ENp6A7Ncp8BH20hi4vZu
+	tXj7yLd1/CG7jisBEJSWCmSrGpItBTCGZVDf4Rkc0bVXuGLZ2tGdOvyi/+y3M9sptUyL1+p5lkA
+	dagv0OQKMoBu5L9DDyX8SDq6rwFPWlPL5do6QSl0Ih3LfLZAIGNkCd1LsQqn5fIGfPmIYT23bWW
+	vOi6b6r+lQbCtcmOdH7r4KMqYNk/skh0fzEbF2huA/iaJi5SsbRh5GmX+HsHqETmRJaoN3pUUs6
+	E+DcaI3Bd/A==
+X-Received: by 2002:a05:6a00:4188:b0:848:2f84:72e with SMTP id
+ d2e1a72fcca58-848898b9d90mr5651239b3a.65.1783879244916; Sun, 12 Jul 2026
+ 11:00:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
- <20260711-nanopi-m6-v2-4-422675a65402@gmail.com> <84467f61-9902-4dea-abda-6e8cb31e0238@kwiboo.xyz>
-In-Reply-To: <84467f61-9902-4dea-abda-6e8cb31e0238@kwiboo.xyz>
+References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com> <ce54c773-22cf-43d2-b831-1ea5355359ca@kwiboo.se>
+In-Reply-To: <ce54c773-22cf-43d2-b831-1ea5355359ca@kwiboo.se>
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
-Date: Sun, 12 Jul 2026 19:59:28 +0200
-X-Gm-Features: AVVi8CdXhh6gKGuHTJ0a2hd15-RSpJMz5r5Gy7rN4XSVonKwOhD1LFSXZ8VR_Fc
-Message-ID: <CAPSPb=t33bHfuEAMLWPM5=2fSyJXv5vjYD=_pSNRq6GcUz-X_w@mail.gmail.com>
-Subject: Re: [PATCH v2 04/12] arm64: dts: rockchip: rk3588s-nanopi: add
- missing sdmmc cd pinctrl
-To: Jonas Karlman <jonas@kwiboo.xyz>
+Date: Sun, 12 Jul 2026 20:00:33 +0200
+X-Gm-Features: AVVi8Cd8NGiWyQj59k9G_t9WcUTCbNW8tUsN3M5fDY7JrN-hw3Tixg2ATvZSB5M
+Message-ID: <CAPSPb=vyKK3ngm+d+nN7KM20ZyA10Hg5cb8EarRF6SE4hLOWFg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/12] arm64: dts: rockchip: Add NanoPi M6 board
+To: Jonas Karlman <jonas@kwiboo.se>
 Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	diederik@cknow-tech.com
+	diederik@cknow-tech.com, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_105941_067564_228915EF 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260712_110045_696718_DC0D5EAF 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +121,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Jonas,
 
-On Sat, 11 Jul 2026 at 01:18, Jonas Karlman <jonas@kwiboo.xyz> wrote:
+On Sat, 11 Jul 2026 at 01:36, Jonas Karlman <jonas@kwiboo.se> wrote:
 >
 > Hi Joachim,
 >
 > On 7/11/2026 12:11 AM, Joachim Eastwood via B4 Relay wrote:
-> > From: Joachim Eastwood <joachim.eastwood@gmail.com>
+> > This patch series add support for the NanoPi M6. This board is very
+> > similar to the NanoPi R6C and R6S boards which are already supported.
 > >
-> > The cd (card detect) pin is used, but not reserved through pinctrl.
+> > Main differences:
+> > * M.2 M-key slot with PCIe (Also present on R6C)
+> > * M.2 E-key slot with PCIe and USB (from hub)
+> > * 1 additional USB 2.0 port from an on-board USB hub
+> > * RT5616 audio CODEC
+> >
+> > Patch 2 and 3 moves a bit code around. Please let me know if those two
+> > should be squashed together.
+> > Next few patches adds some missing bits the common nanopi dtsi file.
+> > While the final patch adds support for NanoPi M6. Support for M6 has
+> > been split into two files one dtsi and one dts file. This is to make
+> > it easier to add support to the new M6V2 board at a later stage.
 >
-> Maybe this and some/most of the other DT changes that fixes some missing
-> bits should put first in this series and with Fixes tags?
+> In my personal opinion I think it would make more sense to sort
+> patches in following order:
+> - adding/fixing missing bits to the common nanopi-r6 dtsi
+> - extract M6/R6 common parts from nanopi-r6 dtsi to nanopi dtsi,
+>   nanopi-r6 dtsi includes the nanopi dtsi and no changes to dts files
+> - final parts that adds the M6 board
+>
+> Should probably make it a little bit easier to cherry-pick and bisect.
 
-I can of course put them first in the series. So we have the option to do so.
-
-But what is the policy regarding "fixes"?
-I don't think they fix any critical issues, but they do make the DT
-more correct.
-So do we want to backport these to stable?
-
-Maybe the following changes qualify:
-arm64: dts: rockchip: rk3588s-nanopi: add missing pcie rst pinctrl
-arm64: dts: rockchip: rk3588s-nanopi: remove pull up on rtc int pin
-arm64: dts: rockchip: rk3588s-nanopi: add missing sdmmc cd pinctrl
-
-But I don't any others should be considered fixes.
+If the additions/missing bits needs to backported I agree.
+I'll cook up a patch set with the order you suggest. Thanks for the feedback.
 
 
 best regards,
