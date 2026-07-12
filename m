@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 15:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8E6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 15:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuaiB+g90evMEnQ75glw9g8iH9UnlpaAQbng8V1ssBs=; b=uZ0SbUQ3qgdQEbOWJUk2nKS5h8
-	fEyujJ5+4u6u6leR5G217rI1y+ubmCGc4x1Xe5x1MpYO9Gbcl4c+iw7g0Y3tBK05FZLFYQp4Jt6/R
-	FrQMzOkWUkDjexmXGvrd5PoGho7tXjlJKt9wO2PQBSqzzOnVERlur/VUBjFg4SzMiiPAB8b5+BeGk
-	trIpBcerRLL5HdLQP3TBGUDj8L0wQTbdbOEVtAZsXW2Eh7XGNpQBdiLtSiplt6IbkjKoCrgfesBVe
-	HL9hL01y9bQCe4d1DtpXMFxoghCsBkoWsx3LDxkOV3/kJorNV6ug5HKpSlZC6X89jie+uiiiNqoQY
-	MfMVkdFg==;
+	bh=x2V9TkUu02mZtF/pb/M+ixilm2tIOgotOavTOjYTCdQ=; b=HnGlacLJZc8zt9m41Oth/mlDW6
+	2zzjCLj+SYaEaXPeEowRCny+dKsZlr10YH3R1coMUyx48LIFtrVaC+QHRYG3Ewh4A8DbGQTAJ/dL8
+	8eDdfn5qPp6ZdGH9+s0HanCzxAQh3wbGBoXXhMZsUk0G53uB0EcoGeNHVbyC8IIAfcP1EC2nythcr
+	5GyijgWyAxAGuArZZS+8KGEh2dQOUgs6EiWL5fXTCEIfH319lJ8o7ZeimZ5SbXZ+O0ZcptniZR0pi
+	dTbj4RW6OPEomNXQxcX1hjMFzVHW9s3lin9NHw1zuBYmCDV+jwc6lO7m3zeRijYPAPKb0NRwUHLqa
+	3yP3bddA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiw0W-00000007Z2Z-2CsF;
-	Sun, 12 Jul 2026 15:22:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wiw4X-00000007ZEI-0Q1K;
+	Sun, 12 Jul 2026 15:26:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wiw0V-00000007Z2M-0xI2;
-	Sun, 12 Jul 2026 15:22:15 +0000
+	id 1wiw4V-00000007ZDo-3293;
+	Sun, 12 Jul 2026 15:26:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8256A4325B;
-	Sun, 12 Jul 2026 15:22:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A15231F000E9;
-	Sun, 12 Jul 2026 15:22:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B9C556004E;
+	Sun, 12 Jul 2026 15:26:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7C81F000E9;
+	Sun, 12 Jul 2026 15:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783869734;
-	bh=DuaiB+g90evMEnQ75glw9g8iH9UnlpaAQbng8V1ssBs=;
+	s=k20260515; t=1783869982;
+	bh=x2V9TkUu02mZtF/pb/M+ixilm2tIOgotOavTOjYTCdQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Byp017trUwl/8psOoSyDdN8PtY7+zecQELkM7ZiyxQf/cRCTQO+ugA+tXHJUoPtj1
-	 P8Togkk32pLjMyqbfV33rMfj5OXwjMUiYcGjYxuHKsBxZoLXHFqVJAzIks1ND47AD7
-	 WiIKN5DKkyBMetJJXIHTavH9NHVACUAgWOuGWeH9IE+FKeB4g8MlhdkD2ydvhlY7D6
-	 HsUXCIUPg5kil7KSF8xcPnpYSpQt2lJFcLKk042r1i5ot5xxVdDAw/3bBhVLT2XrOG
-	 dwiZili2xMav43/ICOeZV14fGdX2gnE2MYTslx4YI5cHO4mexPM0wp9VPbKwPmyGfN
-	 TmhTRPn5RxXNQ==
-Date: Sun, 12 Jul 2026 17:22:10 +0200
+	b=O1AN929U+LEOp44PdbRDXDwN/N+AhfZMW1rCySoCXZRYSQwjVrj53cfqq3Eg/qSt3
+	 tQBWlfqdjDmAuAf7r5hZMPESFNDp+9xJRkRj171sOG818SuHhDIzveei/liHDJ4olz
+	 cVg73H6KAI9eYsPGsq2hmOOYdcOXOu9oQy/k7bA27X+m7cgkm/wIm4nyS/J3TdTf1x
+	 bMb5Dq2jkzurzq+rU4tes6/v2Ra9cp4hq06uowAPnx8DN6MRHimv5FxB8ttxxdAPId
+	 sNFkJ/nxDdkruowawrz0tm2pwtAoSn/WRifX32TcJM5gSCfDgvnLHkIN5tCWby1SnW
+	 gcFjGUZJ3HmwA==
+Date: Sun, 12 Jul 2026 17:26:18 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, vkoul@kernel.org, neil.armstrong@linaro.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org, 
-	p.zabel@pengutronix.de, matthias.bgg@gmail.com, justin.yeh@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH 1/2] dt-bindings: phy: mediatek,dsi-phy: Add support for
- MT8196
-Message-ID: <20260712-unselfish-topaz-roadrunner-f0bbfb@quoll>
-References: <20260701121943.19430-1-angelogioacchino.delregno@collabora.com>
- <20260701121943.19430-2-angelogioacchino.delregno@collabora.com>
+To: Simon Glass <sjg@chromium.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>, 
+	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Jamie Iles <jamie@jamieiles.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH 08/12] dt-bindings: watchdog: snps,dw-wdt: Add RV1106
+ compatible
+Message-ID: <20260712-reasonable-unselfish-oyster-aea7a5@quoll>
+References: <20260706195818.3906949-1-sjg@chromium.org>
+ <20260706195818.3906949-9-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260701121943.19430-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260706195818.3906949-9-sjg@chromium.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,15 +73,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 02:19:42PM +0200, AngeloGioacchino Del Regno wrote:
-> Add support for the MediaTek Kompanio Ultra (MT8196) SoC: this
-> chip features a DSI PHY that is similar to the one found in the
-> MT8183 SoC, but is a new (incremental) revision with a different
-> register layout.
+On Mon, Jul 06, 2026 at 01:58:04PM -0600, Simon Glass wrote:
+> Add the compatible for the watchdog of the Rockchip RV1106, which is
+> compatible with the Synopsys DesignWare watchdog.
 > 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Simon Glass <sjg@chromium.org>
 > ---
->  Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml | 1 +
+> 
+>  Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
