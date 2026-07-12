@@ -4,94 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C28C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 16:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41E8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Jul 2026 17:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0mSGKSljGbp3wm1OkPuo0d6XMXK1FIsRCwQHXpgKVI=; b=F8ZRVm9XvfvbYhZM9fFCjrslLf
-	fGqlvnsIqsvKZFWhqkSQMrY58K7DBsqJkWJUul1SNYHkntWiI0eDIegMegg68ti4D24g0st1A6wP3
-	S8V2ESn1ZWzfT+V1CbHXg2RcX4ux+aX0TuSDP00xgNJECa/wXDoJvRnWqnYe67WPm55jUzJB6tTcb
-	TaCHF1J8RYaSK8KFV1CGxmCM8GrJgpy5TooRkP95B8fYC0B/OoKFICgeapabX0Qb4iXdEph0nQWIE
-	qezEFXLEzm4BEQY9AGtDJ0Ck7w0wqYTK4zAHZtXBVmLr5p0TvN3U6etbXLxpfdZxZFSikG3UECQ1y
-	7VhuAE3w==;
+	bh=EYmNQeN1MMv3XCMLlgvSMjuvdlpxNtGkNTF/uC1tgH4=; b=BKdVEjOu0APvLfah7WRaSQPrPM
+	CUdS7APIMKNJsNMdEOjXc4pNR3uFk7+oWdljedYkWa5jnQsg/Ymd7GO65skHxHGqtrbwaLxums/F2
+	HSwKZK0xJfM88KPIcQ1JerFXRvt/nj99vgaO/H4qXH6yu+I162dOiOj+0B1vCqLozuNuIIWb6j5Sb
+	VgfCD8S5DEUM9xFRrpH08wUBjFeXNxiMYyyneMAhFMbioc+VeLn9y6RChbNtgOHONUGKAh1aWQ+jJ
+	ktJcTBGywWajBfSvwoXLAVrK0Ks/suECYUi12r6GtsIkAHfs9nNuutReFF2CHKROTYRXeMiHHpLBB
+	ynlFSjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wixRy-00000007cz1-2HQ6;
-	Sun, 12 Jul 2026 16:54:42 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
+	id 1wixXU-00000007dFU-1Buk;
+	Sun, 12 Jul 2026 17:00:24 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wixRv-00000007cy0-1Uai
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Jul 2026 16:54:41 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 0C99240E029F;
-	Sun, 12 Jul 2026 16:54:25 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id srior6ed563w; Sun, 12 Jul 2026 16:54:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1783875255; bh=y0mSGKSljGbp3wm1OkPuo0d6XMXK1FIsRCwQHXpgKVI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hZd3B02yURgxnaN2bOuG5eS5BGaZkYAs2AweWjgF8MPvxxPq1Pt2vhEEqnCqz6wWA
-	 8dNkaOdtd19u+IcSBM/HjAx7JcHZLN7A5upeotFOjvVZJuJPXZ2xLlJORfsSwePPkj
-	 s2QScnUZnorDzAAJHT7r+lAsUwSUICK0TK1gzPA+4BNove0iPem796CCGh6+vQ2uTF
-	 IaaWP96Soy2OIRtZQ4wj3sYYMzUU7eb9vJwS5dkoeTmPjJv/vViw09zNDbqo+F8B9q
-	 AyltvY6d3w6OaBCUM9eOqQsnsnrBBcZmFjmra1vn3CEnFOv/wKIU6VNf/oyr4hwPGu
-	 7M7+2UxNFU+pg0Lto33EIt9lKX7i+Z29412SELwxHS1ldaxuC8r38fIiiBJ/60gssa
-	 pi0hvyvsYutR7Ji2QjYroHz3Tz4NoMG/Ar3Egs6W/tT79qOi1QngXwmUMBYQyqPoUH
-	 Ruz1xqCCFqxR3bLPqeiF9m4mB9wan85MmnjIRAYyecU6ELmJSYolJcfG5wxdEz+Bdf
-	 GsCumXAiqGmZg2okklasr3ESHBzuoOl7c9q1iHAJ7QaMfNvEci61R9mQ2/96kYvjQ6
-	 X2EbOcc7yHrtpWfN6qHdZShRWsJAMFRBQB9QrCT/E+9KlUi/jyYAcpQpaMbn/8DBjw
-	 Da+sRgL8/If7qfYW8RZJTeHc=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::3a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 22D5740E00C3;
-	Sun, 12 Jul 2026 16:53:45 +0000 (UTC)
-Date: Sun, 12 Jul 2026 09:53:41 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Toshi Kani <toshi.kani@hpe.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
-	Kiryl Shutsemau <kas@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH mm-hotfixes v2 2/4] x86/mm/pat: acquire mmap lock on page
- table free to avoid ptdump UAF
-Message-ID: <20260712165341.GAalPGldsKpBs5treJ@fat_crate.local>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-2-ad134cc3a12a@kernel.org>
+	id 1wixXR-00000007dEq-3Vft;
+	Sun, 12 Jul 2026 17:00:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=EYmNQeN1MMv3XCMLlgvSMjuvdlpxNtGkNTF/uC1tgH4=; b=Gt1Rprs4T9rS1j+zsV8bvuaMOJ
+	t7HxPBa1j1m0JItJ5WHAaWmlGPpF6gFPbEzako2YaWKDyPn6RpFFl4wPFmJ1G2cHh/cWOFXV0pDy+
+	7665P+rXo5HJU+a3PhPpKTFetM0t/Sa8R+4diZkHEP6hE1gveOaDX+bV/sKq6dazewNDTq8zDAvND
+	gUrbd7EdSaUWOX1CMI34fTuWJRq1ENfwlklPur7u/lGYipW6uo+xYUVCTbBt2dGwB7W1/6Y4yOUUX
+	m31AslFuztVTIFfri4hisKAwxoxiKZI/VKR9FTzI8FUf1R02FbZskhoHiVUbPb9ts/qLgc4If5Cif
+	I0jf13Ig==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Simon Glass <sjg@chromium.org>
+Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ Fabio Estevam <festevam@nabladev.com>, linux-arm-kernel@lists.infradead.org,
+ Simon Glass <sjg@chromium.org>, Jeffy Chen <jeffy.chen@rock-chips.com>,
+ Linus Walleij <linusw@kernel.org>, huang lin <hl@rock-chips.com>,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/12] pinctrl: rockchip: Add RV1106 pinctrl support
+Date: Sun, 12 Jul 2026 19:00:13 +0200
+Message-ID: <13316226.iMDcRRXYNz@diego>
+In-Reply-To: <20260706195818.3906949-5-sjg@chromium.org>
+References: <20260706195818.3906949-1-sjg@chromium.org>
+ <20260706195818.3906949-5-sjg@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260712-series-vmap-race-fix-v2-2-ad134cc3a12a@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_095439_552759_359613B9 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260712_100021_977971_3341566B 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +68,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 11:42:25AM +0100, Lorenzo Stoakes wrote:
-> This patch resolves the issue by acquiring the mmap read lock on init_mm to
+Am Montag, 6. Juli 2026, 21:58:00 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ Simon Glass:
+> Add pinctrl support for the Rockchip RV1106, taken from the vendor
+> kernel in the Luckfox Pico SDK [1] at commit 824b817f8 (a Linux
+> 5.10.160 kernel tree). The IOC registers are spread across several
+> blocks, addressed through per-bank offsets, with the GPIO0 block in the
+> PMU. The drive strength uses the RK3568-style exponential encoding.
+>=20
+> The RV1103 is a package variant of the RV1106 with fewer pins and uses
+> the same pin controller.
+>=20
+> [1] https://github.com/LuckfoxTECH/luckfox-pico
+>=20
+> Signed-off-by: Simon Glass <sjg@chromium.org>
+> ---
+>=20
+>  drivers/pinctrl/pinctrl-rockchip.c | 208 +++++++++++++++++++++++++++++
+>  drivers/pinctrl/pinctrl-rockchip.h |   1 +
+>  2 files changed, 209 insertions(+)
+>=20
+> diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl=
+=2Drockchip.c
+> index 7e0fcd45fd26..f9cbcb955853 100644
+> --- a/drivers/pinctrl/pinctrl-rockchip.c
+> +++ b/drivers/pinctrl/pinctrl-rockchip.c
 
-s/This patch resolves/Resolve/
+[...]
 
-> provide mutual exclusion against ptdump, which acquires the init_mm write
-> lock.
+> @@ -3310,6 +3470,7 @@ static int rockchip_set_drive_perpin(struct rockchi=
+p_pin_bank *bank,
+>  		ret =3D strength;
+>  		goto config;
+>  	} else if (ctrl->type =3D=3D RV1103B ||
+> +		   ctrl->type =3D=3D RV1106 ||
+>  		   ctrl->type =3D=3D RK3506 ||
+>  		   ctrl->type =3D=3D RK3528 ||
+>  		   ctrl->type =3D=3D RK3562 ||
+> @@ -3482,6 +3643,7 @@ static int rockchip_get_pull(struct rockchip_pin_ba=
+nk *bank, int pin_num)
+>  				: PIN_CONFIG_BIAS_DISABLE;
+>  	case PX30:
+>  	case RV1103B:
+> +	case RV1106:
+>  	case RV1108:
+>  	case RK3188:
+>  	case RK3288:
+> @@ -3547,6 +3709,7 @@ static int rockchip_set_pull(struct rockchip_pin_ba=
+nk *bank,
+>  		break;
+>  	case PX30:
+>  	case RV1103B:
+> +	case RV1106:
+>  	case RV1108:
+>  	case RV1126:
+>  	case RK3188:
+> @@ -3843,6 +4006,7 @@ static bool rockchip_pinconf_pull_valid(struct rock=
+chip_pin_ctrl *ctrl,
+>  		return pull ? false : true;
+>  	case PX30:
+>  	case RV1103B:
+> +	case RV1106:
+>  	case RV1108:
+>  	case RV1126:
+>  	case RK3188:
+> @@ -4623,6 +4787,48 @@ static struct rockchip_pin_ctrl rv1103b_pin_ctrl _=
+_maybe_unused =3D {
+>  	.schmitt_calc_reg	=3D rv1103b_calc_schmitt_reg_and_bit,
+>  };
+> =20
+> +static struct rockchip_pin_bank rv1106_pin_banks[] =3D {
+> +	PIN_BANK_IOMUX_FLAGS(0, 32, "gpio0",
+> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
+> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
+> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU,
+> +			     IOMUX_WIDTH_4BIT | IOMUX_SOURCE_PMU),
 
-...
+sashiko is correct here,
+only pins 0-6 have drive-strength registers.
 
-> We also include cleanup.h in order to use a scoped_guard() to implement
-> this cleanly.
+Some different setting starts at the 0x30 mark.
 
-You don't need to explain that.
+This should be easy to handle in rv1106_calc_drv_reg_and_bit()
 
-Thx.
 
--- 
-Regards/Gruss,
-    Boris.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+> +	PIN_BANK_IOMUX_FLAGS_OFFSET(1, 32, "gpio1",
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    0, 0x08, 0x10, 0x18),
+> +	PIN_BANK_IOMUX_FLAGS_OFFSET(2, 32, "gpio2",
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    IOMUX_WIDTH_4BIT,
+> +				    0x10020, 0x10028, 0, 0),
+
+in theory only the first offset should be necessary here - same for the
+other bank's offsets.
+
+=46or offset-values of 0, the driver will automatically create the right,
+offset increments. 8 for 4bit wide iomuxes.
+
+See
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
+vers/pinctrl/pinctrl-rockchip.c#n4344
+
+
+So with the drive-strength thing fixed
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+Heiko
+
+
 
