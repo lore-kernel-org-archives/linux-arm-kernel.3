@@ -4,113 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36826C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579D0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BBsjNZJ46p61GVJyRNvRKNhKTJyhEwUbX6XNXZgDe0=; b=Fil+gUR3jVhiSOLtYwkCcmmnRd
-	89iq8Jnm7pEKBE5CDrJa4dASBZyeWyAThcsxko4pgMPxkCrmRiG2oBhRNJh4mmEVJZuvD4xX3yEGP
-	763BoSXi1SwMqYDovAp84PwlMCqHdbY6JJKvPxCs/K+oKoFiIiG/XrzL0dB474CWt3tSD0Jk48iFj
-	Bzi5fpf9xfx+4kG2f/K+oFzYdeYc7CItxONbDwkYjWPDCxJ35h9ToVx3kw2q2ATGm6E8lNGa7MKzU
-	ay+g9EEh48FzgdTrtOjbrsF1u5tYVUHCXkoSIQ/75lkg1hd7sjYLxM7if0dwg8i7AqkzWkxoOKJy0
-	FneR94Bg==;
+	bh=ZRXTcWkp2R/zJYHIR6r6tJshee7QnSwisIQmpMltqMI=; b=rsPxMpCmZyqzv/LmluGuhMzT35
+	ASOjiFkztD/iNwVQJWGu1lxE7SD/OMYO8vPEIHQl7kI4MjgfGWcWN9hI8OiUU9xR69b3usouGsiwu
+	IONWiNY+ndse3aQ7GcMSHJQpx2hv1RsiMnjY94bW3vpbyuPvgksTmVab8i+zbuK2qMOinnlA1QSeO
+	8nQtsqlVuODtBONDaIcZSGmU/Qgm5mfJOmh4++SOjPUQzdFUoI6sk4IyJgA3dLZ8Mi8UosWWNh316
+	GW4QyFZknoeaDQM6ygYQeuF/6tZofSVKekdEYGXzzOsACEEo7wpMTU+jBBWyJHZKSdzDCbda20Ieg
+	vgV1sGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMXx-0000000AJMz-2Ixf;
-	Mon, 13 Jul 2026 19:42:33 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1wjMYm-0000000AJW7-3K65;
+	Mon, 13 Jul 2026 19:43:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMXw-0000000AJME-0DdX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:42:33 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-51c2c8f43aaso31119391cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:42:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783971751; x=1784576551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1BBsjNZJ46p61GVJyRNvRKNhKTJyhEwUbX6XNXZgDe0=;
-        b=XivMAFfzq9XeNyPoTvaN4yoooDDTCDE7IknF7IerJneSbyXff6BG6GMC0iRY+mxWgj
-         WEVQSCyOqSrmYJmeyUjC56reXbW26FKmHSfk5h6c7deUqOpqYnHXYOaUFl6RDTLsU46g
-         EcRRA8Rwz6ZtWAHVGJVGUue+QQTbQfVm6ZEsGf6Sb4dAZJF/WG4PlY76ucB9LSMRwz2F
-         1FcI6BlVF4hS8ANOvQVQK+C/wn/vKlvnGV+r0E8MdqWxoUhRQaJYkSd4eNB3vi485DBz
-         vYRd6i1ERpEiCLar59spLAQs7mEzko6eLpq+TpXH9Ao61VCaasm5aDqazFidJYUh5jS0
-         Vl2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783971751; x=1784576551;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1BBsjNZJ46p61GVJyRNvRKNhKTJyhEwUbX6XNXZgDe0=;
-        b=njrJVN+O1V2ZcHZWPAJLnZZDnIN6/OIEuq8P5LjDZ6mx3CPuAWLj2HH4nn3EP/dU3H
-         I2b1EoLHzm8NNZOzGH507VNJIlycB12r6cR3twSuxzqfmBT6ThZWi+YOoTv5plndQakE
-         LQNFtnRZcZabuzIhU2OY72ZOunC9VAZ1cD1jhibvpnp14JKBJkCsnZRWbTqHkxDh6aVx
-         iF9tDc+gebjlnuLjVJesiaop1EAP8wdOvhAoz40RnO2oB7+JZuvbMpOl+WNGM9fqyOvH
-         jMr2dLAyoiTtbv9rfS4iFFd/r3IUzcSOlw5jtezbAYml/TAEm+vn1kaPQBcpVY/WNCcr
-         kNAQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp92iXbiVN/fW2HIcTiJpJ78bh9iIRokqPxq0JzmP+Vy7fkdjL4gWsccgrhc9Wb/TNnxyhwr9E8sILABTe20UHl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfnbHbV/NXow1FkKzbq7/Rxlt8tBd14dtoveZFW42Pn4V1c2dO
-	3QH9nPCLUSbAMWoVnqGM5Gh+ikB1XpGsEfG/IHqg0aH9WkzDdSGbuTSZGyq5p0fHR84=
-X-Gm-Gg: AfdE7cl5GcjzIagMo6pCWzf1Lk2x2OyDxZOAn6Pc7+JHSGldKtvhD9VA9ay1ZlvuGiK
-	ZUf0f3dDnJw63KgEJQDiiHVHK2LgqJA2jh+Kk8rtR1lm/XCG28vbaekLdY/bKxgwS9gkasLor/z
-	nMJ7b2676wpq0Abcuq0z1jMqAloe1IZUREKdtPGXFjgrlGvactmj8PRzYOWz4YZVdKCbix5Ohwx
-	MuICM9t5niguOoiTyBOVu3AJRv5ZoRRgTyU9311Z+jhlWpizs+1EdhHHw2rII93VTuhHQyZlYU6
-	cKZOzUr4ksF5gY50wqY8Ig3569mwPDc3+LaKObTG7ahXTV8K3zKhKhVDYj+VeL3sMMc3pM/ilD4
-	AFgvfnV6u3Fem+diA+m3so7v+1AUVIVFqnX7Zxztp7ZH1GMJNZoV21d2ysGad
-X-Received: by 2002:ac8:7d53:0:b0:517:6550:2a0 with SMTP id d75a77b69052e-51cbf0b836emr108931441cf.19.1783971750625;
-        Mon, 13 Jul 2026 12:42:30 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd5bbac2asm138277776d6.21.2026.07.13.12.42.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:42:30 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMXt-0000000E6oU-2oJ5;
-	Mon, 13 Jul 2026 16:42:29 -0300
-Date: Mon, 13 Jul 2026 16:42:29 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v7 22/22] swiotlb: remove unused SWIOTLB_FORCE flag
-Message-ID: <20260713194229.GB3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-23-aneesh.kumar@kernel.org>
+	id 1wjMYk-0000000AJVg-0lV5;
+	Mon, 13 Jul 2026 19:43:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783971799;
+	bh=ORKrp2apu4uI4yF4r9MjF5WOFCY4SwCjKAksybb1N14=;
+	h=Subject:From:To:Date:In-Reply-To:References:From;
+	b=oMQMsVqE8LhMKyC476GoOvqojvnCeyvjot7GnEcYmHu3lHE1y42Puh0RRcszwyXjI
+	 uQF6oZLUZ62eZA5pZLZ2t1QwwmYyD4F0iZPwqehsIdQjOgcs0MpV4JUpkOMoaVs+cz
+	 80Ju7NiVvQDlPrb2UNOcceeHE8o/Xx7IE+z/lxYUQ/06/+mjH/ujDN+cq6VK0C2I6d
+	 qVGwwogfsvjhKtIxv7hSwFhlwSCNa6DUpHkooC0TGlsGZ8tw5ojDtQMZLZmiePBUyh
+	 CylYPSQq9WgmDpsBEZlAcVqVFS2mCmVGKvdtVEgCUHLMHkA3vYrslgLPDxu9qvmPPG
+	 s1PjmYJUBX0HA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 886FF17E07A2;
+	Mon, 13 Jul 2026 21:43:16 +0200 (CEST)
+Message-ID: <30e207833eb9ed55bf1fb924d9c5e8bb3302c2e6.camel@collabora.com>
+Subject: Re: [PATCH v15 05/12] media: mediatek: jpeg: Fix multi-core clk
+ suspend and resume setting
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 13 Jul 2026 15:43:14 -0400
+In-Reply-To: <20260702072614.10373-6-kyrie.wu@mediatek.com>
+References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
+	 <20260702072614.10373-6-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-MsJEsU/3g1tPPkLip8P2"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-23-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_124232_105417_1631ECA8 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260713_124322_554411_6FEC5D1C 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,20 +94,378 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:26AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> SWIOTLB_FORCE has no remaining in-tree users. Forced bouncing is now
-> controlled through the swiotlb=force command line option via
-> swiotlb_force_bounce.
-> 
-> Remove the unused flag and simplify the force_bounce initialization.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+
+--=-MsJEsU/3g1tPPkLip8P2
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> The suspend/resume callback function is defined in the dev_pm_ops
+> structure, which is defined in platform_driver. For multiple-core
+> architecture, each hardware driver will register a platform_driver
+> structure, so it is necessary to add a suspend/resume callback
+> function for each hardware to support this operation.
+>=20
+> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
+)
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 > ---
->  include/linux/swiotlb.h | 3 +--
->  kernel/dma/swiotlb.c    | 3 +--
->  2 files changed, 2 insertions(+), 4 deletions(-)
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 28 +=
+++------
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c=C2=A0 | 62 +++++++++++=
+++++++--
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c=C2=A0 | 60 +++++++++++=
++++++--
+> =C2=A03 files changed, 121 insertions(+), 29 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index 76a5b49b7f43..89048aba8dca 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1115,6 +1115,9 @@ static void mtk_jpeg_clk_on(struct mtk_jpeg_dev *jp=
+eg)
+> =C2=A0{
+> =C2=A0	int ret;
+> =C2=A0
+> +	if (jpeg->variant->multi_core)
+> +		return;
+> +
+> =C2=A0	ret =3D clk_bulk_prepare_enable(jpeg->variant->num_clks,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 jpeg->variant->clks);
+> =C2=A0	if (ret)
+> @@ -1123,6 +1126,9 @@ static void mtk_jpeg_clk_on(struct mtk_jpeg_dev *jp=
+eg)
+> =C2=A0
+> =C2=A0static void mtk_jpeg_clk_off(struct mtk_jpeg_dev *jpeg)
+> =C2=A0{
+> +	if (jpeg->variant->multi_core)
+> +		return;
+> +
+> =C2=A0	clk_bulk_disable_unprepare(jpeg->variant->num_clks,
+> =C2=A0				=C2=A0=C2=A0 jpeg->variant->clks);
+> =C2=A0}
+> @@ -1647,13 +1653,6 @@ static void mtk_jpegenc_worker(struct work_struct =
+*work)
+> =C2=A0		goto enc_end;
+> =C2=A0	}
+> =C2=A0
+> -	ret =3D clk_prepare_enable(comp_jpeg[hw_id]->venc_clk.clks->clk);
+> -	if (ret) {
+> -		dev_err(jpeg->dev, "%s : %d, jpegenc clk_prepare_enable fail\n",
+> -			__func__, __LINE__);
+> -		goto enc_end;
+> -	}
+> -
+> =C2=A0	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0
+> @@ -1750,20 +1749,13 @@ static void mtk_jpegdec_worker(struct work_struct=
+ *work)
+> =C2=A0	jpeg_dst_buf->frame_num =3D ctx->total_frame_num;
+> =C2=A0
+> =C2=A0	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
+> -	ret =3D pm_runtime_get_sync(comp_jpeg[hw_id]->dev);
+> +	ret =3D pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
+> =C2=A0	if (ret < 0) {
+> =C2=A0		dev_err(jpeg->dev, "%s : %d, pm_runtime_get_sync fail !!!\n",
+> =C2=A0			__func__, __LINE__);
+> =C2=A0		goto dec_end;
+> =C2=A0	}
+> =C2=A0
+> -	ret =3D clk_prepare_enable(comp_jpeg[hw_id]->jdec_clk.clks->clk);
+> -	if (ret) {
+> -		dev_err(jpeg->dev, "%s : %d, jpegdec clk_prepare_enable fail\n",
+> -			__func__, __LINE__);
+> -		goto clk_end;
+> -	}
+> -
+> =C2=A0	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0
+> @@ -1773,7 +1765,7 @@ static void mtk_jpegdec_worker(struct work_struct *=
+work)
+> =C2=A0				 &dst_buf->vb2_buf, &fb)) {
+> =C2=A0		dev_err(jpeg->dev, "%s : %d, mtk_jpeg_set_dec_dst fail\n",
+> =C2=A0			__func__, __LINE__);
+> -		goto setdst_end;
+> +		goto set_dst_fail;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
+> @@ -1794,9 +1786,7 @@ static void mtk_jpegdec_worker(struct work_struct *=
+work)
+> =C2=A0
+> =C2=A0	return;
+> =C2=A0
+> -setdst_end:
+> -	clk_disable_unprepare(comp_jpeg[hw_id]->jdec_clk.clks->clk);
+> -clk_end:
+> +set_dst_fail:
+> =C2=A0	pm_runtime_put(comp_jpeg[hw_id]->dev);
+> =C2=A0dec_end:
+> =C2=A0	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> index 4534caeb104f..9a8dbca6af00 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> @@ -533,13 +533,12 @@ static void mtk_jpegdec_timeout_work(struct work_st=
+ruct *work)
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> =C2=A0
+> =C2=A0	mtk_jpeg_dec_reset(cjpeg->reg_base);
+> -	clk_disable_unprepare(cjpeg->jdec_clk.clks->clk);
+> -	pm_runtime_put(cjpeg->dev);
+> =C2=A0	cjpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> =C2=A0	v4l2_m2m_buf_done(src_buf, buf_state);
+> =C2=A0	mtk_jpegdec_put_buf(cjpeg);
+> +	pm_runtime_put(cjpeg->dev);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
+> @@ -547,7 +546,6 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq=
+, void *priv)
+> =C2=A0	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+> =C2=A0	struct mtk_jpeg_src_buf *jpeg_src_buf;
+> =C2=A0	enum vb2_buffer_state buf_state;
+> -	struct mtk_jpeg_ctx *ctx;
+> =C2=A0	u32 dec_irq_ret;
+> =C2=A0	u32 irq_status;
+> =C2=A0	int i;
+> @@ -557,7 +555,6 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq=
+, void *priv)
+> =C2=A0
+> =C2=A0	cancel_delayed_work(&jpeg->job_timeout_work);
+> =C2=A0
+> -	ctx =3D jpeg->hw_param.curr_ctx;
+> =C2=A0	src_buf =3D jpeg->hw_param.src_buffer;
+> =C2=A0	dst_buf =3D jpeg->hw_param.dst_buffer;
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> @@ -580,12 +577,11 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int i=
+rq, void *priv)
+> =C2=A0	buf_state =3D VB2_BUF_STATE_DONE;
+> =C2=A0	v4l2_m2m_buf_done(src_buf, buf_state);
+> =C2=A0	mtk_jpegdec_put_buf(jpeg);
+> -	pm_runtime_put(ctx->jpeg->dev);
+> -	clk_disable_unprepare(jpeg->jdec_clk.clks->clk);
+> =C2=A0
+> =C2=A0	jpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> +	pm_runtime_put(jpeg->dev);
+> =C2=A0
+> =C2=A0	return IRQ_HANDLED;
+> =C2=A0}
+> @@ -668,15 +664,69 @@ static int mtk_jpegdec_hw_probe(struct platform_dev=
+ice *pdev)
+> =C2=A0
+> =C2=A0	platform_set_drvdata(pdev, dev);
+> =C2=A0	pm_runtime_enable(&pdev->dev);
+> +	ret =3D devm_clk_bulk_get(dev->dev,
+> +				jpegdec_clk->clk_num,
+> +				jpegdec_clk->clks);
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+clk_num and clks have been set by a call to devm_clk_bulk_get_all() few lin=
+es
+above. So this seem both redundant, and possibly take one too many referenc=
+e on
+the clock.
 
-Jason
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to init clk\n");
+> +		return ret;
+> +	}
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> +static int mtk_jpegdec_pm_suspend(struct device *dev)
+> +{
+> +	struct mtk_jpegdec_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(jpeg->jdec_clk.clk_num,
+> +				=C2=A0=C2=A0 jpeg->jdec_clk.clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_jpegdec_pm_resume(struct device *dev)
+> +{
+> +	struct mtk_jpegdec_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	return clk_bulk_prepare_enable(jpeg->jdec_clk.clk_num,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 jpeg->jdec_clk.clks);
+> +}
+> +
+> +static int mtk_jpegdec_suspend(struct device *dev)
+> +{
+> +	struct mtk_jpegdec_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	v4l2_m2m_suspend(jpeg->master_dev->m2m_dev);
+> +
+> +	return pm_runtime_force_suspend(dev);
+> +}
+> +
+> +static int mtk_jpegdec_resume(struct device *dev)
+> +{
+> +	struct mtk_jpegdec_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret =3D pm_runtime_force_resume(dev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	v4l2_m2m_resume(jpeg->master_dev->m2m_dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops mtk_jpegdec_pm_ops =3D {
+> +	SYSTEM_SLEEP_PM_OPS(mtk_jpegdec_suspend, mtk_jpegdec_resume)
+> +	RUNTIME_PM_OPS(mtk_jpegdec_pm_suspend, mtk_jpegdec_pm_resume, NULL)
+> +};
+> +
+> =C2=A0static struct platform_driver mtk_jpegdec_hw_driver =3D {
+> =C2=A0	.probe =3D mtk_jpegdec_hw_probe,
+> =C2=A0	.driver =3D {
+> =C2=A0		.name =3D "mtk-jpegdec-hw",
+> =C2=A0		.of_match_table =3D mtk_jpegdec_hw_ids,
+> +		.pm=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 =3D &mtk_jpegdec_pm_ops,
+> =C2=A0	},
+> =C2=A0};
+> =C2=A0
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> index 2765dafab4ad..5d1c217fea0f 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> @@ -264,13 +264,12 @@ static void mtk_jpegenc_timeout_work(struct work_st=
+ruct *work)
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> =C2=A0
+> =C2=A0	mtk_jpeg_enc_reset(cjpeg->reg_base);
+> -	clk_disable_unprepare(cjpeg->venc_clk.clks->clk);
+> -	pm_runtime_put(cjpeg->dev);
+> =C2=A0	cjpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> =C2=A0	v4l2_m2m_buf_done(src_buf, buf_state);
+> =C2=A0	mtk_jpegenc_put_buf(cjpeg);
+> +	pm_runtime_put(cjpeg->dev);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
+> @@ -304,12 +303,11 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int i=
+rq, void *priv)
+> =C2=A0	buf_state =3D VB2_BUF_STATE_DONE;
+> =C2=A0	v4l2_m2m_buf_done(src_buf, buf_state);
+> =C2=A0	mtk_jpegenc_put_buf(jpeg);
+> -	pm_runtime_put(ctx->jpeg->dev);
+> -	clk_disable_unprepare(jpeg->venc_clk.clks->clk);
+> =C2=A0
+> =C2=A0	jpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> +	pm_runtime_put(jpeg->dev);
+> =C2=A0
+> =C2=A0	return IRQ_HANDLED;
+> =C2=A0}
+> @@ -390,15 +388,69 @@ static int mtk_jpegenc_hw_probe(struct platform_dev=
+ice *pdev)
+> =C2=A0
+> =C2=A0	platform_set_drvdata(pdev, dev);
+> =C2=A0	pm_runtime_enable(&pdev->dev);
+> +	ret =3D devm_clk_bulk_get(dev->dev,
+> +				jpegenc_clk->clk_num,
+> +				jpegenc_clk->clks);
+
+Same.
+
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to init clk\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_jpegenc_pm_suspend(struct device *dev)
+> +{
+> +	struct mtk_jpegenc_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(jpeg->venc_clk.clk_num,
+> +				=C2=A0=C2=A0 jpeg->venc_clk.clks);
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> +static int mtk_jpegenc_pm_resume(struct device *dev)
+> +{
+> +	struct mtk_jpegenc_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	return clk_bulk_prepare_enable(jpeg->venc_clk.clk_num,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 jpeg->venc_clk.clks);
+> +}
+> +
+> +static int mtk_jpegenc_suspend(struct device *dev)
+> +{
+> +	struct mtk_jpegenc_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +
+> +	v4l2_m2m_suspend(jpeg->master_dev->m2m_dev);
+> +
+> +	return pm_runtime_force_suspend(dev);
+> +}
+> +
+> +static int mtk_jpegenc_resume(struct device *dev)
+> +{
+> +	struct mtk_jpegenc_comp_dev *jpeg =3D dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret =3D pm_runtime_force_resume(dev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	v4l2_m2m_resume(jpeg->master_dev->m2m_dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops mtk_jpegenc_pm_ops =3D {
+> +	SYSTEM_SLEEP_PM_OPS(mtk_jpegenc_suspend, mtk_jpegenc_resume)
+> +	RUNTIME_PM_OPS(mtk_jpegenc_pm_suspend, mtk_jpegenc_pm_resume, NULL)
+> +};
+> +
+> =C2=A0static struct platform_driver mtk_jpegenc_hw_driver =3D {
+> =C2=A0	.probe =3D mtk_jpegenc_hw_probe,
+> =C2=A0	.driver =3D {
+> =C2=A0		.name =3D "mtk-jpegenc-hw",
+> =C2=A0		.of_match_table =3D mtk_jpegenc_drv_ids,
+> +		.pm =3D &mtk_jpegenc_pm_ops,
+> =C2=A0	},
+> =C2=A0};
+> =C2=A0
+
+Nicolas
+
+--=-MsJEsU/3g1tPPkLip8P2
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalU/0gAKCRDZQZRRKWBy
+9FSSAQCKCUjM+JlpkKmot4q1SiwPxzw55mwNt61fkiPPhdo6DgEAyWp1h/38fon9
+X+MwCSNNkNWGGooneIgGf5vD1Tf2gwI=
+=58nN
+-----END PGP SIGNATURE-----
+
+--=-MsJEsU/3g1tPPkLip8P2--
 
