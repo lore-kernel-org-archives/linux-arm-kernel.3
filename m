@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17E6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00163C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S43y0m3tyKSbLzLPY8izdYm9kJrJvv8tLOFrmfdNees=; b=e/C81vEcEJuNi7BsZljkmup0Mi
-	MrKKos9xl98daUBJrRFGRw7Ky7kErgmCbmHzaO2BLtIagVIqDF8MxqcURuNt4XDMOwS1r1LtKYdZj
-	k5ll6S0gzoiN9oNoqkUFcUEz5xMlP2A/C+Uo9udq8V2THZmjbTC17KMnbZ9Vg6Gwf00UDtFNHKDci
-	Glb3Dxs6lWgSjyRYwHxWQZwqSa3upjMEpTPrZYjXAcau0/jaxXXO99bWrFjj9RotNruNwRfSiSq0i
-	0jpgc8biSVAkIc8S6ywADEotLcJBjxJjEGv5ufB72k7kEOoprAkK4TvYXZtBrygQxoALAI3L9YNyL
-	64AAwV/g==;
+	bh=KWkHqistC4QCWTdZeY/UMz9VShi6CbU4xhDCXtjbcEY=; b=3WbktPh3INz8Ez0Mv7skVEAZRP
+	B70SP7x/QoG460s3Vq3jtd1ZVzMbUm0sEn+hrnEvqTZdfkDj0SUGDYLlZBaiNVW16bwoPZSqbdTzj
+	pYGboKI1xWo20M8mooyIghxJmCzc9mR2rV4zlSMhDk2dz4MgVEBdS2ccLLBS9MYIqoUQFe5tbEre6
+	gXsrDESptm+jVGhTn5dm0nVXOdQYFO3sa4ULfg1XqnqJAQuNNK7sjCvRAYKE1AIqs2eSG5i64ZGgc
+	QxTxrS+QBTmjKVqWxGIKjjeqphMyb0AtlOASzaMVDHDpUY1r4AwMaIYFKJm4Xj5hixqEYOQd+xXRd
+	nSQZFPcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIXD-00000009meP-37ry;
-	Mon, 13 Jul 2026 15:25:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjIY8-00000009mmc-3ihn;
+	Mon, 13 Jul 2026 15:26:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIXC-00000009me6-3mlm
+	id 1wjIY8-00000009mmL-00kI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:25:31 +0000
+	Mon, 13 Jul 2026 15:26:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 63D3F4115F;
-	Mon, 13 Jul 2026 15:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BA0DC1F000E9;
-	Mon, 13 Jul 2026 15:25:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 997D24165D;
+	Mon, 13 Jul 2026 15:26:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5BE41F000E9;
+	Mon, 13 Jul 2026 15:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783956330;
-	bh=S43y0m3tyKSbLzLPY8izdYm9kJrJvv8tLOFrmfdNees=;
+	s=k20260515; t=1783956387;
+	bh=KWkHqistC4QCWTdZeY/UMz9VShi6CbU4xhDCXtjbcEY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PvjiS1ySjBxGgAFmCGinmhv4SzIJetqPWK2oOsciLLvUzevNxwZzKrnKco5PyQaU6
-	 BKsTYAPKR2J6Kh0mjgr/UclLbvazIBakYOB+FcrL5D+5dtZhW3gOkHsROEsZgQZE6D
-	 9UBWSqOBS6Wf13NAaVRxumh0TmZ/MB8ICez37rS9TBQGhpjtmgHm9U+g7PMrBhBPjY
-	 uy+wc1HWfhUwM6vsLtQ6MtxzDg/5AXZh+rSFcOxkVwqu8HUBUeRFxFftRsTY0k6QQo
-	 ctKIosS1KYbxU7YFv8CMc5GjmrYw89ZD9XyUP81gcPo4lHL9ueX8D/Tpd1ngcd09qE
-	 kLD7Z/PTiO+mg==
-Date: Mon, 13 Jul 2026 17:25:27 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-pwm@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] clocksource/drivers/samsung_pwm: switch to
- raw_spinlock_t type
-Message-ID: <alUC6X7GgvxPUelM@monoceros>
-References: <CGME20260713085705eucas1p26616e64d55f903a6f87dd67e8f8da1a9@eucas1p2.samsung.com>
- <20260713085653.1145015-1-m.szyprowski@samsung.com>
+	b=Dl+on/vTDIen4WlPhOmtx9HaeEmfcrQUK6ZlEhwv5eX/PU2G078DnL50UgJ0d/iIW
+	 YSsaF3Z/OCdvEq3bOZTQ+1Vibaw5w7nj5RMwV7+gX83ux1tc8VjuHIGfO5LevHhy7v
+	 ueaI/zuWuZRVeuY8z+MZ7rfgbNLcevFvDvIg3KXhPtyHG19/LQty/eHoRYedEuGsTv
+	 78V3FsWZI9+nKBS0BNqPQ4Bh59ASNyq9hGfnfUSWM5Bi3wpIXP1gWbARM9V+1rEwnG
+	 886tSTYDoIkJE3921W1eMuYRjN4UD1Mey9qLdklZ1UgYW5eWhJOn+g2DnGZVxvjFE8
+	 77HfXaWHhF3ow==
+Date: Mon, 13 Jul 2026 16:26:23 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Yureka Lilian <yureka@cyberchaos.dev>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
+Message-ID: <20260713-silky-imperial-kangaroo-a7df94@sudeepholla>
+References: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
+ <20260713-bulky-thistle-leopard-c66a18@sudeepholla>
+ <alTTIx_aw3L0ibqN@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oqbewf4c2d6juqpk"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260713085653.1145015-1-m.szyprowski@samsung.com>
+In-Reply-To: <alTTIx_aw3L0ibqN@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +75,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 12:59:31PM +0100, Will Deacon wrote:
+> On Mon, Jul 13, 2026 at 10:57:38AM +0100, Sudeep Holla wrote:
+> > On Sat, Jul 11, 2026 at 09:35:25AM +0200, Yureka Lilian wrote:
+> > > Overriding the idle mechanism might be useful for debugging and performance
+> > > testing. Add a cmdline parameter for it, similar to the existing idle=
+> > > parameter already present for the x86 and ppc architectures.
+> > > 
+> > > It is also useful on platforms where the WFI instruction misbehaves,
+> > > such as Apple Silicon SoCs. Generally, a misbehaving instruction should
+> > > be treated as an erratum and patched using the alternatives framework.
+> > > However, in the Apple Silicon case we need more flexibility because it is
+> > > difficult to detect whether the erratum applies. For example, Linux VMs
+> > > inside macOS have the same MIDR and may even seem like they're running
+> > > in EL2 in the case of NV, but should continue using WFI (it's trapped and
+> > > handled correctly by the hypervisor there). Thus, we prefer to
+> > > let the m1n1 bootloader add the idle=nop parameter[1].
+> > > 
+> > > Link[1]: https://lore.kernel.org/all/99b69262-e54b-424e-baa2-96ef7013b87a@kernel.org/
+> > > Suggested-by: Will Deacon <will@kernel.org>
+> > > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> > > ---
+> > > Changes in v2:
+> > > - Applied suggestions by Anshuman Khandual (Thanks!)
+> > > - Link to v1: https://patch.msgid.link/20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev
+> > > ---
+> > >  Documentation/admin-guide/kernel-parameters.txt | 23 +++++++++++++++++++
+> > >  arch/arm64/kernel/idle.c                        | 30 +++++++++++++++++++++++--
+> > >  arch/arm64/kernel/idle.h                        | 13 +++++++++++
+> > >  arch/arm64/lib/delay.c                          |  5 ++++-
+> > >  4 files changed, 68 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > > index b2d7d3540ded..d7f5471edf8f 100644
+> > > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > > @@ -2239,6 +2239,29 @@ Kernel parameters
+> > >  
+> > >  			idle=nomwait: Disable mwait for CPU C-states
+> > >  
+> > > +			[ARM64,EARLY]
+> > > +			Format: idle=wfi, idle=yield, idle=nop
+> > > +
+> > > +			idle=wfi: Use the WFI (Wait For Interrupt) hint
+> > > +			instruction in the idle loop. This is the default and
+> > > +			allows the CPU to enter a low-power state until an
+> > > +			interrupt arrives.
+> > 
+> > Just curious as when and why one would need to use idle=wfi if that is the
+> > default behaviour. I am missing the need to have it.
+> 
+> It's probably useful to have so that you can override an idle= option
+> present earlier in the cmdline. e.g.
+> 
+> 	idle=nop idle=wfi
+> 
+> will give you the wfi behaviour, which is handy if the cmdline is
+> stitched topgether from different sources.
+> 
 
---oqbewf4c2d6juqpk
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] clocksource/drivers/samsung_pwm: switch to
- raw_spinlock_t type
-MIME-Version: 1.0
+Thanks, that makes sense.
 
-Hello,
-
-On Mon, Jul 13, 2026 at 10:56:53AM +0200, Marek Szyprowski wrote:
->  drivers/clocksource/samsung_pwm_timer.c | 22 +++++++++++-----------
->  drivers/pwm/pwm-samsung.c               | 22 +++++++++++-----------
->  include/clocksource/samsung_pwm.h       |  2 +-
->  3 files changed, 23 insertions(+), 23 deletions(-)
-
-Assuming this will be applied via the clocksource tree:
-
-Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
-
-Best regards
-Uwe
-
---oqbewf4c2d6juqpk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpVA2UACgkQj4D7WH0S
-/k5qfQf+O0q9IgJiIhTIoZb+PFNLzFpJUfTgt80QNJfsw0CNjUnDubvaD00Jx6CB
-0+3gpys6WaM2CnAeAFNuwdQd5gknOHyywKF6iWw6E9CWCjAK8Y2QfvuCHCkoLdp/
-ahqtz6RRZr7wm58CesLNihyINKtzOZirlvtrzk4ES2pLB7okf86yajwDAnV6NsfM
-spfGp7exy3/fv4zYkFzYu2mVS7sUDuxI9AwjwAlOpFNKIUg35dFi2SAnWZbmZUPA
-/NpyBmClhBY84AJqyX2qce3qGpt8UNgFtwW4RwE+3N+EN0mdj+hnSf7kLdYOyBuN
-N6SV9wAHRF2h8eUWrss8woO01oVNDg==
-=BfQ7
------END PGP SIGNATURE-----
-
---oqbewf4c2d6juqpk--
+-- 
+Regards,
+Sudeep
 
