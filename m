@@ -4,103 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307EAC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC086C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zltyqt7dF1hkJN/jP/CdnhprTdfvpBe1oag9qSSox24=; b=Y+NfilVCAy1smhtG6+8enVcOw+
-	wS9CNgfNZdrDhPh4O3qHs9dhYinlMSPMLozl7TkcY0krAo9hLfOz9m+MOH8O7zXQSfimnYHxFeCoj
-	Z+2wwUvVVOEYfPeNUFMvxB2iHNggU5xGqiquy6y7HN/fD8yriRMJ3qpbjhBC9mm+n2bSPgaNaRXla
-	ebU7DWey22bwl5bfXEmYbMVkOeOWVPFO7ZU+ywuGFNRx1U89wmFfHAlAoSarmemPe1ApobtU3TUDu
-	edj0XXOFZqYvh25gCaNjJzxlJK8WVMk9YFAiiS2tisJM9cQSstAAdMlCzhhtIYhPDh6v3vmSU6A8g
-	sWabH9lg==;
+	bh=b9v2ghu23w6IEvHEzndJ6QZt1BDFQevZAviA6K0gFiU=; b=mNrCCT8j866vXllxH04csbJ6cR
+	C8mQEi8VV7YD+bcEH8Ny70TG3PpxkKLWTpF+LPos9X5EcwtUuY3zgZ8VbWhWy7B0fTYZYJV0ufb9J
+	OZ946w6gCmqEFgWWD+bzfmhLkN1BpR0rA2jjZqn1UKXIlkKImCnRg9U4cZtxH3bu3xKo3Lva8t4GZ
+	h8pBbtH0zqCsJpnFZtEqF5rQGlrkT9rMHK1l4X86LgwrJ+4zS0amQI2Lp+AdxWtKML/41aIo93src
+	FqEgOnZjZU0Km9TI5sjwEdBLIINyq+nme9S3w0VEzIcgSNBWHL70QDTidtQr7jkypVjdgGA0ma8p9
+	LIwXH/IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJjg-0000000A0Mh-0gNc;
-	Mon, 13 Jul 2026 16:42:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJje-0000000A0Mb-2EET
+	id 1wjJoY-0000000A0wB-2zIx;
+	Mon, 13 Jul 2026 16:47:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjJoV-0000000A0vL-48Wp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:42:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 008C543255;
-	Mon, 13 Jul 2026 16:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 005511F00A3D;
-	Mon, 13 Jul 2026 16:42:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783960945;
-	bh=Zltyqt7dF1hkJN/jP/CdnhprTdfvpBe1oag9qSSox24=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YMD95T5gB5V6T1KmPKUt3jBxes75nLN+JrX7ufd6wzFcjrcdf4OPFO5O/6KEGbI4p
-	 /qPsJdKgM1VcjGX+E9RJOqAdM796/JvnoQaOR0QS92oa5R1put/ZxPUddbroI2Tu71
-	 FefurKURKfoiisCy/CjS7hvxUrfgD1Ex8u47gMffmBu9NPWCSru1kAE1rx7Y29oejY
-	 7i1zDqIEnOgFDcMGP2JEkipfRSoxeoDToKGDEsej2BP1w2RYFvievCeyzKg1L1xlH/
-	 YKrYIjUxFoY2yWG5K3uqnUsZ7F3Xt7FFGhZzEg5MwswwfwagH1A1r0Bqd8ZvZEmx63
-	 Lmwi+0z29/2Zw==
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 2C724F40209;
-	Mon, 13 Jul 2026 12:42:24 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Mon, 13 Jul 2026 12:42:24 -0400
-X-ME-Sender: <xms:cBVVaunnabxwFOWElc-2hiBfATA0yTqjWE3aMVTIQndTuJglQjbcMA>
-    <xme:cBVVaoKqoeQWkiAxePVsb5xWtY9UPuGCuRv4lu1mcCUm8WG1U-9bL-DnSuJHayltB
-    kbDhU-jlolP3PSyv8edC4uYgNZkwxEWwbaV4_70CFloi6rugs7NFZC4>
-X-ME-Received: <xmr:cBVVaraMibBRTCi72ti4GcRWQ5JyV8HJ7ZlaaQ-tw8zj4r8k8gVN2Tc0ga1NXA>
-X-ME-Proxy-Cause: dmFkZTGMoWnWRGMKpgIRcZga9S7P7sHAGK5d+gFuMURcEOT0aJUrqozEaYj6fAMVLY196L
-    c7Q9Qx95Y6WcY327qRelJqkKmKiY8PyHcdZc3JZu/hVxbAUCmEOUcUUvGZPJlzK+Zg1A7p
-    E1M4Hr0gckN5dJRqg90LQ0EHm2k1fI/i+fUhPF+S0gisFoPy96WSVpdPglvA43z/98UfZS
-    77zo20OTGrNknxecuDjYSkHGwSxjzQ1LYlvgazPzK8oFp3YKDb/rYy0YfHXnH6tiE3ZJF7
-    ZokTq2XxIK+Yzvex9+lS2uKqt+BJb+586vgE/3bYp3UeKEBWyikgLa9l9cHHjIxzYEIHil
-    oF2jNkQA3L0opoOSBPQ21b1KwnAtX+7mm1hI1VkIvCQ4Sd8xTjNlbp2bhYvHJ2okcMR4ns
-    hsRCs5wvczPDK1sHUQYigsqKB7ZtUPERQqVE+pr7t0diJqU2CJ0D6rKy0JLWAbPnh0PP+w
-    GMO82NWmJpzPCDTYl7tKUndgaEXCJlprGOkG6oO+jiyNiJ6ompZ9Gl/0s/kkHRKHMwro8s
-    R9WYSyj47gkweDae0dm64/jnpgoYlfQRkSg8eWsf6jTGBGtei9aL7PRaOPj+mFaLXnfhGc
-    FUKxgsObsfGFTX1wCE5bSoek7+u19U/q8fwZmEcgbsplA5BpMngGDPZ0RlYA
-X-ME-Proxy: <xmx:cBVVaszZU1TD3CD3AsVnwyX518CY3FWJekcfZ1uGZO0tyLXOt_73IQ>
-    <xmx:cBVVavY-_LVEzdVDUJGtqVbrXGgvLeKIZpGs4SCglyb0k4KXp2XSCw>
-    <xmx:cBVVajXlPXaX2BcJ5bBNoWT8IgmSVzr_trhD-_ioOaq5hELW3DCn8g>
-    <xmx:cBVVaqFIKNFRiu1WcDspECKkHRpK8vBhy5plkTOPM4mCrQJ8NdAXpA>
-    <xmx:cBVVamEIjRt3MpSq9SGrtev-xed03Gb6y-njY6BZpA-E3wjOpAI01VIx>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 13 Jul 2026 12:42:22 -0400 (EDT)
-Date: Mon, 13 Jul 2026 17:42:21 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- 	Suren Baghdasaryan <surenb@google.com>,
- "Liam R. Howlett" <liam@infradead.org>,
- 	Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>,
- 	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, 	Uladzislau Rezki <urezki@gmail.com>,
- Toshi Kani <toshi.kani@hpe.com>,
- 	Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>,
- 	Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, 	Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- 	"H. Peter Anvin" <hpa@zytor.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- 	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>, 	David Carlier <devnexen@gmail.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, 	bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- 	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH mm-hotfixes v2 1/4] mm/vmalloc: acquire init_mm lock on
- huge vmap to avoid ptdump UAF
-Message-ID: <alUUfGnM_vbhOTVK@thinkstation>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
+	Mon, 13 Jul 2026 16:47:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B34B1576;
+	Mon, 13 Jul 2026 09:47:22 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1EF33F7B4;
+	Mon, 13 Jul 2026 09:47:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783961246; bh=C7m0ay4Wok2aZExypT2fKxodJ0Su4287V+SfZq2ie30=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tFthWxMYZoBdRiXm+DKTNJJJ8ueHX6N1C6OLGagBXpDRcCQbEVRkb2LQNyiK/JdZK
+	 8SQHnGOQUIUqf1s8HGA1iiDWjhzEI6ya8owNxNlvwxRbJ2GyEyjFSan1P9yJoO1ORN
+	 2noH3F3ijOd274JXEQkP1H9P6R+JhL5xvnihHKvc=
+Date: Mon, 13 Jul 2026 17:47:18 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Clayton Craft <clayton@craftyguy.net>,
+	Xu Kuohai <xukuohai@huaweicloud.com>, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+	bpf@vger.kernel.org, Florent Revest <revest@chromium.org>,
+	Xu Kuohai <xukuohai@huawei.com>, Ben Cressey <ben@cressey.dev>
+Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
+Message-ID: <alUWljnhfgLB_4a-@J2N7QTR9R3.cambridge.arm.com>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+ <alD7Rr659mGVznQp@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
+In-Reply-To: <alD7Rr659mGVznQp@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_094728_326416_F9642F1A 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,32 +82,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 11:42:24AM +0100, Lorenzo Stoakes wrote:
-> Currently there is a nasty race between ptdump and vmap when attempting to
-> map a huge P4D, PMD or PUD entry.
+On Fri, Jul 10, 2026 at 02:07:01PM +0000, Jose Fernandez (Anthropic) wrote:
+> Hi all,
+> 
+> Just a gentle ping on this series. It has Reviewed-by from Puranjay
+> Mohan, Acked-by from Xu Kuohai on both patches, and Tested-by from
+> Clayton Craft and Nathan Chancellor, with no outstanding comments since
+> Jun 11.
+> 
+> Could you please consider picking this up for the next cycle?
 
-<... skip 145 lines of commit message :P >
+Sorry, this is on my queue to look at, but I have been busy elsewhere
+over the last few weeks.
 
-The code looks good to me, but I think the commit message needs some
-love. It is long, and the pieces of the story are scattered: the race
-itself only shows up around the middle, after several paragraphs of
-ptdump background (including the arm32 and EFI notes that the text
-itself says are not relevant to the bug), and the one genuinely subtle
-part -- why the read lock is sufficient -- is not spelled out at all.
+I'll get to it shortly.
 
-Something along these lines would be much easier to follow:
-
-1. The race, up front. Diagram, if we you feel like it;
-2. The fix, and why the read lock is enough;
-3. Why a trylock;
-4. The arm64 wrinkle and the temporary ifdeffery patch 4 removes;
-5. Secondary changes (guard class, walk_page_range_debug() assert);
-6. History, if you feel like it.
-
-Point 2 is the one I care about most -- the same reasoning would also
-help in the comment in vmap_try_huge_pmd(), where "Therefore, acquire
-the mmap read lock" is doing a lot of unexplained work.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Mark.
 
