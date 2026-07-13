@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EF5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B8EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NaaRVxnBFj+SQ9aWp6Se6zorBMY3aLkJmBwF4iBsWUQ=; b=mmmADulucSDa3DgjwhQ2WSgZqE
-	GeEw0XmP4VubCTTUEyGUnvbVoEyfeUdMtZZPSBPwvmE4zVwDTioWD+8tBrc3LDBZVZYrh2oEXrO5C
-	ORqTsuWGt8C8JhM0oUpV6XuUR05SKpYLm46jyoLsc/GHfjrbFKyP8u/ikeWSaxB5nAnNAaokGQqNO
-	6LzoFyqexU4ytD15w2JzAPWB+6fFIacHsLxZtFNUxfTw5JI1seNChKGJcbxt+LSK87wCc8aEc3DAc
-	CQUAzjJKevjShIGPwJm1qnW3zYRqdO+VFB8maqbLdmABDuI4xfVAFke4gZ2V8WdKwveYlXlDOy1H8
-	iTlEeLpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d8Bglr7WqXq7jak0S9UKAVwve3cnwov2siAgPcvxrIQ=; b=f18JuW+msWAZkyWjEAI9KJGBjV
+	IoLMn5UM35Rw1MixuNbhbzYdn9s9Y2EPeYsLPPeY1OaUoIOqJrVf6GzdphPKN2d+ZhSeHVlxwMpLo
+	aJFzr+yZ/Z5TFrwFXYRe+I4cqaD3UDntZWHDTXskdJ6SrOMy+50DGGmvMTlM0AboPqxxaGOt+8Hi4
+	ufqN5TxS+pD2PQSFsOgyKmrv4r3+feS4tYmnqP6/hDkkCeQMKqsQe/mSZyBMbLWt4Q3PPhRyb+Ee0
+	zv/dxktLuYffvf0wWUWyyCMkAQiTMQsPyv8H83V7ebHVFVrOIrg0ktmnZZKaX3lmXI3UFeXvQsEDp
+	d4jAyhTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIRc-00000009lyf-3Od2;
-	Mon, 13 Jul 2026 15:19:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIRZ-00000009lxa-2568
+	id 1wjISZ-00000009m85-48Ij;
+	Mon, 13 Jul 2026 15:20:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjISY-00000009m7g-0XrV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:19:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E8461576;
-	Mon, 13 Jul 2026 08:19:36 -0700 (PDT)
-Received: from [10.164.19.52] (unknown [10.164.19.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F5B23F93E;
-	Mon, 13 Jul 2026 08:19:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783955980; bh=6itNocGqdstfsGVwFY8Fldnsbq94BxJ1jweYynvGIyM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eNOeX5wBC+l/3/3tHLXTnRTariYyyEtBlRXR+rHI/BOZuLuOp6vUDOhXvIHFDkrhg
-	 4mvmbYS8yYUrx8p84rbdDf/KcvkLxe5gops5cM9kGRNw7IWd8jHuVrQslZk+3VOU0D
-	 tTRvCWvoP3paIHCoH71B9srt9i0aGKkHhZKhaS5E=
-Message-ID: <aa5d2aa2-89c8-4b6c-9a28-5c22143277b0@arm.com>
-Date: Mon, 13 Jul 2026 20:49:33 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/6] mm/vmalloc: map contiguous pages in batches for
- vmap() if possible
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org
-Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
- david@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com,
- "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
- <20260709073823.6643-6-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260709073823.6643-6-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_081941_761747_7B201CDB 
-X-CRM114-Status: GOOD (  22.31  )
+	Mon, 13 Jul 2026 15:20:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB6BA41877
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 15:20:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4411F000E9;
+	Mon, 13 Jul 2026 15:20:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783956041;
+	bh=d8Bglr7WqXq7jak0S9UKAVwve3cnwov2siAgPcvxrIQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YUUT0oL3DIHpKWpzU5IuSqbRfJ180MgGT0IPFl58d2AJTj5jdFlSQOvfrpxqz7y0D
+	 BL20H8oDZ1JMduTnSF1lYxCPfyAjKoKVXX/CZKlMDclkfTJ7T+MWybDXg1nhSDs5ys
+	 1dB0j2e35cmweBGKPJQiCxItQIyWovoJQqr0cBcZNQDq/Ay9q314nDYThVpsqiSaDw
+	 V8nhfTE9OtQc6Y8zu45+JqL4MaMU1JqzYmozqUQOKNERw8D4pJ3u9xCJpR0WMR4stQ
+	 /sgWF1T8NOEjaIjF2ovqToxmrUjKo3ZgqMXxdwYLSFMIxRWQ4vRHTJtidyQae6kJZ1
+	 83gPWpAx38aMQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wjISV-00000004XrD-3UW1;
+	Mon, 13 Jul 2026 15:20:39 +0000
+Date: Mon, 13 Jul 2026 16:22:29 +0100
+Message-ID: <87ech66hje.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v5: iwb: Fix stray verb in comment
+In-Reply-To: <20260709151208.1168456-1-lpieralisi@kernel.org>
+References: <20260709151208.1168456-1-lpieralisi@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 09 Jul 2026 16:12:08 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> Remove a stray verb ('be') that is out of context in a comment in the IWB
+> driver.
 
+If you're fixing random comments, I'd suggest fixing them for real...
 
-On 09/07/26 1:08 pm, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> In many cases, the pages passed to vmap() may include high-order
-> pages. For example, the systemheap often allocates pages in descending
-> order: order 8, then 4, then 0. Currently, vmap() iterates over every
-> page individually—even pages inside a high-order block are handled
-> one by one.
-> 
-> This patch detects physically contiguous pages (regardless of whether
-> they are compound or non-compound) by scanning with
-> num_pages_contiguous(), and maps them as a single contiguous block
-> whenever possible. The mapping order is determined by taking the
-> minimum of the contiguous page count and the pfn alignment, allowing
-> graceful degradation when pfn alignment is less than the contiguous
-> range.
-> 
-> Pages with the same page_shift are coalesced and mapped via
-> vmap_pages_range_noflush_walk() to avoid page table rewalk.
-> 
-> As users typically allocate memory in descending orders (e.g.
-> 8 → 4 → 0), once an order-0 page is encountered, we stop scanning
-> for contiguous pages since subsequent pages are likely order-0 as well.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Co-developed-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
 > ---
->  mm/vmalloc.c | 87 ++++++++++++++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 85 insertions(+), 2 deletions(-)
+>  drivers/irqchip/irq-gic-v5-iwb.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index d2a4d649af549..db0492151ad08 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3543,6 +3543,89 @@ void vunmap(const void *addr)
->  }
->  EXPORT_SYMBOL(vunmap);
+> diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
+> index 9103feb70ce8..87f10212f283 100644
+> --- a/drivers/irqchip/irq-gic-v5-iwb.c
+> +++ b/drivers/irqchip/irq-gic-v5-iwb.c
+> @@ -143,7 +143,7 @@ static int gicv5_iwb_irq_domain_translate(struct irq_domain *d, struct irq_fwspe
+>  			return -EINVAL;
 >  
-> +static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
-> +{
-> +	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
-> +		return PMD_SHIFT;
-> +
-> +	return arch_vmap_pte_supported_shift(size);
-> +}
+>  		/*
+> -		 * param[0] is be the wire
+> +		 * param[0] is the wire
 
-Need to throw in a preparatory patch for this, which will (in addition to
-introduction of the vm_shift() function) do:
+param[0] is not a wire. It is a wire *number*.
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index afaa14ebf17bb..dac87e1cd484b 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -4175,10 +4175,7 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
- 		 * supporting them.
- 		 */
+Thanks,
 
--		if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
--			shift = PMD_SHIFT;
--		else
--			shift = arch_vmap_pte_supported_shift(size);
-+		shift = vm_shift(prot, size);
+	M.
 
- 		align = max(original_align, 1UL << shift);
- 	}
-
-
-
-> +
-> +static inline int get_vmap_batch_order(struct page **pages,
-> +		pgprot_t prot, unsigned int max_steps, unsigned int idx)
-> +{
-> +	unsigned int nr_contig;
-> +	int order;
-> +
-> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
-> +		return 0;
-> +
-> +	nr_contig = num_pages_contiguous(&pages[idx], max_steps);
-> +	if (nr_contig < 2)
-> +		return 0;
-> +
-> +	order = ilog2(nr_contig);
-> +
-> +	/* Limit order by pfn alignment */
-> +	order = min_t(int, order, __ffs(page_to_pfn(pages[idx])));
-
-You missed Sashiko's point here :) the pfn may be zero and this
-will blow up. You can just first derive the pfn and do the clamping
-only when pfn > 0.
-
-
-
-> +
-> +	if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
-> +		return 0;
-> +
-> +	return order;
-> +}
-> +
+-- 
+Jazz isn't dead. It just smells funny.
 
