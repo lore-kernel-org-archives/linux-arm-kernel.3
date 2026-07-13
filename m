@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3A9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F8DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkQwyENXzaKb9g4unEqUba2zxBzd/KOZxUNMxyeuURE=; b=QR5E011IQMaZ2Bzf1+O/cbBuqw
-	W7ecss0Rxne9lMpuWuicKzm73vnDjrpHEjzGb+0XhyGerTgLQmXvO9e3TZW92VkK3r3dCbRUKTiey
-	U38YMJ1WTPJ7QJtirENFK67+C3cLheWDvOT8TvpdcXC8LvT5V2vATxs3yhpvxMAYBZuuTwN6W9HdZ
-	CxhHI34PNaNZ4LqA3WfB2L+Q3zc3VvfxfNcT5nIdbaOcQ7AIIQNW1J8r1KtVBSOWScrJPFPzoE5rf
-	MYoOo6Fm9MfvPSYehX6X+q6mH2+Jyo/v8Iw3HDn36JmL7t1Wpjn7pNh7FK4KjTo0Jm+xax6JijOkC
-	RiZKIrQA==;
+	bh=dL2VKym1UnhltwnaYtOpqLzEe9LSm4JI0ZNKENT3yQo=; b=A1rc1D0ULNN9RLANzxUOkzLO5X
+	tKjRCLdEsVky4EjI4R/yWcnupxv9RKLVX4IAl/MT7VJxrgBiu1nCBgYZXAsNGmmXpdo7fEfLB4T2X
+	0LumuQ3633hkbRCj2JzhSqqsLfn6sltPOzm+IwxBPVVRZ00jGrTrdzVYUFFog+PBHJfVma4JLLlYH
+	YBroK5SEB4oplGbPyqtzI6sq6VuWvJHtsil73OQRlT1i17HFPr6BdCWRP/Essz52+PD7QtcukMzaw
+	vzH5EhS12Ey4pf7fGo6nkR9NlqIpBYA3vIMeC907XC9qbzcOrgmppgRiXlAvCtqdSoJigm7+PwZR5
+	Dhey1SiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHu-00000009HLI-1Xzu;
-	Mon, 13 Jul 2026 13:01:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHg-00000009H6a-45ri;
-	Mon, 13 Jul 2026 13:01:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783947678;
-	bh=7bHZOMotc13fjB40f9f2SHrOMuF4AIMBtQ4dvCif8tI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c/yX4zG4aGbMacGsfFVVnher1sk4ZiIg4ZNoX/0EAqhwZznCXGYDtEMp2pIbwvHct
-	 byUh0v/J60h0mLfPM2cM+F2Ais/xKlKFk0hitCSaZQQ1Xz1/E7FNlY7MXCxM6QSIje
-	 PzS8Kmt3GlkNm480F7nd4xaIJ00dSudZPonP3Hry3095oSfrZYn0u6031jkpJSkQYQ
-	 jlIUldBWW6DKbpNuUufxdfpSR3LTjDSH1cx2VuQJ2GNQIj9MNdoFFNeBBB3mUjxYBR
-	 hglEtPejvqgQCKXbmq+wQsd23oNspqCrw0R8KtH78YSJKcjktj5ZRozV6AKi8n2jJO
-	 CqpRgNGWHqrBw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9C3FA17E0076;
-	Mon, 13 Jul 2026 15:01:17 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v3 06/10] drm/mediatek: mtk_dsi: Add support for MT8189
-Date: Mon, 13 Jul 2026 15:00:59 +0200
-Message-ID: <20260713130103.34654-7-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
-References: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
+	id 1wjH2B-00000009RxJ-3Pos;
+	Mon, 13 Jul 2026 13:49:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjH28-00000009Rw9-45ra
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 13:49:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87D6D1576;
+	Mon, 13 Jul 2026 06:49:15 -0700 (PDT)
+Received: from [10.164.19.52] (unknown [10.164.19.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74E3E3F7B4;
+	Mon, 13 Jul 2026 06:49:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783950559; bh=hpF+B5I89ietP3twgkdOdoYxWCsb5V0kGzBiAvX1wgs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fEhipLwPpaOlZwwA7uusgOWXnDcZ6crqM6UwSs112vVuANbuv+f94pDG8HL8QZrDM
+	 WpoBaqlEh4OT/1Fge7tlsYYRY6DGGBDSouZT32UoHBd6nOSc8LQjA2nlUn7dLwmH2q
+	 TTbelgOntgP3R1jjsxOoO4tNvFKkvqY6SsVCHvVE=
+Message-ID: <85a3a79a-2a78-47ed-bd93-48e8f1967551@arm.com>
+Date: Mon, 13 Jul 2026 19:19:12 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] mm/vmalloc: Extend page table walk to support
+ larger page_shift sizes and eliminate page table rewalk
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org
+Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
+ david@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com,
+ "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>,
+ Leo Yan <leo.yan@arm.com>
+References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
+ <20260709073823.6643-5-jiangwen6@xiaomi.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260709073823.6643-5-jiangwen6@xiaomi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_060121_214073_75C66E7F 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260713_064921_122369_48E4016A 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,127 +77,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the DSI IP found in the MT8189 SoC: this one is
-similar to the IPs found in the most recent already supported SoCs
-with the only difference being that it supports a higher link rate
-of 2.5Gbps instead of 1.5Gbps.
 
-To support the higher rate, add a new "max_link_rate_mbps" member
-to the mtk_dsi_driver_data, assign the correct one to all of the
-supported SoCs, other than to the newly introduced MT8189, and
-use it in the .mode_valid() callback in place of the hardcoded
-1.5Gbps value.
 
-Since .mode_valid() is supposed to run just for resolution changes
-the link rate was expressed in Mbps and gets multiplied on the fly
-to save some bits.
+On 09/07/26 1:08 pm, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> 
+> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+> provides a clean interface by taking struct page **pages and mapping them
+> via direct PTE iteration. This avoids the page table rewalk seen when
+> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
+> 
+> Extend it to support larger page_shift values, and add PMD- and
+> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+> since it now handles more than just small pages.
+> 
+> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+> iterate over pages one by one via vmap_range_noflush(), which would
+> otherwise lead to page table rewalk. The code is now unified with the
+> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  mm/vmalloc.c | 81 ++++++++++++++++++++++++++++++----------------------
+>  1 file changed, 47 insertions(+), 34 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index d7fef85b241c4..d2a4d649af549 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -125,7 +125,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  	pte_t *pte;
+>  	u64 pfn;
+>  	struct page *page;
+> -	unsigned long size = PAGE_SIZE;
+> +	unsigned long size;
+> +	unsigned int steps;
+>  
+>  	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+>  		return -EINVAL;
+> @@ -147,8 +148,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  		}
+>  
+>  		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
+> -		pfn += PFN_DOWN(size);
+> -	} while (pte += PFN_DOWN(size), addr += size, addr != end);
+> +		steps = PFN_DOWN(size);
+> +	} while (pte += steps, pfn += steps, addr += size, addr != end);
 
-As a note, starting with MT8189, higher maximum pixel clock rates
-are achievable: while at it, also make sure that calculations are
-not overflowing by casting to u64 where needed.
+I think I had also recommended to put these vmap_pte_range() changes
+into the previous patch.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 29 +++++++++++++++++++++++++++--
- 1 file changed, 27 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 4c05af78516c..d1fe1ce11391 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -235,6 +235,8 @@ struct mtk_dsi_driver_data {
- 	const u16 *reg_main;
- 	const u16 *reg_adv;
- 
-+	const u16 max_link_rate_mbps;
-+
- 	bool has_size_ctl;
- 	bool cmdq_long_packet_ctl;
- 	bool support_per_frame_lp;
-@@ -924,7 +926,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 	}
- 	bit_per_pixel = ret;
- 
--	dsi->data_rate = DIV_ROUND_UP_ULL(dsi->vm.pixelclock * bit_per_pixel,
-+	dsi->data_rate = DIV_ROUND_UP_ULL((u64)dsi->vm.pixelclock * bit_per_pixel,
- 					  dsi->lanes);
- 
- 	ret = clk_set_rate(dsi->hs_clk, dsi->data_rate);
-@@ -1099,13 +1101,21 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
- 			  const struct drm_display_mode *mode)
- {
- 	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
-+	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-+	u64 wanted_link_rate, max_link_rate;
- 	int bpp;
- 
- 	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
- 	if (bpp < 0)
- 		return MODE_ERROR;
- 
--	if (mode->clock * bpp / dsi->lanes > 1500000)
-+	wanted_link_rate = mode->clock;
-+	wanted_link_rate *= bpp;
-+	max_link_rate = data->max_link_rate_mbps;
-+	max_link_rate *= dsi->lanes;
-+	max_link_rate *= KILO;
-+
-+	if (wanted_link_rate > max_link_rate)
- 		return MODE_CLOCK_HIGH;
- 
- 	if (dsi->dsc) {
-@@ -1542,28 +1552,42 @@ static void mtk_dsi_remove(struct platform_device *pdev)
- static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8173,
-+	.max_link_rate_mbps = 1500,
- };
- 
- static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt2701,
-+	.max_link_rate_mbps = 1500,
- };
- 
- static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8183,
-+	.max_link_rate_mbps = 1500,
- 	.has_size_ctl = true,
- };
- 
- static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 1500,
- 	.has_size_ctl = true,
- };
- 
- static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 1500,
-+	.has_size_ctl = true,
-+	.cmdq_long_packet_ctl = true,
-+	.support_per_frame_lp = true,
-+};
-+
-+static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
-+	.reg_main = mtk_dsi_regs_main_v1,
-+	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 2500,
- 	.has_size_ctl = true,
- 	.cmdq_long_packet_ctl = true,
- 	.support_per_frame_lp = true,
-@@ -1576,6 +1600,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
--- 
-2.54.0
+>  
+>  	lazy_mmu_mode_disable();
+>  	*mask |= PGTBL_PTE_MODIFIED;
+> @@ -540,8 +541,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
+>  
+>  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+> +	unsigned long pfn, size;
+> +	unsigned int steps;
+>  	int err = 0;
+>  	pte_t *pte;
+>  
+> @@ -572,9 +575,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  			break;
+>  		}
+>  
+> -		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
+> -		(*nr)++;
+> -	} while (pte++, addr += PAGE_SIZE, addr != end);
+> +		pfn = page_to_pfn(page);
+> +		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
+> +		steps = PFN_DOWN(size);
+> +	} while (pte += steps, *nr += steps, addr += size, addr != end);
+>  
+>  	lazy_mmu_mode_disable();
+>  	*mask |= PGTBL_PTE_MODIFIED;
+> @@ -584,7 +588,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  
+>  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pmd_t *pmd;
+>  	unsigned long next;
+> @@ -594,7 +598,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
+> +
+> +		if (shift >= PMD_SHIFT) {
+> +			struct page *page = pages[*nr];
+> +			phys_addr_t phys_addr;
+> +
+> +			if (WARN_ON(!page))
+> +				return -ENOMEM;
+> +			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
+> +				return -EINVAL;
+> +
+> +			phys_addr = page_to_phys(page);
+> +
+> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
+> +						shift)) {
+> +				*mask |= PGTBL_PMD_MODIFIED;
+> +				*nr += 1 << (PMD_SHIFT - PAGE_SHIFT);
+> +				continue;
+> +			}
+> +		}
+> +
+> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pmd++, addr = next, addr != end);
+>  	return 0;
+> @@ -602,7 +626,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  
+>  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pud_t *pud;
+>  	unsigned long next;
+> @@ -612,7 +636,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pud_addr_end(addr, end);
+> -		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pud++, addr = next, addr != end);
+>  	return 0;
+> @@ -620,7 +644,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  
+>  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	p4d_t *p4d;
+>  	unsigned long next;
+> @@ -630,14 +654,18 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = p4d_addr_end(addr, end);
+> -		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (p4d++, addr = next, addr != end);
+>  	return 0;
+>  }
+>  
+> -static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> -		pgprot_t prot, struct page **pages)
+> +/*
+> + * It can take an array of pages which are not all contiguous, but it
+> + * may have contiguous chunks, as hinted by @shift.
+> + */
+> +static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
+> +		pgprot_t prot, struct page **pages, unsigned int shift)
+>  {
+>  	unsigned long start = addr;
+>  	pgd_t *pgd;
+> @@ -652,7 +680,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		next = pgd_addr_end(addr, end);
+>  		if (pgd_bad(*pgd))
+>  			mask |= PGTBL_PGD_MODIFIED;
+> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
+> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
+>  		if (err)
+>  			break;
+>  	} while (pgd++, addr = next, addr != end);
+> @@ -675,27 +703,12 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages, unsigned int page_shift)
+>  {
+> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+> -
+>  	WARN_ON(page_shift < PAGE_SHIFT);
+>  
+> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> -			page_shift == PAGE_SHIFT)
+> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
+> -
+> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+> -		int err;
+> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> +		page_shift = PAGE_SHIFT;
+>  
+> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+> -					page_to_phys(pages[i]), prot,
+> -					page_shift);
+> -		if (err)
+> -			return err;
+> -
+> -		addr += 1UL << page_shift;
+> -	}
+> -
+> -	return 0;
+> +	return vmap_pages_range_noflush_walk(addr, end, prot, pages, page_shift);
+>  }
+>  
+>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 
 
