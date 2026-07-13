@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABD7C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B469C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFNvTgSOaIofZGokjnrOm+/+KhGzebARxZ9cUDDgJek=; b=Drst1VeE6Ty0j67LVwmyz6PBOQ
-	YMcpvZ+dv1Oa5kjWOz9VfHNi04S2hFAfkpXnoPdObwJXS6+aw3qItHyLu30CuAsOOmkjoczhg4ktH
-	G/oI5JGZnv/fRfKmqQFVkPUkgfqQE+N92EKEAoejO9njXGvHRDnFC6HCmHh51kdo5ZBCGgb7207+B
-	VUB6WoJcOFYg3XSPJAQ40nSHkkmUVVs/v3KAUi2w4Wog5pQxTF7fjOpiNdqLVvLrpAG/C0TG8nNgv
-	86MJxyUMeOYdAlRIIz4ozWs8iaL7Ndaq/iOfJyzz9/Y7UfcllA3y/HLOH4D4Ig7UFUG+LAgxB/WMz
-	vh+6mHRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p66T0NncB+5raKUdPRksLr/+xBC+Njc5g/o72Yk49hk=; b=OSokKKyPtut/Q7a2hgrjFKIc5D
+	yimymW5MffMNwSNlXUwFAC3/bHpY8jpvnE4yGORRpCInuRoh9yE3d+B0RabD3fcW7+RgupOoKJfpx
+	KNfUBsJspS9ZNaSI9R8tzofIZZelJwAoyztfxdNhWu7inFJuwPyY2dQU9SmHt8Jz8HdNxkOQav3Hj
+	NymQ3sjTbC5EGOSPgWa5rRWeJaPo054OoTt0Pl+vzCF1hsZTNUjvm/7sVqOZhHZTPGb8enPDzqFdu
+	C2e3/M1Rlc1bcd1tRpLizbQVMjIhZgu76dXhr+yqspiezwwyWqt54jwGJYtalqkR2UgMIt3+xxlOE
+	2J5jpB/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIxT-00000009qWQ-2zE9;
-	Mon, 13 Jul 2026 15:52:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjIzW-00000009qrz-0GZU;
+	Mon, 13 Jul 2026 15:54:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIxR-00000009qVe-2IC6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 15:52:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KFNvTgSOaIofZGokjnrOm+/+KhGzebARxZ9cUDDgJek=; b=G/uEyQmGXeGjrbr89cH09hkr+O
-	wgh+j5anai57SCVfN5e+BnTc4R5PxSmhgarxMnK2Yf6ATt8aMwfWaFPqQLdHd5GZjL1iVxprMDE5x
-	c5ln9J5g+nPQNseM9CALw76pj5N0K/t6b8hXQWbnmQYjxssQlFtSGoibD/92LcTRCbOET6iJ2jK7x
-	KRvpPCTgav34B3jkh+JtokSYAxrSyfHoM8hlJdUfFem6GrNPYXYxKIWWeAnP7Q7F/zk4NnjzUvN0p
-	5FYY7Yzzm6PEUV8CoFi9x+Ecjl6kuH5pp1RP+vxX52zIO/Aj7kqq8PYYUzaAhw39JgpToiG3YC7Pi
-	LzDtGSHg==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjIxO-0000000BnoH-1kZt
+	id 1wjIzV-00000009qrR-16JL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:52:36 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BF3924E40D90;
-	Mon, 13 Jul 2026 15:52:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 93B9160345;
-	Mon, 13 Jul 2026 15:52:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AEAB111BD22AD;
-	Mon, 13 Jul 2026 17:52:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783957943; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=KFNvTgSOaIofZGokjnrOm+/+KhGzebARxZ9cUDDgJek=;
-	b=KRLzLXspi+LaoNuCOi/KxgDaZK4Km288kw0do2R+A40umXssaMotiITXLTLj2QU8syI7r7
-	c66cqbURNCQBA7pEqeSfRmTDGR8n7OhNn2YHmwwLnWaa981l3mJaUjkOjO3rlIM6xJocZC
-	oXtiNYjQJfIFdpwiP9QkWQO8jDrPyL4B8zG9KpPDhUEU+2vteF2KN4eKpu9xgP2Yew39Rt
-	eJ7WYN2ozxmu9A5S8AT3IJjR0A+tVJpeXF5GbfUG1X52kAZYBLN46Y/8NjDk8WkDR6Ose5
-	bta9jquD/OuHNlM+Im4tX5AT5LHAXZF4sBZPU3r8jCd2IaYcOvLMUGsNxkYLQA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Andrew Lunn
- <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 3/3] ARM: dts: marvell: orion5x: Correct indentation
-In-Reply-To: <20260706180333.648401-6-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706180333.648401-4-krzysztof.kozlowski@oss.qualcomm.com>
- <20260706180333.648401-6-krzysztof.kozlowski@oss.qualcomm.com>
-Date: Mon, 13 Jul 2026 17:52:22 +0200
-Message-ID: <871pd67uq1.fsf@BLaptop.bootlin.com>
+	Mon, 13 Jul 2026 15:54:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6DAD0600AE;
+	Mon, 13 Jul 2026 15:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 921121F000E9;
+	Mon, 13 Jul 2026 15:54:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783958084;
+	bh=p66T0NncB+5raKUdPRksLr/+xBC+Njc5g/o72Yk49hk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Al/31Rtku4yM52tR3QNXE4FDvk8JrNQ/OKqQIR4Gw42mq/+wRDTRFDbNaOZZ/J0Ip
+	 trE67THHLLKgw/9c8lLgl464jvRdo9Rl39bWVfDs5f2/ak+l7gLCmCCUBBwO2ClV5o
+	 6Ms7uhjv+c/jAxAxLV580cW8rMBI8KCxWpjcE8LSXkzLAVZ6JTo/kQ26KBFoeEciHc
+	 PjkuemTz3G+8ug2nkEZR51GUlnv5Nlj9ldK7NfTVawcO/klBlFSV3Ci6mWxMbRt5u8
+	 Daa4BcwmyolvmBxOiDE3shvuqoBVrT3L6NKlAB1AcrrsoTpNU5EMJx2ZirPE9YvmcR
+	 mGpeXGLtXYYKw==
+Date: Mon, 13 Jul 2026 16:54:27 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Message-ID: <alTq4V50767L-s5H@lucifer>
+References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
+ <alTn7NguEW_4bodu@thinkstation>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_165234_592992_B0810963 
-X-CRM114-Status: GOOD (  10.95  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alTn7NguEW_4bodu@thinkstation>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,62 +81,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> writes:
-
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-> No functional impact (same DTB).
+On Mon, Jul 13, 2026 at 02:32:09PM +0100, Kiryl Shutsemau wrote:
+> On Sun, Jul 12, 2026 at 11:42:23AM +0100, Lorenzo Stoakes wrote:
+> > This series addresses the issue by having the vmap huge promotion
+> > logic acquire the mmap read lock while both setting the huge page
+> > table entry and freeing the prior leaf page table.
 >
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Hi Lorenzo,
+>
+> Before we settle on the mmap lock scheme, have you considered handling
+> this the way GUP-fast handles page table freeing -- RCU-defer the free
+> and make ptdump a lockless walker?
+
+Overall I like the idea of eventually moving this to _all_ being
+RCU-free-able :)
+
+BUT... I don't like it as a fix for this bug that has to be backported.
+
+I think there's a lot of subtleties to worry about and I don't want to
+worry about having to maintain tht as a backport.
+
+But also, we have an unfortunate situation with ptdump where it also walks
+userland ranges on x86 (and ranges for efi_mm on both x86 and arm64).
+
+And for userland ranges you have to have the mmap write lock to exclude a
+downgraded mmap read lock munmap() operation (which gives rise to the weird
+inversion you mention).
+
+So the walker still has to take the write lock in this case.
+
+I spoke a bit about it overall at [0].
+
+We already have this mmap lock convention as a requirement for kernel
+ranges, and it was being violated by CPA and vmalloc.
+
+So I'd prefer we keep this as the proximate fix to solve the bug here, and
+then revisit this later (alongside moving to RCU page table freeing
+_overall_, though one doesn't have to block the other).
+
+I believe Suren is looking at this (and I'm happy to look if Suren is tied
+up with other things also!)
+
+>
+> The locking here is inverted from what one would normally expect
+> (walker takes the write lock, mutators take read locks, mutators safe
+> against each other only by range ownership). It works, but it is
+
+Yeah :) this is a direct result of the munmap() thing mentioned above
+(because ptdump can read non-kernel ranges).
+
+Because you _have_ to take the mmap write lock there, so you _may as well_
+exclude with a read lock and then get to do an mmap read trylock as an
+added bonus on vmap huge page promotion.
+
+> subtle, it is what produced the arm64 deadlock and the ifdeffery, and
+> it depends on every current and future freeing site remembering the
+> rule -- patch 3 exists because two walkers did not fit the scheme.
+
+Well everybody who does things with shared resources should be aware of
+locking requirements.
+
+>
+> The free side looks cheap: kernel page table freeing already funnels
+> through pagetable_free_kernel(), which already has a deferred path
+> (used for IOMMU SVA). Adding a grace period there -- synchronize_rcu()
+> in the worker, amortized over the batch -- covers every freeing site
+> by construction.
+
+Well I did want to say btw that CPA doesn't actually mark the page tables
+as kernel, was going to chase up with something on that when I got a chance
+:)
+
+synchronize_rcu() is a very bug hammer, you can just use call_rcu() (and
+the ptdesc already has an rcu_head I think).
+
+
+>
+> On the walk side, nothing on the ptdump path can sleep -- the pagewalk
+> core only allocates for install_pte ops, kernel PTE level uses
+> pte_offset_kernel(), and the arch note_page() implementations are
+> seq_printf()/printk() into a preallocated buffer. So the walk could run
+> under rcu_read_lock() as is. The real work is bounding the read-side
+> sections: a full walk can take dozens of seconds on a KASAN kernel per
+> the comment in mm/ptdump.c, so it would need to drop RCU and
+> cond_resched() periodically, re-descending from the top. Note we
+> currently hold the init_mm mmap write lock across those same dozens of
+> seconds, and this series makes that load-bearing: during a long walk
+> every promotion trylock fails, silently degrading vmalloc to small
+> pages, and CPA collapse blocks.
 >
 
-Applied on mvebu/dt
+Yeah it all sucks, but you're really making my point that this is better to
+revisit and consider carefully rather than doing as a fix.
 
-Thanks,
+> That would give us: no inverted locking, no arm64 deadlock possibility
+> (your patch 4 stands on its own), the patch 3 walkers covered
+> structurally rather than by locking init_mm as well, and ptdump
+> invisible to production paths.
+>
+> Given the live UAF, this could also be a follow-up rather than a
+> respin. But I would like to hear whether you see a fatal flaw in the
+> approach first.
 
-Gregory
-> ---
->
-> Ongoing bigger work for all bindings and DTS with built-in checker (dt-ch=
-eck-style).
-> ---
->  arch/arm/boot/dts/marvell/orion5x-lacie-d2-network.dts        | 2 +-
->  arch/arm/boot/dts/marvell/orion5x-maxtor-shared-storage-2.dts | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/orion5x-lacie-d2-network.dts b/arc=
-h/arm/boot/dts/marvell/orion5x-lacie-d2-network.dts
-> index 12a4aac2633e..9757c3b57de6 100644
-> --- a/arch/arm/boot/dts/marvell/orion5x-lacie-d2-network.dts
-> +++ b/arch/arm/boot/dts/marvell/orion5x-lacie-d2-network.dts
-> @@ -109,7 +109,7 @@ flash@0 {
->  		compatible =3D "cfi-flash";
->  		reg =3D <0 0x80000>;
->  		bank-width =3D <1>;
-> -                #address-cells =3D <1>;
-> +		#address-cells =3D <1>;
->  		#size-cells =3D <1>;
->=20=20
->  		partition@0 {
-> diff --git a/arch/arm/boot/dts/marvell/orion5x-maxtor-shared-storage-2.dt=
-s b/arch/arm/boot/dts/marvell/orion5x-maxtor-shared-storage-2.dts
-> index cb1bd24b7ae3..b2b3309ed1df 100644
-> --- a/arch/arm/boot/dts/marvell/orion5x-maxtor-shared-storage-2.dts
-> +++ b/arch/arm/boot/dts/marvell/orion5x-maxtor-shared-storage-2.dts
-> @@ -69,7 +69,7 @@ flash@0 {
->  		compatible =3D "cfi-flash";
->  		reg =3D <0 0x40000>;
->  		bank-width =3D <1>;
-> -                #address-cells =3D <1>;
-> +		#address-cells =3D <1>;
->  		#size-cells =3D <1>;
->  	};
->  };
-> --=20
-> 2.53.0
->
+Yes - as above obviously I'd definitely prefer to defer this to a
+follow-up.
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+The main concern for ptdump is properly slicing its walk to avoid
+RCU stalls.
+
+Keeping in mind that vmap can (in theory) span PUDs and even P4Ds it
+becomes a bit tricky.
+
+But also I worry about whether the entries in the page table will actually
+be valid at the point the walker reads them.
+
+For vmap/CPA pretty much yes they are, but if something was to actually
+unmap them in future then that might no longer be the case. RCU will only
+guarantee that the page tables stick around, not that they contain anything
+valid.
+
+In userland a lot of this is solved already by the leaf page table entry's
+PTL.
+
+Kernel page tables are a bit of a weird case, because mostly we solve
+things through exclusive owners, ptdump being the weirdo outlier.
+
+Anyway TL;DR is that - I think we need to be careful and think this through
+and make changes across the board for all kernel page table users and
+update the page walkers.
+
+I'm happy to spin up an RFC for this when I get a moment :)
+
+But in general I'd like us to solve the problem as a whole across the
+kernel for both userland and kernel page table allocations, ideally!
+
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
+
+Cheers, Lorenzo
 
