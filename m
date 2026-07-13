@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD2EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4909DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mdt2ZpMbpiIZVtPHl8mFZke/+oHZ4bhDPI14xdCANR8=; b=x78iUiCU6yHHfdNVM+uH2WRdj2
-	agktjzfW1NYLVtPjTsbnEBQxVSDadP90Ub+pyeOkH1sLtBH89etUBnlApynxBTJ2A2WRaDwxeLLDn
-	rK3iVTKJ2eq+f9vCRjg+HCwo0FuhxMstz5gMbGotSVvJi/Bq4pEt8x1pYPy5CLRBPwRnMxLNPCX7T
-	Npf20Vr7OeL6gXJpPcQYCKli1jw7X1vlULe06EaieyvTR33+Z/1OgnZxCSW8Xqh1zHUpaJQskDEp8
-	Gl2zx28pFUL3GKx3wppivRNL8L++hIo4kVIhYmj+PRDqGzmYkcmrfd6D1cHI+ivOejWsPAI5gdJ5j
-	P8LvK/og==;
+	bh=N30vr1xrRftm2nMobVAtxbwff06D+Jf4XX9jZoAnGTU=; b=YfMFthgF16WOPlh8FmbttxBZpr
+	fa1kVA4jMMWnZh930WIwaJiHcX4CvpTgkkDqHBoXInTE2GFUiDdotp16WAwFucXflvF5c3KWFciyo
+	bENLhz0r4lE8d4Tekg722ihXv/3uV7a2OcYs83jZ3fYtwzKXAxOXYGJTzx3CgFlWeQDANCThIYwWP
+	g88GPW6NX4t5TLBNMPkvWLNaGayOaoKylisAmF35IW0MSpBNaRu+iGreKjJiNgEtGJi/WtKauH55g
+	2lyYVoRIb6TYJyGcF1TdNDwB9WdtNd8m0XGi7v+gtrhQVwFyOX8OYsAe1/x3monwXAZDQUbd2yBxy
+	Bh6oiDkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCid-00000008giQ-1g1n;
-	Mon, 13 Jul 2026 09:12:55 +0000
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	id 1wjCln-00000008hEi-0GAa;
+	Mon, 13 Jul 2026 09:16:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCia-00000008ggC-1hof
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 09:12:53 +0000
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-96723c7151eso438876241.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 02:12:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783933971; x=1784538771;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Mdt2ZpMbpiIZVtPHl8mFZke/+oHZ4bhDPI14xdCANR8=;
-        b=Ba5vcBcDrPP3A+ZNmKJYE1UefP4P/a+KX2dhDQB4M2PRFpDFR1AChlsCMo8Bb9CaDH
-         lC+kPCg25UOI1FoDMjIgmoFnIURVOqfnSsi1D5TeyUwxYr9b2HGH4W3dbvF/VAl7OfMr
-         6ASUIoH0T812DxNIu1y6vpN3rOAGKLg9ThGtT9xNZWf42XDHQmi5tPv/8g/f96plFwlu
-         UqVJ9eE1u4EI7KGrkq1lzk0ZooLrAKyPQC6r6EaekmOwQ19/QHFzPQ4ALJXHlcZ+741/
-         ZfQi9IdDoRRFwPPXILZ85WHRs52xeSKklcherZmDatndjXSxd466fUmFe4fbz8Vx8gmq
-         uI1A==
-X-Gm-Message-State: AOJu0YzUCIcvzrjPY+hfq2EDRTqBcYKcnJIDSxn2ZkmwA86sBuOkNz3C
-	Jj9RLS8KQQcsc2RRwboMbpWBCO5WTM6mSGEWUHxXiFiu6H2yebCoaatwiasa4e61
-X-Gm-Gg: AfdE7clL220UgiKOFgX1vx+EB6Fz3dJKxSXNswcXGutZ1EJrprFG8pAVmCLfJzIwiOB
-	jNAEkpwSb8tdfg0+NfStkOk+axaWIa7Ti986cu+39yd89B8Iwc53cO9MQ7g9QOMkheawWXpeJE0
-	ME7Yn1AHt6L1TBbNo+sjIvxj5hcA/DoGfeXEJeHNwJCBh4uyFj5dDXVg0qN5uuA2k4XUh/3Kjo8
-	IJjps+UzlfJ2K2At2iIJGAUI5yqKZlbl2FQIOYKlPtzb62nkQcOYaTRkYCNfTpRg13hTajUGB8+
-	5YiUXT7e46k7sxROOMp4v6eCl9O7lKErPrZSR6QjFkzcLBp9cZ2/+Gq0i1ZNVmqiexDt92bqaQh
-	sTQOEK3NkoJGPcxcK/APETD1lCLTFASQ3EbuI90ksBJsw8sOvmkw66JwCFewrZSUl/AsD76u6a1
-	q/hBm7myUyNlEVTmL9u8x3fosANtV26iVdxdZJZJMn/JKqHIxPDA==
-X-Received: by 2002:a05:6102:8082:b0:738:bf0f:d0c7 with SMTP id ada2fe7eead31-74533e34122mr4760318137.25.1783933970940;
-        Mon, 13 Jul 2026 02:12:50 -0700 (PDT)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ecf790293sm7553138241.0.2026.07.13.02.12.50
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 02:12:50 -0700 (PDT)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-738b39dad22so972949137.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 02:12:50 -0700 (PDT)
-X-Received: by 2002:a05:6102:c11:b0:631:4cd8:b6aa with SMTP id
- ada2fe7eead31-74533d5836bmr4638111137.13.1783933970193; Mon, 13 Jul 2026
- 02:12:50 -0700 (PDT)
+	id 1wjCll-00000008hEV-3Pdf;
+	Mon, 13 Jul 2026 09:16:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 792D540396;
+	Mon, 13 Jul 2026 09:16:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A02E1F000E9;
+	Mon, 13 Jul 2026 09:16:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783934169;
+	bh=N30vr1xrRftm2nMobVAtxbwff06D+Jf4XX9jZoAnGTU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E7FwN/Jv6m1e69kx632GqJLog3RwP12tN0ucav26FktzwqnDd4kBGbNenuLYwevaG
+	 1BGaAYWSOPpXQRSOjYHhBVIcbF6c6745HuTPWIJSEk8DBaXcYiJiRhiQHM0PuxFF6P
+	 BwYbJSu9iMhhF+DNNLmVWpQSpv2YXboLZUCWFoTXiDPKBMPB5Kbs7XTiLQtafM8HCh
+	 PNnPj9dcL0ZH08/cBg+D0N2/m6AGaFNxwZfAKu9PvpgM4thZA2L6/kvTerKA11bcS4
+	 O4pi77LeTOqxqk29h93wNbDV6E+GB/6u5CSeTYHY3YOHUOPR191DfJ6oc4ZrkSO5RK
+	 M/S7j7bXcZacQ==
+Date: Mon, 13 Jul 2026 11:16:05 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Daniel Drake <dan@reactivated.net>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, 
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH 3/6] dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
+Message-ID: <20260713-corgi-of-striking-science-4afbdc@quoll>
+References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
+ <20260712-bcm2712-iommu-submit-v1-3-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
-References: <20260710160450.64967-1-marek.vasut+renesas@mailbox.org> <CAMuHMdUQJ8mzUi0birB5f1KnCMX_QufHTgYB7AW=d3ZoFer+Yg@mail.gmail.com>
-In-Reply-To: <CAMuHMdUQJ8mzUi0birB5f1KnCMX_QufHTgYB7AW=d3ZoFer+Yg@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 13 Jul 2026 11:12:36 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVD=y++zr8sfnf9ZjW8md43ifmuytd-F7PY7r6e2p9Tbw@mail.gmail.com>
-X-Gm-Features: AUfX_mwAEKuhdsHoYqlC4vkeXsOmSglqwfwCjvHk1qnz5qkYmbXVC-KIeAr11Bw
-Message-ID: <CAMuHMdVD=y++zr8sfnf9ZjW8md43ifmuytd-F7PY7r6e2p9Tbw@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: renesas: ironhide: Describe inline ECC carveouts
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_021252_455169_C7393E8E 
-X-CRM114-Status: GOOD (  26.40  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260712-bcm2712-iommu-submit-v1-3-80e10cdde2ea@reactivated.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +74,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2026 at 11:11, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Fri, 10 Jul 2026 at 18:05, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
-> > The DBSC5 DRAM controller protects DRAM content using inline ECC.
-> > The inline ECC utilizes areas of DRAM for its operation, which are
-> > in the DRAM address range, but must not be accessed or modified.
-> > Describe the inline ECC carveout areas used by the DBSC5 controller
-> > on this hardware as reserved-memory, which must not be accessed.
-> > Include DRAM areas which are unprotected by ECC as well, those are
-> > parts of the DRAM which directly precede the ECC carveout.
-> >
-> > In case of high DRAM utilization, unless the inline ECC carveouts
-> > are properly reserved, Linux may use and corrupt the memory used
-> > by the DBSC5 DRAM controller for inline ECC, which would lead to
-> > the system becoming unstable.
-> >
-> > Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->
-> > V2: Include the unprotected data areas as well
->
-> Thanks for the update!
->
-> With the ECC carveouts, Ironhide survives booting with "earlycon
-> memtest=17".
+On Sun, Jul 12, 2026 at 10:18:53PM +0100, Daniel Drake wrote:
+> Add bindings for the Broadcom BCM2712 IOMMU and its shared TLB cache.
+> 
+> Include compatibility with the cache phandle used in existing firmware
+> shipped on Raspberry Pi 5, and also allow the iova-window to be omitted,
+> which similarly will maintain compatibility with existing RPi5 firmware.
+> 
+> Signed-off-by: Daniel Drake <dan@reactivated.net>
+> ---
+>  .../bindings/iommu/brcm,bcm2712-iommu.yaml         | 65 ++++++++++++++++++++++
+>  .../bindings/iommu/brcm,bcm2712-iommuc.yaml        | 35 ++++++++++++
+>  2 files changed, 100 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+> new file mode 100644
+> index 000000000000..0d91c513afc4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+> @@ -0,0 +1,65 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Broadcom BCM2712 IOMMU
+> +
+> +maintainers:
+> +  - Daniel Drake <dan@reactivated.net>
+> +
+> +description: |
 
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-(also with all offsets set to 0xcccc0000).
+Do not need '|' unless you need to preserve formatting.
 
-Gr{oetje,eeting}s,
+> +  The BCM2712 IOMMU provides address translation for various hardware blocks
+> +  on the BCM2712 SoC, such as the VC6 display pipeline.
+> +
+> +properties:
+> +  compatible:
+> +    const: brcm,bcm2712-iommu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#iommu-cells':
+> +    const: 0
+> +
+> +  brcm,iommu-cache:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Phandle to the shared IOMMU cache (IOMMUC).
 
-                        Geert
+You need to explain what for, the purpose in hardware.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> +
+> +  cache:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Deprecated. Use brcm,iommu-cache instead.
+> +    deprecated: true
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Drop property, we do not take new bindings with deprecated properties.
+Existing FW is not an excuse, Raspberry 5 developers could reach out and
+ask if this is okay. They did not.
+
+> +
+> +  brcm,iova-window:
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    description: |
+> +      An array of two 64-bit integers specifying the IOVA aperture start
+> +      address and the aperture size. IOMMU mappings will be created inside
+> +      this aperture. All preceding address space is in identity/bypass mode.
+> +      The aperture start address must be 4GB-aligned.
+> +      Should be considered a required property, but it is technically optional
+> +      in order to maintain compatibility with historical firmware versions.
+> +      If absent, defaults to a 4GB window at 40GiB (0xa00000000).
+> +    items:
+> +      - description: IOVA window start address
+> +      - description: IOVA window size
+
+This looks a lot like reserved region, so why do you need a new
+property? If this is not a reserved memory, then why compatible does not
+imply the value?
+
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#iommu-cells'
+> +  - brcm,iommu-cache
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    iommu@5200 {
+> +        compatible = "brcm,bcm2712-iommu";
+> +        reg = <0x5200 0x80>;
+> +        brcm,iommu-cache = <&iommuc>;
+> +        #iommu-cells = <0>;
+> +        brcm,iova-window = /bits/ 64 <0xa00000000 0x100000000>;
+
+Best regards,
+Krzysztof
+
 
