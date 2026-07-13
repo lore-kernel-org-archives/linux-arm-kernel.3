@@ -4,169 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D649CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063EBC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CJJ/eHOj/g9LLGw/rjTjsJLWXJTAnetYTrtihNqHnU=; b=JwpWcfLL2L7T8VBLe4Biw0+SyY
-	nsY++hA3tkUlW3casEmjEyiazQw22+Y2/3NxoLFWh9p+jG4KhuKWuT4jGulydT9DAS2PlbY3yWj7o
-	5sZELdm2bXnihqWOtJ5Y71gfyRWeAqbVB5/4xKKqcSNBZM+TveBRz1rk2Uuv5HYyILP5EZJF13M6c
-	/JieGc161mp16KwJJfYILm+rSWVugurCNM8zIH3C0jKf84KCAi/mppyWZZ2rAzUqxa53TU6U+AJrU
-	SH+G85M2aWWU4kMw1gcTwq3LZXbqpTE1dDOuY/MowifobvYRpxVgsa3qtq29gCrJCSGQPV5iS0qvX
-	9/7Oh/0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N1qy5FzrK/oDpJH8Scq5WyExFwCNZDgllhZpWmDlV3w=; b=riQN1/1uBwmv8XjiT4H/0gYCyH
+	sFPSgMbxq2+2nwrZAkN0T4IgRfZgcJiBnbxHFyei8RRqEGZd92Ur/57Hm2SblXmAaFb7P5YZ6Vo82
+	DLxRvZNuwAI0idajFZjxLjyPIScIeLNxdEZetMMv0ZzYUWSFZ58sSrysMDmHB40ON9im6usGtqIqO
+	QjowtsvOKNmG7z7JPqScjzuy/OQeaxx+qTT6ut6MkA/gb49k4Fo04e2eS4+B8eByvbubDy0kkbcEn
+	xmQgyIyUMPVvYw3yRQ0xKtGYPLacCvHGlvV9pB0kLZfEWYDGO3NczrFgGmk6MbhC1s85KiJhqz6pw
+	gcepjT/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI2u-00000009ejx-1s54;
-	Mon, 13 Jul 2026 14:54:12 +0000
+	id 1wjJ2G-00000009rf4-0wTT;
+	Mon, 13 Jul 2026 15:57:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI2t-00000009ejT-2J9u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 14:54:11 +0000
+	id 1wjJ2D-00000009rcX-3DOc;
+	Mon, 13 Jul 2026 15:57:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3CJJ/eHOj/g9LLGw/rjTjsJLWXJTAnetYTrtihNqHnU=; b=oODjJXIfb0cw9Lw5tHatNCwe3n
-	WtIwDr9mV9K+ETClONLIUmjfdiZjO6M4w5hm4Dx7PQEeXr5wcplfyXhUONkRHWXM83N5vcm/PaUQA
-	Khi82CmC9EXEtI3lLQSHjV20jjoQUON6QDzea5OrzvjuCMzXf/e70/PlcTcLahLS2DrF0Dre7eOMO
-	Y4abUOi51k7ZvBzNIYtggFdFim1czwBZ/MsvUQFnLN0FcJ6kpNu+rWzVhv6VjJ4ss8ie3BzbyDSWf
-	MLmFLzXpvHkJeGnR0pf8MSn9l4Y7wno6a/uUouEbhT8QDh9ROKLU4bxbAH3kOLJb+4jzNBpDmR14v
-	YTPVwchg==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=N1qy5FzrK/oDpJH8Scq5WyExFwCNZDgllhZpWmDlV3w=; b=Rk7DtX4+l/NPtVec7VUfnEmTo2
+	W8DTYTbZR1w2Nhhb6cqvSH7I+v8wpiVj2PFJhsmGd+PCS4qihv70NVQPnM9GfBFPyA6gd3uesFT2x
+	PqdtjciODi8WsGzBhSavQ+P3NlLfb4h8Q3LsdD8iZa79dax15dEa3FRdEwelRaSHd9gQ1gz87z9pc
+	dlR/6I25Knd19JxpxGQQVB4UTG8AP+okpxyyayWpOYUgvvwH6QrAprU5ids4CBPlDZv2wiDcd9Jwu
+	oZeJesnCvvOHN1+qcGv82dj4YLL8KbZblhLh7tMNKyU5wHfBQVEiHbQgVFToyxsfjawkqK/Oq6oeD
+	miePvtew==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjI2p-0000000BjkI-47Hu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:54:10 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DCDvad1209957
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 14:54:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3CJJ/eHOj/g9LLGw/rjTjsJLWXJTAnetYTrtihNqHnU=; b=Nt8P/dPqInMsrXpi
-	dlCDBMJQJzffvCbFXu8HxvCWfhNW7plselH09h1PpRF9ze7K24Nnok8hJOLAC86q
-	XJ8ig9cfD9EUAlEDbpNidNqBua279ln77PStvNLQNrJAdOl6dBeCiXd59DJ+LPiX
-	c77ipG65tx9+a2lgegLm/CRtblHxV5KK45yb5zUO4t5NngOfghrxluqSO/ZVF4ol
-	ctlAXd+oncuPTfLvseM/tQPmljH8c8uh+8Dj4q8MJstnYmCJGFBR1THnZYzByzZ2
-	Ihd5JEjkF7jOwehekW6pq3y0M94WIEhczJmDyQPNsl9a1YEGO8k9JPubq0up3zYV
-	JSDbRA==
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fcw4qsb30-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 14:54:03 +0000 (GMT)
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-448d5182870so4318175fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 07:54:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783954443; x=1784559243; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3CJJ/eHOj/g9LLGw/rjTjsJLWXJTAnetYTrtihNqHnU=;
-        b=gz2AKahhJ/kJuiBdDCYu3Q/Gd2HZws3SdVd37IEUmLHrpU+15bLVdIzSUhHytz30xh
-         aJx/VSFjCbFSrvRCE6HyuQzod/Klcjcs4rJUwkNUhsZ3YX/hp0XJZDR9ur9FpAkrcUDZ
-         VPSG9urQOSP2lI7V8GRDlu3OZrJbj6E42KY9cI4Z6DphtHJoi87o8Mi/d7Z8NGkFZeue
-         2ZgmRtgoXUwo67fVhZL21wiVtw8UFTpEiwpXt8z5fVpiV7qSPASIqa55/6yz155be/AC
-         sSvw1/tkt5Kbty4f4kh6u3BtS9/M7ELk7iBURMpuaZxzg6ZKPNVmFf3E5NuqukOoTJcP
-         wRzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783954443; x=1784559243;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3CJJ/eHOj/g9LLGw/rjTjsJLWXJTAnetYTrtihNqHnU=;
-        b=LYkHZT7IlHL18qbW34xEhnbjbl22Djhp9KbjVdOnOaQz8jF164TFNGVBBUqc76MfWL
-         aP21sATP+olKXyz/Fvo13p9zjMTtBOR/ZVJVMfDJvaHVml31zvcefavPhaTjoGQrUvcc
-         E3E3hBWI6T/Tqhfxkuwdz57B3uKcKTB4vE6P5M45o0vEX+/+8pOVrOdYrJtsp6Deyk9k
-         Gnsr8WSlwgGw9Wkk9Oug9kY8ZnWLiqgx01FKLWC2hlkfaPZJOlzMx8nzfHTHlT8gHf3Z
-         6ZXYKOVGRLahd0gHjr7movqSv7ta6czR6mbamn3K1ojwkDkd9Fy/p2pmB575GAYwY/SV
-         IV/w==
-X-Forwarded-Encrypted: i=1; AFNElJ/lUOtV/f1+gEjnDjrb84WDl4OKXiqf66Nfv7uL+5cLnNVY96dMUfVbA955AcUHEpC7YKyAKfKJcsLPfeYtLWlH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRTkpWGCssn+lk5ZqQBq3g0SIUcIVMlrGsJO17A1bZtjagU5lJ
-	BBPZ5y3AFQBikjGjMIfPatz++LrozzZD9dY9Tl2K30SfLCtowYPHecLME0Wr6fA1wdyqHJiVIdM
-	91W2rXk3Qvrqo3xO1aH/OzOuph3bAOQwcDZXvv3SjWYgHtQc71ZdFCKLa79qwmGBzAkMQ0xdvMf
-	m/Cg==
-X-Gm-Gg: AfdE7ck27k7FBI6aMRINaOaJgST1SpV74DYWVyaLORgCTHCkI7R0YRbAGKOFMMgVFzq
-	xqrltz6m3DrTMon3R4xhEUAZD4fTLq+PqGz5V3lZcC7ie/hwCeVzBvEM+4eRXKz2LWg9SxTUrps
-	W4nNKzazETp7H5aqiBPjPkMLRbPxy9sXUNlk1AqJ3n0hkPUn7CmKxEH13ZAgCDEGt33LdLZ0XIY
-	t5lmtSV0vhkqdixELdVqC1EyoOC3dJ0qbcvqtQF2KwGPSY44dej2ATCtFixUICICMlCzEosIdjT
-	3fUj+fK655sy2HAIyzcbPuwVzNNvwPUxapKDLaYpIwZsVEsIg2IGl3OA7rNZov3Ifp9uwGAIG2D
-	YFAAbXieL816PtQR1i602ZJE+TrRpFlJbOjo=
-X-Received: by 2002:a05:6820:5710:10b0:6a3:7701:660c with SMTP id 006d021491bc7-6a39a5c80camr3402654eaf.20.1783954442860;
-        Mon, 13 Jul 2026 07:54:02 -0700 (PDT)
-X-Received: by 2002:a05:6820:5710:10b0:6a3:7701:660c with SMTP id 006d021491bc7-6a39a5c80camr3402630eaf.20.1783954442465;
-        Mon, 13 Jul 2026 07:54:02 -0700 (PDT)
-Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6a38e9bc8casm6728746eaf.2.2026.07.13.07.53.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 07:54:02 -0700 (PDT)
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Mon, 13 Jul 2026 20:23:39 +0530
-Subject: [PATCH v7 01/10] dt-bindings: clock: qcom,milos-camcc: Add missing
- power-domains support
+	id 1wjJ29-0000000BoAT-4Bt3;
+	Mon, 13 Jul 2026 15:57:32 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuVYI11489883, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1783958191; bh=N1qy5FzrK/oDpJH8Scq5WyExFwCNZDgllhZpWmDlV3w=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=JkySU13ug9QaFFWgrYJgK8Ze8qVowbPwas+bBIMWJw86MudDfVhkpy6Sz+C7nqaeP
+	 EEpRYt/3zRb31/EWHOhFdX9VbMeN+8+CPYgPhSKY7evRWyaYyz51myu7COUplxpr/T
+	 djw9YJJcyzYggigqbVv9yBUhLQW04L4MIMQic83TYw5hMaQF2z1a7VOj5tD/xnBcTK
+	 x7WYIY4DDqwaxLa+TqkOp9UQ24EuHERN6lujqBHl0lAgZdY9vhuO1Ph02MrCRYcUKU
+	 ZG+/UsaRLHJWOYdJ7D+YlxH7JZGB3woGHL5yCYDt8WIMKRDTGovThFVetbmtzNf8Wp
+	 DRyXUEWQTBduw==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuVYI11489883
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 13 Jul 2026 23:56:31 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:32 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Mon, 13 Jul 2026 23:56:31 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
+	<bmasney@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>
+Subject: [PATCH v10 07/11] clk: realtek: Add support for mux clock
+Date: Mon, 13 Jul 2026 23:56:26 +0800
+Message-ID: <20260713155630.3054636-8-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-b4-eliza_mm_cc_v6-v7-1-4d91bcef50eb@oss.qualcomm.com>
-References: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
-In-Reply-To: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Luca Weiss <luca.weiss@fairphone.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Taniya Das <taniya.das@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDE1NSBTYWx0ZWRfX1qrMBcT90ALD
- 5i/rCbFCAiwH94Pw1MMv28fVvBKYPWZYyGe4eoA0F4xXFBhcYV1EeUzQvui1ehQHO3ildrSnsK7
- Qw5Oei4n5XWNUY/seIiYZgjMna8KjmoisXH4moB3VV6LybkIZjjHdpfKGE9ZQvIlNVMU4f9KnVz
- It9ze3jbZpcoB9ZHQ14ls0N96crYgluINAd/c25h9L8ZwtnW0Ax+/HSzq22PS0SBz4WVbe2XHFx
- Q4TyVj2KpHkmFhiSKu98Mg6MsK2PcMabeeuX/yca3+Vmi0tkhplufnGv4a+ZlNm04Jvl06ugZ9L
- X2d3sHXYMfMCQ63Y9Ah9etATOybnFamJAzsVtpthJ/xYUYu37+zGqb2+BNRWQObMBzIhcJbXUEG
- VVOhNs145HvBTwfCUW8zHUYPKXOvFUGZyKyeMPjFQxLmouTy9+8VH7mLRnXttsYC3Gx1joMtjhR
- YY+3ntk9kocmXtRi+/g==
-X-Authority-Analysis: v=2.4 cv=HJrz0Itv c=1 sm=1 tr=0 ts=6a54fc0b cx=c_pps
- a=CWtnpBpaoqyeOyNyJ5EW7Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=90z41mPHMHFWLCXoM8oA:9 a=QEXdDO2ut3YA:10
- a=vh23qwtRXIYOdz9xvnmn:22
-X-Proofpoint-GUID: xsryKaCRJnjuti9PIqFo01dCGw4jH2Q-
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDE1NSBTYWx0ZWRfX6K4kBjKN2eIx
- zys/BL+J2T4dVMeUi+lmS3bQE2u8fHuU5aDgXjmhRLF+swchC8y+syI9jKIM58fzLKbV3GchNCM
- 4ICuK+2qtYygzNdbApSQX4daZq8OCAA=
-X-Proofpoint-ORIG-GUID: xsryKaCRJnjuti9PIqFo01dCGw4jH2Q-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_03,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0 adultscore=0
- clxscore=1015 malwarescore=0 priorityscore=1501 suspectscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130155
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_155408_469200_E5B0F451 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260713_165730_675572_AA22BBF0 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,70 +102,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Milos camera clock controller requires the CX and MX power
-domains, along with their performance state votes, to be enabled
-before the clock controller can be accessed.
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-Document the 'power-domains' and 'required-opps' properties and add
-them to the required properties list and example. Since these
-properties become required for the already-documented qcom,milos-camcc
-compatible, this is an ABI break for any devicetree using this binding
-without specifying them.
+Add a simple regmap-based clk_ops implementation for Realtek mux clocks.
 
-Fixes: dbb9d53b7197 ("dt-bindings: clock: qcom: document the Milos Camera Clock Controller")
-Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+The implementation supports parent selection and rate determination through
+regmap-backed register access.
+
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
- .../devicetree/bindings/clock/qcom,milos-camcc.yaml   | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+Changes in v10:
+- None.
+---
+ drivers/clk/realtek/Makefile         |  1 +
+ drivers/clk/realtek/clk-regmap-mux.c | 41 ++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-regmap-mux.h | 43 ++++++++++++++++++++++++++++
+ 3 files changed, 85 insertions(+)
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.c
+ create mode 100644 drivers/clk/realtek/clk-regmap-mux.h
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml
-index f63149ecf3e1b98e60dba27093737ec84b66a899..2295e7627ec9feb6a67f3ca952e6192a31cce593 100644
---- a/Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml
-@@ -25,9 +25,21 @@ properties:
-       - description: Sleep clock source
-       - description: Camera AHB clock from GCC
- 
-+  power-domains:
-+    items:
-+      - description: CX power domain
-+      - description: MX power domain
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index 90c0658a83bf..3b014240a211 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -5,3 +5,4 @@ clk-rtk-y += clk-rtk-common.o
+ clk-rtk-y += clk-pll.o
+ clk-rtk-y += freq_table.o
+ clk-rtk-y += clk-regmap-gate.o
++clk-rtk-y += clk-regmap-mux.o
+diff --git a/drivers/clk/realtek/clk-regmap-mux.c b/drivers/clk/realtek/clk-regmap-mux.c
+new file mode 100644
+index 000000000000..bdd579e1165d
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-mux.c
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
 +
-+  required-opps:
-+    items:
-+      - description: CX performance point
-+      - description: MX performance point
++#include <linux/clk-provider.h>
++#include <linux/export.h>
++#include <linux/regmap.h>
++#include "clk-regmap-mux.h"
 +
- required:
-   - compatible
-   - clocks
-+  - power-domains
-+  - required-opps
- 
- allOf:
-   - $ref: qcom,gcc.yaml#
-@@ -37,12 +49,19 @@ unevaluatedProperties: false
- examples:
-   - |
-     #include <dt-bindings/clock/qcom,milos-gcc.h>
-+    #include <dt-bindings/power/qcom,rpmhpd.h>
-     clock-controller@adb0000 {
-         compatible = "qcom,milos-camcc";
-         reg = <0x0adb0000 0x40000>;
-         clocks = <&bi_tcxo_div2>,
-                  <&sleep_clk>,
-                  <&gcc GCC_CAMERA_AHB_CLK>;
++static u8 clk_regmap_mux_get_parent(struct clk_hw *hw)
++{
++	struct clk_regmap_mux *clkm = to_clk_regmap_mux(hw);
++	int num_parents = clk_hw_get_num_parents(hw);
++	u32 val;
++	int ret;
 +
-+        power-domains = <&rpmhpd RPMHPD_CX>,
-+                        <&rpmhpd RPMHPD_MX>;
-+        required-opps = <&rpmhpd_opp_low_svs>,
-+                        <&rpmhpd_opp_low_svs>;
++	ret = regmap_read(clkm->clkr.regmap, clkm->mux_ofs, &val);
++	if (ret)
++		return 0xff;
 +
-         #clock-cells = <1>;
-         #reset-cells = <1>;
-         #power-domain-cells = <1>;
-
++	val = (val >> clkm->shift) & clkm->mask;
++
++	return val >= num_parents ? 0xff : val;
++}
++
++static int clk_regmap_mux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct clk_regmap_mux *clkm = to_clk_regmap_mux(hw);
++
++	return regmap_update_bits(clkm->clkr.regmap, clkm->mux_ofs,
++				  clkm->mask << clkm->shift, (u32)index << clkm->shift);
++}
++
++const struct clk_ops rtk_clk_regmap_mux_ops = {
++	.set_parent = clk_regmap_mux_set_parent,
++	.get_parent = clk_regmap_mux_get_parent,
++	.determine_rate = __clk_mux_determine_rate,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_mux_ops, "REALTEK_CLK");
+diff --git a/drivers/clk/realtek/clk-regmap-mux.h b/drivers/clk/realtek/clk-regmap-mux.h
+new file mode 100644
+index 000000000000..3ab8dc5032fc
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-mux.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_CLK_REGMAP_MUX_H
++#define __CLK_REALTEK_CLK_REGMAP_MUX_H
++
++#include "clk-rtk-common.h"
++
++struct clk_regmap_mux {
++	struct clk_regmap clkr;
++	int mux_ofs;
++	unsigned int mask;
++	unsigned int shift;
++};
++
++#define __clk_regmap_mux_hw(_p) __clk_regmap_hw(&(_p)->clkr)
++
++#define __CLK_REGMAP_MUX(_name, _parents, _ops, _flags, _ofs, _sft, _mask)   \
++	struct clk_regmap_mux _name = {                                      \
++		.clkr.hw.init =                                              \
++			CLK_HW_INIT_PARENTS(#_name, _parents, _ops, _flags), \
++		.mux_ofs = _ofs,                                             \
++		.shift = _sft,                                               \
++		.mask = _mask,                                               \
++	}
++
++#define CLK_REGMAP_MUX(_name, _parents, _flags, _ofs, _sft, _mask)           \
++	__CLK_REGMAP_MUX(_name, _parents, &rtk_clk_regmap_mux_ops, _flags, _ofs, \
++			 _sft, _mask)
++
++static inline struct clk_regmap_mux *to_clk_regmap_mux(struct clk_hw *hw)
++{
++	struct clk_regmap *clkr = to_clk_regmap(hw);
++
++	return container_of(clkr, struct clk_regmap_mux, clkr);
++}
++
++extern const struct clk_ops rtk_clk_regmap_mux_ops;
++
++#endif /* __CLK_REALTEK_CLK_REGMAP_MUX_H */
 -- 
-2.34.1
+2.43.0
 
 
