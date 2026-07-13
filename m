@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D46C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DC0C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Pn+IHk1Sk762XTDH7lvSm6CZZGNFHunM58OnD0jYLk=; b=nmEG6J8jxWm9Li
-	s/yI76M4nrBnN3THmkUeZBys9K5TGHL7JWclbiogH5Vb8sa2DRSgJClh04w0N3AnTluODE676ibeu
-	62Q1WaaJBAo5nSZ60/LGzZCFanr1vav6SApdhW//9aynAzHPDV29qJ7eP9A6l6HP+rKha/GVVYcTR
-	mnjFUbSDtytYKvVj2K0eQCu25DrxGpCiZXgZhym/B/nawbwjjYllr4BaDZ7SZ1P+fpTTfghbZ9Tp0
-	kGTiNyuAMoBCoos06uL4RBN6l5NQFMhjIYSmIPpSMhz0LPODvgmvKADx4I3QhRfnTRRIPPhZqqOTt
-	FrDxQYU6uttVl+7S1YhQ==;
+	List-Owner; bh=K3WTyPeomnpShciKNumkAzLHLjjvlL0zze6H3PBXARM=; b=121aYwUDbpcV6i
+	D7Ocy6sylTnMPXkW5pFIDf8nW9IqZPxE0I4lvsED7X7IVOKxatPUJTIolyBSiMVyMYj6b0STO7Voh
+	ZdmfzkE8kvRwZpm2njqmHiJUWXKNQyE82OZ3NDsapxdmJntbM2GcwVdb+GLJGoEATg930xvHfkT0I
+	iu5w06ha2Oi9HNpq+hzEfEw4yogqrUTzlv3VpbwSeAtsEAtYYIdu9ro6M2M10RTRwc6G2xIZeoNE5
+	5YH8ncD8PUSac0rPpxYU6rMyKfuzIIJWmAYo2UIut2hJ+KpD0IL2mgIo16Ur5JGKcVsRlXqrFBDsX
+	Dt1UDYh9Jcd57SWK2qqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFTV-000000098AP-3ZpB;
-	Mon, 13 Jul 2026 12:09:29 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wjFTg-000000098HD-09cj;
+	Mon, 13 Jul 2026 12:09:40 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFTR-0000000987y-3k8b
+	id 1wjFTc-000000098EX-3HCk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:09:29 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-384c94c9414so2757318a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:09:25 -0700 (PDT)
+	Mon, 13 Jul 2026 12:09:38 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-383b4a3755fso2876573a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:09:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783944565; x=1784549365; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783944576; x=1784549376; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1Pn+IHk1Sk762XTDH7lvSm6CZZGNFHunM58OnD0jYLk=;
-        b=dW1uH0wErn3q2OLj6PzywZHMVn0xBvKOc+W6fjWBW/fQAuthn67Rc0DIja5PAUFlja
-         g0+SFct0cjTEyO9ffY7IMX9e51p/rB/xe8EN8zO5+MU2r0JcSbTy9aWsqAw7bBQ43kgi
-         eGkjuN51eyfBan89xeENzP5ydI+pSka3gLolvOqVmqIB+70QDCwbecfE8rbvMoel8IhY
-         44lZuTaK32GXbu7wbXC+HJHmO0FTqOQSrkcWw8ZbMHnBxaceVjN///1liUN/wzdj31qS
-         vRBJxyHxAsZTPCknCb8pFKWj8GhAAgI1Y6Vndg+SgcIyCqzz98/mPfzGw25+QwKhkIY6
-         k6Lg==
+        bh=K3WTyPeomnpShciKNumkAzLHLjjvlL0zze6H3PBXARM=;
+        b=P6ugSiY7zbxSP4liE9YKzsg5317OtGiANU0bbfZNEEqeEtVxnYSupYqlxNN7lZ8Prr
+         FIrEHDsHJVF2TTKo12EFgBiXBtaoEfLUajaGi6m8L+WvyOPr+1glfVVT8zqlFuuz3UFe
+         31QoLi54AoOtAXP/bxgxxob3+KX0J99wC2WyH1nWovlmk2tklQ/7F4Cyg+5VqgJAkLiV
+         D2bMk/eJ+SdtOuMkLnGMaZqNCnMhLzwbR1c2P/G6ILupSELgxL96LhWM7NPrEriqTU7K
+         0QpJQb2bLGFlY1s+7DaEp7hdVuQn2WUU/V5kivuHzhNciKFmcKDQwHDy30dLWkd3Tw+c
+         IAmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783944565; x=1784549365;
+        d=1e100.net; s=20251104; t=1783944576; x=1784549376;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1Pn+IHk1Sk762XTDH7lvSm6CZZGNFHunM58OnD0jYLk=;
-        b=gyncB/w0s6AsmUVZzwsXBavuEQ0lNsLm+45SuEbSLB5k0b7g3hSGB4hPkcGBMK1ZpR
-         6GuetnT2h5bP6/djIe8/p1hVVOSXVGaklBVdtlPQdOqZZM2eCQ5430YTqrMQcmXiohRf
-         +f+Qmc8RglTXZmnGrjzRmhvnqc/FIulUe5C1umR52tPb5e19A6FX6vhqTue7ymfSzbZ5
-         2Y29TrrtN+RcPzAnNmh3X7DrME+ofWI7pHVSn+0+Rr4pqjMRsYm5RQ6rQNWUYD2y0VNW
-         dIHVEmZN/d8oau2Oy+mK3eVCQuYlpxfMf21YnETzdBEP1B2rCw3OJ9Sdq5hjNuzvFsh7
-         ZVQg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5WRvxJAin1okn/Gk39X5fM4u8ZkPuub86Poaj1M6MJvnOLFpEVvEP/mNHok9C6UG0VulSzp/KEtvf3u0rtstk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfOPI/uDI+MwpqWnpGNpItaS5cRAw1Wvvj0EPPW7FssG/DKg9O
-	QgjFwUMciSpr9IQlaXpwsuML8foQBDB3MBlXdWZEGf1Fp1U+2geFVPDF
-X-Gm-Gg: AfdE7cnC/rsw3T3SqTMBKii6v0T87glRxGwk3HSV2KnOAcLONMxWm78huIzvY62I96n
-	VsUHjH1V7J2FlCONL0HH7jTUJ9X8R8HNwIwKY6tz8SMk8zmE1VIiiucFkwCnZKNL8lInHdJH7Yw
-	RSn5f/2QN5tyrwRrn8oMxbo7YcDy3T3B3lRDwd5QN0cMnjcNhFVctv5vB4m+Y9E3pLeG+zo9FFQ
-	gI6izwmp8TwuS4AOK0lCZGThuETDTf3sE8Bwl8pQ18fzyljujVz3x57L212/D5JVcGdsLwexWWN
-	KLKOnnRFjm2NhK5sOcUQM+1XBqbScDJcgdZrRGS/FfwxMn7g8M2xbXJzqs3oO3Q7P1vZe4MFELj
-	Putyx4K4iR8p/0paKFVwflBWd63v4a3jSDcEC2O1Et36D0LGCke/GRgS/6z6YsQzIF2JjxOUL3V
-	vim+3dzREFNYvkLk7Ln1XR
-X-Received: by 2002:a17:90b:2884:b0:387:e0db:bc22 with SMTP id 98e67ed59e1d1-38dc77b3846mr9100073a91.34.1783944564932;
-        Mon, 13 Jul 2026 05:09:24 -0700 (PDT)
+        bh=K3WTyPeomnpShciKNumkAzLHLjjvlL0zze6H3PBXARM=;
+        b=TWot8PFjP4V2G+s9fp5F9+J4KUFQfJOgBmwhYDBZ6e8xcB4uzL0z9AcOS5IucrAZJs
+         KRw3emnwOoiqZzDSIv2Qdx9BH7caIc7nDB8c8fVVpCFAOiXGgHhQqbs8kiBD/0Umyv1S
+         OdzPcErWQqTpL0egIwElYAio0pWERviLs8IC1wFaCpO8ozBgzdNIoyTWF65464ou6Xwj
+         39I5kIeax+Gm9rUjY401KUpqo7OWJMoRtoVPbme3/CEwtzBJSQgyKCsRM1LZhe4FI/lb
+         PTuf3ECkm1vz2sdWXIy+KkboSFTEJpN3kuRnAIyO82yyyVLO553ssYR4O0lA3jf2aAon
+         Xu5w==
+X-Forwarded-Encrypted: i=1; AHgh+RqVDR+1NS4UORLwbBG5ResgRhTzfnj8qdauu9eSJnD1v6i0AyHA8BJ9erzacazcdhpx1CYQE1I6h5PB1ZFoEuXI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJd22MZPP9B6Yx4p5RWtl1s18uPk38ZKnPdebHT/PkuQFMI29l
+	s0evz/jyZDx3K2fmKE3swZwB885H8Vtsmvi5SpynaEKP0Jh/dnbJ9iSY
+X-Gm-Gg: AfdE7cnYlnWfpDMt6MGeZI6J1D6aUAWQkuloqgk2i8kmsYwuNYJjqc/Gs7Va4VtLvhb
+	TFYNdWMbmHiqAUIvT8GDGza3wrop8IPJ7HZZ0kuHlyTC4y/ipCE7vOuYnlUueLYfDlxCBHJl2/y
+	XjC3Up/Ox0CoqzWxpiI5BlDf1jvkCVS588KVKxiTsVLSVpp63TNrj5Z6/36gP6RPuYGlQ2lxkOD
+	LCptf4ywTJfXUdsQrSM4tYYGHbrXN/ZRbgDglxJBLwkOZ2EbErPKMGK9w2vummf7MuaOY0VE/LP
+	K4YIJLlJDNFICUuJ+afcttbfWbEMXlvc47V0cSbMX8dyPgT9zO4Sz4WlrCssp/uMXWPBYMxGVJN
+	xvfToSrih4hP5HQMsMi0Bw8Vx3TyAeJO90rm9WpUjYiSuqXT3Fv1ekdHd3aZRGZx+02xyZjM6IB
+	n/95fWwfEHVw==
+X-Received: by 2002:a17:90b:2248:b0:387:e0db:3fae with SMTP id 98e67ed59e1d1-38dc7779d32mr8371305a91.39.1783944575701;
+        Mon, 13 Jul 2026 05:09:35 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.09.18
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.09.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 05:09:24 -0700 (PDT)
+        Mon, 13 Jul 2026 05:09:34 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -87,17 +87,17 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-kernel@vger.kernel.org (open list),
 	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
 	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
-Subject: [PATCH v7 03/19] media: meson: vdec: Fix lifecycle leaks and race conditions in recycle_thread
-Date: Mon, 13 Jul 2026 17:36:58 +0530
-Message-ID: <20260713120840.17427-4-linux.amoon@gmail.com>
+Subject: [PATCH v7 04/19] media: meson: vdec: Fix use-after-free race between teardown and ISR routines
+Date: Mon, 13 Jul 2026 17:36:59 +0530
+Message-ID: <20260713120840.17427-5-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
 References: <20260713120840.17427-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_050925_939717_B5969312 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20260713_050936_833491_B09AB822 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,139 +113,114 @@ Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Sashiko <sashiko-bot@kernel.org>, Nicolas 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Validate the return status of kthread_run() during decoder recycling
-thread initialization to prevent memory leaks, and enforce robust state
-checking before invoking kthread_stop() to prevent kernel panics.
+Prevent critical race conditions and null pointer dereferences inside
+the Amlogic video decoder driver by synchronizing the interrupt service
+routines during session teardown and file descriptor release phases.
 
-If the system operates under severe memory constraints, the previous
-implementation silently accepted error pointers returned by a failed
-kthread_run() operation. Attempting to pass these invalid error pointers
-downstream to kthread_stop() during streaming stop or application
-teardown routines triggered instant kernel panics.
+The hardware interrupt handler (vdec_isr) and threaded handler
+(vdec_threaded_isr) read 'core->cur_sess' without proper synchronization.
+During a streaming teardown sequence via vdec_stop_streaming() or session
+release inside vdec_close(), the underlying session structures can be
+modified or freed concurrently. This creates a transient window where a
+late-stage hardware interrupt can wake up, read 'core->cur_sess', and
+dereference an invalid or NULL session pointer, causing a kernel panic.
 
-Furthermore, when thread initialization failed, the lack of an explicit
-unwinding path leaked the session's private context (sess->priv) and its
-associated firmware memory block allocations. Because sess->status was
-never transitioned to STATUS_INIT, any subsequent call to stop streaming
-or close the driver file node failed its state validation checks,
-permanently orphaning active platform DMA assets and codec parameters.
-
-Fix these thread lifetime and memory leak bugs via the following:
-
-1. In vdec_start_streaming(), add an explicit IS_ERR() verification
-   barrier immediately following the recycling kthread launch. If thread
-   creation fails, capture the error code via PTR_ERR(), clear the
-   dangling pointer tracking entry to NULL, and jump to a newly added
-   'err_poweroff' label to unwind hardware settings and clear out
-   allocated structural components cleanly.
-
-2. In vdec_stop_streaming(), protect the teardown execution track by
-   wrapping the kthread_stop() invocation inside a safe !IS_ERR_OR_NULL()
-   conditional block to ensure the target thread structure actually exists
-   in system memory before stopping it.
-
-3. In vdec_close(), cleanly wind down and terminate any lingering
-   recycling threads at the absolute entry boundary of the routine
-   before flushing data framework contexts and releasing the file
-   descriptor matrices to user space.
-
-Together, these changes ensure predictable driver behavior, prevent
-kernel panics during low-memory conditions, and guarantee that memory
-and DMA assets are fully reclaimed during teardown.
+Update both the hard and threaded interrupt service routines to capture
+the current session reference using an smp_load_acquire() barrier snapshot.
+If the snapshot resolves to NULL, terminate immediately with IRQ_HANDLED
+to guarantee execution contexts do not process stale structures.
 
 Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
+Suggested-by: Druk Tan Ozturk <doruk@0sec.ai>
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Closes: https://lore.kernel.org/all/20260521090944.F35401F00A3D@smtp.kernel.org/
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/staging/media/meson/vdec/vdec.c | 48 +++++++++++++++++++++++--
- 1 file changed, 45 insertions(+), 3 deletions(-)
+ drivers/staging/media/meson/vdec/vdec.c | 22 ++++++++++++++++++++--
+ drivers/staging/media/meson/vdec/vdec.h |  2 ++
+ 2 files changed, 22 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index d1f35fc893de1..7fc73d5cdebbf 100644
+index 7fc73d5cdebbf..7ae3d5a9dd6ab 100644
 --- a/drivers/staging/media/meson/vdec/vdec.c
 +++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -32,6 +32,10 @@ struct dummy_buf {
- /* 16 MiB for parsed bitstream swap exchange */
- #define SIZE_VIFIFO SZ_16M
- 
-+static void vdec_free_canvas(struct amvdec_session *sess);
-+static void vdec_reset_timestamps(struct amvdec_session *sess);
-+static void vdec_reset_bufs_recycle(struct amvdec_session *sess);
-+
- static u32 get_output_size(u32 width, u32 height)
- {
- 	return ALIGN(width * height, SZ_64K);
-@@ -353,13 +357,23 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
- 	sess->sequence_cap = 0;
- 	sess->sequence_out = 0;
- 
--	if (vdec_codec_needs_recycle(sess))
-+	if (vdec_codec_needs_recycle(sess) && !sess->recycle_thread) {
- 		sess->recycle_thread = kthread_run(vdec_recycle_thread, sess,
- 						   "vdec_recycle");
--
-+		if (IS_ERR(sess->recycle_thread)) {
-+			ret = PTR_ERR(sess->recycle_thread);
-+			sess->recycle_thread = NULL;
-+			goto err_poweroff;
-+		}
-+	}
- 	schedule_work(&sess->esparser_queue_work);
- 	return 0;
- 
-+err_poweroff:
-+	vdec_poweroff(sess);
-+	vdec_free_canvas(sess);
-+	vdec_reset_timestamps(sess);
-+	vdec_reset_bufs_recycle(sess);
- err_free_vififo:
- 	if (sess->vififo_vaddr) {
- 		dma_free_coherent(sess->core->dev, sess->vififo_size,
-@@ -464,7 +478,10 @@ static void vdec_stop_streaming(struct vb2_queue *q)
- 	if (full_cleanup) {
- 		if ((q->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE ||
- 		     !sess->streamon_out) && vdec_codec_needs_recycle(sess)) {
--			kthread_stop(sess->recycle_thread);
-+			if (!IS_ERR_OR_NULL(sess->recycle_thread)) {
-+				kthread_stop(sess->recycle_thread);
-+				sess->recycle_thread = NULL;
-+			}
+@@ -484,6 +484,9 @@ static void vdec_stop_streaming(struct vb2_queue *q)
+ 			}
  		}
  
++		/* Synchronize and flush pending hardware interrupt service routines */
++		synchronize_irq(core->vdec_irq);
++
  		vdec_poweroff(sess);
-@@ -970,6 +987,31 @@ static int vdec_open(struct file *file)
- static int vdec_close(struct file *file)
- {
- 	struct amvdec_session *sess = file_to_amvdec_session(file);
-+	struct amvdec_core *core = sess->core;
-+
-+	if (!IS_ERR_OR_NULL(sess->recycle_thread)) {
-+		kthread_stop(sess->recycle_thread);
-+		sess->recycle_thread = NULL;
-+	}
-+
-+	mutex_lock(&core->lock);
-+
-+	vdec_poweroff(sess);
-+	vdec_free_canvas(sess);
-+	core->cur_sess = NULL;
-+
-+	if (sess->vififo_vaddr) {
-+		dma_free_coherent(core->dev, sess->vififo_size,
-+				  sess->vififo_vaddr, sess->vififo_paddr);
-+		sess->vififo_vaddr = NULL;
-+		sess->vififo_paddr = 0;
-+	}
-+	vdec_reset_timestamps(sess);
-+	vdec_reset_bufs_recycle(sess);
-+	kfree(sess->priv);
-+	sess->priv = NULL;
-+
-+	mutex_unlock(&core->lock);
+ 		vdec_free_canvas(sess);
  
- 	v4l2_m2m_ctx_release(sess->m2m_ctx);
- 	v4l2_fh_del(&sess->fh, file);
+@@ -989,6 +992,9 @@ static int vdec_close(struct file *file)
+ 	struct amvdec_session *sess = file_to_amvdec_session(file);
+ 	struct amvdec_core *core = sess->core;
+ 
++	/* Synchronize and flush pending hardware interrupt service routines */
++	synchronize_irq(core->vdec_irq);
++
+ 	if (!IS_ERR_OR_NULL(sess->recycle_thread)) {
+ 		kthread_stop(sess->recycle_thread);
+ 		sess->recycle_thread = NULL;
+@@ -1038,7 +1044,12 @@ static const struct v4l2_file_operations vdec_fops = {
+ static irqreturn_t vdec_isr(int irq, void *data)
+ {
+ 	struct amvdec_core *core = data;
+-	struct amvdec_session *sess = core->cur_sess;
++	struct amvdec_session *sess;
++
++	/* Secure an atomic acquire snapshot to protect against concurrent teardown */
++	sess = smp_load_acquire(&core->cur_sess);
++	if (!sess)
++		return IRQ_HANDLED;
+ 
+ 	sess->last_irq_jiffies = get_jiffies_64();
+ 
+@@ -1048,7 +1059,12 @@ static irqreturn_t vdec_isr(int irq, void *data)
+ static irqreturn_t vdec_threaded_isr(int irq, void *data)
+ {
+ 	struct amvdec_core *core = data;
+-	struct amvdec_session *sess = core->cur_sess;
++	struct amvdec_session *sess;
++
++	/* Prevent late-stage threaded interrupts from dereferencing a NULL session */
++	sess = smp_load_acquire(&core->cur_sess);
++	if (!sess)
++		return IRQ_HANDLED;
+ 
+ 	return sess->fmt_out->codec_ops->threaded_isr(sess);
+ }
+@@ -1136,6 +1152,8 @@ static int vdec_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return irq;
+ 
++	core->vdec_irq = irq;
++
+ 	ret = devm_request_threaded_irq(core->dev, irq, vdec_isr,
+ 					vdec_threaded_isr, IRQF_ONESHOT,
+ 					"vdec", core);
+diff --git a/drivers/staging/media/meson/vdec/vdec.h b/drivers/staging/media/meson/vdec/vdec.h
+index cc0cfafb8a951..d165c343fd022 100644
+--- a/drivers/staging/media/meson/vdec/vdec.h
++++ b/drivers/staging/media/meson/vdec/vdec.h
+@@ -67,6 +67,7 @@ struct amvdec_session;
+  * @v4l2_dev: v4l2 device
+  * @cur_sess: current decoding session
+  * @lock: video device lock
++ * @vdec_irq: irq for video decoding
+  */
+ struct amvdec_core {
+ 	void __iomem *dos_base;
+@@ -93,6 +94,7 @@ struct amvdec_core {
+ 
+ 	struct amvdec_session *cur_sess;
+ 	struct mutex lock;
++	int vdec_irq;
+ };
+ 
+ /**
 -- 
 2.50.1
 
