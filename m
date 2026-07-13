@@ -4,141 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58173C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C44EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 17:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+HmimH2s1HAkSgAokpk+iJmU3+iLNnhSMTAZmUnv24=; b=hk6JwX+R/krUk+z48VLTDC9ume
-	ZR5GGT0FcDo0OS2OyWkBfcXREBCI2EZ1kVF03orMrD77AYM055EUuZi7pipsAUhMf7jglQhaH57zY
-	rtZQ51AQIrJZuwOdm/BpBdmk4it/eSvR35dO67qhqKu53/68hAX1xmFwBHF7zLQYi9TZ5RbeGzGXT
-	JjJwp8Kwrx2JiXxDDFXsDCuAg/qXWvjl6KJxT7EIAimJvJsr4NuOMyaD4yhAAj0B70RT2MOkN0RJg
-	buJbRvfskOHoWQtZW2oTbhm4P2irDhiHW51iKCPgE8Qftun1tYxyi+rJ/OZ0/lzK/WSKcbQ7V9llc
-	J5BEtZpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oJsSx/HEoPwxVcCgWGLUI27XyrVQkgz7krHZIgH9oMs=; b=rnetXl5qO/LwNMQhNpEsn6kL6e
+	Mjh0pOzSW22FgQiMMWG4XPm2DbXjvXmDykuFqQoOSI1QIGiZmZhgBqezW7lPMl1ox3fP7OpS6TdDo
+	VY6h5LbYW0KuKiQ9rk5Nhq3bJXhPi37Q/cw200KbtCxqUby5Ie2P4cJejp2e2UJ8sbAD0cLV1Qdcl
+	e2tB0WB8E5CqoFWYzxlhFSqZqyPB6UmeLtJmkngcLQkdzvN89RxInXlJXoRuav2ICf70mUOqko2N4
+	xfgLVDOgOZYLSwtFrsiKnWTdtmv0j3VONWyi+h5VAIzZkynlaM4PbbhsznLc+1FeWntpwP4eOX7sw
+	OsH4D3dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJqg-0000000A1CS-47TW;
-	Mon, 13 Jul 2026 16:49:43 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wjK6W-0000000A4aD-2Gtz;
+	Mon, 13 Jul 2026 17:06:04 +0000
+Received: from mail-westeuropeazon11011020.outbound.protection.outlook.com ([52.101.70.20] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJqf-0000000A1Be-0aeT
+	id 1wjK6U-0000000A4Zc-3Ehe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:49:42 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DFEZvH2836434;
-	Mon, 13 Jul 2026 16:49:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=A+Hmim
-	H2s1HAkSgAokpk+iJmU3+iLNnhSMTAZmUnv24=; b=dATNxewfjCQGKXJIS/MCM0
-	QTbLLlxKGhSwOwXFcwj1LTf/sarWVEdoNe4J54bUjfmJCfgfqmjndvjyHAQarIw9
-	IGcg3RZ3kMhE8Aax4Jf7ULuXgqxKvt8qArRqkuBfNX2aQg7bYR30L6tz3ssDaG/7
-	Ci935S8ZKktDo8d/uRyjknkHr+sTSyKVmCCEvcDi8SJjKPf0JLs7mvYyfBEDF6Jk
-	0uAVJ2YTkUWj0CintH8vPWJkw1Vrz+mpvW7KEhbiDrqNCYg1BCT3mVwuDaqezImH
-	bzjTSiAEawiNGSPwPENBli1sWp5csJpgVUUjZYRamyYFrUdNPFZTCP2zvufuzw7g
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fbepx9sj8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Jul 2026 16:49:28 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66DGYdxO030256;
-	Mon, 13 Jul 2026 16:49:27 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fc2uxxced-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Jul 2026 16:49:27 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66DGnKLt16712004
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 13 Jul 2026 16:49:20 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 646B620043;
-	Mon, 13 Jul 2026 16:49:20 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 585FE20040;
-	Mon, 13 Jul 2026 16:49:18 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.87.153.197])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Mon, 13 Jul 2026 16:49:18 +0000 (GMT)
-Date: Mon, 13 Jul 2026 18:38:29 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich
- <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Joey Gouly
- <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Nico Boehr
- <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch
- <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo
- Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand
- <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon
- <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 13/27] KVM: s390: Prepare KVM/s390 for a second KVM
- module
-Message-ID: <20260713183829.63e570b2@p-imbrenda>
-In-Reply-To: <20260706085229.979525-14-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-	<20260706085229.979525-14-seiden@linux.ibm.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Mon, 13 Jul 2026 17:06:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x456DPZZ/t9mf8JNLetQLLFsqxpbIrrmjAPuNW8FgzZAOzbbGGqJ6J9fsXKhGnicyNvT2X41hZW1KAjUSyjbDXs2ZWGZqZYhFTZaJqujilyhaObMTjMYVeQGR4Q+nUTljthC1efKBzMzHsG8iB2iTUswFdiywloHcZsQL1r+9FrPpvsdm3XTP3HjbcAAh8GfbZUWgx/rMJWRWwdAgqUi0QCzmA/2i5KqTmtHA1AUHOL2GwrP3w7Mn0naznx8LL1jq/Vyj/39C4gZmVa57JgcvZd8I4Ys/xnVeICn+8uFKeG9JiJyGeHaKhSWFDhLLA6oySNvpaAw+1eFSCD6iwqKBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oJsSx/HEoPwxVcCgWGLUI27XyrVQkgz7krHZIgH9oMs=;
+ b=xc1XJgsWF9z6TMu42uYQsfXGfFexUb3JHQ4cOZa4gvmEMbrYjXj0zTi+EmErc6glPOoZsQtghEDaUqjEbqz+j+MpCWNtFVYW3z9pjtrq0ep0zA4X9teY5Zr0q5I4eJqQd2pdjoysoyBf7i0xvMr802JqC3OT+7NNy2d1MsyoDIPk+5CoDoUtSst/CrDUOYQQKorLROgbhcq8KmvbUBUfUp1fx2HIOKjxUO6itLSc2qd7uAavudChPEnawE4z/NwaRyb1Bkbz5o6z0d7uXiiWyLdLhOm2xGcKIO4aRTXagRq+IcVuYOY8voxafOujUt5ULYGr51xIjTqtL0c6nE+X3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oJsSx/HEoPwxVcCgWGLUI27XyrVQkgz7krHZIgH9oMs=;
+ b=tR//pdO4O3vvsAAxmlBsBDbDXNoiYQbVv4YB1J/n9WFZ5fULUm7zpTQPZBFA/lPXSgEp8Cenblt1aiG/8EohQlenV8SgamjCuEhCKxTRqyV35Dmhzg1rUpnWcw/suoBZEq38MjDrCwUK2WFgReC+tb9BBHefmFBLftNhL6Twn6OuYR1ePAF3HmRVRsDguLFVl5A9gWTGSixmN8Fgr5gUaJKvg/abPjEt9wLRicIV3OXXit1YhwxAx8+5Ul2v7v+3Uui5DF05/iAnM4M3NTx+Uo0N8gN8axHZcDuq5dIdXh42kJr5nZbuBvI8jkK67pogXNsdOZCGqtZXspJFp473oA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB10228.eurprd04.prod.outlook.com (2603:10a6:102:454::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 17:05:58 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
+ 17:05:58 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Esben Haabendal <esben@geanix.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: imx8mq: Add DCSS node
+Date: Mon, 13 Jul 2026 13:05:51 -0400
+Message-ID: <178396234795.544810.12859518885796012821.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260711-imx8mq-dcss-device-tree-node-v2-1-037026d45c21@geanix.com>
+References: <20260711-imx8mq-dcss-device-tree-node-v2-1-037026d45c21@geanix.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P220CA0030.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 0jYii26hJDZei0ZDooDfsAPRucOj8cdX
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDE3MyBTYWx0ZWRfXw69rnLVWo3E4
- 5PICwphPZ40aVci50nZ1eTgLri/ZuZgTAPUupH6a7IuYKwh8WxquEBRo6CTdaIfGtRLDLht4Ura
- 30nqzUcyaeSOl1uJaT1mduXv7JmAKKo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDE3MyBTYWx0ZWRfXxE1JTgVn45BN
- JNTRZG7vw3YykmBtc5HEf8FAJ2MFn5Iu3h/Lop0zkrDZUWx2Teqg6EEyueNiK7Uefyi0tNFNSXf
- x5T7Arpje2lMB4muAEY/hSHd7H4pQEiiuyNqIsdfolYEmsJ2Ue3GhW79GM1Z4kLEszS4IIjDlbi
- Xy6MJBkEDq7AAqMZ3S85uX0flz7PU+JcBEB3zZ9aAY/tePLz/dMLKgvy3lzWX8GXUAlEe1sjL4j
- OKCwjTuHUq5CX8cC/yBxS4EBJGegBxIifHVRtJ0VB145Ctxuyo+KdVfBV9Tje67jnV2auS6L9cf
- KySzy07y3npIC27i0w+/PP6KAtVR34RKa2KxPX7yg9mIuqibiYNd6ll8+d56X0A0Y8rsLLEaDot
- wwmXje+J2QmPY7DQI10ZXQMDuy/mIRABgQTWty02EczWVcvKA1Ac46JOE1dIT24PW0TNytau+gl
- hRHnv2oP/6nsFaBWtnw==
-X-Authority-Analysis: v=2.4 cv=XbS5Co55 c=1 sm=1 tr=0 ts=6a551718 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=X1SsQTfnGOJPsq-MPYYA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: 0jYii26hJDZei0ZDooDfsAPRucOj8cdX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_04,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 spamscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 adultscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130173
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB10228:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2026cabe-2735-4d58-32be-08dee1010267
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|19092799006|1800799024|18002099003|22082099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: gJkWV1LYp8KEj+qj9bJ/zhiJdBWNTsdg5jce6ZGPXhZg3bxc/DXmP7x4vsl4gWomBbysQSs+X04M847XxwVfzGd7cWbZueitN9GI52THgy+Jzad7sh/Y1wi3miTXUBcKdYm1vw/S2Wg1a0HIM8xoRibe41unT4JETu3OchtoKdvBkxrY5ZF0ttZRERWj1q+rxIWvR5dDLRKUbUasJDBqm6JLRedhwyPzkwLvj/t9QhPx5DC6FRyJ6FLCLroDOOf8BQZLTzSgOchd0iijyD0VTuf457BJnylLe+rpCwBNs9Ise1evDt0nX7QgdIfw2/wbORuWb7X5TG0JmnXBL9U7OSouH93dtDgc40Rflf2Ix+f/ZGP17PFhLsuKeyUHEvpr1fTDOqUNLNjMy6NMVAdFolNV5hyxrCCIe6acVG2ZfxtZKMQtUaZHi5egXz+by23fq1nN9tEr8SHEEYOFrQ4p2icy+LZdifsvsuIS3nE1ah1Rv7iCWF82vpqLM56FKpR7IXQdta7uipksZ9dEmsWKcM+EM1gB5ePefk0dBxEraUZOGsCWycfZ7VQCS2Cj00K6trUlkFxUTwehSWwF2CCo/u1jC+xYD10Ro0MrYWEv8vdx+e9jN6Wo7F7lBUra2lCS+mCTSE4ITeacNjl5CaOJYADh5qJIoAamoAYPM9LfEo0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(19092799006)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UzNaN3NEdUVyQXdLUGFmTUhQaDdjdUJaTTB0ZDNYZTY5VWkwcVdqeXVzemdj?=
+ =?utf-8?B?U3pDM21taGNJYnkyY2ZtcHk4Q1FFUWE2MUhITzRTQy9KdGpTekRMa0U1TW1T?=
+ =?utf-8?B?em03cGw1KzdhM3ArUzg1cGdZUmJrL1dONHlSTW1RS0prN1RUR0xIVFVrSEw5?=
+ =?utf-8?B?bzVGcjlVdmo2U2k4UzJMUEpDWDJLc2MwSTd1ajFHM0tzTjZvZm1CUWdzcE5L?=
+ =?utf-8?B?c1NwbGNsM3pDTjAvcktzMFhGeXlaSDErRFlZZ0xwM05PNm1UU3Y1NldyaHk2?=
+ =?utf-8?B?REFTdGJZcEN3S2xMekc1Q0c3V09hNFlDV3J1RG5tZ0JLcHVwdlJlTnJzOG11?=
+ =?utf-8?B?bXl1OSs1cHBCTk9xQlVKcE4vWHZxZDB2T3k2bDZ5LzJXa01yR21QcGo3NVp3?=
+ =?utf-8?B?RjVqcE8yQndpTXNrdGNEZ3VRSWdsMHFOblNPNmRxaXgzd0h2ZFpZaFY5NmVu?=
+ =?utf-8?B?TTdDQThEUlhHa1dpTGJUejdrT05UM1BRUEZNcVRod0xkV0JabkRmWVVOVGxF?=
+ =?utf-8?B?UmxGRkJvTlhIQVpNWGpOcjEvZk5UdUxkOUwydVViaGxUekpIb0dRUkxEdTV6?=
+ =?utf-8?B?cHMzSjc2L1JEQW5GdE5OZ3BneW5FMkhYQlNhVnYxK2lqSzE4eTM5NHk5eTZY?=
+ =?utf-8?B?Yy80d016b21nZ2lkUWcySkdwOTRVUURwL0NZd3E5cTk2cjUrcnVIcnhXSDU5?=
+ =?utf-8?B?NldwV21Xako4MGcxdi9GYzJsNEM5RjVod1IxT3hldUg0OEhaaVBvRXF4T2Rr?=
+ =?utf-8?B?aXlvd1IyTEYwNjZoVW9hdHlQT29FUktTT1B4bVZlMDVHVjJqV01WYkkzQlFu?=
+ =?utf-8?B?eWp0ZzFTV09Ba09tTEhRR0lqWjlCc1kyMllHZXFHdS9TTzg5MHNWRDVPZ2sz?=
+ =?utf-8?B?VUhYeVM4cTN5RzJUaXdkdHRUdlRnM05jeDhIb2RBSmV4eWJxYTJ0UkV3ZlYx?=
+ =?utf-8?B?aTRhWDg2R1ZZRFIvZUl1TktiaHVRRURNZ2hNcXcrMlJBSzdaazB1aGNJbDZ4?=
+ =?utf-8?B?OTZKejcxLzAyZmRUOFFTbnFwbllmL3gvR2U0SEZrOXdlT2RHRy9BRVBDN2h4?=
+ =?utf-8?B?THBSb3JWTjZicDFZZXJocGZla3pkMUlUTHB5OTdTYzdXU1BWb1pKYmN5T2ZD?=
+ =?utf-8?B?V1c1L3FSaXl0enRldHJHazMzczhKd0dWRCtxMS9hRzB5WW02M3FUNlIyTlpv?=
+ =?utf-8?B?VWxhOFFnZFRCWjBKTUJMMHNtQUphVTlISXV6Z20xTk9ibmJnSHBTci9NaGZs?=
+ =?utf-8?B?dUh5RGEzbG9GMWowMWVTWkdCRGk5N1BJNms3VVJQS2s0dWxaZkFva25sZytj?=
+ =?utf-8?B?OVdaQ2tTY3BXWG1QMS9HUi9nN1dRbWt2aW5kTklEOUloN0FVd0lHSTJpbyth?=
+ =?utf-8?B?T2cveVBsSE5EelNNTFBSYkJDS3pOZTAxYlBOc29USXZWb2xuVVF4ei9JeEc3?=
+ =?utf-8?B?R29lL0RPZGdJOXRiUC9KWHJHVENTcHVNclNuMVhURGpVLzlLNWNHMExDSEtP?=
+ =?utf-8?B?a3ZVUXBYVklBNWNSNlJ2UnBabHpocmpxaklPOVZXU2J6M0JuRUZ0d2tCayt0?=
+ =?utf-8?B?Vm55UW9CQUZYZzZFS1Vua2ZHN0N5RFNRR2s1TnpKcTVKQlE2a2dNSWFlcEY5?=
+ =?utf-8?B?a2doUGs0V1NTWXlvQ1BxbHBvcVk0SmNNOFdXRjBWekhKTUgzTkdMNWlRV295?=
+ =?utf-8?B?WHgrK1ZlbFFHZ3JoYkJmeFdHVWdJRnlvWjhNTjJsVFVOVEprcGt6UUxJN2JQ?=
+ =?utf-8?B?UDBFaVpScnArNjFBTHl2UzRCTXEyanZxdmFxemVZZnFQc2ZnLzhrcTBkdUZv?=
+ =?utf-8?B?bTQyWktxN1p0UXZEMUpNVVlmQlcyRHVQOFBmcGRkN0Y1Q3I2eUY3dHZPRDZi?=
+ =?utf-8?B?eStJbHptN29oRUx2OHB0N29yZUp5dUlDVmJkQ3liUjZsNHE4eWxtenNHSzdR?=
+ =?utf-8?B?bCsxalU3VERBekVuNGlSanIwcTV4ZHlzNG9mNnVOZGFzR21Sb2dnNmhEek50?=
+ =?utf-8?B?ZEE4M0xzNmZubzN4TW1mSU5RMzBZOElGMWpxSjRITjZrTE1DNU1PL01tV1J0?=
+ =?utf-8?B?Ym1IYUpJcTFjSnRreXBQQThSc3BRZ09NR0c1blZ6eDlBOXp0MmdiNzNwbHhM?=
+ =?utf-8?B?ZkgyYlFPcStiNXVaaitrdndtc0NqTGtKbktxQ2JFTVFDOUIwcy9BTFFyM1dk?=
+ =?utf-8?B?a2JyelRySnU0ekszemtzb056ODE3Wm02eW5NZG56SWVVMkVDMDJ2TGdQODlo?=
+ =?utf-8?B?YWlrd0xmcmhEMlVGWmExdVFodnNld29nbm9OMDk0Sis4MFVhc1BFaFhGV0Nu?=
+ =?utf-8?B?MTRxeXVhWm0rLzQ1TzRSV2w0eWJEbzNjbVNyN3I0WW1Kay9OdVBhRVE5eTVy?=
+ =?utf-8?Q?B+3rYT4naSHZVLoA=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2026cabe-2735-4d58-32be-08dee1010267
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 17:05:58.6732
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9oPZMIhjZeL4ubhsVl4qW8FlQ3ySOiBkoXFtHuMDZHvPkhYJW6niUxCK0U5EEyzKtJAzaNN1KogAx57YK2bUR0s3dYTVglZHV0SLz62khMF90KoIz4/rU5vEvUN99ieJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_094941_196945_024A7AC1 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260713_100602_814401_F068EAF6 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,61 +158,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  6 Jul 2026 10:52:13 +0200
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+From: Frank Li <Frank.Li@nxp.com>
 
-> Lay the groundwork for a second KVM module. Guard KVM/s390 behind the
-> KVM_S390 config and turn CONFIG_KVM on if selected. Move all the
-> kvm_host definitions to _s390 postfixed headers. Prepare local header
-> include guards for a new location. Move gamp related tracing into a
-> separate file. While at it, rename the main KVM/s390 files from
-> s390-kvm.{c,h} to just s390.{c,h} to match the naming scheme of other
-> architectures.
-> 
-> No functional change.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/s390/Kconfig                             |   2 +-
->  arch/s390/boot/ipl_parm.c                     |   2 +-
->  arch/s390/boot/uv.c                           |   2 +-
->  arch/s390/configs/debug_defconfig             |   2 +-
->  arch/s390/configs/defconfig                   |   2 +-
->  arch/s390/include/asm/kvm_host.h              | 774 +-----------------
->  .../asm/{kvm_host.h => kvm_host_s390.h}       |   6 +-
->  ...kvm_host_types.h => kvm_host_s390_types.h} |   6 +-
 
-I really dislike those "almost renames". I'd prefer to have a prior
-patch with the differences, and a second patch for the move.
+On Sat, 11 Jul 2026 12:18:42 +0200, Esben Haabendal wrote:
+> Add node for iMX8MQ Display Controller Subsystem.
 
->  arch/s390/include/asm/kvm_host_types.h        | 347 +-------
->  arch/s390/kernel/early.c                      |   2 +-
->  arch/s390/kernel/entry.S                      |  10 +-
->  arch/s390/kernel/perf_event.c                 |   2 +-
->  arch/s390/kvm/Kconfig                         |  10 +-
->  arch/s390/kvm/Makefile                        |   2 +-
->  arch/s390/kvm/dat.h                           |   6 +-
->  arch/s390/kvm/diag.c                          |   2 +-
->  arch/s390/kvm/faultin.c                       |   3 +-
->  arch/s390/kvm/faultin.h                       |   6 +-
->  arch/s390/kvm/gaccess.c                       |   2 +-
->  arch/s390/kvm/gaccess.h                       |   2 +-
->  arch/s390/kvm/gmap.c                          |   2 +-
->  arch/s390/kvm/gmap.h                          |   6 +-
->  arch/s390/kvm/guestdbg.c                      |   2 +-
->  arch/s390/kvm/intercept.c                     |   2 +-
->  arch/s390/kvm/interrupt.c                     |   2 +-
->  arch/s390/kvm/pci.c                           |   2 +-
->  arch/s390/kvm/priv.c                          |   2 +-
->  arch/s390/kvm/pv.c                            |   2 +-
->  arch/s390/kvm/{kvm-s390.c => s390.c}          |   2 +-
->  arch/s390/kvm/{kvm-s390.h => s390.h}          |   2 +-
->  arch/s390/kvm/sigp.c                          |   2 +-
->  arch/s390/kvm/trace-gmap.h                    |  45 +
->  arch/s390/kvm/trace.h                         |  14 -
->  arch/s390/kvm/vsie.c                          |   2 +-
->  include/linux/kvm_host.h                      |   2 +-
->  35 files changed, 103 insertions(+), 1176 deletions(-)
+Applied, thanks!
 
-[...]
+[1/1] arm64: dts: imx8mq: Add DCSS node
+      commit: ed93dafad1121ad5c8e48185789e4eee551a0434
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
