@@ -4,145 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F42C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 901EDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+e6RmfXt3qxA9UnW5TIitbXtV6Z0EGUaJKm7P6Ut0g=; b=HsLdAPnqhDHrPDcKtx3JRPywu2
-	KIPXKkTAswksAeJg7z8xN0WERpzlEawFXNhItb6T2K7eDVD9Wyc3KjE7pJcXXpw6GmYUWdy6Cpi+9
-	kk+9K6oPBC6xyktP7LmVTMqjihXriDuBnAlcZJRfXscOwnNxH9CpTnas06tDo2M3TvyVAvne/bzWW
-	09wPJ27k01yLLh9smCJO7TJrNzc3InvPaeJW5uZeYdwuLnHHYx6BJsGvg+jq7Ka3Z72hrsHa6NvY7
-	KaZ5apqfLnuVUb0SibJeiYL+Z0BZedFF7HQw7hbFD4NZ0tg9x/PFhGBPaJ1MjKVyvbvjnmfqulNpJ
-	7nA1xExw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OrneY2kKhdTyzwwJPc0c8d/pNlFC/NXGDitof6NVC2g=; b=BH19ruLzcbqGxF1xaFtuoLYS2s
+	YrNJiC9VhOIOOY7+1Y/LlImuPRUeKKwc4zOWyd2jfSFR3V5exUzzkIZQSEO5j3X6dyGBSSKJlq4Tn
+	C5cX3yCJHUxIvZEf/NNmkegzXxBj/FBNT8G9EkifyFoSxudQclPNfgUnJE4dYXgWjMPIVEFveynuz
+	V4bFA4PKRW/gz8tBLXWE3h1eQ//obbbT13K/scY7CDz0bq5a+kx/pNTnHBDkbxlY73j5/MOdKyzBx
+	0Bz+aWyQdzg9S6NQZ68noHcB28AZDeSHREYc2A7M8j71BaX6iHnED5/ulCmHS3uX6YEppHWu0b3cN
+	+vyfSd+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDDh-00000008m9o-473p;
-	Mon, 13 Jul 2026 09:45:01 +0000
-Received: from mail-eastus2azon11011020.outbound.protection.outlook.com ([52.101.57.20] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wjDEf-00000008mHm-0tp2;
+	Mon, 13 Jul 2026 09:46:01 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDDf-00000008m8Z-0ka5
+	id 1wjDEd-00000008mGj-0QJK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 09:45:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PUESFjQ+E6lScOQf29hfFqbsVFoFW7wzRdNZBVujoTUOw+58f0Mp8ocpbO+gRMOrwN27Jglw04QjSPDyPF1XDuWQdn94Tz44Okwfd+VQ6fN8z78szLUim3NoshpFQTSbQDA+Eto8A7irREA8s7NfMKqYcvUBbobZahUyxc8oGkM/oKjORLUF7ROmxfO+7m6IvDKO/QiCFTPCJgUVScpla4/lgZCJVL6rGZAITYZ15oDfjLKjqo75Ur1Ae/ybxnZfz4pxC3sqxzmJVtK6rT93DRLnSuvJsGSU7Mxitq232ANm0cl2+WUN40YF4BWflr4ewJT2hBaKh+L9fbVFcT0zrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V+e6RmfXt3qxA9UnW5TIitbXtV6Z0EGUaJKm7P6Ut0g=;
- b=e0e7sCRnpMBVOhaVMDr0cYvoVrfdxVbWYauGwhPAxaEh7kEHcqWVf/UqiAqc/bCDBG+NmXRHTTTDwUgkb19ctd4qRk7qU/lD24Yt6mwuNpM1m8oy5zA4WpvtXLml1ZHIJAY8MpXz1DiFRCk2dv14Kw4mdb/nkIEkfz9iAQkmXEyhUExQ4a0ObzGTVIOwqfXWwoa4isw9kuzBgq4ibynjzdGCaT+HQJg+X6fvDBIJr74W81hGaP+59yvTMbfA3uI7mFKWVy5NXMmSj7lTwcRP2BnvGf0j6nrU8cAeSmAVKDZffXvHNLpW/spxaaqtSd3PSMwz7i9IumtcJrdcynnOcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V+e6RmfXt3qxA9UnW5TIitbXtV6Z0EGUaJKm7P6Ut0g=;
- b=sKNqcnlPoT1fRK0/6mVhkZA+WOWJRQYvb+PXSxFQNVM/YvWR/f5MpEMd68J+HsKuFrkjhqxVNr75HUoWGpWZNeg4QT46LrTyjmE5pW4tVEzcbmjEqJNaz5q2VIqjBHotjC+CRISzMPRDsTLzphkq8KMkndPI5xrfB19OWh/tPEE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by MN0PR12MB6272.namprd12.prod.outlook.com (2603:10b6:208:3c0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
- 2026 09:44:50 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0202.014; Mon, 13 Jul 2026
- 09:44:50 +0000
-Message-ID: <2a3ba353-24e3-4363-90ea-67aa893ab324@amd.com>
-Date: Mon, 13 Jul 2026 15:14:39 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] net: xilinx: axienet: Derive RX frame length from
- residue in dmaengine path
-To: Srinivas Neeli <srinivas.neeli@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Suraj Gupta <suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Alex Bereza <alex@bereza.email>,
- Folker Schwesinger <dev@folker-schwesinger.de>, dmaengine@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260713072146.45269-1-srinivas.neeli@amd.com>
- <20260713072146.45269-4-srinivas.neeli@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260713072146.45269-4-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN2P287CA0007.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:21b::7) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Mon, 13 Jul 2026 09:46:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=OrneY2kKhdTyzwwJPc0c8d/pNlFC/NXGDitof6NVC2g=; b=Y27lHHXo08WXoMk2xFeZQdz+34
+	LYRm6tADlH2i0R2V9ynoDd9+99WCScjoXo5wcN6oxFBDKeRoFyFKjW7Rf29dlGxERpwZ2FErF9JCv
+	7bS/Kbm/O/XtdNn951TPHhVytzUAZDdACspxGB7AFKhC94zncWgvhGvD/11tCv0n1/JYel3IT7y6X
+	06ozM+nNukZfiYp77SHjq1qqTEoGBpWfAXSW5p0zXzZJv2hVSC3o9BDh+JmwrkvevVZBQVYFoaqXP
+	HofkRVMT0l1hvPdcyBnVc75aGvH5IxuLByn5PpjNndVpxYMCsZxqaAlCFR9t3KHEPiIslRrq8zgzU
+	WiCYnypQ==;
+Received: from sslproxy01.your-server.de ([78.46.139.224])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wjCp9-0004S2-0W;
+	Mon, 13 Jul 2026 11:19:39 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wjCp8-0004Bh-2N;
+	Mon, 13 Jul 2026 11:19:38 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: add MBa93xxCA as mainboard for TQMa91xxCA and TQMa91xxLA SOM
+Date: Mon, 13 Jul 2026 11:19:21 +0200
+Message-ID: <20260713091924.2319674-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260713091924.2319674-1-alexander.stein@ew.tq-group.com>
+References: <20260713091924.2319674-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|MN0PR12MB6272:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa053265-a733-4eba-b1ff-08dee0c361de
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|3023799007|18002099003|22082099003|6133799003|4143699003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 73yXV8PJ82aWXvEBgk+PjRwZTke47c8KwlRWqu2fo0kIAd5qlXDNQ8dQcHzcpjJ+VXeaJwGvsrzE5Wla18F8k7npVTPdWcy9Yw53h7Hkjh/z1gsaUlDA5u5uTlc8yvMSs5sku5/xIdm1FDXNIWgUnU+X/o/6oi4Ag8JMkNwPoPDSAKpvUwa1vTuc2XxkzUxLHEBTeIteysgKUzmsjtITHeYcjV0IYZZ5cIQP+i83SN8Im0Bmdyv/OdL25PkW3gxSH3ZAkqS3fSae5a+92rGSSXynXIUN5s/DU7jPc0wL9JTGix5qxczHsc5o8CR568B8eq7NxQIaIW84xIUoHvEKHwrCa79QS060jL9fgD84pIOyOjAIzFTfhQRPjHddeiLE/sSD5rYiybkZYmgbRbTEXyRmPEyzKeFDpzVosg9XKrd7x727V3xGpr39tQHPo2T26bOWavl62LBm1rU4NV2cNa4mbJPE9dDxsCVNT2rzB2j/nQ3VtoNt5FI3W2GgqgXWt1UGsg5fYrKMcJrtg25HGwzqVYcPxPAAwrpwH52GCb1f0G9h/3N9QgZLchxD4uhRqaVIsX+mquBb21Nnt8Q28OBiHeIekky2g6dpD6ES4En7s7rosoy2/pM2Pjtg+0tY7UIW2vysy3Tl1BbCYqeBmvLbLBqC7S8pwDEA9+hgvv4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(3023799007)(18002099003)(22082099003)(6133799003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RUZTeWtLNXRDc2IxTlBrdkFEZDNLSVphcVdRZGl6bGRlaXZ4ZXI3NWxZRTFN?=
- =?utf-8?B?Q2VWYzZtWXdhaU5JR3BrSG5OY1JEOXBQOWVtWTFvV3pZTzhqdm90cWhubkFW?=
- =?utf-8?B?bmo5NndmaS9zVTlDNVRKa0JoZG0zaWw0MU43dTRIWGc0b0cvbnc0eVh4dytk?=
- =?utf-8?B?K1h0WHVTOC9tTm51ejYvTU9iTTQ2L0JnT3hHQndLQmI1bE51a0RNWE5XQVRh?=
- =?utf-8?B?Q0pmSTNYSG9SZTRHTjE3VnhtcW1pZmphQVFyWmhYdmYvQUJjQ3FrWHovK25C?=
- =?utf-8?B?MHpsUTMxRUFYYW9TOGw4R0k4WlJOWGg3eGR3bnZBdkx6YWZpRDdYZk5mYmU4?=
- =?utf-8?B?bnQ1cUkvMkM2bXRGTmRDZ0Q2cVNNNHZOZnhsYmlYa25IeDFLbXlZZFgxZjE0?=
- =?utf-8?B?RUdFOTJYODB2QWNXeWQxSWhqcnNrbjV5Tk9DeWVSTVJLckYwazhTenpWTnA5?=
- =?utf-8?B?YXkxd3RLY1hscnAwY0NCRGpEVWdVeGdxclJvR3phSm9YWDM4Q3g2Z1M5dnB4?=
- =?utf-8?B?Sm13Tk1RVnJSZGFHTzdmVm9nN2F1V3BleXJTNlhRTkE4Sk41MlFvYjZ6Z1ZV?=
- =?utf-8?B?QUJ1eFNvWmptcHQzWHZDbFNvcEFiRkoxME0yMHNPRE5IWUM0WnQwVHBVRlBB?=
- =?utf-8?B?VUZkbnhRS0JNUjRacURqOGpaNmttNkpOaG5DRC94bkhOdlBjZ1dHbElwWS9h?=
- =?utf-8?B?MXpiQ2VpVzF4WnU0NmtXWEpWU2d2SjErMmV3TS83WEtCbVdMU2pBN2FaWGgv?=
- =?utf-8?B?L3VWeG5oMGxNUDZmQTdkdWh4b2ZJQnJrWmNmc1EzdXFESDlnL1BZMldyczdH?=
- =?utf-8?B?emJzQXFtUU4wdngzQWhmMGpoM29URm85MGx4SkJvclpLQUxheGdLOGFuK25N?=
- =?utf-8?B?ZmxQMTRDZnp4blg4K2xPL2t0MTFWRHJXT0c4OTZ3Y01OZW1BS2JiclpoVFBk?=
- =?utf-8?B?VHpGejFTSGJHbllxRGNBUjF4bkwvQ3AyaktUczNCaVU3MGQ5bkl3U25iYVds?=
- =?utf-8?B?V3YyTytyR05WODdYcE1NMHhFMm9FU1pYd045c1BtTXVGbHJlL2FKUHRDU3ph?=
- =?utf-8?B?QU1wL0M1NFVEb3JnUGtnOHNMbzFsY2NHV1dsQlg0TTRZenFNNEsvczhrTUtI?=
- =?utf-8?B?U3V5QjhjdTZHKzA4VlRzMHJuQVFxcVdzSUtLN1N0N1U5amJIZkhpTk9DKytE?=
- =?utf-8?B?WGhXUnVWcjUvVGFEUjdKZFlSckd4RjVGb1JtWkoxTUlGZG1DcFRYMFNpNWJ0?=
- =?utf-8?B?dEFjaXFJa2RGdEVWMTBaZXNPalJtMUNsdGFFVzNJSWpsblBGRlF5RTVjMUtG?=
- =?utf-8?B?anE4WmptcDN5dWJqcDFDWmZUc0FiK3FaVGhOQ1k3SkswNW81N3hiUzdFbUh5?=
- =?utf-8?B?WEx0UWtPRnAyWVpEdjlsVUIyNThVZ05HSHozVGJKbXZwWllZTVVtYkFHTzMw?=
- =?utf-8?B?bElZRFBMMVRqQkRQclZJUjc3djNJQnJ5MkkyREozeUxKWVlkaGNGa3d2VUVq?=
- =?utf-8?B?djNqaUEvczdRTEJ4QVJhSTl3Y1JpZXozTDdoZlJ1bnJGejUraDRxNTQvL25S?=
- =?utf-8?B?ZExwamdUODlaZDVhVUlGaDErWkVLamJZSms5Sk1SV1BmVU9Dbk9uWkpZVzJr?=
- =?utf-8?B?QTRiMDVMRFlvN1VPVWI0Y0tTL1ByR1RGQWxlbTRLNHRWVmlpV25Lcm00TWFR?=
- =?utf-8?B?cGlCKy82ZXZzRVVhZ1REcXlzVHIyRjkxbXhteFlJYWF1N09mQnNoTXdtM25i?=
- =?utf-8?B?UjhldVZMWUF1TmdCeHd6MVhRRXlueUJMOE4vQXJlSVYweFpId3hXdjBHT1Rx?=
- =?utf-8?B?SFh1Qk5HTUNraXRJbGZ0M2FFUG9pK1BPYy9pVWdDQjBZaysyaFRaWkpOa20y?=
- =?utf-8?B?SXlXRy9RUkF1MGRnWWJTS1NnN2RyckYzQzJ2bWpFUUlOTnVyU1dRdE5hMUY0?=
- =?utf-8?B?d0pNUVk3L0pRUzJCVy95eVFmNWRrK0lmcmE4RTVlc3BIdGNyREl2c1Boa050?=
- =?utf-8?B?ZWFvSE5UanNzNUk2QmJ6cW1sRWVqbjBNSmlVZ3E3MThLbHVlUjh4cWV6REtG?=
- =?utf-8?B?TEQ3cU80UnFxcXg1bWtJNGxqeC9VL3YvV1pzZFdNSWx0RysvTFY2d1YzYUsz?=
- =?utf-8?B?eWEzSDRzMFBOZ2tSVjZoVnp1SE9YVjVGdnFiS2dEL2RKN0hyQjFjRGRXSFRa?=
- =?utf-8?B?U09hWUdwakpUUWtubkNvM2Z0OWpJdjFvQXhGT1B6S2NJNitScC8yKzh2YXFi?=
- =?utf-8?B?akRoUnp0SnhaQTNoUHNhL3Yvbmp5RkV3RjBMeU5pVU9lV3BVREFNc2NYamFZ?=
- =?utf-8?B?VVlLWG0yNEZyNXltRnhXdkRwREdkOUNCZVZRaDdGaCtBdjhqeGk2dz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa053265-a733-4eba-b1ff-08dee0c361de
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 09:44:50.2007
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lce0K8CMMkpmJvO5oCSrz85f6XV5fQ0Kbh3APJH0KRaeC8GPn9X+m7eb4zpPAoR3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6272
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28059/Mon Jul 13 08:25:07 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_024459_224221_4DD1F4BF 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20260713_024559_251004_FC7C8472 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,97 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/13/2026 12:51 PM, Srinivas Neeli wrote:
-> The dmaengine RX path derived the received frame length from the descriptor
-> APP metadata. That only works when the optional AXI4-Stream status/control
-> interface is present, because the hardware populates the APP fields solely
-> when that interface is enabled. On designs without it the length read back
-> is invalid.
-> 
-> The AXI DMA engine already reports how many bytes it wrote into the buffer
-> through the standard dmaengine residue mechanism. Compute the RX frame
-> length as the posted buffer length minus result->residue, which is
-> independent of the status/control interface and correct across all designs,
-> including multi-descriptor frames where the residue is summed over the
-> chain.
-> 
-> Drop the descriptor metadata lookup, which was only used for this purpose.
-> Detect a failed transfer from dmaengine_result.result instead of the
-> metadata pointer return value, and remove the now unused LEN_APP macro.
-> 
-> The transmit path is unaffected. It still passes APP metadata for checksum
-> offload and derives its length from the skb.
-> 
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
-> ---
-> Changes in V4:
->   - Renamed subject to "Derive RX frame length from residue in dmaengine
->     path".
->   - Condensed the commit message.
->   - Dropped the Fixes tag.
-> 
-> Changes in V3:
->   - New patch in this series.
->   - This patch enables axienet to work on designs where the AXI4-Stream
->     status/control interface is not present. By using the standard
->     dmaengine residue mechanism, the driver no longer depends on APP
->     fields being populated by hardware.
->   - This approach replaces the V2 xferred_bytes mechanism (V2 patch 5/5),
->     making the dt-bindings patch (V2 patch 4/5) for xlnx,include-stscntrl-strm
->     also unnecessary. Both V2 patches are dropped in this series.
-> ---
->   drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 +++++---------
->   1 file changed, 5 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index fcf517069d16..67d1b8e91d68 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -53,7 +53,6 @@
->   #define TX_BD_NUM_MAX			4096
->   #define RX_BD_NUM_MAX			4096
->   #define DMA_NUM_APP_WORDS		5
-> -#define LEN_APP				4
->   #define RX_BUF_NUM_DEFAULT		128
->   
->   /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
-> @@ -1159,29 +1158,26 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->   static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
->   {
->   	struct skbuf_dma_descriptor *skbuf_dma;
-> -	size_t meta_len, meta_max_len, rx_len;
->   	struct axienet_local *lp = data;
->   	struct sk_buff *skb;
-> -	u32 *app_metadata;
-> +	size_t rx_len;
->   	int i;
->   
->   	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
->   	skb = skbuf_dma->skb;
-> -	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
-> -						       &meta_max_len);
->   	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
->   			 DMA_FROM_DEVICE);
->   
-> -	if (IS_ERR(app_metadata)) {
-> +	if (result->result != DMA_TRANS_NOERROR) {
->   		if (net_ratelimit())
-> -			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
-> +			netdev_err(lp->ndev, "RX DMA transfer failed\n");
->   		dev_kfree_skb_any(skb);
->   		lp->ndev->stats.rx_dropped++;
->   		goto rx_submit;
->   	}
->   
-> -	/* TODO: Derive app word index programmatically */
-> -	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-> +	/* Actual length = posted buffer length - residue. */
-> +	rx_len = lp->max_frm_size - result->residue;
->   	skb_put(skb, rx_len);
->   	skb->protocol = eth_type_trans(skb, lp->ndev);
->   	skb->ip_summed = CHECKSUM_NONE;
+TQMa91xxLA and TQMa91xxCA are two series of feature compatible SOM
+using NXP i.MX91 SoC in 11x11 mm package.
+
+MBa93xxCA is a starterkit base board usable for TQMa91xxCA and TQMa91xxLA
+soldered on an adapter board to demonstrate use cases without display but
+more interfaces.
+
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index f96f3d31dac10..1bc9edaedd6e4 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1607,11 +1607,13 @@ properties:
+           in the assembled SOC.
+           MBa91xxCA mainboard can be used as starterkit for the SOM
+           soldered on an adapter board or for the connector variant
+-          MBa91xxLA mainboard is a single board computer using the solderable
+-          SOM variant
++          to demonstrate parallel display and majority of interfaces while
++          MBa93xxCA starterkit mainboard is focused on communication
++          interfaces without display support.
+         items:
+           - enum:
+               - tq,imx91-tqma9131-mba91xxca # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM on MBa91xxCA
++              - tq,imx91-tqma9131-mba93xxca # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM on MBa93xxCA
+           - const: tq,imx91-tqma9131        # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM
+           - const: fsl,imx91
+ 
+-- 
+2.54.0
 
 
