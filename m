@@ -4,121 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0244AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 06:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AA3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 06:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=; b=NVF7VlYHQ05NwwhZusK56gEae6
-	DcUKfTqk0HWXGx5WeDd5ENoMROebHG8MwADaTn1cVvUL741JvvXNCxHW3bgHmBJhF7r32kXkgWAnU
-	PJhI0ZYk22Y2biMrMZHu/2FHtVNrENoP0vqTLHGD/QJVyWuF7h/5ngSwCgIU/1RbT5ZSZ9s3PHoIA
-	0uqvB1qxnfp1f1tHs7dmpj46RafAN6Y32oRMsXUrxcvpuIULvM9zlaYRYOcXmNOuLq9nFWguPunWi
-	EUt33zQi0S09jBeyQox4SO1eJC5ETSqwH7PkJ/P5gU72YVIblDfxOXEjXVK3ZroGYNhJNroQ3x2uY
-	ioXCPEwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCKtYd0KrS9iA86oHouqdvS8drpMdPPxhpD82omBp/Y=; b=m3G6Ul8Rnz9DBjL6tFspbrjvv3
+	fSzADE1VhBlOfhwYYQKDHSwr/WrQT73mgGO/IiyWfEGM3+LoYQp5BycjGg9pfPb6Kux5ZadgSoqfJ
+	zCRZfKgFqrvrO4gm+RYfUoiMk91rFlrnlaMplSjHPyYA0hoGA1u2SVU7QjsK4HDGnPa4ZZztY/cm+
+	kqOvsFusFB9HQUTtLugW2XUUgZ3gMyAuI5tB4AdaLsAIXt2fWTyuTX6eKJx/zhWN0WwUJNE6+Uv/Q
+	0qO1Th9UPjCvvL20EWuX3VF18affcvfcuM6voayqI0e6Fa/P+wD3QYfB2FjSwaXMJDUfC0iT4+bzC
+	xF3mBTeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAOu-00000008IRJ-2l7k;
-	Mon, 13 Jul 2026 06:44:24 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wjAdl-00000008Jl2-2j6o;
+	Mon, 13 Jul 2026 06:59:45 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAOs-00000008IQS-3JJE
+	id 1wjAdh-00000008JkB-1M4W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 06:44:23 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cae1a3a744so18533405ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 23:44:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783925062; cv=none;
-        d=google.com; s=arc-20260327;
-        b=LArch8AgEdVbVJ4Ne6SpOmDpH/OUlgESxpam/tcH7GVOfsCfN+xvMULxeVfpx+9N2S
-         o5HC68VJZ8BjxqDHTmF79Mu9Xsu8CYJ+Llc1+XCcb4XUwunv4jwnfbg8RHkIEsQnDrFq
-         ybBT61LSLjvPOzej93uxzAStWKIni+10aT65qYPNJR/CJ/aCPqtQsq0nCjRwWZHb6u6R
-         gjvawvNgNVLBaJ+a43RPUX6Ju3zwNadrJSFll95WIgCLQ4xpposp/MgymamaVgMMJJSA
-         Xl7gwxmPyD4rPXO0B1HpMHfEmVSehvOynULdbzJd54MeIaqyu9zb5Hknn5rVupwVMq72
-         1UHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
-        fh=3ACqHLZn6gSBDOgOwMmcedlf2iYdzFN6HzANIkk5HL8=;
-        b=KGXaRbZDJPMgqn6Gp5Sbu38TOjRRJHlGPQFYkg7DkR/dLTrjSleiHsOsBy7BPvQhL+
-         F0f4xlleuIrbNPfgLTe2cGHi32r/40oG3f6iZCVzIu1Y8lIh18nstN/7dFYwDi6WW3zR
-         vqyA0/Xpv+Vqc27jC+VqBEiUeiMvCBNtu8FUh0/CAobR2/LgOxd9r3zl7D8h/PKhOsUE
-         IKAChMDo2h52yW/3d90QskBsmjBn7DNv8O52OQ3KHHtDLen4XFBL+qXpNVRvfbAk/NlM
-         we98hUC5ZHF4wVThRhFwdgrd48JXzIIDWPdapGzQk/NBvfk4jyo1aSr0Vk9GZytuuSzX
-         tSdw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783925062; x=1784529862; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
-        b=Fyh9U0iWGX9/EoHqMZDFgeyTAjKVd7MFrgVWlSl/WWOd41U/YUbG0JgZPU6ENUiUul
-         Y69UoAquIOrgMqJ0QLbnK937h8NQpBAeP8odqo9NwQhO9OI55hZFcLuA6qaLfaQToNPY
-         J9uZcXg68NgEzyUx9k4Alm8mGAo6VUq1+kY970gOWghSV3WVqTwV28/TojBBzoLfYI8I
-         qb+9pdugH6/AFeMsvarQNJAohK5MCPOwjsC8fdHKUjXcsVX7OSftCk5Mo1uJbp/D029y
-         CoadoGAfnikcY0HJ4IT1tkiQ2fp6UJjDKbRpNvFiUyP0nF9tjm/B9YM2e6ks7RTlICuA
-         PNRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783925062; x=1784529862;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
-        b=tI6rxwGc/pXXtYD+RPs34MDSLPDnJ2EV8Y4ivsgMekDrvEntja4VsU5VgqTGqLSggK
-         RPrt8SeM2QCyNj/b1Iglt8VCJLx8p+ADTjxX6oyKqAaaYU0isx86rF/aKTgvDCzkZI87
-         iLhW8bU6olpRckilRyhJmijeRtUlWW3NvN8LuiBv27092rp+cHKq/7BzlHPMZnZuFHB8
-         oISJ1wgJ7lIuB6Iq0f5E9mRpab3CY87vE01cIoqnbMRt3Hj0zGv6mCuCc0HeMunagf4B
-         EWq0xkElGfCbfQjSn2Kt7ep1wo889WxY3oyztz5oJ8hQofmszHIsrlQPvHO8Lwfn+pXu
-         fhbQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp0MaM1aDWgu6vRLMF2kcnHMVgF4r+ZN2YT5gEu7U/UPa1pMfgJoC9EzW2Ej1BAJ/7OpIjxosrjR2fYQ5C7+pQl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGYA7HPZhp2hKF/4VtW9gq1Hrx5sCJ97hnABKfq9nGbigi3i/N
-	NFjI3YG5AyLN9tBq3Qqhms2LouvGgQ4m21fY5/YyJySsAVybFmXLn1VIByPcPWQjyQ+dmVwdGZb
-	MGLV8rcMPDE4IbZXeyAMC9z7Gb1/A89M=
-X-Gm-Gg: AfdE7ck+lAxVZdHkFpT5MIV9nb9tAUiFL3nzNOgn+cdcVGuVfq0JbvXqK/7iQBqTe4z
-	WXI2eR6eGiXwDg/2LNXPqJZsPP2EEP5wwETYCB8GkUk1BdIXnhO8bPVhrPtHZqAnISsC3U6EOJp
-	sQHNT7IciT+Ht7ZO+Bgb4hKRR1inLJRvE3M7Yo7balT1ty8epfkXMUoLsKiRcZkBtcGmcEzfTgy
-	3FkH1fDrEwslRee0gofIQr8yB7N3uEf6Mc/Kof8ysMklO7D/ajtOmJSzRejMgfjn7sFd6WXKPTn
-	FjgZH+Nt43/mLl5VLNqfjAVjYQ0=
-X-Received: by 2002:a17:903:2983:b0:2ca:d666:df72 with SMTP id
- d9443c01a7336-2ce9ead1556mr77128045ad.21.1783925061877; Sun, 12 Jul 2026
- 23:44:21 -0700 (PDT)
+	Mon, 13 Jul 2026 06:59:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=qCKtYd0KrS9iA86oHouqdvS8drpMdPPxhpD82omBp/Y=;
+	b=Hi1kKSASpycUH88nITCS9wSaQRX1V1nz7GEv9lLxeTiqYGCEAWyVINkgRk6o9kWO2MRNZL28U
+	CYWceHDL93Ln97no6OtGvv/+xJmBAQST/9U09we2NtCk481lUxCzXlA/8jjSgGY6Vie6jCajINQ
+	wLM7I+fKhPrE0F8X8RdoCOI=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gzCjp0RhGzLlTK;
+	Mon, 13 Jul 2026 14:50:06 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1FECC40563;
+	Mon, 13 Jul 2026 14:59:23 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 13 Jul 2026 14:59:21 +0800
+Message-ID: <86f4c6b1-d7e1-4f65-a566-d00ea3766f4e@huawei.com>
+Date: Mon, 13 Jul 2026 14:59:19 +0800
 MIME-Version: 1.0
-References: <20260709045902.498848-1-phucduc.bui@gmail.com>
- <20260710050511.14439-1-phucduc.bui@gmail.com> <20260710050511.14439-23-phucduc.bui@gmail.com>
- <95f5d6ec-ecc5-4090-ac04-27cdcdc21b8a@sirena.org.uk> <CAABR9nHUc3KvC4t=hJ9osyw93aXa+kEL07G1posnYJdLvjHEkA@mail.gmail.com>
- <CAABR9nEQWYzvxDduP=+9qYEJNzXVbu587Aq9eGR7Tyo-K-u1GQ@mail.gmail.com>
- <CAABR9nHKCYvev=owQVw2sisGRiQPc5gFcW8d2O3RvhsRn_Sr+w@mail.gmail.com> <CAABR9nFwGjed9SOUZwuPNu58KPQD-aWnCKj7YTTM8LdF9dig-Q@mail.gmail.com>
-In-Reply-To: <CAABR9nFwGjed9SOUZwuPNu58KPQD-aWnCKj7YTTM8LdF9dig-Q@mail.gmail.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Mon, 13 Jul 2026 13:44:09 +0700
-X-Gm-Features: AVVi8CeGlggaa6vmgFhAFOdY55QEWtxhqiyXAaixKicXSNM4i0jdxY8z3i5uafQ
-Message-ID: <CAABR9nHvhufH-+2qg9DDa+2PsU5T_qn9EV25pNwirKdPeSdX0A@mail.gmail.com>
-Subject: Re: [PATCH v3 25/27] ASoC: codecs: rt712: Use guard() for mutex locks
-To: Mark Brown <broonie@kernel.org>
-Cc: Takashi Iwai <tiwai@suse.com>, Nick Li <nick.li@foursemi.com>, 
-	Herve Codina <herve.codina@bootlin.com>, 
-	Support Opensource <support.opensource@diasemi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Srinivas Kandagatla <srini@kernel.org>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Richard Fitzgerald <rf@opensource.cirrus.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
-	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, u.kleine-koenig@baylibre.com, 
-	Zhang Yi <zhangyi@everest-semi.com>, Marco Crivellari <marco.crivellari@suse.com>, 
-	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] fix: arm64: syscall: use live x0 for
+ syscall_get_arguments() arg0
+To: Yiqi Sun <sunyiqixm@gmail.com>, <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <rmk+kernel@armlinux.org.uk>,
+	<will@kernel.org>
+References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260529065444.1336608-1-sunyiqixm@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_234422_855375_38D7F8E6 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260712_235941_540585_5BB43744 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,35 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'd like to confirm one more point.
-
-As I understand it, cache_only must be disabled before
-re-writing the paging selector registers. Otherwise, _regmap_write()
-would update only the cache and return without calling
-map->reg_write(), so the hardware state would not actually
-be restored.
-If my understanding is correct, I'm planning to submit a follow-up
-patch like the one below.
-
----------------------------------
-
-bool cache_only ;
-cache_only = map->cache_only;
-
-map->cache_only = false;
-
-for_each_selector_register() {
-        if (regcache_read(map, selector_reg, &selector_val))
-                continue;
-        paging_ret = _regmap_write(map, selector_reg, selector_val);
-}
 
 
-map->cache_only = cache_only;
------------------------------------
+On 5/29/2026 2:54 PM, Yiqi Sun wrote:
+> On arm64, seccomp obtains syscall arguments via syscall_get_arguments(),
+> where arg0 is currently read from regs->orig_x0. However, the syscall
+> wrapper consumes live arguments from regs->regs[0..5].
+> 
+> A ptracer can modify x0 on syscall-enter stop before seccomp runs,
+> but cannot update orig_x0 through that interface. This can
+> leave seccomp checking stale arg0 while the syscall executes with updated
+> live x0, allowing seccomp bypass when filters depend on arg0.
 
-I'd appreciate any feedback.
+It seems that there is indeed a problem. The modification by ptrace is
+inconsistent with that checked by seccomp. Similar with following
+another problem.
 
-Best regards,
-Phuc
+https://lore.kernel.org/all/20260713025712.416366-1-ruanjinjie@huawei.com/
+
+> 
+> Make syscall_get_arguments() read arg0 from regs->regs[0], matching the
+> actual dispatch arguments and removing this desynchronization.
+> 
+> Fixes: f27bb139c387 ("arm64: Miscellaneous library functions")
+> Signed-off-by: Yiqi Sun <sunyiqixm@gmail.com>
+> ---
+>  arch/arm64/include/asm/syscall.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+> index 5e4c7fc44f73..4bdb4d3ce2b4 100644
+> --- a/arch/arm64/include/asm/syscall.h
+> +++ b/arch/arm64/include/asm/syscall.h
+> @@ -81,7 +81,7 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  					 struct pt_regs *regs,
+>  					 unsigned long *args)
+>  {
+> -	args[0] = regs->orig_x0;
+> +	args[0] = regs->regs[0];
+>  	args[1] = regs->regs[1];
+>  	args[2] = regs->regs[2];
+>  	args[3] = regs->regs[3];
+
 
