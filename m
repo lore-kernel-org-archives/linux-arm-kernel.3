@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C31C44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C43C4450A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,73 +12,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=; b=Q5pSxnmZoZcZgrfZ+rwIjQGOau
-	lvj0FFTMkcGoWGFSx6Ic3qgpE4TxOWehekuc+WIPKp40TrusBgXGPt9AsA73WDc6GM01paGpj15sP
-	VjtKfAEfki5qm01vdWirrNpxHqGqAs3bN9eYa1hA6D3dKQzjmExNBneFdFntLlxeTgLACNuxFlsWW
-	X5P7l62hvie5+BBgqDps+P140SpOpI+Fh2gyvGO1E1ltNiLCSIm7Wsg+JxQ/PQ96TLIH2pXfT6g2s
-	XquNpy5gpL5P6ActN7LT9XaomDl2gk0uQHZCOjHyNRf59JN87L344mwtl4NO+dWUsgtvJKrNDWn9l
-	aviv47Hw==;
+	bh=UeyweqjzqYsgzcRbXY7Sz3yu1Pc8vFqR1fhsIJ8jHhA=; b=VvN+JXO/+oK5QbdFpaCpZDJvbG
+	HaoIaazUAaYhTxUXhmi3Eld6HfXl6WzTLgeE4Qkip+UJeJG4kR9pzkSa/OpkST+IHTEjKz708k+7Y
+	G6/0j100bevj/ecE3pxUFY0oMGMhy1HUEbRf1rMrNujQyM8sEH+GNjPPSpr2lEmei6uPudW9PULbN
+	1nKmjnAe08TpQgRmh5/jNNdBgzVdlF7jtdgp6dTO1eMgIQ4gl67A5G1pWodjIJSRckz+YPVMB8kJ7
+	k8drB6QVT3qn4MixztMl0wuFOiwcWNhqn7L3VMff0OHnH7zBqaIpvHmojqKdqyKq9E8lGLswlHNBi
+	5uqL+0aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFV-00000009jJz-3xpN;
+	id 1wjIFV-00000009jJe-3VYJ;
 	Mon, 13 Jul 2026 15:07:13 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFI-00000009j8O-1aE0
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wjIFJ-00000009jAc-1Y1C
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 13 Jul 2026 15:07:01 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47d70879764so2087276f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=UeyweqjzqYsgzcRbXY7Sz3yu1Pc8vFqR1fhsIJ8jHhA=; b=dXqSkgOTAj1ex4iGbk/6C1rhtf
+	BA6C7VAdyZ49WVCsAGaf77cuKW4N+Be6mNI43XT5cMyzGu/JgMmH11CSysjLxGgdqersqUSDzOFme
+	vRNxsppIsJd6nKy+w9EUoVdjQgA1w/Eirj7gXJk4x7pe/7JkyQbWXY5W4O+DiSWiSpw6an8rlEjHQ
+	bBt4w7kM9shPzRb77WokoJDn8ToAmM3ZOEFij9AC1edrOIOxOdU6ymLBHyw8GG8+Zb/iYbAxIwgwm
+	I3wI2GkbZYicOrQDsaE1sNk8Gx5mQ8jqovHVW84rz7BXfUJJKKLCROIcicjMk66l0EdNKi7AsqUNu
+	XPWyMQig==;
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjIFG-0000000Bky8-0prq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 15:07:00 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47c2b362ee2so2992506f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783955218; x=1784560018; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783955217; x=1784560017; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=;
-        b=qQOqHDYNpATH2uB1tTtGJmqb4hTaycrco85bABLqjwy8vswy+QowYL1AZ9xBSkQvc7
-         jNYYiNye+bJ6MxuAfSZ2aI7q6XerX8+Xsi0Cqx02Y4XPohm78Zf8JjxxXM63lnzNuJDI
-         lxMuhtFeA80X4x6YBe9gMUYvAJbcQl+4kcS3NZbnUPjEvV7r7nQLK8+6wBzFNtPudi+x
-         xKYfeWgm+OqfTKY3V2yBTQzNwtg5gHhl79/MoD5gi9DQMg66mUVCs01hgXJGYq+D4n6/
-         Mx8SoPV8K+BWHsRjSHtPd++7m4Gm39GlY9CtYKvSxwTn7ww7YkZr8rJc4TnbDtr1/B3j
-         fgMg==
+        bh=UeyweqjzqYsgzcRbXY7Sz3yu1Pc8vFqR1fhsIJ8jHhA=;
+        b=eVKdWCJ/tMJQtDSCaszQQoLQ6PLnhUc0mfv85lMB9tLS7mISSm/mjihZ8K9yPhrzLK
+         bNmaxg4lDrB52feWfFaKrfbbKzQR90+r1+OUoIxGT9b2SoSrhJZqm0k9aCPvxTiBmN3R
+         ZHmaUPA0hxCyvlFXfSOVFGBJNGMhebLDbxddHm1uF8drQcBQNexm8ohrVph0sqruZA3W
+         oxDgX6iegKkpCmGzW4MBcWC1UoeIiqXUf0zaG7Q+yDv5LD3T8WEHjU/o2WUYdR4DihJi
+         mhLp6ZBeQxonSbAZPSZSDnBY1TgKUQ3hIFA/tYYhPWENfElnRla47EBuNKq2fuqrx2Jz
+         eSJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783955218; x=1784560018;
+        d=1e100.net; s=20251104; t=1783955217; x=1784560017;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=;
-        b=SLa/BMjaQwd/skRM8963R1F7mgT5XDPISbumJcv3k4ZQuURoGJG5NwIKeaM1zb/goG
-         Plxv5HD7gq/7nGN0a/3lGu4MOWqwGXRj5/5jg/xjJbkGh/WNevdmpK2tXGkivZJlWWcY
-         Sme60NOOQEhjjfmZvBqHka2d1XC+Zq87142zX7og7T4hxaZKYak97MjcuPyauhtMUfah
-         0UTaiXPutvS+BVROBnwpTySh5u7ajFa2tZ8Bd7luf4eGw3F7AMvokL6D9v3iaGJJDf9+
-         JVo6lFtoGIY+E8DJa7AycR0x8wjEAJyI5eM7vsFquz24W0TCgPNbPRflRoyhXtHZ6qMS
-         6wsg==
-X-Forwarded-Encrypted: i=1; AHgh+RpNCx6qU6fKGneg1RoHM0ruKcDu82uWOUBpA/mrU1zLzTuqoYigbNswdMpYJNmMdtdYksgkcBjChWduV4fXdFWZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrMZeDUBicQ9RlqIK9YE/jodeHyYktqUflD/tW2NRKOge99lAQ
-	hEC5neq6dcWgQDQ/6VCftnvpKSuEfru3M8UYgFt8fo1JOyFU0wLFrqNW
-X-Gm-Gg: AfdE7ck+epnQRDHbYHxH1aFFJ/kHe947IbGAs9xNhZJQomRpAA209DUcgNh+yGShIb/
-	3F56cJvOHcuaQFwN1TbwUPZ3ocNhPjW4YL7I3qoYCXBY4oS5cjbV2+kVqFvjjfX84EF+CPB70vV
-	bgcj65idmXqB4qr7RZV2a9ekLCSUHya227XmaMZd5C3ZmKARFtnTbMmV9IrcSRckCsN1AKR1G9a
-	qInfrd6w+enSBP5A1wyRVy7o+S1PgOEwokXHZKhk2uQAIsUmQyoOM/mSZnhdV/DzZQjGD91u+S1
-	Eitm0bxXs2UgKZqIYp2LORV6BbPnK7yG8ZoGJ33cpB7OsLRNcARZ0Vu2U+G84WzulECW66NBxej
-	SH+nwaYd65yDazDMJ1+RoV7AjaJ79b1Y5hd+RkUwX7L2bhOft8xzhaCKYp8Vdhy5/eN/eSRFlZF
-	VljO8ZhiceLB9sDk4f0J1n+dt7XkJjrLVtPJK/GuxekqDM41VJ30+rmvXNcP4m/NoMDxi6e9q1x
-	bK9wpzj6lYZ2KZB
-X-Received: by 2002:a5d:64cc:0:b0:472:d154:fac6 with SMTP id ffacd0b85a97d-47f2dce975amr10204164f8f.35.1783955218269;
-        Mon, 13 Jul 2026 08:06:58 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=UeyweqjzqYsgzcRbXY7Sz3yu1Pc8vFqR1fhsIJ8jHhA=;
+        b=pF/g5Ou2EDPyDmny8SCDjJfmXCYjySF4ZKCq/7WhcGoqvQbaij10b1RZ4G1xHQuq0i
+         4/TVMniybbqHMzXYnZVCfVwb9Icz0nqW6c0oZooIRooXFv7HqO1wOiYUG9ClLy7gdlc3
+         JFJruswgslYYcocJmSzWXIsU20HtDXCvTJ/gdRmPaR6lX81NZUKqWr+arzOj/3xZQQp2
+         p4f/BbjzfK6l0y4v/Qq4cs2KJvyyfyJjUM++bLBoTVsCPmqF5fz78ZnFqumTluUqMYfH
+         9RrgXjslzuJ3Ibf3B5rQYwfjC+/+puK9mpblpaasSQUAMfVA1RgSJZly3Lv8sSdbpDaO
+         PBBg==
+X-Forwarded-Encrypted: i=1; AHgh+RqI7rIKXFQC85jFfKVAFKsLc8BXU4nNHf6w4HBbKGONuZuVFfZFGmarjJX35+LManO7DOAA/zjlXQkwD1zz+Czy@lists.infradead.org
+X-Gm-Message-State: AOJu0YynzkBjoPnppc0An3NiQ6pe+UGXKG4vsXfyrJ/OhOl4BDbO4JZ4
+	qjr9Au2Xel14b+01zINV+Jpb1+zb5c4HbYea/vDp2MsR38Kn6V7gUPkMO/Gi6ocM
+X-Gm-Gg: AfdE7cnnBCtRPF3GikyE5TrgcaJDYVFY/f623z9Mw6OuVneUxfTzi9KYq2jQ2n/kMBm
+	HsnKSMUKEissaaQvgXLkLhpJG+vChrcJKKCOwQFKe5fQU4djhMU1ZJdT8WwXe0xZxA7ch9gJmg9
+	+/c8gXRGkRS9K343nrmfKjoRVL15EEVmrJBKIYnnF5tR5H+/PMnY+WRz1VhChe3+YB7nS8OnaA6
+	5VoH/JTWSy4gPfEQxOlyBuocph6ikrpp67B+TxKovx3e4rXtbbFVBaxqsyqqu9gMlG1+HQGKMiB
+	gbQvRoU+bMWp16Yqb7U5mQCX60OIEwRgSOPXXtKyJKfpuvmPYjZjZKSB2JrLwi5mFu3I6+YlLUH
+	FvBkTFpf6XCoBGQ1XgqaL4Y77rAzm4h/jpakG441Kbu03RYw+5jspN6C/zpIJp0qpU22VJdmgTi
+	LqKQkuy52GZrODOamMHaHuYOBQNYxixKOMtwDLnrDCSGcOMcGcB7KTBTyFQOh0Z4bIXMWodTceI
+	SYhfmHhLUw8iIFKKx5K/ulPm9w=
+X-Received: by 2002:a5d:5d0c:0:b0:477:2e75:522c with SMTP id ffacd0b85a97d-47f2dce7e5amr10375689f8f.28.1783955216485;
         Mon, 13 Jul 2026 08:06:56 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 08:06:55 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Mon, 13 Jul 2026 17:06:27 +0200
-Subject: [PATCH 6/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex
- OV5640 CSI Cameras
+Date: Mon, 13 Jul 2026 17:06:26 +0200
+Subject: [PATCH 5/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex
+ Capacitive Touch Display 7" DSI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-6-4acd63db4504@toradex.com>
+Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-5-4acd63db4504@toradex.com>
 References: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
 In-Reply-To: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
 To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -92,8 +107,8 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev,
  Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_080700_502465_A6E36939 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260713_160658_423899_24084FFD 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,184 +125,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-Add device tree overlays for the Toradex OV5640 CSI Camera on Verdin CSI_1.
+Add a device tree overlay for the Toradex Capacitive Touch Display 7"
+on the Verdin DSI_1 interface. The display features an internal Texas
+Instruments SN65DSI83 DSI-to-LVDS bridge driving a Riverdi
+RVT70HSLNWCA0 7" WSVGA IPS TFT LCD panel. The touch input is provided
+by an Ilitek ILI2132 capacitive touch controller.
 
-The default overlay describes the current CSI Camera Set 5MP OV5640 with a
-27 MHz on-board oscillator. Add a separate 24 MHz overlay for the legacy
-camera module.
-
-Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-Link: https://www.toradex.com/accessories/csi-camera-ov5640
-Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
+Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-7inch-dsi
+Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-display-adapter
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile             |  6 ++
- .../dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso  | 17 +++++
- .../boot/dts/freescale/imx8mm-verdin-ov5640.dtsi   | 78 ++++++++++++++++++++++
- .../boot/dts/freescale/imx8mm-verdin-ov5640.dtso   | 18 +++++
- 4 files changed, 119 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile             |   4 +
+ .../imx8mm-verdin-panel-cap-touch-7inch-dsi.dtso   | 129 +++++++++++++++++++++
+ 2 files changed, 133 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index c465aa19e526..ed3d678e7c5e 100644
+index 996b3b5413ac..c465aa19e526 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -189,6 +189,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi.dtb
+@@ -190,12 +190,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640-24mhz.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
-@@ -197,6 +199,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-hdmi.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-nau8822-btl.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640-24mhz.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-ivy.dtb
-@@ -217,6 +221,8 @@ imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-ver
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-mallow.dtb
+@@ -215,6 +217,8 @@ imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-ver
  imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-wifi-dev.dtb \
  	imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
  imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
-+imx8mm-verdin-wifi-dev-ov5640-24mhz-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-ov5640-24mhz.dtbo
-+imx8mm-verdin-wifi-dev-ov5640-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-ov5640.dtbo
- imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
++imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
++	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
  imx8mm-verdin-wifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso
+ 
+ imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-7inch-dsi.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-7inch-dsi.dtso
 new file mode 100644
-index 000000000000..f479b709c151
+index 000000000000..0e15b4b3f3ec
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso
-@@ -0,0 +1,17 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-7inch-dsi.dtso
+@@ -0,0 +1,129 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
-+ * Toradex CSI Camera Module 5MP OV5640 on Verdin CSI_1.
++ * Toradex Capacitive Touch Display 7" on Verdin DSI_1.
++ * On Dahlia (X17) and Development Board (X48), DSI_1 is exposed via a
++ * Samtec LSS-130 connector and requires the Toradex DSI Display Adapter
++ * to convert to FFC/FPC connector.
 + *
-+ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
++ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-7inch-dsi
++ * https://www.toradex.com/accessories/capacitive-touch-display-7-inch-dsi
++ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-display-adapter
++ * https://www.toradex.com/accessories/verdin-dsi-display-adapter
 + */
 +
 +/dts-v1/;
 +/plugin/;
 +
-+#include "imx8mm-verdin-ov5640.dtsi"
-+
-+&clock_camera {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi
-new file mode 100644
-index 000000000000..0632bdb1b679
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Common device tree include for Toradex OV5640 CSI camera on Verdin CSI_1.
-+ */
-+
 +#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pwm/pwm.h>
 +
 +&{/} {
-+	clock_camera: clock-camera {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
++	backlight_pwm3: backlight-pwm3 {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 45 63 88 119 158 203 255>;
++		default-brightness-level = <4>;
++		power-supply = <&reg_3p3v>;
++		/* Verdin PWM_3_DSI (SODIMM 19) */
++		pwms = <&pwm1 0 6666667 0>;
 +	};
 +
-+	regulator_camera: regulator-camera {
-+		compatible = "regulator-fixed";
-+		/* Verdin GPIO_8_CSI (SODIMM 222) - CSI_1_PWR_EN */
-+		gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-name = "V_CSI";
-+		startup-delay-us = <5000>;
++	panel-lvds-bridge {
++		compatible = "riverdi,rvt70hslnwca0", "panel-lvds";
++		backlight = <&backlight_pwm3>;
++		data-mapping = "vesa-24";
++		height-mm = <86>;
++		width-mm = <154>;
++
++		panel-timing {
++			clock-frequency = <51200000>;
++			de-active = <1>;
++			hactive = <1024>;
++			hback-porch = <100 100 100>;
++			hfront-porch = <16 160 216>;
++			hsync-active = <0>;
++			hsync-len = <50 60 140>;
++			pixelclk-active = <1>;
++			vactive = <600>;
++			vback-porch = <23 23 23>;
++			vfront-porch = <1 12 126>;
++			vsync-active = <0>;
++			vsync-len = <1 10 20>;
++		};
++
++		port {
++			panel_lvds_bridge_in: endpoint {
++				remote-endpoint = <&dsi_lvds_bridge_out>;
++			};
++		};
 +	};
 +};
 +
-+&csi {
-+	status = "okay";
-+};
-+
-+/* Verdin I2C_4_CSI */
-+&i2c3 {
++/* Verdin I2C_2_DSI */
++&i2c2 {
 +	#address-cells = <1>;
 +	#size-cells = <0>;
 +
 +	status = "okay";
 +
-+	camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
++	bridge@2c {
++		compatible = "ti,sn65dsi83";
++		reg = <0x2c>;
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio5>, <&pinctrl_gpio6>;
-+		clocks = <&clock_camera>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&regulator_camera>;
-+		DOVDD-supply = <&regulator_camera>;
-+		DVDD-supply = <&regulator_camera>;
-+		/* Verdin GPIO_6_CSI (SODIMM 218) - CSI_1_PWDN */
-+		powerdown-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
-+		/* Verdin GPIO_5_CSI (SODIMM 216) - CSI_1_RESET# */
-+		reset-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&pinctrl_gpio_10_dsi>;
++		/* Verdin GPIO_10_DSI (SODIMM 21) - DSI_1_BKL_EN */
++		enable-gpios = <&gpio3 3 GPIO_ACTIVE_HIGH>;
++		vcc-supply = <&reg_1p8v>;
 +
-+		port {
-+			ov5640_to_mipi_csi2: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&imx8mm_mipi_csi_in>;
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				dsi_lvds_bridge_in: endpoint {
++					data-lanes = <1 2 3 4>;
++					remote-endpoint = <&mipi_dsi_out>;
++				};
++			};
++
++			port@2 {
++				reg = <2>;
++
++				dsi_lvds_bridge_out: endpoint {
++					remote-endpoint = <&panel_lvds_bridge_in>;
++				};
 +			};
 +		};
 +	};
++
++	touchscreen@41 {
++		compatible = "ilitek,ili2132";
++		reg = <0x41>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_9_dsi>, <&pinctrl_i2s_2_bclk_touch_reset>;
++		/* Verdin GPIO_9_DSI (SODIMM 17) - TOUCH_INT# */
++		/* Rising edge avoids spurious interrupts from the noisy falling edge. */
++		interrupt-parent = <&gpio3>;
++		interrupts = <15 IRQ_TYPE_EDGE_RISING>;
++		/* Verdin I2S_2_BCLK (SODIMM 42) - TOUCH_RESET# */
++		reset-gpios = <&gpio3 23 GPIO_ACTIVE_LOW>;
++	};
 +};
 +
-+&mipi_csi {
++&lcdif {
 +	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			imx8mm_mipi_csi_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_to_mipi_csi2>;
-+			};
-+		};
-+	};
 +};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso
-new file mode 100644
-index 000000000000..d56234913b61
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Set 5MP OV5640 on Verdin CSI_1.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-+ * https://www.toradex.com/accessories/csi-camera-ov5640
-+ */
 +
-+/dts-v1/;
-+/plugin/;
++&mipi_dsi {
++	samsung,esc-clock-frequency = <16000000>;
 +
-+#include "imx8mm-verdin-ov5640.dtsi"
++	status = "okay";
++};
 +
-+&clock_camera {
-+	clock-frequency = <27000000>;
++&mipi_dsi_out {
++	remote-endpoint = <&dsi_lvds_bridge_in>;
 +};
 
 -- 
