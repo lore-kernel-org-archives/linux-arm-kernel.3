@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7993C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABF7C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGaqXmco4Nvf28C1PHC6jBPldtjIjC782IMn5cORV60=; b=Dzr9JCBmKB28fFE0Ty7OuUG6RU
-	ufwsc1pv38MFZK/367uzJ67V4CQBGhLxECMyDaY3CXRcEOVwexI14XUss0FR3htIUQj1J3y5Ojrch
-	SRjFPETg5C0NsdMZCigbA5yj8PEzPPMUJpIw9t8vgbxxncXceMBJ5C6H72OKS733BSVD5nLQvOTz9
-	a//IfEnT8H7ZH9cRzAEhqpEJFela2GNQeGwzinjtyD89Fd+/+QSQuGWHanUP/lbNbVnzKVEb6NiQL
-	EfjBo+LIXteoFJWF3r+72OP1wtS6BaRcljVfUJ9fxc/Rm9v4q1cHGhC85b3Ccwb3jgcN4sJK/91Yv
-	aIK0DFbw==;
+	bh=f6VZj+XggCu3byiwqkHK2FmnHJ2slCa2d6nya7SKEQo=; b=bY/N4wN46QsbEQKgMAzu5lcTz7
+	43rgKD0hxnALGJZ8b+32EXLkSMIoJUBrY4VsIi38whAQe80xR/mM2hSjzdrAF3FBMTRjTQiWE1JRS
+	kEk8OEgJQLQ7CIAq57EjL8f8WvlocyqpdnFvITd/9F4WDdpsmHZbGBMwNFdFlnEyJlGMRjivb7806
+	BpHqMFzilXXCptXBNqQPYt8D5nkLcxN3WvKvatwOk/7XlCWGLhBZCgwH0iVG+Vmo6G9hcFKJaw5gl
+	wwEKYN23PcombOUWcShMT3LJ5+NU3EQQ8VI2W4vGevA4kM7wKwbdcEYg69/yJnA8rLAWfYnxsyGao
+	3NUTPrEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJR7-00000009xGO-1HMv;
-	Mon, 13 Jul 2026 16:23:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjJ2U-00000009rph-2w0r;
+	Mon, 13 Jul 2026 15:57:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJR3-00000009xFr-3NiJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:23:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4246860120;
-	Mon, 13 Jul 2026 16:23:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DA3F1F000E9;
-	Mon, 13 Jul 2026 16:23:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783959793;
-	bh=LGaqXmco4Nvf28C1PHC6jBPldtjIjC782IMn5cORV60=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m5tpxXrOWnJFtjzJC6UWXb9uBYPk1xIJ3t3U4btW7ka0F0+IeC/Io06pDWQNc7C14
-	 uUx+fKcEDYkAh7cGZRWDlaaBufum4Box+EFg7TOASF266NHoE3EVpfoENrLV/4u6Eu
-	 MOGgLJKgETuvdBmUPcH/JYosLxwK9mmggugtjSdndOLHGAOfoFUgZa/U2sSV9gIk0n
-	 VMNI/2hfKPqPSHyL1pbF3ymYn8VDl+Prz9VEX6rKZyqZCG5qcKcYnTYPxmTaHwiofQ
-	 BsWV87bUWVo9apedriWlAx0I4H8kIGgg4DlkKV0tSenSU6QBL9HbWlnlk0Ra32eY3F
-	 pdEKtZ7SWeV7w==
-Date: Mon, 13 Jul 2026 17:22:58 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>, 
-	Toshi Kani <toshi.kani@hpe.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	David Carlier <devnexen@gmail.com>, Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com, Kiryl Shutsemau <kas@kernel.org>
-Subject: Re: [PATCH 0/2] mm: fix UAF caused by race between ptdump and vmap
- pgtable freeing
-Message-ID: <alUPbRx3_neT5ioO@lucifer>
-References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
- <8e320b30-9658-4e9f-ac4c-f99dcf855944@arm.com>
- <alNQccqtx5-QApup@lucifer>
- <alTOCtzQh9RMfWbc@willie-the-truck>
- <alTxUwrkzEx-FEOP@kernel.org>
+	id 1wjJ2F-00000009rdK-17KU;
+	Mon, 13 Jul 2026 15:57:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=f6VZj+XggCu3byiwqkHK2FmnHJ2slCa2d6nya7SKEQo=; b=aUa3VEvOqHxvHwZFUs6A+aNZz6
+	Rveky5Tuxnm49vw1CuTm1o3faAjZBPx0tkDXrVspPPPBBP9Pf1gPxYIICFgEwwXA6jpv313q1hZeH
+	Cc1p7G6PRjVx/Aux+zE9xWqFrPwQU4jyfa4RbC3Jn0BBsunjnydbjjdqMX4S/qWdFZoLn2QdZYXty
+	ekucF+8xx2C6iYz8QAUPsQyLs434vPPxcLAGnkg2ceVHlpL7NgqrUSSYUH+DwWw6PtqAZg9Uc4gnR
+	TlqHNJB1vYpWJP45DcUN5Bg+pIG5rqsMrVEOcPZ42njLBIoRnyPdiki6r9N2gZOtE5T/p5nd0sN7k
+	ff7nrsgw==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjJ29-0000000BoAR-46eM;
+	Mon, 13 Jul 2026 15:57:34 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuVHL11489881, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1783958191; bh=f6VZj+XggCu3byiwqkHK2FmnHJ2slCa2d6nya7SKEQo=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=riiC9imU9Dq0NovhQqQTJQ1d/cHOi3cCmUgc2vu5B8+PDHjmwcJwJYkqU7x6j6yXv
+	 PXqjA2kMHeDpTxEWtwWzW5q74oWD0p2ptyGp8729jdKTBnPsPv3qLkU0aT6hY1hAWg
+	 Q8CbVYkSd6b54r3ZVGKzndXdp5EPOiu7Ky9kRnaSqPAnxwiblJ0+wjfOYLKeo7Z0Um
+	 rFUjEFNWVY+KH4W8rWiQGDaqgOQNcP//nmX9ebVXlyDeyVUwrKgjICx++1wlknBZrn
+	 iMeR+q6zVJSq/kean/MRcRS7M0i++FGN8BKo0z4tDpAwNaXwBlVZJ48bruBX5dkbIR
+	 jiRqhFFpCep9A==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuVHL11489881
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 13 Jul 2026 23:56:31 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:32 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Mon, 13 Jul 2026 23:56:31 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
+	<bmasney@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>
+Subject: [PATCH v10 06/11] clk: realtek: Add support for gate clock
+Date: Mon, 13 Jul 2026 23:56:25 +0800
+Message-ID: <20260713155630.3054636-7-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alTxUwrkzEx-FEOP@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_165730_739058_E59CF869 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +102,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+cc Kiryl as ref'd below.
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-On Mon, Jul 13, 2026 at 05:08:19PM +0300, Mike Rapoport wrote:
-> On Mon, Jul 13, 2026 at 12:37:46PM +0100, Will Deacon wrote:
-> > On Sun, Jul 12, 2026 at 09:46:46AM +0100, Lorenzo Stoakes wrote:
-> > > On Sun, Jul 12, 2026 at 12:50:08PM +0530, Dev Jain wrote:
-> > > > Will Deacon had pushed back on a similar approach:
-> > > > https://lore.kernel.org/all/20250530123527.GA30463@willie-the-truck/
-> > > >
-> > > > Although now when I read back that thread, it feels more so like my
-> > > > incompetency to convince :) because:
-> > >
-> > > No haha not so, I think more like this stuff is fiddly.
-> >
-> > Yup, not disputing that this is hard to get right.
-> >
-> > Conceptually, adding locking purely to deal with a vanishingly rare,
-> > debug reader does turn my head but I'm _far_ less concerned about it if
-> > it's done in the core code, as is the case here. x86 needs it and we're
-> > recently running into related locking issues with the set_memory_*()
-> > APIs if we want to collapse the page-table on arm64 [1]. If the overhead
-> > is flagged as an issue, we can see if it's worth generalising the static
-> > key trick that the second patch reverts but I definitely wouldn't start
-> > from that position.
+Introduce clk_regmap_gate_ops supporting enable, disable, is_enabled, and
+for standard regmap gate clocks.
 
-Yeah I think my solution is not exactly pretty but it's the best fix as a hotfix
-thing _right now_.
+Add clk_regmap_gate_ro_ops as a read-only variant exposing only is_enabled.
 
-As Kiryl points out the nicer long-term solution would be RCU freeing, but I
-think that's the wrong solution for a _fix_ right now, rather something to look
-at as a larger structural change in the future.
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v10:
+- None
+---
+ drivers/clk/realtek/Makefile          |  1 +
+ drivers/clk/realtek/clk-regmap-gate.c | 70 +++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-regmap-gate.h | 65 +++++++++++++++++++++++++
+ 3 files changed, 136 insertions(+)
+ create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
+ create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
 
->
-> I'd say it's worth generalizing the set_memory APIs ;-)
->
-> Since it's de-facto machinery for manipulation of the kernel page tables it
-> makes sense to have a common code for page table walks with hooks to
-> architectures for checking/setting/clearing protection bits.
->
-> Coincidentally, I'm working on a POC that lifts x86's CPA into mm/ with
-> the intention to later use it on other architectures.
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index 71edc18121c6..90c0658a83bf 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -4,3 +4,4 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
+ clk-rtk-y += clk-rtk-common.o
+ clk-rtk-y += clk-pll.o
+ clk-rtk-y += freq_table.o
++clk-rtk-y += clk-regmap-gate.o
+diff --git a/drivers/clk/realtek/clk-regmap-gate.c b/drivers/clk/realtek/clk-regmap-gate.c
+new file mode 100644
+index 000000000000..0db0057215e3
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-gate.c
+@@ -0,0 +1,70 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#include <linux/bits.h>
++#include <linux/clk-provider.h>
++#include <linux/export.h>
++#include <linux/regmap.h>
++#include "clk-regmap-gate.h"
++
++static int clk_regmap_gate_enable(struct clk_hw *hw)
++{
++	struct clk_regmap_gate *clkg = to_clk_regmap_gate(hw);
++	unsigned int mask;
++	unsigned int val;
++
++	mask = BIT(clkg->bit_idx);
++	val = BIT(clkg->bit_idx);
++
++	if (clkg->write_en) {
++		mask |= BIT(clkg->bit_idx + 1);
++		val |= BIT(clkg->bit_idx + 1);
++	}
++
++	return regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
++}
++
++static void clk_regmap_gate_disable(struct clk_hw *hw)
++{
++	struct clk_regmap_gate *clkg = to_clk_regmap_gate(hw);
++	unsigned int mask;
++	unsigned int val;
++
++	mask = BIT(clkg->bit_idx);
++	val = 0;
++
++	if (clkg->write_en) {
++		mask |= BIT(clkg->bit_idx + 1);
++		val |= BIT(clkg->bit_idx + 1);
++	}
++
++	regmap_update_bits(clkg->clkr.regmap, clkg->gate_ofs, mask, val);
++}
++
++static int clk_regmap_gate_is_enabled(struct clk_hw *hw)
++{
++	struct clk_regmap_gate *clkg = to_clk_regmap_gate(hw);
++	int ret;
++	u32 val;
++
++	ret = regmap_read(clkg->clkr.regmap, clkg->gate_ofs, &val);
++	if (ret < 0)
++		return ret;
++
++	return !!(val & BIT(clkg->bit_idx));
++}
++
++const struct clk_ops rtk_clk_regmap_gate_ops = {
++	.enable     = clk_regmap_gate_enable,
++	.disable    = clk_regmap_gate_disable,
++	.is_enabled = clk_regmap_gate_is_enabled,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ops, "REALTEK_CLK");
++
++const struct clk_ops rtk_clk_regmap_gate_ro_ops = {
++	.is_enabled = clk_regmap_gate_is_enabled,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_regmap_gate_ro_ops, "REALTEK_CLK");
+diff --git a/drivers/clk/realtek/clk-regmap-gate.h b/drivers/clk/realtek/clk-regmap-gate.h
+new file mode 100644
+index 000000000000..3f4c7a784eb0
+--- /dev/null
++++ b/drivers/clk/realtek/clk-regmap-gate.h
+@@ -0,0 +1,65 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_CLK_REGMAP_GATE_H
++#define __CLK_REALTEK_CLK_REGMAP_GATE_H
++
++#include "clk-rtk-common.h"
++
++struct clk_regmap_gate {
++	struct clk_regmap clkr;
++	int gate_ofs;
++	u8 bit_idx;
++	u32 write_en : 1;
++};
++
++#define __clk_regmap_gate_hw(_p) __clk_regmap_hw(&(_p)->clkr)
++
++#define __CLK_REGMAP_GATE(_name, _parent, _ops, _flags, _ofs, _bit_idx,     \
++			  _write_en)                                        \
++	struct clk_regmap_gate _name = {                                    \
++		.clkr.hw.init = CLK_HW_INIT(#_name, _parent, _ops, _flags), \
++		.gate_ofs = _ofs,                                           \
++		.bit_idx = _bit_idx,                                        \
++		.write_en = _write_en,                                      \
++	}
++
++#define CLK_REGMAP_GATE(_name, _parent, _flags, _ofs, _bit_idx, _write_en)    \
++	__CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
++			  _bit_idx, _write_en)
++
++#define CLK_REGMAP_GATE_RO(_name, _parent, _flags, _ofs, _bit_idx, _write_en) \
++	__CLK_REGMAP_GATE(_name, _parent, &rtk_clk_regmap_gate_ro_ops, _flags,    \
++			  _ofs, _bit_idx, _write_en)
++
++#define __CLK_REGMAP_GATE_NO_PARENT(_name, _ops, _flags, _ofs, _bit_idx,     \
++				    _write_en)                               \
++	struct clk_regmap_gate _name = {                                     \
++		.clkr.hw.init = CLK_HW_INIT_NO_PARENT(#_name, _ops, _flags), \
++		.gate_ofs = _ofs,                                            \
++		.bit_idx = _bit_idx,                                         \
++		.write_en = _write_en,                                       \
++	}
++
++#define CLK_REGMAP_GATE_NO_PARENT(_name, _flags, _ofs, _bit_idx, _write_en)    \
++	__CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ops, _flags, _ofs, \
++				    _bit_idx, _write_en)
++
++#define CLK_REGMAP_GATE_NO_PARENT_RO(_name, _flags, _ofs, _bit_idx, _write_en) \
++	__CLK_REGMAP_GATE_NO_PARENT(_name, &rtk_clk_regmap_gate_ro_ops, _flags,    \
++				    _ofs, _bit_idx, _write_en)
++
++static inline struct clk_regmap_gate *to_clk_regmap_gate(struct clk_hw *hw)
++{
++	struct clk_regmap *clkr = to_clk_regmap(hw);
++
++	return container_of(clkr, struct clk_regmap_gate, clkr);
++}
++
++extern const struct clk_ops rtk_clk_regmap_gate_ops;
++extern const struct clk_ops rtk_clk_regmap_gate_ro_ops;
++
++#endif /* __CLK_REALTEK_CLK_REGMAP_GATE_H */
+-- 
+2.43.0
 
-Lovely :)
-
-There's another issue with CPA too (planned to raise this separately already but
-been super busy/distracted lately :) - it doesn't actually mark its page tables
-as kernel page tables so we actually have a gap if an IOMMU happens to map that.
-
-I am planning to send a patch for that anyway but it's indicative of this
-needing to be shared code, and lifting stuff up to be shared is good in general
-:)
-
->
-> > Will
-> >
-> > [1] https://lore.kernel.org/linux-arm-kernel/799181c3-a1a1-4de7-bc6a-576d3282efb0@arm.com/
->
-> --
-> Sincerely yours,
-> Mike.
-
-Cheers, Lorenzo
 
