@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240BFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B82CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4myrzpcV5cUM4yz59ZTbnlSvPcHQdnJLHv+wrB4J8no=; b=XuNu7yO4+cWIDNKMkwlTKbiDE3
-	TEOMM2UqC9gWwA9F/OoSXXkKRXMhO2KM84l9G60BacaVaLTwcPew5nJWjs09E7LVCHEUJK6LYsULB
-	De/mwmsAm86mTS86A1nEKoVlas2wwYcsbukm+54GTsh+1aeDStJlFJz0anEmJcZXXkSD/5RkNR+Wg
-	gesqEW4byTlxYcAuUfWrXoSpfmRx1q+NXeujkDAit6HVD1tZjOtfLR/dhwuwzn+oLj8PwcjdGzRwp
-	BgnhjfXegalVe0q8wzSoxvTP8JZR3rB0cXOb9XIO3HmRM3INNB4UrDeV7V1qeaF+ue9a6xaaOyxLD
-	ZZu5vZMA==;
+	bh=+S8ZLZuYEUhLxGBz9GbCPGNtlCQmD7r9ewmiP5lWBxw=; b=wd1jQfv+1zj/Fz1JNnKIL4kJKO
+	gniuHLk0yFQzIvcWglyZ9UfhGoWw0gUe9ktzog+HaITh+kLHIJjkTiLYVMh+6PnsLSbCLOCMW4M2Y
+	nbZ9yJ5WL2l8/IZQLOrDZK94AtVZrSUTbD9SMxtoGOemIt3MXV9iTgs5KqetQrQG9oyX3cIx6PvZW
+	A9BuLBYu+9LFm/VfS5+8czuKDirWezlZtisV+pQwJGyiEQRA7dAolhHMHCNkjrdWMjivyeAZaseHH
+	CoebmqSpLCHHe6a5YPIRGgTzjfC9tYC9qawoJrRSz1lDXIsZceYaacvmhoX246oM908nDHgZVkqsP
+	zVU9U4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJJX-00000009vL9-0OyH;
-	Mon, 13 Jul 2026 16:15:27 +0000
-Received: from mail-pl1-x663.google.com ([2607:f8b0:4864:20::663])
+	id 1wjJJp-00000009vPO-1SZf;
+	Mon, 13 Jul 2026 16:15:45 +0000
+Received: from mail-vs1-xe63.google.com ([2607:f8b0:4864:20::e63])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJJT-00000009vK5-0Dz0
+	id 1wjJJm-00000009vOJ-2dlI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:15:26 +0000
-Received: by mail-pl1-x663.google.com with SMTP id d9443c01a7336-2caed617615so37052835ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:15:19 -0700 (PDT)
+	Mon, 13 Jul 2026 16:15:44 +0000
+Received: by mail-vs1-xe63.google.com with SMTP id ada2fe7eead31-7380954d1c6so1205711137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:15:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783959319; x=1784564119;
+        d=1e100.net; s=20251104; t=1783959341; x=1784564141;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=4myrzpcV5cUM4yz59ZTbnlSvPcHQdnJLHv+wrB4J8no=;
-        b=V7sbAueTnJGPXlP6f5o3ig5TU6Nkpgdb1AO3VX7viEjcKCskB6rZXYdiocWw9V/yh3
-         bufsGpKUf3gdPvMj4f5a2fEk2imXXtU6xelCC+IKPoaOnWzxaMYoj/n7zcRbd72s3QVw
-         dJSd5Iwq72sH+NtRHh4NRd6MOoeBoTEykq5BW+UfWwtjP0zWsw9QgyfqYgdHwNN3IfOk
-         l2GvwolR8moaz/TOA4OOuLZkOcXP9UAmtc18ajzO4s/tzu68JhXvCBp8d4B1XnQ+pG5p
-         OHjCMrZbLRQmHSo3MdswzpQNNIO9Ic1pFPJf9FFXIId5U1OI2/tq8hkSWFvc2ghpevYW
-         jdAQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoxH1QMykaPlpnzRFKrZYiyHJTCjIwJuFAUBNDPxarJTkDfI3cxt8AZ2X/8DPfz2AKhPLhvTnMNHaQvwaW4F/G/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUHDW9qvdBHGVsmcRAXhPQL+lR0iBY/vs+JQZAtniGsYFUesyI
-	i1o5//tGvrmmV9UdsRboodwZnKGvXJp9h6OXTqM4AKEYdyvC+h6ZJaYd8QNg+aPSWP/To1DCGQt
-	uq9RMawWrMSylZBh6hzlws2pcmxeuSzzDOQX8dQmzms0sOw0YDhJLF2jFZVsaJ/f7RA8MG8uePF
-	tjeSRcwRa5ftau2Qx+Gngrn/ir71ptzCks1ELd5fintVR5GW8+ENanVrGf2P+o3eqxHrgi0RqGC
-	tMQxzzvdo7vzp2O4u+VrYqattBBZdBd9uM=
-X-Gm-Gg: AfdE7cmyhUpAMr5GQwNRpRrB44kLWujEGxkqwhqkKDRAhpvfgYCPgOkrkvmlHe/0MON
-	4vMFIVYU2XMPrumEzSAVqbnLvfNtwg03UEVfyWX/lvL11H4noPZDdUF9Wj479RG2aTzlJOXpxhK
-	26t9VWjfoQnAWOzfRubcVv/eDB1eMo9oumQSg4G5PNU3T/OdzQcwJQnbAazN5WCOm6pKa8eZBzC
-	z+4WJ2ipkgy0wP7Tdsg9Zg2behZ64V8JuFClohGWNasSFnqc8+EwNLIPjBpRj3yX6vmJNcpN9M1
-	TW425h0uI0AaglscreBQl3+KnT5tBrwEJW25VhDYYjK8rHA/Y9hbe+SM7Wok4lZqdxHcvGo+AjR
-	ztvl2YEK8kLN3FbiMrfBNT7cT/gLQgVZxT4QHOTp5YLh/tU3C0bf0z8WMhuWByQGCatsnpdaAIq
-	YbpUJVPah7VZbkl/MRD2YWJfl8Kd4lrImLe+LsdmPS4Xl+eCZO
-X-Received: by 2002:a17:903:2449:b0:2ca:d975:5bbd with SMTP id d9443c01a7336-2ce9ead3d83mr95972155ad.20.1783959319062;
-        Mon, 13 Jul 2026 09:15:19 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-0.dlp.protect.broadcom.com. [144.49.247.0])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2ccc9bc5955sm20485205ad.3.2026.07.13.09.15.18
+        bh=+S8ZLZuYEUhLxGBz9GbCPGNtlCQmD7r9ewmiP5lWBxw=;
+        b=Jfhd4m6+sh5VFu5t0LFaPS9KHqJlUXknO3mKsM3B18Z8m3A+C5J8q6806dU+3DBXDM
+         KIw6dva2eiwKd9JgJP9lDC59+cJ3HAoE6WL4d0hNuBQAxOva84zKNZiVdZ7CaEBlGYeU
+         qIXsIfdNjSlHrI3IEpbrAECRXsMDBjQnz/PWBsLq1Gxak7vBW+TTHwnRy7zeDGLy+u/B
+         SXIdCDWzsCGYEZz/QeLEdTsByGpElwMKDZUB7rUhouNb9HHPEZ+ojH30ThxNb/t2q5us
+         mZBRQMsvXNlSQCz4tgeVgCrOXhUde1VTmyWDbAdliK9jJlj56lUXFt6UlnvNJSlMnNNR
+         tVQg==
+X-Forwarded-Encrypted: i=1; AHgh+RpnzZAptzmhZDi3tez4Ync95w6mg8HzpdThjaXz0VgrhEX7LPN4oz806pIJSjfHdkhfCuCCtSlGV4ilIwj9p1KU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaX2Zer9S9JRVQ7zKhegLLLJqgCUPdaX6PBb5rpseB91dQXRKZ
+	EPBRVV4onsQvqhtOXby/g1nc4+E4BCKu1i3XnZNFPgs9fZ+Mx7gVJpnMEn1Rpm8HCKOT2OXAiMU
+	YaHxCbNSZajcly3fEE9dBQGm9ThVS6XzBgHjZqyNlohZ/hcZ3dHnLoipbNiIJh1pNdgHXKD41Ia
+	zqih/y9i82FKeTCRD8F0Nrr+IBqf6BnQzrgzNzJwylgr6bOZTcnKXEnojq/m4THl0nAGq4DCPBg
+	iTd0BFa+4rpqrX6TwVozO5AglAwEgaY3xI=
+X-Gm-Gg: AfdE7cmI127HhWIqSGOB1ntSIEYHxbvjN3yfX8Y06FnI5AhdCSX+ubC1a1rhqw2rbxn
+	FRK7yViA8kyumL+WZnVazxQ1VPZSuJyLIRD7De2CVp3BR32TiFcJ+bD2z9YNJh+OUY6vrSsO7ZG
+	q4hJO0AyRlM5NhqC2WwOSdVZC+mUhI9s+kGie5Xnt4E9/bNT6BQhipT5dEiNRkojOj094vLlqyz
+	PI0WTp76hcRORPXWFwjbsGqNKQH5lVvBD+mlZ4p4MdyMNPJG613wqbxgLcjPSKbXILUW+fkoYEi
+	rTxdWbk7VCidwV3aUuZHiuiaX02hakZlHfes3FjfYCDYYRaODPC4W2cKkaaAO3rb44ww9xAJNxg
+	TXyMvkI3Q6nivXt8x15Dp6wSn4YEYbMXLBwWwa6c+d7iB2cxFNrulEWvj4uBPEVc4pGlnkjTqSq
+	MYhZjSK1u6UnOp3WBofB1JO6tSyEZg8AobDTt8xGKymyfRxK3p
+X-Received: by 2002:a67:e701:0:b0:738:cdc6:f59a with SMTP id ada2fe7eead31-74533bc077amr4644535137.9.1783959340792;
+        Mon, 13 Jul 2026 09:15:40 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-6.dlp.protect.broadcom.com. [144.49.247.6])
+        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-744d6ea3857sm1358130137.24.2026.07.13.09.15.40
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 13 Jul 2026 09:15:19 -0700 (PDT)
+        Mon, 13 Jul 2026 09:15:40 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37d4eede8ccso2678345a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:15:17 -0700 (PDT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c19493ac2so47166521cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:15:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1783959317; x=1784564117; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1783959340; x=1784564140; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4myrzpcV5cUM4yz59ZTbnlSvPcHQdnJLHv+wrB4J8no=;
-        b=Bed18hqGlAa9cJeVUFH1ghtOef7pUeWlluQKbgNDaHr1uVimhPRHkSID1u+90z5YK8
-         DY5Tnd5MnrRT5iCi6E5TiHPp/pI4G3BC/nPQh9KjsEzmKOqZiB+Z43Qd+kOzeVPMJvCK
-         Qep2kKkzvGE78DfeUhV9UoZ1dN6s2me2WIc+8=
-X-Forwarded-Encrypted: i=1; AHgh+Ro6AzqJ8EEzXInzj+3Df/XeilOIN+TvcEc47bJ1GTCr/YPL67XfTPexRk/iHzw+gsvadOPJDBBqGXLRT82nKKRC@lists.infradead.org
-X-Received: by 2002:a17:90b:4d8d:b0:387:e0bb:57fd with SMTP id 98e67ed59e1d1-38dc7ba2aa6mr8816595a91.36.1783959317073;
-        Mon, 13 Jul 2026 09:15:17 -0700 (PDT)
-X-Received: by 2002:a17:90b:4d8d:b0:387:e0bb:57fd with SMTP id 98e67ed59e1d1-38dc7ba2aa6mr8816545a91.36.1783959316473;
-        Mon, 13 Jul 2026 09:15:16 -0700 (PDT)
+        bh=+S8ZLZuYEUhLxGBz9GbCPGNtlCQmD7r9ewmiP5lWBxw=;
+        b=KrArP6nPmeTYhQt/OhJ3v5uHQ3D8pjnDWOjYM/iOdId1/SSeGI3mhFte7XSwG9u0jT
+         b2JlZ3IFMee+EmNDbzbrdRSh0UroKwE2sdgz44fmV21dgL7XjuZbK6yOy6y14BmUJkHY
+         7TcmYbpGb4y3xo34zCFvjSBZRsqdjHosJ0C/I=
+X-Forwarded-Encrypted: i=1; AHgh+Rq++XbMkUNxde3SZ2Yx3gK4jvSLHIxW9ToVnmfBNFvYJT6NA4xTUedU1dWX8KMxA8w2Gir+IR/ekB2lXr100cmP@lists.infradead.org
+X-Received: by 2002:ac8:5fcd:0:b0:51c:7b11:41b9 with SMTP id d75a77b69052e-51cbf3304admr95112351cf.85.1783959339566;
+        Mon, 13 Jul 2026 09:15:39 -0700 (PDT)
+X-Received: by 2002:ac8:5fcd:0:b0:51c:7b11:41b9 with SMTP id d75a77b69052e-51cbf3304admr95111761cf.85.1783959338898;
+        Mon, 13 Jul 2026 09:15:38 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-313b9ca880fsm29475375eec.23.2026.07.13.09.15.15
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51caab6e33csm84054751cf.5.2026.07.13.09.15.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 09:15:15 -0700 (PDT)
-Message-ID: <c131f3fa-1918-49ec-b083-11ceb03eb40e@broadcom.com>
-Date: Mon, 13 Jul 2026 09:15:14 -0700
+        Mon, 13 Jul 2026 09:15:38 -0700 (PDT)
+Message-ID: <1c23b437-609c-470a-8b14-34288cb5aaa3@broadcom.com>
+Date: Mon, 13 Jul 2026 09:15:35 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: Remove non-functional EL2
- virtual timer
-To: Daniel Drake <dan@reactivated.net>, maz@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org,
- bcm-kernel-feedback-list@broadcom.com
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com,
- andrea.porta@suse.com
-References: <20260619204832.586079-1-dan@reactivated.net>
+Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
+ broken EL2 virtual timer
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
+References: <20260710080958.491620-1-maz@kernel.org>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -132,13 +132,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260619204832.586079-1-dan@reactivated.net>
+In-Reply-To: <20260710080958.491620-1-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_091523_148749_27503DB4 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260713_091542_695786_8FBDE683 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,39 +153,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/19/26 13:48, Daniel Drake wrote:
-> Commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer: Default to
-> EL2 virtual timer when running VHE") causes boot to hang on
-> Raspberry Pi 5. The newly-selected EL2 virtual timer does not generate
-> any interrupts, even though the GIC_DIST_ENABLE_SET flag has been
-> confirmed set via readback.
+On 7/10/26 01:09, Marc Zyngier wrote:
+> It appears that the bcm2712 SoC found in the relatively popular
+> RPi5 has a broken EL2 virtual timer.
 > 
-> The reasons for this failure are unknown, however it is likely that
-> this timer was never tested. Raspberry Pi's original devicetree did
-> not include this timer interrupt; it was only introduced via a
-> suggestion[1] made in code review as part of the upstreaming process.
-> (Current RPi firmware versions do include this timer, but only because
-> they rebased on top of the upstreamed devicetree starting with
-> Linux 6.12)
+> We do not know the reason why the timer isn't working (the timer
+> is ticking, but the interrupt never fires), and the SoC vendor
+> doesn't communicate on the reason why this isn't working, leaving
+> users and maintainers in the dark.
 > 
-> Until more is known about this non-firing timer interrupt, remove
-> the devicetree entry to enable RPi5 devices to boot.
+> Paper over the issue by detecting the broken HW, falling back to
+> the physical timer instead, and let the user know about it.
+> Also taint the kernel as the machine is definitely not compliant
+> with the spec, and we don't know what else is wrong with it.
 > 
-> [1] https://lore.kernel.org/all/12363be5b11c752b7155cc0c416fdfd2@kernel.org/
-> 
+> Reported-by: John <therealgraysky@proton.me>
+> Reported-by: Daniel Drake <dan@reactivated.net>
 > Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
-> Signed-off-by: Daniel Drake <dan@reactivated.net>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Mark Rutland <mark.rutland@arm.com>
 
-We know why now: the interrupt line was never connected in the first 
-place as this was not identified as being a requirement *sigh*.
+Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-Can you amend your patch with that detail, re-submit and add a:
+We know why now: the virtual interrupt timer line was never connected in 
+the first place because it was not clarified that it was a requirement. 
+I will also take the DTS patch through the Broadcom ARM SoC tree.
 
-Fixes: faa3381267d0 ("arm64: dts: broadcom: Add minimal support for 
-Raspberry Pi 5")
-
-Thank you Daniel!
+Thanks!
 -- 
 Florian
 
