@@ -4,80 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FDBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 05:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E94EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 05:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5d0yr3gnN9ERHhAT2y4kM/oGBA+b17O6yuphr5bj/g=; b=UcpU6HUZmq3r0bwElltDvqwpMP
-	uTPf6Z3sIzw5f5R0X884mlcLz9/Nx91/iFKRFfp3JNvMOODYmske6Zb4Nx65JhG0VHWAHg8kfRRV/
-	hzrhSqhhvqi8XNsfMHLHvPBS1jnJ7xRqyvCnq5dtdJXxS5JZ5koX8pbdoyvN8kdj/+fcgL+ENSas2
-	3f9/tIZqnNWj6ZygnkPmOpZi+jsxHVqNTFnKvuAU5AdM3zLYy2A335kXsbeUoVCCNUNTjk5ux1ycw
-	rfFv/gJidpZUiBEJYYdcg3tIpEJ72oWVQHXWX6vNVbWq41ze6fKj+EDZvpEc16VsreO7shN3j52m0
-	aqaGzfqA==;
+	bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=; b=YiFNMSVeLP8eHUWNE3tfZPfiDc
+	GI9VWB+/zFRN4hfxYFcUrlakhVj+u3JsgHVI8gut2JV3KkhjIqHazPNxVZSuTRuDeqTpJgpOCkxHQ
+	KEb2DK9Qp91BkjhBQ8pfJCb02g7ufm+YnbmyQf9hN8mFyUpgiUqfzvrdKHfKGHKkyOz/33bgxEB5m
+	KX41U1/2ne3enZEv4tgOoiOh476CyszMlOKJV+toLJSIGCEDaBEAMblVUe9fAQ34OPdZGnSOgBKAR
+	g67Tdt0ekI/ixMHEBHNsOCsWWYWN01cV9cRteyjzi1rbhKmKeHYfG/hEBr0Fd7wyfC/yA2tvjn0D2
+	7IJzSKpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj9Zt-00000008B2z-1hSR;
-	Mon, 13 Jul 2026 05:51:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wj9cs-00000008BON-3i2B;
+	Mon, 13 Jul 2026 05:54:46 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj9Zs-00000008B2a-0cAz
+	id 1wj9cp-00000008BNo-37nE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 05:51:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AA6160103;
-	Mon, 13 Jul 2026 05:51:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D9240C2BCF4;
-	Mon, 13 Jul 2026 05:51:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783921898;
-	bh=oCll8We+b6Ponr2uyiTBpEh+oMTBvWauOBvBly2V1Do=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=flKIobHQqR286Nhgygiour3pDzSDRE9c4oq4767RxopoKJRsEy2gkRM+XiQGpnVav
-	 je1ORONca0VMvZpyU1bPlk510M3ACCsoNCX6L8/+wEGPfZtkz7GZdO61KOeO+yCRS0
-	 tSd17RZXN+R24LqHGjnP64TOhzSv6eEc+8hx752/rdRZFB6RVoa6orgAkPVH5DSQ28
-	 eh2gFaPZBcYgv4Z4cLkXptznXjNrM2QcO8m8WXtzQ7pSVgWUk7CdZ6yj06yar3HJNX
-	 dq97N3HDcxW19G0M/Oavl2gCWCyaiQgSPF5hGmpcSY00naMk+bfcqZcm71gehPofSM
-	 bxSXzeLuUQG/w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9D68C44506;
-	Mon, 13 Jul 2026 05:51:38 +0000 (UTC)
-From: HaoNing Cheng via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Date: Mon, 13 Jul 2026 13:51:33 +0800
-Subject: [PATCH v5 1/2] dt-bindings: thermal: imx: Document calibration
- offset property
+	Mon, 13 Jul 2026 05:54:45 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66D3AHGR2430030;
+	Mon, 13 Jul 2026 00:54:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5
+	pY=; b=PSdMY7O3WgxckH6T0YtBLAPc/U1CEbSuobnD7bgDVXEXLnvme8Ku4F0Fl
+	mxQUKf4Up7dDNMsxMD5OqpJFaY+z7ug4W1N9KMRRBcXYxZ++iSWVJbOeRpzoNDts
+	OOcaZ1E48E8YGnkzM9pESb2tz5ant11YY/SRxvvhCKLEg2h40XA6whbFPRNYpROD
+	kOLta1XlFuzJYK9C4ihCQCwYWiRFa10t64xqTS2UelxOsh75PdbbOwZ7coUNOOGk
+	e+9GtbU2xKLvUBU4aHyFnf1OjkTu2PdP7G/WL+tdfjXqkEgUburgLTMMttxAxHAr
+	O3g76gJEXqbyguvJP5ASavOi4LFvQ==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011061.outbound.protection.outlook.com [52.101.62.61])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4fc6unbxsy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 13 Jul 2026 00:54:32 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DxCdLobeNCTJOclZNrhe2rbuMCMqI8Jf3K2p+xZKI9STBDpUxXiPNITORn6R0bQvSOiGzFbGJaZ7yEIrepo2zMeS6BVC/RG6GtdycCtDC4s/1n80kfNtSFgYjcs1nuI0zFFpZ5fIB8tdNGvjaGBo+yhAAYMGxVU8njmvQbF7fKpMqEFk1dOwAijFxTcA/eAP6qZ8MTW5VgfScCgCqHgOlx1jXS/xW4F5oeo5QxMZJoUQQk/4GuX3gK2R2qyceNEjYXZhhRypk+Ce1gvLUhe3I+y7yVkiHEU/Ih99eUAktOk/pdRaBJd56PUD+ywUK1rgOi12l3w4cJT8fiWCBuhQqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=;
+ b=io6hrUsQYJX3KEYpMC97uJ6TKTKxwAY9K5AntcICusL9vE2Jm5wg3AhRqYBYATWOIA2z5Eif+tseA6qd9CAKigfbRcmQNbW+NLbTb1+NrIYZTbogWUFbwZY5xqg5P96ZHuG1ZF2lcpaGHW2CAJeTFFRil9Dcwu+24B4953HZMmFkaBfMGulieOraWbWinl5vwO17rNe/v2djZ/BW0L5aAVni/NMNinvvttgudNg37scn45nv2B7TJyETPOqC8rRun3YSaIAEzaJaHsYxvd047ytIHChlWHXW70Dw2AzgLKIrNuq8WSC6BqJ5/hJPgEhioFUmGHaoWGEQsH81FhZKpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=;
+ b=j1HkSZhlJvpfFooEq1V7h8MUuypGnEfFu60G3TCboJk+3qvbJwNpqGznMEr5KE83eC+nHr39cuSaADX5+QBY+ZTWmKP2t7Lm5PrxuGIGUt6PckHJUI13Wc6Ne1jCq3m/CuMhFM1azBYy1UDs2UTnNuhJTHGioT2o7t7QaJ7Ibnc=
+Received: from CH0P223CA0021.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::9)
+ by SN7PR10MB7103.namprd10.prod.outlook.com (2603:10b6:806:32b::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 05:54:29 +0000
+Received: from DS3PEPF000099E0.namprd04.prod.outlook.com
+ (2603:10b6:610:116:cafe::a9) by CH0P223CA0021.outlook.office365.com
+ (2603:10b6:610:116::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
+ 13 Jul 2026 05:54:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DS3PEPF000099E0.mail.protection.outlook.com (10.167.17.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 05:54:28 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
+ 2026 00:54:27 -0500
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
+ 2026 00:54:27 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 13 Jul 2026 00:54:27 -0500
+Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66D5sNrM809166;
+	Mon, 13 Jul 2026 00:54:24 -0500
+Message-ID: <3d02c4e9-a271-4080-a54b-8ba4d7a86622@ti.com>
+Date: Mon, 13 Jul 2026 11:24:22 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-1-69405c306c6b@cn.bosch.com>
-References: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-0-69405c306c6b@cn.bosch.com>
-In-Reply-To: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-0-69405c306c6b@cn.bosch.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783921893; l=1753;
- i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=ZivBI22a3qS0TqHZ23fVePBLGsXub0NAoZFnOZ7FWno=;
- b=Xxio6LCNhOYSAf+kovPkzVuaYHSwWnE3Mn0GO93XO9M7eVk232Zt8Pverwudm2v9b2n+/+pO9
- oHc4DJr+i5RDivNDZhIG+pkRJnL0o/8AeSl4hWm3jwiwu2laFcksLnq
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
- pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
-X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
- with auth_id=860
-X-Original-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix link-local addresses being
+ forwarded out of slave ports
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Simon Horman <horms@kernel.org>, "Meghana
+ Malladi" <m-malladi@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260701112535.4027920-1-danishanwar@ti.com>
+ <71a1bacf-c54f-45b0-80df-7175261cf2ac@redhat.com>
+ <5c9fc598-9449-49aa-aa4b-2afc247bc761@ti.com>
+Content-Language: en-US
+In-Reply-To: <5c9fc598-9449-49aa-aa4b-2afc247bc761@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099E0:EE_|SN7PR10MB7103:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb337d19-aa7a-441e-297a-08dee0a333b3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|376014|3023799007|6133799003|18002099003|22082099003|56012099006|4143699003|13003099007;
+X-Microsoft-Antispam-Message-Info: 1PCs8YFRcerCmXyh58YJloDA0b6J4+wQWZZebroK3iN1vcdkP8Dk24KjE3QM+IJ9E8ogF+xX70N/BQlP++/cr4dkOaTNsiuj3a0Iy+xtKMbPWHTne80VEUtBMYB99DHcRs1gGRfCPsrs6EgjvBVpqkRckEE91gGO6CFQdSAWmpezwkvtoKsnMfGfOdCik2Y2K6eXBsJXck0XgEFoSI9fY5M1V0IfQgoRVXEeEmj4gS8RVgtEu2dG1KxMvnXDn1p65OQSAkmy3BWvZhphZR/f8XCO3jXAE3bpAhQkkAPDfLigxWbKMAKULiZjFfmVhYa3KK7Ns+veGBLdA47voNLXV4Wqj+fcsmWhQ5Wfc30DFXfErIbP9FcR9a5azRuxSKRO8WVmSby6z4WijdJUVAHNmkcgGMwHmIAEpdul9Ysxbf8PDwF2FPZFeZW/Cf0Vu8r/0wKlsfUklCdvDHXsds7Bv1gJiWh5Jnk66OPtOGiDapFZKrJa99tpCgUirshIYDeoF6WAbI+B/xZWOvjZO37wmZwRS76Je2ZEm7rhunfSqrY76tS5Ckf+4kmKtHeoQLonqkd+BVtiM2Rn1RYyeUueDiPq1LY6y+vcBAX70Zops7uI9mtKcO98a8ql22/6K2bbKfVmUJXyi9aznJ1SJkYuxQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(376014)(3023799007)(6133799003)(18002099003)(22082099003)(56012099006)(4143699003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: z0jzVHTXLTejShDH5L7803/mezE6oM/SOcGBz01RqDe8ftvXOQcNNRs2XUnmfGse6Qh2M1WMzEKjT8OmHPegqLfgUeowiYG7wH2idXtVg1zpkGQPKWGVUbPbCaOpz/keSIjXvIbW4cyu+f2Rnho9vQpJuPRMYzCHE5C8EJkTLB9DLzAr14jfO6xCU/Hfe9jOgob2P+DQHjsAuWLOwpqUWp0XF2OeDfamT80x/aXEdrCcCMFgY+yXhUPqrdLlsYKarEKfgvGsJSd9P01V33OhrNaYjxLECRqytx3d7RDrDVgIvDZKGC/A2BHN0mChcE8E6ixjW+PE1Wmitg33AXWjYkwmLos3U2iX+aQc+UFvK8kEd/NOhtGQHGvfbkkFi9NYKQ0hCmaQnnxWpEOSvUnpb/Ib6hrgNbwDFJEazi6BlCm84s09Fz/9Nj8xD+JK+L1R
+X-Exchange-RoutingPolicyChecked: C1/al8NQPq6T73cp+C04SUUaLlDVxi9Zx5jDvUhYc0m39cvA0XrOB2NXs20rZlTVKOtZAKgQMWReMxBfO2YulpZIJPJnA08c5kCpKz2XkVTrw2p1oxLq68elaE2oOzEWGzXtb8Dc/mTK73ON7VjqHqkax7c9bnskJlx8imcCEsVGIYvnyogdnIkhlbNY3bQ/GZeo2XLEETWcQnVPCz+CqFp4hN2WkZS0jZroB/STMarFUTob9Q1iqotxZHDsVBm6bHQwn39e4qJ+C3/s/zabVXf1DvhlINWRvfP2olm3IUnFLSfDhXgGpEihKB0Pjiy32BTC4dELpomokTSE84iUcA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 05:54:28.3828
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb337d19-aa7a-441e-297a-08dee0a333b3
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099E0.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7103
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDA1OCBTYWx0ZWRfX6HEENoL8jtTx
+ 22nYp1jRtX48t1bKLI7/N1HZnwXZrVMf/bhMQOdLldmYtFM5drSQkqn7ExFBoeKl8OJqauZ357b
+ muQWpsaVOKvFwm8l1NFZQMiAPXcy5PnJnlq1Lc3Vcfvswwff7WFjRx0cDimdnXiiNsC6FVbKERA
+ hNsm/2vL69IN/SapsTM9EXOfhnkVMpTaTyr1tGbsXGQAsiMy3z1sDn/ABdIDxnlCK6hcF6JJS17
+ CH7zr48Q3vyxgpDYvVtfSG0esI5ny+8NOZSsvPOcFV3wOE5uZ8MTvvba6H/GMEpLAAQjKhUbKhl
+ s9lvq86w5RF5rXxqIspjCty7Gnr6GhZmsk8RZBYXTnOfK1ydb2RUxHaw2X1yMBAyQJ3PhM38/Xe
+ QDdpNv9isKNeRgx7zlewPx11bsv9D1989jip+I6U+ZXqe6kGhmUQWJ4awoe+2DdF+HHnGsOTkYT
+ UeNFD6SYhkOXSFJ6vTQ==
+X-Authority-Analysis: v=2.4 cv=IMQyzAvG c=1 sm=1 tr=0 ts=6a547d98 cx=c_pps
+ a=WxwGY4H08PlrDVivH1wjUg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=c92rfblmAAAA:8
+ a=sozttTNsAAAA:8 a=TpfAaOI81706nv7RqeAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDA1OCBTYWx0ZWRfXyriLTbEsILWz
+ W5aBT2okJIYGVLF4Le1pMdBVZjqnlRoJ8lzwlAOumN5J4a70r3OV4WJEN4BYyk22HdCkIKA4lhS
+ xIBVoufQ47W1SR1PyznaNi7iCI+zqOc=
+X-Proofpoint-ORIG-GUID: vKn8lnrHeQYb_QXBhzuM-tzMMzAGFgQe
+X-Proofpoint-GUID: vKn8lnrHeQYb_QXBhzuM-tzMMzAGFgQe
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-13_01,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501
+ phishscore=0 impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130058
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260712_225443_915250_F0A68158 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +180,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: HaoNing Cheng <Haoning.CHENG@cn.bosch.com>
+Hi Paoli,
 
-Some boards need a small per-design correction to align the reported CPU
-temperature with board-level measurements.
+On 07/07/26 4:09 pm, MD Danish Anwar wrote:
+> Hi Paolo,
+> 
+> On 07/07/26 4:00 pm, Paolo Abeni wrote:
+>> On 7/1/26 1:25 PM, MD Danish Anwar wrote:
+>>> Link-local multicast addresses (01:80:c2:00:00:0x) must only be
+>>> delivered to the host port (P0) and must not be forwarded out of
+>>> the physical slave ports. icssg_fdb_add_del() was programming these
+>>> addresses with P1/P2 membership bits set, causing the firmware to
+>>> forward them out of slave ports.
+>>>
+>>> Clear P1/P2 membership and set only P0 membership when
+>>> is_link_local_ether_addr() returns true.
+>>>
+>>> Fixes: 487f7323f39a ("net: ti: icssg-prueth: Add helper functions to configure FDB")
+>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>>> ---
+>>>  drivers/net/ethernet/ti/icssg/icssg_config.c | 10 ++++++++++
+>>>  1 file changed, 10 insertions(+)
+>>>
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>>> index 3f8237c17d099..04a81402e3f3c 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
+>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>>> @@ -732,6 +732,16 @@ int icssg_fdb_add_del(struct prueth_emac *emac, const unsigned char *addr,
+>>>  	u8 fid = vid;
+>>>  	int ret;
+>>>  
+>>> +	/* Link-local addresses (01:80:c2:00:00:0x) must only be delivered to
+>>> +	 * the host port (P0). Clear P1/P2 membership to prevent the firmware
+>>> +	 * from forwarding them out of the physical slave ports.
+>>> +	 */
+>>> +	if (is_link_local_ether_addr(addr)) {
+>>> +		fid_c2 |= ICSSG_FDB_ENTRY_P0_MEMBERSHIP;
+>>> +		fid_c2 &= ~(ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
+>>> +			    ICSSG_FDB_ENTRY_P2_MEMBERSHIP);
+>>> +	}
+>>
+>> Sashiko gemeni mentioned it could be safer to reject entirely wrong masks:
+>>
+>> https://sashiko.dev/#/patchset/20260701112535.4027920-1-danishanwar%40ti.com
+>>
+>> It's not clear to me if the mentioned bad scenario is actually possibly,
+>> please have a look.
+>>
+> 
+> I had a look at the Sashiko comment. This seems to be a false positive
+> to me.
+> 
+> Link-local addresses (01:80:c2:00:00:0x) are IEEE 802.1D Table 7-10
+> reserved addresses that bridges MUST NOT forward. They are consumed
+> locally by STP, LACP, LLDP, PAE, etc.
+> 
+> No valid protocol or user configuration would add an MDB entry for these
+> addresses on a slave port — doing so is a misconfiguration regardless of
+> hardware.
+> 
+> The silent enforcement in icssg_fdb_add_del() ensures the hardware
+> always reflects the mandatory protocol behavior. Returning -EOPNOTSUPP
+> would only matter if there were a legitimate caller we needed to reject
+> — there isn't one.
+> 
+> I think silently adding host port to FDB membership for Link Local
+> addresses is OK. This Sashiko comment can be ignored.
+> 
 
-Document the optional fsl,temp-calibration-offset-millicelsius property,
-a signed offset in millicelsius that is added to the calculated sensor
-temperature. The property is optional and the existing behaviour is kept
-when it is omitted.
+I have responded here to the Sashiko comment. I see that this patch is
+marked "Changes Requested" in patchwork.
 
-Update the binding example to show its usage.
+Since the Sashiko comment was false positive, can you please pick this
+patch if it's OK with you or do I need to send a v2?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
----
- Documentation/devicetree/bindings/thermal/imx-thermal.yaml | 9 +++++++++
- 1 file changed, 9 insertions(+)
+I haven't sent v2 yet as Sashiko will run again on it and give the same
+comment again.
 
-diff --git a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-index 949b154856c5..b9afffd98f84 100644
---- a/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/imx-thermal.yaml
-@@ -59,6 +59,14 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  fsl,temp-calibration-offset-millicelsius:
-+    minimum: -28580
-+    maximum: 28580
-+    description:
-+      A signed calibration offset, in millicelsius, added to the calculated
-+      sensor temperature to compensate for board-level measurement
-+      differences. When absent, no offset is applied.
-+
-   "#thermal-sensor-cells":
-     const: 0
- 
-@@ -109,6 +117,7 @@ examples:
-             nvmem-cells = <&tempmon_calib>, <&tempmon_temp_grade>;
-             nvmem-cell-names = "calib", "temp_grade";
-             clocks = <&clks IMX6SX_CLK_PLL3_USB_OTG>;
-+            fsl,temp-calibration-offset-millicelsius = <(-6400)>;
-             #thermal-sensor-cells = <0>;
-         };
-     };
 
 -- 
-2.43.0
-
+Thanks and Regards,
+Danish
 
 
