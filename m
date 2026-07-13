@@ -4,116 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF04C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9448DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8weBf1fyxSXgmQEWM5cu/8KhBigfrYFJ7T/OfI1jX8M=; b=Zs+e+tXLwJJ1QQFi7x840k07hC
-	HQFx8YCeYu8SDMrAis67NPN7SlNrk108AScGGBn8/xxXkMLATiHS+6+MLNHEe9TJDy4FYZiJU4WBk
-	rYW0UtsXkkmK2sPoA3HsnMSW+2E/z1+F9iL5fh++3JO9ZDtEkrrKP5dXYpQVPDej6O8k9Z+2/A2s7
-	7KUp1SIcrUdElRG9RenqVkU7wUlCEkzN4+EAeE6x1JJNHYKSygYAVHrxH4jI/jGKr1bDLguu5mc2j
-	bDGXlFChtJXUUC6kQsJ+hVC5DE7O1YsH+yAzwa0QzByIeufnt7Z/Vr36N0BUMOCKVVimSPutLFSQW
-	FSknlMWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Zwixanyc1tVJgRpOgKTnmthryy/RcYSWrqrSfOCJIo=; b=aeDXiJPCmJ1KBYgHZls4WkR9at
+	2f4NxxbooaNZZMf6F06wXp3X5WRjC3Bj+HSXfUw1Ku0bs05ebMSK9kgEv76sn1GG/y4VGodjwWUYb
+	87d3N8vnBxk6mTnVYOmBXhXuipxWUMEzYDBmzjf328AMGKfBBRu9JTFLtX400QaBNWbhiwh6yyEdn
+	X/BSdhN9oygk1BV9MJKgpgwGK9ZOzq3Ui27Z2dTXt4VsyoiThBVcqYAFD1m+ixPSI9K+UDmL6T3L6
+	4AZk1ads3ubwiqOBZDsLyKi2k7jslAiwbb1g80TnlRR+ezw6NlkmDc5cQCPEZ6EY39aNiQu+SiiiS
+	9cZaXSXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEe3-00000008z15-2wdY;
-	Mon, 13 Jul 2026 11:16:19 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEe2-00000008yzX-0Cme
+	id 1wjEf6-00000008zJR-42h3;
+	Mon, 13 Jul 2026 11:17:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjEf4-00000008zIa-17Mh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 11:16:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eOIQIjlTSCJ4S452JrilLqSPkubzMfZPL7eIG13l94J7G/TyXKcn2VoCTROFIeWbjRw1GHr2NRG4oW157HUdbWJOTR5a7BscF/FxzQrS0vPWCxcXqvHP/UfnLBExqFEBMdIaQ26OuEAnIeXGzh/aGbzKNUwTV+7uKEiBScBgMDjdOz/Rc03Xh7GZxQtmVDrnK2wATve1Uapi55BWK1dZvRp0ToucDL5JWQiQB6anBphPcouGN7QkF+BtpxYzSNgT+AcEFo30VbHSccvNbeWZadqk9nfry5MzXdhQsCgnbrUP0aziyy+qjehJuSJ8QqVT1Ao0+JRY9QQ5+5RrcVgY9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8weBf1fyxSXgmQEWM5cu/8KhBigfrYFJ7T/OfI1jX8M=;
- b=KCAPXoXS6UbZJrSMlY8sUZ4VDVvPq3IhpSYbZgB1guJVjD1CWeD+V2U3XGezuPbAumGzX+8zx9M9FxLN1sAX+Td+6w/MOpdulPPJSUzey/hvfBUT7eSXKiZADYGjxgffdOuKCv7crG8BLDEEbCmZe5d8ef086ok8HLmJ1F6r39SwLntmR5neowO+v2/676iniq0X1KM8NMGiP724LGfMDgwr/bYM0DrJalT3bo2n9b2aRf9MDbAZvcBjHb0sLAzBoxD3rpN+5noNlO+iHYSdp6f7/nWHAZKsd4swT+aU5Yj30dofmKrjoM+sKxBOzHD84nwXNpj4+7SIGvQ+b7Sxxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8weBf1fyxSXgmQEWM5cu/8KhBigfrYFJ7T/OfI1jX8M=;
- b=aTzp3UF/wLWiP1HSVnbov3eHCjL0ViHqimD8giNj+wgdzHt7Cvh56WkTCl3SL0eGFyA8VurZNISX0NzIhq92EkZB0aYyigjBEz9OVSPz+NqlYsBCYOPdIu5PKQbVTefggQi5nl7jV+MdEk03ptp1Tzjf5dxVrvY/ZXT76IoN4zomqKHqRNHg//i0fa491zM56q1VlSkz5nGpKX1JeQHnh7H+BhkSWJCHUiGJ7bA8WsWgQJ5DTQE+Z2bXWHYd77smruBWGWubCfuz9OaSkIvxVsTGND5weQn8x5NjJJv/2IcrQsDYBAXtWx2JpFcOPwSQHGvlISUR6Jimn0M6qw9jPg==
-Received: from CH0P223CA0016.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::34)
- by DS0PR12MB7945.namprd12.prod.outlook.com (2603:10b6:8:153::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
- 2026 11:16:02 +0000
-Received: from DM2PEPF00003FC7.namprd04.prod.outlook.com
- (2603:10b6:610:116:cafe::95) by CH0P223CA0016.outlook.office365.com
- (2603:10b6:610:116::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
- 13 Jul 2026 11:15:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DM2PEPF00003FC7.mail.protection.outlook.com (10.167.23.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 11:15:59 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 13 Jul
- 2026 04:15:46 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 13 Jul
- 2026 04:15:46 -0700
-Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
- mail.nvidia.com (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via
- Frontend Transport; Mon, 13 Jul 2026 04:15:45 -0700
-From: Ashish Mhetre <amhetre@nvidia.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<nicolinc@nvidia.com>, <jgg@ziepe.ca>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, Ashish Mhetre <amhetre@nvidia.com>
-Subject: [PATCH v6 0/3] iommu/arm-smmu-v3: Tegra264 invalidation workaround
-Date: Mon, 13 Jul 2026 11:15:39 +0000
-Message-ID: <20260713111543.1462161-1-amhetre@nvidia.com>
-X-Mailer: git-send-email 2.50.1
+	Mon, 13 Jul 2026 11:17:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75C29153B;
+	Mon, 13 Jul 2026 04:17:16 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D12173F7B4;
+	Mon, 13 Jul 2026 04:17:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783941440; bh=E779sGiLUlh/9E4uWGKqHbSascm4LusE0eTu206KYNA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EYB2xZPX4tsfDATUmDOiua1ROO6SUYN8dm74aY14KKpS6jZMibNO3nmvuGMngYSuQ
+	 uFNg1YLuOpUEKmc4XfBN31YpznfcBJk+MGQpMcxIKuEqO4nwqXyc1+QEnSoMTsXbSe
+	 gpN7L2pvG3niRfkbfDCIB/mCW46xIGF4/I0GxQA0=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware dirty tracking
+Date: Mon, 13 Jul 2026 12:17:15 +0100
+Message-ID: <alTJOy8Sv4aAp_9y@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260709104026.2612599-4-zhengtian10@huawei.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-4-zhengtian10@huawei.com>
 MIME-Version: 1.0
-X-NVConfidentiality: public
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC7:EE_|DS0PR12MB7945:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb7a7450-308a-4d80-2740-08dee0d01de9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|82310400026|23010399003|18002099003|6133799003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: uPtJ36HziNEDSteegfoPFiHYy+MSDbfuSQ+p7p+jWlBxGotYLYHMjJHGjl9dbMzbJhCFeUmvs9x7Yo0jU/sE/clD0jzrblbmORFX2SSeWkLypnu1DlmzaY1+hYiJOsn9x1MLh4mDwkXhRW2cW3byRqgX15bN+cQdPUDugIOStNTfoyhxayaa5JIe+GGMFN+IQXM7grfyYDKzXhoTt7uCMp7cVYbUa7S9SKqiUrSPbgSpqgcO0NqbHsdT0Gndu9VucqHhgnp7CrkZbgFrL2OkAlxyb+FQBF8Z58ulNjvNq9D+31fPVT3elNmCTpksZswbGqeV92dZA2+wI3BLz/o+6xEcY+xtzfonKaerlRZYTEq12/efjsjIFCl2gYKyZ6k4+SkT9co9Jk8RtO6jBzbURDa9Rk6wxstGBNZFUdmIz/ViqROZy1o3sxTCDbJaKu6UTrauE/I2yhjQ5yRU+25qfda8IKpHqC79MWzTqWWErxUZY8sSKbnHNzeZEj/eGmR/TSep8cvPE8muUrtLVm9mMLaWCl/dyhj/3fQXzaP4pcFOe7ApHzEpB6cQ5qLkdb+3JkmYU7SumOR8fAeK9g/ZVbWShPb1OEc6ob83wgvabbNJyLyob2DercQXHBBWPb385oBOgL/50ONLqITmNfO7ldnBZJi1V+aljkx3m55galOsdbCiTiVPIaVa79JjE31vB11vU7lejXN8R9LmUljqLA==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(82310400026)(23010399003)(18002099003)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DI7mXy9ow7+DVANVcwNi5qSyIUatQmHcTZbVj5w379DLJ/WlafTK6ti+9WF5BSYzbI8ouL3RfhgvxtxFJtkkfPze8HqldzPtdiYL3z7n8gigOv0mVqkMUdgiQ+7fKiqOic/2CLbpYf0JREfiqn6T70pM8QPw0d1ymIvrrqj1qgTaiAajmoTlgZ1tuV6zCSMeWZprvrz/HOf+lbT9sjS29Bv/Z9imjH7eQdd1xPgW6XnQ6kEFlPqIhTH+/rD4jKqjYWeEnufbDD+U8Amsys95Ge1wUCcA1+bkJCsLPpl3gTP+Dkntarc590JtR84OXckpBGJwQZt6AzNYoF+M69PpJfatboDkjZLgwmZw7J9fWpWb3C2JqVk1anWLwV0pVIR2HilIEu8i8xy/66NtMyoZHLEsVVmW8S/vtbad4UfdQNfjL6ez0fAexey1Kee5yhPK
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 11:15:59.1283
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb7a7450-308a-4d80-2740-08dee0d01de9
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC7.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_041618_094700_0F2912D4 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20260713_041722_384138_18043EE1 
+X-CRM114-Status: GOOD (  31.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,130 +88,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nvidia Tegra264 SMMUs are affected by an erratum where a TLB entry can
-survive an invalidation that races with concurrent traffic targeting
-the same entry. The hardware-recommended software workaround is to
-issue every CFGI/TLBI command (each followed by CMD_SYNC) twice.
-The second issue must execute only after the first issue's CMD_SYNC
-has completed, giving the sequence:
+On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
+> The DBM (Dirty Bit Modifier) attribute, introduced in ARMv8.1, enables
+> hardware to automatically promote write-clean pages to write-dirty. This
+> prevents the guest from being trapped in EL2 due to missing write
+> permissions.
+> 
+> In this design, DBM is controlled by the page-table level flag
+> KVM_PGTABLE_S2_DBM rather than per-PTE software flags. DBM is
+> automatically set for writable non-device pages when the page-table has
+> KVM_PGTABLE_S2_DBM flag, which is determined at MMU init time based on
+> hardware capability.
+> 
+> The DBM bit is set in stage2_set_prot_attr() for initial mappings and
+> hugepage splitting, and directly manipulated in
+> kvm_pgtable_stage2_relax_perms() when removing write-protection. On
+> W->RO downgrade, DBM is cleared to prevent hardware from silently
+> upgrading RO+DBM back to W+dirty, which would bypass KVM's write
+> tracking.
+> 
+> kvm_pgtable_stage2_pte_prot() does not extract the DBM bit back into
+> enum kvm_pgtable_prot because DBM is a page-table policy determined by
+> pgt->flags, not a per-PTE property. Callers should check
+> pgt->flags & KVM_PGTABLE_S2_DBM instead.
+> 
+> This ensures DBM is consistently applied across all PTEs, including
+> during hugepage splitting where child PTEs inherit DBM from the parent
+> block entry via the pgt->flags mechanism.
+> 
+> Safety: DBM bit is only interpreted by hardware when VTCR_EL2.HD=1.
+> When HDBSS is not enabled (HD=0), ARM architecture guarantees hardware
+> completely ignores DBM bit in PTEs.
+> 
+> Co-developed-by: Eillon <yezhenyu2@huawei.com>
+> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+> Co-developed-by: Leonardo Bras <leo.bras@arm.com>
+> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 
-    TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
+Hello Tian,
 
-ATC_INV is not affected and must not be doubled.
+Have you added the above tags due to this patch being based on the below?
+https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
 
-The erratum is not flagged by any SMMUv3 IDR/IIDR register, so it
-cannot be detected from hardware ID. Tegra264 is device-tree-only
-(no ACPI/IORT support), so detection is purely by compatible string.
-
-This series is structured as a small refactor + infrastructure + enable
-sequence so that each step is reviewable in isolation:
-
- 1/3 Pure refactor (no functional change): lift the existing
-     force-sync conditions out of arm_smmu_cmdq_batch_add_cmd_p()
-     into a new arm_smmu_cmdq_batch_force_sync() helper, so that
-     adding another condition (in patch 2) is a one-line addition.
-     Authored by Nicolin Chen.
-
- 2/3 Add the workaround infrastructure without enabling it. Defines
-     the file-local arm_smmu_erratum_repeat_tlbi_cfgi_key static key
-     with an inline erratum description, the shared
-     arm_smmu_erratum_cmd_needs_repeating() predicate, the
-     arm_smmu_cmdq_issue_cmdlist() wrapper that can re-issue matching
-     cmdlists, the batch-helper force-sync condition, and the iommufd
-     batching split for mixed command classes.
-
- 3/3 Enable the workaround for the existing "nvidia,tegra264-smmu"
-     compatible and document the erratum in silicon-errata.rst.
-
-The series applies cleanly on linux-next/master (base-commit below).
-
-Changes since v5:
- - Move arm_smmu_erratum_cmd_needs_repeating() into arm-smmu-v3.c
-   and leave a declaration-only stub in arm-smmu-v3.h. Make
-   arm_smmu_erratum_repeat_tlbi_cfgi_key file-local static and drop
-   jump_label.h from the header.
- - Add an inline erratum/workaround description at the static key,
-   referenced from arm_smmu_cmdq_batch_force_sync().
- - Drop the misleading !n comment above arm_smmu_cmdq_issue_cmdlist();
-   keep the defensive !n guard.
- - Remove the unused smmu parameter from the predicate.
- - Tweak 2/3 commit-message wording ("commit" vs "patch").
- - Add Reviewed-by: Nicolin Chen on 3/3.
-
-Changes since v4:
- - Drop ARM_SMMU_OPT_REPEAT_TLBI_CFGI entirely: the option bit was
-   set and read on the exact same "nvidia,tegra264-smmu" compatible
-   as the static key, so it added no per-instance signal that the
-   static key did not already carry. The predicate now gates purely
-   on arm_smmu_erratum_repeat_tlbi_cfgi_key.
- - Reorder the series so the compatible-string detection lands
-   last, once all the infrastructure exists:
-     1/3  factor out force_sync helper (unchanged)
-     2/3  add static key + WAR functions (no functional change)
-     3/3  enable the key on nvidia,tegra264-smmu + silicon-errata
-   Split the old v4 "Detect" and "Issue twice" patches accordingly.
- - Update the /* See ARM_SMMU_OPT_REPEAT_TLBI_CFGI */ comment inside
-   arm_smmu_cmdq_batch_force_sync() to reference the static key
-   description instead.
-
-Changes since v3:
- - Drop the cmds->num == 0 early-return so the refactor is
-   truly "no functional change".
- - Rename ARM_SMMU_OPT_TLBI_TWICE -> ARM_SMMU_OPT_REPEAT_TLBI_CFGI
-   and rephrase its kdoc to be hardware-agnostic.
- - Rename arm_smmu_cmd_needs_tlbi_twice() ->
-   arm_smmu_erratum_cmd_needs_repeating() and drop the kdoc
-   above it.
- - Replace the explicit opcode switch with a single range check
-   opcode >= CMDQ_OP_CFGI_STE && opcode < CMDQ_OP_ATC_INV.
- - Introduce arm_smmu_erratum_repeat_tlbi_cfgi_key static key:
-   the predicate gates on it first so unaffected kernels pay
-   only a single static_branch_unlikely() check.
- - Drop the verbose Tegra264-specific comments above
-   arm_vsmmu_can_batch_cmd() and inside the batch helper.
- - Document the erratum in
-   Documentation/arch/arm64/silicon-errata.rst.
- - Guard the repeat path in arm_smmu_cmdq_issue_cmdlist() with
-   an n > 0 check so cmds[0] is never inspected on an empty
-   cmdlist.
- - Drop the carried Reviewed-by tags now that the patch
-   shape has changed; re-review appreciated.
-
-Changes since v2:
- - Split into a 3-patch series (refactor / detect / apply) to keep
-   each step small and bisectable.
- - Move the classifier to arm-smmu-v3.h as static inline so the
-   iommufd file can share it.
- - Add arm_vsmmu_can_batch_cmd() to split iommufd batches at
-   "needs repeating" transitions so the per-batch decision based
-   on the first command stays correct under mixed user input.
- - Spell out in the commit message why detection is via DT and
-   not via IIDR/ACPI.
-
-Changes since v1:
- - Detect the erratum from the existing "nvidia,tegra264-smmu"
-   compatible instead of adding a new property.
- - Centralise the doubling at the CMDQ submission layer and only
-   apply it to CFGI/TLBI (not ATC_INV).
- - Drop the binding/dtsi patches accordingly.
-
-Ashish Mhetre (2):
-  iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat workaround
-    infrastructure
-  iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat workaround on Tegra264
-
-Nicolin Chen (1):
-  iommu/arm-smmu-v3: Factor out CMDQ batch force-sync conditions
-
- Documentation/arch/arm64/silicon-errata.rst   |  2 +
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 15 +++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 75 ++++++++++++++++---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
- 4 files changed, 81 insertions(+), 12 deletions(-)
+Thanks!
+Leo
 
 
-base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
--- 
-2.50.1
-
+> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h |  4 ++++
+>  arch/arm64/kvm/hyp/pgtable.c         | 35 ++++++++++++++++++++++++++--
+>  arch/arm64/kvm/mmu.c                 |  3 +++
+>  3 files changed, 40 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 41a8687938eb..5e0fac4bfa53 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -93,6 +93,8 @@ typedef u64 kvm_pte_t;
+> 
+>  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+> 
+> +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
+> +
+>  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+> 
+>  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+> @@ -249,10 +251,12 @@ struct kvm_pgtable_mm_ops {
+>   * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
+>   * @KVM_PGTABLE_S2_IDMAP:	Only use identity mappings.
+>   * @KVM_PGTABLE_S2_AS_S1:	Final memory attributes are that of Stage-1.
+> + * @KVM_PGTABLE_S2_DBM:	Hardware-managed DBM for writable pages.
+>   */
+>  enum kvm_pgtable_stage2_flags {
+>  	KVM_PGTABLE_S2_IDMAP			= BIT(0),
+>  	KVM_PGTABLE_S2_AS_S1			= BIT(1),
+> +	KVM_PGTABLE_S2_DBM			= BIT(2),
+>  };
+> 
+>  /**
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 91a7dfad6686..21ec456ecc41 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -731,9 +731,23 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+>  	if (prot & KVM_PGTABLE_PROT_R)
+>  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+> 
+> -	if (prot & KVM_PGTABLE_PROT_W)
+> +	if (prot & KVM_PGTABLE_PROT_W) {
+>  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> 
+> +		/*
+> +		 * Set DBM bit for writable non-device pages if the page-table
+> +		 * has KVM_PGTABLE_S2_DBM flag (system supports HDBSS).
+> +		 *
+> +		 * For stage 2 translations using Indirect permissions, if the
+> +		 * Effective value of VTCR_EL2.HD is 0, then dirty state is
+> +		 * managed by software. Hardware only updates the dirty state
+> +		 * when VTCR_EL2.HD=1 (HDBSS enabled).
+> +		 */
+> +		if ((pgt->flags & KVM_PGTABLE_S2_DBM) &&
+> +		    !(prot & KVM_PGTABLE_PROT_DEVICE))
+> +			attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> +	}
+> +
+>  	if (!kvm_lpa2_is_enabled())
+>  		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+> 
+> @@ -1367,9 +1381,26 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+>  	if (prot & KVM_PGTABLE_PROT_R)
+>  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+> 
+> -	if (prot & KVM_PGTABLE_PROT_W)
+> +	if (prot & KVM_PGTABLE_PROT_W) {
+>  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> 
+> +		/*
+> +		 * No DEVICE filter needed here: relax_perms is only called
+> +		 * on FSC_PERM faults. Device pages always get full RW from
+> +		 * initial mapping and are never write-protected during
+> +		 * migration, so they never trigger a permission fault.
+> +		 */
+> +		if (pgt->flags & KVM_PGTABLE_S2_DBM)
+> +			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> +	} else {
+> +		/*
+> +		 * Clear DBM on W→RO downgrade to prevent hardware from
+> +		 * silently upgrading RO+DBM back to W+dirty, which would
+> +		 * bypass KVM's write tracking and cause data corruption.
+> +		 */
+> +		clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> +	}
+> +
+>  	ret = stage2_set_xn_attr(prot, &xn);
+>  	if (ret)
+>  		return ret;
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index e086c01a9325..346efed6e605 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1014,6 +1014,9 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  	if (err)
+>  		goto out_free_pgtable;
+> 
+> +	if (system_supports_hdbss())
+> +		pgt->flags |= KVM_PGTABLE_S2_DBM;
+> +
+>  	mmu->pgt = pgt;
+>  	if (is_protected_kvm_enabled())
+>  		return 0;
+> --
+> 2.33.0
+> 
 
