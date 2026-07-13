@@ -4,68 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD11C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF00C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIMSoCoPn2TvHqW5r2HbTFAy2cTbWv7M6EsJ8hb+heU=; b=dRCP2CIX7T6oiACMNZPoPCGpjD
-	+Tf4oUjkeNokVa4hwkBQxoQgHX3CnrSeXYR/rtEj/FzfFrhrnyn5cntbPIKrJSsAuqiEQHRLFIho8
-	wG8PtsP0RlGd8lJgbifu3jQKtFQ8FqbX8j+HWxXnRVwVOUqrH11jZlgheYtHRA4kdZ0EQCFNMsPSg
-	y5iOs9PtZ73Bd83HCVHIg2lU516Icyx4ov+9WEEUMrSOPfxlN2WC8aGRhnJfnoDUXchxmFZ/mvv+V
-	M0dU161wKik9RsSkXYskQXupLpntCZGRHf0+6IeOrbrCudpEomsN7vhUjjjIMqj25CJx7HI+Rk1cJ
-	HjZ+s94Q==;
+	bh=QovoZqY4xt6ZAxVQ0BWNZ2UDIC+LHZmnMzcr9SfOYAc=; b=jBXx93C78PkMz3Je1YR1LtuFXB
+	nG/JpgQjc6naSZxysX8gb3RSQyVBbQvTva0uZzNLy/v9zb56MSDUX1ei4PwQXDXQFCSCrr+krq/oi
+	kIiJoGc4ytiTKB3NZW4tcev3ALE4pDwJZhhElIwlDCr+Z/kVjZjkmOF7BIQTsHOM5OYZTR4pTXvKS
+	1z3wUeHDFzihrMOF9Lt5pwgNc9dL01tFWb0p3wczYqFHcr/pRJw8Gyp+OCw21mgwAazHM2nnyHWYJ
+	jOV3DiA6wsdZlA8t/NwCdgjVSFJMoJsfpMRPzleuWEuiVpoDC2nsNTG13T6JUPZKl3Go5Jzn5B3l/
+	YsgTtLBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBV2-00000008V9g-3tQX;
-	Mon, 13 Jul 2026 07:54:48 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1wjBVm-00000008VIX-0Pwv;
+	Mon, 13 Jul 2026 07:55:34 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBUy-00000008V7m-3qfu
+	id 1wjBVi-00000008VHJ-2BZf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:54:47 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 779A320F54;
-	Mon, 13 Jul 2026 09:54:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1783929278;
-	bh=LIMSoCoPn2TvHqW5r2HbTFAy2cTbWv7M6EsJ8hb+heU=; h=From:To:Subject;
-	b=ApLcwtXrm8U1o5X/EgwHOMc7zNkFNLRtXPDx3p9Pmjkswik6fqocWfMsce+TXw/st
-	 QWmo7nafkhY0YvDwtY71mGoHsYO1GznCZqlgQa4J2RWKLiSGalHUE1w6CFEM790w06
-	 /ZhSyqAlIQsruRBsU+bA80r79DE9tS2tliGLuFe/N1ryrtSQ5+RwJmt+LEcLF+TeXX
-	 SkUPUzmEiQRFlumW/1VgxJjdwC21PgKgHgDhfpiFcxY49sRnwyaFJCVLtG9wapFuiP
-	 nT42Tr8HiVnKzuOEL1SJiiLSVllsG/zO3hcXjjiNdKfN+m52pCeeARsrHeI2aYReKf
-	 eO3pP9uOEsJDg==
-Date: Mon, 13 Jul 2026 09:54:34 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Franz Schnyder <fra.schnyder@gmail.com>, Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	jun.li@nxp.com, Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
- role
-Message-ID: <20260713075434.GA32373@francesco-nb>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
- <20260108081433.2119328-3-xu.yang_2@nxp.com>
- <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
- <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
- <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
- <5zz6yhc4ymoccovibmjlse2l2d6y3g3dwu5r5a677rplpfdnwu@fo2ed54hqzeh>
- <6btg6x2bsgu6jzzxds3koyha3ucaf37apbshhfgpu2vxdgb5oz@npvm7tkg3bxh>
- <25fqcu6itk47tvm4qto7zw2r4cno7kryxi7a6lo6ddbxwzbakx@nj3ytoy44ynl>
+	Mon, 13 Jul 2026 07:55:33 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-383adaa461fso1858587a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 00:55:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783929330; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NdacO+xfc48fmwROYRepcXt8KqnAnHWMhH+q9WHm1sB6oN20FH8ypJUFoGmg5aMfCI
+         bl9MXGSoVI3Skz8LKk6xUKpnmcC6tFBnI9xYCZSbMteL4ogNfsPa6rkv/Ap+Lu/EU0ZY
+         5cXnGAyTWwnEIMztnzbGWbTou5UxEnCpLK/rt/2AEygiwJSvHxwYEDxn+ks3C0PeHQ2l
+         jtjHQXmYUlLW5LxZSNMD7a9N0s3O472ZXBCA7y81zIMaWdZNoTfMUJyXlXym7zCpIiKC
+         u0FkGrzUIU/OIUzwxXQUhwy6fFt3YL9LI3arBr72z/GoqWqBfHBBHuud1Eh1+e0ob++i
+         vb1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QovoZqY4xt6ZAxVQ0BWNZ2UDIC+LHZmnMzcr9SfOYAc=;
+        fh=YrFn+qQAgq5dHfK5+0lgUYP0V14kQEcgsPGTVgwpsYU=;
+        b=EGRfa6rv4Q8T2linbvGjbB/rdytOYzsTcd2Dht8Wv4HQY08ZS2xUWrDnDxUVJQxyar
+         RdGpZqNZBML4BHjTIKBKLD0BfHa74mSHVc1MDFEa7MP/FF9nQDDM6UKqymVYyMHR6f5m
+         dYsj/A5xOBki8QLZh5+vdssRrAvr2dlkqBN5DsMcJOFpvwza/elKUSEoscCvbUczUAel
+         cVPN3xWAUjlxEUELZAAk/FW682gsvjIS+pWJfnQSmape7jAKANv1TxxoyLn48LV70HLm
+         D5RZZLP4EMOdE06E/0qWh2GXnH663jZHG83IWU7fZBdWfpgrRD/gBiN8JSzjFd+Zl9vw
+         jc0w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783929330; x=1784534130; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QovoZqY4xt6ZAxVQ0BWNZ2UDIC+LHZmnMzcr9SfOYAc=;
+        b=YCsbqBw91KpLt1xJ44QpF6ov2f8JECS8QaCLJMwUTD4AgtCZ+BsMLiV67eTrG+l17k
+         +BDKnp+Wkl7gYo+DD1178W3tkeqB63zWVjUKxypNetqteisCMX6w354YI0VuHMe7wYjh
+         6SQn4xLhJQV5aEUieugQzDRryCpU6CF7LT7C2RVE9G4lz/VZ8UftOceUMfNgrUJWDeLR
+         vPltTtr8hD/sfltf3qFT3jyjAcQdoLZvTb07+vvU8RsrW32uQVVygm2f0FppBoe0qZY+
+         7NboFXLq2av7CcE0iKD7ggejRz69ZAhRPuv7S97R0Iq3azKIMUAeMLv4m2mx93i4YTyU
+         RSRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783929330; x=1784534130;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=QovoZqY4xt6ZAxVQ0BWNZ2UDIC+LHZmnMzcr9SfOYAc=;
+        b=eHq3Yil8scVPbWbhON/l81itFzFR+s+/bVRQepOKnCFfAtzuZPoZ1Fr1sWhdDr69wl
+         1SkL2XNLDtXtwx2S8F0Dtg5d3Mm2iWCyCJycPe7T7C2NzMwVOjK1qwOFamMu5nTtscH2
+         NB1iQljh9S0o9LWmO5mjJOumh7mp0PA1KIAq0SSITD/3/YuYO0Ge5CI2E75FJv2iCVes
+         M0YFpX1bYiOt+8naLvHzD0Ednl0Rr3bJ0Cm+McPcCaFslWRIe2Jc9NFuNXKQ0QAy8QTW
+         PWQeYaBYukGGBmMwr4eyZ68i+LimQq+TqT1YO78F+XBIFSWkcL8t4kYVEpS6d44Sqz0V
+         +IiA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr+EvPDCSgVbzKWSa7+GZO+GoAgbfnv3lX767ZPyPRFotlbPAS9EoYA8f9hlBQVajxInfRT8ZyknKCmVKNLw12n@lists.infradead.org
+X-Gm-Message-State: AOJu0YwObho/LG0TzB+TShCaU7T5aw5bCeXJpVv6s2sjPlDhfAWsv/qr
+	Y0qoI/AB9uD9M1sGCgK/YX/KdY8pOIcOfbp8Niiwnr0XHOBqoej7k9oOzOw2EEB7Gvb+klrXwZf
+	yXwYhSLnrYNCJtU7rBGeig2rP9+kGl48=
+X-Gm-Gg: AfdE7ckp72MovC2hkAuj8W9h7o13QHVPBd4lPpIGBz8sulq5nBBhYvHTpVdPty7qoJg
+	8xFMDxkK2loTk9kph9gxwJA+5+yRc0Lc45FNC6hxsDoCa/AOS0CTYjT+nswIp0/UbSlmUGJeII9
+	MiwVs99e3F5Gb4Hr2lwhL+Ks0v1E7N9/l2IlmHatcRL+RpAoICi19Y8/f01p4KLavADefHzw8w3
+	H5xSbMC6u/JccoKZKqxSq1FONPK7hz2mLzFO2BGwdaJeBURT98nLIjkvAWgn2mdKI/mUlPd1fWf
+	xQ0KO/mU6XD86iiUz0CPuEkgyrERf2kal8pKb8uUlRmtWSdkKOmISw==
+X-Received: by 2002:a17:90b:1dcf:b0:38e:673:5d18 with SMTP id
+ 98e67ed59e1d1-38e06735ef7mr1259924a91.36.1783929329714; Mon, 13 Jul 2026
+ 00:55:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <25fqcu6itk47tvm4qto7zw2r4cno7kryxi7a6lo6ddbxwzbakx@nj3ytoy44ynl>
+References: <20260711-nanopi-m6-v2-0-422675a65402@gmail.com>
+ <20260711-nanopi-m6-v2-8-422675a65402@gmail.com> <b9a5beb6-b701-430c-b667-44780736dd89@kwiboo.xyz>
+ <CAPSPb=t=jZke2pEinPvJ4mbxKMF3hSqMfx3GMjEUT6N2FEyygg@mail.gmail.com> <50a8a36a-e7dc-43ec-80ce-904e6e7fbd3f@kwiboo.se>
+In-Reply-To: <50a8a36a-e7dc-43ec-80ce-904e6e7fbd3f@kwiboo.se>
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
+Date: Mon, 13 Jul 2026 09:55:18 +0200
+X-Gm-Features: AVVi8CetW3-cEGywGS5tE1DvejPk5LFrS4NRovmzWMSPfCpXGd_mo2vU_Ad0Vvw
+Message-ID: <CAPSPb=s0Rsvj8b6MLfrza-CVK5U3jF60fEb2yjsro=x4Tyz2qw@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] arm64: dts: rockchip: rk3588s-nanopi: remove
+ always-on from vdd_npu_s0 reg
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	diederik@cknow-tech.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_005446_019684_CACBB388 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260713_005530_565051_4439465A 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +120,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Xu,
+On Sun, 12 Jul 2026 at 20:22, Jonas Karlman <jonas@kwiboo.se> wrote:
+>
+> Hi Joachim,
+>
+> On 7/12/2026 8:00 PM, Joachim Eastwood wrote:
+> > Hi Jonas,
+> >
+> > On Sat, 11 Jul 2026 at 01:24, Jonas Karlman <jonas@kwiboo.xyz> wrote:
+> >>
+> >> Hi Joachim,
+> >>
+> >> On 7/11/2026 12:11 AM, Joachim Eastwood via B4 Relay wrote:
+> >>> From: Joachim Eastwood <joachim.eastwood@gmail.com>
+> >>>
+> >>> Since the NPU is hooked up on these the always-on isn't needed anymore.
+> >>>
+> >>> Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+> >>> ---
+> >>>  arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 1 -
+> >>>  1 file changed, 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> >>> index bcb2f5d63a61..463cfeddf270 100644
+> >>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> >>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+> >>> @@ -258,7 +258,6 @@ vdd_npu_s0: regulator@42 {
+> >>>               regulator-max-microvolt = <950000>;
+> >>>               regulator-ramp-delay = <2300>;
+> >>>               regulator-boot-on;
+> >>
+> >> Why is boot-on kept?, NPU is likely not needed until OS has started.
+> >
+> > I am not really sure.
+> > Looking at the other rk3588(s) boards, they also kept the boot-on parameter
+> > when the always-on was removed.
+>
+> Ahh, those board should likely also drop the boot-on prop. There should
+> really not be any need to force the PMIC to enable this regulator from
+> firmware. If it was left intentionally for other boards, maybe there is
+> a bug in software that need to be fixed.
+>
+> >
+> >> With PD domain-supply the regulator should be enabled automatically, or
+> >> is there some other issue that requires boot firmware to enable this
+> >> regulator before OS is started?
+> >
+> > Maybe some Rockchip people can enlighten us?
+> >
+> > I haven't had the time to actually test the NPU. I'll try to test it next week.
+> > So this patch is based on similar changes done to other RK3588 boards.
+>
+> Yes, please drop the boot-on prop and test :-)
 
-On Wed, May 27, 2026 at 02:33:05PM +0800, Xu Yang wrote:
-> On Tue, May 19, 2026 at 10:54:58AM +0200, Franz Schnyder wrote:
-> > On Tue, May 12, 2026 at 05:53:57PM +0800, Xu Yang wrote:
-> > I've attached the logs below with and without the commit. looking at 
-> > what happens before the warning I think the problem is that after probe
-> > deferral the depopulate path races with the device link state changes 
-> > from the fw_devlink cycle fixup.
-> > 
-> > One important thing to mention is, that we build dwc3 and typec as modules.
-> > If I build them as built-in I can't reproduce the kernel warning so far. 
-> 
-> Thank your for the information.
-> 
-> It's indeed an important finding. I can reproduce the issue when I build the
-> driver as modules.
+boot-on doesn't seems to matter on my NanoPi M6. My short test code for the
+NPU runs either way. Note that I am running edk2-rk3588 bootloader.
 
-Just a head-up on this
+Setting up the enviroment for running stuff on the NPU was less painful
+than I feared. Using Mesa teflon and python-tflite-runtime.
 
-7.2.0-rc3 is not ok on this regard
+I will repost the entire patch set later today.
+Thanks for all the feedback so far.
 
-```
-[    6.285930] WARNING: /usr/src/kernel/drivers/base/core.c:1706 at device_del+0x2b4/0x388, CPU#5: (udev-worker)/409
-[    6.285950] Modules linked in: ulpi(+) ehci_hcd amc6821(+) nvmem_imx_ocotp_ele tcpci(+) tcpm roles phy_fsl_imx8mq_usb usbmisc_imx ina2xx typec dwc3_imx8mp(+) lm75 imx93_adc spi_nxp_fspi i2c_mux_pca954x svc_i3c_master i3c flexcan spi_fsl_lpspi can_dev pwm_imx_tpm gpio_keys display_connector evdev fuse autofs4
-[    6.286031] CPU: 5 UID: 0 PID: 409 Comm: (udev-worker) Not tainted 7.2.0-rc3-0.0.0-devel #1 PREEMPT
-[    6.286039] Hardware name: Aquila iMX95 on Aquila Development Board (DT)
-[    6.286044] pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    6.286050] pc : device_del+0x2b4/0x388
-[    6.286057] lr : device_del+0x1b8/0x388
-[    6.286063] sp : ffff80008364b740
-[    6.286067] x29: ffff80008364b760 x28: 000000000000000c x27: ffff800081347ea8
-[    6.286078] x26: 0000000000000000 x25: 0000000000000000 x24: ffff000087ae28c8
-[    6.286088] x23: ffff000087ae28c0 x22: ffff000080a6c010 x21: 0000000000400140
-[    6.286099] x20: ffff8000814c8e60 x19: ffff000087ae2810 x18: 0000000000000000
-[    6.286110] x17: 0000000000000000 x16: 00000000000017fb x15: 0003a7018ef1930c
-[    6.286120] x14: 0000000000000225 x13: ffff800080d6f068 x12: 0000000000000000
-[    6.286130] x11: 00000000000000c0 x10: 0000000000000a30 x9 : 000000000000003c
-[    6.286141] x8 : ffff80008364b640 x7 : ffff000080001540 x6 : fffffdffc22a7600
-[    6.286151] x5 : ffff800080232cac x4 : ffff00008001fe00 x3 : ffff00008a9d8280
-[    6.286161] x2 : ffff000087ae28b8 x1 : 0000000000000003 x0 : ffff0000813fb800
-[    6.286172] Call trace:
-[    6.286177]  device_del+0x2b4/0x388 (P)
-[    6.286185]  platform_device_del+0x2c/0xa0
-[    6.286194]  platform_device_unregister+0x14/0x3c
-[    6.286202]  of_platform_device_destroy+0xf0/0x100
-[    6.286211]  device_for_each_child_reverse+0x6c/0xc4
-[    6.286219]  of_platform_depopulate+0x34/0x80
-[    6.286225]  dwc3_imx8mp_probe+0x268/0x3f0 [dwc3_imx8mp]
-[    6.286241]  platform_probe+0x80/0xac
-[    6.286248]  really_probe+0xc0/0x3e0
-[    6.286255]  __driver_probe_device+0x164/0x1bc
-[    6.286261]  driver_probe_device+0x3c/0x118
-[    6.286268]  __driver_attach+0xc8/0x21c
-[    6.286274]  bus_for_each_dev+0x7c/0xdc
-[    6.286282]  driver_attach+0x24/0x30
-[    6.286288]  bus_add_driver+0x11c/0x260
-[    6.286294]  driver_register+0x68/0x124
-[    6.286301]  __platform_driver_register+0x24/0x30
-[    6.286307]  dwc3_imx8mp_driver_init+0x28/0xfdc [dwc3_imx8mp]
-[    6.286317]  do_one_initcall+0x60/0x1d4
-[    6.286327]  do_init_module+0x54/0x244
-[    6.286336]  load_module+0x18a0/0x2040
-[    6.286342]  init_module_from_file+0xd8/0xf0
-[    6.286349]  __arm64_sys_finit_module+0x208/0x35c
-[    6.286356]  invoke_syscall.constprop.0+0x48/0xe4
-[    6.286364]  do_el0_svc+0xa8/0xbc
-[    6.286371]  el0_svc+0x40/0x228
-[    6.286379]  el0t_64_sync_handler+0xa0/0xe4
-[    6.286385]  el0t_64_sync+0x198/0x19c
-[    6.286394] ---[ end trace 0000000000000000 ]---
-```
+
+best regards,
+Joachim Eastwood
 
