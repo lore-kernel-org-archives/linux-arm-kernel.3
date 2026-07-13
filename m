@@ -4,76 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFB7C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AAAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sLrzXRU//S8WRey8WhK0HpLicfNB7g33o6vQ+hoAUdo=; b=gm18BJmtD/xG37csYs9JDn6/pc
-	SxEDEt09uj0Sq5usV3FtrE49xMyABGoYInQIHDAk99TGKazzb+c/QRFAlkjICS6sGy+PqNYqm98xv
-	bNxwnp1nNnpTkuW8EW39qHapCR/YlZzgyvOVIVD9+EbwNnMWRGW64L1XhxJ9h9Ismrz4NmsdBjMME
-	CJbSD+n4m5kHqVLbJFtiRJg25xGGxChOPT4QDh2e90KugmB/HvnH27lmZRW4nLy3hjw73InLfkNSI
-	ovYhen68DSZOb8b72/ZCCnmxVX3SV4VTVec8QYjOObe1Sqylr1432f6oH8nsO+ja0wXzh7VX4AMDi
-	9lcGxN4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PKJfzcOO3DPVFtYYdFmzNXMgq4lw0a0uxvJDNfRGA24=; b=H9ZpmBB02RTpaG
+	wFvKnhWcrCcnAeYOTr67GUQMcKUb7pMZ0Asn3qMU9LTMd4U8MjYz6e7WZ5/bdxypLXqsHAk1WSSc0
+	ubTXNwHY2+yTnRVx+g0VIoK20Ss11DwsZweRq64PEUcx83AWwWYkRdpn7N/yFByNoOJw0HDPXKal6
+	rNs344Fbpm2LNbP2i/F0NRR8pQ5KmkA7CIgFQYxLKow4aDV6vG6KIL4F8YoBC1lJtktFL3xD/JNRi
+	CEHBibtm4MRsfFOWTV/w9McfsQ937cshppgEJt12WGVHtpUV+V4QgHfKeJi/oYiT5+LQtszlgbVaZ
+	tpsPJNqz7guJrZP2pRrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFVX-000000099Xi-2FAK;
-	Mon, 13 Jul 2026 12:11:35 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1wjFVj-000000099hf-3WWm;
+	Mon, 13 Jul 2026 12:11:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFVP-000000099Qo-1mSo
+	id 1wjFVa-000000099ZS-1KIO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 12:11:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=PKJfzcOO3DPVFtYYdFmzNXMgq4lw0a0uxvJDNfRGA24=; b=Tehc+RxSMb5Rq2SZGquuPJpnv0
+	qwaTk3GaqTkkoLdYtCv4QnGa4rSRVMP49DD4bZinyk9fb5mNccxwYfI7kKa+IWiJ3QWvAYT0J209M
+	o2pcmSWPydzhWYT6/Z/acpEkVe235t7xkt2yLpqUk3JgMuTitphEfo9WjRey+sTMVepW/ZJmcxPY+
+	eECIZaGiSlx60FSVDxCHlB47zjXi+BMcsr0lMt8JUczmpPriCw2dP5PlJ7dFJRShBBCsbxOcWXCsG
+	Mr51nqJj7QNVuwy1uG7+y2jNZpHjHvGnDq8hKgOWydOXuztzvisi2usbhpq6KRHdh1ub9OpkcEJx2
+	b7zq0dnA==;
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjFVX-0000000BaYh-0WJS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:11:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gzLqy6KTfzKHLv1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 20:10:54 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id E69874056B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 20:11:23 +0800 (CST)
-Received: from [10.166.163.161] (unknown [10.166.163.161])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgCHUaLr1VRqGX9OBA--.12823S2;
-	Mon, 13 Jul 2026 20:11:23 +0800 (CST)
-Message-ID: <c68a4524-0265-4cca-b153-83c9a9c14da4@huaweicloud.com>
-Date: Mon, 13 Jul 2026 20:11:23 +0800
+	Mon, 13 Jul 2026 12:11:36 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38dc4553f62so1786723a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:11:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783944692; x=1784549492; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PKJfzcOO3DPVFtYYdFmzNXMgq4lw0a0uxvJDNfRGA24=;
+        b=Iyp+QIaFz89H0yfPrDgJRlystJXYjhFEiJcf/RcShHBcxULXKwtj4K2ADa/IQzrgru
+         3BbLtJznz8/XjWjdtb34mVWHPLeCTRDRffb0zmRhuRgIqDfN294YzYbv/LDdMF3Mkbq+
+         SEPVIVQJWOGH0U/KY/OLLJUyf6s7qthsNijc1q38U2Qzt/eIyGxdhe5/iLnQvdlkR1h/
+         g4N9J1y48WLK29JCCBJJl3oFmg4QcOMa808QMNlkUnpd2m/MjRuLtAquQSiYEkJSxoMA
+         NzelZbVd2KxpDSU21nwqz7Assh6SEsLJU09sVZ3qSYizKLttynkXpM8ulFs2PDpt3O2B
+         WYWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783944692; x=1784549492;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PKJfzcOO3DPVFtYYdFmzNXMgq4lw0a0uxvJDNfRGA24=;
+        b=gQDcic6o6yTrpIHiC1/TITiqkrk9WQl/IjF2vClN8PHgMZoz6nmaJNeKbGfxLmj3/k
+         jzcXZd6CFb4orD/hIYeP1nuZ5/hguR18HTRzx4dIqo8zB5ZpzIum+2pbuscRB2I53DXg
+         f7KlVfVQujPmNIo9cn/tzbunLv8zbl0UxLTlRDljZiFkfGQGjeFhPCi3HqeSn20b+cr6
+         hfcOkNR0MYHutSzAB4ZQd44GbooMgNQxB/oU8wgrY0d9o8TEwcKunl7MO/FZrDIJ+lxg
+         mhQb6fRTqkQgO+pUyre2yRFSPkuhowUv+H5Ggpa7Mn+FPPuluk71US8H7WH6VnoIfEkx
+         yyIQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq07D2ZGhky+xAI23dfCF13Mkltut3XM6/gageme7bA+vWfhLeCMeGTwHPIYO+P5d9qzJ4XB1m/uNLefunsQUJv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSu8g8KVXiU9GMa+KHKnayYU8jtY2+ZETEtjZAkABn/KiI5hPF
+	QE7y/UI9NP6YjW6DRJA0BPfaJmkh4fp0F1YzwrkiX8oAQCJPjpgHk8/N
+X-Gm-Gg: AfdE7cma9xbV2dDJGQY77mCzGZZDUxmZFpYTPKaXtI+ra0XeQgKwoSgouZLfIEG1m+t
+	jMUzwfJTP3fcZuCEDCnyaYrZGZ/s8Xq96UN0yRSmTcwPhVlON9hxdWh2eb0Pd0UJ931GP7IK9s9
+	SkuWPc4xdYsVbO4cEt5x3Ga2B2J5ApGGOAEngAqCa6aTL5WrY1KgejSrbzHhGmulIbXhN5FNDDW
+	kHD21A1OSAq1wXRbUTup33dE7jNY/rIdSKP59qMWqzv2rWuiVn0+dcysJ6Napq8a33jSobidSkb
+	4+48JSb2E8Cg8rmdiuXYxz/5WOxbxg9SvqspLwxG0bixZcsD41k2j0MahznDJg62FRaXEUhmth8
+	7FDJIij6vyS6zhrut19ETrLw+xyzazWZrDmWlMWEjcgP42u8SazYE7YUA22tOYugzi361ipf2vF
+	iW5c2KpP24Kg==
+X-Received: by 2002:a17:90b:180c:b0:38e:fbe:b67b with SMTP id 98e67ed59e1d1-38e0fbeb818mr766655a91.0.1783944692422;
+        Mon, 13 Jul 2026 05:11:32 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.180])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.11.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 05:11:31 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
+	linux-kernel@vger.kernel.org (open list),
+	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
+	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
+Subject: [PATCH v7 15/19] media: meson: vdec: Fix concurrent firmware loading race and hardware timeout
+Date: Mon, 13 Jul 2026 17:37:10 +0530
+Message-ID: <20260713120840.17427-16-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
+References: <20260713120840.17427-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] irqchip/gic-v3-its: Fix leak in
- its_vpe_irq_domain_alloc()
-To: Marc Zyngier <maz@kernel.org>
-Cc: tglx@kernel.org, jason@lakedaemon.net, lpieralisi@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
- <20260702033050.1583-4-shikemeng@huaweicloud.com>
- <87fr216nx2.wl-maz@kernel.org>
- <e3252259-64e1-4bcb-8082-0bd501233747@huaweicloud.com>
- <86ldbopl97.wl-maz@kernel.org>
-From: Kemeng Shi <shikemeng@huaweicloud.com>
-In-Reply-To: <86ldbopl97.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _Ch0CgCHUaLr1VRqGX9OBA--.12823S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ww15XrW3KrWUXr15Cr1rZwb_yoW5JF45pF
-	WrJas29rWxJFyUWwnF9w1kua4rK39rt3yjkayUW3Z7urn5GF9rCF48trW3ury0kr17J3WU
-	Z3WFgFWruF4UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyGb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAK
-	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
-	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xII
-	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw2
-	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
-	67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU1RBT5UUUUU==
-X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_051127_827954_AFD230C5 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260713_131135_276050_BEC8C31B 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +126,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/7/6 16:36:52, Marc Zyngier 写道:
-> On Fri, 03 Jul 2026 02:44:53 +0100,
-> Kemeng Shi <shikemeng@huaweicloud.com> wrote:
->>
->> 在 2026/7/3 6:12:57, Marc Zyngier 写道:
->>>> When its_irq_gic_domain_alloc() fails, the following
->>>> its_vpe_irq_domain_free() skips calling its_vep_teardown() for the
->>>> corresponding irq. Call its_vpe_teardown() when its_irq_gic_domain_alloc()
->>>> is failedto avoid the leak issue.
->>>>
->>>> Fixes: 7d75bbb4bc1ad ("irqchip/gic-v3-its: Add VPE irq domain allocation/teardown")
->>>> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
->>>> ---
->>>>  drivers/irqchip/irq-gic-v3-its.c | 4 +++-
->>>>  1 file changed, 3 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
->>>> index 3e4edcb64065..8968bedefdba 100644
->>>> --- a/drivers/irqchip/irq-gic-v3-its.c
->>>> +++ b/drivers/irqchip/irq-gic-v3-its.c
->>>> @@ -4666,8 +4666,10 @@ static int its_vpe_irq_domain_alloc(struct irq_domain *domain, unsigned int virq
->>>>  			break;
->>>>  		err = its_irq_gic_domain_alloc(domain, virq + i,
->>>>  					       vm->vpes[i]->vpe_db_lpi);
->>>> -		if (err)
->>>> +		if (err) {
->>>> +			its_vpe_teardown(vm->vpes[i]);
->>>>  			break;
->>>> +		}
->>> There is already a spot for error handling in this function, we don't
->>> need a second one.
->> When its_irq_gic_domain_alloc() fails at index i, its_vpe_init(vpes[i])
->> has already succeeded but the exisiting its_vpe_irq_domain_free(domain, virq, i)
->> only tears down VPEs with index [0, i - 1], so its_vpe_teardown(vpes[i]) is still
->> needed.
->> So I guess you mean we can increase index when its_irq_gic_domain_alloc() fails to
->> free the resource with existing error handling?
->> Please correct me if I'm miss anything.
-> 
-> What I mean is this.
-> 
-> 	M.
-> 	
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index b57d81ad33a0a..4b1a3b497d7c4 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -4674,8 +4674,10 @@ static int its_vpe_irq_domain_alloc(struct irq_domain *domain, unsigned int virq
->  		irqd_set_resend_when_in_progress(irq_get_irq_data(virq + i));
->  	}
->  
-> -	if (err)
-> +	if (err) {
-> +		its_vpe_teardown(vm->vpes[i]);
->  		its_vpe_irq_domain_free(domain, virq, i);
-> +	}
->  
->  	return err;
->  }
-> 
-Thanks for explanation. I will improve this in next version.
+The vdec_1 firmware loader used static variables for DMA buffer
+addresses (`mc_addr`, `mc_addr_map`). This made allocations global
+across sessions, corrupting state when multiple decoders loaded
+firmware concurrently. Under stress this triggered KASAN reports,
+lost references, and memory leaks. Making mc_addr and mc_addr_map
+local to each load call, eliminating cross‑session races.
+
+The firmware DMA completion check also relied on a raw decrement
+loop of 1000 iterations. On modern CPUs this loop completed far
+too quickly, often before hardware signaled ready, producing
+false "DMA hang" errors. Replacing the busy‑wait loop with
+readl_poll_timeout_atomic(),  providing a bounded, microsecond
+scale poll with proper timeout semantics.
+
+Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ drivers/staging/media/meson/vdec/vdec_1.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/staging/media/meson/vdec/vdec_1.c b/drivers/staging/media/meson/vdec/vdec_1.c
+index a65cb49594465..27363c9a5af3c 100644
+--- a/drivers/staging/media/meson/vdec/vdec_1.c
++++ b/drivers/staging/media/meson/vdec/vdec_1.c
+@@ -29,14 +29,14 @@ vdec_1_load_firmware(struct amvdec_session *sess, const char *fwname)
+ 	struct amvdec_core *core = sess->core;
+ 	struct device *dev = core->dev_dec;
+ 	struct amvdec_codec_ops *codec_ops = sess->fmt_out->codec_ops;
+-	static void *mc_addr;
+-	static dma_addr_t mc_addr_map;
++	void *mc_addr;
++	dma_addr_t mc_addr_map;
+ 	int ret;
+-	u32 i = 1000;
++	u32 val;
+ 
+ 	ret = request_firmware(&fw, fwname, dev);
+ 	if (ret < 0)
+-		return -EINVAL;
++		return ret;
+ 
+ 	if (fw->size < MC_SIZE) {
+ 		dev_err(dev, "Firmware size %zu is too small. Expected %u.\n",
+@@ -63,11 +63,11 @@ vdec_1_load_firmware(struct amvdec_session *sess, const char *fwname)
+ 	amvdec_write_dos(core, IMEM_DMA_COUNT, MC_SIZE / 4);
+ 	amvdec_write_dos(core, IMEM_DMA_CTRL, (0x8000 | (7 << 16)));
+ 
+-	while (--i && amvdec_read_dos(core, IMEM_DMA_CTRL) & 0x8000);
+-
+-	if (i == 0) {
++	ret = readl_poll_timeout_atomic(core->dos_base + IMEM_DMA_CTRL, val,
++					!(val & 0x8000), 10, 10000);
++	if (ret) {
+ 		dev_err(dev, "Firmware load fail (DMA hang?)\n");
+-		ret = -EINVAL;
++		ret = -ETIMEDOUT;
+ 		goto free_mc;
+ 	}
+ 
+-- 
+2.50.1
 
 
