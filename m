@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273CFC44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BB2C44512
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 20:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,59 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0wDGkzbs89vtC0UfT3+SYwB53/nHqY/3BtqQHBGdNM=; b=guwG5cChly2vdew6AkT22KplNN
-	4UqSHDkr8NA5pFXCX0WwMxorglmWUL4utlkjb2WNGZj9QObBEzXMVBHnHS5ryOXBrdb8cKVQMT8Zj
-	IGH/fyeeGgj3TUPuX1aQ4YaM7iOBtAa5frP2hvW8wyKoyI9BfgIR4RT9OQGoAGfKUbr9t/Qxntf0K
-	GyoaIVUjO1migel15dUsUeE98wxLWcs6bpfRjPyjLCzabEechbzkstAM3gXASDsxWWjRuMzygB50n
-	NT0mgcYTCuQFwGfu27clap43ZZIncSra2Il3yGqyGujUNe53rD0Uj0KTfOIzuAPk/DfQdS582e4MG
-	blkMtPBQ==;
+	bh=buyVSSarMY8H0jBhNgCbqv6//dfI8PtGWeF/5pfgo3I=; b=PJjueXWTDww93Xh54kKlP9wNkc
+	ddQExxmnTTYTyjr2AxUmklCRBOUAHCwyGSaXKWgBAJ0Gqlos0dINuvGi5luMqKeVWm9dO9511epMX
+	91EYTSBBEJxlzh0Linw8/Rt0/XzirP4F8xQtl4tIhchewVLe1JeYZKKCB7+uHSN+SrPZ8IW3kKMEH
+	IAfxO4yHZnei0rFofXnlz1C7xYOzVlFODsDzNwQyjOoa+8KqHq4VInLCUc5KcLMqMMqS8lsBnfI9t
+	ca5IL82btO7XCSXtQJogZx51terMxZIiwS5D+bYADjsPdx7B4WTcAFw8MT5Wiv794eiKN811Q+1D0
+	QahnCrGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNIn-0000000AN2e-1xOc;
-	Mon, 13 Jul 2026 20:30:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjNIm-0000000AN0a-1e5d;
+	Mon, 13 Jul 2026 20:30:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNIk-0000000AMxC-0UEW;
-	Mon, 13 Jul 2026 20:30:54 +0000
+	id 1wjNIj-0000000AMxN-3QjE;
+	Mon, 13 Jul 2026 20:30:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2411643B00;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E66D43B3B;
 	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 029FFC2BD01;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 21F6EC2BCFB;
 	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783974653;
-	bh=lWT6ZOKFSBxMZY+C1cA8cB+pfPveOTBD8hYlvgAXpQI=;
+	bh=c32L53m8u2Jq60ly+YtJhW1cv5ycs8eU0WvE/wGSgpg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LjgM5ykbfbeNvzESb25/QDUawvMPg2c5K4UmK7xMmCL9yrfZDXq6RlqtTngrMtVhX
-	 DrZybxHddZPtFJxNZZnV9Jz6hWzR882GdbbjpZHqYJEGhfzdf1RxJO1OgG/v1r+DHG
-	 1KfX91u3qRMTDitD25vBwS/bfi/L8JmhUBr75DI2oII1DzadfV4J7Vw/OiddMNRpnT
-	 VMzjcROKAEm5a6YYUQ37yXPvJpRACOcuhzzyXy1SzuVVHI3f1jiqa5QsdY2thbwW3f
-	 08fIOTUG8SXcZS+HLvT3DjOyiw/z/2jdH9Ua/1Uh3lm0PqkphXgGzWH21HYlFCvbRp
-	 xq8qyO0FOf9tw==
+	b=hcgZBQxDoEc9ZmmoWdrCSadyS+Y1K8w/KKSGJVGZPPst4UpwFvZ7/LdEt+BiHa634
+	 7lAyl1dqp018AopDfmr01mfPopZNjDQKlZKgQPUeIJSFFPaGUUPKSC4n4LxzjV6hfh
+	 JkaJvsCe10v7eJHog/fyNWxKFDVma3nQOwa05/3F3g0HS3/t1FcjzP5gYXW861/pw1
+	 rg90DkXSSvmOqqNdvAxMYqE0d7HlXYY8TkMfZtfMO9M/3U1BA7DEwXV8Z12JqIeC8l
+	 tFHc14Dug3iPgvrHWtoKwfyeT17Ur+WlA1cgeJqzR0IAYHZyWQ8qw+Uek7Zl3gUSgw
+	 kDfzgndT2Exiw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E56A6C43458;
-	Mon, 13 Jul 2026 20:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F94FC44507;
+	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Mon, 13 Jul 2026 22:30:09 +0200
-Subject: [PATCH v3 05/12] arm64: dts: rockchip: rk3588s-nanopi-r6:
- pcie2x1l2: add clkreq
+Date: Mon, 13 Jul 2026 22:30:11 +0200
+Subject: [PATCH v3 07/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove
+ useless vcc_3v3_pcie20
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-nanopi-m6-v3-5-227567ffc5dc@gmail.com>
+Message-Id: <20260713-nanopi-m6-v3-7-227567ffc5dc@gmail.com>
 References: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
 In-Reply-To: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
- jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
+ jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783974651; l=832;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783974651; l=1707;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=PPqMMY83DuW2Qji9H467mrufS++bY9pA2rG/1NHpMiI=;
- b=gmAQJ6ic7DugzV2mS4Pj8u3kE79/y9JuUiaRQbwsjRL6QaE1jTxGZF4YMQ7rGL5rkvZQJEQkh
- I4reK9ENPEbAJnOkRySO06ELWUBOTAdUbDiBVDPMWp2KH9Sk/k0aBkt
+ bh=42caEPpiXu6ttYWd5re02EhOv7Jx0bA04Ibv/VC0LW0=;
+ b=NkJM82RfFQnq4a33MitWrJRtRKkpai/J17vZdnvy0LCV6yvV+S4Iuf+fZvaWjz9R8CN/xRK4g
+ AajlPwEFOn7BKWOY+1zFwc42t0K30xTvdFutY5tNzVzYG9wt2KW8mZz
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -87,27 +88,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-The clkreq is present on the board, so hook it up in DT.
+There is no separate regulator for boards with RTL8125BG MACs.
+The power is only separated from VCC_3V3_S3 with a ferrite bead.
 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index 3f04b988ec29..28966c292f5d 100644
+index 8f8a1619787a..b0a92f3174e2 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -369,7 +369,8 @@ &pcie2x1l1 {
+@@ -131,16 +131,6 @@ vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
+ 		vin-supply = <&vcc_3v3_s3>;
+ 	};
  
- &pcie2x1l2 {
+-	vcc_3v3_pcie20: regulator-vcc3v3-pcie20 {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc_3v3_pcie20";
+-		regulator-always-on;
+-		regulator-boot-on;
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		vin-supply = <&vcc_3v3_s3>;
+-	};
+-
+ 	vcc5v0_usb: regulator-vcc5v0-usb {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_usb";
+@@ -361,7 +351,7 @@ &pcie2x1l1 {
  	pinctrl-names = "default";
--	pinctrl-0 = <&pcie2_2_rst>;
-+	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
-+	supports-clkreq;
- 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
- 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
+ 	pinctrl-0 = <&pcie2_1_rst>;
+ 	reset-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc_3v3_pcie20>;
++	vpcie3v3-supply = <&vcc_3v3_s3>;
  	status = "okay";
+ };
+ 
+@@ -370,7 +360,7 @@ &pcie2x1l2 {
+ 	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
+ 	supports-clkreq;
+ 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc_3v3_pcie20>;
++	vpcie3v3-supply = <&vcc_3v3_s3>;
+ 	status = "okay";
+ };
+ 
 
 -- 
 2.55.0
