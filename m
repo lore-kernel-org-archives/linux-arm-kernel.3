@@ -4,160 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E341C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96030C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuYqnjGvjAJYuyjZ9OVmFaDbX4rPx5qmpDbY+CqmkIw=; b=sdxFqTpb8ZGaa3yP7p3g09A9Kf
-	RiW10+fnA44NxeBDZ3zEHGBosFcozTZQC79hcJAXzPVp8hwzV2i2gCVpPGcMft6xEYVc4PT2zORvJ
-	b1XVYdISnWj7DlecFkWUfU/V+pc1XRKPq6YlKI0mrRwsm78V+zoJaA5LVVEMjfqbUuj2mwoKMHYjm
-	/dDe4XYoB8WrDcjN+UH5SV3c6bAMFFSNVcd+T4D6avnCwau7ESCZNb0jVVWxCacThREE47Olqb614
-	Y+yS80xdIwk6OUS5kLL/SrulfSBkkmTH6uKGAe+Yyta5fX0RRSkv2J3Q34XoiggjVfdRIncwenNFF
-	1cnkOQNg==;
+	bh=d/zUrdSLYFP5PkDzH1dLf/JMl5TUcm+CxvXCyHNk/cg=; b=3OTybx0N/23GNeQa5OB+zfb4yc
+	39nanjrdVNN8TDmdoCgaloKD5iJfv2pvubQPlBqyVm01XP0b8Uy3RbC9QeWVwy6FM0ygGAWbY2165
+	+crSBelOacKPB+RafbiRJ0urfFol2D1Wo80mbEKVmAIq5UVEi/ymPCFdZSygvYWx6ABvGy4f6AsxB
+	4g0Gw6CjJ2XCs3xjR69AutzeYJAmIbk51kZ9kCFFhk+4vCVytdlIVlkL6AN/QOIXun4sD81/NsxwW
+	PTgDgGMK/n6kPchIypFLLP16H03sxaKFQX5PhZnjSymXg5NxyUXC5b3JVrxnU6Ja+FMuIZzvsXO5s
+	4BFlIUtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI93-00000009hoe-1MT8;
-	Mon, 13 Jul 2026 15:00:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjI9e-00000009hyV-2MGH;
+	Mon, 13 Jul 2026 15:01:10 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI91-00000009hoI-0AeA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 15:00:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OuYqnjGvjAJYuyjZ9OVmFaDbX4rPx5qmpDbY+CqmkIw=; b=Zjhi2WfqD1GpY2G1oQv68VrbxM
-	NMNyd7Lfw8/XDUaWUVKRIIGSitotnSqt6QCCDPD8TmHhcJFU+l9ie9bjw7xorbnvE6pjPA0icb9PT
-	sp3JdzfgK3H0V2ew+ertswkB+mvo5dfGt1WWxNi/TjeiGcZKhH1VXkL7y85gfnw3vnMkLebipskUE
-	rw3pHvxMGHNu1d/jICBqE0RwQWJ0bD15fAWFGIPMuAHb6WWyMMvGN0b3x9iGyyPIQI/gJhOEdhEEz
-	f7/lnsByImY9HMcay5yjJtgIbBYI6vEdtppYwIiFu4oF2HI9blTXvX8oEx7013dldbPG9Au2McUEN
-	EGXvP6WA==;
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjI8y-0000000BkPi-00M6
+	id 1wjI9b-00000009hxI-2Uy3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:00:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fS3cNvoD2pe5WNZ0uIdlDw1sADruEGV9V8+9TzBGST0Rz8/NWdRRKoHqH9NnX52WlNTQJera1nlSh7O/zly+NOB1LGXvKZ5S0FDCOOzVwM9kNwsvXV6a1ymLVjt3krlWTr5ebRYk5ujuJP6rMUqS33M1nM/46cpeDCCnmivVnqJx7i8x7NDqAeU03sSjpHwTQn6AmUkXVkofR5ndMlWM4ZdlOwxL7TVFD0Dbf/aKlD0tFk8goZxNu7DhgLOTPPEf2jfloOGNb1NNLfpsYcM/jTFKx86t4aW7kFtv0IQKofznWH6FsloZ68ibxkrTWrT+DHyJDF81RX+hPVEdJWmTLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OuYqnjGvjAJYuyjZ9OVmFaDbX4rPx5qmpDbY+CqmkIw=;
- b=By0v9MRs6KU8GggSNt/txSRM2MyBSG2qsZx44zeTlKmRGTBrvzKnJXd8g+bBARzh6Y/tyN3v3kh8fVU3Sm9iLiwpKuD6ICdyp2hJ/SPYuQM/H6adX7DkTYUPMfcTUrH9dESpd3j7aF/Gc4oNm4aoQzbb+QlsCt5bCpITgguhbg5e7vKNnjs9sPiXtDwvK7JoRfdxr+pposf5JJGJ66nh0OEPzUJHJ9JRtqwHKM845nr8B6uakHj5yecVJ54cUF1xZqgoSsVVkuW4SDrPSo0hhSIgrx9EeSJ89NzhnOotg3sjEDEU3RK3RbC9mzyjkVe/G0BWHHmXf9uLt9FjL3HI8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OuYqnjGvjAJYuyjZ9OVmFaDbX4rPx5qmpDbY+CqmkIw=;
- b=vXBY4vVre8h//zvwfRHpCCFhLwwCZ5F3ct+pkyawJAupxWFSoPWowQt43Lzy68tenu/IXO0ok0m8VGmnbomGOSUBTDOWECNes/X4hU49zRss5IKkkYoByFdP55Ub2BPh8nsVpG2Ar2bMIfra3WKd4gMUtu8n6tdXdNytz/apHTKVUJ+2LacJaZIb/qtcTpCvYQxTcP7OknjuP9+LxxaSe0CODLjWJeK15gbYQzU2jmXJCX+7V7M+wwNPucN4t3u62lRzBrQgNYwb/Wr2NOASqQnJjtDjk6JJLp8eC3lBoCL24mO2RH5q/6uup2nF9/49WFO91DUY5k0369ySP+PsQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU0PR04MB9669.eurprd04.prod.outlook.com (2603:10a6:10:316::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
- 2026 15:00:22 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
- 15:00:22 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Max Merchel <Max.Merchel@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: imx6qdl-tqma6: add nvmem-layout
-Date: Mon, 13 Jul 2026 11:00:14 -0400
-Message-ID: <178395481137.388036.13714583782929342061.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701094520.1482697-1-Max.Merchel@ew.tq-group.com>
-References: <20260701094520.1482697-1-Max.Merchel@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH3PEPF000040AB.namprd05.prod.outlook.com
- (2603:10b6:518:1::4d) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 13 Jul 2026 15:01:09 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4629051c9d1so1795950f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:01:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783954866; x=1784559666; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=d/zUrdSLYFP5PkDzH1dLf/JMl5TUcm+CxvXCyHNk/cg=;
+        b=NeEwssts3MbQJpDNz4IgzQmstaRh/vlNUOXg6vRMOBZO8LeTvMq5Vky/VZiPH3rfgV
+         gaMtT1/UtT+ikf6f0alcSoMTWlH/v61oqN38Zho2iA7vvTRnu2qSiSPOTaJKkDkAWhkf
+         81vIERXOe/3rr7fkhCHs0tbMT0/aX+E9omAMzRBSIi2efYL7n2/RFUlF/68KOnfxL0LA
+         KrWgdexvlC6Y9WQhqSA7xQVqgCAUTNnmtdZVKEbniFKi7ryr4xGnxedJRgzol/BgDT+Z
+         /NXogP+ZsEdskS3iiKLD4tt/FDJhhAtHK0Zuc6ze+nE9Mvw0nNfHTRvZE+IRnWZbr0fZ
+         jhKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783954866; x=1784559666;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=d/zUrdSLYFP5PkDzH1dLf/JMl5TUcm+CxvXCyHNk/cg=;
+        b=KO6yXQES0BpzBrkgRXkfZPT8mUtnjU82j61tBkibMVj/fNTLhcS7lMFuXzs6MWrOMz
+         Tt9sW9hC8qUgyGHVawX6DGAr2IaNHriKHSPZ9e2/ImcSJzUO+igJuj21gAgj3bNRLkcw
+         BiUIHVhEqOkb4qCyal67x+nQ5LEuRt0Ny7410PZipuLBsRozBY1EZvUS2JmsJb3NyCJ8
+         2ZqFbKs9CA7vf5Q7qyDKtpz7pduWg6WbwSWnB6pCSQPV27ZTKrzW32W0G2FT9aUdTN9e
+         0BrQGj3s8x8PBDzmOhvM1cT+ohtMc4Qzf6+21d+YFgY/WtBrFfQy+6wvlCfymcNM+vui
+         6Gyg==
+X-Forwarded-Encrypted: i=1; AHgh+RrHTSuPt/gB0I7Pygxdl44MjM2jkm8Jyd3jLJvJspT2VUXKVfeCIarr95vZ5qNW2y8wk9YEweid8PREwzhcY3Rq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXcUMDfSa6k+uSzCpjdJyDXvNWPc4hMs7S3357ZuEKXK3t7eVC
+	Tzia71x1sW6CiWYTUSKiK9o2/EcbcH+JrCihgTadrnCk8lkJUCkjgkGC4lJkliVArw==
+X-Gm-Gg: AfdE7cnIHUD5ExLfkcpzjFAsJlu0fNvCMNpRUoyHFbTShLj+0xskha5EXJyyiPgZW/U
+	BGEIPmF1Z8zNVO+a88d/G9YsUAHA6KbxzblGGHUbU1SyT/GnT3f+gBdmr+T/jrGXSMUt2UwmNkd
+	un9ADO+Dm6V7geuY510cOwRPjQkGAjH4XRyeuKXHrb2zmkrmTYxJL3b4FGGdjkFiT4Ch257LhSP
+	LKJgcDLeEL4g+kjSWQ9s8fNRVCfPgOE7bq9Pyvpecih1y8uDbBd/mnKD4PTz2UYtUlMAwFXNOzN
+	UUtjC0Rfs92/PXPG+gYGfFctNwXdKH4dKLup5c4xnrimabVMMfvvPpIQUZXgN86LWrEIre5rQeK
+	pp+kfPoMvdA5oPuYaRv6yhjVfNB57hv7fJwS+fM62cYxNQhonx7/VBJy/bbPChv0tG4Gr2CFFrx
+	qEHb+KELGVYYEK5G5UBVRRNwhOHEPz4lJBRVkqllyHLDnQr/9GFvqffrRznI8Zog==
+X-Received: by 2002:a5d:588e:0:b0:47d:f43d:8947 with SMTP id ffacd0b85a97d-47f2dce306dmr11031006f8f.47.1783954864981;
+        Mon, 13 Jul 2026 08:01:04 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f2465ae8bsm29830623f8f.36.2026.07.13.08.01.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 08:01:04 -0700 (PDT)
+Date: Mon, 13 Jul 2026 16:01:01 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, tabba@google.com,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v2] KVM: arm64: Avoid naming collision in tracing
+Message-ID: <alT9rXz_azhiq6Zu@google.com>
+References: <20260713141320.4065600-1-smostafa@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9669:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f2c3c59-a1a9-4de2-4d38-08dee0ef7667
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|23010399003|376014|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: ncvJ3k7ifuivBNmiF0EPE/Usv/sKztvIUFw1+o5wJc1hH5ry0hambz4daebwrovZ3yDQAoiGZGstcjDH2YlXXV5/FQuJzJa7GgRELy8+4+j/KPH030XqjzC0Gm/HtHM2itNLuzp9wRUdtzJiBBdVcPIwSxZRVKAylQMn/0COt7mQ1ABQEJF4Z1pR0oLesgyKQubMGBLUpHppTBN+yXYfdFWiXvsCGRh0UhIPqWYIXjGQHpHfStLIyTH8nO5iMZr7Z1ijsXNv946Kpc3y1C+lJVftElJbrx60HocE83SHTasFgkClVgpZTbKU0Vho8RjZPqRnFjcZKqqH2p08EByN57hELjShk23QMPfmLchHRS+CuWxq5lQdKETvrb1+2yYrwzjMXIVtfsEnL9TOqW1oivFaby1Rhy+p0ngRVlUNN/diC28zTN7yse+WZPS4OeBIdXuVh1Z0mKk9KAIZBsySq+6OtzgBJeorselTDdjH4R4Mq7J8zCB/qHIaTyy9LuQ23lr0VmaIAHqttCT3vP3XBcOazC2bwZlTKIN7xGX8mn1+GufoQc2VJhCxjQcAowrafggVQJJg+Eemr65QS3AUUPH0EAWnADxgs/zVa7j88WXF4Wb6kqwiB8+WiHDq93vcy1F10AocHYBBAH7nkZeBSaAI+gd3EVEWDLdDYj3IiZ8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UkkrUU9TK3ZtTzdkMHEzTWNVcEQxc1F3YlY3R0x0bmhqdXRFOE1iQmVVSVk5?=
- =?utf-8?B?aGpPTjlrcWN0dU0yb05nUlMwY09ieTJSemR6TDlQa1U4dEdtWkdhS1c5cWl6?=
- =?utf-8?B?d1FjbUY5ck1ZaDNxd3lVMWRjS0tkVmN1eHh0ZDVvRnJaWEJ5Q3VhZ05rc3Az?=
- =?utf-8?B?blJtUmQ3bjc1OGFiWVhNMm11UENVL0ZGMndnVndES2xjb01WVVZWRXBlcW9L?=
- =?utf-8?B?dDA5SE5KMUdxZSsvTXNtcjMyTW5OdEM5ZDFkS3huWmF6MExSUmdua3dlSkFO?=
- =?utf-8?B?cXova281YWtEYzkyS0pxTlJvUU1raEY0VVpVbmI0Yy9PVm1PV2IxOUxsaDdl?=
- =?utf-8?B?WmdqbWc0UDJKMmJWa2VmVkVoYTJXMUdwUW9ZVWhTdTVYNCtpTjdHby9jNEJY?=
- =?utf-8?B?b3BNdHVNSGdHbzFKR2JEQ0ZDWExzZjFzUjh6eVNMTlVrMHZ6dDZHV0ROMVFh?=
- =?utf-8?B?M2pwVzljS2xvVUFtVlNXOE5TTlhFcDIzSGh2dFdRcjRCb2lYdm1ud2VvenJq?=
- =?utf-8?B?Zm9HWXViKzdUT2pZODErMitKOXZwbkg5MElhWXBYOVNYYXpCbmZZaVlmd3k3?=
- =?utf-8?B?SHBwRTNpUnUrS3Rnd0p2SXpuZUVrZ0RyS1pRWW9ZTEU5bzAxbXByRzVaZ0g2?=
- =?utf-8?B?QzBOeDBrUS96c0RBVjBMK0xHRXBDQnRLN3RIRUUwdUpCNGdOdVNmaXNEV2RL?=
- =?utf-8?B?b1gzS0p3V3pjTCtOMXBPVGoydVo4VHNOS0xmNGtkeUR4ZzdvaUx3dUJKaVZF?=
- =?utf-8?B?Q2ZESHY0Nmx5K0RXQmR2RndvSmFCMURBamdIditxb2owZ2J3dHE0bTdKNGZQ?=
- =?utf-8?B?R25MNVJIQjBJeTZVUTByRkFpNFQyNHhtOEt4SkNEcWJ2SDJFRDhzMkdEQ3c0?=
- =?utf-8?B?aXAyMlZIODkvajJDU0lYclRBbjhMQ1NzdEdRWHA2c2pSMGczOUd0UUEvaGor?=
- =?utf-8?B?ZUcraXdpampUbkd0aEVMYjBOUENNeks4MWtSMnZhUWdmbVVZampQUnRQdU1s?=
- =?utf-8?B?MDdEeERQZDJOZm9sV1VQY1JwczY1ek1QaGJaQ09TUXYxZU9pRm9VR2w2UWo0?=
- =?utf-8?B?bS9iTkJiZnp1eUNtSy95UjBsZWxJM0Zrd1dJN3FrWEpuMmpwU0F2TGZsYWFB?=
- =?utf-8?B?dXJxbllkWWxVbGtpTEkzLzVSdlZicEdhUytRcytKS3ZkdzVxY3FCTVdUL0lY?=
- =?utf-8?B?WWZqcUdRdzdqSnZ1MldoTE4wYTgwOHp1SThYTHF6blFxazV0TFlhZ1pGWmRS?=
- =?utf-8?B?RXhBcFlzSWIvcHFTbXFmaUQwVG1qZE5qenRTNW5VMVZKeUVJRWl3eHU4THZN?=
- =?utf-8?B?dnkvZTFDZW5vU0pVOWFmQkxXU0Y1eVhBT1gvakh0cVdNRi9GbXdETTB0TUJX?=
- =?utf-8?B?dE9TQ1J0YTN2YllwM1d5RW9RUk5Fa01iUjV0MWFscXpqUCt5a2JPb1ZMYnJV?=
- =?utf-8?B?SGVXbS9WT1QzVlNuSVNnQVd2NXQrSXlWM0J1MVBoK0xSampHWXN6SWN0SVZU?=
- =?utf-8?B?V2x2Y2EzRytmM0ZhTFpQV3RnUzdMUjlwQWtEL2lnRXJiVHhYdmlPNW5DME9V?=
- =?utf-8?B?MG5jL3dnZTYwUnBPM0V5TnVjRkQxa0xiNGFkQVdsNkowK0VLZzhXRTA4c25u?=
- =?utf-8?B?ODNoMmJ4d1h5a0xUYjMwWEVaU2d3cnpNOTI2SEJ0UXBCYUd6S3JKdGd4VHVD?=
- =?utf-8?B?R1NaN0dib0M2aVY3dkdMYisrSWloS09JT1RlZC9sSXpoSUdMWEI1UWZwYmpq?=
- =?utf-8?B?cmVnWjc0WEtpQkdpN2poL3lWVnAyZ1VBdWRDNFQvdUovamx4WUJ4NVpSUnZt?=
- =?utf-8?B?MlFrMldDdjlYckFmN0xMVDQyeW4yaks2blVKbUNjYWJRZnBxOUc1MmtreVgr?=
- =?utf-8?B?cWlBVXRWbGJMczNNVVVhWTlvTXhzWWhXMTdFeUV5UTFxTGllM1dmVWVBbEVS?=
- =?utf-8?B?cmREZXoyWGFpaUJ6WXc3UFFoMGc5Y1FMbXBLSGl5VXpiOEEyVDh4TzhsZlhl?=
- =?utf-8?B?MTd4bW96blZoakZKQ2VqSmdYdTNPRzZ0Z2xuZkxBMnpIMmNLNWh6cFBRM2wz?=
- =?utf-8?B?UGVSQVVIQndoZXpjWk5ZS3krb1JLaEkxSUFaK09CY3Ewbml2dzltbExPV0pC?=
- =?utf-8?B?YWJKbk1PRFpiQ2YvWWtHOCtCWTdKZ1Z6a2lHeEZENmpHdkZGRWdlTHV4Yjgr?=
- =?utf-8?B?SFZnMzZsWjdDS2F0Q2g5b2FFWGpOVkJycThJeUkrdnhlMVBuMmlqM1E3NGk3?=
- =?utf-8?B?WFdValpyYmFFc3hnbnZUdWc5WE1kNU95K2dCZTMwc0RTNkJESUVsU0JNTVN0?=
- =?utf-8?B?WjNvNE0zMk85WWo3UEE5Yzl1bDhZajk2NFBRb3BYeWZyRTZlajVSSDU3emVP?=
- =?utf-8?Q?Fe91Tdp384B0H3cA=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f2c3c59-a1a9-4de2-4d38-08dee0ef7667
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 15:00:22.4427
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pKNa2KGXnz1i5ZGWD41Ljl7uqZumGaV/H/UU85AXlO2VOX2t0TDlDJbe0IAE3YPRIc0CRb9Qjl4MjRjKKrXUtQlKc7v6rtB/X4nrw4dGTYECmlAB8xez1VKdVJzOhoUn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9669
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260713141320.4065600-1-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_160028_178157_8A4EA8AD 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_080107_668008_8E9DDBF4 
+X-CRM114-Status: GOOD (  29.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,19 +104,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Mon, Jul 13, 2026 at 02:13:20PM +0000, Mostafa Saleh wrote:
+> When the hypervisor tracing (CONFIG_NVHE_EL2_TRACING) is disabled, it
+> defines a static inline stub for trace_clock().
+> 
+> However, trace_clock() is already declared as an extern function in
+> linux/trace_clock.h which is pulled in EL2 compilation.
+> 
+> If the file <nvhe/clock.h> is included when CONFIG_NVHE_EL2_TRACING
+> is disabled (by including it manually in setup.c) it will cause:
+> In file included from arch/arm64/kvm/hyp/nvhe/setup.c:22:
+> 
+> ./arch/arm64/kvm/hyp/include/nvhe/clock.h:14:19: error: static declaration of ‘trace_clock’ follows non-static declaration
+> 
+>    14 | static inline u64 trace_clock(void) { return 0; }
+> 
+>       |                   ^~~~~~~~~~~
+> 
+> on GCC and a linker error on LLVM (it seems to change the linkage to
+> global)
+> 
+> Although that is not a problem at the moment, as no other files
+> include <nvhe/clock.h>. That does not seem to be the intent of
+> this code and that will cause issues with more users as the SMMUv3
+> driver.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+> 
+> ---
+> I did not add Fixes tag as this is currently dormant and not breaking
+> anything.
 
+Thanks for the respin
 
-On Wed, 01 Jul 2026 11:45:18 +0200, Max Merchel wrote:
-> TQMa6x has board-information located in EEPROM at offset 0x20.
-> Add necessary nodes and properties for nvmem cell.
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Applied, thanks!
-
-[1/1] ARM: dts: imx6qdl-tqma6: add nvmem-layout
-      commit: aec8004c5478371d49e9be238d4d87abebb4c1b6
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/kvm/hyp/include/nvhe/clock.h | 8 ++++----
+>  arch/arm64/kvm/hyp/nvhe/clock.c         | 4 ++--
+>  arch/arm64/kvm/hyp/nvhe/trace.c         | 4 ++--
+>  3 files changed, 8 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> index 9f429f5c0664..ae03ec6965af 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> @@ -6,11 +6,11 @@
+>  #include <asm/kvm_hyp.h>
+>  
+>  #ifdef CONFIG_NVHE_EL2_TRACING
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> -u64 trace_clock(void);
+> +void trace_hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> +u64 trace_hyp_clock(void);
+>  #else
+>  static inline void
+> -trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
+> -static inline u64 trace_clock(void) { return 0; }
+> +trace_hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
+> +static inline u64 trace_hyp_clock(void) { return 0; }
+>  #endif
+>  #endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
+> index a7fc61976fd0..f3e2619db4e4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/clock.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
+> @@ -30,7 +30,7 @@ static u64 __clock_mult_uint128(u64 cyc, u32 mult, u32 shift)
+>  }
+>  
+>  /* Does not guarantee no reader on the modified bank. */
+> -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+> +void trace_hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  {
+>  	struct clock_data *clock = &trace_clock_data;
+>  	u64 bank = clock->cur ^ 1;
+> @@ -48,7 +48,7 @@ void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  }
+>  
+>  /* Use untrusted host data */
+> -u64 trace_clock(void)
+> +u64 trace_hyp_clock(void)
+>  {
+>  	struct clock_data *clock = &trace_clock_data;
+>  	u64 bank = smp_load_acquire(&clock->cur);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> index e7e150ab265f..65be6c9fb379 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -35,7 +35,7 @@ static bool hyp_trace_buffer_loaded(struct hyp_trace_buffer *trace_buffer)
+>  void *tracing_reserve_entry(unsigned long length)
+>  {
+>  	return simple_ring_buffer_reserve(this_cpu_ptr(trace_buffer.simple_rbs), length,
+> -					  trace_clock());
+> +					  trace_hyp_clock());
+>  }
+>  
+>  void tracing_commit_entry(void)
+> @@ -290,7 +290,7 @@ void __tracing_update_clock(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+>  	}
+>  
+>  	/* ...we can now override the old one and swap. */
+> -	trace_clock_update(mult, shift, epoch_ns, epoch_cyc);
+> +	trace_hyp_clock_update(mult, shift, epoch_ns, epoch_cyc);
+>  }
+>  
+>  int __tracing_reset(unsigned int cpu)
+> -- 
+> 2.55.0.795.g602f6c329a-goog
+> 
 
