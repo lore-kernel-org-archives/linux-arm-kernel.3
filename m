@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B28EC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18360C44509
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLpRU/GtMKmn6U7lWmf66ahKCho/Wr3IcxlG4U0VeZI=; b=bK+i1jjT74JHiHsPi6z20Bx50w
-	7dqXvgxCh2veWX8PzK0HxgeyBji4LbBzfn5HEPLvzJcTbXfiope2ChcK8M+QYIj4JPn3p3kg9StEE
-	uv4sKAYOMVbMu2/Wr3OJDhgdeCpCubxO8mMmFYGUHyAdAZ0GkSqLlXCK+Eq1Z85MW4dg+m1GWPQc/
-	R2l2CXCZ6xpTbz7fB4qRIRJZQAm3+Q91hP6dJwy+vSVqktX9oVsy2gklPJb7+kEbPLnVoIn/d0sqS
-	Q2s9cJ/A6rghhWk+2qPs4zxul72jB76mPK0EOdeWGt1Lunjn+9c1biuLTiLxJKfxKZ2Zy9WjJ+cOr
-	54ctAkmw==;
+	bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=; b=fdM8sHGxa6+NvYGOfjP6qV+pxb
+	18qblTxy5W9+Z9IG1RO8ydBS1uFIxsSm45GZl8lmK3hc5WLugJoeJCsBgre90HqT5Qj2MMbuor7k/
+	fLfWBha/C99wHgcLDuYa1huwj8k1rOnrho/1eUQDOcoxe2we+0LhKHZD6AwwFZS16Rbzw6TnQkKtP
+	0+qzLEkkypoCS/2HxI58RTC9Qt1FL+dTA0DZNyH8JEawpIwmaWo+BAWCcbgmkJY1HQW4mubwPPlyl
+	o0fGy/pGvsMOtOKJ/iDNp7UnWipKi0aHazsjWu221sPTKeenEfCf+cmgsDCQe/KnIgBuPT8ngsgZR
+	NEP6qNqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2V-00000009rsJ-3pi0;
-	Mon, 13 Jul 2026 15:57:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjJ2W-00000009rtb-2HdZ;
+	Mon, 13 Jul 2026 15:57:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2G-00000009re8-2TIE;
-	Mon, 13 Jul 2026 15:57:36 +0000
+	id 1wjJ2R-00000009rn1-3gME;
+	Mon, 13 Jul 2026 15:57:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=XLpRU/GtMKmn6U7lWmf66ahKCho/Wr3IcxlG4U0VeZI=; b=RWApEDVHrwpQQvCLLQpgQ6/Pvj
-	H5IvUrIkJD4XZqE9yrIdrOn6TAIfMeqf1FJ0mplVSLo4HnfXDcKlJxwRPVKbcyqZOpXmv5B+nRmZS
-	mkiOfMswSbbT5nHpFjaox7KetvHiXiNZ1TRM6UoZz9cfXfKTGcN1yEi2EtEGUyALEiXmw+tpVXADm
-	HLfKQ0RLwRY1vy0D6qZAld4967q6Z6Qklj7oATWQ5SnrTjco2y8yhtRVdGQvxNIpUcwwtsheLwNw9
-	Rssv+qnM3jdJX6V860Z6jkzpdX/Bs+iXpv4YXAlmidw3imu7kEaFizhmeb1C1UKUuRlPctXacKfEg
-	/99EPPiw==;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=; b=vz1HsPb0XZjvkE5VThjFpMX3S8
+	EsMWB9U8EvlueTkIOOt2mxqhXJZTkgCq1WVWfr9UgqxzICSHOYtBzscnVxuUWfZaoMBRs4G3UzPlh
+	qaNP9/BoiKzFxi2ldzojRgCqJjyXOMyIUAVD8ZWyJd7dKkKBXIgVwG+5/HwA5pTXrM2lMjBG3zrQ9
+	IZ3ghSG4VKSujRCc0jlLbD6HOWCeil8HLMXOObdAtaOtfPeLkR8xKZ3Vr9V7PBeC+N+OsY4/3OI3f
+	7C9/0SCpt3L44zpE8LQ8pxP1nUWLNtGbLeqpEVZ47cvfU0qfGWnaj0ICZ5oxfJIZpp6M4BFe3W1KB
+	L1Cpag7Q==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjJ2B-0000000BoAZ-1Ifi;
-	Mon, 13 Jul 2026 15:57:35 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuWDA11489893, This message is accepted by code: ctloc85258
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjJ2O-0000000DDTi-0dZV;
+	Mon, 13 Jul 2026 15:57:46 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuVedD1489877, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1783958192; bh=XLpRU/GtMKmn6U7lWmf66ahKCho/Wr3IcxlG4U0VeZI=;
+	t=1783958191; bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=jRlMiXnIUtFbDD/g6sogclxE1Alt3IV2yWiYL0bnT3vX8sfbr3Yv1N5osYYgHHBv4
-	 sU1l32jp5SSpfJy8brSLVbJhFeB38T0DfO12DOrbWhjbiH6SdTU+Pc1wBvCZWqWSd/
-	 EnBIJ5M63zzqQG4iSv5le52acVsdp9t15GqBdq2wDGfbTTkXRXP1H5W7PrssUDk+Tu
-	 j1wdLTznzDJd+Y2ZNIkrdPyktuRcNgItL78Wq4CvIesesnGLl8L5XpSsb/fn+awhmB
-	 zyNyD87SSS8gOjhgTYhSHIa5eI6kBWx1ZapBIqiQUkYRBa3jQJ6PRdxdx3Wgzn/f/s
-	 Hy9qVIl3jF6yA==
+	b=aYFOT6CPzEM1YaqhqK0tbMllJJxZwllQFNLnGpfAHTbNaV75hN2n9V9SwUcKbdENL
+	 Z6nVvLiRW4lybNX+c2kAHAbBHoSS3OmiSkGW1QCaDF9/IpOgYkjWiH4E2PX12R/InO
+	 0GitKOHkzyW7zMVFklORDm+7c3a6gdoJ1jI6CMZzgyUsBeJxQA0oq7ijuWQYkbie6m
+	 g6dmrAQS1043bR+wOzlU3K+9fdHxUjaNBN481Xe66Y+Gk8OtlPgjcaFZHe5fWgdjLl
+	 YtPHQLXCEB2pt1PHkOvHAdQYbHK9WCcHeH4hNG1jNUAngIF7Fth3QqGKLzmoPKGzhr
+	 5hMgupHEJp7gQ==
 Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuWDA11489893
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuVedD1489877
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 13 Jul 2026 23:56:32 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+	Mon, 13 Jul 2026 23:56:31 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
  RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:33 +0800
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:32 +0800
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
  (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 13 Jul 2026 23:56:32 +0800
+ Transport; Mon, 13 Jul 2026 23:56:31 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
@@ -76,9 +76,9 @@ CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
 	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
 	<eleanor.lin@realtek.com>
-Subject: [PATCH v10 11/11] arm64: dts: realtek: Add clock support for RTD1625
-Date: Mon, 13 Jul 2026 23:56:30 +0800
-Message-ID: <20260713155630.3054636-12-eleanor.lin@realtek.com>
+Subject: [PATCH v10 05/11] clk: realtek: Add support for phase locked loops (PLLs)
+Date: Mon, 13 Jul 2026 23:56:24 +0800
+Message-ID: <20260713155630.3054636-6-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
 References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
@@ -86,9 +86,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_165731_934340_66DE1836 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_165744_760322_9B521671 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +102,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the clock controller nodes and osc27m fixed clock for the
-Realtek RTD1625 SoC.
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
+Provide a full set of PLL operations for programmable PLLs and a read-only
+variant for fixed or hardware-managed PLLs.
+
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v10:
-- None.
+- None
 ---
- arch/arm64/boot/dts/realtek/kent.dtsi | 33 +++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ drivers/clk/realtek/Makefile     |   2 +
+ drivers/clk/realtek/clk-pll.c    | 217 +++++++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-pll.h    |  47 +++++++
+ drivers/clk/realtek/freq_table.c |  57 ++++++++
+ drivers/clk/realtek/freq_table.h |  18 +++
+ 5 files changed, 341 insertions(+)
+ create mode 100644 drivers/clk/realtek/clk-pll.c
+ create mode 100644 drivers/clk/realtek/clk-pll.h
+ create mode 100644 drivers/clk/realtek/freq_table.c
+ create mode 100644 drivers/clk/realtek/freq_table.h
 
-diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
-index 8d4293cd4c03..409d46a73c91 100644
---- a/arch/arm64/boot/dts/realtek/kent.dtsi
-+++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-@@ -26,6 +26,15 @@ timer {
- 			     <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
- 	};
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index 13000ed4ba11..71edc18121c6 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -2,3 +2,5 @@
+ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
  
-+	clocks {
-+		osc27m: osc {
-+			compatible = "fixed-clock";
-+			clock-frequency = <27000000>;
-+			clock-output-names = "osc27m";
-+			#clock-cells = <0>;
-+		};
-+	};
+ clk-rtk-y += clk-rtk-common.o
++clk-rtk-y += clk-pll.o
++clk-rtk-y += freq_table.o
+diff --git a/drivers/clk/realtek/clk-pll.c b/drivers/clk/realtek/clk-pll.c
+new file mode 100644
+index 000000000000..54c284070e47
+--- /dev/null
++++ b/drivers/clk/realtek/clk-pll.c
+@@ -0,0 +1,217 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
 +
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-@@ -141,6 +150,22 @@ rbus: bus@98000000 {
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 
-+			cc: clock-controller@0 {
-+				compatible = "realtek,rtd1625-crt-clk";
-+				reg = <0x0 0x900>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
++#include <linux/export.h>
++#include <linux/regmap.h>
++#include <linux/spinlock.h>
++#include "clk-pll.h"
 +
-+			ic: clock-controller@7088 {
-+				compatible = "realtek,rtd1625-iso-clk";
-+				reg = <0x7088 0x8>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
++#define TIMEOUT 500
 +
- 			uart0: serial@7800 {
- 				compatible = "snps,dw-apb-uart";
- 				reg = <0x7800 0x100>;
-@@ -166,6 +191,14 @@ isom_pinctrl: pinctrl@146200 {
- 				reg = <0x146200 0x34>;
- 			};
- 
-+			iso_s_cc: clock-controller@146310 {
-+				compatible = "realtek,rtd1625-iso-s-clk";
-+				reg = <0x146310 0x8>;
-+				clocks = <&osc27m>;
-+				#clock-cells = <1>;
-+				#reset-cells = <1>;
-+			};
++static inline struct clk_pll *to_clk_pll(struct clk_hw *hw)
++{
++	struct clk_regmap *clkr = to_clk_regmap(hw);
 +
- 			ve4_pinctrl: pinctrl@14e000 {
- 				compatible = "realtek,rtd1625-ve4-pinctrl";
- 				reg = <0x14e000 0x84>;
++	return container_of(clkr, struct clk_pll, clkr);
++}
++
++static int wait_freq_ready(struct clk_pll *clkp)
++{
++	u32 pollval;
++
++	/* reg == 0 means not configured.
++	 * Register offset 0 is never a valid address on Realtek SoCs.
++	 */
++	if (!clkp->freq_ready_reg)
++		return 0;
++
++	return regmap_read_poll_timeout_atomic(clkp->clkr.regmap, clkp->freq_ready_reg, pollval,
++		(pollval & clkp->freq_ready_mask) == clkp->freq_ready_val, 1, TIMEOUT);
++}
++
++static bool is_power_on(struct clk_pll *clkp)
++{
++	u32 val;
++
++	/* reg == 0 means not configured (assume always on).
++	 * Register offset 0 is never a valid address on Realtek SoCs.
++	 */
++	if (!clkp->power_reg)
++		return true;
++
++	if (regmap_read(clkp->clkr.regmap, clkp->power_reg, &val))
++		return false;
++
++	return (val & clkp->power_mask) == clkp->power_val_on;
++}
++
++static void clk_pll_disable(struct clk_hw *hw)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	unsigned long flags;
++
++	if (!clkp->seq_power_off)
++		return;
++
++	spin_lock_irqsave(&clkp->lock, flags);
++
++	regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_off,
++			       clkp->num_seq_power_off);
++
++	spin_unlock_irqrestore(&clkp->lock, flags);
++}
++
++static int clk_pll_is_enabled(struct clk_hw *hw)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	unsigned long flags;
++	int ret;
++
++	spin_lock_irqsave(&clkp->lock, flags);
++
++	ret = is_power_on(clkp);
++
++	spin_unlock_irqrestore(&clkp->lock, flags);
++
++	return ret;
++}
++
++static int clk_pll_determine_rate(struct clk_hw *hw,
++				  struct clk_rate_request *req)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	const struct freq_table *ftblv = NULL;
++
++	ftblv = ftbl_find_by_rate(clkp->freq_tbl, req->rate);
++
++	if (ftblv && ftblv->rate >= req->min_rate) {
++		req->rate = ftblv->rate;
++		return 0;
++	}
++
++	/* floor result is below min_rate; find the smallest rate >= min_rate */
++	ftblv = ftbl_find_ceil_by_rate(clkp->freq_tbl, req->min_rate);
++	if (!ftblv || ftblv->rate > req->max_rate)
++		return -EINVAL;
++
++	req->rate = ftblv->rate;
++
++	return 0;
++}
++
++static unsigned long clk_pll_recalc_rate(struct clk_hw *hw,
++					 unsigned long parent_rate)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	const struct freq_table *fv;
++	unsigned long flags;
++	u32 freq_val;
++
++	spin_lock_irqsave(&clkp->lock, flags);
++
++	if (regmap_read(clkp->clkr.regmap, clkp->freq_reg, &freq_val)) {
++		spin_unlock_irqrestore(&clkp->lock, flags);
++		return 0;
++	}
++
++	freq_val &= clkp->freq_mask;
++
++	fv = ftbl_find_by_val_with_mask(clkp->freq_tbl, clkp->freq_mask,
++					freq_val);
++
++	spin_unlock_irqrestore(&clkp->lock, flags);
++
++	return fv ? fv->rate : 0;
++}
++
++static int clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
++			    unsigned long parent_rate)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	const struct freq_table *fv;
++	unsigned long flags;
++	int ret;
++
++	fv = ftbl_find_by_rate(clkp->freq_tbl, rate);
++	if (!fv || fv->rate != rate)
++		return -EINVAL;
++
++	spin_lock_irqsave(&clkp->lock, flags);
++
++	if (clkp->seq_pre_set_freq) {
++		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_pre_set_freq,
++					     clkp->num_seq_pre_set_freq);
++		if (ret)
++			goto unlock;
++	}
++
++	ret = regmap_update_bits(clkp->clkr.regmap, clkp->freq_reg,
++				 clkp->freq_mask, fv->val);
++	if (ret)
++		goto unlock;
++
++	if (clkp->seq_post_set_freq) {
++		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_post_set_freq,
++					     clkp->num_seq_post_set_freq);
++		if (ret)
++			goto unlock;
++	}
++
++	if (is_power_on(clkp)) {
++		ret = wait_freq_ready(clkp);
++		if (ret)
++			goto unlock;
++	}
++
++unlock:
++	spin_unlock_irqrestore(&clkp->lock, flags);
++
++	return ret;
++}
++
++static int clk_pll_enable(struct clk_hw *hw)
++{
++	struct clk_pll *clkp = to_clk_pll(hw);
++	unsigned long flags;
++	int ret = 0;
++
++	if (!clkp->seq_power_on)
++		return ret;
++
++	spin_lock_irqsave(&clkp->lock, flags);
++
++	if (is_power_on(clkp))
++		goto unlock;
++
++	ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_on,
++				     clkp->num_seq_power_on);
++	if (ret)
++		goto unlock;
++
++	ret = wait_freq_ready(clkp);
++	if (ret)
++		goto unlock;
++
++unlock:
++	spin_unlock_irqrestore(&clkp->lock, flags);
++
++	return ret;
++}
++
++const struct clk_ops rtk_clk_pll_ops = {
++	.enable         = clk_pll_enable,
++	.disable        = clk_pll_disable,
++	.is_enabled     = clk_pll_is_enabled,
++	.recalc_rate    = clk_pll_recalc_rate,
++	.determine_rate = clk_pll_determine_rate,
++	.set_rate       = clk_pll_set_rate,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ops, "REALTEK_CLK");
++
++const struct clk_ops rtk_clk_pll_ro_ops = {
++	.recalc_rate = clk_pll_recalc_rate,
++};
++EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ro_ops, "REALTEK_CLK");
+diff --git a/drivers/clk/realtek/clk-pll.h b/drivers/clk/realtek/clk-pll.h
+new file mode 100644
+index 000000000000..b70d6b3ec61e
+--- /dev/null
++++ b/drivers/clk/realtek/clk-pll.h
+@@ -0,0 +1,47 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_CLK_PLL_H
++#define __CLK_REALTEK_CLK_PLL_H
++
++#include <linux/spinlock.h>
++#include "clk-rtk-common.h"
++#include "freq_table.h"
++
++struct reg_sequence;
++
++struct clk_pll {
++	struct clk_regmap clkr;
++	const struct reg_sequence *seq_power_on;
++	u32 num_seq_power_on;
++	const struct reg_sequence *seq_power_off;
++	u32 num_seq_power_off;
++	const struct reg_sequence *seq_pre_set_freq;
++	u32 num_seq_pre_set_freq;
++	const struct reg_sequence *seq_post_set_freq;
++	u32 num_seq_post_set_freq;
++	const struct freq_table *freq_tbl;
++	u32 freq_reg;
++	u32 freq_mask;
++	u32 freq_ready_mask;
++	u32 freq_ready_reg;
++	u32 freq_ready_val;
++	u32 power_reg;
++	u32 power_mask;
++	u32 power_val_on;
++
++	/* This lock prevents race conditions when multiple CPUs or contexts
++	 * simultaneously access this PLL's registers during multi-step operations
++	 */
++	spinlock_t lock;
++};
++
++#define __clk_pll_hw(_ptr)  __clk_regmap_hw(&(_ptr)->clkr)
++
++extern const struct clk_ops rtk_clk_pll_ops;
++extern const struct clk_ops rtk_clk_pll_ro_ops;
++
++#endif /* __CLK_REALTEK_CLK_PLL_H */
+diff --git a/drivers/clk/realtek/freq_table.c b/drivers/clk/realtek/freq_table.c
+new file mode 100644
+index 000000000000..6ff8dbf60cc6
+--- /dev/null
++++ b/drivers/clk/realtek/freq_table.c
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/bitops.h>
++#include "freq_table.h"
++
++#define IS_FREQ_TABLE_END(_f) ((_f)->rate == 0)
++
++const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
++					   unsigned long rate)
++{
++	const struct freq_table *best = NULL;
++	unsigned long best_rate = 0;
++
++	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
++		if (ftbl->rate == rate)
++			return ftbl;
++
++		if (ftbl->rate > rate)
++			continue;
++
++		if (ftbl->rate > best_rate) {
++			best_rate = ftbl->rate;
++			best = ftbl;
++		}
++	}
++
++	return best;
++}
++
++const struct freq_table *ftbl_find_ceil_by_rate(const struct freq_table *ftbl,
++						unsigned long rate)
++{
++	const struct freq_table *best = NULL;
++	unsigned long best_rate = ULONG_MAX;
++
++	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
++		if (ftbl->rate < rate)
++			continue;
++
++		if (ftbl->rate < best_rate) {
++			best_rate = ftbl->rate;
++			best = ftbl;
++		}
++	}
++
++	return best;
++}
++
++const struct freq_table *
++ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value)
++{
++	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
++		if ((ftbl->val & mask) == (value & mask))
++			return ftbl;
++	}
++	return NULL;
++}
+diff --git a/drivers/clk/realtek/freq_table.h b/drivers/clk/realtek/freq_table.h
+new file mode 100644
+index 000000000000..78215aee3300
+--- /dev/null
++++ b/drivers/clk/realtek/freq_table.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++struct freq_table {
++	u32 val;
++	unsigned long rate;
++};
++
++#define FREQ_TABLE_END    \
++	{                 \
++		.rate = 0 \
++	}
++
++const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
++					   unsigned long rate);
++const struct freq_table *ftbl_find_ceil_by_rate(const struct freq_table *ftbl,
++						unsigned long rate);
++const struct freq_table *
++ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value);
 -- 
 2.43.0
 
