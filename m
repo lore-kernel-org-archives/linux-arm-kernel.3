@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0DCC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618E5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nMhxQOXCpwevLLjNsS6PfLbFdbbTa/KxMnyYoWQBg4g=; b=kogxKrosBsE5GtWX1pG1GrCN1I
-	+9sVmsb437p0uH1C9XsAHTJq2TC2HCqltCZF2Vx4lDsDXYY7FRB8Jv0FBOj5ruUvkw+Z4+FWGc8yX
-	999dL8D0u4ljbqHpHhTegWbrnIR5VwbLJsnz054CuxR281lbYrgMdHGFvvY/D6RnHlifS+/pHqnBa
-	ZthpFxVApkr0kRyBJHq6b6Jjy3q4L00dsqJQCXkMqXSkBYqIvwoyy8KIXEYNA7wrHZbXmVLVFhbbw
-	iq9GMEsIfYZ3lbCOya5KjQEfggiZKLd8JYLBM/3wVZHbbAvIbFtFgAgCrSTu3ExgKWrc6rREY6M++
-	YPG4lHBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xzVYUSuBBF9FEkEqEOe9VwNEyKcV5wLxGPP24ZKIagQ=; b=auauRp2UW/7frYbxrvSTqeoUiH
+	ONtEE1UiVdOMv4jmYk6LtlDVDMeaGEgRYWk2Aa33dKp0FP6+7CZI1lMQeKQ6o95YYkSAc4XB0zena
+	vhf5/dxmZQCMbNxX6nEpeUeYsKzkKgzAprHdWPev+fXm0PNC7Y1JlY4G/DARISCxiLLa6bGzQ3qX6
+	xZLjJBbJflyi0rWnLKE01yBbBAvYkUxIB6fFIbohaDX++daNUqJlVB2AGBu0p8OAAhKNwJJ/Z2uFu
+	6xfIy6Rtirb+AxSMJHQmo+ccVfMvez3mei2hdToB/7KAMpzmuyKqjkTrdrHH13JZipXvtl7e7G0a9
+	0PqWO/8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBsc-00000008Ytv-2LdB;
-	Mon, 13 Jul 2026 08:19:10 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wjBwZ-00000008ZPj-08Pk;
+	Mon, 13 Jul 2026 08:23:15 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBsZ-00000008Ysi-2qWL
+	id 1wjBwU-00000008ZP3-252d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 08:19:08 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so81585e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:19:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783930746; x=1784535546; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nMhxQOXCpwevLLjNsS6PfLbFdbbTa/KxMnyYoWQBg4g=;
-        b=eIxAfOxApC6l1OYGSXW/yNoYg8j8YHbE9IXwXoHQqkWrhKrK4cZbRNbKVY/LugIqLn
-         y2aYg8wAiIej+/SlxTdCiOQLUsiw7KKbD4l5Q5BzOhpyxi4LVyPA8jWhYN9EQJsaNaF0
-         ZSeQHMdVgyOwTwkusJjrpOST3Llh3Y322bkZjEbCuxE5vMS8nX1QMO/mNl0KZBZIJfUG
-         N/KDLlzhsOnoYXfcjsa0wKuN/8m7elyByzsrSgwumm+CADdyEAn/xasrsZ5Nfr3gyZi8
-         LSdiTrBQn0GiOjOnTM62nt1I8nV/3fnBbiVGjOVrAvLlpS2w3z5kTH/PE34YtUrMQKnR
-         MWaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783930746; x=1784535546;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nMhxQOXCpwevLLjNsS6PfLbFdbbTa/KxMnyYoWQBg4g=;
-        b=XB3avd3jx9i47ENGYLYoO4+9dfeaBy3Dx6SRqpCtebXEuSm9aUcY4M0cAgrNMvZ8ks
-         y8YGjbSeafgzfkln1VxkRgYLNPBjtP0BPaLt8a0GDRnTmcG5RVNQ9/p1wqRbHT7mTk5a
-         IcxaQpYcsuPg7SANgZ8l7VOdd/h3aj9JxReCy7UxiJ7ao8x4UVG/b/WryDF2IQ2JYqgg
-         ukmACH+nA6cfbv/RVDa+zb4GSrRfTfNkVdbNE6yn1Vt4hnx5KrmUCWRUMVTVnepqCmZc
-         KXk5FJjeAtUphhh1F48CMe4odWSXF1m15EOrIvrhJtv8ab1OjJZeRTnRYM7AATrUS61j
-         zA8g==
-X-Forwarded-Encrypted: i=1; AHgh+Rp4uZ4F6yCw2Xtc3w/QFiKRusNz2d/0hmzS0v0qVPKMu5U2vNtm0Yj3E4BRkpyiD74/2YGfqN2k9PHpxZoAs6iS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxsqpTgzX78rcSoKLEx9uqnxVFEaoU4RUV55bZZnYnCFGbovkl
-	34eK9AF//oUzK1oGpMq6fHGw7/v8m8b7czc0y0HqJZgYvvg9fn5YGNOnFZqdE9/CRfnwgRrWPNz
-	gPyIHTg==
-X-Gm-Gg: AfdE7clMYWfP+HGpE2T0XSIfURBse3Nafb5toGD1NxDRRHuXvUUC1cpQgrW7vYrquPM
-	BMPOwovXEaV2fVW/GJ0S0bGoexw2797viLXEcrb5/zJeXydNY1L+wksFyttCqEqR3yCVcA2jQBs
-	HUTpYeseb4Obp0VhsYg0Zv2ybZD5h8H964M8Pf2P/A6mWXED9Kv+mXNVe8E45JRWmMw7cv8Ptwk
-	1Ss3gs/dKzeZv4ql3ccko05F2hokqVN4MsyxQlVufuNjPb2bZSzBez4rKcK3nwOSuzai/bNP7Xe
-	Kf+QjOQ0U91Xgp0CJl5+yI8ANIMng4rybBGzb6o30bxtMOP+1tHaSoMoAMDp3/QxIDesseAhrNv
-	izql+3oN1H2E5fcdI0nluKbd3mQGyIlzhWc50oh9G1A/+BV2gtLhGh6VkLfvHkjR4OibVwsYZPC
-	RwTjL1gj7RTY9LBJuOG7dUqJsdfSQIcmj9lf3Ps/2TzhiP9myj
-X-Received: by 2002:a05:600c:8b6f:b0:492:668f:410c with SMTP id 5b1f17b1804b1-494688928b1mr23245e9.10.1783930745452;
-        Mon, 13 Jul 2026 01:19:05 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0a558easm85288536f8f.27.2026.07.13.01.19.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 01:19:04 -0700 (PDT)
-Date: Mon, 13 Jul 2026 08:19:00 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, tabba@google.com
-Subject: Re: [PATCH] KVM: arm64: Avoid naming collision in tracing
-Message-ID: <alSfdL3acSXm8cP-@google.com>
-References: <20260712153835.2264905-1-smostafa@google.com>
- <alSbqDyV3Koez--u@google.com>
- <alScY4MJFILO9-xO@google.com>
+	Mon, 13 Jul 2026 08:23:12 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=xzVYUSuBBF9FEkEqEOe9VwNEyKcV5wLxGPP24ZKIagQ=;
+	b=1zoEklZPd4tbXSZxVs5dRc1HQYOVRy45e8o///TsmjEyXNYr7QjKeQgcCQwgsxENIF3QuG+LX
+	h7qUvf9Euf33y9YEr4dnzzxJ5D3ISMjPjx/pKTw4H13VIHUPI3MX0xa4NUpUqhh+ba3kSz0duM4
+	1w1KtNT8qBoxR0xbeRhSyGk=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gzFZM1sRLzcbNp;
+	Mon, 13 Jul 2026 16:13:47 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7E00E40561;
+	Mon, 13 Jul 2026 16:22:59 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 13 Jul 2026 16:22:58 +0800
+Message-ID: <e1694eb7-3459-43bd-9f37-1066bef43a14@huawei.com>
+Date: Mon, 13 Jul 2026 16:22:57 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alScY4MJFILO9-xO@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 23/36] arm64/efi: Implement override for IRQ flags
+ checks
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-24-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-24-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_011907_736867_7A98E739 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260713_012311_200249_465C2BE0 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +80,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 09:05:55AM +0100, Vincent Donnefort wrote:
-> On Mon, Jul 13, 2026 at 09:02:48AM +0100, Vincent Donnefort wrote:
-> > On Sun, Jul 12, 2026 at 03:38:35PM +0000, Mostafa Saleh wrote:
-> > > When the hypervisor tracing (CONFIG_NVHE_EL2_TRACING) is disabled, it
-> > > defines a static inline stub for trace_clock().
-> > > 
-> > > However, trace_clock() is already declared as an extern function in
-> > > linux/trace_clock.h which is pulled in EL2 compilation.
-> > 
-> > I am completely unable to reproduce that. CONFIG_NVHE_EL2_TRACING, isn't a
-> > selectable option, it depends on NVHE_EL2_DEBUG.
-> > 
-> > How does your .config look like?
-> > 
-> > > 
-> > > If the file <nvhe/clock.h> is included when CONFIG_NVHE_EL2_TRACING
-> > > is disabled (by including it manually in setup.c) it will cause:
-> > > In file included from arch/arm64/kvm/hyp/nvhe/setup.c:22:
-> > 
-> > nvhe/clock.h seems already included in setup.c
+
+
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> Take advantage of the recent changes to the way arm64 represents IRQ
+> flags and implement an architecture-specific override for the EFI IRQ
+> flags check.
 > 
-> Ha no appologies, I was looking at the wrong branch.
+> IRQ flags now carry both DAIF and PMR state. EFI is not expected to
+> modify either of them, so check both when verifying that IRQ state is
+> preserved across EFI runtime calls.
 > 
-> However I am still enable to reproduce this issue. So I am still interested in
-> knowing your .defconfig
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/efi.h | 38 ++++++++++++++++++++++++++++++------
+>  1 file changed, 32 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
+> index e8a9783235cb..479741d52c90 100644
+> --- a/arch/arm64/include/asm/efi.h
+> +++ b/arch/arm64/include/asm/efi.h
+> @@ -5,6 +5,7 @@
+>  #include <asm/boot.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/fpsimd.h>
+> +#include <asm/interrupts/common_flags.h>
+>  #include <asm/io.h>
+>  #include <asm/memory.h>
+>  #include <asm/mmu_context.h>
+> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
+>  	(efi_rt_stack_top != NULL &&					\
+>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
+>  
+> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> -
+>  /*
+>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
+>   * And EFI shouldn't really play around with priority masking as it is not aware
+>   * which priorities the OS has assigned to its interrupts.
 
-It is just defconfig (CONFIG_NVHE_EL2_TRACING is already disabled).
+Can this comment be deleted?
 
-If you attempt to include <nvhe/clock.h> in another file:
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index d3c69de698f4..ca91e453fb10 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -15,6 +15,7 @@
- #include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
-
-+#include <nvhe/clock.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-
-With GCC: make ARCH=arm64 CROSS_COMPILE="aarch64-linux-gnu-" -j`nproc`
-It will show the above error.
-
-With LLVM, you have to include it in more than one file, which results
-in:
->>> defined at clock.h:14 (./arch/arm64/kvm/hyp/include/nvhe/clock.h:14)
->>>            arch/arm64/kvm/hyp/nvhe/hyp-main.nvhe.o:(trace_clock)
->>> defined at clock.h:14 (./arch/arm64/kvm/hyp/include/nvhe/clock.h:14)
->>>            arch/arm64/kvm/hyp/nvhe/mem_protect.nvhe.o:(.text+0x0)
->>>
-
-As the compiler would convert the function global.
-
-Thanks,
-Mostafa
+>   */
+>  #define arch_efi_save_flags(state_flags)		\
+> -	((void)((state_flags) = read_sysreg(daif)))
+> -
+> -#define arch_efi_restore_flags(state_flags)	write_sysreg(state_flags, daif)
+> -
+> +	((void)((state_flags) = arch_local_save_flags()))
+> +
+> +#define arch_efi_restore_flags(state_flags)			\
+> +do {								\
+> +	arm64_exc_hwstate_t __st = {.flags=state_flags};	\
+> +								\
+> +	arm64_update_exc_hwstate(__st, true, true);		\
+> + } while(0)
+> +
+> +#define arch_efi_check_flags(state_flags, caller)									\
+> +do {															\
+> +	arm64_exc_hwstate_t __actual = {.flags =  arch_local_save_flags() };						\
+> +	arm64_exc_hwstate_t __expected = {.flags=state_flags};								\
+> +															\
+> +	if (__expected.flags == __actual.flags)										\
+> +		break;													\
+> +															\
+> +	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE);							\
+> +															\
+> +	if (system_uses_irq_prio_masking()) {										\
+> +		pr_err_ratelimited(FW_BUG "DAIF+PMR corrupted (0x%x + 0x%x=>0x%x + 0x%x) by EFI call from %pS\n",	\
+> +				   __expected.daif, __expected.pmr, __actual.daif, __actual.pmr,			\
+> +				   caller ?: __builtin_return_address(0));						\
+> +	} else {													\
+> +		pr_err_ratelimited(FW_BUG "DAIF corrupted (0x%x=>0x%x) by EFI call from %pS\n",				\
+> +				   __expected.daif, __actual.daif,							\
+> +				   caller ?: __builtin_return_address(0));						\
+> +	}														\
+> +															\
+> +	arch_efi_restore_flags(state_flags);										\
+> +} while(0)
+>  
+>  /* arch specific definitions used by the stub code */
+>  
 
 
