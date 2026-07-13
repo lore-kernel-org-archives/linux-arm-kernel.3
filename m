@@ -4,82 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08B5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74EEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5Xuiq8NQj6APix6vd4TJDu8T3rurGUlMnDaKp7R6vw=; b=EV3IImXooA3Rc2J+1LR6KISwuK
-	AYkpRIcHxvGWchGZrdYhPBsyy/fC3fvXJkp2mcAFP+LXtUwO0lUXLoQA26zmwNDrF/3UrxoCEhOoe
-	M31i62ZM4c0RRMHHHyqIkCfIzROGS+zdsFvyMEZnv1upIKXfwV6shHj3Ek6nRPvyukQGq46XOXELO
-	WKeltQf0fJcNJixMpVojp+mj6WBLkrRbTBQhA4McgBfQmIk2BPd1aAXyXrZWaokU8T9lX1r8S+PsJ
-	l4ouPg9WhGb5oIGAPojyoSLgEKpAtmY6CiBrUdedH8ZrVp2ihnGTqdIR97Pl0noIgRtwUwktYuscf
-	h6V4tzTQ==;
+	bh=WcYJlt5p9Qz8AXWYIObijachKEBwhFuSBSepR8dnD2g=; b=xfkolg0u2g8MZjyXDgNGK6tYUl
+	+kNqHDNKV4xvHGuiN0rLnW+Ems7ntszAM+V93SKbdZd4SKS0Q31a5XrkUZFSeCESFa9xgynUXVEFk
+	oOTbWkUaIjxwj1lST3tdoqqcxEodYyl98fCEwQ5/5dKjDPNUCXHsEdkP6VTtNlAHUG3bdwwDPG6iA
+	mU/WEOCo4IwDP+47DlY6UGt3ANQpzoQvX3OtOm1ZdVHv83+Upt8+SiWkNojamfwExcMDuVv2SUIsE
+	/4ilKZRwyeaygcSON1PgJxyZknfIBhXxFiejBaqYftVsoamwq+6fgEglXI5dtqzAFuNkfR7iGKpZ0
+	Xljao+hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMIC-0000000AHke-1K0s;
-	Mon, 13 Jul 2026 19:26:16 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wjMIX-0000000AHqC-2qf3;
+	Mon, 13 Jul 2026 19:26:37 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMIA-0000000AHjq-0pBs;
-	Mon, 13 Jul 2026 19:26:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783970770;
-	bh=RcxFrzM4fXb6ommCnOiNc6tEa78VsTytrJHLMEScxm4=;
-	h=Subject:From:To:Date:In-Reply-To:References:From;
-	b=W/n0NHB7zpdXppS10/AVeJ2AI6xwRXLIm/akQboL82x9GxlSAgWWg4QuHRSrUVpLO
-	 55kHkhTXFVYSz3DWH0C9G0TBVzJAFQJG186aMIT4VvGD3BnzjT8nI/xs/2wdlxlRc+
-	 h5YWPQR7eFb0yZVn1Mn5LgO2tn/nK5dCMwMFblpzv8pRlMk3f9Mb/notJNEf4mITrn
-	 0kpusqlXBqS1ZMcKzWDMPYuvCrUp8UCLbQMdsJ7F9xrEU7Xze7bhC67mMKjr55M+PU
-	 rry5Kt5BALb5nxiAyiarbcNb/5zcjwfn5JK1ewctu/8clOVJWphg5PV1FXl+auN8a5
-	 IeMwVvUWDqWAQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48DF317E0956;
-	Mon, 13 Jul 2026 21:26:08 +0200 (CEST)
-Message-ID: <a92d3ece26722bded7a71373e190b12fccbd0396.camel@collabora.com>
-Subject: Re: [PATCH v15 02/12] media: mediatek: jpeg: fix jpeg buffer
- payload size setting
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Mon, 13 Jul 2026 15:26:05 -0400
-In-Reply-To: <20260702072614.10373-3-kyrie.wu@mediatek.com>
-References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
-	 <20260702072614.10373-3-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-3sVKmjtuPNin0J4FoPlf"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wjMIT-0000000AHpI-2E3y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 19:26:36 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51c2808dbc3so21172161cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:26:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783970792; x=1784575592; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WcYJlt5p9Qz8AXWYIObijachKEBwhFuSBSepR8dnD2g=;
+        b=XJc5laxRDmoTyRVkeHglzcudlgnLI+he+MKMztmQczxpjGfxM888Km5JxOp2aqUJ7x
+         mwT4V2nlPNRmpKqL/kxsL24/UeCHzt07UBaXmuS44x08+wmAlbkcXpbqN8jfWFMsvdJs
+         YFbbWUXodeZZ6kFPMsqZH2LCOU9R3KW6ebXaG/UPoD35YWmp232wrGwAw44AAV33PL73
+         xF9DjZtwv0diX6cZ1sB4MBXhrKA41Oww/HT8MQN3VZkgNK5rS75SO+/RjjW6W2/SIGY6
+         59S7Xj56XEDLxCaeNgHaD2+yJoBhYWzLt1P5SJ3g0lzNIxM+KORFjtuK5tC9CmKGQvn3
+         SIkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783970792; x=1784575592;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WcYJlt5p9Qz8AXWYIObijachKEBwhFuSBSepR8dnD2g=;
+        b=I8x7Lf8YeCaAAPJTtwbWHPyo00nfjypKPXvTnCGPNEtZ/Hw1t8J6BCSRueglpTXAlb
+         S2k3s+7mdRBPnSINJilHA6SVV2DqVymBAp+vngpADkvXlQr8fPFjTWoRvhVi4ncKrfzD
+         3gopnF8NwFJihp+/1+a4swmpA5PUBnG3SznbIpzhVOAxOCOwAuiMXBB/sq5ISMG21/4a
+         91+aEk2aPpRZAz6ljaY/oNy85mz5fznAjg3WIrNY9j0Fv1IyEwSILCENKW3NixVAw2AI
+         xvvebNc4jVcimDPB1/eomviETlg4+KdJaDShjyDiEi5S/ap9l43oUnMfYqeXv3Ogoe66
+         LWIg==
+X-Forwarded-Encrypted: i=1; AHgh+RrZPVWQ9WhZKyL8PTIkaxXCPj/fLpHnX3vmNQxcNJ8wXhh4xfw2J542RIdv+ezYuMsGBMLz5/1H8SiJocTnOFMd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYUPyNO0q11PR8WH7s03YmTPi4pfZkzGHzS//OSfJbK82wAewh
+	rmjVRVhNMci4/WAtorF4bwOtGJqfQoRbsXplLrf7FXx41zNmbNJJvR6kiyeUMpMaNQs=
+X-Gm-Gg: AfdE7ckVA5krM4FZilJfOOekT5Fg3s30sAKyefhE1zwH/nwmYHDdLFRHSmvsVu4Ez1+
+	5Czw4TI3NQkWbPj6pRWcRacgysxLgZYHeReOx2uLR4a4j0/fcUNWnXreG3XxQs/ItJFY8TdZ+S0
+	fqfWVpLeuu1IM6myxJucJtxWwa0gPAxr5+LSLoaRW7Li2FCa2ODVGKFtBSoEwY96O7Lq+Mukc9D
+	Uo03+voUhWBYm1UADRxP6peslWgXABd+ghQJ3LT7UyDO0m82pv75XPhLlWKQBnYejDS4wRTSHmf
+	lTVLrhFcq+dQI7o6g9IGLVOA1/ScIUu67PWiocswP/WN+vzIjjLy+IJX8mpx+CLlrOUP2pJK/Hk
+	95qyC6IpK/eriMwUZK+StciXdrAeKOf0ov0aPiR7KDGeOspiqxh//GxtAOvoejwRSq8V0eLQ=
+X-Received: by 2002:ac8:5906:0:b0:51c:83ee:e430 with SMTP id d75a77b69052e-51cbf27d077mr95594101cf.75.1783970792197;
+        Mon, 13 Jul 2026 12:26:32 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51cbd8efab4sm70831241cf.1.2026.07.13.12.26.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 12:26:31 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wjMIR-0000000E5Pw-0MTy;
+	Mon, 13 Jul 2026 16:26:31 -0300
+Date: Mon, 13 Jul 2026 16:26:31 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 14/22] dma-mapping: make dma_pgprot() honor
+ __DMA_ATTR_ALLOC_CC_SHARED
+Message-ID: <20260713192631.GT3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-15-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701054926.825925-15-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_122614_392889_A1A17B49 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260713_122635_929118_BFEEAD1F 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,88 +127,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-3sVKmjtuPNin0J4FoPlf
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> For multi-core jpegdec, if one core gets resolution change event,
-> the payload size, representing the size of Y/C data, needs to change.
-> But others are decoding at the same time and it can not be changed
-> immediately, which results in the payload size to not match the real
-> buffer length.
-> The payload size must less than the real buffer length to remove
-
-                   must be less
-
-> the warnning logs.
->=20
-> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
-)
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
+On Wed, Jul 01, 2026 at 11:19:18AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Fold encrypted/decrypted pgprot selection into dma_pgprot() so callers
+> do not need to adjust the page protection separately.
+> 
+> Update dma_pgprot() to apply pgprot_decrypted() when DMA_ATTR_CC_SHARED or
+> __DMA_ATTR_ALLOC_CC_SHARED is set and pgprot_encrypted() otherwise Convert
+> the dma-direct mmap paths to pass DMA_ATTR_CC_SHARED instead of open-coding
+> force_dma_unencrypted() handling around dma_pgprot().
+> 
+> Tested-by: Jiri Pirko <jiri@nvidia.com>
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 19 +=
-+++++++++++++-----
-> =C2=A01 file changed, 14 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 1e014fd698ae..3960ad21d7f0 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -702,6 +702,7 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *vb=
-)
-> =C2=A0	struct mtk_jpeg_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue);
-> =C2=A0	struct mtk_jpeg_q_data *q_data =3D NULL;
-> =C2=A0	struct v4l2_plane_pix_format plane_fmt =3D {};
-> +	size_t max_size;
-> =C2=A0	int i;
-> =C2=A0
-> =C2=A0	q_data =3D mtk_jpeg_get_q_data(ctx, vb->vb2_queue->type);
-> @@ -710,12 +711,20 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *=
-vb)
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < q_data->fmt->colplanes; i++) {
-> =C2=A0		plane_fmt =3D q_data->pix_mp.plane_fmt[i];
-> +		max_size =3D plane_fmt.sizeimage;
-> +
-> =C2=A0		if (ctx->enable_exif &&
-> -		=C2=A0=C2=A0=C2=A0 q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG)
-> -			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
-> -					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE);
-> -		else
-> -			vb2_set_plane_payload(vb, i,=C2=A0 plane_fmt.sizeimage);
-> +			q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG) {
-> +			max_size +=3D MTK_JPEG_MAX_EXIF_SIZE;
-> +
-> +			vb2_set_plane_payload(vb, i,
-> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(vb->planes[i].length,
-> +						=C2=A0 max_size));
-> +		} else {
-> +			vb2_set_plane_payload(vb, i,
-> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(plane_fmt.sizeimage,
-> +						=C2=A0 vb->planes[i].length));
-> +		}
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	return 0;
+>  kernel/dma/direct.c  |  8 +++-----
+>  kernel/dma/mapping.c | 16 ++++++++++++----
+>  2 files changed, 15 insertions(+), 9 deletions(-)
 
---=-3sVKmjtuPNin0J4FoPlf
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalU7zQAKCRDZQZRRKWBy
-9KLBAQC3VQew+lWIFYFAv9fg5BqMa9IRHChznBJwWMns6YzGrgD/WYdaWpblGdWI
-WFr3vCtL4w9cR0i7UPjjJ20jXFBktAQ=
-=dgdq
------END PGP SIGNATURE-----
-
---=-3sVKmjtuPNin0J4FoPlf--
+Jason
 
