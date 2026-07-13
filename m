@@ -4,114 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C0AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 04:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B083FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 04:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=; b=YEku8piiT63MS0Tv55iDAQN3n4
-	y1pXyAUcK8njWJuQ2SLoyT6kfxfhhCN9l1GIfEA2MkfHBuPZnubOyGtzZrcj9J2PGbNcNm48yN+xt
-	ht8LclIKU/4vICE0iSe+W0knAoyan6FaEvJR4o7srXUjAeL9KPMhLceSte8YY0klXpb6sWJVgMxRI
-	4BlMsG/wB5sKCYuJHDoNXf2Hm4h9JNhPbvBVy7z1VIuun1j42RYuO0ifLbyTv1jubLsPo8RXVtLuL
-	GVN7EMn4i3YysAU9UjCJI7bMn1O6PYlCTZTzOuoELX4flYGXB0iKhzOWPZC8LgQ4hirezX3+5KsGe
-	HKUtoAqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RG8o+8M16cDKS75DlKWtiOhlxqbfWDfKUWx3iWdJi08=; b=lF9VYTYZWBcwg6VOWKZ9KX78Fk
+	RmvNTsX8RapjqMWOO1yC0Mz2jZA+QalR4uqJCyJOqPwghQCRQOEv10fgeOnfITwio/1FQ9pojNX4r
+	CI9i+pcMLqJQvxj2i85gIuu2emCYMk5BS87LyyoHL2ExW7MjYYXyOrBn2wOSi3qhIwlQVgW8dQEVV
+	u65C+9Q32Xty4RfVUNR9x9drrLrgVIcDvi0ODe870yYX/UjBW/CC4yIw+84gzwGZOmuEH5YnIYzUz
+	CQ+EFy9sF41miAiT+3p0aAAu3Hw/zu0dbW7fqO7E+41aA4N2t/Wrdgq5LZLk1nSqi2q7qp7mtxZpZ
+	YWkzJzGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7zn-000000084BS-2KpV;
-	Mon, 13 Jul 2026 04:10:19 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1wj8P9-000000085uj-4Bo3;
+	Mon, 13 Jul 2026 04:36:32 +0000
+Received: from mail-westeuropeazon11010045.outbound.protection.outlook.com ([52.101.69.45] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7zk-000000084Ak-2Ziq
+	id 1wj8P8-000000085uB-0d38
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 04:10:17 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c15ba5b151dso352465566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 21:10:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783915815; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NmRS0vTGYDZe1OoTpKJeuLCjaVeSeN4OEvpx5MWZAJboUuxt86aiE1juLm1GzSvS+y
-         oczkj0tK366zlI14IZbtXaQEArtI8kDr4/pHA1V0isymEw/HZl+QebdKTJ4OYUZqzwGH
-         T4xb4Uga+MBzmkBiTf0FU6rkM3UyVQG3qa3eTkbR9ehLPerpfWM5vfpv05irrMCk+7oj
-         6UKo9xuWRjRaTIw0tWqD30ur4TzQC5ux8M3ylzxRlTVj2dfQoe80mWN8Rhve1qQAP0eg
-         9ta8QJ7725OJnw7hwlYUXVD/WwDPOX4PEbvgv4blndGQ+W/Tz7LkPnCmzG7voQUePV+O
-         Qwhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
-        fh=sUxz51YGzw6gSxR/QadUwLcVuTPJOA3chun8ZeeXnCc=;
-        b=dYXY3UvYAL2KhmFvP/zhyeudyEaitX9he6T+rugpuhrM/x5+yL/SObN8rarWV3idL2
-         E4TrQl/dhHf6fC29ug7fDqt9Pf0pN+V77xpCbEpbPNpndvkNgVBKTo9/ZFGDUTOt41jX
-         g5Cy//C9RJA9cNXi3nE4lL9nxzGT7Ed4ehFGS0ur5faKYVuwtU7zvioGAhgPEV3iuQ+K
-         6jew/HHLmzkqxrZviUn8Mmi6yTVkEZjixE5qKEUIrVe6Ins4SUv+nKynSaK6cYceWleq
-         v5dC8heNXDb3MPFhJb2A3zWdyMIaZzLBpMkoRnuM3GRAdXACJ9IxmRTToQBDKl0K1XrY
-         EaVg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783915815; x=1784520615; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
-        b=Bl6ydisZZpBm6AMue7w6kdV0co8Mq58N6BsYnezcG/bgyGSiyMip8uDuLEOmzd99vy
-         TcA+nHszFwju8n7zQNJup489MBWxrWA3rnafi+WF6qkak2kxwVVO+lmXhnT5P6SttVWU
-         8COS87em2USCsuRawTbJSxd47Hu6PbORjvpemMEFjZzR+cG80GprALKf1awLIMfr+Iq+
-         POyUiRIyqkd8Jq0aV27SD0STcmfmUUsze1RSpVtegty8D1UmVUYeMuDUzPPPDEpmCSbE
-         BPO6TPMhuq9jQpuc1s0cKTTTRhr5xTpPRPQ3TsBQavorXNpGZMpoERLXICSIFSVy2Eq/
-         NBZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783915815; x=1784520615;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
-        b=H5YFsX80GOoT+9igLRhKUqaq4EJUASYODuZO7aJkJDhr82M1TP33dS13wtH4LygPpu
-         X7d2nqdyQRXQaCJVzVLPG8e3Yl5+lzCnqHXbXdYVAZMqlGvgYIE/2eAKEcTFZi/GQOpO
-         qwiONNvv9NRIqPN2DJz8D+ADC/Mo0lyKpXTHEu1W8Iiy5c3O/uinqqku2pPHs8+E09BX
-         1i8CqSZVbpaWFoh1ijrB5xwb5KS1cR9CBy8ziL0jyuVC4B4Br/NN+naMt9r90fiJQh4D
-         Quyom59nfjqfj7Rg2sDiHK3/j/GJwWIIwnPUBnhxxwq5SqK4Zq6fVJRNiYBQlYk2uY5q
-         sgWg==
-X-Forwarded-Encrypted: i=1; AHgh+Rpb6DveUbii4GKqXa2GcHbWmmDEgfWgrYF2mg4nTXYrcKZ+u5LvCmjLs8HUg4HtN6mEhLtsc1zcE6ixOHiwhSKR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxbw/EIonCmz1HZvNjYKPWhvpCqGY3x1gKSx/Q9MGstNxKrKCYO
-	NOS4HqOpMZQi1fVI0E/r9yZV17OD3Hj2ik8y8kaGo+Rb4HShOuR48W0u9ETHopGN5QUwgcCtMEd
-	q57W/lyTyg/L7ryNfYautQq5w++v1Ayhcv7BonWPo
-X-Gm-Gg: AfdE7cm2ZaYzpS39MkT6ytDPBRu/iL4wZwwggGqd5jgTj3zOFmOaTCs55Lv9Nw0mSCy
-	YoAF+w+LBXfMRtL0HCDYh40BCBuWSwZoSl+7JfMRkka+Qk3Kf6l7e/9HxM7VR3s7JCY11+6RgE5
-	z0iQ+mCHaSpR/J7qClEKEdg0wpWZyAK52PegfMbHXctR6p1R0uIjbxy/6vMBC3a4P7FKPlZ+1PF
-	1aRBS5SMow7Jc1aVOn7hU3Mr9IeR/ihCiS2SiiREj2UJqo/cgsadkHwgD63URPEYhsGtjKj/qnP
-	hx4/C8xhjHEaxN1HvKhBIlhtlmg=
-X-Received: by 2002:a17:907:a785:b0:bed:9a7:5ed1 with SMTP id
- a640c23a62f3a-c161e956b92mr277921966b.5.1783915814340; Sun, 12 Jul 2026
- 21:10:14 -0700 (PDT)
+	Mon, 13 Jul 2026 04:36:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xjZrSjHxrbhXUJ23kuNYkQREovh5mxlah01bpDT1DToXYId9tZBQeuoetea0/ejJMM+I44fyWKhsQyx8GIxGivsbFf/9nxHxMHT15dyGMz3KMItiP92YdAcnmLFbGrMkzz3+YSjd/38Gl73uV6DTX5ottK696UzSTLDn9M2cMXEk02BxR6ujB1nz8q7T9hpfWvJrC3Qr2r9ayj2DneKb/gFkDP6f1LDjWvyoW7C4nTl70f160GiMnw8X0LrS4CpvVV/p4DQ849euSiwX8pV10M+aNB7cPvq/Lrj7SFvI+YQqZP96pm8t0PvDJETX9Nf0DxKWOvkTR3ptytn6oKkIEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RG8o+8M16cDKS75DlKWtiOhlxqbfWDfKUWx3iWdJi08=;
+ b=s6B1jCW9K+Hoga7CcKxiJzhvYVUS9WsSJI00MavZTXREy9o44muxlXsnX3sFBCNItLBpt7VgXZQTqV+mMrkhGrsU6nCGWG4IxIBvsFrzbLGncd7B+gMLMXyVvqJkVCmMd/almlFjC8A6Ss09q9viag0LeGOBOWLFUx+P8CQsPmnACF72P6M3O/7IGhCdItSIVZ2lLFVEKPyiLPCwG2JjB8BrzP+iD91L2IWQRHTsaoz/1vMojXTm82hQmHfGTuGtxShvW9C6XPmTUnsLXgH2O3jPYMl1BMxwqV4pOb7LEH3WdprKAr+cNyA3kz64sTthXDAi6sOTLbr/q1NRhePoiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RG8o+8M16cDKS75DlKWtiOhlxqbfWDfKUWx3iWdJi08=;
+ b=VUs90Mtz0f/F/spHXuoD8SyAz4cJCHXtXMJhUfBHZ4glqLo1o/bCV6FIY2i73ts8OFC/0r9M+qNDlXWjko6B3th2Tu1IeEz0IFYRiWSvALszClfV8MXTf0pclU7pyGDZcebWVHpYq8ZJEWVsqEtOi1pzgaWAAp/+lyBjV9+WHwQLTOnCkrfSKpgguCtAFZcZMcA+Mg0eOGpkWcePzqcSRgzW3kFrFtWAOuJYQk+6rEVS5pPUTAhK1VfzSYviB+6NWsh3avUbcvJR7vxGMsVtu5udV7I1Wg8mmS857h5P0QMi/oAgLFPFdWkoW2a+gaN8ZwycwAcJig9ZfDmxAf8TXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB9180.eurprd04.prod.outlook.com (2603:10a6:10:2f7::6)
+ by VI2PR04MB10666.eurprd04.prod.outlook.com (2603:10a6:800:27f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.22; Mon, 13 Jul
+ 2026 04:36:23 +0000
+Received: from DU2PR04MB9180.eurprd04.prod.outlook.com
+ ([fe80::f94c:ce27:1558:fb05]) by DU2PR04MB9180.eurprd04.prod.outlook.com
+ ([fe80::f94c:ce27:1558:fb05%6]) with mapi id 15.21.0181.014; Mon, 13 Jul 2026
+ 04:36:23 +0000
+From: ziniu.wang_1@oss.nxp.com
+To: adrian.hunter@intel.com,
+	ulfh@kernel.org,
+	haibo.chen@nxp.com,
+	Frank.Li@nxp.com
+Cc: s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-mmc@vger.kernel.org,
+	s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/8] mmc: sdhci-esdhc-imx: fix SDIO suspend/resume issues
+Date: Mon, 13 Jul 2026 12:38:56 +0800
+Message-Id: <20260713043904.4144172-1-ziniu.wang_1@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR04CA0016.apcprd04.prod.outlook.com
+ (2603:1096:4:197::7) To DU2PR04MB9180.eurprd04.prod.outlook.com
+ (2603:10a6:10:2f7::6)
 MIME-Version: 1.0
-References: <20260708031129.3503195-1-jthoughton@google.com>
- <FC9E78F0-8FF7-44AF-A848-8401B4702488@linux.dev> <CADrL8HVkrojXbBuEX-W=UHBmyyFzqxdGBvtAoPP53SyYa10uag@mail.gmail.com>
- <ABB70C2A-316E-4C19-A855-C9920BE105E1@linux.dev> <CADrL8HUCqrzOQGXRDwnitintQHjHCw10n8wo6gChQ2tWvC2JBQ@mail.gmail.com>
- <674EC6D6-B1F7-447D-B462-861ECA5A99B7@linux.dev>
-In-Reply-To: <674EC6D6-B1F7-447D-B462-861ECA5A99B7@linux.dev>
-From: James Houghton <jthoughton@google.com>
-Date: Sun, 12 Jul 2026 21:09:36 -0700
-X-Gm-Features: AVVi8CeIAdsZ8vBj0o0oFzX9SAZHhNmejnZxvQk9nHEtMZWM7457PWKYqV0QjhM
-Message-ID: <CADrL8HXeKSt0fRrevT7cuVJGhmJ=7LCkMnBahf5YLR-_90WePA@mail.gmail.com>
-Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
-	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
-	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB9180:EE_|VI2PR04MB10666:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81d1751e-166f-413c-bd6d-08dee0984b11
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|3023799007|11063799006|56012099006|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: kD4P1wRD5nswkDHwFGt0BQUg0xsl/Mozl7wJOwz/U6hwQ1ekjea9XLpDZH5vM20zw/nmpLnrsmquvkeF37ygoVHSlki6aeVzzWtDPpYiDiif2VoMToQUs3pIGHavfbBGzQqVLbQQzXwC8ZYgcUQuWXCQ4oiklI9qfvQ+R1WO9GNfObfGtGtBsaFgIhMLpPZtYEHyBgDy/sZ9rttfRcAoAlRjZ1NvFXG9K829RCDUvwC0yJU6d9B3izL3Frp0VrG8lYIBJE9aZLXr27OaGCETeFDpIc8cJNHpwmrLwayhGQ4Y8AK5fgn7aHnh5y1nCtnlBXriwWl37sX2QSc9PDxNkInBAR4We0v2VeHEWvljKczbA3Qh20MevaGkxY67X5a8zxoQaY0y3iY61evn6v08lrXnQsJOhWSgSrKqwm4iZsqgdrZ72p3xsuF8mVyKquvphCN5rGxLUAUSgf+DOKEebAO2MMpAv6RNCn/f8wx/OGRWxcrwQOgPN78c9mwJtXdN1HjCYM2dGa72ihLS+lrxZinkhRG8I6tBeqf8UV7ecVUtC/EFQ5EVAJ9R7k9uLZEI17WPDRFiCIqxFQFVkQwAMDOKgpbIDqftQTQQ13NCEGaY2H9SBgFj+7QH2tiyy/jnmZu8K0GzZcQr7e75gecjuUSjId7UQAhAYQ53FdBBYsc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB9180.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(3023799007)(11063799006)(56012099006)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cgFU6aFDiMeMmMzL6Mu8aaes5VLIBQnZ8Qnm+L92hz59nkwi+EzkIJ4bnoFZ?=
+ =?us-ascii?Q?suxh2Hjm4Ucr2Lp8GdYhep5+7tEtwGJh6c40S00RY2TTQFR3hIJughTRdFom?=
+ =?us-ascii?Q?MzUdzWkejxQgcz+Inw9+j02DNdaVQLqN33TTx+jW+omShvkjDz0m7WJOq5aC?=
+ =?us-ascii?Q?Jxj0zNnGRvENhbCQvKT7zRYR74W9UMdmkktoRJcvohV1+Fmvrx/w3x436Qqc?=
+ =?us-ascii?Q?O4i4NxLpmxOAMziUqKujP6OaUIiiKtS4SZYbjCONS/XI/VQUnkubxIQKCiFj?=
+ =?us-ascii?Q?v6z/ldarfI9qbQZGqDNKm3A7EWlMCROrEF8EvfNNYv/XDSrLpr/em/8MAgOV?=
+ =?us-ascii?Q?Db3jKObqe2hbnZXMbiKZf7CV+d3lVpB77Mch9RQQPICKdLyTbw020JBscccD?=
+ =?us-ascii?Q?nUV5VCHflPFYz6ZVX+c2p7KEJdwXJ2MghJlBSE9lzZy/rcquReEU8JQr80iw?=
+ =?us-ascii?Q?SC5DQiTJmGyIscgspLI17HEkduCnXO0e/QMWgPOEwteNY+0N9WKdJdVhOofx?=
+ =?us-ascii?Q?XF2PkQmJNzXbEh/oJbrOuweFIbMQPqOUZ3fc1WjKiTOtZ9Ze12Qi6IHOrEtS?=
+ =?us-ascii?Q?NPeNj5btpjSwhzZSWlP4C62k6eL0ApFPrz8b2D8MLdXORdEIRg4dyM0pA6xI?=
+ =?us-ascii?Q?CSiIQdQ9e+k2C1uHK9uf5sCaBf0pVPtj+/fa3gZjW2PhOKem8yi6hduWT6nq?=
+ =?us-ascii?Q?I917V/Ul1mkZQexYwVZqacD9m85nL/5yhTYTdRnS31UOVg94dF3CUbtkV77A?=
+ =?us-ascii?Q?Yuxxr6f/mLiaSxe1bvimi/yHCr3rYKfLc091mGBQJIean6Z9RUCPEo8jVrzL?=
+ =?us-ascii?Q?YchK1SCgl1qLz3zROlSjmb/AFsdOx5UujkQcJYMAr9wD62LEhlsDqDwfsYOz?=
+ =?us-ascii?Q?+9nMNMoAU1kAO2D2wgo0YG1cOmnCOCA+kxjJtMTWh8O0NSfVA95p830PJBoj?=
+ =?us-ascii?Q?rlBeX3fz4jfbJlspfpNeixi0FqOIFXMfURjbDDxzAWZgXmPheQXqB+KetjUz?=
+ =?us-ascii?Q?JyEAGADcZj1gyzWqFNS/zi2xLH/SFFhIzBTmKun4yB/FBwghIO2jWTUtCQ0n?=
+ =?us-ascii?Q?+HRcwx3kMCiV0BiUYa3B1+Wdn/ZIddx9saetYIz+TEf/TbafuWQfKLOv+8VJ?=
+ =?us-ascii?Q?uMKvCV+5+aq9ldYQ/6o8/kELgajgFpaB8Y+l9J+9lbX4lsH4wQ/gs0kqRfRk?=
+ =?us-ascii?Q?bx8ZnMAJ3o2ALObUL4FhHPMCDNpaEyeMWLuQSAJwXsuEN2FygKZ97NAblAKC?=
+ =?us-ascii?Q?wW4cTUxeujGSBGrlhKVuMRtl/s8nL+yQAaH4XzkQvJI4ztQEzqwAhzi+cy09?=
+ =?us-ascii?Q?7rVLTMXUBSViIkrJzmujMtPK5IjLvqmvxl8OdJgQn4WtCnkXEN8E1W63LEJE?=
+ =?us-ascii?Q?xysBcBeA66onG6JDwgnPGqs/23McwFLzishFfTbnUhHc4cRAt+/iCYOzkYRF?=
+ =?us-ascii?Q?jJw1fuPynvFpM3VAglNIX9yZwjblJ7XWGdpnkvTKhOouhpmz4WqAIirPY0XP?=
+ =?us-ascii?Q?+U9QlcEvXDDTkBmYmthTPO3z2HhhtryQXQSrSI44nMshb+6kujVooFvqb8w7?=
+ =?us-ascii?Q?DaChi/9WgAr9vF14aKhcdTOLL3HLJTaB1sSwTou2yRM+I1EAjhrgrzhF7KdE?=
+ =?us-ascii?Q?JkIjQiD29amuBtu39NEJDF3lZi/L2xS05Qhu/0YtY3I4WuB5kbw7/6NdnPUg?=
+ =?us-ascii?Q?yJr4LqaWOLGVPAtcgmb7ysVPEwkDj4GfbbhKlvmKsiI0snuaygTeDYG1C+m7?=
+ =?us-ascii?Q?2oPhIgTFGQVEXAjLbHZXwr/0Iop2MRbM2qoJ4oDz2R+wsnCqWQ2D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81d1751e-166f-413c-bd6d-08dee0984b11
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9180.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 04:36:23.3759
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1D6aRIbAmGWORSJvKLWZkeNQ7t9wZhbJuCTNcNbBA+c6OD9+3MVA4V2DbEBXqZXWJStYSAYchfo8qilBl09Xipo7SgGWwv7C+8bjtY8aDYahX6EhtC5Mmqtn4PS93vl8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10666
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_211016_689620_72D373C6 
-X-CRM114-Status: GOOD (  41.40  )
+X-CRM114-CacheID: sfid-20260712_213630_223251_ED3F9CC0 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,108 +143,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 7:23=E2=80=AFPM Muchun Song <muchun.song@linux.dev>=
- wrote:
-> > On Jul 10, 2026, at 03:04, James Houghton <jthoughton@google.com> wrote=
-:
-> >
-> > On Thu, Jul 9, 2026 at 2:55=E2=80=AFAM Muchun Song <muchun.song@linux.d=
-ev> wrote:
-> >>> On Jul 9, 2026, at 00:49, James Houghton <jthoughton@google.com> wrot=
-e:
-> >>>
-> >>> On Wed, Jul 8, 2026 at 1:41=E2=80=AFAM Muchun Song <muchun.song@linux=
-.dev> wrote:
-> >>>> Do you mean that the support for AF might vary across different CPUs=
-?
-> >>>> I'm not that familiar with arm64, so it seems a bit strange to me th=
-at
-> >>>> such basic hardware features can differ so much from one CPU to anot=
-her.
-> >>>
-> >>> Yes, hardware updates of the Access Flag is a per-CPU feature. It is
-> >>> available for a CPU to use if TCR_EL1.HA is set. TCR_EL1 is a system
-> >>> register; each CPU has its own. (Linux will always enable HW AF for a
-> >>> CPU when it is onlined[1] if support is advertised, so we simply need
-> >>> to check if support is advertised to know that it is in fact enabled.=
-)
-> >>>
-> >>> These days it is not uncommon for a system to have two (or more?)
-> >>> different core implementations, like with "fast" cores and "efficient=
-"
-> >>> cores.
-> >>>
-> >>> [1] See the CONFIG_ARM64_HW_AFDBM bits in arch/arm64/mm/proc.S
-> >>
-> >> Thanks for your detailed explanation. When enabling HVO via the cmdlin=
-e,
-> >> can we simply prevent CPUs that do not support AF from coming online?
-> >> Would implementing it this way be much simpler? In practice, developer=
-s
-> >> definitely know whether the current system is suitable for enabling HV=
-O.
-> >> If some CPUs do not support AF, they would just need to evaluate the
-> >> trade-off between memory savings and having fewer online CPUs than exp=
-ected.
-> >>
-> >> For scenarios where HVO is enabled via sysctl, we simply need to check
-> >> if all CPUs support AF. If any do not, the system should return an err=
-or.
-> >>
-> >> Then, we can proceed with the Pre-HVO.
-> >
-> > I don't think it makes sense to try to implement pre-HVO.
-> >
-> > We cannot do HVO if any boot CPUs do not support HW AF, as HW AF will
-> > be required to free the HugeTLB pages later, which we should continue
-> > to support. Pre-HVO (today anyway) happens before all boot CPUs are
-> > onlined. IMO it is not okay to prevent boot CPUs from onlining.
-> >
-> > Let's say for a moment that HVO cannot be toggled at run-time, then
-> > the best we can do is:
-> > - If a user does not specify hugetlb_free_vmemmap=3D1, we can always
-> > allow onlining of late CPUs
-> > - If a user specifies hugetlb_free_vmemmap=3D1 but not all boot CPUs
-> > support HW AF, we can always allow onlining of late CPUs.
-> > - If a user specifies hugetlb_free_vmemmap=3D1 and all boot CPUs suppor=
-t
-> > HW AF, we must not allow onlining incompatible late CPUs.
-> >
-> > HVO compatibility has to be modeled as an Arm system feature. To
-> > support conditional onlining of late CPUs based on whether or not "HVO
-> > is being used", we still need the extra cpufeature.c logic.
-> >
-> > So if HVO cannot be toggled at run-time, we can simplify the
-> > definition of "is HVO being used?" (for the purposes of determining if
-> > late CPUs can be onlined). We can simplify it from what it is now
-> > ("are there any optimized pages?") to
-> > "vmemmap_optimize_enabled=3D=3Dtrue?". That allows us to drop patch 15
->
-> I believe this conversion logic is sound. If a user proactively enables
-> HVO via the command line, it clearly indicates they intend to use it.
-> Otherwise, there would be no reason for them to enable it and then leave
-> it idle.
->
-> > (which then needs a slight change to patch 17), but that's about it.
-> > So this is a slight simplification, which is nice.
-> >
-> > If you (or the Arm folks) feel strongly, I'm happy to write this simpli=
-fication.
->
-> I really like the simplification here. To keep this series as simple as
-> possible for the first step, we also could focus strictly on bringing HVO
-> support to ARM64 by making it depend entirely on BBML2_NOABORT. This keep=
-s
-> the initial scope highly contained, which should make it much easier to r=
-eview.
+From: Luke Wang <ziniu.wang_1@nxp.com>
 
-Okay I'll do this then. I'll probably still include the BBML2_NOABORT
-patches anyway, as I don't have access to any systems that have both
-HW AF and BBML2_NOABORT / BBML3 (even with the expanded list[1]). I'll
-continue to structure it where the series can be partially applied and
-still be useful; i.e., the patches to drop the BBML2_NOABORT
-dependency can be ignored.
+This series fixes several suspend/resume issues in the sdhci-esdhc-imx
+driver, primarily affecting SDIO devices (e.g., WiFi).
 
-[1] https://lore.kernel.org/linux-arm-kernel/20260708144331.679816-4-linu.c=
-herian@arm.com/
+Issues fixed:
+- Tuning delay values not saved/restored for out-of-band wakeup devices
+- DLL override lost after resume for DDR modes
+- Pinctrl not restored before DDR_EN is set, causing CRC errors
+- Unhandled interrupt during resume causing "nobody cared" warning
+- Various error handling issues in suspend/resume paths
+
+All patches now carry a Fixes tag pointing at v6.16. Patches 2-8 fix
+regressions introduced by commit 676a83855614 ("mmc: host:
+sdhci-esdhc-imx: refactor the system PM logic") in v6.16; patch 1 fixes
+commit c63d25cdc59a ("mmc: sdhci-esdhc-imx: Save tuning value when card
+stays powered in suspend"), also in v6.16.
+
+Changes since v5:
+- Added Fixes tags to all remaining patches (patch 3, 6, 7, 8) so the
+  whole series is properly tagged for stable, as requested by Ulf.
+  No functional changes.
+
+Changes since v4:
+- New patch 3: Fix esdhc_change_pinstate() to move IS_ERR checks for
+  pins_100mhz/pins_200mhz into their respective switch cases, so that
+  legacy timing modes can still reach pinctrl_select_default_state().
+  This avoids log spam on resume for devices without UHS pin states (Sashiko)
+
+Changes since v3:
+- Patch 2: Remove unused 'boarddata' variable in esdhc_set_uhs_signaling()
+- Patch 7: Expand commit message to document intentional skip of enable_irq()
+  and sdhci_disable_irq_wakeups() on early return, and explain why the
+  PM runtime usage counter leak is acceptable (Sashiko)
+
+Changes since v2:
+- Patch 3: Updated commit message to explain the SoC IP integration
+  detail about internal loopback path change when switching pinctrl
+  from GPIO to USDHC function (per Bough Chen suggestion)
+- Patch 5 (v2): Split into three separate patches (5/6/7) so each
+  patch fixes one problem (per Frank Li suggestion)
+
+Changes since v1:
+- Added patch 5 to fix error handling issues identified during review
+- Use pm_runtime_resume_and_get() instead of pm_runtime_get_sync()
+- Make pinctrl and cd-wake failures non-fatal (dev_warn only)
+- Use esdhc_change_pinstate() instead of pinctrl_pm_select_default_state()
+  in resume to restore correct pin state based on timing mode
+- Skip pinctrl restore for wakeup devices to avoid SD bus glitch
+- Check pm_runtime_force_resume() return value in resume
+
+Luke Wang (8):
+  mmc: sdhci-esdhc-imx: remove unnecessary mmc_card_wake_sdio_irq check
+    for tuning save/restore
+  mmc: sdhci-esdhc-imx: restore DLL override for DDR modes on resume
+  mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate() to allow default
+    state restore
+  mmc: sdhci-esdhc-imx: restore pinctrl before restoring ios timing on
+    resume
+  mmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled
+    interrupt
+  mmc: sdhci-esdhc-imx: use pm_runtime_resume_and_get() in suspend
+  mmc: sdhci-esdhc-imx: make non-fatal errors non-blocking in suspend
+  mmc: sdhci-esdhc-imx: fix resume error handling
+
+ drivers/mmc/host/sdhci-esdhc-imx.c | 84 ++++++++++++++++++++----------
+ 1 file changed, 56 insertions(+), 28 deletions(-)
+
+-- 
+2.34.1
+
 
