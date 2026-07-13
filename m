@@ -4,145 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69579C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F65C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErE/YwIm24Dywx/my/YNPgjaigFFhYsHNj1m7R7XElo=; b=sgUtvgkRJWWnKQtA0OZ0MUPMOp
-	kF9u4V9gOC9yB+dhQEaI9EPlK8AxT6ZykRPJobhrRGHnKGni20kLW6GAshOrjRVNf8+xpx1gJy26w
-	kDqHg0OFMlkwknd9IZ9T+VvZjGmqapHr/2CQ2liknZCJgBCRgC/OwzOv75+UF/cQJJTs8OM6hKpbe
-	nVwFj82c2zYmBd3Ydu09Am01S1pyNnlFnVMPLsMVq4UG/U0IeciLuxBFUxdfKbDCRs+AQxStbE4GP
-	JCNEwmWF1ck3RxI4qmpb0FP1jPiLC6zEy6mqVPCGVWks+QDUs3FJxcaBuyq9f08gR/7YQN17ieIBc
-	iZfPKQww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x1PWBwBbus9kGqLTJWWBE1sgMPJNpx8vCrmwCtDH+ZM=; b=rnRvSFra5ZWI+aC2xcl+TZRfFe
+	ptB7ocHkSybcTWnZxUpdENu+seOW9nJgCJahZllAsmYVzlOHLL1bCPWqlafTOCPBNGjjvaXfnyhe8
+	GpaoXOs5ZKPa8D18YQWlHg2PPgpxgjklfoYb7DQ+LhgpiJlFU5isVfjENE9dE56D6Hsht7GVCOK+3
+	G5TfgSRCrtLZWkGyRoky4qtWF9wsuSOrV/yjo7TcLnMfrhUl+e4RvXa6MTEWku6j7JRL/iA8edNhW
+	aqR7SXvXsNi2RdAw6V1BxPeQgPR9Kj2pu7F9LxLTwWnPRXlSOwuvpbRExpJp52Sa/AO/n5EWTY2ZQ
+	DWvbBZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJUv-00000009y50-2uyv;
-	Mon, 13 Jul 2026 16:27:13 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJUt-00000009y49-3AYH
+	id 1wjJV7-00000009yAR-3lWE;
+	Mon, 13 Jul 2026 16:27:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjJV4-00000009y8E-1W94
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:27:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=crhzKYw9SVttlrLW8kVIuyjztpJ2CSHtbJlNWidxSLc46v8jH593nrNnxoou98t1mRLDx/rJHB4zkVgTRubVT0tq7uQKcDfkM0lZfvQFWtIFf/gF4clKCbI2wjB+BO2VFX168itIzA3dN81owfbKjw2ywDCSdxIBfBJzXaa/GQ2yLovcckPTRgVwDKf985vBKTtkAu3Au3wP3kxTh8waI6RV5WTeu40A5wcAhBbDni2Ttc+LJYjZqKECp6llk8FtyNfvSFhaY6kn+PeIUju0P8UXJze0Xd4xFK4kKL1cRgeO4++GE33sp9Sl+gVSBROQwWl9ptFJ9GKqeSOdlNj6vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ErE/YwIm24Dywx/my/YNPgjaigFFhYsHNj1m7R7XElo=;
- b=wG3VlPwYJTAeqcvjkYiwvHU1vPZDiaVS4UPzkSpVPfPJUkf0lCIQFqq97VHUQeHZoEydbJmE986pwZNHVLyKW/L1Nm+ns/+ejZY+3FrC379vdXPtoi1Kv5ZnQ8cUFS/Z3RVFccsc6Y5JQhfGLU1kfi4i8M1uUr1UbAohouUrRhH8exg2aqNaIZ06yYX+CBh36pl3InsNwWuZYCxCE975wVuneMarkhi4ccyxqo2fvtWD6FgusphdjgygDZSggdWDmaSt4okhAu+T+iYirONLU5wMssJqMrxeAKlcvuHnA/nIkCU/nDHzVevdAwBNFBaxfelRTdpCKnvTU0m5Q1mpag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ErE/YwIm24Dywx/my/YNPgjaigFFhYsHNj1m7R7XElo=;
- b=mq8GSj3DtDxsbFbcj1/fU3OAlQXg8R1cQf0n0I6ALB5eLuR2zzc55xIOzLCImewAt1nzWPdulQE6k8w612YWy+oTHMt0prCk5QyJJ9lfKTNZCUf8cK/QSZRx5+WqCnX23lCSZX13oJNIy4l5MtwCyBg61KK6ON2oQ7oF4zozqgR6QSepYDiVRw21dM8ykS4mGktWr41Kjx7hx7X54z9lBvbrL6KvU9I+pbN3TK4FY/ziR7Wm1do4vZfSvxyls6Evdd7/txmz625nBo7ALmY8GzT/p2PUFGz1xLnE/dS61wpdtZ1b2Yipazmse7Bzx/bTFjZc0FRy3IkqLgCz0cSO9Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DUZPR04MB10016.eurprd04.prod.outlook.com (2603:10a6:10:4dd::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Mon, 13 Jul
- 2026 16:27:06 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
- 16:27:06 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 13 Jul 2026 16:27:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 481831576;
+	Mon, 13 Jul 2026 09:27:14 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F11D3F7B4;
+	Mon, 13 Jul 2026 09:27:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783960038; bh=9/dA430eBn0wUibKGs9m2V3IKUxqPP4CnsyZ/vCU/qs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rQArY0LhHeb5W5EWwG94eauzoEVyWqhOvcyOeLx/rgVIDDk4KOvti1M6f+btBGsce
+	 9Aq68e0rcryOv5o8bxmt7e2c2/4tLhdeESV1+y3iEq1pUSBzfo/TlFlLDcKGnWuyd5
+	 GmS527v7pbeRChy4Kt/+Q+CYJzF2OsnvKYeFJu6s=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] Small fixes for TQMa91xx
-Date: Mon, 13 Jul 2026 12:26:58 -0400
-Message-ID: <178396001431.451755.10982551750390998514.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
-References: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH5P222CA0005.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:34b::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
+Date: Mon, 13 Jul 2026 17:27:09 +0100
+Message-ID: <alUR3ez1EKeWb_pM@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <alS-kcwvlASwPIzL@LeoBrasDK>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com> <alS-kcwvlASwPIzL@LeoBrasDK>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB10016:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c789180-b674-4198-7eff-08dee0fb945e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|19092799006|366016|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: QOGgC4Z1+Ox6PrFq8NwYOewBylGZaFW+IaBk2cAUvQutrJCf6ilmAsKDYd0wuTGZu4uE+096RlcXj/wKACWmRyeYc7kaytLHWAYNXXzRiIL0btf7mANQSZqkuP07yjaywvqqpEgXyUcW6zdcirjqWvwkV2Pnl6q7gQvJ0aD4xSiUG0vhXPzGFs3YcbixR6o1VQWgreU/s87yefiKij/Wf2DRti3zlXCwYlH7b6TCTlk7V0g1Ka0oqCZbBm+liXAJRpdV95ef+h9y01yXUDh2Hj5ShgNXSz+afGG20ph9mhRg/7QEc+8cBXt930hW93PkRt4bz6fSa6gDqAbBx+/mGCrWm6CLnJPkOQ65b46pESL7qyvxo/I03ep/ti5TmMMK4XbwW44lfqWvye5uxCvBW/2KWflHlMgPDjUWJNLP5LSe75C7mycEOzt/S1sor1scz4luc7t77+7xhZeryo3HC6njY2G7my8OLnsgxrXaQTSBUpxCGs+Xo8Vsa81T02k/w205imsNlkf4CpBMZapwcNyr9ITEtqDUwimazpoZEsEYVGfuTUgYHfj8vh/kwJlz1i8TC2nNmN3KAXsRNY/SuSrLqg+gTATq5cK68cj2/6RA1fZ2Ny1GF8PnNUo1rtWjOdsqCO/IMD8yMeN8N8tPn16Aw8VZHBkeRWaNefS+GUk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(19092799006)(366016)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2ExTzFBbkNaR2xvd0JFbFRvY2wzTy92bEE5UW1yNGNINWJaS0thNTFId3lM?=
- =?utf-8?B?ekpHQjFvYThzeGd4TFpUeENrYVpkd1llQzFZZ1F3WG1KUVB5NnEvNlR4SzJG?=
- =?utf-8?B?VHZ6RHFoOW1ZMWxlQTZHODZub0RkeGs3NzVUTTl5amk5eGJoRVNJV1lEZEZq?=
- =?utf-8?B?emI1eGtRWUhRdFJqRmc5QTNwTVJZZ3VlNDB2VWxjVFBRL3RXdVNvVnpTdzVT?=
- =?utf-8?B?ZEdZdkhYTXgxbGplZW9Zd2lueFJVcFluaXNDYnAvRFhkSGswUHlqR3pLQ2Vv?=
- =?utf-8?B?N1c0LzQyVEtwa1VDVXlGd0MwcnZtN1lOT282YmhuaGpKUVBVVzVBb2VGa1Jq?=
- =?utf-8?B?YU1aWWRQVzd0by9STFRVSzJ3TUluWm9CeFUwQzRkMjlsclFIdS9ONmdvSDFi?=
- =?utf-8?B?R1owOUUzMWJ6ZE9Td01Za3E1NjVZUytvYWR6RlliYzRPMmRxNlN5dnB0RE1i?=
- =?utf-8?B?Q3BLNGFDVlMyZmh2MUVqeTM2dDgwL29MRXd4bkllbFAxOTg4UzFqT2JwTnp2?=
- =?utf-8?B?OGRqbzhoS1A2MDJxaFUyTmc1UWF5NFFLY3RRdEZzazZFVUtmVzk3UitWUHp4?=
- =?utf-8?B?SzMxdHEraFJjcXdPSU0yQkxSWEV5ZS8xdURVd0JDRS9xYVJvb0xVS0E3dWlM?=
- =?utf-8?B?b3FaVHJHU3NhdFVBNFZib3l0a1BEdzZKTmZLbnJxV2R1clprYnJWUFdFSGZ5?=
- =?utf-8?B?SGZFRVhta3dLYkNIbmJlVVpXMk9MUnVPTWR2MUgwSEdtVmpxbDRSRGFuK2pY?=
- =?utf-8?B?cXQyMDBSZnNWempmckd1ZVZ5WHVQM283UjFTa3VkRlVsWXBxaTZVR0RQS3hW?=
- =?utf-8?B?R0pTMnBlYjFTUy8yeERRMG9XU3NVeGlUa0IxY3VCakJ2aUhEeWlOOGloLzdV?=
- =?utf-8?B?T2k2Q0xyVFVqcEVad1prbWNmdFBCK084bCswRHFTTHZ2MzFSMExjTk80VjU4?=
- =?utf-8?B?ZGc1SHlVb1hiTERXZ2VqOWJNNTlQUWxhVnEzV0dZQ1JFNDkvTUhiaUgvYktk?=
- =?utf-8?B?N0JiUjExV1dTVHNGckJ2UmdjSytXaGZVTjJtY0VNL1FIeEhtc1ZUb3EwWHZP?=
- =?utf-8?B?VWZUZDBQUllraTFsbWdYdVFoMWYwUnpGb1dCWG04STNxdHdaOWJQNU9oQkpB?=
- =?utf-8?B?MzlLN2dLR0VFdEI4NHdDOVNJZEhzVFkwR3hYTlo5ZmwzNFNyWDVyUmFxVFdk?=
- =?utf-8?B?OTd2T0N2UTZXVFBlLzZJN1hUdEtBZGRUaHBFbzI0clVxTjNUSXBOV1VnTFZF?=
- =?utf-8?B?VWdDaU1oSjUzV2h4VlM4ZVArditnWUQxblVzOTlGdy9zM2lwYUpJb0o4KzBZ?=
- =?utf-8?B?djZmdlNKWXRUakEvT05KUEpqS1RTQkVucFdIcnBHYmR3NFdDV0duTGNBSnhj?=
- =?utf-8?B?aldmLzdiQ0tsZW1CbGtRdTJKS21wSHVnT0JWdDAyTFl3bkpxRTRzSzUySFlZ?=
- =?utf-8?B?S3d2eitDVkY3YWVndnhlSWJXckkyemVzMGp2WjJEWHQ2ZUVDWUVUcUV6ZHo2?=
- =?utf-8?B?VTBPY1pKM3FFQzVvTFFBVURFREFoNjdQQ2NVZXI0bVlDVWJxUzBjNWVvaG1r?=
- =?utf-8?B?WFlldWpEZ3RjYnN0RUJQL0ZNNkZRZnhucHYwSkdieU02RlE3Z1ExMjBJQ1kv?=
- =?utf-8?B?bHU1RXo5OXhXWDVmajJaSk9JNld2djdORDFGNXJlMlJvdUgrb1hxb0tjR0FD?=
- =?utf-8?B?L0taa3dTdW5tZzZCeitiSjk5UVQwcmFENm9jRW1ZTWZ1Q0xuWGk0OUo3YTE1?=
- =?utf-8?B?ZDNJbkZ5STlQL0hqUXNQZExUU1hCck1OUnpjdW9uTFZuYVR1eGRhT1ZHN0k0?=
- =?utf-8?B?c1FNNDFTTzd3b2M1TVBNL0J1UW55R2NDZFg3TGpVQis0ZkkyYnNoZ2lDZ0dw?=
- =?utf-8?B?RGF5eDB2dnd6RlA0TDVrSEpzeDNyRzA0OWttNkZNK1BHNXE3bURmOHJHUzRV?=
- =?utf-8?B?UytuWGNWWFNwM3FQVUxkNkpOMDZzY2JSNXVJczJvcW1uNGhkZ2Fzc0ZXSXQr?=
- =?utf-8?B?Lzl5U3VGbVNNMnZnK3Nudmdub2hCeXcyNVc2a28yYUJPTlBMeTJsTWUrOHlo?=
- =?utf-8?B?REVlQ2FVYmRpbGVFL2NWUjdHaUoyNjJTaVF4cTVTSW9NQk5pSFVhc3RrQkRx?=
- =?utf-8?B?Q2lJR1JYQjJicG90L0w4Unk0Mll6NUlJNWh0ckhnbXdYVkEvcFFZeHltRjNX?=
- =?utf-8?B?YitJVmJPenRPWWlXZkNtcU9HZCthNFdtYlRjSFYrN3lndkZFeDRpRDZKSXI5?=
- =?utf-8?B?L2R1ZlRqZVgzeDIzRmV3c3g5Mllnak1PN3A5ZDNnKzBVWkV6UXM4d3lKWmFG?=
- =?utf-8?B?TWVEci9iYnZZUUF0cG8vR1lseTBGY0VvN0Rnam91RFIxZkw3OGpyVk8yd0t0?=
- =?utf-8?Q?RecxgmaZKiXKRc8jSqRM5wgMeJA0W0XYgOD1N?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c789180-b674-4198-7eff-08dee0fb945e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 16:27:06.6029
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RGy62a3jOxdF0lHTn3+9w64S5GIdCh1tkiUNV9swQbzQJgbp1fmZBEJ8WhvBGGoGkX8CxmNm3GGXg2bqYz0aHHsIllA0qbYjD9ECZtj4O48EhXFFuj11Fs0E2NixkOlM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10016
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_092711_823399_32E1A648 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_092722_504272_FBDDCD58 
+X-CRM114-Status: GOOD (  37.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,28 +88,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Tue, 07 Jul 2026 10:55:41 +0200, Alexander Stein wrote:
-> here are two small fixes for TQMa91xx.
-> One adds the USB PHY settings similar to other TQ mainboards.
-> The other one fixes the reserved memory for EdgeLock Enclave to be suitable
-> for 512MiB variants as well.
+On Mon, Jul 13, 2026 at 11:31:46AM +0100, Leonardo Bras wrote:
+> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
+> > This series of patches add support to the Hardware Dirty state tracking
+> > Structure (HDBSS) feature, which is introduced by the ARM architecture
+> > in the DDI0601 (ID121123) version.
+> > 
+> > The HDBSS feature is an extension to the architecture that enhances
+> > tracking translation table descriptors' dirty state, identified as
+> > FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+> > page tracking, aiming to significantly reduce the overhead of scanning
+> > for dirty pages.
+> > 
+> > The purpose of this feature is to make the execution overhead of live
+> > migration lower to both the guest and the host, compared to existing
+> > approaches (write-protect or search stage-2 tables).
+> > 
+> > The required sysreg definitions for FEAT_HDBSS have been merged into
+> > arm64 /sysregs:
+> >   [1/5] arm64/sysreg: Add HDBSS related register information
+> >         https://git.kernel.org/arm64/c/72f7be0c2e30
+> > 
+> > 
+> > After these patches, the kernel automatically enables HDBSS when dirty
+> > logging is enabled on any memslot, and disables HDBSS when dirty logging
+> > is disabled on all memslots. This series does not support dirty ring
+> > mode.
+> > 
+> > Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
+> > 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
 > 
-> Best regards,
-> Alexander
+> On this, FYI, there have been some discussion on this:
+> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
 > 
-> [...]
+> Oliver's suggestion is that we don't automatically enable eager splitting, 
+> but instead we have different behaviours if the user enables it.
+> 
+> This is still under discussion there, but I think it can be useful reading. 
+> 
+> > 
+> > This dependency is mandatory. Unlike v3, where DBM was added lazily on
+> > the first dirty access via a page fault, v4 injects DBM into pgt->flags
+> > at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
+> > during migration setup, the first dirty access no longer triggers a page
+> > fault. Consequently, if lazy hugepage splitting were relied upon (which
+> > requires a page fault to trigger splitting), hugepages would never be
+> > split, leading to guest hang after migration. Leonardo's patch above
+> > ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
+> > is available, guaranteeing that hugepages are properly split before
+> > migration starts.
+> > 
+> > v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
+> > 
+> > v3->v4 changes:
+> > - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
+> >   separate patch in v3).
+> > - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
+> >   by Leonardo Bras. DBM is now controlled as a page-table level flag
+> >   (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
+> >   at stage-2 MMU creation time, not lazily on first dirty access. This
+> >   means the first write to a dirty-logged page does not generate a
+> >   page fault, which is a key reason for the mandatory dependency on
+> >   Leonardo's eager hugepage splitting patch (see Depends-on above).
+> > - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
+> >   into three patches: per-vCPU buffer management, fault handling and
+> >   buffer flush, and auto enable/disable on dirty logging change. This
+> >   implements kernel-managed automatic HDBSS enable/disable.
+> > - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
+> >   on/off. HDBSS is now automatically enabled/disabled based on dirty
+> >   logging state via kvm_arch_commit_memory_region().
+> > - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
+> >   and kvm_handle_guest_abort.
+> > - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
+> >   per-vCPU, since all vCPUs share the same order.
+> > - Document patch is not included in this version; will be sent in a
+> >   follow-up series.
+> > 
+> > Leonardo Bras (1):
+> >   KVM: arm64: Enable eager hugepage splitting if HDBSS is available
+> > 
+> > Tian Zheng (2):
+> >   KVM: arm64: Add support for FEAT_HDBSS
+> >   KVM: arm64: Add auto DBM support for hardware dirty tracking
+> > 
+> > eillon (3):
+> >   KVM: arm64: Add HDBSS per-vCPU buffer management
+> >   KVM: arm64: Add HDBSS fault handling and buffer flush
+> >   KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
+> > 
+> >  arch/arm64/include/asm/cpufeature.h    |   5 +
+> >  arch/arm64/include/asm/esr.h           |   5 +
+> >  arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
+> >  arch/arm64/include/asm/kvm_host.h      |  14 ++
+> >  arch/arm64/include/asm/kvm_pgtable.h   |   4 +
+> >  arch/arm64/include/asm/sysreg.h        |  11 ++
+> >  arch/arm64/kernel/cpufeature.c         |  12 ++
+> >  arch/arm64/kvm/Makefile                |   1 +
+> >  arch/arm64/kvm/arm.c                   |  29 ++++
+> >  arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
+> >  arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
+> >  arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
+> >  arch/arm64/kvm/mmu.c                   |  19 ++-
+> >  arch/arm64/kvm/reset.c                 |   4 +
+> >  arch/arm64/tools/cpucaps               |   1 +
+> >  15 files changed, 399 insertions(+), 4 deletions(-)
+> >  create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+> >  create mode 100644 arch/arm64/kvm/dirty_bit.c
+> > 
+> > --
+> > 2.33.0
+> > 
 
-Applied, thanks!
-
-[1/2] arm64: dts: imx91-tqma9131-mba91xxca: USB phy adjustments
-      commit: b463d4de9d365690d44fac9b8136190332639de1
-[2/2] arm64: dts: imx91-tqma9131: move ele-reserved memory into 512MB range
-      commit: 96927ebe2610849ebdd78635b2e63a7af7a94eae
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Also, please remember to include the base commit, so it can be applied for 
+testing/reviewing.
 
