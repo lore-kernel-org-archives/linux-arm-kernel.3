@@ -4,115 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C177C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D81C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bN9JaggjBtthcoIhUPMeMbFxrz5q2FPyWPTtAmvW2io=; b=OhfyCZUVCPnRBd5J9kDEHTXlye
-	4zlDSJ8DSR8Kur1YU4WCbWdQArr/4DSwy2+z9ijLViM7UEB2HQO0Wi47GsZTT9xFitw/a8ZtaS0+W
-	jjRPV1U8Eu5XybnsI1/+gquO2lqOLPVovwGG94ZYN6t86BAdhrW8+h05ESb4g/7zqlkc5Yz+LE1Jb
-	J+rQ8FuMquCu2AZZCdf5uipdR+W7LcAulnvK0DxSWJdRO24zOXTRfY8iZ3ws4k4K6LsUXbrO1H/mq
-	cb7Nqu0BL/5nrZ/J1/IaDAoaTu8H8KbX6s+TnVFCSs/MxhfO7VZQclncsHj6efDRYvmqkgFYaPeRp
-	u6tTvstg==;
+	bh=zVr5u6e7y9H/vD3P6/LUuDFZJZwZSkv3vOu9uj8QLtY=; b=P1iHatWrV4gL4cXBkqPuKvXB6i
+	cgFrNEXGcBJl7bZrYSuCiXNNXO9tEM0R/0wcIJA1JQRvYG4h4bfRuCeO1/dKWQzj5elJ/LW2+A9Q+
+	7V2QaNA2wVceaFItceXrk9LFuRWmmv6eDW8J/tXigQJyVu+24vvHImL0dj0777k0WofQIVCnhIETG
+	KUR0zqWG1OaHzBDVf3HEKU5Xib5azBhUKF8ALstb5AnfaBrgxs7RoWjYKyRh/4VoRkwakA+ppRkf8
+	qs9dHI4tes8MX2zVDZM6U36IhQJLG5R3I6/HY/30pQa0j46YlhnNpFsEjplJNPPJjzGXWfiS1ThmD
+	7/Y6KEuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMK8-0000000AI2Y-030U;
-	Mon, 13 Jul 2026 19:28:16 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1wjMM0-0000000AIHp-127w;
+	Mon, 13 Jul 2026 19:30:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMK5-0000000AI27-20z0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:28:14 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-92f03daaa97so152973785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:28:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783970892; x=1784575692; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bN9JaggjBtthcoIhUPMeMbFxrz5q2FPyWPTtAmvW2io=;
-        b=Oh0pytQ/6gCBCdyYf2FSdiquAo7FA58LqDqdh+Y6U2UU2hUWjzFUlnXxMPw9jDMjoW
-         Tsr9gxkb7uChPVUl1d5RucxImEYaWk7bm74Utsux0G4ecfLyc/mbxhAFOXXxtatcnGip
-         7npUiHtMVScMkKzZQVi31JAlYCch6RZlAzucLq0g9LwomnfQVOQbcrDflKNd0OVNUKHd
-         baIARlEBeadwlgDW9H87XKX8HIPGRS1tID28PrcnbkntuWJo+rcylqtq4dDldITGgoJS
-         dGEGmvG+ShlKkrEBoefubxFWv1xisWb91NY4IU2MePVCdMUqsQW5vBPAG4bq1XXbkU0x
-         rqhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783970892; x=1784575692;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bN9JaggjBtthcoIhUPMeMbFxrz5q2FPyWPTtAmvW2io=;
-        b=dX07/y2F67oP3Bi8dr1hPxruOt7tjgdOHxHNxOd17V1CzmGiwmLY5bBAuJAGnfu09E
-         KW2Ao1afaQeXwTkkhoY2ev1C0ko2wK/w7qVALfEvxOGjjggENG+bVGDbHZCpws4MLs+F
-         WZmN5YrsAZ/L8fJHbPNUYuXIH5KTYonofN6x+vp83CB0a1UrtWOWwzhu4Z8v67T/oCuH
-         eH/m7ezIm/isz7yXrYAc5f5iGJ7syxESxs563Ah/gU4FPv/sBgQNtuOF+4hB5O97WcRV
-         HUoDek1EVxKkO2kieQa7p2jgBpx0m8MW63LeVFjGU/BSf/VUhZ1Rmuo86ioz12RDItCb
-         p6Cw==
-X-Forwarded-Encrypted: i=1; AHgh+RoseWd1ieucpD6AWT1oXlLUGuN9D4fS15Xui3g+lYMFA6rZzQ6mU4zjrRmNoXD0PbLxu40RBAk6g5xWNJBY4F2+@lists.infradead.org
-X-Gm-Message-State: AOJu0YznE6zxuxO1F7ypQhFSiQUcOwHRVlg6s0+wUVIBXjvlJQX0gYQt
-	p4DuJseE43idcSMf0Y/N90e4MyZQRJ4fjP5KZrIwfpJIfOEfWB1+ZdElOel9VLmNvng=
-X-Gm-Gg: AfdE7cn5SmWpLNaRyB6qv5d7plTVMyfAkp9IrbLHrgv9gwzssc4uh46nxXPZyJ8XPhq
-	I1zhVIAINev3OA9aTc0ECGABhqFY8W3zDh51iDRjW8ynndLKacXE4THxDokEbFonk4fUnIrAepA
-	42Da3rFJQSY3B8mtK8pYsX0Kl8sEHUgTRWAwKAdvhJyhoMdS6YgB2jj6pzvEtDhmsNjMSB5fWXH
-	rmCfnZq6vXQkTInz1FdkeuugeWiKaxkoUSnPFMaRvY4nqn1sWITOJJe7v0WwwQUc2U6SvOcVh5r
-	mGQTJjx5OF2f3G6uRfJdOgeb6bz7sEzhZ+uCXBRycHanpxwO4cqFXfox4yth01zNslNM2ZKPqCb
-	oJLlG6oyp1t7pLwp+hzty+5tVerRV2e7/y6h3IN90DXf7qESyK1LPC51yCAYPFmonxiQFIUY=
-X-Received: by 2002:a05:620a:2616:b0:92e:4a4a:4478 with SMTP id af79cd13be357-92ef2b55ebbmr1041396385a.31.1783970891864;
-        Mon, 13 Jul 2026 12:28:11 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd5bbac2asm137804776d6.21.2026.07.13.12.28.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:28:09 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMK0-0000000E5Zr-4AHb;
-	Mon, 13 Jul 2026 16:28:09 -0300
-Date: Mon, 13 Jul 2026 16:28:08 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 15/22] dma-direct: pass attrs to dma_capable() for
- DMA_ATTR_CC_SHARED checks
-Message-ID: <20260713192808.GU3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-16-aneesh.kumar@kernel.org>
+	id 1wjMLx-0000000AIH6-2eXn;
+	Mon, 13 Jul 2026 19:30:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783971006;
+	bh=YaEH+sl/++U2KbZvN4eiZqs9bHWOU336+JmOrpgozYQ=;
+	h=Subject:From:To:Date:In-Reply-To:References:From;
+	b=LFT6WccO0ftRGWJ9jGraUGIKoDH4M7Rdo+hbethvPXdu9vANpNXZQQTyBUVWrmeiq
+	 8aEYb/WNDwQMr0XUwzfipZLO4B7y+Cuq2l8fD4nKpgUM0zLiJpPl6A7oAVbXVo2rT4
+	 QBwiddJ44BUvrFLnDdv9ARuw2WB02dskycB2h6cnxtlKj5GHm6gfVcQsrVioOHnmUD
+	 zlMyDFPGDJ4kRNPfjc3HK2H10VNxvAhHdni9EEyq0Gf8kCegAZgmAYpJT/gXO1tY2+
+	 cFqgsRfJggeW1P3Jb79RluJZFjrqmNnH2wcZH3Fip/J6tqmSDqTriEwymekVzWBY8o
+	 pf4XnYlLAcvTA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A77A17E07A2;
+	Mon, 13 Jul 2026 21:30:04 +0200 (CEST)
+Message-ID: <6ddf0799abbd5f61cca887d8474357cd9ec6b904.camel@collabora.com>
+Subject: Re: [PATCH v15 04/12] media: mediatek: jpeg: Fix buffer completion
+ on multi-core streaming stop
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 13 Jul 2026 15:30:03 -0400
+In-Reply-To: <20260702072614.10373-5-kyrie.wu@mediatek.com>
+References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
+	 <20260702072614.10373-5-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-sAK8CIaYG2enlEegvh5c"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-16-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_122813_528533_DFB28C2F 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260713_123009_826136_D813D966 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +94,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:19AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Teach dma_capable() about DMA_ATTR_CC_SHARED so the capability
-> check can reject encrypted DMA addresses for devices that require
-> unencrypted/shared DMA.
-> 
-> Also propagate DMA_ATTR_CC_SHARED in swiotlb_map() when the selected
-> SWIOTLB pool is decrypted so the capability check sees the correct DMA
-> address attribute.
-> 
-> Tested-by: Jiri Pirko <jiri@nvidia.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Petr Tesarik <ptesarik@suse.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+
+--=-sAK8CIaYG2enlEegvh5c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> Enhances the Mediatek JPEG driver's stability and reliability by ensuring
+> that all queued buffers are processed before stopping the streaming in
+> multi-core environments. It introduces a call to
+> `vb2_wait_for_all_buffers()` in the `mtk_jpeg_enc_stop_streaming()` and
+> `mtk_jpeg_dec_stop_streaming()` functions when the `multi_core` variant
+> is enabled. This change ensures that no buffers are left unprocessed,
+> preventing potential data loss or corruption during multi-core flow.
+>=20
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
+)
+> Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interfac=
+e")
+> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+> Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collaboraa.com>
+
 > ---
->  arch/x86/kernel/amd_gart_64.c | 30 ++++++++++++++++--------------
->  drivers/xen/swiotlb-xen.c     |  6 +++---
->  include/linux/dma-direct.h    | 10 +++++++++-
->  kernel/dma/direct.h           |  6 +++---
->  kernel/dma/swiotlb.c          |  2 +-
->  5 files changed, 32 insertions(+), 22 deletions(-)
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 8 ++++++++
+> =C2=A01 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index 6d6a999a22fc..76a5b49b7f43 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -850,8 +850,12 @@ static struct vb2_v4l2_buffer *mtk_jpeg_buf_remove(s=
+truct
+> mtk_jpeg_ctx *ctx,
+> =C2=A0static void mtk_jpeg_enc_stop_streaming(struct vb2_queue *q)
+> =C2=A0{
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D vb2_get_drv_priv(q);
+> +	struct mtk_jpeg_dev *jpeg =3D ctx->jpeg;
+> =C2=A0	struct vb2_v4l2_buffer *vb;
+> =C2=A0
+> +	if (jpeg->variant->multi_core)
+> +		vb2_wait_for_all_buffers(q);
+> +
+> =C2=A0	while ((vb =3D mtk_jpeg_buf_remove(ctx, q->type)))
+> =C2=A0		v4l2_m2m_buf_done(vb, VB2_BUF_STATE_ERROR);
+> =C2=A0}
+> @@ -859,6 +863,7 @@ static void mtk_jpeg_enc_stop_streaming(struct vb2_qu=
+eue
+> *q)
+> =C2=A0static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
+> =C2=A0{
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D vb2_get_drv_priv(q);
+> +	struct mtk_jpeg_dev *jpeg =3D ctx->jpeg;
+> =C2=A0	struct vb2_v4l2_buffer *vb;
+> =C2=A0
+> =C2=A0	/*
+> @@ -866,6 +871,9 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_qu=
+eue
+> *q)
+> =C2=A0	 * Before STREAMOFF, we still have to return the old resolution an=
+d
+> =C2=A0	 * subsampling. Update capture queue when the stream is off.
+> =C2=A0	 */
+> +	if (jpeg->variant->multi_core)
+> +		vb2_wait_for_all_buffers(q);
+> +
+> =C2=A0	if (ctx->state =3D=3D MTK_JPEG_SOURCE_CHANGE &&
+> =C2=A0	=C2=A0=C2=A0=C2=A0 V4L2_TYPE_IS_CAPTURE(q->type)) {
+> =C2=A0		struct mtk_jpeg_src_buf *src_buf;
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+--=-sAK8CIaYG2enlEegvh5c
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-Jason
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalU8vAAKCRDZQZRRKWBy
+9Cy5AP9n42DuX4zEUCFgIslkPa3bEp3mdcOqxJM4I+Y0Pg/aoQEAyxC9bVWM44W5
+n2FCQ95QPy/I0qU84CiPfIsGgikv8Q8=
+=TU2N
+-----END PGP SIGNATURE-----
+
+--=-sAK8CIaYG2enlEegvh5c--
 
