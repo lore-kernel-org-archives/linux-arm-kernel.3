@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB22AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD66FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dd8hR5d8GsGZG72ttvE/ZKL3S4uHHf5qXkJUdHz6Uk8=; b=fSeJt00nvxz/Y5
-	XVQETOG+ATTImXN8HMr5gZn02PtwKvJYrD96gF+h+f/Z2GSAvtixkV4zz8ibjscJQLLzAjrJRYsUT
-	3unhlZrukR2iKwWFSGQ0FcnwEYsf5seEd+uKmEq4oFODBobOqctwrtt2j3sKbkuDUG/Or3Xtgo0Qp
-	dFuw4ZbOEch0QOOKApZP/yXZ6dPLAPf43VAN5mtPQ1y9PL0WTRPa9yc/Ori9ES+TbI9M/yV/g9K2r
-	giSYwbOhvL1jjI4zT53974Xj3044vPKNblxknnv0AJsPQZJ1g2vfV39Iqbz9MNFkwLCW/ibz4gcJk
-	q4Fyt4XlBCHxE+HBSGlg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wJ6izCMLH2qOw8D06yogEIxTzBSnqO/vgKP10Pm0yEU=; b=ooLuH7Bo/firsPRd44tm3U2jZ3
+	VpU8ZuX5HQvPYm8MMB/lH+UuBsGTZm6p1RujOfnLffyBgstXYiEadSwQ/q4fZoAq54z7SqxTD0FUU
+	BrqmfuVlBrWM7fzDTVOCeuehCrkzekllhjg88hRvarAvJO5uJ8/OTM4POJH2fy8Q+nzeXaBkq6C9o
+	QQ5Qi5nrGbr1q0lEdMb+cTTohrMYtb4jcluTrN//VMVzxySw795ugnwWViFS1ZmzvJZ7QrM0d0jr7
+	KxXMgXWVYjfXe3HldcwOLEjz+OKvNjoy8614+DWCLKJmKAnYNdqUqRUr8tO+IKruylCbq8A1JFEtA
+	45SWkHaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjL8r-0000000ABEQ-3Lke;
-	Mon, 13 Jul 2026 18:12:33 +0000
-Received: from smtp1-g21.free.fr ([2a01:e0c:1:1599::10])
+	id 1wjL98-0000000ABJI-48P4;
+	Mon, 13 Jul 2026 18:12:51 +0000
+Received: from smtp1-g21.free.fr ([212.27.42.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjL8o-0000000ABD5-1wkF
+	id 1wjL96-0000000ABHT-1N4w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 18:12:32 +0000
+	Mon, 13 Jul 2026 18:12:49 +0000
 Received: from [127.0.1.1] (unknown [91.160.0.144])
 	(Authenticated sender: vjardin@free.fr)
-	by smtp1-g21.free.fr (Postfix) with ESMTPSA id 009BAB0055A;
-	Mon, 13 Jul 2026 20:12:04 +0200 (CEST)
+	by smtp1-g21.free.fr (Postfix) with ESMTPSA id 67DAFB005AC;
+	Mon, 13 Jul 2026 20:12:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1783966345;
-	bh=MW0fHm4TEwvAk5mUjhZ7QSZSJF8LLYeJTbTRWroVGJI=;
-	h=From:Subject:Date:To:Cc:From;
-	b=HP9/4s5GL7nJJXLSYkAF+NqAQsUFE9JtmkJnD8cU4E0lmuJT2TZTQiygCb+inNRRZ
-	 Z2WTVMEI2JpxTwiI2gTOo3k8Z+mkGkLH9ZNwIZOzbqXm8xdh/RVktt9ZH5GTBNKH3k
-	 NBehoNisOosZP2h0hHq4oLvPWFbpMTM+gq2pO3mtYi4Thz8Juvgh3dn3D6wzpV79z/
-	 Uc4YzUjDsztG80b5lgGRL2g6M51MwmwcVjgSmK/gaEnPEt/gUqDnQwUqxDnyt+OUrd
-	 EVn7K/rpxEpFr7YRTWomdJnsP9EE2ItGY4Kp+vkX4GCF5pUTGq1f4C8K9BIGwyrvbh
-	 pUvnksAgC3i3w==
+	s=smtp-20201208; t=1783966366;
+	bh=MB93t3nfvRdSDolU+OMtP3YuXMmW9lVD3yUEkEyoz4E=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=OMZSLA/+hz/KDAZ/BHUjwQDa+chahuXZN/6mgR4ZOBZ7SMCIMuJNb/wx0E7axbUlF
+	 Cx+XhNxgMvLAI7v9txj6L89fCcNcphBC91+OUXhw5jMmBOnIHegDVe/q3nBmU15WCg
+	 C+NhvZAYQpL6BKLSFfBSCzcMX+CSew9bZYxW7udK7/0XY66iL1qnZyM71D58K/7cx1
+	 65v/XY8Qyz5rKjQ27aC7c3qmewIgue8IPnLWXzgoVBDQZVn05ds6G+yse9uWVtGRd2
+	 SfWW1xVgZs8PgX6X94mntoTjBMccXLCtjnU02cxUAe3ErGYC7IMB32XR+R5n6rw46v
+	 t5FD12NGs2NnQ==
 From: Vincent Jardin <vjardin@free.fr>
-Subject: [PATCH v3 0/2] i2c: imx: fix SMBus block-read of 0 locking the bus
-Date: Mon, 13 Jul 2026 20:11:58 +0200
-Message-Id: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+Date: Mon, 13 Jul 2026 20:11:59 +0200
+Subject: [PATCH v3 1/2] i2c: imx: fix locked bus on SMBus block-read of 0
+ (atomic)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAG4qVWoC/5XNwQ6CMAzG8VchO1tTugzFk+9hPIzRyRIV0uGCI
- by7g4tXPf7b5PfNKrIEjupUzEo4hRj6Zw69K5Tr7PPGENrcipAqNGTA9wKvIY7C9gGBHNwnKis
- EHyZIJaBrLFrEWrNRGRmE82cbuFxzdyGOvby3vVSu15/pVQev0TZGt219cGcvzHsvaoUT/YdRx
- qiy2rmja9GYL7YsyweAWWSWFwEAAA==
+Message-Id: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-1-073ac9e103a5@free.fr>
+References: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+In-Reply-To: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
 To: Oleksij Rempel <o.rempel@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
@@ -65,17 +64,16 @@ Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev,
  Vincent Jardin <vjardin@free.fr>, stable@vger.kernel.org, 
  Carlos Song <carlos.song@nxp.com>, Stefan Eichenberger <eichest@gmail.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783966324; l=1860;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783966324; l=2882;
  i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=MW0fHm4TEwvAk5mUjhZ7QSZSJF8LLYeJTbTRWroVGJI=;
- b=HB4/D489cBV9RGeIlXnJ5L0Cx4Oci/dGh9tVchNtz7Ut6n2ixBh23Cwbk1Xta51rz/iUbqwun
- XJ6O0CjdUAgD9GB9UUz9/kcWL1vmAwrDWZ2G2qkSXTeEdIDKXhaN4Oo
+ bh=MB93t3nfvRdSDolU+OMtP3YuXMmW9lVD3yUEkEyoz4E=;
+ b=EAfrG/l4yjYiRBr25rzQTMFXUHFvyfy+O1ND7nv0EOzDLBLyPO6dtiIZ9uQ03Tp6SxZiheqBz
+ JrUTvnQi4hKBqZxQEdPdvJE7v9jDM9LJ990XiZtdDvVT/z/tWccsFmi
 X-Developer-Key: i=vjardin@free.fr; a=ed25519;
  pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_111230_923933_0270E12A 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_111248_511866_072CDF49 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +88,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i2c-imx rejects an SMBus Block Read byte count of 0 (valid per SMBus 3.1
-6.5.7) as -EPROTO and returns without emitting a NACK + STOP, leaving the
-target holding SDA so the bus stays stuck until a power cycle.
+SMBus 3.1 6.5.7 allows a Block Read byte count of 0, but the atomic
+(polling) path rejects it as -EPROTO. Worse, it returns without a
+NACK+STOP: the next receive cycle has already started, so the target
+keeps holding SDA and the bus stays stuck until a power cycle for
+this i2c controller.
 
-It was triggered by an MPQ8785 PMBus regulator on a LX2160A i2c
-bus: when the kernel binds it using the pmbus/hwmon framework, the bus
-locks up and it does never recovers. It was confirmed with a scope, with
-and without the fix.
+Reading I2DR to obtain the count likewise arms the next byte on the
+count > I2C_SMBUS_BLOCK_MAX path, which also returned -EPROTO directly
+and left the bus held.
 
-The same bug is occuring with two independently introduced spots, so the
-fix is two patches with their respective Fixes: tags and backport ranges
+Handle both: NACK the in-flight dummy byte (TXAK) and extend msgs->len so
+the existing last-byte handling emits STOP; the dummy byte is discarded.
+A count of 0 is a valid empty block read; a count above
+I2C_SMBUS_BLOCK_MAX is still reported as -EPROTO, but only after the bus
+has been released.
 
-  1/2  atomic/polling path       Fixes: 8e8782c71595   v3.16+
-  2/2  IRQ-driven state machine  Fixes: 5f5c2d4579ca   v6.13+
+The interrupt-driven path has the same flaw from a later commit and is
+fixed separately, as it carries a different Fixes: tag and stable range.
 
+Fixes: 8e8782c71595 ("i2c: imx: add SMBus block read support")
+Cc: stable@vger.kernel.org # v3.16+
+Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Acked-by: Carlos Song <carlos.song@nxp.com>
+Reviewed-by: Stefan Eichenberger <eichest@gmail.com>
 Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
-Changes in v3:
-- no functional change; collected the review tags received on v2:
-  Acked-by Oleksij Rempel, Acked-by Carlos Song, Reviewed-by Stefan
-  Eichenberger (both patches)
-- cover letter: add the real-world trigger (MPQ8785 PMBus regulator
-  on the LX2160A) and how the fix was validated, asked by Carlos Song
-- resend as a new thread, per Andi Shyti's request
-- Link to v2: https://lore.kernel.org/r/20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr
+ drivers/i2c/busses/i2c-imx.c | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
-Changes in v2:
-- Handle when count > I2C_SMBUS_BLOCK_MAX the same way as count == 0
-  Reported by the Sashiko AI review on v1.
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 28313d0fad37..cfd1e63359e7 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1415,6 +1415,7 @@ static int i2c_imx_atomic_read(struct imx_i2c_struct *i2c_imx,
+ 	int i, result;
+ 	unsigned int temp;
+ 	int block_data = msgs->flags & I2C_M_RECV_LEN;
++	int block_err = 0;
+ 
+ 	result = i2c_imx_prepare_read(i2c_imx, msgs, false);
+ 	if (result)
+@@ -1436,8 +1437,20 @@ static int i2c_imx_atomic_read(struct imx_i2c_struct *i2c_imx,
+ 		 */
+ 		if ((!i) && block_data) {
+ 			len = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+-			if ((len == 0) || (len > I2C_SMBUS_BLOCK_MAX))
+-				return -EPROTO;
++			if ((len == 0) || (len > I2C_SMBUS_BLOCK_MAX)) {
++				/*
++				 * SMBus 3.1 6.5.7: support count byte of 0.
++				 * I2C_SMBUS_BLOCK_MAX case should not hold the SDA either.
++				 */
++				if (len > I2C_SMBUS_BLOCK_MAX)
++					block_err = -EPROTO;
++				temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++				temp |= I2CR_TXAK;
++				imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
++				msgs->buf[0] = 0;
++				msgs->len = 2;
++				continue;
++			}
+ 			dev_dbg(&i2c_imx->adapter.dev,
+ 				"<%s> read length: 0x%X\n",
+ 				__func__, len);
+@@ -1485,7 +1498,7 @@ static int i2c_imx_atomic_read(struct imx_i2c_struct *i2c_imx,
+ 			"<%s> read byte: B%d=0x%X\n",
+ 			__func__, i, msgs->buf[i]);
+ 	}
+-	return 0;
++	return block_err;
+ }
+ 
+ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
 
----
-Vincent Jardin (2):
-      i2c: imx: fix locked bus on SMBus block-read of 0 (atomic)
-      i2c: imx: fix locked bus on SMBus block-read of 0 (IRQ)
-
- drivers/i2c/busses/i2c-imx.c | 36 +++++++++++++++++++++++++++++++++---
- 1 file changed, 33 insertions(+), 3 deletions(-)
----
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
-change-id: 20260525-for-upstream-i2c-lx2160-fix-v1-0cba0a0093e5
-
-Best regards,
 -- 
-Vincent Jardin <vjardin@free.fr>
+2.43.0
 
 
