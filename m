@@ -4,70 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4E4C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A62C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DddIAx3dQJYkrsi5/J5AhJO+BlV0FG44gnmDzL0hMAQ=; b=GCpSR567D6MA5XiPGRBNUP1iyF
-	x+Wj9ul2xRaicaQyBjnWg56/2IKqeP2qoJVS+b/RyNvyxxhZttnmR1eYIp2HlbrYziATEjRbWXb+2
-	CAVmnwcQvpcMZU20Rqfp1mh/kovA2wqFdJA65mL4CNRUakgMjKfm4fhbbTTFNHMWEn4ReG37oHP6I
-	NSfSGJRgfz+BpPyeRzI8vNUE2g6ESVYEVzxobRu5mXKhGyl9BtzLSvR449ws6stTAXrj6mfcjsvQN
-	Zw46VBeQQfH0fkxhoT18kMfESLTPbHkKTs+evESLa1508VHRA/QiowMp6IV8IKvh1g/7Hu4vj6MSX
-	AvEuCENA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r3LqUwIJYp9NQ4diqGbAZyVDrYnzRQFmiULYhYdIqPw=; b=rUw7MJRN/gEpQSTZ3o3j25Q0CD
+	vt2isq9aCBczeMvzyAZSkn0GW8PtAvvh3dQPwS3J6Eq096Ywdb98GVEhkDKB9XKYwybjMbgoVQHQo
+	ptZ9326dAW1ZjMaS/BmTGxedzHBAAdpJZIPTiAxmmIj4TSstkbFuWGcF5WONp0lA005oPeTwM//sC
+	ibxEk+lIXO+LdAbmUm3ZCcuDaJCSAhR/puTfZrqxRWCKJB5v+CsFeOmtqFplFkkmWuOHmy4a67iur
+	GOhxMCOGyvUsudUsEZMt8doujpJBqQePGGCYe6sTDY6Cw6WGxP29QfI1SJZA3Kjx0rXk5QSPSS+vU
+	X/3gmjkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKxU-0000000AAEa-1OCr;
-	Mon, 13 Jul 2026 18:00:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKxP-0000000AACo-0hHM
+	id 1wjL7Q-0000000AB16-27nC;
+	Mon, 13 Jul 2026 18:11:04 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjL7O-0000000AB0l-2IpH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 18:00:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C316D1595;
-	Mon, 13 Jul 2026 11:00:36 -0700 (PDT)
-Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D73043F7D8;
-	Mon, 13 Jul 2026 11:00:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783965641; bh=DQJqFZ/U3vJ2efvZuDUzj8k/llaRRz76jNOdtayJQDQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vIG8dH3dZZdgsaXNcRQTd2biODr5v44c9cAOhvAxALnK++8idBV2ZjiOfGKtsZ4R7
-	 wdHBSYYLIV0ufpghkdZ84nx8mV9M4IR6HwobSLAsYVh5mfR3EEpfdw15ckSLGnwiiv
-	 VMSmsyBoEsDmEDwxuxHvTq/i5SjI3vFkkMCLgAJE=
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 13 Jul 2026 19:00:27 +0100
-Subject: [PATCH 1/2] perf cs-etm: Avoid bogus branch samples before async
- exceptions
+	Mon, 13 Jul 2026 18:11:03 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8efcef23d21so30778946d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 11:11:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783966261; x=1784571061; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=r3LqUwIJYp9NQ4diqGbAZyVDrYnzRQFmiULYhYdIqPw=;
+        b=FdOLFyVR1B/C6iFQpHpbsthvmDN11YfbPRMSwCFlso36OHCQhgoo4Mz2i/JRmDCHM3
+         jGfTHJZyZrhEndB9m26DzSTwaTzZ08DCWmj5bqUo4BaTJhCWSYXiewT4vIpbZ/UcmfO3
+         nqN+X7Eqw38UL5P75K1bJCUB+8x3gcCzpjmVeEJwzlMPRbdgFleIyqAqv7N9mlYxVbNl
+         ZvmcU+GTZwTZ7ODOxmpmSkgCtd2QPDASerQf2zh4X6uihjcJZuUXmKBWOQu1ZLGuxBn1
+         3iHTkZrQsowCI8rvgug9+t2+mlJRtORJP4MGtubqkmtgzMYC5R/xl/1jEbi06C1oJA7T
+         Mc1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783966261; x=1784571061;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=r3LqUwIJYp9NQ4diqGbAZyVDrYnzRQFmiULYhYdIqPw=;
+        b=sbGW0rFzE0iHloX4mPeugKn18HgQw0234y8vzaO3D+cVKzY3mOUnI6Pbs/QFQlTdLA
+         y2lq2POqgpHitwc47Tk1vqB8kpvEIy+otKlgwFUm12MW7lObrsy0L7u6Js+n49zQ66Oj
+         USBGRiItRHf4oT1NhouDc1O9Ek/2tD4RO5gM8fzz+r4xosYbuszoVWYN1PQ5LWAASfid
+         HDepE/eolhSpcIQSmh+gtm7uw/jSK3Y/6c+BFhIjfIG5REUC1+ffFGk789iy5VYhti2C
+         6dMsujDy3k/4gouyz4PcYUl46qma8ti5eP6n6Jat/LQKarVwY7vGwI8h2q+ztRG0RWik
+         95Dw==
+X-Forwarded-Encrypted: i=1; AHgh+RrIhvDibhW9j7JWAF0hO8csms0/Exb/OmDsj7Zdi2stdhdp00LLbtOeZfrFf8ebAYj01AL1orMRCag7ib2Mdt8D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0gDQYbB04ayZfqFo9RI5+kI2nfeK3mrKCZtCcsii+giXmZ92A
+	DPQVNEUIErFO5m+NZxmDa7E7XISrgoAGqXG9RfHVmVZB0uJ/3MBHQEGzOLPbiXGrA8o=
+X-Gm-Gg: AfdE7cmqA905boFuGh56Xi5Sxf54xjWKmiBYc5ySzxHYA7Yq5iha/mRptgTrQ/EESmQ
+	Gtf+u9ARZ3i2yyHf5bZZLV3P2L6L3pDTB2ZDvhhwb+toVefybl1fzjCuttkTe5HsVvA++EgsfId
+	YHvR6gJBqGxlDvujBmiJ587N8XRUnoWia/HhfP4DHyLzAOrBUXsOLslUmf5jfnVoQ6KW0N00Sun
+	PI306guF/MsL2dmGak4al9NB5PgoGOqFIvoYGzZ/c/V2uduGgZYl89s8/qcH4ELD2tjDQzlQNnQ
+	aca3U6H2DUs7gq+F1OVE8KMCWPIsV/pSxLDMeo93tVEjPVsEad8+YBhKWQGU3K4rjFTdje0TZtl
+	cO8CG4DMb0y8hapZoRIhQetPunZuUAaEf5qxIU50U/Ys7ih/jH5DkDuUG3swB
+X-Received: by 2002:a05:6214:601a:b0:8f6:8677:7ea5 with SMTP id 6a1803df08f44-90402c68ee8mr99154096d6.37.1783966260999;
+        Mon, 13 Jul 2026 11:11:00 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd5bbac2asm135284216d6.21.2026.07.13.11.11.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 11:11:00 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wjL7L-0000000DyOu-42Rk;
+	Mon, 13 Jul 2026 15:10:59 -0300
+Date: Mon, 13 Jul 2026 15:10:59 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 04/22] dma: free atomic pool pages by physical address
+Message-ID: <20260713181059.GL3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-5-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-perf_cs_etm_fix_non_taken-v1-1-4561607fc69f@arm.com>
-References: <20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com>
-In-Reply-To: <20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783965636; l=4148;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=DQJqFZ/U3vJ2efvZuDUzj8k/llaRRz76jNOdtayJQDQ=;
- b=Qv476C6AvXcauqu2fkvTDwGafujl2HVaDhyaw+qGl34ElQafYMC+XrSvk4YtBItFJbsCLExQW
- XiZz8ou6T+jCOQb/h7IMoXfol1ds3ueYCMEpBxoztT2u+fTuqAMqJz7
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701054926.825925-5-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_110043_290759_5931024B 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260713_111102_605696_A19FE440 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +126,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Consider the following code:
+On Wed, Jul 01, 2026 at 11:19:08AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> dma_direct_alloc_pages() may satisfy atomic allocations from the coherent
+> atomic pools. The pool allocation is keyed by the virtual address stored in
+> the gen_pool, but the pages API returns only the backing struct page.
+> 
+> On architectures with CONFIG_DMA_DIRECT_REMAP, atomic pool chunks are added
+> to the gen_pool using their remapped virtual address.
+> dma_direct_free_pages() reconstructs a linear-map address with
+> page_address(page) and passes that to dma_free_from_pool(). That address
+> does not match the gen_pool virtual range, so the pool lookup can fail and
+> the code can fall through to freeing a pool-owned page through the normal
+> page allocator path.
+> 
+> Add a page-based pool free helper that looks up the owning pool chunk by
+> physical address, translates it back to the gen_pool virtual address, and
+> frees that address to the pool. Use it from dma_direct_free_pages() while
+> keeping the existing virtual-address helper for coherent allocation frees.
+> 
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  include/linux/dma-map-ops.h |  1 +
+>  kernel/dma/direct.c         |  4 +--
+>  kernel/dma/pool.c           | 54 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 57 insertions(+), 2 deletions(-)
 
-  00000000004000f4 <test_branch>:
-  4000f4:       eb02003f        cmp     x1, x2
-  4000f8:       54000109        b.ls    400118 <taken_path>
+This seems pretty suboptimal?
 
-  00000000004000fc <fallthrough>:
-  4000fc:       d282f2c2        mov     x2, #0x1796                     // #6038
-  ...
+If !CONFIG_DMA_DIRECT_REMAP then page_to_virt() was used to compute
+the genpool's addr so dma_free_from_pool_page() can use the same
+logic, which is how things must be working at all today
 
-  0000000000400118 <taken_path>:
-  ...
+The CONFIG_DMA_DIRECT_REMAP scenario does look broken, so I'm
+surprised there isn't a Fixes line on this commit? I don't have an
+opinion on the search, but since alloc_pages() is used there is 8
+bytes in the struct page that could be used to store the remapped
+vaddr to avoid the search if someday someone wants to improve
+this. Maybe a small comment hinting that direction would be a nice
+addition.
 
-When execution reaches 0x4000f8, the b.ls condition evaluates false, and
-execution falls through to 0x4000fc. If an asynchronous exception (for
-example, an interrupt) is taken before the next instruction executes,
-cs_etm__exception() currently forces the previous range packet's
-last_instr_taken_branch flag to true - in the case above, perf
-incorrectly synthesizes a branch sample for the untaken branch, even
-though execution actually falls through.
-
-The trace log contains the following bogus branch sample at 0x4000f8:
-
- perf script --itrace=b -F comm,ip,insn,disasm,sym
-
- b_ls_not_taken_            400108 fallthrough insn: 61 ff ff 54                b.ne #0x4000f4
- b_ls_not_taken_            400108 fallthrough insn: 61 ff ff 54                b.ne #0x4000f4
- b_ls_not_taken_            4000f8 test_branch insn: 09 01 00 54                b.ls #0x400118
- b_ls_not_taken_  ffff800080010c80 vectors insn: 03 00 00 14            b #0xffff800080010c8c
- b_ls_not_taken_  ffff800080010ca4 vectors insn: 41 02 00 14            b #0xffff8000800115a8
-
-The special fixup is only needed for SVC. For SVC exception entry,
-cs_etm__set_sample_flags() has already identified the previous range as
-a syscall branch, but last_instr_taken_branch is not set for the SVC
-instruction. Restrict to force last_instr_taken_branch to true for a
-system call only.
-
-After:
-
- b_ls_not_taken_            400108 fallthrough insn: 61 ff ff 54                b.ne #0x4000f4
- b_ls_not_taken_            400108 fallthrough insn: 61 ff ff 54                b.ne #0x4000f4
- b_ls_not_taken_  ffff800080010c80 vectors insn: 03 00 00 14            b #0xffff800080010c8c
- b_ls_not_taken_  ffff800080010ca4 vectors insn: 41 02 00 14            b #0xffff8000800115a8
-
-Fixes: 7100b12cf474 ("perf cs-etm: Generate branch sample for exception packet")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/util/cs-etm.c | 21 ++++++++++++---------
- 1 file changed, 12 insertions(+), 9 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 95e3ec1171acc8442d8539a72a26a1a5a53a2f37..05e698f666bbe07af9caeda1a673f22d7196817a 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -1999,17 +1999,20 @@ static int cs_etm__context(struct cs_etm_queue *etmq,
- static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
- {
- 	/*
--	 * When the exception packet is inserted, whether the last instruction
--	 * in previous range packet is taken branch or not, we need to force
--	 * to set 'prev_packet->last_instr_taken_branch' to true.  This ensures
--	 * to generate branch sample for the instruction range before the
--	 * exception is trapped to kernel or before the exception returning.
-+	 * cs_etm__set_sample_flags() has already copied exception flags to
-+	 * the previous range packet. Do not mark every exception boundary as a
-+	 * taken branch: an async exception can arrive after an untaken branch,
-+	 * and forcing the flag would synthesize a bogus branch sample.
- 	 *
--	 * The exception packet includes the dummy address values, so don't
--	 * swap PACKET with PREV_PACKET.  This keeps PREV_PACKET to be useful
--	 * for generating instruction and branch samples.
-+	 * Keep the fixup only for SVC. The decoder reports the range ending in
-+	 * SVC without last_instr_taken_branch set, but perf represents SVC
-+	 * exception entry as a syscall branch and needs the flag to emit that
-+	 * branch sample.
- 	 */
--	if (tidq->prev_packet->sample_type == CS_ETM_RANGE)
-+	if (tidq->prev_packet->sample_type == CS_ETM_RANGE &&
-+	    tidq->prev_packet->flags == (PERF_IP_FLAG_BRANCH |
-+					 PERF_IP_FLAG_CALL |
-+					 PERF_IP_FLAG_SYSCALLRET))
- 		tidq->prev_packet->last_instr_taken_branch = true;
- 
- 	return 0;
-
--- 
-2.34.1
-
+Jason
 
