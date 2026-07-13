@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548CFC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27701C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sz5yvTcQXFks2sdiyYqdqrK3YmhgCtxhQzxI6OD2Ifs=; b=13WqXgBbcvxZFlgRAuGNxAeJ4v
-	lAVayqNncxFVs6VQvX0dkWIGbtX/u3BIcu3t0YF28Is5G/WZvHVBWbrfi+TPR+VYuBVpu3tuhUJsk
-	lOuwSZHz8hubvZiawxBwNzGsjl34DVmLalRc8wtYu85nj6cpCR7WIzugasFBudQxVCWL96DcIkmYy
-	scSh4r2EgRZYeOp2ddyCVqVN0bQHM9seZuPzVga6kadQCUaENVnDNoQKll331P1mFdNXqrieb6NM9
-	6ZKQxxbciqxnmT2n4whO26sbRjyjfVPekxia2Ski+rLy+035Rx3TAj8FnfKbScDuN1Ty5/C3sHZGe
-	eo93pQCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=; b=mv1PUsJZvWTYAgb9Ma5z0cYGFv
+	6jey+6N0Nh8v/qL7zDhQDvzkrbOHlTERWh3m0Sn9g6S8rO1cHGuQ/30Dq5k90Lf8p2PyssLUK09z4
+	ZEJAiiypkVOiN5P1Ztt5bG7mJTZWHA+VTzxIILZS6FEH20ubDPm7nEQqdlIuP0qHsH/tvT8dQ6UDd
+	giWuBiHysYSajCUEuaTqquyfW4T0STpKLlTAfOBY+8mNo2TKiNt2R/15JDq6/4rXzu/NLkceDdFB+
+	fwyz75+STGCNpcNL7f/2uViItGqM2Gx91DYBwvKX9AgwuB94mxHG7eWTR9nGosf9TT9yrDGKdDl68
+	k7lx65EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBzs-00000008ZoI-2YOE;
-	Mon, 13 Jul 2026 08:26:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wjBzx-00000008ZrJ-3rJa;
+	Mon, 13 Jul 2026 08:26:45 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBzp-00000008Zmp-33ew;
-	Mon, 13 Jul 2026 08:26:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783931190; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ber3P3DsFBHilhRzneGtUCB89qv6Ejky7sGcNuHcex5G7jLctbPoHfAUiAmuRsdUn1cfY9FuO17sO9e3wJM2UQLvMFJsKHLZ6LTKulH43BvJ1AlP3l3ICmBb5DEQ8P4BGUWRjNPSc0OF68E2fy0VNIh40Jjt9F5OQcxSO5jAg+s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783931190; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Sz5yvTcQXFks2sdiyYqdqrK3YmhgCtxhQzxI6OD2Ifs=; 
-	b=h/o6BaqsmEB6W/Lt3lKDjLlEWEh8nfj0onoInCrq+9l7u4g+InqifU0+HTfLWJx6vF7aSyqDDGVwNcm+64ztODqvOXiRoPuy0Rz7iX4MDQemosOqb+NdhGE+yfI5O7uK1BIjgm/7Vomms3W2c4ajyJeI+z6wb0ZJZPh6pgCQOzg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783931190;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Sz5yvTcQXFks2sdiyYqdqrK3YmhgCtxhQzxI6OD2Ifs=;
-	b=jTbOslw1SXOHr7DTrR85gIjIiR666fKDOzYo7JTMsuguyoXJQPnX3L3LUYmoRyhq
-	M7zsPVScOR7telvXdJdoH7BKFM152SxfmLznLX55guMWJ9EEJmPnB8z49qV9uXUVVUt
-	0BoqXVqZIf50iAMNM5aAEL50HrQC4f7fZDC3mlNw=
-Received: by mx.zohomail.com with SMTPS id 1783931183818309.7919113288565;
-	Mon, 13 Jul 2026 01:26:23 -0700 (PDT)
-Message-ID: <fe2a557c-c83e-494e-ac4d-c389dc26562d@collabora.com>
-Date: Mon, 13 Jul 2026 10:26:19 +0200
+	id 1wjBzv-00000008Zou-0MOa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 08:26:44 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so82105e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:26:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783931201; x=1784536001; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=;
+        b=uXVvOuQpLGh7MY/aIfBYcSfAJbE3HStnU50JSZuVO+ruFFncu4mPGV0Uni1h0O/V+y
+         LFXLD3StLDXg4ThTnYvx1tKpD3HdN2SOZMTAtD1zrm5QBkJTU5R3vLCm+zkY0X87hwAf
+         PMYyJht6VPuknZaD4ZPrUw/p1Lgt/Pz6L7RoJX9GOKcs38gBJ4p5sL2f6LBg+mleVKN5
+         /TWIa2rZiFoMEP8JNs3a41CN0VAaDBU5yr5HOoo/2xc+fl+rTyyRPcc43ce8g6kHZKz6
+         AC/zZ7Ewqk06BSUIcIg3FJ/W+JcKQsrZ/OopB7lW0VHl5+BVq1FiJCuudDtiSzlxnOZ9
+         Lb+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783931201; x=1784536001;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=;
+        b=np3+LuvLP53zXkeCpUG7zdElBKyE1H7nhnlwvIeQL5c5RhiES4GeID/32R9909b1bV
+         rlQsxc5e8kbCJVPapbGF8Ct5Z0u9zylPJS8pjnyIp1uW/s4z6TkjXPz/ERHRA36e/x5J
+         4Ik4sHaofMu+MzHIzRmugJWLoTT89G1ZLGvv9W1EiOplfNPde7h9jf2DMAjAL0GjQSTT
+         LbiQ5ICEL9D3NOm/8qY5k0lrx2z+kyN5AhJCflkt8UeqdURMiH+EqyMxR8EFrzGgvH7t
+         1vveOT1qYxICD8BKSbhZmSuHnU9BmpJzia5h5LS07fft/h/bjWZXjxR113OvAhx/VhcU
+         QqRg==
+X-Forwarded-Encrypted: i=1; AHgh+RohBjT1YoqDia52W3h86qSY3fKMBv4000ixV/RAU34X2ZfXorPd+FN/wCLPaoUk0FUKNeaCvQ0ed5FjOcSN/J3f@lists.infradead.org
+X-Gm-Message-State: AOJu0YwknoRsIvVSIICdWZWTr9MtwWubbr0Fh7AphxhxonDgmDjphyoS
+	mm51ZMc8mt0t5tOLS/sNUBICO0BDjwQsxYeE2PrcQr5p3U+mSOI+K1nHN2qaChsd/Q==
+X-Gm-Gg: AfdE7cmrvXguw7yQar4L2fU5GOb5Zs01YYAFSTrXnh0CFDj7mksdKQEVUfikJFZkkdZ
+	sHqVF01MUYZ6ykPS+Dtq5Xk7FIZ/eQdaSckV/47pUIlbMilqYYTvJ4Pt5SguKCB2ntrmGGmKiQ8
+	Fc6ry9A684Qv/yFMub0iPZX6CK+I8+d0SSF1ko0EgE2efz1IudjNlFiYY+s08AW4I4eljvsMFNC
+	ww/OfHAND70AcpiD3Fjc31lKh3UXy0ApDKM8WPbr5/qE2n4+FY4PFs7ul4xdpx320IH91YkCgZD
+	iKgKiT1LivmJpYV+SaGrwsNfRKLUrvyHQte9EqbXGxOFWBBOyA4sjSa1nTxhBFMpiBKiS9Vf9Fq
+	6htzBbLpn/zytvnGOOSHhMWwaurTTRrsC/w5jDHijKzNf1vLRcJIMu5DDUQnSRIzVs7eBFPN1Wl
+	z22tn2ahQHYBYVGEMba6vHmbUn6/PAqkEOfIVROEsKNZCy8y5zGEiBKfEuMSo=
+X-Received: by 2002:a05:600c:3589:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-49465abb636mr24695e9.8.1783931200485;
+        Mon, 13 Jul 2026 01:26:40 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d91bsm88670924f8f.4.2026.07.13.01.26.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 01:26:39 -0700 (PDT)
+Date: Mon, 13 Jul 2026 08:26:35 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [PATCH] KVM: arm64: Avoid naming collision in tracing
+Message-ID: <alShO27MLsNqgBws@google.com>
+References: <20260712153835.2264905-1-smostafa@google.com>
+ <CA+EHjTxN1fcBVRi+yK18UgReGsX8Evu1GsijSQC61dY3XrjCtw@mail.gmail.com>
+ <alPox2BDk4Il0s9t@google.com>
+ <CA+EHjTzvzcV8Cxw+VHK9Fxv7Y-7m84XbzUFU+4sXZXNrM8y7dw@mail.gmail.com>
+ <alSdr9wNyyPiHmbt@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
-To: Paul Elder <paul.elder@ideasonboard.com>,
- laurent.pinchart@ideasonboard.com
-Cc: xuhf@rock-chips.com, stefan.klug@ideasonboard.com,
- kieran.bingham@ideasonboard.com, dan.scally@ideasonboard.com,
- jacopo.mondi@ideasonboard.com, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org,
- nicolas.dufresne@collabora.com, ribalda@chromium.org,
- sakari.ailus@linux.intel.com
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
- <20260619052637.1110672-2-paul.elder@ideasonboard.com>
- <e5f16200-3881-4f25-b67d-7053b3b8af19@collabora.com>
- <178390772961.8891.12325171786588563297@neptunite.rasen.tech>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <178390772961.8891.12325171786588563297@neptunite.rasen.tech>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alSdr9wNyyPiHmbt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_012637_936888_73609580 
-X-CRM114-Status: GOOD (  57.56  )
+X-CRM114-CacheID: sfid-20260713_012643_148685_DCC00130 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,241 +106,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
-
-On 7/13/26 03:55, Paul Elder wrote:
+On Mon, Jul 13, 2026 at 09:11:27AM +0100, Vincent Donnefort wrote:
 > [...]
->>
->> <rubberducking>
->> IIUC there could be devices A -> B -> C that share a DT graph (and thus
->> should share a media device), but suppose the probe order is driver A,
->> C, B then A would rightfully create a new shared media device, but C
->> would not see it and create yet another shared media device. Thus, the
->> the find_match() function needs to traverse C -> B -> A to find the
->> correct shared media device.
->> </rubberducking>
 > 
-> Yeah I guess traversing the graph is kind of a critical feature.
+> > >
+> > > > > I did not add Fixes tag as this is currently dormant and not breaking
+> > > > > anything.
+> > > > > ---
+> > > > >  arch/arm64/kvm/hyp/include/nvhe/clock.h | 8 ++++----
+> > > > >  arch/arm64/kvm/hyp/nvhe/clock.c         | 4 ++--
+> > > > >  arch/arm64/kvm/hyp/nvhe/trace.c         | 4 ++--
+> > > > >  3 files changed, 8 insertions(+), 8 deletions(-)
+> > > > >
+> > > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> > > > > index 9f429f5c0664..c2ccd0e8bf22 100644
+> > > > > --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> > > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> > > > > @@ -6,11 +6,11 @@
+> > > > >  #include <asm/kvm_hyp.h>
+> > > > >
+> > > > >  #ifdef CONFIG_NVHE_EL2_TRACING
+> > > > > -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> > > > > -u64 trace_clock(void);
+> > > > > +void hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> > > > > +u64 hyp_trace_clock(void);
+> > > >
+> > > > hyp_trace_clock overlaps the host side: arch/arm64/kvm/hyp_trace.c
+> > > > already has a struct hyp_trace_clock and static helpers
+> > > > hyp_trace_clock_enable() / hyp_trace_clock_show() for the debugfs view
+> > > > of the same clock. No actual collision, so this is only a readability
+> > > > point, but a reader grepping hyp_trace_clock now gets two unrelated
+> > > > things. Maybe you'd want to consider a different name, but naming is
+> > > > hard :)
 > 
->>
->> Just saying that with one and only one media device to rule them all we
->> wouldn't have to deal with this. Another option would be to assume that
+> If we were to rename: the clock is a "hyp_clock" so probably trace_hyp_clock()
+> is the right thing here.
 > 
-> Hm yeah that's true; we'd just have a sea of media entities and we can link
-> whoever we want...
+> while the "hyp_trace_" is the prefix for hyp_trace.c file content.
 > 
-> We didn't really discuss that part very hard last time.
-> 
->> each driver knows to which shared media device it belongs. For example,
->> the rkcif driver could be aware that it belongs to the
->>     {
->>         .id = MEDIA_SHARED_ROCKCHIP_CAMERA,
->>         .name = "Rockchip Camera Subsystem",
->>      }
-> 
-> The problem is where would this information go? We can't put it in the driver;
-> it *must* come from the device tree. And I don't think we can just add a new
-> property that defines a media subsystem. So I think our only option is to
-> traverse the endpoint graph in the device tree.
+> Although I would like to see why we pull trace_clock() from the kernel into EL2.
+> That bit sounds wrong and if we have a way around perhaps that's better?
 
-Just to sketch the rough idea: A list of known shared media graphs in
-drivers/media/mc/mc-shared-graph.c:
+Most include path look like this:
+In file included from ./include/linux/ftrace.h:11,
+                 from ./include/linux/kprobes.h:28,
+                 from ./include/linux/kgdb.h:17,
+                 from ./arch/arm64/include/asm/cacheflush.h:11,
+                 from ./include/linux/cacheflush.h:5,
+                 from ./include/linux/highmem.h:8,
+                 from ./include/linux/bvec.h:10,
+                 from ./include/linux/blk_types.h:10,
+                 from ./include/linux/writeback.h:13,
+                 from ./include/linux/memcontrol.h:23,
+                 from ./include/linux/resume_user_mode.h:8,
+                 from ./include/linux/entry-virt.h:6,
+                 from ./include/linux/kvm_host.h:5,
 
-struct mcshgr_info { ... } known_graphs  = {
-	{
-		.id = MEDIA_SHARED_ROCKCHIP_RK3588_CAMERA,
-		.name = "Rockchip Camera Subsystem",
-		// TODO fill me with other things
-	},
-	{
-		.id = MEDIA_SHARED_ROCKCHIP_RK3576_CAMERA,
-		.name  = "whatever",
-		// TODO fill me with other things
-	},
-};
+Although, some files have ./arch/arm64/include/asm/cacheflush.h
+directly.
 
-The IDs need to go into a enum in include/media/mc-shared-graph.h.
-
-The drivers would then call e.g.
-	mdev = media_device_shared_join(rkcif->dev,
-		MEDIA_SHARED_ROCKCHIP_RK3588_CAMERA);
-and of course this parameter could vary with the individual driver DT
-compatible, e.g., "rockchip,rk3588-vicap" =>
-MEDIA_SHARED_ROCKCHIP_RK3588_CAMERA.
-
-I am sketching this for the sake of completeness. This would provide a
-place to store information, but I am not convinced at all that this is a
-nice solution.
-
-Alternatively, the list of known shared media graphs could store some DT
-compatibles
-
-struct mcshgr_info { ... } known_graphs  = {
-	{
-		.id = MEDIA_SHARED_ROCKCHIP_RK3588_CAMERA,
-		.name = "Rockchip Camera Subsystem",
-		.compatibles = {
-			"rockchip,rk3588-isp",
-			"rockchip,rk3588-vicap",
-		},
-		// TODO fill me with other things
-	},
-};
-and I guess there could be a way to get the compatible from struct
-device, then
-	mdev = media_device_shared_join(rkcif->dev);
-would remain the same.
-
-This just occurred to me -- not sure whether I like it.
-
-> [...]
->>
->> OK, what options do we have?!
-> 
-> (Just in general or with respect to this function...?)
-
-How to get information that the media device requires or at least
-contains as of today.
-
->> We could pick one device of many. But based on what criteria? If there
->> was a good way to pick one, we could equally pick a driver that
->> registers the media device and move on. We conclude that apparently
->> that's not the case, otherwise we wouldn't be doing this exercise. Next.
-> 
-> Yes; given that both rkcif and rkisp2 could potentially exist on devices where
-> the other does not, this is not realistically doable. (I mean if we really want
-> to we could but it would be a high-cost mess)
-> 
->>
->> We could introduce a pseudo device that provides the umbrella. But
->> again, that would be close to creating an umbrella driver that registers
->> the media device. And at some point we decided not to do that. Next.
-> 
-> Similar problem as above (can't choose main driver), the one above that (no
-> place to put group member list).
-> 
->>
->> We move from the notion of a media **device** to a media **graph**
->> (which is in alignment with the subject of this mail). The media graph
-> 
-> I always thought that media device and media graph were the
-> same/interchangable...
-
-They may be, at least as of today. I was asking myself how our view on
-the new (shared) media device should look like. And I think that the
-concept of the graph is important, and that the focus should be on which
-entities there are and how the are connected (i.e, the topology, the
-graph). This also means that we should not rely on other information and
-assumptions (other information such as media device name, hw version,
-... and assumptions such as "there is a single v4l2 driver that owns the
-graph", "there is a single media device that owns the graph", ...)
-
-In the end, what should user space do? Does libcamera actually do
-anything with e.g. the HW revision of a media device? Is the name of the
-media device actually used?
-
-Or does it simply iterate over all media devices and scan for entities
-with a certain name (e.g. look for a RK3588 ISP)? Because if it does, or
-if it could do it that way, there is no point in crafting together this
-additional information in the kernel.
+Thanks,
+Mostafa
 
 > 
->> is something owned by the subsystem, not by any device/driver. The media
->> entities therein, however, could be owned by devices/drivers. Maybe
->> struct media_entity should feature a struct device *dev; member.
->>
->> I could imagine that the dev member is used mostly for
->> dev_{info,err,...}, we would need to get rid of them. If there is
-> 
-> afaict that's the case.
-> 
->> actually something with devm_ then this requires more thought.
->>
->> IMHO the third option is the way to go.
-> 
-> I'm glad we agree :)
-
-Then we set the dev member of the media_device to NULL, right?
-
-> 
->>
->>> +
->>> +// TODO figure out how to resolve the identifiers (model, driver name, etc);
->>> +// atm it's racy and whoever gets it last wins
->>> +struct media_device *media_device_shared_join(struct device *dev)
->>> +{
->>> +     struct media_device *mdev;
->>> +
->>> +     mutex_lock(&media_device_shared_lock);
->>> +
->>> +     mdev = __media_device_shared_get(dev);
->>> +     if (!!mdev) {
->>> +             dev_dbg(dev, "%s: found media device for %pfwf", __func__, dev_fwnode(dev));
->>> +             mutex_unlock(&media_device_shared_lock);
->>> +             return mdev;
->>> +     }
->>> +
->>> +     mdev = __media_device_shared_create(dev);
->>> +     if (!mdev) {
->>> +             dev_warn(dev, "%s: failed to create media device for %pfwf", __func__, dev_fwnode(dev));
->>> +             mutex_unlock(&media_device_shared_lock);
->>> +             return ERR_PTR(-ENOMEM);
->>> +     }
->>> +
->>> +     dev_dbg(dev, "%s: created media device for %pfwf", __func__, dev_fwnode(dev));
->>> +     mutex_unlock(&media_device_shared_lock);
->>> +     return mdev;
->>> +}
->>> +EXPORT_SYMBOL_GPL(media_device_shared_join);
->>
->> Similarly, we have to bid farewell to the notion of a media **device**.
->> Can we agree on making
->>     struct device *dev;
->>     char driver_name[32];
->>     char serial[40];
->>     char bus_info[32];
->>     u32 hw_revision;
->> optional for shared media devices (or, better, graphs)?
-> 
-> Well I think driver_name and (maybe) hw_revision are still useful to have. The
-> only problem is I have no clue where to put/get that information.
-> 
-> The only good-ish idea I could come up with was something like
-> "shared_media_graph_{board compatible}_{smallest base address of media graph
-> member}". So like "shared_media_graph_rockchip,rk3588_fdcb0000" for the rk3588
-> since between the csi receivers and vicap and isp, the isp has the smallest
-> address. That way:
-> - the information comes from the device tree
-> - the name is persistent
-> - it can identify separate shared media graphs on the same platform
-> 
-> idk about the hardware revision though. I think probably only driver match data
-> can hold that information. But then we'd probably have duplicate information
-> since otherwise if one of the member drivers doesn't probe then we'd be missing
-> the hw_revision. Or maybe we don't care about hardware revision since it
-> doesn't make sense for the shared media graph part and it only makes sense for
-> the individual IP cores. In which case that information is lost unless we move
-> it somewhere else. Or maybe it's not used anyway so we can indeed just drop it.
-
-Crafting together a name from device tree information... could work..
-and could be reasonable I guess. Just saying that if some joker removes
-the connection between ISP and VICAP in device tree, the media graph
-could end up with the same name for different things or different things
-with the same name and... I just think I this all is not something I
-would rely on from user space, and I would look at the graph rather than
-making assumptions based on the graph name.
-
-The real question is whether this is actually needed. As you stated
-above, maybe this simply doesn't make sense for a shared media graph.
-And we still have the individual IP core information.
-
-I would recommend to ignore the fields listed above for shared media
-devices.
-
-> [...]
-
-Thanks and best regards,
-Michael
-
-
+> > >
+> > > Yes, that shouldn't be a problem,  I just added hyp_ prefix, but I
+> > > am ok with any suggestions!
+> > 
+> > Didn't I say naming is hard? :) How about, el2_? Not really happy with
+> > that either tbh... but can't think of a better one...
+> > 
+> > /fuad
+> > 
+> > >
+> > > Thanks,
+> > > Mostafa
+> > >
+> > > >
+> > > > Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > > > Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+> > > >
+> > > > Test: builds fine with the different config enables.
+> > > >
+> > > > Cheers,
+> > > > /fuad
 
