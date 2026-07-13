@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560EBC44509
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C31C44507
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,88 +12,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfh4lLbCVK5LG8yB3IA/+fVz0G2PykpCGfs0ou1iHvM=; b=FdaqmqQuuGIefwXyI4I+wfK3li
-	/hq+cPBdMIofvbcWz5Ctg0f/YVJKGbdUJ80eON33H+ngtw46D6eH51qcUpFkbK+vBzC/kKKj6s+Rd
-	XzO3HDnpXKPy1m/jouUjQZd963sA1vDvz8r+PmwrlDzAg19cIcTCnhGx8Yso4OyPi3DAOSXIWKuvE
-	hq3xVoxHs7r9YxI636iyrhFecDlp+qbwcYQSqYixhFfm/v5LQdxZYGhYNagBc33UNNt5iAjCzhCSO
-	CRbqQ13cNgDNqLx0Lrr9D5+uNHvzo136CCrIqhzgeVzPA1jr5pbCeEJzuZVBR69ajYZsP7g5bZpur
-	yMNUCfFA==;
+	bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=; b=Q5pSxnmZoZcZgrfZ+rwIjQGOau
+	lvj0FFTMkcGoWGFSx6Ic3qgpE4TxOWehekuc+WIPKp40TrusBgXGPt9AsA73WDc6GM01paGpj15sP
+	VjtKfAEfki5qm01vdWirrNpxHqGqAs3bN9eYa1hA6D3dKQzjmExNBneFdFntLlxeTgLACNuxFlsWW
+	X5P7l62hvie5+BBgqDps+P140SpOpI+Fh2gyvGO1E1ltNiLCSIm7Wsg+JxQ/PQ96TLIH2pXfT6g2s
+	XquNpy5gpL5P6ActN7LT9XaomDl2gk0uQHZCOjHyNRf59JN87L344mwtl4NO+dWUsgtvJKrNDWn9l
+	aviv47Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFW-00000009jKm-1Mjg;
-	Mon, 13 Jul 2026 15:07:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFN-00000009jEP-2cBK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 15:07:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=pfh4lLbCVK5LG8yB3IA/+fVz0G2PykpCGfs0ou1iHvM=; b=IZ+2MoUSXBO9aKvsJEFjuRcud1
-	JsHR8NDjLQDlOA/wTLZmrVObQ4bDPI6Rwcf9Gh7CVVA4qi2hwMdBJw7CWO6rC1uMQV4CX67XKN+Ky
-	C0Wij7zCFaYHEMOWKID6L9C9IOEw3zdlmEQ5IDXN//xTzlJCVqZe1rKiasqOBRbRIsjqeIWd1P3la
-	LV1VHBuyE9LKFDdcib7ZHzc0oJsPbQJo6Ag63lRKT2e3IOtFV/gQyEgckkZ2Bs65h7MJeqrLd/RCA
-	boP8cEk9JM7SKk8npO1StfjPckowph6TmRuHtU0jq97DLTGFEBI8rf/aVqLHTgwQNwN0hBffT8nnH
-	eJPmoQWg==;
+	id 1wjIFV-00000009jJz-3xpN;
+	Mon, 13 Jul 2026 15:07:13 +0000
 Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjIFK-0000000Bkyg-2ceY
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjIFI-00000009j8O-1aE0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:07:04 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-471eeac43bfso3212885f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:07:02 -0700 (PDT)
+	Mon, 13 Jul 2026 15:07:01 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47d70879764so2087276f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783955221; x=1784560021; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783955218; x=1784560018; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pfh4lLbCVK5LG8yB3IA/+fVz0G2PykpCGfs0ou1iHvM=;
-        b=JNJY42ghE2sG4YNfYIUYsrqSEFU+A8G/y1Chl1Dw2d5X1nikwI17eCaHekPJnkafzU
-         7gUIVmQ+o2KQPtYdAC2rcn9UzapbbKtywdZgBekfX5TX8d3uqiujnBd77U0N3cZcGGgD
-         dqHZwwO1yJsuEnswkSp3vZNsjAa7grp54c9rODz4fP0OKeQ8RqaMgAJfeAfmur4f9Qyz
-         KNdO+9LUtmwz1KRUBk4iDjCDSTNYb3FQAO+GYBoFXAokT2ZmoeMv0QYtErwE9H5LwI2G
-         NHTtT4CxGv7Dkm2UCTVq3fMJgBPAywRLk4UnxK1oHf9cmipQGVaDzBu22oOC/tDAQJye
-         TUUg==
+        bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=;
+        b=qQOqHDYNpATH2uB1tTtGJmqb4hTaycrco85bABLqjwy8vswy+QowYL1AZ9xBSkQvc7
+         jNYYiNye+bJ6MxuAfSZ2aI7q6XerX8+Xsi0Cqx02Y4XPohm78Zf8JjxxXM63lnzNuJDI
+         lxMuhtFeA80X4x6YBe9gMUYvAJbcQl+4kcS3NZbnUPjEvV7r7nQLK8+6wBzFNtPudi+x
+         xKYfeWgm+OqfTKY3V2yBTQzNwtg5gHhl79/MoD5gi9DQMg66mUVCs01hgXJGYq+D4n6/
+         Mx8SoPV8K+BWHsRjSHtPd++7m4Gm39GlY9CtYKvSxwTn7ww7YkZr8rJc4TnbDtr1/B3j
+         fgMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783955221; x=1784560021;
+        d=1e100.net; s=20251104; t=1783955218; x=1784560018;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pfh4lLbCVK5LG8yB3IA/+fVz0G2PykpCGfs0ou1iHvM=;
-        b=fNfO5gA477dXFLiJVD1H4/pXmneS/DRR4LNEebIQrx04urnb1a+rP+5lxdzEdxykOs
-         8xNuFhPPVtsbkzQwdxjS0Rp3SSKxfGQlMGHqo+H2SuSN5cEmOS24DoCzVFl4GTJgS7Lr
-         AAjPap1k/Q39SDUxndFEVH+KmvDIVs06uUgMaYu5HD89lKXiRNZCYNmIWom4i7WDWhlU
-         3xHMsjOApwjKRLOjpo9ik6OYFKCxCI0cqdvV9rhpYu+9cv57uiUa413HnObaJsA62f8O
-         JDGDcRIe4cj9x5g4OacWvPhaXG4UE9iaiTpRDBzTihATNwCQIgpIxatQdyc+FIB+c8W1
-         6VZw==
-X-Forwarded-Encrypted: i=1; AHgh+RrFjTGPwMDSEOKQ7ylChBgMCUd9r7V8BvZ0c73NRpMeVOs2CcFJRk5+T1TFPWd2wPgpKQq4S8X5vl2VBJ7DJpTH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrxUsAf/oIFWaUXVc3ynD67ehxPgzifYXsxLrUYZE2PaN/GEzB
-	iS0hZpZ/iozaAV79ETxspli3yeu1dOU+oqQu7Pff2CY41nfEYcX3e+ZT
-X-Gm-Gg: AfdE7clBrAPaJ63mz2hTWrXvEGLvnwOVmcVyrPtfzCugGeyDd2QTSPg4ylQ3NHta8e+
-	3Nxua6z/ild6ei/NaWogL8S7LEaBbiAPDAAvB/9iX4Qhf1uePi0sxmpqMiovFTYF+82YKCo86/O
-	56JPi4AhMdNHR6mIf920u85JQxBwkeSgmTscwj8OUUteJiO6JenQ9sGbtK2j8B9LWVOlWW5NSBS
-	HbTB7YTC9Pb8yO0JUA4/P59TV7FW5HRVOb2laBfHkmEZbWPmZl8e26j51lsXdsVuBdWLF65rFF4
-	UswyPHrVbNTQKUnhWrA8rUWcEhGwdtYDR0zq8cHdZrkMhEu7ihp06EZYZhS9xWJ8QUxhEns4S1W
-	6hqabQ8QE5aqaqZLpQyZwDIMloQ+PCHsXf7g01fHxlygc2IriOYIHttf4Bf28/XLZkq8j5jX/vl
-	KLUsoBRlM1T2q+dIMfyMfevnk4wB+pIOFaJtSRNHty50qXjsIOFyrr4KCoAkg9Z5Dg2gebrpZbH
-	LxjRWxtavuN+wMU
-X-Received: by 2002:a05:6000:4381:b0:47d:eedb:ee62 with SMTP id ffacd0b85a97d-47f2dcb50f2mr11326337f8f.14.1783955220701;
-        Mon, 13 Jul 2026 08:07:00 -0700 (PDT)
+        bh=fKycMxkJUjKVffGUmXn6hazDZ6CipwefkSIIp/tO8Gc=;
+        b=SLa/BMjaQwd/skRM8963R1F7mgT5XDPISbumJcv3k4ZQuURoGJG5NwIKeaM1zb/goG
+         Plxv5HD7gq/7nGN0a/3lGu4MOWqwGXRj5/5jg/xjJbkGh/WNevdmpK2tXGkivZJlWWcY
+         Sme60NOOQEhjjfmZvBqHka2d1XC+Zq87142zX7og7T4hxaZKYak97MjcuPyauhtMUfah
+         0UTaiXPutvS+BVROBnwpTySh5u7ajFa2tZ8Bd7luf4eGw3F7AMvokL6D9v3iaGJJDf9+
+         JVo6lFtoGIY+E8DJa7AycR0x8wjEAJyI5eM7vsFquz24W0TCgPNbPRflRoyhXtHZ6qMS
+         6wsg==
+X-Forwarded-Encrypted: i=1; AHgh+RpNCx6qU6fKGneg1RoHM0ruKcDu82uWOUBpA/mrU1zLzTuqoYigbNswdMpYJNmMdtdYksgkcBjChWduV4fXdFWZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrMZeDUBicQ9RlqIK9YE/jodeHyYktqUflD/tW2NRKOge99lAQ
+	hEC5neq6dcWgQDQ/6VCftnvpKSuEfru3M8UYgFt8fo1JOyFU0wLFrqNW
+X-Gm-Gg: AfdE7ck+epnQRDHbYHxH1aFFJ/kHe947IbGAs9xNhZJQomRpAA209DUcgNh+yGShIb/
+	3F56cJvOHcuaQFwN1TbwUPZ3ocNhPjW4YL7I3qoYCXBY4oS5cjbV2+kVqFvjjfX84EF+CPB70vV
+	bgcj65idmXqB4qr7RZV2a9ekLCSUHya227XmaMZd5C3ZmKARFtnTbMmV9IrcSRckCsN1AKR1G9a
+	qInfrd6w+enSBP5A1wyRVy7o+S1PgOEwokXHZKhk2uQAIsUmQyoOM/mSZnhdV/DzZQjGD91u+S1
+	Eitm0bxXs2UgKZqIYp2LORV6BbPnK7yG8ZoGJ33cpB7OsLRNcARZ0Vu2U+G84WzulECW66NBxej
+	SH+nwaYd65yDazDMJ1+RoV7AjaJ79b1Y5hd+RkUwX7L2bhOft8xzhaCKYp8Vdhy5/eN/eSRFlZF
+	VljO8ZhiceLB9sDk4f0J1n+dt7XkJjrLVtPJK/GuxekqDM41VJ30+rmvXNcP4m/NoMDxi6e9q1x
+	bK9wpzj6lYZ2KZB
+X-Received: by 2002:a5d:64cc:0:b0:472:d154:fac6 with SMTP id ffacd0b85a97d-47f2dce975amr10204164f8f.35.1783955218269;
+        Mon, 13 Jul 2026 08:06:58 -0700 (PDT)
 Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 08:07:00 -0700 (PDT)
+        Mon, 13 Jul 2026 08:06:56 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Mon, 13 Jul 2026 17:06:29 +0200
-Subject: [PATCH 8/8] arm64: dts: freescale: imx8mm-verdin: Add Cortex-M4F
- UART_4 overlay
+Date: Mon, 13 Jul 2026 17:06:27 +0200
+Subject: [PATCH 6/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex
+ OV5640 CSI Cameras
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-8-4acd63db4504@toradex.com>
+Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-6-4acd63db4504@toradex.com>
 References: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
 In-Reply-To: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
 To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -107,8 +92,8 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev,
  Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_160702_940392_E9A03748 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20260713_080700_502465_A6E36939 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,66 +110,184 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-Verdin UART_4 can be assigned to Cortex-M4F firmware. Add an overlay
-that marks the UART as reserved so Linux does not claim the port.
+Add device tree overlays for the Toradex OV5640 CSI Camera on Verdin CSI_1.
 
-The overlay is also combined with the Verdin iMX8M Mini Development
-Board device tree to provide a ready-to-use DTB for the WiFi SoM
-variant.
+The default overlay describes the current CSI Camera Set 5MP OV5640 with a
+27 MHz on-board oscillator. Add a separate 24 MHz overlay for the legacy
+camera module.
 
+Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
+Link: https://www.toradex.com/accessories/csi-camera-ov5640
+Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile                     |  3 +++
- arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso | 14 ++++++++++++++
- 2 files changed, 17 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile             |  6 ++
+ .../dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso  | 17 +++++
+ .../boot/dts/freescale/imx8mm-verdin-ov5640.dtsi   | 78 ++++++++++++++++++++++
+ .../boot/dts/freescale/imx8mm-verdin-ov5640.dtso   | 18 +++++
+ 4 files changed, 119 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index ed3d678e7c5e..605008d7fe6e 100644
+index c465aa19e526..ed3d678e7c5e 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -193,6 +193,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640-24mhz.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640.dtbo
+@@ -189,6 +189,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640-24mhz.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-ov5640.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-uart4-mcu.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
-@@ -202,6 +203,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-nau8822-btl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640-24mhz.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640.dtb
+@@ -197,6 +199,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-nau8822-btl.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640-24mhz.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-ov5640.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-uart4-mcu.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-mallow.dtb
-@@ -225,6 +227,7 @@ imx8mm-verdin-wifi-dev-ov5640-24mhz-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-ve
- imx8mm-verdin-wifi-dev-ov5640-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-ov5640.dtbo
+@@ -217,6 +221,8 @@ imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-ver
+ imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-wifi-dev.dtb \
+ 	imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
+ imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
++imx8mm-verdin-wifi-dev-ov5640-24mhz-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-ov5640-24mhz.dtbo
++imx8mm-verdin-wifi-dev-ov5640-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-ov5640.dtbo
  imx8mm-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := imx8mm-verdin-wifi-dev.dtb \
  	imx8mm-verdin-panel-cap-touch-7inch-dsi.dtbo
-+imx8mm-verdin-wifi-dev-uart4-mcu-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-uart4-mcu.dtbo
  imx8mm-verdin-wifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- 
- imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso
 new file mode 100644
-index 000000000000..8dbecffe9e7b
+index 000000000000..f479b709c151
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-uart4-mcu.dtso
-@@ -0,0 +1,14 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso
+@@ -0,0 +1,17 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
-+ * Verdin iMX8M Mini UART_4 for Cortex-M4F
++ * Toradex CSI Camera Module 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
 + */
 +
 +/dts-v1/;
 +/plugin/;
 +
-+/* Verdin UART_4 */
-+&uart4 {
-+	status = "reserved";
++#include "imx8mm-verdin-ov5640.dtsi"
++
++&clock_camera {
++	clock-frequency = <24000000>;
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi
+new file mode 100644
+index 000000000000..0632bdb1b679
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtsi
+@@ -0,0 +1,78 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Common device tree include for Toradex OV5640 CSI camera on Verdin CSI_1.
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	clock_camera: clock-camera {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++	};
++
++	regulator_camera: regulator-camera {
++		compatible = "regulator-fixed";
++		/* Verdin GPIO_8_CSI (SODIMM 222) - CSI_1_PWR_EN */
++		gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-name = "V_CSI";
++		startup-delay-us = <5000>;
++	};
++};
++
++&csi {
++	status = "okay";
++};
++
++/* Verdin I2C_4_CSI */
++&i2c3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	status = "okay";
++
++	camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio5>, <&pinctrl_gpio6>;
++		clocks = <&clock_camera>;
++		clock-names = "xclk";
++		AVDD-supply = <&regulator_camera>;
++		DOVDD-supply = <&regulator_camera>;
++		DVDD-supply = <&regulator_camera>;
++		/* Verdin GPIO_6_CSI (SODIMM 218) - CSI_1_PWDN */
++		powerdown-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
++		/* Verdin GPIO_5_CSI (SODIMM 216) - CSI_1_RESET# */
++		reset-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
++
++		port {
++			ov5640_to_mipi_csi2: endpoint {
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++				remote-endpoint = <&imx8mm_mipi_csi_in>;
++			};
++		};
++	};
++};
++
++&mipi_csi {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			imx8mm_mipi_csi_in: endpoint {
++				data-lanes = <1 2>;
++				remote-endpoint = <&ov5640_to_mipi_csi2>;
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso
+new file mode 100644
+index 000000000000..d56234913b61
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-ov5640.dtso
+@@ -0,0 +1,18 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex CSI Camera Set 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
++ * https://www.toradex.com/accessories/csi-camera-ov5640
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include "imx8mm-verdin-ov5640.dtsi"
++
++&clock_camera {
++	clock-frequency = <27000000>;
 +};
 
 -- 
