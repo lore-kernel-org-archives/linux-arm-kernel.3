@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088B8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C070CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gD3A9pJWmGNBEpcGuAJUTYfdEqwu/kB9DlQTnjeCkJU=; b=3N9G38y9Li9vXYioO896NFjbkm
-	cqXlLe/MJVHG9P8mPe1RSXYK/Yu1wFh5G79aIYUKl9koNJNw11EV0Lta9C+2oR+eu5rnL3wfqNESa
-	3NdmCFVwfVLO58K7nK6aAoXxR9qihdsupuasEqh06HPOQ9wRJNG4BViZtLwBLgZHwO9f/giuKIevt
-	kfub+7/Ie5kREvUY5ADw7f+7LWL9WXDlHCZP3nqMNl8o1WibBZm/ZF5AWPzPIeJo5ahosdlNgsbMx
-	7fWX6RTDkRwjN99Z8ZH/It5F+loh6FWnDSQLkanUBOWMZ0hRMizNhtCCRExLfo1YG7ndHqBUdoiLc
-	yQabdW3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E0bZgMafaspD5auo++lHPXkR534u0X7v7qtoj593mww=; b=csey+iENO0e142ut+oCOiEqkSG
+	X35yyMsoWFC49vSIIVGfLKhsbdsPgEa4ELIwij1iVqFMy4cLKTZxYHkM78NsJc/lrMBeTRnRN6COD
+	mh67yOYjG9RMKUXg1WHrNdQrOAwpAi1rRSgGiTD8Jd1V9TDF7mRnUh/Rbyql1naETrzMSa7y46jNY
+	tLkIxEpSiLg4hYRRYHC4GOIz6TBWCN1LgywMpsyq1/80YAsON6rl1zqayYjAt0l0q+fdG/P8Qa286
+	xxLV8lfAAC72rnP8DxrlEmdHL6G2L6BiL52LaCfpEiCpzSnL9uNoPNoIFTS76mYaKHmSNWujNv8qS
+	SrvdNrfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEG5-00000008vl5-2kK1;
-	Mon, 13 Jul 2026 10:51:33 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1wjEH3-00000008vxT-3YIt;
+	Mon, 13 Jul 2026 10:52:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEG1-00000008vjy-3Si6;
-	Mon, 13 Jul 2026 10:51:32 +0000
-Date: Mon, 13 Jul 2026 18:51:15 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783939886;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gD3A9pJWmGNBEpcGuAJUTYfdEqwu/kB9DlQTnjeCkJU=;
-	b=PbACmgzyg49Tkt0MnyM5u8X5Npc6gqSDxGyrXUuvFQftDo4XLRDP4h/5xfXzgVqm95CVPW
-	KZABNZjNng9M8/0G9vdNu7G8AgDqhTdFwj1LWFKBKru/YE0uToUtZW3lVP7FftA86r5DX3
-	aIXLrXciYsHVhutR0ciWNRoPO6oOFAs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Baoquan He <baoquan.he@linux.dev>
-To: Breno Leitao <leitao@debian.org>
-Cc: Baoquan He <bhe@redhat.com>, akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-	dyoung@redhat.com, tony.luck@intel.com, xueshuai@linux.alibaba.com,
-	vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com,
-	kernel-team@meta.com
-Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
- statistics via sysfs
-Message-ID: <alTDI53vd4u_YY_G@MiWiFi-R3L-srv>
-References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
- <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
- <aYvi4Y_HNqk_u1-v@fedora>
- <ak0JSScR3EYgLEf9@gmail.com>
- <alDRawveM-auCHwB@MiWiFi-R3L-srv>
- <alSqd2U9zhqYz1Wn@gmail.com>
+	id 1wjEH2-00000008vxG-1VIv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 10:52:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D963A419A1;
+	Mon, 13 Jul 2026 10:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13E31F000E9;
+	Mon, 13 Jul 2026 10:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783939951;
+	bh=E0bZgMafaspD5auo++lHPXkR534u0X7v7qtoj593mww=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=CMOjAr00a2IhCNs1x1rxiVyP8eQ0zW7JX/KBNzRuIpDVmmO/Ij4sqgqV2okBurHjN
+	 LKCuWvQUbs+sS2stZwKMa8eYeDKDMsvBhWFN4NkZCi8Xj84TCMtu1c0M9Jf4l3ECbN
+	 309UXAuskPeqqYNHLaDNPgFt5JdRW8Wx1rf95d39tff8adBIHW20/jm5Vuk1qvkddK
+	 6+5ONkqgv/pp/1IH/OnPjqJ6NYe6KeV5zJZT3MRzjAbYsTNyXDG+FtTtZkYHlasfOS
+	 J9tuXTPj34s4HunRd/AfvksABr+5H16NPdPJBrmzFCeY72jEJjYX0qYAL2b0QWyBZn
+	 PlzuDt/w6kK6g==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Pushpendra Singh <pushpendra.singh@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	cristian.marussi@arm.com,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: rate-limit queue-full warnings in IRQ context
+Date: Mon, 13 Jul 2026 11:52:27 +0100
+Message-ID: <178393984320.1815229.18150523678943559735.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260708072339.3021140-1-pushpendra.singh@oss.qualcomm.com>
+References: <20260708072339.3021140-1-pushpendra.singh@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alSqd2U9zhqYz1Wn@gmail.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_035130_079787_27551774 
-X-CRM114-Status: GOOD (  10.81  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +72,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/13/26 at 02:08am, Breno Leitao wrote:
-> On Fri, Jul 10, 2026 at 07:03:07PM +0800, Baoquan He wrote:
+On Wed, 08 Jul 2026 12:53:39 +0530, Pushpendra Singh wrote:
+> The scmi_notify() function is called from interrupt context
+> to queue received notification events onto a per-protocol
+> kfifo. When the kfifo is full, it logs a warning via dev_warn()
+> for every dropped event.
 > 
-> > Anyway, I am glad to see it's been taken out of vmcoreinfo.c,
-> > which is going in the right way from kdump side. For its migrating
-> > into driver folder, leave it to the relevant reviewer to review and
-> > decide.
+> Under conditions where the platform sends a burst of SCMI
+> notifications faster than the deferred worker can drain the
+> queue, this results in a flood of dev_warn() calls from
+> IRQ context. Each call acquires the console lock and may
+> execute blocking console writes, causing the CPU to be held
+> in interrupt context for an extended period and leading to
+> observable system stalls.
 > 
-> On that patch, If you could confirm that moving it away from vmcoreinfo
-> is the preferred approach, that would help establish consensus around
-> the right direction.
+> [...]
 
-Yes, I can confirm moving it away from vmcoreinfo is expected.
+Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+
+[1/1] firmware: arm_scmi: rate-limit queue-full warnings in IRQ context
+      https://git.kernel.org/sudeep.holla/c/a4447c069383
+-- 
+Regards,
+Sudeep
 
 
