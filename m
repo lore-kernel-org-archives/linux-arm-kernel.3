@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 975ACC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E19BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fzqeBNGFUSG/sgvckq8jrZxfuvwxOhZopWHb6crRqZI=; b=hY9QQNYwvdremjgr8+z7IrUwKL
-	mjnQdI7NT+d/RCadIV8iZhm4k4f1p+1aeMOrKLjdFema4H76yzEhM16f3OXOE+IQmYNl4T0s+t29G
-	0Fuq5I9mOR2ZRtmdIpk8Wgp4hU/1d7UlOqLIUb9ENgCbDI6IufqiBEPW1bV3d3CziND40SCHnyFEb
-	rum3H3nq2ekoOUgvDfqnLJawZGIp61EsdQSLoVBjIGmrzvH+XiMk/y6JkC/d5mi9xkHflsIQUIIfJ
-	u7QIRpWZLn8svECo17V9LNXsp2FqjSY0zSSRhEDldDUuf0lwcupTvFMITcelXkXRdmVSb8C+9hdQl
-	4oK7TIzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gSFmMfzjqjEnWlxSIJwQ7RP3S3qUOnt8I0p8wmsKWsc=; b=0ALhzaQA/RuDzfrSouFdcbHIWB
+	kkqArIA/ZOv3oCA7gY2D77oYwM9C5Sp/gN8ZcOMz7d3RKZDBOmjp7scDCDvbDpkNNwdginmXNllvH
+	3VfqIHcsALPoSAC6dypoFGsQe/2+SqFTTYdmQWZQOfpqdpeh+VsEwTy75GdipJUvfrPT91JO2aJaa
+	03bkhkLJEi6bRSfWtcxeuAD0+DbY1WfH1SUyHm1kPu233vFRBYJNY2oHT0gPpZRQpgU3hDGyunBFD
+	PK6B2VN5PbcUj76L/Q6N/GR73RLflycP1VJqJ9I0+BGLychA+9JWJDX6/yg7KUrM63BDJW2POmH+t
+	UCGaf2iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHmA-00000009cFQ-05dO;
-	Mon, 13 Jul 2026 14:36:54 +0000
+	id 1wjI6P-00000009h0m-3BP4;
+	Mon, 13 Jul 2026 14:57:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHm9-00000009cFG-1KhW
+	id 1wjI6N-00000009gzy-1b1t
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 14:36:53 +0000
+	Mon, 13 Jul 2026 14:57:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Message-Id:MIME-Version:To:Date:Subject:From:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=fzqeBNGFUSG/sgvckq8jrZxfuvwxOhZopWHb6crRqZI=; b=ZOd4x38oXGnd64X9ttysdecvJ3
-	IQBiHpevEy6LLVYz/2Rb/7jVa9HJRavBQ6xN8dG5znkE3yDY6JhFQf/D6sFmhF6ZYUh6owerpt0ch
-	PvBmiAK9EJj6bT9arb3O3LBiEZMkPvHaWHJMX29TirgjQFGxLi8VmeYo13iDIDE0B242j9XfpesmU
-	v4lQc5nePyGxUyOZgwAQjW8UBQk/bttm2mXmgONarbUcQt1OULAD+3weQIalWSL6QwyP/NmBkrQig
-	QeGQvNzb5Ko0GzmsLwwIvXudX1sdXpmbbtjkKqeaL5zgML3fMe/YJxm6Reeue2JhQJjkQ9VziJAIG
-	4rmapFPw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:From:Subject
+	:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gSFmMfzjqjEnWlxSIJwQ7RP3S3qUOnt8I0p8wmsKWsc=; b=iiKcAYc5K7AQJpYAHtleWRKuv0
+	V2AOGjGlz2h2C27HEq9bW5QkUUxunmhwAi1iLyI9dJHd2EZLnoPeTIolVr/vJAgrbPvolkwCT8y/Y
+	m8eRaAbZx6roiuzsHLUWYSAM7aSvRUtFuPh5Axiq3c/hCNxGb7AXFAbHFU8TTNDwVOPoKDjlL33dz
+	xPG3BtZlZdEf+63VTndziN1szpBX7L6ebMV3JDZOr0b2UrOJty1tEL1XKxibuMO2D34hYJ9u7CmRQ
+	JvZyXl6zaqlzgFZeWuqx7bvD0kclp1MwrUDacamdjFLRZCSACVW/IU0CMVsh3rEU0lZl9xuW/VD5W
+	ZB+KYYwQ==;
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjHm4-0000000BipA-47Mn
+	id 1wjI6K-0000000BkEd-1KDg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:36:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783953277;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=fzqeBNGFUSG/sgvckq8jrZxfuvwxOhZopWHb6crRqZI=;
-	b=fn3CIfeIpPOEMIBoE6XiHR96ZvqVIrJEzY4jRlvGp8xFlaf+PD+wGfRPe1UKg/URCTHSbf
-	Edi0n3il6E0jLpUGZyzrfViJcCAYhk3bENr6TxiSBbpwf2ZOHsuiT4ewXJf/SaCDV1mpTo
-	MnCD8ioX9UVE3ZVeExOjkbLrk4swpmU=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783953406;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=fzqeBNGFUSG/sgvckq8jrZxfuvwxOhZopWHb6crRqZI=;
-	b=KPAilJBV3iYIuTVNEL+1Wr5kcL2m+5d1kZx8C0HwmEcKAMnddf12fbCue9Mg6NuStd14fQ
-	NlwqBZKarw2xlWQrBGB7gy1W1OWNUOuRJ3q6Yus2XzCaYdQ4Rg0AWn+t+CPRNNWgBUze9e
-	GBSiJ+IAN+BcIySPbS1ctxdRLcSSP4w=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-519-ToQnaOugNdi72RLQ5gxyYQ-1; Mon,
- 13 Jul 2026 10:33:05 -0400
-X-MC-Unique: ToQnaOugNdi72RLQ5gxyYQ-1
-X-Mimecast-MFC-AGG-ID: ToQnaOugNdi72RLQ5gxyYQ_1783953184
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9C2B41955D69;
-	Mon, 13 Jul 2026 14:33:03 +0000 (UTC)
-Received: from [172.20.37.180] (unknown [10.30.44.214])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 294EC1956056;
-	Mon, 13 Jul 2026 14:33:02 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.2.0-rc3,
- upstream-arm-next, a13c140c)
-Date: Mon, 13 Jul 2026 14:33:01 -0000
-To: will@kernel.org, fs-test@redhat.com, ftjahjad@redhat.com,
- linux-arm-kernel@lists.infradead.org, bgoncalv@redhat.com,
- catalin.marinas@arm.com
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <53436.126071310330500503@us-mta-519.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IJ6T_w9u9h8XeaQOFwSgNCfp5iJEcJ3E2TGjlycDkpY_1783953184
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+	Mon, 13 Jul 2026 14:57:46 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c160420289bso397036566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 07:57:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1783954661; x=1784559461; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gSFmMfzjqjEnWlxSIJwQ7RP3S3qUOnt8I0p8wmsKWsc=;
+        b=0qnMFoOAfiFvfAjBu0UtRkQmECBYIWnUuKROuODYJYbXHsf2pV1SK2XXalhJcijrfa
+         r0R+OvQENWhxq0Nd0CFOB+xy64RmgpRJNwCI6+8qEdojvB4pJXFNb+1aPZ2apxF0Jrgc
+         qqkCwg9jmly/ew6UVUG+nNxoO05Pi635eONpgjR9Q4RVxmrlnjCJZLHZrGgz0sSYZsl3
+         vKx4cLyndiR6Z1LP3LbPorm1MNYnSCavpuJ/ex/pqmXCu+eScbwF1J/3qtYXRgGeXfBt
+         9+FsXxHC8/IfnRcLTeBdxJNwG1PUgEsG59yYOIK6k9Jia5ERHhSsnfmeWdL6Ksj31S1Q
+         j0Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783954661; x=1784559461;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gSFmMfzjqjEnWlxSIJwQ7RP3S3qUOnt8I0p8wmsKWsc=;
+        b=oIXjn/PoM8hIUp0hUdfBzrc66q7IVlUubBXJlK2U0josWmT1JzmBXrAumtvin4pWL9
+         s4nnYPXMi0dWm99Kc5gfCfSS8pm8XYtNIsFEL5mjXclB7rWoVt3EbH5xUQktuelmqzKx
+         1nuAfbPHDy4JQYrsJSsbsyvKPhFaBw5IRP6mmyNzOBUnwovzPvIuubdrg2cSJtfWKYHw
+         kse8SxtubqaDN2xg6go8hpifPlgqpgd2RKF0VR8EF1xqKyYBdArYXPaVcHjS/3gO80Wi
+         bAeCTKejmnuh3p+P1PRr1/UGzC3M5UB0Sy+oHzF/N4+Rr5HBf8Rc7XGA0aU3ajK9GO35
+         r5fg==
+X-Forwarded-Encrypted: i=1; AFNElJ/wJFtCHJJVHNrIn7nC7TQV/7GbFaVBAkOz3HyuQ4R0DJ1lgr+jJRrfsH6lZm6g99K2OznuWyXh0I9oCkIyZVV8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjQe438VU0gGoPsZjrLI9/a6/Vk8c/dXxNuHzYNFbclUPOekEq
+	40+bo/Q9w+gYxQ/YHa00NHktf/IubQjSVpOsIuqhPWfZiYgjtdnMe0s/Or+rMKphM1k=
+X-Gm-Gg: AfdE7clFMnEKBAyIkLElHrfmS5ddLUAMW3tXJLmD/i8W7OINFEVJ5MH+IKP25d59mq6
+	Ov8REj5yWP5RhXCToTmu3qoooQjYZSTHfSMzdZ/2gpMYeoG3WKJi6oxIB6tTtRKiYlEkoi77faN
+	GsTrTL1ZxQW6nJpFWkdqmBz7uRJS820t+o+0C2nJFm41UjXcmhzKHouF0J3RDDqnbbP3LCNvOTZ
+	SacAyZtPh+yjIOtQq9K/C4qn3Fg+jhuwsO8MPziqZ4qHWGIBCfDjkSHitzGU3m343SAJt2d1hnP
+	G0ltqaNGIrLzkI6icuIvEU3+A/ch6x03oChYtpl7Cp02hZ2FtSaPAZbnh9k4YeZ/1f/JEDflpm/
+	WBDkltN0lvZTDzUxosIV0BQje0fCDqTx7Btq4Jfp0YYFxXNhyV0avK4h8pZfUZAZU55E66PHg5a
+	pGh1w87nCfQRbVnBpmaeiEyKYNLcCd+6asTrpxBOr6sA0hPpiZ7PUDx6uLKA==
+X-Received: by 2002:a17:907:1b1d:b0:c15:db89:f0a0 with SMTP id a640c23a62f3a-c161f3935d3mr373847566b.50.1783954661073;
+        Mon, 13 Jul 2026 07:57:41 -0700 (PDT)
+Received: from localhost (144-178-202-138.static.ef-service.nl. [144.178.202.138])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15ad821666sm1005757166b.4.2026.07.13.07.57.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jul 2026 07:57:40 -0700 (PDT)
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 13 Jul 2026 16:57:40 +0200
+Message-Id: <DJXJ5D2PSY3J.1Y5XS6SXYFRBH@fairphone.com>
+Cc: "Ajit Pandey" <ajit.pandey@oss.qualcomm.com>, "Imran Shaik"
+ <imran.shaik@oss.qualcomm.com>, "Jagadeesh Kona"
+ <jagadeesh.kona@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+ <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, "Krzysztof Kozlowski"
+ <krzk@kernel.org>, "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v7 03/10] arm64: dts: qcom: milos: Add power-domains for
+ camcc and videocc
+From: "Luca Weiss" <luca.weiss@fairphone.com>
+To: "Taniya Das" <taniya.das@oss.qualcomm.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Luca Weiss"
+ <luca.weiss@fairphone.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
+ "Maxime Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Dmitry Baryshkov"
+ <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
+ <20260713-b4-eliza_mm_cc_v6-v7-3-4d91bcef50eb@oss.qualcomm.com>
+In-Reply-To: <20260713-b4-eliza_mm_cc_v6-v7-3-4d91bcef50eb@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_153649_240960_45557229 
-X-CRM114-Status: UNSURE (   6.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_155744_578025_13C044E7 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,68 +130,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi Taniya,
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+On Mon Jul 13, 2026 at 4:53 PM CEST, Taniya Das wrote:
+> The Milos camera and video clock controllers operate on the CX and MX
+> power rails, and require these power domains along with their
+> associated performance state votes to be specified for accessing the
+> clock controller and its GDSC. Add the 'power-domains' and
+> 'required-opps' properties to the camcc and videocc nodes.
+>
+> Fixes: d9d59d105f98 ("arm64: dts: qcom: Add initial Milos dtsi")
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/milos.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/qcom/milos.dtsi b/arch/arm64/boot/dts/qc=
+om/milos.dtsi
+> index 8c92329889538f0d79f7af436898e3ee278e361c..7c42d6c89829e4bf5a2ade640=
+18623e49623462c 100644
+> --- a/arch/arm64/boot/dts/qcom/milos.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/milos.dtsi
+> @@ -1892,6 +1892,11 @@ videocc: clock-controller@aaf0000 {
+>  				 <&sleep_clk>,
+>  				 <&gcc GCC_VIDEO_AHB_CLK>;
+> =20
+> +			power-domains =3D <&rpmhpd RPMHPD_CX>,
+> +				<&rpmhpd RPMHPD_MX>;
+> +			required-opps =3D <&rpmhpd_opp_low_svs>,
+> +				<&rpmhpd_opp_low_svs>;
+> +
+>  			#clock-cells =3D <1>;
+>  			#reset-cells =3D <1>;
+>  			#power-domain-cells =3D <1>;
+> @@ -1971,6 +1976,11 @@ camcc: clock-controller@adb0000 {
+>  				 <&sleep_clk>,
+>  				 <&gcc GCC_CAMERA_AHB_CLK>;
+> =20
+> +			power-domains =3D <&rpmhpd RPMHPD_CX>,
+> +				<&rpmhpd RPMHPD_MX>;
+> +			required-opps =3D <&rpmhpd_opp_low_svs>,
+> +				<&rpmhpd_opp_low_svs>;
 
+At least looking at downstream drivers (camcc-volcano.c and
+videocc-volcano.c), both have
 
-Kernel information:
-    Commit message: Linux 7.2-rc3
+  static DEFINE_VDD_REGULATORS(vdd_cx, VDD_HIGH + 1, 1, vdd_corner);
+  static DEFINE_VDD_REGULATORS(vdd_mx, VDD_HIGH + 1, 1, vdd_corner);
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2672637327
+so from what I can tell based on that, your change seems correct.
 
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        Boot test
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2672637327_aarch64_kernel_kcidb_tool_21630468_6
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
-heck
-        Reboot test
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2672637327_aarch64_kernel_kcidb_tool_21630468_11
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2672637327_aarch64_kernel_kcidb_tool_21630471_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
+I'm sure you have better documentation than that at hand though!
 
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Regards
+Luca
 
