@@ -4,121 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47904C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B532C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=; b=gm5U/WsUhsWkkD55O7KC+BcZNE
-	HYqumYtxg8Dit1P9T8H1ciFeDqYJK5CM5rDzBICX5zd2Jypb3mctxQ1VYccoLU5CpBL03vz7a/SuP
-	3UWNaFlbfcWy4dlJYT50sAWgRtjV05tJIy5ZFiO9hRReFJaWvfeFR4OxauQaFa6ey+1z5ksK7VUPP
-	xdXMO5GTaL5TJ3mekCEbq8/kAghFw9q1jDFzMzEnqoGWnLkRY3GesAARkymuTNBjZ32iH/L/lOdbV
-	nNzJwWpgkLxmlbBHcBLU16zfmHb5YimEqXsOAJSlBqs7xkteKR4aVbqF5DQILTUmdkwFtgpUsdei9
-	KIAwu79w==;
+	bh=FSjsOyZhkm+OarIp2DDhMFpCZd5ArExcqSVv0NgiTKM=; b=viZ4XcWeMNCM3Ba2bTXZaFH20W
+	KAheUjpiwQyAkZfcCrrw+Fee29iu3BAkpXQ4YLdlgzERWoTd1OIFjCniu80OD6Ikl80w9kj8FrUKy
+	Sw4glLO6b3UxlfILL3IaUIKFHKjqmvN2gRTF2perRNbtVQPOFAZZigmfocQgioJzTL3IWU4ynCnY4
+	X7f/iqRpoGKWmRKnyV0pSQHQz2bePEuDbM/nsZ7MD5uAp1m0EuqrzAmiTutItJ+wmtoiKgGDxaEqv
+	vA0DNd3BAG/y1upoCQ2EQndewphrkaAjsboYIpRRiaoGYolrYDHMmyGqg1nYax1V4bBHsfT8gbUG0
+	7maCwpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH9G-00000009SuN-3tEA;
-	Mon, 13 Jul 2026 13:56:42 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1wjHDC-00000009VGB-2kDG;
+	Mon, 13 Jul 2026 14:00:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH9E-00000009StM-3Rj9
+	id 1wjHDB-00000009VDl-10CP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 14:00:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=FSjsOyZhkm+OarIp2DDhMFpCZd5ArExcqSVv0NgiTKM=; b=NhxbZ9XOs94PQZn/3n5GvlOh+x
+	Z82AqwcLrJPl5WS2hsU0ufNqNNXheRaiDWXCkItN8RIYANp/ZSv3phwWo6B5q2fwCMMQLOphnsDIw
+	bSRe1HeuZnC4Ppvz+YstHWXorV0LrSsdJIFmZwAYI2WRmv7wjc3sMiIkAA+xK3pHbySsjxxioUKjx
+	zi+PbN4/NAwWuoaLfrgcSFZqzErLcdj0UUWiMc6chbE/Y0vhLkbg9F6TFydqyXcNb6J4uwGwf3oJA
+	amhlYHe4B2JYVab0HyOBqP4gwKSpj3nSYQCpxc0s1zXwy5feSxfDYeXQYhLG37uU+vJQR/MQJxidD
+	dipIC4cw==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjHD7-0000000BgFH-2KaK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 13:56:42 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8fcc43c48f7so27401576d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 06:56:40 -0700 (PDT)
+	Mon, 13 Jul 2026 14:00:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493c556ada3so102595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 07:00:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783951000; x=1784555800; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1783951238; x=1784556038; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=;
-        b=f85r9ehEtRGQnBSWDAx8fwHLA8lRn1Et16cQr1rvJNTeBa/yC6OaNRQ3DarrLvNxo/
-         1UyUkgV6rtvQjIzN7jEORv0sT1u9pr9NzVFwc/v3TYfvPed0aNkS7NCNm1/Pul2dJzRQ
-         9tAS1Aw72JtaPoRwH2GNtIDdC6GhujTurq2kc+1RfWP2nOa0cE6kgkVmS49Ti8gNi6Jf
-         jPI4NCN7V9wrHwTwnst/N2oTcdIWuoku+MeXN5Ez9qovUPv0M4gnmTewZBg5idUTlBiz
-         MGhpTMhyYGKQmQtIEsFM8QYPiqO2c5RatXcmLxhpG6bOytT+vZ2ZJE4IGgqMG3kwMtBq
-         78XA==
+        bh=FSjsOyZhkm+OarIp2DDhMFpCZd5ArExcqSVv0NgiTKM=;
+        b=IwzgeG+Oq9jf1VQPhjOPdo1ud+mwfYOeX7jm+tJAnKmXZNSMP6d4FsfeGGrc+wzTh9
+         gAi3o5oEI25FM1BjB5B6klIO7XQLXr6vVULPkVYk30UY2POsyGL5/cMXi7yKln6gCkNe
+         A1dXKpblM97jS1UKVY98BH0mow7vHJ8sRZUFUkqp50+p3cygTXhqt87pj+DXrKSy9Thp
+         mQkaAwwt/91lCtjPF1KlzOQ52r4XA2hWFksA2P0nYAKeEhMERzZWKnCiOLFZOErp1bj0
+         gW2lytkK6FRDPbn0H8cqCkMeTWk7PcRJTgStpK1bhNh4jOSQ/TjLALJ4WYQapOCyIAZ3
+         tJhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783951000; x=1784555800;
+        d=1e100.net; s=20251104; t=1783951238; x=1784556038;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=;
-        b=hYG/AkMw1ByRzS95t4kxJXozikd9WpPGnISlzuCMSNxQDLeQ1/Avu3ZSPg+SOK92bt
-         o4HJka01Yx1a1GNaj5bpA6jYu6tZtOExUcr5TkWRXVmRIHd8tO3EGweOogjo1x9dkbE/
-         s1VSPfK+okiBn3mijdJv0kCkYhYSXX7SXvMS+XPvjdPjuSN3WBIgQLmRXbsN0tH7BU4w
-         oiLtVnt3XDrPnZ92IJskRj+1+aOgWJhJ1gD3fTsB0BseV9oCrWaykl+mw+1hUEOzdGHq
-         emHYyf62GlUjNUw1XumPUU+n/dO1ToM8xq7DisPBM8NiicvshcXxwu/IzMo4dHh82XWe
-         QXhQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpN3z6GMgCrjm5Y45GTSRsFLXyUUOBhMQCvEOp0c2Je8muBFOWjTV5QgD8Y0A1No/scS0Q3JotirdW399tDNLj8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvfTpJM1ai1xKcFzIRjPSEamAHygdZWEVMNtDtiw/1queyZ2pK
-	wISOQmev7hS2vJ9V75wlkkYYhd72LFCwzwdCd8JlMrhwsGz7QayBgdTFaJIiYh2/Os0=
-X-Gm-Gg: AfdE7clbofirMYuFDnLoLZOumnUdcEgjeh0wpwSDbzRthZZ2pjCiau4CR/NUiRQiEaW
-	bcDLzgdyi9AIPfkpju95XwdW80N11tgX189wMn/Cz8GYCAG/K+Xl8XqtnbIShALXIOrGrnpXBcr
-	xN4Z95VishJh3jOvLPswGrlAnOlMAxqz8Hb2HuLoES7aXx9ElRUJ5fceenT6ZRb038+Em5wjVfK
-	hADpJN2LUIZNUGDzZstB656hR/Mhvt+QDF6DegrxB70D0W+dlAUv5s1Czr5KMVN5qlT6fhHsF4v
-	DxSBIDe0TZav1HKJCZwonsP7DRl1XaLwGxA2QiBmBw5LWqZbYySU+FUd/VXnEsfVJcbKscRJbyV
-	Tf+6Ve2wZPV0LjiLt3yCanlZnspN6fNIX/4kmHWhhU4t+wqs0Sw+SQri6Vbkx
-X-Received: by 2002:a05:6214:da9:b0:8ee:756a:f1d3 with SMTP id 6a1803df08f44-903ffc638e5mr98221496d6.28.1783950999687;
-        Mon, 13 Jul 2026 06:56:39 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd81f4bbdsm126704796d6.36.2026.07.13.06.56.39
+        bh=FSjsOyZhkm+OarIp2DDhMFpCZd5ArExcqSVv0NgiTKM=;
+        b=XJ3OcV2Q45U04dHMuwRSyNatQVopGSpr5ZpcH7E4xuJdTyrarDd+UiR/eg5mR0VCnK
+         qJBoNfzGgBgrWqVX16JJM4alMb9GD+LPrDEms5ANd6vDZNCrLkyZ+1H50sSRvQ443XhU
+         l7cujbW+CbEKtPpK+UURglJs+LPjWsDXbx7CZloiFVIhQQcvfXqCCjFdHReZBCr538nn
+         fsdz4h5kv1GQakMOuTCSdXthkdbzLbgYhvHxLc2axpVJwDCiXnWEdE7E+YkHADYa/nHo
+         yU2xnO5z782yZJLHd7PC3O4ZgicTZpjXPvcyWlcWW5vOwlyUXEMFO2bJdqZ7nemvazfj
+         uEYg==
+X-Gm-Message-State: AOJu0YwdOxNoFNQ64TFReuN3MiLCi4gdRWILf30Ckk8PzqxVupRZIJC1
+	ntemzOidzKuEx9+DdhmnS/yYexBGk7AvDKKrZvKbaBh5LtqaRcoPEJrQ3B9BedZjrUioikmC9g8
+	LUrm0IA==
+X-Gm-Gg: AfdE7ckOUuoyXXmmWOh1bEzAPNTKJo6LGWujRzmXUHY0Lj6c1S+o/QJnmxzTMnXBjvg
+	slOjYU7GkFJqaK1Accy2jyaTeH3Np/vcfW6rA3xs6MwiabiBiWdH0S+7kluiTs+WT8kxt6J+gqS
+	PMkxRE3/+As3ca1VWJX6G3TOM8i78k1zwL9Eo1WDABHiGn7WA+bHLAqmzMtYcvQKViPFZ7LpPHt
+	KI2ZU0nVdJ8vj6MKX7els48Cd96mq/p+GumTiSegDOWWFLZxKUnfDVNqTt6ryI60VYTYLae+Nf4
+	6Pot34AyOk++Zv3KWFxX0vlZ5NBZ7J4skHk+FLGQHrWg1IZy8dutuweOd9OZXt9YKeNKr/Tla4H
+	+3TJU/OObNxoxq/RkCzih8saXjUi+N4Ele/innGnYSEwpjmheIQUVYtEM0WEbOXL6nllIckZdna
+	Gog0beduuCnxABp2PlaypjGffAvUXFF1qGErasRmESEhE6iYXr
+X-Received: by 2002:a05:600c:2942:b0:493:a96b:f9fe with SMTP id 5b1f17b1804b1-4945e4218c8mr367445e9.4.1783951237852;
+        Mon, 13 Jul 2026 07:00:37 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493f2e0f165sm211046175e9.0.2026.07.13.07.00.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 06:56:39 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wjH9C-0000000DL9o-26N7;
-	Mon, 13 Jul 2026 10:56:38 -0300
-Date: Mon, 13 Jul 2026 10:56:38 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-Message-ID: <20260713135638.GB3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
- <ak42F240d-53QeFN@arm.com>
- <yq5apl0xgy89.fsf@kernel.org>
- <ak-CT3oanlDfgTy4@arm.com>
- <20260709181336.GM118978@ziepe.ca>
- <yq5ajyr3h106.fsf@kernel.org>
- <20260710161945.GO118978@ziepe.ca>
- <yq5atsq6hdaa.fsf@kernel.org>
+        Mon, 13 Jul 2026 07:00:36 -0700 (PDT)
+Date: Mon, 13 Jul 2026 14:00:31 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <alTvf7iiOWn4PKE8@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-9-smostafa@google.com>
+ <alTnAy7jvjUamwUA@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <yq5atsq6hdaa.fsf@kernel.org>
+In-Reply-To: <alTnAy7jvjUamwUA@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_065640_874523_D083046F 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260713_150041_859372_0DD45BE0 
+X-CRM114-Status: GOOD (  44.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,37 +122,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 11, 2026 at 12:39:49AM +0530, Aneesh Kumar K.V wrote:
+On Mon, Jul 13, 2026 at 02:24:19PM +0100, Vincent Donnefort wrote:
+> On Fri, May 01, 2026 at 11:19:10AM +0000, Mostafa Saleh wrote:
+> > Create a page-table for the IOMMU that shadows the host CPU stage-2
+> > to establish DMA isolation.
+> > 
+> > An initial snapshot is created after the driver init, then
+> > on every permission change a callback would be called for
+> > the IOMMU driver to update the page table.
+> > 
 
-> > But if you really want to it should be
-> > cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) *only* and get rid of the wrong
-> > force_dma_unencrypted().
-> >
+[...]
+
+> > +	 */
+> > +	if (pte && !kvm_pte_valid(pte))
+> > +		return 0;
+> > +
+> > +	if (kvm_pte_valid(pte)) {
+> > +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
+> > +		/* If the range is mapped in a single PTE, it must be the same type.*/
+> > +		if (!addr_is_memory(start))
+> > +			prot |= IOMMU_MMIO;
+> > +
+> > +		return kvm_iommu_ops->host_stage2_idmap(start, end, prot);
 > 
-> Ok, I will update the changes to so we preserve the previous behaviour
-> for SME?
+> Do we really need to do that when is_memory()? 
 > 
-> 	if (attrs & DMA_ATTR_MMIO) {
-> 		/*
-> 		 * For host memory encryption treat MMIO memory as shared
-> 		 */
-> 		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
-> 			attrs |= DMA_ATTR_CC_SHARED;
-> 	}
-
-I'm OK with this, with the expectation we should aim to remove it when
-fixing the callers.
-
-> > But IMHO, I'd rather this series treat ATTR_MMIO as private MMIO and
-> > ATTR_MMIO|CC_SHARED as shared MMIO and that's the right and correct
-> > thing for the DMA API.
-> >
+> fix_host_ownership_walker() by calling host_stage2_idmap_locked() and
+> host_stage2_set_owner_locked() should already handle the memory region. That
+> would also get rid of kvm_idmap_initialized.
 > 
-> If you think the rest of the series is ready for upstream, could you
-> please ack it so it can be picked up for the next merge window? I'll
-> repost v8, rebased on top of the pKVM topic branch.
+> So this one here could only take care of the MMIO?
+> 
+> Overall we would have a common point of synchro which is
+> fix_host_ownership_walker() after which the host ownership is ready for both
+> CPU stage-2 and the IOMMU?
+> 
 
-Yeah
+I am not sure I understand, this is another empty page table, so we
+have to walk all of the host CPU stage-2 page table to shadow it in the
+IOMMU. if you are refering to the case where it handle zero ptes for
+memory, I can drop that but it will not change much in this logic.
 
-Jason
+> > +	}
+> > +
+> > +	/* In case of invalid PTE, we need to figure out which part of it is MMIO */
+
+[...]
+
+> >  #include <nvhe/mm.h>
+> > @@ -481,6 +482,14 @@ static int check_range_allowed_memory(u64 start, u64 end)
+> >  	return 0;
+> >  }
+> >  
+> > +u64 find_mem_range_from(u64 start, bool *is_memory)
+> > +{
+> > +	struct kvm_mem_range r;
+> > +
+> > +	*is_memory = !!find_mem_range(start, &r);
+> > +	return r.end;
+> > +}
+> > +
+> >  static bool range_is_memory(u64 start, u64 end)
+> >  {
+> >  	struct kvm_mem_range r;
+> > @@ -577,8 +586,34 @@ int host_stage2_idmap_locked(phys_addr_t addr, u64 size,
+> >  
+> >  static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_state state)
+> 
+> I would really split this. I know that this is convinient, but as the function
+> says, it only update the page state so it shouldn't hide an update to the IOMMU.
+
+I mention a couple of alternatives in the commit message, I tried to
+implement it differently which was harder to reason about as the calls
+was scattered everywhere and any small refactor will possibly break it.
+
+Did you have a split in my mind? I open to rework it.
+
+> 
+> Beside, we have examples already in Android where we want to update the
+> page-state but not the IOMMU, so it doesn't feel future-proof...
+> 
+> >  {
+> > +	enum pkvm_page_state old = get_host_state(hyp_phys_to_page(addr));
+> > +	enum kvm_pgtable_prot prot = 0;
+> > +
+> >  	for_each_hyp_page(page, addr, size)
+> >  		set_host_state(page, state);
+> > +
+> > +	/*
+> > +	 * Any transition to PKVM_NOPAGE, unmaps the page from the host
+> > +	 * Any transition to PKVM_PAGE_SHARED_BORROWED, maps the page in the host
+> > +	 * Any transition to PKVM_PAGE_SHARED_OWNED is ignored as page is already mapped.
+> > +	 * Transitions to PKVM_PAGE_OWNED from anything but PKVM_NOPAGE are ignored.
+> > +	 * Transitions to PKVM_PAGE_OWNED from PKVM_NOPAGE will map the page.
+> > +	 */
+> > +	if ((state == PKVM_PAGE_SHARED_OWNED) ||
+> > +		((state == PKVM_PAGE_OWNED) && (old != PKVM_NOPAGE)))
+> > +		return;
+> > +
+> > +	if ((state == PKVM_PAGE_SHARED_BORROWED) ||
+> > +		(state == PKVM_PAGE_OWNED))
+> > +		prot = PKVM_HOST_MEM_PROT;
+> 
+> ... and that would avoid that sort of things here. The caller decides if the IOMMU
+> is updated or not.
+
+Typically, the IOMMU is updated if the CPU is.
+
+> 
+> And as the patch says, we "shadow" the host stage2. So probably modifying
+> host_stage2_idmap and host_stage2_set_owner_metdata() sounds really a better
+> approach.
+
+Initially, before the pKVM merge upstream I was doing something similar
+as that only required one hook [1]. However, after rebasing I found that
+would be too complicated and I have to add many more (as mentioned in
+the commit message). But I can re-visit this approach in v7.
+
+[1] https://lore.kernel.org/all/20250819215156.2494305-11-smostafa@google.com/
+
+Thanks,
+Mostafa
+
 
