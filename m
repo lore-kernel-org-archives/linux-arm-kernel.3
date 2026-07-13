@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01717C4450A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC9AC44508
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=b+iRqStKWjX0dVRN0JeDh3+qxY1BGSjM04HsYVWpNPg=; b=M1NpdLj+f1xXLg
-	UrKx062PpB9nsunkHl6EFomBMMkfLCXh2guPOAdbNmOC20CQgdEpkhPIJ6KNrpevtsrnYgC0tqQbM
-	mqdnkCR2UW6sYyZ77fWyB/igosJX2QCgqXCbUNWarDnOOG4iAkEKgtHsfv+u2/hGRVOggXV1IIn84
-	nR2mCOb2d7MM5REN/rahKZjqU8prm4YflLLWvbUBhYPFR4fGpDKPg9PvHVOyumPKZHfPERm5EbXVY
-	bL0hxvzlvMrFzskrj/9T1wL96kwHrIjBNPSyD2mqlaNai4SvtJE7CVqzDo2+nbh34Z0KOjKnyl1d6
-	XOdk5icmAf+L7id/3Osg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z3WRQgH3u5bb1sg/UIkuyiCQpHZzLzXfUoy8toBIe7A=; b=fJtYyfdfJ+xZyJmR9jryu5ckDn
+	t9OJf20GaifZsHDEZ9952ld6AzWc0kdpjfo827FVi0meTA8gMK59iXrgC3XTOFEdEA2G9IYsBYa0Z
+	kEiniAUxZgAJJmU5IAStEt8zrKrDHb4sKV/4I6Imoqeg3xWflMLZBgrVpnH2WlRjvXySRpn+izz+f
+	nX2m+Njkpa1Ys5/vUve9U0YOORXYqXh9WhLU4/VZF6m/qITy+mVQ8JA39laDnVNJb3PycO1RxR2Jy
+	624tFxf/otAS6Oi+3vD+aX5JT4M33Uy0ym/eKU4u5fBw2M9aQK+zjwm5YeAWJPXEHScQMqx9vhPIo
+	mZhuCqdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI4C-00000009fWn-1dws;
-	Mon, 13 Jul 2026 14:55:32 +0000
+	id 1wjI47-00000009fUe-2vcy;
+	Mon, 13 Jul 2026 14:55:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjI43-00000009fQM-1t2z
+	id 1wjI43-00000009fQD-1WwA
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 13 Jul 2026 14:55:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=b+iRqStKWjX0dVRN0JeDh3+qxY1BGSjM04HsYVWpNPg=; b=YCZUC/iNycvr3ki6E8WeAB9YqE
-	mxb3H7+n7ZjiiqFJQQhY21Nj+/sQl+EY3QLCqdCuL8iOnO4rxzeRkOvKjzEF3IlcE4YIdaNZvon85
-	kaM37u2zXt2VWIoJmQvA2Zin27ObY9WRGGS/COOdV1RLCo9ZL+rSZ140lsbB0YHJrAncbclXKZB//
-	7XrUqBL6e8hPH1TARMUpuMVSGVotodrJ69FbT9LPBL2ioDS4yDM7y7Dz/uhOOg7L+wTahcnF/i80J
-	DeoNbB6HbOg8/0aoodaaNFwLtnq0DREIzrC2cTy3ZexYfrrjzXrvHZml4gbH9PWNaZ/Tz3oUxjXqo
-	bENAlrQA==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Z3WRQgH3u5bb1sg/UIkuyiCQpHZzLzXfUoy8toBIe7A=; b=jYTinH3UR8n6p47Rt3xXDXMFZA
+	e2W8cqKzwc5+mP8X4pbCypCbJh4thPi8Vo5t9142a7akqaRPfhp57VoygahNJagKv+qcKdalnkcyu
+	ZtoJdRFLuKWwlYWlRLySSEFMBeqR1lkqi1SqrKHK4awG5oHE33f7uQOu0D29um6phKHk1HkSsmeWu
+	iZgxUDVydwv8SCf3mUUopGSlGjC3dVttNmHbQ8O08Ux4e9GYkrUMJcOgQ/+vJBPEO32rZCeQo8Bm1
+	BRUtXxtBbZOpkH8ZP1t5jY+dx7Uq3nk3dlWSZGs04Z3JjMtZXulXeaANFQOPwLZ11Eyma8P8bQPC/
+	dpXTorkQ==;
 Received: from mail.fris.de ([116.203.77.234])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjI3z-0000000Bjt8-1IeJ
+	id 1wjI3z-0000000Bjt7-1PKi
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 13 Jul 2026 14:55:22 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1783954515;
+	t=1783954516;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=b+iRqStKWjX0dVRN0JeDh3+qxY1BGSjM04HsYVWpNPg=;
-	b=ohTnp4aZfpK9dyEdZ8LExroR5p0hMFxMlR/GkOjkck0/Uq71bRnX7oCoB9h5P6tfuKA/AK
-	voJS4vL+cVUoCABI0GWLfLyMuTUm9VM7DfU8Bf8iGtTdghCLSMIO/OuOpnRmp3y6TULMmb
-	y0f1WfIUomzwoeSHKEu7WBjliL2aQ+/dLom7bU8jXNX8t1XVOUjCFCw1w+Pkdyu28//VOT
-	NAuvEnhkvTE0nvUBE5PouMW7xJzi1UTfVVp+wMijzldgZ9oLb7qAzS2U3yb5ydTxlyInKX
-	tb8VUq4UPwd7mSwlj1XeZlvkUlze/kBuoL4XtfDJ27NvfyRv3imAlsWoNR9ksA==
-Subject: [PATCH v2 00/10] Support ELE API in i.MX OCOTP NVMEM driver
-Date: Mon, 13 Jul 2026 16:53:36 +0200
-Message-Id: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z3WRQgH3u5bb1sg/UIkuyiCQpHZzLzXfUoy8toBIe7A=;
+	b=q/sqPrGE22EwiScsb94tifwGXslrOiY09SzqQ+/yTlNlvHB7Y/7sxpxgzeuYRBMAd7GKFb
+	jjykGZetSHE80D7azgr+BNR+Q+Jy0d3K7qUeEVv3luDEFpU7BbBvkg9T6Wrts4U3Kwf3/7
+	ocXBlpKvShIbEwgVifflaYGp7LiEP7iDbUCH7KxZVKoZ99skQLt2A2NoH5aNgXTQ6oEhd2
+	JhQabnGoE7O+pa8dX30Qq26Bg9t7+eV4nZmpJqKWsqYh+tzGTdo1e8Qt1N7khhJ6ORKBRi
+	Ng5eePFw9cP+Nn8RnA3oYfysdCHV7gNpxN/rBg5rHijU4+riWuIDsU8BAmmoRg==
+Date: Mon, 13 Jul 2026 16:53:38 +0200
+Subject: [PATCH v2 02/10] firmware: imx: ele: Fix indentation in
+ ele_base_msg.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOTQ6CMBSEr0K69pm2xCquvIdhAe0DnkrbtIVgC
- HeXnxO4/DKTb2ZmEQNhZPdsZgFHiuTsCvKUMd1VtkUgszKTXCquhILBxxSw6sm2YHFKcCS8AOo
- ncNolD/hBqC5CGtMUquY5W20+YEPTvvQsD45D/UKdNv3W6CgmF777lVFsvf9XRwEcdH1tclXcd
- I7q8XY2BWfPBlm5LMsPW2kQHfEAAAA=
-X-Change-ID: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
+Message-Id: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-2-b8266d93514b@kontron.de>
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+In-Reply-To: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
@@ -76,18 +75,19 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3600;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1529;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=j2mLaGlX/M3OQYY3bEw7FU4VFX2tJvFMNYetvFqxJjQ=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvkj41d54T0qVsORIoxrNZZ9GJ7qL/BBbGDaktFije9i
- WB5N+NbRykLgxgXg6yYIosUv8VrW7NYH/lj1VEwc1iZQIYwcHEKwES+pDH8z5UxaCz9uVWV5/fj
- CGarVcFXTj7f6vYiTpVHyKtnUapyD8M/S9nFlllcN3lXi50xl3JlnbXV+8nfD48eyolO4PzU8aW
- PCwA=
+ bh=64Z8RnfUiT82ClmtKrj06sc+zV8FVPoGFC47Pu8B+Ek=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JISvkT2DjPaXQXRdvHrCKFHi4OkKR111mx98EqVPdAiJHp
+ JqDKiQ6SlkYxLgYZMUUWaT4LV7bmsX6yB+rjoKZw8oEMoSBi1MAJhLdy/DfW2Bt+KuMIH5dbTGn
+ KVce5f7zvVxunV388XbA1HOrxM/9Z/hfcHHH8+MHGffGvnspHi4Yv1/8iZfY7duMR9+HCU7Z/86
+ dHwA=
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_155519_639227_C935CD3C 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260713_155519_590895_C9D64D8D 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,82 +102,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-ocotp-ele.c driver currently uses the limited FSB (fuseblock)
-to access the fuse registers. In order to gain full read/write access
-to all fuses, we need to use the Edgelock Secure Enclave firmware.
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This patchset does:
+The file uses mixed indentation characters. Use tabs everywhere.
 
-* Add bindings to reference ELE device in OCOTP driver (patch 1)
-* Export ELE API functions (patch 3)
-* Let the OCOTP driver use the ELE API (patch 7)
-* Extend the devicetree of the Kontron boards for using the ELE API (patch 10)
-
-The rest of the patches contain cleanups that were implemented along
-the way.
-
-This was tested using the 'crucible' tool and by directly reading from
-the nvmem device on i.MX93.
-
-This still lacks support for the i.MX94 and i.MX95 as I don't have the
-hardware for testing on these platforms. As the documentations is
-incomplete it is hard to get the keepout table right without testing
-on the actual hardware. If someone else can provide the data and
-testing, I can add it in a future version. If not this can be done
-later.
-
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
-Changes in v2:
-- Adjust bindings to allow secure-enclave only for i.MX93 and improve commit message (suggested by Krzysztof)
-- Export generic ELE API functions to be used by drivers (suggested by Frank and Peng)
-- Move the fuse read/write functions to the NVMEM driver (suggested by Frank and Peng)
-- Add patch to use __free(kfree) in imx_ocotp_reg_read() to fix memory leak (reported by Sashiko)
-- Use device link to prevent SE device from being unbound while referenced (reported by Sashiko)
-- Link to v1: https://patch.msgid.link/20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de
+ drivers/firmware/imx/ele_base_msg.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-To: Srinivas Kandagatla <srini@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
+diff --git a/drivers/firmware/imx/ele_base_msg.h b/drivers/firmware/imx/ele_base_msg.h
+index 75e65e279193..1c5d6791b323 100644
+--- a/drivers/firmware/imx/ele_base_msg.h
++++ b/drivers/firmware/imx/ele_base_msg.h
+@@ -27,19 +27,19 @@
+ #define ELE_GEN_KEY_BLOB_REQ		0xaf
+ #define ELE_GET_FW_STATUS_REQ		0xc5
+ #define ELE_XIP_DECRYPT_REQ		0xc6
+-#define ELE_WRITE_FUSE                  0xd6
+-#define ELE_DEV_ATTEST_REQ              0xdb
+-#define ELE_WRITE_SHADOW_FUSE_REQ       0xf2
+-#define ELE_READ_SHADOW_FUSE_REQ        0xf3
++#define ELE_WRITE_FUSE			0xd6
++#define ELE_DEV_ATTEST_REQ		0xdb
++#define ELE_WRITE_SHADOW_FUSE_REQ	0xf2
++#define ELE_READ_SHADOW_FUSE_REQ	0xf3
+ 
+ #define ELE_GET_INFO_REQ		0xda
+ #define ELE_GET_INFO_REQ_MSG_SZ		0x10
+ #define ELE_GET_INFO_RSP_MSG_SZ		0x08
+ 
+-#define MAX_UID_SIZE                     (16)
+-#define DEV_GETINFO_ROM_PATCH_SHA_SZ     (32)
+-#define DEV_GETINFO_FW_SHA_SZ            (32)
+-#define DEV_GETINFO_OEM_SRKH_SZ          (64)
++#define MAX_UID_SIZE			(16)
++#define DEV_GETINFO_ROM_PATCH_SHA_SZ	(32)
++#define DEV_GETINFO_FW_SHA_SZ		(32)
++#define DEV_GETINFO_OEM_SRKH_SZ		(64)
+ #define DEV_GETINFO_MIN_VER_MASK	0xff
+ #define DEV_GETINFO_MAJ_VER_MASK	0xff00
+ #define ELE_DEV_INFO_EXTRA_SZ		0x60
 
----
-Frieder Schrempf (10):
-      dt-bindings: nvmem: imx-ocotp: Add support for secure-enclave
-      firmware: imx: ele: Fix indentation in ele_base_msg.h
-      firmware: imx: ele: Export API functions
-      nvmem: imx-ocotp-ele: Add keepout table for i.MX93
-      nvmem: imx-ocotp-ele: Remove device-specific reg_read()
-      nvmem: imx-ocotp-ele: Use __free(kfree) in imx_ocotp_reg_read()
-      nvmem: imx-ocotp-ele: Support the ELE API
-      nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
-      nvmem: imx-ocotp-ele: Rename FSB access map
-      arm64: dts: imx93-kontron: Enable ELE firmware driver
-
- .../devicetree/bindings/nvmem/imx-ocotp.yaml       |  10 +
- .../boot/dts/freescale/imx93-kontron-osm-s.dtsi    |  26 +++
- drivers/firmware/imx/ele_base_msg.c                |  47 ++--
- drivers/firmware/imx/ele_base_msg.h                |  16 +-
- drivers/firmware/imx/ele_common.c                  |  35 ++-
- drivers/firmware/imx/ele_common.h                  |  15 --
- drivers/firmware/imx/se_ctrl.h                     |  14 +-
- drivers/nvmem/imx-ocotp-ele.c                      | 244 ++++++++++++++++++---
- include/linux/firmware/imx/se_api.h                |  78 +++++++
- 9 files changed, 392 insertions(+), 93 deletions(-)
----
-base-commit: 49e02880ec0a8c378e811bc9d85da188d7c6204c
-change-id: 20260616-upstreaming-next-20260609-imx-ocotp-ele-a512ddf96b03
-
-Best regards,
---  
-Frieder Schrempf <frieder.schrempf@kontron.de>
+-- 
+2.55.0
 
 
