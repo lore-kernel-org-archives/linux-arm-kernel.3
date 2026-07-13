@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4B6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE77C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTUChJSUQ7qBnpi6xNUNbqkdyOGkeoHtaVMHI6/gjvI=; b=YY9ZiQRh/jRbPmkLDVTr6Gb8b3
-	DeA1KNDz2dB/fZjKtjm2637tigvGufdIFeq2Ch80ZrKtNR8urNzzdFIzeOKisCj+SF37TOWcpJK/M
-	4uEQNXuelRiOwp1QceaPQViGF9zBqMMWocUv+mZvmlkKGEflB4fsx/aXdKjMk1a5Ldcf19wRbjpDG
-	IKMUQv1KAPZ84cWDlMZo/l+dOwQm9DY0wqpUuWzKV27/hI5mRHD5URyKBgaVGx0RcMDVgiQc4UvS+
-	pQPObYUjeN14aOWuf1Y5+kYIS4DQDbb1qjFG3dSOoS/5J8FEWpsPR3qfT6zznJX97dB9Y97iu0HzR
-	sJVOOO5g==;
+	bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=; b=cur5irIL1IWAKCiU0KFIPIjum7
+	/eDyr54M7KfKD6lJ4duCESwqBrCCZPiV9FNoVLUmJHcINd6ZVbittKRcZZ96AXnG+sdQOvh3f3Pdj
+	/wH8o9Wd09aphRktazkpnIPlwjR9wm1N9SwHk7SbH6pQ/2tk/MvyzLD8A9NSxf/MLzmj2MI8n8ze5
+	EdVlAjJbzP/RydBx6dQJn9KO38O/stMBityvfnHypf32T8LVNuPC1GdqAxay3tXsS5EF+xmtyfwRz
+	RurpQ+A6InIG1E8qxd5V6kdqlCNq82J3X9GtWZrVJ8d6CUpJpHc0+ojcNY4squz0M1oX5coDPHTYz
+	F29z2X9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMEg-0000000AHJr-1Tkf;
-	Mon, 13 Jul 2026 19:22:38 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1wjMH6-0000000AHXG-0JbK;
+	Mon, 13 Jul 2026 19:25:08 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMEe-0000000AHId-0S4j
+	id 1wjMH3-0000000AHWm-3MEI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:22:37 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8ee88fce572so2383306d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:22:35 -0700 (PDT)
+	Mon, 13 Jul 2026 19:25:06 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8efec2c28f8so1580786d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:25:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783970555; x=1784575355; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1783970704; x=1784575504; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rTUChJSUQ7qBnpi6xNUNbqkdyOGkeoHtaVMHI6/gjvI=;
-        b=DnS7O8i0TRoQmiApolRcalF8eLFkJZ1sXbFn1M+1NcYSUGCW4jNC/csez8VGf6gnFZ
-         M+4o33mOKZYSA7mtxTDAZIBW8i2zkK4+k1pFw8owNYrzS9EORaZUxHjZIwqcSxmqApqb
-         6KObJk79t2nFRNckhDzYHE78bN2VhTTv9OPCANNJfeceyGhJ2iFANH4QtLNIOBeDIe/W
-         CkMkB3dOYEmpc9QuKtkS8L+ZTIybwSuAOccHINewI0H7+kY2WMjhOhhi2FKXQ/lUP4Hp
-         qS2JHiI879sJ7fF6hDOVXvjD4JaJlSUG7H7Xxd38EJGLgpC9GogbZa4GevsN6yd2kaZ5
-         neug==
+        bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=;
+        b=kIrPICoUBujFwtgX9s0l74rEAUc43hSg3DvfIVblQKS+qAgfkN1nDPmNEfhdw/1AyE
+         LFQhory3Oqiox/n21sqdo9iBsW1OLfHFqx8lmHJiWO98IRd3iqo/QxSO30ckQV/xgaen
+         wf0vaD34Rxnn3l6ELxt+7SvDcmjbZ8q0HD9BdMB6mA/L+xoHHX0S6BEJ+Q1zFCflOFkG
+         dBpYHJf2mVwY4ADkKDLj0c/jWWRBMIb3sp8P7CKBvh/8GgAAibFW9QR1MP3m/N9JV9YW
+         Td+Tt/1CIEYf1qup3S4out1Is1Zj1FD/h66SjgEX0mzFIFGwuXvyFP9y1XRbaBbTi5Ma
+         OXUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783970555; x=1784575355;
+        d=1e100.net; s=20251104; t=1783970704; x=1784575504;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rTUChJSUQ7qBnpi6xNUNbqkdyOGkeoHtaVMHI6/gjvI=;
-        b=k+3lRgnGZjnFog+LLhXXoOkT6DEmACKrVpKz/6dwelq/fDob2pDYaw93IM1ypld0PM
-         AAus1Ft9boG9HK1dpNwBoeXplCqCQrVHe15dJBCxjsdsx1h7U6hR45tfYexWHSjFZ7Rx
-         dB20FASQZqfd889oohkH37YCgSzDWf6f5MAyR5Y0P48HiO4J10ragcyJsdzkfn7v7MJw
-         5XgoRvEkj7Yb8fOWU7afkSwIhIKHMM59qGlLZ03z156rXPhyfuZ3sg2BeNak7EEnPgZO
-         zdIhD6fYM9WM5QrsGNHnsJnMR9Fx16b3Gst2ZfCOd8q9FFXEEueMW8uikUDcc92fggBA
-         RqrA==
-X-Forwarded-Encrypted: i=1; AHgh+RouIkRZ1C+whg0/jptJkQ5yXB0EuU+vQVnmOpCNC9ij9R1pjP03b61FtK/oNRYtMINUV6DrfChtITf4EOz+21sO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7rzAv7X+aBN6DAqxx1v98tCeOoaEdbpRl6eA/zpwXzMTsnIvV
-	cDGROfUOcLWNPTm9pDOjNJv8pE565M4P5maaz4naE+IRphWjqsGkYnW11WxWm2Cq5CwePohGexr
-	BDpvG
-X-Gm-Gg: AfdE7cnE+RkKgfIrT5MsPmD+hKkoHfA7jtd0OCTictriJQMpGVnPZEcX0bmDdTaE2OZ
-	e9IVa4etyESnEPZaf6WcVPYkE+3fCzM33HN7FgtkYwAH+QGbWwnmCcPrUVqA0UW23SL81f25K65
-	ISRD6aTXAOR2iQ9ElStB/ZQCr9boV3MX3HesUts6mnOKQraT+hxCqcTc7ve9jPuSXi6kjbfZ044
-	WVlEj812Kcqcra1nPJkhE+IJZozI9/pa8TA9GX7mgb8/VY8h2OIMRHYJgRZLcJtJLdITnx+biq3
-	MceHoz6jg1K2wY7NxTFsxFg+zQlW/be23fkjEcc2Q5eJ3yVGsxa6L4AG7UAFIx+CFAqp5AIBbJx
-	gHHv9Kp9V8QhvVWRwdDBkMU/36d/58X4CbdZ2g3XLOBzMuxT1RLZgkypIgf+KkcqW+RL0ZKc=
-X-Received: by 2002:ad4:5caf:0:b0:8f1:2607:ad86 with SMTP id 6a1803df08f44-90400b8b562mr134619656d6.4.1783970554874;
-        Mon, 13 Jul 2026 12:22:34 -0700 (PDT)
+        bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=;
+        b=Mv87MXVgk7m9DG25iRjtj6bVYD8yLwAO1+rH4KDx2LTzbgVpFAX+yjmg4B9GgYlsuC
+         iKsGLuzqEmQwljB8cbIw/7sMIyKOkKgYb8FW8n3CMmvDRvYh3qYILt+iIrD00FzR1iB5
+         r6tTHdr7tN8ZIde8TA5CmPfB5xiN7cIzOVjM/dky6RrEkMWJVWTxAsADIf3Uqox+kGMH
+         KBi1dVLDFxfScYTTsWpqeDzKhiBH9PYfywDsK6Z0GL9IB8Di0BdmmYOpBF2VMFzRkJ2s
+         UiKjusoAB7skMiLjruiaSLbJC94zYUCZCoLkRZPD1rdEReY7azsbeZx9PIQbKHl7ANF6
+         OUEg==
+X-Forwarded-Encrypted: i=1; AHgh+RqCE6ztS7Va2fAYucuTuOpPXwaAj+0W9M1GiO0+oC/8Vx4X5QnLXfABDSADXxqeAOyAFMMY7LP1dqE9s6HsV4h6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9Y+OylZlew60j1olL9+O18Jkm+7QZAXAzooYIHmnn6iNJsHFw
+	9CDAZXZ0NaZY/mwe0YpZMRNvtJev5jwe8XdA6EKLV4hdq9aO0sVCTZe/z/Zu8yn31Ys=
+X-Gm-Gg: AfdE7cnmje3OEXIGPxfa370ADOq8NWG5lksPdGa2vUxD50WpZiZ8CqC0gEcULw+niKw
+	ygy9MjC21DgTQi/VWFH6efjOnPImPesfjdgyS4TsFHptNAyqOt9ZZk2/is+rAJ6wLuuKCksEGuH
+	kkiYOBykXouj0JoTofmlUKqke7mA2+KRrXtP8qNzYLo/k6QrYJI/7xmuUcpj3+wtuxmlZ0wg2Jt
+	yWJ4GJOGNo4ukV2h9Oc8Nx+hRN57tRCKI252NmeipaWo9HstJNZFpXrP0SGqq641EJ1nBVSxHnA
+	BBDjfLL7KK931XFbOMN+RWHRX3v9h5omhU7U7c7SyoXYUVhy61lIYUD8775oVJN4H8/krQFw+VL
+	sYvO+qfxCkBvqHcH0m1Jpqb9ZBsTdr6Px23QIOl1OVd/VskluXgNPK+Ryfl2/
+X-Received: by 2002:a05:6214:2f8d:b0:8ef:76c:cb18 with SMTP id 6a1803df08f44-903fe450e81mr122377626d6.11.1783970703547;
+        Mon, 13 Jul 2026 12:25:03 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd50df5e2sm138736336d6.4.2026.07.13.12.22.34
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd7c1da1bsm137170026d6.30.2026.07.13.12.25.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:22:34 -0700 (PDT)
+        Mon, 13 Jul 2026 12:25:03 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMEb-0000000E54I-3Zkq;
-	Mon, 13 Jul 2026 16:22:33 -0300
-Date: Mon, 13 Jul 2026 16:22:33 -0300
+	id 1wjMH0-0000000E5NW-1O3S;
+	Mon, 13 Jul 2026 16:25:02 -0300
+Date: Mon, 13 Jul 2026 16:25:02 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -101,19 +100,19 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 12/22] dma: swiotlb: pass mapping attributes by
- reference
-Message-ID: <20260713192233.GR3133966@ziepe.ca>
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 13/22] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+Message-ID: <20260713192502.GS3133966@ziepe.ca>
 References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-13-aneesh.kumar@kernel.org>
+ <20260701054926.825925-14-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-13-aneesh.kumar@kernel.org>
+In-Reply-To: <20260701054926.825925-14-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_122236_160612_87D8382A 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20260713_122505_857165_B53DAAC5 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,26 +127,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:16AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Change swiotlb_tbl_map_single() to take the DMA mapping attributes by
-> reference and update the direct callers accordingly.
+On Wed, Jul 01, 2026 at 11:19:17AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Teach swiotlb to distinguish between encrypted and decrypted bounce
+> buffer pools, and make allocation and mapping paths select a pool whose
+> state matches the requested DMA attributes.
 > 
-> This is a preparatory change for a follow-up patch which updates the
-> attributes based on the selected swiotlb pool. Keeping the signature change
-> separate makes the follow-up patch easier to review.
+> Add a cc_shared flag to io_tlb_mem, initialize it for the default and
+> restricted pools, and propagate __DMA_ATTR_ALLOC_CC_SHARED into swiotlb
+> pool allocation. Reject swiotlb alloc/map requests when the selected pool
+> does not match the required encrypted/decrypted state.
 > 
-> No functional change in this patch.
+> Also return DMA addresses with the matching phys_to_dma_{encrypted,
+> unencrypted} helper so the DMA address encoding stays consistent with the
+> chosen pool.
 > 
+> Tested-by: Jiri Pirko <jiri@nvidia.com>
 > Tested-by: Michael Kelley <mhklinux@outlook.com>
 > Tested-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Petr Tesarik <ptesarik@suse.com>
 > Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
->  drivers/iommu/dma-iommu.c | 2 +-
->  drivers/xen/swiotlb-xen.c | 2 +-
->  include/linux/swiotlb.h   | 2 +-
->  kernel/dma/swiotlb.c      | 6 +++---
->  4 files changed, 6 insertions(+), 6 deletions(-)
+>  include/linux/dma-direct.h |  10 +++
+>  include/linux/swiotlb.h    |  10 ++-
+>  kernel/dma/direct.c        |  13 ++-
+>  kernel/dma/swiotlb.c       | 177 ++++++++++++++++++++++++++++---------
+>  4 files changed, 162 insertions(+), 48 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
