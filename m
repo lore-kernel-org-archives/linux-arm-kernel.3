@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D49C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93C0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pLKy4/lc6RWuZdWEBJE/MyvytyeZhRjeazudTjvS3k8=; b=KoI1t/N3dR/HF/5sz4Ue4BSSJ7
-	5It07R9m1EcjNXB3LMmQN1ULOSTZngane40zZfyGkyR245mrnvilAcUCSKcTjhj4mVCYbjhj9tzQG
-	+e6f5+AzvlhpDNMGWrt9B3l+z29oisgUjfbn8eoKkrI6qWpntLezGU9D9VQ5FopKhHxN9zgP2irVe
-	YJPIkNzw2fgFUTLnABKiTmmBKvhWzpBVtR+QxxdT26lyJ/HvlEhBypl4RVdYAacPbaUG5R+gE70w/
-	2WGiMbkil9Enc2Wf8JoYr6wjCtUgplsi6WUHpy9hiKvYOLqCTNoMTrXver4wdQ2g+EZxIzRvczr2p
-	qotpL9iQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4FOjodbDLawuqaxqRGW5J71xttNR9yOzfD0eE/pV9Fc=; b=2G0KvZzuEOKwK/T9BfGxAzj+Qy
+	UvC2XLysyVCEwXnWPJ1hv5nANFhtm4x+KUJWLCzfEe9e3bW1INe57A4lnObnRYFPxgC+e822+I3NB
+	SjWOLGiHo2G84ssv3MHop5hytE/pKwrInI7cB+mhJ+spTLrsJlPRGI4gjb3rEUmnL5oQpQ+tgRQJi
+	wokpQmxy54GHXjWaHLhftvy4xX1Akqt0Km7EHvvKiPE6V/ldDnJNa4g8OpwRuGR/HkfC4lkcT0c3g
+	AOaWCaGOIAcrrmx4nLy7F0g/45cIn/a0xMcVWTceFH/kVrR6XZNSH4CrsEiRSwFcnKHtQAGiQvVZM
+	L57pxEYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDes-00000008qXq-0W8l;
-	Mon, 13 Jul 2026 10:13:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjDf8-00000008qgI-2F60;
+	Mon, 13 Jul 2026 10:13:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDeq-00000008qXT-3iAs
+	id 1wjDf5-00000008qe5-3eU9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 10:13:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2E9B40655;
-	Mon, 13 Jul 2026 10:13:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78DF1C2BCF4;
-	Mon, 13 Jul 2026 10:13:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783937584;
-	bh=l4IzDk6AZekoK7hv30j/AYCaWvKZp5AFjNWbd7EU7QQ=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=BZhuxcKI/QEqO7bVHcRXNc8BkcONL6ae5x7kybzXaYFXwPHlB2xAe7uZwuNe9gnnw
-	 t7OulalpCnsgk94NV05kE73/hurI8PoI5iGsLz/uTR2d3Q+Vj14yUke8ZNeE5np87M
-	 Kvkka64EgWHJN45zIiRpZXZLIGUQJO4EWKxHlfId4V6LLph0yOApQ/P1dm0THW3Sim
-	 52f8R9GqtECGiF4UnFMhUJv++A+GcIZMOMtIpzWFMhdhBMvpy7QqmNEJzDav2KGZsl
-	 PgPW01tW/C2ENtVV4J+8yFYdTZzSw0nNcscJd81YRy+lu7GK7Oiwo/dr7iZ1n2Qdd3
-	 cBB9Kv+h2ZCWA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62D0BC43458;
-	Mon, 13 Jul 2026 10:13:04 +0000 (UTC)
-From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Subject: [PATCH v6 0/2] thermal: imx: Add calibration offset support
-Date: Mon, 13 Jul 2026 18:12:38 +0800
-Message-Id: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v6-0-88a378faeca5@cn.bosch.com>
+	Mon, 13 Jul 2026 10:13:21 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so88335e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 03:13:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783937598; x=1784542398; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4FOjodbDLawuqaxqRGW5J71xttNR9yOzfD0eE/pV9Fc=;
+        b=mZsy+29ppmd6SU/QfHEdCZFDbqQzUtUZNRsctHGLJGppAqQCUytk9hj5ti7bWaVIDi
+         WnhWyMXZoNxKfRAdvmpYCIGk0ros8aJOEtcpNMP4nBfgICOL1a7a8EqqIkmfkOJJoyg1
+         rXQrDR9j7//jRTzYG1klDMA7404L/opjAcIN2g07RqruaItdbxXjkN5NhyywkPIYJc2M
+         YmIbbkNh1nWlSCOt54t3KMSac/dNESs5lg1XJ1YjllYNVP+ulfWV5PX5in6E7jMNz/Ii
+         35OCnrU5e923BKcftKosZIc8WpdOh/PK06IgWEdCgxsd809lE6xSiHjJhwW+feF3NITm
+         qIAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783937598; x=1784542398;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4FOjodbDLawuqaxqRGW5J71xttNR9yOzfD0eE/pV9Fc=;
+        b=j5ghcWTf4q6vwbABlKtLcLYfp/SbZVzMsI3b2lr/g+CZv+5V6/SvMEAns4yKu05m+B
+         0mJXCp2V6nO9URhp4GIcDb1vMMET6T7AxE2mdABGUqJ84Vtrwb4d5Yy4qyi+Jxr7mDes
+         7kEwDTdEKJol/5epeQDJjKfNbYFgrwD9l/fB/hlwUx55N3KID+WBIYXBlUnl2pVxdq2L
+         kSCshcN3nSQgmR1BpAqWOAU/U2bPeva9DlgefPe3MPOn9u1vrWOJYqLgVw7xfkpgVvB3
+         wdlH413fJhuwnqzyWEHR4fpusOBIWhT6GdseqPqr1hKNJwMfHC0RbygyJ5VbxtNu6Upa
+         ksWQ==
+X-Gm-Message-State: AOJu0YzTjry7b4xHcxgA9mA8GPygmj2LFnhHqpLRwCZ+e0qWvxBALvdP
+	NOnWky8iVlKM5qTT8DNy6FgrmtqUiEUYwCq9O8/IVGrcDEMiyFpVb9JmCHZurzBKsg==
+X-Gm-Gg: AfdE7cmQ6JLa61f+wCmAXB7pw+v9BP1ZaY2MW4smeiOHQ98BE3ejARG+Wx3LlyFYVB7
+	avTTKV4H1U1Oncb0YjJT0MGogHgJQc5pcuizUZes8LGgymrNUCxcGDMkQ00cX5vCFk5WPZ3ss07
+	E+d3d4UwWgHcJEnPv/mZg64Q20LlkdsWkejHQtIau59Wzgn3RbKAqnLsKEvxRl0I58CL4DJbJ2i
+	0gcAr6aM0Gp0/XyRsrEfHosa7fq5E6QeP6p0ClK389lx6S8bhWpi85AqD0wak/JjMpn05Pnar2i
+	JrT5+FOcYhrRdVI4/EuGu3XcdKAoRuLBw539nz4747N2bGcB4eRmi09gsAK844S2RwuEocBsCVF
+	SJ9UTR9FQ3524HTdp71JmytyecRIkOMwwUBUdCkfd7Bh0OsSxMNIFaKAt710CKSo9bMnRrekkT4
+	MKYp0nfFFXlGgCFNUyocCYxkyUTIxd1sck8p+7mIbnrtrY5szx
+X-Received: by 2002:a05:600c:4ec6:b0:493:aed4:8d03 with SMTP id 5b1f17b1804b1-49468883469mr153335e9.9.1783937597212;
+        Mon, 13 Jul 2026 03:13:17 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ae44sm80270824f8f.23.2026.07.13.03.13.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 03:13:15 -0700 (PDT)
+Date: Mon, 13 Jul 2026 10:13:09 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 07/25] KVM: arm64: iommu: Introduce IOMMU driver
+ infrastructure
+Message-ID: <alS6NVzDahb2sCQP@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-8-smostafa@google.com>
+ <alEbHFbmr_PvY6ZB@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABa6VGoC/63Ry2rDMBAF0F8JWnfCSNbDyqr/UbqQZKlWqR9It
- kkI/vfKySYUr9JsBi4Mcy7MlWSfos/kdLiS5JeY49CXIN8OxLWm//IQm5IJQyZRoQbLIV860xt
- GgVJWZuzOMLU+deYH8jyOQ5pgHvOUvOlAAq3BYM11zRtvlSTl8ph8iOeb+vF5z3m2395NG7Vtt
- DFPQ7rcai102/tfg4UCAmKo68CZrtC+u/5oh+zaoxs6spVY2AsYdmeCYlwLz/gOUz0wFJ9jqsI
- 0VgfHNFdOiB2Gv4DhhaHBB60a6pTAHUY8MtVzjCiM1ByFq1A6+fc367r+Aq0QfPCnAgAA
-X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783937579; l=3842;
- i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=l4IzDk6AZekoK7hv30j/AYCaWvKZp5AFjNWbd7EU7QQ=;
- b=Y+1A4VSGjNwHX6GT9AxYZvWvlNdTyRd+qYBU2fUsCF+vr+9uVfMsvDu6LySP6j+opS8bp/SR2
- F3MgbGwSnTSAbtkLo9evgdZ66/4+IR9Lw4OFieYpmP1VYz127TlHc1y
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
- pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
-X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
- with auth_id=860
-X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alEbHFbmr_PvY6ZB@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_031319_982583_824FB97D 
+X-CRM114-Status: GOOD (  41.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,91 +103,237 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some i.MX boards need a small per-design correction to align the
-reported CPU temperature with board-level measurements. This series
-adds an optional DT property to specify such a calibration offset
-and implements the corresponding support in the imx_thermal driver.
+On Fri, Jul 10, 2026 at 05:17:32PM +0100, Vincent Donnefort wrote:
+> On Fri, May 01, 2026 at 11:19:09AM +0000, Mostafa Saleh wrote:
+> > To establish DMA isolation, KVM needs an IOMMU driver which provides
+> > ops implemented at EL2.
+> > 
+> > Only one driver can be used and is registered with
+> > kvm_iommu_register_driver() by passing pointer to the ops.
+> > 
+> > This must be called before module_init() which is the point KVM
+> > initializes.
+> 
+> Everywhere s/KVM/pKVM/ as this can be registered only if pKVM is enabled.
 
-Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
-property in the i.MX thermal DT binding.
+Will do.
 
-Patch 2 reads this property in the imx_thermal driver and applies
-the offset to the i.MX6/6SX/7D calibration formulas. When the
-property is absent, the default offset remains 0, preserving the
-current behaviour.
+> 
+> > 
+> > Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h       |  5 +++++
+> >  arch/arm64/kvm/Makefile                 |  2 +-
+> >  arch/arm64/kvm/hyp/include/nvhe/iommu.h | 13 +++++++++++++
+> >  arch/arm64/kvm/hyp/nvhe/Makefile        |  3 ++-
+> >  arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 20 +++++++++++++++++++
+> >  arch/arm64/kvm/hyp/nvhe/setup.c         |  5 +++++
+> >  arch/arm64/kvm/iommu.c                  | 26 +++++++++++++++++++++++++
+> >  7 files changed, 72 insertions(+), 2 deletions(-)
+> >  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> >  create mode 100644 arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> >  create mode 100644 arch/arm64/kvm/iommu.c
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 851f6171751c..52898d2a3ec6 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -1733,4 +1733,9 @@ static __always_inline enum fgt_group_id __fgt_reg_to_group_id(enum vcpu_sysreg
+> >  
+> >  long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext);
+> >  
+> > +#ifndef __KVM_NVHE_HYPERVISOR__
+> 
+> I think it's not necessary, a lot of things aren't guarded for
+> __KVM_NVHE_HYPERVISOR__.
 
-Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
----
-Changes in v6:
-- Align the author name with the Signed-off-by trailer.
-- Link to v5: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-0-69405c306c6b@cn.bosch.com
+That makes it clear that it is hypervisor code, but no strong opinion.
 
-Changes in v5:
-- Move calibration offset application out of c2 initialization, instead
-  apply it in imx_get_temp(), imx_set_alarm_temp() and imx_set_panic_temp()
-  for consistent style across i.MX6 and i.MX7D
-- Subtract calibration offset from alarm_temp before the if-else block in
-  imx_set_alarm_temp(), simplifying both SoC branches (Frank's suggestion)
-- Link to v4: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-0-1fef97d1c750@cn.bosch.com
+> 
+> > +struct kvm_iommu_ops;
+> 
+> Perhaps we can keep this private to hyp code by just using (void *) here?
 
-Changes in v4:
-- dt-bindings: drop maxItems to allow minimum/maximum constraints for
-  temp-calibration-offset-millicelsius
-- Link to v3: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-0-db9fc2947c55@cn.bosch.com
+That does not leak the struct, it is just a forward declaration, I
+beleive it is more clear and readable this way.
 
-Changes in v3:
-- dt-bindings: add minimum/maximum (-28580/+28580) for
-  temp-calibration-offset-millicelsius, as suggested by Conor Dooley
-- Link to v2: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com
+> 
+> > +int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops);
+> > +#endif
+> > +
+> >  #endif /* __ARM64_KVM_HOST_H__ */
+> > diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> > index 59612d2f277c..0ddef54f7434 100644
+> > --- a/arch/arm64/kvm/Makefile
+> > +++ b/arch/arm64/kvm/Makefile
+> > @@ -24,7 +24,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+> >  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+> >  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> >  	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
+> > -	 vgic/vgic-v5.o
+> > +	 vgic/vgic-v5.o iommu.o
+> 
+> alphabetical order.
 
-Changes in v2:
-- dt-bindings: Removed explicit `$ref: /schemas/types.yaml#/definitions/int32`
-  for fsl,temp-calibration-offset-millicelsius; the `-millicelsius` suffix
-  already resolves to int32-array via property-units.yaml (Rob).
-- dt-bindings: Fixed example indentation.
-- driver: Replaced C integer division (/) with DIV_ROUND_CLOSEST() in
-  imx_set_alarm_temp() to prevent off-by-one alarm threshold mismatch that
-  could cause IRQ storms on i.MX7D.
-- driver: Added clamp() bounds check for alarm_value [0, 0x1ff] to avoid
-  corrupting adjacent register fields (PANIC_ALARM).
-- Link to v1: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com
+That does not seem to be already sorted.
 
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Zhang Rui <rui.zhang@intel.com>
-To: Lukasz Luba <lukasz.luba@arm.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Shawn Guo <shawnguo@kernel.org>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
+> 
+> >  
+> >  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+> >  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> > new file mode 100644
+> > index 000000000000..1ac70cc28a9e
+> > --- /dev/null
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+> > @@ -0,0 +1,13 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#ifndef __ARM64_KVM_NVHE_IOMMU_H__
+> > +#define __ARM64_KVM_NVHE_IOMMU_H__
+> > +
+> > +#include <asm/kvm_host.h>
+> > +
+> > +struct kvm_iommu_ops {
+> > +	int (*init)(void);
+> > +};
+> > +
+> > +int kvm_iommu_init(void);
+> > +
+> > +#endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> > index 89d0533921f9..606c0e1b7bd0 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> > +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> > @@ -24,7 +24,8 @@ CFLAGS_switch.nvhe.o += -Wno-override-init
+> >  
+> >  hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
+> >  	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
+> > -	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+> > +	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o \
+> > +	 iommu/iommu.o
+> >  hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+> >  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o clock.o
+> >  hyp-obj-y += ../../../kernel/smccc-call.o
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> > new file mode 100644
+> > index 000000000000..406c8fb9b3b9
+> > --- /dev/null
+> > +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> > @@ -0,0 +1,20 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * IOMMU operations for pKVM
+> > + *
+> > + * Copyright (C) 2022 Linaro Ltd.
+> > + */
+> > +#include <nvhe/iommu.h>
+> > +
+> > +/* Only one set of ops supported */
+> > +struct kvm_iommu_ops *kvm_iommu_ops;
+> > +
+> > +
+> 
+> Empty line.
+> 
 
----
-Haoning CHENG (2):
-      dt-bindings: thermal: imx: Document calibration offset property
-      thermal/drivers/imx: Add calibration offset support
+Will remove it.
 
- .../devicetree/bindings/thermal/imx-thermal.yaml         |  9 +++++++++
- drivers/thermal/imx_thermal.c                            | 16 +++++++++++++---
- 2 files changed, 22 insertions(+), 3 deletions(-)
----
-base-commit: c50a940dcde35c647e097e89a9150003abd48329
-change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+> > +int kvm_iommu_init(void)
+> > +{
+> > +	/* Keep DMA isolation optional. */
+> > +	if (!kvm_iommu_ops || !kvm_iommu_ops->init)
+> > +		return 0;
+> 
+> The absence of the SME workaround on affected systems breaks pKVM init. So
+> perhaps the IOMMU should do the same? (see pkvm_check_sme_dvmsync_fw_call())
+> 
 
-Best regards,
---  
-Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+I initially done something similar, but I was not sure if that is too
+limiting as now pKVM will not run on many hardware, I think the
+best option is to make this cmdline configurable wether DMA isolation
+is required or not.
+But for this series we can keep it optional.
 
+> > +
+> > +	return kvm_iommu_ops->init();
+> > +}
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > index 8041f6e80cd1..1f6b221db9a0 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > @@ -14,6 +14,7 @@
+> >  #include <nvhe/early_alloc.h>
+> >  #include <nvhe/ffa.h>
+> >  #include <nvhe/gfp.h>
+> > +#include <nvhe/iommu.h>
+> >  #include <nvhe/memory.h>
+> >  #include <nvhe/mem_protect.h>
+> >  #include <nvhe/mm.h>
+> > @@ -329,6 +330,10 @@ void __noreturn __pkvm_init_finalise(void)
+> >  	if (ret)
+> >  		goto out;
+> >  
+> > +	ret = kvm_iommu_init();
+> > +	if (ret)
+> > +		goto out;
+> > +
+> >  	ret = hyp_ffa_init(ffa_proxy_pages);
+> >  	if (ret)
+> >  		goto out;
+> > diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
+> > new file mode 100644
+> > index 000000000000..f247384fa193
+> > --- /dev/null
+> > +++ b/arch/arm64/kvm/iommu.c
+> > @@ -0,0 +1,26 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2025 Google LLC
+> > + * Author: Mostafa Saleh <smostafa@google.com>
+> > + */
+> > +
+> > +#include <linux/kvm_host.h>
+> > +
+> > +extern struct kvm_iommu_ops *kvm_nvhe_sym(kvm_iommu_ops);
+> > +
+> > +static DEFINE_MUTEX(kvm_iommu_reg_lock);
+> 
+> could be moved directly into the only user: kvm_iommu_register_driver
+
+No strong opinion, it seemed it can be easily re-used this way.
+
+> 
+> > +
+> > +int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
+> 
+> __init ?
+
+Will do.
+
+> 
+> > +{
+> > +	guard(mutex)(&kvm_iommu_reg_lock);
+> > +
+> > +	/* Only protected KVM before de-privilege. */
+> 
+> Don't think that comment brings much information, looking at the line below.
+
+I will remove it.
+
+> 
+> > +	if (!is_protected_kvm_enabled() || is_kvm_arm_initialised())
+> > +		return -EINVAL;
+> 
+> -EPERM?
+
+I can see it both ways, my thought that it is invalid to register a
+driver after a certain point, but -EPERM makes sense also.
+
+Thanks,
+Mostafa
 
 
