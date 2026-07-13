@@ -4,133 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B107C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7E5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=; b=TrPUkQwi1knIMoRHFanoJwa+Lm
-	eSg1uyybU5WH2ikf+2dYliZDZNHoo/+LXXsTgClcQHxWmOwXMQ5HO3S/HP8gYBWvMjkakV7nkSs9G
-	Njoi43oM8lRgvZ3QFf0qYG2rja3viC66YCMJ7Mv88sCZv9fyYG9E4VRu48Qo2YObi0f0zn6KeW2Z9
-	tWTZuALUzNGsgqSFpLDxu0ZyGpvJhHwGlRlBgy1tVXjUh+FEydYpwCEH8mpzJzePQNItWl0G5Fx31
-	Bvi7PTRoPFS/10Pm8MwpX+OABt/c3+lxiI1dopIgGZq99YKoXz0f/ZtHNAknJzt7BEuh6FUQKagTI
-	OLMw0Y4A==;
+	bh=iUO4CyTMUA+Wv+iOs/LZ2qW8HsMUIwwGrrGRCNPX8/I=; b=JRBDnUoYUFqJyFG+E4s4OMcBn0
+	KXaN0D4l2ton/TwC6vJ91rgKL5SB3WoX7f9RKEPROHP55M4Fs4A+gctbk3MB5X0JCLct9qMhvV6gK
+	OTgJk+fkmIpX1SK2uOFglRFp8ubX0tzkeNU43qL18J3BKTQDW1xOPUeZyGM7WPsLF/JkeWd2VFvVd
+	Vr5gLgZH/KOS+YVOPXb0M2DLNGAMaQ8SvK/V2pTm7M+oCNFEhavgLfm4JuEmNpU1RbbLxcZgYSUBe
+	6zzAuM9Xb3SMC0IQpUJnCVzUdLbSga5Uwg4T88TvpDsMWbQtOebkqx4ALZvPopQWMlTZ772hIQZhG
+	M/uS3Rig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ9m-00000009u47-2XvG;
-	Mon, 13 Jul 2026 16:05:22 +0000
-Received: from mail-northeuropeazon11011069.outbound.protection.outlook.com ([52.101.65.69] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wjJ2T-00000009roZ-3nQV;
+	Mon, 13 Jul 2026 15:57:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ9k-00000009u2N-2X4s
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:05:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cN8tpnmt5NymBujDCdpqkLp14gsx/1RwfaMhcc8hRCdVfLV8y2BCGX2PhFw303pZq4h1t7ERAY+dr7MXHfYC1oieuCkX/WEG8I8U7AL5sZKPptR31PDH9uo2SzQsKWRiL5diMgJfMMFTD8xIbKHXtVCf4M8NKufKqJH8x3AgxEG13qSMHUhBdUtzYjAoR+I9Qa+1K+2HILQ/+lkoxAfczepnBO4QrZxJ4Y5JuDHq6O7IVYshlpM15aH8gj8C/RJ0wJMYPo0r6iAEeEYcDmod1rtHrxMIALewBlEcdZidlid9DbALySNRgjqV9PICDZbAsA6BGEjYtL196r21nrm+CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=;
- b=b5RlK2MBe8KNKj9YdL+uUF6zfbsjLDjQnH+HenJlnZsjwvj7yevWVouV/1ZqQbUWmjOt3xAV8UevSBI4KY/2NZJ1iNKnSZfkGZ4gfJT2OMvxh1aVRc7/ZRJ+C70HhuPuYKE1zCwBJH+4ARUtarEObYXURJRN6Fd8SvymEsF8FZzX2gbU1uxxoGmayY30pSXPVUDLTqIJqHgM4P/zJimo5jVUi7rDOgGWYHcE1PZkyt9e3oxRNlcL+Ge9uY/T+F2wzEHuz6QZ2KeThDMIHNVWcrkHOP5ekUxwGCBViNy6ZB/r+1/7//YPTuqRg6js66/HVpgSZofyaDl+S63gW512/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=;
- b=k+3+VeEG2tSwxXADC6NP28nwMv1Im0PBCsDou+KxpgnHkCPdkov2WIQVqNhO3msq9huJ1lKg6k0GqqPg7ZM1XwdOg17SjFPRW/b1io/FPSPhH9w8E+uFyScVBAfd3YvbH63CYPRMJwzONOOrlpNbPWUhlaPAuqObs/dDAUD1bIBCeRWttb98MtBob1w1ZUHsm/wRh3tKhj6WYVWrphxUrNldMecgAefFFNO+3WEdsm68jMJ9ACZg1ySCkahyfOGkw+UUtY5yTInDfVPIUWmu3+8qcdc5I5KzuoACACBQ5V0p9AAWK9mRJrQxK625P6vzJGcKIF46OqLJTv/OPCgyag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB11388.eurprd04.prod.outlook.com (2603:10a6:10:5ee::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 13 Jul
- 2026 16:05:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
- 16:05:15 +0000
-Date: Mon, 13 Jul 2026 11:05:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 04/15] arm64: dts: freescale: imx8mn-var-som: Update
- FEC support with MaxLinear PHY
-Message-ID: <alUMscf-psfP6v8U@SMW015318>
-References: <cover.1783330236.git.stefano.r@variscite.com>
- <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
-X-ClientProxiedBy: SN7PR18CA0004.namprd18.prod.outlook.com
- (2603:10b6:806:f3::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wjJ2E-00000009rcc-1gvj;
+	Mon, 13 Jul 2026 15:57:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=iUO4CyTMUA+Wv+iOs/LZ2qW8HsMUIwwGrrGRCNPX8/I=; b=kX4N0jd/LZMw+dP56z0jAxjsy8
+	Vtp/s6DO95pxr5PLLLUoxo+GZO1h4kl4K09Y5pGC/jg0wAi51RHxdDJiLwMAaqWaexDUOUlxmUsMc
+	ms39GRhfXBSo+7M9a5DOXKH7vSjBVvn49tXPonentQf1G0BGSY9gLrF/n+r7PGE+035tfevovtz8H
+	IUkUnRFK5KiXlofzk4egAGhIt91x9XhErBxtp4455ht8XLyTCA4VssJP6BuEnsPGFSjJSzEjUjvi4
+	pld7zMxEZf0imdaMn3ERLad/8/t1PoFd6hxzwEdMFYC+9OmdCzo2GzKpWOzQ95aM7mOjWCXtMbE9d
+	E0cj4jCg==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjJ29-0000000BoAS-3pyU;
+	Mon, 13 Jul 2026 15:57:33 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuUGa91489867, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1783958190; bh=iUO4CyTMUA+Wv+iOs/LZ2qW8HsMUIwwGrrGRCNPX8/I=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=AgvpDPSEwUMM2QKRN6XUqg+goBHPl01dPprPm8qov1j8zVvqbvp4CumiqJzj1cFmJ
+	 YazZ2FBUbH5DhqD+TIBZCDNhb7S6mYsmoTBdnC8A6ddXbOaEsW4kXIXZe702yQfXoq
+	 ZPrAOu9RvHNgZ8IqKyGpG+1qY6z/OFKZR8wzc+errZvNhxsTvCYqsPZf66Za9q4SfO
+	 2IWufQ7HB5DniGvh7eGO/oLONXHVEIqiKYSZLWmzzilUS4CK3n+4yph0Z/FWLHo39d
+	 4QocK9y9Tb22diYI3b9GavRMjrRX+kcXayXdAAyD9jsCLEBdqQes4gW9Y3JHCtB2s8
+	 vF7/eWtvLx+NA==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuUGa91489867
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 13 Jul 2026 23:56:30 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:30 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 13 Jul 2026 23:56:30 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Mon, 13 Jul 2026 23:56:30 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
+	<bmasney@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v10 01/11] dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+Date: Mon, 13 Jul 2026 23:56:20 +0800
+Message-ID: <20260713155630.3054636-2-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB11388:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2739b9aa-489c-4c53-8b49-08dee0f886f3
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|19092799006|23010399003|18002099003|22082099003|4143699003|56012099006|6133799003|11063799006;
-X-Microsoft-Antispam-Message-Info: tQYIiwTp8RAD4LrttIXIRCqScsL/Y50hvBpWRm65fgi9a8Uf23fgtwRqGsFYemqhACZFzjBV0KCfbVFUuayH3Y+llvm7t8+VGg+iH5YIs2EVd4gpErndo9l3UEtJ0x409LTk3I6FwfEelSJ7MIas7XyGjXHs7Wsnt8Y47hg9KrO7EtZAcO2V4Kp1rwI2se2hV5zBEW4MqNkpwoj/U+vTd/0UM29mjAc+DrKxlQy0RLqrARvSNPSjArYPIAX4yZfCEMnV9YNG9AbZPuy6AxnVJY/WqWz13/lu7BSFNKtas55TIuBGIr3EyQROhGU84jLKyQQIOqKp4TuaLLj/fsTGcjOUN3s/sNRaKctgwxntFEf/DKGjPnCVAZDfQ7tmy4yymsVtBwqoiNYnlhNktWIBGY3qP7AkgJc1jjhgqMhh0PtocnLu/Q0+nox+Xg4ZRiwnFSomfhQUdrRR5WRU5g510/5A96QY1zMasN3HuE0kRG3lGj9OpNXpJKTwdrUpboZQss0hz6EUjTgGGF4G9RlkbSOuB9QXrZicAkatB1N2Mm1NykztO+iDTjhTmr+r1d8Bc3HyJ6RbViRxFMlv5e7WExtZcSzkF2xsLpeBO6Ep4eHDyYG912yqpGwurRGptPnf2TIC0JcRN8G395VYw7lf81ziaLGlCCeK4Yz+8xRzQVY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(6133799003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xQYEzzajbZ6eKU38bziGpfpF7lhNmeGq7vio6oZ1D54fixGf7E5vDvXhiHcb?=
- =?us-ascii?Q?eNS/kOOb7eF/bN4C8MmhokdnUTJzH4ype12cvh7HS/lJHTpf2Kwj4Au3IIfL?=
- =?us-ascii?Q?519A45/YaTIswH9b5PWje2toRSqwz8bVqT2cykjr5GM5w9+6Zmrqug+RWfIM?=
- =?us-ascii?Q?oZLQ43YmILlKPs9+FXQ6muij5P9InQ+1g4Rj2C0fI5bf+6ebjK/V0UKlL5nJ?=
- =?us-ascii?Q?chPPKUUqvcP0WCUAyem6stqsjxC7oYbfVlbHws/KQ2Ux+mpoAjwAXBP7uYk8?=
- =?us-ascii?Q?sisoak1Hze9pPFHVnkrYScTxMRl9nJMAlREAD+gBfO+TthxAjk75Fb6hZmt3?=
- =?us-ascii?Q?wbNRtZo7AfEB5GvhiyaSw4y6aZSa2PGkhJNgMkcqNhEC0sgX9yT6XKjReYMn?=
- =?us-ascii?Q?elR1+LNOY3FEjSzJkO8sHG3NaCOlu8m4VvwAK96E/mJIQmAQ/E9vy/EE5wrS?=
- =?us-ascii?Q?hnHQNW/zCJcOTYrP70OiiWC4N1ZITbDObOEiH9hxlU37Abn4hFMj8Jw9codf?=
- =?us-ascii?Q?09Q4BByEFcF0bCc0ybv3sQcNtDwAiixeJ75dVVqlLaBaD0ttfY8GFFY6KAN2?=
- =?us-ascii?Q?xxsjGYuKt6NS98CfN9rIZBd0BabpXYOxdB88BPnOndeXO+CLT+Nftfg47BWO?=
- =?us-ascii?Q?PRnzXJDPr1YMF1m2wGFv8GD3odSpI3G4ZJlTtiCg4YV7efATqp14iLwXXxc2?=
- =?us-ascii?Q?lZGF7Q+LPLV55hjtjJFYauWTp12c49JqKzhTnEYs62XTyAmGbxNUY94R2WcA?=
- =?us-ascii?Q?1EZm9daFvwd61myCfq4nCxGnObYK0vtCn8UmPoFmSK5CL+f5SLj9DSPVBhtc?=
- =?us-ascii?Q?gEeNm6R4dSS7h4a4f1kaThIKPB3bj7yZRaUYKql32c8hdkIrA0ZJcmVhQBFg?=
- =?us-ascii?Q?EkjobYhGX4Dkuepss01cJ9TtAFsVLDHeBsljlhAUKBNNIcmrcthQBbRt/JZx?=
- =?us-ascii?Q?GHHlLl8oCzIgpedPGuiCDWjbbq+po8D0pemPJkVbqUIQ8vNr9uHm0aU3RG77?=
- =?us-ascii?Q?FIfvGe9Vzk7wgDTXgisIUA52ONmqtbj92H/6nARtArN9DZv1Du/K2Osj7cxF?=
- =?us-ascii?Q?knRSL2vSS8kdbkp5T4cEt3CmAof2kURHr7EK9Cgn92aM13vaUQZ6rlw3qzI7?=
- =?us-ascii?Q?wdQFHVmIWqoolLbxIj7YbiNdw+MCuI4OgWLsMJAWeSXtOc5l4QO5xCtlXioE?=
- =?us-ascii?Q?cKX9moyIcAcXK9xlVrDm537OdMsS1U/qCpu8ijbGK/ZlkPqePcVcP2I3Isx8?=
- =?us-ascii?Q?BnZAJnPhQLTfPd3tg7iit/VBO95YqyqNb55ewcNQH6J4XAhEU/E0EzYrnc02?=
- =?us-ascii?Q?qNybYiEusqUhZ2PFHidr9Vb06LxHsnyCtdeedt1x7dq7nYesvxXLl0ROFJ36?=
- =?us-ascii?Q?0c6Oa4J/DFIDCH4vIbM0IBVyWmIO+rOMs9+ZCHOtJ7i00gWYElX239SvPr56?=
- =?us-ascii?Q?ocL4xwpCV9GrZvYPZCXKd3cbbdyi6uBtpODVuk+jcAHTUlxW8j4m1tBqRpSU?=
- =?us-ascii?Q?SkiH9Gs3g431xtJacWgxZ4GBXLIv3pHyXQTdZFw4Ia9rDff9Bjknqppyl4j8?=
- =?us-ascii?Q?l+oNnEs96e+Hsk3SesCSuId8nBSKJlmJrYTvc+rsk6ErnIw/Z5ItnyqxlG8+?=
- =?us-ascii?Q?7D9NnrLz+gzY9UFJDG8nibhHF0QqqUu7RAyInYprhTFyl3BMkJ7NX4hMVbnq?=
- =?us-ascii?Q?0mwI9n5B1hajRJB9O2SCO1GVt16lpbRMZ/1fzl6mhJXWoTy8e+t0TEKngOLI?=
- =?us-ascii?Q?r/Z+3NjkEg9ZBAfJbJEgo6opBR0N5UULT7I9f9EDm0+BgGiTOx3/?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2739b9aa-489c-4c53-8b49-08dee0f886f3
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 16:05:15.7648
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V4DfDuG2Oir7K3YI292FrEZhWMRGpVViZYsHbJZ8JuwADuH62XBAA1vPTsQzp2vuDHAWlOPIyK51fBwlPbW0BXqtBhoOS2D5M/9v4/WBFVur25WFoH+zWAZ12yAA5Ik+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11388
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_090520_654204_A0C6534F 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20260713_165730_602368_C8618A0A 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,134 +103,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 11:34:34AM +0200, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> Update the FEC Ethernet controller on the i.MX8MN VAR-SOM to match the
-> latest SOM hardware revision using the integrated MaxLinear MXL86110 PHY.
->
-> Add the PHY VDDIO supply regulator and adjust reset timings.
->
-> The PHY LED signals originate on the SOM, but the actual LEDs are part
-> of the carrier implementation (RJ45 connector). Move the LED
-> configuration to the Symphony carrier device tree, matching the
-> evaluation board LED wiring.
->
-> Wake-on-LAN via magic packet is not supported at the VAR-SOM level and
-> is therefore not enabled in the SOM device tree nor in the official
-> evaluation carrier board configuration (symphony).
-> Designs requiring WoL support may enable it in their own carrier-specific
-> device trees if properly integrated at the hardware level.
->
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
-> v1->v2:
->  - Fixed commit message
->
->  .../dts/freescale/imx8mn-var-som-symphony.dts | 20 ++++++++++++++++++-
->  .../boot/dts/freescale/imx8mn-var-som.dtsi    | 20 ++++++++++---------
->  2 files changed, 30 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-> index 7308613a48b2..520aff23e587 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-> @@ -8,6 +8,7 @@
->
->  /dts-v1/;
->
-> +#include <dt-bindings/leds/common.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "imx8mn-var-som.dtsi"
->
-> @@ -74,7 +75,24 @@ reg_per_3v3: regulator-peripheral-3v3 {
->  };
->
->  &ethphy {
-> -	reset-gpios = <&pca9534 5 GPIO_ACTIVE_HIGH>;
+Add DT binding schema for Realtek RTD1625 clock and reset controller
 
-why remove this reset-gpios?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Co-developed-by: Cheng-Yu Lee <cylee12@realtek.com>
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v10:
+- None
+---
+ .../bindings/clock/realtek,rtd1625-clk.yaml   |  58 ++++++
+ MAINTAINERS                                   |  10 +
+ .../dt-bindings/clock/realtek,rtd1625-clk.h   | 164 +++++++++++++++++
+ include/dt-bindings/reset/realtek,rtd1625.h   | 171 ++++++++++++++++++
+ 4 files changed, 403 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+ create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
+ create mode 100644 include/dt-bindings/reset/realtek,rtd1625.h
 
-Frank
+diff --git a/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+new file mode 100644
+index 000000000000..1aceef31e148
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/realtek,rtd1625-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Realtek RTD1625 Clock & Reset Controller
++
++maintainers:
++  - Cheng-Yu Lee <cylee12@realtek.com>
++  - Yu-Chun Lin <eleanor.lin@realtek.com>
++
++description: |
++  The Realtek RTD1625 Clock Controller manages and distributes clock
++  signals to various controllers and implements a Reset Controller for the
++  SoC peripherals.
++
++  Clocks and resets are referenced by unique identifiers, which are defined as
++  preprocessor macros in include/dt-bindings/clock/realtek,rtd1625-clk.h and
++  include/dt-bindings/reset/realtek,rtd1625.h.
++
++properties:
++  compatible:
++    enum:
++      - realtek,rtd1625-crt-clk
++      - realtek,rtd1625-iso-clk
++      - realtek,rtd1625-iso-s-clk
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@98000000 {
++      compatible = "realtek,rtd1625-crt-clk";
++      reg = <0x98000000 0x1000>;
++      clocks = <&osc27m>;
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 15011f5752a9..03fc281e1aa3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22735,6 +22735,16 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/dsa/realtek.yaml
+ F:	drivers/net/dsa/realtek/*
+ 
++REALTEK SOC CLOCK AND RESET DRIVERS
++M:	Cheng-Yu Lee <cylee12@realtek.com>
++M:	Yu-Chun Lin <eleanor.lin@realtek.com>
++L:	devicetree@vger.kernel.org
++L:	linux-clk@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/clock/realtek*
++F:	include/dt-bindings/clock/realtek*
++F:	include/dt-bindings/reset/realtek*
++
+ REALTEK SPI-NAND
+ M:	Chris Packham <chris.packham@alliedtelesis.co.nz>
+ S:	Maintained
+diff --git a/include/dt-bindings/clock/realtek,rtd1625-clk.h b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+new file mode 100644
+index 000000000000..61ca652d6880
+--- /dev/null
++++ b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+@@ -0,0 +1,164 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2025 Realtek Semiconductor Corp.
++ */
++#ifndef __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++#define __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++
++#define RTD1625_CRT_CLK_EN_MISC           0
++#define RTD1625_CRT_CLK_EN_PCIE0          1
++#define RTD1625_CRT_CLK_EN_DIP            2
++#define RTD1625_CRT_CLK_EN_GSPI           3
++#define RTD1625_CRT_CLK_EN_ISO_MISC       5
++#define RTD1625_CRT_CLK_EN_SDS            6
++#define RTD1625_CRT_CLK_EN_HDMI           7
++#define RTD1625_CRT_CLK_EN_GPU            9
++#define RTD1625_CRT_CLK_EN_VE1            10
++#define RTD1625_CRT_CLK_EN_VE2            11
++#define RTD1625_CRT_CLK_EN_MD             18
++#define RTD1625_CRT_CLK_EN_TP             19
++#define RTD1625_CRT_CLK_EN_RCIC           20
++#define RTD1625_CRT_CLK_EN_NF             21
++#define RTD1625_CRT_CLK_EN_EMMC           22
++#define RTD1625_CRT_CLK_EN_SD             23
++#define RTD1625_CRT_CLK_EN_SDIO_IP        24
++#define RTD1625_CRT_CLK_EN_MIPI_CSI       25
++#define RTD1625_CRT_CLK_EN_EMMC_IP        26
++#define RTD1625_CRT_CLK_EN_SDIO           27
++#define RTD1625_CRT_CLK_EN_SD_IP          28
++#define RTD1625_CRT_CLK_EN_TPB            30
++#define RTD1625_CRT_CLK_EN_MISC_SC1       31
++#define RTD1625_CRT_CLK_EN_MISC_I2C_3     32
++#define RTD1625_CRT_CLK_EN_ACPU           33
++#define RTD1625_CRT_CLK_EN_JPEG           34
++#define RTD1625_CRT_CLK_EN_MISC_SC0       37
++#define RTD1625_CRT_CLK_EN_HDMIRX         45
++#define RTD1625_CRT_CLK_EN_HSE            46
++#define RTD1625_CRT_CLK_EN_FAN            49
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYS  52
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYSH 53
++#define RTD1625_CRT_CLK_EN_SATA_MAC_SYSH  54
++#define RTD1625_CRT_CLK_EN_R2RDSC         55
++#define RTD1625_CRT_CLK_EN_TPC            56
++#define RTD1625_CRT_CLK_EN_PCIE1          57
++#define RTD1625_CRT_CLK_EN_MISC_I2C_4     58
++#define RTD1625_CRT_CLK_EN_MISC_I2C_5     59
++#define RTD1625_CRT_CLK_EN_TSIO           60
++#define RTD1625_CRT_CLK_EN_VE4            61
++#define RTD1625_CRT_CLK_EN_EDP            62
++#define RTD1625_CRT_CLK_EN_TSIO_TRX       63
++#define RTD1625_CRT_CLK_EN_PCIE2          64
++#define RTD1625_CRT_CLK_EN_EARC           66
++#define RTD1625_CRT_CLK_EN_LITE           67
++#define RTD1625_CRT_CLK_EN_MIPI_DSI       68
++#define RTD1625_CRT_CLK_EN_NPUPP          69
++#define RTD1625_CRT_CLK_EN_NPU            70
++#define RTD1625_CRT_CLK_EN_AUCPU0         71
++#define RTD1625_CRT_CLK_EN_AUCPU1         72
++#define RTD1625_CRT_CLK_EN_NSRAM          73
++#define RTD1625_CRT_CLK_EN_HDMITOP        74
++#define RTD1625_CRT_CLK_EN_AUCPU_ISO_NPU  76
++#define RTD1625_CRT_CLK_EN_KEYLADDER      77
++#define RTD1625_CRT_CLK_EN_IFCP_KLM       78
++#define RTD1625_CRT_CLK_EN_IFCP           79
++#define RTD1625_CRT_CLK_EN_MDL_GENPW      80
++#define RTD1625_CRT_CLK_EN_MDL_CHIP       81
++#define RTD1625_CRT_CLK_EN_MDL_IP         82
++#define RTD1625_CRT_CLK_EN_MDLM2M         83
++#define RTD1625_CRT_CLK_EN_MDL_XTAL       84
++#define RTD1625_CRT_CLK_EN_TEST_MUX       85
++#define RTD1625_CRT_CLK_EN_DLA            86
++#define RTD1625_CRT_CLK_EN_TPCW           88
++#define RTD1625_CRT_CLK_EN_GPU_TS_SRC     89
++#define RTD1625_CRT_CLK_EN_VI             91
++#define RTD1625_CRT_CLK_EN_LVDS1          92
++#define RTD1625_CRT_CLK_EN_LVDS2          93
++#define RTD1625_CRT_CLK_EN_AUCPU          94
++#define RTD1625_CRT_CLK_EN_UR1            96
++#define RTD1625_CRT_CLK_EN_UR2            97
++#define RTD1625_CRT_CLK_EN_UR3            98
++#define RTD1625_CRT_CLK_EN_UR4            99
++#define RTD1625_CRT_CLK_EN_UR5            100
++#define RTD1625_CRT_CLK_EN_UR6            101
++#define RTD1625_CRT_CLK_EN_UR7            102
++#define RTD1625_CRT_CLK_EN_UR8            103
++#define RTD1625_CRT_CLK_EN_UR9            104
++#define RTD1625_CRT_CLK_EN_UR_TOP         105
++#define RTD1625_CRT_CLK_EN_MISC_I2C_7     110
++#define RTD1625_CRT_CLK_EN_MISC_I2C_6     111
++#define RTD1625_CRT_CLK_EN_SPI0           112
++#define RTD1625_CRT_CLK_EN_SPI1           113
++#define RTD1625_CRT_CLK_EN_SPI2           114
++#define RTD1625_CRT_CLK_EN_LSADC0         120
++#define RTD1625_CRT_CLK_EN_LSADC1         121
++#define RTD1625_CRT_CLK_EN_ISOMIS_DMA     122
++#define RTD1625_CRT_CLK_EN_DPTX           124
++#define RTD1625_CRT_CLK_EN_NPU_MIPI_CSI   125
++#define RTD1625_CRT_CLK_EN_EDPTX          126
++#define RTD1625_CRT_CLK_HIFI              128
++#define RTD1625_CRT_CLK_NPU_MIPI_CSI      129
++#define RTD1625_CRT_CLK_NPU               130
++#define RTD1625_CRT_CLK_NPU_SYSH          132
++#define RTD1625_CRT_CLK_HIFI_SCPU         133
++#define RTD1625_CRT_CLK_GPU               134
++#define RTD1625_CRT_CLK_GPU2D             135
++#define RTD1625_CRT_CLK_MIPI_DSI_PCLK     136
++#define RTD1625_CRT_CLK_VE1               137
++#define RTD1625_CRT_CLK_VE2               138
++#define RTD1625_CRT_CLK_VE4               139
++#define RTD1625_CRT_CLK_SYS               141
++#define RTD1625_CRT_CLK_SYSH              142
++#define RTD1625_CRT_PLL_SDIO_REF          145
++#define RTD1625_CRT_PLL_CR_REF            146
++#define RTD1625_CRT_PLL_EMMC_REF          147
++#define RTD1625_CRT_CLK_MIS_SC0           148
++#define RTD1625_CRT_CLK_MIS_SC1           149
++#define RTD1625_CRT_PLL_SCPU              150
++#define RTD1625_CRT_PLL_VE1               151
++#define RTD1625_CRT_PLL_DDSA              152
++#define RTD1625_CRT_PLL_PSAUDA1           153
++#define RTD1625_CRT_PLL_PSAUDA2           154
++#define RTD1625_CRT_PLL_BUS               155
++#define RTD1625_CRT_PLL_SDIO              156
++#define RTD1625_CRT_PLL_SDIO_VP0          157
++#define RTD1625_CRT_PLL_SDIO_VP1          158
++#define RTD1625_CRT_PLL_DCSB              159
++#define RTD1625_CRT_PLL_GPU               160
++#define RTD1625_CRT_PLL_NPU               161
++#define RTD1625_CRT_PLL_VE2               162
++#define RTD1625_CRT_PLL_HIFI              163
++#define RTD1625_CRT_PLL_SD                164
++#define RTD1625_CRT_PLL_SD_VP0            165
++#define RTD1625_CRT_PLL_SD_VP1            166
++#define RTD1625_CRT_PLL_EMMC              167
++#define RTD1625_CRT_PLL_EMMC_VP0          168
++#define RTD1625_CRT_PLL_EMMC_VP1          169
++#define RTD1625_CRT_PLL_ACPU              170
++#define RTD1625_CRT_CLK_DET               171
++
++#define RTD1625_ISO_CLK_EN_USB_P4         0
++#define RTD1625_ISO_CLK_EN_USB_P3         1
++#define RTD1625_ISO_CLK_EN_MISC_CEC0      2
++#define RTD1625_ISO_CLK_EN_CBUSRX_SYS     3
++#define RTD1625_ISO_CLK_EN_CBUSTX_SYS     4
++#define RTD1625_ISO_CLK_EN_CBUS_SYS       5
++#define RTD1625_ISO_CLK_EN_CBUS_OSC       6
++#define RTD1625_ISO_CLK_EN_MISC_UR0       8
++#define RTD1625_ISO_CLK_EN_I2C0           9
++#define RTD1625_ISO_CLK_EN_I2C1           10
++#define RTD1625_ISO_CLK_EN_ETN_250M       11
++#define RTD1625_ISO_CLK_EN_ETN_SYS        12
++#define RTD1625_ISO_CLK_EN_USB_DRD        13
++#define RTD1625_ISO_CLK_EN_USB_HOST       14
++#define RTD1625_ISO_CLK_EN_USB_U3_HOST    15
++#define RTD1625_ISO_CLK_EN_USB            16
++#define RTD1625_ISO_CLK_EN_VTC            17
++#define RTD1625_ISO_CLK_EN_MISC_VFD       18
++
++#define RTD1625_ISO_S_CLK_EN_ISOM_MIS     0
++#define RTD1625_ISO_S_CLK_EN_ISOM_GPIOM   1
++#define RTD1625_ISO_S_CLK_EN_TIMER7       2
++#define RTD1625_ISO_S_CLK_EN_IRDA         3
++#define RTD1625_ISO_S_CLK_EN_UR10         4
++
++#endif /* __DT_BINDINGS_RTK_CLOCK_RTD1625_H */
+diff --git a/include/dt-bindings/reset/realtek,rtd1625.h b/include/dt-bindings/reset/realtek,rtd1625.h
+new file mode 100644
+index 000000000000..31e7fa66ef31
+--- /dev/null
++++ b/include/dt-bindings/reset/realtek,rtd1625.h
+@@ -0,0 +1,171 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C)		2025 Realtek Semiconductor Corp.
++ */
++
++#ifndef __DT_BINDINGS_RTK_RESET_RTD1625_H
++#define __DT_BINDINGS_RTK_RESET_RTD1625_H
++
++#define RTD1625_CRT_RSTN_MISC			0
++#define RTD1625_CRT_RSTN_DIP			1
++#define RTD1625_CRT_RSTN_GSPI			2
++#define RTD1625_CRT_RSTN_SDS			3
++#define RTD1625_CRT_RSTN_SDS_REG		4
++#define RTD1625_CRT_RSTN_SDS_PHY		5
++#define RTD1625_CRT_RSTN_GPU2D			6
++#define RTD1625_CRT_RSTN_DC_PHY			7
++#define RTD1625_CRT_RSTN_DCPHY_CRT		8
++#define RTD1625_CRT_RSTN_LSADC			9
++#define RTD1625_CRT_RSTN_SE			10
++#define RTD1625_CRT_RSTN_DLA			11
++#define RTD1625_CRT_RSTN_JPEG			12
++#define RTD1625_CRT_RSTN_SD			13
++#define RTD1625_CRT_RSTN_SDIO			14
++#define RTD1625_CRT_RSTN_PCR_CNT		15
++#define RTD1625_CRT_RSTN_PCIE0_STITCH		16
++#define RTD1625_CRT_RSTN_PCIE0_PHY		17
++#define RTD1625_CRT_RSTN_PCIE0			18
++#define RTD1625_CRT_RSTN_PCIE0_CORE		19
++#define RTD1625_CRT_RSTN_PCIE0_POWER		20
++#define RTD1625_CRT_RSTN_PCIE0_NONSTICH		21
++#define RTD1625_CRT_RSTN_PCIE0_PHY_MDIO		22
++#define RTD1625_CRT_RSTN_PCIE0_SGMII_MDIO	23
++#define RTD1625_CRT_RSTN_VO2			24
++#define RTD1625_CRT_RSTN_MISC_SC0		25
++#define RTD1625_CRT_RSTN_MD			26
++#define RTD1625_CRT_RSTN_LVDS1			27
++#define RTD1625_CRT_RSTN_LVDS2			28
++#define RTD1625_CRT_RSTN_MISC_SC1		29
++#define RTD1625_CRT_RSTN_I2C_3			30
++#define RTD1625_CRT_RSTN_FAN			31
++#define RTD1625_CRT_RSTN_TVE			32
++#define RTD1625_CRT_RSTN_AIO			33
++#define RTD1625_CRT_RSTN_VO			34
++#define RTD1625_CRT_RSTN_MIPI_CSI		35
++#define RTD1625_CRT_RSTN_HDMIRX			36
++#define RTD1625_CRT_RSTN_HDMIRX_WRAP		37
++#define RTD1625_CRT_RSTN_HDMI			38
++#define RTD1625_CRT_RSTN_DISP			39
++#define RTD1625_CRT_RSTN_SATA_PHY_POW1		40
++#define RTD1625_CRT_RSTN_SATA_PHY_POW0		41
++#define RTD1625_CRT_RSTN_SATA_MDIO1		42
++#define RTD1625_CRT_RSTN_SATA_MDIO0		43
++#define RTD1625_CRT_RSTN_SATA_WRAP		44
++#define RTD1625_CRT_RSTN_SATA_MAC_P1		45
++#define RTD1625_CRT_RSTN_SATA_MAC_P0		46
++#define RTD1625_CRT_RSTN_SATA_MAC_COM		47
++#define RTD1625_CRT_RSTN_PCIE1_STITCH		48
++#define RTD1625_CRT_RSTN_PCIE1_PHY		49
++#define RTD1625_CRT_RSTN_PCIE1			50
++#define RTD1625_CRT_RSTN_PCIE1_CORE		51
++#define RTD1625_CRT_RSTN_PCIE1_POWER		52
++#define RTD1625_CRT_RSTN_PCIE1_NONSTICH		53
++#define RTD1625_CRT_RSTN_PCIE1_PHY_MDIO		54
++#define RTD1625_CRT_RSTN_HDMITOP		55
++#define RTD1625_CRT_RSTN_I2C_4			56
++#define RTD1625_CRT_RSTN_I2C_5			57
++#define RTD1625_CRT_RSTN_TSIO			58
++#define RTD1625_CRT_RSTN_VI			59
++#define RTD1625_CRT_RSTN_EDP			60
++#define RTD1625_CRT_RSTN_VE1_MMU		61
++#define RTD1625_CRT_RSTN_VE1_MMU_FUNC		62
++#define RTD1625_CRT_RSTN_HSE_MMU		63
++#define RTD1625_CRT_RSTN_HSE_MMU_FUNC		64
++#define RTD1625_CRT_RSTN_MDLM2M			65
++#define RTD1625_CRT_RSTN_ISO_GSPI		66
++#define RTD1625_CRT_RSTN_SOFT_NPU		67
++#define RTD1625_CRT_RSTN_SPI2EMMC		68
++#define RTD1625_CRT_RSTN_EARC			69
++#define RTD1625_CRT_RSTN_VE1			70
++#define RTD1625_CRT_RSTN_PCIE2_STITCH		71
++#define RTD1625_CRT_RSTN_PCIE2_PHY		72
++#define RTD1625_CRT_RSTN_PCIE2			73
++#define RTD1625_CRT_RSTN_PCIE2_CORE		74
++#define RTD1625_CRT_RSTN_PCIE2_POWER		75
++#define RTD1625_CRT_RSTN_PCIE2_NONSTICH		76
++#define RTD1625_CRT_RSTN_PCIE2_PHY_MDIO		77
++#define RTD1625_CRT_RSTN_DCPHY_UMCTL2		78
++#define RTD1625_CRT_RSTN_MIPI_DSI		79
++#define RTD1625_CRT_RSTN_HIFM			80
++#define RTD1625_CRT_RSTN_NSRAM			81
++#define RTD1625_CRT_RSTN_AUCPU0_REG		82
++#define RTD1625_CRT_RSTN_MDL_GENPW		83
++#define RTD1625_CRT_RSTN_MDL_CHIP		84
++#define RTD1625_CRT_RSTN_MDL_IP			85
++#define RTD1625_CRT_RSTN_TEST_MUX		86
++#define RTD1625_CRT_RSTN_ISO_BIST		87
++#define RTD1625_CRT_RSTN_MAIN_BIST		88
++#define RTD1625_CRT_RSTN_MAIN2_BIST		89
++#define RTD1625_CRT_RSTN_VE1_BIST		90
++#define RTD1625_CRT_RSTN_VE2_BIST		91
++#define RTD1625_CRT_RSTN_DCPHY_BIST		92
++#define RTD1625_CRT_RSTN_GPU_BIST		93
++#define RTD1625_CRT_RSTN_DISP_BIST		94
++#define RTD1625_CRT_RSTN_NPU_BIST		95
++#define RTD1625_CRT_RSTN_CAS_BIST		96
++#define RTD1625_CRT_RSTN_VE4_BIST		97
++#define RTD1625_CRT_RSTN_EMMC			98
++#define RTD1625_CRT_RSTN_GPU			99
++#define RTD1625_CRT_RSTN_VE2			100
++#define RTD1625_CRT_RSTN_UR1			101
++#define RTD1625_CRT_RSTN_UR2			102
++#define RTD1625_CRT_RSTN_UR3			103
++#define RTD1625_CRT_RSTN_UR4			104
++#define RTD1625_CRT_RSTN_UR5			105
++#define RTD1625_CRT_RSTN_UR6			106
++#define RTD1625_CRT_RSTN_UR7			107
++#define RTD1625_CRT_RSTN_UR8			108
++#define RTD1625_CRT_RSTN_UR9			109
++#define RTD1625_CRT_RSTN_UR_TOP			110
++#define RTD1625_CRT_RSTN_I2C_7			111
++#define RTD1625_CRT_RSTN_I2C_6			112
++#define RTD1625_CRT_RSTN_SPI0			113
++#define RTD1625_CRT_RSTN_SPI1			114
++#define RTD1625_CRT_RSTN_SPI2			115
++#define RTD1625_CRT_RSTN_LSADC0			116
++#define RTD1625_CRT_RSTN_LSADC1			117
++#define RTD1625_CRT_RSTN_ISOMIS_DMA		118
++#define RTD1625_CRT_RSTN_AUDIO_ADC		119
++#define RTD1625_CRT_RSTN_DPTX			120
++#define RTD1625_CRT_RSTN_AUCPU1_REG		121
++#define RTD1625_CRT_RSTN_EDPTX			122
++
++/* ISO reset */
++#define RTD1625_ISO_RSTN_VFD			0
++#define RTD1625_ISO_RSTN_CEC0			1
++#define RTD1625_ISO_RSTN_CEC1			2
++#define RTD1625_ISO_RSTN_CBUSTX			3
++#define RTD1625_ISO_RSTN_CBUSRX			4
++#define RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW	5
++#define RTD1625_ISO_RSTN_UR0			6
++#define RTD1625_ISO_RSTN_GMAC			7
++#define RTD1625_ISO_RSTN_GPHY			8
++#define RTD1625_ISO_RSTN_I2C_0			9
++#define RTD1625_ISO_RSTN_I2C_1			10
++#define RTD1625_ISO_RSTN_CBUS			11
++#define RTD1625_ISO_RSTN_USB_DRD		12
++#define RTD1625_ISO_RSTN_USB_HOST		13
++#define RTD1625_ISO_RSTN_USB_PHY_0		14
++#define RTD1625_ISO_RSTN_USB_PHY_1		15
++#define RTD1625_ISO_RSTN_USB_PHY_2		16
++#define RTD1625_ISO_RSTN_USB			17
++#define RTD1625_ISO_RSTN_TYPE_C			18
++#define RTD1625_ISO_RSTN_USB_U3_HOST		19
++#define RTD1625_ISO_RSTN_USB3_PHY0_POW		20
++#define RTD1625_ISO_RSTN_USB3_P0_MDIO		21
++#define RTD1625_ISO_RSTN_USB3_PHY1_POW		22
++#define RTD1625_ISO_RSTN_USB3_P1_MDIO		23
++#define RTD1625_ISO_RSTN_VTC			24
++#define RTD1625_ISO_RSTN_USB3_PHY2_POW		25
++#define RTD1625_ISO_RSTN_USB3_P2_MDIO		26
++#define RTD1625_ISO_RSTN_USB_PHY_3		27
++#define RTD1625_ISO_RSTN_USB_PHY_4		28
++
++/* ISO_S reset */
++#define RTD1625_ISO_S_RSTN_ISOM_MIS		0
++#define RTD1625_ISO_S_RSTN_GPIOM		1
++#define RTD1625_ISO_S_RSTN_TIMER7		2
++#define RTD1625_ISO_S_RSTN_IRDA			3
++#define RTD1625_ISO_S_RSTN_UR10			4
++
++#endif /* __DT_BINDINGS_RTK_RESET_RTD1625_H */
+-- 
+2.43.0
 
-> +	leds {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		led@0 {
-> +			reg = <0>;
-> +			color = <LED_COLOR_ID_YELLOW>;
-> +			function = LED_FUNCTION_LAN;
-> +			linux,default-trigger = "netdev";
-> +		};
-> +
-> +		led@1 {
-> +			reg = <1>;
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_LAN;
-> +			linux,default-trigger = "netdev";
-> +		};
-> +	};
->  };
->
->  &i2c2 {
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-> index 71a2f0866822..09146ab76385 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-> @@ -35,6 +35,13 @@ reg_3v3_fixed: regulator-3v3-fixed {
->  		regulator-max-microvolt = <3300000>;
->  		regulator-always-on;
->  	};
-> +
-> +	reg_phy_vddio: regulator-phy-vddio {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vddio-1v8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +	};
->  };
->
->  &A53_0 {
-> @@ -96,24 +103,19 @@ &fec1 {
->  	phy-mode = "rgmii";
->  	phy-handle = <&ethphy>;
->  	phy-supply = <&reg_eth_phy>;
-> -	fsl,magic-packet;
->  	status = "okay";
->
->  	mdio {
->  		#address-cells = <1>;
->  		#size-cells = <0>;
->
-> -		ethphy: ethernet-phy@4 { /* AR8033 or ADIN1300 */
-> +		ethphy: ethernet-phy@4 {
->  			compatible = "ethernet-phy-ieee802.3-c22";
->  			reg = <4>;
->  			reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
->  			reset-assert-us = <10000>;
-> -			/*
-> -			 * Deassert delay:
-> -			 * ADIN1300 requires 5ms.
-> -			 * AR8033   requires 1ms.
-> -			 */
-> -			reset-deassert-us = <20000>;
-> +			reset-deassert-us = <100000>;
-> +			vddio-supply = <&reg_phy_vddio>;
->  		};
->  	};
->  };
-> @@ -342,7 +344,7 @@ MX8MN_IOMUXC_ENET_TXC_ENET1_RGMII_TXC		0x1f
->  			MX8MN_IOMUXC_ENET_RXC_ENET1_RGMII_RXC		0x91
->  			MX8MN_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
->  			MX8MN_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
-> -			MX8MN_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x159
-> +			MX8MN_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x19
->  		>;
->  	};
->
-> --
-> 2.47.3
->
->
 
