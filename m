@@ -4,143 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 22:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B2DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 22:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SmAUQ7/+zUObwciiWZMTJrtfdcrbslFS3HzxJfkmp/E=; b=q92OzgVTu6dvfFQLlN9V/jPrJ5
-	uIX9MCZ0cGDx0oi/Ll8ihrls4HV7aBI8/WF2thAPBBRTXs5PjYmExUKmLGgeeVraxIIBkCAX6mpXV
-	WcLXbikWA3xdLKSjVBjVdBABeTPkuIIfJaO3wosrhXRlGASRPNAvSa+qFyx8oqlhCTkifKvrTRhI+
-	TbY2ooscGItz92C8pygJelwrUDMvSi+Oze9NNQ8GgWIHpMaSReVeySDtKp7nJGpWCHrCo4qi75lcO
-	NmJDP9DHdI83J4pPP7ABmvwVfhKfcYGyfnIHavf4anUThM/0UpeOGpWhKAoEsjoOf0NOKvC2DXKcd
-	HI2kY56w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4kc//suqEv//dCFVQBKclVozBsKI2jifSr8LhTeGZAI=; b=AC+/T6aLQX4PWmNp88f2EDGMuq
+	aTAfrs7SQ9up3YkBlhCZEp8fC30ZuGYRpD1X305yVMayLuhdnYEVyggkco+ubFSefKqshtmka5osx
+	pVgdu4oRgg2GJCb/8zrh93Ig0drth7gRR+KQC0MTgkHdid9SPxCJtX21DDrx1E1tw7MNtPZ1sFHa9
+	sU+0S8714MlfaoBs7hNn8WEOQaIhOsh5qxwSrMlw/Bef7zbsMfMB6T4mwia31T3Qk0rqEP9OGzTGG
+	eXCzVcn5xWQKh80NkoItIVeWUzaiIRGAT2H4PyZqMqFQ9ZKJ2UPk4vhilG3AYHVPR51g+z1QsnujZ
+	sdsak3qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPIm-0000000AWTH-45zD;
-	Mon, 13 Jul 2026 22:39:05 +0000
-Received: from mail-vs1-xe64.google.com ([2607:f8b0:4864:20::e64])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPIk-0000000AWSu-0Bcf
+	id 1wjPXz-0000000AWpr-22w7;
+	Mon, 13 Jul 2026 22:54:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjPXw-0000000AWpO-1gRS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 22:39:04 +0000
-Received: by mail-vs1-xe64.google.com with SMTP id ada2fe7eead31-738cdd667ceso125770137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 15:39:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783982340; x=1784587140;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=SmAUQ7/+zUObwciiWZMTJrtfdcrbslFS3HzxJfkmp/E=;
-        b=alZr/YE0jIp0S5BuvYGKTr2QG+Ys/lBXJAuQX1VdGb2LjCVQFo6dFWGiYfX/g4yY4w
-         g8PXuAEZ8kX7z0s6f7i936uF8dWXFKmcgYHe2J5MMnMNVMv90lgvUcl+xET9KE+Ju+t0
-         JQNnIgleM76eJeqtR5ztClgRUBH23DRG5xFACNCZ3JrYNVJsYuw6AyaZuNAbrh5lL9Z3
-         pkc+Wm8TLl8+eh9OkwvSyn2JuI9y9/s1IrkkPhtelC3oSB38karirQhitRNEDqfwVcFK
-         dryXKAcGEbnOe1vVtSGhJE5zOC+xuj/DZuigSof0zYUpPhhTfWvamtP3AoNIsYAeDr8/
-         Y+Eg==
-X-Forwarded-Encrypted: i=1; AHgh+RolK6yGeo7MmHQwo+g34vVd0mhCc7kNSbl0hR1z5IN/5WKN1obV/BRVbIgJAHj1h41qk9Q7CL2GPNpFF0/XhwXH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHfRxrR4RWBS1jCWRWUt1ccW8YLYdJ6qlYY/Qk15xXDs96gGJd
-	ICSOgDlaUXW0uuQGV/hQwoxk35PQmezywO1jp29Lk2mHQaUQTg9QHOIkixnH2YccAehQVgO0wio
-	4ffh5FrzRW4w2kHCSQzwviuDhXrkoXaR043DeJRqh5ovmKlsd2ULxtcpteuhWT6PBQZO3lXfLgq
-	vLAOs7tr8iZKYjnvLVcWH+R0eXKc+1sSMBFiqsCuyEU5mzIhWG6oM1tHbMIhBSQbmq1+rnqiWpC
-	mtaW68smdQMIo5LflTcKalWld0gyDfK8os=
-X-Gm-Gg: AfdE7cn+FnnBR46AT62YLOcBR39E9TIsYn9B5G3F3PanHUyseqDeK/a0JYN1jaQZIpn
-	3DdQF/IdkEy0vPMjP0Lj26aaeLl40Sp46oo4HHCPKN4cEj4K6QhIyUbMcsRw8OIQ6ree6MuLRF7
-	ccc9m3Wy/TwJgCSy+dxqHurpGu6PHSFjr7tG69XpIuOD2J4h6QVEak6nikYj2ep/KF9kVoRR1/C
-	UyJrt43goxWynr2/M5Cjg2UuQGLm4MPHR2BY/C8S5sNxDXfXI6ARNGOEkpY5scgPn+5ZgdELMSR
-	Jc4KO+X44NZn5ecUXyZJp7dJiS3ePw4VCRNnwxcATvGXEoPq5seY23FNw0ljrPnGOpcXRpoBipA
-	dzspYN9IYH2VeYqZqCSD26i1GF+gAl6NpWgtlbFcsbTN8ebPN0wFRQ041TxsJsFUvFg9F6+PilL
-	P66BObC1royULPBtgj3C1uB9zH17fT/pEC7shbRdphsFHqtgF3
-X-Received: by 2002:a05:6102:6442:b0:738:bd0b:7560 with SMTP id ada2fe7eead31-74533e065e0mr5428398137.23.1783982339822;
-        Mon, 13 Jul 2026 15:38:59 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-0.dlp.protect.broadcom.com. [144.49.247.0])
-        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-74507010231sm975053137.8.2026.07.13.15.38.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 13 Jul 2026 15:38:59 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c860544c077so660519a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 15:38:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1783982338; x=1784587138; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SmAUQ7/+zUObwciiWZMTJrtfdcrbslFS3HzxJfkmp/E=;
-        b=RUUmFT4hgKVN2tmUvix3iNufCgHQCFJoeJXkSjncbzpH2ZQl3KfE2BYrr47r53mQIK
-         vY9xPv9sumoLC9Y9OAhe3b0EWwr0zokeKM+bv6JI1umaomt0TWn9hHII4oofjiL3H0UY
-         jYB0M489Hso0m2ytCLjO/XS9i7maf1vEVrMy8=
-X-Forwarded-Encrypted: i=1; AHgh+RpNlPhczTRz1+m8wcdTfq97NGGvZBVRYPIibpu0gMTY489rOCdGyOSB8vzn87Y4k7JPwlH9JfMULo7TCI7mYaW0@lists.infradead.org
-X-Received: by 2002:a05:6a21:7486:b0:3b4:8f57:3205 with SMTP id adf61e73a8af0-3c110774862mr11561267637.36.1783982338495;
-        Mon, 13 Jul 2026 15:38:58 -0700 (PDT)
-X-Received: by 2002:a05:6a21:7486:b0:3b4:8f57:3205 with SMTP id adf61e73a8af0-3c110774862mr11561246637.36.1783982338145;
-        Mon, 13 Jul 2026 15:38:58 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-313b4cbafa1sm60964368eec.6.2026.07.13.15.38.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 15:38:57 -0700 (PDT)
-Message-ID: <889e0c6e-0cdf-4598-8777-30ed643b8f87@broadcom.com>
-Date: Mon, 13 Jul 2026 15:38:56 -0700
+	Mon, 13 Jul 2026 22:54:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F29F2F;
+	Mon, 13 Jul 2026 15:54:36 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00A293F7B4;
+	Mon, 13 Jul 2026 15:54:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783983280; bh=7TJNGr2v2ZA8mqosZnmTYS6Mnmq2SrK/xW5d6dqKIKs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g4JveoabcjUqtzM0ZbhKLpIWeX7EYIGGR6wswI6LuGOhdM/Lpf0YCF9RH9+K5RGY1
+	 FEyeii2duF/l5pFmKBNV+gZSa4V82pYc53aIwQ5bvVRHNUVbemGBar23KdZt2/fPTw
+	 bQtsR0RMk09kaUGGbki3k//fUm0toDtFatXBA0d0=
+Date: Mon, 13 Jul 2026 23:54:29 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
+Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"d-gole@ti.com" <d-gole@ti.com>,
+	"david@kernel.org" <david@kernel.org>,
+	Elif Topuz <Elif.Topuz@arm.com>,
+	"etienne.carriere@st.com" <etienne.carriere@st.com>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
+	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
+	"jic23@kernel.org" <jic23@kernel.org>,
+	"kas@kernel.org" <kas@kernel.org>,
+	"kernel-team@meta.com" <kernel-team@meta.com>,
+	"leitao@kernel.org" <leitao@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Lukasz Luba <Lukasz.Luba@arm.com>,
+	"michal.simek@amd.com" <michal.simek@amd.com>,
+	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
+	Philip Radford <Philip.Radford@arm.com>,
+	"puranjay@kernel.org" <puranjay@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
+	"usama.arif@linux.dev" <usama.arif@linux.dev>,
+	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
+Subject: Re: [PATCH v5 00/23] Introduce SCMI Telemetry support
+Message-ID: <alVsb7IxDAyJyxZe@pluto>
+References: <DB9PR08MB86516141C5970B23D7340510FFFE2@DB9PR08MB8651.eurprd08.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clocksource/drivers/arm_arch_timer: Workaround bcm2712
- broken EL2 virtual timer
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- John <therealgraysky@proton.me>, Daniel Drake <dan@reactivated.net>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
-References: <20260710080958.491620-1-maz@kernel.org>
- <1c23b437-609c-470a-8b14-34288cb5aaa3@broadcom.com>
- <877bmy63lm.wl-maz@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <877bmy63lm.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DB9PR08MB86516141C5970B23D7340510FFFE2@DB9PR08MB8651.eurprd08.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_153902_155618_24EF9FC6 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20260713_155444_611635_D6E717E8 
+X-CRM114-Status: GOOD (  50.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,47 +92,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/13/26 13:23, Marc Zyngier wrote:
-> On Mon, 13 Jul 2026 17:15:35 +0100,
-> Florian Fainelli <florian.fainelli@broadcom.com> wrote:
->>
->> On 7/10/26 01:09, Marc Zyngier wrote:
->>> It appears that the bcm2712 SoC found in the relatively popular
->>> RPi5 has a broken EL2 virtual timer.
->>>
->>> We do not know the reason why the timer isn't working (the timer
->>> is ticking, but the interrupt never fires), and the SoC vendor
->>> doesn't communicate on the reason why this isn't working, leaving
->>> users and maintainers in the dark.
->>>
->>> Paper over the issue by detecting the broken HW, falling back to
->>> the physical timer instead, and let the user know about it.
->>> Also taint the kernel as the machine is definitely not compliant
->>> with the spec, and we don't know what else is wrong with it.
->>>
->>> Reported-by: John <therealgraysky@proton.me>
->>> Reported-by: Daniel Drake <dan@reactivated.net>
->>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
->>> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
->>> Cc: Thomas Gleixner <tglx@linutronix.de>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>
->> Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>
->> We know why now: the virtual interrupt timer line was never connected
->> in the first place because it was not clarified that it was a
->> requirement.
-> 
-> Dangling wires coming out of the CPUs don't ring any alarm bell at
-> integration time? Amazing. Makes you wonder what else they forgot to
-> connect...
-> 
-> Is there an erratum number that we can refer to for documentation
-> purposes?
+On Thu, Jul 09, 2026 at 03:46:23AM +0100, Fayssal Benmlih wrote:
+>    Overall, v5 is a good direction: dropping the filesystem ABI for a
+>    chardev/ioctl ABI is simpler, easier to version, and more appropriate
+>    for high-rate telemetry. The split between SCMI protocol support, UAPI,
 
-There is not one, we only have an internal bug tracker entry for this issue.
--- 
-Florian
+Hi Fayçal,
+
+in fact this same IOCTLs based interface (even if more rough) was also present in
+the defunct FS approach, attached to the special 'control' files...nothing new
+really...but a lot of rework and testing needed for sure...
+
+>    driver, docs, and test tool is also much cleaner. The main concern is
+>    that there are several correctness and usability issues that should be
+>    fixed before merge.
+
+... of course, since this is the first ever posting with the IOCTLs being
+the main and only ABI, it was never meant to be straight away ready for merge,
+as I mentioned in the cover-letter there are a few TBD still pending and a
+lot of cleanups as reported by the LLM reviews too... Sashiko is one great
+example of existing LLM reviewing Kernel patches...
+
+...some of these points are pretty much valid (also Sashiko has a few more
+complaints) and I will take care of those....but some other are compeletely
+OR slightly off, I will go through those in the following...
+
+> 
+>    Must-Fix Issues
+>      * scmi_tlm_to_uapi_base_info() uses out->flags |= ... on an
+>        uninitialized local struct scmi_tlm_base_info base; this can leak
+>        garbage flags. Use out->flags = ... or zero-initialize base.
+>      * scmi_tlm_update_interval.exp is documented and used as signed, but
+>        the UAPI declares it as __u32. It should be __s32, otherwise
+>        examples like exp = -3 are ABI-broken.
+>      * Group bounds checks use grp_id > num_groups; they should use grp_id
+>        >= num_groups to avoid out-of-bounds access.
+>      * Avoid casting UAPI integer fields to bool *, especially __u32
+>        enable/t_enable in scmi_tlm_de_config. Use local bool enable =
+>        !!tcfg.enable; variables and copy normalized values back explicitly
+>        if needed.
+>      * Array sizes from userspace need overflow and allocation hardening:
+>        use array_size(), kvmalloc_array(), and clear max limits for
+>        num_des, num_samples, num_grps, etc.
+
+I really dont understand this, since the user allocates the buffers, that he
+then provides via a __u64 ptr, and such allocation happens based on the maximum
+number of items the platform has declared to exist (like num_des) so if the user
+itself had lied or mistakenly provided a smaller buffer then declared, that is a
+user problem that will trapped and result in a SIGSEGV (or a userspace malloc
+corruption)...here a specific reference to the actual code causing the supposed
+issue would have helped...
+
+>      * SCMI_TLM_GET_SHMTI_LIST loops over the user-provided count after
+>        only checking it is not too small; if it is too large it can read
+>        beyond in->shmtis[]. Loop over the actual firmware count.
+
+Yes I definitely loop mistakenly on the wrong variable, BUT the missing
+check on the too-large condition is an explicit design decision so that
+userspace can optionally use the same common big buffer as a scratch
+buffer to collect multiple kind of enumeration data...but of course the
+loop must happen on the what is available in system NOT on what the user
+has passed in...
+
+>      * The mmap path needs tighter validation: reject oversized mappings,
+>        handle mmap offsets deliberately, set appropriate VMA flags, and
+>        document the lifetime/security model for exposed SHMTI memory.
+
+Beside a bit of hardening, I think here the only missing part is documenting
+that you get direct RO access to an SCMI Telemetry area and that you are on
+your own in how to parse that...format and lifetime is as specified in SCMIv4.0
+
+Cannot do any deliberate offset handling really...any neeed offset is
+dynamically discovered and communicated at runtime via SCMI_TLM_GET_SHMTI_LIST
+(offset is rarely different than 0, ONLY if FW has NOT exposed such areas as
+page aligned)
+
+..probably worth security wise to check that FW shared areas are
+properly page aligned (to the max 64k) and that nothing crititical lays
+around when not aligned...so that I dont accidentally expose some other
+bits of FW...but I cannot really check so much here from kernel Point of
+view...mmm...maybe that the surrounding bytes are zeroed by FW ?
+
+> 
+>    Design Feedback
+>      * No ABI version/capability ioctl. GET_INFO gives protocol/platform
+>        info, but userspace also needs driver ABI version and supported
+>        ioctl feature bits.
+>      * Enumeration is awkward. List ioctls should support a clear two-call
+>        pattern: call with count 0 to get required count, allocate, call
+>        again. Returning EINVAL for “buffer too small” is not very
+>        ergonomic.
+
+Well the only reason I have NOT implemented this idiom is that all of
+this enumeration data is basically static RO (at least within the same
+boot), so you can know very well in advance how many elements you have
+by calling upfront just one single time SCMI_TLM_GET_INFO, instead of
+having to issue twice each IOCTL to know how big the input buffer should
+be...but I can implement also this idiomatic form in v6 of course as an
+alternative mechanism if we want to support the standard/classic idiom...
+...it will be certainly less performant by duplicating all IOCTLs calls x 2...
+
+I will probably rework SCMI_TLM_GET_INFO, to be the new SCMI_TLM_GET_ABI_INFO
+including version/capability/resource info IOCTLs...so that you can get the ABI
+version, lookup feature bits and get the numebr of resources (like it is
+now..to size the requests...)
+
+>      * No generation counter yet. Userspace needs to detect
+>        config/resource changes between discovery and read. This should
+>        probably land with the first ABI.
+
+Yes that is NOT in this version, but it is definitely planned for this
+series: there will be a way to read and more importantly some poll
+support based on eventfd.
+
+>      * Global config is dangerous. SET_CFG, SET_DE_CFG, and
+>        SET_ALL_CFG mutate shared firmware state. Multiple users can race
+>        or disrupt each other. Consider documenting ownership semantics,
+>        adding locking/session model, or exposing read-only access
+>        separately.
+
+Yes, this is the same as in the FS approach, multiple reader and writers
+can coexist BUT the Kernel does NOT mediate concurrent configuration
+attempts, last writer wins: kernel only guarantes serialization when
+multiple configs are written...but anyway last wins.
+
+>      * SET_ALL_CFG is not atomic. If configuring all DEs fails midway,
+>        userspace gets partial state. Either make that explicit, add
+>        rollback/best-effort reporting, or prefer batched config with
+>        per-item status.
+
+Mmm...if SET_ALL_CFG fails midway, an error is reported and the
+subsequent GET_ALL_CFG will return the current state of 'ALL':
+i.e. True if all enabled, False if any is disabled...
+
+You can anyway lookup each single DE state subsequently.
+
+I could implement an all or nothing with rollback but I am not sure the
+complication in code is worth: on the other side I was thinking too about
+the optional batched config as mentioned as a way to speed up multiple
+configs mostly...
+
+>      * No event/poll model. For telemetry, userspace may want
+>        poll()/blocking reads/notification-driven collection rather than
+>        repeated synchronous ioctls.
+
+Yes that is the future plan and most of the internal support is already in
+place, I have not planned any dedicated IOCTL till now (similarly there was
+no dedicated special file in the old FS approach) since, for such streaming
+poll model to be feasible, SCMI Telemetry notifications are needed, but they
+are optional by the spec and currently NOT planned FW side AFAIK... so I
+lowered this in priority and delayed to a future extensions given the
+increasingly tight timeline that we have. (even though I can devel and
+plan against my emulation setup..)
+
+I would like anyway to add a generic event IOCTL that allows the user to
+register a custom eventfd for a specific event to be monitored....first
+event being the generation counter change AND second the update
+notification for event/poll telemetry ocnsumption....
+
+>      * Timestamp usability is underspecified. Userspace needs clear
+>        timestamp domain, rate conversion, wrap behavior, and correlation
+>        to Linux clocks.
+
+All of the timestamps are originated by the platform and specified by
+the SCMI spec: Kernel does NOT mediate/correct/trim anything here.
+
+It will have to be documented better of course, but all you get is a 64
+bit tinestamp and the clock rate in KhZ that has been used to generate
+this specific timestamp for this DE..
+
+>      * Raw SHMTI mmap is powerful but has risks. It needs very clear
+>        lifetime, permissions, cacheability, offset/length, stale-data, and
+>        security documentation.
+
+>      * Batch APIs lack per-sample status. In BATCH_READ, one bad DE
+>        currently appears to fail the whole request. For tools, per-entry
+>        status is much better.
+
+Can add status.
+
+>      * Text read() plus binary ioctls feels split-brain. Either document
+>        read() as debug/convenience only, or remove it from the stable
+>        interface and keep the ABI purely binary; no need for two different
+>        user interfaces with different semantics.
+
+This was to try to supply some form of tool-independent human readable access
+...indeed I was also tempted to re-introduce a limited form of proper SysFs for
+global configs like update interval or global tlm_enable...(but not sure
+about this really...)
+
+>      * Rename the generic #define SCMI 0xF1 to something scoped like
+>        SCMI_TLM_IOCTL_MAGIC; exporting a broad SCMImacro in UAPI is
+>        collision-prone.
+>      * Add .compat_ioctl = compat_ptr_ioctl or equivalent, and document
+>        that all structs are 32/64-bit compatible. The __u64user pointers
+>        help, but compat behavior should be explicit.
+>      * Clarify concurrency semantics: what happens when two processes
+>        enable/disable DEs, change intervals, or read while config changes?
+>        A generation counter/reset ioctl, already listed as TODO, should
+>        probably be part of the first ABI version.
+
+No kernel mediation on this, ONLY a generation counter to spot unexpected
+changes.
+
+>      * Define permissions. Configuration ioctls mutate global firmware
+>        telemetry state, so access control/default device mode/udev
+>        expectations should be documented.
+> 
+
+As of now, no policying, whoever is privileged enough to write to the
+device can configure the system, last writer wins.
+Being now all of this based on a bunch of single devices (one per instance),
+it could be more feasible to enable some sort of optional exclusive open mode
+for the first privileged user to get hold of the device...I'll reason about it.
+
+>    Suggested additions before ABI freeze
+>      * SCMI_TLM_GET_ABI_INFO
+>      * SCMI_TLM_GET_GENERATION
+>      * SCMI_TLM_RESET
+>      * batched GET/SET_DE_CFG with per-entry status
+>      * pollable notification/event support, if telemetry notifications are
+>        meaningful to userspace
+>      * optional read-only open mode or permission model for non-mutating
+>        tools
+> 
+>    Usability / Docs
+>      * The docs need more precise examples for two-call enumeration, error
+>        handling, batch reads, and mmap cleanup/close semantics.
+
+Yes that was minimal on purpose, given this was the first shot and a lot
+can still change...
+
+>      * Fix typos before reposting: “Systemn”, “dwscriptors”, “istance”,
+>        “udpated”, “andc”, “A IOCTL”.
+>      * The sample tool should either be promoted into a real
+>        selftest-style utility or clearly kept out of the upstreamable set
+>        until it has robust argument parsing and error reporting.
+> 
+
+Well...the tool as of now if a draft thing for testing...it is indeed
+marked as RFC (and declared in a crappy state)...so it is clear NOT for
+upstream as it is: as I mentioned in the commit itself it is meant to be
+improved and used for testing in the future...not for upstream in this
+state of course...
+
+...BUT even in this state can be used to simply exercise most of the
+IOCTL quickly...so that was the reason I included it as  RFC.
+
+Thanks,
+Cristian
 
