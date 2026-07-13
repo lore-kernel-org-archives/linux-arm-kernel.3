@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394D3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05727C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCtgsRyXN0v3nkAYw3TkvB6MPKLX6VHzEkCdfv3s/Bo=; b=0fWYUpwBPfoKdDBNtvNiXb7wVp
-	+PzaP0XHBr3x2n8drojDMgb5AyRXDMzFrO0O2RXXrts27LfSIbanEO2nGzJRLN4aQh5i/wKxznd/0
-	oL33DUiukQsduH65Q0mydbuLnFvnRaNVMcX9jXCpulZlX77LSpN2kNNTtfNTv1opaoYiDa2v/oG3/
-	GyTF6rNqa+Cna7zTORunhy864dYN/ZtNvp0xHb7t/rUOeTzetJeOwR2BRRnAwzCvTA3S/EqujN15N
-	D68XYojbCXXEuzK/4n5C8tj0VCfDbTKy2TCl+piBbiFT4i/JUiWwGImkAvmoSMNy3iHt+Fg4ByFCF
-	zY2+lLSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bgGgHEFrLGkQhpGDdK+yppM68Mi1G34yHD+nEZ0cRvI=; b=zKU7qigOzHpDg+ABHlQ8AuudQr
+	DTU82gqCf4bXKO1/yapU4oH1ID8MbufvAJHQ/VzgMme1qm8ECnNd7gqONKf5zjqwo/PtJ+q0LOsWF
+	BnUxqfzewT3PtdfJWWa4PqjOynLiO5MyJMBnXNl6shi95cgfp+k2HulGO2xwNo8/ajO3LgbMNw0a3
+	bhCechax0WRGbKMEq/yVAvDwZXSlj9ChWd/Xt0iZ7huthVDW+JsJ1TJkOlEIbYFkxjJ8tIjP00a9j
+	V120zcvk/jDki9aHwsyQwaKeNH3//sqzbRAAlQW73RQJXBZ9fua9J3H/+OErbGMs2vcE7Bvoj93U4
+	xHVPm1Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHs-00000009HIy-0XEF;
-	Mon, 13 Jul 2026 13:01:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wjIlZ-00000009p77-0RNj;
+	Mon, 13 Jul 2026 15:40:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHe-00000009H4F-2o3C;
-	Mon, 13 Jul 2026 13:01:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783947675;
-	bh=gsYAIXlViwS5g5QjHJFm9cbpi53ezhz4q/D38V/P3nQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y0AQVpndfm1kakjuywdqRbhF90ow7JoWZmjkl4aqpFUin5mURI0gwn9lDSMZ8TT9G
-	 8a/OYH5uQGeR6KeI30A9PSuUffbCOUbjpUVfdawT+Y5QbfAT8GkJpiP/NXck79XJjS
-	 sKXKaAlRoEkhRRJ6tSuoaNxUSHz9x3rLqXa009W/cw2KIJwar6cjqVTxy3n3msEahK
-	 2WwwzcBA2NJCNsecWM67xHI2BUoHXMgsLT8rsP2b7w4oiquPSRwX1SkuolCjsB1C4D
-	 pE5zV70K8Uy/E7Na4Fcg0d3sgRYzH4yDsymrtNCd1Gto3nE9xIPRi3rN/lIYf/kVdD
-	 Ngz9bTkAgaVvw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADD2817E0DE6;
-	Mon, 13 Jul 2026 15:01:14 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wjIlX-00000009p6k-2Ggl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 15:40:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FDF940775;
+	Mon, 13 Jul 2026 15:40:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F25771F000E9;
+	Mon, 13 Jul 2026 15:40:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783957219;
+	bh=bgGgHEFrLGkQhpGDdK+yppM68Mi1G34yHD+nEZ0cRvI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Cn2ZUCB+DP+A+yh8GoVyIuambcgu9zH+5DmmoJPwToYOYq2t2XeVgJO9coDBBFNjk
+	 81ZA7FFzrTucxbUJF7pwryMqEmNaBcfaKPuwAIwEZoiOZ5e4FB2MRdTTJqMSNoXIUj
+	 s5k7KVSP+1VHiZB1j1ulfEzWbLKtlwJqy1Ch0aJkHXnxnhEP0ML/V244TtoHApg79A
+	 69yy93M65/CibCsFPLu/xMTTe9vPbz2E7n7fnDAU4MfIH1rXSHSuagQgyXn7RXB3c6
+	 ySWxQhLOHBX6QHlFiWUnSnDEe+SPVCcpI58lu2N6i2KrU6+0PY5PAJuUF++T+tcdHm
+	 FrGMRexNuXUog==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wjIlV-00000004YRs-09Of;
+	Mon, 13 Jul 2026 15:40:17 +0000
+Date: Mon, 13 Jul 2026 16:42:06 +0100
+Message-ID: <87a4ru6gmp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v3 04/10] drm/mediatek: mtk_dsi: Enable interrupt at component bind time
-Date: Mon, 13 Jul 2026 15:00:57 +0200
-Message-ID: <20260713130103.34654-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
-References: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_060118_913745_4F02C7E5 
-X-CRM114-Status: GOOD (  18.23  )
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 09/27] KVM: arm64: Access elements of vcpu_gp_regs individually
+In-Reply-To: <20260710115637.984749-H-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-10-seiden@linux.ibm.com>
+	<86cxx0ovx5.wl-maz@kernel.org>
+	<20260710115637.984749-H-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,109 +111,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having the DSI interrupt enabled before actually binding the DSI
-component to the display controller driver is both useless and
-dangerous: the main purpose of this interrupt is to signal CMD
-done, LP RX data ready, or VideoMode done, or to reset the HW
-engine if this doesn't come.
+On Fri, 10 Jul 2026 12:56:37 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Mon, Jul 06, 2026 at 06:44:06PM +0100, Marc Zyngier wrote:
+> > On Mon, 06 Jul 2026 09:52:09 +0100,
+> > Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > > 
+> > > While for arm64 the members of vcpu_gp_regs are allocated continuous
+> > > this is not necessarily true for other architectures implementing ARM.
+> > > 
+> > > Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
+> > > the vcpu context but the address of the gp-register array field in the
+> > > user_pt_reg struct.
+> > 
+> > That's an interesting change of semantics, because this excludes PC
+> > from the GPRs. This is valid on AArch64, but wrong for AArch32 (PC
+> > really is R15, and is just another GPR).
+> >
+> 
+> I never looked into AArch32 thanks for pointing this out.
+> 
+> > It isn't a huge deal, and nothing breaks, but that's something that
+> > you may want to capture.
+> > 
+> 
+> Shall I add a comment into the commit message that this splits pc from
+> the gprs for arm32?
 
-Should this interrupt come too late (during probe), the HW will
-be reset only at the next occurrence of a timeout, which slows
-down boot and may render artifacts to the DSI display.
+Yeah, I really want this stuff to be correctly documented, just in
+case we break something and have to go back in time to find out why.
+That's overall something that could be improved in this series.
 
-Moreover, clearing the DSI interrupt while the display controller
-is not ready yet, may result in an interrupt storm.
+[...]
 
-In order to prevent this from happening, request the interrupt
-with IRQF_NO_AUTOEN, and enable it only when binding DSI to its
-display controller component master.
+> > > diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> > > index bef40ddb16db..82611442a2d1 100644
+> > > --- a/arch/arm64/kvm/hyp/exception.c
+> > > +++ b/arch/arm64/kvm/hyp/exception.c
+> > > @@ -277,6 +277,9 @@ static const u8 return_offsets[8][2] = {
+> > >  	[7] = { 4, 4 },		/* FIQ, unused */
+> > >  };
+> > >  
+> > > +#define OFFSETOF_PT_REG(__r) offsetof(struct user_pt_regs, __r)
+> > > +#define COMPAT_IDX(__c) ((OFFSETOF_PT_REG(__c) - OFFSETOF_PT_REG(regs[0])) / sizeof(u64))
+> > > +
+> > 
+> > Oh $gawd, this is... awful.
+> > 
+> > >  static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+> > >  {
+> > >  	unsigned long spsr = *vcpu_cpsr(vcpu);
+> > > @@ -292,12 +295,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+> > >  	switch(mode) {
+> > >  	case PSR_AA32_MODE_ABT:
+> > >  		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
+> > > -		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
+> > > +		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_abt)] = return_address;
+> > >  		break;
+> > 
+> > Stupid idea: why don't you simply have new #defines that make the
+> > register number standalone, and make ptrace.h use that? Something line
+> > this (which can obviously be extended to all the compat registers):
+> > 
+> > diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> > index 39582511ad72f..2d3d324d2598e 100644
+> > --- a/arch/arm64/include/asm/ptrace.h
+> > +++ b/arch/arm64/include/asm/ptrace.h
+> > @@ -104,6 +104,10 @@
+> >  #define COMPAT_USER_SZ	296
+> >  
+> >  /* Architecturally defined mapping between AArch32 and AArch64 registers */
+> > +enum aarch32_reg_mapping {
+> > +	__compat_lr_und = 22,
+> > +};
+> > +
+> >  #define compat_usr(x)	regs[(x)]
+> >  #define compat_fp	regs[11]
+> >  #define compat_sp	regs[13]
+> > @@ -115,7 +119,7 @@
+> >  #define compat_sp_svc	regs[19]
+> >  #define compat_lr_abt	regs[20]
+> >  #define compat_sp_abt	regs[21]
+> > -#define compat_lr_und	regs[22]
+> > +#define compat_lr_und	regs[__compat_lr_und]
+> >  #define compat_sp_und	regs[23]
+> >  #define compat_r8_fiq	regs[24]
+> >  #define compat_r9_fiq	regs[25]
+> > 
+> > and then your #defines from hell can go?
+> 
+> Great suggestion I do not like this macro hell myself. I'll implement it
+> that way. Should I convert all compat_* regs to this concept or just the
+> ones I need?
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 30 ++++++++++++++++++------------
- 1 file changed, 18 insertions(+), 12 deletions(-)
+All of them, please., I value consistency. As you are doing this,
+consider adding a reference to I_PYKVS, which describes the mapping in
+the ARM ARM.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 4d9c38908da5..28e432d21f98 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -225,6 +225,7 @@ struct mtk_dsi {
- 	int refcount;
- 	bool enabled;
- 	bool lanes_ready;
-+	int irq;
- 	u32 irq_data;
- 	wait_queue_head_t irq_wait_queue;
- 	const struct mtk_dsi_driver_data *driver_data;
-@@ -1088,7 +1089,13 @@ static int mtk_dsi_bind(struct device *dev, struct device *master, void *data)
- 	if (ret)
- 		return ret;
- 
--	return device_reset_optional(dev);
-+	ret = device_reset_optional(dev);
-+	if (ret)
-+		return ret;
-+
-+	enable_irq(dsi->irq);
-+
-+	return 0;
- }
- 
- static void mtk_dsi_unbind(struct device *dev, struct device *master,
-@@ -1096,6 +1103,8 @@ static void mtk_dsi_unbind(struct device *dev, struct device *master,
- {
- 	struct mtk_dsi *dsi = dev_get_drvdata(dev);
- 
-+	disable_irq(dsi->irq);
-+
- 	drm_encoder_cleanup(&dsi->encoder);
- }
- 
-@@ -1328,7 +1337,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- {
- 	struct mtk_dsi *dsi;
- 	struct device *dev = &pdev->dev;
--	int irq_num;
- 	int ret;
- 
- 	dsi = devm_drm_bridge_alloc(dev, struct mtk_dsi, bridge,
-@@ -1361,9 +1369,9 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- 	if (IS_ERR(dsi->phy))
- 		return dev_err_probe(dev, PTR_ERR(dsi->phy), "Failed to get MIPI-DPHY\n");
- 
--	irq_num = platform_get_irq(pdev, 0);
--	if (irq_num < 0)
--		return irq_num;
-+	dsi->irq = platform_get_irq(pdev, 0);
-+	if (dsi->irq < 0)
-+		return dsi->irq;
- 
- 	dsi->host.ops = &mtk_dsi_ops;
- 	dsi->host.dev = dev;
-@@ -1372,17 +1380,15 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, dsi);
- 
-+	ret = devm_request_irq(&pdev->dev, dsi->irq, mtk_dsi_irq,
-+			       IRQF_NO_AUTOEN, dev_name(&pdev->dev), dsi);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
-+
- 	ret = mipi_dsi_host_register(&dsi->host);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "Failed to register DSI host\n");
- 
--	ret = devm_request_irq(&pdev->dev, irq_num, mtk_dsi_irq,
--			       IRQF_TRIGGER_NONE, dev_name(&pdev->dev), dsi);
--	if (ret) {
--		mipi_dsi_host_unregister(&dsi->host);
--		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
--	}
--
- 	dsi->bridge.of_node = dev->of_node;
- 	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
- 
+Thanks,
+
+	M.
+
 -- 
-2.54.0
-
+Jazz isn't dead. It just smells funny.
 
