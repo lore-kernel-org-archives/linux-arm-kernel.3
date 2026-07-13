@@ -4,82 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7F8C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6hMtdAArjczPZqa9ds4fr5946Ny+pRcNj6uAylZWFTk=; b=kCNxAIehPoLK7wnn9C1U3pTA3y
-	AlqbYHpJQ3tM5sEPEf0mhrdxcht1QQptk1ypLaMZ3+QKYcZQjtGMJZCjf5h8ElFYRj8PgT+zEJzC0
-	WkZerDHGsAuE9lOr5mv5gpwEm+xncEDgxMoMhQRlE1z+3kVma+eqTZ0eQeG3+rtvtAsKZTdGAvTT/
-	IhY5KJMwhmjOzqU0Zhuyn0sflGSnM2T5hh1IJdfSg6SKdlJBo7EctD+w6kRoM3T17oX8+2EsfZ9uB
-	rAcEkdAlOJoG5xt72eLqci0jzMSuWdqfIltEPZvYmLov/+iWD4R3L9KHIBwdAtO2/MgeDiGReh7gs
-	DoFYbEbQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=INl0jiwqDhGPDETixMKefTqug/oQonC2CS+nvIV3PMw=; b=I1qsvsuKnMl6L7gRmeR06B+3M9
+	VHkIpm6TfIgTr4TlJpZ7DsAdoqgMBKsfzUC20i1OyRRXK685JYEw5SySNsLsJHP7Bjh1isilskf7T
+	gGujqGnuUimL0lkA/efxGB8zzTmFf4PpQWLc0hgXKeVRPNCbqNx/DbjgGUy/yqfdR0l1sI1BQIXyz
+	knnJoPTzmObiDlDbOftnhAYyYjUh1ziy8xUQz+J53gfbl1gVx1BZcgYHBFBmlqpyoA+mdVLuysrZT
+	hF/PVOrsrLX9E0GaovaJSJHrlMO9mt5DRZWQN0SS/myE2W8AqGiV4N3OfOQMcr7TdSQNL4oeBOYr4
+	Z1MfInmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHtB-00000009dFz-2aXO;
-	Mon, 13 Jul 2026 14:44:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjHWg-00000009ZwU-0LLL;
+	Mon, 13 Jul 2026 14:20:54 +0000
+Received: from galaxy.gendns.com ([66.235.175.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHtA-00000009dFh-0XEK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 14:44:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6hMtdAArjczPZqa9ds4fr5946Ny+pRcNj6uAylZWFTk=; b=OAuXH6M6JXRYuTKN2Qq102orff
-	Iaqoo8rSfjM+hZGfDjGFJPKIiDfPOvq1QX+kmuf4LZkx4Wso5zes8/7ugAuYYWb53qe5f/xFvgQMo
-	X8JosY3zQPwZ7+Zj2HWChuYppZmQ61YT2UpqccN/2XU4dvwKB85mOmAYM6prk+pW3cygu4v7arnWi
-	2L2JuAAXiMn9Irw4VNhsYALdfmLqFPYpMOPPpY+eVFcSAGg5Ext3DI89zSgc9ryIjVz4kDdZkfYW8
-	XQuz8aF1YLBLfDyryphZ9kR9Gkm08ldKrtLcNW1xIo6/JyYo4jyE1IwLc3iU35xL3yjMO3IjaKqSo
-	snzZZySQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjHt6-0000000BjDb-3jeh
+	id 1wjHWd-00000009Zri-3LqP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:44:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B8F4152B;
-	Mon, 13 Jul 2026 07:43:57 -0700 (PDT)
-Received: from [10.57.2.209] (unknown [10.57.2.209])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85E653F7B4;
-	Mon, 13 Jul 2026 07:43:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783953841; bh=jXWZ8N81s562nbqm4nTLQDKQENpJOc0VxLLomCZS08s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a9C2LSD8X8yHmHN+D+GlT2sIPTq2ZJUvevUK6QFmr/5dDC17Ad7pnQzrO+GRNMKDQ
-	 T9tIEJ/00jdXBuHyT+gPWjGwlj1geWItx40qXWv0bDyUB/0RibtkVuwdFkhb6XI4vP
-	 UbdjGdMltTuVOsrIwOTBZKpv0pfK2JF8IcvB9+EY=
-Message-ID: <046d89e6-9837-4b59-bda8-070c6366b6fe@arm.com>
-Date: Mon, 13 Jul 2026 15:43:55 +0100
+	Mon, 13 Jul 2026 14:20:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=lechnology.com; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=INl0jiwqDhGPDETixMKefTqug/oQonC2CS+nvIV3PMw=; b=kPRts+KYZ26uj+aJUVDbW7uRza
+	+0I25symShHRG3ruTSswL+FzNtvluFi5NQsWI1E8OXGFttK+9GxIdozY4NeQTVAsP1WxAwYayp9ob
+	Hg6Mdizci/iITZz4u3rn6aRLLdLz9DhiSSH6S67qzrL/D6fTfeTVAgGINn2kP9Ll2gEygQnrsymaF
+	ugdGgnph3xdTbOD6X/0pbpoY+1ls3AyZetYdg/vG32hKD7/jDETDQTy/ChVnKH8lmjlxFn0Rc8PSr
+	QOKCcnuEmoz0/XR9H+qKMDWFxEu70o3qIZyJeAlbNpKJ8wIgmDX52z6IjL3f+BUKV+cWj5PwUrc/Q
+	BDA/zUPA==;
+Received: from ip98-183-112-25.ok.ok.cox.net ([98.183.112.25]:52858 helo=[192.168.1.142])
+	by galaxy.gendns.com with essmtpa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.99.4)
+	(envelope-from <david@lechnology.com>)
+	id 1wjHVy-00000009aEK-0hNn;
+	Mon, 13 Jul 2026 10:20:09 -0400
+Message-ID: <1e330026-cd09-48d5-9478-4cff59f521e0@lechnology.com>
+Date: Mon, 13 Jul 2026 09:20:07 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/2] thermal/drivers/imx: Add calibration offset
- support
-To: Haoning.CHENG@cn.bosch.com
-Cc: linux-pm@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v7-0-09b6b7669be1@cn.bosch.com>
- <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v7-2-09b6b7669be1@cn.bosch.com>
+Subject: Re: [PATCH] counter: Remove redundant dev_err()/dev_err_probe()
+To: Pan Chuang <panchuang@vivo.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ William Breathitt Gray <wbg@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Julien Panis <jpanis@baylibre.com>,
+ "open list:COUNTER SUBSYSTEM" <linux-iio@vger.kernel.org>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:TI ENHANCED CAPTURE (eCAP) DRIVER" <linux-omap@vger.kernel.org>
+References: <20260713131005.306069-1-panchuang@vivo.com>
 Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v7-2-09b6b7669be1@cn.bosch.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: David Lechner <david@lechnology.com>
+Autocrypt: addr=david@lechnology.com; keydata=
+ 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
+In-Reply-To: <20260713131005.306069-1-panchuang@vivo.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - galaxy.gendns.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - lechnology.com
+X-Get-Message-Sender-Via: galaxy.gendns.com: authenticated_id: davidmain+lechnology.com/only user confirmed/virtual account not confirmed
+X-Authenticated-Sender: galaxy.gendns.com: davidmain@lechnology.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_154405_355619_3C3AFB96 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260713_072051_961564_DFB98D05 
+X-CRM114-Status: UNSURE (   2.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,112 +141,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/13/26 11:22, Haoning CHENG via B4 Relay wrote:
-> From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+On 7/13/26 8:10 AM, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
+> automatically log detailed error messages on failure. Remove the
+> now-redundant driver-specific dev_err() and dev_err_probe() calls.
 > 
-> Some boards need a small per-design correction to align the reported CPU
-> temperature with board-level measurements.
-> 
-> Read the optional fsl,temp-calibration-offset-millicelsius property from
-> DT and apply it to the i.MX6/6SX/7D calibration formulas. When the
-> property is not present, the default offset remains 0, preserving the
-> current behaviour.
-
-s/behaviour/behavior/
-
-Also, you can add a description in this patch header with an example
-how this is going to be calculated. The full mechanism is split
-into two components: this driver and the thermal framework.
-
-When the IRQ (which was programmed for e.g. 'panic temp' value)
-is triggered then thermal fwk is kicked. In that the 'get_temp'
-will be called.
-
-What this change effectively does is:
-- program the IRQ firing temp level higher (based on dt example)
-- provide the temp value lower to thermal fwk
-then you don't touch other stuff which is generic in this
-thermal scope (like trip points).
-
-It's kind of tricky to grasp and I would suggest to describe it
-somewhere. These are popular chips and many boards use them,
-so many engineers might miss this bit.
-
-> 
-> Signed-off-by: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
 > ---
->   drivers/thermal/imx_thermal.c | 16 +++++++++++++---
->   1 file changed, 13 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-> index 38c993d1bcb3..0a443e608957 100644
-> --- a/drivers/thermal/imx_thermal.c
-> +++ b/drivers/thermal/imx_thermal.c
-> @@ -207,6 +207,7 @@ struct imx_thermal_data {
->   	struct regmap *tempmon;
->   	u32 c1, c2; /* See formula in imx_init_calib() */
->   	int temp_max;
-> +	s32 calibration_offset;
->   	int alarm_temp;
->   	int last_temp;
->   	bool irq_enabled;
-> @@ -223,6 +224,7 @@ static void imx_set_panic_temp(struct imx_thermal_data *data,
->   	struct regmap *map = data->tempmon;
->   	int critical_value;
->   
-> +	panic_temp -= data->calibration_offset;
->   	critical_value = (data->c2 - panic_temp) / data->c1;
->   
->   	regmap_write(map, soc_data->panic_alarm_ctrl + REG_CLR,
-> @@ -239,11 +241,14 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
->   	int alarm_value;
->   
->   	data->alarm_temp = alarm_temp;
-> +	alarm_temp -= data->calibration_offset;
->   
-> -	if (data->socdata->version == TEMPMON_IMX7D)
-> -		alarm_value = alarm_temp / 1000 + data->c1 - 25;
-> -	else
-> +	if (data->socdata->version == TEMPMON_IMX7D) {
-> +		alarm_value = DIV_ROUND_UP(alarm_temp, 1000) + data->c1 - 25;
-> +		alarm_value = clamp(alarm_value, 0, 0x1ff);
-
-This doesn't belong to the $subject. Needs extra patch.
-
-> +	} else {
->   		alarm_value = (data->c2 - alarm_temp) / data->c1;
-> +	}
->   
->   	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
->   		     soc_data->high_alarm_mask);
-> @@ -277,6 +282,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
->   		*temp = (n_meas - data->c1 + 25) * 1000;
->   	else
->   		*temp = data->c2 - n_meas * data->c1;
-> +	*temp += data->calibration_offset;
->   
->   	/* Update alarm value to next higher trip point for TEMPMON_IMX6Q */
->   	if (data->socdata->version == TEMPMON_IMX6Q) {
-> @@ -629,6 +635,10 @@ static int imx_thermal_probe(struct platform_device *pdev)
->   
->   	platform_set_drvdata(pdev, data);
->   
-> +	of_property_read_s32(dev->of_node,
-> +			     "fsl,temp-calibration-offset-millicelsius",
-> +			     &data->calibration_offset);
-> +
-
-
-No bounds check here or debug message?
-Playing with raw registers which handle thermal safety net it's kind of
-risky IMO (a typo by one digit and the board dies).
-Done once in the setup code won't harm performance and something which
-goes to the DT schema is quite stable to reuse.
-
-Regards,
-Lukasz
-
-
+Seems OK, but probably be should be split into one patch per driver.
 
