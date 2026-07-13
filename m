@@ -4,175 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E20C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0663C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=; b=wEJGQcBDm0nkE/BKoCKpqYr2rg
-	2MhDAw0h7AZ3JJJvnuQzn8hGOu/QDLAkXOD93Dz2orqm74T4JIj203egOLv9XE6Uz/OZSnTyXystu
-	Kwe5K7R0+s6QbBfSgveJqWyDC4jVWQUrmpH3nhFj9gtbAPgiXFLhnOuDnpYWmFomklG9/WJ33DLgZ
-	hdwQlqw9DiQEWla/O18w5gMnZSphlXRT+H3ZGm20RBsidGiW1Ul/dTBsIonyIO1qMdqM0Ikn3KN6p
-	Zwm2yAXi4YMuU32Jm+xcDMjvVHDJCsQKbKGdnEL5Gx0bTX9n+4dx+fDcWF0nAbv87Ljlk5R5C3a6w
-	ntlj6x4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4DXPy0h679aPXo6JYjKQdkbMOuE0zeRtrYWKC8kOOJg=; b=DNv/8LolIJY2YGgUsKdfV+DEg2
+	e8liQvXoLSIHrVDphvykekUQtAVYiHcTaXf695mRJD8g566vOxt/LFnE/4sEmUY5nXEfLw4UiK6KQ
+	njY/bTGzmrB4S7BoOb9FQM7WVXc2mnkDALKSIm/pU9mvnB0+4P0ifL046fZixCS7iGqU9CGc9U26g
+	4qW1tfmoj14JAq31WLzj2zYzPjnwu6xrhQvdJ8cFKR4k9KSLDIlQ/6WXf+yq0vT6DNnu+rCHs3X0m
+	5nkLrwusNqQz1+GkY+Cx6Msctk0dOTs3L5XIEiBLnwVLkXGFWMCnb7LCPy684YgC5Jbl3UmJOsig2
+	fwdKe+Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDxz-00000008tpt-0w0D;
-	Mon, 13 Jul 2026 10:32:51 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1wjE0w-00000008uHo-2wiB;
+	Mon, 13 Jul 2026 10:35:54 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDxw-00000008toQ-1Evq
+	id 1wjE0u-00000008uGz-0ZYq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 10:32:49 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66D6PVWa2802156;
-	Mon, 13 Jul 2026 05:32:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9y
-	qo=; b=m4kM+YaXaFm5GRdLfa421aYFHeIpFVwj81QbAAbjIfjnnEShj03nSj8Zx
-	sbS6P1WumjsxcoXS57M0iZumVSMmJETYqAJSWgkUqHhexyjsAYrILGHi/SkSG7p3
-	in6feJWunoTN4aU9IelEUWS8UNXf6bZyiwq6Qy6qr/awyhcOPmpbPlmE/JJgr6VW
-	n+0pwbJjIdbH9Hwyb2IWJzTwWIyMXJmk9rl5svSp0yj/mYWvStoQLzk5vq1rfH/I
-	yJK6udAIEPZuoslIFuVBwCtQChu303jkXW9LLYTDstezJHeGv9O8a7T3oKa3Jnup
-	fKzsppru9aGWiKQSFktI7P4FNGdtA==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011038.outbound.protection.outlook.com [40.107.208.38])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fc4ypwfm4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 13 Jul 2026 05:32:44 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XCuW4dBi4gJ5h8sbmWtpyyPF4qyqULfBOcih86TbjtkgM3TqHgUiz9TrMIPbDpzm0a2oEbcXIY8CfZIOKgcjY4OWh4yRyC3L/JpzpVHPbdyIE8gkAoSreBUDjN/9cJEzNtpMiXWyGfsXMpHE4aGB3NRfyBW/0hF5IyqomOZWj0Xy/cSDuA+B8coxSKsfbt2Lypzw3TdR4MXFnb9bblgJ2wOfPLOgRHILcs6LBN2oApgsTSYkpl6dAlJAR7UcNVPYx67SYAd8A89Lk65uFsw7emSl/zfWlV0edwczsh+P0nJvpqJX0jqRsZXanqiLJcMsckNJUGPfNXIzLkwWDIoIoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=;
- b=jaZTtiV2QR4cX1ujOoSgBVd5bxZUu0n75C6rnIF68i3X4f9ldyrT3Dkip6SHoFZVw5nYhqei9k3XHUiohfAI/eBAb1qPNc3bzBGBhybIQ0njjFUNEiqwSpUBFOhsQbEZAqOJWDz/OHjEM4zrRsth036eg/+iF4EPi1yAueTsFsUb+7fMzo0tD5CgTu7rpXFuLCvJZjkpQnNduWEZoXFV0U5nIjelZVLx4pNHwKbRiTP6zchhivZkWe2yAh2XstNNiZQ8kUkDZWO2h5wthGNWQOLuXluM5taCi9LJUpWWRJKzeonbNa5GpzJhVGM2er8XwBEfO/5kv6RTzYGZ9MPY+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=;
- b=s8wAucDkAmkAq8SD0f/+L8UxnZfvjhth5GlTyKqigfHcdsQ2odNAbHEWt5HfM3QMOCocBkD/J+X3Zu2kjWsL+iDcqAA9CVOufHU9exp62106Kk8qHzwI09L3dfhafdvVhPmoQRa2XKn8OEl2PW/lUZMcmZUyX6kt2iKwofYr+5I=
-Received: from MW4PR04CA0249.namprd04.prod.outlook.com (2603:10b6:303:88::14)
- by SA6PR10MB8040.namprd10.prod.outlook.com (2603:10b6:806:447::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Mon, 13 Jul
- 2026 10:32:41 +0000
-Received: from CO1PEPF000066E9.namprd05.prod.outlook.com
- (2603:10b6:303:88:cafe::41) by MW4PR04CA0249.outlook.office365.com
- (2603:10b6:303:88::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
- 13 Jul 2026 10:32:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF000066E9.mail.protection.outlook.com (10.167.249.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 10:32:39 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
- 2026 05:32:39 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
- 2026 05:32:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 13 Jul 2026 05:32:38 -0500
-Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66DAWZ4s1946246;
-	Mon, 13 Jul 2026 05:32:35 -0500
-Message-ID: <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
-Date: Mon, 13 Jul 2026 16:02:34 +0530
+	Mon, 13 Jul 2026 10:35:53 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493b8d92a4eso84475e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 03:35:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783938950; x=1784543750; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4DXPy0h679aPXo6JYjKQdkbMOuE0zeRtrYWKC8kOOJg=;
+        b=bOeI3yG37Xq7TuEnYsb+Ga/EUqPyvwTqMFuTM/8aCYdDh2Om1JmnQvSW1MpBxFG4Bm
+         hm87CYMyT3aGWQ3YBnksdhykrIZAKCPaFTeUh6ZxYJdHrRGxT6mVinuhs0niD8Vh2iVl
+         WCwWBQtAZD8CjsN7vw61hn3FRgGxDtBzFlbzhUklx47zcS1g7ZtmGyR5yiKC5FQuBqnc
+         RwOelHAy5EOGZWwj5+qrV66kMIfeVGGwqqXbPXe0M98ATUcZ7XFsp7ZBjc5A0SJqNlM/
+         T+bOxzEdZvGKVtVJYgjKnc5dawDGwOEsvlSKRaUoOUbVDt5d08/jV85piH0eQdJpPyG8
+         g9/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783938950; x=1784543750;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4DXPy0h679aPXo6JYjKQdkbMOuE0zeRtrYWKC8kOOJg=;
+        b=PytY2EFMoDp3Evr5s8hzsn23zuINpO7kwjgNWULv5ZY+8YOYnmInLCvgFEfbgM2Png
+         jHg41/PrSzW4e2aNRmAzdhdN5iSQw1em6vYCdQhKIsPBTf2KI0Hwg51rbx49qheXrxmB
+         noEUr14qN7kduv6lcrPBOJtzyP/q+bWu7cnSUdIrvnmR9wpHBivuHDpaAAcVcLNmvjvP
+         rV0Brzt8Hn+OyEnsH3MlGPmDvV397tnsAUYwwChSe9tbWIhqWPjTkZ+yb+n5Vbeq0Gik
+         EwSnAPJYSGygar2DENPq4j0czNJx1nMUTO1SO4w5SKbk5ckDIQ2peota523+ILWCgYvj
+         zbqw==
+X-Gm-Message-State: AOJu0Yw0Ozmv+KSvC1v2p7i6A8jdUAVk+PR+6bzYOl66lxhciTCG7374
+	Qj/jIGKJSt3oSptqyfIqMFfM3lhX5IqsfTMYVAY9qHmoWZHv4T7uCxldRnKlFp0B8g==
+X-Gm-Gg: AfdE7cnRL5TKxo/lD0idncjS8BWOVkx8nU6wU6Ax/ya9UtMgp9DqyrhWn1SOyDP43Es
+	0+0BPST/0V2YDviBEf+06ukVoSwl9WVK8C7OcKxKkKtII8Bf4232oyCnigx19vMNW0kTtGqNV0r
+	9q2SjzrL+xMeISrT+yCTTCtSAJr8A33o6MoBleW+Q8HUrcwGqNPj9qCjH7tV4ayIJrVAzPeFh3C
+	qZHQ/zyy+UXTX1jWl0eiFW2BOvRXj66efHvXYsXX0aC50OLvYL1KMi623PnevD2Va9QtMjqXUeo
+	6jOo3I5Pn9CvVEoZC+cEkQ4+2tIAUiOcFoBQ+S7gDVcNsvW/37RBGq1qrSbb7UNXjj2BCKeqruG
+	9a5do2wps5FJiJeuyDDlO7mSNCA/RBnj+7/xrGGH/mWclhv3E7fZFezy+YHgti3hSPlDITALbzD
+	Bvegh/QaakYkjTplxauyeeZPLmqYtkW8xdNeUyodtqiN7amquhOVJnwmAbvwA=
+X-Received: by 2002:a05:600c:828c:b0:493:b279:6012 with SMTP id 5b1f17b1804b1-4945e2be9femr228985e9.0.1783938949719;
+        Mon, 13 Jul 2026 03:35:49 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f2465ae8bsm28188355f8f.36.2026.07.13.03.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 03:35:48 -0700 (PDT)
+Date: Mon, 13 Jul 2026 10:35:44 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 09/25] KVM: arm64: iommu: Add memory pool
+Message-ID: <alS_gB5uSEbFV-jH@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-10-smostafa@google.com>
+ <alEeyoXnMC0J4zFQ@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] arm64: dts: ti: var-som-am62p: fix Ethernet PHY
- configuration
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-CC: <pierluigi.p@variscite.com>, <matthias.p@variscite.com>,
-        Stefano Radaelli
-	<stefano.r@variscite.com>,
-        Nishanth Menon <nm@ti.com>, Tero Kristo
-	<kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-References: <cover.1782680023.git.stefano.r@variscite.com>
- <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E9:EE_|SA6PR10MB8040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95e14a9d-4f78-4eb7-bb3c-08dee0ca107f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|82310400026|1800799024|23010399003|13003099007|56012099006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: YY+h3J6GrgQQYKBiTITnPcEY56T6HzpkhE6TKBzK1l/ngV/lWH1A0CfCnhJ5YAsBemY22l508Gn60nqxrbZR41suQe+Nl9vaSCYxGnqGt4iLK2gyBaCoXx9e5kRzUA3LWWeHqWYsrcV/YPM2S1hTBOFhbzqFTDxofwYZwLJggPGRyAWCrBDufvs72yNNY4+d/CtzPK4XkzlyXR0YDFLgK/t7BNePu8sjurC1Mfx9BkPBHDRQlSrhfHWpx4TznxwT4t1JOAaH45iNWjQfYwZtlBH+kMtRl573FgIlNSpuaY5hAEtxBbve/6yFSVQv5E3Bb4tneUOnucU+9TTgU2viBUVAGJaT2ULoqAP+RqucgzRLf56f9gQs3BMdqc8heRLWy4Wz2L7g8+tV+/sZNSZjCJD5JoMQ+tzvYNVe894vijdFu1sONMbfLi/FDseUSiN4MezhXqDre+EYSVLSkfwWS2lD2t4Ir2q6W8qD1rkCtLWF31sO26RZP8qCcdB5HtlNuUnCFLlEhpGKCj4QjhyYMhc8IB22U09nTctdd5kVAq+H+Kd4Gqx59Y7l90iTWgfj7/te0aeS0+AWlEqy7abjry4jswDc2dXhkbKbCUIXr/Iv1cOF2CWWv+tt+1dwReWn6/r2D/9Dgql89utunQPbRSKCIA1cZYBzKII9hyfLi4qLBo+oGaYtARZlihWdhJaVg8ZhgPT5wrMZ910RE0UFyA==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(82310400026)(1800799024)(23010399003)(13003099007)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uUY7HO3YHkuqh/n5hbtO2o4DMjNE1IJ5tvKE3UjD4CItUVk5Szpkv6uf9cZwO9ZTa3MpsmmgCGpmriJXem2L72T6gGS2JZBaQMJ3s4PgVEhF6lsYecU1Wt5emJg3IxVIxLZ2WzzTECnkWURz5Ckh5o0HAtiechhRiED8muKD31UHTVVvNce8L97ZfaYsPEd9+488qm6BTT/tfcqLFkzeYX73hMG5TlK9x9nA8uLLJ/zevnYeRzxnnq1RzRK7xoZv6u28N4J5F2GVqJH3cTkUGHHb5UGxdatYrznLGntKUR6vrvuff2IVkUN+GwV/zs9nhnwujj9UvWGfLJDQsUfxHloaYaOWNha9hdn46j/At2xwI95Mggw/2rPrBMrqOzHN8c5BCkqpHl7t4xMqkWxEcW/1DgUTILu1YHsFZTzslzL7fsTXO2EAIuO+xXLi4sVe
-X-Exchange-RoutingPolicyChecked: YAVhYHv6/mwwrzMfYXxqBPLxA5QiBvWeJqeIK0C8oOx2fg2nOXdwRtjhTcL5oKHU3o9XBwR4NAbV/lqXVuvI0KI7ogdDRsNgTxjmq503JJusXts5JumGnPMm0jZzzkdUbFJj0fCMPqjkbJeUMSirMch2CgO4KKl+/gnwZDKtl6YrsKCHhZpUGoWtfgNoDmVGlRtH/OvisUvcMlaCv3rneN/yqaXp8Sc9DS/cVDf8RFeguokI7T0u2/AGpF/i9mwQGugJQn/moJo/4eym05kvCET9mnxawqafgv9p4Gp3FSqUwQrZcwDGi6wSw3m/pLcFbxP+4AaWIoZiwk4B+0O0gw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 10:32:39.6611
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95e14a9d-4f78-4eb7-bb3c-08dee0ca107f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR10MB8040
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDEwOSBTYWx0ZWRfX8H6QwDvQsuNL
- AaLFtSj0g4pbr8LyPd5RshzJs1o2hBfTg9OQwpLgH2O4BYDSlSAbRc6gHB4KXMzzCXNaPpvrdn2
- Dcnzctu+tWn1qlcjrL69G39IVBGDN1LYqhyplhMoIrw1G/u5h2N5ig8KXJAzYpFzHDblEiBbM1y
- juNmMzqyo1saU+QK4KugIFuGVUtjXPWs4vrV3onTfphtCGNdA5PAungpExczhy7vHPpPcSJtU6t
- E6QyuE5kOIRtwSfIRYdcV7W8mMb+lW9GKnamRiExa7Lcm//I/Ja5qgJsyIlEL2wFZNRVUDUI1yA
- YxzoOhv2nUvfWfVP7+eytBHmhwfc+zUb8BCk1zWpT7iUNSSeWIpNR/UatacR03o83gmibSdnDal
- YzSkgYJV/eB9iHpZ++h29VY09arCpF3WpP5qqkULyjojOwvnb2uvjz0nrijuVevqauPFlCB8hfI
- ASBYJeG5vd/W9oUdwuw==
-X-Proofpoint-ORIG-GUID: LNnKdTT3DQeT74D7zZ461ovxATl98rzO
-X-Authority-Analysis: v=2.4 cv=YaWNIQRf c=1 sm=1 tr=0 ts=6a54becc cx=c_pps
- a=uRUxjcjQKWf8PwUSRA6o1w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=cMDUSdu-AAAA:8
- a=TZ_73hOvgUTWyP9239gA:9 a=QEXdDO2ut3YA:10 a=QRaI_VI5Kbc4sAalow4w:22
-X-Proofpoint-GUID: LNnKdTT3DQeT74D7zZ461ovxATl98rzO
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDEwOSBTYWx0ZWRfX9dbno8fhWaV2
- m8WIhcxNoxWnV9ImSk1a+hdK9+JH8a+TbguHsbRkMVdJsHGKiK+Fyq/A2Yozr2c87BnL+3fEZWK
- 4AdQc1Os7wDtx5QdKZ0s7p4wB6hJx2c=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_02,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 clxscore=1011 malwarescore=0 lowpriorityscore=0
- spamscore=0 adultscore=0 impostorscore=0 phishscore=0 suspectscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607130109
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alEeyoXnMC0J4zFQ@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_033248_455518_666A20DA 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260713_033552_236261_B75FF95E 
+X-CRM114-Status: GOOD (  51.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,74 +105,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 10, 2026 at 05:33:14PM +0100, Vincent Donnefort wrote:
+> On Fri, May 01, 2026 at 11:19:11AM +0000, Mostafa Saleh wrote:
+> > IOMMU drivers would require to allocate memory for the shadow page
+> > table. Similar to the host stage-2 CPU page table, the IOMMU pool
+> > is allocated early from the carveout and it's memory is added in
+> > a pool which the IOMMU driver can allocate from and reclaim at
+> > run time.
+> > 
+> > As this is too early for drivers to use init calls, set the number of
+> > page allocated from the kernel command line "kvm-arm.hyp_iommu_pages".
+> > 
+> > Later when the driver registers, it will pass how many pages it
+> > needs, and if it was less than what was allocated, it will fail
+> > to register.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  .../admin-guide/kernel-parameters.txt         |  4 +++
+> >  arch/arm64/include/asm/kvm_host.h             |  3 +-
+> >  arch/arm64/kvm/hyp/include/nvhe/iommu.h       |  7 +++-
+> >  arch/arm64/kvm/hyp/nvhe/iommu/iommu.c         | 21 +++++++++++-
+> >  arch/arm64/kvm/hyp/nvhe/setup.c               | 12 ++++++-
+> >  arch/arm64/kvm/iommu.c                        | 33 ++++++++++++++++++-
+> >  arch/arm64/kvm/pkvm.c                         |  1 +
+> >  7 files changed, 76 insertions(+), 5 deletions(-)
+> > 
+[...]
+> If we expect drivers to use that perhaps we should document a bit better (same
+> for kvm_iommu_reclaim_pages()
 
+Will do.
 
-On 29/06/26 02:26, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
 > 
-> Fix the Ethernet device tree description on the VAR-SOM-AM62P.
+> > +void *kvm_iommu_donate_pages(u8 order);
+> > +void kvm_iommu_reclaim_pages(void *ptr);
+> > +
+> >  #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> > index 1db52bd87c38..53cb5e4b0aac 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
 > 
-> Enable the CPSW Ethernet controller and correct the Ethernet PHY
-> description by modelling the PHY power supply and adding the required
-> board-specific PHY properties.
+> Do we really need that subfolder iommu/ ?
+
+Propably not, I will remove it.
+
 > 
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
-> v1->v2:
->  - Remove unused eth property
+> > @@ -15,6 +15,7 @@ struct kvm_iommu_ops *kvm_iommu_ops;
+> >  
+> >  /* Protected by host_mmu.lock */
+> >  static bool kvm_idmap_initialized;
+> > +static struct hyp_pool iommu_pages_pool;
+> >  
+> >  static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
+> >  {
+> > @@ -95,7 +96,7 @@ static int kvm_iommu_snapshot_host_stage2(void)
+> >  	return ret;
+> >  }
+> >  
+> > -int kvm_iommu_init(void)
+> > +int kvm_iommu_init(void *pool_base, unsigned int nr_pages)
+> >  {
+> >  	int ret;
+> >  
+> > @@ -103,6 +104,14 @@ int kvm_iommu_init(void)
+> >  	    !kvm_iommu_ops->host_stage2_idmap)
+> >  		return 0;
+> >  
+> > +	if (!nr_pages)
+> > +		return -ENOMEM;
+> > +
+> > +	ret = hyp_pool_init(&iommu_pages_pool, hyp_virt_to_pfn(pool_base),
+> > +			    nr_pages, 0);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> >  	ret = kvm_iommu_ops->init();
+> >  	if (ret)
+> >  		return ret;
+> > @@ -120,3 +129,13 @@ int kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
+> >  
+> >  	return kvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
+> >  }
+> > +
+> > +void *kvm_iommu_donate_pages(u8 order)
+> > +{
+> > +	return hyp_alloc_pages(&iommu_pages_pool, order);
+> > +}
+> > +
+> > +void kvm_iommu_reclaim_pages(void *ptr)
+> > +{
+> > +	hyp_put_page(&iommu_pages_pool, ptr);
+> > +}
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > index 1f6b221db9a0..215014e42c27 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > @@ -23,6 +23,9 @@
+> >  
+> >  unsigned long hyp_nr_cpus;
+> >  
+> > +/* See kvm_iommu_pages() */
+> > +unsigned int hyp_kvm_iommu_pages;
 > 
->  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 16 +++++++++++++---
->  1 file changed, 13 insertions(+), 3 deletions(-)
+> nit: we tend to use everywhere unsigned long or u64 for nr_pages.
+
+Initially it was size_t. However, the hyp allocator uses unsigned int
+so I was matching its type, I was considering to send a patch upstream
+for this but that is not really a problem at the moment as it only
+overflows if the system has ~2TB of memory.
+
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> index fc5a3942cde0..ca2483a04b9d 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> @@ -113,6 +113,15 @@ reg_3v3_phy: regulator-3v3-phy {
->  		regulator-always-on;
->  	};
->  
-> +	reg_eth_phy_vdd: regulator-eth-vdd {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "reg_eth_phy_vdd";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		gpio = <&main_gpio0 46 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
->  	sound {
->  		compatible = "simple-audio-card";
->  		simple-audio-card,bitclock-master = <&codec_dai>;
-> @@ -149,6 +158,7 @@ &audio_refclk1 {
->  &cpsw3g {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_rgmii1>;
-> +	status = "okay";
->  };
->  
->  &cpsw3g_mdio {
-> @@ -159,9 +169,9 @@ &cpsw3g_mdio {
->  	cpsw3g_phy0: ethernet-phy@4 {
->  		compatible = "ethernet-phy-id0283.bc30";
->  		reg = <4>;
-> -		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
-> -		reset-assert-us = <10000>;
-> -		reset-deassert-us = <100000>;
+> > +
+> >  #define hyp_percpu_size ((unsigned long)__per_cpu_end - \
+> >  			 (unsigned long)__per_cpu_start)
+> >  
+> > @@ -34,6 +37,7 @@ static void *selftest_base;
+> >  static void *ffa_proxy_pages;
+> >  static struct kvm_pgtable_mm_ops pkvm_pgtable_mm_ops;
+> >  static struct hyp_pool hpool;
+> > +static void *iommu_base;
+> >  
+> >  static int divide_memory_pool(void *virt, unsigned long size)
+> >  {
+> > @@ -71,6 +75,12 @@ static int divide_memory_pool(void *virt, unsigned long size)
+> >  	if (!ffa_proxy_pages)
+> >  		return -ENOMEM;
+> >  
+> > +	if (hyp_kvm_iommu_pages) {
+> > +		iommu_base = hyp_early_alloc_contig(hyp_kvm_iommu_pages);
+> > +		if (!iommu_base)
+> > +			return -ENOMEM;
+> > +	}
+> > +
+> >  	return 0;
+> >  }
+> >  
+> > @@ -330,7 +340,7 @@ void __noreturn __pkvm_init_finalise(void)
+> >  	if (ret)
+> >  		goto out;
+> >  
+> > -	ret = kvm_iommu_init();
+> > +	ret = kvm_iommu_init(iommu_base, hyp_kvm_iommu_pages);
+> >  	if (ret)
+> >  		goto out;
+> >  
+> > diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
+> > index f247384fa193..213429ceb549 100644
+> > --- a/arch/arm64/kvm/iommu.c
+> > +++ b/arch/arm64/kvm/iommu.c
+> > @@ -7,10 +7,11 @@
+> >  #include <linux/kvm_host.h>
+> >  
+> >  extern struct kvm_iommu_ops *kvm_nvhe_sym(kvm_iommu_ops);
+> > +extern unsigned int kvm_nvhe_sym(hyp_kvm_iommu_pages);
+> >  
+> >  static DEFINE_MUTEX(kvm_iommu_reg_lock);
+> >  
+> > -int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
+> > +int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops, unsigned int pool_pages)
+> 
+> nit: kvm_iommu_init uses nr_pages. 
+> 
+> >  {
+> >  	guard(mutex)(&kvm_iommu_reg_lock);
+> >  
+> > @@ -21,6 +22,36 @@ int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
+> >  	if (kvm_nvhe_sym(kvm_iommu_ops))
+> >  		return -EBUSY;
+> >  
+> > +	/* See kvm_iommu_pages() */
+> > +	if (pool_pages > kvm_nvhe_sym(hyp_kvm_iommu_pages)) {
+> > +		kvm_err("Not enough memory for the IOMMU pool, need 0x%x pages, check kvm-arm.hyp_iommu_pages",
+> > +			pool_pages);
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> >  	kvm_nvhe_sym(kvm_iommu_ops) = hyp_ops;
+> >  	return 0;
+> >  }
+> > +
+> > +unsigned int kvm_iommu_pages(void)
+> > +{
+> > +	/*
+> > +	 * This is used very early during setup_arch() before any initcalls
+> > +	 * or any drivers are registered.
+> > +	 * This value is set by a command line option.
+> > +	 * Later, when the driver is registered, it will pass the number
+> > +	 * pages needed for it's page tables, if it was less that what
+> > +	 * the system has already allocated, the registration will fail.
+> > +	 */
+> > +	return kvm_nvhe_sym(hyp_kvm_iommu_pages);
+> > +}
+> 
+> Could we actually estimate the memory needed, based on the allocation for the
+> host stage-2 and an estimation of MMIO coverage? This would allow the whole
+> thing to run without setting this value as a best effort and to make it
+> optional, which is surely more user-friendly?
 
-So are the reset delays no longer required? Or they taken care of
-somewhere else?
+Not really, this abstracts the IOMMU, so it does not have to match the
+host stage-2, in addition that the SMMUv3 driver requires extra pages
+for other in-memory data-structure.
 
-> +		bootph-all;
-> +		enet-phy-lane-no-swap;
-> +		vdd-supply = <&reg_eth_phy_vdd>;
->  	};
->  };
->  
+At the moment, this is set from the command line which is not really
+best effort as the driver later confirms how much memory it needs.
 
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+> 
+> > +
+> > +/* Number of pages to reserve for iommu pool*/
+> > +static int __init early_hyp_iommu_pages(char *arg)
+> > +{
+> > +	if (!arg)
+> > +		return -EINVAL;
+> > +
+> > +	return kstrtouint(arg, 0, &kvm_nvhe_sym(hyp_kvm_iommu_pages));
+> 
+> How about using a memory size here with memparse()? This would be more
+> transparent for the commandline which can work on different page-size systems.
 
+Makes sense, will do.
+
+Thanks,
+Mostafa
 
