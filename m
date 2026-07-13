@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BD1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D6DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPxreeozyC9OlzBX8SeJZagWhfw9u0AGRhVPID7x7h0=; b=eX4yMiZpMjbLSG
-	dDmv+wHjkmClRiyY843r+jMz8tfmu7LnF9nhnHj48uYiaLW5ZvLh2bMEMdVX5ekDAjkS+997EPdny
-	NWjkMcGojZzBetH+tpbWo4GXPCcU7dGEk64hTOu/DDAx+q2qlePPbS7uIwUPtpjaVhj83I6P9ZLS8
-	h41EnwajLTt8q0KfwET4lMNa78uF/8UNCKFWxEduwOZVfHpsBNYvhR1v8zHdkcELaRf2SYCeT+Bv1
-	2HcbBQdQUiUv+NfRpcS3N/9nYsI07AXiusN+h1oeOsokHoGAvO3fnm5Bp+MQWtYxsIRsDQG/yFpk1
-	L3kSeTx0Rn7yzUiBJdlw==;
+	List-Owner; bh=bCvZS+UotNJvFZgti0pR+2qbKuDNmgfw3z2iv69lpMk=; b=4nbdI6HH5og4ct
+	EWMuYsMUmFK3uQU96GrnH37Sfjscvm+8caUyMXwz0UNqtXraW3SdumaRqRJQpNovPwljAjQjVJ2bj
+	visvbvwFthzdm1HFWcFrROyqHghni/98As9coBtlqywYT74fjHWAUro5/3JmZ350XRtwu6LlczH46
+	BasfTDKduiMeYLv3kdixiJFiSeZXCCqoQMy8K05949G+nleDncEhkwVDL+wz9baUW9olpth/87a0b
+	CG5J9OPKoVgitsBElfzmaZQX4kZ2Ys28xGe47vMuI96ilk7cL5kwHYcLU2YFx6ETK/a+w81a4+Sff
+	2O6zbwf3/cxgc03d74sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFW3-000000099z3-1ohE;
-	Mon, 13 Jul 2026 12:12:07 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wjFWE-00000009A6i-2fA2;
+	Mon, 13 Jul 2026 12:12:18 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFW1-000000099wU-08kj
+	id 1wjFWB-00000009A48-2Ear
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:12:06 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cc61541f8cso45632015ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:12:04 -0700 (PDT)
+	Mon, 13 Jul 2026 12:12:17 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c9aea40d799so1328530a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:12:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783944724; x=1784549524; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783944734; x=1784549534; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yPxreeozyC9OlzBX8SeJZagWhfw9u0AGRhVPID7x7h0=;
-        b=CVQ9qVHrhpdT8Tn017WPlmouXXLThonLMGsGlWeG4yfXffo6W6yvr1+Ff4ikwIVZWj
-         8TC2TAhrNKJH7rpMfSUUziL03H8Cfl4d04Blj3tf2/W7vB5RoPIDEa70GlsAgLT1XGeb
-         5QNXd1EP/3Y4HoPqpMncDthlAKDwGeYgcRO1rATxcLqkE4s/saStWOKSdtgh2dyjJLJ/
-         jGHmhfC1GM90ybKZKzLlxSJGf56kvHckWox//lBYzHDOSdiXlS8Ms5RQftvLgzw5ef8E
-         mIo59an09WzCTVq+a/r4nibvfhbMm5fIvVA4jIqPcR43Uq85AP1wA5h7KbEdINMJUaAG
-         Qw3w==
+        bh=bCvZS+UotNJvFZgti0pR+2qbKuDNmgfw3z2iv69lpMk=;
+        b=XkuzMpKbOd2/r9W1u1JoB4UohlcvD2l1o11qYeJgbSh+IPzqohkEOflOV7h5tyO1aM
+         BaPE6cqGog2im3Spe1ccsjCzV8lE4umah/2GQ5jP5cGd78OOC/J7QZq9uhW4Quc/3hf5
+         b4C5tpaJarL83LMtYa/3cBV7rveKWz93vq9WZthg856EHBD7p46jHLQ+clmoNQ0OCNF0
+         kKxzegxv1pDMhQi3j0qE/zQVCnDRS0H/7/c+WMFeBVm0w//KGN4SI9MBGk4ahlisW5+v
+         xxu+9ulbYNYTvA81YJz/kBOhci2SWszgDdd4mrKJ0XxkTMSnLtouuF9SnhhiNurAxFCu
+         Ix4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783944724; x=1784549524;
+        d=1e100.net; s=20251104; t=1783944734; x=1784549534;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yPxreeozyC9OlzBX8SeJZagWhfw9u0AGRhVPID7x7h0=;
-        b=mOtbA0afhYNtyrRqchngVB5E1e71LYiwlu5p6lXdzOls6kvhp2Y1dXGjJQzwTBcnsN
-         CSxAKCK83h0a9zXnKuKSHNjeiSulLOifRCQ1jpi8P1T7GMLVaW+Wf/Wxp/he/AWbA0Ve
-         04Mzi0rZlVM/13lP4OzUtABtJ9BULl4YgKeMnbU1Kk0s1K7v+8lVXu+eVaTTDZHbuuMA
-         lgiUif1Wfi/ZBPpLwLiuwvf5pfELgd65HuD1JJPPAcw7bVPDD1OlfabCqPknXdkrEa4w
-         MQcAsHiIOYxtwyOuzd8TAE7N3kQamHNRHQ7tndX7EyKu1p1Wj+td1IMqt8vHKzpb0ZdY
-         8/UQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8885lYri1FWhOLXLMwfZX/5WD/BE0nEpRxtyCj+m7A8/axRZmWTwfIATo86cG6km6Xn9o+NRUnnaelm2hCw5o@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiBm9Zo1m77VRJAPyCheXg8zX3d7Ep/j6mO5HDah5Uyw54HotC
-	BQJ9RjcLBc6w37fPZxGXXhVplqqLGLqGBMYOJ96GMls+Q5WtwJ2CIIQ1
-X-Gm-Gg: AfdE7cmaV1JYTFPMLGjX65L210i3Klz2Ea2tfn2f8YjWCCG4+PfB4zXaNErU7HgbduW
-	FkeMcGfTFij91HyXm7uuayDaBHPzatJxuMiX2QUWL+wVhlS2oprMCOf5beuCpgg0ce1iY1eZ1L0
-	OuQ1OM++Hi4fLj10K+dVEiGmcs+puc2QjsWkQxJ6+xKj2DsonjNKNBR5aJxWDCJHQBk+6WU/d1X
-	xpZkoo0MOUQXATlGvc6oTo+rA68HpUimEdFhZxUZRqlx2m4xv7fupDuX9hrZz8CoiodAIZ+rUBN
-	zfdTBDnEVFG8UW9yCXgG/sjqs+Asj1Fri4BEUNFEbiL9inWWK4ApFYCSr9u8LtOBn95NcfiemB3
-	SjPZyj6PnzAje+u85pO/wO7yyV1YSUl5bqBYMcqolS/j0taPHZdg7gvWopaOCfYDw8TEFyJyaow
-	q/P307vKou7mcK60M2vSMgFQhbtYrf67U=
-X-Received: by 2002:a17:90b:4cc7:b0:36b:b903:994 with SMTP id 98e67ed59e1d1-38d13768de2mr15332791a91.4.1783944724165;
-        Mon, 13 Jul 2026 05:12:04 -0700 (PDT)
+        bh=bCvZS+UotNJvFZgti0pR+2qbKuDNmgfw3z2iv69lpMk=;
+        b=r3SVG69OG9qpG3tEMRaUC7yJM9wVjt0mMMbTIpi0MYCcW/42WICRK9kmft6vbmSUX3
+         pAPAk20WWLNXwDZgWHJdaJEYtVM9f91sVP3ccNrDlKe0JoHHwKg4/aK2mAqmlMVTMZDV
+         PQeZWW7wj36WqXPwrNZL0UvYyfKWVElivpKzoPdqNEoSwXLwjLBT+V/lmDyke9XpAwe6
+         WLleF4rMOTmvzXglgZeNSrdP9sG6w4cniDCidPHP9S5bFttZpICLL/eoSe2FJG//mh9A
+         3E6M1yBd0VLHeQBdwPiiwpHX6PxcaNF8MYSJRJKcasl+C/fjHQtE4musjQ1zCyrppq+D
+         KGMg==
+X-Forwarded-Encrypted: i=1; AHgh+RpPURdR1MaQlHzT9/I1TNYjLO4LrysB/0NElBbdq9UXSOToNPg6E7KslBgiRgaMw+r6g1FXqMsggJhsWr6Dy5xY@lists.infradead.org
+X-Gm-Message-State: AOJu0YybevFyYIHL6dP2SZSxZE17tdRUYnjEMf3OW9LXufmBSdpPYmZL
+	ZKK6eanGKt/HHAsgaDtu08hMcL+Vvv4pGkh15V7idaEmWcRlYbyh3zmp
+X-Gm-Gg: AfdE7ckQzpOn+XIp3I8g5aT6XorFPvis+YNnpE0XQR5/0nxMYBFT1sGELTyecs13Iyi
+	/1J9eHcbUA3UN5EDePPezHJsl/9aUXH9w2/52s5tkKhOinSCbiMQFuh7I8q2Za8yqq5R7zJNExO
+	elykLK/iVy5t4FozbStL5DsabVGnWErQrAZaQnmIbaw+n1g+1u4tFtPj0V864OvDSPxnOcJYfE7
+	uqvB0aqerVljUGqU60lVQ3WqImzapH7970ldMsTW76EuG22XGOs1bbN8gv7a9L7r11lSx+x3gBT
+	9CEkNB+lN/03QPip29UeVjmd0zsB2e4nMlYBafAFV8oWxDEBZLXrvT93lipgMtSLCyVOKqZ82Xt
+	kaWeNdD1F3zwfI/KFgNv89WQlwoBIVNloiZZIZIU2dYmFxT3evDuTEt2Tqc2I0QSiCxrhku/Wom
+	0GSmtMKEYbJg==
+X-Received: by 2002:a05:6a21:6817:b0:3bf:80b8:9c8a with SMTP id adf61e73a8af0-3c1102d7cf9mr9542534637.6.1783944734620;
+        Mon, 13 Jul 2026 05:12:14 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.11.58
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.12.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 05:12:03 -0700 (PDT)
+        Mon, 13 Jul 2026 05:12:13 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -87,17 +87,17 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-kernel@vger.kernel.org (open list),
 	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
 	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
-Subject: [PATCH v7 18/19] media: meson: vdec: Increase VIFIFO buffer size to 32 MiB
-Date: Mon, 13 Jul 2026 17:37:13 +0530
-Message-ID: <20260713120840.17427-19-linux.amoon@gmail.com>
+Subject: [PATCH v7 19/19] gpu: drm: meson: Fix DMA segment size limits and maximize allocation boundaries
+Date: Mon, 13 Jul 2026 17:37:14 +0530
+Message-ID: <20260713120840.17427-20-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
 References: <20260713120840.17427-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_051205_111665_CF801DF2 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260713_051215_596160_00DF1F14 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,43 +113,46 @@ Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During 4K video playback, the hardware Elementary Stream Parser (esparser)
-can rapidly push massive burst data payloads into the Video Input FIFO
-faster than the VPU decoding block can consume it. This causes a buffer
-overflow when stream usage breaks past the allocated hardware boundary:
+When importing DMABUFs exported by the Amlogic video decoder driver
+(meson_vdec) for hardware-accelerated rendering paths, the DMA core
+subsystem throws constraint validation warnings. This occurs because the
+display controller master device lacks explicit DMA layout configuration,
+causing it to fall back to a default 64KB maximum segment size limit.
 
-[ 1852.587956] meson-vdec ff620000.video-decoder: VIFIFO usage (16779003) > VIFIFO size (16777216)
+Address these architectural constraints during the master bind sequence:
 
-When this overflow happens on Amlogic SoCs, it triggers an invalid memory
-state, leading to stream corruption and fatal kernel panic lockups within
-videobuf2 error rollback handling routines.
+1. Initialize and validate a 32-bit coherent DMA allocation window by
+   invoking dma_set_mask_and_coherent() with a DMA_BIT_MASK(32) argument.
+2. Maximize the contiguous scatter-gather allocation segment boundary
+   check constraint to UINT_MAX using the dma_set_max_seg_size() helper.
 
-Double the parsed bitstream swap exchange memory pool (SIZE_VIFIFO) from
-16 MiB (SZ_16M) to 32 MiB (SZ_32M). This provides a larger canvas window
-to cushion high-frequency frame reordering spikes and prevents the VPU
-from crashing on demanding modern streams.
+This guarantees that large video bitstream frame buffers can be imported
+and scanned out across sub-driver domains without triggering allocation
+warnings or page boundary splits.
 
 Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/staging/media/meson/vdec/vdec.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/meson/meson_drv.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index d33cbebc4453b..824e2f156adeb 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -29,8 +29,8 @@ struct dummy_buf {
- 	struct list_head list;
- };
+diff --git a/drivers/gpu/drm/meson/meson_drv.c b/drivers/gpu/drm/meson/meson_drv.c
+index 49ff9f1f16d32..899e70bca4ce2 100644
+--- a/drivers/gpu/drm/meson/meson_drv.c
++++ b/drivers/gpu/drm/meson/meson_drv.c
+@@ -202,6 +202,12 @@ static int meson_drv_bind_master(struct device *dev, bool has_components)
+ 	if (IS_ERR(drm))
+ 		return PTR_ERR(drm);
  
--/* 16 MiB for parsed bitstream swap exchange */
--#define SIZE_VIFIFO SZ_16M
-+/* 32 MiB for parsed bitstream swap exchange */
-+#define SIZE_VIFIFO SZ_32M
- 
- static void vdec_free_canvas(struct amvdec_session *sess);
- static void vdec_reset_timestamps(struct amvdec_session *sess);
++	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
++	if (ret)
++		goto free_drm;
++
++	dma_set_max_seg_size(dev, UINT_MAX);
++
+ 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+ 	if (!priv) {
+ 		ret = -ENOMEM;
 -- 
 2.50.1
 
