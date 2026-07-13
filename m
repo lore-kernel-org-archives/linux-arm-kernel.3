@@ -4,138 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D40C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD566C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3ds+ZfPgSmMxk9w62eeDN6HWFjTVsxsr0xp5kuGCo0=; b=B7ZRnTKUGbEBqRaW8QMURFK0cq
-	vcDym3jRVva0h3r8R6iDRctwEgJHeqbXwYnMO1DQj7KLs0oXrkxn35rNBtaHVwFmqrhvDOdxwgT4v
-	qHgZkwZwE3HKzNCk8/GkvWSFqEwqOx53FUlryQwaydPIKZcxWgf2QA9tVRwBLjf44qfCAQejQQPqU
-	ai/s7sEHFqqmIwljYJmac6lwnn+Zx4Mt6CS/BiGFbXgSPsJQjsjgFYXBUG66zyQsI91Yu+ZVzpXlz
-	IXgqr1/EM+U1h1dK9TBjRpTD1SpkRt5GoY6/FVTEQoox3Woo4PTGVurd2SAFeRAUqRO2+wyw5tkfh
-	myzzMEcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kIlyxI3oIQPrv8rT/JFahstddPM/FgX6y8BO7M0LV8A=; b=XYqaqt0GQK7QLNajj8hHc1HZgc
+	rVf+t5Byr3r/AqGXajioiFdo1ntYl+NnFrOKrcboGNGc4WU4fwtWd17WLJcAmsOgOXl5lFq/1F09s
+	lrWDvFGfFUpGtbcBFTuPWgyzweQRE61parubiZIH4xq7QNi93xkVozR3QKo0cdWJMPWCEH6K0GqTq
+	zeiN1t/ROcpqZtUVoKRoxYZRNaqJ0Arh/sE6MvrxK8OKddxrjGJaRFwmgX98f+JsZuSrVbJ0cLV6r
+	jP8swB0XivRC7KubD7li6zpWxZKfJrKpEEbUrkKAFUpiU8Szixx1cjELYR5tqHc9yL85TA0xrvumV
+	JL9yjUZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFEd-00000009427-0V8M;
-	Mon, 13 Jul 2026 11:54:07 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.84])
+	id 1wjFJy-000000096LL-30hT;
+	Mon, 13 Jul 2026 11:59:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFEZ-000000093zo-2x92
+	id 1wjFJx-000000096L7-1bsG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 11:54:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783943621; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=Kx1wuMGhNx1H1qyfH20/px3rarhlIIZQ+JjJo0CEpux60nBDZPSSrKgs9Rl3tQiiv6
-    0l0dKIVzgcjkdC3daT6DTHReUrAge2lS4LW7dM4khoLYId08yYBqLVzE1l5J6wBWMpH8
-    Z9EKVYSrbNd1ti3fQ8QLOb3Gv+e+XkFK96rSLufhJeeYCIRWK65kErEhJA2uI4N64NjH
-    JYSz8Sn6nZ5H52RQdUFyCUCbhgdybWcihOBibDK90RNM5bcsxZ71wwF406c4ytvZT3In
-    Jmfs6IOFCUNNXe4kTJbT6bMATZ+WUR8O3jLEfZRx5UHgEo1lrh2NyIzmi2jqKLw22ZXr
-    uAgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783943620;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=i3ds+ZfPgSmMxk9w62eeDN6HWFjTVsxsr0xp5kuGCo0=;
-    b=BGXfZQIZ3SaQrA5X07mjvAtyo/KMJXmohUec/pZZWOecujXRZ34ILOkWUzK+DTpm19
-    DnpguzbL1Z0SCC3Hpgm/18BSBg1BUOyrgDyO7vWh76TBoIxvViomlPgRdOZ2QVUU4HYJ
-    9MnaMHd5KOuuqTngGz2RsP1yw3WZXZYIMWeZ4mFAuJqNK8eiiCW8p7lsgvjwiESjK51O
-    CPH9DVJh5ImrcAWh/khAd7tG3GbgFouS5hc5XVRw9jo2Ln5FSuy0ML7nLcdmYFGdvT3r
-    R43lS5IAIwKYUfF7w6e/7VOy2rLBLnJm7Ve0Od7qnIVFb2QhXsSPXw8SkmrsjC/GoGeM
-    QLOw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783943620;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=i3ds+ZfPgSmMxk9w62eeDN6HWFjTVsxsr0xp5kuGCo0=;
-    b=Y+mVFkczigTwHh07i5RU3dZ4pxUtVVhWXaI+p5c5AuX4Ed3wFswQZy7pu7aGlrJMG1
-    FBOO2pYQMlDx3CJBFf33GdHpPyDq1MlQdZiKOkP9d3deI3MUqXWAt7ei92bTojyXs1W1
-    +luDZjQbt02BL4qKEod75NByenN/O2d9h78LoyQmDKJg1cmhUNdKVrH18UxMrNgsE3qU
-    lxDmX3AeDOyw33C7ZsKCdbNSFmDJB481hWSDhvS9ew4kZtFwMWys2mWiY8aV3XJ1eMh5
-    Z44CypUzRk/gNuUvXICD9kW/AkreJKPPPMJr1hGp01t11GWAMRgt5E0gycK3VwVa6b97
-    Muyg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783943620;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=i3ds+ZfPgSmMxk9w62eeDN6HWFjTVsxsr0xp5kuGCo0=;
-    b=s5oUxzPzsKSduKARr3lcDfEnRpESmipObP6NRDu3IJDlm6uuVQYxwV1+P6l65C1tdO
-    QuCLZy3VdSu64X4cJwCw==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrQi5pZlciNgDl2kEp5oHJ2/c57N2Mc49IfXTKd"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q4b76426DBrcOAG
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Mon, 13 Jul 2026 13:53:38 +0200 (CEST)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Subject: Re: [PATCH 09/16] ASoC: dt-bindings: add OpenPandora Sound Card
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <741706c6-e6ff-4bc2-8ea1-28ebada6032c@kernel.org>
-Date: Mon, 13 Jul 2026 13:53:28 +0200
-Cc: Grond <grond66@riseup.net>,
- Stefan Leichter <sle85276@gmx.de>,
- Grazvydas Ignotas <notasas@gmail.com>,
- Tony Lindgren <tony@atomide.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Andreas Kemnade <andreas@kemnade.info>,
- Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>,
- Helge Deller <deller@gmx.de>,
- Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>,
- Sen Wang <sen@ti.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org,
- linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com,
- mfd@lists.linux.dev
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <9E796FCB-F393-48F9-A8D4-6E433EFB6876@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
- <7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com>
- <20260713-infallible-capable-dormouse-aaaebe@quoll>
- <BF2B6C4A-A4CC-48D7-9854-DC014950184B@goldelico.com>
- <5667350d-cc3f-421d-899f-f353b05c5ea1@kernel.org>
- <8A0C119B-7885-4538-8D4F-AC60E5C91B7E@goldelico.com>
- <741706c6-e6ff-4bc2-8ea1-28ebada6032c@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_045404_004222_574188FA 
-X-CRM114-Status: GOOD (  18.07  )
+	Mon, 13 Jul 2026 11:59:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BE72600FC;
+	Mon, 13 Jul 2026 11:59:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CFF1F000E9;
+	Mon, 13 Jul 2026 11:59:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783943976;
+	bh=kIlyxI3oIQPrv8rT/JFahstddPM/FgX6y8BO7M0LV8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TGQgb1W8XunndD3pnSOJR8FhNZBFtiRa4R/mewCUu9V1ru0vEo4vpe02N6oYcq0Bh
+	 jJXL8g5ES+zT3PaITgTAQcwqkLB/47cPEdXQd6YUxIRraiRIq+D8Ezh3+TitA9bANp
+	 JWbk9cF12dst+P8nLi5I9JP64pDs+iwnUVyqVpSelT9vAUIdwf/4ha5W8zxr8VjOGn
+	 QA9bEATH9mIncHJNS3GOJuiKBJhy+L1yk2htFxJFWYZR7GPb/pVTqaBYuj/PaV/ByK
+	 TyfcaDB1NckGCZmXbOaA8NWM5iwq4vLYdZeSRA9SGQLsbUocmA4awG37tVVC2b2bQ1
+	 kYhZpfA38YT+g==
+Date: Mon, 13 Jul 2026 12:59:31 +0100
+From: Will Deacon <will@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Yureka Lilian <yureka@cyberchaos.dev>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
+Message-ID: <alTTIx_aw3L0ibqN@willie-the-truck>
+References: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
+ <20260713-bulky-thistle-leopard-c66a18@sudeepholla>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260713-bulky-thistle-leopard-c66a18@sudeepholla>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,82 +73,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 10:57:38AM +0100, Sudeep Holla wrote:
+> On Sat, Jul 11, 2026 at 09:35:25AM +0200, Yureka Lilian wrote:
+> > Overriding the idle mechanism might be useful for debugging and performance
+> > testing. Add a cmdline parameter for it, similar to the existing idle=
+> > parameter already present for the x86 and ppc architectures.
+> > 
+> > It is also useful on platforms where the WFI instruction misbehaves,
+> > such as Apple Silicon SoCs. Generally, a misbehaving instruction should
+> > be treated as an erratum and patched using the alternatives framework.
+> > However, in the Apple Silicon case we need more flexibility because it is
+> > difficult to detect whether the erratum applies. For example, Linux VMs
+> > inside macOS have the same MIDR and may even seem like they're running
+> > in EL2 in the case of NV, but should continue using WFI (it's trapped and
+> > handled correctly by the hypervisor there). Thus, we prefer to
+> > let the m1n1 bootloader add the idle=nop parameter[1].
+> > 
+> > Link[1]: https://lore.kernel.org/all/99b69262-e54b-424e-baa2-96ef7013b87a@kernel.org/
+> > Suggested-by: Will Deacon <will@kernel.org>
+> > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> > ---
+> > Changes in v2:
+> > - Applied suggestions by Anshuman Khandual (Thanks!)
+> > - Link to v1: https://patch.msgid.link/20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev
+> > ---
+> >  Documentation/admin-guide/kernel-parameters.txt | 23 +++++++++++++++++++
+> >  arch/arm64/kernel/idle.c                        | 30 +++++++++++++++++++++++--
+> >  arch/arm64/kernel/idle.h                        | 13 +++++++++++
+> >  arch/arm64/lib/delay.c                          |  5 ++++-
+> >  4 files changed, 68 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > index b2d7d3540ded..d7f5471edf8f 100644
+> > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > @@ -2239,6 +2239,29 @@ Kernel parameters
+> >  
+> >  			idle=nomwait: Disable mwait for CPU C-states
+> >  
+> > +			[ARM64,EARLY]
+> > +			Format: idle=wfi, idle=yield, idle=nop
+> > +
+> > +			idle=wfi: Use the WFI (Wait For Interrupt) hint
+> > +			instruction in the idle loop. This is the default and
+> > +			allows the CPU to enter a low-power state until an
+> > +			interrupt arrives.
+> 
+> Just curious as when and why one would need to use idle=wfi if that is the
+> default behaviour. I am missing the need to have it.
 
+It's probably useful to have so that you can override an idle= option
+present earlier in the cmdline. e.g.
 
-> Am 13.07.2026 um 11:42 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
->=20
-> On 13/07/2026 11:38, H. Nikolaus Schaller wrote:
->>=20
->>=20
->>> Am 13.07.2026 um 11:21 schrieb Krzysztof Kozlowski =
-<krzk@kernel.org>:
->>>=20
->>> On 13/07/2026 10:27, H. Nikolaus Schaller wrote:
->>>> Hi Krzysztof,
->>>>=20
->>>> Thank you for the feedback.
->>>>=20
->>>>=20
->>>> It does not emit any C compiler issues or runtime problems so it =
-remained unnoticed.
->>>=20
->>> I do not believe.
->>>=20
->>> There is a clear warning from Rob's bot.
->>>=20
->>> You just did not follow the process of building the code (compiler =
-has
->>> nothing to do here). Read submitting patches in DT dir and then =
-writing
->>> schema for further instructions. This is ABSOLUTE MINIMUM. We are =
-not
->>> your build test service.
->>>=20
->>>>=20
->>>> It was notified by the sahiko-bot and will be fixed in v2.
->>>=20
->>> Sashiko has nothing to do with that.
->>>=20
->>> You DID NOT BUILD the code.
->>=20
->> Hm. You are confusing me. I did "make" and did not get any errors...
->> And the resulting code works as intended.
->=20
-> 'make' alone does not build that, just like other pieces of code they
-> have own - well documented and always expected - build processes.
->=20
-> I don't know what is confusing in my message, since I pointed you to
-> SPECIFIC guide telling you EXACTLY what to do (and which you did not =
-do).
+	idle=nop idle=wfi
 
-Confusing was the phrase "building the code". For my understanding
-"building the code" is the process of building ("translating the code")
-to get vmlinux or similar and a DTB and kernel modules.
+will give you the wfi behaviour, which is handy if the cmdline is
+stitched topgether from different sources.
 
-As far as I understand the bindings they are used to check the DTS =
-source
-files against. So here is no translation of bindings into a real DTB =
-that
-finaly runs on a device. So I had assumed that schemas are "validated"
-(not "built") by dt_binding_check.
-
-This made me confused.
-
-Back to topic:
-
-It finally turned out that our script to run the required checks =
-automatically
-was no longer operational and silently ignored the validations. =
-Therefore
-nobody noticed before the bots did. Good to have a second and =
-independent
-check.
-
-So sorry for the confusion we have introduced...
-
-v2 will be checked as it previously was.
-
-BR and thanks,
-Nikolaus
-
+Will
 
