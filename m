@@ -4,115 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C2EC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 17:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6798CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGHI47Uk7ivYjDw6pJp4pRueuEDSB7hHUc7Dm7encu0=; b=BGfKnk5f1lWsXfwZo3zfR3Vvh0
-	vb7LOPpdynIdmtAorRypkn+Qgn7/huKdWVMPl4XlZeLRZW+srvWphMrUVcdMJxUjNCRyfZwn427+u
-	4pF/Hr6pLepeVV7Dx8/+LzP5HTvCqo5s+IewiWpOLcnpQIypPSzZJHKrAsiGs5UzVTOC0E2pDvikN
-	20ptaBaYInkupPG6y1DX7WWJhmEjCo3yftI3x1W2QHLOdfrqY03fYWCWSVSlURcG8RfPyp7UmABAI
-	PvydWozGFlh+yCfSWqkbwZM3hJXp2tSEj++HxQdDsSo58Oq030b1x+OkqxfWSRXMrSWh17zFPRbnW
-	iFDN8Bzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b0dUGEDicRVlZe7evAJgy8+O+PhCuLfeiGmumWsTY3Y=; b=XQd2ynjfaQ/3SH
+	6OOZc+7Ew9IDnEtq0VNNe4H7ib0aifFhuWL6YQwHaBKwncIYjW2mymySSFlmyVvE0BG5IJytRn9oi
+	Xj8QXMZvvojQmEyCEa2z7CfOIRkXySeQjpm4u+hsPblgLeOGQC0g8yjoDz8IGKD58FjVhhFEYa/Ya
+	HjTXgYIyQXMGo2sH314H9IBqiUl17zYMzbH/FSeQrL4GjJIWYhIyI4XbM1Ad62vGDxaw8Nr6UeivY
+	coef7c+BsiABevhDFrCJbq5gQUzL0R8+7t3OvfaZO6OqpCVH3L9h7f+0uzliQhc5a7rtaCSvuEIHR
+	2H5MacHphpwb+s/fhM/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKu6-0000000A9mi-1LKH;
-	Mon, 13 Jul 2026 17:57:18 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKu4-0000000A9mA-1Yyt
+	id 1wjKxR-0000000AADb-0q3a;
+	Mon, 13 Jul 2026 18:00:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjKxO-0000000AACn-1mRc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 17:57:17 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-8efcfdb2b43so26337986d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 10:57:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783965435; x=1784570235; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YGHI47Uk7ivYjDw6pJp4pRueuEDSB7hHUc7Dm7encu0=;
-        b=hB2H3ODbHFfN1uU6WezOWcFsTC53pW8IFl2yhADH/4svnDTJqJWUhm+rK/73PhLGYc
-         q7tbvdyZ7cBhpgIORc0jXMAfNvSN3JGD9oa+uxqc1/tsjNlGbsQTPPk38ymwngsSVHd3
-         XgQzhOia6IcRSllyvWXJcVkz9a66MEtGjshDkCKIOrk0CtD7YDVcIetYo8J4GCOZCVMt
-         sUJj1WVnbOMDfAqwTNAfnRCwcO/bPJ5nBRRSfPZDhquraoTLRbt49EmCBEv2TErJKNh9
-         t9COvGj1KQ3s7EqwFY6uh4Vq4brQ+CdanBEcLHt2iGalwbc92FsTt/p76IqDrCEI6kf7
-         qsEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783965435; x=1784570235;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YGHI47Uk7ivYjDw6pJp4pRueuEDSB7hHUc7Dm7encu0=;
-        b=Rgmydo7Ec18IDBKMSVp2pRwh0kr95Yf9ZSZpAJ2SqNQG6rNe9VuRYyc+OXT3p+Pk0L
-         CHglVAjhcXgmOsGSVByPgePqVNblWBbxVy77Eqz+wACGwzHb37tY/WlXV0/kz2oxkC4F
-         NJ/BxsAbpb39YB7lNf3vl32GdDoMW/g75QohNYg9BuFvkpuL+qNMZJCZol0C82QQ4OPR
-         sA1H6vXLK1sedrtW5Txzo0r+CaW1uwb0SCKRAm6Y+cIDF6ZofDuomSPSgwvam8XRkGlv
-         pHB2y/N+XceRDuXHeo2yyS1vzsKcTH+/6cVkPjWudL8osbjbakO3ZbGKDWjQ2RYc+lnS
-         hArA==
-X-Forwarded-Encrypted: i=1; AHgh+RrNLr4UB6vEIwGPdHy2QC5/7Lv+H7SS1KK9UO/uUsxww/2AdE+RJhXqH9OsP4hUvwRodYezujHn4Ph6WJzesnn6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrYsCu/jK6ZgzMFod+icuM+4QSV+bAv4aMyA8oYrAoFeNa1RHi
-	DUC61TLiF/w2m+ay2n3Y2k42/D/PqytGLq+GVOiKYKS3t93eD1qxo4UpkrRPlGDhO00=
-X-Gm-Gg: AfdE7cmXAoQQlJHn3quMIbhnopJoI3mwaZlE28F2wntt84UVvBkmGXqHjRNpIOul/cT
-	V3kgjaDElr7dqrv5y20x1RH3flhjamjjeXZgrbxy8pSUbyhFRR2/K8z5GFgO+EnW5Fcx+qEqZrQ
-	rw3p8RR9t98b10QzTH4ekH1izGQBU9VwEPykf8oqHhIPbVUQxyqfrDclAY5U8Pi+cTx2kzZzA+G
-	YYP6s96PchmTjT+luqpe3iRCyP4z1wcLj/gx9TMPCt/2VGOO3hq21r0wHPPRlsZ9FffL+9TJF+X
-	Q4iHaXcTSVWA1NREGgSDEZLhQUgJ4nm9agUft63hyMU9Ya2EoA9ZbJS++xx0LNSK6peEN05eeZd
-	GQ+ZEbQpmUyY/agSMd3+uMP+veUrohujRAfTuapwz70ueFT7yrisaxWmaAPZQ
-X-Received: by 2002:a05:6214:5012:b0:8ff:60cd:8174 with SMTP id 6a1803df08f44-904053d8c92mr120238636d6.60.1783965434905;
-        Mon, 13 Jul 2026 10:57:14 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd50e082csm149305496d6.5.2026.07.13.10.57.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 10:57:14 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wjKu1-0000000DxAz-2t49;
-	Mon, 13 Jul 2026 14:57:13 -0300
-Date: Mon, 13 Jul 2026 14:57:13 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 03/22] iommu/dma: Check atomic pool allocation result
- directly
-Message-ID: <20260713175713.GK3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-4-aneesh.kumar@kernel.org>
+	Mon, 13 Jul 2026 18:00:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4468E1570;
+	Mon, 13 Jul 2026 11:00:34 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 524443F7D8;
+	Mon, 13 Jul 2026 11:00:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783965638; bh=eVPlSXGFM3IbaP998uV7x/zfr/eEupXGcPHd5tsKxYs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=QtyVbW5CwNxCOYUr1FJ6dQ/5CkxBxaEyBA7ZxNOJ+QZKJNMzu/rZDq22CLGYEzk3h
+	 jzoEUOoemx2k+1pKEewVztlOTDU3yNnXeHQMz6cQ2v7259YbfldJGJ+Iocwktj4pWD
+	 uvc5Z2puaENW+Gq98V1iK1mwklwVIoRKoPrhXLEI=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH 0/2] perf cs-etm: Fix bogus branch samples
+Date: Mon, 13 Jul 2026 19:00:26 +0100
+Message-Id: <20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-4-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALonVWoC/x2MXQqDMBAGryL73ECiaQNeRcriz5d2KV0lERHEu
+ xt8HJiZgzKSIFNbHZSwSZZZC7hHReO31w+MTIWptvXLBteYBSnymBnrn6PsrLPy2v+g5jn4KcT
+ QRO9ApV8SinC/u/d5XijQTrxrAAAA
+X-Change-ID: 20260713-perf_cs_etm_fix_non_taken-5b4d7f73f41e
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783965636; l=912;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=eVPlSXGFM3IbaP998uV7x/zfr/eEupXGcPHd5tsKxYs=;
+ b=QP36DFn6MqmhK04qZo+pyM3SNBnFpub3G1FhEkek2YDWFP66faq1XNyEa281MyM07NZq82V3n
+ lQnBRuBaGN6Bd2fGDBC03n4xHizuCvV3k2u8H074aF+r1KvxrgVtt+B
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_105716_417502_6F3BB4AD 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260713_110042_614424_BFAD1AA4 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,23 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:07AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> The non-blocking, non-coherent allocation path uses dma_alloc_from_pool(),
-> which returns the allocated page and fills cpu_addr only on success.
-> 
-> Do not rely on cpu_addr to detect allocation failure in this path. Check
-> the returned page directly before using it for the IOMMU mapping.
-> 
-> Fixes: 9420139f516d ("dma-pool: fix coherent pool allocations for IOMMU mappings")
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Petr Tesarik <ptesarik@suse.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  drivers/iommu/dma-iommu.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
+This series fixes the bogus branch samples in the CoreSight ETM trace.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+When an interrupt occurs immediately after an untaken branch, the
+decoder incorrectly synthesizes a branch sample for that branch.
+The first patch fixes this issue.
 
-Jason
+The second patch consolidate the branch check so make sure the flush
+flow to apply the same check to avoid generate bogus samples.
+
+The series has been verified on Orion6 board.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Leo Yan (2):
+      perf cs-etm: Avoid bogus branch samples before async exceptions
+      perf cs-etm: Centralize branch sample checks
+
+ tools/perf/util/cs-etm.c | 44 ++++++++++++++++++++------------------------
+ 1 file changed, 20 insertions(+), 24 deletions(-)
+---
+base-commit: ef3af1df4f3372bd8ad47619452a283048b3bc8d
+change-id: 20260713-perf_cs_etm_fix_non_taken-5b4d7f73f41e
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
