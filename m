@@ -4,115 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE77C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA16C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=; b=cur5irIL1IWAKCiU0KFIPIjum7
-	/eDyr54M7KfKD6lJ4duCESwqBrCCZPiV9FNoVLUmJHcINd6ZVbittKRcZZ96AXnG+sdQOvh3f3Pdj
-	/wH8o9Wd09aphRktazkpnIPlwjR9wm1N9SwHk7SbH6pQ/2tk/MvyzLD8A9NSxf/MLzmj2MI8n8ze5
-	EdVlAjJbzP/RydBx6dQJn9KO38O/stMBityvfnHypf32T8LVNuPC1GdqAxay3tXsS5EF+xmtyfwRz
-	RurpQ+A6InIG1E8qxd5V6kdqlCNq82J3X9GtWZrVJ8d6CUpJpHc0+ojcNY4squz0M1oX5coDPHTYz
-	F29z2X9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=; b=uC5pVvl73qZhKQnS3cEeJ0HtQ2
+	x6uUuPIOLGbI9VOJQc12lG+k/loemjPhqRkyJ5w4GGQ5oJ3pt7XTNMtYwPtBJXXsG1OVic1NNShV6
+	at9c/byai88x1p81+mGJ0dF6g5f7x+xHdoomNPZaCz9rjsOk1f0Hq6F4Hu/CQ+Df8jz4dMu7uvxLl
+	lcZHCMYb+1txgqXd5XLPiwA/bFb+mfzlARiVSIVfw+VU4wB8BhgBEWXJikePJ2kyuEC+c/MPqCUzo
+	2u/VZf9o5AuJ+OlM9a1hG3b3O6NMJUvR7gGOqQp7TXDi4ysEZSRl/+8UDmyYTq+IKTTJQIBonJERR
+	yzOPyWZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMH6-0000000AHXG-0JbK;
-	Mon, 13 Jul 2026 19:25:08 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1wjMHE-0000000AHZE-0hWv;
+	Mon, 13 Jul 2026 19:25:16 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMH3-0000000AHWm-3MEI
+	id 1wjMHB-0000000AHYL-3ZOx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:25:06 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8efec2c28f8so1580786d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:25:05 -0700 (PDT)
+	Mon, 13 Jul 2026 19:25:15 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493ece78b0cso26176595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:25:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783970704; x=1784575504; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=;
-        b=kIrPICoUBujFwtgX9s0l74rEAUc43hSg3DvfIVblQKS+qAgfkN1nDPmNEfhdw/1AyE
-         LFQhory3Oqiox/n21sqdo9iBsW1OLfHFqx8lmHJiWO98IRd3iqo/QxSO30ckQV/xgaen
-         wf0vaD34Rxnn3l6ELxt+7SvDcmjbZ8q0HD9BdMB6mA/L+xoHHX0S6BEJ+Q1zFCflOFkG
-         dBpYHJf2mVwY4ADkKDLj0c/jWWRBMIb3sp8P7CKBvh/8GgAAibFW9QR1MP3m/N9JV9YW
-         Td+Tt/1CIEYf1qup3S4out1Is1Zj1FD/h66SjgEX0mzFIFGwuXvyFP9y1XRbaBbTi5Ma
-         OXUA==
+        d=gmail.com; s=20251104; t=1783970711; x=1784575511; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=;
+        b=c5fjGIuhE36n/n5fIqsxBF5lokpGAolPVSzUqgeqhYbV3Eaz8DtnLYf1H7vw/PpmYN
+         CBhcgzooZeWlDTnAg7qI+a6s+zINWUfmPGVoqZoqtXMfUi1F0YASzUR6Pc5wX0+VlUHf
+         TWZe5TVdRrwI9IM0yrbB++LhReTKoG52bVJM4XHM63s2fiVR5aA2W/b1I08jPpQZS/DK
+         NnhxC6YjwPBGxiV6qejfBPzOz+wy53quopCTkGSA7hKb6dozqfbuRdt28hiOqnxPylIY
+         2rCednUX63qbGlOsy1x4yLAX+jDf87wTHi+j3clMySHWoQfiigJGznMuJbu0ip1xeUl1
+         IDhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783970704; x=1784575504;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2kWy2240zOoLDDzwtKisgk31mZ51kjxw8fZyoUW4j0E=;
-        b=Mv87MXVgk7m9DG25iRjtj6bVYD8yLwAO1+rH4KDx2LTzbgVpFAX+yjmg4B9GgYlsuC
-         iKsGLuzqEmQwljB8cbIw/7sMIyKOkKgYb8FW8n3CMmvDRvYh3qYILt+iIrD00FzR1iB5
-         r6tTHdr7tN8ZIde8TA5CmPfB5xiN7cIzOVjM/dky6RrEkMWJVWTxAsADIf3Uqox+kGMH
-         KBi1dVLDFxfScYTTsWpqeDzKhiBH9PYfywDsK6Z0GL9IB8Di0BdmmYOpBF2VMFzRkJ2s
-         UiKjusoAB7skMiLjruiaSLbJC94zYUCZCoLkRZPD1rdEReY7azsbeZx9PIQbKHl7ANF6
-         OUEg==
-X-Forwarded-Encrypted: i=1; AHgh+RqCE6ztS7Va2fAYucuTuOpPXwaAj+0W9M1GiO0+oC/8Vx4X5QnLXfABDSADXxqeAOyAFMMY7LP1dqE9s6HsV4h6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9Y+OylZlew60j1olL9+O18Jkm+7QZAXAzooYIHmnn6iNJsHFw
-	9CDAZXZ0NaZY/mwe0YpZMRNvtJev5jwe8XdA6EKLV4hdq9aO0sVCTZe/z/Zu8yn31Ys=
-X-Gm-Gg: AfdE7cnmje3OEXIGPxfa370ADOq8NWG5lksPdGa2vUxD50WpZiZ8CqC0gEcULw+niKw
-	ygy9MjC21DgTQi/VWFH6efjOnPImPesfjdgyS4TsFHptNAyqOt9ZZk2/is+rAJ6wLuuKCksEGuH
-	kkiYOBykXouj0JoTofmlUKqke7mA2+KRrXtP8qNzYLo/k6QrYJI/7xmuUcpj3+wtuxmlZ0wg2Jt
-	yWJ4GJOGNo4ukV2h9Oc8Nx+hRN57tRCKI252NmeipaWo9HstJNZFpXrP0SGqq641EJ1nBVSxHnA
-	BBDjfLL7KK931XFbOMN+RWHRX3v9h5omhU7U7c7SyoXYUVhy61lIYUD8775oVJN4H8/krQFw+VL
-	sYvO+qfxCkBvqHcH0m1Jpqb9ZBsTdr6Px23QIOl1OVd/VskluXgNPK+Ryfl2/
-X-Received: by 2002:a05:6214:2f8d:b0:8ef:76c:cb18 with SMTP id 6a1803df08f44-903fe450e81mr122377626d6.11.1783970703547;
-        Mon, 13 Jul 2026 12:25:03 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd7c1da1bsm137170026d6.30.2026.07.13.12.25.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:25:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMH0-0000000E5NW-1O3S;
-	Mon, 13 Jul 2026 16:25:02 -0300
-Date: Mon, 13 Jul 2026 16:25:02 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 13/22] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-Message-ID: <20260713192502.GS3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-14-aneesh.kumar@kernel.org>
+        d=1e100.net; s=20251104; t=1783970711; x=1784575511;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=;
+        b=fHPCAMLksxdOPLoylqrT+UVaPso0JF3DfV6Jt390y8dUIoJ7wT1UhFstR80hFgdcrA
+         Y7+RHuW0/QOzXNqIEE49EaFVKtkfeTVkLKB0/OYNoJTEZ64aOsCWFCmsdXUVt2X9XPuj
+         cLHUxSp784RpvEQB3pFnRDZq5w/S3joKyBNMN2T7ceEvq2NxgZuMA50I5EgWawjotee+
+         E/oiFT38+SICyMRnrtGxEV3izuO3wj/GAxU/Ke0bUwGLUl/2yFk99uuH4clTekuJw87E
+         ZVN470/cMaCg0rjCxTt4bONb8Akmlmk06wxmtKzylSiEKxjHwH5zRAVIYm7Fgv/rm7/R
+         uAQA==
+X-Forwarded-Encrypted: i=1; AHgh+RrT5b3OZ7zfSPInNBnPVvFUVhiM1iezUzti3V8thaQ3Yerffd4XgKb5PJOxoZOEzE1O/tmKVIBpqn2H1nBqGWFh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo5rCNGP08Jc+tMC9C+PMTt9AhDiblK8DqubxuQLYTHE1/WAx0
+	y/l86kKQyw9nQcp4/jMO+c7wgFRpGZxkSg6vx8e7nG6CvKptmKR1OVMD
+X-Gm-Gg: AfdE7cm7mnB17DyW5+mYg7uoE+pK8lWEa2XN7jjbmRn4WhduQDB0ZCss9f8eVS739BA
+	RvouI1z6x8xSGpXuXOpSxv4ZZ/Yevy/2UJODv4bOEeiJu3eARG1I1V4eykfoTip0I0ctM/yUcu6
+	qvNELCDUdvQUndfFhy+Fu/HBAOKW1ihcPHYdL9v8BuqDKI+nHS0a6ErTOCofqzcJna19cA5nsAP
+	i4ENl1Mv6zuwBh1Wgt+cqGVsXieNvv7/0Uffsy6zpVrhQTTF70D5xyMlj995fkshjCMWphbz9vd
+	zDtF29lE9Sh0lu6z6POJ2453l/Nzyng49gMYM9yaRPMuxO8celzSBV9zXGtfWVBBMdAVPuNslKr
+	R1mxrpzcuEq04xJKDwzZnlBrG+e5Q9Lx3kxyH8APynncOUUkeLtPt0TZLrZO2mjW6vCAxEYfJVT
+	h74lxNvmGSBnJpdrKSsv+6xRyHtbFEW0iBN/hbjDxq7UmpfGtuOtn+QM/1pJS+fhBQyAg3T31pt
+	SRT53X5TdJ1m3oyVGB6K/0QEuycftYkjEZ5pbeaZetifejBqx/ae8a0pET1M13ily3tkk2tqJRN
+	DQUjjdb80qJlI8TG/qSY
+X-Received: by 2002:a05:600c:6095:b0:493:e983:806e with SMTP id 5b1f17b1804b1-495158c68c7mr8361975e9.3.1783970710468;
+        Mon, 13 Jul 2026 12:25:10 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a4a7-df01-9434-c79e-9028-76f8.310.pool.telefonica.de. [2a02:3100:a4a7:df01:9434:c79e:9028:76f8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a322c86sm15376195e9.11.2026.07.13.12.25.09
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 13 Jul 2026 12:25:09 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Karl Mehltretter <kmehltretter@gmail.com>
+Subject: [PATCH v2] ARM: lpc32xx: only run SoC init on LPC32xx hardware
+Date: Mon, 13 Jul 2026 21:25:06 +0200
+Message-Id: <20260713192506.7782-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-14-aneesh.kumar@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_122505_857165_B53DAAC5 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260713_122513_909922_B5922378 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,32 +100,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:17AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Teach swiotlb to distinguish between encrypted and decrypted bounce
-> buffer pools, and make allocation and mapping paths select a pool whose
-> state matches the requested DMA attributes.
-> 
-> Add a cc_shared flag to io_tlb_mem, initialize it for the default and
-> restricted pools, and propagate __DMA_ATTR_ALLOC_CC_SHARED into swiotlb
-> pool allocation. Reject swiotlb alloc/map requests when the selected pool
-> does not match the required encrypted/decrypted state.
-> 
-> Also return DMA addresses with the matching phys_to_dma_{encrypted,
-> unencrypted} helper so the DMA address encoding stays consistent with the
-> chosen pool.
-> 
-> Tested-by: Jiri Pirko <jiri@nvidia.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  include/linux/dma-direct.h |  10 +++
->  include/linux/swiotlb.h    |  10 ++-
->  kernel/dma/direct.c        |  13 ++-
->  kernel/dma/swiotlb.c       | 177 ++++++++++++++++++++++++++++---------
->  4 files changed, 162 insertions(+), 48 deletions(-)
+lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
+LPC32xx-only registers. Since the multiplatform conversion they also
+run on other ARCH_MULTI_V5 boards where access faults e.g. on versatile:
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+  Unable to handle kernel paging request at virtual address f4004130
+  PC is at lpc32xx_check_uid+0x2c/0x9c
 
-Jason
+Drop the arch_initcall() registrations and call both functions directly
+from lpc3250_machine_init(), the machine's .init_machine hook.
+The calls are placed in link order (common.c, pm.c, phy3250.c) to
+keep their previous relative ordering.
+
+Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+v2:
+ - Rather than guarding the two arch_initcalls, drop the initcalls
+   entirely and call both functions from lpc3250_machine_init(), which
+   is already guarded properly. (Suggested by Arnd.)
+
+ arch/arm/mach-lpc32xx/common.c  | 5 +----
+ arch/arm/mach-lpc32xx/common.h  | 2 ++
+ arch/arm/mach-lpc32xx/phy3250.c | 2 ++
+ arch/arm/mach-lpc32xx/pm.c      | 5 +----
+ 4 files changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm/mach-lpc32xx/common.c b/arch/arm/mach-lpc32xx/common.c
+index 304ea61a0716..35ed3569c5a3 100644
+--- a/arch/arm/mach-lpc32xx/common.c
++++ b/arch/arm/mach-lpc32xx/common.c
+@@ -106,7 +106,7 @@ void __init lpc32xx_map_io(void)
+ 	iotable_init(lpc32xx_io_desc, ARRAY_SIZE(lpc32xx_io_desc));
+ }
+ 
+-static int __init lpc32xx_check_uid(void)
++void __init lpc32xx_check_uid(void)
+ {
+ 	u32 uid[4];
+ 
+@@ -119,7 +119,4 @@ static int __init lpc32xx_check_uid(void)
+ 		system_serial_low = uid[0];
+ 		system_serial_high = uid[1];
+ 	}
+-
+-	return 1;
+ }
+-arch_initcall(lpc32xx_check_uid);
+diff --git a/arch/arm/mach-lpc32xx/common.h b/arch/arm/mach-lpc32xx/common.h
+index 32f0ad217807..06b20bea324e 100644
+--- a/arch/arm/mach-lpc32xx/common.h
++++ b/arch/arm/mach-lpc32xx/common.h
+@@ -16,6 +16,8 @@
+  * Other arch specific structures and functions
+  */
+ extern void __init lpc32xx_map_io(void);
++extern void __init lpc32xx_check_uid(void);
++extern void __init lpc32xx_pm_init(void);
+ extern void __init lpc32xx_serial_init(void);
+ 
+ /*
+diff --git a/arch/arm/mach-lpc32xx/phy3250.c b/arch/arm/mach-lpc32xx/phy3250.c
+index 66701bf43248..ddc6333ca55d 100644
+--- a/arch/arm/mach-lpc32xx/phy3250.c
++++ b/arch/arm/mach-lpc32xx/phy3250.c
+@@ -71,6 +71,8 @@ static const struct of_dev_auxdata lpc32xx_auxdata_lookup[] __initconst = {
+ 
+ static void __init lpc3250_machine_init(void)
+ {
++	lpc32xx_check_uid();
++	lpc32xx_pm_init();
+ 	lpc32xx_serial_init();
+ 
+ 	of_platform_default_populate(NULL, lpc32xx_auxdata_lookup, NULL);
+diff --git a/arch/arm/mach-lpc32xx/pm.c b/arch/arm/mach-lpc32xx/pm.c
+index 2572bd89a5e8..9b5c5e1462ed 100644
+--- a/arch/arm/mach-lpc32xx/pm.c
++++ b/arch/arm/mach-lpc32xx/pm.c
+@@ -120,7 +120,7 @@ static const struct platform_suspend_ops lpc32xx_pm_ops = {
+ #define EMC_DYN_MEM_CTRL_OFS 0x20
+ #define EMC_SRMMC           (1 << 3)
+ #define EMC_CTRL_REG io_p2v(LPC32XX_EMC_BASE + EMC_DYN_MEM_CTRL_OFS)
+-static int __init lpc32xx_pm_init(void)
++void __init lpc32xx_pm_init(void)
+ {
+ 	/*
+ 	 * Setup SDRAM self-refresh clock to automatically disable o
+@@ -129,7 +129,4 @@ static int __init lpc32xx_pm_init(void)
+ 	__raw_writel(__raw_readl(EMC_CTRL_REG) | EMC_SRMMC, EMC_CTRL_REG);
+ 
+ 	suspend_set_ops(&lpc32xx_pm_ops);
+-
+-	return 0;
+ }
+-arch_initcall(lpc32xx_pm_init);
+-- 
+2.39.5 (Apple Git-154)
+
 
