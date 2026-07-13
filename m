@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A124C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC275C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6GCAuneNa/1gKb9DW8CBD7WKj6dTVzcbk/e+PXY8YBw=; b=kirVPonkD6BMpe
-	TaQpSsQpxczi92Be9YTTKzcTMCE7WRrkEqbcm2vfAT/YEMZ7HYWrajhc/DjA/HVpRJRVbUSLZw17N
-	scTXTrjTLaw7iD/iz1OcqfA0/p1f9R0r46WiPytnvFx0/UnpYgBVKaHyl60/dqjZsZYZwb5fjDYUg
-	QrtLf1FYVAJXzAHgWVnSQQ5TiqC8korAcuu0ug7m/EWK3+Oxmh8MrTTKpIAXiUxPbQ0uTRw0H3eJS
-	vOGDDxcY8FlvvhgS2md1oLlwqo8TFGYp0YykH7ncTnZf704M3DGQGIWLGZBeR00y1mupGn7w+OLeM
-	yaL5MA8s/CS/k4QoV+NA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=; b=2NJPwS1cW0Z3/rzAsmXiWTnw0w
+	a9UKjqou7WJX7ZyiXCmpRWzCMIFe3oft5E3cwxmeerHANOyFyuMP+epUIBVMvlfpL1R6MVglYyIXo
+	n9NFVsPE4NwJficdJYJ+V+8dx6qk+Kqdv54gfXopJ7N5v7Fkwj+h4hfZs/CcqS7GVv0Zluufaf4Wn
+	GvCs1GYNPW8s9wovtkbgC4Qs5YE+aM3cXnLySiR39JC3j9gEruWA/DecSOGTzY1EM9fzkWBZhDOBI
+	NczK9jLfXv5yXJBwCF9qE+XOdkDd/MGKKC50IC3ktU7TPESEv4TqQsUOh2ZnjprdNlWHKG714fu1E
+	FFhi1Ofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFUj-000000098vK-3fc6;
-	Mon, 13 Jul 2026 12:10:45 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1wjFUq-0000000990t-1KWy;
+	Mon, 13 Jul 2026 12:10:53 +0000
+Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFUe-000000098s1-1vDW
+	id 1wjFUn-000000098yF-1jzV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:10:45 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so3205867a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:10:40 -0700 (PDT)
+	Mon, 13 Jul 2026 12:10:50 +0000
+Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-6662551100bso3737575d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:10:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783944648; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GiIv9XE6Yk7xp3yZ/pZYBe51DHnLc3DgZUytauZtGwtMKD1Bvv9lmyDsb5tMVqdYWg
+         VwY1sBFAyZLvDfBSKPruI5QPPgB0jvlc+wW3AOS4nxsdQBEkMPaqv2kZhrrhOvlh8r4l
+         VJkUaneVCWsANJ3/TkMNKsocr2cEKSeiFpLj8rboLQia7o70VRlXWoYFEOXYEyOtC7oQ
+         +qaMtl3hCiHehCvePbpGWOu3uPvaO4GixRWtJI/CPSKcNyqsGgfUMwYTcBa6Xwt1jUgu
+         XmTL2BscpBeFcMFdsSu3riIKcS33uG7dIq9MDV6aeVUVtcQkrWShQo9vYpefFC+OO5gx
+         yUPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
+        fh=RsN1L9jagbQMJy7n95sS3HITAmZahP0l4nZIo60+Fok=;
+        b=HD6EfOY9rZtl7gHbi6cFMNaNV9j/WTC3ncY4zdckDIzBV4pTDWaaMRJnvZqftDZ7Fh
+         w1fZXzPVMUqvqquMSXxOYxcXCM64WoXno4VXBnuXGgstZH6+16m5YTxkCglVNA/By5vh
+         Dz6TP39AoKuT6L/yJQitcfpfB/gs0T8FOLHsW58/ZcigNcB8DIxKRDnJ1U9b/88+WGPC
+         xwbB2fHGEYjXfpXnllKvrJ5cw52gTUvcIuC/qTWWk6r8LQ/ke7Nr5/dmHpQ7zym99e+4
+         ME3bfEc1gjIsSH3uMZCBOBchyx5I6PSA7oa642BU2KUVGJlkyB/9LGfjs4VXw8fXTnvs
+         lYXw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783944640; x=1784549440; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6GCAuneNa/1gKb9DW8CBD7WKj6dTVzcbk/e+PXY8YBw=;
-        b=HmvMGpeov73hGdUdtJWHBFSvanwO03bQScU2R7cdZOpq4GSJRIwJOV9m9c6uloIheg
-         uGdFbYOpeNURJxq2Bahhpg7lpbVZEkKAZKGAMDo8kJtL1R0ozSq02ZpDJMNqTEuLu8RD
-         R00iY3l2n//YxNBolg1QiRycLczSDFA19eGh/LR7VjeH3dXfSp4EN8NN3GosTAhRXM4O
-         G0ueUxsjNzG+8b5uhMhF0bObSYaxpprseuyCX6f/ShyxnvytImNdhhwk9D1jTJppyZnk
-         zgZiYOeTIg1x6D2q4p4RShH9ryg3G/cPKH787P3PGyZqgamclkgFjdcNJR8K0TLCUT8i
-         +0SQ==
+        d=gmail.com; s=20251104; t=1783944648; x=1784549448; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
+        b=OM8C5ziN4LGbOK4fzvKRs8C/UZugYqpWKrzPWSTZUJyTbMSo65nOY0vSFUuxeGwASk
+         ZXYooFt9hFfTpblyLMKjR/cM+nz+ml1hTOY0Ype/IrF7quA5RMEQOxA7rDF4Ceqe3U8J
+         3dDLQwa9kZKoAKPkhQlMZKhUDQEoy5j8mfVA5UKgYsoYfDx1/yB0+tHXyPPwRplZWlMs
+         4g7JCIIrXS+cKOIGQrc/V2A4zgj1uKbWYkgK+slZvPsj7FS9P/L5VUOdatx65JvwpjeS
+         FWC42RTXEBi4GymLkQEtH988gjmKQVvv5oRBxBeK6tSTU/9T7u6KpfnPemhGvM0C+4RU
+         tHxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783944640; x=1784549440;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6GCAuneNa/1gKb9DW8CBD7WKj6dTVzcbk/e+PXY8YBw=;
-        b=QsHS3rPwOVszu9sVvffI0RudunHmIJO79eQiZolN67mY8+2PyLqV9JK51PFT+Use/0
-         nfPNpaYq79jAF9rSKmOaKlHfyy99m/vMwNPvyegGfdkfi1R8uC1mQeRxSQ2u0NwfxzSV
-         VUuouhQZfUcmWP6Gbcqi1FE0O/noJXiKVn3abPyoBB4tA9Yzux8ds+nMrt30cGQvq8rC
-         uMeqJdOwTaEn8FHq+cm02I03hEsBicETvZiQGmlb4LLTcwyfwzCrLwICgXQzULfRpo+p
-         +ordmNjwKljDUFsmmWGFu9aBthBRFjLuevrZKgZ/3QlZ7THXzIGzHdM9P/LaHreAUV9p
-         DBlA==
-X-Forwarded-Encrypted: i=1; AHgh+RrFI7JEuKBG6Lp5Pl1paASyQMTI3xzwZYPZk0jMFUCfSmFhv7YURheMmr1m/aRFRGH9JKPbneXLJAZ5yznJtr4D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2G13Jh25NqKOyjgli//DR2lXBcOpgenW2JVw6FhP5dc3dSU4Y
-	ha6xpN7U50xs3yfE+DuDftoLM5LDfaXde999e2YMWLzzwE506ydYDtp4
-X-Gm-Gg: AfdE7cmnbIXXM331w0D+DNzQ3mepIJXFLfgW6c//vNZJPeJ10eK0ZEM+8q6C6T3Yz59
-	S3vi9ar2G6+apF8tij6P5Nnp8NmALX5uu2ZEMEVNrVTTdQ46XXHJW/G37Yl8n75dVY8YmJtLSam
-	YWYASArDlkD5Xc6SEn+y8YtkZwK37UIJ+FwewaaafKRDZ89C7EvKw1CoIv68rTwUF0hJ3TMwDgy
-	5KZfJbCX2YJTqkMZ31d9pxtOlb171PrggxVi+vupZHQGGtjoQUea0aDS+s6qRXLsP2re3N9CIKa
-	Z3Yye8giJMzeLxH4yhbpfdt9SK0MwZLwFIwndQeRkga/sInKQz+zfEWWQS8qGRxgLjG6c7Vn3qw
-	mqbyBhpSHEG0d+3Kx7IQgaiaFs2VVZUdjFfeodJGSgOhIL7VfxFyJOmI3gewrNsJZUexTy69Hpz
-	ykhTbviB2vkQ==
-X-Received: by 2002:a17:90b:4fd2:b0:38d:a76:6470 with SMTP id 98e67ed59e1d1-38dc77c61d6mr7650924a91.39.1783944639617;
-        Mon, 13 Jul 2026 05:10:39 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.10.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 05:10:38 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
-Subject: [PATCH v7 10/19] media: meson: vdec: Fix race conditions and leaks in esparser pipeline
-Date: Mon, 13 Jul 2026 17:37:05 +0530
-Message-ID: <20260713120840.17427-11-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
-References: <20260713120840.17427-1-linux.amoon@gmail.com>
+        d=1e100.net; s=20251104; t=1783944648; x=1784549448;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
+        b=aHqoB/N1NPugDzIPGLOMqCOuBCyJQec3igKRfrFUecivBYU7zZ40GVY/Wgh5aHKxfl
+         AkEVsgLTERdaImgEMn2BFBpoiGLi+FXbMnq/q7rYoTcQF6MO7RHqTnga18WwHaylxw85
+         DN+CpizCWIBJFBE8mXdyJYoeGZ6623JAsc/MCzZSTKYYfU8C9Q9/y8FKB4wZZCTfgpbP
+         A4b0kKrNqYMind4ClT4TOfkr8rfBtYL8bkuoGE6g+HR0V7cNNG0W9TjJbL70W2qV7386
+         2+8v4UPolbziTU95VxKAPeCnZtLTEFaGpSp+o/jmM8ztC3h601zR1ViU352FZC+vI/SE
+         sQkg==
+X-Forwarded-Encrypted: i=1; AHgh+RqONEKBi4KUq7e57HLyaXoDwTQQJ4AinC5y9S1sN0gvPVSsYeLOToe/jvQaNxDC7eKUAyuYvf7dLtrQVDd19Hho@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywjug8U+m8G5l6T7mxxVVMY+bKnaWvAZOrDKsRuf35TJ02zxN+H
+	ibSv0on5Z4bU/vkULZKoxkOT3YiHw14LOBurAwb3YQH6GogDRGoBxZoA4RkysbvkcfQcqyUKcRq
+	P9qFqRkBo8GIumC3c39EvrhNV+EVhkDc=
+X-Gm-Gg: AfdE7cnaJQ9iR+VqhvE8tFyeWSizI/eHwl6B0W99akAgzyFVsnrY1/kIIXSnCv+FBbO
+	emtd54DhOzMns747rFcwIGnHMqn5+LZorVr8B1Dkk4eTLl+eqApM7dcaMX2r1CMOE54c8V8Lfjk
+	WtXqmHGv82xmh5NKhDQq4dR8pUEoQoF6jkEmiqaedSs0yC5+/SAfLgvPrAE53mRIL3sxJ1JoZsa
+	IjRPmonMW0ELJg2xXy8c2apayAIZkCoZyl+vPkAVHIHLKhpMA4f+7DlTBg0lfcbAZRT+/Zdn90=
+X-Received: by 2002:a05:690e:1555:20b0:667:8b90:2e55 with SMTP id
+ 956f58d0204a3-667d7ee139dmr4779810d50.97.1783944648180; Mon, 13 Jul 2026
+ 05:10:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260705103256.284467-1-lgs201920130244@gmail.com> <20260706-dashing-dazzling-sambar-453a4d@sudeepholla>
+In-Reply-To: <20260706-dashing-dazzling-sambar-453a4d@sudeepholla>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Mon, 13 Jul 2026 20:10:37 +0800
+X-Gm-Features: AUfX_mwaflEwq5O1c14YKWIRx5LpcE_68yYNnGKkNrsplECeT8LOM8_s9_IYQRI
+Message-ID: <CANUHTR9ed+A5OJLX802LZieSvp-m=pQQww4Y4F=7VcEO5PPN1w@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: arm: scmi: Check pm_genpd_init() in probe
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_051040_532076_B5C8F328 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260713_051049_512765_F7F64AE0 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,110 +113,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a circular locking dependency (lockdep warning) and a potential KASAN
-wild-memory-access race condition within the asynchronous esparser queue
-by restructuring register write and context evaluation blocks.
+Hi Sudeep,
 
-Previously, evaluating hardware ownership checks outside of core->lock
-introduced a time-of-check to time-of-use vulnerability, risking register
-corruption during parallel stream initialization cycles. Additionally,
-abruptly exiting the payload queue loop without sanitizing timestamp
-trackers left metadata dynamically stranded in memory, triggering regular
-kmemleak warnings.
+Thanks for the explanation.
 
-Fix these flaws by moving the hardware session ownership validation and
-atomic stop signal checks directly inside the core->lock mutex region in
-esparser_queue(). Ensure that presentation timestamp pointers are cleanly
-removed via amvdec_remove_ts() on all early-exit routes. Finally, refine
-the VP9 payload evaluation logic to correctly catch negative error passes
-from vp9_update_header() and pass the session context explicitly to the
-padding helper to secure memory operations.
+On Mon, 6 Jul 2026 at 17:34, Sudeep Holla <sudeep.holla@kernel.org> wrote:
+>
+> On Sun, Jul 05, 2026 at 06:32:56PM +0800, Guangshuo Li wrote:
+> > scmi_pm_domain_probe() stores each domain in the onecell domains array
+> > after calling pm_genpd_init(), but it ignores the return value from
+> > pm_genpd_init().
+> >
+> > If pm_genpd_init() fails, the genpd has not been added to the global
+> > genpd list. The probe code nevertheless stores the genpd pointer in the
+> > domains array. A later provider registration failure then unwinds the
+> > array with pm_genpd_remove(), which can try to remove a genpd that was
+> > never registered.
+> >
+> > Check the return value from pm_genpd_init() and only store successfully
+> > initialized domains in the onecell array. On failure, unwind the domains
+> > that were already initialized.
+> >
+>
+> It was done that way intentionally IIRC. We don't want to remove all the
+> power domains if some not so important power domains fail to initialise.
+> You can log the error if that helps but removing all the domains that
+> have initialised seems bit of extreme.
+>
+> Are you facing any issues on a real platform or is this just by code
+> inspection.
+>
+> --
+> Regards,
+> Sudeep
 
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/staging/media/meson/vdec/esparser.c | 29 ++++++++++++++++++---
- 1 file changed, 25 insertions(+), 4 deletions(-)
+This was found through manual code inspection and has not been reproduced
+on real hardware. My concern is that a domain for which pm_genpd_init()
+fails is still stored in the domains array and may later be passed to
+pm_genpd_remove().
 
-diff --git a/drivers/staging/media/meson/vdec/esparser.c b/drivers/staging/media/meson/vdec/esparser.c
-index edbfc829e2da8..b9f36fef4be12 100644
---- a/drivers/staging/media/meson/vdec/esparser.c
-+++ b/drivers/staging/media/meson/vdec/esparser.c
-@@ -199,12 +199,16 @@ static int vp9_update_header(struct amvdec_core *core, struct vb2_buffer *buf)
-  * the ESPARSER interrupt.
-  */
- static u32 esparser_pad_start_code(struct amvdec_core *core,
-+				   struct amvdec_session *sess,
- 				   struct vb2_buffer *vb,
- 				   u32 payload_size)
- {
- 	u32 pad_size = 0;
- 	u8 *vaddr = vb2_plane_vaddr(vb, 0);
- 
-+	if (!sess || READ_ONCE(sess->should_stop) || !sess->priv || !vaddr)
-+		return 0;
-+
- 	if (payload_size < ESPARSER_MIN_PACKET_SIZE) {
- 		pad_size = ESPARSER_MIN_PACKET_SIZE - payload_size;
- 		memset(vaddr + payload_size, 0, pad_size);
-@@ -313,6 +317,9 @@ esparser_queue(struct amvdec_session *sess, struct vb2_v4l2_buffer *vbuf)
- 	u32 offset;
- 	u32 pad_size;
- 
-+	if (READ_ONCE(sess->should_stop) || !sess->priv)
-+		return -ESHUTDOWN;
-+
- 	/*
- 	 * When max ref frame is held by VP9, this should be -= 3 to prevent a
- 	 * shortage of CAPTURE buffers on the decoder side.
-@@ -349,24 +356,38 @@ esparser_queue(struct amvdec_session *sess, struct vb2_v4l2_buffer *vbuf)
- 	vbuf->sequence = sess->sequence_out++;
- 
- 	if (sess->fmt_out->pixfmt == V4L2_PIX_FMT_VP9) {
--		payload_size = vp9_update_header(core, vb);
-+		int res = vp9_update_header(core, vb);
- 
--		if (payload_size == 0) {
--			dev_err(core->dev, "esparser: VP9 header update failed\n");
-+		if (res <= 0) {
-+			dev_err(core->dev,
-+				"esparser: VP9 header update failed (%d)\n",
-+				res);
- 			amvdec_remove_ts(sess, vb->timestamp);
- 			return -EBADMSG;
- 		}
-+		payload_size = res;
-+	}
-+
-+	pad_size = esparser_pad_start_code(core, sess, vb, payload_size);
-+
-+	/* Protect hardware register writes under core->lock */
-+	mutex_lock(&core->lock);
-+	if (core->cur_sess != sess || READ_ONCE(sess->should_stop)) {
-+		mutex_unlock(&core->lock);
-+		amvdec_remove_ts(sess, vb->timestamp);
-+		return -ESHUTDOWN;
- 	}
- 
--	pad_size = esparser_pad_start_code(core, vb, payload_size);
- 	ret = esparser_write_data(core, phy, payload_size + pad_size);
- 
- 	if (ret <= 0) {
- 		dev_warn(core->dev, "esparser: input parsing error\n");
- 		amvdec_remove_ts(sess, vb->timestamp);
- 		amvdec_write_parser(core, PARSER_FETCH_CMD, 0);
-+		mutex_unlock(&core->lock);
- 		return -EIO;
- 	}
-+	mutex_unlock(&core->lock);
- 
- 	atomic_inc(&sess->esparser_queued_bufs);
- 
--- 
-2.50.1
+I agree that unwinding all initialized domains may be too aggressive.
 
+Thanks,
+Guangshuo
 
