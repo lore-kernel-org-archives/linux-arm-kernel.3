@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B2DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 22:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE6CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 23:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kc//suqEv//dCFVQBKclVozBsKI2jifSr8LhTeGZAI=; b=AC+/T6aLQX4PWmNp88f2EDGMuq
-	aTAfrs7SQ9up3YkBlhCZEp8fC30ZuGYRpD1X305yVMayLuhdnYEVyggkco+ubFSefKqshtmka5osx
-	pVgdu4oRgg2GJCb/8zrh93Ig0drth7gRR+KQC0MTgkHdid9SPxCJtX21DDrx1E1tw7MNtPZ1sFHa9
-	sU+0S8714MlfaoBs7hNn8WEOQaIhOsh5qxwSrMlw/Bef7zbsMfMB6T4mwia31T3Qk0rqEP9OGzTGG
-	eXCzVcn5xWQKh80NkoItIVeWUzaiIRGAT2H4PyZqMqFQ9ZKJ2UPk4vhilG3AYHVPR51g+z1QsnujZ
-	sdsak3qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qo7IAvthG118m/JTtLFPGSZtzV4fU1ihRDscsFNE2qM=; b=e2aN206vFdi31zNm8G5Hwp1WMU
+	74dqtqJg06bZcOem1e8rSb6cGNDpQqsdv/nBgs+W93fbM2FqhjGsb/9HPacGqT/3I94TKnMzD7HLB
+	TCTASCT5LCE6AFfVLf95qiqkpVDn6QfTnDpLVHkODS5qogWbwgr/p1z5reKukPUAARpiy97DZXQ7l
+	c+L1Qe7eH63QlF0m3clnBsrw8+BQAbIxzflRYepeifiy2r/nQVG8/zeuwy7kZx5KYlQYcZmgLn33o
+	JcfMLCRcLauCqUJfcKSyhGxOVaK4BA1zRv9oAPbvTLOS9a3t2kY4LHO5tm407nitrpkuJ8ulgWrx4
+	aC2iOpCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPXz-0000000AWpr-22w7;
-	Mon, 13 Jul 2026 22:54:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjPXw-0000000AWpO-1gRS
+	id 1wjPdr-0000000AX0f-0YOk;
+	Mon, 13 Jul 2026 23:00:51 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjPdo-0000000AX0E-2rRv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 22:54:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F29F2F;
-	Mon, 13 Jul 2026 15:54:36 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00A293F7B4;
-	Mon, 13 Jul 2026 15:54:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783983280; bh=7TJNGr2v2ZA8mqosZnmTYS6Mnmq2SrK/xW5d6dqKIKs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g4JveoabcjUqtzM0ZbhKLpIWeX7EYIGGR6wswI6LuGOhdM/Lpf0YCF9RH9+K5RGY1
-	 FEyeii2duF/l5pFmKBNV+gZSa4V82pYc53aIwQ5bvVRHNUVbemGBar23KdZt2/fPTw
-	 bQtsR0RMk09kaUGGbki3k//fUm0toDtFatXBA0d0=
-Date: Mon, 13 Jul 2026 23:54:29 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
-Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"david@kernel.org" <david@kernel.org>,
-	Elif Topuz <Elif.Topuz@arm.com>,
-	"etienne.carriere@st.com" <etienne.carriere@st.com>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"kernel-team@meta.com" <kernel-team@meta.com>,
-	"leitao@kernel.org" <leitao@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Lukasz Luba <Lukasz.Luba@arm.com>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
-	Philip Radford <Philip.Radford@arm.com>,
-	"puranjay@kernel.org" <puranjay@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v5 00/23] Introduce SCMI Telemetry support
-Message-ID: <alVsb7IxDAyJyxZe@pluto>
-References: <DB9PR08MB86516141C5970B23D7340510FFFE2@DB9PR08MB8651.eurprd08.prod.outlook.com>
+	Mon, 13 Jul 2026 23:00:49 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-698beff7178so6391608a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 16:00:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783983646; x=1784588446; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Qo7IAvthG118m/JTtLFPGSZtzV4fU1ihRDscsFNE2qM=;
+        b=aWtlAEfsE56eaRQrzuBJRUfECLHVopI4q+Fr/wn3soZXKQ/NWmn2sQt1xh0wjFC+hD
+         CNk20iCYSqDSqLNXwSehDsJjcIaX0R8jzpXbeqdNoC1o86LgNWFFpRg9MHVtBrkNKP3n
+         kz1kqIba0wLlslUS2PxSNUMXEm6AvEX71AB7hsRxYQYS9DGrx0QJvH45Sn4f9B8UwoJ8
+         vZFMjfHTR4YC/e08oH51zGO85SWFDvhaJtMHjTcLxX4YL6IoxcXRksNfyUBlrIY5YYAG
+         k7WdX7505Lr/Ugc+1fNj5YWC4HyiAkKr4UqcSNfYRcJYCNnvButIaM3UC07atds3SDZ2
+         CHWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783983646; x=1784588446;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Qo7IAvthG118m/JTtLFPGSZtzV4fU1ihRDscsFNE2qM=;
+        b=fhl7mQVxQ34DE61u0PBvC3XU+ND86+658cyZLNvCot5KMBtCVk8r7nNlFxVKVREWKR
+         cdpg8roJnVjaboLqCY2YTAYwWxoYQw46aG07HqmJ+/WYl0itvC+e0RGBbEHuD1fxeZNS
+         QZfyIdPqc++PM53Mz1pYGl+1u8ZgjHa+tMlMkgGNi/1Hzd/J4B/uFj1nPr61OLfNMjZT
+         TuAYfqFsvAGbZEn+kH0AHCg6PTs2eNyeZpVmT6jhC3sKWsM83GgitZaajarObFNpOaC3
+         o9bYhRAPcPToCA1ueirSgOXDomZ1OkBNGsyaPytEQtWlVcHvEEd2TL0jw2TrqeNhyk/e
+         S4CA==
+X-Forwarded-Encrypted: i=1; AHgh+RpkxVDvP8EnyWUvammy/jXb+h5ptIpuK5wW8zH/aSUsfNiNBSE8z8mOP4p+XSi6UASEUHu4nqZInKFdIlwiQJe7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzndy3h31o+lVSCb5mGrhoyX3Sj+GlbZQRhxy7ovqXYj3RHa7rD
+	JlpCqd4WIwP8LgvzSUaWFBj5pDuN27FvvQpDh5e9Bf7A/FEjthFiYTZE
+X-Gm-Gg: AfdE7clxTWxavKX4HAKKHNow6M3DYGvyZEKtvZ4jSAQOQbuCBZZdEh/TjxtxJa4nTvj
+	NjNEx95r7fhsiFoUV5SC3DALxw+MoSz6Pe5fftzB6rUwO/gswZ8aVrbvjhgMVUcImLJXOQO0/Ia
+	plIdahVmnzqZVTpXE4sEMFJxZS80iL4l4a3U0FqWz2jBCTqEPh4XNn4iYLpqkiV6c1aQHoJcb00
+	Vp6aF+lhGxbJLkPlGM4P1tgBjPAmts5+AmYR+h97eElltiLl10LMLssHLdR3AHDhmOUzF5AKrJ6
+	JRKSRyk54TpSAkgaz/SmOordLUataYNSqhrRkWT+A4m+o0vqydVSxxIQ699+bK7giwvDd8Zk70N
+	oCjCI0Jsens474lLzsUXla4ge6ELJOPCZErwFFCAgDPSD/+QtdOs/Q7oBpFnRpsV/O1n7xWd1Vw
+	fWpsnJu3glt76l0boUYQgpcvQycp5MOPJmkkZ0XAdgDg3wRG2AzA==
+X-Received: by 2002:a05:6402:1e8f:b0:698:1973:1daa with SMTP id 4fb4d7f45d1cf-69c5f10c9b9mr4960904a12.18.1783983646028;
+        Mon, 13 Jul 2026 16:00:46 -0700 (PDT)
+Received: from ST.. ([154.189.248.22])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69cd2878e74sm512640a12.4.2026.07.13.16.00.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 16:00:44 -0700 (PDT)
+From: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Cc: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Subject: [PATCH v2] coresight: Fix scheduling while atomic in coresight_put_percpu_source_ref()
+Date: Tue, 14 Jul 2026 02:00:27 +0300
+Message-Id: <20260713230028.8046-1-mohamedaymanworkspace@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <DB9PR08MB86516141C5970B23D7340510FFFE2@DB9PR08MB8651.eurprd08.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_155444_611635_D6E717E8 
-X-CRM114-Status: GOOD (  50.40  )
+X-CRM114-CacheID: sfid-20260713_160048_793176_5B9BBB06 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,253 +114,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 03:46:23AM +0100, Fayssal Benmlih wrote:
->    Overall, v5 is a good direction: dropping the filesystem ABI for a
->    chardev/ioctl ABI is simpler, easier to version, and more appropriate
->    for high-rate telemetry. The split between SCMI protocol support, UAPI,
+Dropping the last reference to a coresight_device triggers a kernel panic
+on PREEMPT_RT builds due to a "scheduling while atomic" violation.
 
-Hi Fayçal,
+During CPU idle transitions, coresight_cpu_pm_notify() runs with
+interrupts disabled. It eventually calls put_device(), which can
+synchronously trigger the device's release callback and drop the parent
+device's reference. On PREEMPT_RT, free_percpu() takes a sleeping lock
+(rt-mutex), and the parent's release callback might also sleep. Sleeping
+in this atomic PM context crashes the system.
 
-in fact this same IOCTLs based interface (even if more rough) was also present in
-the defunct FS approach, attached to the special 'control' files...nothing new
-really...but a lot of rework and testing needed for sure...
+A previous patch tried deferring just the coresight_device_release() body,
+but this still left the synchronous put_device() call dangerously exposed
+to sleeping parent release functions.
 
->    driver, docs, and test tool is also much cleaner. The main concern is
->    that there are several correctness and usability issues that should be
->    fixed before merge.
+Fix this by entirely deferring the put_device() call to process context.
+We add a pending counter (put_pending) and a work_struct to the coresight
+device. When releasing a reference, we increment the counter and queue
+the work. A worker thread then safely drains the counter and calls
+put_device(). The counter prevents leaking references if multiple puts
+are queued before the worker even has a chance to run.
 
-... of course, since this is the first ever posting with the IOCTLs being
-the main and only ABI, it was never meant to be straight away ready for merge,
-as I mentioned in the cover-letter there are a few TBD still pending and a
-lot of cleanups as reported by the LLM reviews too... Sashiko is one great
-example of existing LLM reviewing Kernel patches...
+To prevent a use-after-free race condition during module unload, the work
+is queued on a dedicated coresight_wq which is safely drained and
+destroyed in coresight_exit().
 
-...some of these points are pretty much valid (also Sashiko has a few more
-complaints) and I will take care of those....but some other are compeletely
-OR slightly off, I will go through those in the following...
+Finally, remove the unnecessary raw_spinlock_irqsave in the put path,
+as dropping a reference doesn't require protecting the per-CPU table.
 
-> 
->    Must-Fix Issues
->      * scmi_tlm_to_uapi_base_info() uses out->flags |= ... on an
->        uninitialized local struct scmi_tlm_base_info base; this can leak
->        garbage flags. Use out->flags = ... or zero-initialize base.
->      * scmi_tlm_update_interval.exp is documented and used as signed, but
->        the UAPI declares it as __u32. It should be __s32, otherwise
->        examples like exp = -3 are ABI-broken.
->      * Group bounds checks use grp_id > num_groups; they should use grp_id
->        >= num_groups to avoid out-of-bounds access.
->      * Avoid casting UAPI integer fields to bool *, especially __u32
->        enable/t_enable in scmi_tlm_de_config. Use local bool enable =
->        !!tcfg.enable; variables and copy normalized values back explicitly
->        if needed.
->      * Array sizes from userspace need overflow and allocation hardening:
->        use array_size(), kvmalloc_array(), and clear max limits for
->        num_des, num_samples, num_grps, etc.
+Signed-off-by: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 37 ++++++++++++++------
+ include/linux/coresight.h                    |  3 ++
+ 2 files changed, 30 insertions(+), 10 deletions(-)
 
-I really dont understand this, since the user allocates the buffers, that he
-then provides via a __u64 ptr, and such allocation happens based on the maximum
-number of items the platform has declared to exist (like num_des) so if the user
-itself had lied or mistakenly provided a smaller buffer then declared, that is a
-user problem that will trapped and result in a SIGSEGV (or a userspace malloc
-corruption)...here a specific reference to the actual code causing the supposed
-issue would have helped...
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 6d65c43d5..e931e6bdc 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -63,6 +63,8 @@ static LIST_HEAD(coresight_dev_idx_list);
+ 
+ static const struct cti_assoc_op *cti_assoc_ops;
+ 
++static struct workqueue_struct *coresight_wq;
++
+ static struct coresight_node *
+ coresight_path_first_node(struct coresight_path *path)
+ {
+@@ -132,6 +134,16 @@ static void coresight_clear_percpu_source(struct coresight_device *csdev)
+ 	per_cpu(csdev_source, csdev->cpu) = NULL;
+ }
+ 
++static void coresight_put_device_work(struct work_struct *work)
++{
++	struct coresight_device *csdev =
++		container_of(work, struct coresight_device, put_work);
++	int n = atomic_xchg(&csdev->put_pending, 0);
++
++	while (n--)
++		put_device(&csdev->dev);
++}
++
+ struct coresight_device *coresight_get_percpu_source_ref(int cpu)
+ {
+ 	struct coresight_device *csdev;
+@@ -163,16 +175,9 @@ void coresight_put_percpu_source_ref(struct coresight_device *csdev)
+ 	if (!csdev || !coresight_is_percpu_source(csdev))
+ 		return;
+ 
+-	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
++	atomic_inc(&csdev->put_pending);
+ 
+-	/*
+-	 * TODO: coresight_device_release() is invoked to release resources when
+-	 * the device's refcount reaches zero. It then calls free_percpu(),
+-	 * which acquires pcpu_lock — a sleepable lock when PREEMPT_RT is
+-	 * enabled. Since the raw spinlock coresight_dev_lock is held, this can
+-	 * lead to a potential "scheduling while atomic" issue.
+-	 */
+-	put_device(&csdev->dev);
++	queue_work(coresight_wq, &csdev->put_work);
+ }
+ 
+ struct coresight_device *coresight_get_source(struct coresight_path *path)
+@@ -1563,6 +1568,9 @@ coresight_init_device(struct coresight_desc *desc)
+ 	csdev->dev.release = coresight_device_release;
+ 	csdev->dev.bus = &coresight_bustype;
+ 
++	INIT_WORK(&csdev->put_work, coresight_put_device_work);
++	atomic_set(&csdev->put_pending, 0);
++
+ 	return csdev;
+ }
+ 
+@@ -2090,9 +2098,13 @@ static int __init coresight_init(void)
+ {
+ 	int ret;
+ 
++	coresight_wq = alloc_workqueue("coresight_wq", 0, 0);
++	if (!coresight_wq)
++		return -ENOMEM;
++
+ 	ret = bus_register(&coresight_bustype);
+ 	if (ret)
+-		return ret;
++		goto exit_wq;
+ 
+ 	ret = etm_perf_init();
+ 	if (ret)
+@@ -2121,6 +2133,8 @@ static int __init coresight_init(void)
+ 	etm_perf_exit();
+ exit_bus_unregister:
+ 	bus_unregister(&coresight_bustype);
++exit_wq:
++	destroy_workqueue(coresight_wq);
+ 	return ret;
+ }
+ 
+@@ -2133,6 +2147,9 @@ static void __exit coresight_exit(void)
+ 	etm_perf_exit();
+ 	bus_unregister(&coresight_bustype);
+ 	coresight_release_device_list();
++
++	if (coresight_wq)
++		destroy_workqueue(coresight_wq);
+ }
+ 
+ module_init(coresight_init);
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index ddf18c970..589a6c20d 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -13,6 +13,7 @@
+ #include <linux/perf_event.h>
+ #include <linux/sched.h>
+ #include <linux/platform_device.h>
++#include <linux/workqueue.h>
+ 
+ /* Peripheral id registers (0xFD0-0xFEC) */
+ #define CORESIGHT_PERIPHIDR4	0xfd0
+@@ -293,6 +294,8 @@ struct coresight_device {
+ 	struct csdev_access access;
+ 	struct device dev;
+ 	struct coresight_path *path;
++	struct work_struct put_work;
++	atomic_t put_pending;
+ 	atomic_t mode;
+ 	int refcnt;
+ 	int cpu;
+-- 
+2.34.1
 
->      * SCMI_TLM_GET_SHMTI_LIST loops over the user-provided count after
->        only checking it is not too small; if it is too large it can read
->        beyond in->shmtis[]. Loop over the actual firmware count.
-
-Yes I definitely loop mistakenly on the wrong variable, BUT the missing
-check on the too-large condition is an explicit design decision so that
-userspace can optionally use the same common big buffer as a scratch
-buffer to collect multiple kind of enumeration data...but of course the
-loop must happen on the what is available in system NOT on what the user
-has passed in...
-
->      * The mmap path needs tighter validation: reject oversized mappings,
->        handle mmap offsets deliberately, set appropriate VMA flags, and
->        document the lifetime/security model for exposed SHMTI memory.
-
-Beside a bit of hardening, I think here the only missing part is documenting
-that you get direct RO access to an SCMI Telemetry area and that you are on
-your own in how to parse that...format and lifetime is as specified in SCMIv4.0
-
-Cannot do any deliberate offset handling really...any neeed offset is
-dynamically discovered and communicated at runtime via SCMI_TLM_GET_SHMTI_LIST
-(offset is rarely different than 0, ONLY if FW has NOT exposed such areas as
-page aligned)
-
-..probably worth security wise to check that FW shared areas are
-properly page aligned (to the max 64k) and that nothing crititical lays
-around when not aligned...so that I dont accidentally expose some other
-bits of FW...but I cannot really check so much here from kernel Point of
-view...mmm...maybe that the surrounding bytes are zeroed by FW ?
-
-> 
->    Design Feedback
->      * No ABI version/capability ioctl. GET_INFO gives protocol/platform
->        info, but userspace also needs driver ABI version and supported
->        ioctl feature bits.
->      * Enumeration is awkward. List ioctls should support a clear two-call
->        pattern: call with count 0 to get required count, allocate, call
->        again. Returning EINVAL for “buffer too small” is not very
->        ergonomic.
-
-Well the only reason I have NOT implemented this idiom is that all of
-this enumeration data is basically static RO (at least within the same
-boot), so you can know very well in advance how many elements you have
-by calling upfront just one single time SCMI_TLM_GET_INFO, instead of
-having to issue twice each IOCTL to know how big the input buffer should
-be...but I can implement also this idiomatic form in v6 of course as an
-alternative mechanism if we want to support the standard/classic idiom...
-...it will be certainly less performant by duplicating all IOCTLs calls x 2...
-
-I will probably rework SCMI_TLM_GET_INFO, to be the new SCMI_TLM_GET_ABI_INFO
-including version/capability/resource info IOCTLs...so that you can get the ABI
-version, lookup feature bits and get the numebr of resources (like it is
-now..to size the requests...)
-
->      * No generation counter yet. Userspace needs to detect
->        config/resource changes between discovery and read. This should
->        probably land with the first ABI.
-
-Yes that is NOT in this version, but it is definitely planned for this
-series: there will be a way to read and more importantly some poll
-support based on eventfd.
-
->      * Global config is dangerous. SET_CFG, SET_DE_CFG, and
->        SET_ALL_CFG mutate shared firmware state. Multiple users can race
->        or disrupt each other. Consider documenting ownership semantics,
->        adding locking/session model, or exposing read-only access
->        separately.
-
-Yes, this is the same as in the FS approach, multiple reader and writers
-can coexist BUT the Kernel does NOT mediate concurrent configuration
-attempts, last writer wins: kernel only guarantes serialization when
-multiple configs are written...but anyway last wins.
-
->      * SET_ALL_CFG is not atomic. If configuring all DEs fails midway,
->        userspace gets partial state. Either make that explicit, add
->        rollback/best-effort reporting, or prefer batched config with
->        per-item status.
-
-Mmm...if SET_ALL_CFG fails midway, an error is reported and the
-subsequent GET_ALL_CFG will return the current state of 'ALL':
-i.e. True if all enabled, False if any is disabled...
-
-You can anyway lookup each single DE state subsequently.
-
-I could implement an all or nothing with rollback but I am not sure the
-complication in code is worth: on the other side I was thinking too about
-the optional batched config as mentioned as a way to speed up multiple
-configs mostly...
-
->      * No event/poll model. For telemetry, userspace may want
->        poll()/blocking reads/notification-driven collection rather than
->        repeated synchronous ioctls.
-
-Yes that is the future plan and most of the internal support is already in
-place, I have not planned any dedicated IOCTL till now (similarly there was
-no dedicated special file in the old FS approach) since, for such streaming
-poll model to be feasible, SCMI Telemetry notifications are needed, but they
-are optional by the spec and currently NOT planned FW side AFAIK... so I
-lowered this in priority and delayed to a future extensions given the
-increasingly tight timeline that we have. (even though I can devel and
-plan against my emulation setup..)
-
-I would like anyway to add a generic event IOCTL that allows the user to
-register a custom eventfd for a specific event to be monitored....first
-event being the generation counter change AND second the update
-notification for event/poll telemetry ocnsumption....
-
->      * Timestamp usability is underspecified. Userspace needs clear
->        timestamp domain, rate conversion, wrap behavior, and correlation
->        to Linux clocks.
-
-All of the timestamps are originated by the platform and specified by
-the SCMI spec: Kernel does NOT mediate/correct/trim anything here.
-
-It will have to be documented better of course, but all you get is a 64
-bit tinestamp and the clock rate in KhZ that has been used to generate
-this specific timestamp for this DE..
-
->      * Raw SHMTI mmap is powerful but has risks. It needs very clear
->        lifetime, permissions, cacheability, offset/length, stale-data, and
->        security documentation.
-
->      * Batch APIs lack per-sample status. In BATCH_READ, one bad DE
->        currently appears to fail the whole request. For tools, per-entry
->        status is much better.
-
-Can add status.
-
->      * Text read() plus binary ioctls feels split-brain. Either document
->        read() as debug/convenience only, or remove it from the stable
->        interface and keep the ABI purely binary; no need for two different
->        user interfaces with different semantics.
-
-This was to try to supply some form of tool-independent human readable access
-...indeed I was also tempted to re-introduce a limited form of proper SysFs for
-global configs like update interval or global tlm_enable...(but not sure
-about this really...)
-
->      * Rename the generic #define SCMI 0xF1 to something scoped like
->        SCMI_TLM_IOCTL_MAGIC; exporting a broad SCMImacro in UAPI is
->        collision-prone.
->      * Add .compat_ioctl = compat_ptr_ioctl or equivalent, and document
->        that all structs are 32/64-bit compatible. The __u64user pointers
->        help, but compat behavior should be explicit.
->      * Clarify concurrency semantics: what happens when two processes
->        enable/disable DEs, change intervals, or read while config changes?
->        A generation counter/reset ioctl, already listed as TODO, should
->        probably be part of the first ABI version.
-
-No kernel mediation on this, ONLY a generation counter to spot unexpected
-changes.
-
->      * Define permissions. Configuration ioctls mutate global firmware
->        telemetry state, so access control/default device mode/udev
->        expectations should be documented.
-> 
-
-As of now, no policying, whoever is privileged enough to write to the
-device can configure the system, last writer wins.
-Being now all of this based on a bunch of single devices (one per instance),
-it could be more feasible to enable some sort of optional exclusive open mode
-for the first privileged user to get hold of the device...I'll reason about it.
-
->    Suggested additions before ABI freeze
->      * SCMI_TLM_GET_ABI_INFO
->      * SCMI_TLM_GET_GENERATION
->      * SCMI_TLM_RESET
->      * batched GET/SET_DE_CFG with per-entry status
->      * pollable notification/event support, if telemetry notifications are
->        meaningful to userspace
->      * optional read-only open mode or permission model for non-mutating
->        tools
-> 
->    Usability / Docs
->      * The docs need more precise examples for two-call enumeration, error
->        handling, batch reads, and mmap cleanup/close semantics.
-
-Yes that was minimal on purpose, given this was the first shot and a lot
-can still change...
-
->      * Fix typos before reposting: “Systemn”, “dwscriptors”, “istance”,
->        “udpated”, “andc”, “A IOCTL”.
->      * The sample tool should either be promoted into a real
->        selftest-style utility or clearly kept out of the upstreamable set
->        until it has robust argument parsing and error reporting.
-> 
-
-Well...the tool as of now if a draft thing for testing...it is indeed
-marked as RFC (and declared in a crappy state)...so it is clear NOT for
-upstream as it is: as I mentioned in the commit itself it is meant to be
-improved and used for testing in the future...not for upstream in this
-state of course...
-
-...BUT even in this state can be used to simply exercise most of the
-IOCTL quickly...so that was the reason I included it as  RFC.
-
-Thanks,
-Cristian
 
