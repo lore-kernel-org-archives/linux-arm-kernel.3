@@ -4,125 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7380C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927FDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EwGFQPVm1bO26xVtJmF/8zr4bH7SQWGraeozh6dAE00=; b=3RZkd93+06LJ3XOFkaHUht2p4+
-	EMQ8eT3w6ZJtcYhR9bR28bgfLp42iHpatLIWri72f6juTzIyuEjN7KwUCLjr9U76qnwMT6lN45J1n
-	0Fh8cUkaAm4EHCS8gF1N4IAOvttjfwNGGixxmGXPFQ6FMJcPp6t76CkxwPXJ+3zFkwYZcpBUEhala
-	lz2h+EZnlJuOyX5H1c6sOxwYLEuYoHFY9A2ZxVXN0taIS193wAaG1KOOHQipOHT9fHvQO6QSCIZ8r
-	RSaH4YGZ9Rzev/AWDuXwycOCkTxApk2TLZdt+GMswk1dAv1mb5R4UzvevtoKXtpUUsQZf0rGfqrFR
-	JKVKU0Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q0wnSw6IM70ZatIRQ0h/nFSD5yzhjm8eQKBwsFtZV7A=; b=Ia051EnfZBbKAd
+	6mnS+bRDdBpuJZC7gk6v4Szuxs3gjkghE2ALLOfDEkZfVCBr87x8sE0DeII0lS3pjRx1n9E52KOGe
+	esEJ604gMmlehJKHmNPdCTAzj/fRe4/LhVOTxiALKopU1qHlGyiB4XjHbUE5k3rUKQ43PvVbd23uW
+	fBJpZh2K99frdksE6Ymy1BjRNZK5SwOBaEcwaldTx0aeYoehKqAYz7xCTs3/I0EoB96NLgZhUVJU+
+	4DwiFg6uuJAvfPbD7tUIGwSQwZjuSQ4ukjaQGlh1eEvG12SUV4NLenTqvi6ORc3IRNIc+RddHUrkZ
+	6skEfKEnVb9h0nnDRm5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCrX-00000008iLa-1dKS;
-	Mon, 13 Jul 2026 09:22:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjCy2-00000008j9x-0ltw;
+	Mon, 13 Jul 2026 09:28:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCrW-00000008iLO-0fNB
+	id 1wjCxz-00000008j9L-1wyn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 09:22:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 993BD60018;
-	Mon, 13 Jul 2026 09:22:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E2A11F000E9;
-	Mon, 13 Jul 2026 09:21:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783934525;
-	bh=EwGFQPVm1bO26xVtJmF/8zr4bH7SQWGraeozh6dAE00=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FNFJCAIXF25WJ/l3S1PuHjuS15i1f4nVeVa5bQYaX9p+eCM//GITkfpYGvdlyow6W
-	 kN40V6AbNtRsrOq6AaOspfyuSzsb1QJhVfy8yjn0AexPt8A2LFxLHwLQy9awKxkLiX
-	 xDD+2gC+xYZ8F0V02nKAFP6uYd+QgFkEEQnFA7Y+svx1YFFFGXJjdyGvBVZWco2G4I
-	 O7Qyu2ngpsulFGAk8AeJI2urR7mRnx3IpGCs0i5peznFx35bRVxOKBVkaY7ZxrT7UN
-	 2U6hkTrk7xZIvWhkxtpNDeN6IWAU4FnJZfvIWCdulQazJGsqWugmkrp/IW5Ecqyj0s
-	 KeGYDjgTZZ+sw==
-Message-ID: <5667350d-cc3f-421d-899f-f353b05c5ea1@kernel.org>
-Date: Mon, 13 Jul 2026 11:21:49 +0200
+	Mon, 13 Jul 2026 09:28:49 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66D6NdhJ469194
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:28:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=q0wnSw6IM70ZatIRQ0h/nF
+	SD5yzhjm8eQKBwsFtZV7A=; b=d+ZsdQW+UAY71hYNVEJ643lTUkZjPviGbuF5op
+	k0sEWRytegRpGwtK9ToTMm7Dz9hL3MCKu/ULcWKIAjCI6Nak9Fke9FpxK05xy7Op
+	12SUOXu2GO2cYp4hlF90R2u2/z16pC8CPZzUjo95r8sG30urqX3iijmeWSZX8T7D
+	KeN9lL2hSHgaFifpHC2o3b6TJuCiLFA0dvsP11Yb6Yj0qiRxC2i079ldTVBZUnoP
+	alKO6zA21PiXRhWpO/HGC48Ym+fqE6bjiW1Mql6Gs4Q2IpgIFjf+jYDTgDtIF9jH
+	3fg1gm7d3v5/q7IqAouL/d4iDlH8rix+HL7R15/Kd7S6lBhg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fbf485dqk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:28:46 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8484f26852dso3712132b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 02:28:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783934926; x=1784539726; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=q0wnSw6IM70ZatIRQ0h/nFSD5yzhjm8eQKBwsFtZV7A=;
+        b=RyAs4uXxpadOUPp4aYjBZDAp1kB8bWxmdI7gFSAhVtd6uf7QsCo7T1j8z4pRd6FqCw
+         K/PGOHxXYuXSZVwAWCQI91eiNV/Pc74kTxfQJDcO32m5ek8rSufrDJ+6qinne2KWDPY5
+         QOfo7zw3mlsfIarqJkJQqarxGKVpK+t5jEdGwK+/w6AmZ0+cMqyU3kCBzFJopDF0DGfL
+         xRGpvb9m0aPZUzwN4v82beuUipVOPXxQvjtllmkx9E8DS3HmLaLYPZkqqMFUDafoWh34
+         euGPjTavP6DZugChKv/aQyLvVgFgQAXUws4osuGFoyznn8YdUN+HIC8Ykgy1vsMKZE+D
+         bSUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783934926; x=1784539726;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=q0wnSw6IM70ZatIRQ0h/nFSD5yzhjm8eQKBwsFtZV7A=;
+        b=qUTxtPUIAKmaFSXk+EpeEfFI2mHmfT/+I7dosrWR6sjmq8xogLrQTiFMnIh6hIK11c
+         EewXWGY6OpfEXG4kXx8u3A5kQWiKBQghp/wf3SBx7NWoeDyj3D0xjtkxfGQbAzStKpaI
+         cfX3sTMp3nb9WOeICTxQNfvoNAmnxP6nvROgUZ6lHxG/hUYCMwBv1PMGeAolYXtn5C4Z
+         pG8sgW7Hr39Yf1oJ4DuBsOh4PZIPD/tx/8DGzzM2xwxm5pgBXbGpPtpmcBKNeb2hIiDd
+         Q8aORGGvm2XV3P2Z5uWuHvTISiqHcRge6gA2bG3bpu9uc/8ApJ/qtR+Zfltn8DxujrC7
+         nGKA==
+X-Forwarded-Encrypted: i=1; AHgh+RqydyrGFXdzp++AiAeRDGFkhJQoio7mqI8/SFCNlKg5gD5DWFtP764Ypcj+pcVN6+Q+88V2gRDAQSmf7gPnt3yi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXslF3KVNwzjgBC4KAleOz9zep8P+EC/eAcafXjN7asHo3zfbs
+	3qTFx3joWUjtqIMd6eNZP78Swb5N65DhjWLxwgcgr1idMHgYcjaoLAqezhsgxqTlkadYcf6OnPR
+	+cuO+HLfDPCDopA9wSDXvhDKYds0kymeLj5D24MfSeJpe1ntj6WAzBUy+yAmmh3v6aej8Zf2aIb
+	8qdg==
+X-Gm-Gg: AfdE7cnK3GSoeJWNArGDwrAUIfmxM8ognEbCEl3Sa+cZiutHQGZ9qsUQCoS9NrM56Ja
+	YT36Hh5M086C8O/Jq3CYC4ktTv23oxoJEwLCTETixz2E2T7Yj0Q7/CXUnAkdtHhD4f3Lt4Xzb7l
+	lFA6lT+Sd2NASqp+bRflaj4OdLBySIoyjVETDK6DItOKnTJR10dp6TcdwN9odqntM7PckqhoQ2O
+	VN+i3yyY/mLzK9kNky/fCfrFZjfSUG3ZfUq3Mli1q8mbcqwNhOXpEfkJ+Nbbd5xzb+Sl6Eqflr+
+	Uno/lkj8o0LxYsofWHz/8n/Kyx9TeKOukLYtVx3TKtE8JYjEomY9LUTn/GNq1WIjenr/D7HNRVG
+	ld7czYJK4ez4j3rPAwdrr+waT5Y6S+13O0D/lzqNirw==
+X-Received: by 2002:a05:6a21:648e:b0:3bf:80c9:6b3e with SMTP id adf61e73a8af0-3c1109f717cmr8402576637.30.1783934925911;
+        Mon, 13 Jul 2026 02:28:45 -0700 (PDT)
+X-Received: by 2002:a05:6a21:648e:b0:3bf:80c9:6b3e with SMTP id adf61e73a8af0-3c1109f717cmr8402553637.30.1783934925471;
+        Mon, 13 Jul 2026 02:28:45 -0700 (PDT)
+Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311935fd091sm47495569eec.24.2026.07.13.02.28.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 02:28:45 -0700 (PDT)
+From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Subject: [PATCH v5 0/6] Add CAMSS and IMX577 sensor support for Shikra EVK
+Date: Mon, 13 Jul 2026 14:58:31 +0530
+Message-Id: <20260713-shikra-camss-review-v5-0-db53be15dc4f@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/16] ASoC: dt-bindings: add OpenPandora Sound Card
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Grond <grond66@riseup.net>, Stefan Leichter <sle85276@gmx.de>,
- Grazvydas Ignotas <notasas@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Andreas Kemnade
- <andreas@kemnade.info>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, Helge Deller <deller@gmx.de>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Sen Wang <sen@ti.com>, Richard Fitzgerald <rf@opensource.cirrus.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Niranjan H Y <niranjan.hy@ti.com>, letux-kernel@openphoenux.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-fbdev@vger.kernel.org, kernel@pyra-handheld.com, mfd@lists.linux.dev
-References: <cover.1783749722.git.hns@goldelico.com>
- <7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com>
- <20260713-infallible-capable-dormouse-aaaebe@quoll>
- <BF2B6C4A-A4CC-48D7-9854-DC014950184B@goldelico.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <BF2B6C4A-A4CC-48D7-9854-DC014950184B@goldelico.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMCvVGoC/43OTW7DIBAF4KtYrEvE8DMmWeUeVReAoUat4xoct
+ 1Xkuwc7i3ThRN2M9Ea8b7iQ7FP0mRyqC0l+ijn2pxLUS0Vca07vnsamZMIZR6Y40tzGj2SoM13
+ OdGn4b+oCBkTjFKIlpfmVfIg/q/r6dsvJD+eCj7clsSZ76vqui+Ohst7XKBoVhASyvG9jHvv0u
+ 35qgrXw9P4ElFGUquFOu1qZ+jiMcTeczedyYlfGyk78TiHT2xQvlDOwF2gDcNgf+5w3KPGHArV
+ NiUJp0EJqCFI37AEl/0HJQllnFTANtVB2g5rn+QrMUnlzzgEAAA==
+X-Change-ID: 20260526-shikra-camss-review-cf6f66ac566b
+To: Bryan O'Donoghue <bod@kernel.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Suresh Vankadara <quic_svankada@quicinc.com>,
+        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
+        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783934917; l=4511;
+ i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
+ bh=PuN8ENYNOK4zFEX7iR5tP4Qc4qPqD1yrqd+US3xeGx0=;
+ b=EKIr3fC4K4hhA9EAn48PYmRKnOCL56cBopti13qR6AQU4CmzUuuVy6UWePcII27pGzhDh20fI
+ UycOoqoIeOICfIByBVGqXJqdTH1mDw6i/FM7OrwttkHWBF5eRfn2avS
+X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
+ pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDA5OCBTYWx0ZWRfX34qf/OtD2M9p
+ os5+YmZKmNW0FEKQncpxDzyJP5ryDIcRhlUe6sP3rbGa3yXqp0GwRMKfRr5Y5J9Ka/5MOeG9U43
+ keg+J3G/mVCgSTZoUI9t2bj9tSplMrY=
+X-Authority-Analysis: v=2.4 cv=OsJ/DS/t c=1 sm=1 tr=0 ts=6a54afce cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=SCY8RljC4g58VSpTV0sA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDA5OCBTYWx0ZWRfX16A+x1sfp9Mg
+ 7cmyM4MjZaYbYzQtWpu5hEtFjZ8V5+TLPuvq9CR7CIZ08xCdCLbDSIBl90op2C35YgL9fmX6B4c
+ 4s5vFkVKz76GiNkoDskksv0FrSfoM40fqZg4/+EDAD65Jg/go/UJlAjBLK0NOxKI0Ark+04+ARC
+ 77vYauGMgbliwAzZl5iPScTiASCp79KKuX3AWhqcM4NBue4yhTwCoA/rYuqSzen/kLIqU9iw180
+ k6WBZdt08XL1VpSC8CZgtqT6E5hIoJTq6J39hkHEZKhE712CeiidS+4cCjPkAyBuG+eWC49391H
+ F64CUMrJ9lm6d4o3yBijeVo3N4f6SGlw2wOvLVarVBgKO4kYmA/6e0Hj4lz9aTClaT1UGukbEnS
+ 2HJBQb2XGyTnKPS9SKln4ufNch0VZqlEihqhWZuA6a29BJ2slSezDhPpvXPRyOJthNIiroGbJsB
+ 8zvkKGv89XEwWkOJaEg==
+X-Proofpoint-GUID: dsVjGIe1IiMe10Uli8fsnANdxAYJc9TN
+X-Proofpoint-ORIG-GUID: dsVjGIe1IiMe10Uli8fsnANdxAYJc9TN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-13_02,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ adultscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130098
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_022847_539009_33B354BB 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,56 +176,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2026 10:27, H. Nikolaus Schaller wrote:
-> Hi Krzysztof,
-> 
-> Thank you for the feedback.
-> 
->> Am 13.07.2026 um 09:37 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
->>
->> On Sat, Jul 11, 2026 at 08:01:56AM +0200, H. Nikolaus Schaller wrote:
->>> The OpenPandora audio subsystem describes the routing links between the
->>> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio
->>> codec, alongside amplifiers and power supplies.
->>>
->>> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
->>> ---
->>> .../sound/openpandora,omap3pandora-sound.yaml | 94 +++++++++++++++++++
->>> 1 file changed, 94 insertions(+)
->>> create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
->>> new file mode 100644
->>> index 0000000000000..d3c747e5c58d6
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
->>> @@ -0,0 +1,94 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org
->>> +$schema: http://devicetree.org
->>
->> This wasn't ever tested. Why?
-> 
-> It does not emit any C compiler issues or runtime problems so it remained unnoticed.
+Shikra EVK is based on the Qualcomm Shikra SoC.
+It lacks a camera sensor in its default configuration.
+This series adds CAMSS driver support, CCI definitions and enables
+the 22-pin IMX577 sensor via CSIPHY1 through device tree overlays.
 
-I do not believe.
+We have tested IMX577 Sensor on CCI1 with following commands:
+- media-ctl --reset
+- media-ctl -d /dev/media0 -V '"imx577 1-001a":0[fmt:SRGGB10/4056x3040 field:none]'
+- media-ctl -d /dev/media0 -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -d /dev/media0 -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -d /dev/media0 -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -d /dev/media0 -l '"msm_csiphy1":1->"msm_csid0":0[1]'
+- media-ctl -d /dev/media0 -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+- yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
 
-There is a clear warning from Rob's bot.
+Used following tools for the sanity check of these changes.
+- make -j32 W=1
+- checkpatch.pl
+- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml dt_binding_check
+- make DT_CHECKER_FLAGS=-m DT_SCHEMA_FILES=media/qcom,qcm2290-camss.yaml dt_binding_check W=1
+- make CHECK_DTBS=y W=1 qcom/qrb2210-rb1-vision-mezzanine.dtb
+- make CHECK_DTBS=1 W=1 qcom/shikra-cqm-cqs-evk-imx577-camera.dtb
+- make CHECK_DTBS=1 W=1 qcom/shikra-iqs-evk-imx577-camera.dtb
+- make CHECK_DTBS=y W=1 dtbs
 
-You just did not follow the process of building the code (compiler has
-nothing to do here). Read submitting patches in DT dir and then writing
-schema for further instructions. This is ABSOLUTE MINIMUM. We are not
-your build test service.
+Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+---
+Changes in v5:
+- Rebase on top of linux-next (20260710)
+- Drop dependency on shikra-dt series; now in linux-next
+- Drop dependency on shikra-gcc-rpmcc-clks series; now in linux-next
+- TLMM pin entries roughly sorted by the pin index (Konrad)
+- Link to v4: https://lore.kernel.org/r/20260615-shikra-camss-review-v4-0-bcb51081735b@oss.qualcomm.com
 
-> 
-> It was notified by the sahiko-bot and will be fixed in v2.
+Changes in v4:
+- Fix data-lanes numbering to start from 1 in all endpoints (Vladimir)
+  Missed in last rev.
+- Link to v3: https://lore.kernel.org/r/20260615-shikra-camss-review-v3-0-8183481f48d0@oss.qualcomm.com
 
-Sashiko has nothing to do with that.
+Changes in v3:
+- Drop dt-bindings: i2c: qcom-cci: Document Shikra compatible; already
+  picked by Andi Shyti into her i2c tree (now in linux-next as e3a8f8329397)
+- Preserve blank line after compatible const in qcom,qcm2290-camss.yaml (Krzysztof)
+- Add blank line between iommus and power-domains in CAMSS node (Vladimir)
+- Move cam1_reset_default pinctrl state from board .dts files into the
+  mezzanine .dtso overlay files (Vladimir)
+- Collect Reviewed-by tags
+- Link to v2: https://lore.kernel.org/r/20260608-shikra-camss-review-v2-0-ca1936bf1219@oss.qualcomm.com
 
-You DID NOT BUILD the code.
+Changes in v2:
+- Drop qcm2390_resources struct and CAMSS_2390 enum; use qcom,qcm2290-camss
+  as fallback compatible string since Shikra CAMSS is register-compatible
+  with QCM2290 (Loic, Bryan)
+- Use oneOf in iommus to describe all valid SID combinations: VFE-only
+  (Shikra) and VFE+CDM+OPE read+OPE write (QCM2290/Agatti); add
+  per-entry descriptions naming each SID (Krzysztof, Bryan)
+- Rename shikra-cqm-evk-imx577-camera overlay to
+  shikra-cqm-cqs-evk-imx577-camera, shared by both CQM and CQS EVK
+  boards which use the same PM4125 PMIC and camera supply rails (Bryan)
+- Add reset-gpios pinctrl state for IMX577 sensor (gpio33, cam1-reset-default-state)
+- Add comment in overlay DTS explaining absent regulators are powered
+  by the daughter board (Bryan)
+- Collect Reviewed-by tags
+- Add reset-gpios pinctrl state for IMX577 sensor.
+- Link to v1: https://lore.kernel.org/r/20260526-shikra-camss-review-v1-0-645d2c8c75a7@qti.qualcomm.com
+
+---
+Nihal Kumar Gupta (6):
+      dt-bindings: media: qcom: Add Shikra CAMSS compatible
+      arm64: dts: qcom: shikra: Add CAMSS node
+      arm64: dts: qcom: shikra: Add CCI definitions
+      arm64: dts: qcom: shikra: Add pin configuration for mclks
+      arm64: dts: qcom: shikra-cqm-cqs-evk-imx577-camera: Add DT overlay
+      arm64: dts: qcom: shikra-iqs-evk-imx577-camera: Add DT overlay
+
+ .../bindings/media/qcom,qcm2290-camss.yaml         |  15 +-
+ arch/arm64/boot/dts/qcom/Makefile                  |   8 +
+ .../dts/qcom/shikra-cqm-cqs-evk-imx577-camera.dtso |  79 ++++++++
+ .../dts/qcom/shikra-iqs-evk-imx577-camera.dtso     |  79 ++++++++
+ arch/arm64/boot/dts/qcom/shikra.dtsi               | 198 +++++++++++++++++++++
+ 5 files changed, 377 insertions(+), 2 deletions(-)
+---
+base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
+change-id: 20260526-shikra-camss-review-cf6f66ac566b
 
 Best regards,
-Krzysztof
+-- 
+Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+
 
