@@ -4,63 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DBFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B7BC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzSTpIKrSE0AxoeE/LdI+HYaPdXvAVA2aXbl1zWyXWo=; b=c/szgSrX5vJYhAdaRE1bgJNjsE
-	BMKkyWITgwLlGwSOt12wghvHU+2ETfkN7dijmaeCmMhQEgA9WrCkG2S5QIctL0mR1UMfixMRWHAcr
-	n3qFEVq9mUezD1reR/E7kjsWc6lMb3ZSuEbpbiMD+ZK3rjEnhWSYyk6xFFeZxJE75azj9X7tvyNji
-	4Oceyi6/ZU4K0CAwSLf8gFMF4harAokeYi8puBqm3eOaZVD0kbe2ji07PeOnecV8rKNuUB6O2xhYD
-	/tkP+tBa63lhpD7dB79aPm2n6uEGwpfphY8v3w0Rjd5wpWJjY+BIYdAmKzPJIgQcItOtPbkWEE4Uh
-	vCUaS1jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bDYzGOw8rvl+4Esm2LqPQSIdz41EgZfbnLTvGmJE1go=; b=nJ9xia5+N+nPm6kB3ldGk8O6rR
+	2aqfeUXMq2RkHHQ7GuhoC3pcpZEnOft/EPAJeadEa6rFKq8KhF07sfFXx1/9f1BVCJ1oWjgsWgBR2
+	skua6TA+7OvmyHguZ6QCkwizN3iKiuCVhkAHFpwZjGb44TOR1FbaOfbsj14yhfhLSKBmBioYHJnlG
+	4pRExliLnnUsh2BC3uA1xgs4M7YXKM1CKULiAnCCnaAuL8xxFt70gdwBE53AZmBjgGE+kiAeNTlcG
+	BL6LzSlBbfhf4+sm/W07etis8Fpl5TKjN5kJz/9ZVlJrpcrehhjxVz9Mthixaq3fw1HEc+p3vhNSU
+	RUyLjQFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHJM-00000009Y74-0YtU;
-	Mon, 13 Jul 2026 14:07:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjI3h-00000009fDO-06vI;
+	Mon, 13 Jul 2026 14:55:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHJL-00000009Y6f-0e99
+	id 1wjI3f-00000009fC4-33kd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 14:55:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=bDYzGOw8rvl+4Esm2LqPQSIdz41EgZfbnLTvGmJE1go=; b=N0Zz8Wlr14s7yg7p3SROV4WpVW
+	9YenhNkVekZ/ZWBDdn5rYDZU+va2RyzOv7ffrgAak1JFeqRr3HV+PIdUyd39W/TJL+1E4eLXZ9LYr
+	egiYZR1aGFHku7ISbYaSQ0JOLoJGt4XhjUNvM7OiyLWYosDQcFalQmpHXktnYZi3JrYEdGE/8hGkl
+	oPpx43ivgymgqqMTam3uhe/WZ6dnrkLhRzx/eqoAIQcan+GIIzyBfvoTjJPT6vgTwaVh4bm7W5S5h
+	2ZwM1gbboX9MamjuXmuAPJS3+Z/HbPNy83wME8gphTZhBIT1ly9j2xD355qmtuxe+ifWgn9TLSEta
+	dz4mgaPg==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjI3c-0000000Bjow-1Eti
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:07:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB18E411A7;
-	Mon, 13 Jul 2026 14:07:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B38D1F000E9;
-	Mon, 13 Jul 2026 14:07:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783951626;
-	bh=xzSTpIKrSE0AxoeE/LdI+HYaPdXvAVA2aXbl1zWyXWo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=apcjmxVijI1vpjkJv3XVSAhqiuNgvL+aGGnsWsRW6X93lf6OLHWTHl19Oa15s4Oka
-	 5Egeat+Cc3odBxnqEyhp7XciHx00nY87zz0CeJvdSfDuf4afh2kXFy6sNurcxZwWff
-	 Gpf3xr5D2l3eVjcT+VkW3eYolLMsX8GVKp/IIpg/9iZkEzwy+u2MGMLuktMe900L27
-	 GWiwavS4UaIHTu640QzF02xo894qilMMCRjW6TXOrtl3Nk/ZWQ59sBWzhmfLfQDc7w
-	 nfLm9lphBbhGPjvzLcYe8H9a9vGV1fkZsEdT88KIuFMOcIaqUkmg72AQvt5vjLk4tA
-	 w7T+Qt0NdHWbQ==
-Date: Mon, 13 Jul 2026 15:07:01 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Yiqi Sun <sunyiqixm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk, kees@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v2] arm64: ptrace: use live x0 for seccomp and audit
- after ptrace
-Message-ID: <alTxBVLJmQ7-ZnSS@willie-the-truck>
-References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
- <2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com>
- <akJuljttiQoki3sq@willie-the-truck>
- <akP8-ddTn9bhIDEW@arm.com>
- <1610f167-1af0-4d20-877c-b362b9b49d94@huawei.com>
+	Mon, 13 Jul 2026 14:54:58 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DCEPnk1333692
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 14:54:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bDYzGOw8rvl+4Esm2LqPQSIdz41EgZfbnLTvGmJE1go=; b=UYqfURwp11IKx+JH
+	zyILcsmJuju2kuvakxrxeN72NyE2MtrlozjKq9Iw9yQsEOIpsEi/0IFOQJJWca67
+	ddJ/hDQSTBhl9DnNA1/qxn9mXIS/CDGIbgGjqRgP/GyqGQ9sC6G3ylLJgm3dMemn
+	BTGQRDPMPCfCbE9CmbQ+voCHAg6dKim0p/zWlenvUaSQAQjh55/1mp5YqFeiTU9S
+	lCm4TN+Sx4wO1FGBI6CfOFEy7qknJdNfg4LIvsNXL7ZEzg1nQcXwMR6tGH2sMzlf
+	I3c+RBQKRbas2c6x8PkzaLsiehTWOIU4aClCP3uh0cZarqjK7u/iIlBgpHUX3/Eq
+	3fOODA==
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fctc8j430-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 14:54:53 +0000 (GMT)
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-7e6b59d85dcso5052768a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 07:54:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783954493; x=1784559293; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bDYzGOw8rvl+4Esm2LqPQSIdz41EgZfbnLTvGmJE1go=;
+        b=eNy5r1OsehVoGeKHiwbRzHADe2VRwdMgGAdmoKHrl7uuvPAUjx1Q7yShTgXPcLEJWR
+         rRlGi6nKV6HTZ/KrLlo7YlQosOga7aRv0yrjglIzZZf2lJRqs0cPXYtLLkE0HihXi6YE
+         A11cp3NGLp9YyuhtErbtWd3221+fc58yvFXBOurnlAIj7H9YrIni0Fo8jAMFHF+x0Xfo
+         TI+4MR857jOcuiE31eyvzdYfBnYsI8xRWpGhDIIXT47i46WUJN1PjJglwP4qzgm7mspz
+         lTajpwqwT5qR45+61cd4GFGKqomKQ8u+4mcWB83y22UGzxTpZR+Z/qJnb2MEASBneOm/
+         0zGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783954493; x=1784559293;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bDYzGOw8rvl+4Esm2LqPQSIdz41EgZfbnLTvGmJE1go=;
+        b=B6Fycw9zgH5EO2Zj21lS1Xv496j64d+8hMYELD4yqhUqqynblzCI3O1TFxqygq+f3l
+         /3hEe5dJV2KxkkR4Zt8ejR/zBHe6j/RHqd1FEJnjBcLqZ4sIkpOSIq71Grve67lxPzEB
+         VK0cCnbipFC2Cpt2EYjcSoxpvbtW0IwnH68SZ2z8RmKeMyNzbjpZDrhAg6S+z0yYAKl7
+         wW+6uAx9m8ySX/bWPptr3HvVP9J0Fun0NqtYXWKlXv/2IeuZuGduiZDtThCcTHd+WnMu
+         iQfRSqiDmGBAPXkFx/UrJdft893gmijYHwqAa8J7F6VPlZ/d/HJPPlnZwUCUkV1ftywO
+         Y/rQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9PZh0rV+qrarENC+Wumi1IcUQ3Ei3hgL1e3APufyvccrF0Trb8Ou5raMEY47FUYhTT0OpMoFpCMrQUUtj6Pvul@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCc7UyoA6gEZeAdGi5LzPnCh7mcI2yDk8jE6QMGV9+DgzqD1Rk
+	4TjLxpIzBQT/A6r9xR4X4iP+WhYj+X+4O/f9tFH8pqXzKwMI/TJcM9U/r5QaHpE1EkG8m4WCYMh
+	wZBEtkczntrjtKGzpwN/V95UzpC9wwuR1gEz2+/x8Ldo21/ModKaCUb6JCGjN2hQ4fRMja8tKVe
+	KtdA==
+X-Gm-Gg: AfdE7cklOR38dlsZbL2NZPSEACUFTdcXDi04fPo3/G6Rhq79l36utQc02D62vWc5oQR
+	QckEu2E7v2UOoiq3U68poHVMRn/9la6dZUJmHFd3qDg5c2FAXGFtYoGCgSEAhidMuvHol/Z3g2q
+	3NnNnKlT/SoPFMxUX5L1YXxgSr6pvygdc91L2zCgY9gme4SAteF9hofsbJknrNOVQDf7cQ4znCR
+	LXsB7P7q+3OwXpjgTVg0ociJlHWx+NbhJUJuwLiVllSn2Jffixq1Bu7RUd7z2uO/sFzgLoNb4bK
+	A5gk486sTQuTGcNaYIb9PsKilJCOx8DgX+ou8EhH7JSlBDaVCbkAyepxlokV6GFrz++VaJ/xfJR
+	fdhK6bLAlkN4S2jhIVuqGV7CEePUBsr2cYr4=
+X-Received: by 2002:a05:6820:1888:b0:6a3:c2d:60c5 with SMTP id 006d021491bc7-6a39a72e201mr5211141eaf.52.1783954492986;
+        Mon, 13 Jul 2026 07:54:52 -0700 (PDT)
+X-Received: by 2002:a05:6820:1888:b0:6a3:c2d:60c5 with SMTP id 006d021491bc7-6a39a72e201mr5211124eaf.52.1783954492460;
+        Mon, 13 Jul 2026 07:54:52 -0700 (PDT)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6a38e9bc8casm6728746eaf.2.2026.07.13.07.54.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 07:54:52 -0700 (PDT)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Date: Mon, 13 Jul 2026 20:23:45 +0530
+Subject: [PATCH v7 07/10] clk: qcom: videocc: Add video clock controller
+ driver for Eliza
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1610f167-1af0-4d20-877c-b362b9b49d94@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260713-b4-eliza_mm_cc_v6-v7-7-4d91bcef50eb@oss.qualcomm.com>
+References: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
+In-Reply-To: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Taniya Das <taniya.das@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Proofpoint-GUID: wBuOsgGmPWQkXa0pcSQsdQ2IOUW65PrQ
+X-Proofpoint-ORIG-GUID: wBuOsgGmPWQkXa0pcSQsdQ2IOUW65PrQ
+X-Authority-Analysis: v=2.4 cv=UtRT8ewB c=1 sm=1 tr=0 ts=6a54fc3d cx=c_pps
+ a=z9lCQkyTxNhZyzAvolXo/A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=fDr36jkL0Xr7p1dDRlIA:9 a=QEXdDO2ut3YA:10
+ a=EyFUmsFV_t8cxB2kMr4A:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDE1NSBTYWx0ZWRfXwEhPAijYoJMa
+ RXDwZ5bzoqN5zfhdKRQdhsiwOFP5R8ypQZ00zzMJ3EpGMU1+KFFLFZYqqtbOMI5uzr/a4JMNBop
+ gyjjo84KXtCo8f7zKzWO23hpekvlE94=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDE1NSBTYWx0ZWRfXzQWaN6PP1d2G
+ 6ItD8qrl2HttTB5UmCgCM9hwt6KpVBxZtbja/8EXirR4/gjdtrJa7MY6BBZsIJwtOIESUrXmahs
+ mvj6dF7KEmuNy417czK/4GIv6Hv70oRTcfwcj3q5l292RDCJPHBBc3qYNhLP2A9Q7J0Z6d+koW7
+ ToxtamVfwLv99NgznovBeKsqvpgZlsBROtS7eabVr/tzSizguz9n77UzJSbMUkkLXteFYX+BVMy
+ 5fGoBLpu6TXPh+ek3IwwabCE/HIL0LQdBwWb45V3S8DBIb0I4YXJ9ZVLydVfD/UphR56WenMH/8
+ vcPL1Oc/+1y/o4mlZ1LR/qdqcyIEsbhxQHVkOSFy/yEZaNUhEVGK9b9xIXYPiI4RHJUTZC5pmk0
+ 9dYf9RZd68cj7MUtKVjUZydOiCnFOl6uCy1KKll7YCvlQSm28e9HUBaeuEm+1W6ZZZDfLJlFpr9
+ 1afc00Kr7SUt9fNJxNA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-13_03,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 suspectscore=0 bulkscore=0 clxscore=1015
+ impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130155
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_155456_849743_32DE7774 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,100 +181,464 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 03:49:18PM +0800, Jinjie Ruan wrote:
-> On 7/1/2026 1:29 AM, Catalin Marinas wrote:
-> > I think we need to keep orig_x0 as our original arg0 throughout the
-> > kernel and just fix the tracer path to sync it on the syscall entry. It
-> > doesn't unclutter the code but it shouldn't break the ABI either (unless
-> > someone relied on the ptrace change x0 and not being noticed by
-> > seccomp). Something like below:
-> > 
-> > ----------------8<-----------------------------
-> > diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> > index 4d08598e2891..cd21b301e154 100644
-> > --- a/arch/arm64/kernel/ptrace.c
-> > +++ b/arch/arm64/kernel/ptrace.c
-> > @@ -2417,6 +2417,18 @@ int syscall_trace_enter(struct pt_regs *regs)
-> >  		ret = report_syscall_entry(regs);
-> >  		if (ret || (flags & _TIF_SYSCALL_EMU))
-> >  			return NO_SYSCALL;
-> > +		/*
-> > +		 * Keep orig_x0 authoritative so that seccomp (via
-> > +		 * syscall_get_arguments()), audit and the restart path all
-> > +		 * see the same first argument the syscall is dispatched with,
-> > +		 * even if it has been updated by a tracer. Skip this for
-> > +		 * NO_SYSCALL (set either by the user or the tracer) as
-> > +		 * regs[0] holds the return value (see the comment in
-> > +		 * el0_svc_common()). For compat, orig_r0 is provided directly
-> > +		 * through GPR index 17.
-> > +		 */
-> > +		if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-> > +			regs->orig_x0 = regs->regs[0];
-> 
-> Can we place this fix in report_syscall_entry()? The generic entry
-> framework has already reserved the function
-> arch_ptrace_report_syscall_permit_entry() for architecture-specific
-> customization, so switching to it might be more convenient.
+Add support for the video clock controller for video clients to be able
+to request for videocc clocks on Eliza platform.
 
-Hmm, your comment prompted me to look at this some more and now I'm
-unsure that the seccomp handling is correct, even with the fix above.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+---
+ drivers/clk/qcom/Kconfig         |  10 +
+ drivers/clk/qcom/Makefile        |   1 +
+ drivers/clk/qcom/videocc-eliza.c | 405 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 416 insertions(+)
 
-If the seccomp filters return SECCOMP_RET_TRACE, we'll do another ptrace
-exit but we won't re-sync orig_x0, so audit could see a stale value. So
-I think we might need something like the diff below, which looks like it
-might be a pain for the generic entry code.
-
-Will
-
---->8
-
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 4d08598e2891..57e8c6714d44 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
-        }
- }
+diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
+index d9cff5b0281d8cc373b8ab14683370cb9b7f8bf3..6a2a8d07f341cd8143dc1cde4534673c6eba59f4 100644
+--- a/drivers/clk/qcom/Kconfig
++++ b/drivers/clk/qcom/Kconfig
+@@ -45,6 +45,16 @@ config CLK_ELIZA_TCSRCC
+ 	  Support for the TCSR clock controller on Eliza devices.
+ 	  Say Y if you want to use peripheral devices such as USB/PCIe/UFS.
  
-+static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
++config CLK_ELIZA_VIDEOCC
++	tristate "Eliza Video Clock Controller"
++	depends on ARM64 || COMPILE_TEST
++	select CLK_ELIZA_GCC
++	default m if ARCH_QCOM
++	help
++	  Support for the video clock controller on Eliza devices.
++	  Say Y if you want to support video devices and functionality such as
++	  video encode and decode.
++
+ config CLK_GLYMUR_DISPCC
+ 	tristate "Glymur Display Clock Controller"
+ 	depends on ARM64 || COMPILE_TEST
+diff --git a/drivers/clk/qcom/Makefile b/drivers/clk/qcom/Makefile
+index e100cfd6a52de9f88f11720d9c2043db5e553618..36c09964879e9be09e92329fe316f67c7d4564a3 100644
+--- a/drivers/clk/qcom/Makefile
++++ b/drivers/clk/qcom/Makefile
+@@ -23,6 +23,7 @@ obj-$(CONFIG_APQ_MMCC_8084) += mmcc-apq8084.o
+ obj-$(CONFIG_CLK_ELIZA_DISPCC) += dispcc-eliza.o
+ obj-$(CONFIG_CLK_ELIZA_GCC) += gcc-eliza.o
+ obj-$(CONFIG_CLK_ELIZA_TCSRCC) += tcsrcc-eliza.o
++obj-$(CONFIG_CLK_ELIZA_VIDEOCC) += videocc-eliza.o
+ obj-$(CONFIG_CLK_GFM_LPASS_SM8250) += lpass-gfm-sm8250.o
+ obj-$(CONFIG_CLK_GLYMUR_DISPCC) += dispcc-glymur.o
+ obj-$(CONFIG_CLK_GLYMUR_GCC) += gcc-glymur.o
+diff --git a/drivers/clk/qcom/videocc-eliza.c b/drivers/clk/qcom/videocc-eliza.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..e461a5f7759e01f8488810236036239e05d81ac0
+--- /dev/null
++++ b/drivers/clk/qcom/videocc-eliza.c
+@@ -0,0 +1,405 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#include <dt-bindings/clock/qcom,eliza-videocc.h>
++
++#include "clk-alpha-pll.h"
++#include "clk-branch.h"
++#include "clk-pll.h"
++#include "clk-rcg.h"
++#include "clk-regmap.h"
++#include "clk-regmap-divider.h"
++#include "clk-regmap-mux.h"
++#include "common.h"
++#include "gdsc.h"
++#include "reset.h"
++
++enum {
++	DT_BI_TCXO,
++	DT_BI_TCXO_AO,
++	DT_SLEEP_CLK,
++	DT_AHB_CLK,
++};
++
++enum {
++	P_BI_TCXO,
++	P_SLEEP_CLK,
++	P_VIDEO_CC_PLL0_OUT_MAIN,
++};
++
++static const struct pll_vco lucid_ole_vco[] = {
++	{ 249600000, 2300000000, 0 },
++};
++
++/* 576.0 MHz Configuration */
++static const struct alpha_pll_config video_cc_pll0_config = {
++	.l = 0x1e,
++	.alpha = 0x0,
++	.config_ctl_val = 0x20485699,
++	.config_ctl_hi_val = 0x00182261,
++	.config_ctl_hi1_val = 0x82aa299c,
++	.test_ctl_val = 0x00000000,
++	.test_ctl_hi_val = 0x00000003,
++	.test_ctl_hi1_val = 0x00009000,
++	.test_ctl_hi2_val = 0x00000034,
++	.user_ctl_val = 0x00000000,
++	.user_ctl_hi_val = 0x00000005,
++};
++
++static struct clk_alpha_pll video_cc_pll0 = {
++	.offset = 0x0,
++	.config = &video_cc_pll0_config,
++	.vco_table = lucid_ole_vco,
++	.num_vco = ARRAY_SIZE(lucid_ole_vco),
++	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
++	.clkr = {
++		.hw.init = &(const struct clk_init_data) {
++			.name = "video_cc_pll0",
++			.parent_data = &(const struct clk_parent_data) {
++				.index = DT_BI_TCXO,
++			},
++			.num_parents = 1,
++			.ops = &clk_alpha_pll_lucid_evo_ops,
++		},
++	},
++};
++
++static const struct parent_map video_cc_parent_map_0[] = {
++	{ P_BI_TCXO, 0 },
++};
++
++static const struct clk_parent_data video_cc_parent_data_0[] = {
++	{ .index = DT_BI_TCXO },
++};
++
++static const struct parent_map video_cc_parent_map_1[] = {
++	{ P_BI_TCXO, 0 },
++	{ P_VIDEO_CC_PLL0_OUT_MAIN, 1 },
++};
++
++static const struct clk_parent_data video_cc_parent_data_1[] = {
++	{ .index = DT_BI_TCXO },
++	{ .hw = &video_cc_pll0.clkr.hw },
++};
++
++static const struct parent_map video_cc_parent_map_2[] = {
++	{ P_SLEEP_CLK, 0 },
++};
++
++static const struct clk_parent_data video_cc_parent_data_2[] = {
++	{ .index = DT_SLEEP_CLK },
++};
++
++static const struct freq_tbl ftbl_video_cc_ahb_clk_src[] = {
++	F(19200000, P_BI_TCXO, 1, 0, 0),
++	{ }
++};
++
++static struct clk_rcg2 video_cc_ahb_clk_src = {
++	.cmd_rcgr = 0x8018,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = video_cc_parent_map_0,
++	.freq_tbl = ftbl_video_cc_ahb_clk_src,
++	.hw_clk_ctrl = true,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_ahb_clk_src",
++		.parent_data = video_cc_parent_data_0,
++		.num_parents = ARRAY_SIZE(video_cc_parent_data_0),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
++};
++
++static const struct freq_tbl ftbl_video_cc_mvs0_clk_src[] = {
++	F(576000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(633000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(720000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(1014000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(1098000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(1113000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(1332000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	F(1600000000, P_VIDEO_CC_PLL0_OUT_MAIN, 1, 0, 0),
++	{ }
++};
++
++static struct clk_rcg2 video_cc_mvs0_clk_src = {
++	.cmd_rcgr = 0x8000,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = video_cc_parent_map_1,
++	.freq_tbl = ftbl_video_cc_mvs0_clk_src,
++	.hw_clk_ctrl = true,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_mvs0_clk_src",
++		.parent_data = video_cc_parent_data_1,
++		.num_parents = ARRAY_SIZE(video_cc_parent_data_1),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
++};
++
++static const struct freq_tbl ftbl_video_cc_sleep_clk_src[] = {
++	F(32000, P_SLEEP_CLK, 1, 0, 0),
++	{ }
++};
++
++static struct clk_rcg2 video_cc_sleep_clk_src = {
++	.cmd_rcgr = 0x8110,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = video_cc_parent_map_2,
++	.freq_tbl = ftbl_video_cc_sleep_clk_src,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_sleep_clk_src",
++		.parent_data = video_cc_parent_data_2,
++		.num_parents = ARRAY_SIZE(video_cc_parent_data_2),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
++};
++
++static struct clk_rcg2 video_cc_xo_clk_src = {
++	.cmd_rcgr = 0x80f4,
++	.mnd_width = 0,
++	.hid_width = 5,
++	.parent_map = video_cc_parent_map_0,
++	.freq_tbl = ftbl_video_cc_ahb_clk_src,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_xo_clk_src",
++		.parent_data = video_cc_parent_data_0,
++		.num_parents = ARRAY_SIZE(video_cc_parent_data_0),
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_rcg2_shared_ops,
++	},
++};
++
++static struct clk_regmap_div video_cc_mvs0_div_clk_src = {
++	.reg = 0x80ac,
++	.shift = 0,
++	.width = 4,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_mvs0_div_clk_src",
++		.parent_hws = (const struct clk_hw*[]) {
++			&video_cc_mvs0_clk_src.clkr.hw,
++		},
++		.num_parents = 1,
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_regmap_div_ro_ops,
++	},
++};
++
++static struct clk_regmap_div video_cc_mvs0c_div2_div_clk_src = {
++	.reg = 0x8058,
++	.shift = 0,
++	.width = 4,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "video_cc_mvs0c_div2_div_clk_src",
++		.parent_hws = (const struct clk_hw*[]) {
++			&video_cc_mvs0_clk_src.clkr.hw,
++		},
++		.num_parents = 1,
++		.flags = CLK_SET_RATE_PARENT,
++		.ops = &clk_regmap_div_ro_ops,
++	},
++};
++
++static struct clk_branch video_cc_mvs0_clk = {
++	.halt_reg = 0x80a0,
++	.halt_check = BRANCH_HALT_VOTED,
++	.hwcg_reg = 0x80a0,
++	.hwcg_bit = 1,
++	.clkr = {
++		.enable_reg = 0x80a0,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "video_cc_mvs0_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&video_cc_mvs0_div_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch video_cc_mvs0_shift_clk = {
++	.halt_reg = 0x8144,
++	.halt_check = BRANCH_HALT_VOTED,
++	.hwcg_reg = 0x8144,
++	.hwcg_bit = 1,
++	.clkr = {
++		.enable_reg = 0x8144,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "video_cc_mvs0_shift_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&video_cc_xo_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch video_cc_mvs0c_clk = {
++	.halt_reg = 0x804c,
++	.halt_check = BRANCH_HALT,
++	.clkr = {
++		.enable_reg = 0x804c,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "video_cc_mvs0c_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&video_cc_mvs0c_div2_div_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct clk_branch video_cc_mvs0c_shift_clk = {
++	.halt_reg = 0x8148,
++	.halt_check = BRANCH_HALT_VOTED,
++	.hwcg_reg = 0x8148,
++	.hwcg_bit = 1,
++	.clkr = {
++		.enable_reg = 0x8148,
++		.enable_mask = BIT(0),
++		.hw.init = &(const struct clk_init_data) {
++			.name = "video_cc_mvs0c_shift_clk",
++			.parent_hws = (const struct clk_hw*[]) {
++				&video_cc_xo_clk_src.clkr.hw,
++			},
++			.num_parents = 1,
++			.flags = CLK_SET_RATE_PARENT,
++			.ops = &clk_branch2_ops,
++		},
++	},
++};
++
++static struct gdsc video_cc_mvs0c_gdsc = {
++	.gdscr = 0x8034,
++	.en_rest_wait_val = 0x2,
++	.en_few_wait_val = 0x2,
++	.clk_dis_wait_val = 0x6,
++	.pd = {
++		.name = "video_cc_mvs0c_gdsc",
++	},
++	.pwrsts = PWRSTS_OFF_ON,
++	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
++};
++
++static struct gdsc video_cc_mvs0_gdsc = {
++	.gdscr = 0x808c,
++	.en_rest_wait_val = 0x2,
++	.en_few_wait_val = 0x2,
++	.clk_dis_wait_val = 0x6,
++	.pd = {
++		.name = "video_cc_mvs0_gdsc",
++	},
++	.pwrsts = PWRSTS_OFF_ON,
++	.parent = &video_cc_mvs0c_gdsc.pd,
++	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE | HW_CTRL_TRIGGER,
++};
++
++static struct clk_regmap *video_cc_eliza_clocks[] = {
++	[VIDEO_CC_AHB_CLK_SRC] = &video_cc_ahb_clk_src.clkr,
++	[VIDEO_CC_MVS0_CLK] = &video_cc_mvs0_clk.clkr,
++	[VIDEO_CC_MVS0_CLK_SRC] = &video_cc_mvs0_clk_src.clkr,
++	[VIDEO_CC_MVS0_DIV_CLK_SRC] = &video_cc_mvs0_div_clk_src.clkr,
++	[VIDEO_CC_MVS0_SHIFT_CLK] = &video_cc_mvs0_shift_clk.clkr,
++	[VIDEO_CC_MVS0C_CLK] = &video_cc_mvs0c_clk.clkr,
++	[VIDEO_CC_MVS0C_DIV2_DIV_CLK_SRC] = &video_cc_mvs0c_div2_div_clk_src.clkr,
++	[VIDEO_CC_MVS0C_SHIFT_CLK] = &video_cc_mvs0c_shift_clk.clkr,
++	[VIDEO_CC_PLL0] = &video_cc_pll0.clkr,
++	[VIDEO_CC_SLEEP_CLK_SRC] = &video_cc_sleep_clk_src.clkr,
++	[VIDEO_CC_XO_CLK_SRC] = &video_cc_xo_clk_src.clkr,
++};
++
++static struct gdsc *video_cc_eliza_gdscs[] = {
++	[VIDEO_CC_MVS0_GDSC] = &video_cc_mvs0_gdsc,
++	[VIDEO_CC_MVS0C_GDSC] = &video_cc_mvs0c_gdsc,
++};
++
++static const struct qcom_reset_map video_cc_eliza_resets[] = {
++	[VIDEO_CC_INTERFACE_BCR] = { 0x80d8 },
++	[VIDEO_CC_MVS0_CLK_ARES] = { 0x80a0, 2 },
++	[VIDEO_CC_MVS0_BCR] = { 0x8088 },
++	[VIDEO_CC_MVS0C_CLK_ARES] = { 0x804c, 2 },
++	[VIDEO_CC_MVS0C_BCR] = { 0x8030 },
++	[VIDEO_CC_XO_CLK_ARES] = { 0x810c, 2 },
++};
++
++static struct clk_alpha_pll *video_cc_eliza_plls[] = {
++	&video_cc_pll0,
++};
++
++static u32 video_cc_eliza_critical_cbcrs[] = {
++	0x80dc, /* VIDEO_CC_AHB_CLK */
++	0x8128, /* VIDEO_CC_SLEEP_CLK */
++	0x810c, /* VIDEO_CC_XO_CLK */
++};
++
++static const struct regmap_config video_cc_eliza_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.max_register = 0x9f50,
++	.fast_io = true,
++};
++
++static struct qcom_cc_driver_data video_cc_eliza_driver_data = {
++	.alpha_plls = video_cc_eliza_plls,
++	.num_alpha_plls = ARRAY_SIZE(video_cc_eliza_plls),
++	.clk_cbcrs = video_cc_eliza_critical_cbcrs,
++	.num_clk_cbcrs = ARRAY_SIZE(video_cc_eliza_critical_cbcrs),
++};
++
++static const struct qcom_cc_desc video_cc_eliza_desc = {
++	.config = &video_cc_eliza_regmap_config,
++	.clks = video_cc_eliza_clocks,
++	.num_clks = ARRAY_SIZE(video_cc_eliza_clocks),
++	.resets = video_cc_eliza_resets,
++	.num_resets = ARRAY_SIZE(video_cc_eliza_resets),
++	.gdscs = video_cc_eliza_gdscs,
++	.num_gdscs = ARRAY_SIZE(video_cc_eliza_gdscs),
++	.use_rpm = true,
++	.driver_data = &video_cc_eliza_driver_data,
++};
++
++static const struct of_device_id video_cc_eliza_match_table[] = {
++	{ .compatible = "qcom,eliza-videocc" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, video_cc_eliza_match_table);
++
++static int video_cc_eliza_probe(struct platform_device *pdev)
 +{
-+       /*
-+        * Keep orig_x0 authoritative so that seccomp (via
-+        * syscall_get_arguments()), audit and the restart path all see the same
-+        * first argument the syscall is dispatched with, even if it has been
-+        * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
-+        * or the tracer), as regs[0] holds the return value (see the comment in
-+        * el0_svc_common()) and can be unwound using syscall_rollback().
-+        * For compat tasks, orig_r0 is provided directly through GPR index 17.
-+        */
-+       if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-+               regs->orig_x0 = regs->regs[0];
++	return qcom_cc_probe(pdev, &video_cc_eliza_desc);
 +}
 +
- int syscall_trace_enter(struct pt_regs *regs)
- {
-        unsigned long flags = read_thread_flags();
-@@ -2417,12 +2432,21 @@ int syscall_trace_enter(struct pt_regs *regs)
-                ret = report_syscall_entry(regs);
-                if (ret || (flags & _TIF_SYSCALL_EMU))
-                        return NO_SYSCALL;
++static struct platform_driver video_cc_eliza_driver = {
++	.probe = video_cc_eliza_probe,
++	.driver = {
++		.name = "videocc-eliza",
++		.of_match_table = video_cc_eliza_match_table,
++	},
++};
 +
-+               /*
-+                * Ensure ptrace changes to x0 are visible to seccomp
-+                * ptrace exits (SECCOMP_RET_TRACE).
-+                */
-+               update_syscall_orig_x0_after_ptrace(regs);
-        }
- 
-        /* Do the secure computing after ptrace; failures should be fast. */
-        if (secure_computing() == -1)
-                return NO_SYSCALL;
- 
-+       /* Ensure seccomp updates to x0 are visible to audit. */
-+       update_syscall_orig_x0_after_ptrace(regs);
++module_platform_driver(video_cc_eliza_driver);
 +
-        if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-                trace_sys_enter(regs, regs->syscallno);
- 
++MODULE_DESCRIPTION("QTI VIDEOCC Eliza Driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.34.1
 
 
