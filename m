@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B116DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E45C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vk8qaiAjDdHPD17iJxAxwcAZyR5DvbhhQasIKcNLIY=; b=M3QtJjG51u7Ja5HYEndeJim0yc
-	BVYupUbqtD0h+fXgtHCR5ST0qs9awO/HRNbH9BnHkcBKKNVFn0HcJ7JyUDiTFcQGCmE/RbysuB8u9
-	nKg23q7jS5cfVQ5z++vSkxkprRbHFpNFdPyyrP7RuRnAxN7Pq11847WFO2VW3Y7oY9Jn8oiLHVCVT
-	PuifjAeiSC1n3UB3zdNe8B3YSE2O7qZRlw07QPrhh5uCTK0ainZ0YvF/lDx0Xj+NmY6DIAI6JFS9x
-	/Fgss6W17QdgUAgtphG+d/4QJY/PMSHCuBv0GOAqGz4lv77b8ntLyEuOXVziq3pHXhzoxtAIBQQwX
-	EfDLRrDA==;
+	bh=MEoghO6DKcYJ3gtElMHXVzyQZsxc1IHoy0snnxngGUY=; b=AOLASRsuMYaTEDGVXUdx0ODue5
+	jI3zTARQOyHGIQ+jEhygmlZu+peIH+3hS5AhkCW1O4PVWF03bLpaZDSQjFq0rRkHI5lVl8hOjvd+G
+	zZlZRzlC9vIGp7gsEI5nNR3bBf9TgWCrBapa/nrptub7gQw6CIzR86ux7qY4AvrtlY1GFYMXbR+tL
+	bJkZndHoBRDEyd8lkqUHx36BkWmioCevz5n0vtfMswOQG6KaQmldhjZurDH90DBvDnAvlZ2FGIoaJ
+	mfU5c8T9ZOpt2XbYsxTDkGVrXFzh8nPFdvL42pV2v3NxCgLc7pJoh0Fyu5K+qMy+dt/vqMHuNrW2a
+	s/oZ2Kyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFi0-00000009Brk-0SOd;
-	Mon, 13 Jul 2026 12:24:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFhx-00000009Br8-39HP
+	id 1wjFni-00000009CPK-3zSJ;
+	Mon, 13 Jul 2026 12:30:22 +0000
+Received: from server.couthit.com ([162.240.164.96])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjFng-00000009CIE-0Pv6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:24:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A627B1576;
-	Mon, 13 Jul 2026 05:24:17 -0700 (PDT)
-Received: from [10.174.43.56] (unknown [10.174.43.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2300B3FB90;
-	Mon, 13 Jul 2026 05:24:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783945461; bh=A3aSYk1GwIYJT5qS8P1DZ9j0iHScTjVPwhuOEejpz+M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MQ8rvkaqEWuMeBqeVJTiCZSf3Yg5kR4Du674BMXwqU/SmmIvpTy6hdRPArJirH+si
-	 5FXSS0tXg05VjXKF1OhvBuIG3j+Q1PSda5Tu7/Vu12HxmnQD53U3+lxV3W3HLhOlKs
-	 d6qLKmdIomLQCq6eyW0hH4g9ejvv3i+90soPKFK0=
-Message-ID: <22ba1b98-ddc8-4fff-a372-6e4aa2b59c7c@arm.com>
-Date: Mon, 13 Jul 2026 17:54:16 +0530
+	Mon, 13 Jul 2026 12:30:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MEoghO6DKcYJ3gtElMHXVzyQZsxc1IHoy0snnxngGUY=; b=pBXFHGa727XQvK5QZKaiQP5A8Q
+	YlWaDcd1s93nCzhXL7+JPJ8nevHemGYdav5OVT0O3qILY+/BWd1PNseD+5z8DzioWlXMKMgKxXPOx
+	I89hqOUmlMR41Agb6QeVh5xzyn7gwdN/17AL19DEY92aCOX0CuRD7+WrALbAYbEcUemdNfRtZnAz8
+	QI6ptstuliRIrq1mfJefEKazxBrwAdYojlMEGBlhRSCim9AR7LYTzRVhURU3tbZUkDGQgDoZ32x//
+	IzPWPpicxsEXn7iQpXLN0F3rHVljXmvfpr8snEH+AA4UyWwFslwUkS0Ps/kKJ/fgioLDnDT0qk2lq
+	SZZ6Pn1g==;
+Received: from [115.246.246.98] (port=25352 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <parvathi@couthit.com>)
+	id 1wjFmx-00000001pHV-38Jt;
+	Mon, 13 Jul 2026 08:29:36 -0400
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 2162819A8839;
+	Mon, 13 Jul 2026 17:59:29 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id lIDa7_A2Ll5o; Mon, 13 Jul 2026 17:59:25 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id DA83B19A8829;
+	Mon, 13 Jul 2026 17:59:25 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id qdqu0BYvnsEm; Mon, 13 Jul 2026 17:59:25 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id B54C919A8839;
+	Mon, 13 Jul 2026 17:59:25 +0530 (IST)
+Date: Mon, 13 Jul 2026 17:59:25 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	kuba <kuba@kernel.org>, danishanwar <danishanwar@ti.com>, 
+	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
+	afd <afd@ti.com>, basharath <basharath@couthit.com>, 
+	arnd <arnd@arndb.de>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	m-malladi <m-malladi@ti.com>, krishna <krishna@couthit.com>, 
+	mohan <mohan@couthit.com>
+Message-ID: <1899283663.1625256.1783945765645.JavaMail.zimbra@couthit.local>
+In-Reply-To: <20260706091314.134721-1-pabeni@redhat.com>
+References: <20260630124958.894360-2-parvathi@couthit.com> <20260706091314.134721-1-pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 1/3] net: ti: icssm-prueth: Add HSR and PRP
+ HW offload mode support for AM57xx, AM437x and AM335x
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
- Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
- <20260713-bulky-thistle-leopard-c66a18@sudeepholla>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260713-bulky-thistle-leopard-c66a18@sudeepholla>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.233]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: icssm-prueth: Add HSR and PRP HW offload mode support for AM57xx, AM437x and AM335x
+Thread-Index: hO9x2DXJcluP7d/Drv326ojJYclQBg==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_052426_022132_29614DBF 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20260713_053020_221803_8372B970 
+X-CRM114-Status: GOOD (  33.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +116,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/07/26 3:27 PM, Sudeep Holla wrote:
-> On Sat, Jul 11, 2026 at 09:35:25AM +0200, Yureka Lilian wrote:
->> Overriding the idle mechanism might be useful for debugging and performance
->> testing. Add a cmdline parameter for it, similar to the existing idle=
->> parameter already present for the x86 and ppc architectures.
->>
->> It is also useful on platforms where the WFI instruction misbehaves,
->> such as Apple Silicon SoCs. Generally, a misbehaving instruction should
->> be treated as an erratum and patched using the alternatives framework.
->> However, in the Apple Silicon case we need more flexibility because it is
->> difficult to detect whether the erratum applies. For example, Linux VMs
->> inside macOS have the same MIDR and may even seem like they're running
->> in EL2 in the case of NV, but should continue using WFI (it's trapped and
->> handled correctly by the hypervisor there). Thus, we prefer to
->> let the m1n1 bootloader add the idle=nop parameter[1].
->>
->> Link[1]: https://lore.kernel.org/all/99b69262-e54b-424e-baa2-96ef7013b87a@kernel.org/
->> Suggested-by: Will Deacon <will@kernel.org>
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->> ---
->> Changes in v2:
->> - Applied suggestions by Anshuman Khandual (Thanks!)
->> - Link to v1: https://patch.msgid.link/20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev
->> ---
->>  Documentation/admin-guide/kernel-parameters.txt | 23 +++++++++++++++++++
->>  arch/arm64/kernel/idle.c                        | 30 +++++++++++++++++++++++--
->>  arch/arm64/kernel/idle.h                        | 13 +++++++++++
->>  arch/arm64/lib/delay.c                          |  5 ++++-
->>  4 files changed, 68 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->> index b2d7d3540ded..d7f5471edf8f 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -2239,6 +2239,29 @@ Kernel parameters
->>  
->>  			idle=nomwait: Disable mwait for CPU C-states
->>  
->> +			[ARM64,EARLY]
->> +			Format: idle=wfi, idle=yield, idle=nop
->> +
->> +			idle=wfi: Use the WFI (Wait For Interrupt) hint
->> +			instruction in the idle loop. This is the default and
->> +			allows the CPU to enter a low-power state until an
->> +			interrupt arrives.
+Hi,
+
+> From: AI Reviewer <ai@example.com>
 > 
-> Just curious as when and why one would need to use idle=wfi if that is the
-> default behaviour. I am missing the need to have it.
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> Full review at: https://sashiko.dev/
+> ---
+> Subject: net: ti: icssm-prueth: Add HSR and PRP HW offload mode support for
+> AM57xx, AM437x and AM335x
+> 
+> This commit introduces hardware offload support for the HSR and PRP redundancy
+> protocols on TI PRU-ICSS Ethernet MACs. It enables firmware-based frame
+> duplicate detection and L2 forwarding, treating PRU Ethernet ports as Link
+> Redundancy Entity (LRE) slaves. The driver can now dynamically switch between
+> dual-EMAC, switch, and HSR/PRP modes.
+> 
+>> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+>> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> [ ... ]
+>> @@ -564,7 +592,7 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+> [ ... ]
+>>         /* update first buffer descriptor */
+>>  	wr_buf_desc = (pktlen << PRUETH_BD_LENGTH_SHIFT) &
+>>  		       PRUETH_BD_LENGTH_MASK;
+>> +	if (PRUETH_IS_HSR(prueth))
+>> +		wr_buf_desc |= BIT(PRUETH_BD_HSR_FRAME_SHIFT);
+> 
+> [Severity: High]
+> Does padding small packets with eth_skb_pad() in icssm_emac_ndo_start_xmit()
+> interfere with PRP trailer detection here?
+> 
+> When a short PRP frame is padded to 60 bytes in icssm_emac_ndo_start_xmit(),
+> the zero-padding is appended after the RCT. Later, in
+> icssm_prueth_tx_enqueue(), the driver attempts to read the RCT like this:
+> 
+>    struct prp_txopt_rct *rct =
+>        (struct prp_txopt_rct *)(skb_tail_pointer(skb) - ICSSM_LRE_TAG_SIZE);
+> 
+> Won't this calculation point into the trailing zero-padding instead of the
+> actual RCT? This would cause small PRP frames to bypass redundancy
+> duplication.
 
-I guess once there is a list to chose options from
-in the command line, should not the default option 
-be listed there as well ?
+No, eth_skb_pad() doesn't interfere with PRP trailer detection.
 
+The kernel's HSR/PRP layer always pads a short frame to 60 bytes first, and only
+then appends the 6-byte RCT trailer on top. So the trailer is always the last 6
+bytes, and by the time this driver sees the frame it's already past 60 bytes.
+This padding call never fires and the RCT read is always correct. Not an issue.
+
+> 
+> [ ... ]
+>> @@ -912,6 +963,25 @@ static int icssm_emac_request_irqs(struct prueth_emac
+>> *emac)
+>>  	return ret;
+>>  }
+>>  
+>> +static int icssm_emac_sanitize_feature_flags(struct prueth_emac *emac)
+>> +{
+>> +	netdev_features_t request_lre;
+>> +
+>> +	request_lre = emac->ndev->features & NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
+>> +
+>> +	if (prueth_is_lre(emac->prueth) && !request_lre) {
+>> +		netdev_err(emac->ndev, "Error: Turn ON HSR offload\n");
+>> +		return -EINVAL;
+>> +	}
+> 
+> [Severity: Medium]
+> Is this check sufficient to handle partial feature toggling?
+> 
+> If a user disables NETIF_F_HW_HSR_TAG_RM via ethtool while leaving
+> NETIF_F_HW_HSR_FWD active, request_lre will still evaluate to non-zero and
+> bypass this validation. Since the firmware unconditionally strips the tag,
+> could this mismatched configuration cause the software stack to misinterpret
+> the inner IP header as an HSR tag?
+
+We will address this in the next version.
+
+> 
+> [ ... ]
+>> @@ -1079,6 +1162,9 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+>>  	else
+>>  		rproc_shutdown(emac->pru);
+>>  
+>> +	if (prueth_is_lre(prueth))
+>> +		icssm_prueth_lre_cleanup(prueth);
+> 
+> [Severity: High]
+> Could this unconditionally cancel the global HSR/PRP duplicate table check
+> timer while the other LRE port is still running?
+> 
+> If eth0 is brought down, the timer is canceled here, but if eth1 remains
+> active, the duplication tables could silently fill up and drop legitimate
+> frames because the check timer is never restarted.
+
+We will address this in the next version.
+
+> 
+> [ ... ]
+>> @@ -1122,7 +1208,8 @@ static int icssm_prueth_change_mode(struct prueth *prueth,
+>>  		}
+>>  	}
+>>  
+>> -	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH) {
+>> +	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH ||
+>> +	    mode == PRUSS_ETHTYPE_HSR || mode == PRUSS_ETHTYPE_PRP) {
+> 
+> [Severity: High]
+> This is a pre-existing issue, but can the direct invocation of ndo_open() and
+> ndo_stop() inside icssm_prueth_change_mode() cause a deadlock?
+> 
+> If ndev->netdev_ops->ndo_open(ndev) fails and returns an error, the function
+> aborts without restoring the NAPI state. Later, when the interface is brought
+> down, the kernel naturally invokes ndo_stop() again. A second napi_disable()
+> call on an already disabled NAPI might trigger an infinite sleep waiting for
+> NAPI_STATE_SCHED.
+
+Yes, this is causing a deadlock. icssm_prueth_change_mode() already existed before
+this series and this patch series only adds two more mode values to an existing check,
+it doesn't touch the open/stop logic itself. We will fix it as its own separate
+patch later, instead of mixing it into this HSR/PRP series.
+
+> 
+> [ ... ]
+>> @@ -1360,6 +1465,8 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device
+>> *ndev)
+> [ ... ]
+>>  	/* It is a shared table. So lock the access */
+>> -	spin_lock_irqsave(&emac->addr_lock, flags);
+>> +	spin_lock_irqsave(mc_filter_tbl_lock, flags);
+>>  
+>>  	/* Disable and reset multicast filter, allows allmulti */
+>>  	icssm_emac_mc_filter_ctrl(emac, false);
+> 
+> [Severity: High]
+> Does this function corrupt the shared multicast hardware filter table in LRE
+> mode?
+> 
+> By calling icssm_emac_mc_filter_reset() the shared table in DRAM1 is cleared.
+> The code then repopulates the table by iterating only over the current
+> net_device's multicast addresses. Could this silently drop multicast traffic
+> for the other active slave port since its addresses are wiped out?
+
+No, this is safe in LRE mode. Although icssm_emac_mc_filter_reset() clears the
+shared multicast filter table in DRAM1, it is rebuilt right away from the current
+net_device's multicast list. 
+
+The HSR/PRP layer keeps the multicast lists of both slave ports in sync by copying
+the master's list whenever it changes, so both ports always have the same multicast
+addresses. That means rebuilding the shared table from either port's list restores
+all the required entries and does not drop multicast addresses needed by the other port.
+
+> 
+> [ ... ]
+>> +static int icssm_prueth_hsr_port_link(struct net_device *ndev,
+>> +				      struct net_device *hsr_ndev)
+>> +{
+> [ ... ]
+>> +	spin_lock_irqsave(&emac->addr_lock, flags);
+>> +
+>> +	if (!prueth->hsr_members) {
+> 
+> [Severity: Low]
+> Is the per-port emac->addr_lock the correct lock to use when modifying the
+> device-wide shared state in prueth->hsr_members and prueth->hsr_dev?
+> 
+> While the networking core's global rtnl_lock might serialize this path during
+> NETDEV_CHANGEUPPER, using a local instance lock to protect global state could
+> be a maintainability hazard.
+
+We will address this in the next version.
+
+> 
+> [ ... ]
+>> +free_hsr:
+>> +	spin_lock_irqsave(&emac->addr_lock, flags);
+>> +
+>> +	prueth->hsr_dev = NULL;
+>> +	prueth->hsr_members &= ~BIT(emac->port_id);
+>> +
+>> +	spin_unlock_irqrestore(&emac->addr_lock, flags);
+>> +	return ret;
+>> +}
+> 
+> [Severity: High]
+> If adding the second HSR/PRP port fails (e.g., during
+> icssm_prueth_change_mode), does this error path corrupt the bridge state?
+> 
+> Unconditionally clearing the shared prueth->hsr_dev pointer while the first
+> port is still present in prueth->hsr_members appears to permanently break
+> subsequent link attempts for the second port, because future links will fail
+> on the earlier condition:
+> 
+>    if (prueth->hsr_dev != hsr_ndev)
+> --
+
+We will address this in the next version.
+
+Thanks and Regards,
+Parvathi.
 
