@@ -4,76 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9F7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA1EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IrpWsKjxPCUisN7hSymmb0KSu53NfmTpPgCGLqK+9cc=; b=jEPhwQdtj85qfLIJrWuLINGUX9
-	0I8pWBkuqcDAxa4x6ufDUJb8e3kqPi1o038r+S4HDIykuOiKp2p/Wp00UoJ76/mCqy5x+ALu1My80
-	lxIR8qK/JzfQMeib/v/9dycYISrpk/ckvMap0GOTTlZ8IE4/+PuY9GjpnKfy4zq1tttI9YH8/BJ8x
-	AkDqB9zC8wwrwfzeZ0tVw5V9PmJFc10K/oBr1GmC2vOKblcIA5z4gEUSdmuVvl0KWLjHB0gUqxa70
-	MwxYGov3Lvzq/Mkm1ouSsmFFUMoqlYx9rfv0WLkEHyTmf+ilj2dRzB/o1UgQ3HCT8Uev2z4ZO1xQE
-	/xwXKiaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3uiEQqHbvP5v7TCWNfpyK+13J1fdJFu+NQm4UFoidP4=; b=0HlVLJaibl0r8Pk5vDNnA2obCJ
+	1VTBUBvgcmpk0oQzVVIKFXX2gs90c/lhEqxC50pY8Vhup3JjB7c3ekWRnlh9r8yk3wrqyGMQAsy0q
+	sMVWirwIn2HdrVn3EocrlcoLUw+GhC8GVkoog1fKLHpGpdLdkrwcHrJ5NxMqF//JrMMOiW2YgJirZ
+	n8Lf/vAb4leSQP03Wnkoxr+K3vmZbgGfzLA2AMxUR0pn6RDz5GlQzfHYfvWCh3GU5O6+Cs2MILILz
+	bXDwYoAPG03hhLU/bUtF2tllVw7S+UNbvENFQ1QSm0TqSI7uHX2Uww7FjkMrQ9jXnx30AUQ+2PSdg
+	93IksAvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHzO-00000009e61-1zLF;
-	Mon, 13 Jul 2026 14:50:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHzL-00000009e5N-3arP
+	id 1wjI1m-00000009eQa-3Qoz;
+	Mon, 13 Jul 2026 14:53:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjI1l-00000009eQF-0bi7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 14:53:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3uiEQqHbvP5v7TCWNfpyK+13J1fdJFu+NQm4UFoidP4=; b=PnHpCVxgQz6h/lqZhmJC6nGQSe
+	OQ91jpbJThs3IIpf/yJvN5wpfJrm3FjNOwsL87hGZrU0i51Oz+aGP4sMdAZQ9ywCiUkV6U9Z7bGHP
+	JA1uYYU/WoYodIqxfUkaZxbaK20pWSpl1GZBDuYB7Lmk2nKqrzpdv7aPKf2KQs7cCioV9FnPJfFCZ
+	cASWirgb0x3k9s85eBGZFUlbC4ZiK7RgK1H9PRYIRtMTxvIIxtlCTnZdSApz+9EYzE/cC9JkXhPz6
+	CckXxdfy2bAH/yOPHW04AvbWpWIRYfq9ZcEAK6KehH8SvxR/3CBSUyIMRBcLZ6hkP1NAIAQ0kleFq
+	jQW8ryAA==;
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjI1h-0000000Bjfy-3Vj6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:50:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B72E152B;
-	Mon, 13 Jul 2026 07:50:26 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 945B03F7B4;
-	Mon, 13 Jul 2026 07:50:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783954230; bh=4Ah3ygSjY7HUwPChZQMsaqpNXbeCw/+Xh5v2OYwic58=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y2jKodlLuPNRN5F/3tfH4GBhtaylwedslPiEU3JWHjTRDlaJknk4x8K8ZKo+Mfd7l
-	 C8eJG4wsIIUxsFr1/ynFF3bNZHpl1R7oGo7IjjwaskGi50tMBWddYZcHHVOM/RtgeA
-	 h4zzz3KcAMvGhDqdYIx2XYd6MxPmU0bc1oJ15Ukk=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 6/6] KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
-Date: Mon, 13 Jul 2026 15:50:25 +0100
-Message-ID: <alT7MeK_1ofOhIuv@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260709104026.2612599-7-zhengtian10@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-7-zhengtian10@huawei.com>
-MIME-Version: 1.0
+	Mon, 13 Jul 2026 14:52:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zb0GZ44TCrgezJhuIqW65zPEIbgqWqCRs7IdoX3sSJj3m2mzT6EJruw/y0ogmNTcKLWTntDP/5bP6g7yZ7tJsG7/QhKTq2Xrq/C4LSLfDAtGe0N83IwKIHZ5v98X7lqVTjcoTRBVlzXTXOj7WQacU12IeEYaz8XFLUYlX62o2tS1yD7gIfcNr+qxoQvJEPN9jZSXx8wT/AEpmHnL6jAEP2xT9/NIs7S76ISKQZwwDu+SXSiu1E+PaU/NJU2t+nx7wj+6POc8GYe48GEVxFV5kAnc8+fcICoKfaDi+Yo2pkWpI/OHq4KgPMbGGvQyT8QTRuIH0IEVjhWf1N1gkahpYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3uiEQqHbvP5v7TCWNfpyK+13J1fdJFu+NQm4UFoidP4=;
+ b=QtWIL+4H51qKQtSXgbw9c+JhS/D6a1sMDDj/ncXCz+hpMJN/qevWBPcwQK8hUbn0qNQBn6n5Iz9OLxEGlZdX9H72IaP1GWFGDWrp06/EyIGYWqPBxcdh8CCMitKEb6nXVoFfXdDwY4iOkLl44mV5amzO3RyfpLb9GgaCV7nX9k/U9QNgINKfLJwHs5MEj4vASDpOxNe5Z6g0AeV3Mlo5ln3I6GzGbWbs0JZGnBhS+YNQpbkQe2rUotBlwWApdBZNjIrSNcCMez2H3om9ORj9Q1tvdohYuk/euxGPCPhoTszyyb6x9WN+h6zZFPjy+cQYJ1yoZ2ZBPvIZsYlqGuVyAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3uiEQqHbvP5v7TCWNfpyK+13J1fdJFu+NQm4UFoidP4=;
+ b=hOyMxbDq66cGsuh8dSeYdHYypwCv4G666KuSNM8FeePg4W5dS8vxPkWcy7EnhTj4ZmTbFFr9HMFC/H9JewfOX7JpxbEvUAYwPXFmAbmdMFjToiCWPwvPJrgcTQgftUhyNhDkpRqJLvtsimfk/I0eBfY7tCrnjV+07WZuiLdI6ovQBwOSF1+q7CGGXgZDlNnFa8ABuTA1LUN8DSghASfdufWdTEC+1924M1k7MMTx02inPMx4E/UjgDqzIa9xHKlxUzcxfjFbvxyzZCL+RgEN5vKM0eEaRZsRNziP+R0ddpM6+FQoABhvEfVtk0eDJw91TqTKbO2w8P8awSb9CTHAlw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8416.eurprd04.prod.outlook.com (2603:10a6:20b:3b7::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 14:52:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
+ 14:52:54 +0000
+Date: Mon, 13 Jul 2026 09:52:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: ziniu.wang_1@oss.nxp.com
+Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
+	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 7/8] mmc: sdhci-esdhc-imx: make non-fatal errors
+ non-blocking in suspend
+Message-ID: <alT7u_qNf8JqoXUX@SMW015318>
+References: <20260713043904.4144172-1-ziniu.wang_1@oss.nxp.com>
+ <20260713043904.4144172-8-ziniu.wang_1@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260713043904.4144172-8-ziniu.wang_1@oss.nxp.com>
+X-ClientProxiedBy: PH7P221CA0051.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8416:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8908bcba-faa8-4f29-83d8-08dee0ee6b42
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|19092799006|1800799024|6133799003|18002099003|22082099003|11063799006|4143699003|5023799004|56012099006;
+X-Microsoft-Antispam-Message-Info: SgmfJUC9lanrywthj7TO75xN6lUFf59KBsjaPn+/CSq8LU+qffO7EXXCU3JN03POfRa/oWoEsBLsejinwxpgRk+oxGzZ4x3veK68V/7uryw5yWy09dSm+oknaf68y4GUsEHcpJIrejtgbXY0AC52dka8kG4SOhY50XNLQ0qEIBcmrdCUWf9PGxCer7OHAqUzxAGpz+ED3qGrPImhmkRYoRpJOn+i0VMR2Np9YdlihWjNiD2MxK4nc3M3ajwOroLUkV2mjfpJPzb1VK7fVHmdTNu9uSWKKoeVjdCaRd5ZNwzGz+SnIsAtyLQoRvTtnDAiZQ5EmSFKcyRHEdd9J02/xGlVG3d6qUY/9cO2azi8di4HRHQxzVHAS1t6Ej38HEuDrS48cK+uL0gfoFlQmohSg4j6oq/I0ryDX4WoUWqLQOZU8TsYn5SGWH74bnmkx1Fgvp4c7eZkq5yBXeGuCke2X2Nv2e3WLFhZj4TOhMHeCw8dKlcO9z3FMicStExlLQauA1H65ZKQWksqbHF4RmwFFsJ6YfjW3WtKAv+zRfi/ljRknGNScgQM7wq4fyzJ/4lDGR64WxGWU4/VZbo8aWauxOGFZ3Qcau1ZY82RgoGvESopACaoNB1vuAmvXEDff1zlUmJCoTRKhTJuXWe0rgHLQ706NMCFg+geKxhzhvb/i58=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(19092799006)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ikha65TL0LMQAqfiGjiI4TyjtvQsK/yDEKHDutJV2judof5QFOjfxzv4O1Rt?=
+ =?us-ascii?Q?WT9CZsNeh3JFfr2NAMvtpoxImtkHGtS20wvmO4y+6Ih1412etY0MXglHOe5s?=
+ =?us-ascii?Q?3NRLug+ePCrS5i94QpoHrSeQ25WytP3sUby4+rUfALidiCDdnfmKqnTgQrOM?=
+ =?us-ascii?Q?oMOAOJ0HQbu5lK3J0YpMRCsJBKvaPZwKcDdDVxkV8NgExZ4wJdHR7B9k/YCm?=
+ =?us-ascii?Q?NFUWrRRXWDuAogC7/v0mNIIcp1NpGjsBHw5MnL44bUvEEUawCtK/O918q0BW?=
+ =?us-ascii?Q?hGIefGPaUUv+TpMz18ge2IBw4AVwkU1i+A0oTsqdpWQ/CJG+NHbdwBG8whZ7?=
+ =?us-ascii?Q?txA6ugIlMG19zH34n7VPrpIuvQMOVdnf4tBoSVrraPeQJVJ4UBwr8M4Y41Bm?=
+ =?us-ascii?Q?e7zRsywz/PsZpk0rdAE/qPxn5/Rd4TgL7Gfej5++DIEzL4QXgAGUMF/Xj74s?=
+ =?us-ascii?Q?12vFG3Eg/9uIxYZvJveJ1RXRQiEbCXYPk7x0BATHAvu2G+W+9wvh/WTnY5uv?=
+ =?us-ascii?Q?7rtnv57FDBMiDLq67/v+ylYOQ+LKhEteNKEL9XaLB3ftKk2Z1GhL4qiwFYO/?=
+ =?us-ascii?Q?RUh2EzQoxiTWn8T1ViLQIK+QsnaFlOVrO8d2ggGGb4blfeXbEBS3BfZAS9HI?=
+ =?us-ascii?Q?kF38yDYQer94I9tlRjf4LsGJKUgGyEj+MFZX1NfdlDjiseQW4wIXnCtJ7SuQ?=
+ =?us-ascii?Q?9xhyckJYeJTGKgWwC/GMXrw2SpmEdHvu13CdsqisdtT/zQek8nkgofUNguss?=
+ =?us-ascii?Q?yhKaZL84Au+mZceBDstIQDZjvoEpyEJBP2PxelMmdLD+BJ5HHbxzvorHaodd?=
+ =?us-ascii?Q?qtoGSUEbWCK0wnOFQSdu/aniU+YoIVmnw1pTInmLWyELTID13I2cTUUjfqqV?=
+ =?us-ascii?Q?zGgRwuwJBlzbquvvbI5/LlI+CKWIvZ/0AVPoerWP5iQViw/0sitz7FbToS1y?=
+ =?us-ascii?Q?3QZ+GTnjxQ6l7ZEYocGQL+oFl4PfpwtYbV7YWD7B80TbdzAn0PIqyYowCSj5?=
+ =?us-ascii?Q?O6Z+wA8aMGnyitDw04VxZMVe03ZAzl49vFwdu3ypOqoXOVTcZiD/uC8ZeKYV?=
+ =?us-ascii?Q?G+Kd6ufy2jLSm8Yy89w+O3G2eO2era0dg1ee/7rgzB/faSFd9tRsMxQnuR4V?=
+ =?us-ascii?Q?TmBbw2qpoC+OoqT8YzJbRdWVPtIp4gTKjE3FtGvUNDMricAczT0pTzBq4YdJ?=
+ =?us-ascii?Q?GmXXLbvM8uE7jRsnL+GYFx+zgknTLc+D1MwetSHZ8HSv/Scs22RotvgitM3m?=
+ =?us-ascii?Q?+tYNnV4urUSQR0E9IlEtkOmNHetHHj1c8ae2IEatQQ5d/yKt5JtIOQfO8Dgq?=
+ =?us-ascii?Q?UO7Nz5pzWO/bIBHQHlVkoHtJLZJ7Imaq2rw39ABBKeYWhUJ4pIY8m1egWC2h?=
+ =?us-ascii?Q?qEg8PY8rUSasmi4aX/6NY/d/yp9pMNPC6PsxuDvWSrjGYclQG4up/xwh40AV?=
+ =?us-ascii?Q?akRA/SvFN7Kmn2KzPMfsdZamcshinq3La13CCg8sUrbCXLwtYM5XLBohXtSg?=
+ =?us-ascii?Q?CRHg8wmMXYPTnIrgjsfMpQUlGnhav8lRtJcYnX+au7A9BhvGW0uc/GDhFzus?=
+ =?us-ascii?Q?/KLk+kWeE2DlaN8XXgLzRl/F1vipGpxdaK3ZvTz1c4AumQQfmHvEvev26r9B?=
+ =?us-ascii?Q?us9kN8Iljq/xIhwt6P90LBwgbwIhQutvJrlCEtG8I70o2vEz2KKqCz5VWnwz?=
+ =?us-ascii?Q?diVirB+fx7iGdeCIAaoVChXlBKnTwJ8eZ79GLfh0a/qT3GctK10AMA3dPTOu?=
+ =?us-ascii?Q?af+x3MwRMdeA2trgkHfx2xBrf1+cM1vppFB86UxU5fWOvlG3Loxp?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8908bcba-faa8-4f29-83d8-08dee0ee6b42
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 14:52:54.2310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EBGWTwWMy35tgjEW8pR1z0uivZo9Y+ruhb1Wwcyr6LpCg7pAZ/WZWQcywWNBg/uh9hB7ri/OSj76oAI4gEACbmJYz3qzlYbwM5DASj0s2+RjHCuU+pRub+vt2nqr8r2n
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8416
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_075031_991507_B65BC228 
-X-CRM114-Status: GOOD (  46.66  )
+X-CRM114-CacheID: sfid-20260713_155258_137328_AA375887 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,254 +155,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 06:40:26PM +0800, Tian Zheng wrote:
-> From: eillon <yezhenyu2@huawei.com>
-> 
-> HDBSS buffers store per-page dirty state after the stage-2 page tables
-> have been split down to page granularity (chunk_size == PAGE_SIZE).
-
-chunk_size != PAGE_SIZE now, but that should change as well :)
-
-> When chunk_size == 0 the kernel may lazily skip splitting block mappings,
-> leaving the page table coarser than what HDBSS expects. Therefore,
-> enabling HDBSS requires disabling lazy split so that all block mappings
-> are eagerly broken down before the buffer starts recording.
-
-(See cover letter reply)
-
-> 
-> Add VM-level HDBSS enable/disable support. When dirty logging is
-> enabled on any memslot, HDBSS is automatically enabled. When dirty
-> logging is disabled on all memslots, HDBSS is automatically disabled.
-> 
-> This includes:
-> - kvm_arm_enable_hdbss_global() to enable HDBSS for all vCPUs
-> - kvm_arm_disable_hdbss_global() to disable and free HDBSS buffers
-> - kvm_arm_hdbss_on_dirty_logging_change() for auto enable/disable
-> - kvm_arch_destroy_vm() cleanup path
-> - kvm_arch_commit_memory_region() integration
-> 
-> Signed-off-by: Eillon <yezhenyu2@huawei.com>
-> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+On Mon, Jul 13, 2026 at 12:39:03PM +0800, ziniu.wang_1@oss.nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+>
+> Make pinctrl_pm_select_sleep_state() and mmc_gpio_set_cd_wake() failures
+> non-fatal in the suspend path. These failures only mean slightly higher
+> power consumption or missing CD wakeup capability, but should not block
+> system suspend.
+>
+> Also change the function to always return 0 on the success path instead
+> of propagating non-fatal warning return values.
+>
+> Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
 > ---
->  arch/arm64/include/asm/kvm_dirty_bit.h |   2 +
->  arch/arm64/kvm/arm.c                   |   8 ++
->  arch/arm64/kvm/dirty_bit.c             | 105 +++++++++++++++++++++++++
->  arch/arm64/kvm/mmu.c                   |   3 +
->  4 files changed, 118 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-> index 4b28000e972f..a4cda8cdab24 100644
-> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
-> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-> @@ -23,5 +23,7 @@ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
->  void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->  void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
->  int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
-> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging);
-> +void kvm_arm_disable_hdbss_global(struct kvm *kvm);
-> 
->  #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 566953a4e23a..536d94799ba8 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -317,6 +317,14 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->  	if (is_protected_kvm_enabled())
->  		pkvm_destroy_hyp_vm(kvm);
-> 
-> +	/*
-> +	 * Userspace may destroy the VM without disabling dirty logging,
-> +	 * so the auto-disable path is never reached. Force disable HDBSS
-> +	 * here to ensure vCPU buffers are freed and prevent memory leaks.
-> +	 */
-> +	if (kvm->arch.enable_hdbss)
-> +		kvm_arm_disable_hdbss_global(kvm);
-> +
->  	kvm_uninit_stage2_mmu(kvm);
->  	kvm_destroy_mpidr_data(kvm);
-> 
-> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-> index 002366337637..c5bf866c23ef 100644
-> --- a/arch/arm64/kvm/dirty_bit.c
-> +++ b/arch/arm64/kvm/dirty_bit.c
-> @@ -112,3 +112,108 @@ int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
->  		return -EFAULT;
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index 7818f351a58a..6cb84690fde4 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -2097,10 +2097,12 @@ static int sdhci_esdhc_suspend(struct device *dev)
+>  		 */
+>  		ret = pinctrl_pm_select_sleep_state(dev);
+>  		if (ret)
+> -			return ret;
+> +			dev_warn(dev, "Failed to select sleep pinctrl state\n");
 >  	}
->  }
-> +
-> +static unsigned int hdbss_auto_select_order(struct kvm *kvm)
-> +{
-> +	unsigned long npages = 0;
-> +	struct kvm_memory_slot *memslot;
-> +	int bkt;
-> +
-> +	kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm))
-> +		npages += memslot->npages;
-> +
-> +	if (npages <= 16384)
-> +		return 0;
-> +	else if (npages <= 262144)
-> +		return 3;
-> +	else if (npages <= 4194304)
-> +		return 6;
-> +	else
-> +		return 9;
-> +}
-
-IIUC you are counting the amount of pages the VM has, and based on that 
-allocating a size for the HDBSS buffer.
-
-A few notes here:
-- It's not really nice to use magic numbers around like this. If you 
-  actually want to use it, then use stuff like SZ_16K, SZ_256K, SZ_4M and 
-  so on.
-- You are returning magic numbers as well, why is it 0, 3, 6, or 9 here?
-  It only makes sense if the person is reading HDBSSBR_EL2 documentation,
-  which should not be necessary at this point. That's one reason I 
-  recommended to using sizes. If that was really the best way to use it, 
-  I would recommend using the defines that we get from sysreg, and you 
-  actually used before to set the maximum order on a previous patch.
-- Also, if you can return only valid values here, why do you check against 
-  the maximum value in that previous patch?
-- Also, are you using some undisclosed rule here? On 'order 0' the 
-  meanining is 4KB, which translate to 512 HDBSS entries. Why are you using 
-  it for any value under 16K? Same for 3-32KB-4kEntries you use for under 
-  256K pages (and so on). If you are assuming a logical rule such as 
-  'N pages would be ok with N/32 entries' it has to be described here at 
-  least.
-- Not sure VM size is the best way of doing that, since it will depend 
-  more on the dirtying rate than the actual size, and most VMs would just 
-  use the biggest size (4M x 4K pages is just 16GB). For instance with 
-  dirty_ring we can use the dirty_ring.size as a better option.
-  (I know this is a hard one to estimate when using dirty-bitmap, though)
-
-> +
-> +/*
-> + * Enable HDBSS for all vCPUs in the VM.
-> + *
-> + * Called from kvm_arm_hdbss_on_dirty_logging_change() which is invoked
-> + * by kvm_arch_commit_memory_region() under kvm->slots_lock.
-> + *
-> + * If buffer allocation fails, HDBSS remains disabled and dirty tracking
-> + * falls back to the traditional software-based approach (PTE write-protect
-> + * + software dirty marking). This does not affect correctness; dirty
-> + * logging remains functional without HDBSS.
-> + */
-> +static int kvm_arm_enable_hdbss_global(struct kvm *kvm)
-> +{
-> +	int err;
-> +	unsigned long i;
-> +	unsigned int order;
-> +	struct kvm_vcpu *vcpu;
-> +
-> +	if (!system_supports_hdbss())
-> +		return 0;
-> +
-> +	if (kvm->dirty_ring_size) /* Don't support HDBSS in dirty ring mode */
-> +		return 0;
-> +
-> +	if (kvm->arch.enable_hdbss) /* Already On */
-> +		return 0;
-> +
-> +	/* Turn it on */
-> +	order = hdbss_auto_select_order(kvm);
-> +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> +		err = kvm_arm_vcpu_alloc_hdbss(vcpu, order);
-> +		if (err)
-> +			goto error_alloc;
-> +	}
-> +
-> +	kvm->arch.enable_hdbss = true;
-> +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
-> +
-> +	/*
-> +	 * We should kick vcpus out of guest mode here to load new
-> +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
-> +	 */
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		kvm_vcpu_kick(vcpu);
-> +
-> +	return 0;
-> +
-> +error_alloc:
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		if (vcpu->arch.hdbss.base_phys)
-> +			kvm_arm_vcpu_free_hdbss(vcpu);
-> +
-> +	pr_warn_once("kvm: failed to allocate HDBSS buffers (order=%u), "
-> +		     "falling back to software dirty tracking\n", order);
-> +	return -ENOMEM;
-> +}
-> +
-> +void kvm_arm_disable_hdbss_global(struct kvm *kvm)
-> +{
-> +	unsigned long i;
-> +	struct kvm_vcpu *vcpu;
-> +
-> +	if (!kvm->arch.enable_hdbss) /* Already Off */
-> +		return;
-> +
-> +	/* Turn it off */
-> +	kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		kvm_arm_vcpu_free_hdbss(vcpu);
-> +
-> +	kvm->arch.enable_hdbss = false;
-> +}
-> +
-
-Okay, say the user requested it to be disabled, you change the global vtcr, 
-then free the hdbss on every vcpu. 
-
-But the vcpus are still running, and since they will only disable this when 
-they go out of the guest, then in again, HDBSS will still be running, 
-right?
-
-If some page gets dirty in the between, would not the HDBSS try to write to 
-the already loaded buffer adress, and write to memory that have already 
-been freed here?
-
-
-> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging)
-> +{
-> +	/*
-> +	 * Called from kvm_arch_commit_memory_region() under kvm->slots_lock.
-> +	 * All state transitions are serialized by slots_lock.
-> +	 */
-> +	if (nr_memslots_logging > 0 && !kvm->arch.enable_hdbss)
-> +		kvm_arm_enable_hdbss_global(kvm);
-> +	else if (nr_memslots_logging == 0 && kvm->arch.enable_hdbss)
-> +		kvm_arm_disable_hdbss_global(kvm);
-> +}
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 949fb895add6..484f48dae000 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2588,6 +2588,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->  {
->  	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
-> 
-> +	kvm_arm_hdbss_on_dirty_logging_change(kvm,
-> +		atomic_read(&kvm->nr_memslots_dirty_logging));
-> +
+>
+>  	ret = mmc_gpio_set_cd_wake(host->mmc, true);
+> +	if (ret)
+> +		dev_warn(dev, "Failed to enable cd wake\n");
+>
 >  	/*
->  	 * At this point memslot has been committed and there is an
->  	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+>  	 * Make sure invoke runtime_suspend to gate off clock.
+> @@ -2108,7 +2110,7 @@ static int sdhci_esdhc_suspend(struct device *dev)
+>  	 */
+>  	pm_runtime_force_suspend(dev);
+>
+> -	return ret;
+> +	return 0;
+
+if other error path set ret as not zero, the real error may missed, I suggest
+don't set it let
+
+	if (pinctrl_pm_select_sleep_state(dev))
+		dev_warn(...)
+
+	still leave ret here.
+
+Frank
+
+>  }
+>
+>  static int sdhci_esdhc_resume(struct device *dev)
 > --
-> 2.33.0
-> 
-
-Okay, reading the above I remembered something really complicated:
-We can't really enable HDBSS partially if we start with DBM set for all 
-pages. Once we enable HDBSS wit will track changes for all memslots.
-
-The only way to enable it partially would be to set DBM during the 
-dirty-bit tracking, which I recall being complicated for some reasons.
-
-Well, we have to think about the overall strategy before a next version.
-
-Thanks!
-Leo
+> 2.34.1
+>
+>
 
