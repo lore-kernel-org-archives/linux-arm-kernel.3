@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005C5C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7380C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPn/0kVgFXc2JWBOxwYgPrEhEXzzno6JbbLqrG3d9Rg=; b=n/e//66/92kd2HRpW4FvBrkmqf
-	qyXKYOQpK4ubVmmDZHnSaIeNkKN+zP31N8PAvhIkI5MSSL03ulkhMc0faxqLCj+llIaH7B//zAKuy
-	hjeLNB8ITy2eM0D34CzM2WNm5JD4JD6uVclSo4/xoULr/aGhdiw6FXKU1MMtTlThIIdKz91qNCHVd
-	s3HyNno60PS+nzsGvAqMPQN3rC8Cjq6vWfeqFXekWXH/9PvSNCvdaBIFg3L3eSf2guK+K+f2BsDTy
-	uEOM8i4UN0i5Z0MeoxZ+CMlZUcpYmOXWyjgdGj8V4lNJze2Yg+NQlclBLrGc2ZE2CrZ1OMkoLsWLA
-	suFwR6yA==;
+	bh=EwGFQPVm1bO26xVtJmF/8zr4bH7SQWGraeozh6dAE00=; b=3RZkd93+06LJ3XOFkaHUht2p4+
+	EMQ8eT3w6ZJtcYhR9bR28bgfLp42iHpatLIWri72f6juTzIyuEjN7KwUCLjr9U76qnwMT6lN45J1n
+	0Fh8cUkaAm4EHCS8gF1N4IAOvttjfwNGGixxmGXPFQ6FMJcPp6t76CkxwPXJ+3zFkwYZcpBUEhala
+	lz2h+EZnlJuOyX5H1c6sOxwYLEuYoHFY9A2ZxVXN0taIS193wAaG1KOOHQipOHT9fHvQO6QSCIZ8r
+	RSaH4YGZ9Rzev/AWDuXwycOCkTxApk2TLZdt+GMswk1dAv1mb5R4UzvevtoKXtpUUsQZf0rGfqrFR
+	JKVKU0Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCpc-00000008hzt-2nGl;
-	Mon, 13 Jul 2026 09:20:08 +0000
+	id 1wjCrX-00000008iLa-1dKS;
+	Mon, 13 Jul 2026 09:22:07 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCpb-00000008hzJ-287W
+	id 1wjCrW-00000008iLO-0fNB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 09:20:07 +0000
+	Mon, 13 Jul 2026 09:22:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95BBD60103;
-	Mon, 13 Jul 2026 09:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3911B1F000E9;
-	Mon, 13 Jul 2026 09:19:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 993BD60018;
+	Mon, 13 Jul 2026 09:22:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E2A11F000E9;
+	Mon, 13 Jul 2026 09:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783934406;
-	bh=KPn/0kVgFXc2JWBOxwYgPrEhEXzzno6JbbLqrG3d9Rg=;
+	s=k20260515; t=1783934525;
+	bh=EwGFQPVm1bO26xVtJmF/8zr4bH7SQWGraeozh6dAE00=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QkkbTShWayZC/3S1cAmazn3mBVL0/FckQSgwfNDI9s3pWVxbPyiDw+/eYyCbvkg2f
-	 gmOdrozdDCKP4fyKKyrmRgCqAmf4y6jGLRIFnCc4hqyqUJly9fczBooVYmzQ4QdlOR
-	 2+4MmaH6FtOk6be73jHItrsAHrdUXLSntNM8SdqYkzpH1Au9jMJokajOKlRDbG7FE8
-	 TKdwWoofiVVWIHgfA97gMGRb5UKayPJqGPfCOCr0z4GV8q0To7qQp81tarJA7FYp5u
-	 Llv4EVzX1ExaVM+t3oaqUESVqfP/jHClnVW7MrNziUtAv5ChnIFap/2syT5bbMITXs
-	 b7wvWEX9I9WUA==
-Message-ID: <17497012-97d8-4c52-89b8-f433179f1eda@kernel.org>
-Date: Mon, 13 Jul 2026 11:19:52 +0200
+	b=FNFJCAIXF25WJ/l3S1PuHjuS15i1f4nVeVa5bQYaX9p+eCM//GITkfpYGvdlyow6W
+	 kN40V6AbNtRsrOq6AaOspfyuSzsb1QJhVfy8yjn0AexPt8A2LFxLHwLQy9awKxkLiX
+	 xDD+2gC+xYZ8F0V02nKAFP6uYd+QgFkEEQnFA7Y+svx1YFFFGXJjdyGvBVZWco2G4I
+	 O7Qyu2ngpsulFGAk8AeJI2urR7mRnx3IpGCs0i5peznFx35bRVxOKBVkaY7ZxrT7UN
+	 2U6hkTrk7xZIvWhkxtpNDeN6IWAU4FnJZfvIWCdulQazJGsqWugmkrp/IW5Ecqyj0s
+	 KeGYDjgTZZ+sw==
+Message-ID: <5667350d-cc3f-421d-899f-f353b05c5ea1@kernel.org>
+Date: Mon, 13 Jul 2026 11:21:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/16] dt-bindings: twl-regulator: Add bindings for
- exposing ti,twl4030-regen
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, Grond <grond66@riseup.net>
-Cc: Stefan Leichter <sle85276@gmx.de>, Grazvydas Ignotas <notasas@gmail.com>,
- Tony Lindgren <tony@atomide.com>, Ethan Nelson-Moore
- <enelsonmoore@gmail.com>, Jarkko Nikula <jarkko.nikula@bitmer.com>,
+Subject: Re: [PATCH 09/16] ASoC: dt-bindings: add OpenPandora Sound Card
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Grond <grond66@riseup.net>, Stefan Leichter <sle85276@gmx.de>,
+ Grazvydas Ignotas <notasas@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
  Sascha Hauer <s.hauer@pengutronix.de>, Andreas Kemnade
  <andreas@kemnade.info>, Lee Jones <lee@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -72,9 +72,9 @@ Cc: Stefan Leichter <sle85276@gmx.de>, Grazvydas Ignotas <notasas@gmail.com>,
  linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
  linux-fbdev@vger.kernel.org, kernel@pyra-handheld.com, mfd@lists.linux.dev
 References: <cover.1783749722.git.hns@goldelico.com>
- <00718b18253a764c2a7c9a2b95c3b8c411796583.1783749722.git.hns@goldelico.com>
- <20260713-aquatic-memorable-griffin-cf9e46@quoll>
- <3D58F644-3EAA-4BE7-88FB-1DCEAE7D5768@goldelico.com>
+ <7989e699de400c0fe3f0cb7af77a54077784df78.1783749722.git.hns@goldelico.com>
+ <20260713-infallible-capable-dormouse-aaaebe@quoll>
+ <BF2B6C4A-A4CC-48D7-9854-DC014950184B@goldelico.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -120,7 +120,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <3D58F644-3EAA-4BE7-88FB-1DCEAE7D5768@goldelico.com>
+In-Reply-To: <BF2B6C4A-A4CC-48D7-9854-DC014950184B@goldelico.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -137,55 +137,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2026 10:26, H. Nikolaus Schaller wrote:
+On 13/07/2026 10:27, H. Nikolaus Schaller wrote:
 > Hi Krzysztof,
 > 
 > Thank you for the feedback.
 > 
->> Am 13.07.2026 um 09:39 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>> Am 13.07.2026 um 09:37 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
 >>
->> On Sat, Jul 11, 2026 at 08:01:48AM +0200, H. Nikolaus Schaller wrote:
->>> From: Grond <grond66@riseup.net>
+>> On Sat, Jul 11, 2026 at 08:01:56AM +0200, H. Nikolaus Schaller wrote:
+>>> The OpenPandora audio subsystem describes the routing links between the
+>>> OMAP3 McBSP interface, the external PCM1773 DAC, and the TWL4030 audio
+>>> codec, alongside amplifiers and power supplies.
 >>>
->>> FIXME: not reflected in the bindings
+>>> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+>>> ---
+>>> .../sound/openpandora,omap3pandora-sound.yaml | 94 +++++++++++++++++++
+>>> 1 file changed, 94 insertions(+)
+>>> create mode 100644 Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
 >>>
->>> +Reguired properties:
->>> +For twl3040 REGEN signal:
->>> + - regulator-min-microvolt:
->>> +  - Same meaning as in bindings/regulator/regulator.yaml, but must match
->>> +    regulator-max-microvolt.
->>> + - regulator-max-microvolt:
->>> +  - Same meaning as in bindings/regulator/regulator.yaml, but must match
->>> +    regulator-min-microvolt.
->>> + - startup-delay-us:
->>> +  - Same meaning as in bindings/regulator/fixed-regulator.yaml.
+>>> diff --git a/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
+>>> new file mode 100644
+>>> index 0000000000000..d3c747e5c58d6
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/sound/openpandora,omap3pandora-sound.yaml
+>>> @@ -0,0 +1,94 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org
+>>> +$schema: http://devicetree.org
 >>
->> I don't know what that means.
->>
->>>
->>> Signed-off-by: Grond <grond66@riseup.net>
->>
->> As explicitly written in submitting patches: we do not take anonymous
->> contributions.
+>> This wasn't ever tested. Why?
 > 
-> Thanks for pointing this out. In more than 10 years of contributing, I actually have never run into this specific issue before.
+> It does not emit any C compiler issues or runtime problems so it remained unnoticed.
+
+I do not believe.
+
+There is a clear warning from Rob's bot.
+
+You just did not follow the process of building the code (compiler has
+nothing to do here). Read submitting patches in DT dir and then writing
+schema for further instructions. This is ABSOLUTE MINIMUM. We are not
+your build test service.
+
 > 
-> To give some context: this is a contribution we received on our mailing list about 5 years ago. We do not know the author personally, but the code looks good and has been thoroughly tested by us. I kept their Signed-off-by because I didn't want to falsely claim authorship.
+> It was notified by the sahiko-bot and will be fixed in v2.
 
-Take the authorship. You are allowed to do that by both DCO and common
-sense (you are not doing something immoral, unless author shows
-interest/hints to fix it by themself).
+Sashiko has nothing to do with that.
 
-Commit msg also needs fixing/rewriting.
-
-Beside, one more nit since there will be a new version:
-
-A nit, subject: drop second/last, redundant "bindings for". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
-Also, please wrap your replies to mailing list wrapping style.
+You DID NOT BUILD the code.
 
 Best regards,
 Krzysztof
