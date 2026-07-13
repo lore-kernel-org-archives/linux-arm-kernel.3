@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF326C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53BFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQE/wiW/jclgg495wpQG3v/oHjWmW6CVrfT4f354tFE=; b=KQKDWMKvQu6svOK8IOqlPocKSr
-	FRGp358JBZpQBSM0bhrLKrwupFfTmlGx3yqrppJxijFsdIxnGkuFn9R1aW5ZFkXADT9ST1HfmnCYb
-	wHL3NE3rLZ29z9I1Y2ZwgEVcADmTklRQLqmvxDc9rTUskCXZYHYn5vV/wiGPOjDqc5FNaJh2YdeMS
-	o44J88DO51+oQdszKHFCHur95/E571W+Jn+ZuUlknjN8KxTpV5pbBEKwJWT19vPCvqoDk0HIvak+y
-	yGq/kM57k9Fmj7kAhqTSDk+UF0+LvFOR+jV9Z1JFk1I0ItHMfL/sUAqbDF7zzxgJDxbZJ2BUI34rC
-	A6XqtYQw==;
+	bh=FEJ5fjqsqgZR9DwKBl35hnhLDdYSJgMQMJxBh2HovUw=; b=SBtb49vIoZJgYxbrDEaH1tVDvH
+	krkLJ6lqCg9ACfmI+tlCGXoWIWUxWQrJ6N42PRACOhzrVdz8qURlqXUqigLen/rA1BuLmYW2bqpll
+	4yJpBysSxBXTCiQC//1z5PJ6XhCw+/YcK8bsmbDDi53Td9/Pzbj4dv4N4HNCiTeS3fHnNovH60Ra7
+	So0utssrro99m86+Tvjp8hdn0lzwLdoRoTxO0ekkqK0ze2/xdc4+8WqSGBsS215aY8DhCwy4RHKnF
+	M0IeK0LBeLW5kvFewQnPDOyGeND0QmDE6xOlFNdZ5stR3uIDoAZGRup0BfJtFlOhSfzbOTfLbUs9U
+	bj7nngjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBGZ-00000008T8f-0brI;
-	Mon, 13 Jul 2026 07:39:51 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wjBIR-00000008TSZ-36Uc;
+	Mon, 13 Jul 2026 07:41:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBGV-00000008T5z-2BVk
+	id 1wjBIQ-00000008TSJ-1v5B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:39:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=lQE/wiW/jclgg495wpQG3v/oHjWmW6CVrfT4f354tFE=; b=OAftTB7UCaDl2mOYVvY5EzVa16
-	k3ucxR6uZJp2FKYnsFqkvb/2f0jqWt+msIBCkx9ZBDuYKeY72RNe5UMGLC9dVXvDeO7Wp+QLvv9vL
-	NL2DaKvFEB8hykhV7wRWmMLnpy/PiXeRMrJ76tMnq7mkAOxkhgvY2Pg+4N+pEEwlS8JLn9RZ9Ggku
-	3aUMopvFodI4sfNgC+z/benIdjIW48PPZmu76cb4U7Ujk3A6NY7yZ5WlRRL68lQQKQjnIGbxSbw+W
-	Fsd5JrCnQG9IizjZnC4Cv5D2g++BV3vuKzh6h3HQZA2cFLCVRI3DwhFXPjVqfistMtoLjb0ZTBGW4
-	RfoBftfg==;
-Received: from sslproxy02.your-server.de ([78.47.166.47])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wjBGD-000Ezk-2W;
-	Mon, 13 Jul 2026 09:39:29 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wjBGD-000BRr-0n;
-	Mon, 13 Jul 2026 09:39:29 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
- Lucas Stach <l.stach@pengutronix.de>, linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Esben Haabendal <esben@geanix.com>, Esben Haabendal <esben@geanix.com>
-Subject: Re: [PATCH v2] arm64: dts: imx8mq: Add DCSS node
-Date: Mon, 13 Jul 2026 09:39:27 +0200
-Message-ID: <2849825.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260711-imx8mq-dcss-device-tree-node-v2-1-037026d45c21@geanix.com>
-References: <20260711-imx8mq-dcss-device-tree-node-v2-1-037026d45c21@geanix.com>
+	Mon, 13 Jul 2026 07:41:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A55DC60103;
+	Mon, 13 Jul 2026 07:41:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F25B1F000E9;
+	Mon, 13 Jul 2026 07:41:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783928505;
+	bh=FEJ5fjqsqgZR9DwKBl35hnhLDdYSJgMQMJxBh2HovUw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iogtmhqpAw5JpgL6uL8HH34fouldnGXX7dp9fbAxTWiuX4Na5u+o0uIjzmbTPwhy1
+	 PuriTzlBRAnp2hYXcLH4lorCYwv3OVRiajgG0UCuRafhmHj0tR04D049PqZUoKQyHT
+	 kZK/bggWGynH+SlUhVfxON2ksGRHkwAYN7siruOt56V23sjpiPId7QtC5nu+X3OrKh
+	 cl0l9aqOu/bB0BWEAdl0YameoHoa5HLpTkTY81D/F3I39+4LP0w5gY9UaS1Gmns6g1
+	 iZFRLJWpT26ArG8xkOqu7Q7UumJ/qu/ghBM/SHLMz6PGUPXz4PqXtJgRhQqICeM6lq
+	 I1h714SiT0QXQ==
+Date: Mon, 13 Jul 2026 00:41:43 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 09/11] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
+Message-ID: <alSWtwHVfYh0zdPy@kernel.org>
+References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+ <20260710-hybrid-v8-9-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28058/Sun Jul 12 08:25:26 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_003947_667760_45A70313 
-X-CRM114-Status: GOOD (  21.91  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260710-hybrid-v8-9-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,108 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 11. Juli 2026, 12:18:42 CEST schrieb Esben Haabendal:
-> Add node for iMX8MQ Display Controller Subsystem.
->=20
-> Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
-> Signed-off-by: Esben Haabendal <esben@geanix.com>
-> ---
-> This is basically a resend of a patch from 2020 [1], which seems to have
-> fallen through the cracks.
->=20
-> I did not notice that patch before sending my v1. As of v2, this patch is
-> identical to the old patch, so I have added the Reviewed-by tag from that.
-> If that is not proper, please remove it before merging it.
->=20
-> [1] https://lore.kernel.org/all/20201125103909.16548-1-laurentiu.palcu@os=
-s.nxp.com/
-
-Looks okay so far, similar to the one I was using for tests.
-Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
-Unfortunately the DP/HDMI output driver is still work in progress and last
-time I tried (v17 IIRC), it didn't work on my platform.
-
-Best regards,
-Alexander
-
-[1] https://lore.kernel.org/all/20260519-dcss-hdmi-upstreaming-v23-0-561552=
-4a9c63@oss.nxp.com/
-
-> ---
-> Changes in v2:
-> - Moved dcss node under aips4 bus.
-> - Link to v1: https://patch.msgid.link/20260710-imx8mq-dcss-device-tree-n=
-ode-v1-1-fc724dfd574e@geanix.com
->=20
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Frank Li <Frank.Li@nxp.com>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> To: Pengutronix Kernel Team <kernel@pengutronix.de>
-> To: Fabio Estevam <festevam@gmail.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/=
-dts/freescale/imx8mq.dtsi
-> index e60872aeeb49..d75710cdb5b4 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> @@ -1598,6 +1598,29 @@ aips4: bus@32c00000 { /* AIPS4 */
->  			#size-cells =3D <1>;
->  			ranges =3D <0x32c00000 0x32c00000 0x400000>;
-> =20
-> +			dcss: display-controller@32e00000 {
-> +				compatible =3D "nxp,imx8mq-dcss";
-> +				reg =3D <0x32e00000 0x2d000>, <0x32e2f000 0x1000>;
-> +				interrupts =3D <6>, <8>, <9>;
-> +				interrupt-names =3D "ctxld", "ctxld_kick", "vblank";
-> +				interrupt-parent =3D <&irqsteer>;
-> +				clocks =3D <&clk IMX8MQ_CLK_DISP_APB_ROOT>,
-> +					 <&clk IMX8MQ_CLK_DISP_AXI_ROOT>,
-> +					 <&clk IMX8MQ_CLK_DISP_RTRM_ROOT>,
-> +					 <&clk IMX8MQ_VIDEO2_PLL_OUT>,
-> +					 <&clk IMX8MQ_CLK_DISP_DTRC>;
-> +				clock-names =3D "apb", "axi", "rtrm", "pix", "dtrc";
-> +				assigned-clocks =3D <&clk IMX8MQ_CLK_DISP_AXI>,
-> +						  <&clk IMX8MQ_CLK_DISP_RTRM>,
-> +						  <&clk IMX8MQ_VIDEO2_PLL1_REF_SEL>;
-> +				assigned-clock-parents =3D <&clk IMX8MQ_SYS1_PLL_800M>,
-> +							 <&clk IMX8MQ_SYS1_PLL_800M>,
-> +							 <&clk IMX8MQ_CLK_27M>;
-> +				assigned-clock-rates =3D <800000000>,
-> +						       <400000000>;
-> +				status =3D "disabled";
-> +			};
+On Fri, Jul 10, 2026 at 08:15:03PM +0900, Akihiko Odaki wrote:
+> @@ -813,6 +842,15 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+>  	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
+>  		return;
+>  
+> +	/*
+> +	 * IMPDEF PMUv3 traps are non-architectural, and KVM cannot assume a
+> +	 * uniform PMUv3-compatible arm_pmu is available on all CPUs.
+> +	 */
+> +	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS)) {
+> +		kvm_info("Non-architectural PMU, tainting kernel\n");
+> +		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
+> +	}
 > +
->  			irqsteer: interrupt-controller@32e2d000 {
->  				compatible =3D "fsl,imx8m-irqsteer", "fsl,imx-irqsteer";
->  				reg =3D <0x32e2d000 0x1000>;
->=20
-> ---
-> base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
-> change-id: 20260710-imx8mq-dcss-device-tree-node-9df58de085ea
->=20
-> Best regards,
-> -- =20
-> Esben Haabendal <esben@geanix.com>
->=20
->=20
->=20
 
+This is an unrelated change, and really the taint should be added with the
+.cpu_enable() for this capability. That's the point where we flip the
+magic bit.
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
+> +{
+> +	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu || last_cpu == -1)
+										^~~~~~~~~~~~~~
 
+Does this do anything other than avoid a spurious reload on the first KVM_RUN?
 
+Thanks,
+Oliver
 
