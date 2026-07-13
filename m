@@ -4,104 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC275C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF227C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=; b=2NJPwS1cW0Z3/rzAsmXiWTnw0w
-	a9UKjqou7WJX7ZyiXCmpRWzCMIFe3oft5E3cwxmeerHANOyFyuMP+epUIBVMvlfpL1R6MVglYyIXo
-	n9NFVsPE4NwJficdJYJ+V+8dx6qk+Kqdv54gfXopJ7N5v7Fkwj+h4hfZs/CcqS7GVv0Zluufaf4Wn
-	GvCs1GYNPW8s9wovtkbgC4Qs5YE+aM3cXnLySiR39JC3j9gEruWA/DecSOGTzY1EM9fzkWBZhDOBI
-	NczK9jLfXv5yXJBwCF9qE+XOdkDd/MGKKC50IC3ktU7TPESEv4TqQsUOh2ZnjprdNlWHKG714fu1E
-	FFhi1Ofg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OBddtjFYWhyXG/z7saOr360Gpb3JLBOtzUiY/pJ38ko=; b=rP4umAN+emgoT/
+	8hehDAGe11cD4utm8JrMF2Mv0YLZLfyEZW345VDC1xajxp1WXSakIE1KvLp61bOXu1L8L+YSqZoWa
+	FIbTa+LAV7GEtCZ510ldjqQzvKqrnSFSLpqBWTripSIfWgMn4dFMk/B8YjiTHR31cPsFNeA1SYGGY
+	klX6TD3kLOCLMLUTNIRBkajEyXkMzOGV6/1umrMZBEdfW9RWTNk4kCps8HbuvcMGi4+YfvrO4k8YH
+	lqtTtwhJ+8Kq7q7hX45biAjv5dJvJqM1XULJKc2+1iG/UUrNW8LGlPIz+Cq1J/Zt0so++jz0H4hkM
+	5pCaXXvdxEQk/PsDZjgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFUq-0000000990t-1KWy;
-	Mon, 13 Jul 2026 12:10:53 +0000
-Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	id 1wjFV0-0000000997w-2EO1;
+	Mon, 13 Jul 2026 12:11:02 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFUn-000000098yF-1jzV
+	id 1wjFUo-000000098zO-3DNe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:10:50 +0000
-Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-6662551100bso3737575d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:10:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783944648; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GiIv9XE6Yk7xp3yZ/pZYBe51DHnLc3DgZUytauZtGwtMKD1Bvv9lmyDsb5tMVqdYWg
-         VwY1sBFAyZLvDfBSKPruI5QPPgB0jvlc+wW3AOS4nxsdQBEkMPaqv2kZhrrhOvlh8r4l
-         VJkUaneVCWsANJ3/TkMNKsocr2cEKSeiFpLj8rboLQia7o70VRlXWoYFEOXYEyOtC7oQ
-         +qaMtl3hCiHehCvePbpGWOu3uPvaO4GixRWtJI/CPSKcNyqsGgfUMwYTcBa6Xwt1jUgu
-         XmTL2BscpBeFcMFdsSu3riIKcS33uG7dIq9MDV6aeVUVtcQkrWShQo9vYpefFC+OO5gx
-         yUPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
-        fh=RsN1L9jagbQMJy7n95sS3HITAmZahP0l4nZIo60+Fok=;
-        b=HD6EfOY9rZtl7gHbi6cFMNaNV9j/WTC3ncY4zdckDIzBV4pTDWaaMRJnvZqftDZ7Fh
-         w1fZXzPVMUqvqquMSXxOYxcXCM64WoXno4VXBnuXGgstZH6+16m5YTxkCglVNA/By5vh
-         Dz6TP39AoKuT6L/yJQitcfpfB/gs0T8FOLHsW58/ZcigNcB8DIxKRDnJ1U9b/88+WGPC
-         xwbB2fHGEYjXfpXnllKvrJ5cw52gTUvcIuC/qTWWk6r8LQ/ke7Nr5/dmHpQ7zym99e+4
-         ME3bfEc1gjIsSH3uMZCBOBchyx5I6PSA7oa642BU2KUVGJlkyB/9LGfjs4VXw8fXTnvs
-         lYXw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 13 Jul 2026 12:10:53 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38175907a56so3127495a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:10:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783944648; x=1784549448; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
-        b=OM8C5ziN4LGbOK4fzvKRs8C/UZugYqpWKrzPWSTZUJyTbMSo65nOY0vSFUuxeGwASk
-         ZXYooFt9hFfTpblyLMKjR/cM+nz+ml1hTOY0Ype/IrF7quA5RMEQOxA7rDF4Ceqe3U8J
-         3dDLQwa9kZKoAKPkhQlMZKhUDQEoy5j8mfVA5UKgYsoYfDx1/yB0+tHXyPPwRplZWlMs
-         4g7JCIIrXS+cKOIGQrc/V2A4zgj1uKbWYkgK+slZvPsj7FS9P/L5VUOdatx65JvwpjeS
-         FWC42RTXEBi4GymLkQEtH988gjmKQVvv5oRBxBeK6tSTU/9T7u6KpfnPemhGvM0C+4RU
-         tHxw==
+        d=gmail.com; s=20251104; t=1783944650; x=1784549450; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OBddtjFYWhyXG/z7saOr360Gpb3JLBOtzUiY/pJ38ko=;
+        b=EOG0GPJXGdMr+AGHCHv/mPS45z9pmglABFkhmP4qrISoGYu/UfO4kA7cQMxaYDFXwE
+         enpQxT3KtEy/FoeJqnnPyNU9bEmJejpc+W4BXtSY5Ux3vkLyuYJ1Cl/OTaRQXZI6ok2P
+         5ZyjlvW87Xa5dca+MR5PXf5LT9njELaMaQQ7JbzygsDbmwyQbugxcg70Z5tDNHd6eL2y
+         za6I/5d2B5uj/yHzEyIL2SN+18eVny2IKYQfXxz2bo90s4VinbL4BkqOHBFZGHAtNI5c
+         JK6mz1Ojm3GNa5JdrMeZkTL4om08RQPMzARrIWEx0SvIpZSf2PDy5DPF40fwRWDIpPTp
+         9X3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783944648; x=1784549448;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qguXd1Bmb0JoPYCTB9Cy4VECjzPPKEDsS8mS+lKAv24=;
-        b=aHqoB/N1NPugDzIPGLOMqCOuBCyJQec3igKRfrFUecivBYU7zZ40GVY/Wgh5aHKxfl
-         AkEVsgLTERdaImgEMn2BFBpoiGLi+FXbMnq/q7rYoTcQF6MO7RHqTnga18WwHaylxw85
-         DN+CpizCWIBJFBE8mXdyJYoeGZ6623JAsc/MCzZSTKYYfU8C9Q9/y8FKB4wZZCTfgpbP
-         A4b0kKrNqYMind4ClT4TOfkr8rfBtYL8bkuoGE6g+HR0V7cNNG0W9TjJbL70W2qV7386
-         2+8v4UPolbziTU95VxKAPeCnZtLTEFaGpSp+o/jmM8ztC3h601zR1ViU352FZC+vI/SE
-         sQkg==
-X-Forwarded-Encrypted: i=1; AHgh+RqONEKBi4KUq7e57HLyaXoDwTQQJ4AinC5y9S1sN0gvPVSsYeLOToe/jvQaNxDC7eKUAyuYvf7dLtrQVDd19Hho@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjug8U+m8G5l6T7mxxVVMY+bKnaWvAZOrDKsRuf35TJ02zxN+H
-	ibSv0on5Z4bU/vkULZKoxkOT3YiHw14LOBurAwb3YQH6GogDRGoBxZoA4RkysbvkcfQcqyUKcRq
-	P9qFqRkBo8GIumC3c39EvrhNV+EVhkDc=
-X-Gm-Gg: AfdE7cnaJQ9iR+VqhvE8tFyeWSizI/eHwl6B0W99akAgzyFVsnrY1/kIIXSnCv+FBbO
-	emtd54DhOzMns747rFcwIGnHMqn5+LZorVr8B1Dkk4eTLl+eqApM7dcaMX2r1CMOE54c8V8Lfjk
-	WtXqmHGv82xmh5NKhDQq4dR8pUEoQoF6jkEmiqaedSs0yC5+/SAfLgvPrAE53mRIL3sxJ1JoZsa
-	IjRPmonMW0ELJg2xXy8c2apayAIZkCoZyl+vPkAVHIHLKhpMA4f+7DlTBg0lfcbAZRT+/Zdn90=
-X-Received: by 2002:a05:690e:1555:20b0:667:8b90:2e55 with SMTP id
- 956f58d0204a3-667d7ee139dmr4779810d50.97.1783944648180; Mon, 13 Jul 2026
- 05:10:48 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783944650; x=1784549450;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OBddtjFYWhyXG/z7saOr360Gpb3JLBOtzUiY/pJ38ko=;
+        b=XXMoaS33GoBF1seY9vf1YM2P5ovb6unn8ynQ2cgnPIdnmAe1c1C3zKbKx8p9P1+BH0
+         oCbK1cbArQJGGcrtMyFdCXusUKb9U3VVe8nuwsngZ11MvY1QurFxifMQ3kuaQwEp+cto
+         EQA1W8NufFVKZTzmKXGlaKEaADzBtYVR3c+1wjtJQTmSUoiLyOyAmrkO94KJn2/Gtqxs
+         Hs4XDDM/L5y7d5J5mkh1zlb9EKXJSXM9cFn0cBPFRbxh4juicSU2Vsr1C8KyrN3EPi/1
+         PSyuESINkMBOiKkZowCdpLd/c8oFXgJdT4ki3bb0QnpR7alVn5QcjdTeTe7erZ5Gypy2
+         5jYQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpyrw9nSLxBj2NJeJGuRYfNrBNSt4HhvSAI5orhPAe0B6ZnslrkQHO6cyM5u6XRVaxDgkTGR529nh6Tohv9sziU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMGxOupJ2MRcpbVVAgMv2Sjcls8u8mmh1/CKgVR7zRkf3q55dp
+	PlsKWWqPkABf0Cm5GLHLOAw8anPskRj0IpDEDK4GoW7ZEy/EhBzED3ve
+X-Gm-Gg: AfdE7cn3faZjjHnsea1FN5V0lwtAVcfIdbfuzsvcCzLIDzPS/uMKtw0yoODESvXtdmx
+	1pZnxT6DWqPspU2yNbMXe334PQsM2Yum5cHu34cDdd4BDiy9isWt7uSPY+hxeaCdX6jnUVmv6zB
+	mBpA+NlOYdvrhqclj/72FygW2WKX3kdIKUTZZjn6aUwyZP/9PnlZ+hupKuMVNM44k+gE3y4Www4
+	/ySZsWuJI+Py/GfYwvC/LcZI3jt1yuxad3ewjyBoKDmE1ufRnCd36fWfimE72UqO+hACfYnCCkr
+	jpq3DFKfRdWSuL1Bq5BzT3mU2aDx9z0sS0bgL8064dGY3XChPmg7GOtbJLCKl+sqFR85Rigr2ej
+	EJKVBsNxV/txncm2nSicsFf4ch+nn5d2gh97pCgNYT+kaoXDH/ga2ao4hnyUjI5I+fu74+LRSpP
+	cy3etOLTepOfZwOuNZsqdO
+X-Received: by 2002:a17:90b:4cc7:b0:36b:b903:994 with SMTP id 98e67ed59e1d1-38d13768de2mr15327432a91.4.1783944650044;
+        Mon, 13 Jul 2026 05:10:50 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.180])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.10.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 05:10:49 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
+	linux-kernel@vger.kernel.org (open list),
+	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
+	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
+Subject: [PATCH v7 11/19] media: meson: vdec: Update core m2m stream state during transitions
+Date: Mon, 13 Jul 2026 17:37:06 +0530
+Message-ID: <20260713120840.17427-12-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
+References: <20260713120840.17427-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-References: <20260705103256.284467-1-lgs201920130244@gmail.com> <20260706-dashing-dazzling-sambar-453a4d@sudeepholla>
-In-Reply-To: <20260706-dashing-dazzling-sambar-453a4d@sudeepholla>
-From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Mon, 13 Jul 2026 20:10:37 +0800
-X-Gm-Features: AUfX_mwaflEwq5O1c14YKWIRx5LpcE_68yYNnGKkNrsplECeT8LOM8_s9_IYQRI
-Message-ID: <CANUHTR9ed+A5OJLX802LZieSvp-m=pQQww4Y4F=7VcEO5PPN1w@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: arm: scmi: Check pm_genpd_init() in probe
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_051049_512765_F7F64AE0 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260713_051050_832349_91453CD0 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +109,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+Explicitly update the V4L2 core Memory-to-Memory (m2m) framework's
+internal streaming states when initiating or terminating streaming on
+the device queues.
 
-Thanks for the explanation.
+Without invoking these core framework helpers, the m2m engine's
+bookkeeping of active source and destination queues drifts out of
+alignment with the driver's local 'streamon_out' and 'streamon_cap'
+tracking variables. This misalignment causes state validation stalls
+and incorrect polling outcomes when the device is subjected to quick
+runtime cycles or strict testing setups (such as v4l2-compliance).
 
-On Mon, 6 Jul 2026 at 17:34, Sudeep Holla <sudeep.holla@kernel.org> wrote:
->
-> On Sun, Jul 05, 2026 at 06:32:56PM +0800, Guangshuo Li wrote:
-> > scmi_pm_domain_probe() stores each domain in the onecell domains array
-> > after calling pm_genpd_init(), but it ignores the return value from
-> > pm_genpd_init().
-> >
-> > If pm_genpd_init() fails, the genpd has not been added to the global
-> > genpd list. The probe code nevertheless stores the genpd pointer in the
-> > domains array. A later provider registration failure then unwinds the
-> > array with pm_genpd_remove(), which can try to remove a genpd that was
-> > never registered.
-> >
-> > Check the return value from pm_genpd_init() and only store successfully
-> > initialized domains in the onecell array. On failure, unwind the domains
-> > that were already initialized.
-> >
->
-> It was done that way intentionally IIRC. We don't want to remove all the
-> power domains if some not so important power domains fail to initialise.
-> You can log the error if that helps but removing all the domains that
-> have initialised seems bit of extreme.
->
-> Are you facing any issues on a real platform or is this just by code
-> inspection.
->
-> --
-> Regards,
-> Sudeep
+Fix this by integrating v4l2_m2m_update_start_streaming_state() right
+after a queue is marked active in vdec_start_streaming(), and pairing
+it cleanly with v4l2_m2m_update_stop_streaming_state() at the end of
+vdec_stop_streaming() before the session core mutex is released.
 
-This was found through manual code inspection and has not been reproduced
-on real hardware. My concern is that a domain for which pm_genpd_init()
-fails is still stored in the domains array and may later be passed to
-pm_genpd_remove().
+Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ drivers/staging/media/meson/vdec/vdec.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I agree that unwinding all initialized domains may be too aggressive.
+diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
+index 83a9b1238972a..0eb39aa6014ee 100644
+--- a/drivers/staging/media/meson/vdec/vdec.c
++++ b/drivers/staging/media/meson/vdec/vdec.c
+@@ -299,6 +299,8 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ 	else
+ 		sess->streamon_cap = 1;
+ 
++	v4l2_m2m_update_start_streaming_state(sess->m2m_ctx, q);
++
+ 	if (!sess->streamon_out)
+ 		return 0;
+ 
+@@ -529,6 +531,8 @@ static void vdec_stop_streaming(struct vb2_queue *q)
+ 			sess->changed_format = 0;
+ 	}
+ 
++	v4l2_m2m_update_stop_streaming_state(sess->m2m_ctx, q);
++
+ 	mutex_unlock(&core->lock);
+ }
+ 
+-- 
+2.50.1
 
-Thanks,
-Guangshuo
 
