@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C603C44506
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A4EC44501
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kl7+mc2oAYcNRZ648KTKzRhgvWfW5JNgBpw4aDm/2MQ=; b=QT5xf5IB833/VvZ4ziExpY/i63
-	7zYJM8tN9B6EkIgRlFqAaznpeyRcvdw7uJ2Gm4OJgb3QUAuZ3loFnQrjv4dMLr91jTGpt58pY7Z1d
-	jgCWk898V7qkMJpeSKKMeOx09SkFPvQhYd//SFuneGpZdr3GiNQTEEsDhR7s7sEVv37BEsxbfKiA1
-	kTOwyVNGEAgnr8//f9cipsyL+H6QN/zCW8TmEnnq+KIEutXI6RsvNqOgQpsgdn4fBx5+q4pNtZKgW
-	gvHRIL1TcZ+vyDgyTLIX7TYBK4eeBVZbRNELG5w0hobb9KryPt8gUlKkfHSiDq6HEV5E4GYAPIkDI
-	dBX0nQ2w==;
+	bh=OsY63fA3N1zTzXEtsFjzE3W7kKsZtS2IBPSmWigX9Ck=; b=2GfQ/NRdP5mkqeIqEAefMU4OMI
+	ie/bywkw3vJZvQdS0W4XiZwrIw+aWy5FtO6m5i3DfJCy6kr7gTEtebfqm9arTl5sQz4eOnOI37b6a
+	VPh18BvRbeA3RQA7RspvdRNZGYLi27bH84AJX8eQ2ZUMJoXPWmqp/2kFxtLSqbACZ8LU15rVprlUa
+	/TF8D5C+r3WGA96uOZ3Zgc897VMWLsLz53tiEtNPYzV6Myny6nmJ9fuh2pWFyMuv/R7lAH3yPq9S2
+	ETEqNX1doyGD3HuMI5HQeWtHGLKiEEpk7LlGk2oi8PIkQooc8Z90RNsfbzR7oujhYKf7QL2clTUN+
+	nhgrDKlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCBN-00000008buj-3KxG;
-	Mon, 13 Jul 2026 08:38:33 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wjCBO-00000008bxB-3wtq;
+	Mon, 13 Jul 2026 08:38:34 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCBF-00000008bnS-1OB1;
-	Mon, 13 Jul 2026 08:38:26 +0000
-X-UUID: 31411eee7e9611f1afed4741b24580c9-20260713
+	id 1wjCBE-00000008bnU-3Opa;
+	Mon, 13 Jul 2026 08:38:27 +0000
+X-UUID: 315d9a4c7e9611f1acbe4559397dec65-20260713
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=kl7+mc2oAYcNRZ648KTKzRhgvWfW5JNgBpw4aDm/2MQ=;
-	b=HlDCpqMpWTFK7j4RiUERh4RszOrI5mOX1oKL74yjglrCxQ0RWuoDp7yHPYX7qgCwVR08F4gm0qJMVfqwTI9PvZzYHx+iSN1BkE7Qv6zLA1kIhQDqVzNzRW1X68XPQU7Y32Pl5U3fxElsws3T0ezVHZM1SkKem649NVcTAxqm62Q=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=OsY63fA3N1zTzXEtsFjzE3W7kKsZtS2IBPSmWigX9Ck=;
+	b=QG+enfcVrHuNg3vR5I/zbwRfCXZCa35bD6g30xX+doBAmvu0EyDOMEipWTA+0P0NfXq/qVXqmTEqqPjU404JtDpxh23f07CkrqE6pHCVs4LP8623YCuKnuKMX5rHi4X5Jop5Qfid/vpQtF3rouP1rogqChxTJmeQhhh0Q4xYQG0=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:d224f6b7-3422-4af2-9c1b-73179a5a1391,IP:0,U
+X-CID-O-INFO: VERSION:1.3.17,REQID:bef5d782-2ff4-4a10-a06e-1810a62231f7,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:b85b1415-ea64-44d4-98db-4e1fb89955a3,B
+X-CID-META: VersionHash:d497b38,CLOUDID:95b2a255-f38b-430b-a6f2-741debd53b1f,B
 	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
 	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
 	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,13 +42,13 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 31411eee7e9611f1afed4741b24580c9-20260713
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+X-UUID: 315d9a4c7e9611f1acbe4559397dec65-20260713
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
 	(envelope-from <justin.yeh@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1809830215; Mon, 13 Jul 2026 01:38:16 -0700
+	with ESMTP id 1788197966; Mon, 13 Jul 2026 01:38:16 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.2562.29; Mon, 13 Jul 2026 16:38:13 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -61,10 +61,10 @@ To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
 CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Justin Yeh <justin.yeh@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
-Subject: [PATCH v6 1/5] pinctrl: mediatek: use devm_gpiochip_add_data() for GPIO chip
-Date: Mon, 13 Jul 2026 16:37:53 +0800
-Message-ID: <20260713083808.168957-2-justin.yeh@mediatek.com>
+	Justin Yeh <justin.yeh@mediatek.com>
+Subject: [PATCH v6 2/5] pinctrl: mediatek: free EINT resources on unbind
+Date: Mon, 13 Jul 2026 16:37:54 +0800
+Message-ID: <20260713083808.168957-3-justin.yeh@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20260713083808.168957-1-justin.yeh@mediatek.com>
 References: <20260713083808.168957-1-justin.yeh@mediatek.com>
@@ -73,8 +73,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_013825_371621_EBE354CF 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20260713_013824_852017_86C3EAF1 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gpio_chip is allocated with device-managed memory but registered with
-the non-managed gpiochip_add_data(). This was harmless while the drivers
-were built-in, but once they can be built as modules and unbound/rmmod'd,
-devm frees the gpio_chip's memory while it is still registered, causing a
-use-after-free.
+mtk_eint_do_init() creates an IRQ domain, populates it with a mapping for
+every EINT line and installs a chained handler on the parent interrupt,
+but none of these are ever released. This was harmless while the drivers
+were built-in, but now that they can be built as modules and
+unbound/rmmod'd it leaves behind a dangling IRQ domain, interrupt mappings
+whose chip data points at freed memory, and a chained handler that keeps
+firing into that freed data.
 
-Register it with devm_gpiochip_add_data() so it shares the same
-device-managed lifecycle, which also lets the manual gpiochip_remove()
-error paths go away.
+The plain allocations in mtk_eint_do_init() already use the device-managed
+devm_*() helpers, so tear the remaining resources down the same way:
+register a devm action that detaches the chained handler, disposes of the
+per-line mappings and removes the IRQ domain. This mirrors the
+device-managed lifecycle adopted for the GPIO chip and keeps the whole
+EINT setup self-cleaning on unbind.
 
-Fixes: a6df410d420a ("pinctrl: mediatek: Add Pinctrl/GPIO driver for mt8135.")
-Fixes: 805250982bb5 ("pinctrl: mediatek: add pinctrl-paris that implements the vendor dt-bindings")
-Fixes: e78d57b2f87c ("pinctrl: mediatek: add pinctrl-moore that implements the generic pinctrl dt-bindings")
+Fixes: e46df235b4e6 ("pinctrl: mediatek: refactor EINT related code for all MediaTek pinctrl can fit")
 Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/pinctrl/mediatek/pinctrl-moore.c      |  6 ++----
- drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 14 ++++----------
- drivers/pinctrl/mediatek/pinctrl-paris.c      |  2 +-
- 3 files changed, 7 insertions(+), 15 deletions(-)
+ drivers/pinctrl/mediatek/mtk-eint.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-moore.c b/drivers/pinctrl/mediatek/pinctrl-moore.c
-index 17e30f83dc19..38f15dbe9a28 100644
---- a/drivers/pinctrl/mediatek/pinctrl-moore.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-moore.c
-@@ -594,7 +594,7 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
- 	chip->base		= -1;
- 	chip->ngpio		= hw->soc->npins;
+diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
+index 47ac92ea98c2..7cd4c4a9fc77 100644
+--- a/drivers/pinctrl/mediatek/mtk-eint.c
++++ b/drivers/pinctrl/mediatek/mtk-eint.c
+@@ -12,6 +12,7 @@
+  */
  
--	ret = gpiochip_add_data(chip, hw);
-+	ret = devm_gpiochip_add_data(hw->dev, chip, hw);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -608,10 +608,8 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
- 	if (!of_property_present(hw->dev->of_node, "gpio-ranges")) {
- 		ret = gpiochip_add_pin_range(chip, dev_name(hw->dev), 0, 0,
- 					     chip->ngpio);
--		if (ret < 0) {
--			gpiochip_remove(chip);
-+		if (ret < 0)
- 			return ret;
--		}
- 	}
- 
- 	return 0;
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-index dd2c8aa03938..791eddd7a2c6 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-@@ -1130,30 +1130,24 @@ int mtk_pctrl_init(struct platform_device *pdev,
- 	pctl->chip->parent = &pdev->dev;
- 	pctl->chip->base = -1;
- 
--	ret = gpiochip_add_data(pctl->chip, pctl);
-+	ret = devm_gpiochip_add_data(&pdev->dev, pctl->chip, pctl);
- 	if (ret)
- 		return -EINVAL;
- 
- 	/* Register the GPIO to pin mappings. */
- 	ret = gpiochip_add_pin_range(pctl->chip, dev_name(&pdev->dev),
- 			0, 0, pctl->devdata->npins);
--	if (ret) {
--		ret = -EINVAL;
--		goto chip_error;
--	}
-+	if (ret)
-+		return -EINVAL;
- 
- 	/* Only initialize EINT if we have EINT pins */
- 	if (data->eint_hw.ap_num > 0) {
- 		ret = mtk_eint_init(pctl, pdev);
- 		if (ret)
--			goto chip_error;
-+			return ret;
- 	}
- 
- 	return 0;
--
--chip_error:
--	gpiochip_remove(pctl->chip);
--	return ret;
+ #include <linux/delay.h>
++#include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/io.h>
+@@ -509,6 +510,24 @@ int mtk_eint_find_irq(struct mtk_eint *eint, unsigned long eint_n)
  }
+ EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
  
- int mtk_pctrl_common_probe(struct platform_device *pdev)
-diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/pinctrl-paris.c
-index 23f04b24fd65..09098b68f725 100644
---- a/drivers/pinctrl/mediatek/pinctrl-paris.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
-@@ -957,7 +957,7 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
- 	chip->base		= -1;
- 	chip->ngpio		= hw->soc->npins;
++static void mtk_eint_teardown(void *data)
++{
++	struct mtk_eint *eint = data;
++	unsigned int i, virq;
++
++	/* Detach the demux handler so it can no longer reference freed data. */
++	irq_set_chained_handler_and_data(eint->irq, NULL, NULL);
++
++	/* Dispose of all child mappings before the domain is removed. */
++	for (i = 0; i < eint->hw->ap_num; i++) {
++		virq = irq_find_mapping(eint->domain, i);
++		if (virq)
++			irq_dispose_mapping(virq);
++	}
++
++	irq_domain_remove(eint->domain);
++}
++
+ int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
+ {
+ 	unsigned int size, i, port, virq, inst = 0;
+@@ -601,7 +620,7 @@ int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
+ 	irq_set_chained_handler_and_data(eint->irq, mtk_eint_irq_handler,
+ 					 eint);
  
--	ret = gpiochip_add_data(chip, hw);
-+	ret = devm_gpiochip_add_data(hw->dev, chip, hw);
- 	if (ret < 0)
- 		return ret;
+-	return 0;
++	return devm_add_action_or_reset(eint->dev, mtk_eint_teardown, eint);
  
+ err_eint:
+ 	for (i = 0; i < eint->nbase; i++) {
 -- 
 2.45.2
 
