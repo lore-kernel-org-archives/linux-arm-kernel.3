@@ -4,171 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E94EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 05:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7465CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 05:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=; b=YiFNMSVeLP8eHUWNE3tfZPfiDc
-	GI9VWB+/zFRN4hfxYFcUrlakhVj+u3JsgHVI8gut2JV3KkhjIqHazPNxVZSuTRuDeqTpJgpOCkxHQ
-	KEb2DK9Qp91BkjhBQ8pfJCb02g7ufm+YnbmyQf9hN8mFyUpgiUqfzvrdKHfKGHKkyOz/33bgxEB5m
-	KX41U1/2ne3enZEv4tgOoiOh476CyszMlOKJV+toLJSIGCEDaBEAMblVUe9fAQ34OPdZGnSOgBKAR
-	g67Tdt0ekI/ixMHEBHNsOCsWWYWN01cV9cRteyjzi1rbhKmKeHYfG/hEBr0Fd7wyfC/yA2tvjn0D2
-	7IJzSKpw==;
+	bh=PtrCDJHGMBLrAiE0X+RqgpgZ1PM0JBugYWIm44VvHeg=; b=GJe1am/hJ1X/BE95I8RkzfVDMe
+	1bZ3EjLhoxxstea9LQ9M3XcaRhYsuElLR9hPH1fbCEMkiTZ1SDKlt/HtdJ014T0xTZm7jwnGiZ2/R
+	DNjqTmXnySQCrX+1nJj8iLuCakXPomSlTQrL/FRnp9v7iz7eLpSLERPAmiAXOAnXuImyecwUAMkX/
+	qTzKw2jllxXqOyVv6+DXPYHrmDZpVVMGOdaZEEs4crowPQaQNV8lu2gbvyAD+2LXS1t7S0OH6MW77
+	qbPHX22zlJEZP3TNwKkpJ5Qc/qXUkLfZCUN+YT8baosSddtSy7XUEdzQRazIALdELOl0PjSvmZEBk
+	Dg8R8Ubg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj9cs-00000008BON-3i2B;
-	Mon, 13 Jul 2026 05:54:46 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wj9eK-00000008BWE-0bcY;
+	Mon, 13 Jul 2026 05:56:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj9cp-00000008BNo-37nE
+	id 1wj9eI-00000008BW3-3KqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 05:54:45 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66D3AHGR2430030;
-	Mon, 13 Jul 2026 00:54:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5
-	pY=; b=PSdMY7O3WgxckH6T0YtBLAPc/U1CEbSuobnD7bgDVXEXLnvme8Ku4F0Fl
-	mxQUKf4Up7dDNMsxMD5OqpJFaY+z7ug4W1N9KMRRBcXYxZ++iSWVJbOeRpzoNDts
-	OOcaZ1E48E8YGnkzM9pESb2tz5ant11YY/SRxvvhCKLEg2h40XA6whbFPRNYpROD
-	kOLta1XlFuzJYK9C4ihCQCwYWiRFa10t64xqTS2UelxOsh75PdbbOwZ7coUNOOGk
-	e+9GtbU2xKLvUBU4aHyFnf1OjkTu2PdP7G/WL+tdfjXqkEgUburgLTMMttxAxHAr
-	O3g76gJEXqbyguvJP5ASavOi4LFvQ==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011061.outbound.protection.outlook.com [52.101.62.61])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4fc6unbxsy-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 13 Jul 2026 00:54:32 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DxCdLobeNCTJOclZNrhe2rbuMCMqI8Jf3K2p+xZKI9STBDpUxXiPNITORn6R0bQvSOiGzFbGJaZ7yEIrepo2zMeS6BVC/RG6GtdycCtDC4s/1n80kfNtSFgYjcs1nuI0zFFpZ5fIB8tdNGvjaGBo+yhAAYMGxVU8njmvQbF7fKpMqEFk1dOwAijFxTcA/eAP6qZ8MTW5VgfScCgCqHgOlx1jXS/xW4F5oeo5QxMZJoUQQk/4GuX3gK2R2qyceNEjYXZhhRypk+Ce1gvLUhe3I+y7yVkiHEU/Ih99eUAktOk/pdRaBJd56PUD+ywUK1rgOi12l3w4cJT8fiWCBuhQqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=;
- b=io6hrUsQYJX3KEYpMC97uJ6TKTKxwAY9K5AntcICusL9vE2Jm5wg3AhRqYBYATWOIA2z5Eif+tseA6qd9CAKigfbRcmQNbW+NLbTb1+NrIYZTbogWUFbwZY5xqg5P96ZHuG1ZF2lcpaGHW2CAJeTFFRil9Dcwu+24B4953HZMmFkaBfMGulieOraWbWinl5vwO17rNe/v2djZ/BW0L5aAVni/NMNinvvttgudNg37scn45nv2B7TJyETPOqC8rRun3YSaIAEzaJaHsYxvd047ytIHChlWHXW70Dw2AzgLKIrNuq8WSC6BqJ5/hJPgEhioFUmGHaoWGEQsH81FhZKpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W6w+hPmhhS/RYZ7j75EZs7UsyuxXgUiWWHMWO8Pg5pY=;
- b=j1HkSZhlJvpfFooEq1V7h8MUuypGnEfFu60G3TCboJk+3qvbJwNpqGznMEr5KE83eC+nHr39cuSaADX5+QBY+ZTWmKP2t7Lm5PrxuGIGUt6PckHJUI13Wc6Ne1jCq3m/CuMhFM1azBYy1UDs2UTnNuhJTHGioT2o7t7QaJ7Ibnc=
-Received: from CH0P223CA0021.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::9)
- by SN7PR10MB7103.namprd10.prod.outlook.com (2603:10b6:806:32b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
- 2026 05:54:29 +0000
-Received: from DS3PEPF000099E0.namprd04.prod.outlook.com
- (2603:10b6:610:116:cafe::a9) by CH0P223CA0021.outlook.office365.com
- (2603:10b6:610:116::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
- 13 Jul 2026 05:54:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS3PEPF000099E0.mail.protection.outlook.com (10.167.17.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 05:54:28 +0000
-Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
- 2026 00:54:27 -0500
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
- 2026 00:54:27 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 13 Jul 2026 00:54:27 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66D5sNrM809166;
-	Mon, 13 Jul 2026 00:54:24 -0500
-Message-ID: <3d02c4e9-a271-4080-a54b-8ba4d7a86622@ti.com>
-Date: Mon, 13 Jul 2026 11:24:22 +0530
+	Mon, 13 Jul 2026 05:56:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3502860018;
+	Mon, 13 Jul 2026 05:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E41F1F000E9;
+	Mon, 13 Jul 2026 05:56:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783922173;
+	bh=PtrCDJHGMBLrAiE0X+RqgpgZ1PM0JBugYWIm44VvHeg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=dXV90xl+gj+TloizpMWOy2PLVfKxDOTs3Mz57RiuvirEqtc08yxbFlEO1DRo/WB4N
+	 3Fwk8LPppJB7R7mMreSgYg+W76g2jgHZ+NWXfsVSij+SC6N8WczYkBlW4fGXMENBuT
+	 sxKF8xsJT9hWcSlU8V01bfytLpWk8J7zH98Cbd7JfUiaIYmVs8pH0l7kIHoCqY6YIk
+	 8rH8R3KS/XAGPv1ALWuR117kg+e7ktt7Ah12X33XO0cIe+uslkzmqxbMxiWIVr9W9J
+	 EROB0zmVBIe3IG4DtLAoX/L9ikk5oSHELLrIy9HddhfodDuXZEPqP/Fz8hwhkvFvfX
+	 UJq7x6k1LboUQ==
+Message-ID: <31df2c13-9c31-4a78-975f-b0152ad3356d@kernel.org>
+Date: Mon, 13 Jul 2026 07:56:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix link-local addresses being
- forwarded out of slave ports
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Simon Horman <horms@kernel.org>, "Meghana
- Malladi" <m-malladi@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20260701112535.4027920-1-danishanwar@ti.com>
- <71a1bacf-c54f-45b0-80df-7175261cf2ac@redhat.com>
- <5c9fc598-9449-49aa-aa4b-2afc247bc761@ti.com>
+Subject: =?UTF-8?B?UmU6IOWbnuimhjogW1BBVENIIDMvNF0gZHQtYmluZGluZ3M6IGlwbWk6?=
+ =?UTF-8?Q?_Add_optional_LPC_properties_to_ASPEED_BT_devices?=
+To: YC Hsieh <yc_hsieh@aspeedtech.com>, Corey Minyard <corey@minyard.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+ <20260629-aspeed-bt-bmc-multichannel-v1-3-fc23ee337f7a@aspeedtech.com>
+ <35a8e3b3-7725-4d1b-8667-84e6fa24b2ca@kernel.org>
+ <TY0PR06MB6855F4F499246CD5C44DB23893FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <5c9fc598-9449-49aa-aa4b-2afc247bc761@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099E0:EE_|SN7PR10MB7103:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb337d19-aa7a-441e-297a-08dee0a333b3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|376014|3023799007|6133799003|18002099003|22082099003|56012099006|4143699003|13003099007;
-X-Microsoft-Antispam-Message-Info: 1PCs8YFRcerCmXyh58YJloDA0b6J4+wQWZZebroK3iN1vcdkP8Dk24KjE3QM+IJ9E8ogF+xX70N/BQlP++/cr4dkOaTNsiuj3a0Iy+xtKMbPWHTne80VEUtBMYB99DHcRs1gGRfCPsrs6EgjvBVpqkRckEE91gGO6CFQdSAWmpezwkvtoKsnMfGfOdCik2Y2K6eXBsJXck0XgEFoSI9fY5M1V0IfQgoRVXEeEmj4gS8RVgtEu2dG1KxMvnXDn1p65OQSAkmy3BWvZhphZR/f8XCO3jXAE3bpAhQkkAPDfLigxWbKMAKULiZjFfmVhYa3KK7Ns+veGBLdA47voNLXV4Wqj+fcsmWhQ5Wfc30DFXfErIbP9FcR9a5azRuxSKRO8WVmSby6z4WijdJUVAHNmkcgGMwHmIAEpdul9Ysxbf8PDwF2FPZFeZW/Cf0Vu8r/0wKlsfUklCdvDHXsds7Bv1gJiWh5Jnk66OPtOGiDapFZKrJa99tpCgUirshIYDeoF6WAbI+B/xZWOvjZO37wmZwRS76Je2ZEm7rhunfSqrY76tS5Ckf+4kmKtHeoQLonqkd+BVtiM2Rn1RYyeUueDiPq1LY6y+vcBAX70Zops7uI9mtKcO98a8ql22/6K2bbKfVmUJXyi9aznJ1SJkYuxQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(376014)(3023799007)(6133799003)(18002099003)(22082099003)(56012099006)(4143699003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: z0jzVHTXLTejShDH5L7803/mezE6oM/SOcGBz01RqDe8ftvXOQcNNRs2XUnmfGse6Qh2M1WMzEKjT8OmHPegqLfgUeowiYG7wH2idXtVg1zpkGQPKWGVUbPbCaOpz/keSIjXvIbW4cyu+f2Rnho9vQpJuPRMYzCHE5C8EJkTLB9DLzAr14jfO6xCU/Hfe9jOgob2P+DQHjsAuWLOwpqUWp0XF2OeDfamT80x/aXEdrCcCMFgY+yXhUPqrdLlsYKarEKfgvGsJSd9P01V33OhrNaYjxLECRqytx3d7RDrDVgIvDZKGC/A2BHN0mChcE8E6ixjW+PE1Wmitg33AXWjYkwmLos3U2iX+aQc+UFvK8kEd/NOhtGQHGvfbkkFi9NYKQ0hCmaQnnxWpEOSvUnpb/Ib6hrgNbwDFJEazi6BlCm84s09Fz/9Nj8xD+JK+L1R
-X-Exchange-RoutingPolicyChecked: C1/al8NQPq6T73cp+C04SUUaLlDVxi9Zx5jDvUhYc0m39cvA0XrOB2NXs20rZlTVKOtZAKgQMWReMxBfO2YulpZIJPJnA08c5kCpKz2XkVTrw2p1oxLq68elaE2oOzEWGzXtb8Dc/mTK73ON7VjqHqkax7c9bnskJlx8imcCEsVGIYvnyogdnIkhlbNY3bQ/GZeo2XLEETWcQnVPCz+CqFp4hN2WkZS0jZroB/STMarFUTob9Q1iqotxZHDsVBm6bHQwn39e4qJ+C3/s/zabVXf1DvhlINWRvfP2olm3IUnFLSfDhXgGpEihKB0Pjiy32BTC4dELpomokTSE84iUcA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 05:54:28.3828
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb337d19-aa7a-441e-297a-08dee0a333b3
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099E0.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7103
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDA1OCBTYWx0ZWRfX6HEENoL8jtTx
- 22nYp1jRtX48t1bKLI7/N1HZnwXZrVMf/bhMQOdLldmYtFM5drSQkqn7ExFBoeKl8OJqauZ357b
- muQWpsaVOKvFwm8l1NFZQMiAPXcy5PnJnlq1Lc3Vcfvswwff7WFjRx0cDimdnXiiNsC6FVbKERA
- hNsm/2vL69IN/SapsTM9EXOfhnkVMpTaTyr1tGbsXGQAsiMy3z1sDn/ABdIDxnlCK6hcF6JJS17
- CH7zr48Q3vyxgpDYvVtfSG0esI5ny+8NOZSsvPOcFV3wOE5uZ8MTvvba6H/GMEpLAAQjKhUbKhl
- s9lvq86w5RF5rXxqIspjCty7Gnr6GhZmsk8RZBYXTnOfK1ydb2RUxHaw2X1yMBAyQJ3PhM38/Xe
- QDdpNv9isKNeRgx7zlewPx11bsv9D1989jip+I6U+ZXqe6kGhmUQWJ4awoe+2DdF+HHnGsOTkYT
- UeNFD6SYhkOXSFJ6vTQ==
-X-Authority-Analysis: v=2.4 cv=IMQyzAvG c=1 sm=1 tr=0 ts=6a547d98 cx=c_pps
- a=WxwGY4H08PlrDVivH1wjUg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=c92rfblmAAAA:8
- a=sozttTNsAAAA:8 a=TpfAaOI81706nv7RqeAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=GvGzcOZaWPEFPQC_NcjD:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDA1OCBTYWx0ZWRfXyriLTbEsILWz
- W5aBT2okJIYGVLF4Le1pMdBVZjqnlRoJ8lzwlAOumN5J4a70r3OV4WJEN4BYyk22HdCkIKA4lhS
- xIBVoufQ47W1SR1PyznaNi7iCI+zqOc=
-X-Proofpoint-ORIG-GUID: vKn8lnrHeQYb_QXBhzuM-tzMMzAGFgQe
-X-Proofpoint-GUID: vKn8lnrHeQYb_QXBhzuM-tzMMzAGFgQe
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_01,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501
- phishscore=0 impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130058
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_225443_915250_F0A68158 
-X-CRM114-Status: GOOD (  26.77  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <TY0PR06MB6855F4F499246CD5C44DB23893FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,86 +125,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paoli,
-
-On 07/07/26 4:09 pm, MD Danish Anwar wrote:
-> Hi Paolo,
+On 13/07/2026 07:34, YC Hsieh wrote:
+> On Tue, Jun 30, 2026 at 08:11:34AM +0200, Krzysztof Kozlowski wrote:
 > 
-> On 07/07/26 4:00 pm, Paolo Abeni wrote:
->> On 7/1/26 1:25 PM, MD Danish Anwar wrote:
->>> Link-local multicast addresses (01:80:c2:00:00:0x) must only be
->>> delivered to the host port (P0) and must not be forwarded out of
->>> the physical slave ports. icssg_fdb_add_del() was programming these
->>> addresses with P1/P2 membership bits set, causing the firmware to
->>> forward them out of slave ports.
->>>
->>> Clear P1/P2 membership and set only P0 membership when
->>> is_link_local_ether_addr() returns true.
->>>
->>> Fixes: 487f7323f39a ("net: ti: icssg-prueth: Add helper functions to configure FDB")
->>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>> ---
->>>  drivers/net/ethernet/ti/icssg/icssg_config.c | 10 ++++++++++
->>>  1 file changed, 10 insertions(+)
->>>
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> index 3f8237c17d099..04a81402e3f3c 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> @@ -732,6 +732,16 @@ int icssg_fdb_add_del(struct prueth_emac *emac, const unsigned char *addr,
->>>  	u8 fid = vid;
->>>  	int ret;
->>>  
->>> +	/* Link-local addresses (01:80:c2:00:00:0x) must only be delivered to
->>> +	 * the host port (P0). Clear P1/P2 membership to prevent the firmware
->>> +	 * from forwarding them out of the physical slave ports.
->>> +	 */
->>> +	if (is_link_local_ether_addr(addr)) {
->>> +		fid_c2 |= ICSSG_FDB_ENTRY_P0_MEMBERSHIP;
->>> +		fid_c2 &= ~(ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
->>> +			    ICSSG_FDB_ENTRY_P2_MEMBERSHIP);
->>> +	}
+>> What
 >>
->> Sashiko gemeni mentioned it could be safer to reject entirely wrong masks:
+>> is
 >>
->> https://sashiko.dev/#/patchset/20260701112535.4027920-1-danishanwar%40ti.com
+>> with
 >>
->> It's not clear to me if the mentioned bad scenario is actually possibly,
->> please have a look.
+>> this
 >>
+>> line breaks?
 > 
-> I had a look at the Sashiko comment. This seems to be a false positive
-> to me.
+> Apologies for the broken formatting in the commit message.
+> I will fix it in the next revision.
 > 
-> Link-local addresses (01:80:c2:00:00:0x) are IEEE 802.1D Table 7-10
-> reserved addresses that bridges MUST NOT forward. They are consumed
-> locally by STP, LACP, LLDP, PAE, etc.
+>> No, you do not get second reg property.
+>>
+>> No, you do not get second interrupts property.
 > 
-> No valid protocol or user configuration would add an MDB entry for these
-> addresses on a slave port — doing so is a misconfiguration regardless of
-> hardware.
+> Understood.
 > 
-> The silent enforcement in icssg_fdb_add_del() ensures the hardware
-> always reflects the mandatory protocol behavior. Returning -EOPNOTSUPP
-> would only matter if there were a legitimate caller we needed to reject
-> — there isn't one.
+> These values are not addressable resources of the BMC node itself;
+> rather, they describe how the BMC's LPC engine is exposed on the host
+> LPC bus. I am not sure how they should be represented in DT, since
+> they do not seem to fit the usual semantics of either "reg" or "interrupts".
 > 
-> I think silently adding host port to FDB membership for Link Local
-> addresses is OK. This Sashiko comment can be ignored.
-> 
+> Do you have a preferred way to represent this kind of host-facing LPC
+> configuration in the binding?
 
-I have responded here to the Sashiko comment. I see that this patch is
-marked "Changes Requested" in patchwork.
+I don't understand what you are referring to, entire context is gone
+because essentially you top-posted.
 
-Since the Sashiko comment was false positive, can you please pick this
-patch if it's OK with you or do I need to send a v2?
-
-I haven't sent v2 yet as Sashiko will run again on it and give the same
-comment again.
-
-
--- 
-Thanks and Regards,
-Danish
-
+Best regards,
+Krzysztof
 
