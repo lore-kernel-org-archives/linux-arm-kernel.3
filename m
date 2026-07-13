@@ -4,53 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E52C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 01:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D386C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 02:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=II67kCqIdlYoG67+/r8pBpLNQvpQ9ORCqT29ntqvhfo=; b=1zXDKviWBm17F5XfaqUedxngFo
-	HQwRxJkT8nDe4OLgaXPNYnVUzvbSzvu+vH2WFNvkiT7UP1EzNfj05G+HqmuviI2hG5s/vzY0H7YoI
-	NC7B9uZqnJjLTaaKzenHnHzlgM7eUCKw72lXRcxsRaFPmGYWalaknlGr/5yyRto8kXV/uvqVrUQdk
-	xkpp3zU+pTBg6gVYmivv8lE/plMq1ULTQNb13GqhNd7BGLJTwiJicunB9OGD+AhLKxJvvkz4eno8z
-	e6jpcnLUG5H70TGu7NI4qfKMDkQPfoTDU3yoRb5bCicEo2UjBxMsmCPlxKrF2Wb1xSeWAj5RGjQRI
-	UJ0SnOKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d4oyeDWMt6CBanCw6VXXqlsGUyPT/+N1aOa2QLsUGZY=; b=3ZcPGMAAdcS+r/kAZsoUwutA3j
+	eWg39HmvBD2xYAffDloe00iwia0dB6klVjx6+W/ZI7FyjK5lN6pSdBkg2d9NYlFCPloTrSS8MtpmO
+	r23VZDCSEyaY5TVulLEVXgByjVC+GND9B9AcDQvmUO61cvwyaRouWAN36Tb1U8n1Fc/kowRZ6+gNA
+	zOORAHQI+t+ZhrTMs/m4uJI6czVaRjqPzxaUYdBAj4T6d3dl5pXe4slI8t38653jLezvRRRUju1nN
+	L7e5gqb0VBnwtdV/RblPDq/rlWSV7vbFdHduXOUz7aBkkhiE2Pz37QBwMEWUho3cVBTbAhiT6pq2X
+	Rnrz+Htg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj5ta-00000007wXk-2S4L;
-	Mon, 13 Jul 2026 01:55:46 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wj6K1-00000007xhj-14Da;
+	Mon, 13 Jul 2026 02:23:05 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj5tW-00000007wXG-2c8A;
-	Mon, 13 Jul 2026 01:55:45 +0000
-Received: from neptunite.rasen.tech (unknown [IPv6:2404:7a81:160:2100:9e15:c3c3:480a:b02e])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id DB3AEB2D;
-	Mon, 13 Jul 2026 03:54:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1783907683;
-	bh=R8heZzhx0Rbh/T9aeambSHqG3wFIiGP4zx6NIPVOf1w=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=kKKTXOg+ozj7JOq4sbVmFtE8cnDZNwt4iF7X7GMm++vRzd+8Ri4v4ZeM74zy/4pSm
-	 zJ5K+1QgTVR2nOSjpRpXeMiLSZFiWFLBMbT9IitsioLenJF3ZR6wgwOcOlKe0iVZrm
-	 2uLuFnuHlmkJIkkgXRIBRSJqghaI+r+e87Uq7ioE=
-Content-Type: text/plain; charset="utf-8"
+	id 1wj6Jy-00000007xhJ-2kPW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 02:23:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VC0IJn1PMhYaTYJI8N2KivYsRFDSJJVcAfHonerUSKSKVYOouS0BjIIP2ALElurEhBQjrRJHWUMxaHAf+49qtZdjJ9uSepd4yYdWck1I4ydhYI+w08pzEm82pN6PRv6qrka7Zj/QuiEYRG1XcgBlxL2Ba/FszU130yWO0pSPzqz92GBcRXy/Opcmu+06QEpEZ06+vAldGZ9EFAvM9uuAi2Xw7C1JLR3BBedFRiyhhh3ZnAMAXCKRmMdBfoBxZ2gWT6W19U2piVKYemIrGAC2Qtt+GkSQjNrg2FqyzdsRL4qIM3lnYFJ+h96HgadN5taxBBhkbQG0ED2rqs97t2qEgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d4oyeDWMt6CBanCw6VXXqlsGUyPT/+N1aOa2QLsUGZY=;
+ b=fiGT8ie9lXegIkHzr5+voQGvmMkq0sMGbpuQP0xfbKpJXTq+nuO0Nj5A1YaULa05i5j2r6c1UfOPe2FMzCCqwc5ymtG29NtI6F1C71DtvCtxEbnNe9BPSpGxd3J8K2BIxBVqzT+8AbhsEpWAk+/rF3EqAcMMW4poOUeG6bgWNE3m49Mutx8jQquVljsUzTw3mcpoOsvnD4kb2O8IbFuvE+jViPzByUxCbusf0DQkRsYNEwqfQ3hAw6mkx2YPvHHHe5r5RIvh9721L7wcvczUROz2YpEEdl9KhvfMcw+HTJ5PZ+ysViVo0kUHHY2S8SFywLVaTBW+JkGs3/JvJqqFCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d4oyeDWMt6CBanCw6VXXqlsGUyPT/+N1aOa2QLsUGZY=;
+ b=PTr45gxEc0fuJ+yWijcQz0ote+I/ewxHcG06hg8YAcxUiwS8wxWKFnrli4Wod4yUR1S+zk20Ipj4DDvo9QVug5jYrKibeFSlZJOFGuBuC4W91sMAPtHAni095CYAocJcRoYsXayV/XOfvYdRo94uETbn5xH9vcovrGbOibMpTkqleOYy9aMl0fsgvOtB0vx7w+G9ok8/EK+u/Rx8kO5cOvXnsYp3j5wI5bNtdrpeUxh/b/cNK6jOb9fl0mZ44sNT+Ny1mahjWlQP6hk6pClIizh0Q9wnCsHLpc2fIwHsQpP5LDd+GT0d+oxmPa/XF+3sMh4yr6Zou0MmVNGw/8vF6g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by DBBPR04MB7659.eurprd04.prod.outlook.com
+ (2603:10a6:10:209::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 02:22:56 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0181.014; Mon, 13 Jul 2026
+ 02:22:56 +0000
+From: Chancel Liu <chancel.liu@oss.nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/3] Add audio support on i.MX91 9x9 QSB
+Date: Mon, 13 Jul 2026 11:22:45 +0900
+Message-ID: <20260713022248.1262123-1-chancel.liu@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SL2P216CA0207.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:19::8) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <e5f16200-3881-4f25-b67d-7053b3b8af19@collabora.com>
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com> <20260619052637.1110672-2-paul.elder@ideasonboard.com> <e5f16200-3881-4f25-b67d-7053b3b8af19@collabora.com>
-Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
-From: Paul Elder <paul.elder@ideasonboard.com>
-Cc: xuhf@rock-chips.com, stefan.klug@ideasonboard.com, kieran.bingham@ideasonboard.com, dan.scally@ideasonboard.com, jacopo.mondi@ideasonboard.com, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org, nicolas.dufresne@collabora.com, ribalda@chromium.org, sakari.ailus@linux.intel.com
-To: Michael Riesch <michael.riesch@collabora.com>, laurent.pinchart@ideasonboard.com
-Date: Mon, 13 Jul 2026 10:55:29 +0900
-Message-ID: <178390772961.8891.12325171786588563297@neptunite.rasen.tech>
-User-Agent: alot/0.0.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|DBBPR04MB7659:EE_
+X-MS-Office365-Filtering-Correlation-Id: 20612298-fa31-448f-d5f5-08dee085a61b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|3023799007|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 7VMAAegn5jN0YU10JgdHtgCwo0CIXrcWZILFd0wYaE0/u0voDKyQeFkdYi1MIGWzVswWwY3ydibmmmsN76nZXIh+LcaSRd6wmwXntJg9o9ff9oQtTN/nxXObUUBBSGLZWx2ZL5o2pHyXgHqLLUtofxMKIHFn0tGQGYRiltRGP0kVc4vk+pfs9ZF8a5n/SyKhvkTc4ltNHPp8Cl9F3/Bg23Yi4kwoIelPeThNSH+tPWZzBqKnJAiqPTHobONWgtD6pi+MVGfLv/hAMYKbLagHmdGmcwBSCM1iKZegJtEBCZxIENBL1SitWLb54yiwkTWe/+qk6fKSv47A0Kay83YK50eKtxQOsy7WVXtGc6YOfaiczDoNZDvJPDfoCRARs8imdcqAmIpxuFQZ0t5E9C24nOd2NVwfoLnuZ8UtrpNS8QUk3yd9xXFaaYW2FgqqWCHib85sr5VH+GNb15ZX/MCsDMT2mUnSFTpWtHi2RS0y3avR2We6klmvCAcLy2jm8eEV9Y2tpRsnvZNg9ZMuO9A26/yfYn74FrtFa/50rshAEFI5uczMbR/zN+UBJcrdKkTcG2T7J1xnsRAdBidedJYwaBNmBS7iWe6M/a4pnW20acWM8SSuwGUGpXRiuPZ7qqw8sRN2HC0kNAnxbFo5QC8aGVGcAZ3JgyGTxNvv7vlCAUc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(3023799007)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YNAbCflmbpexlxXlW2XNoZDQqjkXdZro5RaEzlB55nqD6vCmVBecNAAoEz1V?=
+ =?us-ascii?Q?rYcMwN5amzCoVptR/d8zQnkVH7VIqu3Cq8sLIGtNRBjgDlIOKqJ6KWHsH3Jw?=
+ =?us-ascii?Q?KC32bSJnFtvq9OBpGyPdb3yuRGKBuAwItG16kqQAEL8xPCK9vMkl9wWDqnPq?=
+ =?us-ascii?Q?Mc66OdliH7sgbSAR8ZoqsTmknC3raV6AEkd4fb3PIA10j6t+fVrjYk4HDtiZ?=
+ =?us-ascii?Q?zord8hB5KVBrByFXeYYYMHvL54EoTJlkgalUGGZ8JFT7FsyRcRzSWjCYSK0k?=
+ =?us-ascii?Q?RVqkHtrEU8RmN7d9fcCqSioMclaP4j33gC9HYQmG69e3+Xj32UAl8ZEk+rF4?=
+ =?us-ascii?Q?4t9R2Xo6QZbQiWvllMmj7etmQjhFEuNGw2Dah0W5EPoAnRJQvkChk6ktKFDm?=
+ =?us-ascii?Q?NVxAVP8a96zREskSCFjfssc9l85QVwA+qf0MAJbIEDd4qFp0p0JlfLkRhutQ?=
+ =?us-ascii?Q?YaDKaMC0fcnfOI8EZvlF6SDdx0CcXfyPSvGyIiAEXjNDKYVGokm7Gr/LRWG+?=
+ =?us-ascii?Q?bLExIza1feRIu2/+Ntu3EFuO52m3+uv8q2yLovzuNd5fZ2tsnETGGWFcKHZy?=
+ =?us-ascii?Q?6YVSxxFcRQrWSjwmFxq9ExdWfLUEoTfechYbsKHqxY8+z1xCNMzLrXv1vkdg?=
+ =?us-ascii?Q?1SXfQGVbxOFh+J0YvxcXxCjF9c53ZhoItbXt5uF82dA7LpGq/tdpqZG3udlz?=
+ =?us-ascii?Q?lyYrvw0r0vTifQi1A8y7dmj14Iyww3ulYMqF+DzTdG18Tnb+NyjlOuL8W9yR?=
+ =?us-ascii?Q?Gp73Mep3lWInGvoPNqyGetfQ5pi/dY2t7kg+5wfLAM6TuVoAuUcXCj7vQ7bj?=
+ =?us-ascii?Q?DKKy4Qx98D4fcpB9Ip+uf5iie8zsaH11VX0ZX/grAEUDt+cQhpq6Qb0WhD9V?=
+ =?us-ascii?Q?w7undsmeMXXRxySvw/mfE3R/9h3FkSk4g/HuBMRk/g6Z77O4iYXZqPefdig+?=
+ =?us-ascii?Q?yI8F2XBytTn4clnxpyXK+nI631J8jJqkF+Ssm+4RQBpKvMPHkvhwHy+qAusF?=
+ =?us-ascii?Q?/dyDLwTA3PYrQAmw/WW1vKfH22z1NBLIHxGHLGJluQc1RLSZKsBSWHyuya70?=
+ =?us-ascii?Q?R9E1Q2YUwp54YH26YiHMhVBwenEW7Yf8vwi4DV4zzLNpfTlKr++oscwr9QIz?=
+ =?us-ascii?Q?wvddJemQ3fKxN8XKY9TnASdiklGe+Z7YRvCQI5ffMBvI90wQ3rxYCDVvGaKn?=
+ =?us-ascii?Q?EeTtC+3egeD4bPLIpqnTfomFRYm96us1uRLGInqdyybSsWT3UPIb1A2aJEk7?=
+ =?us-ascii?Q?h2Oz8M3j1EgN7h3yhKplfDxpaY1qsteiwFAwlk9QC7ZtMCql5inUV0TOeugd?=
+ =?us-ascii?Q?K3AZ7bPiEuxiSBBCISCHxgI4AfUfisIqLiUEp5Gk4L4Z+87HP9sgY6b9hPYB?=
+ =?us-ascii?Q?pXp5Tym/aJzgDEeKhQKFbx8LolRJhR4dYDZJX1j5FtfHAbyqCc+PD2mcDN+G?=
+ =?us-ascii?Q?LZGUJkJ+NnOF6eSHykzBXy6yCqgY+W423QplWogMGfCTstxlrURbkIyFhf/E?=
+ =?us-ascii?Q?R7N8y/gA486+wBDv9OBkUXEIXeBWFFKx+0OOW11SiuwWBhXTem3n+udVImTS?=
+ =?us-ascii?Q?anhVA6h5ogzDJboQ0xZ63efMPyrjrbK5FTmqE0IVSnu5No24OUdT0rSW+eQG?=
+ =?us-ascii?Q?7s7YRx1wIfZYgdg1xWWZfF/arm6ppyPUI9mEOTSUxvk4GHdmND83OWIl184X?=
+ =?us-ascii?Q?co25oimt7PNdgGyEbilgt5rcZzZXq1+pMyqlB7DUF0jVwmjKCmKKiG17N1f+?=
+ =?us-ascii?Q?1EzFjI6wmgeoSaMK4T6Bs80cqDOe1ezGG57yi3hRkhPhqX9lLKxN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20612298-fa31-448f-d5f5-08dee085a61b
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 02:22:55.9176
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N9FcUHW8rechxlXaZB+hOa9HAqN3J7iINe1SAIH48cP1hjweeNDeWfZWJoGZDcN2FwhZ+PIfAr+WSx+xWBT2NqPPJXWTwSK+FnHa2chp+Lrou19yQhAi/8SroymuhoO6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7659
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_185543_265306_5CE274DC 
-X-CRM114-Status: GOOD (  70.54  )
+X-CRM114-CacheID: sfid-20260712_192302_719770_A2C447A9 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,455 +143,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+From: Chancel Liu <chancel.liu@nxp.com>
 
-Thanks for the review!
+The board routes audio related signals through on-board muxes controlled
+by a GPIO expander. Add the mux states required by SAI1 playback and PDM
+capture. Add support for WM8524 and PDM microphone sound cards in DT.
 
-Quoting Michael Riesch (2026-07-11 05:23:50)
-> Hi Paul,
->=20
-> Thanks for your work! And sorry for the long silence.
->=20
-> On 6/19/26 07:26, Paul Elder wrote:
-> > Currently, a media graph contains a main device whose driver is
-> > responsible for creating the media device. We have however recently run
-> > into devices that have multiple devices that can quality as a main
-> > device. Examples are the RK3588 which has a VICAP and two ISP
-> > instances, and another example is the i.MX8MP which has an ISI and two
-> > ISP instances. As there is currently no way to reconcile who the main
-> > device is in the media device, these setups simple cannot be used
-> > simultaneously.
-> >=20
-> > This patch extends the media controller API with a "shared media graph"
-> > framework. This allows drivers to share a media device, thus enabling
-> > the setups mentioned above. Instead of owning and creating a media
-> > device, drivers can join-or-create a shared media device via the shared
-> > media graph API. The matching is done automatically based on the
-> > detected endpoints in the device tree.
-> >=20
-> > Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
->=20
-> Frenetically-cheered-by: Michael Riesch <michael.riesch@collabora.com>
->=20
-> OK, what follows is pretty much a rubberducking session in which I try
-> to explain myself the concept you came up with. Possibly there are one
-> or two thoughts and/or questions you can use to develop the concept furth=
-er.
->=20
-> IIUC this is a new API with four calls. There is _join() and _leave()
-> that more or less replace the creation and deletion of a media device in
-> a V4L2 driver. And there is join_link_source() and join_link_sink() that
-> are called for each cross-device connection on the source and sink side,
-> respectively.
->=20
-> There is one shared media device per disjoint graph in the device tree.
-> If a new device calls _join(), the function iterates over all shared
-> media devices, iterates over all DT endpoints of the new device, and
-> iterates over all members of each shared media device. If the fwnode of
-> the parent of the remote endpoint of a certain endpoint of the new
-> device equals the fwnode of a certain member of a certain shared media
-> device, we found a match. This certain shared media device is then used
-> in the driver of the new device. Before that, a member for the new
-> device is added to the shared media device.
->=20
-> In case no shared media device is found, a new one is created and used.
-> A member for the new device is added to the shared device in this case, t=
-oo.
->=20
-> The actual linking takes place in the _join_link_{sink,source}
-> functions, which iterate over the links of the shared media device and
-> check whether a link has a pointer to a source (or sink) respectively.
-> If a source (or sink) is found, a link is created. Otherwise, a link (in
-> the form of a newly introduced data structure, not a media_link) is
-> added to the links of a shared media device. The latter somewhat
-> corresponds to the v4l2 async notifier mechanism.
->=20
-> So far, so good. Even if the genitive construction chain that describes
-> the matching above is a bit daunting. All in all I think we are on a
-> reasonable path here.
+Changes in v3:
+- Fix node ordering: sort root nodes alphabetically by node name, including
+  Move wm8524: audio-codec before mux-controller nodes in patch 2
+  Move dmic: dmic before mux-controller nodes in patch 3
+Link to v2: https://lore.kernel.org/imx/20260710024204.3462444-1-chancel.liu@oss.nxp.com/
 
-\o/
+Changes in v2:
+- Bindings have been applied, remove from this series
+- Reorder pinctrl-gpiomux children alphabetically
+- Move compatible to be the first property in the wm8524 codec node
+- Move vendor property fsl,sai-mclk-direction-output after clock-names
+  and before status in the sai1 node
+Link to v1: https://lore.kernel.org/imx/20260707065725.312450-1-chancel.liu@oss.nxp.com/
 
-Yes the overview is right.
+Chancel Liu (3):
+  arm64: dts: imx91-9x9-qsb: Add audio-related board muxes
+  arm64: dts: imx91-9x9-qsb: Add WM8524 sound card support
+  arm64: dts: imx91-9x9-qsb: Add PDM microphone sound card support
 
->=20
-> > [...]
-> > +// TODO figure out locking for when multiple drivers touch the media g=
-raph;
-> > +// maybe macros for shared versions?
-> > +struct media_device_shared {
-> > +     struct media_device mdev;
-> > +     struct list_head members;
-> > +     struct list_head links;
-> > +
-> > +     struct list_head list;
-> > +     struct kref refcount;
-> > +
-> > +     struct device *removed_device;
-> > +};
->=20
-> [discussed in other thread]
->=20
-> > [...]
-> > +/* Callers should hold media_device_shared_lock when calling this func=
-tion */
-> > +static bool __media_device_shared_find_match(struct media_device_share=
-d *mds,
-> > +                                          struct fwnode_handle *fwnode)
-> > +{
-> > +     struct media_device_shared_member *member;
-> > +     struct fwnode_handle *ep;
-> > +     struct fwnode_handle *remote_ep;
-> > +     bool match =3D false;
-> > +
-> > +     // TODO: parse the device tree endpoints graph instead of finding=
- just the
-> > +     // first-level neighbours
-> > +     fwnode_graph_for_each_endpoint(fwnode, ep) {
-> > +             list_for_each_entry(member, &mds->members, list) {
-> > +                     remote_ep =3D fwnode_graph_get_remote_port_parent=
-(ep);
-> > +                     match =3D (member->fwnode =3D=3D remote_ep);
-> > +                     fwnode_handle_put(remote_ep);
-> > +
-> > +                     if (!match)
-> > +                             continue;
-> > +
-> > +                     goto match_complete;
-> > +             }
-> > +     }
-> > +
-> > +match_complete:
-> > +     fwnode_handle_put(ep);
-> > +     return match;
-> > +}
->=20
-> <rubberducking>
-> IIUC there could be devices A -> B -> C that share a DT graph (and thus
-> should share a media device), but suppose the probe order is driver A,
-> C, B then A would rightfully create a new shared media device, but C
-> would not see it and create yet another shared media device. Thus, the
-> the find_match() function needs to traverse C -> B -> A to find the
-> correct shared media device.
-> </rubberducking>
+ .../boot/dts/freescale/imx91-9x9-qsb.dts      | 160 ++++++++++++++++++
+ 1 file changed, 160 insertions(+)
 
-Yeah I guess traversing the graph is kind of a critical feature.
+--
+2.50.1
 
->=20
-> Just saying that with one and only one media device to rule them all we
-> wouldn't have to deal with this. Another option would be to assume that
-
-Hm yeah that's true; we'd just have a sea of media entities and we can link
-whoever we want...
-
-We didn't really discuss that part very hard last time.
-
-> each driver knows to which shared media device it belongs. For example,
-> the rkcif driver could be aware that it belongs to the
->     {
->         .id =3D MEDIA_SHARED_ROCKCHIP_CAMERA,
->         .name =3D "Rockchip Camera Subsystem",
->      }
-
-The problem is where would this information go? We can't put it in the driv=
-er;
-it *must* come from the device tree. And I don't think we can just add a new
-property that defines a media subsystem. So I think our only option is to
-traverse the endpoint graph in the device tree.
-
-> shared media device. This would reduce the magic above to a lookup
-> operation. All that said, it should be feasible of course to traverse
-> and find.
->=20
-> > [...]
-> > +/* Callers should hold media_device_shared_lock when calling this func=
-tion */
-> > +static struct media_device *__media_device_shared_create(struct device=
- *dev)
-> > +{
-> > +     struct media_device_shared *mds;
-> > +     struct media_device_shared_member *member;
-> > +     struct fwnode_handle *fwnode =3D dev_fwnode(dev);
-> > +     int ret;
-> > +
-> > +     mds =3D kzalloc_obj(*mds);
-> > +     if (!mds)
-> > +             return NULL;
-> > +
-> > +     member =3D kzalloc_obj(*member);
-> > +     if (!member)
-> > +             goto err_free_mds;
-> > +
-> > +     media_device_init(&mds->mdev);
-> > +
-> > +     ret =3D media_device_register(&mds->mdev);
-> > +     if (ret)
-> > +             goto err_free_member;
-> > +
-> > +     INIT_LIST_HEAD(&mds->members);
-> > +     member->dev =3D dev;
-> > +     member->fwnode =3D fwnode;
-> > +     list_add_tail(&member->list, &mds->members);
->=20
-> This can be refactored as this is carried out either way, right?
-
-Yes.
-
->=20
-> > +
-> > +     INIT_LIST_HEAD(&mds->links);
-> > +
-> > +     kref_init(&mds->refcount);
-> > +     list_add_tail(&mds->list, &media_device_shared_list);
-> > +
-> > +     // TODO figure out how to reconcile this with multiple members
-> > +     mds->mdev.dev =3D dev;
-> > +
-> > +     devv_dbg(dev, "%s: Allocated media device with %pfwf at %p\n",
-> > +              __func__, fwnode, &mds->mdev);
-> > +     return &mds->mdev;
-> > +
-> > +err_free_member:
-> > +     kfree(member);
-> > +err_free_mds:
-> > +     kfree(mds);
-> > +     return NULL;
-> > +}
->=20
-> OK, what options do we have?!
-
-(Just in general or with respect to this function...?)
-
->=20
-> We could pick one device of many. But based on what criteria? If there
-> was a good way to pick one, we could equally pick a driver that
-> registers the media device and move on. We conclude that apparently
-> that's not the case, otherwise we wouldn't be doing this exercise. Next.
-
-Yes; given that both rkcif and rkisp2 could potentially exist on devices wh=
-ere
-the other does not, this is not realistically doable. (I mean if we really =
-want
-to we could but it would be a high-cost mess)
-
->=20
-> We could introduce a pseudo device that provides the umbrella. But
-> again, that would be close to creating an umbrella driver that registers
-> the media device. And at some point we decided not to do that. Next.
-
-Similar problem as above (can't choose main driver), the one above that (no
-place to put group member list).
-
->=20
-> We move from the notion of a media **device** to a media **graph**
-> (which is in alignment with the subject of this mail). The media graph
-
-I always thought that media device and media graph were the
-same/interchangable...
-
-> is something owned by the subsystem, not by any device/driver. The media
-> entities therein, however, could be owned by devices/drivers. Maybe
-> struct media_entity should feature a struct device *dev; member.
->=20
-> I could imagine that the dev member is used mostly for
-> dev_{info,err,...}, we would need to get rid of them. If there is
-
-afaict that's the case.
-
-> actually something with devm_ then this requires more thought.
->=20
-> IMHO the third option is the way to go.
-
-I'm glad we agree :)
-
->=20
-> > +
-> > +// TODO figure out how to resolve the identifiers (model, driver name,=
- etc);
-> > +// atm it's racy and whoever gets it last wins
-> > +struct media_device *media_device_shared_join(struct device *dev)
-> > +{
-> > +     struct media_device *mdev;
-> > +
-> > +     mutex_lock(&media_device_shared_lock);
-> > +
-> > +     mdev =3D __media_device_shared_get(dev);
-> > +     if (!!mdev) {
-> > +             dev_dbg(dev, "%s: found media device for %pfwf", __func__=
-, dev_fwnode(dev));
-> > +             mutex_unlock(&media_device_shared_lock);
-> > +             return mdev;
-> > +     }
-> > +
-> > +     mdev =3D __media_device_shared_create(dev);
-> > +     if (!mdev) {
-> > +             dev_warn(dev, "%s: failed to create media device for %pfw=
-f", __func__, dev_fwnode(dev));
-> > +             mutex_unlock(&media_device_shared_lock);
-> > +             return ERR_PTR(-ENOMEM);
-> > +     }
-> > +
-> > +     dev_dbg(dev, "%s: created media device for %pfwf", __func__, dev_=
-fwnode(dev));
-> > +     mutex_unlock(&media_device_shared_lock);
-> > +     return mdev;
-> > +}
-> > +EXPORT_SYMBOL_GPL(media_device_shared_join);
->=20
-> Similarly, we have to bid farewell to the notion of a media **device**.
-> Can we agree on making
->     struct device *dev;
->     char driver_name[32];
->     char serial[40];
->     char bus_info[32];
->     u32 hw_revision;
-> optional for shared media devices (or, better, graphs)?
-
-Well I think driver_name and (maybe) hw_revision are still useful to have. =
-The
-only problem is I have no clue where to put/get that information.
-
-The only good-ish idea I could come up with was something like
-"shared_media_graph_{board compatible}_{smallest base address of media graph
-member}". So like "shared_media_graph_rockchip,rk3588_fdcb0000" for the rk3=
-588
-since between the csi receivers and vicap and isp, the isp has the smallest
-address. That way:
-- the information comes from the device tree
-- the name is persistent
-- it can identify separate shared media graphs on the same platform
-
-idk about the hardware revision though. I think probably only driver match =
-data
-can hold that information. But then we'd probably have duplicate information
-since otherwise if one of the member drivers doesn't probe then we'd be mis=
-sing
-the hw_revision. Or maybe we don't care about hardware revision since it
-doesn't make sense for the shared media graph part and it only makes sense =
-for
-the individual IP cores. In which case that information is lost unless we m=
-ove
-it somewhere else. Or maybe it's not used anyway so we can indeed just drop=
- it.
-
->=20
-> I could imagine, though, that we provide some minimally meaningful info
-> in a struct
->     {
->         .id =3D MEDIA_SHARED_ROCKCHIP_CAMERA,
->         .name =3D "Rockchip Camera Subsystem",
->         .driver_name =3D "rkcss",
->         .hw_revision =3D 42,
->         ...
->      }
-
-Same problem as above: there's no reasonable place to put this information.
-
-> and apply that info here.
->=20
-> > [...]
-> > +int media_device_shared_join_link_source(struct media_device *mdev,
-> > +                                      struct device *dev,
-> > +                                      struct media_entity *source,
-> > +                                      u16 source_pad, u32 flags)
-> > +{
-> > +     struct media_device_shared *mds =3D to_media_device_shared(mdev);
-> > +     struct media_device_shared_link *link;
-> > +     struct media_device_shared_link *link_tmp;
-> > +     int ret =3D 0;
-> > +
-> > +     mutex_lock(&media_device_shared_lock);
-> > +
-> > +     /*
-> > +      * TODO Figure out flags. Should we use greatest common denominat=
-or? Or
-> > +      * prioritize sink? Or whoever wins the race? For now we just tak=
-e the flags
-> > +      * from the sink.
->=20
-> The phrase "whoever wins the race" is surely gold in the documentation
-> ;-) I guess it should be same as with any _notifier_bound setup, and
-
-Hehe :)
-
-> IIUC it's typically the sink that passes some flags to
-> v4l2_create_fwnode_links_to_pad. So prioritizing the sink seems reasonabl=
-e.
-
-Ok good.
-
->=20
-> > +      *
-> > +      * TODO Figure out how to actually do the matching. For now we ju=
-st match
-> > +      * whoever comes in first. This works with the simple example we'=
-re running
-> > +      * with now (rkcif + one rkisp2) but with setups with multiple co=
-pies of
-> > +      * hardware this will cause problems, like with rkcif + two rkisp=
-2 and
-> > +      * imx8-isi + two rkisp1.
-> > +      */
->=20
-> In the end, shouldn't this follow whatever v4l2_async does? Not exactly
-> sure, but I think storing a struct media_entity * and a struct
-> fwnode_endpoint * for side A should do the trick. Side B would appear
-> later with the second struct fwnode_endpoint. The check would then be if
-> fwnode_graph_get_remote_endpoint(fwnode_A) =3D=3D fwnode_B (+ maybe vice
-> versa). The link would then be filled with media_entity_{A,B} and
-> media_entity_{A,B}->ops.get_fwnode_pad(media_entity_{A,B},
-> fwnode_{A,B}). Obviously we need some selector that tells us whether
-> A=3Dsource and B=3Dsink or vice versa for that.
-
-Oh, good idea!
-
->=20
-> > +     list_for_each_entry_safe(link, link_tmp, &mds->links, list) {
-> > +             if (link->sink) {
-> > +                     ret =3D media_create_pad_link(source, source_pad,
-> > +                                                 link->sink, link->sin=
-k_pad,
-> > +                                                 link->flags);
-> > +                     list_del(&link->list);
-> > +                     kfree(link);
-> > +                     goto exit_join_link_source;
-> > +             }
-> > +     }
-> > +
-> > +     link =3D kzalloc_obj(*link);
-> > +     if (!link) {
-> > +             ret =3D -ENOMEM;
-> > +             goto exit_join_link_source;
-> > +     }
-> > +
-> > +     link->source =3D source;
-> > +     link->source_pad =3D source_pad;
-> > +     link->flags =3D flags;
-> > +     list_add_tail(&link->list, &mds->links);
-> > +
-> > +exit_join_link_source:
-> > +     mutex_unlock(&media_device_shared_lock);
-> > +     return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(media_device_shared_join_link_source);
-> > +
-> > +// TODO deduplicate from above
->=20
-> Should be possible to have some helper with (..., bool is_source) and
-> then two nice functions that are exposed to the public.
-> To start the bike shedding: Maybe
-> media_device_shared_register_{source,sink}?
-
-Yeah that sounds like a good idea.
-
-
-Thanks,
-
-Paul
-
->=20
-> > [...]
->=20
-> Thanks and best regards,
-> Michael
 
