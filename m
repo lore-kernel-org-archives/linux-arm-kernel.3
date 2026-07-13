@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94D6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC30C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JWJRfd6QdZf7qlUjcbW5D2kIZlwkQZ3KWr7+m1ApiM=; b=TBfci01BSLydFHafB+KBYsA/BT
-	2VAA5R4Hjy7RP1/sjrTelBTd4M7plI1tSRKQpQL5P21JGi4KE68jj8LZZsCu3AQ0cQ4ZixLmrQ8sD
-	KowlQIJzFyV50bM33oejDwxkIQvniRMHB+b6/x79Pp266iHtYDTfwVI/IT9IT8bk/wFof7hXNcawB
-	XY8zj0ECv1zN0KhcnTfVSWwBbPn3v/9qDebs6rBwaX87jwt0FWNNWHn+zewTUC6D7iHAhIIzcT0PS
-	t0embeIR7l4Z+UhEleCOEbRPycTeFQnprjUdKvUtCuY1IlzzMsLmknGbuICneelWDA5HxgL98w1ky
-	ubOWd3aQ==;
+	bh=3axe3nHsSV3pW5ca03j1xpTM6jT4Lmr5n6MpYvrruyI=; b=rKy+JfbooVOnOT3O+ZHgsqhf9p
+	MECgiOKGtF34R5YS/Pb2sahXbeYyfRWphxNXbmcBEIDI2Q89jgTMsQQbzfRMGsO7InJQJJBPxVLlX
+	2IQ5v0gPWCQbrciuVqC+uWuUCKZEd5jFKCfbu9X6RP+QLjY6q1iWCuSTirbhJ/xQc4x/neV10c+uU
+	gA6Jh7SFV2uxCZAmT569On4+WsNHJtc8Qb5iWMDZraSfxajL3327mMIpQWOGF2sxF82EXR3hk2gZB
+	vviBCfIC2mn2HbtfJ92TWjGI7ig6/WiD8SjE3m5Smcm64aD4253mEJH+LMse76EelA210sP97zthB
+	/4o2og5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMVG-0000000AIsv-2XvL;
-	Mon, 13 Jul 2026 19:39:46 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1wjMVe-0000000AIzF-3RbC;
+	Mon, 13 Jul 2026 19:40:10 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMVE-0000000AIsF-36PQ
+	id 1wjMVc-0000000AIy2-18wQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:39:45 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-8f032b47e3cso27466936d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:39:44 -0700 (PDT)
+	Mon, 13 Jul 2026 19:40:09 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-9034b6b7674so21908366d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:40:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783971583; x=1784576383; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1783971607; x=1784576407; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=1JWJRfd6QdZf7qlUjcbW5D2kIZlwkQZ3KWr7+m1ApiM=;
-        b=P0fAVFpvK2YysoeXKxDwwyEbpIEl8/Zr9HbihAbh+S9XQgZwj4Jl7uGCpLSJBx8qaL
-         ZcG58C5WqsWgVXZ0DjbDS9BnKPelsCbfCHMV/TxxxxpzYx9Xh7UpqZSP8jmerfmEDJy9
-         VbSn5EgrDQPO2Btwv65o0U6ejbKP/6GEqUMJQPXZBNGK1wEChepN2O1z17lfIzBrUzYc
-         gJYOvbxvd6Z5W65khKYTA11Rs/um0ph5C/1l15p+Xk6bqa+wPD5V6IaRvr1Kmqc6Xxbf
-         Hlse+kcknK+VWlhqN9M4D53n4i2xRkZ0cz2DqlmwN0V1PxTgg2KOLvJZFxRphVsbbxSk
-         EeNw==
+        bh=3axe3nHsSV3pW5ca03j1xpTM6jT4Lmr5n6MpYvrruyI=;
+        b=K+LxNIRgCVvvzB3VDYmSioUQdJ7lf1McX400QmpCE+V5VgqyVXhvPyqxgmQZNBYVKC
+         hTobWRRKZ2iA3ex7aYGFMkkhrTEUzk2UTM3LW5TGjtnDUnUI2Ye9vItr+s+8QW1aLKha
+         Bqqs/8dGvxrQBRifaVyJNtGCLUS3VMkmwCmy5dq7MJsdsaKL65Q4GXyKDRKssmO3/gHS
+         Yv7DUN4yFtrI8bGcQ7BYcMb3VHngxGhDUJiEbGA9joIdBu11Zj7eZfrFrauG3qlZTjCz
+         eWCIlhWt3EERxzb4Mu6E++FLBv6cMK2cJ/ik1bBIzCL0TNwKXO1Gcb8XWxAI36dNooIZ
+         juEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783971583; x=1784576383;
+        d=1e100.net; s=20251104; t=1783971607; x=1784576407;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1JWJRfd6QdZf7qlUjcbW5D2kIZlwkQZ3KWr7+m1ApiM=;
-        b=tRMh9NdSd90vY2WcOYjlccbk5xJO+2BRAK7YD9M74yKrojMif2SaOoM2mqc97iHjHh
-         KvhCe+zpJXclY9zJCTr94BQSe3JUWcBCU0l6MIMO7Nx/UAN70it/LYdDpgpDcK7oQS9t
-         j1HEBTEFWA6d07In2uqmVPVDSo7BT4odqj13UuDhSZhqL6Y/q0fDfcB35Tgf/LF98sew
-         cLiN51Bul7K306fRjRH8irNUFcbXnohD5qXPCbdC0UK+l0yAjiRmaMirb5fFR3d/4HpF
-         pRrfiKptz9wsc0+GCtFj1FIo/w8j/rPfGtfKfOAct5eJcWgQYbv8ss9L1KH5tMOtiYw7
-         wQ3A==
-X-Forwarded-Encrypted: i=1; AHgh+RrVru1U5F0fqeHnc2dOFhC6WKu9Ftn77FyiV9vUXtagfYA2kBibNErxB4QaT7JL+N6B2R3eMUa4L1OTSnvHEbPr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlXvlUU84XgvbkkycaqO89jjoZ+Sj28P63btpfDuMpfjZX9R3S
-	biNPfw+soyojtNN+BkIKZ3ltnd35L5BWbqX7fLuZF5QI3KXMyrHWKVQarT+3xMH9/j0=
-X-Gm-Gg: AfdE7ckuEMdc3gRqRT5BRjTuNiJylZ26SEE1Y++cP6nbaLy+5sB7OZSBgKND+UIknnH
-	5RQ2V9vm4WfUHCsfx/M2AkiehliOloNZmvsNnquTFfHGjClXoeJS4i0NIhvoL3bqQTga4aBCbkd
-	ViQUp/vRU3t5WhvN2iSO2lWgc0QOSDdvRue34cI8FfyY5L0qoUK6sUU78PTnnPEG3fWMZJw2M90
-	UKM16VMDr7ImZBCese33H4fHq+fM9qMwZLFHzJSIY0qSlCc5zpcAfEWlBtgRDoSN0+4un84qn/Z
-	x8JEEC3Z9RK4y/VXgEuPTW8ThvA4JutHEkNXINUsNqR4BzBVb8pJYAHa0ckkx9NU8PBUxboWfzj
-	RvVR7IIL8lz5GbkNMNUM/AtAIO7YZ9Z84vsXvg22fztZ+Wry61z0bPrTy+PTD
-X-Received: by 2002:a05:6214:4c8a:b0:8f1:3533:7a83 with SMTP id 6a1803df08f44-90402c68b4dmr105755746d6.33.1783971582552;
-        Mon, 13 Jul 2026 12:39:42 -0700 (PDT)
+        bh=3axe3nHsSV3pW5ca03j1xpTM6jT4Lmr5n6MpYvrruyI=;
+        b=QWTdC1+F3ctMuY3fo+8WPfTD5N/7N8l75B3x9A1c7TvHkKN/mn2YzSgFFgCLe3RKtL
+         pYDk3/fml73+vlSPnNsvknqQifDJ6YkksNEFWYrPGwsGsNAFMjCB7RZxyTFsWxlmhmdL
+         JdwJcdSW/AIQdojnHTuVENbsBCxcKin3+KYxU3feKM1NYPdkyBmOz/zpmQ5evyTb2xff
+         /8VX1R8n9YX8f5YiHWm9JTsRS6Dhnwhxldz5hduzD7eshDxuRTQ9AvtbB7Hpzs0/PWdE
+         XX2e5/Y8ON43Wxw/JNAKKB03LAKscozR9wZjEPL0CsQxAVcX3939S20wW0x1JQxvIbfR
+         SgWQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrKib8rgv8fcUM44Zxzdc0bC3SqlCcF3AxonF8tRwxLMQi5wh0nwi2l4r69eccu6SYUtigt9ySWbAwOJuK7AN9T@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUTjQZdSHWgJhOY+6BpswTJCfYNT0quzmcIFIbMVTaN8nMBu5j
+	7FARFv7cFfhyWpDA6J8gYxLzRDLC1qPU+L81RziwLVCbjFq2nECjSNDFLq+wI8SDRlE=
+X-Gm-Gg: AfdE7cmMN3uVbAFKa8nZwcmWg6NEIXwrbP+YT1fN+9KD0BRgAqc9xn6uQZTG1GHWg8b
+	ejGaw8ZI3XHqIFtOfDQ90NYvB2gDFg4Np/sL1AoPnWtrzoUYwQfm+E7jjbLvUwRsNbBRkHmN8hr
+	zOwHjwaXSBvu3d3Ju+/Mc+igaZc7qMudCEVvXvCjt4n59YeNL0yzrTu6Gft+yVB0GHO7hOKMeL1
+	yGFEekos4+cgR1nmVavKCFA1bG7oSZ/OvOaUrvscv+si1npWiVUh5nHVuIYfy8JE/hhZVYQVM/q
+	Nbd+L+m20kVsjyaJJa+XJ+uVsUcuCS1wWh0cbACMnOF/F7UjQKhWdNR5Ke/07Gxw4+zBAj2EaRe
+	fTAgOxLKez4EkpohUHWu2hclhD2wiHL+7D1zh7ehtWZOzpavfsvEHc52ksM7a
+X-Received: by 2002:a05:6214:e8c:b0:8fd:6e12:9711 with SMTP id 6a1803df08f44-90747d1c8bbmr12839976d6.63.1783971607034;
+        Mon, 13 Jul 2026 12:40:07 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90725bc050esm20419156d6.28.2026.07.13.12.39.41
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd56c06e1sm136829916d6.14.2026.07.13.12.40.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:39:42 -0700 (PDT)
+        Mon, 13 Jul 2026 12:40:06 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMVB-0000000E6bn-2D9o;
-	Mon, 13 Jul 2026 16:39:41 -0300
-Date: Mon, 13 Jul 2026 16:39:41 -0300
+	id 1wjMVa-0000000E6cV-053d;
+	Mon, 13 Jul 2026 16:40:06 -0300
+Date: Mon, 13 Jul 2026 16:40:06 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -100,20 +100,19 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 18/22] dma-direct: select DMA address encoding from
- __DMA_ATTR_ALLOC_CC_SHARED
-Message-ID: <20260713193941.GX3133966@ziepe.ca>
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 19/22] dma-direct: rename ret to cpu_addr in alloc
+ helpers
+Message-ID: <20260713194006.GY3133966@ziepe.ca>
 References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-19-aneesh.kumar@kernel.org>
+ <20260701054926.825925-20-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-19-aneesh.kumar@kernel.org>
+In-Reply-To: <20260701054926.825925-20-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_123944_788388_95C9163D 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_124008_323859_79E1B652 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,12 +127,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
-> +	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
-> +					 !!(attrs & __DMA_ATTR_ALLOC_CC_SHARED));
-
-The !! isn't needed when going through bool, the compiler does it
-automatically.
+On Wed, Jul 01, 2026 at 11:19:23AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> ret in dma_direct_alloc() and dma_direct_alloc_pages() holds the returned
+> CPU mapping, not a generic return value. Rename it to cpu_addr and update
+> the remaining uses to match.
+> 
+> This makes the allocation paths easier to follow and keeps the local naming
+> consistent with what the variable actually represents.
+> 
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Reviewed-by: Petr Tesarik <ptesarik@suse.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  kernel/dma/direct.c | 40 ++++++++++++++++++++--------------------
+>  1 file changed, 20 insertions(+), 20 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
