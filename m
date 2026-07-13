@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B8EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD712C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8Bglr7WqXq7jak0S9UKAVwve3cnwov2siAgPcvxrIQ=; b=f18JuW+msWAZkyWjEAI9KJGBjV
-	IoLMn5UM35Rw1MixuNbhbzYdn9s9Y2EPeYsLPPeY1OaUoIOqJrVf6GzdphPKN2d+ZhSeHVlxwMpLo
-	aJFzr+yZ/Z5TFrwFXYRe+I4cqaD3UDntZWHDTXskdJ6SrOMy+50DGGmvMTlM0AboPqxxaGOt+8Hi4
-	ufqN5TxS+pD2PQSFsOgyKmrv4r3+feS4tYmnqP6/hDkkCeQMKqsQe/mSZyBMbLWt4Q3PPhRyb+Ee0
-	zv/dxktLuYffvf0wWUWyyCMkAQiTMQsPyv8H83V7ebHVFVrOIrg0ktmnZZKaX3lmXI3UFeXvQsEDp
-	d4jAyhTA==;
+	bh=XhkW4DyzeNy/HzsLnNu7ueSjq2mmL5alfmtKXq4g/2g=; b=a5SI+iRA7h9HOjP0yzkwAJ80ny
+	EPKUXzIsdW0m5XTDLaXFNWm+HlPrkiQEoBwHSQCGhyRXgE+9n82aDWql1DjnvVriXMIENvN4aVxEw
+	p3Jl1eDIU+DAQvL7r24TmqzLEXfpgEia7GJBt6D3F9GxzZeomD1GgZoIT5wEyCnlKsrH0RrGPi2LK
+	4T9TCTxdCMX6ylpXplQngcdinbawacDXarGq9iJQ0waDUwMUsh2KvyvzzxxIjFOyyd7g9kMcujA4S
+	845V3WIn9AgmC/KX8B3LnhoNsFuA4btADlk3aH4F2k741GbsfhaWH0qNGg4dq8H8kTd4uB4KGHp+i
+	cKJJI7Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjISZ-00000009m85-48Ij;
-	Mon, 13 Jul 2026 15:20:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjITa-00000009mIe-0m7u;
+	Mon, 13 Jul 2026 15:21:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjISY-00000009m7g-0XrV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:20:42 +0000
+	id 1wjITX-00000009mIM-3VjB;
+	Mon, 13 Jul 2026 15:21:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB6BA41877
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 15:20:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4411F000E9;
-	Mon, 13 Jul 2026 15:20:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 95A6541812;
+	Mon, 13 Jul 2026 15:21:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7313C1F000E9;
+	Mon, 13 Jul 2026 15:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783956041;
-	bh=d8Bglr7WqXq7jak0S9UKAVwve3cnwov2siAgPcvxrIQ=;
+	s=k20260515; t=1783956103;
+	bh=XhkW4DyzeNy/HzsLnNu7ueSjq2mmL5alfmtKXq4g/2g=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YUUT0oL3DIHpKWpzU5IuSqbRfJ180MgGT0IPFl58d2AJTj5jdFlSQOvfrpxqz7y0D
-	 BL20H8oDZ1JMduTnSF1lYxCPfyAjKoKVXX/CZKlMDclkfTJ7T+MWybDXg1nhSDs5ys
-	 1dB0j2e35cmweBGKPJQiCxItQIyWovoJQqr0cBcZNQDq/Ay9q314nDYThVpsqiSaDw
-	 V8nhfTE9OtQc6Y8zu45+JqL4MaMU1JqzYmozqUQOKNERw8D4pJ3u9xCJpR0WMR4stQ
-	 /sgWF1T8NOEjaIjF2ovqToxmrUjKo3ZgqMXxdwYLSFMIxRWQ4vRHTJtidyQae6kJZ1
-	 83gPWpAx38aMQ==
+	b=F09cTBs5YkUJ1IxJqJsu8OhY3BdouXGZWrVpFybeLQ7wei/4yxAF4u/CXq/rN7AsD
+	 xLcA5TAjAmjI8DNQ0NsyF5Q5B81/mxzvuC3eMPhMyZx+IpFfEkS8sbSMq+JPRFTKyo
+	 bWPPEcCAftQRCJ8nlvBVSPeMZhpff/500B+q9uzi1TK4EnN4WApQISqhhFjW4TkE/h
+	 dv4nLojuqYwouXEkdytzZWmcaitHOqGxSaqEWFx3OxPX8GaXzDpX8PsrLiSKjGlCh3
+	 XFDvyZudWBBSUq6jAz7lpu6yHVEM1BJc6t59pIZJUopcQPYFIxydrJjDghGilWnyqf
+	 cSgUuRmSkocSw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjISV-00000004XrD-3UW1;
-	Mon, 13 Jul 2026 15:20:39 +0000
-Date: Mon, 13 Jul 2026 16:22:29 +0100
-Message-ID: <87ech66hje.wl-maz@kernel.org>
+	id 1wjITV-00000004Xt7-1U63;
+	Mon, 13 Jul 2026 15:21:41 +0000
+Date: Mon, 13 Jul 2026 16:23:30 +0100
+Message-ID: <87cxwq6hhp.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
+To: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <thomas.weissschuh@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-mips@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: iwb: Fix stray verb in comment
-In-Reply-To: <20260709151208.1168456-1-lpieralisi@kernel.org>
-References: <20260709151208.1168456-1-lpieralisi@kernel.org>
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH 5/7] clocksource/drivers/arm_arch_timer: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery with IS_ENABLED()
+In-Reply-To: <20260709-vdso-arch-clockmodes-v1-5-3fd780bbf851@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+	<20260709-vdso-arch-clockmodes-v1-5-3fd780bbf851@linutronix.de>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org
+X-SA-Exim-Rcpt-To: thomas.weissschuh@linutronix.de, arnd@arndb.de, luto@kernel.org, tglx@kernel.org, vincenzo.frascino@arm.com, nathan@kernel.org, nsc@kernel.org, tsbogend@alpha.franken.de, daniel.lezcano@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, chenhuacai@kernel.org, kernel@xen0n.name, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,39 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jul 2026 16:12:08 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> Remove a stray verb ('be') that is out of context in a comment in the IWB
-> driver.
+On Thu, 09 Jul 2026 12:32:41 +0100,
+Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de> wrote:
+>=20
+> Now that there is a dummy declaration of VDSO_CLOCKMODE_ARCHTIMER,
+> even if no vDSO is built, the ugly ifdeffery can be replaced with
+> a cleaner IS_ENABLED() check.
+>=20
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 
-If you're fixing random comments, I'd suggest fixing them for real...
-
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v5-iwb.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-> index 9103feb70ce8..87f10212f283 100644
-> --- a/drivers/irqchip/irq-gic-v5-iwb.c
-> +++ b/drivers/irqchip/irq-gic-v5-iwb.c
-> @@ -143,7 +143,7 @@ static int gicv5_iwb_irq_domain_translate(struct irq_domain *d, struct irq_fwspe
->  			return -EINVAL;
->  
->  		/*
-> -		 * param[0] is be the wire
-> +		 * param[0] is the wire
-
-param[0] is not a wire. It is a wire *number*.
-
-Thanks,
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
--- 
+--=20
 Jazz isn't dead. It just smells funny.
 
