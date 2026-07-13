@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4909DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9C2C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N30vr1xrRftm2nMobVAtxbwff06D+Jf4XX9jZoAnGTU=; b=YfMFthgF16WOPlh8FmbttxBZpr
-	fa1kVA4jMMWnZh930WIwaJiHcX4CvpTgkkDqHBoXInTE2GFUiDdotp16WAwFucXflvF5c3KWFciyo
-	bENLhz0r4lE8d4Tekg722ihXv/3uV7a2OcYs83jZ3fYtwzKXAxOXYGJTzx3CgFlWeQDANCThIYwWP
-	g88GPW6NX4t5TLBNMPkvWLNaGayOaoKylisAmF35IW0MSpBNaRu+iGreKjJiNgEtGJi/WtKauH55g
-	2lyYVoRIb6TYJyGcF1TdNDwB9WdtNd8m0XGi7v+gtrhQVwFyOX8OYsAe1/x3monwXAZDQUbd2yBxy
-	Bh6oiDkQ==;
+	bh=I84JgCkBPA2ap7sLC4w/LE5hx1QYu9euEbpPHYVjIFA=; b=FQtyXzDt+44uLH1Fr/mrq4Dbdu
+	pHf3YVHSoVwnX0JWUV+UmmzHbI+nGRVmq/18fAUP0Bw/hoO3Mx1lOSH651ktollCunnR885+s62TM
+	vubmmPLnMwD7Rx4mvaA1afVKszVLsr314/W9N6DM08EIaLbbGCv4Olj9Ov749oZZ5kA2WxjLe1P8R
+	SeVSt5RhDV0x5HmxVUFPlmvUo4Ki3qKV0xUAlatmOutqrbQWJ33RbIcWOFVZ3tIlxTIr5Rs4CpQ5s
+	GRx+Y2Wkyh48bAzgxlNHK8+VJt1E9Tdf8tgL2cFfxuNvkRG2SLt9nUETWgy6ckmEn+iFufgmObQB4
+	cd8iV3HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCln-00000008hEi-0GAa;
-	Mon, 13 Jul 2026 09:16:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjCmn-00000008hZG-3aTB;
+	Mon, 13 Jul 2026 09:17:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCll-00000008hEV-3Pdf;
-	Mon, 13 Jul 2026 09:16:10 +0000
+	id 1wjCml-00000008hYb-2F2S;
+	Mon, 13 Jul 2026 09:17:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 792D540396;
-	Mon, 13 Jul 2026 09:16:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A02E1F000E9;
-	Mon, 13 Jul 2026 09:16:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DFA0460018;
+	Mon, 13 Jul 2026 09:17:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E6D1F00A3F;
+	Mon, 13 Jul 2026 09:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783934169;
-	bh=N30vr1xrRftm2nMobVAtxbwff06D+Jf4XX9jZoAnGTU=;
+	s=k20260515; t=1783934230;
+	bh=I84JgCkBPA2ap7sLC4w/LE5hx1QYu9euEbpPHYVjIFA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E7FwN/Jv6m1e69kx632GqJLog3RwP12tN0ucav26FktzwqnDd4kBGbNenuLYwevaG
-	 1BGaAYWSOPpXQRSOjYHhBVIcbF6c6745HuTPWIJSEk8DBaXcYiJiRhiQHM0PuxFF6P
-	 BwYbJSu9iMhhF+DNNLmVWpQSpv2YXboLZUCWFoTXiDPKBMPB5Kbs7XTiLQtafM8HCh
-	 PNnPj9dcL0ZH08/cBg+D0N2/m6AGaFNxwZfAKu9PvpgM4thZA2L6/kvTerKA11bcS4
-	 O4pi77LeTOqxqk29h93wNbDV6E+GB/6u5CSeTYHY3YOHUOPR191DfJ6oc4ZrkSO5RK
-	 M/S7j7bXcZacQ==
-Date: Mon, 13 Jul 2026 11:16:05 +0200
+	b=jN+v1q30ltie7Wh6ptwJ1B7gxkVDfklLV4GLf1m7y8XNe03qlMPpOi7HjRuyphRqC
+	 Sm29JMxfyDm2Z/jYb02RGUrDwJuNALD3J014XdzYLpdr8kXqZn6cEQ2AN++SRFcaMA
+	 s6Ajg0zoNftkg0Lr5HBJM1FFCwRn5hgqny3KnQh+cXOH5gcFakS+CDHp3oGI8/5mBF
+	 hwLCl8BS2UX3UiKpkXfzJvTEoAKnXpQZtuth8jM8B5Fq5jcrph+4WdVcn08QbgCP0r
+	 AwzW3W15DNICL/xRvy6hHYCfqnTrIE4WQ25y1521tMdyQC/GDxg/u9KlBTKfpLyfZf
+	 E10XbyNOO7w4A==
+Date: Mon, 13 Jul 2026 11:17:06 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Daniel Drake <dan@reactivated.net>
 Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -52,14 +52,15 @@ Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
 	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, 
 	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH 3/6] dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
-Message-ID: <20260713-corgi-of-striking-science-4afbdc@quoll>
+Subject: Re: [PATCH 6/6] arm64: dts: broadcom: bcm2712: Add GPU IOMMU and
+ IOMMU cache nodes
+Message-ID: <20260713-important-prawn-of-health-9d032a@quoll>
 References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
- <20260712-bcm2712-iommu-submit-v1-3-80e10cdde2ea@reactivated.net>
+ <20260712-bcm2712-iommu-submit-v1-6-80e10cdde2ea@reactivated.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260712-bcm2712-iommu-submit-v1-3-80e10cdde2ea@reactivated.net>
+In-Reply-To: <20260712-bcm2712-iommu-submit-v1-6-80e10cdde2ea@reactivated.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,106 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 10:18:53PM +0100, Daniel Drake wrote:
-> Add bindings for the Broadcom BCM2712 IOMMU and its shared TLB cache.
-> 
-> Include compatibility with the cache phandle used in existing firmware
-> shipped on Raspberry Pi 5, and also allow the iova-window to be omitted,
-> which similarly will maintain compatibility with existing RPi5 firmware.
+On Sun, Jul 12, 2026 at 10:18:56PM +0100, Daniel Drake wrote:
+> Define the IOMMU and IOMMUC nodes for the Broadcom BCM2712 SoC found in
+> the Raspberry Pi 5. Enable use of the IOMMU for the graphics/display
+> block.
 > 
 > Signed-off-by: Daniel Drake <dan@reactivated.net>
 > ---
->  .../bindings/iommu/brcm,bcm2712-iommu.yaml         | 65 ++++++++++++++++++++++
->  .../bindings/iommu/brcm,bcm2712-iommuc.yaml        | 35 ++++++++++++
->  2 files changed, 100 insertions(+)
+>  arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
-> new file mode 100644
-> index 000000000000..0d91c513afc4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Broadcom BCM2712 IOMMU
-> +
-> +maintainers:
-> +  - Daniel Drake <dan@reactivated.net>
-> +
-> +description: |
 
-Do not need '|' unless you need to preserve formatting.
-
-> +  The BCM2712 IOMMU provides address translation for various hardware blocks
-> +  on the BCM2712 SoC, such as the VC6 display pipeline.
-> +
-> +properties:
-> +  compatible:
-> +    const: brcm,bcm2712-iommu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#iommu-cells':
-> +    const: 0
-> +
-> +  brcm,iommu-cache:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to the shared IOMMU cache (IOMMUC).
-
-You need to explain what for, the purpose in hardware.
-
-> +
-> +  cache:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Deprecated. Use brcm,iommu-cache instead.
-> +    deprecated: true
-
-Drop property, we do not take new bindings with deprecated properties.
-Existing FW is not an excuse, Raspberry 5 developers could reach out and
-ask if this is okay. They did not.
-
-> +
-> +  brcm,iova-window:
-> +    $ref: /schemas/types.yaml#/definitions/uint64-array
-> +    description: |
-> +      An array of two 64-bit integers specifying the IOVA aperture start
-> +      address and the aperture size. IOMMU mappings will be created inside
-> +      this aperture. All preceding address space is in identity/bypass mode.
-> +      The aperture start address must be 4GB-aligned.
-> +      Should be considered a required property, but it is technically optional
-> +      in order to maintain compatibility with historical firmware versions.
-> +      If absent, defaults to a 4GB window at 40GiB (0xa00000000).
-> +    items:
-> +      - description: IOVA window start address
-> +      - description: IOVA window size
-
-This looks a lot like reserved region, so why do you need a new
-property? If this is not a reserved memory, then why compatible does not
-imply the value?
-
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#iommu-cells'
-> +  - brcm,iommu-cache
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    iommu@5200 {
-> +        compatible = "brcm,bcm2712-iommu";
-> +        reg = <0x5200 0x80>;
-> +        brcm,iommu-cache = <&iommuc>;
-> +        #iommu-cells = <0>;
-> +        brcm,iova-window = /bits/ 64 <0xa00000000 0x100000000>;
+Does not like built with W=1.
 
 Best regards,
 Krzysztof
