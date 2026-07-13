@@ -4,114 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13F2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 06:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0244AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 06:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALHFFl4QIG5q5cwsXiSsf9xTcJ7Y7YxsHiqneCAHa/Y=; b=lcKNqjAtV54EF/qcWSj0Q4nblz
-	aFwMy1g2xSU5bibaZcit3POKFL3RogiNchrRl3MhS/frP4jGYtNH65yIQbRFYnG+Fz+UlJDcDbbHv
-	rkGUgudTKORX7Zvb0l/a/dSflcLRWjqoM6aE5c0wLm6PB/KVFTdBO5vh4Qx+kyPllPF/PciahZG6b
-	EXC1IRJrpV/zY/JZVdog4aVJcAjqm32lbp14zKalXfMaP0nLIlzgBSuI6zstTx1QEDk9pYm6rxD3D
-	TTpYg8/bj27C7QcW26SxAkXVkXfAQTYJixJIDosKGrn5bYVZsy2wUTublRPqV9KhWnW9/zoXGlBrb
-	NykxtgwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=; b=NVF7VlYHQ05NwwhZusK56gEae6
+	DcUKfTqk0HWXGx5WeDd5ENoMROebHG8MwADaTn1cVvUL741JvvXNCxHW3bgHmBJhF7r32kXkgWAnU
+	PJhI0ZYk22Y2biMrMZHu/2FHtVNrENoP0vqTLHGD/QJVyWuF7h/5ngSwCgIU/1RbT5ZSZ9s3PHoIA
+	0uqvB1qxnfp1f1tHs7dmpj46RafAN6Y32oRMsXUrxcvpuIULvM9zlaYRYOcXmNOuLq9nFWguPunWi
+	EUt33zQi0S09jBeyQox4SO1eJC5ETSqwH7PkJ/P5gU72YVIblDfxOXEjXVK3ZroGYNhJNroQ3x2uY
+	ioXCPEwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjALo-00000008I1a-2v4p;
-	Mon, 13 Jul 2026 06:41:12 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1wjAOu-00000008IRJ-2l7k;
+	Mon, 13 Jul 2026 06:44:24 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjALl-00000008I0Y-3ebK
+	id 1wjAOs-00000008IQS-3JJE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 06:41:11 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-664c535f1a0so4699882d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 23:41:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783924868; cv=none;
+	Mon, 13 Jul 2026 06:44:23 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cae1a3a744so18533405ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 23:44:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783925062; cv=none;
         d=google.com; s=arc-20260327;
-        b=pEvIUbozE1aSMQBmbOC3XRAbP1Wi2AGA2ih9ghhYRisA/LIAD2+8lBSwFph2upu2yj
-         Fkead7ASWiZSb95inGhzgWgD/dVKlLoKdvbp3+cUP6mNDA4GL1l59ZzZHGnkA1HotJGu
-         Ka9pfESw/srd93ffp5OV+MbpBC4201001osavYv1u5ulDMhYq5oO9hBA7FtEYhBtMU+4
-         04IkGbCCKzWlzIdJzRPRLq8Jpfgohi2pRJeYx5DcyZrU8GAcvXyJRv9B9NQe7F61CCf7
-         wh9/mIjMZhl/ScSMNiS5/XPPTLHSDWz3Dm5SMnRzMcLcL1Z1OhMoLPCcZL+am0N4msLk
-         UY2w==
+        b=LArch8AgEdVbVJ4Ne6SpOmDpH/OUlgESxpam/tcH7GVOfsCfN+xvMULxeVfpx+9N2S
+         o5HC68VJZ8BjxqDHTmF79Mu9Xsu8CYJ+Llc1+XCcb4XUwunv4jwnfbg8RHkIEsQnDrFq
+         ybBT61LSLjvPOzej93uxzAStWKIni+10aT65qYPNJR/CJ/aCPqtQsq0nCjRwWZHb6u6R
+         gjvawvNgNVLBaJ+a43RPUX6Ju3zwNadrJSFll95WIgCLQ4xpposp/MgymamaVgMMJJSA
+         Xl7gwxmPyD4rPXO0B1HpMHfEmVSehvOynULdbzJd54MeIaqyu9zb5Hknn5rVupwVMq72
+         1UHg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ALHFFl4QIG5q5cwsXiSsf9xTcJ7Y7YxsHiqneCAHa/Y=;
-        fh=705PUXFg+BEu5de7U1GuiUsPEFXwE+Cw3kHX0PnWYhQ=;
-        b=GpGqhyTHWlK+kh8D4DVtoLgLO9dVKLSVbIXJpSBXfRLBcTR70Cmas5ditbBOS0yZtH
-         pzMEvpK/tfJb7/zBIi5nu+lQ5uva0hbl5qx57a+KiV9utk/ef2h020F/DhwQLGZsdf0a
-         YyRROmbKw031JutKMkE/lwcsq95DpKJH1nrnY1NZuTh9pwM++E/mcdDfct0kCSfVV/jj
-         UnIFqdRzmwTAK53Ruuj2ULQUUegYLEKv/ellbrndzFJLivYz5HNlwunHtPjHixNkmaqh
-         v6RdPwwEghls9oeO9IrdBs9xRKcqlhI9hjy2dQondCHj+rm3vFig/OQkReGwEPKcP83t
-         9LGw==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
+        fh=3ACqHLZn6gSBDOgOwMmcedlf2iYdzFN6HzANIkk5HL8=;
+        b=KGXaRbZDJPMgqn6Gp5Sbu38TOjRRJHlGPQFYkg7DkR/dLTrjSleiHsOsBy7BPvQhL+
+         F0f4xlleuIrbNPfgLTe2cGHi32r/40oG3f6iZCVzIu1Y8lIh18nstN/7dFYwDi6WW3zR
+         vqyA0/Xpv+Vqc27jC+VqBEiUeiMvCBNtu8FUh0/CAobR2/LgOxd9r3zl7D8h/PKhOsUE
+         IKAChMDo2h52yW/3d90QskBsmjBn7DNv8O52OQ3KHHtDLen4XFBL+qXpNVRvfbAk/NlM
+         we98hUC5ZHF4wVThRhFwdgrd48JXzIIDWPdapGzQk/NBvfk4jyo1aSr0Vk9GZytuuSzX
+         tSdw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783924868; x=1784529668; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ALHFFl4QIG5q5cwsXiSsf9xTcJ7Y7YxsHiqneCAHa/Y=;
-        b=jRnadhR0Y7x0WqkAhoJH3xrpjdNnoB0i9Z9kymLzccLe6BcI/asl6Yk6IKxBQdUmD1
-         uNp4pzuYSu1uR3KS+ifCnA5waoVncrC9e6hiihyAamLxMisUT8XMalTq9yV2Cm1yVL1J
-         UmnVgdZ4EqTBtq2mfBHPTygnr6MhKPr07YFeY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783924868; x=1784529668;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1783925062; x=1784529862; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ALHFFl4QIG5q5cwsXiSsf9xTcJ7Y7YxsHiqneCAHa/Y=;
-        b=ptk3DgFXq+PPiYR5nHGYuzBxGHRkoKahd13EFzavvlJntCNhFhZ1vLSbcopI9fc7l9
-         B0juUU+3iLBPdGGOXypBF8hFPU70uWQSPx54iwPR4dTxkX7NHcUq3sLBBNfeUDD4xXex
-         O9jnVBpCcpbo0EH9GuyBHh2KFQQUHGVGyYosYWrsxGjaisvmz6HrD5vnCmX/9d0HAVLz
-         2JWdW6RBW+KINP5Y64SIhusoq+Cm+6Bm1OZiQ98CEiFJxtdTqLU42H+LCYSsPOsa5MHd
-         o4i3fPs0sZ9FCTfwrYmLMkPc84GQAsn37DNxTNDccQMhdI3bIt8IOOK+l+kXvbQQnzEs
-         sj1Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rpfd8AU03nomuWY/pKGXx8eOCgVr3cJv9ZBZp71RFfLfXWSBDXxz6+jaxW/5wDw2HGLE6wqCw3KCmjngKjvNbdV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxciAsUfxW5QFMndg6JCTH2oPPGzxHkQ6TQb4Qu/vczPmBR0cM
-	jwP5G2IK0PI7VfHqyQseTCadL42hZBc1FQGoE/7Yn17leK1noV4B76aTXWDOLJ3GBwbP8YODIcJ
-	Nd6+FM9gpDjX7NTxE74zHsOopW394dbUtpRVNkjML
-X-Gm-Gg: AfdE7cmJENn5N9+0bxJaC8gSybPeTX/hCqtS2IFRbZw3jFAAIkmQ5RSjqQPCu4cvy+/
-	GyiWAjZqwRHQgFu9+OZedvNUwu+qXBcJ+VmH7AKg0qYc11aFSKx56DOgaYl6FIWiExM1ReYwxpt
-	tm4/ROCYh81Fsrrh1j7SP+Q+RzxUxDRlBn+EQHD2io26chAbbvbKUN7KXk7Un0OECt856v83/El
-	n/ZycFEmWDslo/z+9oRbwqSIeKuYkUVDux4sN7t4CJ5RFXQ50l4QATqeOWQyRVTyxnqGlr83FTT
-	xlrBKGMf7o7lBlY9vYZ0DakAACO6ZNBoDCy5
-X-Received: by 2002:a05:690e:138f:b0:667:db66:eb59 with SMTP id
- 956f58d0204a3-667db66f471mr5286970d50.22.1783924867897; Sun, 12 Jul 2026
- 23:41:07 -0700 (PDT)
+        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
+        b=Fyh9U0iWGX9/EoHqMZDFgeyTAjKVd7MFrgVWlSl/WWOd41U/YUbG0JgZPU6ENUiUul
+         Y69UoAquIOrgMqJ0QLbnK937h8NQpBAeP8odqo9NwQhO9OI55hZFcLuA6qaLfaQToNPY
+         J9uZcXg68NgEzyUx9k4Alm8mGAo6VUq1+kY970gOWghSV3WVqTwV28/TojBBzoLfYI8I
+         qb+9pdugH6/AFeMsvarQNJAohK5MCPOwjsC8fdHKUjXcsVX7OSftCk5Mo1uJbp/D029y
+         CoadoGAfnikcY0HJ4IT1tkiQ2fp6UJjDKbRpNvFiUyP0nF9tjm/B9YM2e6ks7RTlICuA
+         PNRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783925062; x=1784529862;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=F91gr6eE0JgbUG5KPP/YO2a6SdDu1YAaYwAdsLWaXGk=;
+        b=tI6rxwGc/pXXtYD+RPs34MDSLPDnJ2EV8Y4ivsgMekDrvEntja4VsU5VgqTGqLSggK
+         RPrt8SeM2QCyNj/b1Iglt8VCJLx8p+ADTjxX6oyKqAaaYU0isx86rF/aKTgvDCzkZI87
+         iLhW8bU6olpRckilRyhJmijeRtUlWW3NvN8LuiBv27092rp+cHKq/7BzlHPMZnZuFHB8
+         oISJ1wgJ7lIuB6Iq0f5E9mRpab3CY87vE01cIoqnbMRt3Hj0zGv6mCuCc0HeMunagf4B
+         EWq0xkElGfCbfQjSn2Kt7ep1wo889WxY3oyztz5oJ8hQofmszHIsrlQPvHO8Lwfn+pXu
+         fhbQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp0MaM1aDWgu6vRLMF2kcnHMVgF4r+ZN2YT5gEu7U/UPa1pMfgJoC9EzW2Ej1BAJ/7OpIjxosrjR2fYQ5C7+pQl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGYA7HPZhp2hKF/4VtW9gq1Hrx5sCJ97hnABKfq9nGbigi3i/N
+	NFjI3YG5AyLN9tBq3Qqhms2LouvGgQ4m21fY5/YyJySsAVybFmXLn1VIByPcPWQjyQ+dmVwdGZb
+	MGLV8rcMPDE4IbZXeyAMC9z7Gb1/A89M=
+X-Gm-Gg: AfdE7ck+lAxVZdHkFpT5MIV9nb9tAUiFL3nzNOgn+cdcVGuVfq0JbvXqK/7iQBqTe4z
+	WXI2eR6eGiXwDg/2LNXPqJZsPP2EEP5wwETYCB8GkUk1BdIXnhO8bPVhrPtHZqAnISsC3U6EOJp
+	sQHNT7IciT+Ht7ZO+Bgb4hKRR1inLJRvE3M7Yo7balT1ty8epfkXMUoLsKiRcZkBtcGmcEzfTgy
+	3FkH1fDrEwslRee0gofIQr8yB7N3uEf6Mc/Kof8ysMklO7D/ajtOmJSzRejMgfjn7sFd6WXKPTn
+	FjgZH+Nt43/mLl5VLNqfjAVjYQ0=
+X-Received: by 2002:a17:903:2983:b0:2ca:d666:df72 with SMTP id
+ d9443c01a7336-2ce9ead1556mr77128045ad.21.1783925061877; Sun, 12 Jul 2026
+ 23:44:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260709095726.704448-1-wenst@chromium.org> <20260709095726.704448-6-wenst@chromium.org>
- <2026071025-diffused-jersey-0d94@gregkh>
-In-Reply-To: <2026071025-diffused-jersey-0d94@gregkh>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 13 Jul 2026 14:40:56 +0800
-X-Gm-Features: AVVi8CffSvw8dKrdOHbSnASMEsx0puSGrR918doi02cLaaF9gK20T18TFDW9zpc
-Message-ID: <CAGXv+5EyJ3WewkWfEy=XNA=VoU4Fuhi2K6evkvFanWhVe8J=ag@mail.gmail.com>
-Subject: Re: [PATCH v4 05/14] usb: hub: Associate port@ fwnode with USB port device
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260709045902.498848-1-phucduc.bui@gmail.com>
+ <20260710050511.14439-1-phucduc.bui@gmail.com> <20260710050511.14439-23-phucduc.bui@gmail.com>
+ <95f5d6ec-ecc5-4090-ac04-27cdcdc21b8a@sirena.org.uk> <CAABR9nHUc3KvC4t=hJ9osyw93aXa+kEL07G1posnYJdLvjHEkA@mail.gmail.com>
+ <CAABR9nEQWYzvxDduP=+9qYEJNzXVbu587Aq9eGR7Tyo-K-u1GQ@mail.gmail.com>
+ <CAABR9nHKCYvev=owQVw2sisGRiQPc5gFcW8d2O3RvhsRn_Sr+w@mail.gmail.com> <CAABR9nFwGjed9SOUZwuPNu58KPQD-aWnCKj7YTTM8LdF9dig-Q@mail.gmail.com>
+In-Reply-To: <CAABR9nFwGjed9SOUZwuPNu58KPQD-aWnCKj7YTTM8LdF9dig-Q@mail.gmail.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Mon, 13 Jul 2026 13:44:09 +0700
+X-Gm-Features: AVVi8CeGlggaa6vmgFhAFOdY55QEWtxhqiyXAaixKicXSNM4i0jdxY8z3i5uafQ
+Message-ID: <CAABR9nHvhufH-+2qg9DDa+2PsU5T_qn9EV25pNwirKdPeSdX0A@mail.gmail.com>
+Subject: Re: [PATCH v3 25/27] ASoC: codecs: rt712: Use guard() for mutex locks
+To: Mark Brown <broonie@kernel.org>
+Cc: Takashi Iwai <tiwai@suse.com>, Nick Li <nick.li@foursemi.com>, 
+	Herve Codina <herve.codina@bootlin.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Srinivas Kandagatla <srini@kernel.org>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, u.kleine-koenig@baylibre.com, 
+	Zhang Yi <zhangyi@everest-semi.com>, Marco Crivellari <marco.crivellari@suse.com>, 
+	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_234109_930070_D9845DDB 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20260712_234422_855375_38D7F8E6 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,96 +133,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 8:08=E2=80=AFPM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Thu, Jul 09, 2026 at 05:57:10PM +0800, Chen-Yu Tsai wrote:
-> > When a USB hub port is connected to a connector in a firmware node
-> > graph, the port itself has a node in the graph.
-> >
-> > Associate the port's firmware node with the USB port's device,
-> > usb_port::dev. This is used in later changes for the M.2 slot power
-> > sequencing provider to match against the requesting port.
-> >
-> > To avoid potential conflicts with ACPI firmware nodes and then causing
-> > power management issues, only assign the firmware node if the hub's
-> > firmware node is not an ACPI firmware node.
-> >
-> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > ---
-> > Changes since v3:
-> > - Added missing fwnode_handle_put()
-> >
-> > Changes since v2:
-> > - Skip assignment if hub firmware node is ACPI node
-> > ---
-> >  drivers/usb/core/port.c | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> >
-> > diff --git a/drivers/usb/core/port.c b/drivers/usb/core/port.c
-> > index b1364f0c384c..e8fb2acd77be 100644
-> > --- a/drivers/usb/core/port.c
-> > +++ b/drivers/usb/core/port.c
-> > @@ -7,6 +7,7 @@
-> >   * Author: Lan Tianyu <tianyu.lan@intel.com>
-> >   */
-> >
-> > +#include <linux/acpi.h>
-> >  #include <linux/kstrtox.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/string_choices.h>
-> > @@ -358,6 +359,11 @@ static void usb_port_device_release(struct device =
-*dev)
-> >  {
-> >       struct usb_port *port_dev =3D to_usb_port(dev);
-> >
-> > +     /*
-> > +      * At this point ACPI nodes and swnodes have been removed by
-> > +      * device_platform_notify_remove() in device_del().
-> > +      */
-> > +     fwnode_handle_put(dev_fwnode(dev));
-> >       kfree(port_dev->req);
-> >       kfree(port_dev);
-> >  }
-> > @@ -780,6 +786,13 @@ int usb_hub_create_port_device(struct usb_hub *hub=
-, int port1)
-> >       port_dev->dev.driver =3D &usb_port_driver;
-> >       dev_set_name(&port_dev->dev, "%s-port%d", dev_name(&hub->hdev->de=
-v),
-> >                       port1);
-> > +     /*
-> > +      * ACPI FW nodes are associated later when device_register() happ=
-ens.
-> > +      * Skip assigning one here to avoid potential conflicts.
-> > +      */
-> > +     if (!is_acpi_node(dev_fwnode(&hdev->dev)))
-> > +             device_set_node(&port_dev->dev,
-> > +                             fwnode_graph_get_port_by_id(dev_fwnode(&h=
-dev->dev), port1));
-> >       mutex_init(&port_dev->status_lock);
-> >       retval =3D device_register(&port_dev->dev);
-> >       if (retval) {
-> > @@ -852,6 +865,7 @@ int usb_hub_create_port_device(struct usb_hub *hub,=
- int port1)
-> >
-> >  void usb_hub_remove_port_device(struct usb_hub *hub, int port1)
-> >  {
-> > +     struct usb_device *hdev =3D hub->hdev;
-> >       struct usb_port *port_dev =3D hub->ports[port1 - 1];
-> >       struct usb_port *peer;
->
-> Is this last variable addition not needed here?  It's not used.
+I'd like to confirm one more point.
 
-Indeed it is not used. It was left over from me figuring out how to release
-the fwnode handle. Will drop it in the next version.
+As I understand it, cache_only must be disabled before
+re-writing the paging selector registers. Otherwise, _regmap_write()
+would update only the cache and return without calling
+map->reg_write(), so the hardware state would not actually
+be restored.
+If my understanding is correct, I'm planning to submit a follow-up
+patch like the one below.
 
-I still have some other comments to cover. And I want to go through the
-code one more time to check Sashiko's concerns on the main patch
-"usb: hub: Power on connected M.2 E-key connectors with power sequencing AP=
-I".
+---------------------------------
+
+bool cache_only ;
+cache_only = map->cache_only;
+
+map->cache_only = false;
+
+for_each_selector_register() {
+        if (regcache_read(map, selector_reg, &selector_val))
+                continue;
+        paging_ret = _regmap_write(map, selector_reg, selector_val);
+}
 
 
-ChenYu
+map->cache_only = cache_only;
+-----------------------------------
+
+I'd appreciate any feedback.
+
+Best regards,
+Phuc
 
