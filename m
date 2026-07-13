@@ -4,131 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4434C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB33C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=; b=Gswd9vKwC3d2FpqdbrTX9K4c5A
-	A+6kQFaO/RM+PZ7TsfeVFCnZTduuBHPwWttLhMPD45kjGudMyvs9iukE7eQ4L1AOyro4X8uLO1MiO
-	HKzhRhCe+q3vIg7IcqOXRnqGYsmpcm/c2H9kNqRzfwvI5lyPHNBiTU9qsIQ5hEqLrUPO3VoLOi2iT
-	YZcfvdTKTgOQgbf3VzvIrOJ9zR1uqEDPMn5ym5QFKGuL+sA9gIsIFGWr4JG21l9iGwSQcOQ5s5FTn
-	RqbbAh0f9hT1Q/fTF5yAsizwxvEikFlzWFH7udJANESuT+5WCmbk4N+Yq1cpQ9zzMT4AGvLeIaaNN
-	cSj57KaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wOvNkyIo5Cons7sdeDRn7jngMiw5iribY5STlVP9ZTk=; b=h7RXzAWvVOao3PN2POf4YhstWW
+	CW26VZnOM/qRV7EAiHQbMZVijnsthuC39svvDGpaBnEyZZculLjgCDggW7KOz2auK1Q+MeUTVbM4n
+	Wunp/d1rgnWv3wFn6UCMnch48KUurIqz4gLuTA0cAIHhcnY7ldeBf92mpMZDTZOT3js5DkTtrJN6x
+	n9zez+8K/KZ5tOoKvZUgxVzg8wuQPWNyRwjJqsUcsZN/xAbl/5sczaoBwGrysKLDTwXQCZusrzpcV
+	BVIoI6jL1YOygXrCFeuB5n5g25lWIeJSylq9QaScEj+6bg+nI5iYB2tZPHi9GJOHNAHE+Qk9id7hR
+	1U7olbPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGQb-00000009Kgb-3YNx;
-	Mon, 13 Jul 2026 13:10:34 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wjGRm-00000009KuM-3QCf;
+	Mon, 13 Jul 2026 13:11:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGQZ-00000009Kfz-1ipj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 13:10:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g5VthNGpGqeYH2tsFCJ9szT7MX9J9AprLdnajM8B30H2PBCehYNiPjfB5bIK6Qchau4aP4v3NDjak35I4/7H6LfcqRzyNMsUZc3rGjXmicJ6YfhdTwX5bvUm6Z//bQmJW/Cm5Ye2z7PdxhERPbob0ecOUdpiJHXa6zvkk1tnnC86B93/QOyi4/go6mEfapcNe1v183LJxHbeSTO4od55cli2ScHnmJQ/crOMLo/zkl1rv5NJ0OoCFhldQJzBwspKb7XOSzVCCPQgy+9aT4KKcdaZOQwnEtcDIUnjjqJNmvfBzukjZH/SHhUpclnZtHP9BgLqmmgm8JKsM63HsNDdxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=;
- b=em4S4bjDW+7nprQzziAK/qf0yfnue9Gk1Gp1rgMdoUNsUFAuKO2fDZJcCLrQF045lH8zcpkBuQ6VjCq+b4tJMId8KDgWBnWnPSyNGrK5b8y+30sTv671n9fGhn9xOTiqzFCkFyaFzFYhGci7Yd39Ll2WbABSkfRY/I/Qpfuq+1odUNkO1cj7duyaKXJBBSVvGm/n+Hm9Nr/iRYfSPKkeOMtOdrYyxCXtJpOAe/UkJT9TSlJqlPsKDZhg0ylTJM4kiHPnBlPw1q4h1ttdD8tvuUowL/BgO0N7mnx3vCJqjjiCBfAzk4P1iuGqUqxqfkDqRqMY2DNzPpJfCE6Qda7zFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=;
- b=azClcS4RjOxytk2hToAriFX5Fsm8jydxM3ljKcBIpJiuGVb4h8mhZGbkv3GhitlACbrdHprTqUXoQDxYOQaa+uP9dniBtJOTpjqSugAkghD8qYaKtEB/9ALNG99Cu6mqqVAqC2hm/kT27/I1NVTWjDC/OyDqLO4xYQ0+oHLl0qdmBfZFwUBDRvlLfzylaNgeND2dyfpJhVDo/K261as4fNn1jiKBNfKowdZSZGKUCt2RWCMOYWLysMA6ad0PWxqCraUfVP5laxXuwkPEXTWOTctoNCtdlJUZz+qw/7d+oIjca/fT2SvnDnbhBR0QTVPJjiVOLMXCt6KkhbJ1J6pmlw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by SE1PPF50B2D80A0.apcprd06.prod.outlook.com (2603:1096:108:1::415) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Mon, 13 Jul
- 2026 13:10:15 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0202.014; Mon, 13 Jul 2026
- 13:10:15 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	William Breathitt Gray <wbg@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Julien Panis <jpanis@baylibre.com>,
-	David Lechner <david@lechnology.com>,
-	linux-iio@vger.kernel.org (open list:COUNTER SUBSYSTEM),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	linux-omap@vger.kernel.org (open list:TI ENHANCED CAPTURE (eCAP) DRIVER)
-Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH] counter: Remove redundant dev_err()/dev_err_probe()
-Date: Mon, 13 Jul 2026 21:10:04 +0800
-Message-Id: <20260713131005.306069-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TY4P301CA0112.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:37b::7) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	id 1wjGRi-00000009Kt9-020L;
+	Mon, 13 Jul 2026 13:11:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783948299;
+	bh=794YbEXyzIorMyKoNEFQ6cQ/F/QQjKG1DMjHHg8ga20=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nvas8LQIvvJDhQizpfs1AArtRbGcWBZKnvqebRXJGr7BQPAl0DYTfd5ENLJO5pyvU
+	 CU/OqUGLCIP1aGEd3AXR7wW6Dhz4O4uLvRgBYgZa3KrQYgEOovc9JTBxF6b9N+l9Yg
+	 zmr0436PoWjX7UK/l0zyurnom0LzXsVPtNKQGvYCKCv7YK32yOevPz6ICGHkAfx3vA
+	 rsYkuFU2jISdeVsummOH2689WSoDlW1uQn6Wgbu+V22iySHQRczPi/L6qVwmEjnpgN
+	 xCx5uPXADO/d/o7rwvHWjvbauMvZIpkxGdZVM9REwO1eAi/j4G2wedNOIF87vbSdaH
+	 5IFXzjbC0F5KA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 40E1D17E010F;
+	Mon, 13 Jul 2026 15:11:39 +0200 (CEST)
+Message-ID: <298f5835-d607-41d7-b8da-7b19b8e8abdc@collabora.com>
+Date: Mon, 13 Jul 2026 15:11:38 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SE1PPF50B2D80A0:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81f789f0-7a95-4a3e-13a3-08dee0e01428
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|52116014|7416014|376014|18002099003|56012099006|11063799006|6133799003|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: 9U4p1vnBsdPwrXivN4Kmo8NCFdJKMaw80I7IcF7CQWNOiHDKBdtduBsUk6UwPrQ9HPGdHhFYoILQGc2VGefcTJTQhEF8K9z3c8fJjaob55CWoPCeDmX7mTx0jdeWEJfV/TtDcnx/MURPliLMmytpws+FpqrGM24Dvofkjt43USv0EFaYty2V2wSul37OpceBhhHHjAxXcAO29PRt/YMTJj3Vo4eFDeJzDujJU+W8OtWE41XIt593XtOvqMNbuKCJ3WmHuvXjcT0hvFC2tiZr01qYVX3Vi7Bahsdkc9U8/YtI2GpqxwzDR29Iq+J4llvGdF/ke9Vd6/Ki1bIt47smlv+yvwbgLn1u7XKyPe6qMbsT5RTK3gciAedEQDg0+rDPArYpqLb+WIhzt5xUE0K7Sf+v82NGeoNFdZrKTnVadKUaypRuWhMiE18cI3ZeS0DNFvfsXfknastVTtsT3Oyi6nE9tTU+iWiUn8qBPsVyW6NM0hsF/p/ZkYCVATnkh/ecxElUyaPt4bYfcYPe3Qgwn5J9+rs5QopJqoyWuqtOxAfWS4Pbzptog2/5xxGdCJDYywzQiH0C7rEZ7pP4wpdUXaNTtpvoxU7uYA9vJrQ71aFbGYouja15NCJ/sGITExG+LCxctiSOyFNkOEAAgHu7RC3KflwFY55d+cQuZcniR2t8FvdrIQEr1AcGVmDOYUProocIpcsrJoHLzy2dnjmV7G95txDpOIztZFnHYDIA1y8vVfS6/Tdz0hgL/xE8B3UJ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(52116014)(7416014)(376014)(18002099003)(56012099006)(11063799006)(6133799003)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?viHZTUovs4dSSXEo6K1B3T++uQ0bY4x9OIhYnL+vl0/ok3R8u+i/uQQArSt0?=
- =?us-ascii?Q?7dxt38pVnoZD0or0/GEGTHGdwwoQJE4Z54sY1ADq2GOQ8UgP5J4/YhwFICFR?=
- =?us-ascii?Q?iWIROIVw6HhD1ypVBd/Vd6a+CcA4GVQ1pgUHLOz85swjxdMxCYDDAsKIGsJB?=
- =?us-ascii?Q?1C4Qp4zL1adVxWxmhbLVzbWbMiuyxM6BX4Hrt5/yhTqEG1+bK6LBdvX0PXtm?=
- =?us-ascii?Q?fZR5NmrrmfEN19uR8WOcY5cA3Di7PeTM+fBo1J6Zyr7Y+WJxoaeLHZR9L6J5?=
- =?us-ascii?Q?/c2ZKMlgDby66nIFuanupa6Xz57ZZz6zm/QPfTs33esDes6ZedKelFU72Ruc?=
- =?us-ascii?Q?XSTkGymod7/XRGw2RdOK84u8Dg0Z3SWB+lNiz7OB8TLLid/YmaH5yNWkzmoq?=
- =?us-ascii?Q?4zTQMizdHh9h8MPtwB1GnlNhI2MeYy7pLpqXBBhjHeavrVkHV4B2fZI99hb0?=
- =?us-ascii?Q?jno74CwIm3yeoSrgDhEnPXq8OuokEwH0XZCRpkHMGNfVl5soOmyT/nfhJnIB?=
- =?us-ascii?Q?m9bbBjXqu3kayzPchtiXFGt1Z2c4gv9cl79PKToervyXouoORM2CdqJv6VUF?=
- =?us-ascii?Q?dYdhS9cKkUNy9oDhCCpZD+QwtYwaF1oP/cGOoVn4Yr79ow348+9QzW65gPV3?=
- =?us-ascii?Q?Cj0g2aOT+iv1QcTEwJMkmSq5MZwfFtdYRHPD/MinY42lOxV6oZyBVcsjCApu?=
- =?us-ascii?Q?LZjzxHMT+C0bl5APMKml4u/PwE3ucW9Ochf/5YYeXYXwDfyiagn75UhN2VRE?=
- =?us-ascii?Q?CEPS8omVH4WJaxwLUwTGmGLMR/ULo2xOhAJCJZWxCRICr/HykNbD2xJAkGNo?=
- =?us-ascii?Q?sgnIxHi3rwhv/g5/fudjk/Ku+MsteApoj5WGZ4/7zPX6WqVojDFJBpznXcOc?=
- =?us-ascii?Q?h8arIU6Q/woYs82qEaOs9cvv6KL3DqE47wv1qfDLSKeQEtd7Saoi+mNUPaxx?=
- =?us-ascii?Q?WOFeBA7gvLRppEZixJ4o7u6JVNVpEZUnPlFWZK/4EbakRo9PvgoWQpUigplm?=
- =?us-ascii?Q?6XvIuUNFi2GB3oFjI/N8uZYNXb+EB6eW1kiIqXN6CxDnM5DmYN29j18CKwFQ?=
- =?us-ascii?Q?Vbhrk7IKpvq9pkNRyliKkAqumXMbiQimeRok24nvEkIjFDDFLUHigtPd4ASc?=
- =?us-ascii?Q?BAUyUfIVlikG0N00ADYZaNb+Pe87lycXGPfUfi8KmsKIF8GG6Yuw44ULyhXr?=
- =?us-ascii?Q?TAbNAVmCFMqxZw3Yrh1SGT+0KwGMNoAvyNkLWAsMLkSvIt8I/70xFTgmDT/Q?=
- =?us-ascii?Q?s0VrQ9F3Y7iFTu2DBDWjOQdm/ZoR3tZJ6fDuBLqmWS1mxgN7UuFpIov/LxBm?=
- =?us-ascii?Q?7J6JmvIOMmc/e8xt3GSdG5qnbe6HmWxESaMov8vkk9Mnr5jebjf06Fpml4BP?=
- =?us-ascii?Q?qnwY/QPpVzvYWZFe05zJzAQcSRQmjGzEaVzq+YulMH/sBcZxfmtZ1vvdVBdU?=
- =?us-ascii?Q?yyStCqBZQrokRZ5ql86Un49N7/5noLG8Ux/qx9D2Cwy2OuP6N5he7KwrDZAG?=
- =?us-ascii?Q?seKnoLHhwmbTFydxK3UYxbuXUtafketb3iz50m1Vk/qsJNxkXvCUSxuBxq0G?=
- =?us-ascii?Q?DGOFw4iBpwgbGsrmLjsCb4ZkF07FovPF6/JKXHqNVYmOjguAH+Tc1zzP4TRJ?=
- =?us-ascii?Q?ebKZzphFx1TApoBplKQM3cLr9h2KOAXTWRkiQUp1+CbmGXFeGmHrDk31BA8a?=
- =?us-ascii?Q?4NNWwT8IwIq06GJkrfc5/JPSl4ifnYWMrUICkNJjku+azXhcHJFhnmNRHbsZ?=
- =?us-ascii?Q?nBep5kuXPg=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81f789f0-7a95-4a3e-13a3-08dee0e01428
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 13:10:15.1488
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /MjQaf+YgrQC2BWQ/PLNClmPsxejFTL/paxSPSLRocTNvMsdBoEl+/RaX68eeT4dSshNEo4YAvDuGysSKchcXw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF50B2D80A0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] pinctrl: mediatek: Add driver for MT6858
+To: Nikolai Burov <nikolai.burov+review@abscue.de>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, nikolai.burov@jolla.com,
+ Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Sean Wang <sean.wang@kernel.org>
+References: <20260710-mt6858-pinctrl-v1-0-f75ab558f0df@jolla.com>
+ <20260710-mt6858-pinctrl-v1-2-f75ab558f0df@jolla.com>
+ <89e4eb3d-a61c-410e-8ad5-e845b07f8029@collabora.com>
+ <2d34c3f6-5f66-4b60-b9a2-180163964552@abscue.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <2d34c3f6-5f66-4b60-b9a2-180163964552@abscue.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_061031_454538_9F540A2A 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260713_061142_303473_DBA905D2 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,75 +82,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
-automatically log detailed error messages on failure. Remove the
-now-redundant driver-specific dev_err() and dev_err_probe() calls.
+On 7/13/26 14:51, Nikolai Burov wrote:
+> On 7/13/26 10:01 AM, AngeloGioacchino Del Regno wrote:
+> [...]
+>>> +    [PINCTRL_PIN_REG_MODE] = MTK_RANGE(mt6858_pin_mode_range),
+>>> +    [PINCTRL_PIN_REG_DIR] = MTK_RANGE(mt6858_pin_dir_range),
+>>> +    [PINCTRL_PIN_REG_DI] = MTK_RANGE(mt6858_pin_di_range),
+>>> +    [PINCTRL_PIN_REG_DO] = MTK_RANGE(mt6858_pin_do_range),
+>>> +    [PINCTRL_PIN_REG_SR] = MTK_RANGE(mt6858_pin_dir_range),
+>>
+>> This is Slew Rate, not Direction... And I think this is wrong.
+>>
+>> If you don't know where the slew rate registers are, or if that is an unsupported 
+>> operation, just omit PINCTRL_PIN_REG_SR.
+> 
+> Thanks for noticing this! This seems to be a mistake in the downstream driver that 
+> I unintentionally copied over. I will remove the slew rate.
+> 
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
----
- drivers/counter/stm32-timer-cnt.c | 10 ++--------
- drivers/counter/ti-ecap-capture.c |  2 +-
- drivers/counter/ti-eqep.c         |  2 +-
- 3 files changed, 4 insertions(+), 10 deletions(-)
+No worries, it happens.
 
-diff --git a/drivers/counter/stm32-timer-cnt.c b/drivers/counter/stm32-timer-cnt.c
-index a3d8f7a5874e..9eee281350d0 100644
---- a/drivers/counter/stm32-timer-cnt.c
-+++ b/drivers/counter/stm32-timer-cnt.c
-@@ -759,11 +759,8 @@ static int stm32_timer_cnt_probe(struct platform_device *pdev)
- 		/* All events reported through the global interrupt */
- 		ret = devm_request_irq(&pdev->dev, ddata->irq[0], stm32_timer_cnt_isr,
- 				       0, dev_name(dev), counter);
--		if (ret) {
--			dev_err(dev, "Failed to request irq %d (err %d)\n",
--				ddata->irq[0], ret);
-+		if (ret)
- 			return ret;
--		}
- 	} else {
- 		for (i = 0; i < priv->nr_irqs; i++) {
- 			/*
-@@ -775,11 +772,8 @@ static int stm32_timer_cnt_probe(struct platform_device *pdev)
- 
- 			ret = devm_request_irq(&pdev->dev, ddata->irq[i], stm32_timer_cnt_isr,
- 					       0, dev_name(dev), counter);
--			if (ret) {
--				dev_err(dev, "Failed to request irq %d (err %d)\n",
--					ddata->irq[i], ret);
-+			if (ret)
- 				return ret;
--			}
- 		}
- 	}
- 
-diff --git a/drivers/counter/ti-ecap-capture.c b/drivers/counter/ti-ecap-capture.c
-index f69b6920463f..d77a256f0ed3 100644
---- a/drivers/counter/ti-ecap-capture.c
-+++ b/drivers/counter/ti-ecap-capture.c
-@@ -513,7 +513,7 @@ static int ecap_cnt_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(dev, ret, ecap_cnt_isr, 0, pdev->name, counter_dev);
- 	if (ret)
--		return dev_err_probe(dev, ret, "failed to request irq\n");
-+		return ret;
- 
- 	platform_set_drvdata(pdev, counter_dev);
- 
-diff --git a/drivers/counter/ti-eqep.c b/drivers/counter/ti-eqep.c
-index d9302ec21163..0dda3f2b14c7 100644
---- a/drivers/counter/ti-eqep.c
-+++ b/drivers/counter/ti-eqep.c
-@@ -526,7 +526,7 @@ static int ti_eqep_probe(struct platform_device *pdev)
- 	err = devm_request_threaded_irq(dev, irq, NULL, ti_eqep_irq_handler,
- 					IRQF_ONESHOT, dev_name(dev), counter);
- 	if (err < 0)
--		return dev_err_probe(dev, err, "failed to request IRQ\n");
-+		return err;
- 
- 	counter->name = dev_name(dev);
- 	counter->parent = dev;
--- 
-2.34.1
+>>
+>>> +    [PINCTRL_PIN_REG_SMT] = MTK_RANGE(mt6858_pin_smt_range),
+>>> +    [PINCTRL_PIN_REG_IES] = MTK_RANGE(mt6858_pin_ies_range),
+>>> +    [PINCTRL_PIN_REG_PU] = MTK_RANGE(mt6858_pin_pu_range),
+>>> +    [PINCTRL_PIN_REG_PD] = MTK_RANGE(mt6858_pin_pd_range),
+>>> +    [PINCTRL_PIN_REG_DRV] = MTK_RANGE(mt6858_pin_drv_range),
+>>> +    [PINCTRL_PIN_REG_PUPD] = MTK_RANGE(mt6858_pin_pupd_range),
+>>> +    [PINCTRL_PIN_REG_R0] = MTK_RANGE(mt6858_pin_r0_range),
+>>> +    [PINCTRL_PIN_REG_R1] = MTK_RANGE(mt6858_pin_r1_range),
+>>> +    [PINCTRL_PIN_REG_DRV_ADV] = MTK_RANGE(mt6858_pin_drv_adv_range),
+>>> +    [PINCTRL_PIN_REG_RSEL] = MTK_RANGE(mt6858_pin_rsel_range),
+>>> +};
+>>> +
+>>> +static const char * const mt6858_pinctrl_register_base_names[] = {
+>>> +    "base", "lm", "rb", "bm2", "bm", "bm1", "lt", "lt1", "rt", "rt1",
+>>
+>> Fix ordering:
+>>
+>> "base", "lm", "rb", "bm", "bm1", "bm2", "lt", "lt1", "rt", "rt1",
+> 
+> The bases are already in ascending address order. I don't know what the 1 and 2 
+> suffixes in the names of the iocfg regions mean, they may just be a historical 
+> leftover. Are the names more important than the addresses here?
+> 
 
+Eh, fair point. I guess it's fine then.
+
+For the numbers, that's because the registers for the same region of the chip
+(meaning physical region, really) are scattered all around... but bm2, bm, bm1
+refer to the same physical region (again, really physical, look at the bga array).
+
+> [...]
+>>> +static const struct of_device_id mt6858_pinctrl_of_match[] = {
+>>> +    { .compatible = "mediatek,mt6858-pinctrl", .data = &mt6858_data },
+>>> +    { }
+>>
+>>      { /* sentinel */ }
+> 
+> Thanks!
+> 
+> [...]
+>>> +    MTK_EINT_PIN(119, 0, 72, 0),
+>>> +    MTK_EINT_PIN(120, 0, 73, 0),
+>>> +    MTK_EINT_PIN(121, 0, 74, 0),
+>>
+>> Looks like you're missing ~70 pins here?
+>>
+>> If those have no EINT support, you can declare them as
+>>
+>>      MTK_EINT_PIN(122, EINT_INVALID_BASE, 0, 0),
+>>
+>> ...or you can add a macro to add a (sequential) range of pins with no EINT support.
+> 
+> Adding a variable number of mtk_eint_pin structs (with a different pin number 
+> inside each struct) doesn't seem possible using a single macro, so I'll just 
+> manually add all of them to the list.
+> 
+> While writing this, I was looking at the mt6878 driver, which also omits a range of 
+> pins. Should that be fixed as well?
+> 
+
+If there are holes in between, yes, that wouldn't work.
+
+Honestly though, this is starting to be a problem - as in - up until now,
+practically all SoCs had EINTs for each pin, or no holes in between... but
+I can see that this is changing, as MT6991, MT6993 and now MT6858 all have
+those holes.
+
+This is a note and I'm not asking you to do this but, at some point, we should
+really add some logic to the mtk-eint driver so that it doesn't forcefully (and
+at this point in time, even stupidly) map/expect pin data at the same array
+index as the pin number.
+
+That's probably more important than fixing mt6878, but well, I understand that
+this stuff would take a bit more time than adding just a few entries in arrays
+right now, and I also understand that time may be lacking, so I am definitely
+not blocking the addition of 6858 for this (of course, as long as you fill up
+the holes there)
+
+Cheers,
+Angelo
 
