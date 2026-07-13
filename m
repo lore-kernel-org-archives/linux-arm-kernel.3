@@ -4,131 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D050AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7494AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGgu+CaOtcKoy1gxSjcO4Zf6uMbnGEq/XPb9LJCgoJk=; b=anyNDuHuM58Dsd8ne/SVDNL0EG
-	9dyELaJFDK75wQfhqdZ8e+XZmD4S2SzRxQn0rilcGYKFrg4+EjcSsHc9tUSuG8bu9KBemiGwDsRSN
-	v+RYoeH3fzs8B6tKTr0h4r7nX0u6cuolQux37C679faL95mp8wNVuvSUPhDiodDAYKCQBjfXvnQD3
-	5YQqdPSBDXSmhhDna2GMn4Hw8w8Y+MlDGCI2yq64fmTcNURXK9b+B/j82OQSafV54ArOg342KJMAc
-	e1w315H0lkChJt+Yf/Z+o39cjNfDH84nGe2nxiMmAgnsIxMK3MMffPlpuxLwjylo/ReNCguYhk1NO
-	gPAcic4Q==;
+	bh=56E+7FMMOWqDmBxT+WtZLGSI2R/SROVQv8aPW35xP7c=; b=jNcOQM57tG29f445Y4XL+d0p+B
+	sL67UHDR6XgNFWrLoiX/TC11OnIzlmbdOsphFhqJ+mRzU4Is4ybHZXQB7YKfNdRFS4+16m69Bm2u0
+	d+EzqPEbXG5sK6Q0KujdFxYBGbKRkYI++nR7uxDhIb0mHMO/SieuvAn9ZTOtYWPvZIh6wwNmPdwYC
+	9aVNXKQaGpo8xNqvyZIZgpbzIr+a1YUYbt4cuy+BtPNk4QBlzNRSFEXcBkI5h8yUbcoAolvHd4OkB
+	j8izR3ysq9QJhW+mMC2bUH7h/KnJrwnYhNOclmMg0TtxnsF2qtiKnjWPfNFNDGhO5cxpueV/mNzV4
+	Yvo2vD1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ7B-00000009tTZ-3Zvw;
-	Mon, 13 Jul 2026 16:02:41 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wjJ8E-00000009tga-0XVz;
+	Mon, 13 Jul 2026 16:03:46 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ77-00000009tS3-0MGg
+	id 1wjJ88-00000009tfH-3WLa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:02:39 +0000
-Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 910343DFC;
-	Mon, 13 Jul 2026 16:02:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783958555; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MGgu+CaOtcKoy1gxSjcO4Zf6uMbnGEq/XPb9LJCgoJk=;
-	b=kMVA4bcUNX22GtjClknA4KZ3fswlnAFGsZYKs0uwwH1VrgIL2+ORMYrArV9ujyIHjLC14k
-	SGzvcu7HbBhHWN3bF1cRKzrIUtBwRshU0nLnAUSCR4N93D05xfgHrEr3NmSSTo6/qlTgxx
-	vtdSZBsuWczRq9NBJphkoevwqZ5skDk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783958555;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MGgu+CaOtcKoy1gxSjcO4Zf6uMbnGEq/XPb9LJCgoJk=;
-	b=dcZw7hjAGevDvneRyQ1wY82SJEjy1wW1W8fPidRDgniuImvtEZ/Wrgnx6psFw+vUq4sEPB
-	WZrd8C20us+TxLBA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=FaH+x4J9;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="1sRd/hFC"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783958553; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MGgu+CaOtcKoy1gxSjcO4Zf6uMbnGEq/XPb9LJCgoJk=;
-	b=FaH+x4J9MKhf1OgVVyTDE0Yl+c5P1Q7hpBjJ7kAFs0XsGN2gTO5a9BjxDXnL3r/gA5NsRj
-	oCLkzRFVhAk5DNDGmMYRazGe7bYWoTpftPK1DWs+1hxSs7mN9y0usho/1Xf2Xuenoev8yW
-	CaWVqK+NqdKRwSW1LUsivR1ZB5uBPgI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783958553;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MGgu+CaOtcKoy1gxSjcO4Zf6uMbnGEq/XPb9LJCgoJk=;
-	b=1sRd/hFCLT/gl1Z2ed/ali1OABoveak0agl2hPKbpsb6FYMjd5wsFLj8zcpuLkulfyZgfs
-	97P2c2Q7xYgWMOCA==
-Date: Mon, 13 Jul 2026 18:02:32 +0200
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com,
-	Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>,
-	linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>,
-	Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
-	devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/8] Arm Live Firmware Activation (LFA) support
-Message-ID: <alUMGCJzVG6U3Ggm@kunlun.suse.cz>
-References: <20260706134455.132091-1-andre.przywara@arm.com>
+	Mon, 13 Jul 2026 16:03:42 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47122683cf3so1822529f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 09:03:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783958619; x=1784563419; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=56E+7FMMOWqDmBxT+WtZLGSI2R/SROVQv8aPW35xP7c=;
+        b=XynqR0Oh4QNifhL8EwYWLgLgkQFcebgDxQRaQZ1gUPWk8rBBFvCdU88fmwzR11eRVi
+         HL1m9VUpYcR+oKzCRyIjhJd/+pW2G3SIH+qaqMrXY8fyDwVdFbBoGHxZVlYG0ihLX1u4
+         WO1foVOCIBUE2GrvINfW2EWlyhaemmk1z2UExX9evW+4G84VOmb8KYN/1hvevLw9KZTu
+         2leyHkt65fXyjrdTKfFyl96vZqgXwi9bbUWkMeRDe1H+xEphmri6VQGfHWp9ol8N4L2N
+         2wPVr85Cfi0UBzkmoeDB274ADavaAN/4yTzp2bawmTFdAms9dGpHwvYkH+cJMMLc/7s7
+         +Xbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783958619; x=1784563419;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=56E+7FMMOWqDmBxT+WtZLGSI2R/SROVQv8aPW35xP7c=;
+        b=BRX6wNdxgL8jXM8PhA9G/oVYb5PZQUWjOX1+IRHHcypcVd5dIwXY9lF9lkrwUiGtPL
+         A/rQYGHBPXSEWnIkTLhG+rNWGpUqGR7jgQuW/ve+3RyJzYOlBAQ899HJSlZlNMTlMCMd
+         JD4DEcRv+OZ4uISATx/pgmD9wRkGOKwRrHVarzT6i7D5eH0TkOyI5djxQ/KyDIHUM2RC
+         JzBe7uZV0lk+lIL9o24zrEWepLG0fdJhW2QpBG+ijr719nPqXguwxUk2ki9rSAMF+uHs
+         LajtP3KgxxAflsVVKdamX1IJT5nIC1x4uwIuOlfiJW5iFUcMfPAgFnfpGbRVb/KkH24N
+         gy+g==
+X-Gm-Message-State: AOJu0YySU+UMbXl7VWxmYNZOT8FRctRNH/L3AuntUcD1cNYF7/rwYen9
+	1Z9PYKDrkVyzY942X8oUdYr7eQa8WeqMBhSX6FcGWVOFHWMox0FJb0UUsGubkBsKuuqkze5Ru3y
+	7xudBVA==
+X-Gm-Gg: AfdE7ck3QRikqkGHltAQ7wFWeS4tjhexZ8M2PAgjrWyQBnBGgXztFsWKWYnJdoCsMli
+	7Qwz6/7B+aPUJyyKXq1XdMDaYpcxP+NKaa++Saxbf1DI3gghdSVEG1OtNDQBI7e+P1yaQdM12Ty
+	dXkxqYFnbBtuBhO2hJHN6s8jNIL/B+Fg9sN2dWt9b4BnOrUW5pGKuk+JSTYIGHAY8Bf9fXZXent
+	+kHg3vuQ4SzNQvOClZQop/13etwgcuUAEJOezydcR0OOvDT3+Gd1KVC8GOB8waZC7TMaa5FldK7
+	RBogbdRKJoketokudlYzmTEm5QG9NW8AInXnPGI1kkB5cUXS0EpkdDT+hUce/bhZi6VQbTKWlb7
+	b+1Zcut5E3nNzGI/ag49CDI8uJaqhVfd+uJhAGUTiWgAR93jowlpRoo8nC+469iDS7abG0uisIc
+	yBRvrOov+p/UbtQ4aC3Gh3dlLuR9TyEqW93ziCt6excXTlMpxN8EU=
+X-Received: by 2002:a05:600c:1d89:b0:493:f29d:d591 with SMTP id 5b1f17b1804b1-493f8837f95mr107335125e9.39.1783958618287;
+        Mon, 13 Jul 2026 09:03:38 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464b7f84sm323988f8f.27.2026.07.13.09.03.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 09:03:37 -0700 (PDT)
+Date: Mon, 13 Jul 2026 17:03:33 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <alUMVU7DYcrvgAYi@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-9-smostafa@google.com>
+ <alTnAy7jvjUamwUA@google.com>
+ <alTvf7iiOWn4PKE8@google.com>
+ <alUA7zsJO1FGnss-@google.com>
+ <alUJa5cbjjqZ8n72@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260706134455.132091-1-andre.przywara@arm.com>
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [3.99 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	SUSPICIOUS_RECIPS(1.50)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b306:2000::2:from];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	MISSING_XM_UA(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b306:2000::2:from];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[arm.com:url,suse.de:dkim,kunlun.suse.cz:helo,kunlun.suse.cz:mid,opencompute.org:url]
-X-Spamd-Bar: +++
-X-Rspamd-Queue-Id: 910343DFC
+In-Reply-To: <alUJa5cbjjqZ8n72@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_090237_424120_6EF78299 
-X-CRM114-Status: GOOD (  42.24  )
+X-CRM114-CacheID: sfid-20260713_090340_910078_6EBB3D50 
+X-CRM114-Status: GOOD (  41.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,174 +110,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 03:44:40PM +0200, Andre Przywara wrote:
-> Hi all,
+On Mon, Jul 13, 2026 at 03:51:07PM +0000, Mostafa Saleh wrote:
+> On Mon, Jul 13, 2026 at 04:14:55PM +0100, Vincent Donnefort wrote:
+> > On Mon, Jul 13, 2026 at 02:00:31PM +0000, Mostafa Saleh wrote:
+> > > On Mon, Jul 13, 2026 at 02:24:19PM +0100, Vincent Donnefort wrote:
+> > > > On Fri, May 01, 2026 at 11:19:10AM +0000, Mostafa Saleh wrote:
+> > > > > Create a page-table for the IOMMU that shadows the host CPU stage-2
+> > > > > to establish DMA isolation.
+> > > > > 
+> > > > > An initial snapshot is created after the driver init, then
+> > > > > on every permission change a callback would be called for
+> > > > > the IOMMU driver to update the page table.
+> > > > > 
+> > > 
+> > > [...]
+> > > 
+> > > > > +	 */
+> > > > > +	if (pte && !kvm_pte_valid(pte))
+> > > > > +		return 0;
+> > > > > +
+> > > > > +	if (kvm_pte_valid(pte)) {
+> > > > > +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
+> > > > > +		/* If the range is mapped in a single PTE, it must be the same type.*/
+> > > > > +		if (!addr_is_memory(start))
+> > > > > +			prot |= IOMMU_MMIO;
+> > > > > +
+> > > > > +		return kvm_iommu_ops->host_stage2_idmap(start, end, prot);
+> > > > 
+> > > > Do we really need to do that when is_memory()? 
+> > > > 
+> > > > fix_host_ownership_walker() by calling host_stage2_idmap_locked() and
+> > > > host_stage2_set_owner_locked() should already handle the memory region. That
+> > > > would also get rid of kvm_idmap_initialized.
+> > > > 
+> > > > So this one here could only take care of the MMIO?
+> > > > 
+> > > > Overall we would have a common point of synchro which is
+> > > > fix_host_ownership_walker() after which the host ownership is ready for both
+> > > > CPU stage-2 and the IOMMU?
+> > > > 
+> > > 
+> > > I am not sure I understand, this is another empty page table, so we
+> > > have to walk all of the host CPU stage-2 page table to shadow it in the
+> > > IOMMU. if you are refering to the case where it handle zero ptes for
+> > > memory, I can drop that but it will not change much in this logic.
+> > 
+> > In fixup_host_ownership() we already walk the hyp pgtable to know what needs to be
+> > map/unmapped from the host stage-2. Can't we rely on that for the IOMMU
+> > page-table as well?
+> > 
+> > As of, fix_host_ownership() could handle the host stage-2 __and__ the iommu? 
 > 
-> this is version 3 of the Live Firmware Activation kernel support. The
-> device part of the code now relies on Aneesh's SMCCC bus patches[1],
-> which solves some problems rather nicely. I also added the formerly
-> missing sysfs ABI documentation. Based on v7.2-rc1, plus the first
-> two patches from Aneesh's series. More detailed changelog below.
-> ==============================
-> 
-> This series implements the kernel side support of the Arm Live
-> Firmware Activation (LFA) specification [2]. LFA enables the activation
-> of updated firmware components without requiring a system reboot,
-> reducing downtime and allowing quicker deployment of critical bug fixes
-> in environments such as data centers and hyperscale systems.
-> It requires explicit firmware support, both via an agent running in EL3
-> (for instance in TF-A, already merged), but also in the firmware
-> component to be activated. TF-RMM recently merged support for this.
-> 
-> Unlike the usual firmware update process (which may use tools like
-> fwupd), LFA focuses solely on the activation of an already updated
-> firmware component, called "pending activation" in LFA lingo. This works
-> by signalling the LFA agent (part of the EL3 runtime firmware) via an
-> SMC call, which then does the heavy lifting of the live update, in
-> cooperation with the to-be-updated firmware component.
-> 
-> Key features of the driver:
-> * Detects LFA support in system firmware (EL3).
-> * Lists all firmware components that support live activation, identified
->   by their GUID.
-> * Exposes component attributes (e.g., activation capability, and
->   activation pending) via sysfs under /sys/firmware/lfa/<GUID>/.
-> * Provides interfaces to:
->   - Trigger activation of an updated firmware component.
->   - Cancel an ongoing activation if required.
-> A more detailed list of features can be found in patch 2/8.
-> Based on v7.2-rc1.
-> 
-> This work is conceptually similar to Intel’s Platform Firmware Runtime
-> Update and telemetry (PFRUT) [3] and TDX module updates [4], but
-> targets Arm platforms. The driver has been used to successfully activate
-> a Realm Management Monitor (RMM) firmware image in a controlled test
-> environment. RMM is analogous to Intel’s TDX module.
-> 
-> There is effort on similar work from the OCP [5]. Future work may
-> include integration with utilities like fwupd to automatically select
-> the appropriate driver, based on platform architecture, for Live/Runtime
-> firmware updates.
-> 
-> Please have a look, test and comment!
+> fix_host_ownership() only walks the hypervisor page table, and fixes the
+> hypervisor pages in the host.
 
-Hello,
+Yeah, Looking closer I don't think my proposal simplify things so much in the
+end.
 
-booting a kernel with v2 of this patchset applied the module does not
-get autoloaded. Loading it manually I get
+> That means that the IOMMU page table has
+> to  be fully populated first, then we unmap the donated pages.
+> That seems more complicated and it feels that decoupling the IOMMU
+> logic outside of this would be better.
 
-[ 1972.957282] [   T5195] Arm LFA: Live Firmware Activation: detected v1.0
-[ 1972.958620] [   T5195] Arm LFA: registered LFA ACPI notification
+Why more complicated? That's actually another solution I was thinking about, to
+just map everything as soon as possible and let host_stage2_idmap_locked() and
+host_stage2_set_owner_locked() unmap what is needed here. (and also in
+__pkvm_host_donate_hyp_mmio())
 
-Is this expected?
-
-I would expect the driver to load automatically.
-
-I do not see anything in the v3 changelog obviously addressing
-autoloading but changing to using a bus might affect that.
-
-I will try to update to v3 later.
-
-Thanks
-
-Michal
-
+We wouldn't need any specific setup walker for the iommu at all.
 
 > 
-> Best regards,
-> Salman and Andre
+> Also, I rely on the IOMMU init to be done at the end of setup, so we
+> do not have to clean the IOMMU init if any other part of KVM fails.
+
+We could just leak those pages if it fails?
+
 > 
-> Changes in v3:
-> - change node name in DT binding example
-> - move SMCCC function identifiers into generic SMCCC header
-> - rework to use the new SMCCC bus instead of a using a faux device
-> - add missing workqueue cleanup in probe() routine
-> - squash former patch v2 3/8 into base patch
-> - use get_image_name() more consistently
-> - also consider -LFA_BUSY return in activate call
-> 
-> Changes in v2:
-> - restrict build to arm64 (the LFA spec only supports AArch64)
-> - rename and extend central data structure to fw_image
-> - use separate GPR register sets for some SMC calls
-> - provide wrapper for error messages to prevent out-of-bound access
-> - return GUID in the "name" sysfs file when image is unknown
-> - fix wrong attribute in pending version number show function
-> - add missing include files and order them properly
-> - fix memory leaks in error cleanup paths
-> - handle lifetime using embedded kobjects and a kset
-> - drop global lfa_lock, use kset list lock and kobject refcount instead
-> - add DT binding documentation
-> - add timeout and watchdog re-arming (contributed by Veda)
-> - relax timeout period and do not block while waiting
-> - register ACPI notification (contributed by Veda) and DT interrupt 
-> - refactor ACPI notification code to allow sharing with DT code
-> - use faux device instead of platform driver
-> - add auto_activate file to control automatic activation
-> - introduce rwsem mutex to prevent using stale sequence ID
-> - use labels and goto instead of infinite loop when retrying activation
-> - initialise workqueue only once (thanks to Nirmoy)
-> - various cleanups on reported messages and code formatting
-> - rebase on top of v7.0-rc1
-> 
-> Changes in v1:
-> - Updated SMCCC version 1.1 to 1.2 per the LFA specification requirement.
-> - Changed "image_props" array to a linked list to support the dynamic
->   removal and addition of firmware images.
-> - Added code to refresh firmware images following a successful activation.
-> - Added a work_queue to handle the removal of firmware image attribute
->   from it's respective kobject "_store" handle.
-> - Refactored prime and activate into separate functions.
-> - Kernel config for LFA now defaults to "y" i.e. included by default.
-> - Added individual kernel attribute files removal when removing the
->   respective kobjects using kobject_put().
-> - mutex_lock added to activate_fw_image() and prime_fw_image() calls.
-> - Renamed create_fw_inventory to update_fw_image_node.
-> - Renamed create_fw_images_tree to update_fw_images_tree.
-> - Added two more attributes due to specs update from bet0 to bet1:
->   current_version: For retrieval of the current firmware's version info.
->   pending_version: For retrieval of the pending firmware's version info.
-> - Minor changes such as, improved firmware image names, and code comments.
-> - do...while loops refactored to for(;;) loops.
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20260611130429.295516-1-aneesh.kumar@kernel.org/
-> [2] https://developer.arm.com/documentation/den0147/latest/
-> [3] https://lore.kernel.org/all/cover.1631025237.git.yu.c.chen@intel.com/
-> [4] https://lore.kernel.org/all/20250523095322.88774-1-chao.gao@intel.com/
-> [5] https://www.opencompute.org/documents/hyperscale-cpu-impactless-firmware-updates-requirements-specification-v0-7-9-29-2025-pdf
-> 
-> Andre Przywara (5):
->   dt-bindings: arm: Add Live Firmware Activation
->   firmware: smccc: lfa: Add auto_activate sysfs file
->   firmware: smccc: lfa: Register DT interrupt
->   firmware: smccc: lfa: introduce SMC access lock
->   firmware: smccc: lfa: add sysfs ABI documentation
-> 
-> Salman Nabi (1):
->   firmware: smccc: Add support for Live Firmware Activation (LFA)
-> 
-> Vedashree Vidwans (2):
->   firmware: smccc: lfa: Add timeout and trigger watchdog
->   firmware: smccc: lfa: Register ACPI notification
-> 
->  Documentation/ABI/testing/sysfs-firmware-lfa  | 106 ++
->  .../devicetree/bindings/arm/arm,lfa.yaml      |  45 +
->  drivers/firmware/smccc/Kconfig                |  10 +
->  drivers/firmware/smccc/Makefile               |   1 +
->  drivers/firmware/smccc/lfa_fw.c               | 988 ++++++++++++++++++
->  drivers/firmware/smccc/smccc.c                |   5 +
->  include/linux/arm-smccc.h                     |  15 +
->  7 files changed, 1170 insertions(+)
->  create mode 100644 Documentation/ABI/testing/sysfs-firmware-lfa
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
->  create mode 100644 drivers/firmware/smccc/lfa_fw.c
-> 
-> 
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> prerequisite-patch-id: 64fa2209c9eee2084861ba13f0bdfdac312b19b0
-> prerequisite-patch-id: fe1ca1a9aeb94623c79bf66366c76bfb8645b581
-> -- 
-> 2.43.0
-> 
-> 
+> > 
+> > > 
+> > > > > +	}
+> > > > > +
+> > > > > +	/* In case of invalid PTE, we need to figure out which part of it is MMIO */
+> > > 
+> > > [...]
+> > > 
+
+[...]
 
