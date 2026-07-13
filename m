@@ -4,68 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE0EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47904C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jN2Uqyqlk4BlB1zGW5Bw3R7JyKk82NVHi1lz3053mrA=; b=BKi9KZD5Ol1VX60QoF8LLtocwS
-	ACf0IyZ2mUM3GntLXSQespG7cbBhQqX4E+n/lE0rdlz/5twjJCVGgAlQZHjFyTttBGkVBmlqAocSf
-	nq3XOtyUQMIytcHCJHhs1WZDqBxP9KT+leRrd2HpxLniwbJzk+UwpKnUthjA9xTIWjEPbjyCfTX9D
-	fiwlzzkK3U0hZhi7VBpoZBwINaqzUwN3PUu0X3cK8M1BrAPZ7WA/M9GAYimNYnXimVT1siIXV2HuO
-	9XFh+Wx5HVpW9ulVWMOiT/Hi9TuGA6lX0E65OCGAD8givTFk/mRglxB1a8vNXhrFgNuaISRhV9eQY
-	qSxDVz7g==;
+	bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=; b=gm5U/WsUhsWkkD55O7KC+BcZNE
+	HYqumYtxg8Dit1P9T8H1ciFeDqYJK5CM5rDzBICX5zd2Jypb3mctxQ1VYccoLU5CpBL03vz7a/SuP
+	3UWNaFlbfcWy4dlJYT50sAWgRtjV05tJIy5ZFiO9hRReFJaWvfeFR4OxauQaFa6ey+1z5ksK7VUPP
+	xdXMO5GTaL5TJ3mekCEbq8/kAghFw9q1jDFzMzEnqoGWnLkRY3GesAARkymuTNBjZ32iH/L/lOdbV
+	nNzJwWpgkLxmlbBHcBLU16zfmHb5YimEqXsOAJSlBqs7xkteKR4aVbqF5DQILTUmdkwFtgpUsdei9
+	KIAwu79w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH8x-00000009So2-027I;
-	Mon, 13 Jul 2026 13:56:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjH9G-00000009SuN-3tEA;
+	Mon, 13 Jul 2026 13:56:42 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjH8w-00000009Snr-0akg;
-	Mon, 13 Jul 2026 13:56:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91FED6004E;
-	Mon, 13 Jul 2026 13:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47F661F00A3A;
-	Mon, 13 Jul 2026 13:56:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783950981;
-	bh=jN2Uqyqlk4BlB1zGW5Bw3R7JyKk82NVHi1lz3053mrA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FzJ62VPZgdUAUQmiLBMA+9B94QtywjBJVEiCmeTsr5MglH2TgGMUQpuPtxjxtwlbH
-	 9MQA6kk33gFAdx2LG8KWQAQcjMWaLnqHI370mEp0J44O6UaKFLSyrpJkp9AhHPMKvu
-	 vFt27QaijnH6K66ijOMHSS7oqiA0xDP+HJJ/RAGLx5I6mz0zLQUZ+jc9TroeaU/GxY
-	 KuiFHu9WqX95/NNMxDqB1uZA/7RIuuUotFj6rAQVAwwraZpkl7acyV1RYmbl8zmmRH
-	 znCPiEDJVsQ/nklC2VsRzVjPUBc6meF1hdkWmCB58n8Dmw+2MZWZNOoPfEc4uNTZ8R
-	 OPAra+BHvl9sw==
-Received: from johan by xi.lan with local (Exim 4.99.4)
-	(envelope-from <johan@kernel.org>)
-	id 1wjH8t-0000000527P-02yL;
-	Mon, 13 Jul 2026 15:56:19 +0200
-Date: Mon, 13 Jul 2026 15:56:19 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] drm/mediatek: mtk_hdmi: Fix DDC adapter double put in
- v2
-Message-ID: <alTugxmHG_s4kY4E@hovoldconsulting.com>
-References: <20260713112957.884640-1-lgs201920130244@gmail.com>
+	id 1wjH9E-00000009StM-3Rj9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 13:56:42 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8fcc43c48f7so27401576d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 06:56:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783951000; x=1784555800; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=;
+        b=f85r9ehEtRGQnBSWDAx8fwHLA8lRn1Et16cQr1rvJNTeBa/yC6OaNRQ3DarrLvNxo/
+         1UyUkgV6rtvQjIzN7jEORv0sT1u9pr9NzVFwc/v3TYfvPed0aNkS7NCNm1/Pul2dJzRQ
+         9tAS1Aw72JtaPoRwH2GNtIDdC6GhujTurq2kc+1RfWP2nOa0cE6kgkVmS49Ti8gNi6Jf
+         jPI4NCN7V9wrHwTwnst/N2oTcdIWuoku+MeXN5Ez9qovUPv0M4gnmTewZBg5idUTlBiz
+         MGhpTMhyYGKQmQtIEsFM8QYPiqO2c5RatXcmLxhpG6bOytT+vZ2ZJE4IGgqMG3kwMtBq
+         78XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783951000; x=1784555800;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dThHBkWDs48b/2hz2YL35z2V9VnPq+MKY/40ZoZ5a/U=;
+        b=hYG/AkMw1ByRzS95t4kxJXozikd9WpPGnISlzuCMSNxQDLeQ1/Avu3ZSPg+SOK92bt
+         o4HJka01Yx1a1GNaj5bpA6jYu6tZtOExUcr5TkWRXVmRIHd8tO3EGweOogjo1x9dkbE/
+         s1VSPfK+okiBn3mijdJv0kCkYhYSXX7SXvMS+XPvjdPjuSN3WBIgQLmRXbsN0tH7BU4w
+         oiLtVnt3XDrPnZ92IJskRj+1+aOgWJhJ1gD3fTsB0BseV9oCrWaykl+mw+1hUEOzdGHq
+         emHYyf62GlUjNUw1XumPUU+n/dO1ToM8xq7DisPBM8NiicvshcXxwu/IzMo4dHh82XWe
+         QXhQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpN3z6GMgCrjm5Y45GTSRsFLXyUUOBhMQCvEOp0c2Je8muBFOWjTV5QgD8Y0A1No/scS0Q3JotirdW399tDNLj8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvfTpJM1ai1xKcFzIRjPSEamAHygdZWEVMNtDtiw/1queyZ2pK
+	wISOQmev7hS2vJ9V75wlkkYYhd72LFCwzwdCd8JlMrhwsGz7QayBgdTFaJIiYh2/Os0=
+X-Gm-Gg: AfdE7clbofirMYuFDnLoLZOumnUdcEgjeh0wpwSDbzRthZZ2pjCiau4CR/NUiRQiEaW
+	bcDLzgdyi9AIPfkpju95XwdW80N11tgX189wMn/Cz8GYCAG/K+Xl8XqtnbIShALXIOrGrnpXBcr
+	xN4Z95VishJh3jOvLPswGrlAnOlMAxqz8Hb2HuLoES7aXx9ElRUJ5fceenT6ZRb038+Em5wjVfK
+	hADpJN2LUIZNUGDzZstB656hR/Mhvt+QDF6DegrxB70D0W+dlAUv5s1Czr5KMVN5qlT6fhHsF4v
+	DxSBIDe0TZav1HKJCZwonsP7DRl1XaLwGxA2QiBmBw5LWqZbYySU+FUd/VXnEsfVJcbKscRJbyV
+	Tf+6Ve2wZPV0LjiLt3yCanlZnspN6fNIX/4kmHWhhU4t+wqs0Sw+SQri6Vbkx
+X-Received: by 2002:a05:6214:da9:b0:8ee:756a:f1d3 with SMTP id 6a1803df08f44-903ffc638e5mr98221496d6.28.1783950999687;
+        Mon, 13 Jul 2026 06:56:39 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd81f4bbdsm126704796d6.36.2026.07.13.06.56.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 06:56:39 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wjH9C-0000000DL9o-26N7;
+	Mon, 13 Jul 2026 10:56:38 -0300
+Date: Mon, 13 Jul 2026 10:56:38 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+Message-ID: <20260713135638.GB3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-17-aneesh.kumar@kernel.org>
+ <ak42F240d-53QeFN@arm.com>
+ <yq5apl0xgy89.fsf@kernel.org>
+ <ak-CT3oanlDfgTy4@arm.com>
+ <20260709181336.GM118978@ziepe.ca>
+ <yq5ajyr3h106.fsf@kernel.org>
+ <20260710161945.GO118978@ziepe.ca>
+ <yq5atsq6hdaa.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260713112957.884640-1-lgs201920130244@gmail.com>
+In-Reply-To: <yq5atsq6hdaa.fsf@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_065640_874523_D083046F 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +133,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 07:29:57PM +0800, Guangshuo Li wrote:
-> mtk_hdmi_common_probe() gets the DDC adapter with
-> of_find_i2c_adapter_by_node() and registers a devm action to release the
-> adapter device reference with put_device().
-> 
-> The HDMI v2 remove callback also calls i2c_put_adapter() on the same DDC
-> adapter. This is not paired with of_find_i2c_adapter_by_node(): it drops
-> the adapter device reference before the devm action drops it again, and
-> it also puts a module reference that was never taken.
-> 
-> Remove the extra i2c_put_adapter() call and drop the now-empty HDMI v2
-> remove callback. The common devm action releases the adapter device
-> reference.
-> 
-> Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Johan Hovold <johan@kernel.org>
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
-> v3:
->   - Add Reviewed-by tag from Johan Hovold.
->   - No code changes.
+On Sat, Jul 11, 2026 at 12:39:49AM +0530, Aneesh Kumar K.V wrote:
 
-No need to resend just to add a tag. It will be added when the patch is
-applied.
+> > But if you really want to it should be
+> > cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) *only* and get rid of the wrong
+> > force_dma_unencrypted().
+> >
+> 
+> Ok, I will update the changes to so we preserve the previous behaviour
+> for SME?
+> 
+> 	if (attrs & DMA_ATTR_MMIO) {
+> 		/*
+> 		 * For host memory encryption treat MMIO memory as shared
+> 		 */
+> 		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
+> 			attrs |= DMA_ATTR_CC_SHARED;
+> 	}
 
-Johan
+I'm OK with this, with the expectation we should aim to remove it when
+fixing the callers.
+
+> > But IMHO, I'd rather this series treat ATTR_MMIO as private MMIO and
+> > ATTR_MMIO|CC_SHARED as shared MMIO and that's the right and correct
+> > thing for the DMA API.
+> >
+> 
+> If you think the rest of the series is ready for upstream, could you
+> please ack it so it can be picked up for the next merge window? I'll
+> repost v8, rebased on top of the pKVM topic branch.
+
+Yeah
+
+Jason
 
