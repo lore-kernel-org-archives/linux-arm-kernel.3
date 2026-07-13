@@ -4,68 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC518C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 17:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028F5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 17:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=5hmDkoykXyuPCNX5o4VG9nAOn2vOS+ZzIkyEv+1eQgQ=; b=Tdx7eDuFJWEFbi
-	enkPLstFxxnM9FCvqWlbpexqs6vuuFY0Pt4vCbvRF7IuYbl3M+aiJJF/eZgVk15GniLvyE0060Qub
-	fz8tufNPojLlU3fHN5WfaIRGSEJCwwMwuReEBIUdGBpSi/ZSw/YaolsRjI4zrxMUmLU2ewrAcc1uM
-	sbVxi8khZGe2x62l00RHiePniqbkaZdJOxPLYZTkdH2Ml1LE+SJHMxY1tWpxlMSnIK2Wd+QvDSmO/
-	ZcAGbAWK2ft0MQvTFDIBOkI2xFyryDywWq5hGkZa1aQQeqD3yzZw2oECjUaSYpAO7ToymG038jq2e
-	edLeyvl8fLril1lv5YzQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yflr35iQtozkrKsWPSXMB3haiCYqPE+VDxf/660hH9k=; b=WPESTaRmKVeFj9hN+/DgHtKgFT
+	9daWULBqMcV9fprFqXbYKCSorpytG1TdHgoPXm8n4f1fTt9FWoUK/7CGvy639hl+Grw97HFR7IgBm
+	WeB3BWwhxBz8vXWN/q7gPjcmnOBAgbtzGEtM89520bjOREXc7pJEj/9R2wM1393wfBo2X0Dg4sBTt
+	UlpOjypGacSZXLBLi1uooTpY2HbgCmesT751WgJ5cRIB4ZI04aEDsxO0cU67atzdVwwNkWSBa2i1C
+	sSpzJxs1XOoQM6oIeVHekFjbKNPRHjTjTEo4ZjGYpH5dmUYreOXpzzzZneBT2SQUOuui72OvSYLfA
+	UUm2sfjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKqx-0000000A9SQ-2dJs;
-	Mon, 13 Jul 2026 17:54:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjKrW-0000000A9Wc-3H4F;
+	Mon, 13 Jul 2026 17:54:38 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjKqw-0000000A9SK-3My4
+	id 1wjKrU-0000000A9WG-1KPg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 17:54:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 387B242A54;
-	Mon, 13 Jul 2026 17:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10EB1F000E9;
-	Mon, 13 Jul 2026 17:54:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783965242;
-	bh=5hmDkoykXyuPCNX5o4VG9nAOn2vOS+ZzIkyEv+1eQgQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=QIFnMeAWfUu5xUX6zoFQeRz6/U1yN51/WVkbP9f8XVzRUvQVcT1PnbYX012sRdGsu
-	 Yyal/hZB1vTsCmmRZ1bfV9/nK3hfKtCLBdKy6S/lOLRz1Oi6xaTlUo0xAJH3y5yvxM
-	 LF+DBgK79KTe3L40BkSYfaO9GEaxv0EosnBX1cz3wVSzqIt6k4wZKpttVTk6Blf79y
-	 l5DQy8Qg/eQRV85kTfyR1ZXpHugtN7H2fv/jsSbItz9sx+XylYKfvyjHwM9kZFH0Ov
-	 dqRv/ToS+zowvCFe6dUK0hqlP3fS9gS7EEOwmUmNOJYpLQmrIqhxrlv50iR7bml+nK
-	 mIwHXEWzlrz2w==
-Date: Mon, 13 Jul 2026 12:54:00 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-pci@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
+	Mon, 13 Jul 2026 17:54:37 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-92e855da580so273322185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 10:54:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783965275; x=1784570075; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Yflr35iQtozkrKsWPSXMB3haiCYqPE+VDxf/660hH9k=;
+        b=PvbysSTFitauYZvUwYSTAiYkOusP6LOGs+ZiLZA98PSwwoIK40ysqRStGUuFyeyaNW
+         PWhDLsBTjoNmru1Sp7YzQ5/e/f/NjfX9R6rLxtt74BnpnPqYDb04EoY2n0QrBOl/EHh+
+         diBjgWya+Aq8S6X0AfG2LEZsZF86/4XzDv+v0lAM8uJqbsSUqFy4uqDLBHoYVMRMaWW3
+         hkxhjHirxN3LC5QScP4f5pTZGz68jNSFMfyPQRAJBlTLNQZZq8j8fPhBrRBivsRgktVO
+         8QpqUBs3yRj5QpA3jzuhFVD09C4wHXLw2G7amEWTGOKRv280ULMHVYzknlVXI0lwlCO5
+         BTGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783965275; x=1784570075;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Yflr35iQtozkrKsWPSXMB3haiCYqPE+VDxf/660hH9k=;
+        b=fZmx4T1iqgJ3ZOvP2qowwWxuFP6f0EJNMbgyMhxZGjLLhbkFw3T6SzJM0T7VnYN4EH
+         cUR7yoLR80otBydmLiFKeQk2gu43UvyN4AZ4GhIg/IGiWrflOUVJlww++ZRVJ0Bt2HiS
+         61HfFNfMCLFLGD08V3ZHlv8AsfccupP1QJRz0tTHvi7T8igZPR6dpF8CfhKfSxEe23je
+         3Rf9HFfeutb1CQyLNwA0k/M4AMKup5ku71GuZAwxWAvBc4vlTjYkukgYO/NShYIFjqSg
+         aT0JvAnzDfssOfT2R9A4nXWzkJIdvE4dG0fnrE+Pelbk5qQisjyL8OhkMPw4OZtgnjRt
+         vl1Q==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+AIY320QGUZmMu9n1l4V9LBfwbLyL5Vf1Fr0GFPM8qhnghjZucSCvCYJhvCo1iqIueBV7LEXRJo+xgzNDdOSf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjhie37F8WF+X4MXBI7ybJtgS424BHxKgbAwD84Mj+TBC9fHg8
+	BEFBSIFE4CoCrMwypo0mMcEyDTC2gW1cF1dFzma3Y+50sNsIc1uQ9gBV4V+qBsf2Z1I=
+X-Gm-Gg: AfdE7ckJTQ55yLIILMBfHk36shhNUrQLbSAZsXTEaQjbmf1Cxyigp4dQGr/pfVmmbA8
+	3bUHFGdjtkL+PCGrA8mIZTlXAgOu26PiSGmO9yyaMdOxPBpsTIsquV4WD4VUQhY9K8JuwLq4Xle
+	+uK9szswFoxgjQkSAJlvtcrvKIvM3AsLBu16I1q+FnIqkPgnIZS87A2yppisspyWV6pOD3jS8y7
+	XkV90iYa/J8q215gHDEMJZWdyc4SlQwkY7A5uH+n3+EsKppJ8aPb4ScdJtSskvh5OpUtPIdHMtk
+	p2HHoqlGJFidmD0VCYmPQEs6fJdXJJKhzRtlTLQxkO4z58CgxBOX8RhF0fQ72hxJsbAwHxXM6ua
+	t+XiybUNZj3MQB12Nky+lQL288vd9oqZGEAXBtrZHownQtHNAfcGNtkIhDmkB
+X-Received: by 2002:a05:620a:469e:b0:915:94f7:55df with SMTP id af79cd13be357-92ef2bd609cmr983527785a.20.1783965274729;
+        Mon, 13 Jul 2026 10:54:34 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5cfdf6fsm1229104285a.24.2026.07.13.10.54.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 10:54:34 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wjKrR-0000000DwzJ-2as1;
+	Mon, 13 Jul 2026 14:54:33 -0300
+Date: Mon, 13 Jul 2026 14:54:33 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] PCI: rcar-gen4: Inline GIC_TRANSLATER offset macro
-Message-ID: <20260713175400.GA1258926@bhelgaas>
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 02/22] dma-pool: fix page leak in atomic_pool_expand()
+ cleanup
+Message-ID: <20260713175433.GI3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2cb03029-0957-4ed8-98bd-9b3e0e0bce2d@mailbox.org>
+In-Reply-To: <20260701054926.825925-3-aneesh.kumar@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_105436_366794_24EC8DB5 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +127,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 03:35:10PM +0200, Marek Vasut wrote:
-> On 7/10/26 10:30 AM, Marc Zyngier wrote:
-> > On Thu, 09 Jul 2026 21:10:03 +0100,
-> > Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
-> > > 
-> > > Instead of pulling in the whole linux/irqchip/arm-gic-v3.h ,
-> > > copy the one GITS_TRANSLATER register offset macro directly into
-> > > the driver.  This repairs the ability to build the driver on
-> > > non-ARM non-GIC targets the way it was possible until now, which
-> > > retains good build test coverage.
-> ...
+On Wed, Jul 01, 2026 at 11:19:06AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> @@ -115,8 +116,10 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  	 */
+>  	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>  				   1 << order);
+> -	if (ret)
+> +	if (ret) {
+> +		leak_pages = true;
+>  		goto remove_mapping;
+> +	}
 
-> So in the end, it is either this patch or limit the build to
-> arm/arm64 . At least this patch still allows building this driver
-> with more compilers on the various build bots, so I would opt for
-> this patch here.
+Truely these _set_memory_decrypted() things are an insane API. So a if
+it fails to decrypt it can be in any messy state?
 
-I like the build coverage, but duplicating the #define doesn't really
-seem good to me.  It makes readability worse because cscope/tags now
-sees two definitions without an obvious reason.
+> @@ -130,14 +133,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  				   1 << order);
+>  	if (WARN_ON_ONCE(ret)) {
+>  		/* Decrypt succeeded but encrypt failed, purposely leak */
+> -		goto out;
+> +		leak_pages = true;
+
+At least this one makes some sense..
+
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
