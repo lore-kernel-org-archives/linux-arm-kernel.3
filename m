@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA16C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08B5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=; b=uC5pVvl73qZhKQnS3cEeJ0HtQ2
-	x6uUuPIOLGbI9VOJQc12lG+k/loemjPhqRkyJ5w4GGQ5oJ3pt7XTNMtYwPtBJXXsG1OVic1NNShV6
-	at9c/byai88x1p81+mGJ0dF6g5f7x+xHdoomNPZaCz9rjsOk1f0Hq6F4Hu/CQ+Df8jz4dMu7uvxLl
-	lcZHCMYb+1txgqXd5XLPiwA/bFb+mfzlARiVSIVfw+VU4wB8BhgBEWXJikePJ2kyuEC+c/MPqCUzo
-	2u/VZf9o5AuJ+OlM9a1hG3b3O6NMJUvR7gGOqQp7TXDi4ysEZSRl/+8UDmyYTq+IKTTJQIBonJERR
-	yzOPyWZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I5Xuiq8NQj6APix6vd4TJDu8T3rurGUlMnDaKp7R6vw=; b=EV3IImXooA3Rc2J+1LR6KISwuK
+	AYkpRIcHxvGWchGZrdYhPBsyy/fC3fvXJkp2mcAFP+LXtUwO0lUXLoQA26zmwNDrF/3UrxoCEhOoe
+	M31i62ZM4c0RRMHHHyqIkCfIzROGS+zdsFvyMEZnv1upIKXfwV6shHj3Ek6nRPvyukQGq46XOXELO
+	WKeltQf0fJcNJixMpVojp+mj6WBLkrRbTBQhA4McgBfQmIk2BPd1aAXyXrZWaokU8T9lX1r8S+PsJ
+	l4ouPg9WhGb5oIGAPojyoSLgEKpAtmY6CiBrUdedH8ZrVp2ihnGTqdIR97Pl0noIgRtwUwktYuscf
+	h6V4tzTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMHE-0000000AHZE-0hWv;
-	Mon, 13 Jul 2026 19:25:16 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wjMIC-0000000AHke-1K0s;
+	Mon, 13 Jul 2026 19:26:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMHB-0000000AHYL-3ZOx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:25:15 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493ece78b0cso26176595e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:25:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783970711; x=1784575511; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=;
-        b=c5fjGIuhE36n/n5fIqsxBF5lokpGAolPVSzUqgeqhYbV3Eaz8DtnLYf1H7vw/PpmYN
-         CBhcgzooZeWlDTnAg7qI+a6s+zINWUfmPGVoqZoqtXMfUi1F0YASzUR6Pc5wX0+VlUHf
-         TWZe5TVdRrwI9IM0yrbB++LhReTKoG52bVJM4XHM63s2fiVR5aA2W/b1I08jPpQZS/DK
-         NnhxC6YjwPBGxiV6qejfBPzOz+wy53quopCTkGSA7hKb6dozqfbuRdt28hiOqnxPylIY
-         2rCednUX63qbGlOsy1x4yLAX+jDf87wTHi+j3clMySHWoQfiigJGznMuJbu0ip1xeUl1
-         IDhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783970711; x=1784575511;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z+xB3TUCO9UrjdGLJb+39sEEHPhvQQhEnyMJTNd+wdw=;
-        b=fHPCAMLksxdOPLoylqrT+UVaPso0JF3DfV6Jt390y8dUIoJ7wT1UhFstR80hFgdcrA
-         Y7+RHuW0/QOzXNqIEE49EaFVKtkfeTVkLKB0/OYNoJTEZ64aOsCWFCmsdXUVt2X9XPuj
-         cLHUxSp784RpvEQB3pFnRDZq5w/S3joKyBNMN2T7ceEvq2NxgZuMA50I5EgWawjotee+
-         E/oiFT38+SICyMRnrtGxEV3izuO3wj/GAxU/Ke0bUwGLUl/2yFk99uuH4clTekuJw87E
-         ZVN470/cMaCg0rjCxTt4bONb8Akmlmk06wxmtKzylSiEKxjHwH5zRAVIYm7Fgv/rm7/R
-         uAQA==
-X-Forwarded-Encrypted: i=1; AHgh+RrT5b3OZ7zfSPInNBnPVvFUVhiM1iezUzti3V8thaQ3Yerffd4XgKb5PJOxoZOEzE1O/tmKVIBpqn2H1nBqGWFh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo5rCNGP08Jc+tMC9C+PMTt9AhDiblK8DqubxuQLYTHE1/WAx0
-	y/l86kKQyw9nQcp4/jMO+c7wgFRpGZxkSg6vx8e7nG6CvKptmKR1OVMD
-X-Gm-Gg: AfdE7cm7mnB17DyW5+mYg7uoE+pK8lWEa2XN7jjbmRn4WhduQDB0ZCss9f8eVS739BA
-	RvouI1z6x8xSGpXuXOpSxv4ZZ/Yevy/2UJODv4bOEeiJu3eARG1I1V4eykfoTip0I0ctM/yUcu6
-	qvNELCDUdvQUndfFhy+Fu/HBAOKW1ihcPHYdL9v8BuqDKI+nHS0a6ErTOCofqzcJna19cA5nsAP
-	i4ENl1Mv6zuwBh1Wgt+cqGVsXieNvv7/0Uffsy6zpVrhQTTF70D5xyMlj995fkshjCMWphbz9vd
-	zDtF29lE9Sh0lu6z6POJ2453l/Nzyng49gMYM9yaRPMuxO8celzSBV9zXGtfWVBBMdAVPuNslKr
-	R1mxrpzcuEq04xJKDwzZnlBrG+e5Q9Lx3kxyH8APynncOUUkeLtPt0TZLrZO2mjW6vCAxEYfJVT
-	h74lxNvmGSBnJpdrKSsv+6xRyHtbFEW0iBN/hbjDxq7UmpfGtuOtn+QM/1pJS+fhBQyAg3T31pt
-	SRT53X5TdJ1m3oyVGB6K/0QEuycftYkjEZ5pbeaZetifejBqx/ae8a0pET1M13ily3tkk2tqJRN
-	DQUjjdb80qJlI8TG/qSY
-X-Received: by 2002:a05:600c:6095:b0:493:e983:806e with SMTP id 5b1f17b1804b1-495158c68c7mr8361975e9.3.1783970710468;
-        Mon, 13 Jul 2026 12:25:10 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a4a7-df01-9434-c79e-9028-76f8.310.pool.telefonica.de. [2a02:3100:a4a7:df01:9434:c79e:9028:76f8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a322c86sm15376195e9.11.2026.07.13.12.25.09
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Jul 2026 12:25:09 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH v2] ARM: lpc32xx: only run SoC init on LPC32xx hardware
-Date: Mon, 13 Jul 2026 21:25:06 +0200
-Message-Id: <20260713192506.7782-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1wjMIA-0000000AHjq-0pBs;
+	Mon, 13 Jul 2026 19:26:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783970770;
+	bh=RcxFrzM4fXb6ommCnOiNc6tEa78VsTytrJHLMEScxm4=;
+	h=Subject:From:To:Date:In-Reply-To:References:From;
+	b=W/n0NHB7zpdXppS10/AVeJ2AI6xwRXLIm/akQboL82x9GxlSAgWWg4QuHRSrUVpLO
+	 55kHkhTXFVYSz3DWH0C9G0TBVzJAFQJG186aMIT4VvGD3BnzjT8nI/xs/2wdlxlRc+
+	 h5YWPQR7eFb0yZVn1Mn5LgO2tn/nK5dCMwMFblpzv8pRlMk3f9Mb/notJNEf4mITrn
+	 0kpusqlXBqS1ZMcKzWDMPYuvCrUp8UCLbQMdsJ7F9xrEU7Xze7bhC67mMKjr55M+PU
+	 rry5Kt5BALb5nxiAyiarbcNb/5zcjwfn5JK1ewctu/8clOVJWphg5PV1FXl+auN8a5
+	 IeMwVvUWDqWAQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48DF317E0956;
+	Mon, 13 Jul 2026 21:26:08 +0200 (CEST)
+Message-ID: <a92d3ece26722bded7a71373e190b12fccbd0396.camel@collabora.com>
+Subject: Re: [PATCH v15 02/12] media: mediatek: jpeg: fix jpeg buffer
+ payload size setting
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 13 Jul 2026 15:26:05 -0400
+In-Reply-To: <20260702072614.10373-3-kyrie.wu@mediatek.com>
+References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
+	 <20260702072614.10373-3-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-3sVKmjtuPNin0J4FoPlf"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_122513_909922_B5922378 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20260713_122614_392889_A1A17B49 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,102 +94,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
-LPC32xx-only registers. Since the multiplatform conversion they also
-run on other ARCH_MULTI_V5 boards where access faults e.g. on versatile:
 
-  Unable to handle kernel paging request at virtual address f4004130
-  PC is at lpc32xx_check_uid+0x2c/0x9c
+--=-3sVKmjtuPNin0J4FoPlf
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Drop the arch_initcall() registrations and call both functions directly
-from lpc3250_machine_init(), the machine's .init_machine hook.
-The calls are placed in link order (common.c, pm.c, phy3250.c) to
-keep their previous relative ordering.
+Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> For multi-core jpegdec, if one core gets resolution change event,
+> the payload size, representing the size of Y/C data, needs to change.
+> But others are decoding at the same time and it can not be changed
+> immediately, which results in the payload size to not match the real
+> buffer length.
+> The payload size must less than the real buffer length to remove
 
-Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-v2:
- - Rather than guarding the two arch_initcalls, drop the initcalls
-   entirely and call both functions from lpc3250_machine_init(), which
-   is already guarded properly. (Suggested by Arnd.)
+                   must be less
 
- arch/arm/mach-lpc32xx/common.c  | 5 +----
- arch/arm/mach-lpc32xx/common.h  | 2 ++
- arch/arm/mach-lpc32xx/phy3250.c | 2 ++
- arch/arm/mach-lpc32xx/pm.c      | 5 +----
- 4 files changed, 6 insertions(+), 8 deletions(-)
+> the warnning logs.
+>=20
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
+)
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 
-diff --git a/arch/arm/mach-lpc32xx/common.c b/arch/arm/mach-lpc32xx/common.c
-index 304ea61a0716..35ed3569c5a3 100644
---- a/arch/arm/mach-lpc32xx/common.c
-+++ b/arch/arm/mach-lpc32xx/common.c
-@@ -106,7 +106,7 @@ void __init lpc32xx_map_io(void)
- 	iotable_init(lpc32xx_io_desc, ARRAY_SIZE(lpc32xx_io_desc));
- }
- 
--static int __init lpc32xx_check_uid(void)
-+void __init lpc32xx_check_uid(void)
- {
- 	u32 uid[4];
- 
-@@ -119,7 +119,4 @@ static int __init lpc32xx_check_uid(void)
- 		system_serial_low = uid[0];
- 		system_serial_high = uid[1];
- 	}
--
--	return 1;
- }
--arch_initcall(lpc32xx_check_uid);
-diff --git a/arch/arm/mach-lpc32xx/common.h b/arch/arm/mach-lpc32xx/common.h
-index 32f0ad217807..06b20bea324e 100644
---- a/arch/arm/mach-lpc32xx/common.h
-+++ b/arch/arm/mach-lpc32xx/common.h
-@@ -16,6 +16,8 @@
-  * Other arch specific structures and functions
-  */
- extern void __init lpc32xx_map_io(void);
-+extern void __init lpc32xx_check_uid(void);
-+extern void __init lpc32xx_pm_init(void);
- extern void __init lpc32xx_serial_init(void);
- 
- /*
-diff --git a/arch/arm/mach-lpc32xx/phy3250.c b/arch/arm/mach-lpc32xx/phy3250.c
-index 66701bf43248..ddc6333ca55d 100644
---- a/arch/arm/mach-lpc32xx/phy3250.c
-+++ b/arch/arm/mach-lpc32xx/phy3250.c
-@@ -71,6 +71,8 @@ static const struct of_dev_auxdata lpc32xx_auxdata_lookup[] __initconst = {
- 
- static void __init lpc3250_machine_init(void)
- {
-+	lpc32xx_check_uid();
-+	lpc32xx_pm_init();
- 	lpc32xx_serial_init();
- 
- 	of_platform_default_populate(NULL, lpc32xx_auxdata_lookup, NULL);
-diff --git a/arch/arm/mach-lpc32xx/pm.c b/arch/arm/mach-lpc32xx/pm.c
-index 2572bd89a5e8..9b5c5e1462ed 100644
---- a/arch/arm/mach-lpc32xx/pm.c
-+++ b/arch/arm/mach-lpc32xx/pm.c
-@@ -120,7 +120,7 @@ static const struct platform_suspend_ops lpc32xx_pm_ops = {
- #define EMC_DYN_MEM_CTRL_OFS 0x20
- #define EMC_SRMMC           (1 << 3)
- #define EMC_CTRL_REG io_p2v(LPC32XX_EMC_BASE + EMC_DYN_MEM_CTRL_OFS)
--static int __init lpc32xx_pm_init(void)
-+void __init lpc32xx_pm_init(void)
- {
- 	/*
- 	 * Setup SDRAM self-refresh clock to automatically disable o
-@@ -129,7 +129,4 @@ static int __init lpc32xx_pm_init(void)
- 	__raw_writel(__raw_readl(EMC_CTRL_REG) | EMC_SRMMC, EMC_CTRL_REG);
- 
- 	suspend_set_ops(&lpc32xx_pm_ops);
--
--	return 0;
- }
--arch_initcall(lpc32xx_pm_init);
--- 
-2.39.5 (Apple Git-154)
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
+> ---
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 19 +=
++++++++++++++-----
+> =C2=A01 file changed, 14 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index 1e014fd698ae..3960ad21d7f0 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -702,6 +702,7 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *vb=
+)
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue);
+> =C2=A0	struct mtk_jpeg_q_data *q_data =3D NULL;
+> =C2=A0	struct v4l2_plane_pix_format plane_fmt =3D {};
+> +	size_t max_size;
+> =C2=A0	int i;
+> =C2=A0
+> =C2=A0	q_data =3D mtk_jpeg_get_q_data(ctx, vb->vb2_queue->type);
+> @@ -710,12 +711,20 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *=
+vb)
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < q_data->fmt->colplanes; i++) {
+> =C2=A0		plane_fmt =3D q_data->pix_mp.plane_fmt[i];
+> +		max_size =3D plane_fmt.sizeimage;
+> +
+> =C2=A0		if (ctx->enable_exif &&
+> -		=C2=A0=C2=A0=C2=A0 q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG)
+> -			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
+> -					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE);
+> -		else
+> -			vb2_set_plane_payload(vb, i,=C2=A0 plane_fmt.sizeimage);
+> +			q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG) {
+> +			max_size +=3D MTK_JPEG_MAX_EXIF_SIZE;
+> +
+> +			vb2_set_plane_payload(vb, i,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(vb->planes[i].length,
+> +						=C2=A0 max_size));
+> +		} else {
+> +			vb2_set_plane_payload(vb, i,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(plane_fmt.sizeimage,
+> +						=C2=A0 vb->planes[i].length));
+> +		}
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	return 0;
+
+--=-3sVKmjtuPNin0J4FoPlf
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalU7zQAKCRDZQZRRKWBy
+9KLBAQC3VQew+lWIFYFAv9fg5BqMa9IRHChznBJwWMns6YzGrgD/WYdaWpblGdWI
+WFr3vCtL4w9cR0i7UPjjJ20jXFBktAQ=
+=dgdq
+-----END PGP SIGNATURE-----
+
+--=-3sVKmjtuPNin0J4FoPlf--
 
