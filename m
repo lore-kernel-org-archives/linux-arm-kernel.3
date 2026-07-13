@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 658D9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B942BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+P8A55tLQ+6bXmpcRlja+bDV3EGqSvyPmcMsAAo8u3A=; b=BrOJOobgQ+La7hqeAZLnjXO6NG
-	lVXnjZ/fcCAja5Umgktk/BVcr6E2JX2DWE1fcxWcixINGdeG/Z4yZRZ41UqK4cjNCJ06Khlf1XVOs
-	TKLPBx2joRWtQ4a/cjajqtx22H/pboRL8gtWkuK4nzf0HBJKOKnRWF4pXeSnOwvjPtbK+Yit3MDXM
-	405Tf9EVYwOf7LtXbDS2VmcWzF8TWC/eJUynQlwcvkgXVXD5T4SJdMhUjzhlkxE10f6b7NHgXT80p
-	5s0PGZrAwNPyi/7Os3w87W0ZdseVJacnP1EHRuyYuTydl5VIrFkOPEs1xg0c0IovmDDG95FT0GcUa
-	WXXjyRCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C5G36xUDp/+xo7FopLJggCV+27wqN3Xdv6c2yGCmeMo=; b=SYLbQggsNlwGTcGa7gn22KRX0B
+	lYYrnMc27gd/flVLPXwMs4TLI9Fnub6p76itlGcdPGcOtonxU77HtT3dYDYZkZNvsGHluPh+w7R9g
+	A14kU5bWmwlJIEDuX/uHF9bsu+RrtEpPWN0J7LMYxBo7SEkDpjNcCDhc9WIo7w1ieMbsde/KeYFoQ
+	6/rThIoUYmxJ6r9Im/oJwq1bHNS4TO7lowRzdvvgh0EjfXqOyffd7D0Lw1ZfH9Ri2Mtv+21ZdRWYK
+	CGewZvRXr3u3GNzkqMfjTUPDpu6KnoZ4b+qZM76IcnOpIfkh702ZhuO1U2duH23ELZ+OpdnKHBT1b
+	KBxAgzog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFeQ-00000009BLj-1Ryw;
-	Mon, 13 Jul 2026 12:20:46 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFeH-00000009BKC-3deu
+	id 1wjFgC-00000009BaY-3NC4;
+	Mon, 13 Jul 2026 12:22:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjFgA-00000009BZP-0LvO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:20:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783945238; x=1815481238;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Wa3p4pJ1O3+kXOjLpmt1FfceI8MC9N80+kPasW7crM0=;
-  b=RSUPRyc11StF5mA/vH3o2P/u18WG2ORhlOcabs5DMHEWSLTs09zaBtaD
-   Dlg4CPS6osx3zUhrmWtQAkc3NBXTFwbAGw4xiQA/kklR57XtZu7F0p+5R
-   ey8eeK5skxmL+mlv07cGAyuKXxyr4myeBboJunNmh7VIFM59qwf2UzzOf
-   YXTBH6nmHtn5XRI/tqQF8LUwFiPq8Xah0nveKn0oazLy3psTn6OyiCD3Y
-   UgG6vYi9nOX0FLZ0LY3Kc5VGomI5sXC7OV2E2eHtjY+9wQL6B00DtlXpI
-   tDAUXmtM3jiHztVv261l3hN+P0Q4TeHtM5I6aBgP9pbcSe+WrTgvBDbRk
-   w==;
-X-CSE-ConnectionGUID: mpUDM7OXQ1WjHQP9KjXYcw==
-X-CSE-MsgGUID: AYhVHZA0RJWllTvXoDMFbA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="102101392"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="102101392"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 05:20:37 -0700
-X-CSE-ConnectionGUID: i+FYRzvwR9Sut71d63+hiw==
-X-CSE-MsgGUID: PLNBBH1XTLqng9296cDVdA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="251114037"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.248.249]) ([10.124.248.249])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 05:20:32 -0700
-Message-ID: <9a85cccd-29ed-4c51-b9cb-140631966d20@linux.intel.com>
-Date: Mon, 13 Jul 2026 20:20:29 +0800
+	Mon, 13 Jul 2026 12:22:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A04071576;
+	Mon, 13 Jul 2026 05:22:26 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEBF23F93E;
+	Mon, 13 Jul 2026 05:22:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783945350; bh=4F779BI8cPAbpp/NjYy8NZd52ZbIYTATOk1EJiL4h4M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hI1FXH9CotPrXE3rIVmdPaCwjxxGA7e/y9qehSCV0KZ78mQkyLxOsspsK/2cy6efD
+	 Gam6BGO7RKe5Xs6ZGiXGLfoKJGR5c+5pAAwaYOL9XWHVfVOewiRWPpFOT8J6mQy0YG
+	 ogSWQgRrEw7XWdIhmpdxDqBtpeSNd1s9U39ndi+U=
+Date: Mon, 13 Jul 2026 13:22:24 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, leo.bras@arm.com,
+	leitao@debian.org, julien.thierry.kdev@gmail.com, maz@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: irqflags: Fix Pseudo-NMI state assertion failure
+ during vpanic
+Message-ID: <alTYgMwLaG5sk-P4@J2N7QTR9R3.cambridge.arm.com>
+References: <20260713114459.833504-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, "Rafael J . Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Mostafa Saleh <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com,
- Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v5 18/18] iommu/arm-smmu-v3: Block ATS for a master upon
- an ATC invalidation timeout
-To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Jason Gunthorpe <jgg@nvidia.com>
-References: <cover.1783044582.git.nicolinc@nvidia.com>
- <939885143f3064811685b3f31f6f30f8a713c89e.1783044582.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <939885143f3064811685b3f31f6f30f8a713c89e.1783044582.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260713114459.833504-1-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_052037_935139_977BBAB7 
-X-CRM114-Status: GOOD (  50.67  )
+X-CRM114-CacheID: sfid-20260713_052234_212905_F33A89AE 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,327 +70,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/3/2026 12:06 PM, Nicolin Chen wrote:
-> When a CMD_ATC_INV times out, the SMMU stalls at the trailing CMD_SYNC and
-> arm_smmu_cmdq_issue_cmdlist() returns -EIO. The CMDQ HW reports the timeout
-> on the CMD_SYNC, not the failing CMD_ATC_INV, so the master that caused it
-> cannot be identified from the error alone.
+Jinjie,
+
+Given this will obviously conflict with the NMI rework, and given that
+you know that Vladimir and I are working in this area, you should CC us
+on changes in this area so as to not fragment work.
+
+On Mon, Jul 13, 2026 at 07:44:59PM +0800, Jinjie Ruan wrote:
+> When CONFIG_ARM64_DEBUG_PRIORITY_MASKING is enabled, triggering an LKDTM
+> HARDLOCKUP induces a warning at __pmr_local_irq_disable() inside
+> vpanic().
+
+Clearly this has never been tested before. What drove you to test this
+specifically?
+
+> This occurs because a Pseudo-NMI interrupts the locked-up CPU and updates
+> ICC_PMR_EL1 to a transient composite state:
+> 	GIC_PRIO_IRQON | GICV3_PRIO_PSR_I_SET (0xf0).
 > 
-> cmds->cmds is sorted by SID, so arm_smmu_cmdq_batch_retry() walks the batch
-> and re-issues one CMD_ATC_INV per unique ATS SID; a second -EIO can confirm
-> which master is broken. arm_smmu_quarantine_ats() then quarantines it:
->   - clear STE.EATS on every SID it owns
->   - walk master->master_domains marking its INV_TYPE_ATS/_ATS_FULL entries
->     in every domain's invs as INV_TYPE_ATS_BROKEN so later walks skip them
+> Then, vpanic() unconditionally calls local_irq_disable(), triggering
+> the strict assertion which only expects pure IRQON or IRQOFF.
+
+Is there any non-panic code which could run in this context and call
+local_irq_disable()?
+
+If not, I suspect it would be best to leave this as-is, and let it be
+fixed by that rework. There are tonnes of other secondary warnings that
+can be triggered by LKDTM tests, and I don't think this is very
+important.
+
+> Fix this by expanding the debugging whitelist in __pmr_local_irq_disable()
+> to explicitly permit this valid Pseudo-NMI context flag where DAIF.IF is
+> set to prevent NMI nesting.
+
+Hmm... that'll silently miss cases where we're in this state and call:
+
+	local_irq_disable();
+	...
+	local_irq_enable()
+
+... where local_irq_enable() *cannot* work correctly, and will restore
+the wrong state.
+
+If we have anything of that shape, then we need more significant changes
+here.
+
+Mark.
+
 > 
-> When a batch carries only one unique Stream ID, the timed-out CMD_SYNC by
-> itself identifies the target, in which case quarantine it directly and skip
-> the re-issue probes. This is the common case, since it is uncommon for an
-> ATS-capable PCI device to have multiple Stream IDs.
+> 	# echo HARDLOCKUP > /sys/kernel/debug/provoke-crash/DIRECT
+> 	lkdtm: Performing direct entry HARDLOCKUP
+> 	watchdog: CPU3: Watchdog detected hard LOCKUP on cpu 3
+> 	...
 > 
-> The marking spans every domain because a master may be attached at the RID
-> and at multiple PASIDs; marking only the invs that hit the timeout would
-> leave its other invs issuing CMD_ATC_INV that keep timing out. Clearing
-> STE.EATS makes the SMMU reject the device's ATS but does not by itself
-> stop the driver from issuing CMD_ATC_INV, so the marking is what suppresses
-> the recurring timeouts.
+> 	CPU: 3 UID: 0 PID: 219 Comm: sh Not tainted 7.2.0-rc1 #341 PREEMPT
+> 	Hardware name: linux,dummy-virt (DT)
+> 	pstate: 00002005 (nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> 	pc : lkdtm_HARDLOCKUP+0x64/0x78
+> 	lr : lkdtm_HARDLOCKUP+0x64/0x78
+> 	sp : ffffffc080b33ac0
+> 	pmr: 000000c0
+> 	x29: ffffffc080b33ac0 x28: ffffff80c3d61ac0 x27: 0000000000000000
+> 	x26: 0000000000000000 x25: ffffff80c0f24800 x24: ffffff80c05495f0
+> 	x23: ffffffc080b33c30 x22: ffffffc080b33c30 x21: ffffffed82f60bb0
+> 	x20: 000000000000000b x19: ffffff80c339d000 x18: 0000000000000001
+> 	x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000028
+> 	x14: 0000000000000000 x13: 0000000000008000 x12: 0000000000000161
+> 	x11: ffffffed837fb000 x10: 0000000000000000 x9 : 0000000000000001
+> 	x8 : ffffffc080b339c8 x7 : ffffffc080b33ab0 x6 : ffffffc080b33a40
+> 	x5 : ffffffc080b33a28 x4 : ffffffc080b34000 x3 : 0000000000000000
+> 	x2 : 0000000100000000 x1 : 0000000100000000 x0 : 0000000000000001
+> 	Call trace:
+> 	 lkdtm_HARDLOCKUP+0x64/0x78 (P)
+> 	 lkdtm_do_action+0x1c/0x38
+> 	 direct_entry+0xd0/0x164
+> 	 full_proxy_write+0x6c/0xa8
+> 	 vfs_write+0xd0/0x354
+> 	 ksys_write+0x68/0xfc
+> 	 __arm64_sys_write+0x1c/0x28
+> 	 invoke_syscall+0x9c/0x10c
+> 	 el0_svc_common.constprop.0+0x40/0xe8
+> 	 do_el0_svc+0x20/0x2c
+> 	 el0_svc+0x5c/0x44c
+> 	 el0t_64_sync_handler+0xa0/0xe4
+> 	 el0t_64_sync+0x1ac/0x1b0
+> 	Sending NMI from CPU 3 to CPUs 0-2,4-7:
+> 	...
+> 	------------[ cut here ]------------
+> 	WARNING: arch/arm64/include/asm/irqflags.h:63 at vpanic+0x3a8/0x574, CPU#3: sh/219
+> 	Modules linked in:
+> 	CPU: 3 UID: 0 PID: 219 Comm: sh Not tainted 7.2.0-rc1 #341 PREEMPT
+> 	Hardware name: linux,dummy-virt (DT)
+> 	pstate: 200020c5 (nzCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> 	pc : vpanic+0x3a8/0x574
+> 	lr : do_panic_on_target_cpu+0x0/0x1c
+> 	sp : ffffffc08001bb10
+> 	pmr: 000000f0
+> 	x29: ffffffc08001bb10 x28: 00000000000000f0 x27: 0000000000000003
+> 	x26: 0000000000000000 x25: ffffffed82b902f0 x24: ffffffed81cbba08
+> 	x23: ffffffed830e2000 x22: ffffffed830e21a0 x21: ffffffc08001bbc0
+> 	x20: ffffffed82b94078 x19: ffffffed8225fff8 x18: 00000000ffffffff
+> 	x17: 666f735f6f645f5f x16: 205d3e3832353031 x15: ffffffed83b5bf3b
+> 	x14: 0000000000000001 x13: ffffffed82bba668 x12: 0000000000000188
+> 	x11: 0000000000000498 x10: ffffffed82c2a650 x9 : 0000000100110001
+> 	x8 : ffffff80c3d61ac0 x7 : 0000000000000001 x6 : ffffffed81cbaca8
+> 	x5 : ffffffc080b33980 x4 : ffffffc08001bc50 x3 : 0000000000000001
+> 	x2 : ffffffed82b8f000 x1 : 00000000000000d0 x0 : 0000000000000001
+> 	Call trace:
+> 	 vpanic+0x3a8/0x574 (P)
+> 	 do_panic_on_target_cpu+0x0/0x1c
+> 	 add_taint+0x0/0xbc
+> 	 watchdog_hardlockup_check+0x32c/0x3f8
+> 	 watchdog_overflow_callback+0x34/0x44
+> 	 __perf_event_overflow+0xfc/0x4ec
+> 	 perf_event_overflow+0x30/0xf4
+> 	 armv8pmu_handle_irq+0x114/0x1fc
+> 	 armpmu_dispatch_irq+0x2c/0x68
+> 	 handle_percpu_devid_irq+0xd4/0x268
+> 	 handle_irq_desc+0x40/0x58
+> 	 generic_handle_domain_nmi+0x28/0x50
+> 	 __gic_handle_nmi.constprop.0+0x4c/0xa0
+> 	 gic_handle_irq+0x38/0x2bc
+> 	 call_on_irq_stack+0x30/0x48
+> 	 do_interrupt_handler+0x80/0x94
+> 	 el1_interrupt+0x90/0xac
+> 	 el1h_64_irq_handler+0x18/0x24
+> 	 el1h_64_irq+0x80/0x84
+> 	 lkdtm_HARDLOCKUP+0x64/0x78 (P)
+> 	 lkdtm_do_action+0x1c/0x38
+> 	 direct_entry+0xd0/0x164
+> 	 full_proxy_write+0x6c/0xa8
+> 	 vfs_write+0xd0/0x354
+> 	 ksys_write+0x68/0xfc
+> 	 __arm64_sys_write+0x1c/0x28
+> 	 invoke_syscall+0x9c/0x10c
+> 	 el0_svc_common.constprop.0+0x40/0xe8
+> 	 do_el0_svc+0x20/0x2c
+> 	 el0_svc+0x5c/0x44c
+> 	 el0t_64_sync_handler+0xa0/0xe4
+> 	 el0t_64_sync+0x1ac/0x1b0
 > 
-> The marking is gated on the STE.EATS clear: it runs only after the CFGI_STE
-> batch completes successfully. If that batch fails the entries are left as
-> ATS/ATS_FULL, so invalidations keep issuing CMD_ATC_INV and re-quarantine
-> until the clear is confirmed, rather than suppressing ATC_INV while ATS may
-> still be enabled.
-> 
-> The flip to INV_TYPE_ATS_BROKEN is a WRITE_ONCE on inv->type, paired with
-> the READ_ONCE in arm_smmu_inv_type(). The invs->rwlock is not taken here:
-> the caller holds the read side for the timed-out batch, so taking a write
-> side would ABBA-deadlock against a concurrent timeout. It is safe unlocked
-> because STE.EATS is cleared first, so a racing CMD_ATC_INV forms no ATC
-> entry and at worst times out again.
-> 
-> The STE.EATS clear uses try_cmpxchg64() to avoid losing a concurrent
-> arm_smmu_write_ste() update to data[1]. try_cmpxchg64() would be UB on the
-> Non-Cacheable stream table of a non-coherent SMMU, and a non-atomic
-> fallback could revert such a concurrent update (e.g. an S1DSS change). So
-> leave a non-coherent SMMU unquarantined, keeping the pre-existing behavior
-> of reporting every ATC_INV timeout.
-> 
-> Also force a CMD_SYNC on every sub-batch flush carrying an ATC_INV so the
-> timeout is observed at the call site that issued the commands.
-> 
-> Identification is synchronous: each master that keeps timing out adds one
-> more CMD_SYNC poll, capped at the ARM_SMMU_POLL_TIMEOUT_US software limit.
-> That cap is rarely reached: a non-responding ATC_INV is completed in error
-> when the device's PCIe Completion Timeout expires, which defaults to a
-> short interval.
-> 
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Cc: catalin.marinas@arm.com
+> Cc: will@kernel.org
+> Cc: stable@vger.kernel.org
+> Fixes: 48ce8f80f5901 ("arm64: irqflags: Introduce explicit debugging for IRQ priorities")
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 201 +++++++++++++++++++-
->   1 file changed, 198 insertions(+), 3 deletions(-)
+>  arch/arm64/include/asm/irqflags.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index fd9a095154c72..528d816479d7f 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -109,6 +109,10 @@ static const char * const event_class_str[] = {
->   
->   static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
->   static bool arm_smmu_ats_supported(struct arm_smmu_master *master);
-> +static struct arm_smmu_ste *
-> +arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid);
-> +static struct arm_smmu_domain *
-> +to_smmu_domain_devices(struct iommu_domain *domain);
->   
->   static void parse_driver_options(struct arm_smmu_device *smmu)
->   {
-> @@ -920,12 +924,25 @@ static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
->   	cmds->has_ats = false;
->   }
->   
-> +static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
-> +				      struct arm_smmu_cmdq_batch *cmds);
-> +
->   static int arm_smmu_cmdq_batch_issue(struct arm_smmu_device *smmu,
->   				     struct arm_smmu_cmdq_batch *cmds,
->   				     bool sync)
->   {
-> -	return arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
-> -					   cmds->num, sync);
-> +	int ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
-> +					      cmds->num, sync);
-> +
-> +	/*
-> +	 * The CMDQ HW reports an ATC invalidation timeout at the trailing
-> +	 * CMD_SYNC, not at the failing CMD_ATC_INV. Re-issue each unique ATS
-> +	 * SID in the batch to identify the unresponsive master and block its
-> +	 * ATS so subsequent invalidations make forward progress.
-> +	 */
-> +	if (ret == -EIO && cmds->has_ats)
-> +		arm_smmu_cmdq_batch_retry(smmu, cmds);
-> +	return ret;
->   }
->   
->   static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
-> @@ -941,6 +958,10 @@ static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
->   	    (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC))
->   		return true;
->   
-> +	/* ATC_INV timeout is reported to CMD_SYNC; catch at the call site */
-> +	if (cmds->num == CMDQ_BATCH_ENTRIES && cmds->has_ats)
-> +		return true;
-> +
->   	return false;
->   }
->   
-> @@ -1014,7 +1035,11 @@ static inline struct arm_smmu_inv *
->   arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next, size_t *idx)
->   {
->   	while (true) {
-> -		if (next >= invs->num_invs) {
-> +		/*
-> +		 * Lockless readers (arm_smmu_invs_set_ats_broken) pair with the
-> +		 * WRITE_ONCE() in arm_smmu_invs_unref(); num_invs only shrinks.
-> +		 */
-> +		if (next >= READ_ONCE(invs->num_invs)) {
->   			*idx = next;
->   			return NULL;
->   		}
-> @@ -2505,6 +2530,176 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
->   	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
->   }
->   
-> +static void arm_smmu_invs_set_ats_broken(struct arm_smmu_invs *invs,
-> +					 struct arm_smmu_device *smmu, u32 sid)
-> +{
-> +	struct arm_smmu_inv *inv;
-> +	size_t i;
-> +
-> +	/* arm_smmu_atc_inv_master() submits batches with invs=NULL */
-> +	if (!invs)
-> +		return;
-> +
-> +	/*
-> +	 * invs->rwlock is deliberately not taken: the caller holds one domain's
-> +	 * read side for the timed-out batch, then taking another domain's write
-> +	 * side while a concurrent timeout does the reverse would ABBA-deadlock.
-> +	 *
-> +	 * This indicates some potential races, but they are harmless since EATS
-> +	 * was already cleared:
-> +	 *  - WRITE_ONCE() may hit a stale invs copy if an attach just installed
-> +	 *    a new invs, which might result in another ATC_INV timeout.
-> +	 *  - a concurrent invalidation may still issue an ATC_INV that may time
-> +	 *    out again.
-> +	 */
-> +	arm_smmu_invs_for_each_entry(invs, i, inv) {
-> +		u8 type = arm_smmu_inv_type(inv);
-> +
-> +		if (inv->smmu == smmu && inv->id == sid &&
-> +		    (type == INV_TYPE_ATS || type == INV_TYPE_ATS_FULL))
-> +			WRITE_ONCE(inv->type, INV_TYPE_ATS_BROKEN);
-> +	}
-> +}
-> +
-> +/* Find the master by SID and block its ATS at the SMMU */
-> +static void arm_smmu_quarantine_ats(struct arm_smmu_device *smmu, u32 stream_id)
-> +{
-> +	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_CFGI_STE);
-> +	struct arm_smmu_master_domain *md;
-> +	struct arm_smmu_cmdq_batch cmds;
-> +	struct arm_smmu_master *master;
-> +	struct arm_smmu_invs *invs;
-> +	unsigned long flags;
-> +	int i;
-> +
-> +	/*
-> +	 * The in-place STE.EATS clear relies on try_cmpxchg64(), which is UB
-> +	 * on Non-Cacheable memory. Leave a non-coherent SMMU unquarantined:
-> +	 * its invalidations keep issuing ATC_INV and reporting the timeouts.
-> +	 */
-> +	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
-> +		return;
-> +
-> +	guard(spinlock_irqsave)(&smmu->streams_lock);
-> +	master = arm_smmu_find_master(smmu, stream_id);
-> +	/*
-> +	 * A concurrent hot-unplug can release the master while a stale ATS
-> +	 * entry for it still lingers in the invs snapshot being walked here.
-> +	 */
-> +	if (!master)
-> +		return;
-> +
-> +	/* Clear STE.EATS for every SID and sync to the SMMU */
-> +	arm_smmu_cmdq_batch_init_cmd(smmu, &cmds, &cmd);
-> +
-> +	for (i = 0; i < master->num_streams; i++) {
-> +		u32 sid = master->streams[i].id;
-> +		struct arm_smmu_ste *ste = arm_smmu_get_step_for_sid(smmu, sid);
-> +		__le64 old, new;
-> +
-> +		/*
-> +		 * A concurrent arm_smmu_write_ste() of a domain attachment may
-> +		 * overwrite the data[1] and set EATS, which is recoverable by
-> +		 * another ATC_INV issued by its arm_smmu_attach_commit().
-> +		 */
-> +		old = READ_ONCE(ste->data[1]);
-> +		do {
-> +			new = old & ~cpu_to_le64(STRTAB_STE_1_EATS);
-> +		} while (!try_cmpxchg64(&ste->data[1], &old, new));
-> +
-> +		arm_smmu_cmdq_batch_add_cmd(
-> +			smmu, &cmds, arm_smmu_make_cmd_cfgi_ste(sid, true));
-> +	}
-> +
-> +	/*
-> +	 * Only proceed to mark the entries broken if the STE.EATS clear above
-> +	 * is confirmed; otherwise return so invalidations keep issuing ATC_INV
-> +	 * (and re-quarantine) until ATS is actually disabled.
-> +	 */
-> +	if (arm_smmu_cmdq_batch_submit(smmu, &cmds)) {
-> +		dev_err_ratelimited(smmu->dev,
-> +				    "failed to disable ATS for master\n");
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * Mark this master's ATS entries broken in every domain it is attached,
-> +	 * so later invalidations skip the ATC_INV that would time out again.
-> +	 */
-> +	rcu_read_lock();
-> +	spin_lock_irqsave(&master->master_domains_lock, flags);
-> +	list_for_each_entry(md, &master->master_domains, master_elm) {
-> +		struct arm_smmu_domain *smmu_domain =
-> +			to_smmu_domain_devices(md->domain);
-> +
-> +		if (!smmu_domain)
-> +			continue;
-> +		invs = rcu_dereference(smmu_domain->invs);
-> +		for (i = 0; i < master->num_streams; i++)
-> +			arm_smmu_invs_set_ats_broken(invs, smmu,
-> +						     master->streams[i].id);
-> +	}
-> +	spin_unlock_irqrestore(&master->master_domains_lock, flags);
-> +	rcu_read_unlock();
-> +}
-> +
-> +/* Re-issue every unique ATS SID in @cmds to identify and quarantine masters. */
-> +static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
-> +				      struct arm_smmu_cmdq_batch *cmds)
-> +{
-> +	struct arm_smmu_cmd atc = {};
-> +	u32 last_sid = 0;
-> +	int nr_sids = 0;
-> +	int i;
-> +
-> +	/*
-> +	 * Count unique Stream IDs, taking advantage of the sorted commands. An
-> +	 * ATS-capable PCI device rarely has multiple SIDs, so a batch commonly
-> +	 * carries a single SID, where a re-issue probe would be pointless.
-> +	 */
-> +	for (i = 0; i < cmds->num; i++) {
-> +		u32 sid;
-> +
-> +		/* Only ATC_INV commands can time out */
-> +		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i].data[0]) !=
-> +		    CMDQ_OP_ATC_INV)
-> +			continue;
-> +		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i].data[0]);
-> +		if (!nr_sids || sid != last_sid) {
-> +			nr_sids++;
-> +			last_sid = sid;
-> +		}
-> +	}
-> +
-> +	/* The timed-out CMD_SYNC already identifies the lone Stream ID */
-> +	if (nr_sids == 1) {
-> +		arm_smmu_quarantine_ats(smmu, last_sid);
-> +		return;
-> +	}
-> +
-> +	for (i = 0; i < cmds->num; i++) {
-> +		u32 sid;
-> +
-> +		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i].data[0]) !=
-> +		    CMDQ_OP_ATC_INV)
-> +			continue;
-> +
-> +		/*
-> +		 * One retry per Stream ID. So, only try the first command since
-> +		 * commands are sorted. And each dead master costs one CMD_SYNC,
-> +		 * bounded by its PCIe Completion Timeout (usually <= 250ms).
-> +		 */
-> +		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i].data[0]);
-> +		if (atc.data[0] &&
-> +		    sid == FIELD_GET(CMDQ_ATC_0_SID, atc.data[0]))
-> +			continue;
-> +
-> +		atc = cmds->cmds[i];
-> +		if (arm_smmu_cmdq_issue_cmd_p(smmu, &atc, true) == -EIO)
-> +			arm_smmu_quarantine_ats(smmu, sid);
-> +	}
-> +}
-> +
->   /* IO_PGTABLE API */
->   static void arm_smmu_tlb_inv_context(void *cookie)
->   {
-
-My understanding of the sequence to quarantine a faulty ATS device is
-to:
-
-1. Identify the devices that encountered an ATC invalidation timeout
-    failure.
-2. Have hardware block incoming DMA transfers and translation requests
-    by clearing the corresponding bits in the device's context/
-    translation table entries.
-3. Have software prevent the driver from submitting new invalidation
-    requests or re-attaching a new domain to the device.
-
-If this understanding is correct, then while steps 1 and 2 are hardware-
-and driver-specific, step 3 seems completely generic. Could it be
-consolidated in the core or any helper library so that other drivers can
-reuse it?
-
-Thanks,
-baolu
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index a8cb5a5c93b7..c5e3e9fe19a4 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -60,7 +60,8 @@ static __always_inline void __pmr_local_irq_disable(void)
+>  {
+>  	if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+>  		u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+> -		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF);
+> +		WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr != GIC_PRIO_IRQOFF &&
+> +			     pmr != (GIC_PRIO_IRQON | GICV3_PRIO_PSR_I_SET));
+>  	}
+>  
+>  	barrier();
+> -- 
+> 2.34.1
+> 
+> 
 
