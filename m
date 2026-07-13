@@ -4,140 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F0CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q68YkVUsAq88sLtazB65v1PXfjC68MwiD7btmXhogW0=; b=jMbCUN+tOPE/egPLUzpyGmV3cJ
-	81RLg9c0sAZ9P1tYIAyWNpFGMYe1OLWxoVF6sSkGMNEFxlSo7rgslsewZINAlc6Ed5RyH9xiHtSqi
-	1DZ4V2iZm2mjWhZZKGsosUua4LvcSbHhE8u+Zj88Z+3FdQF+CpFzgNRbjmKgZxZx0agN5Xm1jP13x
-	1T1Jkb8sty9jzJCnwHX0fGJYo4ZGszrASJ4q9cWmAIDMql6I70s2R/osEgBHnFYdCrp8Edzylo8c8
-	aB+IvygwlUZYlvfEB7CP/BbOXvjPk2tGEXud+Lqxeuq2FRlh9/2iYNc2VjmMzUQvHWvHEV8/+ucLU
-	5Y5TX7gw==;
+	bh=CJJJUb+0KXyvnArO5JZGKcENFf9sIlMFz2vTfW+st+A=; b=d9aKN93Ud5wTWgZZHvvCYlTcSw
+	TnwG8VZkj3+LqgVIus0GQV+HfZ8gUHpoBiYSzvAIhVRohmQ1uzAmIs99PvV3h2WIRdz1e1CFAIFa1
+	VwsdV1LjJwlkesTXTnnTbN82i+4rKTqpsKoEJBcrEBSEPBPWSC5VleKntuDK23fzn6eLgCdaxfKrs
+	qxSPtBvAZ0IXbaowhdirsb6DGxjso4thXCmqFmAGjZB0vE6OiY1mFDxaQtM/xRwAIv7T591uBa45J
+	tRAncyQPC9RgrK2orbaoyPGFL2fCERh3wGo4OG4396yo/acS0BntRVTO4tkyW4kUIBbqtwBRAToJ0
+	aga73HaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMlI-0000000AKZJ-0Z1A;
-	Mon, 13 Jul 2026 19:56:20 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1wjMnC-0000000AKiv-1xab;
+	Mon, 13 Jul 2026 19:58:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMlF-0000000AKYp-0gn6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:56:18 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-81ea0b7d137so18700597b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:56:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783972576; x=1784577376; darn=lists.infradead.org;
-        h=content-type:in-reply-to:autocrypt:content-language:references:cc
-         :to:from:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=q68YkVUsAq88sLtazB65v1PXfjC68MwiD7btmXhogW0=;
-        b=npqJ3qFFgtHFy/fz1P/q8zZ+JG7cT82cIrETgxBAMLPdyuAHTUszRtKM6mpDuuWGbY
-         VsgxYphZItDf1NZph5k9U/C6ozO7JTyDC3/Pa/AY6ntxXcu36rDqdWXQ3Nv5DEPsSBo/
-         yRv1DZ3EdFEjGg31EvmvUFsY0Cj1WaaXuvTg3M9E3pClumqC3ZDiv5M5EzpuakZpJKO5
-         w+1Fuw7a38bFTOweb9RTmDxZr104/0V8y62LQs1U49yA+mMRWr4jMi9bcNm5xYi87b4P
-         qUgxu5WgDxofVm7C4QN0xsZGzkEX5kUH9VqreE0zcFEhunT8a2C7vTIWGWc7O0sjCu6Q
-         rmWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783972576; x=1784577376;
-        h=content-type:in-reply-to:autocrypt:content-language:references:cc
-         :to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=q68YkVUsAq88sLtazB65v1PXfjC68MwiD7btmXhogW0=;
-        b=eo1GLSBn7Z37zWoW2sYVxw50xnRXBWBoHH9qY5Ra8sfuzOWcuhogQ44zxN7F6RR4D+
-         GXwl3OIs3u0HFOlNxSfOXhu3+oe33981kK/1M1gaegg3Q2nwTSpKD1HndVTqR+NcSN0H
-         SxCx/FwZjH2rPW8QSc1UDVY1PzqIRDUeYjlD2q0l9w7SfT86/ROjw7CpxzcHqJORzImh
-         BYBLL2FGqf3lIMxcE/+d564XYLKBJD2ksH511XMO0sPpaMeIFG4ss8wrvtsdphqugjiJ
-         dDM79vCYrrg8Hv4lDQlYb11taXh9zTIyzS2rTGxEwZuChKdW/9PKYXEVvqJ4NXSdR+y2
-         r8eQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr52m2r6b8DOsYuCAxODc8TawPP3eoQBm+dr6KZNZnsMAASSUhelA+M4+hjbKta8agE3ViIl/Z5iuMqDOnfmicc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymuvc7Vux21XdxWAzgTQ7TWqhCuyeiodQ9S23U86Vpa9LACxE2
-	R2DombTFLKeiajcPXAL7zEd8ViZRlUv0bRYzWmlH4tMiNer0dzqlOSJPkWRg2qI+
-X-Gm-Gg: AfdE7ck6qdFrSlIYfjGcnq398pqkK7ayT8FauJ2ltC/eD+mF7oFU/nDlTE+kjBdbPIR
-	eytHW7odkpa0XPreWxmbQgzlm+HPnquU5dOlrZGJQapgJZejbjQOBokn6p/zGKmYbZ69HkI3DKx
-	Ee2GmcMbg3bTTQVjtS8AEQlPMoi5XlcsEO5A2dI2JZVEPFPAFE1ZQF8JgpqkGfkp/SV63ZUmMkT
-	RiTb0A6766ZxUCQArsnJREP9yvunEAzO11TYyeNFPR7cbQ3jxQDfCACR6zbO9g28D37pESpuCVk
-	gt6QwGAv/a99y+q6oAaTr2CnAis1FIS9Ux5EcuuDyisajt2ZmRVY5IDNeIYw7U39DyGTG0vU4qO
-	TPEiJGE1yVw1aId2k6FhoizaFthgSI+u7LP2I8FH1QTWjKpux+qlCB7Hkgij/xK1HvR+Nfmm1A3
-	7ydLZSuU768IPnj8U=
-X-Received: by 2002:a05:690c:480b:b0:81d:6af3:b9cd with SMTP id 00721157ae682-81e9015af55mr73668997b3.40.1783972575423;
-        Mon, 13 Jul 2026 12:56:15 -0700 (PDT)
-Received: from [10.138.10.6] ([185.98.168.14])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6c1a32e2sm123459527b3.30.2026.07.13.12.56.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 12:56:13 -0700 (PDT)
-Message-ID: <b5f56cbe-38ab-4772-a828-f77eb513a4ee@gmail.com>
-Date: Mon, 13 Jul 2026 15:56:10 -0400
+	id 1wjMn9-0000000AKi6-01jV;
+	Mon, 13 Jul 2026 19:58:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783972692;
+	bh=YWJDCyT186dHX81KVVE+O5xBOZa9fYqrWM9YYEL3dk0=;
+	h=Subject:From:To:Date:In-Reply-To:References:From;
+	b=O6etSBjVtAmdzcSxXi/mkCykAKcecNb3kPZtUgRfa628X6uT+6uvaZgXFuH8uu6PG
+	 954tufeuMi5vJz9jl9JO/gFQoVA2TzGIC5AgLbP76FqcMcrRlOCQ+0s1PcqczhnoSs
+	 bzRbAq4l79Ok8eVXa3MeOwm4+zN9SEV8BfciT3r/SnBPsBe5e5ikoirtEqjM4RKcfS
+	 5M2kInrA5nur0gRlcipsacU2af7FZcjzVZ3JBkNntiE16ZSencGlgn8JZfVbZl3Z1t
+	 kmaR6xjeJcIBgzwLXL0Y4V/RjV8apS0rzchDnws3KIVrUdP09MJ1EdyvSY/0m3zvMP
+	 rGPQ7RT3uDoTw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 94AB017E02BA;
+	Mon, 13 Jul 2026 21:58:10 +0200 (CEST)
+Message-ID: <cf949589ca13c1206724c5dbaaa441bed4e163e9.camel@collabora.com>
+Subject: Re: [PATCH v15 06/12] media: mediatek: jpeg: fix decoding buffer
+ number setting timing issue
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 13 Jul 2026 15:58:08 -0400
+In-Reply-To: <20260702072614.10373-7-kyrie.wu@mediatek.com>
+References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
+	 <20260702072614.10373-7-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-+eCo3b9gsBb1UHx9JQhS"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
-From: Demi Marie Obenour <demiobenour@gmail.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, stable@vger.kernel.org
-References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
- <2026071312-uncover-refining-8cac@gregkh> <20260713130745.GA2254@quark>
- <bd5821b9-7459-4db4-86ef-bd67fb645753@gmail.com>
- <2026071320-encode-modify-6193@gregkh>
- <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
-Content-Language: en-US
-Autocrypt: addr=demiobenour@gmail.com; keydata=
- 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
- +MYSfkEjBz0E8CLOcAw7JIwAaeBT
-In-Reply-To: <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------C8yGlXu1E0DNNa0TaKUJFVNn"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_125617_232810_AE2725FA 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20260713_125815_205586_4AB794A5 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,180 +94,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------C8yGlXu1E0DNNa0TaKUJFVNn
-Content-Type: multipart/mixed; boundary="------------g4KQxFs8CLpWmawHNDGnmSMO";
- protected-headers="v1"; hp="clear"
-Message-ID: <b5f56cbe-38ab-4772-a828-f77eb513a4ee@gmail.com>
-Date: Mon, 13 Jul 2026 15:56:10 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
-From: Demi Marie Obenour <demiobenour@gmail.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, stable@vger.kernel.org
-References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
- <2026071312-uncover-refining-8cac@gregkh> <20260713130745.GA2254@quark>
- <bd5821b9-7459-4db4-86ef-bd67fb645753@gmail.com>
- <2026071320-encode-modify-6193@gregkh>
- <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
-Content-Language: en-US
-Autocrypt: addr=demiobenour@gmail.com; keydata=
- xsFNBFp+A0oBEADffj6anl9/BHhUSxGTICeVl2tob7hPDdhHNgPR4C8xlYt5q49yB+l2nipd
- aq+4Gk6FZfqC825TKl7eRpUjMriwle4r3R0ydSIGcy4M6eb0IcxmuPYfbWpr/si88QKgyGSV
- Z7GeNW1UnzTdhYHuFlk8dBSmB1fzhEYEk0RcJqg4AKoq6/3/UorR+FaSuVwT7rqzGrTlscnT
- DlPWgRzrQ3jssesI7sZLm82E3pJSgaUoCdCOlL7MMPCJwI8JpPlBedRpe9tfVyfu3euTPLPx
- wcV3L/cfWPGSL4PofBtB8NUU6QwYiQ9Hzx4xOyn67zW73/G0Q2vPPRst8LBDqlxLjbtx/WLR
- 6h3nBc3eyuZ+q62HS1pJ5EvUT1vjyJ1ySrqtUXWQ4XlZyoEFUfpJxJoN0A9HCxmHGVckzTRl
- 5FMWo8TCniHynNXsBtDQbabt7aNEOaAJdE7to0AH3T/Bvwzcp0ZJtBk0EM6YeMLtotUut7h2
- Bkg1b//r6bTBswMBXVJ5H44Qf0+eKeUg7whSC9qpYOzzrm7+0r9F5u3qF8ZTx55TJc2g656C
- 9a1P1MYVysLvkLvS4H+crmxA/i08Tc1h+x9RRvqba4lSzZ6/Tmt60DPM5Sc4R0nSm9BBff0N
- m0bSNRS8InXdO1Aq3362QKX2NOwcL5YaStwODNyZUqF7izjK4QARAQABzTxEZW1pIE1hcmll
- IE9iZW5vdXIgKGxvdmVyIG9mIGNvZGluZykgPGRlbWlvYmVub3VyQGdtYWlsLmNvbT7CwXgE
- EwECACIFAlp+A0oCGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJELKItV//nCLBhr8Q
- AK/xrb4wyi71xII2hkFBpT59ObLN+32FQT7R3lbZRjVFjc6yMUjOb1H/hJVxx+yo5gsSj5LS
- 9AwggioUSrcUKldfA/PKKai2mzTlUDxTcF3vKx6iMXKA6AqwAw4B57ZEJoMM6egm57TV19kz
- PMc879NV2nc6+elaKl+/kbVeD3qvBuEwsTe2Do3HAAdrfUG/j9erwIk6gha/Hp9yZlCnPTX+
- VK+xifQqt8RtMqS5R/S8z0msJMI/ajNU03kFjOpqrYziv6OZLJ5cuKb3bZU5aoaRQRDzkFIR
- 6aqtFLTohTo20QywXwRa39uFaOT/0YMpNyel0kdOszFOykTEGI2u+kja35g9TkH90kkBTG+a
- EWttIht0Hy6YFmwjcAxisSakBuHnHuMSOiyRQLu43ej2+mDWgItLZ48Mu0C3IG1seeQDjEYP
- tqvyZ6bGkf2Vj+L6wLoLLIhRZxQOedqArIk/Sb2SzQYuxN44IDRt+3ZcDqsPppoKcxSyd1Ny
- 2tpvjYJXlfKmOYLhTWs8nwlAlSHX/c/jz/ywwf7eSvGknToo1Y0VpRtoxMaKW1nvH0OeCSVJ
- itfRP7YbiRVc2aNqWPCSgtqHAuVraBRbAFLKh9d2rKFB3BmynTUpc1BQLJP8+D5oNyb8Ts4x
- Xd3iV/uD8JLGJfYZIR7oGWFLP4uZ3tkneDfYzsFNBFp+A0oBEAC9ynZI9LU+uJkMeEJeJyQ/
- 8VFkCJQPQZEsIGzOTlPnwvVna0AS86n2Z+rK7R/usYs5iJCZ55/JISWd8xD57ue0eB47bcJv
- VqGlObI2DEG8TwaW0O0duRhDgzMEL4t1KdRAepIESBEA/iPpI4gfUbVEIEQuqdqQyO4GAe+M
- kD0Hy5JH/0qgFmbaSegNTdQg5iqYjRZ3ttiswalql1/iSyv1WYeC1OAs+2BLOAT2NEggSiVO
- txEfgewsQtCWi8H1SoirakIfo45Hz0tk/Ad9ZWh2PvOGt97Ka85o4TLJxgJJqGEnqcFUZnJJ
- riwoaRIS8N2C8/nEM53jb1sH0gYddMU3QxY7dYNLIUrRKQeNkF30dK7V6JRH7pleRlf+wQcN
- fRAIUrNlatj9TxwivQrKnC9aIFFHEy/0mAgtrQShcMRmMgVlRoOA5B8RTulRLCmkafvwuhs6
- dCxN0GNAORIVVFxjx9Vn7OqYPgwiofZ6SbEl0hgPyWBQvE85klFLZLoj7p+joDY1XNQztmfA
- rnJ9x+YV4igjWImINAZSlmEcYtd+xy3Li/8oeYDAqrsnrOjb+WvGhCykJk4urBog2LNtcyCj
- kTs7F+WeXGUo0NDhbd3Z6AyFfqeF7uJ3D5hlpX2nI9no/ugPrrTVoVZAgrrnNz0iZG2DVx46
- x913pVKHl5mlYQARAQABwsFfBBgBAgAJBQJafgNKAhsMAAoJELKItV//nCLBwNIP/AiIHE8b
- oIqReFQyaMzxq6lE4YZCZNj65B/nkDOvodSiwfwjjVVE2V3iEzxMHbgyTCGA67+Bo/d5aQGj
- gn0TPtsGzelyQHipaUzEyrsceUGWYoKXYyVWKEfyh0cDfnd9diAm3VeNqchtcMpoehETH8fr
- RHnJdBcjf112PzQSdKC6kqU0Q196c4Vp5HDOQfNiDnTf7gZSj0BraHOByy9LEDCLhQiCmr+2
- E0rW4tBtDAn2HkT9uf32ZGqJCn1O+2uVfFhGu6vPE5qkqrbSE8TG+03H8ecU2q50zgHWPdHM
- OBvy3EhzfAh2VmOSTcRK+tSUe/u3wdLRDPwv/DTzGI36Kgky9MsDC5gpIwNbOJP2G/q1wT1o
- Gkw4IXfWv2ufWiXqJ+k7HEi2N1sree7Dy9KBCqb+ca1vFhYPDJfhP75I/VnzHVssZ/rYZ9+5
- 1yDoUABoNdJNSGUYl+Yh9Pw9pE3Kt4EFzUlFZWbE4xKL/NPno+z4J9aWemLLszcYz/u3XnbO
- vUSQHSrmfOzX3cV4yfmjM5lewgSstoxGyTx2M8enslgdXhPthZlDnTnOT+C+OTsh8+m5tos8
- HQjaPM01MKBiAqdPgksm1wu2DrrwUi6ChRVTUBcj6+/9IJ81H2P2gJk3Ls3AVIxIffLoY34E
- +MYSfkEjBz0E8CLOcAw7JIwAaeBT
-In-Reply-To: <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
 
---------------g4KQxFs8CLpWmawHNDGnmSMO
-Content-Type: text/plain; charset=UTF-8
+--=-+eCo3b9gsBb1UHx9JQhS
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On 7/13/26 15:49, Demi Marie Obenour wrote:
-> On 7/13/26 11:31, Greg KH wrote:
->> On Mon, Jul 13, 2026 at 10:42:04AM -0400, Demi Marie Obenour wrote:
->>> On 7/13/26 09:07, Eric Biggers wrote:
->>>> On Mon, Jul 13, 2026 at 06:47:07AM +0200, Greg KH wrote:
->>>>> On Sun, Jul 12, 2026 at 05:31:31PM -0400, Demi Marie Obenour via B4=
- Relay wrote:
->>>>>> From: Demi Marie Obenour <demiobenour@gmail.com>
->>>>>>
->>>>>> This driver is harmful:
->>>>>>
->>>>>> - It is much slower than the CPU [1] [2].
->>>>>> - It Has a history of bugs [2] [3].
->>>>>> - It does not have exclusive access to the hardware [4], causing r=
-aces
->>>>>>   with the secure world.
->>>>>> - It register its implementations with too low a cra_priority for =
-them
->>>>>>   to be actually used [5].
->>>>>>
->>>>>> Therefore, disable it to ensure that nobody builds it into kernels=
- they
->>>>>> intend to ship.
->>>>>>
->>>>>> In the future, the driver will be used for processing restricted m=
-edia
->>>>>> content.  However, the kernel does not currently support this.  Si=
-nce
->>>>>> the driver will have future uses, allow building it if COMPILE_TES=
-T is
->>>>>> enabled.
->>>>>
->>>>> Why not just delete it now, and then bring it back when it is neede=
-d in
->>>>> the future?  Otherwise this will just trip up the static code check=
-ers
->>>>> who will attempt to "fix" things in it.
->>>>
->>>> That makes sense to me, but Qualcomm pushed back on deletion:
->>>> https://lore.kernel.org/linux-crypto/20260602-qcom-qce-broken-v1-1-a=
-4ef756089e0@oss.qualcomm.com/
->>>>
->>>> But I've still not seen any evidence that this driver is useful for
->>>> anything or has any users.  Even Qualcomm seems to be unwilling to m=
-ake
->>>> such claims; they only claim that the IP is used (i.e., not in Linux=
-)
->>>> and that new features are planned.
->>>>
->>>> - Eric
->>>
->>> Here is my reading of Qualcomm's statements:
->>>
->>> QCE is currently used by the Arm secure world.  In the future, QCE
->>> will be used by the kernel as part of restricted content playback.
->>> Qualcomm wants to add the needed features to the existing driver.
->>> This will not use the crypto API.
->>
->> Why is a crypto driver not going to use the crypto API?
->=20
-> I suspect that the restricted content playback use-case involves
-> QCE decrypting data stored in kernel memory, using keys inaccessible
-> to the kernel, to memory inaccessible to the kernel.  The crypto API
-> can't express this.
->=20
->>> I would be fine with the driver being removed, but not if it means
->>> another out-of-tree Android driver.
->>
->> It's not another out-of-tree Android driver if nothing in Android
->> actually uses it :)
->=20
-> Nothing uses it *yet*.
+Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> The src buffer doesn't need set information and dst buf parameters
+> only need to set when the power set succussed and protect the
 
-That said, deleting the driver is also an option.  I don't have a
-problem with that myself, but Qualcomm does.  I figured that
-marking the driver BROKEN would be less objectionable.
---=20
-Sincerely,
-Demi Marie Obenour (she/her/hers)
+Can you rework this, I'm not sure I understand what you are trying to say.
 
---------------g4KQxFs8CLpWmawHNDGnmSMO--
+> setting by spinlock ensuring that any later operations acting
+> on this buffer reflect accurate state and frame data.
+>=20
+> Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interfac=
+e")
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> ---
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0 | =
+9 +++------
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
+> =C2=A03 files changed, 5 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index 89048aba8dca..4dc574e03bd5 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1734,7 +1734,6 @@ static void mtk_jpegdec_worker(struct work_struct *=
+work)
+> =C2=A0
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> =C2=A0	jpeg_src_buf =3D mtk_jpeg_vb2_to_srcbuf(&src_buf->vb2_buf);
+> -	jpeg_dst_buf =3D mtk_jpeg_vb2_to_srcbuf(&dst_buf->vb2_buf);
+> =C2=A0
+> =C2=A0	if (mtk_jpeg_check_resolution_change(ctx,
+> =C2=A0					=C2=A0=C2=A0=C2=A0=C2=A0 &jpeg_src_buf->dec_param)) {
+> @@ -1743,11 +1742,6 @@ static void mtk_jpegdec_worker(struct work_struct =
+*work)
+> =C2=A0		goto getbuf_fail;
+> =C2=A0	}
+> =C2=A0
+> -	jpeg_src_buf->curr_ctx =3D ctx;
+> -	jpeg_src_buf->frame_num =3D ctx->total_frame_num;
+> -	jpeg_dst_buf->curr_ctx =3D ctx;
+> -	jpeg_dst_buf->frame_num =3D ctx->total_frame_num;
+> -
+> =C2=A0	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
+> =C2=A0	ret =3D pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
+> =C2=A0	if (ret < 0) {
+> @@ -1772,6 +1766,9 @@ static void mtk_jpegdec_worker(struct work_struct *=
+work)
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msecs_to_jiffies(MTK_JPEG_HW_TIME=
+OUT_MSEC));
+> =C2=A0
+> =C2=A0	spin_lock_irqsave(&comp_jpeg[hw_id]->hw_lock, flags);
 
---------------C8yGlXu1E0DNNa0TaKUJFVNn
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+I didn't dig very deep, but in extreme case, the timeout worker (hidden abo=
+ve)
+could be called concurrently to the remaining of this code, which gives me =
+the
+impression everything would be left in a unstable state since that spinlock=
+ is
+not being held by the timeout worker. Perhaps something to improve further =
+?
+
+This is a step in the right direction for sure, so for this patch:
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+> +	jpeg_dst_buf =3D mtk_jpeg_vb2_to_srcbuf(&dst_buf->vb2_buf);
+> +	jpeg_dst_buf->curr_ctx =3D ctx;
+> +	jpeg_dst_buf->frame_num =3D ctx->total_frame_num;
+> =C2=A0	ctx->total_frame_num++;
+> =C2=A0	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
+> =C2=A0	mtk_jpeg_dec_set_config(comp_jpeg[hw_id]->reg_base,
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> index 9a8dbca6af00..e4d2c5d4ec73 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> @@ -513,6 +513,7 @@ static void mtk_jpegdec_put_buf(struct mtk_jpegdec_co=
+mp_dev *jpeg)
+> =C2=A0				v4l2_m2m_buf_done(&tmp_dst_done_buf->b,
+> =C2=A0						=C2=A0 VB2_BUF_STATE_DONE);
+> =C2=A0				ctx->last_done_frame_num++;
+> +				break;
+> =C2=A0			}
+> =C2=A0		}
+> =C2=A0	}
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> index 5d1c217fea0f..2adea3aca50b 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> @@ -242,6 +242,7 @@ static void mtk_jpegenc_put_buf(struct mtk_jpegenc_co=
+mp_dev *jpeg)
+> =C2=A0				v4l2_m2m_buf_done(&tmp_dst_done_buf->b,
+> =C2=A0						=C2=A0 VB2_BUF_STATE_DONE);
+> =C2=A0				ctx->last_done_frame_num++;
+> +				break;
+> =C2=A0			}
+> =C2=A0		}
+> =C2=A0	}
+
+--=-+eCo3b9gsBb1UHx9JQhS
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmpVQtoACgkQszaHOrMp
-8lMiWw//WlbyclsseubZEFwpF3D7kF/tsmijPxTxd3+XD5FohrzBTMAA7RbPwETV
-S71upvd2zrIbVDUwy/eYWdFd7YvSYAenqtihZKHHYZDydYKI6C47qIxOHgPV/wJK
-K1W941NRAXX0PaK8BoyciEiEmy2Jztz9/A6pCxUCnl1vDkj7sk9p7mb6538dxqbK
-Nm6qpfoPkd0gx5YsmDJDb/UnHlxPG6k3+xUgk03wB5uDzockJ4bkCx9H5G21uckh
-AljsQc8kFUa0eQOgYXHTV8zOGx/Qz9F+9AIq9DoUC3bQqVpkw3b/eQxrvtykIry+
-sJERfMRQa+oQjrkhYFIXJHVJWLRnA3AgY8kNOki2u4EpBORwfZcaauVjPi5e43aR
-se8BNILtUW7ODV26LuyfMDONeEn5zyApO6wLVY39+koPR1J9g7QBzphNecwKYt7V
-oplp/ZImB67NXkYAgwm7lFQyFrHl7IlLPnPEhELUMRbZcM7ilcAQbStR70wC+6vO
-F02SHWhEr0sznkq0Y1YvTFF6IOM2J7rm+jQ8sjc1+g+9NwuNYJIyZnxAeHUwLYPx
-WUXO6TIUQSIfRUmch4hfjq3R3b76fzjVyNmxZ1aHk5MtEzjTgmb+qEcYEOgJRQ2K
-c2iWRd7o+KaJmwiZnHglgqw1lHPsVd2EGEeqg/zJGusjsQfgPxE=
-=JMJV
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalVDUAAKCRDZQZRRKWBy
+9ErRAQCeOKVNMHSoVQWdtAOdSHr7nFSY8kQ3qswexzAWQS4Y+gD9GGe9PN7D0YKg
+lSbELCzmu3axHR6kr7PSTY6wQqhezAg=
+=PL/X
 -----END PGP SIGNATURE-----
 
---------------C8yGlXu1E0DNNa0TaKUJFVNn--
+--=-+eCo3b9gsBb1UHx9JQhS--
 
