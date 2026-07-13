@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA1EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BC2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo4rIyniLa3IrOryYngEBRNx17hUDRIHRdfHv96/rA8=; b=JXpvZ1sTtSjP5JAogdfWGUUryM
-	bfOZdYCu/QzX3UBFyQMWHmLbzna15KnjV1IhWIR8w3B5lJ2KRFyl1esfXT9gG/Zl4813h42jmRayg
-	ymf81z6jzk9IoZJz4HGA/8NyoDALMF+jtwCjxEBoCJG4i7E/KN5AAAn15f7IZSvdTI/O/yLYGKEvW
-	iZaVFV2q1Yu55IT0/f90UBvRjGz4R4s6Sl0RQW7OOmpDjHRPVq6U2KtPYsF13gWtzxAE6wtfLh/c3
-	L4l/mZ6/8rrh4GEhoyMQ1DSRzval/uNWoni9hhBuN/g8dtUF3IjZqM/DTF7UWTa2ra3PsZsoZc/gx
-	oIVX3VLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtYE5RfYHFnoyGWcHHst1Z2VO14NI1Ws98iIJKm7chk=; b=iF8SQ+NQOLpcBwg//YsOzf44PZ
+	G/8jgCNleeQw6nQi69kkg1RQbuqJ2X/PX2XHeX0P19gV9V0YSPFEoCh5VObouiXX+ebvZuB6kTMqx
+	aP9wlQUch2UrFRky3y+mKzFSSVimi9P3Wgw/W03AeBOMsGl4cZSUJ94hQNMxLpzO+ZyuCAk/Cubtd
+	92L1AxQjjnz/Yf3Exvl5HJ9s0oNyKgvNZ6wVWtoW+lmQZfbL3tGMMtrei5enLUK3c4VGV/tzVLJaQ
+	MWanpemeFj1j8iXM3J2ZSxg0AP/jOiLhZswSkUdEp1u7eKzatxqX7l95mR8Jo+7ozJPQ1/3yEGkfl
+	jJSZmQUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBJ9-00000008Tbf-0HOI;
-	Mon, 13 Jul 2026 07:42:31 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wjBPP-00000008UL2-3DSW;
+	Mon, 13 Jul 2026 07:48:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBJ1-00000008TYR-0S9P
+	id 1wjBPO-00000008UKv-33gy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:42:25 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D4F294E40D82;
-	Mon, 13 Jul 2026 07:42:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FB2460341;
-	Mon, 13 Jul 2026 07:42:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C3BB11BD3A38;
-	Mon, 13 Jul 2026 09:42:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783928536; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Oo4rIyniLa3IrOryYngEBRNx17hUDRIHRdfHv96/rA8=;
-	b=rwZx25YCNBbEgGMtX75PvBzTlm1s61DtQzrE3ZeCtVUl+HzTfcVlC1R3kee22hR6JxcP4E
-	S3NHkHLMPJkNknT6TwRDk8lYb4JH7a1Gdt1aeoUKgZdr8pu6BKAzBxidM8F5cVbGcq5+7k
-	sBHcdsSB3CSzMIehKZC2UhNhCuFMt5mrMe38z8O//+6o7W0BYRgTBrB08dKDhhVO3FMlRs
-	lvZiq1KqYKZPN1TYbDcDrG2ReR90cWcSpHcDMr1qND8rUhSB0k6qIbt55eV+gS0JZrfimE
-	mMqD4zYxC3rJjeF0zrGAf5Pv8MhPZy8xWXc1dZwt2LxqIGaHiLW6uL3CLbRkXA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 13 Jul 2026 09:42:05 +0200
-Message-Id: <DJX9VUXFJBJ1.3SPE0QKF0528B@bootlin.com>
-Subject: Re: [PATCH 1/5] arm64: dts: freescale: Import optee node from
- u-boot device trees
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Frank Li"
- <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Wei Xu" <xuwei5@hisilicon.com>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, "Avi Fishman"
- <avifishman70@gmail.com>, "Tomer Maimon" <tmaimon77@gmail.com>, "Tali
- Perry" <tali.perry1@gmail.com>, "Patrick Venture" <venture@google.com>,
- "Nancy Yuen" <yuenn@google.com>, "Benjamin Fair" <benjaminfair@google.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, <openbmc@lists.ozlabs.org>,
- "Tom Rini" <trini@konsulko.com>, "Peter Robinson" <pbrobinson@gmail.com>
-From: "Mathieu Dubois-Briand" <mathieu.dubois-briand@bootlin.com>
-To: "Frank Li" <Frank.li@oss.nxp.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com> <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com> <alFfeOFz2UA7hAbK@SMW015318>
-In-Reply-To: <alFfeOFz2UA7hAbK@SMW015318>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_004223_329906_762D63BC 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+	Mon, 13 Jul 2026 07:48:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 03EC960018;
+	Mon, 13 Jul 2026 07:48:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D47B1F000E9;
+	Mon, 13 Jul 2026 07:48:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783928937;
+	bh=vtYE5RfYHFnoyGWcHHst1Z2VO14NI1Ws98iIJKm7chk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fp3vseqKOvUvObhmR1LYdYwYu8s8SJsyj7vD7WrmhiIC5uR3oqKbRvvYBRs80Tpn6
+	 sUtmTlI9jHbOZub9kQWTDURVvbECD6jORXCc7KkVv+lpuO9g47Aceiq62qisAfZiNa
+	 Whcqdo+iQx+D793P7E5MJ5Dl8ss7GWUcN8ZHajb3z/VQnjwYxtVVzB74BgogKyBXKj
+	 xH+A5yyeGWxQSI1aYrsSV2IDQmfMI85/jI56MNcjpLk69T8BGVurczBwnSdWUtqxXS
+	 MgF1oyFNZp70n1g6vzBv38OS0fMXCeyQlcrPv9ZcFBWOtNJMsCDaPXSTjZoLJQv/7y
+	 mVNVdSh/RWePg==
+Date: Mon, 13 Jul 2026 09:48:53 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	kernel@dh-electronics.com, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 01/10] dt-bindings: arm: stm32: Document
+ STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC
+Message-ID: <20260713-tireless-sly-squirrel-04c7e5@quoll>
+References: <20260711210131.236025-1-marex@nabladev.com>
+ <20260711210131.236025-2-marex@nabladev.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260711210131.236025-2-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jul 10, 2026 at 11:09 PM CEST, Frank Li wrote:
-> On Fri, Jul 10, 2026 at 05:31:34PM +0200, Mathieu Dubois-Briand wrote:
->> [You don't often get email from mathieu.dubois-briand@bootlin.com. Learn=
- why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>
->> U-Boot is importing kernel device trees for these platforms, but adding
->> a firmware node to enable communication with OP-TEE. Importing
->> changes here will allow to remove these additions in U-Boot.
->>
->> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
->> ---
->>  arch/arm64/boot/dts/freescale/imx8mm.dtsi                | 7 +++++++
->>  arch/arm64/boot/dts/freescale/imx8mn.dtsi                | 7 +++++++
->>  arch/arm64/boot/dts/freescale/imx8mp.dtsi                | 7 +++++++
->
-> Please split soc dts change to new patch.
->
-> Frank
->
+On Sat, Jul 11, 2026 at 10:59:30PM +0200, Marek Vasut wrote:
+>        - description: ST STM32MP257 based Boards
+>          items:
+>            - enum:
+> @@ -203,6 +215,12 @@ properties:
+>                - st,stm32mp257f-ev1
+>            - const: st,stm32mp257
+>  
+> +      - description: DH STM32MP231 DHCOS SoM based Boards
+> +        items:
+> +          - const: dh,stm32mp231a-dhcos-bb
+> +          - const: dh,stm32mp231a-dhcos-som
+> +          - const: st,stm32mp231
 
-Sure, I will split the changes.
+This should be after st,stm32mp157 group and before st,stm32mp251 to be
+sorted by fallback compatible.
 
-Thanks,
-Mathieu
+Anyway, not a big deal, so:
 
---=20
-Mathieu Dubois-Briand, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
