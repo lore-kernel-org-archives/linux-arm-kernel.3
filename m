@@ -4,90 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18360C44509
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BD7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=; b=fdM8sHGxa6+NvYGOfjP6qV+pxb
-	18qblTxy5W9+Z9IG1RO8ydBS1uFIxsSm45GZl8lmK3hc5WLugJoeJCsBgre90HqT5Qj2MMbuor7k/
-	fLfWBha/C99wHgcLDuYa1huwj8k1rOnrho/1eUQDOcoxe2we+0LhKHZD6AwwFZS16Rbzw6TnQkKtP
-	0+qzLEkkypoCS/2HxI58RTC9Qt1FL+dTA0DZNyH8JEawpIwmaWo+BAWCcbgmkJY1HQW4mubwPPlyl
-	o0fGy/pGvsMOtOKJ/iDNp7UnWipKi0aHazsjWu221sPTKeenEfCf+cmgsDCQe/KnIgBuPT8ngsgZR
-	NEP6qNqQ==;
+	bh=Dzo0aQhKHRe0yCpBtRorQ5XeL5CGII/S8gcGTTckFLg=; b=zA7Flwb2KJBE9QswyUBuFUnQsi
+	nLq/U6S04KpvAZA5WcpjeRC/T+6mteH7nj+gl5ABGWsSnGH0lk/P6yOQAEWbWEAFaVTUINfagzaFL
+	iqClALxQV5ozKtv7bYuJy0gDL7oK15nEULKC2KwSpiVPH5T8Djzprp+AQC9zVfKU5clyLkrGz611m
+	O6R7S+txb4RiDwL+owX7eTdPELO3Aol/xxBPhQw9JcWis5YHDLrV4FDAJ8L+u3R/eWhSjVojPoZ7n
+	Y1VOrTJVKWnI4VYw5xpr4w7qwdaNgJs73YE8RNnTUEmOJXskhAtD3YbJX2Z5Yh5y+M0Xj8EHB1hoR
+	oBwZP7nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2W-00000009rtb-2HdZ;
-	Mon, 13 Jul 2026 15:57:52 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wjJ3V-00000009sli-0wem;
+	Mon, 13 Jul 2026 15:58:53 +0000
+Received: from mail-wm1-f42.google.com ([209.85.128.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2R-00000009rn1-3gME;
-	Mon, 13 Jul 2026 15:57:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=; b=vz1HsPb0XZjvkE5VThjFpMX3S8
-	EsMWB9U8EvlueTkIOOt2mxqhXJZTkgCq1WVWfr9UgqxzICSHOYtBzscnVxuUWfZaoMBRs4G3UzPlh
-	qaNP9/BoiKzFxi2ldzojRgCqJjyXOMyIUAVD8ZWyJd7dKkKBXIgVwG+5/HwA5pTXrM2lMjBG3zrQ9
-	IZ3ghSG4VKSujRCc0jlLbD6HOWCeil8HLMXOObdAtaOtfPeLkR8xKZ3Vr9V7PBeC+N+OsY4/3OI3f
-	7C9/0SCpt3L44zpE8LQ8pxP1nUWLNtGbLeqpEVZ47cvfU0qfGWnaj0ICZ5oxfJIZpp6M4BFe3W1KB
-	L1Cpag7Q==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2O-0000000DDTi-0dZV;
-	Mon, 13 Jul 2026 15:57:46 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuVedD1489877, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1783958191; bh=LlTT0cE9FRfgZcxlywgqenEUn+R8k0Kv89/o3kO2qMY=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=aYFOT6CPzEM1YaqhqK0tbMllJJxZwllQFNLnGpfAHTbNaV75hN2n9V9SwUcKbdENL
-	 Z6nVvLiRW4lybNX+c2kAHAbBHoSS3OmiSkGW1QCaDF9/IpOgYkjWiH4E2PX12R/InO
-	 0GitKOHkzyW7zMVFklORDm+7c3a6gdoJ1jI6CMZzgyUsBeJxQA0oq7ijuWQYkbie6m
-	 g6dmrAQS1043bR+wOzlU3K+9fdHxUjaNBN481Xe66Y+Gk8OtlPgjcaFZHe5fWgdjLl
-	 YtPHQLXCEB2pt1PHkOvHAdQYbHK9WCcHeH4hNG1jNUAngIF7Fth3QqGKLzmoPKGzhr
-	 5hMgupHEJp7gQ==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuVedD1489877
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 13 Jul 2026 23:56:31 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:31 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 13 Jul 2026 23:56:31 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
-	<bmasney@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v10 05/11] clk: realtek: Add support for phase locked loops (PLLs)
-Date: Mon, 13 Jul 2026 23:56:24 +0800
-Message-ID: <20260713155630.3054636-6-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
-References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+	id 1wjJ3N-00000009sis-1kJm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 15:58:51 +0000
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-493c556ada3so112205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:58:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783958323; x=1784563123; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Dzo0aQhKHRe0yCpBtRorQ5XeL5CGII/S8gcGTTckFLg=;
+        b=W9rlkvm+exCfD78/PgrqG5GKeO2h/MNEF5DRBVrMiU1B7ncW2XXyw/tlj1iZ5xyoij
+         JimUKVO7FmV0Ag3+aUbQnG2aFP0O1esdukJzSznSJqMmUv6k7wxMnY2/JeVh1Qar+/sI
+         hf4dfXxBUx2KckJgbpSlqBMkhsHE91zf+qK58gfeRkDHHccFjSXCkOVCaaKYn5xynscM
+         4eS+sAKUwizl+neJjPLuRoTVouPlLa6SjN3Ky0tWwqnba9X8ifoDStsgC5odE/Jhfcxl
+         nau025pgPd40NaTrB24Ep4714TtF5k3OW/6HhhDNRqA7IqlaJmFgQSHIbczXUlPJevVQ
+         wBFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783958323; x=1784563123;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dzo0aQhKHRe0yCpBtRorQ5XeL5CGII/S8gcGTTckFLg=;
+        b=LEvO0fDT/Q+RiW8Opaiy8PWZJERET4tdSyslh87F1kkqQuvdxrBISYJ0rZVBEwxx4T
+         A4nm1J7m7XEGlKiy+LgknqN/UO46oRgmqHZ+bfFM6Hqzi/fcpCOGB+qZxgp9I0s/Sp5C
+         AKiDv+X7sGIQca7Th16F+Wucm2aRQZFw1tsZeESER0aHvz0HJGfNAiCXUHzXsoyMepEa
+         DbpbT95Ji3+LIChA3sk2Nt6QQHdhhvy6Sn4xmWvqa9NReISh3FjyMWiCNY1NMfMeRDFD
+         tAjuaKXvm/dMQqK6xuxGCAZvNMQL+pBivd7D3ckGS6WcvPz0Govah7FuEFJTjQ2GrSZA
+         GBow==
+X-Gm-Message-State: AOJu0YzAppxAxuvEzXmqCnSBBUvTb5DslJhzC8JWKfZNadn+8kAGqudc
+	7NfhcvdSZr6frV2jARpSJewSRRAs5m/sA4h4LF5ksiBMP0j+Wy/cqsgr1bN7WVxYj+OKWViFx5o
+	eeejtMA==
+X-Gm-Gg: AfdE7ck/1QPBy07HwFg64jyHbrsHkG8VFL0fTrdELQvm2l/z6XuAsO+JOvoxRb43205
+	soYF/JMr6sDNKYbgOAY6A01wNds6fmSVE1Jz41rL6AceRirEmvIrRCViD+mCCXXfylnWCKon4J0
+	502WJBuxacbE48smcliayt8vyWeWL62qUI7aCuzdNCciPmG8lScYMrFN6cwt/iLKQWtsVJ/lhLE
+	WO/gaEx5wXE4pWAlISLUSXSs/RKRvtsKbj90MBDAderF43S6Ws3kwFWPh/nej7ozB/H1nG6yKu4
+	1qyQTXo/W/5iTrobhWEiT9bVrOveBR5K3HZQdIrrIs0eAav0Fteio/KozpGyTPaXHq9hKDXd589
+	vpf0+7k9cOYCUQhQVMJXEx3pNGd/CQJpwFr+oU2rqDdNwqTxO9ic4bMjN+DiQuQ56ztS67Wtvhp
+	lzEFHM3wvbgdPJA4SIG8ar663k2xaLxoudxnflMXIEjaGXZydh
+X-Received: by 2002:a05:600c:46cc:b0:493:b47f:a24 with SMTP id 5b1f17b1804b1-494621553d8mr511115e9.6.1783958322657;
+        Mon, 13 Jul 2026 08:58:42 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49510c8e220sm1623155e9.15.2026.07.13.08.58.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 08:58:41 -0700 (PDT)
+Date: Mon, 13 Jul 2026 15:58:38 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <alULLrgdVUZvYYui@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-9-smostafa@google.com>
+ <alTnAy7jvjUamwUA@google.com>
+ <alTvf7iiOWn4PKE8@google.com>
+ <alUA7zsJO1FGnss-@google.com>
+ <alUD1IiSgNkhzFGR@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alUD1IiSgNkhzFGR@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_165744_760322_9B521671 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260713_085848_848392_F7612B2F 
+X-CRM114-Status: GOOD (  43.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,403 +110,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+On Mon, Jul 13, 2026 at 04:27:16PM +0100, Vincent Donnefort wrote:
+> On Mon, Jul 13, 2026 at 04:14:55PM +0100, Vincent Donnefort wrote:
+> > On Mon, Jul 13, 2026 at 02:00:31PM +0000, Mostafa Saleh wrote:
+> > > On Mon, Jul 13, 2026 at 02:24:19PM +0100, Vincent Donnefort wrote:
+> > > > On Fri, May 01, 2026 at 11:19:10AM +0000, Mostafa Saleh wrote:
+> > > > > Create a page-table for the IOMMU that shadows the host CPU stage-2
+> > > > > to establish DMA isolation.
+> > > > > 
+> > > > > An initial snapshot is created after the driver init, then
+> > > > > on every permission change a callback would be called for
+> > > > > the IOMMU driver to update the page table.
+> > > > > 
+> > > 
+> > > [...]
+> > > 
+> > > > > +	 */
+> > > > > +	if (pte && !kvm_pte_valid(pte))
+> > > > > +		return 0;
+> > > > > +
+> > > > > +	if (kvm_pte_valid(pte)) {
+> > > > > +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
+> > > > > +		/* If the range is mapped in a single PTE, it must be the same type.*/
+> > > > > +		if (!addr_is_memory(start))
+> > > > > +			prot |= IOMMU_MMIO;
+> > > > > +
+> > > > > +		return kvm_iommu_ops->host_stage2_idmap(start, end, prot);
+> > > > 
+> > > > Do we really need to do that when is_memory()? 
+> > > > 
+> > > > fix_host_ownership_walker() by calling host_stage2_idmap_locked() and
+> > > > host_stage2_set_owner_locked() should already handle the memory region. That
+> > > > would also get rid of kvm_idmap_initialized.
+> > > > 
+> > > > So this one here could only take care of the MMIO?
+> > > > 
+> > > > Overall we would have a common point of synchro which is
+> > > > fix_host_ownership_walker() after which the host ownership is ready for both
+> > > > CPU stage-2 and the IOMMU?
+> > > > 
+> > > 
+> > > I am not sure I understand, this is another empty page table, so we
+> > > have to walk all of the host CPU stage-2 page table to shadow it in the
+> > > IOMMU. if you are refering to the case where it handle zero ptes for
+> > > memory, I can drop that but it will not change much in this logic.
+> > 
+> > In fixup_host_ownership() we already walk the hyp pgtable to know what needs to be
+> > map/unmapped from the host stage-2. Can't we rely on that for the IOMMU
+> > page-table as well?
+> > 
+> > As of, fix_host_ownership() could handle the host stage-2 __and__ the iommu? 
+> 
+> What I have in mind is the completely untested snippet:
+> 
+> index 75b00c323310..64cd175ad6c0 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -226,10 +226,11 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>         case PKVM_PAGE_SHARED_OWNED:
+>                 set_hyp_state(page, PKVM_PAGE_SHARED_OWNED);
+>                 set_host_state(page, PKVM_PAGE_SHARED_BORROWED);
+> +               kvm_iommu_host_stage2_idmap(phys, PAGE_SIZE, IOMMU_READ | IOMMU_WRITE);
+>                 break;
+>         case PKVM_PAGE_SHARED_BORROWED:
+>                 set_hyp_state(page, PKVM_PAGE_SHARED_BORROWED);
+> -               set_host_state(page, PKVM_PAGE_SHARED_OWNED);
+> +               kvm_iommu_host_stage2_idmap(phys, PAGE_SIZE, IOMMU_READ | IOMMU_WRITE);
+>                 break;
+>         default:
+>                 return -EINVAL;
+> @@ -258,15 +259,20 @@ static int fix_host_ownership(void)
+>                 .cb     = fix_host_ownership_walker,
+>                 .flags  = KVM_PGTABLE_WALK_LEAF,
+>         };
+> +       u64 mmio = 0;
+>         int i, ret;
+> 
+>         for (i = 0; i < hyp_memblock_nr; i++) {
+>                 struct memblock_region *reg = &hyp_memory[i];
+>                 u64 start = (u64)hyp_phys_to_virt(reg->base);
+> 
+> +               kvm_iommu_host_stage2_idmap(mmio, start, IOMMU_READ | IOMMU_WRITE | IOMMU_MMIO);
+> +
+>                 ret = kvm_pgtable_walk(&pkvm_pgtable, start, reg->size, &walker);
+>                 if (ret)
+>                         return ret;
+> +
+> +               mmio = start + reg->size;
+>         }
+> 
+> I believe this does the same as kvm_iommu_snapshot_host_stage2(). WDYS?
+>
 
-Provide a full set of PLL operations for programmable PLLs and a read-only
-variant for fixed or hardware-managed PLLs.
+I see. However, that does not init the memory owned by the host, neither
+unmaps hypervisor owned MMIO.
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
-Changes in v10:
-- None
----
- drivers/clk/realtek/Makefile     |   2 +
- drivers/clk/realtek/clk-pll.c    | 217 +++++++++++++++++++++++++++++++
- drivers/clk/realtek/clk-pll.h    |  47 +++++++
- drivers/clk/realtek/freq_table.c |  57 ++++++++
- drivers/clk/realtek/freq_table.h |  18 +++
- 5 files changed, 341 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-pll.c
- create mode 100644 drivers/clk/realtek/clk-pll.h
- create mode 100644 drivers/clk/realtek/freq_table.c
- create mode 100644 drivers/clk/realtek/freq_table.h
+Besides, as mentioned in the reply, that mean that the IOMMU has to be
+init earlier which has it's own problems. So, I do not think that it
+is worth changing the current logic.
 
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 13000ed4ba11..71edc18121c6 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -2,3 +2,5 @@
- obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
- 
- clk-rtk-y += clk-rtk-common.o
-+clk-rtk-y += clk-pll.o
-+clk-rtk-y += freq_table.o
-diff --git a/drivers/clk/realtek/clk-pll.c b/drivers/clk/realtek/clk-pll.c
-new file mode 100644
-index 000000000000..54c284070e47
---- /dev/null
-+++ b/drivers/clk/realtek/clk-pll.c
-@@ -0,0 +1,217 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#include <linux/export.h>
-+#include <linux/regmap.h>
-+#include <linux/spinlock.h>
-+#include "clk-pll.h"
-+
-+#define TIMEOUT 500
-+
-+static inline struct clk_pll *to_clk_pll(struct clk_hw *hw)
-+{
-+	struct clk_regmap *clkr = to_clk_regmap(hw);
-+
-+	return container_of(clkr, struct clk_pll, clkr);
-+}
-+
-+static int wait_freq_ready(struct clk_pll *clkp)
-+{
-+	u32 pollval;
-+
-+	/* reg == 0 means not configured.
-+	 * Register offset 0 is never a valid address on Realtek SoCs.
-+	 */
-+	if (!clkp->freq_ready_reg)
-+		return 0;
-+
-+	return regmap_read_poll_timeout_atomic(clkp->clkr.regmap, clkp->freq_ready_reg, pollval,
-+		(pollval & clkp->freq_ready_mask) == clkp->freq_ready_val, 1, TIMEOUT);
-+}
-+
-+static bool is_power_on(struct clk_pll *clkp)
-+{
-+	u32 val;
-+
-+	/* reg == 0 means not configured (assume always on).
-+	 * Register offset 0 is never a valid address on Realtek SoCs.
-+	 */
-+	if (!clkp->power_reg)
-+		return true;
-+
-+	if (regmap_read(clkp->clkr.regmap, clkp->power_reg, &val))
-+		return false;
-+
-+	return (val & clkp->power_mask) == clkp->power_val_on;
-+}
-+
-+static void clk_pll_disable(struct clk_hw *hw)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	unsigned long flags;
-+
-+	if (!clkp->seq_power_off)
-+		return;
-+
-+	spin_lock_irqsave(&clkp->lock, flags);
-+
-+	regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_off,
-+			       clkp->num_seq_power_off);
-+
-+	spin_unlock_irqrestore(&clkp->lock, flags);
-+}
-+
-+static int clk_pll_is_enabled(struct clk_hw *hw)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	unsigned long flags;
-+	int ret;
-+
-+	spin_lock_irqsave(&clkp->lock, flags);
-+
-+	ret = is_power_on(clkp);
-+
-+	spin_unlock_irqrestore(&clkp->lock, flags);
-+
-+	return ret;
-+}
-+
-+static int clk_pll_determine_rate(struct clk_hw *hw,
-+				  struct clk_rate_request *req)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *ftblv = NULL;
-+
-+	ftblv = ftbl_find_by_rate(clkp->freq_tbl, req->rate);
-+
-+	if (ftblv && ftblv->rate >= req->min_rate) {
-+		req->rate = ftblv->rate;
-+		return 0;
-+	}
-+
-+	/* floor result is below min_rate; find the smallest rate >= min_rate */
-+	ftblv = ftbl_find_ceil_by_rate(clkp->freq_tbl, req->min_rate);
-+	if (!ftblv || ftblv->rate > req->max_rate)
-+		return -EINVAL;
-+
-+	req->rate = ftblv->rate;
-+
-+	return 0;
-+}
-+
-+static unsigned long clk_pll_recalc_rate(struct clk_hw *hw,
-+					 unsigned long parent_rate)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *fv;
-+	unsigned long flags;
-+	u32 freq_val;
-+
-+	spin_lock_irqsave(&clkp->lock, flags);
-+
-+	if (regmap_read(clkp->clkr.regmap, clkp->freq_reg, &freq_val)) {
-+		spin_unlock_irqrestore(&clkp->lock, flags);
-+		return 0;
-+	}
-+
-+	freq_val &= clkp->freq_mask;
-+
-+	fv = ftbl_find_by_val_with_mask(clkp->freq_tbl, clkp->freq_mask,
-+					freq_val);
-+
-+	spin_unlock_irqrestore(&clkp->lock, flags);
-+
-+	return fv ? fv->rate : 0;
-+}
-+
-+static int clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			    unsigned long parent_rate)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *fv;
-+	unsigned long flags;
-+	int ret;
-+
-+	fv = ftbl_find_by_rate(clkp->freq_tbl, rate);
-+	if (!fv || fv->rate != rate)
-+		return -EINVAL;
-+
-+	spin_lock_irqsave(&clkp->lock, flags);
-+
-+	if (clkp->seq_pre_set_freq) {
-+		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_pre_set_freq,
-+					     clkp->num_seq_pre_set_freq);
-+		if (ret)
-+			goto unlock;
-+	}
-+
-+	ret = regmap_update_bits(clkp->clkr.regmap, clkp->freq_reg,
-+				 clkp->freq_mask, fv->val);
-+	if (ret)
-+		goto unlock;
-+
-+	if (clkp->seq_post_set_freq) {
-+		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_post_set_freq,
-+					     clkp->num_seq_post_set_freq);
-+		if (ret)
-+			goto unlock;
-+	}
-+
-+	if (is_power_on(clkp)) {
-+		ret = wait_freq_ready(clkp);
-+		if (ret)
-+			goto unlock;
-+	}
-+
-+unlock:
-+	spin_unlock_irqrestore(&clkp->lock, flags);
-+
-+	return ret;
-+}
-+
-+static int clk_pll_enable(struct clk_hw *hw)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	if (!clkp->seq_power_on)
-+		return ret;
-+
-+	spin_lock_irqsave(&clkp->lock, flags);
-+
-+	if (is_power_on(clkp))
-+		goto unlock;
-+
-+	ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_on,
-+				     clkp->num_seq_power_on);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = wait_freq_ready(clkp);
-+	if (ret)
-+		goto unlock;
-+
-+unlock:
-+	spin_unlock_irqrestore(&clkp->lock, flags);
-+
-+	return ret;
-+}
-+
-+const struct clk_ops rtk_clk_pll_ops = {
-+	.enable         = clk_pll_enable,
-+	.disable        = clk_pll_disable,
-+	.is_enabled     = clk_pll_is_enabled,
-+	.recalc_rate    = clk_pll_recalc_rate,
-+	.determine_rate = clk_pll_determine_rate,
-+	.set_rate       = clk_pll_set_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ops, "REALTEK_CLK");
-+
-+const struct clk_ops rtk_clk_pll_ro_ops = {
-+	.recalc_rate = clk_pll_recalc_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ro_ops, "REALTEK_CLK");
-diff --git a/drivers/clk/realtek/clk-pll.h b/drivers/clk/realtek/clk-pll.h
-new file mode 100644
-index 000000000000..b70d6b3ec61e
---- /dev/null
-+++ b/drivers/clk/realtek/clk-pll.h
-@@ -0,0 +1,47 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#ifndef __CLK_REALTEK_CLK_PLL_H
-+#define __CLK_REALTEK_CLK_PLL_H
-+
-+#include <linux/spinlock.h>
-+#include "clk-rtk-common.h"
-+#include "freq_table.h"
-+
-+struct reg_sequence;
-+
-+struct clk_pll {
-+	struct clk_regmap clkr;
-+	const struct reg_sequence *seq_power_on;
-+	u32 num_seq_power_on;
-+	const struct reg_sequence *seq_power_off;
-+	u32 num_seq_power_off;
-+	const struct reg_sequence *seq_pre_set_freq;
-+	u32 num_seq_pre_set_freq;
-+	const struct reg_sequence *seq_post_set_freq;
-+	u32 num_seq_post_set_freq;
-+	const struct freq_table *freq_tbl;
-+	u32 freq_reg;
-+	u32 freq_mask;
-+	u32 freq_ready_mask;
-+	u32 freq_ready_reg;
-+	u32 freq_ready_val;
-+	u32 power_reg;
-+	u32 power_mask;
-+	u32 power_val_on;
-+
-+	/* This lock prevents race conditions when multiple CPUs or contexts
-+	 * simultaneously access this PLL's registers during multi-step operations
-+	 */
-+	spinlock_t lock;
-+};
-+
-+#define __clk_pll_hw(_ptr)  __clk_regmap_hw(&(_ptr)->clkr)
-+
-+extern const struct clk_ops rtk_clk_pll_ops;
-+extern const struct clk_ops rtk_clk_pll_ro_ops;
-+
-+#endif /* __CLK_REALTEK_CLK_PLL_H */
-diff --git a/drivers/clk/realtek/freq_table.c b/drivers/clk/realtek/freq_table.c
-new file mode 100644
-index 000000000000..6ff8dbf60cc6
---- /dev/null
-+++ b/drivers/clk/realtek/freq_table.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/bitops.h>
-+#include "freq_table.h"
-+
-+#define IS_FREQ_TABLE_END(_f) ((_f)->rate == 0)
-+
-+const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
-+					   unsigned long rate)
-+{
-+	const struct freq_table *best = NULL;
-+	unsigned long best_rate = 0;
-+
-+	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
-+		if (ftbl->rate == rate)
-+			return ftbl;
-+
-+		if (ftbl->rate > rate)
-+			continue;
-+
-+		if (ftbl->rate > best_rate) {
-+			best_rate = ftbl->rate;
-+			best = ftbl;
-+		}
-+	}
-+
-+	return best;
-+}
-+
-+const struct freq_table *ftbl_find_ceil_by_rate(const struct freq_table *ftbl,
-+						unsigned long rate)
-+{
-+	const struct freq_table *best = NULL;
-+	unsigned long best_rate = ULONG_MAX;
-+
-+	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
-+		if (ftbl->rate < rate)
-+			continue;
-+
-+		if (ftbl->rate < best_rate) {
-+			best_rate = ftbl->rate;
-+			best = ftbl;
-+		}
-+	}
-+
-+	return best;
-+}
-+
-+const struct freq_table *
-+ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value)
-+{
-+	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
-+		if ((ftbl->val & mask) == (value & mask))
-+			return ftbl;
-+	}
-+	return NULL;
-+}
-diff --git a/drivers/clk/realtek/freq_table.h b/drivers/clk/realtek/freq_table.h
-new file mode 100644
-index 000000000000..78215aee3300
---- /dev/null
-+++ b/drivers/clk/realtek/freq_table.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+struct freq_table {
-+	u32 val;
-+	unsigned long rate;
-+};
-+
-+#define FREQ_TABLE_END    \
-+	{                 \
-+		.rate = 0 \
-+	}
-+
-+const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
-+					   unsigned long rate);
-+const struct freq_table *ftbl_find_ceil_by_rate(const struct freq_table *ftbl,
-+						unsigned long rate);
-+const struct freq_table *
-+ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value);
--- 
-2.43.0
+Thanks,
+Mostafa
 
 
