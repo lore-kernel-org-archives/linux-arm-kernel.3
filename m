@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FDFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D13C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBeUwJIXJms3/6Tic9aQZqS3Njj0/svqOV1cGNy95II=; b=dx2EMcTcSBElyxh2xMrY6fr8Ae
-	d8Pu5tKyJ8VQqd11H3bU1Ksn7UYex+5WMfHkTHAuMf1KmLlpfoNIdPnVr9SDbUcqdhkvubnwkL48l
-	079hJKAnsJRho6T8rftgX5wfqP8zdiO59UwcTM9aBfsVuaPriDkysywPgB5FE5xaD+Alqk0nj2Ck7
-	b/QAO/qzdi797wCAcG3rTIAtQfYQcZyqQ0yp9tKS+PgY/FQFvOV4ZaYnBBe7PHYfEHUu3NjQJ14OR
-	/wQi5/YapzUfVsOGqdgLCheSdCSLtaajtPNf384jUZg2rsF988Tep0smV7B1w8l8nkEYlxc+UmCfG
-	kWri0UbA==;
+	bh=N1W2wqKCJbOZw8CgB2iZJKooo+2PL+bi2PCu+HXC33g=; b=cfVRGtIFpij1/85fHfLlOK9FZc
+	66ddeUS99InY/NrGFwMMcXL1BCLIvk0hBf42CuOjCMDDecAF9DyDIOGuV3jAUATWoAQyuXv3hWbei
+	qCA/7uhhWZVBbjBznVw0KuBaHHx+XexmpQxg9MjVBJLG2t6iK/DsqUVT9rF7vwMX00+XVwNxZ3wYV
+	QP9q6cl1PIGlHHv994uox+tkCjtt5bpoHpT0MIvkCmfjbKuZvW4q1rlGc0/mUK0D9KFVK9aORf3yX
+	+R4Bnzi6W/licoVX3lg0bhphQDfgQLFiGxofS4oEVrdYA4gLyLV1oEKmhT4J6eZrYAyO/u7nIQGGy
+	IDsPvjEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjC9f-00000008baL-2xBA;
-	Mon, 13 Jul 2026 08:36:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjCBF-00000008bpW-45C4;
+	Mon, 13 Jul 2026 08:38:25 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjC9f-00000008baE-1rzp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 08:36:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF21143779
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B22841F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:36:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783931806;
-	bh=QBeUwJIXJms3/6Tic9aQZqS3Njj0/svqOV1cGNy95II=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=K3Hr9zRMcNTI5GjZ6L5a+cFlj1T79JGXmuZhghDtZz1YX2Kjd9j4LLCbJucd+qW4d
-	 +m3Y4Vp1p8diMdQ5Vl/sKFGNomnYNJSFGf6F6+YrXs7jDmvLE2DA3XTVdrXbCJnvLO
-	 MbE/s0YO/xAuZZiVobtI/6Q2LHAMS6k4TbSNH98rGL0/8CM5sW1LBn9e5DMqpMTogj
-	 VntKmvGKI3EQLLqmopls/eDDjzX7WaM0pttTLxLLr2+H627GNunRSkG6kZLuja5lhM
-	 uRYIe3rg4rCrlGIA764FX3le5ZuGsPVWEmxExJDcq7rC+mVjYMfVtkZigwy3e9Ainv
-	 UAvxi1xb5WazQ==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39c74c469e8so21863631fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:36:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rrgsp5GKvvxb/1NHoKBVZXptQsy6WBnLak1pTtHZWtD4MwhIsdqsBqeMOfURGiRrwTmY7SVZv9uOfD9/ICGDL2P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrulRhtrH1z3ONcDQV/bD7KvsOAOFWZd7CIBVs6YqrtgMZY9J1
-	FQ1t8wJs5TWdOgtEJxzeefqf2EmlY85/kuaxz1igSqQsealUMSk5f0V7N1Bq053YAsKtuFdFyNA
-	N1XySLqXZ1LfCg/EO5vXZPQwloHt1fE2u1R/vCMCZ6Q==
-X-Received: by 2002:a05:651c:154d:b0:391:1570:b6c6 with SMTP id
- 38308e7fff4ca-39ca78e3b6dmr17345291fa.2.1783931805473; Mon, 13 Jul 2026
- 01:36:45 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 13 Jul 2026 01:36:44 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 13 Jul 2026 01:36:44 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260711210131.236025-3-marex@nabladev.com>
+	id 1wjCBE-00000008bnY-1Ltv;
+	Mon, 13 Jul 2026 08:38:25 +0000
+X-UUID: 3198c5187e9611f1afed4741b24580c9-20260713
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=N1W2wqKCJbOZw8CgB2iZJKooo+2PL+bi2PCu+HXC33g=;
+	b=LVC+5JVDCUzA2BQfNfIeWORxxu28em41kZ5DZSIFpi0EkUpwzOItaHN1GLOpeACrpEfPaVFib+yR0r+M/PPBqsXHJEIJb2OtVJZh7Fh8szMnNsIAEtVogsuWjhYvGaUYSawcpANmiCXNLbhrSRj57Srgx29GqPT+fylePiKif6Y=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:6638ec8a-510f-453f-98d9-fad562967c7c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:dc6d2ea3-cbf3-42d8-b8d4-e61b75802b6d,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 3198c5187e9611f1afed4741b24580c9-20260713
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <justin.yeh@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 275800504; Mon, 13 Jul 2026 01:38:16 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 13 Jul 2026 16:38:13 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 13 Jul 2026 16:38:14 +0800
+From: Justin Yeh <justin.yeh@mediatek.com>
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Justin Yeh <justin.yeh@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
+Subject: [PATCH v6 4/5] pinctrl: mediatek: mt7986: register both platform drivers from a single initcall
+Date: Mon, 13 Jul 2026 16:37:56 +0800
+Message-ID: <20260713083808.168957-5-justin.yeh@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20260713083808.168957-1-justin.yeh@mediatek.com>
+References: <20260713083808.168957-1-justin.yeh@mediatek.com>
 MIME-Version: 1.0
-References: <20260711210131.236025-1-marex@nabladev.com> <20260711210131.236025-3-marex@nabladev.com>
-Date: Mon, 13 Jul 2026 01:36:44 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mds7FAg=e-JGWxK=9vn5A0sdYDhpZ7Wvo3eCKV1tyNpKw@mail.gmail.com>
-X-Gm-Features: AVVi8Cfsa0ItDBiNodG26S3_9jGGx3yuP-hiAD8ff_raWb2IPrBsLFiM5IVJVOQ
-Message-ID: <CAMRc=Mds7FAg=e-JGWxK=9vn5A0sdYDhpZ7Wvo3eCKV1tyNpKw@mail.gmail.com>
-Subject: Re: [PATCH 02/10] dt-bindings: gpio: pca95xx: Document Kinetic KTS1622
-To: Marek Vasut <marex@nabladev.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	kernel@dh-electronics.com, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_013824_373405_56031D99 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026 22:59:31 +0200, Marek Vasut <marex@nabladev.com> said:
-> The Kinetic Technologies KTS1622 is a 16-bit general-purpose I/O
-> expander via the I2C bus for microcontrollers when additional I/Os
-> are needed while keeping interconnections to the minimum. Datasheet
-> comparison suggests that it is compatible with TCAL6416, add the
-> compatible string and TCAL6416 as a fallback compatible.
->
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Bartosz Golaszewski <brgl@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Linus Walleij <linusw@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-gpio@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
->  Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> index 4f955f855e1ab..4631388a7d914 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> @@ -22,6 +22,9 @@ properties:
->        - items:
->            - const: diodes,pi4ioe5v6534q
->            - const: nxp,pcal6534
-> +      - items:
-> +          - const: kinetic,kts1622
-> +          - const: ti,tcal6416
->        - items:
->            - enum:
->                - exar,xra1202
-> --
-> 2.53.0
->
->
+The MT7986 driver registers two separate platform drivers (mt7986a and
+mt7986b) and used to call arch_initcall() twice, once for each.
 
-I applied this. I would have sent a b4 notification but got this instead:
+This is fine while the driver is built-in, but a single translation unit
+can only provide one module_init(). Since arch_initcall() expands to
+module_init() when built as a module, having two of them would break the
+module build with a redefinition of init_module()/__inittest().
 
-$ b4 ty -all
-Auto-thankanating commits in gpio/for-next
-Found 9 of your commits since 1.week
-Calculating patch hashes, may take a moment...
-  Located: [PATCH 00/10] arm64: dts: st: Add support for DH
-electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and
-DHSBC
+Fold both platform drivers into a single driver array and register them
+from one initcall using platform_register_drivers(), matching the shape of
+the other MediaTek pinctrl SoC drivers. platform_register_drivers() also
+rolls back the first registration if the second one fails.
+
+No functional change for built-in builds; this is a preparatory cleanup
+for enabling module builds.
+
+Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Generating 1 thank-you letters
-  Writing: ./marex_nabladev_com_patch_00_10_arm64_dts_st_add_support_for_dh_electronics_stm32mp23xx_stm32mp25xx_dhcos_som_and_breakout_board_and_dhsbc.thanks
-Traceback (most recent call last):
-  File "/usr/bin/b4", line 8, in <module>
-    sys.exit(cmd())
-             ~~~^^
-  File "/usr/lib/python3/dist-packages/b4/command.py", line 417, in cmd
-    cmdargs.func(cmdargs)
-    ~~~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/command.py", line 113, in cmd_ty
-    b4.ty.main(cmdargs)
-    ~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 681, in main
-    auto_thankanator(cmdargs)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 386, in auto_thankanator
-    send_messages(applied, wantbranch, cmdargs)
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 452, in send_messages
-    with open(outfile, 'wb') as fh:
-         ~~~~^^^^^^^^^^^^^^^
-OSError: [Errno 36] File name too long:
-'./marex_nabladev_com_patch_00_10_arm64_dts_st_add_support_for_dh_electronics_stm32mp23xx_stm32mp25xx_dhcos_som_and_breakout_board_and_dhsbc.thanks'
+ drivers/pinctrl/mediatek/pinctrl-mt7986.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
-Bart
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7986.c b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
+index ca468115765b..d7c7591ed231 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7986.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
+@@ -997,17 +997,16 @@ static struct platform_driver mt7986b_pinctrl_driver = {
+ 	.probe = mt7986b_pinctrl_probe,
+ };
+ 
+-static int __init mt7986a_pinctrl_init(void)
+-{
+-	return platform_driver_register(&mt7986a_pinctrl_driver);
+-}
++static struct platform_driver * const mt7986_pinctrl_drivers[] = {
++	&mt7986a_pinctrl_driver,
++	&mt7986b_pinctrl_driver,
++};
+ 
+-static int __init mt7986b_pinctrl_init(void)
++static int __init mt7986_pinctrl_init(void)
+ {
+-	return platform_driver_register(&mt7986b_pinctrl_driver);
++	return platform_register_drivers(mt7986_pinctrl_drivers,
++					 ARRAY_SIZE(mt7986_pinctrl_drivers));
+ }
+-
+-arch_initcall(mt7986a_pinctrl_init);
+-arch_initcall(mt7986b_pinctrl_init);
++arch_initcall(mt7986_pinctrl_init);
+ 
+ MODULE_IMPORT_NS("MTK_PINCTRL");
+-- 
+2.45.2
+
 
