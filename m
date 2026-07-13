@@ -4,88 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A02C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCD4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaOMlOkRAwrFIGmDlhCshTCWQ5yfBP7eJ8bFkeqHcP8=; b=anM/CL42q1Wv1gvXEdq74l5AAi
-	T4g84hWOo4On6gaopi9OwSh3a4oziXJOZD/3bf4gmmmKyDoBlt3629/qV0cHLHJDvDq7efIywWL/A
-	GHfiwnc/0UMz4c+8oB9JHN5G25x3iJ2FJz9j4DNIW6AxQSz0+I++WUtpFVfQcYfMmzxMyB5dRD9kY
-	78dqXED0+3lTljXqgrTLfHPVgE2zwvXAcz4tjJ5gKHHxC5UMHd5p70NLe0jXpW+D4YaJfhIVR+FHP
-	yOiNVK8LcR1RPIT++7ZFtfUbOqrA7/hQ+e+dP4VslI0FfpjpyGRhlL7KHS8pDEqDxwlgkMGdztuev
-	iFz1UhzQ==;
+	bh=37olk7TgZmgsgKBTXS7kBdT6zkNU3/iUaho5x6Odejo=; b=qM1aX1bV3ioNieex3vjZmU+j7d
+	K2dN0h4aAhu/3Z4h9tMFL8i+lHaMBlmC7tbGiCSFmaZGeu4MyIWqWeGEnLzxuH6DqGSLB1kGVCdPA
+	HgJDDF2Wb3LsQ3jWQ/kSfCft2k9BdoR9ThF+X2qT+mDWWHVdL+hiNg6daCWyt/zw92kZGMc8UjU0z
+	CcR65f+HhLCVVauhanOP2/KCrRwVwOPf9CwHx0P10IySGOJId4BfHLqntvCPrnkHbeWzWF5B2S6N4
+	zx7fLD8DYSEOs5XOzaOrIcfG/zCM5ZwbcwQzOC2FtrSEcdaHb3zE4z+YEWqU/zK76K+dy6tMr23a/
+	UmxGhz1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHvE-00000009dYW-46YP;
-	Mon, 13 Jul 2026 14:46:19 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wjHyK-00000009dqt-0G0h;
+	Mon, 13 Jul 2026 14:49:28 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHvC-00000009dXl-1vh7;
-	Mon, 13 Jul 2026 14:46:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783953971;
-	bh=eQUa3ScWb0Cgwwi0JeC1XpMNMA9za5OuFxAcERineVo=;
-	h=Subject:From:To:Date:In-Reply-To:References:From;
-	b=lqrv2tURjdpv5DtV/mhSJkvyjNW9vl10v6DGJaKmDq4AMiuQBCEUW54mwswZrQbk+
-	 9fAu83E+uENPnV3OxskKg7FnC+TgmA5F4dSp0XgGWHZGOHchaROTu+bRifaJbYWEMv
-	 yEk9LG7P+V8YFOxMGr5lgIuPnT5eRiyLH7NMuHrFCEYBBshyQDNnWMCyA65m1JORHn
-	 A+WLFcI7wC2sq7fcMvl5gq1fQKrxMeACTOFCr8r+rL54bfO1NyrsejL6e+opguZQl+
-	 Ov+HacxyiA4F6dsDcKUPHmly6r00Jcm15LVhHhp/LJhVUfVLbL9nRd5otxkz8G20am
-	 JmPzR1z2n3eHg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30D2217E07A2;
-	Mon, 13 Jul 2026 16:46:10 +0200 (CEST)
-Message-ID: <e90e392c6c9257f0383c8cbdfee0707ea6147237.camel@collabora.com>
-Subject: Re: [PATCH v15 01/12] media: mediatek: jpeg: fix jpeg cores'
- amounts setting
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu =?UTF-8?Q?=28=E5=90=B4=E6=99=97=29?= <Kyrie.Wu@mediatek.com>, 
- "linux-media@vger.kernel.org"	 <linux-media@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org"	 <linux-mediatek@lists.infradead.org>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- "robh@kernel.org" <robh@kernel.org>,  "linux-kernel@vger.kernel.org"	
- <linux-kernel@vger.kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
- "linux-arm-kernel@lists.infradead.org"	
- <linux-arm-kernel@lists.infradead.org>, "mchehab@kernel.org"	
- <mchehab@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
- "hverkuil-cisco@xs4all.nl"	 <hverkuil-cisco@xs4all.nl>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,  "devicetree@vger.kernel.org"	
- <devicetree@vger.kernel.org>
-Date: Mon, 13 Jul 2026 10:46:08 -0400
-In-Reply-To: <05928d76a6cb103e1f4cafc38fd4ad4013b87c05.camel@mediatek.com>
-References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
-		 <20260702072614.10373-2-kyrie.wu@mediatek.com>
-		 <29b98aee357ea1ff49939c47eaca3cb4a01c8d72.camel@collabora.com>
-	 <05928d76a6cb103e1f4cafc38fd4ad4013b87c05.camel@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-a58HJVnWn+9zXOppBSIh"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wjHyH-00000009dq4-2U9l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 14:49:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y+ztDZAnqDXDi0+ezmrNGELS2HJkLzoJWc79q4D5GdauShDsV+rP7aMOsv/ROZ1Xz1k7razokhI2lXbnls7g31MXPbE1Jj7YBaj4ctrvpmHtSzs1BqWO8efYTF9qxuE05RuHORYRPUm7J04gHhl5oDtWg8k5y7PQOgg9T52uEoO0QRB5VxsZwG9lMNgBteA36UTxHRouZj0n88LfWB3jXjp+/rm2nQRnW8s6FBV/1i3ab8r8/V7anrb3KRsG0khhnn6vv3QRg46dIDwckwmNlxmOEiE6HAgUBcVRBb9KAkYMR14FArlNGTMp9nlkxCIp5kmZ4vBqAkhals/TT5RsXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=37olk7TgZmgsgKBTXS7kBdT6zkNU3/iUaho5x6Odejo=;
+ b=x3PUzuMjAH1QNecvQhKbETqeCh3Ck+jygQ0fu1Xjg+IFwEblzMQ1tAXOQBlxNzvwUhkdHgZPqHThaxQK609CysxYY7iKc3EYy6fcNy/IzbWlwC5S8O4XoRA9QrrFHE2tnoemGQDSwW+mW5lv8QCWJyDpcf8HJQy6MTl3cneB/fyB66TK+r6QAWynV2qJ+71s/UKM2lKvkENk2u+7KRzivY1W7KVRvw6YqGVSC8OvTFtSpuZ8ggVMqW4c1eT3fZ0qI69mSsazeYfy7+UhEMhBLc2M/BnK3rMnodirleX0AlOUDTRUujPQSj6VjXifxAd1TAcAVYyfSHQ8PJVPVtPtDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=37olk7TgZmgsgKBTXS7kBdT6zkNU3/iUaho5x6Odejo=;
+ b=jnZ3HU2ebmHXOxJTAkR3XgG70PNypGABSsys+VzhpL/1lsZ+8Lph/tctWlDS56RFOBusyPF4uMXzwMSCo/JQZTdXorYy5q1mYUznoBxDsJ3MJg0iQcJtqBnLiDlZ69v35H45jMauBoUP5MXxiqNACJwx9/Sl/sO6/g6mWLCAuC1mJyV9UCAzOQcMmvQ8Nc9A+GOmEx4R2/gyUUzVEsN8TdXSEisPXxz5vDL+MVhXDfv9KA4BuKcpmO6fEdEuuV9uQbG//v8BXCPlaIulBJUSOVyO7nk1ruak9Zi5IHCJLwzrKEzLpxQqAyAB0Y00QxlI/FITnPbP51lYrji+Mt0fRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB8981.eurprd04.prod.outlook.com (2603:10a6:10:2e0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 14:49:20 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
+ 14:49:20 +0000
+Date: Mon, 13 Jul 2026 09:49:09 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: ziniu.wang_1@oss.nxp.com
+Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
+	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 3/8] mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate()
+ to allow default state restore
+Message-ID: <alT65Vje5ZZY5ykM@SMW015318>
+References: <20260713043904.4144172-1-ziniu.wang_1@oss.nxp.com>
+ <20260713043904.4144172-4-ziniu.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260713043904.4144172-4-ziniu.wang_1@oss.nxp.com>
+X-ClientProxiedBy: PH7P223CA0009.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:338::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8981:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ccd89e3-f466-4471-ebed-08dee0edebb8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|19092799006|1800799024|6133799003|18002099003|22082099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: Vd/9W/arehBAd++j0XngayksVo9eBZ6g7ZlpfAjkjme1P8XyeM7igSVzonm6wG/iUGfALFTTIEqI1ppLuxknxLBANgT+jPrnHCLJAFaJLPo2mx33eD4It4QKzHKPhXjtMfxyZxDVsdvDME6t7uOlKHgY/wCuKI44NU6l3jP1NoeSGnphbhvaLqbHh/01qQbH8IuWVj33AAQIZQgUhXPvEJjj6ljB1AsqwQgHqgExJygnKKrrhP0xSOjDIOdgm1BeladUYCtgo3OTsXX19LHc9DI24QtCuTF+M1NMJQ3Pf44fySi9T59WmwV9MZCg2okvmREZA5TaRkks+BWxhOUpxIZGyNkl9Z0SYGSBWKWTlaiVSUU69EWHw7kEVh+RbWsKjyVmTocHtAZZvmSeWTOeL1MGzJDrVpyZdprSg53ozwdkqqc0jWapgCkoRGjBqe25+6Cm29vbcWyGvTH7aaXwTOZMo5YVLG9ggksxy0Rpp9j8xW/Qq+SjrotCl6EAT3nJBWGzl6nFdBmqCKaoToqvzVtzwtNhUI15+f40Xh1VzZelGZGNBlP9vtp8+J4a0dY/SyYbCmr6aUjxL7ms2F+sNL5CfuNR+nehW1MAJ7IZJxeASp0jcxz1t8OZy9WJ+O0hRLyZf0C+fGFqzlM5V2L0+38OV+jxTyIMPAW34u0gBjI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(19092799006)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oNRqZDoVbHdb0jTHSFKae17U1AJb8UL4ISXGTipaylAWsJmQSrObxdFNJFtZ?=
+ =?us-ascii?Q?JJnLdFKEnf1HgN3p+MAIDxvAeKgftTu+zltu7xpq97TRjQ/JN3oyngzZy8yx?=
+ =?us-ascii?Q?wjFdYUXxKTSBaDhoFmbzouAosuci6mW0Oy6+WqrD3WZP1Q7yJbRvkBb6NxmO?=
+ =?us-ascii?Q?LHxdySjINLKm0fMQ+BEnBvd1bgxrlasO0W6d/+dF1B+5Tf7qMFyU/pKhx7N2?=
+ =?us-ascii?Q?Rh3EpeQKBEHYRDpdqEITG36j3Wgxxdc1L37ECI+uObqjRI92m9mN6XYlBgEB?=
+ =?us-ascii?Q?S/99hQNCLb6CHScfgJtguA5gbXNuZzbLNISOBLjhmrQZXbOAkoVGv3KDvmYs?=
+ =?us-ascii?Q?lPSost1JAY9G4HSz0FyVzzXp16MLo0TARyft5gJ3c9AcMwoHNos2sPtjtppy?=
+ =?us-ascii?Q?2khk5bmrcwiVfb/O0KpmYHxg4+Wdgk8dMiic8kp65mSFV25Dccv7wPzKNwpf?=
+ =?us-ascii?Q?JWtR9bNpoBf8bz+2Il5mfNmXEEYcHjdp7IXIhd27j0dq9XK6Ntq20BbRjEWj?=
+ =?us-ascii?Q?6P4tv2VvZU32Jhj5YqT1yJ63sJV/LtKGYaB5k5DdZCvOv6KfasotK/uHkhGk?=
+ =?us-ascii?Q?R0xElQnM/tTfkOmsEoNA20EfJCSBz2uGvd0qfkESPEEOn2K1sgaH1Y1N1iFl?=
+ =?us-ascii?Q?BSWTzU/wkrwxURhDLfBiy+kSDMvVKUHTgooT4zU4LlYmMRqJ4H428bNByhjq?=
+ =?us-ascii?Q?TE4sE9hKn6ue/vBCuz+K2pUn0fIafLUo4CKW2Tx7OIgx9TkEDjC9atds9ZbV?=
+ =?us-ascii?Q?+/9ALbn85l9fA5R8QbctpoYWJklAbQ2n9XX38X7IVNYgAl67ZG+d6I7Tp37d?=
+ =?us-ascii?Q?yWpGXux8CEj8tD5EGd3SwUxXpQ9WEMk8nR36Ma4l53kgr8wekzk0WUTJeFcl?=
+ =?us-ascii?Q?yIk+9viRiO8GwcajvVs5ze+oDLnWePNbwypD266KBoU5B+gerKGJMh2zWPOA?=
+ =?us-ascii?Q?GBrkbRjxf8V64tmg3JCstx18ugIGwmxfo0B6OHY/ldENynzczDWHm2r2FNoX?=
+ =?us-ascii?Q?j98bCbqZsOd8IFQye2QR8EaOIHpN8YFXGGwmFreXgZHaP93A8c+Hk4f21Dga?=
+ =?us-ascii?Q?sF3krsipkZ4c/fz7QxXsl/B35p1ULbFaoqcFBNf5mXmNJwzzafgfEVdNDTJO?=
+ =?us-ascii?Q?8LtZNuGoiW3w1bsSlkK1F/K8rCJRtPSfIzEP1XmfGejQs+SwdGFIXYhKbpiI?=
+ =?us-ascii?Q?C82GtOz0RebSd7aJhsIOs16MBLMfO0JAGMu4S4Ybgy7a5hZWbTBQo2kk/GLg?=
+ =?us-ascii?Q?fo7XR2KXr3Wr2yiHdDA4gVYMAJHvrSAU/sm+unZlGtIpcbKhcMZT31ZA5G+h?=
+ =?us-ascii?Q?I92RtdG/pAFDlI7jTypECuL7rt5CPZ4R6CXcBXnZym9wllJ074c47XBf9is9?=
+ =?us-ascii?Q?IlxRt1tMnA7vv9gKRMHnknVjfSBK2n3NBrjrF8pDffkAQcf39NWw3UqsrFET?=
+ =?us-ascii?Q?bvJv/pVBh9Pc6Vwzw/EXbvDGQI1ZkuGFX4UmGDw2OWFMwZ9J7+RhmrG9pfzv?=
+ =?us-ascii?Q?6kNpedpUsLd02mR7C0RqfTJtYz1gTdu7g7cSpRlN3/cbcVWMFiKzucH2Pohj?=
+ =?us-ascii?Q?nxol8t8aSpLFKY5fUBtrx3bk6dk6X89Zf4P/sMH4Xr3npukq82T/7zBiVfKO?=
+ =?us-ascii?Q?eecN4VtC4MLMrwxl9jhZjFJjApXKA8vHQyOR02wKkec1Xkw8jEYGcHYmk7F7?=
+ =?us-ascii?Q?UGue7S9a/+pcXHrgqGXiQArHIksdB6p5afycRnDTAluGH0UYHg8lCn6CxGR3?=
+ =?us-ascii?Q?lohiYHk7j8Vn/Fb3NbVlTauq4OVwE03jym4JfOZkUdCorAnZGcNe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ccd89e3-f466-4471-ebed-08dee0edebb8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 14:49:20.3405
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KT9geY+hXI515SEmvHtn/TKGmIPAiiyfsLJ9g5lZ7lI3E+PIlDVVKjGEw/4QOqIInbaO9p22VefVdgpiJ3mM5K1Fpix4cawjraQRcI46yLQNX2J1uCLXNMgFg0mCwYGo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8981
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_074614_675998_4D6ADDE6 
-X-CRM114-Status: GOOD (  34.39  )
+X-CRM114-CacheID: sfid-20260713_074925_635519_C1DCC06D 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,220 +140,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 12:38:59PM +0800, ziniu.wang_1@oss.nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+>
+> esdhc_change_pinstate() checks for pins_100mhz and pins_200mhz at the
+> top of the function and returns -EINVAL if either is not defined. This
+> prevents the default case from ever being reached, which means devices
+> with a sleep pinctrl state but without high-speed pin states (100mhz/
+> 200mhz) can never restore their default pin configuration.
+>
+> Move the IS_ERR checks for pins_100mhz and pins_200mhz into their
+> respective switch cases.
+>
+> Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
 
---=-a58HJVnWn+9zXOppBSIh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Hi,
-
-Le lundi 13 juillet 2026 =C3=A0 03:30 +0000, Kyrie Wu (=E5=90=B4=E6=99=97) =
-a =C3=A9crit=C2=A0:
-> On Sat, 2026-07-11 at 17:43 -0400, Nicolas Dufresne wrote:
-> > Hi,
-> >=20
-> > Le jeudi 02 juillet 2026 =C3=A0 15:26 +0800, Kyrie Wu a =C3=A9crit=C2=
-=A0:
-> > > Different ICs have different amounts of cores,
-> > > use a variable to set the cores' amounts.
-> > >=20
-> > > Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
-> > > Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-
-> > > hardware")
-> > > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> > > Reviewed-by: AngeloGioacchino Del Regno
-> > > <angelogioacchino.delregno@collabora.com>
-> > > ---
-> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=
-=A0 | 8 ++++---
-> > > -
-> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h=C2=A0=C2=
-=A0 | 2 ++
-> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
-> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
-> > > =C2=A04 files changed, 8 insertions(+), 4 deletions(-)
-> > >=20
-> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > > index d147ec483081..1e014fd698ae 100644
-> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> > > @@ -1462,7 +1462,7 @@ static int mtk_jpegenc_get_hw(struct
-> > > mtk_jpeg_ctx *ctx)
-> > > =C2=A0	int i;
-> > > =C2=A0
-> > > =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> > > -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++) {
-> > > +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> > > =C2=A0		comp_jpeg =3D jpeg->enc_hw_dev[i];
-> > > =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> > > =C2=A0			hw_id =3D i;
-> > > @@ -1509,7 +1509,7 @@ static int mtk_jpegdec_get_hw(struct
-> > > mtk_jpeg_ctx *ctx)
-> > > =C2=A0	int i;
-> > > =C2=A0
-> > > =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> > > -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++) {
-> > > +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> > > =C2=A0		comp_jpeg =3D jpeg->dec_hw_dev[i];
-> > > =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> > > =C2=A0			hw_id =3D i;
-> > > @@ -1592,7 +1592,7 @@ static void mtk_jpegenc_worker(struct
-> > > work_struct *work)
-> > > =C2=A0		jpeg_work);
-> > > =C2=A0	struct mtk_jpeg_dev *jpeg =3D ctx->jpeg;
-> > > =C2=A0
-> > > -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++)
-> > > +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> > > =C2=A0		comp_jpeg[i] =3D jpeg->enc_hw_dev[i];
-> > > =C2=A0	i =3D 0;
-> > > =C2=A0
-> > > @@ -1687,7 +1687,7 @@ static void mtk_jpegdec_worker(struct
-> > > work_struct *work)
-> > > =C2=A0	struct mtk_jpeg_fb fb;
-> > > =C2=A0	unsigned long flags;
-> > > =C2=A0
-> > > -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++)
-> > > +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> > > =C2=A0		comp_jpeg[i] =3D jpeg->dec_hw_dev[i];
-> > > =C2=A0	i =3D 0;
-> > > =C2=A0
-> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> > > index 02ed0ed5b736..6be5cf30dea1 100644
-> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> > > @@ -212,6 +212,7 @@ struct mtk_jpegdec_comp_dev {
-> > > =C2=A0 * @reg_decbase:	jpg decode register base addr
-> > > =C2=A0 * @dec_hw_dev:	jpg decode hardware device
-> > > =C2=A0 * @hw_index:		jpg hw index
-> > > + * @max_hw_count:	jpeg hw-core count
-> > > =C2=A0 */
-> > > =C2=A0struct mtk_jpeg_dev {
-> > > =C2=A0	struct mutex		lock;
-> > > @@ -234,6 +235,7 @@ struct mtk_jpeg_dev {
-> > > =C2=A0	void __iomem *reg_decbase[MTK_JPEGDEC_HW_MAX];
-> > > =C2=A0	struct mtk_jpegdec_comp_dev
-> > > *dec_hw_dev[MTK_JPEGDEC_HW_MAX];
-> > > =C2=A0	atomic_t hw_index;
-> > > +	u32 max_hw_count;
-> > > =C2=A0};
-> > > =C2=A0
-> > > =C2=A0/**
-> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> > > index 32372781daf5..4534caeb104f 100644
-> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> > > @@ -664,6 +664,7 @@ static int mtk_jpegdec_hw_probe(struct
-> > > platform_device *pdev)
-> > > =C2=A0	master_dev->dec_hw_dev[i] =3D dev;
-> > > =C2=A0	master_dev->reg_decbase[i] =3D dev->reg_base;
-> > > =C2=A0	dev->master_dev =3D master_dev;
-> > > +	master_dev->max_hw_count++;
-> >=20
-> > Just one question, can the mtk_jpegenc_worker() starts before all
-> > cores have
-> > been probed ?
-> >=20
-> > Nicolas
->=20
-> Dear Nicolas,
->=20
-> Thanks for the question.
->=20
-> mtk_jpegenc_worker() is not started from the probe path. For the
-> multicore encoder, the worker is only initialized when userspace
-> opens the video node:
-> =C2=A0=C2=A0=C2=A0 mtk_jpeg_open()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 INIT_WORK(&ctx->jpeg_work, jpeg->variant->=
-jpeg_worker)
->=20
-> It is then queued only through the V4L2 mem2mem run path:
-> =C2=A0=C2=A0=C2=A0 userspace QBUF/STREAMON
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -> v4l2_m2m_try_schedule()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -> .device_run =3D mtk_jpeg_multicore_enc_=
-device_run()
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -> queue_work(jpeg->workqueue, &ctx->jpeg_=
-work)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -> mtk_jpegenc_worker()
->=20
-> So the worker can run only after the video device has been registered=C2=
-=A0
-> and after a userspace application opens the device and starts
-> streaming buffers.
->=20
-> The JPEG hw core probe is part of the platform device probe flow during
-> system boot. The userspace open/streaming path happens later, after the
-> system has booted and the video node is available. Therefore we do not
-> have a case where mtk_jpegenc_worker() starts before the JPEG hw probe
-> has completed.
-
-When I check the core implementation though, the video device is registered=
- and
-ready to open before childs driver, so even if small, there is gap where yo=
-u
-could race between probes and open.
-
-I think I'd like to suggest a different approach, which to me is easier to
-understand (and so should make it easier to maintain). In mtk_jpeg_probe(),=
- we
-already compute num_child. We could immediately set max_hw_count to its exp=
-ected
-value. That would replace this patch entirely. We should add some bug on if=
- that
-number is bigger then MTK_JPEGDEC_HW_MAX (bound checks, see shashiko report=
-).
-
-Then, in follow up patch, to fix the minor race I mention, we could avoid
-setting hw_rdy counter to num_child immediately, and increment that at chil=
-d
-probe time (where you increase max_hw_count in this patch). The worker will=
- then
-wait properly for child driver to have probed (instead of spinning the
-device_run() by calling v4l2_m2m_job_finish() when the max retry is reached=
-.).
-
-hope this make sense, at least to me, having a max value that cannot increa=
-se
-sounds more logical.
-
-Nicolas
-
->=20
-> Regards,
-> Kyrie.
-> >=20
-> > > =C2=A0
-> > > =C2=A0	platform_set_drvdata(pdev, dev);
-> > > =C2=A0	pm_runtime_enable(&pdev->dev);
-> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> > > index b6f5b2249f1f..2765dafab4ad 100644
-> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> > > @@ -386,6 +386,7 @@ static int mtk_jpegenc_hw_probe(struct
-> > > platform_device *pdev)
-> > > =C2=A0	master_dev->enc_hw_dev[i] =3D dev;
-> > > =C2=A0	master_dev->reg_encbase[i] =3D dev->reg_base;
-> > > =C2=A0	dev->master_dev =3D master_dev;
-> > > +	master_dev->max_hw_count++;
-> > > =C2=A0
-> > > =C2=A0	platform_set_drvdata(pdev, dev);
-> > > =C2=A0	pm_runtime_enable(&pdev->dev);
-
---=-a58HJVnWn+9zXOppBSIh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalT6MAAKCRDZQZRRKWBy
-9JrbAQDLveH/jDrTKFuENiA349uauGr7XFkZYH3C9wMQTpDY6AD+IFk+ErD8G+WM
-Asj99DiTkwEAuORoQvEGwyqWB8+uqwg=
-=raLb
------END PGP SIGNATURE-----
-
---=-a58HJVnWn+9zXOppBSIh--
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index 7230d70e02ae..ead4685d621a 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -1326,19 +1326,21 @@ static int esdhc_change_pinstate(struct sdhci_host *host,
+>
+>  	dev_dbg(mmc_dev(host->mmc), "change pinctrl state for uhs %d\n", uhs);
+>
+> -	if (IS_ERR(imx_data->pinctrl) ||
+> -		IS_ERR(imx_data->pins_100mhz) ||
+> -		IS_ERR(imx_data->pins_200mhz))
+> +	if (IS_ERR(imx_data->pinctrl))
+>  		return -EINVAL;
+>
+>  	switch (uhs) {
+>  	case MMC_TIMING_UHS_SDR50:
+>  	case MMC_TIMING_UHS_DDR50:
+> +		if (IS_ERR(imx_data->pins_100mhz))
+> +			return -EINVAL;
+>  		pinctrl = imx_data->pins_100mhz;
+>  		break;
+>  	case MMC_TIMING_UHS_SDR104:
+>  	case MMC_TIMING_MMC_HS200:
+>  	case MMC_TIMING_MMC_HS400:
+> +		if (IS_ERR(imx_data->pins_200mhz))
+> +			return -EINVAL;
+>  		pinctrl = imx_data->pins_200mhz;
+>  		break;
+>  	default:
+> --
+> 2.34.1
+>
+>
 
