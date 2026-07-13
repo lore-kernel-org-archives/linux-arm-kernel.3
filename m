@@ -4,60 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C95C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BE9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 09:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgTLQ8uwman0lLyw9cc4IPWO6BS2HmXsRVj/qpzG7AM=; b=OlqOZ2C0TqlddMwMcmKC3/85BA
-	9Fz8l8uVXd+Z+L1fbntM3d0Qupm+XvuMgTk1cDbZ9LeD/aURj/D9Q0/8Z5Zr49rSh+aTHFknsftUq
-	dqR3wBQFbgirn3r//7aBCHYnqXBFVgxusd+2VJiHfIf8/QZXM4Z57zQximc7LD1Kq9+/TMSgyvdw0
-	97Yjio/6wv/t3tWzsIufHUlirx+1hwBtowS2YLRoci3ptvP4u2w/jm+33EkHfmJSphioK34ytdMLj
-	uTnRPCIABR/jGAs2RWZVC9vxWgabfLW2kkyaOA39qUOJggMpUCyqXkuMvUcob4Lf+BJukkMFGD8WB
-	7QK6cOHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hnhHYznYw4U+dJX7Gr1QJFYbWAhkfB84VU99JrG/Yvg=; b=STQUm33HNXafgkK1RhTRe1iiUL
+	131EBaWHJSLbWEV4pp0D7EH4p5ilbBHkSR9vpVwKd6L8tZ9BHVXE08Bax3y8BxeITjT2TMI68MA4x
+	V30w5yetLpaneYyFD1RrvdKsXokOzZjICgubEzBWbUmvnxsPEfeljWJxT6YHHKGoDzCfkwBpBHCCM
+	V991xQMXlsQjJQcGHn7y/SZf2C9Og1HF6uaHN09BWGTekzYW7HB4COCkR4EeE7WDwWAZv1oT36g2N
+	lwYBTD0tmvhpOBv3KWt+ibir9IZbOBTFy//SygrFs5dSYiRKqb2beiJcOrQHLeufGk7lI3InrKH/1
+	4gz0kwVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjD4d-00000008kvE-2IDK;
-	Mon, 13 Jul 2026 09:35:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjD66-00000008lBC-35v5;
+	Mon, 13 Jul 2026 09:37:10 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.82])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjD4b-00000008kut-1UES
+	id 1wjD62-00000008lA7-4BdL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 09:35:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EACF6004E;
-	Mon, 13 Jul 2026 09:35:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33CFC1F000E9;
-	Mon, 13 Jul 2026 09:35:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783935336;
-	bh=GgTLQ8uwman0lLyw9cc4IPWO6BS2HmXsRVj/qpzG7AM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=LJjWcwCpOVWguIJ8+S6Ex3xdAJSBzh57FCfNLUBAfs1hYUYICauAG9fLUO2DbWWQL
-	 wDStrijG+9ypPEQQvq33DtfiC2dOplak8cVIzix3BEiioPKyyUQo1ogZn9zqQ51NhH
-	 spbXn+4DK3s1JNvdi/Q5ITO1+aS7IJ2GpTTH5oYXeKnBx5IWMJi/NtiIOo5SppG7n1
-	 ZVMesfuCl8BE3TqUUBvl5idFY2rkKpIuJT2QTLSYNoCIOzzq6NfDHMa+raoHma1Y7P
-	 CC7DtX9ATgOedLyUmXDTq5Uv3KYI3QTTcu4hcKi9ykxFXQQm0XpjqzER/qDv9+MTFu
-	 jwqmb7e4mOwdg==
-Date: Mon, 13 Jul 2026 04:35:35 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: nuno.sa@analog.com, dlechner@baylibre.com, devicetree@vger.kernel.org, 
- cwweng@nuvoton.com, conor+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, jic23@kernel.org, 
- linux-iio@vger.kernel.org, andy@kernel.org, linux-kernel@vger.kernel.org, 
- krzk+dt@kernel.org
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <20260713081127.115197-2-cwweng.linux@gmail.com>
-References: <20260713081127.115197-1-cwweng.linux@gmail.com>
- <20260713081127.115197-2-cwweng.linux@gmail.com>
-Message-Id: <178393533549.3982391.11335351167555265751.robh@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+	Mon, 13 Jul 2026 09:37:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783935395; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=dP7OcmRnbwhCBH1RoJu0txmmrfPY1oppMgEqp052JfsHPADq+XQmroimpG/Bcd1tQ2
+    XkUF8sIltV3UbQKKEVvwnPLPY1isrhIkqM8+BH0cNyuMJZ647KC/9j9akGQwGMCBMDGY
+    2CHTazeGLdAOb7z1EvGSIL7q01ddxCVu4eWk3cW7Sic7J68wL72vEu8Eeg9L22dsd7kr
+    etviG/LUL9RVSvHOKzFhBrGA4lnscNb9P6f71d62ArlACy+3r7ukkTQT4eoJpUrSDNgw
+    BtVpqhFeiFQAt2Pf1ney1jGlCAQrTdHz+3k59/QNUxwbzbZCjP8wW0ukq9DpUu2zp/4X
+    z5HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783935395;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=hnhHYznYw4U+dJX7Gr1QJFYbWAhkfB84VU99JrG/Yvg=;
+    b=i4ylZOSETHOTtxTdM6FHIyJqoa1k5j8HFL1QUpsJGOci28Q7PDUR47wd+g173HWoYh
+    VvbTln2Babj6qzPodSTUnafD3yN6AJhAx4KjjalBC8DHfJTIAcRWPe+wh1jjsU1E6goG
+    izTHi4psfYWBT47tHAfOn3ELPpq8/C+DQJDkOidIP7nEKDyzdb6wowVAmh1Bka5LPI0/
+    O8ncVDwXSEGbj2Zv74GkKZOnwq3A7KKo8SVfpUFMbg+oJUjkbxpuCnoTxSk2QqfAY0zD
+    JtjXfC3phLcUTla7szaN/zyMiNf/uReytyKl8PVt0JS/1yuJ0uOvLvZjVK527lvGHzbp
+    dq3w==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783935395;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=hnhHYznYw4U+dJX7Gr1QJFYbWAhkfB84VU99JrG/Yvg=;
+    b=GR+pzhecddLYFJZMc2TkGjkjxgc7DC0nZFR03CQdi+czSfM6pxlv/3KTMXQCGBNz9z
+    BcJuwmMD+eyqm9Gq96U9Fgny+Gkd9td1wnpUYRaXIzGjKFDXgR5JWNkkx97bxd9NdKmR
+    Ot6Nnogfl9XsMNwLcZPqnbQVo/77HbxfxrQMnIKbOhLUaM6FOKFU4PK0y0GH6QK9j1bQ
+    UGAG2tZ+xAvYFn3dJmvoVnJElakBDEcUMsjRQbukdeJIJKoDJ7yy7O/+QHBTfCO6Sz7d
+    wdafVe+iE9kJ4weOtCaj5gKcOGg1HmTshPDlA0BsSTq0U6xEQ4jqfgwRlttZHIn658vQ
+    O3ug==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783935395;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=hnhHYznYw4U+dJX7Gr1QJFYbWAhkfB84VU99JrG/Yvg=;
+    b=dC8bNf8xW+rX8n44wt9DVlrzvORrz9yJLqjhY6lCP6awzocEeb+ilJ8db4Rk1zkHNL
+    Mg/Z3iyLc5JCNkCNZiDg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrQi5pZlciNgDl2kEp5oHJ2/c57N2Mc49IfXTKd"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.5.6 AUTH)
+    with ESMTPSA id Q4b76426D9aXNNi
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Mon, 13 Jul 2026 11:36:33 +0200 (CEST)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
+Subject: Re: [PATCH 01/16] dt-bindings: twl-regulator: Add bindings for
+ exposing ti,twl4030-regen
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <17497012-97d8-4c52-89b8-f433179f1eda@kernel.org>
+Date: Mon, 13 Jul 2026 11:36:23 +0200
+Cc: Grond <grond66@riseup.net>,
+ Stefan Leichter <sle85276@gmx.de>,
+ Grazvydas Ignotas <notasas@gmail.com>,
+ Tony Lindgren <tony@atomide.com>,
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Helge Deller <deller@gmx.de>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>,
+ Sen Wang <sen@ti.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Niranjan H Y <niranjan.hy@ti.com>,
+ letux-kernel@openphoenux.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ linux-fbdev@vger.kernel.org,
+ kernel@pyra-handheld.com,
+ mfd@lists.linux.dev
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <CA2C7052-43D0-411C-8556-26228EB6FEC2@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
+ <00718b18253a764c2a7c9a2b95c3b8c411796583.1783749722.git.hns@goldelico.com>
+ <20260713-aquatic-memorable-griffin-cf9e46@quoll>
+ <3D58F644-3EAA-4BE7-88FB-1DCEAE7D5768@goldelico.com>
+ <17497012-97d8-4c52-89b8-f433179f1eda@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: Apple Mail (2.3826.700.81.1.8)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_023707_396386_39B52425 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +150,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 13 Jul 2026 16:11:26 +0800, Chi-Wen Weng wrote:
-> From: Chi-Wen Weng <cwweng@nuvoton.com>
-> 
-> Add devicetree binding for the Enhanced ADC controller found on
-> Nuvoton MA35D1 SoCs.
-> 
-> The controller has one register region, up to four end-of-conversion
-> interrupts, one functional clock, and an optional reset line. The
-> binding also describes the optional external reference supply and the
-> optional DMA request supported by the hardware.
-> 
-> ADC input pins are described using standard channel child nodes. The
-> external ADC input channels are 0 to 7. Differential inputs are described
-> with diff-channels and are limited to the fixed hardware pairs.
-> 
-> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
-> ---
->  .../bindings/iio/adc/nuvoton,ma35d1-eadc.yaml | 163 ++++++++++++++++++
->  1 file changed, 163 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
+> Am 13.07.2026 um 11:19 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>=20
+> On 13/07/2026 10:26, H. Nikolaus Schaller wrote:
+>> Hi Krzysztof,
+>>=20
+>> Thank you for the feedback.
+>>=20
+>>> Am 13.07.2026 um 09:39 schrieb Krzysztof Kozlowski =
+<krzk@kernel.org>:
+>>>=20
+>>> On Sat, Jul 11, 2026 at 08:01:48AM +0200, H. Nikolaus Schaller =
+wrote:
+>>>> From: Grond <grond66@riseup.net>
+>>>>=20
+>>>=20
+>>>>=20
+>>>> Signed-off-by: Grond <grond66@riseup.net>
+>>>=20
+>>> As explicitly written in submitting patches: we do not take =
+anonymous
+>>> contributions.
+>>=20
+>> Thanks for pointing this out. In more than 10 years of contributing, =
+I actually have never run into this specific issue before.
+>>=20
+>> To give some context: this is a contribution we received on our =
+mailing list about 5 years ago. We do not know the author personally, =
+but the code looks good and has been thoroughly tested by us. I kept =
+their Signed-off-by because I didn't want to falsely claim authorship.
+>=20
+> Take the authorship. You are allowed to do that by both DCO and common
+> sense (you are not doing something immoral, unless author shows
+> interest/hints to fix it by themself).
 
-yamllint warnings/errors:
+Ok, let's give him some days to respond. Thanks for the procedure
+to resolve a potential deadlock.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml: properties:interrupts: {'minItems': 1, 'maxItems': 4, 'items': [{'description': 'ADINT0 end-of-conversion interrupt'}, {'description': 'ADINT1 end-of-conversion interrupt'}, {'description': 'ADINT2 end-of-conversion interrupt'}, {'description': 'ADINT3 end-of-conversion interrupt'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml
+>=20
+> Commit msg also needs fixing/rewriting.
+>=20
+> Beside, one more nit since there will be a new version:
+>=20
+> A nit, subject: drop second/last, redundant "bindings for". The
+> "dt-bindings" prefix is already stating that these are bindings.
 
-doc reference errors (make refcheckdocs):
+Ok.
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260713081127.115197-2-cwweng.linux@gmail.com
+> Best regards,
+> Krzysztof
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
 
 
