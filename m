@@ -4,124 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D31C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C246BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 18:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUqXhUeTAqWDkZBRLyaY+scKg7wDVjBfHNOGNhA0gl0=; b=c2M9N/pDi73B7icR6lvWPebHyK
-	qdi437x7QfHBKLULrAhu7UYfeulCcDK1jcHNfKUBKYJsqihqdenXng0mK0kECV7jQ/9+nvpkpwwwR
-	Nu/XdO28Re0/AypOzO+2IbChNPE7EpUVBpYlKeyKsb4F53hU0Htu4nJdiWwBm7j3DSI2cPNct5eJh
-	wz1dVipH0hJrSm/+s2h6pfFVQWrnzw6MwO1j7jRgb3PKiTDn1QuFxbttqTdCQ+CNl1fyGsL8B5Buy
-	EXagIESYipxC7Qbv66blBeKcAETmqqr1l6jpV1sIS49nVH6p6jgJa2ch5KNI+OK0nkg0ao/wLscJk
-	/Qh/nctA==;
+	bh=+4oaM697jjJh0i29DhT77Bw1lzVGGZ7UjxKZh4sSss8=; b=uH5I0y5yE23sDJXrDt9dkwBqo9
+	/qnitoqBkASU7fnybn11tmgEUMS278axM5TiNTKJZjpSB+uOhOHEq4Sqps45sb6eo2aVurpibYx4S
+	DXfIeEeYxe/sfQOBlxXAaIDRchAyawJ2rq6VzGHgAz2vJM+qoK03rGRJXWjZgpcWCd+jvqUCzDqHm
+	7V7tMHUzHLb58TGDhdOl6B0M9RVazfewPujfnRDcpCZVc5vty3K4wx8gVbr/A3TwP1Di/n9EIxO/+
+	rn2cG3XaCUSfKdfam9zAIM1VWUfbDbqlamdfaszsZ+hf67h0AypGFtgTWDlexDgf7q5rGyEy8xF6O
+	vFAmAyTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjLSo-0000000ADhE-0liw;
-	Mon, 13 Jul 2026 18:33:10 +0000
-Received: from mail-eastusazon11012032.outbound.protection.outlook.com ([52.101.53.32] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wjLhP-0000000AEh5-2AJk;
+	Mon, 13 Jul 2026 18:48:15 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjLSm-0000000ADgG-14hS
+	id 1wjLhN-0000000AEgc-03cD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 18:33:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ujzdVFnS/1h34195MmVbsxxv2ud3YUDtijjC8sK3mbz82+TdEQnjTCyNcBxJyA2w5CFXA55Qp5v0MQpfQD3QdHUINBV5ee8QhlbN7voytzgVWn7aQFL5O7XO7lsU6geL4Jv041sw88idWC0KUDWD8pTrlS7T8K30tdbBJMzbLuBhd6Yq/yrat4qaJattdBsGBjDc3SQ6SxTKt1M3DqlAbt8Y/pazAj5DMylNTpudXSxAKBaHQrCJRQtaBGxyUUngO4+ibbosN+1HicDqq6TQ7P2BlW/Xs74PxGj17FIlK8Pq84TbHkQFyg3LISobnykbRcdUZmuE+rMahS1GJthYIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gUqXhUeTAqWDkZBRLyaY+scKg7wDVjBfHNOGNhA0gl0=;
- b=nMxjps2DntCXWHsx38Fj+p7NZ72KL20ccoDXrEu3bJVKl1Gs21n38eeAvT2uWgsGtHMl6AitnhCZPQAkmWO4PSaZS1cD9Qhb7u2YqF6HLDy/ui913cfwI8CqBuZmqGtNHcA9GNGQ34S7Exg+wORTGE09wyV7Y4OJL+RfxM25NTeqUVjTurr0y4nBY/9FIf4bWJ/hImk2N9q/NulflUok9E1ZqSvYd1A5lHHYPMM7n0NKNugX0aeBkMqxrpFphDj69Gyo2QViGPFEc2xY8TJmVuJh9VOzTaG7mfiKcnlyMp+AqXi/4+AEUdrSNzUNqftIwr6wGFUGyLeG4QAqzUM14w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gUqXhUeTAqWDkZBRLyaY+scKg7wDVjBfHNOGNhA0gl0=;
- b=sjq5QdoCVbOfUTCMAECQuvXFzXHULDxbAjVnUxIEU9BFb71M+CFd9Cpta0LRnnqkyNcWWTfI0Gr9xW+FvqpjPGvwHAEfrNQ3+i1DmIBNHKIFh1HXJxgwJuOa33tmn9wbmTIba3VE8OUAm67rZYZL8IIn8Qu8p0MlCXUc4skRN4qEhYoN8BKL3nrqDq63wYOng9agC+xjYtVBuNp/LcsRQeVhFItXRU0WOl4hImwZT3dVh/JKOmOE3wMJDeQCnmPNZ7ghvG5xuWkRtnRZtw480GW5Wd8PqDxzozUlfSoWmSSimI9tKnFzXXXqPjOvgQvUWKd12arxKaGhu2J+o117xg==
-Received: from CH5PR03CA0012.namprd03.prod.outlook.com (2603:10b6:610:1f1::9)
- by BY5PR12MB4145.namprd12.prod.outlook.com (2603:10b6:a03:212::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Mon, 13 Jul
- 2026 18:32:58 +0000
-Received: from DM2PEPF00003FC6.namprd04.prod.outlook.com
- (2603:10b6:610:1f1:cafe::62) by CH5PR03CA0012.outlook.office365.com
- (2603:10b6:610:1f1::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
- 13 Jul 2026 18:32:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- DM2PEPF00003FC6.mail.protection.outlook.com (10.167.23.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 18:32:57 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 13 Jul
- 2026 11:32:35 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 13 Jul 2026 11:32:34 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 13 Jul 2026 11:32:32 -0700
-Date: Mon, 13 Jul 2026 11:32:30 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
- Gunthorpe" <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
- Brown" <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Mostafa
- Saleh" <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v5 05/18] iommu: Pass in reset result to
- pci_dev_reset_iommu_done()
-Message-ID: <alUvPl/NtmqLMsoY@nvidia.com>
-References: <cover.1783044582.git.nicolinc@nvidia.com>
- <9306670b5bd647e477e36156b124557917baead3.1783044582.git.nicolinc@nvidia.com>
- <a24597bc-28ff-4b23-818c-f9126be3bbf9@linux.intel.com>
+	Mon, 13 Jul 2026 18:48:14 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8fcc43c48f7so30595636d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 11:48:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783968491; x=1784573291; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+4oaM697jjJh0i29DhT77Bw1lzVGGZ7UjxKZh4sSss8=;
+        b=bkkrhRFjCHXqB39hqpdajmgjzfRql0ff8mPNjzYVvDg9zuBM02qycXaMin3MSFp+34
+         SxSRXzR01v5BjRV3f9XyjCjnRz4YoRDkVZO+wbR6g85QtIuFR/BCytPXdd8CPK7DvMjm
+         X0BPaEp3Qw0hcRIj7+nF5JRYau8EAt6KGdzp8UzIz7XYTPVnqaYZpvegKXM8sQkiiMt2
+         YCvXwK90+1fbfiLgCfl4DD2hxKmfLAJvVJqUwYs1Z1dwx79qWRmLZAH6WKV8cXwF7Yg+
+         bOBqpwDzdEb0KHreYCr9WsyM5V1u93TsQJfwyB30CgrwqDauK04/j0lj/XXJ7yTjrqWE
+         Gh1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783968491; x=1784573291;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+4oaM697jjJh0i29DhT77Bw1lzVGGZ7UjxKZh4sSss8=;
+        b=cvm2OVYqEqVU4ClP3PCoUdWANGAN7j1CcET84vadHuetapgeQvqShSd/mhMIGQMLRI
+         AxFTuQJLsw+0rdJREkVnv8lul+rRSejd7DUM8LSmcdCfDWmPlSyPZEi3fx4KxeHctNZU
+         AXWiAwT66JKTnbdisEomsGhKdUUEaA2R34jhnC3iW5PLY/nsR1pi35DL3Bfb/jaTjsuH
+         flWS60zjpNrcGPQyx4CnMdzvY91DhTTqR30a6RyYMnGi7M3gWd3DlIAGqu8wt00SX2BW
+         Q4YLXgbkwF5matKxesPcREXBAQKRwKz3vXziMhh/Fh4QuFWlPd210CB+0wQT6cc7oeij
+         Neiw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr26JFLCjFEnDZfDiBJxhiqYzUsyA9VkkZUXEIFcF/CZNkQRrApE03gn+OlOIUXKehKSve2AN0EelpJDuD5H6iY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1HvrBOzF07IdMI0keXpamN6s6BDF4yDIr9hzwxXCovUzcF+Mc
+	AjDamfQ8IHzR7aVGqcsyeO3+/sPPpBX3xlgYVbUk5QSo54vc6YWMuPKUzObog0XQfoE=
+X-Gm-Gg: AfdE7cmKAEJ8xKQZXbsE7LhdpqxDV2aNRDiBpzVWJnGM1IpKKzKhFynF+HXnveEuLMJ
+	zOldRth+1eWd3daMShhXE2FYMeLvkjRR7SS5lZEkG7z7I5uzxEeHD91wu13bOTuKVfIaWa4Yi8E
+	hHOflyZlM5yfPWrYhnIszWLSbtrxTYVkWRXbidDpTHJeaOCrz/TAlI5g/VhgaA6Sj2jSttO+WGF
+	/4NcQXivgxUVjmIyv4KToY/4Ee+FY4r07VmgoIAd+KcEu043LuLp9LlreTZFZAtaus+cCGow0uA
+	05PFsYkjw+374HbPTtC/sRO4u4p38UGYuCHOnsbMPS4kpDyYazWZMl0A8DBk3kbsz50WOH6Ft1I
+	3y/yNUqlLNUARPo9ZXJVbYH8a59EBuDE/pxNwJ6jRuOsE3kqlnmBlKp37j1+PVoQknWm9zfg=
+X-Received: by 2002:a05:6214:e8c:b0:904:49fa:3085 with SMTP id 6a1803df08f44-90449fa364dmr123814316d6.18.1783968491378;
+        Mon, 13 Jul 2026 11:48:11 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd82e8ffdsm139962266d6.37.2026.07.13.11.48.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 11:48:10 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wjLhK-0000000E1oE-0kyB;
+	Mon, 13 Jul 2026 15:48:10 -0300
+Date: Mon, 13 Jul 2026 15:48:10 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 11/22] dma-pool: track decrypted atomic pools and
+ select them via attrs
+Message-ID: <20260713184810.GM3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-12-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a24597bc-28ff-4b23-818c-f9126be3bbf9@linux.intel.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC6:EE_|BY5PR12MB4145:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9e197e4-f70a-4879-d160-08dee10d2908
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|1800799024|376014|82310400026|23010399003|22082099003|18002099003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: zb6YxX+eLtQ1F+OhCWYWb96WVGiTS/0fPlDlG+Pe2z5HEVbgFCsNgx84wgodrwMVfAg7LA1Q/3UW41rSsvQ73/pgk/i48Pq9Gmpp9dfmk6x4wvbYyj1sk4MXHJQyqW/w9OhZhVaHUyKVIt+ZBj1JUyngmX74OK7FVGoy62Is3F/9JYt253QkfyKOi6M1xaH6PYoLsNU6BLjAgijp2/fNXoTfTVTsW8TMFLIjXh3zP/Ju0uMaCnvmWxEhZs/mzflA53s9XZMnq4xzxpHOjvKY34aT0oGhIDvNEC5qSG70EK/ppHtjBDEG+RyQgIWQzDScZjG7j8mKXh/+37C3dbYBQOtqv94Vy0HEH4CRF5H76MkXqNyoiaC4Pdke1qaFzjYsIUeVg5HeDhtc2a3FF23TG8NHUIUsCORFGR2yVbRcue/iZktcDFr9DBNUNenRqHWtT5BVFX91ICXg6//NlCGURigTLrZoatAbbqAY8ZlTL33++fuN0eAVGVBmiXNwyIsYPaF/IJa/xjWKetpEikjWuRYkMdmiPHJNP8dogeMFjSceJ6dc/aeNDJTINGr3qBcvJK/II7uO0EqBosMt0aS6F45JNEbrpICbWHYuUwtlkVMuyKMWnuC6rgq3Y4kmrFGd24mdTXlLJmr2EQ02YSrFF4UrHvtJ45mPBKOquo77khrLjMYjCxc6KKIIkQe07XrhWZn00Ac2Qwvqre+ueQMHFw==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(1800799024)(376014)(82310400026)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mJFX9EMVAdiaH28HZQi/nhqXbPDWTFduAdZZnlrQdeG5/ehCvIACzhqBUe/zQwC2u8OgzOjDPbtyLemNB+1a/zAX1uTMwSKC6Sr00oKIxkVG4uxXws08Z3+aVRZV4bOyNyQgz9X3rwHWfT7YWZIpSjjwjhKpjGoRZ3g3gO02XDVlQTWlS6W0AwXlXRVILKaj6Ig0qRkFGsYv85VbcSL0JOj4LK4zJfumYnYvTEq8e9E3WR6nCPD3mAvwcphHUlfRuImiU9d6f5RVtxf3g+3om60lu8Jh6JfKl2ayGJpIPcxgreiWa1+TLAKP7rWM8OZEtn8izM2f0ZwUmWOG6TY4rTqjvqvX32gdN29sVwlK3JdZ/5ZY5i9LDlwuFczV1mMmjHo+G7eJFDDx2zBlMSWquiC6zxTQbyo752CMgMU40Tz+A4DG6c29u5P9PDY8ZbUr
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 18:32:57.0987
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9e197e4-f70a-4879-d160-08dee10d2908
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC6.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4145
+In-Reply-To: <20260701054926.825925-12-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_113308_320224_17547D54 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260713_114813_067385_CD278B0F 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,29 +127,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 07:48:53PM +0800, Baolu Lu wrote:
-> On 7/3/2026 12:06 PM, Nicolin Chen wrote:
-> > @@ -762,6 +763,9 @@ static void __iommu_group_remove_device(struct device *dev)
-> >   		if (device->dev != dev)
-> >   			continue;
-> > +		/* Must drop the recovery_cnt when removing a blocked device */
-> > +		if (device->blocked && !WARN_ON(group->recovery_cnt == 0))
-> > +			group->recovery_cnt--;
-> 
-> I feel that the change above is unrelated to the purpose of this patch.
-> It looks like an independent fix that belongs to a separate patch.
+On Wed, Jul 01, 2026 at 11:19:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> @@ -114,14 +120,17 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>  	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
+>  	 * shrink so no re-encryption occurs in dma_direct_free().
+>  	 */
+> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+> -				   1 << order);
+> -	if (ret) {
+> -		leak_pages = true;
+> -		goto remove_mapping;
+> +	if (dma_pool->cc_shared) {
+> +		ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+> +					   1 << order);
+> +		if (ret) {
+> +			leak_pages = true;
+> +			goto remove_mapping;
+> +		}
+>  	}
 
-It's actually related; I had this in the commit message:
-"
-This introduces a new situation where a blocked device is being unplugged.
-Decrement the group->recovery_cnt accordingly.
-"
+This makes the memory_decrypted conditional, but it doesn't change
+the lines a few above:
 
-So, it was not needed prior to this patch: it wouldn't fix anything
-if applied before, and it would be a bit odd to apply/fix after.
+	addr = dma_common_contiguous_remap(page, pool_size,
+			pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
+                            ^^^^^^^^^^^^
+			__builtin_return_address(0));
+	if (!addr)
+		goto free_page;
 
-It's a small three-line change, so I think folding it in is okay?
+It is wrong to pass pgprot_decrypted() to the arch code if
+set_memory_decrypted() was not called.
 
-Thanks
-Nicolin
+Also it looks at some point the nature of the atomic pool has become
+confused. Originally it was just to allocate atomic memory that had
+been vmap'd outside the atomic context (to set the non-coherent
+pgprot), so every caller was expecting non-cached memory.
+
+Then it was reused to also allocate CC shared memory outside the
+atomic context. That was fine for x86 that doesn't use DMA_REMAP but
+on ARM64 it now means all atomic pool CC memory is uncached? That
+doesn't seem to make any sense...
+
+I suppose along the lines of this patch the solution is to add a
+noncoherent property to the pool so we can select the correct
+combination:
+
+ noncoherent !SHARED = vmap pgprot_noncached
+!noncoherent  SHARED= vmap pgprot_decrypted + set_memory_decrypted
+ noncoherent  SHARED = (probably unrealistic in real systems)
+!noncoherent !SHARED = normal __dma_direct_alloc_pages()
+
+But I don't view this as that important, the CC hypervisor is probably
+going to use the S2 page table to force cachable on all system memory
+so the non-cached pgprot is a NOP, but the extra vmap is wasteful and
+it is confusing.. So maybe a little fixme is all that is needed here.
+
+Jason
 
