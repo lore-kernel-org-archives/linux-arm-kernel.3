@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846F2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088B8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mC+p0RfcBB2FWIB+0G0/q5bKpwNLL+tjZ4djsboK4c=; b=JDRkpBD4gErS0N6GTKzVFSZXSo
-	JLsawZ+9tb1ZFJ/rP5qrQsrwHRFuyTemaJzwpiUuJvO3qTfwOSHdKQYAmJJLHv1SA/FrThHMTdiTq
-	4jaP8693/gRBTOUmPGV4wUb1nyKCG8jaDiCWS3p0Xx+UAL1eso6nwT0yma9i8H5r8LPe9jT8+eLcB
-	yXs0fD/WrNnkD0GilHnMyLxkmlnOaR6G4LoXPiW1J5sm5EAHp5YzmqjrM8njQqTfxQo5SxKNTORiK
-	rVlI1TFJoYlCAfZBaeehj+gDldxSpFQzya/PevhKypOCwB3J2u8YJD0uPB9ogzpaQU1c6h5eENDtU
-	jMtcs7Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gD3A9pJWmGNBEpcGuAJUTYfdEqwu/kB9DlQTnjeCkJU=; b=3N9G38y9Li9vXYioO896NFjbkm
+	cqXlLe/MJVHG9P8mPe1RSXYK/Yu1wFh5G79aIYUKl9koNJNw11EV0Lta9C+2oR+eu5rnL3wfqNESa
+	3NdmCFVwfVLO58K7nK6aAoXxR9qihdsupuasEqh06HPOQ9wRJNG4BViZtLwBLgZHwO9f/giuKIevt
+	kfub+7/Ie5kREvUY5ADw7f+7LWL9WXDlHCZP3nqMNl8o1WibBZm/ZF5AWPzPIeJo5ahosdlNgsbMx
+	7fWX6RTDkRwjN99Z8ZH/It5F+loh6FWnDSQLkanUBOWMZ0hRMizNhtCCRExLfo1YG7ndHqBUdoiLc
+	yQabdW3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEEd-00000008vbm-1gZp;
-	Mon, 13 Jul 2026 10:50:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjEG5-00000008vl5-2kK1;
+	Mon, 13 Jul 2026 10:51:33 +0000
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEEc-00000008vbc-2LqE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 10:50:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3270541A9E;
-	Mon, 13 Jul 2026 10:50:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38601F000E9;
-	Mon, 13 Jul 2026 10:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783939802;
-	bh=+mC+p0RfcBB2FWIB+0G0/q5bKpwNLL+tjZ4djsboK4c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=D/7cW2OrAdKVpLGymKibNuGD64Aoe+sReSQeHEvNAyRX2yy4/7UKJk14wrq2Be28i
-	 YCvezXwAwci9pA2rejSEJOWftR0IcmVf6vCslr+FhA/Fq6zqrXayGKRC3lqAAiMdSW
-	 7F2/B1JIPN7SE3rexCmA3UcqetkfuQMe6zrzTxLXUjJSo5Ade5GiMS3XGlLDgrcliW
-	 eIc1rFl35pNxfqTyBQS5hrHnlBRwMX4Qrldb/tqODR2oN/M0M1wirlNi02ygAqXB5y
-	 m0NwxWnEGukBEgdF//MhT6bHwm+fHIGJ/jbOdJ+zjJ9Fy8JPWoyvsEFHsfxEwPQ76s
-	 Hk1y1HpOSYP5g==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: sdunnaga@redhat.com
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Use 64-bit division for clock rate rounding
-Date: Mon, 13 Jul 2026 11:49:57 +0100
-Message-ID: <178393970515.1814568.15303004507285404021.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701195923.444270-1-sdunnaga@redhat.com>
-References: <20260701195923.444270-1-sdunnaga@redhat.com>
+	id 1wjEG1-00000008vjy-3Si6;
+	Mon, 13 Jul 2026 10:51:32 +0000
+Date: Mon, 13 Jul 2026 18:51:15 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783939886;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gD3A9pJWmGNBEpcGuAJUTYfdEqwu/kB9DlQTnjeCkJU=;
+	b=PbACmgzyg49Tkt0MnyM5u8X5Npc6gqSDxGyrXUuvFQftDo4XLRDP4h/5xfXzgVqm95CVPW
+	KZABNZjNng9M8/0G9vdNu7G8AgDqhTdFwj1LWFKBKru/YE0uToUtZW3lVP7FftA86r5DX3
+	aIXLrXciYsHVhutR0ciWNRoPO6oOFAs=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Baoquan He <baoquan.he@linux.dev>
+To: Breno Leitao <leitao@debian.org>
+Cc: Baoquan He <bhe@redhat.com>, akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	dyoung@redhat.com, tony.luck@intel.com, xueshuai@linux.alibaba.com,
+	vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com,
+	kernel-team@meta.com
+Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
+ statistics via sysfs
+Message-ID: <alTDI53vd4u_YY_G@MiWiFi-R3L-srv>
+References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+ <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+ <aYvi4Y_HNqk_u1-v@fedora>
+ <ak0JSScR3EYgLEf9@gmail.com>
+ <alDRawveM-auCHwB@MiWiFi-R3L-srv>
+ <alSqd2U9zhqYz1Wn@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alSqd2U9zhqYz1Wn@gmail.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_035130_079787_27551774 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Jul 2026 15:59:20 -0400, sdunnaga@redhat.com wrote:
-> SCMI clock range descriptors report rates as 64-bit values. When handling
-> a range clock, scmi_clock_determine_rate() rounds the requested rate up to
-> the next supported step using the SCMI RATE_STEP value.
+On 07/13/26 at 02:08am, Breno Leitao wrote:
+> On Fri, Jul 10, 2026 at 07:03:07PM +0800, Baoquan He wrote:
 > 
-> The current code uses div64_ul() for this calculation. Since div64_ul()
-> takes an unsigned long divisor, the 64-bit RATE_STEP value can be truncated
-> on 32-bit builds. In the worst case, a non-zero 64-bit step can be narrowed
-> to zero before the division.
+> > Anyway, I am glad to see it's been taken out of vmcoreinfo.c,
+> > which is going in the right way from kdump side. For its migrating
+> > into driver folder, leave it to the relevant reviewer to review and
+> > decide.
 > 
-> [...]
+> On that patch, If you could confirm that moving it away from vmcoreinfo
+> is the preferred approach, that would help establish consensus around
+> the right direction.
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
-
-[1/1] firmware: arm_scmi: Use 64-bit division for clock rate rounding
-      https://git.kernel.org/sudeep.holla/c/bf1deecccf21
--- 
-Regards,
-Sudeep
+Yes, I can confirm moving it away from vmcoreinfo is expected.
 
 
