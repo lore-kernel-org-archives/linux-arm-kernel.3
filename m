@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E2BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 20:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048A2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 20:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmvGtXDuX25JdNexksHGYQ8+MprdcxDIqo275NazQNE=; b=GBrCKFVWldbD9L1wpQ+AOvWMTt
-	bk+jXYI9P5Lht9c2qvfNS0eGgALKw+zAkqB4RL5nNEdnb2B8zofh2f42dWgmG7waBf1BBGqGGiXqW
-	PG+fv8yYiJ6+AHZ9kh13O/5PXYJgJRM6A5zWyP3jACXGWyWvp1+10uuIUfvYkbK8CYdPNzXDXsvyQ
-	zI3SmaGEK4OdCmpE5P5Af/dRdYa5aZYZE0JBUVO8FuBkLEBIj8Z2L5Ya6MttReXTACyjMWZWdVQk0
-	JkakT5Rr3Mnb9U3q+YFV8hmgbwKnC6qo7GEVQ2Aq+h4PPIIRVeE9hb/7/3Nvp17ZUd7nYYZ9g+S8+
-	d/6+SsHA==;
+	bh=E1eHw5sv1rlFVT28LoJja+efoEmdreliANF29qXqM+0=; b=O0i067tysBfkrZtMJJRWeS5kjn
+	Euc8EGrFkOcX28c2C3/kk817eFuScL2WWnYkLIElEbfeizEEOjjFfNpnb01vsMMXk9+cZhqnWJ9Y9
+	cnR1jdQaGfEYmk04WJ+nwxZEmczx3sy8Si0c6B6Ff31ZPInkQNZcwWtlL2lyVb4u1q4vnYVfp3dAa
+	62YAeOHI61ZyBmRJWGYQbmSe6g72SYoddEitOBwxdaI68itagEWtjReflLxcGVXR2IB9oeNEeyAUW
+	OLGOGDGi4SLD3PRzabyjXXA/NNWDb93Esoh3bM+NNO+L8Yjt95o1c7IRPcvKfiqJLXd8xwRtDTC3j
+	emAPbC0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNWa-0000000APHF-1rz2;
-	Mon, 13 Jul 2026 20:45:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjNhn-0000000APmE-04Cy;
+	Mon, 13 Jul 2026 20:56:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNWZ-0000000APGl-09AF
+	id 1wjNhl-0000000APlw-3WLY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 20:45:11 +0000
+	Mon, 13 Jul 2026 20:56:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5916B414F7;
-	Mon, 13 Jul 2026 20:45:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AED41F000E9;
-	Mon, 13 Jul 2026 20:45:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CF28E60103;
+	Mon, 13 Jul 2026 20:56:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 869261F000E9;
+	Mon, 13 Jul 2026 20:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783975510;
-	bh=OmvGtXDuX25JdNexksHGYQ8+MprdcxDIqo275NazQNE=;
+	s=k20260515; t=1783976204;
+	bh=E1eHw5sv1rlFVT28LoJja+efoEmdreliANF29qXqM+0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=n6IcvSWD8bbNN77YMonfQPWXPRCa9XOER6AjiCt2Dnb3F3NeGxS0kDUN39c8j8yrb
-	 JuTlh9WFCfpWOPbs1honGSwKvR3lnKw4NONR++Y+W/OLfuRLdlWYcb5QXmyhYPniwu
-	 AOSIaQi15XLJo4hw9WbsZ6h6Wr2eekhwU5gAvtD+YMuS61w0e0sSqnNq0k/GQUvfAk
-	 59TPpRMLDA7zKRZ/3amYvKb0yWzZFPDJXkAQNvi4yI0PYOfesQVKHjWlzz13Jny3oj
-	 ot7k7P3S49gP0bPwLDTOXQXW75hZ5fBy9ntBepX3DhdF1c8FFJVfH+HDfq99RaIufK
-	 s0OlXLjdwgAeQ==
+	b=m2PccMWYXO/v1w4uGi3tDuJxep9ou593iuu40sHrQ7ZbyTT4fWWij41aWo22rbXAO
+	 JrA7K6tDdsfCSSXxFh2vLvmgnpVu20CFB5l9nv3ujo2boyOutrRM5II3zOPd+Sjco9
+	 NG62+wWF+0Gf8UKnW6qh0n0SLZCkwGI2gUSXnKK/Al0PFz9zZdt9iXjzcf57e8RVlP
+	 pglnIrf8TRtiUX3IpBa+D2Go7I65T1x6WvSgVt970Lm71JPptZj5H3WQ/uhSWbAeWd
+	 xx0i73xmGZn3737KIuli9stAKyB78XqXzsC8gJF4ex0FAwXsTEAnEO4HpYDUKzZAck
+	 40L4UPXjrIRpw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjNWW-00000004diJ-1lR6;
-	Mon, 13 Jul 2026 20:45:08 +0000
-Date: Mon, 13 Jul 2026 21:46:58 +0100
-Message-ID: <875x2i62il.wl-maz@kernel.org>
+	id 1wjNhi-00000004dsB-3HFh;
+	Mon, 13 Jul 2026 20:56:42 +0000
+Date: Mon, 13 Jul 2026 21:58:32 +0100
+Message-ID: <874ii261zb.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+To: Kemeng Shi <shikemeng@huaweicloud.com>
+Cc: tglx@kernel.org,
+	jason@lakedaemon.net,
+	lpieralisi@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH] arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
-In-Reply-To: <20260703134837.100109-1-steven.price@arm.com>
-References: <20260703134837.100109-1-steven.price@arm.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/6] irqchip/gic-v3-its: Fix leak in its_vpe_irq_domain_alloc()
+In-Reply-To: <3c684d7d-75ec-49dd-b735-174ec9385974@huaweicloud.com>
+References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
+	<20260702033050.1583-4-shikemeng@huaweicloud.com>
+	<87fr216nx2.wl-maz@kernel.org>
+	<e3252259-64e1-4bcb-8082-0bd501233747@huaweicloud.com>
+	<86ldbopl97.wl-maz@kernel.org>
+	<3c684d7d-75ec-49dd-b735-174ec9385974@huaweicloud.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oupton@kernel.org
+X-SA-Exim-Rcpt-To: shikemeng@huaweicloud.com, tglx@kernel.org, jason@lakedaemon.net, lpieralisi@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,21 +89,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Jul 2026 14:48:35 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> Address size fault, level -1 is encoded as 0b101001 or 0x29 according to
-> the Arm ARM. Correct the value to match the spec. This also matches the
-> offset of "level -1 address size fault" in the fault_info array in
-> fault.c.
-> 
-> Fixes: fb8a3eba9c81 ("KVM: arm64: Only read HPFAR_EL2 when value is architecturally valid")
-> Signed-off-by: Steven Price <steven.price@arm.com>
+On Mon, 13 Jul 2026 14:05:06 +0100,
+Kemeng Shi <shikemeng@huaweicloud.com> wrote:
+>=20
+> =E5=9C=A8 2026/7/6 16:36:52, Marc Zyngier =E5=86=99=E9=81=93:
+> > On Fri, 03 Jul 2026 02:44:53 +0100,
+> > Kemeng Shi <shikemeng@huaweicloud.com> wrote:
+> >>
+> >> =E5=9C=A8 2026/7/3 6:12:57, Marc Zyngier =E5=86=99=E9=81=93:
+> >>>> When its_irq_gic_domain_alloc() fails, the following
+> >>>> its_vpe_irq_domain_free() skips calling its_vep_teardown() for the
+> >>>> corresponding irq. Call its_vpe_teardown() when its_irq_gic_domain_a=
+lloc()
+> >>>> is failedto avoid the leak issue.
+> >>>>
+> >>>> Fixes: 7d75bbb4bc1ad ("irqchip/gic-v3-its: Add VPE irq domain alloca=
+tion/teardown")
+> >>>> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+> >>>> ---
+> >>>>  drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+> >>>>  1 file changed, 3 insertions(+), 1 deletion(-)
+> >>>>
+> >>>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-=
+gic-v3-its.c
+> >>>> index 3e4edcb64065..8968bedefdba 100644
+> >>>> --- a/drivers/irqchip/irq-gic-v3-its.c
+> >>>> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> >>>> @@ -4666,8 +4666,10 @@ static int its_vpe_irq_domain_alloc(struct ir=
+q_domain *domain, unsigned int virq
+> >>>>  			break;
+> >>>>  		err =3D its_irq_gic_domain_alloc(domain, virq + i,
+> >>>>  					       vm->vpes[i]->vpe_db_lpi);
+> >>>> -		if (err)
+> >>>> +		if (err) {
+> >>>> +			its_vpe_teardown(vm->vpes[i]);
+> >>>>  			break;
+> >>>> +		}
+> >>> There is already a spot for error handling in this function, we don't
+> >>> need a second one.
+> >> When its_irq_gic_domain_alloc() fails at index i, its_vpe_init(vpes[i])
+> >> has already succeeded but the exisiting its_vpe_irq_domain_free(domain=
+, virq, i)
+> >> only tears down VPEs with index [0, i - 1], so its_vpe_teardown(vpes[i=
+]) is still
+> >> needed.
+> >> So I guess you mean we can increase index when its_irq_gic_domain_allo=
+c() fails to
+> >> free the resource with existing error handling?
+> >> Please correct me if I'm miss anything.
+> >=20
+> > What I mean is this.
+> >=20
+> > 	M.
+> > =09
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic=
+-v3-its.c
+> > index b57d81ad33a0a..4b1a3b497d7c4 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -4674,8 +4674,10 @@ static int its_vpe_irq_domain_alloc(struct irq_d=
+omain *domain, unsigned int virq
+> >  		irqd_set_resend_when_in_progress(irq_get_irq_data(virq + i));
+> >  	}
+> > =20
+> > -	if (err)
+> > +	if (err) {
+> > +		its_vpe_teardown(vm->vpes[i]);
+> When its_vpe_init() fails, the error path calls its_vpe_teardown(vm->vpes=
+[i]) on
+> an uninitialized vpe, which may cause a NULL dereference by access NULL v=
+pt_page in
+> its_vpe_teardown(vm->vpes[i])->its_free_pending_table(vpe->vpt_page)->pag=
+e_address(pt).
+>=20
+> To reuse the existing spot, something like a flag to indicate whether its=
+_vpe_init()
+> succeeded should be added. Maybe we can keep change of this patch which s=
+eems simpler.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+This is becoming a bit tedious.
+
+It's not like a managing the life cycle of a pointer and checking for
+its validity is particularly hard, is it?
 
 	M.
 
--- 
+--=20
 Jazz isn't dead. It just smells funny.
 
