@@ -4,96 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05D5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89520C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyY6y6D9mzZJEerW/Rbo/gzzpD8ruopg3Z6AtyKjKbs=; b=UyF6mDuEyQM8HbXzQFs27CF9F8
-	SOUE3FC/77pQgDKaYRHwAxMUb5DeJVa8ExJSvFwmqetllEoKXQEesjUsRtvlvuZgaiAO6iHZD9K90
-	Fhinv86zkMGR2C6b/R0EpUOFwSp+GidSbdQM7GQQn9nPMYlC5G8bRlF5zFuj9Wx+P9Mj2XYauWp9I
-	blJ8lr0QQliHBbVyN3NajdoCeEnHkJyzQuuo+wfX/fLQaGKccsv/xZuhwyOCoKyqX7/e+L2FVnBuG
-	AmXxzpS20agCwahOxh0OwPdQuCpIXfX/qG2RBrOF6Yjf56K1WdE5Y8hGKbn/4owg7Un0iMrGfNeJU
-	bo9Wzcsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nlnYuXs8rOtjydGe8YvncmQUyoFZD72xMNKEnJvHeHE=; b=t4hOoWIwr95clr
+	K9KRQTlXqEUunao32559ALwVIFZQrs15Ppx3jnKMgHm+OXV0eOnb9kw96nvpKh0rrWbmofjGRf5AK
+	7HWL6nC7LA2/M7d2vfMhET8kSzBJ/tAy34uJGa9gG4kKVprgfbqDk8j1cF7di15nu3lsqv3NOMVcL
+	sS+fyehaY1H8hpfQUU5YGw3E0oiYimzfmtMFxr0ESyxK9XrMPWZeGgP4BKc0NOu4RSSW9dUCor6ty
+	QhOuNvXxd6ALxmLWbwhFXqQI8mFPBjCjHv+2x+U9Fxpl8hoec6v1EuAdbQEc2VfhQwb7rpwTeKOK8
+	zOA3Y+QSbNj0Y1zTz/Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCDr-00000008ceR-1CZs;
-	Mon, 13 Jul 2026 08:41:07 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wjCGf-00000008cxV-3Vpt;
+	Mon, 13 Jul 2026 08:44:01 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjCDp-00000008cdu-2mii
+	id 1wjCGb-00000008cwd-3Zjc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 08:41:06 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493c556ada3so81215e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:41:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783932063; x=1784536863; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iyY6y6D9mzZJEerW/Rbo/gzzpD8ruopg3Z6AtyKjKbs=;
-        b=M9EX1u0jd+ePA5AXIbDHk/Gi/zEzWYOzUkkhddrXd9yJjXJhGE7MxCP51v2z2KtpBw
-         OJsnShaky1RE6d9WbosceW6WqzH8DBa1upSZjZO6ad+LnyOygJPOx2d3R4HqGW9GM8JX
-         JfAh20yHEH49qitWWBJ2sUkIaYDm+0nQmlfbBGSq0923cjxK81n5JSrvUr+Wk5+lunD7
-         vXBjPwxEisCS4aJRakQuGwTQk/HpcLFtZFpJpv0ezmj0wHa99SgnNhPlfVpCrIe2aRVX
-         /AnVmV+pj8lwJB8ZkaDPmyRFGiF6vIFzFalKZ4pHKKQI1UrmehCZcfdLM+f0QzuIYsUo
-         Z9GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783932063; x=1784536863;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iyY6y6D9mzZJEerW/Rbo/gzzpD8ruopg3Z6AtyKjKbs=;
-        b=h8vQKIbp/Mykj/ZuDrkUFvLhmS0hOnpuJl4cD3nk5ARTLlyrvJVomgP332UB0TTMJw
-         x1yk7lXfMf56DcLT3ngeLwMqfm9nRnrcK7H/CUCzCNcVjeAQRTU5+H4ITAhbpy785irw
-         QlDUZwHGYP8pHP+Ejn052hVFKdy99J6tz7EcnA9bqmSNmSCArsS7XKJ/KP0l79IIgH8x
-         Q12N/d5tAvhzPPjS2CRs2HNmzO2cCWuDfmPYdguzfhhsOsz2x72RgR4lqzAlHYkBppbc
-         mMVzvnT555rUgnttz2gTmmXsr/LQKVLBPAqyFboud8R/9kEGGx+1qeO+hMdw0sgnx6cz
-         6Oow==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2iq1vN7vutHCQ0Eqs6HXaObbZzy//0Xd5i/u0n1MboTDBRPon1XS0QKBPExQygdIwKEEaFW2Noaluazz9ElL+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/kG7+Numylm/GiGfUJ4CA2FhgnQN/0ZKIanh3wTXHMo5My2Jr
-	ZZHlCN82zgddQLunlxC1uFp7x0SW035h2DIralrztHKJeivUgiipYEmLvB/k/ZC2qA==
-X-Gm-Gg: AfdE7cl+vBt5UgTxj55q4l7Rx8x7IMlCDo2A8GU9BTP1kd1CjK0730S2/fD42IpJGUw
-	Bv6qssjAAQ4cX5mjVNqqfqVvHE35XZP5COFkcqVu5fq3TgjxuIWrLIpzJ8ZoyRSl+eh64btkKh5
-	xlUpyiIbpIcFgmwHQaEcuYf5YyiI35ZF6JShpYdc7mDA9M2q7Y/i4uqzBO/BrP8dfLyS/AmYpyY
-	1aLF6/bYcXUfd9gACTjDL/vKP77Bue/z6la49zVaOu2INVc7sYPLoJlYe8d31Hp7g2AiqNCtB8w
-	dNRdXbPvUZTI3xX0ZXW2+fBTMVaY2EAJF3oePc02JHIbQ5AXph4UtrXXB0J+5+cLz1l12TDd1XQ
-	kAP7jlD6HXcIE4fNY9TRY3b5MC8QBteNRyrzQGzb63NwKLLCJZPvWSkkvg3lbx08SrimrrloPfk
-	1pItjHgup0BIOA+lmyO8Ps1GOMGWiXg8EcalGucav/d2hcBSvA
-X-Received: by 2002:a05:600c:6092:b0:490:b3cd:fc4d with SMTP id 5b1f17b1804b1-4946216ff53mr65255e9.9.1783932062990;
-        Mon, 13 Jul 2026 01:41:02 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493eb6f16cfsm349445955e9.12.2026.07.13.01.41.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 01:41:01 -0700 (PDT)
-Date: Mon, 13 Jul 2026 08:40:58 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Avoid naming collision in tracing
-Message-ID: <alSkmhpjNCYFnUmO@google.com>
-References: <20260712153835.2264905-1-smostafa@google.com>
- <CA+EHjTxN1fcBVRi+yK18UgReGsX8Evu1GsijSQC61dY3XrjCtw@mail.gmail.com>
- <alPox2BDk4Il0s9t@google.com>
- <CA+EHjTzvzcV8Cxw+VHK9Fxv7Y-7m84XbzUFU+4sXZXNrM8y7dw@mail.gmail.com>
- <alSdr9wNyyPiHmbt@google.com>
- <alShO27MLsNqgBws@google.com>
- <alSjGAqmB7HX1jYB@google.com>
+	Mon, 13 Jul 2026 08:44:00 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=nlnYuXs8rOtjydGe8YvncmQUyoFZD72xMNKEnJvHeHE=;
+	b=Vrdj3n0jM5yJHhbLtmkaYgoVen+yKoLxfhNqG0SCFmNy1XkWUdh8EKjjwe2HncmewvDEsXbr0
+	y+8pJAsfrRk0otI5RecU+Xdw6FtvN9q+yiRExkD9Zhb+DMSO2jdcaSKpLZyOEU4uXYmWEtkar/K
+	FzL/4j3hrBZupTbTW/6VN7Y=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gzG2G1J2mz1K97g;
+	Mon, 13 Jul 2026 16:34:30 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 146B440588;
+	Mon, 13 Jul 2026 16:43:46 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 13 Jul 2026 16:43:45 +0800
+Message-ID: <33e6094d-e433-4406-8fef-0feff8f05bcb@huawei.com>
+Date: Mon, 13 Jul 2026 16:43:44 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alSjGAqmB7HX1jYB@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
+ masking helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-15-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-15-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_014105_742303_EEC2B624 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20260713_014358_529972_8E39FF53 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,78 +75,154 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 09:34:32AM +0100, Vincent Donnefort wrote:
-> On Mon, Jul 13, 2026 at 08:26:35AM +0000, Mostafa Saleh wrote:
-> > On Mon, Jul 13, 2026 at 09:11:27AM +0100, Vincent Donnefort wrote:
-> > > [...]
-> > > 
-> > > > >
-> > > > > > > I did not add Fixes tag as this is currently dormant and not breaking
-> > > > > > > anything.
-> > > > > > > ---
-> > > > > > >  arch/arm64/kvm/hyp/include/nvhe/clock.h | 8 ++++----
-> > > > > > >  arch/arm64/kvm/hyp/nvhe/clock.c         | 4 ++--
-> > > > > > >  arch/arm64/kvm/hyp/nvhe/trace.c         | 4 ++--
-> > > > > > >  3 files changed, 8 insertions(+), 8 deletions(-)
-> > > > > > >
-> > > > > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > > > index 9f429f5c0664..c2ccd0e8bf22 100644
-> > > > > > > --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > > > @@ -6,11 +6,11 @@
-> > > > > > >  #include <asm/kvm_hyp.h>
-> > > > > > >
-> > > > > > >  #ifdef CONFIG_NVHE_EL2_TRACING
-> > > > > > > -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
-> > > > > > > -u64 trace_clock(void);
-> > > > > > > +void hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
-> > > > > > > +u64 hyp_trace_clock(void);
-> > > > > >
-> > > > > > hyp_trace_clock overlaps the host side: arch/arm64/kvm/hyp_trace.c
-> > > > > > already has a struct hyp_trace_clock and static helpers
-> > > > > > hyp_trace_clock_enable() / hyp_trace_clock_show() for the debugfs view
-> > > > > > of the same clock. No actual collision, so this is only a readability
-> > > > > > point, but a reader grepping hyp_trace_clock now gets two unrelated
-> > > > > > things. Maybe you'd want to consider a different name, but naming is
-> > > > > > hard :)
-> > > 
-> > > If we were to rename: the clock is a "hyp_clock" so probably trace_hyp_clock()
-> > > is the right thing here.
-> > > 
-> > > while the "hyp_trace_" is the prefix for hyp_trace.c file content.
-> > > 
-> > > Although I would like to see why we pull trace_clock() from the kernel into EL2.
-> > > That bit sounds wrong and if we have a way around perhaps that's better?
-> > 
-> > Most include path look like this:
-> > In file included from ./include/linux/ftrace.h:11,
-> >                  from ./include/linux/kprobes.h:28,
-> >                  from ./include/linux/kgdb.h:17,
-> >                  from ./arch/arm64/include/asm/cacheflush.h:11,
-> >                  from ./include/linux/cacheflush.h:5,
-> >                  from ./include/linux/highmem.h:8,
-> >                  from ./include/linux/bvec.h:10,
-> >                  from ./include/linux/blk_types.h:10,
-> >                  from ./include/linux/writeback.h:13,
-> >                  from ./include/linux/memcontrol.h:23,
-> >                  from ./include/linux/resume_user_mode.h:8,
-> >                  from ./include/linux/entry-virt.h:6,
-> >                  from ./include/linux/kvm_host.h:5,
-> > 
-> > Although, some files have ./arch/arm64/include/asm/cacheflush.h
-> > directly.
-> 
-> Ha sad, no way around that... 
-> 
-> So about trace_hyp_clock() / trace_hyp_clock_update() ?
-> 
 
-Makes sense, I will respin with that.
 
-Thanks,
-Mostafa
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> As for the entry code, we want to replace `local_daif_...` helpers
+> so that they can properly handle both DAIF and PMR, as well controlling
+> their use more strongly.
+> 
+> Introduce new `local_all_irqs_...` helpers to replace them, which should
+> only be called in save/restore pairs.
+> 
+> Save the requested interrupt state as well, so we can check for
+> inconsistent interrupt masking in between save and restore.
+> 
+> There are two exceptions where it does not make sense to force
+> save/restore pairs for modifying the interrupt masks:
+>  - when initializing a CPU or
+>  - preparing to turn it off.
+> 
+> As we otherwise want to force save/restore pairs, those cases are
+> handled with specific helpers, making clear that they should not be
+> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
+> enabled.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
+>  1 file changed, 101 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> new file mode 100644
+> index 000000000000..66ee03f7ab68
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -0,0 +1,101 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_MASKING_H
+> +#define __ASM_INTERRUPTS_MASKING_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +#include <asm/ptrace.h>
+> +
+> +typedef struct arm64_exc_hwstates {
+> +	arm64_exc_hwstate_t saved;
+> +	arm64_exc_hwstate_t expected;
+> +} arm64_exc_hwstates_t;
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +/* Make sure the CPU init/tear down masking functions are only used once. */
+> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
+> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
+> +#endif
+> +
+> +static inline
+> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+
+I think the name "all irqs" is inappropriate, because it also masks
+DEBUG exceptions and SERROR exceptions, which are not irqs.
+
+Maybe local_exceptions_save_mask()?
+
+> +{
+> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
+> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
+> +			     actual.daif == DAIF_MASK);
+> +
+> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
+> +			     actual.daif == DAIF_ERRCTX);
+> +
+> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
+> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
+> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+> +	}
+> +
+> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
+> +
+> +	if (!arch_irqs_disabled_flags(actual.flags))
+> +		trace_hardirqs_off();
+> +
+> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
+> +}
+> +
+> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
+> +{
+> +	arm64_debug_exc_hwstate(states.expected);
+> +
+> +	if (!arch_irqs_disabled_flags(states.saved.flags))
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_hwstate(states.saved, true);
+> +}
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +static inline
+> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
+> +	if (context == PROCESS_CONTEXT)
+> +		trace_hardirqs_on();
+> +	arm64_update_exc_context(context, true);
+> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
+> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
+> +}
+> +
+> +static inline void local_all_irqs_final_mask(void)
+> +{
+> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	trace_hardirqs_off();
+> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
+> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
+> +}
+> +#else /* CONFIG_DEBUG_IRQFLAGS */
+> +static inline
+> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	if (context == PROCESS_CONTEXT)
+> +		trace_hardirqs_on();
+> +	arm64_update_exc_context(context, true);
+> +}
+> +
+> +static inline void local_all_irqs_final_mask(void)
+> +{
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	trace_hardirqs_off();
+> +}
+> +#endif /* CONFIG_DEBUG_IRQFLAGS */
+> +#endif /* __ASM_INTERRUPTS_MASKING_H */
 
 
