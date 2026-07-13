@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7A5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2853C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nhtni6lZ56PxWF7FPn3CkcAS2Ugw8ex9IXaZLxkO4Gc=; b=azw6lkoqS+U4fgjz5+QYrlQztM
-	astXCvTbyG/DaSAeugTrqljZ3/HKE6g2vAFFmmty0nXiWxlb3Ci94luycrJvozVdS85n1zVphUxX8
-	SFok+EjE4ljBZsCPaJAvYyS4bSAe67hkHkWEItvh3EPFroJo0EwDj+k5skH2H4PZnJR4R0meaWiJu
-	h9f+Ydefjw0cacHfeFdz/qPjonX98GsC3ksIMqwQJ00F/WmyIEHBCkBNeK0mf0jQXMxH7si50IHOF
-	guB3rsP1Dlq29FiOMrcWtZ5mHjFmzUM9f3pFdSI3gMxk8ihuIEMP08hu5pIVHKApH/PqoQQaTiFW/
-	VvNogjwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qTCW8dzGz7VaSa/kNqxv3DZvx/jqW0WxBjJO3jKnBiY=; b=zpz8YkxMMyvvNmt3Kp1vM0Spyl
+	Tg41jLJFWCWx29QSm4SVa63YxSPDLHMr7lWdH1RI3rgHf8puA9HvzohM/SPnUIi2Imff+jsMBvqdw
+	UhtMKfZguf9H/T21R7Hp3tLWibbTYaOL6wMvqXxmrss3T4h1p2d6mocoSyK9uraHwCtk9mrrgR0Yt
+	GxcXdyGqQ0a4mhVHOtT3MCXaG2dxgM20W0iwZpvKOWUGC3dYAlFQMGa3e2u5My8g6hsvfIBVJYerq
+	5Aq1NyVcQpVVS1IAq6zc9mZPemVSmQgPmvEd3toUPzrWX6LHqAu9R1NF9z9CKiEw/7VbZxJYaLFwm
+	JFUWZYIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHu-00000009HMH-2g8l;
-	Mon, 13 Jul 2026 13:01:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGHh-00000009H7k-3f3y;
-	Mon, 13 Jul 2026 13:01:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783947680;
-	bh=SbQHl6XOrWLkp6EKXtHwlLM28jFMixQSOf4i2wyZCqQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IBgSTy+Dr/TKzbAtyvudlvXczjMwMlPHRIp7bJh+tMEKtTaeL8nT0emlfrtGfDdyx
-	 o6TNlD9gVUhjaPQba0+46g5cBZTDghcZzL4G2kRjeUiWSXAl1Rv5cP3ED8BMJGGKmu
-	 IwqxB4bTZN3rbZ4kBVms0anny7YoQksUbs08sNi4nFYQAUn9Uy03cCgjpPZ/2rIixe
-	 kfmbUaHLsljTf+qy2Rw46nl9BoEVhSJ5uSZHyd66VBBxL4SGDWAkpCs+ymbVV1la68
-	 VIwYbAFzsrRzkGM3kaGIPlWG6Q9IXFcCvMqy3QQMixU+N5pEdFdpIllJQWp+ia2Oo+
-	 LpnITvdAYafgw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E194717E0E1C;
-	Mon, 13 Jul 2026 15:01:18 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v3 07/10] drm/mediatek: mtk_dsi: Add support for MT8196
-Date: Mon, 13 Jul 2026 15:01:00 +0200
-Message-ID: <20260713130103.34654-8-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
-References: <20260713130103.34654-1-angelogioacchino.delregno@collabora.com>
+	id 1wjH1D-00000009RkF-1BqK;
+	Mon, 13 Jul 2026 13:48:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjH1B-00000009Rja-0HwZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 13:48:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E63F1576;
+	Mon, 13 Jul 2026 06:48:13 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D4B73F7B4;
+	Mon, 13 Jul 2026 06:48:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783950497; bh=oI5GkQsfcCtwPh9dQyuxWwDcPHEtAnm1bwD/GTAQD+I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O/7C8yIIf5DL/m7ocg3VC8A/gCcqLF3YHaGiHcFwc5yCjyaUSqLKFsNcgjhDIsTZn
+	 tmxgLvzMcQhp/kmW0r2ccly3QrJYSAlziAaYMdG+iAUvGTbTIj1c9flpFIF3u2bgM5
+	 iguWoSVEfs3wCkFtuGOK14U9iAABMEDXwb9Ic80c=
+Date: Mon, 13 Jul 2026 14:48:12 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Sean Christopherson <seanjc@google.com>, pbonzini@redhat.com,
+	kvm@vger.kernel.org, david.hildenbrand@arm.com, maz@kernel.org,
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, fuad.tabba@linux.dev, mark.rutland@arm.com
+Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
+ memslots
+Message-ID: <alTsnNdpsTY0sKdq@raptor>
+References: <20260702142912.6395-1-alexandru.elisei@arm.com>
+ <akxOrMnlNga-vtQv@google.com>
+ <ak0wSQ1133O7B96D@raptor>
+ <alAFmiAsNf6Xm49_@kernel.org>
+ <alDM_yikef16lC5h@raptor>
+ <alE3jRLtYeq-WesA@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alE3jRLtYeq-WesA@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_060122_073580_DACD7C85 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20260713_064821_200943_651C14C6 
+X-CRM114-Status: GOOD (  65.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,305 +77,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the new DSI IP found in the Kompanio Ultra MT8196
-SoC and its Dimensity and Genio variants.
+Hi Oliver,
 
-Differently from the older DSI IPs, the one from MT8196 requires
-the initialization of all of the QoS parameters and can make use
-of a DSI SRAM reserved buffer (present also on older SoCs but not
-mandatory on those).
+On Fri, Jul 10, 2026 at 11:18:53AM -0700, Oliver Upton wrote:
+> On Fri, Jul 10, 2026 at 11:44:15AM +0100, Alexandru Elisei wrote:
+> > Hi Oliver,
+> > 
+> > On Thu, Jul 09, 2026 at 01:33:30PM -0700, Oliver Upton wrote:
+> > > On Tue, Jul 07, 2026 at 05:58:49PM +0100, Alexandru Elisei wrote:
+> > > > Hi Sean,
+> > > > 
+> > > > On Mon, Jul 06, 2026 at 05:56:12PM -0700, Sean Christopherson wrote:
+> > > > > On Thu, Jul 02, 2026, Alexandru Elisei wrote:
+> > > > > > The memory represented by guest_memfd-only memslots
+> > > > > > (kvm_memslot_is_gmem_only() is true) is shared with userspace, which can
+> > > > > > freely mmap it and access it. The only thing that is preventing dirty page
+> > > > > > logging for such memslots is that KVM doesn't allow slots backed by
+> > > > > > guest_memfd to have their flags changed; they can only be created and
+> > > > > > deleted.
+> > > > > 
+> > > > > Please (publicly) document *why*  you want to add dirty-logging support.  It's
+> > > > > all but impossible to review new uAPI without knowing the use case.
+> > > > 
+> > > > Of course, my mistake, I was so deep in this that I didn't realise that
+> > > > there might be different perspectives.
+> > > > 
+> > > > My thinking was that since guest_memfd created with GUEST_MEMFD_FLAG_MMAP +
+> > > > GUEST_MEMFD_FLAG_INIT_SHARED is extremely similar from a userspace point of
+> > > > view to using an anonymous file (created with memfd_create()), that
+> > > > supporting dirty page logging and migration would be a natural next step
+> > > > and would expand the usefulness of guest_memfd. It has nothing to do with
+> > > > confidential compute.
+> > > > 
+> > > > As to why I'm working on it now, it's because of an arm64 feature that
+> > > > requires that memory remains mapped at stage 2, called Statistical
+> > > > Profiling Extension (SPE), similar to Intel's PEBS or AMD's IBS. Exposing
+> > > > the feature to a guest requires that memory remains mapped at stage 2
+> > > > outside of userspace explicitely unmapping it, and guest_memfd, with the
+> > > > patch to ignore the MMU notifiers [1], has this property.  I wanted to
+> > > > expand the functionality of guest_memfd to support migration of virtual
+> > > > machines when that arm64 feature is exposed to guests.
+> > > 
+> > > Can you please expand a bit on how you actually expect dirty tracking to
+> > > work with SPE? Taking write permission faults seem to be at odds with
+> > > "thou shalt not fault".
+> > 
+> > For the initial posting on the mailing list, my approach was to keep things
+> > as simple as possible: allow memory to be made read-only and then have the
+> > host map the memory as writable at stage 2 when SPE reports a permission
+> > fault, if the buffer happens to be enabled while dirty page logging is also
+> > enabled. Of course, that means that the quality of the profiling data might
+> > be degraded. I was planning to point this out, to start a discussion about
+> > it, but we can talk about it now.
+> 
+> Understanding how this is going to fit together end-to-end seems
+> relevant since you're asking for UAPI guarantees to enable SPE.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_drm_drv.c |   2 +
- drivers/gpu/drm/mediatek/mtk_dsi.c     | 199 +++++++++++++++++++++++++
- 2 files changed, 201 insertions(+)
+Of course. I think it's very useful that we're having this conversation
+now, instead of when the patches hit the list, I think I didn't manage to
+convey that properly in my reply.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index bd2d17017bd2..9a4c59849c4b 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -826,6 +826,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
- 	  .data = (void *)MTK_DSI },
- 	{ .compatible = "mediatek,mt8188-dsi",
- 	  .data = (void *)MTK_DSI },
-+	{ .compatible = "mediatek,mt8196-dsi",
-+	  .data = (void *)MTK_DSI },
- 	{ }
- };
- 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index d1fe1ce11391..89264d8705c1 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -153,6 +153,18 @@
- #define FORCE_COMMIT			BIT(0)
- #define BYPASS_SHADOW			BIT(1)
- 
-+/* DSI_VDE */
-+#define VDE_BLOCK_ULTRA			BIT(29)
-+
-+/* DSI_BUF_CON0 */
-+#define DSI_QOS_BUF_EN			BIT(0)
-+
-+/* DSI_BUF_CON1 */
-+#define BUF_OUT_VALID_THRESH		GENMASK(14, 0)
-+
-+/* DSI_BUF_SODI_HIGH, SODI_LOW and other BUF registers */
-+#define BUF_THRESHOLD_PARAM		GENMASK(19, 0)
-+
- /* CMDQ related bits */
- #define CONFIG				GENMASK(7, 0)
- #define SHORT_PACKET			0
-@@ -165,6 +177,16 @@
- 
- #define NS_TO_CYCLE(n, c)    ((n) / (c) + (((n) % (c)) ? 1 : 0))
- 
-+/* HW QoS and Anti-Latency Buffer related bits */
-+#define MTK_DSI_MAX_FIFO_BYTES			1554
-+#define MTK_DSI_DEFAULT_QOS_VALID_FIFO_US	25
-+#define MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US	36
-+#define MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US	35
-+#define MTK_DSI_DEFAULT_QOS_ULTRA_HI_US		26
-+#define MTK_DSI_DEFAULT_QOS_ULTRA_LO_US		25
-+#define MTK_DSI_DEFAULT_QOS_URGENT_LO_US	11
-+#define MTK_DSI_DEFAULT_QOS_URGENT_HI_US	12
-+
- #define MTK_DSI_HOST_IS_READ(type) \
- 	((type == MIPI_DSI_GENERIC_READ_REQUEST_0_PARAM) || \
- 	(type == MIPI_DSI_GENERIC_READ_REQUEST_1_PARAM) || \
-@@ -207,9 +229,26 @@ enum mtk_dsi_adv_regidx {
- 	DSI_VM_CMD_CON,
- 	DSI_SHADOW_DEBUG,
- 	DSI_CMDQ,
-+	DSI_VDE,
- 	DSI_ADV_REG_MAX
- };
- 
-+enum mtk_dsi_qos_regidx {
-+	DSI_QOS_BUF_CON0,
-+	DSI_QOS_BUF_CON1,
-+	DSI_QOS_TX_BUF_RW_TIMES,
-+	DSI_QOS_SODI_HIGH,
-+	DSI_QOS_SODI_LOW,
-+	DSI_QOS_PREULTRA_HIGH,
-+	DSI_QOS_PREULTRA_LOW,
-+	DSI_QOS_ULTRA_HIGH,
-+	DSI_QOS_ULTRA_LOW,
-+	DSI_QOS_URGENT_HIGH,
-+	DSI_QOS_URGENT_LOW,
-+	DSI_QOS_PREURGENT_HIGH,
-+	DSI_QOS_REG_MAX
-+};
-+
- struct mtk_phy_timing {
- 	u32 lpx;
- 	u32 da_hs_prepare;
-@@ -234,8 +273,12 @@ struct phy;
- struct mtk_dsi_driver_data {
- 	const u16 *reg_main;
- 	const u16 *reg_adv;
-+	const u16 *reg_qos;
- 
- 	const u16 max_link_rate_mbps;
-+	const u8 dsi_sram_bytes;
-+	const u8 pixels_per_iter;
-+	const u8 num_burst_lines;
- 
- 	bool has_size_ctl;
- 	bool cmdq_long_packet_ctl;
-@@ -329,6 +372,59 @@ static const u16 mtk_dsi_regs_mt8186[DSI_ADV_REG_MAX] = {
- 	[DSI_CMDQ] = 0xd00,
- };
- 
-+static const u16 mtk_dsi_regs_main_v2[DSI_MAIN_REG_MAX] = {
-+	[DSI_START] = 0x00,
-+	[DSI_INTEN] = 0x08,
-+	[DSI_INTSTA] = 0x0c,
-+	[DSI_CON_CTRL] = 0x30,
-+	[DSI_MODE_CTRL] = 0x34,
-+	[DSI_TXRX_CTRL] = 0x38,
-+	[DSI_PSCTRL] = 0x3c,
-+	[DSI_VSA_NL] = 0x60,
-+	[DSI_VBP_NL] = 0x64,
-+	[DSI_VFP_NL] = 0x68,
-+	[DSI_VACT_NL] = 0x6c,
-+	[DSI_SIZE_CON] = 0x2c,
-+	[DSI_HSA_WC] = 0x80,
-+	[DSI_HBP_WC] = 0x84,
-+	[DSI_HFP_WC] = 0x88,
-+	[DSI_CMDQ_SIZE] = 0x44,
-+	[DSI_HSTX_CKL_WC] = 0x100,
-+	[DSI_RX_DATA0] = 0xa4,
-+	[DSI_RX_DATA1] = 0xa8,
-+	[DSI_RX_DATA2] = 0xac,
-+	[DSI_RX_DATA3] = 0xb0,
-+	[DSI_RACK] = 0xb4,
-+	[DSI_PHY_LCCON] = 0x7d0,
-+	[DSI_PHY_LD0CON] = 0x7d4,
-+	[DSI_PHY_TIMECON0] = 0x600,
-+	[DSI_PHY_TIMECON1] = 0x604,
-+	[DSI_PHY_TIMECON2] = 0x608,
-+	[DSI_PHY_TIMECON3] = 0x60c,
-+};
-+
-+static const u16 mtk_dsi_regs_qos_v2[DSI_QOS_REG_MAX] = {
-+	[DSI_QOS_BUF_CON0] = 0x300,
-+	[DSI_QOS_BUF_CON1] = 0x304,
-+	[DSI_QOS_TX_BUF_RW_TIMES] = 0x310,
-+	[DSI_QOS_SODI_HIGH] = 0x314,
-+	[DSI_QOS_SODI_LOW] = 0x318,
-+	[DSI_QOS_PREULTRA_HIGH] = 0x324,
-+	[DSI_QOS_PREULTRA_LOW] = 0x328,
-+	[DSI_QOS_ULTRA_HIGH] = 0x32c,
-+	[DSI_QOS_ULTRA_LOW] = 0x330,
-+	[DSI_QOS_URGENT_HIGH] = 0x334,
-+	[DSI_QOS_URGENT_LOW] = 0x338,
-+	[DSI_QOS_PREURGENT_HIGH] = 0x33c
-+};
-+
-+static const u16 mtk_dsi_regs_mt8196[DSI_ADV_REG_MAX] = {
-+	[DSI_VM_CMD_CON] = 0x110,
-+	[DSI_SHADOW_DEBUG] = 0xd0,
-+	[DSI_CMDQ] = 0x400,
-+	[DSI_VDE] = 0x3f8,
-+};
-+
- static inline struct mtk_dsi *bridge_to_dsi(struct drm_bridge *b)
- {
- 	return container_of(b, struct mtk_dsi, bridge);
-@@ -776,6 +872,91 @@ static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
- 	return drm_dsc_compute_rc_parameters(dsc);
- }
- 
-+static void mtk_dsi_config_hw_buffers(struct mtk_dsi *dsi)
-+{
-+	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-+	const u16 *reg_qos = data->reg_qos;
-+	u32 buffer_unit, sram_unit, num_hw_buffers;
-+	u32 preultra_hi, preultra_lo;
-+	u32 urgent_hi, urgent_lo;
-+	u32 ultra_hi, ultra_lo;
-+	u32 sodi_hi, sodi_lo;
-+	u32 data_rate_per_buf;
-+	u32 out_valid_thresh;
-+	u32 dsi_buf_bpp;
-+	u32 fill_rate;
-+	u32 pclk_mhz;
-+	u32 rw_times;
-+	u32 val;
-+	u64 tmp;
-+
-+	/*
-+	 * At the time of writing, only MT8196 is implemented and, for this SoC,
-+	 * the buffer unit is equal to the SRAM bytes.
-+	 *
-+	 * There are other SoCs already out in the wild that do support the HW
-+	 * buffers and that have different sizes, so keep the calculation as-is!
-+	 */
-+	buffer_unit = data->dsi_sram_bytes;
-+	sram_unit = data->dsi_sram_bytes;
-+	num_hw_buffers = sram_unit / buffer_unit;
-+
-+	if (data->support_per_frame_lp)
-+		val = CMDMODE_WAIT_DATA_EVERY_LINE_EN;
-+	else
-+		val = 0;
-+
-+	mtk_dsi_mask(dsi, data->reg_main[DSI_CON_CTRL],
-+		     CMDMODE_WAIT_DATA_EVERY_LINE_EN, val);
-+
-+	tmp = (u64)dsi->data_rate * dsi->lanes;
-+	data_rate_per_buf = tmp / 8 / buffer_unit;
-+
-+	/* Calculate valid threshold and avoid exceeding FIFO size */
-+	out_valid_thresh = MTK_DSI_DEFAULT_QOS_VALID_FIFO_US * data_rate_per_buf;
-+	out_valid_thresh = min(out_valid_thresh, MTK_DSI_MAX_FIFO_BYTES - 1);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON1], BUF_OUT_VALID_THRESH, out_valid_thresh);
-+
-+	/* Enable ULTRA signal trigger between SOF and VACT */
-+	mtk_dsi_mask(dsi, data->reg_adv[DSI_VDE], VDE_BLOCK_ULTRA, 0);
-+
-+	/* Calculate fill rate with line counter mode for DSI Video Mode */
-+	if (dsi->format == MIPI_DSI_FMT_RGB565)
-+		dsi_buf_bpp = 2;
-+	else
-+		dsi_buf_bpp = 3;
-+
-+	pclk_mhz = dsi->vm.pixelclock / HZ_PER_MHZ;
-+	fill_rate = pclk_mhz * data->pixels_per_iter * dsi_buf_bpp / buffer_unit;
-+
-+	/* Calculate QoS Anti-Latency parameters */
-+	sodi_hi = MTK_DSI_MAX_FIFO_BYTES * num_hw_buffers;
-+	sodi_hi -= (fill_rate - data_rate_per_buf) * 12 / 10;
-+	sodi_lo = (23 + 5) * data_rate_per_buf;
-+	preultra_hi = MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US * data_rate_per_buf;
-+	preultra_lo = MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US * data_rate_per_buf;
-+	ultra_hi = MTK_DSI_DEFAULT_QOS_ULTRA_HI_US * data_rate_per_buf;
-+	ultra_lo = MTK_DSI_DEFAULT_QOS_ULTRA_LO_US * data_rate_per_buf;
-+	urgent_hi = MTK_DSI_DEFAULT_QOS_URGENT_HI_US * data_rate_per_buf;
-+	urgent_lo = MTK_DSI_DEFAULT_QOS_URGENT_LO_US * data_rate_per_buf;
-+	rw_times = dsi->vm.vactive * dsi_buf_bpp;
-+	rw_times /= data->num_burst_lines * data->pixels_per_iter;
-+
-+	/* Write all QoS parameters: Screen On Deep Idle, (pre)Ultra, Urgent, RW times */
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_HIGH], BUF_THRESHOLD_PARAM, sodi_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_LOW], BUF_THRESHOLD_PARAM, sodi_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_HIGH], BUF_THRESHOLD_PARAM, preultra_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_LOW], BUF_THRESHOLD_PARAM, preultra_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_HIGH], BUF_THRESHOLD_PARAM, ultra_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_LOW], BUF_THRESHOLD_PARAM, ultra_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_HIGH], BUF_THRESHOLD_PARAM, urgent_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_LOW], BUF_THRESHOLD_PARAM, urgent_lo);
-+	writel(rw_times, dsi->regs + reg_qos[DSI_QOS_TX_BUF_RW_TIMES]);
-+
-+	/* Finally, activate internal line-buffering */
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON0], DSI_QOS_BUF_EN, DSI_QOS_BUF_EN);
-+}
-+
- static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
- {
- 	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-@@ -959,6 +1140,10 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 	mtk_dsi_reset_engine(dsi);
- 	mtk_dsi_phy_timconfig(dsi);
- 
-+	/* Setup HW FIFO if DSI supports QoS Anti-Latency buffers */
-+	if (data->dsi_sram_bytes && data->reg_qos)
-+		mtk_dsi_config_hw_buffers(dsi);
-+
- 	mtk_dsi_ps_control(dsi, true);
- 	mtk_dsi_set_vm_cmd(dsi);
- 	ret = mtk_dsi_config_vdo_timing(dsi);
-@@ -1593,6 +1778,19 @@ static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
- 	.support_per_frame_lp = true,
- };
- 
-+static const struct mtk_dsi_driver_data mt8196_dsi_driver_data = {
-+	.reg_main = mtk_dsi_regs_main_v2,
-+	.reg_qos = mtk_dsi_regs_qos_v2,
-+	.reg_adv = mtk_dsi_regs_mt8196,
-+	.max_link_rate_mbps = 2000,
-+	.dsi_sram_bytes = 32,
-+	.pixels_per_iter = 2,
-+	.num_burst_lines = 8,
-+	.has_size_ctl = true,
-+	.cmdq_long_packet_ctl = true,
-+	.support_per_frame_lp = true,
-+};
-+
- static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
-@@ -1601,6 +1799,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8196-dsi", .data = &mt8196_dsi_driver_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
--- 
-2.54.0
+> 
+> I agree that degrading the profile isn't that big of a deal but the buffer
+> may not even be in a restartable state after taking a fault. Who (KVM /
+> VMM) is going to handle rewinding PMBPTR in the case of an incomplete
+> record? Blaming userspace is always a good start but at the same time the
+> more rules/gotchas there are around the feature the less likely it seems a
+> VMM will pick this up.
 
+I totally forgot that SPE might write a partial record following a buffer
+management event :/
+
+I don't think KVM should implement a buffer unwinder, and I do agree that
+expecting userspace to do it would further reduce the appeal of supporting
+SPE in its current form.
+
+> 
+> Assuring that there are no KVM-initiated invalidations for guest_memfd
+> doesn't seem unreasonable but we need to have an aligned view on how SPE
+> will actually be enabled in KVM + VMM first.
+
+This is how I see SPE being implemented:
+
+* The VMM sets the interrupt number and SPE instance when it enables SPE
+for a VCPU. Setting the SPE instance is mandatory, similar to the strict
+PMU mode that is being proposed; SPE won't have a non-strict mode.
+
+KVM will enforce this.
+
+* The VMM creates the memslots that represent memory for the buffer
+using guest_memfd created with GUEST_MEMFD_FLAG_MMAP. Create it with
+GUEST_MEMFD_FLAG_INIT_SHARED and it looks a lot like an anonymous file, so
+I assume that it doesn't require too many changes in the VMM.  guest_memfd,
+with this patch [1], guarantees that memory won't be unmapped unexpectedly
+from stage 2.
+
+This will be documented API by KVM; KVM will not enforce it.
+
+* The VMM should pre-map memory at stage 2 before the VM is first run. To
+do this, it will use KVM_PRE_FAULT_MEMORY [2].
+
+Same as the guest_memfd part, documented, but not enforced by KVM.
+
+* When it comes to migration, the first step is to allow guest_memfd-backed
+memslots to have dirty page logging enabled when the guest_memfd file has
+been created with GUEST_MEMFD_FLAG_MMAP; this is what the series is trying
+to achieve.
+
+As for the internal KVM bits, it's mostly context switching the registers
+and injecting the SPE maintenance interrupt.
+
+[1] https://lore.kernel.org/kvmarm/20260625130902.258331-1-alexandru.elisei@arm.com/
+[2] https://lore.kernel.org/kvmarm/20260612162354.73378-1-jackabt.amazon@gmail.com/
+
+> 
+> > Another approach that builds on that, which I have prototyped locally, is
+> > to have a VCPU exit to userspace when/if the buffer is enabled and there is
+> > at least one memslot with dirty page logging enabled (with a specific
+> > hardware_exit_reason) and then let userspace decide what to do: resume the
+> > VCPU and live with the blackout window, or keep the VCPU stopped, and the
+> > guest gets non-degraded profiling data as the expense of the VCPU making
+> > progress.
+> 
+> My take is that there's no amount of idiot-proofing we can do in KVM to
+> prevent the VMM from messing this up somehow. We can just document the
+> limitations and let userspace decide to quiesce when dirty logging is
+> enabled.
+
+Considering that living with SPE permission faults while migration is
+taking place is not possible without userspace implementing a buffer
+unwinder, how do you feel about having the VCPUs return to userspace from
+KVM_RUN? Do you think that's an acceptable approach and something that
+might make migration at least functional?
+
+I'm really not expecting SPE virtualisation to start being widely used, at
+least not in the current state of the architecture (requesting that the
+entire VM memory is pre-mapped kills most of the use cases), what I'm
+hoping for is that SPE will be useful in some limited scenarios, and for
+development.
+
+Another option would be to make migration incompatible with SPE, which
+means dropping the changes to guest_memfd proposed by this series.
+
+> 
+> > My hope is that if migration is fast enough, the VCPU not running
+> > for (possibly) the entire duration of the migration process won't be
+> > noticeable, but I might be naive in thinking that.
+> 
+> Err, for a live upgrade of the VMM or kernel, sure. But an actual copyful
+> migration going over network could be O(minutes).
+
+0 minutes sounds like a good thing, or am I misunderstanding something?
+
+Thanks,
+Alex
+
+> 
+> > According to the Neoverse v3 errata document (MP168), r0p0 is affected,
+> > r0p1 is not affected. A quick google search revealed that Microsoft's
+> > Cobalt 200 CPU is based on Neoverse v3, same for the Arm AGI CPU. Wikipedia
+> > also says that Graviton 5 is based on Neoverse v3. Don't know the exact
+> > revision though, for either of them.
+> > 
+> > I was planning to add a kernel parameter that permits SPE on the affected
+> > parts, so people who trust their guests* can still use it from a VM. I
+> > don't think migration would be possible in this case because SPE bypasses
+> > the read-only permission at stage 2, and the host would not know to mark
+> > that memory as dirty (for dirty page logging).
+> > 
+> > * Ignoring migration, guest_memfd is always mapped as writable at stage 2,
+> > so a guest would have to point the buffer at memory that KVM represents
+> > with a KVM_MEM_READONLY memslot, like the CFI flash device used by EDK2.
+> > 
+> > > 
+> > > Fixing rotten architecture would be a more appropriate starting point :-/
+> > 
+> > I like to think that the architecture is constantly improving :)
+> 
+> I'd like to think that too...
+> 
+> Best,
+> Oliver
 
