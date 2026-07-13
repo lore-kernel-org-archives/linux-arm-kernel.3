@@ -4,76 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3D2C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E20C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTqU3dT6rzoa78gvVlfTAv7/fiNLfAlCGxoZbc0EA5A=; b=mAYaNa6tPf3VCbSaNM3P9kKFzX
-	ywYPmEtgKa5XiZeIFlOwAc/ZG8qLQzdU2+h8eSegKhnoSpb0/kxGZIHBND9Lod+aOZBwfiZb/kYbM
-	jloE9Md0vjsErTYDFfgA2lparFtWMme7S2gunMY6OIg+Zo7vPNGzTwiKeFMS7RlTFGyOzXDMQdRtz
-	NiwIgA4Siuji2JHPXeoeH6E26tStOZZ8ZGsU4d/EZcm0ZwQIgcqLls3OsoezQMZA7gaeZ5jDiacZD
-	5PvtRzaHE1ncUIS8AgVwsq/4ZUdMktAjWbJVPnqN4WmvqFtGR33+r07FC/d6kaGIpmn9wMCthpl/O
-	BJu2IumQ==;
+	bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=; b=wEJGQcBDm0nkE/BKoCKpqYr2rg
+	2MhDAw0h7AZ3JJJvnuQzn8hGOu/QDLAkXOD93Dz2orqm74T4JIj203egOLv9XE6Uz/OZSnTyXystu
+	Kwe5K7R0+s6QbBfSgveJqWyDC4jVWQUrmpH3nhFj9gtbAPgiXFLhnOuDnpYWmFomklG9/WJ33DLgZ
+	hdwQlqw9DiQEWla/O18w5gMnZSphlXRT+H3ZGm20RBsidGiW1Ul/dTBsIonyIO1qMdqM0Ikn3KN6p
+	Zwm2yAXi4YMuU32Jm+xcDMjvVHDJCsQKbKGdnEL5Gx0bTX9n+4dx+fDcWF0nAbv87Ljlk5R5C3a6w
+	ntlj6x4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDx4-00000008tbY-08oF;
-	Mon, 13 Jul 2026 10:31:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDx1-00000008tax-3KkK
+	id 1wjDxz-00000008tpt-0w0D;
+	Mon, 13 Jul 2026 10:32:51 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjDxw-00000008toQ-1Evq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 10:31:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B37A3152B;
-	Mon, 13 Jul 2026 03:31:46 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1EE503F93E;
-	Mon, 13 Jul 2026 03:31:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783938711; bh=2vc9t6B108vjh8OZgKdBi0NW18wPseEjqvmkpgNcas0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=caaVXN7+HkmYFEIkjnbg1V0D09tJ1taUdZpyFpfkeefbzWb5Qc7rvcHloS4iD39Bg
-	 itoLyzAmdV8gyNuviTOCt6ga7UL+xGxWnD2nG3eRypXbSrKLxYhGyFys8JVMJ5w/iY
-	 p25v5MH2urDLktoOIhgcqHi6aP078fNagADwpQFc=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
-Date: Mon, 13 Jul 2026 11:31:46 +0100
-Message-ID: <alS-kcwvlASwPIzL@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260709104026.2612599-1-zhengtian10@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+	Mon, 13 Jul 2026 10:32:49 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66D6PVWa2802156;
+	Mon, 13 Jul 2026 05:32:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9y
+	qo=; b=m4kM+YaXaFm5GRdLfa421aYFHeIpFVwj81QbAAbjIfjnnEShj03nSj8Zx
+	sbS6P1WumjsxcoXS57M0iZumVSMmJETYqAJSWgkUqHhexyjsAYrILGHi/SkSG7p3
+	in6feJWunoTN4aU9IelEUWS8UNXf6bZyiwq6Qy6qr/awyhcOPmpbPlmE/JJgr6VW
+	n+0pwbJjIdbH9Hwyb2IWJzTwWIyMXJmk9rl5svSp0yj/mYWvStoQLzk5vq1rfH/I
+	yJK6udAIEPZuoslIFuVBwCtQChu303jkXW9LLYTDstezJHeGv9O8a7T3oKa3Jnup
+	fKzsppru9aGWiKQSFktI7P4FNGdtA==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011038.outbound.protection.outlook.com [40.107.208.38])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fc4ypwfm4-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 13 Jul 2026 05:32:44 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XCuW4dBi4gJ5h8sbmWtpyyPF4qyqULfBOcih86TbjtkgM3TqHgUiz9TrMIPbDpzm0a2oEbcXIY8CfZIOKgcjY4OWh4yRyC3L/JpzpVHPbdyIE8gkAoSreBUDjN/9cJEzNtpMiXWyGfsXMpHE4aGB3NRfyBW/0hF5IyqomOZWj0Xy/cSDuA+B8coxSKsfbt2Lypzw3TdR4MXFnb9bblgJ2wOfPLOgRHILcs6LBN2oApgsTSYkpl6dAlJAR7UcNVPYx67SYAd8A89Lk65uFsw7emSl/zfWlV0edwczsh+P0nJvpqJX0jqRsZXanqiLJcMsckNJUGPfNXIzLkwWDIoIoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=;
+ b=jaZTtiV2QR4cX1ujOoSgBVd5bxZUu0n75C6rnIF68i3X4f9ldyrT3Dkip6SHoFZVw5nYhqei9k3XHUiohfAI/eBAb1qPNc3bzBGBhybIQ0njjFUNEiqwSpUBFOhsQbEZAqOJWDz/OHjEM4zrRsth036eg/+iF4EPi1yAueTsFsUb+7fMzo0tD5CgTu7rpXFuLCvJZjkpQnNduWEZoXFV0U5nIjelZVLx4pNHwKbRiTP6zchhivZkWe2yAh2XstNNiZQ8kUkDZWO2h5wthGNWQOLuXluM5taCi9LJUpWWRJKzeonbNa5GpzJhVGM2er8XwBEfO/5kv6RTzYGZ9MPY+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tQyOqp1+kIZAnn0vO/JmBO2ZIcBlzCsfDwGxPiU9yqo=;
+ b=s8wAucDkAmkAq8SD0f/+L8UxnZfvjhth5GlTyKqigfHcdsQ2odNAbHEWt5HfM3QMOCocBkD/J+X3Zu2kjWsL+iDcqAA9CVOufHU9exp62106Kk8qHzwI09L3dfhafdvVhPmoQRa2XKn8OEl2PW/lUZMcmZUyX6kt2iKwofYr+5I=
+Received: from MW4PR04CA0249.namprd04.prod.outlook.com (2603:10b6:303:88::14)
+ by SA6PR10MB8040.namprd10.prod.outlook.com (2603:10b6:806:447::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.17; Mon, 13 Jul
+ 2026 10:32:41 +0000
+Received: from CO1PEPF000066E9.namprd05.prod.outlook.com
+ (2603:10b6:303:88:cafe::41) by MW4PR04CA0249.outlook.office365.com
+ (2603:10b6:303:88::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
+ 13 Jul 2026 10:32:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CO1PEPF000066E9.mail.protection.outlook.com (10.167.249.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 10:32:39 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
+ 2026 05:32:39 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 13 Jul
+ 2026 05:32:38 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 13 Jul 2026 05:32:38 -0500
+Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66DAWZ4s1946246;
+	Mon, 13 Jul 2026 05:32:35 -0500
+Message-ID: <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
+Date: Mon, 13 Jul 2026 16:02:34 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] arm64: dts: ti: var-som-am62p: fix Ethernet PHY
+ configuration
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+CC: <pierluigi.p@variscite.com>, <matthias.p@variscite.com>,
+        Stefano Radaelli
+	<stefano.r@variscite.com>,
+        Nishanth Menon <nm@ti.com>, Tero Kristo
+	<kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+References: <cover.1782680023.git.stefano.r@variscite.com>
+ <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E9:EE_|SA6PR10MB8040:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95e14a9d-4f78-4eb7-bb3c-08dee0ca107f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|82310400026|1800799024|23010399003|13003099007|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: YY+h3J6GrgQQYKBiTITnPcEY56T6HzpkhE6TKBzK1l/ngV/lWH1A0CfCnhJ5YAsBemY22l508Gn60nqxrbZR41suQe+Nl9vaSCYxGnqGt4iLK2gyBaCoXx9e5kRzUA3LWWeHqWYsrcV/YPM2S1hTBOFhbzqFTDxofwYZwLJggPGRyAWCrBDufvs72yNNY4+d/CtzPK4XkzlyXR0YDFLgK/t7BNePu8sjurC1Mfx9BkPBHDRQlSrhfHWpx4TznxwT4t1JOAaH45iNWjQfYwZtlBH+kMtRl573FgIlNSpuaY5hAEtxBbve/6yFSVQv5E3Bb4tneUOnucU+9TTgU2viBUVAGJaT2ULoqAP+RqucgzRLf56f9gQs3BMdqc8heRLWy4Wz2L7g8+tV+/sZNSZjCJD5JoMQ+tzvYNVe894vijdFu1sONMbfLi/FDseUSiN4MezhXqDre+EYSVLSkfwWS2lD2t4Ir2q6W8qD1rkCtLWF31sO26RZP8qCcdB5HtlNuUnCFLlEhpGKCj4QjhyYMhc8IB22U09nTctdd5kVAq+H+Kd4Gqx59Y7l90iTWgfj7/te0aeS0+AWlEqy7abjry4jswDc2dXhkbKbCUIXr/Iv1cOF2CWWv+tt+1dwReWn6/r2D/9Dgql89utunQPbRSKCIA1cZYBzKII9hyfLi4qLBo+oGaYtARZlihWdhJaVg8ZhgPT5wrMZ910RE0UFyA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(82310400026)(1800799024)(23010399003)(13003099007)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: uUY7HO3YHkuqh/n5hbtO2o4DMjNE1IJ5tvKE3UjD4CItUVk5Szpkv6uf9cZwO9ZTa3MpsmmgCGpmriJXem2L72T6gGS2JZBaQMJ3s4PgVEhF6lsYecU1Wt5emJg3IxVIxLZ2WzzTECnkWURz5Ckh5o0HAtiechhRiED8muKD31UHTVVvNce8L97ZfaYsPEd9+488qm6BTT/tfcqLFkzeYX73hMG5TlK9x9nA8uLLJ/zevnYeRzxnnq1RzRK7xoZv6u28N4J5F2GVqJH3cTkUGHHb5UGxdatYrznLGntKUR6vrvuff2IVkUN+GwV/zs9nhnwujj9UvWGfLJDQsUfxHloaYaOWNha9hdn46j/At2xwI95Mggw/2rPrBMrqOzHN8c5BCkqpHl7t4xMqkWxEcW/1DgUTILu1YHsFZTzslzL7fsTXO2EAIuO+xXLi4sVe
+X-Exchange-RoutingPolicyChecked: YAVhYHv6/mwwrzMfYXxqBPLxA5QiBvWeJqeIK0C8oOx2fg2nOXdwRtjhTcL5oKHU3o9XBwR4NAbV/lqXVuvI0KI7ogdDRsNgTxjmq503JJusXts5JumGnPMm0jZzzkdUbFJj0fCMPqjkbJeUMSirMch2CgO4KKl+/gnwZDKtl6YrsKCHhZpUGoWtfgNoDmVGlRtH/OvisUvcMlaCv3rneN/yqaXp8Sc9DS/cVDf8RFeguokI7T0u2/AGpF/i9mwQGugJQn/moJo/4eym05kvCET9mnxawqafgv9p4Gp3FSqUwQrZcwDGi6wSw3m/pLcFbxP+4AaWIoZiwk4B+0O0gw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 10:32:39.6611
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95e14a9d-4f78-4eb7-bb3c-08dee0ca107f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E9.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR10MB8040
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDEwOSBTYWx0ZWRfX8H6QwDvQsuNL
+ AaLFtSj0g4pbr8LyPd5RshzJs1o2hBfTg9OQwpLgH2O4BYDSlSAbRc6gHB4KXMzzCXNaPpvrdn2
+ Dcnzctu+tWn1qlcjrL69G39IVBGDN1LYqhyplhMoIrw1G/u5h2N5ig8KXJAzYpFzHDblEiBbM1y
+ juNmMzqyo1saU+QK4KugIFuGVUtjXPWs4vrV3onTfphtCGNdA5PAungpExczhy7vHPpPcSJtU6t
+ E6QyuE5kOIRtwSfIRYdcV7W8mMb+lW9GKnamRiExa7Lcm//I/Ja5qgJsyIlEL2wFZNRVUDUI1yA
+ YxzoOhv2nUvfWfVP7+eytBHmhwfc+zUb8BCk1zWpT7iUNSSeWIpNR/UatacR03o83gmibSdnDal
+ YzSkgYJV/eB9iHpZ++h29VY09arCpF3WpP5qqkULyjojOwvnb2uvjz0nrijuVevqauPFlCB8hfI
+ ASBYJeG5vd/W9oUdwuw==
+X-Proofpoint-ORIG-GUID: LNnKdTT3DQeT74D7zZ461ovxATl98rzO
+X-Authority-Analysis: v=2.4 cv=YaWNIQRf c=1 sm=1 tr=0 ts=6a54becc cx=c_pps
+ a=uRUxjcjQKWf8PwUSRA6o1w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=cMDUSdu-AAAA:8
+ a=TZ_73hOvgUTWyP9239gA:9 a=QEXdDO2ut3YA:10 a=QRaI_VI5Kbc4sAalow4w:22
+X-Proofpoint-GUID: LNnKdTT3DQeT74D7zZ461ovxATl98rzO
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDEwOSBTYWx0ZWRfX9dbno8fhWaV2
+ m8WIhcxNoxWnV9ImSk1a+hdK9+JH8a+TbguHsbRkMVdJsHGKiK+Fyq/A2Yozr2c87BnL+3fEZWK
+ 4AdQc1Os7wDtx5QdKZ0s7p4wB6hJx2c=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-13_02,2026-07-10_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1011 malwarescore=0 lowpriorityscore=0
+ spamscore=0 adultscore=0 impostorscore=0 phishscore=0 suspectscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607130109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_033151_914984_DDAE246F 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20260713_033248_455518_666A20DA 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,113 +187,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
-> This series of patches add support to the Hardware Dirty state tracking
-> Structure (HDBSS) feature, which is introduced by the ARM architecture
-> in the DDI0601 (ID121123) version.
-> 
-> The HDBSS feature is an extension to the architecture that enhances
-> tracking translation table descriptors' dirty state, identified as
-> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
-> page tracking, aiming to significantly reduce the overhead of scanning
-> for dirty pages.
-> 
-> The purpose of this feature is to make the execution overhead of live
-> migration lower to both the guest and the host, compared to existing
-> approaches (write-protect or search stage-2 tables).
-> 
-> The required sysreg definitions for FEAT_HDBSS have been merged into
-> arm64 /sysregs:
->   [1/5] arm64/sysreg: Add HDBSS related register information
->         https://git.kernel.org/arm64/c/72f7be0c2e30
-> 
-> 
-> After these patches, the kernel automatically enables HDBSS when dirty
-> logging is enabled on any memslot, and disables HDBSS when dirty logging
-> is disabled on all memslots. This series does not support dirty ring
-> mode.
-> 
-> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
-> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
 
-On this, FYI, there have been some discussion on this:
-https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
 
-Oliver's suggestion is that we don't automatically enable eager splitting, 
-but instead we have different behaviours if the user enables it.
+On 29/06/26 02:26, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+> 
+> Fix the Ethernet device tree description on the VAR-SOM-AM62P.
+> 
+> Enable the CPSW Ethernet controller and correct the Ethernet PHY
+> description by modelling the PHY power supply and adding the required
+> board-specific PHY properties.
+> 
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> ---
+> v1->v2:
+>  - Remove unused eth property
+> 
+>  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 16 +++++++++++++---
+>  1 file changed, 13 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> index fc5a3942cde0..ca2483a04b9d 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+> @@ -113,6 +113,15 @@ reg_3v3_phy: regulator-3v3-phy {
+>  		regulator-always-on;
+>  	};
+>  
+> +	reg_eth_phy_vdd: regulator-eth-vdd {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "reg_eth_phy_vdd";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&main_gpio0 46 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+>  	sound {
+>  		compatible = "simple-audio-card";
+>  		simple-audio-card,bitclock-master = <&codec_dai>;
+> @@ -149,6 +158,7 @@ &audio_refclk1 {
+>  &cpsw3g {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_rgmii1>;
+> +	status = "okay";
+>  };
+>  
+>  &cpsw3g_mdio {
+> @@ -159,9 +169,9 @@ &cpsw3g_mdio {
+>  	cpsw3g_phy0: ethernet-phy@4 {
+>  		compatible = "ethernet-phy-id0283.bc30";
+>  		reg = <4>;
+> -		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
+> -		reset-assert-us = <10000>;
+> -		reset-deassert-us = <100000>;
 
-This is still under discussion there, but I think it can be useful reading. 
+So are the reset delays no longer required? Or they taken care of
+somewhere else?
 
-> 
-> This dependency is mandatory. Unlike v3, where DBM was added lazily on
-> the first dirty access via a page fault, v4 injects DBM into pgt->flags
-> at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
-> during migration setup, the first dirty access no longer triggers a page
-> fault. Consequently, if lazy hugepage splitting were relied upon (which
-> requires a page fault to trigger splitting), hugepages would never be
-> split, leading to guest hang after migration. Leonardo's patch above
-> ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
-> is available, guaranteeing that hugepages are properly split before
-> migration starts.
-> 
-> v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
-> 
-> v3->v4 changes:
-> - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
->   separate patch in v3).
-> - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
->   by Leonardo Bras. DBM is now controlled as a page-table level flag
->   (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
->   at stage-2 MMU creation time, not lazily on first dirty access. This
->   means the first write to a dirty-logged page does not generate a
->   page fault, which is a key reason for the mandatory dependency on
->   Leonardo's eager hugepage splitting patch (see Depends-on above).
-> - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
->   into three patches: per-vCPU buffer management, fault handling and
->   buffer flush, and auto enable/disable on dirty logging change. This
->   implements kernel-managed automatic HDBSS enable/disable.
-> - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
->   on/off. HDBSS is now automatically enabled/disabled based on dirty
->   logging state via kvm_arch_commit_memory_region().
-> - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
->   and kvm_handle_guest_abort.
-> - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
->   per-vCPU, since all vCPUs share the same order.
-> - Document patch is not included in this version; will be sent in a
->   follow-up series.
-> 
-> Leonardo Bras (1):
->   KVM: arm64: Enable eager hugepage splitting if HDBSS is available
-> 
-> Tian Zheng (2):
->   KVM: arm64: Add support for FEAT_HDBSS
->   KVM: arm64: Add auto DBM support for hardware dirty tracking
-> 
-> eillon (3):
->   KVM: arm64: Add HDBSS per-vCPU buffer management
->   KVM: arm64: Add HDBSS fault handling and buffer flush
->   KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
-> 
->  arch/arm64/include/asm/cpufeature.h    |   5 +
->  arch/arm64/include/asm/esr.h           |   5 +
->  arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
->  arch/arm64/include/asm/kvm_host.h      |  14 ++
->  arch/arm64/include/asm/kvm_pgtable.h   |   4 +
->  arch/arm64/include/asm/sysreg.h        |  11 ++
->  arch/arm64/kernel/cpufeature.c         |  12 ++
->  arch/arm64/kvm/Makefile                |   1 +
->  arch/arm64/kvm/arm.c                   |  29 ++++
->  arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
->  arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
->  arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
->  arch/arm64/kvm/mmu.c                   |  19 ++-
->  arch/arm64/kvm/reset.c                 |   4 +
->  arch/arm64/tools/cpucaps               |   1 +
->  15 files changed, 399 insertions(+), 4 deletions(-)
->  create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
->  create mode 100644 arch/arm64/kvm/dirty_bit.c
-> 
-> --
-> 2.33.0
-> 
+> +		bootph-all;
+> +		enet-phy-lane-no-swap;
+> +		vdd-supply = <&reg_eth_phy_vdd>;
+>  	};
+>  };
+>  
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
+
 
