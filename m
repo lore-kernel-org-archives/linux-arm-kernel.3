@@ -4,100 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFB7C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 12:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7nfm5E5YVw8Xk7Gt9ejcJe2nuIHpfZQPsIGFP/AIC7g=; b=wrdhjgR606R91B
-	75AQ/b8NlB6PSHuKBM5b5rtzvfvQcUMkqL/lY8S7rdUnONBEIVz/bk4aPUM71Lj5FksO7uSFk/FIf
-	YAUTMRJ1Z6jDMF8fZkHjeF/SkiWAVA2F9KvEaVIEmZdbR/4tABo2FfH4WXXYZe9Uuv/OY6JaRrfQD
-	AOYlI7n7WWMtLF4h/FU/KxnSLUvvwPQBCHql6/5pStduBmyVXB8awXz4NvGPdtrB0EN5lIg6B19RY
-	vvsfyOfL7Tsy4KxXJnBUinoT2IAjsHnDgtEx+k7yGdtSh6IMxLdb90V+tvJlT3+9j/5U+zMRVj3EK
-	QdkotpT0jUSE3G13G0Mg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sLrzXRU//S8WRey8WhK0HpLicfNB7g33o6vQ+hoAUdo=; b=gm18BJmtD/xG37csYs9JDn6/pc
+	SxEDEt09uj0Sq5usV3FtrE49xMyABGoYInQIHDAk99TGKazzb+c/QRFAlkjICS6sGy+PqNYqm98xv
+	bNxwnp1nNnpTkuW8EW39qHapCR/YlZzgyvOVIVD9+EbwNnMWRGW64L1XhxJ9h9Ismrz4NmsdBjMME
+	CJbSD+n4m5kHqVLbJFtiRJg25xGGxChOPT4QDh2e90KugmB/HvnH27lmZRW4nLy3hjw73InLfkNSI
+	ovYhen68DSZOb8b72/ZCCnmxVX3SV4VTVec8QYjOObe1Sqylr1432f6oH8nsO+ja0wXzh7VX4AMDi
+	9lcGxN4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFVM-000000099P4-0wr0;
-	Mon, 13 Jul 2026 12:11:24 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wjFVX-000000099Xi-2FAK;
+	Mon, 13 Jul 2026 12:11:35 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjFVK-000000099NK-2a0E
+	id 1wjFVP-000000099Qo-1mSo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 12:11:23 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cce6a0c9c3so27122295ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 05:11:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783944682; x=1784549482; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7nfm5E5YVw8Xk7Gt9ejcJe2nuIHpfZQPsIGFP/AIC7g=;
-        b=iZZ2AaI7CV7XMb9/KgpYANe5E44mVn2ftoT5ag5Ctzaq65r7X+gmNi9ey/PENMQm41
-         OYua+Hywdz/Uoi6F88EgptRdc0ZSmmWasDgWtebWAxm5q/y8xNdGxfYYG7SRkf1WX2jp
-         H1doOwsSDpNqEh821pNL3ie4Qfj9hRd2e1k0w59ItjURYWtsBTo2yXWKC4kQo2fxRFuj
-         Z64unMzAnHwIGTzapU4W312/JygVQcTPi/AAY5aHVCTT8Rm6FpeS85gR+V6CdM+LoK9U
-         XjxFulA4E5RvJvb2jODMe0I6AkfSsXymx3m0I8bgCWV65QVEdv61u4hI0s32Aos2vffx
-         DMOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783944682; x=1784549482;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7nfm5E5YVw8Xk7Gt9ejcJe2nuIHpfZQPsIGFP/AIC7g=;
-        b=XUmqEriaKdkGgQVZknyfUA8oiIoL1+HjEMdVX5iartOzVyDgrEtfK1kO6sSw/7r3im
-         +c5TwlKkoBqDCL+oOYQEL0cgRzA7w5hfo4y58zyoZ6c/Wja1DgaQwFhkZgZPuyGgkmwG
-         txmSuOdhzGCBsR5C+yD6ky/gdEP66/8yh8pd7Z2qoVYOJcV3bNvKC6DTP3Vm7f1v3Eiu
-         zzaftpX8Lpzd4IU0uIrUQAl1PnzaKZPl0sHLhXjjNt9SSRa/rvoQwJDltbTmLn6fUd8V
-         pyRNok5XT9beqiercIEYXzMNiHTnOAzZXyxHQJZRTMk3xCv3lB4vATHhxHdiPbH/gPf+
-         8yqQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqG82STCON+tuRSpaw4XNA1d0p4+jn4qtfon4zhnLQIFnyIyxXRlZxSvnA9OYmI6DZIekc+uo+YtxWpvyoSvncn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhlBJjFo6Nrc8tYMPh924evcwfecfwauvu6a7XznbotH63dNlM
-	hDHkG3tqS+7EPrFh7N7XsMQj8IinBOrEKZKgr8yV6rZVMzyTqOPjwLfNfji/tA==
-X-Gm-Gg: AfdE7cnoB6+gQLUpDnwKCEk2nR1/bYtli18N7MPf3l+VDWu3d534Q64shkCbAodg/AF
-	MvXzC0f1DHs50uW9Cl/jHybuhNK05FutuKVJ4k9uaePM+ldpnVxI8EIiHz6y/QsBNAdw8jQr+rE
-	sYl57Rq/6TYEOVmPw1AORjunwG8gJpG4yZj/bi3IGakpqkBhSFVfB6GFkMUl4cDt7i0Aw0yQrP0
-	TP9I75+hvUSGl3RJMfLFbQPFmElO/RkijhcAMEag+piUltMYMEpO7XKz2AMiDWemFcs/mQLj0YR
-	BrY8x9BLaTncALbZfq6h4/GJEqQtT2UC+njOA3zKZCsZQGbXi34+ZWh/vyCbSspX5bXgwYUPXMZ
-	VEyCyqz39dWcwtQjuBRRRM/iAuofiubVG/QSlud75kNBwx4cjKGdzHwmTpr7x/l2oSXRQrH0kpN
-	2s1Hrfb7SqUA==
-X-Received: by 2002:a05:6300:220a:b0:3bf:aab1:cc8b with SMTP id adf61e73a8af0-3c110b436f6mr8836067637.46.1783944681879;
-        Mon, 13 Jul 2026 05:11:21 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f7293sm67756935eec.3.2026.07.13.05.11.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 05:11:21 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:DRM DRIVERS FOR AMLOGIC SOCS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM)
-Subject: [PATCH v7 14/19] media: meson: vdec: Correct atomic counter placement in dst_buf_done
-Date: Mon, 13 Jul 2026 17:37:09 +0530
-Message-ID: <20260713120840.17427-15-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260713120840.17427-1-linux.amoon@gmail.com>
-References: <20260713120840.17427-1-linux.amoon@gmail.com>
+	Mon, 13 Jul 2026 12:11:34 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gzLqy6KTfzKHLv1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 20:10:54 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id E69874056B
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 20:11:23 +0800 (CST)
+Received: from [10.166.163.161] (unknown [10.166.163.161])
+	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgCHUaLr1VRqGX9OBA--.12823S2;
+	Mon, 13 Jul 2026 20:11:23 +0800 (CST)
+Message-ID: <c68a4524-0265-4cca-b153-83c9a9c14da4@huaweicloud.com>
+Date: Mon, 13 Jul 2026 20:11:23 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/6] irqchip/gic-v3-its: Fix leak in
+ its_vpe_irq_domain_alloc()
+To: Marc Zyngier <maz@kernel.org>
+Cc: tglx@kernel.org, jason@lakedaemon.net, lpieralisi@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
+ <20260702033050.1583-4-shikemeng@huaweicloud.com>
+ <87fr216nx2.wl-maz@kernel.org>
+ <e3252259-64e1-4bcb-8082-0bd501233747@huaweicloud.com>
+ <86ldbopl97.wl-maz@kernel.org>
+From: Kemeng Shi <shikemeng@huaweicloud.com>
+In-Reply-To: <86ldbopl97.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _Ch0CgCHUaLr1VRqGX9OBA--.12823S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww15XrW3KrWUXr15Cr1rZwb_yoW5JF45pF
+	WrJas29rWxJFyUWwnF9w1kua4rK39rt3yjkayUW3Z7urn5GF9rCF48trW3ury0kr17J3WU
+	Z3WFgFWruF4UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUyGb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAK
+	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xII
+	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw2
+	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
+	67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU1RBT5UUUUU==
+X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_051122_670061_78DA0D2C 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260713_051127_827954_AFD230C5 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +85,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Doruk Tan Ozturk <doruk@0sec.ai>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix an end-of-stream (EOS) boundary condition logic flaw in
-dst_buf_done() by relocating the atomic decrement helper to execute
-after state evaluation.
-
-Previously, decrementing sess->esparser_queued_bufs at the entry point
-of the function corrupted the conditional checks for the final video
-frame. This premature decrement tricked the driver into flagging the
-second-to-last buffer as the final frame (V4L2_BUF_FLAG_LAST) during
-teardown sequences, which cut off the true final frame and broke
-compliance validation.
-
-Resolve this by moving atomic_dec() to execute immediately after the EOS
-conditional tracking block finishes evaluating, right before invoking
-v4l2_m2m_buf_done(). This ensures accurate stream termination
-signaling.
-
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/staging/media/meson/vdec/vdec_helpers.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/staging/media/meson/vdec/vdec_helpers.c b/drivers/staging/media/meson/vdec/vdec_helpers.c
-index f02c21d5a9c18..303236f0647c0 100644
---- a/drivers/staging/media/meson/vdec/vdec_helpers.c
-+++ b/drivers/staging/media/meson/vdec/vdec_helpers.c
-@@ -314,6 +314,9 @@ static void dst_buf_done(struct amvdec_session *sess,
- 	dev_dbg(dev, "Buffer %u done, ts = %llu, flags = %08X\n",
- 		vbuf->vb2_buf.index, timestamp, flags);
- 	vbuf->field = field;
-+
-+	atomic_dec(&sess->esparser_queued_bufs);
-+
- 	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
- 
- 	/* Buffer done probably means the vififo got freed */
--- 
-2.50.1
+在 2026/7/6 16:36:52, Marc Zyngier 写道:
+> On Fri, 03 Jul 2026 02:44:53 +0100,
+> Kemeng Shi <shikemeng@huaweicloud.com> wrote:
+>>
+>> 在 2026/7/3 6:12:57, Marc Zyngier 写道:
+>>>> When its_irq_gic_domain_alloc() fails, the following
+>>>> its_vpe_irq_domain_free() skips calling its_vep_teardown() for the
+>>>> corresponding irq. Call its_vpe_teardown() when its_irq_gic_domain_alloc()
+>>>> is failedto avoid the leak issue.
+>>>>
+>>>> Fixes: 7d75bbb4bc1ad ("irqchip/gic-v3-its: Add VPE irq domain allocation/teardown")
+>>>> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+>>>> ---
+>>>>  drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+>>>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+>>>> index 3e4edcb64065..8968bedefdba 100644
+>>>> --- a/drivers/irqchip/irq-gic-v3-its.c
+>>>> +++ b/drivers/irqchip/irq-gic-v3-its.c
+>>>> @@ -4666,8 +4666,10 @@ static int its_vpe_irq_domain_alloc(struct irq_domain *domain, unsigned int virq
+>>>>  			break;
+>>>>  		err = its_irq_gic_domain_alloc(domain, virq + i,
+>>>>  					       vm->vpes[i]->vpe_db_lpi);
+>>>> -		if (err)
+>>>> +		if (err) {
+>>>> +			its_vpe_teardown(vm->vpes[i]);
+>>>>  			break;
+>>>> +		}
+>>> There is already a spot for error handling in this function, we don't
+>>> need a second one.
+>> When its_irq_gic_domain_alloc() fails at index i, its_vpe_init(vpes[i])
+>> has already succeeded but the exisiting its_vpe_irq_domain_free(domain, virq, i)
+>> only tears down VPEs with index [0, i - 1], so its_vpe_teardown(vpes[i]) is still
+>> needed.
+>> So I guess you mean we can increase index when its_irq_gic_domain_alloc() fails to
+>> free the resource with existing error handling?
+>> Please correct me if I'm miss anything.
+> 
+> What I mean is this.
+> 
+> 	M.
+> 	
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index b57d81ad33a0a..4b1a3b497d7c4 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -4674,8 +4674,10 @@ static int its_vpe_irq_domain_alloc(struct irq_domain *domain, unsigned int virq
+>  		irqd_set_resend_when_in_progress(irq_get_irq_data(virq + i));
+>  	}
+>  
+> -	if (err)
+> +	if (err) {
+> +		its_vpe_teardown(vm->vpes[i]);
+>  		its_vpe_irq_domain_free(domain, virq, i);
+> +	}
+>  
+>  	return err;
+>  }
+> 
+Thanks for explanation. I will improve this in next version.
 
 
