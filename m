@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A52C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9F7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=GKlkX+jzXeOctEvEU+Hiz4rEbD81hPI0L4pAMA9OoXY=; b=vEY
-	AGb7kfR3HtJ0BR5Tc5zObluEubLqDxXwCOkC3sZtFk4qczZuNhDSo1TjWxNJYtihiHm7gx7EhvPHA
-	vvjLhNmxEohf5vccMeI918tgssGXphz35rowbujnzCipk4UbrwxS2e6XDd7ZOjW2F/HMyY85rhPso
-	4ie7FrNLeao6/bbsrzk/zVgWVSeuKu8DIOSznfTJnK3bNbIGW3KmiLbpyRBXHqe/WU3xhL1fCtv8H
-	quUQhznMWwnVnwiYxeOCbBk23vBLXf9kCfuF37uDzYZ2slOMxfl9EWsI75xbXse9aqX8dp5jUXro8
-	QPdAALRvrgZ/IKspDOAE9mzwylqyz1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IrpWsKjxPCUisN7hSymmb0KSu53NfmTpPgCGLqK+9cc=; b=jEPhwQdtj85qfLIJrWuLINGUX9
+	0I8pWBkuqcDAxa4x6ufDUJb8e3kqPi1o038r+S4HDIykuOiKp2p/Wp00UoJ76/mCqy5x+ALu1My80
+	lxIR8qK/JzfQMeib/v/9dycYISrpk/ckvMap0GOTTlZ8IE4/+PuY9GjpnKfy4zq1tttI9YH8/BJ8x
+	AkDqB9zC8wwrwfzeZ0tVw5V9PmJFc10K/oBr1GmC2vOKblcIA5z4gEUSdmuVvl0KWLjHB0gUqxa70
+	MwxYGov3Lvzq/Mkm1ouSsmFFUMoqlYx9rfv0WLkEHyTmf+ilj2dRzB/o1UgQ3HCT8Uev2z4ZO1xQE
+	/xwXKiaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHyd-00000009dvX-0tbN;
-	Mon, 13 Jul 2026 14:49:47 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHya-00000009duC-3OKS
+	id 1wjHzO-00000009e61-1zLF;
+	Mon, 13 Jul 2026 14:50:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjHzL-00000009e5N-3arP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:49:46 +0000
-Date: Mon, 13 Jul 2026 16:49:39 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783954181;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=GKlkX+jzXeOctEvEU+Hiz4rEbD81hPI0L4pAMA9OoXY=;
-	b=t1YTHtITBTztRKcQz+KC2jZOo9E8T563HEN+j+y0CTKDt/Ob+Mi2kL9Fq1FAmsd19Ll6UK
-	tbD4n61PqdAyT2qfVlYhCC563tJpCOU2AspmI3P4gouJLsSTiaT6wL7mVVcYYN46ZpOs+h
-	rRNbkDXWqdml6yjIS/35a5amyPzurHkaofu5WHvZMYXqXVmP3bUVtN+tjKgbHkLBvMQ/Wo
-	PrmU9vb2ftxgSyBbSqWXigSfBt0NoGYxH040CdMB4DjlQgCU+ov2mRHIfOD9wWy0KnncKF
-	R57m0vdzHHmcT32tm6+kzTS6TvPKE+pOF4cLWmJZ5Tg+pR/r4JVzwm/8OTxOqQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783954181;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=GKlkX+jzXeOctEvEU+Hiz4rEbD81hPI0L4pAMA9OoXY=;
-	b=Rlsw8EM0jL1P6f9KvF9BOR1HUh9hmiUlwbNibTbG8xGQ1+oVXgXRyF1cqcWLEIbyHDdoGF
-	7PyeX5BqpPaR0rDg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Subject: [RFC PATCH] ARM, ARM64, LOONGARCH: Delay HW BP notification to
- task_work()
-Message-ID: <20260713144939.FuCj9yvZ@linutronix.de>
+	Mon, 13 Jul 2026 14:50:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B72E152B;
+	Mon, 13 Jul 2026 07:50:26 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 945B03F7B4;
+	Mon, 13 Jul 2026 07:50:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783954230; bh=4Ah3ygSjY7HUwPChZQMsaqpNXbeCw/+Xh5v2OYwic58=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Y2jKodlLuPNRN5F/3tfH4GBhtaylwedslPiEU3JWHjTRDlaJknk4x8K8ZKo+Mfd7l
+	 C8eJG4wsIIUxsFr1/ynFF3bNZHpl1R7oGo7IjjwaskGi50tMBWddYZcHHVOM/RtgeA
+	 h4zzz3KcAMvGhDqdYIx2XYd6MxPmU0bc1oJ15Ukk=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 6/6] KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
+Date: Mon, 13 Jul 2026 15:50:25 +0100
+Message-ID: <alT7MeK_1ofOhIuv@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260709104026.2612599-7-zhengtian10@huawei.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-7-zhengtian10@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_074945_139768_D0A4C352 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20260713_075031_991507_B65BC228 
+X-CRM114-Status: GOOD (  46.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,234 +85,257 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Russell King <linux@armlinux.org.uk>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>, Clark Williams <clrkwllms@kernel.org>, James Clark <james.clark@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, loongarch@lists.linux.dev, Namhyung Kim <namhyung@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, linux-arm-kernel@lists.infradead.org, Oleg Nesterov <oleg@redhat.com>, linux-perf-users@vger.kernel.org, Jiri Olsa <jolsa@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
-"sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
-delivered with disabled interrupts and perf intrastrucure expects
-disabled interrupts while the overflow callback is invoked.
+On Thu, Jul 09, 2026 at 06:40:26PM +0800, Tian Zheng wrote:
+> From: eillon <yezhenyu2@huawei.com>
+> 
+> HDBSS buffers store per-page dirty state after the stage-2 page tables
+> have been split down to page granularity (chunk_size == PAGE_SIZE).
 
-The callback then sends a SIGTRAP signal for which it acquires
-sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
-must not be acquired in atomic context.
+chunk_size != PAGE_SIZE now, but that should change as well :)
 
-Delay the event callback until the return to userland.
-Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
-actual callback invocation to task_work_add() callback. This callback
-invokes the architecture defines callback arch_hwbp_send_sig().
-This requires struct callback_head and the functions require
-ARCH_NEED_PERF_HW_NOTIF to be defined.
+> When chunk_size == 0 the kernel may lazily skip splitting block mappings,
+> leaving the page table coarser than what HDBSS expects. Therefore,
+> enabling HDBSS requires disabling lazy split so that all block mappings
+> are eagerly broken down before the buffer starts recording.
 
-This was reported against ARM64. ARM and LongARCH follow the same
-pattern are also converted.
+(See cover letter reply)
 
-Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-Reported-by: Waiman Long <longman@redhat.com>
-Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
+> 
+> Add VM-level HDBSS enable/disable support. When dirty logging is
+> enabled on any memslot, HDBSS is automatically enabled. When dirty
+> logging is disabled on all memslots, HDBSS is automatically disabled.
+> 
+> This includes:
+> - kvm_arm_enable_hdbss_global() to enable HDBSS for all vCPUs
+> - kvm_arm_disable_hdbss_global() to disable and free HDBSS buffers
+> - kvm_arm_hdbss_on_dirty_logging_change() for auto enable/disable
+> - kvm_arch_destroy_vm() cleanup path
+> - kvm_arch_commit_memory_region() integration
+> 
+> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> ---
+>  arch/arm64/include/asm/kvm_dirty_bit.h |   2 +
+>  arch/arm64/kvm/arm.c                   |   8 ++
+>  arch/arm64/kvm/dirty_bit.c             | 105 +++++++++++++++++++++++++
+>  arch/arm64/kvm/mmu.c                   |   3 +
+>  4 files changed, 118 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+> index 4b28000e972f..a4cda8cdab24 100644
+> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+> @@ -23,5 +23,7 @@ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+>  void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>  void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>  int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging);
+> +void kvm_arm_disable_hdbss_global(struct kvm *kvm);
+> 
+>  #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 566953a4e23a..536d94799ba8 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -317,6 +317,14 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>  	if (is_protected_kvm_enabled())
+>  		pkvm_destroy_hyp_vm(kvm);
+> 
+> +	/*
+> +	 * Userspace may destroy the VM without disabling dirty logging,
+> +	 * so the auto-disable path is never reached. Force disable HDBSS
+> +	 * here to ensure vCPU buffers are freed and prevent memory leaks.
+> +	 */
+> +	if (kvm->arch.enable_hdbss)
+> +		kvm_arm_disable_hdbss_global(kvm);
+> +
+>  	kvm_uninit_stage2_mmu(kvm);
+>  	kvm_destroy_mpidr_data(kvm);
+> 
+> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+> index 002366337637..c5bf866c23ef 100644
+> --- a/arch/arm64/kvm/dirty_bit.c
+> +++ b/arch/arm64/kvm/dirty_bit.c
+> @@ -112,3 +112,108 @@ int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
+>  		return -EFAULT;
+>  	}
+>  }
+> +
+> +static unsigned int hdbss_auto_select_order(struct kvm *kvm)
+> +{
+> +	unsigned long npages = 0;
+> +	struct kvm_memory_slot *memslot;
+> +	int bkt;
+> +
+> +	kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm))
+> +		npages += memslot->npages;
+> +
+> +	if (npages <= 16384)
+> +		return 0;
+> +	else if (npages <= 262144)
+> +		return 3;
+> +	else if (npages <= 4194304)
+> +		return 6;
+> +	else
+> +		return 9;
+> +}
 
-This is approximately the fifth iteration at which point I think I can
-share what I have.
+IIUC you are counting the amount of pages the VM has, and based on that 
+allocating a size for the HDBSS buffer.
 
-Could this be tested, please? I tested it on arm64 for arm64 based on
-Luis' test. ARM compiles my HW lacks support for this I think (gdb
-aborts early). I hope the best for LoongARCH.
+A few notes here:
+- It's not really nice to use magic numbers around like this. If you 
+  actually want to use it, then use stuff like SZ_16K, SZ_256K, SZ_4M and 
+  so on.
+- You are returning magic numbers as well, why is it 0, 3, 6, or 9 here?
+  It only makes sense if the person is reading HDBSSBR_EL2 documentation,
+  which should not be necessary at this point. That's one reason I 
+  recommended to using sizes. If that was really the best way to use it, 
+  I would recommend using the defines that we get from sysreg, and you 
+  actually used before to set the maximum order on a previous patch.
+- Also, if you can return only valid values here, why do you check against 
+  the maximum value in that previous patch?
+- Also, are you using some undisclosed rule here? On 'order 0' the 
+  meanining is 4KB, which translate to 512 HDBSS entries. Why are you using 
+  it for any value under 16K? Same for 3-32KB-4kEntries you use for under 
+  256K pages (and so on). If you are assuming a logical rule such as 
+  'N pages would be ok with N/32 entries' it has to be described here at 
+  least.
+- Not sure VM size is the best way of doing that, since it will depend 
+  more on the dirtying rate than the actual size, and most VMs would just 
+  use the biggest size (4M x 4K pages is just 16GB). For instance with 
+  dirty_ring we can use the dirty_ring.size as a better option.
+  (I know this is a hard one to estimate when using dirty-bitmap, though)
 
-Are the perf bits okay or is it too gross?
+> +
+> +/*
+> + * Enable HDBSS for all vCPUs in the VM.
+> + *
+> + * Called from kvm_arm_hdbss_on_dirty_logging_change() which is invoked
+> + * by kvm_arch_commit_memory_region() under kvm->slots_lock.
+> + *
+> + * If buffer allocation fails, HDBSS remains disabled and dirty tracking
+> + * falls back to the traditional software-based approach (PTE write-protect
+> + * + software dirty marking). This does not affect correctness; dirty
+> + * logging remains functional without HDBSS.
+> + */
+> +static int kvm_arm_enable_hdbss_global(struct kvm *kvm)
+> +{
+> +	int err;
+> +	unsigned long i;
+> +	unsigned int order;
+> +	struct kvm_vcpu *vcpu;
+> +
+> +	if (!system_supports_hdbss())
+> +		return 0;
+> +
+> +	if (kvm->dirty_ring_size) /* Don't support HDBSS in dirty ring mode */
+> +		return 0;
+> +
+> +	if (kvm->arch.enable_hdbss) /* Already On */
+> +		return 0;
+> +
+> +	/* Turn it on */
+> +	order = hdbss_auto_select_order(kvm);
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +		err = kvm_arm_vcpu_alloc_hdbss(vcpu, order);
+> +		if (err)
+> +			goto error_alloc;
+> +	}
+> +
+> +	kvm->arch.enable_hdbss = true;
+> +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
+> +
+> +	/*
+> +	 * We should kick vcpus out of guest mode here to load new
+> +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
+> +	 */
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
+> +		kvm_vcpu_kick(vcpu);
+> +
+> +	return 0;
+> +
+> +error_alloc:
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
+> +		if (vcpu->arch.hdbss.base_phys)
+> +			kvm_arm_vcpu_free_hdbss(vcpu);
+> +
+> +	pr_warn_once("kvm: failed to allocate HDBSS buffers (order=%u), "
+> +		     "falling back to software dirty tracking\n", order);
+> +	return -ENOMEM;
+> +}
+> +
+> +void kvm_arm_disable_hdbss_global(struct kvm *kvm)
+> +{
+> +	unsigned long i;
+> +	struct kvm_vcpu *vcpu;
+> +
+> +	if (!kvm->arch.enable_hdbss) /* Already Off */
+> +		return;
+> +
+> +	/* Turn it off */
+> +	kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
+> +
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
+> +		kvm_arm_vcpu_free_hdbss(vcpu);
+> +
+> +	kvm->arch.enable_hdbss = false;
+> +}
+> +
 
- arch/arm/include/asm/hw_breakpoint.h       |  1 +
- arch/arm/kernel/ptrace.c                   |  6 ++----
- arch/arm64/include/asm/hw_breakpoint.h     |  1 +
- arch/arm64/kernel/ptrace.c                 |  6 ++----
- arch/loongarch/include/asm/hw_breakpoint.h |  1 +
- arch/loongarch/kernel/ptrace.c             |  6 ++----
- include/linux/hw_breakpoint.h              |  3 +++
- include/linux/perf_event.h                 |  3 +++
- kernel/events/core.c                       | 24 ++++++++++++++++++++++
- 9 files changed, 39 insertions(+), 12 deletions(-)
+Okay, say the user requested it to be disabled, you change the global vtcr, 
+then free the hdbss on every vcpu. 
 
-diff --git a/arch/arm/include/asm/hw_breakpoint.h b/arch/arm/include/asm/hw_breakpoint.h
-index e7f9961c53b2d..5b3a373348ff5 100644
---- a/arch/arm/include/asm/hw_breakpoint.h
-+++ b/arch/arm/include/asm/hw_breakpoint.h
-@@ -7,6 +7,7 @@
- struct task_struct;
- 
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
-+#define ARCH_NEED_PERF_HW_NOTIF
- 
- struct arch_hw_breakpoint_ctrl {
- 		u32 __reserved	: 9,
-diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
-index 7951b2c06fec6..1650f12a04702 100644
---- a/arch/arm/kernel/ptrace.c
-+++ b/arch/arm/kernel/ptrace.c
-@@ -347,9 +347,7 @@ static long ptrace_hbp_idx_to_num(int idx)
- /*
-  * Handle hitting a HW-breakpoint.
-  */
--static void ptrace_hbptriggered(struct perf_event *bp,
--				     struct perf_sample_data *data,
--				     struct pt_regs *regs)
-+void arch_hwbp_send_sig(struct perf_event *bp)
- {
- 	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
- 	long num;
-@@ -424,7 +422,7 @@ static struct perf_event *ptrace_hbp_create(struct task_struct *tsk, int type)
- 	attr.bp_type	= type;
- 	attr.disabled	= 1;
- 
--	return register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
-+	return register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL,
- 					   tsk);
- }
- 
-diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/asm/hw_breakpoint.h
-index bd81cf17744af..58befb79c885c 100644
---- a/arch/arm64/include/asm/hw_breakpoint.h
-+++ b/arch/arm64/include/asm/hw_breakpoint.h
-@@ -124,6 +124,7 @@ extern void hw_breakpoint_pmu_read(struct perf_event *bp);
- extern int hw_breakpoint_slots(int type);
- 
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
-+#define ARCH_NEED_PERF_HW_NOTIF
- extern void hw_breakpoint_thread_switch(struct task_struct *next);
- extern void ptrace_hw_copy_thread(struct task_struct *task);
- #else
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 4d08598e2891d..df6122779ada6 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -168,9 +168,7 @@ void ptrace_disable(struct task_struct *child)
- /*
-  * Handle hitting a HW-breakpoint.
-  */
--static void ptrace_hbptriggered(struct perf_event *bp,
--				struct perf_sample_data *data,
--				struct pt_regs *regs)
-+void arch_hwbp_send_sig(struct perf_event *bp)
- {
- 	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
- 	const char *desc = "Hardware breakpoint trap (ptrace)";
-@@ -312,7 +310,7 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
- 	attr.bp_type	= type;
- 	attr.disabled	= 1;
- 
--	bp = register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
-+	bp = register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, tsk);
- 	if (IS_ERR(bp))
- 		return bp;
- 
-diff --git a/arch/loongarch/include/asm/hw_breakpoint.h b/arch/loongarch/include/asm/hw_breakpoint.h
-index 5faa97a87a9e2..2b51922eb5492 100644
---- a/arch/loongarch/include/asm/hw_breakpoint.h
-+++ b/arch/loongarch/include/asm/hw_breakpoint.h
-@@ -120,6 +120,7 @@ void breakpoint_handler(struct pt_regs *regs);
- void watchpoint_handler(struct pt_regs *regs);
- 
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
-+#define ARCH_NEED_PERF_HW_NOTIF
- extern void ptrace_hw_copy_thread(struct task_struct *task);
- extern void hw_breakpoint_thread_switch(struct task_struct *next);
- #else
-diff --git a/arch/loongarch/kernel/ptrace.c b/arch/loongarch/kernel/ptrace.c
-index be38430f7e280..1d5e05a70b8d3 100644
---- a/arch/loongarch/kernel/ptrace.c
-+++ b/arch/loongarch/kernel/ptrace.c
-@@ -384,9 +384,7 @@ static int lbt_set(struct task_struct *target,
- /*
-  * Handle hitting a HW-breakpoint.
-  */
--static void ptrace_hbptriggered(struct perf_event *bp,
--				struct perf_sample_data *data,
--				struct pt_regs *regs)
-+void arch_hwbp_send_sig(struct perf_event *bp)
- {
- 	int i;
- 	struct arch_hw_breakpoint *bkpt = counter_arch_bp(bp);
-@@ -479,7 +477,7 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
- 	attr.bp_type	= type;
- 	attr.disabled	= 1;
- 
--	bp = register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
-+	bp = register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, tsk);
- 	if (IS_ERR(bp))
- 		return bp;
- 
-diff --git a/include/linux/hw_breakpoint.h b/include/linux/hw_breakpoint.h
-index db199d653dd1a..bb4c1064a103d 100644
---- a/include/linux/hw_breakpoint.h
-+++ b/include/linux/hw_breakpoint.h
-@@ -85,6 +85,9 @@ extern int register_perf_hw_breakpoint(struct perf_event *bp);
- extern void unregister_hw_breakpoint(struct perf_event *bp);
- extern void unregister_wide_hw_breakpoint(struct perf_event * __percpu *cpu_events);
- extern bool hw_breakpoint_is_used(void);
-+extern void arch_hwbp_send_sig(struct perf_event *bp);
-+extern void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sample_data *data,
-+				  struct pt_regs *regs);
- 
- extern int dbg_reserve_bp_slot(struct perf_event *bp);
- extern int dbg_release_bp_slot(struct perf_event *bp);
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea5..bc7fae88a2742 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -215,6 +215,9 @@ struct hw_perf_event {
- 
- 	/* Last sync'ed generation of filters */
- 	unsigned long			addr_filters_gen;
-+#ifdef ARCH_NEED_PERF_HW_NOTIF
-+	struct callback_head		arch_hw_notif;
-+#endif
- 
- /*
-  * hw_perf_event::state flags; used to track the PERF_EF_* state.
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index d7f3e2c2ecb1e..1f70cdb52f068 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -13336,6 +13336,26 @@ static void account_event(struct perf_event *event)
- 	account_pmu_sb_event(event);
- }
- 
-+#ifdef ARCH_NEED_PERF_HW_NOTIF
-+static void perf_arch_hwbp_send_sig(struct callback_head *head)
-+{
-+	struct perf_event *bp;
-+
-+	bp = container_of(head, struct perf_event, hw.arch_hw_notif);
-+	arch_hwbp_send_sig(bp);
-+	put_event(bp);
-+}
-+
-+void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sample_data *data,
-+			   struct pt_regs *regs)
-+{
-+	if (WARN_ON_ONCE(!atomic_long_inc_not_zero(&bp->refcount)))
-+		return;
-+	if (WARN_ON_ONCE(task_work_add(current, &bp->hw.arch_hw_notif, TWA_RESUME)))
-+		put_event(bp);
-+}
-+#endif
-+
- /*
-  * Allocate and initialize an event structure
-  */
-@@ -13441,6 +13461,10 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
- 	}
- 
- 	if (overflow_handler) {
-+#ifdef ARCH_NEED_PERF_HW_NOTIF
-+		if (overflow_handler == perf_arch_hwbp_notify)
-+			init_task_work(&event->hw.arch_hw_notif, perf_arch_hwbp_send_sig);
-+#endif
- 		event->overflow_handler	= overflow_handler;
- 		event->overflow_handler_context = context;
- 	} else if (is_write_backward(event)){
--- 
-2.53.0
+But the vcpus are still running, and since they will only disable this when 
+they go out of the guest, then in again, HDBSS will still be running, 
+right?
 
+If some page gets dirty in the between, would not the HDBSS try to write to 
+the already loaded buffer adress, and write to memory that have already 
+been freed here?
+
+
+> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging)
+> +{
+> +	/*
+> +	 * Called from kvm_arch_commit_memory_region() under kvm->slots_lock.
+> +	 * All state transitions are serialized by slots_lock.
+> +	 */
+> +	if (nr_memslots_logging > 0 && !kvm->arch.enable_hdbss)
+> +		kvm_arm_enable_hdbss_global(kvm);
+> +	else if (nr_memslots_logging == 0 && kvm->arch.enable_hdbss)
+> +		kvm_arm_disable_hdbss_global(kvm);
+> +}
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 949fb895add6..484f48dae000 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2588,6 +2588,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+>  {
+>  	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
+> 
+> +	kvm_arm_hdbss_on_dirty_logging_change(kvm,
+> +		atomic_read(&kvm->nr_memslots_dirty_logging));
+> +
+>  	/*
+>  	 * At this point memslot has been committed and there is an
+>  	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+> --
+> 2.33.0
+> 
+
+Okay, reading the above I remembered something really complicated:
+We can't really enable HDBSS partially if we start with DBM set for all 
+pages. Once we enable HDBSS wit will track changes for all memslots.
+
+The only way to enable it partially would be to set DBM during the 
+dirty-bit tracking, which I recall being complicated for some reasons.
+
+Well, we have to think about the overall strategy before a next version.
+
+Thanks!
+Leo
 
