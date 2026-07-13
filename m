@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96703C4450A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02BAC4450D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 20:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/kbki0OfbqY5P1VtcSN2MXYSVR2HgpEje9msf23VFBg=; b=zHyCz7Kuq2OiePZSzR6gLXZOir
-	lttrcdoDlHV43qi+F1srshuVvNiwhzEHHf/TzuldtG5fuoUiY3FMq5a9cecYCZbiq75XeUz2zOePB
-	8D5fA59JXxG43mgCa4JtyEYXYn045f1Lz5jnN5h3SLeN5C7yBfFmb2gaUVfidUNi19X58TYF8T0z1
-	/m5TELso4qLOqXGWr0yqTcBA0WIQxWUVUWouJGQlx7OfrYQd7smY7UvoqqSyGRsmocf9CDbRdUUji
-	hD1ELrNce5Boq/K2FAbjEQhr6iQ0ldg6/zQNe0L3j9GDc4ECSsuqbAtRunFwBkdTJtERnTewlzw1L
-	e5Wz6zVw==;
+	bh=FTcK/DxmCPFL02Ns/8DYH4U//7QNSGDl9qK71qNbDEU=; b=gjrv9TJVSe3cS2JtnUu413drfY
+	CHszR4JQqXWKSZb1uOV8io89KNVtkyQYFbcsy4OwKXB3grNXzANW7Xg8SXC7VPTQPVBfNEWyoZpLz
+	XdsKV6n14aEiA0aXfxqTk6G1iofvM4OmWGnQXBik4TqXk2WnPrzYBEBhgS7G0EZJfblj5H2sLtnh5
+	xRTDbDncQzMBYr7GBlyRKp2UPkxhqsVbwkCWyHvMDT4iuMgw5B5JsqqtP7ZAAnV506BfMzN9snObW
+	Y1hKxX4SXTjfAbE5mc9tCEZpBY5G+n0w/hclJO8ndIpbR+oSMELCz9i4DPTHwNy0WoXhAv4MFO9i1
+	HQU13+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNIn-0000000AN39-3IIR;
-	Mon, 13 Jul 2026 20:30:57 +0000
+	id 1wjNIo-0000000AN5C-35MI;
+	Mon, 13 Jul 2026 20:30:58 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjNIk-0000000AMxo-0UKC;
+	id 1wjNIk-0000000AMxq-0Vfw;
 	Mon, 13 Jul 2026 20:30:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D73743B5C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 69B5943B72;
 	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3C0A2C2BCFF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4A764C2BCF7;
 	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783974653;
-	bh=hrTsWVZxBChmSbMQPtCUh6jVWfWzSNNjuIKQn6LbXVI=;
+	bh=slVXIX4GkzN7Eqrifla+gMTODGj1mtSLAwrAuVAdcAo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=IaVYTzLb19eRoUvCFhXxdpQ/nh3EqCIqJTeI03aOK1lVej/DLOqNtauhiZR2e30qb
-	 ovl1CgicBZGWAV9T/2ncWA9AYSy6wJtc7Mmxqj3dysFHlj/oKDOSdHHUdN+B1ZjR4t
-	 43UwOrsZtgVYijeF07cz/5/n5JvVBoauYTPF77aj6DkAvtIseGqBR6Gk7fRkyEik2g
-	 rg0ndgf1N0dlusNAmCU28zEJOjKLFDnBNkD6cAOOkWQdvZ7PBo9m5Ex4qsxifuZVzD
-	 4c7LIcQXyHelb4zXvG6vEMXIKHzgM14LiaJ2qXNIdN9Q9jqS0hjt8sKIQYk4FssiIZ
-	 DgSvPSZj6Wbjg==
+	b=IIp/u5Pp8yPOCWlxRKGmnD+TNKScn9DNTQTnWxHLL5FM4dA25NS02OmUtT9SCTR0Z
+	 MrfTHGiroapCqD/FV2JM6JLmhD5hrFRfe5Gc/+SLDkdispzA4zoB6lF90xQF1NJl8Z
+	 +RLS8DJNPpmAiVJaCZN8/47s6Z1AjFw/982TUnCthG57Pp177AZzHNWNgb/IHQuwne
+	 6nvKPj0P8yaa1c9nPXyDTFvbVH1P4XbfIPNXTc731b+O6NiIPapT15wF5Hvb2c7Lbu
+	 nUlT8t2SshYY7gH2n/68PFEolD9yGol18AqliOJsbkfJ9jkTEqK4Y1bL40Ff0VWcuc
+	 chjh8WYbJFvOw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2ADB2C44508;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 38A97C44501;
 	Mon, 13 Jul 2026 20:30:53 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Mon, 13 Jul 2026 22:30:13 +0200
-Subject: [PATCH v3 09/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove
- bogus vcc5v0_usb regulator
+Date: Mon, 13 Jul 2026 22:30:14 +0200
+Subject: [PATCH v3 10/12] arm64: dts: rockchip: rk3588s-nanopi-r6: add
+ comment to gmac phy-mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-nanopi-m6-v3-9-227567ffc5dc@gmail.com>
+Message-Id: <20260713-nanopi-m6-v3-10-227567ffc5dc@gmail.com>
 References: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
 In-Reply-To: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,11 +60,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
  jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783974651; l=1672;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783974651; l=906;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=iPy2X35YL+LpSjA3UQEe7qm+WPZWFPTt/yLokJTeBU0=;
- b=ntfUyTUDty3vJWNcfz9gac5nDz5BWxuwHfd33Di+1zZWW4PyP5ZBTM6GdthzA14oDqyA3PjTw
- 5TOW8Jxf/VqDnO8RaHjiquKzlScCsQ2n0hEA9qvUp+vgOogM58JkV5B
+ bh=QLwwfbhniGcF0c6ydiW48fJsP7DMQS+OrE042pH9bwc=;
+ b=KbaJrHpRXzSCABELANIq9FRlYjtlJc4llt4uu8dxeJEegeT21VAkTQtnQ8U7BcYAAGCE0YtHy
+ dxbgQosxMuLDXW/9xPjjHC3zkCuv4h0FNkNupRKjPLN5mlLIJWneyYb
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -87,53 +87,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-All USB regulators (power switches) are feed from the main vcc5v0
-supply. There is no regulator or switch in between.
+Add comment to explain rgmii-rxid phy-mode usage. Note that the actual
+delay in ns is not known. The tx_delay value of 0x42 comes from vendor
+DT.
 
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index aa074ecda050..84fde8a669a7 100644
+index 84fde8a669a7..d67a7f3e7f8b 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -131,16 +131,6 @@ vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
- 		vin-supply = <&vcc_3v3_s3>;
- 	};
- 
--	vcc5v0_usb: regulator-vcc5v0-usb {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc5v0_usb";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
- 	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -150,7 +140,7 @@ vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
- 		regulator-name = "vcc5v0_usb_otg0";
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
--		vin-supply = <&vcc5v0_usb>;
-+		vin-supply = <&vcc5v0_sys>;
- 	};
- 
- 	vcc5v0_host_20: regulator-vcc5v0-host-20 {
-@@ -162,7 +152,7 @@ vcc5v0_host_20: regulator-vcc5v0-host-20 {
- 		regulator-name = "vcc5v0_host_20";
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
--		vin-supply = <&vcc5v0_usb>;
-+		vin-supply = <&vcc5v0_sys>;
- 	};
- };
- 
+@@ -199,7 +199,7 @@ &cpu_l3 {
+ &gmac1 {
+ 	clock_in_out = "output";
+ 	phy-handle = <&rgmii_phy1>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-rxid"; /* Vendor provided tx delay value below */
+ 	phy-supply = <&vcc_3v3_s3>;
+ 	pinctrl-0 = <&gmac1_miim
+ 		     &gmac1_tx_bus2
 
 -- 
 2.55.0
