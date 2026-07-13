@@ -4,104 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8D7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2356FC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XO5F4pQ+uHUwJNwX9eNu6Me3Gfi6NA9rxgfZG/tLNj4=; b=kbAx5T5WRoFbP/x3T51hS2MQs1
-	GsJ6f4Rwh6RafPeR5jFjRMSfBR51Wvqoub+xjbxc24RbMHj7DozZs8jMo/xqYm8wbGSsXBlEj+XU0
-	alEBr65DreUvUMTspjzs0ZpG45mem5DlEfS4xQ1CJl0/pAEGOtc4Okvr9vpnLuC6RUO+tv700s9de
-	219uJPPuBFwNNG/gSjU5olL6DS5r/ZiTAyFvVNzSs0xPuwj/o4S51IF5k3s4K+1ZNgsrs+/FE6fzk
-	quhnwr173XnYaun0ZF5qoHjtGPBC5ua92ShGuVtSVjw90IfnbN7WZzIiVC8gz25KMRm9eGbxu12N6
-	r3CL6Wtw==;
+	bh=+8bn+J1m/2WVL2HRQqPjPX3jby4LCx/UUlRbPjdP5Mc=; b=tuLgeDb/Hj5XwEfgOvfzTcMo5d
+	NNZZTF9YDdcO5jnHKZ94AGBRNvNG50dsMWu7euUYEZ9kMPEk+oSsPUsHbAcbMmfgKlp+qecZ0um3L
+	qE/ZHrE8d4UblSqB6Osml9BtzXZrgvSpI67Py/R6qrROnxl+W9f5tcTJwonnDVnX/Kuh8np57neBP
+	LzsJvxKDDSnkwj5z6em0dtyMYvigXZgWG8Uf9YA6M0TiCFZIM0qrk/5v8ShU65ZSGBU7aZD9aWup9
+	mxOTdP0TGIWVn0Lubr+TrKNF6u+hrlyqzc/K40QaLXN97z6QJbJstDPrf4Z28bzYjwF3jMCJOCCsu
+	iv4KoNKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJZn-00000009z3g-3tYC;
-	Mon, 13 Jul 2026 16:32:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjJfP-00000009zqu-2L2S;
+	Mon, 13 Jul 2026 16:38:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJZm-00000009z3T-42Hq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 16:32:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56060600AE;
-	Mon, 13 Jul 2026 16:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390BD1F000E9;
-	Mon, 13 Jul 2026 16:32:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783960334;
-	bh=XO5F4pQ+uHUwJNwX9eNu6Me3Gfi6NA9rxgfZG/tLNj4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=U15L5ArrhHpm2GIW7EynRvllR8PIQkes1RaZHjK2Sdkcthxo5agp+pMdyHwyU5bN9
-	 MXEsmqjTY6phhCwrtXl2jP8H0v89idEK2ePmafspZQ6X1Pv9LBDDDlbtU+9qXGP9Hr
-	 k7rHNd+cXyzXF0eeKCD5tHYskkfosyG5laH3PxLGvjnE+WmWY38XApLYPUIjGBKvPu
-	 SGJWxq6GJFS1ZGkSyxsHwD6TxblMwfvYluUUrebIBrHZDLrBLdGCEWR7BSVc5ZexoL
-	 +1DJW4ToOqXMoWlbNd+nIPdGFrFD9yHF9hzyMKWJ0u+Vc+Bk4vvOVAnd/SdNG9y7vl
-	 tA9WwxA7VvTMw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 67056F40252;
-	Mon, 13 Jul 2026 12:32:12 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Mon, 13 Jul 2026 12:32:12 -0400
-X-ME-Sender: <xms:DBNVakdTAH7A03y0PVsUFydyobOSVexxJSFqlFeaXN2gJuW21w9G-g>
-    <xme:DBNVamq3e2f8o6fdaIqgkHcG5wn0i8Mo5PPwNmbm-cqI3yJ6s_0LsnH-PSKezPO_r
-    rS71P2dADZq1uKOuziFaY3t6BMqI3GiybLmbUtfDNQWOwxOzZMaMuU>
-X-ME-Received: <xmr:DBNVam_qkOSms9UlXYzdeQQfCJyepU29MkMP3HSjmhZK6Gw2vdrN_57JNMUNHg>
-X-ME-Proxy-Cause: dmFkZTFq7auBfYltiyKJgfsKmtNrxbtFQPID/Ha/Lse5/6brVgWYZB5+s1G4w4NrQdjRlo
-    S+9ZluVXTS0Mx8qv4yUojVg1/rEXTSXvInmMbAfYx0T1GWN4yTyFiK4MrwlsqiKhtualXn
-    W9EKSMdhAS2RHbfypEfgho+96CGT6KW9+kcjqdU7cAp73Anek3JkyeYo0JzGt5C+anyzur
-    xRxqjo2YlbJpkbLtJfh3tio8Vw1X4VMa7Q/BEm3quwxbg2Mt1IbwYOJhVfV+bjSxaxuNqw
-    Z9WTROtWkq/gxmF7OGIOcKnkDVOiSMYI7yAwkjOFJvzGqkK4VsJJEdIw89xpz39LDTAKnR
-    D/1MW8lIqw+Tw47z6Z1dy1q3aRmclnvSj8mZ/S2W5WHprDcMBXt5vkBBmyyR2uTEmlfhgN
-    /9p25W5wlwyrRZwrbiQoXXyTJcK66yp6mCcgyZnMUxsyhHEuaXxN+6dWDoojCUw5i5EM3S
-    CSWoXeam3rydYUAbhPgB/qYhB7YbRzEyDaYue7+ROqZ0g8HuEBsCy/jqB4qGjfXlkzrEJt
-    BD9rN8il3ulOjy9oSwhvomtPaEMzT3DZ5o075tMAhOBZRJmRBcQoH4c7KXbhiuMerE2wgX
-    eSPviL18pHUK7/M/mvmBrgkMJPwUi/UraqageBJ7L3SJep6hPeUykZ3EXsFw
-X-ME-Proxy: <xmx:DBNVap-yUhFRI3GY-f0hINUiQDYxdT8yMa8up0rYkkj3fE9AlCbYGw>
-    <xmx:DBNVagFU1EIHxdnNB-EwqO1fyV0dt7WFZ3_grIqCpowx966aa2GngQ>
-    <xmx:DBNVaoflV0_VXGYAV9XBf8xTv8TLV1LUgzckvmPnY3_lIhXEdgfMWg>
-    <xmx:DBNVavIWlmU-Em9Uflbr3BetO8FaVtw8-Qxcp5x6sLaWppodvhnMDA>
-    <xmx:DBNVahpEobbyVz5NrCvkSki_p362I_vspPvZgl4OsK-IW5KwWY57aAo1>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 13 Jul 2026 12:32:11 -0400 (EDT)
-Date: Mon, 13 Jul 2026 17:32:10 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- 	Suren Baghdasaryan <surenb@google.com>,
- "Liam R. Howlett" <liam@infradead.org>,
- 	Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>,
- 	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, 	Uladzislau Rezki <urezki@gmail.com>,
- Toshi Kani <toshi.kani@hpe.com>,
- 	Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>,
- 	Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, 	Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- 	"H. Peter Anvin" <hpa@zytor.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- 	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>, 	David Carlier <devnexen@gmail.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, 	bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- 	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
- ptdump and vmap pgtable freeing
-Message-ID: <alUNiWcygLd4rqBo@thinkstation>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <alTn7NguEW_4bodu@thinkstation>
- <alTq4V50767L-s5H@lucifer>
+	id 1wjJfO-00000009zqY-2IRB;
+	Mon, 13 Jul 2026 16:38:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+8bn+J1m/2WVL2HRQqPjPX3jby4LCx/UUlRbPjdP5Mc=; b=maZ04DwFOeZI3/p+3+c8d8Aq29
+	dLI2YSSOcSCKt3zuw6VDEAP7hNr+Xh+AABGxRthTJU03zHAszRqpRRqlx7Nxn6q/aH2E0PSA7InS2
+	RAOE91M5kTVvPIXLO13mvNfQCAEOWesIlQlzjBBWszwBSQNLbRjGLtkCeHm9D42Rw8MKUXuyyOgsk
+	5OdBkivpqF+TnC/Cwa74BcyuD/SQ8IbJxaUdSCy9m3zzjKl5/z9cNmMj+QJ/L7vH/0PeLgJ0/v7P3
+	XPOCE906nydtCFDVzbcIKSdF7yWYrigm+KkapOLjp9qLG7Agq4a0kQNL9ikVVx7ovT1WtNQYzQzUM
+	1BrLWwMQ==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjJfK-0000000BrDX-1oXN;
+	Mon, 13 Jul 2026 16:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783960679; x=1815496679;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4kZEQHCKkpYpxkKyYJlUA0Zza6SQ8vOAw/fP08uqXDo=;
+  b=cQXVCGBJmIGQ3cB7gicDP+9isOj/PsucTY9v0STicXTqfz0DQrxJSxrX
+   7r/Xhs3uamx+mAoTTAi+NyUVpTl6fFQwRjRfPqFgZAGSJFrve2f+rccpW
+   iqd7aYpUpQTL68EHTo4WoGoCyvbZ+jX4Y6/YDQW5Y2YWT4Q+ANEJbX8jk
+   kPv76ULdr+RtW+Du5fC09VNKpGHfakkgEsuIPKIVjtj5Ysgc3go/COuwK
+   ADPwqr6MlIwA/gdrsYWDYmiMbh+NKvR9j21VtshWcXAKN7CSuENDAElQ/
+   KaP1Me53t1C9OwAMIZ2kGZG+kc/E52OURINOAa2U+9krAxyO+SHY7UNhr
+   w==;
+X-CSE-ConnectionGUID: 0lnt/pZYRpCIPd9uexI0Hg==
+X-CSE-MsgGUID: Bo1foV6zRCyCuNF9KSFJqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84768095"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84768095"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:53 -0700
+X-CSE-ConnectionGUID: hWdotUdbRAyEFlX+x/kfWQ==
+X-CSE-MsgGUID: leJxOZsNRQSKnAtRZj8eFA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="249245643"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:52 -0700
+Date: Mon, 13 Jul 2026 09:37:45 -0700
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: bot+bpf-ci@kernel.org
+Cc: stable@vger.kernel.org, gregkh@linuxfoundation.org, sashal@kernel.org, 
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, x86@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com, 
+	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
+Subject: Re: [PATCH 7.1.y 1/6] bpf: Support for hardening against JIT spraying
+Message-ID: <ehtglcrfzb4feb2ysknrcyvz7t2vc2ui2nfbunypteeexbsfu7@x477johvq6pl>
+References: <20260709-cbpf-jit-spray-hardening-7-1-y-v1-1-5ac5a2d6797f@linux.intel.com>
+ <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <alTq4V50767L-s5H@lucifer>
+In-Reply-To: <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_173758_839143_3F9D0EF9 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,122 +100,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 04:54:27PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Jul 13, 2026 at 02:32:09PM +0100, Kiryl Shutsemau wrote:
-> > On Sun, Jul 12, 2026 at 11:42:23AM +0100, Lorenzo Stoakes wrote:
-> > > This series addresses the issue by having the vmap huge promotion
-> > > logic acquire the mmap read lock while both setting the huge page
-> > > table entry and freeing the prior leaf page table.
-> >
-> > Hi Lorenzo,
-> >
-> > Before we settle on the mmap lock scheme, have you considered handling
-> > this the way GUP-fast handles page table freeing -- RCU-defer the free
-> > and make ptdump a lockless walker?
+On Thu, Jul 09, 2026 at 10:52:04PM +0000, bot+bpf-ci@kernel.org wrote:
+> > commit 96cce16e26dd02a8678f1e87f88a4b5cdb63b995 upstream.
+> > The BPF JIT allocator packs many small programs into larger executable
+> > allocations and reuses space within those allocations as programs are
+> > loaded and freed. When fresh code is written into space that a previous
+> > program occupied, an indirect jump into the new program can reuse a branch
+> > prediction left behind by the old one.
+> > Flush the indirect branch predictors before reusing JIT memory so that
+> > indirect jumps into a newly written program don't reuse predictions from an
+> > old program that occupied the same space.
+> > Introduce bpf_arch_pred_flush_enabled static key and bpf_arch_pred_flush
+> > static call for flushing the branch predictors on JIT memory reuse.
+> > Architectures that need a flush, can update it to a predictor flush
+> > function. By default, its a NOP and does not emit any CALL.
+> > Allocations larger than a pack are not covered by this flush. That is safe
+> > because cBPF programs (the unprivileged attack surface) are bounded well
+> > below a pack size. Issue a warning if this assumption is ever violated
+> > while the flush is active.
+> > Signed-off-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+> > Acked-by: Daniel Borkmann <daniel@iogearbox.net>
+> > Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 > 
-> Overall I like the idea of eventually moving this to _all_ being
-> RCU-free-able :)
+> The reuse path this patch hardens (bpf_prog_pack_alloc() finding a free
+> area within a pack, and the size > BPF_PROG_PACK_SIZE branch) comes from
+> the pack allocator that first packed many programs into shared executable
+> allocations and reused freed space within a pack.
 > 
-> BUT... I don't like it as a fix for this bug that has to be backported.
+> Should this carry a Fixes: tag pointing at that commit?
 > 
-> I think there's a lot of subtleties to worry about and I don't want to
-> worry about having to maintain tht as a backport.
-> 
-> But also, we have an unfortunate situation with ptdump where it also walks
-> userland ranges on x86 (and ranges for efi_mm on both x86 and arm64).
-> 
-> And for userland ranges you have to have the mmap write lock to exclude a
-> downgraded mmap read lock munmap() operation (which gives rise to the weird
-> inversion you mention).
-> 
-> So the walker still has to take the write lock in this case.
+>   Fixes: 57631054fae6 ("bpf: Introduce bpf_prog_pack allocator")
 
-I think the userland side is fixable too.
-
-My first thought was to walk only VMA-backed ranges, which would make
-the mmap read lock sufficient: munmap() detaches VMAs under the write
-lock before downgrading, and free_pgtables() only frees tables
-exclusively covering the detached range.
-
-But that is an unnecessary limitation on MMU_GATHER_RCU_TABLE_FREE
-architectures -- which is every architecture with generic ptdump
-support. There, user page table freeing is already RCU-deferred; it is
-what GUP-fast relies on to walk user page tables blindly with no mmap
-lock. khugepaged retracting PTE tables under the pmd lock is likewise
-covered by pte_free_defer().
-
-So the downgraded munmap() teardown you mention is already safe to race
-with -- for a walker inside an RCU read-side section. The write lock is
-only needed today because ptdump walks outside of one, so the deferred
-freeing does nothing for it.
-
-That would make the end state: the whole of ptdump -- userland, efi_mm
-and kernel ranges -- walks under RCU with no mmap lock taken at all,
-and the kernel-side freeing conversion we discussed is the only
-missing piece.
-
-> I spoke a bit about it overall at [0].
-
-I think you forgot to paste [0] :)
-
-> We already have this mmap lock convention as a requirement for kernel
-> ranges, and it was being violated by CPA and vmalloc.
-> 
-> So I'd prefer we keep this as the proximate fix to solve the bug here, and
-> then revisit this later (alongside moving to RCU page table freeing
-> _overall_, though one doesn't have to block the other).
-
-No argument, let's do it as a follow-up.
-
-I will give the current patchset a proper review.
-
-> > The free side looks cheap: kernel page table freeing already funnels
-> > through pagetable_free_kernel(), which already has a deferred path
-> > (used for IOMMU SVA). Adding a grace period there -- synchronize_rcu()
-> > in the worker, amortized over the batch -- covers every freeing site
-> > by construction.
-> 
-> Well I did want to say btw that CPA doesn't actually mark the page tables
-> as kernel, was going to chase up with something on that when I got a chance
-> :)
-
-You are right. CPA allocates the split tables with bare
-pagetable_alloc(), so ptdesc_test_kernel() is false and collapse frees
-them via __pagetable_free() directly. Note this also means they skip
-the IOMMU SVA KVA invalidation that ASYNC_KERNEL_PGTABLE_FREE is there
-for -- that looks like a bug today, independent of ptdump.
-
-> 
-> synchronize_rcu() is a very bug hammer, you can just use call_rcu() (and
-> the ptdesc already has an rcu_head I think).
-
-Sure, call_rcu().
-
-> Keeping in mind that vmap can (in theory) span PUDs and even P4Ds it
-> becomes a bit tricky.
-
-Since the walker only reads, I think it is enough to re-descend from
-the pgd with fresh READ_ONCE() at each level after dropping RCU --
-whatever level got promoted in the meantime, we see either the new leaf
-or the old table. But agreed this is the part that needs the most care.
-
-> 
-> But also I worry about whether the entries in the page table will actually
-> be valid at the point the walker reads them.
-> 
-> For vmap/CPA pretty much yes they are, but if something was to actually
-> unmap them in future then that might no longer be the case. RCU will only
-> guarantee that the page tables stick around, not that they contain anything
-> valid.
-
-For a walker that only reads, I don't think staleness is a problem as
-long as frees are RCU-deferred: the walker can only reach a table via
-an entry it read within its RCU section, and freeing requires unlinking
-that entry first, so the grace period covers any walker that saw the
-old pointer. Stale leaf contents are harmless for a dumper. It does
-become a problem for anything that dereferences through leaf entries --
-agreed that the general case needs more care than ptdump does.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+It doesn't add much value. This commit insn't really buggy, it needs no fix
+for the eBPF. The fact that cBPF is unprivileged, opens a window for a JIT
+spraying attack. Also, the the patch is a backport, so it should stay close
+to upstream.
 
