@@ -4,154 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F00C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDC0C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ubat+z5QjnYmtaLIKT2fPs8gd+++aNLEi8AJBYOnLcY=; b=PQPzxj0c0egg/BSN1Dc1X/gn7O
-	7thwEwQT2G3Vh4VmjA3BdRHjl6HXluf4i30qkWpjce0fz4ZxPasCTL3qRzvHGHJ0LGp/LslJCoshd
-	D2LoXE75iJIYeKIt1pwmuFWaw5agESPQQpcKINZbKRhVs+7dedLYL3rDl4RCxuW6PQMjdlSGnmRGY
-	mOPrqJ2mLPmJKg7fN7RHqXZhczPXorDekZZhkc+l3VLMRSjyV5Yyd2Pp+j3PeFyJHzYLG6MiEdgQJ
-	DlWNE11YwlsO0JUETi2LQRC5+mjRwMpnACUrY7FzeKOQjL/CQ5X7iqCyt66DcEaBCk7wm9Jcd/Z1c
-	benybTgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZ0k43QjY4fFBTZv9XwnB5eVI6fl2iA5pqXp0CRkiRA=; b=IR6EW1kB1OeJSQUZSyl9kTMacT
+	ZDVIO7uNIgWoQisLtQoy1wPOEg5N6Lel8GcppzXaAw/I/oFrSha5nrZ9JIJExMLNtm2LKjbr0zfCy
+	OC3CP6eoC5fx3fiJ1rSWd/jQRG/UulBzMjoySESsTXsAqLgRsw1tkZdTo4941+7V9CcXhL1Qx1X+d
+	zTeoWY15o09Pc1Kov2uHfl2MSGpYV5nL3rdh4PhM3+yfH+UE9cEDde1wNiUL9Hl3vmhFvyHZxuT8E
+	IF3jI9o3Ydd9W+famu2zZdW5zswobjRHLcxSN9NeK1u/fS9gBlEAzQtx0NFeIEB51OezfAvhzFqXz
+	RfqSFZQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEUr-00000008yCc-09WG;
-	Mon, 13 Jul 2026 11:06:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wjEVz-00000008yS6-1NPY;
+	Mon, 13 Jul 2026 11:07:59 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjEUf-00000008y4n-2R4y
+	id 1wjEVv-00000008yRm-46dW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 11:06:40 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DAqbTL507318
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 11:06:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ubat+z5QjnYmtaLIKT2fPs8gd+++aNLEi8AJBYOnLcY=; b=EDAGdw3eJHavUZd4
-	kZEDTL4iHaq956dBAgvXAkkiWWOfRTEYZ+FAshmpXc1eIm4/MG6nHfwS1irzRFCQ
-	XAlX0DO6j1gg+fsdnfV2ZCraIX9IuXIppNMmnlNmVZfk03YA08Io1PJulFnwrxTS
-	R0hNBpY6h2O/0ael8DW5XFNoYbxlIXdh+oOCjrMzw1sTjtQiXTERcoQj/K/AW05N
-	zP/EFXz244kR8ZGYLOSMc6tmv/2KGfrus7tsCXOuHhC4YP1hGFV/6sM2yzDv9Wdu
-	vCHIKnso674+9ma/jZt0QnqfS6kmM95v3AIogQ3v5Xg9UAN8RF0JNPUU9Z3o2Zpq
-	4swpYw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fctc8h5uy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 11:06:37 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8ee593a5a2fso39255236d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 04:06:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783940796; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VFJ6rjSEBxw6lK7ObXtp2LN+AlY0ki+39tns66Ok/MIuVaItNYeg+fwJEoagWxAjDJ
-         YHNbYozjfwKUxGOmq72PtMDLM7kHFzBA9Oc7SMv9JY9A+lqahUxUHI+3DuGYItnpx81n
-         tGDz8U76sCC+QUeOqPtDEdk/HEUN57YigchCZ1LBM8mOKiG0YQqaDnKssc1nJyvxza/c
-         d2dLcf4cfy/8VzgVkKsFrJAufX0b/tRarOGGKG7k2v3Adjdvm1yTiPSbetK+W6f+FqNa
-         6og9pOGMf3rL4L9bCtg3omXWozrQfQu8hOEdvKVViZpY2dVdkDqX71O1iKieOzZ0rz74
-         JvsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ubat+z5QjnYmtaLIKT2fPs8gd+++aNLEi8AJBYOnLcY=;
-        fh=D1wv/YGa1XH1/n0JQx39NQzlyNOQSeB4pcv8YZAu/BU=;
-        b=KbtVmx5bKQoMYVN89WVvlohYjdOyusVN8zbSWZSyFMkyj96ucHovZQygDUbZs3CL2U
-         uavn2q1HWkULj0h9r5c1io+Vkxpli1p8yN0kPP1Ip6B8l6WzB9J8p2fMzxouqOCmAWFv
-         BGBfnoZBGbxsNS3pqBVdjGQRs3SJ8328eMmVicWsareV7wRYB3aGuMpQTAL3FoF9ayXT
-         8HFx9UAR6fScjcOs0xE3J8xMZw/s6m+DRgoLXTaS6qta89lqC/PxOR+83H7+nRCKsJjE
-         iV8btHG6nbNWpIobk7149uORdyoT3R/tCavRYgn2G0T2LJmuZhxAb6EOPezAFH4qZmJG
-         RD4A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 13 Jul 2026 11:07:57 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493b8d92a4eso86595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 04:07:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783940796; x=1784545596; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=google.com; s=20251104; t=1783940874; x=1784545674; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Ubat+z5QjnYmtaLIKT2fPs8gd+++aNLEi8AJBYOnLcY=;
-        b=JcvKNjMEvsajlrHPjceGrP9oOrL7gbJFyKYHSfy29x8okp7qjnGrM7bqTQubgD2L4i
-         rkh2QlVFCHKLv1LV9xE0E7NBDCS1UDytnbI8a6XnUIwMCo7JMia8jT5/O9OSsDy15ewo
-         LyOsbY8blWGoAbTCu9lxXAw/fiAzfC1xsWxwhvzNvn3YvWBZOvPJSiua91lNNrn6d2Kx
-         o9X3u7bG2TFigev87fsX881yXiS10pem6qTTSVtb2WbFCCQ4WMb7PWeUQlJBDTkApftx
-         W2lF6QLoayJ14X9JFNYiaRFaiEuEOonC4WZc5z5lXEevVC7sL0VphIDTN76kqq0FuD1N
-         hhFA==
+        bh=YZ0k43QjY4fFBTZv9XwnB5eVI6fl2iA5pqXp0CRkiRA=;
+        b=CK66JEUf9X7AJSc8eoDZA8apQChmc8u/9zl/TjycVqnRw7W/AeQj9IgRLevRlh0e5S
+         58BVZHt2wo2Ap/iJ/eAofk/ocojChPmApZ/F6DJpy9BFYJXYGrZb5JXP+StTDWV5E/N7
+         NTpfxDBmbg1em9KWms9JuY+jtfxV11Kxy/pDJdSx2WUg4QmeqEfBiURBUFpGAudtdYsb
+         BjWe6o7rvBygAC5xbAUfn6NimnrnzFhipDP7KnXpS0R9OdQ1pR5n9v0bW4O4B14MLGAz
+         KRMMXvvb6pGkApTe7/luatNqi7sRIndH128q7x4tUFJHnNt1avttrNWpOcDhU8WZRTxe
+         79Jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783940796; x=1784545596;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1783940874; x=1784545674;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ubat+z5QjnYmtaLIKT2fPs8gd+++aNLEi8AJBYOnLcY=;
-        b=Zls9hQZKxDC5Kt1EJ5pwOtUA1HJ3/nKfG189yiPGEKKtZqWUwRpEhXj/zjbcF5sDHj
-         LNry5VuKKnL3hyCAGBk03IRM426xEl2aQ+iqcyqwfVAZ8BFqB3jMulQiA3WtUioYLRZe
-         3L6wOsLR1a1Qluml3UyfkSFKdeIX62gShb2uWAueccXSX0SaXFWe6mvSwY8TPtBJ+QsR
-         fODjlYpEbe25qdZ2UCkSfkx02G4tlZkq6Hui6gds1CGBtl8+57J9zy4M2hzHWTFCrG4b
-         Y/bq7fFE8+USdU4L3iNyVKkyuPNS8REqObuMTIqt2Qp5Eo/smJzSxAQ5l9Kpkg65dToZ
-         FMwA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr3ONdiDj1IBRh0FG+OWNJoV8a6fAX+9p2tz0tqcpsvLFifi1YwKYI5tC8EOdodoSQQ5O2cgARWpUYZsIAzZhBs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLnm/ARZZpvdtjAz1Rhz/Aewi4j7KTlG5pS8EZRtH337ES2Qv4
-	cdsEnbgJ/W/ul7BXOBEKvm7vVi2rr4XEaeosbgigDvUBEJyxvzB6+mUeYJ4y8nIrO9gFHBeKxsY
-	rBZ8CxdeLxYYq8Zs5TYym3AK7brqxr2lfwZy8/k6PJz5iMn7nAIf8z4RhRpEflxd4rfNHAWoBc9
-	pOydTgev7/T5vRYfdm/8wbJ8ovjYiTxhOXrmgu5t2iQdKkujpj0JTU
-X-Gm-Gg: AfdE7ckQTf30dmyAF1mc5Cq5Do1LHKiX79T3FSrdYTyUnhEPEe6m7gW+RaRyq+BX78a
-	j9WgUvTwC7jt3t9JlOCJhtfDgYBvOdqasjWpmWkZOYKRpMBu5n4CFWZP+l3/sk0Hgq1cyIPOImi
-	dtJ5EAbX4x5ri4gY2vMz/sXH8MQdShw5BNsxeKYNbuYcRPW0WlYx5Zd2G7Ct9plwOvoADl
-X-Received: by 2002:a05:6214:4c86:b0:8fd:b96d:195b with SMTP id 6a1803df08f44-902360add0amr136214436d6.15.1783940796130;
-        Mon, 13 Jul 2026 04:06:36 -0700 (PDT)
-X-Received: by 2002:a05:6214:4c86:b0:8fd:b96d:195b with SMTP id
- 6a1803df08f44-902360add0amr136214106d6.15.1783940795720; Mon, 13 Jul 2026
- 04:06:35 -0700 (PDT)
+        bh=YZ0k43QjY4fFBTZv9XwnB5eVI6fl2iA5pqXp0CRkiRA=;
+        b=I8W+Nw+jmBjHqiiM0joFthwj3SAT1bpcZsuh9e+LVwACTR8j03MdJSTF3oTjH29K4D
+         RIqAPQQunO/bljxH/9vM/Svdguh8nIjph4LhZWABtJhfKkMA3hXO1XzifCf9J5oWnxP4
+         dX58ZdVGm+u/G9wptzcEVU0ZXVvNyJJ0TAopPeu7SgoAxF0q7rWp/W0Wa0vhwMHrqpSz
+         M0KgSrJyaxAUh+trvYBEjzZexNV9C9QN2pfaK0uY9pM5/IrIqDprXiFUIYJM9LEexR9v
+         Bb9NVxe1y9bbPCOlcml8Lv4W51wIcPTLFzq+iPKgdmArq2Ual4wVKkZepNYE3P7e37jb
+         u/pg==
+X-Gm-Message-State: AOJu0Yw/qLLGepvQO0uUf517fh68afl43RBk85hMn0/owULw/YGQ4K8b
+	vPW1+SqgHtpRun1N+YexZgB12eWaAevtHqXB5x0dftbEsu6nSeglT2OHeotvYEsn+A==
+X-Gm-Gg: AfdE7clVUZVOrOdikyUrrnIMLsDVTRXQLEn+EQWeGTdI5JQGtrp/bufd0apbEh2UDts
+	9zTsdvKnUdHERiLq+nxX5sI+RdQe/P1vUbYF8F31TwcK95HANaF07fAu+ugYmhg2/5BaEYRW/LA
+	iLqwvSKmdJNk7sd3clrmT5nxPmxRpt9rGDbpJGK9kFu0ADrOwFDiDJcEEFRJFucpUE7bOqxFFVU
+	+hJxhxXlurjIvYAdkaJui42ECOmiqyNmSEk/8YAJ/yez2B6OIfeOfEHcjHgofJ3vZUNl1s5KPK6
+	uupN9Q2PtuJCd/YM5JW1MKExtZPx0h8FfzTWXRirjw4qgDDWngxcib6REf+IqdvYC1n7r9klvNA
+	WFDS21KBmW+1250j/+Q913IWRojoALd1tX9S0WasqVz7yMyUNaPdoBONk8mNcX5vWe4H2dtP9Pv
+	K0mNhG6Zz6I2TvFjQV6sUMMEMxgYtMHXqwZ9kE907lypzZ0aqm
+X-Received: by 2002:a05:600c:a088:b0:45f:2940:d194 with SMTP id 5b1f17b1804b1-4945e32136bmr235535e9.2.1783940873591;
+        Mon, 13 Jul 2026 04:07:53 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0f214d2sm82275582f8f.33.2026.07.13.04.07.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 04:07:52 -0700 (PDT)
+Date: Mon, 13 Jul 2026 11:07:48 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 16/25] iommu/arm-smmu-v3-kvm: Add CMDQ functions
+Message-ID: <alTHBD1YBiTbdbIG@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-17-smostafa@google.com>
+ <alEXQ2X_0XQylvw-@google.com>
 MIME-Version: 1.0
-References: <20260530204636.1115120-1-mcanal@igalia.com>
-In-Reply-To: <20260530204636.1115120-1-mcanal@igalia.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Mon, 13 Jul 2026 13:06:24 +0200
-X-Gm-Features: AUfX_mzoo_GCCpmgP88Yj3-TYi906i2_TN-ZPhKg0bAnY7K4DQfnPcCJyPkqp1c
-Message-ID: <CAPx+jO_oP7HP7bkd5SVmxA3x+ND-mCRT__8ALpy6mhufP8MtGQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to 100us
-To: =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>
-Cc: Ulf Hansson <ulfh@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-        Stefan Wahren <wahrenst@gmx.net>, linux-pm@vger.kernel.org,
-        linux-rpi-kernel@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: QoeyXuWIks5rPtpFyghrSWLOf2hA2fuC
-X-Proofpoint-ORIG-GUID: QoeyXuWIks5rPtpFyghrSWLOf2hA2fuC
-X-Authority-Analysis: v=2.4 cv=UtRT8ewB c=1 sm=1 tr=0 ts=6a54c6bd cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=V2sgnzSHAAAA:8 a=xiSneWFeW3Tcw-NpSFEA:9
- a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22 a=Z31ocT7rh6aUJxSkT1EX:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDExNSBTYWx0ZWRfX4Yhkvu6odQDA
- dIWnc1lTrHYB3qjimD7kblm29ugavPMqxjW9lVKStzlKEDSNBND/cjkiZOT1WI9uqKadjUu8Ajw
- qTUaJYDofzFjqtvoLKvRKrG2h1Ly7+A=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDExNSBTYWx0ZWRfX4RE+Mz1mmI4V
- H3X5aXIBeQJJvXAZ0AoGX1uNAEtgOYAc+QfXX36f5kNH4PDjYyae3O6+LLQTGMxOk2XjV34lyfl
- Fw5EAdpVAJ7bCrOv+irVT1BJzkvW68AAOAfbP54n7XoXkCHXMmhXMm8wPcc+HfAC/LajSdKVJYF
- i7JFqeQwOA430C1hU2YrrxsugYTwQDID3CwhSqqlGKt7AwYybP9FgqpdN8oIc4itGdX03VZJTzW
- QDGQY2MrDNFEUHIhI/fgSd/7kKh6Z1DX7lTB4D2iHI0O3koS66WHVe7UAsJ+F4fvX4B+bbe9Oeg
- XMnkO06qahHDMk+ui2GcHxYpl6EyP2zwJ0BaOqqhIZLuw+DtI3aKxjVrinWzu4Wv71xKW3x5nag
- TCYqWc69SaLnDPCyrZy28Ay+1Quge8ZTCrHMJ1Ku/GpxQB6Uk+orCMFW9ODY4yExfuPg6fkORZj
- bod+J5j3j0U3Tu0yRjA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_02,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 suspectscore=0 bulkscore=0 clxscore=1015
- impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607130115
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alEXQ2X_0XQylvw-@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_040637_674625_2B930559 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260713_040756_031371_C81E110B 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,55 +105,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 30, 2026 at 10:46=E2=80=AFPM Ma=C3=ADra Canal <mcanal@igalia.co=
-m> wrote:
->
-> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
-> timeout") raised the ASB handshake polling budget from 1us to 5us.
-> Surveying the pmdomain subsystem, 5us is still one of the smallest pollin=
-g
-> budgets by a wide margin. Comparable handshakes in other drivers use:
->
->   - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
->   - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
->   - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
->   - 1s    : mediatek mtk-pm-domains, mtk-scpsys
->
-> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
-> still negligible relative to a power-domain transition and gives the V3D
-> master ASB substantially more headroom to drain under heavy workloads,
-> assuring us that the timeout is enough for any scenario.
->
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+On Fri, Jul 10, 2026 at 05:01:07PM +0100, Vincent Donnefort wrote:
+> On Fri, May 01, 2026 at 11:19:18AM +0000, Mostafa Saleh wrote:
+> > Add functions to access the command queue, there are 2 main usage:
+> > - Hypervisor's own commands, as TLB invalidation, would use functions
+> >   as smmu_send_cmd(), which creates and sends a command.
+> > - Add host commands to the shadow command queue, after being filtered,
+> >   these will be added with smmu_add_cmd_raw.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  14 ++-
+> >  .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 107 ++++++++++++++++++
+> >  2 files changed, 115 insertions(+), 6 deletions(-)
+> > 
+[...]
 
-Applied for next, thanks!
+> 
+> I only looked at that smmu_wait() as this is the hyp_clock_ns() caller.
+> 
+> >  
+> > +/*
+> > + * Wait until @cond is true.
+> > + * Return 0 on success, or -ETIMEDOUT
+> 
+> nit: Would be nice to explain use_wfe. 
 
-Kind regards
-Uffe
+I will add it.
+> 
+> > + */
+> > +#define smmu_wait(use_wfe, _cond)					\
+> 
+> nit:, (__use_wfe, __cond), or (use_fw, cond)
 
+Will do.
 
-> ---
->  drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/=
-bcm2835-power.c
-> index b76d74e3849b..d507bb675e29 100644
-> --- a/drivers/pmdomain/bcm/bcm2835-power.c
-> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
-> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct bcm2835_power *=
-power, u32 reg, bool enable
->         writel(PM_PASSWORD | val, base + reg);
->
->         if (readl_poll_timeout_atomic(base + reg, val,
-> -                                     !!(val & ASB_ACK) !=3D enable, 0, 5=
-))
-> +                                     !!(val & ASB_ACK) !=3D enable, 0, 1=
-00))
->                 return -ETIMEDOUT;
->
->         return 0;
-> --
-> 2.54.0
->
+> 
+> > +({									\
+> > +	int __ret = 0;							\
+> > +	u64 delay = hyp_clock_ns() + ARM_SMMU_POLL_TIMEOUT_US * 1000;	\
+> 
+> Does it help to lower the risk for the 128-bits fallback if we keep the
+> resolution to _us?
+
+I will remove the tracing clock support as mentioned and I will handle
+the overflow in smmu_wait()
+
+> 
+> Also, ARM_SMMU_POLL_TIMEOUT_US seems to be 1s. Blocking that long at EL2 is
+> really terrible. Any chance to lower that? 
+> 
+
+That should never really happen, I am re-using the kernel max, but I can
+change this for the hypervisor.
+
+> > +									\
+> > +	while (!(_cond)) {						\
+> > +		if (use_wfe) {						\
+> > +			wfe();						\
+> > +			if ((_cond))					\
+> 
+> nit: I believe there's no need for the double () here is there?
+> 
+
+Will do.
+
+Thanks,
+Mostafa
+
 
