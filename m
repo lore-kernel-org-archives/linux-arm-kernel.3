@@ -4,158 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00073C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDB4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsYB8yHPbPP+skFaM9JiYXJZSC7Kk8Ggqc+cNJG8mMI=; b=upR0RaGFF1G1Syi52FuIJrGW0t
-	9NTPdzsOo83DPGvaVO/X4uXKqTQTC9iNP6+bsw275k1bkPxf7mBxNVKcQQlXu1EeQJSf2cAYrMcOZ
-	AYm44ogiLCYzdzxGfsKXiD660JeFOmx5JeNOFzorqye11m5dV9qgneHShOS8crYR6a9n7U40aTdyT
-	vYnq5J8Nx+42LnBVBbwg7Fm/v714LnKaQQGQ9u+YKTWIAI+oz48uDxJYRuNkwFnijjns32SvA0ANZ
-	9i1zcrcqT10+XNIntqbVdljJI+tw1+7Nmx22svLEOOWIdANbOPvz907MEDEuy7043ropSUWw0KGrI
-	ktKiTJ/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n2Nhmjf1P25H7Nc2LjCEV+3VIdZwevh4O2RWWuW3P00=; b=EiqGxWpXyyDRfJ4cSEr893+ZCW
+	2vKBcV82BbmKHbkjYt7xPJ7fvN1xWOruTUJOXmajfwc9USDDHaAvAScNLFZ+/ujZhk50cFQ9CMzzV
+	/lDXx4w01Xbarcv/D4iTfHqVbuYndtM0TLUA2fvySDllwXwddVQAaFBZB9htWfZnLe7p7CEhGpKxM
+	qwoU/OgBwZCLHnPcQBQnhK38IE/sGR0EmUH3Y0f/S2QDV7sLDBgVHUTQExQbcN/EpoU5BNU2u5mSh
+	dxWhQevky5NaAajXDq49ck9M45GBmGmtkizN0LmFelbwt7G4G+0lAeNcn9WCIwZ+yXW8yM35DFS8P
+	srAOmDZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMd2-0000000AJwp-2gvL;
-	Mon, 13 Jul 2026 19:47:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wjMeK-0000000AK34-3Rkb;
+	Mon, 13 Jul 2026 19:49:08 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMd0-0000000AJwR-2cVq
+	id 1wjMeI-0000000AK2h-0Zb5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:47:47 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DJ9QaF2256804
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 19:47:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LsYB8yHPbPP+skFaM9JiYXJZSC7Kk8Ggqc+cNJG8mMI=; b=E/gg9+NM7cdqU6GK
-	J1bGF6571fqlPr11tx0ljupGSTx+WHiufAYJ0CWbEGlT9oszrTgyU+z9FAknSGwy
-	fG9jvps2RIE10yGfVj2sWn/RcY8J+JeBzsMePAQJVgF6/in5qK7E7c1fTkvv6XhF
-	cSG2MzLBtd29VIrn8aHj7+wshe1L8u998/J6n1ewYeW/yUZ1r+nwS1ky7lk/74b+
-	AdR2WG4PBFDPeLq3sJYZyGo3Z+eF9xf9+oRcovn8qc+W8YqS63VQisAf4yQaoOwb
-	46FcO5uxfjisKfE5RqYIzistF+zZ4KclOKJJMXUzyENA2Vm344ngFQJMnXVmPosR
-	iwBOMg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fcwk9tbmx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 19:47:45 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c916d17dd43so6094092a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:47:44 -0700 (PDT)
+	Mon, 13 Jul 2026 19:49:07 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-664d78637f8so6246916d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:49:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783972064; x=1784576864; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LsYB8yHPbPP+skFaM9JiYXJZSC7Kk8Ggqc+cNJG8mMI=;
-        b=hyeRPV3vfxEaXItZ4hG5Qd3GqDhC68v7lBCo1mBcGr4Xs/afSsuyd40hCcbZdoW4SR
-         7qg784tOL6F0giRsd/8il5Xx0yciQzkVudA9oVianv9TLXsTm8ou31W2qNv3nnhFgzvm
-         QPg2I4OHsw3g6sKLN05A+jlVc5KHUfvC/OPf+SxF3Zfer2T6HelWxOQ29lz55S3lVcPd
-         O6S53Bews60jEwjlDlSfWYDEA3u1Gla7LMDSQaCKpsaWRq86DXxkdU3mGoQDaImvc3Xb
-         WG7tT5VzXu/UeICzjVUu3aAeI7rgSG8w6fsWOkWFH5VAwhv1Rev49/k0KDIA6No59Fgw
-         Yrug==
+        d=gmail.com; s=20251104; t=1783972145; x=1784576945; darn=lists.infradead.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=n2Nhmjf1P25H7Nc2LjCEV+3VIdZwevh4O2RWWuW3P00=;
+        b=C+KzyteMcWWNk149W3h3bfGdPXFV/rAjWRonGxbM6ue4EVhQhCjxJhCYkdnRKkGfJQ
+         1BSggr0BSB/Io1MR7l+7J7JKbNL8F/mZqTOY5GN/HLdS6Q1+kiA0r1sEddPc5gF5IPgH
+         +sjaFpGVsi1hBDpVyz7TjoBllUCyFqoEwPsw9XmKIC+SXolzVLNkf5dFkJZO/POiE1Gu
+         mFeo+z+gcUgFSfyIs43EMZp3q3Ovv36KgOWtNb5VJaprKPvVnELuplZgRXRqrgq0G6xs
+         gmoRI6HKMtDgVgVVZnrDGrtAz9au6t3W2JYIFFPfoXelLi7gziVQSa47FCCgJ+8bATav
+         AjhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783972064; x=1784576864;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LsYB8yHPbPP+skFaM9JiYXJZSC7Kk8Ggqc+cNJG8mMI=;
-        b=Sxz4w86zLYvq3rDC1tO9aV1nY4YcKkRCnYHRefbbuIa17JpN0PbvJj/6wwRnPjrWlU
-         zIJNWz6UIvzQtxlbSTBWZoBWZeRBQc0jexdhEVJgb9ggI/L/FtoCyN+sjaDZNdvoT60t
-         5DB9y4HH4BEr3Uw1Y0fqLhiT/SN/x3mKgPOKphB4/ZfXXiWIRPsISjgXYr6tKQpfXIcb
-         kzj7XR0XCR7Ssg+37ibxOsQ0oJMQNDqAx7VMDeXz6GGwoN/7YLTyRKEzIZMhrnTFrToA
-         2znfKKPwKfVYS2XMB8dkq+cUgU6DLMrD/OS/MAx6HTdllSi1Ih4H4aUoYf3d0qmoaYiR
-         hQJQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqxNJ1tBX9dTle97hOPl/LA3xGKef0df3DjduqT1fVOgF9LX+0oMVt7HMklwzEaPTy2zFQ/KXLfOPMCXhJLvBJt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH4ZnVlPX0kqCNmvCUbHJpgmHieJz3/80FbRmInBQ22cAhOX31
-	E4S/fXLuYZkTgJ0uygSEUvTtnd1BCDL5gF25icLBXLxgewp/70zHImOvYTIqr7giRYwNJdXHxrq
-	PPfjQq96p+WqQxA4s0kY7zQaCWEVfXSn/RiySeF8bIb9EA8sbCrebbWWU8ftiON41ji57NhNjpT
-	oIOg==
-X-Gm-Gg: AfdE7cnzwQzZYuWuMM1FNW5G8Y9eAFPrQxtQOxYW8poXXw4BPVh7abwRmNqiZAHiL+V
-	HNCzIc7wCXsMFuMP0i5zFbYxS66x0sEqIlOnGMB9S8IJK2JyS+vQmVQLfuLTVZjSN9KqwqOS+j8
-	J92YK2nj6ALiU9j+X3Roo2eOm3ej1fAed4cvEuAL8buKdwwlQ1pkN2s5wLQmm9q0t9+tubs6Zqn
-	D/TLNYCI3LauBmKbbop/QULhUUN+aAqfRSubTGVCWpXNdImg2iGgboFINz6HadC9rCPr6cXda/a
-	nqiZNi/Ioil6xZKmSIbCSj+k8LGGeu2iN5D1WzfJPH4g76k+3qVCxm4i2EjvxOgTv9c0VOaP1Tw
-	KQNoso2RYH7pys/aCYprcY3KCKxfG9Agdc2s=
-X-Received: by 2002:a05:6a20:6a28:b0:3c0:9c19:65be with SMTP id adf61e73a8af0-3c110a74421mr10454885637.70.1783972064014;
-        Mon, 13 Jul 2026 12:47:44 -0700 (PDT)
-X-Received: by 2002:a05:6a20:6a28:b0:3c0:9c19:65be with SMTP id adf61e73a8af0-3c110a74421mr10454838637.70.1783972063592;
-        Mon, 13 Jul 2026 12:47:43 -0700 (PDT)
-Received: from [192.168.1.5] ([106.222.235.180])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13ba45b7049sm6823350c88.12.2026.07.13.12.47.34
+        d=1e100.net; s=20251104; t=1783972145; x=1784576945;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=n2Nhmjf1P25H7Nc2LjCEV+3VIdZwevh4O2RWWuW3P00=;
+        b=DIoAVp5scvS/XgIENZI09Dplt9VJa0VnhtqvQvoXwkeREqhOAORLSlTsovYh2QAuBW
+         Oty2oaaS0WPG0DRskYzSg8RUZ7lonidyX4Pm0y3K6ybfJyBVt3zZ//kWK4ZvU5BtQFBp
+         rxB62hVm6NZwT69tLd2YRLbRCvoTsdVi/Jxak5eV+rPIUdl4oIHoVyZLS06qUGM8ATlG
+         nUXUknIHAqqT5Hm8Kc4dVokwGToHhCeskefjk/Sz2T/28IFmEYd7mOZNRY+xAGMkVXpS
+         WuHA8HLEzZIltPSXpSYkPKkgItMrAe+odRp6KO4LuOOCG3glh/1kR5Igc0DIliS6YKPR
+         eZMA==
+X-Forwarded-Encrypted: i=1; AHgh+RrOwodANPqAA7TzI9qQWwMbAxZe5lja3zesmWLKVN12bE7z6/jt+9LlEhBWD22pZbw6dYTpbN3L3brkeXi9ao1a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz33pKCnpUEw4BkkNcjpDFQ7/29zlryxVAvqlFSpV86F64HZM3r
+	LE2QhwP46fD8vREvI3WHfkb7JWntWwyoHyZuZkxVDhCeFFn2zvVHX6Bu
+X-Gm-Gg: AfdE7ckZsG7ezgBLUnl6WM9SMVn7PBYLkdtNf09D8nh88NvwUgBfM8q4KpzXlGDXly3
+	nGAIByyS4k/c85Q8eXIRTvUmuhCZZm5U/qj8xB0v9Y4tvzVLrktLzd/TnrQW3SE2XLhTlENxAyS
+	Gi6L34vRr8KMvvbysYqdKjEURlu+1BiGQC+X3iMLdd/4csxU3cas9yrbfn6ywdiWU7djYlqM02T
+	2WBjwmf5iwpLJkUUWGoYry0nXjKx+39NRB7VBHoUP2MdIl+ad4DxyLY7E98HsxifNicdaigMEWl
+	/218V3awgqWl/HuLq/1+isLCSuPS1g5EWS/8a5hMt0RxOLXllwF1J4XcWxi1xdn/Qnli+TYARcv
+	bjkQrfqsCNqilLuFC4nAmnUFRFP9qr8vz8Knd6pOp88U1qIE3iGqtxkU5N0MdnA36ScKJ3cl0h8
+	KQp9Ru/wWZ+nG7Ow1/neteVP6IZoRAz5N0iTS+
+X-Received: by 2002:a05:690e:1246:b0:667:ff9c:21dc with SMTP id 956f58d0204a3-667ff9c2a33mr1497202d50.93.1783972144782;
+        Mon, 13 Jul 2026 12:49:04 -0700 (PDT)
+Received: from [10.138.10.6] ([185.98.168.14])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-667879d8818sm14496185d50.13.2026.07.13.12.49.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 12:47:42 -0700 (PDT)
-Message-ID: <e8255fe2-a67c-490e-a905-ed056c6af950@oss.qualcomm.com>
-Date: Tue, 14 Jul 2026 01:17:32 +0530
+        Mon, 13 Jul 2026 12:49:03 -0700 (PDT)
+Message-ID: <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
+Date: Mon, 13 Jul 2026 15:49:00 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] arm64: dts: qcom: eliza: Add GPU SMMU node
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
- <20260705-eliza-gpu-v1-6-c9f1354dbd29@oss.qualcomm.com>
- <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
- <5fcc0bc1-7f9e-4611-be77-42860e0f4c74@oss.qualcomm.com>
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Eric Biggers <ebiggers@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, stable@vger.kernel.org
+References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
+ <2026071312-uncover-refining-8cac@gregkh> <20260713130745.GA2254@quark>
+ <bd5821b9-7459-4db4-86ef-bd67fb645753@gmail.com>
+ <2026071320-encode-modify-6193@gregkh>
 Content-Language: en-US
-In-Reply-To: <5fcc0bc1-7f9e-4611-be77-42860e0f4c74@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzEzMDIwNSBTYWx0ZWRfXwr8C1Bam358c
- gzXL+kniSHX5Q1kZCpf3vtt5VobULm0J5nhBlHzs3TDO4GuI4DjGCPOLC+D7Avh9q7ox1sei04S
- aNSNdkP7+eOfDpjXNj7dea51vFsvTHWAEsD/pQlN/vno+hgyj1V5er+lcXI/g7IK4JZGQ8U6qel
- HwXfeve1yd76zEHfebHNRgS5llgZh9fsnKBypMD0S+Q1Sdi8AMjPx8nE/Mjv8VdxsRVo5h2uVXm
- TBBps2GLRr6Cu/mUFHc1mrmT8Moi48mFr5D3Ft5FQsIeAU6oD1HRQAe0RiXqVP+Jh9wIeCu3+1R
- WyO/nTGhJNiNa3eU2S4trhC5fNaOuilksrgh/RZmog25uzV/9rosRsZIq1eSQN7NUMZEzzAJKnK
- d+2QYw7pgBHBdcyxBtCSmVMxQrrORark1R0lR0AIcVGyHXwnM3UTqvMeyZugI919XLVBXi3sPj2
- 2d02HcKKP/y7ro43CpQ==
-X-Proofpoint-ORIG-GUID: 2X0_MaWOK5b-ENM2nPIMrYo3lDSUIhFt
-X-Authority-Analysis: v=2.4 cv=UMHt2ify c=1 sm=1 tr=0 ts=6a5540e1 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=yNfbWwvibup9Ri9izU+P7Q==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=sy2TSPCRsGNh5uQNLmIA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-GUID: 2X0_MaWOK5b-ENM2nPIMrYo3lDSUIhFt
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzEzMDIwNSBTYWx0ZWRfX8IMAPseXONai
- 7oJZyBmtQQnu2Kjyd1ICGHYk2lc/VtT5HL15iKW4UiO+yrhqaFDfVLJsdAEUIRlJ9e/ntEWOlKS
- GctFXU88uhvI4D9NnXvSzWm4kAiztaA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-13_05,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 spamscore=0 clxscore=1015 adultscore=0
- malwarescore=0 lowpriorityscore=0 phishscore=0 suspectscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607130205
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <2026071320-encode-modify-6193@gregkh>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------vgImv900avlh0tVHitrPh5xj"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_124746_816972_A101A2BD 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260713_124906_201158_0CFC9D74 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,57 +151,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/2026 4:38 PM, Konrad Dybcio wrote:
-> On 7/6/26 1:07 PM, Konrad Dybcio wrote:
->> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
->>> From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------vgImv900avlh0tVHitrPh5xj
+Content-Type: multipart/mixed; boundary="------------ETtg58S8PChwJVaC0HzUiT8C";
+ protected-headers="v1"; hp="clear"
+Message-ID: <dcf16dac-e26d-42b0-a0e7-32990446f7bf@gmail.com>
+Date: Mon, 13 Jul 2026 15:49:00 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drivers/crypto: Mark QCE as BROKEN
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Eric Biggers <ebiggers@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, stable@vger.kernel.org
+References: <20260712-qce-broken-v2-1-b2dfff47f7f5@gmail.com>
+ <2026071312-uncover-refining-8cac@gregkh> <20260713130745.GA2254@quark>
+ <bd5821b9-7459-4db4-86ef-bd67fb645753@gmail.com>
+ <2026071320-encode-modify-6193@gregkh>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <2026071320-encode-modify-6193@gregkh>
+
+--------------ETtg58S8PChwJVaC0HzUiT8C
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+On 7/13/26 11:31, Greg KH wrote:
+> On Mon, Jul 13, 2026 at 10:42:04AM -0400, Demi Marie Obenour wrote:
+>> On 7/13/26 09:07, Eric Biggers wrote:
+>>> On Mon, Jul 13, 2026 at 06:47:07AM +0200, Greg KH wrote:
+>>>> On Sun, Jul 12, 2026 at 05:31:31PM -0400, Demi Marie Obenour via B4 =
+Relay wrote:
+>>>>> From: Demi Marie Obenour <demiobenour@gmail.com>
+>>>>>
+>>>>> This driver is harmful:
+>>>>>
+>>>>> - It is much slower than the CPU [1] [2].
+>>>>> - It Has a history of bugs [2] [3].
+>>>>> - It does not have exclusive access to the hardware [4], causing ra=
+ces
+>>>>>   with the secure world.
+>>>>> - It register its implementations with too low a cra_priority for t=
+hem
+>>>>>   to be actually used [5].
+>>>>>
+>>>>> Therefore, disable it to ensure that nobody builds it into kernels =
+they
+>>>>> intend to ship.
+>>>>>
+>>>>> In the future, the driver will be used for processing restricted me=
+dia
+>>>>> content.  However, the kernel does not currently support this.  Sin=
+ce
+>>>>> the driver will have future uses, allow building it if COMPILE_TEST=
+ is
+>>>>> enabled.
+>>>>
+>>>> Why not just delete it now, and then bring it back when it is needed=
+ in
+>>>> the future?  Otherwise this will just trip up the static code checke=
+rs
+>>>> who will attempt to "fix" things in it.
 >>>
->>> Add the nodes to describe the GPU SMMU.
+>>> That makes sense to me, but Qualcomm pushed back on deletion:
+>>> https://lore.kernel.org/linux-crypto/20260602-qcom-qce-broken-v1-1-a4=
+ef756089e0@oss.qualcomm.com/
 >>>
->>> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
->>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->>> ---
->>>  arch/arm64/boot/dts/qcom/eliza.dtsi | 38 +++++++++++++++++++++++++++++++++++++
->>>  1 file changed, 38 insertions(+)
+>>> But I've still not seen any evidence that this driver is useful for
+>>> anything or has any users.  Even Qualcomm seems to be unwilling to ma=
+ke
+>>> such claims; they only claim that the IP is used (i.e., not in Linux)=
+
+>>> and that new features are planned.
 >>>
->>> diff --git a/arch/arm64/boot/dts/qcom/eliza.dtsi b/arch/arm64/boot/dts/qcom/eliza.dtsi
->>> index c5635f22e2a7..e5b8377e6c3a 100644
->>> --- a/arch/arm64/boot/dts/qcom/eliza.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/eliza.dtsi
->>> @@ -2674,6 +2674,44 @@ mdss_dp0_out: endpoint {
->>>  			};
->>>  		};
->>>  
->>> +		adreno_smmu: iommu@3da0000 {
->>> +			compatible = "qcom,eliza-smmu-500", "qcom,adreno-smmu",
->>> +				     "qcom,smmu-500", "arm,mmu-500";
->>> +			reg = <0x0 0x03da0000 0x0 0x40000>;
->>> +			#iommu-cells = <2>;
->>> +			#global-interrupts = <1>;
->>> +			interrupts = <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
+>>> - Eric
 >>
->> 674 is the correct globla
-> 
-> (modulo the issue i explained below)
-> 
-> [...]
-> 
->> This list is not quite correct. It must be sorted by the context index,
->> to which a given interrupt corresponds to - the driver relies on that
->> to give you information about where a context fault happens
+>> Here is my reading of Qualcomm's statements:
 >>
->> Moreover, I see that the interrupt sheet has the bug where some
->> interrupts are offset by 32 from the base vector, and others are offset
->> by 31 (i.e. the SPI number doesn't equal irq vector - 32) - please find
->> out which mapping is correct with the right folks
+>> QCE is currently used by the Arm secure world.  In the future, QCE
+>> will be used by the kernel as part of restricted content playback.
+>> Qualcomm wants to add the needed features to the existing driver.
+>> This will not use the crypto API.
+>=20
+> Why is a crypto driver not going to use the crypto API?
 
-I reviewed this and looks correct to me. Also, this matches the
-downstream configuration. Did you confuse with Dest Port vs Vector ID in
-the documentation?
+I suspect that the restricted content playback use-case involves
+QCE decrypting data stored in kernel memory, using keys inaccessible
+to the kernel, to memory inaccessible to the kernel.  The crypto API
+can't express this.
 
--Akhil.
+>> I would be fine with the driver being removed, but not if it means
+>> another out-of-tree Android driver.
+>=20
+> It's not another out-of-tree Android driver if nothing in Android
+> actually uses it :)
 
-> 
-> Konrad
+Nothing uses it *yet*.
+--=20
+Sincerely,
+Demi Marie Obenour (she/her/hers)
 
+--------------ETtg58S8PChwJVaC0HzUiT8C--
+
+--------------vgImv900avlh0tVHitrPh5xj
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmpVQSwACgkQszaHOrMp
+8lOTZg/+J7VZdIiJw1B68LNMjCivUN153yqTLpN9zrY5X2j10DRj3fsnS/8S0DU2
+mCSIjkUljEp6N6NI5bmALO5CXYnIsL7PPjq2/2qhzuLUrxEMf255RRLFg+Yei3OG
+OVEp9tXyvrRCBuvrSKXyxMkUKAzKhJEaBEv0NVAuMsYuytTqvuAc6A6+sUvESRco
+CFpnGzsfwRXpu/+M30+HTWGTOElO8ReeYR9vTWyrcP8fUQXeGCV9gBcyZrkzH5Rk
+ICqvs7N0mQXtSd/v9EpxjiDOd49GF+Gg2PKk5XyyEy/m8p4zDey5KI5fEcsBCzlR
+JMLyCwuI/yMQHlGYeCCNLrgM3HTm80hJo+6fVIl4Fd29QZelhaIfh65SdF1/9rXn
+z3XcBKgjG6INHmGrmY3FGzYtlJODu99ojT8PHbEz3Wd4t87aRaJxZD0ICfTrJPEt
+iJ+9cRKn6TSk9pj3IjOzYRDQ8a8zMQcESxmr/TNTSv63SLlRsLnibkKIgR9wwPyh
+1LlpafCxmeyhmYB8Kr+p36zlYXoln3GSDl+5MDzlv3FqI95RA0UJqIzBwtOlsbRK
+BUO8ECuHNejjLydzZnsKOlYpKJrQQ8Lx307tPTboG74oO3kWI5Ep3XEWT1/EJyyp
+ZfrjHfL9CQmwDsCwBcmT9eFi3zT4OGdm0/El15HCB2fuTQlp8bU=
+=oS9l
+-----END PGP SIGNATURE-----
+
+--------------vgImv900avlh0tVHitrPh5xj--
 
