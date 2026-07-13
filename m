@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378FCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84170C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 10:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ttvjkpYG2EgA4b+eJSx9daKAVkZ1lAQZawcKPAdoeA=; b=boK0NW8x4c6jW956vf8FhEzY67
-	Agy8jYFnvYyuh2qkZn+N7tmNDgDASBRz4HmEHzrVaEC0P0kuOaJgXfPszKgZPjAUzsZekPstEl53D
-	wcvE2k7vazSHfIR+vAQzFtvkeUsRS9gN9dJrdD6xgPUIItXxXd3d2iKGQ2Mnxz9O/IREU7mxi4/m+
-	3NTDX+c+c758/HmpkCih+wmBdGJiEXBvbWmhQ4w7hCXlJIZYsMIIqtljHK90t41NiJWNekmFWtvfx
-	eUCb4JtP/mheAApzF7dIy11WfnNOQczcu6jBuzs4H4sC1/LKYkGkAC5wWzm/2fpTKfmo+vsA8hi1W
-	XFF9hR2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CX+iVDCw1H4wGFtcWjAuP0aYSPRw78Rkc1uleLIUH0o=; b=kCGMKJxSpC8SSGccmQRV5lnaZG
+	bxmeKPt4qsoAEbB6fR6aTXwL51klGmuRbtiq8T4deuKhxCR+CG1cNTuvBFGaNDhvR4S18xlvs3W+e
+	mZEg81XDb7PkkoH5MXJmpTwAPIFyzGu19csn2XBxLuPMYVX2JGWCUO7FT6/Rk3VhauEwi9oqVN0Ra
+	5ak2/KeGlQ16dW0F6ayuiiQ3xMQ6TnHvc85mrgs/PF0puLySwA6j86ARqjGrzxjqPbK7IQBrxc4ll
+	dTDAYHZcGMFuqAv/4eAY5qSwbHLV/oPMr1ktuAEeqQVg4SgSgTlbSlAjz2FmdIK/IxGpHWhMfpz72
+	WZv+sFwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDRB-00000008nn9-1Qou;
-	Mon, 13 Jul 2026 09:58:57 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wjDoW-00000008ryq-3cCH;
+	Mon, 13 Jul 2026 10:23:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjDR3-00000008nee-2tIF;
-	Mon, 13 Jul 2026 09:58:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783936727;
-	bh=NLaDGBnk8HWg7KYoptuEdIwI2f5ffWONznw0X1pdVYM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QMbAE5pvyLRXvZ/Xg7A46iMxkv7YSmw1bsGPTz9cTCtHz93Hl5vym0F2yIOqdFUwi
-	 7Jn1szkE7WBnjAtduwDAUedK94dOU7nN/BqCIr6xZ6Wvleull6trzg6sf92SQ+L/kO
-	 +rgUS6hwF44my2d+k52L88B0tiQS8IM4kG8BpO+B14SMA1VCULMYdteuXtab3fzHZl
-	 4peautu3I+K8hzJJ10k7qbDAsMhkkrO5CkyY1okhdgMolfow0vr5CiRhkMPxM7MU+R
-	 EJdjiZ+LHVMwp/YKCqkX6CD6JEKlGmbCKhlDii9IRZ/AI2Xl+aVu4jHKRBMWPSrWzK
-	 VEGy6KUkRqN3w==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D6EC917E0DE9;
-	Mon, 13 Jul 2026 11:58:46 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v2 04/10] drm/mediatek: mtk_dsi: Enable interrupt at component bind time
-Date: Mon, 13 Jul 2026 11:58:31 +0200
-Message-ID: <20260713095837.16590-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260713095837.16590-1-angelogioacchino.delregno@collabora.com>
-References: <20260713095837.16590-1-angelogioacchino.delregno@collabora.com>
+	id 1wjDoU-00000008ryB-2VBn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 10:23:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F295743B5F;
+	Mon, 13 Jul 2026 10:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C5BD1C2BCF4;
+	Mon, 13 Jul 2026 10:23:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783938181;
+	bh=WsBnOQEJrUS0U9e4/AWulTtQhybgQSh9e128xESC+MU=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=fqXD13wP3TBH69Dujr3jF2AuXoyGs1UDYYFUn7eq2wX5YODv51uMmnkgtP2V8/v9u
+	 kRGm6Pyv20Ya0yEsErOLzwxI0tIKjUFKiQmD2Df4xbcbMh1vBpcbXEQEOrme92M6sP
+	 146pdKKwOsYmUOHX8FWMego0U1dNnkMO6kpOunSrROLStu/1zvdwxiTJB+qEtOPiP1
+	 a3bWHOilMfdX0z1kGIcPCyIpSBBNRuEtE1ADNn1Qq46Drsmbtvfsm+nk3NToxmHqKt
+	 CbIKG/IokYZkbsk3IpQobcLzaigCE4Vp9wV1cKw+so8/nlB6InjDbeEdUTd7II8SEf
+	 OTH1ELeK9IiaA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A16B5C43458;
+	Mon, 13 Jul 2026 10:23:01 +0000 (UTC)
+From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
+Subject: [PATCH v7 0/2] thermal: imx: Add calibration offset support
+Date: Mon, 13 Jul 2026 18:22:55 +0800
+Message-Id: <20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v7-0-09b6b7669be1@cn.bosch.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_025849_897158_39980561 
-X-CRM114-Status: GOOD (  18.30  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH+8VGoC/63Ry2rDMBAF0F8JWneC3o+s+h+lC0mWapX6gWSbh
+ OB/r5xsQvEqzWbgwqBzGV1RCTmFgk6HK8phSSUNfQ3q7YB8a/uvAKmpGVFMJVbYgONQLp3tLSV
+ ACK0zdWeY2pA7+wNlHschTzCPZcrBdiCBaLBYc6N5E5ySqL485hDT+aZ+fN5zmd138NNGbRttK
+ tOQL7daC9n2/tdgIYAB46h15NQw7N59f3RD8e3RDx3aSiz0BQy9M1FRbkSgfIdhDwzBzzGsMo0
+ z0VPDlRdih+EvYHhlSAzRqIZ4JfAOIx4Z9hwjKiMNx8IzLL3c+xv5AkZWRmvLlI42ePv3aOu6/
+ gJw9nFmDgMAAA==
+X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783938176; l=4049;
+ i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
+ bh=WsBnOQEJrUS0U9e4/AWulTtQhybgQSh9e128xESC+MU=;
+ b=4h7HzH3CMcEDNzws8RqJVAERbwKRE9fY9ZLZmEZ7D8rMx0wGbCu2rHKwDKvvZXNeygV0gmmea
+ c2lS7j5MdeJCaAqqLsPu1LKYlNMh3hmaNY/wW3ti5TTf3+HIANqDTrH
+X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
+ pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
+X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
+ with auth_id=860
+X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,100 +93,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having the DSI interrupt enabled before actually binding the DSI
-component to the display controller driver is both useless and
-dangerous: the main purpose of this interrupt is to signal CMD
-done, LP RX data ready, or VideoMode done, or to reset the HW
-engine if this doesn't come.
+Some i.MX boards need a small per-design correction to align the
+reported CPU temperature with board-level measurements. This series
+adds an optional DT property to specify such a calibration offset
+and implements the corresponding support in the imx_thermal driver.
 
-Should this interrupt come too late (during probe), the HW will
-be reset only at the next occurrence of a timeout, which slows
-down boot and may render artifacts to the DSI display.
+Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
+property in the i.MX thermal DT binding.
 
-Moreover, clearing the DSI interrupt while the display controller
-is not ready yet, may result in an interrupt storm.
+Patch 2 reads this property in the imx_thermal driver and applies
+the offset to the i.MX6/6SX/7D calibration formulas. When the
+property is absent, the default offset remains 0, preserving the
+current behaviour.
 
-In order to prevent this from happening, request the interrupt
-with IRQF_NO_AUTOEN, and enable it only when binding DSI to its
-display controller component master.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dsi.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+Changes in v7:
+- Align the author name with the Signed-off-by trailer.
+- Link to v6: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v6-0-88a378faeca5@cn.bosch.com
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 3e22553ca990..284dae372c7c 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -225,6 +225,7 @@ struct mtk_dsi {
- 	int refcount;
- 	bool enabled;
- 	bool lanes_ready;
-+	int irq;
- 	u32 irq_data;
- 	wait_queue_head_t irq_wait_queue;
- 	const struct mtk_dsi_driver_data *driver_data;
-@@ -1052,7 +1053,13 @@ static int mtk_dsi_bind(struct device *dev, struct device *master, void *data)
- 	if (ret)
- 		return ret;
- 
--	return device_reset_optional(dev);
-+	ret = device_reset_optional(dev);
-+	if (ret)
-+		return ret;
-+
-+	enable_irq(dsi->irq);
-+
-+	return 0;
- }
- 
- static void mtk_dsi_unbind(struct device *dev, struct device *master,
-@@ -1060,6 +1067,8 @@ static void mtk_dsi_unbind(struct device *dev, struct device *master,
- {
- 	struct mtk_dsi *dsi = dev_get_drvdata(dev);
- 
-+	disable_irq(dsi->irq);
-+
- 	drm_encoder_cleanup(&dsi->encoder);
- }
- 
-@@ -1290,7 +1299,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- {
- 	struct mtk_dsi *dsi;
- 	struct device *dev = &pdev->dev;
--	int irq_num;
- 	int ret;
- 
- 	dsi = devm_drm_bridge_alloc(dev, struct mtk_dsi, bridge,
-@@ -1323,9 +1331,9 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- 	if (IS_ERR(dsi->phy))
- 		return dev_err_probe(dev, PTR_ERR(dsi->phy), "Failed to get MIPI-DPHY\n");
- 
--	irq_num = platform_get_irq(pdev, 0);
--	if (irq_num < 0)
--		return irq_num;
-+	dsi->irq = platform_get_irq(pdev, 0);
-+	if (dsi->irq < 0)
-+		return dsi->irq;
- 
- 	dsi->host.ops = &mtk_dsi_ops;
- 	dsi->host.dev = dev;
-@@ -1338,8 +1346,8 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "Failed to register DSI host\n");
- 
--	ret = devm_request_irq(&pdev->dev, irq_num, mtk_dsi_irq,
--			       IRQF_TRIGGER_NONE, dev_name(&pdev->dev), dsi);
-+	ret = devm_request_irq(&pdev->dev, dsi->irq, mtk_dsi_irq,
-+			       IRQF_NO_AUTOEN, dev_name(&pdev->dev), dsi);
- 	if (ret) {
- 		mipi_dsi_host_unregister(&dsi->host);
- 		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
--- 
-2.54.0
+Changes in v6:
+- Align the author name with the Signed-off-by trailer.
+- Link to v5: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-0-69405c306c6b@cn.bosch.com
+
+Changes in v5:
+- Move calibration offset application out of c2 initialization, instead
+  apply it in imx_get_temp(), imx_set_alarm_temp() and imx_set_panic_temp()
+  for consistent style across i.MX6 and i.MX7D
+- Subtract calibration offset from alarm_temp before the if-else block in
+  imx_set_alarm_temp(), simplifying both SoC branches (Frank's suggestion)
+- Link to v4: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-0-1fef97d1c750@cn.bosch.com
+
+Changes in v4:
+- dt-bindings: drop maxItems to allow minimum/maximum constraints for
+  temp-calibration-offset-millicelsius
+- Link to v3: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-0-db9fc2947c55@cn.bosch.com
+
+Changes in v3:
+- dt-bindings: add minimum/maximum (-28580/+28580) for
+  temp-calibration-offset-millicelsius, as suggested by Conor Dooley
+- Link to v2: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com
+
+Changes in v2:
+- dt-bindings: Removed explicit `$ref: /schemas/types.yaml#/definitions/int32`
+  for fsl,temp-calibration-offset-millicelsius; the `-millicelsius` suffix
+  already resolves to int32-array via property-units.yaml (Rob).
+- dt-bindings: Fixed example indentation.
+- driver: Replaced C integer division (/) with DIV_ROUND_CLOSEST() in
+  imx_set_alarm_temp() to prevent off-by-one alarm threshold mismatch that
+  could cause IRQ storms on i.MX7D.
+- driver: Added clamp() bounds check for alarm_value [0, 0x1ff] to avoid
+  corrupting adjacent register fields (PANIC_ALARM).
+- Link to v1: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com
+
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Zhang Rui <rui.zhang@intel.com>
+To: Lukasz Luba <lukasz.luba@arm.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Haoning CHENG (2):
+      dt-bindings: thermal: imx: Document calibration offset property
+      thermal/drivers/imx: Add calibration offset support
+
+ .../devicetree/bindings/thermal/imx-thermal.yaml         |  9 +++++++++
+ drivers/thermal/imx_thermal.c                            | 16 +++++++++++++---
+ 2 files changed, 22 insertions(+), 3 deletions(-)
+---
+base-commit: c50a940dcde35c647e097e89a9150003abd48329
+change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+
+Best regards,
+--  
+Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+
 
 
