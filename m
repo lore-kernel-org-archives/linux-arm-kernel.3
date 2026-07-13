@@ -4,135 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C88C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4434C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cIJfD2AbPVHYUPeyZkYQ2XpDRNSrxa9S4jmZWvLB9rQ=; b=stA1FdeVQtENJuq/QQBFVSe+J2
-	7i1ONpt/V8+7fwuWWNAV2TH1wezjtJIH9KdTw6LucqoE0npuTHe+32Q8fxhPdbb03NyKWlYFLzjGn
-	6nDwmreO0Bkr6M13YmhnJlAbjtRKF1aysOVOWlTDctCdC4X+0509mkxsgZuvA65ncmPqkBAvs0o/6
-	JC3D8J1cxd7iC4rahPtcdwoITAsKLXpk6ubCPN1cdxMdEzZi3vQUqvzfZrDyH5vBPSaL/mkOKV0Z5
-	9m7rJMV4GEdu6Ro7mGdgNRbfe81jjiLtZn63WoVHSOmPFoXOrBWIQhaSOtIdhtVtRYeH5AoRfscKw
-	f/8ngG9g==;
+	bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=; b=Gswd9vKwC3d2FpqdbrTX9K4c5A
+	A+6kQFaO/RM+PZ7TsfeVFCnZTduuBHPwWttLhMPD45kjGudMyvs9iukE7eQ4L1AOyro4X8uLO1MiO
+	HKzhRhCe+q3vIg7IcqOXRnqGYsmpcm/c2H9kNqRzfwvI5lyPHNBiTU9qsIQ5hEqLrUPO3VoLOi2iT
+	YZcfvdTKTgOQgbf3VzvIrOJ9zR1uqEDPMn5ym5QFKGuL+sA9gIsIFGWr4JG21l9iGwSQcOQ5s5FTn
+	RqbbAh0f9hT1Q/fTF5yAsizwxvEikFlzWFH7udJANESuT+5WCmbk4N+Yq1cpQ9zzMT4AGvLeIaaNN
+	cSj57KaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGOu-00000009KR1-2SBN;
-	Mon, 13 Jul 2026 13:08:48 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wjGQb-00000009Kgb-3YNx;
+	Mon, 13 Jul 2026 13:10:34 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGOs-00000009KPH-3BVK
+	id 1wjGQZ-00000009Kfz-1ipj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 13:08:47 +0000
+	Mon, 13 Jul 2026 13:10:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uxyH++akPmFLmz1mS1BNgLQtcy7d+BgXYSHM3VNjJxrk7zQBWgSU99Psb+cth7UIvNaHtC8I9MTW49UvCG4Uv1Dvz1iTtg/L8i3+pLBB/LRR/PxU2YhzAG+oNeTpZgSy3aPZaP06FzyF9gOVzo4+Nlili5khqnZjHBLfehZev/SbiZQBFbDG4suiE7HTmxajUY1j+AzFkQ/gZDoZGuIGsllMMIWfsxInNW481mZaXQGq8He/fNZO992YpglvwilercuPfv0llp1noG4Y70O/NP0vRcEkzJ1xxV7caqxHZfNtfcatakdUTiZ3LYk3+bEz7xPZoLUdgLbdjh84GECMyg==
+ b=g5VthNGpGqeYH2tsFCJ9szT7MX9J9AprLdnajM8B30H2PBCehYNiPjfB5bIK6Qchau4aP4v3NDjak35I4/7H6LfcqRzyNMsUZc3rGjXmicJ6YfhdTwX5bvUm6Z//bQmJW/Cm5Ye2z7PdxhERPbob0ecOUdpiJHXa6zvkk1tnnC86B93/QOyi4/go6mEfapcNe1v183LJxHbeSTO4od55cli2ScHnmJQ/crOMLo/zkl1rv5NJ0OoCFhldQJzBwspKb7XOSzVCCPQgy+9aT4KKcdaZOQwnEtcDIUnjjqJNmvfBzukjZH/SHhUpclnZtHP9BgLqmmgm8JKsM63HsNDdxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cIJfD2AbPVHYUPeyZkYQ2XpDRNSrxa9S4jmZWvLB9rQ=;
- b=lH/FpUl0o5SkGk64MuIABAnmI1VlJ5ppeT+U/T2oXeeNEkia1u5cqiKpwMsmYKp2Y0PaDHM/ftQDZIFprfzTvucgFU6AyY0sqR3G4sR2Y6e9KfaY4ttY5CwMV6ChZokwk+hf/Zzgu63KOEIgXzvlgqqXjf/SKYn8kjoXSIsjG9wl3nyPPlYHNPmZuoU7fM8ROu1g850pfGXFsrHkssWGIWE77XUIJw45mn0xxefBIzXMyWW9JgTNEJ+i/H4U/TzO+jys/AK/YT5g0Jf2u3mTIgKg0kmk5IG7dHkuCEo8usFKo9nTfyRnfUhPtt82xYXXNu4+Hs01tNa96MEppbCOPQ==
+ bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=;
+ b=em4S4bjDW+7nprQzziAK/qf0yfnue9Gk1Gp1rgMdoUNsUFAuKO2fDZJcCLrQF045lH8zcpkBuQ6VjCq+b4tJMId8KDgWBnWnPSyNGrK5b8y+30sTv671n9fGhn9xOTiqzFCkFyaFzFYhGci7Yd39Ll2WbABSkfRY/I/Qpfuq+1odUNkO1cj7duyaKXJBBSVvGm/n+Hm9Nr/iRYfSPKkeOMtOdrYyxCXtJpOAe/UkJT9TSlJqlPsKDZhg0ylTJM4kiHPnBlPw1q4h1ttdD8tvuUowL/BgO0N7mnx3vCJqjjiCBfAzk4P1iuGqUqxqfkDqRqMY2DNzPpJfCE6Qda7zFw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
  dkim=pass header.d=vivo.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cIJfD2AbPVHYUPeyZkYQ2XpDRNSrxa9S4jmZWvLB9rQ=;
- b=ZxdDPtYI4mP8EnqVUUy8Rdw2zZgG/hOd4tNsL+OnZvDtueJYFFiIC8brm/xp+h0f1WHj5PsCorpd/XK3vlHnx/ljL6kfE7gi4jsUZRxrrGMnZRFIfmvDmtNmAdBkKcfCIOmMnvF1qNXtx/O2OJOKgXiyaBeY88BTe7MRj6FlfsQkx3f8sPI/IH+aN7KnPc6wfccNj5nbJW4TWeTJUcC2GV6xdH0dYCh4CCExtFGXXYIKNub+LFv0RFspJDhDdX7rScgn1ShvqjdepHEKaivXTcJYvLAfElGCgensVrbswmwWyj7w5wVYSbOSbeYvICGv6BGJTgTfW7TtJCjFs4ZC5A==
+ bh=wHf1/UEPEL9JQZVy2MFsqf+KA5lDj6pvbkOGsFpOshc=;
+ b=azClcS4RjOxytk2hToAriFX5Fsm8jydxM3ljKcBIpJiuGVb4h8mhZGbkv3GhitlACbrdHprTqUXoQDxYOQaa+uP9dniBtJOTpjqSugAkghD8qYaKtEB/9ALNG99Cu6mqqVAqC2hm/kT27/I1NVTWjDC/OyDqLO4xYQ0+oHLl0qdmBfZFwUBDRvlLfzylaNgeND2dyfpJhVDo/K261as4fNn1jiKBNfKowdZSZGKUCt2RWCMOYWLysMA6ad0PWxqCraUfVP5laxXuwkPEXTWOTctoNCtdlJUZz+qw/7d+oIjca/fT2SvnDnbhBR0QTVPJjiVOLMXCt6KkhbJ1J6pmlw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=vivo.com;
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
  by SE1PPF50B2D80A0.apcprd06.prod.outlook.com (2603:1096:108:1::415) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Mon, 13 Jul
- 2026 13:08:24 +0000
+ 2026 13:10:15 +0000
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0202.014; Mon, 13 Jul 2026
- 13:08:24 +0000
+ 13:10:15 +0000
 From: Pan Chuang <panchuang@vivo.com>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	William Breathitt Gray <wbg@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM ARCHITECTED TIMER DRIVER),
-	linux-kernel@vger.kernel.org (open list:CLOCKSOURCE, CLOCKEVENT DRIVERS),
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Julien Panis <jpanis@baylibre.com>,
+	David Lechner <david@lechnology.com>,
+	linux-iio@vger.kernel.org (open list:COUNTER SUBSYSTEM),
 	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-tegra@vger.kernel.org (open list:TEGRA ARCHITECTURE SUPPORT)
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list),
+	linux-omap@vger.kernel.org (open list:TI ENHANCED CAPTURE (eCAP) DRIVER)
 Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH] clocksource: Remove redundant dev_err()/dev_err_probe()
-Date: Mon, 13 Jul 2026 21:07:39 +0800
-Message-Id: <20260713130740.293502-1-panchuang@vivo.com>
+Subject: [PATCH] counter: Remove redundant dev_err()/dev_err_probe()
+Date: Mon, 13 Jul 2026 21:10:04 +0800
+Message-Id: <20260713131005.306069-1-panchuang@vivo.com>
 X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0058.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::9) To SEZPR06MB5832.apcprd06.prod.outlook.com
+X-ClientProxiedBy: TY4P301CA0112.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:37b::7) To SEZPR06MB5832.apcprd06.prod.outlook.com
  (2603:1096:101:c8::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SE1PPF50B2D80A0:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3abc10ae-ae71-442f-e004-08dee0dfd20d
+X-MS-Office365-Filtering-Correlation-Id: 81f789f0-7a95-4a3e-13a3-08dee0e01428
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|52116014|7416014|376014|18002099003|56012099006|11063799006|6133799003|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: js8svtIINX1ETYEpeKJCBgN5MJfgWGuP3Z6nnMRsudxw/V3QXUwJ0UwNv2o17OZv4m//MjsE0ZS7UAFAcQuCmCPEfxlhUf0NX5sJJulAcfAZHq/N6Jf1MgjIPal0IexutmruemKr1ejCkYdzAW8HpqcKiz+xVlORV8wrtLm6Q6ZQoG0iwewdQKzWvbBykIXcGRYNOrx0aBIbMEqe22uHgDk6U+HVunkHr357vejvcLSYnqXxH1n+ti+FpimbGDfP3cVSKt4Eti3w3GbJ8C3KQpoojvB9svur/SfcidFSeWbuGTZPpIjBOO1qi7ZZTvorRUf+TeQUXzPGT9XagVH2z4W0UMQEqjC6W/at+9ChVbnI+t01s0gjM6r1jEUZ/ypYpGmNhQwObxpSFSiato9FC1VrZ48bb+5UcSzlVWMgdPU+Vmzrqeri9GpXu4VcWHwZU6wzI1volIYnKqN17isZDlDUUOZKGFz9rA9B3TIOpgXudPvyREoWBiYQtk3sqU7Cf+yozEQ0VNd+P7lEDNuoaHs80Gu+yynchczX2dgWccL0EvpOLtvca6/kmw4Maq3cICicZ0r5FYRkQZC2R/6JKALYWhBk6Ke7S6MnV6VRcCwNGSrUCeryAB1QEsHhUdSqlhbVWyzlcurLB30tZItFKuLPzmLyzlCs96r1AsXF65kiaUozA7JpfplVAcSveIol0rtuHsaqNjaxrux1+mL7e3yPrpesRSe2lE7xj1M+g516YW0pci1BPrT7rvlPEfjg
+X-Microsoft-Antispam-Message-Info: 9U4p1vnBsdPwrXivN4Kmo8NCFdJKMaw80I7IcF7CQWNOiHDKBdtduBsUk6UwPrQ9HPGdHhFYoILQGc2VGefcTJTQhEF8K9z3c8fJjaob55CWoPCeDmX7mTx0jdeWEJfV/TtDcnx/MURPliLMmytpws+FpqrGM24Dvofkjt43USv0EFaYty2V2wSul37OpceBhhHHjAxXcAO29PRt/YMTJj3Vo4eFDeJzDujJU+W8OtWE41XIt593XtOvqMNbuKCJ3WmHuvXjcT0hvFC2tiZr01qYVX3Vi7Bahsdkc9U8/YtI2GpqxwzDR29Iq+J4llvGdF/ke9Vd6/Ki1bIt47smlv+yvwbgLn1u7XKyPe6qMbsT5RTK3gciAedEQDg0+rDPArYpqLb+WIhzt5xUE0K7Sf+v82NGeoNFdZrKTnVadKUaypRuWhMiE18cI3ZeS0DNFvfsXfknastVTtsT3Oyi6nE9tTU+iWiUn8qBPsVyW6NM0hsF/p/ZkYCVATnkh/ecxElUyaPt4bYfcYPe3Qgwn5J9+rs5QopJqoyWuqtOxAfWS4Pbzptog2/5xxGdCJDYywzQiH0C7rEZ7pP4wpdUXaNTtpvoxU7uYA9vJrQ71aFbGYouja15NCJ/sGITExG+LCxctiSOyFNkOEAAgHu7RC3KflwFY55d+cQuZcniR2t8FvdrIQEr1AcGVmDOYUProocIpcsrJoHLzy2dnjmV7G95txDpOIztZFnHYDIA1y8vVfS6/Tdz0hgL/xE8B3UJ
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(52116014)(7416014)(376014)(18002099003)(56012099006)(11063799006)(6133799003)(921020)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Gm1qA+hNhGduEAZL/di9FbpsxGIQxRRbdkiTQFI5Yt+nCy3yYoWu+lHGvPrF?=
- =?us-ascii?Q?0EpcdJWqtGcmQ9ZwltJgNv0I0U/D9xnvUagH2PUE60VUQ3TRSDsp7jyFMq22?=
- =?us-ascii?Q?fQay+CYFXqzuEcqCdwPDvvFJlVsu0WDwwTEWfRnxH5lHV6ruiw8OP9FeaRH/?=
- =?us-ascii?Q?NNyd0pxtDJytWjVYPsYfHAgFKIBLbGCHMtE47T3UAUljSW0V3XahrcI25Cw3?=
- =?us-ascii?Q?mj5cSE+bxkiRVDXBNNPU0vFaCvwe1F17B2oR+Ka6cgYZSte7pNWC+dMyepqg?=
- =?us-ascii?Q?+hwPjD8ZO5YrT1G0JUb/95o8nuuuXJNoNpO1G5QqQKISUtJkDok7Tfnmu/P5?=
- =?us-ascii?Q?Y9p6ApL1yPBwJIDGLJj3eSJqH3yiAXpUiHdkTocy5+Xp9mz9sPkpBcbORbvp?=
- =?us-ascii?Q?LVWQK6Li1LK0omR4Owm1omt0A2dC2wCa3P/y8Vxjq7qWW2aeQ3ayrdmjBihu?=
- =?us-ascii?Q?de7oIb35jpKLEy/0ZKn+Pet5/gqDsH61PHoQSgQ0ta1pq3CJ67iTFQE4pAFX?=
- =?us-ascii?Q?0wGTcCzlD/kGdYVsf3ufLYQ7wUEwKVQwmzcWr90b8+oVMbjqN9xoLNS3SmIJ?=
- =?us-ascii?Q?ZC6bb5sm/6cFKEQIzD9kyOBmGRqqGi8tg44mUXyZhCbhQVUaVKH8ezGwxaHq?=
- =?us-ascii?Q?m+ynCvVLeMXVfuiaSmby+CQ/Zwz8dNFkeEJbauhqW4iVLUt3V+SWzU4RNUhj?=
- =?us-ascii?Q?aZPaJUJjy2qVveN6HiZutMiX9WDCaZk/+fd2AQvpwSBoxGFLD3Ju3fSCuK7W?=
- =?us-ascii?Q?JNFz9wKDK7ATnHrEgZwRgACja1dEknFvym3YsDUwKHU8Fw4jIv01Nb/QJdM3?=
- =?us-ascii?Q?D+ImQ0E7P8h46Bmwx3AZERZJ/nBjH+WbzNvvb6ywcbxjAFHWHyXq0VHcfkpe?=
- =?us-ascii?Q?5W6W3gyyfGPPl/kMQKhC4tAgPd59EHkZzmqOMZv1NWrIltxG3aOesqsdlMdJ?=
- =?us-ascii?Q?4foqHKv05GXpkXolTf2AR1IQ9Lxgyu78cwIzkLUX3mguhztmX2TCkjrKXeGp?=
- =?us-ascii?Q?Q05HDwT3dUJG/7m+4uIRGf42ssdpemxw/e+AXH+LdGDnbu9Ld9puZLENygku?=
- =?us-ascii?Q?dxyoKuNDxQJ7fx666JCvr5zD4Yk31QZhXM+JM4ufQS162E+lxRgE5fbJ7P4l?=
- =?us-ascii?Q?SDJ+y3kczMsD7hXxEOPHXq5OYGDxPwnA2ne9Gj0/OVQ1iFLaL/uXAcAIWTwe?=
- =?us-ascii?Q?2bjgQtHoipOJeewSDm7t0WYc7VUAsM3EPGGtXSUrKRwDibwTTa/lvcCs27NX?=
- =?us-ascii?Q?RZnWZYF5M7h/L1XV1SeHghScxQn1zu3P5s5td60uafgzJdR9fLrXtjql9rGV?=
- =?us-ascii?Q?LgGBFEZLHK0yLC8DLuD3+O6UnfPaw2kP/l2U+KQHYrKL8l0n0T4fhrRdnga4?=
- =?us-ascii?Q?Cir/4FonX50zMkG7rnM9IlRimh9uwygE1VUsmujpUsN0Z3B6+lvUzWRbk/Qu?=
- =?us-ascii?Q?Z9Cbpds3XuWRbCS0W6fcZwFLaQ6dBXFOAkHqw2cEWndmd35RKFwyaL9xPor5?=
- =?us-ascii?Q?6ZwHzc2U447tMrGXD1pCoW+76auWiEjtm4Llm19GfTEeK/Z3kW2Iaakg2wvI?=
- =?us-ascii?Q?pLRcP/XPtraus+rIks8HTzyvSAbqzWxBeA+yWqOqMnUp3F4D+io2iWQLW0Qm?=
- =?us-ascii?Q?wfWaFPefeYpcXLkM1MnqQ/XwQ8Wa4kV1z9Me5gftuqxZzMBqIYRh1lDQWLQc?=
- =?us-ascii?Q?OwwPqpxRjUMvukYqYfRcPHGyn8QyM5DUba9XzLvM32q1wWZmAuyYVblI3wCI?=
- =?us-ascii?Q?wuh4cdDCcQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?viHZTUovs4dSSXEo6K1B3T++uQ0bY4x9OIhYnL+vl0/ok3R8u+i/uQQArSt0?=
+ =?us-ascii?Q?7dxt38pVnoZD0or0/GEGTHGdwwoQJE4Z54sY1ADq2GOQ8UgP5J4/YhwFICFR?=
+ =?us-ascii?Q?iWIROIVw6HhD1ypVBd/Vd6a+CcA4GVQ1pgUHLOz85swjxdMxCYDDAsKIGsJB?=
+ =?us-ascii?Q?1C4Qp4zL1adVxWxmhbLVzbWbMiuyxM6BX4Hrt5/yhTqEG1+bK6LBdvX0PXtm?=
+ =?us-ascii?Q?fZR5NmrrmfEN19uR8WOcY5cA3Di7PeTM+fBo1J6Zyr7Y+WJxoaeLHZR9L6J5?=
+ =?us-ascii?Q?/c2ZKMlgDby66nIFuanupa6Xz57ZZz6zm/QPfTs33esDes6ZedKelFU72Ruc?=
+ =?us-ascii?Q?XSTkGymod7/XRGw2RdOK84u8Dg0Z3SWB+lNiz7OB8TLLid/YmaH5yNWkzmoq?=
+ =?us-ascii?Q?4zTQMizdHh9h8MPtwB1GnlNhI2MeYy7pLpqXBBhjHeavrVkHV4B2fZI99hb0?=
+ =?us-ascii?Q?jno74CwIm3yeoSrgDhEnPXq8OuokEwH0XZCRpkHMGNfVl5soOmyT/nfhJnIB?=
+ =?us-ascii?Q?m9bbBjXqu3kayzPchtiXFGt1Z2c4gv9cl79PKToervyXouoORM2CdqJv6VUF?=
+ =?us-ascii?Q?dYdhS9cKkUNy9oDhCCpZD+QwtYwaF1oP/cGOoVn4Yr79ow348+9QzW65gPV3?=
+ =?us-ascii?Q?Cj0g2aOT+iv1QcTEwJMkmSq5MZwfFtdYRHPD/MinY42lOxV6oZyBVcsjCApu?=
+ =?us-ascii?Q?LZjzxHMT+C0bl5APMKml4u/PwE3ucW9Ochf/5YYeXYXwDfyiagn75UhN2VRE?=
+ =?us-ascii?Q?CEPS8omVH4WJaxwLUwTGmGLMR/ULo2xOhAJCJZWxCRICr/HykNbD2xJAkGNo?=
+ =?us-ascii?Q?sgnIxHi3rwhv/g5/fudjk/Ku+MsteApoj5WGZ4/7zPX6WqVojDFJBpznXcOc?=
+ =?us-ascii?Q?h8arIU6Q/woYs82qEaOs9cvv6KL3DqE47wv1qfDLSKeQEtd7Saoi+mNUPaxx?=
+ =?us-ascii?Q?WOFeBA7gvLRppEZixJ4o7u6JVNVpEZUnPlFWZK/4EbakRo9PvgoWQpUigplm?=
+ =?us-ascii?Q?6XvIuUNFi2GB3oFjI/N8uZYNXb+EB6eW1kiIqXN6CxDnM5DmYN29j18CKwFQ?=
+ =?us-ascii?Q?Vbhrk7IKpvq9pkNRyliKkAqumXMbiQimeRok24nvEkIjFDDFLUHigtPd4ASc?=
+ =?us-ascii?Q?BAUyUfIVlikG0N00ADYZaNb+Pe87lycXGPfUfi8KmsKIF8GG6Yuw44ULyhXr?=
+ =?us-ascii?Q?TAbNAVmCFMqxZw3Yrh1SGT+0KwGMNoAvyNkLWAsMLkSvIt8I/70xFTgmDT/Q?=
+ =?us-ascii?Q?s0VrQ9F3Y7iFTu2DBDWjOQdm/ZoR3tZJ6fDuBLqmWS1mxgN7UuFpIov/LxBm?=
+ =?us-ascii?Q?7J6JmvIOMmc/e8xt3GSdG5qnbe6HmWxESaMov8vkk9Mnr5jebjf06Fpml4BP?=
+ =?us-ascii?Q?qnwY/QPpVzvYWZFe05zJzAQcSRQmjGzEaVzq+YulMH/sBcZxfmtZ1vvdVBdU?=
+ =?us-ascii?Q?yyStCqBZQrokRZ5ql86Un49N7/5noLG8Ux/qx9D2Cwy2OuP6N5he7KwrDZAG?=
+ =?us-ascii?Q?seKnoLHhwmbTFydxK3UYxbuXUtafketb3iz50m1Vk/qsJNxkXvCUSxuBxq0G?=
+ =?us-ascii?Q?DGOFw4iBpwgbGsrmLjsCb4ZkF07FovPF6/JKXHqNVYmOjguAH+Tc1zzP4TRJ?=
+ =?us-ascii?Q?ebKZzphFx1TApoBplKQM3cLr9h2KOAXTWRkiQUp1+CbmGXFeGmHrDk31BA8a?=
+ =?us-ascii?Q?4NNWwT8IwIq06GJkrfc5/JPSl4ifnYWMrUICkNJjku+azXhcHJFhnmNRHbsZ?=
+ =?us-ascii?Q?nBep5kuXPg=3D=3D?=
 X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3abc10ae-ae71-442f-e004-08dee0dfd20d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81f789f0-7a95-4a3e-13a3-08dee0e01428
 X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 13:08:24.3204
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 13:10:15.1488
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X4MvBVw+BY8pjuAhWJriisPdUvsevuSVvJagKIyU6cKOK502kgk+BkPCUrsy3TrdDi6IONBnNgDdV8qOpnb44g==
+X-MS-Exchange-CrossTenant-UserPrincipalName: /MjQaf+YgrQC2BWQ/PLNClmPsxejFTL/paxSPSLRocTNvMsdBoEl+/RaX68eeT4dSshNEo4YAvDuGysSKchcXw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF50B2D80A0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_060846_803490_E9C85907 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260713_061031_454538_9F540A2A 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,113 +144,73 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() automatically logs
-detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() and dev_err_probe() calls.
+devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
+automatically log detailed error messages on failure. Remove the
+now-redundant driver-specific dev_err() and dev_err_probe() calls.
 
 Signed-off-by: Pan Chuang <panchuang@vivo.com>
 ---
- drivers/clocksource/arm_arch_timer_mmio.c | 4 +---
- drivers/clocksource/em_sti.c              | 4 +---
- drivers/clocksource/timer-nxp-stm.c       | 2 +-
- drivers/clocksource/timer-sun5i.c         | 4 +---
- drivers/clocksource/timer-tegra186.c      | 4 +---
- drivers/clocksource/timer-ti-dm.c         | 4 +---
- 6 files changed, 6 insertions(+), 16 deletions(-)
+ drivers/counter/stm32-timer-cnt.c | 10 ++--------
+ drivers/counter/ti-ecap-capture.c |  2 +-
+ drivers/counter/ti-eqep.c         |  2 +-
+ 3 files changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clocksource/arm_arch_timer_mmio.c b/drivers/clocksource/arm_arch_timer_mmio.c
-index d10362692fdd..d678f764d3bb 100644
---- a/drivers/clocksource/arm_arch_timer_mmio.c
-+++ b/drivers/clocksource/arm_arch_timer_mmio.c
-@@ -313,10 +313,8 @@ static int arch_timer_mmio_frame_register(struct platform_device *pdev,
- 	ret = devm_request_irq(&pdev->dev, irq, arch_timer_mmio_handler,
- 			       IRQF_TIMER | IRQF_NO_AUTOEN, "arch_mem_timer",
- 			       &at->evt);
--	if (ret) {
--		dev_err(&pdev->dev, "Failed to request mem timer irq\n");
-+	if (ret)
- 		return ret;
--	}
+diff --git a/drivers/counter/stm32-timer-cnt.c b/drivers/counter/stm32-timer-cnt.c
+index a3d8f7a5874e..9eee281350d0 100644
+--- a/drivers/counter/stm32-timer-cnt.c
++++ b/drivers/counter/stm32-timer-cnt.c
+@@ -759,11 +759,8 @@ static int stm32_timer_cnt_probe(struct platform_device *pdev)
+ 		/* All events reported through the global interrupt */
+ 		ret = devm_request_irq(&pdev->dev, ddata->irq[0], stm32_timer_cnt_isr,
+ 				       0, dev_name(dev), counter);
+-		if (ret) {
+-			dev_err(dev, "Failed to request irq %d (err %d)\n",
+-				ddata->irq[0], ret);
++		if (ret)
+ 			return ret;
+-		}
+ 	} else {
+ 		for (i = 0; i < priv->nr_irqs; i++) {
+ 			/*
+@@ -775,11 +772,8 @@ static int stm32_timer_cnt_probe(struct platform_device *pdev)
  
- 	/* Afer this point, we're not allowed to fail anymore */
- 	arch_timer_mmio_setup(at, irq);
-diff --git a/drivers/clocksource/em_sti.c b/drivers/clocksource/em_sti.c
-index ca8d29ab70da..73a3357d173d 100644
---- a/drivers/clocksource/em_sti.c
-+++ b/drivers/clocksource/em_sti.c
-@@ -300,10 +300,8 @@ static int em_sti_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(&pdev->dev, irq, em_sti_interrupt,
- 			       IRQF_TIMER | IRQF_IRQPOLL | IRQF_NOBALANCING,
- 			       dev_name(&pdev->dev), p);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to request low IRQ\n");
-+	if (ret)
- 		return ret;
--	}
+ 			ret = devm_request_irq(&pdev->dev, ddata->irq[i], stm32_timer_cnt_isr,
+ 					       0, dev_name(dev), counter);
+-			if (ret) {
+-				dev_err(dev, "Failed to request irq %d (err %d)\n",
+-					ddata->irq[i], ret);
++			if (ret)
+ 				return ret;
+-			}
+ 		}
+ 	}
  
- 	/* get hold of clock */
- 	p->clk = devm_clk_get(&pdev->dev, "sclk");
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
-index 1ab907233f48..6fe098a4a33f 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -441,7 +441,7 @@ static int nxp_stm_timer_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(dev, irq, nxp_stm_module_interrupt,
- 			       IRQF_TIMER | IRQF_NOBALANCING, name, stm_timer);
+diff --git a/drivers/counter/ti-ecap-capture.c b/drivers/counter/ti-ecap-capture.c
+index f69b6920463f..d77a256f0ed3 100644
+--- a/drivers/counter/ti-ecap-capture.c
++++ b/drivers/counter/ti-ecap-capture.c
+@@ -513,7 +513,7 @@ static int ecap_cnt_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_request_irq(dev, ret, ecap_cnt_isr, 0, pdev->name, counter_dev);
  	if (ret)
--		return dev_err_probe(dev, ret, "Unable to allocate interrupt line\n");
+-		return dev_err_probe(dev, ret, "failed to request irq\n");
 +		return ret;
  
- 	ret = nxp_stm_clocksource_init(dev, stm_timer, name, base, clk);
- 	if (ret)
-diff --git a/drivers/clocksource/timer-sun5i.c b/drivers/clocksource/timer-sun5i.c
-index 6ab300d22621..bcf155fb9cac 100644
---- a/drivers/clocksource/timer-sun5i.c
-+++ b/drivers/clocksource/timer-sun5i.c
-@@ -247,10 +247,8 @@ static int sun5i_setup_clockevent(struct platform_device *pdev,
- 	ret = devm_request_irq(dev, irq, sun5i_timer_interrupt,
- 			       IRQF_TIMER | IRQF_IRQPOLL,
- 			       "sun5i_timer0", ce);
--	if (ret) {
--		dev_err(dev, "Unable to register interrupt\n");
-+	if (ret)
- 		return ret;
--	}
+ 	platform_set_drvdata(pdev, counter_dev);
  
- 	return 0;
- }
-diff --git a/drivers/clocksource/timer-tegra186.c b/drivers/clocksource/timer-tegra186.c
-index 78600ddeb1c6..0f626ecf61b0 100644
---- a/drivers/clocksource/timer-tegra186.c
-+++ b/drivers/clocksource/timer-tegra186.c
-@@ -532,10 +532,8 @@ static int tegra186_timer_probe(struct platform_device *pdev)
- 	if (kernel_wdt) {
- 		err = devm_request_irq(dev, irq, tegra186_wdt_irq, 0,
- 				       dev_name(dev), kernel_wdt);
--		if (err < 0) {
--			dev_err(dev, "failed to request kernel WDT IRQ: %d\n", err);
-+		if (err < 0)
- 			goto unregister_usec;
--		}
+diff --git a/drivers/counter/ti-eqep.c b/drivers/counter/ti-eqep.c
+index d9302ec21163..0dda3f2b14c7 100644
+--- a/drivers/counter/ti-eqep.c
++++ b/drivers/counter/ti-eqep.c
+@@ -526,7 +526,7 @@ static int ti_eqep_probe(struct platform_device *pdev)
+ 	err = devm_request_threaded_irq(dev, irq, NULL, ti_eqep_irq_handler,
+ 					IRQF_ONESHOT, dev_name(dev), counter);
+ 	if (err < 0)
+-		return dev_err_probe(dev, err, "failed to request IRQ\n");
++		return err;
  
- 		tegra186_wdt_set_timeout(&kernel_wdt->base, TEGRA186_KERNEL_WDT_TIMEOUT);
- 		tegra186_wdt_enable(kernel_wdt);
-diff --git a/drivers/clocksource/timer-ti-dm.c b/drivers/clocksource/timer-ti-dm.c
-index bd06afb7d522..6787acac9a43 100644
---- a/drivers/clocksource/timer-ti-dm.c
-+++ b/drivers/clocksource/timer-ti-dm.c
-@@ -1375,10 +1375,8 @@ static int omap_dm_timer_setup_clockevent(struct dmtimer *timer)
- 
- 	ret = devm_request_irq(dev, timer->irq, omap_dm_timer_evt_interrupt,
- 			       IRQF_TIMER, "omap_dm_timer_clockevent", clkevt);
--	if (ret) {
--		dev_err(dev, "Failed to request interrupt: %d\n", ret);
-+	if (ret)
- 		return ret;
--	}
- 
- 	__omap_dm_timer_int_enable(timer, OMAP_TIMER_INT_OVERFLOW);
- 
+ 	counter->name = dev_name(dev);
+ 	counter->parent = dev;
 -- 
 2.34.1
 
