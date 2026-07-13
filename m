@@ -4,113 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C8BBC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DF7C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LK67j8GtIdgh2zXDGYw/AI9RtdfrjczxIkn8lzlmvug=; b=keoDOK1m/ZOa2mhMaYSNvPaa+V
-	Ssl7DjhVRltsPLDipCqX18H5Xw0+QkTVhyIulA8LotcPbCY57SJDKd6/TD7sIGh1JfCYsXJmxCwSy
-	ATZUsCc8+4nBWWTcZ1HlPlQmlusmL9rysHHBCOidMT5W3VkRzdaJ1SiGbTtHZ7xH6ZdyjTi+7+fOe
-	j6Ed/ylenzSaeDCEBCycmjDPD9fKxUgx89bwMYwwsI2v4rMldFDdjRBHu/Kb4tkt2aPlNd63MrsLz
-	fRDSBiuUR2jiGC0n7AwkfEdR4KaR3EW09zgOpJqmoL3SZMl2V+Mkgm/K/VASf0e5Na7NArXBrhOFs
-	RqwYCsKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ccqm1Zg21zwvevfQkhyiS+L0f0kfAMvK93WrHurzL5c=; b=3Lzxju29paFa0bEmg1Qxli8pLW
+	1biBJWaNX4sfIwvV+8aWKuk5hhFnXQzKo/GmEeIzRFHs49+hKL6uwhX7/5DUPoicqA1EsKfj3PsWn
+	Obfv98hN56y7Ro+r2yHpq1fpamG8enNwTqO+Nm7WVosEJB3hyEPvhoH58o1CojikGgo6spz7WKker
+	tE/maNEgsFZg5TV7JeTVH08+G/nLXyNy/SQ2xReAxk5Ku5jZ5aCWhx4YOUdSw5YrgXgMQmee5ii4L
+	tvEvxFNY3umiC6KH9KuZSZEFFWfg4jQy5pu9FJ70VlD7A9keUt7uXRUxmUCM5hwynnzalIDFOySJg
+	J06zWmjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAyC-00000008NLC-0AOC;
-	Mon, 13 Jul 2026 07:20:52 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1wjAzN-00000008Ny0-44lG;
+	Mon, 13 Jul 2026 07:22:05 +0000
+Received: from mail-eastus2azon11011001.outbound.protection.outlook.com ([52.101.57.1] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjAy4-00000008NEi-2Nyo
+	id 1wjAzJ-00000008Nx0-1ebC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:20:45 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5b14d1f9315so1110774e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 00:20:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783927242; x=1784532042; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LK67j8GtIdgh2zXDGYw/AI9RtdfrjczxIkn8lzlmvug=;
-        b=cljBtcJJcKlmuYglwjlJk6hb5gS9SFD5joBcUKzpzVsG3V5z6JhXL28omSwZdCtadf
-         rorFeauCFsYEXgrliBhEBfg+aWpo8aFOCarLb5/roJrH+0COwph/iU4e26+mddVrjclY
-         oq5uG/yvNGtXZO3pu/ZGH9zc36sJg1lxEjegvYcJrZwO11IKuvA/oBqszuI1nUCk6jk3
-         3GZW2VPTd+mOTMBlF+HEOu1jsZVsNpcuc8pGfyiXSOdow5CMdQzGdm0H9qYxFPguSmok
-         HIYLZ2O/rZn8svYDJyJnFdt/b7sWOCJA3Hv0e6Lb5TF6RzxoJBGR9T3W5EAsAjWY+I4p
-         1wlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783927242; x=1784532042;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LK67j8GtIdgh2zXDGYw/AI9RtdfrjczxIkn8lzlmvug=;
-        b=sev3iVd1RHMQCLtG4z3c2yCKnp/fKaQS/x0IlGEBUTFMmEBU0hUhlRdkyL2uKYINJZ
-         biIeamN1epIR0u4ofTrXAOcUWO6L2zu+hfd3joW2Kt7EujruMWZ3StWNqkSQ03K2WjyA
-         1u0G/0UfKJ3BxG4fiyls0MkIwZrfdbYDSGPUfeTe2WST6xbjFrOZUcL3daX9vA1iUhH5
-         0S8oPfjWAikW4qcsjcukHtcIt/3AuYN332mHLvs7odD44VTsiRfl3Y7o4ICVhz+5xUVT
-         446/ThJWzHqquaDphv+EIAEeZYKIM1RFiaBJ9uzRFHt0RMMAO596SmbG/OgflHd39txf
-         Zpuw==
-X-Forwarded-Encrypted: i=1; AHgh+RqPG0WfJgrn050Lqm3UxkDmf18e9Q1Xgum300rBAf4WKis/wsGN56zk4ymYs0ePksaAE3nX6GI/FiqqPbntCkyr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMnJEmNrAct/FxuOrB/DY9w6LpnqkOpXNRZN5jEc9d1vEskWi1
-	scJPOP9dppw5AiP70ACJflZImg1VtaJ2xq2YbSAc8FoX/5gtO3e8FegySXgzTX9ghSs=
-X-Gm-Gg: AfdE7clN76xL9b8lgaFmtgfbNJ8IQLDmN+Ia+IfYQr59UOrhr9KWTA+8iEZ4TBupc+K
-	SfNCyuUVOFkXlapftUEFJLCMhhKR+dyInkzqVjN56G77NQM8iG6R4XOjD8ba2SnVs6TuT9fleil
-	Aljy8AUEEvmP4wSXkNpath1l6NPOP3PEslBgkYlAougVMTeSKrMXyNhX+gH5uJ6HeSdziGpEsvv
-	cpQ8exDgvNoz2LAvFOus3515YFvfj4n3TiJlD/rBr2TRAJehSm58NK6wa76sdAla8U4tVpXwJAm
-	RSEW8f6JD2+dR06jPLlLcJnwKPT4bbeKqwcB2jnjbK8+WO8HHXqjMfaRuMw8syYjE0VRDq8ct7k
-	ar9WxDzXCf8Nby/8PFRz9BVuCrcIE4fyCztyVOpcCkrIz+G6/ZrLLwyEI3Ov5a2IFWydz3+0nuB
-	uj+oXojf6s9I5hqEwnhuwDaNd0VqmTsyaufudNyMG08iFxBWFQbkq2/7ciNw==
-X-Received: by 2002:a05:6512:3509:b0:5ae:a9eb:eff0 with SMTP id 2adb3069b0e04-5b0236b3f00mr1956757e87.57.1783927242235;
-        Mon, 13 Jul 2026 00:20:42 -0700 (PDT)
-Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b01ca55723sm2625636e87.35.2026.07.13.00.20.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 00:20:40 -0700 (PDT)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Mon, 13 Jul 2026 09:20:01 +0200
-Subject: [PATCH v11 5/7] i2c: davinci: add support for setting bus
- frequency
+	Mon, 13 Jul 2026 07:22:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qLYTFVZ/s8SKK9oNHZlvIMFc2C6/BbC+PCpGJyd2FC52qLzx6Akh4p9x0GjDrOH46ByknJA8NCY8CGjwSDwc77Xe6tr+fD/8OQ7mAdQO3OiWpDGY5KTlRkE3B0fmgxG5RXk+UG133W8zrVfWzx+k+ZGp8VdSUvdlp/QAX8C1rW4kwolRcpaEU6f4rMOcWyyGyUnAlA0lmsXJPjDv+qTN5Evik39Ocw9HSKeeY1qgKYdoDditUnSTBs5MDF2KpnLDlBydJq/4NwDINTYeL5l6PQTXzQkaItUiIF0FSZ6Xp6obRJbKefoWIkbiydpnc3Nb0os9soHrB5aAPi+zY69qAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ccqm1Zg21zwvevfQkhyiS+L0f0kfAMvK93WrHurzL5c=;
+ b=ZSZJER1Ly0SMWCDDUCmWSC6NHaEz8HRxBq2bQcDsapY+Pmi4BKghFcrDDjtNo+cS8Defua2uqtDjF+kCJ9vskAJslfHWb6aY9Gk0Tj8IHRqCW6EVQ+BiANxitdZuySSH3WNx5wC4UaMGXLkket9Z6PqRuhZGPsojMHhPbaLyBk+FEVYJOpyzPYtIefGt0eyaQpQJwHyZfc5rOPhuMRBFfLHNr195bSYM2S4fz2e9nKO5Po/a3vtsovQX/3MTtMqYqxr49MTuUDdnDvNxuOd37tPK2fBsS0lVm9WLdtriktbOmWqFCKOma5tLJkXAwnDPv2EnoBwU8dhLBL/Kma5/4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ccqm1Zg21zwvevfQkhyiS+L0f0kfAMvK93WrHurzL5c=;
+ b=1RJ5TP3bTC8gusJGTy7q9LjIJuAOKctU0PeYMelFjSoX8VA8ZOJbIzx/O1jJ6N5HMtk7FZpwkdsAHs8ZLf2wtnIxBNB0Me/BETmOCEg8YELa9yeQmyWKoQnpvsKa/kJKkuOXNT4A0DJV4t9tOfPMsKB0bwedYnf5Oie5FcaOfw8=
+Received: from BY3PR10CA0023.namprd10.prod.outlook.com (2603:10b6:a03:255::28)
+ by LVUPR12MB999185.namprd12.prod.outlook.com (2603:10b6:408:3a3::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 07:21:54 +0000
+Received: from SJ1PEPF000026C6.namprd04.prod.outlook.com
+ (2603:10b6:a03:255:cafe::45) by BY3PR10CA0023.outlook.office365.com
+ (2603:10b6:a03:255::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Mon,
+ 13 Jul 2026 07:21:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF000026C6.mail.protection.outlook.com (10.167.244.103) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Mon, 13 Jul 2026 07:21:54 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 13 Jul
+ 2026 02:21:53 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 13 Jul
+ 2026 02:21:52 -0500
+Received: from xhdsneeli41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Mon, 13 Jul 2026 02:21:47 -0500
+From: Srinivas Neeli <srinivas.neeli@amd.com>
+To: Vinod Koul <vkoul@kernel.org>, Radhey Shyam Pandey
+	<radhey.shyam.pandey@amd.com>
+CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Suraj Gupta
+	<suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Alex Bereza <alex@bereza.email>, "Folker
+ Schwesinger" <dev@folker-schwesinger.de>, <dmaengine@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>
+Subject: [PATCH v4 0/4] dmaengine: xilinx_dma: MCDMA descriptor and metadata handling improvements
+Date: Mon, 13 Jul 2026 12:51:42 +0530
+Message-ID: <20260713072146.45269-1-srinivas.neeli@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-i2c-mux-v11-5-72bb8af8ee8c@gmail.com>
-References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
-In-Reply-To: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Michael Hennerich <michael.hennerich@analog.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, Peter Rosin <peda@lysator.liu.se>, 
- Peter Rosin <peda@lysator.liu.se>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>, 
- Bartosz Golaszewski <brgl@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4119;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=KipNKAzTJU8VgRjKDoGKNRn5s5XpRFE3NoXWRS5HQQc=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBqVJHEIYnKNxtWilpVrad41XofG86sGu06CkLzf
- K82KPt+QaWJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCalSRxAAKCRCIgE5vWV1S
- MvUCD/9LWlczj0L1fn2joODNFGQb5woOPuSNDMMw85B4V5Wrc2ForgHkbHfPvwBjF/xVQ6f6JS8
- SuDQDnzIqvsuMFzw8R5LfUmm5ueZIDPhQmZbVGXJgzyCl8xO0tq0uOHYOHbaICriYM0XlkKBWBw
- e1uQ92LgMebc+FmEQJFjjbWHMKWJ14QHVADKqiVF7t6rl6xYixN10JDxEQDJMpXlz2W5OOu220h
- +A+ExVcp3Y770NBaHD57rNHcbddOxCdB6UelwsqFE0sYf33EYrLzV9IK3VnuCbunKM6LIbFPJ+Y
- M5top4ePflHSPJ4VN3z3kH20ou2P6uq+lyEv1/rWbpUhChUyapBwkpLLBY4AB+bxyMA9hq9lLzU
- 5C38tYq3hsYE9j/3yG8QwYstzhpDUR40OnPz+IWxZv5iXNf6FMbOxgBePiFGBUKgvHsIhYNK0JU
- gW6wbOettVXjgAWzW1B41Mylp/Duo4a5YVKFFb1luIoAsexGN2xyJLjkBBeB/6AqsX6sD8KlMck
- NgSDCk+V42y/Hd2cJ3a/VCKTjG7qwcvFN8B4SYk0iWMj46H14iBwhsabi4KDbA3Y0dR+8pNu/HP
- zG5OdeqB1JzXFJWR4thJBzZfhQ+SbXhzY2gYYt+pPQ6SAul2lHuvEu1fjEPaCCgsBbb6pyvmNK0
- D2kerlOLYIt/03Q==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C6:EE_|LVUPR12MB999185:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e5e2f79-9fb4-4cff-0b31-08dee0af6aa1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|7416014|376014|6133799003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 2nLCjbwxDgP+gx3/o4glbZAxLWb5yVpv8KPPDIB0zhCX4wf8l8N+S/1fGngYPjwDCh3/qm0IDW7Ya+WAtOfiFyY40/7olucwEM8hIA84nMDjRqhZYnNwG/O+USq4HoX/Jd+xhKCuoLeU+nRIrYjIG7OkjWiDJwimvBLT8v1MRjcEKWIcUpbXDY9v2DJsjaxCh8Yt+ql3bVGY3tlh+uo/bfSRh4B9QfsrQyh3Zc6tKYmBeQW+aLQkpsPKzLK2+mcBOmb34GNLbcvGovVwt5tzh6YBvYt9VggonMzifi+geanmb1KwWj1Jj8AQHC3wcVpcB//Ob4IrZbruYpe9/kgSGF78blMnfnqbFg+eF3crz+JnGCtEbTjU+HMv3+xTIppSie0bwUh3nHNJwR8/n1pTY2AfUVkOaNozDh5rk6M1rpWjaUT+uTYbS1ew89Hu5IwJL6YNFKTs62WCGUzfmoahbfAj7woLLJsYYNDIJeSU9ADi0ND50VZfEJ93uqd3PGVaT+Npbmq8dsODwaVGsIO3TOzfWLqS0euvo5KSWbk/YiMXQCgAIpHZfx9SSP7Iy1tNyvfOtYCrZd4eX+pMVHdlJ4ANWJdLqwlmYGtbo7xDn6p8c6hK802ceChsk7FK+EzSKNFz8Z6jawvfL0p7/7VBu11Jq1776ex35lTSlpbUNTsuHLP0AkZdx+40R0yNENgWv5OhabR61mXSQ4ACXumXug==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(7416014)(376014)(6133799003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yWy/Jd7D/2TjhIDHY/V0nRjswF8nQdpLGpVPDW26fMIzstbG/v7ACCt1rRiR0JUokUD50TyKxeGEeQL0GCuxsuq43b2Xp1XWOY1/WciZzURZXelCvinQ4qfZKr5c/IqIXQW0ceNwU9327FmxrMrbqZkJhkO824JbmwSBH4+m9iVA4MXpHOcZsaMCGEEiPFbEJJac3dwysi3D3GOghf16Q/awkbpi9wwbjC4WXUjMKyXktSds91OGMYWnRp9VuEODthTmLgcqi7SHbF6j2jxtCD3LyepcQ49RcnRf76RXdKE5+j5fTVXdIhg4QCsPM/dx6AkZioXOX5oZFQMDZSSEBV63j0SmF7vAu9LhjXVhXsFA43xkVm8gXgoeX2P4jbxU2UEa/F+IYVlqGnkgdwmfcLDcf/wmrzU1Kg/gU+tAcQ0fKRgz5Grlzoz4FS54wp6C
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 07:21:54.4751
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e5e2f79-9fb4-4cff-0b31-08dee0af6aa1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C6.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVUPR12MB999185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_002044_658880_E026CED6 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20260713_002201_467432_48295B13 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,124 +131,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Populate adapter with clock_hz and .set_clk_freq() to enable support for
-dynamic bus frequency.
+This series improves the Xilinx AXI DMA and MCDMA driver's descriptor
+handling and metadata reporting. It fixes direction-specific descriptor
+field usage, ensures completion is based on the hardware completion bit
+(important with interrupt coalescing), and extends metadata handling to
+expose status and sideband fields alongside APP fields.
 
-Remove bus_freq_hz entirely and only use clock_hz instead.
+The axienet driver is updated to derive RX frame length from the standard
+dmaengine residue mechanism rather than descriptor APP fields, making it
+work on designs where the AXI4-Stream status/control interface is not
+present.
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
----
- drivers/i2c/busses/i2c-davinci.c | 33 +++++++++++++++++++++++++--------
- 1 file changed, 25 insertions(+), 8 deletions(-)
+Changes in V4:
+ - Patch 1: Added Reviewed-by: Radhey Shyam Pandey.
+ - Patch 2: Reworded commit message to reference the AXIDMA fix it mirrors;
+   added Reviewed-by: Radhey Shyam Pandey.
+ - Patch 3: Renamed subject to "...from residue in dmaengine path";
+   condensed commit message; dropped Fixes tag.
+ - Patch 4: Restructured get_metadata_ptr() so AXIDMA is the fall-through
+   path (no WARN_ON_ONCE); rewrote the kernel-doc as an index table
+   covering AXI DMA, MCDMA S2MM and MCDMA MM2S; condensed commit message.
 
-diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
-index f543997c31e9..06e8af83df0e 100644
---- a/drivers/i2c/busses/i2c-davinci.c
-+++ b/drivers/i2c/busses/i2c-davinci.c
-@@ -132,8 +132,6 @@ struct davinci_i2c_dev {
- #ifdef CONFIG_CPU_FREQ
- 	struct notifier_block	freq_transition;
- #endif
--	/* standard bus frequency */
--	unsigned int		bus_freq_Hz;
- 	/* Chip has a ICPFUNC register */
- 	bool			has_pfunc;
- };
-@@ -171,6 +169,7 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
- 	u32 clkh;
- 	u32 clkl;
- 	u32 input_clock = clk_get_rate(dev->clk);
-+	u32 bus_freq_Hz = dev->adapter.clock_hz;
- 
- 	/* NOTE: I2C Clock divider programming info
- 	 * As per I2C specs the following formulas provide prescaler
-@@ -207,16 +206,16 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
- 	if (device_is_compatible(dev->dev, "ti,keystone-i2c"))
- 		d = 6;
- 
--	clk = (input_clock / (psc + 1)) / (dev->bus_freq_Hz);
-+	clk = (input_clock / (psc + 1)) / (bus_freq_Hz);
- 	/* Avoid driving the bus too fast because of rounding errors above */
--	if (input_clock / (psc + 1) / clk > dev->bus_freq_Hz)
-+	if (input_clock / (psc + 1) / clk > bus_freq_Hz)
- 		clk++;
- 	/*
- 	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
- 	 * least 1.3uS, which is not the case with 50% duty cycle. Driving HIGH
- 	 * to LOW ratio as 1 to 2 is more safe.
- 	 */
--	if (dev->bus_freq_Hz > I2C_MAX_STANDARD_MODE_FREQ)
-+	if (bus_freq_Hz > I2C_MAX_STANDARD_MODE_FREQ)
- 		clkl = (clk << 1) / 3;
- 	else
- 		clkl = (clk >> 1);
-@@ -267,7 +266,7 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
- 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKL_REG));
- 	dev_dbg(dev->dev, "CLKH = %d\n",
- 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKH_REG));
--	dev_dbg(dev->dev, "bus_freq_Hz = %dHz\n", dev->bus_freq_Hz);
-+	dev_dbg(dev->dev, "bus_freq_Hz = %dHz\n", dev->adapter.clock_hz);
- 
- 
- 	/* Take the I2C module out of reset: */
-@@ -279,6 +278,23 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
- 	return 0;
- }
- 
-+static int davinci_i2c_set_clk(struct i2c_adapter *adap, u32 clock_hz)
-+{
-+	struct davinci_i2c_dev *dev = i2c_get_adapdata(adap);
-+
-+	/* put I2C into reset */
-+	davinci_i2c_reset_ctrl(dev, 0);
-+
-+	/* compute clock dividers */
-+	adap->clock_hz = clock_hz;
-+	i2c_davinci_calc_clk_dividers(dev);
-+
-+	/* Take the I2C module out of reset: */
-+	davinci_i2c_reset_ctrl(dev, 1);
-+
-+	return clock_hz;
-+}
-+
- /*
-  * This routine does i2c bus recovery by using i2c_generic_scl_recovery
-  * which is provided by I2C Bus recovery infrastructure.
-@@ -755,12 +771,13 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 	dev->dev = &pdev->dev;
- 	dev->irq = irq;
- 	platform_set_drvdata(pdev, dev);
-+	adap = &dev->adapter;
- 
- 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
- 	if (r)
- 		prop = I2C_MAX_STANDARD_MODE_FREQ;
- 
--	dev->bus_freq_Hz = prop;
-+	adap->clock_hz = prop;
- 
- 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
- 
-@@ -800,7 +817,6 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 		goto err_unuse_clocks;
- 	}
- 
--	adap = &dev->adapter;
- 	i2c_set_adapdata(adap, dev);
- 	adap->owner = THIS_MODULE;
- 	adap->class = I2C_CLASS_DEPRECATED;
-@@ -809,6 +825,7 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 	adap->dev.parent = &pdev->dev;
- 	adap->timeout = DAVINCI_I2C_TIMEOUT;
- 	adap->dev.of_node = dev_of_node(&pdev->dev);
-+	adap->set_clk_freq = davinci_i2c_set_clk;
- 
- 	if (dev->has_pfunc)
- 		adap->bus_recovery_info = &davinci_i2c_scl_recovery_info;
+Changes in V3:
+ - Patch 1: Renamed subject, added static_assert for descriptor size,
+   refactored residue calculation for clarity.
+ - Patch 2: Added Fixes tag, expanded commit message explaining interrupt
+   coalescing scenario, simplified completion check logic.
+ - Patch 3: New patch - axienet now uses result->residue for RX length
+   instead of APP metadata, removing dependency on status/control stream.
+ - Patch 4: Complete rewrite - metadata pointer now starts at status field
+   (index 0) exposing status/sideband to clients; uses EOF descriptor;
+   removed 'chan' field from descriptor struct.
+ - Dropped V2 patches 4/5 (dt-bindings) and 5/5 (xferred_bytes) as the
+   approach changed to use standard residue mechanism.
 
--- 
-2.54.0
+Changes in V2:
+ - Rebased on the AXI DMA binding YAML conversion.
+ - Added xlnx,include-stscntrl-strm in the YAML binding.
+ - Clarified cover letter to reflect metadata behavior with and without
+   APP fields.
+https://lore.kernel.org/all/20260309033444.3472359-1-abin.joseph@amd.com/
+
+Srinivas Neeli (3):
+  dmaengine: xilinx_dma: Fix MCDMA descriptor fields based on DMA
+    direction
+  dmaengine: xilinx_dma: Move descriptors to done list based on
+    completion bit
+  net: xilinx: axienet: Derive RX frame length from residue in dmaengine
+    path
+
+Suraj Gupta (1):
+  dmaengine: xilinx_dma: Extend metadata handling for AXI DMA and MCDMA
+
+ drivers/dma/xilinx/xilinx_dma.c               | 86 ++++++++++++++++---
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 14 ++-
+ 2 files changed, 77 insertions(+), 23 deletions(-)
+
+--
+2.25.1
 
 
