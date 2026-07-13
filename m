@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5317C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA1EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yoLIAxyc2K4qHLq/6jmB6EcYdYLRcJ9qmXi423/+Yo=; b=HR8dTe71WQsfewxfhN3kZiMosM
-	pAN6ysKV/PCu/MycUku6/6/QZLWkNo54z+CGdrXO3UJcfypEKlzhju3tgKWUvD+PaDeN3Q7dJCpuP
-	8cQ9+IbnyVUcuqzuRpKoexQGVzPMfglxYkaKKfiUvxwDL3EFJir6i30e74uWHxzeDaILte+qfE28F
-	RGEvjWl/gVBxMkzIVgXMmdnNNmr7QX6K2UiXaurAWvVeh+diGE/IfzF//GihJ7oH/8LRLGMTgZUUJ
-	EeXWOu9q6riX3XRnCOp5EGBUZFxRW3yzLplv9DERnTYOIUGo/l6Zc7pCAtQgVDf2u1gyF0chLMk9I
-	a33xqaoA==;
+	bh=Oo4rIyniLa3IrOryYngEBRNx17hUDRIHRdfHv96/rA8=; b=JXpvZ1sTtSjP5JAogdfWGUUryM
+	bfOZdYCu/QzX3UBFyQMWHmLbzna15KnjV1IhWIR8w3B5lJ2KRFyl1esfXT9gG/Zl4813h42jmRayg
+	ymf81z6jzk9IoZJz4HGA/8NyoDALMF+jtwCjxEBoCJG4i7E/KN5AAAn15f7IZSvdTI/O/yLYGKEvW
+	iZaVFV2q1Yu55IT0/f90UBvRjGz4R4s6Sl0RQW7OOmpDjHRPVq6U2KtPYsF13gWtzxAE6wtfLh/c3
+	L4l/mZ6/8rrh4GEhoyMQ1DSRzval/uNWoni9hhBuN/g8dtUF3IjZqM/DTF7UWTa2ra3PsZsoZc/gx
+	oIVX3VLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBJ1-00000008TZd-3w4u;
-	Mon, 13 Jul 2026 07:42:23 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1wjBJ9-00000008Tbf-0HOI;
+	Mon, 13 Jul 2026 07:42:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBIy-00000008TYH-48Qp
+	id 1wjBJ1-00000008TYR-0S9P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:42:22 +0000
-Content-Type: text/plain;
-	charset=utf-8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783928536;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6yoLIAxyc2K4qHLq/6jmB6EcYdYLRcJ9qmXi423/+Yo=;
-	b=ufoX6hFMdIyLPO8Bw5rY8zTYrpNA07qYpWVfVGzOWth22H/31rETGvgoTniThRqaviyYjp
-	htnItLldN4JOMquRcrdmPsuHj2DOHOcAm0DNHDeMEhGdqp39vxpUiAkeDe6HylLlexVVjw
-	HCSJeSNqf3qY+mgdiIs8xFbCmBLuGPs=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <CADrL8HXNoRA_cnR7KVPwN6zA32E744OKOfTmDMReoykzR39H8Q@mail.gmail.com>
-Date: Mon, 13 Jul 2026 15:41:35 +0800
-Cc: Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
+	Mon, 13 Jul 2026 07:42:25 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D4F294E40D82;
+	Mon, 13 Jul 2026 07:42:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FB2460341;
+	Mon, 13 Jul 2026 07:42:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C3BB11BD3A38;
+	Mon, 13 Jul 2026 09:42:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783928536; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Oo4rIyniLa3IrOryYngEBRNx17hUDRIHRdfHv96/rA8=;
+	b=rwZx25YCNBbEgGMtX75PvBzTlm1s61DtQzrE3ZeCtVUl+HzTfcVlC1R3kee22hR6JxcP4E
+	S3NHkHLMPJkNknT6TwRDk8lYb4JH7a1Gdt1aeoUKgZdr8pu6BKAzBxidM8F5cVbGcq5+7k
+	sBHcdsSB3CSzMIehKZC2UhNhCuFMt5mrMe38z8O//+6o7W0BYRgTBrB08dKDhhVO3FMlRs
+	lvZiq1KqYKZPN1TYbDcDrG2ReR90cWcSpHcDMr1qND8rUhSB0k6qIbt55eV+gS0JZrfimE
+	mMqD4zYxC3rJjeF0zrGAf5Pv8MhPZy8xWXc1dZwt2LxqIGaHiLW6uL3CLbRkXA==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <9C56FB0F-AE0E-4975-9D89-AFF110433C49@linux.dev>
-References: <20260708031129.3503195-1-jthoughton@google.com>
- <3B2B37B5-16DE-4DB0-8A78-4CB8636C1A86@linux.dev>
- <CADrL8HXNoRA_cnR7KVPwN6zA32E744OKOfTmDMReoykzR39H8Q@mail.gmail.com>
-To: James Houghton <jthoughton@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 13 Jul 2026 09:42:05 +0200
+Message-Id: <DJX9VUXFJBJ1.3SPE0QKF0528B@bootlin.com>
+Subject: Re: [PATCH 1/5] arm64: dts: freescale: Import optee node from
+ u-boot device trees
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Frank Li"
+ <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
+ "Maxime Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
+ <alexandre.torgue@foss.st.com>, "Wei Xu" <xuwei5@hisilicon.com>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, "Avi Fishman"
+ <avifishman70@gmail.com>, "Tomer Maimon" <tmaimon77@gmail.com>, "Tali
+ Perry" <tali.perry1@gmail.com>, "Patrick Venture" <venture@google.com>,
+ "Nancy Yuen" <yuenn@google.com>, "Benjamin Fair" <benjaminfair@google.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, <openbmc@lists.ozlabs.org>,
+ "Tom Rini" <trini@konsulko.com>, "Peter Robinson" <pbrobinson@gmail.com>
+From: "Mathieu Dubois-Briand" <mathieu.dubois-briand@bootlin.com>
+To: "Frank Li" <Frank.li@oss.nxp.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com> <20260710-mathieu-uboot-dts-import-v1-1-ffe0210e50c9@bootlin.com> <alFfeOFz2UA7hAbK@SMW015318>
+In-Reply-To: <alFfeOFz2UA7hAbK@SMW015318>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_004221_597432_D2086256 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20260713_004223_329906_762D63BC 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,138 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri Jul 10, 2026 at 11:09 PM CEST, Frank Li wrote:
+> On Fri, Jul 10, 2026 at 05:31:34PM +0200, Mathieu Dubois-Briand wrote:
+>> [You don't often get email from mathieu.dubois-briand@bootlin.com. Learn=
+ why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>
+>> U-Boot is importing kernel device trees for these platforms, but adding
+>> a firmware node to enable communication with OP-TEE. Importing
+>> changes here will allow to remove these additions in U-Boot.
+>>
+>> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
+>> ---
+>>  arch/arm64/boot/dts/freescale/imx8mm.dtsi                | 7 +++++++
+>>  arch/arm64/boot/dts/freescale/imx8mn.dtsi                | 7 +++++++
+>>  arch/arm64/boot/dts/freescale/imx8mp.dtsi                | 7 +++++++
+>
+> Please split soc dts change to new patch.
+>
+> Frank
+>
 
+Sure, I will split the changes.
 
-> On Jul 13, 2026, at 12:59, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> On Thu, Jul 9, 2026 at 9:59=E2=80=AFPM Muchun Song =
-<muchun.song@linux.dev> wrote:
->>> On Jul 8, 2026, at 11:11, James Houghton <jthoughton@google.com> =
-wrote:
->>>=20
->>> Hi everyone,
->>>=20
->>> This patch series uses a trick with the Access Flag on CPUs that =
-support
->>> hardware update of the AF to update vmemmap page table entries =
-without
->>> introducing a time window where CPUs accessing the vmemmap might =
-fault.
->>=20
->> Hi James,
->>=20
->> I was just looking into the Arm ARM specification regarding the TLB =
-caching
->> behavior to better understand the "AF trick" used here, and came =
-across a few
->> sections that got me a bit confused.
->>=20
->> Specifically, Section D8.5.1 [1] states Rule RDWZCQ:
->>=20
->>        "Descriptors with AF set to zero can never be cached in a TLB. =
-For more
->>         information about when translation table entries are =
-permitted to be
->>         cached in a TLB, see Translation Lookaside Buffers."
->>=20
->> This indeed seems to support the core assumption of the AF trick. =
-However, when
->> following the reference to Section D8.16 "Translation Lookaside =
-Buffers" [2], it
->> defines the following rule for permitted caching (RSQBCS):
->>=20
->>        "When address translation is enabled, a translation table =
-entry for an
->>         in-context translation regime that does not cause a =
-Translation fault,
->>         an Address size fault, or an Access flag fault is permitted =
-to be cached
->>         in a TLB or intermediate TLB caching structure as the result =
-of an
->>         explicit or speculative access."
->>=20
->> This is exactly where my confusion lies, as these two descriptions in =
-the spec
->> feel directly contradictory when FEAT_HAF(hardware management of the =
-Access flag)
->> is enabled.
->=20
-> I don't think it intends to say that "translation table entries with
-> AF=3D0 may be cached" just because they don't cause Access flag =
-faults.
->=20
-> It is likely that this clause was written before FEAT_HAFDBS/FEAT_HAF
-> existed. Re-reading it with that in mind makes the meaning clearer:
-> PTEs with AF=3D1 may be cached if the architecture otherwise allows =
-it.
->=20
-> There is another clause, in D8.5 "Hardware updates of the translation
-> tables", I_RGQLZ: "If hardware does not update the AF from 0 to 1,
-> then the descriptor is not permitted to be cached in a TLB." I think
-> this supports my interpretation.
->=20
-> I am convinced that it is impossible for an implementation not to
-> conform to Rule R_DWZCQ (PTEs with AF=3D0 cannot be cached) while
-> supporting HW AF correctly. Let me try to explain why.
->=20
-> For HW AF to function correctly:
-> 1. Setting AF=3D1 must be done atomically, otherwise hardware could =
-set
-> a bit in an invalid PTE. (This would break Linux swp_entrys.)
-> 2. The AF=3D0 translation cannot be used, otherwise we could
-> potentially drop AF updates.
->=20
-> If an implementation used the translation before coherently setting
-> AF=3D1 to perform an architectural memory access, then it must choose
-> either to set AF=3D1 on a PTE that may have since changed (perhaps to =
-an
-> invalid PTE) or drop the AF update entirely. Either way HW AF is
-> broken.
->=20
-> Please also see I_GXGPN: "When the translation of an architecturally
-> executed memory access occurs, the architecture requires that AF is
-> set to 1."
+Thanks,
+Mathieu
 
-Thanks for your excellent explanation.
-
->=20
->> On one hand, Section D8.5.1 [1] explicitly uses the word "never" for =
-AF=3D0
->> descriptors. On the other hand, under FEAT_HAF, an entry with AF=3D0 =
-does not cause
->> an Access flag fault anymore, because the hardware is capable of =
-updating the AF
->> automatically. This technically makes it eligible for speculative =
-caching under
->> Rule RSQBCS in Section D8.16 [2].
->>=20
->> My question is: which part of the spec reflects the actual =
-architectural intent
->> when FEAT_HAF is enabled? Is an entry with AF=3D0 permitted to be =
-speculatively
->> cached in the TLB by the hardware under FEAT_HAF, or does the "never" =
-in RDWZCQ
->> still hold absolute priority?
->>=20
->> Please let me know if I have misread the specification or missed some =
-overriding
->> constraints here.
->=20
-> Thanks for making me look a little harder into this; it's a good
-> question. I hope my reply above makes you more comfortable with the AF
-
-At least to me, what you're saying makes sense.
-
-> trick. I also hope to hear more from the Arm folks as well.
-
-Yes, it would be best to have an ARM expert here to confirm that our
-understanding of the manual is completely accurate.
-
-Thanks.
-
->=20
-> Thanks Muchun!
-
+--=20
+Mathieu Dubois-Briand, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
