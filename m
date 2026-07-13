@@ -4,88 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2356FC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307EAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+8bn+J1m/2WVL2HRQqPjPX3jby4LCx/UUlRbPjdP5Mc=; b=tuLgeDb/Hj5XwEfgOvfzTcMo5d
-	NNZZTF9YDdcO5jnHKZ94AGBRNvNG50dsMWu7euUYEZ9kMPEk+oSsPUsHbAcbMmfgKlp+qecZ0um3L
-	qE/ZHrE8d4UblSqB6Osml9BtzXZrgvSpI67Py/R6qrROnxl+W9f5tcTJwonnDVnX/Kuh8np57neBP
-	LzsJvxKDDSnkwj5z6em0dtyMYvigXZgWG8Uf9YA6M0TiCFZIM0qrk/5v8ShU65ZSGBU7aZD9aWup9
-	mxOTdP0TGIWVn0Lubr+TrKNF6u+hrlyqzc/K40QaLXN97z6QJbJstDPrf4Z28bzYjwF3jMCJOCCsu
-	iv4KoNKg==;
+	bh=Zltyqt7dF1hkJN/jP/CdnhprTdfvpBe1oag9qSSox24=; b=Y+NfilVCAy1smhtG6+8enVcOw+
+	wS9CNgfNZdrDhPh4O3qHs9dhYinlMSPMLozl7TkcY0krAo9hLfOz9m+MOH8O7zXQSfimnYHxFeCoj
+	Z+2wwUvVVOEYfPeNUFMvxB2iHNggU5xGqiquy6y7HN/fD8yriRMJ3qpbjhBC9mm+n2bSPgaNaRXla
+	ebU7DWey22bwl5bfXEmYbMVkOeOWVPFO7ZU+ywuGFNRx1U89wmFfHAlAoSarmemPe1ApobtU3TUDu
+	edj0XXOFZqYvh25gCaNjJzxlJK8WVMk9YFAiiS2tisJM9cQSstAAdMlCzhhtIYhPDh6v3vmSU6A8g
+	sWabH9lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJfP-00000009zqu-2L2S;
-	Mon, 13 Jul 2026 16:38:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjJjg-0000000A0Mh-0gNc;
+	Mon, 13 Jul 2026 16:42:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJfO-00000009zqY-2IRB;
-	Mon, 13 Jul 2026 16:38:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+8bn+J1m/2WVL2HRQqPjPX3jby4LCx/UUlRbPjdP5Mc=; b=maZ04DwFOeZI3/p+3+c8d8Aq29
-	dLI2YSSOcSCKt3zuw6VDEAP7hNr+Xh+AABGxRthTJU03zHAszRqpRRqlx7Nxn6q/aH2E0PSA7InS2
-	RAOE91M5kTVvPIXLO13mvNfQCAEOWesIlQlzjBBWszwBSQNLbRjGLtkCeHm9D42Rw8MKUXuyyOgsk
-	5OdBkivpqF+TnC/Cwa74BcyuD/SQ8IbJxaUdSCy9m3zzjKl5/z9cNmMj+QJ/L7vH/0PeLgJ0/v7P3
-	XPOCE906nydtCFDVzbcIKSdF7yWYrigm+KkapOLjp9qLG7Agq4a0kQNL9ikVVx7ovT1WtNQYzQzUM
-	1BrLWwMQ==;
-Received: from mgamail.intel.com ([198.175.65.16])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjJfK-0000000BrDX-1oXN;
-	Mon, 13 Jul 2026 16:38:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783960679; x=1815496679;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4kZEQHCKkpYpxkKyYJlUA0Zza6SQ8vOAw/fP08uqXDo=;
-  b=cQXVCGBJmIGQ3cB7gicDP+9isOj/PsucTY9v0STicXTqfz0DQrxJSxrX
-   7r/Xhs3uamx+mAoTTAi+NyUVpTl6fFQwRjRfPqFgZAGSJFrve2f+rccpW
-   iqd7aYpUpQTL68EHTo4WoGoCyvbZ+jX4Y6/YDQW5Y2YWT4Q+ANEJbX8jk
-   kPv76ULdr+RtW+Du5fC09VNKpGHfakkgEsuIPKIVjtj5Ysgc3go/COuwK
-   ADPwqr6MlIwA/gdrsYWDYmiMbh+NKvR9j21VtshWcXAKN7CSuENDAElQ/
-   KaP1Me53t1C9OwAMIZ2kGZG+kc/E52OURINOAa2U+9krAxyO+SHY7UNhr
-   w==;
-X-CSE-ConnectionGUID: 0lnt/pZYRpCIPd9uexI0Hg==
-X-CSE-MsgGUID: Bo1foV6zRCyCuNF9KSFJqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84768095"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="84768095"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:53 -0700
-X-CSE-ConnectionGUID: hWdotUdbRAyEFlX+x/kfWQ==
-X-CSE-MsgGUID: leJxOZsNRQSKnAtRZj8eFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="249245643"
-Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 09:37:52 -0700
-Date: Mon, 13 Jul 2026 09:37:45 -0700
-From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-To: bot+bpf-ci@kernel.org
-Cc: stable@vger.kernel.org, gregkh@linuxfoundation.org, sashal@kernel.org, 
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, x86@kernel.org, ast@kernel.org, 
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com, 
-	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
-Subject: Re: [PATCH 7.1.y 1/6] bpf: Support for hardening against JIT spraying
-Message-ID: <ehtglcrfzb4feb2ysknrcyvz7t2vc2ui2nfbunypteeexbsfu7@x477johvq6pl>
-References: <20260709-cbpf-jit-spray-hardening-7-1-y-v1-1-5ac5a2d6797f@linux.intel.com>
- <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
+	id 1wjJje-0000000A0Mb-2EET
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 16:42:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 008C543255;
+	Mon, 13 Jul 2026 16:42:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 005511F00A3D;
+	Mon, 13 Jul 2026 16:42:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783960945;
+	bh=Zltyqt7dF1hkJN/jP/CdnhprTdfvpBe1oag9qSSox24=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YMD95T5gB5V6T1KmPKUt3jBxes75nLN+JrX7ufd6wzFcjrcdf4OPFO5O/6KEGbI4p
+	 /qPsJdKgM1VcjGX+E9RJOqAdM796/JvnoQaOR0QS92oa5R1put/ZxPUddbroI2Tu71
+	 FefurKURKfoiisCy/CjS7hvxUrfgD1Ex8u47gMffmBu9NPWCSru1kAE1rx7Y29oejY
+	 7i1zDqIEnOgFDcMGP2JEkipfRSoxeoDToKGDEsej2BP1w2RYFvievCeyzKg1L1xlH/
+	 YKrYIjUxFoY2yWG5K3uqnUsZ7F3Xt7FFGhZzEg5MwswwfwagH1A1r0Bqd8ZvZEmx63
+	 Lmwi+0z29/2Zw==
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 2C724F40209;
+	Mon, 13 Jul 2026 12:42:24 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Mon, 13 Jul 2026 12:42:24 -0400
+X-ME-Sender: <xms:cBVVaunnabxwFOWElc-2hiBfATA0yTqjWE3aMVTIQndTuJglQjbcMA>
+    <xme:cBVVaoKqoeQWkiAxePVsb5xWtY9UPuGCuRv4lu1mcCUm8WG1U-9bL-DnSuJHayltB
+    kbDhU-jlolP3PSyv8edC4uYgNZkwxEWwbaV4_70CFloi6rugs7NFZC4>
+X-ME-Received: <xmr:cBVVaraMibBRTCi72ti4GcRWQ5JyV8HJ7ZlaaQ-tw8zj4r8k8gVN2Tc0ga1NXA>
+X-ME-Proxy-Cause: dmFkZTGMoWnWRGMKpgIRcZga9S7P7sHAGK5d+gFuMURcEOT0aJUrqozEaYj6fAMVLY196L
+    c7Q9Qx95Y6WcY327qRelJqkKmKiY8PyHcdZc3JZu/hVxbAUCmEOUcUUvGZPJlzK+Zg1A7p
+    E1M4Hr0gckN5dJRqg90LQ0EHm2k1fI/i+fUhPF+S0gisFoPy96WSVpdPglvA43z/98UfZS
+    77zo20OTGrNknxecuDjYSkHGwSxjzQ1LYlvgazPzK8oFp3YKDb/rYy0YfHXnH6tiE3ZJF7
+    ZokTq2XxIK+Yzvex9+lS2uKqt+BJb+586vgE/3bYp3UeKEBWyikgLa9l9cHHjIxzYEIHil
+    oF2jNkQA3L0opoOSBPQ21b1KwnAtX+7mm1hI1VkIvCQ4Sd8xTjNlbp2bhYvHJ2okcMR4ns
+    hsRCs5wvczPDK1sHUQYigsqKB7ZtUPERQqVE+pr7t0diJqU2CJ0D6rKy0JLWAbPnh0PP+w
+    GMO82NWmJpzPCDTYl7tKUndgaEXCJlprGOkG6oO+jiyNiJ6ompZ9Gl/0s/kkHRKHMwro8s
+    R9WYSyj47gkweDae0dm64/jnpgoYlfQRkSg8eWsf6jTGBGtei9aL7PRaOPj+mFaLXnfhGc
+    FUKxgsObsfGFTX1wCE5bSoek7+u19U/q8fwZmEcgbsplA5BpMngGDPZ0RlYA
+X-ME-Proxy: <xmx:cBVVaszZU1TD3CD3AsVnwyX518CY3FWJekcfZ1uGZO0tyLXOt_73IQ>
+    <xmx:cBVVavY-_LVEzdVDUJGtqVbrXGgvLeKIZpGs4SCglyb0k4KXp2XSCw>
+    <xmx:cBVVajXlPXaX2BcJ5bBNoWT8IgmSVzr_trhD-_ioOaq5hELW3DCn8g>
+    <xmx:cBVVaqFIKNFRiu1WcDspECKkHRpK8vBhy5plkTOPM4mCrQJ8NdAXpA>
+    <xmx:cBVVamEIjRt3MpSq9SGrtev-xed03Gb6y-njY6BZpA-E3wjOpAI01VIx>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 13 Jul 2026 12:42:22 -0400 (EDT)
+Date: Mon, 13 Jul 2026 17:42:21 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ 	Suren Baghdasaryan <surenb@google.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ 	Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ 	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, 	Uladzislau Rezki <urezki@gmail.com>,
+ Toshi Kani <toshi.kani@hpe.com>,
+ 	Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>,
+ 	Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, 	Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ 	"H. Peter Anvin" <hpa@zytor.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ 	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, 	David Carlier <devnexen@gmail.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, 	bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ 	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes v2 1/4] mm/vmalloc: acquire init_mm lock on
+ huge vmap to avoid ptdump UAF
+Message-ID: <alUUfGnM_vbhOTVK@thinkstation>
+References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
+ <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <de3ebfe684f280473617b560a9dcf501df07833f835a08eb6e75720cd03662b4@mail.kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_173758_839143_3F9D0EF9 
-X-CRM114-Status: GOOD (  18.34  )
+In-Reply-To: <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 10:52:04PM +0000, bot+bpf-ci@kernel.org wrote:
-> > commit 96cce16e26dd02a8678f1e87f88a4b5cdb63b995 upstream.
-> > The BPF JIT allocator packs many small programs into larger executable
-> > allocations and reuses space within those allocations as programs are
-> > loaded and freed. When fresh code is written into space that a previous
-> > program occupied, an indirect jump into the new program can reuse a branch
-> > prediction left behind by the old one.
-> > Flush the indirect branch predictors before reusing JIT memory so that
-> > indirect jumps into a newly written program don't reuse predictions from an
-> > old program that occupied the same space.
-> > Introduce bpf_arch_pred_flush_enabled static key and bpf_arch_pred_flush
-> > static call for flushing the branch predictors on JIT memory reuse.
-> > Architectures that need a flush, can update it to a predictor flush
-> > function. By default, its a NOP and does not emit any CALL.
-> > Allocations larger than a pack are not covered by this flush. That is safe
-> > because cBPF programs (the unprivileged attack surface) are bounded well
-> > below a pack size. Issue a warning if this assumption is ever violated
-> > while the flush is active.
-> > Signed-off-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-> > Acked-by: Daniel Borkmann <daniel@iogearbox.net>
-> > Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-> 
-> The reuse path this patch hardens (bpf_prog_pack_alloc() finding a free
-> area within a pack, and the size > BPF_PROG_PACK_SIZE branch) comes from
-> the pack allocator that first packed many programs into shared executable
-> allocations and reused freed space within a pack.
-> 
-> Should this carry a Fixes: tag pointing at that commit?
-> 
->   Fixes: 57631054fae6 ("bpf: Introduce bpf_prog_pack allocator")
+On Sun, Jul 12, 2026 at 11:42:24AM +0100, Lorenzo Stoakes wrote:
+> Currently there is a nasty race between ptdump and vmap when attempting to
+> map a huge P4D, PMD or PUD entry.
 
-It doesn't add much value. This commit insn't really buggy, it needs no fix
-for the eBPF. The fact that cBPF is unprivileged, opens a window for a JIT
-spraying attack. Also, the the patch is a backport, so it should stay close
-to upstream.
+<... skip 145 lines of commit message :P >
+
+The code looks good to me, but I think the commit message needs some
+love. It is long, and the pieces of the story are scattered: the race
+itself only shows up around the middle, after several paragraphs of
+ptdump background (including the arm32 and EFI notes that the text
+itself says are not relevant to the bug), and the one genuinely subtle
+part -- why the read lock is sufficient -- is not spelled out at all.
+
+Something along these lines would be much easier to follow:
+
+1. The race, up front. Diagram, if we you feel like it;
+2. The fix, and why the read lock is enough;
+3. Why a trylock;
+4. The arm64 wrinkle and the temporary ifdeffery patch 4 removes;
+5. Secondary changes (guard class, walk_page_range_debug() assert);
+6. History, if you feel like it.
+
+Point 2 is the one I care about most -- the same reasoning would also
+help in the comment in vmap_try_huge_pmd(), where "Therefore, acquire
+the mmap read lock" is doing a lot of unexplained work.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
