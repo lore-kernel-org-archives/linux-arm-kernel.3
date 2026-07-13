@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E275BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 04:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C0AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 04:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SwRmwa12BAzmniM/qfe3fdrZEb8WNeId/0JrKyEwP6k=; b=bfBc7S4zeUGCTmDqaUkdDw9cPc
-	S+53RdyhZcgA7oU9hchfb2iMETTbsZ0AdohSwNicMP+CLrkxOpNzat/kVb/zfxeX9LKSQz103ENA5
-	EB4Xf+a6R5lP5wCpwDCgcXaauAOMjK33vLwRg6bcdOr4C1MzKvkIK/Ati/2UpN/qc24rnhmW+r3z5
-	5P0Rs6bzcMIa+Ose2/0ZxRFJrd4ehhLQTY7YARBgcSEaCF1X9cwaltt8KcLsQRaq2xhjhNaHeP8tz
-	NplUTNfxHVCDuEFh1iB3ZHqyYJyO1kxkesQi4AzZdbCiRWYuIVTIUPHBkAxp2gVB1sMagWe4RGa1l
-	h82qC1nQ==;
+	bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=; b=YEku8piiT63MS0Tv55iDAQN3n4
+	y1pXyAUcK8njWJuQ2SLoyT6kfxfhhCN9l1GIfEA2MkfHBuPZnubOyGtzZrcj9J2PGbNcNm48yN+xt
+	ht8LclIKU/4vICE0iSe+W0knAoyan6FaEvJR4o7srXUjAeL9KPMhLceSte8YY0klXpb6sWJVgMxRI
+	4BlMsG/wB5sKCYuJHDoNXf2Hm4h9JNhPbvBVy7z1VIuun1j42RYuO0ifLbyTv1jubLsPo8RXVtLuL
+	GVN7EMn4i3YysAU9UjCJI7bMn1O6PYlCTZTzOuoELX4flYGXB0iKhzOWPZC8LgQ4hirezX3+5KsGe
+	HKUtoAqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7zN-0000000848G-1sGm;
-	Mon, 13 Jul 2026 04:09:53 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wj7zn-000000084BS-2KpV;
+	Mon, 13 Jul 2026 04:10:19 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wj7zK-0000000847t-1bla
+	id 1wj7zk-000000084Ak-2Ziq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 04:09:51 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c15ba5b151dso352434866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 21:09:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783915787; cv=none;
+	Mon, 13 Jul 2026 04:10:17 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c15ba5b151dso352465566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Jul 2026 21:10:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783915815; cv=none;
         d=google.com; s=arc-20260327;
-        b=p/xZTZDwHD4EVcsrTy4A0ZsIGve1xuAKJbL2AqgtBs3GQBNOTzcyVX4Yg7rd72yTyw
-         FYTQrRn4Fv4kT1UVDpsYhFULrDx7E+uICWHhBfplRxujsqnZxLBQpdGtv6leAsdJVkRQ
-         dMSDN/bAyEvQNeT8CuGCdVCkIplZSjzlMcN0uvd3sp/55PYN74RH+G+ZdF+I2BPtz7Rx
-         dn5E6btobuwCO4ZhlIy1IijCJ8SuPdz9HFS2SD9nIuALNhzU4c0G+CgWAtf60qc5tqhM
-         DFaB50PUeptx+o4WTpjPen9YhAlhjKr2jM13QhH3lErnAUp+PhIHY4IjOIl1djUynzZS
-         wgTg==
+        b=NmRS0vTGYDZe1OoTpKJeuLCjaVeSeN4OEvpx5MWZAJboUuxt86aiE1juLm1GzSvS+y
+         oczkj0tK366zlI14IZbtXaQEArtI8kDr4/pHA1V0isymEw/HZl+QebdKTJ4OYUZqzwGH
+         T4xb4Uga+MBzmkBiTf0FU6rkM3UyVQG3qa3eTkbR9ehLPerpfWM5vfpv05irrMCk+7oj
+         6UKo9xuWRjRaTIw0tWqD30ur4TzQC5ux8M3ylzxRlTVj2dfQoe80mWN8Rhve1qQAP0eg
+         9ta8QJ7725OJnw7hwlYUXVD/WwDPOX4PEbvgv4blndGQ+W/Tz7LkPnCmzG7voQUePV+O
+         Qwhg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=SwRmwa12BAzmniM/qfe3fdrZEb8WNeId/0JrKyEwP6k=;
-        fh=hIFvQE0ExvZLt9Kv8sQazUxGQJ5UybbKDAvOj8Hz++w=;
-        b=fyG/4IUxRuv/rc5ykVnATIyaCtdLigAs+Dhin20otMpE5WONzx8uwvDzWKcERswHUS
-         8YN8f8IY1WrwathLVCAZXETdTjt7oPnGZQ8kWG7WvjnEOlD8hXkN9KfKKxTyXEz7w9sS
-         /TC3vOshzYga04i4ug3/OZdqLxQtoyj7nZPfqQGf3TqTBH9qasjDePZLvibixgTI+ytx
-         Smo53jSz9obAVgUqtXXpJrPX6u1Ztm0kAHVp2bdfWyuq5FypQd6wRzs0AEbJAWq/hFgX
-         6EAKY8pAGi90ocQwPIkipm1HBcLWWIkZFpXgD4eexdIUN1O48Rny56EK1+WNFt7X4bU6
-         q+DQ==;
+        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
+        fh=sUxz51YGzw6gSxR/QadUwLcVuTPJOA3chun8ZeeXnCc=;
+        b=dYXY3UvYAL2KhmFvP/zhyeudyEaitX9he6T+rugpuhrM/x5+yL/SObN8rarWV3idL2
+         E4TrQl/dhHf6fC29ug7fDqt9Pf0pN+V77xpCbEpbPNpndvkNgVBKTo9/ZFGDUTOt41jX
+         g5Cy//C9RJA9cNXi3nE4lL9nxzGT7Ed4ehFGS0ur5faKYVuwtU7zvioGAhgPEV3iuQ+K
+         6jew/HHLmzkqxrZviUn8Mmi6yTVkEZjixE5qKEUIrVe6Ins4SUv+nKynSaK6cYceWleq
+         v5dC8heNXDb3MPFhJb2A3zWdyMIaZzLBpMkoRnuM3GRAdXACJ9IxmRTToQBDKl0K1XrY
+         EaVg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783915787; x=1784520587; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1783915815; x=1784520615; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=SwRmwa12BAzmniM/qfe3fdrZEb8WNeId/0JrKyEwP6k=;
-        b=lkoPVii4Le5hWrdQJu4NefUHl9ci0b63j7cx5AeiOgb9oaz5LJ4K1Qdh3pISdrjkP5
-         1hmoUX7RUrvHs2FYhExIoHN1g+QYVEAvuWIbRU9HC3USFh+uH0pemlCathsce2y2wYyY
-         La6pXpv1wGFX5ka3A+25pvBBkRa9fGQHyv3bZVsLKmflN1HRbyk9CgYePftCOQpsRFN8
-         4V70A2RYKc647KejPQeEGElkH604630QOKdwN54HpYTItBryQAYoxpgDEXIfh2bc7H4h
-         hGyYuBvdf6rzgEJKlg8s72WFINdxC5MAFVb4F1/0cVjyIh80dynhtPrww9t5pYpu0ljH
-         DELQ==
+        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
+        b=Bl6ydisZZpBm6AMue7w6kdV0co8Mq58N6BsYnezcG/bgyGSiyMip8uDuLEOmzd99vy
+         TcA+nHszFwju8n7zQNJup489MBWxrWA3rnafi+WF6qkak2kxwVVO+lmXhnT5P6SttVWU
+         8COS87em2USCsuRawTbJSxd47Hu6PbORjvpemMEFjZzR+cG80GprALKf1awLIMfr+Iq+
+         POyUiRIyqkd8Jq0aV27SD0STcmfmUUsze1RSpVtegty8D1UmVUYeMuDUzPPPDEpmCSbE
+         BPO6TPMhuq9jQpuc1s0cKTTTRhr5xTpPRPQ3TsBQavorXNpGZMpoERLXICSIFSVy2Eq/
+         NBZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783915787; x=1784520587;
+        d=1e100.net; s=20251104; t=1783915815; x=1784520615;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=SwRmwa12BAzmniM/qfe3fdrZEb8WNeId/0JrKyEwP6k=;
-        b=NTSlyROg857V2dAZiwrEWSXlpv5JQQJCwEdry+VQ3a0+QF5enD+7kSmZhsekK51OZI
-         p5tdsz9nuU9d2nSLJQSUC0TBSYKiVHXb4BtPDe35hGjttHTbwJd2dbZufBcHIHVAQYmi
-         Rl27/50tWXkVp6xIwFGZfnjfFzZcmYj2lEghLWsZpl8D73SXy//Bafpq4VL1v89gVtfH
-         tu2WrsYEt3aCzNRBGGR+B8KImNwi/9RZQAgZpOPTRGcs46YrCDXiPVfENiHgh1qCfPOX
-         OhfY9Y06mtAbPDFaa3G2ygsEbn0SxsEe9Dw1/BYAtsJs6Nvh+ur3pAJ+11y1bgR6qK5H
-         5qOg==
-X-Forwarded-Encrypted: i=1; AHgh+RoLhzPMjmgIocitxUgvX2nSYGos7LcRr2d4Px1jIBovoEnv+Ib+M4ZDj0RNpkdLjJLN4pHlFbnWAgvyM8Am6rZM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlPIku9hGAa/S/7hcvo8Ucceu974p8LVkCbgNb6rstKWzx7Nr5
-	q5wG0YFbLL6PklOMaKLgZsyE8rPeymBKYVFPntxvcF3a5SdOKWYowSniP978kkIWUszLZ+zAsgD
-	Yr09cqsszIjiqu3s5YAfhnkFBmuMKL3iqUf+8LIOD
-X-Gm-Gg: AfdE7cktJjVcLw3gINF95Q9RIulvGSU67hgPzEFONCIX4nK06ngXo+ouD+h0eXt7M+2
-	5Txc8o6bgzoqLVUSob4aoZL0bvWfuC5eZ2e5FeZaTwSkJfdo6KvsMQTYPy9aNlhuGUuMSkoA8sH
-	JL47woI04lxRdX1iYcQCEXSD2vdIpJuf2jNSJDKmqL5t7cjHUiLIXk47cI4RqKRZyiFBnLuPmAj
-	mHntHbryifB+noSOfG5UqrkKllrCaEd7WrmjoWYofDRS7FgLiLpZjKcJqdyq3vctyRieXA6QlpC
-	WYhwrousV/IpFd/d+YMlQIQkdHI=
-X-Received: by 2002:a17:907:a01:b0:c12:e4c6:c4d4 with SMTP id
- a640c23a62f3a-c161f4713bemr317449966b.63.1783915786759; Sun, 12 Jul 2026
- 21:09:46 -0700 (PDT)
+        bh=3tD+7MnOoTjJBs3fshzrrIZbo5/nTz8+RZZUhLw+smo=;
+        b=H5YFsX80GOoT+9igLRhKUqaq4EJUASYODuZO7aJkJDhr82M1TP33dS13wtH4LygPpu
+         X7d2nqdyQRXQaCJVzVLPG8e3Yl5+lzCnqHXbXdYVAZMqlGvgYIE/2eAKEcTFZi/GQOpO
+         qwiONNvv9NRIqPN2DJz8D+ADC/Mo0lyKpXTHEu1W8Iiy5c3O/uinqqku2pPHs8+E09BX
+         1i8CqSZVbpaWFoh1ijrB5xwb5KS1cR9CBy8ziL0jyuVC4B4Br/NN+naMt9r90fiJQh4D
+         Quyom59nfjqfj7Rg2sDiHK3/j/GJwWIIwnPUBnhxxwq5SqK4Zq6fVJRNiYBQlYk2uY5q
+         sgWg==
+X-Forwarded-Encrypted: i=1; AHgh+Rpb6DveUbii4GKqXa2GcHbWmmDEgfWgrYF2mg4nTXYrcKZ+u5LvCmjLs8HUg4HtN6mEhLtsc1zcE6ixOHiwhSKR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxbw/EIonCmz1HZvNjYKPWhvpCqGY3x1gKSx/Q9MGstNxKrKCYO
+	NOS4HqOpMZQi1fVI0E/r9yZV17OD3Hj2ik8y8kaGo+Rb4HShOuR48W0u9ETHopGN5QUwgcCtMEd
+	q57W/lyTyg/L7ryNfYautQq5w++v1Ayhcv7BonWPo
+X-Gm-Gg: AfdE7cm2ZaYzpS39MkT6ytDPBRu/iL4wZwwggGqd5jgTj3zOFmOaTCs55Lv9Nw0mSCy
+	YoAF+w+LBXfMRtL0HCDYh40BCBuWSwZoSl+7JfMRkka+Qk3Kf6l7e/9HxM7VR3s7JCY11+6RgE5
+	z0iQ+mCHaSpR/J7qClEKEdg0wpWZyAK52PegfMbHXctR6p1R0uIjbxy/6vMBC3a4P7FKPlZ+1PF
+	1aRBS5SMow7Jc1aVOn7hU3Mr9IeR/ihCiS2SiiREj2UJqo/cgsadkHwgD63URPEYhsGtjKj/qnP
+	hx4/C8xhjHEaxN1HvKhBIlhtlmg=
+X-Received: by 2002:a17:907:a785:b0:bed:9a7:5ed1 with SMTP id
+ a640c23a62f3a-c161e956b92mr277921966b.5.1783915814340; Sun, 12 Jul 2026
+ 21:10:14 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260708031129.3503195-1-jthoughton@google.com>
  <FC9E78F0-8FF7-44AF-A848-8401B4702488@linux.dev> <CADrL8HVkrojXbBuEX-W=UHBmyyFzqxdGBvtAoPP53SyYa10uag@mail.gmail.com>
  <ABB70C2A-316E-4C19-A855-C9920BE105E1@linux.dev> <CADrL8HUCqrzOQGXRDwnitintQHjHCw10n8wo6gChQ2tWvC2JBQ@mail.gmail.com>
- <F2693104-180B-44CF-9F3D-CBDE26151EA3@linux.dev>
-In-Reply-To: <F2693104-180B-44CF-9F3D-CBDE26151EA3@linux.dev>
+ <674EC6D6-B1F7-447D-B462-861ECA5A99B7@linux.dev>
+In-Reply-To: <674EC6D6-B1F7-447D-B462-861ECA5A99B7@linux.dev>
 From: James Houghton <jthoughton@google.com>
-Date: Sun, 12 Jul 2026 21:09:09 -0700
-X-Gm-Features: AVVi8Cfs1p19kyiJ6G4WadWRtHDTpqre4c38UKODVk6g8mKbqnO6JMtYH9gjlzo
-Message-ID: <CADrL8HXZiHcwYR8Hcoje4c9HZBNSCmQcG-3y2f6AhJksYQRvhg@mail.gmail.com>
+Date: Sun, 12 Jul 2026 21:09:36 -0700
+X-Gm-Features: AVVi8CeIAdsZ8vBj0o0oFzX9SAZHhNmejnZxvQk9nHEtMZWM7457PWKYqV0QjhM
+Message-ID: <CADrL8HXeKSt0fRrevT7cuVJGhmJ=7LCkMnBahf5YLR-_90WePA@mail.gmail.com>
 Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
 To: Muchun Song <muchun.song@linux.dev>
 Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
@@ -110,8 +110,8 @@ Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260712_210950_517544_DA61112D 
-X-CRM114-Status: GOOD (  46.95  )
+X-CRM114-CacheID: sfid-20260712_211016_689620_72D373C6 
+X-CRM114-Status: GOOD (  41.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,9 +126,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 9, 2026 at 8:41=E2=80=AFPM Muchun Song <muchun.song@linux.dev> =
-wrote:
->
+On Fri, Jul 10, 2026 at 7:23=E2=80=AFPM Muchun Song <muchun.song@linux.dev>=
+ wrote:
 > > On Jul 10, 2026, at 03:04, James Houghton <jthoughton@google.com> wrote=
 :
 > >
@@ -183,85 +182,52 @@ or.
 > > be required to free the HugeTLB pages later, which we should continue
 > > to support. Pre-HVO (today anyway) happens before all boot CPUs are
 > > onlined. IMO it is not okay to prevent boot CPUs from onlining.
+> >
+> > Let's say for a moment that HVO cannot be toggled at run-time, then
+> > the best we can do is:
+> > - If a user does not specify hugetlb_free_vmemmap=3D1, we can always
+> > allow onlining of late CPUs
+> > - If a user specifies hugetlb_free_vmemmap=3D1 but not all boot CPUs
+> > support HW AF, we can always allow onlining of late CPUs.
+> > - If a user specifies hugetlb_free_vmemmap=3D1 and all boot CPUs suppor=
+t
+> > HW AF, we must not allow onlining incompatible late CPUs.
+> >
+> > HVO compatibility has to be modeled as an Arm system feature. To
+> > support conditional onlining of late CPUs based on whether or not "HVO
+> > is being used", we still need the extra cpufeature.c logic.
+> >
+> > So if HVO cannot be toggled at run-time, we can simplify the
+> > definition of "is HVO being used?" (for the purposes of determining if
+> > late CPUs can be onlined). We can simplify it from what it is now
+> > ("are there any optimized pages?") to
+> > "vmemmap_optimize_enabled=3D=3Dtrue?". That allows us to drop patch 15
 >
-> When the boot CPU starts, it first checks if the hardware (the current
-> boot CPU) supports AF (The selection of the Boot CPU is critical here
-> If the user really wants to enable HVO). If AF is supported and HVO is
-> enabled via cmdline, we perform a Pre-HVO. Subsequently, any CPUs that
-> do not support AF will be prevented from coming online.
-
-I understand. I don't think we should do this. I think it's much
-better to always be able to start all boot CPUs[1] and simply rely on
-"normal" HVO.
-
-[1] Just to be clear on terminology, I'm using "boot CPUs" to refer to
-all CPUs that are onlined at boot-time, not just to *the* boot CPU
-that starts the kernel.
-
+> I believe this conversion logic is sound. If a user proactively enables
+> HVO via the command line, it clearly indicates they intend to use it.
+> Otherwise, there would be no reason for them to enable it and then leave
+> it idle.
 >
-> If the boot CPU does not support AF, enabling HVO is not permitted=E2=80=
-=94neither
-> via cmdline nor sysctl. All CPUs are allowed to be online.
+> > (which then needs a slight change to patch 17), but that's about it.
+> > So this is a slight simplification, which is nice.
+> >
+> > If you (or the Arm folks) feel strongly, I'm happy to write this simpli=
+fication.
 >
-> Once the system has started, there is only one way to enable HVO, and
-> that is through sysctl. 1) If the current system includes any CPUs that d=
-o
-> not support AF, enabling HVO is not permitted (unless the user chooses to
-> take these CPUs that don't support AF offline). 2) If all online CPUs in =
-the
-> current system support AF, then HVO can be enabled. In this case, the
-> system must also block any CPUs that do not support AF from coming online
-> in the future.
+> I really like the simplification here. To keep this series as simple as
+> possible for the first step, we also could focus strictly on bringing HVO
+> support to ARM64 by making it depend entirely on BBML2_NOABORT. This keep=
+s
+> the initial scope highly contained, which should make it much easier to r=
+eview.
 
-An approach similar to this is implemented in this series: if there
-are (or were) any HVOed folios, onlining a CPU without HW AF is not
-allowed. If HW AF is not supported by any onlined CPU, HVO cannot
-proceed (though it will appear to be enabled).
+Okay I'll do this then. I'll probably still include the BBML2_NOABORT
+patches anyway, as I don't have access to any systems that have both
+HW AF and BBML2_NOABORT / BBML3 (even with the expanded list[1]). I'll
+continue to structure it where the series can be partially applied and
+still be useful; i.e., the patches to drop the BBML2_NOABORT
+dependency can be ignored.
 
-I probably should have integrated
-`arch_hugetlb_vmemmap_optimization_supported()` and a `hvo_status`
-check into the sysctl handler for HVO. I'll do this if it is still
-relevant in v2.
-
-> Of course, if a user specifically wants those CPUs to be
-> allowed to come online, they can choose to disable HVO first (At the same=
- time,
-> this means that the HVO-optimized HugeTLB must be freed first as well).
-
-I could make it so that, if there are no HVOed pages anymore, onlining
-incompatible CPUs becomes permitted again. I don't really see the need
-to do this.
-
-> My proposal assumes that even though the system supports different types =
-of
-> CPUs, their support for AF (I suppose this is a very basic feature nowada=
-ys)
-> is generally the same. I believe that for servers (Only servers stand to
-> benefit more from HVO), there shouldn't be a mix of those that support AF
-> and those that don't. At the very least, such a situation would be extrem=
-ely
-> uncommon. I believe this may be acceptable. That said, if we go this rout=
-e,
-> is there a way to simplify the code implementation even further?. Of cour=
-se,
-> this is just my personal speculation. Please let me know if I've missed
-> anything.
-
-I agree that systems where HVO is relevant are very unlikely to have
-mixed support for HW AF.
-
-I don't think the approach you're suggesting in this email (as I've
-understood it) simplifies this series.
-
-I don't want to mess with the arm64 cpufeature bits more than I've
-done here; preventing boot CPUs from onlining will certainly be more
-work. :) And then your other suggestions seem to be quite similar to
-what is already in these patches.
-
-I am happy to get rid of the "disable HVO if it is unused and a CPU
-without support is onlined" part though and replace it with something
-similar (the simplification from the other thread[2]).
-
-[2] https://lore.kernel.org/linux-mm/674EC6D6-B1F7-447D-B462-861ECA5A99B7@l=
-inux.dev/
+[1] https://lore.kernel.org/linux-arm-kernel/20260708144331.679816-4-linu.c=
+herian@arm.com/
 
