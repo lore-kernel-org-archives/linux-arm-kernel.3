@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBCFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1CFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PE3gaGsNLQ/wJ/jx4xmXlbU0Ll5weYz4ZF4wxRh4WY=; b=OJIfhSy518maMih3LBukQhhpS8
-	p3b/Db3wkNM/BY3SySE5VRbp/ZvsbddtUnP4otnjdX9Qc5cbjm38eT8H8eEWhXSo5bCZw2ox/mzcb
-	nIeDHpygxH50EBmxKqpZOqi4sWjonWpc/x7QbjcIU/L3X+kQiBtM81x+DwCN+q3TiWrn/90upy+oB
-	7oC9GijNoTHoDfyKxd79bxVbMCLs01t4OUtI+QtIsGQhoJj6SL4V16cyXeSmAoqIEaUHleVB0eQRt
-	iUy8pv+H+BsRzkOTFQ39Mbc1kndlJUCpjLsNz8T4Nk8VTSN9dSAd/+V+jBKb6eDMyzdTq3kee2ZLG
-	zYf4EzPg==;
+	bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=; b=vCEe7B1I+psZwhDqr3Bpryg47o
+	dXTo4zDLFfsnr2MrwrKsM1t6kCYWiLg2A4HgIvycoNXx1q5USH3E7YZ0AI1oxeuZ8aS9O3ZkmRPw3
+	C040Jaxu84re8WTD9R35CmYNzzcLSend4WKT9aTQqoYP5DDwKDKbKZgxqAALfQCg6uNyxYzQVfYfk
+	O966YGrKKr6p59zJpmbWcrtTAP5u/vsovYVkGARDKonJDD/Gil9lhbDnLfROMMh7yHdSoi3J9GMWA
+	6/FIN+ypj+c93y4GOi5fMm0lxaImCOzqZOhY9mv3xN0WFrz8vthmkOx4TpE6CD9XRRQWvG+TApvbX
+	vd/cf0uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGkL-00000009PYw-1F0Y;
-	Mon, 13 Jul 2026 13:30:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjGlU-00000009Pra-2VD3;
+	Mon, 13 Jul 2026 13:32:08 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGkJ-00000009PYi-490r
+	id 1wjGlR-00000009Pq6-2FLR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 13:30:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC42F4028D;
-	Mon, 13 Jul 2026 13:30:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812431F00A3F;
-	Mon, 13 Jul 2026 13:30:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783949455;
-	bh=2PE3gaGsNLQ/wJ/jx4xmXlbU0Ll5weYz4ZF4wxRh4WY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ikTp/ZDJbKzZqXWQdgJFs4mxUmOx5W44no98j831xxLyCdzKqQoLZo0aubu7A6s4I
-	 pHh+efGT9meohmhUvaKUh/9NhBL49M6U1IfTZLuCDURT9zO31YfLr2SBN3ScUD26+W
-	 VkCFEJFSu9obPyRdJSJ72kzy/VLeOvMf10vfXZpbaCI3wSnfxgcpW76ZRvh3kS/ZHD
-	 Yv06UQBSZoTyN/qEb0fEQmSroyWlJiM4/+bIXwhSR1jQarFKw3ksg2oLI+HqyPRfF2
-	 CvzHlCEH2mrN/QQRWwvlsrczJMPg7BKTRAWndik19UrgS416WGQAAxpSqCM1/v4tJg
-	 yEau/1bCMbsqg==
-Date: Mon, 13 Jul 2026 14:30:47 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 22/29] KVM: arm64: Context switch SME state for guests
-Message-ID: <8db1cdd1-5294-4166-99f4-340d124d72c0@sirena.org.uk>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
- <20260709-kvm-arm64-sme-v12-22-d0301d79ef58@kernel.org>
- <CA+EHjTx6P_Wz8=+3fanry_Cs6sqyTD8Swz61WZah46u6-UXP5w@mail.gmail.com>
+	Mon, 13 Jul 2026 13:32:07 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-698562f10e7so4377817a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 06:32:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783949523; x=1784554323; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=;
+        b=e6gx+f6HQW1LbHXxszF57jC31MfaTKYNhTpLqZYbV0bjYtchYBBFBFgnx3YSD3l3t/
+         B8EBhUeuhkqz+J4dFyTE38WCG+grX/I9CvkwciJe5kiAbLg2PYDtX9Gm87nYLHQa70g9
+         2GTk8Z8vC94vwAMp4IccQn98lgo+gTLmMnEhMB5GEPVu1ewkluMuPkzn0Ec6j5QHLZr5
+         1Ya+5e1wEnDfjakHC3XSg89de5ohf3ErnWHs+cPAnVo3r2Ad+fYGPiwjaOAoiyeByfed
+         S3cxT0pKk24jYTICBI+1wEVDkaHyHdhcaJ4XKTqCwUFLCz6WOLSL/dInMR2gHGB/kk+B
+         +MnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783949523; x=1784554323;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=;
+        b=adpEsCGrPLGV6/Wt/D0fezRywdrWGM9ph5S+V3VsDzWfk57zDIg7G/o70+aszv4UoS
+         p7r509UcUTIiU0FwfSB3q1cvWKP/eSKOBYbVxjdcZybyD2vpp3hSOmPqanfPrnLeU7Y9
+         YP1561c0hW3dXG1JGDI6/VsulpEOAGOW8Tz1pDW9P6Uyh/giLAJezFZ5ijkNgTtv5B9O
+         SnmgjOf21oKMUg5MXUJTPnHbwd1GOcHTo/TdKR6j3n9HnyebRoHveokX6SJP12mMAigS
+         FYG4Ba6KCl1CJO1/bgXVgjYHOkbKsubQw399C01gbvsNzjwLyuSwUELeqzuzRlHGkOdp
+         G1Kg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp5Sl993krg3tncoI603CYzEr0c56TESUYGYOEY6DBsYLC+f9DDCDKxCVl1uyeUnAGUslZMS6e5FJ6MceFDIFpi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEjd1d2uPa28uq/cxxIQ3V1j7a5goVeUCcRjUfB4xikABVc/AW
+	/Qqh+PWKDGKp2K83IKY/fs4ty72OgfWqxKziXzLErpU2zniJwvSU+wuj
+X-Gm-Gg: AfdE7ck7rg9kz1otB89Skovw7QJbod5kLsFUZy1bdj2gBUog+8yjQGTgChhrVRAvQlW
+	+MEoia8sWckenWuXkv1l/ofr/sG3EYn10gPIOcZZfi6DP3tm1FcDzXWuxxpTdn1pKjgLaTQG4RS
+	hHRW4U6JqEmQbUECDWPgdl2P3nVmg0ifID6iA9eylNRwuVWbz5nA/c9ufXiF8uDivIwkRVILRmf
+	Qm2mJOCfgcTn396RCxbDFu/1EzThsG+mPj9aO3AnfnfxbuctibqFWxUjcQLsHpdC1292XfezGgR
+	VZNfhn9lSPjggeLJs9Joz8QWe3pSPVuQJsKtE6uEbgjdebwken1ubRsFSVQHLPFcq3ShG2+RiLZ
+	54wmalf9U2W49wcjWveZtxwPtJDKPKXTbS53KGZqkZmUz4TbwRIGYYyxeZ5Z6ssEYGDRxLJB5tt
+	tjZSk14fl4DTmoomOij4VQ0wokNgQeRt7uN1fEdXwWu2ngcl74FlKs9Isbaxz0H69u
+X-Received: by 2002:a05:6402:40c5:b0:69c:eca:3bd1 with SMTP id 4fb4d7f45d1cf-69c5f102cbemr3782153a12.24.1783949523149;
+        Mon, 13 Jul 2026 06:32:03 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19cd8971sm14840303a12.5.2026.07.13.06.32.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 06:32:02 -0700 (PDT)
+Date: Mon, 13 Jul 2026 15:32:00 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	matthias.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/4] arm64: dts: ti: var-som-am62p: fix Ethernet PHY
+ configuration
+Message-ID: <alTo0KGWAixkK0i8@Lord-Beerus.station>
+References: <cover.1782680023.git.stefano.r@variscite.com>
+ <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
+ <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="v9CtVmyreETBkO2w"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTx6P_Wz8=+3fanry_Cs6sqyTD8Swz61WZah46u6-UXP5w@mail.gmail.com>
-X-Cookie: Courage is grace under pressure.
+In-Reply-To: <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_063205_589740_624E1F48 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +108,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 04:02:34PM +0530, Vignesh Raghavendra wrote:
+> >  
+> >  &cpsw3g_mdio {
+> > @@ -159,9 +169,9 @@ &cpsw3g_mdio {
+> >  	cpsw3g_phy0: ethernet-phy@4 {
+> >  		compatible = "ethernet-phy-id0283.bc30";
+> >  		reg = <4>;
+> > -		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
+> > -		reset-assert-us = <10000>;
+> > -		reset-deassert-us = <100000>;
+> 
+> So are the reset delays no longer required? Or they taken care of
+> somewhere else?
+> 
+> > +		bootph-all;
+> > +		enet-phy-lane-no-swap;
+> > +		vdd-supply = <&reg_eth_phy_vdd>;
+> >  	};
+> >  };
+> >  
+> 
+> -- 
+> Regards
+> Vignesh
+> https://ti.com/opensource
+> 
 
---v9CtVmyreETBkO2w
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Vignesh,
 
-On Sun, Jul 12, 2026 at 03:40:34PM +0100, Fuad Tabba wrote:
+No, because this GPIO actually is not used as a PHY reset.
 
-> For a nested guest this folds in the LEN restriction from the guest
-> hypervisor's SMCR_EL2 just above, but not FA64/EZT0. vcpu_has_fa64()
-> and vcpu_has_sme2() are VM-level capabilities (kvm_has_fa64/sme2 on
-> vcpu->kvm), so an L1 that clears SMCR_EL2.FA64 or .EZT0 to deny them to
-> L2 is overridden here: the physical SMCR_EL2 gets the bits set from the
-> VM cap regardless.
+After reviewing the hardware, it turned out that this signal is a
+board-level enable signal required for the PHY to operate, rather than
+a reset line.
+The previous reset-assert-us and reset-deassert-us values were
+associated with the incorrect modelling of this GPIO as a reset, and
+are not longer needed.
 
-Doh, of course.  I've fixed this locally.
+Thank you!
 
-> > @@ -128,7 +220,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hy=
-p_vcpu)
-> >  {
-> >         struct kvm_vcpu *host_vcpu =3D hyp_vcpu->host_vcpu;
-> >
-> > -       fpsimd_sve_flush();
-> > +       fpsimd_sve_flush(host_vcpu);
->=20
-> sync_hyp_vcpu() runs fpsimd_sve_sync() on &hyp_vcpu->vcpu, but flush
-> passes host_vcpu, so the two sides operate on different vCPUs. That
-> asymmetry alone looks wrong: flush and sync should cover the same
-> state.
->=20
-> Concretely it means kvm_sme_configure_traps() programs a protected
-> guest's SVCR/SMCR from host-owned values, so the host can e.g. set
-> SVCR.SM and fault the guest. Keying flush off &hyp_vcpu->vcpu like
-> sync fixes both.
-
-Thanks for spotting that, I've updated locally.
-
-BTW it'd be really helpful to delete unneeded context when replying
-
---v9CtVmyreETBkO2w
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpU6IcACgkQJNaLcl1U
-h9AaOAf+KDIg9SieNgLHu8cIPChCdW1/JE5Q90xi5O9YT1F33j626OleMhM1VngO
-WHezCRNFf8cg4aTf93obOsz6F6jnWTTZaK82gt6bRu3udlizG+33O7jnsnLFd589
-SMe5MOi6iwIgvK0yl8Tf4GAxXgJxMNb/vzvY9hfmke/jCDLYT7BF31PeQMwfDTgq
-pKvDiG9o4dUBK4pNzzKuyqaOxHbKmRBlI2+oYON8XCsp7k6PvWSxwnQcPS2WqoyD
-h9pAC1jb/eUt/5pQtbQOv1a0O+9QPeVg2CywPMriMQhSZERveEm4vNP+n4EmfEfH
-aDQwImKDchI/GbVfMboiAWDd+dLhrw==
-=X8+a
------END PGP SIGNATURE-----
-
---v9CtVmyreETBkO2w--
+Best Regards,
+Stefano
 
