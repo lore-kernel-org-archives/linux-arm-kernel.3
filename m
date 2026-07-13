@@ -4,111 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42325C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D53C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NllSOXANZbxP8RBncH/Am6flywgYUGPahcvW1ImjCo4=; b=k11cbfFvQBZFyW53h7QEz0i2tj
-	AqI92DsKc+m4tJHwqvFB3CEJb4g9iBkTZ5x3WLnVJ2oniWKNL6hXgmjcs8FpoT6JIHiW/KyXgakrJ
-	w1vBXB4tDFSQSmpAWsyMo2qeHj6IqKXOxNqdu8KQ6MRVAQZiEk36ju2iyvrHdT9KFjGd7ZAG1Qloc
-	Vz0X21LLumnbdsTJzA9OeXcnehNdb+xV6WmFyMAH1SAaia3lojgE2q7OEBWPRSgy4qtKO69zNsod9
-	4uc4TF8AhUGFc2tXgARBm1rRWilAzK0RSReUNIb5amt+9oJ9dEeGeL5cD21D0d/JVfCYPtn7ll7Ul
-	5wVOIwIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6E9PBujV17hOQsz+J2zqnoRch8f/V25Kqy1JVE8crKY=; b=2U+HVEdTtarA7CenwDy5gE01yR
+	Fb/Os/cFkBUs1jptiIRWDycQUj/Cea00GpKoMtnME0uTlA6ewEsQQjv+xWtpDK43/SQ1/PjYr6jrH
+	nJknExyDNcRjLZG50ueI4VKIEjoCax+GSgAC8ztjJ87CS+XPWo0rS84yg8Se5+8u+22+9T4yeKpFN
+	a4dF8GEPpf5KLolQI98W0q0xygm+1RhFrznjH8zGZ4WL30k6QeV+kklyF+vlvPyA49znXofABrvxm
+	kUR2Zf68spJzYgukLRrr/czbvAWQMcAMslgKrj61pSn1lvCnvkV8qUC454nn3sF76jkJJ/6J5Umtn
+	YjthrQtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFJ-00000009jBE-1xrE;
-	Mon, 13 Jul 2026 15:07:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjJEN-00000009ufa-0Rgc;
+	Mon, 13 Jul 2026 16:10:07 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFI-00000009j8a-10Kp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Jul 2026 15:07:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=NllSOXANZbxP8RBncH/Am6flywgYUGPahcvW1ImjCo4=; b=Jlv7oGh1zbS1PwBMBHLwsIIUzE
-	NXfIecnM6uUpUe1rEiTsw5XF+xvS/khgRkrIAk7aP0U94nSFiAyICjwi1kTO0+eizvfxn92UAs7/d
-	IS/HjSXe1nQTdLh6DsyiIyGPDfLtasOQL6I7pIale8d9E06cmtLtYxwInjFEdHd5CrvEiL67G/GCR
-	/gubow5LgKuIyI95I3QjYSRHvyx91wcezHRA2cyRLNWpaT2JS2b781D2VyyN8snl65PrVb9lB3eRD
-	ey2kR+lGZip0FfuZO4SRjYg0RVFHFl/KQvNgPkYASmg35EPkXOl4DY8GZix3OIXHu6hA5T2lxUAdN
-	aI4SsJSQ==;
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjIFF-0000000Bkxl-0bHH
+	id 1wjJEI-00000009ueF-2Jqx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:06:59 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so2834583f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783955215; x=1784560015; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NllSOXANZbxP8RBncH/Am6flywgYUGPahcvW1ImjCo4=;
-        b=eju5iMs5u8m0emkQQ2bI4xDGygP3mrf1lMF3q/4ld6rjVl3CW+RGGGVwB4kCG807D7
-         JmWG61TrCj4Ihg51zBUfSK1TDWBel61C5yQEbWmlfyzKvp+hOP29RniAvrypfGWO77Cn
-         w1C+4V9m+GqDaHBOGBRTgHltGayKl7Zq4OBfIqcSXyqJC/PPQQ8zS1467IwDlxba4WKD
-         MXCpC7ty/++R8WGJYoNJTePkvrN7ELIPfV4wyDkAc0P7XztV3jblBkecgFqDokS1OqWm
-         CwVVXeNDnyWezEKlgEIbqJ4wOaMAKFJ4jDN/uaLSy6PNm6ZnfRMrr5NEsBIHWxrvT0uj
-         FAQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783955215; x=1784560015;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NllSOXANZbxP8RBncH/Am6flywgYUGPahcvW1ImjCo4=;
-        b=SRwleKmjZ80BSDgE8ukRZDT5C9AwFZUycrZpFRBSdYkh1NYlt61qsoLfUv3IM5lx6b
-         /R6qe8Jry+Ynp+FooKfY5b45hCGNzwqMHQ90kwm35quHYrXEoS/+0xgTvZ9TOg70naUw
-         Y/hzC9Y8GZ82GYTb797JK2xxjxgBF2/+5P9YcxyIZFDWNs5pNk0Qlmb8HT2VCia4C7Ig
-         5B/eQHn3Bgto8+nGenCGZYZR3lKN3mTEvuY3NO7LEe11keP9yZbFrqv/pkQ4yJoXOlo4
-         +dgrTjWstmaHjnKFSm/PiQOyMAAWHITQL78Z57Gpb3w3oDEjgfuMlEA4iRaGUfhaq77D
-         DJmQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqJ1igU8qd/pmLZ0ONG89Bg/jDlBfYBOCXmO5A6Vgeo/pnlrL3QUrmYEPM0Hgl44TNju3dxH1NTus78Vyw1gnAW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvszSlKVw2asuBs0BBj8u+Q4zUPS3GZe+rJn7kih8PD+BlNkrO
-	8TjWelNT2pbjCy1c6aUfSwXcN5QdwQWf9o+T6dfNhASwd5JVpC0wZ3XS
-X-Gm-Gg: AfdE7clQlopqWeUFktuDC0VjYIG6pahr7z2Cc9GY0Pmu/8B3AveFd1M66ciWC3UCqmu
-	bMMry/nN2mHeL0PYNBcupod4WdoORCOhOcXhP8UD8NOdpEZLcTlkV2dkViwRVRmCVghWHxMjdeZ
-	tJ0qVuezZi5g2RAnMrbzfbFxDT/i5glkxO6SSneaLrW6sqkB0O4T/jqazSedwnuEMGTqZTf/9ZG
-	PwYAVcuiTU+avUGuBrdkZTBV74dYGnXxNU4KV7M+6YbunvvVrqYSoBmPOlJqR1ChOZJJU4K9mUa
-	6vwPu8sn0MWdnEcmACuVhhx6IsASeqNl+UOV7XxqXa1X78ACfOzvynnvMqJfOPyEPwBmPlqbOlK
-	5zDROviYqQ+P5g8TgyAJ89oxLUQZa/UUuId92049CJS4/mmhLcIc7HLK2Yy+QfSJq8KbBDCqfw1
-	v48eerOrz00DjgxibpOBTJUDM38zq2yCq3E4YDNP4GRFX99fYtdamjIj4SyH2ealGBrQNRp99Jl
-	UZTmialhXpFb/Cc
-X-Received: by 2002:a05:6000:491a:b0:472:8c12:b93a with SMTP id ffacd0b85a97d-47f2dd1fd49mr11190610f8f.28.1783955215265;
-        Mon, 13 Jul 2026 08:06:55 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 08:06:54 -0700 (PDT)
-From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Mon, 13 Jul 2026 17:06:25 +0200
-Subject: [PATCH 4/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex
- Capacitive Touch Display 10.1" DSI
-MIME-Version: 1.0
+	Mon, 13 Jul 2026 16:10:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pyVcWgJLdtBP8yIFDoOwmvpvwlPxrtg4foID2tn8dr0HO2FfkzogYYr6RhtVzmeJYJiue34KjVZBfKNSyWCEDeHq6UX6SZmLvi6j2e0VLmD5Z706wJ/L08M52hlX2wQC6R1YAajhqijUGjZbZ1FF+Jl1uAncCsOjzXiCz0s/QmYTo3HGFAbf5HiKtsXMLRUXqFsuZFQiw8Ep8miV9aJYhWCjai94WDzTdl2bmfXf0Y746qwSAUQi17d8PJ3MuCiW2F/yqb+82VcZAOo2jEYomn2xDNdJhXcKDg2nXKLaZSAU5nEZU82ROuLgzh8hLVRjDIcey3YQvSSBNhSuSRJUPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6E9PBujV17hOQsz+J2zqnoRch8f/V25Kqy1JVE8crKY=;
+ b=v6l/Pg8cLJl6/aWLIs5tGRrl0kJQst8Yv2tHvZc/ewlbdiSJMvhi2/sBxqO4c7TjF5iI9x/Dp0ieGz2BnBQpswdHS5N0xK36Wk/S/0AWuKab9r2l3lWrlbxIF1DwNejLHBMHaJsp/D/cyUIzJG1yaHNPXIZQI+Q/LzvTpLv/X4+6DFPnfGU2wpjoPGy/4OVKuFlEHi2cpHM9RlzCX47nXhxeX1nNq0KAOdLGZOLO6kMS8k2wgaHzHM0Jzc5SD3As0gF6fiGW1ObzZsiQwhbnKJCswLO4ILj48swBKplLYDrLIY0wFbcH/8kE1CPOMQbBs+U2cTR+YXK8nlfFzRAlag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6E9PBujV17hOQsz+J2zqnoRch8f/V25Kqy1JVE8crKY=;
+ b=B9QrNwkpB0gBDXD3+61ybVSa0RDoCt49d+ioDWobGNFRyJL8MH/f6p+PPjxhuRSxsBcIqjJXlgnJqKrQx7qZtgp1aC347UYNKdoMc46hC5BgBHUNa4eZpO8ANpF19HLbt+lfHXK7RlnU3T+CEwX74oIzlTmj1SLkqcH5k70cuB4CQzcloG/nnsdEwKUYovXYDPr1L1zy8N91yNB4tcEvLh4S2QVRVznRVjveCMrcCsVv/oi+XbhWch39BI1+7DahNXPBI8YjudcHrfWlLqJxNOlKA0DiHt+wRtAFE2Q+R+hAjAd7rvMr21TRGanwyTesePEjvUPq487MODzU3L8teQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU4PR04MB11388.eurprd04.prod.outlook.com (2603:10a6:10:5ee::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 13 Jul
+ 2026 16:09:58 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
+ 16:09:58 +0000
+From: Frank.Li@oss.nxp.com
+To: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH] soc: imx9: devm_kasprintf error handling
+Date: Mon, 13 Jul 2026 12:09:51 -0400
+Message-ID: <178395898693.439075.14345726199854786283.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2026070610-regime-badge-e99b@gregkh>
+References: <2026070610-regime-badge-e99b@gregkh>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-4-4acd63db4504@toradex.com>
-References: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
-In-Reply-To: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-X-Mailer: b4 0.13.0
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7PR17CA0036.namprd17.prod.outlook.com
+ (2603:10b6:510:323::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB11388:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39314a17-51a5-4641-a8b5-08dee0f92f63
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|19092799006|23010399003|18002099003|22082099003|56012099006|6133799003|11063799006;
+X-Microsoft-Antispam-Message-Info: H5vc4XZMA2BNa62GCWHUok3DW3UYwUtGRs1UyX98LurNf2SAsxBTKiPpL3etUgo1+I5xORU1x+Yj0RVma4HSD50beHYnBM7MZngkWNcuGklftHx0P4cOx7ziJuLjnUAYe8fyZdn4yqpCNCi+4oVCyZ0aAh/rfoZAT4nyXBDYfQWJivHDrHoGroiR/qWCUNG9OzJoBgOghWeo1k5mDw2yD9YV7VZIg2yAO1olSzwvh29EFtUhP3dI+W732SavcYgfyT9Qj5VQ8HDtFIOQZZvDZ2n8ZJpQvERzmQz807uGiAxwuvxH3xfUX3kb8wEXO6wYj1spR3t9Tn291Lk66u7roJGtUym31NgHVJH0uycLxNBnv5+BUmGpSH0VeuaIAZkfbIdg6iJdPVy3LQS+W64jLmdlzScqCT/JcPeCLf8wxfN28qE9CloX9ocrGgkR6Atm+e70p8iKWNhQKfJNVLkYrZ+jazX1Vc36YbIVcWuJKUhE1kVw59PM8v4hzazb7yO6XUH5+BMZlg92VgFVlkatOUuu4zVpSd6Mgekr9KdM8soBrj9UGbe4LNjMKqWq01p+MF9XAv4t2PSS34GjrU3ve66MBEbm4MFjcKRlKni2NLJo7RDR4SrSmV9nmL20ApllRLjMu0nqs2JFpNHLKa29sbo2nbegLmGP9k4h0zLV0kc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(56012099006)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SkxYNEN2YTZLOXArSkRsaFV1N3B2SmlFMThPVW5YODV1OElveTFkZXJnVnB6?=
+ =?utf-8?B?RUFacDM5WVNBNXRHQkVVbTJKUXRQbWM2M0lSY2VwcnVPRjJmakU3SkV5UUVJ?=
+ =?utf-8?B?WTFSSkZVbVUvUXRxUG92Q3g2YzJkZHpEQStFZHV6S0oxT1ZxVk53Yk0zK1Fk?=
+ =?utf-8?B?QmYvaWdib3pWRElHM21QVGlaWTJuS3RBQjA5M2ZsSnFUTkQ4TDVzQ2hoQWY0?=
+ =?utf-8?B?L2N2VUN0S2NsVnV1ODhsN0RuOEk4S2FRYlhoK1JZSGorZ0pyelFVS0wzR200?=
+ =?utf-8?B?ZjFzeFMzQmhUcldzNW5xUTNRQnNRTnMzMmlUN2NrTUhoaUY4QkVPVHlieWE1?=
+ =?utf-8?B?MUk0TVZ3TWlwSll6ZEpySmZ5NWNNVU5ML3c3NHdneEhmcWdaZjRIZTFLbUQw?=
+ =?utf-8?B?MkFLNW1RNUtXbzlOOXQvMmxYYXNQZXZHNktZRTNUTVl2SVVxc1NiZTVZVmJv?=
+ =?utf-8?B?dEh2VmxSTjA0R01yTUtVQ0ZoWjFjL2FVRS95eHhFckd2RTZ6WUhpNFBRMUlR?=
+ =?utf-8?B?dzArbWpzQVpLbWtTZUhMWFAzQzUzSllQWXhsUDVYVWYxQ29XNXBYcGFCbVYw?=
+ =?utf-8?B?azVqbGhsanJNNkFqUUJkeFlyVHVyWFlxOFAzVWNDT1U1QmVWdVdVNmJnNDdY?=
+ =?utf-8?B?clExYmxOL2ZkTGJyaUx2QlR2WHdyNzVzR0VoOE4yMERYSUFRS2ovcDR0SXZo?=
+ =?utf-8?B?TUNWZEt3Z3o2UndlTlAxekM5WXJYMHZmSE9HWnlZZWR6citQcHYwcWpBVmFE?=
+ =?utf-8?B?N0NZenhCZ3IzUXdQVzVSeklTR2FEdXVGSmlLRWQ2RzN3QmZCTWdsSHNEY3pQ?=
+ =?utf-8?B?VTNXODNlZ01GT2QxWjZtcms1V1h5dmpLa21IM2MzWFVlaTV1eEdja1ZPSmRx?=
+ =?utf-8?B?VlFzMjFmNGxEMnVkU1RLRk9jU2NqcTlKYnZ5eHMzYTk2WjF3QWNFUHlyTjIx?=
+ =?utf-8?B?ZlplZ2NnY0VwcEVmS3Z6ZUxMOHFMYW5KYlZlQ2pxWXlUQ0hpbmthTENJZExM?=
+ =?utf-8?B?ckxhdUJoYjRoNFdUYWlLZHRPSWp3OVg0N3pYM3E4dFhXaVFOcVJteGgrazhV?=
+ =?utf-8?B?TWxlZE5wVWNuVkw2amFNdVo3dEsrWW9WT2Q2a25QRyttcUxBam1VdGwySm83?=
+ =?utf-8?B?aHB6Z3EyOTNka2tlWjdEaUFBd1dCSFJHajVTVmZWaHRwSzJPOVpJNHJtVlJn?=
+ =?utf-8?B?UitzOFJJVm9QZFU1bzZNLzJpeEEvV1RHK3UxeDBDMXRXdnlUQnJoMWx5VEhL?=
+ =?utf-8?B?elBDT3AwbzBRcW5Pc25iQWI5eWQyMW12enJ2MGs3eTRjVEYxWDJMRFlBQlFt?=
+ =?utf-8?B?eFJWeWZkRFB5bHZkVVBjcDg1M1lEWW1nay9TQittM3V2ejdoSnJTUHZ1bFhX?=
+ =?utf-8?B?UEJzenBVTFUvcnJvSEJCd0VDSXZDTUI3OXB6TzI3SXRXc2d3cGtON291azNu?=
+ =?utf-8?B?ZkxqTGFHcXoveW0xeFdNOHBMVWRaT1Q4ZC9LcUpRSjZWd1hQOWVrbGtBNmo0?=
+ =?utf-8?B?a1ZrOWFvUlNtSDIrRHI2aDZheG1kTE55STZZdmxBQndDT1hmZndla0lpSGZV?=
+ =?utf-8?B?WEdudXBnZm5DUVF2NmJBMkNCdzR0RXFoOUthT3IzYXZOUzB4Q21vbGVlZDMw?=
+ =?utf-8?B?VWticGpuRllIODdiV1lnbWhTNmgyOERlYVU2VVNFb09GOVRkdGJQQ29yeDhR?=
+ =?utf-8?B?MmRnd2VVU2d4WFJVSU9MUnZTa1Awa240U0czUEVxL1BUbVRNa1NkOWJ3c1V0?=
+ =?utf-8?B?dUxVeStSY0dNbS9YUHRNdkt3bHBlYlRUMXlCZGUycFNjTk5VME9oUWJWQ3Zx?=
+ =?utf-8?B?RXo5OFF3SUgrbHNQMFY5VE1QaE1NdlRmUHJ4OG9YMCtRcXVJUGRYRzc3ZTRH?=
+ =?utf-8?B?dG45a1liamVYNC80azZuck8xb3hNT3Vrd2R2RmhQakc4TmVWS1VkRE5sV1pP?=
+ =?utf-8?B?K054R3lMRjBIa2VOQ0xKVDYyVHZFVVAxY015NWMySnE4OUxWajJGK09panhU?=
+ =?utf-8?B?NElEVlN0MGxtWTY5bVJaMTdiWWpMVlNrUXRkekpoQ0NLaWxkU3I1THF2U3FR?=
+ =?utf-8?B?WW5pNHlyVVJsNS9BdmJ0OWRkTTlEZXJLL2dmT0NCUDZjZHBrdGFhWXgzdW9M?=
+ =?utf-8?B?WHI0d2Evb3VDY2RMWWhhMUF1ZG1nbkVQSzdEekk5S2FzYmRrdTRuRC8vWkhT?=
+ =?utf-8?B?QUVsYmhnR1MzaktjcHVlb0srSzdIejJaYnJtamVNeDgvNE9OT2Y3WTFZS1Vm?=
+ =?utf-8?B?bkswdnl5eVVyWmRFRFJpZllTTysyeEVESndHcG5Ndm5aVlE2c3NUUkpJYzBC?=
+ =?utf-8?B?Y2hDRXVXMm9qNXRVUFdwUjBMRXZJMW5DZWlRWHhaNFlzOENyY1dnTmhSeGxm?=
+ =?utf-8?Q?azpi89tt11XuBKAMJMFfWDXkBELSpqKA+iuIY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39314a17-51a5-4641-a8b5-08dee0f92f63
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 16:09:58.1424
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lQKZikztF1vT0457TBkPZabwBOy3QnYvW6HCt1bPWEKcjUw+ISxM9yHQQicPAFtd9Yfn+g8tdkO3D1BVv9JZ16SBhLUTVF6H4H2qf8J1Tp+/YcxVDWDzkQTIYI1PHCV6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11388
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_160657_341409_D3499112 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20260713_091004_907039_8794AD40 
+X-CRM114-Status: UNSURE (   5.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,199 +156,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+From: Frank Li <Frank.Li@nxp.com>
 
-Add a device tree overlay for the Toradex Capacitive Touch Display
-10.1" on the Verdin DSI_1 interface. The display features an internal
-Texas Instruments SN65DSI83 DSI-to-LVDS bridge driving a Riverdi
-RVT101HVLNWC00 10.1" WXGA IPS TFT LCD panel. The touch input is
-provided by an Ilitek ILI2132 capacitive touch controller.
 
-The overlay is also combined with the Verdin iMX8M Mini Dahlia carrier
-board device trees to provide ready-to-use DTBs in both WiFi and
-non-WiFi SoM variants.
+On Mon, 06 Jul 2026 17:01:11 +0200, Greg Kroah-Hartman wrote:
+> Add error handling to devm_kasprintf functions in imx9_soc_probe().
 
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-dsi
-Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-display-adapter
-Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile             |   7 ++
- .../imx8mm-verdin-panel-cap-touch-10inch-dsi.dtso  | 129 +++++++++++++++++++++
- 2 files changed, 136 insertions(+)
+Applied, thanks!
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 9fdcc1a4c1e8..996b3b5413ac 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -180,6 +180,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dev-nau8822-btl.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev.dtb
-@@ -188,7 +189,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb
-@@ -201,9 +204,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-zinnia.dtb
- 
- imx8mm-verdin-nonwifi-dahlia-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-dahlia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
-+imx8mm-verdin-nonwifi-dahlia-panel-cap-touch-10inch-dsi-dtbs := imx8mm-verdin-nonwifi-dahlia.dtb \
-+	imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- imx8mm-verdin-nonwifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-dev.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- imx8mm-verdin-wifi-dahlia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dahlia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
-+imx8mm-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi-dtbs := imx8mm-verdin-wifi-dahlia.dtb \
-+	imx8mm-verdin-panel-cap-touch-10inch-dsi.dtbo
- imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
- imx8mm-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := imx8mm-verdin-wifi-dev.dtb \
- 	imx8mm-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-10inch-dsi.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-10inch-dsi.dtso
-new file mode 100644
-index 000000000000..5626903d668a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-panel-cap-touch-10inch-dsi.dtso
-@@ -0,0 +1,129 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex Capacitive Touch Display 10.1" on Verdin DSI_1.
-+ * On Dahlia (X17) and Development Board (X48), DSI_1 is exposed via a
-+ * Samtec LSS-130 connector and requires the Toradex DSI Display Adapter
-+ * to convert to FFC/FPC connector.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-dsi
-+ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-dsi
-+ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-display-adapter
-+ * https://www.toradex.com/accessories/verdin-dsi-display-adapter
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pwm/pwm.h>
-+
-+&{/} {
-+	backlight_pwm3: backlight-pwm3 {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 45 63 88 119 158 203 255>;
-+		default-brightness-level = <4>;
-+		power-supply = <&reg_3p3v>;
-+		/* Verdin PWM_3_DSI (SODIMM 19) */
-+		pwms = <&pwm1 0 6666667 0>;
-+	};
-+
-+	panel-lvds-bridge {
-+		compatible = "riverdi,rvt101hvlnwc00", "panel-lvds";
-+		backlight = <&backlight_pwm3>;
-+		data-mapping = "vesa-24";
-+		height-mm = <136>;
-+		width-mm = <217>;
-+
-+		panel-timing {
-+			clock-frequency = <71100000>;
-+			de-active = <1>;
-+			hactive = <1280>;
-+			hback-porch = <64 64 64>;
-+			hfront-porch = <36 36 36>;
-+			hsync-active = <0>;
-+			hsync-len = <24 24 24>;
-+			pixelclk-active = <1>;
-+			vactive = <800>;
-+			vback-porch = <24 24 24>;
-+			vfront-porch = <8 8 8>;
-+			vsync-active = <0>;
-+			vsync-len = <8 8 8>;
-+		};
-+
-+		port {
-+			panel_lvds_bridge_in: endpoint {
-+				remote-endpoint = <&dsi_lvds_bridge_out>;
-+			};
-+		};
-+	};
-+};
-+
-+/* Verdin I2C_2_DSI */
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	bridge@2c {
-+		compatible = "ti,sn65dsi83";
-+		reg = <0x2c>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_10_dsi>;
-+		/* Verdin GPIO_10_DSI (SODIMM 21) - DSI_1_BKL_EN */
-+		enable-gpios = <&gpio3 3 GPIO_ACTIVE_HIGH>;
-+		vcc-supply = <&reg_1p8v>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				dsi_lvds_bridge_in: endpoint {
-+					data-lanes = <1 2 3 4>;
-+					remote-endpoint = <&mipi_dsi_out>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				dsi_lvds_bridge_out: endpoint {
-+					remote-endpoint = <&panel_lvds_bridge_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	touchscreen@41 {
-+		compatible = "ilitek,ili2132";
-+		reg = <0x41>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_9_dsi>, <&pinctrl_i2s_2_bclk_touch_reset>;
-+		/* Verdin GPIO_9_DSI (SODIMM 17) - TOUCH_INT# */
-+		/* Rising edge avoids spurious interrupts from the noisy falling edge. */
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <15 IRQ_TYPE_EDGE_RISING>;
-+		/* Verdin I2S_2_BCLK (SODIMM 42) - TOUCH_RESET# */
-+		reset-gpios = <&gpio3 23 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&lcdif {
-+	status = "okay";
-+};
-+
-+&mipi_dsi {
-+	samsung,esc-clock-frequency = <16000000>;
-+
-+	status = "okay";
-+};
-+
-+&mipi_dsi_out {
-+	remote-endpoint = <&dsi_lvds_bridge_in>;
-+};
+[1/1] soc: imx9: devm_kasprintf error handling
+      commit: 116165611d4d287ae58992528ba779133e7c72b3
 
+Best regards,
 -- 
-2.43.0
-
+Frank Li <Frank.Li@nxp.com>
 
