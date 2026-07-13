@@ -4,94 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27701C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AA8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=; b=mv1PUsJZvWTYAgb9Ma5z0cYGFv
-	6jey+6N0Nh8v/qL7zDhQDvzkrbOHlTERWh3m0Sn9g6S8rO1cHGuQ/30Dq5k90Lf8p2PyssLUK09z4
-	ZEJAiiypkVOiN5P1Ztt5bG7mJTZWHA+VTzxIILZS6FEH20ubDPm7nEQqdlIuP0qHsH/tvT8dQ6UDd
-	giWuBiHysYSajCUEuaTqquyfW4T0STpKLlTAfOBY+8mNo2TKiNt2R/15JDq6/4rXzu/NLkceDdFB+
-	fwyz75+STGCNpcNL7f/2uViItGqM2Gx91DYBwvKX9AgwuB94mxHG7eWTR9nGosf9TT9yrDGKdDl68
-	k7lx65EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q2MMB5V22pvxi7Xdi+kk94KsRFxR5c1QV9lf2hD5EOU=; b=4LRouMwT/Z56jknwLRcNzfowMl
+	9qaQQsDTN/C/RYWid2P193RiuH4hLa6RDF/6AeNiAGqSOep2wKc51U8syDIG018FMdHo8CDbVPhpk
+	M3qLanoUpsQrqP/BqTy2L5pRZkeeKldBndq6KtwEESy4hG/5aBeXSm6tWuvNdfLKL4CIp5c7b1GJk
+	2bTgco7tnZm3BOTEPV3niuA1xpazJLH/b1F0r5LVEjDfeSJZgDIg6zK86qNwJF9HhAaujYitst9gO
+	KMDQfrInf7WZco75EM41Y8d/RpurK4VV4PSbsNeIDwhi2oNpdjfr5LY3BZFK3BzAwy1G17jIP+o0A
+	n8/AAV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBzx-00000008ZrJ-3rJa;
-	Mon, 13 Jul 2026 08:26:45 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wjC08-00000008Zvo-090h;
+	Mon, 13 Jul 2026 08:26:56 +0000
+Received: from mail-swedencentralazon11013037.outbound.protection.outlook.com ([52.101.83.37] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBzv-00000008Zou-0MOa
+	id 1wjC05-00000008ZtT-1ivU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 08:26:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so82105e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:26:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783931201; x=1784536001; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=;
-        b=uXVvOuQpLGh7MY/aIfBYcSfAJbE3HStnU50JSZuVO+ruFFncu4mPGV0Uni1h0O/V+y
-         LFXLD3StLDXg4ThTnYvx1tKpD3HdN2SOZMTAtD1zrm5QBkJTU5R3vLCm+zkY0X87hwAf
-         PMYyJht6VPuknZaD4ZPrUw/p1Lgt/Pz6L7RoJX9GOKcs38gBJ4p5sL2f6LBg+mleVKN5
-         /TWIa2rZiFoMEP8JNs3a41CN0VAaDBU5yr5HOoo/2xc+fl+rTyyRPcc43ce8g6kHZKz6
-         AC/zZ7Ewqk06BSUIcIg3FJ/W+JcKQsrZ/OopB7lW0VHl5+BVq1FiJCuudDtiSzlxnOZ9
-         Lb+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783931201; x=1784536001;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=amf55tWJXben6rIQyHF/blCpD5b43dwdFfwgfK1yuhQ=;
-        b=np3+LuvLP53zXkeCpUG7zdElBKyE1H7nhnlwvIeQL5c5RhiES4GeID/32R9909b1bV
-         rlQsxc5e8kbCJVPapbGF8Ct5Z0u9zylPJS8pjnyIp1uW/s4z6TkjXPz/ERHRA36e/x5J
-         4Ik4sHaofMu+MzHIzRmugJWLoTT89G1ZLGvv9W1EiOplfNPde7h9jf2DMAjAL0GjQSTT
-         LbiQ5ICEL9D3NOm/8qY5k0lrx2z+kyN5AhJCflkt8UeqdURMiH+EqyMxR8EFrzGgvH7t
-         1vveOT1qYxICD8BKSbhZmSuHnU9BmpJzia5h5LS07fft/h/bjWZXjxR113OvAhx/VhcU
-         QqRg==
-X-Forwarded-Encrypted: i=1; AHgh+RohBjT1YoqDia52W3h86qSY3fKMBv4000ixV/RAU34X2ZfXorPd+FN/wCLPaoUk0FUKNeaCvQ0ed5FjOcSN/J3f@lists.infradead.org
-X-Gm-Message-State: AOJu0YwknoRsIvVSIICdWZWTr9MtwWubbr0Fh7AphxhxonDgmDjphyoS
-	mm51ZMc8mt0t5tOLS/sNUBICO0BDjwQsxYeE2PrcQr5p3U+mSOI+K1nHN2qaChsd/Q==
-X-Gm-Gg: AfdE7cmrvXguw7yQar4L2fU5GOb5Zs01YYAFSTrXnh0CFDj7mksdKQEVUfikJFZkkdZ
-	sHqVF01MUYZ6ykPS+Dtq5Xk7FIZ/eQdaSckV/47pUIlbMilqYYTvJ4Pt5SguKCB2ntrmGGmKiQ8
-	Fc6ry9A684Qv/yFMub0iPZX6CK+I8+d0SSF1ko0EgE2efz1IudjNlFiYY+s08AW4I4eljvsMFNC
-	ww/OfHAND70AcpiD3Fjc31lKh3UXy0ApDKM8WPbr5/qE2n4+FY4PFs7ul4xdpx320IH91YkCgZD
-	iKgKiT1LivmJpYV+SaGrwsNfRKLUrvyHQte9EqbXGxOFWBBOyA4sjSa1nTxhBFMpiBKiS9Vf9Fq
-	6htzBbLpn/zytvnGOOSHhMWwaurTTRrsC/w5jDHijKzNf1vLRcJIMu5DDUQnSRIzVs7eBFPN1Wl
-	z22tn2ahQHYBYVGEMba6vHmbUn6/PAqkEOfIVROEsKNZCy8y5zGEiBKfEuMSo=
-X-Received: by 2002:a05:600c:3589:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-49465abb636mr24695e9.8.1783931200485;
-        Mon, 13 Jul 2026 01:26:40 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d91bsm88670924f8f.4.2026.07.13.01.26.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 01:26:39 -0700 (PDT)
-Date: Mon, 13 Jul 2026 08:26:35 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Avoid naming collision in tracing
-Message-ID: <alShO27MLsNqgBws@google.com>
-References: <20260712153835.2264905-1-smostafa@google.com>
- <CA+EHjTxN1fcBVRi+yK18UgReGsX8Evu1GsijSQC61dY3XrjCtw@mail.gmail.com>
- <alPox2BDk4Il0s9t@google.com>
- <CA+EHjTzvzcV8Cxw+VHK9Fxv7Y-7m84XbzUFU+4sXZXNrM8y7dw@mail.gmail.com>
- <alSdr9wNyyPiHmbt@google.com>
+	Mon, 13 Jul 2026 08:26:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZDVp/ZWbUpzkSzCGK0JoZmCg9g/87ddYmin7o1kWRSLFYhGupePT4kV3pK+C7uPJrFw3NkT3RPnDWPFBztyTZ0B5rjp7zyt4vWwS+wj/A2SKjZDAoqNpyxD/D4Ygg4E+6j+0ZoqMZ9ks59L3xQaj7Ufl6ICchqt+QHnz2rNr0KMO3QG+aQvAxRjQxnD5a1jy8gmOHE+7+U49kTAuMU7pvS8+lvgd+gkDjG/BUeghjCzru5HzSK+rL4+oDi+euxVkVt/wDoALG240ktjaANUwmcwFGLPLPdMGTTLRpeckqc4GB8LpKFP9DR8tva8a8q+KtGazygEsgmyr/qNXpNGJOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q2MMB5V22pvxi7Xdi+kk94KsRFxR5c1QV9lf2hD5EOU=;
+ b=EU36EeXpEIumTpV4GTbWNS2AcRa33FzaQhf+cCRPE8dV8PCvB4CqujYBrDNW0pQFoh9pyifUKnKTM4lcv0ItSaLLB/DGHR460sczPgR0tcO7DDxlVLYtu+yjw3fiDAdK8ekeNe+oHsQ3JZG6RCuxHtDDfssd1kXEkLd0PrP6kWkN+IOn7fUyH39c8QBba18OThKYc/R6UJ3+jY9f1aYeJ8qqO/LSpwt7T01mdjpYczYeHeQNp7the0kOkf7yzA9O0dHWyWpxpnIxzGkZ0uzeeuTBcy/3XdlFUvN9cAY5NBLfNJz7p+JyGcpWCNne7Su1Te52Txz5KQ2iirHtAN5YYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q2MMB5V22pvxi7Xdi+kk94KsRFxR5c1QV9lf2hD5EOU=;
+ b=iEtnmm+pW3Q2SvmC6lVPREwc+bX/1HcfShRNjNyNJu0ifcvwzjOdgBOG2nIrYcbc3oDCE0Kkj7OzNzyuBaqtJhcTIM8PYInIhM7eG9hGd8tWmJ8PVTbuoq8qNXyjNOXSVTXRD4x5M+VRk/k9sx/d1IOQ4NCQEmivxJStUNk30VVK4L3b4et2SBi2AaDN9jOVp2DiVjkgYCV/rcsOu2iP9CjCiQxlo+6LuxnTXuVjQP0ephR3zohoIMksQPw1LUSjnv0odrH+UfLStUWDk5ahc5iWhs9NMjbGc/iT/l+ugPCYyUx0+TFuENGY2e7HlEk/nU+J3QnJwXIps/zJ7jGSHA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from DB9PR03MB7180.eurprd03.prod.outlook.com (2603:10a6:10:22d::13)
+ by AS4PR03MB8604.eurprd03.prod.outlook.com (2603:10a6:20b:587::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 08:26:43 +0000
+Received: from DB9PR03MB7180.eurprd03.prod.outlook.com
+ ([fe80::6fd2:12a9:4423:8ddc]) by DB9PR03MB7180.eurprd03.prod.outlook.com
+ ([fe80::6fd2:12a9:4423:8ddc%6]) with mapi id 15.21.0202.014; Mon, 13 Jul 2026
+ 08:26:43 +0000
+From: Wojciech Dubowik <wojciech.dubowik@mt.com>
+To: linux-kernel@vger.kernel.org
+Cc: Wojciech Dubowik <Wojciech.Dubowik@mt.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marek Vasut <marex@denx.de>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 0/2] drm/bridge: ti-sn65dsi83: Add reverse lvds lanes support
+Date: Mon, 13 Jul 2026 10:26:18 +0200
+Message-ID: <20260713082622.52985-1-wojciech.dubowik@mt.com>
+X-Mailer: git-send-email 2.47.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: DS7P220CA0077.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:259::8)
+ To DB9PR03MB7180.eurprd03.prod.outlook.com (2603:10a6:10:22d::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alSdr9wNyyPiHmbt@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR03MB7180:EE_|AS4PR03MB8604:EE_
+X-MS-Office365-Filtering-Correlation-Id: 52869f89-fa2c-43c4-eb20-08dee0b87806
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|23010399003|376014|7416014|18002099003|3023799007|56012099006;
+X-Microsoft-Antispam-Message-Info: WxWx/ETEFGkqB2Pj+HvRP4kVpx4+Ydcv5mRMc12kxvEnnfy1FxBjJU7oGsoYvdT06AJeMwZIwg7ORfhDm2EKt4ZmqjuWE8sDh2GFLt9aN0T9O3t7G/oD5v6qZ6EbMXNwk9+wjx4yUFn1612tGFbqX+vnyHIcB5siE+Ry6jC+SRQppzixQUs7TpdatlCNn5XFIY7Mge1/y6E2q4rYkiq11G0QCxVjy5AkCTVsMdQgd2ibWoFKGlNzI40kSTDX+mOS5vjdagaMM1IcSTWH2veztGpllulWjVinn4oG638TsWtumLZVTGGZ44TfoS6NVeU8GAl2mmbKOkbLti2KIWytrBTOrynncXHRRvRhaWjCIZmWt6l5+B7C6aj3OXBlHZw/+kbU69PiKaYX5Y3R1hRgkY9WWsopkZwd4NPJiAKL3MmYFsLWZxH3/UxwF5DdVNGkXQ2YAtAn2niy4pTThkpHL595imHVUbAbHzYbWJsGvzLZBiF1yOvNkd2KHB8OiIjjFFtz+Zipr7aqSxKIK8V4CUdMvSIP9+CvLT9xZrdvfM6znbVdaP5bLTLQUjAeHLBu97pNgIcGofUJE/cjHkffBRb6AKDJUJdEyhfdGz/gs2Bp4fWP5ez+Cbpi5byrESbxmnL1xwUmkKctGF1Trvuw+rw/8DvfRjfThU49Y0pSjss=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR03MB7180.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(23010399003)(376014)(7416014)(18002099003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZXQujeN9tNVI4qTz+QF/MoJ/FZkXF5q16tjKQYd2Qs9M0c7IS/EEbt+aak5C?=
+ =?us-ascii?Q?aNgqkbxT7GGIoU/uOKjjQVNFmCbxpPmK1roK0zlA112jZpk2B/17XF3+ibME?=
+ =?us-ascii?Q?ILyrMxG2VqHlmlOmBUqflrEpVzjhDxj5PQwGlQ5iyoYqr8lB/IwoGY1cVPV6?=
+ =?us-ascii?Q?AkFMU1La8uvxB+T1GlhAg8H/NYdYVgizV3lIwnlHJ+Hf4OiEde13l0bFm2Op?=
+ =?us-ascii?Q?C/xd/piYO2IDXACO0Ncr0Che40LNGRFNhC4RC04dlLAk/1pbZ847O/fdYsB7?=
+ =?us-ascii?Q?w/FlG78CWOxOrpgvRprwWnFw8FiimMXfkcMQeCyu7xZEr+YsHGI0JjkayE6M?=
+ =?us-ascii?Q?SCtInbdoKKFsN5Qhx87OlxiXEiw1PlfZ5U8TvDORfbbfpA1OqDfj+pa9wbRN?=
+ =?us-ascii?Q?1EQ9pLmLnLfRYYc2h5VT9zmIJVcKXVfHiMeEju1ICafDBtGC3eia5NVGqYP5?=
+ =?us-ascii?Q?ztsSApJAdvEztO+4wvD96rbHG0/Bm7kHZwITUbILdyfd4edqeS5meoU+L/Jz?=
+ =?us-ascii?Q?bxftjLCFuGxdkGxl7gUJqcEjhvxPTXFk2A0GRO49Dr7qqyVzlDBl64L37x62?=
+ =?us-ascii?Q?0afaE3KptSa5YnR3do9uefYzaFprSSakp2ns91tn2+io5WRnmxuc9L/OvJJs?=
+ =?us-ascii?Q?mpMGRrlhQJdMN4eHUuX05XlNmUeeLg3vUhR3cZ5Q1mWgKVnLB73Vju5uJsN3?=
+ =?us-ascii?Q?4HaTv2I42VBRdZRHVWZdYUX/lRmZpmEcXcNXO+/QIB/61o9X1QTLHBGqpZy0?=
+ =?us-ascii?Q?CnT91nli6F9eT7YnlER7xsrY/6gHnLrjO2g/wPcudP/NuDvIRHXIRzLhf7mp?=
+ =?us-ascii?Q?5t2VPaYqjMsIBoPBRR8G/xSs0n5HNswjjNInF8ugHiH3EniHD9KCHs/tVWvg?=
+ =?us-ascii?Q?fZQviaDaqrd9KEY9YlJmHeGBhuOKBQAah3FNa2UNeP4HY45lO1cTIo65YKGu?=
+ =?us-ascii?Q?irllslfqY7Sf7Hn/IOroUtOtdyVunbdInhCm+0BoYvGvTut8gfdq5RhjuUYV?=
+ =?us-ascii?Q?8vUQiBWBLh2rRV6uNbBwkXRwRPgS3cULHkGDKDpBe5gBF99Wv1LZKlM1Lw0x?=
+ =?us-ascii?Q?axaHE8Woe0HEb2wDleE3ICer300k6eZD2WbvRrfD/a8ImvkVo6RDa3gqKfZo?=
+ =?us-ascii?Q?zRFuDnQMUqWiYhlvGqPuXi9I4Tf0mbJt65ttWCElf3kA6Z8raYDXSa9cFi6N?=
+ =?us-ascii?Q?7zIS40HI7qpUAq1wZ6xsB2g57Za8R4DdBnMtsKHrPcCwoOZgjkwsm3nFKmFz?=
+ =?us-ascii?Q?OFsoFY3NEjtPPO/wUS1q+ccoGMp5wzj4udZ9vOD2b6f2TNCNwNM4T/RekWap?=
+ =?us-ascii?Q?cZnabjb3gwJwkTVUJc7CzIcr/WqEvZJwAjakLu00ku71VT/1hUOCAJIJ6T8u?=
+ =?us-ascii?Q?UI59eWn8VOITASlUJf/sitrzspzkWUgeFfSLLmz7uL5XTiDAI4f3BtNJSDip?=
+ =?us-ascii?Q?xdpmtFaP/5NvpsrZF4c6U7sNJ+i1eHWSLqlhHZuV1ad7fMQU3tvgv9ZElFVc?=
+ =?us-ascii?Q?q2qdoUyM9EmSkUpMaJvhc3tCUOZhFpQc5sxMtHxCwtJDnUdYA06alSwjlxhN?=
+ =?us-ascii?Q?oZJRkV3mEA118Ns+ifTuJRHFpXzolZk5Q/VU/OVj85+5QZqcNPyfx5saNjlr?=
+ =?us-ascii?Q?0W5gY4RGySFxMHYS6G7dDEc2H6DaQTeN/KSf5GqEnaeV73+OkKA9PQut965I?=
+ =?us-ascii?Q?AqsVmGDcW9IWUV1IJXe+FXhO5/60LB8BXbrThuKNBs5Ccldw5bp5KF4r4ilq?=
+ =?us-ascii?Q?Vs0H9xPb9w=3D=3D?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 52869f89-fa2c-43c4-eb20-08dee0b87806
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR03MB7180.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 08:26:42.9342
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tN1a974K3Nh9pRkmzxJRx2dyOjDFfYS3mvo6ahAgBgcvAaYmyH6p3bNYYN+8S8re7q5noUrE5/1QT7z/gavK1w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR03MB8604
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_012643_148685_DCC00130 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20260713_012653_764931_FE8AA71C 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +156,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 09:11:27AM +0100, Vincent Donnefort wrote:
-> [...]
-> 
-> > >
-> > > > > I did not add Fixes tag as this is currently dormant and not breaking
-> > > > > anything.
-> > > > > ---
-> > > > >  arch/arm64/kvm/hyp/include/nvhe/clock.h | 8 ++++----
-> > > > >  arch/arm64/kvm/hyp/nvhe/clock.c         | 4 ++--
-> > > > >  arch/arm64/kvm/hyp/nvhe/trace.c         | 4 ++--
-> > > > >  3 files changed, 8 insertions(+), 8 deletions(-)
-> > > > >
-> > > > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > index 9f429f5c0664..c2ccd0e8bf22 100644
-> > > > > --- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-> > > > > @@ -6,11 +6,11 @@
-> > > > >  #include <asm/kvm_hyp.h>
-> > > > >
-> > > > >  #ifdef CONFIG_NVHE_EL2_TRACING
-> > > > > -void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
-> > > > > -u64 trace_clock(void);
-> > > > > +void hyp_trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
-> > > > > +u64 hyp_trace_clock(void);
-> > > >
-> > > > hyp_trace_clock overlaps the host side: arch/arm64/kvm/hyp_trace.c
-> > > > already has a struct hyp_trace_clock and static helpers
-> > > > hyp_trace_clock_enable() / hyp_trace_clock_show() for the debugfs view
-> > > > of the same clock. No actual collision, so this is only a readability
-> > > > point, but a reader grepping hyp_trace_clock now gets two unrelated
-> > > > things. Maybe you'd want to consider a different name, but naming is
-> > > > hard :)
-> 
-> If we were to rename: the clock is a "hyp_clock" so probably trace_hyp_clock()
-> is the right thing here.
-> 
-> while the "hyp_trace_" is the prefix for hyp_trace.c file content.
-> 
-> Although I would like to see why we pull trace_clock() from the kernel into EL2.
-> That bit sounds wrong and if we have a way around perhaps that's better?
+From: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
 
-Most include path look like this:
-In file included from ./include/linux/ftrace.h:11,
-                 from ./include/linux/kprobes.h:28,
-                 from ./include/linux/kgdb.h:17,
-                 from ./arch/arm64/include/asm/cacheflush.h:11,
-                 from ./include/linux/cacheflush.h:5,
-                 from ./include/linux/highmem.h:8,
-                 from ./include/linux/bvec.h:10,
-                 from ./include/linux/blk_types.h:10,
-                 from ./include/linux/writeback.h:13,
-                 from ./include/linux/memcontrol.h:23,
-                 from ./include/linux/resume_user_mode.h:8,
-                 from ./include/linux/entry-virt.h:6,
-                 from ./include/linux/kvm_host.h:5,
+Add support for reversed lvds output lanes. With an optional
+data-lanes property one can support default layout <1 2 3 4>
+or reversed layout <4 3 2 1>. The property is optional and when
+not set it keeps the default output layout.
 
-Although, some files have ./arch/arm64/include/asm/cacheflush.h
-directly.
+Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+---
+Changes in v4:
+- Fix data-lanes bindings to be under endpoint subnode and not in
+  the node itself, discovered by shashiko-reviews
+Changes in v3:
+- Add optional data-lanes bindings for output nodes
+Changes in v2:
+- Parse existing data-lanes property instead of ading new DT
+  bindings
+---
+Wojciech Dubowik (2):
+  dt-bindings: display: sn65dsi83: Add output data-lanes
+  drm/bridge: ti-sn65dsi83: Add reversed lvds lanes support
 
-Thanks,
-Mostafa
+ .../bindings/display/bridge/ti,sn65dsi83.yaml | 52 +++++++++++++++++++
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c         | 50 ++++++++++++++++++
+ 2 files changed, 102 insertions(+)
 
-> 
-> > >
-> > > Yes, that shouldn't be a problem,  I just added hyp_ prefix, but I
-> > > am ok with any suggestions!
-> > 
-> > Didn't I say naming is hard? :) How about, el2_? Not really happy with
-> > that either tbh... but can't think of a better one...
-> > 
-> > /fuad
-> > 
-> > >
-> > > Thanks,
-> > > Mostafa
-> > >
-> > > >
-> > > > Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > > > Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-> > > >
-> > > > Test: builds fine with the different config enables.
-> > > >
-> > > > Cheers,
-> > > > /fuad
+-- 
+2.47.3
+
 
