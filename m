@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53BFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5317C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 07:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FEJ5fjqsqgZR9DwKBl35hnhLDdYSJgMQMJxBh2HovUw=; b=SBtb49vIoZJgYxbrDEaH1tVDvH
-	krkLJ6lqCg9ACfmI+tlCGXoWIWUxWQrJ6N42PRACOhzrVdz8qURlqXUqigLen/rA1BuLmYW2bqpll
-	4yJpBysSxBXTCiQC//1z5PJ6XhCw+/YcK8bsmbDDi53Td9/Pzbj4dv4N4HNCiTeS3fHnNovH60Ra7
-	So0utssrro99m86+Tvjp8hdn0lzwLdoRoTxO0ekkqK0ze2/xdc4+8WqSGBsS215aY8DhCwy4RHKnF
-	M0IeK0LBeLW5kvFewQnPDOyGeND0QmDE6xOlFNdZ5stR3uIDoAZGRup0BfJtFlOhSfzbOTfLbUs9U
-	bj7nngjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6yoLIAxyc2K4qHLq/6jmB6EcYdYLRcJ9qmXi423/+Yo=; b=HR8dTe71WQsfewxfhN3kZiMosM
+	pAN6ysKV/PCu/MycUku6/6/QZLWkNo54z+CGdrXO3UJcfypEKlzhju3tgKWUvD+PaDeN3Q7dJCpuP
+	8cQ9+IbnyVUcuqzuRpKoexQGVzPMfglxYkaKKfiUvxwDL3EFJir6i30e74uWHxzeDaILte+qfE28F
+	RGEvjWl/gVBxMkzIVgXMmdnNNmr7QX6K2UiXaurAWvVeh+diGE/IfzF//GihJ7oH/8LRLGMTgZUUJ
+	EeXWOu9q6riX3XRnCOp5EGBUZFxRW3yzLplv9DERnTYOIUGo/l6Zc7pCAtQgVDf2u1gyF0chLMk9I
+	a33xqaoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBIR-00000008TSZ-36Uc;
-	Mon, 13 Jul 2026 07:41:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjBJ1-00000008TZd-3w4u;
+	Mon, 13 Jul 2026 07:42:23 +0000
+Received: from out-181.mta0.migadu.com ([91.218.175.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBIQ-00000008TSJ-1v5B
+	id 1wjBIy-00000008TYH-48Qp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 07:41:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A55DC60103;
-	Mon, 13 Jul 2026 07:41:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F25B1F000E9;
-	Mon, 13 Jul 2026 07:41:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783928505;
-	bh=FEJ5fjqsqgZR9DwKBl35hnhLDdYSJgMQMJxBh2HovUw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iogtmhqpAw5JpgL6uL8HH34fouldnGXX7dp9fbAxTWiuX4Na5u+o0uIjzmbTPwhy1
-	 PuriTzlBRAnp2hYXcLH4lorCYwv3OVRiajgG0UCuRafhmHj0tR04D049PqZUoKQyHT
-	 kZK/bggWGynH+SlUhVfxON2ksGRHkwAYN7siruOt56V23sjpiPId7QtC5nu+X3OrKh
-	 cl0l9aqOu/bB0BWEAdl0YameoHoa5HLpTkTY81D/F3I39+4LP0w5gY9UaS1Gmns6g1
-	 iZFRLJWpT26ArG8xkOqu7Q7UumJ/qu/ghBM/SHLMz6PGUPXz4PqXtJgRhQqICeM6lq
-	 I1h714SiT0QXQ==
-Date: Mon, 13 Jul 2026 00:41:43 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v8 09/11] KVM: arm64: PMU: Implement fixed-counters-only
- emulation
-Message-ID: <alSWtwHVfYh0zdPy@kernel.org>
-References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
- <20260710-hybrid-v8-9-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260710-hybrid-v8-9-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
+	Mon, 13 Jul 2026 07:42:22 +0000
+Content-Type: text/plain;
+	charset=utf-8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783928536;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6yoLIAxyc2K4qHLq/6jmB6EcYdYLRcJ9qmXi423/+Yo=;
+	b=ufoX6hFMdIyLPO8Bw5rY8zTYrpNA07qYpWVfVGzOWth22H/31rETGvgoTniThRqaviyYjp
+	htnItLldN4JOMquRcrdmPsuHj2DOHOcAm0DNHDeMEhGdqp39vxpUiAkeDe6HylLlexVVjw
+	HCSJeSNqf3qY+mgdiIs8xFbCmBLuGPs=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
+Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <CADrL8HXNoRA_cnR7KVPwN6zA32E744OKOfTmDMReoykzR39H8Q@mail.gmail.com>
+Date: Mon, 13 Jul 2026 15:41:35 +0800
+Cc: Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <9C56FB0F-AE0E-4975-9D89-AFF110433C49@linux.dev>
+References: <20260708031129.3503195-1-jthoughton@google.com>
+ <3B2B37B5-16DE-4DB0-8A78-4CB8636C1A86@linux.dev>
+ <CADrL8HXNoRA_cnR7KVPwN6zA32E744OKOfTmDMReoykzR39H8Q@mail.gmail.com>
+To: James Houghton <jthoughton@google.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_004221_597432_D2086256 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +85,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2026 at 08:15:03PM +0900, Akihiko Odaki wrote:
-> @@ -813,6 +842,15 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
->  	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
->  		return;
->  
-> +	/*
-> +	 * IMPDEF PMUv3 traps are non-architectural, and KVM cannot assume a
-> +	 * uniform PMUv3-compatible arm_pmu is available on all CPUs.
-> +	 */
-> +	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS)) {
-> +		kvm_info("Non-architectural PMU, tainting kernel\n");
-> +		add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
-> +	}
-> +
 
-This is an unrelated change, and really the taint should be added with the
-.cpu_enable() for this capability. That's the point where we flip the
-magic bit.
 
-> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
-> +{
-> +	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu || last_cpu == -1)
-										^~~~~~~~~~~~~~
+> On Jul 13, 2026, at 12:59, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> On Thu, Jul 9, 2026 at 9:59=E2=80=AFPM Muchun Song =
+<muchun.song@linux.dev> wrote:
+>>> On Jul 8, 2026, at 11:11, James Houghton <jthoughton@google.com> =
+wrote:
+>>>=20
+>>> Hi everyone,
+>>>=20
+>>> This patch series uses a trick with the Access Flag on CPUs that =
+support
+>>> hardware update of the AF to update vmemmap page table entries =
+without
+>>> introducing a time window where CPUs accessing the vmemmap might =
+fault.
+>>=20
+>> Hi James,
+>>=20
+>> I was just looking into the Arm ARM specification regarding the TLB =
+caching
+>> behavior to better understand the "AF trick" used here, and came =
+across a few
+>> sections that got me a bit confused.
+>>=20
+>> Specifically, Section D8.5.1 [1] states Rule RDWZCQ:
+>>=20
+>>        "Descriptors with AF set to zero can never be cached in a TLB. =
+For more
+>>         information about when translation table entries are =
+permitted to be
+>>         cached in a TLB, see Translation Lookaside Buffers."
+>>=20
+>> This indeed seems to support the core assumption of the AF trick. =
+However, when
+>> following the reference to Section D8.16 "Translation Lookaside =
+Buffers" [2], it
+>> defines the following rule for permitted caching (RSQBCS):
+>>=20
+>>        "When address translation is enabled, a translation table =
+entry for an
+>>         in-context translation regime that does not cause a =
+Translation fault,
+>>         an Address size fault, or an Access flag fault is permitted =
+to be cached
+>>         in a TLB or intermediate TLB caching structure as the result =
+of an
+>>         explicit or speculative access."
+>>=20
+>> This is exactly where my confusion lies, as these two descriptions in =
+the spec
+>> feel directly contradictory when FEAT_HAF(hardware management of the =
+Access flag)
+>> is enabled.
+>=20
+> I don't think it intends to say that "translation table entries with
+> AF=3D0 may be cached" just because they don't cause Access flag =
+faults.
+>=20
+> It is likely that this clause was written before FEAT_HAFDBS/FEAT_HAF
+> existed. Re-reading it with that in mind makes the meaning clearer:
+> PTEs with AF=3D1 may be cached if the architecture otherwise allows =
+it.
+>=20
+> There is another clause, in D8.5 "Hardware updates of the translation
+> tables", I_RGQLZ: "If hardware does not update the AF from 0 to 1,
+> then the descriptor is not permitted to be cached in a TLB." I think
+> this supports my interpretation.
+>=20
+> I am convinced that it is impossible for an implementation not to
+> conform to Rule R_DWZCQ (PTEs with AF=3D0 cannot be cached) while
+> supporting HW AF correctly. Let me try to explain why.
+>=20
+> For HW AF to function correctly:
+> 1. Setting AF=3D1 must be done atomically, otherwise hardware could =
+set
+> a bit in an invalid PTE. (This would break Linux swp_entrys.)
+> 2. The AF=3D0 translation cannot be used, otherwise we could
+> potentially drop AF updates.
+>=20
+> If an implementation used the translation before coherently setting
+> AF=3D1 to perform an architectural memory access, then it must choose
+> either to set AF=3D1 on a PTE that may have since changed (perhaps to =
+an
+> invalid PTE) or drop the AF update entirely. Either way HW AF is
+> broken.
+>=20
+> Please also see I_GXGPN: "When the translation of an architecturally
+> executed memory access occurs, the architecture requires that AF is
+> set to 1."
 
-Does this do anything other than avoid a spurious reload on the first KVM_RUN?
+Thanks for your excellent explanation.
 
-Thanks,
-Oliver
+>=20
+>> On one hand, Section D8.5.1 [1] explicitly uses the word "never" for =
+AF=3D0
+>> descriptors. On the other hand, under FEAT_HAF, an entry with AF=3D0 =
+does not cause
+>> an Access flag fault anymore, because the hardware is capable of =
+updating the AF
+>> automatically. This technically makes it eligible for speculative =
+caching under
+>> Rule RSQBCS in Section D8.16 [2].
+>>=20
+>> My question is: which part of the spec reflects the actual =
+architectural intent
+>> when FEAT_HAF is enabled? Is an entry with AF=3D0 permitted to be =
+speculatively
+>> cached in the TLB by the hardware under FEAT_HAF, or does the "never" =
+in RDWZCQ
+>> still hold absolute priority?
+>>=20
+>> Please let me know if I have misread the specification or missed some =
+overriding
+>> constraints here.
+>=20
+> Thanks for making me look a little harder into this; it's a good
+> question. I hope my reply above makes you more comfortable with the AF
+
+At least to me, what you're saying makes sense.
+
+> trick. I also hope to hear more from the Arm folks as well.
+
+Yes, it would be best to have an ARM expert here to confirm that our
+understanding of the manual is completely accurate.
+
+Thanks.
+
+>=20
+> Thanks Muchun!
+
+
 
