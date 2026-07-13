@@ -4,82 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C0EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BD2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9S1PRlH/iqWvGeBsKfAMCNUYuSclIYuofwpciyu1Yoo=; b=1R0QZp7s4gbvZb
-	ZsvszoAmzqtXBznFfStS5FcVCYrchJQwZJWlTzJfzYPUnPOT2un0LOUq5fFouL5F7COXVwv1uAMYe
-	+qbXolddpLKQnKoBn2v+iZNMOAiybBIUpxY9nRMARQaOfOpNF1a2ikhBefIINxYoMuskHX1zjCz2b
-	h3RmYhPa0S2qQ+mZ2yS3TLbbL2++ZYjnCdJpefMlmi08Qhu18G5ihmSsEmLKwxXhUIjyxC/Y9+OWx
-	vSlX5a1GI3QqnJo3J95b9bZ8AGgn7kSz5pWBWUWVmCKdrVgOeW4gXc8dac+t7N/dNXPOJ3JQYT2P6
-	QpQ88cWckX2zv5jpLdNA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iTMbh21QXQw/7/D6TKZ7n81vmxGgnjPukreQ8dydJKI=; b=axf5WrmMYykTKoqJ3mCEoV3v+J
+	R2EolFOg4hEBi2MA7tBo7OcjSK4ddQzlRmedHeksGP7H/htKgCab2YWpzPLmKTn2NtpIHScgZsqel
+	B2Ot7C8zr7Q81cIYygtXT+WW3Tbgf7Mt6/CZn15ehgT+ZzhV/N4rg7rWj31qMK8vUBAdLdw3jAOwD
+	dvnFW9f8JCyNfAdX9/j/77C2rTDA3j7mfybtutGC3LHB5FFi4IkJIbZPViMXkO4nEICHtltI/ZCsh
+	3aC1vWDVS5jtWFGEUYRw4d/W+TkkRUGPjQTCebw2QXkd23w3Mu1Ox2vORan/xESaVylEXFEsL9Erl
+	vNiy87XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFE-00000009j6w-3P1M;
-	Mon, 13 Jul 2026 15:06:56 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wjIFH-00000009j8p-3tpi;
+	Mon, 13 Jul 2026 15:06:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjIFB-00000009j63-3flR
+	id 1wjIFG-00000009j7U-0CBq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 15:06:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=iTMbh21QXQw/7/D6TKZ7n81vmxGgnjPukreQ8dydJKI=; b=hdI+lDkS/OlWNv9WIApeiwSP2c
+	VBHNAiWyz51deZZLDZ4uYPmFY5V/GpX0yOx73kYVwL226faQTJaZC9IEYjOSMNlJ1Ko4fQ4UKN3f7
+	op7FL5ZvF+fnDFJrp8jh7eb54pIG9EcqD0vcj03OYiIHLsul/G8XQrcpecd4mmsJi5HxZDNfzD9JC
+	SUwfPyI5HhYMO7WGtut5Sn4HQABSByqygMPPGgmEWeNwmq6F8TUB1DdV1TFr+x/+Ynym4w9kj0YqZ
+	D1jK02qPPxgrrU718AFRfwvPPl+OxaaS4vBCIA4TXbY9ihUSQpoI3H6VNBGbaJvj4JlT/m5DR4uuY
+	4FVKTAhQ==;
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjIFD-0000000BkxD-0VmJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 15:06:55 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47362928f65so3179272f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:52 -0700 (PDT)
+	Mon, 13 Jul 2026 15:06:57 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47362928f65so3179305f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 08:06:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783955212; x=1784560012; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=9S1PRlH/iqWvGeBsKfAMCNUYuSclIYuofwpciyu1Yoo=;
-        b=TBUON5CJGk1tvCGaZl8LIA7aLhclfVNFxyVPyupi0L0jiRpcr3jvB8vRfL12ikQXy7
-         uf4racpnwZdUtS425INoelg0r/IrSwWo4DUtCRWeytRSGDViHqyKYXQu7USHeUm9+CPl
-         EO3JqnZeiuuDcsBXFRqblx4rsYFpTuT51Oeh+y6Vsep/olsas51sK0/bHAaK3PF/y+1t
-         1GUwG+stDGTAxI26X5qtOPg6OJz7Xnc2j2Ogi8+ETdnj2sHDaC8QdzyR7U3aTz3YXBXE
-         q4yc0mMPdYSCT07g904nDUgvbefvOwg+CNu/G22pCDXWtgtDXj9vMeyGV/itxHkC1OpG
-         mOkw==
+        d=gmail.com; s=20251104; t=1783955213; x=1784560013; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iTMbh21QXQw/7/D6TKZ7n81vmxGgnjPukreQ8dydJKI=;
+        b=HspUCLGNg968E9VQSqOXXjbR8Hm8YNCq8giSWEHzslEt/NrfRtXRQsn6U1khDTUotw
+         Xl8tDnY7vn50+zV/nBc0cLkjnhnhmz6bjUBIYfxtfcYZj477e9OFf2H85eotzz68WtFv
+         WbsfkTjIAUFikcTwqvkKwEKk97vVBbXCFwC0DPMF5RdfrxsW0RNbealfmQUxIuW36H1P
+         AiNHvepmFLwz2t70cec6MNHTHVx6YcFOyw6TY5bm2AP2Y+Pxmf/sPvonrjpZJ3G/aIQ2
+         Ke18Ux+BSa2UW+WmPYlK1m0DBg+Y5zJPyedynOOGcLu+uDv+jNClJN3CVpUjc+Xc9iQJ
+         jThw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783955212; x=1784560012;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9S1PRlH/iqWvGeBsKfAMCNUYuSclIYuofwpciyu1Yoo=;
-        b=TaydvyXDKhAm+IcJ39YDrL7AOO05kCVTUjaX/FYT9Kt2H22l7fYLeaHYjVm65w68Ag
-         p0bYicIZrqs4v9+m0i39j5pzGxibZSne8Q8gPQoJ16+xNxEb1qCQN5MR1XmmU6Uimmml
-         FXEAh1v9gz8gw/LIStAwvCxATwb7lyYIHk/I4O4IgER/AytZkotCC6O2G/EBb4BBlVhr
-         B8grYznEJtCJvMQ7pI7rUhj4sxOdAIGDXKtnpEKID8hWSuWd18MKTgDnQWmWd4/dfyrx
-         4LHEUAu7w30929HIseWSwuhYfI2k00vej6t+9HgTFVL3i4Wy32/xtkMX9ZjkuCeANJvb
-         66IQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp36ZraUTXE7q/JnELi1RwB2r6SdZclmyE9lePVW76J037MyC+Cy4TyOJI3rq1IG+RLUiILcT7+NdY5COfKnA7e@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfQ4B5MatdeU7FwBivdm40Oe5xxk4R4IyQ6My2w78ZtaTxDSvE
-	FQaxK7EZaVfVDGIKerxO6JL1O9bg16dHxbEm7iAbL2R9Lz7Fw0nEnpc2
-X-Gm-Gg: AfdE7cnNFiLtRCDhiD6+qJZNV9g7sqAqq1euJ18cu3lAW1pIJLDTb8ZXitcxyEKS4wI
-	OO+GPJGxwOoSX8bNLYiCMxKI2DnG/Dyng9eiCAKjqt+1YxBRG8lXxG/oZl5pzVvgE9NlPYCbgs/
-	dcKseUEgwKhjFQlnOGE2YlW3j2QPGkIhtQ7v0bVUunK8KuOSQv+hDifdNg7msapkeVpHptCULjZ
-	Zuv9iUWU1poksTYfV47OfofF6SH+Vy/PsuDzv/FGiYg5eDAlY4jJ4MEYA3waubWNDpfDunhvqCT
-	PYDvaih7Uy1ICjej6uBw7pi9YqbiRy84WnaMyUOgyBNV4WIfjSd1j3kOtjOEE15i0WTF2j/NKBM
-	L6Q2aPTFUuKrhlI0V/5EW+K6Hor1yjLb76XTTonyw0S5XZXRPh5tkekHaMaxeTP1ahvUY1yLTji
-	OV0RU8AMJZvqpYxDt3gQF5luHcbcEUtNFpkKrx/pFPUM/P1bp+5063Yr4ErwvxAHscVunrYmvjK
-	7NPhg8g61ICJ/XQ
-X-Received: by 2002:a05:6000:400c:b0:475:a4ae:e630 with SMTP id ffacd0b85a97d-47f2dcd71f2mr11505336f8f.37.1783955211246;
-        Mon, 13 Jul 2026 08:06:51 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783955213; x=1784560013;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iTMbh21QXQw/7/D6TKZ7n81vmxGgnjPukreQ8dydJKI=;
+        b=jxGAGKoQ/zFY+5EA+7sb9cVpeWiqPwsDiUlppuJ6puSguH2qS9g61kY4zU6nD8Tqvg
+         7NKYMAk6OVfptoDy5oBd+MzuYIwpmTlwgTW2q2wUQLcwp0h8V7NQUrbrdyDw+P25leGI
+         TZYkFqshV9N6kKCt4RQfWLrbnaXgVS4UUkUpa2HtmpnL1kgkdzNmrNEUTrbk6oeNd5Vl
+         fPt2kEHY0eWDCHhZlmCPl3AhCGtuQjqqGcGCCh4lS00RBLAIHc0Bc3Q02d0b5Jb31S/9
+         57gwYTlSIkGFqNO7Rv/eE28EJx8JprFtIowHWFFlJLG73F4UVdL7egr6vNa9I1f7YK6Q
+         WlNw==
+X-Forwarded-Encrypted: i=1; AHgh+RrVQQ3kqZ+G+MOxWClEbaIwJGXdpRPLsyoUCo6TEyWvGbFmCZ5dMpbqXwh4/42yCu07+JSkFXXEtYn2WNTO7Qgb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza8jbZz6WZCZBVHZXHoCBjST+uw8ZuoLeztGWmDDMwvYEzoiNn
+	PGkyEgxG2T15XPHwRj9MU3RzkxBHAj8AdZGaIceJX1YhHBjev/+KKQTH
+X-Gm-Gg: AfdE7cks7v3dELIuKCwcpKdrInbHvBF84BT45n3OHYHjaXW8MmA08G+M8dsbb8H8vTO
+	37jS/mtW4+klTXJuVjixR6DlKxfI/8jBIgnVufSnoYlInsFE4UQ4eDF9LTkaDDBYPBaYCR9j21z
+	qS/JxgwisCS2GUTRMMoo2Pc2kUxfPioxr9IOvaI3Z+Uygp7pxYNAHWIifBhVwwI9h94VG1IW10B
+	dd0uCd8i+ydqqrggty5vxtWJfHEXG2dyDDTC7qJ2s/7mJni/pGy4vgYrmkg1I63fs0q6ibmF6Ng
+	9byUdZfalaQiB2+LUswz4EbOxrWiGJZkPEq6CW1Atd7tQvZdKdIQi82OHa56FOkFqx0v/Trn2eC
+	4NYUT2NT6ABMVHSc60ZYI498yXXyVGPfKsaCEWyOPwv1cLfcFRe6cPeARNCEt276ArwsEd8zUP0
+	nsxE3nUxhkcJVpK2+gv936ogu3TwnM+qXfk/u/nzIw1g2bEVtiESmRI5mAfQF4edVg+z3gnkv9e
+	7ccH8WKBxtQCefT
+X-Received: by 2002:a05:6000:41dd:b0:475:f0d1:eb69 with SMTP id ffacd0b85a97d-47f2dceeeebmr11163398f8f.54.1783955213443;
+        Mon, 13 Jul 2026 08:06:53 -0700 (PDT)
 Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f4635a5d7sm19389f8f.10.2026.07.13.08.06.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 08:06:50 -0700 (PDT)
+        Mon, 13 Jul 2026 08:06:52 -0700 (PDT)
 From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Subject: [PATCH 0/8] arm64: dts: freescale: Add Verdin iMX8M Mini overlays
-Date: Mon, 13 Jul 2026 17:06:21 +0200
-Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
+Date: Mon, 13 Jul 2026 17:06:23 +0200
+Subject: [PATCH 2/8] arm64: dts: freescale: imx8mm-verdin: Add DSI to HDMI
+ adapter overlay
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO3+VGoC/x3MQQqAIBBA0avErBtQC42uEi1Kp5qFFhoShHdPW
- r7F/y8kikwJxuaFSJkTn6FCtg3YYwk7IbtqUEJpYYTBLDFTdByQ/TN4j+5ez4RLp7TstdXK9lD
- jK9LGzz+e5lI+RpD16mgAAAA=
+Message-Id: <20260713-v1-verdin-imx8mm-dtbos-v1-2-4acd63db4504@toradex.com>
+References: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
+In-Reply-To: <20260713-v1-verdin-imx8mm-dtbos-v1-0-4acd63db4504@toradex.com>
 To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
@@ -91,9 +107,8 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev,
  Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_080653_944675_97DE2C1B 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_160655_299124_F2F2E837 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,59 +123,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds device tree overlays for the Toradex Verdin iMX8M Mini
-SoM. The overlays cover audio configuration, display adapters, DSI
-displays, OV5640 CSI camera modules, and Cortex-M4F integration.
+From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 
-The series adds support for:
-- NAU8822 Bridge Tied Load configuration on the Verdin Development Board
-- DSI-to-HDMI adapter based on the Lontium LT8912B bridge
-- DSI-to-LVDS adapter based on the TI SN65DSI84 bridge, combined with the
-  Toradex Capacitive Touch Display 10.1" LVDS
-- Toradex Capacitive Touch Display 7" and 10.1" DSI variants
-- Toradex OV5640 CSI camera variants with 27 MHz and 24 MHz oscillators
-- Cortex-M4F remoteproc support
+Add a device tree overlay for the Toradex DSI to HDMI Adapter, an
+accessory that connects to the Verdin DSI_1 interface and provides a
+full-size HDMI Type-A output. The adapter is based on the Lontium
+LT8912B DSI-to-HDMI bridge.
 
-Cortex-M4F support is split between the SoM description and an optional
-UART_4 overlay. The SoM dtsi describes the remote processor and RPMsg
-reserved-memory regions, while the overlay reserves Verdin UART_4 for
-Cortex-M4F firmware use.
+The overlay is also combined with the Verdin iMX8M Mini carrier board
+device trees to provide ready-to-use DTBs for the Dahlia, Yavia and
+Development Board carriers, in both WiFi and non-WiFi SoM variants.
 
-The Makefile entries build the standalone overlays as DTBOs, add
-ready-to-use composed DTBs for selected carrier board and accessory
-combinations, and add representative composed DTBs for build-time
-coverage.
-
+Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
 Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
 ---
-Ernest Van Hoecke (8):
-      arm64: dts: freescale: imx8mm-verdin: Add NAU8822 Bridge Tied Load
-      arm64: dts: freescale: imx8mm-verdin: Add DSI to HDMI adapter overlay
-      arm64: dts: freescale: imx8mm-verdin: Add Toradex DSI to LVDS adapter with 10.1" display
-      arm64: dts: freescale: imx8mm-verdin: Add Toradex Capacitive Touch Display 10.1" DSI
-      arm64: dts: freescale: imx8mm-verdin: Add Toradex Capacitive Touch Display 7" DSI
-      arm64: dts: freescale: imx8mm-verdin: Add Toradex OV5640 CSI Cameras
-      arm64: dts: freescale: imx8mm-verdin: Add Cortex-M4F remoteproc
-      arm64: dts: freescale: imx8mm-verdin: Add Cortex-M4F UART_4 overlay
+ arch/arm64/boot/dts/freescale/Makefile             | 13 ++++
+ .../dts/freescale/imx8mm-verdin-dsi-to-hdmi.dtso   | 88 ++++++++++++++++++++++
+ 2 files changed, 101 insertions(+)
 
- arch/arm64/boot/dts/freescale/Makefile             |  41 +++++++
- .../freescale/imx8mm-verdin-dev-nau8822-btl.dtso   |  14 +++
- .../dts/freescale/imx8mm-verdin-dsi-to-hdmi.dtso   |  88 ++++++++++++++
- ...-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso | 104 +++++++++++++++++
- .../dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso  |  17 +++
- .../boot/dts/freescale/imx8mm-verdin-ov5640.dtsi   |  78 +++++++++++++
- .../boot/dts/freescale/imx8mm-verdin-ov5640.dtso   |  18 +++
- .../imx8mm-verdin-panel-cap-touch-10inch-dsi.dtso  | 129 +++++++++++++++++++++
- .../imx8mm-verdin-panel-cap-touch-7inch-dsi.dtso   | 129 +++++++++++++++++++++
- .../dts/freescale/imx8mm-verdin-uart4-mcu.dtso     |  14 +++
- arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi   |  33 ++++++
- 11 files changed, 665 insertions(+)
----
-base-commit: 10e06b5bd4be88cc89375227c31467734f6658de
-change-id: 20260707-v1-verdin-imx8mm-dtbos-a326146c62c4
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index f833e179ab3c..e8a1e015ca77 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -177,21 +177,34 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7902.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7903.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7904.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dev-nau8822-btl.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-dsi-to-hdmi.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-mallow.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dahlia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev-nau8822-btl.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-mallow.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-yavia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-wifi-zinnia.dtb
+ 
++imx8mm-verdin-nonwifi-dahlia-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-dahlia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
++imx8mm-verdin-nonwifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-dev.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
++imx8mm-verdin-nonwifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-nonwifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
++imx8mm-verdin-wifi-dahlia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dahlia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
++imx8mm-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
+ imx8mm-verdin-wifi-dev-nau8822-btl-dtbs := imx8mm-verdin-wifi-dev.dtb imx8mm-verdin-dev-nau8822-btl.dtbo
++imx8mm-verdin-wifi-yavia-dsi-to-hdmi-dtbs := imx8mm-verdin-wifi-yavia.dtb imx8mm-verdin-dsi-to-hdmi.dtbo
+ 
+ imx8mm-tqma8mqml-mba8mx-lvds-g133han01-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-g133han01.dtbo
+ imx8mm-tqma8mqml-mba8mx-lvds-tm070jvhg33-dtbs += imx8mm-tqma8mqml-mba8mx.dtb imx8mm-tqma8mqml-mba8mx-lvds-tm070jvhg33.dtbo
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin-dsi-to-hdmi.dtso b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dsi-to-hdmi.dtso
+new file mode 100644
+index 000000000000..507d0bbb5935
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin-dsi-to-hdmi.dtso
+@@ -0,0 +1,88 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex DSI to HDMI Adapter on Verdin DSI_1.
++ *
++ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-hdmi-adapter
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	reg_dsi_hdmi: regulator-dsi-hdmi {
++		compatible = "regulator-fixed";
++		/* Verdin CTRL_SLEEP_MOCI# (SODIMM 256) */
++		gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-boot-on;
++		regulator-name = "DSI_1_PWR_EN";
++	};
++};
++
++&hdmi_connector {
++	status = "okay";
++
++	port {
++		hdmi_connector_in: endpoint {
++			remote-endpoint = <&dsi_hdmi_bridge_out>;
++		};
++	};
++};
++
++&hdmi_lontium_lt8912 {
++	vdd-supply = <&reg_dsi_hdmi>;
++
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			dsi_hdmi_bridge_in: endpoint {
++				data-lanes = <1 2 3 4>;
++				remote-endpoint = <&mipi_dsi_out>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			dsi_hdmi_bridge_out: endpoint {
++				remote-endpoint = <&hdmi_connector_in>;
++			};
++		};
++	};
++};
++
++/* Verdin I2C_2_DSI */
++&i2c2 {
++	clock-frequency = <10000>;
++
++	status = "okay";
++};
++
++&lcdif {
++	status = "okay";
++};
++
++&mipi_dsi {
++	samsung,esc-clock-frequency = <16000000>;
++
++	status = "okay";
++};
++
++&mipi_dsi_out {
++	remote-endpoint = <&dsi_hdmi_bridge_in>;
++};
++
++/* Verdin PWM_3_DSI (SODIMM 19) repurposed as HDMI HPD GPIO */
++&pwm1 {
++	status = "disabled";
++};
 
-Best regards,
 -- 
-Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+2.43.0
 
 
