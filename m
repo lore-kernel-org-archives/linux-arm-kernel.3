@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B675C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79593C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 14:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5D70PgPOpXCYze4+Z72DPv3iGsJRzVh17hn0cbIFj6E=; b=WDT0OakiFBIrZ5H/jHCyc3uSmz
-	OsvfBMWH3P9XKANDBtfTpCKEkSALXztxJtuouDSgE1kM69oSjutbi3oQhis7Le5E54iDDuFqb5n6y
-	15Kwjvd8MJbzyn92fFg738GLIL7HxxIxSVKKJL71L8LsV8QYJTlv0qtE8jyJazq3ROKjSA2Ol1EyL
-	9AzetI8XX6+cMchLViv1a5wi9A4pavfJBpjcMvVHULyO8P/bSSrqAqgFeOWaOQAc9wYq8pQTgCs34
-	ciShG9dN5BG+2PtKlRYZNdlAjYrvxqK+WlkqqpzfAJPUJGVCkNK9yThC6jnBeiK+FZd2JAd8twRQ5
-	tnrUArSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/oALa+s42LWwLDIJ0bjpmdNshONmC9kcc4OdaS5OFYs=; b=uFjkoAWefz8VpcLMBNAsaTmEfq
+	YTgnmMh8QD+4vb4pvdBwug9/YwwWjMK4V++ivbuz2n1eB2MoZeKpFgE4OKOWw0NWcKucA4wzTF1EY
+	CMXF5Y4rbTgLQBfSO2bXX0Ibm6egqWoFdDsm12DblVQgkhwSu0w/Mm/yBtg7cE35bRjlBm3Ohy6tq
+	w5+QQ0BN+666X52T/CgVANfwv++xJTocVpUp84Gpzaj4KaongsDg+/fOhCHwgrIkSViRGANgceVbW
+	nQdbmfZb9B3e0F8cwkQg++ci6BGRu3VIcl1wtLdlU6m9+PY0U0b0QkffCk9dKDEBdueVUTUdfIxvx
+	pfo8pLaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHKi-00000009YP5-0h5r;
-	Mon, 13 Jul 2026 14:08:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjHdi-00000009adJ-0aEU;
+	Mon, 13 Jul 2026 14:28:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHKg-00000009YOj-3yeG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:08:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 659076013A;
-	Mon, 13 Jul 2026 14:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F931F00A3A;
-	Mon, 13 Jul 2026 14:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783951710;
-	bh=5D70PgPOpXCYze4+Z72DPv3iGsJRzVh17hn0cbIFj6E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IEcGRUQmq/j2oZwL8Kf6eWI82YyVPYbNH14/2FzJeoTFePEit3iAhoG4ugytrOWrR
-	 ezVl9VkrgoNuCquhjp2caRSyWFKyvEA4Avoby4m52bd/FgGA7ty7D9RJhdpUUyPzTF
-	 1X9WJm/iSqoa3qwgcFma1zhTzZJ4XR2pSNCFH/uGOlr4rgClyC4tp/iEiGbxNBIqXj
-	 bbbRBKZZ8Cr2oXnnM8Pr6nAKVuv2FQuQ72Mi+/qjRLearyyBnI4huUQdyifm5sNC78
-	 i8TBAdjsJQ3WQef2klxC2+c+KcDEgROBsMslT0iy3f5f1+TUc59vzSF7QS+j4XoiFY
-	 NFVQrR8/FtVEQ==
-Date: Mon, 13 Jul 2026 17:08:19 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>,
-	Toshi Kani <toshi.kani@hpe.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Carlier <devnexen@gmail.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org,
-	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH 0/2] mm: fix UAF caused by race between ptdump and vmap
- pgtable freeing
-Message-ID: <alTxUwrkzEx-FEOP@kernel.org>
-References: <20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org>
- <8e320b30-9658-4e9f-ac4c-f99dcf855944@arm.com>
- <alNQccqtx5-QApup@lucifer>
- <alTOCtzQh9RMfWbc@willie-the-truck>
+	id 1wjHda-00000009aUd-1ogt;
+	Mon, 13 Jul 2026 14:28:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=/oALa+s42LWwLDIJ0bjpmdNshONmC9kcc4OdaS5OFYs=; b=aoi3k8b2qWfgGx6ik3uj5zkv4O
+	5pbMCl+DaxuqpknKlEgQ8Uo5FJ3s29qt8qr3VyJ7ZhxBbvJ4D3cikojw9oB6fEQgCtdm29uIp9T/c
+	xlZ92ie1fl+S3QmFndbwtH45jvyRw340FAsmVyFS5kebiGeqot3rfkPdVK1ur9n1mfc7Ek/t52TIi
+	H4DGb/8rrP/O+qoMGYtj4Rmu8GpUpzI79VEuZBFvC0FMzEEwioe0e6clWljDaMRE02qOYraiKs7Bt
+	dtCrV870CShlTI0Qr4vXsUgMqhkUj765DwiPVHd5B5n/gRkHVriIP5Op7qH8w5IAbbwIWEkO7HDht
+	iAyR5Ybg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjHdW-0000000BiB6-1aL4;
+	Mon, 13 Jul 2026 14:28:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783952872;
+	bh=Npx/orxONC+U2Qw/Hg1SfG0cpM+DWzLfcxEEfKhRItg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=P4Z0zQDwSXxmOZsF+TNClXAbZ0zdXsLSsdMGMf/PkCt/szRXD303nMZ7xJGH7KHJi
+	 6yRyHTH0FuU28D+GSP6DtQXpICYcxhpsAkSru4DWkx+MUetfi0IkJFNB/f1zNWd0jF
+	 EEcNDGT+6us8jOdSJG8LlESPQdLcyfHveLfUjn6auTfscebtcEwIItSpxdLqAvSwE/
+	 g95TrxpAYVd/30dIvg/cibHDgf8maMeP2nW5IhpuAs8eK/ghuJcOKmE9Keq0K2EBQl
+	 pMbUyWR/CDa8XT2ZFfATKU68ZV4oCpjlxCp9mDvass8ljwpy7bz8FBbaASvddpGlZx
+	 A+FIdRQdmqzXg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E03E217E0720;
+	Mon, 13 Jul 2026 16:27:51 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v4 00/10] drm/mediatek: Add DSC, WDMA, MT8189/96 DSI support
+Date: Mon, 13 Jul 2026 16:27:36 +0200
+Message-ID: <20260713142746.40259-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alTOCtzQh9RMfWbc@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_152758_593628_D241E0C6 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +102,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 12:37:46PM +0100, Will Deacon wrote:
-> On Sun, Jul 12, 2026 at 09:46:46AM +0100, Lorenzo Stoakes wrote:
-> > On Sun, Jul 12, 2026 at 12:50:08PM +0530, Dev Jain wrote:
-> > > Will Deacon had pushed back on a similar approach:
-> > > https://lore.kernel.org/all/20250530123527.GA30463@willie-the-truck/
-> > >
-> > > Although now when I read back that thread, it feels more so like my
-> > > incompetency to convince :) because:
-> > 
-> > No haha not so, I think more like this stuff is fiddly.
-> 
-> Yup, not disputing that this is hard to get right.
-> 
-> Conceptually, adding locking purely to deal with a vanishingly rare,
-> debug reader does turn my head but I'm _far_ less concerned about it if
-> it's done in the core code, as is the case here. x86 needs it and we're
-> recently running into related locking issues with the set_memory_*()
-> APIs if we want to collapse the page-table on arm64 [1]. If the overhead
-> is flagged as an issue, we can see if it's worth generalising the static
-> key trick that the second patch reverts but I definitely wouldn't start
-> from that position.
+Changes in v4:
+ - WDMA: Delete the .remove() callback from WDMA as not needed anymore
+ - WDMA: Add comments explaining no bus errors will happen if writing
+   to INT_ENABLE, INT_STATUS registers while unpowered or unclocked
+ - Return error in mtk_wdma_wb_atomic_check() error conditions, oops!
+ - DSC: Fix dsc_pad_num calculation (missing parenthesis...)
+ - DSI: Change dsc slice check error to dev_dbg instead to avoid spam
+ - DSI: Correctly cleanup dsi->dsc upon component_add failure
+ - DSI: Make sure the CKTX_CKL_WC register is correctly programmed in
+   DSI w/DSC case
 
-I'd say it's worth generalizing the set_memory APIs ;-)
+Changes in v3:
+ - Changed mtk_dsi DSC implementation to use a different DSI_PS
+   setting function for compressed or uncompressed, as the dsc one
+   is way simpler than the regular one and becomes way shorter
+ - DSC: Fixed missing PPS 19 register write
+ - DSI: Anticipated call to devm_pm_runtime_enable() to before
+   registering the DSI Host interface
+ - DSI: Anticipated installing IRQ handler before registering the
+   dsi host interface, which wasn't a problem before, but now it
+   would be one because the interrupt is being enabled when binding!
+ - DSI: Fixed some possible calculation overflows that may happen in
+   MT8189 and MT8196 because of the higher supported resolutions
+ - WDMA: Use devm variant of pm_runtime_enable()
+ - Change WDMA interrupt handler to allow signaling WB complete even
+   if there is no specific vblank callback installed to avoid very
+   long timeouts (in any case, WB is complete for real even if there
+   is no vblank_cb, just a bit useless without, but still complete)
+ - Fixed WDMA register writes as register id was in function signature
+   for mtk_wdma_ddp_write_dst_addr() but the function itself never
+   used it in DISP_REG_WDMA_DST_ADDRX() macro
 
-Since it's de-facto machinery for manipulation of the kernel page tables it
-makes sense to have a common code for page table walks with hooks to
-architectures for checking/setting/clearing protection bits.
+Changes in v2:
+ - Rebased on next-20260706
 
-Coincidentally, I'm working on a POC that lifts x86's CPA into mm/ with
-the intention to later use it on other architectures.
+This series adds support for:
+ - Display Stream Compression (DSC) for DSI and DisplayPort for both
+   legacy (8188/92/95 and others) and for Kompanio Ultra MT8196 SoCs
+ - Write DMA (WDMA) Engine (for legacy only at this time) as a step
+   to enable Writeback support (coming later with a restructuring of
+   the entire mediatek-drm driver)
+ - Newer MIPI DSI IP revisions, found in MT8189 and MT8196 SoCs
 
-> Will
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/799181c3-a1a1-4de7-bc6a-576d3282efb0@arm.com/
+AngeloGioacchino Del Regno (10):
+  dt-bindings: display: mediatek: dsc: Add MT8196 compatible
+  drm/mediatek: Implement Display Stream Compression support
+  dt-bindings: display: mediatek: dsi: Document MT8189 and MT8196
+  drm/mediatek: mtk_dsi: Enable interrupt at component bind time
+  drm/mediatek: mtk_dsi: Transfer register offsets to per-SoC const
+  drm/mediatek: mtk_dsi: Add support for MT8189
+  drm/mediatek: mtk_dsi: Add support for MT8196
+  drm/mediatek: mtk_dsi: Enable PM Runtime on probe
+  dt-bindings: display: mediatek: wdma: Add compatibles for more SoCs
+  drm/mediatek: Add Write DMA (WDMA) Engine for Writeback support
+
+ .../display/mediatek/mediatek,dsc.yaml        |   4 +-
+ .../display/mediatek/mediatek,dsi.yaml        |   2 +
+ .../display/mediatek/mediatek,wdma.yaml       |   5 +
+ drivers/gpu/drm/mediatek/Makefile             |   2 +
+ drivers/gpu/drm/mediatek/mtk_crtc.c           |  21 +
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c       |  64 +-
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.h       |   9 +
+ drivers/gpu/drm/mediatek/mtk_disp_drv.h       |  29 +
+ drivers/gpu/drm/mediatek/mtk_disp_dsc.c       | 455 ++++++++++
+ drivers/gpu/drm/mediatek/mtk_disp_wdma.c      | 622 ++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c        |   8 +
+ drivers/gpu/drm/mediatek/mtk_drm_drv.h        |   2 +
+ drivers/gpu/drm/mediatek/mtk_dsi.c            | 799 ++++++++++++++----
+ 13 files changed, 1832 insertions(+), 190 deletions(-)
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_wdma.c
 
 -- 
-Sincerely yours,
-Mike.
+2.54.0
+
 
