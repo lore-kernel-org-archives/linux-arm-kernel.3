@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224A5C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AC1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 15:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YO4iO+4RoSYMeteNu9nUAyD/efKBamp9eHyouwcTSY0=; b=whjy1HHdFAx2cvn7X8RmirCrTO
-	6xQI1MtlBesu0PI/nBaZRJbNQLY+euFJ92eGH3AyyFA7xFGWvQWs8wSiyC/q+9HhI/5HapN7ROFVW
-	KIoDyMyGEBw95XPPK3oI/i1c84aHDJRZdWf7uSdW/OjxqV+iTBEcJqOLujyn/eaFpmqDA7Tl6LoP6
-	CwmJ8LlN8qZYw81cP8BezOYPfIhtJTP3NEO0o8mk54VEsEdDOGbTbq0ssGpYJTStBuHuzumhxZmhQ
-	FWov/5gp6SbJZzDYtfVso02NvhPBJmT7schYSYTdynSY2JKkbEXreJVWTV+J+dzLY/XQ/ZYZw8+JP
-	MUG/J/Gg==;
+	bh=Z0qkF5e+IsQQ+xyny/lcvjpB8Rmv7gMJ/99iomJ8KKE=; b=RZqn38POFUM2MjTaWhYy5oBVdz
+	mzbHyz79L8uEuixLHHME9F+L1XKzDlRtpaehea78Jp5bmLRBxrgYwHrwTS0gdkMag1SpBmPEYQVkQ
+	ikXk88wFXBIfTzrYcr4URiQIAlqKZmNmr+eMBUPIDiHvxrus66Hn0PTrlZ6dQ0HAGKhaqNKzOAVoK
+	iiYXbJLXtA99baWA13bk4rz1gYFYggfBF2e2Mg2oybLl6WWIIa293BfC+1xO5+PRUjKiLPAcBrqT0
+	1PugvGzFPLf44s3FzU2dalvx8utm1KCGyNNJlP2zp0yNRuOaWhCWww4AUpF4QIYZ4ZgqifUAB4lz3
+	OTzxh6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHOR-00000009Yow-0505;
-	Mon, 13 Jul 2026 14:12:23 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wjILX-00000009kzh-3DmZ;
+	Mon, 13 Jul 2026 15:13:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjHOO-00000009Yoc-3yiB
+	id 1wjILW-00000009kz8-1ZRe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Jul 2026 15:13:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Z0qkF5e+IsQQ+xyny/lcvjpB8Rmv7gMJ/99iomJ8KKE=; b=rgnPlT5ochbIfBCalj+kK4pBYb
+	hMokUmELVMbXAKVqZiIL91yhi682FMkYADwZszbcenAAR1y7NHJVdenBXvlIcDvWZaNdFdd1hrjxS
+	5gp6cTjCvHgeTaN8oEPVrcq2tQS1FEuptF5Sjl2sFmph3pXATPDYRM3m9Y5QuLjxGLXopVAUnLeGc
+	mDUO/kmmW2ywXyKG3BWCK4hQqPIKO+EMYXJ74Y2TH4no45lVofvsN1lDu1BSNMte/aoXO7TFNmlis
+	B8eTGK8DLpLV7Mpkd31JyJ1q4UfLVhVC6zPMjElc5ExxTqAfnz2sGoFazWkAv7ccbul6H4fbvnZow
+	yO5JP/ag==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wjILS-0000000BlXI-0xe2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 14:12:22 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-475881b9a4bso3200171f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 07:12:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783951938; x=1784556738; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YO4iO+4RoSYMeteNu9nUAyD/efKBamp9eHyouwcTSY0=;
-        b=QyWmpelYfTsK9FwvYWT1SV2tlVPwed8fDqZNqxEZTU/WWj74ql6Wfv9S2lYDq91cCE
-         Zpe5fhCk2bbWoB9eQ7kefaoNFDgKRy/LtRdftBPoVEHn0c6iETvxJ2WlPjeCoUVdAv/c
-         L9u4bNXc2+1+SQ0+916Dr83827ZZYmRko5LgsdCBJCerC48uwytS3uSDHOoRCGgvA+9x
-         u9B1AMRd2Gvb/EeXGU3HqHExxvG49HhoTvX1izuInwFoxp8aXo8QF9LwvbAyG9wzGM1z
-         oTAAD1sZl6BzG01zqGl9xlqScq7XbagJxUI85Ok12hrBWRQfc6YkP3+N7PjWLq0WfltR
-         mxLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783951938; x=1784556738;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YO4iO+4RoSYMeteNu9nUAyD/efKBamp9eHyouwcTSY0=;
-        b=W7OOu1HuA4k6/IVeR6bNbl3NUICxtrj5UDexZ9bBuH7Bvr+tuj60tAkXUER89HzRgR
-         TLGWBop3I4VshYOEzVBXQgXQfCSwfzpGnENUIZ8RouRAlV/Y8wMJRyVHB6lyFeSkRF1K
-         OYTv1kXViguZ9mmakDFm2i8piSaTKmBTtmInPUaOfxWWYCGm1qK+0ar2mQs6foG3YD//
-         TnXrzfzuFnJuXvDIq3XTaAKr5a9+C9r6vRWf7KqiKFFCSQJbMhMTwjjuMf3b+CH/06kA
-         s64MYr4/sgV+i7idu1UQJtnYaOTtkyecYzhkX8OJnvop2WnR2H2NZoHe90TmySzCS4Aw
-         sxWA==
-X-Forwarded-Encrypted: i=1; AHgh+RpFHgUaJNwE1kGaugnnPi0EvxuI8y9BAMWA9fjp32NX9OIncMXY02ujIDfd9GFe9/XeTiaW2g62cvTrNAO5Ekdc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvO5gqVDC+/TCQetfNeEeIqMjgo7HPaO/qCTFNrEwGsOBO8U0P
-	/29yg8kI+r+d7XSk8lr9gYqC/njj8qfEUeAD9ObdFjNLkWT7r+G+IP2M
-X-Gm-Gg: AfdE7cm/41nb+4fdP7pWL6V0/Jt2YUaU3Gtwq9csUKdUAxkOdurVLtrkUjE2gCMG2I1
-	LNidokOs0xxYmVNK1xM00aOITYR7S8FTJFuJCRtcuxpBarQeGhsEG6+AREVVCJzIkUob8I0oC6W
-	ZSc15mayPJG178fe2FcCSZP6wbb7aL17zwQ7aX0BpUtwlx2GFYDFVGj2zz4gsgbP2togR9R1A3+
-	v041sKKsSOOwa8hupaG+JBisS+YMDHSaaSsk/vt8N7/WD2UCvY35qyX+KCDNmRlmeaZuOIm62zf
-	o9pyrhwn5YVREdUlmzB4VoWPWybJ3J+jCQGK+ElzFEnsdLWsih9ZWDXS9sVOYucyjD4msNL+FQe
-	c/R6n4dCa9P18FYGsbbY8IvUAK3pITzCdvALioPTJdGPc6eow+Jj75NsWQC7NCqm1gKIvXedeLy
-	2LQpAD4YJq6F55i9TnL3gRkUPpO2l8BrS1Hzi8TWGpITRb9g1NICetxoIxpwonkeDa1qFeSQuEO
-	L61H+JctKsWTYMbHSfSKag8AOPYahOvmTi7lsRs1srXzetDcDRlnNE1EZuAecJnTeMV8k7imTd9
-	+lr1KMG1MCIw936ve+eelwQ5JGN0dH4GwRgibY44NLHbhJkZ1aW4CjmUqSlVfccUS6s6y9XNcSY
-	65AmNbDVWpe1cvmJZAk0mkF6pmRkiPkDqMw==
-X-Received: by 2002:a05:6000:400a:b0:477:3d23:f920 with SMTP id ffacd0b85a97d-47f2dcec627mr10652902f8f.26.1783951938155;
-        Mon, 13 Jul 2026 07:12:18 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0f213e8sm84998163f8f.34.2026.07.13.07.12.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 07:12:18 -0700 (PDT)
-Date: Mon, 13 Jul 2026 16:12:15 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, William Breathitt Gray
- <wbg@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Julien Panis <jpanis@baylibre.com>, David Lechner
- <david@lechnology.com>, linux-iio@vger.kernel.org (open list:COUNTER
- SUBSYSTEM), linux-stm32@st-md-mailman.stormreply.com (moderated
- list:ARM/STM32 ARCHITECTURE), linux-arm-kernel@lists.infradead.org
- (moderated list:ARM/STM32 ARCHITECTURE), linux-kernel@vger.kernel.org (open
- list), linux-omap@vger.kernel.org (open list:TI ENHANCED CAPTURE (eCAP)
- DRIVER)
-Subject: Re: [PATCH] counter: Remove redundant dev_err()/dev_err_probe()
-Message-ID: <20260713161215.00001cc3@gmail.com>
-In-Reply-To: <20260713131005.306069-1-panchuang@vivo.com>
-References: <20260713131005.306069-1-panchuang@vivo.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Mon, 13 Jul 2026 15:13:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 569451576;
+	Mon, 13 Jul 2026 08:13:16 -0700 (PDT)
+Received: from [10.164.19.52] (unknown [10.164.19.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8B5B3F93E;
+	Mon, 13 Jul 2026 08:13:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783955600; bh=FxZLR9R+Tw/RTXShqH2JiucTcF7BYOfeeQ7iY565rBc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l18hC4xT/sUPl8dCaDqcr/Ljf4Uj9z5GidEBxYlDB+Za59H+9rQjYDbLJFszRBqYW
+	 PxjxqhsMi5uQxLcE4Nl/DuuoVFXXxhLjquX1Os0uGlFuFAuY9NJJW5nS3LunIq6U9n
+	 qnX+Oi/SN60p8p0hOGnN7SN2AjE0Cqe1N/bsuZak=
+Message-ID: <54434a84-51b3-4e3f-988b-6bcbac5a2f42@arm.com>
+Date: Mon, 13 Jul 2026 20:43:14 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+To: Wen Jiang <jiangwenxiaomi@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
+ will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
+ anshuman.khandual@arm.com, david@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ rppt@kernel.org, ryan.roberts@arm.com, Wen Jiang <jiangwen6@xiaomi.com>
+References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
+ <20260709160805.26e63bae89dd03cf2951104e@linux-foundation.org>
+ <CAHKocdH5kp5kTtZht+v5j-4-Thh40TGvif3=kRMgErRXr+Q+RQ@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAHKocdH5kp5kTtZht+v5j-4-Thh40TGvif3=kRMgErRXr+Q+RQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_071220_995884_E09DC0E8 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_161322_618914_975EF345 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,24 +92,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2026 21:10:04 +0800
-Pan Chuang <panchuang@vivo.com> wrote:
 
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
-> automatically log detailed error messages on failure. Remove the
-> now-redundant driver-specific dev_err() and dev_err_probe() calls.
+
+On 10/07/26 2:24 pm, Wen Jiang wrote:
+> On Fri, 10 Jul 2026 at 07:08, Andrew Morton <akpm@linux-foundation.org> wrote:
+>>
+>> On Thu,  9 Jul 2026 15:38:17 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+>>
+>>> This patchset accelerates ioremap, vmalloc, and vmap when the memory
+>>> is physically fully or partially contiguous.
+>>
+>> Thanks, I added this to mm.git's mm-new branch for wider testing.
+>>
+>> AI review asked some questions, and some of them are new since the v5
+>> series:
+>>         https://sashiko.dev/#/patchset/20260709073823.6643-1-jiangwen6@xiaomi.com
 > 
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
-> ---
+> Hi Andrew,
+> 
+> I've gone through the Sashiko findings:
+> 
+> - Patch 1 (find_num_contig): Over-interpretation. No new hugetlbfs hstate
+>   is added. The extra sizes are only used by init_mm kernel mappings via.
+> 
+> - Patch 5/6 (NULL page): Invalid input. vmap() expects a fully populated
+>     array of valid struct page pointers.
 
-I think you can drop the commit hash and title from the message.
-Otherwise LGTM.
+Correct, but vmap_pages_pte_range has !page and !pfn_valid checks.
 
-Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>
+I really hate those checks - if those checks have any remote possibility of
+firing, then we already have a bug at
 
--- 
-Kind regards
+vm_map_ram -> vmap_pages_range -> vmap_pages_range_noflush -> kmsan_vmap_pages_range_noflush
 
-CJD
+because the last function dereferences the struct page pointers.
+
+It is painful to do the page array sanity check deep into vmap - it implies
+we simply cannot play with the page array before that.
+
+But since vmap is an exported function, doing a sanity check for the page array
+in the vmap code makes sense.
+
+So how about the following:
+
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index afaa14ebf17bb..0c44bb7a45b5d 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -566,14 +566,6 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+ 			err = -EBUSY;
+ 			break;
+ 		}
+-		if (WARN_ON(!page)) {
+-			err = -ENOMEM;
+-			break;
+-		}
+-		if (WARN_ON(!pfn_valid(page_to_pfn(page)))) {
+-			err = -EINVAL;
+-			break;
+-		}
+
+ 		pfn = page_to_pfn(page);
+ 		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
+@@ -603,11 +595,6 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+ 			struct page *page = pages[*nr];
+ 			phys_addr_t phys_addr;
+
+-			if (WARN_ON(!page))
+-				return -ENOMEM;
+-			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
+-				return -EINVAL;
+-
+ 			phys_addr = page_to_phys(page);
+
+ 			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
+@@ -3663,6 +3650,19 @@ static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
+ 	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
+ }
+
++static inline bool vmap_page_sanity_checks(struct page **pages, unsigned int count)
++{
++	for (int i = 0; i < count; ++i) {
++		if (WARN_ON(!pages[i]))
++			return true;
++
++		if (WARN_ON(!pfn_valid(page_to_pfn(pages[i]))))
++			return true;
++	}
++
++	return false;
++}
++
+ /**
+  * vmap - map an array of pages into virtually contiguous space
+  * @pages: array of page pointers
+@@ -3706,6 +3706,9 @@ void *vmap(struct page **pages, unsigned int count,
+ 	if (!area)
+ 		return NULL;
+
++	if (unlikely(vmap_page_sanity_checks(pages, count)))
++		return NULL;
++
+ 	addr = (unsigned long)area->addr;
+ 	if (vmap_pages_range_batched(addr, addr + size, pgprot_nx(prot),
+ 				pages) < 0) {
+
+
+
+Reasoning for calling vmap_page_sanity_checks() before vmap_pages_range_batched,
+and not at the start of vmap: I am worried that since vmap() is already very
+fast, we may cause a regression:
+
+vmap() -> scan page array with linear map pointers -> vmap_get_aligned_vm_area (does
+memory allocation, throwing out the linear map VAs from cache and TLB) -> walk
+the pgtables and again access cold page array.
+
+Perhaps I am being very pedantic here. What do you think?
+
+> 
+> - Patch 6 (32-bit count << PAGE_SHIFT overflow): Pre-existing. This was
+>     already discussed in the V3 thread, and a separate fix was proposed
+>     there.
+> 
+> Thanks,
+> Wen
+> 
+
 
