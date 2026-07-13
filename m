@@ -4,68 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD39EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B911C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eo+wz/D4rTK5XgrgM58J5D6P+QKK3zQE7nNXXQGP/R8=; b=r7E/zs8zAssdYfi7bZlmcpCfPc
-	saGCagIkID0mqKzQN/RzqEiD1jkrIgkBtw90wHcrgAtgvMRggnqreNetN2JIBKrJ1zILEk0ftjPM5
-	sRtJ0EKeuvuSxe02I+goxl3RQd9R23lQsbJWyAGX1rmYmGQpwHsrvQ5RFHigJTJKPerP+kXvz+yY5
-	QZblKHYnkyqn9hrL25n8RLQWPXy0JU6sLKDonWSeS7Aq8nljeXq/UGFZizl9XYB7DU7lXYTH7qW1p
-	jussgxrEqj3qfM+AgbTA8TcrVC0JweUBqGEuX904c6H4XYgSTm5O9PVdsKN9zTutmi8RJQRKYQEON
-	3cUdBazg==;
+	bh=X5eaNUk6cCIj7tkB6iVA5BRLOW7UfZYznohwiY6XKyM=; b=k1O0CssaUKyYY/bQ7hvoboJjkw
+	WU4iWW29E9nyYtlnfUa+WBZV8B+hmpmUVaoFRlTLFE3il1DIvOTL1EMn3/jIFE65GTtSfGNCUHDtI
+	XyC9pzsi1fPTXgpRFZTr7yyZ/pMrLDbvZlr9NikCxUqa85ihje2ehcr2RgxXrtM8fdAOFhg6pAJjV
+	Xr3cRYf5537z8VCuRKMHNVQ0Fh6XFQc6F4zXQq9wjsZ+6uqT2cqypo/4ku98y4X4KUmj1ULhAJQJZ
+	k1wZkDfdfC/VCvKsLaodJCySZ10lziQF+YMHXZT6Ha7S6TSKbHdeaYTlOLUPlTg6PIj3Bj+SApLV7
+	e+UssVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjC0S-00000008aBf-2vy1;
-	Mon, 13 Jul 2026 08:27:16 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wjC0a-00000008aHW-3Xvr;
+	Mon, 13 Jul 2026 08:27:24 +0000
+Received: from mo4-p03-ob.smtp.rzone.de ([85.215.255.103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjC0P-00000008a8D-1qTQ
+	id 1wjC0T-00000008aB4-2Jlr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 08:27:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Eo+wz/D4rTK5XgrgM58J5D6P+QKK3zQE7nNXXQGP/R8=;
-	b=vFzWrNHLthRh/X3F9Th7sfXXxpr6Bh5/Yzt4z5MZ9wFyj/MN05HZr2PREK9IwicdGdK70Zqk3
-	Po2gkTHveqPwubuF4YiOZR0ZPAGW9bgG63cpLlw5iUdkUi8kY4vNGtA0AYG4SfKCnKDsaOMhQtb
-	DogmzW/LUrZJodP/U7Xfatg=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gzFg00bCfz1K96g;
-	Mon, 13 Jul 2026 16:17:48 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id EC99340586;
-	Mon, 13 Jul 2026 16:27:03 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 13 Jul 2026 16:27:03 +0800
-Message-ID: <d5d6b5ec-d624-469f-a509-eff49cf74db7@huawei.com>
-Date: Mon, 13 Jul 2026 16:27:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 22/36] efi/runtime-wrappers: Permit architectures to
- override IRQ flags checks
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-23-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-23-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+	Mon, 13 Jul 2026 08:27:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1783931203; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=ApQ3WWCvBciM8URTbhxcxqb4i8zY4Wa35Ijaz69v+oBKLcM1aVNqHoqUTGZeNYRIhc
+    p3rOoNfW4pCwUYdeUN1u08wepro6wyrkzbQrOA/4TnWuc6Ziy8dPGCy9yWPrquD/r7Qr
+    SNp2p1/Qh0aM9E1g3ecQpwr/TGeuIdYRuGmA8pSa+CphL75R1gH9X8E0C/SslCkARY9F
+    j2gmsK/aTPGDAD0p2bVM7U7dFTZ3AyEUVI2xMfqEX0zlCzwgnI3ELjfbglhH9hxqO6av
+    TLCIVcLEDd0i0r25PPcLfSk8HyvaUX2HiV+4Xn1lp3Fq2M73Cj7jhuY5GbUAlPLta9Wp
+    jtBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1783931203;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=X5eaNUk6cCIj7tkB6iVA5BRLOW7UfZYznohwiY6XKyM=;
+    b=jkw1cYEuSot5zixvbO2Br/oB1pen23UVnS3yKFShKiB/eFVK0I/qQruj4Q/u7GbzLD
+    708vqr5eEwC5WA/8t83sD6ZnTYL2sWEqWAjo0s0PhEbCgJmOsANB/f+d6AZEWOlfKA3f
+    Ve+ECJAWcWgrpjIFkm7vuY45I2Ty9xZtj0tHztVJAVbdJJnbNdpvoBZOnw/VB1BeYolT
+    OiuOWVu6aDSbIUEJXeCKCQTyVnBZXSAMAWSukhc73+Oo3MbI/bn799GVDwGy7ABjhDtF
+    qi0jVqPdlLr8QUVqX0epVHtutYSYIu7BInotdu4QukP63gdwksRdMuS1Hm+U7+SOWWq3
+    CAbA==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo03
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1783931203;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=X5eaNUk6cCIj7tkB6iVA5BRLOW7UfZYznohwiY6XKyM=;
+    b=p4xjHkYVayC9PTvG1lMRwEsAQQ0Ig/+fv7E0yJHN0xgS4xCjV0PSAWHVZuWsOlD5rZ
+    00rXBzV20qRSG8VlSv2pIO9dEe1Bfdv1CPXEontcCOiZmFAywiZJtw5w/71tZyNHGtSi
+    TrM67CF5eJQHee6YA+wAAMgvWdfHnGX1TfmZNDa278lwYJ6ZtUPToR5SZqhVQzNe2USY
+    cPJdob4Lf3v0GSyl+rCW4B+uenQvP4swR6esOmZLXrNb9KKlLfqQp8kITojd0fdsFqXg
+    juSj4/qeM7LyBuW356p6XVtq+ksYktxICTTxIYWNfduWx5+KlTzIwKJ7WRBNTDDonBBp
+    KL/Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1783931203;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=X5eaNUk6cCIj7tkB6iVA5BRLOW7UfZYznohwiY6XKyM=;
+    b=Ir3lWB6ATJq5Hfy9Uynb83ys1EpQsZ8CxCjBrPT4OB1dURlxyuLB9A2UFe50CGsdn4
+    sfRMP8oQAZABq37w88Cg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrQi5pZlciNgDl2kEp5oHJ2/c57N2Mc49IfXTKd"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.5.6 AUTH)
+    with ESMTPSA id Q4b76426D8QfMvC
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Mon, 13 Jul 2026 10:26:41 +0200 (CEST)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
+Subject: Re: [PATCH 01/16] dt-bindings: twl-regulator: Add bindings for
+ exposing ti,twl4030-regen
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <20260713-aquatic-memorable-griffin-cf9e46@quoll>
+Date: Mon, 13 Jul 2026 10:26:31 +0200
+Cc: Stefan Leichter <sle85276@gmx.de>,
+ Grazvydas Ignotas <notasas@gmail.com>,
+ Tony Lindgren <tony@atomide.com>,
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Helge Deller <deller@gmx.de>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>,
+ Sen Wang <sen@ti.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Niranjan H Y <niranjan.hy@ti.com>,
+ letux-kernel@openphoenux.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ linux-fbdev@vger.kernel.org,
+ kernel@pyra-handheld.com,
+ mfd@lists.linux.dev
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <3D58F644-3EAA-4BE7-88FB-1DCEAE7D5768@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
+ <00718b18253a764c2a7c9a2b95c3b8c411796583.1783749722.git.hns@goldelico.com>
+ <20260713-aquatic-memorable-griffin-cf9e46@quoll>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Grond <grond66@riseup.net>
+X-Mailer: Apple Mail (2.3826.700.81.1.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_012713_809664_9690E713 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20260713_012717_854391_96CF1C5A 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +147,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
+Thank you for the feedback.
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> Representation of IRQ flags on arm64 has recently changed. They now
-> track both DAIF and PMR state while remaining compatible with the
-> irqflags API by encoding the state in an unsigned long.
-> 
-> While the generic check can still detect corruption of the IRQ flags
-> caused by EFI runtime services, the resulting error message is cryptic
-> because it does not understand the arm64-specific representation.
-> 
-> Permit architectures to override the IRQ flags checks and associated
-> error messages, while keeping the existing implementation as the
-> default.
+> Am 13.07.2026 um 09:39 schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>=20
+> On Sat, Jul 11, 2026 at 08:01:48AM +0200, H. Nikolaus Schaller wrote:
+>> From: Grond <grond66@riseup.net>
+>>=20
+>> FIXME: not reflected in the bindings
+>>=20
+>> +Reguired properties:
+>> +For twl3040 REGEN signal:
+>> + - regulator-min-microvolt:
+>> +  - Same meaning as in bindings/regulator/regulator.yaml, but must =
+match
+>> +    regulator-max-microvolt.
+>> + - regulator-max-microvolt:
+>> +  - Same meaning as in bindings/regulator/regulator.yaml, but must =
+match
+>> +    regulator-min-microvolt.
+>> + - startup-delay-us:
+>> +  - Same meaning as in bindings/regulator/fixed-regulator.yaml.
+>=20
+> I don't know what that means.
+>=20
+>>=20
+>> Signed-off-by: Grond <grond66@riseup.net>
+>=20
+> As explicitly written in submitting patches: we do not take anonymous
+> contributions.
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Thanks for pointing this out. In more than 10 years of contributing, I =
+actually have never run into this specific issue before.
 
-> 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  drivers/firmware/efi/runtime-wrappers.c | 32 +++++++++++++++----------
->  1 file changed, 20 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
-> index da8d29621644..498fb3612643 100644
-> --- a/drivers/firmware/efi/runtime-wrappers.c
-> +++ b/drivers/firmware/efi/runtime-wrappers.c
-> @@ -137,6 +137,25 @@ struct efi_runtime_work efi_rts_work;
->  #define arch_efi_restore_flags(state_flags)	local_irq_restore(state_flags)
->  #endif
->  
-> +#ifndef arch_efi_check_flags
-> +#define arch_efi_check_flags(state_flags, caller) 							\
-> +do {													\
-> +	unsigned long cur_flags, mismatch;								\
-> +													\
-> +	cur_flags = efi_call_virt_save_flags();								\
-> +													\
-> +	mismatch = state_flags ^ cur_flags;								\
-> +	if (!WARN_ON_ONCE(mismatch & ARCH_EFI_IRQ_FLAGS_MASK))						\
-> +		break;											\
-> +													\
-> +	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE); 					\
-> +	pr_err_ratelimited(FW_BUG "IRQ flags corrupted (0x%08lx=>0x%08lx) by EFI call from %pS\n",	\
-> +			   state_flags, cur_flags,							\
-> +			   caller ?: __builtin_return_address(0));					\
-> +	arch_efi_restore_flags(state_flags);								\
-> +} while(0);
-> +#endif
-> +
->  unsigned long efi_call_virt_save_flags(void)
->  {
->  	unsigned long flags;
-> @@ -147,18 +166,7 @@ unsigned long efi_call_virt_save_flags(void)
->  
->  void efi_call_virt_check_flags(unsigned long flags, const void *caller)
->  {
-> -	unsigned long cur_flags, mismatch;
-> -
-> -	cur_flags = efi_call_virt_save_flags();
-> -
-> -	mismatch = flags ^ cur_flags;
-> -	if (!WARN_ON_ONCE(mismatch & ARCH_EFI_IRQ_FLAGS_MASK))
-> -		return;
-> -
-> -	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE);
-> -	pr_err_ratelimited(FW_BUG "IRQ flags corrupted (0x%08lx=>0x%08lx) by EFI call from %pS\n",
-> -			   flags, cur_flags, caller ?: __builtin_return_address(0));
-> -	arch_efi_restore_flags(flags);
-> +	arch_efi_check_flags(flags, caller);
->  }
->  
->  /*
+To give some context: this is a contribution we received on our mailing =
+list about 5 years ago. We do not know the author personally, but the =
+code looks good and has been thoroughly tested by us. I kept their =
+Signed-off-by because I didn't want to falsely claim authorship.
 
+Unless he answers to this mail, what would be the best way to proceed?
+
+Should I keep him as the Author: in the git metadata but remove the =
+pseudo-anonymous Signed-off-by, and instead add my own Signed-off-by =
+(and perhaps a Co-developed-by or From: note) to certify the Developer's =
+Certificate of Origin (DCO) myself?
+
+Anyways this will likely be reworked based on the sahiko-bot =
+recommendations to make regen not a regulator but a gpio that can be =
+controlled by a separate regulator-fixed. This will also clarify/remove =
+the "same meaning" statements and ambiguities.
+
+Thanks and BR,
+Nikolaus=
 
