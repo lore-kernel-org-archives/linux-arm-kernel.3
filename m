@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2E4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150E0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 11:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCUhcyiwWTmu8QeEJQt1vja0HsbAMaRlJMAEe2Y7DeE=; b=ja2BBkS5EHv8A4o/XBLYOlm/D/
-	mnm7ISN7ubNdqhyrl4Yy5LirEXZf0MnJI+krnXS0YOH2WjHRsbBFU3g1E0Mc90O5urXfl31X/9hpC
-	MWJLRTLiA4u7BnIZSWn+MhayITE+B+PIoh+7GEs17+IpeSU0gbzB9ZsKI1qEl7W+yzZ0uUy/O/qmj
-	kJvbvICQHkW733v0ndc3fSni8U6vuhdRVoLzrN2kRQaMmejsxoCc52jNRClrPASyFNDNdYubCxMwL
-	H4oVDkwhhrCPXJxXKOCC50FcwLFuY+Ae9UmNZpjUtoftAJ8Q9jsmbx06eLcTJGp26GJqaCA/5KHdN
-	H1A3e9XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bjup8tkbZReyLVbx7owWNWJpf0WRCU5BarQCoUzbWwU=; b=dY7GUTYVCuiJYRcdGdn1W2TwuD
+	/PCEVC8LN5CjdEd+vTnXNH5PHoihGS3xkd4NDUTcKl0is1C6NLPlTVCBS7lfJ//oDualPS5vJk6Ct
+	4xWaWltZSVa4g7zXrfSVTzgJlWGJaop5J5K5uBqlscHKvBh4sgoLRxH1i+W5nKCmrjNM9P2Ecjse0
+	tRl+eMMcV7lzHUfSGkr7CvTwgawbqoT6PyvR5bxNoIjvdjd9f7YBTwnqgUpb8MLqscaCeG2enpbQ7
+	JLZ+MBA6Pj+ESoZ+cmp10fIij2CaP9vB4y5wWGCowX7bF4X/OEc0ELuSJkI/sDKDqGqZygjVHCHLP
+	dcXNsT+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjF1H-000000092tP-06kK;
-	Mon, 13 Jul 2026 11:40:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjF2E-0000000931O-1AT1;
+	Mon, 13 Jul 2026 11:41:18 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjF1F-000000092t8-0UsV
+	id 1wjF2B-00000009309-0DA8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 11:40:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 942CA433F9;
-	Mon, 13 Jul 2026 11:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A9A41F000E9;
-	Mon, 13 Jul 2026 11:40:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783942816;
-	bh=OCUhcyiwWTmu8QeEJQt1vja0HsbAMaRlJMAEe2Y7DeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dZGRJauIXmFXIXVKASyA43gR9V2NS35VztGQ8qQBxwH8LNdZxq9XD4tytbLxkdY0n
-	 B8D/j/tVmRYXiqNFMDWprsqF4C8N/3yT0IGtZC0WViv0Hy5j2DtOrzlO3v1SVEqURF
-	 aKZlD64LLIeCcBPb97NqITp5YwBE8GPonzWR8Y7HP1uRC8V2ZwNcmgO6zQst2vzSDQ
-	 bUw4pXb9RBEtnyNT00GtkuXO5eCdq/PnU4JxH6o+9qa25c+6C4tJXsww2lKsULk5ei
-	 hMUFiw2xJMIXnlL/MOUBqO9VvQPb3J30DdctzBG7xOoUEJCM66BlhH5cq7Hi7LCGwd
-	 xEpAPa9EOjiJw==
-Date: Mon, 13 Jul 2026 12:40:08 +0100
-From: Will Deacon <will@kernel.org>
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Toshi Kani <toshi.kani@hpe.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH mm-hotfixes v2 4/4] arm64: remove redundant concurrent
- ptdump UAF mitigation
-Message-ID: <alTOmMpGVdRMy7NM@willie-the-truck>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-4-ad134cc3a12a@kernel.org>
+	Mon, 13 Jul 2026 11:41:16 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cca0c5799eso30343405ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 04:41:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783942874; x=1784547674; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Bjup8tkbZReyLVbx7owWNWJpf0WRCU5BarQCoUzbWwU=;
+        b=DF7/NLo7eCCAwTHBtHDclQd07+MtzpVE5c2n+juqBXjdfsWiW2xmjxzIwLnJHMlfoX
+         jBXgHKXURU743MXWa2yqDxUch042uUExxWyyHEyIdBZN1SNP9V5twJf46r5orV+PSAs1
+         uE748cySf3lmPtGafR8ArDWDcVQT8KKK3wq6KfndJD1tdC1p/2IMMbFR78g80O6D/g7s
+         ER6UEG1AazM2Uqa3Gn21Xh5NW6i1SJ0zTMkC51w/NmL0DL5hm/tZYXzKRseL+tuupeQI
+         MwJHs+oJsqWw/A1w/3EDK3tyGVc9XjmLWn16AKNKGKlNLOhUZvzaTqLi3t65dX3ZQZ94
+         eE+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783942874; x=1784547674;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Bjup8tkbZReyLVbx7owWNWJpf0WRCU5BarQCoUzbWwU=;
+        b=K1yQkt+c0CZTKxF0vekXbawYAyl5o3j2fdq8zTLGftqq3D9p5ZAiFuYBDIk6+CLh5G
+         JGEUpb0w/1vpcPefKMx3MWQ6LS7EiLOqMUYcApbLgY7wVVQdFOaVmpHj0elGwMD3PiRR
+         GYEIf3oUhKxOC1ZbOovNT8aPOk7BdMSYNfEzOCV/fZz8RJtmdCFPIKprFpQuBw+nPoVO
+         +8gz/EqezE7Qbz6qE+zVxa6WlFReMRyT5jd27l9T1HJi8YZlVfV6WY3AywxXf4zFG0FP
+         +sxuH45xSDq4I7c1iiqRGKqgXptabl1z3Dt5cmSt98fpqv+mKQIdskFuZPYtPUJxyxkp
+         9+Yg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp4d50W7k5aESCDd/bGDWQesqd4PWpdMDoc+3t/gvhrhXx4K4LfwC1F6/OHgnq8R64fUjc3hHj3J8KXq5BIMHUz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5KGaPOK9S7qabOrK0KO3joMDqY29vDljr61w65uoKp0YSc4UR
+	AMhAh/FdFuEzaWxzq7NLv97Kj9mfr86cmir9MP40LPDQD5LDnAQFcln6
+X-Gm-Gg: AfdE7cmXytzy0OM491y/DG4sAQ6emAJ65/oHyCm5sTrWCAUWuzabJGJUPtwtf3eCoo8
+	PW/FA9x5QaM6opxDJwUdkmdlqg9oAFK5oUrxoBGfp5oRAT9cYXLRAmyIeCtcjLAy5Nddh2rCb/x
+	OidgG0CUYWQJkraDbeynKEHPTEadysajRVANiONkdJ9k9OcbWGiBg4YBAkxuZk/z13nlktvUwJC
+	4XgNipQ2Y4EscTVECHInSfixVdze8EqM5Zly1zbTBHKtoR5M4zcsfh1+CYXdH8fBN9KtPkofsUK
+	fNzlXSw/pYVeVMdb+yn/vbgjgH0QxH7xygZRdZ5WpHPW7RXSOhDUmTAd/KqLCQeWH3YETsvu/jx
+	eBbcS+lBHmW0MQUGlpvHYyqBZ7YOsf4W6ATHMnXOU3Bcm9sHB1r3p38p2qClxwu3MXstpYhua/U
+	NiyWhVzQ==
+X-Received: by 2002:a17:902:ea03:b0:2c0:e2ea:6b0c with SMTP id d9443c01a7336-2ce9ed181f6mr81660085ad.21.1783942873961;
+        Mon, 13 Jul 2026 04:41:13 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::f280])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc9d59e33sm95978515ad.74.2026.07.13.04.41.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 04:41:13 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Johan Hovold <johan@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2] media: platform: mtk-mdp3: Fix SCP device refcounting
+Date: Mon, 13 Jul 2026 19:38:59 +0800
+Message-ID: <20260713113859.921358-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260712-series-vmap-race-fix-v2-4-ad134cc3a12a@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_044115_088257_CDFCE846 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 11:42:27AM +0100, Lorenzo Stoakes wrote:
-> This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-> with ptdump"), retaining vmalloc-huge support but eliminating the now
-> redundant mitigation against a race between huge vmap page table freeing
-> and ptdump, as this issue has now been fixed at core.
-> 
-> We also simultaneously remove the arm64 if-deffery when acquiring the mmap
-> read lock upon vmap huge page table promotion as it is no longer required.
-> 
-> Note that this patch relies on the preceding vmalloc patch, and should not
-> be backported alone.
-> 
-> Fixes: fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> ---
->  arch/arm64/include/asm/ptdump.h |  2 --
->  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
->  arch/arm64/mm/ptdump.c          | 11 ++---------
->  mm/vmalloc.c                    | 15 +++-----------
->  4 files changed, 9 insertions(+), 62 deletions(-)
+mdp_probe() first tries to get the SCP handle with scp_get(). When that
+fails, it falls back to looking up the SCP platform device with
+__get_pdev_by_id() and then reads its driver data.
 
-Acked-by: Will Deacon <will@kernel.org>
+The fallback lookup returns the platform device with a reference, just
+like scp_get() does. However, the fallback path currently drops that
+reference immediately after platform_get_drvdata(). The driver later
+still calls scp_put(mdp->scp) unconditionally from the probe error path
+and from mdp_video_device_release(), which drops the SCP device
+reference again.
 
-Will
+Keep the fallback reference until the existing scp_put() call, so that
+the fallback path follows the same ownership rules as the scp_get()
+path.
+
+Fixes: 8f6f3aa21517 ("media: platform: mtk-mdp3: fix device leaks at probe")
+Cc: stable@vger.kernel.org
+Reviewed-by: Johan Hovold <johan@kernel.org>
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+v2:
+  - Add Cc stable.
+  - Add Reviewed-by tag from Johan Hovold.
+  - No code changes.
+
+ drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+index 8f4da4cf55d2..121b1006ffdc 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+@@ -294,7 +294,6 @@ static int mdp_probe(struct platform_device *pdev)
+ 			goto err_destroy_clock_wq;
+ 		}
+ 		mdp->scp = platform_get_drvdata(mm_pdev);
+-		put_device(&mm_pdev->dev);
+ 	}
+ 
+ 	mdp->rproc_handle = scp_get_rproc(mdp->scp);
+-- 
+2.43.0
+
 
