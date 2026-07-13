@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1CFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D12C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 13:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=; b=vCEe7B1I+psZwhDqr3Bpryg47o
-	dXTo4zDLFfsnr2MrwrKsM1t6kCYWiLg2A4HgIvycoNXx1q5USH3E7YZ0AI1oxeuZ8aS9O3ZkmRPw3
-	C040Jaxu84re8WTD9R35CmYNzzcLSend4WKT9aTQqoYP5DDwKDKbKZgxqAALfQCg6uNyxYzQVfYfk
-	O966YGrKKr6p59zJpmbWcrtTAP5u/vsovYVkGARDKonJDD/Gil9lhbDnLfROMMh7yHdSoi3J9GMWA
-	6/FIN+ypj+c93y4GOi5fMm0lxaImCOzqZOhY9mv3xN0WFrz8vthmkOx4TpE6CD9XRRQWvG+TApvbX
-	vd/cf0uA==;
+	bh=HebesSjqW6Ei186xyy2KHgsVFXclOSjyLdpPX4+hId0=; b=wZOx3Ot9gYox3PzwbC5xZs2BFd
+	qU8oKFIpBQTeXLHZFIUFx9kI+1UT807QsRn+UBtybilGT2MXHIsrhziAjftABGds5RZ9M9hvuEBvm
+	2H21NU24vhDHlmIwAyDyuA65DpPVh8yhNRaa/YP/V0kpFRIDyBYmGyGjCgyjp330V3lt/XEI3B8Au
+	WOUlVLmR7Mmr803aUcal8mPwvC7R5JXDBZu348H3PJCMyODNV/tOe0voZGblVeeF1WzGXiOCV5ppB
+	siAZ/MFdo/ebsmOgRCK6R/6AXBPyql2F+t5K2plTZWASkKMzCsNJlUTl91hqyAh/okOsSQKye5uHy
+	xZX4XhYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGlU-00000009Pra-2VD3;
-	Mon, 13 Jul 2026 13:32:08 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wjGlb-00000009PuD-3ITN;
+	Mon, 13 Jul 2026 13:32:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjGlR-00000009Pq6-2FLR
+	id 1wjGlZ-00000009PtL-3EmO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 13:32:07 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-698562f10e7so4377817a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 06:32:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783949523; x=1784554323; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=;
-        b=e6gx+f6HQW1LbHXxszF57jC31MfaTKYNhTpLqZYbV0bjYtchYBBFBFgnx3YSD3l3t/
-         B8EBhUeuhkqz+J4dFyTE38WCG+grX/I9CvkwciJe5kiAbLg2PYDtX9Gm87nYLHQa70g9
-         2GTk8Z8vC94vwAMp4IccQn98lgo+gTLmMnEhMB5GEPVu1ewkluMuPkzn0Ec6j5QHLZr5
-         1Ya+5e1wEnDfjakHC3XSg89de5ohf3ErnWHs+cPAnVo3r2Ad+fYGPiwjaOAoiyeByfed
-         S3cxT0pKk24jYTICBI+1wEVDkaHyHdhcaJ4XKTqCwUFLCz6WOLSL/dInMR2gHGB/kk+B
-         +MnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783949523; x=1784554323;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7l1aqdorv8dNx2XXvch+nk0kVc1JB63/bFJ2ZS4jLGw=;
-        b=adpEsCGrPLGV6/Wt/D0fezRywdrWGM9ph5S+V3VsDzWfk57zDIg7G/o70+aszv4UoS
-         p7r509UcUTIiU0FwfSB3q1cvWKP/eSKOBYbVxjdcZybyD2vpp3hSOmPqanfPrnLeU7Y9
-         YP1561c0hW3dXG1JGDI6/VsulpEOAGOW8Tz1pDW9P6Uyh/giLAJezFZ5ijkNgTtv5B9O
-         SnmgjOf21oKMUg5MXUJTPnHbwd1GOcHTo/TdKR6j3n9HnyebRoHveokX6SJP12mMAigS
-         FYG4Ba6KCl1CJO1/bgXVgjYHOkbKsubQw399C01gbvsNzjwLyuSwUELeqzuzRlHGkOdp
-         G1Kg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp5Sl993krg3tncoI603CYzEr0c56TESUYGYOEY6DBsYLC+f9DDCDKxCVl1uyeUnAGUslZMS6e5FJ6MceFDIFpi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEjd1d2uPa28uq/cxxIQ3V1j7a5goVeUCcRjUfB4xikABVc/AW
-	/Qqh+PWKDGKp2K83IKY/fs4ty72OgfWqxKziXzLErpU2zniJwvSU+wuj
-X-Gm-Gg: AfdE7ck7rg9kz1otB89Skovw7QJbod5kLsFUZy1bdj2gBUog+8yjQGTgChhrVRAvQlW
-	+MEoia8sWckenWuXkv1l/ofr/sG3EYn10gPIOcZZfi6DP3tm1FcDzXWuxxpTdn1pKjgLaTQG4RS
-	hHRW4U6JqEmQbUECDWPgdl2P3nVmg0ifID6iA9eylNRwuVWbz5nA/c9ufXiF8uDivIwkRVILRmf
-	Qm2mJOCfgcTn396RCxbDFu/1EzThsG+mPj9aO3AnfnfxbuctibqFWxUjcQLsHpdC1292XfezGgR
-	VZNfhn9lSPjggeLJs9Joz8QWe3pSPVuQJsKtE6uEbgjdebwken1ubRsFSVQHLPFcq3ShG2+RiLZ
-	54wmalf9U2W49wcjWveZtxwPtJDKPKXTbS53KGZqkZmUz4TbwRIGYYyxeZ5Z6ssEYGDRxLJB5tt
-	tjZSk14fl4DTmoomOij4VQ0wokNgQeRt7uN1fEdXwWu2ngcl74FlKs9Isbaxz0H69u
-X-Received: by 2002:a05:6402:40c5:b0:69c:eca:3bd1 with SMTP id 4fb4d7f45d1cf-69c5f102cbemr3782153a12.24.1783949523149;
-        Mon, 13 Jul 2026 06:32:03 -0700 (PDT)
-Received: from Lord-Beerus.station ([93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19cd8971sm14840303a12.5.2026.07.13.06.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 06:32:02 -0700 (PDT)
-Date: Mon, 13 Jul 2026 15:32:00 +0200
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	matthias.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 1/4] arm64: dts: ti: var-som-am62p: fix Ethernet PHY
- configuration
-Message-ID: <alTo0KGWAixkK0i8@Lord-Beerus.station>
-References: <cover.1782680023.git.stefano.r@variscite.com>
- <4d1ba0d1b9bd4957224213cf17dca93392788e03.1782680023.git.stefano.r@variscite.com>
- <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
+	Mon, 13 Jul 2026 13:32:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D95876004E;
+	Mon, 13 Jul 2026 13:32:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC90A1F00A3A;
+	Mon, 13 Jul 2026 13:32:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783949532;
+	bh=HebesSjqW6Ei186xyy2KHgsVFXclOSjyLdpPX4+hId0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HaxJIDinBW7qhd8TWrNK4s8T3PTUfLTXFXS85kDKWcN4pWvtuL6xy0nsCIx7iq40O
+	 QxcAYjybAjwroqbFOs9TRta3swb5bYhfKBvWawcyqH0Zge2Lx6VdtiZhiBafycuXNH
+	 i4/Vlvk4FSU2fyS8bhx8BrQr4NQvM3DRQrVhBKQMkp91hb5Fa4g7Pw14ueQNVgVdTi
+	 /h2k/N+9tWkQ4UDofeftbfgEXnxzcX8poyxZ4F8EiUKIMqeXWUW1W0KUWktE6mpRmX
+	 RGfWv776A9M5DdWrONyX3UluBAo//ouIVD4GlnqfJmLYmgxG+cxXo7deuEwlEEEjCb
+	 MiFOa9IU3UB2A==
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfauth.phl.internal (Postfix) with ESMTP id DF046F40119;
+	Mon, 13 Jul 2026 09:32:10 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Jul 2026 09:32:10 -0400
+X-ME-Sender: <xms:2uhUajOJ6o0IkHECCjHAkKUVhPE0Boq32n16IxuwUb8qx_me03fgwg>
+    <xme:2uhUaua0NvhWILEF9Sxf9_9wz151PQ8fPiEp73LaeMgWC-DQJaiXxn4HYApdFNqVD
+    pkxd-bsOBJpRWdPvlmMSXRDek6HhjKp5vhX3BvtHxdpR6RBZu_qS1H->
+X-ME-Received: <xmr:2uhUajtAPLpWxfCImZEQ7-lfeyLnIftK-qeVlUcWfWQghfbRNQiHsjuNUz5QMA>
+X-ME-Proxy-Cause: dmFkZTGZpmVpeDsjZ8Vo2Jq64/2U20HFa/JrgfKn6CiNifuBo1pzPMXk0a4NqT0VMciG8K
+    SugdcXNhzIz2GGRAcNPbldLn+3yx1gRLwC0eqh8SjcuMzzoyAOiQcW15pHkFoUU8sU93Ol
+    20upXRjRc9bBvKSvF+ldu18a4Su7mlFUTAvgOHmfQ4EOLFyHDZ9CXRB5B0cLlRIRNNuJ69
+    LDPcIZFQurDXONw9w7x2l+i30vbvXOnao60OZfbfVAcAC/fcUzZNKRbLUxuPN7zU2u+h2L
+    lu3b55TVWwqQsO6vcM7WnlDCmGUWatjBJ4CSoYLZcP+x21iYiTGDYJ0lfqOuP9kAzP2JPg
+    j8w8DwhG5wOdhN2Rk3Rdg8n9nLNaujJTGC620J5zoH7n5t3hX39aCaLsRBN9JGDO7mcmWL
+    IzaLYY9N+V442PvDjYSTXuP4EHvI6v+fcV6Q/yTDaPZDQgnHPe1yyzGNJzxCUjaYKCCdpO
+    z/OkCkLFvQT3MiYbDmeWq3a8qm4Z/Agi5IGGkB4PZs8GgeaaaXu1uHQ/ufm4VZ9+64V+QE
+    8QtfNFMPv+xm7WYMT9O2psU2UIaozivzoRxbp2UTRKG5DvsMUoVZyOCnD4i8d0NJq/Rqe9
+    jTIL8srd7T6/FERCHRYF/A9blfowGsOrxRZc+ML2aNnL8IwcxIqNnPaId1jw
+X-ME-Proxy: <xmx:2uhUanuCa_oH3IVyt_HoThgNWUvv1acMMJfbjC90H2Nq77p1x1F7Lw>
+    <xmx:2uhUaq189DO0V2p_spqOaFhIiqFBrCec7III9gjx4U0IMtDvOnqvgQ>
+    <xmx:2uhUasO-I4V3wpEwkUedoK1wopX28y3s7esdQvgnTjYsrDF-dVm1hg>
+    <xmx:2uhUan593b1xCOHaLKH3StbrybHDors6AC91jhpaHmP9qnHIgWbSqw>
+    <xmx:2uhUara1OWRFLjD_9gN1CsUt5A0pYmkwSJBsl-81U2gW-oJMg0OqiWDs>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 13 Jul 2026 09:32:09 -0400 (EDT)
+Date: Mon, 13 Jul 2026 14:32:09 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ 	Suren Baghdasaryan <surenb@google.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ 	Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ 	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, 	Uladzislau Rezki <urezki@gmail.com>,
+ Toshi Kani <toshi.kani@hpe.com>,
+ 	Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>,
+ 	Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, 	Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ 	"H. Peter Anvin" <hpa@zytor.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ 	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, 	David Carlier <devnexen@gmail.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, 	bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ 	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Message-ID: <alTn7NguEW_4bodu@thinkstation>
+References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <531d7396-c581-4b5d-8008-db5e9ee5e7d6@ti.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_063205_589740_624E1F48 
-X-CRM114-Status: GOOD (  13.10  )
+In-Reply-To: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,46 +114,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 04:02:34PM +0530, Vignesh Raghavendra wrote:
-> >  
-> >  &cpsw3g_mdio {
-> > @@ -159,9 +169,9 @@ &cpsw3g_mdio {
-> >  	cpsw3g_phy0: ethernet-phy@4 {
-> >  		compatible = "ethernet-phy-id0283.bc30";
-> >  		reg = <4>;
-> > -		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
-> > -		reset-assert-us = <10000>;
-> > -		reset-deassert-us = <100000>;
-> 
-> So are the reset delays no longer required? Or they taken care of
-> somewhere else?
-> 
-> > +		bootph-all;
-> > +		enet-phy-lane-no-swap;
-> > +		vdd-supply = <&reg_eth_phy_vdd>;
-> >  	};
-> >  };
-> >  
-> 
-> -- 
-> Regards
-> Vignesh
-> https://ti.com/opensource
-> 
+On Sun, Jul 12, 2026 at 11:42:23AM +0100, Lorenzo Stoakes wrote:
+> This series addresses the issue by having the vmap huge promotion
+> logic acquire the mmap read lock while both setting the huge page
+> table entry and freeing the prior leaf page table.
 
-Hi Vignesh,
+Hi Lorenzo,
 
-No, because this GPIO actually is not used as a PHY reset.
+Before we settle on the mmap lock scheme, have you considered handling
+this the way GUP-fast handles page table freeing -- RCU-defer the free
+and make ptdump a lockless walker?
 
-After reviewing the hardware, it turned out that this signal is a
-board-level enable signal required for the PHY to operate, rather than
-a reset line.
-The previous reset-assert-us and reset-deassert-us values were
-associated with the incorrect modelling of this GPIO as a reset, and
-are not longer needed.
+The locking here is inverted from what one would normally expect
+(walker takes the write lock, mutators take read locks, mutators safe
+against each other only by range ownership). It works, but it is
+subtle, it is what produced the arm64 deadlock and the ifdeffery, and
+it depends on every current and future freeing site remembering the
+rule -- patch 3 exists because two walkers did not fit the scheme.
 
-Thank you!
+The free side looks cheap: kernel page table freeing already funnels
+through pagetable_free_kernel(), which already has a deferred path
+(used for IOMMU SVA). Adding a grace period there -- synchronize_rcu()
+in the worker, amortized over the batch -- covers every freeing site
+by construction.
 
-Best Regards,
-Stefano
+On the walk side, nothing on the ptdump path can sleep -- the pagewalk
+core only allocates for install_pte ops, kernel PTE level uses
+pte_offset_kernel(), and the arch note_page() implementations are
+seq_printf()/printk() into a preallocated buffer. So the walk could run
+under rcu_read_lock() as is. The real work is bounding the read-side
+sections: a full walk can take dozens of seconds on a KASAN kernel per
+the comment in mm/ptdump.c, so it would need to drop RCU and
+cond_resched() periodically, re-descending from the top. Note we
+currently hold the init_mm mmap write lock across those same dozens of
+seconds, and this series makes that load-bearing: during a long walk
+every promotion trylock fails, silently degrading vmalloc to small
+pages, and CPA collapse blocks.
+
+That would give us: no inverted locking, no arm64 deadlock possibility
+(your patch 4 stands on its own), the patch 3 walkers covered
+structurally rather than by locking init_mm as well, and ptdump
+invisible to production paths.
+
+Given the live UAF, this could also be a follow-up rather than a
+respin. But I would like to hear whether you see a fatal flaw in the
+approach first.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
