@@ -4,90 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65620C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B107C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 16:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ti37dDQYZ3TDOuDL1ahm2IAqnqZ7qaLW9T3xZGTS4sY=; b=vHHx27gvlhAtxH+04t0fM1zDf/
-	qrqglRMPkxh5BAYj6/mK4x2T//vTVJwjas8jHMrkLA5FT0FPjaA74vKzgPfqu11oFfVTnJZ97TNkQ
-	0ibB+9jiKQf+1BIv7JzM4jLkLuo3kxqnUq87VMht0vzT2s1rjYAi4Dzx7ERbbTzvIHjCC2chrrB3y
-	sTKU7n0QV5Ks2ylK9jh9uD7L+M7WSI63PqNvtbu1/JzIW+5sTndF9plP7OcXTZPjHSxg9TnSbFWU1
-	KKeD1SJ6pla6uQ+hkWG7jaWL2KrjWuN4ZmflJ3+Usr8EJIVLgDvUiSoPjxSE/OjbsvVF5B7mNJucz
-	3RfxPdOg==;
+	bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=; b=TrPUkQwi1knIMoRHFanoJwa+Lm
+	eSg1uyybU5WH2ikf+2dYliZDZNHoo/+LXXsTgClcQHxWmOwXMQ5HO3S/HP8gYBWvMjkakV7nkSs9G
+	Njoi43oM8lRgvZ3QFf0qYG2rja3viC66YCMJ7Mv88sCZv9fyYG9E4VRu48Qo2YObi0f0zn6KeW2Z9
+	tWTZuALUzNGsgqSFpLDxu0ZyGpvJhHwGlRlBgy1tVXjUh+FEydYpwCEH8mpzJzePQNItWl0G5Fx31
+	Bvi7PTRoPFS/10Pm8MwpX+OABt/c3+lxiI1dopIgGZq99YKoXz0f/ZtHNAknJzt7BEuh6FUQKagTI
+	OLMw0Y4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2T-00000009roT-3C4y;
-	Mon, 13 Jul 2026 15:57:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjJ9m-00000009u47-2XvG;
+	Mon, 13 Jul 2026 16:05:22 +0000
+Received: from mail-northeuropeazon11011069.outbound.protection.outlook.com ([52.101.65.69] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjJ2E-00000009rcZ-0aUH;
-	Mon, 13 Jul 2026 15:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ti37dDQYZ3TDOuDL1ahm2IAqnqZ7qaLW9T3xZGTS4sY=; b=m8MMgZT7jPlU7WExvdyGr9nABR
-	BkTXZJhWho/upZdYZWaUjGh0SfZ+KqzrrO6bHjDinZm1xpCfJwJcVxRb0xJ1owzITr8fvFFRTEYXt
-	DPr/cv8b7P3fCw4eauTAB9ahnn0dt8nV+uq2B+MBbNr35uzN6l9oIaR3h8jxlyAZRFwCijBaqrPyF
-	EDEBLGhlaSlp8QJN81E7iQHL20wWhSWnXFOksN+KyJge/JYkI/2lZSZHMIySPC+ysx01hpuhl9dRe
-	gh6DANr9W/j0fPYBxXKtiMBY3p6glqeGsfS12FHG+4qXpWcJ8cF3084Va1c+jjy94jjPbv/Gf8+25
-	/mS0FBog==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjJ29-0000000BoAW-3pyU;
-	Mon, 13 Jul 2026 15:57:33 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66DFuWMl91489885, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1783958192; bh=ti37dDQYZ3TDOuDL1ahm2IAqnqZ7qaLW9T3xZGTS4sY=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=QbQST47ePJ/GZxJd2aHEOggdSfRrpMt6KeIVkjwmDCByOJ+AJNiq5jqadMc5gQkSu
-	 yfkasDJunqaIg9R3XArhOlesrTuUneLPgP6ERaxn4IWwXvr6i5S67UKwNDb9CVSA0d
-	 4IQLi5lM744cEsZAlTg1MmHw8rqpsdMzYzULOzOFRQw6qgobMrsASWBuUGj54dRMtO
-	 OQuE6aH4WcWBU16RG0FGlu6Frqakaft6vgRwGHwlHNLcAkUNqRTnmg8Ama3JQXYMxM
-	 YBs0n7mXPEISRktNO9fdphiZ06vulCdUzCuYhjMVJqmkvfNz8G0sOM9dkuSKtrIKjo
-	 uBYrk9U22d8/A==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66DFuWMl91489885
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 13 Jul 2026 23:56:32 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:32 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 13 Jul 2026 23:56:32 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 13 Jul 2026 23:56:32 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
-	<bmasney@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>
-Subject: [PATCH v10 08/11] clk: realtek: Add support for MMC-tuned PLL clocks
-Date: Mon, 13 Jul 2026 23:56:27 +0800
-Message-ID: <20260713155630.3054636-9-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260713155630.3054636-1-eleanor.lin@realtek.com>
-References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+	id 1wjJ9k-00000009u2N-2X4s
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 16:05:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cN8tpnmt5NymBujDCdpqkLp14gsx/1RwfaMhcc8hRCdVfLV8y2BCGX2PhFw303pZq4h1t7ERAY+dr7MXHfYC1oieuCkX/WEG8I8U7AL5sZKPptR31PDH9uo2SzQsKWRiL5diMgJfMMFTD8xIbKHXtVCf4M8NKufKqJH8x3AgxEG13qSMHUhBdUtzYjAoR+I9Qa+1K+2HILQ/+lkoxAfczepnBO4QrZxJ4Y5JuDHq6O7IVYshlpM15aH8gj8C/RJ0wJMYPo0r6iAEeEYcDmod1rtHrxMIALewBlEcdZidlid9DbALySNRgjqV9PICDZbAsA6BGEjYtL196r21nrm+CQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=;
+ b=b5RlK2MBe8KNKj9YdL+uUF6zfbsjLDjQnH+HenJlnZsjwvj7yevWVouV/1ZqQbUWmjOt3xAV8UevSBI4KY/2NZJ1iNKnSZfkGZ4gfJT2OMvxh1aVRc7/ZRJ+C70HhuPuYKE1zCwBJH+4ARUtarEObYXURJRN6Fd8SvymEsF8FZzX2gbU1uxxoGmayY30pSXPVUDLTqIJqHgM4P/zJimo5jVUi7rDOgGWYHcE1PZkyt9e3oxRNlcL+Ge9uY/T+F2wzEHuz6QZ2KeThDMIHNVWcrkHOP5ekUxwGCBViNy6ZB/r+1/7//YPTuqRg6js66/HVpgSZofyaDl+S63gW512/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MQ35GYIYlVwFTaihCasqpY5nXUQeLI2+WO95gT9phhQ=;
+ b=k+3+VeEG2tSwxXADC6NP28nwMv1Im0PBCsDou+KxpgnHkCPdkov2WIQVqNhO3msq9huJ1lKg6k0GqqPg7ZM1XwdOg17SjFPRW/b1io/FPSPhH9w8E+uFyScVBAfd3YvbH63CYPRMJwzONOOrlpNbPWUhlaPAuqObs/dDAUD1bIBCeRWttb98MtBob1w1ZUHsm/wRh3tKhj6WYVWrphxUrNldMecgAefFFNO+3WEdsm68jMJ9ACZg1ySCkahyfOGkw+UUtY5yTInDfVPIUWmu3+8qcdc5I5KzuoACACBQ5V0p9AAWK9mRJrQxK625P6vzJGcKIF46OqLJTv/OPCgyag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU4PR04MB11388.eurprd04.prod.outlook.com (2603:10a6:10:5ee::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 13 Jul
+ 2026 16:05:16 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0181.019; Mon, 13 Jul 2026
+ 16:05:15 +0000
+Date: Mon, 13 Jul 2026 11:05:05 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 04/15] arm64: dts: freescale: imx8mn-var-som: Update
+ FEC support with MaxLinear PHY
+Message-ID: <alUMscf-psfP6v8U@SMW015318>
+References: <cover.1783330236.git.stefano.r@variscite.com>
+ <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
+X-ClientProxiedBy: SN7PR18CA0004.namprd18.prod.outlook.com
+ (2603:10b6:806:f3::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB11388:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2739b9aa-489c-4c53-8b49-08dee0f886f3
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|19092799006|23010399003|18002099003|22082099003|4143699003|56012099006|6133799003|11063799006;
+X-Microsoft-Antispam-Message-Info: tQYIiwTp8RAD4LrttIXIRCqScsL/Y50hvBpWRm65fgi9a8Uf23fgtwRqGsFYemqhACZFzjBV0KCfbVFUuayH3Y+llvm7t8+VGg+iH5YIs2EVd4gpErndo9l3UEtJ0x409LTk3I6FwfEelSJ7MIas7XyGjXHs7Wsnt8Y47hg9KrO7EtZAcO2V4Kp1rwI2se2hV5zBEW4MqNkpwoj/U+vTd/0UM29mjAc+DrKxlQy0RLqrARvSNPSjArYPIAX4yZfCEMnV9YNG9AbZPuy6AxnVJY/WqWz13/lu7BSFNKtas55TIuBGIr3EyQROhGU84jLKyQQIOqKp4TuaLLj/fsTGcjOUN3s/sNRaKctgwxntFEf/DKGjPnCVAZDfQ7tmy4yymsVtBwqoiNYnlhNktWIBGY3qP7AkgJc1jjhgqMhh0PtocnLu/Q0+nox+Xg4ZRiwnFSomfhQUdrRR5WRU5g510/5A96QY1zMasN3HuE0kRG3lGj9OpNXpJKTwdrUpboZQss0hz6EUjTgGGF4G9RlkbSOuB9QXrZicAkatB1N2Mm1NykztO+iDTjhTmr+r1d8Bc3HyJ6RbViRxFMlv5e7WExtZcSzkF2xsLpeBO6Ep4eHDyYG912yqpGwurRGptPnf2TIC0JcRN8G395VYw7lf81ziaLGlCCeK4Yz+8xRzQVY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xQYEzzajbZ6eKU38bziGpfpF7lhNmeGq7vio6oZ1D54fixGf7E5vDvXhiHcb?=
+ =?us-ascii?Q?eNS/kOOb7eF/bN4C8MmhokdnUTJzH4ype12cvh7HS/lJHTpf2Kwj4Au3IIfL?=
+ =?us-ascii?Q?519A45/YaTIswH9b5PWje2toRSqwz8bVqT2cykjr5GM5w9+6Zmrqug+RWfIM?=
+ =?us-ascii?Q?oZLQ43YmILlKPs9+FXQ6muij5P9InQ+1g4Rj2C0fI5bf+6ebjK/V0UKlL5nJ?=
+ =?us-ascii?Q?chPPKUUqvcP0WCUAyem6stqsjxC7oYbfVlbHws/KQ2Ux+mpoAjwAXBP7uYk8?=
+ =?us-ascii?Q?sisoak1Hze9pPFHVnkrYScTxMRl9nJMAlREAD+gBfO+TthxAjk75Fb6hZmt3?=
+ =?us-ascii?Q?wbNRtZo7AfEB5GvhiyaSw4y6aZSa2PGkhJNgMkcqNhEC0sgX9yT6XKjReYMn?=
+ =?us-ascii?Q?elR1+LNOY3FEjSzJkO8sHG3NaCOlu8m4VvwAK96E/mJIQmAQ/E9vy/EE5wrS?=
+ =?us-ascii?Q?hnHQNW/zCJcOTYrP70OiiWC4N1ZITbDObOEiH9hxlU37Abn4hFMj8Jw9codf?=
+ =?us-ascii?Q?09Q4BByEFcF0bCc0ybv3sQcNtDwAiixeJ75dVVqlLaBaD0ttfY8GFFY6KAN2?=
+ =?us-ascii?Q?xxsjGYuKt6NS98CfN9rIZBd0BabpXYOxdB88BPnOndeXO+CLT+Nftfg47BWO?=
+ =?us-ascii?Q?PRnzXJDPr1YMF1m2wGFv8GD3odSpI3G4ZJlTtiCg4YV7efATqp14iLwXXxc2?=
+ =?us-ascii?Q?lZGF7Q+LPLV55hjtjJFYauWTp12c49JqKzhTnEYs62XTyAmGbxNUY94R2WcA?=
+ =?us-ascii?Q?1EZm9daFvwd61myCfq4nCxGnObYK0vtCn8UmPoFmSK5CL+f5SLj9DSPVBhtc?=
+ =?us-ascii?Q?gEeNm6R4dSS7h4a4f1kaThIKPB3bj7yZRaUYKql32c8hdkIrA0ZJcmVhQBFg?=
+ =?us-ascii?Q?EkjobYhGX4Dkuepss01cJ9TtAFsVLDHeBsljlhAUKBNNIcmrcthQBbRt/JZx?=
+ =?us-ascii?Q?GHHlLl8oCzIgpedPGuiCDWjbbq+po8D0pemPJkVbqUIQ8vNr9uHm0aU3RG77?=
+ =?us-ascii?Q?FIfvGe9Vzk7wgDTXgisIUA52ONmqtbj92H/6nARtArN9DZv1Du/K2Osj7cxF?=
+ =?us-ascii?Q?knRSL2vSS8kdbkp5T4cEt3CmAof2kURHr7EK9Cgn92aM13vaUQZ6rlw3qzI7?=
+ =?us-ascii?Q?wdQFHVmIWqoolLbxIj7YbiNdw+MCuI4OgWLsMJAWeSXtOc5l4QO5xCtlXioE?=
+ =?us-ascii?Q?cKX9moyIcAcXK9xlVrDm537OdMsS1U/qCpu8ijbGK/ZlkPqePcVcP2I3Isx8?=
+ =?us-ascii?Q?BnZAJnPhQLTfPd3tg7iit/VBO95YqyqNb55ewcNQH6J4XAhEU/E0EzYrnc02?=
+ =?us-ascii?Q?qNybYiEusqUhZ2PFHidr9Vb06LxHsnyCtdeedt1x7dq7nYesvxXLl0ROFJ36?=
+ =?us-ascii?Q?0c6Oa4J/DFIDCH4vIbM0IBVyWmIO+rOMs9+ZCHOtJ7i00gWYElX239SvPr56?=
+ =?us-ascii?Q?ocL4xwpCV9GrZvYPZCXKd3cbbdyi6uBtpODVuk+jcAHTUlxW8j4m1tBqRpSU?=
+ =?us-ascii?Q?SkiH9Gs3g431xtJacWgxZ4GBXLIv3pHyXQTdZFw4Ia9rDff9Bjknqppyl4j8?=
+ =?us-ascii?Q?l+oNnEs96e+Hsk3SesCSuId8nBSKJlmJrYTvc+rsk6ErnIw/Z5ItnyqxlG8+?=
+ =?us-ascii?Q?7D9NnrLz+gzY9UFJDG8nibhHF0QqqUu7RAyInYprhTFyl3BMkJ7NX4hMVbnq?=
+ =?us-ascii?Q?0mwI9n5B1hajRJB9O2SCO1GVt16lpbRMZ/1fzl6mhJXWoTy8e+t0TEKngOLI?=
+ =?us-ascii?Q?r/Z+3NjkEg9ZBAfJbJEgo6opBR0N5UULT7I9f9EDm0+BgGiTOx3/?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2739b9aa-489c-4c53-8b49-08dee0f886f3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jul 2026 16:05:15.7648
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: V4DfDuG2Oir7K3YI292FrEZhWMRGpVViZYsHbJZ8JuwADuH62XBAA1vPTsQzp2vuDHAWlOPIyK51fBwlPbW0BXqtBhoOS2D5M/9v4/WBFVur25WFoH+zWAZ12yAA5Ik+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11388
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_165730_602368_F82E644B 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260713_090520_654204_A0C6534F 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,530 +145,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+On Mon, Jul 06, 2026 at 11:34:34AM +0200, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> Update the FEC Ethernet controller on the i.MX8MN VAR-SOM to match the
+> latest SOM hardware revision using the integrated MaxLinear MXL86110 PHY.
+>
+> Add the PHY VDDIO supply regulator and adjust reset timings.
+>
+> The PHY LED signals originate on the SOM, but the actual LEDs are part
+> of the carrier implementation (RJ45 connector). Move the LED
+> configuration to the Symphony carrier device tree, matching the
+> evaluation board LED wiring.
+>
+> Wake-on-LAN via magic packet is not supported at the VAR-SOM level and
+> is therefore not enabled in the SOM device tree nor in the official
+> evaluation carrier board configuration (symphony).
+> Designs requiring WoL support may enable it in their own carrier-specific
+> device trees if properly integrated at the hardware level.
+>
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> ---
+> v1->v2:
+>  - Fixed commit message
+>
+>  .../dts/freescale/imx8mn-var-som-symphony.dts | 20 ++++++++++++++++++-
+>  .../boot/dts/freescale/imx8mn-var-som.dtsi    | 20 ++++++++++---------
+>  2 files changed, 30 insertions(+), 10 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
+> index 7308613a48b2..520aff23e587 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
+> @@ -8,6 +8,7 @@
+>
+>  /dts-v1/;
+>
+> +#include <dt-bindings/leds/common.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "imx8mn-var-som.dtsi"
+>
+> @@ -74,7 +75,24 @@ reg_per_3v3: regulator-peripheral-3v3 {
+>  };
+>
+>  &ethphy {
+> -	reset-gpios = <&pca9534 5 GPIO_ACTIVE_HIGH>;
 
-Add clk_pll_mmc_ops for enable/disable, prepare, rate control, and status
-operations on MMC PLL clocks.
+why remove this reset-gpios?
 
-Also add clk_pll_mmc_phase_ops to support phase get/set operations.
+Frank
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Jyan Chou <jyanchou@realtek.com>
-Signed-off-by: Jyan Chou <jyanchou@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
-Changes in v10:
-- None.
----
- MAINTAINERS                       |   8 +
- drivers/clk/realtek/Kconfig       |   3 +
- drivers/clk/realtek/Makefile      |   2 +
- drivers/clk/realtek/clk-pll-mmc.c | 430 ++++++++++++++++++++++++++++++
- drivers/clk/realtek/clk-pll.h     |  13 +
- 5 files changed, 456 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-pll-mmc.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1fffb1fc5de1..0c8b98ecc4a5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22747,6 +22747,14 @@ F:	drivers/reset/realtek/*
- F:	include/dt-bindings/clock/realtek*
- F:	include/dt-bindings/reset/realtek*
- 
-+REALTEK SOC PLL CLOCK FOR MMC SUPPORT
-+M:	Cheng-Yu Lee <cylee12@realtek.com>
-+M:	Jyan Chou <jyanchou@realtek.com>
-+M:	Yu-Chun Lin <eleanor.lin@realtek.com>
-+L:	linux-clk@vger.kernel.org
-+S:	Supported
-+F:	drivers/clk/realtek/clk-pll-mmc.c
-+
- REALTEK SPI-NAND
- M:	Chris Packham <chris.packham@alliedtelesis.co.nz>
- S:	Maintained
-diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
-index ed97531e321d..2ff780581ae0 100644
---- a/drivers/clk/realtek/Kconfig
-+++ b/drivers/clk/realtek/Kconfig
-@@ -27,4 +27,7 @@ config RTK_CLK_COMMON
- 	  multiple Realtek clock implementations, and include integration
- 	  with reset controllers where required.
- 
-+config RTK_CLK_PLL_MMC
-+	bool
-+
- endif
-diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 3b014240a211..97447e92bc35 100644
---- a/drivers/clk/realtek/Makefile
-+++ b/drivers/clk/realtek/Makefile
-@@ -6,3 +6,5 @@ clk-rtk-y += clk-pll.o
- clk-rtk-y += freq_table.o
- clk-rtk-y += clk-regmap-gate.o
- clk-rtk-y += clk-regmap-mux.o
-+
-+clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
-diff --git a/drivers/clk/realtek/clk-pll-mmc.c b/drivers/clk/realtek/clk-pll-mmc.c
-new file mode 100644
-index 000000000000..eefb0da04823
---- /dev/null
-+++ b/drivers/clk/realtek/clk-pll-mmc.c
-@@ -0,0 +1,430 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2021-2026 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/export.h>
-+#include <linux/math64.h>
-+#include <linux/minmax.h>
-+#include <linux/module.h>
-+#include <linux/regmap.h>
-+#include "clk-pll.h"
-+
-+#define PLL_MMC_VAL_MIN 1
-+#define PLL_MMC_VAL_MAX 255
-+
-+#define PLL_EMMC1_OFFSET           0x0
-+#define PLL_EMMC2_OFFSET           0x4
-+#define PLL_EMMC3_OFFSET           0x8
-+#define PLL_EMMC4_OFFSET           0xc
-+#define PLL_SSC_DIG_EMMC1_OFFSET   0x0
-+#define PLL_SSC_DIG_EMMC3_OFFSET   0xc
-+#define PLL_SSC_DIG_EMMC4_OFFSET   0x10
-+
-+#define PLL_MMC_SSC_DIV_N_VAL      0x1b
-+
-+#define PLL_PHRT0_MASK             BIT(0)
-+#define PLL_PHSEL_MASK             GENMASK(4, 0)
-+#define PLL_SSCPLL_RS_MASK         GENMASK(12, 10)
-+#define PLL_SSCPLL_ICP_MASK        GENMASK(9, 5)
-+#define PLL_SSC_DIV_EXT_F_MASK     GENMASK(25, 13)
-+#define PLL_PI_IBSELH_MASK         GENMASK(28, 27)
-+#define PLL_SSC_DIV_N_MASK         GENMASK(23, 16)
-+#define PLL_NCODE_SSC_EMMC_MASK    GENMASK(20, 13)
-+#define PLL_FCODE_SSC_EMMC_MASK    GENMASK(12, 0)
-+#define PLL_GRAN_EST_EM_MC_MASK    GENMASK(20, 0)
-+#define PLL_EN_SSC_EMMC_MASK       BIT(0)
-+#define PLL_FLAG_INITAL_EMMC_MASK  BIT(8)
-+
-+#define PLL_PHRT0_SHIFT            1
-+#define PLL_SSCPLL_RS_SHIFT        10
-+#define PLL_SSCPLL_ICP_SHIFT       5
-+#define PLL_SSC_DIV_EXT_F_SHIFT    13
-+#define PLL_PI_IBSELH_SHIFT        27
-+#define PLL_SSC_DIV_N_SHIFT        16
-+#define PLL_NCODE_SSC_EMMC_SHIFT   13
-+#define PLL_FLAG_INITAL_EMMC_SHIFT 8
-+
-+#define CYCLE_DEGREES              360
-+#define PHASE_STEPS                32
-+#define PHASE_SCALE_FACTOR         1125
-+
-+static inline struct clk_pll_mmc *to_clk_pll_mmc(struct clk_hw *hw)
-+{
-+	struct clk_regmap *clkr = to_clk_regmap(hw);
-+
-+	return container_of(clkr, struct clk_pll_mmc, clkr);
-+}
-+
-+static inline int get_phrt0(struct clk_pll_mmc *clkm, u32 *val)
-+{
-+	u32 reg;
-+	int ret;
-+
-+	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET, &reg);
-+	if (ret)
-+		return ret;
-+
-+	*val = (reg >> PLL_PHRT0_SHIFT) & PLL_PHRT0_MASK;
-+
-+	return 0;
-+}
-+
-+static inline int set_phrt0(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET,
-+				  PLL_PHRT0_MASK << PLL_PHRT0_SHIFT, val << PLL_PHRT0_SHIFT);
-+}
-+
-+static inline int get_phsel(struct clk_pll_mmc *clkm, int id, u32 *val)
-+{
-+	u32 sft = id ? 8 : 3;
-+	u32 raw_val;
-+	int ret;
-+
-+	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET, &raw_val);
-+	if (ret)
-+		return ret;
-+
-+	*val = (raw_val >> sft) & PLL_PHSEL_MASK;
-+
-+	return 0;
-+}
-+
-+static inline int set_phsel(struct clk_pll_mmc *clkm, int id, u32 val)
-+{
-+	u32 sft = id ? 8 : 3;
-+
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET,
-+				  PLL_PHSEL_MASK << sft, val << sft);
-+}
-+
-+static inline int set_sscpll_rs(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
-+				  PLL_SSCPLL_RS_MASK, val << PLL_SSCPLL_RS_SHIFT);
-+}
-+
-+static inline int set_sscpll_icp(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
-+				  PLL_SSCPLL_ICP_MASK, val << PLL_SSCPLL_ICP_SHIFT);
-+}
-+
-+static inline int get_ssc_div_ext_f(struct clk_pll_mmc *clkm, u32 *val)
-+{
-+	u32 raw_val;
-+	int ret;
-+
-+	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET, &raw_val);
-+	if (ret)
-+		return ret;
-+
-+	*val = (raw_val & PLL_SSC_DIV_EXT_F_MASK) >> PLL_SSC_DIV_EXT_F_SHIFT;
-+
-+	return 0;
-+}
-+
-+static inline int set_ssc_div_ext_f(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
-+				  PLL_SSC_DIV_EXT_F_MASK,
-+				  val << PLL_SSC_DIV_EXT_F_SHIFT);
-+}
-+
-+static inline int set_pi_ibselh(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
-+				  PLL_PI_IBSELH_MASK, val << PLL_PI_IBSELH_SHIFT);
-+}
-+
-+static inline int set_ssc_div_n(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC3_OFFSET,
-+				  PLL_SSC_DIV_N_MASK, val << PLL_SSC_DIV_N_SHIFT);
-+}
-+
-+static inline int get_ssc_div_n(struct clk_pll_mmc *clkm, u32 *val)
-+{
-+	int ret;
-+	u32 raw_val;
-+
-+	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC3_OFFSET, &raw_val);
-+	if (ret)
-+		return ret;
-+
-+	*val = (raw_val & PLL_SSC_DIV_N_MASK) >> PLL_SSC_DIV_N_SHIFT;
-+
-+	return 0;
-+}
-+
-+static inline int set_pow_ctl(struct clk_pll_mmc *clkm, u32 val)
-+{
-+	return regmap_write(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC4_OFFSET, val);
-+}
-+
-+static inline int get_pow_ctl(struct clk_pll_mmc *clkm, u32 *val)
-+{
-+	int ret;
-+	u32 raw_val;
-+
-+	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC4_OFFSET, &raw_val);
-+	if (ret)
-+		return ret;
-+
-+	*val = raw_val;
-+
-+	return 0;
-+}
-+
-+static int clk_pll_mmc_phase_set_phase(struct clk_hw *hw, int degrees)
-+{
-+	struct clk_hw *hwp = clk_hw_get_parent(hw);
-+	struct clk_pll_mmc *clkm;
-+	int phase_id;
-+	int ret;
-+	u32 val;
-+
-+	if (!hwp)
-+		return -ENOENT;
-+
-+	clkm = to_clk_pll_mmc(hwp);
-+	phase_id = (hw == &clkm->phase0_hw) ? 0 : 1;
-+	val = DIV_ROUND_CLOSEST(degrees * 100, PHASE_SCALE_FACTOR);
-+	ret = set_phsel(clkm, phase_id, val);
-+	if (ret)
-+		return ret;
-+
-+	usleep_range(10, 20);
-+
-+	return 0;
-+}
-+
-+static int clk_pll_mmc_phase_get_phase(struct clk_hw *hw)
-+{
-+	struct clk_hw *hwp;
-+	struct clk_pll_mmc *clkm;
-+	int phase_id;
-+	int ret;
-+	u32 val;
-+
-+	hwp = clk_hw_get_parent(hw);
-+	if (!hwp)
-+		return -ENOENT;
-+
-+	clkm = to_clk_pll_mmc(hwp);
-+	phase_id = (hw == &clkm->phase0_hw) ? 0 : 1;
-+	ret = get_phsel(clkm, phase_id, &val);
-+	if (ret)
-+		return ret;
-+
-+	val = DIV_ROUND_CLOSEST(val * CYCLE_DEGREES, PHASE_STEPS);
-+
-+	return val;
-+}
-+
-+const struct clk_ops rtk_clk_pll_mmc_phase_ops = {
-+	.set_phase = clk_pll_mmc_phase_set_phase,
-+	.get_phase = clk_pll_mmc_phase_get_phase,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_phase_ops, "REALTEK_CLK");
-+
-+static int clk_pll_mmc_prepare(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+
-+	return set_pow_ctl(clkm, 7);
-+}
-+
-+static void clk_pll_mmc_unprepare(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+
-+	set_pow_ctl(clkm, 0);
-+}
-+
-+static int clk_pll_mmc_is_prepared(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+	u32 val;
-+	int ret;
-+
-+	ret = get_pow_ctl(clkm, &val);
-+	if (ret)
-+		return 1;
-+
-+	return val != 0x0;
-+}
-+
-+static int clk_pll_mmc_enable(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+	int ret;
-+
-+	ret = set_phrt0(clkm, 1);
-+	if (ret)
-+		return ret;
-+
-+	udelay(10);
-+
-+	return 0;
-+}
-+
-+static void clk_pll_mmc_disable(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+
-+	set_phrt0(clkm, 0);
-+	udelay(10);
-+}
-+
-+static int clk_pll_mmc_is_enabled(struct clk_hw *hw)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+	u32 val;
-+	int ret;
-+
-+	ret = get_phrt0(clkm, &val);
-+	if (ret)
-+		return 1;
-+
-+	return val == 0x1;
-+}
-+
-+static unsigned long clk_pll_mmc_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+	u32 val, ext_f;
-+	u64 rate, base;
-+	int ret;
-+
-+	ret = get_ssc_div_n(clkm, &val);
-+	if (ret)
-+		return 0;
-+
-+	ret = get_ssc_div_ext_f(clkm, &ext_f);
-+	if (ret)
-+		return 0;
-+
-+	base = parent_rate / 4;
-+	rate = base * (val + 2);
-+	rate += div_u64(base * ext_f, 8192);
-+
-+	return rate;
-+}
-+
-+static int clk_pll_mmc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	u32 val;
-+
-+	if (!req->best_parent_rate)
-+		return -EINVAL;
-+
-+	val = DIV_ROUND_CLOSEST_ULL((u64)req->rate * 4, req->best_parent_rate);
-+	val = clamp_t(u32, val, PLL_MMC_VAL_MIN, PLL_MMC_VAL_MAX);
-+	req->rate = req->best_parent_rate * val / 4;
-+
-+	return 0;
-+}
-+
-+static int clk_pll_mmc_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
-+{
-+	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
-+	u32 val = PLL_MMC_SSC_DIV_N_VAL;
-+	int ret;
-+
-+	/*
-+	 * The 'rate' and 'parent_rate' are intentionally unused here.
-+	 *
-+	 * Despite receiving various rate requests (e.g., 26MHz, 52MHz, 200MHz),
-+	 * this function consistently configures the hardware for 27MHz (0x1b).
-+	 * This is because these settings reflect the input reference clock
-+	 * frequency to the SSCPLL, not the final PLL output frequency.
-+	 *
-+	 * The actual frequency division to achieve the requested eMMC rate
-+	 * is handled internally by the downstream eMMC host controller.
-+	 */
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
-+				 PLL_FLAG_INITAL_EMMC_MASK, 0x0 << PLL_FLAG_INITAL_EMMC_SHIFT);
-+	if (ret)
-+		return ret;
-+
-+	ret = set_ssc_div_n(clkm, val);
-+	if (ret)
-+		return ret;
-+
-+	ret = set_ssc_div_ext_f(clkm, 1517);
-+	if (ret)
-+		return ret;
-+
-+	ret = set_pi_ibselh(clkm, 2);
-+	if (ret)
-+		return ret;
-+
-+	ret = set_sscpll_rs(clkm, 3);
-+	if (ret)
-+		return ret;
-+
-+	ret = set_sscpll_icp(clkm, 1);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC3_OFFSET,
-+				 PLL_NCODE_SSC_EMMC_MASK,
-+				 27 << PLL_NCODE_SSC_EMMC_SHIFT);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC3_OFFSET,
-+				 PLL_FCODE_SSC_EMMC_MASK, 321);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC4_OFFSET,
-+				 PLL_GRAN_EST_EM_MC_MASK, 5985);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
-+				 PLL_EN_SSC_EMMC_MASK, 0x1);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
-+				 PLL_EN_SSC_EMMC_MASK, 0x0);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_update_bits(clkm->clkr.regmap,
-+				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
-+				 PLL_FLAG_INITAL_EMMC_MASK,
-+				 0x1 << PLL_FLAG_INITAL_EMMC_SHIFT);
-+	if (ret)
-+		return ret;
-+
-+	usleep_range(10, 20);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops rtk_clk_pll_mmc_ops = {
-+	.prepare          = clk_pll_mmc_prepare,
-+	.unprepare        = clk_pll_mmc_unprepare,
-+	.is_prepared      = clk_pll_mmc_is_prepared,
-+	.enable           = clk_pll_mmc_enable,
-+	.disable          = clk_pll_mmc_disable,
-+	.is_enabled       = clk_pll_mmc_is_enabled,
-+	.recalc_rate      = clk_pll_mmc_recalc_rate,
-+	.determine_rate   = clk_pll_mmc_determine_rate,
-+	.set_rate         = clk_pll_mmc_set_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_ops, "REALTEK_CLK");
-diff --git a/drivers/clk/realtek/clk-pll.h b/drivers/clk/realtek/clk-pll.h
-index b70d6b3ec61e..ecc51898ae2d 100644
---- a/drivers/clk/realtek/clk-pll.h
-+++ b/drivers/clk/realtek/clk-pll.h
-@@ -44,4 +44,17 @@ struct clk_pll {
- extern const struct clk_ops rtk_clk_pll_ops;
- extern const struct clk_ops rtk_clk_pll_ro_ops;
- 
-+struct clk_pll_mmc {
-+	struct clk_regmap clkr;
-+	unsigned int pll_ofs;
-+	unsigned int ssc_dig_ofs;
-+	struct clk_hw phase0_hw;
-+	struct clk_hw phase1_hw;
-+};
-+
-+#define __clk_pll_mmc_hw(_ptr)  __clk_regmap_hw(&(_ptr)->clkr)
-+
-+extern const struct clk_ops rtk_clk_pll_mmc_ops;
-+extern const struct clk_ops rtk_clk_pll_mmc_phase_ops;
-+
- #endif /* __CLK_REALTEK_CLK_PLL_H */
--- 
-2.43.0
-
+> +	leds {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		led@0 {
+> +			reg = <0>;
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_LAN;
+> +			linux,default-trigger = "netdev";
+> +		};
+> +
+> +		led@1 {
+> +			reg = <1>;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_LAN;
+> +			linux,default-trigger = "netdev";
+> +		};
+> +	};
+>  };
+>
+>  &i2c2 {
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
+> index 71a2f0866822..09146ab76385 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
+> @@ -35,6 +35,13 @@ reg_3v3_fixed: regulator-3v3-fixed {
+>  		regulator-max-microvolt = <3300000>;
+>  		regulator-always-on;
+>  	};
+> +
+> +	reg_phy_vddio: regulator-phy-vddio {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vddio-1v8";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+>  };
+>
+>  &A53_0 {
+> @@ -96,24 +103,19 @@ &fec1 {
+>  	phy-mode = "rgmii";
+>  	phy-handle = <&ethphy>;
+>  	phy-supply = <&reg_eth_phy>;
+> -	fsl,magic-packet;
+>  	status = "okay";
+>
+>  	mdio {
+>  		#address-cells = <1>;
+>  		#size-cells = <0>;
+>
+> -		ethphy: ethernet-phy@4 { /* AR8033 or ADIN1300 */
+> +		ethphy: ethernet-phy@4 {
+>  			compatible = "ethernet-phy-ieee802.3-c22";
+>  			reg = <4>;
+>  			reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+>  			reset-assert-us = <10000>;
+> -			/*
+> -			 * Deassert delay:
+> -			 * ADIN1300 requires 5ms.
+> -			 * AR8033   requires 1ms.
+> -			 */
+> -			reset-deassert-us = <20000>;
+> +			reset-deassert-us = <100000>;
+> +			vddio-supply = <&reg_phy_vddio>;
+>  		};
+>  	};
+>  };
+> @@ -342,7 +344,7 @@ MX8MN_IOMUXC_ENET_TXC_ENET1_RGMII_TXC		0x1f
+>  			MX8MN_IOMUXC_ENET_RXC_ENET1_RGMII_RXC		0x91
+>  			MX8MN_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
+>  			MX8MN_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
+> -			MX8MN_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x159
+> +			MX8MN_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x19
+>  		>;
+>  	};
+>
+> --
+> 2.47.3
+>
+>
 
