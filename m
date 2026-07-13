@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B86A4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F761C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 08:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzuuxmp72NuhJEhbTzDtqUQgRFFTEExkan/H+uaUpHI=; b=cnhMNiS72hpztcoprtABzsTCL2
-	tTbu7QcSfSKHyzDWTMEzS/JSGg5FO8bAQPBjf3NL9zf+oxzKMzmFa0Ade/+tNu8SM6voVP+UOEmX1
-	0o/qUHELpZeOcUvLfd2SWkl9ZHHv7TFr8mmCyZNUr+dud1vz44t4jEUxJToL7bota7L/Ye/QXC23Q
-	F+tTQsc89QvwAgzUYTT6ZwFWkiqLXLWw1TWLMR9ZDtjvJhENd4b2qGwxHmbAaMkgOIpWjWXthnj/J
-	bLJI9ZTWu2ruuIPbPOXZoqinXQMBxKpfpUWlYxA6/alBMjMECmeteL/GY0L2rcg6ZkcrIwiOC9y3X
-	OSMsCYwg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ww8rjm+JZiZBaoDFPUpDnonQY3B9G9iGUaqmjxdFhqE=; b=Bu7bvLngZ/R5RdTR4gmEjiIZ4L
+	48BqNwOzORHyBl2QqgQRVBzYJQQcARrges1mivWhXL6jZKSY1uu8AnXFO4B8zSCOyQc2AqNoQypDt
+	SJl0C7EyOx5PDEwL8Q9G9Wf+mm5jQz6OhyBXsji91IW9kg3Sb+kSRBsXDGNEAVXWJsVcYgD+D5ldl
+	JnCvzQfPC1CqLF7qGpb2C3eoN8ggYbfv8rkReMqs/1qBJcBcAsGFARSazZUCfJoyLNDljEp7CloYg
+	U/+xVlVKSaxthhhMEKAOWrTBkbBVJ6ft4GKOR5iLn7EUwh/IKRo3iNuSnOEHQDEgN/+daVRuzo64e
+	MfdJ0kjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBlU-00000008XZA-2DR9;
-	Mon, 13 Jul 2026 08:11:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wjBlh-00000008XfE-19Xb;
+	Mon, 13 Jul 2026 08:12:01 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjBlR-00000008XXb-3Z7g;
-	Mon, 13 Jul 2026 08:11:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783930302;
-	bh=nekH3c8fOVjXzri9HMJDZCZ+Cs7MULnXoNr/TShtOno=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Zons0NaZRFePVu2AFie0jHRJDaSl8nVZRnppWW3K5rXuujeJq89RNEwiLr+W4Ez1n
-	 XqNQ9w7ETzBiN4jiaaKGFgK2J05DcFbj1EsTEnklxVGNSnDxjIwODNoCiu5eeib+eP
-	 iBEnixp/SEl43F90hI/BEJoKIiKEk2YrZjiPEKZMHcH9c/Ts2Rv5AQD6hIbA1vRRDY
-	 AKeCIlt+n9ubbCUY9L1rCtwStMnkfmU8+2OsMTAqcG+ZZIY6mebedYjlWgaDwHygf1
-	 1rrT+Qq0g2UhQleHWRQI7hCZT8ZruH9g6YS35nhGmJuV99XAluti273G0joQA26vBQ
-	 XbymhUnq3Ec7g==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C6B317E07AA;
-	Mon, 13 Jul 2026 10:11:42 +0200 (CEST)
-Message-ID: <c11705b1-fc46-440b-a27e-0cc38f3b2d69@collabora.com>
-Date: Mon, 13 Jul 2026 10:11:41 +0200
+	id 1wjBle-00000008Xdf-05iK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Jul 2026 08:12:00 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38dd55ad76cso720808a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 01:11:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783930317; x=1784535117; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ww8rjm+JZiZBaoDFPUpDnonQY3B9G9iGUaqmjxdFhqE=;
+        b=fJyfwbGBuQQLstlhLwKAxWwryt/XOOlviujHEkcEVJN2qlJGxuJ0EWunTFgGjgNP6G
+         psds2Dk0NhYsUH/cJ/ga08ml64kzZiI0pgd3Mok7hjrHtOGaPgUZDC+WR3qz5x5VYAxf
+         H+qpc+tIgnEDHE2hVQHXLb+IpowLA2lSVqDSe0fuo5iXKTUMdn3X//lG4HdlIb4NfRyk
+         unHUXtTBv0rNUxF4ThVsgCFigAC41IOYqLT3A90HEu/+Fu+syLes1XDx5OsGXvyGfZ12
+         OX4lRN+laHR281YMkRQeSKKQG+If0vMxbRnHf5BEZnVxGwd2y5oJlxkS2me+GPhDDQci
+         Sa2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783930317; x=1784535117;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ww8rjm+JZiZBaoDFPUpDnonQY3B9G9iGUaqmjxdFhqE=;
+        b=W/FChoznw9jfhycSXH5LZcQCM2TK+zsKRXqElWuA92m2Vejs/dx2czo1IXKkzGlId1
+         aswFuBZR/dto+ez/3CmUZ15RJVeLjSQqfHYXhh3yCXL/ZITGIqOKbifETZyoaHfuVZ3+
+         WIdhOPG0CLkn5An08tBq/ShMQMC3FW7F2JH9m5TYIPTgO1BjiLIIIs0bxOtrXxGtPprk
+         /Je2P6qIvEGgIk+ewclvGDczWJJpr3vuUXrlDX9XBuRZ8w8Se3OiBJ8R7ohW+htnscCa
+         Cb8ZXkzzsad4ejY9YS02wfoIvtTOhjh6wpowb/2/o01mhDAIlUlBWxAGa3JPxhDW5kK0
+         WIIQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpmse1E1qc0o0O36jJVevg4RMPeS6CU5TPrpqx80SusMAIWK+qQExnN5AK+O+qmFpoOFhg+V/IXI6FtQ8/fCCdI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbVk3wtH91XiAmeibn4lUbC/MEpsybselKUXzGjCvhrxyCKSUN
+	Ao1LDJtnNCnq/pr4ZzTF5ojqb36ZiSLDjtEh9OnwgYL/YkmBZk8u9Z+g
+X-Gm-Gg: AfdE7clQ4cLHIkbm/Pry3GQiorTamtjZeuKytnfGSzX3ZZdO4AMMihHdk6U8+PAgOIP
+	ptk+u6e/+Fxy/uGv3sDTDzj23/iDjvKCRRscPUQs6E2MLMRNsd7ZMwaW+RmG5QS5KOs2DNjMHDb
+	jryB+GjZ5Le2pvG7MeQSuyuihmdUiHRIOG/7e3uivO43pI/o3lrvzMiYL/1x9jhQgxOXmPcOp/O
+	qBD5xzPk/NlIff4LC6QEwxiIWN3NQS0aNHmEE5FvAOnbMpo65Zxs+mLQdCr84csnA8RrNsDDGms
+	NR0NfFQjsFMVwPbR+kG0TYRbM1V2Xz7e2WzdrkeOV3K9SwISer+vcC2IKAiMEeTvI4Dv6YM8lgD
+	aasksRlPXFaxonXvVkr8L6ksuKCR/850xav+HPVmtsordvOVOMwk7Qgs6UObgwZgxS4cRcyMQA9
+	91yHwsVol8PmW1XMX0NHnggNS6fT4fOlWEBPs/MiHbD8z0IUMKy4nT2fzxo6NYZgmUWZBTOaFtc
+	+0=
+X-Received: by 2002:a17:90b:3c0f:b0:37f:f089:c81b with SMTP id 98e67ed59e1d1-38dc8071aeamr6520796a91.3.1783930316522;
+        Mon, 13 Jul 2026 01:11:56 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e0e033de6sm269636a91.13.2026.07.13.01.11.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 01:11:55 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: jic23@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com
+Subject: [PATCH v2 0/2] iio: adc: Add Nuvoton MA35D1 EADC support
+Date: Mon, 13 Jul 2026 16:11:25 +0800
+Message-Id: <20260713081127.115197-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] AUXADC driver for the MediaTek mt6323 PMIC
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Ben Grisdale <bengris32@protonmail.ch>,
- Conor Dooley <conor.dooley@microchip.com>,
- Andy Shevchenko <andriy.shevchenko@intel.com>
-References: <20260709-mt6323-adc-v5-0-d11b8332a735@protonmail.com>
- <f2d5801c-1d12-4a61-ac23-aa24dfd0ee5c@collabora.com>
- <20260710005424.5c559b5a@jic23-huawei>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260710005424.5c559b5a@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_011146_045099_EB548C5B 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260713_011158_065642_9A0EF057 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 01:54, Jonathan Cameron wrote:
-> On Thu, 9 Jul 2026 13:33:46 +0200
-> AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> wrote:
-> 
->> On 7/9/26 12:52, Roman Vivchar via B4 Relay wrote:
->>> This series adds support for the 15-bit AUXADC hardware block found on
->>> the MediaTek mt6323 PMIC.
->>>
->>> The previous version of the series for all AUXADC, EFUSE and thermal
->>> drivers was split after Krzysztof's comment [1].
->>>
->>> Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
->>> mt6323.
->>>
->>> [1]: https://lore.kernel.org/linux-mediatek/20260504-mt6323-v1-0-799b58b355ff@protonmail.com/T/#med30fad67a090be35f549231336b2dec295233f6
->>>
->>> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
->>> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
->>
->> Whole series is
->>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>
->> Cheers,
->> Angelo
-> 
-> As noted on discussion of previous version. I picked up the IIO side of things already
-> so I'm assuming nothing else for me to do here.  Shout if not!
-> 
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-You're assuming right. I should've replied with R-b only to the last two patches as
-it's too late for this on IIO - it's fine! :-)
+This series adds devicetree binding and IIO driver support for the
+Nuvoton MA35D1 Enhanced ADC controller.
 
-Cheers,
-Angelo
+The MA35D1 EADC controller supports external analog input channels,
+fixed differential input pairs, an optional external reference voltage,
+up to four end-of-conversion interrupts, an optional reset line, and an
+ADC-to-memory DMA request.
 
-> Thanks,
-> 
-> Jonathan
-> 
+This initial driver supports interrupt-driven direct raw reads and
+triggered buffered capture. Buffered capture is paced by an external IIO
+trigger and is limited to a single enabled voltage channel per scan in
+this version. Multi-channel buffered scans and DMA support can be added
+later.
+
+The driver supports both single-ended external channels and the fixed
+hardware differential input pairs. Differential conversions are reported
+as signed two's complement values. The ADC scale is reported using either
+the optional external vref-supply or the internal 1.6 V reference.
+
+Changes in v2:
+- Update the binding to allow up to four interrupt entries for ADINT0 to
+  ADINT3.
+- Add optional vref-supply, dmas, dma-names and resets properties to the
+  binding.
+- Keep diff-channels in the binding and restrict differential inputs to
+  the fixed hardware pairs.
+- Limit DT child channel nodes to external channels 0 to 7.
+- Use regmap for register access.
+- Add optional reset handling.
+- Add optional external reference handling and IIO scale reporting.
+- Use the internal 1.6 V reference when no vref-supply is present.
+- Handle differential conversions as signed two's complement values.
+- Use an external IIO trigger for buffered capture instead of a
+  self-retriggering EOC loop.
+- Limit buffered capture to a single enabled voltage channel per scan.
+- Rework suspend and resume to save and restore the buffered capture
+  state.
+- Use devm_mutex_init() and scoped child-node iteration.
+- Use the new scan_type.format field for buffered scan type metadata.
+- Drop datasheet_name from channel setup.
+- Address header, helper naming and cleanup comments from review.
+
+Chi-Wen Weng (2):
+  dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+  iio: adc: Add Nuvoton MA35D1 EADC driver
+
+ .../bindings/iio/adc/nuvoton,ma35d1-eadc.yaml | 163 ++++
+ drivers/iio/adc/Kconfig                       |  12 +
+ drivers/iio/adc/Makefile                      |   1 +
+ drivers/iio/adc/ma35d1_eadc.c                 | 740 ++++++++++++++++++
+ 4 files changed, 916 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
+ create mode 100644 drivers/iio/adc/ma35d1_eadc.c
+
+-- 
+2.25.1
+
 
