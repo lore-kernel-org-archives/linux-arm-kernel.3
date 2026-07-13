@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD694C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD40C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Jul 2026 19:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGsZNW66zFo4mTPQ6ULtWG3KXt/fdlFbCgUmJIue0mw=; b=mO46Ju8hpaamaGMUl/6ZQJhShM
-	aICgBwU/g2CjAcMA6qNTSN2qdVkM9H/YUWVHz5ywAFiWZ3A/RrqJsJNYlC/tzwMwF0dUY556LQyys
-	5VEU7wpGA/4zvOyohgnm/IXRf1pLsq161kEPDBrD3FivrjeD1TyHfrCQpAVEP8WIzQZBJzAvI1hg8
-	7YywPobK2WNcQflKm1arGlDRPzGfecjTW4AQMJqKd3uVmsmfNuyaQuisxxmp7wYBmAuIWrivphWkg
-	4Y5Sf67qNf8of1LVJk7RUbsaAl8tlTAYbuxfvMC8Ts4WNezegS3W2SraxvRHa4jLToQ0XfzK/ZWzQ
-	HcrWYvbA==;
+	bh=seRQ4x7WCVBDlRNvM1ESoBfWnXSVwL4ZPJ5Cc52Vq54=; b=xaRH8/7nXOeOR/E/UrsIoeLvEa
+	7S4+jrOIUJ2UmHXZ2gl1SsqJJbWaoG6ciGKGn4Mvlzxig+5gWq9ZqtoaYHY6tQMoEb0Wy2EOnodY5
+	m48sZ78yzLXKdxyAV9fU3DYYgevJIriYkhB8sEkWp/CT0SaW6Ou1x/BFFDkCLNSwWIvXxoHopIbfo
+	5op6iAmGON+vdZ8qfor3nAahVsTLGsqzZ/zVaP3W+7x0GjDc/o1nLxkZlB7o6XGM/UrM7m+Md3T/c
+	XIFKVWAkJSp0XmzJwTaRnPBcrj9ws9IERuy72MBVxd68MZfgrwZ/7S0gQC3+sCkWRp4Q5/jwV+ClC
+	yBjigoKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMON-0000000AIST-2bNV;
-	Mon, 13 Jul 2026 19:32:39 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1wjMT1-0000000AIiN-18Vv;
+	Mon, 13 Jul 2026 19:37:27 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjMOK-0000000AIS1-3Utv
+	id 1wjMSz-0000000AIhw-1H7h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Jul 2026 19:32:38 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-517dc520840so25078891cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:32:36 -0700 (PDT)
+	Mon, 13 Jul 2026 19:37:26 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-92e5d50b0dbso16345185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 12:37:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783971155; x=1784575955; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1783971444; x=1784576244; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=hGsZNW66zFo4mTPQ6ULtWG3KXt/fdlFbCgUmJIue0mw=;
-        b=Yp+d4l3YcRoOQXcUM98tcSTWUthC78LA3OaLn21mJp0CmkmvZ3Ra3T3gaywVim3mi7
-         BPstfbQAlWMAW9VnZ9zchfIHhNOp09UhymEvUDWjzZJTS6qYNggIPdqkSCFmykvF5wtR
-         mKDvg0qWtk6/wjQKkqjjPRKs9iXVj0HS09bPtM37kGY5DGrMLCJAKBFrNcpwzo8quSZj
-         ztdWVFAtacpB+YsHCvVFUGAkD3ZJyXuPZXShv2gcAmv8l30YZ7YzQr6jhyjvfnsBPV7p
-         eN921lR6u54zH4igYTX2z8iiiU9EqJoIKhikp2yuBgVVjuIOu2yJyUsJ/QeffhXP2AG7
-         hySA==
+        bh=seRQ4x7WCVBDlRNvM1ESoBfWnXSVwL4ZPJ5Cc52Vq54=;
+        b=GQSihPtQRi8+9bDiRfBvlTAHdqD6PpzWE7Yhy2mw8ou3BvBHBd3Z5jq3hA0WHmk6ir
+         H+LdLRwW61WmtFexvkcOJdq6/gpoiwRlxWwKRzayUyzlhJFVN2h9aIxTuUj4Oh+R09Jj
+         yob+ts4S2zuGQburUbrlG/IbDUevBw/f1h7vtSyTWRozVT7SDquejejusiALGNb6Na9m
+         nR17dKvdW2kVCAo1v/IgByHcgvhLyR9cJIUFPELx0CQcx9Id5O8G+9TBRWu6+KNQHuya
+         FkTBrEBA37K9UUpD8S7n2kRM6EmPYfxv2zU9IbiiFy6VBl1YHha6O9dCY5mIGZ8S3ZbM
+         bW7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783971155; x=1784575955;
+        d=1e100.net; s=20251104; t=1783971444; x=1784576244;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hGsZNW66zFo4mTPQ6ULtWG3KXt/fdlFbCgUmJIue0mw=;
-        b=WybLFn2CVePPrNEczOu8JGlMEujSFN3Zu2D43jdxL7ivfJjXVd3tiDYn9GNo2JfBl5
-         P5vVH2EyVhzm3qGGA1f8iMUM60bHTM9XqsZTbWrNI8cmg2Oe6DKrsQ9Qzjej15GPCzum
-         zKObwTIsxVnA1XEawsgt6X5hpqZvT5r7hlxhIPK0Sc7KcjbJHDNfYrLLDI/7ixzDJ047
-         Nij3l7NDkk/nIYAuWR+905b7S04PThubG8cECjyec1Cou0tgwolm7ebp0mmVRZsYfBSt
-         EL7YCGTNeDWr8qqJDqSikgGfhX0sBFmBBRsOI9UAW38vu7UDDquxVL6Xecl6sgr2Huvh
-         D//Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpTXFSWM2QwxZmrhRalh1OQj2ZVCYM9k24G1UZN9YebWCY1VamNIDCemRs9heNtg7/kr+0EeiUs5Rx0juWWJnFZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPvu2RgLx361l+zb7kmrLoMO/8Ro7PTAo7oeLzyIZN7+CCTf8h
-	sMJxiLMB2HWyz0GddEczHxm1Z98uqp/f6ezzl+Rrepeorf0Fuq8p8HjkCGZkAynsAdo=
-X-Gm-Gg: AfdE7cllgWXSXHh62LLFYmm8H0MooJE1p+pPcOFos/bsARfXXQmXjyO39zFaOfa0h9o
-	mmRagIY6l54L7BXHmeUrMkaE5ENPeS4UM7+x7zvM1JzoyOX1r7jX1cCuUv9DEHSZ+6HXWtBcoIG
-	poZVrVZTBGpMlGl89TI/MHiPUxp7zFnall1rAM+uaIPCKowZT/YchuF4lFhF4UF7dZydhh8NK9r
-	5ljoADL33u5x9e0es+NOORhaTrisSrYkqWRTcLaMgmHPTChqe1ycLw2yDx0P+ChlVmxJ/jNQb5d
-	A66njqvHJ91ZAtqRGXosz7+o/Rvxw6oze/2qunsB2U/4li+ZnBdrw1WkhIe222U3pcCMMVFxYsr
-	Y6Kl0aAkb67pNr83zv0j4LjngpqxY3Zy++/lrCGeYD8JB9ImlrvgjNl+sf2jb
-X-Received: by 2002:a05:622a:1b22:b0:51c:18e4:38ab with SMTP id d75a77b69052e-51cbf2ee945mr103155851cf.66.1783971155509;
-        Mon, 13 Jul 2026 12:32:35 -0700 (PDT)
+        bh=seRQ4x7WCVBDlRNvM1ESoBfWnXSVwL4ZPJ5Cc52Vq54=;
+        b=rwMEH/iPQzlCz5Bn+1FgjYknJl2hc+HDpzKyIDdFiA9WUhWVFUCe3pgTmypKzYS9Hx
+         djLS4QiftDmO472MRuzX1wrlfKQwhFp/vCCVX2/s9sxphjVbEQamUcCo9sad3+8X6sBe
+         0y1aVpOZSXOBeV4J6PjoQEWvqYcVV+Amkaoc3EUK2NZfjP73Mz5ZIqG5DaXq57JK+Jt5
+         /AVx4vFVXH35bTmRtAZtH7gHY39DakX+pfx1lNM3YdSSzoc/CUnOm1LfEydFsPw3HbUw
+         P/prF8K8syizvZttsIViIK0KpU0dLZtEbj7pMoIvEQMRum16OSgmkmg4WeDjP79bjEGE
+         xcCA==
+X-Forwarded-Encrypted: i=1; AHgh+RqrRzAVmaOYfqFFxkpOPfXJhKWOBHmUVyBQUWWbS1Mf0R0eC6OckqRBy2FdqnMHqoKJtM1r1BgvvTP/oz1SoRCa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx00Eg5WSw8VOzcTWA5bGU0Alefnw5z7cCi1MRV2roWBKQ0Bi5m
+	3ob+Why1/11s8YZ99PR6nTnQZ8EarajVxrST/TJijbmmHmzr5YENz6MpChKd7OPGEyw=
+X-Gm-Gg: AfdE7ck4c7Up2pAg4PCv2HgIEhfrC0XBq4Wy26aZAwZS6m5KYpbdkJL50RsbSUSlDLK
+	Q4bZycDOo26O01dK09GMwXfhWTIqo8YloRtQNpXKohJ3Yxmqfaw8MzIoTnzgdOuKP6Zjr60Jrf+
+	/m5VRTKOKZq078OgW8RPPnZSy9awqrdI4YA6aAj95k0aSh2FIy/ZoxMWfqkDlPr7rQb169HAZKT
+	oEyssfI8ir6EkwBxuBdUoVI+tHee+VLXOn8pjq0RJ4dIJ9Yz8JSY0Yb/Ifa5uOd8bOYCVoN36VE
+	0w7ZHb79uf7VWyWoqxpuIIHSrhRU6k0a6m0ydIh4evBgPrIJaNiORlM4VJokhtTyczI7XVpuieW
+	cXhMFkGbhcsiDwqrGgifWv7iomTfIP6vbVkQakNWEKqHEHvTO8Vr5vzs+q/OS6NHVb3PHTac=
+X-Received: by 2002:a05:620a:2551:b0:915:5930:94e6 with SMTP id af79cd13be357-92ef2bcc91emr1112783085a.51.1783971443832;
+        Mon, 13 Jul 2026 12:37:23 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd7c1ec84sm138505026d6.29.2026.07.13.12.32.34
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5b86276sm1177578085a.11.2026.07.13.12.37.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 12:32:35 -0700 (PDT)
+        Mon, 13 Jul 2026 12:37:23 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wjMOI-0000000E5wx-1usj;
-	Mon, 13 Jul 2026 16:32:34 -0300
-Date: Mon, 13 Jul 2026 16:32:34 -0300
+	id 1wjMSw-0000000E6Rs-2gqS;
+	Mon, 13 Jul 2026 16:37:22 -0300
+Date: Mon, 13 Jul 2026 16:37:22 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -101,18 +101,18 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
 	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-Message-ID: <20260713193234.GV3133966@ziepe.ca>
+Subject: Re: [PATCH v7 17/22] dma-direct: set decrypted flag for remapped DMA
+ allocations
+Message-ID: <20260713193722.GW3133966@ziepe.ca>
 References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-17-aneesh.kumar@kernel.org>
+ <20260701054926.825925-18-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260701054926.825925-17-aneesh.kumar@kernel.org>
+In-Reply-To: <20260701054926.825925-18-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_123236_883899_01649801 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20260713_123725_359553_C1B40D5A 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,52 +127,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
->  {
->  	dma_addr_t dma_addr;
->  
-> +	/*
-> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
-> +	 * as shared by default.
-> +	 */
-> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
-> +		attrs |= DMA_ATTR_CC_SHARED;
-> +
->  	if (is_swiotlb_force_bounce(dev)) {
-> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
-> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> -				return DMA_MAPPING_ERROR;
-> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> +			return DMA_MAPPING_ERROR;
->  
-> -			return swiotlb_map(dev, phys, size, dir, attrs);
-> -		}
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> -		return DMA_MAPPING_ERROR;
-> +		return swiotlb_map(dev, phys, size, dir, attrs);
->  	}
->  
-> -	if (attrs & DMA_ATTR_MMIO) {
-> -		dma_addr = phys;
-> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
-> -			goto err_overflow;
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> +	if (attrs & DMA_ATTR_CC_SHARED)
->  		dma_addr = phys_to_dma_unencrypted(dev, phys);
-> +	else
-> +		dma_addr = phys_to_dma_encrypted(dev, phys);
+On Wed, Jul 01, 2026 at 11:19:21AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Devices that are DMA non-coherent and require a remap were skipping
+> dma_set_decrypted(), leaving DMA buffers encrypted even when the device
+> requires unencrypted access. Move the call after the if (remap) branch
+> so that both the direct and remapped allocation paths correctly mark the
+> allocation as decrypted (or fail cleanly) before use.
+> 
+> Fix dma_direct_alloc() and dma_direct_free() to apply set_memory_*() to the
+> linear-map alias of the backing pages instead of the remapped CPU address.
+> Also disallow highmem pages for __DMA_ATTR_ALLOC_CC_SHARED, because highmem
+> buffers do not provide a usable linear-map address.
+> 
+> Tested-by: Jiri Pirko <jiri@nvidia.com>
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  kernel/dma/direct.c | 56 +++++++++++++++++++++++++++++++++++----------
+>  1 file changed, 44 insertions(+), 12 deletions(-)
 
-Maybe things should be adjusted so this can be
-  phys_to_dma_direct(dev, phys, (attrs & DMA_ATTR_CC_SHARED) 
-
-?
-
-It would also be nice if swiotlb.c could do the same
-
-Stated another way, maybe we should get rid of
-phys_to_dma_unencrypted/encrypted() entirely and just have the bool
-variation since that seems to be what everyone wants.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
 Jason
 
