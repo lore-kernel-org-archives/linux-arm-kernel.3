@@ -4,91 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C44C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D57C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lCzoPTpV/z5B2tKPQZt3PsPAo+HT8Vi32iw6SgMRUdg=; b=RBNUUmzwzfGDjos2KXpfTqtSHC
-	2E0HxFwU4b4N/6oGCLiWQlfNtslQeI7+1OXy2t17uNnyCGQoDVGWJaELnOM1NvPb9gkzm92w1AVJF
-	sB3xlvABivja0AxNUlR9gtboIwl2Ld1ZBxHsUESuceFXM6t+XjhoaYlnJcD+cXyMMvDKTWtFkCgwN
-	m6CWpIHZxOCBv4HWJTxLCZnLp2Vlc9qvxsAkRZwaagGePrKCc0gVVQnEQ5N4lNNFjB57cF5h86FAc
-	Ytj8ye72jayulCvlj6uXpHYZOLCg1vVENryLy9xrpDaH99G/Eb6AFnaPiEmoWhXNCh44KiOz3+usv
-	CcPwX5xA==;
+	bh=NbTGL2W1tbRJgS5J/I9QgPZVjgYoekQGw3zKXQRSGW0=; b=bJsbcCUGFmUewfLRMUwvVG0p70
+	wGOwaItUme7PyVo9C0OcxRUymWX4SkWbdqolb+O6vSOAz4hSlP9sWibJMMqTaGMuoz8SkO/Q2uqM3
+	60cjqPt9yHUIrWhZ6SXdRDCDcYhwlWvaq9VUenPdU2Wsu9HkBCz84fA7807Zppc11WEVvq8nX6J9i
+	26PkSVTO40rtub9Bkw1QlL6mqYRzE2xctuxbsVl1ZY74Dlcn+PdsqY1ZySED0MnV6GYRciAvKti1X
+	kUkB8XDH7mzFnuzD2f6+2wxLJLjX2Vd72uLrNCy5Kz4o5I6ahk8hmdvPX+k8BMb/RGuxpB51EizRN
+	9p1QQ2Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wje2r-0000000CNCB-0CuK;
-	Tue, 14 Jul 2026 14:23:37 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wje38-0000000CNGN-3t4u;
+	Tue, 14 Jul 2026 14:23:54 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wje2o-0000000CNBX-15pi
+	id 1wje2x-0000000CNDZ-1nlU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:23:35 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cacef7d299so134475ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 07:23:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784039013; x=1784643813; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lCzoPTpV/z5B2tKPQZt3PsPAo+HT8Vi32iw6SgMRUdg=;
-        b=F35afdcQudjiSlHO57Nlz19a16G7feT2TMDqyhy9JTYPbWX3E86VVu3eXOeFTU5vfE
-         Gzm3kXbvY/rzJ0BQhvu2/mZtSnxdED6Y5kxSaF13hZVE45JmwOuwCenypsmPIPFFyaN5
-         19Vd64RWhFIpXYfBK5ym9V0BFU4jTQz5+cMFK+gKm4tEvDIyO4+nlIm1sOEhUKsN3MVa
-         7Ley8lJmvsPV3NRX93skUEQkKuNG0+1kI8V14ubshhA2eHrd5REayM6OYv0RgZqOWlaD
-         r+/RtirUoNLYgTgQmfLd4D9i+xjuc5YQgfwmRZXfAnXChTxsPvjkNQlFWd6RzMqGOjpR
-         gvJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784039013; x=1784643813;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lCzoPTpV/z5B2tKPQZt3PsPAo+HT8Vi32iw6SgMRUdg=;
-        b=mVN62tZGOWti/9BuJfdesNW5IBY9y5hn+Xk2JIezlrSOyXYug6qefPBMBT97VH281L
-         8VaPY/NU7+phobcwDeg0yfwp+CzdMLa+zDzUCsYoy3MLapBlgWqXG5pt9GUZtbingqwA
-         +e5qYGh4xrSWuh2PvG0U2x39qtDX1RBKduOeuYVRVjc961fz58P+Cy44FSCSptXY6ZPH
-         bwE4b01edVNXJzmDDxDwu7y9FYvVAd8xW3+qZNRAlK9aeMsUGWcSaXFEX3wzNSk6LCuz
-         p5YsT/D4f0v37DjXRjgJRzza6+PFV4py7+gjHSLkVlQd6Mn4XvpblkXZGS8115jhWkNh
-         Jq0A==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5RVuQpk+wdco1KVkf2b+xPoFH3NhXaulFek1OZ6rkUd0/H8F7sbnrmJC3VXP+vFPDTZJ5aDPlmzJOtuST7RKs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy8lKUDn54P9RQyUluYkKlYkr8BDMhvmQDodF4dUbJvC2mW9+J
-	K4CI6irtbz1tUUW29Q4WSFqhr3ZXU9NdB6C1cBBOjdrjMD5vQ09K1Pe6DmmWeYnrdA==
-X-Gm-Gg: AfdE7cnac4hwKEmx4FoGjO1+JhERjMPOJWemQKh6N3rogRUjbtoCAP0yg4NwSmeKehj
-	mR8V5yf6RFomkTzMB7SqplKh+3JOOMNseLs6d5JnDoB7+ZHKmQgMJa623vfk+lPoWRglussiO09
-	q+5gDVaD8RdRcuid+y/KMNK9ZWb17/rwOWptVNG8Lk+8xLjL1Fjc+h0xDULNLMd1t5NA78dI2e9
-	PKjc/eQ+E5YwxdQj9izckp3nRA8Nh6N9fddPSkaZpfzq9w/km7VbPRZrImOT/BTYK9OO0uxIWo+
-	x3XkU7eKKOr2rnM6lW1174Z5fsizkKOMhFwtL8W2dSdl1hPQzw3QIspuEWWczFDmQBsEvFblytU
-	uO4BtJf3fV+e/3F6RiYbJKGyDqWSA1SodH12JF+S7ScrFGBv0cVVND9sveb7Zf1ca2rwLsNonK1
-	aYcM2FC/8WfBa1+tAd4LcnFWfjvwhExSD6Bym1BRsGZYpJkQk=
-X-Received: by 2002:a17:903:2311:b0:2c7:7c7d:fb8f with SMTP id d9443c01a7336-2cee1c08769mr5822805ad.17.1784039012483;
-        Tue, 14 Jul 2026 07:23:32 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e172cf903sm1577377a91.8.2026.07.14.07.23.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 07:23:31 -0700 (PDT)
-Date: Tue, 14 Jul 2026 14:23:26 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] iommufd: Fix vDEVICE allocation lifecycle bugs
-Message-ID: <alZGXrCMZffUvMdM@google.com>
-References: <cover.1783311134.git.nicolinc@nvidia.com>
- <20260714140607.GB3695849@nvidia.com>
-MIME-Version: 1.0
+	Tue, 14 Jul 2026 14:23:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EMuGTJ/obR5geAXZ6JTjRi9qjU7DjwtaJ0LgRlCamxFXb7uxLJS8v++iuB4tdxbnYFmLo0HmlJVOUm53Fv8/9KHj1xHxJJkMKYvmkbwc8IrOF/vzYXxTo0C27bkSLnqqjKgR6KEpfUeYXaTHuf47VShafRleeNXZG6+pFpWIB+UXPNzMgNU/QG2WoBOnOzZHui0ZbEKWl8pfnRkb3d21r6q0QwnKqOswr5WgC6xpCgy5pYbkmIRVFpdL91X0fq26HfwMstpZJIKZXH289GYTDPp+h9tv4hV6QoMwj4AksSARtC2sBgu06iHzFsnUGz7PY+vp1GfrOi5Ls3CIa/m7nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NbTGL2W1tbRJgS5J/I9QgPZVjgYoekQGw3zKXQRSGW0=;
+ b=b/biZ1zXYr83Q9n+zvnvd2RTuzrj7BmKFsa7BwCof/tD73jMxn6aACj8NW2sNyHcwpiRL/AtzTx3s4mTKMlBqu8BMbtGnjOrzw+C3G/a2N5K2MRlcjGow78vAxVhlcA7AHL+NgexQtwhkXI070IMmBPv7cZel3EIeP+KKYwFuawUmvO490OjunUQPOVdlWRb+ovOr96IqHb2XFGz2DI0jZrNcN9BbUfe8GCrjpWqAfYFdxMbfkE7b7R65VT5wxyZzg7AC7bgb5QvE098rHikHTDQ1dWT5hU47+Hhn4CRWQMA+dxV+tl+7h7njICXv54RG0vFreUte7ByWedAgCDgvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NbTGL2W1tbRJgS5J/I9QgPZVjgYoekQGw3zKXQRSGW0=;
+ b=YTxAutcjk8yeVrbKsShI+uQ8yoVx7Blkci/lE+Yk3lewVtHP13nmG/TSAViqGwb5abDtQyhUjub0YnzgXc3Y4CuLR25cX4cYcXQLbdoSvucWTYvsEE1uLkyZfK/htnYWq96fVyN7sLQhuWziD9nWa6GGSBT6eDS9YnsyeQVoIzPY/kRCX/efFhumfuxwxGZ+POuNKzA9XVifq4URPLKSpZ30XO6YTqk5jJStrCjG+lkeJ2EY2mDrECM+eue1vtQftXgQsAEygO5EGmijPzeZGTpo9J9ry5hmydKh4Aquhdbi963sobgBiNnAFebhnrIMx5RKew0M9e8FcTbOp9AzpA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10739.eurprd04.prod.outlook.com (2603:10a6:800:273::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Tue, 14 Jul
+ 2026 14:23:39 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
+ 14:23:38 +0000
+Date: Tue, 14 Jul 2026 09:23:26 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dmaengine: Constify struct dma_descriptor_metadata_ops
+Message-ID: <alZGXqV_bvldvS-5@SMW015318>
+References: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260714140607.GB3695849@nvidia.com>
+In-Reply-To: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
+X-ClientProxiedBy: PH7P220CA0090.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10739:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0605213-b3fe-4ce2-880b-08dee1b37f43
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: EyToHlgddIXil/JVR/2sVQToUidHqBq2wxEJc4ySCwHKAYN0lYfc/zVOUWrK96LTqrtxZpzryOuyk8+f1pTrY5kKb3ZHoQqAv292Pjac4CVWVCTGxT+CoMpAords1sA2bApTibQzBwInGUSQB5nKH+RUqjJQWuP0WnaMCjljkJrmk1x60/HehZ6f0GHrhVg6Kxndy6KJ1V6ZCz5/nGw/nPcDzIsPkDmb/5bZ6UYrvK8M20K7/73mX5y25ugubx+Wo1vcHmMyEFTDR6wZWoA83PV5yPE1fKasGtLVP5tsvaCf8CBkyw0KziO7MYLl2aoLc1B9LQ8uvYUksDz70Z3eq/G0tayBNbDAsHpirIMY0S+RUTy2MLbYx2F2Xom2ZEqOJZtqbxSt3mfvlnK/E0+fTZKZjVhUmSdk/RnmbZnEHHtxXb7oYR1s7JbPxkFaQhQ0K7XBWPm6OwnXgMxM9L6aEx/Z+ttxhoZdXbayuNJ8kqWOU30QnNGlHl9MmB8orNuCuJJ6rSEcX2KuNhQzpB/bgQqrwM5+WsJjkV2O0L+KARkcWTt1xs8mm7APgln367urk5n6A7+DPLH3VGzoLtKHoYqBWal5XZt5vh6tmQpENsJZyX7jbIzkMJKGNtXiGQ3+4PTpWmv9KKxlBIOu1FRNEwobRi9LoEcHIZYSMSaZ5D4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?G4Mobyjg6vdQaqqiQhm3fYJNkRheHNop+MzFa9b8CLEop7xY446lbd7dFqHm?=
+ =?us-ascii?Q?dWfMYqeGbCtn/081wgCy+fHt96F5Ml9N6CkbKUYONN/lXVMcjJI/XFcKGq+P?=
+ =?us-ascii?Q?CfAq+7uKxupYiwT4ue0UfUgPzGem+SC7bhgZxjlbb1fvdQ9mCxTatgep6YO4?=
+ =?us-ascii?Q?XqGSPQcR0xebFFmZRwecyVqLIwNN9v1EqqkaXzmxW+wMNk2hFg4xJ3Dg+8xJ?=
+ =?us-ascii?Q?JllIDchay1OYv5o5hcPb6t1qmhQVJ0opQ++ZIE7UkObjSAApGj1hfslXhUkk?=
+ =?us-ascii?Q?R0E7iZzRejPZFiFcHfrrOY6j0ca1E2Tt+o/hFMkqA6q4Sw45p9bmqqhdaVcE?=
+ =?us-ascii?Q?l/g4wb8HoUGWqMsj1EFTEx8a6ulRuJgg9fERyeKqt/N9BYAh+H4QmOeeaGaY?=
+ =?us-ascii?Q?2eGheNn0yYFKE9brYs7CoREYz9lA2Jimpu9UTklJsDhsCDJgNy5UZt/XZQ+j?=
+ =?us-ascii?Q?eLr3dwBkejO2KIWsBqHhOZNKUONotisQ9lJIoAPyqYVdVyxkYuafZpKD+9Fa?=
+ =?us-ascii?Q?H1CdIPkabttGEfK9VjA84ZWScF/+dqnZQKF/snqKi3TAtlbxSFov7KqL0PQd?=
+ =?us-ascii?Q?F3HTMBU8Gbw1Qe8EfXbvpLK/cYtYPfgV9SRsdVvWE8QAfnpAzR/NY4/mD+YM?=
+ =?us-ascii?Q?rHBu6CaECv4ixeEx5BLx3y9p9dO4OlwuqByNG1XC2zIxZV2Ar26z+CnX+S36?=
+ =?us-ascii?Q?oPuVdKBDHx1vF18dh5aI+vKCpdmIlN2kG2VeejcqhqY3SbjR5IsDpPlnVx1O?=
+ =?us-ascii?Q?Uj7wRXQT4CFSi+iXkswAYQieahdYLPRGpKbgLKYAqX1o1z+qwKMsL4Sl9p8x?=
+ =?us-ascii?Q?4tbOpcsclcDOv0+gsZWSCa86p6RoEaKdRDqC5U6IGfk5IkXPwqDLpMRUHx4/?=
+ =?us-ascii?Q?8Tfx4LA6lFQNB6VZPiwIpX9A1qNQfIvV7cZ25DkOUbLYPG26JtMQSVP1I4Rf?=
+ =?us-ascii?Q?3fdko2MrMChE8mCjkPEvN6LhgyjRoIj0Wv5enTYi8+rzVrXYZmBp7pi5JXXX?=
+ =?us-ascii?Q?f8cNJNARXU4TOTp6eqG+P6iwCo/BbQTaMTSNQ1lq5V4z9UMu1iUdq8PnCIGx?=
+ =?us-ascii?Q?irFl5qvr2gd5qAg04uiEFdlxE3wAfsIZ6SbZpByVtncRBecIW447QdVPOPBp?=
+ =?us-ascii?Q?ByGOOkNi6C7+Zatph1S+m9A/ztnW2dPqzhqV/hXjUCsZFrwFx6LiKQ2AOPIG?=
+ =?us-ascii?Q?DPwHOR0/vTTkVy/LashBTYoS9AdloBO4rb7OGF43RbHDhWy+/SMxS0YWOlR0?=
+ =?us-ascii?Q?xbJZve9Wxx+aPsO1bICafNI/218BHcuGqI+1Rp8pZ46wzKjgjiHznbfJ4pds?=
+ =?us-ascii?Q?qMIAjhqnotIrwzndYaiZ9mlTssss0a9XsMOresB/Zu3QY8n5GQZNAbIYhUx7?=
+ =?us-ascii?Q?dyqhMtocA1hQVJq9d7TcrDjo7JUR0ow/pLSeZHit3y6HKkpvEspkA3KStOVa?=
+ =?us-ascii?Q?zuKQkK75zYF0N1ScYEixFx1PURhb3vVR1U+M3/BlqWtF+9otYjqDGdJh5GFP?=
+ =?us-ascii?Q?OdFFwI64Au1VpQ6X/fyl0+qQaQAhBDV53Q63FISrJTHUYK+ZHhly8KOlfG+8?=
+ =?us-ascii?Q?l9R/An09Y9zEVPwfBUWLMTwQGTIs8HUsg+D0VCpuwEPk/Ly3ilklYKHdC/BR?=
+ =?us-ascii?Q?S77XFlLKJfi8P2qkKL/ciKftRp+xRzC9FRZUnov17Y7NGvbgAk5QniWW7hDZ?=
+ =?us-ascii?Q?Yf1W9zsp45BlxraPFUHUORFuPjDfHTTu8p/rptV71JuDL6V/dLMlfNCo2yaf?=
+ =?us-ascii?Q?Jszt2a7wm6RMwjQ2iua5+Ekd2Be53I4G2828HyBaiYcXFJEwfJbu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0605213-b3fe-4ce2-880b-08dee1b37f43
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 14:23:38.6857
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8CcG8tHCxbjt4QO8souESTBzA6QOX0myUEiZ1haBa/UtYAc7kYBm6IMR+9vlhapY3yaMaCmTsPFG/m+Ku3EFZk9Zz3/Ynq0J7Gzsc3dXmKAKZQcSSKUgGtXElUhk8fYe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_072334_313751_E10699DC 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20260714_072343_499698_AC849D1D 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +137,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 11:06:07AM -0300, Jason Gunthorpe wrote:
-> On Sun, Jul 05, 2026 at 10:36:08PM -0700, Nicolin Chen wrote:
-> > Sashiko flagged a few bugs in how IOMMU_VDEVICE_ALLOC creates and validates
-> > a vDEVICE on a vIOMMU:
-> > 
-> >  - the core publishes a vDEVICE into the vIOMMU xarray before the driver's
-> >    vdevice_init() runs, so a concurrent invalidation can reach one it has
-> >    not yet accepted;
-> >  - the undersized-vdevice_size guard returns holding the igroup mutex,
-> >    deadlocking later vDEVICE operations on that group;
-> >  - the Arm SMMUv3 vIOMMU accepts a device without exactly one Stream ID:
-> >    an out-of-bounds streams[] read for none, stale ATC/IOTLB for several.
-> > 
-> > Fix each of them properly.
-> > 
-> > This is on Github:
-> > https://github.com/nicolinc/iommufd/commits/fix_vdevice_sashiko-v2
-> > 
-> > Changelog
-> > v2
-> >  * Add "Reviewed-by" from Kevin
-> >  * Patch-2: Add "Cc stable"; drop the out_release label by inlining the
-> >    xa_release() call
-> >  * Patch-2: Note that the reserved slot is hidden only via xa_* helpers
-> >  * Patch-3: Return -EOPNOTSUPP instead of -EINVAL
-> > v1
-> >  https://lore.kernel.org/all/cover.1782767110.git.nicolinc@nvidia.com/
-> > 
-> > Nicolin Chen (3):
-> >   iommufd/viommu: Release the igroup lock on the vdevice_size error path
-> >   iommufd/viommu: Publish a vDEVICE only after vdevice_init() succeeds
-> >   iommu/arm-smmu-v3-iommufd: Require exactly one Stream ID for a vDEVICE
-> > 
-> >  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 15 +++++++++++++
-> >  drivers/iommu/iommufd/viommu.c                | 22 ++++++++++++++-----
-> >  2 files changed, 31 insertions(+), 6 deletions(-)
-> 
-> Applied to for-rc
-> 
+On Tue, Jul 14, 2026 at 04:06:33PM +0200, Christophe JAILLET wrote:
+> 'struct dma_descriptor_metadata_ops' in not modified in these drivers.
+>
+> Constifying these structures moves some data to a read-only section, so
+> increases overall security, especially when the structure holds some
+> function pointers.
+>
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>  120635	  21584	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
+>
+> After:
+> =====
+>    text	   data	    bss	    dec	    hex	filename
+>  120699	  21520	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
+>
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 
-Oops, sorry. I missed this while looking at patches in mutt. Feel free
-to ignore my R-b if I'm too late.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks,
-Praan
+> ---
+> Compile tested only.
+> ---
+>  drivers/dma/ti/k3-udma.c        | 2 +-
+>  drivers/dma/xilinx/xilinx_dma.c | 2 +-
+>  include/linux/dmaengine.h       | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+> index 1cf158eb7bdb..fb21e0df5ab7 100644
+> --- a/drivers/dma/ti/k3-udma.c
+> +++ b/drivers/dma/ti/k3-udma.c
+> @@ -3408,7 +3408,7 @@ static int udma_set_metadata_len(struct dma_async_tx_descriptor *desc,
+>  	return 0;
+>  }
+>
+> -static struct dma_descriptor_metadata_ops metadata_ops = {
+> +static const struct dma_descriptor_metadata_ops metadata_ops = {
+>  	.attach = udma_attach_metadata,
+>  	.get_ptr = udma_get_metadata_ptr,
+>  	.set_len = udma_set_metadata_len,
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 98b41b8f8915..bef2b031dba1 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -655,7 +655,7 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
+>  	return seg->hw.app;
+>  }
+>
+> -static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
+> +static const struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
+>  	.get_ptr = xilinx_dma_get_metadata_ptr,
+>  };
+>
+> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+> index 6fe46c0c9452..fe33a20abc61 100644
+> --- a/include/linux/dmaengine.h
+> +++ b/include/linux/dmaengine.h
+> @@ -631,7 +631,7 @@ struct dma_async_tx_descriptor {
+>  	void *callback_param;
+>  	struct dmaengine_unmap_data *unmap;
+>  	enum dma_desc_metadata_mode desc_metadata_mode;
+> -	struct dma_descriptor_metadata_ops *metadata_ops;
+> +	const struct dma_descriptor_metadata_ops *metadata_ops;
+>  #ifdef CONFIG_ASYNC_TX_ENABLE_CHANNEL_SWITCH
+>  	struct dma_async_tx_descriptor *next;
+>  	struct dma_async_tx_descriptor *parent;
+> --
+> 2.55.0
+>
 
