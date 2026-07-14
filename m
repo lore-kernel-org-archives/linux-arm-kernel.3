@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBE3C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13580C4450B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fEe+1zzaqbCdXdh6ww+SYAkJw1CH2t7i7FHcOdmaALg=; b=pD7TF56rZFEj0JkZ3PBtOta/5p
-	RZkXF2Mxb5DK4+FSPcZKK2G8bLxtu44MuL7gXo24n4l2fN0W+gvFezF6yKroOdmN5hNIEVJnwWl11
-	xdIwN/vL9fiZhgY0MExLEbHFWiu4Ecy99EC+IfAT5tiE+oZM6W9ci3bYTrlt4pVptM7Dq4Rb2iPcG
-	x28zCHc3qTvB7wIobToOwNc8EWtdtiu0/6yAlCTg5UvC8p2hhsa/QyiPI0DRPRC9TTQq/OFi3WRzK
-	/RJWKEOdtbk3Xpffv/Xh6Awv82Ot0F/JWYsEaMSXpQ/ejYXmzuyP/xT9Q8VgHPXQieX2wl7nRKibf
-	D8KwhoQA==;
+	bh=Zj2ikyX7bBttwfozOnp0vCaUHZFhgvkkDvwyqU4jtCU=; b=fxUYSA64uSp2mmK8v+eTPN2pgO
+	F9e1KwfC/w1rjugHUnhDBxEJs3bFExrulX5fHxpteQxljPI0foSiq1F2Ac0kEqrdVf1PlsSLdA7bV
+	I6qZHLTKZ4mm4W0Hf7R7BHUX3uAB+mym3t6hFgfWZpvvHmB9zTlg0SnkE4pYPCgYpGdNS+1NKRYcx
+	vMNku6iKh0+7DBRu4N51imMK5KtK8ilaIK6q5+iGz7JXidkjIwBMAkwGJizTajiDURVMydIQZiVr0
+	eTNCY6MHijg0DhEmSl2nmZ2Usfm2Y5Rj1C0j0nrKfmF6w9LQfgdDqQs0zch5Naa7wwP4BD1iMkR9n
+	P0vg8tow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZGF-0000000BPOj-0y6R;
-	Tue, 14 Jul 2026 09:17:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjZGC-0000000BPGA-1rMx;
+	Tue, 14 Jul 2026 09:17:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZG1-0000000BP3g-3yIq
+	id 1wjZG0-0000000BP3J-1IDW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:16:53 +0000
+	Tue, 14 Jul 2026 09:16:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC50B43C64;
-	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF0BE1F00ADE;
-	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BA48C601EC;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F4B01F01559;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784020613;
-	bh=fEe+1zzaqbCdXdh6ww+SYAkJw1CH2t7i7FHcOdmaALg=;
+	s=k20260515; t=1784020611;
+	bh=Zj2ikyX7bBttwfozOnp0vCaUHZFhgvkkDvwyqU4jtCU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QsLdjkmGsoNlDYf4FZHQB9btlmfcr28KTP4TvBiUsloYP/QWrot08R0OKdDBcc3co
-	 dGGTR50I0y5OOJ8x40HCKRJ05PB8YLa68C6uYgkQUKq+7zLjiz0Yb+15Kpga8CHULP
-	 7seIOysi3iyqJw7udw/iSt6Vm3q8vTn1YXppDysSgrciO3bCe3JEV7hAsNIdTYWvs+
-	 1xCUnMzgGcitINiQy08m96VzjbpzGimPPInzdOUsR+eKC0nRU/4u6eRak+X/9gnlmr
-	 gFTj76Oo4uMst3f3ziQXzc3v9gu3SWTvLg1ra46sWCtLwtiQYhhImNLNWvtbmfM6rH
-	 adiLUq7/v+ROg==
+	b=g/ZZXLW6J9S+jPcwfyx08ae5OCQGjjYg+SK0Hco3hpx45OF8uSaCGuU60LwZDLUqw
+	 Q+eCdO5Z8fQqbthR5iZPj+QwGOco+nwTYLO4Et9RPfE+ccZBIo1qcvDC8HogS5BKYR
+	 tmXKxYgh3pdHOktUm+BOHkh7IYo0ntKjKQ/KHKlEITTBofJruszX1uJkP8ze2SoV0Z
+	 V/Yy5dRrFAF4nxczFSu4QelFZYL/0zyNMSF5wdIzWoQ8ivIixoCEBTWWhcPjNNtJ0n
+	 RDfX79bve81N/F6O/1HpI2l+dMPq66pKjU1tQT6nZBrjIBIFvh1XDSky/Grqw9v2gn
+	 tRgsY42kmSZ+A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjZG0-00000004ny1-0GGU;
-	Tue, 14 Jul 2026 09:16:52 +0000
+	id 1wjZFx-00000004ny1-334p;
+	Tue, 14 Jul 2026 09:16:49 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 24/28] KVM: arm64: Engage NV3 ERET trap elision
-Date: Tue, 14 Jul 2026 10:16:37 +0100
-Message-ID: <20260714091641.1970822-25-maz@kernel.org>
+Subject: [PATCH v2 13/28] arm64: sysreg: Add NVHCR_EL2 description as a mirror of HCR_EL2
+Date: Tue, 14 Jul 2026 10:16:26 +0100
+Message-ID: <20260714091641.1970822-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
 References: <20260714091641.1970822-1-maz@kernel.org>
@@ -83,55 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running on NV3 HW, always engage ERET trap elision when running
-the L1 context, as there is no benefit in not doing so.
+FEAT_NV3 introduces a new register that contains the HCR_EL2 value
+exposed to a NV guest. As such, it has the exact same layout as
+HCR_EL2.
 
-An L1 can itself engage trap elision by setting its own view of
-HCRX_EL2.NVTGE==1, which will subsequently be honored.
+Describe NVHCR_EL2 as a mapping to HCR_EL2.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
- arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
- 2 files changed, 14 insertions(+)
+ arch/arm64/tools/sysreg | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c562d8171d5e1..b32870a5e1236 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -706,6 +706,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index c6e8117a6f9cd..31e4ea455a9ce 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4266,6 +4266,9 @@ Field	1	E2TRE
+ Field	0	E0HTRE
+ EndSysreg
  
- 		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
- 			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
-+
-+		/*
-+		 * NV3 is a host-specific extension, and we always use it
-+		 * when present and that the guest uses NV. It may be be
-+		 * hidden from the guest though.
-+		 */
-+		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
-+		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
-+			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
-+		}
- 	}
- }
- #endif /* __ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index e823046d28796..8a39e72d8386b 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
- 	u64 spsr, elr, mode;
++Sysreg	NVHCR_EL2	3	4	1	5	0
++Mapping	HCR_EL2
++EndSysreg
  
-+	/* With NV3, the fast path is handled in HW */
-+	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
-+		return false;
-+
- 	/*
- 	 * Going through the whole put/load motions is a waste of time
- 	 * if this is a VHE guest hypervisor returning to its own
+ Sysreg HDFGRTR2_EL2	3	4	3	1	0
+ Res0	63:25
 -- 
 2.47.3
 
