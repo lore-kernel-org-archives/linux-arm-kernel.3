@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD86DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6830DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SfEmAG9O9ZgdPSSc0AdiM77dLrvPKoRZOcZtCO40ddI=; b=xqxIvOMz+WC3+lZGgtZgUUcUdm
-	FNpT3mzz5CKPU8b6SBqWrEK7TqxqOmY/wKgf3DqPCwD9u21WDy7mut63QDCCAVxupgtjRPks82U+t
-	fGlymqehsCaYbTPwXWVnEIuU9O0GsWMuxyFG/R4V/C9r8W44kkA85kGAktVuI+7SCPDCF1vG+7Kv6
-	LEHpjTYS+Nm0pODCuj8yP4PakTxAcvadw/sgKUWNrULeapEU6JAGiD1TVgynp7/G6HPpGVUT+fd3N
-	B1+ZrLKH1TF9Z2XwWO8BsQ3DRQ8uPtlzQHJtJ50g4fp/cnuCIJPtK/pLfeYePFJvNDZaHKjlgKTR8
-	1Wtb9Jlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mlc0hY64KprUwSkJXUEicHTWOnkEtNJugkLOdrrZUCQ=; b=KINGvn3DN9s6+a45E1JtvooDEK
+	jlDaoYqEPSzi/n/D8c+R8UbcOdQrCJPUuWvBPseOuAkSzfIrY8OFGD47PtEfuq1ZZWxjeliWgLEiX
+	ldav3u5I7hP5dbniQuY7xeuyEDBqL/KARVrnSxLTEY+VOV++aWB1OqXFwiimf3/hJbW5zYytzmF2w
+	KnWFYnaACxwiAsIH14iT0OzDf+gim6U7AKobnN3W0CGc9ZL2eI96gsVBzIiU3mv2k1MBn1ae4JS0N
+	noS4R+yw4kgOA6Xqbh902F2rBboEzLupGhFzhytXrBoyEf4g1Z/jy8e8I40UzfT8ABYDv9+kNy36u
+	QUlFyxZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdPK-0000000CDLg-3pUI;
-	Tue, 14 Jul 2026 13:42:46 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdPG-0000000CDIl-0T2q
+	id 1wjdPn-0000000CDTh-0gNu;
+	Tue, 14 Jul 2026 13:43:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjdPj-0000000CDRw-3HlV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:42:45 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=SfEmAG9O9ZgdPSSc0AdiM77dLrvPKoRZOcZtCO40ddI=;
-	b=RhIxN7/Jrh3HIl8VJVooBcJwD1DzKiabw9mMAQ2Bf0CMzn86t9MGMvEZi8E/M9QziRqRGkuyD
-	pLMSGZ/MlxJAl6LeWyHhjBeXa/3IK34lQgGY9tHan7cCINtBZskU8B1cjj1nX0khzLftg80zFWt
-	WxqNy+5UWrq+mS8zIp4SMRY=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h00cG6g9Xz1prL6;
-	Tue, 14 Jul 2026 21:33:02 +0800 (CST)
-Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
-	by mail.maildlp.com (Postfix) with ESMTPS id C174B4056D;
-	Tue, 14 Jul 2026 21:42:22 +0800 (CST)
-Received: from [10.67.120.139] (10.67.120.139) by
- whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 21:42:20 +0800
-Message-ID: <9b726340-f1db-475c-a3d2-07c5ab449893@huawei.com>
-Date: Tue, 14 Jul 2026 21:42:20 +0800
+	Tue, 14 Jul 2026 13:43:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E0412F;
+	Tue, 14 Jul 2026 06:43:04 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CFCC3F93E;
+	Tue, 14 Jul 2026 06:43:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784036588; bh=XEGCQNz6DX9A+EjN/qbl6Yj1SrGTd3gPqQ0Y8PcOT4U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WhqFm/n/5K02i+v6vOAuVrgmcsgHSQy3l9WkMK/HNMdTZFgjuafGCWt5eNi3m16hU
+	 200Q3vUxqRdElXyOsQiwxtLFXbgofGRO/fgjs8kEK02OkqeI3V6xrAZddcP9Jp3UO5
+	 nfER6AyYELi/rjZ/i0+m3PoIxHyYn3eDSMsj9lZ0=
+Date: Tue, 14 Jul 2026 19:13:05 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] arm64: cpufeature: Extend bbml2_noabort support
+ list
+Message-ID: <alY86WOa-O2aguT7@a079125.arm.com>
+References: <20260708144331.679816-1-linu.cherian@arm.com>
+ <20260708144331.679816-4-linu.cherian@arm.com>
+ <eab6908e-d897-4fd0-9626-ef2e0b553cc2@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] drivers/perf: hisi: Support uncore ITS PMU
-To: Robin Murphy <robin.murphy@arm.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-CC: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>, Yushan Wang
-	<wangyushan12@huawei.com>
-References: <20260713125647.2958626-1-wangyushan12@huawei.com>
- <20260713125647.2958626-2-wangyushan12@huawei.com>
- <alYrMQWRL515pYbZ@monoceros> <46634fee-a691-45fb-9dec-ffc9611b6c84@arm.com>
-Content-Language: en-US
-From: Yushan Wang <wangyushan12@huawei.com>
-In-Reply-To: <46634fee-a691-45fb-9dec-ffc9611b6c84@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- whupemo500002.china.huawei.com (7.152.185.250)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eab6908e-d897-4fd0-9626-ef2e0b553cc2@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_064242_486046_6DE3CD7F 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20260714_064311_866610_C3E773DB 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,140 +75,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/2026 8:56 PM, Robin Murphy wrote:
-> On 14/07/2026 1:32 pm, Uwe Kleine-König wrote:
->> Hello,
->>
->> On Mon, Jul 13, 2026 at 08:56:46PM +0800, Yushan Wang wrote:
->>> Support uncore ITS PMU, which provides the capability of counting
->>> the number of interrupts routed to ITS by interrupt catagories, and the
->>> latency. It also supports collecting statistics of micro-ops of ITS.
->>>
->>> The driver adapts to HiSilicon uncore PMU framework. It does not support
->>> overflow interruption, which is the same as NoC PMU, so a few dummy
->>> functions or handling interrupts are left empty.
->>>
->>> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
->>> ---
->>>   Documentation/admin-guide/perf/hisi-pmu.rst  |  13 +
->>>   drivers/perf/hisilicon/Makefile              |   2 +-
->>>   drivers/perf/hisilicon/hisi_uncore_its_pmu.c | 393 +++++++++++++++++++
->>>   3 files changed, 407 insertions(+), 1 deletion(-)
->>>   create mode 100644 drivers/perf/hisilicon/hisi_uncore_its_pmu.c
->>>
->>> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
->>> index d56b2d690709..278bd7e0ae60 100644
->>> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
->>> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
->>> @@ -128,6 +128,19 @@ channel with this option. The current supported channels are as follows:
->>>   7. tt_en: NoC PMU supports counting only transactions that have tracetag set
->>>   if this option is set. See the 2nd list for more information about tracetag.
->>>   +8. int_id: ITS PMU supports filtering by interrupt id, which is defined by
->>> +hardware. Interrupt id takes up to 32 bits, and can be divided into 2 parts:
->>> +
->>> +- Upper 16 bits: DeviceID if counting LPI, PEID if counting SGI/PPI.
->>> +- Lower 16 bits: EventID if counting LPI, IntID if counting SGI/PPI.
->>> +
->>> +int_id is a global configuration for each PMU instance. If multiple different
->>> +int_id's are specified, the last came in will be effective. And if there are
->>> +already filtered events running, new filtered events came in will be refused.
->>> +
->>> +9. int_en: A one-bit flag to tell if int_id is used to filter the statistics. It
->>> +allows filtering 0 DeviceID and EventID.
->>> +
->>>   For HiSilicon uncore PMU v3 whose identifier is 0x40, some uncore PMUs are
->>>   further divided into parts for finer granularity of tracing, each part has its
->>>   own dedicated PMU, and all such PMUs together cover the monitoring job of events
->>> diff --git a/drivers/perf/hisilicon/Makefile b/drivers/perf/hisilicon/Makefile
->>> index 186be3d02238..5f28cfdb8a72 100644
->>> --- a/drivers/perf/hisilicon/Makefile
->>> +++ b/drivers/perf/hisilicon/Makefile
->>> @@ -2,7 +2,7 @@
->>>   obj-$(CONFIG_HISI_PMU) += hisi_uncore_pmu.o hisi_uncore_l3c_pmu.o \
->>>                 hisi_uncore_hha_pmu.o hisi_uncore_ddrc_pmu.o hisi_uncore_sllc_pmu.o \
->>>                 hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o \
->>> -              hisi_uncore_noc_pmu.o hisi_uncore_mn_pmu.o
->>> +              hisi_uncore_noc_pmu.o hisi_uncore_mn_pmu.o hisi_uncore_its_pmu.o
->>>     obj-$(CONFIG_HISI_PCIE_PMU) += hisi_pcie_pmu.o
->>>   obj-$(CONFIG_HNS3_PMU) += hns3_pmu.o
->>> diff --git a/drivers/perf/hisilicon/hisi_uncore_its_pmu.c b/drivers/perf/hisilicon/hisi_uncore_its_pmu.c
->>> new file mode 100644
->>> index 000000000000..430e2b06cf4d
->>> --- /dev/null
->>> +++ b/drivers/perf/hisilicon/hisi_uncore_its_pmu.c
->>> @@ -0,0 +1,393 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +/*
->>> + * Driver for HiSilicon Uncore ITS PMU device
->>> + *
->>> + * Copyright (c) 2026 HiSilicon Technologies Co., Ltd.
->>> + * Author: Yushan Wang <wangyushan12@huawei.com>
->>> + */
->>> +#include <linux/bitops.h>
->>> +#include <linux/cpuhotplug.h>
->>> +#include <linux/device.h>
->>> +#include <linux/io.h>
->>> +#include <linux/mod_devicetable.h>
->>
->> Please rely on linux/platform_device.h to provice acpi_device_id and
->> drop the include for <linux/mod_devicetable.h>.
->>
->>> +static int __init hisi_its_pmu_module_init(void)
->>> +{
->>> +    int ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
->>> +                      "perf/hisi/its:online",
->>> +                      hisi_uncore_pmu_online_cpu,
->>> +                      hisi_uncore_pmu_offline_cpu);
->>
->> <disclaimer>I don't know anything about the functions involved
->> here</disclaimer>
->>
->> This looks fishy. The module might be loaded on any machine, is it right
->> to call hisilicon specific functions then?
->
-> This only registers the state with the hotplug mechanism - the callbacks themselves won't ever be invoked until the driver binds to something and calls cpuhp_state_add_instance() from probe.
+On Wed, Jul 08, 2026 at 03:53:59PM +0100, Suzuki K Poulose wrote:
+> On 08/07/2026 15:43, Linu Cherian wrote:
+> > Add below cpus to the midr list, which supports
+> > BBML2_NOABORT.
+> > 
+> > Cortex A520(AE)
+> > Cortex A715
+> > Cortex A720(AE)
+> > Cortex A725
+> > Neoverse N3
+> > C1-Nano
+> > C1-Pro
+> > C1-Ultra
+> > C1-Premium
+> > 
+> > C1-Ultra and C1-Premium both suffer from erratum 3683289,
+> > where Break-Before-Make must be followed to avoid a livelock.
+> > For both CPUs, the erratum is fixed from r1p1.
+> > Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
+> 
+> Please could you also update the list of errata here :
+> 
+> Documentation/arch/arm64/silicon-errata.rst
 
-Thanks for the explanation.
+Ack.
 
->
-> It is true that the dynamic hotplug states are somewhat limited, so at worst it might consume one unnecessarily if the driver is built-in, but this is the status quo for system PMU drivers, and TBH there are enough *other* issues with this whole perf hotplug mess anyway that I wouldn't see this one as a major concern. (FWIW I have started another side-project to make it all go away, which is beginning to look promising...)
->
-> That said, in this particular case, HISI_PMU could seemingly do better than registering *multiple* states with the same exact callbacks - registering a single state from the common hisi_uncore_pmu.c framework, then just having all the subdrivers add their instances to that, would be something of an improvement for now.
+> 
+> > 
+> > The relevant SDENs are:
+> > * C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
+> > * C1-Premium: https://developer.arm.com/documentation/111078/9-00/
+> > 
+> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> > ---
+> >   arch/arm64/kernel/cpufeature.c | 9 +++++++++
+> >   1 file changed, 9 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index 9a22df0c5120..adcabea80fcb 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2152,6 +2152,15 @@ bool cpu_supports_bbml2_noabort(void)
+> >   		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> >   		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> >   		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
+> > +		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
+> > +		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
+> > +		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
+> 
+> And mention it here, so that it is evident from the code alone ?
+> 
+Ack.
 
-It's true that in current implementations, the hotplug callbacks are exactly the
-same. hisi_uncore_pmu.c mainly serves to provide public functions for other
-actual PMU drivers, I can move this dynamic-state planting code into that module
-and export the state to other drivers.
-
-There are also some historic static states for HiSilicon PMUs that could migrate
-to dynamic ones for better consistency. I will try to do that refactor in the
-next version.
-
-Thanks for the suggestions!
-Yushan
-
->
-> Thanks,
-> Robin.
->
->>
->>> +    if (ret < 0) {
->>> +        pr_err("hisi_its_pmu: Fail to setup cpuhp callbacks, ret = %d\n", ret);
->>> +        return ret;
->>> +    }
->>> +    hisi_its_pmu_cpuhp_state = ret;
->>> +
->>> +    ret = platform_driver_register(&hisi_its_pmu_driver);
->>> +    if (ret)
->>> +        cpuhp_remove_multi_state(hisi_its_pmu_cpuhp_state);
->>> +
->>> +    return ret;
->>> +}
->>> +module_init(hisi_its_pmu_module_init);
->>
->> Best regards
->> Uwe
->
->
-
+> > +		MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
+> > +		MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
+> 
+> 
+> Suzuki
+> 
+> 
+> >   		{}
+> >   	};
+> 
 
