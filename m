@@ -4,154 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B3EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F14C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=; b=zuyJ8HVcGGSxYRzrJl9ZmXncN/
-	zI+TR8vEwwrNOAh0OJxc0kO2ANMa4jXziBgWAg3r6UI6sMbiazNwVdikwMpzOI9HjlckomBHmm4KF
-	6sl5AiBT26ulVmREW+XXnzLropjRVJ3NNsONYqWCdscKDn7bfuo9MItQkE9zCroMK1nQb9ktQNk/o
-	xrVrmbykmwjlgiNIMpjFNhfKLM9cHtV7s6aLgrb4Y3P8YBm0EQVfJqb6MQfQrKb+GrewK3RGybyfs
-	HkE9QsXtqMjezt2WXVYzUjE+OFVOf19fBXsoXtQkK8jZo/Iya9CVOu2UDplQ+YfCLmX1OU+960eaN
-	aaNY6f9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pvROKIHjLzLVz4XM3r08Mr5TltD+zu8SC0Ti7eT5zoY=; b=KgE7Qktm3VOXstLBtT2nbpG3rR
+	SnGfmkS4uOzvVZVqR4w1gwsFdP1AAUDRUxg4pbzXQeDxQKHv0CyvTHH9vwtZ293lsBn6OZuk8LIBC
+	maQF44litMzZw/FfLChEEDQX7B6xsdi9tUFx6wvqah1AZh4Qx8xvazIGkWYL0p/4UrVhIl9KfTohD
+	P61RfFkASFa6XXo9zKlBh9QdhD143yUXzo0DVfvX72mICGbDZ73IWFD8rloRaIrgXsmqAcmWeggHc
+	o16zo+rEuyElEFW1NHthfQdb418AQxV0NzqazJwhscA+bBkTHkq4Gh15fdrgWUcUoboUdImnQnfML
+	SF3ySwow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjp7-0000000DEvj-0NpU;
-	Tue, 14 Jul 2026 20:33:49 +0000
-Received: from mail-westeuropeazon11011008.outbound.protection.outlook.com ([52.101.70.8] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wjkAJ-0000000DGyL-1SFZ;
+	Tue, 14 Jul 2026 20:55:43 +0000
+Received: from mail-westus3azon11011050.outbound.protection.outlook.com ([40.107.208.50] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjp4-0000000DEv1-1Xb9
+	id 1wjkAF-0000000DGwn-45Aa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 20:33:47 +0000
+	Tue, 14 Jul 2026 20:55:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bYnTI3IRB8AeiTgiAShfpSgop65q5/Ihb3GVmYNdeHFS7OoxoVK1k2KmY5Rz63svfRiHvdD8LnK21ixcaGns8IyDKSrat90Vtbqd+5h2P6n+MFzJr9m76dgfSkLGgt3jIrvRiA/rKcn1+MNqmY5gv3+LAhOGq5klDtii/A2irCcpbQweFnUnAZBHe3Fn4YNbNJ6mY03o6/QW+ilhEIyvQzD6je25mpk675Idi/lBFlCEG5d8MlLGFDeiJgcI7azcPrilJpeIYgcsvseizOWnaNGM+Nyzf8A0u/sj0iJ02/ZEsFbWN2PYCsfh4DDIQNEhgJhre1uArGktN2LEwVOM4g==
+ b=K6VlUilh5f29G3jJnth6HNJf7zY7mfXcC+oGyIyQW8GyKVHMh2G/eINt68XdwSUnBOV3ZeQ/AjfoYM2/COkOSbjWGii4piVX2TEv2UOzIEm2HLq++2LbvbwxK5LPBCiwsmgApREXdqPpRqzhkUt0ihWSsFEFHZfOiXp3MI0pIA+EPR7jLcg+788FjfVmTrydXT5nHx0agp00KX9h6BvMuzJTjzuMG4j7xs9Dz3gtljhIJYZIXfCOkUj6ur2GRg7kZQCTOo3m9dQ8g8lrspj591eFqZZ1Txr8qrB0jAOc3hdmnxYwHvBfBEM8dln+d17CsxHKYFApe6ZFLY444tDczg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=;
- b=xNHF9LQLwobwxG6H8NUmSMDAcX7JpzwSf5rBCpkUUHyf5iAC7YogA9BLXVJKFjwBbcujRzHspLxqvAIMNKYUObLf7ZY4vGwpzqnFiAbu3oENCnEZbOtGLhWvGK48BftBcierVFdQEEB9oOsB8daIxiwAo6anKqaCbWgiA5ppK2zS3RaDusHOkfiFPUddSIS5W1k2GEnwKgUsFLwCiERLT4kdl1SC9n5mwVA3ZeVXvd2C0kliX/HB26wzQLeD++K9b23eywWdWNXltsuCFYR1O9Z741Zt1jFSWvJNM3cIXEXhgm7UZNh4rRhF8AnwzuHfM6Yn75yEropf0tvYT7E66g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=pvROKIHjLzLVz4XM3r08Mr5TltD+zu8SC0Ti7eT5zoY=;
+ b=IJh+8hEX0hEvMnNC6j0ncNzhV7js3CMuR9r6mVoGmZbWGMmyKyenMpBGbvoGmQ4bonipxCI2RwXIjNtLjjqiE/eam/iBsC8Ve8t8rKJ/g7GvE2f+ix6z/f1tQNlaEEzfYoxCDXMuZ7BTARekDbcOhyoRsT7tE64Jg9tOl7JphEizoZSnmjfFcfC8H+jxkAD0CAYLpIOyykqlkn0o9KHGKAWi4kbWg/Esfl0yNkyC+eF/wmaT3/hvJU+K2ivk+l96Q8jJl41HycjIuAGpS66iKjtnH3RqqdyNLixa7MA3T6HkNSvxQ/WBoXMdBR9BwBVcIQg8g3GzILwJVinx0amBGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=;
- b=rhLog645LkBZsZwjBzFRQnuf1QCaL1h2ffWXiYEdkL0GV+Qh93qMuJ4DkR4jlW6t6Ui4DuSuv/ZWW7f3/oVGdC0X7MR7B6e/rZJEyT1peOrGflEn8MuPib38LpldEHgkxIy3WcXOf+FycHsmDvS2Ds/kod+2dfmzBxd6bsaIUqKLwiQ6mxCLVyEWANjHIbfncwf7dquIJ6Il9cvoTeuVGumjO1G8+buZrDKrttzXIxU6OCH+AYrl6LK1685d9oPXhWOf+rIGEuRTVbFn897C/Nwe/42mApQNlkVVuwQpy+UXnL7SGnHER2JEX4/69H9XB/ILFuRhSbDmLucHf7VUpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM8PR04MB7793.eurprd04.prod.outlook.com (2603:10a6:20b:240::14) with
+ bh=pvROKIHjLzLVz4XM3r08Mr5TltD+zu8SC0Ti7eT5zoY=;
+ b=UxBat2HcAmJK6fIFcwtTTyziW5dgsKBtHh/X+FQ5uI8hScdua+oxFyff9SBHkXzRz5HprHCIxHZZkNSR54GNSiwid3yMWelEc6/qL1+D8g7DpRliV15Drte0sSwn7MKrAS+j5HbzzQT07pbehWBbz+JeliN6HTEWnUxJymD4M99n+4QDmY3U4YrRNay/uywp8TAqMlMhlBHSBaHvdip7u8tmHJZHKJE+RJSFiComSF6jH9/P1Ujoa8VUSijUQX2qYt02ctakP1Om6CvFdupTJ3O6AvbPbayZTpHmLeA+E+ykfMsHZZt3HwuYf80N7SMSfdvFWikKI32kuPqnYV0ZIA==
+Received: from BL1PR13CA0143.namprd13.prod.outlook.com (2603:10b6:208:2bb::28)
+ by PH7PR12MB9204.namprd12.prod.outlook.com (2603:10b6:510:2e7::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
- 2026 20:33:42 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
- 20:33:42 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH v3 0/3] Add support for Variscite DART-MX8M-MINI and Sonata board
-Date: Tue, 14 Jul 2026 16:33:34 -0400
-Message-ID: <178406120321.1837865.3331872270821661159.b4-ty@b4>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Tue, 14 Jul
+ 2026 20:55:32 +0000
+Received: from BL02EPF0001A0F9.namprd03.prod.outlook.com
+ (2603:10b6:208:2bb:cafe::8) by BL1PR13CA0143.outlook.office365.com
+ (2603:10b6:208:2bb::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.10 via Frontend Transport; Tue,
+ 14 Jul 2026 20:55:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BL02EPF0001A0F9.mail.protection.outlook.com (10.167.242.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 20:55:31 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 13:55:11 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Tue, 14 Jul 2026 13:55:11 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Tue, 14 Jul 2026 13:55:10 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)"
+	<joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>,
+	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 00/11] iommu/tegra241-cmdqv: Fix error-interrupt races and VINTF lifecycle bugs
+Date: Tue, 14 Jul 2026 13:54:57 -0700
+Message-ID: <cover.1784059577.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1784046629.git.stefano.r@variscite.com>
-References: <cover.1784046629.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P221CA0056.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7793:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24e18de1-91cb-4e4d-4e5a-08dee1e731ca
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A0F9:EE_|PH7PR12MB9204:EE_
+X-MS-Office365-Filtering-Correlation-Id: b4172345-6663-485f-df2d-08dee1ea3e67
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|19092799006|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: OxI8QA0BaZcVQZ8FiAyVR2gLW5b6UjjNwRI1H7J22Yg5h/9sGwbYEuAYdl1yBbUjp+zDR2ORU9vRBykVsvXx2vCIxH+FrqdyVXeckToetMH1qRyJU1+wzlyAAmq9mKJjmkFhPWgDfw65mta46M5ZKa7urf2S5cUtzm1lI9Tpz1ujySZW9noS03LI00HR09KRAaULoYcSP0PACu7WbQQR0mhOJUNtNETBpf/foVIAyQV+gTKjYySI0MOJFxxm12JNIvlq2t8SqMjdGTUqIm1tePsyneZr0cgqQd8nhpkQz7nBnV3dqqhtVEXWcx3T6siMMDP4v6TyqihCewIwEb6LBcutebZSJwqzXER+S30qN4JpOKonSYec/mnlGEReLKAqcax8Y0B275Qbb2yiok+1yeKa/mvwh5srHsuugIkT2RG7Pdq6DQE8fvyUPHSCsbRd1kCkutB6IytKCUXN59lLK5NGNTlRYyDJlnOSLCe91xSMxy81XO1xFPvWHWPRAwJ7ZZKZT1KzSLpmh33X2amniqn47uDK2epsiXfv82/E1f+5By7Pwcossc7aHlx91CQMzgLnMVB5RYHlwOvQU1nljHiym6Ifx7HhCx2Ub5aTRdbGiGuCHAcCqgyDA0o0IZz1Wghljga6I7/BJWplVyFfKng+RPATxHskM38EvN5+Su0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|376014|11063799006|56012099006|5023799004|18002099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info: tbjvNBfTpWLwjvJnJpUW0cEDdyK2ktmnRtz3UFeY7zaUV9ODxNx9LleJ8Ukf4TGDYDvtguXspkiJulqnGOog8KSWTXz07mdcwHGQNKXCkW9ohK7zu1cVlhiwfQmWRGc17RDrG3GvSYAxVXi5A/WLHnttGsZWIZAoS/x5CsI/bACikYy56axZ8HbaRseL6pK1PyqeKmyPsln1FRbRy4G3FDZRw0kIex68EbEQv5zcFxYur3oLPHmRVPg5ZW0I+j6n1pWhL6DBIjTL2e7lSPIPYSsVUCK/zAJvPelp6tDKXRFPonKFiDLHBnh3GGh5oRVMJzHXYNLYNxD/K+q9bLDmKEwv20z7175xCo5bbIJ07rZAhXxdc3Fk5liKM0tcc1VJQKqUbLqnj+su07gTH8kq3A8W23M07lGuJeeEfd9yxGG68zxpnHuqabpAsH8D0PlZl7O8EZQ3LdfmtPAC6cs8LelR9WMBfDQuZXJzmIFIJ/dravmTBHVxyjDj/gX5RDL6kQf0NZYwbe1+7qhqdEtssCutfKPszjmghk3mdGxFSuEN/SrQyL4o1qq9Vg+fcmkrC1wC7AuGbzQxshHV3+YB/vCrrFr3rljs8g+MC35U6LH52iFrZpV0fhIwy8jPux+0d2O3dtLXE2yWTslyrnl1qdD9/VzvtL17KetTbqgx9u/m0YAjOjOpk/waKtmOURQPuhTcsf/3lMDb0qW6Rd3qJQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(376014)(11063799006)(56012099006)(5023799004)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RWNhbFVmTE1zUXJuSGdCT05LYUtzYkgvNVJKSTl3dE1xbWhmQnBUc3RjM08z?=
- =?utf-8?B?SHJ1MGJ5UEs2U2QySkFKQ3N4QmhWa0t0N1NiMGpiYXZ4Z0hjS0JYaVJCcGN3?=
- =?utf-8?B?eTZpbVBwcGQrbjNMcXBZaEJCMTI2Kzh2RkJOVUI2MGdNWnl2bkw5ZzZzL3hE?=
- =?utf-8?B?WjlGZ0ZrZGRodHU4VmY3TDZrdmpnbzBxeHU4NkFZelNENEVHeFE3RVBBc2Vt?=
- =?utf-8?B?ZDk1TXRNTE1uUTNhc0FlVWt1TFNQV0prcnFXWGNnRWVGSlBtMGszVU1oTmtJ?=
- =?utf-8?B?SW5VR2t3enY2QUtlcEhOSjU2dXZyUXExNzdSc05iNlRRM2ZvTXdBM0QxcEc5?=
- =?utf-8?B?OVVzQ1NwaFhOd3pRS1UxenhNcHhZM0I3MTJJS21GSW5NdmJHZyt5LzJsWm5P?=
- =?utf-8?B?UjFWcXNnS08rWGtmRlRBeVhseS9tMVdsdG1qM2swZnNaVjZaT1NhcXBmOGZU?=
- =?utf-8?B?bjYra0JCV3Fxc09WUHRNNjNHbzdINEZRSG4raXBUaUQrTDM2dlYxZ0ZwS2po?=
- =?utf-8?B?Mk1IUFVCcndGZ3pkZ3RHaG1GcGpLUk5QZzIrM1N6MjF2OVIyTTNLcnBRTkJW?=
- =?utf-8?B?bnpYdE1kK3RFTGI0bUxhZUN6UkdTd3ZTazU0L3QwVEpyVUpzMnJCWEsxRFBG?=
- =?utf-8?B?M1l2czBiVGwzNmZTbStxcVlYcExuckRDOHEzemUzTTRQTjhDeEg3eUJ2Ykg0?=
- =?utf-8?B?UWtrV2FWMUZhK3BWdEY5blRnUU1SeldZSTBLQURjUFVRVi9sRlJ1ZHZPWWFK?=
- =?utf-8?B?RWt4L05FTVRpSE1wYk1wc0h5WlllRkFCSm9SMjlIODJGWk5EeG8rcVA5YU0r?=
- =?utf-8?B?TGVHL09ub25kZVhhZ1B5bGFZVzcwS2JXUCtqRldCaFhSM0lXeE5OR3BndFhs?=
- =?utf-8?B?UWcvWm9rMnUxWW9EV2JWTDhkSGdWR0NQT0duTVdQZjNpMEU5TTZGcmU1S2xj?=
- =?utf-8?B?OFNjdzBqUVVTdk8yVXBWTW1vZWNiQ2x4UVpNMmxIRktqVVJ2Tjk2VGFZY1Fi?=
- =?utf-8?B?ZGVvUEtEZlloOFI3TnhJV3dZRGRCM25ONWIwdnRzRXJ1R2tWY1FyUnJ0bTBP?=
- =?utf-8?B?UjloL25SNW1MTU9PcDRFUmY5QTNkRVQ1M2xiL2NWRDNINmlLRDE4VGhMcDFB?=
- =?utf-8?B?aW1xZWRUOFpLOTlDUWNHdDZ3alpQbnh1M0dubDR2Z2xuM0Vxa3h4T29CNmQw?=
- =?utf-8?B?aG9vS3l0THFoYmhWSHdQZFU2azBiVllLc3A2RVBSTTQxNXpXVFd2YkhtMmV6?=
- =?utf-8?B?K3FsUm1QWDBOdXEveDFGL3Z3K1REQWsySkZ1Y0FwN0pzRXQ1TDVJdDVKL25O?=
- =?utf-8?B?Mlo0T0E0dXdtblBoVzN6L0RxVERlRmRlYmJIWTI2WGo5c2xMV3FTRnYvSGNK?=
- =?utf-8?B?UVN0NG9PeWllQmU3WlN6SEZTVnJhL01jVGFZQ3ZyajkrNTBmTzVhVXhlYTNE?=
- =?utf-8?B?M05jYldpUkxXVjJnMG1XS2tEMlRlZEV0YnFZalRybyszbm1iWWxIaDVpM2NF?=
- =?utf-8?B?a1ZtaXF3R21wZ3FIRUlGQkNkamxRV2Z4ZXkzODEzZXdwQWdhSnIrUDBrdG1y?=
- =?utf-8?B?d1Axd1RYNnFaRXpzelB5cVdrV2RObXNQU2k2QXZqNVlrV2RKdUpsVjVPNity?=
- =?utf-8?B?ZCtUREU1RkhBYmtWZUd6Qlp6Zzd1Q1RuWnh3RGpjMUdnQjBRTzluSEFwc2k2?=
- =?utf-8?B?ZzVvcGhPdFZWZ3FzclBEMHBvSEdZMExoT25HL1FJZUQrL3hCZ0JYZy9kc2Ir?=
- =?utf-8?B?Y1pNU0ZEdG1OZlVSaHFMbWQzbTYyMHRjWDJzNHJYYTZZNDdXUVk1dlZlREk3?=
- =?utf-8?B?MWFmSHVPUVJqeGtYTlNyZkhaR0Q3Y0dhSXNJWkdYOVQvYTRKNThkYzBPbzYy?=
- =?utf-8?B?N0twY29sQU5td0MyVnF6VUVqbXhhalNENnlXRDNQRWRTTjVsMDdNYWdmSXVa?=
- =?utf-8?B?TXRsMEpMM1VtZkZOV1ZUbzNPOHFHN3VaTzdIWXFqb21ZM0tWOVBuYWlPWG5S?=
- =?utf-8?B?SHg2c3c2TEtvcG5zaWRNNkdxcFBSb01mbnFwdStQUFR1ekNDYWtRQ0swVWQy?=
- =?utf-8?B?TUdIMytwTHNJNmx6aFZrRXJNajZ5RlVCOVQ4eFV4dGh0NXNLazQzQ0VGZllh?=
- =?utf-8?B?ejMrZHR1aVNLOVJiOWluVDlHaUhCdHpLczgya1BjQTVYZHNZeGpFUXVVNUU3?=
- =?utf-8?B?RE5QdE1wMWYyMmRuRW1KaXdBRkpKdzRIVnNYR2d6Ym1KNWVoNlBuTk45L2Fr?=
- =?utf-8?B?V1piSlphcktDU04rc2xicDJoTzQzVVpCWERqRG9oK0o1UG8rbHp4R0V6eGZm?=
- =?utf-8?B?N2FFMTZ4Z29DTGJtaGdCRm9zWmhkcVlnUEhCL040USs3TXl4QVIyL1Z4TGo4?=
- =?utf-8?Q?T6i0pGUR5MBUZ57PdC7RRU94L/MMhqBUJ2L6J?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24e18de1-91cb-4e4d-4e5a-08dee1e731ca
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 20:33:42.4067
+X-MS-Exchange-AntiSpam-MessageData-0: 6hyWBvHgEIrPZpAf7lMno1xr1wA8nuXXz3XmLmBrGRx2eA+8v/uqKTY+CtBNjDQbotKBa1zT6Hz5lQ/K2bU8wnNLM2ViJd2nJwksjr7cgbQ5GzFX6c6P1b90pFLgHXE39Kluk/iyHg6bqL6gD+rdOj1ROfjBtjAvPQgOfXtmmsoBWbIDx5zH9wZKoGA2IGCHj/5kP6sLptvYv6PFfXb6DMCW3mm7HS3b4m1IJgmZiyxPKPX4KVLWlfTA63zV+VOzMoy27HkPpUbL5PYlPO+WD9iT2YWUEKF6jWxenssEe/54eNigJaSEAA6xIkemZh9r5h/ym5fAj2Z1jllzJLsE7aGjUSf7Q+shkB5xa/ySVzxVqYpyxrA68dA2Q9LJluXrExupbQcFEwJ6wB7UhutWMgl6ZEZu0klQ+JlMYndbs/t+hfCiXxeYYpjcLTKx9vUO
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 20:55:31.6967
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7qkU/XXWv1mr5kOn208agIBhoTvc6eO7fuzjUl4nkD9ZUZtvmDZqo+GXSvuoIkTRxEznG0I6dOYFM5ceICARbdaUGfJECrEEuJ2buSQDVt+LDY/IvCFUAau6sYiWi8+X
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7793
+X-MS-Exchange-CrossTenant-Network-Message-Id: b4172345-6663-485f-df2d-08dee1ea3e67
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0F9.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_133346_412236_7FEAB84E 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260714_135540_015540_A12EE05A 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,29 +126,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+These fix a cluster of bugs reported by Sashiko during patch reviews. The
+patches are ordered roughly most-critical-first, so some later ones fix
+smaller pre-existing issues in the same functions that earlier patches
+touch.
 
+Issues fixed:
+  - the error ISR racing VINTF (de)init and reading a NULL, freed, or not
+    yet fully initialized slot
+  - the probe fallback dereferencing an smmu freed by devm_krealloc()
+  - a guest vSID programmed without validating its width or the device's
+    Stream ID count
+  - VINTF0 leaked on an init-failure path
+  - error-map index/bounds handling and a VCMDQ base above the 48-bit limit
+  - the error ISR flooding the kernel log under repeated guest errors
 
-On Tue, 14 Jul 2026 18:33:50 +0200, Stefano Radaelli wrote:
-> This patch series adds support for the Variscite DART-MX8M-MINI
-> system on module and the Sonata carrier board.
-> 
-> The series includes:
-> - SOM device tree with on-module peripherals
-> - Sonata carrier board device tree with board-specific features
-> 
-> [...]
+False positives raised by Sashiko:
+  - a viommu outliving an SMMU unbind and touching freed memory on close: a
+    physical IOMMU is not a pluggable device, so iommufd holds no reference
+    on the one behind a viommu, and this teardown cannot arise.
+  - the ISR running after cmdqv is freed on probe failure: free_irq() runs
+    first from tegra241_cmdqv_remove(), the devm device_remove action,
+    which devres invokes before the cmdqv allocation is released.
+  - a guest never acking its VCMDQ error wedging the shared interrupt: the
+    interrupt is edge-signaled per event, and the host ISR only snapshots
+    the error map into the guest's bounded vEVENTQ, never depending on a
+    guest-side GERRORN ack.
+  - the ISR accessing a de-assigned LVCMDQ page after a VINTF hw_init()
+    failure: the page remains a mapped MMIO region backed by empty
+    registers, so reads are benign and writes are dropped.
 
-Applied, thanks!
+In parallel to Shameer's Tegra241 CMDQV CMD_SYNC use-after-free fix:
+https://lore.kernel.org/all/20260629094106.251694-1-skolothumtho@nvidia.com/
 
-[1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M-MINI Boards
-      commit: 949e5a6a8f349ff3098f4dc2aa3483723e4209c1
-[2/3] arm64: dts: freescale: Add support for Variscite DART-MX8M-MINI
-      commit: 5297deef08bc3ddc1a27b3518b770dbc3a14da81
-[3/3] arm64: dts: imx8mm-var-dart: Add support for Variscite Sonata board
-      commit: 770aba46ea0fad62631848d4cf2c0c8a5fac7ba5
+This is on github:
+https://github.com/nicolinc/iommufd/commits/fix_cmdqv_sashiko-v2
 
-Best regards,
+Changelog
+v2
+ * Return -EOPNOTSUPP in tegra241_vintf_init_vsid
+v1
+ https://lore.kernel.org/all/cover.1783054570.git.nicolinc@nvidia.com/
+
+Nicolin Chen (11):
+  iommu/tegra241-cmdqv: Publish an LVCMDQ only after it is fully
+    initialized
+  iommu/tegra241-cmdqv: Synchronize the error ISR against VINTF (de)init
+  iommu/tegra241-cmdqv: Harden error-map index handling in the error ISR
+  iommu/tegra241-cmdqv: Don't run the error ISR before probe sets up
+    vintfs
+  iommu/tegra241-cmdqv: Don't fall back to a freed smmu after
+    devm_krealloc()
+  iommu/tegra241-cmdqv: Free the error IRQ before tearing down VINTFs
+  iommu/tegra241-cmdqv: Reject a vSID wider than the SID_MATCH field
+  iommu/tegra241-cmdqv: Require exactly one Stream ID for a vSID
+  iommu/tegra241-cmdqv: Fix VINTF0 leak on the init-failure path
+  iommu/tegra241-cmdqv: Warn on a VCMDQ base above the 48-bit hardware
+    limit
+  iommu/tegra241-cmdqv: Rate-limit the error ISR's log message
+
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 224 ++++++++++++------
+ 1 file changed, 156 insertions(+), 68 deletions(-)
+
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.43.0
+
 
