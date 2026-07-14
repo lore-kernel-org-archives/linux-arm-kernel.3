@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0471C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9710CC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E4krt1f6YoDo9Rfh0K9hZzo6+ditY9IeBA9Vtv9ggw8=; b=4YwjUV1eL/htqpPChrEP1zbpWP
-	gUdSzw+uCsptv5nllhPMnIE7wq0YNR0CTKnAJZYKK7eGdKmCZM92kyefI/zb6Bd36ZJ4CoWaiq+DO
-	TPJi1G9wVgBIp2F8wpTTc6Bcm60YW26ha6KbzpjDdaEgZ5ETvz3mWfSwjGRicCIKqlryS0Q+I0Jmf
-	s6a9SbaBQD70HRDEnwzoFk8IvrdpZXK0xCl1m8Y0lkCRcsSMf3fd3c5M7aGpCNM6em+Bn+5L9wERj
-	yNFVH7k7PKapsOXxauntZxWwHXbbCYe/iIRWRJeyr/NmRjPBKv1BqvGhPI9B5D6CaHMYysGn4O4YS
-	MXCS9nLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WChOIXCXpcq0quURVEjiQP6ReSE7dcYzMBe/VviNclk=; b=4PwbZ3veFRD2Aej0dmESfVMGJm
+	P+WiiSXBZPwKuL75vE3zc+QugzBjNQ0QwEzhNAgjo8qS1pb+tXum3G6DoERzReO2pjvusU29nhJDy
+	lEBPPDhMxjvEJN40KUYsNk+y2hp0tR5oAXRX763Xfo34+tHNpp6h8Z1hPWvhJJqYZjsf8DVsiAfeh
+	pMes0KGjH7TrvkZZVvXlmGEisbqcLaDAqKX+EdaupW5/fbTUQ7jxCTV4/r+VPn9yqWfG8dJS6PvWM
+	D3bSFYNQKbCwoto8ogmVza6hpgeEKV+voFEn0m7vUYhYoN5H5x6anpnGm6RUAgBU8G8749PhibHT4
+	rylQN3fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfcS-0000000CcX0-2nb9;
-	Tue, 14 Jul 2026 16:04:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfcP-0000000CcW8-3Ly5
+	id 1wjfgu-0000000CdDA-3Ph1;
+	Tue, 14 Jul 2026 16:09:04 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjfgr-0000000CdBw-3qTz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 16:04:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C436339;
-	Tue, 14 Jul 2026 09:04:18 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 009BD3F7B4;
-	Tue, 14 Jul 2026 09:04:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784045062; bh=t2KYfj/agvlS18IATNMk9iCfEZE6pPzvSrr+EZU4WmA=;
-	h=From:To:Subject:Date:From;
-	b=cj+ccMvxR7Gp0S6Df60GrepTnSACTST8Nvb6CfEG2XojadhD4TYl0Til1+IELdFyI
-	 1xuBXBpas50TFEvHjni8AHUWyYyoIhRku6BYo0rgrSHBUXA/vTovvp9lgyaMcucGNs
-	 pmupE1IXyIS0bNsCSGdpOs7Eww+2W140P0I904rs=
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	maz@kernel.org,
-	oupton@kernel.org,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	seanjc@google.com,
-	david.hildenbrand@arm.com,
-	mark.rutland@arm.com,
-	ackerleytng@google.com
-Subject: [PATCH v2] KVM: Ignore MMU notifiers for guest_memfd-only memslots
-Date: Tue, 14 Jul 2026 17:04:11 +0100
-Message-ID: <20260714160411.302386-1-alexandru.elisei@arm.com>
-X-Mailer: git-send-email 2.55.0
+	Tue, 14 Jul 2026 16:09:03 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so38141255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 09:09:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784045339; x=1784650139; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WChOIXCXpcq0quURVEjiQP6ReSE7dcYzMBe/VviNclk=;
+        b=TfKhHR0L4NOJDFzh+M54Ggug3sUaLF9u9Io1sNTkgre4z6NDCPiZkvb6hw7CLFDY6O
+         yo733jXhgk2pX72lYYZk01k0v4y1lZt/R8yCoWg3/nkXU1nCktzXR+rDZImz0rRJz79u
+         EyLE618fVHU18okpq/DvbLRFvVXjZOKo/nyvKyyog921+XUqd+pS+cKTtupJZ3nOO5fa
+         HxMhOeNMUS2PMdJ+2uJ7ynze9/vePKY6pdihlnOga3rHDXvEf7n57T3+0HXnM+X84OHS
+         wQ//7FMQcXrk3m4P6ssVM4QxhacUf2UKHpdyhpWjDM1pHmwm+38wW/6JOFEV0yjS+Cx7
+         Sayg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784045339; x=1784650139;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WChOIXCXpcq0quURVEjiQP6ReSE7dcYzMBe/VviNclk=;
+        b=g6LyskfutPpWAragiUxLUp3MMY82/W0+PC5sEqnM9Jk4IdYfJKYK9C50AqcQCjxLBy
+         IcFWNd01Rgq2VLrVstORmXb8Cx1P9nAM0ycNADtSNVc5hjfcWMvy5RHQCvQN/ogO6XGm
+         SF40NVqyrrDQB0QHAg1p0q6ZfpaLxrJWZvJ9T6yKPbV/U4KFR9W35wfEb0T/Ist7xD1Y
+         j+/nRO84vTIJZ361ZMnTWPj8nvKhWuzVQS51r7HL561if+AkNkYz9R1b8uMTQG/nQ7Ci
+         i3ICrHh74dLzgmGQBSZiWtyyu9lxjy3jWkXEBWHhA4bJTg54vtahDGoII93uwF0sjBRH
+         +P3w==
+X-Forwarded-Encrypted: i=1; AHgh+RrDWRQazZRkfc+ooWETqRkYv66t6ueBCiSxgRh9BUaIKg0gTZMsxS7vHicnoOBas+mhoJNYaJkrJJCxPj3N3/a4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCvAqjqHKaGPDEoT5iPQANKyoLkAwW/8hny89fAf/mmBjAGcqE
+	RdkAqo3zDrSf+TwMO9mfGNcN+6I3Whscyj933+gelG1CQUbUbdbIFL2N
+X-Gm-Gg: AfdE7cmOkHL+0Ixn6XA/vA1CpPO9SdyCsv7P/lK1DpiY0Zu9yTuRkHEVSvTBe0xG03Y
+	Zbi+5JOLnMqWPNyUti2r3X7cP0fTIsGisdfw5fX+57U7Gsx9aB2kw8dw1dt2QR043SICoN1ZLsT
+	1wyo+yzzXL3rxMNcYBVFEy+TCwMZW8jvjPWnHFJ1pZGI5DDC+v4ZCsjkcKhg4JQ3i2TtmcvjI6+
+	rBZvsl54cEoC5Q3OhSIN5rcu/SFgT4PLxqgMt1IOQHVfJUL5vGLQfZ6mI5xzl+my6ptluJW6xVi
+	cYNYHIW7DV9rcUDzs0FsoO6TKI9DUh9LyQfpn4HYrypO55oiIDua67dn6clzZfeFNcKGLfShBJ3
+	MgVaFKUI4DEnbHsAYwOYNzalJKn2ZsyePFw0C+Tn9cnQVRf+tD0wGagc72Fsb/IbLBBoyp0QhhI
+	kx5tGt1doheoTmmBisIk1zGg9k2gJGJR4rKtXAGD9BGPVc8ppY7v/AOaju4h2r0qH9WCB83Sxh1
+	W4qsgH9HMU8kVaL4ngg7fosKTh5kibJ8t2827QKF0zSCtpLM5xGXcQOmFzU16LDhbcFSuz4NlEU
+	41g9fjqjNE248mfAQT61GNWxOSY19QXVFDNBtvrr1Xw65cnDKz3M4xd9FTfWlke3Y+Ul4dLHUj3
+	gl/yg3xo9poOsu9oOHPOQQCT2icDXsou1Pnrjvw9vfCw=
+X-Received: by 2002:a05:600c:6303:b0:493:e4ce:acd0 with SMTP id 5b1f17b1804b1-49538992918mr33564445e9.1.1784045339225;
+        Tue, 14 Jul 2026 09:08:59 -0700 (PDT)
+Received: from jernej-laptop.localnet (213-161-4-244.dynamic.telemach.net. [213.161.4.244])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a2f9402sm88923595e9.13.2026.07.14.09.08.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 09:08:58 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: sun4i-codec: Set quirks.playback_only for H616 codec
+Date: Tue, 14 Jul 2026 18:08:57 +0200
+Message-ID: <rIZ28csxRO67EN6Ja__8tQ@gmail.com>
+In-Reply-To: <20260714113304.270224-1-wens@kernel.org>
+References: <20260714113304.270224-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_090425_916610_8B59412A 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260714_090901_967849_64CCF125 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,156 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For guest_memfd-only memslots (kvm_memslot_is_gmem_only() is true), the
-memory provider for the virtual machine is the guest_memfd file, not the
-userspace mapping. Mappings in the secondary MMU are established by
-obtaining folios from guest_memfd directly, not by looking the folios up
-through the page tables through GUP. Consequently, there is no relationship
-between the page tables and the secondary MMU: MMU notifiers do not apply.
+Dne torek, 14. julij 2026 ob 13:33:03 Srednjeevropski poletni =C4=8Das je C=
+hen-Yu Tsai napisal(a):
+> The H616 codec does not have capture capabilities. Set the
+> .playback_only quirks flag to denote this.
+>=20
+> This was somehow missing from the original driver patch, even though
+> the patch prior to it in the series added this quirk.
+>=20
+> Fixes: 9155c321a1d0 ("ASoC: sun4i-codec: support allwinner H616 codec")
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Despite this, KVM's MMU notifiers still modify the secondary MMU page
-tables, only for the same memory to be remapped the next time a guest
-accesses it. Make the disconnect between the user mapping and the secondary
-MMU page tables explicit by ignoring the MMU notifiers for guest_memfd-only
-memslots.
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
----
-v1 can be found here [1].
+Best regards,
+Jernej
 
-Same testing as in v1: on arm64, mapped guest_memfd in kvmtool's address
-space, used KVM_PRE_FAULT_MEMORY to map the entire stage 2, then unmapped
-guest_memfd from kvmtool's address space. The memory remained mapped at
-stage 2.
-
-Changes in v2:
-
-* Rebased on top of v7.2-rc3.
-
-Changes in v1:
-
-* Dropped the RFC tag.
-* Fix unbalanced invalidation reported by sashiko by implementing Sean's
-  approach; I've expanded it to page ageing.
-* Modified the commit message as per DavidH comment.
-
-[1] https://lore.kernel.org/kvm/20260625130902.258331-1-alexandru.elisei@arm.com/
-
- include/linux/kvm_host.h |  1 +
- virt/kvm/kvm_main.c      | 50 ++++++++++++++++++++++++++++++++++++----
- 2 files changed, 47 insertions(+), 4 deletions(-)
-
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index ab8cfaec82d3..ecf5c0cbf0f0 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -260,6 +260,7 @@ union kvm_mmu_notifier_arg {
- enum kvm_gfn_range_filter {
- 	KVM_FILTER_SHARED		= BIT(0),
- 	KVM_FILTER_PRIVATE		= BIT(1),
-+	KVM_FILTER_USERSPACE_MAPPINGS	= BIT(2),
- };
- 
- struct kvm_gfn_range {
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index e44c20c04961..bd469395f176 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -607,8 +607,13 @@ static __always_inline kvm_mn_ret_t kvm_handle_hva_range(struct kvm *kvm,
- 			/*
- 			 * HVA-based notifications aren't relevant to private
- 			 * mappings as they don't have a userspace mapping.
-+			 *
-+			 * Memslots where guest_memfd is the only memory
-+			 * provider can also safely ignore changes to the
-+			 * userspace mapping.
- 			 */
--			gfn_range.attr_filter = KVM_FILTER_SHARED;
-+			gfn_range.attr_filter = KVM_FILTER_SHARED |
-+						KVM_FILTER_USERSPACE_MAPPINGS;
- 
- 			/*
- 			 * {gfn(page) | page intersects with [hva_start, hva_end)} =
-@@ -715,6 +720,21 @@ void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end)
- bool kvm_mmu_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	kvm_mmu_invalidate_range_add(kvm, range->start, range->end);
-+
-+	/*
-+	 * When reacting to changes in userspace mappings, don't unmap memslots
-+	 * that are guest_memfd-only, in which case KVM's MMU mappings are
-+	 * pulled directly from guest_memfd, i.e. don't depend on the userspace
-+	 * mappings.
-+	 *
-+	 * TODO: Skip gmem-only memslots on mmu_notifier events entirely, once
-+	 * gfn_to_pfn_cache is also wired up to directly pull from guest_memfd.
-+	 */
-+	if (range->attr_filter & KVM_FILTER_USERSPACE_MAPPINGS &&
-+	    kvm_slot_has_gmem(range->slot) &&
-+	    kvm_memslot_is_gmem_only(range->slot))
-+		return false;
-+
- 	return kvm_unmap_gfn_range(kvm, range);
- }
- 
-@@ -825,12 +845,23 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
- 		rcuwait_wake_up(&kvm->mn_memslots_update_rcuwait);
- }
- 
-+static bool kvm_mmu_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	/* See comment in kvm_mmu_unmap_gfn_range() */
-+	if (range->attr_filter & KVM_FILTER_USERSPACE_MAPPINGS &&
-+	    kvm_slot_has_gmem(range->slot) &&
-+	    kvm_memslot_is_gmem_only(range->slot))
-+		return false;
-+
-+	return kvm_age_gfn(kvm, range);
-+}
-+
- static bool kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
- 		struct mm_struct *mm, unsigned long start, unsigned long end)
- {
- 	trace_kvm_age_hva(start, end);
- 
--	return kvm_age_hva_range(mn, start, end, kvm_age_gfn,
-+	return kvm_age_hva_range(mn, start, end, kvm_mmu_age_gfn,
- 				 !IS_ENABLED(CONFIG_KVM_ELIDE_TLB_FLUSH_IF_YOUNG));
- }
- 
-@@ -852,7 +883,18 @@ static bool kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
- 	 * cadence. If we find this inaccurate, we might come up with a
- 	 * more sophisticated heuristic later.
- 	 */
--	return kvm_age_hva_range_no_flush(mn, start, end, kvm_age_gfn);
-+	return kvm_age_hva_range_no_flush(mn, start, end, kvm_mmu_age_gfn);
-+}
-+
-+static bool kvm_mmu_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	/* See comment in kvm_mmu_unmap_gfn_range() */
-+	if (range->attr_filter & KVM_FILTER_USERSPACE_MAPPINGS &&
-+	    kvm_slot_has_gmem(range->slot) &&
-+	    kvm_memslot_is_gmem_only(range->slot))
-+		return false;
-+
-+	return kvm_test_age_gfn(kvm, range);
- }
- 
- static bool kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
-@@ -861,7 +903,7 @@ static bool kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
- 	trace_kvm_test_age_hva(address);
- 
- 	return kvm_age_hva_range_no_flush(mn, address, address + 1,
--					  kvm_test_age_gfn);
-+					  kvm_mmu_test_age_gfn);
- }
- 
- static void kvm_mmu_notifier_release(struct mmu_notifier *mn,
-
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
--- 
-2.55.0
 
 
