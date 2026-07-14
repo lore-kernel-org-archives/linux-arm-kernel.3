@@ -4,84 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877ADC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883D8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZxdWG7aS/L6fXzfTf/S9tebYQ046IqMZzj4Z8jxC/M=; b=iX66+a3yz5D4Vm+UIKMJYvXLzi
-	2RCuQHCP1VOhqa/dISKiQiAIX4GbT1a++zScNAMA0tWRDEElK63Z/8MoW3Mv/wOY8IRmj3079wFWp
-	tYM8drYtrEK3K5DbK2XQyHtETgXZnqh5wz1TS4etlCRioxwp8WUeGYJxRznvCd9jy19v7ILeIrB4z
-	slH2TnKW7gbvIDmKCcCV3VYeGh4sXs+NE+6pkIaB6uMFvsLR2E+W39Yj6IGRJOPpFTxLUm12CMS8u
-	msnh1ef0R/dmAYIc6ktXaQMcD0UKdpgI0iyle8tCArCqiQpoEf03evVok9SSZ1EuT4rGrUS+o/qS6
-	NCNRvb9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=12ZpddpDyh+cPmgZdgM43s6BBJ1NyXLYOgaEYDqQEXc=; b=N3zjuq8il4s69I+PGBACbyTtkU
+	3R0idpc6dTIEazeZywljJSDkRHJC/OfJpx0EFhzXszwiccsl5BsWgNZwzjfkO3/76QDlNlgigc0DV
+	cq+twlGUsbrpThbsJAfnx9M1eMZkiFRp1iM9PySxePxW2QqTap+e3LjW+JE/wjR9EOPNjrDcA+Nyr
+	GaT9dukuj8GN2xBHl6Lci3fr+qaXqjE7c6aX5tqU9pyj5jbZmMy15LiRN8fBvzrD4YrpigFZNxEI3
+	T6d45MolnvMXDVwdSfnTkYDd9dyo4ApXEUwspWfKZq8BhIzdiEnF88cOyTNHiAz3GCf8KMnBRWONw
+	uIlcuzOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVqx-0000000AyHj-1Fem;
-	Tue, 14 Jul 2026 05:38:47 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wjVrL-0000000AyLj-2IjS;
+	Tue, 14 Jul 2026 05:39:11 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVqu-0000000AyHK-1tuG
+	id 1wjVrJ-0000000AyKm-3VjS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 05:38:45 +0000
+	Tue, 14 Jul 2026 05:39:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784007524; x=1815543524;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=fmoxeHNad4ygdYeSccYkXkWFeEORD/OVZF5VZ9FQ+VY=;
-  b=QKlEQfpJf6AMvhXHjUvkS0NYgE8OscbfG+NpfgheJqAn2l9KOMb5++nh
-   Eh97W7U9da/iYu6z76FUG7hii67NavjIJafvCla4H91TFD4maAKhqq4T0
-   qJKcMVWMitoz0MGHWCoMgvxHvuSOlIYzcFr1M8NRspjw9rczSrfHcTutw
-   pKEZrl1oMPzkW4QfSmqrdguQhNtveBV+coEHonPCbz8pfNxYAAQX1uiyr
-   NWA/Gdr4iZQrsNWKVcwhQoHpFp+AKNdBJKqoMMxA7MzwIzXSgJQfmYLyb
-   V8l4Vv2rI2K2UqSVck53hcHTcEoGxQLfxaieHMgM6w9R7WN68YbQY5YQB
+  t=1784007550; x=1815543550;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DDgmMAzaOA7vlAs5p5Sb7JvLQZYM5U/z5Cev6/sFrC4=;
+  b=mVMSWxz5QwWDBb6mvLLnEJC1REEpxQKAr5kmzFc+IFJIfhVyMkmly0dF
+   pBsJJgBKrsaKqxW1IDk50QwV+Fn40HWLgonPgmro1kPW+jipWrqm2VdxK
+   pHEGzWs9Vv/zv1xDVz/8TPWEDDawqOOE5UC1ntKb+H8KBKaU4bX4RWIAn
+   3lA0j5NdSIRCnMXpfa4gpu4FcRmvuCDaWRqaaYHjOOalWZ83QLQpPxllg
+   BR4Umg348QePa11lu0nDpm4mO82gKsd7DY4KgvlOMCLR1Xr+lCV2ul7Ra
+   f8YxdDwUK5D7kbaIR/IyyC8byjOCV6+DEkPGtcRuK26SVPa9K9NjJ2uM7
    Q==;
-X-CSE-ConnectionGUID: DLv51Q2/SBmSGl5QYySJXA==
-X-CSE-MsgGUID: hGmXmXHfREim/cJ8lse8LQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="95769607"
+X-CSE-ConnectionGUID: bVop2RXFRxmqd0l61Rr9sw==
+X-CSE-MsgGUID: jALi9eljQnaDBTqjFGL2qg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="72145966"
 X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="95769607"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:38:43 -0700
-X-CSE-ConnectionGUID: WzQa0jlfQW+1VqakYHExLQ==
-X-CSE-MsgGUID: 8SLmmXFoTmqq4BRuqSX1aA==
+   d="scan'208";a="72145966"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:39:09 -0700
+X-CSE-ConnectionGUID: 32GHByqvR36AboQk16xFlA==
+X-CSE-MsgGUID: wFvFQbWtQcCAFaMEVQ+cMQ==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="259331943"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:38:40 -0700
-Message-ID: <4afb26f6-ab9c-424c-b23e-b639370b00fb@linux.intel.com>
-Date: Tue, 14 Jul 2026 13:36:55 +0800
-MIME-Version: 1.0
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:39:08 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Mon, 13 Jul 2026 22:39:07 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43 via Frontend Transport; Mon, 13 Jul 2026 22:39:07 -0700
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.45)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Mon, 13 Jul 2026 22:39:07 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TSH90K5CcBOHl1yoU+QFmziVXKBjqC22x81dY5F18hq6SINfHDFoWlWwnsjbzUMb9XR7D83niYjLYrn3QB3KWKpU3qTpYotGQ7fSOtp92XgjxxQWezrLuPH3vhIL6rtXIx9mbZMICh6CK990MR0KInzbPLHq4Wq9Sa8SBmW72tKoB9IWsn7jWrr59EA8uLjfqMRtWOFP5uo7fW1HdVeWmUy24QBYuKO4UEo0TlxGagukoLezAEWkPTMiCmJbg6Wc2fTDFzElu1nAVSo/34QBpuGz1xlc30FglL6J3UCDw2nNIpHThNrSaTARmsSqXMNRM/y3d8v38IsaXuijy87eTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=12ZpddpDyh+cPmgZdgM43s6BBJ1NyXLYOgaEYDqQEXc=;
+ b=Xm9QN2jCPj/Qu0zi6b7xHCpWxUPfe2UEm1LSlb5zvX2qx3BOb2BAOI3sto3sKoZ1OORQGZkieDV7Idqhp5hqw4UU/pV68DCw6Z0KX3QDaFWb/Xr3nRWW9AbJx1wL3dzzH/J+co8PtL5Ow4G7rrO8x4cgJUfeUtss3iLWtApm318CNeL8Q0TTneQVoRYfyb+hPbe+yYkTIQUmHPxyLUqOtO6WLM/Q29/wK0nEOVcIrwu2LxgugwwuosmUQgnY84rbatBno8VJYhEn5Ced1TGEdM0MfaZ0yNYXqXbxbUDMDprrmm0cyvsDvCNRzNyy/Qt2OUWnO197ssyzS0jSjglkRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8050.namprd11.prod.outlook.com (2603:10b6:8:117::5) by
+ CY5PR11MB6260.namprd11.prod.outlook.com (2603:10b6:930:23::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.202.19; Tue, 14 Jul 2026 05:39:04 +0000
+Received: from DS0PR11MB8050.namprd11.prod.outlook.com
+ ([fe80::f099:a504:2ad6:1d12]) by DS0PR11MB8050.namprd11.prod.outlook.com
+ ([fe80::f099:a504:2ad6:1d12%5]) with mapi id 15.21.0202.014; Tue, 14 Jul 2026
+ 05:39:03 +0000
+Message-ID: <7295903c-14f9-4427-9c83-039e70e64cd3@intel.com>
+Date: Mon, 13 Jul 2026 22:39:01 -0700
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/18] iommu: Pass in reset result to
- pci_dev_reset_iommu_done()
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Jason Gunthorpe <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Mostafa Saleh <smostafa@google.com>, Kevin Tian <kevin.tian@intel.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, vsethi@nvidia.com,
- Shuai Xue <xueshuai@linux.alibaba.com>
-References: <cover.1783044582.git.nicolinc@nvidia.com>
- <9306670b5bd647e477e36156b124557917baead3.1783044582.git.nicolinc@nvidia.com>
- <a24597bc-28ff-4b23-818c-f9126be3bbf9@linux.intel.com>
- <alUvPl/NtmqLMsoY@nvidia.com>
+Subject: Re: [RFC PATCH 2/3] KVM: Implement dirty page logging for
+ guest_memfd-only memslots
+To: Alexandru Elisei <alexandru.elisei@arm.com>, Sean Christopherson
+	<seanjc@google.com>
+CC: <pbonzini@redhat.com>, <kvm@vger.kernel.org>, <david.hildenbrand@arm.com>,
+	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<fuad.tabba@linux.dev>, <mark.rutland@arm.com>
+References: <20260702142912.6395-1-alexandru.elisei@arm.com>
+ <20260702142912.6395-3-alexandru.elisei@arm.com>
+ <akxWZ1NTX4DHnUzf@google.com> <ak0zdNr1LvuF7gvm@raptor>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <alUvPl/NtmqLMsoY@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Kishen Maloor <kishen.maloor@intel.com>
+In-Reply-To: <ak0zdNr1LvuF7gvm@raptor>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4P221CA0019.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:303:8b::24) To DS0PR11MB8050.namprd11.prod.outlook.com
+ (2603:10b6:8:117::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8050:EE_|CY5PR11MB6260:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85d9e01f-871c-4950-9a14-08dee16a36b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|56012099006|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: SK7OlH8OBm6HMboY6FGeGqVdWENQ7wXe7NhQO7hiEfObHH7pc5xS8YsuhUfrJ/gZp+K/xiGnNs2pt4Fs6fMMRh0cFpz29VLwDlpImjvQSxU2Mf7s+EdMXV4BXAxPC/dJTepUpGXiCguGnBl1ojGC2RULxTELXeHbitFbOswAApvF984uhWDq0S/5VqJqdtSTlC5VXUIuWY9FSbWN6evP1RQktQM2U9hZ7r1UY6rSu45iohzPUbaTpXp3lr6e1OySm377/iLti8kHl+MU4GxmhGMFwmJPhbEJZqSn8RwHvYHC/WcF2hwkHk22JQC2AwyhZHrAk1SPwGTeIcb9LnekhB3ednvWwan33YF+Zy6jNVFCa9B8C0GvBWwHBnmZrFQGMzZh86i2GUL3qIIGMFdtsO5JtPVB61F/b02ejggNosWojHF8nFMc1k29y876N8cS71c7EPF1JKHa/ekyUI8RpTonhsm1EQY3IwxjthoMG+F4OKoL3qgwBaIqV5xvRRmSH/02jy0DM0cLQFqmXBWpKwBqoYGG5OQxlB7CuQOfJlxST2hDLH9q4XJXShMzTilEdL77R9aOKA6tmwvmCjY0kzLiTAFtXBVRheojnQQdicpDIbFVU1tdOXK0U2UOHD99JlLsyRKmU4yqOmVMQYXJBvV+Ynj9OSogG0nSTEJTSWo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8050.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFdGdHE2ZUdYU1RRUnlaNVBLb05PYTdURkVFcEM0YmFsN1pvTnBBeXIzQVA4?=
+ =?utf-8?B?aE9SWmFiTVUxVndlT243RS83cm9PNjJGRUUxbWdVUURaZHJnd0ZQTmRzTS8y?=
+ =?utf-8?B?SHVYQUpzMDNnRFdYNWJYN2lJZHdtbjFHYW5xR0NDWjhnd1lvaXpKdzl0SmFR?=
+ =?utf-8?B?WlhFWnp3ek8yT1pjMFZ1bS9pbFdibmlsMlZkdlgvZW02WHVDbENzRnZBbVk3?=
+ =?utf-8?B?SW1uY3NUSTBmWUYvcGlGeVJHQndVWDBEeXd2NTA1blJ1WnQwTHZ6eTJZcnVk?=
+ =?utf-8?B?ZFNaVkFTY2l1OEMxWHQyUUlCS0pUSjVhL1lnNjdOUkZ6NUR5UTh5MU5HRzhB?=
+ =?utf-8?B?ekk4RFBabW1WNmVzRXJCRzZWQldsM056TzRFZlhUd3MveWhDRWFDS1Y5Z2pu?=
+ =?utf-8?B?djdQUHNPUUxlV29lNnJXc2RHbndsck9UTEwxMThOdXE0dlVTTGxjcXpjeVVj?=
+ =?utf-8?B?Z0tXTHZoenM1VUhMdHlQY01oRmtVSzFGM3VnOWZpMmNtZmZHbWZwc0cyT0dw?=
+ =?utf-8?B?RFQxbzNHd01pWlhQOU9IOWlTMVVkZzJkM1NXZzRCcXMvblpyeHVwMDJaTDlH?=
+ =?utf-8?B?M0sxRDBrSkh2azU4MEt1N0RqWW9TM1oyZkNYSmozU1ovY0x2blp1aXd6N2RS?=
+ =?utf-8?B?TXdWanN0QjNhYm9Ba2grSHF6Ym14bzdzbVpGTUFUTm96cUpuQnhOd1FMa20x?=
+ =?utf-8?B?YkNWZGhwUHEwY2xRYmF3bDUwVG42QmFHbVRlVGF6L3g4ck14NmY3Zk9vRGFh?=
+ =?utf-8?B?YVlGc2lRNmQ3Um9XYWJRMW1LWWVwQzd2RTZ1SXlsZk82Vi9RNy9CRVVHUS9k?=
+ =?utf-8?B?dTkvbnQzWjhoY1N5azJqVGZOMjZDbGtrMXdlL0xQSG5Kbjk1UzA0aDhMaE1P?=
+ =?utf-8?B?bGtxOFJOa2hYZndpWWNDcTdzaW0weUxXVEt2WnRCRURIcjg5NnN2ckdubVQw?=
+ =?utf-8?B?Mkg0LzlyS1k4ZGljWkZJTjRFK0hEa1Z4UElJVlBsTWR1dnB3QXk5YVNTbWw3?=
+ =?utf-8?B?dE9sSFR6TFhsaVN6MDYzM3FlS1FUeXdCN3I4TGRiREcvbFpWUUxSY3JSSEJR?=
+ =?utf-8?B?WE44aFZEdTA4MW9qUUNqYjI1R0ZLdXZSTUVwQWtQQUlyN2NPSHlSTmVKa0cw?=
+ =?utf-8?B?K3ArUzA2QjlXbC8vc0ZmMzRyd3ljWm9WK2kyckxiYU9nallSN3U0UlRaK2Fq?=
+ =?utf-8?B?RFcxLzdUVG5wMko4ZnNnQUFIL1pSZ21BZkx0TE1ISXR3UndpTTg1aEpLL2FZ?=
+ =?utf-8?B?azA0U2lzVnVVK3RURElqdkh1VFh5Qis3VThXaHd0QnU3azY4UWhEa21SRklH?=
+ =?utf-8?B?Yk5wdVQyc3UwSmZYSUtrRlNYZzVGbUxzellpME5sM3pVazdIMlQrR2FFWUl2?=
+ =?utf-8?B?SWNqUWRoN0JtdFYxUlFiVWZ3TUxGSjV3T3R4dUdHbkhvNkdvUVN0ZnBKSTVN?=
+ =?utf-8?B?UG81Q3VPeGo0bDVvYzNiMWhkeEd3aUZ3Ny8rTHg3VER6bUlqRVVOakY5TEkv?=
+ =?utf-8?B?ZkFQd002L0pVeVJCa3VXR2lwR2htY1hDQ0lEOTYxc0dXM0IxNjljZFlHT2p0?=
+ =?utf-8?B?OWllSFJnNDhqdGRlWUpMRjhNZXVoZHIybHJiWHNKMkFZQmJXUDFXYkluSXlI?=
+ =?utf-8?B?QisxVGRXd3lYbVhrUE04RHlqcVBxYmZ2TXFHTHA4TGgvQVJxYW1NWEMrZkVJ?=
+ =?utf-8?B?R09kNHB0L2RrU1hnRVk0ZGpkaGFDL1RsczQ3a1RIR1dZMmkzcU91M1UyT0Uw?=
+ =?utf-8?B?Y0RxdGNWcnF0ZHBOakc2WVpqSWtYeGdEWndvbmlPRUNzQzREcmtOK3VXNFJt?=
+ =?utf-8?B?UzdHNC9SYzQ3YklEcHg0a2R2bThpeGEzNlRaM2k4QzJDKy9aaElvVFIzVkVw?=
+ =?utf-8?B?d3poSTJiUktTZDlIQWdWTTJzU1ovRFR3Mzhtdm4rWGd3QmNHWUUrdnZKRWFI?=
+ =?utf-8?B?cnNGMUJNTWtXcVQrVzZGdHE3a1JDQjJCTmVMN1hlQU16N1FPaWhiTktTTVFF?=
+ =?utf-8?B?SXMxbmlHYVpYMXhUM2ZUQzlOdGtQSklJOXg3ZWwyR2gxMXpDM1R1SndNQURy?=
+ =?utf-8?B?cjhRZHBGbTVPbTNKK0dRb05wWi91RndsbXM3RlJ2c2NibmZYYnc5YnBhbGVF?=
+ =?utf-8?B?azdMYW43VW11NE56WmV6L2ZGMysvZ0laeURLQk16cjlzMGhRdkpudDE0L1dC?=
+ =?utf-8?B?TEZJMVAzSitadVdpTDdWaHk4VlJwN0REdlNxdnhSaDUzdno1WVBWY1ZmSldN?=
+ =?utf-8?B?dCtNRVJTcWxRQ1lOdWdzM1BIbXlnM0FzY2xLTnhobmNkZEttOVB0ZzZyUGZh?=
+ =?utf-8?B?UFVKb1l1VUp2RmdhQVNjMFUzc3BXWlMvTjFWcVFPTWN0NzBWaUplZz09?=
+X-Exchange-RoutingPolicyChecked: MFxuhZiNub726I1J96GKnhjp2+xUWEz9IJRXwoNzbzDDiLId0bPn5as6CQcSD26MFputfHFa5iwuW9XAPJVB6q6sWiCwZ0mCrWVLzEmq3MaL3UZKaDxV0zb+NbFTeMTTEJcAvWlxr/RFLaRPP8tYWqUgqScmOSGvC/01c30mcFTBYstmtbZjIotQdX7F7auy0lW1e538mzADGOs0MjApgompYypOSbjyEHDuZ+SluqwUceNoTenKWqlJrwvolPgoBKVOGbNFIasELs9Z+crZRG+VQMiKM0IO1FCpSm+KKhcOq/ueYHfWDnaxdr4Ol/U5VtMqIrUrd/hNarV5WGPqsA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85d9e01f-871c-4950-9a14-08dee16a36b9
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8050.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 05:39:03.5834
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MKBKoanEPMxBAX88RQe6jPGuULlnbYP2sIIsGbAbcp0ieT3wL2OCq95XU0wikuPJp1oREyeSBAOdIyh9tBWYWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR11MB6260
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_223844_590771_A6956999 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260713_223909_891854_100AB5B6 
+X-CRM114-Status: GOOD (  28.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +185,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 02:32, Nicolin Chen wrote:
-> On Mon, Jul 13, 2026 at 07:48:53PM +0800, Baolu Lu wrote:
->> On 7/3/2026 12:06 PM, Nicolin Chen wrote:
->>> @@ -762,6 +763,9 @@ static void __iommu_group_remove_device(struct device *dev)
->>>    		if (device->dev != dev)
->>>    			continue;
->>> +		/* Must drop the recovery_cnt when removing a blocked device */
->>> +		if (device->blocked && !WARN_ON(group->recovery_cnt == 0))
->>> +			group->recovery_cnt--;
+On 7/7/26 10:12 AM, Alexandru Elisei wrote:
+> Hi Sean,
+> 
+> On Mon, Jul 06, 2026 at 06:29:11PM -0700, Sean Christopherson wrote:
+>> On Thu, Jul 02, 2026, Alexandru Elisei wrote:
+>>> The entire memory represented by guest_memfd-only memslot is shared and
+>>> accessible by userspace.
 >>
->> I feel that the change above is unrelated to the purpose of this patch.
->> It looks like an independent fix that belongs to a separate patch.
+>> ...
+>>
+>>> +8.48 KVM_CAP_GUEST_MEMFD_MMAP_LOG_DIRTY_PAGES
+>>> +---------------------------------------------
+>>> +
+>>> +:Architectures: all
+>>> +
+>>> +The presence of this capability indicates that memslots backed by a guest_memfd
+>>> +file descriptor created with the GUEST_MEMFD_FLAG_MMAP flag can have dirty
+>>> +page logging enabled.
+>>
+>> What does mmap() have to do with anything?  Supporting mmap() doesn't guarantee
+>> the memory is shared, and I can't think of any dependency on memory actually
+>> being mapped into userspace.
 > 
-> It's actually related; I had this in the commit message:
-> "
-> This introduces a new situation where a blocked device is being unplugged.
-> Decrement the group->recovery_cnt accordingly.
-> "
-
-Okay, I see your point now. Previously, reset_prepare and reset_done
-were always paired regardless of whether the reset succeeded or failed.
-
-This patch changes that model. The DMA blocking state of a device will
-not be released after a failed reset. Thus, it is now possible for a
-device to be released by the IOMMU subsystem while its DMA remains
-blocked waiting for a successful recovery reset.
-
-> So, it was not needed prior to this patch: it wouldn't fix anything
-> if applied before, and it would be a bit odd to apply/fix after.
+> My bad, it should have been GUEST_MEMFD_FLAG_MMAP +
+> GUEST_MEMFD_FLAG_INIT_SHARED. I'm not sure what you mean by "dependency on
+> memory actually being mapped into userspace".
 > 
-> It's a small three-line change, so I think folding it in is okay?
+>  From my point of view, it only makes sense to enable dirty page logging if
+> the contents of the memory is accessible to userspace, hence I made dirty
+> page logging depend on userspace having the option to access the memory.
+> This can only happen if the guest_memfd file is mmap'able and accessible by
+> userspace. But it doesn't force userspace to actually have the memory
+> mapped to allow the log dirty pages flag to be set for a guest_memfd backed
+> memslot. Hm.. now that I think about it, maybe I should have made depend on
+> guest_memfd also having been created as shared? 
 
-That makes sense then.
 
-Thanks,
-baolu
+TDX live migration also needs to toggle KVM_MEM_LOG_DIRTY_PAGES on guest_memfd
+memslots to use KVM's dirty logging infrastructure (the actual dirty
+tracking for private pages is done out-of-band via SEAMCALLs). So this enabling
+is needed, but it would be better to keep any logging eligibility decision in
+an arch hook — e.g. gating on mmap/shared wouldn't work for TDX.
+
+
+> Though I think that can be changed with KVM_SET_MEMORY_ATTRIBUTES on x86.
+> 
+> Does that answer your question?
+> 
+>> ...
+>>> +			r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
+>>> +		} else if (change == KVM_MR_FLAGS_ONLY) {
+>>> +			r = kvm_gmem_change_flags(kvm, old, new, mem->guest_memfd,
+>>> +						  mem->guest_memfd_offset);
+>>> +		}
+>>>   		if (r)
+>>>   			goto out;
+>>>   	}
+>>> @@ -2117,7 +2117,7 @@ static int kvm_set_memory_region(struct kvm *kvm,
+>>>   	return 0;
+>>>   
+>>>   out_unbind:
+>>> -	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+>>> +	if ((mem->flags & KVM_MEM_GUEST_MEMFD) && change == KVM_MR_CREATE)
+>>>   		kvm_gmem_unbind(new);
+>>
+>> This is wrong.  If kvm_set_memslot() failed, the old memslot needs to be bound
+>> back to the guest_memfd instance.  Hmm, but KVM can't guarantee success.  So
+> 
+> The old memslot is still bound to guest_memfd in the sense that f->bindings
+> still has the same memslot id+as_id assigned to the memslot's gpa range.
+
+
+Whichever way it's handled, TDX will need this flags-only gmem update too.
+A solution on the generic code path would be helpful.
+
+
+> There's no rebinding happening when flags are changed because the memslot's
+> id + as_id are not changed.
 
