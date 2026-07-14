@@ -4,144 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C1AC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 18:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1BEC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 18:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyKpYWck3zmqwg+nyC5UHfrN45kAGNxzHQXPYTkyVG8=; b=SLFoA9YYUrYeHVi5qBeJYP9aZy
-	swgtn8zpiI0tLMpED1FJhqCFO7sazQNQ3BYPSwTVFUNNdOdE0gKDX2Qxy4kXwuuLYL1gb4FXlzNg1
-	0FRGMo6LUjEjtEvArP1x64h6Ugiwc7HcPbu6DovC5zbStkcwf+IDxUfkngPgt8lWxMNMpfQKtQ9xE
-	lYE3a32/k7u2zbOE3WQlbIwQpqtFXKPDXlILlolc8C4Gy5HFDOIinZmJxeCh7puOJfZAr4UEGTzMG
-	yz+5lRTs1Z4LYNsn6gYrgFYENssdUOG8d/FQvxTzquGfF4sWvw6Nrm2pNWO+pgAd5h3bqmEsjEzEv
-	IO1CspBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=; b=ZcRxeBKXhdYbMq7P3OAxrvTNQp
+	LoAZ1TnLSMxtMpTgI9Iz5g3oYH+ikS69Y1mOFvfFPDwqjOliTIR09GcEY1Jd1HEP8+9zi/8tSLfMh
+	TJt3nSahqLjiWJeaQVWhSEtHhIfpLIvrD+sGUeNmkfJRi7jyUSOwbeyhpXwv4CAos1VBEaMxyT0Eo
+	TcQB3A6+R/9hdTGwQClvA2tAQWDRKVHAJ+PBaMOBvz5orL8uy77MXBsWA80yMjSPKjIVklop4zZ47
+	9PKc1ahdAd+fqhbAzaJclVJNqh/ZS9vbp8i7IYGZwWy08Nmi2DJfMwcsH3vWbg9uCMZLT7Wjzzr7t
+	Dv5y+wig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wji4k-0000000CtzB-3ds8;
-	Tue, 14 Jul 2026 18:41:50 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wji6e-0000000CuDK-0h1R;
+	Tue, 14 Jul 2026 18:43:48 +0000
+Received: from mail-westeuropeazon11013057.outbound.protection.outlook.com ([52.101.72.57] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wji4i-0000000Ctyk-304X
+	id 1wji6b-0000000CuCt-1vnV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 18:41:50 +0000
+	Tue, 14 Jul 2026 18:43:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wEuIYqc0bWpvl6syfRElPG6Aj99H6oAOf6GpsjH7CfU4qh19tsohCCFhmUTPrZxcJiFGqYPH3jzU1gOeEPIuEjAHKyUTbeweUD7ISuDEVTRu7xKDUiWeZ6+E6K1u9mLXlqla9ZRiNVD5WSSCwgRHTaBIQgaQowqbuejji17aiab4dyJuQK5VTyWUsNlJBMCKYDa8yBMMqCRU8LehGftc4HfG5VI5ztrCd/UDcUtVpcIgcrN4bmWYZBVyXRKWxHxmofEIwcINm8HvV4zP4TFfTkjRCBBd6tvNjHwwpcUQ+TDMP9T9g7tV63cF8xb02x1thSr0B365YwL2LeiHhDliJA==
+ b=yDF5vBGnNhMoJEcZqYcWdebuKqX08Hk84O6YCPvxFvhcl/6C+TiN+0PuFuOxQU6Lfa3wD8bltp5jBX45cb1Xgi+TLHdbkoXjrrOAkjnABWq2DSPOo9SeJB5EvLB32Rvx5wD6ZRGlV/QJbM3D496r/QgUIKQXYW/4xhSBHtgx7GEQ3sJWe9CEeHJyevml0uO0a3SxpDOb65ixGxxBXlfK/uiZzp6Lv+cInWherY0xwkLJEZ4Ndz3tsNj5N4pBr6Bx4mvom/yYFH8N/87PuJzDzxSLvNY1XrcxFi1sig2lzXmLliPZNVxjg+d+1oTEeCvXuTZrfzQf6t7GtlN7pkVbDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kyKpYWck3zmqwg+nyC5UHfrN45kAGNxzHQXPYTkyVG8=;
- b=szw097Mdj1VJTsaK5wj8/Jj87BG2xl0IiQrrc5FKLnNMYlwOUMktn5J8xvRp405xPeHYT3quYiKxpZzoXlQ7oNcQYySLiNhv145O1djTpcyAF8c0Cj/9noheRhfgQCR+RXmdFRlU4uwrD9uulNMiNBx8RyAnYNDBZVbEyn4Cssy/FymrKhagEwLBgfu53RrIT5goIdZcVn7pn/3pzmuEH2FcIQ+LetXMyHJUBs0blypwlwd98inqZAgRKmwbgWYbrHdb1F/4hEJEZx2Bn4YJvCAk8iB6fXBTtXDTbTzg434aFSliQbP2tEw67uBw+qVl1q4+qN0QJCOKK5x3CuDvLQ==
+ bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=;
+ b=aPZ3Btfl4RfUeoFMZpQyuB+qGA/m2ATv1zr8MUwgD4eWiL9cyKp2mzsM+bP7La29YGl4M7zamwzLom5ZAOD6eTN04nrEnJPhuNKJZUrcUahBJaHfwIv859nkqGprq5HhftS1rbBxKBL5jFtNtYg+TWos5gvbChg6SZKLLf01srUldwrpth0Up8+URrz7KcVpvusmuvySSM++QRgnvJ06z9yYfou0PRHF1sMwtNYJYUW1CXhg8GPwhgUip0cfUaDPxboKlFTnf9FYBUS0AFYfUlB6oFgzIQwImY/0GdzHpWHol7pU3IhAQEU+QEdKzaBl6k6tRLtgi+fPZ+oe32DJkg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kyKpYWck3zmqwg+nyC5UHfrN45kAGNxzHQXPYTkyVG8=;
- b=NeA7DqFbrDWrJEFPcmwkvM0c3MosLt6YNxrhG6AAKgAPTva1+gGtzMYJmRLCPa9xBT60GS/lFWNLb7Pe4iNVVOjQ10SwUnWdCc8CtXEe1WXh3c1oDkotIWNVKwNf27f+Ai9U/ATNpcyx5MMgONozV1QKAoIRiCFAuehscrIyc1OrUZTGNIeiVjc0fGlBxcRxSnMKM1nGD1a8Lj+HdOuQA7JUUntaDj4W3caMl0RSo1XHKMVrKsw0gvf0gh3FyQKXHLI63rqBQmqtmVJCEAnU54FGueMxzQs67AywcLtgLjKfgLY7SV0cTpTFDiBY/ufZ05K/YAI9uhstLdLyfPtpAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ5PPFC41ACEE7B.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a0) with
+ bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=;
+ b=Bg8j405j3LKj4C95WAtaVPkBP9+oqXM5MrAUO3K1KABFOm6Hunstq1SSVJf8uHud9rwcWM/ENKVf7AecKwJpjQ/rGzxml5KMxoCox0sBcrBhw12vOyXl9maW1beVCY7WzeYNk8PWrp9xll59SrWT/sjk1Ra5dQ8VASnf4FqVnPof1km48A14QjIqAfYodDIU8c3ujJCB4fZz0SQPyONPk0eDjt9c5WYe8bi/k9q7mFA9SzaT0focs6DjDV8OQYT6Zgq5K9iAxu7pbuOEPEQpH+RUCTOX/ppxW24zl7V8aClj/CmJuT7YG1h1YcFsq7TL5mZxpl95Pp0zk8AQ6CkJ/A==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by PAXPR04MB9397.eurprd04.prod.outlook.com (2603:10a6:102:2b5::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Tue, 14 Jul
- 2026 18:41:37 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Tue, 14 Jul 2026
- 18:41:37 +0000
-Date: Tue, 14 Jul 2026 15:41:36 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH v2 2/8] iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
-Message-ID: <20260714184136.GB1636147@nvidia.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <2-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <akzh9qFEfi2umwDW@google.com>
- <20260707180811.GB226829@nvidia.com>
- <CAE2F3rDoBK8MeGJb=ZDRyjSYdjZac7R8-KiZf5WJnvUPfxbgbQ@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAE2F3rDoBK8MeGJb=ZDRyjSYdjZac7R8-KiZf5WJnvUPfxbgbQ@mail.gmail.com>
-X-ClientProxiedBy: YT4PR01CA0227.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:eb::20) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
+ 2026 18:43:30 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%5]) with mapi id 15.21.0181.016; Tue, 14 Jul 2026
+ 18:43:30 +0000
+From: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>, "Shenwei Wang (OSS)"
+	<shenwei.wang@oss.nxp.com>
+CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, "b-padhi@ti.com"
+	<b-padhi@ti.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: RE: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
+ rpmsg bus
+Thread-Topic: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
+ rpmsg bus
+Thread-Index: AQHdE8Cq27ppElL+eEigN5N73Xpyyw==
+Date: Tue, 14 Jul 2026 18:43:30 +0000
+Message-ID: <PAXPR04MB9185B1A3F16D82E8C0C76EE689F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
+ <20260625155432.815185-2-shenwei.wang@oss.nxp.com> <alUdg9iTysXCFUa5@p14s>
+ <PAXPR04MB91852808D2C7491AEF98CF1589F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <alZlZvQQwq-g6VL3@p14s>
+In-Reply-To: <alZlZvQQwq-g6VL3@p14s>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|PAXPR04MB9397:EE_
+x-ms-office365-filtering-correlation-id: 790b92e8-166c-462c-f232-08dee1d7ccb6
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|19092799006|366016|1800799024|38070700021|3023799007|6133799003|56012099006|18002099003|22082099003|4143699003|11063799006;
+x-microsoft-antispam-message-info: gZ8JYN659EmXx3ztehAJjXPlY4hglNGc89YBePUsqJNPcK5D3bPnPibCbM/h3wQzOba2M7pZXSp+wEW9O3Xp/FgSLTJ/TvaGXkFpcgI9AB2xSfmyW98WftqzDP4Qfdh5GVtt3bGKLse46K51CTje00fN+X5wKDn22hO3pspzdWO8HUcEh6WiRJc0evkQG+sG4FOMAfbK/hE6btLGbxsLkezWE6dM3EuplvFPTM7k1lbNDjwNM/Nk0mYQ/nG/5XfX7hwy17etMyTv5M702yz9+rhFWZ5xgqMdFxT3jTqNjScngFCN5j6sr06nMj/JUuXHjWQA+7aysd/zXlEuPwY41Muf1+1nwP3wCl0aoTGzOMD4/kjtEgXkCLAaLi8cwgtDnhJ3uIi8MhITzgcnj/Iu2xprO0fc1vo084Q2Bj0BTKYtDcF3aUddw5sYP3G62uecCSRxzCeBneLjM0EAPhLthvol3KwXiT6JsFiOqF4M4x9Quxfo9APYP2jDGp2lHAaB8muu3DuPzFDslAjSmUgqJjS2qNLBXgMIOLvmUcBa2mmE9skXqVpBETqPjaMniAMDQCYOJo8hjWoM0RaroPtUzPUSPilSfUuGjeQztcCfcTtc0M3kgn8ZjQoETmFBsrSZPbkqbMwXz8vCcOW9/GbeiDJrWWlQnPehlpzYX3wSuG2ZtPghS+T2ZL+5ucuq8x0W+pMOpiUzdX3p6vrguJ0syzkNNDyN1IVLY9OEBiMH4O0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(19092799006)(366016)(1800799024)(38070700021)(3023799007)(6133799003)(56012099006)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?XYLNp7Qg6Su8GFT6VUe8U25vKsGr1WmcpYEHSUffTC1EbchcbZ7BWpBEAhaY?=
+ =?us-ascii?Q?9cg+ZI7a+sxrpQ8MZ1JM6aVhY6mqRMJ9wQeVffD32lfb+ocHpvrQxf7w+YeQ?=
+ =?us-ascii?Q?AFwMvLhZYA63OjN4MphrxD07cnl0xRFIV0vR9PHKH5/eV7pqpXinLiVq1/hV?=
+ =?us-ascii?Q?nS1DwJEuA69YDZeN0wwb6LTwyNz7SDU8xkL5B/cCheFbUuYwzwrcz28liJiu?=
+ =?us-ascii?Q?UWlXckIyjMtQKiED5VSZa72fU0RA6p5KaAxT0JTHWo5YRZDQLriNEnX2/IXn?=
+ =?us-ascii?Q?cT6pqXjAK4NQ1IGe6SVfc4YbsyassWWY7hx7Bk5sacC+qKBkeoca2Mxa22OZ?=
+ =?us-ascii?Q?YDo3yjqngEBaCvRgSo0BBxIUJlCg+byMAaHffvRyqQE5NGKTvMdtyIg696+3?=
+ =?us-ascii?Q?hS2J285VM06ucEs49dROpCh5FVe6U8QKhV1SJXybZI7ThftL0HxJgk4pJueO?=
+ =?us-ascii?Q?aAKP6KU8ciAkcYQ/I/UI+koPYNrjIDscUZWrXqDihvurC0Q8VNH3YHWO9fA4?=
+ =?us-ascii?Q?mM1l4L6EJISNfYO+OXqKaCWwpr+7bvYLIHBJNMHHvcaC6cSYEiOMc1CJCdeJ?=
+ =?us-ascii?Q?ODRsip69+NNP9XeZ27I4s+p7Yfsn5YvzjutE9KHeGf9eVlm28S7IniQcjblR?=
+ =?us-ascii?Q?AiFlPhlIXaGBaiRH27SkNlOmrL4udIpUeV8MJl/Cgn3K7vFR5vtUWco9ZqEI?=
+ =?us-ascii?Q?vqJR9yq3ucIzS6PQnhc8SDFPaTzPY+j1cqjo4NWxYK8Al/EWgcmSmUiquVty?=
+ =?us-ascii?Q?XSi5o3n5lbGC89M0xy8d2agmNq4CmN6aWSpcmH1G0TG8HHsO3PSW/raJ6lJR?=
+ =?us-ascii?Q?QFvGb0IVrJJJA3LS/uMdN6MDRIa7Sg7v72hCC+IImY0CW3qEHy6QK0uURMqm?=
+ =?us-ascii?Q?ROCKx0aLin+1sCQILz2nrtmWiA2p284OBeIdezsfr+B+GnJ3ttigRH3q30Y1?=
+ =?us-ascii?Q?JE20bnq7OF71cqcIpqcIPQ/8Jh4tPWJdY/Mt+f4ivM2q77g6VhD9TrRYNhk3?=
+ =?us-ascii?Q?B5YxKLPszK9xDD9pZmwxMBNQ3vFlYzMBeSsr6gLfg5R7++wADHSvCIahZuAL?=
+ =?us-ascii?Q?LnpFAZRhfwp+OTjMijScS04h7SRfPurr2cIC0duiZXsFZHUrRNLiGKTiEx46?=
+ =?us-ascii?Q?X2v0T5i9hPFGHu73Rk9LYyRcfcW6XPh37uTqaEp/WAqq6w1PhClP1JxwSvXI?=
+ =?us-ascii?Q?ZvN6XIiDvosqxQR6fEdmzwd8yI08DgrU0fyxJ/VyzoSxodb7OS+66CXmN7Uu?=
+ =?us-ascii?Q?cSFbzOf+1u0LooXa4aLiun7gJWBDmwK+M6agXaCEklvUEMpFz/ZAvWm90iGX?=
+ =?us-ascii?Q?2yO4qUON6V95CYCMgIiVnzLQ75d2fXFX4+Muc7ei2RoTBdlwjZlpAmr5Xewq?=
+ =?us-ascii?Q?/FhKf+tGJk9XeS+KlkD4uc071RpCBThVjpFbMhJm+jDd0s/kiFuGSBegXPPK?=
+ =?us-ascii?Q?A9HEb2N1CgNUyWULhROu0y4XGMWNopveP0uHH4FwdcYvT0DoQ0KCa9EIeaBq?=
+ =?us-ascii?Q?+0hdP4lF0NTMNcj+oG020mhAqKcFf61jhodWAWiSOgIg6Wv8IxBVRPn4iy44?=
+ =?us-ascii?Q?WKtyCDVgIvbgfFyJJQGsU28+oS+ym9Jr1lt7FPbD8xdZRvtnS0SUIjbDOSlw?=
+ =?us-ascii?Q?w2yOgXcQS+MrJSYKKzo9qzoL9W7WPxSHcQhdps/tU18ySf2GNCR9RnosC3jj?=
+ =?us-ascii?Q?3AvEGGIhpAX4+1XaOQNNu3TfJIJvHtW/DTl+lr02l8TWIug/wjexUdd2+9aW?=
+ =?us-ascii?Q?umq0euY5fg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ5PPFC41ACEE7B:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5724fef-73ea-4daf-9316-08dee1d7894a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|7416014|1800799024|11063799006|56012099006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: N1soSzhIWIFThPYKIbsBvlRfBvQaN0bxqG5AriqWi0XXJCIpbylY1bhlg7a2WQCroG19xBE8V0+L21n5WOQxvOjOa9Y2cbkoT4yTrtriiWDURAgczbbBniUqQh6ihnjsRM1TX+Ov3bq2kdYNyNIzHZ6AE7kFX+0UKUq5b+yzKuKuWhalrh8gGZWT7jBkO+j2gfVw0wWOtoPCLrKsWKximNad7S7/elgYxL5xQba1VcqCSqyElVimvHSkmUoSA8RTmF6luC3VA3D+/onBVzKZQtXd0qXuJGgQmRDq7rOM78N248uUZdye93f2OWQ6VR6yuPNnLaP0BVwpDJ/VLmmpT0yakl1R06RmnA8JiDzTRNQ6Dul4laXRLHD6c37xzhSIhLRcYSeJb65PEngs5ws+zUiAvlI2zry+7pMiAsYejI72fUveb97G2j6VIUcyM39xOgUtYJNPocV09GUrN/Pm+b8mOW0htKcZVox13HZgjjOedq7N4HLpFa8QGWLG6uliMS2NRg6HtzQd1ft9jtCNHu+JkZsEVK1y751ej2HyklHG1tzDpsCgqahlMI4BxoZxUfSrpSjOr8fXWF0c+AoPaE6UNHBvuo5G5IUj4I/airQDn/sABLFFCZNJSuy0Di1n59eGHh7hEsOZbuSgtiWD0HaZHKTp+Ypqo6l6QdVPwks=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(7416014)(1800799024)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVVQUnVnZzBBb0N3SHpkZkY0Z1BpYUwxTnNJdXJpUGlFaWFiZ1dCZWE2dytL?=
- =?utf-8?B?aDdRRlJtYjk4NkI0QUZBK3BHeFRnWWJoWHp0S0FETkRtZHVkVkxmdVNFTmFN?=
- =?utf-8?B?dC9SUXEySXpvb0UyV1dXWkJ0SWFZVmhFMnpKYjQ5enFVSzJpOTlBVXhJbGNP?=
- =?utf-8?B?WndMcGNlOHV5ak5ja0hSNVBnTnNiZmpvUHlHUDk3akUzSktyRWdPVm9sOC9y?=
- =?utf-8?B?L042Mk1jYVVrS1dnSmZSaWRnWUZzQ0ZSWjJrNnBvUDYrdWV6MUtJU2JmRS84?=
- =?utf-8?B?RDVYT2FEd3VWMU5JSXJZZ29aT3V0bmJqM3BvUlByN0xhQkt4d0dYOHJ3SjFX?=
- =?utf-8?B?UWZHWnZQSDI4MHBoT3BxdkNrZ3Awa1FhNHVuOWRFMlJHRWhDUXRoTmE1SEFX?=
- =?utf-8?B?d25FNXFDcVdJZzlUdm1KUW1EVlZndkd6a2pnZk1ZQktjNk9ma2JuWnBVTjRr?=
- =?utf-8?B?S0RwY1hZWWhXL0R4UGhSbnlQYXpSbm9md0daRE1Xa2RQUGNnSS9RK1YrWVNh?=
- =?utf-8?B?Undpb3lFQTNibnBzaDZ6ZEEzWGxsdDFybGZ3dW5rRTNOTFphRUZPWkJiSlRO?=
- =?utf-8?B?c3RQUE5FN01zY2RUQlI4cFRFdTRncmY4c2pRMHBEQ1JPd29iVnVSd2pnU0Z3?=
- =?utf-8?B?UlpwSGpRVlVpLzhobytWUE94UEM0TzR5TWp6aFI4RTdpMkNqSWM0WDR3VlJE?=
- =?utf-8?B?SDZuOFFXYmlvMGJ0UFdub3g1TnVGaFA2d3YyQ2hIeW9rZVJFTHpIZWZVZDhF?=
- =?utf-8?B?QjVoSG4raldVQVJYVy84dWx2cjJPSTlBbEFhS0xoelpCa3g0N2N5MUxNVnFG?=
- =?utf-8?B?VFkxMmRuenJtNldHdEtSaVJnUG1jckhCSmY2dUpONktnZnNWcDBEZVZrRTFN?=
- =?utf-8?B?L2hJNVJKYU9OWlcrVzdCeTlYbmRQWFpoRVg3bkwwS2dCK3dKWWFLQ2Vadjk1?=
- =?utf-8?B?clBxUG53MGI3SmJHNUlMaXUzNGZDUnpyc0FHOGlWRnVjbXlGaVBScDcrWCtM?=
- =?utf-8?B?NUhQUDFUUXBKUzVEbDJ1MFBhT1Y3QmdSSW9VQUFMUmJMWjhJVE1MOUlEMUpZ?=
- =?utf-8?B?dUg3VktQUHc5ZXNuSHBpTW5SR0FZUlYyT1k3N204L1VFMjRpb1o2L0VQT29w?=
- =?utf-8?B?QWo1eVBINGVWRE83VFpuRyt3c3Jzd1NrVk96NVkyMXRyZGFrR3ZoMy9MVXBa?=
- =?utf-8?B?SmtWYktHZHNSdnB6L2RLUFhYUEk2SGdmR0VHVUl4anMxc1Z6UWpjTFl3QW91?=
- =?utf-8?B?SXY3R0l1Tm1wbU13UENMNjlxcml3T1YwV055Mno2Q1ozNjVlOXM0Uk10RFps?=
- =?utf-8?B?SW9zT1U0MWJrOU5rcWdHR29BVzJ1MnZDZ2Y4VUpwSTRtcDM4TjZaam1xTzRt?=
- =?utf-8?B?dEhZekhiTXNRSlpFT1ZubXNjNHdXeHpocVJTblM3UFBCcERNTE0vQWhtVE5l?=
- =?utf-8?B?eVZPMTlTcUVuQTVIQnhydjgwM3gvRXJmRS9OYkxDTUEvWUZWcWoybFp0bjZp?=
- =?utf-8?B?Q0JJZWdkckV3N2ZRSFBOOFJQMDFGRXl2RnhpNGdtcEhhOStQajFCUGY5SHhH?=
- =?utf-8?B?c3lsZWVWWXJnMTVuYjRqdXA4RUV4SUQ5KzVCb1dRUHJLZVZVQ3JDaDhhTXBG?=
- =?utf-8?B?eVpBVTE3Q2Q5UVR1ZXdVQmhwSUFqMG1xbUxZSFpTb2RhSHRHL3ZDTldlQXNF?=
- =?utf-8?B?TEJheGxzTVBORmJoM1d5OHpIUHRDaTAwRjA3VDZZL1ZpRUwwcGhpb3M5Mzdr?=
- =?utf-8?B?VE5UbUNXT3RBblNvRFdkR2hIT3FWL0RUR2MrQjlhMy9VdnRsU25pK2RqSkNR?=
- =?utf-8?B?YkpTVkc5SUR5bEM1aE5tdFIvRXJDQmEwbHMySlFJbUt1V2JNdjM5c05qc0ZK?=
- =?utf-8?B?S2djSDl3RzFVOGpYdDltZTdCazZ0NW5PYVNLcFA0M0pOdlFJVlAvRG9sT0d6?=
- =?utf-8?B?VUZMdmw0Y1pLQy9vWEdNQ2t1NXBZbC9tblU2YU1VdkRWWEZUT21MeGNtMllv?=
- =?utf-8?B?dm5vQXZGVTVLRkE2YVIxV2xEbXBNTjR6Y3laaE8vc0hsV09hbXFnMENIUXVL?=
- =?utf-8?B?M0tzSnFDcW5SUEhmckVFczlvZWFQMmpMTDErWnh4N2l3ZEhDajdwNGZiZGtM?=
- =?utf-8?B?SUYzaTlWOSs3bHhzYXhKcmJkbjVsTnMrVkFyR3pISkVBdm42SVBqdXVLRGZL?=
- =?utf-8?B?Mk14Q090TE1IRmFSMUdWaG9wc2NuQ29VS2JEckdOTmdWU0lpellDUS9sVFhD?=
- =?utf-8?B?MVNPdW1FU3hndGRpaXowc2t3TmgvL3R1VTEyU1A1OFFDYkJjdW1mWW9YOGFK?=
- =?utf-8?Q?dk/QFv51eiu9JbotEA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5724fef-73ea-4daf-9316-08dee1d7894a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-OriginatorOrg: oss.nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 18:41:37.3481
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 790b92e8-166c-462c-f232-08dee1d7ccb6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jul 2026 18:43:30.1422
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FM+NaJ+CL0Ig7Ibm3W8vGqiKXYS7n4jqlnvrqEQgBKQWQ1CpYRCHOTiLCmU8HfmX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFC41ACEE7B
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: KNGvivI3RFv4hpOh00nmb9fx9EPZTY/nKFVDNGTcofNRknEqf3RwoqN5Ch12CZsw7gBTkySsmnjXOmNhHmo72g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9397
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_114148_783098_FED40166 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20260714_114345_652542_FDAEA325 
+X-CRM114-Status: GOOD (  37.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,26 +161,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 11, 2026 at 10:38:15AM -0700, Daniel Mentz wrote:
-> On Tue, Jul 7, 2026 at 11:08 AM Jason Gunthorpe <jgg@nvidia.com> wrote:
-> >
-> > On Tue, Jul 07, 2026 at 11:24:38AM +0000, Mostafa Saleh wrote:
-> >
-> > > The smmu_domain is only used for the tgsz_lg2, can’t we add that
-> > > directly instead? Decoupling the invalidation form the domain would
-> > > make it easier for KVM to re-use the code.
-> >
-> > Sure, done
-> 
-> I downloaded a newer version from your jgunthorpe repository, and
-> found that arm_smmu_tlbi and arm_smmu_domain are using the data types
-> unsigned int and u8 for tgsz_lg2, respectively. Can we align on a
-> single data type?
 
-Yeah I updated it to use u8 in the structs, but at least iommupt has
-the general style to use unsigned int for lg2 type locals that I will
-still follow there.
 
-Thanks,
-Jason
+> -----Original Message-----
+> From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Sent: Tuesday, July 14, 2026 11:36 AM
+> To: Shenwei Wang (OSS) <shenwei.wang@oss.nxp.com>
+> Cc: Linus Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.o=
+rg>;
+> Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzyszto=
+f
+> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn
+> Andersson <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hau=
+er
+> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel=
+.org;
+> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; Shenwei Wang <shenwei.wang@nxp.com>; Peng Fan
+> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
+> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Arnaud
+> POULIQUEN <arnaud.pouliquen@foss.st.com>; b-padhi@ti.com; Andrew Lunn
+> <andrew@lunn.ch>
+> Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver ov=
+er rpmsg
+> bus
+>=20
+> On Tue, Jul 14, 2026 at 02:29:12PM +0000, Shenwei Wang (OSS) wrote:
+d
+> > > > +  - 3: Both edge trigger
+> > > > +  - 4: High level trigger
+> > > > +  - 8: Low level trigger
+> > >
+> > > I'm in agreement with cmd 3, 4, 5 and 6.
+> > >
+> >
+> > How about cmd 2?
+>=20
+> Yes, I forgot cmd 2.
+>=20
+> >
+> > > > +
+> > > > +**Reply:**
+> > > > +
+> > > > +.. code-block:: none
+> > > > +
+> > > > +   +------+--------+--------+
+> > > > +   | 0x00 |  0x01  |  0x02  |
+> > > > +   |   1  | status |    0   |
+> > > > +   +------+--------+--------+
+> > > > +
+> > > > +- **status**:
+> > > > +
+> > > > +  - 0: Ok
+> > > > +  - 1: Error
+> > > > +
+> > > > +SET_WAKEUP (Cmd=3D16)
+> > > > +~~~~~~~~~~~~~~~~~~~
+> > >
+> > > I already commented on messages that are not part of the virtio-gpio
+> > > specification.
+> > >
+> >
+> > I don't believe virtio-gpio needs a SET_WAKEUP command.
+> >
+> > In the RPMSG case, SET_WAKEUP is required because it performs an
+> > operation on the remote processor, so the remote side must be explicitl=
+y
+> notified.
+>=20
+> What operations would that be?
+>=20
+
+The operation is enabling the line as a wakeup source. In practice, this in=
+volves configuring=20
+hardware-specific wakeup settings (e.g., register bits) on the remote proce=
+ssor, so the remote=20
+side must be explicitly notified through SET_WAKEUP.
+
+
+> >
+> > For virtio-gpio, however, everything is handled locally. The other
+> > side does not need to perform any action, so sending a SET_WAKEUP comma=
+nd
+> appears unnecessary.
+>=20
+> What is "everything"?
+>=20
+
+I mean masking, unmasking, and marking the interrupt as a wakeup source. Al=
+l of=20
+these operations are handled on local processor.
+
+Shenwei
+
+> >
+> >
+> > > > +
+> > > > +**Request:**
+> > > > +
+> > > > +.. code-block:: none
+> > > > +
+> > > > +   +------+------+------+------+------+------+------+------+
+> > > > +   | 0x00 | 0x01 | 0x02 | 0x03 | 0x04 | 0x05 | 0x06 | 0x07 |
+> > > > +   |      1      |    line     |           value           |
+> > > > +   +------+------+------+------+------+------+------+------+
+> > > > +
+> > > > +- **value**: Wakeup enable.
+> > > > +
+> > > > +  The remote system should always aim to stay in a
+> > > > + power-efficient state by  shutting down or clock-gating the GPIO
+> > > > + blocks that aren't in use. Since  the remoteproc driver is
+> > > > + responsible for managing the power states of the  remote
+> > > > + firmware, the GPIO driver does not require to know the firmware's
+> running states.
+> > > > +
+> > > > +  When the wakeup bit is set, the remote firmware should
+> > > > + configure the line  as a wakeup source. The firmware should send
+> > > > + the notification message to  Linux after it is woken from the GPI=
+O line.
+> > > > +
+> > > > +  - 0: Disable wakeup from GPIO
+> > > > +  - 1: Enable wakeup from GPIO
+> > > > +
+> > > > +**Reply:**
+> > > > +
+> > > > +.. code-block:: none
+> > > > +
+> > > > +   +------+--------+--------+
+> > > > +   | 0x00 |  0x01  |  0x02  |
+> > > > +   |   1  | status |    0   |
+> > > > +   +------+--------+--------+
+> > > > +
+> > > > +- **status**:
+> > > > +
+> > > > +  - 0: Ok
+> > > > +  - 1: Error
+> > > > +
+> > > > +Notification Message
+> > > > +--------------------
+> > >
+> > > "Interrupt Messages"
+> > >
+> > > > +
+> > > > +Notifications are sent by the remote core and they have
+> > > > +**Type=3D2 (GPIO_RPMSG_NOTIFY)**:
+> > > > +
+> > > > +When a GPIO line asserts an interrupt on the remote processor,
+> > > > +the firmware should immediately mask the corresponding interrupt
+> > > > +source and send a notification message to the Linux. Upon
+> > > > +completion of the interrupt handling on the Linux side, the
+> > > > +driver should issue a command **SET_IRQ_TYPE** to the firmware to
+> unmask the interrupt.
+> > > > +
+> > > > +A Notification message can arrive between a SEND and its REPLY
+> > > > +message, and the driver is expected to handle this scenario.
+> > > > +
+> > > > +.. code-block:: none
+> > > > +
+> > > > +   +------+------+--------+
+> > > > +   | 0x00 | 0x01 |  0x02  |
+> > > > +   |   2  | line | trigger|
+> > > > +   +------+------+--------+
+> > >
+> > > 2 things here:
+> > >
+> > > 1) You did not include messages that mask and unmask interrupts at
+> > > the driver side.
+> >
+> > Interrupt masking and unmasking are handled entirely on the local proce=
+ssor.
+> >
+> > When an interrupt occurs, the remote system masks the interrupt and
+> > then sends a notification to Linux. After Linux processes the
+> > notification, it sends a SET_IRQ_TYPE message back to the remote system=
+,
+> which then unmasks the interrupt.
+>=20
+> This is the kind of information that should be part of this documentation=
+.
+>=20
+> >
+> > Thanks,
+> > Shenwei
+> >
+> > >
+> > > 2) We are carrying virtio-gpio messages on top of RPMSG and as such,
+> > > this whole protocol should be about thar:
+> > >
+> > > +------+------+--------+--------
+> > > | 0x00 |       payload         |
+> > > |  Q   |                       |
+> > > +------+------+--------+--------
+> > >
+> > > Q =3D 0 requestq
+> > > Q =3D 1 eventq
+> > >
+> > > The "payload" part is simply the format of the messages as found in
+> > > the virtio- gpio specification.  From there, the only thing left to
+> > > mention is which messages are not supported, i.e get line names.
+> > >
+> > > > +
+> > > > +- **line**: The GPIO line (pin) index of the port.
+> > > > +
+> > > > +- **trigger**: Optional parameter to indicate the trigger event ty=
+pe.
+> > >
+> > > Not part of the spec - remove.
+> > >
+> > > Given the refactoring work that is still needed, I will not look at
+> > > the implementation.
+> > >
+> > > Thanks,
+> > > Mathieu
+> > >
+> > > > +
+> > > > diff --git a/Documentation/driver-api/gpio/index.rst
+> > > > b/Documentation/driver-api/gpio/index.rst
+> > > > index bee58f709b9a..e5eb1f82f01f 100644
+> > > > --- a/Documentation/driver-api/gpio/index.rst
+> > > > +++ b/Documentation/driver-api/gpio/index.rst
+> > > > @@ -16,6 +16,7 @@ Contents:
+> > > >     drivers-on-gpio
+> > > >     bt8xxgpio
+> > > >     pca953x
+> > > > +   gpio-rpmsg
+> > > >
+> > > >  Core
+> > > >  =3D=3D=3D=3D
+> > > > --
+> > > > 2.43.0
+> > > >
 
