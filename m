@@ -4,129 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C92EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95863C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPDedMYoIPcbcGvrvY5H+IQoUl1T+mrUVDSGwBtiCbg=; b=FFdykXdHpmcNpTd83J6bufbeOC
-	O30KNwFcKVBlsyTauSzyl6moNH2ia5tpIyrs/1Y84ibxbHhlr7t5Nx8O0iIPDg5ykfa95N3GuU7Xw
-	Ywi7iHoJhgG81Q4rqKlEQcrBDt0RHTX5REuT8Q6p40wfitHrIA2HsqABCGVkTV+0QY4HiAdALkyK+
-	PagVIdM+Xr6YLZI0SkqzJ6Kvy8rQBfODahPVRvJl2LjGk8YU4IEl4pdwfcgSvJiCYyTj9GrUhCjl0
-	4B1zMTYaGEKy5JtEOBMTYrqhcrbPGx/LKyUPNUtSvximhYoAcoO3BGhRiBKCCmLFORMfEbhsqgiyj
-	B2z1XrGA==;
+	bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=; b=Z51MCmAFxnota7sC3euS5e3yaD
+	Nd1duSp33TKhdQocWy5bvZoPWm8Ewir3LAOLIx9igD4HrfQ9WHK3zYIopAobQoCZhk4AzkBFtM/RE
+	HnfVkeZ6GbSqqQTbRVd48OZGcAONWq2cePO+lZiHRMVhBiNnA+jRUu4evX86jci5ZV8u51BZMfjlf
+	vXGNOQzIqSzhMc18SxirkmLLiHWkI+pVv2vLrjHzbcwByMEQNZC2n9lTNnW8ecpVWyNLEqT4XfoJ9
+	n9I2YqLZVula34vJUVH+HYAt0EzNdkwO1Fn2/BPmB34nvqXFl1uy/PPjUXd0/E0TQ6vZ9m3Ob+vpn
+	tRIokr7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYmX-0000000BLk7-2bLf;
-	Tue, 14 Jul 2026 08:46:25 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wjYnd-0000000BLui-3qPp;
+	Tue, 14 Jul 2026 08:47:33 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYmV-0000000BLim-0y8p
+	id 1wjYnb-0000000BLtp-2bDN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:46:24 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 5EE133E28;
-	Tue, 14 Jul 2026 08:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784018779; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WPDedMYoIPcbcGvrvY5H+IQoUl1T+mrUVDSGwBtiCbg=;
-	b=DMLbNoNjgWmDIdKbEiPtdPrkH+ld3RlsqcX64XXxxm2RRfUg8MvGJZ92ZgBD27P28wzVAA
-	WRSveFEoJOgqWKyZQ6GSxKCLZHtGdMqV1GrwiawGsxptpJoltg8OJztjLYy2/lMw2iBI/P
-	fAX3DThYJFKoqdOXrOHqge89JD7L96I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784018779;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WPDedMYoIPcbcGvrvY5H+IQoUl1T+mrUVDSGwBtiCbg=;
-	b=lyVlUAK45w4IS5EBJhNIkm2IZu+OwsxYgYOU3pgx6TZtANaLf1fDpxr7lpSfW0kNN+MAcF
-	DHuo8dkcwMuEetBQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=DMLbNoNj;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=lyVlUAK4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784018779; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WPDedMYoIPcbcGvrvY5H+IQoUl1T+mrUVDSGwBtiCbg=;
-	b=DMLbNoNjgWmDIdKbEiPtdPrkH+ld3RlsqcX64XXxxm2RRfUg8MvGJZ92ZgBD27P28wzVAA
-	WRSveFEoJOgqWKyZQ6GSxKCLZHtGdMqV1GrwiawGsxptpJoltg8OJztjLYy2/lMw2iBI/P
-	fAX3DThYJFKoqdOXrOHqge89JD7L96I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784018779;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WPDedMYoIPcbcGvrvY5H+IQoUl1T+mrUVDSGwBtiCbg=;
-	b=lyVlUAK45w4IS5EBJhNIkm2IZu+OwsxYgYOU3pgx6TZtANaLf1fDpxr7lpSfW0kNN+MAcF
-	DHuo8dkcwMuEetBQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 34B25779AE;
-	Tue, 14 Jul 2026 08:46:18 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id HaT/CFr3VWphQAAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Tue, 14 Jul 2026 08:46:18 +0000
-Date: Tue, 14 Jul 2026 09:46:16 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: James Houghton <jthoughton@google.com>
-Cc: Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Muchun Song <muchun.song@linux.dev>, 
-	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
-	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
-Message-ID: <alXtiUdmabf1TZgj@pedro-suse>
-References: <20260708031129.3503195-1-jthoughton@google.com>
+	Tue, 14 Jul 2026 08:47:32 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b77b150aso5053485e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 01:47:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784018850; x=1784623650; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=;
+        b=j70dQtMZm3+/H9BZK1sFVEOouj/q02fxb1HdTGdbbwNnHuiof7S+tKhqHr8Q3+0i2g
+         yUuD1/wt99HNJFqINKAG4Xg/9IqKRDSGqS02iAdjCKsdKce4elinw9DKcFAEnPkAJp4n
+         rgjIscylnZahT7YDi96GiYoSkSscLI6SP0l8/jZLxRnyWy2rj1qILLkNWPJups9VCykK
+         dbfvs65CdU+XF7B0dRakJ3LTn2IaMUA4XHMwbTefMxf1j6095Q+vrusOik+ynoOHJxGo
+         rv6PqLGCvIGUHbpHOLedYAZF/AcVGq9SOyUmAIYTIv4aVXNsSpaWmI72NnNhT5/Xl7iv
+         Zyew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784018850; x=1784623650;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=;
+        b=qrVW8NEVD8Nns0gYsjtucqV+eo8VIO1HIUavJ8U2kEuF7SCG0Qkrdkk0WtM0umEsJT
+         idow5NzntTu8GX6KJSRQb2hm9YedSYDW1gpPQlXsf0MZ6FXDvHHkzuSef8lwHnvYHZVm
+         Uyt97BlVpAATL+kRPV7x6pByvyM100mxvGTw5q4h5NxzcqjBfjWJtkB9621uf7cP33dl
+         GZVGk7qo3KhiFMa+mhr0EKVRDS7t00p4CzYrJsLYEuUeZN/knI1q4l7IcTsEf2cCZPkw
+         fIKE+cXkybYI1LJ4ms5ijQI6s0LeI4CHbDBzcCbbgmidzyXnRbVuuG+/Zt8y2laH0asW
+         BT7Q==
+X-Gm-Message-State: AOJu0YxZXXqhyven+vkQe+dEoKF5z76dmgszLo+ptn5qQIVI1mBq1K8f
+	CbGjXNdgMRwoTzxNkpXEyKOJng3auhGKkUo1Eb8ygVqEyD0WzeVSoe8DxwtAashbFA==
+X-Gm-Gg: AfdE7ckCGcKisoqBAWkLSo/gSfzMT5h6r9u8Gka/+sX+GLk5KBBNJbzOBBRLD5PbrPY
+	w2R8DjnZ67jfONMJpT6Y8x6SgFqNlZclRWAou19ygmxcIgQVMauvrPhdSNcllt5Uo7TUZ8C969I
+	eV9iI3sMKqV25Yig/52+utNfPoVHHLEEijTLEWId6d0gXPHxzrYU1nmypUq5XKXw/lTF+nur8bx
+	X/ypFSaEiwdG5VzKw1vfsABeKkTbNKG2mIf0uiBS1BrIoJqp+PSFg4w8Tq2Gaw2Su6JOwWzt340
+	8XigPgpBFia9hXu8Viu6UdcbvKrK2TFMTpS8MaBfQaeP3QFeh7XY9IZFrDL0nhq4jNALQY7MPHl
+	6sO+nMQnSi9aprPEY7IDxxq+nVUdGZiXK4kTejVUyDOqxkD2pxbs49EdYK6bxZ360123TXMQfmT
+	1DAdG6vdwAoAmuB5E2aG5yNihLbbUZPM8X9Wb3Hm9LaLmK1Cy5pww=
+X-Received: by 2002:a05:600c:4f8a:b0:493:f7c8:eae2 with SMTP id 5b1f17b1804b1-493f87e6e9cmr127818785e9.15.1784018849325;
+        Tue, 14 Jul 2026 01:47:29 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-495086ca93esm59158715e9.0.2026.07.14.01.47.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 01:47:28 -0700 (PDT)
+Date: Tue, 14 Jul 2026 09:47:24 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <alX3nHLykNc_nng5@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-9-smostafa@google.com>
+ <alTnAy7jvjUamwUA@google.com>
+ <alTvf7iiOWn4PKE8@google.com>
+ <alUA7zsJO1FGnss-@google.com>
+ <alUJa5cbjjqZ8n72@google.com>
+ <alUMVU7DYcrvgAYi@google.com>
+ <alUsLFBQ5qKFOgwQ@google.com>
+ <alXwXRGqECTUZ3ou@google.com>
+ <alXzcrnxWADIEL2H@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: 5EE133E28
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[18];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	MISSING_XM_UA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+In-Reply-To: <alXzcrnxWADIEL2H@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014623_428541_EB8F3501 
-X-CRM114-Status: GOOD (  26.79  )
+X-CRM114-CacheID: sfid-20260714_014731_676993_F16E89A7 
+X-CRM114-Status: GOOD (  32.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,78 +113,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Tue, Jul 14, 2026 at 08:29:38AM +0000, Mostafa Saleh wrote:
+> On Tue, Jul 14, 2026 at 09:16:29AM +0100, Vincent Donnefort wrote:
+> > On Mon, Jul 13, 2026 at 06:19:24PM +0000, Mostafa Saleh wrote:
+> > > 
+> > > That would walk the table twice, first time with a massive map, then
+> > > to unmap the pages that was just mapped, issuing TLB invalidations
+> > > for all of those, also as the IOMMU page table code never frees tables
+> > > that means we would immediately exahust the IOMMU pool.
+> > 
+> > Well the massive map is pretty quick we would mostly just allocate the PGD? And
+> > then it would be just for the subsequent unmaps to split the blocks. So nothing
+> > to be freed really and no risk to exhaust the pool. But if you put the calls to
+> > the host_stage2_* functions that's pretty transparent.
+> 
+> Not for the IOMMU, everything is mapped with a leaf mapping, because
 
-On Wed, Jul 08, 2026 at 03:11:10AM +0000, James Houghton wrote:
-> Hi everyone,
-> 
-> This patch series uses a trick with the Access Flag on CPUs that support
-> hardware update of the AF to update vmemmap page table entries without
-> introducing a time window where CPUs accessing the vmemmap might fault.
-> 
-> By avoiding faults, the HugeTLB vmemmap optimization (HVO) can be
-> implemented correctly on arm64 in a much more straightforward way than
-> previously attempted, most recently here[1] (please see [1] for a
-> breakdown of the other approaches attempted before).
-> 
-> For large-memory systems that allocate most of their available memory to
-> HugeTLB, HVO saves a huge amount of memory (1.5% of system memory).
-> 
-> This series has four parts:
->   1. Some preparatory changes (patches 1-3)
->   1. Bare minimum HVO support (patches 4-10)
->   2. Drop BBML2_NOABORT requirement for HVO (patches 11-13)
->   3. Drop the user-configurable Kconfig for HVO (patches 14-18)
-> 
-> Parts 3 and 4 are technically optional. More details below.
-> 
-> The main functional caveat with this series is that bootmem HugeTLB
-> pages are not "pre-HVOed". They will be HVOed, but because at pre-HVO
-> time SMP CPUs have not been enabled, we cannot query for full system
-> support.
-> 
-> This series is based on 7.2-rc2 (0e35b9b6ec0f).
-> 
-> This series almost 100% cleanly applies to mm-new, which has some of
-> Muchun's HVO patches, with one trivial conflict. I imagine this series
-> will conflict pretty heavily with some of Muchun's other patches[2].
-> 
-> -- The AF trick --
-> 
-> The trick is that translations with the AF unset cannot be cached in the
-> TLB (see Rule R_DWZCQ in the Arm ARM), so they can be atomically updated
-> without needing a full break-before-make sequence.
-> 
-> So the PTE update sequence becomes:
->   1. Atomically clear the AF on the existing PTE.
->   2. Invalidate the TLB.
->   3. cmpxchg the AF=0 PTE with the new PTE. If this fails, goto 1.
-> 
+Ha Ok my bad, I didn't get that!
 
-So, this sounds really cool but I'm not sure if its correct. Looking at
-D8.17.1 Using break-before-make when updating translation table entries:
-Per IGXGZY:
-For a translation stage with AF hardware management enabled, if a translation
-table entry is modified and the break-before-make sequence is not followed,
-then all of the following failures associated with AF hardware updates can
-occur:
+> the pgtable code does not support splitting blocks, this is something
+> I plan to add support for in a follow up series after this one is
+> merged along side other optimizations.
+> 
+> > 
+> > Just to make sure I am clear. Here's what it could look like:
+> > 
+> > in iommu.c:
+> > 
+> > int kvm_iommu_stage2_idmap_init(struct kvm_s2_mmu *host_mmu)
+> > {
+> > 	u64 addr = 0;
+> > 
+> > 	for (i = 0; i < hyp_memblock_nr; i++) { 
+> > 		kvm_iommu_stage2_idmap(addr, reg->start, IOMMU_MMIO);
+> > 
+> > 		addr = reg->start + reg->size;
+> > 		kvm_iommu_stage2_idmap(reg->start, addr, IOMMU_READ | IOMMU_WRITE);
+> > 	}
+> > 
+> > 	kvm_iommu_stage2_idmap(addr, kvm_phys_size(host_mmu), IOMMU_MMIO);
+> > }
+> > 
+> > in mem_protect.c:
+> > 
+> > int kvm_host_prepare_stage2(void *pgt_pool_base)
+> > {
+> > 	...
+> > 
+> > 	return kvm_iommu_stage2_idmap_init(mmu);
+> > 
+> > 	/* 
+> > 	 * From here, all the changes to the host stage-2 will be reported to
+> > 	 * the iommu driver
+> > 	 */
+> > }
+> > 
+> > On the pro side: no custom walker and we really couple the iommu idmap to the
+> > host stage-2 map.
+> > 
+> > On the con side: As you've pointed out, we'd need indeed the iommu to be ready
+> > early enough.
+> > 
+> > If you want to stick to the snapshot function, could we have the walker to
+> > first walk the hyp_memblock? the .arg could just pass if we are walking a MMIO
+> > region? That would avoid that find_mem_range_from() and I believe would
+> > massively simplify the snapshot walker.
+> > 
+> 
+> I see, let me try that.
+> 
+> 
+> Unrelated to this, but while looking into option#2 I see that
+> __pkvm_guest_share_host() does not call either of the
+> host_stage2_set_owner* so that requires another explicit
+> pkvm_iommu_host_stage2_idmap() call.
 
-- When a memory location associated with that translation table entry is
-accessed, the AF is not set.
-- When hardware updates to that translation table entry are followed by
-stores appearing later in program order, the ordering required is not followed.
+It does! it calls __host_set_page_state_range() which calls
+host_stage2_idmap_locked().
 
-So apparently per the ARM ARM you can possibly never observe AF=0 even if it's
-cached.
+FTR, I don't really like __host_set_page_state_range(). And we removed it
+recently from our Android tree. Because there's just a special case in
+__host_set_page_state_range() to cover guest_share_host. So we can easily
+replace all the callers with __host_update_page_state() and and call the
+idmap explicitely in __pkvm_guest_share_host().
 
-And then other semantics concerns may arise e.g I'm not sure if AF=0 implies
-that the walk cache has nothing for that address, or if it's just that
-particular translation that's not in the TLB. Though this might not
-particularly matter since we're not collapsing the PTEs back to a PMD block
-mapping.
-
-Right? Tell me I'm wrong :)
-
--- 
-Pedro
+> 
+> I still plan to use option#2 in v7.
+> 
+> Thanks,
+> Mostafa
+> 
 
