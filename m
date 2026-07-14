@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C93BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A942C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbwCLFKbdOzKV5i/+UY6gKXliGQuPyrcEE9A2zGzU44=; b=nBD5xUb/nBJGHQAh50uAa3tN69
-	KicOMQ1vOaS1iLpOMZziB68TlBTEvyP3ym52HbJGyVj0/uiRAvFP1OLSXgLurkpoHMBCVionYVOlY
-	3kOxu7jeUGJhK0q23qyjy+tBMf6jeM1ZqBF84MbY50VsW0K/ejh3/K4WcQ75hZG7B0EbAdJx/qrng
-	nhV0rOR8Iievq8+zmji5cidS9951Si9++WZfYPCbpzeOP2GuvxxdGScg4+XCulz1JVHlOcL8FMYaV
-	8tsfAtMQ2ZfsxNOu+FXF1gq++hrYbtsIz+c+xvslhSLgLFd+QTWz2LE75o7UlviS4fdOdoHTTlsFL
-	u25JujQw==;
+	bh=1XwaxRE6i5UHv+Uo2xyeqTzoMRrmOa9ARrEwqH7fxbw=; b=w/Y3gxXwuGZDd0P1mKvjuadtf1
+	7dseZB1U8rT7Jgk+53Mj+0RAbWb8/QhJZI8vniu0u1HFPOtiPKJU77qLRi02USITAc9rP5+lPSMt9
+	+QPv755GgNWycDpay0KvB1QUSLD8rcM1baR2xJ1Yl4eaXxcbxB2hqMtKR5w1/qxU7YuSi8w64+CB+
+	9P4/Xpw0yXDQc46YRK0yJXMBKkCpiQCH8qmv6Pshq3W9aQPicN1ELHcgY2FPfU81s3VQ+Dpzmk6EZ
+	Bf8NcVkkN+yUYGysi0ZrzV1jsMYpgv0pDYWes58qiAw/ov51gp1/443usFJPPjnDnPzt2KTFybCED
+	jTwnR2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdBL-0000000CB0e-27SL;
-	Tue, 14 Jul 2026 13:28:19 +0000
-Received: from out203-205-221-210.mail.qq.com ([203.205.221.210])
+	id 1wjdCd-0000000CBAO-39Lz;
+	Tue, 14 Jul 2026 13:29:39 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdBJ-0000000CAzx-06vM
+	id 1wjdCb-0000000CB9l-0D8C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:28:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1784035695; bh=SbwCLFKbdOzKV5i/+UY6gKXliGQuPyrcEE9A2zGzU44=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cVA2mzcG79KRLbnI50EKhF1N10snHcIhAQZ+yK963MRuf6GQ6AW/R0Tb3RtUHlcKQ
-	 xyC40WMLCmNdPAJUF9bSUb80XNuzEQLVEwgt7+NEkNYwfmun8BPro28EedjdEge1gO
-	 UyypKCYqoT6mXi0lj8LOj3OKH0PG8Fm8XEaYyDZ8=
-Received: from localhost.localdomain ([116.128.244.169])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id 70B1EC6E; Tue, 14 Jul 2026 21:28:11 +0800
-X-QQ-mid: xmsmtpt1784035692t4weielk1
-Message-ID: <tencent_B8B26921190C2CF6D2C906B793EDA107720A@qq.com>
-X-QQ-XMAILINFO: NxKoLLhE22aTd/x9fnDR3jp18PMFxxKgbHYDQIOpNvDpEBX+nVa4VyweCRJzxf
-	 1fjJObbD3tZsMMrIRl5PTBVqq53QCVi5Wu567Z3V/NX6HG2gDiroCFfFZs8P28FUu+71rBbCdqDX
-	 V7ZOc/voIoB61FnfK8VOclBigTkP0Pm/IMqLM5N+rVVchytNR4fvbhz21sUr5QHPYoopjuxykJTD
-	 aZTkxLWHeN55Z2MRfnl6gpG6FxfNjPSSfPOWrVqVNXp61NANepUsB9qc9Yc1+lET9sJmdurncwAr
-	 kKNwRqBx36r/71dudQFkUM9ABymWJlnCMODAi2x+W9bSZQA53Fpcm+r2YY+cd8ReJw/PZhJe3EIB
-	 Oem6t9VNhiQ+cgxXhVZ5OxxoaVCf7dIrAuTPmiG9/Pq0dPMxlOJFZWeFTiENjuq44osnRc8iQyrS
-	 yKsYJ2wr51Ii2nsIr9eXMhddexY578jnlllg2vQRhbXmZe+Xaho6w+7XIAJYxa9BY2Zg1sww/diK
-	 u+C+r9x4AXyk9qerLGF6UCd/V8VKflV6rUZNDbA5HnPDydFZV3Xcplx/fuXcn2xdkNhVOGsFMw4N
-	 zD9bnPhsrZHBx0nh4bOlmiaJQiTK3DnEhy2vyz3GhnAC6+iyaoyqOtavYDfDxFcwlBGYu4MQ82ne
-	 P9GZBm65Pg5PJQmtbxduSAVR43i8+JQQxFKRfgYxzfcA7yGdMid3bvjmxIFnND7IFWsbZrLAEMo1
-	 T2VYBTGy8KNxrQ+78t8PE6AeO/zaviMoLY8UJMgcO/8pnmZwo5mL3fqlGHZk/lAjlShWl1t14epe
-	 5s96cJu1pm8beDBTpxz/I86cWJj8HnyZC9ly5QivJPAstQtT1ikp2GLrGeGzeXDQJxrQDQxBF5lc
-	 /CgwNg4RqNE3Q9gynASlFEmL0FK6nKirz/hFU8y9l4BWEpox2lCuLAh7IAG6/uyxBdlLQl5oj7qa
-	 YE8onleiEVAfjsRdIvPPLE/gAf3yXwYnFJ1sk2aLvyI1FOyHtK2Y1WOqKymr9EeIzQRx2Zhg3u4F
-	 S2/wbGXvWNgDMETcyOuBNRXEkgLYS9oUKSsOJ0QtayJSTHb77BGntP/q7mMGnYCCqNvx3n2Q==
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Haofeng Li <920484857@qq.com>
-To: tglx@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Haofeng Li <13266079573@163.com>,
-	Haofeng Li <lihaofeng@kylinos.cn>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Jason Cooper <jason@lakedaemon.net>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH 10/16] irqchip/aspeed-vic: publish handler only after domain creation
-Date: Tue, 14 Jul 2026 21:24:46 +0800
-X-OQ-MSGID: <20260714132453.3302672-8-920484857@qq.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260714132453.3302672-1-920484857@qq.com>
-References: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
- <20260714132453.3302672-1-920484857@qq.com>
+	Tue, 14 Jul 2026 13:29:39 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=1XwaxRE6i5UHv+Uo2xyeqTzoMRrmOa9ARrEwqH7fxbw=;
+	b=uU7eVt086myQGBDYCBx0fid0wmFCe/dw9RdG46NPZit/FA5y2lNjzpLsz5Zr5kvCz9J06lpFU
+	kI2wZBoeLWhjcycZeSqolUSJTXnFcQtvdaO+gLMZ1pvX2IFqEVdobeMLG8jCzp+eXNae9a2Bzpi
+	xXNwjnbN/7jXP9OYDKf0n1g=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h00KR1rTrz1K96m;
+	Tue, 14 Jul 2026 21:20:11 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id D3FB440578;
+	Tue, 14 Jul 2026 21:29:27 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 14 Jul 2026 21:29:27 +0800
+Message-ID: <e05f176f-f14a-4733-852e-0df163a9d519@huawei.com>
+Date: Tue, 14 Jul 2026 21:29:27 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <alS-kcwvlASwPIzL@LeoBrasDK> <alUR3ez1EKeWb_pM@LeoBrasDK>
+ <fcc9e842-a6fd-418e-93ff-0475a542f3df@huawei.com>
+ <alYbaD2sxvkf_0jj@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alYbaD2sxvkf_0jj@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_062817_409840_CA861640 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260714_062937_642971_F888FA7B 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +86,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haofeng Li <lihaofeng@kylinos.cn>
 
-avic_of_init() publishes system_avic and installs the root IRQ
-handler before creating the IRQ domain, then returns success even if
-irq_domain_create_simple() fails.
+On 7/14/2026 7:20 PM, Leonardo Bras wrote:
+> On Tue, Jul 14, 2026 at 06:39:48PM +0800, Tian Zheng wrote:
+>> On 7/14/2026 12:27 AM, Leonardo Bras wrote:
+>>> On Mon, Jul 13, 2026 at 11:31:46AM +0100, Leonardo Bras wrote:
+>>>> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
+>>>>> This series of patches add support to the Hardware Dirty state tracking
+>>>>> Structure (HDBSS) feature, which is introduced by the ARM architecture
+>>>>> in the DDI0601 (ID121123) version.
+>>>>>
+>>>>> The HDBSS feature is an extension to the architecture that enhances
+>>>>> tracking translation table descriptors' dirty state, identified as
+>>>>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+>>>>> page tracking, aiming to significantly reduce the overhead of scanning
+>>>>> for dirty pages.
+>>>>>
+>>>>> The purpose of this feature is to make the execution overhead of live
+>>>>> migration lower to both the guest and the host, compared to existing
+>>>>> approaches (write-protect or search stage-2 tables).
+>>>>>
+>>>>> The required sysreg definitions for FEAT_HDBSS have been merged into
+>>>>> arm64 /sysregs:
+>>>>>     [1/5] arm64/sysreg: Add HDBSS related register information
+>>>>>           https://git.kernel.org/arm64/c/72f7be0c2e30
+>>>>>
+>>>>>
+>>>>> After these patches, the kernel automatically enables HDBSS when dirty
+>>>>> logging is enabled on any memslot, and disables HDBSS when dirty logging
+>>>>> is disabled on all memslots. This series does not support dirty ring
+>>>>> mode.
+>>>>>
+>>>>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
+>>>>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
+>>>> On this, FYI, there have been some discussion on this:
+>>>> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
+>>>>
+>>>> Oliver's suggestion is that we don't automatically enable eager splitting,
+>>>> but instead we have different behaviours if the user enables it.
+>>>>
+>>>> This is still under discussion there, but I think it can be useful reading.
+>>>>
+>>>>> This dependency is mandatory. Unlike v3, where DBM was added lazily on
+>>>>> the first dirty access via a page fault, v4 injects DBM into pgt->flags
+>>>>> at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
+>>>>> during migration setup, the first dirty access no longer triggers a page
+>>>>> fault. Consequently, if lazy hugepage splitting were relied upon (which
+>>>>> requires a page fault to trigger splitting), hugepages would never be
+>>>>> split, leading to guest hang after migration. Leonardo's patch above
+>>>>> ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
+>>>>> is available, guaranteeing that hugepages are properly split before
+>>>>> migration starts.
+>>>>>
+>>>>> v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
+>>>>>
+>>>>> v3->v4 changes:
+>>>>> - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
+>>>>>     separate patch in v3).
+>>>>> - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
+>>>>>     by Leonardo Bras. DBM is now controlled as a page-table level flag
+>>>>>     (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
+>>>>>     at stage-2 MMU creation time, not lazily on first dirty access. This
+>>>>>     means the first write to a dirty-logged page does not generate a
+>>>>>     page fault, which is a key reason for the mandatory dependency on
+>>>>>     Leonardo's eager hugepage splitting patch (see Depends-on above).
+>>>>> - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
+>>>>>     into three patches: per-vCPU buffer management, fault handling and
+>>>>>     buffer flush, and auto enable/disable on dirty logging change. This
+>>>>>     implements kernel-managed automatic HDBSS enable/disable.
+>>>>> - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
+>>>>>     on/off. HDBSS is now automatically enabled/disabled based on dirty
+>>>>>     logging state via kvm_arch_commit_memory_region().
+>>>>> - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
+>>>>>     and kvm_handle_guest_abort.
+>>>>> - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
+>>>>>     per-vCPU, since all vCPUs share the same order.
+>>>>> - Document patch is not included in this version; will be sent in a
+>>>>>     follow-up series.
+>>>>>
+>>>>> Leonardo Bras (1):
+>>>>>     KVM: arm64: Enable eager hugepage splitting if HDBSS is available
+>>>>>
+>>>>> Tian Zheng (2):
+>>>>>     KVM: arm64: Add support for FEAT_HDBSS
+>>>>>     KVM: arm64: Add auto DBM support for hardware dirty tracking
+>>>>>
+>>>>> eillon (3):
+>>>>>     KVM: arm64: Add HDBSS per-vCPU buffer management
+>>>>>     KVM: arm64: Add HDBSS fault handling and buffer flush
+>>>>>     KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
+>>>>>
+>>>>>    arch/arm64/include/asm/cpufeature.h    |   5 +
+>>>>>    arch/arm64/include/asm/esr.h           |   5 +
+>>>>>    arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
+>>>>>    arch/arm64/include/asm/kvm_host.h      |  14 ++
+>>>>>    arch/arm64/include/asm/kvm_pgtable.h   |   4 +
+>>>>>    arch/arm64/include/asm/sysreg.h        |  11 ++
+>>>>>    arch/arm64/kernel/cpufeature.c         |  12 ++
+>>>>>    arch/arm64/kvm/Makefile                |   1 +
+>>>>>    arch/arm64/kvm/arm.c                   |  29 ++++
+>>>>>    arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
+>>>>>    arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
+>>>>>    arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
+>>>>>    arch/arm64/kvm/mmu.c                   |  19 ++-
+>>>>>    arch/arm64/kvm/reset.c                 |   4 +
+>>>>>    arch/arm64/tools/cpucaps               |   1 +
+>>>>>    15 files changed, 399 insertions(+), 4 deletions(-)
+>>>>>    create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>    create mode 100644 arch/arm64/kvm/dirty_bit.c
+>>>>>
+>>>>> --
+>>>>> 2.33.0
+>>>>>
+>>> Also, please remember to include the base commit, so it can be applied for
+>>> testing/reviewing.
+>>
+>> Thank you for the reminder.
+>>
+>> This patch series is based on:
+>> - Commit: 0e35b9b6ec0f
+>> - Description: Merge tag 'mm-hotfixes-stable-2026-07-06-17-49' of
+>> git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+>>
+>> Welcome to test and review — please let me know if you encounter any issues
+>> or have suggestions for improvement.
+>>
+>>
+>
+> Thanks for sharing :)
+>
+> Tip: for next version, you can automate that by adding
+> '--base=<base-commit>' to your git-format-patch command, and it will
+> automatically generate a base message at the end of your cover letter, such
+> as:
+>
+> ```
+> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+> ```
+>
+> Thanks!
+> Leo
 
-Freeing the VIC after the root handler has been installed would leave
-avic_handle_irq() pointing at a cleared or freed controller. Create
-the domain first, then publish the controller and install the handler.
-Also handle set_handle_irq() failure by removing the domain and
-releasing all resources before the handler has been changed.
 
-Fixes: 5952884258e5 ("irqchip/aspeed-vic: Add irq controller for Aspeed")
+Got it! thx!
 
-Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
----
- drivers/irqchip/irq-aspeed-vic.c | 23 +++++++++++++++++++----
- 1 file changed, 19 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-aspeed-vic.c b/drivers/irqchip/irq-aspeed-vic.c
-index 6649b893f39c..bb3cceec375f 100644
---- a/drivers/irqchip/irq-aspeed-vic.c
-+++ b/drivers/irqchip/irq-aspeed-vic.c
-@@ -186,6 +186,7 @@ static int __init avic_of_init(struct device_node *node,
- {
- 	void __iomem *regs;
- 	struct aspeed_vic *vic;
-+	int ret;
- 
- 	if (WARN(parent, "non-root Aspeed VIC not supported"))
- 		return -EINVAL;
-@@ -206,15 +207,29 @@ static int __init avic_of_init(struct device_node *node,
- 	/* Initialize sources, all masked */
- 	vic_init_hw(vic);
- 
--	/* Ready to receive interrupts */
--	system_avic = vic;
--	set_handle_irq(avic_handle_irq);
--
- 	/* Register our domain */
- 	vic->dom = irq_domain_create_simple(of_fwnode_handle(node), NUM_IRQS, 0,
- 					    &avic_dom_ops, vic);
-+	if (!vic->dom) {
-+		ret = -ENOMEM;
-+		goto err_free_vic;
-+	}
-+
-+	/* Ready to receive interrupts */
-+	system_avic = vic;
-+	ret = set_handle_irq(avic_handle_irq);
-+	if (ret)
-+		goto err_remove_domain;
- 
- 	return 0;
-+
-+err_remove_domain:
-+	system_avic = NULL;
-+	irq_domain_remove(vic->dom);
-+err_free_vic:
-+	iounmap(regs);
-+	kfree(vic);
-+	return ret;
- }
- 
- IRQCHIP_DECLARE(ast2400_vic, "aspeed,ast2400-vic", avic_of_init);
--- 
-2.25.1
-
+>
 
