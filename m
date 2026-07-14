@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB39C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1C4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8t/wPcAuSutmt21ZbTdkTqGB9SRp5eZzuUAxIamiYVM=; b=dLPEklUViST6Ww
-	LBTK68qkcYd1FzcPGSRsqm+P86JSQNWILurnX3gURgF5ZBZoDY2+QrbN07z9FWhONIvKUD6FBK+Yi
-	BnJcFuIkpfvJ9Z+7IHjbBnsSSjEkuSYRLKHnb7+f9yLjJDR4/NNQq9lCtpl538cYouEIxOXN+LYI9
-	OQpaXoUnG7RuOEVovn/xw0Be8ysKW1rot5DNU9eWnQQoW3Qm2sgQ8KCP/f0Tn00pJPZh80sg5peRO
-	6/ouADG9b2sfz4S40P7mmyaxwjryGpspVUS5YxlhfB7/OWzPshq5EddO/kIovR1rivbQG0lj5Ykam
-	Xco5/ZuNJbjirU+6pf+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9+0acl7rzlJzww8ZW//TiR0FDqtBMUOChilFB+I0aQ=; b=KY6nS/K/gAbAAyTpALoUIPt1TE
+	pthicSbl87VpWkZfTkCxQ8da25vQ28stMQ6DHJgyWYzPWUI6T+kNBUnaach+LKZXc1aJvSZ0A/4mi
+	h914E/7RZBNTIhNG6XEgYarPwQct610lAdZ/+/1qp1cAqVgTu7c6tTOuaFGfapZnyzWj75vdiQkAV
+	7VJOefB3X7wEqV7zBMSMeqZQ93jaCp8kxxdsIuWyu645ID8lqCUELjYSBgvWNkCMwgoSYHi+OFIg1
+	QrI78yDwTZzJI64k7xcRrBvcvs5o/G0UBMzS4prMJSHHAHuEIkXFcrNmbLj8rl41B9mfPM1TQJ8Eu
+	nc+CibEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wja8V-0000000BX1S-1jlU;
-	Tue, 14 Jul 2026 10:13:11 +0000
+	id 1wja8c-0000000BX3C-2IMA;
+	Tue, 14 Jul 2026 10:13:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wja8S-0000000BX13-48dN
+	id 1wja8X-0000000BX1Q-23zg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:13:10 +0000
+	Tue, 14 Jul 2026 10:13:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEC23497;
-	Tue, 14 Jul 2026 03:13:03 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 53D113F7B4;
-	Tue, 14 Jul 2026 03:13:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 919601476;
+	Tue, 14 Jul 2026 03:13:05 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 502F63FAF5;
+	Tue, 14 Jul 2026 03:13:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784023987; bh=aChVU7TtBHT3z0z96zTVexNzuowIbAYa5PO5RoYYBbw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JgW76V30VzVw9a6u4YwpC36e+EiPn+p9GFsyvWUe4gkftKETUsiy8j06/h+eqAHGO
-	 pUKzMrs9QTw5CuPlk5M2EK5o9Siu+68pUEZaCC89m8vwrc++9w1lLWfq3ZdkY+Itg4
-	 W18DWdJ8bz/0JfXx8Jb3pOjBGNbt6i2SdNMBC5lI=
-Message-ID: <233f7245-7b58-4f1e-a2a2-9716602e8011@arm.com>
-Date: Tue, 14 Jul 2026 11:13:04 +0100
+	t=1784023989; bh=g7mASN1w+UMRPcOtlUAKXnklRJCF0YJxJU34hxUurtg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=cvuo8rF7fLtQJaXzvusD6AKM4OJ8QEAIeTRlXzwiCpcTpYqUhmJQJKFySi1ejFX+r
+	 w332l+4skESsmVNU8aYYoPQ03Q28sQC6qwWzkcyFtz0NjscDx3ft1WoNmvBBWVeCQ9
+	 mVWQGekFSg5ybgTuAQG6qdN+qvmEydrSXAmGy8Vg=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
+Date: Tue, 14 Jul 2026 11:13:01 +0100
+Message-ID: <alYLrbArDIKx1hh_@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <4d5imbtps2p35zujbupzmvag6m46yc4jz4qnoje6pdwlx4zuno@wom5iiwkszzs>
+References: <20260708134101.2514759-1-leo.bras@arm.com> <20260708134101.2514759-3-leo.bras@arm.com> <jiy6rtx24nqnnduze3uuvc2ifqrjlskhefyctlwyh2jshdjrw2@a2wpodq6ife6> <alS6hwzsBUEfvBEk@LeoBrasDK> <4d5imbtps2p35zujbupzmvag6m46yc4jz4qnoje6pdwlx4zuno@wom5iiwkszzs>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 07/36] arm64: entry: mask DAIF before returning from C
- EL1 handlers
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-8-vladimir.murzin@arm.com>
- <495a9d3f-ad12-4927-84c0-6f8f89cf9a06@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <495a9d3f-ad12-4927-84c0-6f8f89cf9a06@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_031309_072382_C9EFE348 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20260714_031313_733055_3EDACB6A 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,89 +79,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 08:57, Jinjie Ruan wrote:
->> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->> index ceb4eb11232a..2be42d7f4eaa 100644
->> --- a/arch/arm64/kernel/entry-common.c
->> +++ b/arch/arm64/kernel/entry-common.c
->> @@ -495,6 +495,7 @@ static __always_inline void __el1_pnmi(struct pt_regs *regs,
->>  
->>  	state = irqentry_nmi_enter(regs);
->>  	do_interrupt_handler(regs, handler);
->> +	local_daif_mask();
->>  	irqentry_nmi_exit(regs, state);
->>  }
->>  
->> @@ -540,6 +541,7 @@ asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
->>  	local_daif_restore(DAIF_ERRCTX);
->>  	state = irqentry_nmi_enter(regs);
->>  	do_serror(regs, esr);
->> +	local_daif_mask();
->>  	irqentry_nmi_exit(regs, state);
-> This is similar to my patch below:
+On Tue, Jul 14, 2026 at 06:41:11AM +0100, Wei-Lin Chang wrote:
+> On Mon, Jul 13, 2026 at 11:14:32AM +0100, Leonardo Bras wrote:
+> > On Sat, Jul 11, 2026 at 06:53:28AM +0100, Wei-Lin Chang wrote:
+> > > Hi Leonardo,
+> > 
+> > Hi Wei-Lin, thanks for reviewing!
+> > 
+> > > 
+> > > On Wed, Jul 08, 2026 at 02:40:58PM +0100, Leonardo Bras wrote:
+> > > > Add the new walking flags that tell kvm_pgtable_walk() to skip lower levels
+> > > > when walking the pagetables.
+> > > > 
+> > > > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> > > > ---
+> > > >  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
+> > > >  arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++++++---
+> > > >  2 files changed, 29 insertions(+), 3 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> > > > index 41a8687938eb..20c7c12e0e76 100644
+> > > > --- a/arch/arm64/include/asm/kvm_pgtable.h
+> > > > +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> > > > @@ -311,31 +311,44 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
+> > > >   * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
+> > > >   *					with other software walkers.
+> > > >   * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
+> > > >   *					the walker returns -EAGAIN.
+> > > >   * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
+> > > >   *					without Break-before-make's
+> > > >   *					TLB invalidation.
+> > > >   * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
+> > > >   *					without Cache maintenance
+> > > >   *					operations required.
+> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
+> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
+> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
+> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
+> > > 
+> > > Just a drive-by nit:
+> > > Maybe avoid the level-$LEVEL terminology? Since as you said there is
+> > > level -1 in the architecture, in that case you'd have to write
+> > > "level--1" which is awkward :)
+> > 
+> > It would have to be something like level-(-1), or we could call it level+1, 
+> > LOL.
 > 
-> https://lore.kernel.org/all/20260703100135.2512312-4-ruanjinjie@huawei.com/
+> Good one! :)
 > 
-> I think there are at least three problems：
+> > 
+> > Seriously though, yes it's bad.
+> > I could call it level_1 entries, but level_-1 also seems weird :(
+> > level(1) & level(-1) could work, but looks like a function now
+> > 
+> > maybe just saying 'level 1' and 'level -1' can be better.
 > 
-> 1、disable_daif is missing for el1h_64_sync_handler() and __el1_irq()
-
-Hmm, here is call chain for el1h_64_sync_handler()
-
-el1h_64_sync_handler()
-  -> el1_abort()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_pc()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_undef()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_bti()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_gcs()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_mops()
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-  -> el1_breakpt() /* Doesn't touch exceptions, so exception on exit are the same as on entry */
-  -> el1_softstp() /* Ditto */
-  -> el1_watchpt() /* Ditto */
-  -> el1_brk64() /* Ditto*/
-  -> el1_fpac() 
-     -> arm64_exit_to_kernel_mode()
-        -> local_daif_mask()
-
-similarly for __el1_irq()
-
-__el1_irq()
-   -> arm64_exit_to_kernel_mode()
-      -> local_daif_mask()
-
-all them mask exceptions. What I'm missing?
-
-> 
-> 2、The order after moving to the C code is incorrect. disable_daif should
-> be the exit point for C, that is, after irqentry_nmi_exit(), it is
-> unclear why this order change occurred ?
+> Yeah, I generally also just go with the space when it's text.
+> For code/variables, I guess a direct concatenation like what's done here
+> for the enum is good.
 > 
 
-Fair point, I'll fix that in next iteration.
+Sure, noted for next version
 
-> 3、local_daif_mask () has added some pseudo NMI operations and
-> trace_hardirqs_off ().
-
-Yes, similarly we have for most exceptions. Could you, please, expand
-on what is your concern with that?
-
-
-Cheers
-Vladimir
+Thanks!
+Leo
 
