@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D54C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6C5C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aXa18Ch0e2vLZlGrASFesIEpC3EeeinYhnVoxsPLqAM=; b=gW6hOrkuoT6TaFnPos+J2qHQhI
-	KR/K6YR0PVwl3ZVypPzMSOi/nUZOpEnmZwjdYJKrSpT1PkVKhh/ojLxbTtNZECNyKeZK31o44b56c
-	j8D197viAovBukJzJN+tzuw7afCX3rGd0qk1+LNf5ixKCsOqeRrcaTehQEQAX/RHMGm0ote53wN68
-	xvvKTeb08ZpPQykhpgs/DDK5wR9V5vW48bpBAeLIcpMiU/4sDctV1//A7hP4YmaNqgLyVk91QgJpL
-	AZoK0csNmyB3bYppP2ZzkV+qn4ggXXJt5AWBH1RU1cuqtDTupuUR3R/4lqsWoxJNRrYHKJSk2kw+I
-	ygcFNG2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5SXaO6AzKWtUW1cRHtzeEYtQM1jxGyHOl13QcADsOoM=; b=k2NDP5LORpy7GR
+	7OXSycPbFPrSdt9euh0zeVFlY9S5v9vp77sG+SbdvV+WPmKKqi5Ll7lzQ+M1Pvq0tgy5FwdjjloxM
+	tcFqN9fVTvetIh+Ijnjm2D9tu7pQNNTThlmC7ouX1/bqT6XlIh9qQSX7qQO8vphd60r4qNCYkBuWe
+	UmvRy/dmc0mVrS5KwiXDPCmAgT5Etmb/mV14wN0tKkEx7HkqjlDJP8T7AG1ws3/B0KpRbwVagigFO
+	qgjqKEn3s+D94KRRQgiu0i8glsY7KjvCEPD+GxWgPpLpKASbMHE61CbN0gefvd2KYOlFGdZvvSkPC
+	qZmhCGVdKMbOZ5RDuTaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZGA-0000000BPB8-1yVh;
-	Tue, 14 Jul 2026 09:17:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjaxK-0000000BdlD-30KK;
+	Tue, 14 Jul 2026 11:05:42 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZFz-0000000BP2e-08Dw
+	id 1wjaxH-0000000BdkI-3tnj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:16:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C6AD601DE;
-	Tue, 14 Jul 2026 09:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31D5E1F00ACA;
-	Tue, 14 Jul 2026 09:16:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784020610;
-	bh=aXa18Ch0e2vLZlGrASFesIEpC3EeeinYhnVoxsPLqAM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cU3xx+9nGoHfhJkUHxZyGSzyElamXWMe0e0YOTd1b7jQHzJ0gDDeL03EaYWmDJ6/F
-	 d4iuk93JZAQ7OuN4EymGjsVnF6IPbFW1Ho62niPVMYOiU1hGtUR2Muk56K00Tr/aTM
-	 TjHQOjG0Q/6Z22rgU3KOwQ44CfuUKd5pVM+IJL7hW2YZDlglGItoNAclmE72w1MDQo
-	 QWL5PSV1Fj17ZmGMt+x/LsJNXnPY2tvLWOnSjyZCpOOF3xckP/MFmIfA6rdHp0TGwB
-	 Sz4J/p3yNmMbnQmlEWjT2+bZKsahasDuNh/lDYXLadJwrHlaABssRvJlwo7HZuNy3C
-	 PmH0gdLDSPXjg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wjZFw-00000004ny1-1uIo;
-	Tue, 14 Jul 2026 09:16:48 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 07/28] KVM: arm64: Don't evaluate HCR_EL2.NV nor HFGITR_EL2.ERET on ERET fast path
-Date: Tue, 14 Jul 2026 10:16:20 +0100
-Message-ID: <20260714091641.1970822-8-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
-References: <20260714091641.1970822-1-maz@kernel.org>
+	Tue, 14 Jul 2026 11:05:41 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5SXaO6AzKWtUW1cRHtzeEYtQM1jxGyHOl13QcADsOoM=;
+	b=oVagbnXBtKowPKMvk1BfMQExaZ4EezGgp2oK4ZVhTYW2izKgoL5ZgkKBDUESO9YExC/D+fOZH
+	Jp5+H8gDcIlUyCdyxPBRggPBDAnzxWu1kkhB+lXGWnLSIUfaiH7x9ALswFRohDlFBJ0UYumoZE+
+	NOdEga2mbhCS3Ro9efTHzr4=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gzx7F5g0zzRhVN;
+	Tue, 14 Jul 2026 18:56:09 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 53EFF40561;
+	Tue, 14 Jul 2026 19:05:26 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 19:05:25 +0800
+Message-ID: <30789c4d-cacb-49ba-8848-b69a61b02fde@huawei.com>
+Date: Tue, 14 Jul 2026 19:05:24 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
+ initialization
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-7-vladimir.murzin@arm.com>
+ <994f9866-b7f9-408f-8aaf-3591882b5c7f@huawei.com>
+ <432a52d8-0526-4477-95fe-2aba6a113153@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <432a52d8-0526-4477-95fe-2aba6a113153@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_040540_286579_3DAC99FA 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +77,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently avoid using the ERET fast path if the guest has HCR_EL2.NV
-set. This is an odd check, as NV doesn't mean much if HCR_EL2.TGE==1.
 
-Similarly, evaluating HFGITR_EL2.ERET makes little sense, as
-this only applies to the nested context, while the ERET fast-path
-is purely for the benefit of L1.
 
-Replace these bizarre checks with is_nested_ctxt() which makes a lot
-more sense: if we are running an L2, the ERET trap must go to L1.
+On 7/14/2026 6:02 PM, Vladimir Murzin wrote:
+> On 7/10/26 08:44, Jinjie Ruan wrote:
+>>
+>> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>
+>>> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
+>>> interrupt masking via DAIF and switch to masking via PMR.  This
+>>> depends on a very specific behaviour of `local_daif_restore()` which
+>>> will clear DAIF if masking interrupts via PMR, which will get removed
+>>> in the future.
+>>>
+>>> As `setup_arch()` cleared DA only earlier, introduce a dedicated
+>>> helper that explicitly initializes the PMR to mask interrupts and
+>>> clears DAIF, switching to IRQ priority masking.
+>>>
+>>> Given it is a dedicated helper, add a lockdep assertion as
+>>> `setup_arch()` should always have called `trace_hardirqs_off()` when
+>>> clearing DA, otherwise something bad happened.
+>>>
+>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/daifflags.h | 15 +++++++++++++++
+>>>  arch/arm64/kernel/irq.c            |  7 +++----
+>>>  2 files changed, 18 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+>>> index 795b35128467..56341578e7e3 100644
+>>> --- a/arch/arm64/include/asm/daifflags.h
+>>> +++ b/arch/arm64/include/asm/daifflags.h
+>>> @@ -141,4 +141,19 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+>>>  	 */
+>>>  	write_sysreg(flags, daif);
+>>>  }
+>>> +
+>>> +/*
+>>> + * During early boot, we unmask PSR.DA before the GIC has been set up.
+>>> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
+>>> + * after the GIC is enabled : sync them up.
+>>> + */
+>>> +static inline void local_interrupt_priority_init(void)
+>> Maybe switch_to_pmr_masking()?
+>>
+> 
+> I have no strong opinion on that, tbh.
+> 
+> Having another look at the code made me think that this helper has
+> only a single caller. Perhaps we should move the system_uses_irq_prio_masking()
+> check from the caller into the helper, making it clear that the helper
+> is specific to pNMI without having to inspect the call site.
 
-Fixes: dd0717a998f77 ("KVM: arm64: nv: Fast-track 'InHost' exception returns")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/hyp/vhe/switch.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+I think it is fine to move system_uses_irq_prio_masking() check to the
+helper.
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index bbe9cebd3d9d5..a83be345f8450 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -344,13 +344,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	 * if this is a VHE guest hypervisor returning to its own
- 	 * userspace, or the hypervisor performing a local exception
- 	 * return. No need to save/restore registers, no need to
--	 * switch S2 MMU. Just do the canonical ERET.
--	 *
--	 * Unless the trap has to be forwarded further down the line,
--	 * of course...
-+	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
-+	 * nested context.
- 	 */
--	if ((__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_NV) ||
--	    (__vcpu_sys_reg(vcpu, HFGITR_EL2) & HFGITR_EL2_ERET))
-+	if (is_nested_ctxt(vcpu))
- 		return false;
- 
- 	spsr = read_sysreg_el1(SYS_SPSR);
--- 
-2.47.3
+> 
+> What do you reckon?
+> 
+>>> +{
+>>> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>>> +	lockdep_assert_irqs_disabled();
+>>> +
+>>> +	gic_write_pmr(GIC_PRIO_IRQOFF);
+>>> +	write_sysreg(DAIF_PROCCTX, daif);
+>> otherwise LGTM
+>> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>>
+> 
+> Thanks!
+> 
+> Vladimir
+> 
+>>> +}
+>>> +
+>>>  #endif
+>>> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+>>> index 9fafd826002b..c73faa30268d 100644
+>>> --- a/arch/arm64/kernel/irq.c
+>>> +++ b/arch/arm64/kernel/irq.c
+>>> @@ -126,10 +126,9 @@ void __init init_IRQ(void)
+>>>  
+>>>  	if (system_uses_irq_prio_masking()) {
+>>>  		/*
+>>> -		 * Now that we have a stack for our IRQ handler, set
+>>> -		 * the PMR/PSR pair to a consistent state.
+>>> +		 * Now that we have a stack for our IRQ handler,
+>>> +		 * let's mask interrupts via the PMR.
+>>>  		 */
+>>> -		WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>>> -		local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>>> +		local_interrupt_priority_init();
+>>>  	}
+>>>  }
+>>
+> 
+> 
 
 
