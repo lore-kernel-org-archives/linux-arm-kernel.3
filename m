@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE887C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03D1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rRaYq/2pKzlXdYXFBCK443SOjoWqLtid9IHc6sh0FFs=; b=Zx2TzayeuYeMbj20zWEUweQem3
-	T7l174i60ZuFDfVmEX7ZWnUY7W4feEvYSWPBRGy3enwSUd61YiiuALfTqVi0Tcx4Sl6fQTdE+uuVX
-	XNX6soJcH7WDFBdQZhU+yvIFYPkZlDPCeT+WHu3plkJf39n9nJ4nLkmyNtRC0eQnWOGJKGPneSkgk
-	j7UReZlBgxETTUF41uQL5rKAtNPFllChakIETghdT2PV6ZLHZQ1try9BYN9iejYLA14xTc3kAEZy/
-	61g8+rvAD3xhkhDld8rQ1vrvTCQKF5ms89fcsn1ahRvLQNQOkrnKG2IvSnG89GS8bjxLSJaqJNVQW
-	Be/j79yw==;
+	bh=/uRkmkcj8gU8t5BfL4dxR5CXZJKYqNcUVTUFN6VquLA=; b=TiEJXIwHEZl9Q07tcZIY0N+xZu
+	VakKlffwtgeG6LYnd72+H78+qkmMy5Es729/SEHjE5EZWqfH61bhbs8ngGDcw3vlHSrNG3fBxN9rH
+	jxMKn9PTorclUeODm4JAR1o4qQ2BgieZ1o3ACjMK3AXo8JdCHJCI0OoGYYmbINOM+sXwX6xTtodYl
+	it0Z2V79sxCsjaBbAp3FgzhV1XrYD3bEdMIF1GxEyP+UXbVljAkUdB+Pqu010n/K7qz6MqtSm8Wox
+	LtSjpjejLzjC42FKPU8S3jVklYzh/wL6aAExfedVSHZ6jp9AyJmjN/m20i5+Di+pWlgEoF5LYyqjZ
+	Tsc2grnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVKS-0000000AuWC-1Hxr;
-	Tue, 14 Jul 2026 05:05:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVKP-0000000AuVg-34Du
+	id 1wjVRr-0000000AuuI-1gij;
+	Tue, 14 Jul 2026 05:12:51 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjVRo-0000000Autd-2rdY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 05:05:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E2101570;
-	Mon, 13 Jul 2026 22:05:04 -0700 (PDT)
-Received: from [10.164.148.52] (unknown [10.164.148.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22C9D3F7D8;
-	Mon, 13 Jul 2026 22:05:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784005508; bh=qT2mgHMj6QJLWSA0zgmN/WGwxPyCB1BtgvzkcnB5MEE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IskI8LYMi4GXyfPv7L8xPVpvWDxpiq8313AKc2M43sY5KWhxkTyocowGn4AGEEyJv
-	 h44kaMYYonhUoEWFqSxZ0jdW4tTEI3H2Xaqo/l/lc9ViKG0y333AP70WBnwJ1SDx3L
-	 9P/n83Am3WBMzsWH5EFM54C0a4T+luMARG5rJaxE=
-Message-ID: <6b526275-0e43-413e-adfe-b466155d9ae0@arm.com>
-Date: Tue, 14 Jul 2026 10:35:00 +0530
+	Tue, 14 Jul 2026 05:12:50 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c7c61b5292so7774075ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 22:12:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784005967; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cLoV8Yb9SWv5v9x5h4jCVnhG1r2Q4Pxnr5tVxsXP8fJL/Ax/qgn1NTEe80mT8KxTLR
+         /yK3i9zx3v2NDwb1szg+v9mZOJL9DRmLNUx0WO2AXI/Pd64ROEaAFjy6wCBIileZ+2w9
+         ajIP6uYrgQenkbbNZuorBFeGhBBiLwFsRW5Nk4XkGZU0MSTLqBceNQfpd/nZuqTUJuDO
+         02iCZL1r3qWSd+QRDDrRGOLXXA31EqCi7mo2uNeekZW+iakgGdancGPm/08LoKAuwNlz
+         0zJgT7dnTery7lVsemb1ObXUFnbO8lC45Pd3iqQ1YUCpiA8CdRe0qqGz29VwTrrF7L8v
+         J7fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/uRkmkcj8gU8t5BfL4dxR5CXZJKYqNcUVTUFN6VquLA=;
+        fh=F4KazNLTsEhrF4PQEBuNHjxFaaDvmEkJUndOvScc2uo=;
+        b=XxIRwuxGXJyt4XHKLe9Fmpx6ZM5rlU57NNo3NGKB2HolH7n+yl6ozl1yNLWGbsL8Q2
+         YY6P2vXGxRzWOSbQg9Kr9LS5OU3iAxC/U2VCemH+87MLToeBSxh2PBzPUxTdMCxCmyqY
+         QxJebX/HgzrRepTxJiWB/QmNsuN/iw7zKvacPJv/5egQFGVQ5FJttX6hYdJgGMqTprIx
+         OLcem5ZmDHUDLuwkeGgxDzRDUSWWUtbRCz/CxsFL4UAIjBdiY95ZYs7vB9GXHYdhnYFe
+         w5BASKvBf39QdtU9592TvsWZsCPusw7C81A4IOD28YIRRw3hc+eyE6bI9xmwmYIPo27Z
+         yHsQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1784005967; x=1784610767; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/uRkmkcj8gU8t5BfL4dxR5CXZJKYqNcUVTUFN6VquLA=;
+        b=iGVftMIr+tTBYN2du5/fLRRhdz/nECJdHhpQxlahfo/p8lNu569ggeJTub1nRXNnH/
+         cHzhrdUHy5Jw9wf6rrtXOR1JVHYNcASMefexy+dNGThDzlsdxkvKdv8CCbJSMfg5BhKT
+         3zHH+P7iEO3ga9iE8efAAThGFRvJEclHUU9HQ4mKGzeC1BpWrfJf7iFZmmecZYKC8AKJ
+         8jpl7GMZurTVU0pND2cDoDwHn7HOVSb4ovGBJU6Mdbb+aEU3sEdFHWbgqwCbC/xDmGtK
+         SUc6/nEV94W9pcB05gaC01GjXfgZTrnLomcom/rhpDYc01WdYO/AK/LZmaJiYYdG1PzB
+         OPjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784005967; x=1784610767;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/uRkmkcj8gU8t5BfL4dxR5CXZJKYqNcUVTUFN6VquLA=;
+        b=dCEXovOZ4+p91l4Wak0GaAMQfSNjKmqA+M1WlVPr8I9hIwykzIOsGy7KbVkQGwbN32
+         IUjHxBYh4MLC/inKdiXj87UVKK9tg27RVdTifmRizsViToZlF72SSNmPU750iKYCC/YY
+         /oyU7xXW65PWm8IgtRIaCviebIOcsNlAe8sKsG3TL+CQlAAxFO6QO2eEDAc52sCgwGkG
+         JuLuIfkCSQoji05CTglorwJsaqx9SIdDSQQYleULaztIFF69AEOSdG2JRARkS83eNas5
+         FxmBldp5fm94oSoFQaUxYt3J/Nl1HIVA0eLiHFrGy4lsYrj1x0YW9GDWb6YXi4wv8Fes
+         2wSQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrbpMddpd+qxt9q9YnQv5X0MM6TSrZraDWsDKpdASaBer87hI5VZOcW3QOtYIYv6BU+oouklIT0WuXtqzYZgRpd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYEeIJHdg9axkIdh5NHRqOZ2C5O++QEeBGZ9bsT80mZxZvZrDK
+	J8li0gqiw1PQ8FouAHa2JIplJQsz13AWQThMW4hrWwPwBTfWpNPxy7PkCo0esCHlKSdYxSXbffL
+	tnSSFAcCITpvFgGzZaT9E+SInnoBgcMs=
+X-Gm-Gg: AfdE7ckAeHUwfxLO6L/idHh9ZNrzuRZOUVaMNE0HObR6/DfU5/knzykldrQDb/Fcr3D
+	wnxjEwxEo6YtOMQuofPvc9iAAeFcbez7Lt0jdDEQgBZClD78mLpTZy7gYimc1NU618oseg9cRcj
+	XGtu59TU0QxRtE01f5LUiRsUtGJDFQ51OeW5xKTTuqe133kEq9l9kVf4yedhd4rlvEo+iDemtDE
+	MPOtaOrxDhzPhCWV3qmc6xjsGPOvZs/mk34LjHkjgXFHFfgx/W7bjlbTqXcWZe2ZDUwSVGfN8Px
+	J74PNUJuBBmiF1m+9sUp4DnEZgWW+g==
+X-Received: by 2002:a17:903:198e:b0:2ca:d31e:ac50 with SMTP id
+ d9443c01a7336-2ce9e99f4e8mr126780235ad.17.1784005967396; Mon, 13 Jul 2026
+ 22:12:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/6] mm/vmalloc: align vm_area so vmap() can batch
- mappings
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org
-Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
- david@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com,
- "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
- <20260709073823.6643-7-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260709073823.6643-7-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <cover.1783977550.git.sean@mess.org> <b1ba67cf06df907bb1e25dd13554fb72f2ee09d8.1783977550.git.sean@mess.org>
+In-Reply-To: <b1ba67cf06df907bb1e25dd13554fb72f2ee09d8.1783977550.git.sean@mess.org>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 14 Jul 2026 07:12:36 +0200
+X-Gm-Features: AUfX_mx73l8ozq7YHB6NRGb7mR2H4Zdd5n4XL3gFzVk0yaPWxB0D4BDTcsu54Og
+Message-ID: <CAFBinCBqhBXuMdx0JaAhe9B+z6xEX8eSaT4HbDEHq+FpRLH-cw@mail.gmail.com>
+Subject: Re: [PATCH v2 09/11] media: meson-ir-tx: Ensure probe error is propagated
+To: Sean Young <sean@mess.org>
+Cc: linux-media@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Viktor Prutyanov <viktor.prutyanov@phystech.edu>, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_220509_863080_5B05DED3 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260713_221248_727968_03DB2A8D 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +121,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 11:31=E2=80=AFPM Sean Young <sean@mess.org> wrote:
+>
+> devm_clk_get_enabled() may return -EPROBE_DEFER which needs to be
+> propagated else the probe will not be deferred, it will fail instead.
+>
+> Fixes: 49be1c78d575 ("media: rc: introduce Meson IR TX driver")
+> Signed-off-by: Sean Young <sean@mess.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
-
-On 09/07/26 1:08 pm, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> 
-> Try to align the vmap virtual address to PMD_SHIFT or a
-> larger PTE mapping size hinted by the architecture, so
-> contiguous pages can be batch-mapped when setting PMD or
-> PTE entries. We do not expect any significant overhead for
-> this.
-> 
-> Add __get_vm_area_node_aligned_caller() as a wrapper over
-> __get_vm_area_node() to simplify repeated calls with fixed
-> arguments.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-> ---
-
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-
-
->  mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
->  1 file changed, 34 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index db0492151ad08..2ac805cdf18ad 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3314,6 +3314,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
->  				  NUMA_NO_NODE, GFP_KERNEL, caller);
->  }
->  
-> +static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-> +		unsigned long align, unsigned long flags, const void *caller)
-> +{
-> +	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-> +				  VMALLOC_START, VMALLOC_END,
-> +				  NUMA_NO_NODE, GFP_KERNEL, caller);
-> +}
-> +
->  /**
->   * find_vm_area - find a continuous kernel virtual area
->   * @addr:	  base address
-> @@ -3626,6 +3634,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
->  	return err;
->  }
->  
-> +static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-> +		unsigned long flags, pgprot_t prot, const void *caller)
-> +{
-> +	struct vm_struct *vm_area;
-> +	unsigned int shift;
-> +
-> +	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-> +		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-> +				flags, caller);
-> +		if (vm_area)
-> +			return vm_area;
-> +	}
-> +
-> +	shift = arch_vmap_pte_supported_shift(size);
-> +	if (shift > PAGE_SHIFT) {
-> +		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-> +				flags, caller);
-> +		if (vm_area)
-> +			return vm_area;
-> +	}
-> +
-> +	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-> +}
-> +
->  /**
->   * vmap - map an array of pages into virtually contiguous space
->   * @pages: array of page pointers
-> @@ -3664,7 +3696,8 @@ void *vmap(struct page **pages, unsigned int count,
->  		return NULL;
->  
->  	size = (unsigned long)count << PAGE_SHIFT;
-> -	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-> +	area = vmap_get_aligned_vm_area(size, flags, prot,
-> +				__builtin_return_address(0));
->  	if (!area)
->  		return NULL;
->  
-
+Thank you for including this one!
 
