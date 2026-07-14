@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92035C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E285C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nt5K7BuNNxjf2+WKWQ/tC37O8AiRc2BVogdQmoam4bM=; b=vCk+Sme/FHixmk
-	V9H9lxgqPohMeDi1sArI/k/kMfgIf958z9IHMO7idjFYdfrDIthBWkGM2JNt54BvVua9K9NakogZ4
-	rZ0hUstBIp4H5QvIdiYfrc51B8ugC0oe5GXu4KI2C4sRtULkSLZK4XsRVhnpY77f8lsKGk3DJbEbe
-	KEXc+L5BbVudmbaWfxPNYBLFrQkw0G9kK40Es0FbIV08JJ5jcwHu6bLa0MGML6LEWw/uVQETvvley
-	KMq2SWagG0zvYWpGyiLY+IUrgciPN/bmMJRGh8hSb57xv7dxQNzLi38eIj7Hl0sTHnFe74iqJhPVr
-	wfxAZEmZxJyj3LpQA+iQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tGch6f3TrRxCJ2L8VAnZ+qJbCI7ObrChKRXt/xXVCPs=; b=AJZ4/v911gwX762Keyash9saWA
+	rAeOTpfqc3KDHAkb1fLf4gBkzL9DP68lTFVtJK3VroQnmolUHb6YOBS+OSQP5cuUEtmVUKIC7jeCQ
+	3g98IUrFagejxaLxy8EfM9waGYDDON8JF2O4EER/0twxrT5Z9d0CLi0URWYLhSuMap4SErgu13UKm
+	zeT9WkVsDBWxe/spo78z1SoIwR9++mrDRZCI92+WMwDEXD5nPsYEcdRp6jznDn8weDE+GyXp/IcTl
+	IgqvhP4vkD0b7AT8mrNPQPh7xAN+3gorD+JNbQbTmyPmNkOEQyjBETvZ2lwC2XrQKuYkhKOOBGWw4
+	BXM4exrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcSP-0000000ByjE-1NUH;
-	Tue, 14 Jul 2026 12:41:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcSJ-0000000ByiN-3B4b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:41:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B41F497;
-	Tue, 14 Jul 2026 05:41:41 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCDCA3F7B4;
-	Tue, 14 Jul 2026 05:41:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784032905; bh=3HfliaT3B7ow7o7OPVYeaLSYYy/Lx8pmXXIrfnYT07w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oidxx6/t6JYTLpTJN0x6OziC5D66HisbRYQxgQqWbhxT8/hD8ZGKHwTr2/6NmUGEI
-	 7LpphNir7gCk7MmT6t+BPrU2tASyUDaAUMtBn3H5/hdbtSpak/O/vOcrsT7fiTCsYz
-	 umTc5tnafmsX9L28ouifHu477+7YJSIA0xvT6al4=
-Message-ID: <2f54a081-c7e7-4064-bc9b-a51ea68de6c6@arm.com>
-Date: Tue, 14 Jul 2026 13:41:41 +0100
+	id 1wjcVS-0000000Byxi-3CBt;
+	Tue, 14 Jul 2026 12:45:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjcVQ-0000000Bywo-3jso;
+	Tue, 14 Jul 2026 12:45:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 18BBE601ED;
+	Tue, 14 Jul 2026 12:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B8739C2BCB9;
+	Tue, 14 Jul 2026 12:44:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784033099;
+	bh=1ZHNBJO5qrM8bD3uBDopzZ00me/02rhRwmoXbHpPB+o=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=CCU0w3Rz29cVqbt3JYg5z9+vauK6q0C7NZrt7aUrZlD9seiZzdUld3CpUHi96hp2a
+	 3ymYZykF8K2vqoXQjAYF8ykQeEZ4naNLo0Syd2HHuPrV+tN8BxPtjJfFHh2QHj6QCY
+	 YRRONyCrXyHiruzkxJjZYqnHt/TOx7HKK+q2RP6zPtamKaIUCwtoMK7MWwKWueJ7Ro
+	 emXTlTYH8/tcjVUt9cf6GqGDckkNRQbVMmm0hR439kwpWrirTz7z1ekJk50CIhri7Y
+	 Df8+2WV53LZ9tF6Hqskl8qghoHqN7bI+BDrclETHJNa2w8JCr34BUWriGqVZ3nAap8
+	 BomyR6sBISMrQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9161EC44501;
+	Tue, 14 Jul 2026 12:44:59 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Tue, 14 Jul 2026 15:42:03 +0300
+Subject: [PATCH 1/3] dt-bindings: soc: mediatek: pwrap: add mt6572
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 29/36] arm64: nmi: Manage masking for superpriority
- interrupts
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-30-vladimir.murzin@arm.com>
- <ecc5e80c-89c3-4a62-87e5-cc09c04bc2c6@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <ecc5e80c-89c3-4a62-87e5-cc09c04bc2c6@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_054150_978933_548C17BD 
-X-CRM114-Status: GOOD (  12.45  )
+Message-Id: <20260714-6572-pwrap-v1-1-d8e5a39cf7ef@protonmail.com>
+References: <20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com>
+In-Reply-To: <20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784033096; l=838;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=DGlethcwjr6H16kkYv8rGeF6UvLfthLp0VHfVhWr1Mk=;
+ b=9Fb6Cp26hr6jilvkzub6M4v2q/4lL0YwTW5VtR7PmuZCGmc+q1MJnxFs08qNCpGQwIAYC57nS
+ 2QYhDhvFYkrB0aFN8eHW4BpqKibUhfROxJ2zy+39XcBccKeVg304Jh9
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,69 +83,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 11:08, Jinjie Ruan wrote:
->> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
->> index 72ed6e75d146..315aaec3ea34 100644
->> --- a/arch/arm64/include/asm/interrupts/common_flags.h
->> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
->> @@ -20,6 +20,14 @@
->>  /*
->>   * Exception context mapping
->>   *
->> + * FEAT_NMI
->> + *
->> + * CRITICAL -> DAIF + AllInt (corresponds to the state on exception entry)
->> + * ERROR    ->  AIF + AllInt
->> + * NONMI    ->   IF + AllInt
->> + * NOIRQ    ->   IF
->> + * PROCESS  ->    0
->> + *
->>   * pseudo-NMI
->>   *
->>   * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
->> @@ -76,6 +84,7 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
->>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
->>  
->>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
->> +
->>  }
->>  
->>  static __always_inline
->> @@ -84,6 +93,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
->>  	if (system_uses_irq_prio_masking())
->>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
->>  
->> +	if (system_uses_nmi())
->> +               return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .allint=ALLINT_ALLINT};
->> +
->>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
-> 
-> DAIF_PROCCTX_NOIRQ is universal; can it be initialized with a loal
-> varible and set at the beginning?
-> 
-> 90 static __always_inline
->  91 arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
->  92 {
->  93 >-------arm64_exc_hwstate_t state = { .daif=DAIF_PROCCTX_NOIRQ };
->  94
->  95 >-------if (system_uses_irq_prio_masking())
->  96 >------->-------state.pmr = GIC_PRIO_IRQON;
->  97
->  98 >-------if (system_uses_nmi())
->  99 >------->-------state.allint = ALLINT_ALLINT;
-> 100
-> 101 >-------return state;
-> 102 }
+From: Roman Vivchar <rva333@protonmail.com>
 
-It can be, but I did it this way because it can be quickly and easily
-matched with the exception context mapping documented at the top of
-the file. I don't have a strong opinion - if others find a different
-approach more helpful, I'm happy to change it.
+Add a compatible string for the mt6572 SoC.
 
-Cheers
-Vladimir
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+index e7c4a3984c60..a3cf11153fba 100644
+--- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
++++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+@@ -31,6 +31,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt2701-pwrap
++              - mediatek,mt6572-pwrap
+               - mediatek,mt6765-pwrap
+               - mediatek,mt6779-pwrap
+               - mediatek,mt6795-pwrap
+
+-- 
+2.54.0
+
+
 
