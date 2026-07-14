@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF50C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A436AC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k61jezHC3k/RbNT9F3tzR3+tjmPaHQC3k1irVJlQASY=; b=w0x521INM15T1R2EQUwOzlcTib
-	h94K/0pPIqd3J3hWSkctu1W7KKdYwbKltn3d2J1EIxUx4rhn7TaBND9v2GR6do9Iik8p7BHBAPKlO
-	+j+ZR/WaRYbxl90mzsyC85evgjWImSepa90sd4r38z0HZhrNNAenwgDMVOX3AuGXRXMhDmqTLHd+n
-	bskUPLLP6UNLTIBeoC9kHZtxo9qVmnsiNLccYI+AUpDTgvMoqIzKE61x5i9rnk7PR3AJtR4tLhaij
-	RLFE2db80RfoMjJ+uQE98u0gm+70FiVuwH92rCuK4GJEJGRGdy22FwNoLodIh7okrskZVSzxJBmTc
-	mFkLoMEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WS/LG8NLHrxUYbXTyAgZN6AxbMxAGqMIBf9Cy5n0BGk=; b=qeQuiBsSU5anOP/Q/ZqafP4Pfl
+	RZgQLgrKPezt9FQkS8aC9GviLwjqKGM+fA1czapuwVlTSzeB6dC7yAM7Dqugcr6KD90EDBMVc7gas
+	qbN1eCivyhrnzcZ+cRIOvb2pj+PIJ7a8Dq9Vk5yFX7nIGLEDTe3DpUvEBLEXaYm9ci3lhHbZMx76v
+	tBEsXqNTbE0JEQHtn4qFZydQYyaIplbya49ue2E2s2oCalqnEOSgcWwcPjCl85z+G7GBZ4WUzbYcp
+	Djj2aroZ3IwJmzcKf7uPZsPEko2L48h8nteywXoJL+iKUg9HCAU5fOYUCDTZB4BDVgcWz17eBZc0V
+	FBFpH5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgCv-0000000Cfoc-2LVb;
-	Tue, 14 Jul 2026 16:42:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjgEm-0000000Cg4e-3bEr;
+	Tue, 14 Jul 2026 16:44:04 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgCu-0000000CfoL-1tbs;
-	Tue, 14 Jul 2026 16:42:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA34B405FF;
-	Tue, 14 Jul 2026 16:42:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1ED61F000E9;
-	Tue, 14 Jul 2026 16:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784047327;
-	bh=k61jezHC3k/RbNT9F3tzR3+tjmPaHQC3k1irVJlQASY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Jz+9CzekUY1eftq3OxsUOGnOISpZqtktT0tAgq7mvu+rrHDWAkEdGbOVs0K8Gg3QC
-	 b5aaXIH/ZMAaxTXSgPmRJqRvDW2TKxz1OXFgI66JwZPhI7E4nr+T0JEfJjGiT5P27W
-	 nJImc7zIO3QScevDh3Bkkz17U2GppED6C15BmEe325W5AnfsRjWNhz8FlZoH8eFoH8
-	 03LENgZV+8yKzGCIQtxrpu+0sH4uPslR8zAbEOOUAW1aDopUrBInyka1ERI8Z621Wk
-	 Pi91ocPthGdpsrOaWaL12/IlkoTc6fJOtnfw8o0xojHG/3Jmuv8bCKbkudvZPuJf3U
-	 DwGKZI6sr/25Q==
-Date: Tue, 14 Jul 2026 22:12:03 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, neil.armstrong@linaro.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de, matthias.bgg@gmail.com,
-	justin.yeh@mediatek.com, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v3 2/2] phy: mediatek: Add support for MT8196 MIPI DSI PHY
-Message-ID: <alZm25Ro_WdKigPd@vaman>
-References: <20260713103805.23030-1-angelogioacchino.delregno@collabora.com>
- <20260713103805.23030-3-angelogioacchino.delregno@collabora.com>
+	id 1wjgEk-0000000Cg4E-262Q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 16:44:03 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493c733f15aso41173945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 09:44:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784047440; x=1784652240; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WS/LG8NLHrxUYbXTyAgZN6AxbMxAGqMIBf9Cy5n0BGk=;
+        b=i2kDuK+Y893GrHEuXgMQEEzbCL0HBTc1FcprsS6kdu2K2BeeqB6zQYb5JaWvoG+SWQ
+         ECJQFmEq916qut6mEueqzewrUeNEZD+FwRYTdSuMT23X094ugFl9bCfNwKKiS/X7CKOE
+         kMDbth3MUddkLkBhKKkueKUS3YDJcM6eqFy1EIzjrWk+OgpO1RaMiKKeWTDSRkhD03fL
+         FW8Eo7KwRPeSLgY/I5yHqSYicv/GAWBmPPaYyKbQlehg9qZOrXm36pKP7E/Mm1/t/SIG
+         NL6SkMmxjCSJKMX2KaC75mGGJU85BZXtS8qJVrQhzEOA+AXlV9zqyB8xB4WXEZwqEtrD
+         n4bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784047440; x=1784652240;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WS/LG8NLHrxUYbXTyAgZN6AxbMxAGqMIBf9Cy5n0BGk=;
+        b=kMmpSO5ekPC6uCSHOdzYp/Txa7l6gfgT6fpnb51yfoS6uPfJE2UEe4Pf1IySsQY/Yq
+         XA6QaGXhZZ0yfOffz2kzl7SNXwMSQ4GrOM7+AjD5+qQtap7+NoEeFIUNM1cpFYNwvqr1
+         OaZ4LvZ5qQ51OONx60FmqZNtv3Q4qMWGeVjDsJUXGsoo9SHRjspULL1UF8nZUpVCHDoa
+         KRM+zAG3HkSnG9XaUJYkT5e/5GDshqsJyt5WprDz+EbJgRKWMG4n59JORR1vGYGPlXas
+         mAQztq0coKFeT9H3152em4ZujnKx1MHyJN9EK3v5JLkGh/yCUZuIX3dPh3B6k4AypHc2
+         GgLQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrPHwlM6sWMk8h2IgPTS3MCWu6zvvVdgrWq3mf+VTdNvX434ZbRu6Bi9lnqvt5y1Ny5DSVVfZP2YcE4Yxd6P+K4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY0TXld29nWZ+vw1Nm+SJ4HuPXz2X40EXv6lu21je8c+KEE7wT
+	9dCPh6dmkBO4XNNcxwrZ9zlyTU6iKetP3jfZB2NCcFwxZ2RZbXUZrfW1
+X-Gm-Gg: AfdE7cmDgniqCoFU8TXVmPd2YrZKuWGP3nHA2/7zx/sjG2p8iNAtwl8qymb/3cnEY4p
+	ua/Rsu40iFuBWGp8u4A1FIjtkyojlAZx4K8Dc4+6X6hWZS785cBtNla8wL9GRwn1hhiHmtry1Aq
+	VPYd51zTpHks8HbeqvLBzHPuxs0OtqzxfCk+HLVNUL8gxcSWf2/Et9LqtiDDJdNVL/gmKTVPvPX
+	5C4T0W2J4aSOfEifDQOlX+bsB7YPhfMYQrvsBpQmZjBAnDKvPYMZwr8w0GlvZJCEXgBearKCZUV
+	6/sT9bDW7AHQx7KrCSe7WQT1w8H/ntiQ3MfZWmacThO1+xp/8BVHbuW/JM1KtUMWcfaxM1gavjZ
+	HIoM4/wmI2PXHcDSsVpuIQBWjeoPC4nSUz7/3ECFR7z1siIQHcYNPy4z61ZjXTMTIcyM0BOOk0Z
+	BikK1guJZ4uaKTx/rBofLSsw==
+X-Received: by 2002:a05:600c:4754:b0:494:ca0e:880a with SMTP id 5b1f17b1804b1-495389d2ba4mr34447785e9.12.1784047440059;
+        Tue, 14 Jul 2026 09:44:00 -0700 (PDT)
+Received: from localhost ([5.83.201.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a2f951asm92705685e9.14.2026.07.14.09.43.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 09:43:59 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	linux-spi@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] spi: bcm2835: make read-only const array pinctrl_compats static
+Date: Tue, 14 Jul 2026 17:42:15 +0100
+Message-ID: <20260714164215.183809-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260713103805.23030-3-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_094402_567863_C003163F 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13-07-26, 12:38, AngeloGioacchino Del Regno wrote:
-> Add support for the MIPI DSI PHY found in the MediaTek MT8196 SoC
-> and its variants.
-> This PHY has a different register layout and provides support for
-> more hardware features compared to the previous generation.
-> 
-> This initial driver only adds support for basic functionality that
-> is necessary to drive MIPI DSI displays as a D-PHY.
-> 
-> Feature additions like lane-swap, DPHY/CPHY switching, dual-port,
-> and others, may be done in the future.
+Don't populate the read-only const array pinctrl_compats on the stack
+at run time, instead make it static const char * const
 
-This seems to fail to build
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/spi/spi-bcm2835.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-https://patchwork.kernel.org/project/linux-phy/patch/20260713103805.23030-2-angelogioacchino.delregno@collabora.com/
-
+diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+index ff94482fefcc..3d5255d75ff2 100644
+--- a/drivers/spi/spi-bcm2835.c
++++ b/drivers/spi/spi-bcm2835.c
+@@ -1226,7 +1226,7 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+ 	struct bcm2835_spi *bs = spi_controller_get_devdata(ctlr);
+ 	struct bcm2835_spidev *target = spi_get_ctldata(spi);
+ 	struct gpiod_lookup_table *lookup __free(kfree) = NULL;
+-	const char *pinctrl_compats[] = {
++	static const char * const pinctrl_compats[] = {
+ 		"brcm,bcm2835-gpio",
+ 		"brcm,bcm2711-gpio",
+ 		"brcm,bcm7211-gpio",
 -- 
-~Vinod
+2.53.0
+
 
