@@ -4,148 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C47FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DF2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=; b=YTdCeunZkMMWT/WfLIcaEPArBa
-	f14GCyo8e5LueCzjWLBVWWd9Lyl3BOX61ZglwFO7qSScLRbKNUUreTbiSB+VIXG814cdWM0i6klXX
-	ctL/AOJGMrMgiGlnQediPSEyv5WEnWHJrynYtL1LHLOK+/Jt7gWl0fDziZ214msy/geAs2GTvkBD7
-	AGoniSl+3Np3GSYQARwaXLMxvC6S0FT/WkgZ/AJGA0gth2SliKdJVwv7dfU1rKfJPQOfDZeYIwlgv
-	P82SFZ6icqNgZaacQlEkch2ymVtJlOU/a1vFBI3B1EbWy9MfhZBLiHaQNlSYAcGJBp36nJ4+hkdsZ
-	JeHO8JJA==;
+	bh=FKc9E8mHgmIZ99K/Yl8Ib+dj1S9dXObzgLEVLXXcaLg=; b=XHrEbnVQFnDkJ0bg11G4dQ1/O7
+	u+pnix6idQq7YmlyPRAcFFUJwMzLQPtjtGjeap0dU8kn/J6dIAvDP8lOEDGeC+EDzD+pmWLDNRXYb
+	VFzp67ddPxswOPjL5b/VZ1OAQuB6PdpwOjGsInYLrNx/qqJCS6iroh5PlwX2DwmgDvIQyZkZ/wWnC
+	hoeEFSpSdsh2fp5aPNRSXea1o6sWxhdTlq47BU/QPNcBfrr1mU10pfhLkcRtnFe9SFp7mY9SPqweS
+	gi0gsp+G08BvxmfAR03ew28IujXKYq2GRKVoU9c8orBQDtmVxkw6WpIrtrRQ53X76qG6awGeR7cZy
+	wkv64Csg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYkQ-0000000BLMF-1G1X;
-	Tue, 14 Jul 2026 08:44:14 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wjYmB-0000000BLeZ-1c6G;
+	Tue, 14 Jul 2026 08:46:03 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYkN-0000000BLKt-2KQN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:44:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D73sWv2TgP7dRYKniWbflGUB11C6cOKZ86PaIwxtkJkmq38auyVulydZqUYv01bmUZlWFdH421Y2gL+SaEiEV0CN42ZuSIdSvdt0dEmJLhCeSncS6tYxVOeiVvfCVNr10AFF/7cbYo9Pm5m989iTeULi5bKGj4WE3qi8I/vwk/HBxDx5GztwtU9CCzmop38ykeKNAQLyqO3nTj5qy0YBpiKe9irXHs7DMBbwr36Tvo3Z+qF9OUqB1tmPLhmIQa0kDnQSVkqsEKOqs+MGmm/uj3k0fr3nFnpL8RgHRvJFuNVUKvZX4ETVV0hwSj1m2nCGB+31f4iTrX45iF63KNbAag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=;
- b=bDbhdGSH9V46NsyVjW9jfwR/Dwj1sWtR+Jg2oR+HgW1zPL2rhbJHNpF+Hjbk0ifb+dPiAos4P+0fkkO27c7p/iAhuflQczlG/rw/0z/Ny/scJvvQUN81fZUHda5+ilqXLohF+vACbozRiDKXQx0QMmCdCBZPAckxMeaREX+HEs30BO8tEHzlyhx1xZMpC6+GkP32h6G1vKlFk0RO1G5POs3t605Q939qxcSniS+r7R5VUFkimJFnbuKlDFeIcyaYX095IEmsUSQNDn5O2hTdsNW7fpgMN/9hIfNA/3hYEk76aD2X1luo33VF8ojdFtS/wtp+BF+XkOzHepeG497vwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=;
- b=RnZ1c3LrcDB+Ua9XuX+OvKokq/9QZTv+nHmntZGFBkO6JMH812MTBC0/BEFSywCyg2QzFy5Bm0KSb6tpcwbE8PB1sv7SOk0zmDven7wdgXIuJZW9KszObBtEkCbpgYdvsWjKkIANnFhj6hQfsubscD3MHr34v9oVDJWalKBZgH6Q1GVn+ledUl9R28eFmL4oq+JXUbtS1eo8Ix9+jTKhZPJ6pcJ8xm/jBSbAIb5NNvN5FIw9Sw/6t5L0aTOxqLdJeUvEdOfo5eMavctGYuTDASMgWqWvIoLnecMiZa1KKn5rZV0dYjOB2SnsIOFKd4UWyN0Ev+aEK6W9V3+FP7CUjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by GVXPR10MB9482.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:326::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.20; Tue, 14 Jul
- 2026 08:43:58 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0223.008; Tue, 14 Jul 2026
- 08:43:58 +0000
-Message-ID: <4b7b7823-00c5-4801-8ba4-19e5670f339d@kontron.de>
-Date: Tue, 14 Jul 2026 10:43:56 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
- driver
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Frieder Schrempf <frieder@fris.de>, Srinivas Kandagatla
- <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)"
- <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
- <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-10-b8266d93514b@kontron.de>
- <20260714065947.GA22086@francesco-nb>
- <e515a6c5-b32c-47b7-968b-0f6a66e4f24a@kontron.de>
- <20260714083259.GB22086@francesco-nb>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260714083259.GB22086@francesco-nb>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0215.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e4::16) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	id 1wjYm9-0000000BLdy-0aA5;
+	Tue, 14 Jul 2026 08:46:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784018761; x=1815554761;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xxJuEvZ2G5Kbr3szIgk1JdoMkjjna6X5BPLRDG4VrrU=;
+  b=ZqPFgdhDtxtjWk8ULljLi5ki6ANd9h7Gulx3fwAEH0WeVm/5hlqPh6ll
+   VfjZFthKRNypar6OhE5oT1ZpROmbDi5arAW4TBodNzFf847rz/ZxsbYpk
+   DJKAr06+xGZin90zdjrqml1RVoufjBDwrtAq6uAcYokJnTxOcK/Rh/JOf
+   zxW8Vrf/beQg6xiSLLn6V2BMi3DwGOMUecbSGv2lf6FPAsjZMIgOCaoe1
+   1PjxAS5JsRk12XSc0lKwh/cXluCWvQAIktrGh8MrsCANEuNt80Z0SvoJP
+   01lhE9b3DItyzABPOa1q3rT5AQa500MbyCkB75sn+bZp/fjZhDZTRaZO/
+   w==;
+X-CSE-ConnectionGUID: pXMf/2PpQQ6QIqpos9CEsw==
+X-CSE-MsgGUID: FNSFJosrQImE87PszjlQhg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="88458779"
+X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
+   d="scan'208";a="88458779"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:45:55 -0700
+X-CSE-ConnectionGUID: qtQ7RAR0TAGtJe+16mkeLA==
+X-CSE-MsgGUID: yJiBbxipTXeGeysSoUXSEw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
+   d="scan'208";a="259370157"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.189])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:45:52 -0700
+Date: Tue, 14 Jul 2026 11:45:48 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] gpiolib: tolerate gpio-hogs lacking a hogging state
+Message-ID: <alX3PLGgoKTgSy_-@ashevche-desk.local>
+References: <4c67cf0839ccf57db35a826df6d8fc779531509a.1783974733.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GVXPR10MB9482:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45d49fef-67d3-49d2-e25f-08dee1840b8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|3023799007|4143699003|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: IM4HaAFBc9Mrfs/iYe4ky9q3alc/BNpL3u9rmDvjmFE6Wfb66g1Y4rbBcVquw85B1YqSK876zlbqxgiBJaH871OrJZu/ppkQ9uL4yS2AgrvDh3rwnN2zsp039JZiBZ0i9lob6kIzF+aWAeqlKsmSezBQXwn174OZ2zS1kSxtxqpD9UXcGVujUvPwbctgUBhv6OoQ3dxipyUkSHrBYWjMjhVtvwAO4ew3Nh8jYe9AOTBy4Qn+ZMMwKxrfLkPLAQPGwyr8eewgB9Tq/tbp7PGREs0Iv2ec7KqYsQvTLYyy7BlLa+BbY7WEQSsKfCjIEqzxIja2HQFJbbctyW8o5IVt1sAkmD5lL/+kljamaMdFZCkGDjLN3L8ONKt7R+KNugshhgEgQ1PoZoG4qrxmLerPG5uA1Cg6U14FdVmz9K0Pj968sVNpW2Zqkph8pqTnLWd03BRhNaDUnM6aT7vP9nfT1HIsJSy55rFW0v3ST0T0puP/U9rxIFq4AlRFjeMl0SG6kWouM2NbBAvJSuhuwYFd+RrVKmhTR6O5efvIgGqUC9k9Vb3ycqnUy8oH6s/kJH2MnP5k+oOuo4gD+BSXoqrpBjmZ+TsW1G+QJEHmPuXCI8eEA1TeOZzBt7+cEnuUlRbKvE3PrdkWJ6gAD1A9KwYAUBpDEvNWl9VzH+3EVXvkhGA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(3023799007)(4143699003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0laYm95dXh6Q2ZwS21EcVBnUDlLS0c2MDlzeXN6UTFJam9sRGxBcUlnbEN3?=
- =?utf-8?B?U2c0eHJLbzZ2cFFGdVdQK2xtUHBwQkVJWGV0d1U4U1VPTGptS0Urekgzb3pD?=
- =?utf-8?B?Y3lsaTJ6MlRFTkdMYlkyclV6MXZvREVpU2ozY1Fjd0xmaEhMTE1uUjVvQnNt?=
- =?utf-8?B?WVFUOVY0N08rM0ZBTndjakFIcHVpQUtKZGVwdE96N1NoSGR2NklwakFETUFZ?=
- =?utf-8?B?NDY2YjcwMEd6VmdCdGRiaU94R216RVp2MkxwZmN6c1BodXY5cktSclppSUZi?=
- =?utf-8?B?U1QyMFk5cXB2Wm1ac0xKWHZGVHJOS3VkV25wT21wRUJleTNsZkpSRFU5cGFl?=
- =?utf-8?B?VTRHWlltQlBIbDVrYlFlcm1tR3J2NlQ0Qmc2TW5pbk9kVk5zVnpQNVcxb2ZF?=
- =?utf-8?B?cjJLQkZUTFhpK0Z6bHQvMmpUMzFyYklVKzBkYVQzZEpBK3NtemtFc1RzaG1v?=
- =?utf-8?B?ajFFZ0FINlBiMDNRTTlwSUdyR1lXNnc2akxxQUcwOHF6SERqWDdWT0xDK2l2?=
- =?utf-8?B?aW1DaEYrbXBIK2E0YzZEaklpOTNJTEdBK0RCcGJBQW1TRXJRZXlhT3pqdTZi?=
- =?utf-8?B?elFvMjJZVE9HYWJmd0FiUXpYakZPb21EKzAzNXJOdDZRZ0Y3VG5hUWN6WmJC?=
- =?utf-8?B?MlVSN0luVTkwNWxOUEkxeGxUa1Vsa2d0eWxKTWFiWFRPZ2ZyRWg5aXpxSmdm?=
- =?utf-8?B?N1lKVmczMUV2eVRKcGxXai9NeXZtTEpXU25QQ3NMTW5yTkY3VWo5NENBWnM0?=
- =?utf-8?B?YmdSdm5Ra015d2RvMTV3V0ovRmpCZTN0eVRlVVE4SXNPVmJYT2tKaHdheWY4?=
- =?utf-8?B?UkQzcUFEL2Uwdko5cWVKa0E1SzNka1VNTGxabFIxMVp0TmlpSmJGQ2xYdnF4?=
- =?utf-8?B?UDUxQkQ4RFBoN3ZkVnFJTmFSTjZERmp1SWN4UXNaWWt4eWpHaXNMcmtqeFJP?=
- =?utf-8?B?eEpjSG5xckhXVSsyQXI1WWZsc3ZaSHdib2doWHVHQ1hSV1RTTkhoMGVxT2sr?=
- =?utf-8?B?YUpNMFJnUGNKK3NXajdjTE5IcmVPMjRjZ05tZ2JENmU5ZmJUOGRSTzlJeWJm?=
- =?utf-8?B?ZFZWaHhVQjdSNmdxT1VwV29VNjE0aW9rYVNxeDdYTFo1cjNlRDN1V0hYYXJ5?=
- =?utf-8?B?a0d6SlYwaUgzZkhTay9zM0Q1em9IRlhWNTRGWCthd2pqQXdvRWp1ZkhjWlky?=
- =?utf-8?B?aG5nRTA0b1BBQTlPajREQTdZaUhWMWZOZ21YQ0lpVllrUlFGNlBxcjNEMERn?=
- =?utf-8?B?ZHp5V2swMEdibEwrZHBab0JmRFZrVjJkR3ZNZnJ0UlBIV2Q0NDJFUXZsWk9o?=
- =?utf-8?B?djlyalBFM2xWOVpFbCtGdU1GMC9HdDFJRkVDZko2Z1VndXhwcFAxa2M5Q1JF?=
- =?utf-8?B?ck5oMXRpSDQ0ZzU5UStsUVhSVjhKbmlTbTBYSE85d2F1SHBGY3RCNmlaektr?=
- =?utf-8?B?Y2JQUFhZQi9jZ09oR0tkWUhlM1piZUFnU0hKcmlVRVluK05YZVBEemFaRVh4?=
- =?utf-8?B?eFV5dkhjaW0xOENZdUdHVEFKd0JyTkVldHdWbnc2bUlJQUxRR1VNc0RodXZS?=
- =?utf-8?B?SExkV2c0eGw5MEp1dGNscW5ZeWNyaTU2cm1ON21LZ1J2dWlxY3BiQU9KL1JM?=
- =?utf-8?B?NFoyQjhoUllkNWwyZXpreHQxWmhZTDJEaDhIS1diMzJtaUQ0NXVxQnViR1pt?=
- =?utf-8?B?Q2FuUGYyNHdUSEg5S3RPTzZadjYzZFZMc0ZIT01MelV6bWNKTlFFcG9RaFR2?=
- =?utf-8?B?cUw3alRNeHJtbTU2WnN4MThoanZreGs2Z3hoZGp6ZWNyRVY0SjRvckVaR0RT?=
- =?utf-8?B?Z2xDZVY5a2VFRTlIeXEzL0VpWWtVRDJCbmFQVElISCs5VlhtbFZLWVZPZTk5?=
- =?utf-8?B?SitiaXZuemR5aUFNMmM3UnJvdWp6WEswaC93N3Z0Vk4wMXQzSHJVWnYwTFE2?=
- =?utf-8?B?RjNtYXRmTTdLYjE1WSs3Mm1VK0duS25tR1Z2N0VMU1VWUHJUb0pHb0E1RC9j?=
- =?utf-8?B?aEJjU0QyajJVc3hWVnJZRXl1N09SSHdBZjlrdFM4aGhScis3TkgyTnZvMGRV?=
- =?utf-8?B?MHFkWCtKaGFFQnFXM0dSUE9pKzNFTUF2bEVGamx5b2VSenJFSVhnSUMrL0w5?=
- =?utf-8?B?djA2NFhFREZPSXpGS3Y0Vm1ZU1dhRjg0NW9sMnQ2d2N5L3FxV2t3NUpRKzR5?=
- =?utf-8?B?cWE4WUV5dUZEU2ZJTkZNZ3Q0OHlPME1LcWZMRzFpRDIyd0tjc1ZaM0paL2to?=
- =?utf-8?B?MTZoS0N2YXR5UXJWeW4rQi9FUDhqZXVERXRZM2lsbkJLMXVXRmdWdXVvYlN4?=
- =?utf-8?B?OGx2Q2ltQTFWNDBVbzFEMXNIUjZGR2Q3bTJkVVVqc0NQUHZkZVp3ZERWVmVz?=
- =?utf-8?Q?XUyifoWevyRz8kBg=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45d49fef-67d3-49d2-e25f-08dee1840b8a
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 08:43:58.0106
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XKIczVEKqxlJFaPGYDwQ5N4GyLk8p9AIGn5X0UL0fumX9qmkg/sOQaRKdNFA2Q2uUZVpP0pFN3WUTZiYxFU+LD5/XF4ranvi/e8b3hmN2QU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB9482
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4c67cf0839ccf57db35a826df6d8fc779531509a.1783974733.git.daniel@makrotopia.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014411_905254_1AE92D9D 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20260714_014601_193064_0B5E870A 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,55 +91,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.07.26 10:32, Francesco Dolcini wrote:
-> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
->> Hi Francesco,
->>
->> On 14.07.26 08:59, Francesco Dolcini wrote:
->>> Hello Frieder,
->>>
->>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
->>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>>>
->>>> Add the ELE firmware API node and pass its handle to the OCOTP
->>>> driver. This allows us to gain read/write access to the OTP fuses.
->>>
->>> This seems something we should have in the soc dtsi (imx93/imx91), it
->>> does not seems board specific.
->>
->> My original intention was to move as much as possible into the SoC dtsi.
->> The problem is that the memory node is somewhat board specific due to
->> the DDR. And I can't move the firmware node into the SoC dtsi and assign
->> the memory node in the board dts as the checks for all boards not
->> specifying a memory node would fail then.
+On Tue, Jul 14, 2026 at 12:30:53AM +0100, Daniel Golle wrote:
+> Commit d1d564ec4992 ("gpio: move hogs into GPIO core") made
+> gpiochip_add_hog() return -EINVAL for hog nodes lacking any of the
+> 'input', 'output-low' or 'output-high' properties. The error is
+> propagated by gpiochip_hog_lines() and fails registration of the
+> whole GPIO chip.
 > 
-> The ELEFW is required to boot, is not an optional component for this
-> SoC, so I would try to find a way to have this duplicated in all the
-> board files.
-
-I don't think that this is correct. The ELE firmware is currently
-mandatory in U-Boot, but this could theoretically change in the future.
-As far as I know there is no hard requirement for the ELE firmware to be
-available in order for the SoC to boot. If someone wants to build
-software without optional blobs, they might choose to not have the ELE
-firmware in place.
-
+> The previous OF-specific implementation tolerated such nodes:
+> of_parse_own_gpio() warned "no hogging state specified, bailing out"
+> and of_gpiochip_add_hog() stopped processing the node without failing
+> chip registration.
 > 
-> What is the reason to have this memory address different on various
-> boards? Can we have a default in the soc dtsi, and allow the board to
-> override the address if needed?
-
-There is no real point in having different addresses on different
-boards. But the node describes memory that is physically on the board
-and not on the SoC. And I think that is why DT maintainers want to have
-it in the board DT. It's the same with the memory nodes for the
-remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
-But maybe I'm wrong and if there is a possibility to move this to the
-SoC DT I will definitely take it.
-
+> Some boards deliberately ship hog nodes without a hogging state in
+> their base devicetree and supply the state via overlay, e.g. the PCIe
+> slot key selection hogs on the BananaPi R4 Pro added in
+> commit e309fa232d12 ("arm64: dts: mediatek: mt7988a-bpi-r4pro: rework
+> pcie gpio-hog handling"), as the polarity set in the base devicetree
+> could not be overridden from an overlay.
 > 
-> Or can't you add the address in all the boards, and keep everything else
-> in the soc dtsi?
-This could be a possible way, yes. In that case maybe we could even
-create a generic dtsi to contain such defaults for all boards.
+> Booting such a board without an overlay applied now fails to register
+> the gpiochip. On the BananaPi R4 Pro this means the MT7988A pinctrl
+> device fails to probe, all peripherals including the console UART
+> defer forever, and the board finally hangs when clk_disable_unused()
+> gates the clocks of the UART still in use by earlycon:
+> 
+>   gpiochip_add_data_with_key: GPIOs 512..595 (pinctrl_moore) failed to register, -22
+>   mt7988-pinctrl 1001f000.pinctrl: error -EINVAL: Failed to add gpio_chip
+>   ...
+>   clk: Disabling unused clocks
+>   (hangs)
+> 
+> Restore the previous behaviour by warning about hog nodes lacking a
+> hogging state and skipping them instead of failing the registration
+> of the whole GPIO chip.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+...
+
+> -	if (fwnode_property_present(fwnode, "input"))
+> +	if (fwnode_property_present(fwnode, "input")) {
+>  		dflags |= GPIOD_IN;
+> -	else if (fwnode_property_present(fwnode, "output-low"))
+> +	} else if (fwnode_property_present(fwnode, "output-low")) {
+>  		dflags |= GPIOD_OUT_LOW;
+> -	else if (fwnode_property_present(fwnode, "output-high"))
+> +	} else if (fwnode_property_present(fwnode, "output-high")) {
+>  		dflags |= GPIOD_OUT_HIGH;
+
+For a fix I would make it less invasive and yes, break the style, by just
+replacing
+
+> -	else
+> -		return -EINVAL;
+
+with
+
+	else {
+		gpiochip_warn(gc, "%pfwP: no hogging state specified, bailing out\n",
+			      fwnode);
+		return 0;
+	}
+
+> +	} else {
+> +		gpiochip_warn(gc, "%pfwP: no hogging state specified, bailing out\n",
+> +			      fwnode);
+> +		return 0;
+> +	}
+
+This leads patch directly to the point. The style can be modified later on.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
