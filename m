@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF80C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F315C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HctaYC25xmi723t9mpPbmCLQP3IBod29aBYdTrLa6xA=; b=m7B+QI9sJXJdfnN/dk7r+w+d9u
-	0r57qiLothLj37xnGHIuLLcAlq5t/RNd+kyZTsf8jhE7C4f7793/wDYQI6Q/1gTh2Qlx/OeBvrHU2
-	DCA3J1WkK93J0oirPmZnGx4pLvQOfyy0H79svRg6pmS1tV8NNKejZW7hq9HiDYKud5YoqgedtoOTW
-	G8bVDuCUw8MjKpMij4PZOTCSynquwemhCQ0MChtG+sIlmFW7EO0Y2j9L2v9372cxkncyrO8MtavFb
-	ic1Xg1vXocn3I+5cGpLBC79lSs1GO2XXCZbcY9S9HHKqfIOKbIYCUgUOwR9sSkz6OM1ZVfYOiY90c
-	tK4DqEdA==;
+	bh=+C5nG+xtG3hyYyQwRUQFGYH75JNuc0Lk0Ty5BqRmWNU=; b=LSSBh8PZexlimryl324MUCR/ln
+	59WV5Ei7naRzRdRVvyWfnO0+xHJ5p7V2uyD2oRyKIF9wLIyOPCC7Qmded416sLPfbmisP3emkBqVV
+	1fx9bL84v7xixbNBDL1OLNVxrDglvurWFtE8PtY5TA9HEnzUEbCBZm00h4vrRvQvlf1/R3B4Y5APo
+	yDnXMJY2/XgqU3f3PSo3nSnmnpYxj3tcGMIUfKvKlkjbrqv7Fq7uhvpEP27zAtlxfXuD7iWAD3TET
+	Ga5bX9+cXTZPkSuL4w7rGvuec+IyWho/FPpeLDROjkaMbCE/Bgwb3PwKfNHQqtSNKo4Y1Shm9n1rU
+	+V0qNJ+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZm1-0000000BUyy-1a2X;
-	Tue, 14 Jul 2026 09:49:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjZog-0000000BVJt-2v99;
+	Tue, 14 Jul 2026 09:52:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZm0-0000000BUyh-38CQ
+	id 1wjZof-0000000BVJn-3eic
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:49:56 +0000
+	Tue, 14 Jul 2026 09:52:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53BB8417F4;
-	Tue, 14 Jul 2026 09:49:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F87B1F000E9;
-	Tue, 14 Jul 2026 09:49:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FBCD601EC;
+	Tue, 14 Jul 2026 09:52:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 232391F00A3A;
+	Tue, 14 Jul 2026 09:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784022595;
-	bh=HctaYC25xmi723t9mpPbmCLQP3IBod29aBYdTrLa6xA=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=ZVZmAc6QGPyLQjp4Kd7I0ZXRjuVkK/fsGkjzg7Dr9mX68oMKo9p3bz+tPlc9xds1y
-	 UL5BGrb2JOckIQ3juGIhe7VJK+QkjeM6nnsuJYMzZXYtJXKNQ99wMk/eiz7pupxkAQ
-	 jIWNA6wpCcUeZdhpNzb3kZeMeNa6FQp7AsWpRzMLvYH+0NX5EVmxxAD3VIaqycp5n/
-	 fR8iCRtltXt5S3iLSXOf/lOTBdD8B0DVWq/fclNd47VRzfLxNulbsMTZnWwsk9qtQI
-	 MksoMVOSqDFAVPPTUlB7Tza6Oua913SFqFJWY+RR5/0oikgUyWkmQy2X++jb9LUBXd
-	 pI9mgDHReg4Zw==
+	s=k20260515; t=1784022760;
+	bh=+C5nG+xtG3hyYyQwRUQFGYH75JNuc0Lk0Ty5BqRmWNU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=ZgSMxxsh1Lu8MR5Z6WZ7OI+nq6F3YqTn9IBm2AINDs8o2Z/nh/SpZWcv4glu+VhPe
+	 cXy87Qxg3XbvgFKPnL50ydX2ZmeXZ+Y2m0e04PAZRMRDiI7yd819Ia6OkzoYI4l8hi
+	 bQ5nmUAEKOPB1JNlOSIgfbjVYFEy/Nt7TJrcZZrSwXI52rztJjb2qGdZlVK+Mik1C2
+	 MqZlsgx86ioBdN1tVdskpyUDQ5X3kf6HF+H7N5Qp+yw+MWEZGk2dutdazlT0Q42W8G
+	 2WBALzw60ZoYjzJMEjfOp8k80iBpzrMV5Er054iRnji2EAX6IYZOtyYaIq4WMAy0e3
+	 LsRNlLUiQVPTA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v7 00/22] dma-mapping: Track shared DMA state through
+ direct, pool and swiotlb paths
+In-Reply-To: <cd5d0504-1592-4b48-89ea-1efe8aa57968@samsung.com>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <CGME20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1@eucas1p1.samsung.com>
+ <yq5av7argr65.fsf@kernel.org>
+ <fc804746-4fb8-4ea9-997f-a4cae9ba8c14@samsung.com>
+ <20260713194323.GC3133966@ziepe.ca>
+ <cd5d0504-1592-4b48-89ea-1efe8aa57968@samsung.com>
+Date: Tue, 14 Jul 2026 15:22:27 +0530
+Message-ID: <yq5aldbdnbj8.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH mm-hotfixes v2 3/4] mm/ptdump: always stabilise against
- page table freeing using init_mm
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Kiryl Shutsemau <kas@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-In-Reply-To: <alUdUKk0zGmskSib@thinkstation>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-3-ad134cc3a12a@kernel.org>
- <alUdUKk0zGmskSib@thinkstation>
-Date: Tue, 14 Jul 2026 10:49:39 +0100
-Message-Id: <178402257936.69739.4642059153515341814.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1203; i=ljs@kernel.org;
- h=from:subject:message-id; bh=ZepVuhzW21/hUCaWiKuOK4e1luh7TWvi44wNV50RL3I=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLC2Exfud25crSsetf8mCsrnNnW9nV/7tLPT5/09cimd
- V/3ln6W6ChlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEfG8w/Heo1PuZ62TUtlIh
- 9PHGKMH9iscZlofvkWJ9l3JPsbM15D4jw7rfdXP/RV1/G7ynQ8DgSIePeCH/0w8C349m1Jy4KKe
- pxQsA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-13 18:19 +0100, Kiryl Shutsemau wrote:
-> On Sun, Jul 12, 2026 at 11:42:26AM +0100, Lorenzo Stoakes wrote:
-> > x86 and arm64 invoke ptdump_walk_pgd() with non-init_mm mm whilst still
-> > walking kernel page table ranges.
+Marek Szyprowski <m.szyprowski@samsung.com> writes:
+
+> On 13.07.2026 21:43, Jason Gunthorpe wrote:
+>> On Tue, Jul 07, 2026 at 03:03:48PM +0200, Marek Szyprowski wrote:
+>>> I'm fine with merging on top of=C2=A0the topic branch and I assume that=
+ this
+>>> patchset is mature enough to give it a try in linux-next, but first I
+>>> would like to get a review or at least acks from others with good CC
+>>> knowledge or experience.
+>> I think it is good to go from a CC perspective, there are still some
+>> more items to fix up (like the MMIO) but I'd rather they be followups
+>> at this point.
 >
-> The code looks good to me.
-
-Thanks!
-
->
-> Same comment as on patch 1 about the commit message structure, only
-> more so: the race itself is never actually stated -- that these walks
-> hold only the walked mm's lock, while the freeing exclusion built by
-> patches 1 and 2 hangs off the init_mm lock. The fact that makes it
-> possible (x86 shares kernel pgd entries with every mm) is hidden in a
-> parenthesis. And the last three paragraphs read like v2 changelog
-> rather than commit message material.
-
-OK, will reword.
-
->
-> > We take this after mmap write locking the non-init_mm mm. Nothing acquires
-> > the init_mm lock first before locking an arbitrary mm, so no deadlock is
-> > possible.
->
-> Do we want to document this locking order somewhere?
-
-I guess Documentation/mm/process_addrs.rst is the best place, I'll send that as
-a follow-up separately. todo++; :)
-
->
-> --
->   Kiryl Shutsemau / Kirill A. Shutemov
+> Great. Aneesh, any chance You could send v8 with the remaining items
+> fixed till end of this week? I will be happy to push it to
+> dma-mapping-for-next for testing in linux-next asap.
 >
 
-Thanks, Lorenzo
+Sure. You need this rebased on top of the pKVM changes, right?
+Otherwise, we'll end up with conflicts when you do the final pull
+request.
 
+-aneesh
 
