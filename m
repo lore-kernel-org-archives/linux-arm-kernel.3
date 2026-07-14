@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C309C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C36C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=; b=B9sstdj+EhrDY1FEG6UXwpCLmx
-	UhcFKvPshMoWzB6lEdN+YyXPlRZK1jbcwnSsoKcxYsLLEy+VpkocbLNAzoDoEFQsAh51WMn0yfdRZ
-	a/z40FQoMEFRm1BubskcaXZxNtUBK38LfQzM30lcGuIlrTYcNDpTt1eBHTzqWfxLar4XVodVW3Fej
-	gP04bO6ZkVi3UTqTmbTNmf+5adN6JTI/ZZqymGfsse9vdSOwCtMNJKJlUJHFlZnh7VZ3czywM/s4t
-	wyUA9R5BRWuW0uw7DJCZdUd1w7HoVJG4euALHUE03q5MYh0g3ZUbu6vMRsY+txDSkqXCjN2rFWas5
-	d74f6Osw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s0CMiWuHZ0uwm0W5eVDnOsKsl7y91gjDTzq0HQxMpSw=; b=UKW8S0wISq50yToc3yHNYWe9KC
+	cSLvFLiQDrY/TxvbzdXSIaE6Mj4ql0GL3e7AQmT4DJem2tyue+2000gzYBGQBRr3LUp7+TgOftsil
+	i64qmqg+HnJ7Ktiy7+lMQet8JZyghlNgXePj9dP7uJDcUpw1mY0orHi7QXAp7Kb1IEqWN8hu7D5XQ
+	mSaknh3HdYyd0A6xONsd/TSsACFVbe8y0UlG5Mp9ysZWSgecaIKqSauD/QVwWkTL15S+KL15vggpv
+	Oo5YlKv3/J1ozkhkxv1pbB9R8w2TpY8Nzc9TudmbXueK9ph2tKAFZTm+6AQpeWHgOSDPECDhWDUKq
+	eoy6LdXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjckk-0000000C41I-2MwZ;
-	Tue, 14 Jul 2026 13:00:50 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1wjcmy-0000000C4UR-11u5;
+	Tue, 14 Jul 2026 13:03:08 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcki-0000000C40r-0ich
+	id 1wjcmv-0000000C4T8-2GtW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:00:49 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-51c01c79467so284141cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 06:00:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784034047; x=1784638847; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=;
-        b=OZWYWTV7xAiw0jiALUqENpQIxF8blY98oRIlKZcpI2wBqY7bH2mS142QjZm6zMQZsX
-         CvBptBnvU8F0HGyivTPKyj5obkDKhBh8cZY8Ebh/WiXEq99JKKA99nJavH6vrRgF/ScH
-         vq7RXNcAa9LTMqn02+wuuCrbuYTvhGquqjkt2UIThwXgZxC6EIbYfsqR5jd9UkoI5PFJ
-         bxQM+FheN9HThxZZ1T6N2E2fe+/XZK/uTvDIbV/xalVKXrKLvH8dtjOq5r6Ho95izKz3
-         SZ7r3i0fpU0UFYMBBJuYP6KyehPqn8QKNgSVPzPblLi8c/ak1QZVN3VTqgKM1RzjjUvH
-         d26g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784034047; x=1784638847;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=;
-        b=daP5nlTojHElDnNI1m/4d4gfseTAC7LatoTkY9exEEyiA2wtVxnbIU8NTcUpT/7za2
-         9H0F+EFGGmCMoSb+I2JWlQLN6C/AxUncNfIqryXdZ91HOezv4wpM8PPhcKeTPktdwq9i
-         SOnTaAUuVM9+E8b4TdfUz5U+3ovK8sTdervMu0MuWRaR1Vnr74sdrJBzQpjj7LjyI44R
-         n68yvGZB+CyDDazzFJX3Rn2+aV3Z1FrSgMzGAyImv1FQtJtYMK+teb31lkNbyzMLmg8e
-         v14ehsYbglImf/IG/MUGP30782k1Kmu3ec97NlSrnLGgrk7T0Nn/4qfPVSYltkYJ4tjv
-         Fhpg==
-X-Forwarded-Encrypted: i=1; AHgh+RpEakVyQiXJFZskHwZwGR12Uo6XWNTNUGtmsrt5IqNFz16wlNIxvyfP+j3VLxUP61EiRSUnq4eZGByrWUyoAVud@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP8NeYj4D2qMqTe4iYXJwaxhlfhKrNo5ZViuY+2Od5/d4SA6t+
-	Y+PD+RQF1goHKShcfab8mmHa6ulR2Uzcq4HH/4OqcOXg4r84anqtH2GcnOffq4f1DA==
-X-Gm-Gg: AfdE7clpIxh9u7ThrDYrF39s0iSHaCbshSu6qnkAqI+s82mvNXeDL81xaEyTL/+2QSD
-	oHvjbulx/J7Nq5JBjPyhm7pTUxuXkvetb5SxiX7TDBEUouH3o0lSk22BkHZbWv6Jki9Cj9w6M5Z
-	ncggcquTxDIqf9MWIjAkMgvmUTLUcdxLgjDYBNUaaGiCeNSOboocE+uHsKQbhx05HClCT3FQCJF
-	4o0B4MB/1AzPE7z1QGc5k4FBJHu86YFf26bFwFncqfMCMNwzdUAvtC+NnJyycyML3+eiyklXpje
-	skMtjkvQh8MNpHp1z6RtixaBHrzZOxTczPu17YYbP0hlZqPmfDWsqVhZjijLnCpQBG1bSoQvf7e
-	MhdAhCUsZ2GGhac15MKXQVG4moXW+5dIorJnbNCqCa29iofkXFJ3jR215NAj60k5xBRjbcJB0PF
-	R1Q8QhT/McrRVMZfDcZaE7bpOpQurcLggnIm8tRKl4q8yLTFs=
-X-Received: by 2002:ac8:5d56:0:b0:517:5c70:46bd with SMTP id d75a77b69052e-51d7bc73cecmr14531951cf.11.1784034043910;
-        Tue, 14 Jul 2026 06:00:43 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bface91766sm6434972e0c.10.2026.07.14.06.00.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 06:00:43 -0700 (PDT)
-Date: Tue, 14 Jul 2026 13:00:36 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported
- bits in invalidation commands
-Message-ID: <alYy9GMeIPMWeD-9@google.com>
-References: <cover.1783539724.git.nicolinc@nvidia.com>
- <194fec44b30b7b4233d218686cd76d63208932ff.1783539724.git.nicolinc@nvidia.com>
- <alYC3bNbXY9l0eVn@google.com>
- <20260714121451.GJ674038@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714121451.GJ674038@nvidia.com>
+	Tue, 14 Jul 2026 13:03:07 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1784034169;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s0CMiWuHZ0uwm0W5eVDnOsKsl7y91gjDTzq0HQxMpSw=;
+	b=UGk5ycZi1gfvOCT3UYL7c1WC1wB5w04XvTi36jPTzKWnDmqncgcsA0Baaq7pBkFacjCD9o
+	p56kVwP7VJNwgCGHVKqg5uuq5lVXijoK4hTbsalenG1YQEtYQ7q/syDu5Qti5dZQ1Qh9d5
+	n1J9wVnTWbLui4anE7KKF3ui+JSTU4+Ya+j09Rcb0e22mo2k9nS6lBiKxrZ+vV7opL+GMd
+	UeSHTMPWzvThCfw1S6SWvynCCCZgymG6bdMmBJt7tzA+lUQSVkUgGMVxkBrQKj2HhoNLuc
+	bH1CHjVIKeoT5NvEfuXuMLf3HF8brggE4kDqiOPSdAVTXXHI8kgP+YU1uRsjuA==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 14 Jul 2026 15:02:45 +0200
+Message-Id: <DJYBBXE6SAG2.20OEJI5K6JIVM@cknow-tech.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Joachim Eastwood" <joachim.eastwood@gmail.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <diederik@cknow-tech.com>,
+ <jonas@kwiboo.se>
+Subject: Re: [PATCH v3 03/12] arm64: dts: rockchip: rk3588s-nanopi-r6: fix
+ missing pcie rst pinctrl
+References: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
+ <20260713-nanopi-m6-v3-3-227567ffc5dc@gmail.com>
+In-Reply-To: <20260713-nanopi-m6-v3-3-227567ffc5dc@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_060048_238159_40CEA95F 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260714_060305_725005_1CF629E4 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,33 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 09:14:51AM -0300, Jason Gunthorpe wrote:
-> On Tue, Jul 14, 2026 at 09:35:25AM +0000, Pranjal Shrivastava wrote:
-> > > +	u8 ttl = FIELD_GET(CMDQ_TLBI_1_TTL, cmd->cmd.data[1]);
-> > > +	u8 tg = FIELD_GET(CMDQ_TLBI_1_TG, cmd->cmd.data[1]);
-> > > +
-> > > +	/* NUM, SCALE and TTL are RES0 when TG == 0 */
-> > > +	if (!tg)
-> > > +		return (range || ttl) ? -EIO : 0;
-> > > +	/* TTL == 0b01 with a 16KB TG requires SMMU_IDR5.DS */
-> > > +	if (tg == 2 && ttl == 1 && !(smmu->features & ARM_SMMU_FEAT_DS))
-> > 
-> > I agree we must check this but I'm a little confused, How is a user /
-> > VMM depending on the IDR5.DS bit today? The IDR5 is exposed to the user
-> > via hw_info AND in the uAPI documentation block we explicitly mention 
-> > for struct iommu_hw_info_arm_smmuv3 the following valid fields for IDR5:
-> >
-> > idr[5]: VAX, GRAN64K, GRAN16K, GRAN4K
-> 
-> Probably soon we will add DS to that comment and it will be fully
-> backwards compatible so a new VMM following the new guidance can just
-> read DS.
-> 
-> Thus we can't have any kernel release that doesn't work with a VMM
-> following DS...
-> 
+Hi Joachim,
 
-Ack. Understood.
+On Mon Jul 13, 2026 at 10:30 PM CEST, Joachim Eastwood via B4 Relay wrote:
+> From: Joachim Eastwood <joachim.eastwood@gmail.com>
+>
+> The pins are used as reset-gpios but not reserved through pinctrl.
+>
+> Fixes: f3c6526d6fb2 ("arm64: dts: rockchip: Convert dts files used as par=
+ents to dtsi files")
+> Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/a=
+rm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+> index 67e284a15c35..8df6e1a21180 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+> @@ -360,12 +360,16 @@ rgmii_phy1: ethernet-phy@1 {
+>  };
+> =20
+>  &pcie2x1l1 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie2_1_rst>;
+>  	reset-gpios =3D <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
+>  	vpcie3v3-supply =3D <&vcc_3v3_pcie20>;
+>  	status =3D "okay";
+>  };
+> =20
+>  &pcie2x1l2 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pcie2_2_rst>;
+>  	reset-gpios =3D <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+>  	vpcie3v3-supply =3D <&vcc_3v3_pcie20>;
+>  	status =3D "okay";
+> @@ -420,6 +424,16 @@ rtc_int: rtc-int {
+>  		};
+>  	};
+> =20
+> +	pcie {
+> +		pcie2_1_rst: pcie2-1-rst {
 
-Praan
+``pcie20x1_1_perstn_m2`` to match the schematic name?
+
+> +			rockchip,pins =3D <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		pcie2_2_rst: pcie2-2-rst {
+
+And ``pcie20x1_2_perstn_m0`` here?
+
+Cheers,
+  Diederik
+
+> +			rockchip,pins =3D <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>  	sdmmc {
+>  		sdmmc_det_pin: sdmmc-det-pin {
+>  			rockchip,pins =3D <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+
 
