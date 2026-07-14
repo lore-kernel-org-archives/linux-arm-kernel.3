@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8763DC4450B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AD2C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3U5wVLTIHJcvPryb0DdB5bAnzoh2qzPvSAZ2mXS9w7c=; b=qRRjOKuUPhrhwkMdnPmxpCb4SF
-	scCFp/4B4nVivHoTZX+FKcq09Ny6sj3RRJI2yde6KyXVVbLpH4eSbcDQXoyRXmQax6gYc9r0r/DZR
-	THAawTNQ4HnU8LoDUUMrbc6P3DiYOSRRuZ7GpZwupio3Z65EGwJeHS3BoSgUw6MpThtLIP70zvCUy
-	S+Kp4r9atXJX5JVqclp+EkL25QCTQi+FlZt2Sa1x38+6EewCGbSOh7F9ER5gXJHyS2RzyOVfFwkFq
-	DhkhccnW7iO4bqYBTFmBhOBEMj0Mlpctkq5hXKfPRoHlmVLb/+H70ns3FOVokHEPO1UrpMrP5/Yly
-	BMTDwPhQ==;
+	bh=+BJobMhO8Q4Mao+C+vcQ5vLWeHC+VhP4x4j9L0XJUdc=; b=hZsG5252AcFe03i+fbEAzz6oEb
+	yFNBYTmKXw1BNteCH0zc/dTVsjSUFeQyv6Wc4V0Iw26QfVKDzmvOEPmO5z6x4Ed0zkz/SFqBBoPc8
+	SPb4bvRsYr3v/BYWrsYQWSpF4cTx33sHOxRoPmvYTlyIe+A6NnJBzoQstMiRopqstyaMgTZEKUQCy
+	PVb8po7mH5KoGU17i7zLzfb0k26Z/BB6tBceqOfgX21Vq5TtRWHWF21Xk/yHSLvry+X2v971N6wVh
+	CFm7caKAFrHsSzk0JPrXs2s8Na6e6Ht+FmMg0aT4Bj7OpAZgJLYz1Xmb3GADX46k66e0OSVsYpoSW
+	Uir5AOpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcod-0000000C509-1wzH;
+	id 1wjcod-0000000C4zr-1V35;
 	Tue, 14 Jul 2026 13:04:51 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcoZ-0000000C4w8-0hO7
+	id 1wjcoX-0000000C4vT-35Ad
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:04:48 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	Tue, 14 Jul 2026 13:04:47 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gzzzd2JM5zKw51;
-	Tue, 14 Jul 2026 15:04:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784034285;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3U5wVLTIHJcvPryb0DdB5bAnzoh2qzPvSAZ2mXS9w7c=;
-	b=fWKxyWdnlHBoxSeGCUjhNxLfbXwQtrzifI0ZoCi3wspLhBt2uElNRiZpMC3EtJeLCNEX+f
-	UYUhkkG9u+h94UxDZTAPKE9Rr4VFO37/9NRsH/Tz4nWp8axiaKkc34nuswsL+rOQ45buJt
-	rBMbD+1IZ6oO8aAxOQnA1LCODy1oO5B2c+e+FByG83/r2m+wNDqkalc4QnV0PftBsuD3pq
-	1cXvKIVIIgCntyrxwRXmUGCoLigrRJdnFkAyYZR47UJBOkZ5ugh1pcRfNRdW88rCxynF5B
-	ntAJYkmCUYeiZtMc0lgEB9elOg+iYIVrkAKUdUKTfGL2BGTY15BZWkuOTjIb1w==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=VLjHKKdJ;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gzzzb5LWqzKmyK;
+	Tue, 14 Jul 2026 15:04:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
 	t=1784034283;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3U5wVLTIHJcvPryb0DdB5bAnzoh2qzPvSAZ2mXS9w7c=;
-	b=VLjHKKdJ+xS7npCRpNYZmCkf2uOq7qnANYvZH51KdHRwZIlEI3B+PQlctefwzGHb8vbU4s
-	rFftwHKzKkWjbmh9ceJ6A5vtrzgYMN5no8jISWLEwRCBeuvTAwp5PUg0ravz9de7o3HEy1
-	a4aNnmEY2P/4FuLiJ39l5Dg0p6OSx1u2TDt6AA75DZr3onw8bXiSsW35MDPlLB5qjYTOc+
-	+vdTS4wY4RkvQm9SyafDyVhJ0t4jtjAPz+sk3NlPj77We4ZyTs+3Kn3s46T7pxRYbxTQPi
-	9Yzt2h4lOWqIuUvGd5ZiXIdMPCDpesiXG3jjDCG+HSB3YaO07I7S8HbC2yEWLA==
+	bh=+BJobMhO8Q4Mao+C+vcQ5vLWeHC+VhP4x4j9L0XJUdc=;
+	b=vEjOeSwgbriNhwC0sNf933PK1Ddp7QnGRpnu78amq9fi5J4WdrdZvi5PFAz5FKjjTkhX5m
+	0Uyyi0bRVOHVXmiUAhyCtuh5QyGdiienBLPmriOBkiWVs1wGGzO8VnHFXMlyPNCUkCjBwE
+	ekQCLgbFs1H/v45hjV8j/lxfbm02ZG3rJvakKZVapLArNZ3M6SD/0FUHiepbWywtBcev6x
+	xovGTDFhltv/TU2AElI/n5bh2zoyaMb8/ZV59KJJ764pDxzhcw2Str8zSFZvBlAbSQPA7G
+	lKjOJ4RkjZTsrby763qv1VaWl5UCzKcP/QuR5REyvf1FRLxPwTSKq1cZxRzWfA==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1784034281;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+BJobMhO8Q4Mao+C+vcQ5vLWeHC+VhP4x4j9L0XJUdc=;
+	b=hwsVcsE5u0gTNkGdl6tTbFiN5a4Kz8R4I4Nniwe/EXLh9YDC35zSh+P77fZpnHdLYTOVOQ
+	T7/GAaFGMFOOgY9lV5Uay7dWtAukwhmSu2oj0QDCCT0Sn4EfjvfMW+3s0FvhQC5HtkDlO+
+	5MvNZ2Muc7xX70KbUafbP8GUBj8snhOJ6tus20rc5kxnTwtlY8GS0z9ii0lgV49StR6j3e
+	ywrBwOse29oXNBJP/7BV8kQXTjEUUfmHL7zV3/9XUcADL88CpeTdUnRPmGmvFLflRaPHk1
+	B2WRI4fqcdU6UsGgT97KOXs+BITSFrkyjZy+fkco90tLWHYJnpwM8hTWCk3MeA==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -70,18 +67,17 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 4/9] arm: dts: renesas: porter: Specify ethernet PHY reset timings
-Date: Tue, 14 Jul 2026 15:03:57 +0200
-Message-ID: <20260714130429.11214-4-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 3/9] arm: dts: renesas: koelsch: Specify ethernet PHY reset timings
+Date: Tue, 14 Jul 2026 15:03:56 +0200
+Message-ID: <20260714130429.11214-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260714130429.11214-1-marek.vasut+renesas@mailbox.org>
 References: <20260714130429.11214-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: ksjhyk64pemgiie94ooiq65hubhz1jj1
-X-MBO-RS-ID: 09d30c1597178f11e5a
-X-Rspamd-Queue-Id: 4gzzzd2JM5zKw51
+X-MBO-RS-ID: 2c8c949d0327fe1a3ac
+X-MBO-RS-META: zby49muz9hgdi9kdnob1qtk9uzt8qdhw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_060447_355050_C07526FD 
+X-CRM114-CacheID: sfid-20260714_060445_933692_1BD00A14 
 X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,14 +118,14 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm/boot/dts/renesas/r8a7791-porter.dts | 2 ++
+ arch/arm/boot/dts/renesas/r8a7791-koelsch.dts | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/renesas/r8a7791-porter.dts b/arch/arm/boot/dts/renesas/r8a7791-porter.dts
-index 811e263452acd..05989da3be046 100644
---- a/arch/arm/boot/dts/renesas/r8a7791-porter.dts
-+++ b/arch/arm/boot/dts/renesas/r8a7791-porter.dts
-@@ -328,12 +328,14 @@ &ether {
+diff --git a/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts b/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
+index 48db62e0ff874..54148a5ddff7b 100644
+--- a/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
++++ b/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
+@@ -678,12 +678,14 @@ &ether {
  	phy1: ethernet-phy@1 {
  		compatible = "ethernet-phy-id0022.1537";
  		reg = <1>;
@@ -141,9 +137,9 @@ index 811e263452acd..05989da3be046 100644
  	};
  };
  
- &sdhi0 {
- 	pinctrl-0 = <&sdhi0_pins>;
- 	pinctrl-names = "default";
+ &cmt0 {
+ 	status = "okay";
+ };
 -- 
 2.53.0
 
