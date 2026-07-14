@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68449C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAE6C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9nDWMGUUMYK4zdgmduf9ZJ/16QHCvDwhtGJVdrnzuY=; b=xID2xHxzYlXfnyXc374N6d8HqU
-	nVh286C8DVzt+vIlPCIjqqv7c9+sbmez0/DJCVZsQvXu089YyYhXhlu2Wkhh7Nl3Fmq5u3j0CGufT
-	iJb6+e2E94itaOWbNYoKvn5XaGklbZNM9uR1S7lDAOZmdAkw8NL4AkmT0KiDK6DKVnAtBZ7V/095Y
-	hJrpfngp62I9eVL4ypKPIhv3m4kevg3GIOddslo9J2092L57XhKHVbKIAAdEepnUNXxzkdiTZgHtn
-	k08Bu1/2SgIA4JMHIzSqoEzEEMxFw4N3gOVKzgnavNONwjie+EVHtEDyuVoU/mdb7NDeSpPrIrgK3
-	LERsMpmw==;
+	bh=EED+JsuEN1JGI38A9kwy6+zQnMSj5RwByViCEvcfIxI=; b=nkLdP9hTyPWEQmqI9riXexXB3y
+	uiyh/kxj2dN3S3KNFAqB4YFJy7i1d4NVQ8s3tVLw0P3TXPWo7wP8M2j91z9rdppYOJ6SYkhizlvTx
+	xTCszjrwfSd5ewDZFo9GMl4lye4wKRXnNnY3Cn8vkFH55+xqHzJRRwViUkQEMjfOrd8R68aCkrO0y
+	V6li4St2a8PYRjE0usHTzeMtnT9c2kcmHkpiKg/b+3vF50j00jKszQUNd27oB0Zw3j58dER9UdFZi
+	zTSAcSQJETtID570xVQ+jaBfNoggxDCc5EsX2AFkK8VHpkh2qDjSnMeHhWjVJB6lbhfyy10RF+OP8
+	htZvwt1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgx6-0000000Clx8-2Lot;
-	Tue, 14 Jul 2026 17:29:52 +0000
+	id 1wjgz8-0000000CmHd-0es7;
+	Tue, 14 Jul 2026 17:31:58 +0000
 Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgx4-0000000Clwo-16wB
+	id 1wjgz6-0000000CmHA-0y8E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:29:51 +0000
+	Tue, 14 Jul 2026 17:31:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784050190; x=1815586190;
+  t=1784050316; x=1815586316;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=T9nDWMGUUMYK4zdgmduf9ZJ/16QHCvDwhtGJVdrnzuY=;
-  b=OQVTwuBiH8pGI+8zsuOfzvbJMEaT2vHBdiHrf6izxTsdCilwAZjFuxTp
-   wKuz5+eVvYM9jrsLHd8xz7FmZi1BL7uIo8vyWIzXV/HVt2dbePaRifrWZ
-   2ASwgNxDxqHF+Oo+4rAMeTzt8SwUpxdb8AV/qm6Fk7cJ1gNauRAArQpzH
-   QAE+DAEbh/3iyZdLGAHRs+ITqXqMhtmM2V1OdcwNV7bpgejrcqQD2kBkQ
-   tbbktxCxF3+3PSYHuIUA6u6abba/tYNRTo+XRWpQin8YuoPGuyAbUs6OH
-   LeETekGfTxwYWufTM8cMI+LGNxwXAqVb8/2BqcTD1HDfQBrWvZG87dh6I
+  bh=s6g0qpuKqxGTnfu11FpV5HyC4k/FYmzxINNYeN67niA=;
+  b=c/h3eNxrgSzL6jGrFxuq0OKHrEPZ+w+vbq8a+ZPkEFnqkawqootKdt3m
+   X23exfStDlVp2vihJrOcr78ov0wrJjkV7AFklZQtwX/pkloZ+oDbbHEcp
+   toYefdeyUDxc27zk10RasHFwnDRGI4YrqSMKEm6qwPRykWS+Mw1r+L0At
+   Ust0L8s/AUx31BrGWbMLs++ISAEqE6Yq2sWAhs9xR3os7ANX85aDHB27g
+   fpSii9GCRdvRDK/BQFW+TwtXpMRI5AaE+yLP77e5noVuHegNCBuozpXeb
+   1yX3CiIrRmtp3uhlzoZx/S0i1xG58/Q3k+kqQfODHmjwL+mKjCaMUV/qg
    Q==;
-X-CSE-ConnectionGUID: 9/GaaqO3QPSThliE8xZHUg==
-X-CSE-MsgGUID: UHtAc3QSRGOUbOXhihlLgg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84463064"
+X-CSE-ConnectionGUID: ZUTxpk4uTEmQrxkgoprOVg==
+X-CSE-MsgGUID: f2JjVT//QoWUOC026L1GIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84463285"
 X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
-   d="scan'208";a="84463064"
+   d="scan'208";a="84463285"
 Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:29:49 -0700
-X-CSE-ConnectionGUID: JVAk0EKWSyOAbtmWxbWciQ==
-X-CSE-MsgGUID: gb3gmc2+RamLrgmELZSMvA==
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:31:51 -0700
+X-CSE-ConnectionGUID: 8IQBNJerQKGX6bgmgii7KA==
+X-CSE-MsgGUID: RDwDNHbdSNWIo/GfdPUBTg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
-   d="scan'208";a="259497092"
+   d="scan'208";a="259498483"
 Received: from aschende-mobl.amr.corp.intel.com (HELO [10.125.108.120]) ([10.125.108.120])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:29:48 -0700
-Message-ID: <13fcd4d7-0efc-4aa5-9425-8f4fa05c8eee@intel.com>
-Date: Tue, 14 Jul 2026 10:29:51 -0700
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:31:48 -0700
+Message-ID: <e2d9f516-2dae-4356-830a-14b99fd32a90@intel.com>
+Date: Tue, 14 Jul 2026 10:31:52 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
- table free to avoid ptdump UAF
+Subject: Re: [PATCH mm-hotfixes v3 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
 To: Lorenzo Stoakes <ljs@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
@@ -76,9 +76,9 @@ To: Lorenzo Stoakes <ljs@kernel.org>,
  Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
 Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
 References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
 From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -124,12 +124,12 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+In-Reply-To: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_102950_390996_7C8948B5 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20260714_103156_316003_67EBEA64 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -146,13 +146,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/14/26 10:24, Lorenzo Stoakes wrote:
-...
-> Resolve the issue by acquiring the mmap read lock on init_mm which prevents
-> a concurrent ptdump as it acquires the write lock.
+>  arch/arm64/include/asm/ptdump.h |  2 --
+>  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
+>  arch/arm64/mm/ptdump.c          | 11 ++---------
+>  arch/x86/mm/pat/set_memory.c    | 14 +++++++++++---
+>  include/linux/mmap_lock.h       |  1 +
+>  mm/pagewalk.c                   | 36 ++++++++++++++++++++--------------
+>  mm/ptdump.c                     |  7 +++++++
+>  mm/vmalloc.c                    | 41 ++++++++++++++++++++++++++++++---------
+>  8 files changed, 78 insertions(+), 77 deletions(-)
 
-The move over to locking on init_mm instead of current->mm fixes the
-earlier issues I saw with this. Thanks for doing that!
+BTW, this is super nice. It fixes a bug, makes the architectures more
+consistent, and is effectively neutral on lines-of-code.
 
-Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
-
+Very cool.
 
