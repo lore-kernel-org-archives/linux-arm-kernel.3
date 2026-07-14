@@ -4,101 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95863C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BCEEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=; b=Z51MCmAFxnota7sC3euS5e3yaD
-	Nd1duSp33TKhdQocWy5bvZoPWm8Ewir3LAOLIx9igD4HrfQ9WHK3zYIopAobQoCZhk4AzkBFtM/RE
-	HnfVkeZ6GbSqqQTbRVd48OZGcAONWq2cePO+lZiHRMVhBiNnA+jRUu4evX86jci5ZV8u51BZMfjlf
-	vXGNOQzIqSzhMc18SxirkmLLiHWkI+pVv2vLrjHzbcwByMEQNZC2n9lTNnW8ecpVWyNLEqT4XfoJ9
-	n9I2YqLZVula34vJUVH+HYAt0EzNdkwO1Fn2/BPmB34nvqXFl1uy/PPjUXd0/E0TQ6vZ9m3Ob+vpn
-	tRIokr7w==;
+	bh=GeMf/eY4qjjyu9X8QZzKnRIFUsj+vQtSNZbDufBDUp0=; b=zMSAPXv1bdFple8FoMNMijudhJ
+	MzkxwqVMiCibKwnfWaDFY4O17vYTobPPXkGtdQVkDGm5PIfhbBZlzGwV4kN36UevHSsCwtDatU3bM
+	hXwRO4kb1CmWclR3uZWAWlaXAWFQQ/mGOsCw4BMo+Xf3p4qrrekquafJ+k8mZI6wzhh2w8O4PVo8z
+	Dpm91QwaIudklZ/Qv9royQi0MorFSpRzJCdV+ESFzK1rEhK0yJlBmHHURXMmMbZWGBzFe+D7AOlgQ
+	LHljpSD01MbVfVaLxJtCZIHLLJhGqT+j4VMGQu/swriA2bCM815ME3VvZG3F3DUiPsEcgqCBICZT/
+	z7az5QBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYnd-0000000BLui-3qPp;
-	Tue, 14 Jul 2026 08:47:33 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wjYpv-0000000BMK8-11k9;
+	Tue, 14 Jul 2026 08:49:55 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYnb-0000000BLtp-2bDN
+	id 1wjYpt-0000000BMJl-0N5p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:47:32 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b77b150aso5053485e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 01:47:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784018850; x=1784623650; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=;
-        b=j70dQtMZm3+/H9BZK1sFVEOouj/q02fxb1HdTGdbbwNnHuiof7S+tKhqHr8Q3+0i2g
-         yUuD1/wt99HNJFqINKAG4Xg/9IqKRDSGqS02iAdjCKsdKce4elinw9DKcFAEnPkAJp4n
-         rgjIscylnZahT7YDi96GiYoSkSscLI6SP0l8/jZLxRnyWy2rj1qILLkNWPJups9VCykK
-         dbfvs65CdU+XF7B0dRakJ3LTn2IaMUA4XHMwbTefMxf1j6095Q+vrusOik+ynoOHJxGo
-         rv6PqLGCvIGUHbpHOLedYAZF/AcVGq9SOyUmAIYTIv4aVXNsSpaWmI72NnNhT5/Xl7iv
-         Zyew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784018850; x=1784623650;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m879ws2jFhHLOh/9WRuezyCL3r8TAQ3JpjmFZyFa7tw=;
-        b=qrVW8NEVD8Nns0gYsjtucqV+eo8VIO1HIUavJ8U2kEuF7SCG0Qkrdkk0WtM0umEsJT
-         idow5NzntTu8GX6KJSRQb2hm9YedSYDW1gpPQlXsf0MZ6FXDvHHkzuSef8lwHnvYHZVm
-         Uyt97BlVpAATL+kRPV7x6pByvyM100mxvGTw5q4h5NxzcqjBfjWJtkB9621uf7cP33dl
-         GZVGk7qo3KhiFMa+mhr0EKVRDS7t00p4CzYrJsLYEuUeZN/knI1q4l7IcTsEf2cCZPkw
-         fIKE+cXkybYI1LJ4ms5ijQI6s0LeI4CHbDBzcCbbgmidzyXnRbVuuG+/Zt8y2laH0asW
-         BT7Q==
-X-Gm-Message-State: AOJu0YxZXXqhyven+vkQe+dEoKF5z76dmgszLo+ptn5qQIVI1mBq1K8f
-	CbGjXNdgMRwoTzxNkpXEyKOJng3auhGKkUo1Eb8ygVqEyD0WzeVSoe8DxwtAashbFA==
-X-Gm-Gg: AfdE7ckCGcKisoqBAWkLSo/gSfzMT5h6r9u8Gka/+sX+GLk5KBBNJbzOBBRLD5PbrPY
-	w2R8DjnZ67jfONMJpT6Y8x6SgFqNlZclRWAou19ygmxcIgQVMauvrPhdSNcllt5Uo7TUZ8C969I
-	eV9iI3sMKqV25Yig/52+utNfPoVHHLEEijTLEWId6d0gXPHxzrYU1nmypUq5XKXw/lTF+nur8bx
-	X/ypFSaEiwdG5VzKw1vfsABeKkTbNKG2mIf0uiBS1BrIoJqp+PSFg4w8Tq2Gaw2Su6JOwWzt340
-	8XigPgpBFia9hXu8Viu6UdcbvKrK2TFMTpS8MaBfQaeP3QFeh7XY9IZFrDL0nhq4jNALQY7MPHl
-	6sO+nMQnSi9aprPEY7IDxxq+nVUdGZiXK4kTejVUyDOqxkD2pxbs49EdYK6bxZ360123TXMQfmT
-	1DAdG6vdwAoAmuB5E2aG5yNihLbbUZPM8X9Wb3Hm9LaLmK1Cy5pww=
-X-Received: by 2002:a05:600c:4f8a:b0:493:f7c8:eae2 with SMTP id 5b1f17b1804b1-493f87e6e9cmr127818785e9.15.1784018849325;
-        Tue, 14 Jul 2026 01:47:29 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-495086ca93esm59158715e9.0.2026.07.14.01.47.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 01:47:28 -0700 (PDT)
-Date: Tue, 14 Jul 2026 09:47:24 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
-	tabba@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
- table
-Message-ID: <alX3nHLykNc_nng5@google.com>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-9-smostafa@google.com>
- <alTnAy7jvjUamwUA@google.com>
- <alTvf7iiOWn4PKE8@google.com>
- <alUA7zsJO1FGnss-@google.com>
- <alUJa5cbjjqZ8n72@google.com>
- <alUMVU7DYcrvgAYi@google.com>
- <alUsLFBQ5qKFOgwQ@google.com>
- <alXwXRGqECTUZ3ou@google.com>
- <alXzcrnxWADIEL2H@google.com>
+	Tue, 14 Jul 2026 08:49:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784018993; x=1815554993;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+E7FMZfjaMpGYXNkxgxHTecyjtzcJGKD+XR1OvEDBsA=;
+  b=cTEuXRckQLTHoIBOzAWj9ANVNz7tTJFh+TlMSX9RLZ2dncmywD33AfSL
+   as4p58ICLem858tP7155neig5bgzwiMrR5hTW7BVSy4A+78fggIt4/A9u
+   vWg4xszaYQULXdJUqrvEZR4YAT1eqIiNslMjcdms9SplKZdStYFLqtulD
+   OPFAcg5jE5zlR+cUfGh2q46vyqWQls1CmhT6wnfaabYVPFA3NCFWrAV0U
+   WVe3cgw9GxB6mWdGgF9ve/I8fvCdjAwkcZz3LxmcnigzfeqT97xkl5MgT
+   aO0rYUn3AZrN3NajvjUhxvA6ezxHEqbZi5lzWzPSjsb7iUuYiltjCRZPz
+   Q==;
+X-CSE-ConnectionGUID: KlNABbhWQm+b0vcvjOC6qQ==
+X-CSE-MsgGUID: 9Sh4QKX/TlqH+02WHeNR9A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84755992"
+X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
+   d="scan'208";a="84755992"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:49:51 -0700
+X-CSE-ConnectionGUID: EEd/uLT1TvGHqn1QHAWiFw==
+X-CSE-MsgGUID: 4JYHRuwTQEC0U62oxVTcNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
+   d="scan'208";a="285879297"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.189])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:49:48 -0700
+Date: Tue, 14 Jul 2026 11:49:46 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
+Message-ID: <alX4KrhAr6ysaaQJ@ashevche-desk.local>
+References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
+ <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <alXzcrnxWADIEL2H@google.com>
+In-Reply-To: <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014731_676993_F16E89A7 
-X-CRM114-Status: GOOD (  32.82  )
+X-CRM114-CacheID: sfid-20260714_014953_144712_D7F9B397 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,94 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 08:29:38AM +0000, Mostafa Saleh wrote:
-> On Tue, Jul 14, 2026 at 09:16:29AM +0100, Vincent Donnefort wrote:
-> > On Mon, Jul 13, 2026 at 06:19:24PM +0000, Mostafa Saleh wrote:
-> > > 
-> > > That would walk the table twice, first time with a massive map, then
-> > > to unmap the pages that was just mapped, issuing TLB invalidations
-> > > for all of those, also as the IOMMU page table code never frees tables
-> > > that means we would immediately exahust the IOMMU pool.
-> > 
-> > Well the massive map is pretty quick we would mostly just allocate the PGD? And
-> > then it would be just for the subsequent unmaps to split the blocks. So nothing
-> > to be freed really and no risk to exhaust the pool. But if you put the calls to
-> > the host_stage2_* functions that's pretty transparent.
+On Mon, Jul 13, 2026 at 09:19:58AM +0200, Marcus Folkesson wrote:
+> Muxes treat their channels differently when idle.
+> Let the mux core have this information to make it available for
+> internal use.
+> Reuse the same state values used by CONFIG_MULTIPLEXER.
 > 
-> Not for the IOMMU, everything is mapped with a leaf mapping, because
+> Possible idle states are:
+> - MUX_IDLE_AS_IS: Leave channels as is when idle
+> - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
+> - <n>: Enable channel n when idle
 
-Ha Ok my bad, I didn't get that!
+Here and in the comment in the code I would elaborate a bit to justify signed
+type for the field. For example, put it as
 
-> the pgtable code does not support splitting blocks, this is something
-> I plan to add support for in a follow up series after this one is
-> merged along side other optimizations.
-> 
-> > 
-> > Just to make sure I am clear. Here's what it could look like:
-> > 
-> > in iommu.c:
-> > 
-> > int kvm_iommu_stage2_idmap_init(struct kvm_s2_mmu *host_mmu)
-> > {
-> > 	u64 addr = 0;
-> > 
-> > 	for (i = 0; i < hyp_memblock_nr; i++) { 
-> > 		kvm_iommu_stage2_idmap(addr, reg->start, IOMMU_MMIO);
-> > 
-> > 		addr = reg->start + reg->size;
-> > 		kvm_iommu_stage2_idmap(reg->start, addr, IOMMU_READ | IOMMU_WRITE);
-> > 	}
-> > 
-> > 	kvm_iommu_stage2_idmap(addr, kvm_phys_size(host_mmu), IOMMU_MMIO);
-> > }
-> > 
-> > in mem_protect.c:
-> > 
-> > int kvm_host_prepare_stage2(void *pgt_pool_base)
-> > {
-> > 	...
-> > 
-> > 	return kvm_iommu_stage2_idmap_init(mmu);
-> > 
-> > 	/* 
-> > 	 * From here, all the changes to the host stage-2 will be reported to
-> > 	 * the iommu driver
-> > 	 */
-> > }
-> > 
-> > On the pro side: no custom walker and we really couple the iommu idmap to the
-> > host stage-2 map.
-> > 
-> > On the con side: As you've pointed out, we'd need indeed the iommu to be ready
-> > early enough.
-> > 
-> > If you want to stick to the snapshot function, could we have the walker to
-> > first walk the hyp_memblock? the .arg could just pass if we are walking a MMIO
-> > region? That would avoid that find_mem_range_from() and I believe would
-> > massively simplify the snapshot walker.
-> > 
-> 
-> I see, let me try that.
-> 
-> 
-> Unrelated to this, but while looking into option#2 I see that
-> __pkvm_guest_share_host() does not call either of the
-> host_stage2_set_owner* so that requires another explicit
-> pkvm_iommu_host_stage2_idmap() call.
+  " - <n>: Enable channel n (starting from 0) when idle"
 
-It does! it calls __host_set_page_state_range() which calls
-host_stage2_idmap_locked().
+> Default value is set to MUX_IDLE_AS_IS.
 
-FTR, I don't really like __host_set_page_state_range(). And we removed it
-recently from our Android tree. Because there's just a special case in
-__host_set_page_state_range() to cover guest_share_host. So we can easily
-replace all the callers with __host_update_page_state() and and call the
-idmap explicitely in __pkvm_guest_share_host().
+Otherwise LGTM, FWIW,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-> 
-> I still plan to use option#2 in v7.
-> 
-> Thanks,
-> Mostafa
-> 
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
