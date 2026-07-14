@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF26AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BCDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YlPxD8B6RcoJORtYKUz5oe4Ys8TzD6N/C+ChKBexSxY=; b=LXD4/T1K0LbDFfHNPDhKLj7qTt
-	LMfVmTLjiPYOGdqF2vQZ8+40PPp+mmq7X8IPwhmxt1KISZQbn49BbAzNDd/xrFu7WsSaITqMhWMpN
-	eJwNuMQ9BDzXfeRzco6JCAZYvA5oekgC8m4b3egsCQDHdzejMEK4QPZg6P/vohAiCFsvpjwlaM+nH
-	anbzGexWK3V8MjUAvQBpgNKh+eCFcJrH660EPjXx7q3lN81ROza871UeG545dvSCuawhJW831UPYV
-	PPUgmxB4SIzjVdKd1i2W2zcVkEdW0SMkPqWpYbsuIhsu/wHGNAsOI1iRQqEB6Z6We1haNxr3v4wEj
-	gpZ47+GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ufLIoxCqOj4lRPvwdKpAdX3iK89Os4w5B6Mc/e3OELM=; b=Uytg1g1neX1CaUKh/Iy9mx1kl6
+	QsmleUYHeP6re+5WR0a0fb2si+KHrwE4fdLFjBU2EhaRa9UtbjJ0pFmBgywLx2c7+hr7kyUmGW2xD
+	9Ew3Ngiq3+ryjJR54SsBENRKmr8b6QEPNaEZqLKbAUV3zlTE0A1YZrvxwZsIDveVQNpDEM/gAnxWR
+	ktGWGfFzzK83H/LJ/gvtEBDqb/MfMCGUgu4/ibva0iBFmQUK5j9soKN6S8FPQxpx9zy7iff7+vjhK
+	tLkiMtdfLQuVCNcKq9O0SEqIyTIsi7oDoPrxA6uPN4+gnH5BgbpKSSW2kcbGQNDyr+lSefx4QFUKI
+	tj/QYe0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdHV-0000000CBwF-1PV9;
-	Tue, 14 Jul 2026 13:34:41 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wjdM7-0000000CCmk-1bXk;
+	Tue, 14 Jul 2026 13:39:27 +0000
+Received: from vinatta.cz ([2a03:3b40:fe:428::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdHS-0000000CBvH-22wi
+	id 1wjdM5-0000000CClb-2bdB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:34:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=YlPxD8B6RcoJORtYKUz5oe4Ys8TzD6N/C+ChKBexSxY=;
-	b=xrX/jExi/qjNVH7HItZ6fEEIMILI0e60EBeCWj+t6sd94r9ND0nS3zsQ3JEFjA7/D2rd1N18u
-	samw0OV3YFdczzAw4sLdGcuNFplHsl60JdTn3e6uQhJX8Zafi7kjIpfyDgnk0p42+RpV2AYXZKX
-	4IMjLfNdy6Ax4f6JE1b4L7E=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h00RH5mYyz1cyQ8;
-	Tue, 14 Jul 2026 21:25:15 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 36DA54057A;
-	Tue, 14 Jul 2026 21:34:32 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 14 Jul 2026 21:34:31 +0800
-Message-ID: <5910a3ef-cac0-4a19-99f6-cf7e695c017a@huawei.com>
-Date: Tue, 14 Jul 2026 21:34:31 +0800
+	Tue, 14 Jul 2026 13:39:26 +0000
+DKIM-Signature: a=rsa-sha256; bh=ufLIoxCqOj4lRPvwdKpAdX3iK89Os4w5B6Mc/e3OELM=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1784035414; v=1; x=1784467414;
+ b=rDtmI42/6ALxoqMnfSCLl1YOOeTloOtKSVEy7dZv4CHlxWHNCdtHJtu/aAnwj8HVxnxgdHIz
+ XzalY5Clo5EW4iy+Q7CPRkTlv9Pf4N6xS7YB22uWdUZpIzFAhlDPTIfrCzdCsPbPLp1b7iRwKg/
+ LT5iBqy2894L24SN6VG/E4MqLJ/iE8W2ANxM8xonwa8Koa/Z3EmnRuKV6+NLB7pBKrjcXdMIZmU
+ 7jkQcWL+9x0vfZs9QEVsu4GwZTx0ulNr/+BVFsSLTORGXXf39NvIwWz15ZQ93MP+m1r8CIRPqzu
+ h6dVBzqyapGrObQS2hM6kcwTdKwXuMmrkU+djESD4GapQ==
+Received: by vinatta.cz (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id 2673a385; Tue, 14 Jul 2026 15:23:34 +0200
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
+To: mturquette@baylibre.com, sboyd@kernel.org, Chen Ni <nichen@iscas.ac.cn>
+Cc: bmasney@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Chen Ni <nichen@iscas.ac.cn>
+Subject: Re: [PATCH] clk: mmp: pxa1908-apbcp: Remove unneeded semicolon
+Date: Tue, 14 Jul 2026 15:23:33 +0200
+Message-ID: <y7gzD4oyTSKcEA7YFhq5-g@dujemihanovic.xyz>
+In-Reply-To: <20260714053059.3219704-1-nichen@iscas.ac.cn>
+References: <20260714053059.3219704-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <alS-kcwvlASwPIzL@LeoBrasDK>
- <8757dfcf-aae4-4716-9ff1-c3140d4cc63e@huawei.com>
- <alYNOg7lREtdVE29@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alYNOg7lREtdVE29@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Autocrypt: addr=duje@dujemihanovic.xyz;
+ keydata=
+ mDMEabRVUBYJKwYBBAHaRw8BAQdAG5VJBpoPRIGQml4+E2LcPdyVtnXRuuqoD1BsHxRjNQ60KER
+ 1amUgTWloYW5vdmnEhyA8ZHVqZUBkdWplbWloYW5vdmljLnh5ej6ImQQTFgoAQRYhBJvUYwF2kA
+ idqo3CZidfVEs7G0eSBQJptFVQAhsDBQkFo5qABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAA
+ AoJECdfVEs7G0eStq0A/1SDcm8Bkq1JV+GTGMC8qE1QzCFvnoJuZqtUuQRCkd31AP9Mbc3pmg1K
+ JDxgPl17/CQohZ98dbUVffmdQpJJLLMsArgzBGm0VXYWCSsGAQQB2kcPAQEHQH8nnS6QNfgpc1Y
+ tqU80DWMWMsDPEGJ7yZ9Nf90mPEEQiPUEGBYKACYWIQSb1GMBdpAInaqNwmYnX1RLOxtHkgUCab
+ RVdgIbAgUJBaOagACBCRAnX1RLOxtHknYgBBkWCgAdFiEEA6Ue0g5lV5FAcj1ivjIt18NZWcUFA
+ mm0VXYACgkQvjIt18NZWcUyDwEA5OK1WRFN4/psOq/bS6Wuh5ysy0CyXIydqIwDJDdAFukA+wfc
+ lr1qyAbEX0FHVunCl+sxv/ymvjsup85rAH+a2j8HA7gBAIolabvAIUTUfCQNCu5MUt482b2EC8K
+ 40xl/6HT43dunAQCqxwRLI2k0xmTdia2AZwqbbMvqWonOLWtdZwWvodgjBLg4BGm0VaASCisGAQ
+ QBl1UBBQEBB0CoqkQL2R15WHRvj3RlkxjW3pPpZVUOHyfhEX+Q9PhTcwMBCAeIfgQYFgoAJhYhB
+ JvUYwF2kAidqo3CZidfVEs7G0eSBQJptFWgAhsMBQkFo5qAAAoJECdfVEs7G0eSnB0A/3oyRxS5
+ cUJMNnM1+4UkRahmU5/42NfVOxIL5d5oaW13AQD617LpOfnCuZR3U0vHLOW5vrnFtdvi32N5zLD
+ 9wyShC7gzBGm0VbYWCSsGAQQB2kcPAQEHQPRL1mWe9nIhjicyAqqEN80IXEF0NeKSFFpN8n75b2
+ YIiH4EGBYKACYWIQSb1GMBdpAInaqNwmYnX1RLOxtHkgUCabRVtgIbIAUJBaOagAAKCRAnX1RLO
+ xtHktyGAQCJPD6JsQhQZEB8ciZrJz+hnonsJp+KZZQQGEK/KsLHEgD/ePz/x0pQdI/DcJd/5Qge
+ +IJGd+jyv4zyevPxipVbyAo=
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_063438_883890_2AB09223 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20260714_063925_806819_A9318AE0 
+X-CRM114-Status: UNSURE (   4.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +88,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tuesday, 14 July 2026 07:30:59 Central European Summer Time Chen Ni wrot=
+e:
+> Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
+> semantic patch at scripts/coccinelle/misc/semicolon.cocci.
+>=20
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 
-On 7/14/2026 6:19 PM, Leonardo Bras wrote:
-> On Tue, Jul 14, 2026 at 05:37:58PM +0800, Tian Zheng wrote:
->> On 7/13/2026 6:31 PM, Leonardo Bras wrote:
->>> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
->>>> This series of patches add support to the Hardware Dirty state tracking
->>>> Structure (HDBSS) feature, which is introduced by the ARM architecture
->>>> in the DDI0601 (ID121123) version.
->>>>
->>>> The HDBSS feature is an extension to the architecture that enhances
->>>> tracking translation table descriptors' dirty state, identified as
->>>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
->>>> page tracking, aiming to significantly reduce the overhead of scanning
->>>> for dirty pages.
->>>>
->>>> The purpose of this feature is to make the execution overhead of live
->>>> migration lower to both the guest and the host, compared to existing
->>>> approaches (write-protect or search stage-2 tables).
->>>>
->>>> The required sysreg definitions for FEAT_HDBSS have been merged into
->>>> arm64 /sysregs:
->>>>     [1/5] arm64/sysreg: Add HDBSS related register information
->>>>           https://git.kernel.org/arm64/c/72f7be0c2e30
->>>>
->>>>
->>>> After these patches, the kernel automatically enables HDBSS when dirty
->>>> logging is enabled on any memslot, and disables HDBSS when dirty logging
->>>> is disabled on all memslots. This series does not support dirty ring
->>>> mode.
->>>>
->>>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
->>>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
->>> On this, FYI, there have been some discussion on this:
->>> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
->>>
->>> Oliver's suggestion is that we don't automatically enable eager splitting,
->>> but instead we have different behaviours if the user enables it.
->>>
->>> This is still under discussion there, but I think it can be useful reading.
->>
->> Thanks for the pointer — I've read through the discussion between you and
->> Oliver, and it's very helpful.
->>
->>
->> If I understand correctly, the proposed approach is to support both modes,
->> with DBM behavior depending
->>
->> on the user's eager split setting:
-> I am still waiting for his feedback on that, but I suppose that's what he
-> meant.
->
->
->> - If users enable eager splitting (chunk_size != 0): use the v4 approach —
->> DBM is set globally.
->>
->> - If users do NOT enable eager splitting (chunk_size == 0, i.e., lazy split
->> mode): use the v3 approach — DBM
->>
->> is set lazily in user_mem_abort on the first write fault.
->>
->>
->> This makes sense to me. It gives users the flexibility to choose.
->>
-> Yes, agree
->
->> As I mentioned in my patch 6/6 reply (https://lore.kernel.org/all/6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com/),
->>
->> I do think the lazy DBM approach is safer overall if the first-fault
->> overhead is acceptable — it avoids accidentally marking
->>
->> special mappings and naturally handles lazy split.
->>
-> I remember a previous discussion in which was concluded that lazy marking
-> DBM carried some issues. I have to go back on that and check if we can take
-> care of that now.
->
->> I'll keep an eye on the discussion and follow up once a conclusion is
->> reached.
->>
-> Thanks!
-> Leo
-All right, I'll support both split modes with different DBM methods in 
-the next version.
+Acked-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 
-Please let me know once you've had a chance to revisit the previous lazy 
-DBM issues — happy to adjust if needed.
+Regards,
+=2D-
+Duje
 
-Thanks!
-
-Tian
 
 
