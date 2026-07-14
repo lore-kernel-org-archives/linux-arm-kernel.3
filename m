@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E102FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7981C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ascMDR/Ps2MvuiSNYkmFcXEUA4EMf0q+f3hkluj3fBA=; b=yeb4u9JQ96uOWfcTjjL54iJnI0
-	mXxoTjcgoMatRvQnHOYTtEQUEUHOlI+dxuBK0mv8PKWLFcrrirCJ0Xm99joHz0IhEhsdvwJuLZLg4
-	XzimTcfhK9RNbc5EAr2Yp+x390MnEg1y8tcQs3Rr8vFcyFRcsTopHw93Hjhu+D+zDjkFGrSY2ck7L
-	n5J82erubG0RIsBu9dAIwlBPnWqIwDQkCS652hhBV7zfYz9YNwJYAdH3ir2QyTqJowYsjlQ4B+kh0
-	DCNWbfWbY0aHGiQZVDFiNpvWW/Xvg335Zl3LY/C+6GpfRci26ADQW1FL9+I+B6Jg9GRuQnOi1RJg8
-	wfdew4TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BPIRB9Dd4cOslVY5PESm6bOvGNSOObw9pvt/3Q1F9Uw=; b=hZcVe/PqwOYXGnDoqAElBUFsSj
+	iGTHPNJpotuBxKbCHDnv5hYsxZvM/m3s4znIP4Uen6iWQ0v2YvVTVxvx9eVVE6DtkrxmZGehQvX8z
+	9BTriku9uRp80GAZR2LxGM3K9yi5DGVi585FdxiDmqZf9bU4RQ9B/jRu5gZY3/mmOT9+ztPhb8UTl
+	KOhxShG4jZrkfXPmZ0afe43mu5a4Ud7BE0BSYUwdllGsZ60fvmIurj0l0Q1piFT2SrKDeJccs9IqG
+	w3UeaA4w2avlHqFRimExRpE5PkrAxrbcdKteiFwYdjLzOWme0sJ+zisX+IZfuu79UGGW/tIDSOJM5
+	ebE/spQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdqb-0000000CKwP-2gQ0;
-	Tue, 14 Jul 2026 14:10:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjdtx-0000000CLbl-01yZ;
+	Tue, 14 Jul 2026 14:14:25 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdqa-0000000CKwE-0EkL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 14:10:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ascMDR/Ps2MvuiSNYkmFcXEUA4EMf0q+f3hkluj3fBA=; b=So+UOW6veHfZbOPwM2CvAGhWjC
-	qFv6+mbwrCwumxuoWsVYXajjgMqTn/1UATtwKenpbgSxTU8p+FHZsFcI9GPfHXkP5B6I1Kn3OCx+9
-	O7fkdmUhJdb3XKrpfEOWjUZS3hT65p46VYFbCB/447C8IltffMkolEtGPO+Z6tzOK+p0mcO2mMSx6
-	eh/cxw0nhgJOC/W13M+S72pOUk3p9hXptPC5jBRX2efnrVBlX4zKX3VUNjh04GfQL+6fPxQf3skZm
-	6VvA2eNN2DqB+Wz7+1MPbJYImkVsLLT6sKSehFIZKGBI7TOUOZT4RPeSRTJR/fBg4LjPMpQfpWRXC
-	l9LrBwGQ==;
-Received: from mout.web.de ([212.227.17.12])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjdqX-0000000CZxV-0BBh
+	id 1wjdts-0000000CLaU-0Vw4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:10:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1784038223; x=1784643023; i=markus.elfring@web.de;
-	bh=ascMDR/Ps2MvuiSNYkmFcXEUA4EMf0q+f3hkluj3fBA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Cv2vXPpol4JlKitNk3D0XeswKZOlTeNs+r7mkn1nYglxKAV/uzyvO9SYkemx3hNJ
-	 z6XEDoIsQzKVFyKgnrb27u1g2wkq9HC+Ev3BBeQ2im19ImLGJmWcknsarvhL1O96P
-	 BPwkD8wHQ/E1PbUA9+DeqyAO3fsUcviw1+M63q9FU12z/vXa4pvn6IvIuv2mpAVDP
-	 pF09ujC5enBUpeNitcAAg+z/c2yCxCWUH+g7tf2EynGBiG6mVbups63EFmN7xEg6N
-	 3icn296dkxpAU7D7ivQ6/O818tMZ+3LryrAXeR82JfC+Ucuy6rb/j9+osEdVmFx8p
-	 jMJC0LMZSUdQu5AgZg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MbkWK-1xJXPt0oFa-00cBGP; Tue, 14
- Jul 2026 16:10:23 +0200
-Message-ID: <f6284d81-75fa-4418-b4f6-531163bd02cb@web.de>
-Date: Tue, 14 Jul 2026 16:10:20 +0200
+	Tue, 14 Jul 2026 14:14:23 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RoLl6R2TmTuEeArsUoDOwQTL9TMA2pN37gY4+xgZ41F6GivSzHmlVihRMo/ybG7vu+dCkuEjuOb5D4nADDKA9ql@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784038457;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BPIRB9Dd4cOslVY5PESm6bOvGNSOObw9pvt/3Q1F9Uw=;
+	b=egJYqFOfjZj+cdqG4WRezDqxIggnaAoNP4GUMnJVZ1zW0Akph/52GnXGen35SqYUblQBEG
+	D19bdZCdrdJGfb7CsNqPe2A1hrzZu3hjYXyhWiEOAvxKuhl9k0W3PkczFuk+TZNVK/KTb+
+	ywDd77ZHUyQgBly0cR+JqF/sK4caeHQ=
+X-Gm-Message-State: AOJu0YyHNFaiwT6qFykYDmpqbF5n0aSDiwVjPlJCGc+Czrp3Xx5Fctgq
+	EOqKVH3sLqhIhzrVFff9bKy9d4iSETOdtb0zTVh5EcRo8Aj7l1PbYXHfeuFGZMJLLHaECulgpiA
+	0CaBIvKpVnLQkphULpKHtWlbOAjxG4M8i7UW9U/nY
+X-Received: by 2002:a05:622a:11d1:b0:51a:72e5:9b2f with SMTP id
+ d75a77b69052e-51d7bd89849mr13077231cf.20.1784038433589; Tue, 14 Jul 2026
+ 07:13:53 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Carlos Song <carlos.song@nxp.com>, imx@lists.linux.de,
- linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@pengutronix.de, Andi Shyti <andi.shyti@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20260630105223.3687516-2-carlos.song@oss.nxp.com>
-Subject: Re: [PATCH v5 1/2] i2c: imx-lpi2c: properly unwind resources on probe
- failure
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260630105223.3687516-2-carlos.song@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:QjSzDH8dW/yLsPenC9/HgxeriAeQCWWMbDZuZGIPkWtsdo8kWa6
- fUozEQJeA3kzHeC877B5Y73BHvBu01OjyPsPnnmPcmmgz2OG+GLLJBtvw+ubhTvfeRLbASy
- dCS3G3frwd2qY+bcskMGWo3yqNGsrtpsNPmGEOIBp7Ky5wNhb7+QJk+AAqV5teL7MtMOXPK
- tlpYrsYXH0bpXaJRXV/kg==
-UI-OutboundReport: notjunk:1;M01:P0:nFtwprKICKw=;5bRlh8vrHduL7PoRahhVYl9s7xF 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
+References: <20260714110756.116950-1-alexandru.elisei@arm.com>
+ <CA+EHjTxFAqO38zZNTM5oQ26X7eUcu3ggfhMY2gn2bB4sMbOxoQ@mail.gmail.com> <alY2e8bfsMDyI2QZ@raptor>
+In-Reply-To: <alY2e8bfsMDyI2QZ@raptor>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 14 Jul 2026 15:13:16 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwhYpC-fzXKr9J7015AwAtoHvnUqm31ockQMLjKM-fOoQ@mail.gmail.com>
+X-Gm-Features: AUfX_mzpDe5iSeTUKNhFhM8dxY-CxssfUNHFcChEyJoMZ4XDmFgf8k8egb_tvdk
+Message-ID: <CA+EHjTwhYpC-fzXKr9J7015AwAtoHvnUqm31ockQMLjKM-fOoQ@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Reject guest_memfd memslots when the VM has MTE
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	catalin.marinas@arm.com, will@kernel.org, steven.price@arm.com
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_151053_279193_D5BE7EB9 
-X-CRM114-Status: UNSURE (   4.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_071420_602884_E704B127 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,11 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> Introduce a new error label 'clk_disable' =E2=80=A6
+On Tue, 14 Jul 2026 at 14:15, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+>
+> Hi Fuad,
+>
+> On Tue, Jul 14, 2026 at 12:44:57PM +0100, Fuad Tabba wrote:
+> > Hi Alex,
+> >
+> > On Tue, 14 Jul 2026 at 12:08, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> > >
+> > > The user cannot use MTE on VMAs created by mapping a guest_memfd file,
+> > > as arch_calc_vm_flag_bits() does not set VM_MTE_ALLOWED.
+> > >
+> > > When creating a guest_memfd backed memslot,
+> > > kvm_arch_prepare_memory_region() rejects the memslot if MTE is enabled for
+> > > the VM and if guest_memfd has been mapped in a VMA that intersects the
+> > > memslot.
+> > >
+> > > However, the documentation for KVM_SET_USER_MEMORY_REGION2 explicitly
+> >
+> > nit: s/explicitely/explicitly/
+>
+> I think that's what I wrote :)
 
-Can another bit of duplicate source code be avoided in any if branches?
+I fixed the quoted text (pressing enter right after the word)! :) The
+original msg says `explicitely`
 
-Regards,
-Markus
+It's a nit anyway.
+
+> >
+> > > states that the only condition for userspace_addr is for it to be a legal
+> > > userspace address, but the mapping is not required to be valid nor
+> > > populated at memslot creation.
+> > >
+> > > If userspace sets userspace_addr to an address that hasn't been mapped, or
+> > > if userspace_addr belongs to a VMA that isn't backed by the guest_memfd
+> > > file, or if the VMA doesn't intersect the memslot, memslot creation is
+> > > successful and KVM ends up with a VM with MTE and guest_memfd-backed
+> > > memslots.
+> > >
+> > > Forbid guest_memfd memslots unconditionally when the VM has MTE to prevent
+> > > this from happening.
+> > >
+> > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> >
+> > Is this worth a Fixes: tag?
+>
+> Fixes: 32e200bd6e44 ("KVM: arm64: Enable support for guest_memfd backed memory")
+> ?
+
+Yes, the author of that patch should have known better...
+
+<snip>
+
+> I can iterate through all the memslots and check that none are backed by a
+> guest_memfd file when userspace enables the MTE capability.
+
+Sgtm.
+
+Cheers,
+/fuad
+
+> Will wait for a day or two to send v2.
+>
+> Thanks,
+> Alex
 
