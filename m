@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9E0C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA671C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sm/C3/9RoriVv1DqhbJBNES+H3kJ5PkYRMMwKdFeWww=; b=dmhbA0K2HmSoIjvP2rK2c7Ize2
-	+Mh8pbI/Us4WLdUCSYzp3I1LLSr9IG2vonzKAxRLEtp7/nzqZKb3HO/7jTzxqXrdoop3J9B6ccqDg
-	Hq2vHzOV3Y9ssfuseO4To1ki2c68xjzqHBDsvlRsspX6sg7C+xFuA5sp+Uf8kJAbix7j+YizCoRB0
-	16bF8NiJHKVUDvRX+ZghFQYmvP2BVFJdcyB/pE3skYwkyRCOI5e60E4QpnGabUdMY3lHuxbUbefce
-	twDq9K21jA5oar+DSjbeoHtSoG4hFlCHmjLWbzjKk74RYq0RUtYp11hmUEFZepShOYLqIRQAYBUFI
-	6DtPyOTQ==;
+	bh=Kc8QH6BxvyW9ef8PAyxaqiwonZpdVzbJV0CMm+y4Vs8=; b=UqU0/xdgfJWRhecIvlJi0YDfMS
+	9DzGHuiYO8DtUQFvvYkcpRetJkCVElaf8/7iR7tIRfdFxde1u4DeRd+QG/w1P24SdsbuZN5U8gbmh
+	Z28ZT+NIURV2CM+5cyVNM7Mpi9EsmRF0aPbR5SwHk0wVat0HZg62AkGidwwpBFRatC+wUn1Ycmvs4
+	G8Cxw+a004yMSWgNPW1dfDE8PeU6T4b7IuGOp526iWw66qXqtGD6ThJDJ7i8sOMo6ueNGBcHGJ/oC
+	5VABoBtxy8iHZbyPmZAljW8+nGfEQQI1AC9/76MetG0PTlFDGixOS0I8nZz69FZ50GKXYz8R4jsis
+	wDzIs03g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkbq-0000000DKwM-3tlj;
-	Tue, 14 Jul 2026 21:24:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjkc7-0000000DL20-0FBh;
+	Tue, 14 Jul 2026 21:24:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkbp-0000000DKvv-1TFG;
-	Tue, 14 Jul 2026 21:24:09 +0000
+	id 1wjkc6-0000000DL1a-1NIa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 21:24:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D81B40B39;
-	Tue, 14 Jul 2026 21:24:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 145171F000E9;
-	Tue, 14 Jul 2026 21:24:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D02BF438F7;
+	Tue, 14 Jul 2026 21:24:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B481F00A3A;
+	Tue, 14 Jul 2026 21:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784064248;
-	bh=sm/C3/9RoriVv1DqhbJBNES+H3kJ5PkYRMMwKdFeWww=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Vf7weHc9iI/62VbuZ5ZsoXrq3NVdMZxpqLw0+YnLnDaMXqOR0wkO0sPTVaSaYErbM
-	 l2jhlJIROBCZZH7ax9pFkyEcZwiBFIpZuhs+zBKWeHwyv/WdkQljtBwzHNvXk+Kmtq
-	 T3K7dN1xmATcc6mv+1hioafwqPMOgz9+7p2LY7EtRYmWY9OR2q2tH0zkq1E+0KXkk8
-	 ALkzxHM++rYlwrtxSPm4X9rxzVIdGNkaUh0PD/1ERa+D/ZDEK8nJNHJQLKpx5WAq0I
-	 /kQi8HKIyc12fdcoXMEzawbUjXPHH3NEbdyRpLCzkFaNgEg0Fr6Y/x9+7H51tsGr2U
-	 w7oTeeuaQPkSw==
+	s=k20260515; t=1784064265;
+	bh=Kc8QH6BxvyW9ef8PAyxaqiwonZpdVzbJV0CMm+y4Vs8=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=CXQVcews4hmtRA84seJ3Qk/SD4B4/jZVLiyBOzKwH9O0BvAstEESVXu3S6ADb1VjQ
+	 XT6Q2pBpI0wkBiL3oVo7QXj969wq+MKdbD2Uwc6wpBOlzAGXwP6vkAkCTYzg0ayRis
+	 4Q/Nu2MkM0ns6zADbWoCjfQXJJe1r02xiI/pgttwBsuxSjWdV0hSz0pyoD+KulvTpg
+	 SY/m2kCWutzvh2OGhVgBzlA0qA6cEilK0vSMWLlviXwc28BzpISFguHC3BWRRIuXMx
+	 IV0p2BHDg6DeBQgzxdqxIN6fk8Et77RQo85OgCMclfLX2d45g1Lqiv5R2gjF3hy8yL
+	 bMN6273gJhwCg==
 From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Valerio Setti <vsetti@baylibre.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260702-fix-24-bit-i2s-playback-v2-1-9c008ff0b211@baylibre.com>
-References: <20260702-fix-24-bit-i2s-playback-v2-1-9c008ff0b211@baylibre.com>
-Subject: Re: [PATCH v2] ASoC: meson: aiu-formatter-i2s: remove pipeline
- reset from prepare
-Message-Id: <178403353533.7661.3587699052288293091.b4-ty@b4>
-Date: Tue, 14 Jul 2026 13:52:15 +0100
+To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 1/3] spi: atmel-quadspi: Simplify probe() with local
+ 'dev' variable
+Message-Id: <178402987400.7661.258618486934275116.b4-ty@b4>
+Date: Tue, 14 Jul 2026 12:51:14 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1151; i=broonie@kernel.org;
- h=from:subject:message-id; bh=1rlTdPVEJirmtaB3HgVUfJvhOsghnLMPPPjkkC1XBbA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqVqj1h8DRXWnkwi8ihLSVZ4sFeF85Sd+R+80o2
- g43jxHVLYyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalao9QAKCRAk1otyXVSH
- 0Kg0B/0dKBQP+1uaY1hHT7K10/CjBAlegYHUZVMuaxpZ3kjQH2+upsicYrwgsF4Kq1jnycwrBP+
- EV0lOyhDaoXqpYgHL1kMljpV3ZyOBEuCqnB3KYkj/on+hleHeR6zG9aFmgyiWxFdtpbQIU2NLiq
- G09KfvOAdEPHR65JzTuSzDuOEXnrEYUSn2n0tSRiQWnMRKpOCs+oQbr+RYXB0GXw64RTSRQu7J6
- C9K9mkfqXw1jP5GSiIhgaMNI4HZj/kqoFyU4yBn1gs6u+Zf7PmH64VKmwcU/cBgP43PcYkaNckp
- E099aKupcxDWyVj0nu9ijxtwp62S7qH13TZh2FsD7mx/8b3S
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1372; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vNOBqqC9yFiEhyoXR9LChSsTeYbMgNrUtgO54Ckjo6M=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqVqkHO380qiDwrpeEr1UzHf3y/xbG7gwxxNKhH
+ DsjxxILTsKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalapBwAKCRAk1otyXVSH
+ 0Do/B/4lvOm0J5liKBkExSMKLVgDP3KhutGv/fNZDFbKqOfDsSdpSV6CslAPwGMRF8BODazMI16
+ m/rOctg7uo4IHGw8XXiY09nclcvKuqfdnH6jkJHvJiN97eRVCjkDOY0j8klepjf7lsx+qhtg+mK
+ /HrQomPJJ2SoTuWuqwNFBxAJ2HavzKt+p0hzDpzjt2NJclx4LTVBl2YYSOJqtVQYgv97ZvheFqD
+ /NUoyVc31JzbDB9LImNQWS4WxL84duPd9OqFok51YRH7mIqlQ4533TKG5X9QTPvBVUNu3W1NRX1
+ zz4V5z14WA2OnG4j6corLhS8qGE3+8syCl4DSQeofckgzKs0
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,17 +83,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 02 Jul 2026 23:31:46 +0200, Valerio Setti wrote:
-> ASoC: meson: aiu-formatter-i2s: remove pipeline reset from prepare
+On Sun, 05 Jul 2026 19:27:38 +0200, Krzysztof Kozlowski wrote:
+> spi: atmel-quadspi: Simplify probe() with local 'dev' variable
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
 
 Thanks!
 
-[1/1] ASoC: meson: aiu-formatter-i2s: remove pipeline reset from prepare
-      https://git.kernel.org/broonie/sound/c/72fe2ef11df5
+[1/3] spi: atmel-quadspi: Simplify probe() with local 'dev' variable
+      https://git.kernel.org/broonie/sound/c/51f761e4071f
+[2/3] spi: atmel-quadspi: Simplify with dev_err_probe()
+      https://git.kernel.org/broonie/sound/c/3ae07d8f3075
+[3/3] spi: altera: Simplify with dev_err_probe()
+      https://git.kernel.org/broonie/sound/c/3e106385e3e6
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
