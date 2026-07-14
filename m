@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A76C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 04:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9005C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 04:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oR0IJwFwJcTW5abRcyWfZfVSTDV2rHESpTOv+5xneDA=; b=uHQs1anNcSIsm79RGtOv7DlNoQ
-	sYIwSHjYmy0uHsHmE54JseA/stP9Cthbuz1PylpaG4EYJ8IPfnP4BkYF8Xi+sXcHrIlWcQzASphRN
-	8CJPHDr654CPdmBvTfim8Zbtqj05cow3Vo9lmga8FKE0o/RZbvM9vx3afZD1xZnMuHzC3Hnx0NvU2
-	6bnSDPjUAmX4g1Z+XueRasx8Vo8a2PYRwIo/Lc1Pwjk+Sqjk1tUcgVAQWT3jxFO6CERnr9rdQR7hR
-	e9yMOmFOb7u0B6YoUD8+WUMEX/QpebUWX/XPGfP44WiSinF3dNcBg0OwrZPxRiUwLjRpAcpXFaJBS
-	DC9tWNIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NgdeQo2TB81zknr7ANK1aIrRxeu3MOxic6XnLAtyCXs=; b=Vdvd58HUC10mI62NsnfHN5Lisb
+	9urIgAy3mC4q475t3TBVRpUgKT9l6oEf8tHGhV9ft0uwORqyaW/USsXskAVIC7ti5sB1agAsKe08Q
+	sUaBJWiD2NS95nxbO/bQ7w1kxLxmdnaGgBK3pc6TAHkMGHszJ+UPC+jqxTZzHDx0aITQcLwQrTl8q
+	+JikiwFPvpOTZz381pk+Kl4lYa5xZLV+BOofK8WyUvFuP/qD58apwAKSgDErD7A6ForuaEHtrjUoo
+	bJSK69OEyIqnpLLX2aXvMavsTFBGw37VFcAlcFwVSuHLK0+1YDsJyaqJ2bUY8xGuzz/l/4MasCUaa
+	8JzuH0ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjUF3-0000000Aq9G-3V4I;
-	Tue, 14 Jul 2026 03:55:33 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wjUkR-0000000AsF7-1FMF;
+	Tue, 14 Jul 2026 04:27:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjUF1-0000000Aq8k-0nwI
+	id 1wjUkQ-0000000AsF1-3C8w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 03:55:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784001331; x=1815537331;
-  h=date:from:to:cc:subject:message-id;
-  bh=wqAqq3BrfMgGAXPcC/RQax9mn35bFLJC3EkVQ6qUaxA=;
-  b=bSt5+kZTkXLBnrC22/0BvYY+zKhFtOAZLCNRcKhh3gCZ7fQw8/UJkbZt
-   ZhWZnq9k8WwgKQT4nchzJHeqyur4vfQVQ41nT3MowM5Y28FstvgLQ+BJ1
-   kACwvqH5cfZnOfg7m8cONpe9ryuq69cy/OrOz5tYho8ptDnlBGZ7WWMoU
-   y8OXGEwm7SlS2LdqYp0B7Aps+IRV7LmlmdK0wFJYZnUIVvJ8kX5bMgzr2
-   a7pzNKu7ii3EIRu2h1aPb+g/it8hU/pUQ/8ocQyUaWOMFtROkLfc4NMso
-   weD9KBWoXNUSizWG0ah94vxrWBL+d7pgC0pQdX5qJPUeGlvm8P/TLX3Uv
-   g==;
-X-CSE-ConnectionGUID: PAcAhecFSDaI46v6qOVMSg==
-X-CSE-MsgGUID: BAyoZXlKSiquy1Gc2EZU5A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84495003"
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="84495003"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 20:55:28 -0700
-X-CSE-ConnectionGUID: 8wI4vLURRY+KlXTOytf6Mw==
-X-CSE-MsgGUID: XAlRdy3kS6mWoCLQMqVTqA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
-   d="scan'208";a="254615144"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 13 Jul 2026 20:55:26 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wjUEt-00000000MO5-3X1R;
-	Tue, 14 Jul 2026 03:55:23 +0000
-Date: Tue, 14 Jul 2026 11:54:38 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- 022b8bd5e58f8bec3474defebcdd89adba4adaea
-Message-ID: <202607141118.Ody8hsoJ-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_205531_273581_3D306841 
-X-CRM114-Status: UNSURE (   5.23  )
-X-CRM114-Notice: Please train this message.
+	Tue, 14 Jul 2026 04:27:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C26443BEC;
+	Tue, 14 Jul 2026 04:27:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B25181F000E9;
+	Tue, 14 Jul 2026 04:27:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784003277;
+	bh=NgdeQo2TB81zknr7ANK1aIrRxeu3MOxic6XnLAtyCXs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=NJHJ1nkTI1FRoIrGQfUrmz/9sKaOTlPMfecxhsBJjkAryeyRg38SqXMsX+CgDLuGR
+	 4Q+jx3b6NEJbgs8uemLCGN7Zkoj5723IXe4JdKf63X4D+ZVXsg0HpD4CBSG/Igtr2m
+	 iN5AaVHORWnFjRo7d87PKE0EuKEC5tvMH/+rVtulslDEm0/njvC512nUuoYQj8gPg2
+	 cWL5XiAM1KnkjzfrdR/N+hPFm8qQM/wctqv6dolHYgKwbun/QgJKr7pwtkQ+6ma+04
+	 OBdUqTBT1d9bGsHovryg0z+BKJjY3K/q0L0r2iALawfRiRXGezWmC0KKAIImrBlaDY
+	 5Ls8gREIG7Nzg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 11/22] dma-pool: track decrypted atomic pools and
+ select them via attrs
+In-Reply-To: <20260713184810.GM3133966@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-12-aneesh.kumar@kernel.org>
+ <20260713184810.GM3133966@ziepe.ca>
+Date: Tue, 14 Jul 2026 09:57:43 +0530
+Message-ID: <yq5aqzl6mc00.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,215 +96,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: 022b8bd5e58f8bec3474defebcdd89adba4adaea  soc: document merges
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
-elapsed time: 733m
+> On Wed, Jul 01, 2026 at 11:19:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> @@ -114,14 +120,17 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>>  	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
+>>  	 * shrink so no re-encryption occurs in dma_direct_free().
+>>  	 */
+>> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>> -				   1 << order);
+>> -	if (ret) {
+>> -		leak_pages = true;
+>> -		goto remove_mapping;
+>> +	if (dma_pool->cc_shared) {
+>> +		ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>> +					   1 << order);
+>> +		if (ret) {
+>> +			leak_pages = true;
+>> +			goto remove_mapping;
+>> +		}
+>>  	}
+>
+> This makes the memory_decrypted conditional, but it doesn't change
+> the lines a few above:
+>
+> 	addr = dma_common_contiguous_remap(page, pool_size,
+> 			pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
+>                             ^^^^^^^^^^^^
+> 			__builtin_return_address(0));
+> 	if (!addr)
+> 		goto free_page;
+>
+> It is wrong to pass pgprot_decrypted() to the arch code if
+> set_memory_decrypted() was not called.
+>
+> Also it looks at some point the nature of the atomic pool has become
+> confused. Originally it was just to allocate atomic memory that had
+> been vmap'd outside the atomic context (to set the non-coherent
+> pgprot), so every caller was expecting non-cached memory.
+>
+> Then it was reused to also allocate CC shared memory outside the
+> atomic context. That was fine for x86 that doesn't use DMA_REMAP but
+> on ARM64 it now means all atomic pool CC memory is uncached? That
+> doesn't seem to make any sense...
+>
+> I suppose along the lines of this patch the solution is to add a
+> noncoherent property to the pool so we can select the correct
+> combination:
+>
+>  noncoherent !SHARED = vmap pgprot_noncached
+> !noncoherent  SHARED= vmap pgprot_decrypted + set_memory_decrypted
+>  noncoherent  SHARED = (probably unrealistic in real systems)
+> !noncoherent !SHARED = normal __dma_direct_alloc_pages()
+>
+> But I don't view this as that important, the CC hypervisor is probably
+> going to use the S2 page table to force cachable on all system memory
+> so the non-cached pgprot is a NOP, but the extra vmap is wasteful and
+> it is confusing.. So maybe a little fixme is all that is needed here.
+>
 
-configs tested: 195
-configs skipped: 2
+Something like?
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                             allnoconfig    gcc-16.1.0
-alpha                            allyesconfig    gcc-16.1.0
-alpha                               defconfig    gcc-16.1.0
-arc                              allmodconfig    clang-23
-arc                              allmodconfig    gcc-16.1.0
-arc                               allnoconfig    gcc-16.1.0
-arc                              allyesconfig    clang-23
-arc                              allyesconfig    gcc-16.1.0
-arc                                 defconfig    gcc-16.1.0
-arc                   randconfig-001-20260714    clang-23
-arc                   randconfig-002-20260714    clang-23
-arm                               allnoconfig    gcc-16.1.0
-arm                              allyesconfig    clang-23
-arm                              allyesconfig    gcc-16.1.0
-arm                                 defconfig    gcc-16.1.0
-arm                          ixp4xx_defconfig    gcc-16.1.0
-arm                   randconfig-001-20260714    clang-23
-arm                   randconfig-002-20260714    clang-23
-arm                   randconfig-003-20260714    clang-23
-arm                   randconfig-004-20260714    clang-23
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-16.1.0
-arm64                               defconfig    gcc-16.1.0
-arm64                 randconfig-001-20260714    clang-17
-arm64                 randconfig-001-20260714    gcc-16.1.0
-arm64                 randconfig-002-20260714    clang-23
-arm64                 randconfig-002-20260714    gcc-16.1.0
-arm64                 randconfig-003-20260714    clang-17
-arm64                 randconfig-003-20260714    gcc-16.1.0
-arm64                 randconfig-004-20260714    clang-23
-arm64                 randconfig-004-20260714    gcc-16.1.0
-csky                             allmodconfig    gcc-16.1.0
-csky                              allnoconfig    gcc-16.1.0
-csky                                defconfig    gcc-16.1.0
-csky                  randconfig-001-20260714    gcc-16.1.0
-csky                  randconfig-002-20260714    gcc-16.1.0
-hexagon                          allmodconfig    clang-23
-hexagon                          allmodconfig    gcc-16.1.0
-hexagon                           allnoconfig    gcc-16.1.0
-hexagon                             defconfig    gcc-16.1.0
-hexagon               randconfig-001-20260714    gcc-16.1.0
-hexagon               randconfig-002-20260714    gcc-16.1.0
-i386                             allmodconfig    clang-22
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-16.1.0
-i386                             allyesconfig    clang-22
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20260714    clang-22
-i386        buildonly-randconfig-002-20260714    clang-22
-i386        buildonly-randconfig-003-20260714    clang-22
-i386        buildonly-randconfig-004-20260714    clang-22
-i386        buildonly-randconfig-005-20260714    clang-22
-i386        buildonly-randconfig-006-20260714    clang-22
-i386                                defconfig    gcc-16.1.0
-i386                  randconfig-001-20260714    gcc-13
-i386                  randconfig-002-20260714    gcc-13
-i386                  randconfig-003-20260714    gcc-13
-i386                  randconfig-004-20260714    gcc-13
-i386                  randconfig-005-20260714    gcc-13
-i386                  randconfig-006-20260714    gcc-13
-i386                  randconfig-007-20260714    gcc-13
-i386                  randconfig-011-20260714    clang-22
-i386                  randconfig-012-20260714    clang-22
-i386                  randconfig-013-20260714    clang-22
-i386                  randconfig-014-20260714    clang-22
-i386                  randconfig-015-20260714    clang-22
-i386                  randconfig-016-20260714    clang-22
-i386                  randconfig-017-20260714    clang-22
-loongarch                        allmodconfig    clang-19
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    gcc-16.1.0
-loongarch                           defconfig    clang-23
-loongarch             randconfig-001-20260714    gcc-16.1.0
-loongarch             randconfig-002-20260714    gcc-16.1.0
-m68k                             allmodconfig    gcc-16.1.0
-m68k                              allnoconfig    gcc-16.1.0
-m68k                             allyesconfig    clang-23
-m68k                             allyesconfig    gcc-16.1.0
-m68k                                defconfig    clang-23
-microblaze                        allnoconfig    gcc-16.1.0
-microblaze                       allyesconfig    gcc-16.1.0
-microblaze                          defconfig    clang-23
-mips                             allmodconfig    gcc-16.1.0
-mips                              allnoconfig    gcc-16.1.0
-mips                             allyesconfig    gcc-16.1.0
-nios2                            allmodconfig    clang-20
-nios2                            allmodconfig    gcc-11.5.0
-nios2                             allnoconfig    clang-23
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-23
-nios2                 randconfig-001-20260714    gcc-16.1.0
-nios2                 randconfig-002-20260714    gcc-16.1.0
-openrisc                         allmodconfig    clang-20
-openrisc                         allmodconfig    gcc-16.1.0
-openrisc                          allnoconfig    clang-23
-openrisc                          allnoconfig    gcc-16.1.0
-openrisc                            defconfig    gcc-16.1.0
-parisc                           allmodconfig    gcc-16.1.0
-parisc                            allnoconfig    clang-23
-parisc                            allnoconfig    gcc-16.1.0
-parisc                           allyesconfig    clang-17
-parisc                              defconfig    gcc-16.1.0
-parisc                randconfig-001-20260714    clang-17
-parisc                randconfig-002-20260714    clang-17
-parisc64                            defconfig    clang-23
-powerpc                          allmodconfig    gcc-16.1.0
-powerpc                           allnoconfig    clang-23
-powerpc                           allnoconfig    gcc-16.1.0
-powerpc               randconfig-001-20260714    clang-17
-powerpc               randconfig-002-20260714    clang-17
-powerpc64             randconfig-001-20260714    clang-17
-powerpc64             randconfig-002-20260714    clang-17
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                             allnoconfig    gcc-16.1.0
-riscv                            allyesconfig    clang-23
-riscv                               defconfig    gcc-16.1.0
-riscv                 randconfig-001-20260714    gcc-10.5.0
-riscv                 randconfig-002-20260714    gcc-10.5.0
-s390                             allmodconfig    clang-17
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-16.1.0
-s390                                defconfig    gcc-16.1.0
-s390                  randconfig-001-20260714    gcc-10.5.0
-s390                  randconfig-002-20260714    gcc-10.5.0
-sh                               allmodconfig    gcc-16.1.0
-sh                                allnoconfig    clang-23
-sh                                allnoconfig    gcc-16.1.0
-sh                               allyesconfig    clang-17
-sh                                  defconfig    gcc-14
-sh                             espt_defconfig    gcc-16.1.0
-sh                    randconfig-001-20260714    gcc-10.5.0
-sh                    randconfig-002-20260714    gcc-10.5.0
-sparc                             allnoconfig    clang-23
-sparc                             allnoconfig    gcc-16.1.0
-sparc                               defconfig    gcc-16.1.0
-sparc                 randconfig-001-20260714    gcc-8.5.0
-sparc                 randconfig-002-20260714    gcc-8.5.0
-sparc64                          allmodconfig    clang-20
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260714    gcc-8.5.0
-sparc64               randconfig-002-20260714    gcc-8.5.0
-um                               allmodconfig    clang-17
-um                                allnoconfig    clang-17
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-14
-um                               allyesconfig    gcc-16.1.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260714    gcc-8.5.0
-um                    randconfig-002-20260714    gcc-8.5.0
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-22
-x86_64                            allnoconfig    clang-22
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-22
-x86_64      buildonly-randconfig-001-20260714    gcc-14
-x86_64      buildonly-randconfig-002-20260714    gcc-14
-x86_64      buildonly-randconfig-003-20260714    gcc-14
-x86_64      buildonly-randconfig-004-20260714    gcc-14
-x86_64      buildonly-randconfig-005-20260714    gcc-14
-x86_64      buildonly-randconfig-006-20260714    gcc-14
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-22
-x86_64                randconfig-001-20260714    clang-22
-x86_64                randconfig-002-20260714    clang-22
-x86_64                randconfig-003-20260714    clang-22
-x86_64                randconfig-004-20260714    clang-22
-x86_64                randconfig-005-20260714    clang-22
-x86_64                randconfig-006-20260714    clang-22
-x86_64                randconfig-011-20260714    clang-22
-x86_64                randconfig-012-20260714    clang-22
-x86_64                randconfig-013-20260714    clang-22
-x86_64                randconfig-014-20260714    clang-22
-x86_64                randconfig-015-20260714    clang-22
-x86_64                randconfig-016-20260714    clang-22
-x86_64                randconfig-071-20260714    gcc-14
-x86_64                randconfig-072-20260714    gcc-14
-x86_64                randconfig-073-20260714    gcc-14
-x86_64                randconfig-074-20260714    gcc-14
-x86_64                randconfig-075-20260714    gcc-14
-x86_64                randconfig-076-20260714    gcc-14
-x86_64                               rhel-9.4    clang-22
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-22
-x86_64                    rhel-9.4-kselftests    clang-22
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-22
-xtensa                            allnoconfig    clang-23
-xtensa                            allnoconfig    gcc-16.1.0
-xtensa                           allyesconfig    clang-20
-xtensa                           allyesconfig    gcc-16.1.0
-xtensa                randconfig-001-20260714    gcc-8.5.0
-xtensa                randconfig-002-20260714    gcc-8.5.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+modified   kernel/dma/direct.c
+@@ -260,6 +260,9 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	/*
+ 	 * Remapping or decrypting memory may block, allocate the memory from
+ 	 * the atomic pools instead if we aren't allowed block.
++	 * FIXME!! With CONFIG_DMA_DIRECT_REMAP, the pool is also mapped as
++	 * DMA-coherent (non-cacheable). We may want to create a separate pool
++	 * dedicated to CC_SHARED atomic allocations.
+ 	 */
+ 	if ((remap || (attrs & __DMA_ATTR_ALLOC_CC_SHARED)) &&
+ 	    dma_direct_use_pool(dev, gfp)) {
+modified   kernel/dma/pool.c
+@@ -88,6 +88,7 @@ static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
+ 	unsigned int order;
+ 	struct page *page = NULL;
+ 	bool leak_pages = false;
++	pgprot_t prot;
+ 	void *addr;
+ 	int ret = -ENOMEM;
+ 	unsigned int min_encrypt_order = get_order(mem_cc_shared_granule_size());
+@@ -110,8 +111,12 @@ static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
+ 	arch_dma_prep_coherent(page, pool_size);
+ 
+ #ifdef CONFIG_DMA_DIRECT_REMAP
+-	addr = dma_common_contiguous_remap(page, pool_size,
+-			pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
++	if (dma_pool->cc_shared)
++		prot = pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL));
++	else
++		prot = pgprot_dmacoherent(PAGE_KERNEL);
++
++	addr = dma_common_contiguous_remap(page, pool_size, prot,
+ 			__builtin_return_address(0));
+ 	if (!addr)
+ 		goto free_page;
 
