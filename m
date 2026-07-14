@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF46BC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824ADC4450B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BTBeOTYIOKIk3GZzx/H2GNcllpLfatvGrcCCGYprRVY=; b=DnwRk99qa6igI3RFb46jr8B2Zd
-	4/B456FWMA72hCMN5rb2FBErk0bmqdYG0xyZoctVY6GYihGaWG/UZj4hhi/oAadU1E+c8lrVetrrT
-	HsUk/YYV9QdGiVcQhb+PGCViYz2QuahHN1jWu6JT/UVvL+ZXtsyKiT8AIhF+I4Z3uXyRxDERL6++f
-	FMWH4pziV9ccMEd4QL7Noj55owN9HuXd0PPbv646UNPDLQwN19qOe6TZnujmaXuct1GxAR3d8nIl5
-	E/Mb65IRPa+ZiYpHbMAALIFbP1FJOSlXvSlh3wMNmvpGGlEPHV823tDMNzB2C9+Jj1orkk2Ja7Mt2
-	rssx+cig==;
+	bh=KO2pL/LPzAk6bW0DPdWAZBSTIMWvqbQFEPPgH78ikCE=; b=0JV7hGN5qKZCsWJa2aRTUuCnTj
+	BDqmvFqNnrYKECw2eNbPaXhWoPDRo9WE3B3sK1JLSRJXMjOBx7d8ihSfmmvcmLfA2ywURV87YHUbn
+	mna+wz+DROIe1m31qCkBY9odSwOS1qvG4i4hUge/Fd7eHDGQdT/lWSqlhlQ+snbE6TGVuYsdI4zhB
+	6KcykKy5aAiw/ZZ/Suy7SVFs+VDJB5zfP1AHnDb8fN6w7mn5vYwc6Ngx4WwJ11GI2hSCVwMP5J5dm
+	Btq9vBlYjMi5jmFL6c5H463e+i1rBV9oaBd+ZrombUMAQOZOzUmVglkewkGPR50ieo9OEuw3L/N8D
+	uBcHPWgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjier-0000000D1fF-1yh7;
-	Tue, 14 Jul 2026 19:19:09 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1wjigR-0000000D1xa-0c68;
+	Tue, 14 Jul 2026 19:20:47 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjieo-0000000D1eJ-0bZX
+	id 1wjigO-0000000D1w6-36Qg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 19:19:08 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7eb4d532e65so1814070a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 12:19:05 -0700 (PDT)
+	Tue, 14 Jul 2026 19:20:45 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7eb64371a2aso852390a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 12:20:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784056745; x=1784661545; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1784056844; x=1784661644; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BTBeOTYIOKIk3GZzx/H2GNcllpLfatvGrcCCGYprRVY=;
-        b=dUkYe2k2GH8jk23TpRJcQKIsVnPvWxoxGup3qIiAc0DCM0vS6YfjpjG5IYltre82id
-         oZRYtR5n5faHBKr3fV7d5znYOVB7K+H9aCOboOgTbRrynBJGKOsIzXgAVEXjJyan5QrW
-         SP7hpI2lX8FZJuMC7kR+OBY3pQZ7tWJMyUnXE=
+        bh=KO2pL/LPzAk6bW0DPdWAZBSTIMWvqbQFEPPgH78ikCE=;
+        b=aVy3LdlJlsBVYOBEegaGA+BNivHksMVnIkuZ8QoUazETDNsqSu49SgRoMY3VK+354W
+         HSeXeQcicZFAYFpHGKA5gL1ef4bpCDc0Su4GRBbnYQF8RUYlRf5wx9a+iEZGAkCMcpKB
+         PQ/nuUV0GcRjxyIxNNUHOz8EQ+ZBzt0TR9B/Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784056745; x=1784661545;
+        d=1e100.net; s=20251104; t=1784056844; x=1784661644;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BTBeOTYIOKIk3GZzx/H2GNcllpLfatvGrcCCGYprRVY=;
-        b=pzc5oODh1L0rPv5oPrlQcQe4pBLCjpwa7fQb127OiYdGTFburYDVf6LxFMuQ2grOfN
-         qNsetNy7uOV6WcPpTfqlPBol82fwPrS/dqhskEcopunFyyfI3TGwkMCTF9wMYMVTqj+a
-         clb1apqphFiryj1tnYLghCqTM19DIbASUZuVX0HTgphM7LZQHdPWIOFHGHgJIwHiFPDf
-         WJKoqnJNAlpB3ACc11H7JENi9ljpgr44Z+BefkJ/bVe79lLoeVksqXib41ORXgxx/bxh
-         L897P3tsOpvd0UWRuTL/MrmTfWHGdehJumIOBhObhKmOno1kaujEg4cEJBwWwclErFvQ
-         mOXA==
-X-Forwarded-Encrypted: i=1; AFNElJ/WdpoRAekpiR/DiYqP/qyrBJbGpHE1qWqcc3vumSlgHk2WBELmRBwx873Y+6zmy1+kDSAgu/KAHnZZry1kvpp6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6nR4r9+X0SgaB4zLqFK2SEseD6pdg6Y3+kKR2BE0Ro4n4leXu
-	ke3bsQe/Ugk24ebKkQs/uilCQSQbrtiSqPiJTUjQPJHPkzvlnvAEtdjd6koIAU1hAw==
-X-Gm-Gg: AfdE7ckxq6cMdLvwvO1131g92nq1C2jFOuWcVSjXFI/hdpZsRLTJLAVIuljKbDH29oh
-	fKTmJT07mJt7J6ZYLIhEpqY54qVtAAQPi5A4GFdBCXuBXJAmJ0TrewI5CJtK+nILza0oQjexuyc
-	GaK4qU7vNvQJQAqyqaDqCPF8IO7CGdlIVAYTcsPRkmnUbz+cHdixezq8ppNFiIQYHohz2itHRXM
-	92i+w3pzS1cYQ+pV/g533bRileBuh6t6G9SBAP5Y7sddXA5X3LHpSiGWL44NhGdV4u/dbCytQ+r
-	zU7hOdwErj+a2ZcEJPe+ObFv6H/05vlm4PIhDBJugaKxgZtBDnLjUw4XOhniye8ktIEs0pOiMrx
-	LXSTosmU6lOkrtSwKQDu3YelPFGM1qr1kR9f0azSfi5y1XNwmQFYF3IL7Goq6f2oyzEumRsPszL
-	x5pSOSPtuXV7S8x5soew==
-X-Received: by 2002:a05:6830:6a91:b0:7e6:e349:539a with SMTP id 46e09a7af769-7ec097aab48mr9268737a34.21.1784056745121;
-        Tue, 14 Jul 2026 12:19:05 -0700 (PDT)
+        bh=KO2pL/LPzAk6bW0DPdWAZBSTIMWvqbQFEPPgH78ikCE=;
+        b=kjy9q7OBZNb5OYHW/YCglDGh2/PReyP6wEtZ9IWB8GUAepa3JlEMw3fKky+Z988VjS
+         3dJ5fmOC6+4iUYrcKYY6nsy/a71Fw3Zj7DgaKYF5F/NbtCnJ/vFioteKRvsS0qAH/KFN
+         7xW2P+WrAzjBmxToU94uoYWpG4+uqDdif98p96smokr3m7AUDazafnf0N10pGgQrmW+A
+         K1FOwniyK2WnhCpAl6rSdu9VF9x/Dg3U7j1XwhTJxPV/ymUaXwpcJaneEsldB3y7kLp1
+         g1BnS5CMq7f79bNsuT3FwqcEtDwL5Csnxfub6NUA4ErKjFzyokY0XhErT1eDXw8fNbxT
+         uwUg==
+X-Forwarded-Encrypted: i=1; AFNElJ8v/twbdEARwHRDyTUtz6j8bfwzikX4m5qy1v7pPojxGJDTkO8qYKDllQJ6qTvqP+fPeWovLy9iRgdYbVlpYEnU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG3wl3owRsZ2ZF/1L9dyUjC/NuNFlwk9/rBWRoRbaovDgB9oog
+	vcPtPfBAPYOSe+ekK1CYzF9vJJWThtzbKCYg8t9ufyW5mTKCjZP4/izU13lUOoxjyg==
+X-Gm-Gg: AfdE7cl3AxHd9IJHqbVhF8nEO09twZJk+WpuQFssApcUCV4CPgUx35WxhsPATn71TMe
+	cuCt/NxYQQi0pB6xBA5zGzCCkjL7ITTh3nKXe8jYuJM521thgqzTCtPaxs9fhN8rAItIR1LcEdw
+	59HXPbElqAiqqma8dsldxLNIXex42RV0lA1Wkov0pp5f9oF/NZ8P5WU/Be+qL+5kmnc40CygPFx
+	SLZZTU5vMx/v8hfgs+b8ZwITj/eTlUOf3tLkSNfQoVFQ/Ys+fwAwTJUbEPZBBdhcnRXdJk9n8XR
+	0fdiHNIPmWNuq2vedQko5ThIIoyBA5uExnkcqyAA9seowkewCqiO7RQ/KuUyDiGu7rT3wdgBn+9
+	U7cfmr+av0f0/9mMHpY5O10TWTwbyjVE3zDWTfBnqdUut7tvUKZn/MBI8Cr+iv6DiuqEP+hGIkv
+	bY96Tjldc=
+X-Received: by 2002:a05:6830:4490:b0:7eb:d848:c867 with SMTP id 46e09a7af769-7ec095dba6emr9656696a34.6.1784056843773;
+        Tue, 14 Jul 2026 12:20:43 -0700 (PDT)
 Received: from chromium.org ([174.51.25.52])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ebcb3f2b86sm15713103a34.26.2026.07.14.12.19.03
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ebcb3f27besm15476081a34.25.2026.07.14.12.20.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 12:19:04 -0700 (PDT)
+        Tue, 14 Jul 2026 12:20:43 -0700 (PDT)
 From: Simon Glass <sjg@chromium.org>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: Conor Dooley <conor+dt@kernel.org>,
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	linux-watchdog@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+	linux-serial@vger.kernel.org,
 	Simon Glass <sjg@chromium.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Jamie Iles <jamie@jamieiles.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] dt-bindings: watchdog: snps,dw-wdt: Add RV1106 compatible
-Date: Tue, 14 Jul 2026 13:18:57 -0600
-Message-ID: <20260714131856.v2.1.b5339e64b3fe4338b3924ebd9dc0096904699744@changeid>
+Subject: [PATCH v2] dt-bindings: serial: snps-dw-apb-uart: Add RV1106 compatible
+Date: Tue, 14 Jul 2026 13:20:36 -0600
+Message-ID: <20260714132035.v2.1.c1d92213393f49330ec14d0c670a802181b4fcbf@changeid>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_121906_185709_F60DB66D 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260714_122044_784796_B24480AF 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for the watchdog of the Rockchip RV1106, which is
-compatible with the Synopsys DesignWare watchdog.
+Add the compatible for the UARTs of the Rockchip RV1106, which are
+compatible with the Synopsys DesignWare APB UART.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
 
-(no changes since v1)
+Changes in v2:
+- Split out into its own patch
 
- Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml | 1 +
+ Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml b/Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml
-index 9d25f5e497e2..2b16b7c2787b 100644
---- a/Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/snps,dw-wdt.yaml
-@@ -35,6 +35,7 @@ properties:
-               - rockchip,rk3576-wdt
-               - rockchip,rk3588-wdt
-               - rockchip,rv1103b-wdt
-+              - rockchip,rv1106-wdt
-               - rockchip,rv1108-wdt
-               - rockchip,rv1126-wdt
-           - const: snps,dw-wdt
+diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+index 49f51b002879..c0d0524458c1 100644
+--- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+@@ -72,6 +72,7 @@ properties:
+               - rockchip,rk3576-uart
+               - rockchip,rk3588-uart
+               - rockchip,rv1103b-uart
++              - rockchip,rv1106-uart
+               - rockchip,rv1108-uart
+               - rockchip,rv1126-uart
+               - sophgo,sg2044-uart
 ---
 base-commit: 3b029c035b34bbc693405ddf759f0e9b920c27f1
-branch: rv1106d2
+branch: rv1106c2
 
 -- 
 2.43.0
