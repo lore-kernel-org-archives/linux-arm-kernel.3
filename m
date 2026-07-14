@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59C6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4657AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=506m4GAuhBaT5Fj/1/6U1LHAFbPrmTAr+ZgWtn1qXdc=; b=iJOHpYDNiT4lTX
-	2+K5jtGjJKH6L4xRPBP0bBn7mRLRnTmGLRu+0y5ZRm2UMYNwaDYsAcmkvyd+BXSHAW8GziRUOe40W
-	VveQkuDyq47QxmnPnZBXKyphHEwVN+LWbUqyzEzQWPB3AxMXiwg9Qggkf916JP28E7/S4/pvuSFw6
-	PXeiDt76GxYMBMHNJ1E8bUhp68jkiZ8I7gk5/A3m0QeTgoFXMeMyeZf7jWg+nr6g6bCbLUHF/k2Fj
-	r2IGujDlZyGXRayrvtf3JM372qBWVv+prYrKAS8D7rII2u/vHp4AagVeE1QXc5aIuiOkesnu8kUmG
-	KjsmwUsbreWE+vR4RAfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QyZuaZgVMmJscBeBh04gUUQoTYZ+pKlntaOnTL9z2uQ=; b=O12ETpl8gHt150pzoiVL3BPPYv
+	u5W22gg4UQH31KbVoByZcwAGd8hovSBq94Qd6L2eiPjeKr7JpLXvhLzU7PH5FcTyn1i/c5igLTvzY
+	oEoAm9S+gVa4c+4n5MosEntxYrQGcp4ogiS+fMBruXw9vtIzNh8ZeW1r+0tosD2FhGsmP+c6NoR59
+	iDZBMWpikD3cOyTEZ6pxD1GK2NCCb83zwm4NQMoKEXqXppgmeuUSNklFzb+mAt2vVGMwbirMRxoP4
+	3+K3X9eD4K1Eerul1Qh26EqfJLLt2QlP0/Dx1KbeEYbFTagehvfjdipueBxeLn0MhaEkxUaal+i+S
+	ch3i1aKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYsj-0000000BMde-2UHx;
-	Tue, 14 Jul 2026 08:52:49 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wjYwm-0000000BMoD-0D7v;
+	Tue, 14 Jul 2026 08:57:00 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYsf-0000000BMcc-2PbA
+	id 1wjYwj-0000000BMnr-0yHd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:52:47 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=506m4GAuhBaT5Fj/1/6U1LHAFbPrmTAr+ZgWtn1qXdc=;
-	b=vvHGxy5eE7RVAnMkjCsWpoYKlwhecG2/SZLrfD0iWX7bU7vwB2HSqj2N58hiZcP1sn86JQDHL
-	ECl8unuSwdtF4N9HiMgLYHeUA91tAAnAx4UAxiSaW4Cde5+cGc8YO3yMdoahcn7an+Tn2Omr3ZV
-	oi+xCMwg/L+bnVWGEzX3dR4=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gztB33mLlzcbMk;
-	Tue, 14 Jul 2026 16:43:23 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 99C0240561;
-	Tue, 14 Jul 2026 16:52:37 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 16:52:36 +0800
-Message-ID: <99efcb43-1a1d-4467-9237-efc5355a1f4f@huawei.com>
-Date: Tue, 14 Jul 2026 16:52:35 +0800
+	Tue, 14 Jul 2026 08:56:58 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-493b8d99342so40625e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 01:56:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784019415; x=1784624215; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QyZuaZgVMmJscBeBh04gUUQoTYZ+pKlntaOnTL9z2uQ=;
+        b=vmm02E/GawdXEVGStwnAJPwnugTKKZkMsZUjzavyvgk6nri/ha7uMrrtdyhThDGMpc
+         kWs5MBfULhCqOaixrILnnQ13+myhuGUXWWD6xJxXBC5QvA7E2CP0IpNpO++yX9zY99Lb
+         oepXFkKi5DL44dCBaW+hYiXuAZSJUPSvFkkfAjJk5iAPuQNj/WvDpo1DPgwlZXyZHDqE
+         U7je7siSJVioYkk+Rt8XKarqhkMlOvqeCKeCMUyskqYGupUpO15w/MyA/j8lazncogSH
+         Y4HtDvWj1+xBmzH81FBKQJyib+sBn2SdBtWigInveDgyul/rl2QYGRgN+Anv4A8WIyOT
+         hJvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784019415; x=1784624215;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QyZuaZgVMmJscBeBh04gUUQoTYZ+pKlntaOnTL9z2uQ=;
+        b=IxYvJc9JzUOwzlRhgANQeAQXbJ5XONiFcnEd0RCOh1EoQLDMlCdtwaAvRiREaSKXuT
+         Lcj3h6ONr1WDQYMSuemn1KJVnIqfFinD5AL6sALuGUDJJKA/r4ONyUvGLE94UN/5dKbH
+         GTQvJALFOThi1KIzNCj13/c/XyB0Z3J52J16vyZIcyRJRu/qATIzMNR/6mv++YbSH9/d
+         D/nWdDbF3fhYQfuYrAoJb334KxOea9Bn8FOPyaFh61V7puM2U/dhQmAZS5JHfQrPq83W
+         bMRlioTT6bsvMlPBeAxn/5PAmd1JG0YBD2uRxkkYlDCSHWPODCYOARnCS7Q4FFeEwfg8
+         inDQ==
+X-Gm-Message-State: AOJu0YyUkRoMh2ve27Yw84+EzlSWO9bpzlxZbkpDGp4FXeXi2qBR7u2l
+	5z0IOaez7dLzinthK/efh7mE17q3iiJtTSu6noGD55ktFMvkTX6VrWzb/2eGTyDJhA==
+X-Gm-Gg: AfdE7cn2Aw6Z/UkTv95u7Iv6CmUNdSxgUNFjrLmOFg5M2DOjsXMNI5/rtndyMzNLoB+
+	FKC6D/Ny2BoFffDVdkRePjr6oHMAEfEno3HdwdGhogiyIH3cmVX0P3IDXJ9VvuQC7RdBm+M+l2o
+	gr1gwFAVl+wiAzE34ajXUcW6x4eVZK4QktKsQlISzx2atN7+84yqal+XIsNoQzDB8v32vvmIPnG
+	MKjSbev2fxki1hvNcP+ny7PZhK+oGPaKdT9EgY/bsQ1LosKN+aLM9meqhn4gnsCszies7pIK0JG
+	PdxZKNb/35Rl1RDIlhLolhUXv6nVQxEndytwoZHkORyLqYMLXOh5Hxwcz8AE6z9UTluTn4NwX8r
+	7AgEQXLoS2X71DIAFPOgoXnAm49LpVnx//XRn056o2mf7eU8BjY5oy1fdNkBPPJQxrspciII1kX
+	cfMHUwIRG1H34Dz3pTEViRz2EyQIltel6DDTyXypE79whyk566
+X-Received: by 2002:a05:600c:8b6f:b0:492:668f:410c with SMTP id 5b1f17b1804b1-494688928b1mr1719985e9.10.1784019414601;
+        Tue, 14 Jul 2026 01:56:54 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a2f9402sm64121965e9.13.2026.07.14.01.56.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 01:56:53 -0700 (PDT)
+Date: Tue, 14 Jul 2026 08:56:50 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <alX50s8IglxiEHMB@google.com>
+References: <20260501111928.259252-9-smostafa@google.com>
+ <alTnAy7jvjUamwUA@google.com>
+ <alTvf7iiOWn4PKE8@google.com>
+ <alUA7zsJO1FGnss-@google.com>
+ <alUJa5cbjjqZ8n72@google.com>
+ <alUMVU7DYcrvgAYi@google.com>
+ <alUsLFBQ5qKFOgwQ@google.com>
+ <alXwXRGqECTUZ3ou@google.com>
+ <alXzcrnxWADIEL2H@google.com>
+ <alX3nHLykNc_nng5@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 35/36] arm64: nmi: Add Kconfig for NMI
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-36-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-36-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alX3nHLykNc_nng5@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_015246_069565_3B946808 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260714_015657_297556_A9D82124 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +110,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Mark Brown <broonie@kernel.org>
+On Tue, Jul 14, 2026 at 09:47:24AM +0100, Vincent Donnefort wrote:
+> On Tue, Jul 14, 2026 at 08:29:38AM +0000, Mostafa Saleh wrote:
+> > On Tue, Jul 14, 2026 at 09:16:29AM +0100, Vincent Donnefort wrote:
+> > > On Mon, Jul 13, 2026 at 06:19:24PM +0000, Mostafa Saleh wrote:
+> > > > 
+> > > > That would walk the table twice, first time with a massive map, then
+> > > > to unmap the pages that was just mapped, issuing TLB invalidations
+> > > > for all of those, also as the IOMMU page table code never frees tables
+> > > > that means we would immediately exahust the IOMMU pool.
+> > > 
+> > > Well the massive map is pretty quick we would mostly just allocate the PGD? And
+> > > then it would be just for the subsequent unmaps to split the blocks. So nothing
+> > > to be freed really and no risk to exhaust the pool. But if you put the calls to
+> > > the host_stage2_* functions that's pretty transparent.
+> > 
+> > Not for the IOMMU, everything is mapped with a leaf mapping, because
 > 
-> Since NMI handling is in some fairly hot paths we provide a Kconfig
-> option which allows support to be compiled out when not needed.
+> Ha Ok my bad, I didn't get that!
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/Kconfig | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
+> > the pgtable code does not support splitting blocks, this is something
+> > I plan to add support for in a follow up series after this one is
+> > merged along side other optimizations.
+> > 
+> > > 
+> > > Just to make sure I am clear. Here's what it could look like:
+> > > 
+> > > in iommu.c:
+> > > 
+> > > int kvm_iommu_stage2_idmap_init(struct kvm_s2_mmu *host_mmu)
+> > > {
+> > > 	u64 addr = 0;
+> > > 
+> > > 	for (i = 0; i < hyp_memblock_nr; i++) { 
+> > > 		kvm_iommu_stage2_idmap(addr, reg->start, IOMMU_MMIO);
+> > > 
+> > > 		addr = reg->start + reg->size;
+> > > 		kvm_iommu_stage2_idmap(reg->start, addr, IOMMU_READ | IOMMU_WRITE);
+> > > 	}
+> > > 
+> > > 	kvm_iommu_stage2_idmap(addr, kvm_phys_size(host_mmu), IOMMU_MMIO);
+> > > }
+> > > 
+> > > in mem_protect.c:
+> > > 
+> > > int kvm_host_prepare_stage2(void *pgt_pool_base)
+> > > {
+> > > 	...
+> > > 
+> > > 	return kvm_iommu_stage2_idmap_init(mmu);
+> > > 
+> > > 	/* 
+> > > 	 * From here, all the changes to the host stage-2 will be reported to
+> > > 	 * the iommu driver
+> > > 	 */
+> > > }
+> > > 
+> > > On the pro side: no custom walker and we really couple the iommu idmap to the
+> > > host stage-2 map.
+> > > 
+> > > On the con side: As you've pointed out, we'd need indeed the iommu to be ready
+> > > early enough.
+> > > 
+> > > If you want to stick to the snapshot function, could we have the walker to
+> > > first walk the hyp_memblock? the .arg could just pass if we are walking a MMIO
+> > > region? That would avoid that find_mem_range_from() and I believe would
+> > > massively simplify the snapshot walker.
+> > > 
+> > 
+> > I see, let me try that.
+> > 
+> > 
+> > Unrelated to this, but while looking into option#2 I see that
+> > __pkvm_guest_share_host() does not call either of the
+> > host_stage2_set_owner* so that requires another explicit
+> > pkvm_iommu_host_stage2_idmap() call.
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index e36dc4831200..968a9d97549a 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2195,6 +2195,24 @@ endmenu # "ARMv8.7 architectural features"
->  config AS_HAS_MOPS
->  	def_bool $(as-instr,.arch_extension mops)
->  
-> +menu "ARMv8.8 architectural features"
-> +
-> +config ARM64_NMI
-> +	bool "Enable support for Non-maskable Interrupts (NMI)"
+> It does! it calls __host_set_page_state_range() which calls
+> host_stage2_idmap_locked().
 
-We should depends on ARM_GIC_V3 as FEAT_NMI is only valid when
-FEAT_GICv3_NMI implemented.
+But host_stage2_idmap_locked() does not call any set_owner variant,
+so __pkvm_guest_share_host() would require an explicit
+pkvm_iommu_host_stage2_idmap() call.
 
+Thanks,
+Mostafa
 
-> +	default y
-> +	help
-> +	  Non-maskable interrupts are an architecture and GIC feature
-> +	  which allow the system to configure some interrupts to be
-> +	  configured to have superpriority, allowing them to be handled
-> +	  before other interrupts and masked for shorter periods of time.
-> +
-> +	  The feature is detected at runtime, and will remain disabled
-> +	  if the cpu does not implement the feature. It will also be
-> +	  disabled if pseudo NMIs are enabled at runtime.
-> +
-> +endmenu # "ARMv8.8 architectural features"
-> +
-> +
->  menu "ARMv8.9 architectural features"
->  
->  config ARM64_POE
-
+> 
+> FTR, I don't really like __host_set_page_state_range(). And we removed it
+> recently from our Android tree. Because there's just a special case in
+> __host_set_page_state_range() to cover guest_share_host. So we can easily
+> replace all the callers with __host_update_page_state() and and call the
+> idmap explicitely in __pkvm_guest_share_host().
+> 
+> > 
+> > I still plan to use option#2 in v7.
+> > 
+> > Thanks,
+> > Mostafa
+> > 
 
