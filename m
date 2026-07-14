@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97692C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074D4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7t+TlLTrH3SR+Y/wqxc1iQFPrkyGiEqAiNxNb+D8Ok=; b=zsVdl4XcyX28oD59DH3bzvMluM
-	jo5Om9c7qcaPjJizbsg6aZ18zwstaITd3LepPTG9D4X47c4mHDIl3aAXB0hJ/hueSv3XjBv5YUq5i
-	dDw5QQ5AQko8dxUIsekh9glCZ/tLdYGsDltPfeb5FHpS0J43dHpk+EMBlqa08IyFahAv4v4UrVzOl
-	coes5ZiqVJEmzMvfGgf+41I789J2a1EBiyJMpqQ9N5FxbWogflRmVjw32Yiwykummvc4ejN2zevJR
-	5JVBP6iPEX4tqF0e3ZwUduNXJRkxYaqPcaCKko5C/F30yWaw0vKMxxwJLmQtm7s5r3efaR6ABCBF6
-	BdCa5MjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1fjK4XUXV7idhQareel5ij1EIIObRm/C3guqJsgiDhY=; b=DST/qtzb2vlo2ZImzAE5jVxN5n
+	GHnO4Zmw1Zuy6wf/XWaFn6uGR5a7EvMUS7SJA849CjjykDXaDgfpxLDkuyfxInZitrJBCOzsQHeXJ
+	m5oUT9ridUlSL2wtT4bFdEtVkVWk1mCuSJXHlg4wc+ZsVtY+o6rG/YiKyblBqMbg8dnotsDCZGW/K
+	EQcMy5xaa0RKFeqjYD/9SYzwRjCPZNHtIor/JoD68k8AUaRvM2l8tl3gJBNfIJ1au5kYhfrGpd6dS
+	iYZbIFXy3EFv9qT9+GDrjbYbnm7MvXkj7QH9PHg3GyzgzhvTns9racmVzLNgwEY0+tCo1NM4ueX5g
+	t9UJOShw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVeS-0000000AvwH-011s;
-	Tue, 14 Jul 2026 05:25:52 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1wjVij-0000000AwPM-2c4F;
+	Tue, 14 Jul 2026 05:30:17 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVeP-0000000AvvA-2QJ4;
-	Tue, 14 Jul 2026 05:25:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784006749; x=1815542749;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nvUp6ixQ/4WO1OpQur/BaHDEnmJshINP5l4vlNHwZLQ=;
-  b=VwWNL/fc12zcoC1kW8r5EhY3/H3i9RYzdnN9bMozRkjIFVAWnVURxZh/
-   K6IW9YoxKeXTKPB1BEGdjzO0eEVqgZlw1hZwZAPj9XuYM6N8aQQsBWsU2
-   MIFDNAZLDHpRbPRAmqKhBsPhEs4O8cIE6r9KcwB8ARVMaHuqjikS0mSUX
-   T+Amj6aUUoVjDoNj95lnkcje55BKXtQeFysya7H7bCC0dLE2BGV0lTdDZ
-   va9l8Ii5/anKMFaxWUTQ6AhT0Cmvg8R+gUoQQlDE3GPVEofmGNgtNid1G
-   BS50pbmyT4FMzTOeFP2pwnpsxQ0JqUT4BuYfOQyhzRwmjFyZx+gD/dHlz
-   g==;
-X-CSE-ConnectionGUID: Ae/tK8ngRHah0u12m67aEA==
-X-CSE-MsgGUID: j6ql/IeuS1OYqcp2NCi2sg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84583598"
-X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="84583598"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:25:48 -0700
-X-CSE-ConnectionGUID: b7VVUikhRGC8aHkOs9IFiw==
-X-CSE-MsgGUID: Jy/VK4toSbSQTUtrikKzFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="280169706"
-Received: from fdefranc-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.246.248])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 22:25:36 -0700
-Date: Tue, 14 Jul 2026 08:25:32 +0300
-From: Tony Lindgren <tony.lindgren@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Tony Lindgren <tony@atomide.com>,
-	Praveen Talari <praveen.talari@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Peter Korsgaard <jacmet@sunsite.dk>,
-	Michal Simek <michal.simek@amd.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	bjorn.andersson@oss.qualcomm.com,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	id 1wjVig-0000000AwOr-2Xaw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 05:30:17 +0000
+Received: from localhost (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowABXq85cyVVqTjcmGA--.60605S2;
+	Tue, 14 Jul 2026 13:30:04 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: duje@dujemihanovic.xyz,
+	mturquette@baylibre.com,
+	sboyd@kernel.org
+Cc: bmasney@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-omap@vger.kernel.org, linux-mips@vger.kernel.org,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	aniket.randive@oss.qualcomm.com,
-	chandana.chiluveru@oss.qualcomm.com
-Subject: Re: [PATCH 0/6] tty: serial: propagate errors from uart_ops.pm
- callback
-Message-ID: <alXITHzkv4TlvwcT@tlindgre-MOBL1>
-References: <20260709-add_return_check_for_uart_change_pm-v1-0-e85c6ffa8ec4@oss.qualcomm.com>
- <ak9OPNcVAhkfxHvZ@ashevche-desk.local>
- <20260710043746.GM30058@atomide.com>
- <alSv8BPCOiyKvOI2@tlindgre-MOBL1>
- <alTKNEk97jkVGfML@ashevche-desk.local>
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] clk: mmp: pxa1908-apbc: Remove unneeded semicolon
+Date: Tue, 14 Jul 2026 13:25:25 +0800
+Message-Id: <20260714052525.3219644-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alTKNEk97jkVGfML@ashevche-desk.local>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABXq85cyVVqTjcmGA--.60605S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DArWDXFy7Wrg_yoW3WFg_CF
+	y0gr1xZ345A3ZxCFy5Jr4fZryYyrs5ZFs8u3WSkwsxA3yUur47WrWF9F47J347GrZ7KrW5
+	C34kKryfCry29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb4AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
+	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
+	6r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
+	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCI
+	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267
+	AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_
+	Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbWv35
+	UUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_222549_658202_5CC63311 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260713_223015_022403_FF8975CA 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 02:21:24PM +0300, Andy Shevchenko wrote:
-> On Mon, Jul 13, 2026 at 12:29:20PM +0300, Tony Lindgren wrote:
-> > On Fri, Jul 10, 2026 at 07:37:46AM +0300, Tony Lindgren wrote:
-> > > * Andy Shevchenko <andriy.shevchenko@linux.intel.com> [260709 10:38]:
-> > > > Note, that Tony (you have him in the Cc list) did a lot for some corner cases
-> > > > with that and we still have them IIRC. Tony, do you know what is the state of
-> > > > affairs with runtime PM for UART?
-> > > 
-> > > The RX side of things should work for hardware that can wake up to an incoming
-> > > event. Linux for sure needs more work to properly handle the various corner case
-> > > TX wake-up of a PM runtime idled UART. I'm mostly offline until Monday though,
-> > > will check my notes for more details next week.
-> > 
-> > For the TX side handling, my understanding is that at least uart_update_mctrl()
-> > needs to call PM runtime resume and put autosuspend. And we should assume
-> > uart_update_mctrl() can sleep to resume the PM runtime suspended serial port.
-> > 
-> > For drivers, the callers of uport->ops->get/set_mctrl() should be updated
-> > to use uart_update_mctrl() where possible. And the remaining ones that cannot
-> > sleep should be fixed so they can sleep or have PM runtime disabled.
-> > 
-> > Anybody have better ideas?
-> 
-> I don't, but the above sounds like a plan. Is it a big task? I can help with
-> something in that area, perhaps Ilpo also would be able to participate.
+Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
+semantic patch at scripts/coccinelle/misc/semicolon.cocci.
 
-Not sure how much changes are involved. Maybe it's safer to set up a
-runtime PM enabled wrapper for uart_update_mctrl() and then start updating
-the uart_update_mctrl() and get/set_mctrl() callers one at a time to make
-them runtime PM aware.
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/clk/mmp/clk-pxa1908-apbc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/mmp/clk-pxa1908-apbc.c b/drivers/clk/mmp/clk-pxa1908-apbc.c
+index 438ece4f047d..16c1f13bca1f 100644
+--- a/drivers/clk/mmp/clk-pxa1908-apbc.c
++++ b/drivers/clk/mmp/clk-pxa1908-apbc.c
+@@ -114,7 +114,7 @@ static void pxa1908_clk_reset_init(struct device_node *np,
+ 		cells[i].bits = BIT(2);
+ 		cells[i].flags = 0;
+ 		cells[i].lock = apbc_gate_clks[i].lock;
+-	};
++	}
+ 
+ 	mmp_clk_reset_register(np, cells, nr_cells);
+ }
+-- 
+2.25.1
+
 
