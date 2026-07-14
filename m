@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B53FC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3619C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7c4JIh+xXXzUf3RuGROVnJmdpEMXk82+j8IbVgKDa6Q=; b=nDa9F5bJLTs2OTIn+oJ1fWF9VF
-	2pqCCIGepkRE3blOLsr6urhE1jVG1qclT+5yrUmIcbA9lB+5OyokuDENJ7YT+U8rnzDpUUj4AIZTH
-	5UDw3lwtHRiLYYm9SSaXGlk34VmaMdWY6lDoqzmG+mKfGh5W6VD9lH31Wq4gPCIQWTvlS+Q40Rjq0
-	STa68O1tDiKqihac/uuCKhyIy4a23OpPrcjQcM4/btKbK7qKYdCKUSzENbgJeCsDTfx/xK0xijfU1
-	HKoUgZKMcTaa1m/a6EB/KeGLrlbYuIzqsjt5tq/mk5CSwK4taFudk19X5xpc+sSXmxs3UPwdrUbPS
-	ogZfzyEw==;
+	bh=6X5YMXpvKlN1rtFZuXWP5ezzGqrHft5cjQkbgIqQagg=; b=xyyLCHwvmTa7u3Mm0WpN9lFcLq
+	P6BrJ/GC34KauKxN6ZjkbG3213sdUyseNCrkEm3JnOo1CqB1VKVK0HMGtvAaSnEbfh3imdJ9qv5W7
+	h2GqBKb87oU9+9eLxDxZT1TIGVqH6VVGlyyRflj/4cREfThgoZe5JfqEjXPXVtXinQZIWTz8w2RFN
+	rfkHJnVkBV4g08W6fE+kCJm9HtLjrfEmqnOXa9YD2zDMUeQLRq9Vz8WsXCjNSShWy8EnbRhk4RrAY
+	RZZxdjNG/wlaf62wsgX6yM6ZajZfEtwNW6zmZLEy9ZTAZ6dpxY864CcjJdaD4ql5v2uLTp0BJfNHh
+	76ooDZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgsY-0000000ClE1-1j2y;
-	Tue, 14 Jul 2026 17:25:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjgsd-0000000ClGZ-2C2e;
+	Tue, 14 Jul 2026 17:25:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgsW-0000000ClCY-2xd1
+	id 1wjgsc-0000000ClG0-1ynr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:25:08 +0000
+	Tue, 14 Jul 2026 17:25:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E82AB601D9;
+	by sea.source.kernel.org (Postfix) with ESMTP id DA16C4399B;
+	Tue, 14 Jul 2026 17:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279171F00A3A;
 	Tue, 14 Jul 2026 17:25:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3C221F000E9;
-	Tue, 14 Jul 2026 17:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784049906;
-	bh=7c4JIh+xXXzUf3RuGROVnJmdpEMXk82+j8IbVgKDa6Q=;
+	s=k20260515; t=1784049913;
+	bh=6X5YMXpvKlN1rtFZuXWP5ezzGqrHft5cjQkbgIqQagg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=OJlvXF9SDCYElXNumMqDXpyahca0HdWzyR4wK5diDEgqmbgJmZxbHSAmgZtsY66mJ
-	 bxTgooysHMBrODx4u6eF8rwqriH74jqLi5TwDCa9BpCVWGUCoSreK/wp529S6l3A6W
-	 JhsYCDV9C3rAa/ohqxc71Us0gLNQ8pn64J+rWkVgaiqooJHhXOaOJbJKLgxdEqY6t6
-	 GnXC5B5wxHArdwF528qzs2ZmhWbkBl+6NoR29hMloLREUfslmoJi9qiPBpP78dWK9z
-	 DQoD+2SamlgwqAqBjDfeB3EAsBSoyHc1Qh0CQKrfheXphhSAYkNR62Rh4avwgei7KB
-	 MVtvAV6CyT3Uw==
+	b=PC17pXS2WHaTYBIL1Slqx4PrZnyY8dMc2smCQYBF/0yu4Wi4jL/xj6gSsjw9azwsH
+	 h2PBo0E+0nEYjR6EkiARz92BXhIqmjmW4a6zK34FpYcajUMzqcWO7elmfDzKcaoqr7
+	 dsgozGajBE7ht5bjTWhV9wjAMcphziVzf5Wcuoh1s1jsrCx8EIiwXgedkDdnqhJv/y
+	 KyApJKXEtaOZR2x9QFGqMRtDHMBG3iTiLsarzRks95WAQ6NzX5+pCm4pDlv19UfUKt
+	 ZtJx4I31XHtkTgIb9cpQS7AVdPrHfrSmd0TmDewmewNFNK/PJKo1UzNVdV3ivRcQKH
+	 uERmQC+kxoAVA==
 From: Lorenzo Stoakes <ljs@kernel.org>
-Date: Tue, 14 Jul 2026 18:24:25 +0100
-Subject: [PATCH mm-hotfixes v3 3/4] mm/ptdump: always stabilise against
- page table freeing using init_mm
+Date: Tue, 14 Jul 2026 18:24:26 +0100
+Subject: [PATCH mm-hotfixes v3 4/4] arm64: remove redundant concurrent
+ ptdump UAF mitigation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-series-vmap-race-fix-v3-3-b812eccfa0f9@kernel.org>
+Message-Id: <20260714-series-vmap-race-fix-v3-4-b812eccfa0f9@kernel.org>
 References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
 In-Reply-To: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, 
@@ -69,12 +69,12 @@ Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3218; i=ljs@kernel.org;
- h=from:subject:message-id; bh=+da+wQab4iV0i+3djD3hSaZE5QbecH6NvEFAGihVKmE=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCCs5J7kqZej7tJJ/tEu1Z3zYd/lkiw+B3/oJ83J5XP
- brVjMFfO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRC7MY/pn16AjX77hp7Hdo
- +83gjqAb2f+WTop+GxJcrPMq0i7PeQEjw+FrCicDTl1s5Kz61Wepp/mPj/uT7MLn01UuO61Z+5/
- nADcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6970; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=QfkQiauRr1PTaQoDS6zXfYa+8p/BKdWZL6M6VQqRgS0=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCCs6xNmyP28KoEf/gWoHNpG1/fXYf2zhlta4S669uy
+ QXX9WxudZSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAidnEMv5gadq15wVohonZt
+ 46eHq3Ii/Q9Jlk7gEDx3kf/ot3Ui4jcYGToXsTs9EnRJnC5rsyE2cO1k6wOFbXMibap49z40L3u
+ 3lAEA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,91 +91,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previous commits have established the invariant that kernel page table
-freeing is performed while an mmap read lock on init_mm is held, which
-fixes races between ptdump and kernel page table freeing over init_mm.
+This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
+with ptdump"), retaining vmalloc-huge support but eliminating the now
+redundant mitigation against a race between huge vmap page table freeing
+and ptdump, as this issue has now been fixed at core.
 
-However, x86 and arm64 can perform a ptdump over an mm other than init_mm
-via ptdump_walk_pgd() and since kernel memory ranges are shared across
-non-kernel mm's, this means that the race still exists for these cases.
+We also simultaneously remove the arm64 if-deffery when acquiring the mmap
+read lock upon vmap huge page table promotion as it is no longer required.
 
-Fix this by acquiring a nested mmap write lock for init_mm in
-ptdump_walk_pgd().
+Note that this patch relies on the preceding vmalloc patch, and should not
+be backported alone.
 
-This is safe as we take this after mmap write locking the mm, and nothing
-acquires the init_mm lock first before locking an arbitrary mm, so no
-deadlock is possible.
-
-Also update walk_page_range_debug() to assert that init_mm is write locked,
-add a comment explaining why and remove some redundant code, and eliminate
-the unnecessary and confusing invocation of walk_kernel_page_table_range().
-
-We can safely remove the non-NULL check for walk.mm, as the mmap lock
-asserts would NULL pointer deref if it was (and of course no callers do
-this).
-
-The first point at which ptdump can race kernel page table freeing is
-commit b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page
-table"), so we target this in the Fixes tag.
-
-Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
+Fixes: fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
 Cc: stable@vger.kernel.org
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
+Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Acked-by: Will Deacon <will@kernel.org>
 ---
- mm/pagewalk.c | 14 +++++++++-----
- mm/ptdump.c   |  7 +++++++
- 2 files changed, 16 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/ptdump.h |  2 --
+ arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
+ arch/arm64/mm/ptdump.c          | 11 ++---------
+ mm/vmalloc.c                    | 15 +++-----------
+ 4 files changed, 9 insertions(+), 62 deletions(-)
 
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index bbcfd68d0907..5d87c632a255 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -702,12 +702,16 @@ int walk_page_range_debug(struct mm_struct *mm, unsigned long start,
- 	 * to account for page table freeing on vmap huge page mapping.
- 	 */
- 	mmap_assert_write_locked(mm);
-+	/*
-+	 * x86, arm64 ptdump allow walks of efi mm's and x86 ptdump allows walks
-+	 * of arbitrary mm's.
-+	 *
-+	 * However, they both must also hold the init_mm lock to account for
-+	 * concurrent kernel page table freeing.
-+	 */
-+	mmap_assert_write_locked(&init_mm);
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index 5b374a6ab34a..50a195eda8ed 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -7,8 +7,6 @@
  
--	/* For convenience, we allow traversal of kernel mappings. */
--	if (mm == &init_mm)
--		return walk_kernel_page_table_range(start, end, ops,
--						    pgd, private);
--	if (start >= end || !walk.mm)
-+	if (start >= end)
- 		return -EINVAL;
- 	if (!check_ops_safe(ops))
- 		return -EINVAL;
-diff --git a/mm/ptdump.c b/mm/ptdump.c
-index 973020000096..5851096e6f65 100644
---- a/mm/ptdump.c
-+++ b/mm/ptdump.c
-@@ -178,11 +178,18 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
+ #include <linux/ptdump.h>
  
- 	get_online_mems();
- 	mmap_write_lock(mm);
-+	/* To stabilise kernel page tables we must hold the init_mm lock too. */
-+	if (mm != &init_mm)
-+		mmap_write_lock_nested(&init_mm, SINGLE_DEPTH_NESTING);
-+
- 	while (range->start != range->end) {
- 		walk_page_range_debug(mm, range->start, range->end,
- 				      &ptdump_ops, pgd, st);
- 		range++;
+-DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
+-
+ #ifdef CONFIG_PTDUMP
+ 
+ #include <linux/mm_types.h>
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index a25d8beacc83..bd52fca6e872 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -49,8 +49,6 @@
+ #define NO_CONT_MAPPINGS	BIT(1)
+ #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+ 
+-DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
+-
+ u64 kimage_voffset __ro_after_init;
+ EXPORT_SYMBOL(kimage_voffset);
+ 
+@@ -1864,8 +1862,7 @@ int pmd_clear_huge(pmd_t *pmdp)
+ 	return 1;
+ }
+ 
+-static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
+-			       bool acquire_mmap_lock)
++int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+ {
+ 	pte_t *table;
+ 	pmd_t pmd;
+@@ -1877,25 +1874,13 @@ static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
+ 		return 1;
  	}
-+
-+	if (mm != &init_mm)
-+		mmap_write_unlock(&init_mm);
- 	mmap_write_unlock(mm);
- 	put_online_mems();
  
+-	/* See comment in pud_free_pmd_page for static key logic */
+ 	table = pte_offset_kernel(pmdp, addr);
+ 	pmd_clear(pmdp);
+ 	__flush_tlb_kernel_pgtable(addr);
+-	if (static_branch_unlikely(&arm64_ptdump_lock_key) && acquire_mmap_lock) {
+-		mmap_read_lock(&init_mm);
+-		mmap_read_unlock(&init_mm);
+-	}
+-
+ 	pte_free_kernel(NULL, table);
+ 	return 1;
+ }
+ 
+-int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+-{
+-	/* If ptdump is walking the pagetables, acquire init_mm.mmap_lock */
+-	return __pmd_free_pte_page(pmdp, addr, /* acquire_mmap_lock = */ true);
+-}
+-
+ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+ {
+ 	pmd_t *table;
+@@ -1911,36 +1896,16 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+ 	}
+ 
+ 	table = pmd_offset(pudp, addr);
+-
+-	/*
+-	 * Our objective is to prevent ptdump from reading a PMD table which has
+-	 * been freed. In this race, if pud_free_pmd_page observes the key on
+-	 * (which got flipped by ptdump) then the mmap lock sequence here will,
+-	 * as a result of the mmap write lock/unlock sequence in ptdump, give
+-	 * us the correct synchronization. If not, this means that ptdump has
+-	 * yet not started walking the pagetables - the sequence of barriers
+-	 * issued by __flush_tlb_kernel_pgtable() guarantees that ptdump will
+-	 * observe an empty PUD.
+-	 */
+-	pud_clear(pudp);
+-	__flush_tlb_kernel_pgtable(addr);
+-	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
+-		mmap_read_lock(&init_mm);
+-		mmap_read_unlock(&init_mm);
+-	}
+-
+ 	pmdp = table;
+ 	next = addr;
+ 	end = addr + PUD_SIZE;
+ 	do {
+ 		if (pmd_present(pmdp_get(pmdp)))
+-			/*
+-			 * PMD has been isolated, so ptdump won't see it. No
+-			 * need to acquire init_mm.mmap_lock.
+-			 */
+-			__pmd_free_pte_page(pmdp, next, /* acquire_mmap_lock = */ false);
++			pmd_free_pte_page(pmdp, next);
+ 	} while (pmdp++, next += PMD_SIZE, next != end);
+ 
++	pud_clear(pudp);
++	__flush_tlb_kernel_pgtable(addr);
+ 	pmd_free(NULL, table);
+ 	return 1;
+ }
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index 1c20144700d7..5a76c59b5ada 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -283,13 +283,6 @@ void note_page_flush(struct ptdump_state *pt_st)
+ 	note_page(pt_st, 0, -1, pte_val(pte_zero));
+ }
+ 
+-static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
+-{
+-	static_branch_inc(&arm64_ptdump_lock_key);
+-	ptdump_walk_pgd(st, mm, NULL);
+-	static_branch_dec(&arm64_ptdump_lock_key);
+-}
+-
+ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+ {
+ 	unsigned long end = ~0UL;
+@@ -318,7 +311,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+ 		}
+ 	};
+ 
+-	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
++	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+ }
+ 
+ static void __init ptdump_initialize(void)
+@@ -360,7 +353,7 @@ bool ptdump_check_wx(void)
+ 		}
+ 	};
+ 
+-	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
++	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
+ 
+ 	if (st.wx_pages || st.uxn_pages) {
+ 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 1fa9ac6e43d4..400563ac6d5d 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -170,10 +170,7 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+ 	 * freeing page tables.
+ 	 */
+-#ifndef CONFIG_ARM64
+-	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
+-#endif
+-	{
++	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
+ 		if (!pmd_free_pte_page(pmd, addr))
+ 			return 0;
+ 		return pmd_set_huge(pmd, phys_addr, prot);
+@@ -230,10 +227,7 @@ static int vmap_try_huge_pud(pud_t *pud, unsigned long addr, unsigned long end,
+ 		return pud_set_huge(pud, phys_addr, prot);
+ 
+ 	/* See comment in vmap_try_huge_pmd(). */
+-#ifndef CONFIG_ARM64
+-	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
+-#endif
+-	{
++	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
+ 		if (!pud_free_pmd_page(pud, addr))
+ 			return 0;
+ 		return pud_set_huge(pud, phys_addr, prot);
+@@ -290,10 +284,7 @@ static int vmap_try_huge_p4d(p4d_t *p4d, unsigned long addr, unsigned long end,
+ 		return p4d_set_huge(p4d, phys_addr, prot);
+ 
+ 	/* See comment in vmap_try_huge_pmd(). */
+-#ifndef CONFIG_ARM64
+-	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
+-#endif
+-	{
++	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
+ 		if (!p4d_free_pud_page(p4d, addr))
+ 			return 0;
+ 		return p4d_set_huge(p4d, phys_addr, prot);
 
 -- 
 2.55.0
