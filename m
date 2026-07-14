@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6124C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEB4C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3CkAi0NhBu7kRLp3iC2P9Ehn1eHefsaOWNM8LYTF4k=; b=KiRpEeAL6OZ+G2CIA8gJ8YhOrt
-	QLC5XZhloDgW1IvsDY6oOElv7RtQdGRXL25gdeM/yyjBeky3TErLoIIyEbchT1f/UR9aQRKHMYOBO
-	tn9whMkLk2q1VKVih5ltEjb8bdatqEHuz/VxJ/JkD4vDOqVh9/J1gwB+hOzu99y4K8jIW/SKiMoU8
-	kFgEvCgEWe4QfHnhxOaMee+So5a1sRhV2FiGVon6MgWefbvTEHEFu3NJ+vlC1z3HN98+QwxVU+u5a
-	VArbeQAd3jc2kiRTCeoDuHjTFgW1EmcxQytkBGaffFyPtK5oSPcshUSW9n88Jfjk/rRrdAILavslZ
-	CufOzVAg==;
+	bh=87clj23hFfpt9QBNepHjfZoYycZtPvLMabqLFhkG2z0=; b=Z7k3jR3fIoxwxc7Be5PuBqy29R
+	NqciO//Ix6qwRXO3/cnfWqys/GiIms/MoMBWBJLG10uL6206CQa/+Nb6ENT8EbDBK/7bZgGEQozeb
+	o6HFclIPxT23bc9sJH2ZPKArLVQg5V3HuM06ht38HfGvKaz7YwKSZ7/0ASvUByGmPOM/JdAnsyJb6
+	odTUt2ERfopjksUI+gwutsznvOxKwyBPkwBXAvEeg9BL0J2FBjkr8VtatS6GPRV6ogDieWDCwgTNW
+	szo4aptzW4YJ5yQMrTOb/WhJ/Eakr2zJQOK7vhnuNB1/4De/KsTgdrooLo6uxsC4w+zVldM6KOSat
+	Og2MVmBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuXG-0000000E5ux-1T0Y;
-	Wed, 15 Jul 2026 08:00:06 +0000
+	id 1wjuXo-0000000E618-2Vbk;
+	Wed, 15 Jul 2026 08:00:40 +0000
 Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuXD-0000000E5tb-25aj
+	id 1wjuXl-0000000E60D-2nhM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:00:04 +0000
+	Wed, 15 Jul 2026 08:00:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description;
-	bh=N3CkAi0NhBu7kRLp3iC2P9Ehn1eHefsaOWNM8LYTF4k=; t=1784102403; x=1785312003; 
-	b=lMYZ6E/WM34u0/OtvZ1E9alFcRimZ3nfSGL4NRQ8HNag3gc66LxrPJIbgkJ3zHT2FyldrAESOlV
-	kmoidoM5VOpg4WHHjntziPucbzgGf5nmNdlIJa7KquhgvGpA6PzWF92Hyvmg/h3lJZiv04rN+r4Ea
-	yV9pBn5lVWxb7woCvzw3eoviDztO1MTu17mqltLnOQS34DDelh7Y4e1jjXpkqDLiGSJh93C7N/f5v
-	4hogENxD2RTc7ZKoUhds23Vxx/YBRDn6FZGblcScNT4Zz6CxQ4jc3Wiv3padW3WAxmlbr8yZHgTTx
-	V3KOky41XMeqGVMxqx06Wt2V1ZKAteyI5NrQ==;
-Date: Tue, 14 Jul 2026 20:36:04 +0200
+	bh=87clj23hFfpt9QBNepHjfZoYycZtPvLMabqLFhkG2z0=; t=1784102437; x=1785312037; 
+	b=5ST0TM8Bbh8xUxze6F+wn08XmjeVQHLcMZEgLb1Llt3km8Z1oA4MmNEoREI9LnPhdNjTG4BrYxo
+	4n/EyXnAy7PFUmRZK8rhOOopHW1eKwjdimwRj+227VXUh3hGU+4ogJCca9oJI4wF2xyo2Zvcbc5Dv
+	+Slfojq5/jZ4CTgy9rsY8xqhpyofOr8kZ7uS2tpZm56+vi8ny3OM7outNgJBHt5+oJX/8PAsEaASc
+	qnCkGX29RzVn8Gr6dySp8s2tjgyiLPJ57DMab+Vo3jc+9wlYF034swpkqGWeTh2Vd11241nlt6J1w
+	JRXjW3T43gKqWwPhDFt6F7GvLQCOeaFvVehA==;
+Date: Tue, 14 Jul 2026 20:46:36 +0200
 From: Andreas Kemnade <andreas@kemnade.info>
 To: "H. Nikolaus Schaller" <hns@goldelico.com>
 Cc: Grond <grond66@riseup.net>, Stefan Leichter <sle85276@gmx.de>, Grazvydas
@@ -60,19 +60,19 @@ Cc: Grond <grond66@riseup.net>, Stefan Leichter <sle85276@gmx.de>, Grazvydas
  linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
  kernel@pyra-handheld.com, mfd@lists.linux.dev
-Subject: Re: [PATCH 06/16] ASoC: twl4030-codec: Allow setting APLL rate
- through the .set_sysclk() interface
-Message-ID: <20260714203549.4b070f72@kemnade.info>
-In-Reply-To: <7ea589f951baf1e217c7169ae21c0bf510672ecf.1783749722.git.hns@goldelico.com>
+Subject: Re: [PATCH 16/16] arm: omap2: remove remaining pdata-quirks for
+ pandora legacy devices
+Message-ID: <20260714204630.0fd6bcb1@kemnade.info>
+In-Reply-To: <d380941287c655a3d205ee8b08516d364c0ddec9.1783749722.git.hns@goldelico.com>
 References: <cover.1783749722.git.hns@goldelico.com>
-	<7ea589f951baf1e217c7169ae21c0bf510672ecf.1783749722.git.hns@goldelico.com>
+	<d380941287c655a3d205ee8b08516d364c0ddec9.1783749722.git.hns@goldelico.com>
 X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_010003_586704_E62D3644 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260715_010037_715234_64E2EF79 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +87,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026 08:01:53 +0200
+On Sat, 11 Jul 2026 08:02:03 +0200
 "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
 
-> From: Grond <grond66@riseup.net>
+> After updating the pandora-backligt setup and removing the
+> omap3pandora sound system and defining related gpios by device tree,
+> we can remove omap3_pandora_legacy_init() and the related legacy
+> devices completely.
 > 
-> On the Pandora, the APLL is actually what drives all of the audio
-> clocks on the board. Since the TWL4030 is only used for capture, we
-> need some way of setting the correct rate for playback streams, since
-> they will not go through the TWL4030's .hw_params() code path (which
-> is normally how APLL rate is set).
-> 
-> Signed-off-by: Grond <grond66@riseup.net>
 > Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 
-As a general comment: might we model this as clock provider (and maybe
-that enables the usage of a generic audio-graph-card)?
+regarding bisectabily: Do we create mess, if the platform devices via
+quirks are disabled?
+
+I am wondering how we handle this. If this patch goes together with the
+removal of the legacy drivers, then there might be a situation where
+neither the new one nor the old one is available? Split this all up?
+
+If sound discussion takes longer, maybe do the backlight thing alone?
 
 Regards,
 Andreas
+> ---
+>  arch/arm/mach-omap2/pdata-quirks.c | 23 -----------------------
+>  1 file changed, 23 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap2/pdata-quirks.c
+> b/arch/arm/mach-omap2/pdata-quirks.c index
+> b947bacf23a37..aca7097a692ed 100644 ---
+> a/arch/arm/mach-omap2/pdata-quirks.c +++
+> b/arch/arm/mach-omap2/pdata-quirks.c @@ -268,27 +268,6 @@ static void
+> __init omap3_logicpd_torpedo_init(void) omap3_gpio126_127_129();
+>  }
+>  
+> -/* omap3pandora legacy devices */
+> -
+> -static struct platform_device pandora_backlight = {
+> -	.name	= "pandora-backlight",
+> -	.id	= -1,
+> -};
+> -
+> -static struct gpiod_lookup_table pandora_soc_audio_gpios = {
+> -	.dev_id = "soc-audio",
+> -	.table = {
+> -		GPIO_LOOKUP("gpio-112-127", 6, "dac",
+> GPIO_ACTIVE_HIGH),
+> -		GPIO_LOOKUP("gpio-0-15", 14, "amp",
+> GPIO_ACTIVE_HIGH),
+> -		{ }
+> -	},
+> -};
+> -
+> -static void __init omap3_pandora_legacy_init(void)
+> -{
+> -	platform_device_register(&pandora_backlight);
+> -	gpiod_add_lookup_table(&pandora_soc_audio_gpios);
+> -}
+>  #endif /* CONFIG_ARCH_OMAP3 */
+>  
+>  #ifdef CONFIG_SOC_DRA7XX
+> @@ -514,8 +493,6 @@ static struct pdata_init pdata_quirks[]
+> __initdata = { { "ti,omap3-evm-37xx", omap3_evm_legacy_init, },
+>  	{ "ti,am3517-evm", am3517_evm_legacy_init, },
+>  	{ "technexion,omap3-tao3530", omap3_tao3530_legacy_init, },
+> -	{ "openpandora,omap3-pandora-600mhz",
+> omap3_pandora_legacy_init, },
+> -	{ "openpandora,omap3-pandora-1ghz",
+> omap3_pandora_legacy_init, }, #endif
+>  	{ /* sentinel */ },
+>  };
 
 
