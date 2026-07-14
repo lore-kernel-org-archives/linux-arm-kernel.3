@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E691FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71378C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aIP10fyd2D/xAzpPZeIVyuhe59pFeQFsjHxSSXuY9X4=; b=Km+JHGAlHCHAq3
-	C0rg5tjuwXe2/zwjahZ08BQhAbacWTOqXJWNBIkQ7/fG70TYLW7WA/4bjigAQVssKwnJX4uxuCIjw
-	RgoqzqXASi0ld/pYhfLo6ky74+OIGYSqsHEwTYC727MBSAigG/qBJMwt6TwlnRLbHVy6CP9TSVY0T
-	Aq+hsNJnBeE6Mu7o7fstgM/N9qimbLnG9QCKW+gLK3cQJIfsoCde41l65v0pPMgV16oCXQ0N6BnHl
-	JqSYJafzem5A4TkayxvvvgN2Up70RmBACCmewfuK8gNJwNvTwuPE4hdfUQgPX9vZmM/fEobEI7a2O
-	ln2q+qjB6lb9dbZ38FtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f04zRx0CTGKLkupF/92VICf1nMZWiWuY2SXMkDD4wDY=; b=p6bjGN8P/LBOxhNe1lo0aHk+Oy
+	Stq8ADETB9nmvW92mSti109UfiYge5p8RRCpBbeo2HZrQ7WUa9g18kppPPeX6TviJOOwcbPTwXWyb
+	ekAoGaTF8xF4wU6s6HPb8aJom3D85irXzTdjk7lPiBdyRZMLgEC5GSEPRLn0sX7Y2NIxSuyAip0ju
+	qDtuVL2aZ84XY+SOFGlKsfys728T0teB8OQEHP/JugXS3g3bkm78p09FMBpuIF2F9wJHGWOwpRmKN
+	TJOKRVVRBUuC+dPXiZv2naGozp0ebvSGcuj2WR9x1ZRDwAldEZtVLnx8uZ6tnd4ebKr2SaJ6YjA/J
+	juUjTyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcVy-0000000BzDN-3eKs;
-	Tue, 14 Jul 2026 12:45:34 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wjcWv-0000000BzVE-0rU6;
+	Tue, 14 Jul 2026 12:46:33 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcVv-0000000BzAs-0qEE
+	id 1wjcWq-0000000BzTf-1z2h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:45:33 +0000
+	Tue, 14 Jul 2026 12:46:31 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=aIP10fyd2D/xAzpPZeIVyuhe59pFeQFsjHxSSXuY9X4=;
-	b=4ZCjTIEQI/MYUt5fW6kxjSXJGUtNePxReKqni0NkryipDV49/KqaVxjDgvUj13QRi7eMajPvi
-	I/AD21cc268ffW+ya6ET7lwurpIeXyUlchujFmKCn4UJeQovKYbNwNJcolP7c3TnIC+HWD8uHrs
-	X6yyu0u5eVuDIkNyizQARPc=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gzzL40Xkzz12LCc;
-	Tue, 14 Jul 2026 20:35:40 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 58A8240561;
-	Tue, 14 Jul 2026 20:45:18 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+	bh=f04zRx0CTGKLkupF/92VICf1nMZWiWuY2SXMkDD4wDY=;
+	b=BX3wJr1+wMXRQ2XVuSriDFTVOT0uZK85eWm5b72vbsxPX2Bd20urJ690G+nrkob/cZxmweAwW
+	s/7E45VJJBX3yjfnWHsyRLQ0MkzmtNAmzreENsQjpq5gQso7z0E3w8hSlRNb6LFvI0KIb4uLPhK
+	7l7FowQJw7Rqy/geyQa6EKk=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gzzNC0RY2zpStQ;
+	Tue, 14 Jul 2026 20:37:31 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2284F40537;
+	Tue, 14 Jul 2026 20:46:22 +0800 (CST)
+Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 20:45:17 +0800
-Message-ID: <4a035503-bda3-4a7a-a7e2-24c37702170c@huawei.com>
-Date: Tue, 14 Jul 2026 20:45:16 +0800
+ 15.2.1544.11; Tue, 14 Jul 2026 20:46:21 +0800
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 20:46:21 +0800
+Message-ID: <3a045470-2cf3-41c3-90f2-bc3e8ad2d0a9@huawei.com>
+Date: Tue, 14 Jul 2026 20:46:20 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
- masking helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH 13/36] arm64: process: Use helper to check exception
+ state
+To: Jinjie Ruan <ruanjinjie@huawei.com>, Vladimir Murzin
+	<vladimir.murzin@arm.com>, <linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-15-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260709121333.23507-15-vladimir.murzin@arm.com>
+ <20260709121333.23507-14-vladimir.murzin@arm.com>
+ <656764bf-f62f-4380-a8dc-96055d4972f5@huawei.com>
+From: "Liao, Chang" <liaochang1@huawei.com>
+In-Reply-To: <656764bf-f62f-4380-a8dc-96055d4972f5@huawei.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq200011.china.huawei.com (7.202.195.155)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_054531_941770_AFE23D12 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20260714_054628_841185_9B7C6A2C 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,156 +82,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+在 2026/7/10 18:00, Jinjie Ruan 写道:
+> 
+> 
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> debug_switch_state() explicitly checks the hardware exception state
+>> for both the pseudo-NMI and non-NMI paths. The expected state matches
+>> the NOIRQ_CONTEXT exception context introduced alongside the exception
+>> masking helpers and state checkers.
+>>
+>> Use the helper instead of open-coding these checks.
+>>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/kernel/process.c | 21 ++-------------------
+>>  1 file changed, 2 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+>> index 033643cd4e5e..ddda8d7aee24 100644
+>> --- a/arch/arm64/kernel/process.c
+>> +++ b/arch/arm64/kernel/process.c
+>> @@ -51,6 +51,7 @@
+>>  #include <asm/exec.h>
+>>  #include <asm/fpsimd.h>
+>>  #include <asm/gcs.h>
+>> +#include <asm/interrupts/common_flags.h>
+>>  #include <asm/mmu_context.h>
+>>  #include <asm/mpam.h>
+>>  #include <asm/mte.h>
+>> @@ -738,25 +739,7 @@ void update_sctlr_el1(u64 sctlr)
+>>  
+>>  static inline void debug_switch_state(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		unsigned long daif_expected = 0;
+>> -		unsigned long daif_actual = read_sysreg(daif);
+>> -		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
+>> -		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
+>> -
+>> -		WARN_ONCE(daif_actual != daif_expected ||
+>> -			  pmr_actual != pmr_expected,
+>> -			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
+>> -			  daif_actual, pmr_actual,
+>> -			  daif_expected, pmr_expected);
+>> -	} else {
+>> -		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
+>> -		unsigned long daif_actual = read_sysreg(daif);
+>> -
+>> -		WARN_ONCE(daif_actual != daif_expected,
+>> -			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
+>> -			  daif_actual, daif_expected);
+>> -	}
+>> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
+> 
+> 
+> With CONFIG_DEBUG_IRQFLAGS，we can avoid the overhead of this check.
+
+Hmm, CONFIG_DEBUG_IRQFLAGS has been checked in arm64_debug_exc_context().
+
+> 
+> LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+>>  }
+>>  
+>>  /*
+> 
+> 
 
 
-On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> As for the entry code, we want to replace `local_daif_...` helpers
-> so that they can properly handle both DAIF and PMR, as well controlling
-> their use more strongly.
-> 
-> Introduce new `local_all_irqs_...` helpers to replace them, which should
-> only be called in save/restore pairs.
-> 
-> Save the requested interrupt state as well, so we can check for
-> inconsistent interrupt masking in between save and restore.
-> 
-> There are two exceptions where it does not make sense to force
-> save/restore pairs for modifying the interrupt masks:
->  - when initializing a CPU or
->  - preparing to turn it off.
-> 
-> As we otherwise want to force save/restore pairs, those cases are
-> handled with specific helpers, making clear that they should not be
-> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
-> enabled.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
->  1 file changed, 101 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
-> 
-> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-> new file mode 100644
-> index 000000000000..66ee03f7ab68
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/masking.h
-> @@ -0,0 +1,101 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_MASKING_H
-> +#define __ASM_INTERRUPTS_MASKING_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/interrupts/common_flags.h>
-> +#include <asm/ptrace.h>
-> +
-> +typedef struct arm64_exc_hwstates {
-> +	arm64_exc_hwstate_t saved;
-> +	arm64_exc_hwstate_t expected;
-> +} arm64_exc_hwstates_t;
-> +
-> +#ifdef CONFIG_DEBUG_IRQFLAGS
-> +/* Make sure the CPU init/tear down masking functions are only used once. */
-> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
-> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
-> +#endif
-> +
-> +static inline
-> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
-> +{
-> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
-> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
-> +			     actual.daif == DAIF_MASK);
-> +
-> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
-> +			     actual.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
-> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
-> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
-> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
-> +	}
-> +
-> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
-> +
-> +	if (!arch_irqs_disabled_flags(actual.flags))
-> +		trace_hardirqs_off();
-> +
-> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
-> +}
-> +
-> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
-> +{
-> +	arm64_debug_exc_hwstate(states.expected);
-> +
-> +	if (!arch_irqs_disabled_flags(states.saved.flags))
-> +		trace_hardirqs_on();
-> +
-> +	arm64_update_exc_hwstate(states.saved, true);
-> +}
-> +
-> +#ifdef CONFIG_DEBUG_IRQFLAGS
-> +static inline
-> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
-> +{
-> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
-> +	if (context == PROCESS_CONTEXT)
-> +		trace_hardirqs_on();
-> +	arm64_update_exc_context(context, true);
-> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
-> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
-> +}
-> +
-> +static inline void local_all_irqs_final_mask(void)
-> +{
-> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
-> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
-> +	trace_hardirqs_off();
-> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
-> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
-> +}
-> +#else /* CONFIG_DEBUG_IRQFLAGS */
-> +static inline
-> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
-> +{
-> +	if (context == PROCESS_CONTEXT)
-> +		trace_hardirqs_on();
-> +	arm64_update_exc_context(context, true);
-> +}
-> +
-> +static inline void local_all_irqs_final_mask(void)
-> +{
-> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
-> +	trace_hardirqs_off();
-> +}
-> +#endif /* CONFIG_DEBUG_IRQFLAGS */
-
-The implementations of local_all_irqs_cpu_init_mask() and
-local_all_irqs_final_mask() are partially the same when the
-CONFIG_DEBUG_IRQFLAGS switch is enabled or not.
-
-Should we provide only one version of the implementation and use
-CONFIG_DEBUG_IRQFLAGS to isolate the debug-related code?
-
-> +#endif /* __ASM_INTERRUPTS_MASKING_H */
-
+-- 
+BR
+Liao, Chang
 
