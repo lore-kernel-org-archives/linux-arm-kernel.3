@@ -4,205 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA16C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 07:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 360C8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 07:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=; b=ERVIeDGJ4++dAPlnC5lElqpp4H
-	LAywCJG43r2Hypnq/AhkGzpu8Ni71vlZeUwpEGh1e7tMdM1n9A72h5LDgRqcqWnh9NNmhyyGVsCDb
-	SgvSnvuiBxi1tqbmkAX71hSPpZO3r792UNNtWEE38laeVp1239ljxoJaIE+FfmYYfdsCDZL3uU/RL
-	eJaO5Z2id+HcUhJB11g+HKL15DDMK/4qNWnGRu5UfnragQu2LsLW607oj1lxov0HQ0KxPF5UfRbxZ
-	WmpgbTZEebKqT0CIaQJNQHHcfCiqbB16saSRL9SKsi1kA14pFko02mvVThzI4pNtBIs6NSe0xsolh
-	Eg2ODQNQ==;
+	bh=MAZ7Cfsf3aHZA+GdLDxDedb1AzE71SzAkllVd2UbZmQ=; b=J8h6rtIdzxI67R3waicVqQI1lb
+	iehHk7AiZF0FBsSN4PgvXQPfPrTsMx39AFI958EWXFjDYQZpzeTBgEpq46mKti1v046hUi06e76M9
+	SEf4xPLiRFouBMGFTigPenskwe9kG5I282ZStH1+icxddha8UtEapOR1UGLXYpgDFZWk2+VL1D+j6
+	sW6CEm5zCwXdpuRTGuOZgnjipk6Ay62h2mETgNc0vR9Xihs5UHmX2UM91hwsfquEimarfZhW5rnx3
+	CP2WwTQ6pvsaRQdqzVtbcxbIxX+48c+iVWzr/8maX9KQez4j6cLIExdKJl/GsVmYw84rBE8Dpiz6g
+	JZKcq+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjXd8-0000000BBqM-43rI;
-	Tue, 14 Jul 2026 07:32:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjXeA-0000000BCJl-1C2Z;
+	Tue, 14 Jul 2026 07:33:42 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjXd1-0000000BBkR-17W5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 07:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=; b=El/7LORWkNDQEMcmWuPWhJILE9
-	TdX+ny0BIgJvSVIQz8LYHGtH4giQ5IGwUj3G4aG6XgQtINFWrQOClk9X4zw2tICBtLlpmRm4hTbRg
-	TdvuxoXdxHCk11uGH6eZ8JN+lPy3kkFXvZtaad6S1oCwtDv7PaI7AWe8y/Ve4fqpUX4pAeAo1zOy4
-	G+atgX9E6JSJn87Loo/EJKDSGeaxU4wJrCgyu3N5civIOmqNd+kNAJqw7SHqw5OCB0DlDelunZdK1
-	ojJMHLDmdc+W5R3TfCnXaB1EayGz42dq4n9OVJ4fAWyMqBCLoKsmYRADbeAa7wo5ag7MQLYTfI+UI
-	G4IovofA==;
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjXcy-0000000CGmG-0u5C
+	id 1wjXe5-0000000BCHS-2kYW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 07:32:30 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66DLFiLM1346009;
-	Tue, 14 Jul 2026 07:31:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=; b=
-	R3QJWC+A0sKYYshO659/6diD7VCp6vhqhmsgT7GcmgJk7gE0POOIooLmQk7KVsx0
-	dEpwY4fKQyYvUgsMIfQtmqCglADQkdplXlSyvnfOB8Koifxhl81OUbYsVUVgb7AI
-	8JfOfd+BYpSJyvPUBd4zgRy9sC+3IjzN+ExJEM5S+pSGqwLWty4NOpNI3P7tbbcY
-	Fdz6wiJeDNeYnqO53WOslsB6HYVGYji1qyYndIO4lEgAQDH8BIoFvBmMVYjl5CCi
-	1mGCnxV/ZrXzVOk+MT+KqGAoqBLRunRene2UWmmvM6gjpvPcacJolJi55IZNikPM
-	Z/2m4E3Yo4uVXERg3INHzg==
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4fben1kmt0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Jul 2026 07:31:03 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 66E7SWOU035514;
-	Tue, 14 Jul 2026 07:31:02 GMT
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012024.outbound.protection.outlook.com [52.101.43.24])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4fbc9h48a7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Jul 2026 07:31:02 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GtuaipzpWVJJWMpixziRilyz5MOHg1gyJdAgmUPfdfmPL1uQy7rVVY+Vc1LP379sH1SRjCS1wrL8OsNmuIkVIsapLj7QRW0bTFVBxk7RvpYpJe/VCMpYimvzEiYblhEk5Lp6vGbdT83rOT9m7CC/LA8E+RKt9uFDxwsfSzSNJp97uAeeDbCxRaAYiUokcBRq6XdbWE3csAXZCvpB6XNG+OEUUIL0WX2PBCp9ZdlENRreG7EIZ4f+42Y6Hv6hKYoMCvoMr0kZ5yZittilz7PAMwPuAwlWKWem9rM9NEtueJMga5GfYQMHEuDj22+vC2MkE3P91JP9pkvFU/SrLkWQvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=;
- b=pWnQ5pfy9twtE9pF4LKbK2YYUhUzsMuwPUGe4qdzF8Q4pebPx0BfmzciowvH8Ib8NnvRUzRLHjigQQM9Q+QcaRoDCxxdbYrCxaj1TdTFPbsSO0aGCnoFKrLS9KwKpDxd3DLnh/x/Q3nDfHtv+0PtMhjpCpErO/XXkEawUKYipcfE8vd13O3eM/0XpCJbRoqvpN22vMg7IifEerVTeR+qK2JasZISJE1BTfuzk+UaZtCwW/Ym5x/0N09OqeSz3oVDMfFTiPP9KGFQcBBRkPq1MAZCEaeztCYv92p9qynN7O2WRldVA46vu2YS0ZfEVGln1ReAbP2hGmDIEaKMRN3B4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=;
- b=uiQu6lpy8WwZDGmkka4ZRHc6WHafPDr2fAkJBkWG+uh4pOdwudTOHAMv/+y+Op15Q78TYlBCysyJ7OByCtbHNDnzFkAL2mf44KSpYSxuHFSx8/n05/foO36z7YCo+bYrm8Vc1QQlKeX0f/hUxdXVt1r278J6Pwn+UZWYN9E6QzE=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by CY8PR10MB7124.namprd10.prod.outlook.com (2603:10b6:930:75::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
- 2026 07:30:55 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
- 07:30:55 +0000
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        bpf@vger.kernel.org
-Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
-        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
-        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
-        daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
-        xueshuai@linux.alibaba.com, rdunlap@infradead.org,
-        david.laight.linux@gmail.com, broonie@kernel.org,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com, ashok.bhat@arm.com,
-        Ankur Arora <ankur.a.arora@oracle.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Christoph Lameter <cl@linux.com>
-Subject: [PATCH v14 03/15] arm64/delay: move some constants out to a separate header
-Date: Tue, 14 Jul 2026 00:30:29 -0700
-Message-Id: <20260714073041.40250-4-ankur.a.arora@oracle.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20260714073041.40250-1-ankur.a.arora@oracle.com>
-References: <20260714073041.40250-1-ankur.a.arora@oracle.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YT4PR01CA0299.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10e::14) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	Tue, 14 Jul 2026 07:33:41 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=MAZ7Cfsf3aHZA+GdLDxDedb1AzE71SzAkllVd2UbZmQ=;
+	b=kvmMNAgMCOEgWwgF4DCJk2YGecYgF1DjMXCeHX66tlaJfxIX/4BIt4GK8Gnhhwlg4l05YONHg
+	1ZDp6Yfb8J+YJLBC3j4czWv079cJEiutYur2OeQDt3QoEUunH0LjmgcAPrNMMEKWkhCnMsHQocV
+	jlmR5Hub7hDyk3WsbdLKFA0=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gzrQg2hyPz1cypV;
+	Tue, 14 Jul 2026 15:24:11 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id A35B84057A;
+	Tue, 14 Jul 2026 15:33:27 +0800 (CST)
+Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 15:33:27 +0800
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 15:33:26 +0800
+Message-ID: <d93699cb-1541-4744-8b3a-bb1ac156d392@huawei.com>
+Date: Tue, 14 Jul 2026 15:33:26 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|CY8PR10MB7124:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab77ba34-07d1-48d8-1562-08dee179d728
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|6133799003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: BgesFQtNjmdp18yPfCg+hdgThvGnaE+F06nt63c3IZO9ZsGBD0XHypRmW10p9D4dwQt5XS0ioRwomSc1ZbKr6bstDBBWZeL7rAj0nSZPuBJ2oLrOn8cNeawPklbSVDeLg+w1Tc2i4iWBLjdIU/Ombur78AgNMAhma8/8HC62JCLF63LnE059SaFdXv9Qa/AAXxtsXQ64i0pDGF0+6D8KLDGOeMEJnhn2TZnLFg95LaWeTkcNMXG6VvUaIGov0sXU9CaaU1IrxA76fJKUtpUfgh9Zqb0vcNllj9lISd0m+Imx5lEiVWLEVOptKN47SqXh6JLrifO+desrO4Xsa/wPzkqneLKM9mUEWuM59C/cmWrnDZpUhuSZgCifysIazdmOFXqV9sfP3M3Q+6qXU2Alsnsvz4MrDTWs+RakLaORVpU+kb3sA8CNgCe3mVY4GI507/dwQNlUr/YEcCBhCKDtp/0zgmxF2ZcL1Tfx4NMF4LMg6StryvI3tTNuhMWy891xBpmrVUqMfctwD6dE75l159//mjkV6FrM7C73Fc9VjpUmk6E2wCC4pOd6BJqPHxeHNeOh492xqmkKk/rJNfwyZDx1kjgdcXtx2GvP6yuTrUB+Pa90c5c+0O4YXRhgYdvJXU+uGZ2LeEaCwasyf33jeJ5OXg9NUTUHPIw6DW2Dkzc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/YPKZKN43yaxawWKSUL2klUbzmpR3xQtBwPyGJU9eAH68di6yfSfbEhm4f9k?=
- =?us-ascii?Q?oou8kG1jxaAuuiDuk9tThfh9JxFU6mxZ12okSwESzXgk3XXgcNkFo1d90AeJ?=
- =?us-ascii?Q?usSLxGSLcKJzlsE8hc+dp4FaL+ODRbrag3fzlvIf4CueGIYu6ia/PeMcyTIt?=
- =?us-ascii?Q?9Yb8rhhoRs0ixnzYMCI11R359yLA7zBvcS1iY1Yvbq2+D84GbLclg2LvqxRg?=
- =?us-ascii?Q?DZIwmaI0QSUiZD9IFyAq8lRGm+zMnyUvjNJ0wqA8Z8fFegRg/XCKY++VXOyW?=
- =?us-ascii?Q?BDPHbsscQpu9QwkN4DY2Fox6UfmqZqWksRb73U+7EjFVyDPlzpKxnuA3bfrM?=
- =?us-ascii?Q?jMrFQYz1gsZNtM6IZKI+XwfoJjCYOehYguptVM5NuZdwr6mAi+1U9RBAJg1r?=
- =?us-ascii?Q?eozh5gGMbV741r/07aR1TicqpZK85kZ0yJbgK2EFs4xcEOG+sUFyE8o62ptw?=
- =?us-ascii?Q?KcBhHxgb2bvT55oMLqMUuThg8qeXukuhC2D23HsoAHlb4CstMWS8iN4Oz+Mg?=
- =?us-ascii?Q?st4UPLj2zNJW1YAxrCH4Ufas8JfnmLT3wnSbxDAHLm/VnFijiPKsiVWTePnk?=
- =?us-ascii?Q?tpq5u9eoC6Dj4wZB7vO7XvkOwAIrCqcM5VEH/vuGbE+gknBlqkyqNL4NUPvB?=
- =?us-ascii?Q?cjC6l7a8swBbVNZxNb6DHGNXGyikp/HxyOvZNs+rvQxQQGdUUPINe9TibLho?=
- =?us-ascii?Q?JuwfMvfFiaHLFtUcFmPpaK7TbMTMYb8rbRjssbfGpwm8JIMe8x+pjvH3fx4D?=
- =?us-ascii?Q?9+QFyKNUILkyFpyE3rktztOoZLXSyrRkrVwaIEJ5uzQS+TQB4k2s7ww+oTu+?=
- =?us-ascii?Q?UvIERqmYaAcuIMVbLimrQQgyxOPd11MYZmQGrgmWEj3AJQclwtuEYnquZ00b?=
- =?us-ascii?Q?2JQGwjJE2m/zG4cIz4Sa6hxDuLSjqNbQYKtYeuFfSCYUhLbaP481eMfJAqEK?=
- =?us-ascii?Q?dUKzugRn3FBqEw6fItWdOcPMkDPFWbK2DXRPqOseEESo7ZwjM9P0sPJHGkEX?=
- =?us-ascii?Q?LJXuJQDAaZ+J8YlQNResbCeLZuOzMXfx8j1jBmWcc2t6VicsiRP1fikA7vB/?=
- =?us-ascii?Q?TDU/W09bs6mFaxpjWg/aI5D0r52Kv8M6efNRLZgFKR8qwZyEn04uxYDNnRFd?=
- =?us-ascii?Q?KUbV8KbkqGWXwgx6uTxwtxK9sZ5VDhBO+Bgox3yEHu2g9Ad6VDB0EO9E8bU3?=
- =?us-ascii?Q?1NvURPoVmm56IZhGns9P5SPe/FT2Qqy39cju/qwc8l3oCQDw5gxoJGmIbLgW?=
- =?us-ascii?Q?RbphE+gqVE3IHuy+sRC7Fws9P3+zfPb0NKZ9KLO4YNXFKirmC7j7xebyPZQh?=
- =?us-ascii?Q?qOcXivA7fGeEflG7Dr3KhsLzgHft0kokWJzwFSfq36tdq4MM77WgytmTprvD?=
- =?us-ascii?Q?DbKO5CoVNvNCYlpbir2UrbkUjz7Of2G6w7wrC2V7FJ5WxSWXry6I5vZX68/p?=
- =?us-ascii?Q?d1ZumvL2pJdSRs1vfQTgc5Cz3+0Fnyp1GilWSxio6gBtox9kOMW5OMfr5EaT?=
- =?us-ascii?Q?XJ+66zxvRn7mmH6+LV7ODZa3A4ROP8/KDBlP/kO2zbU45RF2HcdgCVTehakg?=
- =?us-ascii?Q?HrJVcBuLTCJ0bnSLyqx+1tFfkf9j15kDJuwmcleKciKOCj2nxXrXx9hn1JVx?=
- =?us-ascii?Q?79gid4CdMsPNttuHzIk7udoW9uGupWcJZjHlIxr4HJXxjkqQVS5hvfo7aEBu?=
- =?us-ascii?Q?Bq5kYFsAqxizh5yU/K0Rk33fRDJLYu13diEu5rJ9dcM+9jb64kkR/5liUJ8Z?=
- =?us-ascii?Q?ANr6x/TumXIc8WzXQ4oxADTSFnM89EU=3D?=
-X-Exchange-RoutingPolicyChecked: pwzQn2nPqhES41jmRpMDbaedU/61p8XN3vvVqK60pwLYwqu1hqFXorydsjG3z+QBGWOmzhDpZ6TFjWACWb/ez2T8C1lsxY1mCYtwkWcsUM7+EsWy/8S8SwHudQrRz9mIyH5jF945CeN31vWkb+DE/vrYOTt9QXFTPWCFg4TfGct6fVq9+dCFXzVetZXu43zzuA0RwXfqWz2PVAUs3Pmksq6EuwF5ewnwQ5+s5m0hpCTMeVjDyyIdXuteEReAPdvt8SoD1UBUkQpkC/77p3OKo9PSfEgwwKk0xnjBfYbatYVLH1eKOLQqk6WCh2vRKVAD9d/5ut/6Mt7nv+JF2LwVHA==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: xFvdSHniY5ITOK62+G6htt8KvBzYpvEM3yPY+iGhe8x1ZG8ywe3WrdJ3n+Amn5Vv/CEle2HvcI8L8NckxQJamt8tIz9B3I0bDY8Y4gkM+8VI5jCmXhAiQSYUw8hf3U9ZaFIs9HGSGtQ6tUUYh7STUHgb8TfTgGn8W23n5NqCMtsfP2xTdV//vfShidFrd47RBeXryb4nt9QKzQasvSvNFBj/UK0/UhPKd3HK/XfqAXYhFEr7lUrmSN67o2Binm+3zjuUi+D60oTKqBtCptdrNZ+l4XwyjUXixTuk1gM4iKv3hhBZEPT/rTBkjckypaXTaxbhrV8DRe/Ue99zC+apYcPXqhzP449pUSzYldEmnrOkPz8lZHIrpuSsSkorxQpMgond+Tzbmo8HbB4ymilMPJTUailuJ1rIvRRg+MkWkecJ/PNyYUMQEcCioi2vnafJyB0K3fve9ZecjejaLud9bU78HcOOmIYJOD7O2GdFk66oWKYD+hE04mB3mwVrKUbNMF8MCljvsME5Zgh82kU17fuRYqyfwx7DHiOSxncYpmVsTcD8qEloP4sYv30L88ffUjlUAiIQP6w4q2nVxkB6cREPHr5kfmBi62mc1FPJ9Kg=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab77ba34-07d1-48d8-1562-08dee179d728
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 07:30:55.1909
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: r9BNroR0+txQDbS9UxlPOD9FVwXtqgDSgCYI7jCnTIcRLIFUfnLb0nWVeRL7F0TXkM6utvfbS0BIIuAnCn9I4aZP31Bv4y3ke/3LCKnnsPs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7124
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-14_02,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- spamscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0
- mlxscore=0 mlxlogscore=999 phishscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2606160000 definitions=main-2607140076
-X-Authority-Analysis: v=2.4 cv=d5nFDxjE c=1 sm=1 tr=0 ts=6a55e5b7 b=1 cx=c_pps
- a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=RAioF0-LDSMA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=x4eqshVgHu-cdnggieHk:22 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8
- a=NufY4J3AAAAA:8 a=yPCof4ZbAAAA:8 a=gQgDrPkycQ706KZxoKkA:9
- a=a-qgeE7W1pNrGK8U0ZQC:22 a=1CNFftbPRP8L7MoqJWF3:22 a=TPcZfFuj8SYsoCJAFAiX:22
- a=5yU3S35YU4bGjq-dph-N:22 a=Bho9c0fBagfJEIQBS7DQ:22 cc=ntf awl=host:12221
-X-Proofpoint-GUID: x32LtzfjBEyz25nnkT-nS3ICCBFIwcjB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDA3NiBTYWx0ZWRfX9F59xyh7+LLW
- YJOrCTK9vhz8Uyuto+CQh3XWPTA/qXrfnSGpOXUwZEAnYPUy8V7lS4mcXAzk0WROQTYFPJlVV71
- Cj/1P/3NkUyIfVrKBhlNBIdvtb8nLwy7bVzWJBGLxsKSu4RChPJxcQmsgY7D0PoSXJxHcu67f1i
- xHNLZKR29bwLu2ySDyRmVYB8VegmxBC6WlFC3xuxP+W455buKjapN/0YbqIGmgeWEKxzv7wiIPX
- xeBKVwotBYD7H5ruuMk2sEOeepxu0nuJlBjEUmuEdie0J2GnOMEUV8zJFmhNYMTUz4MXMuWWnxz
- 6SBxTgOsHEr0OYIjkArwh+Y81dJ5NC7j7GyCT2iEToNAdKDH6SW57W3GJL4DrvaeDnIxiNRlmb6
- n1AZ5d29tBGJraQqz7F21Fxfi0q5W2oTAbitDvqQYNjcBOHLUUyGQehkayZZIx4Pyg8O53Aie8W
- SIPgaXa50/4/Ilh2KE2hHFaZqCj6CwWrGcNf8cV4=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDA3NiBTYWx0ZWRfXygVmArcbmiht
- jzRKex25Q+UB8ti9bDoVj3U2F1BKAo9wLDXw+mfKrHGzxT8uFSWLtQeD5xDxanc4gDWeicGKTSs
- NJ4JfMa8MOUGk957rCcLi4uK5kE0OBkrgYXGXiD7gvSW6x/fHhJa
-X-Proofpoint-ORIG-GUID: x32LtzfjBEyz25nnkT-nS3ICCBFIwcjB
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
+ helpers for entry code
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <ruanjinjie@huawei.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-12-vladimir.murzin@arm.com>
+From: "Liao, Chang" <liaochang1@huawei.com>
+In-Reply-To: <20260709121333.23507-12-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq200011.china.huawei.com (7.202.195.155)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_083228_515322_DD26526C 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260714_003338_353389_CAC6F8F6 
+X-CRM114-Status: GOOD (  30.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,139 +84,396 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Moves some constants and functions related to xloops, cycles computation
-out to a new header. Also make __delay_cycles() available outside of
-arch/arm64/lib/delay.c.
+在 2026/7/9 20:13, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> The entry code handles interrupt masking differently from the rest of
+> the kernel. Exception handlers enter and exit with all exceptions
+> masked, but they must temporarily unmask the appropriate set of
+> exceptions so that the rest of the handler executes with the expected
+> exception state.
+> 
+> For EL0 handlers, this means dropping to masking context appropriate
+> for the work to be performed. For EL1 handlers, this means restoring
+> the masking context of the interrupted task. In both cases, all
+> exceptions must be masked again before returning from the exception
+> handler.
+> 
+> The rest of the kernel typically follows the opposite pattern: it
+> raises the masking context to protect a critical section and later
+> restores the previous context.
+> 
+> Given these different usage patterns, introduce a dedicated set of
+> exception masking helpers for the entry code. Keeping these helpers
+> separate from the generic interrupt masking APIs makes the intended
+> usage explicit and helps avoid mixing the two masking models.
+> 
+> To make the masking logic easier to reason about, introduce exception
+> contexts that map directly to the corresponding hardware exception
+> state. Along with these contexts, provide helpers to:
+> 
+> - translate an exception context into the corresponding hardware
+>   state,
+> 
+> - verify that the current hardware exception state matches the
+>   expected exception context,
+> 
+> - raise or lower the current exception context, and
+> 
+> - perform the common mask/unmask operations when the starting or
+>   target exception context is already known.
+> 
+> Tracking the current exception context also provides two additional
+> benefits:
+> 
+> - improved debugging by verifying that the hardware exception state
+>   matches the expected exception context, and
+> 
+> - avoiding unnecessary writes to the hardware exception state.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  .../include/asm/interrupts/common_flags.h     | 197 ++++++++++++++++++
+>  arch/arm64/include/asm/interrupts/entry.h     | 110 ++++++++++
+>  2 files changed, 307 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> new file mode 100644
+> index 000000000000..6ce60d1519e8
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -0,0 +1,197 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
+> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/ptrace.h>
+> +#include <asm/sysreg.h>
+> +#include <asm/irqflags.h>
+> +
+> +#define DAIF_PROCCTX		0
+> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> +
+> +/*
+> + * Exception context mapping
+> + *
+> + * pseudo-NMI
+> + *
+> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF + IRQON
+> + * NONMI    ->   IF + IRQON
+> + * NOIRQ    ->    0 + IRQOFF
+> + * PROCESS  ->    0 + IRQON
+> + *
+> + * Otherwise
+> + *
+> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
+> + * ERROR    ->  AIF
+> + * NONMI    ->   IF
+> + * NOIRQ    ->   IF
+> + * PROCESS  ->    0
+> + */
+> +typedef enum arm64_exc_context {
+> +	PROCESS_CONTEXT,
+> +	NOIRQ_CONTEXT,
+> +	NONMI_CONTEXT,
+> +	ERROR_CONTEXT,
+> +	CRITICAL_CONTEXT,
+> +} arm64_exc_context_t;
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+> +{
+> +	if (system_uses_irq_prio_masking())
+> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+> +
+> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
+> +	switch (context) {
+> +	case PROCESS_CONTEXT:
+> +		return __arm64_exc_hwstate_of_process_context();
+> +	case NOIRQ_CONTEXT:
+> +		return __arm64_exc_hwstate_of_noirq_context();
+> +	case NONMI_CONTEXT:
+> +		return __arm64_exc_hwstate_of_nonmi_context();
+> +	case ERROR_CONTEXT:
+> +		return __arm64_exc_hwstate_of_error_context();
+> +	case CRITICAL_CONTEXT:
+> +		return __arm64_exc_hwstate_of_critical_context();
+> +	default:
+> +		BUG();
+> +	}
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
+> +
+> +	if (system_uses_irq_prio_masking())
+> +		state.pmr = regs->pmr;
+> +
+> +	return state;
+> +}
+> +
+> +static __always_inline
+> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+> +{
+> +	arm64_exc_hwstate_t actual;
+> +
+> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
+> +		return;
+> +
+> +	actual.flags = arch_local_save_flags();
+> +
+> +	if (expected.flags == actual.flags)
+> +		return;
+> +
+> +	if (system_uses_irq_prio_masking()) {
+> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+> +	} else {
+> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+> +			  actual.daif, expected.daif);
+> +	}
+> +}
+> +
+> +static __always_inline
+> +void arm64_debug_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
+> +
+> +	arm64_debug_exc_hwstate(expected);
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+> +{
+> +	if (system_uses_irq_prio_masking() &&
+> +	    update_pmr &&
+> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
+> +		/*
+> +		 * There has been concern that the write to daif
+> +		 * might be reordered before this write to PMR.
+> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
+> +		 * "Accessing PSTATE fields":
+> +		 *   Writes to the PSTATE fields have side-effects on
+> +		 *   various aspects of the PE operation. All of these
+> +		 *   side-effects are guaranteed:
+> +		 *     - Not to be visible to earlier instructions in
+> +		 *       the execution stream.
+> +		 *     - To be visible to later instructions in the
+> +		 *       execution stream
+> +		 *
+> +		 * Also, writes to PMR are self-synchronizing, so no
+> +		 * interrupts with a lower priority than PMR is signaled
+> +		 * to the PE after the write.
+> +		 *
+> +		 * So we don't need additional synchronization here.
+> +		 */
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+> +	}
+> +
+> +	write_sysreg(hwstate.daif, daif);
+> +
+> +	if (system_uses_irq_prio_masking() &&
+> +	    update_pmr &&
+> +	    hwstate.pmr == GIC_PRIO_IRQON) {
+> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+> +		pmr_sync();
+> +	}
+> +}
+> +
+> +static __always_inline
+> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
+> +{
+> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+> +
+> +	arm64_update_exc_hwstate(hwstate, update_pmr);
+> +}
+> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
+> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+> new file mode 100644
+> index 000000000000..3034c490ed66
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/entry.h
+> @@ -0,0 +1,110 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+> +#define __ASM_INTERRUPTS_ENTRY_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+> +						  arm64_exc_hwstate_t next)
+> +{
+> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+> +
+> +	arm64_debug_exc_hwstate(prev);
+> +
+> +	if (prev.flags == next.flags)
+> +		return next;
+> +
+> +	if (!arch_irqs_disabled_flags(next.flags))
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_hwstate(next, update_pmr);
+> +
+> +	if (arch_irqs_disabled_flags(next.flags))
+> +		trace_hardirqs_off();
+> +
+> +	return next;
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+> +			     prev.daif == DAIF_ERRCTX);
 
-Rename some macros in qcom/rpmh-rsc.c which were occupying the same
-namespace.
+By definition, arm64_drop_exc_context() seems to require the target context to mask fewer (or equal)
+exception types than the prev state. In this case, if context > ERROR_CONTEXT while
+prev.daif == DAIF_PROCCTX_NOIRQ, doesn't that violate this assumption?
 
-No functional change.
+> +
+> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+> +
+> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+> +			     prev.daif == DAIF_MASK);
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>
-Cc: Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Reviewed-by: Christoph Lameter <cl@linux.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
----
- arch/arm64/include/asm/delay-const.h | 28 ++++++++++++++++++++++++++++
- arch/arm64/lib/delay.c               | 15 ++++-----------
- drivers/soc/qcom/rpmh-rsc.c          |  8 ++++----
- 3 files changed, 36 insertions(+), 15 deletions(-)
- create mode 100644 arch/arm64/include/asm/delay-const.h
+Is it intentional to allow prev.daif == DAIF_ERRCTX when context has a value of NONMI_CONTEXT,
+NOIRQ_CONTEXT or PROCESS_CONTEXT? Or should these transitions also be caught here?
 
-diff --git a/arch/arm64/include/asm/delay-const.h b/arch/arm64/include/asm/delay-const.h
-new file mode 100644
-index 000000000000..2a5acfb7bff1
---- /dev/null
-+++ b/arch/arm64/include/asm/delay-const.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_DELAY_CONST_H
-+#define _ASM_DELAY_CONST_H
-+
-+#include <linux/types.h>
-+#include <asm/param.h>	/* For HZ */
-+
-+/* 2**32 / 1000000 (rounded up) */
-+#define __usecs_to_xloops_mult	0x10C7UL
-+
-+/* 2**32 / 1000000000 (rounded up) */
-+#define __nsecs_to_xloops_mult	0x5UL
-+
-+extern unsigned long loops_per_jiffy;
-+static inline unsigned long xloops_to_cycles(unsigned long xloops)
-+{
-+	return (xloops * loops_per_jiffy * HZ) >> 32;
-+}
-+
-+#define USECS_TO_CYCLES(time_usecs) \
-+	xloops_to_cycles((time_usecs) * __usecs_to_xloops_mult)
-+
-+#define NSECS_TO_CYCLES(time_nsecs) \
-+	xloops_to_cycles((time_nsecs) * __nsecs_to_xloops_mult)
-+
-+u64 notrace __delay_cycles(void);
-+
-+#endif	/* _ASM_DELAY_CONST_H */
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a..c660a7ea26dd 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -12,17 +12,10 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/timex.h>
-+#include <asm/delay-const.h>
- 
- #include <clocksource/arm_arch_timer.h>
- 
--#define USECS_TO_CYCLES(time_usecs)			\
--	xloops_to_cycles((time_usecs) * 0x10C7UL)
--
--static inline unsigned long xloops_to_cycles(unsigned long xloops)
--{
--	return (xloops * loops_per_jiffy * HZ) >> 32;
--}
--
- /*
-  * Force the use of CNTVCT_EL0 in order to have the same base as WFxT.
-  * This avoids some annoying issues when CNTVOFF_EL2 is not reset 0 on a
-@@ -32,7 +25,7 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
-  * Note that userspace cannot change the offset behind our back either,
-  * as the vcpu mutex is held as long as KVM_RUN is in progress.
-  */
--static cycles_t notrace __delay_cycles(void)
-+u64 notrace __delay_cycles(void)
- {
- 	guard(preempt_notrace)();
- 	return __arch_counter_get_cntvct_stable();
-@@ -73,12 +66,12 @@ EXPORT_SYMBOL(__const_udelay);
- 
- void __udelay(unsigned long usecs)
- {
--	__const_udelay(usecs * 0x10C7UL); /* 2**32 / 1000000 (rounded up) */
-+	__const_udelay(usecs * __usecs_to_xloops_mult);
- }
- EXPORT_SYMBOL(__udelay);
- 
- void __ndelay(unsigned long nsecs)
- {
--	__const_udelay(nsecs * 0x5UL); /* 2**32 / 1000000000 (rounded up) */
-+	__const_udelay(nsecs * __nsecs_to_xloops_mult);
- }
- EXPORT_SYMBOL(__ndelay);
-diff --git a/drivers/soc/qcom/rpmh-rsc.c b/drivers/soc/qcom/rpmh-rsc.c
-index c6f7d5c9c493..ad5ec5c0de0a 100644
---- a/drivers/soc/qcom/rpmh-rsc.c
-+++ b/drivers/soc/qcom/rpmh-rsc.c
-@@ -146,10 +146,10 @@ enum {
-  *  +---------------------------------------------------+
-  */
- 
--#define USECS_TO_CYCLES(time_usecs)			\
--	xloops_to_cycles((time_usecs) * 0x10C7UL)
-+#define RPMH_USECS_TO_CYCLES(time_usecs)		\
-+	rpmh_xloops_to_cycles((time_usecs) * 0x10C7UL)
- 
--static inline unsigned long xloops_to_cycles(u64 xloops)
-+static inline unsigned long rpmh_xloops_to_cycles(u64 xloops)
- {
- 	return (xloops * loops_per_jiffy * HZ) >> 32;
- }
-@@ -819,7 +819,7 @@ void rpmh_rsc_write_next_wakeup(struct rsc_drv *drv)
- 	wakeup_us = ktime_to_us(wakeup);
- 
- 	/* Convert the wakeup to arch timer scale */
--	wakeup_cycles = USECS_TO_CYCLES(wakeup_us);
-+	wakeup_cycles = RPMH_USECS_TO_CYCLES(wakeup_us);
- 	wakeup_cycles += arch_timer_read_counter();
- 
- exit:
+By definition, arm64_lift_exc_context() seems to require the target context to mask more (or equal)
+exception types than the prev state. Allowing these transitions appears to violate that assumption.
+
+> +
+> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
+> +			     prev.daif == DAIF_ERRCTX);
+> +
+> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+> +	}
+> +
+> +	return __arm64_switch_exc_hwstate_to(prev, next);
+> +}
+> +
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
+> +{
+> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+> +
+> +	return arm64_drop_exc_context(prev, context);
+> +}
+> +
+> +static __always_inline
+> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
+> +{
+> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
+> +}
+> +
+> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
+
+
 -- 
-2.43.7
-
+BR
+Liao, Chang
 
