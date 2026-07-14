@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BCDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDC7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufLIoxCqOj4lRPvwdKpAdX3iK89Os4w5B6Mc/e3OELM=; b=Uytg1g1neX1CaUKh/Iy9mx1kl6
-	QsmleUYHeP6re+5WR0a0fb2si+KHrwE4fdLFjBU2EhaRa9UtbjJ0pFmBgywLx2c7+hr7kyUmGW2xD
-	9Ew3Ngiq3+ryjJR54SsBENRKmr8b6QEPNaEZqLKbAUV3zlTE0A1YZrvxwZsIDveVQNpDEM/gAnxWR
-	ktGWGfFzzK83H/LJ/gvtEBDqb/MfMCGUgu4/ibva0iBFmQUK5j9soKN6S8FPQxpx9zy7iff7+vjhK
-	tLkiMtdfLQuVCNcKq9O0SEqIyTIsi7oDoPrxA6uPN4+gnH5BgbpKSSW2kcbGQNDyr+lSefx4QFUKI
-	tj/QYe0w==;
+	bh=BqzwW+/cRFMxlxtJYcq+rSzJl2w/uEA7lyH2n0T0VOA=; b=0VNqSOmxwpDcDyk0D5fNNXj51y
+	rbXTV/KqTOdWL4x5c629cRYb/uwHn5DoprYzM/+HaPs4QrgPkiJXo6KwZ6unPwHHIbnIiAZGkaVyC
+	pHhFCDE2C+sF9pXIFwvk7XttlhUeHvEI44Sw93gWEambIe2fdgIpyox9DbNSFxaWOX0nOYpW/vV3f
+	DfjU7nOzBT6q7gTF3IK2BXqGLQD2qcwWGqUm45r2MBeuR6Vg34rsWofuX+a9iodVc0umFZN2jsgWl
+	ES4nSgbQgBMvSD8qwwR6gcE7xM4Y0UXjBsR+WdHSweciAEgmX77bNCA+RTUwbGqYMj2AbSy9K98fe
+	nJsd5R5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdM7-0000000CCmk-1bXk;
+	id 1wjdM7-0000000CCmg-17FR;
 	Tue, 14 Jul 2026 13:39:27 +0000
 Received: from vinatta.cz ([2a03:3b40:fe:428::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdM5-0000000CClb-2bdB
+	id 1wjdM5-0000000CClZ-0L8v
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Jul 2026 13:39:26 +0000
-DKIM-Signature: a=rsa-sha256; bh=ufLIoxCqOj4lRPvwdKpAdX3iK89Os4w5B6Mc/e3OELM=;
+DKIM-Signature: a=rsa-sha256; bh=BqzwW+/cRFMxlxtJYcq+rSzJl2w/uEA7lyH2n0T0VOA=;
  c=relaxed/relaxed; d=dujemihanovic.xyz;
  h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Autocrypt:Openpgp;
- i=@dujemihanovic.xyz; s=default; t=1784035414; v=1; x=1784467414;
- b=rDtmI42/6ALxoqMnfSCLl1YOOeTloOtKSVEy7dZv4CHlxWHNCdtHJtu/aAnwj8HVxnxgdHIz
- XzalY5Clo5EW4iy+Q7CPRkTlv9Pf4N6xS7YB22uWdUZpIzFAhlDPTIfrCzdCsPbPLp1b7iRwKg/
- LT5iBqy2894L24SN6VG/E4MqLJ/iE8W2ANxM8xonwa8Koa/Z3EmnRuKV6+NLB7pBKrjcXdMIZmU
- 7jkQcWL+9x0vfZs9QEVsu4GwZTx0ulNr/+BVFsSLTORGXXf39NvIwWz15ZQ93MP+m1r8CIRPqzu
- h6dVBzqyapGrObQS2hM6kcwTdKwXuMmrkU+djESD4GapQ==
+ i=@dujemihanovic.xyz; s=default; t=1784035438; v=1; x=1784467438;
+ b=vIz1pbFNEVFR/fAInB9IP6PnXLPGXXHIief8lYu3CoGKplGZULPwLGUppnmyHQ1LlfPNPiIM
+ 07eNkthpUo+1v+qobib0VzvGhOrETJTyCLInkfvxQ4mym8B50kmiQ4ivP0oIzfhWFBnDsiFMQ9B
+ udm+AqHU6igrwjFtt8ptQ7je1TfmDcHRugp2YD0CBzxiTHbVAlWPeF38j7CjJnZzDllr6H4/wKo
+ xS8VLGlG+V0VCciYeQyB6L1FW3r123jh5eYiuyHF3GLcrxfLflfkbVRWjG+dtonmpypVhvKJLYi
+ ZEUOZEkXW0kj20phVu2RaqBYpXKAjZCKndbTx/utGw57A==
 Received: by vinatta.cz (envelope-sender <duje@dujemihanovic.xyz>) with
- ESMTPS id 2673a385; Tue, 14 Jul 2026 15:23:34 +0200
+ ESMTPS id 6fd8445c; Tue, 14 Jul 2026 15:23:58 +0200
 From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
 To: mturquette@baylibre.com, sboyd@kernel.org, Chen Ni <nichen@iscas.ac.cn>
 Cc: bmasney@redhat.com, linux-arm-kernel@lists.infradead.org,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  Chen Ni <nichen@iscas.ac.cn>
-Subject: Re: [PATCH] clk: mmp: pxa1908-apbcp: Remove unneeded semicolon
-Date: Tue, 14 Jul 2026 15:23:33 +0200
-Message-ID: <y7gzD4oyTSKcEA7YFhq5-g@dujemihanovic.xyz>
-In-Reply-To: <20260714053059.3219704-1-nichen@iscas.ac.cn>
-References: <20260714053059.3219704-1-nichen@iscas.ac.cn>
+Subject: Re: [PATCH] clk: mmp: pxa1908-apbc: Remove unneeded semicolon
+Date: Tue, 14 Jul 2026 15:23:57 +0200
+Message-ID: <gDpDoXq1S7SKYAr1i1f_cg@dujemihanovic.xyz>
+In-Reply-To: <20260714052525.3219644-1-nichen@iscas.ac.cn>
+References: <20260714052525.3219644-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
 Autocrypt: addr=duje@dujemihanovic.xyz;
  keydata=
@@ -71,7 +71,7 @@ Autocrypt: addr=duje@dujemihanovic.xyz;
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_063925_806819_A9318AE0 
+X-CRM114-CacheID: sfid-20260714_063925_272125_1AC88A02 
 X-CRM114-Status: UNSURE (   4.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,7 +88,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 14 July 2026 07:30:59 Central European Summer Time Chen Ni wrot=
+On Tuesday, 14 July 2026 07:25:25 Central European Summer Time Chen Ni wrot=
 e:
 > Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
 > semantic patch at scripts/coccinelle/misc/semicolon.cocci.
