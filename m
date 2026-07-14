@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A1AC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA627C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hm4geRn4bo2KqscZDvl5G7bmVEcvJ5LW6jN43jFZnNI=; b=UjXeA/DfQryPyW3N/appzg4D0j
-	jxXyaJl6+nBkaVY3beaXWUggi4/T6iOYd1Fk2f7RObV8KjzrAvUmVwPmRhXTjWbeaDauqtotBFjj1
-	keg9QFLcZng1iQ8vDEXbSlF6SKz76yEr74XnxQPneuu/Jw0pNB8GIBajiMTSF6A6Cs52q8uiZKUiM
-	jDNxSLJn+92+i4xBRcjXbOymB/ZF7+QYxuImoCMxy6CdurJ6xiWRU2FlTNs8r/oCAZF+8ROphxd4U
-	21P+rxQG4Jg+fk6KkD5lAVRSo3kKk98evjb6tCEILQBRRDu6ugbCySjHTp3aTni5bxLNEzkISKE8I
-	bVGpmQfQ==;
+	bh=mmuaA7CQM5kfF4R4D41P2/uj/fuqD+WZUHUX9nM+Eok=; b=ViMf1Tn17TcMR4xe9iq/kIS0+h
+	IaK1NLZyVv2uTEJiIeD6XedefnWEM++zRQtlMGucSEutRIOPOqkCTZ/v2v4VHBP/OCQaM+NYD/qNC
+	1KrhvmirtznZeMPA1WIkEfC81eQGOjRcow0QTUKIr+QEmC4irXNYk3jWMTYbK2Lj4YUNKy/V/7/lK
+	W7J/Ab5F/ZQsqELo+VQsd4oQ1RMT9wrmInf0Crjd/svtul6FFmx2jMVMs7wWemFcKeeF0buvoh5SM
+	7lDlKRUJu0NazIomDYtH1lrV7uAOAeDVKZTEbCMEMmI0MgKYQRuZ9USi5cvab2/TF4pHd7RGBfkAR
+	0AUaYiwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbaU-0000000Bkpp-3C7q;
-	Tue, 14 Jul 2026 11:46:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbZe-0000000BjHr-1dpp;
-	Tue, 14 Jul 2026 11:45:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hm4geRn4bo2KqscZDvl5G7bmVEcvJ5LW6jN43jFZnNI=; b=iKBgVA7E1oxe3aLtTAKbtjlCA9
-	K9aEn4+ga94MBxcV7WIxzknMAYTFLtcDoRXSCtgA/+pBOSOQNqn9LLS7r79iVVG32vXrai/ZL9r1s
-	sqK9md19JCdcp/aIeJjbD9C+jucpy9YJwOnoGwRHfokfg1eooOtopRaejiYvWK3LiNhj1pZGuIZGB
-	/8CSB79xM5Va5jfqQ4sPZ+hJR6qHqXu2L/9t4WbslkCT8fozu+phPieTGOjneftIkVr6DShTqYPVo
-	vCTgUTN595dd3/DQfXjVpFc4I3eSMi02bFRmaCKNW+7McBiyDdY2xgGkHWdijFmqM1wWzqQicbSU4
-	8Hs27GHw==;
+	id 1wjbae-0000000Bl4D-0Xyk;
+	Tue, 14 Jul 2026 11:46:20 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjbZZ-0000000CQmf-3o0E;
-	Tue, 14 Jul 2026 11:45:17 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjbZT-0000000Bj2W-26hW;
+	Tue, 14 Jul 2026 11:45:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784029512;
-	bh=jnjb7bbDatkp6uQNXKXGwV1y5BumXKMOkUY3tqjagkc=;
+	s=mail; t=1784029505;
+	bh=ClA51ehGfc+53HAJ14Zi2DCaC4jJzbm7j/qEgbaleK4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q1Y/xXKLqg/IU6n2kGO5lrH73oThhlyiKWjQv0fhZEQfla63I/OMkKtdRYIwiNMbk
-	 0RVHXEzfLmkb96Iav7Bg7bsX8TJZltvYYNNYEsI5LYtwUByWseIWYMKnT/5pjoBV7J
-	 QrOmNlyrKOCnhAPCcv6NQ38HeIpCMqRc4BALWscODOaQcPsbXWfk6HRFOgAvA2bU04
-	 LD0rH1uKI2UVxMu2AcJjw+f5A22D3MwsFWrxOQ7T5wfktn2rk0+uOVElf5A5Thg2Pi
-	 66fnabOlrkdZePBojfu96+QybhHpXcuNB6QlGkMLTK2GdJ5ZUIeh3w0qZH5Vupuej1
-	 fk1PFCtPZuUyQ==
+	b=SMTxAIg4TttPeg76L1HyXJUrBbOnTgm1ZiPp4bpqjhOVEtHAGGLU0ad7pYNE4fdV/
+	 H9CSbve4KLMkrWmBvJyN5j6YMhfnSAfrBYA/H2R2l4P4/2RqBKcKveepWBhTmd+ky1
+	 VSqhE3ImXUiZ2PrnCspCjoyXtTUCZEfDSRaE0Cdcs5MZEQAUJFdGG8oytrQEJpherq
+	 c591TMZWzKjHf9/AuzxbhnuGOIwSBErw5sOLQIDNR9hGKfdJDlWJIFOEhAe7bRxl4m
+	 uoFKhCEgDzHXQqZSJC8jQA3i01/Tm4TM3IkfFeVPo/ld9fJUx7FzS1l5ptsdo9Neh9
+	 vDNPlb5Z1YaFw==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 01DAE17E0F76;
-	Tue, 14 Jul 2026 13:45:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 94EA617E0857;
+	Tue, 14 Jul 2026 13:45:04 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -78,17 +64,17 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH v2 32/46] dt-bindings: display: mediatek: Introduce MT8196 extended DMA Engine
-Date: Tue, 14 Jul 2026 13:44:00 +0200
-Message-ID: <20260714114414.184512-33-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 27/46] dt-bindings: display: mediatek: Introduce Digital Video Output HW
+Date: Tue, 14 Jul 2026 13:43:55 +0200
+Message-ID: <20260714114414.184512-28-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
 References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_124514_096992_C5F5704F 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260714_044509_890525_5E00CFF7 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for the extended DMA Engine (exDMA) IP found in
-the newer generation SoCs like MT8196, MT8894, MT6991, and their
-variants.
+Add documentation for the Digital Video Output (DVO) IP found in
+the newer generation SoCs MT8196, MT8189 and their variants.
+
+This is effectively a more capable block replacing the DisplayPort
+Interface (DPI/DP_INTF) one found in older SoCs.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../mediatek/mediatek,mt8196-exdma.yaml       | 104 ++++++++++++++++++
- 1 file changed, 104 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml
+ .../display/mediatek/mediatek,mt8196-dvo.yaml | 143 ++++++++++++++++++
+ 1 file changed, 143 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
 new file mode 100644
-index 000000000000..d56bcd2f2b2e
+index 000000000000..b38960327ca1
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml
-@@ -0,0 +1,104 @@
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
+@@ -0,0 +1,143 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-exdma.yaml#
++$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-dvo.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: MediaTek Display Overlay extended DMA (exDMA) Engine
++title: MediaTek Digital Video Output (DVO) Controller
 +
 +maintainers:
 +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 +
 +description:
-+  The MediaTek Display Overlay extended DMA (exDMA) Engine hardware is used
-+  to configure the Display Controller to read the data from DRAM to perform
-+  layer overlaying.
-+  This hardware also includes color conversion functions to output pixels
-+  processed into a consistent color domain.
++  The MediaTek Digital Video Output (DVO) hardware provides 120-bits (4P) data,
++  video timing and info data for the Embedded DisplayPort, hardware-abstracting
++  the previous generation Display Port Interface (DPI/DP_INTF) blocks, other
++  than providing new capabilities.
++  This hardware block supports 1/2/4 pixels per iteration in both its input and
++  output and provides 8/10-bit RGB, YUV422 and YUV444 data formats in output,
++  other than supporting input/output video window cropping and padding.
++  Digital Video Output also provides Panel Self Refresh (PSR) and Multi-SST
++  Operation (MSO) features for eDP 1.3/1.4.
 +
 +properties:
 +  compatible:
-+    const: mediatek,mt8196-disp-exdma
++    enum:
++      - mediatek,mt8189-dp-dvo
++      - mediatek,mt8189-edp-dvo
++      - mediatek,mt8196-edp-dvo
 +
 +  reg:
 +    maxItems: 1
 +
-+  "#dma-cells":
++  interrupts:
 +    maxItems: 1
 +
 +  clocks:
-+    maxItems: 1
++    items:
++      - description: Pixel Clock
++      - description: Engine Clock
++      - description: DVO PLL
++
++  clock-names:
++    items:
++      - const: pixel
++      - const: engine
++      - const: pll
++
++  pinctrl-0: true
++  pinctrl-1: true
++
++  pinctrl-names:
++    items:
++      - const: default
++      - const: sleep
 +
 +  power-domains:
 +    maxItems: 1
@@ -159,13 +171,22 @@ index 000000000000..d56bcd2f2b2e
 +    properties:
 +      port@0:
 +        $ref: /schemas/graph.yaml#/properties/port
++        description: Digital Video Output's input port
 +
 +      port@1:
 +        $ref: /schemas/graph.yaml#/properties/port
++        description: DVO output to an HDMI, LVDS or DisplayPort encoder input
 +
 +    required:
 +      - port@0
 +      - port@1
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    items:
++      - const: dvo
 +
 +  trigger-sources:
 +    maxItems: 1
@@ -173,7 +194,7 @@ index 000000000000..d56bcd2f2b2e
 +required:
 +  - compatible
 +  - reg
-+  - "#dma-cells"
++  - interrupts
 +  - clocks
 +  - clock-names
 +  - ports
@@ -186,13 +207,19 @@ index 000000000000..d56bcd2f2b2e
 +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
 +    #include <dt-bindings/power/mediatek,mt8196-power.h>
 +
-+    dma-controller@32850000 {
-+        compatible = "mediatek,mt8196-disp-exdma";
-+        reg = <0x32850000 0x1000>;
-+        #dma-cells = <1>;
-+        clocks = <&ovlsys0 CLK_OVL_EXDMA2>;
-+        power-domains = <&hpm_hwv MT8196_POWER_DOMAIN_OVL0_DORMANT>;
-+        trigger-sources = <&ovl0_mutex 2>;
++    dvo@324c0000 {
++        compatible = "mediatek,mt8196-edp-dvo";
++        reg = <0x324c0000 0x1000>;
++        interrupts = <GIC_SPI 461 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&dispsys1 CLK_MM1_DISP_DVO0>,
++                 <&dispsys1 CLK_MM1_MOD6>,
++                 <&apmixedsys_gp2 CLK_APMIXED2_TVDPLL3>;
++        clock-names = "pixel", "engine", "pll";
++        power-domains = <&hpm_hwv MT8196_POWER_DOMAIN_DIS0_DORMANT>;
++        pinctrl-names = "default", "sleep";
++        pinctrl-0 = <&dvo_pins_default>;
++        pinctrl-1 = <&dvo_pin_sleep>;
++        trigger-sources = <&disp1_mutex 29>;
 +
 +        ports {
 +            #address-cells = <1>;
@@ -205,7 +232,7 @@ index 000000000000..d56bcd2f2b2e
 +
 +                endpoint@0 {
 +                    reg = <0>;
-+                    remote-endpoint = <&ovl0_resizer0_out>;
++                    remote-endpoint = <&directlink_output>;
 +                };
 +            };
 +
@@ -216,7 +243,7 @@ index 000000000000..d56bcd2f2b2e
 +
 +                endpoint@0 {
 +                    reg = <0>;
-+                    remote-endpoint = <&blender0_1_in>;
++                    remote-endpoint = <&displayport_input>;
 +                };
 +            };
 +        };
