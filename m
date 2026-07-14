@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0683C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFA5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YKpUIRGzj140ZjkVA+sWiFLK3J3NDP6ex8nF9xTgX2o=; b=TxFwHbbryS8OP9
-	vPjMW1tq83byIz88L9ubeOh8PBU7g0MKJg8YzBjqY3CoklOV9VIcyhiLLzCFNsuI9Cp7/R/o6ybme
-	Dq0xAOtrQ8mr72e5mxI8s5PbGJ+oaPUh2QZuJ+kqj7zAW/9UrVteRpLLoYxw+QZEhZLrZpOh3z89D
-	20z1LD8YZY/VTb8fTvS31OanAZgcig2Kev+uiVrJ6eU2JStyMLAOMxPlhPzBeTZDUb4oYAnPQJjhc
-	cyK0v7hrLdFRdys07EdD6ypMf0qmZGamHY8xUybSi7RyEI6kn4JgC/Xt0FbRjEq2DEx3T7V8pEnK4
-	3kTLxMHomM2mPIqCSMgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RAfh/PzupwWnD+3cauiv6r8CFHSLK8xZ7xKOz5WJXPA=; b=s15U0b/cT4lyEHKpolpxZxVoJJ
+	9IAE5JvVs/x9p7XdxPnJJlwgC5dAvgDADQNJ0s7J+mapadwZKvu1KryLh7Zj/jWTvLU5XArhp6RSA
+	xXHsvwMNUYwUGL/Da1sli1uS/81Xn+3kA1yPvPJ5MZjNxuRW2PxkNev1bXrg59yjZzP9uuwMQXJ3I
+	+rZAnvGbVcBvpm9cOhl4CbXmCsj4mTpIOwwxUCCQgXhLPZN8n37ueZcc69/T86c4EOlVbYWjPZfyV
+	tbRzSX+xW1ughSS4cNUPZCpzGHa5KsNEbsNbII+gxx7je9Yf/GsDNqosCTWnePQayEoGDXKWwevXg
+	ZYxsMBUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcMN-0000000BxlC-3uME;
-	Tue, 14 Jul 2026 12:35:40 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wjcOJ-0000000ByCc-3jEE;
+	Tue, 14 Jul 2026 12:37:39 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcMJ-0000000BxjW-2WG8
+	id 1wjcOH-0000000ByBq-1StG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:35:38 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=YKpUIRGzj140ZjkVA+sWiFLK3J3NDP6ex8nF9xTgX2o=;
-	b=IaTWLKVUgaj3/C7KsDcSZVGnDhbK/uu3kC4t36K2YwVLBtHPBCCdtTCl0/TmbHEpR1UvZjuxc
-	4Pn4LQ1rQPg9fayk5gQoE1O7e7iExcZ2Yz/BXyaQRAxBA/6UEwaLhexMhpLGXyLRZ0f1Ocwf5WY
-	J9ZXtaX4ERGTzsrY+jvgyjU=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gzz730V3LzLlXC;
-	Tue, 14 Jul 2026 20:26:07 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DBADE40578;
-	Tue, 14 Jul 2026 20:35:24 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 20:35:24 +0800
-Message-ID: <9a2cb267-717c-428e-b6f3-4f01a00df89b@huawei.com>
-Date: Tue, 14 Jul 2026 20:35:23 +0800
+	Tue, 14 Jul 2026 12:37:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=RAfh/PzupwWnD+3cauiv6r8CFHSLK8xZ7xKOz5WJXPA=; b=OksRTZVdjiKJjUiNnWiOcaZqHC
+	Ij5+zXHSfVUo+51wTnST6aiirB3z0PSAVnpRDYQSJfSj+flzitFvVWVPPtpNGNlp+xIQd3m1CN8GP
+	i98RfJECcb5cVLcmsLUlleKCkRXDT7cBLZCOVFEIIgfO4bQhhGcAZ78Z4ENrO9F3/rmVctILpVKaF
+	Abf5IrQamVjChCmQCMr79jdO315+kNgvjSwZRTsPSRPXdF+/g5+Uk/qC3hmrNUGnCzcIW8gcsYZEg
+	O6shwVWXb1We0+o3Lw94XE1tHKH0rZAJXY1e0XoFzM8O45d0Bh2NBXMCDWxI5URh/adwz6Bl9xUPb
+	q6ecBK+A==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wjcO9-0003sZ-18;
+	Tue, 14 Jul 2026 14:37:29 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wjcO8-0009Wh-0k;
+	Tue, 14 Jul 2026 14:37:28 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+ linux-arm-kernel@lists.infradead.org,
+ Francesco Dolcini <francesco@dolcini.it>, Frieder Schrempf <frieder@fris.de>,
+ Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware driver
+Date: Tue, 14 Jul 2026 14:37:27 +0200
+Message-ID: <3056369.e9J7NaK4W3@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260714123350.GD22086@francesco-nb>
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+ <2420855.ElGaqSPkdT@steina-w> <20260714123350.GD22086@francesco-nb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 03/36] arm64: hibernate: mask DAIF before restoring
- hibernated kernel
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-4-vladimir.murzin@arm.com>
- <a88a1ce6-f2e0-44ff-9713-57a94c78c24e@huawei.com>
- <8157087e-74e9-47bc-ad57-c2641a58acc8@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <8157087e-74e9-47bc-ad57-c2641a58acc8@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: multipart/signed; boundary="nextPart3424428.aeNJFYEL58";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28060/Tue Jul 14 08:25:07 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_053536_342019_5867699A 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260714_053737_613247_2BD4DED8 
+X-CRM114-Status: GOOD (  45.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,136 +87,140 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--nextPart3424428.aeNJFYEL58
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Date: Tue, 14 Jul 2026 14:37:27 +0200
+Message-ID: <3056369.e9J7NaK4W3@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260714123350.GD22086@francesco-nb>
+MIME-Version: 1.0
+
+Am Dienstag, 14. Juli 2026, 14:33:50 CEST schrieb Francesco Dolcini:
+> On Tue, Jul 14, 2026 at 02:06:38PM +0200, Alexander Stein wrote:
+> > Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
+> > > On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
+> > > > On 14.07.26 10:32, Francesco Dolcini wrote:
+> > > > > On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
+> > > > >> Hi Francesco,
+> > > > >>
+> > > > >> On 14.07.26 08:59, Francesco Dolcini wrote:
+> > > > >>> Hello Frieder,
+> > > > >>>
+> > > > >>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrot=
+e:
+> > > > >>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+> > > > >>>>
+> > > > >>>> Add the ELE firmware API node and pass its handle to the OCOTP
+> > > > >>>> driver. This allows us to gain read/write access to the OTP fu=
+ses.
+> > > > >>>
+> > > > >>> This seems something we should have in the soc dtsi (imx93/imx9=
+1), it
+> > > > >>> does not seems board specific.
+> > > > >>
+> > > > >> My original intention was to move as much as possible into the S=
+oC dtsi.
+> > > > >> The problem is that the memory node is somewhat board specific d=
+ue to
+> > > > >> the DDR. And I can't move the firmware node into the SoC dtsi an=
+d assign
+> > > > >> the memory node in the board dts as the checks for all boards not
+> > > > >> specifying a memory node would fail then.
+> > > > >=20
+> > > > > What is the reason to have this memory address different on vario=
+us
+> > > > > boards? Can we have a default in the soc dtsi, and allow the boar=
+d to
+> > > > > override the address if needed?
+> > > >=20
+> > > > There is no real point in having different addresses on different
+> > > > boards. But the node describes memory that is physically on the boa=
+rd
+> > > > and not on the SoC. And I think that is why DT maintainers want to =
+have
+> > > > it in the board DT. It's the same with the memory nodes for the
+> > > > remoteproc drivers to communicate with the Cortex M-Cores in the i.=
+MX.
+> > > > But maybe I'm wrong and if there is a possibility to move this to t=
+he
+> > > > SoC DT I will definitely take it.
+> >=20
+> > We are talking about reserved memory, so this is highly board-specific.
+> > So for different hardware variants with different amount of RAM you hav=
+e to
+> > go for the minimum anyway.
+> >=20
+> > > > >=20
+> > > > > Or can't you add the address in all the boards, and keep everythi=
+ng else
+> > > > > in the soc dtsi?
+> > > > This could be a possible way, yes. In that case maybe we could even
+> > > > create a generic dtsi to contain such defaults for all boards.
+> > >=20
+> > > I would go for this solution, we could have something like
+> > > `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have a
+> > > sane default memory address, and have an easy way to override the mem=
+ory
+> > > address from the board dts, if needed.
+> >=20
+> > So what is a sane default? At the end of the minimal possible RAM?
+> > I'm not really fond of something you have to make sure matches to your
+> > hardware, but won't raise an error if you forgot.
+> >=20
+> > How about providing defaults for the SoC part and users have to provide=
+ their
+> > memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. Ther=
+e you
+> > have to specify memory-region in your board.
+>=20
+> I am personally ok with both solution.
+>=20
+> I think it is easy to have a sane default in this case. You cannot have
+> less than 256MiB in practice, and this is just about the offset, is not
+> that you are going to want more memory reserved if the board has more
+> memory available.
+>=20
+> At the same time, having the memory range in the board dts is also ok to
+> me.
+
+I'm just saying, because we had lots of problem with assumed offsets/length
+in code/DT for NXP boards. They usually come with big/huge amount of RAM.
+This breaks for all hardware using a small amount of RAM.
+So it's better to not have a default than silently breaking things because
+the default doesn't match.
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+--nextPart3424428.aeNJFYEL58
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmpWLYcACgkQaS+g2M0Z
+/iWINAf/TAzAwTQA+zKmdhL5w9TllXM6GKTvgTinOPm+2fkvr9SXHxClh6uLoloB
+Ox0kLVveoy4uOLMZFeYU3XC+DK4bAnFskikhXJobAk6M0iOOxCWEWmqVwS9iggTS
+TS+iedIl3I2MKKoTFRAbBgomA3B/SCvHQa9It040eB6Sngif+GaHOXZAiKQV1qVO
+a/VbmJ05D6hHAGv3hRGGyZw5x8+IT5AVI3QazV3+yFJ1tUtCH6RUTEN7J3wT25dA
+Un0UIhpBXI9r53gkrJdE6Hm8gosLEjvBY7T65CYbhvoping7DAxqzUEK4yclyGkG
+yVNLMfvuBcYtRr6u5yQR0D/6j2weZw==
+=WgXO
+-----END PGP SIGNATURE-----
+
+--nextPart3424428.aeNJFYEL58--
 
 
-On 7/14/2026 5:37 PM, Vladimir Murzin wrote:
-> On 7/10/26 04:28, Jinjie Ruan wrote:
->>> @@ -465,9 +466,21 @@ int __nocfi swsusp_arch_resume(void)
->>>  	if (el2_reset_needed())
->>>  		__hyp_set_vectors(el2_vectors);
->>>  
->>> +	/*
->>> +	 * It is necessary to mask all DAIF exceptions here as:
->>> +	 *
->>> +	 * - The copy of swsusp_arch_suspend_exit() in the hibernation
->>> +	 *   text cannot handle taking any exceptions.
->>> +	 *
->>> +	 * - The suspended kernel masked all DAIF exceptions in
->>> +	 *   swsusp_arch_resume(), and expects to be re-entered in the
->>> +	 *   same state : with all DAIF exceptions masked.
->>> +	 */
->>> +	flags = local_daif_save();
->>>  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
->>>  		       resume_hdr.reenter_kernel, restore_pblist,
->>>  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
->>> +	local_daif_restore(flags);
->> I believe that the local_daif_save() here is also unnecessary because
->> hibernate_exit() returns from the "return 0 branch" of
->> __cpu_suspend_enter() in swsusp_arch_suspend(), and before that,
->> local_daif_save() has already been called to mask all exceptions.
->>
->> swsusp_arch_suspend(void)
->>     -> flags = local_daif_save();
->>     -> if (__cpu_suspend_enter(&state)) {
->>            ...
->>         } else {                // _cpu_resume <- hibernate_exit()
->>
->>            ...
->>            in_suspend = 0;
->>            ...
->>         }
->>      -> local_daif_restore(flags);
-
-I mean that the return point of hibernate_exit() has already restored
-the interrupt mask with local_daif_restore().
-
-> 
-> I'm not sure I follow, we are protecting path
-> 
-> ...
-> load_image_and_restore()
->   -> hibernation_restore()
->      -> resume_target_kernel()
->         -> local_irq_disable()
->         -> swsusp_arch_resume()
-> 	  -> swsusp_arch_suspend_exit (aka hibernate_exit())
-> 	     -> ...
-> 
-> 
-> issue can be easily observed with debug diff bellow applied on top of the
-> series
-> 
-> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-> index 4dd40593f736..709f5f4c420a 100644
-> --- a/arch/arm64/kernel/hibernate.c
-> +++ b/arch/arm64/kernel/hibernate.c
-> @@ -476,6 +476,7 @@ int __nocfi swsusp_arch_resume(void)
->          *   swsusp_arch_resume(), and expects to be re-entered in the
->          *   same state : with all DAIF exceptions masked.
->          */
-> +       arm64_debug_exc_context(CRITICAL_CONTEXT);
->         flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->         hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
->                        resume_hdr.reenter_kernel, restore_pblist,
-> 
-> That would generate warning when run on qemu
-> 
->  ------------[ cut here ]------------
->  Unexpected DAIF+ALLINT: 0xc0 + 0x0 (expected 0x3c0 + 0x2000)
->  WARNING: ./arch/arm64/include/asm/interrupts/common_flags.h:175 at swsusp_arch_resume+0x2d0/0x32c, CPU#0: sh/100
->  Modules linked in:
->  CPU: 0 UID: 0 PID: 100 Comm: sh Not tainted 7.2.0-rc2-00041-gc07d2a0843b2-dirty #288 PREEMPTLAZY 
->  Hardware name: linux,dummy-virt (DT)
->  pstate: 614000c5 (nZCv daIF -ALLINT +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-
-I encountered some problems when trying to enter the
-swsusp_arch_resume() process on QEMU.
-
-Considering that this is the key code, it is necessary to mask the debug
-and serror exception , and also to mask ALLINT.
-
-Therefore, LGTM except for the noreturn issue.
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  pc : swsusp_arch_resume+0x2d0/0x32c
->  lr : swsusp_arch_resume+0x2d0/0x32c
->  sp : ffff800081adba80
->  x29: ffff800081adbad0 x28: fff00000024ff000 x27: 0000000000000000
->  x26: 0000000000000000 x25: 0000000000000000 x24: ffff8000815cd000
->  x23: ffff8000815b4000 x22: ffff8000815c28d8 x21: ffff8000815c2000
->  x20: fff000000a839000 x19: 0000000000000000 x18: 0000000000000006
->  x17: 0000000000000000 x16: 0000000000000000 x15: ffff800081adb64f
->  x14: ffff800081adb470 x13: ffff800101adb647 x12: 000000648200003c
->  x11: ffff8000815cd8e8 x10: 0000000000000161 x9 : ffff8000815cd8e8
->  x8 : 0000000000000162 x7 : ffff8000816258e8 x6 : ffff8000816258e8
->  x5 : 3fffffffffffefff x4 : bffffffffffff000 x3 : 0000000000000000
->  x2 : 0000000000000000 x1 : 0000000000000000 x0 : fff00000024ff000
->  Call trace:
->   swsusp_arch_resume+0x2d0/0x32c (P)
->   hibernation_restore+0xe0/0x1a4
->   load_image_and_restore+0x60/0xb0
->   hibernate+0x228/0x374
->   state_store+0xe8/0xf4
->   kobj_attr_store+0x18/0x34
->   sysfs_kf_write+0x5c/0x78
->   kernfs_fop_write_iter+0x130/0x200
->   vfs_write+0x20c/0x380
->   ksys_write+0x70/0x110
->   __arm64_sys_write+0x1c/0x28
->   invoke_syscall.constprop.0+0x58/0x100
->   do_el0_svc+0x40/0xc0
->   el0_svc+0x200/0xa0c
->   el0t_64_sync_handler+0x110/0x20c
->   el0t_64_sync+0x1ac/0x1b0
->  ---[ end trace 0000000000000000 ]---
-> 
-> Cheers
-> Vladimir
-> 
 
 
