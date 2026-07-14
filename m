@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E474C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBE3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyIGlzMp8KtUkHTmmzLTDwn4GTo9DZ59gUjGug7RCBk=; b=l1tvoy9zbkQ0//U1GjtZQemt0N
-	turCtmbwuG+DU2ww+InyMhTaG4gn4/khhgJczNUZp6luQXamUsLcXu49yQJBj2CGnC/aACLefs9kp
-	a5CfSgi4t1hv1UZXzRjWAL5siORZsYkkUU2BAidrD5P0RggtCbvU1VEdxh0MWjKDZsvH/KOJWfEmc
-	G+0yETdvO6b2nw4fTBEMAIyO/Wc7EmTcecJ2sTwzoizWyBRBJGANEbbToibGM8mb0Nl2VCJy1kQmb
-	5hPukUOMpiLJW1F6F87Y6syd8iSvykQbVFeS6dt9BPYzM6iu7/GDu51DNioI9mJlEVnf1bJrxUQUP
-	IySCrnhw==;
+	bh=fEe+1zzaqbCdXdh6ww+SYAkJw1CH2t7i7FHcOdmaALg=; b=pD7TF56rZFEj0JkZ3PBtOta/5p
+	RZkXF2Mxb5DK4+FSPcZKK2G8bLxtu44MuL7gXo24n4l2fN0W+gvFezF6yKroOdmN5hNIEVJnwWl11
+	xdIwN/vL9fiZhgY0MExLEbHFWiu4Ecy99EC+IfAT5tiE+oZM6W9ci3bYTrlt4pVptM7Dq4Rb2iPcG
+	x28zCHc3qTvB7wIobToOwNc8EWtdtiu0/6yAlCTg5UvC8p2hhsa/QyiPI0DRPRC9TTQq/OFi3WRzK
+	/RJWKEOdtbk3Xpffv/Xh6Awv82Ot0F/JWYsEaMSXpQ/ejYXmzuyP/xT9Q8VgHPXQieX2wl7nRKibf
+	D8KwhoQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZGD-0000000BPKo-45AN;
-	Tue, 14 Jul 2026 09:17:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjZGF-0000000BPOj-0y6R;
+	Tue, 14 Jul 2026 09:17:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZG1-0000000BP3D-2OlF
+	id 1wjZG1-0000000BP3g-3yIq
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Jul 2026 09:16:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E3A561377;
+	by sea.source.kernel.org (Postfix) with ESMTP id DC50B43C64;
 	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 145201F00A3A;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF0BE1F00ADE;
 	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1784020613;
-	bh=nyIGlzMp8KtUkHTmmzLTDwn4GTo9DZ59gUjGug7RCBk=;
+	bh=fEe+1zzaqbCdXdh6ww+SYAkJw1CH2t7i7FHcOdmaALg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZHP1mi5mJCR/wLH3kKRkx7N3lXLPX27dIPorvyim+L+kbjnSNd1VTknH4JmBLivWc
-	 nnUyWgUQoAFaFcgucXLFdYeTLp7RVCpRt+dAbWQuFOCUhTn+Y8i9MoHCXN8YGhFDjk
-	 yhEuW0qBBeF4ztcOg9QJ0LCCW5ozdbH7AQkYt/o19eOd2NTcf4s449+LR9XS97u5Au
-	 B6C6muz1lKR86reN60s9b7JUgm++JB4V6T3yRWoXa2R1faFD7RHAcyhstVC6+gvu3Q
-	 t2S3IRUeu+43xBvw/NycTeq1hxif8AwEh26Gm1hEi2lRe8oo3JN2h33oAJu8Tp0MWC
-	 QtOT5fnTvoQyw==
+	b=QsLdjkmGsoNlDYf4FZHQB9btlmfcr28KTP4TvBiUsloYP/QWrot08R0OKdDBcc3co
+	 dGGTR50I0y5OOJ8x40HCKRJ05PB8YLa68C6uYgkQUKq+7zLjiz0Yb+15Kpga8CHULP
+	 7seIOysi3iyqJw7udw/iSt6Vm3q8vTn1YXppDysSgrciO3bCe3JEV7hAsNIdTYWvs+
+	 1xCUnMzgGcitINiQy08m96VzjbpzGimPPInzdOUsR+eKC0nRU/4u6eRak+X/9gnlmr
+	 gFTj76Oo4uMst3f3ziQXzc3v9gu3SWTvLg1ra46sWCtLwtiQYhhImNLNWvtbmfM6rH
+	 adiLUq7/v+ROg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjZFz-00000004ny1-1pHP;
-	Tue, 14 Jul 2026 09:16:51 +0000
+	id 1wjZG0-00000004ny1-0GGU;
+	Tue, 14 Jul 2026 09:16:52 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 21/28] KVM: arm64: Add NVHCR_EL2 handling to the sysreg array
-Date: Tue, 14 Jul 2026 10:16:34 +0100
-Message-ID: <20260714091641.1970822-22-maz@kernel.org>
+Subject: [PATCH v2 24/28] KVM: arm64: Engage NV3 ERET trap elision
+Date: Tue, 14 Jul 2026 10:16:37 +0100
+Message-ID: <20260714091641.1970822-25-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
 References: <20260714091641.1970822-1-maz@kernel.org>
@@ -83,84 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose NVHCR_EL2 to userspace, and treat the direct access as UNDEF,
-as that would only outline a bug in our exception routing.
+When running on NV3 HW, always engage ERET trap elision when running
+the L1 context, as there is no benefit in not doing so.
 
-The generic accessors are also updated to deal with the relatively
-uncommon location of that register.
+An L1 can itself engage trap elision by setting its own view of
+HCRX_EL2.NVTGE==1, which will subsequently be honored.
 
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
+ arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
+ 2 files changed, 14 insertions(+)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 9439c5b2b1fe8..0aeb2e736fde3 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -221,6 +221,20 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
- 		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
- 			loc->loc = SR_LOC_SPECIAL;
- 		break;
-+	case NVHCR_EL2:
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index c562d8171d5e1..b32870a5e1236 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -706,6 +706,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+ 
+ 		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
+ 			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
++
 +		/*
-+		 * Yes, NVHCR_EL2 maps to itself when loaded in nested
-+		 * context. If you feel like the architecture is double
-+		 * backing on itself upside down, you're not alone.
++		 * NV3 is a host-specific extension, and we always use it
++		 * when present and that the guest uses NV. It may be be
++		 * hidden from the guest though.
 +		 */
-+		WARN_ON_ONCE(!kvm_has_nv3(vcpu->kvm));
-+		if (is_hyp_ctxt(vcpu)) {
-+			loc->loc = SR_LOC_MEMORY;
-+		} else {
-+			loc->loc = SR_LOC_LOADED | SR_LOC_MAPPED;
-+			loc->map_reg = NVHCR_EL2;
++		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
++		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
 +		}
-+		break;
- 	default:
- 		loc->loc = locate_direct_register(vcpu, reg);
- 	}
-@@ -260,6 +274,7 @@ static u64 read_sr_from_cpu(enum vcpu_sysreg reg)
- 	case DACR32_EL2:	val = read_sysreg_s(SYS_DACR32_EL2);	break;
- 	case IFSR32_EL2:	val = read_sysreg_s(SYS_IFSR32_EL2);	break;
- 	case DBGVCR32_EL2:	val = read_sysreg_s(SYS_DBGVCR32_EL2);	break;
-+	case NVHCR_EL2:		val = read_sysreg_s(SYS_NVHCR_EL2);	break;
- 	default:		WARN_ON_ONCE(1);
- 	}
- 
-@@ -298,6 +313,7 @@ static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
- 	case DACR32_EL2:	write_sysreg_s(val, SYS_DACR32_EL2);	break;
- 	case IFSR32_EL2:	write_sysreg_s(val, SYS_IFSR32_EL2);	break;
- 	case DBGVCR32_EL2:	write_sysreg_s(val, SYS_DBGVCR32_EL2);	break;
-+	case NVHCR_EL2:		write_sysreg_s(val, SYS_NVHCR_EL2);	break;
- 	default:		WARN_ON_ONCE(1);
  	}
  }
-@@ -2861,6 +2877,16 @@ static unsigned int vncr_el2_visibility(const struct kvm_vcpu *vcpu,
- 	return REG_HIDDEN;
- }
+ #endif /* __ARM64_KVM_EMULATE_H__ */
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index e823046d28796..8a39e72d8386b 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+ 	u64 spsr, elr, mode;
  
-+static unsigned int nvhcr_el2_visibility(const struct kvm_vcpu *vcpu,
-+					const struct sys_reg_desc *rd)
-+{
-+	if (el2_visibility(vcpu, rd) == 0 &&
-+	    kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV3))
-+		return 0;
++	/* With NV3, the fast path is handled in HW */
++	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
++		return false;
 +
-+	return REG_HIDDEN;
-+}
-+
- static unsigned int sctlr2_visibility(const struct kvm_vcpu *vcpu,
- 				      const struct sys_reg_desc *rd)
- {
-@@ -3774,6 +3800,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 			 sve_el2_visibility),
- 
- 	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
-+	EL2_REG_FILTERED(NVHCR_EL2, undef_access, reset_val, 0,
-+			 nvhcr_el2_visibility),
- 
- 	EL2_REG(TTBR0_EL2, access_rw, reset_val, 0),
- 	EL2_REG(TTBR1_EL2, access_rw, reset_val, 0),
+ 	/*
+ 	 * Going through the whole put/load motions is a waste of time
+ 	 * if this is a VHE guest hypervisor returning to its own
 -- 
 2.47.3
 
