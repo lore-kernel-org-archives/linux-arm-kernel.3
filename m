@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4ACC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166E6C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+fcK+yW+QNwHqaWRgbstmh4tm3jTw4aWDAu42J6kL4=; b=fGIkvs2FO8yfU5BXfvo3wcxx2r
-	EbSc7mD3eGzHoCseHq07FSs/kWevFEUiqOZ99aO1Z+bQWZbBny068ttlOblg7i6c0Cb/crxBu1aTa
-	10Cs+QhmIVBilpkW1zzovuMPzbwATcfLrSmI2/v4JF/BYU4dxc0R7tTbTUsP02XJZDceoE7rcXAen
-	1FR+AQ2U+VskSb+7YyFRBrHAIm8WH5Fbf11POmnsGM6N10LMdrxQkVDtxE+X3uctu5UiG4TUcwu3T
-	0CGq581hiwdBsDVD7ID1JI4nv7teRS97GAgabTgIAaNngIq+j1H+Kc02IKwpRQbzaci1/dxrRNxo6
-	KuidG1OQ==;
+	bh=ydgxQP/oa7xEv0jlIXInXGbUm/sXAmGgSanquee8prE=; b=dfTpGMlUZJcNatlP0fcJKzzWEe
+	MzcXqod8YgoSE+09pXR+R92UZIlzjrTyPxe88n+VeTlSZSLb3h3GtpY/z41g1uOPnHu7WXNmQUn8E
+	EJo2SKvbIwkkj0X0JMTbARnUBHi1nBm6sdUphdUbB5B3O6dlIkPkfVCLvmM1FyB7l2ph0VC4aHmf/
+	6e+4u8+8ThnOm3WZwkCkOYXGdjJbFGDHY4efaWYtHPyWjJfUGMq1v5PQK7J+hQMoKvmjrzEC86Qks
+	A3Rj+2M8o9I0Vem1S4Xlr972sV8+TU2Cf6ZloBZOhZqc0sl4tZmr+L9csr9En24L4TLAq44RG+v9W
+	dknIsPBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgU4-0000000Ci9f-1Bdb;
-	Tue, 14 Jul 2026 16:59:52 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1wjgZH-0000000CibP-1GIF;
+	Tue, 14 Jul 2026 17:05:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgU2-0000000Ci9F-0SSE
+	id 1wjgZF-0000000CibF-0flH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 16:59:51 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqAS6KI5d7h8Zf9EyWVMSf+MH5pBVnb22qpM/NqNGcWBBasKe0fiPsWbHiMJjJwtKiwG7yh/8s52seKoJ3QTbYu@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784048385;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K+fcK+yW+QNwHqaWRgbstmh4tm3jTw4aWDAu42J6kL4=;
-	b=nPPrtZO2vYBwPUq6jjMAjMCok3PAw58WGTDoeFIvJcNN15b0Vw5wlJBcb1/tTpf2sgGbIZ
-	puEEKbm2YFSq6164EZ9HIP32cPnDcDo5nnYgzLMrg3QBW7B/erfM88Q3QZPPFMZveZJ+T5
-	6wGZgMOVljxoTv70rTXKVajqj5jshVI=
-X-Gm-Message-State: AOJu0Yw0/gd9WM89UppNzeTxKyxc4mUNKZdsaKlm+BrO93m5K7IZeQf3
-	/UQVRrC7S+S4qY2mIeKBxYQyQCWGGTn5MVkHsDVEIt+dFuXX61Iu5J+6L0z47ezImZIegzmMXic
-	9DMBRIr6s0ep1DijwQe/Jp5fFzAYtPUVA2MqnSEBr
-X-Received: by 2002:ac8:7d03:0:b0:51c:104c:100c with SMTP id
- d75a77b69052e-51d71546a1cmr16511151cf.2.1784048378538; Tue, 14 Jul 2026
- 09:59:38 -0700 (PDT)
+	Tue, 14 Jul 2026 17:05:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D37F6132C;
+	Tue, 14 Jul 2026 17:05:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4392B1F00A3D;
+	Tue, 14 Jul 2026 17:05:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784048710;
+	bh=ydgxQP/oa7xEv0jlIXInXGbUm/sXAmGgSanquee8prE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ieXeiQxD3n0otcy7FEsbZtFaiIVvwxETvj6HHeWLF1vXpuCEQfau5wd0V1WvRFwNG
+	 X88F4xnSZxxkDbAVyeqviuAvzdqxE0WXoGYMsC0xLsz8JK7QEvZOirlpPi/9TyeW8V
+	 os4P0i5uJ1uoklYH+bhxW46PFHIPm0XrgjIb7/weJWi9p4/Dhg/TanHuEi1rtlTKqY
+	 glgBRkR/DsxDxirGvItFlnJiDMsekv1zxklW6KYu4gUMuaelj6QI3adNc5AmSa/c+O
+	 WlRC74ba8yU6KOTKHSajbyKbhfB6lKDRwGdnEALDKsoWaTVENAwquyfrMbfVNheIk3
+	 HevLzYmgjqiyw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 6FB16F4006B;
+	Tue, 14 Jul 2026 13:05:08 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Tue, 14 Jul 2026 13:05:08 -0400
+X-ME-Sender: <xms:RGxWapPXbB5dVu53Jz7RrippvtSKKiAiIJVJ5GoTsW29sf-zJC66Jw>
+    <xme:RGxWasZTnBKb9bCAmfX0IqbM8Ed5DZM-tMrieZPtZAv-_vOKsS4WlCPcFe_HzuGoR
+    4yhsz-XKh5zBAEJuk9zp0cQ9zWdMZDIdT6qwkGq6rkt24kiKrBV7A>
+X-ME-Received: <xmr:RGxWapslvvrOUkuR9AuAdM_Gt0YsL-K_n0305h3XhPWdgjEVANE4Bevhdipelw>
+X-ME-Proxy-Cause: dmFkZTFmy+VemEL8y4m/0c6SxM2MpgY/lUB50b1pGO9hizfkVYuDYx4C2dh69xVyekjjVF
+    SM16JUY7uBZ4MgywK/EicPR2jaoa2RvJU2pvEyOxthy7IxCU4yoKq5ltVWcNJlEPeG5PD/
+    La7r4WvGmHo6f+HQp9hAsZMebjDJ6UU4aeFkik8+mWeHwOszix8pf/umVHOJ3FrSeeX1Ep
+    urx2zOqpy79jM/gcgeHPLClx4ZD5PIiAPgkDFFJ8vW2YYYwEh3OSG/Ng0deBensnErFliG
+    Cx85IWH5hmqDvVZlFms+1oCUSCe2CgRWM9tg918uHCJjnaCkn6LHh0uivkwfLqo+HrrSqw
+    /vD5cDJGDYcRixMT4B1b1W/Oqoir4wrmSc04uvjG+o9qqJajA+QNDm9rCdp5WdTi7wtlWh
+    ow8/u1xCky2ml+w62/3u0/11lgO4Ch7qe+KEj+eztYk0agWgOkcNQS7AepEXJIyZ5szllJ
+    5aMvBky0fhySWBI5vvukYk5SbrPDoaQ5sIsFNbluAxKbB4KBJjwf0PeW1oKB7+nPQ/n02u
+    oCvgqRALMOOl5sngUh6rP3Q5kZHgjv48PtDGFT6kihcspAuv/N1ExURuPiLuhi4HYSCfeL
+    q//noQRZyomBaUesw2AggexEf3LHnrFQotNu2k+xS7i3QXELw3IUnA9qhV7g
+X-ME-Proxy: <xmx:RGxWaltsTtr4ZjIGeOTb2H7BlQE0FP4YCrbw4gdcPHSHCzs3YznmIg>
+    <xmx:RGxWag1RMUC3o23VL7q3yu2zQ7NeU5EL7ocwG3bKkk9QlCg4JI_YCg>
+    <xmx:RGxWaqNrWGr5C3kXNzgBHVFPBVDWKgd0N3KUDgFTF3sMfQqZ9VOE8A>
+    <xmx:RGxWat5YHEcBpFpFY44XIzGRimwMYLN9Edflpk0v-w5jXuD5GmbpCQ>
+    <xmx:RGxWapZdlcn3WvyTxZNGFMK7K0whXjTgVTcsMq0ulr4g5weXE5EZKU6t>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 14 Jul 2026 13:05:05 -0400 (EDT)
+Date: Tue, 14 Jul 2026 18:05:01 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ 	Suren Baghdasaryan <surenb@google.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ 	Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ 	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, 	Uladzislau Rezki <urezki@gmail.com>,
+ Toshi Kani <toshi.kani@hpe.com>,
+ 	Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>,
+ 	Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, 	Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ 	"H. Peter Anvin" <hpa@zytor.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ 	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, 	David Carlier <devnexen@gmail.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, 	bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ 	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Message-ID: <alZm0tBf8DpMXimM@thinkstation>
+References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
+ <alTn7NguEW_4bodu@thinkstation>
+ <alTq4V50767L-s5H@lucifer>
+ <alUNiWcygLd4rqBo@thinkstation>
+ <178404602957.85099.8935151447302412515.b4-reply@b4>
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-2-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-2-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 14 Jul 2026 17:59:01 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy-drTkKuSqJNT1HD2GBn4xNXM2UyvE1zd53uG49suq7w@mail.gmail.com>
-X-Gm-Features: AUfX_my1WlQOlgsnQrNZQXkrHk8cUZgVcy2F7Kpqienn2dOS644hLsWwx9GRj_I
-Message-ID: <CA+EHjTy-drTkKuSqJNT1HD2GBn4xNXM2UyvE1zd53uG49suq7w@mail.gmail.com>
-Subject: Re: [PATCH v2 01/18] KVM: arm64: Add __pkvm_private_range_pa
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_095950_421673_EED45C56 
-X-CRM114-Status: GOOD (  13.38  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178404602957.85099.8935151447302412515.b4-reply@b4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> Mappings in the pKVM private range are not identity mapped, making the
-> standard __hyp_pa() unsuitable for translating these addresses.
->
-> Introduce __pkvm_private_range_pa() to resolve physical addresses for
-> this range by walking the hypervisor page-table. This will be useful for
-> the upcoming pKVM heap allocator.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> index 6e83ce35c2f2..d3137c16b632 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> @@ -30,5 +30,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
->                                   unsigned long *haddr);
->  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
->  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
-> +phys_addr_t __pkvm_private_range_pa(void *va);
->
->  #endif /* __KVM_HYP_MM_H */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-> index 3b0bee496bff..773426a68d2d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-> @@ -502,3 +502,17 @@ int refill_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
->
->         return ret;
->  }
-> +
-> +phys_addr_t __pkvm_private_range_pa(void *va)
-> +{
-> +       kvm_pte_t pte = 0;
-> +       s8 level;
-> +
-> +       hyp_spin_lock(&pkvm_pgd_lock);
-> +       WARN_ON(kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)va, &pte, &level));
+On Tue, Jul 14, 2026 at 05:20:29PM +0100, Lorenzo Stoakes (ARM) wrote:
+> Basically you need the IRQs disabled to get the semi-RCU behaviour and to
+> be able to safely traverse page tables that way.
+> 
+> So with CONFIG_PT_RECLAIM you're safe to RCU traverse PTEs only.
 
-nit: can you pass NULL instead of level?
+I think this is stale. Since 1fb3d8c20bfa ("mm/mmu_gather: replace IPI
+with synchronize_rcu() when batch allocation fails") the !PT_RECLAIM
+fallback is a real grace period -- note your own quote of
+__tlb_remove_table_one() calls tlb_remove_table_sync_rcu(), which is
+synchronize_rcu() nowadays, not the IPI broadcast. The name invites
+the confusion.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Together with a37259732a7d ("x86/mm: Make MMU_GATHER_RCU_TABLE_FREE
+unconditional") that means every freeing path through the generic
+mmu_gather is genuine RCU, batched or not, all levels. A plain
+rcu_read_lock() walker is protected; IRQs disabled is not required.
 
-Cheers,
-/fuad
+> HAVE_ARCH_TLB_REMOVE_TABLE is set for powerpc, which also enables PTDUMP :)
+> and that's because it actually tracks multiple PTE page tables together as
+> a fragment.
 
+sparc also sets it with SMP. So the audit list for custom
+tlb_remove_table() implementations is powerpc and sparc -- everything
+else gets the generic behaviour above.
 
-> +       hyp_spin_unlock(&pkvm_pgd_lock);
-> +
-> +       WARN_ON(!kvm_pte_valid(pte));
-> +
-> +       return kvm_pte_to_phys(pte) + offset_in_page(va);
-> +}
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+No disagreement on the rest: the walker needs
+ptep_get_lockless()/pmdp_get_lockless(), and the ppc kernel-side
+fragments need a look.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
