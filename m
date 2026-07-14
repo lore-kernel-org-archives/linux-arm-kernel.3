@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27669C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF50C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hn8NTRPyBX62oV5on+JtdYo+ZRCD1JmGN69q5ZlqxJc=; b=1FHRtrp/VCNICqSWAOxdCq8srJ
-	SkeWyig92FQSiLhzzSQwgpIpKGqyxtBWBCR/4M8QOlB8kFG4ty48CiP1VAE+o+keyIC4IXPZ+7OgN
-	XOdnvMRRe47nOk68iZ9GqSQkSQqwuDiX1X1QBt/BFRhXC9pC0imxWgnP4TBffXNmS0yt1fMrTGYBO
-	+YcBKIFMEvnVS8tFzngBH8lWFGNf1bcqYEYvTO5x3UXgMoKE23t49TovEIqIH7osiQZBcIJ6oiuME
-	/NRU9LN5zPMB8psHhYSCRbxBtYEfxT3Jeze4ObBvlweYB1n97NHFvwE12Z47L0xW2UAmVQaWXFl9g
-	bs10nD1w==;
+	bh=k61jezHC3k/RbNT9F3tzR3+tjmPaHQC3k1irVJlQASY=; b=w0x521INM15T1R2EQUwOzlcTib
+	h94K/0pPIqd3J3hWSkctu1W7KKdYwbKltn3d2J1EIxUx4rhn7TaBND9v2GR6do9Iik8p7BHBAPKlO
+	+j+ZR/WaRYbxl90mzsyC85evgjWImSepa90sd4r38z0HZhrNNAenwgDMVOX3AuGXRXMhDmqTLHd+n
+	bskUPLLP6UNLTIBeoC9kHZtxo9qVmnsiNLccYI+AUpDTgvMoqIzKE61x5i9rnk7PR3AJtR4tLhaij
+	RLFE2db80RfoMjJ+uQE98u0gm+70FiVuwH92rCuK4GJEJGRGdy22FwNoLodIh7okrskZVSzxJBmTc
+	mFkLoMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgAK-0000000CfW6-0ukZ;
-	Tue, 14 Jul 2026 16:39:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjgCv-0000000Cfoc-2LVb;
+	Tue, 14 Jul 2026 16:42:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgAI-0000000CfVq-1I91
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 16:39:26 +0000
+	id 1wjgCu-0000000CfoL-1tbs;
+	Tue, 14 Jul 2026 16:42:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 518E960103;
-	Tue, 14 Jul 2026 16:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04CB21F000E9;
-	Tue, 14 Jul 2026 16:39:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CA34B405FF;
+	Tue, 14 Jul 2026 16:42:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1ED61F000E9;
+	Tue, 14 Jul 2026 16:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784047165;
-	bh=Hn8NTRPyBX62oV5on+JtdYo+ZRCD1JmGN69q5ZlqxJc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nUgf5F08NcozlkcfQ61bxhdKjMCscOI1Bt4Xj9NMYv+edk1Iba8FfJNU4oKz2K+4p
-	 F8xKvnizHMWIccbQ2WsIFf+1VqI5g3EssRjAZuMwnd4lyDLPlDcu7R+Rb/5dKBRMQm
-	 /nzzUMecrvoYT75KUGYBcSdF3FykiRKlxRBwN8bidLEwD4LdCofU0PEmuKJokYCR8H
-	 aTNTHU53rLz09cC6zflx26k9+fYblieig2FlFzkKN+cQJVr1jWoDvhI7rT84alRVlX
-	 E7Se4EI1AvJ4qo/HFae1d3XBpFzku81uh8MJu4NNwueyZQ6zEvwqQcJxJaVDRVEAow
-	 ME4Av5Wbkzd+w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wjgAE-00000004zBP-45mZ;
-	Tue, 14 Jul 2026 16:39:23 +0000
-Date: Tue, 14 Jul 2026 17:39:22 +0100
-Message-ID: <86h5m1o79h.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>
-Subject: Re: [PATCH v5 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-In-Reply-To: <CA+EHjTxtOhC=f0K=j-ka5A0nPtU0S_5vbnZcVhTOViHX6WMi=Q@mail.gmail.com>
-References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
-	<20260714101601.4142645-3-fuad.tabba@linux.dev>
-	<86ik6hoayl.wl-maz@kernel.org>
-	<CA+EHjTxtOhC=f0K=j-ka5A0nPtU0S_5vbnZcVhTOViHX6WMi=Q@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, sebastianene@google.com, imv4bel@gmail.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1784047327;
+	bh=k61jezHC3k/RbNT9F3tzR3+tjmPaHQC3k1irVJlQASY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Jz+9CzekUY1eftq3OxsUOGnOISpZqtktT0tAgq7mvu+rrHDWAkEdGbOVs0K8Gg3QC
+	 b5aaXIH/ZMAaxTXSgPmRJqRvDW2TKxz1OXFgI66JwZPhI7E4nr+T0JEfJjGiT5P27W
+	 nJImc7zIO3QScevDh3Bkkz17U2GppED6C15BmEe325W5AnfsRjWNhz8FlZoH8eFoH8
+	 03LENgZV+8yKzGCIQtxrpu+0sH4uPslR8zAbEOOUAW1aDopUrBInyka1ERI8Z621Wk
+	 Pi91ocPthGdpsrOaWaL12/IlkoTc6fJOtnfw8o0xojHG/3Jmuv8bCKbkudvZPuJf3U
+	 DwGKZI6sr/25Q==
+Date: Tue, 14 Jul 2026 22:12:03 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunfeng.yun@mediatek.com, neil.armstrong@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de, matthias.bgg@gmail.com,
+	justin.yeh@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, kernel@collabora.com
+Subject: Re: [PATCH v3 2/2] phy: mediatek: Add support for MT8196 MIPI DSI PHY
+Message-ID: <alZm25Ro_WdKigPd@vaman>
+References: <20260713103805.23030-1-angelogioacchino.delregno@collabora.com>
+ <20260713103805.23030-3-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260713103805.23030-3-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,140 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 16:32:54 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On 13-07-26, 12:38, AngeloGioacchino Del Regno wrote:
+> Add support for the MIPI DSI PHY found in the MediaTek MT8196 SoC
+> and its variants.
+> This PHY has a different register layout and provides support for
+> more hardware features compared to the previous generation.
 > 
-> On Tue, 14 Jul 2026 at 16:19, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Tue, 14 Jul 2026 11:15:55 +0100,
-> > Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> > >
-> > > The vcpu_{read,write}_sys_reg() accessors are only valid on a VHE host,
-> > > so helpers built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be()
-> > > cannot be shared with hyp code. exception.c already wraps them in local
-> > > helpers that pick the host- or hyp-side accessor via has_vhe().
-> > >
-> > > Rename the host-only implementations to __vcpu_{read,write}_sysreg_vhe()
-> >
-> > I'm a bit puzzled by this. There is nothing that makes these functions
-> > VHE-specific. Look at where they are called from: plenty of non-VHE
-> > uses. These helpers are the canonical accessors for any system
-> > register, and they don't cater for any particular mode.
+> This initial driver only adds support for basic functionality that
+> is necessary to drive MIPI DSI displays as a D-PHY.
 > 
-> I might have misunderstood what Oliver asked me to do here [1]:
-> > Can you instead name the wrappers vcpu_{read,write}_sys_reg() and rename
-> > the current implementations, like __vcpu_{read,write}_sysreg_vhe()?
-> 
-> Since they're only used and gated by has_vhe(), they're vhe-specific?
+> Feature additions like lane-swap, DPHY/CPHY switching, dual-port,
+> and others, may be done in the future.
 
-But they factually aren't VHE specific. Look at sys_reg.c, for
-example. The whole point is that they abstract where the registers are
-located, irrespective of the KVM mode.
+This seems to fail to build
 
-The code in exception.c is actually a local specialisation of this
-code for the nVHE code not to explode. And the exact same effect could
-be achieved without repainting the whole thing and renaming *perfectly
-named* accessors! ;-)
-
-Something like below (compile-tested only).
-
-	M.
-
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 9d9e7674d45fe..5ea708ff29436 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -526,6 +526,14 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
- 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
- }
- 
-+#if   defined (__KVM_NVHE_HYPERVISOR__)
-+#define vcpu_read_sys_reg(v, r)		__vcpu_sys_reg(v, r)
-+#define vcpu_write_sys_reg(v, x, r)	__vcpu_assign_sys_reg(v, x, r)
-+#elif defined (__KVM_VHE_HYPERVISOR__)
-+#define vcpu_read_sys_reg(v, r)		vcpu_read_sys_reg(v, r)
-+#define vcpu_write_sys_reg(v, x, r)	vcpu_write_sys_reg(v, x, r)
-+#endif
-+
- static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
- {
- 	if (vcpu_mode_is_32bit(vcpu)) {
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index bef40ddb16dbc..754e2dc1df54a 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -20,22 +20,6 @@
- #error Hypervisor code only!
- #endif
- 
--static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
--{
--	if (has_vhe())
--		return vcpu_read_sys_reg(vcpu, reg);
--
--	return __vcpu_sys_reg(vcpu, reg);
--}
--
--static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
--{
--	if (has_vhe())
--		vcpu_write_sys_reg(vcpu, val, reg);
--	else
--		__vcpu_assign_sys_reg(vcpu, reg, val);
--}
--
- static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 			      u64 val)
- {
-@@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 
- 	switch (target_mode) {
- 	case PSR_MODE_EL1h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
-+		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
- 		break;
- 	case PSR_MODE_EL2h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
-+		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL2);
-+		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2);
-+		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
- 		break;
- 	default:
- 		/* Don't do that */
-@@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
-  */
- static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
- {
--	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
- 	unsigned long old, new;
- 
- 	old = *vcpu_cpsr(vcpu);
-@@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- {
- 	unsigned long spsr = *vcpu_cpsr(vcpu);
- 	bool is_thumb = (spsr & PSR_AA32_T_BIT);
--	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
- 	u32 return_address;
- 
- 	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
-@@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- 	if (sctlr & (1 << 13))
- 		vect_offset += 0xffff0000;
- 	else /* always have security exceptions */
--		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		vect_offset += vcpu_read_sys_reg(vcpu, VBAR_EL1);
- 
- 	*vcpu_pc(vcpu) = vect_offset;
- }
+https://patchwork.kernel.org/project/linux-phy/patch/20260713103805.23030-2-angelogioacchino.delregno@collabora.com/
 
 -- 
-Without deviation from the norm, progress is not possible.
+~Vinod
 
