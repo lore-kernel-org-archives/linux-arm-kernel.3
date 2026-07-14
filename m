@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7744FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32880C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0dFHKsQ7kVh6jZILIwKtMbuxfiLrE+HKuO2Ky6dB4tU=; b=2ClsGJMsIaheiCx74F8hnqwol6
-	WhqYjt+KZDec9mxjaQZ2XcLI3AX+APOZHBF+q0018Bsmi8Nt1PS2N5tiuwAahKacPkOoED9SR77f+
-	2ZI+tVxKXUpV4hcySJfwuPuiBUdyoGTTO/Y1Vnca5cs/groOty9zd2mW24Xd2IcAbPf9i58ui4WyP
-	f/W4Q33I1z/vfOE8Pttj8Vz4rbdJ9oqx3S3sLfgBM7x0bRMtHw82hNAliT/Wj3ghuuQqVMFBvrpMF
-	tdpM2pf+YyAevB+5O4Z0PCRmVFWZY4VGZpROujqD8v0Ngj3QW33WLgUq1vT2K9xn134ifZ1Jk9BfJ
-	R+SpNTdw==;
+	bh=EGNR6tra01UR7FO6vXzl/2T3zRf5CxTwlKO6Du47FdM=; b=C71YdDOmBXkdObO69+qu2FncBY
+	up9IyrrYwmqCOt/nJoFDsSXVSd2SLQCPYjpf7QAynYh9IymX4VIIqOGXHuqhUOfYIhrp+LBmVGyhl
+	atnTqTQNmhucYV+Hh1wYan2jknIUNZRAUxqSgXVO8xAF+w2FWjD1riqELl7+1F3AWKt6QpbUFXLC2
+	hvXDAnFcP2MntjEZ5IxsD+7gCNefrUsi1bjkNsTZMDcvqPAXDq3UZKNAJskT74SlvdQ5EvjMmA8CI
+	r6t8bXJIveX0tq4EXUwhHmcsYHqs3A+ilUpr3evO2pfCOy3h89o5cWxFem9dqAE3hZPXnhDbdZwxd
+	l6OqaVmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbKI-0000000BgJ3-2NhZ;
-	Tue, 14 Jul 2026 11:29:26 +0000
-Received: from mail.lysator.liu.se ([130.236.254.3])
+	id 1wjbL5-0000000BgU2-379t;
+	Tue, 14 Jul 2026 11:30:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbKD-0000000BgHT-1HFy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 11:29:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784028550;
-	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CbnG+nXot1KVhI9mG09KAxVeQj/w+BnwSmVpP0QYgKugaxSGX0tED1KyrZaboDSDQ
-	 CqKYqbv1kR3onI8bzCy+qk0wlFUYUEqIjOrgdwxLu7qnelohiOkHjyXuowE+TwAyqb
-	 uBmE5l+Q6LRtVuGUHo6NuCNSqs4o0U7LQ7/Nvd4xaTOI3zSMAFFTb4UKTOeaLVwgKW
-	 /row9FhCU/6drRqGXKm6UWck6WfHk4uRkMHcDIr1mDjlYLIoMCwwqOYGqSHlA/l6GT
-	 liAgWhVwTyFK+lXTy5W4OJfWemdl0/7eOh6gZtKhazJUzfkWTcWrllSrCOih6l+07b
-	 tWW74dbLYn2cA==
-Received: from mail.lysator.liu.se (localhost [127.0.0.1])
-	by mail.lysator.liu.se (Postfix) with ESMTP id 369CF8729
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 13:29:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784028550;
-	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CbnG+nXot1KVhI9mG09KAxVeQj/w+BnwSmVpP0QYgKugaxSGX0tED1KyrZaboDSDQ
-	 CqKYqbv1kR3onI8bzCy+qk0wlFUYUEqIjOrgdwxLu7qnelohiOkHjyXuowE+TwAyqb
-	 uBmE5l+Q6LRtVuGUHo6NuCNSqs4o0U7LQ7/Nvd4xaTOI3zSMAFFTb4UKTOeaLVwgKW
-	 /row9FhCU/6drRqGXKm6UWck6WfHk4uRkMHcDIr1mDjlYLIoMCwwqOYGqSHlA/l6GT
-	 liAgWhVwTyFK+lXTy5W4OJfWemdl0/7eOh6gZtKhazJUzfkWTcWrllSrCOih6l+07b
-	 tWW74dbLYn2cA==
-Received: by mail.lysator.liu.se (Postfix, from userid 1004)
-	id 185F386C5; Tue, 14 Jul 2026 13:29:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784028545;
-	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gnoUaLAdgBEvaDjfLSajvn/XVJzTNVE28DDBz1hWHX/aP9aAAlNC7EtIuT4lDDap5
-	 p9NLpVe3YH/tACOkFNyl0ukcXjMPQ4qkV7kMdZKNfcITmiXQv3ppcQHAkQ7Pvcwf6e
-	 2+2jTsNnbmS+kp0LAcjmREK+ZgksHO+CC0nCEevsK+AzPvU3tHsYb0gwz+qH4XaKPO
-	 p1bMujtBwEm4Bwt+J9v6maO+y7/8zA/zIbeL3DaK2oiYHGjqEZ4X9EfSJzTUH8yUUG
-	 Lo86ZuhYkkrS1Xqb80k+YQgDdk/UC5wdkUS/hRqWgzfIdd3x297MFfF7Ipg8cdWuNQ
-	 Mfq3Ki57ZyVoA==
-Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	id 1wjbL2-0000000BgSi-1l10;
+	Tue, 14 Jul 2026 11:30:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784028608;
+	bh=waq8VNJgFB3A36U/4yF+C9LFLMZXFtLcZD4Rdi3vW0g=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=MEOj3oSDyNmyy/GypNt45JfGP7JIaCnJTwCrLbfTwKLTp3sduf5RrEgoiK8Srmta3
+	 4M5zNKV9H21OauxA08+FzweV5Hd4GEKAoYS0GMPqIY1Zq/EWol8gZAbIrywicI5dDz
+	 Lw2D0RdT3DxCV8j3X65fNLRLrL1HsGxYF067NU2PM41u4tvlaqeXhCPNyZJQh7im3M
+	 ph0St825k7qUgqKJ6DqH1QprJfvn9K9Sh3ebpQuzeCfGelCLFZlHXYZW41olbI0cFU
+	 QtrhXtf2RhBd/e2xtotYObWxuZeFTj2JWSlNcXkCKOwTZ5wL5MlqZ5+XFp0SnNu3dA
+	 hJIllBFjVt/eg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.lysator.liu.se (Postfix) with ESMTPSA id A475686BE;
-	Tue, 14 Jul 2026 13:29:03 +0200 (CEST)
-Message-ID: <e2d4fdf8-4dae-43dc-95ae-b9aa1884fdf5@lysator.liu.se>
-Date: Tue, 14 Jul 2026 13:29:01 +0200
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 90D9717E07A2;
+	Tue, 14 Jul 2026 13:30:07 +0200 (CEST)
+Message-ID: <c5afe7db-d753-4202-b368-1680195cbd2f@collabora.com>
+Date: Tue, 14 Jul 2026 13:30:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
-To: Marcus Folkesson <marcus.folkesson@gmail.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Michael Hennerich <michael.hennerich@analog.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
- <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
-Content-Language: en-US, sv-SE
-From: Peter Rosin <peda@lysator.liu.se>
-In-Reply-To: <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
+Subject: Re: [PATCH 06/42] drm/mediatek: Use hashtable for components
+ discovery and registration
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+ <20260701122057.19648-7-angelogioacchino.delregno@collabora.com>
+ <79f44c827c78fd823300509c22058f2b6f3600b6.camel@mediatek.com>
+ <16980e9f-c183-41c4-8001-ac7807cc087b@collabora.com>
+Content-Language: en-US
+In-Reply-To: <16980e9f-c183-41c4-8001-ac7807cc087b@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_042923_342498_165F51DB 
-X-CRM114-Status: GOOD (  29.07  )
+X-CRM114-CacheID: sfid-20260714_043012_771699_DDB50CDD 
+X-CRM114-Status: GOOD (  49.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,126 +95,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marcus,
-
-Sorry for the very late feedback.
-
-On 2026-07-13 09:19, Marcus Folkesson wrote:
-> Muxes treat their channels differently when idle.
-> Let the mux core have this information to make it available for
-> internal use.
-> Reuse the same state values used by CONFIG_MULTIPLEXER.
+On 7/7/26 13:56, AngeloGioacchino Del Regno wrote:
+> On 7/6/26 09:02, CK Hu (胡俊光) wrote:
+>> On Wed, 2026-07-01 at 14:20 +0200, AngeloGioacchino Del Regno wrote:
+>>> As a preparation for refactoring the concept of hardware component
+>>> identification, search, and final usage, remove the ddp_comp array
+>>> of components and replace it with a hashtable, indexed by ID.
+>>>
+>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>> ---
+>>>   drivers/gpu/drm/mediatek/mtk_crtc.c     | 44 ++++++++++++++++-------
+>>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 48 ++++++++++++++++++-------
+>>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h | 23 +++++++++++-
+>>>   drivers/gpu/drm/mediatek/mtk_drm_drv.c  |  7 ++--
+>>>   drivers/gpu/drm/mediatek/mtk_drm_drv.h  |  2 +-
+>>>   5 files changed, 94 insertions(+), 30 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/ 
+>>> mtk_crtc.c
+>>> index f39f197057a7..3f4d6ab1bfc2 100644
+>>> --- a/drivers/gpu/drm/mediatek/mtk_crtc.c
+>>> +++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+>>> @@ -725,8 +725,12 @@ static void mtk_crtc_update_output(struct drm_crtc *crtc,
+>>>           crtc_state->connectors_changed, encoder_mask, crtc_index);
+>>>       for (i = 0; i < mtk_crtc->num_conn_routes; i++) {
+>>> -        unsigned int comp_id = mtk_crtc->conn_routes[i].route_ddp;
+>>> -        struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
+>>> +        const struct mtk_drm_route *conn_route = &mtk_crtc->conn_routes[i];
+>>> +        struct mtk_ddp_comp *comp;
+>>> +
+>>> +        comp = mtk_ddp_comp_find_by_id(&priv->hlist, conn_route->route_ddp);
+>>
+>> I don't know why you invent conn_route? Keep comp_id use it here looks the same.
+>>
 > 
-> Possible idle states are:
-> - MUX_IDLE_AS_IS: Leave channels as is when idle
-> - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-> - <n>: Enable channel n when idle
+> I'm not inventing conn_route, that's something that was already there as a dynamic
+> replacement of the last component in a stack of possible outputs for a single
+> full-fledged display pipeline.
 > 
-> Default value is set to MUX_IDLE_AS_IS.
+> The change here is about changing the search/retrieval of a `route_ddp` from a
+> number that comes from an enumeration, to a full component structure instead....
 > 
-> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> ---
->   drivers/i2c/i2c-mux.c   |  1 +
->   include/linux/i2c-mux.h | 26 ++++++++++++++++++++++++++
->   2 files changed, 27 insertions(+)
+>>> +        if (!comp)
+>>> +            continue;
+>>
+>> In original code, it never check comp is null or not.
+>> I think it base on an assumption that it would not be null.
+>> If it's null here, print error message and it's not necessary to do the rest thing.
+>>
 > 
-> diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
-> index 681a201c239b..edf16683dc83 100644
-> --- a/drivers/i2c/i2c-mux.c
-> +++ b/drivers/i2c/i2c-mux.c
-> @@ -247,6 +247,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
->   	muxc->select = select;
->   	muxc->deselect = deselect;
->   	muxc->max_adapters = max_adapters;
-> +	muxc->idle_state = MUX_IDLE_AS_IS;
+> .... and the component structure, with the new code, has to be *initialized*: this
+> is because we cannot assume that a component that was not registered will actually
+> be registered later (which was a broken behavior of mediatek-drm!).
+> 
+> 
+> 
+> ----> IMPORTANT PART: <-----
+> Note that, at this point, "comp" is *not* pointing to a *statically* initialized
+> array of components, but to a *dynamically* initialized one: while before this the
+> comp pointer was guaranteed to be *always* a valid pointer to a comp structure, now
+> it is *not guaranteed anymore*, because again - it's *dynamically* allocated, so
+> we NEED to check for comp != NULL, or we're exposing ourselves to a possible NULL
+> pointer kernel panic (or worse)!
+> 
+> 
+> 
+> If the component is not initialized at this point, it simply means that it cannot
+> be - in any way - used by mediatek-drm, so.. if !comp -> continue means effectively
+> "if the component is not registered, we cannot use it, hence don't try to evaluate
+> the possibility of using it".
+> 
+> Is it clear now?
+> 
+>>>           if (comp->encoder_index >= 0 &&
+>>>               (encoder_mask & BIT(comp->encoder_index))) {
+>>> @@ -1028,10 +1032,11 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>   {
+>>>       struct mtk_drm_private *priv = drm_dev->dev_private;
+>>>       struct device *dev = drm_dev->dev;
+>>> +    struct mtk_ddp_comp *dma_comp;
+>>>       struct mtk_crtc *mtk_crtc;
+>>>       unsigned int num_comp_planes = 0;
+>>>       int ret;
+>>> -    int i;
+>>> +    int i, j;
+>>>       bool has_ctm = false;
+>>>       uint gamma_lut_size = 0;
+>>>       struct drm_crtc *tmp;
+>>> @@ -1051,7 +1056,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>           struct mtk_ddp_comp *comp;
+>>>           node = priv->comp_node[comp_id];
+>>> -        comp = &priv->ddp_comp[comp_id];
+>>> +        comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
+>>>           /* Not all drm components have a DTS device node, such as ovl_adaptor,
+>>>            * which is the drm bring up sub driver
+>>> @@ -1063,7 +1068,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>               return 0;
+>>>           }
+>>> -        if (!comp->dev) {
+>>> +        if (!comp || !comp->dev) {
+>>>               dev_err(dev, "Component %pOF not initialized\n", node);
+>>
+>> I think you should print other error message and return other value for !comp.
+>>
+> 
+> In mtk_crtc_create, at this point, the component (which always has a node, pointed
+> by node = priv->comp_node[comp_id]) has to be initialized by mtk_ddp_comp.
+> 
+> Keeping in mind that the component is actually a device, if the component itself
+> was not initialized at this point, this means that there is NO DEVice associated
+> with it.
+> 
+> This is why -ENODEV.
+> 
+> Also, we're printing %pOF (like before) because this gives hints about precisely
+> which one was not registered at this point.
+> 
+>>>               return -ENODEV;
+>>>           }
+>>> @@ -1089,12 +1094,17 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>           return ret;
+>>>       }
+>>> -    for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
+>>> +    for (i = 0, j = 0; i < mtk_crtc->ddp_comp_nr; i++, j++) {
+>>>           unsigned int comp_id = path[i];
+>>>           struct mtk_ddp_comp *comp;
+>>> -        comp = &priv->ddp_comp[comp_id];
+>>> -        mtk_crtc->ddp_comp[i] = comp;
+>>> +        comp = mtk_ddp_comp_find_by_id(&priv->hlist, comp_id);
+>>> +        if (!comp) {
+>>
+>> In original code, it never check comp is null or not.
+>> I think it base on an assumption that it would not be null.
+>> If it's null here, print error message and it's not necessary to do the rest thing.
+>>
+> 
+> The iterator here tries to still setup a display pipeline in case a component is
+> missing, and this actually works in a couple of corner cases, which were not
+> possible before the restructuring of mediatek-drm.
+> 
+> In later commits, this case will be handled differently: the problem here is rather
+> that the code readability is not the best at this point in time (of the series),
+> but this will make a lot more sense when going forward in this exact series.
+> 
+> The main issue here is that mediatek-drm's complexity is very, very high, and the
+> maintainability suffers a lot: doing each and every change as a perfectly clean
+> (and perfectly readable) diff means adding another ~4k thousand lines of changes
+> that are simply addition and removal of the same lines over and over again.
+> 
+>>> +            j--;
+>>> +            dev_dbg(dev, "Cannot find component %d.\n", comp_id);
+>>> +            continue;
+>>> +        }
+>>> +        mtk_crtc->ddp_comp[j] = comp;
+>>>           if (comp->funcs) {
+>>>               if (comp->funcs->gamma_set && comp->funcs->gamma_get_lut_size) {
+>>> @@ -1131,7 +1141,14 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>        * In the case of ovl_adaptor sub driver, it needs to use the
+>>>        * dma_dev_get function to get representative dma dev.
+>>>        */
+>>> -    mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(&priv->ddp_comp[path[0]]);
+>>> +    dma_comp = mtk_ddp_comp_find_by_id(&priv->hlist, path[0]);
+>>> +    if (dma_comp == NULL) {
+>>
+>> if (!dma_comp) is more simple.
+>>
+> 
+> Yeah, I agree. If you're really worried about seeing this instead of !dma_comp I
+> can change it here... but if you can ignore that, in later commits this will be
+> removed and completely changed so that it becomes
+> 
+>      ret = mtk_crtc_find_suitable_dma_dev(mtk_crtc);
+>      if (ret) {
+>          dev_err(dev, "Could not find appropriate DMA device!\n");
+>          return -EINVAL;
+>      }
+>      dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
+> 
+> Note that if I change this simple line here, I'll have to fix other patches as
+> they won't apply anymore because of the changed line... so again, if we could
+> ignore that it would be great...
+> 
+>>> +        dev_err(dev, "Could not find appropriate DMA device!\n");
+>>> +        return -EINVAL;
+>>> +    }
+>>> +
+>>> +    mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
+>>> +    dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
+>>>       ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
+>>>       if (ret < 0)
+>>> @@ -1188,17 +1205,18 @@ int mtk_crtc_create(struct drm_device *drm_dev, const 
+>>> unsigned int *path,
+>>>           for (i = 0; i < num_conn_routes; i++) {
+>>>               unsigned int comp_id = conn_routes[i].route_ddp;
+>>>               struct device_node *node = priv->comp_node[comp_id];
+>>> -            struct mtk_ddp_comp *comp = &priv->ddp_comp[comp_id];
+>>> +            struct mtk_ddp_comp *comp = mtk_ddp_comp_find_by_id(&priv->hlist, 
+>>> comp_id);
+>>> -            if (!comp->dev) {
+>>> +            if (!comp || !comp->dev) {
+>>
+>> In original code, it never check comp is null or not.
+>> I think it base on an assumption that it would not be null.
+>> If it's null here, print error message and it's not necessary to do the rest thing.
+>>
+> 
+> Already explained why we need comp to be checked for NULL.
+> 
+>>>                   dev_dbg(dev, "comp_id:%d, Component %pOF not initialized\n",
+>>>                       comp_id, node);
+>>>                   /* mark encoder_index to -1, if route comp device is not 
+>>> enabled */
+>>> -                comp->encoder_index = -1;
+>>> +                if (comp)
+>>> +                    comp->encoder_index = -1;
+>>>                   continue;
+>>>               }
+>>> -            mtk_ddp_comp_encoder_index_set(&priv->ddp_comp[comp_id]);
+>>> +            mtk_ddp_comp_encoder_index_set(comp);
+>>>
+>>
+>> [snip]
+>>
+>>>         }
+>>>   @@ -1116,8 +1118,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+>>>                                   PLATFORM_DEVID_AUTO,
+>>>                                   (void *)private->mmsys_dev,
+>>>                                   sizeof(*private->mmsys_dev));
+>>> -        private->ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR].dev = &ovl_adaptor->dev;
+>>> -        mtk_ddp_comp_init(dev, NULL, &private- 
+>>> >ddp_comp[DDP_COMPONENT_DRM_OVL_ADAPTOR],
+>>> +        mtk_ddp_comp_init(&ovl_adaptor->dev, NULL, &private->hlist,
+>>
+>> mtk_ddp_comp_init(dev, NULL, &private->hlist,
+>>
+> 
+> That was only done for readability purposes. This will be entirely moved out of
+> here in a later commit.
 
-This is insufficient. AS_IS is simply not an adequate default.
+Actually, no, I gave the wrong information here.
 
-For i2c-mux-gpmux, there is currently no way to dig out what
-the idle state is, as it is not exposed by the mux subsystem. For
-i2c-mux-gpio, the idle state depends on both the idle-state /and/
-the i2c-mux-idle-disconnect props. For i2c-mux-pca954x the idle
-state can be adjusted at runtime. Etc.
+Registering with mtk_ddp_comp_init(dev, xxxx ...) will make the called function to
+assign a pointer to mediatek-drm's device, but since the mtk_ddp_comp_init function
+changed, this needs to pass a pointer to the OVL ADAPTOR's device, not to the main
+mediatek-drm device.
 
-In short, idle state handling is a bit diverse, and I think this
-adds to that mess.
-
-I think it will be a bit of work to come up with a scheme for the
-I2C mux core to accurately keep track of what the idle state is.
-One way to deal with that is to introduce a new "unknown" value
-that can be the default for all drivers that has not yet figured
-out how to feed the correct idle state to the core.
-
-And that hints at why I think reusing the mux.h bindings #include
-is bad. The mux subsystem simply has no need for an unknown state,
-and adding that to mux.h is therefore out of place.
-
->   
->   	return muxc;
->   }
-> diff --git a/include/linux/i2c-mux.h b/include/linux/i2c-mux.h
-> index 1784ac7afb11..624fadbaa703 100644
-> --- a/include/linux/i2c-mux.h
-> +++ b/include/linux/i2c-mux.h
-> @@ -13,6 +13,7 @@
->   
->   #ifdef __KERNEL__
->   
-> +#include <dt-bindings/mux/mux.h>
-
-I think it is bad to bring in this include here. That include
-belongs to the mux subsystem. Yes, it is included by others as
-well, but please don't expand on that.
-
->   #include <linux/bitops.h>
->   
->   struct i2c_mux_core {
-> @@ -22,6 +23,17 @@ struct i2c_mux_core {
->   	unsigned int arbitrator:1;
->   	unsigned int gate:1;
->   
-> +	/*
-> +	 * The mux controller state to use when inactive.
-
-A "mux controller" is a concept in the mux subsystem, and there
-is no equivalent for I2C muxes.
+So this has to be mtk_ddp_comp_init(&ovl_adaptor->dev, ...) otherwise this will not
+work as intended.
 
 Cheers,
-Peter
-
-> +	 * Possible idle states are:
-> +	 *  - MUX_IDLE_AS_IS: Leave channels as is when idle
-> +	 *  - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-> +	 *  - <n>: Enable channel n when idle
-> +	 *
-> +	 * Default value is set to MUX_IDLE_AS_IS.
-> +	 */
-> +	int idle_state;
-> +
->   	void *priv;
->   
->   	int (*select)(struct i2c_mux_core *, u32 chan_id);
-> @@ -38,6 +50,20 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
->   				   int (*select)(struct i2c_mux_core *, u32),
->   				   int (*deselect)(struct i2c_mux_core *, u32));
->   
-> +/*
-> + * Mux drivers may only change idle_state, and may only do so
-> + * between allocation and registration of the mux controller.
-> + */
-> +static inline void i2c_mux_set_idle_state(struct i2c_mux_core *muxc, int state)
-> +{
-> +	muxc->idle_state = state;
-> +}
-> +
-> +static inline int i2c_mux_idle_state(struct i2c_mux_core *muxc)
-> +{
-> +	return muxc->idle_state;
-> +}
-> +
->   /* flags for i2c_mux_alloc */
->   #define I2C_MUX_LOCKED     BIT(0)
->   #define I2C_MUX_ARBITRATOR BIT(1)
-> 
-
+Angelo
 
