@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C20C44508
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A25C44509
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUf4mefeij8lFYbjEvEXNlSmIZlKbvOv3KEUWlwzNqs=; b=rXNnOUDXEYH073mdtMBMcGKJ3y
-	BHU2LjgjLzkuJZ5CxKA5GclgilUpj53EU0vawgL+UtqExOmhIouISu5WzWlrEEX5J2SXtbHNaR0L3
-	7e8QPnmER/xpCuxqF62MHAMn9zjciPlxlF6SEV559QaQjWhHetdqk4tSDMUnED1QQUYszzhkWSWIL
-	PbEceyajk8miGbuBrK5sxQxxIb7R4mZEy10IrzD9KRXzG9FBVTpWJWalnuswprwt7h0vpgss4qvY+
-	o05ra78Eb6xxFYoD/U3UCRR7hvuiV8oPhdefWBPHdNva601qekJekv9U6Onz4Yc32xUbjC6SCwfMu
-	0EzDdY9g==;
+	bh=07dRYKXgRyU3x0X5on17tlJ7LESqf7TzRfpEcaCKSac=; b=4rUGG/GaEvaWNaJK05gb7xluSF
+	Rya7pDWl7YIE+5EmxA/fQOHL8h62+1Hb42SlQqwGd8QjLAFMzIiQqdFPtOEfEN1N2q6mfrYu0rjvN
+	vli7q4VWG/a5p6jq74SoekSvkPS0NypBRFg1AYZrzHPK2RGf5IrOQqs3IM1n/kwXRCcow5O3MifvS
+	n0lg5DIk9gmY7xeb4Jd05Gry2FCM5qhWUaHkMgq1NxcgwFSp3ORAFm+e967PhUzjc0kpvtufriUg7
+	nq7gAAwRoD5i4gaUPlxSsJx9MzrVTHXVU1Bba3jYLo+YaRN3uCQVNbgsUb6pD3koUT6kQ/6P390re
+	ov/J0nZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZGE-0000000BPNF-3ZHL;
-	Tue, 14 Jul 2026 09:17:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjZGB-0000000BPCi-101I;
+	Tue, 14 Jul 2026 09:17:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZG1-0000000BP5B-3h3Z
+	id 1wjZFz-0000000BP3D-3uQf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:16:53 +0000
+	Tue, 14 Jul 2026 09:16:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B45C43D6A;
-	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F8771F00AC4;
-	Tue, 14 Jul 2026 09:16:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FA886132C;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054D11F00AC4;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784020613;
-	bh=aUf4mefeij8lFYbjEvEXNlSmIZlKbvOv3KEUWlwzNqs=;
+	s=k20260515; t=1784020611;
+	bh=07dRYKXgRyU3x0X5on17tlJ7LESqf7TzRfpEcaCKSac=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TYQp9xfZE7xw9M6GUDxlNHMappsAb/Dvm678Z6tMZXpqJPWssHabywW/D34efLljv
-	 sWV1Fj8cFGUPk0Iysanb0nH6EzaxVFOvU57TFBHUcH/fOv/pdmJCC3T/ycCh84fja7
-	 mmjm0n58Vp1l03n8XlmJJ4qdEto4WyyR5BjF56RmBd8iIIK0+AfOdFFwtpis2Uy55V
-	 0zieN13Oln2Y/LEeGvVpEZXLHJN+2nReOHVGXuO33CkTRZzKZRH9zzvMDKXCavI8CZ
-	 h1pQ96TzaYHpE2kEmF1XsBvwaoUYCwrAkuV9zau2W4fCzPrLUu2f6G8ject1mBT4pZ
-	 Z6NCFMbG4FuLA==
+	b=i06AkM5WjMzdYA3MuLaaRZCOy7iPwtjy9QRrzjThhRYCxQNjbqKA6WDTBnje1TbtA
+	 wwlB/BGabziv6rgHSCk2DuOdC07tOq6h34lxMmvUGiZCSdY8N7l07K6uCUY0G2qMFV
+	 8UvpaJrud6ZEEjOUrlgH9IvcgIGwwFt2yiqkJozFp5XUwmnS6YsxdoiO1aZHtzoCTg
+	 7vngTV3sayHob3wsCYtHInL2u/Dzmg+d8NhThEeph7J3SCshuOgAYppAEFxggrhvah
+	 mcAidXMCln7JheNulkPbVYbY26I7tIPQ3bxVLx5/aLM6/6oKhvWo6aiwbGAz+OUBFy
+	 ysoVd1U50fTyQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjZFz-00000004ny1-3YUs;
-	Tue, 14 Jul 2026 09:16:51 +0000
+	id 1wjZFx-00000004ny1-1E8Q;
+	Tue, 14 Jul 2026 09:16:49 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 23/28] KVM: arm64: Add NVHCR_EL2 context switching
-Date: Tue, 14 Jul 2026 10:16:36 +0100
-Message-ID: <20260714091641.1970822-24-maz@kernel.org>
+Subject: [PATCH v2 11/28] KVM: arm64: Expose FEAT_NV2p1 to NV guests
+Date: Tue, 14 Jul 2026 10:16:24 +0100
+Message-ID: <20260714091641.1970822-12-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
 References: <20260714091641.1970822-1-maz@kernel.org>
@@ -83,84 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since NVHCR_EL2 represents the HCR_EL2 state of the EL1 guest, it
-must be dealt with in some particular way:
+Since NV2p1 is reducing the number of traps, it is valuable to expose
+it to NV guests. Do so.
 
-- for a guest in hyp context (an L1 by definition), NVHCR_EL2 directly
-  reflects HCR_EL2 as read and written by the guest itself. It must
-  therefore be eagerly synced back with the emulation code which only
-  knows about HCR_EL2. This is unconditional if NV3 is available on
-  the host.
-
-- For an L2 guest, NVHCR_EL2 is controlled by the L1 guest, and we
-  just context switch it like any other EL1 register. Yes, EL1, as
-  that's where this thing runs from the PoV of L1. This is conditioned
-  on the guest using NV3.
-
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 11 +++++++++++
- arch/arm64/kvm/hyp/vhe/switch.c            | 10 ++++++++--
- 2 files changed, 19 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/nested.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index a17cbe7582de9..c382848d31947 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -172,6 +172,10 @@ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
- 
- 	if (ctxt_has_sctlr2(ctxt))
- 		ctxt_sys_reg(ctxt, SCTLR2_EL1) = read_sysreg_el1(SYS_SCTLR2);
-+
-+	/* Retrieve L2's HCR_EL2, and save it for future use */
-+	if (is_nested_nv3_ctxt(ctxt_to_vcpu(ctxt)))
-+		ctxt_sys_reg(ctxt, NVHCR_EL2) = read_sysreg_s(SYS_NVHCR_EL2);
- }
- 
- static inline void __sysreg_save_el2_return_state(struct kvm_cpu_context *ctxt)
-@@ -285,6 +289,13 @@ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
- 
- 	if (ctxt_has_sctlr2(ctxt))
- 		write_sysreg_el1(ctxt_sys_reg(ctxt, SCTLR2_EL1), SYS_SCTLR2);
-+
-+	/*
-+	 * Publish the L2 view of HCR_EL2 to the HW if L1 is using NV3.
-+	 * Otherwise, the data is already in place in the L1's own VNCR.
-+	 */
-+	if (is_nested_nv3_ctxt(ctxt_to_vcpu(ctxt)))
-+		write_sysreg_s(ctxt_sys_reg(ctxt, NVHCR_EL2), SYS_NVHCR_EL2);
- }
- 
- /* Read the VCPU state's PSTATE, but translate (v)EL2 to EL1. */
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index ee92f6ad91c2b..e823046d28796 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -71,7 +71,10 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 			hcr |= HCR_NV1;
- 
- 		/* Publish the guest's view of HCR_EL2 to the HW */
--		__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
-+		if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
-+			write_sysreg_s(__vcpu_sys_reg(vcpu, HCR_EL2), SYS_NVHCR_EL2);
-+		else
-+			__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
- 
- 		/*
- 		 * Nothing in HCR_EL2 should impact running in hypervisor
-@@ -562,7 +565,10 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
- 		*vcpu_cpsr(vcpu) |= mode;
- 
- 		/* Publish the latest HCR_EL2 to the emulation */
--		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
-+		hcr = (cpus_have_final_cap(ARM64_HAS_NV3) &&
-+		       vcpu_el2_e2h_is_set(vcpu)) ?
-+			read_sysreg_s(SYS_NVHCR_EL2) :
-+			__vcpu_sys_reg(vcpu, NVHCR_EL2);
- 
- 		__vcpu_assign_sys_reg(vcpu, HCR_EL2, hcr);
- 	}
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index dfb96edbdc43c..35a1c42ad3f84 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1728,7 +1728,7 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		 * You get EITHER
+ 		 *
+ 		 * - FEAT_VHE without FEAT_E2H0
+-		 * - FEAT_NV limited to FEAT_NV2
++		 * - FEAT_NV limited to FEAT_NV2(p1)
+ 		 * - HCR_EL2.NV1 being RES0
+ 		 *
+ 		 * OR
+@@ -1740,7 +1740,11 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features)) {
+ 			val = 0;
+ 		} else {
+-			val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
++			val &= ID_AA64MMFR4_EL1_NV_frac;
++			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV2P1);
++			else
++				val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
+ 			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI_NV1);
+ 		}
+ 		break;
 -- 
 2.47.3
 
