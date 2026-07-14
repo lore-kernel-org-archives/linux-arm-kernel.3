@@ -4,97 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CAE0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C60C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2+YG+Lc9G3ettrpyhhV85laMvWnPE2RhFHAC3mG0Ig=; b=qDyifDNs/K7X6wAny+Mnd7Vklz
-	6H51mz5V9t8J/u0Phys1iC4GCvKma8QsP9T10BXEEyF9FSpY4gwNyXn1s3/PHbo2deOnesVV0HA6+
-	jl/nVVHC9/ndryGLe5FafbT1S6S2sIL3110hH77MU9InzD+ZOsh2mfXdvhLikNLR2WhqTktsQvOO3
-	iAZoHXJrxupyIPEHnHtY9oqr94Yg4qQ1oWR9OKoS1jpSOVK72qnUZjWPxIx4O41pssm1bM/A0jPcv
-	ULn3RlXTQoXlkamoJ41fC4+tYYXvfufkJb+ousDYwAmj0CQEYxCPOl+jsYnAFJ0l7Rid2ZI0F6ijG
-	YMe1O8eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KN+zGCwqnRr77YLBHNGCvv6ivP6Fw2MCgfq05HPwV4M=; b=ec1+rJ8+T2I6OW
+	yl6LygNFgKHnN2kU7PC7NxiMz3Gamr4hVcLZMJAZ8NjhE8S4csE1+NpXf/KnBUo6wHQsF7Nti6MmI
+	kODSxZjeKOJE4mint3404j2Ox+/n6vuZUC4CTdF6ZTTlyLPkbaF5GgOCBGMLOR3Ub9V3+nB0kuxHJ
+	5q4+e1Ss+7Mk1daTUWildyzdbRQGeefkzO4Xz9ChdY8ZfyAULeniMhhS451jmN4bd2CgPrRJCbn2B
+	b1oBk88YxWZ/9bwxPUMB8rA9PgHskmJhnyGHUrROUNCEazjvKZyZmNv7AunXRKG2occDF7+i0v+U2
+	Y+Nlr1o7QJkoKbpChGeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWNb-0000000B14G-2Aul;
-	Tue, 14 Jul 2026 06:12:31 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1wjWd0-0000000B2An-05L9;
+	Tue, 14 Jul 2026 06:28:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWNY-0000000B13a-1m5M
+	id 1wjWcx-0000000B2AJ-2EVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 06:12:30 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 3216A1D00119;
-	Tue, 14 Jul 2026 02:12:27 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 14 Jul 2026 02:12:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784009547;
-	 x=1784095947; bh=w2+YG+Lc9G3ettrpyhhV85laMvWnPE2RhFHAC3mG0Ig=; b=
-	Cni5YQ/Lv76m/Bwb3qNT15OoRenShDcFkTAje9PrS7F5GlnfA41d3Zfqo5dSKT0/
-	G/HmP9suaXMirvmhcrrD9YFPg/mnmeOY4t87UU/58k/E2VHHCLCVD5xOLJ7HMe5b
-	QBgcdKFAFk52jY90/ZRDdNYmPAzIsuE80n03w1RKhezwIK22N6T7DwMz2Gyl1Q/S
-	w7hLupc2Wn7RQcu13Xx2OkWMnwac16GENUSokiiVhhi7vW8sUXt2tZzOKbfBxmlr
-	WodR2eHya5EClJh3u4XH7+CT7YzBfQLeoBo+m3w/DlQpdSLS1faRiKs/6W67lhjb
-	GJBC1Gz9/ETmHxxgY+AKNA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784009547; x=
-	1784095947; bh=w2+YG+Lc9G3ettrpyhhV85laMvWnPE2RhFHAC3mG0Ig=; b=K
-	qemTIRI8Lo4LJ0mFD55/9eEe3dAfZZn1OD6ruhNybXdNsS3azIzfhjlb+Ll/HAw4
-	FwOvQgEajCbtmhPcbZzHiRbCe1Mj64HeUFe5RTBK0rXepJDns9MIOyeGsfgq9GPT
-	IO1HDuLQEQxMTCwUAp6u9RxIYYkGyDOLE3i0cA2zviPLVFY99pwe6ZV1WYBRBlpv
-	C73lXHd4USXGqWWrSEBLHDB6ad72MfmcGAU3glJAmhC1EErFhLiLJ/wxLnG3eDta
-	hi7fOeMhO3jtONYPK1xsa8QqxXYPS2HSi5PRP00Y4c4Nlb978UsmvVNMg44Ft9se
-	vUu0wnRozSIXOS1xU1KZg==
-X-ME-Sender: <xms:StNVakd2cWXjItagJWwcI64TpYBIVcGqxUbO0-85Gac1VWQPFijEyQ>
-    <xme:StNVahD6lZgKxsWx5MrIE0nNgqCsFi3F_5ISBHlXPnYH9W4bQES-xZDOhNH6lgxzZ
-    Jfi90tF-2X1T63gwdaCexKta9vI0YzHvxUzCZW5HE0tnKR4d0d8Cg>
-X-ME-Proxy-Cause: dmFkZTFrsLZ8C4FIUXA7r0r3NoIZpM7J+RaPlyAaJo+Htw65KLUYuJH3CnfMNkbv/0r3xS
-    S/Ps9yWAI9gkwy/C4qKRnu4Hit8EwxSpvtxztlB4YJrpAsugNeOVGKj+qZ+dfJZFEqfAQu
-    DXLZoQ7VujK59/7ODVZffrtq2w5MsLc+oRxkzsHrUc1a7rCdt9dRTQiVb5cNeC3O7VALAi
-    qrkWJq2SdMK+M5WbUkYuRyvx1DZeg6HXqkN9qAmV7/o3iChl4njbtgLYwEZkKj1FRFgoB8
-    42JLfEEnLth9dZp/8YJvM4fjKgL+4+r1NJxpAW08WXRUTtorPWcMUnOVQe9U7J46M78xeC
-    cFVNtN13loVUO+wLkrhYc04NADV8DcHdNpKOYG7KKgCM+6vv6YpuqUoCqCgAF0iEzRlE9K
-    Xw7fefmhhhH6+UjZ+qsW6rSsXZmwtcxVkXjsGqx4eRZ7CW3Oj83mA6FYKRI5PK5dirNVDI
-    TSuv0ETBo5/pDOhXaY0no50Y+SvoCJEsLj6URo3zPepv1t7bSapTg99SwfkmP838TpfgHh
-    4Zp4uMudtYddHrXOcyhXfBhZkwrtLLIss+q26DWerJvOCaPy8rTTqd+QXpMRGShABMIW2W
-    BmOCWlo5eARt+QsqEuPtGk5pyZ1mJhwFgBsyg4mtjGpEWLRJ6i0gzgH5Amzg
-X-ME-Proxy: <xmx:StNVaqq8KJKILWlWf40sC62m92nRYELUND-PFhR58KEG3bjtWeKjCw>
-    <xmx:StNVahlqjTHzzGB5ldqapRmdvCgyfp0xvJ_w3Ew2siNp6ijQbidEDw>
-    <xmx:StNVaqzqzfndqeOi5aMLD5uuS6bsXlO5foUockE2I-M4db3SeQGQ4w>
-    <xmx:StNVap-0hNONhoIp2DNcfRndvZOVhb31w8VkODg4TEJTpshU4F37cA>
-    <xmx:S9NValOOzcVDO7aXXMZ4YbaQuJmoZf9MK2ADGgqYMyI2jqBiWn5BXGKi>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 97EC7182007E; Tue, 14 Jul 2026 02:12:26 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 14 Jul 2026 06:28:25 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cc73e322dbso45461095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 23:28:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784010502; x=1784615302; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=KN+zGCwqnRr77YLBHNGCvv6ivP6Fw2MCgfq05HPwV4M=;
+        b=RNd+PDCQNSEHVxLvnACUQfrPMReUUZSdoX9R3E5ywhsnHe8Nk0gxMcXUnpcWHItV1V
+         Spk2gVcdfHXlQbSf7iEKxTzNpQcsCGeHaVk6ZPeavGGemPP5mLITJaqYFewJzIbHT//P
+         MMGQZmtKKuUQ1pcqez8BePY0YRYCp0fA2K/+oEVI7F/OuqqCpYD07Egigfa27qQTjaTy
+         dtjqk6L1TZ0PM7Rf6rwlOPdn6s8jGPiJYbGsG69KnzrqWxFu/NbEpVhBtAE8So0++Ud4
+         H6gkxtYUntLNPs3Btj8XQ7q6ciPsLw6GskhUV3ssHdo0JWC7ASVb5DiIO1Zu2pHuTB3s
+         vH+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784010502; x=1784615302;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KN+zGCwqnRr77YLBHNGCvv6ivP6Fw2MCgfq05HPwV4M=;
+        b=MkJQthxYrgOfFEweV5JRkQ3V5ghvn05xBxRxBC4SL1tx6nYfup/Ts/ygllXbdNYS0E
+         cM6SlcjGweSLjVVWU24Pft0WPynmlCe0Ni8fw4jdpSNKPA4gVFf9/1Nfe1sWRLqsniLN
+         5pVtPFRaaIZDHrSF+KsaEfVqki36kHFMH80H4pedPiE4B8U50W6DOXFGNHeIaYpL77hv
+         57xf/mWJrhgjLbqdM/CZVICWVXEPQ62bVf284H7A0Qxob7oOwYeb4NkJYKb/64vgCZGo
+         fvMsOxO7FTlA3SV2JRPzY9lCAflj556hDJTKxkPFbjh2RlZwl5PYEZkvCCWhDLIxADsX
+         gPlQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrrl77HRC5RMDVFAXvvuxKurbFVam1/LrhFeMy7sTwDsPUikxnNv78rDFWpw/R2QuH9Ukzk7hXDfTP4Efez47fE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9m7bTIZ5ZChjg/CZEfqZIEiD4QyluU2fWyXQfNckmjUX+hdcN
+	O69vLXlfwhisphCDKoMuQz3WMV8U/GnR+54GWIj25YJ5ZvH4SVE+91Rx
+X-Gm-Gg: AfdE7cnBAwQtg0JpHZUfCtwJzMYJKci274goh5QsWxf7Y+wi4tDs1ZJcE7OLsiIp+xg
+	vpH0yQuakFjgl1m81qVNHzY6M/fPrd5qiNx48Q+jfXPsEAw5qQ95Q9ZG35DacoBn1pA9lVM9dOO
+	VyXU5GybSCb8hyL8hLl5rxoywZZpYznkf7umi9P7BkKa83pKC1shEohyER6Aem0ByFcl6tG1rX9
+	ZjUo/Y+vMhCXkt5DzZ36/XzHd0ElEWep+lq4aNRTbIu02d5lICjSDiFVW6Cr0EYDXFDps26qvHw
+	vTpsmdKv4D/ODmlY2e98ocSFhpCvqiHTnLk5is4ghw7PPEYY/09qdKc0qtZjMpXjhZLJ8d7pXaV
+	Ar4ZII/9wtsfVD2fPPfXtOpTSsDIchSCFJEoN01zHpZGmuHmrGndM58i3WWrw1qAhksVeiiHHeX
+	4ZmptQSvzjNkOSLwlqCCBGmcCtRoB+c+ZwPbAzIkvZd1LHFNfVP1NL2jGTBP4bBxmOC4kc7eWHo
+	AUL9V+OC9NhZpJHGutn3Z0grXfbywPZox67a1+ohp0yt6ouIgmfGf55ivbDRgEb
+X-Received: by 2002:a17:902:f605:b0:2c9:a5e9:c26e with SMTP id d9443c01a7336-2ce9eab85f7mr116798135ad.13.1784010502236;
+        Mon, 13 Jul 2026 23:28:22 -0700 (PDT)
+Received: from [10.160.5.76] ([119.17.57.186])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc99cc5aasm110915985ad.0.2026.07.13.23.28.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 23:28:21 -0700 (PDT)
+From: James Calligeros <jcalligeros99@gmail.com>
+Subject: [PATCH v2 00/12] arm64: dts: apple: Add SMC hwmon nodes
+Date: Tue, 14 Jul 2026 16:28:07 +1000
+Message-Id: <20260714-smc-subdev-dt-v2-0-13fa78873121@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: An7HUqEbU7I3
-Date: Tue, 14 Jul 2026 08:12:06 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>,
- "Vladimir Zapolskiy" <vz@mleia.com>,
- "Piotr Wojtaszczyk" <piotr.wojtaszczyk@timesys.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <8b04868e-1676-4c70-b14b-21609e01d791@app.fastmail.com>
-In-Reply-To: <20260713192506.7782-1-kmehltretter@gmail.com>
-References: <20260713192506.7782-1-kmehltretter@gmail.com>
-Subject: Re: [PATCH v2] ARM: lpc32xx: only run SoC init on LPC32xx hardware
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNyw6CMBBFf4XM2jHTKm3iyv8wLLAdYIw80mKjI
+ fy7BdcuT3LuuQtEDsIRLsUCgZNEGYcM+lCA6+qhZRSfGTRpQ1ZpjL3D+Lp7TuhnJFefLRldatV
+ A3kyBG3nvvVv14yw/2M1bZDM6ifMYPvthUpv3r50UElprTkTGl9bZa9vX8jy6sYdqXdcvU+5WB
+ 7wAAAA=
+X-Change-ID: 20260712-smc-subdev-dt-0ca47062521f
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ James Calligeros <jcalligeros99@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5470;
+ i=jcalligeros99@gmail.com; h=from:subject:message-id;
+ bh=M0eRETR/rM4kRQsJzoAQ0bq/TtjH3de46IG5ZXvH01A=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFmh1/7wfGyQCeixe5ykE2YjmPf+GPu3ZPHj13K8VsQ8n
+ VD3VPhBx0QWBjEuBksxRZYNTUIes43YbvaLVO6FmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
+ jXSMdYwYuDgFYKoZ2Bn++2jMU27IMtfi+56cPKHKJdSc+em3U+Z1Mx3kN6jf/yezleGf6bfj39b
+ lNC+/vtttxaaV9x+xf75jfCMuXti+ZEWzhcsENgA=
+X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
+ fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_231228_923872_26FC5697 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260713_232823_584719_3DA36973 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +116,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026, at 21:25, Karl Mehltretter wrote:
-> lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
-> LPC32xx-only registers. Since the multiplatform conversion they also
-> run on other ARCH_MULTI_V5 boards where access faults e.g. on versatile:
->
->   Unable to handle kernel paging request at virtual address f4004130
->   PC is at lpc32xx_check_uid+0x2c/0x9c
->
-> Drop the arch_initcall() registrations and call both functions directly
-> from lpc3250_machine_init(), the machine's .init_machine hook.
-> The calls are placed in link order (common.c, pm.c, phy3250.c) to
-> keep their previous relative ordering.
->
-> Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Hi folks,
 
-Looks good to me,
+Following on from the series which added SMC hwmon driver[1], this
+series spins out and adds the Devicetree nodes required for the hwmon
+driver to operate. These were missed back in December.
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+The System Management Controller on Apple Silicon devices exposes
+the temperature, voltage, power and fan speed data from numerous
+(potentially hundreds) of sensors scattered about the SoC and
+device at large. Unfortunately there is very little rhyme or reason
+to how Apple expose these using the SMC firmware's FourCC key-value
+system. Some sensors are reliably common across all devices and
+all SoCs, like PSTR which measures the total platform power consumption.
+Others are specific to a class of device, like the fan control
+keys, which are only present on devices with fans. Some are specific
+to a single SoC, and others still are specific to a single device.
+To complicate matters further, some SoCs are not even consistent
+across devices; the application core temperature sensors for a
+given SoC are read from different keys depending on the device
+that SoC is in...
 
-Vladimir, I assume you'll pick this up and forward it to
-soc@lists.linux.dev. Let us know if you prefer Karl to send it
-there directly and save you the extra pull request.
+Trying to express all of this in every device's Devicetree is a fool's
+errand. To eliminate duplication, we instead use .dtsi files to
+compose a set of sensors for each device in a saner way:
+    - Sensors empirically proven to exist on all SoCs for all devices
+      go in hwmon-common.dtsi
+    - Sensors empirically proven to exist on all devices with a given
+      SoC can go in a SoC-specific hwmon-${soc}.dtsi file, much as we
+      do with PMGR and GPIO currentlyo
+    - Sensors empirically proven to exist on all devices of a specific
+      class go in hwmon-${class}.dtsi (e.g. hwmon-laptop.dtsi)
+    - Fan control endpoints are reliably common across all devices
+      with fans, which will #include hwmon-fan-*.dtsi
+    - Sensors specific to one device only can be expressed in that
+      device's specific .dts file
 
-      Arnd
+This series introduces some basic sensors we know about to get the ball
+rolling. As you can imagine trying to find every valid sensor on every
+device and figure out what it's actually measuring is a tedious and
+labour intensive process, so expect more sensors at some point in
+the future.
+
+Regards,
+James
+
+[1] https://lore.kernel.org/asahi/20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com/
+
+---
+Changes in v2:
+- Fix M2 series Mac Studio fan includes
+- Link to v1: https://patch.msgid.link/20260712-smc-subdev-dt-v1-0-7763006d57c7@gmail.com
+
+To: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>
+To: Neal Gompa <neal@gompa.dev>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+James Calligeros (12):
+      arm64: dts: apple: t8112: Add SMC hwmon node
+      arm64: dts: apple: t8103: Add SMC hwmon node
+      arm64: dts: apple: t600x: Add SMC hwmon node
+      arm64: dts: apple: t602x: Add SMC hwmon node
+      arm64: dts: apple: Add common SMC hwmon infrastructure
+      arm64: dts: apple: t8103: Add common SMC hwmon sensors
+      arm64: dts: apple: t8112: Add common SMC hwmon sensors
+      arm64: dts: apple: t600x: Add common SMC hwmon sensors
+      arm64: dts: apple: t602x: Add common SMC hwmon sensors
+      arm64: dts: apple: t8103: jxxx: Add device-specific SMC hwmon sensors
+      arm64: dts: apple: t8112: jxxx: Add device-specific SMC hwmon sensors
+      arm64: dts: apple: t60xx: jxxx: Add device-specific SMC hwmon sensors
+
+ arch/arm64/boot/dts/apple/hwmon-common.dtsi    | 38 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi  | 23 +++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-fan.dtsi       | 17 +++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-laptop.dtsi    | 38 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-mini.dtsi      | 16 ++++++++++++++++
+ arch/arm64/boot/dts/apple/t6001-j375c.dts      |  2 ++
+ arch/arm64/boot/dts/apple/t6001.dtsi           |  2 ++
+ arch/arm64/boot/dts/apple/t6002-j375d.dts      |  2 ++
+ arch/arm64/boot/dts/apple/t6002.dtsi           |  2 ++
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi      |  4 ++++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi |  2 ++
+ arch/arm64/boot/dts/apple/t6020-j474s.dts      |  2 ++
+ arch/arm64/boot/dts/apple/t6021-j475c.dts      |  2 ++
+ arch/arm64/boot/dts/apple/t6021.dtsi           |  2 ++
+ arch/arm64/boot/dts/apple/t6022-j475d.dts      |  2 ++
+ arch/arm64/boot/dts/apple/t6022.dtsi           |  2 ++
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi      |  4 ++++
+ arch/arm64/boot/dts/apple/t8103-j274.dts       |  2 ++
+ arch/arm64/boot/dts/apple/t8103-j293.dts       |  3 +++
+ arch/arm64/boot/dts/apple/t8103-j313.dts       |  2 ++
+ arch/arm64/boot/dts/apple/t8103.dtsi           |  5 +++++
+ arch/arm64/boot/dts/apple/t8112-j413.dts       |  2 ++
+ arch/arm64/boot/dts/apple/t8112-j415.dts       |  2 ++
+ arch/arm64/boot/dts/apple/t8112-j473.dts       |  2 ++
+ arch/arm64/boot/dts/apple/t8112-j493.dts       |  3 +++
+ arch/arm64/boot/dts/apple/t8112.dtsi           |  5 +++++
+ 26 files changed, 186 insertions(+)
+---
+base-commit: 44696aa3a489d2baf58efa61b37833f100072bee
+change-id: 20260712-smc-subdev-dt-0ca47062521f
+
+Best regards,
+--  
+James Calligeros <jcalligeros99@gmail.com>
+
 
