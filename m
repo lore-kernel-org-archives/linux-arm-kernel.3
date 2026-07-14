@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23742C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472F8C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfTl3GQoSyoFUEnmuQBsyrvcEduJvtBv+v98cbpDZBc=; b=a+lZWFguF/c9IKm6qn4ikcfODq
-	abVcL2E2iAcTmmM76WzMEvqnysy7j1FC9bkDQaJcfU6ZIwkJa934GFsC4QNBEz2UzjraTepBcMGwI
-	xvgi0IoMhsGOWele2hIb2zhy7E+S2Nt4ehTBa9VMcxHMjviwUgx2dUi/+0cfeckFhCKGNxpALDK1w
-	PyYS28vyPtGD+SdMDZsbDwcGpbIMRsczk4vXAbpHNu6qVSg+i62zlxTNwRrqqzBpZp6JRCZD+y42D
-	fCBPzdgdlAGjybLnhT+Wp9mB+xjn4jIq/2AUxkuLtH3wzERmi52E8jNbsdhKT317RLYxTNeYWbwjJ
-	v4cK9SfQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pql5nZoyx4uigchL2F82l2cIvvuODWlbZIdBTSPz7E8=; b=T5H2IkxANfejxBHrJ69YN8sznR
+	JuEtx91odNR1oC48lFodfJP+nAm/cUbFiG6pY4DcsOs90R0AwQ1Tk579HlKgVgIoY6yOJs2/r5Y46
+	fW9nqskXWNpL/lVPmPNDZdN7gCrR02BIn78q6ZkWHnn+ZfpEQ7IcKQVQWcrm74SSoNPSs/Y9S8ipR
+	ODnRQ4K9nwWcVsNZ9yC57fWvqGgyoD0hfmY5Y2yG3KUob+NnnLHQpMs5xxgxjHiqzJL95nssuhImp
+	HvTMcdidN9qYcN79n0SvFBTxsfpX4I1pdtIPyewLGCE0o9DnDOrVrKb2Hjo5qiwKnCv1hOC9hCIfZ
+	kRcLxo3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVm6-0000000Awsd-0cCA;
-	Tue, 14 Jul 2026 05:33:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVm3-0000000AwsD-3GlQ
+	id 1wjVmt-0000000Ax1g-1B26;
+	Tue, 14 Jul 2026 05:34:35 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjVmq-0000000Ax0W-1Igj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 05:33:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A4AC339;
-	Mon, 13 Jul 2026 22:33:38 -0700 (PDT)
-Received: from [10.164.148.52] (unknown [10.164.148.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FDB83F7D8;
-	Mon, 13 Jul 2026 22:33:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784007222; bh=hccglgIXGsjwDzVnD98+WSP/z7D0qxzcLTBTl50S9mg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FSOAa8YNN3CVVYMjJlByEEDvCp3N6RiO2oahs9L5zy3NLSdL4eotRZOOzLXBgsR6c
-	 QeIYYS2MnJjijJddDjToSP50t6vArkTP40fqUyhWbBaoCbjr/zmfwyDXdqfoJjJoEn
-	 U6REtT/KH2W5L1HtBWEbunXMgohTA6E6QD/jFSyw=
-Message-ID: <a9fe7408-8607-4115-8f2f-75ec9b5a4b21@arm.com>
-Date: Tue, 14 Jul 2026 11:03:34 +0530
+	Tue, 14 Jul 2026 05:34:34 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso2603791a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 22:34:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784007270; x=1784612070; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Pql5nZoyx4uigchL2F82l2cIvvuODWlbZIdBTSPz7E8=;
+        b=hpQaTFltYj06T/laxELT1Hu7izvfB30a3aGDKKDLT2GRZYhf/aMNDk2G0XU6r+oK/1
+         UwP4c4N/QpqKNfs6Lei8AJmQgzfQsbKJd8KF+FB6XAL9td6M0xat5MD4DqBU39N0GRRE
+         jQ2jV2Q0iHUc0EWSrrj6WeV/j/JlcoyGV8GZsSfSlUqBxltuAJyxe2o5aprCZV9ssinh
+         a45NGrsJJJ7jjxwl1ZOSRKVPonhoCjgViqSW7IpAuIwKO1n3ObM5+Ka4ZsBD/ihNaH4r
+         Oo37GXT5HSQApAu39kvhN9DN5R9jaHdNxFOm65qY7R3X5Ab8gXtlLEPryUQNWHwq2+V3
+         1qdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784007270; x=1784612070;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Pql5nZoyx4uigchL2F82l2cIvvuODWlbZIdBTSPz7E8=;
+        b=dizMGSpwC49C1YIQ1yKsW1kkJzsjzrxImkFQkifMKRpLSNjlLhMTvXNXLX1I+0wPVd
+         5aQFrNn+HiC0Tl/Pc+PezfyQxuz9rTaCDFpshyJKsy0cw4MDvTISbqviTw17I332YhB1
+         naBlDcZUV3i9IJa7/uS5tXSo5Bk1UNhFcNcygJtL/FaNjOQ+qbgSojr3yDcDNah9r0Hu
+         lT18CBVxlL0C5V/mqi9vieD/PkNYH0/bobdBEGGv2RZlEkf3YgzZNzsPVoxefwr14+C5
+         JM9xA31C+m+heZlAydDjXRvMveksqjMbCW+Mw8Byl+EDxG2RxMEOJQTFtaLRQe8Wmzao
+         dQrQ==
+X-Forwarded-Encrypted: i=1; AHgh+RowZnXwWGKHstOqvpO7GX5tWEQqFxdGjUg9LaHgWpuOCJStgDZH1dz7JZM+LKJnicy4s1W8WqCoADB/DO2Xphwo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRkTowhqJPW4Er9vAjX70cUhXr1ke5oHPs7UT/i81IdYHEhYyi
+	pwvPYpO9PQvz5iW7ZVFpN9B/O2YXxqDFO6ugRvbFa5Z9VZpDpcsj0faL
+X-Gm-Gg: AfdE7cliBwSU8tsUqrLOHgTgYBAqVSTLOmIVfTlGYf0Og48nio3MECB76jU6INLCCSy
+	V+bOJB+7jPZbdTek3t53wv8kn9f+7h6AqeF6I9YQnV1FpIYScey2S96sf0CD8Y2ABj8AOFrdIFc
+	o7eKgtJAFYzbDbifSvjcXkgWrQUkXT6a3IPMTba6kXYcfYJSqMFMh5FV3ZhC6rtgsZzkL5wa/6m
+	gjU2vTVwuRgwlOYIitomEnKI9cBedprUcdlC+QLZmLQ0QUdC+7ICaohDPaeXi1g7vYfuDvMhbPb
+	8FFlsPLA91GJmg5bIdRHbKV6N4BbcS/VTHFqFc3xrwlNHFj0IjmRZtbnNFxMefc+lgIknuuAqTf
+	3O12lv8z6qWCCI2AUDsuBRtWwyg9/X+SsSMLjTJ8dIhGUxZcjzVsbGvt/nBcOh9Dk+7yxQasSjk
+	Sv+dXTWYSJ+WmePl59uCfq
+X-Received: by 2002:a05:6a21:320b:b0:3c1:d78:6450 with SMTP id adf61e73a8af0-3c34d8bc7ccmr2897757637.66.1784007270055;
+        Mon, 13 Jul 2026 22:34:30 -0700 (PDT)
+Received: from i386.168.1.127 ([2402:a00:163:2ce9:6882:91b7:8e79:7958])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b87b92b27sm33047165c88.6.2026.07.13.22.34.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 22:34:29 -0700 (PDT)
+From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: heiko@sntech.de,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Subject: [PATCH v8 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Tue, 14 Jul 2026 11:04:17 +0530
+Message-ID: <20260714053419.265523-1-hrushirajg23@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/6] mm/vmalloc: map contiguous pages in batches for
- vmap() if possible
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
- urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
- ajd@linux.ibm.com, anshuman.khandual@arm.com, david@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- rppt@kernel.org, ryan.roberts@arm.com,
- "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
- <20260709073823.6643-6-jiangwen6@xiaomi.com>
- <aa5d2aa2-89c8-4b6c-9a28-5c22143277b0@arm.com>
- <CAHKocdG7iO=S+pZLSs+mYO3GmVC_WvpC0V_1Tjj7RZ-YxWVh_w@mail.gmail.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <CAHKocdG7iO=S+pZLSs+mYO3GmVC_WvpC0V_1Tjj7RZ-YxWVh_w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_223343_974962_344F9229 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260713_223432_377383_0BCD956B 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,140 +101,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds initial device tree support for the Vicharak Axon
+single-board computer, which is based on the Rockchip RK3588 SoC.
 
+The Vicharak Axon is a feature-rich SBC targeting developer and embedded
+use cases. It ships with:
 
-On 14/07/26 10:46 am, Wen Jiang wrote:
-> On Mon, 13 Jul 2026 at 23:19, Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 09/07/26 1:08 pm, Wen Jiang wrote:
->>> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
->>>
->>> In many cases, the pages passed to vmap() may include high-order
->>> pages. For example, the systemheap often allocates pages in descending
->>> order: order 8, then 4, then 0. Currently, vmap() iterates over every
->>> page individually—even pages inside a high-order block are handled
->>> one by one.
->>>
->>> This patch detects physically contiguous pages (regardless of whether
->>> they are compound or non-compound) by scanning with
->>> num_pages_contiguous(), and maps them as a single contiguous block
->>> whenever possible. The mapping order is determined by taking the
->>> minimum of the contiguous page count and the pfn alignment, allowing
->>> graceful degradation when pfn alignment is less than the contiguous
->>> range.
->>>
->>> Pages with the same page_shift are coalesced and mapped via
->>> vmap_pages_range_noflush_walk() to avoid page table rewalk.
->>>
->>> As users typically allocate memory in descending orders (e.g.
->>> 8 → 4 → 0), once an order-0 page is encountered, we stop scanning
->>> for contiguous pages since subsequent pages are likely order-0 as well.
->>>
->>> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
->>> Co-developed-by: Dev Jain <dev.jain@arm.com>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
->>> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
->>> Tested-by: Leo Yan <leo.yan@arm.com>
->>> ---
->>>  mm/vmalloc.c | 87 ++++++++++++++++++++++++++++++++++++++++++++++++++--
->>>  1 file changed, 85 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index d2a4d649af549..db0492151ad08 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -3543,6 +3543,89 @@ void vunmap(const void *addr)
->>>  }
->>>  EXPORT_SYMBOL(vunmap);
->>>
->>> +static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
->>> +{
->>> +     if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
->>> +             return PMD_SHIFT;
->>> +
->>> +     return arch_vmap_pte_supported_shift(size);
->>> +}
->>
->> Need to throw in a preparatory patch for this, which will (in addition to
->> introduction of the vm_shift() function) do:
->>
-> 
-> Hi Dev,
-> 
-> Your suggestion is to extract "vm_shift" into a separate patch, say
-> Patch 5, to make it a common utility function just like Patch 3. And
-> move the existing code that can use vm_shift into this new patch as
-> well, correct?
+  - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+  - RK806 PMIC providing all SoC power domains
+  - eMMC 5.1 (on-board) and microSD slot
+  - Gigabit Ethernet via RGMII (RTL8211F)
+  - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+  - PCIe 3.0 x4 and two PCIe 2.0 slots
+  - SATA 3.0
+  - USB 2.0 host ports (EHCI/OHCI)
+  - NXP PCA9554 I/O expander for status LEDs
+  - Haoyu HYM8563 RTC
 
+Note on vendor prefix: the 'vicharak' prefix was submitted separately
+[1], and Krzysztof asked us to drop it from our series [2]. 
 
-Yes it will look like the current patch 3. So before the current patch 5,
-you can have a patch introducing vm_shift and making the code chunk
-in __vmalloc_node_range_noprof() call it.
+[1] https://lkml.org/lkml/2026/6/24/929
+[2] https://lore.kernel.org/linux-rockchip/96c9b1eb-9f8e-430d-9c38-eb4d489d7d24@kernel.org/
 
+Changes since v7:
+- Renamed rk806 DVS pinctrl nodes to have '-pins' suffix to comply
+  with the rockchip,rk806.yaml binding (e.g. 'dvs1-null-pins').
+  Removed unused DVS pin state nodes (only the three dvs*-null-pins
+  states actively used in pinctrl-0 are kept).
+- Removed dangling pinctrl-1/pmic-power-off state after removing
+  the unused dvs1-pwrdn node.
+- Moved 'compatible' before 'reg' in the PMIC node per DT convention.
+- Dropped vendor-prefixes.yaml patch (handled separately, see above).
+- Verified with dtbs_check: no warnings.
 
+Hrushiraj Gandhi (2):
+  dt-bindings: arm: rockchip: add Vicharak Axon board
+  arm64: dts: rockchip: add Vicharak Axon board
 
-> 
-> Thanks,
-> Wen
-> 
->> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->> index afaa14ebf17bb..dac87e1cd484b 100644
->> --- a/mm/vmalloc.c
->> +++ b/mm/vmalloc.c
->> @@ -4175,10 +4175,7 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
->>                  * supporting them.
->>                  */
->>
->> -               if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
->> -                       shift = PMD_SHIFT;
->> -               else
->> -                       shift = arch_vmap_pte_supported_shift(size);
->> +               shift = vm_shift(prot, size);
->>
->>                 align = max(original_align, 1UL << shift);
->>         }
->>
->>
->>
->>> +
->>> +static inline int get_vmap_batch_order(struct page **pages,
->>> +             pgprot_t prot, unsigned int max_steps, unsigned int idx)
->>> +{
->>> +     unsigned int nr_contig;
->>> +     int order;
->>> +
->>> +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
->>> +             return 0;
->>> +
->>> +     nr_contig = num_pages_contiguous(&pages[idx], max_steps);
->>> +     if (nr_contig < 2)
->>> +             return 0;
->>> +
->>> +     order = ilog2(nr_contig);
->>> +
->>> +     /* Limit order by pfn alignment */
->>> +     order = min_t(int, order, __ffs(page_to_pfn(pages[idx])));
->>
->> You missed Sashiko's point here :) the pfn may be zero and this
->> will blow up. You can just first derive the pfn and do the clamping
->> only when pfn > 0.
->>
->>
-> 
-> Will fix this.
-> 
-> Thanks,
-> Wen
->>
->>> +
->>> +     if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
->>> +             return 0;
->>> +
->>> +     return order;
->>> +}
->>> +
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3588-vicharak-axon.dts     | 860 ++++++++++++++++++
+ 3 files changed, 866 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
+
+-- 
+2.47.3
 
 
