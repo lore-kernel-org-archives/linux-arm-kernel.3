@@ -4,89 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952B7C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 01:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C53EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 01:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJcL00QU8NeR/3LQ60oy1TP3plsUe//m7118vm1u7LY=; b=UKEzl+rHcZk60eCHhajqiF9f9g
-	NoW3HYlEGkqImIWlHuocjT4QvTg4cOSS5mlh4DK0w/SE6j2tQC+9eKBmksJuy2pGu/ZB2GQW6C+zX
-	TISb76tzXtY/6HfShDKh8WBZOHqH9LoKkiNV4CADCl6sXViFOeuR0q1FMDEZ8jo69c871xfQESES2
-	wGeRsJnIgsDzyl/HXF0et2glLBU2YH/yq/a6ns74qJ+iO3wgVN7CFNhMSig2YbeJHiWlzlRJqZv+B
-	C6mWZhq6pGrz7RIDhtB1YJQuAe4wiT7H6mYEYQJIp8vMnn24NM1KwdoADxLh9VC/UwlNOebhpXx6v
-	gY6EoEYA==;
+	bh=Q7Ilth6iiexMyu52cr63C3cGXl/20AI/2yHPhIPwQK0=; b=dy6vg7145JUWnF42Sl9b9bFkDQ
+	XMMFlsdXivaqza1D4V38Tp65mG48wMxKWsH+HRy/9muXcLiAKARJdj6qLAL9vEcEAo+p8cYR6KDdl
+	fmJfvF4daJs0EuErvO40qMQ4UJOq56kUWIfhkW/zcCA69mTi66ptJ9eisp1emr9sfALm3ntUkfUlL
+	n/7fYruH1zHClEuN9RJtX04BdMhfG8MH5e33xoMbO7Ndd4SmajmSwQfD0JneAxzZw9uzAft4lElde
+	+NHXuBzwSjSI6DpjxN14Kd9H4HzxzDcQloeQZHaKIc+BOMCFDjUONa49PRAz3OwSAJx2nET7x7ATa
+	29mvRZpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjRkA-0000000Aee3-3XDp;
-	Tue, 14 Jul 2026 01:15:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjRv6-0000000Afe5-1tZp;
+	Tue, 14 Jul 2026 01:26:48 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjRk9-0000000Aedl-28hr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 01:15:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KJcL00QU8NeR/3LQ60oy1TP3plsUe//m7118vm1u7LY=; b=mHnIEX4uEjzhUpdAdm9wS/3Cs6
-	EBpWAjjMMSJc3JUuzVcbTN8jcoNZur3qI2/QeUoKx5+Jn2kzDeXst0nElHL1hcbdgbjo2t3CxSIw8
-	AAS78Gm9rx1pXwfVWDNJHD6Z7mWAiPCEzRFPfU/YeFkNIhj4XGIMNA4Txv9DPYoOI+hmr5rE4aWj7
-	Sj/7PdQ1IGu7RBW0kGY2Z51qIrcpwe6VuXMh2lw/khBnOrVD87pBBEchwHPsmite7nmHwjPUyUsiZ
-	2alO4I92E9ABLjiUa0wFLRoDbocOS7OUWwsBogBiTqo67rfzJohhDzbppPzDU9ulmXMMqeuJClPxF
-	xgUtwikA==;
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjRk5-0000000C66V-3C7u
+	id 1wjRv4-0000000Afd8-2J2G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 01:15:28 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KJcL00QU8NeR/3LQ60oy1TP3plsUe//m7118vm1u7LY=;
-	b=gBKokQq4AHGs26ZFgKEydsParAts/TAQRzx+DV2ZAooK1I64VLgH82rrgHzez57RmBNQiq3JS
-	T9yXp5fwuqvyrDHfWJkK4oWqsKE4BN57ZGtU1UiS/ZAK7d2QzjLu7adLt5pFW1C46HLfhyMJaIW
-	nooSyWgH23IQqBKtjSaLQBw=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gzh1r2kc7z1T4HL;
-	Tue, 14 Jul 2026 09:05:36 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 19C1740561;
-	Tue, 14 Jul 2026 09:14:45 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 14 Jul 2026 09:14:44 +0800
-Message-ID: <8f949334-3ce7-44f4-b6da-f08a4126affd@huawei.com>
-Date: Tue, 14 Jul 2026 09:14:45 +0800
+	Tue, 14 Jul 2026 01:26:47 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38deea72eebso1665278a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 18:26:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783992405; x=1784597205; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Q7Ilth6iiexMyu52cr63C3cGXl/20AI/2yHPhIPwQK0=;
+        b=Sq/eTEjOILjXLm2HM0KKnbADNwUaHIsjP+Kxf8Pasuk5JVQep/L3ScBuPTjO8ztSum
+         hvsPswwp16EZRSd0gWVwugcH3DrcHhlSdA8sF6GPlLaVl65kCa+r98Y0jZQn5p53WJFv
+         DD96c1qx0cUh1YRjgMG0L3mGQnwB/4NHwEdT5MiA6TsreDxi72XQGeGwub1jj06oUy0v
+         osFjOW+JXIW6A8+azSbZ5jcxe0F2o2csCcRnRql5hRT41wZlHpr8HAT2Yqfav5LCiDkv
+         UG3zZZzrFMyivhKdXd6VLOlpxWr2z/R9+orf6GLj3vnUubimv4WMXGKV7wJLa4CLnSps
+         GckQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783992405; x=1784597205;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Q7Ilth6iiexMyu52cr63C3cGXl/20AI/2yHPhIPwQK0=;
+        b=AhACZ8zGWbNxhIWg4OoVIeYLYWtmY1lryrCPk1o/ukmSkWDljtIuY8llrz/qS8ZcKr
+         FOZUC7Imgk6uzxLrh40idu7mjzqkUgFK0xrEgVIic812Zzg3by6ucdVGiXLxpWEQfFmo
+         mzXFXQUai93N8QgtSEzWdSZKhICHE8mm4FQHlu/mBr8QSoDgdsOOFrNer+HFvIniti/j
+         yxLqiX7xSepcMyeo0qcp5sLV7/0xfiwJWlyjuCTFNmxig9ivZjCcK/oedFw15GB/Fsri
+         Hhz42AdI0r43C8yCQsnqs/6gmxL5PApaGP+zhraGatlv32tARfaiSm2tVilkl5T/8ywL
+         D/jw==
+X-Forwarded-Encrypted: i=1; AHgh+RoRoNDy4kSVbekqq0TYtt/ViK64mKNGq7t7cCnw+uNngv4Gw3Qbz1mQUv59FlU6EZ9n4R6zx5om+4US5yfwVt/j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz124qO8/heUVvkvGcYs2Y3RqkkrWq8VXUzmqdHqhwBNUB+4Hk6
+	hDFCvPLvDrtmNh7lRMGQw72mTjUohaVnMK5TqnuTPQBkXIVaWvdENXhk
+X-Gm-Gg: AfdE7clZFEHvFrd5vlO+1keFYEAu6Mo/ayYraY3aqSrLHPheB4bVKWnlXCAX+LWBn0G
+	zzdXV9793dsBA4af2JcuvszXBPjhlBdK1FconaIsuOyg/Hs4uSKN/X/EfJ9uYoHLghcRVvUQmZX
+	P2vbFitO0HCT3aXMNZYAcxN1NsvDBi0hUqBklySmveyGxrmfmEv7dZcdbomI6NUBg7jJXJV6fYJ
+	bV03vMoJK/Rp5cvu9eBskY1WC9BcwoHnipaaHLo1NNYePPeVQPNHzKaHgC9x/vh7+qJB2CVHbVq
+	cP2kwfO1ibTsm1WBukfL9EnPtIhRLtstNnVeLbHjAFxUT4VIRNQvO/ErTDO9qbDK1IzE959g1+3
+	IYpPKxuxT5qjuj6m5mquwn53XR4XbIz0pIJhxVyKidqato1+EXIqfKKkftx5gYJPdMrNmAblmpK
+	BvodYNmSOxkmERjc4XWsZX96ponDH6/i8CPI03lSkQ0Tsb/LBaaCRnfALJTda58P3nhA==
+X-Received: by 2002:a17:90b:224c:b0:37f:9ce1:cdb0 with SMTP id 98e67ed59e1d1-38dc778a27bmr10194596a91.30.1783992405139;
+        Mon, 13 Jul 2026 18:26:45 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e1745a3fesm604483a91.13.2026.07.13.18.26.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jul 2026 18:26:44 -0700 (PDT)
+Message-ID: <fd2a645f-1144-4e08-9e3b-df06aba0db55@gmail.com>
+Date: Tue, 14 Jul 2026 09:26:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
- dirty tracking
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-4-zhengtian10@huawei.com>
- <alTJOy8Sv4aAp_9y@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alTJOy8Sv4aAp_9y@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Subject: Re: [PATCH v3 1/3] dt-bindings: phy: nuvoton,ma35d1-usb2-phy: extend
+ for dual-port and OTG
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jacky Huang
+ <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260708103606.1462960-1-a0987203069@gmail.com>
+ <20260708103606.1462960-2-a0987203069@gmail.com>
+ <20260710-strange-prompt-python-c2e1d4@quoll>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260710-strange-prompt-python-c2e1d4@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_021526_488266_8F5F4D80 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260713_182646_602077_80292306 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,171 +113,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 7/13/2026 7:17 PM, Leonardo Bras wrote:
-> On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
->> The DBM (Dirty Bit Modifier) attribute, introduced in ARMv8.1, enables
->> hardware to automatically promote write-clean pages to write-dirty. This
->> prevents the guest from being trapped in EL2 due to missing write
->> permissions.
->>
->> In this design, DBM is controlled by the page-table level flag
->> KVM_PGTABLE_S2_DBM rather than per-PTE software flags. DBM is
->> automatically set for writable non-device pages when the page-table has
->> KVM_PGTABLE_S2_DBM flag, which is determined at MMU init time based on
->> hardware capability.
->>
->> The DBM bit is set in stage2_set_prot_attr() for initial mappings and
->> hugepage splitting, and directly manipulated in
->> kvm_pgtable_stage2_relax_perms() when removing write-protection. On
->> W->RO downgrade, DBM is cleared to prevent hardware from silently
->> upgrading RO+DBM back to W+dirty, which would bypass KVM's write
->> tracking.
->>
->> kvm_pgtable_stage2_pte_prot() does not extract the DBM bit back into
->> enum kvm_pgtable_prot because DBM is a page-table policy determined by
->> pgt->flags, not a per-PTE property. Callers should check
->> pgt->flags & KVM_PGTABLE_S2_DBM instead.
->>
->> This ensures DBM is consistently applied across all PTEs, including
->> during hugepage splitting where child PTEs inherit DBM from the parent
->> block entry via the pgt->flags mechanism.
->>
->> Safety: DBM bit is only interpreted by hardware when VTCR_EL2.HD=1.
->> When HDBSS is not enabled (HD=0), ARM architecture guarantees hardware
->> completely ignores DBM bit in PTEs.
->>
->> Co-developed-by: Eillon <yezhenyu2@huawei.com>
->> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->> Co-developed-by: Leonardo Bras <leo.bras@arm.com>
->> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> Hello Tian,
+On 7/10/2026 4:54 PM, Krzysztof Kozlowski wrote:
+> On Wed, Jul 08, 2026 at 06:36:04PM +0800, Joey Lu wrote:
+>> +  nuvoton,oc-active-high:
+>> +    type: boolean
+>> +    description:
+>> +      When present, the over-current detect input from the VBUS power switch
+>> +      is treated as active-high. The default (property absent) is active-low.
+>> +      This setting is shared by both USB host ports.
+>>   
+>>   required:
+>>     - compatible
+>> @@ -39,7 +78,7 @@ examples:
+>>   
+>>       usb_phy: usb-phy {
+>>           compatible = "nuvoton,ma35d1-usb2-phy";
+>> -        clocks = <&clk USBD_GATE>;
+>> +        clocks = <&clk HUSBH0_GATE>;
+> This change is really redundant. Instead, add optional properties like
+> nuvoton,rcalcode and nuvoton,oc-active-high.
 >
-> Have you added the above tags due to this patch being based on the below?
-> https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
+> The rest looks good, so with above change:
 >
-> Thanks!
-> Leo
-
-Hi Leo,
-
-
-Yes, I added your Signed-off-by because the DBM-related code in this patch
-
-is based on your implementation in:
-
-https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
-
-
-Thanks!
-
-Tian
-
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 >
->> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->> ---
->>   arch/arm64/include/asm/kvm_pgtable.h |  4 ++++
->>   arch/arm64/kvm/hyp/pgtable.c         | 35 ++++++++++++++++++++++++++--
->>   arch/arm64/kvm/mmu.c                 |  3 +++
->>   3 files changed, 40 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
->> index 41a8687938eb..5e0fac4bfa53 100644
->> --- a/arch/arm64/include/asm/kvm_pgtable.h
->> +++ b/arch/arm64/include/asm/kvm_pgtable.h
->> @@ -93,6 +93,8 @@ typedef u64 kvm_pte_t;
->>
->>   #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
->>
->> +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
->> +
->>   #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
->>
->>   #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
->> @@ -249,10 +251,12 @@ struct kvm_pgtable_mm_ops {
->>    * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
->>    * @KVM_PGTABLE_S2_IDMAP:	Only use identity mappings.
->>    * @KVM_PGTABLE_S2_AS_S1:	Final memory attributes are that of Stage-1.
->> + * @KVM_PGTABLE_S2_DBM:	Hardware-managed DBM for writable pages.
->>    */
->>   enum kvm_pgtable_stage2_flags {
->>   	KVM_PGTABLE_S2_IDMAP			= BIT(0),
->>   	KVM_PGTABLE_S2_AS_S1			= BIT(1),
->> +	KVM_PGTABLE_S2_DBM			= BIT(2),
->>   };
->>
->>   /**
->> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
->> index 91a7dfad6686..21ec456ecc41 100644
->> --- a/arch/arm64/kvm/hyp/pgtable.c
->> +++ b/arch/arm64/kvm/hyp/pgtable.c
->> @@ -731,9 +731,23 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
->>   	if (prot & KVM_PGTABLE_PROT_R)
->>   		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
->>
->> -	if (prot & KVM_PGTABLE_PROT_W)
->> +	if (prot & KVM_PGTABLE_PROT_W) {
->>   		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>
->> +		/*
->> +		 * Set DBM bit for writable non-device pages if the page-table
->> +		 * has KVM_PGTABLE_S2_DBM flag (system supports HDBSS).
->> +		 *
->> +		 * For stage 2 translations using Indirect permissions, if the
->> +		 * Effective value of VTCR_EL2.HD is 0, then dirty state is
->> +		 * managed by software. Hardware only updates the dirty state
->> +		 * when VTCR_EL2.HD=1 (HDBSS enabled).
->> +		 */
->> +		if ((pgt->flags & KVM_PGTABLE_S2_DBM) &&
->> +		    !(prot & KVM_PGTABLE_PROT_DEVICE))
->> +			attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->> +	}
->> +
->>   	if (!kvm_lpa2_is_enabled())
->>   		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
->>
->> @@ -1367,9 +1381,26 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
->>   	if (prot & KVM_PGTABLE_PROT_R)
->>   		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
->>
->> -	if (prot & KVM_PGTABLE_PROT_W)
->> +	if (prot & KVM_PGTABLE_PROT_W) {
->>   		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>
->> +		/*
->> +		 * No DEVICE filter needed here: relax_perms is only called
->> +		 * on FSC_PERM faults. Device pages always get full RW from
->> +		 * initial mapping and are never write-protected during
->> +		 * migration, so they never trigger a permission fault.
->> +		 */
->> +		if (pgt->flags & KVM_PGTABLE_S2_DBM)
->> +			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->> +	} else {
->> +		/*
->> +		 * Clear DBM on W→RO downgrade to prevent hardware from
->> +		 * silently upgrading RO+DBM back to W+dirty, which would
->> +		 * bypass KVM's write tracking and cause data corruption.
->> +		 */
->> +		clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->> +	}
->> +
->>   	ret = stage2_set_xn_attr(prot, &xn);
->>   	if (ret)
->>   		return ret;
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index e086c01a9325..346efed6e605 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1014,6 +1014,9 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->>   	if (err)
->>   		goto out_free_pgtable;
->>
->> +	if (system_supports_hdbss())
->> +		pgt->flags |= KVM_PGTABLE_S2_DBM;
->> +
->>   	mmu->pgt = pgt;
->>   	if (is_protected_kvm_enabled())
->>   		return 0;
->> --
->> 2.33.0
->>
+> Best regards,
+> Krzysztof
+Thank you for the review.
+Agreed on both points: the clock swap in the example is redundant and I 
+will revert it. I will add nuvoton,rcalcode to the example to highlight 
+the optional properties. For nuvoton,oc-active-high, since active-low is 
+the default, I will leave it out of the example to keep it 
+representative of a typical board. I will address this in the next patch 
+series.
+
+BR,
+Joey
 
