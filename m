@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3619C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DACC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6X5YMXpvKlN1rtFZuXWP5ezzGqrHft5cjQkbgIqQagg=; b=xyyLCHwvmTa7u3Mm0WpN9lFcLq
-	P6BrJ/GC34KauKxN6ZjkbG3213sdUyseNCrkEm3JnOo1CqB1VKVK0HMGtvAaSnEbfh3imdJ9qv5W7
-	h2GqBKb87oU9+9eLxDxZT1TIGVqH6VVGlyyRflj/4cREfThgoZe5JfqEjXPXVtXinQZIWTz8w2RFN
-	rfkHJnVkBV4g08W6fE+kCJm9HtLjrfEmqnOXa9YD2zDMUeQLRq9Vz8WsXCjNSShWy8EnbRhk4RrAY
-	RZZxdjNG/wlaf62wsgX6yM6ZajZfEtwNW6zmZLEy9ZTAZ6dpxY864CcjJdaD4ql5v2uLTp0BJfNHh
-	76ooDZRQ==;
+	bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=; b=qNP5e+limUOEu/ehTJCQDW/1L7
+	IKeN8Zcrj9G0zQwg5EOIuZmgkJ6Fjjf2WlPBiMyQhKuGhx/M964vXBB11veT0G4YrmMi1Ofa13CQn
+	bOzHNWWeY7yqSe+lsV2uLfmOo1Q8pQCLKfv+D2QRHIfwkjXbdJzEEgXdjltLaWHwvPNmFNM38lZ1M
+	rMMM70y3boyo9Iq1VHRznxE0mA9LF68xZ2pU+PhLA6p4ofLAbsZsdgDbXKhN9ww3E/uGDP6Y99lZK
+	OXvMotaLmpQXZhqLBTVhYKlbcaMbqaARZHMjXD8e7XscT9VDLp0OxqFLkqCGf3LwkjJJRgjQRDgui
+	y58vCbOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgsd-0000000ClGZ-2C2e;
-	Tue, 14 Jul 2026 17:25:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjguK-0000000ClYg-0Ikh;
+	Tue, 14 Jul 2026 17:27:00 +0000
+Received: from mail-ej1-f54.google.com ([209.85.218.54])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgsc-0000000ClG0-1ynr
+	id 1wjguG-0000000ClXN-30J8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:25:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA16C4399B;
-	Tue, 14 Jul 2026 17:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279171F00A3A;
-	Tue, 14 Jul 2026 17:25:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784049913;
-	bh=6X5YMXpvKlN1rtFZuXWP5ezzGqrHft5cjQkbgIqQagg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PC17pXS2WHaTYBIL1Slqx4PrZnyY8dMc2smCQYBF/0yu4Wi4jL/xj6gSsjw9azwsH
-	 h2PBo0E+0nEYjR6EkiARz92BXhIqmjmW4a6zK34FpYcajUMzqcWO7elmfDzKcaoqr7
-	 dsgozGajBE7ht5bjTWhV9wjAMcphziVzf5Wcuoh1s1jsrCx8EIiwXgedkDdnqhJv/y
-	 KyApJKXEtaOZR2x9QFGqMRtDHMBG3iTiLsarzRks95WAQ6NzX5+pCm4pDlv19UfUKt
-	 ZtJx4I31XHtkTgIb9cpQS7AVdPrHfrSmd0TmDewmewNFNK/PJKo1UzNVdV3ivRcQKH
-	 uERmQC+kxoAVA==
-From: Lorenzo Stoakes <ljs@kernel.org>
-Date: Tue, 14 Jul 2026 18:24:26 +0100
-Subject: [PATCH mm-hotfixes v3 4/4] arm64: remove redundant concurrent
- ptdump UAF mitigation
+	Tue, 14 Jul 2026 17:26:58 +0000
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c15bf399d3bso163355966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 10:26:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784050013; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gckWZO5M74lXjqVWRNWvOxMhn+vCmBqWnb05o6qNntAnRABgtGqcIvsAngxoD4Es6M
+         o+H7y8aXg8nhB8j2Qb5kSq7FSSwcXPWQioYH6CPIgBnGQZhxMx3dw64ZBAd2Yai62784
+         acrMlekMteMaZEK3hjIx25Zo1y1bPBNiLunZw9sa7TQnc7qr+pXtXMEV/LTtYf4rwLuz
+         NnMpSLMWR21HwVIA5MNJpDG6e4s4kcO/Vv3yWcklsHbz1Ds/1vsGHsS1Z/C34ORLdl9V
+         G9Y4FDrlaoeLDz0C//V20oyVKwWNloNNNDyIfSzDO2IiGKbhGGQHnDFSREHIeMPTxZT9
+         KoAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
+        fh=brVK4umiJqXE+Dpm5hWl4LFKIlAQ90FmOpHfe8CjCbs=;
+        b=UxAx/U/83pZmpkS1M5o1WLFkcMCOnbeLn6SjwbL+sx2PfaklQyHzdhRvxULxbCUh1C
+         Kaop+/ako6Amhj/hQZrcP7u/J2hKSK3E1RgGDHbymDrvck7MXiAW3HZADiSV3lXUy8qF
+         DB45swvGIC86Qc60msLekuOiOqhwI7e4miHVsY3aeBTVr7ZJxi6IvjPVdlhZ0nwUQcPn
+         l12ZOk/hHEU4z2l5t4p2kaE7o3t+8loYlfHVKJjtR68XuAONlTBXIebMiAXfefYrdQDI
+         tQ+SvVg+ZFphKedNDNn8qUdOQnEFTXcRYe8ScOt/OsBndnxzGkHQ95rPG5j3lK9fsl+a
+         s9Dw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1784050013; x=1784654813; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
+        b=cqTmbD6oPel7i4dkJC2nEa4cGDFuWhiWl6UORsvlaHrLq5X+9IiJirHVFL3wWMuNLz
+         h2JII7Q9UoQx6GPwDAnP+0oB0kdnJxouy1pCR9iwX+SMRHFkvT2WTrvzhAV0qWlGZAp4
+         8Oswk/A84I05Tf431+EmPAG3SmKQ2BnUMIaXMPCPNv7NTfg62XvugxymKZahqYzMeXmV
+         RP50TxmNuSirP8bfACeYoJmmSHkkIaBUy9YaGCgQTCpGmt/7xwtPk7OA4p4jxZnXA7h3
+         Vnmeokfi1ZHVa4TdMZD2bzc5MVCgWfPYupM2RtJFbAyCBekY7MY3kJThMMuhPDsJLyua
+         DbjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784050013; x=1784654813;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
+        b=qlOBaq4ezYs5sfZaaqaTsfVXDyf1lAbDJTLgq4IIX16oU4GM25dNXFupbcy3gT8ZFC
+         4YPSnM2JNjPNRFCTootLIPJrftG7xz7kORJbhiY9l8GwX2GYkxvhwgWB3n06VsmKKx+V
+         TcycF/AbVNbNasvAYFyRD9k9GgvlHZiiVOTqxBsdDOU9HwXQpfVbo0tCabnMhQr47PyD
+         2PaiGx0fOaekyYc40fsxY+LrzDd0++7wdCmISA4BdLBv8a10a6OxbQx01m+HUO9SSPqX
+         PoVFg4xT4w+qdPxtXfsQ5+Zc97fR4SmrE4f704NunHWrXzlc9J0b4JJ6dIZD0Bnnt3Ld
+         YJ3g==
+X-Forwarded-Encrypted: i=1; AHgh+Rrxv97TobBs2p+p3reqqNudIxnZXoGaUzqJ+PTDLnDkZ79d27G8eXN1WJ5R2fw1YsNouFgB+1AM5arcA89iV8pO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGKlGQsKMFDDyUG06DIMh8uh/KIVn6/GPREI2pR/8iRP7ekYlx
+	mg7PlERb4P3UB4JTVSbRp3lx03jCwIihJwzKTKR8O03A/ks/r4EuguMGCYiyw1hkmqQGtqJRzt8
+	XkUnBHFjvjMg+oBgbAGxuC+nxiy4WK07y9EZ/v4GyGg==
+X-Gm-Gg: AfdE7ckfgnDRo/vLGEBqkG6h0ZlpERkU+ZaNrm3leK8PCeDdHZg+0lFKs0L3hJZzC6A
+	opmW/z2tP7Hg0GyTzXdDBs9N9mKxSMjRmPkLNRAtWA8GomGAeLcwpBp4alByGbfiX/Kyx9M5GOh
+	z24Y2+yHbsHJ9TkN6XENeVYNtH1io8lz9w0BnNtAZiA+QNAO/iOeTWZkdmb0Qa4nWZ4YVDnouBM
+	9LOGf+s8mzex3JP54zac9n/aeqxa/KGatindtxNKEC6LsJBNDabgwwX/0pgaDkr/pt4jflpwaHY
+	KPk7MTViKVEiqZ38K9khv8NVH+o=
+X-Received: by 2002:a17:907:7210:b0:c12:61c5:c141 with SMTP id
+ a640c23a62f3a-c161ea21391mr577764066b.53.1784050013253; Tue, 14 Jul 2026
+ 10:26:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-series-vmap-race-fix-v3-4-b812eccfa0f9@kernel.org>
-References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
-In-Reply-To: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6970; i=ljs@kernel.org;
- h=from:subject:message-id; bh=QfkQiauRr1PTaQoDS6zXfYa+8p/BKdWZL6M6VQqRgS0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCCs6xNmyP28KoEf/gWoHNpG1/fXYf2zhlta4S669uy
- QXX9WxudZSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAidnEMv5gadq15wVohonZt
- 46eHq3Ii/Q9Jlk7gEDx3kf/ot3Ui4jcYGToXsTs9EnRJnC5rsyE2cO1k6wOFbXMibap49z40L3u
- 3lAEA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+References: <MN0PR19MB609171877109E10553B5DB5EACF92@MN0PR19MB6091.namprd19.prod.outlook.com>
+In-Reply-To: <MN0PR19MB609171877109E10553B5DB5EACF92@MN0PR19MB6091.namprd19.prod.outlook.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Tue, 14 Jul 2026 21:26:42 +0400
+X-Gm-Features: AUfX_my4WyuEyYSRptLwrCR_TmeHbnjRc7E_6wyzD01sMWP4nnwK47T7aZfKKfg
+Message-ID: <CAKTNdwFxW9aGk3Ux_DhCvhYcwUBEz=oEei+w=9Zo-78jgGtGWQ@mail.gmail.com>
+Subject: Re: [PATCH] phy: rockchip: naneng-combphy: Set RK3576 USB3 SSC downward
+To: Liu Changjie <liucj1228@outlook.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, 
+	Neil Armstrong <neil.armstrong@linaro.org>, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_102656_763800_14DFE10E 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,211 +118,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-with ptdump"), retaining vmalloc-huge support but eliminating the now
-redundant mitigation against a race between huge vmap page table freeing
-and ptdump, as this issue has now been fixed at core.
+On Tue, Jul 14, 2026 at 10:46=E2=80=AFAM Liu Changjie <liucj1228@outlook.co=
+m> wrote:
+>
+> Program the RK3576 USB3 spread-spectrum direction to downward before
+> applying the remaining PHY tuning. This matches the vendor BSP SSC
+> direction and follows the existing RK3568 handling in this driver.
+>
+> Without this setting, a HIKSEMI MD202 (0bda:9210) repeatedly failed
+> to accept a USB address on an RK3576 Taishan Pi 3M. With it, the same
+> device enumerates at 5 Gbit/s and completes a 64 MiB read/write test.
+>
+> A separate 1 GiB stress test with this RTL9210-based enclosure still
+> produced SuperSpeed resets and I/O timeouts. This change only addresses
+> the initial link behavior and does not claim to fix sustained-I/O
+> stability.
+>
+> Signed-off-by: Liu Changjie <liucj1228@outlook.com>
+> ---
+>  drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers=
+/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index 2b0f152f5..324a0861e 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> @@ -1015,6 +1015,11 @@ static int rk3576_combphy_cfg(struct rockchip_comb=
+phy_priv *priv)
+>                 break;
+>
+>         case PHY_TYPE_USB3:
+> +               /* Set SSC downward spread spectrum */
+> +               val =3D FIELD_PREP(RK3568_PHYREG32_SSC_MASK, RK3568_PHYRE=
+G32_SSC_DOWNWARD);
+> +               rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, =
+val,
+> +                                        RK3568_PHYREG32);
+> +
 
-We also simultaneously remove the arm64 if-deffery when acquiring the mmap
-read lock upon vmap huge page table promotion as it is no longer required.
+This duplicates code which already exists in the
+rk_combphy_common_cfg_ssc() helper function.
 
-Note that this patch relies on the preceding vmalloc patch, and should not
-be backported alone.
+Could you please try if [1] fixes your use case?
 
-Fixes: fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
-Cc: stable@vger.kernel.org
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/ptdump.h |  2 --
- arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
- arch/arm64/mm/ptdump.c          | 11 ++---------
- mm/vmalloc.c                    | 15 +++-----------
- 4 files changed, 9 insertions(+), 62 deletions(-)
+[1] https://lore.kernel.org/linux-rockchip/20260714-naneng-ssc-fix-v1-1-1c4=
+0a58061ae@flipper.net/
 
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 5b374a6ab34a..50a195eda8ed 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -7,8 +7,6 @@
- 
- #include <linux/ptdump.h>
- 
--DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- #ifdef CONFIG_PTDUMP
- 
- #include <linux/mm_types.h>
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a25d8beacc83..bd52fca6e872 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -49,8 +49,6 @@
- #define NO_CONT_MAPPINGS	BIT(1)
- #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
- 
--DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
--
- u64 kimage_voffset __ro_after_init;
- EXPORT_SYMBOL(kimage_voffset);
- 
-@@ -1864,8 +1862,7 @@ int pmd_clear_huge(pmd_t *pmdp)
- 	return 1;
- }
- 
--static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
--			       bool acquire_mmap_lock)
-+int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
- {
- 	pte_t *table;
- 	pmd_t pmd;
-@@ -1877,25 +1874,13 @@ static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr,
- 		return 1;
- 	}
- 
--	/* See comment in pud_free_pmd_page for static key logic */
- 	table = pte_offset_kernel(pmdp, addr);
- 	pmd_clear(pmdp);
- 	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key) && acquire_mmap_lock) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pte_free_kernel(NULL, table);
- 	return 1;
- }
- 
--int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
--{
--	/* If ptdump is walking the pagetables, acquire init_mm.mmap_lock */
--	return __pmd_free_pte_page(pmdp, addr, /* acquire_mmap_lock = */ true);
--}
--
- int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- {
- 	pmd_t *table;
-@@ -1911,36 +1896,16 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- 	}
- 
- 	table = pmd_offset(pudp, addr);
--
--	/*
--	 * Our objective is to prevent ptdump from reading a PMD table which has
--	 * been freed. In this race, if pud_free_pmd_page observes the key on
--	 * (which got flipped by ptdump) then the mmap lock sequence here will,
--	 * as a result of the mmap write lock/unlock sequence in ptdump, give
--	 * us the correct synchronization. If not, this means that ptdump has
--	 * yet not started walking the pagetables - the sequence of barriers
--	 * issued by __flush_tlb_kernel_pgtable() guarantees that ptdump will
--	 * observe an empty PUD.
--	 */
--	pud_clear(pudp);
--	__flush_tlb_kernel_pgtable(addr);
--	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
--		mmap_read_lock(&init_mm);
--		mmap_read_unlock(&init_mm);
--	}
--
- 	pmdp = table;
- 	next = addr;
- 	end = addr + PUD_SIZE;
- 	do {
- 		if (pmd_present(pmdp_get(pmdp)))
--			/*
--			 * PMD has been isolated, so ptdump won't see it. No
--			 * need to acquire init_mm.mmap_lock.
--			 */
--			__pmd_free_pte_page(pmdp, next, /* acquire_mmap_lock = */ false);
-+			pmd_free_pte_page(pmdp, next);
- 	} while (pmdp++, next += PMD_SIZE, next != end);
- 
-+	pud_clear(pudp);
-+	__flush_tlb_kernel_pgtable(addr);
- 	pmd_free(NULL, table);
- 	return 1;
- }
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 1c20144700d7..5a76c59b5ada 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -283,13 +283,6 @@ void note_page_flush(struct ptdump_state *pt_st)
- 	note_page(pt_st, 0, -1, pte_val(pte_zero));
- }
- 
--static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
--{
--	static_branch_inc(&arm64_ptdump_lock_key);
--	ptdump_walk_pgd(st, mm, NULL);
--	static_branch_dec(&arm64_ptdump_lock_key);
--}
--
- void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- {
- 	unsigned long end = ~0UL;
-@@ -318,7 +311,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
-+	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
- }
- 
- static void __init ptdump_initialize(void)
-@@ -360,7 +353,7 @@ bool ptdump_check_wx(void)
- 		}
- 	};
- 
--	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
-+	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
- 
- 	if (st.wx_pages || st.uxn_pages) {
- 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 1fa9ac6e43d4..400563ac6d5d 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -170,10 +170,7 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	 * Therefore, acquire the mmap read lock to prevent use-after-free when
- 	 * freeing page tables.
- 	 */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pmd_free_pte_page(pmd, addr))
- 			return 0;
- 		return pmd_set_huge(pmd, phys_addr, prot);
-@@ -230,10 +227,7 @@ static int vmap_try_huge_pud(pud_t *pud, unsigned long addr, unsigned long end,
- 		return pud_set_huge(pud, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!pud_free_pmd_page(pud, addr))
- 			return 0;
- 		return pud_set_huge(pud, phys_addr, prot);
-@@ -290,10 +284,7 @@ static int vmap_try_huge_p4d(p4d_t *p4d, unsigned long addr, unsigned long end,
- 		return p4d_set_huge(p4d, phys_addr, prot);
- 
- 	/* See comment in vmap_try_huge_pmd(). */
--#ifndef CONFIG_ARM64
--	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
--#endif
--	{
-+	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
- 		if (!p4d_free_pud_page(p4d, addr))
- 			return 0;
- 		return p4d_set_huge(p4d, phys_addr, prot);
-
--- 
-2.55.0
-
+Best regards,
+Alexey
 
