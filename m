@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B19C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 00:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C3EC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 01:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7sgG5t4VAWsPS+3OEZSVq/ziRSt9Wxqgo9E+hRoh4M=; b=PvNVDmdNHsV1MJbFuqwxy+c+I6
-	6R5jRJgrT/omhchgHYGqX1JJJ5nx/BsCTZrLtsdR+igjFVxQC9ki639Mgq/gA5AdrsVLHNllMK+tB
-	tMJpMdjVkXydvT1Whl32Yp3sIgMy1DCT7jHeAM6iCbF5wufwgsZV6P9rNDBoM5nN/ESa7/nJqPt7z
-	kqqN2xHPofC2c7ZmipK1dwYVodaaxzBhfNueNwNbbJYglWHvGyiJWhtowrb7AmZzyAPRlMbKa7YBb
-	8823z5SkDt8DCC39neeFuMmoRn7haakSbXOenvYs28v40PCFor6BEasLbaCQwVO2+B5qfsJDOYWkI
-	gl519tdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uyu6UWSikG2Cbt5OXdKC4BoFkWW7kbNKN8/sWUzYl+0=; b=0wYq4StekuSox578p3IgnvPN+Q
+	diitPUWIuZ52c4W99re03RTfQG/Bj06DxpTqpLgXGL3Gy1LtJHiuD8m63uqTWfMnlAz0uVUOmwJfQ
+	R2lQs4mGO0YmUfM7JzSL1jojVm/bhq5pGtwScGAh6xnJeuEAQG+rreMODS7rCVBXidcDzKm4SlhB9
+	H+tuYfs3QcT/V1USISTjcVMVQY8zEwYGNSj++aVfMlaYPrSV6p43AsI8lAxmFsZPG8Kkx5nnK+khT
+	GgFbrUaBlUh9qxQdp8mkemJNsJhqPb4XmApghMSGUXWSSeGgJRowvKlE8qXU6EZY58SDPYPqMZnL/
+	gyayb9vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjR53-0000000Abg5-2ZLN;
-	Tue, 14 Jul 2026 00:33:01 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wjRgG-0000000Ad76-0Fin;
+	Tue, 14 Jul 2026 01:11:28 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjR51-0000000Abfj-1Llq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 00:33:00 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c95d0a54ea5so2643972a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 17:32:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1783989178; x=1784593978; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=D7sgG5t4VAWsPS+3OEZSVq/ziRSt9Wxqgo9E+hRoh4M=;
-        b=foUCTVWeZwJY6cJWWbs6Xj4zTJIqbdO9LhpgdGKNuTGrsMTm0CaUgeQS27WkxFmaG2
-         SrEWwHd6Ifta0QZHqzwpBg6jLlgPf2tGWCnFqPHLdLq7+ston/49hGsU1LhzM26MDX38
-         FKOWPOxwpNglakHRELYa7gz1yCukB6XN/XQn0fJxTnSP9Lsw7pDqkpsoP2bfNiHOPYxF
-         LWKC/VGKkTpK44ycPyJxpHgLmwFlIxzkY9l7vBwZnybO4Lz/MvN1n+XjckcgsxJvi/cU
-         xe3xFdY6prI1VuvJrak98KrOclDh4whHrrAGACNJVfvJeBONAd80twi9pfNBJQWn7Qg2
-         NrNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783989178; x=1784593978;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D7sgG5t4VAWsPS+3OEZSVq/ziRSt9Wxqgo9E+hRoh4M=;
-        b=raOo7x/FZojr40thxrkcSErRhqnJ9oLirBXzAtCId2s+e+RazjiHsEJlnzoPJ859A5
-         ItO3h8/SqXulAGZLo6+7+2PZ2qneY9LmCUXeIwKwqEf3sVhzrYOpWbwjllkLNNQVwirE
-         qOrGi5OvqGEfj3XSLpjWpbXAPUovQOwpKuoJBI/0CFQdxVd96WQrl3oe/yg9FHwyzswd
-         Y+gEbXCCitwqijoZfBSKSVrRzk6mduZ5rQxSgQ4oZZBO1HsdVCw60HzIditLVjChNrx1
-         TQwvst2ApmE0neFql6jV2B9KeQG5gc85Lk74Zahx3R0t4THhkxe9eh5PW7boKzw0YqmS
-         e67A==
-X-Gm-Message-State: AOJu0YzkPPnl0nblv2oFFUTWh89DZ3N3+fy/s502jEHZdQmmx4NYi/z1
-	35d/UP8s17vgf9CXuf4YTTij8uN5SwPlBHs2fV93jtAOi2v9z3JWNL8mVULHQeAVqsU=
-X-Gm-Gg: AfdE7clQZ8B8W27RADxcOqjzcQTSOxiDhkksxT+w1gTBuVNfURJHGLOcM6lXPw8kPjC
-	sF0AfSqykJ4LeB9emzasx43G3HaYEwNru0nON3GzWJJqFC/ceW50iSxkbDgd3Z8Tb5uqZZRXKIJ
-	qN5UaKlXYiWDDHxvSAq5VdCLbUhmvzfgB0wUx0xasekyiUPMOR4r5YhXnnLDldhn3owcdSrHoYg
-	GjsdusXGJ4hj/s42D1ws+Iw92B3MlGh5X9v56BYMkvlGVdxxVB+Y2Zv1IREKxgoGwyv+Bj/NgIq
-	Sezg6mvdmdR3LbvhEJ78TBRZYIJ5/U8T4myVHgFdK+//+xM70CMQXh/Vo6k+vBwpfLFtWdjwX8g
-	CxVg7u/B+YZwKW0wioVeXH6w0ROBCfJcn2WqX6fCD7AVe5tP9vNQd+Io1QdQyI+4MZjRhbs8qBD
-	F/jJRtsRkfybutjYcLQE8upbA=
-X-Received: by 2002:a05:6a20:4307:b0:3c3:2e2b:29f3 with SMTP id adf61e73a8af0-3c34d5b6f8bmr1421177637.27.1783989177645;
-        Mon, 13 Jul 2026 17:32:57 -0700 (PDT)
-Received: from localhost ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174ac14f2sm78865075eec.27.2026.07.13.17.32.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2026 17:32:57 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 13 Jul 2026 17:32:56 -0700
-Message-Id: <DJXVDTIP374I.31QKCXGTTY7UV@nexthop.ai>
-Cc: <linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] i2c: xiic: fix SMBus block read and PEC support
-From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
-To: "Andi Shyti" <andi.shyti@kernel.org>, "Michal Simek"
- <michal.simek@amd.com>, "Shubhrajyoti Datta"
- <shubhrajyoti.datta@gmail.com>, <abdurrahman@nexthop.ai>
-X-Mailer: aerc 0.21.0
-References: <20260427-i2c-xiic-v1-0-e6207f9aa5ad@nexthop.ai>
- <CAKfKVtGztJkU_HXZTrb2h3hrTJp0SbRo-sDHM4Sj_1SG8ymOyw@mail.gmail.com>
- <0dec4aec-5a62-41af-9509-3bd9e2854739@amd.com>
-In-Reply-To: <0dec4aec-5a62-41af-9509-3bd9e2854739@amd.com>
+	id 1wjRgD-0000000Ad6g-3mMY;
+	Tue, 14 Jul 2026 01:11:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783991486; x=1815527486;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=DCbMgnamWUlHK3HfeBnVqU97YJbvkxfbDCJ2xswtGHo=;
+  b=LG+eyytyGFyojusOopXjaZYV5+U5D8rHqSOy0QSXwP9YRSVl/hG9Kfzp
+   DmFrtbrbctwtIoWkxsG5j4qmHfjZcUnw7l6HvMKhLKt1gl0u8vINxOpNa
+   NxHVfaBJiWVHbYkViNY6edU7aG0Yx+m6rsfNkco3KiKbiZ1XgPRWe3cnk
+   uZAFgzd3im7m0LTCB/6rgqu8rQjrq4lcVw60DLYlhRmvRK9Qw3wUVVuwt
+   x7EkrlPYokMnLpUAl7mW4xxPGRv+qcrRMbs/rPxutFp4N7D92l7sM1UUZ
+   hoWuEE1VyNblxXcWYqBxnUeRSmvd4OUsymoXfdsdEFq80tMvRrLa+//6G
+   A==;
+X-CSE-ConnectionGUID: nDul4PNvQAOT5YxvuCIpWw==
+X-CSE-MsgGUID: 8gRe+4NaQg6wJZgmAnGoFA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11841"; a="84702131"
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="84702131"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 18:11:23 -0700
+X-CSE-ConnectionGUID: X0NUj8UzT+uuLyJCHusJHg==
+X-CSE-MsgGUID: LMEMMUp0SqmapMABq2oo4A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,154,1779174000"; 
+   d="scan'208";a="252318584"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jul 2026 18:11:21 -0700
+Date: Mon, 13 Jul 2026 18:11:21 -0700
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: stable@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: [PATCH 6.18.y 0/6] cBPF JIT spray hardening
+Message-ID: <20260713-cbpf-jit-spray-hardening-6-18-y-v1-0-755f60c55705@linux.intel.com>
+X-B4-Tracking: v=1; b=H4sIAFWMVWoC/yWNsQ7CIBRFf6V5s68BTAq6GRdHBzfjQOlr+zogg
+ WokTf9dqsMdzs3NPQskikwJjtUCkd6c+OkLyF0FbrR+IOSuMCihGqHlHl0bepx4xhSizTja2JF
+ nP2CD0mBGK5Qx+uB0CZSXEKnnz89wh+vpdr5sbVNLU2d4/Afp1U7k5s0D6/oFVLm6h5QAAAA=
+X-Change-ID: 20260713-cbpf-jit-spray-hardening-6-18-y-a028879c779c
+X-Mailer: b4 0.16-dev
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_173259_375160_12CA574D 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260713_181125_987051_912C8367 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +88,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Jun 9, 2026 at 7:39 AM PDT, Michal Simek wrote:
->
->
-> On 6/9/26 16:26, Shubhrajyoti Datta wrote:
->> On Tue, Apr 28, 2026 at 5:48=E2=80=AFAM Abdurrahman Hussain via B4 Relay
->> <devnull+abdurrahman.nexthop.ai@kernel.org> wrote:
->>>
->>> This series fixes three independent bugs in the Xilinx AXI IIC driver
->>> that together make SMBus block reads with PEC return -EBADMSG or -EIO
->>> on otherwise clean transfers. They only surface when the client has
->>> I2C_CLIENT_PEC set; non-PEC block reads happen to mask each issue in
->>> turn.
->>>
->>> The problems were uncovered driving an adm1266 PMBus device behind a
->>> Xilinx AXI IIC FPGA block and reading its 64-byte blackbox record.
->>>
->>> Patch 1 stops xiic_smbus_block_read_setup() from truncating rx_msg->len=
-.
->>> The i2c core appends a byte to msg->len when PEC is enabled, so
->>> overwriting the length to "block size + 1" silently drops the PEC byte
->>> and i2c_smbus_check_pec() then reads the last payload byte as the PEC.
->>>
->>> Patch 2 raises the RX_FULL threshold so the interrupt only fires once
->>> every remaining byte (payload plus optional PEC) is already buffered in
->>> the FIFO. The previous threshold of rxmsg_len - 2 caused the
->>> bytes_rem =3D=3D 1 path in xiic_read_rx() to NACK a byte still on the w=
-ire.
->>>
->>> Patch 3 stops the BNB handler from forcing tx_msg->len =3D 1 to signal
->>> completion. tx_msg and rx_msg alias the same i2c_msg during a receive,
->>> so this also clobbered rx_msg->len; and because tx_pos is already at 2
->>> in the PEC case, the unsigned subtraction in xiic_tx_space() underflowe=
-d
->>> and the STATE_DONE check fell through to STATE_ERROR. Advancing tx_pos
->>> up to msg->len drives tx_space to zero without touching the length.
->>>
->>> All three patches are pure bug fixes; non-PEC behaviour is unchanged.
->>> Tested on real hardware -- a Xilinx AXI IIC controller talking to an
->>> adm1266, where 64-byte PEC-checked block reads now complete cleanly.
->>>
->>> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
->>=20
->> LGTM
->> Reviewed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
->
-> Acked-by: Michal Simek <michal.simek@amd.com>
->
+Hi,
 
-Andi, are there any objections to merging this series?
+These backports harden BPF JIT against spectre-v2 class of attacks. Without
+a predictor flush, execution of new BPF program may use stale prediction
+left behind by the freed one.
+
+To avoid this, issue an IBPB flush on all CPUs on JIT program allocation.
+The flush is conditional to spectre-v2 mitigation applied.
+
+Patch 1-2: Adds the predictor flush hook and enables it on x86 via IBPB.
+
+	  bpf: Support for hardening against JIT spraying
+	  x86/bugs: Enable IBPB flush on BPF JIT allocation
+
+Patch 3-6: Narrow the flush to only unprivileged JIT allocations
+	   to avoid redundant flushes. Also adds pack-selection changes
+	   that minimizes flushes.
+
+	  bpf: Restrict JIT predictor flush to cBPF
+	  bpf: Skip redundant IBPB in pack allocator
+	  bpf: Prefer packs that won't trigger an IBPB flush on allocation
+	  bpf: Prefer dirty packs for eBPF allocations
+
+Patches 1 & 2 had minor header conflicts. Patch 3 had a few conflicts in
+bpf_int_jit_compile(), majorly loongarch bpf_int_jit_compile() doesn't use
+pack allocator, dropped was_classic hunk.
+
+x86 builds and boots fine in a VM. I don't have build infra for other
+arches, relying on the bots for the builds.
+
+---
+Pawan Gupta (6):
+      bpf: Support for hardening against JIT spraying
+      x86/bugs: Enable IBPB flush on BPF JIT allocation
+      bpf: Restrict JIT predictor flush to cBPF
+      bpf: Skip redundant IBPB in pack allocator
+      bpf: Prefer packs that won't trigger an IBPB flush on allocation
+      bpf: Prefer dirty packs for eBPF allocations
+
+ arch/arm64/net/bpf_jit_comp.c        |  4 +--
+ arch/loongarch/net/bpf_jit.c         |  2 +-
+ arch/powerpc/net/bpf_jit_comp.c      |  4 +--
+ arch/riscv/net/bpf_jit_comp64.c      |  2 +-
+ arch/riscv/net/bpf_jit_core.c        |  3 +-
+ arch/x86/include/asm/nospec-branch.h |  4 +++
+ arch/x86/kernel/cpu/bugs.c           | 50 +++++++++++++++++++++++---
+ arch/x86/net/bpf_jit_comp.c          |  5 +--
+ include/linux/filter.h               | 15 ++++++--
+ kernel/bpf/core.c                    | 68 ++++++++++++++++++++++++++++++++----
+ kernel/bpf/dispatcher.c              |  2 +-
+ 11 files changed, 136 insertions(+), 23 deletions(-)
+---
+base-commit: e46dc0adfe39724bcf52cea47b8f9c9aed86a394
+change-id: 20260713-cbpf-jit-spray-hardening-6-18-y-a028879c779c
 
 Best regards,
-Abdurrahman
+--  
+Pawan
+
+
 
