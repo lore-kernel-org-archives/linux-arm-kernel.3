@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52759C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82EAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUra5EJSRaUGl/khGQ/hVpRAn7fp80t3QbcNAonpnHo=; b=Vi+MR/udkyiccXbDztTuPvOMJU
-	YLyhTMMiaDtmkCvgSPyH+sObohuA2QXT/Rz14ud896oelcuJ4VpNHJQZZZRclN2dA7GLo0yZen/HH
-	fwSTFu08zaRWFYpVgw5p7N7DbdYxLokIqCnoGlMqepyo4gavOSeyz+wZLOa2gc+qWYyLmjMs1akTy
-	DU86k9+O1lrFstYOYKgJCyrUAWABAM8SNqJ2+U6VVULCq2jD65p5ozOJ+/JAOea1rWtZZr0B3kkBf
-	g3wdLp6qiTaqUa6abGwyBEcg7lRJ2NVAPnfOzMGaG37dEGv47OPWtF8er4uFERLerGvdpabo6xcEO
-	eMqSGVSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=++2sm2jBL5ghb+VJdhhrkBgMQI8C9SQeRqvK9ZkzcE0=; b=v828LNKN8YfkrI
+	d9UqYHbEw2MgSaI1tlnSWYViDoD1PY7umn/2oz79b+TMgghi0XRxhnLjGs5ngPIQD6VKoGoIcEzF2
+	OI83zFn567HP4nkqMtChastdDKFbTHY9vIsvps+lT+QfYbeQCbvcxakTzAHG3FxrQj6O0IkKZ8ykv
+	Dr8nVPO3El+E6xRAevuiuuibh3+eSn8b2ARJUMmUmLPLXw4O+hvUzBjCcEnLnEO+oaVOxNJaohFpf
+	GfFDFYIIS3sXCLStSg5ucLLBsnmImkxqRYukKJEeeHcd2vuwyQmyQhsCdvczCY4siE8Y+74usu5d2
+	CpMADr/Q4yeNg5IMGkhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZwD-0000000BWBx-3JmB;
-	Tue, 14 Jul 2026 10:00:29 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZw7-0000000BWAu-39MG
+	id 1wjZyH-0000000BWPl-0Qvb;
+	Tue, 14 Jul 2026 10:02:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjZyE-0000000BWP3-1zkk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:00:28 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260714100016euoutp010b64ed20ec9ba1c6447f10b7abae08b8~CH6nFLiNZ1160011600euoutp01a;
-	Tue, 14 Jul 2026 10:00:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260714100016euoutp010b64ed20ec9ba1c6447f10b7abae08b8~CH6nFLiNZ1160011600euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1784023216;
-	bh=IUra5EJSRaUGl/khGQ/hVpRAn7fp80t3QbcNAonpnHo=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=NMjfCsqZ5hnUEU0WETu01Q9nOdFTV987l1OyEpSxVC3qsrjuo+pdKGHJOn1P/uqy9
-	 0ML3iTMDQp8jsFJA5eqo2WdyOclP9r+hDHP0Qb9E1dtE0XTKwa/FLLs+p4+9q/ScPz
-	 8vhb3Wq8om+OapgJr8LiPPxclNzpInm/pkQwvQpQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260714100016eucas1p2bbfe02d5fc02fcf561dc5409c7ecb5ab~CH6mtujgB0401004010eucas1p2d;
-	Tue, 14 Jul 2026 10:00:16 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260714100014eusmtip1f8ce1c67533271011f679d0bcf054f91~CH6lJz-Yt2122621226eusmtip1M;
-	Tue, 14 Jul 2026 10:00:14 +0000 (GMT)
-Message-ID: <6f35eaae-f3d2-48fb-abce-9a2cc124b0ef@samsung.com>
-Date: Tue, 14 Jul 2026 12:00:13 +0200
+	Tue, 14 Jul 2026 10:02:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66F95497;
+	Tue, 14 Jul 2026 03:02:28 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20D3D3F93E;
+	Tue, 14 Jul 2026 03:02:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784023352; bh=lMd9UsWQkKVgViBSQo5iJeWu/WcFTe/HVNWDQM3hu6Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qbnB2gjWbTa7/IOkusHCnpMqNstYdvIUQRV8zxRuDxgU8h6X74Ezlr+TFI8RN0PKO
+	 U0OTtMHY2FemAKewAWiqUWSVlac9A4YqfLc7chtT05ijlKcy3Wk+4HpkirLkUvDI0B
+	 DOoha48bwGFZhWL2NHygODy2JKM1LQKzWbA3XCIA=
+Message-ID: <432a52d8-0526-4477-95fe-2aba6a113153@arm.com>
+Date: Tue, 14 Jul 2026 11:02:29 +0100
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v7 00/22] dma-mapping: Track shared DMA state through
- direct, pool and swiotlb paths
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jason Gunthorpe
-	<jgg@ziepe.ca>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
-	<robin.murphy@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier
-	<maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K Poulose
-	<Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Jiri
-	Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>, Petr Tesarik
-	<ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
-	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, Madhavan
-	Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
-	<chleroy@kernel.org>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald
-	Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens
-	<hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Christian
-	Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, x86@kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <yq5aldbdnbj8.fsf@kernel.org>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260714100016eucas1p2bbfe02d5fc02fcf561dc5409c7ecb5ab
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1
-X-EPHeader: CA
-X-CMS-RootMailID: 20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
-	<CGME20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1@eucas1p1.samsung.com>
-	<yq5av7argr65.fsf@kernel.org>
-	<fc804746-4fb8-4ea9-997f-a4cae9ba8c14@samsung.com>
-	<20260713194323.GC3133966@ziepe.ca>
-	<cd5d0504-1592-4b48-89ea-1efe8aa57968@samsung.com>
-	<yq5aldbdnbj8.fsf@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
+ initialization
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-7-vladimir.murzin@arm.com>
+ <994f9866-b7f9-408f-8aaf-3591882b5c7f@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <994f9866-b7f9-408f-8aaf-3591882b5c7f@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_030024_385438_CDA1F3A4 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260714_030234_634546_21F09932 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +68,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.07.2026 11:52, Aneesh Kumar K.V wrote:
-> Marek Szyprowski <m.szyprowski@samsung.com> writes:
->> On 13.07.2026 21:43, Jason Gunthorpe wrote:
->>> On Tue, Jul 07, 2026 at 03:03:48PM +0200, Marek Szyprowski wrote:
->>>> I'm fine with merging on top of the topic branch and I assume that this
->>>> patchset is mature enough to give it a try in linux-next, but first I
->>>> would like to get a review or at least acks from others with good CC
->>>> knowledge or experience.
->>> I think it is good to go from a CC perspective, there are still some
->>> more items to fix up (like the MMIO) but I'd rather they be followups
->>> at this point.
->> Great. Aneesh, any chance You could send v8 with the remaining items
->> fixed till end of this week? I will be happy to push it to
->> dma-mapping-for-next for testing in linux-next asap.
+On 7/10/26 08:44, Jinjie Ruan wrote:
+> 
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 >>
-> Sure. You need this rebased on top of the pKVM changes, right?
-> Otherwise, we'll end up with conflicts when you do the final pull
-> request.
-Ah, indeed. I forgot about the pKVM changes. If there is a stable
-branch with those patches, please base v8 on top of it.
+>> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
+>> interrupt masking via DAIF and switch to masking via PMR.  This
+>> depends on a very specific behaviour of `local_daif_restore()` which
+>> will clear DAIF if masking interrupts via PMR, which will get removed
+>> in the future.
+>>
+>> As `setup_arch()` cleared DA only earlier, introduce a dedicated
+>> helper that explicitly initializes the PMR to mask interrupts and
+>> clears DAIF, switching to IRQ priority masking.
+>>
+>> Given it is a dedicated helper, add a lockdep assertion as
+>> `setup_arch()` should always have called `trace_hardirqs_off()` when
+>> clearing DA, otherwise something bad happened.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/daifflags.h | 15 +++++++++++++++
+>>  arch/arm64/kernel/irq.c            |  7 +++----
+>>  2 files changed, 18 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+>> index 795b35128467..56341578e7e3 100644
+>> --- a/arch/arm64/include/asm/daifflags.h
+>> +++ b/arch/arm64/include/asm/daifflags.h
+>> @@ -141,4 +141,19 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+>>  	 */
+>>  	write_sysreg(flags, daif);
+>>  }
+>> +
+>> +/*
+>> + * During early boot, we unmask PSR.DA before the GIC has been set up.
+>> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
+>> + * after the GIC is enabled : sync them up.
+>> + */
+>> +static inline void local_interrupt_priority_init(void)
+> Maybe switch_to_pmr_masking()?
+> 
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+I have no strong opinion on that, tbh.
+
+Having another look at the code made me think that this helper has
+only a single caller. Perhaps we should move the system_uses_irq_prio_masking()
+check from the caller into the helper, making it clear that the helper
+is specific to pNMI without having to inspect the call site.
+
+What do you reckon?
+
+>> +{
+>> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>> +	lockdep_assert_irqs_disabled();
+>> +
+>> +	gic_write_pmr(GIC_PRIO_IRQOFF);
+>> +	write_sysreg(DAIF_PROCCTX, daif);
+> otherwise LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+
+Thanks!
+
+Vladimir
+
+>> +}
+>> +
+>>  #endif
+>> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+>> index 9fafd826002b..c73faa30268d 100644
+>> --- a/arch/arm64/kernel/irq.c
+>> +++ b/arch/arm64/kernel/irq.c
+>> @@ -126,10 +126,9 @@ void __init init_IRQ(void)
+>>  
+>>  	if (system_uses_irq_prio_masking()) {
+>>  		/*
+>> -		 * Now that we have a stack for our IRQ handler, set
+>> -		 * the PMR/PSR pair to a consistent state.
+>> +		 * Now that we have a stack for our IRQ handler,
+>> +		 * let's mask interrupts via the PMR.
+>>  		 */
+>> -		WARN_ON(read_sysreg(daif) & PSR_A_BIT);
+>> -		local_daif_restore(DAIF_PROCCTX_NOIRQ);
+>> +		local_interrupt_priority_init();
+>>  	}
+>>  }
+> 
 
 
