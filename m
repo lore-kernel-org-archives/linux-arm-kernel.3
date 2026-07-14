@@ -4,130 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3125C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7701C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGLletzsKjGe132byb68wawCWrly6kVE74XitY/8ZF8=; b=NYTKbkgcQifCzeP1UzFpGWY7MW
-	eE7xeu81Ibp/0eiWkNsJ2Q9Ca6Yv12ZHcTPY6tQ84iT2u01XbT8eKR9zOAvrvZsHk6hnE/kg8hRFY
-	je3kFbrCDHxBvaRLB+GTwLC+JjzwdBl+nnZ4NUdtat+FPK584yMhmGcAKJ5px5RHO43afel4Tk2IL
-	y6qTTsy6FxVOZwe3OkBsMZCQr/G28gkLyD0X94H2eEHD8J7F8niMu0U0KIt9i+fiOpYn7onoP1vgP
-	I6uAu3hoEx2yPtbS9XOTLD5CcHt7VvrtKgj7kpd4PDy7Vxkg4pbUpxS9a3yFjZb1nsBFRkVvZWvCf
-	1F3qPeJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6nFGjx2hP82JEkaFIq8Q3IgCQ/KznPSMk0LX8YWYitQ=; b=3nhPB5rMGKA+eZr5NoVD+4yDhU
+	CVoc7WiDstLCMhx3ov3eg9sCr9Ah2TShCPv6uN/vaJb0i91vHTNwN4o0BOext/xpC/bxHhOoaAbYd
+	etFkyonQa0KCw9EchjCHN5nQrLozn4b51jC/BSwboB8WITPHZTViGJRopTLTDjtLH5GbsYSas6cQj
+	HmKCtIg630NkD/1iqmMbIMcNF8GjXdNez4de8+8ZRYGnCvgvo6fFEcBa06XFgaH3INzOSAmYYbq1a
+	P5LSLpzPxdGtImio1C2W9WGM22f2mT5cIBipAAa+CbgboQtvbadNfU2Fq+peBCwjfSRiLjw5Gx70l
+	m3EpkIuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaZg-0000000Bahj-1i8Z;
-	Tue, 14 Jul 2026 10:41:16 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wjaap-0000000Baql-2WFG;
+	Tue, 14 Jul 2026 10:42:27 +0000
+Received: from mail-westus3azon11010063.outbound.protection.outlook.com ([52.101.201.63] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaZe-0000000BahB-0URy
+	id 1wjaan-0000000Bapv-1L81
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:41:15 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66E6gDx92860262;
-	Tue, 14 Jul 2026 10:41:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=sGLletzsKjGe132byb68wawCWrly6k
-	VE74XitY/8ZF8=; b=P4xZ0AiNgMXz60MS7JUOKKe8Ns38GrUGI6eJq5oF1nsx7V
-	/7iyWKUGVimtZwVz5LibEa1VRhl48abj0IUtyS5QYALBlC1ODLU+hsOJLHojYCKi
-	UDJ5OYGBR2xtMEz4X9PFxLt1fmJTCuhu/wBS01+CpDeo7B6uKIn2BdJwJwCmINd2
-	qdQxmyAexr9QlQtpzlcMpdyjmPpGB4YXS5dL7nO6la65u80Pu5Z8YglXq43nJhGS
-	eJPFOZ6CUh746SvvSH3xNC/EiVQOOLk0KEVgCWrDDCVFa6ssG6MxR/BpHobXA2A8
-	OI8UhHCq8UKWhEs6Gynxg0eWrn6Ca8ATVApQ8Ncg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fcv3366j9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jul 2026 10:41:03 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66EAYcxa031255;
-	Tue, 14 Jul 2026 10:41:02 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fc2cga4vf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Jul 2026 10:41:02 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66EAetls46530944
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 14 Jul 2026 10:40:55 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 57E4D20043;
-	Tue, 14 Jul 2026 10:40:55 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 00E0520040;
-	Tue, 14 Jul 2026 10:40:55 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 14 Jul 2026 10:40:54 +0000 (GMT)
-Date: Tue, 14 Jul 2026 12:40:53 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 13/27] KVM: s390: Prepare KVM/s390 for a second KVM
- module
-Message-ID: <20260714104053.55132-N-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-14-seiden@linux.ibm.com>
- <20260713183829.63e570b2@p-imbrenda>
+	Tue, 14 Jul 2026 10:42:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lLF6kWpYQhHFtKUsZx2/x8XqkhDjVomj+WhIiLLrH7b2bPgSqc931hmDyOLEDGkK8Amw6FkPcKxK9ry4H9TXD0y+s2/b05KIwxSqs7pyTy8N+GfQ8MR0VKwS/kxzSMiRPxjqkqGgSFRcP8TACFFsLNvubXOhmgjXx58T0bjOUH+6J350/ICo8UgI+BB1o6+b5pASLt8uTLOV/B06xQZj+2P6PKAKqQD5t+ehJ9MYrkK3QSEDMLFPqVd8vgeBLqM1e2MmbDSOYaemys/siY6rJOV5trED/vu0BVJaWhTA7rue22YwFF/vYwkLHk52xD9LNwtPyzHdmH8oW6f4MaZLdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6nFGjx2hP82JEkaFIq8Q3IgCQ/KznPSMk0LX8YWYitQ=;
+ b=pI2E29pApB/lRC/6bo25mbfgCGPuOJY2cG3n27DXurJ0RvHu1aLp0O5DXvpEF7FHbqPEqIGbb6wANHDL31djXIx+Z8PtrR6iAe8JbwNz/nQpaNQwpsfNr/e8FN47O9hGH0RLuR1mPJfbJQoD/ujx7jnlkiWCs+4J0NNYWHq3kuFCaNCZcdMuENdqhgVHoE5JZVidxcfxvlRZejV4fWMwxIhs0k0iYso/WvTv7+IgptQ5VOwWpjIxAaCQ6qdt9X2h/lEcpTkYlhzXMRchTi/SvqXRmbdxq1OFH7Cjb3RGh0QTmo2BTp5ok2rg0WrywFFW45qnshrGJrc/imxj+YweKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6nFGjx2hP82JEkaFIq8Q3IgCQ/KznPSMk0LX8YWYitQ=;
+ b=sMMegLzSJiazTggjx0hQMPRPwnFh46TyiQ6pXyvcHx0y4RYapTC8WHgfM6lzf+RitS19+//p2AlW1JvgsbGTtHz1I2JZKTLmejDkz/jSrBMYPQdIyKdYDRnKbIQhGXnk5+kVf5zL4KbqdxTSs1yvhTb4OIyvyGbPMv+zEYhr4lSl+P9QzHxXftNbirLymYl7ojSW9+4GXsuYaze1jDFWQktLQsSHqP/VO9nX91QEzV64fi/l/gk7GiPO7EgLGsrAlkV5v9LgghLZsKcHka5ihwGnCcNJvonaq0uUt9WLHK3SC0kE1mnQFfqgQA7hVsxWHamNum9/QR2RuYc22l95zw==
+Received: from SJ0PR05CA0176.namprd05.prod.outlook.com (2603:10b6:a03:339::31)
+ by DS0PR12MB9275.namprd12.prod.outlook.com (2603:10b6:8:1be::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Tue, 14 Jul
+ 2026 10:42:17 +0000
+Received: from SJ5PEPF000001D3.namprd05.prod.outlook.com
+ (2603:10b6:a03:339:cafe::ae) by SJ0PR05CA0176.outlook.office365.com
+ (2603:10b6:a03:339::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.9 via Frontend Transport; Tue, 14
+ Jul 2026 10:42:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ5PEPF000001D3.mail.protection.outlook.com (10.167.242.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 10:42:16 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 03:42:04 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Tue, 14 Jul 2026 03:42:04 -0700
+Received: from build-amhetre-focal-20250829.internal (10.127.8.12) by
+ mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20
+ via Frontend Transport; Tue, 14 Jul 2026 03:42:04 -0700
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<nicolinc@nvidia.com>, <jgg@ziepe.ca>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, Ashish Mhetre <amhetre@nvidia.com>
+Subject: [PATCH v7 0/3] iommu/arm-smmu-v3: Tegra264 invalidation workaround
+Date: Tue, 14 Jul 2026 10:41:59 +0000
+Message-ID: <20260714104202.1664187-1-amhetre@nvidia.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260713183829.63e570b2@p-imbrenda>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDEwNiBTYWx0ZWRfX4u5qQWyQJPIB
- 11L6w56UK/FXHI6QjFMwv0htBNPDkcffRO14etCCDYvqdBLL1RylRsAI+t2hmNPqfD/8kFDPE8+
- u9+sSSlmH+Zxsk+atitSWgzB6nHrCeE=
-X-Authority-Analysis: v=2.4 cv=Mp1iLWae c=1 sm=1 tr=0 ts=6a56123f cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
- a=QIr4ZWLDNz3WxDQMryEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: AeTppKg7eukgrPJsZlICq3KA3FK6CJaV
-X-Proofpoint-ORIG-GUID: AeTppKg7eukgrPJsZlICq3KA3FK6CJaV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDEwNiBTYWx0ZWRfX4crWCQojltWm
- 1RaRZlGjpwq2D1gcoK+fqNkQ6gi7F8qfAFsLtbiSHrnhgHOuqsht6CPND4fG+ttEjEChpRXQbDu
- IX0hmHkgOTF7yiFWNxKP0ko+PUFP6DaCu8xoopeDYHjUkZspl2c/nCtDSeiXTm0Qwvo7+h8Vufy
- FBktkbBukQhx9Le6Ltu1z0ThnMPDba+cbc29BzjYQwTOsyQpn1/QxiIaZKBxECUjQ+/r1AqVKAe
- tHQ048Km6l8af/Z7m2msOUVzTlapgh8FTFOB9YOgWX6lQeIOW+tZZ1hkXfsmDxCmGgm1J4Ejmud
- x0MQAMx1VJAosj1sygp6aRxD0UuSX9rDsNz9zkeF2CtcHaptC93vnIm4/oD+JJ42Af5CKfIzrML
- vCdU4T/AK+dm303nQYbGPq81tn/8kG07CfC6xeDMlLFAMsgxEU7PTMURncBhPAQIilRZQ1MCL6K
- c07bUFFkPvF4AJovzdw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-14_02,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
- impostorscore=0 priorityscore=1501 suspectscore=0 clxscore=1015 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607140106
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D3:EE_|DS0PR12MB9275:EE_
+X-MS-Office365-Filtering-Correlation-Id: c22f5fd3-4acb-49b3-cf3a-08dee19492f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|1800799024|82310400026|6133799003|56012099006|11063799006|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: WqddxghuX3ND3gXF4jqCT07qKV+hS4XTG8LjATs/UvZ0SZNfLTkH/3FTyqrKs53mdxgk7EMe0NEcN4Exdevi9harH4btF/YzZ9Ht32C6dBhZwtIesneh++jjf/RG9/Zg7i9uNQIDY0CVb+VoIM3vctu4roKdlukE4J11g4ezNUTSUYEXq51bNxMy3ndDxiJPgBRn3t55OcQiJmtUryGQQB4hYKCX9tl3ZeGA1c0ij/j4pzp0/fF4R9hT76qOXze41xcHhI/pQYz9qNzc+PZKhAp6e3GwEC8ishqPCkTvnjA2lGRou+P2wKWid++zz8Ziz+BYA94F1t47eOr7HrTuG/U7/pgu2q2lilCo+SqzfPZx5+mHtbS+aOs37wFPkG3YGvcHEFteyel4O+Fo8dDNASdkEdVYgJ1fFJ1grUbfG+B9uEKdfFZQBw7xTKCmCuboAgTOt4a0AE5fCqWM13ujCw4aWXwX7naKxdOtRw6Mw1+1u+thViy0M4SlAGYtZ2TG7c22CTFtQXp2llvJq3qjf2cL7jBDMO0t6Qq+Xk8EBOswZuQkM9JFCTtfbEemGyiDFoM4kC4dFYUYiVFMNhrGCF8svyqGlXL93p0sWpsRRBUw0LxpR03UBmJ+4MBllnzQBl0YJT5R1fOU8hS6mrEM0EXJe5MgNBk+4M2eZeFuAAHMDDSXuVRaz5OZvlJenwFiE3xuseaA3ZVqgYHW26pymw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(1800799024)(82310400026)(6133799003)(56012099006)(11063799006)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: IJ6d5PuvewapO8lLZyTqMKLfWtMeJ9xCLfbz27J7hzPhhZRhegB15D8PKmDtvWjT5LLday+t3YBWI4NVYrIOaWZckTq2JzcajO8g9IgVQYo5qWrfu3q/dcn3HaN6cVEMCsl4YC4JfIsyn4yDA/thaK4ZpulohusMbVwzxWvKoiZjFAXU+QEMrCHOs8ZnVNTnW+OymfVM7QOeHk+x9fZepmNdECt0r33zmLb7xCfi65JvGvhihPrJTA921G08jVoMlFknKGqlQBE0yyf/m9tLH2WvUU+F9xp6QFT8FriiBiy9r6Ba3oJIFgFUVg87xOmH0dEmvp9ZqjbPvDbRPeo+peZhFRhg+f1yS0XAJVdo+tQxAJU9EbNJ+tH7yInu94rEZPMNDnZGJoP6kEdPClUgLFzUWY9uJeQoFdp+0XKsPKbZFMFW+9QjQ2+FA2Lmazjr
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 10:42:16.9698
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c22f5fd3-4acb-49b3-cf3a-08dee19492f0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D3.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9275
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_034114_168433_A28313F5 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20260714_034225_366428_4FFE0DE1 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,76 +128,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 06:38:29PM +0200, Claudio Imbrenda wrote:
-> On Mon,  6 Jul 2026 10:52:13 +0200
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> > Lay the groundwork for a second KVM module. Guard KVM/s390 behind the
-> > KVM_S390 config and turn CONFIG_KVM on if selected. Move all the
-> > kvm_host definitions to _s390 postfixed headers. Prepare local header
-> > include guards for a new location. Move gamp related tracing into a
-> > separate file. While at it, rename the main KVM/s390 files from
-> > s390-kvm.{c,h} to just s390.{c,h} to match the naming scheme of other
-> > architectures.
-> > 
-> > No functional change.
-> > 
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >  arch/s390/Kconfig                             |   2 +-
-> >  arch/s390/boot/ipl_parm.c                     |   2 +-
-> >  arch/s390/boot/uv.c                           |   2 +-
-> >  arch/s390/configs/debug_defconfig             |   2 +-
-> >  arch/s390/configs/defconfig                   |   2 +-
-> >  arch/s390/include/asm/kvm_host.h              | 774 +-----------------
-> >  .../asm/{kvm_host.h => kvm_host_s390.h}       |   6 +-
-> >  ...kvm_host_types.h => kvm_host_s390_types.h} |   6 +-
-> 
-> I really dislike those "almost renames". I'd prefer to have a prior
-> patch with the differences, and a second patch for the move.
+Nvidia Tegra264 SMMUs are affected by an erratum where a TLB entry can
+survive an invalidation that races with concurrent traffic targeting
+the same entry. The hardware-recommended software workaround is to
+issue every CFGI/TLBI command (each followed by CMD_SYNC) twice.
+The second issue must execute only after the first issue's CMD_SYNC
+has completed, giving the sequence:
 
-I dislike this to. I tried to reduce it to a minimum. 
-I could prepend a patch that changes the macro guard before this patch.
-This is the change in question.
+    TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
 
-In fact the whole purpose of this patch is to reduce the almost renames
-and let the next patch be a pure move ( minus one keeping stuff compile
-change)
-> 
-> >  arch/s390/include/asm/kvm_host_types.h        | 347 +-------
-> >  arch/s390/kernel/early.c                      |   2 +-
-> >  arch/s390/kernel/entry.S                      |  10 +-
-> >  arch/s390/kernel/perf_event.c                 |   2 +-
-> >  arch/s390/kvm/Kconfig                         |  10 +-
-> >  arch/s390/kvm/Makefile                        |   2 +-
-> >  arch/s390/kvm/dat.h                           |   6 +-
-> >  arch/s390/kvm/diag.c                          |   2 +-
-> >  arch/s390/kvm/faultin.c                       |   3 +-
-> >  arch/s390/kvm/faultin.h                       |   6 +-
-> >  arch/s390/kvm/gaccess.c                       |   2 +-
-> >  arch/s390/kvm/gaccess.h                       |   2 +-
-> >  arch/s390/kvm/gmap.c                          |   2 +-
-> >  arch/s390/kvm/gmap.h                          |   6 +-
-> >  arch/s390/kvm/guestdbg.c                      |   2 +-
-> >  arch/s390/kvm/intercept.c                     |   2 +-
-> >  arch/s390/kvm/interrupt.c                     |   2 +-
-> >  arch/s390/kvm/pci.c                           |   2 +-
-> >  arch/s390/kvm/priv.c                          |   2 +-
-> >  arch/s390/kvm/pv.c                            |   2 +-
-> >  arch/s390/kvm/{kvm-s390.c => s390.c}          |   2 +-
-this almost move is required by the compiler (change header form kvm-s390.h to s390.h)
-> >  arch/s390/kvm/{kvm-s390.h => s390.h}          |   2 +-
-this change in theory could be prepended but would leave the comment in
-place invalid for one patch.
+ATC_INV is not affected and must not be doubled.
 
-> >  arch/s390/kvm/sigp.c                          |   2 +-
-> >  arch/s390/kvm/trace-gmap.h                    |  45 +
-> >  arch/s390/kvm/trace.h                         |  14 -
-> >  arch/s390/kvm/vsie.c                          |   2 +-
-> >  include/linux/kvm_host.h                      |   2 +-
-> >  35 files changed, 103 insertions(+), 1176 deletions(-)
-> 
-> [...]
+The erratum is not flagged by any SMMUv3 IDR/IIDR register, so it
+cannot be detected from hardware ID. Tegra264 is device-tree-only
+(no ACPI/IORT support), so detection is purely by compatible string.
 
-	Steffen
+This series is structured as a small refactor + infrastructure + enable
+sequence so that each step is reviewable in isolation:
+
+ 1/3 Pure refactor (no functional change): lift the existing
+     force-sync conditions out of arm_smmu_cmdq_batch_add_cmd_p()
+     into a new arm_smmu_cmdq_batch_force_sync() helper, so that
+     adding another condition (in patch 2) is a one-line addition.
+     Authored by Nicolin Chen.
+
+ 2/3 Add the workaround infrastructure without enabling it. Defines
+     the file-local arm_smmu_erratum_repeat_tlbi_cfgi_key static key
+     with an inline erratum description, the shared
+     arm_smmu_erratum_cmd_needs_repeating() predicate, the
+     arm_smmu_cmdq_issue_cmdlist() wrapper that can re-issue matching
+     cmdlists, the batch-helper force-sync condition, and the iommufd
+     batching split for mixed command classes.
+
+ 3/3 Enable the workaround for the existing "nvidia,tegra264-smmu"
+     compatible and document the erratum in silicon-errata.rst.
+
+The series applies cleanly on linux-next/master (base-commit below).
+
+Changes since v6:
+ - Add #include <linux/jump_label.h> now that the static key is
+   defined in arm-smmu-v3.c.
+ - Drop the unused smmu parameter from arm_vsmmu_can_batch_cmd().
+ - Expand the arm_smmu_cmdq_batch_force_sync() comment to note that
+   batches never mix CFGI/TLBI with other commands, so checking
+   cmds[0] alone is enough.
+ - Note in 3/3 that a guest kernel enabling CMDQV on Tegra264 must
+   also apply this workaround, since guest-level VCMDQs issue
+   commands directly to the hardware.
+ - Carry Reviewed-by: Nicolin Chen on 2/3 and 3/3.
+
+Changes since v5:
+ - Move arm_smmu_erratum_cmd_needs_repeating() into arm-smmu-v3.c
+   and leave a declaration-only stub in arm-smmu-v3.h. Make
+   arm_smmu_erratum_repeat_tlbi_cfgi_key file-local static.
+ - Add an inline erratum/workaround description at the static key,
+   referenced from arm_smmu_cmdq_batch_force_sync().
+ - Fix (rather than drop) the misleading !n comment above
+   arm_smmu_cmdq_issue_cmdlist(); keep the defensive !n guard.
+ - Remove the unused smmu parameter from the predicate.
+ - Tweak 2/3 commit-message wording ("commit" vs "patch").
+
+Changes since v4:
+ - Drop ARM_SMMU_OPT_REPEAT_TLBI_CFGI entirely: the option bit was
+   set and read on the exact same "nvidia,tegra264-smmu" compatible
+   as the static key, so it added no per-instance signal that the
+   static key did not already carry. The predicate now gates purely
+   on arm_smmu_erratum_repeat_tlbi_cfgi_key.
+ - Reorder the series so the compatible-string detection lands
+   last, once all the infrastructure exists:
+     1/3  factor out force_sync helper (unchanged)
+     2/3  add static key + WAR functions (no functional change)
+     3/3  enable the key on nvidia,tegra264-smmu + silicon-errata
+   Split the old v4 "Detect" and "Issue twice" patches accordingly.
+ - Update the /* See ARM_SMMU_OPT_REPEAT_TLBI_CFGI */ comment inside
+   arm_smmu_cmdq_batch_force_sync() to reference the static key
+   description instead.
+
+Changes since v3:
+ - Drop the cmds->num == 0 early-return so the refactor is
+   truly "no functional change".
+ - Rename ARM_SMMU_OPT_TLBI_TWICE -> ARM_SMMU_OPT_REPEAT_TLBI_CFGI
+   and rephrase its kdoc to be hardware-agnostic.
+ - Rename arm_smmu_cmd_needs_tlbi_twice() ->
+   arm_smmu_erratum_cmd_needs_repeating() and drop the kdoc
+   above it.
+ - Replace the explicit opcode switch with a single range check
+   opcode >= CMDQ_OP_CFGI_STE && opcode < CMDQ_OP_ATC_INV.
+ - Introduce arm_smmu_erratum_repeat_tlbi_cfgi_key static key:
+   the predicate gates on it first so unaffected kernels pay
+   only a single static_branch_unlikely() check.
+ - Drop the verbose Tegra264-specific comments above
+   arm_vsmmu_can_batch_cmd() and inside the batch helper.
+ - Document the erratum in
+   Documentation/arch/arm64/silicon-errata.rst.
+ - Guard the repeat path in arm_smmu_cmdq_issue_cmdlist() with
+   an n > 0 check so cmds[0] is never inspected on an empty
+   cmdlist.
+ - Drop the carried Reviewed-by tags now that the patch
+   shape has changed; re-review appreciated.
+
+Changes since v2:
+ - Split into a 3-patch series (refactor / detect / apply) to keep
+   each step small and bisectable.
+ - Move the classifier to arm-smmu-v3.h as static inline so the
+   iommufd file can share it.
+ - Add arm_vsmmu_can_batch_cmd() to split iommufd batches at
+   "needs repeating" transitions so the per-batch decision based
+   on the first command stays correct under mixed user input.
+ - Spell out in the commit message why detection is via DT and
+   not via IIDR/ACPI.
+
+Changes since v1:
+ - Detect the erratum from the existing "nvidia,tegra264-smmu"
+   compatible instead of adding a new property.
+ - Centralise the doubling at the CMDQ submission layer and only
+   apply it to CFGI/TLBI (not ATC_INV).
+ - Drop the binding/dtsi patches accordingly.
+
+Ashish Mhetre (2):
+  iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat workaround
+    infrastructure
+  iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat workaround on Tegra264
+
+Nicolin Chen (1):
+  iommu/arm-smmu-v3: Factor out CMDQ batch force-sync conditions
+
+ Documentation/arch/arm64/silicon-errata.rst   |  2 +
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 14 +++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 84 ++++++++++++++++---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
+ 4 files changed, 89 insertions(+), 12 deletions(-)
+
+
+base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
+-- 
+2.50.1
+
 
