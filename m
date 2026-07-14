@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70BDC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S9+0acl7rzlJzww8ZW//TiR0FDqtBMUOChilFB+I0aQ=; b=KY6nS/K/gAbAAyTpALoUIPt1TE
-	pthicSbl87VpWkZfTkCxQ8da25vQ28stMQ6DHJgyWYzPWUI6T+kNBUnaach+LKZXc1aJvSZ0A/4mi
-	h914E/7RZBNTIhNG6XEgYarPwQct610lAdZ/+/1qp1cAqVgTu7c6tTOuaFGfapZnyzWj75vdiQkAV
-	7VJOefB3X7wEqV7zBMSMeqZQ93jaCp8kxxdsIuWyu645ID8lqCUELjYSBgvWNkCMwgoSYHi+OFIg1
-	QrI78yDwTZzJI64k7xcRrBvcvs5o/G0UBMzS4prMJSHHAHuEIkXFcrNmbLj8rl41B9mfPM1TQJ8Eu
-	nc+CibEA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IGGPtHL/McwRSrgBlkOgO9CvLa+/+toxJU/7GfFUsLs=; b=y5f0+H6Su5LoEWBAnlQmLU0xgM
+	b2/lcx3fiW/02MuddZmOL0BL904uXW4FmSA7QqjRIFsP01MpMU1IDCU9PAI0ENpE4IDd1yR2F2bNR
+	OQqfDdYThy6y8ued4Uo4Mumnd1vnTYbTzkHRuikB7goIWxhQQXowxGpVA7VwXHOO5VzehPHk+Fz4P
+	2g4VJUA/aYTKdiIjkGsNfU2NqJXSNBZ6bji2dWp6PBUESJVkiGOiwSQQ8twelNPhOx87TYNMYzUaT
+	qfisKKgcER8pyVkbZ5R/NfYO54NgMVM3ed0TNA+ZRwgewMW8DPL2u/0eyh667+hmBOP0ZaPsJIIZs
+	nAPimi7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wja8c-0000000BX3C-2IMA;
-	Tue, 14 Jul 2026 10:13:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wja8X-0000000BX1Q-23zg
+	id 1wjaBx-0000000BXIb-02Vj;
+	Tue, 14 Jul 2026 10:16:45 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjaBu-0000000BXHV-0I15
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:13:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 919601476;
-	Tue, 14 Jul 2026 03:13:05 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 502F63FAF5;
-	Tue, 14 Jul 2026 03:13:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784023989; bh=g7mASN1w+UMRPcOtlUAKXnklRJCF0YJxJU34hxUurtg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cvuo8rF7fLtQJaXzvusD6AKM4OJ8QEAIeTRlXzwiCpcTpYqUhmJQJKFySi1ejFX+r
-	 w332l+4skESsmVNU8aYYoPQ03Q28sQC6qwWzkcyFtz0NjscDx3ft1WoNmvBBWVeCQ9
-	 mVWQGekFSg5ybgTuAQG6qdN+qvmEydrSXAmGy8Vg=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
+	Tue, 14 Jul 2026 10:16:43 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784024197;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=IGGPtHL/McwRSrgBlkOgO9CvLa+/+toxJU/7GfFUsLs=;
+	b=S+q/f9eK0zAPQ774VDggYx7rcMe2jVvz5a7y/lVfWx0GnCOegyhEeHS7scTpD15E5YYNSd
+	kuZWlhVsMDfdQnkmogupsuNcJSFM3x7MQdeIy1sTN2FzMJ/xw6L2G84hDiKjxI95KRqjvA
+	/OhhhjvUic5BxnKsCUbkiooVcbu6zOQ=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
-Date: Tue, 14 Jul 2026 11:13:01 +0100
-Message-ID: <alYLrbArDIKx1hh_@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <4d5imbtps2p35zujbupzmvag6m46yc4jz4qnoje6pdwlx4zuno@wom5iiwkszzs>
-References: <20260708134101.2514759-1-leo.bras@arm.com> <20260708134101.2514759-3-leo.bras@arm.com> <jiy6rtx24nqnnduze3uuvc2ifqrjlskhefyctlwyh2jshdjrw2@a2wpodq6ife6> <alS6hwzsBUEfvBEk@LeoBrasDK> <4d5imbtps2p35zujbupzmvag6m46yc4jz4qnoje6pdwlx4zuno@wom5iiwkszzs>
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v5 0/8] KVM: arm64: pKVM vCPU state management at EL2 (series A)
+Date: Tue, 14 Jul 2026 11:15:53 +0100
+Message-Id: <20260714101601.4142645-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_031313_733055_3EDACB6A 
-X-CRM114-Status: GOOD (  27.73  )
+X-CRM114-CacheID: sfid-20260714_031642_287720_A1275E0A 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,68 +77,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 06:41:11AM +0100, Wei-Lin Chang wrote:
-> On Mon, Jul 13, 2026 at 11:14:32AM +0100, Leonardo Bras wrote:
-> > On Sat, Jul 11, 2026 at 06:53:28AM +0100, Wei-Lin Chang wrote:
-> > > Hi Leonardo,
-> > 
-> > Hi Wei-Lin, thanks for reviewing!
-> > 
-> > > 
-> > > On Wed, Jul 08, 2026 at 02:40:58PM +0100, Leonardo Bras wrote:
-> > > > Add the new walking flags that tell kvm_pgtable_walk() to skip lower levels
-> > > > when walking the pagetables.
-> > > > 
-> > > > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> > > > ---
-> > > >  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
-> > > >  arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++++++---
-> > > >  2 files changed, 29 insertions(+), 3 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > > > index 41a8687938eb..20c7c12e0e76 100644
-> > > > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > > > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > > > @@ -311,31 +311,44 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
-> > > >   * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
-> > > >   *					with other software walkers.
-> > > >   * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
-> > > >   *					the walker returns -EAGAIN.
-> > > >   * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
-> > > >   *					without Break-before-make's
-> > > >   *					TLB invalidation.
-> > > >   * @KVM_PGTABLE_WALK_SKIP_CMO:		Visit and update table entries
-> > > >   *					without Cache maintenance
-> > > >   *					operations required.
-> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL0:	Skip visiting level-0+ entries
-> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL1:	Skip visiting level-1+ entries
-> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL2:	Skip visiting level-2+ entries
-> > > > + * @KVM_PGTABLE_WALK_SKIP_LEVEL3:	Skip visiting level-3 entries
-> > > 
-> > > Just a drive-by nit:
-> > > Maybe avoid the level-$LEVEL terminology? Since as you said there is
-> > > level -1 in the architecture, in that case you'd have to write
-> > > "level--1" which is awkward :)
-> > 
-> > It would have to be something like level-(-1), or we could call it level+1, 
-> > LOL.
-> 
-> Good one! :)
-> 
-> > 
-> > Seriously though, yes it's bad.
-> > I could call it level_1 entries, but level_-1 also seems weird :(
-> > level(1) & level(-1) could work, but looks like a function now
-> > 
-> > maybe just saying 'level 1' and 'level -1' can be better.
-> 
-> Yeah, I generally also just go with the space when it's text.
-> For code/variables, I guess a direct concatenation like what's done here
-> for the enum is good.
-> 
+Hi folks,
 
-Sure, noted for next version
+Changes since v4 [1]:
+  - Renamed the sys register accessors: vcpu_{read,write}_sys_reg() are
+    now the context-dispatching wrappers valid in any context, and the
+    host-only implementations are __vcpu_{read,write}_sysreg_vhe(). This
+    avoids introducing a kvm_vcpu_ prefix that would be easy to confuse
+    with vcpu_. (Oliver)
+  - Dropped Vincent's Reviewed-by on the sys register accessor patch,
+    since it changed materially with the rename.
+  - Rebased onto v7.2-rc3.
 
-Thanks!
-Leo
+Building on Will's pKVM infrastructure series [2], this series reworks
+how pKVM moves vCPU state between the host and EL2, and stops copying a
+non-protected guest's state on every world switch.
+
+EL2 gains proper primitives for the state it transfers: vCPU lookup
+helpers, and VGIC flush/sync that reduces how much host state EL2
+dereferences. The series also moves some preparatory code (such as sys
+reg access and PSCI helpers) to shared headers and HYP, and implements
+lazy copying of a non-protected guest's register state back to the host
+until the host actually needs it, instead of on every exit.
+
+This is the first of two series moving pKVM vCPU state management to
+EL2. The follow-up completes the job for protected VMs: state
+isolation, PSCI handling at EL2, and the resulting API behaviour.
+
+The series is structured as follows:
+
+  01-04:  Preparatory refactoring (MPIDR, sys reg access, vCPU reset, PSCI
+          helpers) to shared headers and HYP.
+  05:     Host and hypervisor vCPU lookup primitives.
+  06-07:  VGIC: reduce EL2's exposure to host state, add flush/sync primitives.
+  08:     Lazy state sync for non-protected guests.
+
+Based on v7.2-rc3 (a13c140cc289c).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260706095927.560795-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
+
+Fuad Tabba (5):
+  KVM: arm64: Extract MPIDR computation into a shared header
+  KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+  KVM: arm64: Factor out reusable vCPU reset helpers
+  KVM: arm64: Move PSCI helper functions to a shared header
+  KVM: arm64: Implement lazy vCPU state sync for non-protected guests
+
+Marc Zyngier (3):
+  KVM: arm64: Add host and hypervisor vCPU lookup primitives
+  KVM: arm64: Minimise EL2's exposure of host VGIC state during world
+    switch
+  KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
+
+ arch/arm64/include/asm/kvm_arm.h     |  12 ++
+ arch/arm64/include/asm/kvm_asm.h     |   1 +
+ arch/arm64/include/asm/kvm_emulate.h |  77 ++++++++
+ arch/arm64/include/asm/kvm_host.h    |   6 +-
+ arch/arm64/kvm/arm.c                 |   7 +
+ arch/arm64/kvm/handle_exit.c         |  23 +++
+ arch/arm64/kvm/hyp/exception.c       |  34 +---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c   | 258 +++++++++++++++++++++++----
+ arch/arm64/kvm/psci.c                |  30 +---
+ arch/arm64/kvm/reset.c               |  60 +------
+ arch/arm64/kvm/sys_regs.c            |  18 +-
+ arch/arm64/kvm/sys_regs.h            |  19 ++
+ include/kvm/arm_psci.h               |  27 +++
+ 13 files changed, 408 insertions(+), 164 deletions(-)
+
+
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+-- 
+2.39.5
+
 
