@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2575C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E9DC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkKcOyZICo08l5q0F5dJW8wCAI/JQBA7W4IQh7k1JQM=; b=x5sMTfZrPzhq2pUKNrNyJLkuc8
-	Wdlh+W4xL5Tp2ElhHEWcvLyjlngG3w8M8Qo6G1zmVbPdLyM1qNnaNbFDSH4ITB5n2yMs05PPs6PKj
-	cNbJRsQDTa6ReSUEHriaK6sAsGvO3tPY3XzmZx8m6x3ZBfPjl0Wdj/12tYKF/yZGDY80zaN+HGVuy
-	pr61DWmLkU/vE8ZPuoL18FWgSyUG5XcNg9f4kZPTEZJp68tDfrneDLMbRI0aae037ipklQAJkV4kr
-	PDWfRmPgMOpnyy9XHY0ZMqur3nWMohmfmmaUUe5oNi/JYNRWYnmIJgv0++yoGyBa/yxrZyFSEfsT7
-	2X4zENnw==;
+	bh=wo1cSCYChzZ+SeD4Rr4ePKZmOVyTbiqYMm+hrcWkjS0=; b=q80Km/7ugSTHttwVozBvGQ9lhR
+	pG7Zd/zaeOFC8Jtrt7yf8+9JYOWA36F5x4JKCjKSXEcF2s8UmWBH5hxM9YTkoRSf6hSrmHSk8pp75
+	BlgMFN+m2V8oXqONTDOQuLQxYiQrwjZjVGGNVOcbsVz9DEW2Rlzfnl8SD1WhDz9hvy2vW0marZ7JZ
+	sIY8EYNjcqgGfivTqrHTe60ABnSmri9aPfb5CY1F+HEAkQDQybAJc0u+cjCC5SxT7fd9T31G04kI4
+	o7/c4RbHGnxYkNIIC7dgRK/EwqZvLtPaRR917W+sME9n/CMMxEvbc5oii+TkXytmBetaKiic4xM9F
+	HdY97qEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcin-0000000C2de-19ns;
-	Tue, 14 Jul 2026 12:58:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjcjN-0000000C3Ml-23gm;
+	Tue, 14 Jul 2026 12:59:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcij-0000000C2Zz-0Z3v
+	id 1wjcip-0000000C2gN-0qOg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:58:45 +0000
+	Tue, 14 Jul 2026 12:58:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9743404D1;
-	Tue, 14 Jul 2026 12:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165DA1F00A3F;
-	Tue, 14 Jul 2026 12:58:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 96B3F6111A;
+	Tue, 14 Jul 2026 12:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B935D1F0155D;
+	Tue, 14 Jul 2026 12:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784033924;
-	bh=hkKcOyZICo08l5q0F5dJW8wCAI/JQBA7W4IQh7k1JQM=;
+	s=k20260515; t=1784033930;
+	bh=wo1cSCYChzZ+SeD4Rr4ePKZmOVyTbiqYMm+hrcWkjS0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Xfg17pOCKH58qm9QOQp3s/D113V6sEVUxJZ6+29T43uNYoNmOCrRsUAwCOUBFPCkp
-	 arVTHe95z5hFReyp2+agYWTPNUN4NQrQP/0It9KOjjtE48NNOuH7VlOyfw/hKp8fYf
-	 gRH/rlt7YEl3PIGlPKBKrg0GvtzniOAUGid9O+maO8z8i3QXSfY0w5EXAqqDvb18X0
-	 6mxw3l9iFWmvrs7oNXht1U0lx7IndAuHMkTEHXYDUDJ263zGxamkNsc6KgJCWE9/o2
-	 JX4VVrVt5iFMvuMJEk9iJvOmYG2ZNNQaqycO/MWQWcb3IyQ9IoFQPneMLIYnAVrn+p
-	 24yGKCNKYsjKA==
+	b=oO594GSptzEGVod0PfZDkZ0B3Pej48asdckgAWnWyMzWnIKnU7HQ85lUQLJH9kHFg
+	 ClFtThjrE2MCeKq6a+rzW3Xl8K2mm+/l/yEOKZVVPFQCgTMSXFNHmbSpltv0C4mJjc
+	 c32E/4HgmL+7vF4ZuOKUtuh1qj5PJd7COP5UulwxJ377bWwUWA4PbyjIzRzFHq2h45
+	 hq103iSdiguw0eqn2euOcrYyHEgdD+ZHY9Ud5cDeUf5Uta0h5BxDIqU9fX6AWpr87F
+	 DA7nTn+v4Zfmg0TJHzpRnvVEq37YUCfvPY3oc/U33m8qF16T1ylzWFQZmttlfWgWmU
+	 lUxTEDF9J5BvA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 14 Jul 2026 13:56:26 +0100
-Subject: [PATCH v6 07/16] firmware: arm_scmi: Reject out of range DT
- protocol IDs
+Date: Tue, 14 Jul 2026 13:56:32 +0100
+Subject: [PATCH v6 13/16] firmware: arm_scmi: Unwind TX receiver mailbox
+ setup failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-scmi_core_fixes-v6-7-3afe499d46e3@kernel.org>
+Message-Id: <20260714-scmi_core_fixes-v6-13-3afe499d46e3@kernel.org>
 References: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
 In-Reply-To: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,57 +69,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI protocol IDs carried in message headers are limited by
-MSG_PROTOCOL_ID_MASK. The DT parsing paths noticed protocol IDs
-outside that range, but only logged an error and then kept processing
-the invalid value.
+mailbox_chan_setup() can request an additional unidirectional TX
+receiver channel after successfully acquiring the primary channel. If
+that second request fails, the function returns immediately and leaves
+the primary channel allocated.
 
-That lets a malformed 32-bit DT reg value reach helpers which take a u8
-protocol ID, where it can be truncated and/or treated as a different
-protocol.
+Unwind the primary mailbox channel before returning the error so probe
+deferral or other setup failures do not leave the channel busy for later
+probe attempts.
 
-For channel setup, two different out-of-range values can also be used as
-distinct IDR keys while aliasing the generated SCMI protocol identity.
-
-Skip DT protocol nodes whose reg value does not fit the SCMI protocol ID
-field before setting up channels or creating protocol devices.
-
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
+Fixes: 9f68ff79ec2c ("firmware: arm_scmi: Add support for unidirectional mailbox channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/transports/mailbox.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index d17559c897a9..0735c6374269 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2873,9 +2873,11 @@ static int scmi_channels_setup(struct scmi_info *info)
- 		if (of_property_read_u32(child, "reg", &prot_id))
- 			continue;
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index b6459fbb8151..37e3eab529ea 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -230,9 +230,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
+ 		if (IS_ERR(smbox->chan_receiver)) {
+ 			ret = PTR_ERR(smbox->chan_receiver);
++			smbox->chan_receiver = NULL;
+ 			if (ret != -EPROBE_DEFER)
+ 				dev_err(cdev, "failed to request SCMI Tx Receiver mailbox\n");
+-			return ret;
++			goto err_free_chan;
+ 		}
+ 	}
  
--		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
-+		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
- 			dev_err(info->dev,
- 				"Out of range protocol %d\n", prot_id);
-+			continue;
-+		}
+@@ -248,6 +249,8 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
  
- 		ret = scmi_txrx_setup(info, child, prot_id);
- 		if (ret)
-@@ -3339,8 +3341,10 @@ static int scmi_probe(struct platform_device *pdev)
- 		if (of_property_read_u32(child, "reg", &prot_id))
- 			continue;
+ 	return 0;
  
--		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
-+		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
- 			dev_err(dev, "Out of range protocol %d\n", prot_id);
-+			continue;
-+		}
- 
- 		if (!scmi_is_protocol_implemented(handle, prot_id)) {
- 			dev_err(dev, "SCMI protocol %d not implemented\n",
++err_free_chan:
++	mbox_free_channel(smbox->chan);
+ err_clear_cinfo:
+ 	cinfo->transport_info = NULL;
+ 	smbox->cinfo = NULL;
 
 -- 
 2.43.0
