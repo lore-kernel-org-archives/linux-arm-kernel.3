@@ -4,149 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1BEC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 18:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEFFC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 18:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=; b=ZcRxeBKXhdYbMq7P3OAxrvTNQp
-	LoAZ1TnLSMxtMpTgI9Iz5g3oYH+ikS69Y1mOFvfFPDwqjOliTIR09GcEY1Jd1HEP8+9zi/8tSLfMh
-	TJt3nSahqLjiWJeaQVWhSEtHhIfpLIvrD+sGUeNmkfJRi7jyUSOwbeyhpXwv4CAos1VBEaMxyT0Eo
-	TcQB3A6+R/9hdTGwQClvA2tAQWDRKVHAJ+PBaMOBvz5orL8uy77MXBsWA80yMjSPKjIVklop4zZ47
-	9PKc1ahdAd+fqhbAzaJclVJNqh/ZS9vbp8i7IYGZwWy08Nmi2DJfMwcsH3vWbg9uCMZLT7Wjzzr7t
-	Dv5y+wig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dhfJZ3MR/pDRkwKbbqIaePXOsbmzobCQQG0MMPYpHRs=; b=1lsVFb7T7TcAxxd1XQVRdsRAsZ
+	kRjFTu6IU3h9DzL6cjX7cpS/BPo55pRT0VLlXXuQJnPvtc4OVqvv+3vPV0U5UcYNJb//Glzwr2kxU
+	5y9msS4k4L0u3YfCn/CcSyb9RdmQkjh79SLY9fin1iBgDlrXfVe7C5F6spXZzhZiYfe7r85NJiBh5
+	pcFJ4Gk6B62U+JSkNcWOXyTiQNq15BhgA2EQiMQxr7H6SMH5lZ/XZ9xKARhcO8nD62VlK3ejFWgSr
+	Ml1oSoJ8eREVInJsKmqk/Gu+9JLrb5gVAb7pOKYNTVdiHJUETQfesdInUtZEGebm0yyC/synZYTKM
+	25sbNQ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wji6e-0000000CuDK-0h1R;
-	Tue, 14 Jul 2026 18:43:48 +0000
-Received: from mail-westeuropeazon11013057.outbound.protection.outlook.com ([52.101.72.57] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wji98-0000000CuVO-2T9X;
+	Tue, 14 Jul 2026 18:46:22 +0000
+Received: from mail-southcentralusazon11012026.outbound.protection.outlook.com ([40.93.195.26] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wji6b-0000000CuCt-1vnV
+	id 1wji95-0000000CuUP-0C4s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 18:43:47 +0000
+	Tue, 14 Jul 2026 18:46:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yDF5vBGnNhMoJEcZqYcWdebuKqX08Hk84O6YCPvxFvhcl/6C+TiN+0PuFuOxQU6Lfa3wD8bltp5jBX45cb1Xgi+TLHdbkoXjrrOAkjnABWq2DSPOo9SeJB5EvLB32Rvx5wD6ZRGlV/QJbM3D496r/QgUIKQXYW/4xhSBHtgx7GEQ3sJWe9CEeHJyevml0uO0a3SxpDOb65ixGxxBXlfK/uiZzp6Lv+cInWherY0xwkLJEZ4Ndz3tsNj5N4pBr6Bx4mvom/yYFH8N/87PuJzDzxSLvNY1XrcxFi1sig2lzXmLliPZNVxjg+d+1oTEeCvXuTZrfzQf6t7GtlN7pkVbDQ==
+ b=Jksj6VaJ7HGGAuHKjhTjP1u8U9NlYTT/pCw0eOCvw6ulexcBkFJkHrH/1j+ZDshY5nF1C49qsEGFoPGeLNxTj2Yt7+jEGCeZriZE6LqcK2K3FJ09/tt9L3+A04eNyMxz6d9xO8yifgKPNcHR+zB8RSQ/uWQiOY5s/kUbgH1PwVn5I+3ouyzFxMw1mzDm9Auwr+cSNV9PyBCnt5+Fa4lueISVTzFCfRuGmWxW7QtqA6ZQ0Cgn41vp2Qpd5dauWDfT1Ef6F0DU6kuWeuyhpPZYe8+KpmHpUYxP3tcbOQmBMAgnTFh7ZjjxO6bkpJSWdi68Fm82RJDXtz8goxuYPuF9nQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=;
- b=aPZ3Btfl4RfUeoFMZpQyuB+qGA/m2ATv1zr8MUwgD4eWiL9cyKp2mzsM+bP7La29YGl4M7zamwzLom5ZAOD6eTN04nrEnJPhuNKJZUrcUahBJaHfwIv859nkqGprq5HhftS1rbBxKBL5jFtNtYg+TWos5gvbChg6SZKLLf01srUldwrpth0Up8+URrz7KcVpvusmuvySSM++QRgnvJ06z9yYfou0PRHF1sMwtNYJYUW1CXhg8GPwhgUip0cfUaDPxboKlFTnf9FYBUS0AFYfUlB6oFgzIQwImY/0GdzHpWHol7pU3IhAQEU+QEdKzaBl6k6tRLtgi+fPZ+oe32DJkg==
+ bh=dhfJZ3MR/pDRkwKbbqIaePXOsbmzobCQQG0MMPYpHRs=;
+ b=d1uL0ojYoMQqKFywV7PYUQGWEzd8fLNbZZWbVaztxH1aRq2yf9FL6uspTVUvjwMEcBpZoW0HwSGkwlm3zW1CcWn6JHhc1TvskOj7tP3wfvHJzzrfCDkrMPjnl9WLCctN9u8G5XZfqezAFpPDmM8ntB+uNsUEiIQjfiGrx5yGBvfQy/CLm6o70LM4qJIU2Txg6fxoOqcv1uHbhvWp8mCC7OAX1UfDdRzcN3ZWxULzDKO/ClppURQSis3PZ3xkyMNML6wCM+RdrUGGMEVo/Mc6Ru8IGi5eXfcsyp4j3zufwRLK89YYgR7x8ON1Y6xUE5zMwauBnn9wJNbbsyEWKKYUmw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hNHT9h0/5iedFNXxcjTF9aJKHUHMEWf6C50U7cP7IqQ=;
- b=Bg8j405j3LKj4C95WAtaVPkBP9+oqXM5MrAUO3K1KABFOm6Hunstq1SSVJf8uHud9rwcWM/ENKVf7AecKwJpjQ/rGzxml5KMxoCox0sBcrBhw12vOyXl9maW1beVCY7WzeYNk8PWrp9xll59SrWT/sjk1Ra5dQ8VASnf4FqVnPof1km48A14QjIqAfYodDIU8c3ujJCB4fZz0SQPyONPk0eDjt9c5WYe8bi/k9q7mFA9SzaT0focs6DjDV8OQYT6Zgq5K9iAxu7pbuOEPEQpH+RUCTOX/ppxW24zl7V8aClj/CmJuT7YG1h1YcFsq7TL5mZxpl95Pp0zk8AQ6CkJ/A==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by PAXPR04MB9397.eurprd04.prod.outlook.com (2603:10a6:102:2b5::20) with
+ bh=dhfJZ3MR/pDRkwKbbqIaePXOsbmzobCQQG0MMPYpHRs=;
+ b=HonZdIql1rdkz81vmrva24NX5eIPZy6+FNgUeqelWA5TLD/niyBQ+VKf2w7KpuRRYno5lhKa4rPZH25ujKhQ8YJOWHx980DYhG0UjUPwYE72nxo2x4khMOcJowligouv27D1IS1OD53Nkll8Hth9FjrIp3RPAmBYVfCh4gTfcbU8cFE9ZZKw2+j52+PzuD43Egdkt8jYB129AP1RetOnz9DBF2APM4b87HJj0Y5HDeDmzpSNB4qnwlomb91BT9HkAmf5jpt07qUoJvrVX+suENmcQufrfR7E9H/S9fIq3hjDQXykZW/BdHaGSQMJqw4KZ2hruCYAjHat+wx2JTUAvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS7PR12MB5933.namprd12.prod.outlook.com (2603:10b6:8:7c::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
- 2026 18:43:30 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%5]) with mapi id 15.21.0181.016; Tue, 14 Jul 2026
- 18:43:30 +0000
-From: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, "Shenwei Wang (OSS)"
-	<shenwei.wang@oss.nxp.com>
-CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, "b-padhi@ti.com"
-	<b-padhi@ti.com>, Andrew Lunn <andrew@lunn.ch>
-Subject: RE: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
- rpmsg bus
-Thread-Topic: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
- rpmsg bus
-Thread-Index: AQHdE8Cq27ppElL+eEigN5N73Xpyyw==
-Date: Tue, 14 Jul 2026 18:43:30 +0000
-Message-ID: <PAXPR04MB9185B1A3F16D82E8C0C76EE689F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
- <20260625155432.815185-2-shenwei.wang@oss.nxp.com> <alUdg9iTysXCFUa5@p14s>
- <PAXPR04MB91852808D2C7491AEF98CF1589F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <alZlZvQQwq-g6VL3@p14s>
-In-Reply-To: <alZlZvQQwq-g6VL3@p14s>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|PAXPR04MB9397:EE_
-x-ms-office365-filtering-correlation-id: 790b92e8-166c-462c-f232-08dee1d7ccb6
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|19092799006|366016|1800799024|38070700021|3023799007|6133799003|56012099006|18002099003|22082099003|4143699003|11063799006;
-x-microsoft-antispam-message-info: gZ8JYN659EmXx3ztehAJjXPlY4hglNGc89YBePUsqJNPcK5D3bPnPibCbM/h3wQzOba2M7pZXSp+wEW9O3Xp/FgSLTJ/TvaGXkFpcgI9AB2xSfmyW98WftqzDP4Qfdh5GVtt3bGKLse46K51CTje00fN+X5wKDn22hO3pspzdWO8HUcEh6WiRJc0evkQG+sG4FOMAfbK/hE6btLGbxsLkezWE6dM3EuplvFPTM7k1lbNDjwNM/Nk0mYQ/nG/5XfX7hwy17etMyTv5M702yz9+rhFWZ5xgqMdFxT3jTqNjScngFCN5j6sr06nMj/JUuXHjWQA+7aysd/zXlEuPwY41Muf1+1nwP3wCl0aoTGzOMD4/kjtEgXkCLAaLi8cwgtDnhJ3uIi8MhITzgcnj/Iu2xprO0fc1vo084Q2Bj0BTKYtDcF3aUddw5sYP3G62uecCSRxzCeBneLjM0EAPhLthvol3KwXiT6JsFiOqF4M4x9Quxfo9APYP2jDGp2lHAaB8muu3DuPzFDslAjSmUgqJjS2qNLBXgMIOLvmUcBa2mmE9skXqVpBETqPjaMniAMDQCYOJo8hjWoM0RaroPtUzPUSPilSfUuGjeQztcCfcTtc0M3kgn8ZjQoETmFBsrSZPbkqbMwXz8vCcOW9/GbeiDJrWWlQnPehlpzYX3wSuG2ZtPghS+T2ZL+5ucuq8x0W+pMOpiUzdX3p6vrguJ0syzkNNDyN1IVLY9OEBiMH4O0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(19092799006)(366016)(1800799024)(38070700021)(3023799007)(6133799003)(56012099006)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?XYLNp7Qg6Su8GFT6VUe8U25vKsGr1WmcpYEHSUffTC1EbchcbZ7BWpBEAhaY?=
- =?us-ascii?Q?9cg+ZI7a+sxrpQ8MZ1JM6aVhY6mqRMJ9wQeVffD32lfb+ocHpvrQxf7w+YeQ?=
- =?us-ascii?Q?AFwMvLhZYA63OjN4MphrxD07cnl0xRFIV0vR9PHKH5/eV7pqpXinLiVq1/hV?=
- =?us-ascii?Q?nS1DwJEuA69YDZeN0wwb6LTwyNz7SDU8xkL5B/cCheFbUuYwzwrcz28liJiu?=
- =?us-ascii?Q?UWlXckIyjMtQKiED5VSZa72fU0RA6p5KaAxT0JTHWo5YRZDQLriNEnX2/IXn?=
- =?us-ascii?Q?cT6pqXjAK4NQ1IGe6SVfc4YbsyassWWY7hx7Bk5sacC+qKBkeoca2Mxa22OZ?=
- =?us-ascii?Q?YDo3yjqngEBaCvRgSo0BBxIUJlCg+byMAaHffvRyqQE5NGKTvMdtyIg696+3?=
- =?us-ascii?Q?hS2J285VM06ucEs49dROpCh5FVe6U8QKhV1SJXybZI7ThftL0HxJgk4pJueO?=
- =?us-ascii?Q?aAKP6KU8ciAkcYQ/I/UI+koPYNrjIDscUZWrXqDihvurC0Q8VNH3YHWO9fA4?=
- =?us-ascii?Q?mM1l4L6EJISNfYO+OXqKaCWwpr+7bvYLIHBJNMHHvcaC6cSYEiOMc1CJCdeJ?=
- =?us-ascii?Q?ODRsip69+NNP9XeZ27I4s+p7Yfsn5YvzjutE9KHeGf9eVlm28S7IniQcjblR?=
- =?us-ascii?Q?AiFlPhlIXaGBaiRH27SkNlOmrL4udIpUeV8MJl/Cgn3K7vFR5vtUWco9ZqEI?=
- =?us-ascii?Q?vqJR9yq3ucIzS6PQnhc8SDFPaTzPY+j1cqjo4NWxYK8Al/EWgcmSmUiquVty?=
- =?us-ascii?Q?XSi5o3n5lbGC89M0xy8d2agmNq4CmN6aWSpcmH1G0TG8HHsO3PSW/raJ6lJR?=
- =?us-ascii?Q?QFvGb0IVrJJJA3LS/uMdN6MDRIa7Sg7v72hCC+IImY0CW3qEHy6QK0uURMqm?=
- =?us-ascii?Q?ROCKx0aLin+1sCQILz2nrtmWiA2p284OBeIdezsfr+B+GnJ3ttigRH3q30Y1?=
- =?us-ascii?Q?JE20bnq7OF71cqcIpqcIPQ/8Jh4tPWJdY/Mt+f4ivM2q77g6VhD9TrRYNhk3?=
- =?us-ascii?Q?B5YxKLPszK9xDD9pZmwxMBNQ3vFlYzMBeSsr6gLfg5R7++wADHSvCIahZuAL?=
- =?us-ascii?Q?LnpFAZRhfwp+OTjMijScS04h7SRfPurr2cIC0duiZXsFZHUrRNLiGKTiEx46?=
- =?us-ascii?Q?X2v0T5i9hPFGHu73Rk9LYyRcfcW6XPh37uTqaEp/WAqq6w1PhClP1JxwSvXI?=
- =?us-ascii?Q?ZvN6XIiDvosqxQR6fEdmzwd8yI08DgrU0fyxJ/VyzoSxodb7OS+66CXmN7Uu?=
- =?us-ascii?Q?cSFbzOf+1u0LooXa4aLiun7gJWBDmwK+M6agXaCEklvUEMpFz/ZAvWm90iGX?=
- =?us-ascii?Q?2yO4qUON6V95CYCMgIiVnzLQ75d2fXFX4+Muc7ei2RoTBdlwjZlpAmr5Xewq?=
- =?us-ascii?Q?/FhKf+tGJk9XeS+KlkD4uc071RpCBThVjpFbMhJm+jDd0s/kiFuGSBegXPPK?=
- =?us-ascii?Q?A9HEb2N1CgNUyWULhROu0y4XGMWNopveP0uHH4FwdcYvT0DoQ0KCa9EIeaBq?=
- =?us-ascii?Q?+0hdP4lF0NTMNcj+oG020mhAqKcFf61jhodWAWiSOgIg6Wv8IxBVRPn4iy44?=
- =?us-ascii?Q?WKtyCDVgIvbgfFyJJQGsU28+oS+ym9Jr1lt7FPbD8xdZRvtnS0SUIjbDOSlw?=
- =?us-ascii?Q?w2yOgXcQS+MrJSYKKzo9qzoL9W7WPxSHcQhdps/tU18ySf2GNCR9RnosC3jj?=
- =?us-ascii?Q?3AvEGGIhpAX4+1XaOQNNu3TfJIJvHtW/DTl+lr02l8TWIug/wjexUdd2+9aW?=
- =?us-ascii?Q?umq0euY5fg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ 2026 18:46:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Tue, 14 Jul 2026
+ 18:46:11 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: David Matlack <dmatlack@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: [PATCH v3 0/8] Organize the SMMUv3 invalidation flow so iommupt can use it
+Date: Tue, 14 Jul 2026 15:46:00 -0300
+Message-ID: <0-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BN9P221CA0009.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:408:10a::17) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS7PR12MB5933:EE_
+X-MS-Office365-Filtering-Correlation-Id: 798145bc-fc5f-4143-d41a-08dee1d82ba5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|3023799007|56012099006|18002099003|5023799004|11063799006;
+X-Microsoft-Antispam-Message-Info: FifKfo2kJqjQKOxizit1Bu5uYl1e/6U+ZGWWBkNPv1HIL4in0MqDTH8RjdV29HACFDDjl8Qtot0gQBE66cLRM37HxnALHaU937e1GXtAblPdTMQ9z1sp9wHp7bQS+QmFP28/6gLIxTBzYjI8LIQUuRW3ygg/2c57J+RD6PTcylmh9TGDLZKNfuT9geYp5qIfP5f6bacY46o4tlZVTuuvEKB3kYeQbGTpl5+Jr5VHZc6TDggFkJISVUYzkOAMVK/wwE4MOhj44DEFUo7ornaDvG2rBXWxNjyWzlttRk27yO3dRrX+nz6X/lfZO8XdTtzlz6P9FPJkelcIa/xhrzn9vVwR8Eh8Qg7cCB1xpftS7r0ncI3MM3VOyQ56zPskgyXuJf3/NQTqAmfBjUiqRvp+mhLtc0zrknbT44kTgjdDxFbPCGopxwZ+4ucuQOvZQ4o4auGJHgyb6moY2h+UB8b7DnIBK89Ic6RpRwFgBXWalvNaeVx+IS7bMCGc+NBTYbiG9xDAe1zD/d5HWoAns5sS9rI4mRzgA4Ix4o2SQ31LUWKifw9DvTa4oie2EkjEUAvcp3K7AaHo46851aGjUDnldjP0CngoyBV1SUp6KZeW8eni9t0NkS9P/6d02Al5va8MlUWO3YsBF4XCnHFf/weWCufO1zOlBN/woEe4GHIF0zY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(3023799007)(56012099006)(18002099003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aLURREUZZWlYEYx370SDHq1fuU3bzBMWSwK4cnkjh2MqK7Ttq1icGBT9BgN6?=
+ =?us-ascii?Q?HLbMvhBBggMmEGhVllfKgPv81NBQ/k9IfAzSxo/2RrOZXL7HbE6n5alL9vJ2?=
+ =?us-ascii?Q?h08iQdvvOUNqohMUBAEpNeyOvMMwDFFwpUNdKqhGTIHtd4kjFal5xLJEW5Pg?=
+ =?us-ascii?Q?QHxiGoXB+iGwApOZOj8YHs9QkxegNvEoXzAHsAUVQJO979zR7V+dsGRlv0xU?=
+ =?us-ascii?Q?DqjF+BblfkDua3gEbuQC8Che6y2ShtgqOvUeLIiQiJOgSAb4kmpnK2jlFuJ3?=
+ =?us-ascii?Q?4+IKsj/t5k96huuvqUXHvU0zPa+WNyO7xSToub0PgQp1FgOUy7soZO7I+zyL?=
+ =?us-ascii?Q?0mMuDTfiT3Y+t/A2i/SAi9opcjOG60ntFsXxOWs9Is2ggvzMrnw87C8ErLnn?=
+ =?us-ascii?Q?b/Wz2AFgqS/gB2YRx6OZ5cJgN40S48p4IdEtY73NSfxgqZv6ofgRmE3N+q9y?=
+ =?us-ascii?Q?MSDc7xC1ecAb0nMkXkoGwdUinu/CuTSoJo+fyebXh4jV71FG4owGSkmd4kE6?=
+ =?us-ascii?Q?tqqSwLCel3ux0OLGOSfcBITg05ROJReOXtjEqUk4j6BDhADOrJOrWDhBm7KY?=
+ =?us-ascii?Q?EyNPfIuu9BBTj/GIRSioskfnil32o/hW2hKUVMcDw+LLM2Bh97gcheQoMPv4?=
+ =?us-ascii?Q?KZLBWDRgJ4eQUFl4TWCOpMnp/lvJpAm2/a+faqWJL/wztHM8yG+bU4bFASn+?=
+ =?us-ascii?Q?fmHdYVg9uawPe5JfeHgqBjXldNkpYbbqKwqJ6fpGVkX1cOQquGp772wqtuoV?=
+ =?us-ascii?Q?Jwe34giLdsOIga+oPi1uLActIOU1s+Cx0OpWd57OCXAEaO5T2L1vp889Adw3?=
+ =?us-ascii?Q?zlQKZSEHXpG3cIxjaF7ZSTi1hkAh2CT4GV24QnBGLmD4wnAxjk91tgkqgRT/?=
+ =?us-ascii?Q?VlzYYt8120gWHRaJbsMobIh3+UZC3BTULM7o42/p7E+/50sEsd/k/eIPQV//?=
+ =?us-ascii?Q?CwGqUN5ORDxTGDey2oXhA6YOjCeLZ0xA6fcCYQsLCEUu0MUHoiOd0B7PQ7mS?=
+ =?us-ascii?Q?OHvFOv4mokF7qA/Q7PTcXSFI0bNcy/6wLP0MQGvLXOnZ8K8wI9Onfhqy5vW9?=
+ =?us-ascii?Q?oet3AsKiNhdp9A6GPT8FoWtNI7y+k72slz/EEx80Whb3Zle6pTMkonvT3SMs?=
+ =?us-ascii?Q?vumQzgwcCr6VmLqw/F0Xa8Dw/0Uy3pJPKHmRnBVRcQ0MA61Ir2K/Wr+0zfgT?=
+ =?us-ascii?Q?XBt3oS4Dzr6IyNtvvOx6kq+csioWRs1qfDQPv3Zey9W+d5eTR0QscridViHs?=
+ =?us-ascii?Q?+kt+dfT8VRMGknRLgl+/0+3ThLMkOTgZM7ciD1PV17bV89V5rfZ0Dh7+m0aB?=
+ =?us-ascii?Q?fniIk7k7nTNrlRhCbHH9asF3zXLd+TWM/eekN9q6T+nz80N5fYgE7t+J4lTC?=
+ =?us-ascii?Q?DcszJ5vA387hZ0PGtXPltbAMFLfs95cn5gkGiujFvp3GAk7abdWIpaaRCNPf?=
+ =?us-ascii?Q?/iNstIYTfoAYk/35iFgilI+no1AX9UVgKCEOoL0wLzxOA51qolp7gi6F7EFt?=
+ =?us-ascii?Q?Q4ix1o9esC0tKwyF0O9DOATURrwoEh25hDvNVAsa8oJEhmrYfTAxtKSh3E3o?=
+ =?us-ascii?Q?Kj3xYrte8e7dntG6Y6zcknRF40VJ7s+7yEzKxkqcu9gSsjxYu2EWB7V+6liM?=
+ =?us-ascii?Q?3L+cZ9k6oCd7ek64Wo0bTLMbLYARY0yFVT7U/mLUuYNRXytxQWy1CXHHphU8?=
+ =?us-ascii?Q?ZgyK3DIlyTVzQKjM2WGWx4IkXcasy3kxwgp78KD0av7sicp1?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 798145bc-fc5f-4143-d41a-08dee1d82ba5
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 790b92e8-166c-462c-f232-08dee1d7ccb6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jul 2026 18:43:30.1422
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 18:46:09.7131
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: KNGvivI3RFv4hpOh00nmb9fx9EPZTY/nKFVDNGTcofNRknEqf3RwoqN5Ch12CZsw7gBTkySsmnjXOmNhHmo72g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9397
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q7FwNa0ga2wjaniKMRHp8JMBts+ZVa/C/hLLJVyKs9pa3LFMScFGeRAqq0DjwWVW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5933
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_114345_652542_FDAEA325 
-X-CRM114-Status: GOOD (  37.33  )
+X-CRM114-CacheID: sfid-20260714_114619_091842_2F1420E7 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,236 +142,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[ This is part of the patch pile to move SMMUv3 over to the generic page
+table, the precursor patches have been merged now:
+1) Organize the SMMUv3 invalidation flow so iommupt can use it
+2) Use the generic iommu page table for SMMUv3
+
+There is a small conflict/overlap with Nicolin's series that also adds
+FEAT_DS, I will respin this after it is merged.
+
+The whole branch is here:
+   https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+]
+
+iommupt has a design that focuses on building a single iommu_iotlb_gather
+for arbitary batches of map/unmap operations. The gather uses the free
+list and it captures invalidations of tables, leaves and supports mixed
+levels.
+
+The introduction of PT_FEAT_DETAILED_GATHER provides some additional
+information that is useful for ARM: the damage bitmaps for the table and
+leaf changes.
+
+Prior to switching SMMUv3 over to use iommupt prepare for this by
+reworking the internal invalidation to work on the same data format that
+iommupt will produce. Bridge the invalidations generated by io-pgtable
+into the new format. The conversion is simple enough, io-pgtable generates
+invalidation operations that have only a single set bit in
+table_levels_bitmap/leaf_levels_bitmap, so we can convert the io-pgtable
+provided size into the proper level leaf or table bit.
+
+When iommupt uses this mechanism it will fill in full bitmaps reflecting
+the union of all invalidations contained in the gather, and this series
+provides an implementation that can work this way.
+
+Like the other drivers the general algorithm focuses on trying to issue a
+single command per gather or at most 512 single invalidations. If that
+isn't possible then it falls back to full invalidation. Since table and
+leaf invalidation are combined together there is no waste of invaliding
+tables prior to performing a full invalidation.
+
+On its own this provides value as the invalidation has a number of
+rough spots:
+
+ - Non-leaf invalidation actually expands into a TLBI for every
+   translation granule because the inner logic doesn't special case the
+   walk vs leaf condition. Now that a table_levels_bitmap is used to
+   describe the walk invalidation it properly generates a RIL with optimal
+   TTL or only one single invalidation.
+
+ - RIL doesn't calculate perfect hints for SVA because the SVA rules are
+   different from the io-pgtable-arm rules that the RIL algorithm works
+   with. SVA can now express the combined leaf and table invalidation that
+   the MM callback represents and get the right TTL, with an optimization
+   for the common 4k only scenario.
+
+ - RIL didn't generate a single invalidation like VT-d and AMD do,
+   instead it tries to generate an exact coverage with many
+   smaller invalidations. Switch it to match the other drivers single
+   range approach for performance and consistency. Since ARM has a much
+   more flexible range definition the over invalidation is far smaller
+   than other systems.
+
+The approach is to introduce a new struct arm_smmu_tlbi which
+describes the invalidation, pre-compute into the tlbi the single and
+range commands from the start/last and bitmaps, and then apply the
+correct pre-computed command to each of items in the invalidation
+list.
+
+The RIL and single calculations are revised to use the new bitmaps
+and accurately generate TTL/stride/etc.
+
+Some of this design is to support another series to remove the batch on
+the stack. Now that we have the invalidation list and the tlbi it is
+simple to just expand the invs list directly into commands instead of
+using the temporary on-stack batch array. Eventually removing batch will
+save ~1k of stack usage here.
+
+v3:
+ - Carry the base translation granule in the TLBI description and pass the
+   domain separately
+ - Invalidate the leaves when doing a table invalidation too, corrects a
+   missed invalidation but means we don't do anything about the duplicate
+   invalidations.
+ - Simplify the control flow in a few places
+ - Clarify the TTL derivation and accomodate DS
+v2: https://patch.msgid.link/r/0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com
+ - Rebase to v7.2-rc1
+v1: https://lore.kernel.org/all/0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com/
+
+Cc: Mostafa Saleh <smostafa@google.com>
+Cc: Samiullah Khawaja <skhawaja@google.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Pranjal Shrivastava <praan@google.com>
+Cc: David Matlack <dmatlack@google.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason Gunthorpe (8):
+  iommu/arm-smmu-v3: Pass the parameters for the invalidation in a
+    struct
+  iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
+  iommu/arm-smmu-v3: Optimize range invalidation for latency
+  iommu/arm-smmu-v3: Keep track in the arm_smmu_invs if RIL is used
+  iommu/arm-smmu-v3: Precompute the invalidation commands
+  iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
+  iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
+  iommu/arm-smmu-v3: Support the DS expansion of RIL's SCALE
+
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  32 +-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  30 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 460 ++++++++++++------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  64 ++-
+ 4 files changed, 413 insertions(+), 173 deletions(-)
 
 
-> -----Original Message-----
-> From: Mathieu Poirier <mathieu.poirier@linaro.org>
-> Sent: Tuesday, July 14, 2026 11:36 AM
-> To: Shenwei Wang (OSS) <shenwei.wang@oss.nxp.com>
-> Cc: Linus Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.o=
-rg>;
-> Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzyszto=
-f
-> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn
-> Andersson <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hau=
-er
-> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
-> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel=
-.org;
-> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> <festevam@gmail.com>; Shenwei Wang <shenwei.wang@nxp.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Arnaud
-> POULIQUEN <arnaud.pouliquen@foss.st.com>; b-padhi@ti.com; Andrew Lunn
-> <andrew@lunn.ch>
-> Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver ov=
-er rpmsg
-> bus
->=20
-> On Tue, Jul 14, 2026 at 02:29:12PM +0000, Shenwei Wang (OSS) wrote:
-d
-> > > > +  - 3: Both edge trigger
-> > > > +  - 4: High level trigger
-> > > > +  - 8: Low level trigger
-> > >
-> > > I'm in agreement with cmd 3, 4, 5 and 6.
-> > >
-> >
-> > How about cmd 2?
->=20
-> Yes, I forgot cmd 2.
->=20
-> >
-> > > > +
-> > > > +**Reply:**
-> > > > +
-> > > > +.. code-block:: none
-> > > > +
-> > > > +   +------+--------+--------+
-> > > > +   | 0x00 |  0x01  |  0x02  |
-> > > > +   |   1  | status |    0   |
-> > > > +   +------+--------+--------+
-> > > > +
-> > > > +- **status**:
-> > > > +
-> > > > +  - 0: Ok
-> > > > +  - 1: Error
-> > > > +
-> > > > +SET_WAKEUP (Cmd=3D16)
-> > > > +~~~~~~~~~~~~~~~~~~~
-> > >
-> > > I already commented on messages that are not part of the virtio-gpio
-> > > specification.
-> > >
-> >
-> > I don't believe virtio-gpio needs a SET_WAKEUP command.
-> >
-> > In the RPMSG case, SET_WAKEUP is required because it performs an
-> > operation on the remote processor, so the remote side must be explicitl=
-y
-> notified.
->=20
-> What operations would that be?
->=20
+base-commit: 4c73a6222c248384513c4f465e547df80b280a06
+-- 
+2.43.0
 
-The operation is enabling the line as a wakeup source. In practice, this in=
-volves configuring=20
-hardware-specific wakeup settings (e.g., register bits) on the remote proce=
-ssor, so the remote=20
-side must be explicitly notified through SET_WAKEUP.
-
-
-> >
-> > For virtio-gpio, however, everything is handled locally. The other
-> > side does not need to perform any action, so sending a SET_WAKEUP comma=
-nd
-> appears unnecessary.
->=20
-> What is "everything"?
->=20
-
-I mean masking, unmasking, and marking the interrupt as a wakeup source. Al=
-l of=20
-these operations are handled on local processor.
-
-Shenwei
-
-> >
-> >
-> > > > +
-> > > > +**Request:**
-> > > > +
-> > > > +.. code-block:: none
-> > > > +
-> > > > +   +------+------+------+------+------+------+------+------+
-> > > > +   | 0x00 | 0x01 | 0x02 | 0x03 | 0x04 | 0x05 | 0x06 | 0x07 |
-> > > > +   |      1      |    line     |           value           |
-> > > > +   +------+------+------+------+------+------+------+------+
-> > > > +
-> > > > +- **value**: Wakeup enable.
-> > > > +
-> > > > +  The remote system should always aim to stay in a
-> > > > + power-efficient state by  shutting down or clock-gating the GPIO
-> > > > + blocks that aren't in use. Since  the remoteproc driver is
-> > > > + responsible for managing the power states of the  remote
-> > > > + firmware, the GPIO driver does not require to know the firmware's
-> running states.
-> > > > +
-> > > > +  When the wakeup bit is set, the remote firmware should
-> > > > + configure the line  as a wakeup source. The firmware should send
-> > > > + the notification message to  Linux after it is woken from the GPI=
-O line.
-> > > > +
-> > > > +  - 0: Disable wakeup from GPIO
-> > > > +  - 1: Enable wakeup from GPIO
-> > > > +
-> > > > +**Reply:**
-> > > > +
-> > > > +.. code-block:: none
-> > > > +
-> > > > +   +------+--------+--------+
-> > > > +   | 0x00 |  0x01  |  0x02  |
-> > > > +   |   1  | status |    0   |
-> > > > +   +------+--------+--------+
-> > > > +
-> > > > +- **status**:
-> > > > +
-> > > > +  - 0: Ok
-> > > > +  - 1: Error
-> > > > +
-> > > > +Notification Message
-> > > > +--------------------
-> > >
-> > > "Interrupt Messages"
-> > >
-> > > > +
-> > > > +Notifications are sent by the remote core and they have
-> > > > +**Type=3D2 (GPIO_RPMSG_NOTIFY)**:
-> > > > +
-> > > > +When a GPIO line asserts an interrupt on the remote processor,
-> > > > +the firmware should immediately mask the corresponding interrupt
-> > > > +source and send a notification message to the Linux. Upon
-> > > > +completion of the interrupt handling on the Linux side, the
-> > > > +driver should issue a command **SET_IRQ_TYPE** to the firmware to
-> unmask the interrupt.
-> > > > +
-> > > > +A Notification message can arrive between a SEND and its REPLY
-> > > > +message, and the driver is expected to handle this scenario.
-> > > > +
-> > > > +.. code-block:: none
-> > > > +
-> > > > +   +------+------+--------+
-> > > > +   | 0x00 | 0x01 |  0x02  |
-> > > > +   |   2  | line | trigger|
-> > > > +   +------+------+--------+
-> > >
-> > > 2 things here:
-> > >
-> > > 1) You did not include messages that mask and unmask interrupts at
-> > > the driver side.
-> >
-> > Interrupt masking and unmasking are handled entirely on the local proce=
-ssor.
-> >
-> > When an interrupt occurs, the remote system masks the interrupt and
-> > then sends a notification to Linux. After Linux processes the
-> > notification, it sends a SET_IRQ_TYPE message back to the remote system=
-,
-> which then unmasks the interrupt.
->=20
-> This is the kind of information that should be part of this documentation=
-.
->=20
-> >
-> > Thanks,
-> > Shenwei
-> >
-> > >
-> > > 2) We are carrying virtio-gpio messages on top of RPMSG and as such,
-> > > this whole protocol should be about thar:
-> > >
-> > > +------+------+--------+--------
-> > > | 0x00 |       payload         |
-> > > |  Q   |                       |
-> > > +------+------+--------+--------
-> > >
-> > > Q =3D 0 requestq
-> > > Q =3D 1 eventq
-> > >
-> > > The "payload" part is simply the format of the messages as found in
-> > > the virtio- gpio specification.  From there, the only thing left to
-> > > mention is which messages are not supported, i.e get line names.
-> > >
-> > > > +
-> > > > +- **line**: The GPIO line (pin) index of the port.
-> > > > +
-> > > > +- **trigger**: Optional parameter to indicate the trigger event ty=
-pe.
-> > >
-> > > Not part of the spec - remove.
-> > >
-> > > Given the refactoring work that is still needed, I will not look at
-> > > the implementation.
-> > >
-> > > Thanks,
-> > > Mathieu
-> > >
-> > > > +
-> > > > diff --git a/Documentation/driver-api/gpio/index.rst
-> > > > b/Documentation/driver-api/gpio/index.rst
-> > > > index bee58f709b9a..e5eb1f82f01f 100644
-> > > > --- a/Documentation/driver-api/gpio/index.rst
-> > > > +++ b/Documentation/driver-api/gpio/index.rst
-> > > > @@ -16,6 +16,7 @@ Contents:
-> > > >     drivers-on-gpio
-> > > >     bt8xxgpio
-> > > >     pca953x
-> > > > +   gpio-rpmsg
-> > > >
-> > > >  Core
-> > > >  =3D=3D=3D=3D
-> > > > --
-> > > > 2.43.0
-> > > >
 
