@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A93C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1AAC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 18:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10VT7gL+lmA+QIPWzvdgixXz8JOFpc48OxM2n67zUxY=; b=w7+SStynm0kkw3iowzdpjOU6Wx
-	9Feox109bTl5O+unR/xpXQ52sgAJu3HEHJQDcYU+keT1AjVfm7pOodN+1R3szC5gKVIBnkqRguxJo
-	DRnIk+AyYskyNlJaTEho9LnwTmbKRRYIBESG9905qbVgcZvKQiVIC0uDh4bh+/AEYU0IPDsDY1Nxd
-	ANMJwDX0aCkRMvcwkQ8Qv4e5pqbrmGC5Fd7oizWRB3Q3vspTyp6sT9cVokQL2rTndgxARXgBQjK5z
-	D7uzJYG/DenCUSeKC3pBPenR0hypFtrKOtCHm1npTAh6nKplDMj70RPb6Scp58aa1cGSBR/QnCDN+
-	+sS8dy6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cfKdTJ0UW1n66HS6tgSej7/MevFTojdr1dMFwbyGTJ8=; b=s3gqvXRAvN1T1YlRA475aN3kDJ
+	FCrZ9Fd+hF8A8PnG5r9z896nffNdVcVof/rJOrOcCWHsgalBPpJPDnEGCgqDoKL4iG65m8MA7cjBa
+	0MuazkDHLwpzzDlsJfUNrY6hxXVfdgkcXC/ikzTIOAg03M6+YBZmOFP0aZ2KPfvdP62vq6HFpT4Wc
+	wkPQnOUVjN8LgYXlyMaZN0RE5JDSMSJR405IWe5KhWMX6HOoOCvq5p0l+nnSkQrpcVFDW0qQQgsu5
+	dO2cH6pqHQf8q8vFlY/Q3xn+wwc+nEiOMiqvl18s+BPCRTNFKVg700yhjoBrtm5okD+K5/26bZIVr
+	sjXIo5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjhLC-0000000Cp2Y-2kIv;
-	Tue, 14 Jul 2026 17:54:46 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1wjhat-0000000CrKK-48N6;
+	Tue, 14 Jul 2026 18:10:59 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjhL9-0000000Cp2A-2Dyk
+	id 1wjhar-0000000CrJm-43Fx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:54:45 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Roch5HiHa2iNStuY0YRH4IZtFO61OoqmOsopcpfJ2zxEJC/Nok2TfZdaOFcNxhFDLlphjUJ+7Hak27SHDMmGTN3@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784051680;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=10VT7gL+lmA+QIPWzvdgixXz8JOFpc48OxM2n67zUxY=;
-	b=EInFboKSS6t7lN7tXtrJS2NJ7G0H0bGIQqiNvt/bMGnbvfVtEcsQg76CafB0fVYf2eAQEZ
-	Pa7o3BCCme0PhZ8GqqnGai+h1tB28aePT2Mr8hhJ2plbUYNAI2g0pg7NQzK7Q7zBDLI2CM
-	ITBs8yjz1RsB14tgKKMPLTSKEro7kYg=
-X-Gm-Message-State: AOJu0YzXnFFj2z/MRXHgSA5e7v/TUCN5EVyBmgF8Y2DypTRtSj0tk4zq
-	NWU+bewweRfx2/aaeRpYYzJkKHvwbyYkqRlPesBeu/8M609QYVd+TgqCAbkHfjYEioxRcd6o3ct
-	pZ8KwzrnBCGqaJF8h0ksXiSrdVwLe/Wmg7AU23/9M
-X-Received: by 2002:a05:622a:4d47:b0:517:5e32:2d14 with SMTP id
- d75a77b69052e-51d7bc5094cmr17035731cf.10.1784051672252; Tue, 14 Jul 2026
- 10:54:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-4-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-4-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 14 Jul 2026 18:53:55 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwMz+Ojq18Fq9USJqz_pZmemryNhy99Sw36sOejtpaf4w@mail.gmail.com>
-X-Gm-Features: AUfX_mx9lqp3kjAw6qAWT5YzHWzZHDucv8goST7s8ZDRn3t91Ab_Li535_XJs6w
-Message-ID: <CA+EHjTwMz+Ojq18Fq9USJqz_pZmemryNhy99Sw36sOejtpaf4w@mail.gmail.com>
-Subject: Re: [PATCH v2 03/18] KVM: arm64: Add __hyp_allocator_map for the pKVM hyp
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
+	Tue, 14 Jul 2026 18:10:59 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493ce08a6b4so40979615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 11:10:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784052655; x=1784657455; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cfKdTJ0UW1n66HS6tgSej7/MevFTojdr1dMFwbyGTJ8=;
+        b=IsszCuW//iMVVenjC0QBJyH5UyDqx65blZjeasrdoFz7hDelruVDFKgIKozYjeWsxx
+         eblO5t1kx2z/SMjnd7JKovmnMZNFAEf543kl31I2cEDlbHHO3c5avk8+g/ZlptwlNHEA
+         +doo0JiaO5x84Ln8B6RN6u9dE7XMwBtDV0HzsE/lHapGfa1SzDjqRCIUgIgNxl9cPj2T
+         m7krm6JobbhNKwGIcKrqIe8HTW1cor7Btc8X+01uBdpFV8qF93oR+rkSdD+UJ67RVokz
+         7ZENNaz4xndgbQhjlQwYsPqFVkmxdhkQGwfY5ItpSCJ2MXyPi269MymWpolR+cKnTgN0
+         RRRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784052655; x=1784657455;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cfKdTJ0UW1n66HS6tgSej7/MevFTojdr1dMFwbyGTJ8=;
+        b=f3fr5NycIl2p7iBCNkn0pE0y/Ra7YfUkm6/2cHSWjLDd8fyihcI0WPQhAOheXc1BTK
+         c/wmr/6hNqCpJw7mPG43rJFpk1Roru0vlBPjJcVs99jVxDgZz/10r40Kxb3iKG3GOw0o
+         MbV1GtqbpxjlC7rbmJv3QpLiqrVmzAdf1STAuBqcj9aDhEFougJ6nwt9PNHVVPNhLX2t
+         lnhuJoNh0yevsuJ3fFGLzc/oxYv1C+cg5VcFV+bLU5ha4A0qO86GPtlrMD+CGgxM0Npk
+         j5lrlwfhFstVJJdnzf5fp6sfh9L0FaTdHQQfnWKhRbHSuWn2LWJ+JJck7ak2X2DdehAY
+         7HlQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rou27sxBEpaBUj1Jn1tK/50oElc/NPurSMWa5jwWhh1yIBh/kSsndJZvXIDbVNbvqe15NpIgm8BkhPs/cfQWSQy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpfTvEqYE8CAyzUycBCCId0+03hCsm7zR9o2BVijdRh4DF40GC
+	wxbLG6F4ze1tAQGUZlAoNvgv29TzXY3CcY/Up6DP+l9z/LGK8Riypp/L4UiXcIT37HImorBcNie
+	3t6FB7fEpJxrO9RaxsiNACw==
+X-Received: from wmrk19.prod.google.com ([2002:a05:600c:b53:b0:493:c111:8ed4])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:524c:b0:494:df:8895 with SMTP id 5b1f17b1804b1-49538a0251emr41049885e9.24.1784052655128;
+ Tue, 14 Jul 2026 11:10:55 -0700 (PDT)
+Date: Tue, 14 Jul 2026 19:10:10 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
+Message-ID: <20260714181010.2527225-1-vdonnefort@google.com>
+Subject: [PATCH] KVM: arm64: Fix hyp_trace clock disabling
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, tabba@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_105444_159357_2B3EA197 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260714_111058_016183_02369B74 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> In preparation for the pKVM heap allocator, introduce __hyp_allocator_map()
-> to map a single physical page to a given virtual address in the hypervisor
-> stage-1 page-table.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> index 725bb0fb941d..98a7774b541c 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> @@ -32,5 +32,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
->  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
->  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
->  phys_addr_t __pkvm_private_range_pa(void *va);
-> +int __hyp_allocator_map(void *va, phys_addr_t phys);
->
->  #endif /* __KVM_HYP_MM_H */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-> index ec59da1322a7..c1c01f81ac5f 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-> @@ -160,6 +160,11 @@ void pkvm_remove_mappings(void *from, void *to)
->         hyp_spin_unlock(&pkvm_pgd_lock);
->  }
->
-> +int __hyp_allocator_map(void *va, phys_addr_t phys)
-> +{
-> +       return __pkvm_create_mappings((unsigned long)va, PAGE_SIZE, phys, PAGE_HYP);
-> +}
-> +
+Fix the disable path in hyp_trace_clock_enable(), which fell through to
+re-initialize and reschedule the clock after cancelling the work. Return
+early instead.
 
-nit: __hyp_allocator_map() is named for its caller rather than what it does
-(map a single hyp page). Its siblings here (pkvm_create_mappings,
-pkvm_remove_mappings) are named for the operation. Consider a name like
-pkvm_map_page() so it reads as a generic primitive.
+While at it, cleanup hyp_trace_clock::lock which is unused and
+hyp_trace_clock::running which is redundant: the trace_remote framework
+already serializes calls to the callback enable_tracing.
 
-That said, naming is hard:
+Fixes: b22888917fa4 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+index 2411b4c32932..0b03117a38ec 100644
+--- a/arch/arm64/kvm/hyp_trace.c
++++ b/arch/arm64/kvm/hyp_trace.c
+@@ -37,8 +37,6 @@ static struct hyp_trace_clock {
+ 	u32			shift;
+ 	struct delayed_work	work;
+ 	struct completion	ready;
+-	struct mutex		lock;
+-	bool			running;
+ } hyp_clock;
+ 
+ static void __hyp_clock_work(struct work_struct *work)
+@@ -110,12 +108,9 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
+ {
+ 	struct system_time_snapshot snap;
+ 
+-	if (hyp_clock->running == enable)
+-		return;
+-
+ 	if (!enable) {
+ 		cancel_delayed_work_sync(&hyp_clock->work);
+-		hyp_clock->running = false;
++		return;
+ 	}
+ 
+ 	ktime_get_snapshot_id(CLOCK_BOOTTIME, &snap);
+@@ -128,7 +123,6 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
+ 	INIT_DELAYED_WORK(&hyp_clock->work, __hyp_clock_work);
+ 	schedule_delayed_work(&hyp_clock->work, msecs_to_jiffies(CLOCK_INIT_MS));
+ 	wait_for_completion(&hyp_clock->ready);
+-	hyp_clock->running = true;
+ }
+ 
+ /* Access to this struct within the trace_remote_callbacks are protected by the trace_remote lock */
 
-Cheers,
-/fuad
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+-- 
+2.55.0.141.g00534a21ce-goog
 
->  int hyp_back_vmemmap(phys_addr_t back)
->  {
->         unsigned long i, start, size, end = 0;
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
 
