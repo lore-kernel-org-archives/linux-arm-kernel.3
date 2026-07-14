@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A89C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C314CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dj0K4EbKEWPw+E6cEyU5Wt750OYTkC+ep01W10RCgXc=; b=BCgO+MmQBLGNhSb9/4ZQ7Op4rS
-	7Vl7jHHxh1jwuAyov6uJdCVKzCLpn86saPVLNMHQUOtfm4zaH4ePmqqke02cwVE3Az2RYFZwufjmW
-	yTCnSxfMzt+S7JbD9PEeNPdZnq3gdCGB1MF3nWkBeWiuyYeSypk9seTorbadqgLnRQHSR5aHs9Icj
-	iZwxhf0m8mtxX3TS3A6cpUld37BUOjnhNNiYglmY1GjIK6gsX/1wkTdZwEDMQs827hylawXEmdR/2
-	DHJTIuurHZjL2W78wgEEsPBHvrJWXwVBknjPjsDhiFeEVSrDS2p2ly3bE5cnfWGGjosZNZ73jAVoG
-	eS/I4wAQ==;
+	bh=IAete8H1tlB3Grr61O7HDMsWxM2tK05k7s9wYG7n6Ik=; b=oZsTXOMlDvlhY0zNRwHp7NaeIe
+	vyq+a477bLJ588TKDheE/bwhuMGn/fe02gioqXy03w6NSbh1BBwfwkx8wFpZ5caiia73yyQdDi+Wi
+	kYEumM2an+Yxv12Oa8iLAJ0W6zc3ozzezQS33I5IYX3ttMF22O+Sf18WrMvMcw0tV7vvUWcQW5i74
+	sKdhc+2BZXHRGVCHVQv/K4lkXDC6+QxOZWNILNsmsB+t7j8T05UpcHt9S+zuxzkz6sVL5Hp/GaKTA
+	ZeFEmWmW8wBOb8h4E3zhEmFRcJGDIIVG6AC8ZqvMTK3+qJ2F96szCL8hv1hh4lnhBAcfjZ2zjL/AF
+	QlUOhrNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaR5-0000000Ba75-0hoE;
-	Tue, 14 Jul 2026 10:32:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaR2-0000000Ba6d-2aca
+	id 1wjaYg-0000000BacF-0ym9;
+	Tue, 14 Jul 2026 10:40:14 +0000
+Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjaYc-0000000BaZz-2eIW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:32:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1547497;
-	Tue, 14 Jul 2026 03:32:14 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B33F13F7B4;
-	Tue, 14 Jul 2026 03:32:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784025139; bh=VPaDZKZaVIdaeG32n73WwtZk8gcop7EyMXtxcN5MFo0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vOuM+MqVDTrdwCFZM6aRD+cfRY9pB+xnzby3/dylYhZNgFUwThC0lQZBFnVAiJW8Z
-	 7Fe0/rEdnMRv6ZRwhO+A65XGYFUTqOtSiXLf7/N2DRk0EN4vfRH4uYwdf84r/DuV33
-	 W6DJgddvvsgmCoajbTdbcROavVxs52rCYNmwvqLA=
-Message-ID: <b70b65b7-8ea4-4dc9-bf0b-f184e14d4850@arm.com>
-Date: Tue, 14 Jul 2026 11:32:15 +0100
+	Tue, 14 Jul 2026 10:40:12 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=IAete8H1tlB3Grr61O7HDMsWxM2tK05k7s9wYG7n6Ik=;
+	b=SYsJTEr+k8ZNLMgYoSmtR9yUpBvNsHkdUaN01/RublG7P0jjYMoxn4G+ImU8pYBuf6gmY+ZjY
+	oTobNEUCqX8IdUQiBG1rNr08ROnHObcfPm3fOIGAF0ZidzdK4A/0w4w29lZZTchwlokkcIJB66R
+	hwawGRpUlLl6y2NeNxBZphw=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gzwYh22LWz1K96b;
+	Tue, 14 Jul 2026 18:30:32 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id CADCF40563;
+	Tue, 14 Jul 2026 18:39:48 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 14 Jul 2026 18:39:47 +0800
+Message-ID: <fcc9e842-a6fd-418e-93ff-0475a542f3df@huawei.com>
+Date: Tue, 14 Jul 2026 18:39:48 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/36] arm64: Add support for FEAT_NMI
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <375ee9ac-f715-47bf-8f0d-7ec8dc35c7f2@huawei.com>
- <bb6e80db-dd5e-405f-9aa9-2a59fae3a1dc@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <bb6e80db-dd5e-405f-9aa9-2a59fae3a1dc@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <alS-kcwvlASwPIzL@LeoBrasDK> <alUR3ez1EKeWb_pM@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alUR3ez1EKeWb_pM@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_033220_737212_317AEEE5 
-X-CRM114-Status: GOOD (  26.36  )
+X-CRM114-CacheID: sfid-20260714_034010_995382_414A0239 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,193 +84,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 10:00, Jinjie Ruan wrote:
-> 
-> On 7/14/2026 4:37 PM, Jinjie Ruan wrote:
->> Hi, Vladimir,
+
+On 7/14/2026 12:27 AM, Leonardo Bras wrote:
+> On Mon, Jul 13, 2026 at 11:31:46AM +0100, Leonardo Bras wrote:
+>> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
+>>> This series of patches add support to the Hardware Dirty state tracking
+>>> Structure (HDBSS) feature, which is introduced by the ARM architecture
+>>> in the DDI0601 (ID121123) version.
+>>>
+>>> The HDBSS feature is an extension to the architecture that enhances
+>>> tracking translation table descriptors' dirty state, identified as
+>>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+>>> page tracking, aiming to significantly reduce the overhead of scanning
+>>> for dirty pages.
+>>>
+>>> The purpose of this feature is to make the execution overhead of live
+>>> migration lower to both the guest and the host, compared to existing
+>>> approaches (write-protect or search stage-2 tables).
+>>>
+>>> The required sysreg definitions for FEAT_HDBSS have been merged into
+>>> arm64 /sysregs:
+>>>    [1/5] arm64/sysreg: Add HDBSS related register information
+>>>          https://git.kernel.org/arm64/c/72f7be0c2e30
+>>>
+>>>
+>>> After these patches, the kernel automatically enables HDBSS when dirty
+>>> logging is enabled on any memslot, and disables HDBSS when dirty logging
+>>> is disabled on all memslots. This series does not support dirty ring
+>>> mode.
+>>>
+>>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
+>>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
+>> On this, FYI, there have been some discussion on this:
+>> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
 >>
->> On QEMU, if the CPU supports FEAT_NMI but gic-version=2, the kernel
->> panic as following:
+>> Oliver's suggestion is that we don't automatically enable eager splitting,
+>> but instead we have different behaviours if the user enables it.
 >>
->> [    0.000000] CPU features: detected: HCRX_EL2 register
->> [    0.000000] CPU features: detected: Non-maskable Interrupts
->> [    0.000000] CPU features: kernel page table isolation forced ON by KASLR
->> [    0.000000] CPU features: detected: Kernel page table isolation (KPTI)
->> [    0.000000] CPU features: detected: ARM erratum 845719
->> [    0.000000] alternatives: applying boot alternatives
->> [    0.000000] Kernel command line: root=/dev/vda rw console=ttyAMA0
->> kgdboc=ttyAMA0,115200 earlycon preempt=full irqchip.gicv3_pseudo_nmi=0 0
->> [    0.000000] Unknown kernel command line parameters "preempt=full",
->> will be passed to user space.
->> [    0.000000] printk: log buffer data + meta data: 131072 + 458752 =
->> 589824 bytes
->> [    0.000000] Dentry cache hash table entries: 1048576 (order: 11,
->> 8388608 bytes, linear)
->> [    0.000000] Inode-cache hash table entries: 524288 (order: 10,
->> 4194304 bytes, linear)
->> [    0.000000] software IO TLB: area num 8.
->> [    0.000000] software IO TLB: mapped [mem
->> 0x00000000e4000000-0x00000000e8000000] (64MB)
->> [    0.000000] Fallback order for Node 0: 0
->> [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages:
->> 3145728
->> [    0.000000] Policy zone: Normal
->> [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
->> [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
->> [    0.000000] Running RCU self tests
->> [    0.000000] Running RCU synchronous self tests
->> [    0.000000] rcu: Preemptible hierarchical RCU implementation.
->> [    0.000000] rcu:     RCU event tracing is enabled.
->> [    0.000000] rcu:     RCU lockdep checking is enabled.
->> [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=512 to
->> nr_cpu_ids=8.
->> [    0.000000]  Trampoline variant of Tasks RCU enabled.
->> [    0.000000]  Tracing variant of Tasks RCU enabled.
->> [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay
->> is 25 jiffies.
->> [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
->> [    0.000000] Running RCU synchronous self tests
->> [    0.000000] RCU Tasks: Setting shift to 3 and lim to 1
->> rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
->> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
->> [    0.000000] Root IRQ handler: gic_handle_irq
->> [    0.000000] ------------[ cut here ]------------
->> [    0.000000] Could not request IRQ 4 as NMI, err=-22
->> [    0.000000] WARNING: arch/arm64/kernel/smp.c:1103 at
->> set_smp_ipi_range_percpu+0x2c0/0x31c, CPU#0: swapper/0/0
->> [    0.000000] Modules linked in:
->> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
->> 7.2.0-rc1-00036-g6fbe132d3a74-dirty #353 PREEMPT
->> [    0.000000] Hardware name: linux,dummy-virt (DT)
->> [    0.000000] pstate: 600000c5 (nZCv daIF -ALLINT -PAN -UAO -TCO -DIT
->> -SSBS BTYPE=--)
->> [    0.000000] pc : set_smp_ipi_range_percpu+0x2c0/0x31c
->> [    0.000000] lr : set_smp_ipi_range_percpu+0x2c0/0x31c
->> [    0.000000] sp : ffffffdadd5d3b90
->> [    0.000000] x29: ffffffdadd5d3b90 x28: 0000000000102200 x27:
->> ffffffdadc1e49a0
->> [    0.000000] x26: ffffff82fe7a7008 x25: 0000000000000008 x24:
->> 0000000000000004
->> [    0.000000] x23: ffffffdadd5e4078 x22: ffffffdadc9340c8 x21:
->> ffffffdadc92c470
->> [    0.000000] x20: 0000000000000003 x19: ffffffdadd5e02b0 x18:
->> 00000000ffffffff
->> [    0.000000] x17: 20313d7473756a64 x16: 615f62635f6b7361 x15:
->> ffffffdb5d5d37b7
->> [    0.000000] x14: 0000000000000000 x13: ffffffdadd60aaa8 x12:
->> 0000000000000041
->> [    0.000000] x11: 00000000000000c3 x10: ffffffdadd67aa90 x9 :
->> ffffffdadd60aaa8
->> [    0.000000] x8 : 3ffffffffffff000 x7 : 0000000000000001 x6 :
->> 0000000000000001
->> [    0.000000] x5 : ffffffdadd662aa8 x4 : 0000000000000000 x3 :
->> 0000000000000000
->> [    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 :
->> ffffffdadd5eb780
->> [    0.000000] Call trace:
->> [    0.000000]  set_smp_ipi_range_percpu+0x2c0/0x31c (P)
->> [    0.000000]  __gic_init_bases+0x138/0x148
->> [    0.000000]  gic_of_init+0x88/0x3ec
->> [    0.000000]  of_irq_init+0x1bc/0x458
->> [    0.000000]  irqchip_init+0x18/0x40
->> [    0.000000]  init_IRQ+0xa8/0x218
->> [    0.000000]  start_kernel+0x550/0xa98
->> [    0.000000]  __primary_switched+0x88/0x90
->> [    0.000000] Kernel panic - not syncing: kernel: panic_on_warn set ...
->> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
->> 7.2.0-rc1-00036-g6fbe132d3a74-dirty #353 PREEMPT
->> [    0.000000] Hardware name: linux,dummy-virt (DT)
->> [    0.000000] Call trace:
->> [    0.000000]  show_stack+0x18/0x24 (C)
->> [    0.000000]  dump_stack_lvl+0x18c/0x1d4
->> [    0.000000]  dump_stack+0x18/0x24
->> [    0.000000]  vpanic+0x590/0x594
->> [    0.000000]  do_panic_on_target_cpu+0x0/0x1c
->> [    0.000000]  check_panic_on_warn+0x8c/0x9c
->> [    0.000000]  __warn+0xa0/0x2cc
->> [    0.000000]  __report_bug+0xe0/0x19c
->> [    0.000000]  report_bug+0x50/0x10c
->> [    0.000000]  bug_brk_handler+0x24/0x70
->> [    0.000000]  call_el1_break_hook+0x6c/0xc8
->> [    0.000000]  do_el1_brk64+0x24/0x4c
->> [    0.000000]  el1_brk64+0x38/0x64
->> [    0.000000]  el1h_64_sync_handler+0xa8/0x134
->> [    0.000000]  el1h_64_sync+0x80/0x84
->> [    0.000000]  set_smp_ipi_range_percpu+0x2c0/0x31c (P)
->> [    0.000000]  __gic_init_bases+0x138/0x148
->> [    0.000000]  gic_of_init+0x88/0x3ec
->> [    0.000000]  of_irq_init+0x1bc/0x458
->> [    0.000000]  irqchip_init+0x18/0x40
->> [    0.000000]  init_IRQ+0xa8/0x218
->> [    0.000000]  start_kernel+0x550/0xa98
->> [    0.000000]  __primary_switched+0x88/0x90
->> [    0.000000] ---[ end Kernel panic - not syncing: kernel:
->> panic_on_warn set ... ]---
-> Hi Vladimir,
-> 
-> Even if PE supports FEAT_NMI, the GIC may not be able to generate a
-> super-priority interrupt.
-> 
-> The following patch can fix it, we should use
-> gic_supports_v3_3_nmi() instead of system_uses_nmi() in
-> ipi_should_be_nmi() because the GIC.
-> 
+>> This is still under discussion there, but I think it can be useful reading.
+>>
+>>> This dependency is mandatory. Unlike v3, where DBM was added lazily on
+>>> the first dirty access via a page fault, v4 injects DBM into pgt->flags
+>>> at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
+>>> during migration setup, the first dirty access no longer triggers a page
+>>> fault. Consequently, if lazy hugepage splitting were relied upon (which
+>>> requires a page fault to trigger splitting), hugepages would never be
+>>> split, leading to guest hang after migration. Leonardo's patch above
+>>> ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
+>>> is available, guaranteeing that hugepages are properly split before
+>>> migration starts.
+>>>
+>>> v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
+>>>
+>>> v3->v4 changes:
+>>> - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
+>>>    separate patch in v3).
+>>> - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
+>>>    by Leonardo Bras. DBM is now controlled as a page-table level flag
+>>>    (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
+>>>    at stage-2 MMU creation time, not lazily on first dirty access. This
+>>>    means the first write to a dirty-logged page does not generate a
+>>>    page fault, which is a key reason for the mandatory dependency on
+>>>    Leonardo's eager hugepage splitting patch (see Depends-on above).
+>>> - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
+>>>    into three patches: per-vCPU buffer management, fault handling and
+>>>    buffer flush, and auto enable/disable on dirty logging change. This
+>>>    implements kernel-managed automatic HDBSS enable/disable.
+>>> - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
+>>>    on/off. HDBSS is now automatically enabled/disabled based on dirty
+>>>    logging state via kvm_arch_commit_memory_region().
+>>> - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
+>>>    and kvm_handle_guest_abort.
+>>> - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
+>>>    per-vCPU, since all vCPUs share the same order.
+>>> - Document patch is not included in this version; will be sent in a
+>>>    follow-up series.
+>>>
+>>> Leonardo Bras (1):
+>>>    KVM: arm64: Enable eager hugepage splitting if HDBSS is available
+>>>
+>>> Tian Zheng (2):
+>>>    KVM: arm64: Add support for FEAT_HDBSS
+>>>    KVM: arm64: Add auto DBM support for hardware dirty tracking
+>>>
+>>> eillon (3):
+>>>    KVM: arm64: Add HDBSS per-vCPU buffer management
+>>>    KVM: arm64: Add HDBSS fault handling and buffer flush
+>>>    KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
+>>>
+>>>   arch/arm64/include/asm/cpufeature.h    |   5 +
+>>>   arch/arm64/include/asm/esr.h           |   5 +
+>>>   arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
+>>>   arch/arm64/include/asm/kvm_host.h      |  14 ++
+>>>   arch/arm64/include/asm/kvm_pgtable.h   |   4 +
+>>>   arch/arm64/include/asm/sysreg.h        |  11 ++
+>>>   arch/arm64/kernel/cpufeature.c         |  12 ++
+>>>   arch/arm64/kvm/Makefile                |   1 +
+>>>   arch/arm64/kvm/arm.c                   |  29 ++++
+>>>   arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
+>>>   arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
+>>>   arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
+>>>   arch/arm64/kvm/mmu.c                   |  19 ++-
+>>>   arch/arm64/kvm/reset.c                 |   4 +
+>>>   arch/arm64/tools/cpucaps               |   1 +
+>>>   15 files changed, 399 insertions(+), 4 deletions(-)
+>>>   create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+>>>   create mode 100644 arch/arm64/kvm/dirty_bit.c
+>>>
+>>> --
+>>> 2.33.0
+>>>
+> Also, please remember to include the base commit, so it can be applied for
+> testing/reviewing.
 
-Thanks for the report!
 
-I think it would be better for me to spend some time making the arch
-IPI code tolerate both the presence and absence of NMI support,
-perhaps similar to how perf handles this, rather than creating a
-strong dependency between the architecture code and the interrupt
-controller. At least, I’ll give that a try!
+Thank you for the reminder.
 
-> One more small suggestion: gic_data.has_nmi is a very important piece of
-> information, and we should print it out, as some versions of GICv3
-> hardware may not support FEAT_GICv3_NMI.
-> 
+This patch series is based on:
+- Commit: 0e35b9b6ec0f
+- Description: Merge tag 'mm-hotfixes-stable-2026-07-06-17-49' of 
+git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
 
-I'll have a look, thanks!
+Welcome to test and review — please let me know if you encounter any 
+issues or have suggestions for improvement.
 
-> Best regards,
-> Jinjie
-> 
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -1035,7 +1035,7 @@ static void smp_cross_call(const struct cpumask
-> *target, unsigned int ipinr)
-> 
->  static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->  {
-> -       if (!system_uses_nmi() && !system_uses_irq_prio_masking())
-> +       if (!gic_supports_v3_3_nmi() && !system_uses_irq_prio_masking())
->                 return false;
-> 
->         switch (ipi) {
->  /*
-> @@ -2124,6 +2126,8 @@ static int __init gic_init_bases(phys_addr_t
-> dist_phys_base,
-> 
->         gic_data.has_rss = !!(typer & GICD_TYPER_RSS);
->         gic_data.has_nmi = !!(typer & GICD_TYPER_NMI);
-> +       pr_info("GICv3 Non-maskable interrupt property %s supported\n",
-> +               gic_data.has_nmi ? "is" : "not");
-> 
->         if (typer & GICD_TYPER_MBIS) {
->                 err = mbi_init(handle, gic_data.domain);
-> diff --git a/include/linux/irqchip/arm-gic-v3.h
-> b/include/linux/irqchip/arm-gic-v3.h
-> index ebccd76cadda..6bf73e7b9600 100644
-> --- a/include/linux/irqchip/arm-gic-v3.h
-> +++ b/include/linux/irqchip/arm-gic-v3.h
-> @@ -661,6 +661,7 @@ static inline bool gic_enable_sre(void)
->         return !!(val & ICC_SRE_EL1_SRE);
->  }
-> 
-> +bool gic_supports_v3_3_nmi(void);
->  #endif
-> 
-> 
 
-Cheers
-Vladimir
 
