@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC07AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 07:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E31AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 07:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUiylXdPKQWTFaCKjfbDnIPpvDYGHdhOWO3Oma0tcpE=; b=ci67tXSPH0NWp59RiTkO37sQ3E
-	Is4CVlV25bKsfCSoTvK/5zMj5GFkWgUW9lagba2KbvSv54h+fDuQfp1cKc4wIUwQDqP41/7mq9KeN
-	QKJSsiHqz2A43tJqd2H1glVrJQfEi2zHJIHpY96hz3Wz849R60t+23xxwTH7vvY4bQnj0Y2gyIXva
-	pzkbKZNkycgGg6DgTdxW7G3AcC40i8+1WwNISK2UXMntjso7i7/xZlGSS0WML3V7Dg4z8fmxvQxhr
-	Mx0YSIz9bFMJu3vsO3qbQFJ2Np7y9H+osPOnFWHOKikS8GBFj9lq74j5f+1kfRqWuWN0YA+Z9Q4Cc
-	qvBf7tdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yavgJsn42/mg7FbRzuzYhczZGQV3Jism9aLSRgEzMNU=; b=BfVN0fC7RpefWa7Z39Wlm3F+F2
+	v9BntGO4D99pG4MLzG86BRZIabAeCE6LW8kOVoHl88p9IKSEmkzdKOlMiBoD5zCSxcGpWAdpH/F/0
+	XwgeOdys4pX6QFXTXbFhK6gsx614qVocP60YWV/i4GUVP4ZU+SXYV1u9TExuq1hCWw6uD/j4pp2cr
+	5h+AiXtvN1t1cYQMpt9TF9a2asS5BqXVg1SXz4LxAdAvX8lLieWiZUAfjLN9JUQ89kvVZatHerTXk
+	6IzJr0lracCnc/qd2xTJHIklCCiqOG6DtHu6FfgV0Ffe5jvRuZlL8v0KKLeabyKBhoKvX+S/iDDhj
+	pPw+me/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjXoy-0000000BDY4-3bX6;
-	Tue, 14 Jul 2026 07:44:52 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wjXup-0000000BEWs-1CFb;
+	Tue, 14 Jul 2026 07:50:55 +0000
+Received: from mail-vs1-f50.google.com ([209.85.217.50])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjXov-0000000BDXZ-09xz
+	id 1wjXum-0000000BEWN-26c7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 07:44:51 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=TUiylXdPKQWTFaCKjfbDnIPpvDYGHdhOWO3Oma0tcpE=;
-	b=vM7p8iW12ECzFUqZ2VaGoCVxgDIBKhEVqw+EyC6L0k37PhvQeK0mcO5IZuw6uJ+urHlYTNxws
-	M2G9X4Wrzd10tG0IgDdWyYxrCp6gi3lML4fWOUltJM9mRkOmyrxFunc3DhGCwSC28fiLFP84ZUA
-	nRqbV/ZolIJ1zcJIHq97fR8=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gzrgh2rK0z1T4gk;
-	Tue, 14 Jul 2026 15:35:28 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 75E8340572;
-	Tue, 14 Jul 2026 15:44:37 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 14 Jul 2026 15:44:36 +0800
-Message-ID: <e01b9a9d-9f38-44ab-acfc-069f143863d6@huawei.com>
-Date: Tue, 14 Jul 2026 15:44:37 +0800
+	Tue, 14 Jul 2026 07:50:53 +0000
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-738bd0b7960so476318137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 00:50:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784015451; x=1784620251;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yavgJsn42/mg7FbRzuzYhczZGQV3Jism9aLSRgEzMNU=;
+        b=YBQgGqcnbDeglCkhgX09MC4sW2aZ5x52r9kqmbGV9V5BecDACKV7YbBYv97hJswtvb
+         MDPsD5Ij/6RSnkhjfOktOP/4PLezoThnujHy8RsWKoqPFRaPnzmU56/HmHj3KEeVWWFi
+         syDP07aHWw1KuDmweUoMz6p2B7KOT3xNvEMBPRSNbhJNnPVfBuh8gKm+FfafHnY9Tfed
+         7rdkxn17Wn1D1MiwFaMhFhHkJ0tqmzyWzIHAfhkpwn18EEimnPgSrmNEBL9l+BS8WjzL
+         UxkLcIN15EaSdaoQi9hR41awUhloBwjSOMDIbzUQy6he/NyC2H/rw+t2GXiDxtZ/xGz1
+         UOgA==
+X-Gm-Message-State: AOJu0YymNUzboo9J8Co0bkC2w+bkbWxBVDCptWDzosd1LZyfyYlan9nb
+	1xqJugl+6/4KSi1h3qb42bc+eQgEaTpoEMabRFW5qaUhtkP6uqQBkNPxa9uT6i76rTE=
+X-Gm-Gg: AfdE7cmEN71WFr7TLaeYo8puxVQNK5ENizW+PodQE3hUUy5ynWRv2gcxXE6+OA5eXRu
+	qnQfUt9CODKxFMqTCrceoDjLXGslNpPYcQNe7PoX83n4wlQ08ip0I93r1sNSEWfFbcWA6dDBEpp
+	3e9/ZNSVYAKYDGsq/F4lweGAQEB+V12tdggL5/LoBDIOTkIXUXPLIOXA94f88V2e53xkQm6VXNn
+	qao/a3D86CBzRS068wOgWZIIIkvC7C4SUiVW7Dw+opowBsh25iXclIUA0OMddl0YyJwd5T3Dqhe
+	DQvyic1hoJfGisC52luChPy7M2WL4Mz1r3IJdVoFV53boBqq+io/D6Gb8AkMZe5AnLWMeBikuTt
+	G4axA6L68xMUulQhzk3lUsFpB17qbZYnIw35wC1aPUxaYChGEhQ3KDzSBtAMqMFgesCs7d4FHW1
+	2Z8cK082D6tR3XitigKqQrifBKhmBUJ1831bNqzOoj/p/foW29ABIy9ZQXLAz5
+X-Received: by 2002:a05:6102:2926:b0:631:7781:fe91 with SMTP id ada2fe7eead31-74533bf9656mr8049853137.9.1784015451179;
+        Tue, 14 Jul 2026 00:50:51 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ed663ded3sm9230065241.12.2026.07.14.00.50.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jul 2026 00:50:50 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-966e7380109so324273241.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 00:50:50 -0700 (PDT)
+X-Received: by 2002:a05:6102:1608:b0:739:15ef:cdfb with SMTP id
+ ada2fe7eead31-74533b84395mr8279731137.5.1784015450565; Tue, 14 Jul 2026
+ 00:50:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
- dirty tracking
-To: Marc Zyngier <maz@kernel.org>
-CC: Leonardo Bras <leo.bras@arm.com>, <oupton@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
-	<yubihong@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-4-zhengtian10@huawei.com>
- <alTJOy8Sv4aAp_9y@LeoBrasDK>
- <8f949334-3ce7-44f4-b6da-f08a4126affd@huawei.com>
- <86zezunifl.wl-maz@kernel.org>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <86zezunifl.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+References: <20260710160450.64967-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUQJ8mzUi0birB5f1KnCMX_QufHTgYB7AW=d3ZoFer+Yg@mail.gmail.com> <1d0d4074-90ca-4b33-9bd3-ff27aa0fd4d4@mailbox.org>
+In-Reply-To: <1d0d4074-90ca-4b33-9bd3-ff27aa0fd4d4@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Jul 2026 09:50:39 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWNcbMxONo=PaHqJnD1EErc8AzYLf0MceD+vt9UhmsVfQ@mail.gmail.com>
+X-Gm-Features: AUfX_mxwFeauCKqv0YVOv7ObJuQMatx6kqMpuGapev3XA_vc1zBsK6ZaiEApGuY
+Message-ID: <CAMuHMdWNcbMxONo=PaHqJnD1EErc8AzYLf0MceD+vt9UhmsVfQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: renesas: ironhide: Describe inline ECC carveouts
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_004449_765187_D42D79F8 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260714_005052_544479_C96A1177 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +96,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marek,
 
-On 7/14/2026 3:23 PM, Marc Zyngier wrote:
-> On Tue, 14 Jul 2026 02:14:45 +0100,
-> Tian Zheng <zhengtian10@huawei.com> wrote:
->>
->> On 7/13/2026 7:17 PM, Leonardo Bras wrote:
->>> On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
->>>> The DBM (Dirty Bit Modifier) attribute, introduced in ARMv8.1, enables
->>>> hardware to automatically promote write-clean pages to write-dirty. This
->>>> prevents the guest from being trapped in EL2 due to missing write
->>>> permissions.
->>>>
->>>> In this design, DBM is controlled by the page-table level flag
->>>> KVM_PGTABLE_S2_DBM rather than per-PTE software flags. DBM is
->>>> automatically set for writable non-device pages when the page-table has
->>>> KVM_PGTABLE_S2_DBM flag, which is determined at MMU init time based on
->>>> hardware capability.
->>>>
->>>> The DBM bit is set in stage2_set_prot_attr() for initial mappings and
->>>> hugepage splitting, and directly manipulated in
->>>> kvm_pgtable_stage2_relax_perms() when removing write-protection. On
->>>> W->RO downgrade, DBM is cleared to prevent hardware from silently
->>>> upgrading RO+DBM back to W+dirty, which would bypass KVM's write
->>>> tracking.
->>>>
->>>> kvm_pgtable_stage2_pte_prot() does not extract the DBM bit back into
->>>> enum kvm_pgtable_prot because DBM is a page-table policy determined by
->>>> pgt->flags, not a per-PTE property. Callers should check
->>>> pgt->flags & KVM_PGTABLE_S2_DBM instead.
->>>>
->>>> This ensures DBM is consistently applied across all PTEs, including
->>>> during hugepage splitting where child PTEs inherit DBM from the parent
->>>> block entry via the pgt->flags mechanism.
->>>>
->>>> Safety: DBM bit is only interpreted by hardware when VTCR_EL2.HD=1.
->>>> When HDBSS is not enabled (HD=0), ARM architecture guarantees hardware
->>>> completely ignores DBM bit in PTEs.
->>>>
->>>> Co-developed-by: Eillon <yezhenyu2@huawei.com>
->>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->>>> Co-developed-by: Leonardo Bras <leo.bras@arm.com>
->>>> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
->>> Hello Tian,
->>>
->>> Have you added the above tags due to this patch being based on the below?
->>> https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
->>>
->>> Thanks!
->>> Leo
->> Hi Leo,
->>
->>
->> Yes, I added your Signed-off-by because the DBM-related code in this patch
-> You really can't do that. Only Leo can give his SoB, you can't forge
-> it yourself.
->
->> is based on your implementation in:
->>
->> https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
-> Then take the patch as is, and add to it as a separate patch. Or work
-> out in private with Leo whether he's happy with a Co-dev. But never do
-> that unilaterally.
->
-> Thanks,
->
-> 	M.
-Got it, thanks for the clarification, Marc.
+On Tue, 14 Jul 2026 at 01:27, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 7/13/26 11:11 AM, Geert Uytterhoeven wrote:
+> >> +               ecc@1e66660000 {
+> >> +                       reg = <0x1e 0x66660000 0x0 0x999a0000>;
+> >> +                       no-map;
+> >> +               };
+> >
+> > Given all DB[0-7]FSDRAMECCAREA00 registers on Ironhide contain
+> > 0x0000cccc (md.l e98[0-3][7f]450 1), I think the last 3 regions should
+> > start at offset 0xcccc0000 instead of 0x66660000, too.
+> > As a bonus, we get 4.8 GiB back ;-)
+> I asked about that part internally already, and yes, it does take away a
+> lot of DRAM. I think it is safer to reserve more DRAM and have a stable
+> system than reserve less DRAM and deal with potential stability issues.
+> I also think we can always update the reserved memory nodes in the
+> future and shrink them to make more DRAM available, once we know that it
+> is safe to do so.
 
-I'm sorry about that — I'll remove them in the next version.
-Instead, I'll mention the reference in the commit message with a link to 
-Leo's original patch:
+Agreed
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-fixes for v7.2.
 
-Based on Leonardo Bras's patch:
-https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
