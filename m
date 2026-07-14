@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0820C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A95C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dP5wEz+gjjaVTeNu7xmuOJx/rFtPF+YvkovZzS2m8s4=; b=W0XfiZvOhXtTrMvZE3FoiOXOHO
-	9W2VyN12PxIO9OJEuHYQxyR8wMUEJ96//8KOoaUWmX+H8ewg0z9UWmVPB+i9A6R0bGKkGjRE63AAi
-	rrUgRSw5M5SmEflH+bNDC6ZHjSfC4YLT3CqYByr31AqF0rvypqYSB89x5ZQa66Y6WAeztpMI9M1ZB
-	5s9UbQJn4U3c1ZFgTiqQJj6uOXExf4nvpmYqBAAzIChYhX3WUCGyEZzxiC1XDKKVNK2PIUG5PU4J7
-	t0Ym04QHr6uVHYODDZ42wSc9gZd5INrTDVqNKb6xE9Qs017SsVvn7WDoVCelyC+RPYxJJgFUZK7mq
-	pv6jVJBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xiZQB8gwrJDrCywMudYQRs1hEye2ekt3JZl88zWIo0I=; b=a3NveOsST9b9urodAVijHbo1Du
+	77hyRL/LM5IhDYasG/0r1fnMr9mR+0TyU571h99D1KP/Ter2pRZXYFPgQHNcc7R102sqNMwXBpeKA
+	WwNKE6qg1fB/zseKtvjRyzyXzCW1O0nqys0H0aEel5t/wFk8AwRoqRQ3NVR8E0Pp5TBU2FuJHbUFp
+	64rmB/X6nNDbRkqmpLT7HrpUcmiPfY+Dn/X5bLTBa/Ca/KX/fSJg6PHLtKq6AYR0xvNPpeN3taSGn
+	V778Irj/GsO20JAF0Pd4ugSyEN7JD/IFMnY0L0j6iKfif+bg4+TVowVTIWfaSTuWfY45y+y/d+YBv
+	i+4JyaWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjev1-0000000CVlW-45Rw;
-	Tue, 14 Jul 2026 15:19:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjevO-0000000CVt7-1dkG;
+	Tue, 14 Jul 2026 15:19:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjev0-0000000CVky-1va9
+	id 1wjevM-0000000CVsB-3UoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 15:19:34 +0000
+	Tue, 14 Jul 2026 15:19:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89B436136B;
-	Tue, 14 Jul 2026 15:19:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7BF1F000E9;
-	Tue, 14 Jul 2026 15:19:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DB5BB60254;
+	Tue, 14 Jul 2026 15:19:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CCD1F000E9;
+	Tue, 14 Jul 2026 15:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784042373;
-	bh=dP5wEz+gjjaVTeNu7xmuOJx/rFtPF+YvkovZzS2m8s4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mNz1L1N9+nemdRXcV5RekTd9wA6qUQG43cMasGrwLuT4DFXxckZQIzcl+zo8HTyEZ
-	 XxhiJsaG8lSFEfNiCCDtFsJJBEaNYLkGubt1/sJuY+HWZMEAexGrBRkx7ZCceGDjpS
-	 FNRXl8LLPrLkCxZAmuZHas55XbhLsFFet9BHEfWTXleRD4Rfa4f8O19KjWS0kdLN71
-	 Pe5ipnPFeBGfzH72b680CoYev53PpTHt12gzSgjOAXwAy2ZaTRkFvgbSaux4Ou97uK
-	 7WKXe582yVanlahPOn1u5Uc09fV9E1ccml9R1W7SH9H+JJbbwdpwclwdvaWS1jJy9z
-	 Mk5NBkr8K0EVg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wjeux-00000004xgl-1XON;
-	Tue, 14 Jul 2026 15:19:31 +0000
-Date: Tue, 14 Jul 2026 16:19:30 +0100
-Message-ID: <86ik6hoayl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
+	s=k20260515; t=1784042395;
+	bh=xiZQB8gwrJDrCywMudYQRs1hEye2ekt3JZl88zWIo0I=;
+	h=From:To:Cc:Subject:Date;
+	b=F7H5FF3qKIhZKnBbYLMums6Nb0FKwdyYH+TE16TOxnfLdb59P0AZvh0gRsr2MZlem
+	 DrQH2IPtnJypWBoRO/Nm0fgpz2JDLJXDO9gj+hDzjAdqz5oARvZu2j2dEuvDRxyjZJ
+	 fQqWKkM7nnnX7bR1S6S2I2QW/aTRF3ePVQUnlFx936slULa3CFlyAcrtNLATT60qOM
+	 cQ4cQ/EQnr2q7zPCt5GmMZrEg+8g4KzirhuxN/vdUlLY73seWO6yqo59L0pWGa+CFk
+	 klwuEHwuB6fsDgBuuf9WwPS4RJKxgy7G+Hql/6DlTPXShwsIdKansookKnflMAoAWG
+	 ZTjiMWNQqqHng==
+Received: by wens.tw (Postfix, from userid 1000)
+	id B8D905FC39; Tue, 14 Jul 2026 23:19:52 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Mark Brown <broonie@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-sound@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v5 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-In-Reply-To: <20260714101601.4142645-3-fuad.tabba@linux.dev>
-References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
-	<20260714101601.4142645-3-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, sebastianene@google.com, imv4bel@gmail.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: sun4i-codec: Sort sound related #include statements
+Date: Tue, 14 Jul 2026 23:19:49 +0800
+Message-ID: <20260714151950.316035-1-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 11:15:55 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> The vcpu_{read,write}_sys_reg() accessors are only valid on a VHE host,
-> so helpers built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be()
-> cannot be shared with hyp code. exception.c already wraps them in local
-> helpers that pick the host- or hyp-side accessor via has_vhe().
-> 
-> Rename the host-only implementations to __vcpu_{read,write}_sysreg_vhe()
+Some of the sound related #include statements are not ordered in
+alphabetic order.
 
-I'm a bit puzzled by this. There is nothing that makes these functions
-VHE-specific. Look at where they are called from: plenty of non-VHE
-uses. These helpers are the canonical accessors for any system
-register, and they don't cater for any particular mode.
+Sort them. This results in no functional change.
 
-	m.
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+---
+ sound/soc/sunxi/sun4i-codec.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
+index 93f511fb6190..2c5cf12f1a6c 100644
+--- a/sound/soc/sunxi/sun4i-codec.c
++++ b/sound/soc/sunxi/sun4i-codec.c
+@@ -22,13 +22,13 @@
+ #include <linux/gpio/consumer.h>
+ 
+ #include <sound/core.h>
++#include <sound/dmaengine_pcm.h>
++#include <sound/initval.h>
+ #include <sound/jack.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+ #include <sound/tlv.h>
+-#include <sound/initval.h>
+-#include <sound/dmaengine_pcm.h>
+ 
+ /* Codec DAC digital controls and FIFO registers */
+ #define SUN4I_CODEC_DAC_DPC			(0x00)
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
