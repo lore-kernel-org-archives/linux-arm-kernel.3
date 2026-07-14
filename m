@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75712C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D8qCL6PT7tpFz8Ak0fMCLzyS2GAoF8A5In2eMxjvNPM=; b=B5FSML0HL3rWKF
-	aP8WqE40a3+tv1RWvRxQPS86sHIY2RdK5D6MVbJ7vs0EZCx4GNmE1MvRQr68M6hmuN5xAcRNmmmkI
-	+ctbsR8cnp+zTs2b0rO5mc034ggPmdLBvLInTbYsGab+qkbHLrmJsi8hTt5O5CnGQ4i364xOVf6Yi
-	c8dIxQtBiUUI7tiEfvokhYsy6hn2uWsVbUqm9jPtQ/AWngxM3NNgKVXolMVTslbN1FmVmDqMgJrQy
-	VjEN+AkMhJCzdF/Gd8c8u95dcXBXbRX/0kl9XrVOdpn8DJTYvh7NVI2sb/sqDWj6v92VO0qlXwI3S
-	4K/y+gBKq8cNdKtrbB0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RV9UaR4NO/02VSBp05qT9Vmz9xMDQk+3YYbop8A72PI=; b=KVLlYFwJL734C+LlreRMyCoEp/
+	E82mlsrWuePmeycIK/fV74s4y+4Wyc3ddDXLekHmksBSKQQDKJ5h/WvQoTrLJ4siZ7Aw+z9ixHwDs
+	W9jg8TpVGUuBTwYfzjNVcUXxZcucB/uTkFDKhGzGKEFe3CnOCv2XNMa/4M9f0i2cWbzm6UbMbIoAF
+	Lpauli3zvs6qCflbqQViIama9szr2Ge7JYOgYVnn5t5ZGwPqbpufgP0LTTAeUaDRyqBkeo4ML+pkk
+	SUDJSMTivMPLw/nEfpYk2qkGsN3IC9NFxAR3ZNSUax/B95PvjuWJ3wgFVOZLYf11hHDqILIi0mHra
+	+mNd5OWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZZx-0000000BTZ9-0sMI;
-	Tue, 14 Jul 2026 09:37:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZZt-0000000BTYf-3lOz
+	id 1wjZaq-0000000BTha-1aNM;
+	Tue, 14 Jul 2026 09:38:24 +0000
+Received: from [113.46.200.220] (helo=canpmsgout05.his.huawei.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjZam-0000000BTft-03Zg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:37:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DD9B2F;
-	Tue, 14 Jul 2026 02:37:20 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C6163F93E;
-	Tue, 14 Jul 2026 02:37:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784021844; bh=jLwqC21xb7zoZVvgedRMLOS2jDIp3UeUNShVHI/8WFQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MQoqCBfAv/eWGkJQmLgUxzmAwK9FyI08a0gMRrPdYjV19f/XBQ1QSuGFIniiMoHr9
-	 MlpnLG9GMapGMmANEKd6YVgwmxYdfoxSNzUxZuuqpKmZ9NofhE7Elp6Ro2Tccy+8AD
-	 Sh9YdqmC/93JBtv/NQqrYe6qKpa/VMHtj5yVNgFE=
-Message-ID: <8157087e-74e9-47bc-ad57-c2641a58acc8@arm.com>
-Date: Tue, 14 Jul 2026 10:37:21 +0100
+	Tue, 14 Jul 2026 09:38:22 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=RV9UaR4NO/02VSBp05qT9Vmz9xMDQk+3YYbop8A72PI=;
+	b=Bnux4+E7bg7xEesKINA/c0rqmpGNyFpxbjsmn+z8917qknoTbgRCOYbgCUgYCFNfIze0GxOo2
+	EmCos8EhIeWJqIykSFij7EiQ4vwj0dTqNZiB1G5NqDAfeavGzfbkaG20tryA2TVkOH9XP7TTJOq
+	lhAsE2xaqkMnPttKsXJnV2E=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gzv9w0z8gz12LCc;
+	Tue, 14 Jul 2026 17:28:20 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 788B740579;
+	Tue, 14 Jul 2026 17:37:58 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 14 Jul 2026 17:37:57 +0800
+Message-ID: <8757dfcf-aae4-4716-9ff1-c3140d4cc63e@huawei.com>
+Date: Tue, 14 Jul 2026 17:37:58 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 03/36] arm64: hibernate: mask DAIF before restoring
- hibernated kernel
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-4-vladimir.murzin@arm.com>
- <a88a1ce6-f2e0-44ff-9713-57a94c78c24e@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <a88a1ce6-f2e0-44ff-9713-57a94c78c24e@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <alS-kcwvlASwPIzL@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alS-kcwvlASwPIzL@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_023726_289800_DFEF19A5 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20260714_023820_653085_64D9AD2C 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,116 +81,155 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 04:28, Jinjie Ruan wrote:
->> @@ -465,9 +466,21 @@ int __nocfi swsusp_arch_resume(void)
->>  	if (el2_reset_needed())
->>  		__hyp_set_vectors(el2_vectors);
->>  
->> +	/*
->> +	 * It is necessary to mask all DAIF exceptions here as:
->> +	 *
->> +	 * - The copy of swsusp_arch_suspend_exit() in the hibernation
->> +	 *   text cannot handle taking any exceptions.
->> +	 *
->> +	 * - The suspended kernel masked all DAIF exceptions in
->> +	 *   swsusp_arch_resume(), and expects to be re-entered in the
->> +	 *   same state : with all DAIF exceptions masked.
->> +	 */
->> +	flags = local_daif_save();
->>  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
->>  		       resume_hdr.reenter_kernel, restore_pblist,
->>  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
->> +	local_daif_restore(flags);
-> I believe that the local_daif_save() here is also unnecessary because
-> hibernate_exit() returns from the "return 0 branch" of
-> __cpu_suspend_enter() in swsusp_arch_suspend(), and before that,
-> local_daif_save() has already been called to mask all exceptions.
-> 
-> swsusp_arch_suspend(void)
->     -> flags = local_daif_save();
->     -> if (__cpu_suspend_enter(&state)) {
->            ...
->         } else {                // _cpu_resume <- hibernate_exit()
-> 
->            ...
->            in_suspend = 0;
->            ...
->         }
->      -> local_daif_restore(flags);
 
-I'm not sure I follow, we are protecting path
-
-...
-load_image_and_restore()
-  -> hibernation_restore()
-     -> resume_target_kernel()
-        -> local_irq_disable()
-        -> swsusp_arch_resume()
-	  -> swsusp_arch_suspend_exit (aka hibernate_exit())
-	     -> ...
+On 7/13/2026 6:31 PM, Leonardo Bras wrote:
+> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
+>> This series of patches add support to the Hardware Dirty state tracking
+>> Structure (HDBSS) feature, which is introduced by the ARM architecture
+>> in the DDI0601 (ID121123) version.
+>>
+>> The HDBSS feature is an extension to the architecture that enhances
+>> tracking translation table descriptors' dirty state, identified as
+>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+>> page tracking, aiming to significantly reduce the overhead of scanning
+>> for dirty pages.
+>>
+>> The purpose of this feature is to make the execution overhead of live
+>> migration lower to both the guest and the host, compared to existing
+>> approaches (write-protect or search stage-2 tables).
+>>
+>> The required sysreg definitions for FEAT_HDBSS have been merged into
+>> arm64 /sysregs:
+>>    [1/5] arm64/sysreg: Add HDBSS related register information
+>>          https://git.kernel.org/arm64/c/72f7be0c2e30
+>>
+>>
+>> After these patches, the kernel automatically enables HDBSS when dirty
+>> logging is enabled on any memslot, and disables HDBSS when dirty logging
+>> is disabled on all memslots. This series does not support dirty ring
+>> mode.
+>>
+>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
+>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
+> On this, FYI, there have been some discussion on this:
+> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
+>
+> Oliver's suggestion is that we don't automatically enable eager splitting,
+> but instead we have different behaviours if the user enables it.
+>
+> This is still under discussion there, but I think it can be useful reading.
 
 
-issue can be easily observed with debug diff bellow applied on top of the
-series
+Thanks for the pointer — I've read through the discussion between you 
+and Oliver, and it's very helpful.
 
-diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-index 4dd40593f736..709f5f4c420a 100644
---- a/arch/arm64/kernel/hibernate.c
-+++ b/arch/arm64/kernel/hibernate.c
-@@ -476,6 +476,7 @@ int __nocfi swsusp_arch_resume(void)
-         *   swsusp_arch_resume(), and expects to be re-entered in the
-         *   same state : with all DAIF exceptions masked.
-         */
-+       arm64_debug_exc_context(CRITICAL_CONTEXT);
-        flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
-        hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
-                       resume_hdr.reenter_kernel, restore_pblist,
 
-That would generate warning when run on qemu
+If I understand correctly, the proposed approach is to support both 
+modes, with DBM behavior depending
 
- ------------[ cut here ]------------
- Unexpected DAIF+ALLINT: 0xc0 + 0x0 (expected 0x3c0 + 0x2000)
- WARNING: ./arch/arm64/include/asm/interrupts/common_flags.h:175 at swsusp_arch_resume+0x2d0/0x32c, CPU#0: sh/100
- Modules linked in:
- CPU: 0 UID: 0 PID: 100 Comm: sh Not tainted 7.2.0-rc2-00041-gc07d2a0843b2-dirty #288 PREEMPTLAZY 
- Hardware name: linux,dummy-virt (DT)
- pstate: 614000c5 (nZCv daIF -ALLINT +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
- pc : swsusp_arch_resume+0x2d0/0x32c
- lr : swsusp_arch_resume+0x2d0/0x32c
- sp : ffff800081adba80
- x29: ffff800081adbad0 x28: fff00000024ff000 x27: 0000000000000000
- x26: 0000000000000000 x25: 0000000000000000 x24: ffff8000815cd000
- x23: ffff8000815b4000 x22: ffff8000815c28d8 x21: ffff8000815c2000
- x20: fff000000a839000 x19: 0000000000000000 x18: 0000000000000006
- x17: 0000000000000000 x16: 0000000000000000 x15: ffff800081adb64f
- x14: ffff800081adb470 x13: ffff800101adb647 x12: 000000648200003c
- x11: ffff8000815cd8e8 x10: 0000000000000161 x9 : ffff8000815cd8e8
- x8 : 0000000000000162 x7 : ffff8000816258e8 x6 : ffff8000816258e8
- x5 : 3fffffffffffefff x4 : bffffffffffff000 x3 : 0000000000000000
- x2 : 0000000000000000 x1 : 0000000000000000 x0 : fff00000024ff000
- Call trace:
-  swsusp_arch_resume+0x2d0/0x32c (P)
-  hibernation_restore+0xe0/0x1a4
-  load_image_and_restore+0x60/0xb0
-  hibernate+0x228/0x374
-  state_store+0xe8/0xf4
-  kobj_attr_store+0x18/0x34
-  sysfs_kf_write+0x5c/0x78
-  kernfs_fop_write_iter+0x130/0x200
-  vfs_write+0x20c/0x380
-  ksys_write+0x70/0x110
-  __arm64_sys_write+0x1c/0x28
-  invoke_syscall.constprop.0+0x58/0x100
-  do_el0_svc+0x40/0xc0
-  el0_svc+0x200/0xa0c
-  el0t_64_sync_handler+0x110/0x20c
-  el0t_64_sync+0x1ac/0x1b0
- ---[ end trace 0000000000000000 ]---
+on the user's eager split setting:
 
-Cheers
-Vladimir
+- If users enable eager splitting (chunk_size != 0): use the v4 approach 
+— DBM is set globally.
+
+- If users do NOT enable eager splitting (chunk_size == 0, i.e., lazy 
+split mode): use the v3 approach — DBM
+
+is set lazily in user_mem_abort on the first write fault.
+
+
+This makes sense to me. It gives users the flexibility to choose.
+
+
+As I mentioned in my patch 6/6 reply 
+(https://lore.kernel.org/all/6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com/),
+
+I do think the lazy DBM approach is safer overall if the first-fault 
+overhead is acceptable — it avoids accidentally marking
+
+special mappings and naturally handles lazy split.
+
+
+I'll keep an eye on the discussion and follow up once a conclusion is 
+reached.
+
+
+Thanks!
+
+Tian
+
+>> This dependency is mandatory. Unlike v3, where DBM was added lazily on
+>> the first dirty access via a page fault, v4 injects DBM into pgt->flags
+>> at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
+>> during migration setup, the first dirty access no longer triggers a page
+>> fault. Consequently, if lazy hugepage splitting were relied upon (which
+>> requires a page fault to trigger splitting), hugepages would never be
+>> split, leading to guest hang after migration. Leonardo's patch above
+>> ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
+>> is available, guaranteeing that hugepages are properly split before
+>> migration starts.
+>>
+>> v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
+>>
+>> v3->v4 changes:
+>> - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
+>>    separate patch in v3).
+>> - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
+>>    by Leonardo Bras. DBM is now controlled as a page-table level flag
+>>    (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
+>>    at stage-2 MMU creation time, not lazily on first dirty access. This
+>>    means the first write to a dirty-logged page does not generate a
+>>    page fault, which is a key reason for the mandatory dependency on
+>>    Leonardo's eager hugepage splitting patch (see Depends-on above).
+>> - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
+>>    into three patches: per-vCPU buffer management, fault handling and
+>>    buffer flush, and auto enable/disable on dirty logging change. This
+>>    implements kernel-managed automatic HDBSS enable/disable.
+>> - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
+>>    on/off. HDBSS is now automatically enabled/disabled based on dirty
+>>    logging state via kvm_arch_commit_memory_region().
+>> - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
+>>    and kvm_handle_guest_abort.
+>> - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
+>>    per-vCPU, since all vCPUs share the same order.
+>> - Document patch is not included in this version; will be sent in a
+>>    follow-up series.
+>>
+>> Leonardo Bras (1):
+>>    KVM: arm64: Enable eager hugepage splitting if HDBSS is available
+>>
+>> Tian Zheng (2):
+>>    KVM: arm64: Add support for FEAT_HDBSS
+>>    KVM: arm64: Add auto DBM support for hardware dirty tracking
+>>
+>> eillon (3):
+>>    KVM: arm64: Add HDBSS per-vCPU buffer management
+>>    KVM: arm64: Add HDBSS fault handling and buffer flush
+>>    KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
+>>
+>>   arch/arm64/include/asm/cpufeature.h    |   5 +
+>>   arch/arm64/include/asm/esr.h           |   5 +
+>>   arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
+>>   arch/arm64/include/asm/kvm_host.h      |  14 ++
+>>   arch/arm64/include/asm/kvm_pgtable.h   |   4 +
+>>   arch/arm64/include/asm/sysreg.h        |  11 ++
+>>   arch/arm64/kernel/cpufeature.c         |  12 ++
+>>   arch/arm64/kvm/Makefile                |   1 +
+>>   arch/arm64/kvm/arm.c                   |  29 ++++
+>>   arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
+>>   arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
+>>   arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
+>>   arch/arm64/kvm/mmu.c                   |  19 ++-
+>>   arch/arm64/kvm/reset.c                 |   4 +
+>>   arch/arm64/tools/cpucaps               |   1 +
+>>   15 files changed, 399 insertions(+), 4 deletions(-)
+>>   create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+>>   create mode 100644 arch/arm64/kvm/dirty_bit.c
+>>
+>> --
+>> 2.33.0
+>>
 
