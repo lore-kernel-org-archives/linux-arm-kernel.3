@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A01C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DAEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=/iv2AyieqD+wQwL0gejSGdtTP/mLifcPc9iiJuDu94M=; b=ce+J1HQc3xtNJn
-	Nwze1/Bu8vIxwdSmc65N+WAYKtv0Uw9Q9sY0CDx7gTLzsxZHluLdGATA+86PJfkpLr2B6HZ3qjnwl
-	ruMTWPfpoEklrOwNY2BYpPhM1ADYG8hNdIlau02xaj7J/QQoEkydSCLCAOKoUmz21sC5duQvmeEsM
-	xVg5mKrtJFpQOKR6bvjFoPlJqvbCWunX3v8iXbjiYbsLnnE1nSDjQ0CUFyrQRbxQRrpzUtraR4LxR
-	ojEv8NIhq+Ds7cLfQZtRmejB2bGRYf5sK8UyPO+z0SrGQw2oifoeozVQevbbkO3gKaaWhGJ3v14sv
-	OFIUOg42CBadsEq4MEQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=omsZoMDSFlK21W/kFzfRTsjHGU/KSp26P3Yjq95JwaU=; b=TuZahUig6URiHm
+	TmerH6DBcKUzFsSBjTM40wmKpuNs0luJsUtVXEudvCoI8xVGfO7tmszLt9c7NFQMIbNiV/y5oCMZp
+	B0/qbaVWVvMQ6/uFcPs/fYKuNTTQGarPTWW2VTMieetGX2Qj3H4Zkrs6H0ZNJYlhhgK/X2nMmwSk0
+	PRhiXUX40VVbmIYhV2ZVp8JUIP8SuOlj1BmrfDbtgCEg0wnzlUpJfmESLTqbHZ19rIy76XIBLEeHE
+	+3AFiciBiMsAkhc6JwdeVaBeaGbOksWOgdp4mGLaoiudEZVh11RpR1hEAbOiFRSnFTON/sN7DXPL7
+	G3zByyj7Or5mX/GFmUNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjasX-0000000BdGA-3eY0;
-	Tue, 14 Jul 2026 11:00:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjatT-0000000BdRQ-1VEW;
+	Tue, 14 Jul 2026 11:01:43 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjasV-0000000BdG1-3goD
+	id 1wjatP-0000000BdQZ-3CKY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 11:00:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 368A4601DE;
-	Tue, 14 Jul 2026 11:00:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B31851F000E9;
-	Tue, 14 Jul 2026 11:00:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784026842;
-	bh=/iv2AyieqD+wQwL0gejSGdtTP/mLifcPc9iiJuDu94M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=MIFe8qeJETo7Wq9A8nBgLwOqwjMW62COVF1AfM5tzJUUaMLdanyCyL88ks4ZEPNml
-	 LLK73UZff5LTqb5R0Q3Tdgf5JMYuxXe6sAlpC4Yc/qUUpK6B6xGdhvWffKD+sjP3C3
-	 U5KY06jrIot3FN/VphtEX+vZm0IxOAwAoNLXCRu7Nt2rtixKpXsnSNFrZAQn8OwgVw
-	 HtsAiNbMUpDSmXHPF6q0O03vDHcoX8uHAx8nQlz+2T7g475d+faW5QtxymwWLjZGc/
-	 FDVU2CkfkI/iL4M11yP7wJ2jF4xMxFFFAcwxZtFmdOKSs2QI82QBQnhR25Tl5LsQ4S
-	 3pqgkiUe1PEJg==
-Date: Tue, 14 Jul 2026 06:00:41 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-pci@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] PCI: rcar-gen4: Inline GIC_TRANSLATER offset macro
-Message-ID: <20260714110041.GA1349622@bhelgaas>
+	Tue, 14 Jul 2026 11:01:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=omsZoMDSFlK21W/kFzfRTsjHGU/KSp26P3Yjq95JwaU=;
+	b=JY1BsHGwOTxLxMCNNrKe9f0cPtuMFYLOU/4/xIOI+jevGejmbk+Wy62dJzR6vuVBVhhELI/CI
+	oMv3/5Ovto2ri2AO3YNOb5R2TOU1TEP7JIukNv1xOi/8wT4iMu7V+7Ec5dUr3AS+hl19sz2vlrw
+	N+zCrxJKm+iASU96Yxzc4o4=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gzx2g3nb4zLlTK;
+	Tue, 14 Jul 2026 18:52:11 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4F4D140586;
+	Tue, 14 Jul 2026 19:01:29 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 19:01:28 +0800
+Message-ID: <c74719b5-879f-415f-9ed6-faf921525fe0@huawei.com>
+Date: Tue, 14 Jul 2026 19:01:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2013cac8-d887-4a09-b1c5-6dc9606f16f0@mailbox.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 25/36] arm64: sysreg: Add definitions for immediate
+ versions of MSR ALLINT
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-26-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-26-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_040140_411542_69755569 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +75,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 08:05:38PM +0200, Marek Vasut wrote:
-> On 7/13/26 7:54 PM, Bjorn Helgaas wrote:
-> > On Fri, Jul 10, 2026 at 03:35:10PM +0200, Marek Vasut wrote:
-> > > On 7/10/26 10:30 AM, Marc Zyngier wrote:
-> > > > On Thu, 09 Jul 2026 21:10:03 +0100,
-> > > > Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
-> > > > > 
-> > > > > Instead of pulling in the whole linux/irqchip/arm-gic-v3.h ,
-> > > > > copy the one GITS_TRANSLATER register offset macro directly into
-> > > > > the driver.  This repairs the ability to build the driver on
-> > > > > non-ARM non-GIC targets the way it was possible until now, which
-> > > > > retains good build test coverage.
-> > > ...
-> > 
-> > > So in the end, it is either this patch or limit the build to
-> > > arm/arm64 . At least this patch still allows building this driver
-> > > with more compilers on the various build bots, so I would opt for
-> > > this patch here.
-> > 
-> > I like the build coverage, but duplicating the #define doesn't really
-> > seem good to me.  It makes readability worse because cscope/tags now
-> > sees two definitions without an obvious reason.
-> 
-> I can rename the macro, or ... sigh ... I can reduce the driver to build
-> only on ARM/ARM64. Which one do you prefer ?
 
-I think a dependency on ARM/ARM64 is preferable.
+
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Mark Brown <broonie@kernel.org>
+> 
+> Encodings are provided for ALLINT which allow setting of ALLINT.ALLINT
+> using an immediate rather than requiring that a register be loaded with
+> the value to write. Since these don't currently fit within the scheme we
+> have for sysreg generation add manual encodings like we currently do for
+> other similar registers such as SVCR.
+> 
+> Since it is required that these immediate versions be encoded with xzr
+> as the source register, provide asm wrappers which ensure this is the
+> case.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/interrupts/common_flags.h | 16 ++++++++++++++++
+>  arch/arm64/include/asm/sysreg.h                  |  2 ++
+>  2 files changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+> index 6ce60d1519e8..72ed6e75d146 100644
+> --- a/arch/arm64/include/asm/interrupts/common_flags.h
+> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+> @@ -44,6 +44,22 @@ typedef enum arm64_exc_context {
+>  	CRITICAL_CONTEXT,
+>  } arm64_exc_context_t;
+>  
+> +
+> +#ifdef CONFIG_ARM64_NMI
+> +static __always_inline void _allint_clear(void)
+> +{
+> +	asm volatile(__msr_s(SYS_ALLINT_CLR, "xzr"));
+> +}
+> +
+> +static __always_inline void _allint_set(void)
+> +{
+> +	asm volatile(__msr_s(SYS_ALLINT_SET, "xzr"));
+> +}
+> +#else
+> +static __always_inline void _allint_clear(void) {}
+> +static __always_inline void _allint_set(void) {}
+> +#endif /* CONFIG_ARM64_NMI */
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+
+> +
+>  static __always_inline
+>  arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+>  {
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 7aa08d59d494..6d2c6bc1b985 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -179,6 +179,8 @@
+>   * System registers, organised loosely by encoding but grouped together
+>   * where the architected name contains an index. e.g. ID_MMFR<n>_EL1.
+>   */
+> +#define SYS_ALLINT_CLR			sys_reg(0, 1, 4, 0, 0)
+> +#define SYS_ALLINT_SET			sys_reg(0, 1, 4, 1, 0)
+>  #define SYS_SVCR_SMSTOP_SM_EL0		sys_reg(0, 3, 4, 2, 3)
+>  #define SYS_SVCR_SMSTART_SM_EL0		sys_reg(0, 3, 4, 3, 3)
+>  #define SYS_SVCR_SMSTOP_SMZA_EL0	sys_reg(0, 3, 4, 6, 3)
+
 
