@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BCEEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59C6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GeMf/eY4qjjyu9X8QZzKnRIFUsj+vQtSNZbDufBDUp0=; b=zMSAPXv1bdFple8FoMNMijudhJ
-	MzkxwqVMiCibKwnfWaDFY4O17vYTobPPXkGtdQVkDGm5PIfhbBZlzGwV4kN36UevHSsCwtDatU3bM
-	hXwRO4kb1CmWclR3uZWAWlaXAWFQQ/mGOsCw4BMo+Xf3p4qrrekquafJ+k8mZI6wzhh2w8O4PVo8z
-	Dpm91QwaIudklZ/Qv9royQi0MorFSpRzJCdV+ESFzK1rEhK0yJlBmHHURXMmMbZWGBzFe+D7AOlgQ
-	LHljpSD01MbVfVaLxJtCZIHLLJhGqT+j4VMGQu/swriA2bCM815ME3VvZG3F3DUiPsEcgqCBICZT/
-	z7az5QBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=506m4GAuhBaT5Fj/1/6U1LHAFbPrmTAr+ZgWtn1qXdc=; b=iJOHpYDNiT4lTX
+	2+K5jtGjJKH6L4xRPBP0bBn7mRLRnTmGLRu+0y5ZRm2UMYNwaDYsAcmkvyd+BXSHAW8GziRUOe40W
+	VveQkuDyq47QxmnPnZBXKyphHEwVN+LWbUqyzEzQWPB3AxMXiwg9Qggkf916JP28E7/S4/pvuSFw6
+	PXeiDt76GxYMBMHNJ1E8bUhp68jkiZ8I7gk5/A3m0QeTgoFXMeMyeZf7jWg+nr6g6bCbLUHF/k2Fj
+	r2IGujDlZyGXRayrvtf3JM372qBWVv+prYrKAS8D7rII2u/vHp4AagVeE1QXc5aIuiOkesnu8kUmG
+	KjsmwUsbreWE+vR4RAfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYpv-0000000BMK8-11k9;
-	Tue, 14 Jul 2026 08:49:55 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wjYsj-0000000BMde-2UHx;
+	Tue, 14 Jul 2026 08:52:49 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYpt-0000000BMJl-0N5p
+	id 1wjYsf-0000000BMcc-2PbA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:49:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784018993; x=1815554993;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+E7FMZfjaMpGYXNkxgxHTecyjtzcJGKD+XR1OvEDBsA=;
-  b=cTEuXRckQLTHoIBOzAWj9ANVNz7tTJFh+TlMSX9RLZ2dncmywD33AfSL
-   as4p58ICLem858tP7155neig5bgzwiMrR5hTW7BVSy4A+78fggIt4/A9u
-   vWg4xszaYQULXdJUqrvEZR4YAT1eqIiNslMjcdms9SplKZdStYFLqtulD
-   OPFAcg5jE5zlR+cUfGh2q46vyqWQls1CmhT6wnfaabYVPFA3NCFWrAV0U
-   WVe3cgw9GxB6mWdGgF9ve/I8fvCdjAwkcZz3LxmcnigzfeqT97xkl5MgT
-   aO0rYUn3AZrN3NajvjUhxvA6ezxHEqbZi5lzWzPSjsb7iUuYiltjCRZPz
-   Q==;
-X-CSE-ConnectionGUID: KlNABbhWQm+b0vcvjOC6qQ==
-X-CSE-MsgGUID: 9Sh4QKX/TlqH+02WHeNR9A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84755992"
-X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="84755992"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:49:51 -0700
-X-CSE-ConnectionGUID: EEd/uLT1TvGHqn1QHAWiFw==
-X-CSE-MsgGUID: 4JYHRuwTQEC0U62oxVTcNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,163,1779174000"; 
-   d="scan'208";a="285879297"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.189])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 01:49:48 -0700
-Date: Tue, 14 Jul 2026 11:49:46 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Marcus Folkesson <marcus.folkesson@gmail.com>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Peter Rosin <peda@lysator.liu.se>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
-Message-ID: <alX4KrhAr6ysaaQJ@ashevche-desk.local>
-References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
- <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
+	Tue, 14 Jul 2026 08:52:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=506m4GAuhBaT5Fj/1/6U1LHAFbPrmTAr+ZgWtn1qXdc=;
+	b=vvHGxy5eE7RVAnMkjCsWpoYKlwhecG2/SZLrfD0iWX7bU7vwB2HSqj2N58hiZcP1sn86JQDHL
+	ECl8unuSwdtF4N9HiMgLYHeUA91tAAnAx4UAxiSaW4Cde5+cGc8YO3yMdoahcn7an+Tn2Omr3ZV
+	oi+xCMwg/L+bnVWGEzX3dR4=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gztB33mLlzcbMk;
+	Tue, 14 Jul 2026 16:43:23 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 99C0240561;
+	Tue, 14 Jul 2026 16:52:37 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 16:52:36 +0800
+Message-ID: <99efcb43-1a1d-4467-9237-efc5355a1f4f@huawei.com>
+Date: Tue, 14 Jul 2026 16:52:35 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 35/36] arm64: nmi: Add Kconfig for NMI
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-36-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-36-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014953_144712_D7F9B397 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260714_015246_069565_3B946808 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +74,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 09:19:58AM +0200, Marcus Folkesson wrote:
-> Muxes treat their channels differently when idle.
-> Let the mux core have this information to make it available for
-> internal use.
-> Reuse the same state values used by CONFIG_MULTIPLEXER.
+
+
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Mark Brown <broonie@kernel.org>
 > 
-> Possible idle states are:
-> - MUX_IDLE_AS_IS: Leave channels as is when idle
-> - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-> - <n>: Enable channel n when idle
+> Since NMI handling is in some fairly hot paths we provide a Kconfig
+> option which allows support to be compiled out when not needed.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/Kconfig | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index e36dc4831200..968a9d97549a 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2195,6 +2195,24 @@ endmenu # "ARMv8.7 architectural features"
+>  config AS_HAS_MOPS
+>  	def_bool $(as-instr,.arch_extension mops)
+>  
+> +menu "ARMv8.8 architectural features"
+> +
+> +config ARM64_NMI
+> +	bool "Enable support for Non-maskable Interrupts (NMI)"
 
-Here and in the comment in the code I would elaborate a bit to justify signed
-type for the field. For example, put it as
+We should depends on ARM_GIC_V3 as FEAT_NMI is only valid when
+FEAT_GICv3_NMI implemented.
 
-  " - <n>: Enable channel n (starting from 0) when idle"
 
-> Default value is set to MUX_IDLE_AS_IS.
-
-Otherwise LGTM, FWIW,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+> +	default y
+> +	help
+> +	  Non-maskable interrupts are an architecture and GIC feature
+> +	  which allow the system to configure some interrupts to be
+> +	  configured to have superpriority, allowing them to be handled
+> +	  before other interrupts and masked for shorter periods of time.
+> +
+> +	  The feature is detected at runtime, and will remain disabled
+> +	  if the cpu does not implement the feature. It will also be
+> +	  disabled if pseudo NMIs are enabled at runtime.
+> +
+> +endmenu # "ARMv8.8 architectural features"
+> +
+> +
+>  menu "ARMv8.9 architectural features"
+>  
+>  config ARM64_POE
 
 
