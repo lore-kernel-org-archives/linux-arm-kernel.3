@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC78C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900C3C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VdqVJvU4n9GErr1wZKHrlnSpdneIJVmyrnduCDJ3yQs=; b=xixfaymOX6umpx5D3i9ShUqmgD
-	J51/CkhEUj8r1XddOB6Upzgki5L3RumL3hl3l0ju5v6IAhQ6zFzQ/r7/qUQSdIF5vI2gIrrToCH0a
-	PlVNo5izdR+mZaKptYWnSbxf7hHiCyPxJi5RmZXcUf0+AfhGIY4E+vucZ6x89luUYkNpGN+SbRNEN
-	l0sWiRpzAY9sKYyPUAeW05oAHSpsCLtQTG33nKu5eglqLD2yvO7mBnZ8yAElo4nX6NlxQeu0p2FIY
-	RV7gHAaWoP6jWNNcjX50po5DZGEynqeeDxuna5HpwrqGSYCt30zLssVoX0Lf6EFhDZW47cImhmG7I
-	SR8tqDNQ==;
+	bh=BpkIYNo1faFNCU58NJjShAtAOUdNhmJ/D9oFfMNTb+E=; b=2jqilE9rxqHu6JHoYZDp8EHCCL
+	oDgyq0HU8bPaUZIOntIFmZr9fVONK/RlwhSwlL8veimtnDSgbUwHO8VG+1NXe+xsoy3SM5GmWcWNU
+	mc0goLQQJ4t3CODhq5S/ocgPF36ra2On4iHgC8VB8id0y3uRGNaXSTjAC+MLcuyCk0A+97pSL4Lln
+	apPxpW+mFX8svVhVRnIGT9pCjVghx1/OGxK4ou56zaEaYBhAY8vM3dLXJLFtMAeQEAttvqyZu5Y1Z
+	bDYNDdwzEQ/mfdd4j99/DGifBOAA88YzpQDNhxDZN5ZLm7VrwG4E0UcHeIpuB3t/b7tnXJjz1B3Vf
+	0Jg70TBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdfo-0000000CGfp-3fRR;
-	Tue, 14 Jul 2026 13:59:48 +0000
+	id 1wjdh6-0000000CGxC-1CUY;
+	Tue, 14 Jul 2026 14:01:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdfk-0000000CGcs-2jnI
+	id 1wjdh4-0000000CGwY-1dNK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:59:47 +0000
+	Tue, 14 Jul 2026 14:01:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B77252F;
-	Tue, 14 Jul 2026 06:59:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12CA62F;
+	Tue, 14 Jul 2026 07:01:01 -0700 (PDT)
 Received: from localhost (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 433583F915;
-	Tue, 14 Jul 2026 06:59:41 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 987C83F915;
+	Tue, 14 Jul 2026 07:01:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784037582; bh=ijNhTpc0hiX86nWUjdqXc90+C2YK4cZEQ06Xax+s9k0=;
+	t=1784037665; bh=9Sq26LWHI8r58EN8DYRUbljc1HREA/LJnj9Grw6C71A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K9uLARNf3mPJaMe/GS5IaLV+KCptrbreczQeQHnVXZF1R/+kD7tX4C6DLSBCk3ZQZ
-	 5b2tlBv2mB4tnDbYocOD5pt8wgw0nfypGiGPSAS2iAvP/11z3qgWuP7u3r0zn3RlxJ
-	 7y9sv2ziehj+20hoXdqxpO2s5IvK+lWl7b5mEV48=
-Date: Tue, 14 Jul 2026 19:29:38 +0530
+	b=REpG6w4RRhMpa2frJH6lKCpfMm5hBL1jNODY14Ih3xa6nFlixOZOgxITV028keuHd
+	 ihvdKTp171/10HMHfFAPIOqzguzYYMuv04354I1RUVpDd3SazCk9jBj3IwWv1n+tUl
+	 zPWlsbiC+gjqqvdff4sH/HJWcz0nToFWnlikqDVU=
+Date: Tue, 14 Jul 2026 19:31:01 +0530
 From: Linu Cherian <linu.cherian@arm.com>
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -48,18 +48,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] arm64: cpufeature: Add BBML3
-Message-ID: <alZAyu_nG1azw7Bh@a079125.arm.com>
+Subject: Re: [PATCH v2 6/6] arm64: cpufeature: Detect BBML3 based on MMFR2 ID
+Message-ID: <alZBHSLOLIelWM-d@a079125.arm.com>
 References: <20260708144331.679816-1-linu.cherian@arm.com>
- <20260708144331.679816-6-linu.cherian@arm.com>
- <12484653-ffab-4b57-9ded-43bae53b8d52@arm.com>
+ <20260708144331.679816-7-linu.cherian@arm.com>
+ <11d99a7c-50f9-4a4d-a75b-ef11cf3371af@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <12484653-ffab-4b57-9ded-43bae53b8d52@arm.com>
+In-Reply-To: <11d99a7c-50f9-4a4d-a75b-ef11cf3371af@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_065944_889209_0E55D5E8 
-X-CRM114-Status: GOOD (  54.30  )
+X-CRM114-CacheID: sfid-20260714_070106_473790_79FEFA36 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,410 +76,73 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Fri, Jul 10, 2026 at 12:30:27PM +0530, Anshuman Khandual wrote:
-> Is not the subject line here bit misleading ? Because
-> it is really changing HAS_BBML2_NOABORT as HAS_BBML3,
-> not really adding a new feature.
+On Fri, Jul 10, 2026 at 12:41:57PM +0530, Anshuman Khandual wrote:
+> Please do mention full register field here
 > 
-> arm64: cpufeature: Rename HAS_BBML2_NOABORT as HAS_BBML3
-
-May be, arm64: cpufeature: Rename BBML2_NOABORT as BBML3 ?
-
+> arm64: cpufeature: Detect BBML3 based on ID_AA64MMFR2_EL1.BBM
 > 
 > On 08/07/26 8:13 PM, Linu Cherian wrote:
-> > - As bbml2_noabort is functionally equivalent to bbml3,
-> >   rename cpu/system_supports_bbml2_noabort to
-> >   cpu/system_supports_bbml3.
-> >   The ARM64 capability name is also renamed accordingly.
-> > 
-> > - As BBML2_NOABORT or the equivalent BBML3 is the
-> >   kernel requirement for setting up linear map with
-> >   block/contpte mappings and not BBML2, replace all
-> >   bbml2 references with bbml3.
-> > 
-> > FEAT_BBML3, is introduced as part of 2025 Architecture Extensions.
-> > https://developer.arm.com/documentation/109697/2026_03/2025-Architecture-Extensions
-> > 
-> > No functional changes are introduced with this patch.
+> > Add MMFR2 ID based BBML3 feature detection, so
+> 
+> Ditto ^^^^^^^^^^^^
+> 
+> > that compliant cpus doesn't need to be added to the
+> > midr list.
+> 
+> Could be reworded as :
+> 
+> Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
+> cpu_supports_bbml3() so that cpus with the feature would
+> not have to be added into MIDR based supports_bbml3_list.
+> 
+
+Okay, will change.
+
+
 > > 
 > > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
 > > ---
-> >  arch/arm64/include/asm/cpufeature.h |  6 ++--
-> >  arch/arm64/kernel/cpufeature.c      | 30 +++++------------
-> >  arch/arm64/mm/contpte.c             | 21 +++++-------
-> >  arch/arm64/mm/mmu.c                 | 52 ++++++++++++++---------------
-> >  arch/arm64/mm/proc.S                |  4 +--
-> >  arch/arm64/tools/cpucaps            |  2 +-
-> >  6 files changed, 49 insertions(+), 66 deletions(-)
+> >  arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
+> >  1 file changed, 9 insertions(+), 8 deletions(-)
 > > 
-> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> > index a57870fa96db..d90040fb9de6 100644
-> > --- a/arch/arm64/include/asm/cpufeature.h
-> > +++ b/arch/arm64/include/asm/cpufeature.h
-> > @@ -878,11 +878,11 @@ static inline bool system_supports_pmuv3(void)
-> >  	return cpus_have_final_cap(ARM64_HAS_PMUV3);
-> >  }
-> >  
-> > -bool cpu_supports_bbml2_noabort(void);
-> > +bool cpu_supports_bbml3(void);
-> >  
-> > -static inline bool system_supports_bbml2_noabort(void)
-> > +static inline bool system_supports_bbml3(void)
-> >  {
-> > -	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-> > +	return alternative_has_cap_unlikely(ARM64_HAS_BBML3);
-> >  }
-> >  
-> >  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
 > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index adcabea80fcb..e9ecaa036479 100644
+> > index e9ecaa036479..3f4a36f152d0 100644
 > > --- a/arch/arm64/kernel/cpufeature.c
 > > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2131,21 +2131,10 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> >  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
-> >  }
+> > @@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
 > >  
-> > -bool cpu_supports_bbml2_noabort(void)
-> > +bool cpu_supports_bbml3(void)
+> >  bool cpu_supports_bbml3(void)
 > >  {
-> > -	/*
-> > -	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
-> > -	 * as possible. This list is therefore an allow-list of known-good
-> > -	 * implementations that both support BBML2 and additionally, fulfill the
-> > -	 * extra constraint of never generating TLB conflict aborts when using
-> > -	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
-> > -	 * kernel contexts difficult to prove safe against recursive aborts).
-> > -	 *
-> > -	 * Note that implementations can only be considered "known-good" if their
-> > -	 * implementors attest to the fact that the implementation never raises
-> > -	 * TLB conflict aborts for BBML2 mapping granularity changes.
-> > -	 */
-> > -	static const struct midr_range supports_bbml2_noabort_list[] = {
-> > +	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
-> > +	static const struct midr_range supports_bbml3_list[] = {
+> > +	u64 mmfr2;
+> > +
+> > +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
+> > +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
+> > +		return true;
+> > +
+> >  	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
+> >  	static const struct midr_range supports_bbml3_list[] = {
 > >  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> >  		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> >  		MIDR_REV_RANGE(MIDR_NEOVERSE_V3AE, 0, 2, 0xf),
-> > @@ -2164,8 +2153,7 @@ bool cpu_supports_bbml2_noabort(void)
+> > @@ -2153,15 +2159,10 @@ bool cpu_supports_bbml3(void)
 > >  		{}
 > >  	};
 > >  
-> > -	/* Does our cpu guarantee to never raise TLB conflict aborts? */
-> > -	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
-> > +	if (!is_midr_in_range_list(supports_bbml3_list))
-> >  		return false;
+> > -	if (!is_midr_in_range_list(supports_bbml3_list))
+> > -		return false;
+> > -
+> > -	/*
+> > -	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
+> > -	 * about whether the MIDR check passes.
+> > -	 */
+> > +	if (is_midr_in_range_list(supports_bbml3_list))
+> > +		return true;
 > >  
-> >  	/*
-> > @@ -2176,9 +2164,9 @@ bool cpu_supports_bbml2_noabort(void)
-> >  	return true;
+> > -	return true;
+> > +	return false;
 > >  }
 > >  
-> > -static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-> > +static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
-> >  {
-> > -	return cpu_supports_bbml2_noabort();
-> > +	return cpu_supports_bbml3();
-> >  }
-> >  
-> >  static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
-> > @@ -3071,10 +3059,10 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> >  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
-> >  	},
-> >  	{
-> > -		.desc = "BBM Level 2 without TLB conflict abort",
-> > -		.capability = ARM64_HAS_BBML2_NOABORT,
-> > +		.desc = "BBM Level 3",
-> > +		.capability = ARM64_HAS_BBML3,
-> >  		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-> > -		.matches = has_bbml2_noabort,
-> > +		.matches = has_bbml3,
-> >  	},
-> >  	{
-> >  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
-> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> > index 2de12656b4d8..0acab179fc1a 100644
-> > --- a/arch/arm64/mm/contpte.c
-> > +++ b/arch/arm64/mm/contpte.c
-> > @@ -89,7 +89,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> >  	}
-> >  
-> >  	/*
-> > -	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-> > +	 * On eliding the __tlb_flush_range() under BBML3:
-> >  	 *
-> >  	 * NOTE: Instead of using N=16 as the contiguous block length, we use
-> >  	 *       N=4 for clarity.
-> > @@ -135,7 +135,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> >  	 * contiguous TLB entry, which is a micro-optimisation opportunity,
-> >  	 * but does not affect correctness.
-> >  	 *
-> > -	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
-> > +	 * In the BBML3 case, the change is avoiding the intermediate tlbi+dsb.
-> >  	 * This means a few things, but notably other PEs will still "see" any
-> >  	 * stale cached TLB entries. This could lead to a "contiguous bit
-> >  	 * misprogramming" issue until the final tlbi+dsb of the changed page,
-> > @@ -158,21 +158,16 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> >  	 *  are present, and a write is made to this address, do we fault or
-> >  	 *  is the write permitted (via amalgamation)?
-> >  	 *
-> > -	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
-> > -	 * and together state that when BBML1 or BBML2 are implemented, either
-> > -	 * a TLB conflict abort is raised (which we expressly forbid), or will
-> > -	 * "produce an OA, access permissions, and memory attributes that are
-> > -	 * consistent with any of the programmed translation table values".
-> > -	 *
-> > -	 * That is to say, will either raise a TLB conflict, or produce one of
-> > -	 * the cached TLB entries, but never amalgamate.
-> > +	 * With BBML3 implemented, no TLB conflict abort is raised and the OA,
-> > +	 * access permissions and memory attributes produced is one of the cached
-> > +	 * TLB entries, but never amalgamate.
-> >  	 *
-> >  	 * Thus, as the page tables are only considered "consistent" after
-> >  	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
-> >  	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
-> >  	 * initial tlbi+dsb is correct.
-> >  	 *
-> > -	 * It is also important to note that at the end of the BBML2 folding
-> > +	 * It is also important to note that at the end of the BBML3 folding
-> >  	 * case, we are still left with potentially all N TLB entries still
-> >  	 * cached (the N-1 non-contiguous ptes, and the single contiguous
-> >  	 * block). However, over time, natural TLB pressure will cause the
-> > @@ -214,7 +209,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> >  	 *
-> >  	 *                  |____| <--- tlbi + dsb
-> >  	 *
-> > -	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
-> > +	 * For BBML3, we again remove the intermediate tlbi+dsb. Here, there
-> >  	 * are no issues, as the final tlbi+dsb covering the changed page is
-> >  	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
-> >  	 * as well as the intermediate (RW,n) TLB entry; the next access will
-> > @@ -224,7 +219,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> >  	 * regardless.
-> >  	 */
-> >  
-> > -	if (!system_supports_bbml2_noabort())
-> > +	if (!system_supports_bbml3())
-> >  		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, 3,
-> >  				  TLBF_NOWALKCACHE);
-> >  
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index f2be501468ce..d94a049480b1 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -779,18 +779,18 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
-> >  
-> >  static inline bool force_pte_mapping(void)
-> >  {
-> > -	const bool bbml2 = system_capabilities_finalized() ?
-> > -		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
-> > +	const bool bbml3 = system_capabilities_finalized() ?
-> > +		system_supports_bbml3() : cpu_supports_bbml3();
-> >  
-> >  	if (debug_pagealloc_enabled())
-> >  		return true;
-> > -	if (bbml2)
-> > +	if (bbml3)
-> >  		return false;
-> >  	return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
-> >  }
-> >  
-> >  static DEFINE_MUTEX(pgtable_split_lock);
-> > -static bool linear_map_requires_bbml2;
-> > +static bool linear_map_requires_bbml3;
-> >  
-> >  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-> >  {
-> > @@ -803,15 +803,15 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-> >  	 * always pte-mapped), we must not go any further because taking the
-> >  	 * mutex below may sleep. Do not call force_pte_mapping() here because
-> >  	 * it could return a confusing result if called from a secondary cpu
-> > -	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
-> > +	 * prior to finalizing caps. Instead, linear_map_requires_bbml3 gives us
-> >  	 * what we need.
-> >  	 */
-> > -	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
-> > +	if (!linear_map_requires_bbml3 || is_kfence_address((void *)start))
-> >  		return 0;
-> >  
-> > -	if (!system_supports_bbml2_noabort()) {
-> > +	if (!system_supports_bbml3()) {
-> >  		/*
-> > -		 * !BBML2_NOABORT systems should not be trying to change
-> > +		 * BBML3 systems should not be trying to change
-> >  		 * permissions on anything that is not pte-mapped in the first
-> >  		 * place. Just return early and let the permission change code
-> >  		 * raise a warning if not already pte-mapped.
-> > @@ -828,7 +828,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-> >  
-> >  		/*
-> >  		 * Boot-time: Started secondary cpus but don't know if they
-> > -		 * support BBML2_NOABORT yet. Can't allow splitting in this
-> > +		 * support BBML3 yet. Can't allow splitting in this
-> >  		 * window in case they don't.
-> >  		 */
-> >  		if (WARN_ON(num_online_cpus() > 1))
-> > @@ -934,11 +934,11 @@ static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp
-> >  	return ret;
-> >  }
-> >  
-> > -u32 idmap_kpti_bbml2_flag;
-> > +u32 idmap_kpti_bbml3_flag;
-> >  
-> > -static void __init init_idmap_kpti_bbml2_flag(void)
-> > +static void __init init_idmap_kpti_bbml3_flag(void)
-> >  {
-> > -	WRITE_ONCE(idmap_kpti_bbml2_flag, 1);
-> > +	WRITE_ONCE(idmap_kpti_bbml3_flag, 1);
-> >  	/* Must be visible to other CPUs before stop_machine() is called. */
-> >  	smp_mb();
-> >  }
-> > @@ -947,7 +947,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  {
-> >  	/*
-> >  	 * Repainting the linear map must be done by CPU0 (the boot CPU) because
-> > -	 * that's the only CPU that we know supports BBML2. The other CPUs will
-> > +	 * that's the only CPU that we know supports BBML3. The other CPUs will
-> >  	 * be held in a waiting area with the idmap active.
-> >  	 */
-> >  	if (!smp_processor_id()) {
-> > @@ -960,7 +960,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  		/*
-> >  		 * Wait for all secondary CPUs to be put into the waiting area.
-> >  		 */
-> > -		smp_cond_load_acquire(&idmap_kpti_bbml2_flag, VAL == num_online_cpus());
-> > +		smp_cond_load_acquire(&idmap_kpti_bbml3_flag, VAL == num_online_cpus());
-> >  
-> >  		/*
-> >  		 * Walk all of the linear map [lstart, lend), except the kernel
-> > @@ -979,7 +979,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  		 * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
-> >  		 * before any page table split operations.
-> >  		 */
-> > -		WRITE_ONCE(idmap_kpti_bbml2_flag, 0);
-> > +		WRITE_ONCE(idmap_kpti_bbml3_flag, 0);
-> >  	} else {
-> >  		typedef void (wait_split_fn)(void);
-> >  		extern wait_split_fn wait_linear_map_split_to_ptes;
-> > @@ -988,7 +988,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  		wait_fn = (void *)__pa_symbol(wait_linear_map_split_to_ptes);
-> >  
-> >  		/*
-> > -		 * At least one secondary CPU doesn't support BBML2 so cannot
-> > +		 * At least one secondary CPU doesn't support BBML3 so cannot
-> >  		 * tolerate the size of the live mappings changing. So have the
-> >  		 * secondary CPUs wait for the boot CPU to make the changes
-> >  		 * with the idmap active and init_mm inactive.
-> > @@ -1003,8 +1003,8 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  
-> >  void __init linear_map_maybe_split_to_ptes(void)
-> >  {
-> > -	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
-> > -		init_idmap_kpti_bbml2_flag();
-> > +	if (linear_map_requires_bbml3 && !system_supports_bbml3()) {
-> > +		init_idmap_kpti_bbml3_flag();
-> >  		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
-> >  	}
-> >  }
-> > @@ -1127,7 +1127,7 @@ bool arch_kfence_init_pool(void)
-> >  	mutex_unlock(&pgtable_split_lock);
-> >  
-> >  	/*
-> > -	 * Since the system supports bbml2_noabort, tlb invalidation is not
-> > +	 * Since the system supports bbml3, tlb invalidation is not
-> >  	 * required here; the pgtable mappings have been split to pte but larger
-> >  	 * entries may safely linger in the TLB.
-> >  	 */
-> > @@ -1166,7 +1166,7 @@ static void __init map_mem(void)
-> >  
-> >  	arm64_kfence_map_pool();
-> >  
-> > -	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
-> > +	linear_map_requires_bbml3 = !force_pte_mapping() && can_set_direct_map();
-> >  
-> >  	if (force_pte_mapping())
-> >  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> > @@ -1333,7 +1333,7 @@ void __init kpti_install_ng_mappings(void)
-> >  	if (arm64_use_ng_mappings)
-> >  		return;
-> >  
-> > -	init_idmap_kpti_bbml2_flag();
-> > +	init_idmap_kpti_bbml3_flag();
-> >  	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
-> >  }
-> >  
-> > @@ -1394,7 +1394,7 @@ void __pi_map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
-> >  		    u64 va_offset);
-> >  
-> >  static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
-> > -	  kpti_bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
-> > +	  kpti_bbml3_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
-> >  
-> >  static void __init create_idmap(void)
-> >  {
-> > @@ -1406,17 +1406,17 @@ static void __init create_idmap(void)
-> >  		       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
-> >  		       __phys_to_virt(ptep) - ptep);
-> >  
-> > -	if (linear_map_requires_bbml2 ||
-> > +	if (linear_map_requires_bbml3 ||
-> >  	    (IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0) && !arm64_use_ng_mappings)) {
-> > -		phys_addr_t pa = __pa_symbol(&idmap_kpti_bbml2_flag);
-> > +		phys_addr_t pa = __pa_symbol(&idmap_kpti_bbml3_flag);
-> >  
-> >  		/*
-> >  		 * The KPTI G-to-nG conversion code needs a read-write mapping
-> >  		 * of its synchronization flag in the ID map. This is also used
-> >  		 * when splitting the linear map to ptes if a secondary CPU
-> > -		 * doesn't support bbml2.
-> > +		 * doesn't support bbml3.
-> >  		 */
-> > -		ptep = __pa_symbol(kpti_bbml2_ptes);
-> > +		ptep = __pa_symbol(kpti_bbml3_ptes);
-> >  		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
-> >  			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
-> >  			       __phys_to_virt(ptep) - ptep);
-> > diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> > index 22866b49be37..f4e4e71a0ea8 100644
-> > --- a/arch/arm64/mm/proc.S
-> > +++ b/arch/arm64/mm/proc.S
-> > @@ -287,7 +287,7 @@ SYM_TYPED_FUNC_START(idmap_kpti_install_ng_mappings)
-> >  
-> >  	mov	x5, x3				// preserve temp_pte arg
-> >  	mrs	swapper_ttb, ttbr1_el1
-> > -	adr_l	flag_ptr, idmap_kpti_bbml2_flag
-> > +	adr_l	flag_ptr, idmap_kpti_bbml3_flag
-> >  
-> >  	cbnz	cpu, __idmap_kpti_secondary
-> >  
-> > @@ -445,7 +445,7 @@ SYM_TYPED_FUNC_START(wait_linear_map_split_to_ptes)
-> >  	flag_ptr	.req	x4
-> >  
-> >  	mrs     swapper_ttb, ttbr1_el1
-> > -	adr_l   flag_ptr, idmap_kpti_bbml2_flag
-> > +	adr_l   flag_ptr, idmap_kpti_bbml3_flag
-> >  	__idmap_cpu_set_reserved_ttbr1 x16, x17
-> >  
-> >  scondary_cpu_wait:
-> > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > index 9b85a84f6fd4..c05371365d14 100644
-> > --- a/arch/arm64/tools/cpucaps
-> > +++ b/arch/arm64/tools/cpucaps
-> > @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
-> >  HAS_ADDRESS_AUTH_IMP_DEF
-> >  HAS_AMU_EXTN
-> >  HAS_ARMv8_4_TTL
-> > +HAS_BBML3
-> >  HAS_CACHE_DIC
-> >  HAS_CACHE_IDC
-> >  HAS_CNP
-> > @@ -51,7 +52,6 @@ HAS_LS64_V
-> >  HAS_LSUI
-> >  HAS_MOPS
-> >  HAS_NESTED_VIRT
-> > -HAS_BBML2_NOABORT
-> >  HAS_PAN
-> >  HAS_PMUV3
-> >  HAS_S1PIE
+> >  static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
 > 
-> Otherwise LGTM.
+> With the minor changes to the commit message above.
+> 
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
