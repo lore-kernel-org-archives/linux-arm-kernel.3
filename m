@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BFDC44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD95C4450D
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yoY75yqFw5mb7tU/+ruk6fsKo/hettBezB5T0NFLox0=; b=vPJr/kmMXeU9TJhBFXSDxjiXu8
-	ORsWf1Xne1DHln9GWNaPSHDUNXIoIr4800zWtbXH5pPlbljSpaLvd15CdSwjIA+0LegZQWqXc82mg
-	IrFpK5W1SY/z2LSxwHL6o1xx1YCAOnTy9RdZnlYyuNNGRSWnCOUClKZihJRZGJ8vRVES68e7++Pzf
-	SxmJYT+ZTgouriFuOVwExIROGkV9y4tgNTZZ95YKSgcGZyq0f6QkV3LpWIt6SxS2rEr2Cv91uBEKR
-	gyD3E9qaAPzc89ATseRb/qWTG264COJyvc7H38m8+GJtTAJ88CBska5GGe8ZGZMMVBnxFr68Lasw+
-	TZXS1n0A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f8jAus63szPCeuniHFRZJLeSRTFAg82BlxM95BAY/jY=; b=sQdm12F7dQmpky6BByzRcyo9wg
+	vHHqk7iXTJUTIzZ0+WsG4JokFQUPxuvXWag1x+kAMbJUObY7jNvrA43Zzz99D+zYasRfDV8niEsQH
+	oAO9ejNjPN3HszRZY9HJdgaIv4q8PekpG4w6Jv8w/XiowkhG/0A85nHv/oLj+kjkv3Eg5sl0AL5Jc
+	gIkfym6CdHTErbSERhcOpePovGskdyWEhqxp/P0jKEyuShzUITf5NONqUGV2vnFZk25GRytXqHSMq
+	kaWEESd4l0JvP+0XGpRTKk3+wqPfd3WBhnRIDZkLZD4t+KwDui/2Fc1jOQteqEkpc3QO+AeV93zsV
+	4DMRJBTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiwJ-0000000D80T-2dzz;
+	id 1wjiwJ-0000000D80B-2CqU;
 	Tue, 14 Jul 2026 19:37:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiwI-0000000D7zi-2l4N
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 19:37:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=yoY75yqFw5mb7tU/+ruk6fsKo/hettBezB5T0NFLox0=; b=l347JcH51XOM34i8zs/yUwox8Z
-	32K8tvqqeC+E5Ef4QYbjycTidXoIG5ttu91asHEiGS3ex166i8UPK1VgRGny/rkFHjq7LtAZDuQi4
-	21UEvrRH4aShp0FWHKc6tpGvqlnqGca8dXvPxZoiVxqnI1D4FtMYhKzLnCMgbgvufrwt/e1QfPC/M
-	HymvBIA2SWT4S4Ue5Ms2kl0xWjEcPJii9HdlMTgRsVyVxPHR7hXhU5o085u0vBUqjy6kb/yroUoU6
-	xWoKNWr7OBzkwyghPRshsIwOD5Z5nE9vWgD38X8U6ohAsH/l9+3k+IfpajYpKMbi4WtM7BYfq9U/Q
-	IW05c1cw==;
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjiwE-0000000CokF-2RtF
+	id 1wjiwG-0000000D7z4-3fhz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 19:37:09 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7e9f69ee6f4so1012464a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 12:37:04 -0700 (PDT)
+	Tue, 14 Jul 2026 19:37:10 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7eb5bdb50fcso667089a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 12:37:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784057823; x=1784662623; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yoY75yqFw5mb7tU/+ruk6fsKo/hettBezB5T0NFLox0=;
-        b=LB05mXtBzj1JT0J15f+tdyIU1iydAZeG506mF9YdZV9MUJvxlcZ8yzvrNE99IPIPw9
-         A5vW2CAZRM/oedFNasUvzp3x2DugwhXA/Zh2OQDk7iZeoVB7l1rlR7EAJ9ES8jH4SHkZ
-         iV74xWVkfJVkPJMshp0DEwI8eYO2tcmvwzE7g=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784057823; x=1784662623;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1784057828; x=1784662628; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yoY75yqFw5mb7tU/+ruk6fsKo/hettBezB5T0NFLox0=;
-        b=CQ4g3cBuYnbUj6OPJqChstKFe5g/BhDDwLxmwjc6HZiwCAccTcyI9eLjSlSgB34T80
-         iUNwBqSom3E5OdGpKZR5TD5Wousuop0lH9dn3E3iaDm9i92HuD5b2Dwfpa2gQTB4WLbf
-         wWBtzfrMXeAsJNAEaS83wnSWTFmYHXMTE1ydj7S/DJ4ieZqHG1ae3DlniClFm/fljcyO
-         5KrPOD+u/80jCcUzfnVhn285DhFbB42TftEV1aIGMJH6NMJB7sebAfM3kDTaZEju8znD
-         7gN4ADMbzrjzgXNWirlXZIgOGP2VJ3rQFAuUjntlW5J/hySJdXCGiw17d4lE4U0iSo7t
-         9HJg==
-X-Forwarded-Encrypted: i=1; AFNElJ8BoZ0pZQcY1CYO2pUIa+bYYmYShcwrTQD1SEsvKBbvyK7fiPX5Zpii9CIRRdOza2ZvcCO+K0gNX00oPW//Sh26@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnisTS94SNlUt6cMNGr3B11Dkx2NL/RiSWFz3IYVs/CAANrBnZ
-	eG8m0ME4liiGrH1CEK3cLUqHNjT0lSm5Pg0/QdHL+H71yKh6zmfEIqGszZ5TtcRzow==
-X-Gm-Gg: AfdE7clPeUa3uQnRrMOXhD/YWniTYgGkcTrifeLfq5WoecDZezg0FKwq+mK8OoUnlDs
-	E1mCuG5fstKX8JKZX/aZPJrvBglDb4TerPYL4QdUA3x175uIsLm5FtI9BiswurZXm397pypouUF
-	hQZB+toAYz5BCsiRqf+9xUE2S4x+fQgcawWSS44sUI+S5SNl1CSJxjC10Xb8FUB1Yds5D9e8Y/1
-	27VGYylQm7AjIfI9ZL7PequDSuFi0nZKViZJ46kObzXB9PS+Ag/gQ34J3+hc3JImI4IkUHn2iri
-	MUCQlCjlTYCEyRdYzgFKtg5RLu5xBd9pT++dEFjmVu29WVfi8NQcBW4PB8FB6fT8mbOFGT5xlhE
-	8xBkvjRh53//GmS/2harFpBUZb8/mE2CHaLxjUNcp1KkG9mbN2VqhVKJOV+/sGrEpVeCdTy7F3+
-	xBrjohNegk2N9iEcRppQ==
-X-Received: by 2002:a05:6830:2306:b0:7e9:ead3:4449 with SMTP id 46e09a7af769-7ec0967b3e2mr9214494a34.6.1784057823394;
-        Tue, 14 Jul 2026 12:37:03 -0700 (PDT)
+        bh=f8jAus63szPCeuniHFRZJLeSRTFAg82BlxM95BAY/jY=;
+        b=dV3ZInL+7Be3oQB4ZraPMwh4PjvOEbs5K61hEFmAt3m3pZVnWp43ayEkN0AFK9/P/L
+         TSg7CKoCZBokT7roFz8oQHRVHif6XbMk5161SfAAjpqPiGYhkK7avYe2CdXhT07uh6uY
+         G0F3BCH911ggEbAQZtnrOJeaUoGSDiwRqTekc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784057828; x=1784662628;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f8jAus63szPCeuniHFRZJLeSRTFAg82BlxM95BAY/jY=;
+        b=joSGZ6td9uKecwQVKW3w1aDbXoX0N3Vmdc/EC1bT2nQ5P1KxuwpWpe5nFwbUuV8nAk
+         Eq/gByU+yUi1HxfEjMQ9by4O1Z0mHtoFvXxCltT5zInthnGYojF92FZS6BQk7umrogNs
+         AU+qgbWje0/xiDzrUOURSiuXgMJ5dGZR1/5qyHuyQylkXCsnBSYHSRI4gwkDrUrRsHkb
+         EeAMtedNl0H4pzzLsWVL38oimO/lBs05+g756fiGtgzaXEsPotZE3Xc928Qv20axmWwo
+         ihfqI0CFscR83bh8ix/jN9idHvS3qZebOG6DrlgDxtdX5I2GxZ1VICfFS8ODkXAbXkMY
+         LWeQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8VjNpcaA/5sUG5CSzbUl2jn7/NLuhtpHpHpmjXHONIWtQiiTtaL0OoF/TXscxEVFlxSHs6CM0Ft61N7ifkN0bS@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm6+T5MU59ZZouvoURjvEMQH2ux1O/5Djz3VI04eg/m/Yf+2SD
+	7Pq8iFUFfoKe6WFobOylM1ss+MlXs5PXV+TOa6p1cMeOb4YcSfqkB45yc+JKsYK6SQ==
+X-Gm-Gg: AfdE7cl/eQw67OB+q6m/2gEGZXjCpm07tB1B822/m+7wDAG3BTqGzKHRI+w+NO4bomQ
+	/0sMHn6BOXA6PytQVB39sUsCmkpDJeHkwgfEdTdlrs3qmWTWmitNPL34fkVtuD4Bc0Wv6wZIQkk
+	VIRV+nfm6/N6GzVvtq+BsCR6UgvNm77sHbA0sCWO0BewDRl+QDgLka/xOyuzNTIfP0Xu1ygO5EG
+	MxN9Q6B4I3BpgWiN3wYRyKXpQTXwjTZJkDtf3ZPc/U9PmI2jOfU1V36YiyMP+3vAVBkVwNL0ASS
+	2ruA1z7CcSNMTesiiQ7JHsuyCXoHra25gqq7hg/X4C35qH6agDytwmTUVrphiMERRtzaI+kPwy4
+	O7sxBqwuh1UkgDZWOfkLgAj7QL2kGdXLOWNwBSaHwYoJ1NR5YyYrcI6YoNcc6e7H49o7MwQhoN/
+	6OLck2U7M=
+X-Received: by 2002:a05:6830:648d:b0:7e9:dc88:f10a with SMTP id 46e09a7af769-7ec09876ff5mr9125262a34.18.1784057827953;
+        Tue, 14 Jul 2026 12:37:07 -0700 (PDT)
 Received: from chromium.org ([174.51.25.52])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ebcaf742e1sm16004026a34.8.2026.07.14.12.37.01
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ebcaf742e1sm16004026a34.8.2026.07.14.12.37.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 12:37:02 -0700 (PDT)
+        Tue, 14 Jul 2026 12:37:07 -0700 (PDT)
 From: Simon Glass <sjg@chromium.org>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Fabio Estevam <festevam@nabladev.com>,
@@ -88,33 +74,27 @@ Cc: Fabio Estevam <festevam@nabladev.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Simon Glass <sjg@chromium.org>,
-	Albert Aribaud <albert.u.boot@aribaud.net>,
-	Bartosz Golaszewski <brgl@kernel.org>,
 	Brian Masney <bmasney@redhat.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
 	Conor Dooley <conor+dt@kernel.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
 	Jeffy Chen <jeffy.chen@rock-chips.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Yao Zi <ziyao@disroot.org>,
 	huang lin <hl@rock-chips.com>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/6] Add support for the Rockchip RV1106 and RV1103
-Date: Tue, 14 Jul 2026 13:36:37 -0600
-Message-ID: <20260714193656.2196447-1-sjg@chromium.org>
+Subject: [PATCH v2 1/6] dt-bindings: clock: rockchip: Add RV1106 CRU support
+Date: Tue, 14 Jul 2026 13:36:38 -0600
+Message-ID: <20260714193656.2196447-2-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260714193656.2196447-1-sjg@chromium.org>
+References: <20260714193656.2196447-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_203707_329065_A14BAFC2 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20260714_123708_937187_2743AAAF 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,85 +109,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for the Rockchip RV1106, a Cortex-A7
-SoC aimed at IP cameras, and its RV1103 package variant, together with
-the Luckfox Pico Mini B, a small and widely available RV1103 board.
+Add the clock binding header and schema for the Rockchip RV1106 clock
+and reset unit. The clock IDs are numbered continuously from 0, in the
+same way as the RV1103B. The header also covers the MMC drive and
+sample phase clocks, which the CRU provides using control registers in
+the GRF region.
 
-The series follows the structure of the recently merged RV1103B
-support. The clock driver is ported from the vendor kernel and is the
-work of Elaine Zhang. As with the RV1103B, no resets are exposed yet
-and the CPU pvtpll is initialised but not calibrated.
+The RV1103 is a package variant of the RV1106 and uses the same CRU.
 
-Following feedback on v1, several parts have been split out into
-separate series: the pinctrl driver and binding, and the serial,
-watchdog and iio bindings, are submitted separately to their
-maintainers. The mmc binding is already applied for mmc-next. This
-series carries the clock support, the GRF compatibles and the
-devicetrees, which depend on the clock binding header.
-
-The devicetrees cover the devices needed for a basic system: UARTs,
-SD/eMMC, the SPI flash controller, SARADC, watchdog, GPIO and pinctrl.
-
-This v2 is re-tested on the Luckfox Pico Mini B: the kernel boots to
-the rootfs wait with a working console on UART2, timers, pinctrl and
-GPIO, and an SD card running at high speed. It builds with W=1 without
-warnings and dt_binding_check and dtbs_check are clean.
+Signed-off-by: Simon Glass <sjg@chromium.org>
+---
 
 Changes in v2:
 - Renumber the clock IDs to be continuous, starting from 0
 - Provide the MMC phase clocks from the CRU rather than a grf-cru
 - Mention the MMC phase clocks in the rockchip,grf description
-- Provide the MMC phase clocks from the CRU via an auxiliary GRF regmap
-  rather than from a separate grf-cru clock provider
-- Drop the grf-cru clock-controller child and use the syscon-only
-  group for the main GRF, since the CRU now provides the MMC phase
-  clocks
-- Use a single gpio-ioc compatible for the per-bank IOC blocks in
-  place of the ioc and pmuioc regions
-- Take the MMC drive and sample phase clocks from the CRU and drop the
-  grf-cru node
-- Give each GPIO bank a syscon for its own IOC block, referenced by a
-  rockchip,grf phandle in the bank node
-- Add gpio aliases, which the pin controller and gpio drivers use to
-  identify the bank; the rv1103 removes the gpio2 alias
-- Split the series by subsystem: pinctrl, serial, watchdog and iio are
-  now submitted separately
-- Drop patch 'dt-bindings: mmc: rockchip-dw-mshc: Add RV1106
-  compatible', which is applied for mmc-next
 
-Simon Glass (6):
-  dt-bindings: clock: rockchip: Add RV1106 CRU support
-  clk: rockchip: Add clock controller for the RV1106
-  dt-bindings: soc: rockchip: grf: Add RV1106 compatibles
-  ARM: dts: rockchip: Add support for RV1106 and RV1103
-  dt-bindings: arm: rockchip: Add Luckfox Pico Mini B
-  ARM: dts: rockchip: Add Luckfox Pico Mini B
-
- .../devicetree/bindings/arm/rockchip.yaml     |    5 +
- .../bindings/clock/rockchip,rv1106-cru.yaml   |   60 +
- .../devicetree/bindings/soc/rockchip/grf.yaml |    2 +
- arch/arm/boot/dts/rockchip/Makefile           |    1 +
- .../rockchip/rv1103-luckfox-pico-mini-b.dts   |   93 ++
- arch/arm/boot/dts/rockchip/rv1103.dtsi        |   16 +
- .../arm/boot/dts/rockchip/rv1106-pinctrl.dtsi | 1398 +++++++++++++++++
- arch/arm/boot/dts/rockchip/rv1106.dtsi        |  321 ++++
- drivers/clk/rockchip/Kconfig                  |    7 +
- drivers/clk/rockchip/Makefile                 |    1 +
- drivers/clk/rockchip/clk-rv1106.c             | 1100 +++++++++++++
- .../dt-bindings/clock/rockchip,rv1106-cru.h   |  300 ++++
- 12 files changed, 3304 insertions(+)
+ .../bindings/clock/rockchip,rv1106-cru.yaml   |  60 ++++
+ .../dt-bindings/clock/rockchip,rv1106-cru.h   | 300 ++++++++++++++++++
+ 2 files changed, 360 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rv1106-cru.yaml
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103-luckfox-pico-mini-b.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rv1106-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rv1106.dtsi
- create mode 100644 drivers/clk/rockchip/clk-rv1106.c
  create mode 100644 include/dt-bindings/clock/rockchip,rv1106-cru.h
 
----
-base-commit: 3b029c035b34bbc693405ddf759f0e9b920c27f1
-branch: rv1106a2
-
+diff --git a/Documentation/devicetree/bindings/clock/rockchip,rv1106-cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rv1106-cru.yaml
+new file mode 100644
+index 000000000000..b99dce9ff935
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/rockchip,rv1106-cru.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/rockchip,rv1106-cru.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip RV1106 Clock and Reset Unit
++
++maintainers:
++  - Simon Glass <sjg@chromium.org>
++  - Heiko Stuebner <heiko@sntech.de>
++
++description:
++  The RV1106 clock controller generates the clock and also implements a
++  reset controller for SoC peripherals.
++
++properties:
++  compatible:
++    const: rockchip,rv1106-cru
++
++  reg:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: xin24m
++
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the syscon managing the "general register files" (GRF).
++      If missing, pll rates are not changeable due to the missing pll
++      lock status, and the MMC drive and sample phase clocks, whose
++      control registers live in the GRF region, are not registered.
++
++required:
++  - compatible
++  - reg
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@ff3b0000 {
++      compatible = "rockchip,rv1106-cru";
++      reg = <0xff3b0000 0x20000>;
++      rockchip,grf = <&grf>;
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/rockchip,rv1106-cru.h b/include/dt-bindings/clock/rockchip,rv1106-cru.h
+new file mode 100644
+index 000000000000..6b13e98b8d54
+--- /dev/null
++++ b/include/dt-bindings/clock/rockchip,rv1106-cru.h
+@@ -0,0 +1,300 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2022 Rockchip Electronics Co. Ltd.
++ * Author: Elaine Zhang <zhangqing@rock-chips.com>
++ */
++
++#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RV1106_H
++#define _DT_BINDINGS_CLK_ROCKCHIP_RV1106_H
++
++/* pll clocks */
++#define PLL_APLL		0
++#define PLL_DPLL		1
++#define PLL_CPLL		2
++#define PLL_GPLL		3
++#define ARMCLK			4
++
++/* clk (clocks) */
++#define PCLK_DDRPHY		5
++#define PCLK_DDR_ROOT		6
++#define PCLK_DDRMON		7
++#define CLK_TIMER_DDRMON	8
++#define PCLK_DDRC		9
++#define PCLK_DFICTRL		10
++#define ACLK_DDR_ROOT		11
++#define ACLK_SYS_SHRM		12
++#define HCLK_NPU_ROOT		13
++#define ACLK_NPU_ROOT		14
++#define PCLK_NPU_ROOT		15
++#define HCLK_RKNN		16
++#define ACLK_RKNN		17
++#define PCLK_ACODEC		18
++#define MCLK_ACODEC_TX		19
++#define CLK_CORE_CRYPTO		20
++#define CLK_PKA_CRYPTO		21
++#define ACLK_CRYPTO		22
++#define HCLK_CRYPTO		23
++#define ACLK_DECOM		24
++#define PCLK_DECOM		25
++#define DCLK_DECOM		26
++#define ACLK_DMAC		27
++#define PCLK_DSM		28
++#define MCLK_DSM		29
++#define CCLK_SRC_EMMC		30
++#define HCLK_EMMC		31
++#define PCLK_GPIO4		32
++#define DBCLK_GPIO4		33
++#define PCLK_I2C0		34
++#define CLK_I2C0		35
++#define PCLK_I2C2		36
++#define CLK_I2C2		37
++#define PCLK_I2C3		38
++#define CLK_I2C3		39
++#define PCLK_I2C4		40
++#define CLK_I2C4		41
++#define HCLK_I2S0		42
++#define PCLK_DFT2APB		43
++#define HCLK_IVE		44
++#define ACLK_IVE		45
++#define PCLK_PWM0_PERI		46
++#define CLK_PWM0_PERI		47
++#define CLK_CAPTURE_PWM0_PERI	48
++#define PCLK_PERI_ROOT		49
++#define ACLK_PERI_ROOT		50
++#define HCLK_PERI_ROOT		51
++#define CLK_TIMER_ROOT		52
++#define ACLK_BUS_ROOT		53
++#define HCLK_SFC		54
++#define SCLK_SFC		55
++#define PCLK_UART0		56
++#define CLK_PVTM_CORE		57
++#define PCLK_UART1		58
++#define CLK_CORE_MCU_RTC	59
++#define PCLK_PWM1_PERI		60
++#define CLK_PWM1_PERI		61
++#define CLK_CAPTURE_PWM1_PERI	62
++#define PCLK_PWM2_PERI		63
++#define CLK_PWM2_PERI		64
++#define CLK_CAPTURE_PWM2_PERI	65
++#define HCLK_BOOTROM		66
++#define HCLK_SAI		67
++#define MCLK_SAI		68
++#define PCLK_SARADC		69
++#define CLK_SARADC		70
++#define PCLK_SPI1		71
++#define CLK_SPI1		72
++#define PCLK_STIMER		73
++#define CLK_STIMER0		74
++#define CLK_STIMER1		75
++#define PCLK_TIMER		76
++#define CLK_TIMER0		77
++#define CLK_TIMER1		78
++#define CLK_TIMER2		79
++#define CLK_TIMER3		80
++#define CLK_TIMER4		81
++#define CLK_TIMER5		82
++#define HCLK_TRNG_NS		83
++#define HCLK_TRNG_S		84
++#define PCLK_UART2		85
++#define HCLK_CPU		86
++#define PCLK_UART3		87
++#define CLK_CORE_MCU		88
++#define PCLK_UART4		89
++#define PCLK_DDR_HWLP		90
++#define PCLK_UART5		91
++#define ACLK_USBOTG		92
++#define CLK_REF_USBOTG		93
++#define CLK_UTMI_USBOTG		94
++#define PCLK_USBPHY		95
++#define CLK_REF_USBPHY		96
++#define PCLK_WDT_NS		97
++#define TCLK_WDT_NS		98
++#define PCLK_WDT_S		99
++#define TCLK_WDT_S		100
++#define CLK_DDR_FAIL_SAFE	101
++#define XIN_OSC0_DIV		102
++#define CLK_DEEPSLOW		103
++#define PCLK_PMU_GPIO0		104
++#define DBCLK_PMU_GPIO0		105
++#define CLK_PMU			106
++#define PCLK_PMU		107
++#define PCLK_PMU_HP_TIMER	108
++#define CLK_PMU_HP_TIMER	109
++#define CLK_PMU_32K_HP_TIMER	110
++#define PCLK_I2C1		111
++#define CLK_I2C1		112
++#define PCLK_PMU_IOC		113
++#define PCLK_PMU_MAILBOX	114
++#define CLK_PMU_MCU		115
++#define CLK_PMU_MCU_RTC		116
++#define CLK_PMU_MCU_JTAG	117
++#define CLK_PVTM_PMU		118
++#define PCLK_PVTM_PMU		119
++#define CLK_REFOUT		120
++#define CLK_100M_PMU		121
++#define PCLK_PMU_ROOT		122
++#define HCLK_PMU_ROOT		123
++#define HCLK_PMU_SRAM		124
++#define PCLK_PMU_WDT		125
++#define TCLK_PMU_WDT		126
++#define CLK_DFICTRL		127
++#define CLK_DDRMON		128
++#define CLK_DDR_PHY		129
++#define ACLK_DDRC		130
++#define CLK_CORE_DDRC_SRC	131
++#define CLK_CORE_DDRC		132
++#define CLK_50M_SRC		133
++#define CLK_100M_SRC		134
++#define CLK_150M_SRC		135
++#define CLK_200M_SRC		136
++#define CLK_250M_SRC		137
++#define CLK_300M_SRC		138
++#define CLK_339M_SRC		139
++#define CLK_400M_SRC		140
++#define CLK_450M_SRC		141
++#define CLK_500M_SRC		142
++#define CLK_I2S0_8CH_TX_SRC	143
++#define CLK_I2S0_8CH_TX_FRAC	144
++#define CLK_I2S0_8CH_TX		145
++#define CLK_I2S0_8CH_RX_SRC	146
++#define CLK_I2S0_8CH_RX_FRAC	147
++#define CLK_I2S0_8CH_RX		148
++#define I2S0_8CH_MCLKOUT	149
++#define MCLK_I2S0_8CH_RX	150
++#define MCLK_I2S0_8CH_TX	151
++#define CLK_REF_MIPI0_SRC	152
++#define CLK_REF_MIPI0_FRAC	153
++#define CLK_REF_MIPI0_OUT	154
++#define CLK_REF_MIPI1_SRC	155
++#define CLK_REF_MIPI1_FRAC	156
++#define MCLK_REF_MIPI0		157
++#define MCLK_REF_MIPI1		158
++#define CLK_REF_MIPI0		159
++#define CLK_REF_MIPI1		160
++#define CLK_UART0_SRC		161
++#define CLK_UART0_FRAC		162
++#define CLK_UART0		163
++#define SCLK_UART0		164
++#define CLK_UART1_SRC		165
++#define CLK_UART1_FRAC		166
++#define CLK_UART1		167
++#define SCLK_UART1		168
++#define CLK_UART2_SRC		169
++#define CLK_UART2_FRAC		170
++#define CLK_UART2		171
++#define SCLK_UART2		172
++#define CLK_UART3_SRC		173
++#define CLK_UART3_FRAC		174
++#define CLK_UART3		175
++#define SCLK_UART3		176
++#define CLK_UART4_SRC		177
++#define CLK_UART4_FRAC		178
++#define CLK_UART4		179
++#define SCLK_UART4		180
++#define CLK_UART5_SRC		181
++#define CLK_UART5_FRAC		182
++#define CLK_UART5		183
++#define SCLK_UART5		184
++#define CLK_VICAP_M0_SRC	185
++#define CLK_VICAP_M0_FRAC	186
++#define CLK_VICAP_M0		187
++#define SCLK_VICAP_M0		188
++#define CLK_VICAP_M1_SRC	189
++#define CLK_VICAP_M1_FRAC	190
++#define CLK_VICAP_M1		191
++#define SCLK_VICAP_M1		192
++#define DCLK_VOP_SRC		193
++#define PCLK_CRU		194
++#define PCLK_TOP_ROOT		195
++#define PCLK_SPI0		196
++#define CLK_SPI0		197
++#define SCLK_IN_SPI0		198
++#define CLK_UART_DETN_FLT	199
++#define HCLK_VEPU		200
++#define ACLK_VEPU		201
++#define CLK_CORE_VEPU		202
++#define CLK_CORE_VEPU_DVBM	203
++#define PCLK_GPIO1		204
++#define DBCLK_GPIO1		205
++#define HCLK_VEPU_PP		206
++#define ACLK_VEPU_PP		207
++#define HCLK_VEPU_ROOT		208
++#define ACLK_VEPU_COM_ROOT	209
++#define ACLK_VEPU_ROOT		210
++#define PCLK_VEPU_ROOT		211
++#define PCLK_VICAP_VEPU		212
++#define PCLK_CSIHOST0		213
++#define CLK_RXBYTECLKHS_0	214
++#define PCLK_CSIHOST1		215
++#define CLK_RXBYTECLKHS_1	216
++#define PCLK_GPIO3		217
++#define DBCLK_GPIO3		218
++#define HCLK_ISP3P2		219
++#define ACLK_ISP3P2		220
++#define CLK_CORE_ISP3P2		221
++#define PCLK_MIPICSIPHY		222
++#define CCLK_SRC_SDMMC		223
++#define HCLK_SDMMC		224
++#define CLK_SDMMC_DETN_FLT	225
++#define HCLK_VI_ROOT		226
++#define ACLK_VI_ROOT		227
++#define PCLK_VI_ROOT		228
++#define PCLK_VI_RTC_ROOT	229
++#define PCLK_VI_RTC_TEST	230
++#define PCLK_VI_RTC_PHY		231
++#define DCLK_VICAP		232
++#define PCLK_VICAP		233
++#define ACLK_VICAP		234
++#define HCLK_VICAP		235
++#define I0CLK_VICAP		236
++#define I1CLK_VICAP		237
++#define RX0PCLK_VICAP		238
++#define RX1PCLK_VICAP		239
++#define ISP0CLK_VICAP		240
++#define PCLK_GPIO2		241
++#define DBCLK_GPIO2		242
++#define ACLK_MAC		243
++#define PCLK_MAC		244
++#define CLK_GMAC0_50M_O		245
++#define CLK_GMAC0_TX_50M_O	246
++#define CLK_GMAC0_REF_50M	247
++#define CLK_GMAC0_TX_50M	248
++#define CLK_GMAC0_RX_50M	249
++#define ACLK_MAC_ROOT		250
++#define CLK_MACPHY		251
++#define CLK_OTPC_ARB		252
++#define PCLK_OTPC_NS		253
++#define CLK_SBPI_OTPC_NS	254
++#define CLK_USER_OTPC_NS	255
++#define PCLK_OTPC_S		256
++#define CLK_SBPI_OTPC_S		257
++#define CLK_USER_OTPC_S		258
++#define PCLK_OTP_MASK		259
++#define CLK_PMC_OTP		260
++#define HCLK_RGA2E		261
++#define ACLK_RGA2E		262
++#define CLK_CORE_RGA2E		263
++#define CCLK_SRC_SDIO		264
++#define HCLK_SDIO		265
++#define PCLK_TSADC		266
++#define CLK_TSADC		267
++#define CLK_TSADC_TSEN		268
++#define ACLK_VO_ROOT		269
++#define HCLK_VO_ROOT		270
++#define PCLK_VO_ROOT		271
++#define ACLK_VOP_ROOT		272
++#define HCLK_VOP		273
++#define DCLK_VOP		274
++#define ACLK_VOP		275
++#define CLK_RTC_32K		276
++#define PCLK_MAILBOX		277
++
++/* mmc phase clocks */
++#define SCLK_EMMC_DRV		278
++#define SCLK_EMMC_SAMPLE	279
++#define SCLK_SDMMC_DRV		280
++#define SCLK_SDMMC_SAMPLE	281
++#define SCLK_SDIO_DRV		282
++#define SCLK_SDIO_SAMPLE	283
++
++#endif
 -- 
 2.43.0
 
