@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE6CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KojOIw0/7VKNeIbp9mqtjfjXLwzayJpBCU49qrDmgzw=; b=GBfCHZPOn2LsDxS3n5PXm+5Bpc
-	LO/qdvtevv7c1cYqTuQivn7oEHax97aeapwe92xGNheiUFKcs9oC7cR9pPkKCL3+HmLWFMsenpgyV
-	T2Me9J4MDSJUPOMNwGFXECMu/5+bctwAAV+3eaBQ8DrcXHl77dBBQixXLZsxH8lP5Rq9qCYtu4zU0
-	W3CebqggnZhi1fuUushhAOhh+vaKWY8klM9EQtmfRucP4s9kpM65wtUAxK630ybr/+NUqwK3IEDkA
-	ONG4MToaCEdBazv3Jv9QX77vjAlL1jRdoqzMwM+swP0ZheXHdVsKsCilWBXBreI5kcUtCDJTgVrZu
-	kCSHw9KQ==;
+	bh=brQxkQcBSLeOu8llLPLKYoA1VBGbas+TGQGDU2SyhI0=; b=0F+m6VRaPGt+ZsisBX4/CD4GMl
+	HRw6Hh/p74wibf9q1T96d2ev/wCBQ7OvBm8MRI1UjMBRuxPF4WnppIa/4Kzvs+i1WojGtgzwIKRnX
+	gJI3PM3a/FNtb5xMoC5ay/D+LmJr7xIkzosPKw60C+JyCvVwoYOz+9tf1GV5iJasZfmPhOSDUbFaZ
+	00uE2fMn2j10ZfzsYB79Dunmct+0lCCFlmQ2FQvitJly3HOe71qers+M/qdseiwPSJ408PSSwYbhG
+	10BbtL9yxN5HJYZWmnjrCbPqpuo1Fwr6COzS7yd/GPYv2LcApoNS3CAwo6l6RpEODQ4r+Jgn13yaC
+	Bg4J8/0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWdG-0000000B2Hh-1l37;
-	Tue, 14 Jul 2026 06:28:42 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wjWdM-0000000B2Mg-3HBS;
+	Tue, 14 Jul 2026 06:28:48 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWd9-0000000B2E0-2FQP
+	id 1wjWdI-0000000B2JI-1KL9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 06:28:36 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ceab75934dso30061205ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 23:28:35 -0700 (PDT)
+	Tue, 14 Jul 2026 06:28:45 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-383adaa461fso463423a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 23:28:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784010515; x=1784615315; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784010523; x=1784615323; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KojOIw0/7VKNeIbp9mqtjfjXLwzayJpBCU49qrDmgzw=;
-        b=gQ1Rd7PGPJZuCEO9hKmYgR6r3yJDTWc2ldOlmnnsYXm4pD0QV3p8Q18qfbK48X4D2n
-         Xx2+vJJKU12p0OERskOoJ7XWn3HZPPwTJgMQChXITcfFLxJnjQzKErIzxEWBQOgfx6wl
-         z15Qvfd/HdbFRzG/KFZRN2gIwxAOxvrWXNPU22cCKfeZ3x91PLkMUftPAjESRVaS09Pu
-         YEcHqaGRSF3vHJpSc3DFpHJueKGCHjd+lWeCxmTDWyU7cOECr2lvHqEsjvH5seIdDWZg
-         hp5cYOoS5IQIQTQpd0Ka/W217ewaeKhFjtrS+ai/PckbHeuyuyBH/0e5TR8agT94gKG3
-         SWHQ==
+        bh=brQxkQcBSLeOu8llLPLKYoA1VBGbas+TGQGDU2SyhI0=;
+        b=pJ/OFvD7PPS0noOuXHSyCRAwXn5o2j2sYgtUMphuSBmxuqRiTIu2MtTEZbr7T0L5qn
+         m6yKaczximRnciS+lnQQEwZIsEWILOGw+kizJ7P+BozI4N15UyYiNCOEcs1hAvSuY3Vr
+         /drT4U089Ph9zta8hM5mwQuGbVtw+CE4uXozHRRqVNwEgiqkEiKB/u1IiQu+AWJx/i6G
+         Wr2Uxn+qQZutyBPkFwUfEtTyQBpvLlZ78v3VVAdN35pJk8CAr3FFTUhXC0q9PYywnPTY
+         XpWxq0fmkfrw/QG2qElu8p7P36LRDcz+mFJwxy+zf0EtAibAz83dKRtAyKenzCoWyHEi
+         FMow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784010515; x=1784615315;
+        d=1e100.net; s=20251104; t=1784010523; x=1784615323;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KojOIw0/7VKNeIbp9mqtjfjXLwzayJpBCU49qrDmgzw=;
-        b=Qtw4HRyOzyNSb/h/FgAfT9M5Rn5DuO/JtwlDsz10MTg3yAhwHbOiXlzoozoMki14bW
-         qj+gxqwYk92Zv7KOKi4CMzUun7fJNWGhgrKwFHE6gBJg8d3nmAItNcPgzEYFjfGHMVr8
-         z0Q/SSrYaLkl5wgvrXYzxTRjXlp51fntpywDjU9rjxWL8DBjTrFkF6CbAOFjJ7aSazQX
-         XhlKu9Y/2i6tlUbpkkh8wPnr+7XBPi/aHW1YxuIKJIOzK+6A1Bz3k1/3viVU0oCG41SK
-         CAEC5nWDqwAmNKGMV7F+Zusc7j7Wa76js2bZf3DDRZ/njZGVcgfBtuDHojf92PWi8+g+
-         KxKA==
-X-Forwarded-Encrypted: i=1; AHgh+RrTsIxVqoAkNXBzG3zH5IBVS9LM8nF8pN/WGFU+5CZAGcSg9Cl0SQt+gipkjM9KC6md+wPLv4xKtXr9eGU6F1Qo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFTmJSgg3otYT+HjFibLnQMH6SWQ0gFpxcP3lE4xoPotkdrVtd
-	QhmRitn51euritKX0jtLcMoM5tXF1g5E+PelCShKW8rTnS9FCA9F6r/E
-X-Gm-Gg: AfdE7cnwlzwSQRN3Q4UpvqDJ/8iXe4KTN6brFclUHF7u/c4/STGAw0ei7Q7nsFhIKZC
-	31EKTQujSzmdpOfHRkmlDNDd6gtVS4J3+PvDwNRbDsN5qvCV55R72tNfsUgXCFAW4P6nmNwu71y
-	wnFCmxb8Q4zDcD1XKCzEk0DgMQuNipNT50Z54RPUP59RwJOmF/QjEwB1JZwcbhAxkAlpfpeOiVv
-	RE8CgXCGA6SM+lvITFiBkMMwy+Pw81nyeWu5ynXivwa8pII9g9pkch+s3qxd/iIoq8ylQ5M5fZ1
-	PHE9YiQZLEKG7QwASWGdlQ2JwEhk2/kROxoI4eL2UVTJZ0hNmdeOztb88WwJpDqupYLuuBvJzs9
-	bz7/SByF3ajE6jzwS/QHV9Qy6mfujh6aaFp4Hc8mVZCdxa4+PILTppPzx/fj3agNLrCU4jmzWLg
-	Ur3Om4VN0O8i1GL6DnGC7Y7/ta9Jo4QwwFW+mv+5u7OvfyqGG86udYzefmmmSkTFoV/CVjrZ86a
-	BPQffGnvWJ9Fj7nIY5PlreLnFhpJsiUNXenY5JgLT3OKleYS2q3T/CulhjCEVv0
-X-Received: by 2002:a17:902:cf0e:b0:2cc:fa08:eecc with SMTP id d9443c01a7336-2ce9e9a6f67mr116750585ad.10.1784010514891;
-        Mon, 13 Jul 2026 23:28:34 -0700 (PDT)
+        bh=brQxkQcBSLeOu8llLPLKYoA1VBGbas+TGQGDU2SyhI0=;
+        b=SMv+MCZ3MP7p9XZoGai258FChNPEKRfnoqeHeKIALk3HX51mh5nmPbmGunonD7Vydb
+         2sH+lcxmEIcC7fAay5A27dwPdDJYZFRLOpOrXctAXd7qoGfbpmIcicC31ZpOndH+tU0n
+         n9TDYqf0HHo8U8SlpiZsyoIeFSTQViuVltXsWnioIe9xF5ugQ/UlTDwHooe4poXL94BB
+         FuPeKQ1JS82HLDQb7qZqlBWIvskKgdS5eRprmVdugAUB0MnZZd7UQsQg47dkjhluZlPt
+         irdWKM3c0OFQPZTjdxiLkZ6hQeBREaLP6s4QwAeeAkB3f+rN+U3/fJZPMNc5kpMxhLcQ
+         8Veg==
+X-Forwarded-Encrypted: i=1; AHgh+RqZtlCM2kOBewS78yBMepKSJAwcB07uoIl/0YJfPLROK9Jdd0WKlMI7/wZH5KhQ267/vH4i14uRg5dgGqU0xzMG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzalfxnxoN6DLRH85fhLTqm6cTR9YS/HvZCYdxGjwkBzfeNrHHj
+	CCMhFHtFo95TgqTUHQuVXwRWFYfl/xyzqf6ysDM7mByqLYJBbJgGrzXp
+X-Gm-Gg: AfdE7ckPG5vCSbT0vkit3wXG+fz4tJxnvGJ37b5Xi3pVOE99s82Xe77bEIqa4WCq0MX
+	Xgm+YBs6mrp+A0hJLl1Gw6Fut/hpAOTmF08NbzDZdr9Zq3/ID7ak0T9411N9w4aI0mgcxDUQSGh
+	nuwyksrjypz7Z66ScW8T75/qcsP5TsEgYZ1nnNqp9y6NNxS0mBFjEqoZFVmy0pz6XPHlp+KUjFh
+	xjING/1g+IgOXrHe50s1E6ufbilSXHf6RyzFvLZML/sDpjVlh0iaP6L7knNkf3mZIBkzPgSEpU+
+	pn/JDRDQz2OEnOK4wNLSuKSTLQ+XPzTNLDH2gsqZwyGYU+i0AK1pzim83yz88iovq/y+crTtsRZ
+	Cz3qOBaPRNXRRp9KJ7s+vWGLh8qJ9Iz+xcC1A32VhRO4byyzl9Q+yeacVW1I5B5njYFOButcpNN
+	tHurV2a6WcZ2vXfe35bB2CxHbS2RYVaZlcC4qd/UGWDhkCa1THB/2D2aJzsYUfXZTpNljw7EcXH
+	tt/xiyrm1ejF+g+TazPWRyUGrfRr8LaL+aRNkgTqJWBjo4RSMCr3KrJEwMK40j6
+X-Received: by 2002:a17:90b:3e44:b0:38e:21da:9257 with SMTP id 98e67ed59e1d1-38e21da9302mr1670a91.37.1784010523324;
+        Mon, 13 Jul 2026 23:28:43 -0700 (PDT)
 Received: from [10.160.5.76] ([119.17.57.186])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc99cc5aasm110915985ad.0.2026.07.13.23.28.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc99cc5aasm110915985ad.0.2026.07.13.23.28.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 23:28:34 -0700 (PDT)
+        Mon, 13 Jul 2026 23:28:43 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 14 Jul 2026 16:28:10 +1000
-Subject: [PATCH v2 03/12] arm64: dts: apple: t600x: Add SMC hwmon node
+Date: Tue, 14 Jul 2026 16:28:12 +1000
+Subject: [PATCH v2 05/12] arm64: dts: apple: Add common SMC hwmon
+ infrastructure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-smc-subdev-dt-v2-3-13fa78873121@gmail.com>
+Message-Id: <20260714-smc-subdev-dt-v2-5-13fa78873121@gmail.com>
 References: <20260714-smc-subdev-dt-v2-0-13fa78873121@gmail.com>
 In-Reply-To: <20260714-smc-subdev-dt-v2-0-13fa78873121@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -88,19 +89,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  James Calligeros <jcalligeros99@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=679;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5127;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=V+frO5wk0tnXRPBZHabpKOBw5u16aJAV7l/JMbUCB+M=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFmh1xn2GO+oUtwUPDfxJPsqHbZ7FXUVp91WfJrde0vt5
- EyG21zfOyayMIhxMViKKbJsaBLymG3EdrNfpHIvzBxWJpAh0iINDEDAwsCXm5hXaqRjpGeqbahn
- aKRjrGPEwMUpAFN9s47hv8ePw0tWnA88ztt+//J9hQ8JR3uaCzP41+9U3qSToBzBkMvwV3LThsY
- 372YILlXN7Yh+XRF5V/FY3uZtOusY7F9N2mxvwAQA
+ bh=S7RyjJPJgk8bM8bSvDin/ELs3Q0NaOfmTEAFhGjIglA=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFmh1xka6jk+65YWZOUf4s7+HZpuvFN036yOdsHm5IUWS
+ W9D553tmMjCIMbFYCmmyLKhSchjthHbzX6Ryr0wc1iZQIZIizQwAAELA19uYl6pkY6Rnqm2oZ6h
+ kY6xjhEDF6cATPWxJoZ/minvdaRu3zLs22cnV8L7I4LpiP6550ad2eafcw+pxixMZvgrFRk65dW
+ D7+YBO3OeK8g/snqz4ciGi/I5F4MP/pzaoPSXEwA=
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_232835_588414_4A362CCD 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_232844_366233_3BACBBEB 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,28 +115,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the SMC hwmon subdevice
+Apple's System Management Controller exposes the readings
+from numerous sensors scattered around the SoC and elsewhere
+in the machine. Some of these sensors are reliably common
+on all devices, whereas others are exposed at SMC keys
+specific to either the SoC or even the particular device.
 
+To account for this and expose the right sensors for the
+right device without tedious Devicetree duplication, we
+can include fragments of increasing specificity in the
+per-device .dts files such that the individual keys
+(of which there are potentially hundreds) do not need to
+be copied in for every device.
+
+Add the initial set of SMC hwmon sensors that are common
+to multiple devices so that they can be included in
+the per-device Devicetrees.
+
+Co-developed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t600x-die0.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/apple/hwmon-common.dtsi   | 38 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi | 23 +++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-fan.dtsi      | 17 +++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-laptop.dtsi   | 38 ++++++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/hwmon-mini.dtsi     | 16 ++++++++++++++++
+ 5 files changed, 132 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index f715b19efd16..17db8d7a850c 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -45,6 +45,10 @@ smc_reboot: reboot {
- 				"boot_error_count", "panic_count";
- 		};
- 
-+		smc_hwmon: hwmon {
-+			compatible = "apple,smc-hwmon";
-+		};
+diff --git a/arch/arm64/boot/dts/apple/hwmon-common.dtsi b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
+new file mode 100644
+index 000000000000..a35c7b14fec8
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * hwmon sensors expected on all systems
++ *
++ * Copyright The Asahi Linux Contributors
++ */
 +
- 		rtc {
- 			compatible = "apple,smc-rtc";
- 			nvmem-cells = <&rtc_offset>;
++&smc_hwmon {
++	power-PSTR {
++		apple,key-id = "PSTR";
++		label = "Total System Power";
++	};
++
++	power-PDTR {
++		apple,key-id = "PDTR";
++		label = "AC Input Power";
++	};
++
++	power-PMVR {
++		apple,key-id = "PMVR";
++		label = "3.8 V Rail Power";
++	};
++
++	temperature-TH0x {
++		apple,key-id = "TH0x";
++		label = "NAND Flash Temperature";
++	};
++
++	voltage-VD0R {
++		apple,key-id = "VD0R";
++		label = "AC Input Voltage";
++	};
++
++	current-ID0R {
++		apple,key-id = "ID0R";
++		label = "AC Input Current";
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi b/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi
+new file mode 100644
+index 000000000000..e87997d21e22
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/hwmon-fan-dual.dtsi
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Copyright The Asahi Linux Contributors
++ *
++ * Fan hwmon sensors for machines with 2 fan.
++ */
++
++#include "hwmon-fan.dtsi"
++
++&smc_hwmon {
++	fan-F0Ac {
++		label = "Fan 1";
++	};
++
++	fan-F1Ac {
++		apple,key-id = "F1Ac";
++		label = "Fan 2";
++		apple,fan-minimum = "F1Mn";
++		apple,fan-maximum = "F1Mx";
++		apple,fan-target = "F1Tg";
++		apple,fan-mode = "F1Md";
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/hwmon-fan.dtsi b/arch/arm64/boot/dts/apple/hwmon-fan.dtsi
+new file mode 100644
+index 000000000000..180eb8d7441f
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/hwmon-fan.dtsi
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Copyright The Asahi Linux Contributors
++ *
++ * Fan hwmon sensors for machines with a single fan.
++ */
++
++&smc_hwmon {
++	fan-F0Ac {
++		apple,key-id = "F0Ac";
++		label = "Fan";
++		apple,fan-minimum = "F0Mn";
++		apple,fan-maximum = "F0Mx";
++		apple,fan-target = "F0Tg";
++		apple,fan-mode = "F0Md";
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi b/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi
+new file mode 100644
+index 000000000000..cadffd000c76
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/hwmon-laptop.dtsi
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * hwmon sensors expected on all laptops
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++&smc_hwmon {
++	power-PHPC {
++		apple,key-id = "PHPC";
++		label = "Heatpipe Power";
++	};
++
++	temperature-TB0T {
++		apple,key-id = "TB0T";
++		label = "Battery Hotspot";
++	};
++
++	temperature-TCHP {
++		apple,key-id = "TCHP";
++		label = "Charge Regulator Temp";
++	};
++
++	temperature-TW0P {
++		apple,key-id = "TW0P";
++		label = "WiFi/BT Module Temp";
++	};
++
++	voltage-SBAV {
++		apple,key-id = "SBAV";
++		label = "Battery Voltage";
++	};
++
++	voltage-VD0R {
++		apple,key-id = "VD0R";
++		label = "Charger Input Voltage";
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/hwmon-mini.dtsi b/arch/arm64/boot/dts/apple/hwmon-mini.dtsi
+new file mode 100644
+index 000000000000..7fd86e911acf
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/hwmon-mini.dtsi
+@@ -0,0 +1,16 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * hwmon sensors common to the Mac mini desktop
++ * models, but not the Studio or Pro.
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++#include "hwmon-fan.dtsi"
++
++&smc_hwmon {
++	temperature-TW0P {
++		apple,key-id = "TW0P";
++		label = "WiFi/BT Module Temp";
++	};
++};
 
 -- 
 2.55.0
