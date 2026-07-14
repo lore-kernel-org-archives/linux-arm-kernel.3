@@ -4,59 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BB2C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC99C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r3m9bd++GuehsDFQr6bi34pGX6f/C5rgFU/KHjSwzXE=; b=I/cOD4BivtJzA0oyyq0Wt9Mke7
-	NP74mJAqaKL8ICAA5ZGqPSdkushonAA8YlTaxxHSmGTYb7V7/vBhPc7XKWirlJuu3WxyTOMoQ4W/Y
-	XDCWemaDs35QKKmE3/jMt9vwkbNZFpkEXGEp63OguiGQMP+EFKP2vuNQAvqibl9WEbStcGViOAybw
-	8QRdujLgsGR4WcqTY7vFd2C4T5KzbXbqUwYz96tSkAmB53XzbALQiAP07TqQukp+MG9SCje7UVEeZ
-	8zyK271z5O1lpz7JtkXESdhSPrQtN//TVlhb28caZGfi6MP0Yp1hwo0KYOt/v8SBQP2Ybj4IWUc4B
-	SWF9VOOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3tTmEev5SELNaeKdzfBV8MycBIf60rUFPq+eXzQqTdc=; b=Vy86IKejpq0sTneog+fGaW5dhX
+	BvzaMTcwwa3b3TOmZZBce3E92MME/zv1DbYINZHJ5WxGnUr3rDg4Rz96gKsIVvomEi/Kin+gOwY6y
+	EKd4JtJTQJtWn2N7MlOcgjdSuX1U0KxmV47xO6ZGZgZqxlrsvASeLSgFoGO6uR4KnZEoSbY5MN1fK
+	fFX+cUls8nkdzh2D+LzC7/3o3hPt+/VVyqXPf+GH3rHSSbmtjsHTPu0ymn1Hh/O/ubVsaWsiGplpj
+	ifc67fgMvlxqqN8FLTgXJsGSKPqZCCLvHnb1HEzWE/FEEL2vtYwII9+mOxOx12pcVSeqr4V29IpBI
+	BGDAABuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeEz-0000000COx0-0mCg;
-	Tue, 14 Jul 2026 14:36:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjeHA-0000000CPNB-0Vru;
+	Tue, 14 Jul 2026 14:38:24 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeEx-0000000COwO-3TeC
+	id 1wjeH7-0000000CPLv-3Fqp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:36:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48E3161375;
-	Tue, 14 Jul 2026 14:36:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CD11F00A3A;
-	Tue, 14 Jul 2026 14:36:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784039767;
-	bh=r3m9bd++GuehsDFQr6bi34pGX6f/C5rgFU/KHjSwzXE=;
-	h=From:To:Cc:Subject:Date;
-	b=BwmSlkydHyozJIlKRAawWeccSh5JHOFT5PjfDRt+Y0npL2kYWTAdhN3/yQ9HpjM6Z
-	 U1z0mlYjU/2YlUSofBUo6JotdYxDBQCuPrq+c0M6paevZHlOPcRSwlSz7GsBmmx24r
-	 OzCmadSjt1KE3ARmpueEfgUZn/sjKuswl2Al9r5fLU1RNlOLbe1+r+SBR64Yk/polj
-	 YvHoy1qvstakTFiZfcZufdmi2DIzaWXroXKKUE1ImLdHsus4oqI5a6RgMFMiu4SICw
-	 NNu5IoCjBo8Bs0KuVVMBiCGM61ElO911liDCwweRz/P9BEnTsusRI/xtmMNrkOLUFx
-	 fGMFGRP+yIftg==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yiqi Sun <sunyiqixm@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
-Date: Tue, 14 Jul 2026 15:35:59 +0100
-Message-ID: <20260714143600.23853-1-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Tue, 14 Jul 2026 14:38:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OWsGxbdI0mNNcBnrjo0mbi4DU1x2xxq0VUuHI79AgnGS/SiEMuYNBoog7GPJMfI0V4M75i1wdmX85RssEc753W0MMJzAoqNAJ9nVPdbPN6jVuh+wvVhSvFvk5d/zajFYSZh3Oz2spqxLTTxMPHu+MiINCRviz2K0Mu+x6QuhZ1dZY2saD9VOpajurwOHptfrWqqzCpCBIiMCicHplfgIitcRyuSfM9ETHNQ+uTap/GNU52UDEb5c5CWqB9Ci9b55jgdipoAyuNcIMW7APC2Esko0EfDa8VUWuxCy/Se+elC+NBiNqntHX9xn+gBaYXoeyPEPo5JbKMU6b9Gi+yZvMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3tTmEev5SELNaeKdzfBV8MycBIf60rUFPq+eXzQqTdc=;
+ b=gNz8xI0UhL8dzo937R16DuEDwQPsYSUlLRwGTm9d9kAfTsxDcDYsgzrosXiNZhDz3y41QCOw6yX1zDJ5SiUgraXqCf/hO4eDc5C0Ma2vTNrXVKT4WpZM+3f3MFIyOe8P9P8n1Lt0DR1JsRwHcPCUYCiqQ55bFe6nQx+mMAuykPi2Y43KtaJbrFShdGxErDbCZKfM8IB8IRbnBX4sLrJXKCqEGMvw2EZCpU7q43BLQNUcaekqmP1lkO5rBhcJ9icMFWX0bb7DMfEAAc08LemreN3CZrCT1dCPKeU/rDedkh8jsTgJUfPwAlRBdiHsVUuHtJmLllWKh8sbU4fERoYZCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3tTmEev5SELNaeKdzfBV8MycBIf60rUFPq+eXzQqTdc=;
+ b=f+6NLFB55rSBlClUK+JeTRL5Ax+1yRRKgzdMg/Dx5zj06LwK3OeWIm0AJYbhdBUh38y1vG1dgYhzWHbaZvPTWmowukndRj3yZyGtUHwKWOQIrB7pMgIOxpAnahD+f7IowDrg7I8SusXSc6WbRYzwg4mInv2bUGc1wbBEIZEprdaIzUIOOcZOzK0A/iyAqRtViwGjkePABr+RgMNNHJSN01TtjkoItvpNNJNvHTI7q/2/iQgLFi3ZDagA40jIdCchP0qyHVskZi3hAtw5YyOp/X/aUY0niR5uPtBorRfSt/jOINw8vWFlWB4hDRCTH1zepNWQIglvW8HkBL9C7iy7nw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PR3PR04MB7340.eurprd04.prod.outlook.com (2603:10a6:102:93::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Tue, 14 Jul
+ 2026 14:38:17 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
+ 14:38:17 +0000
+Date: Tue, 14 Jul 2026 09:38:04 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Frank Li <Frank.Li@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH v25 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Message-ID: <alZJzKHs8w0UAw_z@SMW015318>
+References: <20260122-imx-se-if-v25-0-5c3e3e3b69a8@nxp.com>
+ <177799642393.1381528.2137639571938103661.b4-ty@nxp.com>
+ <73a5b9fd-aff4-4ae2-ab2b-d860bbc7325d@kontron.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <73a5b9fd-aff4-4ae2-ab2b-d860bbc7325d@kontron.de>
+X-ClientProxiedBy: PH7PR17CA0032.namprd17.prod.outlook.com
+ (2603:10b6:510:323::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7340:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad32899c-9cd8-43dc-9fb3-08dee1b58b16
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|23010399003|366016|3023799007|6133799003|56012099006|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: qdvIFlQvhKvVA17Dijym1yr1AgfUmSuiB3JG658Zmyq/GybT6ANMaHDbmrYhVqP4U0iF2sc1DDc4/cWp1m2uS8qu1OXbrT6Fp2NPte2qq8W+ZW1ood6LPQwwMF0jYDHsbFYXWMxkkGSpogiZqOhB3UJZUZYz+poNsbex4nUs3e+tEntKIsfuLldOEg/VDCA3LFKDwAJ21IvyDP7Zq01t6L99REDFUOI3kfsLke+xZxzz32KVRkRZj9FfLz/kNCIJdVQTcLYF0iPtcWtjqzR1lPkGDdb65CganQ89TE0woc9K6wximJFrEkh22CoHbW7ra+X/43x6HJMeQW5LjhitramLIVffW+MKEUZsO+86axm7b0MQZt0IaymFO7v1VszmmV6PBeUTTqbfUkSMvVNgWxnj+09it6AvKKAF0xvfqQ8P9HrnbLtzCXrJHNU0K7CiZ19TnQypUQHGMGIgawFgzt4+9mGpJS1ud3xBf5+InJpza4XmsnvlUntMLC8gI035F7/J1avk+xc3ZkYws0MFQxrpttNLU22DTExHKhV89XWQRyU/1KGc7HtC+9GENCD6XKzCHO5qBrQxoypqwTZLF10IZsAu9NipINGzurCRVTKDiHaz3pvsk2++Hb/ThyDEKXF1Z+qGg1/1/6e40TEQLtt6ORrY7UCuJvWnO/J+MFE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(23010399003)(366016)(3023799007)(6133799003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sgn8dul2RNeCE8JuJb4Uh2JbQ87ZOWlcnn295P+qpPElgWJslIN5qW88b1I+?=
+ =?us-ascii?Q?oYidqOq3WUMbJ22klmtTzSk//FZFzeHfRFxZ4e+VhqzcJdhzcZYEvTjwiY4K?=
+ =?us-ascii?Q?YgbNcD/QS433HFIYZfLbKZ7lGHSOLkkDsHwpSY/71Rjl3iAKvlQdsBYL0YYd?=
+ =?us-ascii?Q?4oiCsJ5DIQK8uu+gflHnku5X5ZTsspTRKOsh+qfxZDVH+VHVBSDaulxoEsBR?=
+ =?us-ascii?Q?LOnU2o+FjymboG3PKfx8FZsf5+Pb3LrADttw2Tfdq3KOPbDb6loubgzoJrTm?=
+ =?us-ascii?Q?gHg2M+aLDGPgpn1WIkhEc1KwITJnhgQJsialJ/8+PNrFt3gv42n41AwnERsZ?=
+ =?us-ascii?Q?IdpuETMrrivXdq0vclyiCcgNyva8KykwS8lRelZTMqchh5QNqGbEtpcwBXMd?=
+ =?us-ascii?Q?c8BGeVLuly+LlpnuBMNLljWEMRz3/3+qI1SEhD/E9sJKb7tXqzU7ZrRRgOER?=
+ =?us-ascii?Q?UyWpkM6sCIRNZ8EjTSagnCPOVCiWPVhoqdSrfNwFikyYnNXDkuOFC6s2TeTn?=
+ =?us-ascii?Q?xzjRCBTHVIaiOKyEPT6FgpUqFaWes4buE3H10I3DV3CAXd/0YAjKTYgfrCtH?=
+ =?us-ascii?Q?adIKrytwcKXe5t8rW2Y5FFDOulNyOrhcdJbOknPpkpWUQc5QCc3504+J4SwQ?=
+ =?us-ascii?Q?4Xlmh/lZULWHkR9x3353tMEdNzSZaNAaczPzZwdBKh6fmfQH7FttsEIiMk7X?=
+ =?us-ascii?Q?bYQzTX7DVVMCquiQZu7FDD75VFBUhib/aM2UGMt15z0qz7QIEMocJZDTG9Bu?=
+ =?us-ascii?Q?Lo4UufPvpZMDndgkf4Hjbmb9YygtLsJkl190oEW5KKCiwGbLlrB4U5BkGYFq?=
+ =?us-ascii?Q?hA/3PFAKzHEv8pcyQDNIqpuhF3yEhuWj801dq2qUjUf06Jk4To+E9NERGSmY?=
+ =?us-ascii?Q?ZJFk+tohPM8o6pHDk224w0q6OveO6Nm5fwa+slPSfoNc9ym2IRFgeECASCEX?=
+ =?us-ascii?Q?NfxxSdaCnmL8z0cLdBNUlq+bTPFpPQXSFImpGaM+EVrnWhc2ufJtm4fCgtBx?=
+ =?us-ascii?Q?9yEDmViJ8psnKoitUG8NET7QGG608uGDuLVC3BrgrSL3Kgl/FH72RjkbfuZd?=
+ =?us-ascii?Q?ksah5XYS5rdecqPodven4Ak3pGl/k5jfMuT6bdMGY+VINjlyz8ypmFRogZah?=
+ =?us-ascii?Q?miG4d9Tbtd/m5PA7jndbo1kvz5+GAoNX0WDgnGUVwBXFArzCCB3QwEmD65Ss?=
+ =?us-ascii?Q?eeslOZyahkDhImf5M0TP/y8rxD+aG1xjGpYexbuU+hT4VApf7X72WF0Ax66W?=
+ =?us-ascii?Q?oU0/vQCaGQc0t5K8ztwhS+QdSLZZMljEr4G6j6tk4i3PWQMZZjCqWrEm0JZs?=
+ =?us-ascii?Q?JKemCwGksudvUmyllRUky918YY8Yw8R7jz7itjkNjh63/4e7CKc/FNJXYn4q?=
+ =?us-ascii?Q?+ytC/ciI9FvsS/raexNzAUFS8LvsYkXsF+C+7gUyHr0qZksatFmQRViSMWnN?=
+ =?us-ascii?Q?I9VFUxCZPNjJHyFlu7g6AmF1KmM1gsp/8rHBWHSB8mRiAE63EONgeZSfV7Q8?=
+ =?us-ascii?Q?BJC6HSPByhcd3MBHCpq6hKv4IArMCztBSKyHrc3Fl0GvY2tE8TSjx6GW/7sM?=
+ =?us-ascii?Q?SVPF1wYjyBnmqyXe7AHdl1Og6q1ZRw7GUfefFa9131yyE9/jAyzdnXHNFaE5?=
+ =?us-ascii?Q?ywka0HdgSevMwxHSKDTkCB5MTrFqey6lS+ssUgUSa57rfj2aR7IhDOid9q23?=
+ =?us-ascii?Q?2BHZ7s9qDJKcMHP85znGGNwpTbzlaLfkP8LsqBvt9g7oyDDaHYCOIBmd6IMc?=
+ =?us-ascii?Q?7BjEcn83uk9RmYI+o9MJe+IR3xQpQmrjXzVz98WulGhKAvCPha58?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad32899c-9cd8-43dc-9fb3-08dee1b58b16
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 14:38:17.5169
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gmKHYb4ZEdpynYGHNbgatMnA8VL+RKHqjLx2mo7QDl9bZxaoNXYrwGhT+naM6bsDlgApG3Pe0PMg3t9Fjd5AJ+S9rYNbaqTpSQpGU4rzJosSinX0P9untki1hft80Z50
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7340
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_073821_818037_C02ECC04 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,94 +146,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When seccomp support was originally added to arm64 in a1ae65b21941
-("arm64: add seccomp support"), seccomp was erroneously called _before_
-the ptrace syscall-enter-stop and therefore the tracer could trivially
-manipulate the syscall register state after the seccomp check had
-passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
-seccomp after ptrace") by moving the seccomp check after the tracer has
-run. Unfortunately, a decade later, that fix has been reported to be
-incomplete.
+On Tue, Jul 14, 2026 at 09:27:06AM +0200, Frieder Schrempf wrote:
+> On 05.05.26 17:53, Frank Li wrote:
+> >
+> > On Thu, 22 Jan 2026 17:19:12 +0530, Pankaj Gupta wrote:
+> >> The NXP's i.MX EdgeLock Enclave, a HW IP creating an embedded secure
+> >> enclave within the SoC boundary to enable features like
+> >> - HSM
+> >> - SHE
+> >> - V2X
+> >>
+> >> Communicates via message unit with linux kernel. This driver is
+> >> enables communication ensuring well defined message sequence protocol
+> >> between Application Core and enclave's firmware.
+> >>
+> >> [...]
+> >
+> > Applied, thanks!
+> >
+> > [1/7] Documentation/firmware: add imx/se to other_interfaces
+> >       commit: 3b4531c6e0f4c8874f0266853a410438eda1fc24
+> > [2/7] dt-bindings: arm: fsl: add imx-se-fw binding doc
+> >       commit: 4d7bcf0869686d7d7fbf16244453b987e5ca6d14
+> > [3/7] firmware: imx: add driver for NXP EdgeLock Enclave
+> >       commit: 338529a73c2bf2c277013b745cfe6f19b84b70af
+> > [4/7] firmware: imx: device context dedicated to priv
+> >       commit: 2d733ed67f608ee85abb854157011f88d7f280a8
+> > [5/7] firmware: drivers: imx: adds miscdev
+> >       commit: 4de71839142b5f43846e3593f4eb236e1d733885
+> What happened to these patches?
+>
+> They were part of linux-next for quite some time (up to next-20260630)
+> and then they disappeared (missing in next-20260701).
+>
+> I didn't find any hint where or why they were dropped.
 
-On arm64, both the first argument to a syscall and its eventual return
-value are allocated to register x0. In order to facilitate syscall
-restarting and querying of syscall arguments on the syscall exit path,
-the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
-during the syscall entry path and is returned for the first argument by
-syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
-directly exposed via ptrace() and so changes to register x0 made by the
-tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
-means that seccomp and audit can observe a stale value for the register
-compared to the argument that will be observed by the actual syscall.
+Sashiko and linux-next build found some issues, which need be fixed before
+send pull request.
 
-Re-sync 'orig_x0' from x0 on the syscall entry path following a
-potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
-SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
-compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
-skipped (because x0 is updated to hold the return value of -ENOSYS in
-that case).
+Pankaj is working on the new version.
 
-Cc: Kees Cook <kees@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
-Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/ptrace.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Frank
 
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 4d08598e2891..57e8c6714d44 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
- 	}
- }
- 
-+static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
-+{
-+	/*
-+	 * Keep orig_x0 authoritative so that seccomp (via
-+	 * syscall_get_arguments()), audit and the restart path all see the same
-+	 * first argument the syscall is dispatched with, even if it has been
-+	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
-+	 * or the tracer), as regs[0] holds the return value (see the comment in
-+	 * el0_svc_common()) and can be unwound using syscall_rollback().
-+	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
-+	 */
-+	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-+		regs->orig_x0 = regs->regs[0];
-+}
-+
- int syscall_trace_enter(struct pt_regs *regs)
- {
- 	unsigned long flags = read_thread_flags();
-@@ -2417,12 +2432,21 @@ int syscall_trace_enter(struct pt_regs *regs)
- 		ret = report_syscall_entry(regs);
- 		if (ret || (flags & _TIF_SYSCALL_EMU))
- 			return NO_SYSCALL;
-+
-+		/*
-+		 * Ensure ptrace changes to x0 are visible to seccomp
-+		 * ptrace exits (SECCOMP_RET_TRACE).
-+		 */
-+		update_syscall_orig_x0_after_ptrace(regs);
- 	}
- 
- 	/* Do the secure computing after ptrace; failures should be fast. */
- 	if (secure_computing() == -1)
- 		return NO_SYSCALL;
- 
-+	/* Ensure seccomp updates to x0 are visible to audit. */
-+	update_syscall_orig_x0_after_ptrace(regs);
-+
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
- 		trace_sys_enter(regs, regs->syscallno);
- 
--- 
-2.55.0.795.g602f6c329a-goog
-
+>
 
