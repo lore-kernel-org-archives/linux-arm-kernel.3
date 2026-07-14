@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF41C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6371C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=efYs/jR9h9jW67Zzv/KcTXD47OtR1EtUFCZew0UizG0=; b=0g2JHbJQ6IbXRb+OyVtULAVt0t
-	xP0l/M+Zl8dlyTgy9+RB7vFnp8i0xGz5gvfhEZNSzmOos1ZzIsoWhYEPBwxMyEhHFo4Jihc16h19T
-	XgpnkB3D7kax28MM2JB7+tZlwU6FiOB62oO/SUV4YSgusuN8si/q3UnTf1VhFF3nQAW7jpyyKkYKp
-	kW0nj3V2du80caOrJqu5L+oYVGiFMKoOcSwKSImNsI+5kHc6UwW6N3Hh8R5Lcu2y0YSYQ5yjsgR4k
-	L2wzf8M5M74vzApT7xTjHiXAqaoUsgZwarb2RM9jmkBfM2IqhykwaN0kCpfGP6NyfKVwpRJ5WPACB
-	VeezXTNw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GOGi4J62Jhlb7WIKFQiBbh9BI+aKdMBZ84qjBRoB0qE=; b=L/KIlgb+I82KqJIQSTwJuFP6KE
+	aJoEPzTpqs6/W9ap8E5EwGDkUgL1mROAnoHfzRU7q7zf2o7aFzeg1Csnw8h+wFOmjmQgYAHosYWCM
+	G3ky3/0jv4yhDrY7G5bWqhZVKhSdy1JqAcAB5pIumu+3+CvoP9bM3De88v6WA6dSth1op8yB1LOUn
+	dZI+BIfhEq6TPR9vhW0EJWW3o4/TBwW8lNhD/vFQuphje1ODVohFOYdS9mOjUTIxJ8cU7O0YXEAkc
+	b2FtnqIw3ZZfaLfvjDvZPQ5tM1bjPLAVPn1Gy3rAi8ek8KuBIv11wxLHiFYgQUz2E9W+L1ZKxIzm1
+	WSpq9eGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdQA-0000000CDaO-1DB2;
+	id 1wjdQA-0000000CDbK-3FaC;
 	Tue, 14 Jul 2026 13:43:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdQ7-0000000CDZN-3Cjy;
-	Tue, 14 Jul 2026 13:43:36 +0000
+	id 1wjdQ7-0000000CDZI-1QaV;
+	Tue, 14 Jul 2026 13:43:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E742601ED;
+	by sea.source.kernel.org (Postfix) with ESMTP id 025AB41933;
 	Tue, 14 Jul 2026 13:43:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B7EF3C2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C2364C2BCF5;
 	Tue, 14 Jul 2026 13:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1784036614;
-	bh=B1dBuvMZZ+KcwFGP5V1ibOQf7yfUIHEhJB2HnHqSE8U=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=OSfGIXu5+2O8AgQ4LugWIAo61FThlKi+tRdvJ61u8oXUBBM/MWsVcCQLCJNI/WuPb
-	 NVCFw7gB0lqH1yrshwFQXuBJ2QYg+vtI5N7sk3uMmrPviJE8gYiMWTMB7rgcaF2nS6
-	 +YF2XLybTqN0U4M3fteyb6I6RzsPQAhqi3eZuYGtE9/ktuoI0kZh30Y23ggETN2REY
-	 E8SuuUTkV7W2S5wP3EG7P+e/n016PQGrmZ+69pZrmus7F2ip2i9ohk2jr7Z5q2N2GF
-	 q8g2BiC+ZqllBqorMjdLzdkW9Bhv6x0JdmC3lKVqu4fuB1MV32mZBJzcUJbvFo+mLB
-	 Ow5PTPYsBVxqg==
+	bh=1U9eKn3e1R9WRTPL80rdKx+5CvBlv+RphrbjVBJDHf4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=l9+8if/lVDP0LPPFH/EhKNUjGjT6VkzjCMfIrjSMDSFnqYoL+avo+N3sCMOe8QnLV
+	 ZDalSnQvBPVLNVMV/gxk9pWnrljz6LkRjnTOAMz6h8qLWUAfkwBeBIeYTft5bBmNoR
+	 Jo45qCTmoe1bIBWohkbu+Lb7Zp/bsaW4nuJv2CZvijg9rSBTZWyh68XOjpp9TGiV4H
+	 JQfDbDAEmCX7TnL+mbTllssk/ga2F9knrHFwqm/5KweccQwQJBDDEQWLYjrgEuPib/
+	 HL7+y76Wra+zviUXs74Ku7LydyWjkdBZXP5WIeJWIyRWvrkkVERBmuSrNWS+2VhE1q
+	 U1aTa/7vUrbyA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F9ACC43458;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1505C44501;
 	Tue, 14 Jul 2026 13:43:34 +0000 (UTC)
 From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
-Subject: [PATCH 0/3] pmdomain: mediatek: Add MT6858 support
-Date: Tue, 14 Jul 2026 16:43:05 +0300
-Message-Id: <20260714-mt6858-pmdomain-v1-0-4f09bbb822e0@jolla.com>
+Date: Tue, 14 Jul 2026 16:43:06 +0300
+Subject: [PATCH 1/3] dt-bindings: power: Add MediaTek MT6858 power domain
+ controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOk8VmoC/yXMSwqEMBAA0atIrydggmk/VxlcmNhqC4mSqAji3
- Sejy7eouiBSYIrQZBcEOjjy4hPkJwM7dX4kwX0yqFxhXkol3IaVrsTq+sV17IWRptBoa8RSQ6r
- WQAOfz/Hbvo67mclu/w3c9w/7JHNicwAAAA==
-X-Change-ID: 20260712-mt6858-pmdomain-b1b456c96675
+Message-Id: <20260714-mt6858-pmdomain-v1-1-4f09bbb822e0@jolla.com>
+References: <20260714-mt6858-pmdomain-v1-0-4f09bbb822e0@jolla.com>
+In-Reply-To: <20260714-mt6858-pmdomain-v1-0-4f09bbb822e0@jolla.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -66,11 +65,11 @@ Cc: Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org,
  Nikolai Burov <nikolai.burov@jolla.com>, 
  Nikolai Burov <nikolai.burov+review@abscue.de>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784036613; l=1329;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784036613; l=3755;
  i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
- bh=B1dBuvMZZ+KcwFGP5V1ibOQf7yfUIHEhJB2HnHqSE8U=;
- b=7XYaBQR0BIJLfPGmhfDUR9Bs/0HhvM8dGolGPEg8QgVpXC8TT/QvkiyeLe93zS9DVUWcHPHR7
- 2IE2UQgYK8lDxEVfgyemtphDYUBAviBuaFKS2F5E9OztEPHeythbnUF
+ bh=M36MUmRAHEZNXG90DN7tPnz03tT5Y9VoFLmKPFkVkP4=;
+ b=wM2fWQoT8Ccssr8ffuVD5ftJk22I+VOYVRWZRRVHtAOCTVrr0seRTmsovJQOqo7HJD6ougUBH
+ 1v6OoAFbyGADxyPQR3+VUtKT9S/KFCVfkUQUYoDlaSHOSnrkJbwyev/
 X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
  pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
 X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
@@ -91,39 +90,102 @@ Reply-To: nikolai.burov@jolla.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add power domain driver support for the MediaTek Dimensity 7100 (MT6858)
-SoC. On this SoC, there are some new subsystem-specific bus protection
-blocks, which are listed here in ascending address order:
+From: Nikolai Burov <nikolai.burov@jolla.com>
 
-- IMG_SUB0 at 0x1502f000
-- CAM_SUB1 at 0x1a00c000
-- CAM_SUB0 at 0x1a00d000
-- IPE_SUB0 at 0x1b00e000
-
-Additionally, implement the SMC-based power sequence required for
-enabling the modem power domain on this SoC.
+Add a new compatible and document bindings for the power domain
+controller of the MT6858 SoC.
 
 Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
 ---
-Nikolai Burov (3):
-      dt-bindings: power: Add MediaTek MT6858 power domain controller
-      pmdomain: mediatek: Add support for secure modem power domain control
-      pmdomain: mediatek: Add support for MT6858 SoC
+ .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
+ include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
+ 2 files changed, 43 insertions(+), 1 deletion(-)
 
- .../bindings/power/mediatek,power-controller.yaml  |  21 +-
- drivers/pmdomain/mediatek/mt6858-pm-domains.h      | 462 +++++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c         |  59 ++-
- drivers/pmdomain/mediatek/mtk-pm-domains.h         |   6 +
- include/dt-bindings/power/mediatek,mt6858-power.h  |  23 +
- include/linux/soc/mediatek/mtk_sip_svc.h           |   3 +
- 6 files changed, 568 insertions(+), 6 deletions(-)
----
-base-commit: 49362394dad7df66c274c867a271394c10ca2bb8
-change-id: 20260712-mt6858-pmdomain-b1b456c96675
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 07f046277f8a..eecb95323bfb 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -25,6 +25,7 @@ properties:
+     enum:
+       - mediatek,mt6735-power-controller
+       - mediatek,mt6795-power-controller
++      - mediatek,mt6858-power-controller
+       - mediatek,mt6893-power-controller
+       - mediatek,mt8167-power-controller
+       - mediatek,mt8173-power-controller
+@@ -55,7 +56,7 @@ properties:
+       faults while enabling or disabling a power domain.
+       For example, this may hold phandles to INFRACFG and SMI.
+     minItems: 1
+-    maxItems: 3
++    maxItems: 6
+ 
+ patternProperties:
+   "^power-domain@[0-9a-f]+$":
+@@ -102,6 +103,7 @@ $defs:
+         description: |
+           Power domain index. Valid values are defined in:
+               "include/dt-bindings/power/mt6795-power.h" - for MT8167 type power domain.
++              "include/dt-bindings/power/mediatek,mt6858-power.h" - for MT6858 type power domain.
+               "include/dt-bindings/power/mediatek,mt6893-power.h" - for MT6893 type power domain.
+               "include/dt-bindings/power/mt8167-power.h" - for MT8167 type power domain.
+               "include/dt-bindings/power/mt8173-power.h" - for MT8173 type power domain.
+@@ -155,6 +157,23 @@ required:
+   - compatible
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt6858-power-controller
++    then:
++      properties:
++        access-controllers:
++          items:
++            - description: handle to INFRACFG register block
++            - description: handle to IMG_SUB0 register block
++            - description: handle to CAM_SUB1 register block
++            - description: handle to CAM_SUB0 register block
++            - description: handle to IPE_SUB0 register block
++            - description: handle to VLPCFG register block
++
+   - if:
+       properties:
+         compatible:
+diff --git a/include/dt-bindings/power/mediatek,mt6858-power.h b/include/dt-bindings/power/mediatek,mt6858-power.h
+new file mode 100644
+index 000000000000..6ed9e82d4ad3
+--- /dev/null
++++ b/include/dt-bindings/power/mediatek,mt6858-power.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_POWER_MT6858_POWER_H
++#define _DT_BINDINGS_POWER_MT6858_POWER_H
++
++#define MT6858_POWER_DOMAIN_MD				0
++#define MT6858_POWER_DOMAIN_CONN			1
++#define MT6858_POWER_DOMAIN_AUDIO			2
++#define MT6858_POWER_DOMAIN_MM_INFRA			3
++#define MT6858_POWER_DOMAIN_ISP_IMG1			4
++#define MT6858_POWER_DOMAIN_ISP_IMG2			5
++#define MT6858_POWER_DOMAIN_ISP_IPE			6
++#define MT6858_POWER_DOMAIN_VDE0			7
++#define MT6858_POWER_DOMAIN_VEN0			8
++#define MT6858_POWER_DOMAIN_CAM_MAIN			9
++#define MT6858_POWER_DOMAIN_CAM_SUBA			10
++#define MT6858_POWER_DOMAIN_CAM_SUBB			11
++#define MT6858_POWER_DOMAIN_DIS0			12
++#define MT6858_POWER_DOMAIN_MM_PROC_DORMANT		13
++#define MT6858_POWER_DOMAIN_CSI_RX			14
++#define MT6858_POWER_DOMAIN_SSUSB			15
++
++#endif /* _DT_BINDINGS_POWER_MT6858_POWER_H */
 
-Best regards,
---  
-Nikolai Burov <nikolai.burov@jolla.com>
+-- 
+2.54.0
 
 
 
