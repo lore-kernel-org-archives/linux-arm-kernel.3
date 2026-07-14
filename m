@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B96C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6D4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sw2yugL+7Erfuei9UPQvrYVvznFLIzp1oIQXB9V2xNQ=; b=H8C+77Jdd52JX8pWsRoOA47gyd
-	Xm15k3fkEsCv1SgmxRP59V836/WurU6wLXVMUXYJOG/PEbZzSSc3PKoV7oDz0jPPZWYxwa831QmOZ
-	f1GWp5Xx2IXp2axMLiMTxKT2UkC2syac7WaoCAhBLN8dWTPPBG7yvJyuurXAYw7zpaop+MrnBskS+
-	8ZLe4/a80l3t+radt7sxai/chY5SdKrEMDbV/vJlMZNJfQoJOPCQQqanD6cHVj5wc33dxWSdqz5fV
-	GURAU6VvFq8u+wTsTygVUDQlYHsGtnGl7CCy4lcYdD3qR+EEeQpXkspUgz4oCuMBJb7pcg2Yif8fj
-	hsCvnzVw==;
+	bh=S323XPQAVbXMMiJRm+Dg+pgQry7Wic4cXHZLSGEJw+0=; b=2i01egrIDtzO1jceA+mJnoMNtD
+	/YaGsL5QW6MXW7XRETJ3/NtsjHsKq54v/An3XRRl3sk99ZhPblS1xRihzcVs5+N+jjhWrkRj20Ed4
+	nS/ZZ7ulGwXz22nIVDalT5lmqWIZ6aott0LanE2EbOww+vQd8ty2pPWPpTl6fsio1O4EdcODQkfDg
+	GRFKWPKSaX4yf9vXBMQpBHhFlTQCJmmXLRyEEhkmkbvU9WeDwl6pwA8fM0yLDBfvbKEzQuub4G6v1
+	GuS5mnNMZbuy1NHuxbMzlzKZEwsUf/OH0nnV6o6H+yMjDEAtyjSUjClBAiY88qjRYO6yGa/c16jaK
+	r9vxi4ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbLi-0000000BgfN-0ake;
-	Tue, 14 Jul 2026 11:30:54 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wjayT-0000000Bdx5-0E4h;
+	Tue, 14 Jul 2026 11:06:53 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbLd-0000000Bgdk-2vat
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 11:30:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=sw2yugL+7Erfuei9UPQvrYVvznFLIzp1oIQXB9V2xNQ=;
-	b=lAzOYofco9Xs9VSMrtqbJLt5BIaIr1wG21le3uiYJ/W7CzN/IMuPU62FTQFAQz1ip3UfV5nW7
-	4Km+kGV6XavSca+I6uH0STCS5hkdtkHfbdrKRdsT8do0CuCQx6rxGRF52XUx1NVWY+ZK1zhT26F
-	ZUB8r3mtkj2L5+C7NZpo0Vw=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gzxhP0KN8zRhQf;
-	Tue, 14 Jul 2026 19:21:25 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 939024056E;
-	Tue, 14 Jul 2026 19:30:41 +0800 (CST)
-Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 19:30:41 +0800
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 19:30:40 +0800
-Message-ID: <cf8d8507-a7ba-402a-b43f-3b42843ffd13@huawei.com>
-Date: Tue, 14 Jul 2026 19:30:40 +0800
+	id 1wjayP-0000000BdvE-2zOi;
+	Tue, 14 Jul 2026 11:06:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=S323XPQAVbXMMiJRm+Dg+pgQry7Wic4cXHZLSGEJw+0=;
+	b=ZG/28Z9YW8+8O+S7agcsiaFV1MwoBUU+msb83Q9py4oWPZgTpjLvhYUhaQLaC7
+	BXqhypUV8U2IPJ0lkxgb6mWSThzlCykBtyKXpKjOUYmn3nyX32EKhxlC1kehCh8Q
+	UJJlhIMZSEiy9uGsFcTK2R8wxpOGY+4MEN9GGkYZesuEc=
+Received: from [10.111.8.51] (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDXna8fGFZqlFnYJQ--.22967S2;
+	Tue, 14 Jul 2026 19:06:08 +0800 (CST)
+Message-ID: <72a058fd-5781-43bc-9148-180140929ecd@163.com>
+Date: Tue, 14 Jul 2026 19:06:07 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
-To: Vladimir Murzin <vladimir.murzin@arm.com>, Jinjie Ruan
-	<ruanjinjie@huawei.com>, <linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-11-vladimir.murzin@arm.com>
- <73bfbebb-e8fd-4b6c-b0e4-8f7d5b09b6af@huawei.com>
- <7a4e09a4-18e9-49a6-9a17-cad552e39076@huawei.com>
- <253e0c6b-7b50-46e6-bd13-69c0459ddae0@arm.com>
-From: "Liao, Chang" <liaochang1@huawei.com>
-In-Reply-To: <253e0c6b-7b50-46e6-bd13-69c0459ddae0@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemq200011.china.huawei.com (7.202.195.155)
+Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: bhelgaas@google.com, Manivannan Sadhasivam <mani@kernel.org>,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, heiko@sntech.de,
+ yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org,
+ robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
+ jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, cassel@kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260622171448.GA678675@bhelgaas>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <20260622171448.GA678675@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wDXna8fGFZqlFnYJQ--.22967S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CFWUZryDtF43XF4kJFW7CFg_yoW8CFWkpF
+	W5XanayF4xKFyfCF4qqwsYkryYqa48ta43Xr1DtryayFn09rn8XFWjgws5Gwn7Xr1xCr1S
+	9r1qqa4xXwn0vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U4UDXUUUUU=
+X-Originating-IP: [140.206.53.66]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7AA+4WpWGCAV3gAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_043050_204499_4D0E725F 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_040650_198483_36BA333F 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/7/14 17:44, Vladimir Murzin 写道:
-> On 7/10/26 09:11, Jinjie Ruan wrote:
->>>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
->>>> index f7dc5fb9427d..192eb97cd50b 100644
->>>> --- a/arch/arm64/include/asm/ptrace.h
->>>> +++ b/arch/arm64/include/asm/ptrace.h
->>>> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
->>>>  
->>>>  #define irqs_priority_unmasked(regs)					\
->>>>  	(system_uses_irq_prio_masking() ?				\
->>>> -		(regs)->pmr == GIC_PRIO_IRQON :				\
->>>> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
->>>>  		true)
->>>>  
->>>>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
->>> Is there any reason to keep interrupt_enabled()? It appears to be rarely used
->>> across interrupt and exception code. So far, i've only found a single use in
->>> gic_handle_irq(), corret me if i'm wrong. So using regs_irqs_disable() directly
->>> might reduce the number of small helper that people need to remember.
->> For arm32.
+
+
+On 6/23/26 01:14, Bjorn Helgaas wrote:
+> On Fri, Jun 19, 2026 at 11:29:39PM +0800, Hans Zhang wrote:
+>> On 5/6/26 22:00, Manivannan Sadhasivam wrote:
+>>> On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
+>>>> Current PCIe initialization exhibits a key optimization gap: Root Ports
+>>>> may operate with non-optimal Maximum Payload Size (MPS) settings. While
+>>>> downstream device configuration is handled during bus enumeration, Root
+>>>> Port MPS values inherited from firmware or hardware defaults often fail
+>>>> to utilize the full capabilities supported by controller hardware. This
+>>>> results in suboptimal data transfer efficiency throughout the PCIe
+>>>> hierarchy.
+>>>>
+>>>> This patch series addresses this by:
+>>>>
+>>>> 1. Core PCI enhancement (Patch 1):
+>>>> - Proactively configures Root Port MPS during host controller probing
+>>>> - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+>>>> - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+>>>>     and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+>>>> - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+>>>> - Preserves standard MPS negotiation during downstream enumeration
+>>>>
+>>>> 2. Driver cleanup (Patch 2):
+>>>> - Removes redundant MPS configuration from Meson PCIe controller driver
+>>>> - Functionality is now centralized in PCI core
+>>>> - Simplifies driver maintenance long-term
+>>>>
+>>>
+>>> For the series,
+>>>
+>>> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+>>>
+>>> Bjorn: Could you please take a look? This series has been floating for a
+>>> while...
+>>
+>> Hello Bjorn,
+>>
+>> Any chance for this series to be applied?
 > 
-> Indeed, gic_handle_irq() is shared between arm64 and arm32, and latter
-> doesn't provide regs_irqs_disabled(), thus we have to keep
-> interrupt_enabled() for now.
+> It's too late for v7.2; we're already more than halfway through the
+> merge window.  We can look again for v7.3 after v7.2-rc1.
 
-Understood, please keep it to hide the architectural difference, thanks for explaining.
+Hello Bjorn,
 
-> 
-> Thanks
-> Vladimir
-> 
+Gentle ping on this series.
 
+Best regards,
+Hans
 
--- 
-BR
-Liao, Chang
 
