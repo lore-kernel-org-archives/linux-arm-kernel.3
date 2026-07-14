@@ -4,170 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7901C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892BFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXsjY4ufCquIow6fx1lJzUWX4cQQwvlQ0g8uTNMCGZQ=; b=oN3qkvVC3RWeiakwjo4EDZf0Dt
-	Kr1elS5k5fiB4Nkp44o1OzB/n+QLHXKIPyl6iQuZXrmtwVCkWJoAkN9flmvTBm5aS0blk9jBwNZZt
-	ORl3SX91bDAvCUWc2k2DzkiBHpZ6B1/Ov5l5T2q2y4FKA4KJ3lXXZ6d/V67Jyyl6UECZcvUE7tr7D
-	mBjdriJEZr/I8eqJQ9Oyt027xD7BEajiHrWLZFtUrWiu1wlkmoiqJoGt+x8tRiPW+eX2R50TOuMsI
-	5nGnOPPhpZ8jc2TjD7i6YPfNh1NYdjOj4228KGPstFs8GPf5ldFvMGN1gYJOzQZ8KaUm4PgVJV0x1
-	0WAfR5vw==;
+	bh=76PUX9Os/ZysgZWYSYklq/dFglINXomnu8tSEuY9uOc=; b=3G/Muvne7aFMZWoH2JvMTLgVaB
+	ZOTYeZC3yfWnvzBJHxtrw6j5Gf25NziHr5ETto7JqYjE5rfsAX1yb7Qg/H0HCULhjLdpArVY9+mDQ
+	GvUpEawfbUJv0FcL9jK224c7p7p32nP0xJsweSrCZm6ymY2RWmoU3XVszWdKlxAnwf2lpketFJuLL
+	uV7ZMyIZhuOnJW+DtYaDb/WZW5NDAbU+Da9XBEGc0I5ywMtmVq0/vdq1agb725BBW24jlLD2vz01p
+	vRU7KnwBiqVPHFUUEviOTPNzkZ77Alqw6JFCz10dP7Lxd+so+mVeB5ILza1appXR5vtlahuQcfNuh
+	F5Il9CFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdx6-0000000CM8g-2Ur2;
-	Tue, 14 Jul 2026 14:17:40 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdx2-0000000CM7m-4BXQ
+	id 1wjdyb-0000000CMR6-1CTQ;
+	Tue, 14 Jul 2026 14:19:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjdyY-0000000CMQU-16iD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:17:38 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66EBPr4M695628;
-	Tue, 14 Jul 2026 09:17:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=dXsjY4ufCquIow6fx1lJzUWX4cQQwvlQ0g8uTNMCG
-	ZQ=; b=cfQTqCtCJBXIMNyQDiFDifBBurOMYT+2pfcXUOCcaQlbBt4DOpX1J1vQ5
-	hmV3vytK+aws04cb+cyKkE18nsg31UKM1ms5zaZt1gsrElqchBe9l5Ov1yDFfW/5
-	44tlWz277g6jmZOoq6uGSHDRHupFlBFNqwagRaV1fB/fnX0BHed8sHx+4ND8/3Zs
-	5nv/jfUxE8NQAMrXy2UucyewHH+kmvnD1GUFQ5nYShBQFiIn3DTaF2+E4udhHIzP
-	mUFVf+NeFpTXZauNKeBr5UA+6LCXQyDhJVy4xKQAmV6n6qPYnwGcUjYJ/mgne6od
-	lNOmuAkN9mqlKulQP0sfX2WwxtYFA==
-Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013044.outbound.protection.outlook.com [40.93.196.44])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fdm2dgxv6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 14 Jul 2026 09:17:33 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=acpnH+zWVUciPs1yzHuFeMHJfBlViXRq5Db3vpNecQonYcvzbAlFRW8nCs9FsGl5cBJHyWPCbKt2EzXfrWH5V6uzbPSlvzOVN4lkRLw2Frdj+P+pND2pSP5AOxMNz9u68S5ok+GHBM3n/Zzj5ZOWLRfis6qnRfmetdcCW4gbGG0KzQZVCIEYQIA8DHO8mvcna7EAgJpstyVxbsd4VmCgApQx3Wl0QrqpIRq/LCXYVpoZTfRaz8en88Fbq7IHKegPfvTZ0GxCTOCrOUfcOWTGkFUo+lM/7qF2SoJ7K/tOhpdhi1D/gfi/Z6krQLNoXk5RyknEkl+1hpQxyIQPARfoPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dXsjY4ufCquIow6fx1lJzUWX4cQQwvlQ0g8uTNMCGZQ=;
- b=hUpEYDuSgM34BUjeNhlaoeWZbZx8XkcalmmZsa6TzHpiTRfnd4FY4Sk7Z8dnWZMAidSw3cUaEZiTDMmYTiySz9hPrNv2rmSWibJ5yJImI9lmPTOaIPu8CeJaK4zASHm03WYfDDqCm+7VPVE93xR4r9tbmm/HwHaT0ztWcCbILBXyV4fooZ6xiazP0RDOIpHOQsEGMr+fFgVa0nVbD18Jwp2Z8AC+iAvRy3UTO1PfxIL2Aciij6DOmxK/60jG0qZsDF+I0AK+WEHlzGQIHv+kGxs07QYqvVmzFFkpnozr9RErhw3sRrzNG4zoO14Gxm94RmzaUIYCVea3QiekPLBfTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dXsjY4ufCquIow6fx1lJzUWX4cQQwvlQ0g8uTNMCGZQ=;
- b=e7G2zEpcZhJMycILMSUprz0zPqIrnP+5S0RwifOqbkfBmMEcTATTxRYYkRenH+5UI6YsQ9NJmk9acw9V8FoyOXVAdtOJxNE2ydVdJiMo6qfTg0G6sUdVCihVk2G5Sl4IPZI0PDcUTfJR7a2nUCHkCJiid9T+8TCiWX+Q9YHP7XY=
-Received: from DS1P223CA0010.NAMP223.PROD.OUTLOOK.COM (2603:10b6:8:453::7) by
- SA2PR10MB4730.namprd10.prod.outlook.com (2603:10b6:806:117::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Tue, 14 Jul
- 2026 14:17:28 +0000
-Received: from DS3PEPF0000C37B.namprd04.prod.outlook.com
- (2603:10b6:8:453:cafe::2a) by DS1P223CA0010.outlook.office365.com
- (2603:10b6:8:453::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10 via Frontend
- Transport; Tue, 14 Jul 2026 14:17:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS3PEPF0000C37B.mail.protection.outlook.com (10.167.23.5) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 14:17:27 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 14 Jul
- 2026 09:17:00 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 14 Jul
- 2026 09:17:00 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 14 Jul 2026 09:17:00 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66EEGxN2112972;
-	Tue, 14 Jul 2026 09:16:59 -0500
-Message-ID: <b05cc113-11a0-4d89-a45c-ed611b58167c@ti.com>
-Date: Tue, 14 Jul 2026 09:16:59 -0500
+	Tue, 14 Jul 2026 14:19:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60EBA1DB5;
+	Tue, 14 Jul 2026 07:19:04 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BACE33F7B4;
+	Tue, 14 Jul 2026 07:19:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784038748; bh=qcTExwdZJMkl7IJkTgsyhQKEVirNFDPTNGYLYDR+Rlk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PEVQ7GwjsHfc9pxzl4HdZ2HlrG7yyLU//2MPscWIXxwWhuJNE0yIM4ch1W13LPY69
+	 O1j8q0bUuLe6O0Wzni8gSozYnadI7jpmbEv6upUyMBgCoJQlrQ5Qt+PsuSePjIZguO
+	 Ke5hWbPaq8OrMbM5zn1sjuokEtJpm+6yb9+xRywA=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer flush
+Date: Tue, 14 Jul 2026 15:19:01 +0100
+Message-ID: <alZFVPkS3lgGdruc@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-6-zhengtian10@huawei.com> <alTw0nwiBDWoFrjB@LeoBrasDK> <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com> <alYUXkub43YxkeH1@LeoBrasDK> <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Add bootph-all property in
- cpsw_mac_syscon node
-To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, "Tero Kristo" <kristo@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, "Nishanth Menon" <nm@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20260625113223.1711052-1-c-vankar@ti.com>
- <6eeecfb3-6d88-469c-b087-a4c87ade65a3@ti.com>
- <0abbdb79-bb80-4f9e-aaab-0292043472a3@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <0abbdb79-bb80-4f9e-aaab-0292043472a3@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37B:EE_|SA2PR10MB4730:EE_
-X-MS-Office365-Filtering-Correlation-Id: faa71832-9986-4000-15e5-08dee1b2a20c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|23010399003|82310400026|56012099006|18002099003|4143699003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: iH4fMnzS65G9GTfSQRhWsctiuv+p6LyY/zsBnUNYPe7rnmg+nfnVTkQAf13bfEdoz4g+sjn2XZO4+QWE9u6nRcZmPePLai/iN1QXeZZ8c8sda17LwXSm2wgIt6Rk8AWMwIuJw5jY5bb05U/4sWCV/9/p45QeKx4PFOdVkTrVvpFCa5fFOSlT2buYNpQiuMabn9NDLoOYB1MmR7DKDLGBO+3N2I6BokIefpJpHZbwBebguZ9bBMumu8JI1wZW2eHKQuCChEv2jsfQHi+SUsWcsFD49wbYKvZhVK/2YoDFFJyuLHnYpbpdfLqEI+AMjIMQw6Vf2OPBknq7gpHbEb8esgRzRcSsCoWkOPy3XRKpaBdCtvAGhfWs2/vYS8lSbU986/z44Weaq1FGuduknfJ+FDvdNynWBJOLS2PVFXG6tzcj9+0ojB8c630YcsW5VJKr12858LmeJzou42MHMOoYD8i6x8T2NITzJeuCgc5SLjaJdeorhz8RaJKgD/5CgyA327I4+qg0EdKn7z9E9S1q1QjdfeLI0PxQOohmc8n2Us/hYY0B/xL6M56eRCLK4hrKEj+mtBMhmV1pq3fsFOzbXN+PeMPd7ZSVcTuLf6jJc3NEpf9OYSZtuhfzBnljQiETtFRYK+yDAMlSPPIKe+/89tGn4HbCAWe/kB25rC9A7x1/rgyZCDERLn3UIiUt53y8g7t1rqt1pxYawPbPA3tyJw==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(56012099006)(18002099003)(4143699003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ikOVnEO6wIkLedmnkmrulLCNLLWg5UtaZcb0AB2IKUpJ7xznqDUS9NCBGOzkviwUacf9EUdDmT9wZvbkH0mqBYUr/Or6VoncQLIIWAr34hmgObfe2wm3r/WLP4kqj62I3CP9QVK6V4OD4Vy+QQ0AWMiFHdZ4X2a2/Mbb7mJ6KqYq7i3ZOjyWvlMJmQdvcv7cBWyj5ZcHMCfqGkB5Hkw661Z1z7uB2G1f2uFfB6d1X0EYN5mPKtVuHAoF09l0o7THFVKueV0YfpBaWxwvHzu76d1xjzNHCN24UHYeEtyOAnY5KbVN2TFCC/EKcieK4UMa/aWr7jDyOjWhHk94yrTUVwGvCek0bdk4oSIYa116cFhmZNptz1jE+kyD5K2Pls+EHbMj0+9reUStpNzBx7pH7qSW5OVTPSIY3T/kLiOH6DjybWBcmXGYGDyB/MlsArCN
-X-Exchange-RoutingPolicyChecked: W4gVkoDrrGtVtp/MLGszBKFDi89XIWlyKQv0xrwAUMh+PmZ+1Szrx6askfzlLvEsiv7CkYILmwLyeraDHQyN7Zz3ynOLVompqcDQP3cyPTHHf0LF0tcDf3BSAcbRRN66uJGV0jB5+nE62dSjG9xuH+hZ1f4wkjGMp19Y4I88mN6E7ctkziro0kUPllNBP/nCaU5mLICyeGpbdGzucyraGT4v9yNMjS35MYkYHInxQohoVOSGGuANwO1+whWWVlLJzezoQHSn7yNJ7b893nWpTfnr4yBR7Ks4djssea95OeIAd6dL1RyZd00aT2y3e/i6l2qKDBG/77gaXqSOCLpOBQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 14:17:27.1276
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: faa71832-9986-4000-15e5-08dee1b2a20c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4730
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDE0OCBTYWx0ZWRfX2GOKMheaI+Gy
- IAtO6iUuxoxKhLZv1XVc88cOme8VOPzUIbbGcSsP6xxG1rvhlhAQ+3weaLTui/kb3ARwXlf6eGZ
- tGhgg78+IgNDNVjzGfl0IrYMGdbO6H0=
-X-Proofpoint-ORIG-GUID: ZrjwMerI5c88EKj07ZD7UOymsZ55a1hZ
-X-Authority-Analysis: v=2.4 cv=f+N4wuyM c=1 sm=1 tr=0 ts=6a5644fd cx=c_pps
- a=Ji2ygefkweamrNJ/4LFw0Q==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=apn0q0EWAAAA:20 a=sozttTNsAAAA:8
- a=UFh5uEqocThAmMhuJQgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bn7x_FpfJtc3yKQXRW3z:22 a=bA3UWDv6hWIuX7UZL3qL:22
-X-Proofpoint-GUID: ZrjwMerI5c88EKj07ZD7UOymsZ55a1hZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDE0OCBTYWx0ZWRfX79sHpva4SiXg
- N4gNxyV33ukflieJBo01y/69QeGlYrFlojEkDCuxm1jjWHgxF4jFSqXWkC29hpeDYoC2dahkLhQ
- vkQoDuiEd6ksiJmjF3ehCEYi3gy0jY1k1z/k9xWYABaoFaNwGraeSNQD7aXF2Z+xBopBjgwvR7p
- ZTbmf9HQKl5gURouZW7lNceAVwhyDANujIpmcCEZWKOl1teMaX4o2MH7Sv8YLwgBpymNplbAWCU
- 5h0G/mECacvdmvXw8ixBGMtZNs2VZZh4GTpSRG6sTulFnbyVvayjZiIOK0mP4WvK/Oy0uBBRoCq
- 4CYSSb5ADfbvMKqHadZghlHyoCk4kQD1WEq0q1WFX6Iz5A+7vE+EJd6TDim1zABhudxBp/zGRGV
- TrJXplGMyc1kis5g90rvapGRpET3KyTljSUP87t33o8sbvfnp/KEDJepKC2iE9X0mFaauFlh994
- WmSF2gbqbCY+6kLChiA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-14_03,2026-07-10_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0
- suspectscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607140148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_071737_150980_67C44CA4 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260714_071910_388598_7837E14D 
+X-CRM114-Status: GOOD (  45.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,74 +88,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/30/26 1:54 PM, Chintan Vankar wrote:
-> Hello Andrew,
+On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
 > 
-> On 26/06/26 02:18, Andrew Davis wrote:
->> On 6/25/26 6:32 AM, Chintan Vankar wrote:
->>> Ethernet boot requires CPSW node to be present starting from R5 SPL stage.
->>> Add "bootph-all" property in CPSW MAC's eFuse node "cpsw_mac_syscon" to
->>> enable this node during SPL stage along with later boot stage so that CPSW
->>> port will get static MAC address.
->>>
->>> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
->>> ---
->>>
->>> Hello All,
->>>
->>> This patch is based on linux-next tagged next-20260623.
->>>
->>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 4 ++++
->>>   1 file changed, 4 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/ boot/dts/ti/k3-am62a7-sk.dts
->>> index 821a9705bb7d..d3b3675e7a8f 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>> @@ -230,6 +230,10 @@ AM62AX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
->>>       };
->>>   };
->>> +&cpsw_mac_syscon {
->>> +    bootph-all;
->>
->> Seems you need this because cpsw_port1 uses it though a phandle reference.
->> cpsw_port1 has bootph-all, why is this property not transitive though
->> phandles? Would not having that cause missing references when the phandles
->> are resolved to nodes that get dropped for some given boot stage?
->>
+> On 7/14/2026 6:50 PM, Leonardo Bras wrote:
+> > On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
+> > > On 7/13/2026 10:06 PM, Leonardo Bras wrote:
+> > > > On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
+> > > > > From: eillon <yezhenyu2@huawei.com>
+> > > > > 
+> > > > > Add HDBSS fault handling for buffer full, external abort, and general
+> > > > > protection fault (GPF) events. When the HDBSS buffer becomes full,
+> > > > > the hardware traps to EL2 with an HDBSSF event, which is handled by
+> > > > > setting a flush request.
+> > > > > 
+> > > > > Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
+> > > > > propagate dirty information into the userspace-visible dirty bitmap.
+> > > > > Flush is triggered on vcpu_put, check_vcpu_requests, and
+> > > > > sync_dirty_log.
+> > > > > 
+> > > > > Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
+> > > > > abort handling.
+> > > > > 
+> > > > > Signed-off-by: Eillon <yezhenyu2@huawei.com>
+> > > > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> > > > > ---
+> > > > >    arch/arm64/include/asm/esr.h           |  5 +++
+> > > > >    arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
+> > > > >    arch/arm64/include/asm/kvm_host.h      |  1 +
+> > > > >    arch/arm64/kvm/arm.c                   | 14 ++++++
+> > > > >    arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
+> > > > >    arch/arm64/kvm/mmu.c                   |  4 ++
+> > > > >    6 files changed, 97 insertions(+)
+> > > > > 
+> > > > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+> > > > > index 81c17320a588..2e6b679b5908 100644
+> > > > > --- a/arch/arm64/include/asm/esr.h
+> > > > > +++ b/arch/arm64/include/asm/esr.h
+> > > > > @@ -437,6 +437,11 @@
+> > > > >    #ifndef __ASSEMBLER__
+> > > > >    #include <asm/types.h>
+> > > > > 
+> > > > > +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
+> > > > > +{
+> > > > > +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
+> > > > This will return a long, which will be casted as bool.
+> > > > In general, what I see in the kernel is something like:
+> > > > 
+> > > > 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
+> > > 
+> > > ok!
+> > > 
+> > > 
+> > > > > +}
+> > > > > +
+> > > > >    static inline unsigned long esr_brk_comment(unsigned long esr)
+> > > > >    {
+> > > > >    	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
+> > > > > diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+> > > > > index 84b12f0a10af..4b28000e972f 100644
+> > > > > --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+> > > > > +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+> > > > > @@ -10,7 +10,18 @@
+> > > > >    #include <asm/kvm_pgtable.h>
+> > > > >    #include <asm/sysreg.h>
+> > > > > 
+> > > > > +/* HDBSS entry field definitions */
+> > > > > +#define HDBSS_ENTRY_VALID	BIT(0)
+> > > > > +#define HDBSS_ENTRY_TTWL_SHIFT (1)
+> > > > > +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
+> > > > > +#define HDBSS_ENTRY_TTWL(x) \
+> > > > > +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
+> > > > > +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
+> > > > > +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+> > > > > +
+> > > > >    int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+> > > > >    void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+> > > > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+> > > > > +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+> > > > > 
+> > > > >    #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+> > > > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > > > index c41ec6d9c45a..cecfb884a64f 100644
+> > > > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > > > @@ -55,6 +55,7 @@
+> > > > >    #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+> > > > >    #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+> > > > >    #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+> > > > > +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
+> > > > > 
+> > > > >    #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+> > > > >    				     KVM_DIRTY_LOG_INITIALLY_SET)
+> > > > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > > > > index bf6688245d83..566953a4e23a 100644
+> > > > > --- a/arch/arm64/kvm/arm.c
+> > > > > +++ b/arch/arm64/kvm/arm.c
+> > > > > @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+> > > > >    		kvm_vcpu_put_hw_mmu(vcpu);
+> > > > >    	kvm_arm_vmid_clear_active();
+> > > > > 
+> > > > > +	if (vcpu->kvm->arch.enable_hdbss)
+> > > > > +		kvm_flush_hdbss_buffer(vcpu);
+> > > > > +
+> > > > >    	vcpu_clear_on_unsupported_cpu(vcpu);
+> > > > >    	vcpu->cpu = -1;
+> > > > >    }
+> > > > > @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+> > > > >    		if (kvm_dirty_ring_check_request(vcpu))
+> > > > >    			return 0;
+> > > > > 
+> > > > > +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
+> > > > > +			kvm_flush_hdbss_buffer(vcpu);
+> > > > > +
+> > > > >    		check_nested_vcpu_requests(vcpu);
+> > > > >    	}
+> > > > > 
+> > > > > @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+> > > > > 
+> > > > >    void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+> > > > >    {
+> > > > > +	/*
+> > > > > +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
+> > > > > +	 * before reporting dirty_bitmap to userspace. Send a request with
+> > > > > +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
+> > > > > +	 */
+> > > > > +	if (!kvm->arch.enable_hdbss)
+> > > > > +		return;
+> > > > > 
+> > > > > +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
+> > > > >    }
+> > > > > 
+> > > > >    static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+> > > > > diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+> > > > > index 6c7a6ef66b5a..002366337637 100644
+> > > > > --- a/arch/arm64/kvm/dirty_bit.c
+> > > > > +++ b/arch/arm64/kvm/dirty_bit.c
+> > > > > @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
+> > > > > 
+> > > > >    	vcpu->arch.hdbss.hdbssbr_el2 = 0;
+> > > > >    }
+> > > > > +
+> > > > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+> > > > > +{
+> > > > > +	int idx, curr_idx;
+> > > > > +	u64 *hdbss_buf;
+> > > > > +	struct kvm *kvm = vcpu->kvm;
+> > > > > +
+> > > > > +	if (!kvm->arch.enable_hdbss)
+> > > > > +		return;
+> > > > > +
+> > > > > +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
+> > > > > +
+> > > > > +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
+> > > > > +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
+> > > > > +		return;
+> > > > > +
+> > > > > +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
+> > > > > +	if (!hdbss_buf)
+> > > > > +		return;
+> > > > > +
+> > > > > +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
+> > > > > +	for (idx = 0; idx < curr_idx; idx++) {
+> > > > > +		u64 gpa;
+> > > > > +
+> > > > > +		gpa = hdbss_buf[idx];
+> > > > > +		if (!(gpa & HDBSS_ENTRY_VALID))
+> > > > > +			continue;
+> > > > > +
+> > > > > +		gpa &= HDBSS_ENTRY_IPA;
+> > > > > +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
+> > > > You mention that it does not support dirty-ring, but above function will
+> > > > mark the page as dirty in the dirty-ring :/
+> > > > 
+> > > In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
+> > > enablement if dirty-ring is active:
+> > > 
+> > > ```
+> > > if (kvm->dirty_ring_size)
+> > >      return 0;
+> > > ```
+> > > 
+> > > So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
+> > > we know for certain that
+> > > 
+> > > kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
+> > > take the dirty_bitmap path,
+> > > 
+> > > never the dirty-ring path.
+> > > 
+> > > That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
+> > > mode is supported, to make this explicit:
+> > > 
+> > > ```
+> > > /*
+> > >   * HDBSS is mutually exclusive with dirty-ring mode (see
+> > >   * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
+> > >   * will update the dirty_bitmap, not the dirty-ring.
+> > >   */
+> > > ```
+> > > 
+> > Got it :)
+> > 
+> > Out of curiosity: which issues have you found on supporting dirty-ring at
+> > this point?
+> > 
+> > Thanks!
+> > Leo
 > 
-> Yes, the bootph-all property is not automatically transitive through phandle references in the U-Boot SPL DT. Nodes that are only referenced by phandle from a bootph-annotated node are not themselves retained
-> unless they also carry a bootph-* property. This is because the way
-> fdtgrep works[1], it only keeps node with the tags present and implies
-> that property to the parent nodes and not the nodes referenced by
-> "phandle".
+> 
+> I haven't looked deeply into dirty-ring yet — my main concern is that if
+> both the dirty
+> 
+> ring and HDBSS buffer fill up, the flush path might get blocked or
+> complicated.
+> 
+> For now, I'm planning to match the HDBSS buffer size to the dirty ring size
+> in v5 and test it.
+> 
+> Ideally, the two buffers would be the same size, and the entire dirty
+> tracking path would use
+>
+
+Ah, I see the point.
+
+IIRC, when dirty-ring gets full, the kernel returns to userspace with 
+run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to 
+drain the dirty-ring, and that makes space for us draining HDBSS to the 
+dirty-ring again. 
+
+The best way to achieve that, as I remember, is to always drain 
+HDBSS as much as possible at guest_exitting. That will make more space to 
+newer HDBSS entries, and we can get userspace to drain the dirty-ring 
+earlier.
+
+I would say to even make HDBSS buffer half (entries) the dirty-ring. Then 
+we can generally fully drain to the dirty-ring and even report ring full 
+if the ring is above a given threshold percentage full.
+ 
+> HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
+> works, I think this approach should be fine.
+> 
+> Let me know if you have any insights on dirty ring's full-buffer behavior —
+> that would be helpful.
+> 
 > 
 
-Okay then, sounds like something worth investigating to see if this
-can be handled automatically in the future, for now given the current
-state of fdtgrep scripting, this patch LGTM,
+Will do!
 
-Acked-by: Andrew Davis <afd@ti.com>
-
-> Without bootph-all in cpsw_mac_syscon, the SPL device tree will drop
-> that node, leaving the phandle in cpsw_port1 unresolved. And the above
-> claim can be validated with the current conifguration where "bootph-all"
-> tag is not present in cpsw_mac_syscon, causing CPSW to fail retrieve MAC
-> address.
-> 
-> [1]: https://github.com/u-boot/u-boot/blob/master/scripts/Makefile.lib#L688
-> 
-> Regards,
-> Chintan.
-> 
->> Andrew
->>
->>> +};
->>> +
->>>   /* WKUP UART0 is used for DM firmware logs */
->>>   &wkup_uart0 {
->>>       pinctrl-names = "default";
->>
-> 
-
+Thanks!
+Leo
 
