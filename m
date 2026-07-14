@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD70FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5612AC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+ERcgrOegSKuLIPL4or4RWuj4zLEeGH2UYWhln8zi2E=; b=4vXu1AzfDQTAdVLUAHpQ+wInAr
-	iEBuwwcaPoOHKy+J+zAj/d28KcYxNMjiTWndwmwvkC+VoELEHPKQT8uK4UmjMjiK2QKD3hm/j69SE
-	pVbpS6SBHLhobBEiNctKAh/YQTvdbG25uIWF7/7ZCMFGcvXU2W1yXWxVpmcTtlElC4ea0RvwymXvd
-	kFvAxRDbW4J/ht2rS51L9SfAOMqHz674bHpNh7c8erm4Qocdnt5aZSmjLRfYYd/eLP8jfuODJfW2d
-	/XPmG4fYbzjFeWR/sjUxkHHxB582qPLomCeemIcwXInVbg/pN2/rqAt8CU3uhe8h8MlTfVRjHn4kx
-	UWPLw6RA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wHi1GwCzxxNvjMicFaCHGAYaiV77vS2qpz6P18kV1Z8=; b=sAwtzcIVsJjODgzCFM+jvBdHbF
+	CzpmVfbC0qPjvWB+SPff/Fp+p3ijF2U9XOEKOttUGazcdQB9tzJWKn2VxYaBb1kQc/NG3yJSqbURx
+	MH9CVJf51HTidV8RAoRcOILUv+RW+rRLdC+uUUSmKKaDOI5RXjZDcOSNTeHu0E3DmGGfjTiYV4jpg
+	UIFj7ifpGPKRWJd81f5LQbWqRvR4zrei4vtToJewAqDR1cLEZzxGJrEqrG2ib7/rcykZvfP9rHJ0u
+	rjiRZ6Sv9itSwtKVEXytxDK58E0r7z6bteOVx3o9F5G2obQ0YnPGgDuSUmuDdeFO5sRnUdQzeea3Y
+	jxSdOMhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfR5-0000000Cb01-1pkU;
-	Tue, 14 Jul 2026 15:52:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfR3-0000000Cazq-28EG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 15:52:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=+ERcgrOegSKuLIPL4or4RWuj4zLEeGH2UYWhln8zi2E=; b=rSUpDs3Td/LOu2dPnlOuWa+O5s
-	A93zwsjDaHHCmjr64kk22rdOxo96EuuB6M5BdZyeCJoc5oRnxZKg24Y/yLtc+o6eQDl6VIK3/CiUZ
-	Ankqnx/eRyvH0iUkwWQYSEtF/fhDLRxG93hWTIZUbySqRAQ4sNHuJNib5a8KsdVpSE42aJC71mR0a
-	lTY4H6pHGVzV8FuBLFLCGOkT79ThLHDZ8n9yljNmoOgMzZtNQzEp6NeIXuDaUXrOkxMqwiRS4yr+6
-	epEQ+Pmq6RqC/3y8FjMirnbcm0x/0ST5sZDEmnQUxQibiSGQ8gCGWjoLsADIwzz6HFBHimK+t96hT
-	ONi7sX6g==;
-Received: from [80.12.242.78] (helo=smtp.smtpout.orange.fr)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjfQz-0000000CfGs-28Xv
+	id 1wjfVC-0000000CbQp-3fY2;
+	Tue, 14 Jul 2026 15:56:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjfV9-0000000CbQ8-1a6a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 15:52:39 +0000
-Received: from device-97.home ([10.65.86.64])
-	by smtp.orange.fr with ESMTP
-	id jdmawmkXaVpupjdmawomkK; Tue, 14 Jul 2026 16:06:48 +0200
-Received: from device-97.home ([IPv6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e])
-	by smtp.orange.fr with ESMTPSA
-	id jdmYwryGUIOrpjdmYwdCwZ; Tue, 14 Jul 2026 16:06:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1784038008;
-	bh=+ERcgrOegSKuLIPL4or4RWuj4zLEeGH2UYWhln8zi2E=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=gA3VVSNa2X5AkRN3xmG98f4kHiSorJR+Za2t0Yqu4+ZWLU+867rOUd6a8n6MUZduk
-	 +DYq95qvhFJV1wv/ho094bN436exEbGLcWj7ZhsqbSnVU7Y2TRI4GJ53Z64tYlESqp
-	 NKMM9d7IEEPxzyVEnEygy9AV+6bTCWhs5Xc3m8Y4LafYACIsC23k6/KH/f+X9JMOBW
-	 gMMyaK0VDTEdbDa/9OlYQhUiEz3PzC+g1OgLQhNqwflXfatlHj3ejvKzwcOoIYlKqh
-	 7ZOCgxXhFVWF44s2VR71CmpgoMgZoRIHgjK+r7VSorskTemc0GX+s3gTzbkXWHSn9o
-	 jIOSI5KUX+T2g==
-X-ME-Helo: device-97.home
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Tue, 14 Jul 2026 16:06:48 +0200
-X-ME-IP: 2a01:cb10:785:b00:26fb:aefb:6cd2:db0e
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dmaengine: Constify struct dma_descriptor_metadata_ops
-Date: Tue, 14 Jul 2026 16:06:33 +0200
-Message-ID: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.55.0
+	Tue, 14 Jul 2026 15:56:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15AFD339;
+	Tue, 14 Jul 2026 08:56:50 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A0223F915;
+	Tue, 14 Jul 2026 08:56:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784044614; bh=jlDWHc+QVt9k7HkTB6RbuYA4PZFVH9ssR+9+zo3598c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ab/B3gqkVvxeSWk9m22lT60CDPxipry6LYSeJo0GLLNUbs9fhDIntrVO0Eu6x8Hgb
+	 h5xnMvaElwcevH+hvea19kQ3qUVqh4vQ0tItMzcOFYaeLFcnomQj67iUdQiexxoY56
+	 jljvdomivta+hgdUgK4J+9LD+PT4oDA5vK/4Rj94=
+Message-ID: <0e405cb3-1227-4ad2-96ff-aa0db3124381@arm.com>
+Date: Tue, 14 Jul 2026 16:56:50 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/4] iommu: Fix device lookup lifetime and probe
+ cleanup
+To: Pranjal Shrivastava <praan@google.com>, weimin xiong <xiongwm2026@163.com>
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+References: <20260714060930.220277-1-xiongwm2026@163.com>
+ <alZCbIIuawpugaQe@google.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <alZCbIIuawpugaQe@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_165237_672524_C545E791 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20260714_085655_470283_9E3AA955 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,72 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'struct dma_descriptor_metadata_ops' in not modified in these drivers.
+On 14/07/2026 3:06 pm, Pranjal Shrivastava wrote:
+> On Tue, Jul 14, 2026 at 02:09:26PM +0800, weimin xiong wrote:
+>> Fix a few IOMMU driver lifetime and error-path issues found while
+>> auditing fwnode-based device lookup and probe cleanup paths.
+>>
+>> The first three patches avoid deriving driver private data after
+>> dropping the device reference returned by bus_find_device_by_fwnode().
+>> They also make the ARM SMMU v2 and VSI probe paths fail cleanly when the
+>> IOMMU lookup fails.
+> 
+> I'm not sure if that's really needed? All these drivers are doing is
+> dropping the "extra" refcount (incremented by calling find_device)  back
+> to the state *before* the fwnode function call. If you find that this
+> put_device caused the count to drop to 0, I believe that's the real
+> problem/bug. These fwnode functions are usually called in probe and the
+> refcount shouldn't be 0 inside probe.
+> 
+> Could you share your observation / failing logs where this fails? Maybe
+> something else is wrong with the system?
 
-Constifying these structures moves some data to a read-only section, so
-increases overall security, especially when the structure holds some
-function pointers.
+I don't have any trace of the original patches (thanks, Microsoft...) 
+but looking on lore, yes these "lifetime" concerns are spurious; it's 
+just a particular situation where due to the API, the drivers are taking 
+a slightly roundabout route to look up their own valid device instance.
 
-On a x86_64, with allmodconfig, as an example:
-Before:
-======
-   text	   data	    bss	    dec	    hex	filename
- 120635	  21584	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
+The IOMMU device must already have at least one held reference from way 
+back in its device_initialise(), which will not be released unless and 
+until device_unregister() is called (which is probably never for a 
+non-hotpluggable platform device once it has been successfully created). 
+If someone unregistered a platform device while it still had a driver 
+bound, or the IOMMU driver could be unbound without unregistering the 
+iommu_device through which its ->of_xlate or ->probe_device could be 
+called, so many other things would be blowing up already that this would 
+still be irrelevant.
 
-After:
-=====
-   text	   data	    bss	    dec	    hex	filename
- 120699	  21520	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
+Since 17de3f5fdd35 ("iommu: Retire bus ops") these lookups should also 
+never return NULL for the same reasons, so do feel free to clean up 
+those redundant checks if it helps make things a bit clearer.
 
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
-Compile tested only.
----
- drivers/dma/ti/k3-udma.c        | 2 +-
- drivers/dma/xilinx/xilinx_dma.c | 2 +-
- include/linux/dmaengine.h       | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 1cf158eb7bdb..fb21e0df5ab7 100644
---- a/drivers/dma/ti/k3-udma.c
-+++ b/drivers/dma/ti/k3-udma.c
-@@ -3408,7 +3408,7 @@ static int udma_set_metadata_len(struct dma_async_tx_descriptor *desc,
- 	return 0;
- }
- 
--static struct dma_descriptor_metadata_ops metadata_ops = {
-+static const struct dma_descriptor_metadata_ops metadata_ops = {
- 	.attach = udma_attach_metadata,
- 	.get_ptr = udma_get_metadata_ptr,
- 	.set_len = udma_set_metadata_len,
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 98b41b8f8915..bef2b031dba1 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -655,7 +655,7 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
- 	return seg->hw.app;
- }
- 
--static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
-+static const struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
- 	.get_ptr = xilinx_dma_get_metadata_ptr,
- };
- 
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index 6fe46c0c9452..fe33a20abc61 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -631,7 +631,7 @@ struct dma_async_tx_descriptor {
- 	void *callback_param;
- 	struct dmaengine_unmap_data *unmap;
- 	enum dma_desc_metadata_mode desc_metadata_mode;
--	struct dma_descriptor_metadata_ops *metadata_ops;
-+	const struct dma_descriptor_metadata_ops *metadata_ops;
- #ifdef CONFIG_ASYNC_TX_ENABLE_CHANNEL_SWITCH
- 	struct dma_async_tx_descriptor *next;
- 	struct dma_async_tx_descriptor *parent;
--- 
-2.55.0
-
+Thanks,
+Robin.
 
