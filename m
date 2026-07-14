@@ -4,104 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3F9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84032C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByqUUoCmAxr64mZfxOgoGrIy+E/ii+Kkqp5CiJVXt+U=; b=zzzVWrziKDSlWv7S/RFJs8cOfv
-	RmkEQTeDj1ifam3ozumQpWOSC8Bsaaaxfpsm134xIDQF0w63pR7mCVcKX0Pj+xIpo95hizLBZgDLd
-	zPLXeOt1K5WVb6vAYKNH/M0TDLTBME0qMhew0VGYtNl0d5yuc5Lcy/WiTui1t9zw6oNZOBj6Qh1y2
-	BO+c1zXG372zbyOsnMMiHsRor6CEA7Nlyg3iy5Ayp/3Pc5T1pkBofvcvYWKsg81QLicLUaGc7ohcY
-	tZp2TVsrmHvWxTbMEW8iqQ/DnNz9g3XEQ1888H6jSYC592l8Anr1RAmGm5fMGFdZ8WqE8O98UFhrr
-	iG/d7F6g==;
+	bh=W9FrfG9Gw4/z5mtWnR84x/YK0xjKM0uXdEh4ByObXig=; b=rzw5tD/Fot+kyz4XvxQtwg8zTs
+	axlYHKwimrua6uzgFcl0iV3nFR/w4j2xukwef+wqyOYBg6+FwUUyCg1OnWULmQeluwGg5PLW+zGLq
+	Bry3xCPCg5K7ezwCbrXBwp01Uerrz3JiT/A099v7wvPOdBGo31mUgBLbliyIlW8GCXSOvgXBfgDGQ
+	Ocxmn7+iRHYJazuA5z7tXC3P5UqFtg4YPJgnbDw2MwP/+6ik6AHEuNDsMo/AmFo48JH2XJGxfMHFc
+	Q2IrGIDvxWNLexgp/jOt0Cu/qdVN0OD6J2/ALy0KS94YcjgQCHh2888M84c3FB9NsuoQEz+CJZWjo
+	2Dv7GJNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWdt-0000000B2tM-0THs;
-	Tue, 14 Jul 2026 06:29:21 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wjWiX-0000000B3ln-3YHR;
+	Tue, 14 Jul 2026 06:34:09 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWdl-0000000B2k5-2pGP
+	id 1wjWiV-0000000B3l9-0eQe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 06:29:14 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c7c61b5292so8516815ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 23:29:13 -0700 (PDT)
+	Tue, 14 Jul 2026 06:34:08 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f3e6cc44aso1631406f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 23:34:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784010844; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nRCLg4BCZK9D99QS4ItiirPp/hwv4piJ7ggLBgoUCtDR66uQta5OMOeu3oH/xnd5VN
+         QuVuD5T+VVCdlu6iIwE5j7RJiCcttYl6HKCRXcSthsT83DleC0bgDU9thE1ax1yyWhE0
+         CSDLnlq/vreVWOt4tcJpcmpLFEz/A3pfPrPVS59sRv/favRN+9kMCfjAUePR+c71C7Gk
+         P4/pOhtmubd5hn8TJzo18JoWuhp1zGhN5qmqgINm2zfSPOZd8jJ98qR8nxLf6IawnJaP
+         FIk8PX+e5kB7h5bXwsMq7ubu1umGE7iXQThzT2DZHAtkrK45z6DOgOabN1S0I1zwsSDL
+         l7Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=W9FrfG9Gw4/z5mtWnR84x/YK0xjKM0uXdEh4ByObXig=;
+        fh=WFTLDGdovJdsaJiYjx9xBXXLcecDwh+hM+gv0WXkawM=;
+        b=IPgwpUx0m8LREo0kPAtrQ2DnS6hqenDBkQ2z9Vf3ZITDtF0Q/Bb0U1pzwJ+N7lgB0X
+         OWSy8dRdLQB8IO/fjCmwq7mw26FGxOHr7EYhzNejt3yvZXOOOfhyJ9oyfo7Evs/eVPqo
+         xUUNC4toLeqdM/9sfldv920Qd+dt4CjI9kW6nrGe56Q3Nu89H4q6/q7tMV0tDZNRHu14
+         /jaE6z52R+PCtV3CsS44mWgnkZRWKgVZnrFl9YhxDgxsW8W+Qyn3oE24ILeF1lL78XJ7
+         Gs1eW9Pm/oyBaFf0hJ+HfGetL1ZaCwqUH6viZhcL28rx91QBpsqmflr+nueEF7b6JYKC
+         Aw+g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784010553; x=1784615353; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ByqUUoCmAxr64mZfxOgoGrIy+E/ii+Kkqp5CiJVXt+U=;
-        b=h9NzPzNk7Bd+y0cu3KwOEI3dquPFYEgzqqHFQC1qiwxHKWGSsed0fZ1g6geSbsLsCr
-         rZnFdgrM/3RChL8byOaOQmIquJQH9abSiIfG7MyoXrv+SKbUhITy8rkgHvVKz/A951wZ
-         4Up9RsRHN4Bu7HXapxZETheipaZrljtxjo/c9oE+Z63GRhW0rZUS2SWX2PtKxDcS63c4
-         CTQldrYqhH9R7/BTd5Ngz3oX872YjlMekMJFWYC+EBdMgFUohVGvA1FVqfGfX/ymE5C+
-         C4rz91ayloDngNS0l0vnQx0jtM8CaXfoQQF2PCEPR7kj6BRPshZocTg+TAZNXLBuBzxU
-         Eb/w==
+        d=9elements.com; s=google; t=1784010844; x=1784615644; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=W9FrfG9Gw4/z5mtWnR84x/YK0xjKM0uXdEh4ByObXig=;
+        b=Igutxyswb7wE3RFJDcV8gZir4+zxutP0o0YabMYZWnt8Z6lzzCnv6mSPb+UBaIYTMK
+         9LvJU+DIYpgL5uiw0xMr3zEl+2BCYxBK7bVbnKYX2yQbYT4Ic0ie+WdBXICKsUcCEoeu
+         p2ZMrwxoqSXQTV3LFCUtH8gM+2tE6vwAchWmBK2SEdbUOkbK1ZaPzMrkGnz5T7jTaaXg
+         XzQisP9lqLVlL247aGHsafOGYyo3dVyeqROG4Y6OoWjXtteNk4CwZQLe1RqRnQT8EjFQ
+         ceVxBgvabtdNxPl6qjNMb66fk50bZiyRa2lf8ENfdK6gj7JqjNMhJhQ34FfEy0BDmFKU
+         /TUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784010553; x=1784615353;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20251104; t=1784010844; x=1784615644;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ByqUUoCmAxr64mZfxOgoGrIy+E/ii+Kkqp5CiJVXt+U=;
-        b=N1f93QE2cxwqn24JE2j6CZKrCoCnCAP6HjMwkCBp/j9995WD02jQtJ/NRIpgRuAQxI
-         2+DVZkLj8NePlgCanCIQayn5bnMBHpegsVvbZKzRSVZZRISgclQQkBhyJRK4GHVnxyL1
-         LY0IRkAW91hX28Yu0XG0Wdxl4j/ukzCHx0BlA1bnV0pZojrxizWuK8GZRh1FXTnlBC7E
-         jWLb8wKgxuigKCReJpivRlLpoOuGKhWknp9+3UTV3akqikH8kCzR9IV0obEJuztEqrx0
-         /Xc4aRqrACtTpxjfJhEUjmMMDMpLkRNqAoUEvBMF0nHM4D24GJxRbfdY0lDxa30Al7ab
-         z51w==
-X-Forwarded-Encrypted: i=1; AHgh+RqOxrplEFhIpiIMtPlT6flR/OccScHwf9jjL4lzO0vaUWZI6gfkB7genn95+jvf3rcnVFYghAtoO4KZCjiafHZs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKj+C8SnXTehATG3CqkPgsEN1QkXnL7upfkbboXT/8l01m9+Pq
-	5nutu3/wL5AbTUP8B+nPWUBNpJQmJatYr2Tw6OH2Q38WmrtHjRqmWzTW
-X-Gm-Gg: AfdE7cmZUwynhrLDj5Ngx2YrOO1Lhw+CjbVMr11bg71E/2ec3FONVn1zYTGgn9kGWe+
-	ltkxgigkS4+otR1fE/cGNmoR7ONN/i8VmXdL9CoNr+gX1FDLJkmr6ICB/UDy8/aJVzjh59KK2rc
-	zXBIepUiPhRgdYjz3P8nP2G/Dx9njoxsvVACTRVJubWZRYF6Bscdhm9KA7WewVSK6NJ8QBd006z
-	tRDoMdRN6w7cwgXIOG0JAQwSrJfB4sS8zjBVX43lpH6Lo025uAkCOwfYEv11+1EL95TTf3tM+Sj
-	Fe89qKrWS2Xtg1wBFjq20BVp4hmEp71tR10JYb+JaqLnHapigHmEjoAZ1qYo7nxxRg8L+3djp2O
-	G8xP5YF0yjup9HvRFH4Uf+9v1p0wCwTgx5BlojHkLVImcAvCbt3W86LyA13X8iSbgptkgIu6YTK
-	9f2x4gxnDVeMAfIcdNddkOmx8lynnXAvI0vT27XpbHmwLvicxojQEjPiOLvkDpB2LRG1QtIIoBR
-	N/yKGBZEduQ7frCW44fknpFG1BxzGfXno0ybgYCmjW0HpSqRl4FDSc9UCcnqELj
-X-Received: by 2002:a17:902:ef0a:b0:2ca:9ab:e725 with SMTP id d9443c01a7336-2ce9e59d62cmr125013935ad.1.1784010552958;
-        Mon, 13 Jul 2026 23:29:12 -0700 (PDT)
-Received: from [10.160.5.76] ([119.17.57.186])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ccc99cc5aasm110915985ad.0.2026.07.13.23.29.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 23:29:12 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 14 Jul 2026 16:28:19 +1000
-Subject: [PATCH v2 12/12] arm64: dts: apple: t60xx: jxxx: Add
- device-specific SMC hwmon sensors
+        bh=W9FrfG9Gw4/z5mtWnR84x/YK0xjKM0uXdEh4ByObXig=;
+        b=NPYFrwyN6DE4YFIyqRQyjg9eys184wpUVIl52OLr1Euqdu3Kou8w6VLo1oItCN2x62
+         aKiApNqs7+ZZYgxdg9u5z/epooI4cd/yuOaB93Nz/OwkzgCH8Jonno2l0AJL3n5TTKu5
+         NSoNlwG+4sBWRwju5Z+oul/HTnJBg8FqTJh3GKKSvNsNDt/Rh9/yNUXY+7tsbemvLPM6
+         Yeceln1ABZHARyOFIsQcUcreNJ3cy2hKpseYEeCDzVZMCK7Qf7Qjwb33sEXL0hAQlSRX
+         DIiJz6HJrE4TiQK0M08FdY+OPKnPHp909jP07lB1u181Dogr3gpOH6FdoNSiZLCombP/
+         lfmQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqEV1FKSwux777uMKKMMIL9FNuPDIyTODzpYkWM3WHF/PLjN4IKbzoUYIwu+46sm9TO4YXID7+CDLsJYvpKs8Py@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmHKbgNTK7kqmONtKgt9sxe9zoRPuhCMzIlSnzoI9L+APsYnXR
+	u1d5AikP1nK/qhNKs+2l9zXpYwz5H7YmDijICVo/2v2MlP5iLuNU3jbKl3QNUvN0Lhv07OOGRgd
+	U7D6UqeENYZGXQC91Ck7NhjN0mWuEkqVknf/XLXtp2g==
+X-Gm-Gg: AfdE7clzDrae4RIkhDNgFKC8X9FCg+hQb/PArc1/LRDf6gSzOYzGTpEEauKnq99WCzG
+	RMkgCjfcrh5DQ9eb28NVcfSI8jAo7QIP1+v7KVIZ5op+kLMVoaRp91AvurVdYYBsOKZiUZaNxQK
+	/9FYqYALxXpk+fY2Q+TL8W5Pbsfmrq4A1GHY7+gw1wZjWIDVVfoAB5Q1H6+0QdKOsb0NR7/zzsI
+	nR83uxn2GAPQR+UnKBQ5Y/QK1ZCcsRxCLpwgjuC8a09W1y32oV7hzGF2jZz7TrY0xysejFrUQYU
+	zTxb0JT3I0Xo9rbkEdMp9+jjkq5EY4cz+J6M/IIDtxGOL3I7X9fmYiC7XQ==
+X-Received: by 2002:a05:6000:40ca:b0:43b:498f:dceb with SMTP id
+ ffacd0b85a97d-47f488488a5mr1165528f8f.9.1784010844468; Mon, 13 Jul 2026
+ 23:34:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-smc-subdev-dt-v2-12-13fa78873121@gmail.com>
-References: <20260714-smc-subdev-dt-v2-0-13fa78873121@gmail.com>
-In-Reply-To: <20260714-smc-subdev-dt-v2-0-13fa78873121@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- James Calligeros <jcalligeros99@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2868;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=cPhUEwaWC4vFg+vWUv3YAUV9bYjnh8Y5E9GoO7RBxkE=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFmh1xnnR1SwsOTv9eNQ3bE66PE5DjtG/yOLj7VfcsmLO
- cbxv3xHx0QWBjEuBksxRZYNTUIes43YbvaLVO6FmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
- jXSMdYwYuDgFYKrldjH80yzWPOwV2XW/ap3i9sV/e+798Dn1aptA26qa2r/cEh7ZXAz/jINkVvd
- eP3tJW8Us3FL5ktTfJ9lz/lhN9pKTXen746g6GwA=
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
+References: <cover.1783524645.git.gregoire.layet@9elements.com>
+ <28c6e7c493559feffc7e6231b0a2f0b73b7fda41.1783524645.git.gregoire.layet@9elements.com>
+ <1af9eb75-fcab-4541-8ba7-ec620546f031@kernel.org>
+In-Reply-To: <1af9eb75-fcab-4541-8ba7-ec620546f031@kernel.org>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Tue, 14 Jul 2026 08:33:53 +0200
+X-Gm-Features: AUfX_mwqF2s0XWJlIYVM5Zbx0O-qqVqJE0SWnGYK8fsSsk4VE3pkV1cTIOFg11A
+Message-ID: <CAFi2wKZRVbmCwprkxGZoxib8BrFd9kDS3H2cDmykEorB5S7Xrw@mail.gmail.com>
+Subject: Re: [PATCH v4 4/7] serial: 8250_aspeed_vuart: add VUART over PCI
+To: Jiri Slaby <jirislaby@kernel.org>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
+	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
+	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_232913_726101_F17B350F 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_233407_309137_05A0BCDB 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,86 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device-specific hwmon sensors for select T60xx-based devices
+Hi Jiri,
 
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
----
- arch/arm64/boot/dts/apple/t6001-j375c.dts      | 2 ++
- arch/arm64/boot/dts/apple/t6002-j375d.dts      | 2 ++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 2 ++
- arch/arm64/boot/dts/apple/t6020-j474s.dts      | 2 ++
- arch/arm64/boot/dts/apple/t6021-j475c.dts      | 2 ++
- arch/arm64/boot/dts/apple/t6022-j475d.dts      | 2 ++
- 6 files changed, 12 insertions(+)
+On Thu, 9 Jul 2026 at 07:17, Jiri Slaby <jirislaby@kernel.org> wrote:
+>
+> On 08. 07. 26, 17:35, Gr=C3=A9goire Layet wrote:
+> ...
+> > --- a/drivers/tty/serial/8250/8250_aspeed_vuart.c
+> > +++ b/drivers/tty/serial/8250/8250_aspeed_vuart.c
+> > @@ -32,6 +32,26 @@
+> >   #define ASPEED_VUART_DEFAULT_SIRQ   4
+> >   #define ASPEED_VUART_DEFAULT_SIRQ_POLARITY  IRQ_TYPE_LEVEL_LOW
+> >
+> > +#define ASPEED_SCU_SILICON_REVISION_ID                       0x04
+> > +#define AST2600A3_REVISION_ID                                0x0503030=
+3
+> > +
+> > +#define ASPEED_SCUC24                        0xC24
+> > +#define  ASPEED_SCUC24_MSI_ROUTING_MASK                      GENMASK(1=
+1, 10)
+> > +#define  ASPEED_SCUC24_MSI_ROUTING_PCIE2LPC_PCIDEV1          (0x2 << 1=
+0)
+>
+> So is this
+> FIELD_PREP(ASPEED_SCUC24_MSI_ROUTING_MASK, 2)
+> ?
 
-diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-index 2e7c23714d4d..08276114c1d8 100644
---- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
-+++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-@@ -24,3 +24,5 @@ &wifi0 {
- &bluetooth0 {
- 	brcm,board-type = "apple,okinawa";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-index a2a24d028cbb..e6eb6b6c386d 100644
---- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
-+++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-@@ -184,6 +184,8 @@ atcphy5_usb3: endpoint {
- 	};
- };
- 
-+#include "hwmon-fan-dual.dtsi"
-+
- /* delete unused USB nodes on die 1 */
- 
- /delete-node/ &dwc3_2_dart_0_die1;
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index fee84f809a9c..caded1636f3d 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -367,3 +367,5 @@ &atcphy3 {
- };
- 
- #include "spi1-nvram.dtsi"
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6020-j474s.dts b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-index 7c7ad5b8ad18..e3c2635d84fa 100644
---- a/arch/arm64/boot/dts/apple/t6020-j474s.dts
-+++ b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-@@ -45,3 +45,5 @@ &pcie0 {
- 			<0x200 &pcie0_dart_2 1 1>,
- 			<0x300 &pcie0_dart_3 1 1>;
- };
-+
-+#include "hwmon-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6021-j475c.dts b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-index 533e35774874..9fe17f1f7f59 100644
---- a/arch/arm64/boot/dts/apple/t6021-j475c.dts
-+++ b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-@@ -35,3 +35,5 @@ &port01 {
- &pcie0_dart_1 {
- 	status = "okay";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-index 31f24bbda968..32938a3bf96a 100644
---- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
-+++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-@@ -44,6 +44,8 @@ &typec5 {
- 	label = "USB-C Front Left";
- };
- 
-+#include "hwmon-fan-dual.dtsi"
-+
- /* delete unused USB nodes on die 1 */
- /delete-node/ &dwc3_2_dart_0_die1;
- /delete-node/ &dwc3_2_dart_1_die1;
+Yes, replaced
 
--- 
-2.55.0
+>
+> > +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN          BIT(18)
+> > +#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN                    B=
+IT(17)
+>
+> Perhaps switch the two (to be in asc order)? And define 14 as _RESERVED
+> as well?
 
+Acknowledged. I have also removed the comment afterwards.
+
+> > +#define ASPEED_SCU_PCIE_CONF_CTRL    0xC20
+>
+> Hmm, should these go before 0xC24?
+
+Yes
+
+Thanks for the feedback, I have made the changes for the next revision.
+
+Regards,
+Gr=C3=A9goire
 
