@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4561C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36987C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPa4aylWgI5AC08JpsSdo1aaI++VFHxt+8yeLWVTzSI=; b=NiRMttyybtKz+qymkEIeod2xLm
-	sHjufN61b2YcFHk8xshXDdZp2rLHV2jXbi9P7WGpgDlLLTplc9A+8IN9+lAUAjSr0b7HreJ7513tW
-	WSWXCS1JZNqLRts0pGXeu6ZXZif5qQMffgISV2bJdtSyAkf2Xho6Y5nsXR7PgVt1vzfUcsGGOrCBy
-	KP4rk9fA43tPvj6L/RfD3Gwb1Gg6UlnvC9SQEYOEVJxrJktaI/JF3Fj0+8urqqJHGGwTB2zFfydHO
-	bb8lNPaz3tTQHLl5XOEzFRz5NW71APu56Qj9tWCK87WNcRU8gtjOXb/Svdbd93nxcWr5KDWtd/j2U
-	33/dAN7g==;
+	bh=ptobWscVWFitUE7YzTMPHgY1rovNIaVBt3vxnNpD814=; b=sU6xzF2syKHcPHBX9UK9kGiWih
+	NhmeAKZscUkfLqIxYiDEzmyBFBgKEzaDQkHVj/ZbPF5mYxl9Lgt33++8KtY192pNjz8RpS0BNcUdO
+	nrwNpuUrDgTLrSbdoZJgdOpA7y+NDFz2plXcxcUPMYVtdmuS5WRZrYaYeZR0GKQ5UjXCtjZU1BcWG
+	jOLSLFhCZIlaBMxQOobEFH9pWjOKFATfINMyVwHiKTGoFGF8/ylmuPyLTgcFrl/T8eC9oPPD/Xde8
+	QesksDDzrdbQi82W8CuQ/4q+G3wAeQCwAp/rqm1YbWuV/AHBrw2qxIVVOvG47yUVeNkKaJG92jTFx
+	z5am6e6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaCC-0000000BXSK-10fS;
-	Tue, 14 Jul 2026 10:17:00 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1wjaCB-0000000BXRP-3dmv;
+	Tue, 14 Jul 2026 10:16:59 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaC6-0000000BXNQ-2So9
+	id 1wjaC2-0000000BXJx-2fyK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:16:56 +0000
+	Tue, 14 Jul 2026 10:16:52 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784024211;
+	t=1784024207;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UPa4aylWgI5AC08JpsSdo1aaI++VFHxt+8yeLWVTzSI=;
-	b=IEREiKQ8vzXfvXvn1ISWOsSmfPoYkjTZuLWUBBVvDcujFYRhJkQRr9jaIIKQysSmqdQ6QU
-	eb2vGML/NTvQcCwmbFRCfAdQsA0MkCZBCF5rx8JLpj9XBUpBBwBHa0UCzDtqsoiRTl1UwI
-	yo10efVG4ML6f6aTnufAni0+Rh92PyI=
+	bh=ptobWscVWFitUE7YzTMPHgY1rovNIaVBt3vxnNpD814=;
+	b=faozMeKvmxBXNsF2LuzB8z2hJZhYlvlKeBHS2PALOy9wjZzg643N/DNDb39zKiFvYiucdL
+	YCmhYhjw3WJahJMhCc07j/iS+C/+V53ostEWPhQ80abIy/Kr6LFEiKwsRCzibo0MwiOpNw
+	JGdCh6YZQl7tmZ9m4P4wmZq0kh6TeOs=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v5 7/8] KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
-Date: Tue, 14 Jul 2026 11:16:00 +0100
-Message-Id: <20260714101601.4142645-8-fuad.tabba@linux.dev>
+Subject: [PATCH v5 5/8] KVM: arm64: Add host and hypervisor vCPU lookup primitives
+Date: Tue, 14 Jul 2026 11:15:58 +0100
+Message-Id: <20260714101601.4142645-6-fuad.tabba@linux.dev>
 In-Reply-To: <20260714101601.4142645-1-fuad.tabba@linux.dev>
 References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_031654_909891_B2D98AD2 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260714_031650_837014_11BAA0DD 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +82,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Marc Zyngier <maz@kernel.org>
 
-pKVM performs its own world switch for protected VMs but has no
-primitives to move the per-vCPU VGIC state between the host and
-hypervisor vCPU contexts.
+The nVHE hypervisor repeatedly resolves a host vCPU into the EL2
+address space and validates that the loaded hyp vCPU matches it, with
+that logic open-coded in each handler.
 
-Add flush_hyp_vgic_state() and sync_hyp_vgic_state(). Flush copies
-vgic_hcr, the in-use list registers and used_lrs from the host into the
-hyp vCPU and pins vgic_sre to a fixed value; sync copies vgic_hcr,
-vgic_vmcr and the in-use list registers back. The active priority
-registers are handled separately by the save/restore-aprs path.
+Add __get_host_hyp_vcpus() and the get_host_hyp_vcpus() macro, which
+translate the host vCPU into the hypervisor's address space and, when
+pKVM is enabled, also return the loaded hyp vCPU if it matches. If pKVM
+is enabled but the loaded hyp vCPU does not correspond to the requested
+host vCPU, both the host and hyp vCPU are returned as NULL. Convert
+handle___kvm_vcpu_run() to use it.
 
-Bound used_lrs by hyp_gicv3_nr_lr, the cached implemented-LR count,
-instead of reading ICH_VTR_EL2 on each entry. That clamps the
-host-supplied value and avoids a per-entry sysreg read that is costly
-under NV.
+No functional change intended.
 
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 55 ++++++++++++++++++++++--------
- 1 file changed, 41 insertions(+), 14 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 52 ++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 14 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index f3233ee343a39..2db56146ec493 100644
+index d3c69de698f48..45d717889f6ea 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -104,6 +104,45 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
- 	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+@@ -214,14 +214,45 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
  }
  
-+static void flush_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	struct vgic_v3_cpu_if *host_cpu_if, *hyp_cpu_if;
-+	unsigned int used_lrs, i;
-+
-+	host_cpu_if	= &host_vcpu->arch.vgic_cpu.vgic_v3;
-+	hyp_cpu_if	= &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+
-+	used_lrs	= host_cpu_if->used_lrs;
-+	used_lrs	= min(used_lrs, hyp_gicv3_nr_lr);
-+
-+	hyp_cpu_if->vgic_hcr	= host_cpu_if->vgic_hcr;
-+	/* Should be a one-off */
-+	hyp_cpu_if->vgic_sre	= (ICC_SRE_EL1_DIB |
-+				   ICC_SRE_EL1_DFB |
-+				   ICC_SRE_EL1_SRE);
-+	hyp_cpu_if->used_lrs	= used_lrs;
-+
-+	for (i = 0; i < used_lrs; i++)
-+		hyp_cpu_if->vgic_lr[i] = host_cpu_if->vgic_lr[i];
-+}
-+
-+static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	struct vgic_v3_cpu_if *host_cpu_if, *hyp_cpu_if;
-+	unsigned int i;
-+
-+	host_cpu_if	= &host_vcpu->arch.vgic_cpu.vgic_v3;
-+	hyp_cpu_if	= &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+
-+	host_cpu_if->vgic_hcr = hyp_cpu_if->vgic_hcr;
-+	host_cpu_if->vgic_vmcr = hyp_cpu_if->vgic_vmcr;
-+
-+	for (i = 0; i < hyp_cpu_if->used_lrs; i++)
-+		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
-+}
-+
- static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+-static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
++					     struct pkvm_hyp_vcpu **hyp_vcpup)
  {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-@@ -152,13 +191,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+-	int ret;
++	struct kvm_vcpu *host_vcpu = kern_hyp_va(arg);
++	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
  
- 	hyp_vcpu->vcpu.arch.vsesr_el2	= host_vcpu->arch.vsesr_el2;
+ 	if (unlikely(is_protected_kvm_enabled())) {
+-		struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
++		hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
  
--	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
++		if (!hyp_vcpu || hyp_vcpu->host_vcpu != host_vcpu) {
++			hyp_vcpu = NULL;
++			host_vcpu = NULL;
++		}
++	}
++
++	*hyp_vcpup = hyp_vcpu;
++	return host_vcpu;
++}
++
++#define get_host_hyp_vcpus(ctxt, regnr, hyp_vcpup)			\
++	({								\
++		DECLARE_REG(struct kvm_vcpu *, __vcpu, ctxt, regnr);	\
++		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
++	})
++
++static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++{
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
++	int ret;
++
++	host_vcpu = get_host_hyp_vcpus(host_ctxt, 1, &hyp_vcpu);
++
++	if (!host_vcpu) {
++		ret = -EINVAL;
++		goto out;
++	}
++
++	if (unlikely(hyp_vcpu)) {
+ 		/*
+ 		 * KVM (and pKVM) doesn't support SME guests for now, and
+ 		 * ensures that SME features aren't enabled in pstate when
+@@ -233,23 +264,16 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 			goto out;
+ 		}
+ 
+-		if (!hyp_vcpu) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
 -
--	/* Bound used_lrs by the number of implemented list registers. */
--	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs =
--		min_t(unsigned int,
--		      hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs,
--		      hyp_gicv3_nr_lr);
-+	flush_hyp_vgic_state(hyp_vcpu);
+ 		flush_hyp_vcpu(hyp_vcpu);
  
- 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
- }
-@@ -166,9 +199,6 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
--	struct vgic_v3_cpu_if *hyp_cpu_if = &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
--	struct vgic_v3_cpu_if *host_cpu_if = &host_vcpu->arch.vgic_cpu.vgic_v3;
--	unsigned int i;
+ 		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
  
- 	fpsimd_sve_sync(&hyp_vcpu->vcpu);
- 	sync_debug_state(hyp_vcpu);
-@@ -181,10 +211,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 
- 	host_vcpu->arch.iflags		= hyp_vcpu->vcpu.arch.iflags;
- 
--	host_cpu_if->vgic_hcr		= hyp_cpu_if->vgic_hcr;
--	host_cpu_if->vgic_vmcr		= hyp_cpu_if->vgic_vmcr;
--	for (i = 0; i < hyp_cpu_if->used_lrs; ++i)
--		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
-+	sync_hyp_vgic_state(hyp_vcpu);
- }
- 
- static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 		sync_hyp_vcpu(hyp_vcpu);
+ 	} else {
+-		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+-
+ 		/* The host is fully trusted, run its vCPU directly. */
+-		fpsimd_lazy_switch_to_guest(vcpu);
+-		ret = __kvm_vcpu_run(vcpu);
+-		fpsimd_lazy_switch_to_host(vcpu);
++		fpsimd_lazy_switch_to_guest(host_vcpu);
++		ret = __kvm_vcpu_run(host_vcpu);
++		fpsimd_lazy_switch_to_host(host_vcpu);
+ 	}
+ out:
+ 	cpu_reg(host_ctxt, 1) =  ret;
 -- 
 2.39.5
 
