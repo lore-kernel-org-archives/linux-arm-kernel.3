@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6D9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB84C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 05:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzRBzQNIlPOcB9+UJSW/ZjK3CK6H+ocXVlUvjqfeJYA=; b=m6ugwy2FIYAuHG2o9PoyBt8Lfu
-	sFpOxOYoWfn/aXngCRVWr3p/ERVsRQEX8lzCFbgGQdAolee3DcSS/W7Ys2O/zLOG18CppkctldiLN
-	atkRxIabfAYAkqt3m4Fw8r3mezmivzUwY4jbZ4EwYpQzm6Lly9lM8YHVPz0xCVJ2RKIJkR/+JlIrq
-	95Od0piWJRTWNiMCi4qzNftezh4pOBGtR+ytGGfxgYag2vzUADcpLM6516kpUh6a60Wy5FxQK0gue
-	HpXJqo/5xV7U/lpSpSGSH4vvtnguokTJmiq8e5meZ//+75U0QZmqFSpn5ZbpgofH+pqVH7He4qZJq
-	P2haYnjA==;
+	bh=gzRBzQNIlPOcB9+UJSW/ZjK3CK6H+ocXVlUvjqfeJYA=; b=FcE32QmZ6y394dt6qUv20UO0V3
+	yGTfbajxDa9p7fMbq1BuY1DuSCfl0zo9VSSJQcLyjcTZ8Sjbz/c1GbbuYjZiifrUBlSx6RlY4CH6t
+	ipP3zk1LpQ63nwV+3H7dnZoHYdnmzmXi+O0MpjsXLKfZd48JS4K+Qvlvg9wGOxRyoFYncQspmlM+R
+	0EU9qY4gJYKIu7la/leAlmwrjfiVo2h4WVeBhSu62nlxvRq53Lf5K9QZZo9uhOhCh9A/YDcMHTohR
+	ypCdZYx0MFLHu8fpeI7OKSzwVN61akmQkZ5mZvneCB8YxfO1nf/NZ30E5+mBcWD/vyTmRP9ndnxYH
+	YdCmy1XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVnV-0000000AxbT-3qu4;
-	Tue, 14 Jul 2026 05:35:13 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wjVne-0000000Axnm-3lIf;
+	Tue, 14 Jul 2026 05:35:22 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjVnO-0000000AxRo-2r4y
+	id 1wjVnY-0000000Axf2-1Jy6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 05:35:08 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e07ebd263so452819a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 22:35:06 -0700 (PDT)
+	Tue, 14 Jul 2026 05:35:18 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3847e8b0f3aso3257162a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 22:35:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784007306; x=1784612106; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784007315; x=1784612115; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
         bh=gzRBzQNIlPOcB9+UJSW/ZjK3CK6H+ocXVlUvjqfeJYA=;
-        b=llB4TPPvcHlmDpE6AonsyUs+5ofKFh06AzS5OmUplRwJEN6WtosR3FA1/Yo7WF6f73
-         VijTqee47oAaJJ0WnAKGScwukZ6FeTczRbZ+kGkHf/vbFhA03ChQ+zTu9KcIQrZne42n
-         2DGreWHE1qP8jr6PYrzbNQ64C0oou8KlaPj8MLReWY0zkGYio3jv7QnSfQXo56rE7V85
-         rEjq4PZfh9OcFMz6a5O0TIV8+w9vDmFoy7MHNRm3Wl1HSkByclMBNBzHGRPMLLsUW/0e
-         XPnk1OD8LMePqSC9EaHbhlNf/XdqsBxIAtM6yiLyQBZ6/9+AbzM2uL9+vxZ2rqT9y9wh
-         uUpQ==
+        b=lM3igkSAccVGqmkAK/XjfA4YynCVkn07mV+ROqxKWAzy9F5xUbcCraFSsbFKCJmyR9
+         Atkb56pXAi8xSKeTZ5+VYsJhRevO337ODeVqHo1UylZtxEIQMocbAQSRpb3weCd1UiQ4
+         Gt1UwBET4fAGAUYe9tp3Dnq3aBPHXDEaOooba4m9Otw+AEVx9XW5v3BalA4Pp/Lx5aw4
+         Ad9LTUVFY1JRCSUbL4MzsbZ8bhz6cDot/W/ndYHLz9v2CPGi9BBpLRX31/x/YzUtk/ZD
+         DD9AS9x04S64DGQXvzJa1HBlCQUo4DGfhvK+m9TGNszMFtP0JtSXwyxh649gDkp335Bu
+         3C/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784007306; x=1784612106;
+        d=1e100.net; s=20251104; t=1784007315; x=1784612115;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
         bh=gzRBzQNIlPOcB9+UJSW/ZjK3CK6H+ocXVlUvjqfeJYA=;
-        b=Wxrk+xsgZ2zqAjefdWlOK75Vie2OcgSfOewn4SAWdFWQnFfPa0qgusgZ3kJ3B9wQai
-         fPUD1n+Y+la/xw/o9/QRH6nUAMKzRClRArIcCUGLRlzAiQEagDqqblcjLNtSBs5lDIXk
-         SGA1LJGPqkvT6P8NPAZetbq6Tut7XeZTrV5YcNnT+1WcvvQL0Vjwv9xU5R+iuAs0DJ30
-         6DnJBh9+hqvS/Bs2V2VekDT3SUb+6sTe9nIxGQvJJf1sZsol5RjVpxsIMR75OKJGOzV5
-         3ZS3YCeP+G+X/Zl7uR/5JI8EXmLUY+pAgRLqChW114jQbuPpFv2DOhmM5/055wnpVrGs
-         qnDg==
-X-Forwarded-Encrypted: i=1; AHgh+RqtnaWMoS4plRSpt4wvAWtBMKprYUn6y9BhMxS+8n8yJMf3S9bCYVEbrOPAhX2IFRtWySbRUyrBHS048+Jz43qU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2WGDKUcRzS3tVhBMbMQxN8ZB0D73v5QJBnu6Z/EDOfDGLLe4E
-	oDu7+ewELkyipnlHQlDyHu4VESqEuyRa8R/5EuzOGXdmFLt5UXR8pC4m
-X-Gm-Gg: AfdE7cn8ZAPdhXZw3Z5dxCLSWHkhYCeMURwugE8V4haUDOoB1PGYhB9E9ddaYP9fR6R
-	L4Wv44DdybyqItoDmi+M5W4ZVzhNzmMkPWoiy5Vh5rOGosEnjcCLWVO+bXdKkCoSHkrG0ila13r
-	ElUaS0wNPnhnqSNC37y0DCL8X69gBafMc8oYRwSGANfQgkVp16IwzGp1qIKFUv1B6Y3n9cWJ15c
-	FLH/jgPtEDfjaqeljbdWQ3uQJAwTxl1qzqz/GvLMra0hQS1d3qmNmeYH/XMZLlkaiqSvF/9YR6h
-	12bVpT6UxE6u97M0SyRLrQP1dsv9DJHaFbeEAWRVA/58IMqJuEQdZa8QiiQILCAcu8UapdTio8V
-	GzBzlKueWLIRoDag/x1v3B22ggZhJD3lrFzhuj1RVjNauvX61IHekeoSMTbKsWaEkFvY1Mdl+Q+
-	WFdBnbckvXcqgTE1GbdxMPLqDZyUry4mI=
-X-Received: by 2002:a05:6a21:9216:b0:3bf:bde7:d66f with SMTP id adf61e73a8af0-3c11076c6ecmr13530602637.2.1784007305522;
-        Mon, 13 Jul 2026 22:35:05 -0700 (PDT)
+        b=ODp53/XY7DfaZ3HKcSMAGCCsWhJPf/Wv4+tpCq3F01HGJavn6URzwFC6/0ly3IjZdz
+         18VfKrJbF17tjSHGFgJsbRyEMGqJxx8nTYphZFvczVF/W1LpF/ehVnZRbCRCgPP01T2F
+         l2M76AO5mbjjC7WwbbsSOBzCafpZLMX2QIlnbyWpR1XsgZUEHmIbD+WHKgOiPQwuwtR7
+         iVTuUjrJy/p4PekYRLOSyYlBXIa4aYDur3Qiq+ynlrcC8Xojo0LbWmwI85X+7UcG2vuo
+         JoH2QCkeFJwNrFAL5+4v4EL368inLGh/m1+Zu7ECHpbMIitvJmowssy5b1+0Ma0mJvFO
+         n/RQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqeNjUQsXqzB31SKKNl7/KtWx4h9hV6Se5Qk0XDCEh96gGm9gP46MGEdTSYtz7HClb5d0E5kNh06d/nefEdqsj0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXXY7ecHA8axHTqjsFyM6cNp3e8fXbTLpjhHNoqirm56x+dmc8
+	YQnumb2Szj6RX1LwxPTifIaOgCQpLuNHq+exbN7Y+xIBePUpbF3tQTZe
+X-Gm-Gg: AfdE7cn4LXZNVMQdMJ0isLuNjL2C02qOA/gNF3Lumyw4/LeJrQFHifuOdIpivCqRBD9
+	yeoowFJN1XYjPtSjTPpvJCbSi9WuE05Duc1Gu83DE8/S9mC33XT12c+DL2KHDrnQo4MP0ULDOlw
+	T4ebnlAto3Oz1d9c+oRkfB+P658pw3znCjcJFxEqDbtO2DW4+f9YO8xvBC+Q2ggU3KZHeK9Km8e
+	Vndp7jhxZHgf1Xz+CZfX6qVmHg0hHgDV/1ra+qmZIU1ZwilZ/EqHE1uhy7AAM9bm4MHb678FXDV
+	3XaOE+IpBbnmucr3PtHqkwYBSo0/y9zJDNsERhtcM+7IssjAeIWi4eec4gpPuV+S9KFaBNzPELI
+	29h6eLTxg7ThfNI9C9oGLbeOFP0WnSvK1766m0/7AUfJLg355klztoQR7RabOBOV1yuRNZmHvTI
+	Sr4DJXx/fL3xaSgu7XWyPg
+X-Received: by 2002:a05:6a21:7e82:b0:3c3:373f:e82b with SMTP id adf61e73a8af0-3c3373febd1mr5003847637.19.1784007315327;
+        Mon, 13 Jul 2026 22:35:15 -0700 (PDT)
 Received: from i386.168.1.127 ([2402:a00:163:2ce9:6882:91b7:8e79:7958])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659d8da9sm131882715c88.14.2026.07.13.22.35.01
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659d8da9sm131882715c88.14.2026.07.13.22.35.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 22:35:05 -0700 (PDT)
+        Mon, 13 Jul 2026 22:35:14 -0700 (PDT)
 From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
 To: linux-rockchip@lists.infradead.org
 Cc: heiko@sntech.de,
@@ -79,17 +79,17 @@ Cc: heiko@sntech.de,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Subject: [PATCH v3 2/2] arm64: dts: rockchip: Add Vicharak Vaaman2 board
-Date: Tue, 14 Jul 2026 11:04:40 +0530
-Message-ID: <20260714053442.265587-4-hrushirajg23@gmail.com>
+Subject: [PATCH v3 3/3] arm64: dts: rockchip: Add Vicharak Vaaman2 board
+Date: Tue, 14 Jul 2026 11:04:42 +0530
+Message-ID: <20260714053442.265587-6-hrushirajg23@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260714053442.265587-1-hrushirajg23@gmail.com>
 References: <20260714053442.265587-1-hrushirajg23@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_223506_750972_2EF4EA4B 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260713_223516_488590_8A5D02ED 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
