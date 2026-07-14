@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094A5C4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2575C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOQi0GQwy8LOev89x4shyoqxLybJwHsxamnktAUjmeI=; b=uWMFHn6husCJp1YZYprdbzwuPp
-	0/Wb/bzxx/IpAE3AqdnSYdJjzYRlXjRcc2Iz0OJ9bTnYh3bihZWXAtdLX2A/xjMpvnxRFECvO3Hue
-	V9ImkFmTZ9K3qFMSVT4WkcaklnQggdrVWRVXeuOPKMY+xycvUitwrpt46BtAavyaLSRFz2nA7oVv8
-	Vvp/L8ss6RV3SFlzarqyF/rMmGaAogu1toExhapGFTCPz/tqEAtqnZ5quc9d4yLA5NRmaUQJ9xJUi
-	qaYvgzEdvtY3fCHPxbMAje9o3f/YhQhNA2SRGRu8wTSFlCynOwjTtaZctuv1AzQrrj31zUy5m473t
-	/CAHMi5w==;
+	bh=hkKcOyZICo08l5q0F5dJW8wCAI/JQBA7W4IQh7k1JQM=; b=x5sMTfZrPzhq2pUKNrNyJLkuc8
+	Wdlh+W4xL5Tp2ElhHEWcvLyjlngG3w8M8Qo6G1zmVbPdLyM1qNnaNbFDSH4ITB5n2yMs05PPs6PKj
+	cNbJRsQDTa6ReSUEHriaK6sAsGvO3tPY3XzmZx8m6x3ZBfPjl0Wdj/12tYKF/yZGDY80zaN+HGVuy
+	pr61DWmLkU/vE8ZPuoL18FWgSyUG5XcNg9f4kZPTEZJp68tDfrneDLMbRI0aae037ipklQAJkV4kr
+	PDWfRmPgMOpnyy9XHY0ZMqur3nWMohmfmmaUUe5oNi/JYNRWYnmIJgv0++yoGyBa/yxrZyFSEfsT7
+	2X4zENnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcim-0000000C2c9-2us8;
-	Tue, 14 Jul 2026 12:58:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjcin-0000000C2de-19ns;
+	Tue, 14 Jul 2026 12:58:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcif-0000000C2Xo-0rpt
+	id 1wjcij-0000000C2Zz-0Z3v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:58:41 +0000
+	Tue, 14 Jul 2026 12:58:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F06E4407E7;
-	Tue, 14 Jul 2026 12:58:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C9B11F00A3D;
-	Tue, 14 Jul 2026 12:58:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B9743404D1;
+	Tue, 14 Jul 2026 12:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165DA1F00A3F;
+	Tue, 14 Jul 2026 12:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784033920;
-	bh=QOQi0GQwy8LOev89x4shyoqxLybJwHsxamnktAUjmeI=;
+	s=k20260515; t=1784033924;
+	bh=hkKcOyZICo08l5q0F5dJW8wCAI/JQBA7W4IQh7k1JQM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Qpv2yZMoV0IwLkDWYBeTujtcCkPjxoO392MiDs1lu7Pk/naBHnxQnDT/ZrjwOh/ig
-	 EsonaUbiHchwnW1+LgZdbAhqGSmKVp5DN9oGY/4vBHSnU/7cCAISCtV+d0vbzP+zbx
-	 nS0nTcfU8MoW9AR8IPzK7Eqx6fiMHcOoaY3jg8S/2AyLFkIQ3s3SQqp/NDhRnqh1cW
-	 M11h0mAnRtXqK3tCFLUHSlqjYZZec5IN6f26nVlkL81NyMvEIriWCd9mmn4UgtNOht
-	 gs5FFfQZWNL49SmSVkOrwOhqFL0LbVC5Zw4z/kpze8Vgrqs6uRtTBTTSPk10P7ykHf
-	 58prhXcvKiZyg==
+	b=Xfg17pOCKH58qm9QOQp3s/D113V6sEVUxJZ6+29T43uNYoNmOCrRsUAwCOUBFPCkp
+	 arVTHe95z5hFReyp2+agYWTPNUN4NQrQP/0It9KOjjtE48NNOuH7VlOyfw/hKp8fYf
+	 gRH/rlt7YEl3PIGlPKBKrg0GvtzniOAUGid9O+maO8z8i3QXSfY0w5EXAqqDvb18X0
+	 6mxw3l9iFWmvrs7oNXht1U0lx7IndAuHMkTEHXYDUDJ263zGxamkNsc6KgJCWE9/o2
+	 JX4VVrVt5iFMvuMJEk9iJvOmYG2ZNNQaqycO/MWQWcb3IyQ9IoFQPneMLIYnAVrn+p
+	 24yGKCNKYsjKA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 14 Jul 2026 13:56:22 +0100
-Subject: [PATCH v6 03/16] firmware: arm_scmi: Quiesce notifications before
- teardown
+Date: Tue, 14 Jul 2026 13:56:26 +0100
+Subject: [PATCH v6 07/16] firmware: arm_scmi: Reject out of range DT
+ protocol IDs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-scmi_core_fixes-v6-3-3afe499d46e3@kernel.org>
+Message-Id: <20260714-scmi_core_fixes-v6-7-3afe499d46e3@kernel.org>
 References: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
 In-Reply-To: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,139 +69,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_notification_exit() clears and releases the notification instance,
-but transport callbacks can still deliver incoming notifications until
-the TX/RX channels are freed. During remove, an RX interrupt in that
-window can enter scmi_notify() while notification state is being torn
-down and then dereference freed memory. The same ordering exists on the
-probe error path after notification initialization.
+SCMI protocol IDs carried in message headers are limited by
+MSG_PROTOCOL_ID_MASK. The DT parsing paths noticed protocol IDs
+outside that range, but only logged an error and then kept processing
+the invalid value.
 
-The notification late-init worker has a separate lifetime issue: protocol
-event registration queues ni->init_work on the system workqueue, so
-destroying ni->notify_wq does not drain that work. If the devres group is
-released while init_work is still pending or running, the late-init worker
-can dereference the freed notification instance.
+That lets a malformed 32-bit DT reg value reach helpers which take a u8
+protocol ID, where it can be truncated and/or treated as a different
+protocol.
 
-Quiesce the notification core before TX/RX channels are torn down, then
-clean up the channels before releasing the notification core resources.
-Use disable_work_sync() so future late-init queueing is rejected and any
-already queued or running late-init work has completed before channel
-teardown starts.
+For channel setup, two different out-of-range values can also be used as
+distinct IDR keys while aliasing the generated SCMI protocol identity.
 
-Fixes: 1e7cbfaa66d3 ("firmware: arm_scmi: Free mailbox channels if probe fails")
+Skip DT protocol nodes whose reg value does not fit the SCMI protocol ID
+field before setting up channels or creating protocol devices.
+
+Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 13 +++++++------
- drivers/firmware/arm_scmi/notify.c | 21 +++++++++++++++++++++
- drivers/firmware/arm_scmi/notify.h |  1 +
- 3 files changed, 29 insertions(+), 6 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 52aff3aded4c..ec373595f955 100644
+index d17559c897a9..0735c6374269 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3325,7 +3325,7 @@ static int scmi_probe(struct platform_device *pdev)
- 			dev_err(dev, "%s", err_str);
- 			return 0;
- 		}
--		goto notification_exit;
-+		goto raw_mode_cleanup;
- 	}
+@@ -2873,9 +2873,11 @@ static int scmi_channels_setup(struct scmi_info *info)
+ 		if (of_property_read_u32(child, "reg", &prot_id))
+ 			continue;
  
- 	mutex_lock(&scmi_list_mutex);
-@@ -3367,17 +3367,18 @@ static int scmi_probe(struct platform_device *pdev)
+-		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
++		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+ 			dev_err(info->dev,
+ 				"Out of range protocol %d\n", prot_id);
++			continue;
++		}
  
- 	return 0;
+ 		ret = scmi_txrx_setup(info, child, prot_id);
+ 		if (ret)
+@@ -3339,8 +3341,10 @@ static int scmi_probe(struct platform_device *pdev)
+ 		if (of_property_read_u32(child, "reg", &prot_id))
+ 			continue;
  
--notification_exit:
-+raw_mode_cleanup:
- 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT))
- 		scmi_raw_mode_cleanup(info->raw);
--	scmi_notification_exit(&info->handle);
- clear_dev_req_notifier:
- 	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
- 					   &info->dev_req_nb);
- clear_bus_notifier:
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- clear_txrx_setup:
-+	scmi_notification_quiesce(&info->handle);
- 	scmi_cleanup_txrx_channels(info);
-+	scmi_notification_exit(&info->handle);
- clear_ida:
- 	ida_free(&scmi_id, info->id);
+-		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id))
++		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+ 			dev_err(dev, "Out of range protocol %d\n", prot_id);
++			continue;
++		}
  
-@@ -3404,6 +3405,9 @@ static void scmi_remove(struct platform_device *pdev)
- 	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
- 					   &info->dev_req_nb);
- 
-+	/* Stop transport callbacks before tearing down notifications. */
-+	scmi_notification_quiesce(&info->handle);
-+	scmi_cleanup_txrx_channels(info);
- 	scmi_notification_exit(&info->handle);
- 
- 	mutex_lock(&info->protocols_mtx);
-@@ -3416,9 +3420,6 @@ static void scmi_remove(struct platform_device *pdev)
- 
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- 
--	/* Safe to free channels since no more users */
--	scmi_cleanup_txrx_channels(info);
--
- 	ida_free(&scmi_id, info->id);
- }
- 
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index 40ec184eedae..3239c28d6fa9 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -1706,6 +1706,25 @@ int scmi_notification_init(struct scmi_handle *handle)
- 	return -ENOMEM;
- }
- 
-+/**
-+ * scmi_notification_quiesce()  - Stop notification late initialization
-+ * @handle: The handle identifying the platform instance to quiesce
-+ *
-+ * Prevent new late-init work from being queued and wait for any already queued
-+ * or running late-init work to complete before transport channels are torn
-+ * down.
-+ */
-+void scmi_notification_quiesce(struct scmi_handle *handle)
-+{
-+	struct scmi_notify_instance *ni;
-+
-+	ni = scmi_notification_instance_data_get(handle);
-+	if (!ni)
-+		return;
-+
-+	disable_work_sync(&ni->init_work);
-+}
-+
- /**
-  * scmi_notification_exit()  - Shutdown and clean Notification core
-  * @handle: The handle identifying the platform instance to shutdown
-@@ -1717,6 +1736,8 @@ void scmi_notification_exit(struct scmi_handle *handle)
- 	ni = scmi_notification_instance_data_get(handle);
- 	if (!ni)
- 		return;
-+
-+	scmi_notification_quiesce(handle);
- 	scmi_notification_instance_data_set(handle, NULL);
- 
- 	/* Destroy while letting pending work complete */
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-index 76758a736cf4..f18f98c5ab3b 100644
---- a/drivers/firmware/arm_scmi/notify.h
-+++ b/drivers/firmware/arm_scmi/notify.h
-@@ -82,6 +82,7 @@ struct scmi_protocol_events {
- };
- 
- int scmi_notification_init(struct scmi_handle *handle);
-+void scmi_notification_quiesce(struct scmi_handle *handle);
- void scmi_notification_exit(struct scmi_handle *handle);
- int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 				  const struct scmi_protocol_handle *ph,
+ 		if (!scmi_is_protocol_implemented(handle, prot_id)) {
+ 			dev_err(dev, "SCMI protocol %d not implemented\n",
 
 -- 
 2.43.0
