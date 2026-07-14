@@ -4,127 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A35C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1B7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgsiL2xSMEHMtUlHZtH7Sn10/NLSQ4sHN33Twgz7Bn8=; b=QU+hV0XFxgH1SDOhjC1gfpYWyV
-	IKWu4dw/rxZx52gQSc+YWWhAifD2GrzCdAHta2A1IG0v3im/8L+JH3+RCIPO1vhkbtPFBVOOzjoTs
-	j+1I/btkbWPJdCYXXcYTe6ZrSJZhifo1SIq2iT8aG5StEer3ZzFzxRfsWefzcLRoaDBCrgnjcgOLW
-	UwEABeKVJLLJcB5KKIpb4jAvEs4k73iksuh1NrucwF7lJbIM+mEGC4X2HqhHmMcqIlzwDdMHmZPIh
-	e1j6d6AfXIeX8CR0TBzv5kBMdTvbcg3CWHIheCSU+naK4XTglPCN39+rLnLUYoR/2bJbTGhynVV2M
-	0Qvg5pPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BEW5lZA7kJtV8D1OKZ5O+uDVKLKbvueVayiEwtysTM4=; b=QofdLW0vnrsUazOKskEy/JV5Xg
+	xu0MdqRGGbtFJ6M7WTjctWBuiaYitRdBCXwSJqIOBg4am6XtqOZ43KGMJD9tlB7SY9g7xR6BMle8r
+	cl3ZCnbmlfxKF1AHbZnpauxX4Cr/pl/+ihIYJoi/8DwgdttwdvnPXdGCyrI8AIT/EkvdsSCOcfuyr
+	rTmi3yzdNVjMghdf5QhQ/2QfoX0o/jw9DkE/ORVdBkCav+IJnZvDo258EcLO8kUw1qFy6FNA0Kkob
+	pi+X8d/hf/YDkNo0di+a/jGSf1KLwQ3pfWjvQCRHTTn0X9nlzKxYrTUE9F9LSKjkCo+ATZuoSOga9
+	mf7Dgjyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdbI-0000000CFUl-2jAE;
-	Tue, 14 Jul 2026 13:55:08 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wjdbv-0000000CFbg-2wBP;
+	Tue, 14 Jul 2026 13:55:47 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdbF-0000000CFUF-1Zys
+	id 1wjdbr-0000000CFaL-3aj0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:55:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v49YIxlVyYwbMVFWiN1zX+n6YQlcTYCfz4ARfk9VRcWhVFo8PJJYec6PyrLbyZBZrSykBGXMe3GWGVP9vEdBm/XDGRunY4E81NyVWqSqVEEyQbkBt+5EbiG9/pNBvsle9XO9MFd/ZEZacbfjvJd6rwjTStizK8IwMG6YSW68S6hcRUu4PfH2XBV131xLNLpyMbMrd/qwHNGkMJTflStS6bKp497kJUVab1OSLX8wxZLrX8XSbmxqbclDi3Ix5XlEfHm5z4hi9dfqGSyBfNx/aNlj92cwKIuzjpQsy+cLYttTBow8kLkH72IaD2+m2HFll0xuI/fvG1mYP3osyZtgdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kgsiL2xSMEHMtUlHZtH7Sn10/NLSQ4sHN33Twgz7Bn8=;
- b=ZwoOjFumA5XsoNi95UgusR1D4T3jQPZ821DcWSji1MkKNtKTk07xYF8k+vBmYP4jvwACGHvpd+2PZ48pBt8vPYlfIw2cxdEGn3j84mCl4f0ewQNWGOnbLm5lDJFnTZGlDmGd9ms522rQFAV7mj5Tg74bMcA5M8kY222D5pEqTU1cisiYvAG5B6yjbtXknTwSSQJ2/H5ndH36pq5XeYZwDjMKMNce/gu1LvOCDmKN7eYa2HjtIAQrhpWkf7x4Vz7IOLIFgYVkZdUOhmhVLii6SKwmOg2nQwE70/PRLRQgh76XcmUPzd6yEusya9dUMIBS8Iei6zguhpPKLq2rx7esEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kgsiL2xSMEHMtUlHZtH7Sn10/NLSQ4sHN33Twgz7Bn8=;
- b=a0cWP8JIi3K2u+a9D0/aiyooPcBvGB2z9raIOj0q5cHU5kdS/OGqUN2LOywn5s4pv7en9CpZ8FvZtIaCsUxp8EimmAHZWxgtzPwXsOsMXnbMP8RMXTtxD6JBra/aQ1gp0UPkzO/cfHKkXfm6RbJz0c84lK1bK4FyFJOs4NzNDMaEGsykHdpa8EQVm2w/hNrDCmgZyGwC8d3jnwvmt+WKM73xFaEdUShq7HlPD8cHXwm4hh8HLtx9PjsHjh6f6/+9kpfk27pWwlkYkBCh/7pc1ylT9gDzpyW21pI+d8SypAOinDdKXZD1cXH81hTO6b31gVERSaeXMAoqmG6OUKV8WQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV2PR04MB12138.eurprd04.prod.outlook.com (2603:10a6:150:327::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.20; Tue, 14 Jul
- 2026 13:54:59 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
- 13:54:58 +0000
-Date: Tue, 14 Jul 2026 09:54:50 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com,
-	haibo.chen@nxp.com, linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v5] i2c: imx: mark I2C adapter when hardware is powered
- down
-Message-ID: <alY_qiBhG7EMGfIl@lizhi-Precision-Tower-5810>
-References: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
-X-ClientProxiedBy: PH0P220CA0006.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 14 Jul 2026 13:55:45 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-ca2fad0ae38so3296678a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 06:55:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784037340; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rL9kw8noHOiximXXeRpBUFo+bjtdsTp4qGhhtqpjrNbMGikHFwkJBiBrrOzBBwiB5q
+         QQvrd/JPNkqfAEEgFHvZVg5/WK/boM7wOZbUS8W74Q+HhxkgFm8aQBrADOUgv/uWoKIC
+         E/jymN8/Lu6rpimFMEy73osaGCSLnoMrtfz3JI2CWP/5ApHCbDjkeYV2rB0L1ozHV9q7
+         WDCYGVvbd3SrYEMS4N5hNDmC+yiHkBnBN1arFw65PKcAUkcZjuWK1aU4Rn9YTWtrz006
+         kEsuof6H6cAiKbS5uPsHNCYCjQCsSAdPLZ1MMeezGFouoge+f48f97NDDcPjGjaC8bbc
+         Hw7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=BEW5lZA7kJtV8D1OKZ5O+uDVKLKbvueVayiEwtysTM4=;
+        fh=glWS+P/UNMzWxZ9okvwE8LBBh/Oo+OBGLDpX/Nkw0AU=;
+        b=oXodcd7Y7XwQKlFzp8EDV6pcfY4VbNIlUETus2iA90Zo/1QMf/n2PSCcoaHRTYhC9I
+         g1AG/8KZr0ZV+g7yBAsoN4D6/Bs9zE6vYLhWAlxjApOOmG7iYnsnIQsPQmuWNJsCTrNV
+         P5RNyZDcVI3xGT59jIfZ+PAeLZEg2khU5gCA3eTvmXa0+ZCDedGoQplRqcQ1uMepJQ09
+         13H5DaUb8rMWrfXm2Ct2b5qAwgojnhsjpa7S95HE8Y+35zco80GN0eIUq3jwW856QsbZ
+         pB1QU/7+sef2qNJRxSUpHr37FN6E/IQwLCTJ25yi0pX5FtGAqPAwJ/T9sN9iScfRRtJ8
+         h0lg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thingy.jp; s=google; t=1784037340; x=1784642140; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BEW5lZA7kJtV8D1OKZ5O+uDVKLKbvueVayiEwtysTM4=;
+        b=T9s5qowLxy4cwpR93Pkcx5I6qxPCpY4W9J5z4bUwdtdJ3n0sovYsE4RoiPB/fZWGlO
+         vVKdVhTZtRbjzCp6ONKO6JTsh9BLlbkv/bIAPobqVyF4FliJ/Y/V7ndIK9y5javybSUK
+         cF+9/S6ANwjWaRaKHAmCAz7sFSCzsdiRgIyew=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784037340; x=1784642140;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BEW5lZA7kJtV8D1OKZ5O+uDVKLKbvueVayiEwtysTM4=;
+        b=QEjNldLTjrd+Ehe5J9vIFyV/E/nAeUJwaJI7mZsk75U9tnslXEt6Bcjq5Nz58p2kMz
+         /F4p0xC4ljck5QzTEtPpYZfqJpjQmilK+2sUY/BIFE/yyHJxgYucGh/72VxsBCL40ieR
+         kWaFjljF4RK94EOHrH1tp+Q3eOvmI21ObVPaH2pyQQG4nI0zAjin0D012zgb36T1UiPv
+         dcIl4M/AKvx8EQxRBzCSLOg4QjqTHvI2cOjfoZ65SX7MHhAmozoAItEshOM06m9K9kyg
+         CHcH4aV4zmeggyCBAdf8L9Kp89aHeoXVGUtm0SJg70mn2EikHe1JB8tKHJwvlrXoiNqj
+         cAyQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrHlYrgwNctIDecAL52kzS4KUJFFTdO1GXws1TVoB4RkSOqGIAFBkMLNM5eNmh5hr2I46ds6sgZAxbc2dMdBOKk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yygh2gtiLzNG8CugnPbvK8GsdoBKRxr+W+7ZycJLzyk0bGh3pvY
+	qFFJ1qc3GYfTi8XS7UdP2OolfIeo4tdotMyzGmRkTfHgIMQNhqc9GziWeEk+PDE8MwJtj/H+qnY
+	P4sPbqzT6YaTOouLo5UVWdtlhWMgAMvlIe0qCP3LedG8scmET3wgZ65QdbQ==
+X-Gm-Gg: AfdE7clEpoK7wMEJ4FmcEGvEalYniHQKbn+gz+OEEtZJsT3pc6CwdX3rV0bDAad1I14
+	4K144ZY3CD40dXeAQ4r1e41Y52n9bUDp6r0vZdOWDaVGkxY8BBdwrzHy4PK4QVyl17WnUwDWcUf
+	kHOPli2KNlVLFPJb1r0EKmKix80kR+4zCuD1Nr05fU4rUTwWT+9qX/wmzwbURtuP7qBa91PZsTJ
+	sr2bcoihl6YhF49xpIQH2rBdJJeAtu546XBAwn3jCLTqL+SES0y4J/EoM9DAYXYIwAI0H92n9ks
+	pJ+7o/vcZXl8MHqx+jdYPW9/cp/KY8o=
+X-Received: by 2002:a05:6a20:450f:b0:3c0:9c19:65a8 with SMTP id
+ adf61e73a8af0-3c110a30fb2mr14802853637.64.1784037340342; Tue, 14 Jul 2026
+ 06:55:40 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB12138:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cd4d4dc-481a-430d-b078-08dee1af7e3d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|376014|7416014|6133799003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: g4ODdAyoVBWkoVaxGt/3hL8ZaV/Qy2egcLCwi9CogPv/Xapkj/aekUsp2HFJJuOg0wvwVnVyyqEEzhJVHrMFX4Ku38vz5FO6J/5cLq+En3EIUuX7KSRZRvFVRDxNStNTVrwJWW3kx8sgWxCIC8QzqSkD4riuF2TYK/SLgK5WgFylGlQM8lSOTWp+193Gx33rFxXXcIx0oWcw+OgnVbsm2qmwZGxFFb6LMQBSrdg7zIT5wdpgeoFaYwUYBkRk/g23+LODMnFNXa5nDVwZPktEHOVcbg1P4R9aG9+Asm4RguFmtLh2JIdj2JahhJgamOBU14euKlMPj6vV0mQT+/6MCmIBKE/cQPAP2uc9w4YmDzC0jWCJzV3tOPVxBG5gXvX9fjkVupVKi3Najn8p4TeMwAjMYS0ZfFa8Fd0tqTtDmCUG3aYqP1gT8za6Dvh1cCFmmqrsDHwjIoVNCb+O03G2D4EsZi1w80r5TKE56FmBrEd2Q1SB35MuGmsteb3lXFge8KKDcUpu6desCIS+bYxshT865T1kH3Wzo+z0GsxtYuKVNtAuhyyn7sH+oUobP6FfGiKr3wee7NmXNEXBJixBiL5wFyp0xgqsZoaKMs021N/MLDvc9STaJ5lYlZH0gwoyOWuj2wHnI3fBNYDNdO8TXXn1VuaNQMsWFkx8FLIG0/M=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(376014)(7416014)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EidolT9byhPzPLB5edanrm8ahkc6S9QGslYtQPxGUlyNuWKHhImIah1ZIp7s?=
- =?us-ascii?Q?Bxw2aENt4xfjeGjHDb9f/KT3e50m9Jv98Ng3sYpa7YOmWUQ3DoSrCfJYYAz0?=
- =?us-ascii?Q?cjT+bWNNzYS3/3E5zehORkiWOkEt94istg71YIzSQVRnez0I/ortO0SSXvGt?=
- =?us-ascii?Q?37JWZa7U2sZbQSY0voJW3oj/ZRsLTXM1KMmYbEEfex9MXr/BZBC9M3ZMLYGG?=
- =?us-ascii?Q?SB5qJKEWamcfyJ+uK7hbJ694j9W05eN2fO2bW73MhHLjAsHs9XP3giY4jqbc?=
- =?us-ascii?Q?FCjSEMHRgjlqAaSEWLhzn50GI5j0Ej75SHXcw7+tj4N1CqBwC2T6f2jKiGd7?=
- =?us-ascii?Q?sZwBNBcUHXG8TVBEdSBuER5K0f6Ph/aSlxYMVxpFMRKHYhtDExcJdq5X2I6J?=
- =?us-ascii?Q?XZjOvci3OisUlHY/RgjIj8qKcyOP43vYlH1Xoba52GagO8m0peeA3gwIKPHT?=
- =?us-ascii?Q?I0IM3GhJ7mEnpp7JGeduyRLk1pZXMYA+VzvsaemWGj8+GcH5xqkiYXFQDB1n?=
- =?us-ascii?Q?mShcBjufO+UXdu21xwEPXMCR8o1MQ+fucJILYBVgtj1UOp5RGCMwF2zyfPA7?=
- =?us-ascii?Q?TlKZlBt5vLmjXQTL29m/Zs938qpS4dW/8KlXVb0LhBwfgMkvUmrnAv7+SkKs?=
- =?us-ascii?Q?rF5Y6dsNtmaUSY8URB0o4g5QHmtlw0xJiFYURid4EUyoC0LHSoDWOyT8SIDV?=
- =?us-ascii?Q?kIWmIps0OWNtFx0MHzxyGbAqrotk1+AKybi92pRorXcqHHIt5idEemp3QRLJ?=
- =?us-ascii?Q?EXkoMrnzEnVqH0LnHDLaiiTgkF9ulRpisdrnlyIiNvCHyjNVY6SpZ40I3wId?=
- =?us-ascii?Q?0yaedsWIqKRyr1vYWbmN7j61DWrb1bssbsNQ3Vzqi5B829J97UTDA8zcKcTd?=
- =?us-ascii?Q?sjIpuYydNX9moVjS2U39YI8gwGvz3jQq7nGlvORwoe+Ygp/nhJ9yOptS4JRz?=
- =?us-ascii?Q?hL67nha2wdd/2Of1ASYrnSZlc7lVgv42oeYudfpBWEFyDw6q1NQKKetwbbjw?=
- =?us-ascii?Q?U+HXSdLYpCcUqEjf/R4asnzVKZeBS240UY08oB45Sifz/7fC17W8q650OsCm?=
- =?us-ascii?Q?nDACeI/Dtje2KAocicEk6zMbMfuDueg9EIzZHma0cTKyBGlQJBpnUAqP92lX?=
- =?us-ascii?Q?gjhf23hgVHZx9scinYdUwrR0LAkEWYNEaqFxyqlNYObKDfbDvKq1nwctG8e0?=
- =?us-ascii?Q?WxlzsPGGW3lvUQfzGJPp42jkp24iPI08LVWQqJKfGID5enYN3Irsf0cqRfxN?=
- =?us-ascii?Q?AXIpEYEKADfRNrhZraCsWR8uOHYz/nVxB40Br7yB2q8MJcTPmYueGb3yjtY6?=
- =?us-ascii?Q?z4BLpbq8O1t/evt0EVnHwu1CW39qziUfwWslfdE++m3V73h99VwIo3yVWGsf?=
- =?us-ascii?Q?TsG1wYowhQDBTAz8RjAnbOJDeVByOaIkMnPCMsj52V121DPaTOlM99R3hAgf?=
- =?us-ascii?Q?XqKa3SPwFdzSKVU17e9w5ZhOXO8b0S3s6BVmRm+d9HgNlf252VQelGDOsMrK?=
- =?us-ascii?Q?OlWpTOnQ4SAbO0YNWEN18oId8Cjmr/wPWA7LC1ce9BBv2sQvVnvbjWg00lcI?=
- =?us-ascii?Q?rwdqCzxU22ayM0lEW8Ik8FZ3Ss+cxywokxf++b2moAnIad+HPO4HdFMJNF1b?=
- =?us-ascii?Q?zpbjo0AgNDsUn6nIpOahmJ5kNAnIJdeV0wSeblcaBiGBhu7uaYAogVTqogNo?=
- =?us-ascii?Q?t4togBLuwBpaZrI2Z44YucVO6PUc4WEeN8XaUdkRWT3qxRkHlDZSlPCN8/cW?=
- =?us-ascii?Q?nqIoFmfezQoFPdn3uafemypVbu/5AgJUOEdP5DheHUBarovB8X53?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cd4d4dc-481a-430d-b078-08dee1af7e3d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 13:54:58.8547
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KTYfsXPFd43wG+r/xyALaZynQbH3lRidMIsoZbZ5iNuKiYEOjn+M0KFpB+2ZVnb9qtEuBd/ttEEiIsQUDAz6pi3yoXliP5jhJ9KuQ2hnG/lDoDoYmc+c0Yg6xtOyg0XM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12138
+References: <cover.1784013063.git.u.kleine-koenig@baylibre.com> <72f0871dda4d65bb2b6ff8827da6a3b2dfdffab6.1784013063.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <72f0871dda4d65bb2b6ff8827da6a3b2dfdffab6.1784013063.git.u.kleine-koenig@baylibre.com>
+From: Daniel Palmer <daniel@thingy.jp>
+Date: Tue, 14 Jul 2026 22:55:28 +0900
+X-Gm-Features: AUfX_my4HWQr0GTS92czUivB5kzuMCNXDtWp5XUMf9HPpLFf89A5CuHvz5fm-hQ
+Message-ID: <CAFr9PX=UE0OtdR+XSZShPXUp9BSL=NN6tr_CSoyNPSxzdLa3nQ@mail.gmail.com>
+Subject: Re: [PATCH v1 07/20] gpio: Add missing OF module annotations
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Imre Kaloz <kaloz@openwrt.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Romain Perier <romain.perier@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_065505_422475_91EB57BF 
-X-CRM114-Status: GOOD (  28.59  )
+X-CRM114-CacheID: sfid-20260714_065544_136192_B5414008 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,116 +122,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 11:04:00AM +0800, Carlos Song (OSS) wrote:
-> From: Carlos Song <carlos.song@nxp.com>
->
-> On some i.MX platforms, certain I2C client drivers keep a periodic
-> workqueue which continues to trigger I2C transfers.
->
-> During system suspend/resume, there exists a time window between:
->   - suspend_noirq and the system entering suspend
->   - the system starting to resume and resume_noirq
->
-> In this window, the I2C controller resources such as clock and pinctrl
-> may already be disabled or not yet restored.
->
-> If a workqueue triggers an I2C transfer in this period, the driver
-> attempts to access I2C registers while the hardware resources are
-> unavailable, which may lead to system hang.
->
-> Mark the I2C adapter as suspended during noirq suspend and block new
-> transfers until resume, ensuring that I2C transfers are only issued
-> when hardware resources are available.
->
-> Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> ---
+Hi Uwe,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-> Change for v5:
->   - Remake commit log including the issue detail from Mukesh's
->     suggestion.
-> Change for v4:
->   - Restore hrtimer when pm_runtime_force_suspend failed when slave mode
->     enabled.
-> Change for v3:
->   - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
->     safe suspend in i2c slave mode.
-> Change for v2:
->   - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
->     to prevent potential deadlock if a transfer is active during suspend.
->   - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
->     fails.
+On Tue, 14 Jul 2026 at 16:25, Uwe Kleine-K=C3=B6nig (The Capable Hub)
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> A driver module matching devices using an of device id table is supposed
+> to declare that in the module's metadata. Add this information for
+> several drivers that failed to declare these.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koenig@b=
+aylibre.com>
 > ---
->  drivers/i2c/busses/i2c-imx.c | 45 ++++++++++++++++++++++++++++++++++--
->  1 file changed, 43 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 28313d0fad37..73317ddd5f02 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -1922,6 +1922,47 @@ static int i2c_imx_runtime_resume(struct device *dev)
->  	return 0;
->  }
->
-> +static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
-> +{
-> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	i2c_mark_adapter_suspended(&i2c_imx->adapter);
-> +
-> +	/*
-> +	 * Cancel the slave timer before powering down to prevent
-> +	 * i2c_imx_slave_timeout() from accessing hardware registers
-> +	 * while the clock is disabled.
-> +	 */
-> +	hrtimer_cancel(&i2c_imx->slave_timer);
-> +
-> +	ret = pm_runtime_force_suspend(dev);
-> +	if (ret) {
-> +		i2c_mark_adapter_resumed(&i2c_imx->adapter);
-> +		if (i2c_imx->slave) {
-> +			hrtimer_forward_now(&i2c_imx->slave_timer, I2C_IMX_CHECK_DELAY);
-> +			hrtimer_restart(&i2c_imx->slave_timer);
-> +		}
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
-> +{
-> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	i2c_mark_adapter_resumed(&i2c_imx->adapter);
-> +
-> +	return 0;
-> +}
-> +
->  static int i2c_imx_suspend(struct device *dev)
->  {
->  	/*
-> @@ -1955,8 +1996,8 @@ static int i2c_imx_resume(struct device *dev)
->  }
->
->  static const struct dev_pm_ops i2c_imx_pm_ops = {
-> -	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> -				  pm_runtime_force_resume)
-> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
-> +				  i2c_imx_resume_noirq)
->  	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
->  	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
->  };
-> --
-> 2.43.0
->
+>  drivers/gpio/gpio-msc313.c      | 1 +
+
+For this one:
+
+Acked-by: Daniel Palmer <daniel@thingy.jp>
 
