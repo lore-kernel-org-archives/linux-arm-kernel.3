@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3B1C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888EBC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUqzUmCd5C8LaJR7q3XMrWlHVSAMJDyXvnpn53blVaI=; b=EMwBay/Ltzw75Ydad5Pzssp1Q5
-	ULVVsmFAJaeAlk2OkiXDr7NTK6H5OWsxDNroJvN70hqe5wTW/bnLooXhn8LAPq4EB0Y6Ij2qkB4UX
-	KYzFzPd+xzGQTBEO/+x0YgqJvvbPbrN/IXirmM5ePJkV1jcxaJGtnw8D1ZGji4DcjtKQZU/CLeuX0
-	VL/5Y9pcAs9sMVxvjv00fAc1TqtW+VXs5eSHHil57I06C8J1z0oJRGFIkc6Ud0lYANnprtPEopSLg
-	gdLVCcfGXPhqQsyB5RfZ/yTEdCPf7y12iPPvJe8YwxkayEpN7hT8Bv1us0g8KICL+On+tddCvYnYj
-	e69Kdieg==;
+	bh=cMuxhfaknBq5QjhLYVGrFXr0U+Y0NiHMcVJiOgD3Vkw=; b=EplLoO3Ukh1G0H95DxxDAd0QzN
+	Z9wKRehwAAYOdTiVMVZzneExTuPIqRh6rtEX0NaRi5zVpoM5VdQLJzymN1+ATvopY6HPtmdAMsTmK
+	YTmALTVXn5YVbFFNlMM7ZpMBXxfSSJ/Veo1swlNlV88rQS7MVYDpEW7+ar+KeWa9Y3CmucM7NjZZS
+	RRSzSV2Zkv0SSNhZnds+LgLigOV4lYdbF/gZT4RZdwZKjWUlMOwwO4KRgve83Kqv5HasmDDjHN2n3
+	51LsfYMRbdbIFWil71lGVoRmhOiH1zYnbFBKyXrEcqUIUgVuiDQ4MGTSnfsBG2HbmHYOmT+Xg2ATC
+	DIuEh7og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjj6v-0000000D9wf-2JZB;
-	Tue, 14 Jul 2026 19:48:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wjj9a-0000000DAHq-16iz;
+	Tue, 14 Jul 2026 19:50:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjj6t-0000000D9wR-35eW
+	id 1wjj9Y-0000000DAHa-2LaO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 19:48:07 +0000
+	Tue, 14 Jul 2026 19:50:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF1D960103;
-	Tue, 14 Jul 2026 19:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8CA91F000E9;
-	Tue, 14 Jul 2026 19:48:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 02B9860103;
+	Tue, 14 Jul 2026 19:50:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F11941F00A3A;
+	Tue, 14 Jul 2026 19:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784058486;
-	bh=oUqzUmCd5C8LaJR7q3XMrWlHVSAMJDyXvnpn53blVaI=;
+	s=k20260515; t=1784058651;
+	bh=cMuxhfaknBq5QjhLYVGrFXr0U+Y0NiHMcVJiOgD3Vkw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=hJjbRkjodStNV3aFkSroSh3RyI1uRsygLQn7A7gDs39Y2nFzt9uMuVciIxK1tCwid
-	 66Zsi7OXdiuAxDKyEIZCZr3Y9I8GCiLF/6JSPmQZtGTO8IhFtkj+duE81iHc26IQn2
-	 sGcHzOYVs7sqGGWXhxqTLkkpdp94MM5U3iMnjO88g90e1AK0JU0DxA1vT9yJ/oIBbD
-	 K6F0yyuRNESCDE6QhmYjyn5BKZVDrwP3/e/WhQLW4pw6uiJDgBOq28fGTs/p01Oh+b
-	 Hyzzf9nPwI6aCkawKUD5Q+mQgyttB7YY8h5gKwGVoQ4zWjrPBvu3GeScAb0VXeMkTr
-	 MNslCVmGm6Uqg==
-Message-ID: <6c3a01f7-957d-4dc4-a892-3af2826928af@kernel.org>
-Date: Tue, 14 Jul 2026 21:47:59 +0200
+	b=TOKbhNSmby1ttQf6TaPpN5uWolvANg04bDbsf/ppCud8DtfTX/2x+jayxhmL8GHOF
+	 mEOueQIWBC8dkXo9sBmFZGphDd5Hzko6mOov+uPOUh4GCML09iX2QtubjbAjeQDrzE
+	 +qKPOgBGibQuLc5MKjnpDYOAshWSqTtL7NpgX9nbT7YL77TLpb9lIwaq2Er66m5ti4
+	 TsqPv9j/MFs3aylUX1baQ+wQCmsuhyT+e7vpL31zuenbqSlHqwEOLmPPHXs0Yc7vId
+	 770PdPa/vdKgc3ewCTbTWtpkW6jrOgnmsQbWYO1WPBmB3G2K2s/59ilmFsNiNT+7SC
+	 qXwc4A2YzJDpg==
+Message-ID: <cd9da9aa-6e91-4534-a86c-a4421aafbd38@kernel.org>
+Date: Tue, 14 Jul 2026 21:50:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/10] arm64: dts: apple: Add minimal t8132 (M4) device
- trees
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Hector Martin <marcan@marcan.st>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH 09/10] dt-bindings: arm: apple: Add M4 based devices
+To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Thomas Gleixner <tglx@kernel.org>, Wim Van Sebroeck
+ <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
+ Hector Martin <marcan@marcan.st>, Linus Walleij <linusw@kernel.org>,
+ Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>,
  =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Neal Gompa <neal@gompa.dev>, Janne Grunau <j@jannau.net>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Guenter Roeck
- <linux@roeck-us.net>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Linus Walleij <linusw@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>,
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
- Thomas Gleixner <tglx@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-pwm@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
- Mark Kettenis <kettenis@openbsd.org>
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org
 References: <20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev>
- <20260705-apple-m4-initial-devicetrees-v1-10-e5655ee56523@cyberchaos.dev>
+ <20260705-apple-m4-initial-devicetrees-v1-9-e5655ee56523@cyberchaos.dev>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260705-apple-m4-initial-devicetrees-v1-10-e5655ee56523@cyberchaos.dev>
+In-Reply-To: <20260705-apple-m4-initial-devicetrees-v1-9-e5655ee56523@cyberchaos.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,93 +85,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 7/5/26 15:17, Yureka Lilian wrote:
-> Added device trees for the following devices:
-> - apple,j604 - MacBook Pro (14-inch, M4, 2024)
-> - apple,j623 - iMac (24-inch, 2x USB-C, M4, 2024)
-> - apple,j624 - iMac (24-inch, 4x USB-C, M4, 2024)
-> - apple,j713 - MacBook Air (13-inch, M4, 2025)
-> - apple,j715 - MacBook Air (15-inch, M4, 2025)
-> - apple,j773g - Mac mini (M4, 2024)
+> The Apple devices with the t8132 SoC (M4) are very similar to their M3
+> predecessors.
 >
-> The device trees have a minimal set of devices limited to CPU cores,
-> interrupt controller, power states, watchdog, serial, pin controller,
-> i2c and framebuffer.
-> The device trees for the notebooks add a PWM controller for the keyboard
-> LED illumination.
->
-> Using the macOS 26.6b3 iBoot/firmware, the Mac mini reliably boots on a
-> single core using the stock kernel.
-> Booting with smp requires avoiding the wfi and wfit instructions
-> in the idle loop and `delay()` respectively, since those instructions
-> cause a loss of architectural state on the secondary cores, and even
-> then boot is unreliable.
+> In addition to the MacBook Pro and the various MacBook Air and iMac
+> variants, a Mac mini is offered again with the M4.
 >
 > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 > ---
->   arch/arm64/boot/dts/apple/Makefile        |    6 +
->   arch/arm64/boot/dts/apple/t8132-j604.dts  |   35 +
->   arch/arm64/boot/dts/apple/t8132-j623.dts  |   18 +
->   arch/arm64/boot/dts/apple/t8132-j624.dts  |   18 +
->   arch/arm64/boot/dts/apple/t8132-j713.dts  |   35 +
->   arch/arm64/boot/dts/apple/t8132-j715.dts  |   35 +
->   arch/arm64/boot/dts/apple/t8132-j773g.dts |   25 +
->   arch/arm64/boot/dts/apple/t8132-jxxx.dtsi |   48 ++
->   arch/arm64/boot/dts/apple/t8132-pmgr.dtsi | 1125 +++++++++++++++++++++++++++++
->   arch/arm64/boot/dts/apple/t8132.dtsi      |  440 +++++++++++
->   10 files changed, 1785 insertions(+)
+>   Documentation/devicetree/bindings/arm/apple.yaml | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
 >
-> diff --git a/arch/arm64/boot/dts/apple/Makefile b/arch/arm64/boot/dts/apple/Makefile
-> index 6fc3349a5842..181bd0e28965 100644
-> --- a/arch/arm64/boot/dts/apple/Makefile
-> +++ b/arch/arm64/boot/dts/apple/Makefile
-> @@ -1,4 +1,10 @@
->   # SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j604.dtb
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j623.dtb
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j624.dtb
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j713.dtb
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j715.dtb
-> +dtb-$(CONFIG_ARCH_APPLE) += t8132-j773g.dtb
-Please put these at the correct position in the Makefile and not at the 
-very top.
+> diff --git a/Documentation/devicetree/bindings/arm/apple.yaml b/Documentation/devicetree/bindings/arm/apple.yaml
+> index e49403c73f9d..3262292252d2 100644
+> --- a/Documentation/devicetree/bindings/arm/apple.yaml
+> +++ b/Documentation/devicetree/bindings/arm/apple.yaml
+> @@ -315,6 +315,18 @@ properties:
+>             - const: apple,t8122
+>             - const: apple,arm-platform
 
->   dtb-$(CONFIG_ARCH_APPLE) += s5l8960x-j71.dtb
->   dtb-$(CONFIG_ARCH_APPLE) += s5l8960x-j73.dtb
->   dtb-$(CONFIG_ARCH_APPLE) += s5l8960x-j85m.dtb
-> diff --git a/arch/arm64/boot/dts/apple/t8132-j604.dts b/arch/arm64/boot/dts/apple/t8132-j604.dts
-> new file mode 100644
-> index 000000000000..c4be915cb33a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/apple/t8132-j604.dts
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: GPL-2.0+ OR MIT
-> +/*
-> + * Apple MacBook Pro (14-inch, M4, 2024)
-> + *
-> + * target-type: J604
-> + *
+Please also add M4 to the top of the binding in the description.
+>   
+> +      - description: Apple M4 SoC based platforms
+> +        items:
+> +          - enum:
+> +              - apple,j604  # MacBook Pro (14-inch, M4, 2024)
+> +              - apple,j623  # iMac (24-inch, 2x USB-C, M4, 2024)
+> +              - apple,j624  # iMac (24-inch, 4x USB-C, M4, 2024)
+> +              - apple,j713  # MacBook Air (13-inch, M3, 2025)
+> +              - apple,j715  # MacBook Air (15-inch, M3, 2025)
+Copy/paste errors: these two should be M4 as well and I think the ones 
+at the top should be 2025 instead of 2024, shouldn't they?
 
-[...]
 
-> +
-> +		pmgr: power-management@380700000 {
-> +			compatible = "apple,t8132-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			reg = <0x3 0x80700000 0 0x14000>;
-> +			/* child nodes are added in t8132-pmgr.dtsi */
-> +		};
-> +
-> +		aic: interrupt-controller@381180000 {
-> +			compatible = "apple,t8132-aic3", "apple,t8122-aic3";
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +			reg = <0x00000003 0x81000000 0x00000000 0x1cc000>,
-
-You have 381180000 in the node name but 381000000 here, I guess the node 
-name is a copy paste error. W=1 flags this fwiw.
-
+Best,
 
 Sven
-
 
