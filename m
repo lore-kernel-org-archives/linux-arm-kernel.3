@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFA7C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89694C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g0tlhegHwtG81HOM4sAZpzpRB9FsAngyGewnV2k7YM8=; b=PcCe4NYjdIEt64UVqgdaf7SVnK
-	urlLrazsO1HazYBGGrZr+0pdEI5+xxkkfYWjlfjZjh+m5sVWH3nKIwco/yFbI67V9HpD8MMvH4RWc
-	Ds+ls+ndtknfNxeGiNcwWuMxhs6SG93Yf/cSn3ZJtlkXKLMlhORB4JVNbVUeBGokPXGsxi3D0DBfM
-	nYOlvvhhDSUUJ17vuk0APrFZFld4kBuFGgnZ2/V9wTCJAcwDaQccswSldOwoY4KSRRSNULIhzh353
-	lp+faWyr4SdwQBIm03aTxaRFz2DUjyL+gReRRIWTrpxTbsZGEazsY+cikFtAWXIaRXD3W7u4yQcuw
-	6JZmLjDw==;
+	bh=PhB4GboWTpFU87fM/aPjFfVuPtF6uUqNcsGmIq0zUKY=; b=0lRmSf6jD1iDzpJoLGpKr2gg7K
+	7MtQIEfgihi/YnCnYZ8NBH40MRPtqR/+1c7+GVLwSHNxsFr9w6j+Z6bGkVmaJ6wb+Sf85b04mrlZb
+	2ob4qZozXMpNYSBZcIg+BT1vTkTcugM1trxgQX7cHdcjXlJQ3JXzsHIRlHE/xP9HIe53iURIMbA9x
+	0/mV1QerLsqJLuiWomioBxZ+Wav8d45javrZLwWUqYl4QGRwUymb2WLEAJ33YAqDl/YrkvBnDG2wu
+	ofATnJ+zO+Of0QNa377giCFiWCyxrc4Va9nTA/Ml2RC/5IU/6GSu2NSZmFafxpLvxgs/e8MMxhvn1
+	psOqV4bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbbH-0000000Bm4N-41sg;
+	id 1wjbbI-0000000Bm5E-1Tyc;
 	Tue, 14 Jul 2026 11:47:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbZu-0000000BjZt-0n1p;
-	Tue, 14 Jul 2026 11:45:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=g0tlhegHwtG81HOM4sAZpzpRB9FsAngyGewnV2k7YM8=; b=FuBI0HuRw4aGbRWcHkJmQyr8Iz
-	V3bj5pQCumH3p3OL9oN23brS0gKHgsI6D6Wo/LciIbUS38ZA2hdKaqqQNdujnDsD9i8Z4tVwHdmOo
-	H633kmSjfPhuOsrMV71LxrUPnTDf8tCKehKThjP8txve4j8GU4zt0erq19LWCUvvNmyRIi5PiuuAV
-	/Rpdj7Rq4Iub8wLwNzZKNs6dZC3mEC0N/jvbiYgOizuJt5zMjQ8UU+WZJ8A6vywCSeOb/gOQl5EGp
-	fENOPQsH+nrBGDdZl4UW++OvJ8jmp7B5bT/4be6/NwFwCq8CetP5/ExKXydPIFJO/S/fC8D92dxjy
-	kV/zPETg==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjbZr-0000000CQve-1aaK;
-	Tue, 14 Jul 2026 11:45:33 +0000
+	id 1wjbZm-0000000BjRK-1nmV;
+	Tue, 14 Jul 2026 11:45:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784029530;
-	bh=xVf5evvB8FvUTkLLMIdH5J561qbfcKhWFLWfJ3S1bPI=;
+	s=mail; t=1784029524;
+	bh=OxOb0JKMyxrT84QMeUNz8vqDSuZGP3qA19Lm+2k3CE0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Kpxd7Lxfm1d+n3Zqc5Cp5QDwyzhBw2qRRrDJHAx38FDPIN2Kpt5QP1I4/zoWo3FEU
-	 5d6cXAlXo0JBWf8KJwRDC93xyRliRrLZoR3o5Q1ccjTfP9Ncn7UPhykRozQsbrWO74
-	 C09PmdgjlidhA5D1IVCf9b2hhKpgXPm1j8T9QwZUhIJ6BEHQ9jKSQAmLjYXilvf/0U
-	 oy0pFYYLCRdU1U3wPmbxHBiIkdV/C/ICSXafaVpTHBf/E9/tky8eUpICuqGzusnmxr
-	 QO5RPjSWltpQ48LjwziKr8/KDzH3Z1y95IHu1KqQx+lt94dO3aAwpBwyS6lLT9NRf8
-	 CJz0fixDM5y9g==
+	b=LM8UtgIpyXud4ISL5VBeY5+8SqiEE32azSDWqqvCJKtk8D3LSnVilYl6YzIn67oOp
+	 mKFyvC3CJFRZCguUbwsq3l2tXuguJ/YQYVGA90dgsEp8ykDot0E614aRJiHPImgBzW
+	 L8qFIngaYEUp4bJ1w1zoSOy7Srd9CFdIIJ3j/1duYQZyVDbQo5N5luRhwmkR9y3kbh
+	 IKvgdc5Pp3As5CLlpmt6QRSxbU2mVqBKlAqTIHWO61xnEC/Dk78JP1+sddSe4Hz1rK
+	 +VEgDiACeC9D8v9XgB62lzECNLlxxUuEJKfniX/fRMLOdKUa0AAKJJE/xj5HOqAjbU
+	 Wkv4SmTje1wkQ==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 80E2B17E0956;
-	Tue, 14 Jul 2026 13:45:29 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB56C17E0076;
+	Tue, 14 Jul 2026 13:45:23 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -78,17 +64,17 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH v2 46/46] drm/mediatek: mtk_drm_drv: Fail init only if all paths are invalid
-Date: Tue, 14 Jul 2026 13:44:14 +0200
-Message-ID: <20260714114414.184512-47-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v2 40/46] drm/mediatek: Support registering disp controller device subnodes
+Date: Tue, 14 Jul 2026 13:44:08 +0200
+Message-ID: <20260714114414.184512-41-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
 References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_124531_526011_8E5B10FB 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260714_044526_716810_D9094A4B 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +89,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up until now, if not all display controller paths were valid, the
-driver would fail probing and refuse to bind components: while
-that was a good idea before, now that mediatek-drm gained much
-more flexibility, it is finally possible to gracefully handle
-this situation and register only the valid paths while leaving
-the invalid ones unregistered, without any crash.
-
-Count how many output paths are found, and then count how many
-have failed probing: if there is at least one valid path, avoid
-erroring out, so that at least some outputs will just work.
-
-Of course, any path failing is not a clean situation and must be
-resolved: in this case, function mtk_crtc_create() still prints
-error messages so, even though some output works, that will not
-go unnoticed, as a quick check in kmsg will show the errors that
-made a certain path not to register.
+In order to have a correct description of the hardware in the SoC
+devicetree, look for Display Controller Subsystem sub-components
+declared as subnodes of the display controller itself; to retain
+compatibility with the older devicetrees, also keep looking for
+sub-components in the main /soc node like before.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 218 ++++++++++++++-----------
+ 1 file changed, 121 insertions(+), 97 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index 82d844b6abf7..7c9cb50909c8 100644
+index 4f39df23c51e..d1086c86cb77 100644
 --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
 +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -394,6 +394,8 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 	struct mtk_drm_private *priv_n;
- 	struct device *dma_dev = NULL;
- 	struct drm_crtc *crtc;
-+	int num_failed = 0;
-+	int num_paths = 0;
- 	int ret, i, j;
+@@ -1247,6 +1247,107 @@ static int mtk_drm_of_ddp_path_build(struct device *dev, struct device_node *nod
+ 	return 0;
+ }
  
- 	if (drm_firmware_drivers_only())
-@@ -460,15 +462,29 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 			if (!priv_n->data->output_paths[i].len)
- 				continue;
- 
-+			num_paths++;
++static int mtk_drm_register_sibling(struct device *dev, struct mtk_drm_private *private,
++				    struct device_node *node, struct component_match **match)
++{
++	enum mtk_ddp_comp_type comp_type;
++	int comp_inst_id;
++	bool comp_found;
++	int ret;
 +
-+			dev_vdbg(drm->dev,
-+				 "[CTRL%d-CRTC%d] Path Len:%d, Controller Order:%u\n",
-+				 j, i, priv_n->data->output_paths[i].len,
-+				 priv_n->data->output_paths[i].order);
++	ret = mtk_drm_of_get_ddp_comp_type(node, &comp_type);
++	if (ret)
++		return -EAGAIN;
 +
- 			ret = mtk_crtc_create(drm, i, j,
- 					      priv_n->data->conn_routes,
- 					      priv_n->data->num_conn_routes);
-+			if (ret == 0)
-+				break;
- 
--			if (ret)
--				goto err_component_unbind;
-+			num_failed++;
- 		}
- 	}
- 
-+	if (num_failed == num_paths) {
-+		dev_err(drm->dev, "No valid Display Controller path! Going out.\n");
-+		ret = -ENODEV;
-+		goto err_component_unbind;
++	ret = of_device_is_available(node);
++	if (!ret) {
++		dev_dbg(dev, "Skipping disabled component %pOF\n", node);
++		return -EAGAIN;
 +	}
 +
- 	/* IGT will check if the cursor size is configured */
- 	drm->mode_config.cursor_width = 512;
- 	drm->mode_config.cursor_height = 512;
++	if (comp_type == MTK_DISP_MUTEX) {
++		int id;
++
++		id = of_alias_get_id(node, "mutex");
++		if (id < 0 || id == private->data->mmsys_id) {
++			private->mutex_node = of_node_get(node);
++			dev_dbg(dev, "get mutex for mmsys %d", private->data->mmsys_id);
++		}
++		return 0;
++	}
++
++	comp_inst_id = mtk_ddp_comp_get_id(node, NULL, comp_type);
++	if (comp_inst_id < 0) {
++		dev_info(dev, "Skipping unknown component %pOF\n", node);
++		return 0;
++	}
++
++	if (comp_type == MTK_DISP_DIRECT_LINK)
++		comp_found = mtk_drm_find_directlink_comp(private);
++	else
++		comp_found = mtk_drm_find_mmsys_comp(private,
++						     comp_type, comp_inst_id);
++
++	if (!comp_found)
++		return -EAGAIN;
++
++	/*
++	 * Currently only the AAL, CCORR, COLOR, GAMMA, MERGE, OVL, RDMA, DSI, and DPI
++	 * blocks have separate component platform drivers and initialize their own
++	 * DDP component structure. The others are initialized here.
++	 */
++	if (!mtk_ddp_comp_is_internal_comp(comp_type) &&
++	    !mtk_ovl_adaptor_is_comp_present(node)) {
++		dev_info(dev, "Adding component match for %pOF\n",
++			 node);
++		drm_of_component_match_add(dev, match, component_compare_of,
++					   node);
++	}
++
++	if (comp_type == MTK_DISP_DIRECT_LINK) {
++		for_each_of_graph_port(node, port) {
++			u32 port_id;
++
++			of_property_read_u32(port, "reg", &port_id);
++			if (port_id > 1)
++				continue;
++
++			/* Even ports are inputs, odd ports are outputs */
++			if (port_id % 2)
++				comp_type = MTK_DISP_DIRECT_LINK_OUT;
++
++			for_each_of_graph_port_endpoint(port, ep) {
++				struct of_endpoint of_ep;
++
++				ret = of_graph_parse_endpoint(ep, &of_ep);
++				if (ret)
++					break;
++
++				ret = mtk_ddp_comp_init(dev, node, &private->hlist,
++							private->data->mmsys_id,
++							comp_type, of_ep.id);
++				if (ret)
++					break;
++			}
++
++			if (ret) {
++				of_node_put(node);
++				return ret;
++			}
++		}
++	} else {
++		ret = mtk_ddp_comp_init(dev, node, &private->hlist,
++					private->data->mmsys_id,
++					comp_type, comp_inst_id);
++		if (ret) {
++			of_node_put(node);
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
+ static int mtk_drm_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -1308,107 +1409,29 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	/* Iterate over sibling DISP function blocks */
+-	for_each_child_of_node(phandle->parent, node) {
+-		enum mtk_ddp_comp_type comp_type;
+-		u8 comp_inst_id;
+-		bool comp_found;
+-
+-		ret = mtk_drm_of_get_ddp_comp_type(node, &comp_type);
+-		if (ret)
+-			continue;
+-
+-		if (!of_device_is_available(node)) {
+-			dev_dbg(dev, "Skipping disabled component %pOF\n",
+-				node);
+-			continue;
+-		}
+-
+-		if (comp_type == MTK_DISP_MUTEX) {
+-			int id;
+-
+-			id = of_alias_get_id(node, "mutex");
+-			if (id < 0 || id == private->data->mmsys_id) {
+-				private->mutex_node = of_node_get(node);
+-				dev_dbg(dev, "get mutex for mmsys %d", private->data->mmsys_id);
+-			}
+-			continue;
+-		}
+-
+-		comp_inst_id = mtk_ddp_comp_get_id(node, NULL, comp_type);
+-		if (comp_inst_id < 0) {
+-			dev_warn(dev, "Skipping unknown component %pOF\n",
+-				 node);
+-			continue;
+-		}
+-
+-		if (comp_type == MTK_DISP_DIRECT_LINK)
+-			comp_found = mtk_drm_find_directlink_comp(private);
+-		else
+-			comp_found = mtk_drm_find_mmsys_comp(private,
+-							     comp_type, comp_inst_id);
+-
+-		if (!comp_found)
+-			continue;
+-
+-		/*
+-		 * Currently only the AAL, CCORR, COLOR, GAMMA, MERGE, OVL, RDMA, DSI, and DPI
+-		 * blocks have separate component platform drivers and initialize their own
+-		 * DDP component structure. The others are initialized here.
+-		 */
+-		if (!mtk_ddp_comp_is_internal_comp(comp_type) &&
+-		    !mtk_ovl_adaptor_is_comp_present(node)) {
+-			dev_info(dev, "Adding component match for %pOF\n",
+-				 node);
+-			drm_of_component_match_add(dev, &match, component_compare_of,
+-						   node);
+-		}
+-
+-		if (comp_type == MTK_DISP_DIRECT_LINK) {
+-			for_each_of_graph_port(node, port) {
+-				u32 port_id;
+-
+-				of_property_read_u32(port, "reg", &port_id);
+-				if (port_id > 1)
+-					continue;
+-
+-				/* Even ports are inputs, odd ports are outputs */
+-				if (port_id % 2)
+-					comp_type = MTK_DISP_DIRECT_LINK_OUT;
+-
+-				for_each_of_graph_port_endpoint(port, ep) {
+-					struct of_endpoint of_ep;
+-
+-					ret = of_graph_parse_endpoint(ep, &of_ep);
+-					if (ret)
+-						break;
+-
+-					ret = mtk_ddp_comp_init(dev, node, &private->hlist,
+-								private->data->mmsys_id,
+-								comp_type, of_ep.id);
+-					if (ret)
+-						break;
+-				}
++	for_each_child_of_node(phandle, node) {
++		ret = mtk_drm_register_sibling(dev, private, node, &match);
++		if (ret && ret != -EAGAIN)
++			goto err_node;
++	}
+ 
+-				if (ret) {
+-					of_node_put(node);
+-					goto err_node;
+-				}
+-			}
+-		} else {
+-			ret = mtk_ddp_comp_init(dev, node, &private->hlist,
+-						private->data->mmsys_id,
+-						comp_type, comp_inst_id);
+-			if (ret) {
+-				of_node_put(node);
+-				goto err_node;
+-			}
+-		}
++	/*
++	 * After the previous loop, it is expected to have all of the display
++	 * controller sibling function blocks registered and added to the list.
++	 *
++	 * If nothing got registered this is a legacy devicetree with DISP
++	 * siblings located under the /soc node instead of being children of
++	 * the main Display Controller node.
++	 */
++	for_each_child_of_node(phandle->parent, node) {
++		ret = mtk_drm_register_sibling(dev, private, node, &match);
++		if (ret && ret != -EAGAIN)
++			goto err_node;
+ 	}
+ 
+ 	if (!private->mutex_node) {
+ 		dev_err(dev, "Failed to find disp-mutex node\n");
+-		ret = -ENODEV;
+-		goto err_node;
++		return -ENODEV;
+ 	}
+ 
+ 	/* If mtk-mutex is not a trigger source, this is an old devicetree */
+@@ -1435,7 +1458,8 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ err_pm:
+ 	pm_runtime_disable(dev);
+ err_node:
+-	of_node_put(private->mutex_node);
++	if (private->mutex_node)
++		of_node_put(private->mutex_node);
+ 	return ret;
+ }
+ 
 -- 
 2.54.0
 
