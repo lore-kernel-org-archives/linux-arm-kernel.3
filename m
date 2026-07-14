@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748EAC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4ACC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ElhmPfVqBToQ9P063X0Nq/IxRb7L6/7x/Xi/WmPp8q8=; b=Cwh9PiG5wGuKYXge7g8eVbQyCq
-	qSNQI+s0YjVRjw7cE+6M/WoyCH6BT6N1CNqsvb2Z2l9Cn3cFBQs9Cqd3JBjaLYUwwJY2Qvf/Q6RpD
-	raLUHB3kuw3GKCRoO44PEcvj8MbiF2JgUrbcfY+coeqS/uwPy40H/snznmU+rY8aVIwqhSHiAmE7W
-	Ph5YCQJQaF8j6y759SgYn/ZSalT6QO+v1J31RJ0KRjSyIiujG2qaRYuNpAN2JUBxaQ4qQsKtxCjQr
-	NBh1F8ryk0ie1cnKFcSM6kWiJQ7kDLB33qFKCtEctMbBcOVtNqXtkyalmz9Ls8Jbhz9dcl+9HPnVp
-	Fid+L62Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K+fcK+yW+QNwHqaWRgbstmh4tm3jTw4aWDAu42J6kL4=; b=fGIkvs2FO8yfU5BXfvo3wcxx2r
+	EbSc7mD3eGzHoCseHq07FSs/kWevFEUiqOZ99aO1Z+bQWZbBny068ttlOblg7i6c0Cb/crxBu1aTa
+	10Cs+QhmIVBilpkW1zzovuMPzbwATcfLrSmI2/v4JF/BYU4dxc0R7tTbTUsP02XJZDceoE7rcXAen
+	1FR+AQ2U+VskSb+7YyFRBrHAIm8WH5Fbf11POmnsGM6N10LMdrxQkVDtxE+X3uctu5UiG4TUcwu3T
+	0CGq581hiwdBsDVD7ID1JI4nv7teRS97GAgabTgIAaNngIq+j1H+Kc02IKwpRQbzaci1/dxrRNxo6
+	KuidG1OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgRd-0000000Chk5-2hUh;
-	Tue, 14 Jul 2026 16:57:21 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wjgU4-0000000Ci9f-1Bdb;
+	Tue, 14 Jul 2026 16:59:52 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgRa-0000000ChjV-3eh9
+	id 1wjgU2-0000000Ci9F-0SSE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 16:57:20 +0000
-Message-ID: <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1784048232;
+	Tue, 14 Jul 2026 16:59:51 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RqAS6KI5d7h8Zf9EyWVMSf+MH5pBVnb22qpM/NqNGcWBBasKe0fiPsWbHiMJjJwtKiwG7yh/8s52seKoJ3QTbYu@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784048385;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ElhmPfVqBToQ9P063X0Nq/IxRb7L6/7x/Xi/WmPp8q8=;
-	b=wXD8NEDs6UrKZDXX4nd5fYxC/7tBzufTuVhWqv8zYjnFqy5Q2LeX1zJB0H/vQ1BiRrWQDV
-	9PIla8gaoYKbb2W9MT+o0bAUg+tQ7ia6DaIjgLVCqBn9vmYuM8tmpu6jioeEVzSsyVxH2x
-	UYU6EfIakwLmTnKBtexaM7af2+KxcCc=
-Date: Tue, 14 Jul 2026 18:57:11 +0200
+	bh=K+fcK+yW+QNwHqaWRgbstmh4tm3jTw4aWDAu42J6kL4=;
+	b=nPPrtZO2vYBwPUq6jjMAjMCok3PAw58WGTDoeFIvJcNN15b0Vw5wlJBcb1/tTpf2sgGbIZ
+	puEEKbm2YFSq6164EZ9HIP32cPnDcDo5nnYgzLMrg3QBW7B/erfM88Q3QZPPFMZveZJ+T5
+	6wGZgMOVljxoTv70rTXKVajqj5jshVI=
+X-Gm-Message-State: AOJu0Yw0/gd9WM89UppNzeTxKyxc4mUNKZdsaKlm+BrO93m5K7IZeQf3
+	/UQVRrC7S+S4qY2mIeKBxYQyQCWGGTn5MVkHsDVEIt+dFuXX61Iu5J+6L0z47ezImZIegzmMXic
+	9DMBRIr6s0ep1DijwQe/Jp5fFzAYtPUVA2MqnSEBr
+X-Received: by 2002:ac8:7d03:0:b0:51c:104c:100c with SMTP id
+ d75a77b69052e-51d71546a1cmr16511151cf.2.1784048378538; Tue, 14 Jul 2026
+ 09:59:38 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-To: Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>
-Cc: Yureka Lilian <yureka@cyberchaos.dev>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
- <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
- <86a4s3p2vy.wl-maz@kernel.org>
- <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
- <865x2qq4ts.wl-maz@kernel.org>
- <jqaxvdaxfpm5g3tdwdqpuk2ubkwim6ckmlblocvakloqishvmm@c5ofbdbdj7lf>
-Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <jqaxvdaxfpm5g3tdwdqpuk2ubkwim6ckmlblocvakloqishvmm@c5ofbdbdj7lf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-2-vdonnefort@google.com>
+In-Reply-To: <20260706175415.2604046-2-vdonnefort@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 14 Jul 2026 17:59:01 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy-drTkKuSqJNT1HD2GBn4xNXM2UyvE1zd53uG49suq7w@mail.gmail.com>
+X-Gm-Features: AUfX_my1WlQOlgsnQrNZQXkrHk8cUZgVcy2F7Kpqienn2dOS644hLsWwx9GRj_I
+Message-ID: <CA+EHjTy-drTkKuSqJNT1HD2GBn4xNXM2UyvE1zd53uG49suq7w@mail.gmail.com>
+Subject: Re: [PATCH v2 01/18] KVM: arm64: Add __pkvm_private_range_pa
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_095719_154836_55FFB02A 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20260714_095950_421673_EED45C56 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +77,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 7/9/26 14:29, Manivannan Sadhasivam wrote:
-> On Tue, Jul 07, 2026 at 02:58:39PM +0100, Marc Zyngier wrote:
->> On Tue, 07 Jul 2026 13:04:21 +0100,
->> Yureka Lilian <yureka@cyberchaos.dev> wrote:
->>> On 7/7/26 11:25, Marc Zyngier wrote:
->>>> On Mon, 06 Jul 2026 23:38:27 +0100,
->>>> Yureka Lilian <yureka@cyberchaos.dev> wrote:
->>>>> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
->>>>> provide standardized power management for PCI devices.
->>>>>
->>>>> Notably, this allows enabling powering on the WiFi, SD card reader on
->>>>> various Macs by means of the pwrctrl framework before probing the ports.
->>>>>
->>>>> Previously, a custom solution for powering on the WiFi and SD card
->>>>> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
->>>>> driver for this purpose.
->>>>>
->>>>> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
->>>>>
->>>> nit: this paragraph and the accompanying link don't belong in the
->>>> commit message and should be moved below the --- mark or even better,
->>>> to the cover letter.
->>> ack, will leave it out of the commit message of the individual commit in v2
->>>>> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->>>>> ---
->>>>>    drivers/pci/controller/Kconfig      |  1 +
->>>>>    drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
->>>>>    2 files changed, 17 insertions(+)
->>>>>
->>>>> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
->>>>> index 2247709ef6d6..af64630d28fa 100644
->>>>> --- a/drivers/pci/controller/Kconfig
->>>>> +++ b/drivers/pci/controller/Kconfig
->>>>> @@ -46,6 +46,7 @@ config PCIE_APPLE
->>>>>    	depends on OF
->>>>>    	depends on PCI_MSI
->>>>>    	select PCI_HOST_COMMON
->>>>> +	select PCI_PWRCTRL_GENERIC
->>>>>    	select IRQ_MSI_LIB
->>>>>    	help
->>>>>    	  Say Y here if you want to enable PCIe controller support on Apple
->>>>> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
->>>>> index c2cffc0659f4..db038a9d4831 100644
->>>>> --- a/drivers/pci/controller/pcie-apple.c
->>>>> +++ b/drivers/pci/controller/pcie-apple.c
->>>>> @@ -30,6 +30,7 @@
->>>>>    #include <linux/msi.h>
->>>>>    #include <linux/of_irq.h>
->>>>>    #include <linux/pci-ecam.h>
->>>>> +#include <linux/pci-pwrctrl.h>
->>>>>      #include "pci-host-common.h"
->>>>>    @@ -825,6 +826,21 @@ static int apple_pcie_init(struct
->>>>> pci_config_window *cfg)
->>>>>    	if (WARN_ON(!pcie))
->>>>>    		return -ENOENT;
->>>>>    +	ret = pci_pwrctrl_create_devices(pcie->dev);
->>>>> +	if (ret) {
->>>>> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
->>>>> +		return ret;
->>>>> +	}
->>>>> +
->>>>> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
->>>>> +	if (ret) {
->>>>> +		if (ret != -EPROBE_DEFER) {
->>>>> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
->>>>> +			pci_pwrctrl_destroy_devices(pcie->dev);
->>>>> +		}
->>>>> +		return ret;
->>>>> +	}
->>>>> +
->>>> Why is this done globally while the whole driver works on a per-port
->>>> basis, and that the proposed DT updates are also per port?
->>> pci_pwrctrl_power_on_devices takes a struct device as parameter, but
->>> pcie-apple does not allocate device structs for the individual ports.
->>> This could be changed of course. But since pci_pwrctrl_* operate on
->>> the subnodes recursively, it works just fine this way.
->> Works fine is one thing. Being consistent with the way the rest of the
->> driver works is another. pci_pwrctrl_create_device() and
->> pci_pwrctrl_power_on_device() appear to do exactly what would be
->> required for a single port. They just needs to be exported made
->> global/exported.
->>
-> I'm fine with exporting pci_pwrctrl_create_device() and
-> pci_pwrctrl_power_on_device() and calling them with per-port np.
+On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
 >
-> - Mani
+> Mappings in the pKVM private range are not identity mapped, making the
+> standard __hyp_pa() unsuitable for translating these addresses.
+>
+> Introduce __pkvm_private_range_pa() to resolve physical addresses for
+> this range by walking the hypervisor page-table. This will be useful for
+> the upcoming pKVM heap allocator.
+>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> index 6e83ce35c2f2..d3137c16b632 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> @@ -30,5 +30,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+>                                   unsigned long *haddr);
+>  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+>  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
+> +phys_addr_t __pkvm_private_range_pa(void *va);
+>
+>  #endif /* __KVM_HYP_MM_H */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+> index 3b0bee496bff..773426a68d2d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+> @@ -502,3 +502,17 @@ int refill_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
+>
+>         return ret;
+>  }
+> +
+> +phys_addr_t __pkvm_private_range_pa(void *va)
+> +{
+> +       kvm_pte_t pte = 0;
+> +       s8 level;
+> +
+> +       hyp_spin_lock(&pkvm_pgd_lock);
+> +       WARN_ON(kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)va, &pte, &level));
 
-In theory I do agree this would work to power on the slots, and I can 
-send a v2 of the patch doing it that way, but I don't quite understand 
-yet how this fits better with the existing driver code: If this is the 
-case, what is the difference between pcie-apple and pcie-qcom and why 
-should pcie-qcom use the recursive function but pcie-apple not?
+nit: can you pass NULL instead of level?
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
 
 
-Thanks,
-
-— Yureka
-
+> +       hyp_spin_unlock(&pkvm_pgd_lock);
+> +
+> +       WARN_ON(!kvm_pte_valid(pte));
+> +
+> +       return kvm_pte_to_phys(pte) + offset_in_page(va);
+> +}
+> --
+> 2.55.0.rc2.803.g1fd1e6609c-goog
+>
 
