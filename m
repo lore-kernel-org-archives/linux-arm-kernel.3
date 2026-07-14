@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB54C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770E8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FQ6pbI1jk3S/yj6OPTZt3LX86x/dG8H+CO9qoc6x60=; b=g0+RFThKUyDVRvAM0CDxdBjT94
-	jIMm15vf5U+nT9iiOMQK+j2GghLUFMm+QLkyO4V6U/C/QD4MM9NkRGQv0ZqNeg2EM6ECaRM1CvRvh
-	z1qXWLJTKkK3k1aKHQn9xnvoWhcLrppYQQcGXpRVwj+49CVzGX3eNSi19n5FyFcyfyda5Uk8KMYDD
-	vEXOKOAfnJ4cW06tmob/+Q9ELw+aIRkZTi2DvAedmuVVp7cJfa+8Bl/D1fGfSIgOTZaiDbJaiikoN
-	IJHrNtoe+cKEG6qKwiUQr7qsv7gwJkE9xyqKFmInagwpezrmKvZRu8egSQ/T9bu7QcycY016bp2gS
-	F8V8EEcA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VMn+zsgq4KlhgLUxgzGJqjMCuofU/l6ZDLRETL0UxKw=; b=NV1D6SCEj0bpGfWaVNzCZJLxwp
+	IcuXKURdSBNn4zUFtCeLwjn73m4d2+j3j9gdYwrx5YojrIh8RSTXJbgfP7qrSt8tysPkfMdlU1RCj
+	Mc1d/+ptDgfMIPQKhVgFE1Gccc9+n2fZIpi2+wateGsMyzCgvJwFkCS9h+zLnG1MDQ6TOE1lghDqR
+	8c2BnHb6fc5NLUPNizk3ei3jcFMkl0et1rxtGDhgDU2IhwWsu2/vpjoeuNprYgV4qAZXv47y7PyJx
+	0E23feb5V1t38Kre6VZHaxNxclio2p0ZLB0fnayaGJQLthjGMARZwlERxaQXwxUu/VEy7a31HtmxY
+	Mmsi4DrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaFr-0000000BYL7-0sm8;
-	Tue, 14 Jul 2026 10:20:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaFn-0000000BYKi-3pmc
+	id 1wjaLG-0000000BYtK-3xNL;
+	Tue, 14 Jul 2026 10:26:22 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjaLF-0000000BYs3-0LkC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:20:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3361497;
-	Tue, 14 Jul 2026 03:20:37 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88B163F7B4;
-	Tue, 14 Jul 2026 03:20:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784024441; bh=c77uFUVgfJ05mGTz42Oxlye2lWOsU1Hake6afPEeEPE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uk6F5TpQWkphk/6l4qeUni50zp5hcGobptnFkKTHCmH49LPAMZYLISkl7NeszC45b
-	 OEe++W+nFKAMqOVmeU5Vh7XaiMgzkQmu4OT08Za+vpqtbygAJjAuspZqXmPGyb8sTZ
-	 th3WksP5yMlHkekGOpO4c66dKP8d0d69y+lxxNKk=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+	Tue, 14 Jul 2026 10:26:22 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4758bd3731bso612240f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 03:26:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784024779; x=1784629579; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VMn+zsgq4KlhgLUxgzGJqjMCuofU/l6ZDLRETL0UxKw=;
+        b=HEnAeG3E2scX+XZmEnpjurOyNxS+XlNCSndwvc8v/ZJvp2vWoSPhy8edDYTK65SFS3
+         T7cGzrY0GITeuoKGV5gRU62Q6Y6Ww4VwvnMG14oPy5JTrnmcMZCZF+VRyyL++dI0kzKY
+         wC8NkA2G1iReqb+VKmK6/XLyYvVk5wStYPqiLtsGR/spG8yi6cuWZ8HWk14D/MmKWCW1
+         o1dUO7Xbha56Ayzq1a5dH31NyONB87meD5vPWDGE6gz8uhTaGYZzU6w9qv9Br/WDgkOr
+         nTZIBEB9BBA/71XOu/pxwNElMUv1AsyqJQBCtnaRgvzkv1ETKpUixiuLHcJbWp8SxKkp
+         vX7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784024779; x=1784629579;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VMn+zsgq4KlhgLUxgzGJqjMCuofU/l6ZDLRETL0UxKw=;
+        b=hXfCLQduflcvmGHGt4utskvPvMJf8cZAgu84odf0tSo15O6WBm0ebgN5tIzzZG9ipn
+         xCa8hE+KGw4PF9Lr9QQLDtrFIigNqyYy+XzQZP6Jp4VajTpze7dOq2bmLsSj2aIMAK0W
+         giyxjr2upQKnezjIK8K/vYn9CoodOYKugA1ie7V4oyu2yDg7rhQoIyNeOUFcg+QDEmei
+         jCtn0aXtrjzVDwyhO5HpBt+Wks+OxZAj4/5zUsGJmnQmwmLS9IaerexDZ8H7UhJzEdYO
+         KD8guLAkrrznCzzGk71IPKuQT8MkJii8Pw932qFQo/f5A33hvBjlkxltYTGcAY/chigR
+         CezA==
+X-Forwarded-Encrypted: i=1; AHgh+RrYsVUgFStySTNs9C5I/0FYsMImznj+IF6rB9ySMK1yOn/vlzojvBDKIsrWugC2MVhp+wN67GCvYnU+RqHwO0wy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm7mpw5x6tmdEPdlJlH3WdJwLr29UPZuNrOFXaoWRSy2MfYYsl
+	ofycL/TF/iNIHXkrnwnPpz5lc3MOyLc2AlummEGEd+rMR06UyhwU24bgKmeycILC
+X-Gm-Gg: AfdE7ck2SqDZ7ey1Nralo/Q0+4rlmIAG3L9doE8vkRZ2bRuvplTkjM0t7lI7B6SWLut
+	luvzldnjU3qW/FJDlKFEzFVt3oVAQHOnc79oULueXx/E6Ltu+JzyS1HwBq+t3/whmQxI3qwmdGA
+	CsqODqqDVAsXU3DQ8z+QG3sG5sL5otO/45kFngi1PBQ2DMz1il+Q6/mxDDy1mlVeCXxDNfvrb66
+	WL+eVjVr4zZhnKj55ob7vTrRLoZP5uaD/5treCMB+qD+YF0QkrFhYy3PxBPVty1CRgTlo1oqQgB
+	UbM81P1ZI6UX6opXBz8N5K3SJWROn5g7pcic1R9yRv2QKkSUN2plT9OW8AovGc2SSHQ/J6axtId
+	IQgccgdtL1yzELMIrHGU1bwH7irruk02n7WGlDw85AnEJgRQQczabmUgqwyHT2jDwK455JhPH7k
+	Kqh0szIbLEsJKkfIrI8j6v2GBvt6HjSGAqmh4in5oj3pwX5sR9UtAykt15ruDlrwUbwE+OYExde
+	/GW7C0=
+X-Received: by 2002:a05:6000:4810:b0:47e:96f6:ab7f with SMTP id ffacd0b85a97d-47f2dcc1174mr15902133f8f.16.1784024778833;
+        Tue, 14 Jul 2026 03:26:18 -0700 (PDT)
+Received: from localhost.localdomain (ip-89-176-136-191.bb.vodafone.cz. [89.176.136.191])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464c1f84sm7251991f8f.29.2026.07.14.03.26.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 03:26:18 -0700 (PDT)
+From: Petr Wozniak <petr.wozniak@gmail.com>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com
+Cc: shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	linux-wireless@vger.kernel.org,
+	matthias.bgg@gmail.com,
+	rex.lu@mediatek.com,
+	linux-mediatek@lists.infradead.org,
+	angelogioacchino.delregno@collabora.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware dirty tracking
-Date: Tue, 14 Jul 2026 11:20:36 +0100
-Message-ID: <alYNdPKCYOiHXqpZ@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <e01b9a9d-9f38-44ab-acfc-069f143863d6@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-4-zhengtian10@huawei.com> <alTJOy8Sv4aAp_9y@LeoBrasDK> <8f949334-3ce7-44f4-b6da-f08a4126affd@huawei.com> <86zezunifl.wl-maz@kernel.org> <e01b9a9d-9f38-44ab-acfc-069f143863d6@huawei.com>
+	Petr Wozniak <petr.wozniak@gmail.com>
+Subject: [PATCH wireless-next v2 0/2] wifi: mt76: fix per-band LEDs under single-wiphy MLO
+Date: Tue, 14 Jul 2026 12:26:13 +0200
+Message-ID: <20260714102615.2943-1-petr.wozniak@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_032044_047311_1E28D4D7 
-X-CRM114-Status: GOOD (  30.62  )
+X-CRM114-CacheID: sfid-20260714_032621_162513_0E504B70 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,84 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 03:44:37PM +0800, Tian Zheng wrote:
-> 
-> On 7/14/2026 3:23 PM, Marc Zyngier wrote:
-> > On Tue, 14 Jul 2026 02:14:45 +0100,
-> > Tian Zheng <zhengtian10@huawei.com> wrote:
-> > > 
-> > > On 7/13/2026 7:17 PM, Leonardo Bras wrote:
-> > > > On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
-> > > > > The DBM (Dirty Bit Modifier) attribute, introduced in ARMv8.1, enables
-> > > > > hardware to automatically promote write-clean pages to write-dirty. This
-> > > > > prevents the guest from being trapped in EL2 due to missing write
-> > > > > permissions.
-> > > > > 
-> > > > > In this design, DBM is controlled by the page-table level flag
-> > > > > KVM_PGTABLE_S2_DBM rather than per-PTE software flags. DBM is
-> > > > > automatically set for writable non-device pages when the page-table has
-> > > > > KVM_PGTABLE_S2_DBM flag, which is determined at MMU init time based on
-> > > > > hardware capability.
-> > > > > 
-> > > > > The DBM bit is set in stage2_set_prot_attr() for initial mappings and
-> > > > > hugepage splitting, and directly manipulated in
-> > > > > kvm_pgtable_stage2_relax_perms() when removing write-protection. On
-> > > > > W->RO downgrade, DBM is cleared to prevent hardware from silently
-> > > > > upgrading RO+DBM back to W+dirty, which would bypass KVM's write
-> > > > > tracking.
-> > > > > 
-> > > > > kvm_pgtable_stage2_pte_prot() does not extract the DBM bit back into
-> > > > > enum kvm_pgtable_prot because DBM is a page-table policy determined by
-> > > > > pgt->flags, not a per-PTE property. Callers should check
-> > > > > pgt->flags & KVM_PGTABLE_S2_DBM instead.
-> > > > > 
-> > > > > This ensures DBM is consistently applied across all PTEs, including
-> > > > > during hugepage splitting where child PTEs inherit DBM from the parent
-> > > > > block entry via the pgt->flags mechanism.
-> > > > > 
-> > > > > Safety: DBM bit is only interpreted by hardware when VTCR_EL2.HD=1.
-> > > > > When HDBSS is not enabled (HD=0), ARM architecture guarantees hardware
-> > > > > completely ignores DBM bit in PTEs.
-> > > > > 
-> > > > > Co-developed-by: Eillon <yezhenyu2@huawei.com>
-> > > > > Signed-off-by: Eillon <yezhenyu2@huawei.com>
-> > > > > Co-developed-by: Leonardo Bras <leo.bras@arm.com>
-> > > > > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> > > > Hello Tian,
-> > > > 
-> > > > Have you added the above tags due to this patch being based on the below?
-> > > > https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
-> > > > 
-> > > > Thanks!
-> > > > Leo
-> > > Hi Leo,
-> > > 
-> > > 
-> > > Yes, I added your Signed-off-by because the DBM-related code in this patch
-> > You really can't do that. Only Leo can give his SoB, you can't forge
-> > it yourself.
-> > 
-> > > is based on your implementation in:
-> > > 
-> > > https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
-> > Then take the patch as is, and add to it as a separate patch. Or work
-> > out in private with Leo whether he's happy with a Co-dev. But never do
-> > that unilaterally.
-> > 
-> > Thanks,
-> > 
-> > 	M.
-> Got it, thanks for the clarification, Marc.
-> 
-> I'm sorry about that — I'll remove them in the next version.
-> Instead, I'll mention the reference in the commit message with a link to
-> Leo's original patch:
-> 
-> Based on Leonardo Bras's patch:
-> https://lore.kernel.org/all/20260629111820.1873540-2-leo.bras@arm.com/
+On MT7996 (and other single-wiphy MLO mt76 devices) only the 2.4 GHz LED
+was ever usable: the 5/6 GHz band LEDs stayed dark and a WARN_ON() was hit
+during probe.
 
-That works out for me!
+Two issues are involved:
 
-Thanks!
-Leo
+1. mt76_led_init() calls ieee80211_create_tpt_led_trigger() for every band,
+   but that helper supports only one trigger per ieee80211_hw and
+   WARN_ON()s + returns NULL on the second call, so the secondary bands got
+   a NULL default trigger.
+
+2. mt7996 assigned the LED brightness_set/blink_set callbacks only to the
+   primary PHY, so mt76_led_init() bailed out early for the 5/6 GHz bands
+   and never registered their LED classdevs.
+
+Patch 1 shares the throughput trigger across all bands; patch 2 registers a
+LED classdev for every band. With both applied, all three band LEDs
+(mt76-phy0/1/2) come up and blink on their band's traffic.
+
+Tested on a BPI-R4 (MT7996/BE14): all three per-band LEDs register at boot
+with no WARN_ON(), and each blinks on its own band's activity (verified
+with single-band and MLO clients).
+
+Changes in v2:
+ - Patch 1: reflow the throughput-trigger comment and wrap the
+   ieee80211_create_tpt_led_trigger() arguments to stay within 80 columns
+   (no functional change).
+ - Cc the MediaTek SoC/wireless maintainers reported by get_maintainer.pl.
+ - No code changes since v1.
+
+v1: https://lore.kernel.org/all/20260628095313.7790-1-petr.wozniak@gmail.com/
+
+Petr Wozniak (2):
+  wifi: mt76: share the throughput LED trigger across bands
+  wifi: mt76: mt7996: register a LED classdev for every band
+
+ drivers/net/wireless/mediatek/mt76/mac80211.c  | 18 +++++++++++++-----
+ .../net/wireless/mediatek/mt76/mt7996/init.c   | 18 ++++++++++++------
+ 2 files changed, 25 insertions(+), 11 deletions(-)
+
+-- 
+2.51.0
+
 
