@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6371C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2FEC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOGi4J62Jhlb7WIKFQiBbh9BI+aKdMBZ84qjBRoB0qE=; b=L/KIlgb+I82KqJIQSTwJuFP6KE
-	aJoEPzTpqs6/W9ap8E5EwGDkUgL1mROAnoHfzRU7q7zf2o7aFzeg1Csnw8h+wFOmjmQgYAHosYWCM
-	G3ky3/0jv4yhDrY7G5bWqhZVKhSdy1JqAcAB5pIumu+3+CvoP9bM3De88v6WA6dSth1op8yB1LOUn
-	dZI+BIfhEq6TPR9vhW0EJWW3o4/TBwW8lNhD/vFQuphje1ODVohFOYdS9mOjUTIxJ8cU7O0YXEAkc
-	b2FtnqIw3ZZfaLfvjDvZPQ5tM1bjPLAVPn1Gy3rAi8ek8KuBIv11wxLHiFYgQUz2E9W+L1ZKxIzm1
-	WSpq9eGQ==;
+	bh=EhWIX7B1R4cOvx5cdVC/S0OVLB1kk4ciW9AOQYcQ/QA=; b=L/MkechLBWAS1dqvLqzjcEqtLq
+	3os5E7feP82wMGc1xMLlcq1RyC0jNCAceUcjcf3fQPJH20iFFmYzQ9bsZNoSR4r+Bac8/vyeMMxQF
+	YydVxBB7TyMyWQ9Lph3dSVjPFxCTJCjRFTYcdC9IMBavv7F0CkEGhY5Q0XyMIgUQwt0i7MkJU1J9E
+	2Aaksxo6idSczYvYHj54wFRXQlyAN6m9qpTzfVfOUFuGzW0Lji1fmq1uzCMH/aPPJ2J2NhKP2MEfh
+	9YIODePWcHVxUdAcT7SG3chDxVvFBZTCjLARCVMgJqmrXLJJtfikLf7foMHNNexbDbLqnusvzwFQD
+	5T3OuoKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdQA-0000000CDbK-3FaC;
+	id 1wjdQA-0000000CDaz-2iKV;
 	Tue, 14 Jul 2026 13:43:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdQ7-0000000CDZI-1QaV;
+	id 1wjdQ7-0000000CDZO-274M;
 	Tue, 14 Jul 2026 13:43:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 025AB41933;
+	by sea.source.kernel.org (Postfix) with ESMTP id 176A54196F;
 	Tue, 14 Jul 2026 13:43:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C2364C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D3EB8C2BCB9;
 	Tue, 14 Jul 2026 13:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1784036614;
-	bh=1U9eKn3e1R9WRTPL80rdKx+5CvBlv+RphrbjVBJDHf4=;
+	bh=SHIbWagXhjHefFW/nJiQqeo1gHIjjPE8NBQw6Hnwm7Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=l9+8if/lVDP0LPPFH/EhKNUjGjT6VkzjCMfIrjSMDSFnqYoL+avo+N3sCMOe8QnLV
-	 ZDalSnQvBPVLNVMV/gxk9pWnrljz6LkRjnTOAMz6h8qLWUAfkwBeBIeYTft5bBmNoR
-	 Jo45qCTmoe1bIBWohkbu+Lb7Zp/bsaW4nuJv2CZvijg9rSBTZWyh68XOjpp9TGiV4H
-	 JQfDbDAEmCX7TnL+mbTllssk/ga2F9knrHFwqm/5KweccQwQJBDDEQWLYjrgEuPib/
-	 HL7+y76Wra+zviUXs74Ku7LydyWjkdBZXP5WIeJWIyRWvrkkVERBmuSrNWS+2VhE1q
-	 U1aTa/7vUrbyA==
+	b=M6Yi12Zy4NTMyZT8xbjw6cyGPfquhCKfIvwm5eooh2odgcp50T/uBPKv4vSli2Pn3
+	 wvtZFXheIiWCGjGMQH4hWJElhR0hZPPUK3n3pSOOmuocRNAsfIx/YXoMHoT6lDXisW
+	 HWt9GcbgVlBX6oicg08EQLXCVbpxxwHMg9n+b50R1GGQUw3ISIxSwm2pAbrHtB5Dlx
+	 Eru1BjIH29p/dSjfnvOV2/p+CZHBkRcii5Q8h+iuIhtqF9I6M0L2fzqRHDMcFwjp6W
+	 897ru0cH7UZqEykdjdZYI7OFM9WL/cWwffv/jZxthupDgfFWpWsX4jebMEiOO+GZkZ
+	 Qi0DJpFatGLUQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A1505C44501;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B15F9C44508;
 	Tue, 14 Jul 2026 13:43:34 +0000 (UTC)
 From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
-Date: Tue, 14 Jul 2026 16:43:06 +0300
-Subject: [PATCH 1/3] dt-bindings: power: Add MediaTek MT6858 power domain
- controller
+Date: Tue, 14 Jul 2026 16:43:07 +0300
+Subject: [PATCH 2/3] pmdomain: mediatek: Add support for secure modem power
+ domain control
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-mt6858-pmdomain-v1-1-4f09bbb822e0@jolla.com>
+Message-Id: <20260714-mt6858-pmdomain-v1-2-4f09bbb822e0@jolla.com>
 References: <20260714-mt6858-pmdomain-v1-0-4f09bbb822e0@jolla.com>
 In-Reply-To: <20260714-mt6858-pmdomain-v1-0-4f09bbb822e0@jolla.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -65,11 +65,11 @@ Cc: Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org,
  Nikolai Burov <nikolai.burov@jolla.com>, 
  Nikolai Burov <nikolai.burov+review@abscue.de>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784036613; l=3755;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784036613; l=4888;
  i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
- bh=M36MUmRAHEZNXG90DN7tPnz03tT5Y9VoFLmKPFkVkP4=;
- b=wM2fWQoT8Ccssr8ffuVD5ftJk22I+VOYVRWZRRVHtAOCTVrr0seRTmsovJQOqo7HJD6ougUBH
- 1v6OoAFbyGADxyPQR3+VUtKT9S/KFCVfkUQUYoDlaSHOSnrkJbwyev/
+ bh=1+93q0f7FYb7U5pyCHE+Hk+doOkxlT1CgjB2s3NJEZo=;
+ b=Kt2f4UxAhTkEWKy8TwHBPDQBaoAR8542if7mrL+9y1tgfNNiz4idVdmZFYHj4/0i+d73tCrtd
+ e/s1KRx7k9qCnQQ8nIpZQgnbHOdtqzWjEk7C+l9s9djdSvyaKFkWTIb
 X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
  pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
 X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
@@ -92,97 +92,142 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nikolai Burov <nikolai.burov@jolla.com>
 
-Add a new compatible and document bindings for the power domain
-controller of the MT6858 SoC.
+On recent MediaTek SoCs such as MT6858, the kernel is required to use
+a secure monitor call (SMC) to enable or disable the modem power domain.
+The power domain control register can be read, but firmware prevents it
+from being modified directly. Other parts of the power sequence, such as
+setting the ext_buck_iso register, still need to be performed on the
+kernel side.
+
+In preparation for modem support, add a flag to enable this new power
+sequence for SoCs that need it.
 
 Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
 ---
- .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
- include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
- 2 files changed, 43 insertions(+), 1 deletion(-)
+ drivers/pmdomain/mediatek/mtk-pm-domains.c | 54 +++++++++++++++++++++++++++---
+ drivers/pmdomain/mediatek/mtk-pm-domains.h |  1 +
+ include/linux/soc/mediatek/mtk_sip_svc.h   |  3 ++
+ 3 files changed, 53 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-index 07f046277f8a..eecb95323bfb 100644
---- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-+++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-@@ -25,6 +25,7 @@ properties:
-     enum:
-       - mediatek,mt6735-power-controller
-       - mediatek,mt6795-power-controller
-+      - mediatek,mt6858-power-controller
-       - mediatek,mt6893-power-controller
-       - mediatek,mt8167-power-controller
-       - mediatek,mt8173-power-controller
-@@ -55,7 +56,7 @@ properties:
-       faults while enabling or disabling a power domain.
-       For example, this may hold phandles to INFRACFG and SMI.
-     minItems: 1
--    maxItems: 3
-+    maxItems: 6
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+index e1cfd4223473..56437b32b252 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+@@ -57,6 +57,12 @@
  
- patternProperties:
-   "^power-domain@[0-9a-f]+$":
-@@ -102,6 +103,7 @@ $defs:
-         description: |
-           Power domain index. Valid values are defined in:
-               "include/dt-bindings/power/mt6795-power.h" - for MT8167 type power domain.
-+              "include/dt-bindings/power/mediatek,mt6858-power.h" - for MT6858 type power domain.
-               "include/dt-bindings/power/mediatek,mt6893-power.h" - for MT6893 type power domain.
-               "include/dt-bindings/power/mt8167-power.h" - for MT8167 type power domain.
-               "include/dt-bindings/power/mt8173-power.h" - for MT8173 type power domain.
-@@ -155,6 +157,23 @@ required:
-   - compatible
+ #define MTK_SIP_KERNEL_HWCCF_CONTROL	MTK_SIP_SMC_CMD(0x540)
  
- allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - mediatek,mt6858-power-controller
-+    then:
-+      properties:
-+        access-controllers:
-+          items:
-+            - description: handle to INFRACFG register block
-+            - description: handle to IMG_SUB0 register block
-+            - description: handle to CAM_SUB1 register block
-+            - description: handle to CAM_SUB0 register block
-+            - description: handle to IPE_SUB0 register block
-+            - description: handle to VLPCFG register block
++/* Power domain commands for MTK_SIP_KERNEL_CCCI_CONTROL */
++enum {
++	MTK_MD_MTCMOS_ENABLE = 18,
++	MTK_MD_MTCMOS_DISABLE = 19,
++};
 +
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/power/mediatek,mt6858-power.h b/include/dt-bindings/power/mediatek,mt6858-power.h
-new file mode 100644
-index 000000000000..6ed9e82d4ad3
---- /dev/null
-+++ b/include/dt-bindings/power/mediatek,mt6858-power.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+ struct scpsys_domain {
+ 	struct generic_pm_domain genpd;
+ 	const struct scpsys_domain_data *data;
+@@ -615,6 +621,34 @@ static void scpsys_modem_pwrseq_off(struct scpsys_domain *pd)
+ 		regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
+ }
+ 
++static bool scpsys_modem_sec_poll(unsigned long cmd)
++{
++	struct arm_smccc_res res;
 +
-+#ifndef _DT_BINDINGS_POWER_MT6858_POWER_H
-+#define _DT_BINDINGS_POWER_MT6858_POWER_H
++	arm_smccc_smc(MTK_SIP_KERNEL_CCCI_CONTROL, cmd, 1, 0, 0, 0, 0, 0, &res);
 +
-+#define MT6858_POWER_DOMAIN_MD				0
-+#define MT6858_POWER_DOMAIN_CONN			1
-+#define MT6858_POWER_DOMAIN_AUDIO			2
-+#define MT6858_POWER_DOMAIN_MM_INFRA			3
-+#define MT6858_POWER_DOMAIN_ISP_IMG1			4
-+#define MT6858_POWER_DOMAIN_ISP_IMG2			5
-+#define MT6858_POWER_DOMAIN_ISP_IPE			6
-+#define MT6858_POWER_DOMAIN_VDE0			7
-+#define MT6858_POWER_DOMAIN_VEN0			8
-+#define MT6858_POWER_DOMAIN_CAM_MAIN			9
-+#define MT6858_POWER_DOMAIN_CAM_SUBA			10
-+#define MT6858_POWER_DOMAIN_CAM_SUBB			11
-+#define MT6858_POWER_DOMAIN_DIS0			12
-+#define MT6858_POWER_DOMAIN_MM_PROC_DORMANT		13
-+#define MT6858_POWER_DOMAIN_CSI_RX			14
-+#define MT6858_POWER_DOMAIN_SSUSB			15
++	return res.a0 == 0;
++}
 +
-+#endif /* _DT_BINDINGS_POWER_MT6858_POWER_H */
++static int scpsys_modem_sec_power_on(bool on)
++{
++	struct arm_smccc_res res;
++	unsigned long cmd = on ? MTK_MD_MTCMOS_ENABLE : MTK_MD_MTCMOS_DISABLE;
++	bool tmp;
++	int ret;
++
++	arm_smccc_smc(MTK_SIP_KERNEL_CCCI_CONTROL, cmd, 0, 0, 0, 0, 0, 0, &res);
++	if (res.a0 == 0)
++		return 0;
++
++	ret = readx_poll_timeout(scpsys_modem_sec_poll, cmd, tmp, tmp,
++				 MTK_POLL_DELAY_US, MTK_POLL_TIMEOUT);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
+ static int scpsys_power_on(struct generic_pm_domain *genpd)
+ {
+ 	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
+@@ -633,7 +667,9 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
+ 		regmap_clear_bits(scpsys->base, pd->data->ext_buck_iso_offs,
+ 				  pd->data->ext_buck_iso_mask);
+ 
+-	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
++	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_SECURE))
++		ret = scpsys_modem_sec_power_on(true);
++	else if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
+ 		ret = scpsys_modem_pwrseq_on(pd);
+ 	else
+ 		ret = scpsys_ctl_pwrseq_on(pd);
+@@ -709,6 +745,12 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
+ 	if (ret < 0)
+ 		return ret;
+ 
++	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_SECURE)) {
++		ret = scpsys_modem_sec_power_on(false);
++		if (ret)
++			return ret;
++	}
++
+ 	if (pd->data->ext_buck_iso_offs && MTK_SCPD_CAPS(pd, MTK_SCPD_EXT_BUCK_ISO))
+ 		regmap_set_bits(scpsys->base, pd->data->ext_buck_iso_offs,
+ 				pd->data->ext_buck_iso_mask);
+@@ -719,10 +761,12 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
+-		scpsys_modem_pwrseq_off(pd);
+-	else
+-		scpsys_ctl_pwrseq_off(pd);
++	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_SECURE)) {
++		if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
++			scpsys_modem_pwrseq_off(pd);
++		else
++			scpsys_ctl_pwrseq_off(pd);
++	}
+ 
+ 	/* wait until PWR_ACK = 0 */
+ 	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, !tmp, MTK_POLL_DELAY_US,
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
+index a5dca24cbc2f..b1a3d54a7b01 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
+@@ -17,6 +17,7 @@
+ #define MTK_SCPD_MODEM_PWRSEQ		BIT(10)
+ #define MTK_SCPD_SKIP_RESET_B		BIT(11)
+ #define MTK_SCPD_INFRA_PWR_CTL		BIT(12)
++#define MTK_SCPD_MODEM_SECURE		BIT(13)
+ #define MTK_SCPD_CAPS(_scpd, _x)	((_scpd)->data ?		\
+ 					 (_scpd)->data->caps & (_x) :	\
+ 					 (_scpd)->hwv_data->caps & (_x))
+diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
+index abe24a73ee19..6c95a29b79fa 100644
+--- a/include/linux/soc/mediatek/mtk_sip_svc.h
++++ b/include/linux/soc/mediatek/mtk_sip_svc.h
+@@ -22,6 +22,9 @@
+ 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, MTK_SIP_SMC_CONVENTION, \
+ 			   ARM_SMCCC_OWNER_SIP, fn_id)
+ 
++/* Modem related SMC call */
++#define MTK_SIP_KERNEL_CCCI_CONTROL	MTK_SIP_SMC_CMD(0x505)
++
+ /* DVFSRC SMC calls */
+ #define MTK_SIP_DVFSRC_VCOREFS_CONTROL	MTK_SIP_SMC_CMD(0x506)
+ 
 
 -- 
 2.54.0
