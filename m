@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1234C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED67C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0pDkRGaYym4iXIoAiNyXfWBGsGWfcCCYMQLXWrwDv3A=; b=urzwneZrE0RebQyBflnIqE1TKP
-	Vd8+Lr9nKer3/75Y5vouFK+Aa1CFt9X6fsKXWNEbwKdlcAth+iiszGEcDLSJt2BrMtCfJF5uLW3lw
-	BDLmicqHMWgH9TY/bmHTvvbcqCF7oLa6LWuuxa6WbaooVW5OxaxWzvwEWchYLoRzQT5T+b39pvgQm
-	caxIZJxbvl3+sBiDmkojaph8i1+e4C2GhY8u/PbIZw4gq5dNCJUpAYtQ9SZFBiEcQzEMooCfoPL7R
-	C55wNcCZET9AAOYpJCE7wsmqwZmiQt6Z/Np7WtI0aPLwtiqrGvek5+5f2JQTAFKVUsZCjxP2jvDm/
-	JFPgQB/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fp7EDGU5b79WmWdY3plKZu+H6UMZudAOWzavRLRHd8Q=; b=mrmkWxepOfD8k5
+	RtOSTH8PiypLUSyiIeI0z573+6G6v3iKM2KKv0d+0+bMcKWoSL8Y3k+y8Wo139g0mGLgtC7nuJ9Om
+	Np01v1c43+cgKJ9wpoDdhclEE+p2Xhj7mY5D6wkRrVN6fXryw2SHhL4QkJVUjhVK3ixZj2SmBSVVC
+	DAc5r4ZBnjw2pc97aoSfaJbSN9rU4QgdnpS6hdOX0AVdaHYnF8+QBJM7NC4UW9SWx0Kw4VN+2JKZC
+	oLPtVESwdesiJoN4yrURIgA60hcKy7sozrf+I/aW7dxop6KJg3lIgeW1z+i3nAHoiu3i23YURfXQ2
+	MtFW9dZef1yqJu/Je7rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbbf-0000000Bmia-2VjQ;
-	Tue, 14 Jul 2026 11:47:23 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbaK-0000000BkQd-0hLy
+	id 1wjbeK-0000000BnW2-2Dbk;
+	Tue, 14 Jul 2026 11:50:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjbeH-0000000BnVS-2KIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 11:46:23 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqkEG37rb1SAAo0zmG/1IeogEXIBVTEkwnHIhwf+ZvXg1GQMv4r7O/B+fUZoz1EXW6N4jScllIk9QsvJ3+7q/WX@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784029557;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0pDkRGaYym4iXIoAiNyXfWBGsGWfcCCYMQLXWrwDv3A=;
-	b=VPDOEB3pET+94E+APIbUWS1AG5o0UFWtaMFYEnHTjv2xHa4bUY9TU79oeCOas6hI0idlTt
-	Pv8w/WrId/9vtaA54Xo6mJilCfh6YBXWC8f0a3QgKQcWKMqNQKAKGLQ1aMyWwEMcBb4ZDv
-	vIOw/LDKJupJx34llRt3TwWOC0GnnLM=
-X-Gm-Message-State: AOJu0YwRSUkwT2EFjZlqAvHCrjSzwS///ziBEq8KzeoDi0e7r5iDElYP
-	za6LP3+2FuWulTwnPq6Ktl5GDfwAXvcpx/SStR1uLY9x70w6lufReIhzIGHysEIykxLDShNfd8j
-	KTC+dTBlVgrfhRVnw56la/AD6d0M8P0iYPLe5OOd3
-X-Received: by 2002:ac8:7fd1:0:b0:51c:9ad:d76 with SMTP id d75a77b69052e-51d7c6a8b03mr14122751cf.19.1784029540491;
- Tue, 14 Jul 2026 04:45:40 -0700 (PDT)
+	Tue, 14 Jul 2026 11:50:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 386FB497;
+	Tue, 14 Jul 2026 04:50:00 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA3523F93E;
+	Tue, 14 Jul 2026 04:50:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784029804; bh=aTdOaOA0buhylr6yxPhHYiYgFW8Bijy33maVr7NCkLA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pBiTvDMw0ySI3pLeHQVpP411R6hAMLpmIFLz/R7VH+12ZARNjLdu7FW8tiKVXVEeQ
+	 oslKGmxmX81BW6a61dCKZMuUlQwB9xTOgURYxU1KB2J9p/GPTEJV2aKM6/AhLRrYAO
+	 P0grvC/UrZUh+wvDIeI5R+LhpGwF3DEakP+Z1APM=
+Message-ID: <1c3a6c5f-053c-4de0-a050-bbde8986fc03@arm.com>
+Date: Tue, 14 Jul 2026 12:50:01 +0100
 MIME-Version: 1.0
-References: <20260714110756.116950-1-alexandru.elisei@arm.com>
-In-Reply-To: <20260714110756.116950-1-alexandru.elisei@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 14 Jul 2026 12:44:57 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxFAqO38zZNTM5oQ26X7eUcu3ggfhMY2gn2bB4sMbOxoQ@mail.gmail.com>
-X-Gm-Features: AUfX_mzZY9UVGBmT0JoFJAIUngCEaTE6JMkLfV1PK-I1CCi-zORRCvzJSWUlQsw
-Message-ID: <CA+EHjTxFAqO38zZNTM5oQ26X7eUcu3ggfhMY2gn2bB4sMbOxoQ@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Reject guest_memfd memslots when the VM has MTE
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	catalin.marinas@arm.com, will@kernel.org, steven.price@arm.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 09/36] arm64: irqflags: introduce arm64-specific
+ irqflags type
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-10-vladimir.murzin@arm.com>
+ <cb05707e-f623-4058-8c28-031b77f4454e@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <cb05707e-f623-4058-8c28-031b77f4454e@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_044600_511929_3804215A 
-X-CRM114-Status: GOOD (  37.33  )
+X-CRM114-CacheID: sfid-20260714_045005_803955_77CC530D 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,152 +68,164 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
-
-On Tue, 14 Jul 2026 at 12:08, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
->
-> The user cannot use MTE on VMAs created by mapping a guest_memfd file,
-> as arch_calc_vm_flag_bits() does not set VM_MTE_ALLOWED.
->
-> When creating a guest_memfd backed memslot,
-> kvm_arch_prepare_memory_region() rejects the memslot if MTE is enabled for
-> the VM and if guest_memfd has been mapped in a VMA that intersects the
-> memslot.
->
-> However, the documentation for KVM_SET_USER_MEMORY_REGION2 explicitly
-
-nit: s/explicitely/explicitly/
-
-> states that the only condition for userspace_addr is for it to be a legal
-> userspace address, but the mapping is not required to be valid nor
-> populated at memslot creation.
->
-> If userspace sets userspace_addr to an address that hasn't been mapped, or
-> if userspace_addr belongs to a VMA that isn't backed by the guest_memfd
-> file, or if the VMA doesn't intersect the memslot, memslot creation is
-> successful and KVM ends up with a VM with MTE and guest_memfd-backed
-> memslots.
->
-> Forbid guest_memfd memslots unconditionally when the VM has MTE to prevent
-> this from happening.
->
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-
-Is this worth a Fixes: tag?
-
-> ---
-
-git am chokes here: this kvmtool snippet between '---' and the real
-diff parses as a stray patch fragment ("patch fragment without
-header"). Worth indenting it or moving it below a scissors line ("--
->8 --") so the patch applies, though didn't test to see if this
-actually works :)
-
->
-> Tested by using Fuad's patches to add guest_memfd support for kvmtool at [1],
-> with the following changes to arm64/kvm.c:
->
-> @@ -125,10 +125,12 @@ static void kvm__arch_enable_mte(struct kvm *kvm)
->                 return;
->         }
->
-> +       /*
->         if (kvm->cfg.arch.guest_memfd) {
->                 pr_debug("MTE is incompatible with guest_memfd");
->                 return;
->         }
-> +       */
->
->         if (kvm->cfg.arch.mte_disabled) {
->                 pr_debug("MTE disabled by user");
->
-> and kvm.c:
->
-> @@ -332,8 +332,15 @@ int kvm__register_mem(struct kvm *kvm, u64 guest_phys, u64 size,
->                                 .guest_memfd_offset     = guest_memfd_offset,
->                         };
->
-> +                       if (munmap(userspace_addr, size) < 0)
-> +                               die_perror("munmap hack");
+On 7/10/26 09:40, Jinjie Ruan wrote:
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> With pseudo-NMIs enabled, we have two mechanisms that control
+>> interrupt masking in parallel :
+>> - The DAIF flags, masking at the CPU
+>> - The GIC PMR, masking before the CPU
+>>
+>> However, our irqflags implementation currently assumes that only one
+>> of the two is used at a time, so both DAIF and PMR masking use the same
+>> `unsigned long flags` in their own way.
+>> This is incorrect, as some parts of the kernel will mask interrupts
+>> with DAIF directly or bypass the local_irq masking via the PMR,
+>> and makes tracking the state and changes of both in parallel impossible.
+>>
+>> The irqflags API expects `unsigned long`s to be passed around, but
+>> they should not be manipulated outside of the arch-specific code.
+>> So, we can encode the information we need however we want as long as
+>> we return and accept `unsigned long`s.
+>>
+>> Introduce a union type for arm64 irqflags whose first member is
+>> a struct allowing us to track DAIF and PMR in parallel, and the second
+>> is the `unsigned long` expected by the irqflags API.
+>>
+>> DAIF is a two byte value, to maintain compatibility with existing defines.
+>> PMR is a one byte value, which is the maximum amount of priority bits
+>> allowed by the GICv3 architecture.
+>>
+>> Update the internal irqflags functions to use this new union and convert
+>> back and forth with the irqflags unsigned long.
+>> There should be no functional changes.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/irqflags.h | 80 ++++++++++++++++++++-----------
+>>  1 file changed, 53 insertions(+), 27 deletions(-)
+> I believe that using the newly introduced arm64_exc_hwstate_t only at
+> the lowest level results in the least changes and is the most readable.
+> 
+> otherwise, LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> arch/arm64/include/asm/irqflags.h | 42
+> ++++++++++++++++++++++++++++++++++++------
+>  1 file changed, 36 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/irqflags.h
+> b/arch/arm64/include/asm/irqflags.h
+> index a8cb5a5c93b7..4b4521007183 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -9,6 +9,8 @@
+>  #include <asm/ptrace.h>
+>  #include <asm/sysreg.h>
+> 
+> +#include <linux/compiler.h>
 > +
->                         ret = ioctl(kvm->vm_fd, KVM_SET_USER_MEMORY_REGION2,
->                                     &mem2);
+>  /*
+>   * Aarch64 has flags for masking: Debug, Asynchronous (serror),
+> Interrupts and
+>   * FIQ exceptions, in the 'daif' register. We mask and unmask them in
+> 'daif'
+> @@ -20,6 +22,22 @@
+>   * exceptions should be unmasked.
+>   */
+> 
+> + /*
+> +  * Internally, we want to independently manipulate and track the different
+> +  * interrupt masking mechanisms.
+> +  * Externally, the generic irqflags API expects unsgined longs to
+> represent
+> +  * the state of interrupts, which are treated as obscure arch-specific
+> data.
+> +  */
+> +typedef union arm64_exc_hwstate {
+> +       struct {
+> +               u16 daif;
+> +               u8 pmr;
+> +       };
+> +       unsigned long flags;
+> +} arm64_exc_hwstate_t;
 > +
-> +                       if (mmap(userspace_addr, size, PROT_RW, MAP_SHARED | MAP_FIXED,
-> +                           guest_memfd, guest_memfd_offset) == MAP_FAILED)
-> +                               die_perror("mmap hack");
->                 } else {
->                         struct kvm_userspace_memory_region mem = {
->                                 .slot                   = slot,
->
-> (not pasting the full diff because last time I did, git got confused and
-> considered the snippet part of the actual patch).
->
-> Without this patch, I was able to create a VM with MTE and guest_memfd
-> backed ram (the guest reported MTE as enabled, but I didn't test that it
-> actually worked).
->
-> With this patch, creating a VM with MTE is rejected.
->
-> [1] https://lore.kernel.org/kvmarm/20260712142536.1391557-1-fuad.tabba@linux.dev/
->
->  arch/arm64/kvm/mmu.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 6c941aaa10c6..30c2ea235fa5 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2648,8 +2648,11 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->         /*
->          * Only support guest_memfd backed memslots with mappable memory, since
->          * there aren't any CoCo VMs that support only private memory on arm64.
-> +        *
-> +        * MTE is also not supported with guest_memfd.
->          */
-> -       if (kvm_slot_has_gmem(new) && !kvm_memslot_is_gmem_only(new))
-> +       if (kvm_slot_has_gmem(new) &&
-> +           (kvm_has_mte(kvm) || !kvm_memslot_is_gmem_only(new)))
->                 return -EINVAL;
+> +static_assert(sizeof(arm64_exc_hwstate_t) == sizeof(unsigned long));
+> +
+>  static __always_inline void __daif_local_irq_enable(void)
+>  {
+>         barrier();
+> @@ -79,12 +97,16 @@ static __always_inline void arch_local_irq_disable(void)
+> 
+>  static __always_inline unsigned long __daif_local_save_flags(void)
+>  {
+> -       return read_sysreg(daif);
+> +       arm64_exc_hwstate_t state = { .daif = read_sysreg(daif) };
+> +
+> +       return state.flags;
+>  }
+> 
+>  static __always_inline unsigned long __pmr_local_save_flags(void)
+>  {
+> -       return read_sysreg_s(SYS_ICC_PMR_EL1);
+> +       arm64_exc_hwstate_t state = { .pmr =
+> read_sysreg_s(SYS_ICC_PMR_EL1) };
+> +
+> +       return state.flags;
+>  }
+> 
+>  /*
+> @@ -101,12 +123,16 @@ static __always_inline unsigned long
+> arch_local_save_flags(void)
+> 
+>  static __always_inline bool __daif_irqs_disabled_flags(unsigned long flags)
+>  {
+> -       return flags & PSR_I_BIT;
+> +       arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+> +       return hwstate.daif & PSR_I_BIT;
+>  }
+> 
+>  static __always_inline bool __pmr_irqs_disabled_flags(unsigned long flags)
+>  {
+> -       return flags != GIC_PRIO_IRQON;
+> +       arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+> +       return hwstate.pmr != GIC_PRIO_IRQON;
+>  }
+> 
+>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+> @@ -171,15 +197,19 @@ static __always_inline unsigned long
+> arch_local_irq_save(void)
+> 
+>  static __always_inline void __daif_local_irq_restore(unsigned long flags)
+>  {
+> +       arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+>         barrier();
+> -       write_sysreg(flags, daif);
+> +       write_sysreg(hwstate.daif, daif);
+>         barrier();
+>  }
+> 
+>  static __always_inline void __pmr_local_irq_restore(unsigned long flags)
+>  {
+> +       arm64_exc_hwstate_t hwstate = { .flags = flags };
+> +
+>         barrier();
+> -       write_sysreg_s(flags, SYS_ICC_PMR_EL1);
+> +       write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>         pmr_sync();
+>         barrier();
+>  }
 
-This folds two unrelated rejections into one condition. I'd split them
-so each carries its own comment:
+Thanks! I'll have a closer look at the impact it has.
 
-        /* guest_memfd is incompatible with MTE. */
-        if (kvm_slot_has_gmem(new) && kvm_has_mte(kvm))
-            return -EINVAL;
-
-        /*
-         * Only support guest_memfd backed memslots with mappable memory,
-         * since there aren't any CoCo VMs that support only private memory
-         * on arm64.
-         */
-        if (kvm_slot_has_gmem(new) && !kvm_memslot_is_gmem_only(new))
-            return -EINVAL;
-
-More importantly, this only closes one direction.
-prepare_memory_region() runs on memslot changes, but KVM_CAP_ARM_MTE
-gates only on !kvm->created_vcpus and never looks at memslots, so the
-reverse order still gets you there:
-
-      1. KVM_SET_USER_MEMORY_REGION2 with a gmem slot   (no MTE yet -> ok)
-      2. KVM_ENABLE_CAP(KVM_CAP_ARM_MTE) (no vCPUs -> ok)
-
-Since the justification is that userspace can do unexpected things,
-the enable-MTE path wants the symmetric check too (reject if a gmem
-memslot already exists), or enforce the invariant at one choke point.
-
-Cheers,
-/fuad
-
->
->         hva = new->userspace_addr;
->
-> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
-> --
-> 2.55.0
->
+Vladimir
 
