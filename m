@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1738CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2409AC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78t7HETdib3ovZErKnjIa74ASTASKxbrfuHwhaUguRk=; b=gafRW9O802Ie+1f7ru2MQVPOgK
-	rO7I/Ivi0nQJFLEqDuV7RKFDQHSQNLBnsACTtQVvZrzZVeoG8wN1G8Ric+M1sqhNwNZijAJwi46XY
-	DEw3vZBJIdzTUSXXuvLPPETwISPpHyCNbajxWS367kQJyQTamVNWhT2yWltUBgJDiUsv6sghgHyz/
-	QKNKTUu7AySiZGb+XIPOo+ztKZSscH/k/PJpYk/s3ZRGNVLml9wvGqOGpsTZJ8MsgZCWhVcdUUss9
-	e8HPiJMoNb22sRKuxhvMuz55/fP63ZBhxErNRV+75DiySvL13CosKRfvoWJSf0ZIhaovolHt6E7WK
-	sSkJCYng==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=avTmrBl9F6xx21L4n9guou+33RbxtQshPrDdbho1WJA=; b=wuQlVDczfjvgBV+9tRolG8uLJh
+	OHDzn2wiS89SZvH1aT8h2iGFAAKeiKZCub+YiHaBu7K/vsc+lJv1PFCH9kUG7RQj+4SnaIQZAWRrl
+	qZb1AQzTgplEOXJ/mZqUdV/wEhGRP/PYno3pHMPuPN3oouQ6SJDMzft/98mdhX+c/+h8BO2mEwNDW
+	4g7QCuZzkaAVzqAm64Pd2FlS0s7xLt918wS8jzmKaUZ/wuytpWSOBlDZ89YH69nYpMCrwSywpjbzb
+	mPA80w9BHgX7gvvtER259VyFNynrofX/zMPSmeLhhCUP4PhES84WdigrKYIahcfSfjf1rM8RzjAYh
+	6bLotUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbbO-0000000BmIB-3Uy7;
-	Tue, 14 Jul 2026 11:47:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wjczP-0000000C8Lh-0pG6;
+	Tue, 14 Jul 2026 13:15:59 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbZo-0000000BjTw-0xjZ;
-	Tue, 14 Jul 2026 11:45:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784029526;
-	bh=2oMEWGJqJw3ZhiHkQ1HtMTnhkMX9kCC2Sc5DJ6y/FJE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dwE6BOTClq0tJ4hDmXlIyjTU8iC8bcZx8V68gJDhkaeYgS4PruxOAZmFcHjh/ll/X
-	 AVaQdCr9oGeXC5iOXnogr12pcFWcjEY59Pbe14yABVxxR8yChlbA3Pe29vwN3yZ9Dm
-	 vhGeT1fOq4eEJkaF7zNJkEjtAVdZN6J4KivR9QQWEYgRJjNi2L4MQg+3bWxWelwsVw
-	 2A0uQ1Bk9EhNZyZeBPO9jLftDK0tLnTdfIlZZ8lCHi1Byooojort+J9Uxg3+kjMAnM
-	 mAfr9Bodby5kRnBOQw0zPWMcJfz+MfaeW1HLLnU4BM11wFn2W5ObBqETCXELmtoJVG
-	 uZxusMTaMgPWQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AAED317E0E95;
-	Tue, 14 Jul 2026 13:45:25 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wjczH-0000000C8GS-2jX4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 13:15:54 +0000
+X-UUID: 1d70a4a27f8611f1aa26b74ffac11d73-20260714
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:61980a14-e919-496e-8dc0-4e60f2e27ff4,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e7bac3a,CLOUDID:a4ef04b36281cd9f95173ffd2d4b1340,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|865|898,TC:nil,Content:0|15|50,EDM:-
+	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
+	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1d70a4a27f8611f1aa26b74ffac11d73-20260714
+X-User: pengcan@kylinos.cn
+Received: from lenovo [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengcan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1263764163; Tue, 14 Jul 2026 21:15:42 +0800
+From: Can Peng <pengcan@kylinos.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org,
+	gregkh@linuxfoundation.org
+Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH v2 42/46] dt-bindings: display: mediatek: Introduce MT8196 2D Sharpness Processor
-Date: Tue, 14 Jul 2026 13:44:10 +0200
-Message-ID: <20260714114414.184512-43-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+	linux-kernel@vger.kernel.org,
+	Can Peng <pengcan@kylinos.cn>
+Subject: [PATCH] coresight: etm4x: add OF module alias for platform driver
+Date: Tue, 14 Jul 2026 21:15:36 +0800
+Message-ID: <20260714131536.153846-1-pengcan@kylinos.cn>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_044528_445992_A0FAC084 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260714_061552_371931_9932FA11 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,121 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for the Two-Dimension Sharpness Processor, or
-"TDSHP", found in many MediaTek SoCs including MT8196 and its
-variants.
+The ETM4x platform driver uses etm4_sysreg_match as its OF match table,
+but the table is not exported for module alias generation.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Add the MODULE_DEVICE_TABLE(of, ...) entry so modpost can generate OF
+module aliases for the sysreg platform-device path when
+CORESIGHT_SOURCE_ETM4X is built as a module.
+
+Fixes: 5214b563588e ("coresight: etm4x: Add support for sysreg only devices")
+Signed-off-by: Can Peng <pengcan@kylinos.cn>
 ---
- .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++++++
- 1 file changed, 98 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
-new file mode 100644
-index 000000000000..ccd6a8443443
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
-@@ -0,0 +1,98 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-tdshp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek Display Two-Dimension Sharpness Processor (TDSHP)
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+
-+description:
-+  The MediaTek 2D Sharpness Processor (TDSHP) is responsible for performing
-+  image sharpness adjustments/enhancements in a display pipeline.
-+  This hardware block supports adjusting the luma and contour 2d histograms,
-+  frequency weighting, luma-chroma gain and others, with adaptive weights.
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt8196-disp-tdshp
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+    required:
-+      - port@0
-+      - port@1
-+
-+  trigger-sources:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+    #include <dt-bindings/power/mediatek,mt8196-power.h>
-+
-+    tdshp@321e0000 {
-+        compatible = "mediatek,mt8196-disp-tdshp";
-+        reg = <0x321e0000 0x1000>;
-+        clocks = <&dispsys0 CLK_MM_DISP_TDSHP0>;
-+        power-domains = <&hpm_hwv MT8196_POWER_DOMAIN_DIS0_DORMANT>;
-+        trigger-sources = <&disp0_mutex 53>;
-+
-+        ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            port@0 {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                reg = <0>;
-+
-+                endpoint@0 {
-+                    reg = <0>;
-+                    remote-endpoint = <&resizer0_out>;
-+                };
-+            };
-+
-+            port@1 {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+                reg = <1>;
-+
-+                endpoint@0 {
-+                    reg = <0>;
-+                    remote-endpoint = <&ccorr0_in>;
-+                };
-+            };
-+        };
-+    };
-+
-+...
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 14bb31bd6a0b..634ed9ad9550 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -2496,6 +2496,7 @@ static const struct of_device_id etm4_sysreg_match[] = {
+ 	{ .compatible	= "arm,embedded-trace-extension" },
+ 	{}
+ };
++MODULE_DEVICE_TABLE(of, etm4_sysreg_match);
+ 
+ #ifdef CONFIG_ACPI
+ static const struct acpi_device_id etm4x_acpi_ids[] = {
 -- 
-2.54.0
+2.53.0
 
 
